@@ -24,6 +24,8 @@ install (FILES
   markverse.gtkbuilder
   module-manager.gtkbuilder
   navbar_versekey.gtkbuilder
+  nube-palabras.gtkbuilder
+  diccionario.gtkbuilder
   prefs.gtkbuilder
   search-dialog.gtkbuilder
   selector-prefs.gtkbuilder

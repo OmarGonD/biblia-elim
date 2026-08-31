@@ -182,7 +182,8 @@ static void dialog_destroy(GObject *object, gpointer data)
 	free_font(mf);
 	mf = NULL;
 	new_font_set = 0;
-	gtk_main_quit();
+	if (gtk_main_level() > 0)
+		gtk_main_quit();
 }
 
 /******************************************************************************

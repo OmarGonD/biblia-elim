@@ -51,6 +51,8 @@ static GtkWidget *entry_module;
 static GtkWidget *textview;
 static GtkTextBuffer *textbuffer;
 static gchar *note;
+static GtkWidget *button_toggle_color;
+static GtkWidget *colorbutton_highlight;
 static gchar *global_module_name = NULL;
 GtkWidget *bookmark_dialog;
 GtkWidget *mark_verse_dialog;
@@ -174,7 +176,7 @@ static void add_folder_button(void)
 	if (!gtk_tree_selection_get_selected(selection, NULL, &selected))
 		return;
 
-	GtkBuilder *gxml = gtk_builder_new();
+	GtkBuilder *gxml = elim_gtk_builder_new();
 	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/folder.gtkbuilder", NULL);
 
 	GtkWidget *entry  = GTK_WIDGET(UI_GET_ITEM(gxml, "folder_entry_name"));
@@ -328,12 +330,28 @@ void on_mark_verse_response(GtkDialog *dialog,
 		xml_set_list_item("osisrefmarkedverses", "markedverse",
 				  reference,
 				  (note ? note : "user content"));
+		if (gtk_widget_get_sensitive(colorbutton_highlight)) {
+			GdkRGBA rgba;
+			gtk_color_chooser_get_rgba(GTK_COLOR_CHOOSER(colorbutton_highlight), &rgba);
+			gchar *color = g_strdup_printf("#%02X%02X%02X",
+						       (guint)(rgba.red   * 255),
+						       (guint)(rgba.green * 255),
+						       (guint)(rgba.blue  * 255));
+			xml_set_list_item("osisrefmarkedcolors", "markedcolor",
+					  reference, color);
+			g_free(color);
+		} else {
+			xml_remove_node("osisrefmarkedcolors", "markedcolor",
+					reference);
+		}
 		markedCacheFill(settings.MainWindowModule,
 				settings.currentverse);
 		main_display_bible(NULL, settings.currentverse);
 		break;
 	case GTK_RESPONSE_OK: /*  unmark the verse  */
 		xml_remove_node("osisrefmarkedverses", "markedverse",
+				reference);
+		xml_remove_node("osisrefmarkedcolors", "markedcolor",
 				reference);
 		markedCacheFill(settings.MainWindowModule,
 				settings.currentverse);
@@ -463,7 +481,7 @@ static GtkWidget *_create_bookmark_dialog(gchar *label,
 	GtkBuilder *gxml;
 
 /* build the widget */
-	gxml = gtk_builder_new();
+	gxml = elim_gtk_builder_new();
 	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/bookmarks.gtkbuilder", NULL);
 	g_return_val_if_fail(gxml != NULL, NULL);
 
@@ -525,7 +543,7 @@ static GtkWidget *_create_mark_verse_dialog(gchar *module, gchar *key)
 	note = NULL;
 
 /* build the widget */
-	gxml = gtk_builder_new();
+	gxml = elim_gtk_builder_new();
 	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/markverse.gtkbuilder", NULL);
 	g_return_val_if_fail(gxml != NULL, NULL);
 
@@ -566,6 +584,29 @@ static GtkWidget *_create_mark_verse_dialog(gchar *module, gchar *key)
 				 -1);
 	g_signal_connect(textbuffer, "changed",
 			 G_CALLBACK(on_buffer_changed), NULL);
+
+	/* per-verse highlight color, same enable/disable idiom as the
+	 * bookmark-folder color button in add_folder_button() below. */
+	button_toggle_color = UI_GET_ITEM(gxml, "button_toggle_color");
+	colorbutton_highlight = UI_GET_ITEM(gxml, "colorbutton_highlight");
+
+	gchar *old_color =
+	    xml_get_list_from_label("osisrefmarkedcolors", "markedcolor",
+				    osisreference);
+	if (old_color && *old_color) {
+		GdkRGBA rgba;
+		if (gdk_rgba_parse(&rgba, old_color))
+			gtk_color_chooser_set_rgba(GTK_COLOR_CHOOSER(colorbutton_highlight), &rgba);
+		gtk_widget_set_sensitive(colorbutton_highlight, TRUE);
+		gtk_button_set_label(GTK_BUTTON(button_toggle_color), _("Default color"));
+	} else {
+		gtk_widget_set_sensitive(colorbutton_highlight, FALSE);
+		gtk_button_set_label(GTK_BUTTON(button_toggle_color), _("Add color"));
+	}
+	g_signal_connect(button_toggle_color, "clicked",
+			 G_CALLBACK(toggle_color_clicked), colorbutton_highlight);
+	g_signal_connect(colorbutton_highlight, "color-set",
+			 G_CALLBACK(toggle_color_clicked), button_toggle_color);
 
 	return mark_verse_dialog;
 }

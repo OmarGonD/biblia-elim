@@ -140,8 +140,10 @@ add_executable (xiphos
   dialog.c
   dictlex.c
   dictlex_dialog.c
+  diccionario.c
   display_info.c
   dummy.cpp
+  elim_tema.c
   export_bookmarks.c
   export_dialog.c
   find_dialog.c
@@ -149,6 +151,8 @@ add_executable (xiphos
   gbs.c
   gbs_dialog.c
   gui.c
+  interlineal.c
+  lectura_sync.c
   main_menu.c
   main_window.c
   menu_popup.c
@@ -159,6 +163,7 @@ add_executable (xiphos
   navbar_versekey_dialog.c
   navbar_versekey_editor.c
   navbar_versekey_parallel.c
+  nube_palabras.c
   parallel_dialog.c
   parallel_tab.c
   parallel_view.c

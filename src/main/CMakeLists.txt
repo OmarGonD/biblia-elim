@@ -23,10 +23,13 @@ add_library (main
   biblesync_glue.cc
   configs.cc
   display.cc
+  diccionario.cc
   export_passage.cc
   global_ops.cc
   import_andbible.cc
+  interlineal.cc
   lists.cc
+  lectura_sync.cc
   main.c
   mod_mgr.cc
   modulecache.cc
@@ -35,6 +38,7 @@ add_library (main
   navbar_book_dialog.cc
   navbar.cc
   navbar_versekey.cc
+  nube_palabras.cc
   parallel_view.cc
   prayerlists.cc
   previewer.cc

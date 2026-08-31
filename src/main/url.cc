@@ -48,6 +48,8 @@
 #include "gui/widgets.h"
 #include "gui/utilities.h"
 #include "gui/sidebar.h"
+#include "gui/interlineal.h"
+#include "gui/bibletext.h"
 #include "gui/dialog.h"
 #include "gui/parallel_dialog.h"
 #include "gui/parallel_view.h"
@@ -370,8 +372,13 @@ static gint show_strongs(const gchar *stype, const gchar *svalue,
 	} else
 		modbuf = "InvStrongsRealGreek";
 
+	if (!settings.show_interlineal)
+		return 1;
+
 	if (clicked) {
-		main_display_dictionary(modbuf, (gchar *)svalue);
+		gui_interlineal_ficha(svalue);
+		if (modbuf && backend && backend->is_module(modbuf))
+			main_display_dictionary(modbuf, (gchar *)svalue);
 	} else {
 		gchar *mybuf = main_get_rendered_text(modbuf, (gchar *)svalue);
 		if (mybuf) {
@@ -1017,6 +1024,15 @@ gint main_url_handler(const gchar *url, gboolean clicked)
 				show_strongs(stype, svalue, clicked);
 				retval = 1;
 			}
+		} else if (!strcmp(action, "showInterlineal")) {
+			if (settings.show_interlineal &&
+			    HAS_URL_PARAM(svalue) && clicked)
+				gui_interlineal_ficha(svalue);
+			retval = 1;
+		} else if (!strcmp(action, "verseTools")) {
+			if (HAS_URL_PARAM(svalue) && clicked)
+				gui_verse_tools_popup(svalue);
+			retval = 1;
 		}
 
 		else if (!strcmp(action, "showMorph")) {
@@ -1030,6 +1046,20 @@ gint main_url_handler(const gchar *url, gboolean clicked)
 			if (HAS_URL_PARAM(passage) && HAS_URL_PARAM(stype) &&
 			    HAS_URL_PARAM(svalue)) {
 				show_note(module, passage, stype, svalue, clicked);
+				retval = 1;
+			}
+		}
+
+		else if (!strcmp(action, "showHlNote")) {
+			if (HAS_URL_PARAM(svalue)) {
+				gui_open_highlight_note_by_id(svalue);
+				retval = 1;
+			}
+		}
+
+		else if (!strcmp(action, "showHlNotes")) {
+			if (HAS_URL_PARAM(module) && HAS_URL_PARAM(passage)) {
+				gui_show_verse_notes_dialog(module, passage);
 				retval = 1;
 			}
 		}

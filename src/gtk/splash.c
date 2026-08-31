@@ -629,10 +629,14 @@ void gui_splash_init(void)
 	GtkBuilder *builder;
 	GError *error = NULL;
 
+	/* Biblia Elim: no splash window. */
+	settings.showsplash = 0;
+	return;
+
 	if (!settings.showsplash)
 		return;
 
-	builder = gtk_builder_new();
+	builder = elim_gtk_builder_new();
 	if (!gtk_builder_add_from_resource(builder, "/org/xiphos/ui/xi-splash.gtkbuilder", &error)) {
 		g_warning("Couldn't load builder file: %s",
 			  error->message);

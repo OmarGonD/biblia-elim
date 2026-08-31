@@ -310,7 +310,7 @@ GtkWidget *gui_navbar_book_dialog_new(DIALOG_DATA *d)
 #endif
 
 #if GTK_CHECK_VERSION(3, 10, 0)
-	image1 = gtk_image_new_from_icon_name("go-previous",
+	image1 = gtk_image_new_from_icon_name("go-previous-symbolic",
 					      GTK_ICON_SIZE_BUTTON);
 #else
 	image1 = gtk_image_new_from_stock(GTK_STOCK_GO_BACK,
@@ -335,7 +335,7 @@ GtkWidget *gui_navbar_book_dialog_new(DIALOG_DATA *d)
 #endif
 
 #if GTK_CHECK_VERSION(3, 10, 0)
-	image1 = gtk_image_new_from_icon_name("go-up",
+	image1 = gtk_image_new_from_icon_name("go-up-symbolic",
 					      GTK_ICON_SIZE_BUTTON);
 #else
 	image1 = gtk_image_new_from_stock(GTK_STOCK_GO_UP,
@@ -359,7 +359,7 @@ GtkWidget *gui_navbar_book_dialog_new(DIALOG_DATA *d)
 #endif
 	image2 =
 #if GTK_CHECK_VERSION(3, 10, 0)
-	    gtk_image_new_from_icon_name("go-down", GTK_ICON_SIZE_BUTTON);
+	    gtk_image_new_from_icon_name("go-down-symbolic", GTK_ICON_SIZE_BUTTON);
 #else
 	    gtk_image_new_from_stock(GTK_STOCK_GO_DOWN,
 				     GTK_ICON_SIZE_BUTTON);
@@ -383,7 +383,7 @@ GtkWidget *gui_navbar_book_dialog_new(DIALOG_DATA *d)
 	gtk_button_set_focus_on_click(GTK_BUTTON(d->navbar_book.button_right), FALSE);
 #endif
 #if GTK_CHECK_VERSION(3, 10, 0)
-	image1 = gtk_image_new_from_icon_name("go-next",
+	image1 = gtk_image_new_from_icon_name("go-next-symbolic",
 					      GTK_ICON_SIZE_BUTTON);
 #else
 	image1 = gtk_image_new_from_stock(GTK_STOCK_GO_FORWARD,

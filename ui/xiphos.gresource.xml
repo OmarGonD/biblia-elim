@@ -31,6 +31,7 @@
     <file>markverse.gtkbuilder</file>
     <file>module-manager.gtkbuilder</file>
     <file>navbar_versekey.gtkbuilder</file>
+    <file>nube-palabras.gtkbuilder</file>
     <file>prefs.gtkbuilder</file>
     <file>search-dialog.gtkbuilder</file>
     <file>selector-prefs.gtkbuilder</file>
@@ -38,6 +39,11 @@
     <file>xi-menus-popup.gtkbuilder</file>
     <file>xi-menus.gtkbuilder</file>
     <file>xi-splash.gtkbuilder</file>
+    <file>xiphos-style.css</file>
+    <file>languages</file>
+    <file>diccionario-elim.xml</file>
+    <file>diccionario.gtkbuilder</file>
+    <file>strongs-elim.xml</file>
 
     <!--
       Images referenced by relative <property name="pixbuf">file.png</property>

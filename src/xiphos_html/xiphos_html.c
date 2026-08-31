@@ -25,7 +25,7 @@ XiphosHtml *xiphos_html_new(DIALOG_DATA *dialog, gboolean is_dialog,
 			    gint pane)
 {
 	XiphosHtml *html;
-	html = XIPHOS_HTML(g_object_new(XIPHOS_TYPE_HTML, NULL));
+	html = wk_html_create();
 	XiphosHtmlPriv *priv = XIPHOS_HTML_GET_PRIVATE(html);
 
 	priv->pane = pane;

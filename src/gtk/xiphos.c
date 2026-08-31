@@ -120,6 +120,9 @@ void frontend_init(void)
 	/* bring the major html widgets to life, then flush them clean. */
 	if (!gtk_widget_get_realized(GTK_WIDGET(widgets.html_text)))
 		gtk_widget_realize(widgets.html_text);
+	if (widgets.html_lectura_sync &&
+	    !gtk_widget_get_realized(GTK_WIDGET(widgets.html_lectura_sync)))
+		gtk_widget_realize(widgets.html_lectura_sync);
 	if (!gtk_widget_get_realized(GTK_WIDGET(widgets.html_comm)))
 		gtk_widget_realize(widgets.html_comm);
 	if (!gtk_widget_get_realized(GTK_WIDGET(widgets.html_book)))
@@ -153,9 +156,17 @@ void frontend_init(void)
 
 void frontend_display(const char *tabs)
 {
-	GdkScreen *screen = gdk_screen_get_default();
-	gint screen_width = gdk_screen_get_width(screen);
-	gint screen_height = gdk_screen_get_height(screen);
+	GdkDisplay *display = gdk_display_get_default();
+	/* Wayland compositors generally have no notion of a "primary"
+	 * monitor, so gdk_display_get_primary_monitor() can legitimately
+	 * return NULL there; fall back to the first available monitor. */
+	GdkMonitor *monitor = gdk_display_get_primary_monitor(display);
+	if (!monitor)
+		monitor = gdk_display_get_monitor(display, 0);
+	GdkRectangle monitor_geometry;
+	gdk_monitor_get_geometry(monitor, &monitor_geometry);
+	gint screen_width = monitor_geometry.width;
+	gint screen_height = monitor_geometry.height;
 
 	XI_print(("%s\n", "Displaying Xiphos"));
 	gui_show_main_window();
@@ -172,6 +183,7 @@ void frontend_display(const char *tabs)
 	gui_show_hide_texts(settings.showtexts);
 	gui_show_hide_dicts(settings.showdicts);
 	gui_show_hide_comms(settings.showcomms);
+	gui_toggle_reading_mode(settings.reading_mode);
 
 	/*
 	 * a little paranoia:

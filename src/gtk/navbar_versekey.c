@@ -729,7 +729,7 @@ GtkWidget *gui_navbar_versekey_new(void)
 #endif
 
 /* build the widget */
-	gxml = gtk_builder_new();
+	gxml = elim_gtk_builder_new();
 	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/navbar_versekey.gtkbuilder", NULL);
 	navbar_versekey.dialog = FALSE;
 	navbar_versekey.module_name =

@@ -880,7 +880,7 @@ GtkWidget *gui_navbar_versekey_editor_new(EDITOR *editor)
 #endif
 
 /* build the widget */
-	gxml = gtk_builder_new();
+	gxml = elim_gtk_builder_new();
 	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/navbar_versekey.gtkbuilder", NULL);
 	editor->navbar.dialog = TRUE;
 	editor->navbar.module_name =

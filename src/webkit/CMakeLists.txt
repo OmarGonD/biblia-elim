@@ -72,14 +72,3 @@ target_link_libraries(webkit
   PkgConfig::Gnome
   PkgConfig::Soup
   )
-
-if(WK_FOUND)
-  target_compile_definitions(webkit
-    PRIVATE
-    PkgConfig::WK
-    )
-  target_link_libraries(webkit
-    PRIVATE
-    PkgConfig::WK
-    )
-endif()

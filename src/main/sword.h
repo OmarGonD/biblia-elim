@@ -102,6 +102,7 @@ void main_display_commentary(const char *mod_name,
 void main_display_dictionary(const char *mod_name,
 			     const char *key);
 void main_display_bible(const char *mod_name, const char *key);
+void main_bible_note_interlinear_html(void);
 void main_display_devotional(GtkWidget *target_widget);
 void main_setup_displays(void);
 void main_dictionary_entry_changed(char *mod_name);

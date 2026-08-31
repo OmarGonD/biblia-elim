@@ -482,7 +482,7 @@ void gui_export_dialog(void)
 	    _check_for_distribution_license(settings.MainWindowModule);
 
 /* build the widget */
-	gxml = gtk_builder_new();
+	gxml = elim_gtk_builder_new();
 	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/export-dialog.gtkbuilder", NULL);
 
 	dialog = UI_GET_ITEM(gxml, "dialog_export_passage");

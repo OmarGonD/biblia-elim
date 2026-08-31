@@ -23,10 +23,12 @@
 #endif
 
 #include <gtk/gtk.h>
+#include <glib/gi18n.h>
 
 #include "xiphos_html/xiphos_html.h"
 #include "main/sword.h"
 #include "main/settings.h"
+#include "main/interlineal.h"
 #include "main/xml.h"
 #include "main/search_dialog.h"
 #include "main/url.hh"
@@ -40,7 +42,9 @@
 #include "gui/sidebar.h"
 #include "gui/utilities.h"
 #include "gui/bibletext.h"
+#include "gui/lectura_sync.h"
 #include "gui/parallel_view.h"
+#include "main/parallel_view.h"
 #include "gui/commentary.h"
 #include "gui/gbs.h"
 #include "gui/dialog.h"
@@ -57,6 +61,7 @@
 #include "gui/tabbed_browser.h"
 #include "gui/menu_popup.h"
 #include "gui/preferences_dialog.h"
+#include "gui/interlineal.h"
 
 #include "editor/slib-editor.h"
 
@@ -73,9 +78,20 @@ WIDGETS widgets;
 
 extern gboolean shift_key_pressed;
 
-static GtkWidget *nav_toolbar;
 static int main_window_created = FALSE;
 static gboolean switching_dict_tab = FALSE;
+static GtkWidget *header_menu = NULL;
+static GtkWidget *reading_exit_button = NULL;
+static guint reading_mode_place_src = 0;
+
+static void on_reading_mode_button_toggled(GtkToggleButton *button, gpointer data);
+static gboolean on_open_bible_icon_draw(GtkWidget *widget, cairo_t *cr, gpointer data);
+static gboolean reading_mode_keep_place(gpointer data);
+
+gboolean gui_main_window_ready(void)
+{
+	return main_window_created;
+}
 
 /******************************************************************************
  * Name
@@ -105,7 +121,8 @@ void gui_show_hide_texts(gboolean choice)
 	} else {
 		if (main_window_created) {
 			gtk_widget_show(widgets.vpaned);
-			gtk_widget_show(nav_toolbar);
+			if (!settings.reading_mode)
+				gtk_widget_show(widgets.nav_toolbar);
 		}
 		xml_set_value("Xiphos", "misc", "showtexts", "1");
 	}
@@ -139,7 +156,7 @@ void gui_show_hide_preview(gboolean choice)
 		gtk_widget_hide(widgets.vbox_previewer);
 		xml_set_value("Xiphos", "misc", "showpreview", "0");
 	} else {
-		if (main_window_created) {
+		if (main_window_created && !settings.reading_mode) {
 			if (settings.show_previewer_in_sidebar)
 				gtk_widget_show(widgets.box_side_preview);
 			else
@@ -176,11 +193,11 @@ void gui_show_hide_comms(gboolean choice)
 			gtk_widget_hide(widgets.notebook_comm_book);
 		xml_set_value("Xiphos", "misc", "showcomms", "0");
 	} else {
-		if (main_window_created)
+		if (main_window_created && !settings.reading_mode)
 			gtk_widget_show(widgets.notebook_comm_book);
 		xml_set_value("Xiphos", "misc", "showcomms", "1");
 	}
-	if (main_window_created)
+	if (main_window_created && !settings.reading_mode)
 		gui_set_bible_comm_layout();
 }
 
@@ -210,12 +227,289 @@ void gui_show_hide_dicts(gboolean choice)
 			gtk_widget_hide(widgets.notebook_dict_devot);
 		xml_set_value("Xiphos", "misc", "showdicts", "0");
 	} else {
-		if (main_window_created)
+		if (main_window_created && !settings.reading_mode)
 			gtk_widget_show(widgets.notebook_dict_devot);
 		xml_set_value("Xiphos", "misc", "showdicts", "1");
 	}
-	if (main_window_created)
+	if (main_window_created && !settings.reading_mode)
 		gui_set_bible_comm_layout();
+}
+
+/******************************************************************************
+ * Name
+ *  gui_toggle_reading_mode
+ *
+ * Synopsis
+ *   #include "gui/main_window.h"
+ *
+ *   void gui_toggle_reading_mode(gboolean choice)
+ *
+ * Description
+ *   Distraction-free reading: hide the sidebar, the open-passage tab
+ *   row, the previewer and the navigation toolbar, leaving just the
+ *   text -- and take the whole screen (real window fullscreen, not
+ *   just maximized), widening the text margins and line spacing a
+ *   touch so the page reads like an e-reader instead of a stretched
+ *   toolbar-less window. Does not touch the individual show/hide
+ *   *settings* for those panes -- turning reading mode back off
+ *   restores whatever the user had before, rather than forcing
+ *   everything back on. Keeps the View-menu checkbox and the
+ *   header-bar reading-mode button in sync no matter which of the
+ *   three entry points (menu, button, Ctrl+Shift+F) triggered it.
+ *
+ * Return value
+ *   void
+ */
+
+#define READING_MODE_SIDE_MARGIN 64
+#define READING_MODE_LINE_PAD 4
+#define NORMAL_SIDE_MARGIN 14
+#define NORMAL_LINE_PAD 1
+
+void gui_toggle_reading_mode(gboolean choice)
+{
+	GtkTextView *view;
+	/* Re-entrancy guard: programmatically syncing the menu checkbox or
+	 * header-bar button below re-emits their own "toggled"/"activate"
+	 * regardless of what triggered the change, which would otherwise
+	 * run this whole function a second time on top of itself -- with
+	 * the second run's gtk_window_fullscreen()/unfullscreen() request
+	 * landing on the compositor mid-transition from the first, which is
+	 * what was leaving the sidebar/nav toolbar stuck hidden after
+	 * leaving reading mode. */
+	static gboolean in_progress = FALSE;
+	if (in_progress)
+		return;
+	in_progress = TRUE;
+
+	settings.reading_mode = choice;
+	xml_set_value("Xiphos", "misc", "reading_mode", choice ? "1" : "0");
+
+	if (!main_window_created) {
+		in_progress = FALSE;
+		return;
+	}
+
+	if (choice) {
+		gtk_widget_hide(widgets.paned_sidebar);
+		gtk_widget_hide(widgets.hboxtb);
+		gtk_widget_hide(widgets.vbox_previewer);
+		gtk_widget_hide(widgets.box_side_preview);
+		gtk_widget_hide(widgets.nav_toolbar);
+		if (widgets.vpaned2)
+			gtk_widget_hide(widgets.vpaned2);
+		if (widgets.appbar)
+			gtk_widget_hide(widgets.appbar);
+		if (widgets.bar_interlineal)
+			gtk_widget_hide(widgets.bar_interlineal);
+		if (widgets.box_lectura_sync)
+			gtk_widget_hide(widgets.box_lectura_sync);
+		if (header_menu)
+			gtk_widget_hide(header_menu);
+		if (widgets.notebook_bible_parallel) {
+			gtk_notebook_set_current_page(
+			    GTK_NOTEBOOK(widgets.notebook_bible_parallel), 0);
+			gtk_notebook_set_show_tabs(
+			    GTK_NOTEBOOK(widgets.notebook_bible_parallel), FALSE);
+		}
+		gtk_window_fullscreen(GTK_WINDOW(widgets.app));
+	} else {
+		if (header_menu)
+			gtk_widget_show(header_menu);
+		if (settings.showshortcutbar) {
+			gtk_widget_show(widgets.paned_sidebar);
+			/* GtkPaned position is a fixed pixel value that doesn't
+			 * re-derive itself across the fullscreen round-trip's
+			 * drastic width swing -- restore it explicitly, same as
+			 * gui_sidebar_showhide() does whenever it shows this
+			 * same pane. */
+			gtk_paned_set_position(GTK_PANED(widgets.epaned),
+					       settings.sidebar_width);
+		}
+		if (settings.browsing)
+			gtk_widget_show(widgets.hboxtb);
+		if (widgets.bar_interlineal)
+			gtk_widget_show(widgets.bar_interlineal);
+		if (widgets.box_lectura_sync && settings.show_lectura_sync)
+			gtk_widget_show(widgets.box_lectura_sync);
+		if (widgets.notebook_bible_parallel)
+			gtk_notebook_set_show_tabs(
+			    GTK_NOTEBOOK(widgets.notebook_bible_parallel), TRUE);
+		if (widgets.appbar && settings.statusbar == 1)
+			gtk_widget_show(widgets.appbar);
+		gui_show_hide_preview(settings.showpreview);
+		gui_set_bible_comm_layout();
+		gtk_window_unfullscreen(GTK_WINDOW(widgets.app));
+		/* gtk_window_unfullscreen() is only a request to the compositor;
+		 * the widgets just re-shown above can end up allocated at their
+		 * stale (hidden/fullscreen) size for a frame or two until the
+		 * resize actually lands. Force GTK to recompute everything
+		 * rather than leave that to chance. */
+		gtk_widget_queue_resize(widgets.epaned);
+		gtk_widget_queue_resize(widgets.vboxMain);
+	}
+	view = widgets.html_text ? wk_html_get_view(WK_HTML(widgets.html_text)) : NULL;
+	if (view) {
+		gint side_margin = choice ? READING_MODE_SIDE_MARGIN : NORMAL_SIDE_MARGIN;
+		gint line_pad = choice ? READING_MODE_LINE_PAD : NORMAL_LINE_PAD;
+		gtk_text_view_set_left_margin(view, side_margin);
+		gtk_text_view_set_right_margin(view, side_margin);
+		gtk_text_view_set_pixels_above_lines(view, line_pad);
+		gtk_text_view_set_pixels_below_lines(view, line_pad);
+		if (choice)
+			gtk_widget_grab_focus(GTK_WIDGET(view));
+	}
+
+	/* keep every entry point showing the same state. Block each
+	 * widget's own change handler while syncing it programmatically --
+	 * GTK re-emits "toggled" from set_active() regardless of what
+	 * triggered the change, so without this a sync here would
+	 * re-enter gui_toggle_reading_mode() right back on top of itself. */
+	if (widgets.reading_mode_item) {
+		g_signal_handlers_block_by_func(widgets.reading_mode_item,
+						G_CALLBACK(on_reading_mode_activate), NULL);
+		gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.reading_mode_item), choice);
+		g_signal_handlers_unblock_by_func(widgets.reading_mode_item,
+						  G_CALLBACK(on_reading_mode_activate), NULL);
+	}
+	if (widgets.reading_mode_button) {
+		g_signal_handlers_block_by_func(widgets.reading_mode_button,
+						G_CALLBACK(on_reading_mode_button_toggled), NULL);
+		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widgets.reading_mode_button), choice);
+		g_signal_handlers_unblock_by_func(widgets.reading_mode_button,
+						  G_CALLBACK(on_reading_mode_button_toggled), NULL);
+	}
+	if (reading_exit_button) {
+		g_signal_handlers_block_by_func(reading_exit_button,
+						G_CALLBACK(on_reading_mode_button_toggled), NULL);
+		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(reading_exit_button), choice);
+		g_signal_handlers_unblock_by_func(reading_exit_button,
+						  G_CALLBACK(on_reading_mode_button_toggled), NULL);
+		if (choice)
+			gtk_widget_show(reading_exit_button);
+		else
+			gtk_widget_hide(reading_exit_button);
+	}
+
+	/* Stay on the verse the reader was already on. Fullscreen and
+	 * pane hide change allocation, so re-place after the resize. */
+	if (reading_mode_place_src)
+		g_source_remove(reading_mode_place_src);
+	reading_mode_place_src = g_timeout_add(140, reading_mode_keep_place, NULL);
+
+	in_progress = FALSE;
+}
+
+static gboolean
+reading_mode_keep_place(gpointer data)
+{
+	(void)data;
+	reading_mode_place_src = 0;
+	if (widgets.html_text && settings.currentverse)
+		gui_bibletext_mark_current_verse();
+	return G_SOURCE_REMOVE;
+}
+
+/* Open-Bible glyph for the reading-mode toggle: two pages, spine, a
+ * bookmark ribbon. Drawn from the header-bar foreground so it tracks
+ * light/dark themes without a pixmap. */
+static gboolean
+on_open_bible_icon_draw(GtkWidget *widget, cairo_t *cr, gpointer data)
+{
+	GtkWidget *parent = gtk_widget_get_parent(widget);
+	GtkStyleContext *ctx = gtk_widget_get_style_context(parent ? parent : widget);
+	GtkStateFlags st = gtk_style_context_get_state(ctx);
+	GdkRGBA fg;
+	int w, h;
+	double s, ox, oy, ly;
+
+	(void)data;
+	gtk_style_context_get_color(ctx, st, &fg);
+	w = gtk_widget_get_allocated_width(widget);
+	h = gtk_widget_get_allocated_height(widget);
+	s = (w < h) ? w : h;
+	if (s < 1.0)
+		return FALSE;
+	ox = (w - s) * 0.5;
+	oy = (h - s) * 0.5;
+	cairo_translate(cr, ox, oy);
+	cairo_scale(cr, s / 16.0, s / 16.0);
+
+	cairo_set_source_rgba(cr, fg.red, fg.green, fg.blue, fg.alpha);
+	cairo_set_line_width(cr, 1.15);
+	cairo_set_line_cap(cr, CAIRO_LINE_CAP_ROUND);
+	cairo_set_line_join(cr, CAIRO_LINE_JOIN_ROUND);
+
+	/* left page */
+	cairo_move_to(cr, 8.0, 3.5);
+	cairo_curve_to(cr, 6.0, 4.2, 3.4, 3.5, 2.2, 3.5);
+	cairo_line_to(cr, 2.0, 12.6);
+	cairo_curve_to(cr, 3.4, 12.6, 6.0, 13.2, 8.0, 12.5);
+	cairo_close_path(cr);
+	cairo_stroke(cr);
+
+	/* right page */
+	cairo_move_to(cr, 8.0, 3.5);
+	cairo_curve_to(cr, 10.0, 4.2, 12.6, 3.5, 13.8, 3.5);
+	cairo_line_to(cr, 14.0, 12.6);
+	cairo_curve_to(cr, 12.6, 12.6, 10.0, 13.2, 8.0, 12.5);
+	cairo_close_path(cr);
+	cairo_stroke(cr);
+
+	/* spine */
+	cairo_move_to(cr, 8.0, 3.5);
+	cairo_line_to(cr, 8.0, 12.5);
+	cairo_stroke(cr);
+
+	/* verse lines on each page */
+	cairo_set_line_width(cr, 0.7);
+	cairo_set_source_rgba(cr, fg.red, fg.green, fg.blue, fg.alpha * 0.72);
+	for (ly = 5.6; ly < 11.0; ly += 1.55) {
+		cairo_move_to(cr, 3.3, ly);
+		cairo_line_to(cr, 6.5, ly + 0.32);
+		cairo_stroke(cr);
+		cairo_move_to(cr, 9.5, ly + 0.32);
+		cairo_line_to(cr, 12.7, ly);
+		cairo_stroke(cr);
+	}
+
+	/* bookmark ribbon at the top of the spine */
+	cairo_set_source_rgba(cr, fg.red, fg.green, fg.blue, fg.alpha);
+	cairo_set_line_width(cr, 1.05);
+	cairo_move_to(cr, 8.0, 3.5);
+	cairo_line_to(cr, 8.0, 1.45);
+	cairo_line_to(cr, 9.25, 2.25);
+	cairo_line_to(cr, 8.0, 3.05);
+	cairo_stroke(cr);
+
+	return FALSE;
+}
+
+static GtkWidget *
+new_open_bible_toggle(const char *tooltip)
+{
+	GtkWidget *btn, *icon;
+
+	btn = gtk_toggle_button_new();
+	icon = gtk_drawing_area_new();
+	gtk_widget_set_size_request(icon, 18, 18);
+	gtk_widget_set_valign(icon, GTK_ALIGN_CENTER);
+	gtk_widget_set_halign(icon, GTK_ALIGN_CENTER);
+	gtk_widget_set_hexpand(icon, FALSE);
+	gtk_widget_set_vexpand(icon, FALSE);
+	g_signal_connect(icon, "draw", G_CALLBACK(on_open_bible_icon_draw), NULL);
+	g_signal_connect_swapped(btn, "state-flags-changed",
+				 G_CALLBACK(gtk_widget_queue_draw), icon);
+	gtk_widget_show(icon);
+	gtk_container_add(GTK_CONTAINER(btn), icon);
+	gtk_style_context_add_class(gtk_widget_get_style_context(btn), "flat");
+	gtk_style_context_add_class(gtk_widget_get_style_context(btn), "circular");
+	gtk_style_context_add_class(gtk_widget_get_style_context(btn), "reading-mode");
+	gtk_widget_set_tooltip_text(btn, tooltip);
+	g_signal_connect(btn, "toggled",
+			 G_CALLBACK(on_reading_mode_button_toggled), NULL);
+	gtk_widget_show(btn);
+	return btn;
 }
 
 /******************************************************************************
@@ -236,6 +530,9 @@ void gui_show_hide_dicts(gboolean choice)
 
 void gui_set_bible_comm_layout(void)
 {
+	if (settings.reading_mode)
+		return;
+
 	gtk_paned_set_position(GTK_PANED(widgets.hpaned),
 			       settings.biblepane_width);
 	gtk_paned_set_position(GTK_PANED(widgets.vpaned),
@@ -273,9 +570,9 @@ void gui_set_bible_comm_layout(void)
 				       settings.biblepane_width);
 	}
 	if (((settings.showcomms == FALSE) && (settings.showtexts == FALSE)) || ((settings.comm_showing == FALSE) && (settings.showtexts == FALSE)))
-		gtk_widget_hide(nav_toolbar);
+		gtk_widget_hide(widgets.nav_toolbar);
 	else
-		gtk_widget_show(nav_toolbar);
+		gtk_widget_show(widgets.nav_toolbar);
 
 	gtk_notebook_set_current_page(GTK_NOTEBOOK(widgets.notebook_comm_book),
 				      (settings.comm_showing ? 0 : 1));
@@ -319,18 +616,25 @@ void gui_change_window_title(gchar *module_name)
 	} else
 		title = module_name;
 
-	/*
-	 * set program title to current module name
-	 */
-	title = g_strdup(main_get_module_description(title));
-	if (!title)
-		title =
-		    g_strdup(main_get_module_description(settings.MainWindowModule));
-	title =
-	    g_strdup_printf("%s - %s", (title ? title : "[no title]"),
-			    settings.program_title);
-	gtk_window_set_title(GTK_WINDOW(widgets.app), title);
-	g_free(title);
+	{
+		gchar *desc, *full;
+		GtkWidget *tb;
+
+		desc = g_strdup(main_get_module_description(title));
+		if (!desc)
+			desc = g_strdup(main_get_module_description(settings.MainWindowModule));
+		full = g_strdup_printf("%s — Biblia Elim",
+				       desc ? desc : "[no title]");
+		g_free(desc);
+		gtk_window_set_title(GTK_WINDOW(widgets.app), full);
+		tb = gtk_window_get_titlebar(GTK_WINDOW(widgets.app));
+		if (tb && GTK_IS_HEADER_BAR(tb)) {
+			gtk_header_bar_set_title(GTK_HEADER_BAR(tb), full);
+			gtk_header_bar_set_subtitle(GTK_HEADER_BAR(tb),
+						    _("Estudio bíblico"));
+		}
+		g_free(full);
+	}
 }
 
 static gboolean delete_event(GtkWidget *widget,
@@ -480,10 +784,23 @@ static gboolean on_configure_event(GtkWidget *widget,
 	return FALSE;
 }
 
+#ifdef USE_GTK_3
 static void on_notebook_bible_parallel_switch_page(GtkNotebook *notebook,
+						   gpointer arg,
 						   gint page_num,
 						   GList **tl)
+#else
+static void on_notebook_bible_parallel_switch_page(GtkNotebook *notebook,
+						   GtkNotebookPage *page,
+						   gint page_num,
+						   GList **tl)
+#endif
 {
+	(void)notebook;
+	(void)arg;
+	(void)tl;
+	if (page_num == 1)
+		main_update_parallel_page();
 }
 
 #ifdef USE_GTK_3
@@ -500,11 +817,11 @@ static void on_notebook_comm_book_switch_page(GtkNotebook *notebook,
 
 	if (page_num == 0) {
 		settings.comm_showing = TRUE;
-		gtk_widget_show(nav_toolbar);
+		gtk_widget_show(widgets.nav_toolbar);
 	} else {
 		settings.comm_showing = FALSE;
 		if (!settings.showtexts)
-			gtk_widget_hide(nav_toolbar);
+			gtk_widget_hide(widgets.nav_toolbar);
 	}
 
 	gui_update_tab_struct(NULL,
@@ -551,6 +868,40 @@ static void new_base_font_size(gboolean up)
 	redisplay_to_realign();
 }
 
+/* Header-bar zoom buttons: this is the same base-font-size bias already
+ * reachable via Ctrl+Shift+'+'/Ctrl+'-' (see on_vbox1_key_press_event
+ * below) -- just given a visible, discoverable control instead of only
+ * a keyboard shortcut. */
+static void on_zoom_in_clicked(GtkWidget *widget, gpointer data)
+{
+	new_base_font_size(TRUE);
+}
+
+static void on_zoom_out_clicked(GtkWidget *widget, gpointer data)
+{
+	new_base_font_size(FALSE);
+}
+
+/* Header-bar reading-mode button: same distraction-free/fullscreen
+ * toggle as the View menu checkbox and Ctrl+Shift+F, just given a
+ * one-click control at the top of the window. gui_toggle_reading_mode()
+ * itself keeps the menu checkbox and this button's pressed state in
+ * sync, so this handler only needs to forward the click. */
+static void on_reading_mode_button_toggled(GtkToggleButton *button, gpointer data)
+{
+	gboolean active = gtk_toggle_button_get_active(button);
+	if (active == settings.reading_mode)
+		return; /* gui_toggle_reading_mode() syncing us back -- not a real click */
+	gui_toggle_reading_mode(active);
+}
+
+/* Exposed so bibletext.c can hook Ctrl+scroll on the text pane into the
+ * same base-font-size bias, without a second, divergent zoom mechanism. */
+void gui_zoom_base_font(int up)
+{
+	new_base_font_size(up ? TRUE : FALSE);
+}
+
 /* temporary shorthand for too-common use */
 #define sM settings.MainWindowModule
 #define sC settings.CommWindowModule
@@ -589,6 +940,13 @@ static gboolean on_vbox1_key_press_event(GtkWidget *widget, GdkEventKey *event,
 			    GDK_MOD1_MASK | GDK_MOD4_MASK);
 	
 	switch (event->keyval) {
+	case XK_Escape:
+		if (state == 0 && gui_lectura_sync_ficha_activa()) {
+			gui_lectura_sync_ficha_clear();
+			return TRUE;
+		}
+		break;
+
 	case XK_Shift_L: /* shift keys - we need this for locking strongs (and */
 	case XK_Shift_R: /* other stuff) while moving mouse to previewer */
 		shift_key_pressed = TRUE;
@@ -675,6 +1033,12 @@ static gboolean on_vbox1_key_press_event(GtkWidget *widget, GdkEventKey *event,
 					     sD, FALSE, NULL);
 			} else
 				gui_generic_warning(_("Xiphos: No windows."));
+		} else if (state == (GDK_CONTROL_MASK | GDK_SHIFT_MASK)) {
+			// Ctrl-Shift-F: toggle distraction-free reading mode
+			gboolean new_state = !settings.reading_mode;
+			gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.reading_mode_item),
+						       new_state);
+			gui_toggle_reading_mode(new_state);
 		}
 		break;
 
@@ -687,14 +1051,46 @@ static gboolean on_vbox1_key_press_event(GtkWidget *widget, GdkEventKey *event,
 		}
 		break;
 
-	case XK_j:
-		if (state == 0) // J    "next verse"
+	case XK_Up:
+	case XK_KP_Up:
+		if (state == 0) {
+			GtkWidget *focus = gtk_window_get_focus(GTK_WINDOW(widgets.app));
+			if (focus && (GTK_IS_EDITABLE(focus) || GTK_IS_TREE_VIEW(focus)))
+				break;
+			if (main_interlineal_bloquea_navegacion())
+				return TRUE;
+			access_on_up_eventbox_button_release_event(VERSE_BUTTON);
+			return TRUE;
+		}
+		break;
+
+	case XK_Down:
+	case XK_KP_Down:
+		if (state == 0) {
+			GtkWidget *focus = gtk_window_get_focus(GTK_WINDOW(widgets.app));
+			if (focus && (GTK_IS_EDITABLE(focus) || GTK_IS_TREE_VIEW(focus)))
+				break;
+			if (main_interlineal_bloquea_navegacion())
+				return TRUE;
 			access_on_down_eventbox_button_release_event(VERSE_BUTTON);
+			return TRUE;
+		}
+		break;
+
+	case XK_j:
+		if (state == 0) { // J    "next verse"
+			if (main_interlineal_bloquea_navegacion())
+				return TRUE;
+			access_on_down_eventbox_button_release_event(VERSE_BUTTON);
+		}
 		break;
 
 	case XK_k:
-		if (state == 0) // K    "previous verse"
+		if (state == 0) { // K    "previous verse"
+			if (main_interlineal_bloquea_navegacion())
+				return TRUE;
 			access_on_up_eventbox_button_release_event(VERSE_BUTTON);
+		}
 		break;
 
 	case XK_l:
@@ -720,6 +1116,11 @@ static gboolean on_vbox1_key_press_event(GtkWidget *widget, GdkEventKey *event,
 
 	case XK_n:
 	case XK_N:
+		if (state == GDK_CONTROL_MASK || state == 0 ||
+		    state == GDK_SHIFT_MASK) {
+			if (main_interlineal_bloquea_navegacion())
+				return TRUE;
+		}
 		if (state == GDK_CONTROL_MASK) // Ctrl-N verse
 			access_on_down_eventbox_button_release_event(VERSE_BUTTON);
 		else if (state == 0) // n chapter
@@ -751,6 +1152,11 @@ static gboolean on_vbox1_key_press_event(GtkWidget *widget, GdkEventKey *event,
 
 	case XK_p:
 	case XK_P:
+		if (state == GDK_CONTROL_MASK || state == 0 ||
+		    state == GDK_SHIFT_MASK) {
+			if (main_interlineal_bloquea_navegacion())
+				return TRUE;
+		}
 		if (state == GDK_CONTROL_MASK) // Ctrl-P verse
 			access_on_up_eventbox_button_release_event(VERSE_BUTTON);
 		else if (state == 0) // p chapter
@@ -792,12 +1198,9 @@ static gboolean on_vbox1_key_press_event(GtkWidget *widget, GdkEventKey *event,
 	case XK_S:
 		if (state == GDK_CONTROL_MASK) // Ctrl-S toggle sidebar
 			on_sidebar_showhide_activate((GtkMenuItem *)NULL, (gpointer)NULL);
-		else if (state == GDK_MOD1_MASK) // Alt-S strong's
+		else if (state == GDK_MOD1_MASK) // Alt-S: same as the α button
 		{
-			kbd_toggle_option(((main_check_for_global_option(sM, "GBFStrongs")) ||
-					   (main_check_for_global_option(sM, "ThMLStrongs")) ||
-					   (main_check_for_global_option(sM, "OSISStrongs"))),
-					  "Strong's Numbers");
+			gui_interlineal_set_active(!settings.show_interlineal);
 		} else if (state ==
 			   (GDK_CONTROL_MASK | GDK_MOD1_MASK |
 			    GDK_SHIFT_MASK))
@@ -995,6 +1398,9 @@ void create_mainwindow(void)
 	char *imagename;
 	GtkWidget *vbox_gs;
 	GtkWidget *menu;
+	GtkWidget *header_bar;
+	GtkWidget *zoom_out_button;
+	GtkWidget *zoom_in_button;
 	GtkWidget *hbox25;
 	GtkWidget *tab_button_icon;
 	GtkWidget *label;
@@ -1051,7 +1457,11 @@ void create_mainwindow(void)
 
 	// The toplevel Xiphos window
 	widgets.app = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-	gtk_window_set_title(GTK_WINDOW(widgets.app), _("Xiphos - Bible Study Software"));
+	gtk_window_set_title(GTK_WINDOW(widgets.app), _("Biblia Elim"));
+	gtk_widget_set_name(widgets.app, "elim-app");
+	if (settings.darktheme)
+		gtk_style_context_add_class(gtk_widget_get_style_context(widgets.app),
+					    "elim-dark");
 	g_object_set_data(G_OBJECT(widgets.app), "widgets.app", widgets.app);
 	gtk_window_set_default_size(GTK_WINDOW(widgets.app), 680, 425);
 	gtk_widget_set_can_focus(widgets.app, 1);
@@ -1059,19 +1469,74 @@ void create_mainwindow(void)
 
 	// The app icon.
 	// FIXME:: This should be a big copy of the logo because GTK does the scaling (GTK 3.16?)
-	imagename = image_locator("gs2-48x48.png");
+	imagename = image_locator("biblia-elim.png");
+	if (!g_file_test(imagename, G_FILE_TEST_IS_REGULAR)) {
+		g_free(imagename);
+		imagename = image_locator("gs2-48x48.png");
+	}
 	pixbuf = gdk_pixbuf_new_from_file(imagename, NULL);
 	g_free(imagename);
 	gtk_window_set_icon(GTK_WINDOW(widgets.app), pixbuf);
+	g_set_prgname("biblia-elim");
+	g_set_application_name(_("Biblia Elim"));
 
 	// The main box for our toplevel window.
 	UI_VBOX(vbox_gs, FALSE, 0);
 	gtk_widget_show(vbox_gs);
 	gtk_container_add(GTK_CONTAINER(widgets.app), vbox_gs);
 
-	// Add the main menu.
+	// Add the main menu, moved into the header bar instead of a
+	// full-width classic menu bar row below the titlebar. Packed
+	// directly (not wrapped in a GtkMenuButton popover -- a GtkMenuBar's
+	// own submenus rely on a pointer/keyboard grab that does not survive
+	// being nested inside a GtkPopover's own grab in GTK3, which is why
+	// an earlier popover-based version of this had unresponsive menu
+	// items). Packing it straight into the header bar keeps the menu
+	// bar's normal, working click/submenu behavior while still removing
+	// the separate full-width menu row.
 	menu = gui_create_main_menu();
-	gtk_box_pack_start(GTK_BOX(vbox_gs), menu, FALSE, TRUE, 0);
+	header_menu = menu;
+	gtk_widget_show(menu);
+
+	header_bar = gtk_header_bar_new();
+	gtk_header_bar_set_show_close_button(GTK_HEADER_BAR(header_bar), TRUE);
+	gtk_header_bar_set_title(GTK_HEADER_BAR(header_bar), _("Biblia Elim"));
+	gtk_header_bar_set_subtitle(GTK_HEADER_BAR(header_bar), _("Estudio bíblico"));
+	gtk_style_context_add_class(gtk_widget_get_style_context(header_bar),
+				    "elim-header");
+	gtk_header_bar_pack_start(GTK_HEADER_BAR(header_bar), menu);
+
+	widgets.reading_mode_button = new_open_bible_toggle(
+	    _("Modo lectura: solo la Biblia (Ctrl+Mayús+F)"));
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widgets.reading_mode_button),
+				     settings.reading_mode);
+	gtk_header_bar_pack_start(GTK_HEADER_BAR(header_bar), widgets.reading_mode_button);
+
+	// Quick text-size controls -- surfaces the existing base-font-size
+	// bias (previously reachable only via Ctrl+Shift+'+'/Ctrl+'-') as
+	// visible buttons, Kindle-style.
+	zoom_in_button = gtk_button_new_from_icon_name("zoom-in-symbolic",
+						       GTK_ICON_SIZE_BUTTON);
+	gtk_widget_set_tooltip_text(zoom_in_button, _("Aumentar tamaño del texto"));
+	gtk_style_context_add_class(gtk_widget_get_style_context(zoom_in_button), "flat");
+	gtk_style_context_add_class(gtk_widget_get_style_context(zoom_in_button), "circular");
+	g_signal_connect(zoom_in_button, "clicked",
+			 G_CALLBACK(on_zoom_in_clicked), NULL);
+	gtk_widget_show(zoom_in_button);
+	gtk_header_bar_pack_end(GTK_HEADER_BAR(header_bar), zoom_in_button);
+
+	zoom_out_button = gtk_button_new_from_icon_name("zoom-out-symbolic",
+							GTK_ICON_SIZE_BUTTON);
+	gtk_style_context_add_class(gtk_widget_get_style_context(zoom_out_button), "flat");
+	gtk_style_context_add_class(gtk_widget_get_style_context(zoom_out_button), "circular");
+	gtk_widget_set_tooltip_text(zoom_out_button, _("Reducir tamaño del texto"));
+	g_signal_connect(zoom_out_button, "clicked",
+			 G_CALLBACK(on_zoom_out_clicked), NULL);
+	gtk_widget_show(zoom_out_button);
+	gtk_header_bar_pack_end(GTK_HEADER_BAR(header_bar), zoom_out_button);
+
+	gtk_widget_show(header_bar);
+	gtk_window_set_titlebar(GTK_WINDOW(widgets.app), header_bar);
 
 	// Another box
 	UI_HBOX(hbox25, FALSE, 0);
@@ -1098,6 +1563,8 @@ void create_mainwindow(void)
 	 * actually open but are switched between similar to bookmarks
 	 */
 	UI_HBOX(widgets.hboxtb, FALSE, 0);
+	gtk_style_context_add_class(gtk_widget_get_style_context(widgets.hboxtb),
+				    "elim-tabstrip");
 	if (settings.browsing)
 		gtk_widget_show(widgets.hboxtb);
 	gtk_box_pack_start(GTK_BOX(widgets.vboxMain), widgets.hboxtb, FALSE, FALSE, 0);
@@ -1118,6 +1585,8 @@ void create_mainwindow(void)
 	gtk_widget_set_tooltip_text(widgets.button_new_tab, _("Open a new tab"));
 
 	widgets.notebook_main = gtk_notebook_new();
+	gtk_style_context_add_class(gtk_widget_get_style_context(widgets.notebook_main),
+				    "elim-tabs");
 	gtk_widget_show(widgets.notebook_main);
 	gtk_box_pack_start(GTK_BOX(widgets.hboxtb), widgets.notebook_main, TRUE, TRUE, 0);
 	gtk_widget_set_size_request(widgets.notebook_main, -1, 25);
@@ -1132,8 +1601,10 @@ void create_mainwindow(void)
 	gtk_box_pack_start(GTK_BOX(widgets.vboxMain), widgets.page, TRUE, TRUE, 0);
 
 	//nav toolbar
-	nav_toolbar = gui_navbar_versekey_new();
-	gtk_box_pack_start(GTK_BOX(widgets.page), nav_toolbar, FALSE, FALSE, 0);
+	widgets.nav_toolbar = gui_navbar_versekey_new();
+	gtk_style_context_add_class(gtk_widget_get_style_context(widgets.nav_toolbar),
+				    "elim-navbar");
+	gtk_box_pack_start(GTK_BOX(widgets.page), widgets.nav_toolbar, FALSE, FALSE, 0);
 
 	// widgets.hpaned
 	widgets.hpaned = UI_HPANE();
@@ -1153,10 +1624,29 @@ void create_mainwindow(void)
 	// widgets.vbox_text
 	UI_VBOX(widgets.vbox_text, FALSE, 0);
 	gtk_widget_show(widgets.vbox_text);
-	gtk_paned_pack1(GTK_PANED(widgets.vpaned), widgets.vbox_text, TRUE, TRUE);
+	{
+		GtkWidget *ov = gtk_overlay_new();
+		gtk_widget_show(ov);
+		gtk_container_add(GTK_CONTAINER(ov), widgets.vbox_text);
+		gtk_paned_pack1(GTK_PANED(widgets.vpaned), ov, TRUE, TRUE);
+
+		reading_exit_button = new_open_bible_toggle(
+		    _("Salir del modo lectura"));
+		gtk_style_context_add_class(
+		    gtk_widget_get_style_context(reading_exit_button),
+		    "reading-exit");
+		gtk_widget_set_halign(reading_exit_button, GTK_ALIGN_END);
+		gtk_widget_set_valign(reading_exit_button, GTK_ALIGN_START);
+		gtk_widget_set_margin_top(reading_exit_button, 10);
+		gtk_widget_set_margin_end(reading_exit_button, 14);
+		gtk_overlay_add_overlay(GTK_OVERLAY(ov), reading_exit_button);
+		gtk_widget_hide(reading_exit_button);
+	}
 
 	// Bible/parallel notebook
 	widgets.notebook_bible_parallel = gtk_notebook_new();
+	gtk_style_context_add_class(gtk_widget_get_style_context(widgets.notebook_bible_parallel),
+				    "elim-view-tabs");
 	gtk_widget_show(widgets.notebook_bible_parallel);
 	gtk_box_pack_start(GTK_BOX(widgets.vbox_text), widgets.notebook_bible_parallel, TRUE, TRUE, 0);
 	gtk_notebook_set_tab_pos(GTK_NOTEBOOK(widgets.notebook_bible_parallel), GTK_POS_BOTTOM);
@@ -1164,7 +1654,8 @@ void create_mainwindow(void)
 	gtk_notebook_set_show_border(GTK_NOTEBOOK(widgets.notebook_bible_parallel), FALSE);
 	gtk_container_set_border_width(GTK_CONTAINER(widgets.notebook_bible_parallel), 1);
 
-	g_signal_connect(G_OBJECT(widgets.notebook_bible_parallel), "change-current-page", G_CALLBACK(on_notebook_bible_parallel_switch_page), NULL);
+	g_signal_connect(G_OBJECT(widgets.notebook_bible_parallel), "switch-page",
+			 G_CALLBACK(on_notebook_bible_parallel_switch_page), NULL);
 
 	// Text notebook (The bible text show in the standard view)
 	widgets.notebook_text = gui_create_bible_pane();
@@ -1257,7 +1748,7 @@ box_devot = gui_create_devotional_pane();
 	gtk_statusbar_set_has_resize_grip(GTK_STATUSBAR(widgets.appbar), TRUE);
 #endif
 	gtk_box_pack_start(GTK_BOX(vbox_gs), widgets.appbar, FALSE, TRUE, 0);
-	gui_set_statusbar(_("Welcome to Xiphos"));
+	gui_set_statusbar(_("Bienvenido a Biblia Elim"));
 
 	gtk_paned_pack2(GTK_PANED(widgets.hpaned), widgets.vpaned2, TRUE, FALSE);
 	gtk_widget_grab_focus(navbar_versekey.lookup_entry);
@@ -1265,8 +1756,16 @@ box_devot = gui_create_devotional_pane();
 	gtk_window_set_default_size((GtkWindow *)widgets.app, settings.gs_width, settings.gs_height);
 	gtk_widget_show_all(widgets.app);
 
+	if (reading_exit_button && !settings.reading_mode)
+		gtk_widget_hide(reading_exit_button);
 	if (settings.statusbar != 1)
 		gtk_widget_hide(widgets.appbar);
+	/* gtk_widget_show_all() above just unconditionally re-showed every
+	 * widget in the window, including the "Comparar" split-view panel
+	 * gui_lectura_sync_wrap() had already hidden a moment earlier
+	 * (on-demand only, off by default) -- put it back the way the
+	 * user's settings actually say. */
+	gui_lectura_sync_set_visible(settings.show_lectura_sync);
 
 	/* must connect signals *after* instantiating window above, */
 	/* immediately above, otherwise window creation induces */

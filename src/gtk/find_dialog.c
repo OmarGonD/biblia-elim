@@ -233,7 +233,7 @@ static void create_find_dialog(GtkWidget *htmlwidget)
 
 	dialog->find =
 #if GTK_CHECK_VERSION(3, 10, 0)
-	    gtk_button_new_from_icon_name("edit-find",
+	    gtk_button_new_from_icon_name("edit-find-symbolic",
 					  GTK_ICON_SIZE_BUTTON);
 	gtk_button_set_label(GTK_BUTTON(dialog->find), _("Find"));
 #else
@@ -243,7 +243,7 @@ static void create_find_dialog(GtkWidget *htmlwidget)
 	gtk_container_add(GTK_CONTAINER(hbuttonbox8), dialog->find);
 
 #if GTK_CHECK_VERSION(3, 10, 0)
-	dialog->next = gtk_button_new_from_icon_name("edit-find", GTK_ICON_SIZE_BUTTON);
+	dialog->next = gtk_button_new_from_icon_name("edit-find-symbolic", GTK_ICON_SIZE_BUTTON);
 	gtk_button_set_label(GTK_BUTTON(dialog->next), _("Find Next"));
 #else
 	dialog->next = gtk_button_new_with_label(_("Find Next"));

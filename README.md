@@ -1,59 +1,41 @@
-[![Build Status](https://travis-ci.org/crosswire/xiphos.svg?branch=master)](https://travis-ci.org/crosswire/xiphos)
+# Biblia Elim
 
-# Xiphos
+Estudio bíblico de [Iglesia Elim](https://github.com/OmarGonD), en español, para Linux.
 
-Xiphos is a Bible study application for Linux, UNIX, and Windows operating
-systems. It uses Sword to display Bibles, commentaries, dictionary, and other
-texts and images. Xiphos includes features such as, searching, biblesync,
-bookmarks, parallel study, and original language study.
+Es un fork de [Xiphos](https://github.com/crosswire/xiphos) (CrossWire / The SWORD Project): GTK nativo, sin reescribir el lector en WebKit.
 
-To install Xiphos, search in your package manager for xiphos and install the
-package. If you are using Windows, please download the exe from here:
+## Qué incluye
 
-http://xiphos.org/download/
+- Interlineal por versículo (griego Tischendorf / hebreo WLC), **Original → Español** y **Español → Original**
+- Números de Strong’s en español (fuentes de dominio público) y ficha del término
+- Comparar versiones en panel partido
+- Notas de versículo (ficha inferior) y subrayado tipo Kindle
+- Temas (claro, oscuro, claro luna, pergamino, Omarchy)
+- Nube de palabras y diccionario offline
+- Menús e interfaz en español
 
-## Building Xiphos
+## Compilar e instalar
 
-Please see the `INSTALL.md` file.
+Dependencias típicas de Xiphos (GTK3, Sword, libxml2, CMake). Desde la raíz del repo:
 
-## Translating Xiphos
+```bash
+cmake -S . -B build -DEPUB=OFF -DHELP=OFF
+cmake --build build --target xiphos -j$(nproc)
+./scripts/install-biblia-elim.sh
+```
 
-Please see files in the `doc` directory.
+El instalador copia el binario a `~/.local/bin/biblia-elim` y el `.desktop` al menú de aplicaciones.
 
-## History and Acknowledgements
+## Origen
 
-Xiphos started life as the Sword Project's Cheatah program.
+El historial de git incluye el de Xiphos. El remoto `upstream` apunta a CrossWire:
 
-Over the course of Xiphos development many ideas and some pieces of code have
-come from the Bibletime program and the Sword Project's BibleCS program.
+```bash
+git remote add upstream https://github.com/crosswire/xiphos.git
+```
 
-We wish to thank the folks who have put so much time and work into the Sword
-Project and then giving it to the world! God Bless you!
+Licencia: GPL-2.0-or-later, igual que Xiphos. Léxico Strong 1890 y glosas Reina-Valera 1909: dominio público.
 
+## Construir Xiphos (documentación original)
 
-## Developing Xiphos
-
-
-If you want to help develop Xiphos your help will be very appreciated!
-
-The first steps would be to make yourself familiar with the Xiphos build
-process, so go read the INSTALL file.
-
-If you are looking for things to do, the best place to find out is to jump into
-the #xiphos channel of irc.libera.chat
-
-If you make changes to C or C++ files, please make sure they are cleaned up to
-follow our style of coding. The best way to make sure of it is to run this:
-
-	$ clang-format -i -style=file /path/to/edited.c
-
-Where /path/to/edited.c, the C or C++ file you edited. The option '-style=file'
-uses a predefined style file called .clang-format in the source tree.
-
-
-## Thank you!
-
-
-We hope that your Bible study will be enhanced by Xiphos!
-
-The Xiphos Development Team
+Véase `INSTALL.md` para el proceso de compilación heredado.

@@ -63,11 +63,17 @@ struct _app_widgets
 	    *entry_dict,
 	    /* toolbars */
 	    *toolbar_comments, *toolbar_studypad,
+	    *nav_toolbar, /* book/chapter/verse navigation toolbar */
 	    /* html widgets */
 	    *eventbox1, *html_search_report, /* html widget for serch report shortcut bar */
 	    *html_parallel,		     /* parallel html widget */
 	    *html_parallel_dialog,	   /* undocked parallel html widget */
 	    *html_text,			     /* texts html widget */
+	    *html_lectura_sync,		     /* slave bible (split view) */
+	    *combo_lectura_sync,	     /* slave bible version picker */
+	    *box_lectura_sync,		     /* bottom pane of split view */
+	    *paned_lectura_sync,	     /* vertical split: master / slave */
+	    *bar_interlineal,		     /* Interlinear / Comparar strip */
 	    *html_comm,			     /* html commentary widget */
 	    *html_percomm,		     /* html personal commentary widget */
 	    *html_dict,			     /* html dictionary widget */
@@ -92,7 +98,7 @@ struct _app_widgets
 	    /* popup menu submenu widgets */
 	    *add_bookmark_submenu,
 	    /* popup menu item widgets */
-	    *viewtexts_item, *viewpreview_item, *parallel_tab_item, *side_preview_item, *viewcomms_item, *viewdicts_item, *linkedtabs_item, *showversenum_item, *readaloud_item, *versehighlight_item, *annotate_highlight_item, *xrefs_in_verse_list_item, *new_journal_item, *button_dict_book, *button_new_tab, /* creates a new passage tab */
+	    *viewtexts_item, *viewpreview_item, *parallel_tab_item, *side_preview_item, *viewcomms_item, *viewdicts_item, *linkedtabs_item, *showversenum_item, *readaloud_item, *versehighlight_item, *annotate_highlight_item, *xrefs_in_verse_list_item, *reading_mode_item, *reading_mode_button, *lectura_sync_item, *lectura_sync_button, *interlineal_item, *new_journal_item, *button_dict_book, *button_new_tab, /* creates a new passage tab */
 	    *button_dict_back, *button_dict_forward,  /* ← Create history nav button */
 	    *hboxtb;																																				   /* container for browsing notebook and button */
 };

@@ -605,8 +605,8 @@ gint depth = gtk_tree_path_get_depth(path);
 	case 3:
 		if (mod && !g_utf8_collate(mod, _("Parallel View"))) {
 			GtkWidget *par_menu    = gtk_menu_new();
-			GtkWidget *item_detach = gtk_menu_item_new_with_label(_("Open in Detached Window"));
-			GtkWidget *item_tab    = gtk_check_menu_item_new_with_label(_("Open in New Tab"));
+			GtkWidget *item_detach = gtk_menu_item_new_with_label(_("Abrir en ventana aparte"));
+			GtkWidget *item_tab    = gtk_check_menu_item_new_with_label(_("Abrir en pestaña nueva"));
 			gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item_tab), settings.showparatab);
 			gtk_menu_shell_append(GTK_MENU_SHELL(par_menu), item_detach);
 			gtk_menu_shell_append(GTK_MENU_SHELL(par_menu), item_tab);
@@ -1092,7 +1092,7 @@ on_export_verselist_activate(GtkMenuItem *menuitem, gpointer user_data)
 GtkWidget *create_results_menu(void)
 {
 	GtkWidget *menu;
-	GtkBuilder *gxml = gtk_builder_new();
+	GtkBuilder *gxml = elim_gtk_builder_new();
 	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/xi-menus-popup.gtkbuilder", NULL);
 	g_return_val_if_fail((gxml != NULL), NULL);
 
@@ -1122,7 +1122,7 @@ GtkWidget *create_results_menu(void)
  */
 static GtkWidget *create_menu_modules(void)
 {
-	GtkBuilder *gxml = gtk_builder_new();
+	GtkBuilder *gxml = elim_gtk_builder_new();
 	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/xi-menus-popup.gtkbuilder", NULL);
 	g_return_val_if_fail((gxml != NULL), NULL);
 
@@ -1190,7 +1190,7 @@ on_book_chapter_activate(GtkMenuItem *menuitem, gpointer user_data)
 GtkWidget *create_menu_prayerlist(void)
 {
 	GtkWidget *menu;
-	GtkBuilder *gxml = gtk_builder_new();
+	GtkBuilder *gxml = elim_gtk_builder_new();
 	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/xi-menus-popup.gtkbuilder", NULL);
 	g_return_val_if_fail((gxml != NULL), NULL);
 
@@ -1220,7 +1220,7 @@ static GtkWidget *
 create_menu_percomm_mod(void)
 {
 	GtkWidget *menu;
-	GtkBuilder *gxml = gtk_builder_new();
+	GtkBuilder *gxml = elim_gtk_builder_new();
 	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/xi-menus-popup.gtkbuilder", NULL);
 	g_return_val_if_fail((gxml != NULL), NULL);
 
@@ -1232,7 +1232,7 @@ create_menu_percomm_mod(void)
 GtkWidget *create_menu_prayerlist_mod(void)
 {
 	GtkWidget *menu;
-	GtkBuilder *gxml = gtk_builder_new();
+	GtkBuilder *gxml = elim_gtk_builder_new();
 	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/xi-menus-popup.gtkbuilder", NULL);
 	g_return_val_if_fail((gxml != NULL), NULL);
 
@@ -1481,6 +1481,8 @@ GtkWidget *gui_create_sidebar(GtkWidget *paned)
 	GtkWidget *table2;
 
 	UI_VBOX(vbox1, FALSE, 0);
+	gtk_style_context_add_class(gtk_widget_get_style_context(vbox1),
+				    "elim-sidebar");
 	gtk_widget_show(vbox1);
 
 	widgets.paned_sidebar = UI_VPANE();

@@ -782,11 +782,13 @@ language_add_folders(GtkTreeModel *model,
 		     GtkTreeIter iter,
 		     gchar **languages)
 {
-	GtkTreeIter iter_iter;
 	GtkTreeIter child_iter;
 	int j;
 
-	(void)gtk_tree_model_iter_children(model, &iter_iter, &iter);
+	if (!languages || !languages[0])
+		return;
+	if (!gtk_tree_store_iter_is_valid(GTK_TREE_STORE(model), &iter))
+		return;
 	for (j = 0; languages[j]; ++j) {
 		gtk_tree_store_append(GTK_TREE_STORE(model), &child_iter, &iter);
 		gtk_tree_store_set(GTK_TREE_STORE(model), &child_iter,

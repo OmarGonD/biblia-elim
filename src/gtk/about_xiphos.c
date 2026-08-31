@@ -103,13 +103,9 @@ on_dialog_response(GtkDialog *dialog, gint response_id,
  */
 
 #ifdef USE_GTK_3
-# ifdef USE_WEBKIT2
-#  define	BUILD_TYPE	"gtk3 webkit2"
-# else
-#  define	BUILD_TYPE	"gtk3 webkit1"
-# endif
+#  define	BUILD_TYPE	"gtk3 native"
 #else
-#  define	BUILD_TYPE	"gtk2 webkit1"
+#  define	BUILD_TYPE	"gtk2 native"
 #endif
 
 GtkWidget *gui_create_about_xiphos(void)

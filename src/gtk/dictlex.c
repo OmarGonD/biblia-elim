@@ -27,6 +27,7 @@
 #include "xiphos_html/xiphos_html.h"
 
 #include "gui/dictlex.h"
+#include "gui/diccionario.h"
 #include "gui/bookmark_dialog.h"
 #include "gui/bookmarks_treeview.h"
 #include "gui/xiphos.h"
@@ -108,7 +109,10 @@ void gui_get_clipboard_text_for_lookup(GtkClipboard *clipboard,
 	else
 		dict = g_strdup(settings.DictWindowModule);
 
-	main_display_dictionary(dict, key);
+	if (settings.havedict && dict && *dict)
+		main_display_dictionary(dict, key);
+	/* Léxico embebido: siempre disponible sin internet ni módulos extra. */
+	gui_diccionario_mostrar(key);
 
 	if (dict)
 		g_free(dict);

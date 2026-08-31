@@ -31,6 +31,7 @@ struct _settings
 	char *gs_version,	 /* Xiphos version */
 	    *path_to_mods,	/* one-time retrieval */
 	    *MainWindowModule,    /* module to open at program startup  */
+	    *LecturaSyncModule,   /* slave bible in split synchronized view */
 	    *CommWindowModule,    /* module to open at program startup  */
 	    *DictWindowModule,    /* module to open at program startup  */
 	    **parallel_list,      /* strsplit result from xml parallels */
@@ -116,6 +117,8 @@ struct _settings
 	    showsplash,			 /* show splash on program start if true */
 	    showdevotional,		 /* show devotional on program start if true */
 	    showtexts,			 /* show bible texts if true  */
+	    show_lectura_sync,		 /* split synchronized bible view */
+	    show_interlineal,		 /* interlinear Greek/Hebrew view */
 	    showpreview,		 /* show preview pane if true  */
 	    showcomms,			 /* show commentaries if true  */
 	    showdicts,			 /* show dictionaries/lexicons if true */
@@ -201,6 +204,9 @@ struct _settings
 	/* chapter scroll */
 	int chapter_scroll;
 
+	/* split synchronized view: paned position in pixels, 0 = default */
+	int lectura_sync_pos;
+
 	/* auto image resize in com/book/dict */
 	int imageresize;
 
@@ -229,6 +235,16 @@ struct _settings
 
 	/* statusbar setting */
 	int statusbar;
+
+	/* prefer a dark GTK theme */
+	int darktheme;
+
+	/* apariencia: omarchy, claro, oscuro, claroluna, pergamino */
+	char *ui_mode;
+
+	/* distraction-free reading mode: hide sidebar/previewer/tab
+	 * row/nav toolbar, show just the text */
+	int reading_mode;
 
 	/* parallel color alternation */
 	int alternation;

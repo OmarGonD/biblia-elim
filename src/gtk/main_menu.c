@@ -45,9 +45,12 @@
 #include "gui/sidebar.h"
 #include "gui/sidebar_dialog.h"
 #include "gui/search_dialog.h"
+#include "gui/nube_palabras.h"
+#include "gui/diccionario.h"
 #include "gui/tabbed_browser.h"
 #include "gui/utilities.h"
 #include "gui/widgets.h"
+#include "gui/elim_tema.h"
 
 #include "main/lists.h"
 #include "main/sword.h"
@@ -611,7 +614,8 @@ on_quit_activate(GtkMenuItem *menuitem, gpointer user_data)
 	shutdown_frontend();
 	/* shutdown the sword stuff */
 	main_shutdown_backend();
-	gtk_main_quit();
+	if (gtk_main_level() > 0)
+		gtk_main_quit();
 	exit(0);
 }
 
@@ -848,6 +852,12 @@ on_preview_activate(GtkCheckMenuItem *menuitem, gpointer user_data)
 	redisplay_to_realign();
 }
 
+G_MODULE_EXPORT void
+on_reading_mode_activate(GtkCheckMenuItem *menuitem, gpointer user_data)
+{
+	gui_toggle_reading_mode(gtk_check_menu_item_get_active(menuitem));
+}
+
 /******************************************************************************
  * Name
  *  on_show_commentary_activate
@@ -945,6 +955,18 @@ on_advanced_search_activate(GtkMenuItem *menuitem, gpointer user_data)
 }
 
 G_MODULE_EXPORT void
+on_nube_palabras_activate(GtkMenuItem *menuitem, gpointer user_data)
+{
+	gui_nube_palabras_dialog();
+}
+
+G_MODULE_EXPORT void
+on_diccionario_activate(GtkMenuItem *menuitem, gpointer user_data)
+{
+	gui_diccionario_dialog();
+}
+
+G_MODULE_EXPORT void
 on_attach_detach_sidebar_activate(GtkMenuItem *menuitem,
 				  gpointer user_data)
 {
@@ -959,7 +981,7 @@ on_sidebar_showhide_activate(GtkMenuItem *menuitem, gpointer user_data)
 
 GtkWidget *gui_create_main_menu(void)
 {
-	GtkBuilder *gxml = gtk_builder_new();
+	GtkBuilder *gxml = elim_gtk_builder_new();
 	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/xi-menus.gtkbuilder", NULL);
 	g_return_val_if_fail(gxml != NULL, NULL);
 
@@ -983,6 +1005,9 @@ GtkWidget *gui_create_main_menu(void)
 	widgets.side_preview_item =
 	    UI_GET_ITEM(gxml, "show_previewer_in_sidebar");
 	widgets.new_journal_item = UI_GET_ITEM(gxml, "newjournal");
+	widgets.reading_mode_item = UI_GET_ITEM(gxml, "reading_mode");
+	widgets.lectura_sync_item = UI_GET_ITEM(gxml, "lectura_sync");
+	widgets.interlineal_item = UI_GET_ITEM(gxml, "interlineal");
 
 	/* map tab's show state into view menu. */
 	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.viewtexts_item),
@@ -997,6 +1022,16 @@ GtkWidget *gui_create_main_menu(void)
 				       settings.showparatab);
 	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.side_preview_item),
 				       settings.show_previewer_in_sidebar);
+	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.reading_mode_item),
+				       settings.reading_mode);
+	if (widgets.lectura_sync_item)
+		gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.lectura_sync_item),
+					       settings.show_lectura_sync);
+	if (widgets.interlineal_item)
+		gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.interlineal_item),
+					       settings.show_interlineal);
+
+	gui_elim_tema_bind_menu(gxml);
 
 	/* update other status toys */
 	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.linkedtabs_item),

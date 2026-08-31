@@ -1227,7 +1227,7 @@ on_send_list_via_biblesync_advsearch_activate(GtkMenuItem *menuitem,
 GtkWidget *create_results_menu_advsearch(void)
 {
 	GtkWidget *menu;
-	GtkBuilder *gxml = gtk_builder_new();
+	GtkBuilder *gxml = elim_gtk_builder_new();
 	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/xi-menus-popup.gtkbuilder", NULL);
 	g_return_val_if_fail((gxml != NULL), NULL);
 
@@ -1680,7 +1680,7 @@ static void _create_search_dialog(void)
 	_preview_on = TRUE;
 
 /* build the widget */
-	gxml = gtk_builder_new();
+	gxml = elim_gtk_builder_new();
 	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/search-dialog.gtkbuilder", NULL);
 	g_return_if_fail(gxml != NULL);
 

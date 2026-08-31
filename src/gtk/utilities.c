@@ -151,8 +151,9 @@ void utilities_parse_treeview(xmlNodePtr parent, GtkTreeIter *tree_parent,
 	gchar *mod_desc = NULL;
 	gchar *description = NULL;
 	gchar *color = NULL;
-	gtk_tree_model_iter_children(GTK_TREE_MODEL(model), &child,
-				     tree_parent);
+	if (!gtk_tree_model_iter_children(GTK_TREE_MODEL(model), &child,
+					  tree_parent))
+		return;
 	do {
 		gtk_tree_model_get(GTK_TREE_MODEL(model), &child,
 				   COL_CAPTION, &caption,
@@ -309,7 +310,7 @@ void gui_glade_signal_connect_func(const gchar *cb_name, GObject *obj,
 gchar *gui_general_user_file(const char *fname, gboolean critical)
 {
 	static GHashTable *already_found = NULL;
-	gchar *alternative[10];
+	gchar *alternative[16];
 	gchar *file;
 	gint i;
 
@@ -362,6 +363,21 @@ gchar *gui_general_user_file(const char *fname, gboolean critical)
 	    g_build_filename("..", "share", "xiphos", fname, NULL);
 #endif
 	alternative[i++] = g_build_filename(SHARE_DIR, fname, NULL);
+	/* Uninstalled binary lives at <build>/src/gtk/xiphos, three
+	 * levels above the source ui/ directory. Also try two levels
+	 * in case the layout changes. */
+	{
+		gchar *exe_path = g_file_read_link("/proc/self/exe", NULL);
+		if (exe_path) {
+			gchar *exe_dir = g_path_get_dirname(exe_path);
+			alternative[i++] =
+			    g_build_filename(exe_dir, "..", "..", "..", "ui", fname, NULL);
+			alternative[i++] =
+			    g_build_filename(exe_dir, "..", "..", "ui", fname, NULL);
+			g_free(exe_dir);
+			g_free(exe_path);
+		}
+	}
 	alternative[i++] = NULL; /* NULL terminator needed */
 
 	/* select one of the alternatives */
@@ -426,11 +442,13 @@ static void
 language_add_folders(GtkTreeModel *model,
 		     GtkTreeIter iter, gchar **languages)
 {
-	GtkTreeIter iter_iter;
 	GtkTreeIter child_iter;
 	int j;
 
-	(void)gtk_tree_model_iter_children(model, &iter_iter, &iter);
+	if (!languages || !languages[0])
+		return;
+	if (!gtk_tree_store_iter_is_valid(GTK_TREE_STORE(model), &iter))
+		return;
 	for (j = 0; languages[j]; ++j) {
 		gtk_tree_store_append(GTK_TREE_STORE(model), &child_iter,
 				      &iter);
@@ -1121,33 +1139,32 @@ language_make_list(GList *modlist,
 		      language_set[i].count, sizeof(char *), cmpstringp);
 	}
 
-	/* generate tree. */
-	(*add)(GTK_TREE_MODEL(store), text,
-	       language_get_type(LANGSET_BIBLE));
-	(*add)(GTK_TREE_MODEL(store), commentary,
-	       language_get_type(LANGSET_COMMENTARY));
+	/* generate tree — skip empty language sets so we never pass an
+	 * uninitialized GtkTreeIter (folders are only created when
+	 * that module type is present). */
+#define ADD_LANGS(_iter, _set)                                 \
+	do {                                                   \
+		gchar **_l = language_get_type(_set);          \
+		if (_l && _l[0])                               \
+			(*add)(GTK_TREE_MODEL(store), _iter, _l); \
+	} while (0)
+
+	ADD_LANGS(text, LANGSET_BIBLE);
+	ADD_LANGS(commentary, LANGSET_COMMENTARY);
 	if (!limited) {
-		(*add)(GTK_TREE_MODEL(store), map,
-		       language_get_type(LANGSET_MAP));
-		(*add)(GTK_TREE_MODEL(store), image,
-		       language_get_type(LANGSET_IMAGE));
-		(*add)(GTK_TREE_MODEL(store), cult,
-		       language_get_type(LANGSET_CULT));
-		(*add)(GTK_TREE_MODEL(store), devotional,
-		       language_get_type(LANGSET_DEVOTIONAL));
-		(*add)(GTK_TREE_MODEL(store), glossary,
-		       language_get_type(LANGSET_GLOSSARY));
-		(*add)(GTK_TREE_MODEL(store), dictionary,
-		       language_get_type(LANGSET_DICTIONARY));
-		(*add)(GTK_TREE_MODEL(store), book,
-		       language_get_type(LANGSET_GENBOOK));
+		ADD_LANGS(map, LANGSET_MAP);
+		ADD_LANGS(image, LANGSET_IMAGE);
+		ADD_LANGS(cult, LANGSET_CULT);
+		ADD_LANGS(devotional, LANGSET_DEVOTIONAL);
+		ADD_LANGS(glossary, LANGSET_GLOSSARY);
+		ADD_LANGS(dictionary, LANGSET_DICTIONARY);
+		ADD_LANGS(book, LANGSET_GENBOOK);
 		if ((update != NULL) && (uninstalled != NULL)) {
-			(*add)(GTK_TREE_MODEL(store), *update,
-			       language_get_type(LANGSET_UPDATE));
-			(*add)(GTK_TREE_MODEL(store), *uninstalled,
-			       language_get_type(LANGSET_UNINSTALLED));
+			ADD_LANGS(*update, LANGSET_UPDATE);
+			ADD_LANGS(*uninstalled, LANGSET_UNINSTALLED);
 		}
 	}
+#undef ADD_LANGS
 }
 
 /******************************************************************************
@@ -1224,14 +1241,58 @@ GList *get_current_list(GtkTreeView *treeview)
 /*
  * caller must free the returned string.
  */
+GtkBuilder *
+elim_gtk_builder_new(void)
+{
+	GtkBuilder *b = gtk_builder_new();
+#ifdef GETTEXT_PACKAGE
+	gtk_builder_set_translation_domain(b, GETTEXT_PACKAGE);
+#endif
+	return b;
+}
+
 char *image_locator(const char *image)
 {
+	gchar *candidates[16];
+	int n = 0, i;
+	gchar *found = NULL;
+
 #ifndef WIN32
-	return g_strdup_printf("%s/%s", PACKAGE_PIXMAPS_DIR, image);
+	candidates[n++] = g_strdup_printf("%s/%s", PACKAGE_PIXMAPS_DIR, image);
+	candidates[n++] = g_build_filename(g_get_user_data_dir(),
+					   "biblia-elim", "pixmaps", image, NULL);
 #else
-	return g_build_filename(xiphos_win32_get_subdir("share"),
-				"xiphos", image, NULL);
-#endif /* WIN32 */
+	candidates[n++] = g_build_filename(xiphos_win32_get_subdir("share"),
+					   "xiphos", image, NULL);
+#endif
+	{
+		gchar *exe_path = g_file_read_link("/proc/self/exe", NULL);
+		if (exe_path) {
+			gchar *exe_dir = g_path_get_dirname(exe_path);
+			candidates[n++] = g_build_filename(exe_dir, "pixmaps", image, NULL);
+			candidates[n++] = g_build_filename(exe_dir, "..", "share",
+							  "biblia-elim", "pixmaps",
+							  image, NULL);
+			candidates[n++] = g_build_filename(exe_dir, "..", "..", "..",
+							  "pixmaps", image, NULL);
+			candidates[n++] = g_build_filename(exe_dir, "..", "..", "..",
+							  "ui", image, NULL);
+			g_free(exe_dir);
+			g_free(exe_path);
+		}
+	}
+	candidates[n++] = g_build_filename("pixmaps", image, NULL);
+	candidates[n++] = NULL;
+
+	for (i = 0; i < n && candidates[i]; i++) {
+		if (!found && g_file_test(candidates[i], G_FILE_TEST_IS_REGULAR))
+			found = candidates[i];
+		else
+			g_free(candidates[i]);
+	}
+	if (found)
+		return found;
+	return g_strdup_printf("%s/%s", PACKAGE_PIXMAPS_DIR, image);
 }
 
 /*
@@ -1278,68 +1339,18 @@ GdkPixbuf *pixbuf_finder(const char *image, int size, GError **error)
 void
 HtmlOutput(char *text, GtkWidget *gtkText, MOD_FONT *mf, char *anchor)
 {
-	int len = strlen(text);
-
 	XiphosHtml *html = XIPHOS_HTML(gtkText);
+	const gchar *jump;
+
+	(void)mf;
 	XIPHOS_HTML_OPEN_STREAM(html, "text/html");
-
-	// EVIL EVIL EVIL EVIL.
-	// crazy nonsense with xulrunner 1.9.2.3, failure to jump to anchor.
-	// force the issue by stuffing a javascript snippet inside <head></head>.
-	// there are forms of evil so dark that they should not be contemplated.
-	if (anchor || settings.special_anchor) {
-		gchar *buf;
-
-		// first, scribble out everything up to the closing </head>.
-		buf = strstr(text, "</head>"); // yes, lowercase.
-		assert(buf != NULL);	   // don't be so stupid as not to include <head></head>.
-		int offset = buf - text;
-		XIPHOS_HTML_WRITE(html, text, offset);
-		len -= offset;
-
-		// now write the javascript snippet.
-		// escape the anchor for safe interpolation into a JS
-		// string literal.  special_anchor can originate from
-		// untrusted BibleSync navigation packets whose ref
-		// field carries the '#' fragment; without escaping a
-		// crafted value can break out of the string and inject
-		// script into the WebKit view.  g_strescape escapes
-		// backslash, double-quote, and C0 control bytes but
-		// leaves '<', '>', and '/' untouched, so a value of
-		// "</script><script>PAYLOAD</script>" would end the
-		// inline <script> block and start a new one with
-		// attacker-controlled contents.  Substitute '</' with
-		// '<\/' (OWASP recommendation) to neutralise the
-		// breakout.
-		const gchar *raw_anchor =
-		    (settings.special_anchor ? settings.special_anchor : anchor);
-		gchar *esc_anchor = g_strescape(raw_anchor, NULL);
-		gchar *safe_anchor = g_strdup(esc_anchor);
-		gchar *q;
-		for (q = safe_anchor; (q = strstr(q, "</")) != NULL; q += 2)
-			q[1] = '\\';
-		g_free(esc_anchor);
-		buf =
-		    g_strdup_printf("<script type=\"text/javascript\" language=\"javascript\">"
-				    " window.onload = function () { window.location.hash = \"%s\"; }"
-				    " </script>",
-				    safe_anchor);
-		g_free(safe_anchor);
-		XIPHOS_HTML_WRITE(html, buf, strlen(buf));
-		g_free(buf);
-	}
-
-	if (!anchor)
-		XIPHOS_HTML_WRITE(html, text, len);
-
-	/* use anchor if asked, but if so, special anchor takes priority. */
+	XIPHOS_HTML_WRITE(html, text, strlen(text));
 	XIPHOS_HTML_CLOSE(html);
-	if (anchor || settings.special_anchor)
-		XIPHOS_HTML_JUMP_TO_ANCHOR(html, (settings.special_anchor
-						      ? settings.special_anchor
-						      : anchor));
 
-	/* the special anchor gets exactly one use. */
+	jump = settings.special_anchor ? settings.special_anchor : anchor;
+	if (jump && *jump)
+		XIPHOS_HTML_JUMP_TO_ANCHOR(html, (gchar *)jump);
+
 	settings.special_anchor = NULL;
 }
 

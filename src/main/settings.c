@@ -41,6 +41,8 @@
 #include "gui/preferences_dialog.h"
 
 #include "main/lists.h"
+#include "main/lectura_sync.h"
+#include "main/mod_mgr.h"
 #include "main/settings.h"
 #include "main/sword.h"
 #include "main/xml.h"
@@ -67,6 +69,95 @@ SETTINGS settings;
  * static
  */
 static int init_bookmarks(int new_bookmarks);
+static void main_bootstrap_default_modules(void);
+
+/******************************************************************************
+ * Name
+ *   main_bootstrap_default_modules
+ *
+ * Synopsis
+ *   #include "main/settings.h"
+ *
+ *   static void main_bootstrap_default_modules(void)
+ *
+ * Description
+ *   Packagers ship Xiphos with no Bible text at all -- the user has
+ *   always had to run the module manager by hand before there was
+ *   anything to read, and again later just to populate Parallel View.
+ *   On a genuinely fresh install (no modules present yet) we make one
+ *   best-effort, silent attempt to fetch a small default set covering
+ *   Spanish, English, Hebrew and Greek from the CrossWire repository,
+ *   so Xiphos is immediately useful and Parallel View already has
+ *   something to show. Any failure here (no network, source
+ *   unreachable, etc.) is swallowed; settings_init() falls back to the
+ *   normal interactive module manager wizard when this doesn't result
+ *   in at least one Bible being installed.
+ *
+ * Return value
+ *   void
+ */
+
+static void main_bootstrap_default_modules(void)
+{
+	static const char *source_caption = "CrossWire";
+	static const char *default_modules[] = {
+		"KJV",	       /* English, w/ Strong's numbers */
+		"SpaRV",       /* Spanish, Reina-Valera 1909 */
+		"SpaPlatense", /* Spanish, Biblia Platense (Straubinger) */
+		"SpaRVG",      /* Spanish, Reina Valera Gomez */
+		"WLC",	       /* Hebrew, Westminster Leningrad Codex */
+		"Tisch",       /* Greek, Tischendorf 8th ed. GNT */
+		NULL
+	};
+	gchar *conf_path;
+	gchar *dest_dir;
+	int i;
+
+	/* Some distros ship a system-wide /etc/sword.conf whose DataPath
+	 * points at a root-owned, non-writable directory (e.g.
+	 * /usr/share/sword). Sword falls back to that whenever a SWMgr is
+	 * built with no explicit path, so install destinations here are
+	 * always passed explicitly -- this must work identically on any
+	 * machine, regardless of what (if anything) a system sword.conf
+	 * says. */
+	dest_dir = g_strdup_printf("%s/%s", settings.homedir, DOTSWORD);
+
+	conf_path = g_strdup_printf("%s/InstallMgr/InstallMgr.conf", dest_dir);
+	if (g_access(conf_path, F_OK) == -1) {
+		/* Write the config ourselves rather than call
+		 * mod_mgr_init_config(): that helper defaults to an HTTPS
+		 * mirror whose catalog listing works but whose per-file
+		 * module downloads do not on all Sword builds. The plain
+		 * FTP raw mirror is the long-standing, reliably working
+		 * CrossWire source, so use it directly and avoid ending up
+		 * with two ambiguous same-caption sources in one config. */
+		gchar *conf_dir = g_path_get_dirname(conf_path);
+		gchar *contents = g_strdup_printf(
+		    "[General]\n"
+		    "PassiveFTP=true\n"
+		    "\n"
+		    "[Sources]\n"
+		    "FTPSource=%s|ftp.crosswire.org|/pub/sword/raw|||\n",
+		    source_caption);
+		g_mkdir_with_parents(conf_dir, S_IRWXU);
+		g_file_set_contents(conf_path, contents, -1, NULL);
+		g_free(contents);
+		g_free(conf_dir);
+	}
+	g_free(conf_path);
+
+	mod_mgr_init(dest_dir, TRUE, TRUE);
+
+	if (mod_mgr_refresh_remote_source(source_caption) == 0) {
+		for (i = 0; default_modules[i]; ++i)
+			mod_mgr_remote_install(dest_dir, source_caption,
+					       default_modules[i]);
+	}
+
+	mod_mgr_terminate();
+	mod_mgr_shut_down();
+	g_free(dest_dir);
+}
 
 /******************************************************************************
  * Name
@@ -233,6 +324,12 @@ int settings_init(int argc, char **argv, int new_configs,
 
 	/* ensure that the user has a bible with which to work */
 	if (settings.havebible == 0) {
+		/* try a silent, no-questions-asked default install first. */
+		main_bootstrap_default_modules();
+		main_shutdown_list();
+		main_init_lists();
+	}
+	if (settings.havebible == 0) {
 		gui_init(argc, argv);
 		main_shutdown_list();
 		gui_open_mod_mgr_initial_run();
@@ -386,6 +483,17 @@ void load_settings_structure(void)
 		settings.MainWindowModule =
 		    g_strdup(get_list(TEXT_LIST)->data);
 	}
+	if ((settings.LecturaSyncModule =
+		 xml_get_value("modules", "lecturasync")) == NULL) {
+		gchar *def = main_lectura_sync_default_module();
+		if (def) {
+			xml_add_new_item_to_section("modules", "lecturasync", def);
+			settings.LecturaSyncModule =
+			    xml_get_value("modules", "lecturasync");
+			g_free(def);
+		}
+	}
+
 	settings.CommWindowModule = xml_get_value("modules", "comm");
 	settings.DictWindowModule = xml_get_value("modules", "dict");
 
@@ -415,6 +523,39 @@ void load_settings_structure(void)
 			xml_set_new_element("modules", "parallels", parallels);
 		}
 	}
+
+	/* fresh install, still nothing configured: seed Parallel View with
+	 * whichever of our bootstrapped default modules actually made it
+	 * in, so the feature works without a trip to Preferences. */
+	if (settings.first_run && (!parallels || (*parallels == '\0'))) {
+		static const char *preferred[] = {
+			"SpaRV", "SpaPlatense", "SpaRVG",
+			"KJV", "WLC", "Tisch", NULL
+		};
+		GList *installed = get_list(TEXT_LIST);
+		GString *seed = g_string_new("");
+		int i;
+
+		for (i = 0; preferred[i]; ++i) {
+			GList *node;
+			for (node = installed; node; node = node->next) {
+				if (!strcmp((char *)node->data, preferred[i])) {
+					if (seed->len)
+						g_string_append_c(seed, ',');
+					g_string_append(seed, preferred[i]);
+					break;
+				}
+			}
+		}
+
+		if (seed->len) {
+			g_free(parallels);
+			parallels = g_strdup(seed->str);
+			xml_set_new_element("modules", "parallels", parallels);
+		}
+		g_string_free(seed, TRUE);
+	}
+
 	if (parallels && *parallels)
 		settings.parallel_list = g_strsplit(parallels, ",", -1);
 	else
@@ -558,8 +699,15 @@ if (!settings.morph_heb_lex || strlen(settings.morph_heb_lex) == 0) {
 		settings.show_hidden_modules = 0;
 	}
 
-	/* current verse & keys */
+	/* current verse & keys — last place the reader left off.
+	 * First launch (or an empty key) opens any Bible at John 3:16. */
 	settings.currentverse = xml_get_value("keys", "verse");
+	if (settings.first_run || !settings.currentverse ||
+	    !*settings.currentverse) {
+		xml_set_value("Xiphos", "keys", "verse", "John 3:16");
+		settings.currentverse = xml_get_value("keys", "verse");
+		xml_save_settings_doc(settings.fnconfigure);
+	}
 	settings.dictkey = xml_get_value("keys", "dictionary");
 
 	if (xml_get_value("keys", "book")) {
@@ -588,6 +736,13 @@ if (!settings.morph_heb_lex || strlen(settings.morph_heb_lex) == 0) {
 	    atoi((buf = xml_get_value("layout", "shortcutbar"))
 		     ? buf
 		     : "100");
+	if ((buf = xml_get_value("layout", "lecturasyncpos")))
+		settings.lectura_sync_pos = atoi(buf);
+	else {
+		xml_add_new_item_to_section("layout", "lecturasyncpos", "0");
+		settings.lectura_sync_pos = 0;
+	}
+
 	if ((buf = xml_get_value("layout", "vltoppaneheight")))
 		settings.verselist_toppane_height = atoi(buf);
 	else {
@@ -1002,8 +1157,24 @@ if (!settings.morph_heb_lex || strlen(settings.morph_heb_lex) == 0) {
 
 	/*  Misc stuff  */
 
+	settings.reading_mode =
+	    atoi((buf = xml_get_value("misc", "reading_mode")) ? buf : "0");
 	settings.showtexts =
 	    atoi((buf = xml_get_value("misc", "showtexts")) ? buf : "1");
+	/* "Comparar" split-view panel: on-demand only, via the button next
+	 * to "Biblia interlineal" -- always starts closed. Unlike the
+	 * sidebar/previewer this isn't a remembered layout choice, so
+	 * whatever the user left it as last session is deliberately
+	 * ignored here (gui_lectura_sync_set_visible() still writes it to
+	 * disk when toggled, for anything else that cares, but nothing
+	 * reads that back to decide the panel's visibility at startup). */
+	settings.show_lectura_sync = 0;
+	if ((buf = xml_get_value("misc", "show_interlineal")))
+		settings.show_interlineal = atoi(buf);
+	else {
+		xml_add_new_item_to_section("misc", "show_interlineal", "0");
+		settings.show_interlineal = 0;
+	}
 	settings.showcomms =
 	    atoi((buf = xml_get_value("misc", "showcomms")) ? buf : "1");
 	settings.showdicts =
@@ -1032,8 +1203,7 @@ if (!settings.morph_heb_lex || strlen(settings.morph_heb_lex) == 0) {
 		settings.showparatab = 0;
 	}
 
-	settings.showsplash =
-	    atoi((buf = xml_get_value("misc", "splash")) ? buf : "1");
+	settings.showsplash = 0;
 
 	settings.showdevotional =
 	    atoi((buf =
@@ -1171,6 +1341,20 @@ if (!settings.morph_heb_lex || strlen(settings.morph_heb_lex) == 0) {
 	} else {
 		xml_add_new_item_to_section("misc", "statusbar", "1");
 		settings.statusbar = 1;
+	}
+
+	if ((buf = xml_get_value("misc", "darktheme"))) {
+		settings.darktheme = atoi(buf);
+	} else {
+		xml_add_new_item_to_section("misc", "darktheme", "0");
+		settings.darktheme = 0;
+	}
+
+	if ((buf = xml_get_value("misc", "ui_mode"))) {
+		settings.ui_mode = g_strdup(buf);
+	} else {
+		xml_add_new_item_to_section("misc", "ui_mode", "omarchy");
+		settings.ui_mode = g_strdup("omarchy");
 	}
 
 	if ((buf = xml_get_value("misc", "alternation"))) {

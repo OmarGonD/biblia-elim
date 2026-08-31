@@ -58,10 +58,20 @@ struct _tab_page
 
 #include "main/settings.h"
 
+void gui_zoom_base_font(int up);
 void gui_show_hide_texts(int choice);
 void gui_show_hide_preview(int choice);
 void gui_show_hide_comms(int choice);
 void gui_show_hide_dicts(int choice);
+void gui_toggle_reading_mode(int choice);
+
+/* TRUE once create_mainwindow() has finished building the window --
+ * main_init_backend() (main.c) runs right after it returns, so before
+ * this is TRUE `backend` may still be NULL. Anything that might touch
+ * the Sword backend (main_display_bible() and friends) from code that
+ * can also run during window construction (e.g. applying a panel's
+ * saved visibility) must check this first. */
+gboolean gui_main_window_ready(void);
 void gui_set_bible_comm_layout(void);
 void gui_change_window_title(char *module_name);
 void create_mainwindow(void);

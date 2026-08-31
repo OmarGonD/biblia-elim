@@ -240,12 +240,7 @@ static GtkWidget *create_dialog_alert(GS_DIALOG *info)
 #endif
 	}
 
-	dialog_action_area2 =
-#if GTK_CHECK_VERSION(3, 12, 0)
-	    gtk_dialog_get_content_area(GTK_DIALOG(dialog_alert));
-#else
-	    gtk_dialog_get_action_area(GTK_DIALOG(dialog_alert));
-#endif
+	dialog_action_area2 = gtk_dialog_get_action_area(GTK_DIALOG(dialog_alert));
 	gtk_widget_show(dialog_action_area2);
 	gtk_button_box_set_layout(GTK_BUTTON_BOX(dialog_action_area2),
 				  GTK_BUTTONBOX_END);
@@ -614,12 +609,7 @@ static GtkWidget *create_dialog_request(GS_DIALOG *info)
 				 (GtkAttachOptions)(0), 0, 0);
 	}
 #endif
-	dialog_action_area3 =
-#if GTK_CHECK_VERSION(3, 12, 0)
-	    gtk_dialog_get_content_area(GTK_DIALOG(dialog_request));
-#else
-	    gtk_dialog_get_action_area(GTK_DIALOG(dialog_request));
-#endif
+	dialog_action_area3 = gtk_dialog_get_action_area(GTK_DIALOG(dialog_request));
 	gtk_widget_show(dialog_action_area3);
 	gtk_button_box_set_layout(GTK_BUTTON_BOX(dialog_action_area3),
 				  GTK_BUTTONBOX_END);
@@ -750,6 +740,14 @@ void gui_generic_warning_modal(const char *message)
 void gui_generic_warning(const char *message)
 {
 	GtkWidget *dialog;
+
+	/* settings_init() can warn (missing languages file, etc.) before
+	 * gui_init() has called gtk_init. Creating a GtkMessageDialog
+	 * then SIGSEGVs inside GTK's style provider. */
+	if (gdk_display_get_default() == NULL) {
+		g_printerr("Xiphos: %s\n", message ? message : "");
+		return;
+	}
 
 	dialog = gtk_message_dialog_new_with_markup(NULL, /* no need for a parent window */
 						    GTK_DIALOG_DESTROY_WITH_PARENT,

@@ -4,7 +4,7 @@
   <object class="GtkDialog" id="dialog_folder">
     <property name="visible">False</property>
     <property name="can_focus">False</property>
-    <property name="title" translatable="yes">Folder</property>
+    <property name="title" translatable="yes">Carpeta</property>
     <property name="default_width">320</property>
     <property name="default_height">150</property>
     <property name="type_hint">dialog</property>
@@ -63,7 +63,7 @@
               <object class="GtkLabel" id="folder_label_name">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Name:</property>
+                <property name="label" translatable="yes">Nombre:</property>
                 <property name="xalign">0</property>
               </object>
               <packing>
@@ -100,7 +100,7 @@
               <object class="GtkLabel" id="folder_label_color">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Tag color:</property>
+                <property name="label" translatable="yes">Color de etiqueta:</property>
                 <property name="xalign">0</property>
               </object>
               <packing>
@@ -113,7 +113,7 @@
               <object class="GtkColorButton" id="folder_color_button">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="tooltip_text" translatable="yes">Choose a highlight color for this tag group</property>
+                <property name="tooltip_text" translatable="yes">Elige un color de resaltado para este grupo</property>
                 <property name="use_alpha">False</property>
               </object>
               <packing>
@@ -124,10 +124,10 @@
             </child>
             <child>
               <object class="GtkButton" id="folder_clear_color">
-                <property name="label" translatable="yes">No color</property>
+                <property name="label" translatable="yes">Sin color</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="tooltip_text" translatable="yes">Remove tag color from this folder</property>
+                <property name="tooltip_text" translatable="yes">Quitar el color de esta carpeta</property>
               </object>
               <packing>
                 <property name="expand">False</property>

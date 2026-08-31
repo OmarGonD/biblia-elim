@@ -745,7 +745,7 @@ int xml_create_settings_file(char *path)
 	xmlNewTextChild(section_node, NULL, (const xmlChar *)"dictionary",
 			(const xmlChar *)"Grace");
 	xmlNewTextChild(section_node, NULL, (const xmlChar *)"verse",
-			(const xmlChar *)"Romans 8:28");
+			(const xmlChar *)"John 3:16");
 
 	section_node =
 	    xmlNewChild(root_node, NULL, (const xmlChar *)"layout", NULL);

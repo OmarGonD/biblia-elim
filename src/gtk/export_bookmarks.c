@@ -676,7 +676,7 @@ void gui_export_bookmarks_dialog(gint export_type, GList *verses)
 		g_string_printf(name, "%s", _("SearchResults"));
 	}
 
-	builder = gtk_builder_new();
+	builder = elim_gtk_builder_new();
 	gtk_builder_add_from_resource(builder, "/org/xiphos/ui/xi-export-bookmarks.gtkbuilder", NULL);
 
 	dialog =

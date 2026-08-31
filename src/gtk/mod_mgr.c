@@ -2562,7 +2562,8 @@ static void on_dialog_destroy(GObject *object, gpointer user_data)
 
 	if (first_time_user) {
 		/* no deeper analysis, first time around. */
-		gtk_main_quit();
+		if (gtk_main_level() > 0)
+			gtk_main_quit();
 		return;
 	}
 
@@ -3373,11 +3374,7 @@ static void set_combobox(GtkComboBox *combo)
 static void setup_dialog_action_area(GtkDialog *dialog)
 {
 	GtkWidget *dialog_action_area1 =
-#if GTK_CHECK_VERSION(3, 12, 0)
-	    gtk_dialog_get_content_area(GTK_DIALOG(dialog));
-#else
 	    gtk_dialog_get_action_area(GTK_DIALOG(dialog));
-#endif
 
 	gtk_widget_show(dialog_action_area1);
 	gtk_button_box_set_layout(GTK_BUTTON_BOX(dialog_action_area1),
@@ -3498,7 +3495,7 @@ on_comboboxentry_remote_changed(GtkComboBox *combobox, gpointer user_data)
 static GtkWidget *create_module_manager_dialog(gboolean first_run)
 {
 	gchar *ids[] = {"dialog", NULL};
-	gxml = gtk_builder_new();
+	gxml = elim_gtk_builder_new();
 	gtk_builder_add_objects_from_resource(gxml, "/org/xiphos/ui/module-manager.gtkbuilder", ids, NULL);
 	g_return_val_if_fail((gxml != NULL), NULL);
 
@@ -3714,6 +3711,9 @@ void gui_update_install_status(glong total, glong done,
 {
 	gchar *buf;
 
+	if (!progressbar_refresh)
+		return; /* no module manager dialog open (e.g. silent install) */
+
 	buf = g_strdup_printf("%s: %s",
 			      (current_mod ? current_mod : _("[no module]")), message);
 	gui_set_progressbar_text(progressbar_refresh, buf);
@@ -3738,5 +3738,8 @@ void gui_update_install_status(glong total, glong done,
 
 void gui_update_install_progressbar(gdouble fraction)
 {
+	if (!progressbar_refresh)
+		return; /* no module manager dialog open (e.g. silent install) */
+
 	gui_set_progressbar_fraction(progressbar_refresh, fraction);
 }

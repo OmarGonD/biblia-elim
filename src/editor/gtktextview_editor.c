@@ -1273,7 +1273,7 @@ editor_new(const gchar *title, EDITOR *e)
 	/* reuse the existing webkit editor .ui file for now;
 	 * html_widget references will need renaming once a dedicated
 	 * gtk_tvedit.ui is created */
-	builder = gtk_builder_new();
+	builder = elim_gtk_builder_new();
 
 	if (!gtk_builder_add_from_resource(builder, "/org/xiphos/ui/gtk_webedit.ui", &error)) {
 		g_warning("Couldn't load builder file: %s", error->message);

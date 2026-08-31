@@ -43,6 +43,7 @@
 #include "gui/find_dialog.h"
 #include "gui/font_dialog.h"
 #include "gui/about_modules.h"
+#include "gui/interlineal.h"
 
 #include "main/module_dialogs.h"
 #include "main/sword.h"
@@ -599,7 +600,8 @@ G_MODULE_EXPORT void on_strong_s_numbers_activate(GtkCheckMenuItem *
 						      menuitem,
 						  gpointer user_data)
 {
-	_global_option_main_pane((GtkMenuItem *)menuitem, "Strong's Numbers"); /* string not seen by user */
+	(void)user_data;
+	gui_interlineal_set_active(gtk_check_menu_item_get_active(menuitem));
 }
 
 /******************************************************************************
@@ -1683,7 +1685,7 @@ G_MODULE_EXPORT void _add_and_check_global_opts(GtkBuilder *gxml,
 	    (main_check_for_global_option((gchar *)mod_name, "OSISStrongs"))) {
 		gtk_widget_show(item);
 		gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item),
-					       ops->strongs);
+					       settings.show_interlineal != 0);
 	}
 
 	item = UI_GET_ITEM(gxml, "morphological_tags");
@@ -1992,7 +1994,7 @@ static GtkWidget *_create_popup_menu(XiphosHtml *html, const gchar *mod_name,
 	if (!mname || !*mname)
 		return NULL;
 
-	gxml = gtk_builder_new();
+	gxml = elim_gtk_builder_new();
 	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/xi-menus-popup.gtkbuilder", NULL);
 	g_return_val_if_fail((gxml != NULL), NULL);
 

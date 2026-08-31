@@ -28,6 +28,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <glib.h>
+#include <gtk/gtk.h>
 
 #include "gui/dialog.h"
 #include "gui/gui.h"
@@ -36,6 +37,7 @@
 #include "gui/tabbed_browser.h"
 #include "gui/xiphos.h"
 #include "gui/utilities.h"
+#include "gui/elim_tema.h"
 
 #include "main/sword.h"
 #include "main/url.hh"
@@ -334,6 +336,10 @@ int main(int argc, char *argv[])
 
 	gui_init(argc, argv);
 
+	g_object_set(gtk_settings_get_default(),
+		     "gtk-application-prefer-dark-theme",
+		     settings.darktheme, NULL);
+
 	gui_splash_init();
 
 	gui_splash_step(_("Initiating HTML"), 0.0, 0);
@@ -343,9 +349,11 @@ int main(int argc, char *argv[])
 
 	gui_splash_step(_("Building Interface"), 0.2, 0 + base_step);
 	create_mainwindow();
+	gui_elim_tema_init();
 
 	gui_splash_step(_("Starting Sword"), 0.5, 1 + base_step);
 	main_init_backend();
+	gui_elim_tema_marcar_listo();
 
 	gui_splash_step(_("Loading Settings"), 0.8, 2 + base_step);
 	frontend_init();

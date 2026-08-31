@@ -71,13 +71,4 @@ target_link_libraries(xiphos_html
   PkgConfig::Soup
   )
 
-if(WK_FOUND)
-  target_compile_definitions(xiphos_html
-    PRIVATE
-    PkgConfig::WK
-    )
-  target_link_libraries(xiphos_html
-    PRIVATE
-    PkgConfig::WK
-    )
-endif()
+

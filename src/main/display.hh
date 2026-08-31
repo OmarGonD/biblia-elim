@@ -185,6 +185,65 @@ extern "C" {
 
 void markedCacheFill(const gchar *modname, gchar *key);
 
+/* arbitrary text-selection highlights (Kindle-style), separate from the
+ * whole-verse "Mark Verse" annotation system above -- see src/gtk/bibletext.c
+ * for the WebKit selection bridge that drives these. One selection may
+ * span several consecutive verses; the caller (bibletext.c) splits it
+ * into one HighlightSegment per verse touched (usually just one) and
+ * hands the whole list to highlight_create_group(), which ties them
+ * together under one group id so later edits apply to all of them. */
+typedef struct
+{
+	gchar *osisref; /* "Book.C.V" */
+	gchar *text;	/* this verse's portion of the selected text */
+} HighlightSegment;
+
+void highlightCacheFill(const gchar *modname, gchar *key);
+char *highlight_find_overlapping(const gchar *module, const gchar *osisref, const gchar *text);
+char *highlight_create_group(const gchar *module, GList *segments,
+			     const gchar *color);
+void highlight_set_color(const gchar *group_id, const gchar *color);
+void highlight_set_note(const gchar *group_id, const gchar *note);
+void highlight_remove(const gchar *group_id);
+char *highlight_get_color(const gchar *group_id);
+char *highlight_get_note(const gchar *group_id);
+
+typedef struct {
+	gchar *group_id; /* NULL = anotación de versículo entero */
+	gchar *osisref;  /* "Book.C.V" */
+	gchar *text;     /* frase subrayada, o NULL */
+	gchar *note;
+	gchar *color;
+	gchar *note_key; /* "HL:<group_id>" o "MV:<osisref>", identidad estable
+			  * de la nota, usada para enlazarla con otras. */
+	int chapter_verse;
+} HighlightNote;
+
+void highlight_note_free(HighlightNote *n);
+/* osis_prefix NULL = libro actual; "Book.C" = capítulo; "Book.C.V" = versículo. */
+GList *highlight_list_notes(const gchar *osis_prefix);
+int highlight_count_notes(const gchar *osis_prefix);
+int highlight_count_notes_at(int chapter_verse);
+
+/* Notas de versículo completo (sin selección de texto), comparten
+ * almacenamiento con el sistema "Mark Verse" (osisrefmarkedverses). */
+void highlight_set_verse_note(const gchar *module, const gchar *osisref,
+			      const gchar *note);
+char *highlight_get_verse_note(const gchar *module, const gchar *osisref);
+
+/* Identidad estable de una nota, para poder enlazarla con otras. */
+char *highlight_note_key_group(const gchar *group_id);
+char *highlight_note_key_verse(const gchar *osisref);
+/* "Book.C.V" al que corresponde una note_key, sea "HL:" o "MV:". */
+char *highlight_note_key_osisref(const gchar *note_key);
+
+/* Enlaces (no dirigidos) entre notas de distintos versículos. */
+void highlight_link_notes(const gchar *key_a, const gchar *key_b);
+void highlight_unlink_notes(const gchar *key_a, const gchar *key_b);
+/* GList de gchar* note_key enlazadas a `key` (llamador libera con
+ * g_list_free_full(..., g_free)). */
+GList *highlight_list_linked_notes(const gchar *key);
+
 #ifdef __cplusplus
 }
 #endif

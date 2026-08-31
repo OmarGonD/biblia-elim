@@ -34,6 +34,7 @@
 #include "gui/dialog.h"
 #include "gui/xiphos.h"
 #include "gui/preferences_dialog.h"
+#include "gui/elim_tema.h"
 #include "gui/utilities.h"
 #include "gui/gbs.h"
 #include "gui/commentary.h"
@@ -114,6 +115,7 @@ struct _preferences_check_buttons
 	GtkWidget *show_splash_screen;
 	GtkWidget *prayerlist;
 	GtkWidget *statusbar;
+	GtkWidget *darktheme;
 	GtkWidget *alternation;
 	GtkWidget *render_whole_books;
 	GtkWidget *justify_margins;
@@ -1465,6 +1467,14 @@ on_checkbutton_prayerlist_toggled(GtkToggleButton *togglebutton,
  */
 
 void
+on_checkbutton_darktheme_toggled(GtkToggleButton *togglebutton, gpointer user_data)
+{
+	gui_elim_tema_set(gtk_toggle_button_get_active(togglebutton)
+			      ? "oscuro"
+			      : "claro");
+}
+
+void
 on_checkbutton_statusbar_toggled(GtkToggleButton *togglebutton, gpointer user_data)
 {
 	xml_set_value("Xiphos", "misc", "statusbar",
@@ -2435,6 +2445,8 @@ static void setup_check_buttons(void)
 				     settings.prayerlist);
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(check_button.statusbar),
 				     settings.statusbar);
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(check_button.darktheme),
+				     settings.darktheme);
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(check_button.alternation),
 				     settings.alternation);
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(check_button.render_whole_books),
@@ -2519,6 +2531,9 @@ static void setup_check_buttons(void)
 			 NULL);
 	g_signal_connect(check_button.statusbar, "toggled",
 			 G_CALLBACK(on_checkbutton_statusbar_toggled),
+			 NULL);
+	g_signal_connect(check_button.darktheme, "toggled",
+			 G_CALLBACK(on_checkbutton_darktheme_toggled),
 			 NULL);
 	g_signal_connect(check_button.alternation, "toggled",
 			 G_CALLBACK(on_checkbutton_alternation_toggled),
@@ -3194,7 +3209,7 @@ void ps_button_cut(GtkButton *button, gpointer user_data)
  */
 void ps_button_add(GtkButton *button, gpointer user_data)
 {
-	GtkBuilder *gxml = gtk_builder_new();
+	GtkBuilder *gxml = elim_gtk_builder_new();
 	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/selector-prefs.gtkbuilder", NULL);
 	parallel_select.mod_sel_dialog =
 	    UI_GET_ITEM(gxml, "mod_sel_dialog");
@@ -3458,7 +3473,7 @@ static void create_preferences_dialog(void)
 	gint index = 0;
 
 /* build the widget */
-	gxml = gtk_builder_new();
+	gxml = elim_gtk_builder_new();
 	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/prefs.gtkbuilder", NULL);
 	g_return_if_fail(gxml != NULL);
 
@@ -3508,6 +3523,7 @@ static void create_preferences_dialog(void)
 	check_button.xrefs_in_verse_list = UI_GET_ITEM(gxml, "checkbutton_xrefs_in_verse_list");
 	check_button.prayerlist          = UI_GET_ITEM(gxml, "checkbutton_prayerlist");
 	check_button.statusbar           = UI_GET_ITEM(gxml, "checkbutton_statusbar");
+	check_button.darktheme           = UI_GET_ITEM(gxml, "checkbutton_darktheme");
 	check_button.alternation         = UI_GET_ITEM(gxml, "checkbutton_alternation");
 	check_button.render_whole_books  = UI_GET_ITEM(gxml, "checkbutton_render_whole_books");
 

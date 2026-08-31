@@ -27,6 +27,7 @@ src/gtk/commentary_dialog.c
 src/gtk/dialog.c
 src/gtk/dictlex.c
 src/gtk/dictlex_dialog.c
+src/gtk/diccionario.c
 src/gtk/display_info.c
 src/gtk/dummy.cpp
 src/gtk/export_bookmarks.c
@@ -48,6 +49,7 @@ src/gtk/navbar_versekey.c
 src/gtk/navbar_versekey_dialog.c
 src/gtk/navbar_versekey_editor.c
 src/gtk/navbar_versekey_parallel.c
+src/gtk/nube_palabras.c
 src/gtk/parallel_dialog.c
 src/gtk/parallel_tab.c
 src/gtk/parallel_view.c
@@ -65,6 +67,7 @@ src/gtk/xiphos.c
 src/main/biblesync_glue.cc
 src/main/configs.cc
 src/main/display.cc
+src/main/diccionario.cc
 src/main/export_passage.cc
 src/main/global_ops.cc
 src/main/lists.cc
@@ -76,6 +79,7 @@ src/main/navbar.cc
 src/main/navbar_book.cc
 src/main/navbar_book_dialog.cc
 src/main/navbar_versekey.cc
+src/main/nube_palabras.cc
 src/main/parallel_view.cc
 src/main/prayerlists.cc
 src/main/previewer.cc
@@ -107,6 +111,8 @@ ui/module-manager.glade
 [type: gettext/glade]ui/module-manager.gtkbuilder
 ui/navbar_versekey.glade
 [type: gettext/glade]ui/navbar_versekey.gtkbuilder
+[type: gettext/glade]ui/nube-palabras.gtkbuilder
+[type: gettext/glade]ui/diccionario.gtkbuilder
 ui/prefs.glade
 [type: gettext/glade]ui/prefs.gtkbuilder
 ui/search-dialog.glade

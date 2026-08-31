@@ -1,0 +1,654 @@
+/*
+ * Biblia Elim — cromática académica, estilo macOS.
+ * Se superpone al tema del sistema (claro u oscuro).
+ */
+
+@define-color elim_navy #2C4A6E;
+@define-color elim_navy_soft #5B7A9D;
+@define-color elim_ink #1C1917;
+@define-color elim_paper #F7F4EE;
+@define-color elim_panel #EFEAE2;
+@define-color elim_line alpha(#1C1917, 0.10);
+
+* {
+	-gtk-icon-style: symbolic;
+}
+
+window {
+	font-family: "Inter", "SF Pro Text", "Segoe UI Variable", "Cantarell",
+		"Noto Sans", sans-serif;
+	font-size: 10.5pt;
+	letter-spacing: 0.01em;
+}
+
+textview.elim-html,
+textview.elim-html text {
+	background-color: @elim_paper;
+	color: @elim_ink;
+	font-family: "Palatino Linotype", Palatino, Georgia, "Liberation Serif",
+		"Noto Serif", serif;
+	font-size: 12.5pt;
+}
+.elim-dark textview.elim-html,
+.elim-dark textview.elim-html text {
+	background-color: shade(@theme_base_color, 1.04);
+	color: @theme_text_color;
+}
+
+/* ——— Header bar (Mac titlebar) ——— */
+headerbar {
+	min-height: 44px;
+	padding: 2px 10px;
+	background-image: none;
+	background-color: @theme_bg_color;
+	box-shadow: none;
+	border-bottom: 1px solid @elim_line;
+	font-weight: 500;
+}
+headerbar:backdrop {
+	background-image: none;
+	opacity: 0.96;
+}
+headerbar .title {
+	font-size: 11pt;
+	font-weight: 600;
+	letter-spacing: 0.01em;
+}
+headerbar .subtitle {
+	font-size: 8.5pt;
+	opacity: 0.62;
+	font-weight: 400;
+}
+headerbar button {
+	border-radius: 8px;
+	box-shadow: none;
+	min-height: 28px;
+	padding: 2px 8px;
+}
+headerbar button:hover,
+headerbar button:active {
+	box-shadow: none;
+}
+headerbar button.circular {
+	border-radius: 999px;
+	min-width: 28px;
+	padding: 0;
+}
+headerbar button.reading-mode {
+	min-width: 32px;
+	min-height: 32px;
+}
+headerbar button.reading-mode:checked {
+	background-color: alpha(@elim_navy, 0.16);
+}
+.elim-dark headerbar button.reading-mode:checked {
+	background-color: alpha(#E6C989, 0.22);
+}
+button.reading-exit {
+	min-width: 40px;
+	min-height: 40px;
+	background-image: none;
+	background-color: alpha(@theme_bg_color, 0.92);
+	border: 1px solid alpha(@elim_navy, 0.22);
+	box-shadow: 0 1px 8px alpha(#000, 0.16);
+}
+button.reading-exit:hover,
+button.reading-exit:checked {
+	background-image: none;
+	background-color: @theme_bg_color;
+}
+.elim-dark button.reading-exit {
+	background-color: alpha(#1A1610, 0.88);
+	border-color: alpha(#E6C989, 0.28);
+}
+.elim-dark button.reading-exit:hover,
+.elim-dark button.reading-exit:checked {
+	background-color: #1A1610;
+}
+
+headerbar menubar {
+	background: transparent;
+	box-shadow: none;
+	padding: 0;
+	margin: 0 4px 0 0;
+}
+headerbar menubar > menuitem {
+	border-radius: 8px;
+	padding: 4px 10px;
+	margin: 0 1px;
+	font-weight: 500;
+}
+
+/* ——— Menus / popovers ——— */
+menu,
+.menu {
+	border-radius: 10px;
+	padding: 4px;
+	border: 1px solid @elim_line;
+}
+menuitem {
+	border-radius: 6px;
+	padding: 6px 12px;
+	min-height: 22px;
+}
+popover {
+	border-radius: 12px;
+	padding: 4px;
+}
+popover.background {
+	box-shadow: 0 8px 28px alpha(black, 0.18);
+	border: 1px solid @elim_line;
+}
+
+/* ——— Buttons, entries, combos ——— */
+button {
+	border-radius: 8px;
+	box-shadow: none;
+	min-height: 28px;
+}
+button:hover {
+	box-shadow: none;
+}
+button.elim-pill,
+button.elim-pill:checked {
+	border-radius: 999px;
+	padding: 4px 16px;
+	font-weight: 600;
+	letter-spacing: 0.03em;
+	font-size: 9.5pt;
+}
+button.elim-pill:checked {
+	background-image: none;
+	background-color: @elim_navy;
+	color: white;
+	border-color: transparent;
+}
+button.elim-greek {
+	min-width: 34px;
+	min-height: 28px;
+	padding: 0 8px;
+}
+button.elim-greek label {
+	font-family: "Palatino Linotype", Palatino, "Noto Serif",
+		"Liberation Serif", serif;
+	font-size: 16pt;
+	font-weight: 600;
+	padding: 0;
+}
+button.elim-vtools {
+	min-width: 22px;
+	min-height: 18px;
+	padding: 1px 4px;
+	border-radius: 4px;
+	opacity: 0.72;
+}
+button.elim-vtools:hover {
+	opacity: 1;
+	background-image: none;
+	background-color: alpha(@elim_navy, 0.14);
+}
+
+/* ——— Interlineal académico (Forward / Reverse) ——— */
+.il-table {
+	border-radius: 6px;
+	margin: 4px 0 10px 0;
+	padding: 0;
+	background-image: none;
+}
+.il-tabs {
+	padding: 2px 6px 0 6px;
+	background-image: none;
+}
+button.il-tab {
+	background-image: none;
+	background-color: transparent;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+	padding: 7px 16px 6px 16px;
+	font-size: 9.5pt;
+	letter-spacing: 0.05em;
+	font-weight: 600;
+	min-height: 28px;
+	opacity: 1;
+}
+button.il-origbtn,
+button.il-origbtn:hover,
+button.il-origbtn:active,
+button.il-strong,
+button.il-strong:hover,
+button.il-strong:active {
+	background-image: none;
+	background-color: transparent;
+	border: none;
+	box-shadow: none;
+	padding: 0 2px;
+	min-height: 0;
+	min-width: 0;
+}
+button.il-strong,
+button.il-strong label {
+	font-family: "Liberation Serif", "Noto Serif", serif;
+	font-size: 11pt;
+	font-weight: 700;
+	letter-spacing: 0.03em;
+}
+.il-pie {
+	font-size: 8.5pt;
+	font-style: italic;
+	opacity: 0.85;
+}
+.il-table.il-dark .il-pie {
+	color: #D2C094;
+}
+.il-table.il-light .il-pie {
+	color: #5A4A30;
+}
+.il-hdr {
+	padding: 8px 12px 6px 12px;
+}
+.il-hdr-cell {
+	font-size: 8.5pt;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	opacity: 1;
+}
+.il-row {
+	padding: 9px 12px;
+}
+.il-es {
+	font-size: 11pt;
+	font-weight: 600;
+}
+.il-phrase {
+	font-size: 7.5pt;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	color: #FFFFFF;
+	border-radius: 8px;
+	padding: 1px 7px;
+	margin-top: 2px;
+}
+.il-forma,
+.il-forma-he {
+	font-size: 14pt;
+	font-weight: 600;
+}
+.il-forma {
+	font-family: "Noto Serif", "Liberation Serif", serif;
+}
+.il-forma-he {
+	font-family: "Noto Serif Hebrew", "Noto Serif", serif;
+}
+.il-raiz {
+	font-family: "Noto Serif", "Noto Serif Hebrew", serif;
+	font-size: 10.5pt;
+	opacity: 1;
+}
+.il-trans {
+	font-family: "Liberation Serif", "Noto Serif", serif;
+	font-size: 10pt;
+	font-style: italic;
+	letter-spacing: 0.02em;
+	opacity: 1;
+}
+.il-morph {
+	font-size: 8.5pt;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	border-radius: 11px;
+	padding: 3px 9px;
+	opacity: 1;
+}
+
+/* Claro: tinta oscura sobre papel */
+.il-table.il-light,
+.il-table.il-light .il-tabs,
+.il-table.il-light .il-rows,
+.il-table.il-light .il-hdr {
+	background-image: none;
+	background-color: #F7F1E3;
+	color: #1A140C;
+	border-color: #C4B08A;
+}
+.il-table.il-light {
+	border: 1px solid #C4B08A;
+}
+.il-table.il-light .il-tabs {
+	border-bottom: 1px solid #D2C19A;
+}
+.il-table.il-light .il-hdr {
+	border-bottom: 1px solid #D2C19A;
+}
+.il-table.il-light .il-row {
+	border-top: 1px solid #E2D4B4;
+	background-color: #F7F1E3;
+}
+.il-table.il-light .il-row-alt {
+	background-color: #EEE4CC;
+}
+.il-table.il-light .il-hdr-cell {
+	color: #4A3A22;
+}
+.il-table.il-light button.il-tab {
+	color: #6A5738;
+}
+.il-table.il-light button.il-tab:checked,
+.il-table.il-light button.il-tab.il-tab-active {
+	color: #1A140C;
+	box-shadow: inset 0 -2px 0 #2C4A6E;
+}
+.il-table.il-light .il-es {
+	color: #1A140C;
+}
+.il-table.il-light button.il-strong,
+.il-table.il-light button.il-strong label {
+	color: #5A1878;
+}
+.il-table.il-light .il-forma,
+.il-table.il-light .il-forma-he {
+	color: #1A140C;
+}
+.il-table.il-light .il-raiz {
+	color: #3D2E16;
+}
+.il-table.il-light .il-trans {
+	color: #5A4A30;
+}
+.il-table.il-light .il-morph {
+	color: #2A2218;
+	border: 1px solid #8A7348;
+	background-color: #EDE3C8;
+}
+.il-table.il-light .il-phrase {
+	background-color: #2C4A6E;
+}
+
+/* Oscuro: crema sobre carbón (nunca tinta clara sobre pergamino) */
+.il-table.il-dark,
+.il-table.il-dark .il-tabs,
+.il-table.il-dark .il-rows,
+.il-table.il-dark .il-hdr {
+	background-image: none;
+	background-color: #1C1914;
+	color: #F6EBD4;
+}
+.il-table.il-dark {
+	border: 1px solid #7A6848;
+}
+.il-table.il-dark .il-tabs {
+	border-bottom: 1px solid #5A4C34;
+}
+.il-table.il-dark .il-hdr {
+	border-bottom: 1px solid #5A4C34;
+}
+.il-table.il-dark .il-row {
+	border-top: 1px solid #3A3228;
+	background-color: #1C1914;
+}
+.il-table.il-dark .il-row-alt {
+	background-color: #262119;
+}
+.il-table.il-dark .il-hdr-cell {
+	color: #E6D3A4;
+}
+.il-table.il-dark button.il-tab {
+	color: #C8B48A;
+}
+.il-table.il-dark button.il-tab:checked,
+.il-table.il-dark button.il-tab.il-tab-active {
+	color: #FFF6DC;
+	box-shadow: inset 0 -2px 0 #E6C989;
+}
+.il-table.il-dark .il-es {
+	color: #F7F0E2;
+}
+.il-table.il-dark button.il-strong,
+.il-table.il-dark button.il-strong label {
+	color: #E8B8FF;
+}
+.il-table.il-dark .il-forma,
+.il-table.il-dark .il-forma-he {
+	color: #FFEFC8;
+}
+.il-table.il-dark .il-raiz {
+	color: #E0CC96;
+}
+.il-table.il-dark .il-trans {
+	color: #D2C094;
+}
+.il-table.il-dark .il-morph {
+	color: #F4E6C4;
+	border: 1px solid #B89A62;
+	background-color: #2E281E;
+}
+.il-table.il-dark .il-phrase {
+	background-color: #4A6A8A;
+}
+
+entry,
+combobox,
+combobox > box,
+combobox button,
+spinbutton,
+spinbutton entry {
+	border-radius: 8px;
+	box-shadow: none;
+	min-height: 28px;
+}
+entry:focus {
+	box-shadow: 0 0 0 2px alpha(@elim_navy, 0.28);
+	border-color: @elim_navy;
+}
+
+/* ——— Sidebar ——— */
+.elim-sidebar {
+	background-color: shade(@theme_bg_color, 0.94);
+	border-right: 1px solid @elim_line;
+	padding: 4px 0;
+}
+.elim-sidebar treeview,
+.elim-sidebar treeview.view {
+	background: transparent;
+	padding: 2px 6px;
+}
+.elim-sidebar button {
+	border-radius: 8px;
+	margin: 2px 8px;
+}
+
+treeview {
+	border-radius: 6px;
+}
+treeview.view row {
+	padding: 5px 8px;
+}
+treeview.view:selected,
+treeview.view:selected:focus {
+	border-radius: 8px;
+	background-color: alpha(@elim_navy, 0.88);
+	color: white;
+}
+
+/* ——— Navigation bar ——— */
+.elim-navbar {
+	background-color: @theme_bg_color;
+	border-bottom: 1px solid @elim_line;
+	padding: 6px 12px;
+}
+.elim-navbar button {
+	border-radius: 8px;
+	min-width: 28px;
+}
+.elim-navbar entry {
+	font-variant: small-caps;
+	letter-spacing: 0.03em;
+	font-weight: 500;
+}
+
+/* ——— Tabs ——— */
+.elim-tabs,
+notebook {
+	background: transparent;
+}
+notebook > header {
+	background: transparent;
+	border: none;
+	padding: 4px 8px 0 8px;
+}
+notebook > header tab {
+	border-radius: 8px;
+	box-shadow: none;
+	border: none;
+	margin: 2px 3px;
+	padding: 6px 12px;
+	min-height: 22px;
+	font-weight: 500;
+}
+notebook > header tab:checked {
+	background-image: none;
+	background-color: alpha(@elim_navy, 0.14);
+	box-shadow: none;
+}
+notebook > header.bottom tab {
+	border-radius: 8px;
+	margin: 2px 4px 4px 4px;
+	font-size: 9pt;
+	letter-spacing: 0.04em;
+	font-weight: 600;
+}
+
+/* Passage tabs strip */
+.elim-tabstrip {
+	padding: 2px 6px 0 6px;
+	border-bottom: 1px solid @elim_line;
+	background-color: @theme_bg_color;
+}
+
+/* ——— Panes ——— */
+paned > separator {
+	background-color: @elim_line;
+	background-image: none;
+	min-width: 1px;
+	min-height: 1px;
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+paned > separator:hover {
+	background-color: alpha(@elim_navy, 0.35);
+}
+
+/* ——— Scrollbars (overlay-like) ——— */
+scrollbar {
+	background-color: transparent;
+	border: none;
+	min-width: 10px;
+	min-height: 10px;
+}
+scrollbar slider {
+	border-radius: 8px;
+	min-width: 8px;
+	min-height: 8px;
+	background-color: alpha(currentColor, 0.22);
+	border: none;
+	margin: 2px;
+}
+scrollbar slider:hover {
+	background-color: alpha(currentColor, 0.38);
+}
+
+/* ——— Tooltips ——— */
+tooltip {
+	border-radius: 8px;
+	padding: 6px 10px;
+	font-size: 9.5pt;
+	box-shadow: 0 4px 16px alpha(black, 0.16);
+}
+
+/* ——— Dialogs ——— */
+dialog,
+messagedialog {
+	border-radius: 12px;
+}
+dialog .titlebar,
+messagedialog .titlebar {
+	background-image: none;
+	border-radius: 12px 12px 0 0;
+}
+
+/* Kindle-style selection toolbar */
+popover.highlight-toolbar {
+	border-radius: 12px;
+	padding: 4px;
+}
+popover.highlight-toolbar button {
+	min-width: 30px;
+	min-height: 30px;
+	border-radius: 8px;
+}
+/* Color swatch: keep a true circle; do not inherit the 30x30 rounded square. */
+popover.highlight-toolbar button.highlight-swatch,
+button.highlight-swatch {
+	min-width: 22px;
+	min-height: 22px;
+	padding: 1px;
+	border: none;
+	border-radius: 11px;
+	background: none;
+	background-image: none;
+	box-shadow: none;
+	outline-style: none;
+}
+
+/* Interlinear / compare bars */
+.elim-toolbar-strip {
+	background-color: transparent;
+	padding: 4px 10px;
+}
+
+/* Dark variant: slightly cooler ink, keep the same geometry */
+.elim-dark headerbar,
+.elim-dark .elim-navbar,
+.elim-dark .elim-tabstrip {
+	border-color: alpha(white, 0.08);
+}
+.elim-dark .elim-sidebar {
+	background-color: shade(@theme_bg_color, 1.08);
+	border-color: alpha(white, 0.08);
+}
+.elim-dark notebook > header tab:checked {
+	background-color: alpha(@elim_navy_soft, 0.28);
+}
+.elim-dark button.elim-pill:checked {
+	background-color: @elim_navy_soft;
+	color: @elim_ink;
+}
+.elim-dark entry:focus {
+	box-shadow: 0 0 0 2px alpha(@elim_navy_soft, 0.35);
+	border-color: @elim_navy_soft;
+}
+.elim-dark treeview.view:selected,
+.elim-dark treeview.view:selected:focus {
+	background-color: alpha(@elim_navy_soft, 0.75);
+}
+
+/* Claro luna: papel plateado, tinta de noche */
+.elim-luna headerbar,
+.elim-luna .elim-navbar,
+.elim-luna .elim-tabstrip {
+	border-color: alpha(#243044, 0.12);
+}
+.elim-luna .elim-sidebar {
+	background-color: #dce4ee;
+}
+
+/* Pergamino */
+.elim-pergamino headerbar,
+.elim-pergamino .elim-navbar,
+.elim-pergamino .elim-tabstrip {
+	border-color: alpha(#3D2B1F, 0.14);
+}
+.elim-pergamino .elim-sidebar {
+	background-color: #ead9b4;
+}

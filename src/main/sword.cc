@@ -41,6 +41,7 @@ extern "C" {
 #ifndef _WIN32
 #include <langinfo.h>
 #endif
+#include "xiphos_html/xiphos_html.h"
 #include "gui/main_window.h"
 #include "gui/font_dialog.h"
 #include "gui/widgets.h"
@@ -65,6 +66,8 @@ extern "C" {
 #include "main/previewer.h"
 #include "main/settings.h"
 #include "main/sidebar.h"
+#include "main/lectura_sync.h"
+#include "main/interlineal.h"
 #include "main/sword.h"
 #include "main/url.hh"
 #include "main/xml.h"
@@ -693,35 +696,49 @@ void main_init_language_map()
 	gchar *mapspace;
 	size_t length;
 
-	if ((language_file = gui_general_user_file("languages", FALSE)) == NULL) {
-		gui_generic_warning(_("Xiphos's file for language\nabbreviations is missing."));
-		return;
-	}
-	XI_message(("%s", language_file));
-
-	if ((language = g_fopen(language_file, "r")) == NULL) {
-		gui_generic_warning(_("Xiphos's language abbreviation\nfile cannot be opened."));
+	language_file = gui_general_user_file("languages", FALSE);
+	if (language_file) {
+		XI_message(("%s", language_file));
+		if ((language = g_fopen(language_file, "r")) == NULL) {
+			gui_generic_warning(_("Xiphos's language abbreviation\nfile cannot be opened."));
+			g_free(language_file);
+			return;
+		}
 		g_free(language_file);
-		return;
-	}
-	g_free(language_file);
-	(void)fseek(language, 0L, SEEK_END);
-	length = ftell(language);
-	rewind(language);
+		(void)fseek(language, 0L, SEEK_END);
+		length = ftell(language);
+		rewind(language);
 
-	if ((length == 0) ||
-	    (mapspace = (gchar *)g_malloc(length + 2)) == NULL) {
+		if ((length == 0) ||
+		    (mapspace = (gchar *)g_malloc(length + 2)) == NULL) {
+			fclose(language);
+			gui_generic_warning(_("Xiphos cannot allocate space\nfor language abbreviations."));
+			return;
+		}
+		if (fread(mapspace, 1, length, language) != length) {
+			fclose(language);
+			g_free(mapspace);
+			gui_generic_warning(_("Xiphos cannot read the\nlanguage abbreviation file."));
+			return;
+		}
 		fclose(language);
-		gui_generic_warning(_("Xiphos cannot allocate space\nfor language abbreviations."));
-		return;
+	} else {
+		/* Uninstalled runs: the languages file is compiled into the
+		 * binary as /org/xiphos/ui/languages (see xiphos.gresource.xml). */
+		GBytes *bytes = g_resources_lookup_data("/org/xiphos/ui/languages",
+							G_RESOURCE_LOOKUP_FLAGS_NONE, NULL);
+		gsize n = 0;
+		const gchar *data;
+		if (!bytes) {
+			gui_generic_warning(_("Xiphos's file for language\nabbreviations is missing."));
+			return;
+		}
+		data = (const gchar *)g_bytes_get_data(bytes, &n);
+		mapspace = (gchar *)g_malloc(n + 2);
+		memcpy(mapspace, data, n);
+		length = n;
+		g_bytes_unref(bytes);
 	}
-	if (fread(mapspace, 1, length, language) != length) {
-		fclose(language);
-		g_free(mapspace);
-		gui_generic_warning(_("Xiphos cannot read the\nlanguage abbreviation file."));
-		return;
-	}
-	fclose(language);
 	end = length + mapspace;
 	*end = '\0';
 
@@ -1286,10 +1303,47 @@ void main_display_dictionary(const char *mod_name,
 			      settings.showdicts);
 }
 
+static gboolean
+osis_same_chapter(const char *mod, const char *ka, const char *kb)
+{
+	gchar *a, *b, *da, *db;
+	gboolean same;
+
+	if (!mod || !ka || !kb || !*ka || !*kb)
+		return FALSE;
+	a = g_strdup(main_get_osisref_from_key(mod, ka));
+	b = g_strdup(main_get_osisref_from_key(mod, kb));
+	if (!a || !b) {
+		g_free(a);
+		g_free(b);
+		return FALSE;
+	}
+	da = strrchr(a, '.');
+	db = strrchr(b, '.');
+	if (da)
+		*da = '\0';
+	if (db)
+		*db = '\0';
+	same = (strcmp(a, b) == 0);
+	g_free(a);
+	g_free(b);
+	return same;
+}
+
+static gboolean bible_pane_is_interlinear = FALSE;
+
+void
+main_bible_note_interlinear_html(void)
+{
+	bible_pane_is_interlinear = TRUE;
+}
+
 void main_display_bible(const char *mod_name,
 			const char *key)
 {
 	gchar *bs_key = g_strdup(key);	// avoid tab data corruption problem.
+	gchar *prev_verse;
+	gboolean in_place;
 
 	/* keeps us out of a crash causing loop */
 	extern guint scroll_adj_signal;
@@ -1316,12 +1370,29 @@ void main_display_bible(const char *mod_name,
 	if (!settings.MainWindowModule)
 		settings.MainWindowModule = g_strdup((gchar *)mod_name);
 
+	prev_verse = settings.currentverse ? g_strdup(settings.currentverse) : NULL;
+	{
+		GtkTextView *tv = widgets.html_text
+				      ? wk_html_get_view(WK_HTML(widgets.html_text))
+				      : NULL;
+		GtkTextBuffer *buf = tv ? gtk_text_view_get_buffer(tv) : NULL;
+		gboolean has_text = buf && gtk_text_buffer_get_char_count(buf) > 40;
+
+		in_place = has_text &&
+			   !bible_pane_is_interlinear &&
+			   settings.MainWindowModule &&
+			   !strcmp(settings.MainWindowModule, mod_name) &&
+			   osis_same_chapter(mod_name, prev_verse, key);
+	}
+
 	if (strcmp(settings.currentverse, key)) {
 		xml_set_value("Xiphos", "keys", "verse",
 			      key);
 		settings.currentverse = xml_get_value(
 		    "keys", "verse");
 	}
+	if (main_interlineal_quizas_plegar(settings.currentverse))
+		bible_pane_is_interlinear = TRUE;
 
 	if (strcmp(settings.MainWindowModule, mod_name)) {
 		xml_set_value("Xiphos", "modules", "bible", mod_name);
@@ -1382,8 +1453,12 @@ void main_display_bible(const char *mod_name,
 	if (backend->module_has_testament(mod_name,
 					  backend->get_key_testament(mod_name, key))) {
 		backend->set_module_key(mod_name, key);
-		backend->display_mod->display();
+		if (!in_place) {
+			backend->display_mod->display();
+			bible_pane_is_interlinear = FALSE;
+		}
 	} else {
+		in_place = FALSE;
 		gchar *val_key = NULL;
 
 		if (backend->get_key_testament(mod_name, key) == 1)
@@ -1393,6 +1468,7 @@ void main_display_bible(const char *mod_name,
 
 		backend->set_module_key(mod_name, val_key);
 		backend->display_mod->display();
+		bible_pane_is_interlinear = FALSE;
 		g_free(val_key);
 	}
 
@@ -1431,6 +1507,12 @@ void main_display_bible(const char *mod_name,
 	if (!settings.bs_keyboard)
 		biblesync_prep_and_xmit(mod_name, bs_key);
 	g_free(bs_key);
+
+	main_lectura_sync_actualizar();
+	main_interlineal_actualizar();
+	if (in_place || !settings.show_lectura_sync)
+		gui_bibletext_mark_current_verse();
+	g_free(prev_verse);
 
 	if (adjustment)
 		g_signal_handler_unblock(adjustment, scroll_adj_signal);

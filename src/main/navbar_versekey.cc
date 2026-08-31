@@ -27,6 +27,7 @@
 
 #include "main/module_dialogs.h"
 #include "main/navbar_versekey.h"
+#include "main/interlineal.h"
 #include "main/settings.h"
 #include "main/sword.h"
 #include "main/xml.h"
@@ -88,10 +89,20 @@ const char *main_get_valid_key(const char *module_name, const char *key)
  *   void
  */
 
+static gboolean
+navbar_main_locked(NAVBAR_VERSEKEY navbar)
+{
+	return navbar.lookup_entry == navbar_versekey.lookup_entry &&
+	       main_interlineal_bloquea_navegacion();
+}
+
 void main_navbar_versekey_spin_book(NAVBAR_VERSEKEY navbar, int direction)
 {
 	char *tmpkey = NULL;
 	int book;
+
+	if (navbar_main_locked(navbar))
+		return;
 
 	if (!navbar.module_name->len)
 		return;
@@ -137,6 +148,9 @@ void main_navbar_versekey_spin_chapter(NAVBAR_VERSEKEY navbar, int direction)
 	char *tmpkey = NULL;
 	int chapter;
 
+	if (navbar_main_locked(navbar))
+		return;
+
 	if (!navbar.module_name->len)
 		return;
 
@@ -181,6 +195,9 @@ void main_navbar_versekey_spin_verse(NAVBAR_VERSEKEY navbar, int direction)
 
 	char *tmpkey = NULL;
 	int verse;
+
+	if (navbar_main_locked(navbar))
+		return;
 
 	if (!navbar.module_name->len)
 		return;
@@ -258,6 +275,8 @@ static void on_nt_book_menu_select(GtkMenuItem *menuitem, gpointer user_data)
 		entry = c_editor->navbar.lookup_entry;
 		break;
 	}
+	if (c_type == NB_MAIN && main_interlineal_bloquea_navegacion())
+		return;
 
 	if (entry) {
 		SWModule *mod = backend->get_SWModule(name);
@@ -328,6 +347,8 @@ static void on_ot_book_menu_select(GtkMenuItem *menuitem, gpointer user_data)
 		entry = c_editor->navbar.lookup_entry;
 		break;
 	}
+	if (c_type == NB_MAIN && main_interlineal_bloquea_navegacion())
+		return;
 
 	if (entry) {
 		SWModule *mod = backend->get_SWModule(name);
@@ -398,6 +419,8 @@ static void on_chapter_menu_select(GtkMenuItem *menuitem, gpointer user_data)
 		entry = c_editor->navbar.lookup_entry;
 		break;
 	}
+	if (c_type == NB_MAIN && main_interlineal_bloquea_navegacion())
+		return;
 	if (entry) {
 		SWModule *mod = backend->get_SWModule(name);
 		if (mod) {
@@ -466,6 +489,8 @@ static void on_verse_menu_select(GtkMenuItem *menuitem, gpointer user_data)
 		entry = c_editor->navbar.lookup_entry;
 		break;
 	}
+	if (c_type == NB_MAIN && main_interlineal_bloquea_navegacion())
+		return;
 	if (entry) {
 		SWModule *mod = backend->get_SWModule(name);
 		if (mod) {

@@ -49,8 +49,51 @@ void gui_init(int argc, char *argv[])
 		return;
 	gui_init_done = TRUE;
 
+	g_set_prgname("biblia-elim");
+	g_set_application_name("Biblia Elim");
+
 #ifdef ENABLE_NLS
+#ifndef WIN32
+	/* Prefer the translations staged next to an uninstalled dev build
+	 * (<build-dir>/locale/<lang>/LC_MESSAGES/xiphos.mo, see
+	 * po/CMakeLists.txt) over PACKAGE_LOCALE_DIR (an install prefix
+	 * such as /usr/local/share/locale) when it exists. Without this,
+	 * running xiphos straight out of the build tree without "make
+	 * install" always shows English, regardless of the system locale,
+	 * because PACKAGE_LOCALE_DIR is empty until installed. */
+	{
+		gchar *exe_path = g_file_read_link("/proc/self/exe", NULL);
+		gchar *chosen = NULL;
+		gchar *cands[4];
+		int i, nc = 0;
+
+		cands[nc++] = g_build_filename(g_get_user_data_dir(), "locale", NULL);
+		if (exe_path) {
+			gchar *exe_dir = g_path_get_dirname(exe_path);
+			cands[nc++] = g_build_filename(exe_dir, "..", "share",
+						      "locale", NULL);
+			cands[nc++] = g_build_filename(exe_dir, "..", "..",
+						      "locale", NULL);
+			g_free(exe_dir);
+			g_free(exe_path);
+		}
+		for (i = 0; i < nc; i++) {
+			gchar *probe = g_build_filename(cands[i], "es",
+						       "LC_MESSAGES",
+						       GETTEXT_PACKAGE ".mo", NULL);
+			if (!chosen && g_file_test(probe, G_FILE_TEST_IS_REGULAR))
+				chosen = cands[i];
+			else
+				g_free(cands[i]);
+			g_free(probe);
+		}
+		bindtextdomain(GETTEXT_PACKAGE,
+			       chosen ? chosen : PACKAGE_LOCALE_DIR);
+		g_free(chosen);
+	}
+#else
 	bindtextdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
+#endif
 	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
 	textdomain(GETTEXT_PACKAGE);
 #endif
@@ -67,6 +110,21 @@ void gui_init(int argc, char *argv[])
 	if (!gtk_init_with_args(&argc, &argv, NULL, NULL, NULL, NULL)) {
 		exit(1);
 	};
+
+	g_object_set(gtk_settings_get_default(),
+		     "gtk-overlay-scrolling", TRUE,
+		     NULL);
+
+	{
+		GtkCssProvider *css_provider = gtk_css_provider_new();
+		gtk_css_provider_load_from_resource(css_provider,
+						    "/org/xiphos/ui/xiphos-style.css");
+		gtk_style_context_add_provider_for_screen(
+		    gdk_screen_get_default(),
+		    GTK_STYLE_PROVIDER(css_provider),
+		    GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+		g_object_unref(css_provider);
+	}
 #ifdef HAVE_DBUS
 	ipc = ipc_init_dbus_connection(ipc);
 #endif

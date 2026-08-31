@@ -97,6 +97,7 @@ void language_make_list(GList *modlist,
 GList *get_current_list(GtkTreeView *treeview);
 gchar *get_modlist_string(GList *mods);
 
+GtkBuilder *elim_gtk_builder_new(void);
 char *image_locator(const char *image);
 GtkWidget *pixmap_finder(char *image);
 GdkPixbuf *pixbuf_finder(const char *image, int size,

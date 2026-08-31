@@ -37,6 +37,7 @@
 #endif
 
 #include "editor/link_dialog.h"
+#include "gui/utilities.h"
 
 #include "main/url.hh"
 #include "main/sword.h"
@@ -188,7 +189,10 @@ void editor_link_dialog(EDITOR *e)
 #endif
 #endif
 
-	builder = gtk_builder_new_from_resource("/org/xiphos/ui/editor_link_dialog.gtkbuilder");
+	builder = elim_gtk_builder_new();
+	gtk_builder_add_from_resource(builder,
+				      "/org/xiphos/ui/editor_link_dialog.gtkbuilder",
+				      NULL);
 
 	window = GTK_WIDGET(gtk_builder_get_object(builder, "dialog1"));
 	set_window_icon(GTK_WINDOW(window));

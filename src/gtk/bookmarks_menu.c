@@ -600,7 +600,7 @@ G_MODULE_EXPORT void on_edit_item_activate(GtkMenuItem *menuitem,
 	if (!key || !*key) {
 
 		/* --- Folder: use the dedicated folder dialog --- */
-		GtkBuilder *gxml = gtk_builder_new();
+		GtkBuilder *gxml = elim_gtk_builder_new();
 		gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/folder.gtkbuilder", NULL);
 		GtkWidget *dialog  = GTK_WIDGET(UI_GET_ITEM(gxml, "dialog_folder"));
 		GtkWidget *entry   = GTK_WIDGET(UI_GET_ITEM(gxml, "folder_entry_name"));
@@ -1016,7 +1016,7 @@ G_MODULE_EXPORT void on_new_folder_activate(GtkMenuItem *menuitem,
 	if (!gtk_tree_selection_get_selected(current_selection, NULL, &selected))
 		return;
 
-	GtkBuilder *gxml = gtk_builder_new();
+	GtkBuilder *gxml = elim_gtk_builder_new();
 	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/folder.gtkbuilder", NULL);
 
 	GtkWidget *dialog     = GTK_WIDGET(UI_GET_ITEM(gxml, "dialog_folder"));
@@ -1179,7 +1179,7 @@ G_MODULE_EXPORT void on_set_tag_color_activate(GtkMenuItem *menuitem,
 
 void gui_create_bookmark_menu(void)
 {
-	GtkBuilder *gxml = gtk_builder_new();
+	GtkBuilder *gxml = elim_gtk_builder_new();
 	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/xi-menus-popup.gtkbuilder", NULL);
 	g_return_if_fail((gxml != NULL));
 

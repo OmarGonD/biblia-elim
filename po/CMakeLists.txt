@@ -66,6 +66,32 @@ if (GETTEXT_FOUND)
 
   add_dependencies(xiphos process-pot-file )
 
+  # Also stage the freshly-compiled .gmo files into
+  # <build-dir>/locale/<lang>/LC_MESSAGES/xiphos.mo -- the same layout
+  # gettext expects at runtime -- so that running xiphos straight out of
+  # the build tree (without "make install") still finds translations.
+  # See gui_init() in src/gtk/gui.c, which prefers this directory over
+  # the compiled-in PACKAGE_LOCALE_DIR when it exists.
+  #
+  # Implemented as a POST_BUILD step on the existing process-pot-file
+  # target (defined in this same directory, so the TARGET form of
+  # add_custom_command is allowed here) rather than as a new
+  # OUTPUT/DEPENDS custom command: adding another dependency edge into
+  # gettext_process_pot_file's own per-language .po/.gmo generation
+  # graph caused a real parallel-build race (two rules touching the
+  # same build/po/<lang>.po at once, truncating it).
+  foreach (lang ${langs})
+    add_custom_command(TARGET process-pot-file POST_BUILD
+      COMMAND ${CMAKE_COMMAND} -E make_directory
+              "${CMAKE_BINARY_DIR}/locale/${lang}/LC_MESSAGES"
+      COMMAND ${CMAKE_COMMAND} -E copy_if_different
+              "${CMAKE_CURRENT_BINARY_DIR}/${lang}.gmo"
+              "${CMAKE_BINARY_DIR}/locale/${lang}/LC_MESSAGES/${PROJECT_NAME}.mo"
+      COMMENT "Staging ${lang} translation for uninstalled dev runs"
+      VERBATIM
+      )
+  endforeach()
+
 
   # Custom targets for updating translation files
   # NOTE: these targets will update files in the source tree

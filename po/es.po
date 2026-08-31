@@ -5520,6 +5520,42 @@ msgstr "Eliminar éste elemento"
 msgid "Edit this item"
 msgstr "Editar éste elemento"
 
+#: biblia-elim
+msgid "Import AndBible"
+msgstr "Importar AndBible"
+
+msgid "Select AndBible bookmarks backup (.sqlite3)"
+msgstr "Seleccionar copia de marcadores de AndBible (.sqlite3)"
+
+msgid "AndBible backup (*.sqlite3)"
+msgstr "Copia de AndBible (*.sqlite3)"
+
+msgid ""
+"An 'Import AndBible' folder already exists "
+"and will be replaced by this import. "
+"Continue?"
+msgstr ""
+"Ya existe una carpeta «Importar AndBible» y se sustituirá con esta "
+"importación. ¿Continuar?"
+
+msgid "Remove from Favorites"
+msgstr "Quitar de favoritos"
+
+msgid "Add to Favorites"
+msgstr "Añadir a favoritos"
+
+msgid "Show this module"
+msgstr "Mostrar este módulo"
+
+msgid "Hide this module"
+msgstr "Ocultar este módulo"
+
+msgid "Open in Detached Window"
+msgstr "Abrir en ventana aparte"
+
+msgid "Open in New Tab"
+msgstr "Abrir en pestaña nueva"
+
 #, c-format
 #~ msgid "Page %d of %d"
 #~ msgstr "Página %d de %d"

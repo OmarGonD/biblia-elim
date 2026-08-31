@@ -555,23 +555,16 @@ static void create_pixbufs(void)
 	bm_pixbufs->pixbuf_helpdoc =
 	    pixbuf_finder("epiphany-bookmark-page.png", 0, NULL);
 
-	if (!bm_pixbufs->pixbuf_helpdoc)
-#ifdef USE_GTK_3
+	if (!bm_pixbufs->pixbuf_helpdoc) {
+		GtkIconTheme *theme = gtk_icon_theme_get_default();
 		bm_pixbufs->pixbuf_helpdoc =
-#if GTK_CHECK_VERSION(3, 10, 0)
-		    GDK_PIXBUF(gtk_image_new_from_icon_name("gtk-dnd",
-							    GTK_ICON_SIZE_BUTTON));
-#else
-		    gtk_widget_render_icon_pixbuf(widgets.app,
-						  GTK_STOCK_DND,
-						  GTK_ICON_SIZE_MENU);
-#endif
-
-#else
-		bm_pixbufs->pixbuf_helpdoc = gtk_widget_render_icon(widgets.app,
-								    GTK_STOCK_DND,
-								    GTK_ICON_SIZE_MENU, NULL);
-#endif
+		    gtk_icon_theme_load_icon(theme, "text-x-generic", 16,
+					     (GtkIconLookupFlags)0, NULL);
+		if (!bm_pixbufs->pixbuf_helpdoc)
+			bm_pixbufs->pixbuf_helpdoc =
+			    gtk_icon_theme_load_icon(theme, "document-new", 16,
+						     (GtkIconLookupFlags)0, NULL);
+	}
 }
 
 /******************************************************************************
@@ -1045,8 +1038,8 @@ static void debug_dump_recursive(GtkTreeIter *parent, int depth)
 void bookmark_debug_dump_colors(void)
 {
 	GtkTreeIter root;
-	if (!gtk_tree_model_get_iter_first(GTK_TREE_MODEL(model), &root)) {
-	}
+	if (!model || !gtk_tree_model_get_iter_first(GTK_TREE_MODEL(model), &root))
+		return;
 	debug_dump_recursive(&root, 0);
 }
 
