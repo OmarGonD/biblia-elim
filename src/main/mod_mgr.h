@@ -101,6 +101,7 @@ void mod_mgr_init(const char *dir,
 		  gboolean augment, gboolean regular);
 void mod_mgr_shut_down(void);
 void mod_mgr_terminate(void);
+void main_ensure_remote_sources(void);
 
 #ifdef __cplusplus
 }

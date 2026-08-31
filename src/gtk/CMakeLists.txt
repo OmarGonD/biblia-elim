@@ -152,6 +152,7 @@ add_executable (xiphos
   gbs_dialog.c
   gui.c
   interlineal.c
+  instalar_biblias.c
   lectura_sync.c
   main_menu.c
   main_window.c

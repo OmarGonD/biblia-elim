@@ -39,6 +39,7 @@
 #include "gui/xiphos.h"
 #include "gui/main_window.h"
 #include "gui/main_menu.h"
+#include "gui/instalar_biblias.h"
 #include "gui/mod_mgr.h"
 #include "gui/preferences_dialog.h"
 #include "gui/parallel_tab.h"
@@ -923,7 +924,7 @@ on_show_dictionary_lexicon_activate(GtkCheckMenuItem *menuitem,
 G_MODULE_EXPORT void
 on_module_manager_activate(GtkMenuItem *menuitem, gpointer user_data)
 {
-	gui_open_mod_mgr();
+	gui_instalar_biblias();
 }
 
 /******************************************************************************

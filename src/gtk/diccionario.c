@@ -319,7 +319,8 @@ crear_dialogo(void)
 	ui->tree = UI_GET_ITEM(gxml, "tree_comentarios");
 	ui->box_comentarios = UI_GET_ITEM(gxml, "box_comentarios");
 
-	gtk_window_set_transient_for(GTK_WINDOW(ui->dialog), GTK_WINDOW(widgets.app));
+	gui_prepare_floating_dialog(GTK_WINDOW(ui->dialog),
+				    widgets.app ? GTK_WINDOW(widgets.app) : NULL);
 
 	ui->html = GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, VIEWER_TYPE));
 	gtk_widget_show(ui->html);

@@ -1895,8 +1895,9 @@ static void _create_search_dialog(void)
 	if ((settings.advsearch_y < 0) || (settings.advsearch_y > 2000))
 		settings.advsearch_y = 40;
 
-	gtk_window_move(GTK_WINDOW(search1.dialog), settings.advsearch_x,
-			settings.advsearch_y);
+	if (!gui_display_is_wayland())
+		gtk_window_move(GTK_WINDOW(search1.dialog), settings.advsearch_x,
+				settings.advsearch_y);
 }
 
 /******************************************************************************

@@ -51,6 +51,9 @@ void gui_init(int argc, char *argv[])
 
 	g_set_prgname("biblia-elim");
 	g_set_application_name("Biblia Elim");
+	/* Prefer native Wayland on Hyprland/Omarchy; fall back to X11. */
+	if (!g_getenv("GDK_BACKEND"))
+		gdk_set_allowed_backends("wayland,x11");
 
 #ifdef ENABLE_NLS
 #ifndef WIN32
@@ -113,6 +116,7 @@ void gui_init(int argc, char *argv[])
 
 	g_object_set(gtk_settings_get_default(),
 		     "gtk-overlay-scrolling", TRUE,
+		     "gtk-enable-animations", TRUE,
 		     NULL);
 
 	{

@@ -109,7 +109,6 @@ static void main_bootstrap_default_modules(void)
 		"Tisch",       /* Greek, Tischendorf 8th ed. GNT */
 		NULL
 	};
-	gchar *conf_path;
 	gchar *dest_dir;
 	int i;
 
@@ -122,29 +121,9 @@ static void main_bootstrap_default_modules(void)
 	 * says. */
 	dest_dir = g_strdup_printf("%s/%s", settings.homedir, DOTSWORD);
 
-	conf_path = g_strdup_printf("%s/InstallMgr/InstallMgr.conf", dest_dir);
-	if (g_access(conf_path, F_OK) == -1) {
-		/* Write the config ourselves rather than call
-		 * mod_mgr_init_config(): that helper defaults to an HTTPS
-		 * mirror whose catalog listing works but whose per-file
-		 * module downloads do not on all Sword builds. The plain
-		 * FTP raw mirror is the long-standing, reliably working
-		 * CrossWire source, so use it directly and avoid ending up
-		 * with two ambiguous same-caption sources in one config. */
-		gchar *conf_dir = g_path_get_dirname(conf_path);
-		gchar *contents = g_strdup_printf(
-		    "[General]\n"
-		    "PassiveFTP=true\n"
-		    "\n"
-		    "[Sources]\n"
-		    "FTPSource=%s|ftp.crosswire.org|/pub/sword/raw|||\n",
-		    source_caption);
-		g_mkdir_with_parents(conf_dir, S_IRWXU);
-		g_file_set_contents(conf_path, contents, -1, NULL);
-		g_free(contents);
-		g_free(conf_dir);
-	}
-	g_free(conf_path);
+	/* Seed CrossWire, eBible, IBT, STEP and HTTPS mirrors without
+	 * wiping any repositories the user already added. */
+	main_ensure_remote_sources();
 
 	mod_mgr_init(dest_dir, TRUE, TRUE);
 
@@ -321,6 +300,10 @@ int settings_init(int argc, char **argv, int new_configs,
 		xml_free_settings_doc();
 	}
 	xml_parse_settings_file(settings.fnconfigure);
+
+	/* Merge official remote repositories into InstallMgr.conf so
+	 * existing users pick up eBible/HTTPS/etc. without a reset. */
+	main_ensure_remote_sources();
 
 	/* ensure that the user has a bible with which to work */
 	if (settings.havebible == 0) {

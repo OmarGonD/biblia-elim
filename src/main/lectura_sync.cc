@@ -74,16 +74,106 @@ main_lectura_sync_default_module(void)
 	return NULL;
 }
 
-/* Renders just the one verse `key_text` points at -- not the whole
- * chapter with it marked -- since this pane's whole job is "show me
- * this specific verse's equivalent in the other version", following
- * whatever verse is focused (centered) in the main pane above. */
+static const char *
+desc_de_modulo(const char *name)
+{
+	GList *b = get_list(TEXT_LIST);
+	GList *d = get_list(TEXT_DESC_LIST);
+
+	for (; b; b = b->next, d = d ? d->next : NULL) {
+		if (b->data && name && !strcmp((const char *)b->data, name))
+			return (d && d->data) ? (const char *)d->data : name;
+	}
+	return name ? name : "";
+}
+
+typedef struct {
+	const char *head_bg;
+	const char *head_fg;
+	const char *row_bg;
+	const char *row_fg;
+} BandaCmp;
+
+static const BandaCmp bandas_oscuro[] = {
+	{"#3D3428", "#F6EBD4", "#2C261C", "#F6EBD4"},
+	{"#243044", "#E8EEF4", "#1C2430", "#E8EEF4"},
+	{"#24382C", "#E8F4EC", "#1C2822", "#E8F4EC"},
+	{"#382434", "#F4E8F0", "#281C26", "#F4E8F0"},
+};
+
+static const BandaCmp bandas_claro[] = {
+	{"#E4D4A8", "#1A140C", "#F6EEDC", "#1A140C"},
+	{"#C8D6E6", "#1A2430", "#E8EEF4", "#1A2430"},
+	{"#C8E0D0", "#1A281C", "#E8F2EA", "#1A281C"},
+	{"#E4CCD8", "#28141E", "#F4E8EE", "#28141E"},
+};
+
+static void
+append_un_versiculo(GString *html, const char *mod_name, const char *key_text,
+		    int slot)
+{
+	SWModule *mod;
+	VerseKey *vk;
+	SWBuf saved;
+	const char *plain;
+	gchar *esc, *de;
+	int v;
+	const BandaCmp *b;
+
+	if (slot < 0)
+		slot = 0;
+	if (slot > 3)
+		slot = 3;
+	b = settings.darktheme ? &bandas_oscuro[slot] : &bandas_claro[slot];
+
+	if (!mod_name || !*mod_name || !backend->is_module(mod_name)) {
+		g_string_append_printf(html,
+				       "<p class=\"miss\">%s</p>",
+				       _("Módulo no disponible."));
+		return;
+	}
+	mod = backend->get_SWModule(mod_name);
+	if (!mod)
+		return;
+	saved = mod->getKey()->getText();
+	vk = (VerseKey *)mod->createKey();
+	vk->setAutoNormalize(1);
+	vk->setText(key_text);
+	v = vk->getVerse();
+	mod->setKey(*vk);
+	delete vk;
+
+	de = g_markup_escape_text(desc_de_modulo(mod_name), -1);
+	g_string_append_printf(html,
+			       "<p class=\"modh\" style=\"background-color:%s;color:%s\">%s</p>",
+			       b->head_bg, b->head_fg, de);
+	g_free(de);
+
+	plain = mod->stripText();
+	if (plain && *plain) {
+		esc = esc_con_saltos(plain);
+		g_string_append_printf(html,
+				       "<p class=\"cur\" style=\"background-color:%s;color:%s\">"
+				       "<span class=\"v\">%d</span> %s</p>",
+				       b->row_bg, b->row_fg, v, esc);
+		g_free(esc);
+	} else {
+		g_string_append_printf(html,
+				       "<p class=\"miss\" style=\"background-color:%s;color:%s\">%s</p>",
+				       b->row_bg, b->row_fg,
+				       _("Este versículo no está en esta versión."));
+	}
+	mod->setKeyText(saved.c_str());
+}
+
+/* Renders the focused verse in every Comparar version (up to 4). */
 static void
 lectura_sync_render_for(const char *key_text)
 {
-	gchar *bg, *fg, *vnum, *hl_bg, *hl_fg;
-	int pct;
-	const char *plain;
+	gchar *bg, *fg;
+	gchar **mods;
+	int pct, i;
+	gboolean any = FALSE;
 
 	if (!settings.show_lectura_sync)
 		return;
@@ -94,31 +184,14 @@ lectura_sync_render_for(const char *key_text)
 	if (!widgets.html_lectura_sync ||
 	    !gtk_widget_get_realized(widgets.html_lectura_sync))
 		return;
-	if (!settings.LecturaSyncModule || !key_text)
-		return;
-	if (!backend->is_module(settings.LecturaSyncModule))
-		return;
-
-	SWModule *mod = backend->get_SWModule(settings.LecturaSyncModule);
-	if (!mod)
+	if (!key_text)
 		return;
 
 	gui_lectura_sync_rellenar_combo();
 	gui_lectura_sync_set_ref(key_text);
 
-	SWBuf saved = mod->getKey()->getText();
-	VerseKey *vk = (VerseKey *)mod->createKey();
-	vk->setAutoNormalize(1);
-	vk->setText(key_text);
-	int v = vk->getVerse();
-	mod->setKey(*vk);
-	delete vk;
-
 	bg = css_color(settings.bible_bg_color, "#ffffff");
 	fg = css_color(settings.bible_text_color, "#222222");
-	vnum = css_color(settings.bible_verse_num_color, "#888888");
-	hl_bg = css_color(settings.highlight_bg, "#fff3bf");
-	hl_fg = css_color(settings.highlight_fg, "#111111");
 
 	pct = 100 + settings.base_font_size * 12;
 	if (pct < 85)
@@ -130,43 +203,51 @@ lectura_sync_render_for(const char *key_text)
 	g_string_append_printf(html,
 			       "<html><head><meta charset=\"utf-8\"/>"
 			       "<style>"
-			       "body{margin:0;padding:16px;background:%s;color:%s;"
+			       "body{margin:0;padding:10px 12px;background:%s;color:%s;"
 			       "font-family:'Noto Serif','DejaVu Serif','Liberation Serif',serif;"
-			       "font-size:%d%%;line-height:1.6;}"
-			       ".v{color:%s;font-size:.72em;font-weight:700;"
-			       "vertical-align:super;padding-right:.4em;}"
-			       /* deliberately bolder than plain body text --
-			        * matches the reading-focus highlight above. */
-			       "p.cur{background:%s;color:%s;font-weight:600;"
-			       "font-size:1.12em;border-radius:6px;"
-			       "box-shadow:inset 3px 0 0 %s;padding:10px 12px;margin:0;}"
+			       "font-size:%d%%;line-height:1.5;}"
+			       "p.modh{font-family:'Noto Sans','DejaVu Sans',sans-serif;"
+			       "font-size:.78em;font-weight:700;letter-spacing:.05em;"
+			       "padding:7px 12px;margin:8px 0 0;}"
+			       "p.modh:first-child{margin-top:0;}"
+			       ".v{font-size:.72em;font-weight:700;"
+			       "vertical-align:super;padding-right:.4em;opacity:.8;}"
+			       "p.cur{font-weight:500;padding:10px 12px;margin:0 0 6px;}"
+			       "p.miss{opacity:.7;padding:10px 12px;margin:0 0 6px;}"
 			       "</style></head><body>",
-			       bg, fg, pct, vnum,
-			       hl_bg, hl_fg, hl_fg);
+			       bg, fg, pct);
 
-	plain = mod->stripText();
-	if (plain && *plain) {
-		gchar *esc = esc_con_saltos(plain);
-		g_string_append_printf(html,
-				       "<p class=\"cur\"><span class=\"v\">%d</span> %s</p>",
-				       v, esc);
-		g_free(esc);
-	} else {
-		g_string_append(html,
-				"<p style=\"opacity:.65\">"
-				"Este versículo no está en esta versión.</p>");
+	mods = settings.LecturaSyncModule
+		   ? g_strsplit(settings.LecturaSyncModule, ",", 4)
+		   : NULL;
+	for (i = 0; mods && mods[i]; i++) {
+		int j;
+		gboolean dup = FALSE;
+
+		g_strstrip(mods[i]);
+		if (!mods[i][0])
+			continue;
+		for (j = 0; j < i; j++) {
+			if (mods[j] && !strcmp(mods[j], mods[i])) {
+				dup = TRUE;
+				break;
+			}
+		}
+		if (dup)
+			continue;
+		append_un_versiculo(html, mods[i], key_text, i);
+		any = TRUE;
 	}
+	g_strfreev(mods);
+	if (!any)
+		g_string_append_printf(html, "<p class=\"miss\">%s</p>",
+				       _("Elige una o más Biblias para comparar este versículo."));
 
 	g_string_append(html, "</body></html>");
-	mod->setKeyText(saved.c_str());
-
 	HtmlOutput(html->str, widgets.html_lectura_sync, NULL, NULL);
 	g_string_free(html, TRUE);
 	g_free(bg);
 	g_free(fg);
-	g_free(vnum);
-	g_free(hl_bg);
-	g_free(hl_fg);
 }
 
 void

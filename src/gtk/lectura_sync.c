@@ -15,6 +15,7 @@
 #endif
 
 #include <string.h>
+#include <strings.h>
 
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
@@ -22,6 +23,8 @@
 #include "gui/bibletext.h"
 #include "gui/lectura_sync.h"
 #include "gui/main_window.h"
+#include "gui/instalar_biblias.h"
+#include "gui/mod_mgr.h"
 #include "gui/utilities.h"
 #include "gui/widgets.h"
 
@@ -36,7 +39,13 @@
 
 #include "gui/debug_glib_null.h"
 
-static gulong combo_changed_id = 0;
+#define LSYNC_MAX 4
+
+static gulong combo_changed_id[LSYNC_MAX];
+static GtkWidget *combo_slot[LSYNC_MAX];
+static GtkWidget *slot_box[LSYNC_MAX];
+static GtkWidget *btn_add = NULL;
+static GtkWidget *btn_install = NULL;
 static gboolean paned_positioned = FALSE;
 static gboolean ignore_pos = FALSE;
 static gboolean ficha_strongs = FALSE;
@@ -99,108 +108,176 @@ n_textos(void)
 	return n;
 }
 
-static void
-lectura_sync_fill_combo(void)
+static gchar **
+lsync_split(void)
 {
-	GtkComboBoxText *combo;
-	GList *bibles;
-	GList *descs;
-	const gchar *saved;
-	const gchar *master;
-	gint index = 0;
-	gint active = 0;
-	gboolean known = FALSE;
-	gboolean skip_master;
-	gint n;
+	gchar **raw, **out;
+	int i, n = 0;
 
-	if (!widgets.combo_lectura_sync)
-		return;
+	if (!settings.LecturaSyncModule || !*settings.LecturaSyncModule)
+		return g_new0(gchar *, 1);
+	raw = g_strsplit(settings.LecturaSyncModule, ",", LSYNC_MAX);
+	out = g_new0(gchar *, LSYNC_MAX + 1);
+	for (i = 0; raw && raw[i] && n < LSYNC_MAX; i++) {
+		g_strstrip(raw[i]);
+		if (raw[i][0])
+			out[n++] = g_strdup(raw[i]);
+	}
+	g_strfreev(raw);
+	return out;
+}
 
-	combo = GTK_COMBO_BOX_TEXT(widgets.combo_lectura_sync);
-	if (combo_changed_id)
-		g_signal_handler_block(combo, combo_changed_id);
+static void
+lsync_save(gchar **names)
+{
+	GString *s = g_string_new(NULL);
+	int i;
+
+	for (i = 0; names && names[i]; i++) {
+		if (!names[i][0])
+			continue;
+		if (s->len)
+			g_string_append_c(s, ',');
+		g_string_append(s, names[i]);
+	}
+	xml_set_or_create_value("modules", "lecturasync",
+				s->len ? s->str : "");
+	settings.LecturaSyncModule = xml_get_value("modules", "lecturasync");
+	g_string_free(s, TRUE);
+}
+
+static void
+lsync_save_from_ui(void)
+{
+	gchar *names[LSYNC_MAX + 1];
+	int i, n = 0;
+
+	memset(names, 0, sizeof(names));
+	for (i = 0; i < LSYNC_MAX; i++) {
+		const gchar *id;
+		int j;
+		gboolean dup = FALSE;
+		if (!combo_slot[i] || !slot_box[i] ||
+		    !gtk_widget_get_visible(slot_box[i]))
+			continue;
+		id = gtk_combo_box_get_active_id(GTK_COMBO_BOX(combo_slot[i]));
+		if (!id || !*id)
+			continue;
+		for (j = 0; j < n; j++) {
+			if (!strcmp(names[j], id)) {
+				dup = TRUE;
+				break;
+			}
+		}
+		if (!dup)
+			names[n++] = (gchar *)id;
+	}
+	lsync_save(n ? names : NULL);
+}
+
+static void
+fill_one_combo(GtkComboBoxText *combo, const char *selected,
+	       gchar **already, int n_already)
+{
+	GList *bibles = get_list(TEXT_LIST);
+	GList *descs = get_list(TEXT_DESC_LIST);
+	int index = 0, active = 0, fallback = -1;
+	gboolean found = FALSE;
 
 	gtk_combo_box_text_remove_all(combo);
-
-	n = n_textos();
-	master = settings.MainWindowModule;
-	skip_master = (n > 1 && master && *master);
-
-	bibles = get_list(TEXT_LIST);
-	descs = get_list(TEXT_DESC_LIST);
-
-	if (settings.LecturaSyncModule && master &&
-	    !strcmp(settings.LecturaSyncModule, master) && skip_master)
-		settings.LecturaSyncModule = NULL;
-
-	for (GList *l = bibles; l; l = l->next) {
-		const char *nm = (const char *)l->data;
-		if (!nm)
-			continue;
-		if (skip_master && !strcmp(nm, master))
-			continue;
-		if (settings.LecturaSyncModule &&
-		    !strcmp(nm, settings.LecturaSyncModule)) {
-			known = TRUE;
-			break;
-		}
-	}
-	if (!settings.LecturaSyncModule || !known) {
-		gchar *def = main_lectura_sync_default_module();
-		if (def) {
-			xml_set_or_create_value("modules", "lecturasync", def);
-			settings.LecturaSyncModule =
-			    xml_get_value("modules", "lecturasync");
-			g_free(def);
-		}
-	}
-
-	saved = settings.LecturaSyncModule;
 	for (GList *l = bibles, *d = descs; l; l = l->next, d = d ? d->next : NULL) {
 		const char *name = (const char *)l->data;
 		const char *desc = d ? (const char *)d->data : NULL;
 		gchar *label;
+		int j;
+		gboolean taken = FALSE;
 
 		if (!name)
 			continue;
-		if (skip_master && !strcmp(name, master))
-			continue;
+		for (j = 0; j < n_already; j++) {
+			if (already[j] && !strcmp(already[j], name)) {
+				taken = TRUE;
+				break;
+			}
+		}
 		label = label_corto(desc, name);
 		gtk_combo_box_text_append(combo, name, label);
 		g_free(label);
-		if (saved && !strcmp(name, saved))
+		if (selected && !strcmp(name, selected)) {
 			active = index;
+			found = TRUE;
+		}
+		if (!taken && fallback < 0)
+			fallback = index;
 		index++;
 	}
-
 	if (index > 0)
-		gtk_combo_box_set_active(GTK_COMBO_BOX(combo), active);
+		gtk_combo_box_set_active(GTK_COMBO_BOX(combo),
+					 found ? active
+					       : (fallback >= 0 ? fallback : 0));
+}
 
-	if (saved) {
-		gchar *tip = g_strdup_printf(
-		    _("Comparar con %s. Se sincroniza al versículo de arriba."),
-		    saved);
-		gtk_widget_set_tooltip_text(widgets.combo_lectura_sync, tip);
-		g_free(tip);
+static void
+lsync_apply_slot_visibility(int nslots)
+{
+	int i, unused = 0;
+	GList *b;
+
+	if (nslots < 1)
+		nslots = 1;
+	if (nslots > LSYNC_MAX)
+		nslots = LSYNC_MAX;
+	for (i = 0; i < LSYNC_MAX; i++) {
+		if (slot_box[i])
+			gtk_widget_set_visible(slot_box[i], i < nslots);
+		if (combo_slot[i])
+			gtk_widget_set_hexpand(combo_slot[i], nslots == 1);
 	}
+	for (b = get_list(TEXT_LIST); b; b = b->next)
+		if (b->data)
+			unused++;
+	if (btn_add)
+		gtk_widget_set_visible(btn_add, nslots < LSYNC_MAX && unused > nslots);
+}
 
+static void
+lectura_sync_fill_combo(void)
+{
+	gchar **names;
+	const gchar *master;
+	int i, nslots = 1;
+
+	if (!combo_slot[0])
+		return;
+	master = settings.MainWindowModule;
+	names = lsync_split();
+	if (!names[0]) {
+		gchar *def = main_lectura_sync_default_module();
+		g_strfreev(names);
+		names = g_new0(gchar *, 2);
+		names[0] = def ? def : g_strdup(master ? master : "");
+		lsync_save(names);
+	}
+	for (i = 0; names[i] && i < LSYNC_MAX; i++) {
+		if (combo_changed_id[i])
+			g_signal_handler_block(combo_slot[i], combo_changed_id[i]);
+		fill_one_combo(GTK_COMBO_BOX_TEXT(combo_slot[i]), names[i],
+			       names, i);
+		if (combo_changed_id[i])
+			g_signal_handler_unblock(combo_slot[i], combo_changed_id[i]);
+		nslots = i + 1;
+	}
+	lsync_apply_slot_visibility(nslots);
 	if (btn_swap)
 		gtk_widget_set_sensitive(btn_swap,
-					 n > 1 && saved && master &&
-					     strcmp(saved, master) != 0);
-
-	if (combo_changed_id)
-		g_signal_handler_unblock(combo, combo_changed_id);
+					 n_textos() > 1 && names[0] && master &&
+					     strcmp(names[0], master) != 0);
+	g_strfreev(names);
 }
 
 void
 gui_lectura_sync_rellenar_combo(void)
 {
-	if (last_master && settings.MainWindowModule &&
-	    !strcmp(last_master, settings.MainWindowModule) &&
-	    widgets.combo_lectura_sync &&
-	    gtk_combo_box_get_active_id(GTK_COMBO_BOX(widgets.combo_lectura_sync)))
-		return;
 	g_free(last_master);
 	last_master = g_strdup(settings.MainWindowModule);
 	lectura_sync_fill_combo();
@@ -219,18 +296,91 @@ gui_lectura_sync_set_ref(const char *ref)
 static void
 on_combo_lectura_sync_changed(GtkComboBox *combo, gpointer user_data)
 {
-	const gchar *id = gtk_combo_box_get_active_id(combo);
-
+	(void)combo;
 	(void)user_data;
-	if (!id || !*id)
-		return;
-	xml_set_or_create_value("modules", "lecturasync", id);
-	settings.LecturaSyncModule = xml_get_value("modules", "lecturasync");
-	if (btn_swap && settings.MainWindowModule)
-		gtk_widget_set_sensitive(btn_swap,
-					 strcmp(id, settings.MainWindowModule) != 0);
+	lsync_save_from_ui();
 	ficha_strongs = FALSE;
 	main_lectura_sync_actualizar();
+}
+
+static void
+on_add_version(GtkButton *button, gpointer user_data)
+{
+	gchar **cur;
+	int n, i;
+	const char *master = settings.MainWindowModule;
+	GList *b;
+
+	(void)button;
+	(void)user_data;
+	cur = lsync_split();
+	n = 0;
+	while (cur[n])
+		n++;
+	if (n >= LSYNC_MAX) {
+		g_strfreev(cur);
+		return;
+	}
+	for (b = get_list(TEXT_LIST); b; b = b->next) {
+		const char *nm = (const char *)b->data;
+		gboolean used = FALSE;
+		if (!nm)
+			continue;
+		if (master && !strcmp(nm, master))
+			continue;
+		for (i = 0; i < n; i++) {
+			if (!strcmp(cur[i], nm)) {
+				used = TRUE;
+				break;
+			}
+		}
+		if (!used) {
+			gchar **next = g_new0(gchar *, n + 2);
+			for (i = 0; i < n; i++)
+				next[i] = g_strdup(cur[i]);
+			next[n] = g_strdup(nm);
+			lsync_save(next);
+			g_strfreev(next);
+			break;
+		}
+	}
+	g_strfreev(cur);
+	lectura_sync_fill_combo();
+	main_lectura_sync_actualizar();
+}
+
+static void
+on_remove_slot(GtkButton *button, gpointer user_data)
+{
+	int slot = GPOINTER_TO_INT(user_data);
+	gchar **cur, *keep[LSYNC_MAX + 1];
+	int i, n = 0;
+
+	(void)button;
+	cur = lsync_split();
+	memset(keep, 0, sizeof(keep));
+	for (i = 0; cur[i]; i++) {
+		if (i == slot)
+			continue;
+		keep[n++] = cur[i];
+	}
+	if (n == 0 && cur[0]) {
+		keep[0] = cur[0];
+		n = 1;
+	}
+	lsync_save(n ? keep : NULL);
+	/* lsync_save copies strings; cur still owns originals */
+	g_strfreev(cur);
+	lectura_sync_fill_combo();
+	main_lectura_sync_actualizar();
+}
+
+static void
+on_install_bibles(GtkButton *button, gpointer user_data)
+{
+	(void)button;
+	(void)user_data;
+	gui_instalar_biblias();
 }
 
 static void
@@ -353,21 +503,29 @@ on_swap_clicked(GtkButton *button, gpointer user_data)
 
 	(void)button;
 	(void)user_data;
+	gchar **cur, **next;
+	int i;
+
 	if (!settings.MainWindowModule || !settings.LecturaSyncModule)
 		return;
-	if (!strcmp(settings.MainWindowModule, settings.LecturaSyncModule))
+	cur = lsync_split();
+	if (!cur[0] || !strcmp(cur[0], settings.MainWindowModule)) {
+		g_strfreev(cur);
 		return;
-
-	new_top = g_strdup(settings.LecturaSyncModule);
-	new_bot = g_strdup(settings.MainWindowModule);
+	}
+	new_top = g_strdup(cur[0]);
+	next = g_new0(gchar *, LSYNC_MAX + 1);
+	next[0] = g_strdup(settings.MainWindowModule);
+	for (i = 1; cur[i]; i++)
+		next[i] = g_strdup(cur[i]);
+	lsync_save(next);
+	g_strfreev(next);
+	g_strfreev(cur);
 	verse = settings.currentverse;
-	xml_set_or_create_value("modules", "lecturasync", new_bot);
-	settings.LecturaSyncModule = xml_get_value("modules", "lecturasync");
 	g_free(last_master);
 	last_master = NULL;
 	main_display_bible(new_top, verse);
 	g_free(new_top);
-	g_free(new_bot);
 	lectura_sync_fill_combo();
 }
 
@@ -459,11 +617,43 @@ gui_lectura_sync_wrap(GtkWidget *html_master)
 	gtk_widget_set_valign(label, GTK_ALIGN_CENTER);
 	gtk_box_pack_start(GTK_BOX(hbox), label, FALSE, FALSE, 0);
 
-	widgets.combo_lectura_sync = gtk_combo_box_text_new();
-	gtk_widget_show(widgets.combo_lectura_sync);
-	gtk_widget_set_hexpand(widgets.combo_lectura_sync, TRUE);
-	gtk_widget_set_valign(widgets.combo_lectura_sync, GTK_ALIGN_CENTER);
-	gtk_box_pack_start(GTK_BOX(hbox), widgets.combo_lectura_sync, TRUE, TRUE, 0);
+	{
+		int i;
+		for (i = 0; i < LSYNC_MAX; i++) {
+			GtkWidget *rm;
+			slot_box[i] = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 2);
+			combo_slot[i] = gtk_combo_box_text_new();
+			gtk_widget_set_valign(combo_slot[i], GTK_ALIGN_CENTER);
+			gtk_widget_set_hexpand(combo_slot[i], i == 0);
+			gtk_box_pack_start(GTK_BOX(slot_box[i]), combo_slot[i], TRUE, TRUE, 0);
+			if (i > 0) {
+				rm = icon_btn("window-close-symbolic",
+					      _("Quitar esta versión"));
+				g_signal_connect(rm, "clicked",
+						 G_CALLBACK(on_remove_slot),
+						 GINT_TO_POINTER(i));
+				gtk_box_pack_start(GTK_BOX(slot_box[i]), rm, FALSE, FALSE, 0);
+			}
+			gtk_widget_show_all(slot_box[i]);
+			if (i > 0)
+				gtk_widget_hide(slot_box[i]);
+			gtk_box_pack_start(GTK_BOX(hbox), slot_box[i], TRUE, TRUE, 0);
+		}
+		widgets.combo_lectura_sync = combo_slot[0];
+	}
+
+	btn_add = icon_btn("list-add-symbolic",
+			   _("Añadir otra Biblia (hasta 4) para este versículo"));
+	gtk_box_pack_start(GTK_BOX(hbox), btn_add, FALSE, FALSE, 0);
+	g_signal_connect(btn_add, "clicked", G_CALLBACK(on_add_version), NULL);
+
+	btn_install = gtk_button_new_with_label(_("Instalar Biblias"));
+	gtk_button_set_relief(GTK_BUTTON(btn_install), GTK_RELIEF_NONE);
+	gtk_widget_set_tooltip_text(btn_install,
+				    _("Descargar e instalar Biblias de CrossWire, eBible y otras fuentes"));
+	gtk_widget_show(btn_install);
+	gtk_box_pack_start(GTK_BOX(hbox), btn_install, FALSE, FALSE, 0);
+	g_signal_connect(btn_install, "clicked", G_CALLBACK(on_install_bibles), NULL);
 
 	label_ref = gtk_label_new("");
 	gtk_widget_show(label_ref);
@@ -562,9 +752,14 @@ gui_lectura_sync_wrap(GtkWidget *html_master)
 
 	gtk_paned_pack2(GTK_PANED(paned), widgets.box_lectura_sync, TRUE, TRUE);
 
-	combo_changed_id =
-	    g_signal_connect(G_OBJECT(widgets.combo_lectura_sync), "changed",
-			     G_CALLBACK(on_combo_lectura_sync_changed), NULL);
+	{
+		int i;
+		for (i = 0; i < LSYNC_MAX; i++)
+			combo_changed_id[i] =
+			    g_signal_connect(G_OBJECT(combo_slot[i]), "changed",
+					     G_CALLBACK(on_combo_lectura_sync_changed),
+					     NULL);
+	}
 	g_signal_connect(G_OBJECT(paned), "size-allocate",
 			 G_CALLBACK(on_paned_lectura_sync_size_allocate), NULL);
 	g_signal_connect(G_OBJECT(paned), "notify::position",
@@ -692,6 +887,7 @@ gui_lectura_sync_set_visible(gboolean visible)
 		return;
 	in_progress = TRUE;
 
+	nota_ocultar(TRUE);
 	ficha_strongs = FALSE;
 	split_forzado = FALSE;
 	settings.show_lectura_sync = visible ? 1 : 0;
@@ -708,6 +904,10 @@ gui_lectura_sync_set_visible(gboolean visible)
 		gtk_widget_set_visible(bar_ficha, FALSE);
 	if (bar_comparar)
 		gtk_widget_set_visible(bar_comparar, visible);
+	if (nota_box)
+		gtk_widget_hide(nota_box);
+	if (html_holder)
+		gtk_widget_set_visible(html_holder, visible);
 	if (visible) {
 		if (widgets.html_lectura_sync &&
 		    gtk_widget_get_window(gtk_widget_get_toplevel(widgets.html_lectura_sync)) &&

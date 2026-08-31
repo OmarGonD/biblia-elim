@@ -62,6 +62,7 @@ typedef struct {
 	guint illabel : 1;
 	guint ilorig : 1;
 	guint ilrtl : 1;
+	guint para_bg : 1;
 	gchar *fg;
 	gchar *bg;
 	gchar *href;
@@ -323,6 +324,11 @@ apply_style_tags(ParseCtx *ctx, GtkTextIter *s, GtkTextIter *e)
 		tag = color_tag(buf, "bg", st->bg, "background");
 		if (tag)
 			gtk_text_buffer_apply_tag(buf, tag, s, e);
+		if (st->para_bg) {
+			tag = color_tag(buf, "pbg", st->bg, "paragraph-background");
+			if (tag)
+				gtk_text_buffer_apply_tag(buf, tag, s, e);
+		}
 	}
 }
 
@@ -676,6 +682,9 @@ walk_element(ParseCtx *ctx, xmlNode *node)
 		ctx->st.ilblock = TRUE;
 	if (class_has(klass, "illabel"))
 		ctx->st.illabel = TRUE;
+	if (class_has(klass, "modh") || class_has(klass, "cur") ||
+	    class_has(klass, "miss"))
+		ctx->st.para_bg = TRUE;
 	if (class_has(klass, "ilorig") || class_has(klass, "ilw")) {
 		ctx->st.ilorig = TRUE;
 		if (dir && !g_ascii_strcasecmp(dir, "rtl"))
@@ -1222,6 +1231,40 @@ trim_ilblock(GtkTextBuffer *buf, const GtkTextIter *start, GtkTextIter *end)
 }
 
 static void
+trim_trailing_chrome(GtkTextBuffer *buf, const GtkTextIter *start, GtkTextIter *end)
+{
+	GtkTextIter p;
+	gboolean skipped_nl = FALSE;
+
+	(void)buf;
+	if (gtk_text_iter_compare(start, end) >= 0)
+		return;
+	p = *end;
+	while (gtk_text_iter_compare(&p, start) > 0) {
+		GtkTextIter q = p;
+		gunichar c;
+
+		if (!gtk_text_iter_backward_char(&q))
+			break;
+		c = gtk_text_iter_get_char(&q);
+		if (gtk_text_iter_get_child_anchor(&q) ||
+		    (g_unichar_isspace(c) && c != '\n')) {
+			p = q;
+			continue;
+		}
+		if (c == '\n') {
+			if (skipped_nl)
+				break;
+			skipped_nl = TRUE;
+			p = q;
+			continue;
+		}
+		break;
+	}
+	*end = p;
+}
+
+static void
 trim_trailing_heading(GtkTextBuffer *buf, const GtkTextIter *start, GtkTextIter *end)
 {
 	GtkTextIter probe;
@@ -1272,12 +1315,14 @@ wk_html_anchor_bounds(WkHtml *html, const gchar *anchor,
 				gtk_text_buffer_get_iter_at_mark(priv->buffer, end, nxt->mark);
 				trim_trailing_heading(priv->buffer, start, end);
 				trim_ilblock(priv->buffer, start, end);
+				trim_trailing_chrome(priv->buffer, start, end);
 				return TRUE;
 			}
 		}
 		gtk_text_buffer_get_end_iter(priv->buffer, end);
 		trim_trailing_heading(priv->buffer, start, end);
 		trim_ilblock(priv->buffer, start, end);
+		trim_trailing_chrome(priv->buffer, start, end);
 		return TRUE;
 	}
 	return FALSE;

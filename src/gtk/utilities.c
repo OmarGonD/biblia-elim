@@ -1359,10 +1359,89 @@ void set_window_icon(GtkWindow *window)
 	gchar *imagename;
 	GdkPixbuf *pixbuf;
 
-	imagename = image_locator("xiphos-x-16.png");
+	if (!window)
+		return;
+	gtk_window_set_icon_name(window, "biblia-elim");
+	imagename = image_locator("biblia-elim.png");
+	if (!imagename || !g_file_test(imagename, G_FILE_TEST_IS_REGULAR)) {
+		g_free(imagename);
+		imagename = image_locator("xiphos-x-16.png");
+	}
 	pixbuf = gdk_pixbuf_new_from_file(imagename, NULL);
 	g_free(imagename);
-	gtk_window_set_icon(window, pixbuf);
+	if (pixbuf) {
+		gtk_window_set_icon(window, pixbuf);
+		g_object_unref(pixbuf);
+	}
+}
+
+gboolean
+gui_display_is_wayland(void)
+{
+	GdkDisplay *d = gdk_display_get_default();
+	const gchar *name;
+
+	if (d) {
+		name = G_OBJECT_TYPE_NAME(d);
+		if (name && strstr(name, "Wayland"))
+			return TRUE;
+	}
+	name = g_getenv("WAYLAND_DISPLAY");
+	return name && *name;
+}
+
+void
+gui_default_window_size(int *width, int *height)
+{
+	GdkDisplay *d;
+	GdkMonitor *mon = NULL;
+	GdkRectangle geo = { 0, 0, 1280, 800 };
+	int w, h;
+
+	d = gdk_display_get_default();
+	if (d) {
+		GdkSeat *seat = gdk_display_get_default_seat(d);
+		GdkDevice *ptr = seat ? gdk_seat_get_pointer(seat) : NULL;
+		if (ptr) {
+			gint px = 0, py = 0;
+			gdk_device_get_position(ptr, NULL, &px, &py);
+			mon = gdk_display_get_monitor_at_point(d, px, py);
+		}
+		if (!mon)
+			mon = gdk_display_get_primary_monitor(d);
+		if (!mon && gdk_display_get_n_monitors(d) > 0)
+			mon = gdk_display_get_monitor(d, 0);
+	}
+	if (mon)
+		gdk_monitor_get_workarea(mon, &geo);
+
+	w = geo.width * 7 / 10;
+	h = geo.height * 85 / 100;
+	if (w < 900)
+		w = MIN(900, MAX(640, geo.width - 48));
+	if (h < 560)
+		h = MIN(560, MAX(420, geo.height - 48));
+	if (w > geo.width - 24)
+		w = MAX(640, geo.width - 24);
+	if (h > geo.height - 24)
+		h = MAX(420, geo.height - 24);
+	if (width)
+		*width = w;
+	if (height)
+		*height = h;
+}
+
+void
+gui_prepare_floating_dialog(GtkWindow *win, GtkWindow *parent)
+{
+	if (!win)
+		return;
+	if (parent)
+		gtk_window_set_transient_for(win, parent);
+	gtk_window_set_type_hint(win, GDK_WINDOW_TYPE_HINT_DIALOG);
+	gtk_window_set_skip_taskbar_hint(win, TRUE);
+	gtk_window_set_destroy_with_parent(win, TRUE);
+	set_window_icon(win);
 }
 
 /**************************************************************************

@@ -440,8 +440,9 @@ static GtkWidget *create_parallel_dialog(void)
 	if ((settings.parallel_y < 0) || (settings.parallel_y > 2000))
 		settings.parallel_y = 40;
 
-	gtk_window_move(GTK_WINDOW(dialog_parallel), settings.parallel_x,
-			settings.parallel_y);
+	if (!gui_display_is_wayland())
+		gtk_window_move(GTK_WINDOW(dialog_parallel), settings.parallel_x,
+				settings.parallel_y);
 
 	return dialog_parallel;
 }

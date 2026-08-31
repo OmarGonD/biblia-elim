@@ -30,6 +30,8 @@ extern "C" {
 void gui_update_install_status(glong total, glong done,
 			       const gchar *message);
 void gui_update_install_progressbar(gdouble fraction);
+void gui_mod_mgr_bind_progress(GtkWidget *bar);
+void gui_mod_mgr_set_current_mod(const gchar *name);
 void gui_open_mod_mgr(void);
 void gui_open_mod_mgr_initial_run(void);
 void clear_and_hide_progress_bar(void);

@@ -191,19 +191,22 @@ void frontend_display(const char *tabs)
 	 * sometimes xiphos gets insane reconfig events as it dies,
 	 * especially if it's due to just shutting linux down.
 	 */
-	if (settings.app_x < 0)
-		settings.app_x = 0;
-	if (settings.app_x > (screen_width - 100))
-		settings.app_x = screen_width - 100;
-	if (settings.app_y < 0)
-		settings.app_y = 0;
-	if (settings.app_y > (screen_height - 100))
-		settings.app_y = screen_height - 100;
-	if (settings.maximized)
-		gtk_window_maximize(GTK_WINDOW(widgets.app));
-
-	gtk_window_move(GTK_WINDOW(widgets.app), settings.app_x,
-			settings.app_y);
+	/* Wayland compositors (Hyprland) own placement and ignore
+	 * gtk_window_move; Omarchy also suppresses maximize events. */
+	if (!gui_display_is_wayland()) {
+		if (settings.app_x < 0)
+			settings.app_x = 0;
+		if (settings.app_x > (screen_width - 100))
+			settings.app_x = screen_width - 100;
+		if (settings.app_y < 0)
+			settings.app_y = 0;
+		if (settings.app_y > (screen_height - 100))
+			settings.app_y = screen_height - 100;
+		if (settings.maximized)
+			gtk_window_maximize(GTK_WINDOW(widgets.app));
+		gtk_window_move(GTK_WINDOW(widgets.app), settings.app_x,
+				settings.app_y);
+	}
 
 	/* gecko  needs the widgets to be visible before writing */
 	sync_windows();

@@ -756,12 +756,8 @@ static gboolean on_configure_event(GtkWidget *widget,
 	gint x;
 	gint y;
 
-	gdk_window_get_root_origin(gtk_widget_get_window(widgets.app), &x, &y);
-
 	settings.gs_width = event->width;
 	settings.gs_height = event->height;
-	settings.app_x = x;
-	settings.app_y = y;
 
 #if GTK_CHECK_VERSION(3, 12, 0)
 	sprintf(layout, "%d", gtk_window_is_maximized(GTK_WINDOW(widgets.app)));
@@ -774,11 +770,18 @@ static gboolean on_configure_event(GtkWidget *widget,
 	sprintf(layout, "%d", settings.gs_height);
 	xml_set_value("Xiphos", "layout", "height", layout);
 
-	sprintf(layout, "%d", settings.app_x);
-	xml_set_value("Xiphos", "layout", "app_x", layout);
-
-	sprintf(layout, "%d", settings.app_y);
-	xml_set_value("Xiphos", "layout", "app_y", layout);
+	/* On Wayland the compositor owns placement; x/y from
+	 * gdk_window_get_root_origin() is often 0 and must not be saved. */
+	if (!gui_display_is_wayland()) {
+		gdk_window_get_root_origin(gtk_widget_get_window(widgets.app),
+					   &x, &y);
+		settings.app_x = x;
+		settings.app_y = y;
+		sprintf(layout, "%d", settings.app_x);
+		xml_set_value("Xiphos", "layout", "app_x", layout);
+		sprintf(layout, "%d", settings.app_y);
+		xml_set_value("Xiphos", "layout", "app_y", layout);
+	}
 	xml_save_settings_doc(settings.fnconfigure);
 
 	return FALSE;
@@ -1463,7 +1466,11 @@ void create_mainwindow(void)
 		gtk_style_context_add_class(gtk_widget_get_style_context(widgets.app),
 					    "elim-dark");
 	g_object_set_data(G_OBJECT(widgets.app), "widgets.app", widgets.app);
-	gtk_window_set_default_size(GTK_WINDOW(widgets.app), 680, 425);
+	{
+		int dw = 960, dh = 640;
+		gui_default_window_size(&dw, &dh);
+		gtk_window_set_default_size(GTK_WINDOW(widgets.app), dw, dh);
+	}
 	gtk_widget_set_can_focus(widgets.app, 1);
 	gtk_window_set_resizable(GTK_WINDOW(widgets.app), TRUE);
 
@@ -1477,6 +1484,7 @@ void create_mainwindow(void)
 	pixbuf = gdk_pixbuf_new_from_file(imagename, NULL);
 	g_free(imagename);
 	gtk_window_set_icon(GTK_WINDOW(widgets.app), pixbuf);
+	gtk_window_set_icon_name(GTK_WINDOW(widgets.app), "biblia-elim");
 	g_set_prgname("biblia-elim");
 	g_set_application_name(_("Biblia Elim"));
 
@@ -1753,7 +1761,16 @@ box_devot = gui_create_devotional_pane();
 	gtk_paned_pack2(GTK_PANED(widgets.hpaned), widgets.vpaned2, TRUE, FALSE);
 	gtk_widget_grab_focus(navbar_versekey.lookup_entry);
 
-	gtk_window_set_default_size((GtkWindow *)widgets.app, settings.gs_width, settings.gs_height);
+	{
+		int w = settings.gs_width, h = settings.gs_height;
+		int dw = 960, dh = 640;
+		gui_default_window_size(&dw, &dh);
+		if (w < 640 || h < 400) {
+			w = dw;
+			h = dh;
+		}
+		gtk_window_set_default_size(GTK_WINDOW(widgets.app), w, h);
+	}
 	gtk_widget_show_all(widgets.app);
 
 	if (reading_exit_button && !settings.reading_mode)

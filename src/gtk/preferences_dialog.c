@@ -3756,8 +3756,9 @@ static void create_preferences_dialog(void)
 	if ((settings.prefs_y < 0) || (settings.prefs_y > 2000))
 		settings.prefs_y = 40;
 
-	gtk_window_move(GTK_WINDOW(dialog_prefs), settings.prefs_x,
-			settings.prefs_y);
+	if (!gui_display_is_wayland())
+		gtk_window_move(GTK_WINDOW(dialog_prefs), settings.prefs_x,
+				settings.prefs_y);
 }
 
 /******************************************************************************

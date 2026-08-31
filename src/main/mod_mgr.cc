@@ -27,7 +27,11 @@
 #include <localemgr.h>
 #include <swlocale.h>
 #include <swversion.h>
+#include <string.h>
+#include <glib/gstdio.h>
+
 #include "main/mod_mgr.h"
+#include "main/settings.h"
 #include "main/sword.h"
 #include "main/parallel_view.h"
 
@@ -408,6 +412,108 @@ void mod_mgr_add_source(const char *vtype,
 				      user,
 				      pass,
 				      uid);
+}
+
+typedef struct {
+	const char *vtype;
+	const char *type;
+	const char *caption;
+	const char *host;
+	const char *directory;
+} TrustedRemote;
+
+/*
+ * Official CrossWire-affiliated repositories from masterRepoList.conf
+ * plus HTTPS mirrors (FTP is often blocked). Captions must stay unique.
+ * Beta / Lockman / DBG / Wycliffe are omitted: experimental or licensed.
+ */
+static const TrustedRemote trusted_remotes[] = {
+	{ "FTPSource", "FTP", "CrossWire",
+	  "ftp.crosswire.org", "/pub/sword/raw" },
+	{ "HTTPSSource", "HTTPS", "CrossWire HTTPS",
+	  "www.crosswire.org", "/ftpmirror/pub/sword/raw" },
+	{ "FTPSource", "FTP", "CrossWire Attic",
+	  "ftp.crosswire.org", "/pub/sword/atticraw" },
+	{ "FTPSource", "FTP", "eBible.org",
+	  "ftp.ebible.org", "/sword" },
+	{ "HTTPSSource", "HTTPS", "eBible.org HTTPS",
+	  "ebible.org", "/sword" },
+	{ "FTPSource", "FTP", "IBT",
+	  "ftp.ibt.org.ru", "/pub/modsword/raw" },
+	{ "FTPSource", "FTP", "STEP Bible",
+	  "ftp.stepbible.org", "/pub/sword" },
+	{ "FTPSource", "FTP", "Bible.org",
+	  "ftp.crosswire.org", "/pub/bible.org/sword" },
+	{ "FTPSource", "FTP", "Xiphos",
+	  "ftp.xiphos.org", "/pub/xiphos" },
+	{ NULL, NULL, NULL, NULL, NULL }
+};
+
+static void
+free_remote_source(gpointer data)
+{
+	MOD_MGR_SOURCE *s = (MOD_MGR_SOURCE *)data;
+	if (!s)
+		return;
+	g_free((gchar *)s->caption);
+	g_free((gchar *)s->type);
+	g_free((gchar *)s->source);
+	g_free((gchar *)s->directory);
+	g_free((gchar *)s->user);
+	g_free((gchar *)s->pass);
+	g_free((gchar *)s->uid);
+	g_free(s);
+}
+
+void
+main_ensure_remote_sources(void)
+{
+	gchar *conf_path;
+	GList *have;
+	GList *iter;
+	int i;
+
+	if (!settings.homedir)
+		return;
+
+	conf_path = g_strdup_printf("%s/%s/InstallMgr/InstallMgr.conf",
+				    settings.homedir, DOTSWORD);
+	if (g_access(conf_path, F_OK) == -1) {
+		gchar *conf_dir = g_path_get_dirname(conf_path);
+		gchar *contents =
+		    g_strdup("[General]\n"
+			     "PassiveFTP=true\n"
+			     "TimeoutMillis=10000\n"
+			     "UnverifiedPeerAllowed=true\n"
+			     "\n"
+			     "[Sources]\n");
+		g_mkdir_with_parents(conf_dir, S_IRWXU);
+		g_file_set_contents(conf_path, contents, -1, NULL);
+		g_free(contents);
+		g_free(conf_dir);
+	}
+	g_free(conf_path);
+
+	have = mod_mgr_list_remote_sources();
+	for (i = 0; trusted_remotes[i].caption; ++i) {
+		gboolean found = FALSE;
+		for (iter = have; iter; iter = iter->next) {
+			MOD_MGR_SOURCE *s = (MOD_MGR_SOURCE *)iter->data;
+			if (s->caption &&
+			    !strcmp(s->caption, trusted_remotes[i].caption)) {
+				found = TRUE;
+				break;
+			}
+		}
+		if (!found)
+			mod_mgr_add_source(trusted_remotes[i].vtype,
+					   trusted_remotes[i].type,
+					   trusted_remotes[i].caption,
+					   trusted_remotes[i].host,
+					   trusted_remotes[i].directory,
+					   "", "", "");
+	}
+	g_list_free_full(have, free_remote_source);
 }
 
 /******************************************************************************

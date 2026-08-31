@@ -143,6 +143,7 @@ static GtkWidget *button_intro;
 static GtkWidget *label_home;
 static GtkWidget *label_system;
 static GtkWidget *progressbar_refresh;
+static GtkWidget *progressbar_alt;
 static GtkWidget *radiobutton_source;
 static GtkWidget *radiobutton2;
 static GtkWidget *radiobutton_dest;
@@ -3630,8 +3631,9 @@ static GtkWidget *create_module_manager_dialog(gboolean first_run)
 	if ((settings.modmgr_y < 0) || (settings.modmgr_y > 2000))
 		settings.modmgr_y = 40;
 
-	gtk_window_move(GTK_WINDOW(dialog_modmgr), settings.modmgr_x,
-			settings.modmgr_y);
+	if (!gui_display_is_wayland())
+		gtk_window_move(GTK_WINDOW(dialog_modmgr), settings.modmgr_x,
+				settings.modmgr_y);
 	return dialog_modmgr;
 }
 
@@ -3706,17 +3708,31 @@ void gui_open_mod_mgr_initial_run(void)
  *   void
  */
 
+void gui_mod_mgr_bind_progress(GtkWidget *bar)
+{
+	progressbar_alt = bar;
+}
+
+void gui_mod_mgr_set_current_mod(const gchar *name)
+{
+	current_mod = (gchar *)name;
+}
+
 void gui_update_install_status(glong total, glong done,
 			       const gchar *message)
 {
 	gchar *buf;
+	GtkWidget *bar = progressbar_refresh ? progressbar_refresh
+					     : progressbar_alt;
 
-	if (!progressbar_refresh)
+	if (!bar)
 		return; /* no module manager dialog open (e.g. silent install) */
 
-	buf = g_strdup_printf("%s: %s",
-			      (current_mod ? current_mod : _("[no module]")), message);
-	gui_set_progressbar_text(progressbar_refresh, buf);
+	if (current_mod)
+		buf = g_strdup_printf("%s: %s", current_mod, message);
+	else
+		buf = g_strdup(message);
+	gui_set_progressbar_text(bar, buf);
 	g_free(buf);
 }
 
@@ -3738,8 +3754,11 @@ void gui_update_install_status(glong total, glong done,
 
 void gui_update_install_progressbar(gdouble fraction)
 {
-	if (!progressbar_refresh)
+	GtkWidget *bar = progressbar_refresh ? progressbar_refresh
+					     : progressbar_alt;
+
+	if (!bar)
 		return; /* no module manager dialog open (e.g. silent install) */
 
-	gui_set_progressbar_fraction(progressbar_refresh, fraction);
+	gui_set_progressbar_fraction(bar, fraction);
 }

@@ -611,8 +611,8 @@ crear_dialogo(void)
 	ui->tree = UI_GET_ITEM(gxml, "tree_palabras");
 	ui->scroll_tabla = UI_GET_ITEM(gxml, "scroll_tabla");
 
-	gtk_window_set_transient_for(GTK_WINDOW(ui->dialog),
-				     GTK_WINDOW(widgets.app));
+	gui_prepare_floating_dialog(GTK_WINDOW(ui->dialog),
+				    widgets.app ? GTK_WINDOW(widgets.app) : NULL);
 
 	ui->libros = gtk_list_store_new(N_LIBRO_COLS,
 					G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);

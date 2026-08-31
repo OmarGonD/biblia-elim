@@ -14,3 +14,5 @@ Type=Application
 Categories=Education;
 StartupNotify=true
 StartupWMClass=biblia-elim
+SingleMainWindow=true
+X-Purism-FormFactor=Workstation;Mobile;

@@ -2352,21 +2352,20 @@ GTKChapDisp::RenderOneChapter(SWModule &imodule,
 					      tag_color, tag_color + 8);
 		}
 
-		// one verse per block, with a tools chip on the left.
-		swbuf.append("<p class=\"verse\">");
+		// Anchor first so the next verse's tools chip is not
+		// inside this verse's reading-focus bounds.
+		swbuf.appendFormatted("<p class=\"verse\"><a name=\"%d\"></a>",
+				      (thisChapter * 1000) + key->getVerse());
 		append_verse_tools(swbuf, key->getText());
 
-		// generate the verse number with color and decoration.
 		gchar *num = main_format_number(key->getVerse());
-		swbuf.appendFormatted((settings.showversenum
-				       ? "&nbsp;<span class=\"word\"><a name=\"%d\" href=\"sword:///%s\">"
-				       "<font size=\"%+d\" color=\"%s\">%s%s%s%s%s%s%s</font></a></span>&nbsp;"
-				       : "&nbsp;<a name=\"%d\"> </a>"),
-				      (thisChapter * 1000) + key->getVerse(),
-				      (char *)key->getText(),
-				      settings.verse_num_font_size + settings.base_font_size,
-				      (tag_color ? (tag_color + 8) : settings.bible_verse_num_color),
-				      PRETTYPRINT(num));
+		if (settings.showversenum)
+			swbuf.appendFormatted("&nbsp;<span class=\"word\"><a href=\"sword:///%s\">"
+					     "<font size=\"%+d\" color=\"%s\">%s%s%s%s%s%s%s</font></a></span>&nbsp;",
+					     (char *)key->getText(),
+					     settings.verse_num_font_size + settings.base_font_size,
+					     (tag_color ? (tag_color + 8) : settings.bible_verse_num_color),
+					     PRETTYPRINT(num));
 		g_free(num);
 
 		if (tag_color) {

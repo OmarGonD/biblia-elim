@@ -160,7 +160,7 @@
             </child>
             <child>
               <object class="GtkImageMenuItem" id="module_manager">
-                <property name="label" translatable="yes">_Gestor de módulos</property>
+                <property name="label" translatable="yes">_Instalar Biblias</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="use_underline">True</property>
