@@ -706,7 +706,7 @@ int xml_create_settings_file(char *path)
 			NULL);
 	xmlNewTextChild(section_node, NULL, (const xmlChar *)"background", (const xmlChar *)"#FFFFFF");   /* white */
 	xmlNewTextChild(section_node, NULL, (const xmlChar *)"text_fg", (const xmlChar *)"#000000");      /* black */
-	xmlNewTextChild(section_node, NULL, (const xmlChar *)"versenum", (const xmlChar *)"#0000CF");     /* blue */
+	xmlNewTextChild(section_node, NULL, (const xmlChar *)"versenum", (const xmlChar *)"#4FA8FF");     /* blue, bright enough for contrast on a dark background */
 	xmlNewTextChild(section_node, NULL, (const xmlChar *)"currentverse", (const xmlChar *)"#009000"); /* green */
 	xmlNewTextChild(section_node, NULL, (const xmlChar *)"link", (const xmlChar *)"#878787");	 /* grey */
 	xmlNewTextChild(section_node, NULL, (const xmlChar *)"found", (const xmlChar *)"#D02898");	/* ? */

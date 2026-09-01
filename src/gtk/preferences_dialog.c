@@ -2386,7 +2386,7 @@ void setup_color_pickers(void)
 		gtk_color_button_set_color(GTK_COLOR_BUTTON(color_picker.verse_numbers),
 					   &color);
 	} else {
-		gdk_color_parse("#0000CF", &color);
+		gdk_color_parse("#4FA8FF", &color);
 		gtk_color_button_set_color(GTK_COLOR_BUTTON(color_picker.verse_numbers),
 					   &color);
 	}

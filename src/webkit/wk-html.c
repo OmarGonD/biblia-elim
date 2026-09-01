@@ -14,6 +14,7 @@
 #include <glib/gi18n.h>
 #include <pango/pangocairo.h>
 #include <libxml/HTMLparser.h>
+#include <libxml/tree.h>
 
 #include "main/url.hh"
 #include "main/module_dialogs.h"
@@ -58,6 +59,7 @@ typedef struct {
 	guint small : 1;
 	guint big : 1;
 	guint center : 1;
+	guint right : 1;
 	guint ilblock : 1;
 	guint illabel : 1;
 	guint ilorig : 1;
@@ -82,7 +84,7 @@ typedef struct {
 } ParseCtx;
 
 static void walk_node(ParseCtx *ctx, xmlNode *node);
-static void insert_verse_tools_button(ParseCtx *ctx, const char *key);
+static void insert_verse_tools_button(ParseCtx *ctx, const char *key, gboolean has_note);
 
 static void wk_html_class_init(WkHtmlClass *klass);
 static void wk_html_init(WkHtml *html);
@@ -175,6 +177,9 @@ parse_style_attr(const char *css, Style *st)
 		} else if (!g_ascii_strcasecmp(k, "text-align") &&
 			   strstr(v, "center")) {
 			st->center = TRUE;
+		} else if (!g_ascii_strcasecmp(k, "text-align") &&
+			   strstr(v, "right")) {
+			st->right = TRUE;
 		}
 	}
 	g_strfreev(parts);
@@ -257,6 +262,7 @@ ensure_stock_tags(GtkTextBuffer *buf)
 				   "weight", PANGO_WEIGHT_SEMIBOLD,
 				   NULL);
 	gtk_text_buffer_create_tag(buf, "center", "justification", GTK_JUSTIFY_CENTER, NULL);
+	gtk_text_buffer_create_tag(buf, "right", "justification", GTK_JUSTIFY_RIGHT, NULL);
 	gtk_text_buffer_create_tag(buf, "find-hl",
 				   "background", "#ffe08a",
 				   NULL);
@@ -287,6 +293,8 @@ apply_style_tags(ParseCtx *ctx, GtkTextIter *s, GtkTextIter *e)
 		gtk_text_buffer_apply_tag_by_name(buf, "big", s, e);
 	if (st->center)
 		gtk_text_buffer_apply_tag_by_name(buf, "center", s, e);
+	if (st->right)
+		gtk_text_buffer_apply_tag_by_name(buf, "right", s, e);
 	if (st->ilblock)
 		gtk_text_buffer_apply_tag_by_name(buf, "ilblock", s, e);
 	if (st->illabel)
@@ -488,17 +496,36 @@ on_vtools_icon_draw(GtkWidget *widget, cairo_t *cr, gpointer data)
 	GtkWidget *parent = gtk_widget_get_parent(widget);
 	GtkStyleContext *ctx = gtk_widget_get_style_context(parent ? parent : widget);
 	GdkRGBA fg;
-	int w, h;
+	gboolean has_note = GPOINTER_TO_INT(g_object_get_data(G_OBJECT(widget), "has-note"));
+	int w, h, stripe_w;
 	double s, ox, oy;
 
 	(void)data;
 	gtk_style_context_get_color(ctx, gtk_style_context_get_state(ctx), &fg);
 	w = gtk_widget_get_allocated_width(widget);
 	h = gtk_widget_get_allocated_height(widget);
+
+	/* Margin stripe for "this verse has a note" -- a slim bar flush to
+	 * the left edge, the height of the icon next to it, in the same
+	 * gold this app already uses for notes/highlights elsewhere
+	 * (badge_bg in parallel_view.cc, mod_label_color). Independent of
+	 * settings.annotate_highlight -- that only governs the whole-verse
+	 * background/text color, not this indicator. */
+	stripe_w = 3;
+	if (has_note && w > stripe_w) {
+		if (settings.darktheme)
+			cairo_set_source_rgba(cr, 0.902, 0.788, 0.537, 0.95); /* #E6C989 */
+		else
+			cairo_set_source_rgba(cr, 0.541, 0.427, 0.118, 0.95); /* #8A6D1E */
+		cairo_rectangle(cr, 0, 0, stripe_w, h);
+		cairo_fill(cr);
+	}
+
+	w -= has_note ? (stripe_w + 2) : 0; /* remaining space for the icon proper */
 	s = (w < h) ? w : h;
 	if (s < 1.0)
 		return FALSE;
-	ox = (w - s) * 0.5;
+	ox = (has_note ? (stripe_w + 2) : 0) + (w - s) * 0.5;
 	oy = (h - s) * 0.5;
 	cairo_translate(cr, ox, oy);
 	cairo_scale(cr, s / 16.0, s / 16.0);
@@ -531,15 +558,13 @@ on_vtools_clicked(GtkButton *button, gpointer data)
 }
 
 static void
-insert_verse_tools_button(ParseCtx *ctx, const char *key)
+insert_verse_tools_button(ParseCtx *ctx, const char *key, gboolean has_note)
 {
 	GtkTextIter iter;
 	GtkTextChildAnchor *anchor;
 	GtkWidget *btn, *icon;
 
 	if (!ctx->html || !ctx->html->priv->view)
-		return;
-	if (settings.reading_mode)
 		return;
 	gtk_text_buffer_get_end_iter(ctx->buf, &iter);
 	anchor = gtk_text_buffer_create_child_anchor(ctx->buf, &iter);
@@ -548,17 +573,23 @@ insert_verse_tools_button(ParseCtx *ctx, const char *key)
 	gtk_button_set_relief(GTK_BUTTON(btn), GTK_RELIEF_NONE);
 	gtk_widget_set_can_focus(btn, FALSE);
 	gtk_widget_set_valign(btn, GTK_ALIGN_CENTER);
-	gtk_widget_set_tooltip_text(btn, _("Herramientas de este versículo"));
+	gtk_widget_set_tooltip_text(btn, has_note
+					     ? _("Este versículo tiene una nota — herramientas")
+					     : _("Herramientas de este versículo"));
 	gtk_style_context_add_class(gtk_widget_get_style_context(btn), "elim-vtools");
 	if (key && *key)
 		g_object_set_data_full(G_OBJECT(btn), "verse-key",
 				       g_strdup(key), g_free);
 	g_signal_connect(btn, "clicked", G_CALLBACK(on_vtools_clicked), NULL);
 
+	/* A few extra px on the left give the "has a note" stripe room to
+	 * sit right against the icon without touching it -- see
+	 * on_vtools_icon_draw(). */
 	icon = gtk_drawing_area_new();
-	gtk_widget_set_size_request(icon, 14, 12);
+	gtk_widget_set_size_request(icon, has_note ? 18 : 14, 12);
 	gtk_widget_set_hexpand(icon, FALSE);
 	gtk_widget_set_vexpand(icon, FALSE);
+	g_object_set_data(G_OBJECT(icon), "has-note", GINT_TO_POINTER(has_note ? 1 : 0));
 	g_signal_connect(icon, "draw", G_CALLBACK(on_vtools_icon_draw), NULL);
 	gtk_container_add(GTK_CONTAINER(btn), icon);
 
@@ -623,6 +654,31 @@ hr_fit(GtkWidget *view, GdkRectangle *alloc, GtkWidget *sep)
 	gtk_widget_set_size_request(sep, w, -1);
 }
 
+/* Shared by insert_hr() below and build_hr_cell() further down (a bare
+ * <hr> that is a <table> cell's only content gets the same lean
+ * separator, not a whole nested page -- see the comment on
+ * cell_is_bare_hr()). */
+static void
+style_hr_separator(GtkWidget *sep, const char *color)
+{
+	gtk_widget_set_valign(sep, GTK_ALIGN_CENTER);
+	gtk_widget_set_margin_top(sep, 3);
+	gtk_widget_set_margin_bottom(sep, 3);
+	if (color && *color) {
+		GtkCssProvider *css = gtk_css_provider_new();
+		gchar *rule = g_strdup_printf(
+		    "separator { background-color: %s; min-height: 1px; }",
+		    color);
+		gtk_css_provider_load_from_data(css, rule, -1, NULL);
+		gtk_style_context_add_provider(
+		    gtk_widget_get_style_context(sep),
+		    GTK_STYLE_PROVIDER(css),
+		    GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+		g_free(rule);
+		g_object_unref(css);
+	}
+}
+
 /* Antes, <hr> se trataba como un salto de línea sin trazo (ver
  * insert_break() más arriba): el HTML que arma la app para tablas
  * comparativas no tenía forma de dibujar una raya real entre bloques.
@@ -650,22 +706,7 @@ insert_hr(ParseCtx *ctx, const char *color_attr)
 	anchor = gtk_text_buffer_create_child_anchor(ctx->buf, &iter);
 
 	sep = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
-	gtk_widget_set_valign(sep, GTK_ALIGN_CENTER);
-	gtk_widget_set_margin_top(sep, 3);
-	gtk_widget_set_margin_bottom(sep, 3);
-	if (color && *color) {
-		GtkCssProvider *css = gtk_css_provider_new();
-		gchar *rule = g_strdup_printf(
-		    "separator { background-color: %s; min-height: 1px; }",
-		    color);
-		gtk_css_provider_load_from_data(css, rule, -1, NULL);
-		gtk_style_context_add_provider(
-		    gtk_widget_get_style_context(sep),
-		    GTK_STYLE_PROVIDER(css),
-		    GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-		g_free(rule);
-		g_object_unref(css);
-	}
+	style_hr_separator(sep, color);
 
 	gtk_text_view_add_child_at_anchor(ctx->html->priv->view, sep, anchor);
 	g_signal_connect_object(GTK_WIDGET(ctx->html->priv->view), "size-allocate",
@@ -674,6 +715,315 @@ insert_hr(ParseCtx *ctx, const char *color_attr)
 	if (alloc.width > 28)
 		gtk_widget_set_size_request(sep, alloc.width - 28, -1);
 	gtk_widget_show(sep);
+	ctx->at_line_start = FALSE;
+	insert_break(ctx, TRUE);
+}
+
+/* Real <table> support: unlike every other tag, a table's subtree is NOT
+ * walked by the normal recursive walk_node() -- it needs actual columns,
+ * which a linear GtkTextBuffer can't give it. Each <td>/<th> becomes its
+ * own nested WkHtml instance (own buffer, own tag table, own click
+ * handling -- on_button_press()/on_motion() already call
+ * main_url_handler() directly, so links inside cells work with zero
+ * extra wiring) laid out in a GtkGrid, which is then anchored into the
+ * parent buffer exactly like insert_hr()/insert_il_table() above. */
+
+static void
+collect_rows(xmlNode *node, GPtrArray *rows)
+{
+	xmlNode *c;
+
+	for (c = node ? node->children : NULL; c; c = c->next) {
+		if (c->type != XML_ELEMENT_NODE)
+			continue;
+		if (!g_ascii_strcasecmp(el_name(c), "tr"))
+			g_ptr_array_add(rows, c);
+		else if (!g_ascii_strcasecmp(el_name(c), "thead") ||
+			 !g_ascii_strcasecmp(el_name(c), "tbody") ||
+			 !g_ascii_strcasecmp(el_name(c), "tfoot"))
+			collect_rows(c, rows);
+	}
+}
+
+static void
+row_cells(xmlNode *row, GPtrArray *cells)
+{
+	xmlNode *c;
+
+	for (c = row ? row->children : NULL; c; c = c->next) {
+		if (c->type != XML_ELEMENT_NODE)
+			continue;
+		if (!g_ascii_strcasecmp(el_name(c), "td") ||
+		    !g_ascii_strcasecmp(el_name(c), "th"))
+			g_ptr_array_add(cells, c);
+	}
+}
+
+/* Re-serialize a cell's children back to an HTML fragment so it can be
+ * fed to a fresh WkHtml through the normal open/write/close stream --
+ * this reuses the *entire* existing parser (colors, bold, links, RTL
+ * spans...) for cell content instead of duplicating any of it. */
+static gchar *
+serialize_children(xmlNode *cell)
+{
+	xmlBufferPtr buf = xmlBufferCreate();
+	GString *out = g_string_new(NULL);
+	xmlNode *c;
+	gchar *result;
+
+	for (c = cell ? cell->children : NULL; c; c = c->next) {
+		xmlBufferEmpty(buf);
+		xmlNodeDump(buf, cell->doc, c, 0, 0);
+		if (xmlBufferLength(buf) > 0)
+			g_string_append(out, (const char *)xmlBufferContent(buf));
+	}
+	xmlBufferFree(buf);
+	result = g_string_free(out, FALSE);
+	return result;
+}
+
+/* wk_html_init() always wraps priv->view in its own GtkScrolledWindow --
+ * fine for a full page, wrong for a table cell, which should size to its
+ * content like any other child-anchor widget (same reasoning as
+ * hr_fit()/il_table_fit() above). Unwrap it once, right after
+ * construction. */
+static void
+make_cell_inline(WkHtml *html)
+{
+	WkHtmlPrivate *priv = html->priv;
+	GtkWidget *view = GTK_WIDGET(priv->view);
+
+	g_object_ref(view);
+	gtk_container_remove(GTK_CONTAINER(priv->scroll), view);
+	gtk_widget_destroy(priv->scroll);
+	priv->scroll = NULL;
+	gtk_box_pack_start(GTK_BOX(html), view, TRUE, TRUE, 0);
+	g_object_unref(view);
+	gtk_widget_set_vexpand(view, FALSE);
+	gtk_style_context_add_class(gtk_widget_get_style_context(GTK_WIDGET(html)),
+				    "elim-table-cell");
+}
+
+/* A <tr><td><hr></td></tr>-only row (how the app draws a divider between
+ * stacked blocks inside a single-column table, e.g. lectura_sync.cc/
+ * parallel_view.cc between two compared versions) has no real content --
+ * wrapping it in a whole nested WkHtml page would stack that page's own
+ * view margins (8px top+bottom) with insert_hr()'s own paragraph breaks
+ * around the separator, ballooning "a thin line" into a large blank gap.
+ * Detect that case and hand back the bare <hr> node so the caller can
+ * build a lean separator instead of a full cell. */
+static gboolean
+cell_is_bare_hr(xmlNode *cell_node, xmlNode **hr_out)
+{
+	xmlNode *only = NULL;
+	xmlNode *c;
+
+	for (c = cell_node ? cell_node->children : NULL; c; c = c->next) {
+		if (c->type == XML_TEXT_NODE || c->type == XML_CDATA_SECTION_NODE) {
+			const char *p = (const char *)c->content;
+			while (p && *p && g_ascii_isspace((guchar)*p))
+				p++;
+			if (p && *p)
+				return FALSE;
+			continue;
+		}
+		if (c->type != XML_ELEMENT_NODE)
+			continue;
+		if (only || g_ascii_strcasecmp(el_name(c), "hr"))
+			return FALSE;
+		only = c;
+	}
+	if (!only)
+		return FALSE;
+	*hr_out = only;
+	return TRUE;
+}
+
+static GtkWidget *
+build_hr_cell(xmlNode *hr_node)
+{
+	GtkWidget *sep = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
+	char *color = el_prop(hr_node, "color");
+
+	if (!color)
+		color = el_prop(hr_node, "bgcolor");
+	style_hr_separator(sep, color);
+	g_free(color);
+	return sep;
+}
+
+/* fallback_bg is the color a cell falls back to when neither it nor its
+ * <tr> specify one -- normally the page's own <body bgcolor>, so a cell
+ * matches the surrounding pane instead of the raw GTK theme background. */
+static GtkWidget *
+build_table_cell(xmlNode *cell_node, const char *fallback_bg)
+{
+	WkHtml *cell;
+	gchar *inner, *aligned = NULL, *body_open, *wrapped;
+	char *own_bg, *align;
+	const char *bg;
+
+	cell = wk_html_new(NULL, FALSE, -1);
+	make_cell_inline(cell);
+
+	own_bg = el_prop(cell_node, "bgcolor");
+	bg = (own_bg && *own_bg) ? own_bg : fallback_bg;
+	align = el_prop(cell_node, "align");
+
+	inner = serialize_children(cell_node);
+	if (align && (!g_ascii_strcasecmp(align, "right") ||
+		     !g_ascii_strcasecmp(align, "center"))) {
+		aligned = g_strdup_printf("<div style=\"text-align:%s\">%s</div>",
+					 align, inner);
+	}
+	body_open = (bg && *bg) ? g_strdup_printf("<body bgcolor=\"%s\">", bg)
+			       : g_strdup("<body>");
+	wrapped = g_strdup_printf(
+	    "<html><head><meta charset=\"utf-8\"/></head>%s%s</body></html>",
+	    body_open, aligned ? aligned : inner);
+
+	wk_html_open_stream(cell, "text/html");
+	wk_html_write(cell, wrapped, (gint)strlen(wrapped));
+	wk_html_close(cell);
+
+	g_free(wrapped);
+	g_free(body_open);
+	g_free(aligned);
+	g_free(inner);
+	g_free(own_bg);
+	g_free(align);
+
+	gtk_widget_set_valign(GTK_WIDGET(cell), GTK_ALIGN_START);
+	return GTK_WIDGET(cell);
+}
+
+/* Same width-sync trick as hr_fit()/il_table_fit(): a child-anchor grid
+ * doesn't stretch on its own, so column widths (from % width="" on cells,
+ * evenly split otherwise) are recomputed on every resize of the page. */
+static void
+table_fit(GtkWidget *view, GdkRectangle *alloc, GtkWidget *grid)
+{
+	gdouble *pct;
+	gint ncols, avail, col;
+	GList *children, *l;
+
+	(void)view;
+	pct = g_object_get_data(G_OBJECT(grid), "elim-col-pct");
+	ncols = GPOINTER_TO_INT(g_object_get_data(G_OBJECT(grid), "elim-ncols"));
+	if (!pct || ncols <= 0)
+		return;
+	avail = alloc->width - 52 - (ncols - 1) * 6;
+	if (avail < ncols * 40)
+		avail = ncols * 40;
+	children = gtk_container_get_children(GTK_CONTAINER(grid));
+	for (l = children; l; l = l->next) {
+		GtkWidget *cell = GTK_WIDGET(l->data);
+		gint w;
+		col = GPOINTER_TO_INT(g_object_get_data(G_OBJECT(cell), "elim-col"));
+		if (col < 0 || col >= ncols)
+			continue;
+		w = (gint)(avail * pct[col] / 100.0);
+		if (w < 30)
+			w = 30;
+		gtk_widget_set_size_request(cell, w, -1);
+	}
+	g_list_free(children);
+}
+
+static void
+insert_table(ParseCtx *ctx, xmlNode *table_node)
+{
+	GPtrArray *rows;
+	GtkTextIter iter;
+	GtkTextChildAnchor *anchor;
+	GtkWidget *grid;
+	GtkAllocation alloc;
+	gdouble *pct;
+	gint ncols = 0, r;
+
+	if (ctx->skip)
+		return;
+	if (!ctx->html || !ctx->html->priv->view)
+		return;
+
+	rows = g_ptr_array_new();
+	collect_rows(table_node, rows);
+	if (rows->len == 0) {
+		g_ptr_array_free(rows, TRUE);
+		return;
+	}
+
+	for (r = 0; r < (gint)rows->len; r++) {
+		GPtrArray *cells = g_ptr_array_new();
+		row_cells(g_ptr_array_index(rows, r), cells);
+		if ((gint)cells->len > ncols)
+			ncols = (gint)cells->len;
+		g_ptr_array_free(cells, TRUE);
+	}
+	if (ncols == 0) {
+		g_ptr_array_free(rows, TRUE);
+		return;
+	}
+
+	pct = g_new(gdouble, ncols);
+	for (r = 0; r < ncols; r++)
+		pct[r] = 100.0 / ncols;
+	for (r = 0; r < (gint)rows->len; r++) {
+		GPtrArray *cells = g_ptr_array_new();
+		gint c;
+		row_cells(g_ptr_array_index(rows, r), cells);
+		for (c = 0; c < (gint)cells->len; c++) {
+			char *w = el_prop(g_ptr_array_index(cells, c), "width");
+			if (w && *w) {
+				gdouble v = g_ascii_strtod(w, NULL);
+				if (v > 0)
+					pct[c] = v;
+			}
+			g_free(w);
+		}
+		g_ptr_array_free(cells, TRUE);
+	}
+
+	insert_break(ctx, TRUE);
+
+	grid = gtk_grid_new();
+	gtk_grid_set_column_spacing(GTK_GRID(grid), 6);
+	gtk_grid_set_row_spacing(GTK_GRID(grid), 2);
+	gtk_widget_set_hexpand(grid, TRUE);
+	g_object_set_data(G_OBJECT(grid), "elim-ncols", GINT_TO_POINTER(ncols));
+	g_object_set_data_full(G_OBJECT(grid), "elim-col-pct", pct, g_free);
+
+	for (r = 0; r < (gint)rows->len; r++) {
+		xmlNode *row_node = g_ptr_array_index(rows, r);
+		char *row_bg = el_prop(row_node, "bgcolor");
+		const char *fallback_bg = (row_bg && *row_bg) ? row_bg : ctx->body_bg;
+		GPtrArray *cells = g_ptr_array_new();
+		gint c;
+
+		row_cells(row_node, cells);
+		for (c = 0; c < (gint)cells->len; c++) {
+			xmlNode *cell_node = g_ptr_array_index(cells, c);
+			xmlNode *hr_node = NULL;
+			GtkWidget *cell_w = cell_is_bare_hr(cell_node, &hr_node)
+						? build_hr_cell(hr_node)
+						: build_table_cell(cell_node, fallback_bg);
+			g_object_set_data(G_OBJECT(cell_w), "elim-col", GINT_TO_POINTER(c));
+			gtk_grid_attach(GTK_GRID(grid), cell_w, c, r, 1, 1);
+		}
+		g_ptr_array_free(cells, TRUE);
+		g_free(row_bg);
+	}
+	g_ptr_array_free(rows, TRUE);
+
+	gtk_text_buffer_get_end_iter(ctx->buf, &iter);
+	anchor = gtk_text_buffer_create_child_anchor(ctx->buf, &iter);
+	gtk_text_view_add_child_at_anchor(ctx->html->priv->view, grid, anchor);
+	g_signal_connect_object(GTK_WIDGET(ctx->html->priv->view), "size-allocate",
+				G_CALLBACK(table_fit), grid, 0);
+	gtk_widget_get_allocation(GTK_WIDGET(ctx->html->priv->view), &alloc);
+	if (alloc.width > 80)
+		table_fit(NULL, &alloc, grid);
+	gtk_widget_show_all(grid);
 	ctx->at_line_start = FALSE;
 	insert_break(ctx, TRUE);
 }
@@ -706,6 +1056,10 @@ walk_element(ParseCtx *ctx, xmlNode *node)
 			hr_color = el_prop(node, "bgcolor");
 		insert_hr(ctx, hr_color);
 		g_free(hr_color);
+		return;
+	}
+	if (!g_ascii_strcasecmp(name, "table")) {
+		insert_table(ctx, node);
 		return;
 	}
 
@@ -832,8 +1186,10 @@ walk_element(ParseCtx *ctx, xmlNode *node)
 		g_free(key);
 	} else if (class_has(klass, "vtools")) {
 		char *key = el_prop(node, "data-key");
-		insert_verse_tools_button(ctx, key);
+		char *has_note = el_prop(node, "data-has-note");
+		insert_verse_tools_button(ctx, key, has_note && *has_note);
 		g_free(key);
+		g_free(has_note);
 	} else {
 		gboolean rtl_span = dir && !g_ascii_strcasecmp(dir, "rtl") &&
 				    g_ascii_strcasecmp(name, "body");
@@ -1143,7 +1499,8 @@ wk_html_anchor_at(WkHtml *html, const GtkTextIter *iter)
 			continue;
 		gtk_text_buffer_get_iter_at_mark(priv->buffer, &m, a->mark);
 		if (gtk_text_iter_get_offset(&m) <= off) {
-			if (a->name && strcmp(a->name, "0") && strcmp(a->name, "TOP"))
+			if (a->name && strcmp(a->name, "0") && strcmp(a->name, "0next") &&
+			    strcmp(a->name, "0hdr") && strcmp(a->name, "TOP"))
 				return g_strdup(a->name);
 		}
 	}
@@ -1797,19 +2154,28 @@ wk_html_ensure_anchor_visible(WkHtml *html, const gchar *anchor)
 	Anchor *a;
 
 	g_return_if_fail(html != NULL);
-	g_free(html->priv->anchor);
-	html->priv->anchor = g_strdup(anchor);
-	if (html->priv->timeout) {
-		g_source_remove(html->priv->timeout);
-		html->priv->timeout = 0;
-	}
-	html->priv->jump_tries = 0;
 	if (!anchor || !*anchor)
 		return;
 	a = g_hash_table_lookup(html->priv->anchor_ht, anchor);
 	if (a && a->mark && !gtk_text_mark_get_deleted(a->mark))
 		/* Scroll only if the verse sits in the top/bottom margin
-		 * or off-screen — never yank it to a fixed slot. */
+		 * or off-screen — never yank it to a fixed slot.
+		 *
+		 * Deliberately does NOT touch priv->anchor/timeout/jump_tries
+		 * here anymore. Those belong to wk_html_jump_to_anchor()'s own
+		 * self-healing retry loop (a sync scroll right after a fresh
+		 * render, then 3 retries at 80ms while GtkTextView's layout
+		 * settles -- the sync one runs against stale/zero line
+		 * heights and is known-unreliable, which is why the retries
+		 * exist at all). gui_bibletext_mark_current_verse() calls
+		 * this function shortly after every render, for the *same*
+		 * anchor jump_to_anchor already targeted; it used to cancel
+		 * that pending retry timer, freezing the view at whatever the
+		 * first unreliable scroll produced. Harmless most of the
+		 * time, but on a last-verse-of-chapter jump -- very little
+		 * text left after the mark -- that stale position could land
+		 * past all visible text, making the pane look completely
+		 * blank. */
 		gtk_text_view_scroll_to_mark(html->priv->view, a->mark,
 					     0.16, FALSE, 0.0, 0.0);
 }

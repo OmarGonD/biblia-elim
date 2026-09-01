@@ -1333,6 +1333,15 @@ osis_same_chapter(const char *mod, const char *ka, const char *kb)
 }
 
 static gboolean bible_pane_is_interlinear = FALSE;
+/* The verse actually rendered by the last main_display_bible() call --
+ * NOT settings.currentverse, which callers like main_update_nav_controls()
+ * already overwrite with the *new* target before main_display_bible()
+ * even runs. Reading settings.currentverse here made the "same chapter,
+ * skip the redraw" in_place check compare the new key against itself
+ * (trivially "same"), permanently short-circuiting real redraws after
+ * the very first navigation -- confirmed by tracing: every call after
+ * the first had prev_verse == key. */
+static gchar *bible_pane_last_verse = NULL;
 
 void
 main_bible_note_interlinear_html(void)
@@ -1372,7 +1381,7 @@ void main_display_bible(const char *mod_name,
 	if (!settings.MainWindowModule)
 		settings.MainWindowModule = g_strdup((gchar *)mod_name);
 
-	prev_verse = settings.currentverse ? g_strdup(settings.currentverse) : NULL;
+	prev_verse = bible_pane_last_verse ? g_strdup(bible_pane_last_verse) : NULL;
 	{
 		GtkTextView *tv = widgets.html_text
 				      ? wk_html_get_view(WK_HTML(widgets.html_text))
@@ -1452,6 +1461,7 @@ void main_display_bible(const char *mod_name,
 
 	valid_scripture_key = main_is_Bible_key(mod_name, key);
 
+	gchar *displayed_key;
 	if (backend->module_has_testament(mod_name,
 					  backend->get_key_testament(mod_name, key))) {
 		backend->set_module_key(mod_name, key);
@@ -1459,6 +1469,7 @@ void main_display_bible(const char *mod_name,
 			backend->display_mod->display();
 			bible_pane_is_interlinear = FALSE;
 		}
+		displayed_key = g_strdup(key);
 	} else {
 		in_place = FALSE;
 		gchar *val_key = NULL;
@@ -1471,8 +1482,10 @@ void main_display_bible(const char *mod_name,
 		backend->set_module_key(mod_name, val_key);
 		backend->display_mod->display();
 		bible_pane_is_interlinear = FALSE;
-		g_free(val_key);
+		displayed_key = val_key; // ownership transferred, not freed here
 	}
+	g_free(bible_pane_last_verse);
+	bible_pane_last_verse = displayed_key;
 
 	valid_scripture_key = TRUE; // leave nice for future use.
 

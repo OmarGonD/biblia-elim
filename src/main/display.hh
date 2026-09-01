@@ -183,7 +183,10 @@ class GTKPrintChapDisp : public GTKPrintEntryDisp
 extern "C" {
 #endif /* __cplusplus */
 
-void markedCacheFill(const gchar *modname, gchar *key);
+/* Unified note/highlight cache fill -- one XML section ("osisrefnotes")
+ * for both whole-verse "Mark Verse" annotations and phrase-level
+ * Kindle-style highlights (see the NoteElement comment in display.cc). */
+void notesCacheFill(const gchar *modname, gchar *key);
 
 /* arbitrary text-selection highlights (Kindle-style), separate from the
  * whole-verse "Mark Verse" annotation system above -- see src/gtk/bibletext.c
@@ -196,9 +199,13 @@ typedef struct
 {
 	gchar *osisref; /* "Book.C.V" */
 	gchar *text;	/* this verse's portion of the selected text */
+	gint pos;	/* UTF-8 offset of `text` relative to the verse's own
+			 * start, in the live GtkTextBuffer at selection time
+			 * (see wk_html_anchor_bounds()); -1 if it couldn't be
+			 * computed. Lets re-renders relocate the highlight
+			 * exactly instead of guessing via substring search. */
 } HighlightSegment;
 
-void highlightCacheFill(const gchar *modname, gchar *key);
 char *highlight_find_overlapping(const gchar *module, const gchar *osisref, const gchar *text);
 char *highlight_create_group(const gchar *module, GList *segments,
 			     const gchar *color);
@@ -225,8 +232,17 @@ GList *highlight_list_notes(const gchar *osis_prefix);
 int highlight_count_notes(const gchar *osis_prefix);
 int highlight_count_notes_at(int chapter_verse);
 
-/* Notas de versículo completo (sin selección de texto), comparten
- * almacenamiento con el sistema "Mark Verse" (osisrefmarkedverses). */
+/* Notas de versículo completo (sin selección de texto) -- comparten
+ * almacenamiento unificado ("osisrefnotes") con los resaltados de frase.
+ * note_set_whole_verse()/note_remove_whole_verse() son el setter genérico
+ * (usado por bookmark_dialog.c, que también deja elegir color);
+ * highlight_set_verse_note() es un wrapper fino sobre el primero que
+ * preserva el color existente, para notas_verso.c (que nunca elige
+ * color). */
+void note_set_whole_verse(const gchar *module, const gchar *osisref,
+			  const gchar *note, const gchar *color);
+void note_remove_whole_verse(const gchar *module, const gchar *osisref);
+char *note_get_whole_verse_color(const gchar *module, const gchar *osisref);
 void highlight_set_verse_note(const gchar *module, const gchar *osisref,
 			      const gchar *note);
 char *highlight_get_verse_note(const gchar *module, const gchar *osisref);

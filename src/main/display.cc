@@ -65,20 +65,27 @@
 // for one-time content rendering.
 extern ModuleCache::CacheMap ModuleMap;
 
-// for tracking personal annotations.
+// Unified per-verse note/highlight entry -- replaces the old separate
+// marked_element ("Mark Verse" whole-verse annotations) and
+// highlight_element (phrase-level Kindle-style highlights) structs; both
+// now live in one "osisrefnotes" XML section and one cache. text empty =
+// whole-verse scope (at most one per verse); text set = phrase scope
+// (several allowed per verse, distinguished by the "#<gid>" label suffix).
 typedef struct
 {
-	gchar *module;
-	gchar *book;
-	int chapter_verse;
-	GString *annotation;
-	gchar *color; /* NULL = no custom highlight color, use the global default */
-} marked_element;
+	gchar *label;   // full XML label: "<mod> <osisref>" or "<mod> <osisref>#<gid>"
+	gchar *osisref; // "Book.C.V"
+	gchar *text;    // highlighted phrase; empty for whole-verse entries
+	gchar *color;   // "#RRGGBB", or NULL for the global default
+	gchar *note;    // may be empty, never NULL
+	gint pos;       // UTF-8 offset of `text` relative to verse start, in the
+			// rendered HTML; -1 if unknown (whole-verse entries, or
+			// phrase entries migrated from before this existed).
+} NoteElement;
 
-typedef std::map<int, marked_element *> MC;
-MC marked_cache;
-
-gchar *marked_cache_modname = NULL, *marked_cache_book = NULL;
+typedef std::map<int, GList *> NoteCache; // chapter_verse -> GList<NoteElement*>
+static NoteCache note_cache;
+static gchar *note_cache_modname = NULL, *note_cache_book = NULL;
 
 int footnote, xref;
 
@@ -175,224 +182,184 @@ const char *bold_start = "<b>",
 	   *superscript_end = "</sup>";
 
 static void
-append_verse_tools(SWBuf &swbuf, const char *key)
+append_verse_tools(SWBuf &swbuf, const char *key, gboolean has_note)
 {
 	gchar *esc = g_markup_escape_text(key ? key : "", -1);
-	swbuf.appendFormatted("<span class=\"vtools\" data-key=\"%s\"> </span>",
-			      esc);
+	swbuf.appendFormatted("<span class=\"vtools\" data-key=\"%s\"%s> </span>",
+			      esc, has_note ? " data-has-note=\"1\"" : "");
 	g_free(esc);
 }
 
 enum { COLOR_NONE, COLOR_TEXT, COLOR_BOTH } color_choices;
 gchar    *color_chosen_fg, *color_chosen_bg;
-marked_element *e;
-
-void
-markedCacheFill(const gchar *modname, gchar *key)
-{
-	gchar *s, *t, *err, *mhold;
-	char *key_book = g_strdup(main_get_osisref_from_key((const char *)modname,
-							    (const char *)key));
-	// free the old cache.  first free contents, then the map itself.
-	MC::iterator it;
-	for (it = marked_cache.begin();
-	     it != marked_cache.end();
-	     ++it) {
-		marked_element *e = (*it).second;
-		g_free(e->module);
-		g_string_free(e->annotation, TRUE);
-		g_free(e->color);
-		delete e;
-	}
-	marked_cache.clear();
-
-	// tear apart the key (e.g. "Gen.1.1") just to get the book.
-	*(s = strrchr(key_book, '.')) = '\0';
-	*(t = strrchr(key_book, '.')) = '\0';
-
-	// remember exactly what chapter this cache is for
-	g_free(marked_cache_modname);
-	g_free(marked_cache_book);
-	marked_cache_modname = g_strdup(modname);
-	marked_cache_book = g_strdup(key_book);
-
-	// load up the annotation content
-	if (xml_set_section_ptr("osisrefmarkedverses") && xml_get_label()) {
-		marked_element *e = new marked_element;
-		e->color = NULL;
-		do {
-			e->module = xml_get_label();
-			s = xml_get_list();
-			e->annotation = g_string_new(s);
-			g_free(s);
-
-			// per-verse highlight color, if one was chosen when
-			// this verse was marked; NULL falls back to the
-			// global default at render time. Looked up now,
-			// against the full "<mod> <osisref>" reference,
-			// before it's torn apart into book/chapter/verse below.
-			e->color = xml_get_list_from_label("osisrefmarkedcolors",
-							   "markedcolor", e->module);
-
-			gchar *m = e->module;
-			mhold = g_strdup(m);
-
-			// tear apart "NASB Gen.1.1"
-			if ((s = strrchr(m, '.')) == NULL) // rightmost dot
-				goto fail;
-			*s = '\0';
-			if ((t = strrchr(m, '.')) == NULL) // .chapter.verse
-				goto fail;
-			*t = '\0';
-
-			e->chapter_verse = (1000 * atoi(t + 1)) + atoi(s + 1);
-			if ((s = strchr(m, ' ')) == NULL) // leftmost space
-				goto fail;
-			*(s++) = '\0';
-			e->book = s;
-			// now properly delimited: module & book, plus numeric c:v.
-
-			g_free(mhold);
-
-			// for fast reference: is this annotation relevant?
-			if ((*m && (strcasecmp(m, modname) != 0)) ||
-			    (strcasecmp(e->book, key_book) != 0)) {
-				// junk: re-use same element in next loop.
-				g_free(e->module);
-				g_string_free(e->annotation, TRUE);
-				g_free(e->color);
-				e->color = NULL;
-			} else {
-				// replace embedded badness characters.
-				for (int i = 0; i < NUM_REPLACE; ++i) {
-					for (s = strchr(e->annotation->str, replacement[i].c);
-					     s;
-					     s = strchr(s + 1, replacement[i].c)) {
-						(void)g_string_erase(e->annotation,
-								     s - (e->annotation->str), 1);
-						(void)g_string_insert(e->annotation,
-								      s - (e->annotation->str),
-								      replacement[i].s);
-					}
-				}
-				// valid: insert + get fresh one to work with.
-				marked_cache[e->chapter_verse] = e;
-				e = new marked_element;
-				e->color = NULL;
-			}
-		} while (xml_next_item() && xml_get_label());
-		// remove extra element that we necessarily have at loop's end.
-		delete e;
-	}
-	g_free(key_book);
-	return;
-
-fail:
-	err = g_strdup_printf(_("Improperly encoded personal annotation label:\n'%s'"),
-			      mhold);
-	gui_generic_warning(err);
-	g_free(err);
-	g_free(key_book);
-	return;
-}
-
-//
-// user annotation cache checking: is "this verse" annotated?
-//
-marked_element *
-markedCacheCheck(int thisChapterVerse)
-{
-	MC::iterator it = marked_cache.find(thisChapterVerse);
-	if (it != marked_cache.end())
-		return (*it).second;
-	return NULL;
-}
-
-// ---------------------------------------------------------------------
-// Arbitrary text-selection highlights (Kindle/Google-Docs-style): the
-// user selects a run of words in the WebKit text pane (see the
-// selection bridge in src/gtk/bibletext.c) and it's highlighted
-// immediately, independent of the whole-verse "Mark Verse" annotation
-// system above. A single selection may span several consecutive
-// verses -- each verse touched gets its own stored entry (since
-// rendering is per-verse), but all entries from one selection share a
-// "group id" so a later color change, note, or delete applies to the
-// whole span together: "<mod> <osisref>#<group_id>".
-// ---------------------------------------------------------------------
-
-typedef struct
-{
-	gchar *label; // full unique key, e.g. "KJV Gen.1.1#1234567890"
-	gchar *text;  // the highlighted phrase, unescaped
-	gchar *color; // "#RRGGBB"
-	gchar *note;  // may be empty, never NULL
-} highlight_element;
-
-// HighlightSegment (one verse's portion of a possibly multi-verse
-// selection) is declared in display.hh, shared with bibletext.c.
-
-typedef std::map<int, GList *> HC; // chapter_verse -> GList<highlight_element*>
-static HC highlight_cache;
-static gchar *highlight_cache_modname = NULL, *highlight_cache_book = NULL;
 
 #define DEFAULT_HIGHLIGHT_COLOR "#FFEB3B" /* Kindle-style default yellow */
+#define NOTES_MIGRATED_MARK "__migrated__"
 
 static void
-free_highlight_element(highlight_element *h)
+free_note_element(NoteElement *e)
 {
-	g_free(h->label);
-	g_free(h->text);
-	g_free(h->color);
-	g_free(h->note);
-	g_free(h);
+	g_free(e->label);
+	g_free(e->osisref);
+	g_free(e->text);
+	g_free(e->color);
+	g_free(e->note);
+	g_free(e);
 }
 
 static void
-free_highlight_cache(void)
+free_note_cache(void)
 {
-	HC::iterator it;
-	for (it = highlight_cache.begin(); it != highlight_cache.end(); ++it) {
+	NoteCache::iterator it;
+	for (it = note_cache.begin(); it != note_cache.end(); ++it) {
 		for (GList *n = (*it).second; n; n = n->next)
-			free_highlight_element((highlight_element *)n->data);
+			free_note_element((NoteElement *)n->data);
 		g_list_free((*it).second);
 	}
-	highlight_cache.clear();
+	note_cache.clear();
 }
 
-// "#RRGGBB|<uri-escaped text>|<uri-escaped note>" -- '|' is always safe as
-// a delimiter since g_uri_escape_string() percent-encodes everything
-// outside the RFC3986 unreserved set (same escaping already used for
-// annotation content above, e.g. markedCacheFill()'s caller).
+// "color|<uri-escaped text>|<uri-escaped note>|<pos or empty>" -- '|' is
+// always safe as a delimiter since g_uri_escape_string() percent-encodes
+// everything outside the RFC3986 unreserved set. text empty => whole-verse
+// entry. pos < 0 => not stored (whole-verse entries, or phrase entries
+// with no anchor yet).
 static gchar *
-encode_highlight_value(const gchar *color, const gchar *text, const gchar *note)
+encode_note_value(const gchar *color, const gchar *text, const gchar *note, gint pos)
 {
-	gchar *etext = g_uri_escape_string(text, NULL, TRUE);
+	gchar *etext = g_uri_escape_string(text ? text : "", NULL, TRUE);
 	gchar *enote = g_uri_escape_string(note ? note : "", NULL, TRUE);
-	gchar *value = g_strdup_printf("%s|%s|%s", color, etext, enote);
+	gchar *value = (pos >= 0)
+			   ? g_strdup_printf("%s|%s|%s|%d", color ? color : "", etext, enote, pos)
+			   : g_strdup_printf("%s|%s|%s|", color ? color : "", etext, enote);
 	g_free(etext);
 	g_free(enote);
 	return value;
 }
 
 static gboolean
-decode_highlight_value(const gchar *value, gchar **color, gchar **text, gchar **note)
+decode_note_value(const gchar *value, gchar **color, gchar **text, gchar **note, gint *pos)
 {
-	gchar **parts = g_strsplit(value, "|", 3);
+	gchar **parts = g_strsplit(value, "|", 4);
 	if (!parts[0] || !parts[1] || !parts[2]) {
 		g_strfreev(parts);
 		return FALSE;
 	}
-	*color = g_strdup(parts[0]);
+	*color = (*parts[0]) ? g_strdup(parts[0]) : NULL;
 	*text = g_uri_unescape_string(parts[1], NULL);
 	*note = g_uri_unescape_string(parts[2], NULL);
+	*pos = (parts[3] && *parts[3]) ? atoi(parts[3]) : -1;
 	g_strfreev(parts);
 	return TRUE;
 }
 
-void
-highlightCacheFill(const gchar *modname, gchar *key)
+// Same HTML-escaping markedCacheFill() used to apply to whole-verse
+// annotation text before it could reach any HTML context downstream
+// (note popups etc.) -- ported as-is, still scoped to whole-verse notes
+// only, since phrase-highlight notes never went through this.
+static void
+html_escape_note(gchar **note)
 {
-	free_highlight_cache();
+	GString *g = g_string_new(*note);
+	for (int i = 0; i < NUM_REPLACE; ++i) {
+		for (gchar *s = strchr(g->str, replacement[i].c);
+		     s;
+		     s = strchr(s + 1, replacement[i].c)) {
+			(void)g_string_erase(g, s - g->str, 1);
+			(void)g_string_insert(g, s - g->str, replacement[i].s);
+		}
+	}
+	g_free(*note);
+	*note = g_string_free(g, FALSE);
+}
+
+// One-time, non-destructive import of the old osisrefhighlights /
+// osisrefmarkedverses / osisrefmarkedcolors sections into osisrefnotes.
+// The legacy sections are left untouched (never deleted) -- if anything
+// about the new format turns out wrong, the original data is still there
+// to recover from. A sentinel label marks "already migrated" (an
+// osisrefnotes section that exists but happens to be empty is otherwise
+// indistinguishable from "never migrated", since xml_set_section_ptr()
+// only reports sections with at least one child).
+static void
+migrate_legacy_notes_if_needed(void)
+{
+	static gboolean checked = FALSE;
+
+	if (checked)
+		return;
+	checked = TRUE;
+
+	if (xml_set_section_ptr("osisrefnotes"))
+		return; // sentinel or real data already present
+
+	// phrase highlights: "color|text|note" (3 fields) -> add empty pos.
+	if (xml_set_section_ptr("osisrefhighlights") && xml_get_label()) {
+		do {
+			gchar *label = xml_get_label();
+			gchar *value = xml_get_list();
+			if (label && value) {
+				gchar **parts = g_strsplit(value, "|", 3);
+				if (parts[0] && parts[1] && parts[2]) {
+					gchar *newval = g_strdup_printf("%s|%s|%s|",
+									parts[0], parts[1], parts[2]);
+					xml_set_list_item("osisrefnotes", "note", label, newval);
+					g_free(newval);
+				}
+				g_strfreev(parts);
+			}
+			g_free(label);
+			g_free(value);
+		} while (xml_next_item() && xml_get_label());
+	}
+
+	// whole-verse marks: value was the raw note text (or the "user
+	// content" placeholder for "marked, no note"); color lived in a
+	// separate osisrefmarkedcolors section under the same label.
+	if (xml_set_section_ptr("osisrefmarkedverses") && xml_get_label()) {
+		do {
+			gchar *label = xml_get_label();
+			gchar *value = xml_get_list();
+			if (label && value) {
+				const gchar *note_text = strcmp(value, "user content") ? value : "";
+				gchar *color = xml_get_list_from_label("osisrefmarkedcolors",
+								       "markedcolor", label);
+				gchar *newval = encode_note_value(color, "", note_text, -1);
+				xml_set_list_item("osisrefnotes", "note", label, newval);
+				g_free(newval);
+				g_free(color);
+			}
+			g_free(label);
+			g_free(value);
+		} while (xml_next_item() && xml_get_label());
+	}
+
+	xml_set_list_item("osisrefnotes", "note", NOTES_MIGRATED_MARK, "1");
+	xml_save_settings_doc(settings.fnconfigure);
+}
+
+// "<mod> <osisref>" or "<mod> <osisref>#<gid>" -> "Book.C.V", for either
+// label shape.
+static gchar *
+osis_from_note_label(const gchar *label)
+{
+	const gchar *space, *hash;
+	if (!label)
+		return NULL;
+	space = strchr(label, ' ');
+	if (!space)
+		return NULL;
+	hash = strrchr(label, '#');
+	if (hash && hash > space + 1)
+		return g_strndup(space + 1, (gsize)(hash - space - 1));
+	return g_strdup(space + 1);
+}
+
+void
+notesCacheFill(const gchar *modname, gchar *key)
+{
+	migrate_legacy_notes_if_needed();
+	free_note_cache();
 
 	char *key_book = g_strdup(main_get_osisref_from_key((const char *)modname,
 							    (const char *)key));
@@ -400,58 +367,82 @@ highlightCacheFill(const gchar *modname, gchar *key)
 	*(s = strrchr(key_book, '.')) = '\0';
 	*(t = strrchr(key_book, '.')) = '\0';
 
-	g_free(highlight_cache_modname);
-	g_free(highlight_cache_book);
-	highlight_cache_modname = g_strdup(modname);
-	highlight_cache_book = g_strdup(key_book);
+	g_free(note_cache_modname);
+	g_free(note_cache_book);
+	note_cache_modname = g_strdup(modname);
+	note_cache_book = g_strdup(key_book);
 
-	if (xml_set_section_ptr("osisrefhighlights") && xml_get_label()) {
+	if (xml_set_section_ptr("osisrefnotes") && xml_get_label()) {
 		do {
-			gchar *full_label = xml_get_label(); // "<mod> <osisref>#<n>"
+			gchar *full_label = xml_get_label(); // "<mod> <osisref>[#<gid>]"
 			gchar *value = xml_get_list();
-			gchar *hash = full_label ? strrchr(full_label, '#') : NULL;
 
-			if (hash) {
-				gchar *ref = g_strndup(full_label, hash - full_label);
-				gchar *mhold = g_strdup(ref);
-				gchar *m = mhold;
-				gchar *dot1 = strrchr(m, '.');
-				if (dot1) {
-					*dot1 = '\0';
-					gchar *dot2 = strrchr(m, '.');
-					if (dot2) {
-						int chapter_verse =
-						    (1000 * atoi(dot2 + 1)) + atoi(dot1 + 1);
-						*dot2 = '\0';
-						gchar *sp = strchr(m, ' ');
-						if (sp) {
-							*sp = '\0';
-							gchar *book = sp + 1;
-							gchar *mod = m;
+			if (full_label && value && strcmp(full_label, NOTES_MIGRATED_MARK)) {
+				gchar *space = strchr(full_label, ' ');
+				gchar *hash = strrchr(full_label, '#');
+				if (space && (!hash || hash > space + 1)) {
+					gsize oref_len = (hash && hash > space + 1)
+							     ? (gsize)(hash - space - 1)
+							     : strlen(space + 1);
+					gchar *mod = g_strndup(full_label, space - full_label);
+					gchar *osisref = g_strndup(space + 1, oref_len);
+					gchar *bhold = g_strdup(osisref);
+					gchar *dot1 = strrchr(bhold, '.');
+
+					if (dot1) {
+						*dot1 = '\0';
+						gchar *dot2 = strrchr(bhold, '.');
+						if (dot2) {
+							int chapter_verse =
+							    (1000 * atoi(dot2 + 1)) + atoi(dot1 + 1);
+							*dot2 = '\0'; // bhold now just the book
+
 							if (!((*mod && strcasecmp(mod, modname) != 0) ||
-							      strcasecmp(book, key_book) != 0)) {
-								gchar *color = NULL, *htext = NULL, *note = NULL;
-								if (value && decode_highlight_value(value, &color, &htext, &note)) {
-									highlight_element *h = g_new0(highlight_element, 1);
-									h->label = g_strdup(full_label);
-									h->text = htext;
-									h->color = color;
-									h->note = note;
-									highlight_cache[chapter_verse] =
-									    g_list_append(highlight_cache[chapter_verse], h);
+							      strcasecmp(bhold, key_book) != 0)) {
+								gchar *color = NULL, *text = NULL, *note = NULL;
+								gint pos = -1;
+								if (decode_note_value(value, &color, &text, &note, &pos)) {
+									if (!*text)
+										html_escape_note(&note);
+									NoteElement *ne = g_new0(NoteElement, 1);
+									ne->label = g_strdup(full_label);
+									ne->osisref = g_strdup(osisref);
+									ne->text = text;
+									ne->color = color;
+									ne->note = note;
+									ne->pos = pos;
+									note_cache[chapter_verse] =
+									    g_list_append(note_cache[chapter_verse], ne);
 								}
 							}
 						}
 					}
+					g_free(bhold);
+					g_free(mod);
+					g_free(osisref);
 				}
-				g_free(mhold);
-				g_free(ref);
 			}
 			g_free(full_label);
 			g_free(value);
 		} while (xml_next_item() && xml_get_label());
 	}
 	g_free(key_book);
+}
+
+// The (at most one) entry for this verse whose text is empty --
+// whole-verse scope, replaces the old markedCacheCheck().
+static NoteElement *
+whole_verse_note(int chapter_verse)
+{
+	NoteCache::iterator it = note_cache.find(chapter_verse);
+	if (it == note_cache.end())
+		return NULL;
+	for (GList *n = (*it).second; n; n = n->next) {
+		NoteElement *e = (NoteElement *)n->data;
+		if (!e->text || !*e->text)
+			return e;
+	}
+	return NULL;
 }
 
 // Highlights are identified by a group id shared across every verse a
@@ -470,7 +461,7 @@ find_labels_by_group(const gchar *group_id)
 		return NULL;
 	suffix = g_strdup_printf("#%s", group_id);
 
-	if (xml_set_section_ptr("osisrefhighlights") && xml_get_label()) {
+	if (xml_set_section_ptr("osisrefnotes") && xml_get_label()) {
 		do {
 			gchar *label = xml_get_label();
 			if (label && g_str_has_suffix(label, suffix))
@@ -508,12 +499,14 @@ highlight_find_overlapping(const gchar *module, const gchar *osisref, const gcha
 	int chapter_verse = (1000 * atoi(dot2 + 1)) + atoi(dot1 + 1);
 	g_free(copy);
 
-	HC::iterator it = highlight_cache.find(chapter_verse);
-	if (it == highlight_cache.end())
+	NoteCache::iterator it = note_cache.find(chapter_verse);
+	if (it == note_cache.end())
 		return NULL;
 
 	for (GList *n = (*it).second; n; n = n->next) {
-		highlight_element *h = (highlight_element *)n->data;
+		NoteElement *h = (NoteElement *)n->data;
+		if (!h->text || !*h->text)
+			continue; // whole-verse entry, not a phrase highlight
 		if (strstr(h->text, text) || strstr(text, h->text)) {
 			gchar *hash = strrchr(h->label, '#');
 			return hash ? g_strdup(hash + 1) : g_strdup(h->label);
@@ -526,7 +519,7 @@ static void
 highlight_persist(gboolean rerender)
 {
 	xml_save_settings_doc(settings.fnconfigure);
-	highlightCacheFill(settings.MainWindowModule, settings.currentverse);
+	notesCacheFill(settings.MainWindowModule, settings.currentverse);
 	if (rerender)
 		main_display_bible(NULL, settings.currentverse);
 }
@@ -544,8 +537,8 @@ highlight_create_group(const gchar *module, GList *segments, const gchar *color)
 	for (GList *n = segments; n; n = n->next) {
 		HighlightSegment *seg = (HighlightSegment *)n->data;
 		gchar *label = g_strdup_printf("%s %s#%s", module, seg->osisref, group_id);
-		gchar *value = encode_highlight_value(c, seg->text, "");
-		xml_set_list_item("osisrefhighlights", "highlight", label, value);
+		gchar *value = encode_note_value(c, seg->text, "", seg->pos);
+		xml_set_list_item("osisrefnotes", "note", label, value);
 		g_free(value);
 		g_free(label);
 	}
@@ -560,12 +553,13 @@ highlight_set_color(const gchar *group_id, const gchar *color)
 	GList *labels = find_labels_by_group(group_id);
 	for (GList *n = labels; n; n = n->next) {
 		gchar *label = (gchar *)n->data;
-		gchar *value = xml_get_list_from_label("osisrefhighlights", "highlight", label);
+		gchar *value = xml_get_list_from_label("osisrefnotes", "note", label);
 		if (value) {
 			gchar *old_color = NULL, *text = NULL, *note = NULL;
-			if (decode_highlight_value(value, &old_color, &text, &note)) {
-				gchar *newval = encode_highlight_value(color, text, note);
-				xml_set_list_item("osisrefhighlights", "highlight", label, newval);
+			gint pos = -1;
+			if (decode_note_value(value, &old_color, &text, &note, &pos)) {
+				gchar *newval = encode_note_value(color, text, note, pos);
+				xml_set_list_item("osisrefnotes", "note", label, newval);
 				g_free(newval);
 				g_free(old_color);
 				g_free(text);
@@ -584,12 +578,13 @@ highlight_set_note(const gchar *group_id, const gchar *note)
 	GList *labels = find_labels_by_group(group_id);
 	for (GList *n = labels; n; n = n->next) {
 		gchar *label = (gchar *)n->data;
-		gchar *value = xml_get_list_from_label("osisrefhighlights", "highlight", label);
+		gchar *value = xml_get_list_from_label("osisrefnotes", "note", label);
 		if (value) {
 			gchar *color = NULL, *text = NULL, *old_note = NULL;
-			if (decode_highlight_value(value, &color, &text, &old_note)) {
-				gchar *newval = encode_highlight_value(color, text, note);
-				xml_set_list_item("osisrefhighlights", "highlight", label, newval);
+			gint pos = -1;
+			if (decode_note_value(value, &color, &text, &old_note, &pos)) {
+				gchar *newval = encode_note_value(color, text, note, pos);
+				xml_set_list_item("osisrefnotes", "note", label, newval);
 				g_free(newval);
 				g_free(color);
 				g_free(text);
@@ -607,7 +602,7 @@ highlight_remove(const gchar *group_id)
 {
 	GList *labels = find_labels_by_group(group_id);
 	for (GList *n = labels; n; n = n->next)
-		xml_remove_node("osisrefhighlights", "highlight", (gchar *)n->data);
+		xml_remove_node("osisrefnotes", "note", (gchar *)n->data);
 	g_list_free_full(labels, g_free);
 	highlight_persist(FALSE);
 }
@@ -622,11 +617,12 @@ highlight_get_color(const gchar *group_id)
 	GList *labels = find_labels_by_group(group_id);
 	gchar *result = NULL;
 	if (labels) {
-		gchar *value = xml_get_list_from_label("osisrefhighlights", "highlight",
+		gchar *value = xml_get_list_from_label("osisrefnotes", "note",
 						       (gchar *)labels->data);
 		if (value) {
 			gchar *text = NULL, *note = NULL;
-			if (decode_highlight_value(value, &result, &text, &note)) {
+			gint pos = -1;
+			if (decode_note_value(value, &result, &text, &note, &pos)) {
 				g_free(text);
 				g_free(note);
 			}
@@ -643,11 +639,12 @@ highlight_get_note(const gchar *group_id)
 	GList *labels = find_labels_by_group(group_id);
 	gchar *result = NULL;
 	if (labels) {
-		gchar *value = xml_get_list_from_label("osisrefhighlights", "highlight",
+		gchar *value = xml_get_list_from_label("osisrefnotes", "note",
 						       (gchar *)labels->data);
 		if (value) {
 			gchar *color = NULL, *text = NULL;
-			if (decode_highlight_value(value, &color, &text, &result)) {
+			gint pos = -1;
+			if (decode_note_value(value, &color, &text, &result, &pos)) {
 				g_free(color);
 				g_free(text);
 			}
@@ -660,19 +657,6 @@ highlight_get_note(const gchar *group_id)
 		result = NULL;
 	}
 	return result;
-}
-
-static gchar *
-osis_from_highlight_label(const gchar *label)
-{
-	const gchar *space, *hash;
-	if (!label)
-		return NULL;
-	space = strchr(label, ' ');
-	hash = strrchr(label, '#');
-	if (!space || !hash || hash <= space + 1)
-		return NULL;
-	return g_strndup(space + 1, (gsize)(hash - space - 1));
 }
 
 static gboolean
@@ -728,31 +712,87 @@ highlight_note_key_osisref(const gchar *note_key)
 		GList *labels = find_labels_by_group(note_key + 3);
 		gchar *osis = NULL;
 		if (labels)
-			osis = osis_from_highlight_label((const gchar *)labels->data);
+			osis = osis_from_note_label((const gchar *)labels->data);
 		g_list_free_full(labels, g_free);
 		return osis;
 	}
 	return NULL;
 }
 
+// Whole-verse note+color, shared by notas_verso.c's simple note panel and
+// bookmark_dialog.c's "Mark Verse" dialog (which also lets the user pick
+// a color -- notas_verso.c never does, it always passes color=NULL and
+// note_set_whole_verse() keeps the earlier one alone in that case, same
+// as the two features never touching each other's data used to work).
+extern "C" void
+note_set_whole_verse(const gchar *module, const gchar *osisref,
+		     const gchar *note, const gchar *color)
+{
+	gchar *label = g_strdup_printf("%s %s", module, osisref);
+	gchar *value = encode_note_value(color, "", note, -1);
+	xml_set_list_item("osisrefnotes", "note", label, value);
+	g_free(value);
+	g_free(label);
+	xml_save_settings_doc(settings.fnconfigure);
+	notesCacheFill(settings.MainWindowModule, settings.currentverse);
+}
+
+extern "C" void
+note_remove_whole_verse(const gchar *module, const gchar *osisref)
+{
+	gchar *label = g_strdup_printf("%s %s", module, osisref);
+	xml_remove_node("osisrefnotes", "note", label);
+	g_free(label);
+	xml_save_settings_doc(settings.fnconfigure);
+	notesCacheFill(settings.MainWindowModule, settings.currentverse);
+}
+
+extern "C" char *
+note_get_whole_verse_color(const gchar *module, const gchar *osisref)
+{
+	gchar *label = g_strdup_printf("%s %s", module, osisref);
+	gchar *value = xml_get_list_from_label("osisrefnotes", "note", label);
+	gchar *result = NULL;
+	g_free(label);
+	if (value) {
+		gchar *text = NULL, *note = NULL;
+		gint pos = -1;
+		decode_note_value(value, &result, &text, &note, &pos);
+		g_free(text);
+		g_free(note);
+		g_free(value);
+	}
+	return result;
+}
+
 extern "C" void
 highlight_set_verse_note(const gchar *module, const gchar *osisref, const gchar *note)
 {
-	gchar *reference = g_strdup_printf("%s %s", module, osisref);
-	xml_set_list_item("osisrefmarkedverses", "markedverse", reference,
-			  (note && *note) ? note : "user content");
-	g_free(reference);
-	xml_save_settings_doc(settings.fnconfigure);
-	markedCacheFill(settings.MainWindowModule, settings.currentverse);
+	gchar *existing_color = note_get_whole_verse_color(module, osisref);
+	note_set_whole_verse(module, osisref, note, existing_color);
+	g_free(existing_color);
 }
 
 extern "C" char *
 highlight_get_verse_note(const gchar *module, const gchar *osisref)
 {
-	gchar *reference = g_strdup_printf("%s %s", module, osisref);
-	gchar *value = xml_get_list_from_label("osisrefmarkedverses", "markedverse", reference);
-	g_free(reference);
-	return value;
+	gchar *label = g_strdup_printf("%s %s", module, osisref);
+	gchar *value = xml_get_list_from_label("osisrefnotes", "note", label);
+	gchar *result = NULL;
+	g_free(label);
+	if (value) {
+		gchar *color = NULL, *text = NULL;
+		gint pos = -1;
+		decode_note_value(value, &color, &text, &result, &pos);
+		g_free(color);
+		g_free(text);
+		g_free(value);
+	}
+	if (result && !*result) {
+		g_free(result);
+		result = NULL;
+	}
+	return result;
 }
 
 // Undirected links between two notes' stable identities ("HL:<gid>" or
@@ -849,13 +889,10 @@ extern "C" int
 highlight_count_notes_at(int chapter_verse)
 {
 	int n = 0;
-	marked_element *e = markedCacheCheck(chapter_verse);
-	if (e && e->annotation && e->annotation->len)
-		n++;
-	HC::iterator it = highlight_cache.find(chapter_verse);
-	if (it != highlight_cache.end()) {
+	NoteCache::iterator it = note_cache.find(chapter_verse);
+	if (it != note_cache.end()) {
 		for (GList *l = (*it).second; l; l = l->next) {
-			highlight_element *h = (highlight_element *)l->data;
+			NoteElement *h = (NoteElement *)l->data;
 			if (h->note && *h->note)
 				n++;
 		}
@@ -868,57 +905,39 @@ highlight_list_notes(const gchar *osis_prefix)
 {
 	GList *out = NULL;
 	GHashTable *seen = g_hash_table_new(g_str_hash, g_str_equal);
-	HC::iterator it;
-	MC::iterator mit;
+	NoteCache::iterator it;
 
-	for (it = highlight_cache.begin(); it != highlight_cache.end(); ++it) {
+	for (it = note_cache.begin(); it != note_cache.end(); ++it) {
 		for (GList *l = (*it).second; l; l = l->next) {
-			highlight_element *h = (highlight_element *)l->data;
-			gchar *osis, *hash, *gid;
+			NoteElement *h = (NoteElement *)l->data;
+			gboolean whole_verse = !h->text || !*h->text;
+			gchar *hash, *gid = NULL;
 			HighlightNote *n;
+
 			if (!h->note || !*h->note)
 				continue;
-			hash = strrchr(h->label, '#');
-			gid = (hash && hash[1]) ? hash + 1 : h->label;
-			if (g_hash_table_contains(seen, gid))
-				continue;
-			osis = osis_from_highlight_label(h->label);
-			if (!osis_matches_prefix(osis, osis_prefix)) {
-				g_free(osis);
-				continue;
+			if (!whole_verse) {
+				hash = strrchr(h->label, '#');
+				gid = (hash && hash[1]) ? hash + 1 : h->label;
+				if (g_hash_table_contains(seen, gid))
+					continue;
+				g_hash_table_add(seen, gid);
 			}
-			g_hash_table_add(seen, gid);
+			if (!osis_matches_prefix(h->osisref, osis_prefix))
+				continue;
+
 			n = g_new0(HighlightNote, 1);
-			n->group_id = g_strdup(gid);
-			n->osisref = osis;
-			n->text = g_strdup(h->text);
+			n->group_id = whole_verse ? NULL : g_strdup(gid);
+			n->osisref = g_strdup(h->osisref);
+			n->text = whole_verse ? NULL : g_strdup(h->text);
 			n->note = g_strdup(h->note);
-			n->color = g_strdup(h->color);
-			n->note_key = highlight_note_key_group(gid);
+			n->color = h->color ? g_strdup(h->color) : NULL;
+			n->note_key = whole_verse
+					  ? highlight_note_key_verse(h->osisref)
+					  : highlight_note_key_group(gid);
 			n->chapter_verse = (*it).first;
 			out = g_list_append(out, n);
 		}
-	}
-
-	for (mit = marked_cache.begin(); mit != marked_cache.end(); ++mit) {
-		marked_element *e = (*mit).second;
-		gchar *osis;
-		HighlightNote *n;
-		if (!e || !e->annotation || !e->annotation->len)
-			continue;
-		osis = g_strdup_printf("%s.%d.%d", e->book,
-				       (*mit).first / 1000, (*mit).first % 1000);
-		if (!osis_matches_prefix(osis, osis_prefix)) {
-			g_free(osis);
-			continue;
-		}
-		n = g_new0(HighlightNote, 1);
-		n->osisref = osis;
-		n->note = g_strdup(e->annotation->str);
-		n->color = e->color ? g_strdup(e->color) : NULL;
-		n->note_key = highlight_note_key_verse(osis);
-		n->chapter_verse = (*mit).first;
-		out = g_list_append(out, n);
 	}
 
 	g_hash_table_destroy(seen);
@@ -951,65 +970,160 @@ append_verse_note_marker(SWBuf &swbuf, int chapter_verse,
 	g_free(lab);
 }
 
-// re-apply any stored selection-highlights for this verse onto its
-// already-rendered HTML, before it's wrapped by any verse-wide
-// (annotate_highlight / current-verse / tag-color) colorization below.
-// Plain substring search, not a DOM/character-offset range -- see the
-// implementation plan for the tradeoffs this implies.
-static void
-apply_selection_highlights(GString *rework, int chapter_verse)
+// Byte offset in `rework_str` of the `n`th plain (non-"<tag>") UTF-8
+// character, skipping tags transparently -- translates the verse-relative
+// plain-text character offset saved at highlight-creation time (measured
+// against the plain GtkTextBuffer, no tags) into a position in this
+// freshly re-rendered HTML string. -1 if the string runs out first.
+static gssize
+plain_char_offset(const gchar *rework_str, gint n)
 {
-	HC::iterator it = highlight_cache.find(chapter_verse);
-	if (it == highlight_cache.end())
-		return;
+	const gchar *s = rework_str;
+	gint count = 0;
+	while (*s && count < n) {
+		if (*s == '<') {
+			while (*s && *s != '>')
+				s++;
+			if (*s == '>')
+				s++;
+			continue;
+		}
+		s = g_utf8_next_char(s);
+		count++;
+	}
+	return (count == n) ? (gssize)(s - rework_str) : -1;
+}
 
-	int n_hl_notes = 0, idx = 0;
-	for (GList *n = (*it).second; n; n = n->next) {
-		highlight_element *h = (highlight_element *)n->data;
-		if (h->note && *h->note)
-			n_hl_notes++;
+// From byte offset `start_offset`, checks whether the next plain
+// (non-tag) characters equal `text`, skipping any "<tag>" transparently
+// on both sides (the anchor was computed against plain buffer text, this
+// walks the equivalent HTML string). On success returns TRUE and sets
+// *end_offset to the byte offset right after the match, for the closing
+// tag to go there.
+static gboolean
+verify_plain_match(const gchar *rework_str, gssize start_offset,
+		   const gchar *text, gssize *end_offset)
+{
+	const gchar *s = rework_str + start_offset;
+	const gchar *t = text;
+	while (*t) {
+		while (*s == '<') {
+			while (*s && *s != '>')
+				s++;
+			if (*s == '>')
+				s++;
+		}
+		if (!*s || g_utf8_get_char(s) != g_utf8_get_char(t))
+			return FALSE;
+		s = g_utf8_next_char(s);
+		t = g_utf8_next_char(t);
+	}
+	*end_offset = s - rework_str;
+	return TRUE;
+}
+
+// defined further below; forward-declared so apply_verse_notes() (which
+// runs earlier in the per-verse render, before the whole-verse-annotation
+// wrapping code that also calls this) can use it.
+static const char *text_color_for_bg(const gchar *hex_color);
+
+// Re-applies stored notes/highlights for this verse onto its
+// already-rendered HTML, before it's wrapped by any tag-color
+// colorization below. Replaces the old apply_selection_highlights()
+// (phrase highlights only) + the markedCacheCheck()-based whole-verse
+// block that used to live inline in the two callers below -- one unified
+// cache, one pass. Sets color_choices/color_chosen_fg/color_chosen_bg
+// (same globals the callers already used) for the whole-verse case; the
+// callers still do the actual <span>/<font> wrapping around `rework`
+// themselves, unchanged.
+static void
+apply_verse_notes(GString *rework, int chapter_verse)
+{
+	NoteCache::iterator it = note_cache.find(chapter_verse);
+	NoteElement *verse_note = NULL;
+
+	color_choices   = COLOR_NONE;
+	color_chosen_fg = NULL;
+	color_chosen_bg = NULL;
+
+	if (it != note_cache.end()) {
+		int n_hl_notes = 0, idx = 0;
+		for (GList *n = (*it).second; n; n = n->next) {
+			NoteElement *h = (NoteElement *)n->data;
+			if (!h->text || !*h->text) {
+				if (!verse_note)
+					verse_note = h;
+				continue;
+			}
+			if (h->note && *h->note)
+				n_hl_notes++;
+		}
+
+		for (GList *n = (*it).second; n; n = n->next) {
+			NoteElement *h = (NoteElement *)n->data;
+			gchar *close_tag, *open_tag, *hash;
+			const char *gid;
+			gssize offset = -1, end_offset = 0;
+
+			if (!h->text || !*h->text)
+				continue; // whole-verse entry, handled above/below
+
+			if (h->pos >= 0) {
+				gssize cand = plain_char_offset(rework->str, h->pos);
+				if (cand >= 0 && verify_plain_match(rework->str, cand, h->text, &end_offset))
+					offset = cand;
+			}
+			if (offset < 0) {
+				// no anchor, or content drifted since it was
+				// saved -- same best-effort fallback as before.
+				gchar *found = strstr(rework->str, h->text);
+				if (!found)
+					continue;
+				offset = found - rework->str;
+				end_offset = offset + strlen(h->text);
+			}
+
+			hash = strrchr(h->label, '#');
+			gid = (hash && hash[1]) ? hash + 1 : "0";
+			open_tag = g_strdup_printf(
+			    "<span class=\"xiphos-hl\" data-hl-id=\"%s\" "
+			    "style=\"background-color: %s; text-decoration: underline; cursor: pointer;\">",
+			    gid, h->color ? h->color : DEFAULT_HIGHLIGHT_COLOR);
+
+			if (h->note && *h->note) {
+				idx++;
+				if (n_hl_notes == 1)
+					close_tag = g_strdup_printf(
+					    "</span><sup class=\"hl-note\">"
+					    "<a href=\"passagestudy.jsp?action=showHlNote&value=%s\">n</a></sup>",
+					    gid);
+				else
+					close_tag = g_strdup_printf(
+					    "</span><sup class=\"hl-note\">"
+					    "<a href=\"passagestudy.jsp?action=showHlNote&value=%s\">n%d</a></sup>",
+					    gid, idx);
+			} else
+				close_tag = g_strdup("</span>");
+
+			g_string_insert(rework, end_offset, close_tag);
+			g_string_insert(rework, offset, open_tag);
+			g_free(open_tag);
+			g_free(close_tag);
+		}
 	}
 
-	for (GList *n = (*it).second; n; n = n->next) {
-		highlight_element *h = (highlight_element *)n->data;
-		gchar *pos = strstr(rework->str, h->text);
-		gchar *close_tag;
-		gssize offset, len;
-		gchar *hash;
-		const char *gid;
-		gchar *open_tag;
-
-		if (!pos)
-			continue;
-
-		offset = pos - rework->str;
-		len = strlen(h->text);
-		hash = strrchr(h->label, '#');
-		gid = (hash && hash[1]) ? hash + 1 : "0";
-		open_tag = g_strdup_printf(
-		    "<span class=\"xiphos-hl\" data-hl-id=\"%s\" "
-		    "style=\"background-color: %s; text-decoration: underline; cursor: pointer;\">",
-		    gid, h->color);
-
-		if (h->note && *h->note) {
-			idx++;
-			if (n_hl_notes == 1)
-				close_tag = g_strdup_printf(
-				    "</span><sup class=\"hl-note\">"
-				    "<a href=\"passagestudy.jsp?action=showHlNote&value=%s\">n</a></sup>",
-				    gid);
-			else
-				close_tag = g_strdup_printf(
-				    "</span><sup class=\"hl-note\">"
-				    "<a href=\"passagestudy.jsp?action=showHlNote&value=%s\">n%d</a></sup>",
-				    gid, idx);
-		} else
-			close_tag = g_strdup("</span>");
-
-		g_string_insert(rework, offset + len, close_tag);
-		g_string_insert(rework, offset, open_tag);
-		g_free(open_tag);
-		g_free(close_tag);
+	if (settings.annotate_highlight && verse_note) {
+		color_choices = COLOR_BOTH;
+		if (verse_note->color) {
+			// per-verse highlight color chosen when this verse was
+			// marked: auto-contrast the text instead of requiring
+			// the user to pick a fg/bg pair.
+			color_chosen_bg = verse_note->color;
+			color_chosen_fg = (gchar *)text_color_for_bg(verse_note->color);
+		} else {
+			color_chosen_fg = settings.highlight_fg;
+			color_chosen_bg = settings.highlight_bg;
+		}
 	}
 }
 
@@ -2017,6 +2131,20 @@ GTKChapDisp::getVerseBefore(SWModule &imodule)
 void
 GTKChapDisp::getVerseAfter(SWModule &imodule)
 {
+	/* Marks where the last real verse's content ends and the trailing
+	 * chrome (the <hr/> + "Chapter N" heading below) begins. Without
+	 * this, wk_html_anchor_bounds() has no anchor to stop at until
+	 * "0next" further down (on the next-chapter preview verse), so the
+	 * reading-focus band for the chapter's real last verse swallows the
+	 * <hr/> and heading too -- the text-heuristic trims
+	 * (trim_trailing_heading() et al.) try to compensate but don't
+	 * reliably recognize this specific block. A real anchor sidesteps
+	 * the heuristics entirely, the same fix already applied for "0next"
+	 * itself. Inert like "0"/"0next" -- see the sentinel checks in
+	 * wk_html_anchor_at(), find_focus_anchor(), and
+	 * gui_bibletext_lectura_sync_focus_refresh(). */
+	swbuf.appendFormatted("<a name=\"0hdr\"></a>");
+
 	imodule++;
 	if (imodule.popError()) {
 		swbuf.appendFormatted("%s<hr/><div style=\"text-align: center\"><p><b>%s</b></p></div>",
@@ -2035,10 +2163,21 @@ GTKChapDisp::getVerseAfter(SWModule &imodule)
 		g_free(num);
 
 		num = main_format_number(key->getVerse());
+		/* "0next", not "0" -- getVerseBefore() above already placed an
+		 * <a name="0"> for its own preview snippet earlier in this same
+		 * buffer. place_anchor() (wk-html.c) dedupes by name, so a
+		 * second "0" here would be silently dropped, leaving this
+		 * trailing next-chapter preview with no anchor at all -- which
+		 * is exactly what made the reading-focus band for the chapter's
+		 * real last verse swallow this preview too (wk_html_anchor_bounds()
+		 * falls back to "rest of the buffer" when it can't find a next
+		 * anchor to stop at). Every "is this a real verse" sentinel
+		 * check elsewhere already treats non-numeric anchor names as
+		 * atol()==0 too, so this stays just as inert as "0" was. */
 		swbuf.appendFormatted((settings.showversenum
-				       ? "&nbsp;<a name=\"0\" href=\"sword:///%s\">"
+				       ? "&nbsp;<a name=\"0next\" href=\"sword:///%s\">"
 				       "<font size=\"%+d\" color=\"%s\">%s%s%s%s%s%s%s</font>&nbsp;"
-				       : "&nbsp;<a name=\"0\"> </a>"),
+				       : "&nbsp;<a name=\"0next\"> </a>"),
 				      (char *)key->getText(),
 				      (settings.versestyle
 				       ? settings.verse_num_font_size + settings.base_font_size
@@ -2328,10 +2467,6 @@ GTKChapDisp::RenderOneChapter(SWModule &imodule,
 		if (*rework->str == '\0')
 			continue;		// no verse content there.
 
-		// arbitrary text-selection highlights, applied first so any
-		// verse-wide colorization below layers on top/around them.
-		apply_selection_highlights(rework, (thisChapter * 1000) + k);
-
 		// tag-group (bookmark folder) color highlight -- wraps the
 		// verse number, user-note reference, and verse text below.
 		gchar *tag_color = get_tag_color_for_versekey(key);
@@ -2356,7 +2491,8 @@ GTKChapDisp::RenderOneChapter(SWModule &imodule,
 		// inside this verse's reading-focus bounds.
 		swbuf.appendFormatted("<p class=\"verse\"><a name=\"%d\"></a>",
 				      (thisChapter * 1000) + key->getVerse());
-		append_verse_tools(swbuf, key->getText());
+		append_verse_tools(swbuf, key->getText(),
+				  highlight_count_notes_at((thisChapter * 1000) + key->getVerse()) > 0);
 
 		gchar *num = main_format_number(key->getVerse());
 		if (settings.showversenum)
@@ -2384,37 +2520,13 @@ GTKChapDisp::RenderOneChapter(SWModule &imodule,
 		append_verse_note_marker(swbuf, (thisChapter * 1000) + k,
 					 settings.MainWindowModule,
 					 (char *)key->getOSISRef());
-		e = markedCacheCheck((thisChapter * 1000) + k);
 
-		// several verse colorization choices.
-		// default is no colorization.
-		color_choices   = COLOR_NONE;
-		color_chosen_fg = NULL;
-		color_chosen_bg = NULL;
-
-		// but then decide on the special cases for this verse.
-		// (current-verse highlighting is suppressed when a bookmark
-		// tag color is active, so it can't override the contrast
-		// color already applied to the tag background; annotation
-		// highlighting still takes precedence and coexists with it,
-		// per review feedback.)
-		if (settings.annotate_highlight && e) {
-			color_choices   = COLOR_BOTH;
-			if (e->color) {
-				// per-verse highlight color chosen in the Mark
-				// Verse dialog: auto-contrast the text instead
-				// of requiring the user to pick a fg/bg pair.
-				color_chosen_bg = e->color;
-				color_chosen_fg = (gchar *)text_color_for_bg(e->color);
-			} else {
-				color_chosen_fg = settings.highlight_bg;
-				color_chosen_bg = settings.highlight_fg;
-			}
-		} else if ((curChapter == thisChapter) && (curVerse == k) && !tag_color) {
-			/* Current verse is marked after render with a native
-			 * full-line band (wk_html_reading_focus_set), not a
-			 * green font color. */
-		}
+		// Applies any stored phrase highlights to `rework` and sets
+		// color_choices/color_chosen_fg/color_chosen_bg for a
+		// whole-verse note, if any. (The current verse itself gets a
+		// native full-line band after render,
+		// wk_html_reading_focus_set(), not a green font color here.)
+		apply_verse_notes(rework, (thisChapter * 1000) + k);
 
 		// ugly ... ugly ... ugly.
 		// text containing <p/> in the middle of a <span> or <font> block
@@ -2548,17 +2660,11 @@ GTKChapDisp::display(SWModule &imodule)
 
 	settings.versestyle = ops->verse_per_line;
 
-	// if we are no longer where annotations were current, re-load.
+	// if we are no longer where notes/highlights were current, re-load.
 	if (strcasecmp(ModuleName,
-		       (marked_cache_modname ? marked_cache_modname : "")) ||
-	    strcasecmp(key->getBookAbbrev(), marked_cache_book))
-		markedCacheFill(ModuleName, settings.currentverse);
-
-	// same freshness check, for selection-highlights.
-	if (strcasecmp(ModuleName,
-		       (highlight_cache_modname ? highlight_cache_modname : "")) ||
-	    strcasecmp(key->getBookAbbrev(), highlight_cache_book))
-		highlightCacheFill(ModuleName, settings.currentverse);
+		       (note_cache_modname ? note_cache_modname : "")) ||
+	    strcasecmp(key->getBookAbbrev(), note_cache_book))
+		notesCacheFill(ModuleName, settings.currentverse);
 
 	swbuf = "";
 	footnote = xref = 0;
@@ -2868,17 +2974,11 @@ DialogChapDisp::display(SWModule &imodule)
 		set_morph_order(imodule);
 	set_render_numbers(imodule, ops);
 
-	// if we are no longer where annotations were current, re-load.
+	// if we are no longer where notes/highlights were current, re-load.
 	if (strcasecmp(ModuleName,
-		       (marked_cache_modname ? marked_cache_modname : "")) ||
-	    strcasecmp(key->getBookName(), marked_cache_book))
-		markedCacheFill(ModuleName, (gchar *)key->getShortText());
-
-	// same freshness check, for selection-highlights.
-	if (strcasecmp(ModuleName,
-		       (highlight_cache_modname ? highlight_cache_modname : "")) ||
-	    strcasecmp(key->getBookName(), highlight_cache_book))
-		highlightCacheFill(ModuleName, (gchar *)key->getShortText());
+		       (note_cache_modname ? note_cache_modname : "")) ||
+	    strcasecmp(key->getBookName(), note_cache_book))
+		notesCacheFill(ModuleName, (gchar *)key->getShortText());
 
 	gint versestyle = ops->verse_per_line;
 
@@ -2963,9 +3063,6 @@ DialogChapDisp::display(SWModule &imodule)
 		if (*rework->str == '\0')
 			continue;		// no verse content there.
 
-		// arbitrary text-selection highlights (see GTKChapDisp::display above).
-		apply_selection_highlights(rework, (curChapter * 1000) + k);
-
 		gchar *num = main_format_number(key->getVerse());
 		swbuf.appendFormatted((settings.showversenum
 				       ? "&nbsp;<span class=\"word\"><a name=\"%d\" href=\"sword:///%s\">"
@@ -2981,20 +3078,13 @@ DialogChapDisp::display(SWModule &imodule)
 		append_verse_note_marker(swbuf, (curChapter * 1000) + k,
 					 settings.MainWindowModule,
 					 (char *)key->getOSISRef());
-		e = markedCacheCheck((curChapter * 1000) + k);
 
-		// several verse colorization choices.
-		// default is no colorization.
-		color_choices   = COLOR_NONE;
-		color_chosen_fg = NULL;
-		color_chosen_bg = NULL;
-
-		// but then decide on the special cases for this verse.
-		if (settings.annotate_highlight && e) {
-			color_choices   = COLOR_BOTH;
-			color_chosen_fg = settings.highlight_bg;
-			color_chosen_bg = settings.highlight_fg;
-		} else if (curVerse == k) {
+		// Applies any stored phrase highlights to `rework` and sets
+		// color_choices/color_chosen_fg/color_chosen_bg for a
+		// whole-verse note, if any (see GTKChapDisp::RenderOneChapter
+		// above for the shared apply_verse_notes()).
+		apply_verse_notes(rework, (curChapter * 1000) + k);
+		if (curVerse == k) {
 			/* Current verse: native band after render, not green ink. */
 		}
 
@@ -3045,7 +3135,7 @@ DialogChapDisp::display(SWModule &imodule)
 		if (versestyle) {
 			if ((key->getVerse() != curVerse) ||
 			    (!settings.versehighlight &&
-			     (!e || !settings.annotate_highlight)))
+			     (color_choices != COLOR_BOTH)))
 				swbuf.append("<br/>");
 			else if (key->getVerse() == curVerse)
 				swbuf.append("<br/>");

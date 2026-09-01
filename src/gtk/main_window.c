@@ -84,10 +84,17 @@ static gboolean switching_dict_tab = FALSE;
 static GtkWidget *header_menu = NULL;
 static GtkWidget *reading_exit_button = NULL;
 static guint reading_mode_place_src = 0;
+static gulong reading_mode_wse_id = 0;
+static guint reading_mode_hover_hide_src = 0;
+static gulong reading_mode_motion_id = 0;
+static gulong reading_mode_toolbar_enter_id = 0;
+static gulong reading_mode_toolbar_leave_id = 0;
 
 static void on_reading_mode_button_toggled(GtkToggleButton *button, gpointer data);
 static gboolean on_open_bible_icon_draw(GtkWidget *widget, cairo_t *cr, gpointer data);
 static gboolean reading_mode_keep_place(gpointer data);
+static gboolean reading_mode_on_window_state(GtkWidget *widget, GdkEventWindowState *event, gpointer data);
+static void reading_mode_float_toolbar(gboolean floating, GtkTextView *view);
 
 gboolean gui_main_window_ready(void)
 {
@@ -274,6 +281,146 @@ void gui_show_hide_dicts(gboolean choice)
 #define NORMAL_SIDE_MARGIN 14
 #define NORMAL_LINE_PAD 1
 
+#define READING_MODE_HOVER_SHOW_Y 40
+#define READING_MODE_HOVER_HIDE_DELAY_MS 500
+
+static void
+reading_mode_hover_cancel_hide(void)
+{
+	if (reading_mode_hover_hide_src) {
+		g_source_remove(reading_mode_hover_hide_src);
+		reading_mode_hover_hide_src = 0;
+	}
+}
+
+static gboolean
+reading_mode_hover_hide(gpointer data)
+{
+	(void)data;
+	reading_mode_hover_hide_src = 0;
+	if (widgets.nav_toolbar)
+		gtk_widget_hide(widgets.nav_toolbar);
+	return G_SOURCE_REMOVE;
+}
+
+static void
+reading_mode_hover_schedule_hide(void)
+{
+	reading_mode_hover_cancel_hide();
+	reading_mode_hover_hide_src = g_timeout_add(READING_MODE_HOVER_HIDE_DELAY_MS,
+						    reading_mode_hover_hide, NULL);
+}
+
+/* Reveals nav_toolbar (floating, via reading_mode_float_toolbar() below)
+ * when the pointer nears the top of the text view, hides it again a
+ * moment after the pointer leaves that zone -- unless it moved onto the
+ * toolbar itself, tracked separately below. */
+static gboolean
+reading_mode_on_motion(GtkWidget *widget, GdkEventMotion *event, gpointer data)
+{
+	(void)widget;
+	(void)data;
+	if (!settings.reading_mode || !widgets.nav_toolbar)
+		return FALSE;
+	if (event->y <= READING_MODE_HOVER_SHOW_Y) {
+		reading_mode_hover_cancel_hide();
+		if (!gtk_widget_get_visible(widgets.nav_toolbar))
+			gtk_widget_show(widgets.nav_toolbar);
+	} else if (gtk_widget_get_visible(widgets.nav_toolbar)) {
+		reading_mode_hover_schedule_hide();
+	}
+	return FALSE;
+}
+
+static gboolean
+reading_mode_toolbar_enter(GtkWidget *widget, GdkEventCrossing *event, gpointer data)
+{
+	(void)widget;
+	(void)event;
+	(void)data;
+	reading_mode_hover_cancel_hide();
+	return FALSE;
+}
+
+static gboolean
+reading_mode_toolbar_leave(GtkWidget *widget, GdkEventCrossing *event, gpointer data)
+{
+	(void)widget;
+	(void)data;
+	/* Also fires when the pointer crosses into one of the toolbar's own
+	 * child widgets (an entry, a spin button...) -- NOTIFY_INFERIOR
+	 * marks that case, which isn't really "left the toolbar". */
+	if (event->detail == GDK_NOTIFY_INFERIOR)
+		return FALSE;
+	reading_mode_hover_schedule_hide();
+	return FALSE;
+}
+
+/* Moves nav_toolbar between its normal spot in widgets.page (a fixed
+ * layout row, always visible) and widgets.reading_mode_overlay (floating
+ * over the text, hidden by default, revealed by hovering near the top --
+ * see reading_mode_on_motion() above). Safe to call redundantly; only
+ * acts when the toolbar isn't already where it should be. */
+static void
+reading_mode_float_toolbar(gboolean floating, GtkTextView *view)
+{
+	if (!widgets.nav_toolbar || !widgets.reading_mode_overlay)
+		return;
+
+	if (floating) {
+		if (gtk_widget_get_parent(widgets.nav_toolbar) != widgets.reading_mode_overlay) {
+			g_object_ref(widgets.nav_toolbar);
+			gtk_container_remove(GTK_CONTAINER(widgets.page), widgets.nav_toolbar);
+			gtk_overlay_add_overlay(GTK_OVERLAY(widgets.reading_mode_overlay),
+						widgets.nav_toolbar);
+			gtk_widget_set_halign(widgets.nav_toolbar, GTK_ALIGN_FILL);
+			gtk_widget_set_valign(widgets.nav_toolbar, GTK_ALIGN_START);
+			gtk_style_context_add_class(gtk_widget_get_style_context(widgets.nav_toolbar),
+						    "elim-navbar-floating");
+			g_object_unref(widgets.nav_toolbar);
+		}
+		gtk_widget_hide(widgets.nav_toolbar);
+		if (view) {
+			gtk_widget_add_events(GTK_WIDGET(view), GDK_POINTER_MOTION_MASK);
+			reading_mode_motion_id = g_signal_connect(
+			    view, "motion-notify-event", G_CALLBACK(reading_mode_on_motion), NULL);
+		}
+		gtk_widget_add_events(widgets.nav_toolbar,
+				      GDK_ENTER_NOTIFY_MASK | GDK_LEAVE_NOTIFY_MASK);
+		reading_mode_toolbar_enter_id = g_signal_connect(
+		    widgets.nav_toolbar, "enter-notify-event",
+		    G_CALLBACK(reading_mode_toolbar_enter), NULL);
+		reading_mode_toolbar_leave_id = g_signal_connect(
+		    widgets.nav_toolbar, "leave-notify-event",
+		    G_CALLBACK(reading_mode_toolbar_leave), NULL);
+	} else {
+		reading_mode_hover_cancel_hide();
+		if (reading_mode_motion_id && view) {
+			g_signal_handler_disconnect(view, reading_mode_motion_id);
+			reading_mode_motion_id = 0;
+		}
+		if (reading_mode_toolbar_enter_id) {
+			g_signal_handler_disconnect(widgets.nav_toolbar, reading_mode_toolbar_enter_id);
+			reading_mode_toolbar_enter_id = 0;
+		}
+		if (reading_mode_toolbar_leave_id) {
+			g_signal_handler_disconnect(widgets.nav_toolbar, reading_mode_toolbar_leave_id);
+			reading_mode_toolbar_leave_id = 0;
+		}
+		if (gtk_widget_get_parent(widgets.nav_toolbar) == widgets.reading_mode_overlay) {
+			g_object_ref(widgets.nav_toolbar);
+			gtk_container_remove(GTK_CONTAINER(widgets.reading_mode_overlay),
+					     widgets.nav_toolbar);
+			gtk_style_context_remove_class(gtk_widget_get_style_context(widgets.nav_toolbar),
+						       "elim-navbar-floating");
+			gtk_box_pack_start(GTK_BOX(widgets.page), widgets.nav_toolbar, FALSE, FALSE, 0);
+			gtk_box_reorder_child(GTK_BOX(widgets.page), widgets.nav_toolbar, 0);
+			g_object_unref(widgets.nav_toolbar);
+		}
+		gtk_widget_show(widgets.nav_toolbar);
+	}
+}
+
 void gui_toggle_reading_mode(gboolean choice)
 {
 	GtkTextView *view;
@@ -298,12 +445,14 @@ void gui_toggle_reading_mode(gboolean choice)
 		return;
 	}
 
+	view = widgets.html_text ? wk_html_get_view(WK_HTML(widgets.html_text)) : NULL;
+
 	if (choice) {
 		gtk_widget_hide(widgets.paned_sidebar);
 		gtk_widget_hide(widgets.hboxtb);
 		gtk_widget_hide(widgets.vbox_previewer);
 		gtk_widget_hide(widgets.box_side_preview);
-		gtk_widget_hide(widgets.nav_toolbar);
+		reading_mode_float_toolbar(TRUE, view);
 		if (widgets.vpaned2)
 			gtk_widget_hide(widgets.vpaned2);
 		if (widgets.appbar)
@@ -355,8 +504,8 @@ void gui_toggle_reading_mode(gboolean choice)
 		 * rather than leave that to chance. */
 		gtk_widget_queue_resize(widgets.epaned);
 		gtk_widget_queue_resize(widgets.vboxMain);
+		reading_mode_float_toolbar(FALSE, view);
 	}
-	view = widgets.html_text ? wk_html_get_view(WK_HTML(widgets.html_text)) : NULL;
 	if (view) {
 		gint side_margin = choice ? READING_MODE_SIDE_MARGIN : NORMAL_SIDE_MARGIN;
 		gint line_pad = choice ? READING_MODE_LINE_PAD : NORMAL_LINE_PAD;
@@ -399,13 +548,41 @@ void gui_toggle_reading_mode(gboolean choice)
 			gtk_widget_hide(reading_exit_button);
 	}
 
-	/* Stay on the verse the reader was already on. Fullscreen and
-	 * pane hide change allocation, so re-place after the resize. */
+	/* Stay on the verse the reader was already on. Fullscreen and pane
+	 * hide change allocation, so re-place after the resize. The 140ms
+	 * timeout alone wasn't reliable -- gtk_window_(un)fullscreen() is
+	 * only a request, and how long the compositor actually takes to
+	 * grant it varies (users reported the reading-focus band missing
+	 * every time on some setups). "window-state-event" fires exactly
+	 * when the fullscreen state actually flips, so it catches the real
+	 * moment instead of guessing a duration; the timeout stays too, as
+	 * a fallback for a compositor that never sends that event. Whichever
+	 * fires first wins and tears down the other. */
 	if (reading_mode_place_src)
 		g_source_remove(reading_mode_place_src);
 	reading_mode_place_src = g_timeout_add(140, reading_mode_keep_place, NULL);
 
+	if (reading_mode_wse_id)
+		g_signal_handler_disconnect(widgets.app, reading_mode_wse_id);
+	reading_mode_wse_id = g_signal_connect(widgets.app, "window-state-event",
+					       G_CALLBACK(reading_mode_on_window_state), NULL);
+
 	in_progress = FALSE;
+}
+
+static void
+reading_mode_settle(void)
+{
+	if (reading_mode_place_src) {
+		g_source_remove(reading_mode_place_src);
+		reading_mode_place_src = 0;
+	}
+	if (reading_mode_wse_id) {
+		g_signal_handler_disconnect(widgets.app, reading_mode_wse_id);
+		reading_mode_wse_id = 0;
+	}
+	if (widgets.html_text && settings.currentverse)
+		gui_bibletext_mark_current_verse();
 }
 
 static gboolean
@@ -413,9 +590,18 @@ reading_mode_keep_place(gpointer data)
 {
 	(void)data;
 	reading_mode_place_src = 0;
-	if (widgets.html_text && settings.currentverse)
-		gui_bibletext_mark_current_verse();
+	reading_mode_settle();
 	return G_SOURCE_REMOVE;
+}
+
+static gboolean
+reading_mode_on_window_state(GtkWidget *widget, GdkEventWindowState *event, gpointer data)
+{
+	(void)widget;
+	(void)data;
+	if (event->changed_mask & GDK_WINDOW_STATE_FULLSCREEN)
+		reading_mode_settle();
+	return FALSE; /* don't block other handlers on this event */
 }
 
 /* Open-Bible glyph for the reading-mode toggle: two pages, spine, a
@@ -1673,7 +1859,16 @@ void create_mainwindow(void)
 	// widgets.hpaned
 	widgets.hpaned = UI_HPANE();
 	gtk_widget_show(widgets.hpaned);
-	gtk_box_pack_start(GTK_BOX(widgets.page), widgets.hpaned, TRUE, TRUE, 0);
+
+	/* Wrapped in an overlay so reading mode can float nav_toolbar over
+	 * the content (hover-to-reveal, see gui_toggle_reading_mode()) --
+	 * with no overlay child added, this behaves exactly like packing
+	 * hpaned straight into widgets.page, so it changes nothing outside
+	 * reading mode. */
+	widgets.reading_mode_overlay = gtk_overlay_new();
+	gtk_widget_show(widgets.reading_mode_overlay);
+	gtk_container_add(GTK_CONTAINER(widgets.reading_mode_overlay), widgets.hpaned);
+	gtk_box_pack_start(GTK_BOX(widgets.page), widgets.reading_mode_overlay, TRUE, TRUE, 0);
 
 	// widgets.vpaned
 	widgets.vpaned = UI_VPANE();

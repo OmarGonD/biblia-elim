@@ -313,23 +313,18 @@ void on_dialog_enter(void)
 void on_mark_verse_response(GtkDialog *dialog,
 			    gint response_id, gpointer user_data)
 {
-	gchar reference[100], *module, *key;
+	gchar *module, *key, *osisref;
 
 	module = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry_module));
 	key = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry_key));
-
-	g_snprintf(reference, 100, "%s %s", module,
-		   main_get_osisref_from_key((const char *)module,
-					     (const char *)key));
+	osisref = (gchar *)main_get_osisref_from_key((const char *)module,
+						     (const char *)key);
 
 	switch (response_id) {
 	case GTK_RESPONSE_CANCEL: /*  cancel button pressed  */
 	case GTK_RESPONSE_NONE:   /*  dialog destroyed  */
 		break;
 	case GTK_RESPONSE_ACCEPT: /*  mark the verse  */
-		xml_set_list_item("osisrefmarkedverses", "markedverse",
-				  reference,
-				  (note ? note : "user content"));
 		if (gtk_widget_get_sensitive(colorbutton_highlight)) {
 			GdkRGBA rgba;
 			gtk_color_chooser_get_rgba(GTK_COLOR_CHOOSER(colorbutton_highlight), &rgba);
@@ -337,24 +332,15 @@ void on_mark_verse_response(GtkDialog *dialog,
 						       (guint)(rgba.red   * 255),
 						       (guint)(rgba.green * 255),
 						       (guint)(rgba.blue  * 255));
-			xml_set_list_item("osisrefmarkedcolors", "markedcolor",
-					  reference, color);
+			note_set_whole_verse(module, osisref, note, color);
 			g_free(color);
 		} else {
-			xml_remove_node("osisrefmarkedcolors", "markedcolor",
-					reference);
+			note_set_whole_verse(module, osisref, note, NULL);
 		}
-		markedCacheFill(settings.MainWindowModule,
-				settings.currentverse);
 		main_display_bible(NULL, settings.currentverse);
 		break;
 	case GTK_RESPONSE_OK: /*  unmark the verse  */
-		xml_remove_node("osisrefmarkedverses", "markedverse",
-				reference);
-		xml_remove_node("osisrefmarkedcolors", "markedcolor",
-				reference);
-		markedCacheFill(settings.MainWindowModule,
-				settings.currentverse);
+		note_remove_whole_verse(module, osisref);
 		main_display_bible(NULL, settings.currentverse);
 		break;
 	}
@@ -576,9 +562,9 @@ static GtkWidget *_create_mark_verse_dialog(gchar *module, gchar *key)
 	g_signal_connect(entry_module, "activate",
 			 G_CALLBACK(on_mark_verse_enter), NULL);
 
-	old_note =
-	    xml_get_list_from_label("osisrefmarkedverses", "markedverse",
-				    osisreference);
+	old_note = highlight_get_verse_note(module,
+					    main_get_osisref_from_key((const char *)module,
+								      (const char *)key));
 	note = g_strdup((old_note) ? old_note : "");
 	gtk_text_buffer_set_text(textbuffer, (old_note) ? old_note : "",
 				 -1);
@@ -591,8 +577,9 @@ static GtkWidget *_create_mark_verse_dialog(gchar *module, gchar *key)
 	colorbutton_highlight = UI_GET_ITEM(gxml, "colorbutton_highlight");
 
 	gchar *old_color =
-	    xml_get_list_from_label("osisrefmarkedcolors", "markedcolor",
-				    osisreference);
+	    note_get_whole_verse_color(module,
+				       main_get_osisref_from_key((const char *)module,
+								 (const char *)key));
 	if (old_color && *old_color) {
 		GdkRGBA rgba;
 		if (gdk_rgba_parse(&rgba, old_color))

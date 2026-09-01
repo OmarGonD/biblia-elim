@@ -1266,8 +1266,12 @@ if (!settings.morph_heb_lex || strlen(settings.morph_heb_lex) == 0) {
 	if ((buf = xml_get_value("misc", "annotatehighlight")))
 		settings.annotate_highlight = atoi(buf);
 	else {
-		xml_add_new_item_to_section("misc", "annotatehighlight", "1");
-		settings.annotate_highlight = 1;
+		/* Off by default -- notes and highlights are separate,
+		 * complementary features; a whole-verse note shouldn't paint
+		 * the verse like a highlight on its own. Still togglable from
+		 * View -> "Anotar resaltado" for whoever wants it. */
+		xml_add_new_item_to_section("misc", "annotatehighlight", "0");
+		settings.annotate_highlight = 0;
 	}
 	if ((buf = xml_get_value("misc", "crossref_popup")))
 		settings.crossref_popup = atoi(buf);

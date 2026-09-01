@@ -137,6 +137,7 @@ static GtkTextMark *pending_start_mark = NULL;
 static GtkTextMark *pending_end_mark = NULL;
 static gchar *pending_osisref = NULL;
 static gchar *pending_text = NULL;
+static gint pending_pos = -1;
 static const gchar *pending_color = DEFAULT_HIGHLIGHT_COLOR;
 
 static void free_highlight_segment(gpointer data);
@@ -230,6 +231,7 @@ clear_pending_selection(void)
 	}
 	pending_start_mark = NULL;
 	pending_end_mark = NULL;
+	pending_pos = -1;
 	g_clear_pointer(&pending_osisref, g_free);
 	g_clear_pointer(&pending_text, g_free);
 }
@@ -266,6 +268,7 @@ commit_pending_highlight(const gchar *color)
 	seg = g_new0(HighlightSegment, 1);
 	seg->osisref = g_strdup(pending_osisref);
 	seg->text = g_strdup(pending_text);
+	seg->pos = pending_pos;
 	segments = g_list_append(NULL, seg);
 	gid = highlight_create_group(settings.MainWindowModule, segments, use_color);
 	wk_html_highlight_apply(WK_HTML(widgets.html_text), &start, &end, gid, use_color);
@@ -871,6 +874,7 @@ offer_highlight_for_selection(GtkTextView *view, GtkTextIter *start, GtkTextIter
 	GtkTextBuffer *buf;
 	GdkRectangle rect;
 	long vnum;
+	gint computed_pos;
 	WkHtml *html = WK_HTML(widgets.html_text);
 
 	raw = gtk_text_buffer_get_text(gtk_text_view_get_buffer(view), start, end, FALSE);
@@ -892,6 +896,22 @@ offer_highlight_for_selection(GtkTextView *view, GtkTextIter *start, GtkTextIter
 	else
 		osisref = g_strdup_printf("%s.%ld.%ld", book, vnum / 1000, vnum % 1000);
 	g_free(book);
+
+	/* Verse-relative character offset of the selection start, so a
+	 * later re-render can relocate this highlight exactly instead of
+	 * guessing via substring search (see apply_verse_notes() in
+	 * display.cc). -1 if the verse's own anchor bounds can't be found
+	 * (shouldn't normally happen -- `verse` just came from this same
+	 * buffer). Computed here (before clear_pending_selection() resets
+	 * pending_pos to -1 further below) and stashed until it's safe to
+	 * assign. */
+	{
+		GtkTextIter vstart, vend;
+		computed_pos = wk_html_anchor_bounds(html, verse, &vstart, &vend)
+				   ? gtk_text_iter_get_offset(start) -
+					 gtk_text_iter_get_offset(&vstart)
+				   : -1;
+	}
 	g_free(verse);
 
 	existing = highlight_find_overlapping(settings.MainWindowModule, osisref, text);
@@ -911,6 +931,7 @@ offer_highlight_for_selection(GtkTextView *view, GtkTextIter *start, GtkTextIter
 	pending_end_mark = gtk_text_buffer_create_mark(buf, "elim-hl-end", end, FALSE);
 	pending_osisref = osisref;
 	pending_text = g_strdup(text);
+	pending_pos = computed_pos;
 	pending_color = DEFAULT_HIGHLIGHT_COLOR;
 
 	g_free(current_highlight_label);
@@ -1237,7 +1258,8 @@ find_focus_anchor(GtkTextView *view)
 	gtk_text_view_get_iter_at_location(view, &iter, vis.x,
 					   vis.y + READING_FOCUS_CHROME_PAD);
 	anchor = wk_html_anchor_at(WK_HTML(widgets.html_text), &iter);
-	if (!anchor || !*anchor || !strcmp(anchor, "0"))
+	if (!anchor || !*anchor || !strcmp(anchor, "0") || !strcmp(anchor, "0next") ||
+	    !strcmp(anchor, "0hdr"))
 		return anchor;
 	if (!wk_html_anchor_bounds(WK_HTML(widgets.html_text), anchor, &vs, &ve))
 		return anchor;
@@ -1245,7 +1267,8 @@ find_focus_anchor(GtkTextView *view)
 	if (loc.y >= vis.y + READING_FOCUS_CHROME_PAD - 2)
 		return anchor;
 	next = wk_html_anchor_at(WK_HTML(widgets.html_text), &ve);
-	if (next && *next && strcmp(next, "0") && strcmp(next, anchor)) {
+	if (next && *next && strcmp(next, "0") && strcmp(next, "0next") &&
+	    strcmp(next, "0hdr") && strcmp(next, anchor)) {
 		g_free(anchor);
 		return next;
 	}
@@ -1380,8 +1403,24 @@ gui_bibletext_lectura_sync_focus_refresh(void)
 	if (!view || !widgets.html_text)
 		return;
 
+	/* This whole function exists to keep the Comparar panel tracking
+	 * along as the reader scrolls -- with it closed, none of this
+	 * (reassigning the reading-focus band, "current verse", the navbar,
+	 * or forcing a redisplay when the interlineal panel auto-collapses)
+	 * should run at all. Splitting hairs on which piece to skip instead
+	 * of bailing out entirely is what caused the last two rounds of
+	 * bugs here (the reading-focus band vanishing on scroll, then manual
+	 * chapter/verse navigation getting silently overwritten moments
+	 * later by this function's own re-render, racing on stale state) --
+	 * bailing out completely removes the whole class of races, at the
+	 * cost of the interlineal panel not auto-collapsing on scroll while
+	 * Comparar is closed. */
+	if (!settings.show_lectura_sync)
+		return;
+
 	anchor = find_focus_anchor(view);
-	if (!anchor || !*anchor || !strcmp(anchor, "0")) {
+	if (!anchor || !*anchor || !strcmp(anchor, "0") || !strcmp(anchor, "0next") ||
+	    !strcmp(anchor, "0hdr")) {
 		g_free(anchor);
 		return;
 	}
@@ -1395,7 +1434,16 @@ gui_bibletext_lectura_sync_focus_refresh(void)
 		return;
 	}
 
-	if (wk_html_anchor_bounds(WK_HTML(widgets.html_text), anchor, &s, &e))
+	/* The reading-focus band and "current verse" reassignment below
+	 * exist so the Comparar panel tracks along as the reader scrolls --
+	 * outside of that, scrolling shouldn't silently reassign the verse
+	 * the reader actually navigated to (that read as "the focus
+	 * disappears" the moment you scroll at all, even with Comparar
+	 * closed). The interlineal-collapse check further down still runs
+	 * regardless -- it tracks scroll on its own terms, unrelated to
+	 * Comparar. */
+	if (settings.show_lectura_sync &&
+	    wk_html_anchor_bounds(WK_HTML(widgets.html_text), anchor, &s, &e))
 		wk_html_reading_focus_set(WK_HTML(widgets.html_text), &s, &e,
 					  NULL, NULL);
 
@@ -1407,18 +1455,48 @@ gui_bibletext_lectura_sync_focus_refresh(void)
 	ref = g_strdup_printf("%s %ld:%ld", book, cv / 1000, cv % 1000);
 	g_free(book);
 
-	xml_set_value("Xiphos", "keys", "verse", ref);
-	settings.currentverse = xml_get_value("keys", "verse");
-	main_navbar_versekey_set(navbar_versekey, ref);
-	gui_set_tab_label(ref, FALSE);
-
-	if (settings.show_lectura_sync)
+	if (settings.show_lectura_sync) {
+		xml_set_value("Xiphos", "keys", "verse", ref);
+		settings.currentverse = xml_get_value("keys", "verse");
+		main_navbar_versekey_set(navbar_versekey, ref);
+		gui_set_tab_label(ref, FALSE);
 		main_lectura_sync_focus_verse(ref);
+	}
 	if (main_interlineal_quizas_plegar(ref)) {
+		/* Redisplay the verse actually navigated to, not `ref` (the
+		 * scroll-tracked position) -- with Comparar closed those two
+		 * can now differ (see the show_lectura_sync gate above), and
+		 * targeting `ref` here was snapping the reader's own
+		 * navigation back to wherever they'd scrolled, mid-chapter,
+		 * even after explicitly jumping to a different chapter. The
+		 * collapse check itself still uses the scroll position --
+		 * only the redisplay target changes. */
 		main_bible_note_interlinear_html();
-		main_display_bible(NULL, ref);
+		main_display_bible(NULL, settings.currentverse);
 	}
 	g_free(ref);
+}
+
+/* Same tag application gui_bibletext_mark_current_verse() does, minus its
+ * wk_html_ensure_anchor_visible() call -- that would fight the user's own
+ * scroll, snapping the view back to the current verse every time they
+ * pause. Just repaints the band wherever settings.currentverse already
+ * is, without moving anything. */
+static void
+reapply_current_verse_band(void)
+{
+	gchar *anchor;
+	GtkTextIter s, e;
+
+	if (!widgets.html_text || !settings.currentverse)
+		return;
+	anchor = anchor_from_current_verse();
+	if (!anchor)
+		return;
+	if (wk_html_anchor_bounds(WK_HTML(widgets.html_text), anchor, &s, &e))
+		wk_html_reading_focus_set(WK_HTML(widgets.html_text), &s, &e,
+					  NULL, NULL);
+	g_free(anchor);
 }
 
 static gboolean
@@ -1426,7 +1504,17 @@ on_lectura_sync_scroll_settle(gpointer data)
 {
 	(void)data;
 	lectura_sync_scroll_debounce_id = 0;
-	gui_bibletext_lectura_sync_focus_refresh();
+	if (settings.show_lectura_sync)
+		gui_bibletext_lectura_sync_focus_refresh();
+	else
+		/* Comparar closed: nothing should be reassigning the current
+		 * verse as the reader scrolls, but the reading-focus band was
+		 * still going missing after a scroll (reported: visible right
+		 * after navigating, gone as soon as the view scrolls, even
+		 * with the verse still on screen) -- self-heal by repainting
+		 * it every time scrolling settles, instead of chasing exactly
+		 * which redraw path was dropping it. */
+		reapply_current_verse_band();
 	return G_SOURCE_REMOVE;
 }
 

@@ -64,6 +64,10 @@ struct _app_widgets
 	    /* toolbars */
 	    *toolbar_comments, *toolbar_studypad,
 	    *nav_toolbar, /* book/chapter/verse navigation toolbar */
+	    *reading_mode_overlay, /* wraps hpaned; hosts nav_toolbar as a
+				    * floating, hover-to-reveal child while
+				    * in reading mode (see
+				    * gui_toggle_reading_mode()) */
 	    *combo_bible_version, /* picker for the main window's Bible version, preserves book/chapter/verse */
 	    /* html widgets */
 	    *eventbox1, *html_search_report, /* html widget for serch report shortcut bar */

@@ -188,6 +188,11 @@ button.elim-vtools:hover {
 	background-color: alpha(@elim_navy, 0.14);
 }
 
+/* ——— Tablas HTML reales (comentarios, vista paralela) ——— */
+.elim-table-cell {
+	padding: 4px 6px;
+}
+
 /* ——— Interlineal académico (Forward / Reverse) ——— */
 .il-table {
 	border-radius: 6px;
@@ -475,6 +480,13 @@ treeview.view:selected:focus {
 	background-color: @theme_bg_color;
 	border-bottom: 1px solid @elim_line;
 	padding: 6px 12px;
+}
+/* Reading mode: floats over the text instead of taking a layout row,
+ * appearing only when the pointer hovers near the top of the window --
+ * the shadow is what reads "floating on top" instead of "part of the
+ * page" now that it's not pinned to a fixed spot in the layout. */
+.elim-navbar-floating {
+	box-shadow: 0 2px 8px alpha(#000000, 0.35);
 }
 .elim-navbar button {
 	border-radius: 8px;
