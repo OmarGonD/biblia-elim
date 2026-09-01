@@ -5,6 +5,7 @@
 .waf*/
 build-win*/
 build/
+build-asan/
 src/examples/ipc-interface.xml
 win*/binaries/
 win32/nsis/xiphos*.exe
