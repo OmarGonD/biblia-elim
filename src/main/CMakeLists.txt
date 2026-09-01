@@ -27,6 +27,7 @@ add_library (main
   export_passage.cc
   global_ops.cc
   import_andbible.cc
+  import_modfile.cc
   interlineal.cc
   lists.cc
   lectura_sync.cc

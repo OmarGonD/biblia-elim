@@ -45,6 +45,7 @@
 #include "gui/search_sidebar.h"
 #include "gui/tabbed_browser.h"
 #include "gui/search_dialog.h"
+#include "gui/instalar_biblias.h"
 
 #include "xiphos_html/xiphos_html.h"
 
@@ -1468,10 +1469,24 @@ void gui_show_previewer_in_sidebar(gint choice)
  *   GtkWidget *
  */
 
+/* Botón "Instalar Biblias" al pie del árbol de módulos -- antes solo
+ * se podía llegar al instalador desde el menú Editar o desde el panel
+ * Comparar; ahora también está a mano en el panel Módulos, que es
+ * donde alguien realmente esperaría encontrarlo. */
+static void
+on_sidebar_install_bibles_clicked(GtkButton *button, gpointer user_data)
+{
+	(void)button;
+	(void)user_data;
+	gui_instalar_biblias();
+}
+
 GtkWidget *gui_create_sidebar(GtkWidget *paned)
 {
 	GtkWidget *vbox1;
 	GtkWidget *scrolledwindow4;
+	GtkWidget *vbox_modules_page;
+	GtkWidget *btn_install_bibles;
 	GtkWidget *scrolledwindow_bm;
 	GtkWidget *title_label = NULL;
 #ifndef USE_WEBKIT2
@@ -1640,16 +1655,40 @@ GtkWidget *gui_create_sidebar(GtkWidget *paned)
 	gtk_notebook_set_show_border(GTK_NOTEBOOK(widgets.notebook_sidebar), FALSE);
 	gtk_container_set_border_width(GTK_CONTAINER(widgets.notebook_sidebar), 2);
 
+	/* la página de Módulos es un vbox: el árbol (expande) + un botón
+	 * fijo abajo para instalar Biblias sin tener que ir al menú
+	 * Editar o abrir el panel Comparar primero. */
+	UI_VBOX(vbox_modules_page, FALSE, 0);
+	gtk_widget_show(vbox_modules_page);
+	gtk_container_add(GTK_CONTAINER(widgets.notebook_sidebar),
+			  vbox_modules_page);
+
 	scrolledwindow4 = gtk_scrolled_window_new(NULL, NULL);
 	gtk_widget_show(scrolledwindow4);
-	gtk_container_add(GTK_CONTAINER(widgets.notebook_sidebar),
-			  scrolledwindow4);
+	gtk_box_pack_start(GTK_BOX(vbox_modules_page), scrolledwindow4,
+			   TRUE, TRUE, 0);
 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolledwindow4),
 				       GTK_POLICY_AUTOMATIC,
 				       GTK_POLICY_AUTOMATIC);
 	gtk_scrolled_window_set_shadow_type((GtkScrolledWindow *)
 					    scrolledwindow4,
 					    settings.shadow_type);
+
+	btn_install_bibles = gtk_button_new_with_label(_("Instalar Biblias"));
+	gtk_button_set_relief(GTK_BUTTON(btn_install_bibles), GTK_RELIEF_NONE);
+	gtk_widget_set_tooltip_text(btn_install_bibles,
+				    _("Descargar e instalar Biblias de CrossWire, eBible y otras fuentes"));
+	gtk_style_context_add_class(gtk_widget_get_style_context(btn_install_bibles),
+				    "elim-pill");
+	gtk_widget_set_margin_start(btn_install_bibles, 8);
+	gtk_widget_set_margin_end(btn_install_bibles, 8);
+	gtk_widget_set_margin_top(btn_install_bibles, 4);
+	gtk_widget_set_margin_bottom(btn_install_bibles, 6);
+	g_signal_connect(btn_install_bibles, "clicked",
+			 G_CALLBACK(on_sidebar_install_bibles_clicked), NULL);
+	gtk_widget_show(btn_install_bibles);
+	gtk_box_pack_start(GTK_BOX(vbox_modules_page), btn_install_bibles,
+			   FALSE, FALSE, 0);
 
 	sidebar.module_list = gtk_tree_view_new();
 	gtk_widget_show(sidebar.module_list);
