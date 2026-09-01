@@ -419,6 +419,17 @@ void gui_sidebar_showhide(void)
 					  &allocation);
 		settings.biblepane_width = allocation.width;
 	}
+
+	/* mantener el botón de la cabecera en sync sin importar qué haya
+	 * disparado el cambio (menú, Ctrl+S, o una búsqueda que abre el
+	 * panel solo). on_sidebar_toggle_button_toggled() ya se protege
+	 * contra el reingreso comparando contra settings.showshortcutbar
+	 * (que ya quedó actualizado arriba), así que no hace falta
+	 * bloquear la señal. */
+	if (widgets.sidebar_toggle_button)
+		gtk_toggle_button_set_active(
+		    GTK_TOGGLE_BUTTON(widgets.sidebar_toggle_button),
+		    settings.showshortcutbar);
 }
 
 /******************************************************************************

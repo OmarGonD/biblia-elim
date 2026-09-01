@@ -920,6 +920,19 @@ static void on_reading_mode_button_toggled(GtkToggleButton *button, gpointer dat
 	gui_toggle_reading_mode(active);
 }
 
+/* Header-bar sidebar button: shows/hides the left panel (módulos,
+ * marcadores, búsqueda, lista de versículos), same as the "Ver > Mostrar/
+ * ocultar panel lateral" menu item and Ctrl+S. gui_sidebar_showhide()
+ * keeps this button's pressed state synced back, including when
+ * something else (a búsqueda, por ejemplo) opens the panel on its own. */
+static void on_sidebar_toggle_button_toggled(GtkToggleButton *button, gpointer data)
+{
+	gboolean active = gtk_toggle_button_get_active(button);
+	if (active == settings.showshortcutbar)
+		return; /* gui_sidebar_showhide() syncing us back -- not a real click */
+	gui_sidebar_showhide();
+}
+
 /* Exposed so bibletext.c can hook Ctrl+scroll on the text pane into the
  * same base-font-size bias, without a second, divergent zoom mechanism. */
 void gui_zoom_base_font(int up)
@@ -1535,6 +1548,27 @@ void create_mainwindow(void)
 	gtk_style_context_add_class(gtk_widget_get_style_context(header_bar),
 				    "elim-header");
 	gtk_header_bar_pack_start(GTK_HEADER_BAR(header_bar), menu);
+
+	{
+		GtkWidget *sidebar_icon = gtk_image_new_from_icon_name(
+		    "view-sidebar-symbolic", GTK_ICON_SIZE_BUTTON);
+		widgets.sidebar_toggle_button = gtk_toggle_button_new();
+		gtk_container_add(GTK_CONTAINER(widgets.sidebar_toggle_button),
+				  sidebar_icon);
+		gtk_widget_show(sidebar_icon);
+	}
+	gtk_widget_set_tooltip_text(widgets.sidebar_toggle_button,
+				    _("Mostrar/ocultar panel lateral (Ctrl+S)"));
+	gtk_style_context_add_class(
+	    gtk_widget_get_style_context(widgets.sidebar_toggle_button), "flat");
+	gtk_style_context_add_class(
+	    gtk_widget_get_style_context(widgets.sidebar_toggle_button), "circular");
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widgets.sidebar_toggle_button),
+				     settings.showshortcutbar);
+	g_signal_connect(widgets.sidebar_toggle_button, "toggled",
+			 G_CALLBACK(on_sidebar_toggle_button_toggled), NULL);
+	gtk_widget_show(widgets.sidebar_toggle_button);
+	gtk_header_bar_pack_start(GTK_HEADER_BAR(header_bar), widgets.sidebar_toggle_button);
 
 	widgets.reading_mode_button = new_open_bible_toggle(
 	    _("Modo lectura: solo la Biblia (Ctrl+Mayús+F)"));

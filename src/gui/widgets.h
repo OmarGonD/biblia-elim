@@ -99,7 +99,7 @@ struct _app_widgets
 	    /* popup menu submenu widgets */
 	    *add_bookmark_submenu,
 	    /* popup menu item widgets */
-	    *viewtexts_item, *viewpreview_item, *parallel_tab_item, *side_preview_item, *viewcomms_item, *viewdicts_item, *linkedtabs_item, *showversenum_item, *readaloud_item, *versehighlight_item, *annotate_highlight_item, *xrefs_in_verse_list_item, *reading_mode_item, *reading_mode_button, *lectura_sync_item, *lectura_sync_button, *interlineal_item, *new_journal_item, *button_dict_book, *button_new_tab, /* creates a new passage tab */
+	    *viewtexts_item, *viewpreview_item, *parallel_tab_item, *side_preview_item, *viewcomms_item, *viewdicts_item, *linkedtabs_item, *showversenum_item, *readaloud_item, *versehighlight_item, *annotate_highlight_item, *xrefs_in_verse_list_item, *reading_mode_item, *reading_mode_button, *sidebar_toggle_button, *lectura_sync_item, *lectura_sync_button, *interlineal_item, *new_journal_item, *button_dict_book, *button_new_tab, /* creates a new passage tab */
 	    *button_dict_back, *button_dict_forward,  /* ← Create history nav button */
 	    *hboxtb;																																				   /* container for browsing notebook and button */
 };

@@ -715,10 +715,14 @@ if (!settings.morph_heb_lex || strlen(settings.morph_heb_lex) == 0) {
 	}
 
 	/* layout */
+	/* 380px por defecto -- por debajo de eso la grilla 2x2 de botones
+	 * del panel lateral (Módulos/Marcadores/Búsqueda/Lista de
+	 * versículos, ~360px de ancho natural) no entra y GTK recorta
+	 * las dos columnas de la izquierda en vez de acomodarlas. */
 	settings.sidebar_width =
 	    atoi((buf = xml_get_value("layout", "shortcutbar"))
 		     ? buf
-		     : "100");
+		     : "380");
 	if ((buf = xml_get_value("layout", "lecturasyncpos")))
 		settings.lectura_sync_pos = atoi(buf);
 	else {
@@ -1307,12 +1311,12 @@ if (!settings.morph_heb_lex || strlen(settings.morph_heb_lex) == 0) {
 	settings.studypadfilename = xml_get_value("studypad", "lastfile");
 	settings.studypaddir = xml_get_value("studypad", "directory");
 
-	if ((buf = xml_get_value("misc", "show_sidebar"))) {
-		settings.showshortcutbar = atoi(buf);
-	} else {
-		xml_add_new_item_to_section("misc", "show_sidebar", "1");
-		settings.showshortcutbar = 1;
-	}
+	/* El panel lateral (módulos/marcadores/búsqueda/lista de
+	 * versículos) arranca siempre oculto -- se abre con el botón
+	 * dedicado en la cabecera (gui_sidebar_showhide()). Se ignora a
+	 * propósito lo que haya quedado persistido de una sesión
+	 * anterior, igual que con el panel Comentario/Libro. */
+	settings.showshortcutbar = 0;
 	if ((buf = xml_get_value("misc", "sidebar_docked"))) {
 		settings.docked = atoi(buf);
 	} else {
