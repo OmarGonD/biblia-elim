@@ -44,6 +44,7 @@
 #include "gui/bibletext.h"
 #include "gui/lectura_sync.h"
 #include "gui/parallel_view.h"
+#include "main/lists.h"
 #include "main/parallel_view.h"
 #include "gui/commentary.h"
 #include "gui/gbs.h"
@@ -84,6 +85,7 @@ static gboolean switching_dict_tab = FALSE;
 static GtkWidget *header_menu = NULL;
 static GtkWidget *reading_exit_button = NULL;
 static GtkWidget *reading_compare_button = NULL;
+static GtkWidget *reading_compare_pick = NULL;
 static guint reading_mode_place_src = 0;
 static gulong reading_mode_wse_id = 0;
 static guint reading_mode_hover_hide_src = 0;
@@ -94,6 +96,7 @@ static gulong reading_mode_alloc_id = 0;
 
 static void on_reading_mode_button_toggled(GtkToggleButton *button, gpointer data);
 static void on_reading_compare_toggled(GtkToggleButton *button, gpointer data);
+static void on_reading_compare_pick(GtkButton *button, gpointer data);
 static gboolean on_open_bible_icon_draw(GtkWidget *widget, cairo_t *cr, gpointer data);
 static gboolean reading_mode_keep_place(gpointer data);
 static gboolean reading_mode_on_window_state(GtkWidget *widget, GdkEventWindowState *event, gpointer data);
@@ -435,8 +438,108 @@ reading_compare_set(gboolean on)
 		g_signal_handlers_unblock_by_func(reading_compare_button,
 						  G_CALLBACK(on_reading_compare_toggled), NULL);
 	}
+	/* picking versions only means anything while comparing */
+	if (reading_compare_pick)
+		gtk_widget_set_visible(reading_compare_pick, on);
 	if (settings.currentverse)
 		main_display_bible(NULL, settings.currentverse);
+}
+
+/* Writes the chosen set back to both the live settings and
+ * modules/parallels, which is where parallel_build_html() reads it
+ * from, then repaints. */
+static void
+reading_compare_set_modules(GList *chosen)
+{
+	GString *csv = g_string_new(NULL);
+	GList *l;
+
+	for (l = chosen; l; l = l->next) {
+		if (csv->len)
+			g_string_append_c(csv, ',');
+		g_string_append(csv, (const gchar *)l->data);
+	}
+	if (!csv->len) {
+		g_string_free(csv, TRUE);
+		return;			/* never leave the comparison empty */
+	}
+
+	xml_set_value("Xiphos", "modules", "parallels", csv->str);
+	if (settings.parallel_list)
+		g_strfreev(settings.parallel_list);
+	settings.parallel_list = g_strsplit(csv->str, ",", -1);
+	g_string_free(csv, TRUE);
+
+	if (settings.reading_mode && settings.reading_compare &&
+	    settings.currentverse)
+		main_display_bible(NULL, settings.currentverse);
+}
+
+static void
+on_compare_pick_toggled(GtkToggleButton *check, gpointer data)
+{
+	GtkWidget *box = GTK_WIDGET(data);
+	GList *kids, *k, *chosen = NULL;
+
+	(void)check;
+	kids = gtk_container_get_children(GTK_CONTAINER(box));
+	for (k = kids; k; k = k->next) {
+		GtkWidget *w = GTK_WIDGET(k->data);
+		if (!GTK_IS_CHECK_BUTTON(w))
+			continue;
+		if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(w)))
+			chosen = g_list_append(
+			    chosen, g_object_get_data(G_OBJECT(w), "modname"));
+	}
+	g_list_free(kids);
+	reading_compare_set_modules(chosen);
+	g_list_free(chosen);
+}
+
+/* Popover listing every installed Bible, ticked for the ones currently
+ * being compared. Built fresh each time it opens so newly installed
+ * modules show up without a restart. */
+static void
+on_reading_compare_pick(GtkButton *button, gpointer data)
+{
+	GtkWidget *pop, *box;
+	GList *bibles, *descs, *l, *d;
+
+	(void)data;
+	pop = gtk_popover_new(GTK_WIDGET(button));
+	box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 2);
+	gtk_container_set_border_width(GTK_CONTAINER(box), 8);
+
+	bibles = get_list(TEXT_LIST);
+	descs = get_list(TEXT_DESC_LIST);
+	for (l = bibles, d = descs; l; l = l->next, d = d ? d->next : NULL) {
+		const gchar *name = (const gchar *)l->data;
+		const gchar *desc = d ? (const gchar *)d->data : NULL;
+		GtkWidget *chk;
+		gboolean on = FALSE;
+		int i;
+
+		if (!name)
+			continue;
+		for (i = 0; settings.parallel_list && settings.parallel_list[i]; i++) {
+			if (!g_strcmp0(settings.parallel_list[i], name)) {
+				on = TRUE;
+				break;
+			}
+		}
+		chk = gtk_check_button_new_with_label(desc && *desc ? desc : name);
+		g_object_set_data_full(G_OBJECT(chk), "modname",
+				       g_strdup(name), g_free);
+		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk), on);
+		g_signal_connect(chk, "toggled",
+				 G_CALLBACK(on_compare_pick_toggled), box);
+		gtk_box_pack_start(GTK_BOX(box), chk, FALSE, FALSE, 0);
+	}
+
+	gtk_widget_show_all(box);
+	gtk_container_add(GTK_CONTAINER(pop), box);
+	gtk_popover_set_position(GTK_POPOVER(pop), GTK_POS_BOTTOM);
+	gtk_popover_popup(GTK_POPOVER(pop));
 }
 
 static void
@@ -720,6 +823,9 @@ void gui_toggle_reading_mode(gboolean choice)
 		else
 			gtk_widget_hide(reading_exit_button);
 	}
+	if (reading_compare_pick)
+		gtk_widget_set_visible(reading_compare_pick,
+				       choice && settings.reading_compare);
 	if (reading_compare_button) {
 		gtk_widget_set_visible(reading_compare_button, choice);
 		if (!choice && settings.reading_compare) {
@@ -2117,6 +2223,24 @@ void create_mainwindow(void)
 				 G_CALLBACK(on_reading_compare_toggled), NULL);
 		gtk_overlay_add_overlay(GTK_OVERLAY(ov), reading_compare_button);
 		gtk_widget_hide(reading_compare_button);
+
+		/* Which versions are being compared was only editable by
+		 * hand-editing modules/parallels in settings.xml. */
+		reading_compare_pick = gtk_button_new_with_label("\u25be");
+		gtk_widget_set_tooltip_text(reading_compare_pick,
+					    _("Elegir qué versiones comparar"));
+		gtk_widget_set_can_focus(reading_compare_pick, FALSE);
+		gtk_style_context_add_class(
+		    gtk_widget_get_style_context(reading_compare_pick),
+		    "reading-exit");
+		gtk_widget_set_halign(reading_compare_pick, GTK_ALIGN_END);
+		gtk_widget_set_valign(reading_compare_pick, GTK_ALIGN_START);
+		gtk_widget_set_margin_top(reading_compare_pick, 10);
+		gtk_widget_set_margin_end(reading_compare_pick, 118);
+		g_signal_connect(reading_compare_pick, "clicked",
+				 G_CALLBACK(on_reading_compare_pick), NULL);
+		gtk_overlay_add_overlay(GTK_OVERLAY(ov), reading_compare_pick);
+		gtk_widget_hide(reading_compare_pick);
 	}
 
 	// Bible/parallel notebook

@@ -894,10 +894,11 @@ static void interpolate_parallel_display(SWModule *control,
 	cur_verse = backend_p->key_get_verse(control_name, tmpkey);
 	settings.intCurVerse = cur_verse;
 
-	/* misma franja atenuada que main_update_parallel_page() -- ver el
-	 * comentario de blend_hex_color() más arriba en este archivo. */
+	/* Alternating verse rows. 0.10 was almost invisible on a dark
+	 * background -- the point of the banding is to let the eye track a
+	 * row across columns, so it has to actually be seen. */
 	gchar *row_tint = blend_hex_color(settings.bible_bg_color,
-					  settings.bible_text_color, 0.10);
+					  settings.bible_text_color, 0.17);
 
 	for (verse = 1; verse <= xverses; ++verse) {
 		snprintf(tmpbuf, 255, "%s %d:%d", cur_book, cur_chapter, verse);
@@ -1057,15 +1058,28 @@ parallel_build_html(SWBuf &text, gint *parallel_count_out)
 		 settings.link_color);
 	text += buf;
 
-	for (modidx = 0; settings.parallel_list[modidx]; ++modidx) {
-		const char *abbreviation = main_name_to_abbrev(settings.parallel_list[modidx]);
-		snprintf(buf, 499,
-			 "<th width=\"%d%%\" bgcolor=\"#c0c0c0\"><font color=\"%s\" size=\"%+d\"><b>%s</b></font></th>",
-			 fraction,
-			 settings.bible_verse_num_color,
-			 settings.verse_num_font_size + settings.base_font_size,
-			 (abbreviation ? abbreviation : settings.parallel_list[modidx]));
-		text += buf;
+	/* The header used to be a hardcoded light grey (#c0c0c0) with the
+	 * verse-number colour on top: fine on the old light default, a
+	 * glaring band of near-white with poor contrast on a dark theme.
+	 * It now uses the same gold-on-tinted-background treatment the
+	 * rest of this fork gives module labels, derived from the theme's
+	 * own colours so it works on either. */
+	{
+		const gchar *hdr_fg = settings.darktheme ? "#E6C989" : "#8A6D1E";
+		gchar *hdr_bg = blend_hex_color(settings.bible_bg_color, hdr_fg, 0.22);
+
+		for (modidx = 0; settings.parallel_list[modidx]; ++modidx) {
+			const char *abbreviation = main_name_to_abbrev(settings.parallel_list[modidx]);
+			snprintf(buf, 499,
+				 "<th width=\"%d%%\" bgcolor=\"%s\"><font color=\"%s\" size=\"%+d\"><b>%s</b></font></th>",
+				 fraction,
+				 hdr_bg,
+				 hdr_fg,
+				 settings.verse_num_font_size + settings.base_font_size,
+				 (abbreviation ? abbreviation : settings.parallel_list[modidx]));
+			text += buf;
+		}
+		g_free(hdr_bg);
 	}
 
 	text += "</tr> </thead> <tbody>";
