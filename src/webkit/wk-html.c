@@ -1171,6 +1171,32 @@ walk_node(ParseCtx *ctx, xmlNode *node)
 		walk_element(ctx, node);
 }
 
+/* Drops the anchor records without touching the buffer. Used at
+ * finalize, where the GtkTextView and its buffer have already been
+ * torn down by GTK's container teardown: the marks died with the
+ * buffer, so reaching for them there is a use-after-free (it shows up
+ * as "gtk_text_mark_get_deleted: assertion 'GTK_IS_TEXT_MARK (mark)'
+ * failed"). Long invisible because the main panes live for the whole
+ * session; a table cell, which is a WkHtml destroyed and rebuilt on
+ * every render, hits it on any document whose cells carry <a name=>. */
+static void
+free_anchor_list(WkHtmlPrivate *priv)
+{
+	guint i;
+	if (!priv->anchor_list)
+		return;
+	for (i = 0; i < priv->anchor_list->len; i++) {
+		Anchor *a = g_ptr_array_index(priv->anchor_list, i);
+		g_free(a->name);
+		g_free(a);
+	}
+	g_ptr_array_set_size(priv->anchor_list, 0);
+	if (priv->anchor_ht)
+		g_hash_table_remove_all(priv->anchor_ht);
+}
+
+/* Same, for a live buffer: the marks have to come out of it too,
+ * otherwise they pile up across reloads. */
 static void
 clear_anchors(WkHtmlPrivate *priv)
 {
@@ -1179,13 +1205,11 @@ clear_anchors(WkHtmlPrivate *priv)
 		return;
 	for (i = 0; i < priv->anchor_list->len; i++) {
 		Anchor *a = g_ptr_array_index(priv->anchor_list, i);
-		if (a->mark && !gtk_text_mark_get_deleted(a->mark))
+		if (a->mark && GTK_IS_TEXT_MARK(a->mark) &&
+		    !gtk_text_mark_get_deleted(a->mark))
 			gtk_text_buffer_delete_mark(priv->buffer, a->mark);
-		g_free(a->name);
-		g_free(a);
 	}
-	g_ptr_array_set_size(priv->anchor_list, 0);
-	g_hash_table_remove_all(priv->anchor_ht);
+	free_anchor_list(priv);
 }
 
 static void
@@ -1849,7 +1873,7 @@ html_finalize(GObject *object)
 
 	if (priv->timeout)
 		g_source_remove(priv->timeout);
-	clear_anchors(priv);
+	free_anchor_list(priv);	/* buffer is already gone -- see above */
 	if (priv->anchor_list)
 		g_ptr_array_free(priv->anchor_list, TRUE);
 	if (priv->anchor_ht)
