@@ -507,10 +507,16 @@ void load_settings_structure(void)
 		}
 	}
 
-	/* fresh install, still nothing configured: seed Parallel View with
-	 * whichever of our bootstrapped default modules actually made it
-	 * in, so the feature works without a trip to Preferences. */
-	if (settings.first_run && (!parallels || (*parallels == '\0'))) {
+	/* Nada configurado todavía: sembrar Vista paralela con los
+	 * módulos por defecto que sí estén instalados, para que la
+	 * función funcione sin pasar por Preferencias. Antes esto solo
+	 * corría en settings.first_run (arranque con settings.xml recién
+	 * creado) -- una instalación que ya tenía settings.xml de antes
+	 * de que existiera este sembrado (o alguien que vació la lista a
+	 * mano) se quedaba con "Vista paralela" permanentemente en
+	 * blanco. Ya no se condiciona a first_run, solo a que la lista
+	 * esté vacía. */
+	if (!parallels || (*parallels == '\0')) {
 		static const char *preferred[] = {
 			"SpaRV", "SpaPlatense", "SpaRVG",
 			"KJV", "WLC", "Tisch", NULL
@@ -1222,12 +1228,12 @@ if (!settings.morph_heb_lex || strlen(settings.morph_heb_lex) == 0) {
 		settings.readaloud = 0;
 	}
 
-	if ((buf = xml_get_value("misc", "showversenum")))
-		settings.showversenum = atoi(buf);
-	else {
-		xml_add_new_item_to_section("misc", "showversenum", "1");
-		settings.showversenum = 1;
-	}
+	/* Los números de versículo son el ancla visual para saber a qué
+	 * versículo corresponde cada clic (herramientas, notas, resaltado);
+	 * sin ellos es fácil hacer clic en el versículo equivocado. Se
+	 * fuerzan a encendido sin importar lo persistido. */
+	(void)xml_get_value("misc", "showversenum");
+	settings.showversenum = 1;
 
 	if ((buf = xml_get_value("misc", "verse_num_bold")))
 		settings.verse_num_bold = atoi(buf);
