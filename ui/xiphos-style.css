@@ -175,19 +175,6 @@ button.elim-greek label {
 	font-weight: 600;
 	padding: 0;
 }
-button.elim-vtools {
-	min-width: 22px;
-	min-height: 18px;
-	padding: 1px 4px;
-	border-radius: 4px;
-	opacity: 0.72;
-}
-button.elim-vtools:hover {
-	opacity: 1;
-	background-image: none;
-	background-color: alpha(@elim_navy, 0.14);
-}
-
 /* ——— Tablas HTML reales (comentarios, vista paralela) ——— */
 .elim-table-cell {
 	padding: 4px 6px;

@@ -84,7 +84,7 @@ typedef struct {
 } ParseCtx;
 
 static void walk_node(ParseCtx *ctx, xmlNode *node);
-static void insert_verse_tools_button(ParseCtx *ctx, const char *key, gboolean has_note);
+static void insert_verse_tools_chip(ParseCtx *ctx, const char *key, gboolean has_note);
 
 static void wk_html_class_init(WkHtmlClass *klass);
 static void wk_html_init(WkHtml *html);
@@ -384,20 +384,23 @@ insert_text(ParseCtx *ctx, const char *text)
 		ctx->in_repair = FALSE;
 	}
 
-	norm = g_string_new(NULL);
+	/* Drop '\r', turn each '\n'/'\t' into one space, copy everything
+	 * else verbatim -- in runs rather than a character at a time. The
+	 * three bytes we split on are ASCII, and no UTF-8 continuation byte
+	 * is ever < 0x80, so scanning bytewise cannot land inside a
+	 * multi-byte character. Output is never longer than the input, so
+	 * sizing the buffer up front makes this a single allocation. */
+	norm = g_string_sized_new(strlen(text) + 1);
 	for (p = text; *p;) {
-		if (*p == '\r') {
-			p++;
-			continue;
-		}
-		if (*p == '\n' || *p == '\t') {
-			g_string_append_c(norm, ' ');
-			p++;
-			continue;
-		}
 		run = p;
-		p = g_utf8_next_char(p);
-		g_string_append_len(norm, run, p - run);
+		while (*p && *p != '\r' && *p != '\n' && *p != '\t')
+			p++;
+		if (p > run)
+			g_string_append_len(norm, run, p - run);
+		for (; *p == '\r' || *p == '\n' || *p == '\t'; p++) {
+			if (*p != '\r')
+				g_string_append_c(norm, ' ');
+		}
 	}
 	if (!norm->len) {
 		g_string_free(norm, TRUE);
@@ -490,112 +493,48 @@ is_block(const char *n)
 	       !g_ascii_strcasecmp(n, "blockquote") || !g_ascii_strcasecmp(n, "center");
 }
 
-static gboolean
-on_vtools_icon_draw(GtkWidget *widget, cairo_t *cr, gpointer data)
-{
-	GtkWidget *parent = gtk_widget_get_parent(widget);
-	GtkStyleContext *ctx = gtk_widget_get_style_context(parent ? parent : widget);
-	GdkRGBA fg;
-	gboolean has_note = GPOINTER_TO_INT(g_object_get_data(G_OBJECT(widget), "has-note"));
-	int w, h, stripe_w;
-	double s, ox, oy;
-
-	(void)data;
-	gtk_style_context_get_color(ctx, gtk_style_context_get_state(ctx), &fg);
-	w = gtk_widget_get_allocated_width(widget);
-	h = gtk_widget_get_allocated_height(widget);
-
-	/* Margin stripe for "this verse has a note" -- a slim bar flush to
-	 * the left edge, the height of the icon next to it, in the same
-	 * gold this app already uses for notes/highlights elsewhere
-	 * (badge_bg in parallel_view.cc, mod_label_color). Independent of
-	 * settings.annotate_highlight -- that only governs the whole-verse
-	 * background/text color, not this indicator. */
-	stripe_w = 3;
-	if (has_note && w > stripe_w) {
-		if (settings.darktheme)
-			cairo_set_source_rgba(cr, 0.902, 0.788, 0.537, 0.95); /* #E6C989 */
-		else
-			cairo_set_source_rgba(cr, 0.541, 0.427, 0.118, 0.95); /* #8A6D1E */
-		cairo_rectangle(cr, 0, 0, stripe_w, h);
-		cairo_fill(cr);
-	}
-
-	w -= has_note ? (stripe_w + 2) : 0; /* remaining space for the icon proper */
-	s = (w < h) ? w : h;
-	if (s < 1.0)
-		return FALSE;
-	ox = (has_note ? (stripe_w + 2) : 0) + (w - s) * 0.5;
-	oy = (h - s) * 0.5;
-	cairo_translate(cr, ox, oy);
-	cairo_scale(cr, s / 16.0, s / 16.0);
-	cairo_set_source_rgba(cr, fg.red, fg.green, fg.blue, fg.alpha * 0.85);
-	cairo_set_line_width(cr, 1.35);
-	cairo_set_line_cap(cr, CAIRO_LINE_CAP_ROUND);
-	/* three-bar "tools" menu */
-	cairo_move_to(cr, 3.2, 5.0);
-	cairo_line_to(cr, 12.8, 5.0);
-	cairo_move_to(cr, 3.2, 8.0);
-	cairo_line_to(cr, 12.8, 8.0);
-	cairo_move_to(cr, 3.2, 11.0);
-	cairo_line_to(cr, 12.8, 11.0);
-	cairo_stroke(cr);
-	return FALSE;
-}
-
+/* The tools affordance next to each verse used to be a real GtkButton
+ * holding a GtkDrawingArea that painted the icon, anchored into the
+ * buffer -- two widgets per verse, rebuilt from scratch on every
+ * render. A long psalm meant ~350 of them and whole-book mode several
+ * thousand, each realized and negotiated into the text view's line
+ * layout, which dominated the cost of opening a chapter.
+ *
+ * It is now a tagged glyph carrying the very URL the button's
+ * "clicked" handler used to build, so the click is served by
+ * on_button_press()'s existing href path, the hand cursor by
+ * on_motion(), and nothing is allocated per verse beyond the link tag
+ * itself (which load_html() now reclaims -- see clear_load_tags()).
+ * Colors match what on_vtools_icon_draw() painted: muted by default,
+ * gold where the margin stripe used to mark "this verse has a note". */
 static void
-on_vtools_clicked(GtkButton *button, gpointer data)
+insert_verse_tools_chip(ParseCtx *ctx, const char *key, gboolean has_note)
 {
-	const char *key = g_object_get_data(G_OBJECT(button), "verse-key");
-	gchar *url;
+	gchar *saved_href, *saved_fg;
+	guint saved_small;
 
-	(void)data;
 	if (!key || !*key)
 		return;
-	url = g_strdup_printf("passagestudy.jsp?action=verseTools&value=%s", key);
-	main_url_handler(url, TRUE);
-	g_free(url);
-}
 
-static void
-insert_verse_tools_button(ParseCtx *ctx, const char *key, gboolean has_note)
-{
-	GtkTextIter iter;
-	GtkTextChildAnchor *anchor;
-	GtkWidget *btn, *icon;
+	saved_href = ctx->st.href;
+	saved_fg = ctx->st.fg;
+	saved_small = ctx->st.small;
 
-	if (!ctx->html || !ctx->html->priv->view)
-		return;
-	gtk_text_buffer_get_end_iter(ctx->buf, &iter);
-	anchor = gtk_text_buffer_create_child_anchor(ctx->buf, &iter);
+	ctx->st.href = g_strdup_printf(
+	    "passagestudy.jsp?action=verseTools&value=%s", key);
+	ctx->st.fg = g_strdup(has_note
+				  ? (settings.darktheme ? "#E6C989" : "#8A6D1E")
+				  : (settings.darktheme ? "#8A8378" : "#7A736A"));
+	ctx->st.small = TRUE;
 
-	btn = gtk_button_new();
-	gtk_button_set_relief(GTK_BUTTON(btn), GTK_RELIEF_NONE);
-	gtk_widget_set_can_focus(btn, FALSE);
-	gtk_widget_set_valign(btn, GTK_ALIGN_CENTER);
-	gtk_widget_set_tooltip_text(btn, has_note
-					     ? _("Este versículo tiene una nota — herramientas")
-					     : _("Herramientas de este versículo"));
-	gtk_style_context_add_class(gtk_widget_get_style_context(btn), "elim-vtools");
-	if (key && *key)
-		g_object_set_data_full(G_OBJECT(btn), "verse-key",
-				       g_strdup(key), g_free);
-	g_signal_connect(btn, "clicked", G_CALLBACK(on_vtools_clicked), NULL);
+	insert_text(ctx, "\xE2\x98\xB0");	/* U+2630 TRIGRAM FOR HEAVEN */
 
-	/* A few extra px on the left give the "has a note" stripe room to
-	 * sit right against the icon without touching it -- see
-	 * on_vtools_icon_draw(). */
-	icon = gtk_drawing_area_new();
-	gtk_widget_set_size_request(icon, has_note ? 18 : 14, 12);
-	gtk_widget_set_hexpand(icon, FALSE);
-	gtk_widget_set_vexpand(icon, FALSE);
-	g_object_set_data(G_OBJECT(icon), "has-note", GINT_TO_POINTER(has_note ? 1 : 0));
-	g_signal_connect(icon, "draw", G_CALLBACK(on_vtools_icon_draw), NULL);
-	gtk_container_add(GTK_CONTAINER(btn), icon);
+	g_free(ctx->st.href);
+	g_free(ctx->st.fg);
+	ctx->st.href = saved_href;
+	ctx->st.fg = saved_fg;
+	ctx->st.small = saved_small;
 
-	gtk_text_view_add_child_at_anchor(ctx->html->priv->view, btn, anchor);
-	gtk_widget_show_all(btn);
-	ctx->at_line_start = FALSE;
 	insert_text(ctx, " ");
 }
 
@@ -1187,7 +1126,7 @@ walk_element(ParseCtx *ctx, xmlNode *node)
 	} else if (class_has(klass, "vtools")) {
 		char *key = el_prop(node, "data-key");
 		char *has_note = el_prop(node, "data-has-note");
-		insert_verse_tools_button(ctx, key, has_note && *has_note);
+		insert_verse_tools_chip(ctx, key, has_note && *has_note);
 		g_free(key);
 		g_free(has_note);
 	} else {
@@ -1250,6 +1189,55 @@ clear_anchors(WkHtmlPrivate *priv)
 }
 
 static void
+collect_hl_tag(GtkTextTag *tag, gpointer data)
+{
+	gchar *name = NULL;
+
+	g_object_get(G_OBJECT(tag), "name", &name, NULL);
+	if (name && g_str_has_prefix(name, "hl:"))
+		g_ptr_array_add((GPtrArray *)data, tag);
+	g_free(name);
+}
+
+/* Tags created while parsing one document: one per distinct href (see
+ * apply_style_tags()) plus one per highlight id (hl_tag()). Both were
+ * only ever dropped at finalize, so a session that browsed a few
+ * chapters kept every link tag of every verse it had ever rendered
+ * alive in a single tag table -- tens of thousands of GtkTextTag
+ * objects after a long read, each one a GObject carrying a full
+ * GtkTextAttributes. The buffer's text is already gone by the time we
+ * run, so nothing references them any more; the next parse recreates
+ * exactly the ones this document needs.
+ *
+ * link_seq is deliberately NOT reset: names only have to be unique
+ * within the table, and letting it keep counting means a tag that
+ * somehow escaped removal can never collide with a fresh one. */
+static void
+clear_load_tags(WkHtmlPrivate *priv)
+{
+	GtkTextTagTable *table = gtk_text_buffer_get_tag_table(priv->buffer);
+	GHashTableIter it;
+	gpointer val;
+	GPtrArray *stale;
+	guint i;
+
+	g_hash_table_iter_init(&it, priv->link_tags);
+	while (g_hash_table_iter_next(&it, NULL, &val))
+		gtk_text_tag_table_remove(table, GTK_TEXT_TAG(val));
+	g_hash_table_remove_all(priv->link_tags);
+
+	/* Highlight tags are not tracked in a hash, so sweep the table by
+	 * name prefix. Collect first: the table must not be modified from
+	 * inside gtk_text_tag_table_foreach(). */
+	stale = g_ptr_array_new();
+	gtk_text_tag_table_foreach(table, collect_hl_tag, stale);
+	for (i = 0; i < stale->len; i++)
+		gtk_text_tag_table_remove(table,
+					  GTK_TEXT_TAG(g_ptr_array_index(stale, i)));
+	g_ptr_array_free(stale, TRUE);
+}
+
+static void
 apply_body_colors(WkHtml *html, const char *bg, const char *fg)
 {
 	gchar *css;
@@ -1278,6 +1266,8 @@ load_html(WkHtml *html)
 	clear_anchors(priv);
 	gtk_text_buffer_get_bounds(priv->buffer, &start, &end);
 	gtk_text_buffer_delete(priv->buffer, &start, &end);
+	/* after the delete: no text refers to these tags any more. */
+	clear_load_tags(priv);
 
 	if (!priv->content)
 		return;
