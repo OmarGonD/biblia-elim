@@ -99,7 +99,7 @@ static gulong reading_mode_alloc_id = 0;
 static void on_reading_mode_button_toggled(GtkToggleButton *button, gpointer data);
 static void on_reading_compare_toggled(GtkToggleButton *button, gpointer data);
 static void on_reading_compare_pick(GtkButton *button, gpointer data);
-static void on_reading_font_set(GtkFontButton *button, gpointer data);
+static void on_reading_font_clicked(GtkButton *button, gpointer data);
 static void reading_strip_sync(void);
 static void reading_strip_attach(gboolean attach);
 static gboolean on_open_bible_icon_draw(GtkWidget *widget, cairo_t *cr, gpointer data);
@@ -551,16 +551,13 @@ on_reading_compare_pick(GtkButton *button, gpointer data)
  * because that is the granularity the rest of the app already uses --
  * and the compared columns are exactly the modules on screen. */
 static void
-on_reading_font_set(GtkFontButton *button, gpointer data)
+reading_font_apply(const gchar *chosen)
 {
 	static gchar *conf = NULL;
 	PangoFontDescription *desc;
-	const gchar *chosen;
 	gchar *family = NULL, *size = NULL;
 	int i;
 
-	(void)data;
-	chosen = gtk_font_chooser_get_font(GTK_FONT_CHOOSER(button));
 	if (!chosen || !*chosen)
 		return;
 
@@ -591,6 +588,42 @@ on_reading_font_set(GtkFontButton *button, gpointer data)
 
 	if (settings.currentverse)
 		main_display_bible(NULL, settings.currentverse);
+}
+
+/* Seeds the chooser with what the first compared module is set in, so
+ * the dialog opens on the current state rather than on whatever the
+ * toolkit defaults to. */
+static void
+on_reading_font_clicked(GtkButton *button, gpointer data)
+{
+	GtkWidget *dlg;
+	MOD_FONT *mf = NULL;
+
+	(void)data;
+	dlg = gtk_font_chooser_dialog_new(
+	    _("Fuente de las versiones comparadas"),
+	    widgets.app ? GTK_WINDOW(widgets.app) : NULL);
+
+	if (settings.parallel_list && settings.parallel_list[0])
+		mf = get_font(settings.parallel_list[0]);
+	if (mf && mf->old_font && *mf->old_font &&
+	    g_ascii_strcasecmp(mf->old_font, "none")) {
+		gchar *seed = g_strdup_printf(
+		    "%s %s", mf->old_font,
+		    (mf->old_font_size && *mf->old_font_size) ? mf->old_font_size : "12");
+		gtk_font_chooser_set_font(GTK_FONT_CHOOSER(dlg), seed);
+		g_free(seed);
+	}
+	if (mf)
+		free_font(mf);
+
+	if (gtk_dialog_run(GTK_DIALOG(dlg)) == GTK_RESPONSE_OK) {
+		gchar *chosen = gtk_font_chooser_get_font(GTK_FONT_CHOOSER(dlg));
+		reading_font_apply(chosen);
+		g_free(chosen);
+	}
+	gtk_widget_destroy(dlg);
+	(void)button;
 }
 
 static void
@@ -698,7 +731,12 @@ reading_strip_build(void)
 	sep = gtk_separator_new(GTK_ORIENTATION_VERTICAL);
 	gtk_box_pack_start(GTK_BOX(reading_strip), sep, FALSE, FALSE, 4);
 
-	reading_compare_pick = gtk_button_new_with_label(_("Versiones\u2026"));
+	/* Icons, not labels: the hover header already carries the whole
+	 * verse navigation, and two worded buttons pushed it past the
+	 * width of the window. The tooltips carry the naming. */
+	reading_compare_pick = gtk_button_new_from_icon_name(
+	    "view-dual-symbolic", GTK_ICON_SIZE_MENU);
+	gtk_button_set_relief(GTK_BUTTON(reading_compare_pick), GTK_RELIEF_NONE);
 	gtk_widget_set_tooltip_text(reading_compare_pick,
 				    _("Elegir qué versiones comparar"));
 	gtk_widget_set_can_focus(reading_compare_pick, FALSE);
@@ -707,13 +745,17 @@ reading_strip_build(void)
 	gtk_box_pack_start(GTK_BOX(reading_strip), reading_compare_pick,
 			   FALSE, FALSE, 0);
 
-	reading_font_button = gtk_font_button_new();
+	/* A GtkFontButton insists on showing the font name as its label,
+	 * which is what a font button is for and exactly what will not fit
+	 * here -- so a plain icon button opening the chooser instead. */
+	reading_font_button = gtk_button_new_from_icon_name(
+	    "preferences-desktop-font-symbolic", GTK_ICON_SIZE_MENU);
+	gtk_button_set_relief(GTK_BUTTON(reading_font_button), GTK_RELIEF_NONE);
 	gtk_widget_set_tooltip_text(reading_font_button,
 				    _("Fuente de las versiones comparadas"));
 	gtk_widget_set_can_focus(reading_font_button, FALSE);
-	gtk_font_button_set_use_font(GTK_FONT_BUTTON(reading_font_button), TRUE);
-	g_signal_connect(reading_font_button, "font-set",
-			 G_CALLBACK(on_reading_font_set), NULL);
+	g_signal_connect(reading_font_button, "clicked",
+			 G_CALLBACK(on_reading_font_clicked), NULL);
 	gtk_box_pack_start(GTK_BOX(reading_strip), reading_font_button,
 			   FALSE, FALSE, 0);
 
