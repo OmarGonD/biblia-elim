@@ -34,6 +34,8 @@ void main_check_parallel_modules(void);
 void main_set_parallel_options_at_start(void);
 void main_update_parallel_page(void);
 void main_update_parallel_page_detached(void);
+/* Renders the verse-aligned comparison into the main reading pane. */
+gboolean main_reading_compare_render(const char *key);
 void main_swap_parallel_with_main(char *intmod);
 
 void main_init_parallel_view(void);

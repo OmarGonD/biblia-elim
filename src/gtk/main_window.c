@@ -89,6 +89,7 @@ static guint reading_mode_hover_hide_src = 0;
 static gulong reading_mode_motion_id = 0;
 static gulong reading_mode_toolbar_enter_id = 0;
 static gulong reading_mode_toolbar_leave_id = 0;
+static gulong reading_mode_alloc_id = 0;
 
 static void on_reading_mode_button_toggled(GtkToggleButton *button, gpointer data);
 static gboolean on_open_bible_icon_draw(GtkWidget *widget, cairo_t *cr, gpointer data);
@@ -281,8 +282,130 @@ void gui_show_hide_dicts(gboolean choice)
 #define NORMAL_SIDE_MARGIN 14
 #define NORMAL_LINE_PAD 1
 
+/* Reading mode caps the line length instead of just padding the sides.
+ * A fixed side margin is fine on a laptop panel and falls apart on a
+ * wide one: on a 3440px ultrawide it left the text running the full
+ * width of the screen.
+ *
+ * Two settings shape the result, both in settings.xml under <misc>:
+ *
+ *   reading_mode_width_pct (default 90) -- how much of the window the
+ *       reading area takes, the rest split evenly as side margins. 90
+ *       leaves 5% clear on each side.
+ *
+ *   reading_mode_cpl (default 0 = off) -- an optional cap on line
+ *       length, in characters. Typography puts the comfortable range
+ *       at 45-75, and a single column spanning 90% of an ultrawide is
+ *       far past it; set this to bring the column back down and centre
+ *       it. Left off by default because the full width is the right
+ *       answer once the text is laid out in columns.
+ *
+ * The cap is measured, not assumed: the font comes from CSS and the
+ * user can change family and size, so READING_MODE_SAMPLE (a stretch
+ * of ordinary Spanish scripture prose) is run through Pango and its
+ * width divided by its length gives a mean character width for
+ * whatever face is actually in use. */
+#define READING_MODE_WIDTH_PCT_DEFAULT 90
+#define READING_MODE_SAMPLE                                             \
+	"Jehová es mi pastor; nada me faltará. En lugares de delicados " \
+	"pastos me hará descansar, junto a aguas de reposo me pastoreará."
+
 #define READING_MODE_HOVER_SHOW_Y 40
 #define READING_MODE_HOVER_HIDE_DELAY_MS 500
+
+/* Width, in pixels, of settings.reading_mode_cpl characters of the font
+ * this view is currently rendering with. */
+static gint
+reading_mode_target_width(GtkTextView *view)
+{
+	GtkStyleContext *ctx;
+	PangoFontDescription *desc = NULL;
+	PangoLayout *layout;
+	gint sample_w = 0;
+	glong sample_len;
+
+	sample_len = g_utf8_strlen(READING_MODE_SAMPLE, -1);
+	if (sample_len <= 0)
+		return 0;
+
+	ctx = gtk_widget_get_style_context(GTK_WIDGET(view));
+	gtk_style_context_get(ctx, gtk_style_context_get_state(ctx),
+			      GTK_STYLE_PROPERTY_FONT, &desc, NULL);
+
+	layout = gtk_widget_create_pango_layout(GTK_WIDGET(view),
+						READING_MODE_SAMPLE);
+	if (desc) {
+		pango_layout_set_font_description(layout, desc);
+		pango_font_description_free(desc);
+	}
+	pango_layout_set_width(layout, -1);	/* measure unwrapped */
+	pango_layout_get_pixel_size(layout, &sample_w, NULL);
+	g_object_unref(layout);
+
+	if (sample_w <= 0)
+		return 0;
+	return (gint)((sample_w * (gdouble)settings.reading_mode_cpl) / sample_len);
+}
+
+/* Side margins for reading mode: a percentage of the window by
+ * default, tightened further to centre a capped measure when
+ * reading_mode_cpl asks for one. Never narrower than
+ * READING_MODE_SIDE_MARGIN, so a small window behaves as it always
+ * did and only a wide one is reshaped. */
+static void
+reading_mode_apply_measure(GtkTextView *view)
+{
+	gint avail, target, margin;
+
+	if (!view)
+		return;
+
+	if (!settings.reading_mode) {
+		gtk_text_view_set_left_margin(view, NORMAL_SIDE_MARGIN);
+		gtk_text_view_set_right_margin(view, NORMAL_SIDE_MARGIN);
+		return;
+	}
+
+	avail = gtk_widget_get_allocated_width(GTK_WIDGET(view));
+
+	/* the percentage the reading area keeps; the remainder is split
+	 * evenly between the two sides. */
+	margin = (avail > 0)
+		     ? (avail * (100 - settings.reading_mode_width_pct)) / 200
+		     : READING_MODE_SIDE_MARGIN;
+	if (margin < READING_MODE_SIDE_MARGIN)
+		margin = READING_MODE_SIDE_MARGIN;
+
+	/* an explicit line-length cap wins when it is narrower still. */
+	target = (settings.reading_mode_cpl > 0)
+		     ? reading_mode_target_width(view)
+		     : 0;
+	if ((avail > 0) && (target > 0) && (avail - 2 * margin > target))
+		margin = (avail - target) / 2;
+
+	/* Setting the margin re-runs allocation, which brings us straight
+	 * back here; bail out once it has converged so the loop cannot feed
+	 * itself. */
+	if (gtk_text_view_get_left_margin(view) == margin &&
+	    gtk_text_view_get_right_margin(view) == margin)
+		return;
+
+	gtk_text_view_set_left_margin(view, margin);
+	gtk_text_view_set_right_margin(view, margin);
+}
+
+/* The allocation is not final when reading mode is switched on: the
+ * compositor answers gtk_window_fullscreen() a frame or two later, and
+ * the user can move the window between monitors afterwards. Recompute
+ * on every allocation instead of only at the toggle. */
+static void
+reading_mode_on_size_allocate(GtkWidget *widget, GdkRectangle *alloc,
+			      gpointer data)
+{
+	(void)alloc;
+	(void)data;
+	reading_mode_apply_measure(GTK_TEXT_VIEW(widget));
+}
 
 static void
 reading_mode_hover_cancel_hide(void)
@@ -507,12 +630,23 @@ void gui_toggle_reading_mode(gboolean choice)
 		reading_mode_float_toolbar(FALSE, view);
 	}
 	if (view) {
-		gint side_margin = choice ? READING_MODE_SIDE_MARGIN : NORMAL_SIDE_MARGIN;
 		gint line_pad = choice ? READING_MODE_LINE_PAD : NORMAL_LINE_PAD;
-		gtk_text_view_set_left_margin(view, side_margin);
-		gtk_text_view_set_right_margin(view, side_margin);
 		gtk_text_view_set_pixels_above_lines(view, line_pad);
 		gtk_text_view_set_pixels_below_lines(view, line_pad);
+
+		/* Follow the allocation only while reading mode is on; outside
+		 * it the margin is the fixed NORMAL_SIDE_MARGIN and there is
+		 * nothing to recompute. */
+		if (choice && !reading_mode_alloc_id) {
+			reading_mode_alloc_id = g_signal_connect(
+			    view, "size-allocate",
+			    G_CALLBACK(reading_mode_on_size_allocate), NULL);
+		} else if (!choice && reading_mode_alloc_id) {
+			g_signal_handler_disconnect(view, reading_mode_alloc_id);
+			reading_mode_alloc_id = 0;
+		}
+		reading_mode_apply_measure(view);
+
 		if (choice)
 			gtk_widget_grab_focus(GTK_WIDGET(view));
 	}
@@ -1266,6 +1400,7 @@ static gboolean on_vbox1_key_press_event(GtkWidget *widget, GdkEventKey *event,
 		}
 		break;
 
+
 	case XK_g:
 	case XK_G:
 		if (state == GDK_MOD1_MASK) { // Alt-G  genbook entry
@@ -1314,6 +1449,24 @@ static gboolean on_vbox1_key_press_event(GtkWidget *widget, GdkEventKey *event,
 			if (main_interlineal_bloquea_navegacion())
 				return TRUE;
 			access_on_up_eventbox_button_release_event(VERSE_BUTTON);
+		} else if (state == (GDK_CONTROL_MASK | GDK_SHIFT_MASK)) {
+			/* Ctrl-Shift-K: verse-aligned comparison inside
+			 * reading mode -- one column per module in the
+			 * parallel list, rows lined up verse by verse.
+			 * Only meaningful there: outside reading mode the
+			 * tabs and sidebar are in the way and the columns
+			 * have no room. */
+			if (!settings.reading_mode) {
+				gui_generic_warning(
+				    _("Comparar en columnas requiere el modo lectura "
+				      "(Ctrl+Shift+F)."));
+				break;
+			}
+			settings.reading_compare = !settings.reading_compare;
+			xml_set_value("Xiphos", "misc", "reading_compare",
+				      settings.reading_compare ? "1" : "0");
+			if (settings.currentverse)
+				main_display_bible(NULL, settings.currentverse);
 		}
 		break;
 

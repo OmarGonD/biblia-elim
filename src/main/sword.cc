@@ -1461,6 +1461,19 @@ void main_display_bible(const char *mod_name,
 
 	valid_scripture_key = main_is_Bible_key(mod_name, key);
 
+	/* Reading mode's verse-aligned comparison replaces the ordinary
+	 * single-module chapter with the parallel table. Done here rather
+	 * than inside GTKChapDisp so the whole normal render path -- module
+	 * cache, notes, interlinear -- is skipped outright instead of being
+	 * built and thrown away. */
+	if (settings.reading_mode && settings.reading_compare &&
+	    main_reading_compare_render(key)) {
+		g_free(bible_pane_last_verse);
+		bible_pane_last_verse = g_strdup(key);
+		bible_pane_is_interlinear = FALSE;
+		goto after_display;
+	}
+
 	gchar *displayed_key;
 	if (backend->module_has_testament(mod_name,
 					  backend->get_key_testament(mod_name, key))) {
@@ -1487,6 +1500,7 @@ void main_display_bible(const char *mod_name,
 	g_free(bible_pane_last_verse);
 	bible_pane_last_verse = displayed_key;
 
+after_display:
 	valid_scripture_key = TRUE; // leave nice for future use.
 
 	XI_message(("mod_name = %s", mod_name));
