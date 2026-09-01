@@ -23,6 +23,22 @@
 
 #include "main/navbar_versekey.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 GtkWidget *gui_navbar_versekey_new(void);
+
+/* Re-sincroniza el combo de versión (widgets.combo_bible_version) con
+ * settings.MainWindowModule. Llamar cada vez que el módulo activo de
+ * la ventana principal cambie por una vía que no sea el propio combo
+ * (árbol de módulos del panel lateral, reemplazo automático de un
+ * módulo desinstalado, etc.) para que el selector no quede
+ * desactualizado. */
+void gui_navbar_version_combo_sync(void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

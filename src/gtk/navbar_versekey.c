@@ -22,7 +22,10 @@
 #include <config.h>
 #endif
 
+#include <string.h>
+
 #include <gtk/gtk.h>
+#include <glib/gi18n.h>
 
 #include "editor/slib-editor.h"
 
@@ -30,7 +33,9 @@
 #include "gui/bibletext_dialog.h"
 #include "gui/tabbed_browser.h"
 #include "gui/utilities.h"
+#include "gui/widgets.h"
 
+#include "main/lists.h"
 #include "main/module_dialogs.h"
 #include "main/navbar_versekey.h"
 #include "main/settings.h"
@@ -704,6 +709,68 @@ static void _connect_signals(NAVBAR_VERSEKEY navbar)
 #endif
 }
 
+/* Picker de versión bíblica en la barra de navegación: cambia el
+ * módulo de la ventana principal preservando libro/capítulo/versículo
+ * enfocado (main_display_bible() re-usa settings.currentverse tal
+ * cual se lo pasamos). */
+
+static void
+gui_navbar_fill_version_combo(void)
+{
+	GList *l, *d;
+	int active = 0, index = 0;
+
+	if (!widgets.combo_bible_version)
+		return;
+	gtk_combo_box_text_remove_all(
+	    GTK_COMBO_BOX_TEXT(widgets.combo_bible_version));
+	for (l = get_list(TEXT_LIST), d = get_list(TEXT_DESC_LIST); l;
+	     l = l->next, d = d ? d->next : NULL) {
+		const char *name = (const char *)l->data;
+		const char *desc = d ? (const char *)d->data : NULL;
+
+		if (!name)
+			continue;
+		gtk_combo_box_text_append(
+		    GTK_COMBO_BOX_TEXT(widgets.combo_bible_version), name,
+		    (desc && *desc) ? desc : name);
+		if (settings.MainWindowModule &&
+		    !strcmp(name, settings.MainWindowModule))
+			active = index;
+		index++;
+	}
+	if (index > 0)
+		gtk_combo_box_set_active(
+		    GTK_COMBO_BOX(widgets.combo_bible_version), active);
+}
+
+void
+gui_navbar_version_combo_sync(void)
+{
+	const char *current;
+
+	if (!widgets.combo_bible_version || !settings.MainWindowModule)
+		return;
+	current = gtk_combo_box_get_active_id(
+	    GTK_COMBO_BOX(widgets.combo_bible_version));
+	if (current && !strcmp(current, settings.MainWindowModule))
+		return;
+	gtk_combo_box_set_active_id(GTK_COMBO_BOX(widgets.combo_bible_version),
+				    settings.MainWindowModule);
+}
+
+static void
+on_combo_bible_version_changed(GtkComboBox *combo, gpointer data)
+{
+	const char *mod = gtk_combo_box_get_active_id(combo);
+
+	if (!mod || !settings.MainWindowModule ||
+	    !strcmp(mod, settings.MainWindowModule))
+		return; /* gui_navbar_version_combo_sync() nos sincronizó
+			 * desde afuera -- no es un cambio real del usuario. */
+	main_display_bible(mod, settings.currentverse);
+}
+
 /******************************************************************************
  * Name
  *  gui_navbar_versekey_new
@@ -786,6 +853,39 @@ GtkWidget *gui_navbar_versekey_new(void)
 	g_signal_connect((gpointer)eventbox, "scroll_event",
 			 G_CALLBACK(on_button_verse_menu_verse_scroll_event), NULL);
 #endif
+	widgets.combo_bible_version = gtk_combo_box_text_new();
+	gtk_widget_set_tooltip_text(widgets.combo_bible_version,
+				    _("Cambiar de versión (mantiene el versículo enfocado)"));
+	gtk_widget_set_valign(widgets.combo_bible_version, GTK_ALIGN_CENTER);
+	/* las descripciones de módulo pueden ser bastante largas
+	 * ("Biblia Platense (Straubinger)") y un GtkComboBoxText se
+	 * ensancha solo para mostrar entera la más larga de la lista --
+	 * en esta barra, ya angosta, eso desplazaba el resto de los
+	 * controles. Topar el ancho pedido y elidir el texto lo mantiene
+	 * compacto; el nombre completo sigue disponible al desplegar la
+	 * lista o vía el tooltip. */
+	gtk_widget_set_size_request(widgets.combo_bible_version, 150, -1);
+	{
+		GList *cells = gtk_cell_layout_get_cells(
+		    GTK_CELL_LAYOUT(widgets.combo_bible_version));
+		if (cells) {
+			g_object_set(cells->data, "ellipsize",
+				     PANGO_ELLIPSIZE_END, NULL);
+			g_list_free(cells);
+		}
+	}
+	gui_navbar_fill_version_combo();
+	g_signal_connect(widgets.combo_bible_version, "changed",
+			 G_CALLBACK(on_combo_bible_version_changed), NULL);
+	gtk_widget_show(widgets.combo_bible_version);
+	gtk_box_pack_start(GTK_BOX(navbar_versekey.navbar),
+			   widgets.combo_bible_version, FALSE, FALSE, 4);
+	/* al frente del todo, antes que los íconos de historial, para que
+	 * sea lo primero visible de la barra en vez de quedar al final
+	 * (donde se lo pidieron mover porque ahí pasaba desapercibido). */
+	gtk_box_reorder_child(GTK_BOX(navbar_versekey.navbar),
+			      widgets.combo_bible_version, 0);
+
 	_connect_signals(navbar_versekey);
 
 	return navbar_versekey.navbar;

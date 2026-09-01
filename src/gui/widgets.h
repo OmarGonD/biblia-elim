@@ -64,6 +64,7 @@ struct _app_widgets
 	    /* toolbars */
 	    *toolbar_comments, *toolbar_studypad,
 	    *nav_toolbar, /* book/chapter/verse navigation toolbar */
+	    *combo_bible_version, /* picker for the main window's Bible version, preserves book/chapter/verse */
 	    /* html widgets */
 	    *eventbox1, *html_search_report, /* html widget for serch report shortcut bar */
 	    *html_parallel,		     /* parallel html widget */
