@@ -37,6 +37,7 @@ src/gtk/font_dialog.c
 src/gtk/gbs.c
 src/gtk/gbs_dialog.c
 src/gtk/gui.c
+src/gtk/instalar_biblias.c
 src/gtk/ipc-interface.xml
 src/gtk/ipc.c
 src/gtk/main_menu.c
@@ -49,6 +50,7 @@ src/gtk/navbar_versekey.c
 src/gtk/navbar_versekey_dialog.c
 src/gtk/navbar_versekey_editor.c
 src/gtk/navbar_versekey_parallel.c
+src/gtk/notas_verso.c
 src/gtk/nube_palabras.c
 src/gtk/parallel_dialog.c
 src/gtk/parallel_tab.c
@@ -70,6 +72,8 @@ src/main/display.cc
 src/main/diccionario.cc
 src/main/export_passage.cc
 src/main/global_ops.cc
+src/main/import_modfile.cc
+src/main/interlineal.cc
 src/main/lists.cc
 src/main/main.c
 src/main/mod_mgr.cc
