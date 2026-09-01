@@ -83,6 +83,7 @@ static int main_window_created = FALSE;
 static gboolean switching_dict_tab = FALSE;
 static GtkWidget *header_menu = NULL;
 static GtkWidget *reading_exit_button = NULL;
+static GtkWidget *reading_compare_button = NULL;
 static guint reading_mode_place_src = 0;
 static gulong reading_mode_wse_id = 0;
 static guint reading_mode_hover_hide_src = 0;
@@ -92,6 +93,7 @@ static gulong reading_mode_toolbar_leave_id = 0;
 static gulong reading_mode_alloc_id = 0;
 
 static void on_reading_mode_button_toggled(GtkToggleButton *button, gpointer data);
+static void on_reading_compare_toggled(GtkToggleButton *button, gpointer data);
 static gboolean on_open_bible_icon_draw(GtkWidget *widget, cairo_t *cr, gpointer data);
 static gboolean reading_mode_keep_place(gpointer data);
 static gboolean reading_mode_on_window_state(GtkWidget *widget, GdkEventWindowState *event, gpointer data);
@@ -407,6 +409,43 @@ reading_mode_on_size_allocate(GtkWidget *widget, GdkRectangle *alloc,
 	reading_mode_apply_measure(GTK_TEXT_VIEW(widget));
 }
 
+/* Switches the reading pane between the single Bible and the
+ * verse-aligned comparison, keeping the floating button in step no
+ * matter which of the two entry points asked for it. */
+static void
+reading_compare_set(gboolean on)
+{
+	if (!settings.reading_mode) {
+		gui_generic_warning(
+		    _("Comparar en columnas requiere el modo lectura "
+		      "(Ctrl+Shift+F)."));
+		return;
+	}
+	if (settings.reading_compare == (on ? 1 : 0))
+		return;
+
+	settings.reading_compare = on ? 1 : 0;
+	xml_set_value("Xiphos", "misc", "reading_compare",
+		      settings.reading_compare ? "1" : "0");
+
+	if (reading_compare_button) {
+		g_signal_handlers_block_by_func(reading_compare_button,
+						G_CALLBACK(on_reading_compare_toggled), NULL);
+		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(reading_compare_button), on);
+		g_signal_handlers_unblock_by_func(reading_compare_button,
+						  G_CALLBACK(on_reading_compare_toggled), NULL);
+	}
+	if (settings.currentverse)
+		main_display_bible(NULL, settings.currentverse);
+}
+
+static void
+on_reading_compare_toggled(GtkToggleButton *button, gpointer data)
+{
+	(void)data;
+	reading_compare_set(gtk_toggle_button_get_active(button));
+}
+
 static void
 reading_mode_hover_cancel_hide(void)
 {
@@ -680,6 +719,19 @@ void gui_toggle_reading_mode(gboolean choice)
 			gtk_widget_show(reading_exit_button);
 		else
 			gtk_widget_hide(reading_exit_button);
+	}
+	if (reading_compare_button) {
+		gtk_widget_set_visible(reading_compare_button, choice);
+		if (!choice && settings.reading_compare) {
+			/* leaving reading mode drops the comparison with it */
+			settings.reading_compare = 0;
+			xml_set_value("Xiphos", "misc", "reading_compare", "0");
+			g_signal_handlers_block_by_func(reading_compare_button,
+							G_CALLBACK(on_reading_compare_toggled), NULL);
+			gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(reading_compare_button), FALSE);
+			g_signal_handlers_unblock_by_func(reading_compare_button,
+							  G_CALLBACK(on_reading_compare_toggled), NULL);
+		}
 	}
 
 	/* Stay on the verse the reader was already on. Fullscreen and pane
@@ -1456,17 +1508,7 @@ static gboolean on_vbox1_key_press_event(GtkWidget *widget, GdkEventKey *event,
 			 * Only meaningful there: outside reading mode the
 			 * tabs and sidebar are in the way and the columns
 			 * have no room. */
-			if (!settings.reading_mode) {
-				gui_generic_warning(
-				    _("Comparar en columnas requiere el modo lectura "
-				      "(Ctrl+Shift+F)."));
-				break;
-			}
-			settings.reading_compare = !settings.reading_compare;
-			xml_set_value("Xiphos", "misc", "reading_compare",
-				      settings.reading_compare ? "1" : "0");
-			if (settings.currentverse)
-				main_display_bible(NULL, settings.currentverse);
+			reading_compare_set(!settings.reading_compare);
 		}
 		break;
 
@@ -2053,6 +2095,28 @@ void create_mainwindow(void)
 		gtk_widget_set_margin_end(reading_exit_button, 14);
 		gtk_overlay_add_overlay(GTK_OVERLAY(ov), reading_exit_button);
 		gtk_widget_hide(reading_exit_button);
+
+		/* Reading mode hides every toolbar and menu, so the
+		 * comparison had no way to be found short of knowing the
+		 * keyboard shortcut. It gets a control of its own, next to
+		 * the exit button and styled the same, shown and hidden
+		 * with it. */
+		reading_compare_button = gtk_toggle_button_new_with_label("A|B");
+		gtk_widget_set_tooltip_text(
+		    reading_compare_button,
+		    _("Comparar versiones en columnas (Ctrl+Shift+K)"));
+		gtk_widget_set_can_focus(reading_compare_button, FALSE);
+		gtk_style_context_add_class(
+		    gtk_widget_get_style_context(reading_compare_button),
+		    "reading-exit");
+		gtk_widget_set_halign(reading_compare_button, GTK_ALIGN_END);
+		gtk_widget_set_valign(reading_compare_button, GTK_ALIGN_START);
+		gtk_widget_set_margin_top(reading_compare_button, 10);
+		gtk_widget_set_margin_end(reading_compare_button, 66);
+		g_signal_connect(reading_compare_button, "toggled",
+				 G_CALLBACK(on_reading_compare_toggled), NULL);
+		gtk_overlay_add_overlay(GTK_OVERLAY(ov), reading_compare_button);
+		gtk_widget_hide(reading_compare_button);
 	}
 
 	// Bible/parallel notebook
