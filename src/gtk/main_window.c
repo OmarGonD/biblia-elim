@@ -44,6 +44,7 @@
 #include "gui/bibletext.h"
 #include "gui/lectura_sync.h"
 #include "gui/parallel_view.h"
+#include "main/configs.h"
 #include "main/lists.h"
 #include "main/parallel_view.h"
 #include "gui/commentary.h"
@@ -86,6 +87,7 @@ static GtkWidget *header_menu = NULL;
 static GtkWidget *reading_exit_button = NULL;
 static GtkWidget *reading_compare_button = NULL;
 static GtkWidget *reading_compare_pick = NULL;
+static GtkWidget *reading_font_button = NULL;
 static guint reading_mode_place_src = 0;
 static gulong reading_mode_wse_id = 0;
 static guint reading_mode_hover_hide_src = 0;
@@ -97,6 +99,9 @@ static gulong reading_mode_alloc_id = 0;
 static void on_reading_mode_button_toggled(GtkToggleButton *button, gpointer data);
 static void on_reading_compare_toggled(GtkToggleButton *button, gpointer data);
 static void on_reading_compare_pick(GtkButton *button, gpointer data);
+static void on_reading_font_set(GtkFontButton *button, gpointer data);
+static void reading_strip_sync(void);
+static void reading_strip_attach(gboolean attach);
 static gboolean on_open_bible_icon_draw(GtkWidget *widget, cairo_t *cr, gpointer data);
 static gboolean reading_mode_keep_place(gpointer data);
 static gboolean reading_mode_on_window_state(GtkWidget *widget, GdkEventWindowState *event, gpointer data);
@@ -438,9 +443,7 @@ reading_compare_set(gboolean on)
 		g_signal_handlers_unblock_by_func(reading_compare_button,
 						  G_CALLBACK(on_reading_compare_toggled), NULL);
 	}
-	/* picking versions only means anything while comparing */
-	if (reading_compare_pick)
-		gtk_widget_set_visible(reading_compare_pick, on);
+	reading_strip_sync();
 	if (settings.currentverse)
 		main_display_bible(NULL, settings.currentverse);
 }
@@ -542,6 +545,54 @@ on_reading_compare_pick(GtkButton *button, gpointer data)
 	gtk_popover_popup(GTK_POPOVER(pop));
 }
 
+/* Applies one font choice to every module currently in the comparison,
+ * through the same fonts.conf the font dialog writes: Font is the
+ * family, Fontsize the point size. Per-module rather than global,
+ * because that is the granularity the rest of the app already uses --
+ * and the compared columns are exactly the modules on screen. */
+static void
+on_reading_font_set(GtkFontButton *button, gpointer data)
+{
+	static gchar *conf = NULL;
+	PangoFontDescription *desc;
+	const gchar *chosen;
+	gchar *family = NULL, *size = NULL;
+	int i;
+
+	(void)data;
+	chosen = gtk_font_chooser_get_font(GTK_FONT_CHOOSER(button));
+	if (!chosen || !*chosen)
+		return;
+
+	desc = pango_font_description_from_string(chosen);
+	if (!desc)
+		return;
+	if (pango_font_description_get_family(desc))
+		family = g_strdup(pango_font_description_get_family(desc));
+	if (pango_font_description_get_size(desc) > 0)
+		size = g_strdup_printf(
+		    "%d", pango_font_description_get_size(desc) / PANGO_SCALE);
+	pango_font_description_free(desc);
+
+	if (!conf)
+		conf = g_strdup_printf("%s/fonts.conf", settings.gSwordDir);
+
+	for (i = 0; settings.parallel_list && settings.parallel_list[i]; i++) {
+		const gchar *mod = settings.parallel_list[i];
+		if (!mod || !*mod)
+			continue;
+		if (family)
+			save_conf_file_item(conf, mod, "Font", family);
+		if (size)
+			save_conf_file_item(conf, mod, "Fontsize", size);
+	}
+	g_free(family);
+	g_free(size);
+
+	if (settings.currentverse)
+		main_display_bible(NULL, settings.currentverse);
+}
+
 static void
 on_reading_compare_toggled(GtkToggleButton *button, gpointer data)
 {
@@ -621,6 +672,84 @@ reading_mode_toolbar_leave(GtkWidget *widget, GdkEventCrossing *event, gpointer 
 	return FALSE;
 }
 
+/* The controls that only make sense while reading: which versions the
+ * comparison shows, and the font those versions are set in. They live
+ * in the hover header rather than floating next to the A|B button --
+ * that corner is for switching the mode, not for configuring it, and a
+ * row of loose buttons over the text is exactly the clutter reading
+ * mode exists to remove.
+ *
+ * Built once, then packed into and pulled out of nav_toolbar as
+ * reading mode comes and goes, so the ordinary toolbar is unchanged
+ * outside it. */
+static GtkWidget *reading_strip = NULL;
+
+static void
+reading_strip_build(void)
+{
+	GtkWidget *sep;
+
+	if (reading_strip)
+		return;
+
+	reading_strip = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 4);
+	gtk_widget_set_valign(reading_strip, GTK_ALIGN_CENTER);
+
+	sep = gtk_separator_new(GTK_ORIENTATION_VERTICAL);
+	gtk_box_pack_start(GTK_BOX(reading_strip), sep, FALSE, FALSE, 4);
+
+	reading_compare_pick = gtk_button_new_with_label(_("Versiones\u2026"));
+	gtk_widget_set_tooltip_text(reading_compare_pick,
+				    _("Elegir qué versiones comparar"));
+	gtk_widget_set_can_focus(reading_compare_pick, FALSE);
+	g_signal_connect(reading_compare_pick, "clicked",
+			 G_CALLBACK(on_reading_compare_pick), NULL);
+	gtk_box_pack_start(GTK_BOX(reading_strip), reading_compare_pick,
+			   FALSE, FALSE, 0);
+
+	reading_font_button = gtk_font_button_new();
+	gtk_widget_set_tooltip_text(reading_font_button,
+				    _("Fuente de las versiones comparadas"));
+	gtk_widget_set_can_focus(reading_font_button, FALSE);
+	gtk_font_button_set_use_font(GTK_FONT_BUTTON(reading_font_button), TRUE);
+	g_signal_connect(reading_font_button, "font-set",
+			 G_CALLBACK(on_reading_font_set), NULL);
+	gtk_box_pack_start(GTK_BOX(reading_strip), reading_font_button,
+			   FALSE, FALSE, 0);
+
+	gtk_widget_show_all(reading_strip);
+	g_object_ref_sink(reading_strip);
+}
+
+/* Only meaningful while comparing: outside that the pane shows a single
+ * Bible, whose font the ordinary preferences already cover. */
+static void
+reading_strip_sync(void)
+{
+	if (!reading_strip)
+		return;
+	gtk_widget_set_visible(reading_strip,
+			       settings.reading_mode && settings.reading_compare);
+}
+
+static void
+reading_strip_attach(gboolean attach)
+{
+	if (!widgets.nav_toolbar)
+		return;
+	reading_strip_build();
+
+	if (attach) {
+		if (gtk_widget_get_parent(reading_strip) != widgets.nav_toolbar)
+			gtk_box_pack_end(GTK_BOX(widgets.nav_toolbar),
+					 reading_strip, FALSE, FALSE, 0);
+	} else if (gtk_widget_get_parent(reading_strip) == widgets.nav_toolbar) {
+		gtk_container_remove(GTK_CONTAINER(widgets.nav_toolbar),
+				     reading_strip);
+	}
+	reading_strip_sync();
+}
+
 /* Moves nav_toolbar between its normal spot in widgets.page (a fixed
  * layout row, always visible) and widgets.reading_mode_overlay (floating
  * over the text, hidden by default, revealed by hovering near the top --
@@ -644,6 +773,7 @@ reading_mode_float_toolbar(gboolean floating, GtkTextView *view)
 						    "elim-navbar-floating");
 			g_object_unref(widgets.nav_toolbar);
 		}
+		reading_strip_attach(TRUE);
 		gtk_widget_hide(widgets.nav_toolbar);
 		if (view) {
 			gtk_widget_add_events(GTK_WIDGET(view), GDK_POINTER_MOTION_MASK);
@@ -659,6 +789,7 @@ reading_mode_float_toolbar(gboolean floating, GtkTextView *view)
 		    widgets.nav_toolbar, "leave-notify-event",
 		    G_CALLBACK(reading_mode_toolbar_leave), NULL);
 	} else {
+		reading_strip_attach(FALSE);
 		reading_mode_hover_cancel_hide();
 		if (reading_mode_motion_id && view) {
 			g_signal_handler_disconnect(view, reading_mode_motion_id);
@@ -823,9 +954,6 @@ void gui_toggle_reading_mode(gboolean choice)
 		else
 			gtk_widget_hide(reading_exit_button);
 	}
-	if (reading_compare_pick)
-		gtk_widget_set_visible(reading_compare_pick,
-				       choice && settings.reading_compare);
 	if (reading_compare_button) {
 		gtk_widget_set_visible(reading_compare_button, choice);
 		if (!choice && settings.reading_compare) {
@@ -2224,23 +2352,6 @@ void create_mainwindow(void)
 		gtk_overlay_add_overlay(GTK_OVERLAY(ov), reading_compare_button);
 		gtk_widget_hide(reading_compare_button);
 
-		/* Which versions are being compared was only editable by
-		 * hand-editing modules/parallels in settings.xml. */
-		reading_compare_pick = gtk_button_new_with_label("\u25be");
-		gtk_widget_set_tooltip_text(reading_compare_pick,
-					    _("Elegir qué versiones comparar"));
-		gtk_widget_set_can_focus(reading_compare_pick, FALSE);
-		gtk_style_context_add_class(
-		    gtk_widget_get_style_context(reading_compare_pick),
-		    "reading-exit");
-		gtk_widget_set_halign(reading_compare_pick, GTK_ALIGN_END);
-		gtk_widget_set_valign(reading_compare_pick, GTK_ALIGN_START);
-		gtk_widget_set_margin_top(reading_compare_pick, 10);
-		gtk_widget_set_margin_end(reading_compare_pick, 118);
-		g_signal_connect(reading_compare_pick, "clicked",
-				 G_CALLBACK(on_reading_compare_pick), NULL);
-		gtk_overlay_add_overlay(GTK_OVERLAY(ov), reading_compare_pick);
-		gtk_widget_hide(reading_compare_pick);
 	}
 
 	// Bible/parallel notebook
