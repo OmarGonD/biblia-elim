@@ -609,6 +609,75 @@ insert_il_table(ParseCtx *ctx, const char *key)
 	insert_break(ctx, TRUE);
 }
 
+/* <hr> keeps the width of an inserted GtkSeparator synced to the text
+ * view -- a child-anchor widget doesn't stretch on its own the way a
+ * block element would (same trick insert_il_table() uses above). */
+static void
+hr_fit(GtkWidget *view, GdkRectangle *alloc, GtkWidget *sep)
+{
+	gint w = alloc->width - 28;
+
+	(void)view;
+	if (w < 20)
+		w = 20;
+	gtk_widget_set_size_request(sep, w, -1);
+}
+
+/* Antes, <hr> se trataba como un salto de línea sin trazo (ver
+ * insert_break() más arriba): el HTML que arma la app para tablas
+ * comparativas no tenía forma de dibujar una raya real entre bloques.
+ * Un GtkSeparator insertado como child-anchor sí la dibuja. Si el
+ * <hr> trae color/bgcolor explícito (o, si no, el color de texto
+ * heredado del contexto) se usa como color de la raya vía un
+ * GtkCssProvider de ese widget puntual; si no hay ninguno, se deja el
+ * separador con el estilo por defecto del tema. */
+static void
+insert_hr(ParseCtx *ctx, const char *color_attr)
+{
+	GtkTextIter iter;
+	GtkTextChildAnchor *anchor;
+	GtkWidget *sep;
+	GtkAllocation alloc;
+	const char *color = (color_attr && *color_attr) ? color_attr : ctx->st.fg;
+
+	if (ctx->skip)
+		return;
+	if (!ctx->html || !ctx->html->priv->view)
+		return;
+
+	insert_break(ctx, TRUE);
+	gtk_text_buffer_get_end_iter(ctx->buf, &iter);
+	anchor = gtk_text_buffer_create_child_anchor(ctx->buf, &iter);
+
+	sep = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
+	gtk_widget_set_valign(sep, GTK_ALIGN_CENTER);
+	gtk_widget_set_margin_top(sep, 3);
+	gtk_widget_set_margin_bottom(sep, 3);
+	if (color && *color) {
+		GtkCssProvider *css = gtk_css_provider_new();
+		gchar *rule = g_strdup_printf(
+		    "separator { background-color: %s; min-height: 1px; }",
+		    color);
+		gtk_css_provider_load_from_data(css, rule, -1, NULL);
+		gtk_style_context_add_provider(
+		    gtk_widget_get_style_context(sep),
+		    GTK_STYLE_PROVIDER(css),
+		    GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+		g_free(rule);
+		g_object_unref(css);
+	}
+
+	gtk_text_view_add_child_at_anchor(ctx->html->priv->view, sep, anchor);
+	g_signal_connect_object(GTK_WIDGET(ctx->html->priv->view), "size-allocate",
+				G_CALLBACK(hr_fit), sep, 0);
+	gtk_widget_get_allocation(GTK_WIDGET(ctx->html->priv->view), &alloc);
+	if (alloc.width > 28)
+		gtk_widget_set_size_request(sep, alloc.width - 28, -1);
+	gtk_widget_show(sep);
+	ctx->at_line_start = FALSE;
+	insert_break(ctx, TRUE);
+}
+
 static void
 walk_element(ParseCtx *ctx, xmlNode *node)
 {
@@ -632,7 +701,11 @@ walk_element(ParseCtx *ctx, xmlNode *node)
 		return;
 	}
 	if (!g_ascii_strcasecmp(name, "hr")) {
-		insert_break(ctx, TRUE);
+		char *hr_color = el_prop(node, "color");
+		if (!hr_color)
+			hr_color = el_prop(node, "bgcolor");
+		insert_hr(ctx, hr_color);
+		g_free(hr_color);
 		return;
 	}
 

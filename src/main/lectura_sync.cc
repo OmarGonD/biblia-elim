@@ -6,6 +6,7 @@
 #include <config.h>
 #endif
 
+#include <stdio.h>
 #include <string.h>
 #include <swmodule.h>
 #include <versekey.h>
@@ -36,6 +37,30 @@ css_color(const char *c, const char *fallback)
 	if (c[0] == '0' && (c[1] == 'x' || c[1] == 'X') && strlen(c) >= 8)
 		return g_strdup_printf("#%s", c + 2);
 	return g_strdup(c);
+}
+
+/* Mezcla dos colores "#RRGGBB" -- para un separador entre versiones
+ * que sea visible pero sutil, sin importar el tema activo. */
+static gchar *
+blend_hex_color(const gchar *base, const gchar *toward, double ratio)
+{
+	guint br = 0, bg = 0, bb = 0, tr = 0, tg = 0, tb = 0;
+
+	if (!base || base[0] != '#' || strlen(base) < 7 ||
+	    !toward || toward[0] != '#' || strlen(toward) < 7)
+		return g_strdup(base ? base : "#808080");
+	if (sscanf(base + 1, "%02x%02x%02x", &br, &bg, &bb) != 3)
+		return g_strdup(base);
+	if (sscanf(toward + 1, "%02x%02x%02x", &tr, &tg, &tb) != 3)
+		return g_strdup(base);
+	if (ratio < 0.0)
+		ratio = 0.0;
+	if (ratio > 1.0)
+		ratio = 1.0;
+	return g_strdup_printf("#%02x%02x%02x",
+			      (guint)(br + (tr - (double)br) * ratio),
+			      (guint)(bg + (tg - (double)bg) * ratio),
+			      (guint)(bb + (tb - (double)bb) * ratio));
 }
 
 static gchar *
@@ -199,6 +224,15 @@ lectura_sync_render_for(const char *key_text)
 	if (pct > 160)
 		pct = 160;
 
+	/* raya fina entre una versión y la siguiente -- mezcla sutil hacia
+	 * el color de texto, igual en cualquier tema. Nota: el <style>
+	 * de abajo es puramente decorativo para quien lea el HTML -- el
+	 * parser propio de la app (wk-html.c) ignora por completo los
+	 * bloques <style> (ver el `return` para "style"/"head" al
+	 * principio de walk_element()), así que el separador real se
+	 * inserta como <hr> explícito en el bucle de abajo, no por CSS. */
+	gchar *divider = blend_hex_color(bg, fg, 0.30);
+
 	GString *html = g_string_new(NULL);
 	g_string_append_printf(html,
 			       "<html><head><meta charset=\"utf-8\"/>"
@@ -235,10 +269,13 @@ lectura_sync_render_for(const char *key_text)
 		}
 		if (dup)
 			continue;
+		if (any)
+			g_string_append_printf(html, "<hr color=\"%s\">", divider);
 		append_un_versiculo(html, mods[i], key_text, i);
 		any = TRUE;
 	}
 	g_strfreev(mods);
+	g_free(divider);
 	if (!any)
 		g_string_append_printf(html, "<p class=\"miss\">%s</p>",
 				       _("Elige una o más Biblias para comparar este versículo."));
