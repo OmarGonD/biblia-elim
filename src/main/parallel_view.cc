@@ -22,6 +22,9 @@
 #include <config.h>
 #endif
 
+#include <stdio.h>
+#include <string.h>
+
 #include <gtk/gtk.h>
 
 #include <swmodule.h>
@@ -79,6 +82,38 @@ SWBuf unknown_parallel = _("Unknown parallel module: ");
 
 // for alternation color ease.
 gchar *white = "#FFFFFF", *grey  = "#606060", *bg_choice;
+
+/* Fondo alternado de fila, atenuado y coherente con el tema activo.
+ * La versión anterior usaba directamente bible_text_color como fondo
+ * de la fila impar (con el texto invertido a bible_bg_color encima) --
+ * un truco de "negativo fotográfico" que en el tema oscuro de Biblia
+ * Elim (texto claro, ~#e8e4dc) pintaba franjas color crema sobre
+ * fondo oscuro, y como el enlace "ver contexto" no recibía ese color
+ * invertido, terminaba quedando casi invisible (texto claro sobre
+ * fondo también claro). Mezclar apenas el fondo hacia el color del
+ * texto -- en vez de reemplazarlo entero -- da una franja sutil que
+ * funciona igual en claro y en oscuro, sin necesitar invertir nada. */
+static gchar *
+blend_hex_color(const gchar *base, const gchar *toward, double ratio)
+{
+	guint br = 0, bg = 0, bb = 0, tr = 0, tg = 0, tb = 0;
+
+	if (!base || base[0] != '#' || strlen(base) < 7 ||
+	    !toward || toward[0] != '#' || strlen(toward) < 7)
+		return g_strdup(base ? base : "#808080");
+	if (sscanf(base + 1, "%02x%02x%02x", &br, &bg, &bb) != 3)
+		return g_strdup(base);
+	if (sscanf(toward + 1, "%02x%02x%02x", &tr, &tg, &tb) != 3)
+		return g_strdup(base);
+	if (ratio < 0.0)
+		ratio = 0.0;
+	if (ratio > 1.0)
+		ratio = 1.0;
+	return g_strdup_printf("#%02x%02x%02x",
+			      (guint)(br + (tr - (double)br) * ratio),
+			      (guint)(bg + (tg - (double)bg) * ratio),
+			      (guint)(bb + (tb - (double)bb) * ratio));
+}
 
 /******************************************************************************
  * static
@@ -613,11 +648,32 @@ void main_update_parallel_page(void)
 	data = g_string_new(tmpBuf);
 	g_free(tmpBuf);
 
-	// if alternating && bg color is white, substitute a milder grey for harsh black bg.
-	if (settings.alternation && !strcmp(settings.bible_bg_color, white))
-		bg_choice = grey;	// avoid blaring visual contrast
-	else
-		bg_choice = settings.bible_text_color;
+	/* franja alternada: un 10% de mezcla hacia el color del texto,
+	 * en vez del truco anterior de usar bible_text_color entero como
+	 * fondo -- ver el comentario de blend_hex_color() arriba. */
+	gchar *row_tint = blend_hex_color(settings.bible_bg_color,
+					  settings.bible_text_color, 0.10);
+	gchar *link_tint = blend_hex_color(settings.bible_bg_color,
+					   settings.bible_text_color, 0.55);
+	/* etiqueta de módulo en dorado en vez del azul de número de
+	 * versículo -- un tono cálido y elegante, con su propio matiz
+	 * para cada tema (el mismo dorado #E6C989 que ya usa el resto de
+	 * la interfaz oscura de Biblia Elim; en el tema claro uno más
+	 * oscuro para que se lea bien sobre el fondo papel). */
+	const gchar *mod_label_color = settings.darktheme ? "#E6C989" : "#8A6D1E";
+	/* fondo del "chip" con el nombre del módulo: un toque de ese
+	 * dorado mezclado sobre el fondo, para que combine con cualquier
+	 * tema sin depender de un color fijo. */
+	gchar *badge_bg = blend_hex_color(settings.bible_bg_color,
+					  mod_label_color, 0.22);
+	/* separador entre versiones: esta tabla no soporta <hr> real (el
+	 * parser HTML propio de Biblia Elim lo trata como un simple
+	 * salto de línea, sin trazo -- ver insert_break() en
+	 * wk-html.c), así que se simula con una fila angosta de un solo
+	 * caracter en tamaño mínimo y fondo propio, a modo de raya fina
+	 * entre un módulo y el siguiente. */
+	gchar *divider_color = blend_hex_color(settings.bible_bg_color,
+					       settings.bible_text_color, 0.30);
 
 	if (settings.parallel_list) {
 		gchar *mod_name;
@@ -640,14 +696,13 @@ void main_update_parallel_page(void)
 
 			is_rtol = main_is_mod_rtol(mod_name);
 
-			/* alternating background color */
-			if (settings.alternation && (modidx % 2 == 1)) {
-				rowcolor = bg_choice;
-				textcolor = settings.bible_bg_color;
-			} else {
-				rowcolor = settings.bible_bg_color;
-				textcolor = settings.bible_text_color;
-			}
+			/* franja alternada: el color de texto se mantiene
+			 * siempre igual (legible sobre ambos tonos de
+			 * fondo), solo cambia el fondo. */
+			rowcolor = (settings.alternation && (modidx % 2 == 1))
+				       ? row_tint
+				       : settings.bible_bg_color;
+			textcolor = settings.bible_text_color;
 
 			if (modidx == 0) {
 				tmpBuf = g_strdup_printf(
@@ -655,6 +710,17 @@ void main_update_parallel_page(void)
 				    settings.bible_verse_num_color,
 				    settings.verse_num_font_size + settings.base_font_size,
 				    settings.currentverse);
+				g_string_append(data, tmpBuf);
+				g_free(tmpBuf);
+			}
+
+			/* <hr> ahora dibuja una raya real (ver insert_hr()
+			 * en wk-html.c); antes había que simularla con una
+			 * fila angosta a mano. */
+			if (modidx > 0) {
+				tmpBuf = g_strdup_printf(
+				    "<tr><td><hr color=\"%s\"></td></tr>",
+				    divider_color);
 				g_string_append(data, tmpBuf);
 				g_free(tmpBuf);
 			}
@@ -668,14 +734,19 @@ void main_update_parallel_page(void)
 			free_font(mf);
 
 			const char *abbreviation = main_name_to_abbrev(mod_name);
+			/* etiqueta de módulo como "chip": un fondo sutil
+			 * propio la distingue del cuerpo del versículo, en
+			 * vez de flotar como texto suelto entre corchetes. */
 			tmpBuf = g_strdup_printf(
-			    "<tr bgcolor=\"%s\"><td>%s<b><a href=\"passagestudy.jsp?action=showModInfo&value=%s&module=%s\"><font color=\"%s\" size=\"%+d\">[%s]</font></a></b><br/>",
+			    "<tr bgcolor=\"%s\"><td>%s<b><a href=\"passagestudy.jsp?action=showModInfo&value=%s&module=%s\">"
+			    "<font color=\"%s\" size=\"%+d\"><span style=\"background-color:%s\"> %s </span></font></a></b><br/>",
 			    rowcolor,
 			    fontstring,
 			    main_get_module_description(mod_name),
 			    mod_name,
-			    settings.bible_verse_num_color,
+			    mod_label_color,
 			    settings.verse_num_font_size + settings.base_font_size,
+			    badge_bg,
 			    (abbreviation ? abbreviation : mod_name));
 			g_free(fontstring);
 			g_string_append(data, tmpBuf);
@@ -709,10 +780,16 @@ void main_update_parallel_page(void)
 			if (is_rtol)
 				g_string_append(data, "</div><br/>");
 
+			/* "ver contexto" no llevaba color propio y heredaba
+			 * el de la fila -- invisible cuando esa fila usaba
+			 * el fondo crema del bug de arriba. Le damos un tono
+			 * atenuado explícito (a mitad de camino entre texto
+			 * y fondo) para que se lea como enlace secundario,
+			 * en cualquier tema. */
 			tmpBuf = g_strdup_printf(
 			    "<small><br/>[<a href=\"passagestudy.jsp?action=showParallel&"
-			    "type=swap&value=%s\">%s</a>]</small></font></td></tr>",
-			    mod_name, _("view context"));
+			    "type=swap&value=%s\"><font color=\"%s\">%s</font></a>]</small></font></td></tr>",
+			    mod_name, link_tint, _("view context"));
 			g_string_append(data, tmpBuf);
 			g_free(tmpBuf);
 		}
@@ -725,6 +802,10 @@ void main_update_parallel_page(void)
 				: data->str),
 		   widgets.html_parallel, NULL, NULL);
 	g_string_free(data, TRUE);
+	g_free(row_tint);
+	g_free(link_tint);
+	g_free(badge_bg);
+	g_free(divider_color);
 }
 
 /******************************************************************************
@@ -813,11 +894,10 @@ static void interpolate_parallel_display(SWModule *control,
 	cur_verse = backend_p->key_get_verse(control_name, tmpkey);
 	settings.intCurVerse = cur_verse;
 
-	// if alternating && bg color is white, substitute a milder grey for harsh black bg.
-	if (settings.alternation && !strcmp(settings.bible_bg_color, white))
-		bg_choice = grey;	// avoid blaring visual contrast
-	else
-		bg_choice = settings.bible_text_color;
+	/* misma franja atenuada que main_update_parallel_page() -- ver el
+	 * comentario de blend_hex_color() más arriba en este archivo. */
+	gchar *row_tint = blend_hex_color(settings.bible_bg_color,
+					  settings.bible_text_color, 0.10);
 
 	for (verse = 1; verse <= xverses; ++verse) {
 		snprintf(tmpbuf, 255, "%s %d:%d", cur_book, cur_chapter, verse);
@@ -828,7 +908,7 @@ static void interpolate_parallel_display(SWModule *control,
 
 		// alternate background colors.
 		bgColor = (settings.alternation && (verse % 2 == 0))
-			? bg_choice
+			? row_tint
 			: settings.bible_bg_color;
 
 		for (modidx = 0; modidx < parallel_count; modidx++) {
@@ -840,13 +920,11 @@ static void interpolate_parallel_display(SWModule *control,
 
 			if (is_module[modidx]) {
 
-				// mark current verse properly.
-				if ((verse == cur_verse) && is_bible_text[modidx])
-					textColor = settings.currentverse_color;
-				else
-					textColor = (settings.alternation && (verse % 2 == 0))
-						  ? settings.bible_bg_color
-						  : settings.bible_text_color;
+				// mark current verse properly; texto siempre
+				// legible, sin invertir contra el fondo.
+				textColor = ((verse == cur_verse) && is_bible_text[modidx])
+						? settings.currentverse_color
+						: settings.bible_text_color;
 
 				const gchar *newurl = main_url_encode(tmpkey);
 				gchar *num = main_format_number(verse);
@@ -903,6 +981,7 @@ static void interpolate_parallel_display(SWModule *control,
 	g_free(is_rtol);
 	g_free(is_module);
 	g_free(is_bible_text);
+	g_free(row_tint);
 }
 
 /******************************************************************************
