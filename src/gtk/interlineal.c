@@ -35,6 +35,15 @@ static GtkWidget *ficha_html = NULL;
 static GtkWidget *btn_interlineal = NULL;
 static gboolean syncing = FALSE;
 static gchar *tools_key = NULL;
+/* Módulo capturado junto con tools_key, en el mismo instante en que se
+ * abrió el menú de herramientas. on_tools_nota() no debe releer
+ * settings.MainWindowModule al momento del clic en "Agregar nota": si
+ * un refresco por scroll (gui_bibletext_lectura_sync_focus_refresh)
+ * dispara mientras el menú sigue abierto, ese global puede haber
+ * cambiado de módulo -y hasta de versículo, si el otro módulo usa una
+ * versificación distinta- para cuando el usuario efectivamente hace
+ * clic. */
+static gchar *tools_mod = NULL;
 
 static void
 verse_tools_goto(const char *key)
@@ -389,7 +398,7 @@ on_tools_nota(GtkMenuItem *item, gpointer data)
 
 	(void)item;
 	(void)data;
-	mod = settings.MainWindowModule;
+	mod = tools_mod ? tools_mod : settings.MainWindowModule;
 	if (!mod || !tools_key)
 		return;
 	osis = g_strdup(main_get_osisref_from_key(mod, tools_key));
@@ -412,6 +421,8 @@ gui_verse_tools_popup(const char *key)
 		return;
 	g_free(tools_key);
 	tools_key = g_strdup(key);
+	g_free(tools_mod);
+	tools_mod = g_strdup(settings.MainWindowModule);
 
 	menu = gtk_menu_new();
 

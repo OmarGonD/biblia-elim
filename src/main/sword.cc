@@ -56,6 +56,8 @@ extern "C" {
 #include "gui/utilities.h"
 #include "gui/cipher_key_dialog.h"
 #include "gui/main_menu.h"
+#include "gui/navbar_versekey.h"
+#include "gui/notas_verso.h"
 
 #include "main/biblesync_glue.h"
 #include "main/display.hh"
@@ -1510,6 +1512,12 @@ void main_display_bible(const char *mod_name,
 
 	main_lectura_sync_actualizar();
 	main_interlineal_actualizar();
+	gui_verse_notes_panel_actualizar();
+	/* incondicional (no solo dentro del bloque "el módulo cambió" de
+	 * arriba) para que también corrija el combo en el primerísimo
+	 * render, cuando settings.MainWindowModule ya viene seteado desde
+	 * el arranque y por lo tanto ese bloque nunca llega a ejecutarse. */
+	gui_navbar_version_combo_sync();
 	if (in_place || !settings.show_lectura_sync)
 		gui_bibletext_mark_current_verse();
 	g_free(prev_verse);

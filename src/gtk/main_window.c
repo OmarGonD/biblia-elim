@@ -56,6 +56,7 @@
 #include "gui/bookmark_dialog.h"
 #include "gui/search_dialog.h"
 #include "gui/navbar_versekey.h"
+#include "gui/notas_verso.h"
 #include "gui/tabbed_browser.h"
 #include "gui/widgets.h"
 #include "gui/tabbed_browser.h"
@@ -219,6 +220,13 @@ void gui_show_hide_comms(gboolean choice)
 
 void gui_show_hide_dicts(gboolean choice)
 {
+	/* El panel Diccionario/Devocional ya no tiene punto de entrada
+	 * visible en el menú (ver ui/xi-menus.gtkbuilder), pero varios
+	 * lugares (memoria por pestaña en tabbed_browser.c, restauración
+	 * de sesión) todavía invocan esta función con un "1" heredado de
+	 * antes del cambio. Forzar acá, en el único punto por el que
+	 * pasan todos, evita que cualquiera de ellos lo reabra. */
+	choice = FALSE;
 	settings.showdicts = choice;
 	gui_tab_set_showdicts(choice);
 	gui_set_tab_label(settings.currentverse, TRUE);
@@ -574,8 +582,16 @@ void gui_set_bible_comm_layout(void)
 	else
 		gtk_widget_show(widgets.nav_toolbar);
 
-	gtk_notebook_set_current_page(GTK_NOTEBOOK(widgets.notebook_comm_book),
-				      (settings.comm_showing ? 0 : 1));
+	/* Esta función se llama muy seguido (resize, cambios de layout
+	 * ajenos) y hasta acá solo sabía de las pestañas Comentario(0)/
+	 * Libro(1). No tocar la página si ya está en la pestaña "Notas"
+	 * (índice 2, agregada en main_window.c junto a notas_verso.c) --
+	 * si no, cada una de esas llamadas de rutina expulsaba al usuario
+	 * de la nota que gui_verse_notes_panel_actualizar() acababa de
+	 * abrirle. */
+	if (gtk_notebook_get_current_page(GTK_NOTEBOOK(widgets.notebook_comm_book)) != 2)
+		gtk_notebook_set_current_page(GTK_NOTEBOOK(widgets.notebook_comm_book),
+					      (settings.comm_showing ? 0 : 1));
 }
 
 /******************************************************************************
@@ -817,6 +833,12 @@ static void on_notebook_comm_book_switch_page(GtkNotebook *notebook,
 #endif
 {
 	gchar *url = NULL;
+
+	/* pestaña "Notas": tiene su propia gestión de contenido
+	 * (gui_verse_notes_panel_actualizar()), no participa del
+	 * mecanismo comm/book de abajo. */
+	if (page_num == 2)
+		return;
 
 	if (page_num == 0) {
 		settings.comm_showing = TRUE;
@@ -1720,6 +1742,15 @@ void create_mainwindow(void)
 	label = gtk_label_new(_("Book View"));
 	gtk_widget_show(label);
 	gtk_notebook_set_tab_label(GTK_NOTEBOOK(widgets.notebook_comm_book), gtk_notebook_get_nth_page(GTK_NOTEBOOK(widgets.notebook_comm_book), 1), label);
+
+	// Notas pane (nota del versículo enfocado)
+	{
+		GtkWidget *box_notas = gui_create_notes_pane();
+		gtk_container_add(GTK_CONTAINER(widgets.notebook_comm_book), box_notas);
+		label = gtk_label_new(_("Notas"));
+		gtk_widget_show(label);
+		gtk_notebook_set_tab_label(GTK_NOTEBOOK(widgets.notebook_comm_book), gtk_notebook_get_nth_page(GTK_NOTEBOOK(widgets.notebook_comm_book), 2), label);
+	}
 
 	// Dict/Devotional notebook
 	widgets.notebook_dict_devot = gtk_notebook_new();

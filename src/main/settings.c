@@ -1158,10 +1158,18 @@ if (!settings.morph_heb_lex || strlen(settings.morph_heb_lex) == 0) {
 		xml_add_new_item_to_section("misc", "show_interlineal", "0");
 		settings.show_interlineal = 0;
 	}
-	settings.showcomms =
-	    atoi((buf = xml_get_value("misc", "showcomms")) ? buf : "1");
-	settings.showdicts =
-	    atoi((buf = xml_get_value("misc", "showdicts")) ? buf : "1");
+	/* El panel Comentario/Libro se abre y cierra solo según si el
+	 * versículo enfocado tiene una nota guardada -- ver
+	 * gui_verse_notes_panel_actualizar(). Lo que haya quedado
+	 * persistido de una sesión anterior se ignora a propósito para
+	 * que el arranque siempre empiece oculto salvo que el primer
+	 * versículo mostrado ya tenga nota. */
+	settings.showcomms = 0;
+	/* El panel Diccionario/Devocional ya no tiene forma de abrirse
+	 * desde la interfaz (menú oculto en ui/xi-menus.gtkbuilder);
+	 * forzarlo apagado evita que un valor "1" heredado de
+	 * settings.xml lo reaparezca. */
+	settings.showdicts = 0;
 	if (xml_get_value("misc", "showpreview"))
 		settings.showpreview =
 		    atol(xml_get_value("misc", "showpreview"));

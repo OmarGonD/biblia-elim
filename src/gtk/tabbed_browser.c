@@ -40,6 +40,7 @@
 #include "gui/cipher_key_dialog.h"
 #include "gui/main_menu.h"
 #include "gui/main_window.h"
+#include "gui/notas_verso.h"
 #include "gui/parallel_tab.h"
 #include "gui/dialog.h"
 #include "gui/font_dialog.h"
@@ -1150,6 +1151,13 @@ void gui_notebook_main_switch_page(GtkNotebook *notebook,
 
 	gtk_notebook_set_current_page(GTK_NOTEBOOK(widgets.notebook_comm_book),
 				      (pt->comm_showing ? 0 : 1));
+
+	/* lo de arriba acaba de restaurar la memoria de la pestaña
+	 * (visibilidad y página del panel Comentario/Libro/Notas), que
+	 * puede estar desactualizada respecto de si el versículo que
+	 * quedó enfocado tiene o no una nota guardada -- corregir siempre
+	 * después, como última palabra. */
+	gui_verse_notes_panel_actualizar();
 
 	gui_recompute_view_menu_choices();
 

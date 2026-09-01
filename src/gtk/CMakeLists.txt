@@ -164,6 +164,7 @@ add_executable (xiphos
   navbar_versekey_dialog.c
   navbar_versekey_editor.c
   navbar_versekey_parallel.c
+  notas_verso.c
   nube_palabras.c
   parallel_dialog.c
   parallel_tab.c

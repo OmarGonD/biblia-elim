@@ -50,6 +50,7 @@
 #include "gui/widgets.h"
 #include "gui/sidebar.h"
 #include "gui/mod_mgr.h"
+#include "gui/notas_verso.h"
 #include "gui/tabbed_browser.h"
 #include "gui/bookmarks_menu.h"
 #include "gui/utilities.h"
@@ -242,6 +243,14 @@ void frontend_display(const char *tabs)
 	} else
 		main_init_previewer();
 	gtk_widget_grab_focus(sidebar.module_list);
+	/* grab_focus() de arriba puede re-disparar la selección que ya
+	 * estaba resaltada en el árbol lateral (p.ej. un módulo de
+	 * comentario/libro de una sesión anterior), que a su vez pisa la
+	 * página del panel Comentario/Libro/Notas sin pasar por
+	 * gui_verse_notes_panel_actualizar() -- corregir acá, como
+	 * verdadero último paso del arranque, según si el versículo
+	 * inicial tiene o no una nota guardada. */
+	gui_verse_notes_panel_actualizar();
 
 	XI_print(("%s\n\n", "done"));
 }
