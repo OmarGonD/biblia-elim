@@ -43,7 +43,7 @@ using namespace sword;
 
 static GHashTable *strongs = NULL;
 static gboolean loaded = FALSE;
-static GHashTable *occ_cache = NULL;
+static GHashTable *occ_index = NULL;	/* "<mod>/<testament>" -> (strong -> GArray of verse indices) */
 static gboolean il_reverse = FALSE;
 
 static void
@@ -155,9 +155,9 @@ main_interlineal_init(void)
 void
 main_interlineal_shutdown(void)
 {
-	if (occ_cache)
-		g_hash_table_destroy(occ_cache);
-	occ_cache = NULL;
+	if (occ_index)
+		g_hash_table_destroy(occ_index);
+	occ_index = NULL;
 	if (strongs)
 		g_hash_table_destroy(strongs);
 	strongs = NULL;
@@ -553,42 +553,15 @@ main_interlineal_versiculo(const char *key)
 }
 
 static void
-occ_list_free(gpointer p)
+occ_free_postings(gpointer p)
 {
-	g_list_free_full((GList *)p, g_free);
+	g_array_free((GArray *)p, TRUE);
 }
 
-static gboolean
-raw_has_strong(const char *raw, char letter, const char *digits)
+static void
+occ_free_index(gpointer p)
 {
-	const char *p, *d, *q;
-
-	if (!raw || !digits)
-		return FALSE;
-	d = digits;
-	while (*d == '0')
-		d++;
-	if (!*d)
-		d = "0";
-	p = raw;
-	while ((p = strstr(p, "strong:"))) {
-		p += 7;
-		if (g_ascii_toupper(*p) != letter) {
-			p++;
-			continue;
-		}
-		p++;
-		while (*p == '0')
-			p++;
-		q = d;
-		while (*q && *p == *q) {
-			q++;
-			p++;
-		}
-		if (!*q && !g_ascii_isdigit(*p))
-			return TRUE;
-	}
-	return FALSE;
+	g_hash_table_destroy((GHashTable *)p);
 }
 
 static const char *
@@ -609,61 +582,136 @@ occ_pick_module(char letter)
 	return mod_ok("KJV") ? "KJV" : NULL;
 }
 
-static void
-occ_scan_book(SWModule *mod, const char *verse, int testament,
-	      char letter, const char *digits, GList **hits, int *n, int max)
+/* One pass over a testament, recording every Strong's number against
+ * every verse it appears in.
+ *
+ * This replaces a pair of scanners that walked the testament looking
+ * for one Strong's number at a time and stopped early once `max` hits
+ * were in hand. That was cheap for a common word and pathological for
+ * a rare one: anything occurring fewer than `max` times could not stop
+ * early and paid for the whole testament, every time it was clicked.
+ * Measured on this machine: 238 ms per lookup for a rare Hebrew number
+ * (23 145 verses), 126 ms for a rare Greek one.
+ *
+ * Building the entire table costs about the same as a single one of
+ * those misses (274 ms for the OT, 150 ms for the NT) and answers
+ * every subsequent lookup, for any Strong's number, from memory. Verse
+ * positions are stored as VerseKey indices rather than key strings --
+ * 4 bytes each, so ~1.2 MB for the OT and ~680 KB for the NT. */
+static GHashTable *
+occ_build_index(SWModule *mod, int testament)
 {
-	VerseKey vk;
-	int book;
-
-	vk.setAutoNormalize(1);
-	vk.setText(verse ? verse : "Gen.1.1");
-	if (vk.getTestament() != testament)
-		return;
-	book = vk.getBook();
-	vk.setChapter(1);
-	vk.setVerse(1);
-	for (; !vk.popError() && *n < max; vk++) {
-		const char *raw;
-
-		if (vk.getBook() != book || vk.getTestament() != testament)
-			break;
-		mod->setKey(vk);
-		raw = mod->getRawEntry();
-		if (raw && raw_has_strong(raw, letter, digits)) {
-			*hits = g_list_append(*hits, g_strdup(vk.getText()));
-			(*n)++;
-		}
-	}
-}
-
-static void
-occ_scan_testament(SWModule *mod, int skip_book, int testament,
-		   char letter, const char *digits, GList **hits, int *n, int max)
-{
+	GHashTable *ht = g_hash_table_new_full(g_str_hash, g_str_equal,
+					       g_free, occ_free_postings);
+	SWBuf oldkey = mod->getKey()->getText();
 	VerseKey vk;
 
 	vk.setAutoNormalize(1);
 	vk.setText(testament == 1 ? "Genesis 1:1" : "Matthew 1:1");
-	for (; !vk.popError() && *n < max; vk++) {
-		const char *raw;
+
+	for (; !vk.popError(); vk++) {
+		const char *raw, *p;
+		guint32 idx;
 
 		if (vk.getTestament() != testament)
 			break;
-		if (vk.getBook() == skip_book)
-			continue;
 		mod->setKey(vk);
 		raw = mod->getRawEntry();
-		if (raw && raw_has_strong(raw, letter, digits)) {
-			*hits = g_list_append(*hits, g_strdup(vk.getText()));
-			(*n)++;
+		if (!raw)
+			continue;
+		idx = (guint32)vk.getIndex();
+
+		for (p = strstr(raw, "strong:"); p; p = strstr(p, "strong:")) {
+			const char *d;
+			char key[16], letter;
+			int len;
+			GArray *a;
+
+			p += 7;
+			letter = g_ascii_toupper(*p);
+			if (letter != 'G' && letter != 'H')
+				continue;
+			p++;
+			while (*p == '0')
+				p++;
+			d = p;
+			while (g_ascii_isdigit(*p))
+				p++;
+			if (p == d)
+				continue;
+
+			/* same normalisation main_interlineal_norm_strong()
+			 * produces, so lookups can use its output directly:
+			 * letter + digits, leading zeros stripped. */
+			len = MIN((int)(p - d), (int)sizeof(key) - 2);
+			key[0] = letter;
+			memcpy(key + 1, d, len);
+			key[1 + len] = '\0';
+
+			a = (GArray *)g_hash_table_lookup(ht, key);
+			if (!a) {
+				a = g_array_new(FALSE, FALSE, sizeof(guint32));
+				g_hash_table_insert(ht, g_strdup(key), a);
+			}
+			/* verses are visited in order, so a repeat of the
+			 * same number within one verse is always the tail. */
+			if (a->len == 0 ||
+			    g_array_index(a, guint32, a->len - 1) != idx)
+				g_array_append_val(a, idx);
 		}
 	}
+
+	mod->setKey(oldkey.c_str());
+	return ht;
 }
 
+/* The built index for one (module, testament), building it on first
+ * use. NULL only if the module is unavailable. */
+static GHashTable *
+occ_get_index(const char *modname, int testament)
+{
+	gchar *cachekey;
+	GHashTable *ht;
+	SWModule *mod;
+
+	if (!modname)
+		return NULL;
+	if (!occ_index)
+		occ_index = g_hash_table_new_full(g_str_hash, g_str_equal,
+						  g_free, occ_free_index);
+
+	cachekey = g_strdup_printf("%s/%d", modname, testament);
+	ht = (GHashTable *)g_hash_table_lookup(occ_index, cachekey);
+	if (ht) {
+		g_free(cachekey);
+		return ht;
+	}
+
+	mod = backend->get_SWModule(modname);
+	if (!mod) {
+		g_free(cachekey);
+		return NULL;
+	}
+	ht = occ_build_index(mod, testament);
+	g_hash_table_insert(occ_index, cachekey, ht);	/* takes cachekey */
+	return ht;
+}
+
+/* Called when the interlinear is switched on. Building the index here
+ * means the cost lands on a deliberate user action rather than on the
+ * first Strong's number they happen to click. */
 void
 main_interlineal_empezar_indice(void)
 {
+	VerseKey here;
+	int testament;
+
+	if (!backend)
+		return;
+	here.setAutoNormalize(1);
+	here.setText(settings.currentverse ? settings.currentverse : "Gen.1.1");
+	testament = here.getTestament();
+	occ_get_index(occ_pick_module(testament == 1 ? 'H' : 'G'), testament);
 }
 
 gboolean
@@ -675,16 +723,14 @@ main_interlineal_indice_listo(void)
 GList *
 main_interlineal_ocurrencias(const char *strong, int max)
 {
-	GList *cached, *out = NULL, *src;
+	GList *out = NULL;
 	gchar *norm;
 	const char *modname;
-	SWModule *mod;
-	SWBuf oldkey;
-	VerseKey here;
+	GHashTable *ht;
+	GArray *postings;
+	VerseKey here, vk;
 	char letter;
-	const char *digits;
-	int n = 0, book, testament, i;
-	GList *hits = NULL;
+	int testament, book, i, n = 0;
 
 	if (!strong || max <= 0 || !backend)
 		return NULL;
@@ -693,45 +739,50 @@ main_interlineal_ocurrencias(const char *strong, int max)
 		g_free(norm);
 		return NULL;
 	}
-	if (!occ_cache)
-		occ_cache = g_hash_table_new_full(g_str_hash, g_str_equal, g_free,
-						  occ_list_free);
-	cached = (GList *)g_hash_table_lookup(occ_cache, norm);
-	if (cached) {
-		for (src = cached, i = 0; src && i < max; src = src->next, i++)
-			out = g_list_append(out, g_strdup((const char *)src->data));
-		g_free(norm);
-		return out;
-	}
 
 	letter = norm[0];
-	digits = norm + 1;
+	testament = (letter == 'H') ? 1 : 2;
 	modname = occ_pick_module(letter);
-	mod = modname ? backend->get_SWModule(modname) : NULL;
-	if (!mod) {
+	ht = occ_get_index(modname, testament);
+	if (!ht) {
 		g_free(norm);
 		return NULL;
 	}
+	postings = (GArray *)g_hash_table_lookup(ht, norm);
+	g_free(norm);
+	if (!postings || postings->len == 0)
+		return NULL;
 
-	oldkey = mod->getKey()->getText();
+	/* Same ordering the old two-phase scan produced: hits in the book
+	 * being read come first, the rest after, each in canonical order.
+	 * Two passes over the (integer) postings rather than one, so a
+	 * common word does not materialise thousands of key strings only
+	 * to throw all but `max` of them away. */
 	here.setAutoNormalize(1);
 	here.setText(settings.currentverse ? settings.currentverse : "Gen.1.1");
-	book = here.getBook();
-	testament = (letter == 'H') ? 1 : 2;
+	book = (here.getTestament() == testament) ? here.getBook() : -1;
 
-	if (here.getTestament() == testament)
-		occ_scan_book(mod, settings.currentverse, testament, letter, digits,
-			      &hits, &n, max);
-	if (n < max)
-		occ_scan_testament(mod, (here.getTestament() == testament) ? book : -1,
-				   testament, letter, digits, &hits, &n, max);
+	vk.setAutoNormalize(1);
+	for (i = 0; i < (int)postings->len && n < max; i++) {
+		vk.setTestament(testament);
+		vk.setIndex((long)g_array_index(postings, guint32, i));
+		if (book > 0 && vk.getBook() != book)
+			continue;
+		out = g_list_prepend(out, g_strdup(vk.getText()));
+		n++;
+	}
+	if (book > 0) {
+		for (i = 0; i < (int)postings->len && n < max; i++) {
+			vk.setTestament(testament);
+			vk.setIndex((long)g_array_index(postings, guint32, i));
+			if (vk.getBook() == book)
+				continue;
+			out = g_list_prepend(out, g_strdup(vk.getText()));
+			n++;
+		}
+	}
 
-	mod->setKey(oldkey.c_str());
-	g_hash_table_insert(occ_cache, g_strdup(norm), hits);
-	for (src = hits, i = 0; src && i < max; src = src->next, i++)
-		out = g_list_append(out, g_strdup((const char *)src->data));
-	g_free(norm);
-	return out;
+	return g_list_reverse(out);
 }
 
 static gchar *

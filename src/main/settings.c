@@ -1152,6 +1152,45 @@ if (!settings.morph_heb_lex || strlen(settings.morph_heb_lex) == 0) {
 
 	settings.reading_mode =
 	    atoi((buf = xml_get_value("misc", "reading_mode")) ? buf : "0");
+	/* Verse-aligned comparison inside reading mode: the reading pane
+	 * shows the parallel table (one column per module in the parallel
+	 * list) instead of the single current Bible. Off by default. */
+	settings.reading_compare =
+	    atoi((buf = xml_get_value("misc", "reading_compare")) ? buf : "0");
+
+	/* How much of the window reading mode uses, as a percentage; the
+	 * remainder is split evenly into side margins, so 90 leaves 5%
+	 * clear on each side. */
+	if ((buf = xml_get_value("misc", "reading_mode_width_pct")))
+		settings.reading_mode_width_pct = atoi(buf);
+	else {
+		xml_add_new_item_to_section("misc", "reading_mode_width_pct", "90");
+		settings.reading_mode_width_pct = 90;
+	}
+	settings.reading_mode_width_pct =
+	    CLAMP(settings.reading_mode_width_pct, 30, 100);
+
+	/* Continuous reading: render the whole book instead of one
+	 * chapter, so scrolling past the end of a chapter carries on into
+	 * the next. Off by default -- it costs ~1.9 s on Psalms, paid
+	 * again on each move to another chapter of the same book. */
+	settings.reading_mode_whole_book =
+	    atoi((buf = xml_get_value("misc", "reading_mode_whole_book")) ? buf : "0");
+
+	/* Optional cap on line length, in characters; 0 disables it and
+	 * lets the text fill reading_mode_width_pct. The comfortable
+	 * typographic range is 45-75, which a single column spanning a
+	 * whole ultrawide overshoots badly -- set this to bring the column
+	 * back down and centre it. Clamped so a hand-edited settings.xml
+	 * cannot produce an unreadable pane. */
+	if ((buf = xml_get_value("misc", "reading_mode_cpl")))
+		settings.reading_mode_cpl = atoi(buf);
+	else {
+		xml_add_new_item_to_section("misc", "reading_mode_cpl", "0");
+		settings.reading_mode_cpl = 0;
+	}
+	if (settings.reading_mode_cpl > 0)
+		settings.reading_mode_cpl = CLAMP(settings.reading_mode_cpl, 40, 200);
 	settings.showtexts =
 	    atoi((buf = xml_get_value("misc", "showtexts")) ? buf : "1");
 	/* "Comparar" split-view panel: on-demand only, via the button next

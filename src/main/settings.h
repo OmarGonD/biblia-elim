@@ -245,6 +245,10 @@ struct _settings
 	/* distraction-free reading mode: hide sidebar/previewer/tab
 	 * row/nav toolbar, show just the text */
 	int reading_mode;
+	int reading_compare;	 /* verse-aligned compare inside reading mode */
+	int reading_mode_whole_book; /* continuous scroll through the book */
+	int reading_mode_cpl;	 /* optional line-length cap, chars; 0 = off */
+	int reading_mode_width_pct; /* share of the window reading mode uses */
 
 	/* parallel color alternation */
 	int alternation;

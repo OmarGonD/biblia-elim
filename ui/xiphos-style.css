@@ -175,19 +175,6 @@ button.elim-greek label {
 	font-weight: 600;
 	padding: 0;
 }
-button.elim-vtools {
-	min-width: 22px;
-	min-height: 18px;
-	padding: 1px 4px;
-	border-radius: 4px;
-	opacity: 0.72;
-}
-button.elim-vtools:hover {
-	opacity: 1;
-	background-image: none;
-	background-color: alpha(@elim_navy, 0.14);
-}
-
 /* ——— Tablas HTML reales (comentarios, vista paralela) ——— */
 .elim-table-cell {
 	padding: 4px 6px;
@@ -485,8 +472,47 @@ treeview.view:selected:focus {
  * appearing only when the pointer hovers near the top of the window --
  * the shadow is what reads "floating on top" instead of "part of the
  * page" now that it's not pinned to a fixed spot in the layout. */
+/* La cabecera del modo lectura: aparece al acercar el puntero al borde
+ * superior y lleva todos los controles del modo. Se despega del texto
+ * como una tarjeta flotante en vez de ser una franja pegada al borde,
+ * porque aparece y desaparece sobre el contenido y necesita leerse como
+ * una capa por encima, no como parte de la página. */
 .elim-navbar-floating {
-	box-shadow: 0 2px 8px alpha(#000000, 0.35);
+	background-color: alpha(@theme_bg_color, 0.97);
+	border: 1px solid @elim_line;
+	border-radius: 12px;
+	margin: 8px 12px;
+	padding: 4px 8px;
+	box-shadow: 0 6px 20px alpha(#000000, 0.28);
+}
+.elim-dark .elim-navbar-floating {
+	background-color: alpha(#1A1610, 0.97);
+	border-color: alpha(#E6C989, 0.22);
+	box-shadow: 0 6px 22px alpha(#000000, 0.55);
+}
+.elim-reading-strip button {
+	min-width: 30px;
+	min-height: 30px;
+	padding: 2px 6px;
+	border-radius: 8px;
+}
+.elim-reading-strip button:hover {
+	background-color: alpha(@elim_navy, 0.14);
+}
+.elim-dark .elim-reading-strip button:hover {
+	background-color: alpha(#E6C989, 0.18);
+}
+.elim-reading-strip button:checked {
+	background-image: none;
+	background-color: alpha(@elim_navy, 0.22);
+}
+.elim-dark .elim-reading-strip button:checked {
+	background-color: alpha(#E6C989, 0.26);
+}
+.elim-reading-strip separator {
+	background-color: @elim_line;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 .elim-navbar button {
 	border-radius: 8px;

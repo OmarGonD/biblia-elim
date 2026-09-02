@@ -44,6 +44,8 @@
 #include "gui/bibletext.h"
 #include "gui/lectura_sync.h"
 #include "gui/parallel_view.h"
+#include "main/configs.h"
+#include "main/lists.h"
 #include "main/parallel_view.h"
 #include "gui/commentary.h"
 #include "gui/gbs.h"
@@ -83,14 +85,23 @@ static int main_window_created = FALSE;
 static gboolean switching_dict_tab = FALSE;
 static GtkWidget *header_menu = NULL;
 static GtkWidget *reading_exit_button = NULL;
+static GtkWidget *reading_compare_button = NULL;
+static GtkWidget *reading_compare_pick = NULL;
+static GtkWidget *reading_font_button = NULL;
 static guint reading_mode_place_src = 0;
 static gulong reading_mode_wse_id = 0;
 static guint reading_mode_hover_hide_src = 0;
 static gulong reading_mode_motion_id = 0;
 static gulong reading_mode_toolbar_enter_id = 0;
 static gulong reading_mode_toolbar_leave_id = 0;
+static gulong reading_mode_alloc_id = 0;
 
 static void on_reading_mode_button_toggled(GtkToggleButton *button, gpointer data);
+static void on_reading_compare_toggled(GtkToggleButton *button, gpointer data);
+static void on_reading_compare_pick(GtkButton *button, gpointer data);
+static void on_reading_font_clicked(GtkButton *button, gpointer data);
+static void reading_strip_sync(void);
+static void reading_strip_attach(gboolean attach);
 static gboolean on_open_bible_icon_draw(GtkWidget *widget, cairo_t *cr, gpointer data);
 static gboolean reading_mode_keep_place(gpointer data);
 static gboolean reading_mode_on_window_state(GtkWidget *widget, GdkEventWindowState *event, gpointer data);
@@ -281,8 +292,346 @@ void gui_show_hide_dicts(gboolean choice)
 #define NORMAL_SIDE_MARGIN 14
 #define NORMAL_LINE_PAD 1
 
+/* Reading mode caps the line length instead of just padding the sides.
+ * A fixed side margin is fine on a laptop panel and falls apart on a
+ * wide one: on a 3440px ultrawide it left the text running the full
+ * width of the screen.
+ *
+ * Two settings shape the result, both in settings.xml under <misc>:
+ *
+ *   reading_mode_width_pct (default 90) -- how much of the window the
+ *       reading area takes, the rest split evenly as side margins. 90
+ *       leaves 5% clear on each side.
+ *
+ *   reading_mode_cpl (default 0 = off) -- an optional cap on line
+ *       length, in characters. Typography puts the comfortable range
+ *       at 45-75, and a single column spanning 90% of an ultrawide is
+ *       far past it; set this to bring the column back down and centre
+ *       it. Left off by default because the full width is the right
+ *       answer once the text is laid out in columns.
+ *
+ * The cap is measured, not assumed: the font comes from CSS and the
+ * user can change family and size, so READING_MODE_SAMPLE (a stretch
+ * of ordinary Spanish scripture prose) is run through Pango and its
+ * width divided by its length gives a mean character width for
+ * whatever face is actually in use. */
+#define READING_MODE_WIDTH_PCT_DEFAULT 90
+#define READING_MODE_SAMPLE                                             \
+	"Jehová es mi pastor; nada me faltará. En lugares de delicados " \
+	"pastos me hará descansar, junto a aguas de reposo me pastoreará."
+
 #define READING_MODE_HOVER_SHOW_Y 40
 #define READING_MODE_HOVER_HIDE_DELAY_MS 500
+
+/* Width, in pixels, of settings.reading_mode_cpl characters of the font
+ * this view is currently rendering with. */
+static gint
+reading_mode_target_width(GtkTextView *view)
+{
+	GtkStyleContext *ctx;
+	PangoFontDescription *desc = NULL;
+	PangoLayout *layout;
+	gint sample_w = 0;
+	glong sample_len;
+
+	sample_len = g_utf8_strlen(READING_MODE_SAMPLE, -1);
+	if (sample_len <= 0)
+		return 0;
+
+	ctx = gtk_widget_get_style_context(GTK_WIDGET(view));
+	gtk_style_context_get(ctx, gtk_style_context_get_state(ctx),
+			      GTK_STYLE_PROPERTY_FONT, &desc, NULL);
+
+	layout = gtk_widget_create_pango_layout(GTK_WIDGET(view),
+						READING_MODE_SAMPLE);
+	if (desc) {
+		pango_layout_set_font_description(layout, desc);
+		pango_font_description_free(desc);
+	}
+	pango_layout_set_width(layout, -1);	/* measure unwrapped */
+	pango_layout_get_pixel_size(layout, &sample_w, NULL);
+	g_object_unref(layout);
+
+	if (sample_w <= 0)
+		return 0;
+	return (gint)((sample_w * (gdouble)settings.reading_mode_cpl) / sample_len);
+}
+
+/* Side margins for reading mode: a percentage of the window by
+ * default, tightened further to centre a capped measure when
+ * reading_mode_cpl asks for one. Never narrower than
+ * READING_MODE_SIDE_MARGIN, so a small window behaves as it always
+ * did and only a wide one is reshaped. */
+static void
+reading_mode_apply_measure(GtkTextView *view)
+{
+	gint avail, target, margin;
+
+	if (!view)
+		return;
+
+	if (!settings.reading_mode) {
+		gtk_text_view_set_left_margin(view, NORMAL_SIDE_MARGIN);
+		gtk_text_view_set_right_margin(view, NORMAL_SIDE_MARGIN);
+		return;
+	}
+
+	avail = gtk_widget_get_allocated_width(GTK_WIDGET(view));
+
+	/* the percentage the reading area keeps; the remainder is split
+	 * evenly between the two sides. */
+	margin = (avail > 0)
+		     ? (avail * (100 - settings.reading_mode_width_pct)) / 200
+		     : READING_MODE_SIDE_MARGIN;
+	if (margin < READING_MODE_SIDE_MARGIN)
+		margin = READING_MODE_SIDE_MARGIN;
+
+	/* an explicit line-length cap wins when it is narrower still. */
+	target = (settings.reading_mode_cpl > 0)
+		     ? reading_mode_target_width(view)
+		     : 0;
+	if ((avail > 0) && (target > 0) && (avail - 2 * margin > target))
+		margin = (avail - target) / 2;
+
+	/* Setting the margin re-runs allocation, which brings us straight
+	 * back here; bail out once it has converged so the loop cannot feed
+	 * itself. */
+	if (gtk_text_view_get_left_margin(view) == margin &&
+	    gtk_text_view_get_right_margin(view) == margin)
+		return;
+
+	gtk_text_view_set_left_margin(view, margin);
+	gtk_text_view_set_right_margin(view, margin);
+}
+
+/* The allocation is not final when reading mode is switched on: the
+ * compositor answers gtk_window_fullscreen() a frame or two later, and
+ * the user can move the window between monitors afterwards. Recompute
+ * on every allocation instead of only at the toggle. */
+static void
+reading_mode_on_size_allocate(GtkWidget *widget, GdkRectangle *alloc,
+			      gpointer data)
+{
+	(void)alloc;
+	(void)data;
+	reading_mode_apply_measure(GTK_TEXT_VIEW(widget));
+}
+
+/* Switches the reading pane between the single Bible and the
+ * verse-aligned comparison, keeping the floating button in step no
+ * matter which of the two entry points asked for it. */
+static void
+reading_compare_set(gboolean on)
+{
+	if (!settings.reading_mode) {
+		gui_generic_warning(
+		    _("Comparar en columnas requiere el modo lectura "
+		      "(Ctrl+Shift+F)."));
+		return;
+	}
+	if (settings.reading_compare == (on ? 1 : 0))
+		return;
+
+	settings.reading_compare = on ? 1 : 0;
+	xml_set_value("Xiphos", "misc", "reading_compare",
+		      settings.reading_compare ? "1" : "0");
+
+	if (reading_compare_button) {
+		g_signal_handlers_block_by_func(reading_compare_button,
+						G_CALLBACK(on_reading_compare_toggled), NULL);
+		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(reading_compare_button), on);
+		g_signal_handlers_unblock_by_func(reading_compare_button,
+						  G_CALLBACK(on_reading_compare_toggled), NULL);
+	}
+	reading_strip_sync();
+	if (settings.currentverse)
+		main_display_bible(NULL, settings.currentverse);
+}
+
+/* Writes the chosen set back to both the live settings and
+ * modules/parallels, which is where parallel_build_html() reads it
+ * from, then repaints. */
+static void
+reading_compare_set_modules(GList *chosen)
+{
+	GString *csv = g_string_new(NULL);
+	GList *l;
+
+	for (l = chosen; l; l = l->next) {
+		if (csv->len)
+			g_string_append_c(csv, ',');
+		g_string_append(csv, (const gchar *)l->data);
+	}
+	if (!csv->len) {
+		g_string_free(csv, TRUE);
+		return;			/* never leave the comparison empty */
+	}
+
+	xml_set_value("Xiphos", "modules", "parallels", csv->str);
+	if (settings.parallel_list)
+		g_strfreev(settings.parallel_list);
+	settings.parallel_list = g_strsplit(csv->str, ",", -1);
+	g_string_free(csv, TRUE);
+
+	if (settings.reading_mode && settings.reading_compare &&
+	    settings.currentverse)
+		main_display_bible(NULL, settings.currentverse);
+}
+
+static void
+on_compare_pick_toggled(GtkToggleButton *check, gpointer data)
+{
+	GtkWidget *box = GTK_WIDGET(data);
+	GList *kids, *k, *chosen = NULL;
+
+	(void)check;
+	kids = gtk_container_get_children(GTK_CONTAINER(box));
+	for (k = kids; k; k = k->next) {
+		GtkWidget *w = GTK_WIDGET(k->data);
+		if (!GTK_IS_CHECK_BUTTON(w))
+			continue;
+		if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(w)))
+			chosen = g_list_append(
+			    chosen, g_object_get_data(G_OBJECT(w), "modname"));
+	}
+	g_list_free(kids);
+	reading_compare_set_modules(chosen);
+	g_list_free(chosen);
+}
+
+/* Popover listing every installed Bible, ticked for the ones currently
+ * being compared. Built fresh each time it opens so newly installed
+ * modules show up without a restart. */
+static void
+on_reading_compare_pick(GtkButton *button, gpointer data)
+{
+	GtkWidget *pop, *box;
+	GList *bibles, *descs, *l, *d;
+
+	(void)data;
+	pop = gtk_popover_new(GTK_WIDGET(button));
+	box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 2);
+	gtk_container_set_border_width(GTK_CONTAINER(box), 8);
+
+	bibles = get_list(TEXT_LIST);
+	descs = get_list(TEXT_DESC_LIST);
+	for (l = bibles, d = descs; l; l = l->next, d = d ? d->next : NULL) {
+		const gchar *name = (const gchar *)l->data;
+		const gchar *desc = d ? (const gchar *)d->data : NULL;
+		GtkWidget *chk;
+		gboolean on = FALSE;
+		int i;
+
+		if (!name)
+			continue;
+		for (i = 0; settings.parallel_list && settings.parallel_list[i]; i++) {
+			if (!g_strcmp0(settings.parallel_list[i], name)) {
+				on = TRUE;
+				break;
+			}
+		}
+		chk = gtk_check_button_new_with_label(desc && *desc ? desc : name);
+		g_object_set_data_full(G_OBJECT(chk), "modname",
+				       g_strdup(name), g_free);
+		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk), on);
+		g_signal_connect(chk, "toggled",
+				 G_CALLBACK(on_compare_pick_toggled), box);
+		gtk_box_pack_start(GTK_BOX(box), chk, FALSE, FALSE, 0);
+	}
+
+	gtk_widget_show_all(box);
+	gtk_container_add(GTK_CONTAINER(pop), box);
+	gtk_popover_set_position(GTK_POPOVER(pop), GTK_POS_BOTTOM);
+	gtk_popover_popup(GTK_POPOVER(pop));
+}
+
+/* Applies one font choice to every module currently in the comparison,
+ * through the same fonts.conf the font dialog writes: Font is the
+ * family, Fontsize the point size. Per-module rather than global,
+ * because that is the granularity the rest of the app already uses --
+ * and the compared columns are exactly the modules on screen. */
+static void
+reading_font_apply(const gchar *chosen)
+{
+	static gchar *conf = NULL;
+	PangoFontDescription *desc;
+	gchar *family = NULL, *size = NULL;
+	int i;
+
+	if (!chosen || !*chosen)
+		return;
+
+	desc = pango_font_description_from_string(chosen);
+	if (!desc)
+		return;
+	if (pango_font_description_get_family(desc))
+		family = g_strdup(pango_font_description_get_family(desc));
+	if (pango_font_description_get_size(desc) > 0)
+		size = g_strdup_printf(
+		    "%d", pango_font_description_get_size(desc) / PANGO_SCALE);
+	pango_font_description_free(desc);
+
+	if (!conf)
+		conf = g_strdup_printf("%s/fonts.conf", settings.gSwordDir);
+
+	for (i = 0; settings.parallel_list && settings.parallel_list[i]; i++) {
+		const gchar *mod = settings.parallel_list[i];
+		if (!mod || !*mod)
+			continue;
+		if (family)
+			save_conf_file_item(conf, mod, "Font", family);
+		if (size)
+			save_conf_file_item(conf, mod, "Fontsize", size);
+	}
+	g_free(family);
+	g_free(size);
+
+	if (settings.currentverse)
+		main_display_bible(NULL, settings.currentverse);
+}
+
+/* Seeds the chooser with what the first compared module is set in, so
+ * the dialog opens on the current state rather than on whatever the
+ * toolkit defaults to. */
+static void
+on_reading_font_clicked(GtkButton *button, gpointer data)
+{
+	GtkWidget *dlg;
+	MOD_FONT *mf = NULL;
+
+	(void)data;
+	dlg = gtk_font_chooser_dialog_new(
+	    _("Fuente de las versiones comparadas"),
+	    widgets.app ? GTK_WINDOW(widgets.app) : NULL);
+
+	if (settings.parallel_list && settings.parallel_list[0])
+		mf = get_font(settings.parallel_list[0]);
+	if (mf && mf->old_font && *mf->old_font &&
+	    g_ascii_strcasecmp(mf->old_font, "none")) {
+		gchar *seed = g_strdup_printf(
+		    "%s %s", mf->old_font,
+		    (mf->old_font_size && *mf->old_font_size) ? mf->old_font_size : "12");
+		gtk_font_chooser_set_font(GTK_FONT_CHOOSER(dlg), seed);
+		g_free(seed);
+	}
+	if (mf)
+		free_font(mf);
+
+	if (gtk_dialog_run(GTK_DIALOG(dlg)) == GTK_RESPONSE_OK) {
+		gchar *chosen = gtk_font_chooser_get_font(GTK_FONT_CHOOSER(dlg));
+		reading_font_apply(chosen);
+		g_free(chosen);
+	}
+	gtk_widget_destroy(dlg);
+	(void)button;
+}
+
+static void
+on_reading_compare_toggled(GtkToggleButton *button, gpointer data)
+{
+	(void)data;
+	reading_compare_set(gtk_toggle_button_get_active(button));
+}
 
 static void
 reading_mode_hover_cancel_hide(void)
@@ -356,6 +705,145 @@ reading_mode_toolbar_leave(GtkWidget *widget, GdkEventCrossing *event, gpointer 
 	return FALSE;
 }
 
+/* The controls that only make sense while reading: which versions the
+ * comparison shows, and the font those versions are set in. They live
+ * in the hover header rather than floating next to the A|B button --
+ * that corner is for switching the mode, not for configuring it, and a
+ * row of loose buttons over the text is exactly the clutter reading
+ * mode exists to remove.
+ *
+ * Built once, then packed into and pulled out of nav_toolbar as
+ * reading mode comes and goes, so the ordinary toolbar is unchanged
+ * outside it. */
+static GtkWidget *reading_strip = NULL;
+
+static void
+reading_strip_build(void)
+{
+	GtkWidget *sep;
+
+	if (reading_strip)
+		return;
+
+	reading_strip = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 2);
+	gtk_widget_set_valign(reading_strip, GTK_ALIGN_CENTER);
+	gtk_style_context_add_class(gtk_widget_get_style_context(reading_strip),
+				    "elim-reading-strip");
+
+	sep = gtk_separator_new(GTK_ORIENTATION_VERTICAL);
+	gtk_widget_set_margin_start(sep, 6);
+	gtk_widget_set_margin_end(sep, 6);
+	gtk_box_pack_start(GTK_BOX(reading_strip), sep, FALSE, FALSE, 0);
+
+	/* Compare on/off. A toggle rather than an icon button because it
+	 * is the one control here with a state worth showing. */
+	reading_compare_button = gtk_toggle_button_new();
+	gtk_button_set_image(GTK_BUTTON(reading_compare_button),
+			     gtk_image_new_from_icon_name("view-paged-symbolic",
+							  GTK_ICON_SIZE_MENU));
+	gtk_button_set_relief(GTK_BUTTON(reading_compare_button), GTK_RELIEF_NONE);
+	gtk_widget_set_tooltip_text(
+	    reading_compare_button,
+	    _("Comparar versiones en columnas (Ctrl+Shift+K)"));
+	gtk_widget_set_can_focus(reading_compare_button, FALSE);
+	g_signal_connect(reading_compare_button, "toggled",
+			 G_CALLBACK(on_reading_compare_toggled), NULL);
+	gtk_box_pack_start(GTK_BOX(reading_strip), reading_compare_button,
+			   FALSE, FALSE, 0);
+
+	/* Icons, not labels: the hover header already carries the whole
+	 * verse navigation, and two worded buttons pushed it past the
+	 * width of the window. The tooltips carry the naming. */
+	reading_compare_pick = gtk_button_new_from_icon_name(
+	    "view-dual-symbolic", GTK_ICON_SIZE_MENU);
+	gtk_button_set_relief(GTK_BUTTON(reading_compare_pick), GTK_RELIEF_NONE);
+	gtk_widget_set_tooltip_text(reading_compare_pick,
+				    _("Elegir qué versiones comparar"));
+	gtk_widget_set_can_focus(reading_compare_pick, FALSE);
+	g_signal_connect(reading_compare_pick, "clicked",
+			 G_CALLBACK(on_reading_compare_pick), NULL);
+	gtk_box_pack_start(GTK_BOX(reading_strip), reading_compare_pick,
+			   FALSE, FALSE, 0);
+
+	/* A GtkFontButton insists on showing the font name as its label,
+	 * which is what a font button is for and exactly what will not fit
+	 * here -- so a plain icon button opening the chooser instead. */
+	reading_font_button = gtk_button_new_from_icon_name(
+	    "preferences-desktop-font-symbolic", GTK_ICON_SIZE_MENU);
+	gtk_button_set_relief(GTK_BUTTON(reading_font_button), GTK_RELIEF_NONE);
+	gtk_widget_set_tooltip_text(reading_font_button,
+				    _("Fuente de las versiones comparadas"));
+	gtk_widget_set_can_focus(reading_font_button, FALSE);
+	g_signal_connect(reading_font_button, "clicked",
+			 G_CALLBACK(on_reading_font_clicked), NULL);
+	gtk_box_pack_start(GTK_BOX(reading_strip), reading_font_button,
+			   FALSE, FALSE, 0);
+
+	/* Leaving the mode, last and set apart: it is the way out, not
+	 * one more setting. Ctrl+Shift+F still does the same thing for
+	 * anyone who never goes looking for the header. */
+	sep = gtk_separator_new(GTK_ORIENTATION_VERTICAL);
+	gtk_widget_set_margin_start(sep, 6);
+	gtk_widget_set_margin_end(sep, 6);
+	gtk_box_pack_start(GTK_BOX(reading_strip), sep, FALSE, FALSE, 0);
+
+	reading_exit_button = gtk_toggle_button_new();
+	gtk_button_set_image(GTK_BUTTON(reading_exit_button),
+			     gtk_image_new_from_icon_name("view-restore-symbolic",
+							  GTK_ICON_SIZE_MENU));
+	gtk_button_set_relief(GTK_BUTTON(reading_exit_button), GTK_RELIEF_NONE);
+	gtk_widget_set_tooltip_text(reading_exit_button,
+				    _("Salir del modo lectura (Ctrl+Shift+F)"));
+	gtk_widget_set_can_focus(reading_exit_button, FALSE);
+	g_signal_connect(reading_exit_button, "toggled",
+			 G_CALLBACK(on_reading_mode_button_toggled), NULL);
+	gtk_box_pack_start(GTK_BOX(reading_strip), reading_exit_button,
+			   FALSE, FALSE, 0);
+
+	gtk_widget_show_all(reading_strip);
+	g_object_ref_sink(reading_strip);
+}
+
+/* Only meaningful while comparing: outside that the pane shows a single
+ * Bible, whose font the ordinary preferences already cover. */
+static void
+reading_strip_sync(void)
+{
+	if (!reading_strip)
+		return;
+	/* Everything in the strip stays put while reading mode is on.
+	 * Hiding the two comparison controls whenever the comparison was
+	 * off meant the header changed shape under the pointer and the
+	 * buttons were missing exactly when someone went looking for
+	 * them. They are instead disabled, which says "this exists, turn
+	 * on the comparison to use it" rather than saying nothing. */
+	gtk_widget_set_visible(reading_strip, settings.reading_mode);
+	if (reading_compare_pick)
+		gtk_widget_set_sensitive(reading_compare_pick,
+					 settings.reading_compare != 0);
+	if (reading_font_button)
+		gtk_widget_set_sensitive(reading_font_button,
+					 settings.reading_compare != 0);
+}
+
+static void
+reading_strip_attach(gboolean attach)
+{
+	if (!widgets.nav_toolbar)
+		return;
+	reading_strip_build();
+
+	if (attach) {
+		if (gtk_widget_get_parent(reading_strip) != widgets.nav_toolbar)
+			gtk_box_pack_end(GTK_BOX(widgets.nav_toolbar),
+					 reading_strip, FALSE, FALSE, 0);
+	} else if (gtk_widget_get_parent(reading_strip) == widgets.nav_toolbar) {
+		gtk_container_remove(GTK_CONTAINER(widgets.nav_toolbar),
+				     reading_strip);
+	}
+	reading_strip_sync();
+}
+
 /* Moves nav_toolbar between its normal spot in widgets.page (a fixed
  * layout row, always visible) and widgets.reading_mode_overlay (floating
  * over the text, hidden by default, revealed by hovering near the top --
@@ -379,6 +867,7 @@ reading_mode_float_toolbar(gboolean floating, GtkTextView *view)
 						    "elim-navbar-floating");
 			g_object_unref(widgets.nav_toolbar);
 		}
+		reading_strip_attach(TRUE);
 		gtk_widget_hide(widgets.nav_toolbar);
 		if (view) {
 			gtk_widget_add_events(GTK_WIDGET(view), GDK_POINTER_MOTION_MASK);
@@ -394,6 +883,7 @@ reading_mode_float_toolbar(gboolean floating, GtkTextView *view)
 		    widgets.nav_toolbar, "leave-notify-event",
 		    G_CALLBACK(reading_mode_toolbar_leave), NULL);
 	} else {
+		reading_strip_attach(FALSE);
 		reading_mode_hover_cancel_hide();
 		if (reading_mode_motion_id && view) {
 			g_signal_handler_disconnect(view, reading_mode_motion_id);
@@ -507,12 +997,23 @@ void gui_toggle_reading_mode(gboolean choice)
 		reading_mode_float_toolbar(FALSE, view);
 	}
 	if (view) {
-		gint side_margin = choice ? READING_MODE_SIDE_MARGIN : NORMAL_SIDE_MARGIN;
 		gint line_pad = choice ? READING_MODE_LINE_PAD : NORMAL_LINE_PAD;
-		gtk_text_view_set_left_margin(view, side_margin);
-		gtk_text_view_set_right_margin(view, side_margin);
 		gtk_text_view_set_pixels_above_lines(view, line_pad);
 		gtk_text_view_set_pixels_below_lines(view, line_pad);
+
+		/* Follow the allocation only while reading mode is on; outside
+		 * it the margin is the fixed NORMAL_SIDE_MARGIN and there is
+		 * nothing to recompute. */
+		if (choice && !reading_mode_alloc_id) {
+			reading_mode_alloc_id = g_signal_connect(
+			    view, "size-allocate",
+			    G_CALLBACK(reading_mode_on_size_allocate), NULL);
+		} else if (!choice && reading_mode_alloc_id) {
+			g_signal_handler_disconnect(view, reading_mode_alloc_id);
+			reading_mode_alloc_id = 0;
+		}
+		reading_mode_apply_measure(view);
+
 		if (choice)
 			gtk_widget_grab_focus(GTK_WIDGET(view));
 	}
@@ -542,10 +1043,19 @@ void gui_toggle_reading_mode(gboolean choice)
 		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(reading_exit_button), choice);
 		g_signal_handlers_unblock_by_func(reading_exit_button,
 						  G_CALLBACK(on_reading_mode_button_toggled), NULL);
-		if (choice)
-			gtk_widget_show(reading_exit_button);
-		else
-			gtk_widget_hide(reading_exit_button);
+	}
+	if (reading_compare_button) {
+		gtk_widget_set_visible(reading_compare_button, choice);
+		if (!choice && settings.reading_compare) {
+			/* leaving reading mode drops the comparison with it */
+			settings.reading_compare = 0;
+			xml_set_value("Xiphos", "misc", "reading_compare", "0");
+			g_signal_handlers_block_by_func(reading_compare_button,
+							G_CALLBACK(on_reading_compare_toggled), NULL);
+			gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(reading_compare_button), FALSE);
+			g_signal_handlers_unblock_by_func(reading_compare_button,
+							  G_CALLBACK(on_reading_compare_toggled), NULL);
+		}
 	}
 
 	/* Stay on the verse the reader was already on. Fullscreen and pane
@@ -1266,6 +1776,7 @@ static gboolean on_vbox1_key_press_event(GtkWidget *widget, GdkEventKey *event,
 		}
 		break;
 
+
 	case XK_g:
 	case XK_G:
 		if (state == GDK_MOD1_MASK) { // Alt-G  genbook entry
@@ -1275,6 +1786,11 @@ static gboolean on_vbox1_key_press_event(GtkWidget *widget, GdkEventKey *event,
 		}
 		break;
 
+	/* Arrows only reach this handler when the focus is somewhere other
+	 * than the Bible view -- a toolbar button, say. With the focus in
+	 * the text, on_bible_key_press() in bibletext.c gets them first,
+	 * because GTK3 offers key events to the focused widget before the
+	 * boxes above it. Both must keep doing the same thing. */
 	case XK_Up:
 	case XK_KP_Up:
 		if (state == 0) {
@@ -1314,6 +1830,14 @@ static gboolean on_vbox1_key_press_event(GtkWidget *widget, GdkEventKey *event,
 			if (main_interlineal_bloquea_navegacion())
 				return TRUE;
 			access_on_up_eventbox_button_release_event(VERSE_BUTTON);
+		} else if (state == (GDK_CONTROL_MASK | GDK_SHIFT_MASK)) {
+			/* Ctrl-Shift-K: verse-aligned comparison inside
+			 * reading mode -- one column per module in the
+			 * parallel list, rows lined up verse by verse.
+			 * Only meaningful there: outside reading mode the
+			 * tabs and sidebar are in the way and the columns
+			 * have no room. */
+			reading_compare_set(!settings.reading_compare);
 		}
 		break;
 
@@ -1889,17 +2413,10 @@ void create_mainwindow(void)
 		gtk_container_add(GTK_CONTAINER(ov), widgets.vbox_text);
 		gtk_paned_pack1(GTK_PANED(widgets.vpaned), ov, TRUE, TRUE);
 
-		reading_exit_button = new_open_bible_toggle(
-		    _("Salir del modo lectura"));
-		gtk_style_context_add_class(
-		    gtk_widget_get_style_context(reading_exit_button),
-		    "reading-exit");
-		gtk_widget_set_halign(reading_exit_button, GTK_ALIGN_END);
-		gtk_widget_set_valign(reading_exit_button, GTK_ALIGN_START);
-		gtk_widget_set_margin_top(reading_exit_button, 10);
-		gtk_widget_set_margin_end(reading_exit_button, 14);
-		gtk_overlay_add_overlay(GTK_OVERLAY(ov), reading_exit_button);
-		gtk_widget_hide(reading_exit_button);
+		/* No floating controls here any more: every reading-mode
+		 * button lives in the hover header -- see
+		 * reading_strip_build(). The overlay stays because the nav
+		 * toolbar is still parented into it while floating. */
 	}
 
 	// Bible/parallel notebook
@@ -2033,8 +2550,7 @@ box_devot = gui_create_devotional_pane();
 	}
 	gtk_widget_show_all(widgets.app);
 
-	if (reading_exit_button && !settings.reading_mode)
-		gtk_widget_hide(reading_exit_button);
+	reading_strip_sync();
 	if (settings.statusbar != 1)
 		gtk_widget_hide(widgets.appbar);
 	/* gtk_widget_show_all() above just unconditionally re-showed every

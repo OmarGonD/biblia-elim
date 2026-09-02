@@ -824,6 +824,9 @@ void main_update_parallel_page(void)
  *   void
  */
 
+/* how often the column names are repeated down a long chapter */
+#define PARALLEL_LABEL_EVERY 12
+
 static void interpolate_parallel_display(SWModule *control,
 					 char     *control_name,
 					 SWBuf    &text,
@@ -854,6 +857,10 @@ static void interpolate_parallel_display(SWModule *control,
 	vkey->setText(key);
 	xverses = (vkey->getVerseMax());
 	delete vkey;
+
+	VerseKey *ctlkey = dynamic_cast<VerseKey *>(control->createKey());
+	if (ctlkey)
+		ctlkey->setAutoNormalize(1);
 
 	is_module = g_new(gboolean, parallel_count);
 	is_rtol = g_new(gboolean, parallel_count);
@@ -894,15 +901,48 @@ static void interpolate_parallel_display(SWModule *control,
 	cur_verse = backend_p->key_get_verse(control_name, tmpkey);
 	settings.intCurVerse = cur_verse;
 
-	/* misma franja atenuada que main_update_parallel_page() -- ver el
-	 * comentario de blend_hex_color() más arriba en este archivo. */
+	/* Alternating verse rows. 0.10 was almost invisible on a dark
+	 * background -- the point of the banding is to let the eye track a
+	 * row across columns, so it has to actually be seen. */
 	gchar *row_tint = blend_hex_color(settings.bible_bg_color,
-					  settings.bible_text_color, 0.10);
+					  settings.bible_text_color, 0.17);
 
 	for (verse = 1; verse <= xverses; ++verse) {
 		snprintf(tmpbuf, 255, "%s %d:%d", cur_book, cur_chapter, verse);
 		free(tmpkey);
 		tmpkey = backend_p->get_valid_key(control_name, tmpbuf);
+
+		/* The <thead> naming the columns scrolls away with
+		 * everything else -- this is a GtkGrid inside a text
+		 * buffer, not a real table widget, so nothing sticks. A
+		 * chapter in, there is no way to tell which version is on
+		 * the left. Repeating the names every so often costs one
+		 * thin row and answers the question wherever you happen to
+		 * be reading. */
+		if (verse > 1 && ((verse - 1) % PARALLEL_LABEL_EVERY) == 0) {
+			const gchar *lab_fg = settings.darktheme ? "#E6C989" : "#8A6D1E";
+			gchar *lab_bg = blend_hex_color(settings.bible_bg_color,
+							lab_fg, 0.22);
+			text += "<tr>";
+			for (modidx = 0; modidx < parallel_count; modidx++) {
+				const char *ab =
+				    main_name_to_abbrev(settings.parallel_list[modidx]);
+				snprintf(str, 499,
+					 "<td width=\"%d%%\" bgcolor=\"%s\">"
+					 "<font color=\"%s\" size=\"-1\"><b>%s</b></font></td>",
+					 fraction, lab_bg, lab_fg,
+					 (ab ? ab : settings.parallel_list[modidx]));
+				text += str;
+			}
+			text += "</tr>";
+			g_free(lab_bg);
+		}
+
+		/* the control key as an object, so each module can map from
+		 * it below rather than reparsing the string in its own
+		 * (possibly different) versification. */
+		if (ctlkey)
+			ctlkey->setText(tmpkey);
 
 		text += "<tr valign=\"top\">";
 
@@ -952,10 +992,48 @@ static void interpolate_parallel_display(SWModule *control,
 				if (is_rtol[modidx])
 					text += "<br/><div align=right>";
 
-				backend_p->set_module_key(mod, tmpkey);
+				/* tmpkey is expressed in the *control*
+				 * module's versification. Handing that same
+				 * string to a module on another one lands on
+				 * a different verse: comparing SpaRV1909
+				 * (KJV) against SpaPlatense (Vulg) put Psalm
+				 * 121 beside Psalm 120, silently. The comment
+				 * above admits upstream never solved this
+				 * ("very possibly wrong for all but the 1st")
+				 * -- but Sword does map between systems, so
+				 * ask each module's own key to position
+				 * itself from the control's. */
+				/* Map through a key of our own, never through
+				 * the module's: getText() hands back a pointer
+				 * into the live key's buffer, and feeding that
+				 * straight back into set_module_key() for the
+				 * same module aliases it onto itself. Doing
+				 * exactly that produced Revelation 1:1 in
+				 * every row. */
+				gchar *modkey = NULL;
+				if (ctlkey) {
+					SWModule *target = backend_p->get_SWModule(mod);
+					VerseKey *tv = target
+						? dynamic_cast<VerseKey *>(target->getKey())
+						: NULL;
+					if (tv) {
+						VerseKey probe;
+						probe.setVersificationSystem(
+						    tv->getVersificationSystem());
+						probe.setAutoNormalize(1);
+						probe.positionFrom(*ctlkey);
+						if (!probe.popError())
+							modkey = g_strdup(probe.getText());
+					}
+				}
+				if (!modkey)
+					modkey = g_strdup(tmpkey);
+
+				backend_p->set_module_key(mod, modkey);
 				get_heading(text, backend_p, modidx);
 
-				utf8str = backend_p->get_render_text(mod, tmpkey);
+				utf8str = backend_p->get_render_text(mod, modkey);
+				g_free(modkey);
 				if (utf8str) {
 					text += utf8str;
 					g_free(utf8str);
@@ -981,6 +1059,7 @@ static void interpolate_parallel_display(SWModule *control,
 	g_free(is_rtol);
 	g_free(is_module);
 	g_free(is_bible_text);
+	delete ctlkey;
 	g_free(row_tint);
 }
 
@@ -1000,19 +1079,24 @@ static void interpolate_parallel_display(SWModule *control,
  *   void
  */
 
-void main_update_parallel_page_detached(void)
+/* The whole-chapter, one-column-per-module HTML: a <thead> of module
+ * names over one <tr> per verse, each verse's text in its own <td>.
+ * wk-html.c turns every cell into its own nested WkHtml inside a
+ * GtkGrid, which is what makes the columns line up verse by verse.
+ *
+ * Split out of main_update_parallel_page_detached() so the reading
+ * pane can render the same thing -- see main_parallel_html_for_pane().
+ * Returns FALSE when there is nothing to build (no parallel list, or
+ * the controlling module is missing). */
+static gboolean
+parallel_build_html(SWBuf &text, gint *parallel_count_out)
 {
-	SWBuf text("");
 	gchar buf[5000];
 	gint modidx, parallel_count, fraction;
 
-	if (!widgets.html_parallel_dialog ||
-	    !gtk_widget_get_realized(GTK_WIDGET(widgets.html_parallel_dialog)))
-		return;
-
 	/* how big a pile of parallels have we got? */
 	if (settings.parallel_list == NULL)
-		return;
+		return FALSE;
 	for (parallel_count = 0; settings.parallel_list[parallel_count]; ++parallel_count)
 		/* just count non-null string ptrs */;
 
@@ -1035,7 +1119,7 @@ void main_update_parallel_page_detached(void)
 	if (!control)
 	{
 		gui_generic_warning(_("Failed to find 1st parallel module for display control."));
-		return;
+		return FALSE;
 	}
 
 	snprintf(buf, 4999, HTML_START
@@ -1052,20 +1136,52 @@ void main_update_parallel_page_detached(void)
 		 settings.link_color);
 	text += buf;
 
-	for (modidx = 0; settings.parallel_list[modidx]; ++modidx) {
-		const char *abbreviation = main_name_to_abbrev(settings.parallel_list[modidx]);
-		snprintf(buf, 499,
-			 "<th width=\"%d%%\" bgcolor=\"#c0c0c0\"><font color=\"%s\" size=\"%+d\"><b>%s</b></font></th>",
-			 fraction,
-			 settings.bible_verse_num_color,
-			 settings.verse_num_font_size + settings.base_font_size,
-			 (abbreviation ? abbreviation : settings.parallel_list[modidx]));
-		text += buf;
+	/* The header used to be a hardcoded light grey (#c0c0c0) with the
+	 * verse-number colour on top: fine on the old light default, a
+	 * glaring band of near-white with poor contrast on a dark theme.
+	 * It now uses the same gold-on-tinted-background treatment the
+	 * rest of this fork gives module labels, derived from the theme's
+	 * own colours so it works on either. */
+	{
+		const gchar *hdr_fg = settings.darktheme ? "#E6C989" : "#8A6D1E";
+		gchar *hdr_bg = blend_hex_color(settings.bible_bg_color, hdr_fg, 0.22);
+
+		for (modidx = 0; settings.parallel_list[modidx]; ++modidx) {
+			const char *abbreviation = main_name_to_abbrev(settings.parallel_list[modidx]);
+			snprintf(buf, 499,
+				 "<th width=\"%d%%\" bgcolor=\"%s\"><font color=\"%s\" size=\"%+d\"><b>%s</b></font></th>",
+				 fraction,
+				 hdr_bg,
+				 hdr_fg,
+				 settings.verse_num_font_size + settings.base_font_size,
+				 (abbreviation ? abbreviation : settings.parallel_list[modidx]));
+			text += buf;
+		}
+		g_free(hdr_bg);
 	}
 
 	text += "</tr> </thead> <tbody>";
 	interpolate_parallel_display(control, control_name, text, settings.cvparallel, parallel_count, fraction);
 	text += "</tbody> </table> </div> </body> </html>";
+
+	if (parallel_count_out)
+		*parallel_count_out = parallel_count;
+	return TRUE;
+}
+
+void main_update_parallel_page_detached(void)
+{
+	SWBuf text("");
+	gchar buf[500];
+	gint parallel_count = 0;
+
+	if (!widgets.html_parallel_dialog ||
+	    !gtk_widget_get_realized(GTK_WIDGET(widgets.html_parallel_dialog)))
+		return;
+
+	settings.cvparallel = settings.currentverse;
+	if (!parallel_build_html(text, &parallel_count))
+		return;
 
 	snprintf(buf, 499, "%d", settings.intCurVerse);
 
@@ -1074,6 +1190,33 @@ void main_update_parallel_page_detached(void)
 						      GDK_WINDOW(gtk_widget_get_window(widgets.html_parallel_dialog)))
 				: (char *)text.c_str()),
 		   widgets.html_parallel_dialog, NULL, buf);
+}
+
+/* Renders the verse-aligned comparison into the main reading pane,
+ * in place of the ordinary single-module chapter. Only reachable from
+ * reading mode (see main_display_bible()), where the sidebar, tabs and
+ * previewer are already out of the way and the columns get the full
+ * width of the window.
+ *
+ * Costs what the table costs: about 1.3 ms per cell, so ~80 ms for a
+ * 31-verse chapter against two versions and ~470 ms for Psalm 119.
+ * Measured, and accepted as the price of verse-by-verse alignment. */
+gboolean main_reading_compare_render(const char *key)
+{
+	SWBuf text("");
+	gchar buf[500];
+
+	if (!widgets.html_text ||
+	    !gtk_widget_get_realized(GTK_WIDGET(widgets.html_text)))
+		return FALSE;
+
+	settings.cvparallel = (gchar *)(key ? key : settings.currentverse);
+	if (!parallel_build_html(text, NULL))
+		return FALSE;
+
+	snprintf(buf, 499, "%d", settings.intCurVerse);
+	HtmlOutput((char *)text.c_str(), widgets.html_text, NULL, buf);
+	return TRUE;
 }
 
 /******************************************************************************
