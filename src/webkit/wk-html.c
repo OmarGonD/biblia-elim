@@ -87,6 +87,7 @@ typedef struct {
 	WkHtml *html;
 	GtkTextBuffer *buf;
 	Style st;
+	GPtrArray *kids;	/* PROTOTIPO: (anchor, widget) diferidos */
 	gboolean skip;
 	gboolean at_line_start;
 	gchar *body_bg;
@@ -524,7 +525,7 @@ is_block(const char *n)
  * "clicked" handler used to build, so the click is served by
  * on_button_press()'s existing href path, the hand cursor by
  * on_motion(), and nothing is allocated per verse beyond the link tag
- * itself (which load_html() now reclaims -- see clear_load_tags()).
+ * itself, which goes away with the buffer on the next load.
  * Colors match what on_vtools_icon_draw() painted: muted by default,
  * gold where the margin stripe used to mark "this verse has a note". */
 static void
@@ -607,7 +608,11 @@ insert_il_table(ParseCtx *ctx, const char *key)
 	box = gui_interlineal_tabla_widget(key);
 	if (!box)
 		return;
-	gtk_text_view_add_child_at_anchor(ctx->html->priv->view, box, anchor);
+	if (ctx->kids) {
+		g_ptr_array_add(ctx->kids, anchor);
+		g_ptr_array_add(ctx->kids, box);
+	} else
+		gtk_text_view_add_child_at_anchor(ctx->html->priv->view, box, anchor);
 	g_signal_connect_object(GTK_WIDGET(ctx->html->priv->view), "size-allocate",
 				G_CALLBACK(il_table_fit), box, 0);
 	gtk_widget_get_allocation(GTK_WIDGET(ctx->html->priv->view), &alloc);
@@ -685,7 +690,11 @@ insert_hr(ParseCtx *ctx, const char *color_attr)
 	sep = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
 	style_hr_separator(sep, color);
 
-	gtk_text_view_add_child_at_anchor(ctx->html->priv->view, sep, anchor);
+	if (ctx->kids) {
+		g_ptr_array_add(ctx->kids, anchor);
+		g_ptr_array_add(ctx->kids, sep);
+	} else
+		gtk_text_view_add_child_at_anchor(ctx->html->priv->view, sep, anchor);
 	g_signal_connect_object(GTK_WIDGET(ctx->html->priv->view), "size-allocate",
 				G_CALLBACK(hr_fit), sep, 0);
 	gtk_widget_get_allocation(GTK_WIDGET(ctx->html->priv->view), &alloc);
@@ -993,7 +1002,11 @@ insert_table(ParseCtx *ctx, xmlNode *table_node)
 
 	gtk_text_buffer_get_end_iter(ctx->buf, &iter);
 	anchor = gtk_text_buffer_create_child_anchor(ctx->buf, &iter);
-	gtk_text_view_add_child_at_anchor(ctx->html->priv->view, grid, anchor);
+	if (ctx->kids) {
+		g_ptr_array_add(ctx->kids, anchor);
+		g_ptr_array_add(ctx->kids, grid);
+	} else
+		gtk_text_view_add_child_at_anchor(ctx->html->priv->view, grid, anchor);
 	g_signal_connect_object(GTK_WIDGET(ctx->html->priv->view), "size-allocate",
 				G_CALLBACK(table_fit), grid, 0);
 	gtk_widget_get_allocation(GTK_WIDGET(ctx->html->priv->view), &alloc);
@@ -1244,65 +1257,6 @@ links_reset(WkHtmlPrivate *priv)
 	g_array_set_size(priv->links, 0);
 }
 
-/* Same, for a live buffer: the marks have to come out of it too,
- * otherwise they pile up across reloads. */
-static void
-clear_anchors(WkHtmlPrivate *priv)
-{
-	guint i;
-	if (!priv->anchor_list)
-		return;
-	for (i = 0; i < priv->anchor_list->len; i++) {
-		Anchor *a = g_ptr_array_index(priv->anchor_list, i);
-		if (a->mark && GTK_IS_TEXT_MARK(a->mark) &&
-		    !gtk_text_mark_get_deleted(a->mark))
-			gtk_text_buffer_delete_mark(priv->buffer, a->mark);
-	}
-	free_anchor_list(priv);
-}
-
-static void
-collect_hl_tag(GtkTextTag *tag, gpointer data)
-{
-	gchar *name = NULL;
-
-	g_object_get(G_OBJECT(tag), "name", &name, NULL);
-	if (name && g_str_has_prefix(name, "hl:"))
-		g_ptr_array_add((GPtrArray *)data, tag);
-	g_free(name);
-}
-
-/* Tags created while parsing one document: one per distinct href (see
- * apply_style_tags()) plus one per highlight id (hl_tag()). Both were
- * only ever dropped at finalize, so a session that browsed a few
- * chapters kept every link tag of every verse it had ever rendered
- * alive in a single tag table -- tens of thousands of GtkTextTag
- * objects after a long read, each one a GObject carrying a full
- * GtkTextAttributes. The buffer's text is already gone by the time we
- * run, so nothing references them any more; the next parse recreates
- * exactly the ones this document needs.
- *
- * Link tags no longer exist -- an href is recorded in priv->links by
- * offset instead of getting a tag of its own -- so only the highlight
- * ones are left to reclaim here. */
-static void
-clear_load_tags(WkHtmlPrivate *priv)
-{
-	GtkTextTagTable *table = gtk_text_buffer_get_tag_table(priv->buffer);
-	GPtrArray *stale;
-	guint i;
-
-	/* Highlight tags are not tracked anywhere, so sweep the table by
-	 * name prefix. Collect first: the table must not be modified from
-	 * inside gtk_text_tag_table_foreach(). */
-	stale = g_ptr_array_new();
-	gtk_text_tag_table_foreach(table, collect_hl_tag, stale);
-	for (i = 0; i < stale->len; i++)
-		gtk_text_tag_table_remove(table,
-					  GTK_TEXT_TAG(g_ptr_array_index(stale, i)));
-	g_ptr_array_free(stale, TRUE);
-}
-
 static void
 apply_body_colors(WkHtml *html, const char *bg, const char *fg)
 {
@@ -1319,6 +1273,24 @@ apply_body_colors(WkHtml *html, const char *bg, const char *fg)
 	g_free(css);
 }
 
+/* Hands the finished buffer to the view and puts back the children
+ * that had to wait for it. */
+static void
+attach_buffer(WkHtmlPrivate *priv, GtkTextBuffer *buf, GPtrArray *kids)
+{
+	guint i;
+
+	gtk_text_view_set_buffer(priv->view, buf);
+	g_object_unref(buf);	/* the view holds the reference now */
+
+	for (i = 0; i + 1 < kids->len; i += 2)
+		gtk_text_view_add_child_at_anchor(
+		    priv->view,
+		    GTK_WIDGET(g_ptr_array_index(kids, i + 1)),
+		    GTK_TEXT_CHILD_ANCHOR(g_ptr_array_index(kids, i)));
+	g_ptr_array_free(kids, TRUE);
+}
+
 static void
 load_html(WkHtml *html)
 {
@@ -1326,22 +1298,43 @@ load_html(WkHtml *html)
 	ParseCtx ctx;
 	xmlNode *root;
 	WkHtmlPrivate *priv = html->priv;
-	GtkTextIter start, end;
+	GtkTextBuffer *fresh;
+	GPtrArray *kids;
 
-	ensure_stock_tags(priv->buffer);
-	clear_anchors(priv);
-	gtk_text_buffer_get_bounds(priv->buffer, &start, &end);
-	gtk_text_buffer_delete(priv->buffer, &start, &end);
-	/* after the delete: no text refers to these tags any more. */
-	clear_load_tags(priv);
+	/* Build into a buffer that is not yet the view's, and hand it over
+	 * once it is finished.
+	 *
+	 * Filling the live buffer made GTK re-validate the layout on every
+	 * insertion, which for a whole book is tens of thousands of them:
+	 * Psalms spent 518 ms here against 157 ms building offline, better
+	 * than three times faster for the same text, byte for byte.
+	 *
+	 * Starting from a new buffer also disposes of the previous
+	 * document's text, marks and entire tag table in one drop, so
+	 * there is nothing to unpick by hand.
+	 *
+	 * Child widgets are the one thing that cannot be added early --
+	 * gtk_text_view_add_child_at_anchor() wants an anchor that belongs
+	 * to the view's own buffer, and doing it anyway loses them
+	 * silently (measured: 150 separators in Psalms became 0). They are
+	 * collected while walking and attached below, once the buffer is
+	 * in place. */
+	fresh = gtk_text_buffer_new(NULL);
+	free_anchor_list(priv);
 	links_reset(priv);
+	priv->buffer = fresh;
+	ensure_stock_tags(fresh);
+	kids = g_ptr_array_new();
 
-	if (!priv->content)
+	if (!priv->content) {
+		attach_buffer(priv, fresh, kids);
 		return;
+	}
 
 	memset(&ctx, 0, sizeof(ctx));
 	ctx.html = html;
 	ctx.buf = priv->buffer;
+	ctx.kids = kids;
 	ctx.at_line_start = TRUE;
 	ctx.st.scale = 1.0;
 
@@ -1351,12 +1344,14 @@ load_html(WkHtml *html)
 				 HTML_PARSE_NOWARNING | HTML_PARSE_NONET);
 	if (!doc) {
 		gtk_text_buffer_set_text(priv->buffer, priv->content, -1);
+		attach_buffer(priv, fresh, kids);
 		return;
 	}
 	root = xmlDocGetRootElement(doc);
 	walk_node(&ctx, root);
 	xmlFreeDoc(doc);
 
+	attach_buffer(priv, fresh, kids);
 	apply_body_colors(html, ctx.body_bg, ctx.body_fg);
 	style_clear(&ctx.st);
 	g_free(ctx.body_bg);
