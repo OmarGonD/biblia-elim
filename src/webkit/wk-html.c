@@ -47,6 +47,7 @@ static GObjectClass *parent_class = NULL;
 typedef struct {
 	gchar *name;
 	GtkTextMark *mark;
+	gint off;		/* dónde va la marca; se coloca al final */
 } Anchor;
 
 /* A link's reach in the buffer. Offsets are stable for as long as the
@@ -95,11 +96,34 @@ typedef struct {
 	GtkTextTag *tag;
 } ColorMemo;
 
+/* Un tramo de texto y la etiqueta que le toca, en offsets de carácter.
+ * Se anotan mientras se recorre el documento y se aplican todos juntos
+ * cuando el texto ya está dentro. */
+typedef struct {
+	GtkTextTag *tag;
+	gint start;
+	gint end;
+} TagSpan;
+
+/* Las etiquetas fijas del buffer, resueltas una vez por documento en vez
+ * de buscarlas por nombre en cada tramo. */
+typedef struct {
+	GtkTextTag *bold, *italic, *underline, *strike;
+	GtkTextTag *sup, *sub, *small, *big;
+	GtkTextTag *center, *right;
+	GtkTextTag *ilblock, *illabel, *ilorig, *ilorig_he;
+} StockTags;
+
 typedef struct {
 	WkHtml *html;
 	GtkTextBuffer *buf;
 	Style st;
 	GString *scratch;	/* texto normalizado; se reusa en cada nodo */
+	GString *pending;	/* texto aún no volcado al buffer */
+	gint pend_chars;	/* caracteres en pending */
+	gint base;		/* offset del buffer donde caerá pending[0] */
+	GArray *spans;		/* TagSpan[]: etiquetado diferido */
+	StockTags tags;
 	ColorMemo memo[COLOR_SLOTS];
 	GPtrArray *kids;	/* PROTOTIPO: (anchor, widget) diferidos */
 	gboolean skip;
@@ -118,6 +142,8 @@ static void walk_node(ParseCtx *ctx, xmlNode *node);
 static gchar *iter_href(WkHtml *html, const GtkTextIter *iter);
 static void insert_verse_tools_chip(ParseCtx *ctx, const char *key, gboolean has_note);
 
+static GtkTextTag *hl_tag(WkHtml *html, const gchar *id, const gchar *color,
+			  gboolean create);
 static void wk_html_add_scroll(WkHtml *html);
 static void wk_html_class_init(WkHtmlClass *klass);
 static void wk_html_init(WkHtml *html);
@@ -256,6 +282,114 @@ color_tag_memo(ParseCtx *ctx, gint slot, const char *prefix,
 	return m->tag;
 }
 
+/* El texto no se escribe en el buffer nodo a nodo, sino que se acumula y
+ * se vuelca de una vez.
+ *
+ * Un capítulo con números de Strong trae más de mil tramos de texto, y
+ * cada gtk_text_buffer_insert() emite señales y remueve el árbol del
+ * buffer: eran 4,4 ms de los 9,8 que costaba recorrer Salmos 119, y no
+ * había forma de abaratar la llamada, sólo de hacerla una vez.
+ *
+ * Lo que necesitaba un iterador de verdad en mitad del camino -- las
+ * etiquetas, las marcas de ancla y las anclas de los widgets -- se anota
+ * por offset de carácter y se resuelve al final, cuando el texto ya está
+ * dentro. Para que esos offsets valgan, el hueco de cada widget se
+ * reserva ya en el texto con un U+FFFC, que luego se cambia por su ancla
+ * uno por uno. */
+
+static gint
+ctx_offset(ParseCtx *ctx)
+{
+	return ctx->base + ctx->pend_chars;
+}
+
+static void
+ctx_append(ParseCtx *ctx, const char *text, gssize len)
+{
+	if (len < 0)
+		len = (gssize)strlen(text);
+	if (!len)
+		return;
+	g_string_append_len(ctx->pending, text, len);
+	ctx->pend_chars += (gint)g_utf8_strlen(text, len);
+}
+
+static void
+ctx_flush(ParseCtx *ctx)
+{
+	GtkTextIter end;
+
+	if (!ctx->pending->len)
+		return;
+	gtk_text_buffer_get_end_iter(ctx->buf, &end);
+	gtk_text_buffer_insert(ctx->buf, &end, ctx->pending->str,
+			       (gint)ctx->pending->len);
+	ctx->base += ctx->pend_chars;
+	ctx->pend_chars = 0;
+	g_string_set_size(ctx->pending, 0);
+}
+
+static void
+span_add(ParseCtx *ctx, GtkTextTag *tag, gint start, gint end)
+{
+	TagSpan span;
+
+	if (!tag || start >= end)
+		return;
+	span.tag = tag;
+	span.start = start;
+	span.end = end;
+	g_array_append_val(ctx->spans, span);
+}
+
+static void
+stock_tags_fill(GtkTextBuffer *buf, StockTags *t)
+{
+	GtkTextTagTable *tt = gtk_text_buffer_get_tag_table(buf);
+
+	t->bold = gtk_text_tag_table_lookup(tt, "bold");
+	t->italic = gtk_text_tag_table_lookup(tt, "italic");
+	t->underline = gtk_text_tag_table_lookup(tt, "underline");
+	t->strike = gtk_text_tag_table_lookup(tt, "strike");
+	t->sup = gtk_text_tag_table_lookup(tt, "sup");
+	t->sub = gtk_text_tag_table_lookup(tt, "sub");
+	t->small = gtk_text_tag_table_lookup(tt, "small");
+	t->big = gtk_text_tag_table_lookup(tt, "big");
+	t->center = gtk_text_tag_table_lookup(tt, "center");
+	t->right = gtk_text_tag_table_lookup(tt, "right");
+	t->ilblock = gtk_text_tag_table_lookup(tt, "ilblock");
+	t->illabel = gtk_text_tag_table_lookup(tt, "illabel");
+	t->ilorig = gtk_text_tag_table_lookup(tt, "ilorig");
+	t->ilorig_he = gtk_text_tag_table_lookup(tt, "ilorig-he");
+}
+
+/* Los tramos salen en orden de documento, así que se aplican paseando un
+ * solo iterador hacia delante en vez de bajar el árbol por cada offset. */
+static void
+spans_apply(GtkTextBuffer *buf, GArray *spans)
+{
+	GtkTextIter s, e;
+	gint cursor = 0;
+	guint i;
+
+	if (!spans->len)
+		return;
+	gtk_text_buffer_get_start_iter(buf, &s);
+	for (i = 0; i < spans->len; i++) {
+		TagSpan *sp = &g_array_index(spans, TagSpan, i);
+
+		if (sp->start < cursor) {	/* fuera de orden: al árbol */
+			gtk_text_buffer_get_iter_at_offset(buf, &s, sp->start);
+		} else {
+			gtk_text_iter_forward_chars(&s, sp->start - cursor);
+		}
+		cursor = sp->start;
+		e = s;
+		gtk_text_iter_forward_chars(&e, sp->end - sp->start);
+		gtk_text_buffer_apply_tag(buf, sp->tag, &s, &e);
+	}
+}
+
 static void
 ensure_il_tags(GtkTextBuffer *buf)
 {
@@ -322,43 +456,44 @@ ensure_stock_tags(GtkTextBuffer *buf)
 }
 
 static void
-apply_style_tags(ParseCtx *ctx, GtkTextIter *s, GtkTextIter *e)
+record_style_spans(ParseCtx *ctx, gint start, gint end)
 {
-	GtkTextBuffer *buf = ctx->buf;
 	Style *st = &ctx->st;
+	StockTags *t = &ctx->tags;
 	GtkTextTag *tag;
 
+	if (start >= end)
+		return;
 	if (st->bold)
-		gtk_text_buffer_apply_tag_by_name(buf, "bold", s, e);
+		span_add(ctx, t->bold, start, end);
 	if (st->italic)
-		gtk_text_buffer_apply_tag_by_name(buf, "italic", s, e);
+		span_add(ctx, t->italic, start, end);
 	if (st->underline)
-		gtk_text_buffer_apply_tag_by_name(buf, "underline", s, e);
+		span_add(ctx, t->underline, start, end);
 	if (st->strike)
-		gtk_text_buffer_apply_tag_by_name(buf, "strike", s, e);
+		span_add(ctx, t->strike, start, end);
 	if (st->sup)
-		gtk_text_buffer_apply_tag_by_name(buf, "sup", s, e);
+		span_add(ctx, t->sup, start, end);
 	if (st->sub)
-		gtk_text_buffer_apply_tag_by_name(buf, "sub", s, e);
+		span_add(ctx, t->sub, start, end);
 	if (st->small)
-		gtk_text_buffer_apply_tag_by_name(buf, "small", s, e);
+		span_add(ctx, t->small, start, end);
 	if (st->big)
-		gtk_text_buffer_apply_tag_by_name(buf, "big", s, e);
+		span_add(ctx, t->big, start, end);
 	if (st->center)
-		gtk_text_buffer_apply_tag_by_name(buf, "center", s, e);
+		span_add(ctx, t->center, start, end);
 	if (st->right)
-		gtk_text_buffer_apply_tag_by_name(buf, "right", s, e);
+		span_add(ctx, t->right, start, end);
 	if (st->ilblock)
-		gtk_text_buffer_apply_tag_by_name(buf, "ilblock", s, e);
+		span_add(ctx, t->ilblock, start, end);
 	if (st->illabel)
-		gtk_text_buffer_apply_tag_by_name(buf, "illabel", s, e);
+		span_add(ctx, t->illabel, start, end);
 	if (st->ilorig)
-		gtk_text_buffer_apply_tag_by_name(buf,
-						 st->ilrtl ? "ilorig-he" : "ilorig",
-						 s, e);
+		span_add(ctx, st->ilrtl ? t->ilorig_he : t->ilorig, start, end);
 	if (st->hl_id)
-		wk_html_highlight_apply(ctx->html, s, e, st->hl_id,
-					st->bg ? st->bg : "#FFEB3B");
+		span_add(ctx, hl_tag(ctx->html, st->hl_id,
+				     st->bg ? st->bg : "#FFEB3B", TRUE),
+			 start, end);
 	if (st->href) {
 		/* The href lives in a side index keyed by buffer offset,
 		 * not in a GtkTextTag of its own. One tag per distinct link
@@ -370,32 +505,28 @@ apply_style_tags(ParseCtx *ctx, GtkTextIter *s, GtkTextIter *e)
 		Link lk;
 		const char *link_fg = st->fg ? st->fg : "#2C4A6E";
 
-		lk.start = gtk_text_iter_get_offset(s);
-		lk.end = gtk_text_iter_get_offset(e);
+		lk.start = start;
+		lk.end = end;
 		lk.href = g_strdup(st->href);
 		g_array_append_val(ctx->html->priv->links, lk);
 
 		tag = color_tag_memo(ctx, COLOR_SLOT_FG, "fg", link_fg,
 				     "foreground");
-		if (tag)
-			gtk_text_buffer_apply_tag(buf, tag, s, e);
+		span_add(ctx, tag, start, end);
 	}
 	if (st->fg) {
 		tag = color_tag_memo(ctx, COLOR_SLOT_FG, "fg", st->fg,
 				     "foreground");
-		if (tag)
-			gtk_text_buffer_apply_tag(buf, tag, s, e);
+		span_add(ctx, tag, start, end);
 	}
 	if (st->bg) {
 		tag = color_tag_memo(ctx, COLOR_SLOT_BG, "bg", st->bg,
 				     "background");
-		if (tag)
-			gtk_text_buffer_apply_tag(buf, tag, s, e);
+		span_add(ctx, tag, start, end);
 		if (st->para_bg) {
-			tag = color_tag_memo(ctx, COLOR_SLOT_PBG, "pbg", st->bg,
-					     "paragraph-background");
-			if (tag)
-				gtk_text_buffer_apply_tag(buf, tag, s, e);
+			tag = color_tag_memo(ctx, COLOR_SLOT_PBG, "pbg",
+					     st->bg, "paragraph-background");
+			span_add(ctx, tag, start, end);
 		}
 	}
 }
@@ -418,7 +549,6 @@ looks_like_markup(const char *t)
 static void
 insert_text(ParseCtx *ctx, const char *text)
 {
-	GtkTextIter start, end;
 	gint off;
 	const gchar *p, *run;
 	GString *norm;
@@ -477,26 +607,21 @@ insert_text(ParseCtx *ctx, const char *text)
 			return;
 	}
 
-	gtk_text_buffer_get_end_iter(ctx->buf, &end);
-	off = gtk_text_iter_get_offset(&end);
-	gtk_text_buffer_insert(ctx->buf, &end, norm->str, (gint)norm->len);
-	gtk_text_buffer_get_iter_at_offset(ctx->buf, &start, off);
-	gtk_text_buffer_get_end_iter(ctx->buf, &end);
-	apply_style_tags(ctx, &start, &end);
+	off = ctx_offset(ctx);
+	ctx_append(ctx, norm->str, (gssize)norm->len);
+	record_style_spans(ctx, off, ctx_offset(ctx));
 	ctx->at_line_start = FALSE;
 }
 
 static void
 insert_break(ParseCtx *ctx, gboolean para)
 {
-	GtkTextIter end;
 	if (ctx->skip)
 		return;
-	gtk_text_buffer_get_end_iter(ctx->buf, &end);
 	if (para && !ctx->at_line_start)
-		gtk_text_buffer_insert(ctx->buf, &end, "\n\n", 2);
+		ctx_append(ctx, "\n\n", 2);
 	else if (!ctx->at_line_start)
-		gtk_text_buffer_insert(ctx->buf, &end, "\n", 1);
+		ctx_append(ctx, "\n", 1);
 	ctx->at_line_start = TRUE;
 }
 
@@ -504,21 +629,16 @@ static void
 place_anchor(ParseCtx *ctx, const char *name)
 {
 	Anchor *a;
-	GtkTextIter end;
-	gchar *key;
 
 	if (!name || !*name)
 		return;
 	if (g_hash_table_lookup(ctx->html->priv->anchor_ht, name))
 		return;
-	gtk_text_buffer_get_end_iter(ctx->buf, &end);
-	key = g_strdup_printf("m:%s", name);
 	a = g_new0(Anchor, 1);
 	a->name = g_strdup(name);
-	a->mark = gtk_text_buffer_create_mark(ctx->buf, key, &end, TRUE);
+	a->off = ctx_offset(ctx);
 	g_ptr_array_add(ctx->html->priv->anchor_list, a);
 	g_hash_table_insert(ctx->html->priv->anchor_ht, g_strdup(name), a);
-	g_free(key);
 }
 
 static const char *
@@ -604,6 +724,30 @@ insert_verse_tools_chip(ParseCtx *ctx, const char *key, gboolean has_note)
  * created dragged the whole text leftwards as soon as anything
  * scrolled it. Whole-book rendering made it constant: one <hr> after
  * every chapter. */
+/* Reserva el sitio del widget: un U+FFFC en el texto acumulado y su
+ * offset apuntado junto al widget. anchors_from_placeholders() cambia
+ * después cada hueco por un ancla de verdad, que ocupa lo mismo, así que
+ * los offsets que ya se anotaron siguen valiendo. */
+static void
+place_child(ParseCtx *ctx, GtkWidget *widget)
+{
+	GtkTextIter iter;
+	GtkTextChildAnchor *anchor;
+
+	if (ctx->kids) {
+		g_ptr_array_add(ctx->kids, GINT_TO_POINTER(ctx_offset(ctx)));
+		g_ptr_array_add(ctx->kids, widget);
+		ctx_append(ctx, "\xEF\xBF\xBC", 3);	/* U+FFFC */
+		return;
+	}
+	/* sin lista de diferidos no hay a quién entregárselos luego */
+	ctx_flush(ctx);
+	gtk_text_buffer_get_end_iter(ctx->buf, &iter);
+	anchor = gtk_text_buffer_create_child_anchor(ctx->buf, &iter);
+	ctx->base++;
+	gtk_text_view_add_child_at_anchor(ctx->html->priv->view, widget, anchor);
+}
+
 static gint
 child_avail_width(GtkWidget *view, GdkRectangle *alloc)
 {
@@ -631,24 +775,16 @@ il_table_fit(GtkWidget *view, GdkRectangle *alloc, GtkWidget *box)
 static void
 insert_il_table(ParseCtx *ctx, const char *key)
 {
-	GtkTextIter iter;
-	GtkTextChildAnchor *anchor;
 	GtkWidget *box;
 	GtkAllocation alloc;
 
 	if (!ctx->html || !ctx->html->priv->view || !key || !*key)
 		return;
 	insert_break(ctx, TRUE);
-	gtk_text_buffer_get_end_iter(ctx->buf, &iter);
-	anchor = gtk_text_buffer_create_child_anchor(ctx->buf, &iter);
 	box = gui_interlineal_tabla_widget(key);
 	if (!box)
 		return;
-	if (ctx->kids) {
-		g_ptr_array_add(ctx->kids, anchor);
-		g_ptr_array_add(ctx->kids, box);
-	} else
-		gtk_text_view_add_child_at_anchor(ctx->html->priv->view, box, anchor);
+	place_child(ctx, box);
 	g_signal_connect_object(GTK_WIDGET(ctx->html->priv->view), "size-allocate",
 				G_CALLBACK(il_table_fit), box, 0);
 	gtk_widget_get_allocation(GTK_WIDGET(ctx->html->priv->view), &alloc);
@@ -708,8 +844,6 @@ style_hr_separator(GtkWidget *sep, const char *color)
 static void
 insert_hr(ParseCtx *ctx, const char *color_attr)
 {
-	GtkTextIter iter;
-	GtkTextChildAnchor *anchor;
 	GtkWidget *sep;
 	GtkAllocation alloc;
 	const char *color = (color_attr && *color_attr) ? color_attr : ctx->st.fg;
@@ -720,17 +854,10 @@ insert_hr(ParseCtx *ctx, const char *color_attr)
 		return;
 
 	insert_break(ctx, TRUE);
-	gtk_text_buffer_get_end_iter(ctx->buf, &iter);
-	anchor = gtk_text_buffer_create_child_anchor(ctx->buf, &iter);
 
 	sep = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
 	style_hr_separator(sep, color);
-
-	if (ctx->kids) {
-		g_ptr_array_add(ctx->kids, anchor);
-		g_ptr_array_add(ctx->kids, sep);
-	} else
-		gtk_text_view_add_child_at_anchor(ctx->html->priv->view, sep, anchor);
+	place_child(ctx, sep);
 	g_signal_connect_object(GTK_WIDGET(ctx->html->priv->view), "size-allocate",
 				G_CALLBACK(hr_fit), sep, 0);
 	gtk_widget_get_allocation(GTK_WIDGET(ctx->html->priv->view), &alloc);
@@ -951,8 +1078,6 @@ static void
 insert_table(ParseCtx *ctx, xmlNode *table_node)
 {
 	GPtrArray *rows;
-	GtkTextIter iter;
-	GtkTextChildAnchor *anchor;
 	GtkWidget *grid;
 	GtkAllocation alloc;
 	gdouble *pct;
@@ -1032,13 +1157,7 @@ insert_table(ParseCtx *ctx, xmlNode *table_node)
 	}
 	g_ptr_array_free(rows, TRUE);
 
-	gtk_text_buffer_get_end_iter(ctx->buf, &iter);
-	anchor = gtk_text_buffer_create_child_anchor(ctx->buf, &iter);
-	if (ctx->kids) {
-		g_ptr_array_add(ctx->kids, anchor);
-		g_ptr_array_add(ctx->kids, grid);
-	} else
-		gtk_text_view_add_child_at_anchor(ctx->html->priv->view, grid, anchor);
+	place_child(ctx, grid);
 	g_signal_connect_object(GTK_WIDGET(ctx->html->priv->view), "size-allocate",
 				G_CALLBACK(table_fit), grid, 0);
 	gtk_widget_get_allocation(GTK_WIDGET(ctx->html->priv->view), &alloc);
@@ -1305,6 +1424,51 @@ apply_body_colors(WkHtml *html, const char *bg, const char *fg)
 	g_free(css);
 }
 
+/* Cambia cada hueco reservado por el ancla de widget que le toca. GTK no
+ * sabe convertir un carácter ya escrito en ancla, así que hay que quitar
+ * el hueco y dejar que cree el suyo; como ocupa lo mismo, ningún offset
+ * anotado se mueve. */
+static void
+anchors_from_placeholders(GtkTextBuffer *buf, GPtrArray *kids)
+{
+	guint i;
+
+	for (i = 0; i + 1 < kids->len; i += 2) {
+		gint off = GPOINTER_TO_INT(g_ptr_array_index(kids, i));
+		GtkTextIter a, b;
+
+		gtk_text_buffer_get_iter_at_offset(buf, &a, off);
+		b = a;
+		if (!gtk_text_iter_forward_char(&b))
+			continue;
+		gtk_text_buffer_delete(buf, &a, &b);
+		g_ptr_array_index(kids, i) =
+		    gtk_text_buffer_create_child_anchor(buf, &a);
+	}
+}
+
+/* Las marcas de ancla no hacen falta mientras se recorre: se colocan de
+ * una pasada cuando el texto ya está puesto. */
+static void
+anchors_place_marks(ParseCtx *ctx)
+{
+	GPtrArray *list = ctx->html->priv->anchor_list;
+	guint i;
+
+	for (i = 0; list && i < list->len; i++) {
+		Anchor *a = g_ptr_array_index(list, i);
+		GtkTextIter it;
+		gchar *key;
+
+		if (a->mark)
+			continue;
+		gtk_text_buffer_get_iter_at_offset(ctx->buf, &it, a->off);
+		key = g_strdup_printf("m:%s", a->name);
+		a->mark = gtk_text_buffer_create_mark(ctx->buf, key, &it, TRUE);
+		g_free(key);
+	}
+}
+
 /* Hands the finished buffer to the view and puts back the children
  * that had to wait for it. */
 static void
@@ -1370,6 +1534,9 @@ load_html(WkHtml *html)
 	ctx.at_line_start = TRUE;
 	ctx.st.scale = 1.0;
 	ctx.scratch = g_string_sized_new(256);
+	ctx.pending = g_string_sized_new(8192);
+	ctx.spans = g_array_new(FALSE, FALSE, sizeof(TagSpan));
+	stock_tags_fill(fresh, &ctx.tags);
 
 	doc = htmlReadMemory(priv->content, (int)priv->content_len,
 			     "file://", "UTF-8",
@@ -1379,16 +1546,25 @@ load_html(WkHtml *html)
 		gtk_text_buffer_set_text(priv->buffer, priv->content, (gint)priv->content_len);
 		attach_buffer(priv, fresh, kids);
 		g_string_free(ctx.scratch, TRUE);
+		g_string_free(ctx.pending, TRUE);
+		g_array_free(ctx.spans, TRUE);
 		return;
 	}
 	root = xmlDocGetRootElement(doc);
 	walk_node(&ctx, root);
 	xmlFreeDoc(doc);
 
+	ctx_flush(&ctx);
+	spans_apply(ctx.buf, ctx.spans);
+	anchors_place_marks(&ctx);
+	anchors_from_placeholders(ctx.buf, kids);
+
 	attach_buffer(priv, fresh, kids);
 	apply_body_colors(html, ctx.body_bg, ctx.body_fg);
 	style_clear(&ctx.st);
 	g_string_free(ctx.scratch, TRUE);
+	g_string_free(ctx.pending, TRUE);
+	g_array_free(ctx.spans, TRUE);
 	for (int i = 0; i < COLOR_SLOTS; i++)
 		g_free(ctx.memo[i].color);
 	g_free(ctx.body_bg);
