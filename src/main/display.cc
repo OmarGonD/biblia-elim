@@ -2751,7 +2751,19 @@ GTKChapDisp::display(SWModule &imodule)
 	 * this must not be done per-verse inside the render loop. */
 	build_tag_color_map(key);
 
-	if (settings.render_whole_books) {
+	/* The chapter-at-a-time render ends with a single teaser verse of
+	 * the next chapter (getVerseAfter()), so scrolling to the bottom
+	 * stops dead one verse in. Rendering the whole book instead makes
+	 * the scroll continuous, which is what reading wants -- but it is
+	 * not free: measured at 1.9 s for Psalms (2461 verses), paid again
+	 * on every move to another chapter of that book. Too slow to
+	 * impose, so reading_mode_whole_book turns it on for those who
+	 * want continuous reading more than they want fast navigation.
+	 * Never for the comparison: a whole book of nested per-cell views
+	 * would be far worse (~1.3 ms a cell). */
+	if (settings.render_whole_books ||
+	    (settings.reading_mode && settings.reading_mode_whole_book &&
+	     !settings.reading_compare)) {
 #ifdef CHATTY
 		GTimer *t;
 		double d;

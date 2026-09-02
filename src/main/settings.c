@@ -1170,6 +1170,13 @@ if (!settings.morph_heb_lex || strlen(settings.morph_heb_lex) == 0) {
 	settings.reading_mode_width_pct =
 	    CLAMP(settings.reading_mode_width_pct, 30, 100);
 
+	/* Continuous reading: render the whole book instead of one
+	 * chapter, so scrolling past the end of a chapter carries on into
+	 * the next. Off by default -- it costs ~1.9 s on Psalms, paid
+	 * again on each move to another chapter of the same book. */
+	settings.reading_mode_whole_book =
+	    atoi((buf = xml_get_value("misc", "reading_mode_whole_book")) ? buf : "0");
+
 	/* Optional cap on line length, in characters; 0 disables it and
 	 * lets the text fill reading_mode_width_pct. The comfortable
 	 * typographic range is 45-75, which a single column spanning a
