@@ -538,13 +538,32 @@ insert_verse_tools_chip(ParseCtx *ctx, const char *key, gboolean has_note)
 	insert_text(ctx, " ");
 }
 
+/* Width actually available to a child anchored in the text: the
+ * allocation minus the view's own margins. Sizing children from the
+ * bare allocation makes them overflow whenever the margins are wide --
+ * reading mode centres a column with margins of ~490px a side, so a
+ * separator sized to the full 1718px allocation reached 2183px, the
+ * buffer grew wider than the viewport, and the horizontal scrollbar it
+ * created dragged the whole text leftwards as soon as anything
+ * scrolled it. Whole-book rendering made it constant: one <hr> after
+ * every chapter. */
+static gint
+child_avail_width(GtkWidget *view, GdkRectangle *alloc)
+{
+	gint w = alloc->width;
+
+	if (GTK_IS_TEXT_VIEW(view))
+		w -= gtk_text_view_get_left_margin(GTK_TEXT_VIEW(view)) +
+		     gtk_text_view_get_right_margin(GTK_TEXT_VIEW(view));
+	return w;
+}
+
 static void
 il_table_fit(GtkWidget *view, GdkRectangle *alloc, GtkWidget *box)
 {
 	gint w, cur = -1;
 
-	(void)view;
-	w = alloc->width - 52;
+	w = child_avail_width(view, alloc) - 52;
 	if (w < 300)
 		w = 300;
 	gtk_widget_get_size_request(box, &cur, NULL);
@@ -573,7 +592,7 @@ insert_il_table(ParseCtx *ctx, const char *key)
 				G_CALLBACK(il_table_fit), box, 0);
 	gtk_widget_get_allocation(GTK_WIDGET(ctx->html->priv->view), &alloc);
 	if (alloc.width > 80)
-		gtk_widget_set_size_request(box, alloc.width - 52, -1);
+		il_table_fit(GTK_WIDGET(ctx->html->priv->view), &alloc, box);
 	gtk_widget_show_all(box);
 	ctx->at_line_start = FALSE;
 	insert_break(ctx, TRUE);
@@ -585,9 +604,8 @@ insert_il_table(ParseCtx *ctx, const char *key)
 static void
 hr_fit(GtkWidget *view, GdkRectangle *alloc, GtkWidget *sep)
 {
-	gint w = alloc->width - 28;
+	gint w = child_avail_width(view, alloc) - 28;
 
-	(void)view;
 	if (w < 20)
 		w = 20;
 	gtk_widget_set_size_request(sep, w, -1);
@@ -652,7 +670,7 @@ insert_hr(ParseCtx *ctx, const char *color_attr)
 				G_CALLBACK(hr_fit), sep, 0);
 	gtk_widget_get_allocation(GTK_WIDGET(ctx->html->priv->view), &alloc);
 	if (alloc.width > 28)
-		gtk_widget_set_size_request(sep, alloc.width - 28, -1);
+		hr_fit(GTK_WIDGET(ctx->html->priv->view), &alloc, sep);
 	gtk_widget_show(sep);
 	ctx->at_line_start = FALSE;
 	insert_break(ctx, TRUE);
@@ -846,12 +864,11 @@ table_fit(GtkWidget *view, GdkRectangle *alloc, GtkWidget *grid)
 	gint ncols, avail, col;
 	GList *children, *l;
 
-	(void)view;
 	pct = g_object_get_data(G_OBJECT(grid), "elim-col-pct");
 	ncols = GPOINTER_TO_INT(g_object_get_data(G_OBJECT(grid), "elim-ncols"));
 	if (!pct || ncols <= 0)
 		return;
-	avail = alloc->width - 52 - (ncols - 1) * 6;
+	avail = child_avail_width(view, alloc) - 52 - (ncols - 1) * 6;
 	if (avail < ncols * 40)
 		avail = ncols * 40;
 	children = gtk_container_get_children(GTK_CONTAINER(grid));
@@ -961,7 +978,7 @@ insert_table(ParseCtx *ctx, xmlNode *table_node)
 				G_CALLBACK(table_fit), grid, 0);
 	gtk_widget_get_allocation(GTK_WIDGET(ctx->html->priv->view), &alloc);
 	if (alloc.width > 80)
-		table_fit(NULL, &alloc, grid);
+		table_fit(GTK_WIDGET(ctx->html->priv->view), &alloc, grid);
 	gtk_widget_show_all(grid);
 	ctx->at_line_start = FALSE;
 	insert_break(ctx, TRUE);
