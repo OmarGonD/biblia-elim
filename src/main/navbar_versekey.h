@@ -92,21 +92,21 @@ extern NAVBAR_VERSEKEY navbar_parallel;
 
 const char *main_get_valid_key(const char *module_name,
 			       const char *key);
-GtkWidget *main_versekey_drop_down_book_menu(NAVBAR_VERSEKEY
-						 navbar,
-					     gint nb_type,
-					     gpointer dialog,
-					     gpointer editor);
-GtkWidget *main_versekey_drop_down_verse_menu(NAVBAR_VERSEKEY
-						  navbar,
-					      gint nb_type,
-					      gpointer dialog,
-					      gpointer editor);
-GtkWidget *main_versekey_drop_down_chapter_menu(NAVBAR_VERSEKEY
-						    navbar,
-						gint nb_type,
-						gpointer dialog,
-						gpointer editor);
+void main_versekey_popup_book(NAVBAR_VERSEKEY navbar,
+			      gint nb_type,
+			      gpointer dialog,
+			      gpointer editor,
+			      GtkWidget *anchor);
+void main_versekey_popup_verse(NAVBAR_VERSEKEY navbar,
+			       gint nb_type,
+			       gpointer dialog,
+			       gpointer editor,
+			       GtkWidget *anchor);
+void main_versekey_popup_chapter(NAVBAR_VERSEKEY navbar,
+				 gint nb_type,
+				 gpointer dialog,
+				 gpointer editor,
+				 GtkWidget *anchor);
 void main_navbar_versekey_spin_book(NAVBAR_VERSEKEY navbar,
 				    int direction);
 void main_navbar_versekey_spin_chapter(NAVBAR_VERSEKEY navbar,

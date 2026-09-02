@@ -40,32 +40,6 @@
 NAVBAR_VERSEKEY navbar_parallel;
 gboolean sync_on;
 
-/******************************************************************************
- * Name
- *   menu_deactivate_callback
- *
- * Synopsis
- *   #include "gui/navbar_versekey.h"
- *
- *   void menu_deactivate_callback (GtkWidget *widget, gpointer user_data)
- *
- * Description
- *   return toogle button to normal
- *
- * Return value
- *   void
- */
-
-static void menu_deactivate_callback(GtkWidget *widget,
-				     gpointer user_data)
-{
-	GtkWidget *menu_button;
-
-	menu_button = GTK_WIDGET(user_data);
-
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(menu_button),
-				     FALSE);
-}
 
 /******************************************************************************
  * Name
@@ -131,55 +105,14 @@ static gboolean select_book_button_press_callback(GtkWidget *widget,
 						  GdkEventButton *event,
 						  gpointer user_data)
 {
-	GtkWidget *menu = NULL;
+	if ((event->type != GDK_BUTTON_PRESS) || (event->button != 1))
+		return FALSE;
 
-	GTimeVal start_time;
-	GTimeVal end_time;
-#ifdef WIN32
-	glong time_diff;
-	guint32 time_add;
-#endif
-
-	g_get_current_time(&start_time);
-	XI_message(("Start time is: %ld sec %ld mil", start_time.tv_sec,
-		    start_time.tv_usec));
-
-	menu = main_versekey_drop_down_book_menu(navbar_parallel,
-						 NB_PARALLEL, NULL, NULL);
-
-	g_get_current_time(&end_time);
-	XI_message(("End time is: %ld sec %ld mil", end_time.tv_sec,
-		    end_time.tv_usec));
-#ifdef WIN32
-	time_diff =
-	    ((end_time.tv_sec - start_time.tv_sec) * 1000000) +
-	    (end_time.tv_usec - start_time.tv_usec);
-	time_add = 0;
-	if (time_diff > 10000)
-		time_add = (guint32)(time_diff / 1000);
-#endif
-	if (!menu)
-		return 0;
-	g_signal_connect(menu, "deactivate",
-			 G_CALLBACK(menu_deactivate_callback), widget);
-	if ((event->type == GDK_BUTTON_PRESS) && event->button == 1) {
-		gtk_widget_grab_focus(widget);
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget),
-					     TRUE);
-#if GTK_CHECK_VERSION(3, 22, 0)					     
-		gtk_menu_popup_at_widget(GTK_MENU(menu), widget, GDK_GRAVITY_SOUTH_WEST, GDK_GRAVITY_NORTH_WEST, NULL);
-#else
-		gtk_menu_popup(GTK_MENU(menu), NULL, NULL,
-			       menu_position_under, widget, event->button,
-#ifdef WIN32
--			       event->time + time_add);
-#else
-			       event->time);
-#endif
-#endif
-		return TRUE;
-	}
-	return FALSE;
+	gtk_widget_grab_focus(widget);
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
+	main_versekey_popup_book(navbar_parallel, NB_PARALLEL,
+				 NULL, NULL, widget);
+	return TRUE;
 }
 
 /******************************************************************************
@@ -205,29 +138,14 @@ static gboolean select_chapter_button_press_callback(GtkWidget *widget,
 						     GdkEventButton *event,
 						     gpointer user_data)
 {
-	GtkWidget *menu = NULL;
+	if ((event->type != GDK_BUTTON_PRESS) || (event->button != 1))
+		return FALSE;
 
-	menu = main_versekey_drop_down_chapter_menu(navbar_parallel,
-						    NB_PARALLEL,
-						    NULL, NULL);
-	if (!menu)
-		return 0;
-	g_signal_connect(menu, "deactivate",
-			 G_CALLBACK(menu_deactivate_callback), widget);
-	if ((event->type == GDK_BUTTON_PRESS) && event->button == 1) {
-		gtk_widget_grab_focus(widget);
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget),
-					     TRUE);
-#if GTK_CHECK_VERSION(3, 22, 0)
-		gtk_menu_popup_at_widget(GTK_MENU(menu), widget, GDK_GRAVITY_SOUTH_WEST, GDK_GRAVITY_NORTH_WEST, NULL);
-#else
-		gtk_menu_popup(GTK_MENU(menu), NULL, NULL,
-			       menu_position_under, widget, event->button,
-			       event->time);
-#endif
-		return TRUE;
-	}
-	return FALSE;
+	gtk_widget_grab_focus(widget);
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
+	main_versekey_popup_chapter(navbar_parallel, NB_PARALLEL,
+				    NULL, NULL, widget);
+	return TRUE;
 }
 
 /******************************************************************************
@@ -253,28 +171,14 @@ static gboolean select_verse_button_press_callback(GtkWidget *widget,
 						   GdkEventButton *event,
 						   gpointer user_data)
 {
-	GtkWidget *menu = NULL;
+	if ((event->type != GDK_BUTTON_PRESS) || (event->button != 1))
+		return FALSE;
 
-	menu = main_versekey_drop_down_verse_menu(navbar_parallel,
-						  NB_PARALLEL, NULL, NULL);
-	if (!menu)
-		return 0;
-	g_signal_connect(menu, "deactivate",
-			 G_CALLBACK(menu_deactivate_callback), widget);
-	if ((event->type == GDK_BUTTON_PRESS) && event->button == 1) {
-		gtk_widget_grab_focus(widget);
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget),
-					     TRUE);
-#if GTK_CHECK_VERSION(3, 22, 0)
-		gtk_menu_popup_at_widget(GTK_MENU(menu), widget, GDK_GRAVITY_SOUTH_WEST, GDK_GRAVITY_NORTH_WEST, NULL);
-#else
-		gtk_menu_popup(GTK_MENU(menu), NULL, NULL,
-			       menu_position_under, widget, event->button,
-			       event->time);
-#endif 
-		return TRUE;
-	}
-	return FALSE;
+	gtk_widget_grab_focus(widget);
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
+	main_versekey_popup_verse(navbar_parallel, NB_PARALLEL,
+				    NULL, NULL, widget);
+	return TRUE;
 }
 
 /******************************************************************************
