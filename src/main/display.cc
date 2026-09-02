@@ -1599,7 +1599,7 @@ CleanupContent(GString *text,
 void
 CacheHeader(ModuleCache::CacheVerse &cVerse,
 	    SWModule &mod,
-	    GLOBAL_OPS *ops, BackEnd *be)
+	    GLOBAL_OPS *ops, BackEnd *be, bool already_rendered)
 {
 	int x = 0;
 	gchar heading[32];
@@ -1609,9 +1609,18 @@ CacheHeader(ModuleCache::CacheVerse &cVerse,
 
 	cVerse.SetHeader("");
 
+	/* get_entry_attribute() renders the entry itself unless told
+	 * otherwise, and this loop asks it once per heading level per
+	 * verse -- so a caller that had already rendered the text was
+	 * paying to render the whole book a second time, verse by verse.
+	 * Render once here when the caller has not, then read the
+	 * attributes without rendering again. */
+	if (!already_rendered)
+		mod.renderText();
+
 	sprintf(heading, "%d", x);
 	while ((preverse = be->get_entry_attribute("Heading", "Preverse",
-						   heading)) != NULL) {
+						   heading, false)) != NULL) {
 		preverse2 = mod.renderText(preverse);
 		g_string_printf(text,
 				"%s",
@@ -1734,7 +1743,7 @@ GTKEntryDisp::displayByChapter(SWModule &imodule, int columns)
 		}
 
 		if (!cVerse.HeaderIsValid())
-			CacheHeader(cVerse, imodule, ops, backend);
+			CacheHeader(cVerse, imodule, ops, backend, false);
 		if (cache_flags & ModuleCache::Headings) {
 			swbuf.append(settings.imageresize
 					 ? AnalyzeForImageSize(cVerse.GetHeader(), CURRENT_COLUMNS,
@@ -2482,17 +2491,19 @@ GTKChapDisp::RenderOneChapter(SWModule &imodule,
 		 *
 		 * The output order is unchanged: the heading is still
 		 * appended to swbuf before the verse it introduces. */
+		bool just_rendered = false;
 		if (!cVerse.CacheIsValid(cache_flags)) {
 			rework = g_string_new(strongs_or_morph
 						  ? block_render(imodule.renderText().c_str())
 						  : imodule.renderText().c_str());
 			rework = CleanupContent(rework, ops, imodule.getName());
 			cVerse.SetText(rework->str, cache_flags);
+			just_rendered = true;
 		} else
 			rework = g_string_new(cVerse.GetText());
 
 		if (!cVerse.HeaderIsValid())
-			CacheHeader(cVerse, imodule, ops, be);
+			CacheHeader(cVerse, imodule, ops, be, just_rendered);
 
 		if (cache_flags & ModuleCache::Headings) {
 			swbuf.append(settings.imageresize
@@ -3100,7 +3111,7 @@ DialogChapDisp::display(SWModule &imodule)
 			rework = g_string_new(cVerse.GetText());
 
 		if (!cVerse.HeaderIsValid())
-			CacheHeader(cVerse, imodule, ops, be);
+			CacheHeader(cVerse, imodule, ops, be, false);
 
 		if (cache_flags & ModuleCache::Headings)
 			swbuf.append(settings.imageresize
