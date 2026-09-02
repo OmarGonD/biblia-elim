@@ -2471,7 +2471,26 @@ GTKChapDisp::RenderOneChapter(SWModule &imodule,
 		ModuleCache::CacheVerse &cVerse =
 		    ModuleMap[ModuleName][curTest][curBook][thisChapter][k];
 
-		// use the module cache rather than re-accessing Sword.
+		/* Text first, header second. SetText() deliberately drops
+		 * any cached header ("we are setting from scratch:
+		 * neutralize header"), so computing the header before it
+		 * meant throwing the header away moments later, on every
+		 * render, and recomputing it on the next one -- the header
+		 * cache never served a single hit. CacheHeader() asks Sword
+		 * for a Preverse attribute per verse, which measured 185 ms
+		 * of the 220 ms this loop took for Psalms.
+		 *
+		 * The output order is unchanged: the heading is still
+		 * appended to swbuf before the verse it introduces. */
+		if (!cVerse.CacheIsValid(cache_flags)) {
+			rework = g_string_new(strongs_or_morph
+						  ? block_render(imodule.renderText().c_str())
+						  : imodule.renderText().c_str());
+			rework = CleanupContent(rework, ops, imodule.getName());
+			cVerse.SetText(rework->str, cache_flags);
+		} else
+			rework = g_string_new(cVerse.GetText());
+
 		if (!cVerse.HeaderIsValid())
 			CacheHeader(cVerse, imodule, ops, be);
 
@@ -2482,15 +2501,6 @@ GTKChapDisp::RenderOneChapter(SWModule &imodule,
 					 : cVerse.GetHeader() /* left as-is */);
 		} else
 			cVerse.InvalidateHeader();
-
-		if (!cVerse.CacheIsValid(cache_flags)) {
-			rework = g_string_new(strongs_or_morph
-						  ? block_render(imodule.renderText().c_str())
-						  : imodule.renderText().c_str());
-			rework = CleanupContent(rework, ops, imodule.getName());
-			cVerse.SetText(rework->str, cache_flags);
-		} else
-			rework = g_string_new(cVerse.GetText());
 
 		if (*rework->str == '\0')
 			continue;		// no verse content there.
