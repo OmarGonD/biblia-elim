@@ -15,6 +15,16 @@
           <object class="GtkMenu" id="menuitem4_menu">
             <property name="can_focus">False</property>
             <child>
+              <object class="GtkImageMenuItem" id="newjournal">
+                <property name="label" translatable="yes">_Nueva lista de oración</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="use_underline">True</property>
+                <property name="use_stock">True</property>
+                <signal name="activate" handler="gui_menu_prayerlist_popup" swapped="no"/>
+              </object>
+            </child>
+            <child>
               <object class="GtkImageMenuItem" id="open_studypad">
                 <property name="label" translatable="yes">Abrir _bloc de estudio</property>
                 <property name="visible">True</property>
@@ -25,7 +35,7 @@
               </object>
             </child>
             <child>
-              <object class="GtkSeparatorMenuItem" id="separator8">
+              <object class="GtkSeparatorMenuItem" id="separador1">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
               </object>
@@ -51,23 +61,33 @@
               </object>
             </child>
             <child>
-              <object class="GtkSeparatorMenuItem" id="separatormenuitem1">
+              <object class="GtkSeparatorMenuItem" id="separador2">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
               </object>
             </child>
             <child>
-              <object class="GtkImageMenuItem" id="newjournal">
-                <property name="label" translatable="yes">_Nueva lista de oración</property>
+              <object class="GtkImageMenuItem" id="module_manager">
+                <property name="label" translatable="yes">_Instalar Biblias</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="use_underline">True</property>
                 <property name="use_stock">True</property>
-                <signal name="activate" handler="gui_menu_prayerlist_popup" swapped="no"/>
+                <signal name="activate" handler="on_module_manager_activate" swapped="no"/>
               </object>
             </child>
             <child>
-              <object class="GtkSeparatorMenuItem" id="separatormenuitem2">
+              <object class="GtkImageMenuItem" id="preferences">
+                <property name="label" translatable="yes">_Preferencias</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="use_underline">True</property>
+                <property name="use_stock">True</property>
+                <signal name="activate" handler="on_preferences_activate" swapped="no"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparatorMenuItem" id="separador3">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
               </object>
@@ -90,7 +110,7 @@
       <object class="GtkMenuItem" id="menuitem5">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="label" translatable="yes">_Editar</property>
+        <property name="label" translatable="yes">_Estudio</property>
         <property name="use_underline">True</property>
         <child type="submenu">
           <object class="GtkMenu" id="menuitem5_menu">
@@ -116,21 +136,9 @@
               </object>
             </child>
             <child>
-              <object class="GtkMenuItem" id="nube_palabras">
+              <object class="GtkSeparatorMenuItem" id="separador4">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">_Nube de palabras</property>
-                <property name="use_underline">True</property>
-                <signal name="activate" handler="on_nube_palabras_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkMenuItem" id="diccionario">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">_Diccionario</property>
-                <property name="use_underline">True</property>
-                <signal name="activate" handler="on_diccionario_activate" swapped="no"/>
               </object>
             </child>
             <child>
@@ -143,29 +151,45 @@
               </object>
             </child>
             <child>
-              <object class="GtkSeparatorMenuItem" id="separator3">
+              <object class="GtkMenuItem" id="diccionario">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Di_ccionario</property>
+                <property name="use_underline">True</property>
+                <signal name="activate" handler="on_diccionario_activate" swapped="no"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuItem" id="nube_palabras">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">_Nube de palabras</property>
+                <property name="use_underline">True</property>
+                <signal name="activate" handler="on_nube_palabras_activate" swapped="no"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparatorMenuItem" id="separador5">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
               </object>
             </child>
             <child>
-              <object class="GtkImageMenuItem" id="preferences">
-                <property name="label" translatable="yes">_Preferencias</property>
-                <property name="visible">True</property>
+              <object class="GtkMenuItem" id="daily_devotion">
+                <property name="visible">False</property>
                 <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Vista previa de la _devoción diaria</property>
                 <property name="use_underline">True</property>
-                <property name="use_stock">True</property>
-                <signal name="activate" handler="on_preferences_activate" swapped="no"/>
+                <signal name="activate" handler="on_daily_devotion_activate" swapped="no"/>
               </object>
             </child>
             <child>
-              <object class="GtkImageMenuItem" id="module_manager">
-                <property name="label" translatable="yes">_Instalar Biblias</property>
+              <object class="GtkCheckMenuItem" id="read_aloud">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="label" translatable="yes">_Leer en voz alta (Ctrl+R)</property>
                 <property name="use_underline">True</property>
-                <property name="use_stock">True</property>
-                <signal name="activate" handler="on_module_manager_activate" swapped="no"/>
+                <signal name="activate" handler="on_read_aloud_activate" swapped="no"/>
               </object>
             </child>
           </object>
@@ -182,25 +206,10 @@
           <object class="GtkMenu" id="menuitem6_menu">
             <property name="can_focus">False</property>
             <child>
-              <object class="GtkMenuItem" id="daily_devotion">
-                <property name="visible">False</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Vista previa de la _devoción diaria</property>
-                <property name="use_underline">True</property>
-                <signal name="activate" handler="on_daily_devotion_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkSeparatorMenuItem" id="separator2">
-                <property name="visible">False</property>
-                <property name="can_focus">False</property>
-              </object>
-            </child>
-            <child>
               <object class="GtkMenuItem" id="aparencia">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">A_pariencia</property>
+                <property name="label" translatable="yes">_Apariencia</property>
                 <property name="use_underline">True</property>
                 <child type="submenu">
                   <object class="GtkMenu" id="menu_aparencia">
@@ -228,7 +237,7 @@
                       <object class="GtkRadioMenuItem" id="tema_oscuro">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">_Oscuro</property>
+                        <property name="label" translatable="yes">Osc_uro</property>
                         <property name="use_underline">True</property>
                         <property name="draw_as_radio">True</property>
                         <property name="group">tema_omarchy</property>
@@ -256,6 +265,12 @@
                     </child>
                   </object>
                 </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparatorMenuItem" id="separador6">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
               </object>
             </child>
             <child>
@@ -295,58 +310,7 @@
               </object>
             </child>
             <child>
-              <object class="GtkSeparatorMenuItem" id="separator4">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkCheckMenuItem" id="link_tabs">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">_Vincular pestañas</property>
-                <property name="use_underline">True</property>
-                <signal name="activate" handler="on_linked_tabs_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkCheckMenuItem" id="read_aloud">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">_Leer en voz alta (Ctrl+R)</property>
-                <property name="use_underline">True</property>
-                <signal name="activate" handler="on_read_aloud_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkCheckMenuItem" id="show_verse_numbers">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Mostrar _números de versículo</property>
-                <property name="use_underline">True</property>
-                <signal name="activate" handler="on_show_verse_numbers_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkCheckMenuItem" id="highlight_current_verse">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Resaltar versículo _actual</property>
-                <property name="use_underline">True</property>
-                <signal name="activate" handler="on_versehighlight_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkCheckMenuItem" id="highlight_annotated_verses">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Resaltar versículos _anotados</property>
-                <property name="use_underline">True</property>
-                <signal name="activate" handler="on_annotate_highlight_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkSeparatorMenuItem" id="separator1">
+              <object class="GtkSeparatorMenuItem" id="separador7">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
               </object>
@@ -361,11 +325,41 @@
               </object>
             </child>
             <child>
+              <object class="GtkCheckMenuItem" id="show_previewer_in_sidebar">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Vista previa en el _lateral</property>
+                <property name="use_underline">True</property>
+                <signal name="activate" handler="on_side_preview_activate" swapped="no"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparatorMenuItem" id="separador8">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkCheckMenuItem" id="link_tabs">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Vi_ncular pestañas</property>
+                <property name="use_underline">True</property>
+                <signal name="activate" handler="on_linked_tabs_activate" swapped="no"/>
+              </object>
+            </child>
+            <child>
               <object class="GtkCheckMenuItem" id="show_parallel_view_in_a_tab">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Vista _paralela en pestaña</property>
+                <property name="label" translatable="yes">Vista paralela en pe_staña</property>
                 <property name="use_underline">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparatorMenuItem" id="separador10">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
               </object>
             </child>
             <child>
@@ -378,27 +372,45 @@
               </object>
             </child>
             <child>
-              <object class="GtkCheckMenuItem" id="show_previewer_in_sidebar">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Vista previa en el _lateral</property>
-                <property name="use_underline">True</property>
-                <signal name="activate" handler="on_side_preview_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkSeparatorMenuItem" id="separator_reading_mode">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-              </object>
-            </child>
-            <child>
               <object class="GtkCheckMenuItem" id="reading_mode">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Modo _lectura (Ctrl+Mayús+F)</property>
+                <property name="label" translatable="yes">_Modo lectura (Ctrl+Mayús+F)</property>
                 <property name="use_underline">True</property>
                 <signal name="activate" handler="on_reading_mode_activate" swapped="no"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparatorMenuItem" id="separador9">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkCheckMenuItem" id="show_verse_numbers">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Mostrar números de ve_rsículo</property>
+                <property name="use_underline">True</property>
+                <signal name="activate" handler="on_show_verse_numbers_activate" swapped="no"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkCheckMenuItem" id="highlight_current_verse">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Resaltar versículo act_ual</property>
+                <property name="use_underline">True</property>
+                <signal name="activate" handler="on_versehighlight_activate" swapped="no"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkCheckMenuItem" id="highlight_annotated_verses">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Resaltar versículos an_otados</property>
+                <property name="use_underline">True</property>
+                <signal name="activate" handler="on_annotate_highlight_activate" swapped="no"/>
               </object>
             </child>
           </object>
@@ -425,8 +437,24 @@
               </object>
             </child>
             <child>
+              <object class="GtkSeparatorMenuItem" id="separador13">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkImageMenuItem" id="report_bug">
+                <property name="label" translatable="yes">Informar de un _error</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="use_underline">True</property>
+                <property name="use_stock">True</property>
+                <signal name="activate" handler="on_report_bug_activate" swapped="no"/>
+              </object>
+            </child>
+            <child>
               <object class="GtkImageMenuItem" id="mailing_list">
-                <property name="label" translatable="yes">Lista de _correo</property>
+                <property name="label" translatable="yes">_Lista de correo</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="use_underline">True</property>
@@ -445,33 +473,33 @@
               </object>
             </child>
             <child>
-              <object class="GtkImageMenuItem" id="report_bug">
-                <property name="label" translatable="yes">Informar de un _error</property>
+              <object class="GtkSeparatorMenuItem" id="separador11">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkImageMenuItem" id="about_xiphos">
+                <property name="label" translatable="yes">Acerca de _Biblia Elim</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="use_underline">True</property>
                 <property name="use_stock">True</property>
-                <signal name="activate" handler="on_report_bug_activate" swapped="no"/>
+                <signal name="activate" handler="on_about_xiphos_activate" swapped="no"/>
               </object>
             </child>
             <child>
-              <object class="GtkSeparatorMenuItem" id="separator6">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkImageMenuItem" id="about">
-                <property name="label" translatable="yes">Acerca de la _traducción</property>
+              <object class="GtkImageMenuItem" id="view_releases">
+                <property name="label" translatable="yes">_Notas de versión</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="use_underline">True</property>
                 <property name="use_stock">True</property>
-                <signal name="activate" handler="on_about_translation_activate" swapped="no"/>
+                <signal name="activate" handler="on_view_releases_activate" swapped="no"/>
               </object>
             </child>
             <child>
-              <object class="GtkSeparatorMenuItem" id="separator7">
+              <object class="GtkSeparatorMenuItem" id="separador12">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
               </object>
@@ -488,7 +516,7 @@
             </child>
             <child>
               <object class="GtkImageMenuItem" id="about_biblesync">
-                <property name="label" translatable="yes">Acerca de _BibleSync</property>
+                <property name="label" translatable="yes">Acerca de BibleS_ync</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="use_underline">True</property>
@@ -497,23 +525,13 @@
               </object>
             </child>
             <child>
-              <object class="GtkImageMenuItem" id="view_releases">
-                <property name="label" translatable="yes">_Notas de versión</property>
+              <object class="GtkImageMenuItem" id="about">
+                <property name="label" translatable="yes">Acerca de la _traducción</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="use_underline">True</property>
                 <property name="use_stock">True</property>
-                <signal name="activate" handler="on_view_releases_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkImageMenuItem" id="about_xiphos">
-                <property name="label" translatable="yes">Acerca de _Biblia Elim</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="use_underline">True</property>
-                <property name="use_stock">True</property>
-                <signal name="activate" handler="on_about_xiphos_activate" swapped="no"/>
+                <signal name="activate" handler="on_about_translation_activate" swapped="no"/>
               </object>
             </child>
           </object>
