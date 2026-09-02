@@ -83,6 +83,11 @@ typedef struct {
 	gboolean in_repair;
 } ParseCtx;
 
+/* Where the verse being read sits in the viewport: high enough to have
+ * the rest of the passage below it, low enough to keep a couple of
+ * verses of context above rather than pinning it to the top edge. */
+#define READING_FOCUS_YALIGN 0.20
+
 static void walk_node(ParseCtx *ctx, xmlNode *node);
 static void insert_verse_tools_chip(ParseCtx *ctx, const char *key, gboolean has_note);
 
@@ -2160,7 +2165,8 @@ scroll_to_stored_anchor(WkHtml *html)
 	if (a && a->mark && !gtk_text_mark_get_deleted(a->mark))
 		/* Keep the verse clear of the top chrome (Interlinear /
 		 * Comparar strip) instead of pinning it to the edge. */
-		gtk_text_view_scroll_to_mark(priv->view, a->mark, 0.0, TRUE, 0.0, 0.22);
+		gtk_text_view_scroll_to_mark(priv->view, a->mark, 0.0, TRUE, 0.0,
+					     READING_FOCUS_YALIGN);
 }
 
 static gboolean
@@ -2207,8 +2213,23 @@ wk_html_ensure_anchor_visible(WkHtml *html, const gchar *anchor)
 		 * text left after the mark -- that stale position could land
 		 * past all visible text, making the pane look completely
 		 * blank. */
+		/* Align rather than do the minimal scroll. With
+		 * use_align=FALSE this only moved the view when the verse
+		 * had fallen off the edge, so walking forward with the
+		 * arrows left the page still and the highlight creeping
+		 * down it -- measured at 21%, 25%, 28% of the viewport on
+		 * successive presses, then a jump when it hit the bottom.
+		 * Anchoring it at READING_FOCUS_YALIGN keeps the verse you
+		 * are on in the same place, high but not against the top
+		 * edge, with a few lines of context above it.
+		 *
+		 * Safe to always align here because this is the
+		 * navigation path: scroll-driven tracking repaints the band
+		 * through reapply_current_verse_band(), which deliberately
+		 * does not call this. */
 		gtk_text_view_scroll_to_mark(html->priv->view, a->mark,
-					     0.16, FALSE, 0.0, 0.0);
+					     0.0, TRUE, 0.0,
+					     READING_FOCUS_YALIGN);
 }
 
 void
