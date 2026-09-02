@@ -1539,6 +1539,19 @@ on_lectura_sync_scroll_value_changed(GtkAdjustment *adj, gpointer data)
 	    g_timeout_add(READING_FOCUS_DEBOUNCE_MS, on_lectura_sync_scroll_settle, NULL);
 }
 
+/* Verse navigation with the arrows, for when the Bible view has the
+ * focus -- which, while reading, is nearly always. It has to live on
+ * the view itself: the window-level handler in main_window.c
+ * (on_vbox1_key_press_event) sits on a GtkBox, and GTK3 offers key
+ * events to the focused widget first, so a GtkTextView would swallow
+ * Up/Down for its own caret long before that box ever saw them.
+ *
+ * The two handlers therefore cover different focus situations and must
+ * agree on what the keys do. They did not: this one skipped
+ * main_interlineal_bloquea_navegacion(), the guard every other
+ * navigation path consults, so the check meant to be able to pin the
+ * view while the interlinear is open was bypassed on the one path the
+ * reader actually uses. Keep them in step. */
 static gboolean
 on_bible_key_press(GtkWidget *widget, GdkEventKey *event, gpointer user_data)
 {
@@ -1549,6 +1562,11 @@ on_bible_key_press(GtkWidget *widget, GdkEventKey *event, gpointer user_data)
 	(void)user_data;
 	if (state != 0)
 		return FALSE;
+	if (event->keyval == GDK_KEY_Up || event->keyval == GDK_KEY_KP_Up ||
+	    event->keyval == GDK_KEY_Down || event->keyval == GDK_KEY_KP_Down) {
+		if (main_interlineal_bloquea_navegacion())
+			return TRUE;
+	}
 	if (event->keyval == GDK_KEY_Up || event->keyval == GDK_KEY_KP_Up) {
 		access_on_up_eventbox_button_release_event(VERSE_BUTTON);
 		return TRUE;

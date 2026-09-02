@@ -1786,6 +1786,11 @@ static gboolean on_vbox1_key_press_event(GtkWidget *widget, GdkEventKey *event,
 		}
 		break;
 
+	/* Arrows only reach this handler when the focus is somewhere other
+	 * than the Bible view -- a toolbar button, say. With the focus in
+	 * the text, on_bible_key_press() in bibletext.c gets them first,
+	 * because GTK3 offers key events to the focused widget before the
+	 * boxes above it. Both must keep doing the same thing. */
 	case XK_Up:
 	case XK_KP_Up:
 		if (state == 0) {
