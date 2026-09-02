@@ -35,6 +35,8 @@ struct _WkHtmlPriv
 	GPtrArray *anchor_list;
 	GArray *links;		/* Link[]: href por rango de offsets */
 	gchar *content;
+	gsize content_len;	/* bytes en uso; content_alloc, reservados */
+	gsize content_alloc;
 	gchar *mime;
 	gchar *find_string;
 	gboolean initialised;

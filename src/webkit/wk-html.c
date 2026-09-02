@@ -83,10 +83,24 @@ typedef struct {
 	gdouble scale;
 } Style;
 
+enum {
+	COLOR_SLOT_FG,
+	COLOR_SLOT_BG,
+	COLOR_SLOT_PBG,
+	COLOR_SLOTS
+};
+
+typedef struct {
+	gchar *color;
+	GtkTextTag *tag;
+} ColorMemo;
+
 typedef struct {
 	WkHtml *html;
 	GtkTextBuffer *buf;
 	Style st;
+	GString *scratch;	/* texto normalizado; se reusa en cada nodo */
+	ColorMemo memo[COLOR_SLOTS];
 	GPtrArray *kids;	/* PROTOTIPO: (anchor, widget) diferidos */
 	gboolean skip;
 	gboolean at_line_start;
@@ -104,6 +118,7 @@ static void walk_node(ParseCtx *ctx, xmlNode *node);
 static gchar *iter_href(WkHtml *html, const GtkTextIter *iter);
 static void insert_verse_tools_chip(ParseCtx *ctx, const char *key, gboolean has_note);
 
+static void wk_html_add_scroll(WkHtml *html);
 static void wk_html_class_init(WkHtmlClass *klass);
 static void wk_html_init(WkHtml *html);
 
@@ -219,6 +234,26 @@ color_tag(GtkTextBuffer *buf, const char *prefix, const char *color, const char 
 		tag = gtk_text_buffer_create_tag(buf, name, prop, color, NULL);
 	g_free(name);
 	return tag;
+}
+
+/* Un capítulo con números de Strong es un mismo color repetido miles de
+ * veces: armar el nombre "fg:#2C4A6E" con printf y buscarlo en la tabla
+ * para cada tramo salía caro, y la respuesta es casi siempre la anterior.
+ * Un hueco por familia de color basta para acertar. */
+static GtkTextTag *
+color_tag_memo(ParseCtx *ctx, gint slot, const char *prefix,
+	       const char *color, const char *prop)
+{
+	ColorMemo *m = &ctx->memo[slot];
+
+	if (!color || !*color)
+		return NULL;
+	if (m->color && !strcmp(m->color, color))
+		return m->tag;
+	g_free(m->color);
+	m->color = g_strdup(color);
+	m->tag = color_tag(ctx->buf, prefix, color, prop);
+	return m->tag;
 }
 
 static void
@@ -340,21 +375,25 @@ apply_style_tags(ParseCtx *ctx, GtkTextIter *s, GtkTextIter *e)
 		lk.href = g_strdup(st->href);
 		g_array_append_val(ctx->html->priv->links, lk);
 
-		tag = color_tag(buf, "fg", link_fg, "foreground");
+		tag = color_tag_memo(ctx, COLOR_SLOT_FG, "fg", link_fg,
+				     "foreground");
 		if (tag)
 			gtk_text_buffer_apply_tag(buf, tag, s, e);
 	}
 	if (st->fg) {
-		tag = color_tag(buf, "fg", st->fg, "foreground");
+		tag = color_tag_memo(ctx, COLOR_SLOT_FG, "fg", st->fg,
+				     "foreground");
 		if (tag)
 			gtk_text_buffer_apply_tag(buf, tag, s, e);
 	}
 	if (st->bg) {
-		tag = color_tag(buf, "bg", st->bg, "background");
+		tag = color_tag_memo(ctx, COLOR_SLOT_BG, "bg", st->bg,
+				     "background");
 		if (tag)
 			gtk_text_buffer_apply_tag(buf, tag, s, e);
 		if (st->para_bg) {
-			tag = color_tag(buf, "pbg", st->bg, "paragraph-background");
+			tag = color_tag_memo(ctx, COLOR_SLOT_PBG, "pbg", st->bg,
+					     "paragraph-background");
 			if (tag)
 				gtk_text_buffer_apply_tag(buf, tag, s, e);
 		}
@@ -409,9 +448,11 @@ insert_text(ParseCtx *ctx, const char *text)
 	 * else verbatim -- in runs rather than a character at a time. The
 	 * three bytes we split on are ASCII, and no UTF-8 continuation byte
 	 * is ever < 0x80, so scanning bytewise cannot land inside a
-	 * multi-byte character. Output is never longer than the input, so
-	 * sizing the buffer up front makes this a single allocation. */
-	norm = g_string_sized_new(strlen(text) + 1);
+	 * multi-byte character. El destino es un GString de la pasada que
+	 * se reusa en cada nodo de texto: un capítulo trae más de mil, y
+	 * reservarlo y soltarlo por nodo era trabajo tirado. */
+	norm = ctx->scratch;
+	g_string_set_size(norm, 0);
 	for (p = text; *p;) {
 		run = p;
 		while (*p && *p != '\r' && *p != '\n' && *p != '\t')
@@ -423,10 +464,8 @@ insert_text(ParseCtx *ctx, const char *text)
 				g_string_append_c(norm, ' ');
 		}
 	}
-	if (!norm->len) {
-		g_string_free(norm, TRUE);
+	if (!norm->len)
 		return;
-	}
 	/* collapse leading spaces at line start */
 	if (ctx->at_line_start) {
 		gchar *s = norm->str;
@@ -434,20 +473,17 @@ insert_text(ParseCtx *ctx, const char *text)
 			s++;
 		if (s != norm->str)
 			g_string_erase(norm, 0, s - norm->str);
-		if (!norm->len) {
-			g_string_free(norm, TRUE);
+		if (!norm->len)
 			return;
-		}
 	}
 
 	gtk_text_buffer_get_end_iter(ctx->buf, &end);
 	off = gtk_text_iter_get_offset(&end);
-	gtk_text_buffer_insert(ctx->buf, &end, norm->str, -1);
+	gtk_text_buffer_insert(ctx->buf, &end, norm->str, (gint)norm->len);
 	gtk_text_buffer_get_iter_at_offset(ctx->buf, &start, off);
 	gtk_text_buffer_get_end_iter(ctx->buf, &end);
 	apply_style_tags(ctx, &start, &end);
 	ctx->at_line_start = FALSE;
-	g_string_free(norm, TRUE);
 }
 
 static void
@@ -773,21 +809,18 @@ serialize_children(xmlNode *cell)
  * content like any other child-anchor widget (same reasoning as
  * hr_fit()/il_table_fit() above). Unwrap it once, right after
  * construction. */
-static void
-make_cell_inline(WkHtml *html)
+static WkHtml *
+new_cell_html(void)
 {
-	WkHtmlPrivate *priv = html->priv;
-	GtkWidget *view = GTK_WIDGET(priv->view);
+	WkHtml *html = WK_HTML(g_object_new(WK_TYPE_HTML, NULL));
+	GtkWidget *view = GTK_WIDGET(html->priv->view);
 
-	g_object_ref(view);
-	gtk_container_remove(GTK_CONTAINER(priv->scroll), view);
-	gtk_widget_destroy(priv->scroll);
-	priv->scroll = NULL;
+	/* sin ventana de desplazamiento: la celda crece con su contenido */
 	gtk_box_pack_start(GTK_BOX(html), view, TRUE, TRUE, 0);
-	g_object_unref(view);
 	gtk_widget_set_vexpand(view, FALSE);
 	gtk_style_context_add_class(gtk_widget_get_style_context(GTK_WIDGET(html)),
 				    "elim-table-cell");
+	return html;
 }
 
 /* A <tr><td><hr></td></tr>-only row (how the app draws a divider between
@@ -849,8 +882,7 @@ build_table_cell(xmlNode *cell_node, const char *fallback_bg)
 	char *own_bg, *align;
 	const char *bg;
 
-	cell = wk_html_new(NULL, FALSE, -1);
-	make_cell_inline(cell);
+	cell = new_cell_html();
 
 	own_bg = el_prop(cell_node, "bgcolor");
 	bg = (own_bg && *own_bg) ? own_bg : fallback_bg;
@@ -1337,14 +1369,16 @@ load_html(WkHtml *html)
 	ctx.kids = kids;
 	ctx.at_line_start = TRUE;
 	ctx.st.scale = 1.0;
+	ctx.scratch = g_string_sized_new(256);
 
-	doc = htmlReadMemory(priv->content, (int)strlen(priv->content),
+	doc = htmlReadMemory(priv->content, (int)priv->content_len,
 			     "file://", "UTF-8",
 			     HTML_PARSE_RECOVER | HTML_PARSE_NOERROR |
 				 HTML_PARSE_NOWARNING | HTML_PARSE_NONET);
 	if (!doc) {
-		gtk_text_buffer_set_text(priv->buffer, priv->content, -1);
+		gtk_text_buffer_set_text(priv->buffer, priv->content, (gint)priv->content_len);
 		attach_buffer(priv, fresh, kids);
+		g_string_free(ctx.scratch, TRUE);
 		return;
 	}
 	root = xmlDocGetRootElement(doc);
@@ -1354,6 +1388,9 @@ load_html(WkHtml *html)
 	attach_buffer(priv, fresh, kids);
 	apply_body_colors(html, ctx.body_bg, ctx.body_fg);
 	style_clear(&ctx.st);
+	g_string_free(ctx.scratch, TRUE);
+	for (int i = 0; i < COLOR_SLOTS; i++)
+		g_free(ctx.memo[i].color);
 	g_free(ctx.body_bg);
 	g_free(ctx.body_fg);
 	/* Do not jump here: priv->anchor is still the previous verse
@@ -1520,7 +1557,10 @@ on_print_begin(GtkPrintOperation *op, GtkPrintContext *context, gpointer user_da
 WkHtml *
 wk_html_create(void)
 {
-	return WK_HTML(g_object_new(WK_TYPE_HTML, NULL));
+	WkHtml *html = WK_HTML(g_object_new(WK_TYPE_HTML, NULL));
+
+	wk_html_add_scroll(html);
+	return html;
 }
 
 WkHtml *
@@ -1967,16 +2007,6 @@ wk_html_init(WkHtml *html)
 	gtk_style_context_add_class(gtk_widget_get_style_context(GTK_WIDGET(priv->view)),
 				    "elim-html");
 
-	priv->scroll = gtk_scrolled_window_new(NULL, NULL);
-	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(priv->scroll),
-				       GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-	gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(priv->scroll),
-					    GTK_SHADOW_NONE);
-	gtk_widget_set_hexpand(priv->scroll, TRUE);
-	gtk_widget_set_vexpand(priv->scroll, TRUE);
-	gtk_container_add(GTK_CONTAINER(priv->scroll), GTK_WIDGET(priv->view));
-	gtk_box_pack_start(GTK_BOX(html), priv->scroll, TRUE, TRUE, 0);
-
 	priv->css = gtk_css_provider_new();
 	ctx = gtk_widget_get_style_context(GTK_WIDGET(priv->view));
 	gtk_style_context_add_provider(ctx, GTK_STYLE_PROVIDER(priv->css),
@@ -1993,6 +2023,27 @@ wk_html_init(WkHtml *html)
 			 G_CALLBACK(on_motion), html);
 
 	gtk_widget_show(GTK_WIDGET(priv->view));
+}
+
+/* La vista se envuelve en un GtkScrolledWindow sólo cuando el widget es
+ * un panel de verdad. Las celdas de tabla también son WkHtml, y para
+ * ellas construir la ventana de desplazamiento y destruirla acto seguido
+ * costaba más que rellenar la celda: 1,1 ms de los 1,4 ms que tardaba
+ * cada una. */
+static void
+wk_html_add_scroll(WkHtml *html)
+{
+	WkHtmlPrivate *priv = html->priv;
+
+	priv->scroll = gtk_scrolled_window_new(NULL, NULL);
+	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(priv->scroll),
+				       GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+	gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(priv->scroll),
+					    GTK_SHADOW_NONE);
+	gtk_widget_set_hexpand(priv->scroll, TRUE);
+	gtk_widget_set_vexpand(priv->scroll, TRUE);
+	gtk_container_add(GTK_CONTAINER(priv->scroll), GTK_WIDGET(priv->view));
+	gtk_box_pack_start(GTK_BOX(html), priv->scroll, TRUE, TRUE, 0);
 	gtk_widget_show(priv->scroll);
 }
 
@@ -2049,6 +2100,7 @@ wk_html_open_stream(WkHtml *html, const gchar *mime)
 	html->priv->frames_enabled = FALSE;
 	g_free(html->priv->content);
 	html->priv->content = NULL;
+	html->priv->content_len = html->priv->content_alloc = 0;
 	g_free(html->priv->mime);
 	html->priv->mime = g_strdup(mime);
 }
@@ -2056,17 +2108,23 @@ wk_html_open_stream(WkHtml *html, const gchar *mime)
 void
 wk_html_write(WkHtml *html, const gchar *data, gint len)
 {
-	gchar *tmp;
+	WkHtmlPrivate *priv = html->priv;
+
 	if (len < 0)
 		len = (gint)strlen(data);
-	if (html->priv->content) {
-		gchar *chunk = g_strndup(data, len);
-		tmp = g_strconcat(html->priv->content, chunk, NULL);
-		g_free(chunk);
-		g_free(html->priv->content);
-		html->priv->content = tmp;
-	} else
-		html->priv->content = g_strndup(data, len);
+	/* Se crece el buffer y se copia sólo el trozo nuevo. Concatenar con
+	 * g_strconcat() volvía a copiar todo lo escrito hasta entonces en
+	 * cada llamada, cuadrático para quien escriba por partes. */
+	if (priv->content_len + (gsize)len + 1 > priv->content_alloc) {
+		priv->content_alloc =
+		    MAX(priv->content_len + (gsize)len + 1,
+			priv->content_alloc ? priv->content_alloc * 2 : 8192);
+		priv->content = (gchar *)g_realloc(priv->content,
+						   priv->content_alloc);
+	}
+	memcpy(priv->content + priv->content_len, data, len);
+	priv->content_len += len;
+	priv->content[priv->content_len] = '\0';
 }
 
 void
@@ -2096,6 +2154,7 @@ wk_html_close(WkHtml *html)
 	load_html(html);
 	g_free(html->priv->content);
 	html->priv->content = NULL;
+	html->priv->content_len = html->priv->content_alloc = 0;
 	g_free(html->priv->mime);
 	html->priv->mime = NULL;
 }
