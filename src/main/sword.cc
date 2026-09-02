@@ -1305,6 +1305,38 @@ void main_display_dictionary(const char *mod_name,
 			      settings.showdicts);
 }
 
+/* Same book, ignoring chapter and verse. When the pane holds a whole
+ * book, moving to another chapter of it needs no re-render at all --
+ * the text is already there. Comparing chapters instead made every
+ * chapter boundary rebuild the entire book: 1875 ms against the 0,2 ms
+ * of an in-place move, and in Psalms, where chapters are short, that
+ * wall showed up every few presses of the arrow keys. */
+static gboolean
+osis_same_book(const char *mod, const char *ka, const char *kb)
+{
+	gchar *a, *b, *d;
+	gboolean same;
+
+	if (!mod || !ka || !kb || !*ka || !*kb)
+		return FALSE;
+	a = g_strdup(main_get_osisref_from_key(mod, ka));
+	b = g_strdup(main_get_osisref_from_key(mod, kb));
+	if (!a || !b) {
+		g_free(a);
+		g_free(b);
+		return FALSE;
+	}
+	/* "Book.C.V" -> "Book" */
+	if ((d = strchr(a, '.')))
+		*d = '\0';
+	if ((d = strchr(b, '.')))
+		*d = '\0';
+	same = (strcmp(a, b) == 0);
+	g_free(a);
+	g_free(b);
+	return same;
+}
+
 static gboolean
 osis_same_chapter(const char *mod, const char *ka, const char *kb)
 {
@@ -1381,6 +1413,13 @@ void main_display_bible(const char *mod_name,
 	if (!settings.MainWindowModule)
 		settings.MainWindowModule = g_strdup((gchar *)mod_name);
 
+	/* Mirrors the condition GTKChapDisp::display() uses to decide
+	 * between RenderWholeBook() and one chapter. */
+	gboolean whole_book_pane =
+	    settings.render_whole_books ||
+	    (settings.reading_mode && settings.reading_mode_whole_book &&
+	     !settings.reading_compare);
+
 	prev_verse = bible_pane_last_verse ? g_strdup(bible_pane_last_verse) : NULL;
 	{
 		GtkTextView *tv = widgets.html_text
@@ -1393,7 +1432,9 @@ void main_display_bible(const char *mod_name,
 			   !bible_pane_is_interlinear &&
 			   settings.MainWindowModule &&
 			   !strcmp(settings.MainWindowModule, mod_name) &&
-			   osis_same_chapter(mod_name, prev_verse, key);
+			   (whole_book_pane
+				? osis_same_book(mod_name, prev_verse, key)
+				: osis_same_chapter(mod_name, prev_verse, key));
 	}
 
 	if (strcmp(settings.currentverse, key)) {
