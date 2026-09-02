@@ -8,6 +8,7 @@ extern "C" {
 #endif
 
 void gui_elim_tema_init(void);
+void gui_elim_fuente_app_aplicar(const gchar *font);
 void gui_elim_tema_marcar_listo(void);
 void gui_elim_tema_aplicar(void);
 void gui_elim_tema_set(const char *mode);

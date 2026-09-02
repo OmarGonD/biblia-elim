@@ -136,6 +136,11 @@ gui_interlineal_wrap(GtkWidget *html_master)
 
 	UI_VBOX(vbox, FALSE, 0);
 	gtk_widget_show(vbox);
+	/* La cinta lleva margen, y por ese margen asomaba el blanco del
+	 * contenedor: un marco claro alrededor del interlineal en cuanto el
+	 * tema dejaba de ser oscuro. El envoltorio toma el color del papel. */
+	gtk_style_context_add_class(gtk_widget_get_style_context(vbox),
+				    "elim-lienzo");
 
 	UI_HBOX(bar, FALSE, 8);
 	widgets.bar_interlineal = bar;

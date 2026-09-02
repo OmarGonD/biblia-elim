@@ -1150,6 +1150,18 @@ if (!settings.morph_heb_lex || strlen(settings.morph_heb_lex) == 0) {
 
 	/*  Misc stuff  */
 
+	/* Fuente de la interfaz -- menús, pestañas, paneles. Vacía
+	 * significa "la que diga el escritorio", que es lo que había antes
+	 * de que esto se pudiera elegir. El texto bíblico no se toca aquí:
+	 * ése va por fonts.conf, para que se pueda leer con una serif sin
+	 * arrastrar a los menús. */
+	/* Sin sembrar un nodo vacío: xml_get_value() devuelve NULL tanto si
+	 * el nodo falta como si está vacío, así que hacerlo añadía otro
+	 * <appfont/> en cada arranque. Se escribe sólo cuando se elige una
+	 * fuente. */
+	buf = xml_get_value("misc", "appfont");
+	settings.app_font = g_strdup(buf ? buf : "");
+
 	settings.reading_mode =
 	    atoi((buf = xml_get_value("misc", "reading_mode")) ? buf : "0");
 	/* Verse-aligned comparison inside reading mode: the reading pane

@@ -65,6 +65,7 @@ struct _settings
 	    *highlight_fg,						    /* special fg color for highlight */
 	    *highlight_bg,						    /* special bg color for highlight */
 	    *verse_num_font_size_str, *base_font_size_str,
+	    *app_font,							    /* fuente de la interfaz; vacía = la del escritorio */
 	    *special_locale;						    /* prefs dialog: pick abnormal locale */
 	/* --requires restart-- */
 

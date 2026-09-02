@@ -29,18 +29,13 @@ textview.elim-html text {
 		"Noto Serif", serif;
 	font-size: 12.5pt;
 }
-.elim-dark textview.elim-html,
-.elim-dark textview.elim-html text {
-	background-color: shade(@theme_base_color, 1.04);
-	color: @theme_text_color;
-}
 
 /* ——— Header bar (Mac titlebar) ——— */
 headerbar {
 	min-height: 44px;
 	padding: 2px 10px;
 	background-image: none;
-	background-color: @theme_bg_color;
+	background-color: @elim_chrome;
 	box-shadow: none;
 	border-bottom: 1px solid @elim_line;
 	font-weight: 500;
@@ -119,25 +114,161 @@ headerbar menubar > menuitem {
 	font-weight: 500;
 }
 
-/* ——— Menus / popovers ——— */
+/* ——— Menús / popovers ———
+ *
+ * Un menú desplegable es una ventana propia, no un hijo de la principal:
+ * las reglas colgadas de .elim-dark y compañía no lo alcanzan. De ahí que
+ * todo lo de aquí sea global y tire de @elim_menu_bg y @elim_ink, que
+ * elim_tema.c redefine con cada tema.
+ */
 menu,
-.menu {
-	border-radius: 10px;
-	padding: 4px;
+.menu,
+.context-menu {
+	background-color: @elim_menu_bg;
+	color: @elim_ink;
 	border: 1px solid @elim_line;
+	border-radius: 11px;
+	padding: 6px;
+}
+/* La ventana que sostiene el menú se queda transparente. Si se pinta —y
+ * se pintaba, porque el tema le da fondo a "window"— el rectángulo asoma
+ * por fuera de las esquinas redondeadas y el menú vuelve a ser una caja. */
+window.popup,
+.csd.popup,
+menu window {
+	background-color: transparent;
+}
+window.popup decoration,
+.csd.popup decoration,
+menu decoration {
+	background-color: transparent;
+	border-radius: 11px;
+	/* El margen no separa nada: es el hueco que GTK reserva alrededor de
+	 * la ventana para que quepa la sombra. Sin él, se recorta. */
+	margin: 8px;
+	box-shadow: 0 8px 22px alpha(black, 0.30),
+		0 2px 5px alpha(black, 0.16);
 }
 menuitem {
-	border-radius: 6px;
-	padding: 6px 12px;
-	min-height: 22px;
+	border-radius: 8px;
+	padding: 6px 10px;
+	min-height: 26px;
+	color: @elim_ink;
 }
+menu menuitem:hover,
+menu menuitem:selected,
+.context-menu menuitem:hover {
+	background-color: @elim_menu_sel;
+	color: @elim_menu_sel_fg;
+}
+menu menuitem:disabled {
+	color: alpha(@elim_ink, 0.4);
+}
+/* Los accesos rápidos y las flechas de submenú, un paso por detrás del
+ * texto: están para consultarse, no para leerse en la primera pasada. */
+menuitem accelerator {
+	color: alpha(@elim_ink, 0.45);
+	padding-left: 18px;
+}
+menuitem arrow {
+	color: alpha(@elim_ink, 0.5);
+	min-width: 16px;
+}
+menuitem:hover accelerator,
+menuitem:hover arrow {
+	color: alpha(@elim_menu_sel_fg, 0.75);
+}
+/* Cabecera de grupo dentro de un menú (los idiomas del selector de
+ * versión): no es una opción, así que no se comporta como tal —va
+ * apagada— pero tampoco debe leerse como una opción deshabilitada. */
+menu menuitem.elim-menu-titulo,
+menu menuitem.elim-menu-titulo:disabled {
+	color: alpha(@elim_ink, 0.5);
+	font-size: 8.5pt;
+	font-weight: 700;
+	letter-spacing: 0.07em;
+	min-height: 0;
+	padding: 10px 10px 3px 10px;
+}
+
+menu separator,
+.menu separator,
+.context-menu separator {
+	background-color: alpha(@elim_ink, 0.13);
+	background-image: none;
+	min-height: 1px;
+	margin: 6px 8px;
+}
+menu check,
+menu radio {
+	min-width: 15px;
+	min-height: 15px;
+	margin-right: 4px;
+}
+menu check:checked,
+menu radio:checked {
+	color: @elim_navy;
+}
+menu menuitem:hover check:checked,
+menu menuitem:hover radio:checked {
+	color: @elim_menu_sel_fg;
+}
+menu > arrow {
+	background-color: @elim_menu_bg;
+	color: alpha(@elim_ink, 0.6);
+	min-height: 14px;
+}
+
+/* La barra de menús vive dentro de la cabecera y hereda su color */
+menubar {
+	background-color: transparent;
+	color: @elim_ink;
+}
+menubar > menuitem {
+	color: @elim_ink;
+	border-radius: 8px;
+}
+/* El rótulo de un menú abierto —y el que está bajo el puntero, que para
+ * GtkMenuBar es el mismo estado: los dos son :hover— toma el color del
+ * propio menú, de modo que rótulo y desplegable se lean como una pieza.
+ *
+ * El "box-shadow" es lo que quita el subrayado azul: Adwaita marca ese
+ * estado con "inset 0 -3px" de SU color de selección, ajeno a la paleta
+ * del tema, y esa raya cortaba el rótulo por debajo. Aquí la sombra
+ * interior se reaprovecha como reborde de un píxel, que a diferencia de
+ * un "border" no cambia el tamaño del elemento al entrar el puntero. */
+menubar > menuitem:hover,
+menubar > menuitem:selected {
+	background-color: @elim_menu_bg;
+	color: @elim_ink;
+	box-shadow: inset 0 0 0 1px @elim_line;
+}
+
 popover {
 	border-radius: 12px;
 	padding: 4px;
 }
 popover.background {
+	background-color: @elim_menu_bg;
+	color: @elim_ink;
 	box-shadow: 0 8px 28px alpha(black, 0.18);
 	border: 1px solid @elim_line;
+}
+popover.background modelbutton {
+	border-radius: 8px;
+	min-height: 26px;
+	padding: 4px 10px;
+}
+popover.background modelbutton:hover {
+	background-color: @elim_menu_sel;
+	color: @elim_menu_sel_fg;
+}
+
+tooltip.background {
+	background-color: @elim_menu_bg;
+	color: @elim_ink;
+	border: 1px solid @elim_line;
+	border-radius: 8px;
 }
 
 /* ——— Buttons, entries, combos ——— */
@@ -435,7 +566,7 @@ entry:focus {
 
 /* ——— Sidebar ——— */
 .elim-sidebar {
-	background-color: shade(@theme_bg_color, 0.94);
+	background-color: @elim_panel;
 	border-right: 1px solid @elim_line;
 	padding: 4px 0;
 }
@@ -452,6 +583,13 @@ entry:focus {
 treeview {
 	border-radius: 6px;
 }
+/* Las listas de los diálogos venían con el blanco de Adwaita, que sobre
+ * un fondo de pergamino o de noche se ve como un recorte de otro sitio.
+ * Toman el color del papel; el árbol del panel lateral no entra aquí,
+ * que lo deja transparente unas líneas más arriba. */
+treeview.view {
+	background-color: @elim_paper;
+}
 treeview.view row {
 	padding: 5px 8px;
 }
@@ -464,7 +602,7 @@ treeview.view:selected:focus {
 
 /* ——— Navigation bar ——— */
 .elim-navbar {
-	background-color: @theme_bg_color;
+	background-color: @elim_chrome;
 	border-bottom: 1px solid @elim_line;
 	padding: 6px 12px;
 }
@@ -560,7 +698,7 @@ notebook > header.bottom tab {
 .elim-tabstrip {
 	padding: 2px 6px 0 6px;
 	border-bottom: 1px solid @elim_line;
-	background-color: @theme_bg_color;
+	background-color: @elim_chrome;
 }
 
 /* ——— Panes ——— */
@@ -640,8 +778,17 @@ button.highlight-swatch {
 }
 
 /* Interlinear / compare bars */
+/* El lienzo de lectura: la caja que sostiene el texto bíblico y las
+ * cintas que lo acompañan. */
+.elim-lienzo {
+	background-color: @elim_paper;
+}
+
+/* La cinta del interlineal y la de comparar van pegadas al texto: si se
+ * dejan transparentes asoma el blanco del contenedor y cortan la página
+ * en dos. Toman el color del papel para leerse como parte de ella. */
 .elim-toolbar-strip {
-	background-color: transparent;
+	background-color: @elim_paper;
 	padding: 4px 10px;
 }
 
@@ -652,7 +799,6 @@ button.highlight-swatch {
 	border-color: alpha(white, 0.08);
 }
 .elim-dark .elim-sidebar {
-	background-color: shade(@theme_bg_color, 1.08);
 	border-color: alpha(white, 0.08);
 }
 .elim-dark notebook > header tab:checked {
@@ -677,16 +823,10 @@ button.highlight-swatch {
 .elim-luna .elim-tabstrip {
 	border-color: alpha(#243044, 0.12);
 }
-.elim-luna .elim-sidebar {
-	background-color: #dce4ee;
-}
 
 /* Pergamino */
 .elim-pergamino headerbar,
 .elim-pergamino .elim-navbar,
 .elim-pergamino .elim-tabstrip {
 	border-color: alpha(#3D2B1F, 0.14);
-}
-.elim-pergamino .elim-sidebar {
-	background-color: #ead9b4;
 }
