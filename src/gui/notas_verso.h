@@ -31,6 +31,12 @@ GtkWidget *gui_create_notes_pane(void);
  * guardar. */
 void gui_verse_notes_panel_actualizar(void);
 
+/* Vuelca al disco la nota que se esté escribiendo, si la hay. El panel
+ * ya guarda solo al salir del cuadro, al cambiar de versículo y tras una
+ * pausa al teclear; esto es para el cierre de la aplicación, que no pasa
+ * por ninguno de los tres. */
+void gui_verse_notes_guardar_pendiente(void);
+
 #ifdef __cplusplus
 }
 #endif

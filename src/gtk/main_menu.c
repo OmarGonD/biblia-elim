@@ -39,6 +39,7 @@
 #include "gui/xiphos.h"
 #include "gui/main_window.h"
 #include "gui/main_menu.h"
+#include "gui/notas_verso.h"
 #include "gui/instalar_biblias.h"
 #include "gui/mod_mgr.h"
 #include "gui/preferences_dialog.h"
@@ -611,6 +612,8 @@ on_quit_activate(GtkMenuItem *menuitem, gpointer user_data)
 
 	/* offer to save all editors remaining open */
 	editor_maybe_save_all();
+	/* y la nota de versículo que estuviera a medio escribir */
+	gui_verse_notes_guardar_pendiente();
 
 	shutdown_frontend();
 	/* shutdown the sword stuff */
