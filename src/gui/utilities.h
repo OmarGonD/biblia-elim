@@ -102,6 +102,7 @@ char *image_locator(const char *image);
 GtkWidget *pixmap_finder(char *image);
 GdkPixbuf *pixbuf_finder(const char *image, int size,
 			 GError **error);
+GdkPixbuf *symbolic_pixbuf(const char *icon_name, int size, GtkWidget *ctx);
 
 void HtmlOutput(char *text, GtkWidget *gtkText, MOD_FONT *mf,
 		char *anchor);

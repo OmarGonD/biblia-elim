@@ -331,29 +331,24 @@ void main_create_pixbufs(void)
 
 	pixbufs = g_new0(TreePixbufs, 1);
 
-	if (dir == GTK_TEXT_DIR_LTR) {
-		pixbufs->pixbuf_closed =
-		    pixbuf_finder("book_closed.png", 16, NULL);
-
-		pixbufs->pixbuf_opened =
-		    pixbuf_finder("book_open.png", 16, NULL);
-	} else {
-		pixbufs->pixbuf_closed =
-		    pixbuf_finder("book_closed_rtol.png", 16, NULL);
-
-		pixbufs->pixbuf_opened =
-		    pixbuf_finder("book_open_rtol.png", 16, NULL);
-	}
+	/* Themed symbolic icons rather than the old raster books: they
+	 * take the colour of the text beside them, so they read correctly
+	 * on the light and the dark theme alike. Direction no longer
+	 * matters -- a folder glyph has no handedness, unlike the drawn
+	 * book that needed its own right-to-left artwork. */
+	(void)dir;
+	pixbufs->pixbuf_closed =
+	    symbolic_pixbuf("folder-symbolic", 16, GTK_WIDGET(widgets.app));
+	pixbufs->pixbuf_opened =
+	    symbolic_pixbuf("folder-open-symbolic", 16, GTK_WIDGET(widgets.app));
 
 #if GTK_CHECK_VERSION(3, 0, 0)
 #if GTK_CHECK_VERSION(3, 10, 0)
 	GtkIconTheme *icon_theme = gtk_icon_theme_get_default();
+	/* Leaf entries: "gtk-dnd" rendered as a two-pixel speck. */
+	(void)icon_theme;
 	pixbufs->pixbuf_helpdoc =
-	    gtk_icon_theme_load_icon(icon_theme,
-				     "gtk-dnd",
-				     GTK_ICON_SIZE_MENU,
-				     GTK_ICON_LOOKUP_FORCE_SIZE,
-				     NULL);
+	    symbolic_pixbuf("text-x-generic-symbolic", 16, GTK_WIDGET(widgets.app));
 #else
 	pixbufs->pixbuf_helpdoc =
 	    gtk_widget_render_icon_pixbuf(widgets.app,

@@ -525,46 +525,18 @@ static void row_deleted(GtkTreeModel *treemodel, GtkTreePath *arg1,
 
 static void create_pixbufs(void)
 {
-	GtkTextDirection dir = gtk_widget_get_direction(GTK_WIDGET(widgets.app));
+	GtkWidget *app = GTK_WIDGET(widgets.app);
 
 	bm_pixbufs = g_new0(BookMarksPixbufs, 1);
 
-	if (dir == GTK_TEXT_DIR_LTR) {
-		/* leave this for if we make custom reversable icons
-		   if (!bm_pixbufs->pixbuf_closed)
-		   bm_pixbufs->pixbuf_closed =
-		   pixbuf_finder("book_closed.png", 16, NULL);
-		 */
-
-		bm_pixbufs->pixbuf_opened =
-		    pixbuf_finder("book_open.png", 16, NULL);
-	} else {
-		/* leave this for if we make custom reversable icons
-		   if (!bm_pixbufs->pixbuf_closed)
-		   bm_pixbufs->pixbuf_closed =
-		   pixbuf_finder("book_closed_rtol.png", 16, NULL);
-		 */
-
-		bm_pixbufs->pixbuf_opened =
-		    pixbuf_finder("book_open_rtol.png", 16, NULL);
-	}
-
-	bm_pixbufs->pixbuf_closed =
-	    pixbuf_finder("epiphany-bookmarks.png", 0, NULL);
-
-	bm_pixbufs->pixbuf_helpdoc =
-	    pixbuf_finder("epiphany-bookmark-page.png", 0, NULL);
-
-	if (!bm_pixbufs->pixbuf_helpdoc) {
-		GtkIconTheme *theme = gtk_icon_theme_get_default();
-		bm_pixbufs->pixbuf_helpdoc =
-		    gtk_icon_theme_load_icon(theme, "text-x-generic", 16,
-					     (GtkIconLookupFlags)0, NULL);
-		if (!bm_pixbufs->pixbuf_helpdoc)
-			bm_pixbufs->pixbuf_helpdoc =
-			    gtk_icon_theme_load_icon(theme, "document-new", 16,
-						     (GtkIconLookupFlags)0, NULL);
-	}
+	/* Themed symbolic icons, like the sidebar tree -- see
+	 * symbolic_pixbuf(). The raster set this replaces came from
+	 * Epiphany and was drawn for a light theme; a folder of saved
+	 * references also says more than the old glossy bookmark did.
+	 * Leaves get the bookmark glyph, which is what they are. */
+	bm_pixbufs->pixbuf_closed = symbolic_pixbuf("folder-symbolic", 16, app);
+	bm_pixbufs->pixbuf_opened = symbolic_pixbuf("folder-open-symbolic", 16, app);
+	bm_pixbufs->pixbuf_helpdoc = symbolic_pixbuf("user-bookmarks-symbolic", 16, app);
 }
 
 /******************************************************************************

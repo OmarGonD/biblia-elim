@@ -1312,6 +1312,47 @@ GtkWidget *pixmap_finder(char *image)
 /*
  * get a pixbuf from specified file.
  */
+/* A themed symbolic icon, recoloured for `ctx`'s foreground.
+ *
+ * The trees in the sidebar and the bookmarks pane were drawing 16px
+ * raster pixmaps inherited from Xiphos -- glossy red books and a beige
+ * folder, drawn for a light theme years ago. They ignore the theme
+ * entirely, so on a dark background they read as stickers rather than
+ * icons, and they clash with the symbolic set the rest of this fork
+ * already uses.
+ *
+ * Symbolic icons are recoloured by the toolkit to match the text they
+ * sit next to, which is what makes them work on either theme. Falls
+ * back to a plain load, and then to NULL, so a missing icon is an
+ * empty cell rather than a crash. */
+GdkPixbuf *symbolic_pixbuf(const char *icon_name, int size, GtkWidget *ctx)
+{
+	GtkIconTheme *theme = gtk_icon_theme_get_default();
+	GtkIconInfo *info;
+	GdkPixbuf *pb = NULL;
+
+	if (!icon_name || !*icon_name)
+		return NULL;
+	if (size <= 0)
+		size = 16;
+
+	info = gtk_icon_theme_lookup_icon(theme, icon_name, size,
+					  (GtkIconLookupFlags)(GTK_ICON_LOOKUP_FORCE_SYMBOLIC |
+							       GTK_ICON_LOOKUP_FORCE_SIZE));
+	if (info) {
+		if (ctx)
+			pb = gtk_icon_info_load_symbolic_for_context(
+			    info, gtk_widget_get_style_context(ctx), NULL, NULL);
+		if (!pb)
+			pb = gtk_icon_info_load_icon(info, NULL);
+		g_object_unref(info);
+	}
+	if (!pb)
+		pb = gtk_icon_theme_load_icon(theme, icon_name, size,
+					      GTK_ICON_LOOKUP_FORCE_SIZE, NULL);
+	return pb;
+}
+
 GdkPixbuf *pixbuf_finder(const char *image, int size, GError **error)
 {
 	GdkPixbuf *p;
