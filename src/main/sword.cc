@@ -1383,6 +1383,28 @@ static gchar *bible_pane_last_verse = NULL;
  * leaving jump_to_anchor() retrying on a timer. That was the "focus
  * takes ages when you cross into the next chapter". */
 static gboolean bible_pane_whole_book = FALSE;
+extern int main_rendered_first_chapter, main_rendered_last_chapter;
+
+/* The chapter of `key` in `mod`'s versification, or -1. */
+static int
+osis_chapter_of(const char *mod, const char *key)
+{
+	gchar *osis, *dot;
+	int chapter = -1;
+
+	if (!mod || !key || !*key)
+		return -1;
+	osis = g_strdup(main_get_osisref_from_key(mod, key));
+	if (!osis)
+		return -1;
+	if ((dot = strrchr(osis, '.'))) {	/* drop the verse */
+		*dot = '\0';
+		if ((dot = strrchr(osis, '.')))
+			chapter = atoi(dot + 1);
+	}
+	g_free(osis);
+	return chapter;
+}
 
 void
 main_bible_note_interlinear_html(void)
@@ -1443,7 +1465,15 @@ void main_display_bible(const char *mod_name,
 			   !strcmp(settings.MainWindowModule, mod_name) &&
 			   (whole_book_pane == bible_pane_whole_book) &&
 			   (whole_book_pane
-				? osis_same_book(mod_name, prev_verse, key)
+				/* the pane may hold only a window of the
+				 * book (see RenderWholeBook), so staying in
+				 * the same book is not enough -- the target
+				 * chapter has to be one of those laid out,
+				 * or there is no text and no anchor for it. */
+				? (osis_same_book(mod_name, prev_verse, key) &&
+				   ({ int c = osis_chapter_of(mod_name, key);
+				      c >= main_rendered_first_chapter &&
+				      c <= main_rendered_last_chapter; }))
 				: osis_same_chapter(mod_name, prev_verse, key));
 	}
 

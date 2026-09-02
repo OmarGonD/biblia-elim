@@ -1177,6 +1177,16 @@ if (!settings.morph_heb_lex || strlen(settings.morph_heb_lex) == 0) {
 	settings.reading_mode_whole_book =
 	    atoi((buf = xml_get_value("misc", "reading_mode_whole_book")) ? buf : "0");
 
+	/* Chapters kept either side of the one being read when the pane
+	 * lays out more than a chapter. 0 renders the whole book. */
+	if ((buf = xml_get_value("misc", "reading_mode_window")))
+		settings.reading_mode_window = atoi(buf);
+	else {
+		xml_add_new_item_to_section("misc", "reading_mode_window", "5");
+		settings.reading_mode_window = 5;
+	}
+	settings.reading_mode_window = CLAMP(settings.reading_mode_window, 0, 200);
+
 	/* Optional cap on line length, in characters; 0 disables it and
 	 * lets the text fill reading_mode_width_pct. The comfortable
 	 * typographic range is 45-75, which a single column spanning a
