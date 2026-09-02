@@ -1374,6 +1374,15 @@ static gboolean bible_pane_is_interlinear = FALSE;
  * the very first navigation -- confirmed by tracing: every call after
  * the first had prev_verse == key. */
 static gchar *bible_pane_last_verse = NULL;
+/* Whether the text now in the pane was laid out as a whole book or as a
+ * single chapter. The in-place shortcut has to know: skipping a render
+ * because the book has not changed is only sound when the book is
+ * actually there. Entering reading mode does not re-render, so the pane
+ * can hold a chapter while the settings already say whole book -- and
+ * then moving to the next chapter found no text and no anchor for it,
+ * leaving jump_to_anchor() retrying on a timer. That was the "focus
+ * takes ages when you cross into the next chapter". */
+static gboolean bible_pane_whole_book = FALSE;
 
 void
 main_bible_note_interlinear_html(void)
@@ -1432,6 +1441,7 @@ void main_display_bible(const char *mod_name,
 			   !bible_pane_is_interlinear &&
 			   settings.MainWindowModule &&
 			   !strcmp(settings.MainWindowModule, mod_name) &&
+			   (whole_book_pane == bible_pane_whole_book) &&
 			   (whole_book_pane
 				? osis_same_book(mod_name, prev_verse, key)
 				: osis_same_chapter(mod_name, prev_verse, key));
@@ -1521,6 +1531,7 @@ void main_display_bible(const char *mod_name,
 		backend->set_module_key(mod_name, key);
 		if (!in_place) {
 			backend->display_mod->display();
+			bible_pane_whole_book = whole_book_pane;
 			bible_pane_is_interlinear = FALSE;
 		}
 		displayed_key = g_strdup(key);
@@ -1535,6 +1546,7 @@ void main_display_bible(const char *mod_name,
 
 		backend->set_module_key(mod_name, val_key);
 		backend->display_mod->display();
+		bible_pane_whole_book = whole_book_pane;
 		bible_pane_is_interlinear = FALSE;
 		displayed_key = val_key; // ownership transferred, not freed here
 	}
