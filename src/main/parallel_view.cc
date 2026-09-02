@@ -824,6 +824,9 @@ void main_update_parallel_page(void)
  *   void
  */
 
+/* how often the column names are repeated down a long chapter */
+#define PARALLEL_LABEL_EVERY 12
+
 static void interpolate_parallel_display(SWModule *control,
 					 char     *control_name,
 					 SWBuf    &text,
@@ -854,6 +857,10 @@ static void interpolate_parallel_display(SWModule *control,
 	vkey->setText(key);
 	xverses = (vkey->getVerseMax());
 	delete vkey;
+
+	VerseKey *ctlkey = dynamic_cast<VerseKey *>(control->createKey());
+	if (ctlkey)
+		ctlkey->setAutoNormalize(1);
 
 	is_module = g_new(gboolean, parallel_count);
 	is_rtol = g_new(gboolean, parallel_count);
@@ -905,6 +912,38 @@ static void interpolate_parallel_display(SWModule *control,
 		free(tmpkey);
 		tmpkey = backend_p->get_valid_key(control_name, tmpbuf);
 
+		/* The <thead> naming the columns scrolls away with
+		 * everything else -- this is a GtkGrid inside a text
+		 * buffer, not a real table widget, so nothing sticks. A
+		 * chapter in, there is no way to tell which version is on
+		 * the left. Repeating the names every so often costs one
+		 * thin row and answers the question wherever you happen to
+		 * be reading. */
+		if (verse > 1 && ((verse - 1) % PARALLEL_LABEL_EVERY) == 0) {
+			const gchar *lab_fg = settings.darktheme ? "#E6C989" : "#8A6D1E";
+			gchar *lab_bg = blend_hex_color(settings.bible_bg_color,
+							lab_fg, 0.22);
+			text += "<tr>";
+			for (modidx = 0; modidx < parallel_count; modidx++) {
+				const char *ab =
+				    main_name_to_abbrev(settings.parallel_list[modidx]);
+				snprintf(str, 499,
+					 "<td width=\"%d%%\" bgcolor=\"%s\">"
+					 "<font color=\"%s\" size=\"-1\"><b>%s</b></font></td>",
+					 fraction, lab_bg, lab_fg,
+					 (ab ? ab : settings.parallel_list[modidx]));
+				text += str;
+			}
+			text += "</tr>";
+			g_free(lab_bg);
+		}
+
+		/* the control key as an object, so each module can map from
+		 * it below rather than reparsing the string in its own
+		 * (possibly different) versification. */
+		if (ctlkey)
+			ctlkey->setText(tmpkey);
+
 		text += "<tr valign=\"top\">";
 
 		// alternate background colors.
@@ -953,10 +992,32 @@ static void interpolate_parallel_display(SWModule *control,
 				if (is_rtol[modidx])
 					text += "<br/><div align=right>";
 
-				backend_p->set_module_key(mod, tmpkey);
+				/* tmpkey is expressed in the *control*
+				 * module's versification. Handing that same
+				 * string to a module on another one lands on
+				 * a different verse: comparing SpaRV1909
+				 * (KJV) against SpaPlatense (Vulg) put Psalm
+				 * 121 beside Psalm 120, silently. The comment
+				 * above admits upstream never solved this
+				 * ("very possibly wrong for all but the 1st")
+				 * -- but Sword does map between systems, so
+				 * ask each module's own key to position
+				 * itself from the control's. */
+				const char *modkey = tmpkey;
+				SWModule *target = backend_p->get_SWModule(mod);
+				VerseKey *tk = target
+					? dynamic_cast<VerseKey *>(target->getKey())
+					: NULL;
+				if (tk && ctlkey) {
+					tk->positionFrom(*ctlkey);
+					if (!tk->popError())
+						modkey = tk->getText();
+				}
+
+				backend_p->set_module_key(mod, modkey);
 				get_heading(text, backend_p, modidx);
 
-				utf8str = backend_p->get_render_text(mod, tmpkey);
+				utf8str = backend_p->get_render_text(mod, modkey);
 				if (utf8str) {
 					text += utf8str;
 					g_free(utf8str);
@@ -982,6 +1043,7 @@ static void interpolate_parallel_display(SWModule *control,
 	g_free(is_rtol);
 	g_free(is_module);
 	g_free(is_bible_text);
+	delete ctlkey;
 	g_free(row_tint);
 }
 

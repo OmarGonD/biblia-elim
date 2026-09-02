@@ -811,15 +811,19 @@ reading_strip_sync(void)
 {
 	if (!reading_strip)
 		return;
-	/* The strip itself belongs to reading mode; only the two controls
-	 * that configure the comparison follow whether it is on. */
+	/* Everything in the strip stays put while reading mode is on.
+	 * Hiding the two comparison controls whenever the comparison was
+	 * off meant the header changed shape under the pointer and the
+	 * buttons were missing exactly when someone went looking for
+	 * them. They are instead disabled, which says "this exists, turn
+	 * on the comparison to use it" rather than saying nothing. */
 	gtk_widget_set_visible(reading_strip, settings.reading_mode);
 	if (reading_compare_pick)
-		gtk_widget_set_visible(reading_compare_pick,
-				       settings.reading_compare != 0);
+		gtk_widget_set_sensitive(reading_compare_pick,
+					 settings.reading_compare != 0);
 	if (reading_font_button)
-		gtk_widget_set_visible(reading_font_button,
-				       settings.reading_compare != 0);
+		gtk_widget_set_sensitive(reading_font_button,
+					 settings.reading_compare != 0);
 }
 
 static void
