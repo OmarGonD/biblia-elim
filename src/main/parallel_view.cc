@@ -1003,21 +1003,37 @@ static void interpolate_parallel_display(SWModule *control,
 				 * -- but Sword does map between systems, so
 				 * ask each module's own key to position
 				 * itself from the control's. */
-				const char *modkey = tmpkey;
-				SWModule *target = backend_p->get_SWModule(mod);
-				VerseKey *tk = target
-					? dynamic_cast<VerseKey *>(target->getKey())
-					: NULL;
-				if (tk && ctlkey) {
-					tk->positionFrom(*ctlkey);
-					if (!tk->popError())
-						modkey = tk->getText();
+				/* Map through a key of our own, never through
+				 * the module's: getText() hands back a pointer
+				 * into the live key's buffer, and feeding that
+				 * straight back into set_module_key() for the
+				 * same module aliases it onto itself. Doing
+				 * exactly that produced Revelation 1:1 in
+				 * every row. */
+				gchar *modkey = NULL;
+				if (ctlkey) {
+					SWModule *target = backend_p->get_SWModule(mod);
+					VerseKey *tv = target
+						? dynamic_cast<VerseKey *>(target->getKey())
+						: NULL;
+					if (tv) {
+						VerseKey probe;
+						probe.setVersificationSystem(
+						    tv->getVersificationSystem());
+						probe.setAutoNormalize(1);
+						probe.positionFrom(*ctlkey);
+						if (!probe.popError())
+							modkey = g_strdup(probe.getText());
+					}
 				}
+				if (!modkey)
+					modkey = g_strdup(tmpkey);
 
 				backend_p->set_module_key(mod, modkey);
 				get_heading(text, backend_p, modidx);
 
 				utf8str = backend_p->get_render_text(mod, modkey);
+				g_free(modkey);
 				if (utf8str) {
 					text += utf8str;
 					g_free(utf8str);
