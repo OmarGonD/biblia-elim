@@ -38,6 +38,7 @@
 #include "gui/xiphos.h"
 #include "gui/utilities.h"
 #include "gui/elim_tema.h"
+#include "gui/navbar_versekey.h"
 
 #include "main/sword.h"
 #include "main/url.hh"
@@ -354,6 +355,7 @@ int main(int argc, char *argv[])
 	gui_splash_step(_("Starting Sword"), 0.5, 1 + base_step);
 	main_init_backend();
 	gui_elim_tema_marcar_listo();
+	gui_navbar_version_combo_refill();
 
 	gui_splash_step(_("Loading Settings"), 0.8, 2 + base_step);
 	frontend_init();

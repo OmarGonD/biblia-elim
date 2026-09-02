@@ -36,6 +36,10 @@ GtkWidget *gui_navbar_versekey_new(void);
  * módulo desinstalado, etc.) para que el selector no quede
  * desactualizado. */
 void gui_navbar_version_combo_sync(void);
+/* Llena el picker de versiones. Lo llama main() cuando Sword ya está
+ * levantado: antes de eso no se le puede preguntar el idioma a un
+ * módulo. */
+void gui_navbar_version_combo_refill(void);
 
 #ifdef __cplusplus
 }
