@@ -49,6 +49,17 @@ typedef struct {
 	GtkTextMark *mark;
 } Anchor;
 
+/* A link's reach in the buffer. Offsets are stable for as long as the
+ * document is: load_html() empties the buffer and starts the list over
+ * before anything is inserted, and nothing edits the text afterwards.
+ * Appended in document order while walking, so a lookup is a binary
+ * search. */
+typedef struct {
+	gint start;
+	gint end;
+	gchar *href;
+} Link;
+
 typedef struct {
 	guint bold : 1;
 	guint italic : 1;
@@ -89,6 +100,7 @@ typedef struct {
 #define READING_FOCUS_YALIGN 0.20
 
 static void walk_node(ParseCtx *ctx, xmlNode *node);
+static gchar *iter_href(WkHtml *html, const GtkTextIter *iter);
 static void insert_verse_tools_chip(ParseCtx *ctx, const char *key, gboolean has_note);
 
 static void wk_html_class_init(WkHtmlClass *klass);
@@ -312,21 +324,24 @@ apply_style_tags(ParseCtx *ctx, GtkTextIter *s, GtkTextIter *e)
 		wk_html_highlight_apply(ctx->html, s, e, st->hl_id,
 					st->bg ? st->bg : "#FFEB3B");
 	if (st->href) {
-		WkHtmlPrivate *priv = ctx->html->priv;
+		/* The href lives in a side index keyed by buffer offset,
+		 * not in a GtkTextTag of its own. One tag per distinct link
+		 * meant ~5000 of them for a whole book, and taking them
+		 * back out at the next load cost 548 ms -- more than
+		 * parsing the document and filling the buffer combined.
+		 * Appearance still comes from a tag, but the shared
+		 * colour one, which color_tag() already dedupes. */
+		Link lk;
 		const char *link_fg = st->fg ? st->fg : "#2C4A6E";
-		tag = g_hash_table_lookup(priv->link_tags, st->href);
-		if (!tag) {
-			gchar *nm = g_strdup_printf("a:%u", ++priv->link_seq);
-			tag = gtk_text_buffer_create_tag(buf, nm,
-							 "foreground", link_fg,
-							 "underline", PANGO_UNDERLINE_NONE,
-							 NULL);
-			g_object_set_data_full(G_OBJECT(tag), "href",
-					       g_strdup(st->href), g_free);
-			g_hash_table_insert(priv->link_tags, g_strdup(st->href), tag);
-			g_free(nm);
-		}
-		gtk_text_buffer_apply_tag(buf, tag, s, e);
+
+		lk.start = gtk_text_iter_get_offset(s);
+		lk.end = gtk_text_iter_get_offset(e);
+		lk.href = g_strdup(st->href);
+		g_array_append_val(ctx->html->priv->links, lk);
+
+		tag = color_tag(buf, "fg", link_fg, "foreground");
+		if (tag)
+			gtk_text_buffer_apply_tag(buf, tag, s, e);
 	}
 	if (st->fg) {
 		tag = color_tag(buf, "fg", st->fg, "foreground");
@@ -1217,6 +1232,18 @@ free_anchor_list(WkHtmlPrivate *priv)
 		g_hash_table_remove_all(priv->anchor_ht);
 }
 
+static void
+links_reset(WkHtmlPrivate *priv)
+{
+	guint i;
+
+	if (!priv->links)
+		return;
+	for (i = 0; i < priv->links->len; i++)
+		g_free(g_array_index(priv->links, Link, i).href);
+	g_array_set_size(priv->links, 0);
+}
+
 /* Same, for a live buffer: the marks have to come out of it too,
  * otherwise they pile up across reloads. */
 static void
@@ -1255,24 +1282,17 @@ collect_hl_tag(GtkTextTag *tag, gpointer data)
  * run, so nothing references them any more; the next parse recreates
  * exactly the ones this document needs.
  *
- * link_seq is deliberately NOT reset: names only have to be unique
- * within the table, and letting it keep counting means a tag that
- * somehow escaped removal can never collide with a fresh one. */
+ * Link tags no longer exist -- an href is recorded in priv->links by
+ * offset instead of getting a tag of its own -- so only the highlight
+ * ones are left to reclaim here. */
 static void
 clear_load_tags(WkHtmlPrivate *priv)
 {
 	GtkTextTagTable *table = gtk_text_buffer_get_tag_table(priv->buffer);
-	GHashTableIter it;
-	gpointer val;
 	GPtrArray *stale;
 	guint i;
 
-	g_hash_table_iter_init(&it, priv->link_tags);
-	while (g_hash_table_iter_next(&it, NULL, &val))
-		gtk_text_tag_table_remove(table, GTK_TEXT_TAG(val));
-	g_hash_table_remove_all(priv->link_tags);
-
-	/* Highlight tags are not tracked in a hash, so sweep the table by
+	/* Highlight tags are not tracked anywhere, so sweep the table by
 	 * name prefix. Collect first: the table must not be modified from
 	 * inside gtk_text_tag_table_foreach(). */
 	stale = g_ptr_array_new();
@@ -1314,6 +1334,7 @@ load_html(WkHtml *html)
 	gtk_text_buffer_delete(priv->buffer, &start, &end);
 	/* after the delete: no text refers to these tags any more. */
 	clear_load_tags(priv);
+	links_reset(priv);
 
 	if (!priv->content)
 		return;
@@ -1344,27 +1365,32 @@ load_html(WkHtml *html)
 	 * until HtmlOutput() calls wk_html_jump_to_anchor() after close. */
 }
 
-static const gchar *
-tag_href(GtkTextTag *tag)
-{
-	return tag ? (const gchar *)g_object_get_data(G_OBJECT(tag), "href") : NULL;
-}
-
 static gchar *
-iter_href(const GtkTextIter *iter)
+iter_href(WkHtml *html, const GtkTextIter *iter)
 {
-	GSList *tags, *l;
-	gchar *href = NULL;
-	tags = gtk_text_iter_get_tags(iter);
-	for (l = tags; l; l = l->next) {
-		const gchar *h = tag_href(l->data);
-		if (h) {
-			href = g_strdup(h);
-			break;
-		}
+	GArray *links;
+	gint off, lo, hi;
+
+	if (!html || !WK_HTML_IS_HTML(html))
+		return NULL;
+	links = html->priv->links;
+	if (!links || links->len == 0)
+		return NULL;
+
+	off = gtk_text_iter_get_offset(iter);
+	lo = 0;
+	hi = (gint)links->len - 1;
+	while (lo <= hi) {
+		gint mid = (lo + hi) / 2;
+		Link *l = &g_array_index(links, Link, mid);
+		if (off < l->start)
+			hi = mid - 1;
+		else if (off >= l->end)
+			lo = mid + 1;
+		else
+			return g_strdup(l->href);
 	}
-	g_slist_free(tags);
-	return href;
+	return NULL;
 }
 
 static gboolean
@@ -1389,7 +1415,7 @@ on_motion(GtkWidget *widget, GdkEventMotion *event, gpointer data)
 					      GTK_TEXT_WINDOW_TEXT,
 					      (gint)event->x, (gint)event->y, &x, &y);
 	gtk_text_view_get_iter_at_location(GTK_TEXT_VIEW(widget), &iter, x, y);
-	href = iter_href(&iter);
+	href = iter_href(html, &iter);
 	if (g_strcmp0(html->priv->hover_uri, href) != 0) {
 		g_free(html->priv->hover_uri);
 		html->priv->hover_uri = href;
@@ -1443,7 +1469,7 @@ on_button_press(GtkWidget *widget, GdkEventButton *event, gpointer data)
 		return FALSE;
 
 	iter_at_xy(GTK_TEXT_VIEW(widget), event, &iter);
-	href = iter_href(&iter);
+	href = iter_href(html, &iter);
 	if (href) {
 		if (html->priv->is_dialog)
 			main_dialogs_url_handler(html->priv->dialog, href, TRUE);
@@ -1900,8 +1926,10 @@ html_finalize(GObject *object)
 		g_ptr_array_free(priv->anchor_list, TRUE);
 	if (priv->anchor_ht)
 		g_hash_table_destroy(priv->anchor_ht);
-	if (priv->link_tags)
-		g_hash_table_destroy(priv->link_tags);
+	if (priv->links) {
+		links_reset(priv);
+		g_array_free(priv->links, TRUE);
+	}
 	g_free(priv->base_uri);
 	g_free(priv->anchor);
 	g_free(priv->content);
@@ -1923,7 +1951,7 @@ wk_html_init(WkHtml *html)
 	memset(priv, 0, sizeof(*priv));
 	priv->anchor_ht = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, NULL);
 	priv->anchor_list = g_ptr_array_new();
-	priv->link_tags = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, NULL);
+	priv->links = g_array_new(FALSE, FALSE, sizeof(Link));
 
 	gtk_orientable_set_orientation(GTK_ORIENTABLE(html), GTK_ORIENTATION_VERTICAL);
 	gtk_widget_set_hexpand(GTK_WIDGET(html), TRUE);

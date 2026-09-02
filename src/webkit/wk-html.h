@@ -33,8 +33,7 @@ struct _WkHtmlPriv
 	GtkCssProvider *css;
 	GHashTable *anchor_ht;
 	GPtrArray *anchor_list;
-	GHashTable *link_tags;
-	guint link_seq;
+	GArray *links;		/* Link[]: href por rango de offsets */
 	gchar *content;
 	gchar *mime;
 	gchar *find_string;
