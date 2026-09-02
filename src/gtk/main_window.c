@@ -566,9 +566,17 @@ reading_font_apply(const gchar *chosen)
 		return;
 	if (pango_font_description_get_family(desc))
 		family = g_strdup(pango_font_description_get_family(desc));
+	/* Fontsize se guarda como paso relativo, que es lo que leen
+	 * utilities.c y display.cc y lo que ofrece el otro diálogo de
+	 * fuente ("+5" a "-3"). Escribir aquí el cuerpo absoluto en puntos
+	 * -- 14, 16 -- metía en ese campo un número que el resto
+	 * interpretaba como "catorce pasos más grande". Se guarda la
+	 * diferencia contra los doce puntos que toma como base
+	 * font_size_scale(). */
 	if (pango_font_description_get_size(desc) > 0)
 		size = g_strdup_printf(
-		    "%d", pango_font_description_get_size(desc) / PANGO_SCALE);
+		    "%+d",
+		    (pango_font_description_get_size(desc) / PANGO_SCALE) - 12);
 	pango_font_description_free(desc);
 
 	if (!conf)

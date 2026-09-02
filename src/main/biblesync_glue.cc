@@ -598,7 +598,7 @@ void biblesync_update_speaker()
 
 	/* -- column for user name -- */
 	renderer = gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes(_("Available Speakers"), renderer,
+	column = gtk_tree_view_column_new_with_attributes(_("Oradores disponibles"), renderer,
 							  "text", COLUMN_USER, NULL);
 	gtk_tree_view_column_set_sizing(GTK_TREE_VIEW_COLUMN(column),
 					GTK_TREE_VIEW_COLUMN_GROW_ONLY);
@@ -626,7 +626,7 @@ void biblesync_update_speaker()
 
 	/* -- column for recent nav -- */
 	renderer = gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes(_("Last Navigation"), renderer,
+	column = gtk_tree_view_column_new_with_attributes(_("Última navegación"), renderer,
 							  "text", COLUMN_NAV, NULL);
 	gtk_tree_view_column_set_sizing(GTK_TREE_VIEW_COLUMN(column),
 					GTK_TREE_VIEW_COLUMN_GROW_ONLY);

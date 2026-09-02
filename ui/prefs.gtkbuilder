@@ -73,13 +73,13 @@
     </columns>
     <data>
       <row>
-        <col id="0" translatable="yes">Category, then Language</col>
+        <col id="0" translatable="yes">Categoría y luego idioma</col>
       </row>
       <row>
-        <col id="0" translatable="yes">Category only</col>
+        <col id="0" translatable="yes">Sólo categoría</col>
       </row>
       <row>
-        <col id="0" translatable="yes">Language, then Category</col>
+        <col id="0" translatable="yes">Idioma y luego categoría</col>
       </row>
     </data>
   </object>
@@ -193,10 +193,16 @@
                 <property name="show_border">False</property>
                 <property name="scrollable">True</property>
                 <child>
-                  <object class="GtkImage" id="image1">
-                    <property name="visible">True</property>
+                  <!-- Primera hoja del cuaderno. Llevaba el logo de Xiphos
+                       ocupando el panel entero: era lo que se veía al abrir
+                       el diálogo y al pulsar un grupo del árbol. Ahora el
+                       árbol siempre lleva a un ajuste, así que esta hoja no
+                       llega a mostrarse; se deja vacía y en su sitio para no
+                       correr la numeración de las demás, que está escrita en
+                       create_model() y en gui_prefs_goto_parallel_page(). -->
+                  <object class="GtkBox" id="image1">
+                    <property name="visible">False</property>
                     <property name="can_focus">False</property>
-                    <property name="pixbuf">logo.png</property>
                   </object>
                 </child>
                 <child type="tab">
@@ -844,7 +850,7 @@
                             <property name="can_focus">False</property>
                             <property name="tooltip_text" translatable="yes">Name and size choice for any module in a given language; still overridden by a specific choice on a particular module</property>
                             <property name="xalign">0.20000000298023224</property>
-                            <property name="label" translatable="yes">Font preferences, per language</property>
+                            <property name="label" translatable="yes">Fuente para un idioma concreto</property>
                             <property name="use_markup">True</property>
                           </object>
                           <packing>
@@ -888,7 +894,7 @@
                             <property name="can_focus">False</property>
                             <property name="tooltip_text" translatable="yes">Number of columns in which to display text; can be set per module in font dialog</property>
                             <property name="xalign">0.07</property>
-                            <property name="label" translatable="yes">Default display columns</property>
+                            <property name="label" translatable="yes">Columnas de texto</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -922,7 +928,7 @@
                             </child>
                             <child>
                               <object class="GtkCheckButton" id="justifybutton">
-                                <property name="label" translatable="yes">Justify margins</property>
+                                <property name="label" translatable="yes">Justificar los márgenes</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
@@ -978,7 +984,6 @@
                       <object class="GtkBox" id="box-BSP-header">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="homogeneous">True</property>
                         <child>
                           <object class="GtkLabel" id="label17">
                             <property name="visible">True</property>
@@ -989,71 +994,15 @@
                             <property name="use_markup">True</property>
                           </object>
                           <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
+                            <property name="expand">False</property>
+                            <property name="fill">False</property>
                             <property name="position">0</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkLabel" id="labelbsp2">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="xalign">0</property>
-                            <property name="label" translatable="yes"> </property>
-                            <property name="use_markup">True</property>
-                          </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">1</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkLabel" id="labelbsp3">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="xalign">0</property>
-                            <property name="label" translatable="yes"> </property>
-                            <property name="use_markup">True</property>
-                          </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">2</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkLabel" id="labelbsp4">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="xalign">0</property>
-                            <property name="label" translatable="yes"> </property>
-                            <property name="use_markup">True</property>
-                          </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">3</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkImage" id="image-biblesync">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="tooltip_text" translatable="yes">Xiphos is the first Bible study program to provide an implementation of BibleSync, a synchronization protocol for Bible programs. If you work with multiple Bible programs, or if you work in a team, or if you have classroom activities using shared study, BibleSync can be a useful tool for you. BibleSync operates in 1 of 3 modes: Personal, to synchronize multiple Bible applications of your own, or in a working team; Speaker, to drive a lecture audience's Bible programs to follow along; Audience, to receive the speaker's navigation.</property>
-                            <property name="xalign">0</property>
-                            <property name="pixbuf">biblesync-v1-50.png</property>
-                          </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">4</property>
                           </packing>
                         </child>
                       </object>
                       <packing>
-                        <property name="expand">True</property>
-                        <property name="fill">True</property>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
                         <property name="position">0</property>
                       </packing>
                     </child>
@@ -1068,7 +1017,7 @@
                             <property name="can_focus">False</property>
                             <property name="tooltip_text" translatable="yes">Select the mode in which BibleSync should operate.</property>
                             <property name="xalign">0</property>
-                            <property name="label" translatable="yes">&lt;i&gt;Mode:&lt;/i&gt;</property>
+                            <property name="label" translatable="yes">&lt;i&gt;Modo:&lt;/i&gt;</property>
                             <property name="use_markup">True</property>
                           </object>
                           <packing>
@@ -1286,7 +1235,7 @@
                             <property name="can_focus">False</property>
                             <property name="tooltip_text" translatable="yes">Choose how to accept incoming navigation synchronization.</property>
                             <property name="xalign">0</property>
-                            <property name="label" translatable="yes">&lt;i&gt;Navigate:&lt;/i&gt;</property>
+                            <property name="label" translatable="yes">&lt;i&gt;Navegar:&lt;/i&gt;</property>
                             <property name="use_markup">True</property>
                           </object>
                           <packing>
@@ -1360,7 +1309,7 @@
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="checkbutton_BSP_keyboard">
-                            <property name="label" translatable="yes">_Keyboard only</property>
+                            <property name="label" translatable="yes">Sólo con el _teclado</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
@@ -1400,7 +1349,7 @@
                             <property name="can_focus">False</property>
                             <property name="tooltip_text" translatable="yes">Xiphos will listen to Speakers according to choice here.</property>
                             <property name="xalign">0</property>
-                            <property name="label" translatable="yes">&lt;i&gt;Listen:&lt;/i&gt;</property>
+                            <property name="label" translatable="yes">&lt;i&gt;Escuchar:&lt;/i&gt;</property>
                             <property name="use_markup">True</property>
                           </object>
                           <packing>
@@ -1542,7 +1491,7 @@
                             <property name="has_tooltip">True</property>
                             <property name="tooltip_text" translatable="yes">Additional traces can be presented during BibleSync operation by enabling presence, mismatch, and debug. Beware enabling these, they can be very chatty. Also, decide whether to allow group parameter as Xiphos' tab number.</property>
                             <property name="xalign">0</property>
-                            <property name="label" translatable="yes">&lt;i&gt;Special:&lt;/i&gt;</property>
+                            <property name="label" translatable="yes">&lt;i&gt;Otros:&lt;/i&gt;</property>
                             <property name="use_markup">True</property>
                           </object>
                           <packing>
@@ -1706,9 +1655,9 @@
                               <object class="GtkLabel" id="label40">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="tooltip_text" translatable="yes">Select a particular language for interface display, other than your usual setting</property>
+                                <property name="tooltip_text" translatable="yes">Elegir un idioma para la interfaz distinto del que use el sistema</property>
                                 <property name="xalign">0</property>
-                                <property name="label" translatable="yes">Locale (requires restart)</property>
+                                <property name="label" translatable="yes">Idioma de la interfaz (requiere reiniciar)</property>
                                 <property name="use_markup">True</property>
                               </object>
                               <packing>
@@ -1938,11 +1887,11 @@
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="checkbutton_statusbar">
-                            <property name="label" translatable="yes">Enable Statusbar</property>
+                            <property name="label" translatable="yes">Mostrar la barra de estado</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <property name="tooltip_text" translatable="yes">Enable/disable the Statusbar</property>
+                            <property name="tooltip_text" translatable="yes">Mostrar u ocultar la barra de estado</property>
                             <property name="use_underline">True</property>
                             <property name="xalign">0</property>
                             <property name="active">True</property>
@@ -1984,7 +1933,7 @@
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="checkbutton_alternation">
-                            <property name="label" translatable="yes">Parallel color alternation</property>
+                            <property name="label" translatable="yes">Alternar el color de las versiones en paralelo</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>

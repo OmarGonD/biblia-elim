@@ -25,6 +25,21 @@ struct _WkHtml
 	GtkBox parent;
 	WkHtmlPrivate *priv;
 };
+/* Las fuentes de los idiomas originales no son una preferencia: son las
+ * que mejor colocan los espíritus y acentos del griego politónico y los
+ * puntos vocálicos y la cantilación del hebreo, comparadas bajo el mismo
+ * motor de Pango que las dibuja. Se listan aquí para que Preferencias
+ * enseñe lo que de verdad se usa en vez de una copia que se despiste. */
+/* La de lectura sí es preferencia: esto es sólo el valor por omisión,
+ * el que se usa mientras nadie elija otra en Preferencias. */
+#define ELIM_FONT_READING	"Literata"
+
+#define ELIM_FONT_GREEK		"Gentium Plus"
+#define ELIM_FONT_HEBREW	"Noto Serif Hebrew"
+/* con un respaldo detrás por si no están instaladas */
+#define ELIM_FONT_GREEK_LIST	ELIM_FONT_GREEK ", Noto Serif"
+#define ELIM_FONT_HEBREW_LIST	ELIM_FONT_HEBREW ", Noto Sans Hebrew"
+
 struct _WkHtmlPriv
 {
 	GtkTextView *view;

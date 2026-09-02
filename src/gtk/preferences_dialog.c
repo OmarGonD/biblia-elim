@@ -56,6 +56,8 @@
 #include "main/settings.h"
 #include "main/sidebar.h"
 #include "main/xml.h"
+#include "main/configs.h"
+#include "webkit/wk-html.h"
 #include "main/url.hh"
 #include "main/biblesync_glue.h"
 
@@ -2182,14 +2184,27 @@ static void add_columns(GtkWidget *treeview)
 static void
 tree_selection_changed(GtkTreeSelection *selection, gpointer data)
 {
-	GtkTreeIter selected;
+	GtkTreeIter selected, child;
 	gint page;
 	GtkTreeModel *model;
 
 	if (!gtk_tree_selection_get_selected(selection, &model, &selected))
 		return;
 
-	gtk_tree_model_get(model, &selected, 1, &page, -1);
+	/* Las filas de grupo -- General, Tipografías, Módulos -- no llevan
+	 * número de página, así que caían en la 0: una hoja con el logo de
+	 * Xiphos y nada más, que era lo que se veía al abrir el diálogo y
+	 * cada vez que se pulsaba un grupo. Ahora un grupo enseña la página
+	 * de su primer ajuste.
+	 *
+	 * Se mira el hijo pero no se mueve la selección: llevarla abajo
+	 * atrapaba el teclado, porque al subir a la fila del grupo volvía a
+	 * bajar sola y no había manera de pasar de largo hacia la sección
+	 * anterior. */
+	if (gtk_tree_model_iter_children(model, &child, &selected))
+		gtk_tree_model_get(model, &child, 1, &page, -1);
+	else
+		gtk_tree_model_get(model, &selected, 1, &page, -1);
 	gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook), page);
 }
 
@@ -2754,6 +2769,209 @@ void setup_locale_combobox(void)
 
 	g_signal_connect(combo.special_locale, "changed",
 			 G_CALLBACK(on_combobox16_changed), NULL);
+}
+
+/******************************************************************************
+ * Elegir las fuentes
+ *
+ * Antes esto no estaba aquí. La fuente de un módulo se cambiaba por el
+ * menú contextual del texto, y en esta página sólo había un desplegable
+ * de idiomas que, al elegir uno, abría el mismo diálogo para "Language:
+ * xx" -- había que saber que existía y adivinar qué hacía.
+ *
+ * Ahora hay dos botones de fuente, que es lo que se espera: uno para la
+ * interfaz y otro para el texto bíblico. El segundo escribe la sección
+ * [Default] de fonts.conf, que utilities.c consulta cuando el módulo no
+ * trae fuente propia ni la trae su idioma; así vale para todos los
+ * módulos sin tener que repetirla módulo a módulo, y quien quiera una
+ * distinta para uno concreto la sigue teniendo en el menú contextual.
+ *
+ * El griego y el hebreo se enseñan pero no se tocan: son las que mejor
+ * colocan los espíritus y acentos del politónico y los puntos vocálicos
+ * y la cantilación, y dejarlas elegir sólo sirve para romper el
+ * interlineal.
+ */
+
+static GtkWidget *font_button_app;
+static GtkWidget *font_button_texto;
+
+/* La columna de etiquetas mide igual en toda la pagina para que los
+ * controles queden alineados; vease ajustar_maquetacion(). */
+#define ANCHO_ETIQUETA_FUENTES 230
+#define ANCHO_CONTROL_FUENTES 300
+
+/* fonts.conf guarda familia y cuerpo por separado, y el cuerpo como paso
+ * relativo; el botón de GTK habla de "Familia 12". Aquí se traduce. */
+static gchar *
+default_text_font_string(void)
+{
+	gchar *file = g_strdup_printf("%s/fonts.conf", settings.gSwordDir);
+	gchar *family = get_conf_file_item(file, "Default", "Font");
+	gchar *size = get_conf_file_item(file, "Default", "Fontsize");
+	gchar *out;
+	int pt = 12;
+
+	g_free(file);
+	if (size && *size) {
+		int n = atoi(size);
+		/* un número sin signo desde 8 es un cuerpo en puntos de los
+		 * que escribía el selector viejo; con signo, un paso */
+		pt = ((size[0] != '+') && (size[0] != '-') && (n >= 8))
+			 ? n
+			 : 12 + n;
+	}
+	out = g_strdup_printf("%s %d",
+			      (family && *family) ? family : ELIM_FONT_READING,
+			      CLAMP(pt, 6, 72));
+	g_free(family);
+	g_free(size);
+	return out;
+}
+
+static void
+on_font_app_set(GtkFontButton *button, gpointer user_data)
+{
+	gchar *name = gtk_font_chooser_get_font(GTK_FONT_CHOOSER(button));
+
+	if (!name)
+		return;
+	g_free(settings.app_font);
+	settings.app_font = name;
+	xml_set_value("Xiphos", "misc", "appfont", settings.app_font);
+	gui_elim_fuente_app_aplicar(settings.app_font);
+}
+
+static void
+on_font_texto_set(GtkFontButton *button, gpointer user_data)
+{
+	gchar *name = gtk_font_chooser_get_font(GTK_FONT_CHOOSER(button));
+	PangoFontDescription *desc;
+	gchar *file, *size;
+	const gchar *family;
+
+	if (!name)
+		return;
+	desc = pango_font_description_from_string(name);
+	g_free(name);
+	if (!desc)
+		return;
+
+	family = pango_font_description_get_family(desc);
+	/* Fontsize va como paso relativo sobre doce puntos, que es lo que
+	 * leen utilities.c y display.cc */
+	size = g_strdup_printf(
+	    "%+d", (pango_font_description_get_size(desc) / PANGO_SCALE) - 12);
+
+	file = g_strdup_printf("%s/fonts.conf", settings.gSwordDir);
+	if (family && *family)
+		save_conf_file_item(file, "Default", "Font", (gchar *)family);
+	save_conf_file_item(file, "Default", "Fontsize", size);
+	g_free(file);
+	g_free(size);
+	pango_font_description_free(desc);
+
+	redisplay_to_realign();
+}
+
+static GtkWidget *
+fixed_font_row(const gchar *idioma, const gchar *fuente)
+{
+	GtkWidget *box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 12);
+	GtkWidget *nombre = gtk_label_new(fuente);
+	GtkWidget *lbl = gtk_label_new(idioma);
+
+	gtk_label_set_xalign(GTK_LABEL(lbl), 0.0);
+	gtk_widget_set_halign(lbl, GTK_ALIGN_START);
+	gtk_widget_set_size_request(lbl, ANCHO_ETIQUETA_FUENTES, -1);
+	gtk_widget_set_halign(nombre, GTK_ALIGN_START);
+	gtk_style_context_add_class(gtk_widget_get_style_context(nombre),
+				    GTK_STYLE_CLASS_DIM_LABEL);
+	gtk_box_pack_start(GTK_BOX(box), lbl, FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(box), nombre, FALSE, FALSE, 0);
+	gtk_widget_set_margin_start(box, 8);
+	return box;
+}
+
+static GtkWidget *
+font_chooser_row(const gchar *etiqueta, GtkWidget **button,
+		 const gchar *inicial, GCallback cb)
+{
+	GtkWidget *box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 12);
+	GtkWidget *lbl = gtk_label_new(etiqueta);
+
+	gtk_label_set_xalign(GTK_LABEL(lbl), 0.0);
+	gtk_widget_set_halign(lbl, GTK_ALIGN_START);
+	gtk_widget_set_size_request(lbl, ANCHO_ETIQUETA_FUENTES, -1);
+	*button = gtk_font_button_new();
+	if (inicial && *inicial)
+		gtk_font_chooser_set_font(GTK_FONT_CHOOSER(*button), inicial);
+	gtk_widget_set_size_request(*button, ANCHO_CONTROL_FUENTES, -1);
+	g_signal_connect(*button, "font-set", cb, NULL);
+	gtk_box_pack_start(GTK_BOX(box), lbl, FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(box), *button, FALSE, FALSE, 0);
+	gtk_widget_set_margin_start(box, 8);
+	return box;
+}
+
+static void
+setup_font_choosers(GtkWidget *page)
+{
+	GtkWidget *caja, *titulo, *nota, *texto_ini;
+	gchar *inicial;
+
+	caja = gtk_box_new(GTK_ORIENTATION_VERTICAL, 4);
+	gtk_widget_set_margin_bottom(caja, 10);
+
+	titulo = gtk_label_new(NULL);
+	gtk_label_set_markup(GTK_LABEL(titulo), _("<b>Fuentes</b>"));
+	gtk_widget_set_halign(titulo, GTK_ALIGN_START);
+	gtk_box_pack_start(GTK_BOX(caja), titulo, FALSE, FALSE, 0);
+
+	/* Sin ajuste propio, el botón tiene que enseñar la fuente que el
+	 * escritorio está dando de verdad; si no, abre mintiendo y basta
+	 * con aceptar para cambiarla sin querer. */
+	if (settings.app_font && *settings.app_font)
+		inicial = g_strdup(settings.app_font);
+	else {
+		GtkSettings *gs = gtk_settings_get_default();
+		inicial = NULL;
+		if (gs)
+			g_object_get(gs, "gtk-font-name", &inicial, NULL);
+	}
+	gtk_box_pack_start(GTK_BOX(caja),
+			   font_chooser_row(_("Interfaz"), &font_button_app,
+					    inicial,
+					    G_CALLBACK(on_font_app_set)),
+			   FALSE, FALSE, 0);
+	g_free(inicial);
+
+	inicial = default_text_font_string();
+	texto_ini = font_chooser_row(_("Texto bíblico"), &font_button_texto,
+				     inicial, G_CALLBACK(on_font_texto_set));
+	g_free(inicial);
+	gtk_box_pack_start(GTK_BOX(caja), texto_ini, FALSE, FALSE, 0);
+
+	gtk_box_pack_start(GTK_BOX(caja),
+			   fixed_font_row(_("Griego"), ELIM_FONT_GREEK),
+			   FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(caja),
+			   fixed_font_row(_("Hebreo"), ELIM_FONT_HEBREW),
+			   FALSE, FALSE, 0);
+
+	nota = gtk_label_new(NULL);
+	gtk_label_set_markup(
+	    GTK_LABEL(nota),
+	    _("<small>El griego y el hebreo no se cambian: son las fuentes "
+	      "que mejor\ncolocan los acentos del politónico y los puntos "
+	      "vocálicos y la\ncantilación del hebreo.</small>"));
+	gtk_widget_set_halign(nota, GTK_ALIGN_START);
+	gtk_style_context_add_class(gtk_widget_get_style_context(nota),
+				    GTK_STYLE_CLASS_DIM_LABEL);
+	gtk_box_pack_start(GTK_BOX(caja), nota, FALSE, FALSE, 4);
+
+	gtk_widget_show_all(caja);
+	gtk_box_pack_start(GTK_BOX(page), caja, FALSE, FALSE, 0);
+	gtk_box_reorder_child(GTK_BOX(page), caja, 0);
 }
 
 void setup_font_prefs_combobox(void)
@@ -3445,6 +3663,133 @@ void gui_prefs_goto_parallel_page(void)
 }
 
 /******************************************************************************
+ * Maquetacion de las filas
+ *
+ * Las filas de esta ventana vienen de Glade como cajas homogeneas: la
+ * etiqueta y su control se repartian el ancho a partes iguales, asi que
+ * la etiqueta salia centrada en su mitad y el desplegable -- o el boton
+ * de color -- se estiraba de lado a lado de la pagina.  Aqui se les da
+ * forma de formulario: etiqueta a la izquierda con un ancho fijo, el
+ * mismo para toda la pagina para que los controles caigan en columna, y
+ * el control a continuacion con su ancho, sin estirarse.
+ *
+ * Se hace en C y no en el .gtkbuilder porque son cuarenta filas con la
+ * misma correccion repetida, y porque asi las dos filas de fuente, que
+ * se construyen a mano en setup_font_choosers(), siguen la misma regla.
+ */
+
+static void
+fila_formulario(GtkBuilder *gxml, const gchar *id, gint ancho_etiqueta,
+		gint ancho_control)
+{
+	GtkWidget *fila = UI_GET_ITEM(gxml, id);
+	GtkWidget *padre;
+	GList *hijos, *n;
+	int i;
+
+	if (!GTK_IS_BOX(fila))
+		return;
+
+	gtk_box_set_homogeneous(GTK_BOX(fila), FALSE);
+	gtk_box_set_spacing(GTK_BOX(fila), 12);
+
+	/* Sin esto las filas se reparten el alto de la pagina y quedan
+	 * separadas por huecos que no dicen nada. */
+	padre = gtk_widget_get_parent(fila);
+	if (GTK_IS_BOX(padre))
+		gtk_box_set_child_packing(GTK_BOX(padre), fila, FALSE, FALSE,
+					  0, GTK_PACK_START);
+
+	hijos = gtk_container_get_children(GTK_CONTAINER(fila));
+	for (n = hijos, i = 0; n; n = n->next, i++) {
+		GtkWidget *hijo = GTK_WIDGET(n->data);
+
+		if (i == 0) {
+			if (GTK_IS_LABEL(hijo))
+				gtk_label_set_xalign(GTK_LABEL(hijo), 0.0);
+			gtk_widget_set_size_request(hijo, ancho_etiqueta, -1);
+			gtk_box_set_child_packing(GTK_BOX(fila), hijo, FALSE,
+						  TRUE, 0, GTK_PACK_START);
+			continue;
+		}
+
+		/* Algunas filas no llevan el control suelto sino metido en
+		 * otra caja homogenea -- las casillas del numero de versiculo,
+		 * el numero de columnas con su "justificar" -- que reparte el
+		 * ancho igual que hacia la fila. */
+		if (GTK_IS_BOX(hijo)) {
+			GList *dentro, *m;
+
+			gtk_box_set_homogeneous(GTK_BOX(hijo), FALSE);
+			gtk_box_set_spacing(GTK_BOX(hijo), 18);
+			dentro = gtk_container_get_children(GTK_CONTAINER(hijo));
+			for (m = dentro; m; m = m->next)
+				gtk_box_set_child_packing(GTK_BOX(hijo),
+							  GTK_WIDGET(m->data),
+							  FALSE, FALSE, 0,
+							  GTK_PACK_START);
+			g_list_free(dentro);
+		} else if (i == 1 && ancho_control > 0)
+			gtk_widget_set_size_request(hijo, ancho_control, -1);
+
+		gtk_box_set_child_packing(GTK_BOX(fila), hijo, FALSE, FALSE, 0,
+					  GTK_PACK_START);
+	}
+	g_list_free(hijos);
+}
+
+static void
+ajustar_maquetacion(GtkBuilder *gxml)
+{
+	/* Color: etiqueta corta y el boton de color con el ancho justo para
+	 * verse como una muestra, no como una banda. */
+	static const char *color[] = {
+	    "hbox2", "hbox6", "hbox7", "hbox8", "hbox9",
+	    "hbox27", "hbox28", "hbox29", NULL
+	};
+	/* Modulos especiales: "Lexico de morfologia griega del NT" es la
+	 * etiqueta mas larga y marca el ancho de la columna. */
+	static const char *especial[] = {
+	    "hbox23", "hbox24", "hbox25", "hbox32", "hbox34",
+	    "hbox33", "hbox16", "hbox17", "hbox_module_grouping", NULL
+	};
+	const char **id;
+
+	for (id = color; *id; id++)
+		fila_formulario(gxml, *id, 200, 150);
+
+	fila_formulario(gxml, "basehbox10", ANCHO_ETIQUETA_FUENTES,
+			ANCHO_CONTROL_FUENTES);
+	fila_formulario(gxml, "hbox11", ANCHO_ETIQUETA_FUENTES,
+			ANCHO_CONTROL_FUENTES);
+	fila_formulario(gxml, "hbox31", ANCHO_ETIQUETA_FUENTES,
+			ANCHO_CONTROL_FUENTES);
+	fila_formulario(gxml, "columncountbox", ANCHO_ETIQUETA_FUENTES, 0);
+
+	fila_formulario(gxml, "hbox30", 290, 300);
+	fila_formulario(gxml, "hbox3", 290, 0);
+	fila_formulario(gxml, "hbox-studypad", 290, 0);
+
+	for (id = especial; *id; id++)
+		fila_formulario(gxml, *id, 250, 300);
+
+	/* Dos etiquetas en blanco separaban los tamanos del selector por
+	 * idioma con un hueco del alto de dos renglones. */
+	gtk_widget_hide(UI_GET_ITEM(gxml, "labelbsp5"));
+	gtk_widget_hide(UI_GET_ITEM(gxml, "labelbsp6"));
+
+	/* La pareja de botones de "Invertir pareja de colores" cabe sola. */
+	{
+		GtkWidget *caja = UI_GET_ITEM(gxml, "hbox29a");
+
+		if (GTK_IS_BOX(caja)) {
+			gtk_box_set_homogeneous(GTK_BOX(caja), FALSE);
+			gtk_box_set_spacing(GTK_BOX(caja), 6);
+		}
+	}
+}
+
+/******************************************************************************
  * Name
  *   gui_create_preferences_dialog
  *
@@ -3633,6 +3978,10 @@ static void create_preferences_dialog(void)
 	combo.font_prefs = UI_GET_ITEM(gxml, "combobox17");
 	setup_font_prefs_combobox();
 
+	setup_font_choosers(UI_GET_ITEM(gxml, "vbox3"));
+
+	ajustar_maquetacion(gxml);
+
 	/* studypad directory chooserbutton */
 	chooser = UI_GET_ITEM(gxml, "filechooserbutton1");
 	gtk_file_chooser_set_current_folder((GtkFileChooser *)chooser,
@@ -3647,7 +3996,8 @@ static void create_preferences_dialog(void)
 	treeview = UI_GET_ITEM(gxml, "treeview");
 	gtk_tree_view_set_model(GTK_TREE_VIEW(treeview), model);
 	gtk_tree_view_set_headers_visible(GTK_TREE_VIEW(treeview), FALSE);
-	gtk_widget_set_size_request(treeview, 130, -1);
+	/* 130 px cortaba "Tipos y tamaños" a media palabra */
+	gtk_widget_set_size_request(treeview, 175, -1);
 	add_columns(treeview);
 	gtk_tree_view_expand_all(GTK_TREE_VIEW(treeview));
 	selection =
@@ -3658,6 +4008,16 @@ static void create_preferences_dialog(void)
 
 	g_signal_connect(selection, "changed",
 			 G_CALLBACK(tree_selection_changed), model);
+
+	/* El diálogo abre en el primer ajuste. Antes abría en la página del
+	 * logo, que ocupaba el panel entero sin ofrecer nada. */
+	{
+		GtkTreePath *first = gtk_tree_path_new_from_indices(0, 0, -1);
+
+		gtk_tree_selection_select_path(GTK_TREE_SELECTION(selection),
+					       first);
+		gtk_tree_path_free(first);
+	}
 
 	/*
 	 * parallel select dialog: chooser and button connectivity
@@ -3682,7 +4042,7 @@ static void create_preferences_dialog(void)
 		GtkWidget *vbox10 = UI_GET_ITEM(gxml, "vbox10");
 		GtkWidget *hbox;
 		UI_HBOX(hbox, FALSE, 6);
-		GtkWidget *label = gtk_label_new(_("Set:"));
+		GtkWidget *label = gtk_label_new(_("Conjunto:"));
 		GtkWidget *combo = gtk_combo_box_text_new();
 
 		parallel_select.sets_hbox = hbox;

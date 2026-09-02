@@ -81,20 +81,23 @@ typedef struct {
 	gchar *bg;
 	gchar *href;
 	gchar *hl_id;
+	gchar *family;
 	gdouble scale;
 } Style;
 
 enum {
-	COLOR_SLOT_FG,
-	COLOR_SLOT_BG,
-	COLOR_SLOT_PBG,
-	COLOR_SLOTS
+	TAG_SLOT_FG,
+	TAG_SLOT_BG,
+	TAG_SLOT_PBG,
+	TAG_SLOT_FAMILY,
+	TAG_SLOT_SCALE,
+	TAG_SLOTS
 };
 
 typedef struct {
-	gchar *color;
+	gchar *key;
 	GtkTextTag *tag;
-} ColorMemo;
+} AttrMemo;
 
 /* Un tramo de texto y la etiqueta que le toca, en offsets de carácter.
  * Se anotan mientras se recorre el documento y se aplican todos juntos
@@ -124,7 +127,7 @@ typedef struct {
 	gint base;		/* offset del buffer donde caerá pending[0] */
 	GArray *spans;		/* TagSpan[]: etiquetado diferido */
 	StockTags tags;
-	ColorMemo memo[COLOR_SLOTS];
+	AttrMemo memo[TAG_SLOTS];
 	GPtrArray *kids;	/* PROTOTIPO: (anchor, widget) diferidos */
 	gboolean skip;
 	gboolean at_line_start;
@@ -144,6 +147,7 @@ static void insert_verse_tools_chip(ParseCtx *ctx, const char *key, gboolean has
 
 static GtkTextTag *hl_tag(WkHtml *html, const gchar *id, const gchar *color,
 			  gboolean create);
+static void wk_html_add_reading_font(GtkStyleContext *ctx);
 static void wk_html_add_scroll(WkHtml *html);
 static void wk_html_class_init(WkHtmlClass *klass);
 static void wk_html_init(WkHtml *html);
@@ -157,6 +161,7 @@ style_clear(Style *s)
 	g_free(s->bg);
 	g_free(s->href);
 	g_free(s->hl_id);
+	g_free(s->family);
 	memset(s, 0, sizeof(*s));
 	s->scale = 1.0;
 }
@@ -169,6 +174,7 @@ style_copy(const Style *s)
 	d.bg = g_strdup(s->bg);
 	d.href = g_strdup(s->href);
 	d.hl_id = g_strdup(s->hl_id);
+	d.family = g_strdup(s->family);
 	return d;
 }
 
@@ -245,40 +251,63 @@ parse_style_attr(const char *css, Style *st)
 }
 
 static GtkTextTag *
-color_tag(GtkTextBuffer *buf, const char *prefix, const char *color, const char *prop)
+attr_tag(GtkTextBuffer *buf, const char *prefix, const char *value, const char *prop)
 {
 	gchar *name;
 	GtkTextTag *tag;
 	GtkTextTagTable *table;
 
-	if (!color || !*color)
+	if (!value || !*value)
 		return NULL;
-	name = g_strdup_printf("%s:%s", prefix, color);
+	name = g_strdup_printf("%s:%s", prefix, value);
 	table = gtk_text_buffer_get_tag_table(buf);
 	tag = gtk_text_tag_table_lookup(table, name);
 	if (!tag)
-		tag = gtk_text_buffer_create_tag(buf, name, prop, color, NULL);
+		tag = gtk_text_buffer_create_tag(buf, name, prop, value, NULL);
 	g_free(name);
 	return tag;
 }
 
-/* Un capítulo con números de Strong es un mismo color repetido miles de
+/* Un capítulo con números de Strong es un mismo valor repetido miles de
  * veces: armar el nombre "fg:#2C4A6E" con printf y buscarlo en la tabla
  * para cada tramo salía caro, y la respuesta es casi siempre la anterior.
- * Un hueco por familia de color basta para acertar. */
+ * Un hueco por clase de atributo basta para acertar. */
 static GtkTextTag *
-color_tag_memo(ParseCtx *ctx, gint slot, const char *prefix,
-	       const char *color, const char *prop)
+attr_tag_memo(ParseCtx *ctx, gint slot, const char *prefix,
+	      const char *value, const char *prop)
 {
-	ColorMemo *m = &ctx->memo[slot];
+	AttrMemo *m = &ctx->memo[slot];
 
-	if (!color || !*color)
+	if (!value || !*value)
 		return NULL;
-	if (m->color && !strcmp(m->color, color))
+	if (m->key && !strcmp(m->key, value))
 		return m->tag;
-	g_free(m->color);
-	m->color = g_strdup(color);
-	m->tag = color_tag(ctx->buf, prefix, color, prop);
+	g_free(m->key);
+	m->key = g_strdup(value);
+	m->tag = attr_tag(ctx->buf, prefix, value, prop);
+	return m->tag;
+}
+
+/* La escala es una propiedad double, así que no pasa por attr_tag(), que
+ * escribe cadenas; el memo es el mismo truco de recordar la última. */
+static GtkTextTag *
+scale_tag(ParseCtx *ctx, gdouble scale)
+{
+	AttrMemo *m = &ctx->memo[TAG_SLOT_SCALE];
+	GtkTextTagTable *table;
+	gchar *name = g_strdup_printf("sz:%.3f", scale);
+
+	if (m->key && !strcmp(m->key, name)) {
+		g_free(name);
+		return m->tag;
+	}
+	table = gtk_text_buffer_get_tag_table(ctx->buf);
+	m->tag = gtk_text_tag_table_lookup(table, name);
+	if (!m->tag)
+		m->tag = gtk_text_buffer_create_tag(ctx->buf, name,
+						   "scale", scale, NULL);
+	g_free(m->key);
+	m->key = name;
 	return m->tag;
 }
 
@@ -405,22 +434,31 @@ ensure_il_tags(GtkTextBuffer *buf)
 					   NULL);
 	if (!gtk_text_tag_table_lookup(t, "illabel"))
 		gtk_text_buffer_create_tag(buf, "illabel",
-					   "family", "Liberation Serif",
+					   "family", "Literata, Liberation Serif",
 					   "variant", PANGO_VARIANT_SMALL_CAPS,
 					   "style", PANGO_STYLE_ITALIC,
 					   "scale", PANGO_SCALE_SMALL,
 					   "weight", PANGO_WEIGHT_MEDIUM,
 					   NULL);
+	/* Gentium Plus lleva las formas del griego politónico como se
+	 * imprime el Nuevo Testamento -- SIL la hizo para esto -- donde
+	 * Noto Serif pone una serif de texto moderna, legible pero ajena a
+	 * la convención. A igual cuerpo se ve ópticamente menor, así que
+	 * sube la escala para que la línea ocupe lo mismo que antes. Se
+	 * deja Noto Serif detrás por si no está instalada. */
 	if (!gtk_text_tag_table_lookup(t, "ilorig"))
 		gtk_text_buffer_create_tag(buf, "ilorig",
-					   "family", "Noto Serif",
-					   "scale", 1.22,
+					   "family", ELIM_FONT_GREEK_LIST,
+					   "scale", 1.32,
 					   "weight", PANGO_WEIGHT_NORMAL,
 					   "letter-spacing", 1024,
 					   NULL);
+	/* El hebreo se queda en Noto Serif Hebrew: comparada con Cardo
+	 * bajo el mismo motor de Pango, pega mejor los puntos vocálicos y
+	 * los acentos de cantilación y no separa las letras. */
 	if (!gtk_text_tag_table_lookup(t, "ilorig-he"))
 		gtk_text_buffer_create_tag(buf, "ilorig-he",
-					   "family", "Noto Serif Hebrew",
+					   "family", ELIM_FONT_HEBREW_LIST,
 					   "scale", 1.28,
 					   "weight", PANGO_WEIGHT_NORMAL,
 					   "letter-spacing", 512,
@@ -490,6 +528,12 @@ record_style_spans(ParseCtx *ctx, gint start, gint end)
 		span_add(ctx, t->illabel, start, end);
 	if (st->ilorig)
 		span_add(ctx, st->ilrtl ? t->ilorig_he : t->ilorig, start, end);
+	if (st->family)
+		span_add(ctx, attr_tag_memo(ctx, TAG_SLOT_FAMILY, "ff",
+					    st->family, "family"),
+			 start, end);
+	if (st->scale != 1.0)
+		span_add(ctx, scale_tag(ctx, st->scale), start, end);
 	if (st->hl_id)
 		span_add(ctx, hl_tag(ctx->html, st->hl_id,
 				     st->bg ? st->bg : "#FFEB3B", TRUE),
@@ -501,7 +545,7 @@ record_style_spans(ParseCtx *ctx, gint start, gint end)
 		 * back out at the next load cost 548 ms -- more than
 		 * parsing the document and filling the buffer combined.
 		 * Appearance still comes from a tag, but the shared
-		 * colour one, which color_tag() already dedupes. */
+		 * colour one, which attr_tag() already dedupes. */
 		Link lk;
 		const char *link_fg = st->fg ? st->fg : "#2C4A6E";
 
@@ -510,25 +554,52 @@ record_style_spans(ParseCtx *ctx, gint start, gint end)
 		lk.href = g_strdup(st->href);
 		g_array_append_val(ctx->html->priv->links, lk);
 
-		tag = color_tag_memo(ctx, COLOR_SLOT_FG, "fg", link_fg,
+		tag = attr_tag_memo(ctx, TAG_SLOT_FG, "fg", link_fg,
 				     "foreground");
 		span_add(ctx, tag, start, end);
 	}
 	if (st->fg) {
-		tag = color_tag_memo(ctx, COLOR_SLOT_FG, "fg", st->fg,
+		tag = attr_tag_memo(ctx, TAG_SLOT_FG, "fg", st->fg,
 				     "foreground");
 		span_add(ctx, tag, start, end);
 	}
 	if (st->bg) {
-		tag = color_tag_memo(ctx, COLOR_SLOT_BG, "bg", st->bg,
+		tag = attr_tag_memo(ctx, TAG_SLOT_BG, "bg", st->bg,
 				     "background");
 		span_add(ctx, tag, start, end);
 		if (st->para_bg) {
-			tag = color_tag_memo(ctx, COLOR_SLOT_PBG, "pbg",
+			tag = attr_tag_memo(ctx, TAG_SLOT_PBG, "pbg",
 					     st->bg, "paragraph-background");
 			span_add(ctx, tag, start, end);
 		}
 	}
+}
+
+/* El tamaño de <font size>.
+ *
+ * Con signo es relativo, y es la forma que usa la app para su propia
+ * preferencia: el diálogo de fuente del módulo ofrece de "+5" a "-3" y
+ * display.cc lo emite con %+d. Se toma cada paso como un punto sobre una
+ * base de doce, que es lo que se espera de "un punto más grande" y lo que
+ * permite que el selector de fuente de lectura vaya y vuelva sin perder
+ * la talla elegida.
+ *
+ * Sin signo es la escala de 1 a 7 de HTML, que es lo que puede traer el
+ * marcado de un módulo, con 3 como tamaño normal.
+ *
+ * Antes esto no miraba el signo: "+1" caía en la rama de 1 a 2 y hacía el
+ * texto MÁS PEQUEÑO, y "+2" encendía a la vez grande y pequeño. */
+static gdouble
+font_size_scale(const char *size)
+{
+	static const gdouble html[7] = { 0.63, 0.82, 1.0, 1.13, 1.5, 2.0, 3.0 };
+	int n = atoi(size);
+
+	if (size[0] == '+' || size[0] == '-')
+		return CLAMP(1.0 + (n / 12.0), 0.5, 3.0);
+	if (n >= 1 && n <= 7)
+		return html[n - 1];
+	return 1.0;
 }
 
 static gboolean
@@ -1175,7 +1246,7 @@ walk_element(ParseCtx *ctx, xmlNode *node)
 	Style saved;
 	char *href = NULL, *aname = NULL, *klass = NULL, *style = NULL;
 	char *color = NULL, *bgcolor = NULL, *dir = NULL, *hlid = NULL;
-	char *size = NULL;
+	char *size = NULL, *face = NULL;
 	gboolean skip_saved = ctx->skip;
 
 	if (!g_ascii_strcasecmp(name, "script") ||
@@ -1213,6 +1284,7 @@ walk_element(ParseCtx *ctx, xmlNode *node)
 	dir = el_prop(node, "dir");
 	hlid = el_prop(node, "data-hl-id");
 	size = el_prop(node, "size");
+	face = el_prop(node, "face");
 
 	if (aname)
 		place_anchor(ctx, aname);
@@ -1233,6 +1305,15 @@ walk_element(ParseCtx *ctx, xmlNode *node)
 	if (hlid) {
 		g_free(ctx->st.hl_id);
 		ctx->st.hl_id = g_strdup(hlid);
+	}
+	/* La fuente elegida en el diálogo del módulo llega por aquí:
+	 * display.cc envuelve el texto en <font face="..."> con lo que
+	 * guardó fonts.conf. "none" es el centinela de "sin preferencia"
+	 * que pone utilities.c cuando no hay ninguna, y es lo que se emite
+	 * mientras el usuario no elija. */
+	if (face && *face && g_ascii_strcasecmp(face, "none")) {
+		g_free(ctx->st.family);
+		ctx->st.family = g_strdup(face);
 	}
 	if (class_has(klass, "st") || class_has(klass, "strongs") ||
 	    class_has(klass, "gl")) {
@@ -1287,13 +1368,8 @@ walk_element(ParseCtx *ctx, xmlNode *node)
 		ctx->st.bold = TRUE;
 	if (!g_ascii_strcasecmp(name, "center"))
 		ctx->st.center = TRUE;
-	if (size) {
-		int n = atoi(size);
-		if (n >= 5 || (size[0] == '+' && n >= 2))
-			ctx->st.big = TRUE;
-		if (n > 0 && n <= 2)
-			ctx->st.small = TRUE;
-	}
+	if (size && *size)
+		ctx->st.scale = font_size_scale(size);
 
 	if (!g_ascii_strcasecmp(name, "body")) {
 		if (ctx->st.bg) {
@@ -1357,6 +1433,7 @@ walk_element(ParseCtx *ctx, xmlNode *node)
 	g_free(dir);
 	g_free(hlid);
 	g_free(size);
+	g_free(face);
 }
 
 static void
@@ -1565,8 +1642,8 @@ load_html(WkHtml *html)
 	g_string_free(ctx.scratch, TRUE);
 	g_string_free(ctx.pending, TRUE);
 	g_array_free(ctx.spans, TRUE);
-	for (int i = 0; i < COLOR_SLOTS; i++)
-		g_free(ctx.memo[i].color);
+	for (int i = 0; i < TAG_SLOTS; i++)
+		g_free(ctx.memo[i].key);
 	g_free(ctx.body_bg);
 	g_free(ctx.body_fg);
 	/* Do not jump here: priv->anchor is still the previous verse
@@ -2187,6 +2264,7 @@ wk_html_init(WkHtml *html)
 	ctx = gtk_widget_get_style_context(GTK_WIDGET(priv->view));
 	gtk_style_context_add_provider(ctx, GTK_STYLE_PROVIDER(priv->css),
 				       GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+	wk_html_add_reading_font(ctx);
 
 	gtk_widget_add_events(GTK_WIDGET(priv->view),
 			      GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK |
@@ -2206,6 +2284,41 @@ wk_html_init(WkHtml *html)
  * ellas construir la ventana de desplazamiento y destruirla acto seguido
  * costaba más que rellenar la celda: 1,1 ms de los 1,4 ms que tardaba
  * cada una. */
+/* La fuente de lectura del panel de texto.
+ *
+ * Un GtkTextView hereda la del escritorio, que es una sans pensada para
+ * interfaz: buena para menús y listas, incómoda para leer capítulos
+ * seguidos. El texto bíblico pide una serif hecha para lectura larga en
+ * pantalla, y Literata lo es de origen -- TypeTogether la diseñó para
+ * Google Play Books --: altura de x generosa, formas abiertas y peso
+ * estable en cuerpos pequeños.
+ *
+ * Va en un proveedor aparte, no en el que reescribe apply_body_colors()
+ * en cada documento, porque esto no cambia con el texto. Detrás quedan
+ * dos respaldos por si Literata no está instalada, y el genérico serif
+ * al final para no acabar en una sans si tampoco están.
+ *
+ * El proveedor se comparte entre todas las vistas -- también las celdas
+ * de tabla -- así que el CSS se analiza una sola vez. */
+static void
+wk_html_add_reading_font(GtkStyleContext *ctx)
+{
+	static GtkCssProvider *font_css = NULL;
+
+	if (!font_css) {
+		font_css = gtk_css_provider_new();
+		gtk_css_provider_load_from_data(
+		    font_css,
+		    "textview.elim-html, textview.elim-html text {\n"
+		    "  font-family: \"" ELIM_FONT_READING "\","
+		    " \"Source Serif 4\", \"Noto Serif\", serif;\n"
+		    "}\n",
+		    -1, NULL);
+	}
+	gtk_style_context_add_provider(ctx, GTK_STYLE_PROVIDER(font_css),
+				       GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+}
+
 static void
 wk_html_add_scroll(WkHtml *html)
 {

@@ -819,9 +819,23 @@ MOD_FONT *get_font(const gchar *mod_name)
 			if (preferred_font && (*preferred_font != '\0'))
 				mf->old_font = preferred_font;
 			else {
-				/* nothing ever specified: utter default */
+				/* 4th try: la fuente de lectura de
+				 * Preferencias, que vale para todos los
+				 * módulos que no traigan la suya. Antes de
+				 * ella no había ningún ajuste global: o se
+				 * elegía módulo a módulo, o idioma a
+				 * idioma. */
+				gchar *deflt =
+				    get_conf_file_item(file, "Default",
+						       "Font");
 				g_free(preferred_font);
-				mf->old_font = g_strdup("none");
+				if (deflt && *deflt)
+					mf->old_font = deflt;
+				else {
+					g_free(deflt);
+					/* nothing ever specified */
+					mf->old_font = g_strdup("none");
+				}
 			}
 		}
 
@@ -840,19 +854,43 @@ MOD_FONT *get_font(const gchar *mod_name)
 				if (preferred_size && (*preferred_size != '\0'))
 					mf->old_font_size = preferred_size;
 				else {
-					/* utter default */
+					gchar *defsz =
+					    get_conf_file_item(file, "Default",
+							       "Fontsize");
 					g_free(preferred_size);
-					mf->old_font_size = g_strdup("+0");
+					if (defsz && *defsz)
+						mf->old_font_size = defsz;
+					else {
+						g_free(defsz);
+						/* utter default */
+						mf->old_font_size =
+						    g_strdup("+0");
+					}
 				}
 			}
 		}
 	}
 
-	/* convert string -> int, here, once for all. includes base bias. */
-	mf->old_font_size_value = ((mf->old_font_size)
-				       ? atoi(mf->old_font_size) +
-					     settings.base_font_size
-				       : settings.base_font_size);
+	/* convert string -> int, here, once for all. includes base bias.
+	 *
+	 * Fontsize es un paso relativo -- "+2", "-1" -- que es lo que
+	 * ofrece el diálogo de fuente del módulo y lo que display.cc emite
+	 * como <font size>. Pero el selector de fuente de lectura guardaba
+	 * el cuerpo absoluto en puntos, sin signo, así que en los fonts.conf
+	 * ya escritos hay valores como "10" que, leídos como pasos, harían
+	 * el texto casi el doble de grande. Un número sin signo a partir de
+	 * ocho no puede ser un paso ni un tamaño HTML (que llega hasta 7):
+	 * es uno de aquellos cuerpos, y se convierte a la diferencia contra
+	 * los doce puntos que toma como base font_size_scale(). */
+	if (mf->old_font_size) {
+		const gchar *v = mf->old_font_size;
+		int n = atoi(v);
+
+		if ((v[0] != '+') && (v[0] != '-') && (n >= 8))
+			n -= 12;
+		mf->old_font_size_value = n + settings.base_font_size;
+	} else
+		mf->old_font_size_value = settings.base_font_size;
 
 	return mf;
 }
