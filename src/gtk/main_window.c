@@ -725,11 +725,31 @@ reading_strip_build(void)
 	if (reading_strip)
 		return;
 
-	reading_strip = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 4);
+	reading_strip = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 2);
 	gtk_widget_set_valign(reading_strip, GTK_ALIGN_CENTER);
+	gtk_style_context_add_class(gtk_widget_get_style_context(reading_strip),
+				    "elim-reading-strip");
 
 	sep = gtk_separator_new(GTK_ORIENTATION_VERTICAL);
-	gtk_box_pack_start(GTK_BOX(reading_strip), sep, FALSE, FALSE, 4);
+	gtk_widget_set_margin_start(sep, 6);
+	gtk_widget_set_margin_end(sep, 6);
+	gtk_box_pack_start(GTK_BOX(reading_strip), sep, FALSE, FALSE, 0);
+
+	/* Compare on/off. A toggle rather than an icon button because it
+	 * is the one control here with a state worth showing. */
+	reading_compare_button = gtk_toggle_button_new();
+	gtk_button_set_image(GTK_BUTTON(reading_compare_button),
+			     gtk_image_new_from_icon_name("view-paged-symbolic",
+							  GTK_ICON_SIZE_MENU));
+	gtk_button_set_relief(GTK_BUTTON(reading_compare_button), GTK_RELIEF_NONE);
+	gtk_widget_set_tooltip_text(
+	    reading_compare_button,
+	    _("Comparar versiones en columnas (Ctrl+Shift+K)"));
+	gtk_widget_set_can_focus(reading_compare_button, FALSE);
+	g_signal_connect(reading_compare_button, "toggled",
+			 G_CALLBACK(on_reading_compare_toggled), NULL);
+	gtk_box_pack_start(GTK_BOX(reading_strip), reading_compare_button,
+			   FALSE, FALSE, 0);
 
 	/* Icons, not labels: the hover header already carries the whole
 	 * verse navigation, and two worded buttons pushed it past the
@@ -759,6 +779,27 @@ reading_strip_build(void)
 	gtk_box_pack_start(GTK_BOX(reading_strip), reading_font_button,
 			   FALSE, FALSE, 0);
 
+	/* Leaving the mode, last and set apart: it is the way out, not
+	 * one more setting. Ctrl+Shift+F still does the same thing for
+	 * anyone who never goes looking for the header. */
+	sep = gtk_separator_new(GTK_ORIENTATION_VERTICAL);
+	gtk_widget_set_margin_start(sep, 6);
+	gtk_widget_set_margin_end(sep, 6);
+	gtk_box_pack_start(GTK_BOX(reading_strip), sep, FALSE, FALSE, 0);
+
+	reading_exit_button = gtk_toggle_button_new();
+	gtk_button_set_image(GTK_BUTTON(reading_exit_button),
+			     gtk_image_new_from_icon_name("view-restore-symbolic",
+							  GTK_ICON_SIZE_MENU));
+	gtk_button_set_relief(GTK_BUTTON(reading_exit_button), GTK_RELIEF_NONE);
+	gtk_widget_set_tooltip_text(reading_exit_button,
+				    _("Salir del modo lectura (Ctrl+Shift+F)"));
+	gtk_widget_set_can_focus(reading_exit_button, FALSE);
+	g_signal_connect(reading_exit_button, "toggled",
+			 G_CALLBACK(on_reading_mode_button_toggled), NULL);
+	gtk_box_pack_start(GTK_BOX(reading_strip), reading_exit_button,
+			   FALSE, FALSE, 0);
+
 	gtk_widget_show_all(reading_strip);
 	g_object_ref_sink(reading_strip);
 }
@@ -770,8 +811,15 @@ reading_strip_sync(void)
 {
 	if (!reading_strip)
 		return;
-	gtk_widget_set_visible(reading_strip,
-			       settings.reading_mode && settings.reading_compare);
+	/* The strip itself belongs to reading mode; only the two controls
+	 * that configure the comparison follow whether it is on. */
+	gtk_widget_set_visible(reading_strip, settings.reading_mode);
+	if (reading_compare_pick)
+		gtk_widget_set_visible(reading_compare_pick,
+				       settings.reading_compare != 0);
+	if (reading_font_button)
+		gtk_widget_set_visible(reading_font_button,
+				       settings.reading_compare != 0);
 }
 
 static void
@@ -991,10 +1039,6 @@ void gui_toggle_reading_mode(gboolean choice)
 		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(reading_exit_button), choice);
 		g_signal_handlers_unblock_by_func(reading_exit_button,
 						  G_CALLBACK(on_reading_mode_button_toggled), NULL);
-		if (choice)
-			gtk_widget_show(reading_exit_button);
-		else
-			gtk_widget_hide(reading_exit_button);
 	}
 	if (reading_compare_button) {
 		gtk_widget_set_visible(reading_compare_button, choice);
@@ -2360,40 +2404,10 @@ void create_mainwindow(void)
 		gtk_container_add(GTK_CONTAINER(ov), widgets.vbox_text);
 		gtk_paned_pack1(GTK_PANED(widgets.vpaned), ov, TRUE, TRUE);
 
-		reading_exit_button = new_open_bible_toggle(
-		    _("Salir del modo lectura"));
-		gtk_style_context_add_class(
-		    gtk_widget_get_style_context(reading_exit_button),
-		    "reading-exit");
-		gtk_widget_set_halign(reading_exit_button, GTK_ALIGN_END);
-		gtk_widget_set_valign(reading_exit_button, GTK_ALIGN_START);
-		gtk_widget_set_margin_top(reading_exit_button, 10);
-		gtk_widget_set_margin_end(reading_exit_button, 14);
-		gtk_overlay_add_overlay(GTK_OVERLAY(ov), reading_exit_button);
-		gtk_widget_hide(reading_exit_button);
-
-		/* Reading mode hides every toolbar and menu, so the
-		 * comparison had no way to be found short of knowing the
-		 * keyboard shortcut. It gets a control of its own, next to
-		 * the exit button and styled the same, shown and hidden
-		 * with it. */
-		reading_compare_button = gtk_toggle_button_new_with_label("A|B");
-		gtk_widget_set_tooltip_text(
-		    reading_compare_button,
-		    _("Comparar versiones en columnas (Ctrl+Shift+K)"));
-		gtk_widget_set_can_focus(reading_compare_button, FALSE);
-		gtk_style_context_add_class(
-		    gtk_widget_get_style_context(reading_compare_button),
-		    "reading-exit");
-		gtk_widget_set_halign(reading_compare_button, GTK_ALIGN_END);
-		gtk_widget_set_valign(reading_compare_button, GTK_ALIGN_START);
-		gtk_widget_set_margin_top(reading_compare_button, 10);
-		gtk_widget_set_margin_end(reading_compare_button, 66);
-		g_signal_connect(reading_compare_button, "toggled",
-				 G_CALLBACK(on_reading_compare_toggled), NULL);
-		gtk_overlay_add_overlay(GTK_OVERLAY(ov), reading_compare_button);
-		gtk_widget_hide(reading_compare_button);
-
+		/* No floating controls here any more: every reading-mode
+		 * button lives in the hover header -- see
+		 * reading_strip_build(). The overlay stays because the nav
+		 * toolbar is still parented into it while floating. */
 	}
 
 	// Bible/parallel notebook
@@ -2527,8 +2541,7 @@ box_devot = gui_create_devotional_pane();
 	}
 	gtk_widget_show_all(widgets.app);
 
-	if (reading_exit_button && !settings.reading_mode)
-		gtk_widget_hide(reading_exit_button);
+	reading_strip_sync();
 	if (settings.statusbar != 1)
 		gtk_widget_hide(widgets.appbar);
 	/* gtk_widget_show_all() above just unconditionally re-showed every
