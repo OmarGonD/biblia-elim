@@ -29,6 +29,7 @@
 #include "gui/widgets.h"
 
 #include "main/planes_lectura.h"
+#include "main/tiempo_lectura.h"
 #include "main/navbar_versekey.h"
 #include "main/settings.h"
 #include "main/url.hh"
@@ -136,6 +137,20 @@ plan_en_curso(void)
 	return activo ? main_planes_por_id(activo) : NULL;
 }
 
+/* El tiempo de la lectura de un día. NULL si no se puede medir (sin
+ * Biblia abierta, o un módulo que no da ese pasaje). Solo se llama para
+ * el día que toca: hacerlo para los 365 de la lista sería pedirle al
+ * motor la Biblia entera cada vez que se abre el diálogo. */
+static gchar *
+tiempo_del_dia(const PL_PLAN *plan, int dia)
+{
+	GList *refs = main_planes_referencias(plan, dia);
+	gchar *texto = main_tiempo_texto(refs);
+
+	g_list_free_full(refs, g_free);
+	return texto;
+}
+
 gchar *
 gui_planes_lectura_resumen_hoy(void)
 {
@@ -157,10 +172,17 @@ gui_planes_lectura_resumen_hoy(void)
 		cabeza = g_strdup_printf(_("%s · día %d de %d"),
 					 _(plan->nombre), dia, plan->dias);
 
-	texto = g_strdup_printf("%s\n%s%s%s", cabeza,
-				lectura ? lectura : "",
-				(titulo && *titulo) ? " — " : "",
-				(titulo && *titulo) ? titulo : "");
+	{
+		gchar *tiempo = tiempo_del_dia(plan, dia);
+
+		texto = g_strdup_printf("%s\n%s%s%s%s%s", cabeza,
+					lectura ? lectura : "",
+					(titulo && *titulo) ? " — " : "",
+					(titulo && *titulo) ? titulo : "",
+					tiempo ? "  ·  " : "",
+					tiempo ? tiempo : "");
+		g_free(tiempo);
+	}
 	g_free(cabeza);
 	g_free(lectura);
 	return texto;
@@ -267,9 +289,16 @@ gui_planes_lectura_hoy(void)
 	abrir_dia(plan, dia);
 
 	lectura = main_planes_lectura(plan, dia);
-	aviso = g_strdup_printf(_("%s · día %d de %d · %s"),
-				_(plan->nombre), dia, plan->dias,
-				lectura ? lectura : "");
+	{
+		gchar *tiempo = tiempo_del_dia(plan, dia);
+
+		aviso = g_strdup_printf(_("%s · día %d de %d · %s%s%s"),
+					_(plan->nombre), dia, plan->dias,
+					lectura ? lectura : "",
+					tiempo ? " · " : "",
+					tiempo ? tiempo : "");
+		g_free(tiempo);
+	}
 	gui_set_statusbar(aviso);
 	g_free(lectura);
 	g_free(aviso);
@@ -398,6 +427,21 @@ refrescar_cabecera(void)
 					 hoy, hoy - calendario);
 	else
 		estado = g_strdup_printf(_("Toca el día %d · vas al día"), hoy);
+
+	/* Y cuánto cuesta lo que toca, que es lo que decide si se lee
+	 * ahora o "luego". Solo del día pendiente: medir los 365 sería
+	 * pedirle al motor la Biblia entera al abrir el diálogo. */
+	if (hechos < plan->dias) {
+		gchar *tiempo = tiempo_del_dia(plan, hoy);
+
+		if (tiempo) {
+			gchar *con = g_strdup_printf("%s · %s", estado, tiempo);
+			g_free(estado);
+			estado = con;
+			g_free(tiempo);
+		}
+	}
+
 	gtk_label_set_text(GTK_LABEL(ui->lbl_estado), estado);
 	g_free(estado);
 

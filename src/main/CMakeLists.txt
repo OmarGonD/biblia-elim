@@ -42,6 +42,7 @@ add_library (main
   nube_palabras.cc
   planes_lectura.c
   racha.c
+  tiempo_lectura.c
   recordatorio.c
   versiculo_dia.c
   parallel_view.cc

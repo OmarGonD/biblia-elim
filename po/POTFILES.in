@@ -91,6 +91,7 @@ src/main/navbar_versekey.cc
 src/main/nube_palabras.cc
 src/main/planes_lectura.c
 src/main/racha.c
+src/main/tiempo_lectura.c
 src/main/recordatorio.c
 src/main/versiculo_dia.c
 src/main/parallel_view.cc
