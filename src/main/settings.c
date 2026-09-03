@@ -70,6 +70,28 @@ SETTINGS settings;
  */
 static int init_bookmarks(int new_bookmarks);
 static void main_bootstrap_default_modules(void);
+static void main_ensure_default_commentary(void);
+
+/*
+ * El comentario clásico de la casa.
+ *
+ * En los repositorios SWORD no hay ni un comentario en castellano: los
+ * dieciocho módulos en español son todos texto bíblico, y los clásicos
+ * de dominio público (Matthew Henry, Jamieson-Fausset-Brown, Clarke,
+ * Barnes) están en inglés sin excepción.
+ *
+ * Por eso el elegido es el Tesoro del Conocimiento Bíblico, que es el
+ * único que le sirve de verdad a un lector hispanohablante: casi todo
+ * su contenido son referencias cruzadas -- medio millón -- y una
+ * referencia no tiene idioma. Se abren en la Biblia que el lector tenga
+ * puesta, así que el comentario habla en castellano aunque el módulo
+ * esté catalogado en inglés. Un comentario en prosa inglesa, en cambio,
+ * no le diría nada a quien no lea inglés.
+ *
+ * Dominio público (Canne, Browne, Blayney, Scott y otros, 1830), y unos
+ * 2,8 MB.
+ */
+#define DEFAULT_COMMENTARY "TSK"
 
 /******************************************************************************
  * Name
@@ -107,6 +129,7 @@ static void main_bootstrap_default_modules(void)
 		"SpaRVG",      /* Spanish, Reina Valera Gomez */
 		"WLC",	       /* Hebrew, Westminster Leningrad Codex */
 		"Tisch",       /* Greek, Tischendorf 8th ed. GNT */
+		DEFAULT_COMMENTARY,
 		NULL
 	};
 	gchar *dest_dir;
@@ -136,6 +159,65 @@ static void main_bootstrap_default_modules(void)
 	mod_mgr_terminate();
 	mod_mgr_shut_down();
 	g_free(dest_dir);
+}
+
+/******************************************************************************
+ * Name
+ *   main_ensure_default_commentary
+ *
+ * Description
+ *   main_bootstrap_default_modules() solo corre en una instalación
+ *   nueva, sin un solo módulo. Quien ya venía usando la aplicación tiene
+ *   Biblias y nunca pasaría por ahí, así que jamás vería el comentario:
+ *   esto se lo trae una vez, como main_ensure_remote_sources() hace con
+ *   los repositorios.
+ *
+ *   Solo una vez, y queda anotado que se intentó. Quien lo borre a
+ *   propósito no quiere encontrárselo otra vez al día siguiente, y quien
+ *   no tenga red no quiere una espera en cada arranque. Y si ya tiene
+ *   algún comentario suyo, no le metemos otro por encima.
+ *
+ * Return value
+ *   void
+ */
+
+static void main_ensure_default_commentary(void)
+{
+	static const char *source_caption = "CrossWire";
+	gchar *dest_dir;
+	char *intentado;
+
+	if (settings.havecomm)
+		return;
+
+	intentado = xml_get_value("misc", "comentario-sembrado");
+	if (intentado && *intentado == '1') {
+		g_free(intentado);
+		return;
+	}
+	g_free(intentado);
+	xml_set_or_create_value("misc", "comentario-sembrado", "1");
+
+	/* Igual que en el arranque en frío: el destino se pasa siempre
+	 * explícito, para no acabar escribiendo donde diga un
+	 * /etc/sword.conf del sistema. */
+	dest_dir = g_strdup_printf("%s/%s", settings.homedir, DOTSWORD);
+
+	main_ensure_remote_sources();
+	mod_mgr_init(dest_dir, TRUE, TRUE);
+
+	if (mod_mgr_refresh_remote_source(source_caption) == 0)
+		mod_mgr_remote_install(dest_dir, source_caption,
+				       DEFAULT_COMMENTARY);
+
+	mod_mgr_terminate();
+	mod_mgr_shut_down();
+	g_free(dest_dir);
+
+	/* Que la lista de módulos se entere de lo que acaba de llegar,
+	 * antes de que load_settings_structure() elija cuál mostrar. */
+	main_shutdown_list();
+	main_init_lists();
 }
 
 /******************************************************************************
@@ -327,6 +409,9 @@ int settings_init(int argc, char **argv, int new_configs,
 		gui_generic_warning_modal(_("Bible module installation complete."));
 	}
 
+	/* Y un comentario clásico con el que trabajar, si no hay ninguno. */
+	main_ensure_default_commentary();
+
 	/* check for template.pad file for studypad */
 	tmp = g_strdup_printf("%s/%s", settings.gSwordDir, "template.pad");
 	if ((g_access(tmp, F_OK) == -1)) {
@@ -478,6 +563,20 @@ void load_settings_structure(void)
 	}
 
 	settings.CommWindowModule = xml_get_value("modules", "comm");
+	if (!settings.CommWindowModule && get_list(COMM_LIST)) {
+		/* Recién instalado no hay ninguno elegido, y sin elegir no
+		 * se enseña: el panel se quedaría vacío con el comentario
+		 * ya en el disco. */
+		const char *primero = (const char *)get_list(COMM_LIST)->data;
+		if (primero) {
+			/* Rellenar el nodo, no añadir otro: settings.xml
+			 * suele traer ya un <comm/> vacío, y añadir dejaba
+			 * un nodo de más en cada arranque. */
+			xml_set_or_create_value("modules", "comm", primero);
+			settings.CommWindowModule =
+			    xml_get_value("modules", "comm");
+		}
+	}
 	settings.DictWindowModule = xml_get_value("modules", "dict");
 
 	parallels = xml_get_value("modules", "parallels");

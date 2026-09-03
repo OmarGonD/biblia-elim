@@ -9,6 +9,7 @@ Es un fork de [Xiphos](https://github.com/crosswire/xiphos) (CrossWire / The SWO
 - Interlineal por versículo (griego Tischendorf / hebreo WLC), **Original → Español** y **Español → Original**
 - Números de Strong’s en español (fuentes de dominio público) y ficha del término
 - Comparar versiones en panel partido
+- Comentario clásico de dominio público (Tesoro del Conocimiento Bíblico, 1830), instalado solo, con sus referencias abriéndose en tu versión
 - Notas de versículo (ficha inferior) y subrayado tipo Kindle
 - Temas (claro, oscuro, claro luna, pergamino, Omarchy)
 - Planes de lectura: marcar lo leído, recuperar los días perdidos y ver el progreso por plan, libro y Biblia entera
