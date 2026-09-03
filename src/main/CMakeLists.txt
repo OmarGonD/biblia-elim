@@ -41,7 +41,9 @@ add_library (main
   navbar_versekey.cc
   nube_palabras.cc
   planes_lectura.c
+  memorizacion.c
   racha.c
+  texto_verso.c
   tiempo_lectura.c
   recordatorio.c
   versiculo_dia.c

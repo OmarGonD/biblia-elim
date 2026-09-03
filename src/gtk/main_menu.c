@@ -51,6 +51,7 @@
 #include "gui/planes_lectura.h"
 #include "gui/progreso_lectura.h"
 #include "gui/versiculo_dia.h"
+#include "gui/memorizacion.h"
 #include "gui/diccionario.h"
 #include "gui/tabbed_browser.h"
 #include "gui/utilities.h"
@@ -991,6 +992,12 @@ on_versiculo_dia_activate(GtkMenuItem *menuitem, gpointer user_data)
 {
 	gui_versiculo_dia_dialog(widgets.app ? GTK_WINDOW(widgets.app)
 					     : NULL);
+}
+
+G_MODULE_EXPORT void
+on_memorizacion_activate(GtkMenuItem *menuitem, gpointer user_data)
+{
+	gui_memorizacion_dialog(widgets.app ? GTK_WINDOW(widgets.app) : NULL);
 }
 
 G_MODULE_EXPORT void

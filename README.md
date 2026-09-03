@@ -13,6 +13,7 @@ Es un fork de [Xiphos](https://github.com/crosswire/xiphos) (CrossWire / The SWO
 - Notas de versículo (ficha inferior) y subrayado tipo Kindle
 - Temas (claro, oscuro, claro luna, pergamino, Omarchy)
 - Planes de lectura: marcar lo leído, recuperar los días perdidos y ver el progreso por plan, libro y Biblia entera
+- Memorización opcional: un versículo por semana con repaso espaciado por cajas
 - Tiempo estimado de la lectura de hoy («9–13 min»), contando las palabras de tu versión
 - Racha y calendario de constancia: qué días leíste de verdad, en un año de un vistazo
 - Versículo del día (450 citas, en tu versión) con un espacio corto para tu reflexión de cada día

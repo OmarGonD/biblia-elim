@@ -22,7 +22,7 @@
 
 #include "main/tiempo_lectura.h"
 #include "main/settings.h"
-#include "main/sword.h"
+#include "main/texto_verso.h"
 
 #include "gui/debug_glib_null.h"
 
@@ -101,22 +101,18 @@ main_tiempo_palabras(GList *referencias)
 		return cache_palabras;
 	}
 
+	/* main_texto_de() le devuelve al módulo su clave después de cada
+	 * capítulo. Es una lectura de un versículo de más por capítulo,
+	 * al lado de renderizar el capítulo entero no se nota, y a cambio
+	 * el cuidado de no moverle la lectura al lector vive en un solo
+	 * sitio. */
 	for (l = referencias; l; l = l->next) {
-		char *texto = main_get_striptext(settings.MainWindowModule,
-						 (char *)l->data);
+		gchar *texto = main_texto_de((const char *)l->data);
+
 		if (texto) {
 			total += palabras_de(texto);
-			free(texto);
+			g_free(texto);
 		}
-	}
-
-	/* main_get_striptext() deja la clave del módulo en el último
-	 * capítulo que le pedimos, y esa es la que el lector tiene puesta
-	 * en la ventana: se le devuelve donde estaba. */
-	if (settings.currentverse && *settings.currentverse) {
-		char *vuelta = main_get_striptext(settings.MainWindowModule,
-						  settings.currentverse);
-		free(vuelta);
 	}
 
 	g_free(cache_clave);

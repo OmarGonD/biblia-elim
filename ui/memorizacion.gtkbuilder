@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.14"/>
+  <object class="GtkDialog" id="dialog_memoria">
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Memorización</property>
+    <property name="icon">xiphos-x-16.png</property>
+    <property name="default_width">600</property>
+    <property name="default_height">560</property>
+    <property name="type_hint">dialog</property>
+    <child internal-child="vbox">
+      <object class="GtkBox" id="dialog-vbox">
+        <property name="visible">True</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">8</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox" id="action_area">
+            <property name="visible">True</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="btn_anadir">
+                <property name="label" translatable="yes">Memorizar el que estoy leyendo</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip_text" translatable="yes">Añade el versículo abierto en la ventana principal</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_cerrar">
+                <property name="label" translatable="yes">Cerrar</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="pack_type">end</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="box_todo">
+            <property name="visible">True</property>
+            <property name="orientation">vertical</property>
+            <property name="spacing">8</property>
+            <property name="margin_start">14</property>
+            <property name="margin_end">14</property>
+            <property name="margin_top">10</property>
+
+            <child>
+              <object class="GtkLabel" id="lbl_cabecera">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label"></property>
+              </object>
+              <packing><property name="expand">False</property></packing>
+            </child>
+
+            <!-- La tarjeta -->
+            <child>
+              <object class="GtkFrame" id="marco_tarjeta">
+                <property name="visible">True</property>
+                <property name="shadow_type">in</property>
+                <child>
+                  <object class="GtkBox" id="box_tarjeta">
+                    <property name="visible">True</property>
+                    <property name="orientation">vertical</property>
+                    <property name="spacing">8</property>
+                    <property name="margin_start">14</property>
+                    <property name="margin_end">14</property>
+                    <property name="margin_top">14</property>
+                    <property name="margin_bottom">12</property>
+                    <child>
+                      <object class="GtkLabel" id="lbl_cita">
+                        <property name="visible">True</property>
+                        <property name="xalign">0</property>
+                        <property name="label"></property>
+                      </object>
+                      <packing><property name="expand">False</property></packing>
+                    </child>
+                    <child>
+                      <object class="GtkScrolledWindow" id="scroll_texto">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="shadow_type">none</property>
+                        <property name="hscrollbar_policy">never</property>
+                        <property name="min_content_height">104</property>
+                        <child>
+                          <object class="GtkViewport" id="viewport_texto">
+                            <property name="visible">True</property>
+                            <property name="shadow_type">none</property>
+                            <child>
+                              <object class="GtkLabel" id="lbl_texto">
+                                <property name="visible">True</property>
+                                <property name="xalign">0</property>
+                                <property name="yalign">0</property>
+                                <property name="wrap">True</property>
+                                <property name="selectable">True</property>
+                                <property name="label"></property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                      <packing><property name="expand">True</property></packing>
+                    </child>
+                    <child>
+                      <object class="GtkBox" id="box_botones">
+                        <property name="visible">True</property>
+                        <property name="orientation">horizontal</property>
+                        <property name="spacing">6</property>
+                        <property name="homogeneous">True</property>
+                        <child>
+                          <object class="GtkButton" id="btn_ver">
+                            <property name="label" translatable="yes">Ver el texto</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="tooltip_text" translatable="yes">Primero recítalo de memoria; luego compruébalo</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="btn_fallo">
+                            <property name="label" translatable="yes">No me salió</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="tooltip_text" translatable="yes">Vuelve a la primera caja y lo repasas mañana</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="btn_acierto">
+                            <property name="label" translatable="yes">Lo recordé</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="tooltip_text" translatable="yes">Sube de caja y tarda más en volver</property>
+                          </object>
+                        </child>
+                      </object>
+                      <packing><property name="expand">False</property></packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+              <packing><property name="expand">False</property></packing>
+            </child>
+
+            <!-- La lista -->
+            <child>
+              <object class="GtkLabel" id="lbl_lista">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label"></property>
+              </object>
+              <packing><property name="expand">False</property></packing>
+            </child>
+            <child>
+              <object class="GtkScrolledWindow" id="scroll_lista">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="shadow_type">in</property>
+                <property name="hscrollbar_policy">never</property>
+                <child>
+                  <object class="GtkTreeView" id="tree_versos">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="headers_visible">True</property>
+                  </object>
+                </child>
+              </object>
+              <packing><property name="expand">True</property></packing>
+            </child>
+            <child>
+              <object class="GtkBox" id="box_pie">
+                <property name="visible">True</property>
+                <property name="orientation">horizontal</property>
+                <property name="spacing">6</property>
+                <child>
+                  <object class="GtkLabel" id="lbl_nota">
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="wrap">True</property>
+                    <property name="label"></property>
+                  </object>
+                  <packing><property name="expand">True</property></packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="btn_quitar">
+                    <property name="label" translatable="yes">Quitar</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">Deja de memorizar el versículo elegido en la lista</property>
+                  </object>
+                  <packing><property name="expand">False</property></packing>
+                </child>
+              </object>
+              <packing><property name="expand">False</property></packing>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

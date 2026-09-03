@@ -21,11 +21,13 @@
 #include <glib/gi18n.h>
 
 #include "gui/versiculo_dia.h"
+#include "gui/memorizacion.h"
 #include "gui/dialog.h"
 #include "gui/utilities.h"
 #include "gui/widgets.h"
 
 #include "main/versiculo_dia.h"
+#include "main/texto_verso.h"
 #include "main/settings.h"
 #include "main/sword.h"
 #include "main/navbar_versekey.h"
@@ -51,6 +53,7 @@ typedef struct {
 	GtkWidget *btn_despues;
 	GtkWidget *btn_hoy;
 	GtkWidget *btn_abrir;
+	GtkWidget *btn_memorizar;
 	GtkTextView *vista;
 
 	GDateTime *fecha;	/* el día que se está mirando */
@@ -78,37 +81,9 @@ static void mostrar(void);
  * tenga abierto, así que sale en su versión y con su ortografía.
  * ------------------------------------------------------------------ */
 
-/* main_get_striptext() le mueve la clave al módulo, y esa es la misma
- * que el lector tiene puesta en la ventana. Se le devuelve donde estaba
- * para no arrastrarle la lectura hasta el versículo del día. */
-static gchar *
-texto_del_versiculo(const char *clave)
-{
-	char *crudo;
-	gchar *texto;
-
-	if (!clave || !settings.MainWindowModule || !*settings.MainWindowModule)
-		return NULL;
-
-	crudo = main_get_striptext(settings.MainWindowModule, (char *)clave);
-
-	if (settings.currentverse && *settings.currentverse) {
-		char *vuelta = main_get_striptext(settings.MainWindowModule,
-						  settings.currentverse);
-		free(vuelta);
-	}
-
-	if (!crudo)
-		return NULL;
-	texto = g_strdup(crudo);
-	free(crudo);
-	g_strstrip(texto);
-	if (!*texto) {
-		g_free(texto);
-		return NULL;
-	}
-	return texto;
-}
+/* El texto lo trae main_texto_de(), que además le devuelve al módulo la
+ * clave que tenía: si no, abrir este diálogo le arrastraría la lectura
+ * al lector hasta el versículo del día. */
 
 /* --------------------------------------------------------------------
  * La reflexión
@@ -297,7 +272,7 @@ mostrar(void)
 	/* El texto, del módulo que tenga abierto */
 	g_free(ui->clave);
 	ui->clave = main_versiculo_clave(ui->fecha);
-	texto = texto_del_versiculo(ui->clave);
+	texto = main_texto_de(ui->clave);
 
 	if (texto) {
 		markup = g_markup_printf_escaped("<span size='large'>%s</span>",
@@ -311,6 +286,7 @@ mostrar(void)
 		      "ventana principal."));
 	}
 	gtk_widget_set_sensitive(ui->btn_abrir, texto != NULL);
+	gtk_widget_set_sensitive(ui->btn_memorizar, texto != NULL);
 	g_free(texto);
 
 	if (settings.MainWindowModule && *settings.MainWindowModule) {
@@ -449,6 +425,15 @@ on_abrir(GtkButton *boton, gpointer datos)
 }
 
 static void
+on_memorizar(GtkButton *boton, gpointer datos)
+{
+	(void)boton;
+	(void)datos;
+	if (ui->clave && *ui->clave)
+		gui_memorizacion_anadir(ui->clave);
+}
+
+static void
 on_cerrar(GtkButton *boton, gpointer datos)
 {
 	(void)boton;
@@ -520,6 +505,7 @@ gui_versiculo_dia_dialog(GtkWindow *padre)
 	ui->btn_despues = UI_GET_ITEM(gxml, "btn_despues");
 	ui->btn_hoy = UI_GET_ITEM(gxml, "btn_hoy");
 	ui->btn_abrir = UI_GET_ITEM(gxml, "btn_abrir");
+	ui->btn_memorizar = UI_GET_ITEM(gxml, "btn_memorizar");
 	ui->vista = GTK_TEXT_VIEW(UI_GET_ITEM(gxml, "vista_reflexion"));
 	btn_cerrar = UI_GET_ITEM(gxml, "btn_cerrar");
 
@@ -540,6 +526,8 @@ gui_versiculo_dia_dialog(GtkWindow *padre)
 			 NULL);
 	g_signal_connect(ui->btn_hoy, "clicked", G_CALLBACK(on_hoy), NULL);
 	g_signal_connect(ui->btn_abrir, "clicked", G_CALLBACK(on_abrir), NULL);
+	g_signal_connect(ui->btn_memorizar, "clicked",
+			 G_CALLBACK(on_memorizar), NULL);
 	g_signal_connect(btn_cerrar, "clicked", G_CALLBACK(on_cerrar), NULL);
 	g_signal_connect(ui->dialog, "destroy", G_CALLBACK(on_destroy), NULL);
 

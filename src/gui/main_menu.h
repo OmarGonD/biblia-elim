@@ -93,6 +93,8 @@ void on_progreso_lectura_activate(GtkMenuItem *menuitem,
 				  gpointer user_data);
 void on_versiculo_dia_activate(GtkMenuItem *menuitem,
 			       gpointer user_data);
+void on_memorizacion_activate(GtkMenuItem *menuitem,
+			      gpointer user_data);
 void on_diccionario_activate(GtkMenuItem *menuitem,
 			     gpointer user_data);
 void on_attach_detach_sidebar_activate(GtkMenuItem *menuitem,

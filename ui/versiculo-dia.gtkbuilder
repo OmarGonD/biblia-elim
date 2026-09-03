@@ -18,6 +18,14 @@
             <property name="visible">True</property>
             <property name="layout_style">end</property>
             <child>
+              <object class="GtkButton" id="btn_memorizar">
+                <property name="label" translatable="yes">Memorizar este</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip_text" translatable="yes">Añadirlo a tus versículos para memorizar</property>
+              </object>
+            </child>
+            <child>
               <object class="GtkButton" id="btn_abrir">
                 <property name="label" translatable="yes">Abrir en la ventana</property>
                 <property name="visible">True</property>

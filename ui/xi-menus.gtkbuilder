@@ -202,6 +202,15 @@
               </object>
             </child>
             <child>
+              <object class="GtkMenuItem" id="memorizacion">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Me_morización</property>
+                <property name="use_underline">True</property>
+                <signal name="activate" handler="on_memorizacion_activate" swapped="no"/>
+              </object>
+            </child>
+            <child>
               <object class="GtkSeparatorMenuItem" id="separador5">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>

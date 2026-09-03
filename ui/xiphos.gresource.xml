@@ -32,6 +32,7 @@
     <file>module-manager.gtkbuilder</file>
     <file>navbar_versekey.gtkbuilder</file>
     <file>nube-palabras.gtkbuilder</file>
+    <file>memorizacion.gtkbuilder</file>
     <file>planes-lectura.gtkbuilder</file>
     <file>plan-personal.gtkbuilder</file>
     <file>progreso-lectura.gtkbuilder</file>

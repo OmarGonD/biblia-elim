@@ -166,6 +166,7 @@ add_executable (xiphos
   navbar_versekey_parallel.c
   notas_verso.c
   nube_palabras.c
+  memorizacion.c
   planes_lectura.c
   plan_personal.c
   progreso_lectura.c
