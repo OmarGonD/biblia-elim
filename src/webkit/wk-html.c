@@ -1113,36 +1113,86 @@ build_table_cell(xmlNode *cell_node, const char *fallback_bg)
 	return GTK_WIDGET(cell);
 }
 
+/* Everything a table spends across its width that is not text: the gaps
+ * between columns, and, inside every cell, the nested view's own left and
+ * right margins (wk_html_init() gives every view VIEW_SIDE_PAD).
+ * TABLE_SLACK is the guard that keeps the grid from being requested
+ * *wider* than the text area -- a child anchor is handed exactly the size
+ * it asks for, and a grid one pixel too wide is clipped rather than
+ * wrapped, so a cell whose longest unbreakable word overshoots its share
+ * has somewhere to go.
+ *
+ * reading_mode_apply_measure() in main_window.c sizes the reading column
+ * from the same numbers when the comparison is on, so that a line-length
+ * cap given in characters means characters *per column*. Hence the
+ * shared accessor rather than three literals. */
+#define TABLE_COL_SPACING 6
+#define VIEW_SIDE_PAD 14
+#define TABLE_SLACK 16
+
+gint
+wk_html_table_extra_width(gint ncols)
+{
+	if (ncols < 1)
+		ncols = 1;
+	return TABLE_SLACK + (ncols - 1) * TABLE_COL_SPACING +
+	       ncols * 2 * VIEW_SIDE_PAD;
+}
+
 /* Same width-sync trick as hr_fit()/il_table_fit(): a child-anchor grid
  * doesn't stretch on its own, so column widths (from % width="" on cells,
- * evenly split otherwise) are recomputed on every resize of the page. */
+ * evenly split otherwise) are recomputed on every resize of the page.
+ *
+ * The shares are laid out cumulatively rather than one at a time, so the
+ * columns add up to the width available instead of each truncating its
+ * own fraction and leaving the remainder unused at the right edge. */
 static void
 table_fit(GtkWidget *view, GdkRectangle *alloc, GtkWidget *grid)
 {
-	gdouble *pct;
-	gint ncols, avail, col;
+	gdouble *pct, total = 0.0, run = 0.0;
+	gint ncols, avail, col, *width;
 	GList *children, *l;
 
 	pct = g_object_get_data(G_OBJECT(grid), "elim-col-pct");
 	ncols = GPOINTER_TO_INT(g_object_get_data(G_OBJECT(grid), "elim-ncols"));
 	if (!pct || ncols <= 0)
 		return;
-	avail = child_avail_width(view, alloc) - 52 - (ncols - 1) * 6;
+	avail = child_avail_width(view, alloc) - TABLE_SLACK -
+		(ncols - 1) * TABLE_COL_SPACING;
 	if (avail < ncols * 40)
 		avail = ncols * 40;
+
+	/* the shares need not add up to 100 -- width="" is optional and a
+	 * page may set it on some cells only -- so normalise. */
+	for (col = 0; col < ncols; col++)
+		total += pct[col];
+	if (total <= 0.0)
+		total = 1.0;
+
+	width = g_new0(gint, ncols);
+	for (col = 0; col < ncols; col++) {
+		gdouble next = run + pct[col];
+		width[col] = (gint)((avail * next / total) + 0.5) -
+			     (gint)((avail * run / total) + 0.5);
+		if (width[col] < 30)
+			width[col] = 30;
+		run = next;
+	}
+
 	children = gtk_container_get_children(GTK_CONTAINER(grid));
 	for (l = children; l; l = l->next) {
 		GtkWidget *cell = GTK_WIDGET(l->data);
-		gint w;
+		gint cur = -1;
+
 		col = GPOINTER_TO_INT(g_object_get_data(G_OBJECT(cell), "elim-col"));
 		if (col < 0 || col >= ncols)
 			continue;
-		w = (gint)(avail * pct[col] / 100.0);
-		if (w < 30)
-			w = 30;
-		gtk_widget_set_size_request(cell, w, -1);
+		gtk_widget_get_size_request(cell, &cur, NULL);
+		if (cur != width[col])
+			gtk_widget_set_size_request(cell, width[col], -1);
 	}
 	g_list_free(children);
+	g_free(width);
 }
 
 static void
@@ -1200,7 +1250,7 @@ insert_table(ParseCtx *ctx, xmlNode *table_node)
 	insert_break(ctx, TRUE);
 
 	grid = gtk_grid_new();
-	gtk_grid_set_column_spacing(GTK_GRID(grid), 6);
+	gtk_grid_set_column_spacing(GTK_GRID(grid), TABLE_COL_SPACING);
 	gtk_grid_set_row_spacing(GTK_GRID(grid), 2);
 	gtk_widget_set_hexpand(grid, TRUE);
 	g_object_set_data(G_OBJECT(grid), "elim-ncols", GINT_TO_POINTER(ncols));
@@ -1730,6 +1780,55 @@ on_motion(GtkWidget *widget, GdkEventMotion *event, gpointer data)
 	return FALSE;
 }
 
+/* Clicking the dead space of a line that is an anchored widget.
+ *
+ * A line whose whole content is a child anchor -- the verse-aligned
+ * comparison table is one such line, a chapter wide and a chapter tall
+ * -- makes GtkTextView paint the pane's side-margin strip wrong the
+ * moment its cursor lands on that line: the strip fills with a flat
+ * near-white and stays that way, repainted wrong on every frame, until
+ * something moves the cursor off the line again. It is the widget's own
+ * button handling that does it, not anything drawn here: overriding the
+ * background of every CSS node of the view at USER priority, where no
+ * theme rule can outrank it, does not change that colour, and keeping
+ * the press from reaching the default handler is what makes it stop.
+ * Reproduced against GTK 3.24 on Wayland.
+ *
+ * Swallowing the press loses nothing, because on such a line there is
+ * nothing in *this* buffer to click: the text lives in the nested views
+ * that make up the anchored widget, and they get their own presses. All
+ * the default handler can do here is move a cursor that is not even
+ * drawn -- wk_html_init() turns it off -- and start a selection over one
+ * invisible character.
+ *
+ * Deliberately narrow. A line carrying real text, where a press in the
+ * margin beside it starts a perfectly good line selection, is left
+ * alone even if a widget happens to be anchored in it as well. Only
+ * button 1 gets this far; the right-click menu is handled above. */
+static gboolean
+press_on_anchor_line(GtkTextView *view, GdkEventButton *event)
+{
+	GtkTextIter iter, end;
+	gboolean anchored = FALSE;
+
+	iter_at_xy(view, event, &iter);
+	gtk_text_iter_set_line_offset(&iter, 0);
+	end = iter;
+	if (!gtk_text_iter_ends_line(&end))
+		gtk_text_iter_forward_to_line_end(&end);
+
+	while (gtk_text_iter_compare(&iter, &end) < 0) {
+		if (gtk_text_iter_get_child_anchor(&iter)) {
+			anchored = TRUE;
+		} else if (!g_unichar_isspace(gtk_text_iter_get_char(&iter))) {
+			return FALSE;
+		}
+		if (!gtk_text_iter_forward_char(&iter))
+			break;
+	}
+	return anchored;
+}
+
 static gboolean
 on_button_press(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
@@ -1752,6 +1851,9 @@ on_button_press(GtkWidget *widget, GdkEventButton *event, gpointer data)
 		return TRUE;
 	if (event->button != 1)
 		return FALSE;
+
+	if (press_on_anchor_line(GTK_TEXT_VIEW(widget), event))
+		return TRUE;
 
 	iter_at_xy(GTK_TEXT_VIEW(widget), event, &iter);
 	href = iter_href(html, &iter);
@@ -2250,8 +2352,8 @@ wk_html_init(WkHtml *html)
 	gtk_text_view_set_wrap_mode(priv->view, GTK_WRAP_WORD_CHAR);
 	gtk_text_view_set_editable(priv->view, FALSE);
 	gtk_text_view_set_cursor_visible(priv->view, FALSE);
-	gtk_text_view_set_left_margin(priv->view, 14);
-	gtk_text_view_set_right_margin(priv->view, 14);
+	gtk_text_view_set_left_margin(priv->view, VIEW_SIDE_PAD);
+	gtk_text_view_set_right_margin(priv->view, VIEW_SIDE_PAD);
 	gtk_text_view_set_top_margin(priv->view, 8);
 	gtk_text_view_set_bottom_margin(priv->view, 8);
 	gtk_text_view_set_pixels_above_lines(priv->view, 1);

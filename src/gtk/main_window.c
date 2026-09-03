@@ -89,6 +89,8 @@ static GtkWidget *reading_compare_button = NULL;
 static GtkWidget *reading_compare_pick = NULL;
 static GtkWidget *reading_font_button = NULL;
 static guint reading_mode_place_src = 0;
+static guint reading_mode_refit_src = 0;
+static gint reading_mode_last_width = 0;
 static gulong reading_mode_wse_id = 0;
 static guint reading_mode_hover_hide_src = 0;
 static gulong reading_mode_motion_id = 0;
@@ -307,8 +309,18 @@ void gui_show_hide_dicts(gboolean choice)
  *       length, in characters. Typography puts the comfortable range
  *       at 45-75, and a single column spanning 90% of an ultrawide is
  *       far past it; set this to bring the column back down and centre
- *       it. Left off by default because the full width is the right
- *       answer once the text is laid out in columns.
+ *       it.
+ *
+ * The cap counts characters *per column*, not across the pane. With the
+ * verse-aligned comparison on, the pane is already several columns
+ * wide, and a cap read as a total was splitting itself among them: cpl
+ * 100 against two versions gave two columns of fifty characters in the
+ * middle of the screen and left a third of an ultrawide empty. Scaling
+ * the target by the column count means one version reads at the measure
+ * asked for and each extra one claims more of the screen instead of
+ * eating into the first -- and once the columns want more than the
+ * window has, the cap simply stops applying and reading_mode_width_pct
+ * governs, which is what fills a wide screen.
  *
  * The cap is measured, not assumed: the font comes from CSS and the
  * user can change family and size, so READING_MODE_SAMPLE (a stretch
@@ -357,6 +369,21 @@ reading_mode_target_width(GtkTextView *view)
 	return (gint)((sample_w * (gdouble)settings.reading_mode_cpl) / sample_len);
 }
 
+/* How many text columns the reading pane is laying out: one per module
+ * of the parallel list while the verse-aligned comparison is on, a
+ * single one otherwise. */
+static gint
+reading_mode_columns(void)
+{
+	gint n = 0;
+
+	if (!settings.reading_compare || !settings.parallel_list)
+		return 1;
+	while (settings.parallel_list[n])
+		n++;
+	return (n > 0) ? n : 1;
+}
+
 /* Side margins for reading mode: a percentage of the window by
  * default, tightened further to centre a capped measure when
  * reading_mode_cpl asks for one. Never narrower than
@@ -365,7 +392,7 @@ reading_mode_target_width(GtkTextView *view)
 static void
 reading_mode_apply_measure(GtkTextView *view)
 {
-	gint avail, target, margin;
+	gint avail, target, margin, ncols;
 
 	if (!view)
 		return;
@@ -386,10 +413,16 @@ reading_mode_apply_measure(GtkTextView *view)
 	if (margin < READING_MODE_SIDE_MARGIN)
 		margin = READING_MODE_SIDE_MARGIN;
 
-	/* an explicit line-length cap wins when it is narrower still. */
+	/* an explicit line-length cap wins when it is narrower still --
+	 * counted per column, so the comparison asks for the room its
+	 * columns actually need instead of dividing one column's worth
+	 * among them. */
 	target = (settings.reading_mode_cpl > 0)
 		     ? reading_mode_target_width(view)
 		     : 0;
+	ncols = reading_mode_columns();
+	if ((target > 0) && (ncols > 1))
+		target = ncols * target + wk_html_table_extra_width(ncols);
 	if ((avail > 0) && (target > 0) && (avail - 2 * margin > target))
 		margin = (avail - target) / 2;
 
@@ -404,6 +437,38 @@ reading_mode_apply_measure(GtkTextView *view)
 	gtk_text_view_set_right_margin(view, margin);
 }
 
+/* Re-laying the comparison out for a width it did not start at.
+ *
+ * The columns are widgets anchored in the text buffer, and a
+ * GtkTextView measures an anchored child once, when it validates the
+ * line that holds it. Widening works anyway -- the width table_fit()
+ * asks for is the cell's minimum, so a bigger one is honoured on the
+ * spot -- but narrowing does not: the view nested in each cell only
+ * re-wraps once something has actually allocated it narrower, so at the
+ * moment the request drops its minimum is still the old width, and
+ * nothing afterwards asks the layout to look again. The table stays as
+ * wide as the window used to be and its far columns are clipped off the
+ * page. (Nudging the layout -- a round trip through the wrap mode --
+ * does not fix it either: by then the grid is already placed.)
+ *
+ * Rendering the chapter again builds the cells from scratch at the new
+ * width, which is the one thing that reliably works. It costs what the
+ * table costs -- see main_reading_compare_render() -- so it waits for
+ * the resize to stop moving rather than firing on every intermediate
+ * allocation the compositor sends. */
+#define READING_MODE_REFIT_DELAY_MS 200
+
+static gboolean
+reading_mode_refit(gpointer data)
+{
+	(void)data;
+	reading_mode_refit_src = 0;
+	if (settings.reading_mode && settings.reading_compare &&
+	    settings.currentverse)
+		main_display_bible(NULL, settings.currentverse);
+	return G_SOURCE_REMOVE;
+}
+
 /* The allocation is not final when reading mode is switched on: the
  * compositor answers gtk_window_fullscreen() a frame or two later, and
  * the user can move the window between monitors afterwards. Recompute
@@ -412,9 +477,18 @@ static void
 reading_mode_on_size_allocate(GtkWidget *widget, GdkRectangle *alloc,
 			      gpointer data)
 {
-	(void)alloc;
 	(void)data;
 	reading_mode_apply_measure(GTK_TEXT_VIEW(widget));
+
+	if (!alloc || alloc->width == reading_mode_last_width)
+		return;
+	reading_mode_last_width = alloc->width;
+	if (!settings.reading_compare)
+		return;
+	if (reading_mode_refit_src)
+		g_source_remove(reading_mode_refit_src);
+	reading_mode_refit_src = g_timeout_add(READING_MODE_REFIT_DELAY_MS,
+					       reading_mode_refit, NULL);
 }
 
 /* Switches the reading pane between the single Bible and the
@@ -435,6 +509,15 @@ reading_compare_set(gboolean on)
 	settings.reading_compare = on ? 1 : 0;
 	xml_set_value("Xiphos", "misc", "reading_compare",
 		      settings.reading_compare ? "1" : "0");
+
+	/* The window has not changed size, so no "size-allocate" is coming
+	 * to recompute the margins -- but the column count just did, and
+	 * with it how much width the measure cap asks for. Re-measure here,
+	 * before the repaint below, because the table lays its columns out
+	 * against whatever margins it finds. */
+	if (widgets.html_text)
+		reading_mode_apply_measure(
+		    wk_html_get_view(WK_HTML(widgets.html_text)));
 
 	if (reading_compare_button) {
 		g_signal_handlers_block_by_func(reading_compare_button,
@@ -1019,6 +1102,11 @@ void gui_toggle_reading_mode(gboolean choice)
 		} else if (!choice && reading_mode_alloc_id) {
 			g_signal_handler_disconnect(view, reading_mode_alloc_id);
 			reading_mode_alloc_id = 0;
+			if (reading_mode_refit_src) {
+				g_source_remove(reading_mode_refit_src);
+				reading_mode_refit_src = 0;
+			}
+			reading_mode_last_width = 0;
 		}
 		reading_mode_apply_measure(view);
 

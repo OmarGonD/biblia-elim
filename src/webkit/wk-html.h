@@ -103,6 +103,14 @@ gboolean wk_html_initialize(void);
 void wk_html_shutdown(void);
 
 GtkTextView *wk_html_get_view(WkHtml *html);
+
+/* Pixels a table of `ncols` columns spends on something other than text:
+ * the gaps between the columns, the padding inside each cell, and the
+ * guard that keeps the grid from being requested wider than the page.
+ * Callers that want to reason about the width one column gets -- reading
+ * mode sizing its column to a character count, say -- have to take this
+ * off the top first. */
+gint wk_html_table_extra_width(gint ncols);
 gchar *wk_html_anchor_at(WkHtml *html, const GtkTextIter *iter);
 gchar *wk_html_highlight_id_at(const GtkTextIter *iter);
 void wk_html_highlight_apply(WkHtml *html, GtkTextIter *start, GtkTextIter *end,
