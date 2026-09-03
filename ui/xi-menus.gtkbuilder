@@ -193,6 +193,15 @@
               </object>
             </child>
             <child>
+              <object class="GtkMenuItem" id="versiculo_dia">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">_Versículo del día</property>
+                <property name="use_underline">True</property>
+                <signal name="activate" handler="on_versiculo_dia_activate" swapped="no"/>
+              </object>
+            </child>
+            <child>
               <object class="GtkSeparatorMenuItem" id="separador5">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>

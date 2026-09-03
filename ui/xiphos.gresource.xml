@@ -35,6 +35,7 @@
     <file>planes-lectura.gtkbuilder</file>
     <file>plan-personal.gtkbuilder</file>
     <file>progreso-lectura.gtkbuilder</file>
+    <file>versiculo-dia.gtkbuilder</file>
     <file>prefs.gtkbuilder</file>
     <file>search-dialog.gtkbuilder</file>
     <file>selector-prefs.gtkbuilder</file>

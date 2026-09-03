@@ -429,6 +429,12 @@ libro_por_osis(const char *osis)
 }
 
 int
+main_planes_libro_por_osis(const char *osis)
+{
+	return osis ? libro_por_osis(osis) : -1;
+}
+
+int
 main_planes_libros_cuantos(void)
 {
 	return LB_N;

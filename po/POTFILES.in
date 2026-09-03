@@ -56,6 +56,7 @@ src/gtk/plan_personal.c
 src/gtk/planes_lectura.c
 src/gtk/progreso_lectura.c
 src/gtk/recordatorio.c
+src/gtk/versiculo_dia.c
 src/gtk/parallel_dialog.c
 src/gtk/parallel_tab.c
 src/gtk/parallel_view.c
@@ -90,6 +91,7 @@ src/main/navbar_versekey.cc
 src/main/nube_palabras.cc
 src/main/planes_lectura.c
 src/main/recordatorio.c
+src/main/versiculo_dia.c
 src/main/parallel_view.cc
 src/main/prayerlists.cc
 src/main/previewer.cc
@@ -126,6 +128,7 @@ ui/navbar_versekey.glade
 [type: gettext/glade]ui/plan-personal.gtkbuilder
 [type: gettext/glade]ui/planes-lectura.gtkbuilder
 [type: gettext/glade]ui/progreso-lectura.gtkbuilder
+[type: gettext/glade]ui/versiculo-dia.gtkbuilder
 ui/prefs.glade
 [type: gettext/glade]ui/prefs.gtkbuilder
 ui/search-dialog.glade

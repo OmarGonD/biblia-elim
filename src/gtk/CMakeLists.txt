@@ -170,6 +170,7 @@ add_executable (xiphos
   plan_personal.c
   progreso_lectura.c
   recordatorio.c
+  versiculo_dia.c
   parallel_dialog.c
   parallel_tab.c
   parallel_view.c

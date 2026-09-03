@@ -154,6 +154,10 @@ void main_planes_recordatorio_avisado(void);
 
 int main_planes_libros_cuantos(void);
 const char *main_planes_libro_nombre(int libro);
+/* Índice del libro por su nombre OSIS ("John"), o -1. Es lo que deja al
+ * versículo del día escribir sus citas en OSIS y enseñarlas en
+ * castellano sin repetir aquí la lista de los 66 libros. */
+int main_planes_libro_por_osis(const char *osis);
 int main_planes_libro_capitulos(int libro);
 gboolean main_planes_libro_es_nt(int libro);
 

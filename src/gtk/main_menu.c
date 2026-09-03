@@ -50,6 +50,7 @@
 #include "gui/nube_palabras.h"
 #include "gui/planes_lectura.h"
 #include "gui/progreso_lectura.h"
+#include "gui/versiculo_dia.h"
 #include "gui/diccionario.h"
 #include "gui/tabbed_browser.h"
 #include "gui/utilities.h"
@@ -616,6 +617,8 @@ on_quit_activate(GtkMenuItem *menuitem, gpointer user_data)
 	editor_maybe_save_all();
 	/* y la nota de versículo que estuviera a medio escribir */
 	gui_verse_notes_guardar_pendiente();
+	/* y la reflexión del día, por lo mismo */
+	gui_versiculo_dia_guardar_pendiente();
 
 	shutdown_frontend();
 	/* shutdown the sword stuff */
@@ -981,6 +984,13 @@ on_progreso_lectura_activate(GtkMenuItem *menuitem, gpointer user_data)
 {
 	gui_progreso_lectura_dialog(widgets.app ? GTK_WINDOW(widgets.app)
 						: NULL);
+}
+
+G_MODULE_EXPORT void
+on_versiculo_dia_activate(GtkMenuItem *menuitem, gpointer user_data)
+{
+	gui_versiculo_dia_dialog(widgets.app ? GTK_WINDOW(widgets.app)
+					     : NULL);
 }
 
 G_MODULE_EXPORT void
