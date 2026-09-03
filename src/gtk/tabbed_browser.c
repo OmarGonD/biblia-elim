@@ -1342,6 +1342,17 @@ void gui_update_tab_struct(const gchar *text_mod,
 	}
 }
 
+/* Posición de lectura -> pestaña actual, para que .last_session_tabs y
+ * settings.xml coincidan al cerrar. Escribe la clave a secas, sin tocar
+ * la etiqueta ni el historial: corre durante el apagado, con la ventana
+ * ya de salida. */
+void gui_tab_set_reading_key(const gchar *key)
+{
+	if (cur_passage_tab && key && *key)
+		gui_reassign_strdup(&cur_passage_tab->text_commentary_key,
+				    (char *)key);
+}
+
 /******************************************************************************
  * Name
  *  gui_open_passage_in_new_tab

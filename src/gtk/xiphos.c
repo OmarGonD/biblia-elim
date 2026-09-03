@@ -296,6 +296,13 @@ void shutdown_frontend(void)
 
 	gui_save_bookmarks_treeview();
 
+	/* Antes de guardar: si el lector se desplazó después de su última
+	 * navegación, la posición de lectura es la buena, no el versículo
+	 * que quedó marcado. Tiene que ir acá, mientras el documento de
+	 * settings sigue vivo y la lista de pestañas todavía no se ha
+	 * volcado en gui_notebook_main_shutdown(). */
+	gui_bibletext_guardar_posicion_lectura();
+
 	/* if study pad file has changed since last save */
 
 	xml_save_settings_doc(settings.fnconfigure);

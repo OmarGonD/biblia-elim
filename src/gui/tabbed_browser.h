@@ -61,6 +61,7 @@ typedef struct _passage_tab_info PASSAGE_TAB_INFO;
 extern PASSAGE_TAB_INFO *cur_passage_tab;
 //need to update this every time one of the variables changes (i.e. new verse selected)
 
+void gui_tab_set_reading_key(const gchar *key);
 void gui_save_tabs(const gchar *filename);
 void gui_load_tabs(const gchar *filename);
 void gui_select_nth_tab(gint page_num);

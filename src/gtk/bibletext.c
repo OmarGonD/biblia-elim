@@ -1233,6 +1233,15 @@ static guint lectura_sync_scroll_debounce_id = 0;
  * so they don't steal the navigated verse and point Comparar elsewhere. */
 static gint64 lectura_sync_ignore_scroll_until = 0;
 
+/* Dónde se quedó leyendo, para retomar ahí en el próximo arranque.
+ * El scroll se sigue siempre, no solo con Comparar abierto, pero acá
+ * *solo* se anota: settings.currentverse no se toca durante la sesión,
+ * porque reasignarlo mientras el lector se desplaza es justo lo que
+ * hacía desaparecer la banda de foco y pisaba la navegación manual
+ * (ver gui_bibletext_lectura_sync_focus_refresh()). La posición se
+ * vuelca a settings.xml y al archivo de pestañas recién al cerrar. */
+static gchar *lectura_posicion = NULL;
+
 static void
 ignore_scroll_briefly(void)
 {
@@ -1243,6 +1252,11 @@ ignore_scroll_briefly(void)
 	/* Cover jump retries (~240 ms) plus a settle so arrow-next is
 	 * not immediately overwritten by the still-old viewport. */
 	lectura_sync_ignore_scroll_until = g_get_monotonic_time() + 600000;
+	/* Un salto programático quiere decir que el lector navegó: el
+	 * versículo actual vuelve a ser la referencia buena hasta que
+	 * se desplace de nuevo por su cuenta. Sin esto, una posición de
+	 * lectura vieja pisaría al cerrar el versículo recién elegido. */
+	g_clear_pointer(&lectura_posicion, g_free);
 }
 
 /* First verse whose start sits below the top chrome, so a short verse
@@ -1499,11 +1513,80 @@ reapply_current_verse_band(void)
 	g_free(anchor);
 }
 
+/* Versículo que quedó arriba del viewport, anotado como posición de
+ * lectura. No toca el versículo actual, la banda de foco, la navbar ni
+ * la etiqueta de la pestaña: es solo memoria para el próximo arranque. */
+static void
+anotar_posicion_lectura(void)
+{
+	GtkTextView *view = bible_view();
+	gchar *anchor, *book, *ref, *valido;
+	long cv;
+
+	if (!view || !widgets.html_text || !settings.currentverse ||
+	    !settings.MainWindowModule)
+		return;
+
+	anchor = find_focus_anchor(view);
+	if (!anchor || !*anchor || !strcmp(anchor, "0") ||
+	    !strcmp(anchor, "0next") || !strcmp(anchor, "0hdr")) {
+		g_free(anchor);
+		return;
+	}
+	cv = atol(anchor);
+	g_free(anchor);
+	/* capítulo*1000 + versículo: sin uno u otro no es un versículo
+	 * (encabezados de capítulo, separadores de la ventana de lectura). */
+	if (cv < 1000 || (cv % 1000) == 0)
+		return;
+
+	book = book_from_current_verse();
+	if (!book || !*book) {
+		g_free(book);
+		return;
+	}
+	ref = g_strdup_printf("%s %ld:%ld", book, cv / 1000, cv % 1000);
+	g_free(book);
+
+	/* El ancla trae el nombre OSIS del libro ("Num 1:33"); keys/verse
+	 * guarda siempre la clave ya validada y en el idioma del módulo
+	 * ("Números 1:33"), que es lo que la pestaña y la barra de
+	 * navegación muestran al reabrir -- normalizar acá, como hace
+	 * main_display_bible(). De paso descarta un versículo fuera de
+	 * rango en vez de escribirlo en el archivo. */
+	valido = (gchar *)main_get_valid_key(settings.MainWindowModule, ref);
+	if (valido && *valido) {
+		g_free(ref);
+		ref = g_strdup(valido);
+	}
+	free(valido);
+
+	g_free(lectura_posicion);
+	lectura_posicion = ref;
+}
+
+/* Última palabra al cerrar: si el lector se desplazó después de su
+ * última navegación, lo que guardamos es dónde dejó la vista, no el
+ * versículo que había pinchado hace media hora. Se escribe en los dos
+ * lados que se releen al arrancar -- keys/verse de settings.xml y la
+ * clave de la pestaña actual (.last_session_tabs). */
+void
+gui_bibletext_guardar_posicion_lectura(void)
+{
+	if (!lectura_posicion || !*lectura_posicion)
+		return;
+
+	xml_set_value("Xiphos", "keys", "verse", lectura_posicion);
+	settings.currentverse = xml_get_value("keys", "verse");
+	gui_tab_set_reading_key(lectura_posicion);
+}
+
 static gboolean
 on_lectura_sync_scroll_settle(gpointer data)
 {
 	(void)data;
 	lectura_sync_scroll_debounce_id = 0;
+	anotar_posicion_lectura();
 	if (settings.show_lectura_sync)
 		gui_bibletext_lectura_sync_focus_refresh();
 	else

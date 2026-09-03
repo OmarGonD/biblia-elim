@@ -55,6 +55,11 @@ void gui_bibletext_lectura_sync_focus_current(void);
 void gui_bibletext_lectura_sync_focus_refresh(void);
 /* Clears the reading-focus highlight (used when the panel closes). */
 void gui_bibletext_lectura_sync_clear_focus(void);
+/* Vuelca la posición de lectura seguida durante la sesión (dónde quedó
+ * la vista tras el último desplazamiento) a keys/verse y a la pestaña
+ * actual, para retomar ahí en el próximo arranque. Se llama al cerrar,
+ * antes de guardar settings.xml. */
+void gui_bibletext_guardar_posicion_lectura(void);
 
 #ifdef __cplusplus
 }
