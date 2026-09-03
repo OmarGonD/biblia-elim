@@ -59,6 +59,7 @@
 #include "gui/search_dialog.h"
 #include "gui/navbar_versekey.h"
 #include "gui/notas_verso.h"
+#include "gui/planes_lectura.h"
 #include "gui/tabbed_browser.h"
 #include "gui/widgets.h"
 #include "gui/tabbed_browser.h"
@@ -88,6 +89,8 @@ static GtkWidget *reading_exit_button = NULL;
 static GtkWidget *reading_compare_button = NULL;
 static GtkWidget *reading_compare_pick = NULL;
 static GtkWidget *reading_font_button = NULL;
+static GtkWidget *reading_hoy_button = NULL;
+static GtkWidget *reading_marcar_button = NULL;
 static guint reading_mode_place_src = 0;
 static guint reading_mode_refit_src = 0;
 static gint reading_mode_last_width = 0;
@@ -108,6 +111,14 @@ static gboolean on_open_bible_icon_draw(GtkWidget *widget, cairo_t *cr, gpointer
 static gboolean reading_mode_keep_place(gpointer data);
 static gboolean reading_mode_on_window_state(GtkWidget *widget, GdkEventWindowState *event, gpointer data);
 static void reading_mode_float_toolbar(gboolean floating, GtkTextView *view);
+static void on_lectura_hoy_clicked(GtkWidget *widget, gpointer data);
+static gboolean on_lectura_hoy_tooltip(GtkWidget *widget, gint x, gint y,
+				       gboolean del_teclado, GtkTooltip *tooltip,
+				       gpointer data);
+static void on_marcar_leido_clicked(GtkWidget *widget, gpointer data);
+static gboolean on_marcar_leido_tooltip(GtkWidget *widget, gint x, gint y,
+					gboolean del_teclado,
+					GtkTooltip *tooltip, gpointer data);
 
 gboolean gui_main_window_ready(void)
 {
@@ -825,6 +836,36 @@ reading_strip_build(void)
 	gtk_widget_set_margin_start(sep, 6);
 	gtk_widget_set_margin_end(sep, 6);
 	gtk_box_pack_start(GTK_BOX(reading_strip), sep, FALSE, FALSE, 0);
+
+	/* La lectura de hoy, primero de la fila: en modo lectura la barra
+	 * de arriba no está (la ventana va a pantalla completa y GTK se
+	 * lleva la cabecera con ella), y este es justo el botón por el que
+	 * se entra a leer cada día. Solo icono, como el resto de la tira:
+	 * el nombre lo lleva el globo. */
+	reading_hoy_button = gtk_button_new_from_icon_name(
+	    "x-office-calendar-symbolic", GTK_ICON_SIZE_MENU);
+	gtk_button_set_relief(GTK_BUTTON(reading_hoy_button), GTK_RELIEF_NONE);
+	gtk_widget_set_can_focus(reading_hoy_button, FALSE);
+	gtk_widget_set_has_tooltip(reading_hoy_button, TRUE);
+	g_signal_connect(reading_hoy_button, "query-tooltip",
+			 G_CALLBACK(on_lectura_hoy_tooltip),
+			 GINT_TO_POINTER(TRUE));
+	g_signal_connect(reading_hoy_button, "clicked",
+			 G_CALLBACK(on_lectura_hoy_clicked), NULL);
+	gtk_box_pack_start(GTK_BOX(reading_strip), reading_hoy_button,
+			   FALSE, FALSE, 0);
+
+	reading_marcar_button = gtk_button_new_from_icon_name(
+	    "object-select-symbolic", GTK_ICON_SIZE_MENU);
+	gtk_button_set_relief(GTK_BUTTON(reading_marcar_button), GTK_RELIEF_NONE);
+	gtk_widget_set_can_focus(reading_marcar_button, FALSE);
+	gtk_widget_set_has_tooltip(reading_marcar_button, TRUE);
+	g_signal_connect(reading_marcar_button, "query-tooltip",
+			 G_CALLBACK(on_marcar_leido_tooltip), NULL);
+	g_signal_connect(reading_marcar_button, "clicked",
+			 G_CALLBACK(on_marcar_leido_clicked), NULL);
+	gtk_box_pack_start(GTK_BOX(reading_strip), reading_marcar_button,
+			   FALSE, FALSE, 0);
 
 	/* Compare on/off. A toggle rather than an icon button because it
 	 * is the one control here with a state worth showing. */
@@ -1699,6 +1740,76 @@ static void on_zoom_out_clicked(GtkWidget *widget, gpointer data)
 	new_base_font_size(FALSE);
 }
 
+/* Botón "Lectura de hoy" de la barra de arriba: abre de un clic la
+ * lectura que toca del plan en curso, que es lo que se hace a diario y
+ * hasta ahora estaba a tres pasos por el menú. Sin plan empezado abre
+ * el diálogo de planes, que es lo que hace falta antes. */
+static void
+on_lectura_hoy_clicked(GtkWidget *widget, gpointer data)
+{
+	gui_planes_lectura_hoy();
+}
+
+/* El texto se arma al pasar el ratón, no al construir la ventana: el
+ * día que toca cambia según se van marcando las lecturas. `data` no nulo
+ * es el botón de la tira del modo lectura, que es solo un icono y
+ * necesita que el globo diga además cómo se llama. */
+static gboolean
+on_lectura_hoy_tooltip(GtkWidget *widget, gint x, gint y,
+		       gboolean del_teclado, GtkTooltip *tooltip,
+		       gpointer data)
+{
+	gchar *resumen = gui_planes_lectura_resumen_hoy();
+	gchar *texto;
+
+	if (resumen)
+		texto = data ? g_strdup_printf("%s\n%s", _("Lectura de hoy"),
+					       resumen)
+			     : g_strdup(resumen);
+	else
+		texto = g_strdup(_("Lectura de hoy: elige un plan y empieza"));
+
+	gtk_tooltip_set_text(tooltip, texto);
+	g_free(resumen);
+	g_free(texto);
+	return TRUE;
+}
+
+/* El otro medio del hábito: la de hoy, leída. Marca el día que toca del
+ * plan en curso, sin abrir nada. */
+static void
+on_marcar_leido_clicked(GtkWidget *widget, gpointer data)
+{
+	gui_planes_lectura_marcar_hoy();
+}
+
+static gboolean
+on_marcar_leido_tooltip(GtkWidget *widget, gint x, gint y, gboolean del_teclado,
+			GtkTooltip *tooltip, gpointer data)
+{
+	gchar *detalle = NULL;
+	PL_HOY estado = gui_planes_lectura_estado_hoy(&detalle);
+	gchar *texto;
+
+	switch (estado) {
+	case PL_HOY_PENDIENTE:
+		texto = g_strdup_printf("%s\n%s", _("Marcar como leído"),
+					detalle);
+		break;
+	case PL_HOY_TERMINADO:
+		texto = g_strdup_printf("%s\n%s",
+					_("No queda nada por marcar"), detalle);
+		break;
+	default:
+		texto = g_strdup(_("Marcar como leído: elige antes un plan"));
+		break;
+	}
+	gtk_tooltip_set_text(tooltip, texto);
+	g_free(detalle);
+	g_free(texto);
+	return TRUE;
+}
+
 /* Header-bar reading-mode button: same distraction-free/fullscreen
  * toggle as the View menu checkbox and Ctrl+Shift+F, just given a
  * one-click control at the top of the window. gui_toggle_reading_mode()
@@ -2245,6 +2356,8 @@ void create_mainwindow(void)
 	GtkWidget *header_bar;
 	GtkWidget *zoom_out_button;
 	GtkWidget *zoom_in_button;
+	GtkWidget *lectura_hoy_button;
+	GtkWidget *marcar_leido_button;
 	GtkWidget *hbox25;
 	GtkWidget *tab_button_icon;
 	GtkWidget *label;
@@ -2381,6 +2494,49 @@ void create_mainwindow(void)
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widgets.reading_mode_button),
 				     settings.reading_mode);
 	gtk_header_bar_pack_start(GTK_HEADER_BAR(header_bar), widgets.reading_mode_button);
+
+	/* La lectura del día, al lado de los otros dos botones de la
+	 * izquierda. Va con nombre y no solo con icono: es la puerta de
+	 * entrada de cada día, no un ajuste más. */
+	{
+		GtkWidget *caja = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 6);
+		GtkWidget *icono = gtk_image_new_from_icon_name(
+		    "x-office-calendar-symbolic", GTK_ICON_SIZE_BUTTON);
+		GtkWidget *etiqueta = gtk_label_new(_("Lectura de hoy"));
+
+		lectura_hoy_button = gtk_button_new();
+		gtk_box_pack_start(GTK_BOX(caja), icono, FALSE, FALSE, 0);
+		gtk_box_pack_start(GTK_BOX(caja), etiqueta, FALSE, FALSE, 0);
+		gtk_container_add(GTK_CONTAINER(lectura_hoy_button), caja);
+		gtk_style_context_add_class(
+		    gtk_widget_get_style_context(lectura_hoy_button), "flat");
+		gtk_widget_set_has_tooltip(lectura_hoy_button, TRUE);
+		g_signal_connect(lectura_hoy_button, "query-tooltip",
+				 G_CALLBACK(on_lectura_hoy_tooltip), NULL);
+		g_signal_connect(lectura_hoy_button, "clicked",
+				 G_CALLBACK(on_lectura_hoy_clicked), NULL);
+		gtk_widget_show_all(lectura_hoy_button);
+		gtk_header_bar_pack_start(GTK_HEADER_BAR(header_bar),
+					  lectura_hoy_button);
+	}
+
+	/* Y al lado, marcarla. Solo icono: el gesto es de un segundo y ya
+	 * queda dicho en el globo, mientras que dos botones con nombre en
+	 * la cabecera se comen el título de la ventana. */
+	marcar_leido_button = gtk_button_new_from_icon_name(
+	    "object-select-symbolic", GTK_ICON_SIZE_BUTTON);
+	gtk_style_context_add_class(
+	    gtk_widget_get_style_context(marcar_leido_button), "flat");
+	gtk_style_context_add_class(
+	    gtk_widget_get_style_context(marcar_leido_button), "circular");
+	gtk_widget_set_has_tooltip(marcar_leido_button, TRUE);
+	g_signal_connect(marcar_leido_button, "query-tooltip",
+			 G_CALLBACK(on_marcar_leido_tooltip), NULL);
+	g_signal_connect(marcar_leido_button, "clicked",
+			 G_CALLBACK(on_marcar_leido_clicked), NULL);
+	gtk_widget_show(marcar_leido_button);
+	gtk_header_bar_pack_start(GTK_HEADER_BAR(header_bar),
+				  marcar_leido_button);
 
 	// Quick text-size controls -- surfaces the existing base-font-size
 	// bias (previously reachable only via Ctrl+Shift+'+'/Ctrl+'-') as

@@ -40,6 +40,7 @@ add_library (main
   navbar.cc
   navbar_versekey.cc
   nube_palabras.cc
+  planes_lectura.c
   parallel_view.cc
   prayerlists.cc
   previewer.cc

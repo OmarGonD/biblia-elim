@@ -169,6 +169,30 @@
               </object>
             </child>
             <child>
+              <object class="GtkSeparatorMenuItem" id="separador_planes">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuItem" id="planes_lectura">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">_Planes de lectura</property>
+                <property name="use_underline">True</property>
+                <signal name="activate" handler="on_planes_lectura_activate" swapped="no"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuItem" id="progreso_lectura">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">_Mi progreso</property>
+                <property name="use_underline">True</property>
+                <signal name="activate" handler="on_progreso_lectura_activate" swapped="no"/>
+              </object>
+            </child>
+            <child>
               <object class="GtkSeparatorMenuItem" id="separador5">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>

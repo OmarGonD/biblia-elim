@@ -35,6 +35,7 @@
 #include "gui/bookmarks_treeview.h"
 #include "gui/main_window.h"
 #include "gui/main_menu.h"
+#include "gui/recordatorio.h"
 #include "gui/about_modules.h"
 #include "gui/gbs.h"
 #include "gui/gbs_dialog.h"
@@ -251,6 +252,10 @@ void frontend_display(const char *tabs)
 	 * verdadero último paso del arranque, según si el versículo
 	 * inicial tiene o no una nota guardada. */
 	gui_verse_notes_panel_actualizar();
+
+	/* Con la ventana ya montada: el aviso de la lectura del día puede
+	 * saltar en cuanto se abre la aplicación, si su hora ya pasó. */
+	gui_recordatorio_arrancar();
 
 	XI_print(("%s\n\n", "done"));
 }

@@ -48,6 +48,8 @@
 #include "gui/sidebar_dialog.h"
 #include "gui/search_dialog.h"
 #include "gui/nube_palabras.h"
+#include "gui/planes_lectura.h"
+#include "gui/progreso_lectura.h"
 #include "gui/diccionario.h"
 #include "gui/tabbed_browser.h"
 #include "gui/utilities.h"
@@ -966,6 +968,19 @@ G_MODULE_EXPORT void
 on_nube_palabras_activate(GtkMenuItem *menuitem, gpointer user_data)
 {
 	gui_nube_palabras_dialog();
+}
+
+G_MODULE_EXPORT void
+on_planes_lectura_activate(GtkMenuItem *menuitem, gpointer user_data)
+{
+	gui_planes_lectura_dialog();
+}
+
+G_MODULE_EXPORT void
+on_progreso_lectura_activate(GtkMenuItem *menuitem, gpointer user_data)
+{
+	gui_progreso_lectura_dialog(widgets.app ? GTK_WINDOW(widgets.app)
+						: NULL);
 }
 
 G_MODULE_EXPORT void

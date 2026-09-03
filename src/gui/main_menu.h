@@ -87,6 +87,10 @@ void on_advanced_search_activate(GtkMenuItem *menuitem,
 				 gpointer user_data);
 void on_nube_palabras_activate(GtkMenuItem *menuitem,
 			       gpointer user_data);
+void on_planes_lectura_activate(GtkMenuItem *menuitem,
+				gpointer user_data);
+void on_progreso_lectura_activate(GtkMenuItem *menuitem,
+				  gpointer user_data);
 void on_diccionario_activate(GtkMenuItem *menuitem,
 			     gpointer user_data);
 void on_attach_detach_sidebar_activate(GtkMenuItem *menuitem,
