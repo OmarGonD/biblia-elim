@@ -40,6 +40,7 @@
 #include "gui/elim_tema.h"
 #include "gui/navbar_versekey.h"
 
+#include "main/recordatorio.h"
 #include "main/sword.h"
 #include "main/url.hh"
 #include "main/xml.h"
@@ -92,6 +93,27 @@ server_callback_media(SoupServer *server,
 }
 #endif /* WIN32 */
 
+/*
+ * Locale and gettext, as early as possible, before any code that
+ * generates translatable content (e.g. settings_init() ->
+ * init_bookmarks(), which writes the default bookmarks.xml using
+ * _()-wrapped strings). Previously this only happened later, implicitly
+ * via gtk_init_with_args() inside gui_init(), so the default bookmarks
+ * were always generated while the process was still in the "C" locale
+ * (English), regardless of the user's actual language. setlocale() and
+ * the later bindtextdomain/textdomain calls in gui_init() remain
+ * harmless to repeat (idempotent).
+ */
+static void iniciar_idioma(void)
+{
+	setlocale(LC_ALL, "");
+#ifdef ENABLE_NLS
+	bindtextdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
+	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
+	textdomain(GETTEXT_PACKAGE);
+#endif
+}
+
 /******************************************************************************
  * Name
  *   main
@@ -121,6 +143,19 @@ int main(int argc, char *argv[])
 #ifdef CHATTY
 	GTimer *total;
 	double d;
+#endif
+
+#ifndef WIN32
+	/*
+	 * El aviso de la lectura que dispara el temporizador de usuario
+	 * de systemd. Va lo primero de todo, antes de GTK, de Sword y de
+	 * la ventana: manda la notificación, espera por si la pulsan, y
+	 * se muere. Ver main/recordatorio.h.
+	 */
+	if ((argc == 2) && !strcmp(argv[1], "--recordar")) {
+		iniciar_idioma();
+		return main_recordatorio_una_vez();
+	}
 #endif
 
 	// ---------------------------------------------------------
@@ -278,24 +313,7 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	/*
-	 * Initialize the locale and gettext as early as possible, before
-	 * any code that generates translatable content (e.g.
-	 * settings_init() -> init_bookmarks(), which writes the default
-	 * bookmarks.xml using _()-wrapped strings). Previously this only
-	 * happened later, implicitly via gtk_init_with_args() inside
-	 * gui_init(), so the default bookmarks were always generated
-	 * while the process was still in the "C" locale (English),
-	 * regardless of the user's actual language. setlocale() and the
-	 * later bindtextdomain/textdomain calls in gui_init() remain
-	 * harmless to repeat (idempotent).
-	 */
-	setlocale(LC_ALL, "");
-#ifdef ENABLE_NLS
-	bindtextdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
-	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
-	textdomain(GETTEXT_PACKAGE);
-#endif
+	iniciar_idioma();
 #ifdef WIN32
 	{
 		gchar *locale_dir =

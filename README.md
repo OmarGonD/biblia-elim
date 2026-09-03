@@ -12,6 +12,7 @@ Es un fork de [Xiphos](https://github.com/crosswire/xiphos) (CrossWire / The SWO
 - Notas de versículo (ficha inferior) y subrayado tipo Kindle
 - Temas (claro, oscuro, claro luna, pergamino, Omarchy)
 - Planes de lectura: marcar lo leído, recuperar los días perdidos y ver el progreso por plan, libro y Biblia entera
+- Recordatorio diario a la hora que elijas, que llega aunque la aplicación esté cerrada (temporizador de usuario de systemd)
 - Nube de palabras y diccionario offline
 - Menús e interfaz en español
 

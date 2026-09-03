@@ -26,6 +26,7 @@
 #include "gui/widgets.h"
 
 #include "main/planes_lectura.h"
+#include "main/recordatorio.h"
 #include "main/settings.h"
 #include "main/xml.h"
 
@@ -42,9 +43,14 @@
  * tarde. */
 #define PRIMER_LATIDO_SEGUNDOS 5
 
+/* Lo que se espera antes de tocar systemd, para que arrastrar el botón
+ * de la hora no dispare una recarga por minuto pulsado. */
+#define ESPERA_SINCRONIA_SEGUNDOS 2
+
 static guint reloj = 0;
 static guint32 aviso_id = 0;
 static guint suscripcion = 0;
+static guint sincronia = 0;
 
 /* --------------------------------------------------------------------
  * El aviso del escritorio
@@ -218,11 +224,46 @@ primer_latido(gpointer datos)
 	return G_SOURCE_REMOVE;
 }
 
+/* --------------------------------------------------------------------
+ * La otra mitad: el temporizador de systemd
+ * ------------------------------------------------------------------ */
+
+static gboolean
+sincronizar_ya(gpointer datos)
+{
+	(void)datos;
+	sincronia = 0;
+	main_recordatorio_systemd_sincronizar();
+	return G_SOURCE_REMOVE;
+}
+
+void
+gui_recordatorio_sincronizar_pronto(void)
+{
+	if (sincronia)
+		g_source_remove(sincronia);
+	sincronia = g_timeout_add_seconds(ESPERA_SINCRONIA_SEGUNDOS,
+					  sincronizar_ya, NULL);
+}
+
 void
 gui_recordatorio_arrancar(void)
 {
 	if (reloj)
 		return;
+
+	/* El cerrojo, cogido mientras la aplicación viva, es lo que hace
+	 * que el aviso de systemd se calle y no avise dos veces. */
+	main_recordatorio_cerrojo();
+
+	/* Y de paso las unidades se ponen al día con lo que hay guardado:
+	 * así se arreglan solas si quedaron a medias, si el binario se
+	 * movió de sitio o si alguien las borró a mano. Va por el mismo
+	 * retardo que los cambios de hora, porque hablar con systemd son
+	 * unas cuantas décimas y no vamos a gastarlas en abrir la
+	 * ventana. */
+	gui_recordatorio_sincronizar_pronto();
+
 	g_timeout_add_seconds(PRIMER_LATIDO_SEGUNDOS, primer_latido, NULL);
 }
 

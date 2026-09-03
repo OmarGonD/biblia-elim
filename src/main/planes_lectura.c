@@ -1159,6 +1159,41 @@ main_planes_reiniciar(const PL_PLAN *plan)
 }
 
 /* --------------------------------------------------------------------
+ * Qué toca hoy
+ * ------------------------------------------------------------------ */
+
+PL_HOY
+main_planes_estado_hoy(gchar **detalle)
+{
+	const char *activo = main_planes_activo();
+	const PL_PLAN *plan = activo ? main_planes_por_id(activo) : NULL;
+	gchar *lectura;
+	int dia;
+
+	if (detalle)
+		*detalle = NULL;
+	if (!plan)
+		return PL_HOY_SIN_PLAN;
+
+	dia = main_planes_dia_de_hoy(plan);
+	/* El día que toca es el primero sin marcar; que ese salga ya
+	 * marcado solo pasa cuando no queda ninguno, o sea, al final. */
+	if (main_planes_dia_hecho(plan, dia)) {
+		if (detalle)
+			*detalle = g_strdup_printf(_("%s · terminado"),
+						   _(plan->nombre));
+		return PL_HOY_TERMINADO;
+	}
+
+	lectura = main_planes_lectura(plan, dia);
+	if (detalle)
+		*detalle = g_strdup_printf(_("Día %d de %d · %s"), dia,
+					   plan->dias, lectura ? lectura : "");
+	g_free(lectura);
+	return PL_HOY_PENDIENTE;
+}
+
+/* --------------------------------------------------------------------
  * Ponerse al día
  * ------------------------------------------------------------------ */
 

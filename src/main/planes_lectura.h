@@ -96,6 +96,19 @@ int main_planes_dia_de_hoy(const PL_PLAN *plan);
 int main_planes_dia_segun_calendario(const PL_PLAN *plan);
 void main_planes_reiniciar(const PL_PLAN *plan);
 
+/* Cómo está la lectura de hoy del plan en curso. `detalle`, si no es
+ * NULL, recibe una línea lista para mostrar ("Día 12 de 365 · Génesis
+ * 30-31 · Mateo 9", o "La Biblia en un año · terminado") que hay que
+ * liberar con g_free(). Vive aquí y no en la capa de ventanas porque el
+ * aviso de systemd la necesita sin GTK por medio. */
+typedef enum {
+	PL_HOY_SIN_PLAN = 0,	/* no hay plan en curso */
+	PL_HOY_PENDIENTE,	/* queda lectura por marcar */
+	PL_HOY_TERMINADO	/* el plan está entero */
+} PL_HOY;
+
+PL_HOY main_planes_estado_hoy(gchar **detalle);
+
 /* --- ponerse al día ---
  *
  * Dos maneras honradas de recuperar los días perdidos: dar por leído lo

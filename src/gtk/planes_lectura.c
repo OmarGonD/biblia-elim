@@ -169,31 +169,7 @@ gui_planes_lectura_resumen_hoy(void)
 PL_HOY
 gui_planes_lectura_estado_hoy(gchar **detalle)
 {
-	const PL_PLAN *plan = plan_en_curso();
-	gchar *lectura;
-	int dia;
-
-	if (detalle)
-		*detalle = NULL;
-	if (!plan)
-		return PL_HOY_SIN_PLAN;
-
-	dia = main_planes_dia_de_hoy(plan);
-	/* El día que toca es el primero sin marcar; que ese salga ya
-	 * marcado solo pasa cuando no queda ninguno, o sea, al final. */
-	if (main_planes_dia_hecho(plan, dia)) {
-		if (detalle)
-			*detalle = g_strdup_printf(_("%s · terminado"),
-						   _(plan->nombre));
-		return PL_HOY_TERMINADO;
-	}
-
-	lectura = main_planes_lectura(plan, dia);
-	if (detalle)
-		*detalle = g_strdup_printf(_("Día %d de %d · %s"), dia,
-					   plan->dias, lectura ? lectura : "");
-	g_free(lectura);
-	return PL_HOY_PENDIENTE;
+	return main_planes_estado_hoy(detalle);
 }
 
 /* Lo que pinta el diálogo, que se monta más abajo: marcar desde la
@@ -799,9 +775,9 @@ refrescar_recordatorio(void)
 	if (activo)
 		texto = g_markup_printf_escaped(
 		    "<span size='small' alpha='70%%'>%s</span>",
-		    _("Aviso del escritorio, solo en este equipo, mientras "
-		      "Biblia Elim esté abierta. Si ya marcaste la lectura, "
-		      "no avisa."));
+		    _("Aviso del escritorio, solo en este equipo. Llega "
+		      "aunque Biblia Elim esté cerrada. Si ya marcaste la "
+		      "lectura del día, no avisa."));
 	else
 		texto = g_strdup("");
 	gtk_label_set_markup(GTK_LABEL(ui->lbl_recordatorio), texto);
@@ -818,6 +794,10 @@ guardar_recordatorio(void)
 	    gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(ui->spin_hora)),
 	    gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(ui->spin_minuto)));
 	guardar_ya();
+	/* La otra mitad del recordatorio, la que avisa con la aplicación
+	 * cerrada, vive en un temporizador de systemd: que se entere de la
+	 * hora nueva. */
+	gui_recordatorio_sincronizar_pronto();
 	refrescar_recordatorio();
 }
 

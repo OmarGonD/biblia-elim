@@ -28,6 +28,12 @@ void gui_recordatorio_arrancar(void);
  * muestra. */
 void gui_recordatorio_probar(void);
 
+/* Pide que las unidades de systemd se pongan al día con la hora que se
+ * acaba de elegir. No lo hace en el acto: los botones de la hora sueltan
+ * un cambio por pulsación, y no vamos a recargar systemd en cada una.
+ * Ver main/recordatorio.h. */
+void gui_recordatorio_sincronizar_pronto(void);
+
 #ifdef __cplusplus
 }
 #endif

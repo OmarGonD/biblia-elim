@@ -283,7 +283,7 @@
                 <property name="label" translatable="yes">Recordármelo cada día a las</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="tooltip_text" translatable="yes">Un aviso del escritorio, en este equipo, mientras la aplicación esté abierta</property>
+                <property name="tooltip_text" translatable="yes">Un aviso del escritorio, en este equipo, aunque la aplicación esté cerrada</property>
               </object>
               <packing>
                 <property name="expand">False</property>

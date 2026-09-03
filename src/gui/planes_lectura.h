@@ -15,6 +15,8 @@
 
 #include <gtk/gtk.h>
 
+#include "main/planes_lectura.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -33,13 +35,9 @@ gchar *gui_planes_lectura_resumen_hoy(void);
 
 /* Cómo está la lectura de hoy, para el botón de marcar de la ventana
  * principal. `detalle`, si no es NULL, recibe una línea que dice qué se
- * marcaría o por qué no hay nada que marcar (hay que liberarla). */
-typedef enum {
-	PL_HOY_SIN_PLAN = 0,	/* no hay plan en curso */
-	PL_HOY_PENDIENTE,	/* queda lectura por marcar */
-	PL_HOY_TERMINADO	/* el plan está entero */
-} PL_HOY;
-
+ * marcaría o por qué no hay nada que marcar (hay que liberarla).
+ * PL_HOY y el cálculo viven en el modelo, que es de donde los saca
+ * también el aviso de una vez del temporizador de systemd. */
 PL_HOY gui_planes_lectura_estado_hoy(gchar **detalle);
 
 /* Marca como leído el día que toca del plan en curso. */
