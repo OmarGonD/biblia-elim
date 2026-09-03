@@ -123,6 +123,70 @@
                     <property name="position">1</property>
                   </packing>
                 </child>
+                <child>
+                  <object class="GtkBox" id="box_constancia">
+                    <property name="visible">True</property>
+                    <property name="orientation">vertical</property>
+                    <property name="spacing">10</property>
+                    <property name="margin_start">12</property>
+                    <property name="margin_end">12</property>
+                    <property name="margin_top">14</property>
+                    <property name="margin_bottom">10</property>
+                    <child>
+                      <object class="GtkLabel" id="lbl_racha">
+                        <property name="visible">True</property>
+                        <property name="xalign">0</property>
+                        <property name="label"></property>
+                      </object>
+                      <packing><property name="expand">False</property></packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="lbl_racha_pie">
+                        <property name="visible">True</property>
+                        <property name="xalign">0</property>
+                        <property name="wrap">True</property>
+                        <property name="label"></property>
+                      </object>
+                      <packing><property name="expand">False</property></packing>
+                    </child>
+                    <child>
+                      <object class="GtkScrolledWindow" id="scroll_calendario">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="shadow_type">none</property>
+                        <property name="vscrollbar_policy">never</property>
+                        <child>
+                          <object class="GtkDrawingArea" id="calendario">
+                            <property name="visible">True</property>
+                            <property name="has_tooltip">True</property>
+                          </object>
+                        </child>
+                      </object>
+                      <packing><property name="expand">True</property></packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="lbl_calendario_pie">
+                        <property name="visible">True</property>
+                        <property name="xalign">0</property>
+                        <property name="wrap">True</property>
+                        <property name="label"></property>
+                      </object>
+                      <packing><property name="expand">False</property></packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
+                <child type="tab">
+                  <object class="GtkLabel" id="tab_constancia">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Constancia</property>
+                  </object>
+                  <packing>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
               </object>
               <packing>
                 <property name="expand">True</property>

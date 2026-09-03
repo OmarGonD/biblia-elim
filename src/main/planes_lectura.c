@@ -22,6 +22,7 @@
 #include <glib/gi18n.h>
 
 #include "main/planes_lectura.h"
+#include "main/racha.h"
 #include "main/xml.h"
 
 #include "gui/debug_glib_null.h"
@@ -1084,6 +1085,12 @@ main_planes_marcar(const PL_PLAN *plan, int dia, gboolean hecho)
 		g_free(inicio);
 		inicio = hoy_iso();
 	}
+	/* Y hoy queda apuntado como día de lectura. Aquí y no en
+	 * main_planes_marcar_hasta(), que escribe las marcas por su
+	 * cuenta: ponerse al día es declarar que esos días no se leyeron,
+	 * y una racha que se rellena hacia atrás no mide nada. */
+	if (hecho)
+		main_racha_apuntar_hoy();
 	progreso_guardar(plan, inicio, marcas);
 	g_free(inicio);
 	g_free(marcas);

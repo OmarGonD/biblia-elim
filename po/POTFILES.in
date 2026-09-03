@@ -90,6 +90,7 @@ src/main/navbar_book_dialog.cc
 src/main/navbar_versekey.cc
 src/main/nube_palabras.cc
 src/main/planes_lectura.c
+src/main/racha.c
 src/main/recordatorio.c
 src/main/versiculo_dia.c
 src/main/parallel_view.cc
