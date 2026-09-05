@@ -264,6 +264,16 @@
       </object>
     </child>
     <child>
+      <object class="GtkMenuItem" id="abrir_en_pulpito1">
+        <property name="label" translatable="yes">Abrir en _púlpito</property>
+        <property name="visible">False</property>
+        <property name="can_focus">False</property>
+        <property name="tooltip_text" translatable="yes">Llevar este bosquejo a la pantalla de predicar</property>
+        <property name="use_underline">True</property>
+        <signal name="activate" handler="on_abrir_en_pulpito_activate" swapped="no"/>
+      </object>
+    </child>
+    <child>
       <object class="GtkImageMenuItem" id="about1">
         <property name="label" translatable="yes">Acerca de</property>
         <property name="use_action_appearance">False</property>
@@ -1011,6 +1021,16 @@
         <property name="use_underline">True</property>
         <property name="use_stock">True</property>
         <signal name="activate" handler="on_open_in_dialog_activate" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="abrir_en_pulpito">
+        <property name="label" translatable="yes">Abrir en _púlpito</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="tooltip_text" translatable="yes">Llevar este bosquejo a la pantalla de predicar</property>
+        <property name="use_underline">True</property>
+        <signal name="activate" handler="on_abrir_en_pulpito_activate" swapped="no"/>
       </object>
     </child>
     <child>

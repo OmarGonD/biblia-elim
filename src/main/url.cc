@@ -1027,7 +1027,8 @@ gint main_url_handler(const gchar *url, gboolean clicked)
 		} else if (!strcmp(action, "showInterlineal")) {
 			if (settings.show_interlineal &&
 			    HAS_URL_PARAM(svalue) && clicked)
-				gui_interlineal_ficha(svalue);
+				gui_interlineal_ficha_morf(
+				    svalue, HAS_URL_PARAM(morph) ? morph : NULL);
 			retval = 1;
 		} else if (!strcmp(action, "verseTools")) {
 			if (HAS_URL_PARAM(svalue) && clicked)

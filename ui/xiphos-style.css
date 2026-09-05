@@ -549,6 +549,21 @@ button.il-strong label {
 	background-color: #4A6A8A;
 }
 
+/* El interlineal dentro del modo lectura: vive en la columna de lectura,
+ * no en su propia franja, así que la caja se suaviza para no abrir un
+ * hueco en medio del texto. El ancho ya lo limita il_table_fit() a la
+ * medida de la lectura; aquí solo la apariencia. */
+.il-table.il-reading {
+	border-radius: 10px;
+	margin: 10px 8px 14px 8px;
+}
+.il-table.il-reading.il-light {
+	border-color: #D8C9A4;
+}
+.il-table.il-reading.il-dark {
+	border-color: #5A4C34;
+}
+
 entry,
 combobox,
 combobox > box,
@@ -829,4 +844,23 @@ button.highlight-swatch {
 .elim-pergamino .elim-navbar,
 .elim-pergamino .elim-tabstrip {
 	border-color: alpha(#3D2B1F, 0.14);
+}
+
+/* Franja de búsqueda dentro del texto (Ctrl-F). Se despliega bajo la
+ * navegación y empuja al capítulo hacia abajo, así que no hay nada que
+ * apartar para ver el versículo hallado. Se lee como una continuación
+ * de la barra de arriba, no como una ventana pegada. */
+/* El relleno va dentro del revealer, no en la franja: plegada mide cero
+ * de alto y un padding ahí le da altura negativa, que GTK protesta. */
+.elim-barra-busqueda > revealer > box {
+	background-color: @elim_chrome;
+	border-bottom: 1px solid @elim_line;
+	padding: 4px 12px;
+}
+.elim-barra-busqueda entry {
+	border-radius: 8px;
+}
+.elim-barra-busqueda button {
+	border-radius: 8px;
+	min-width: 28px;
 }

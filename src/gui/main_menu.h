@@ -95,8 +95,14 @@ void on_versiculo_dia_activate(GtkMenuItem *menuitem,
 			       gpointer user_data);
 void on_memorizacion_activate(GtkMenuItem *menuitem,
 			      gpointer user_data);
+void on_pulpito_activate(GtkMenuItem *menuitem,
+			 gpointer user_data);
 void on_diccionario_activate(GtkMenuItem *menuitem,
 			     gpointer user_data);
+void on_testimonios_activate(GtkMenuItem *menuitem,
+			     gpointer user_data);
+void on_buscar_notas_activate(GtkMenuItem *menuitem,
+			      gpointer user_data);
 void on_attach_detach_sidebar_activate(GtkMenuItem *menuitem,
 				       gpointer user_data);
 void on_sidebar_showhide_activate(GtkMenuItem *menuitem,

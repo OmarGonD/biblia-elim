@@ -217,6 +217,7 @@ char *highlight_get_note(const gchar *group_id);
 
 typedef struct {
 	gchar *group_id; /* NULL = anotación de versículo entero */
+	gchar *module;   /* la versión en la que se escribió */
 	gchar *osisref;  /* "Book.C.V" */
 	gchar *text;     /* frase subrayada, o NULL */
 	gchar *note;
@@ -224,11 +225,18 @@ typedef struct {
 	gchar *note_key; /* "HL:<group_id>" o "MV:<osisref>", identidad estable
 			  * de la nota, usada para enlazarla con otras. */
 	int chapter_verse;
+	guint32 orden;   /* posición canónica, para ordenar entre libros */
 } HighlightNote;
 
 void highlight_note_free(HighlightNote *n);
 /* osis_prefix NULL = libro actual; "Book.C" = capítulo; "Book.C.V" = versículo. */
 GList *highlight_list_notes(const gchar *osis_prefix);
+
+/* Todas las notas escritas, de cualquier libro y cualquier versión, en
+ * orden canónico. highlight_list_notes() no vale para esto: mira la
+ * caché, y la caché solo tiene el libro que está abierto. Esta va al
+ * XML entero, así que no se llama en un redibujo -- es para buscar. */
+GList *highlight_all_notes(void);
 int highlight_count_notes(const gchar *osis_prefix);
 int highlight_count_notes_at(int chapter_verse);
 

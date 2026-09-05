@@ -50,13 +50,17 @@ src/gtk/navbar_versekey.c
 src/gtk/navbar_versekey_dialog.c
 src/gtk/navbar_versekey_editor.c
 src/gtk/navbar_versekey_parallel.c
+src/gtk/barra_busqueda.c
 src/gtk/notas_verso.c
 src/gtk/nube_palabras.c
 src/gtk/memorizacion.c
 src/gtk/plan_personal.c
 src/gtk/planes_lectura.c
+src/gtk/pulpito.c
 src/gtk/progreso_lectura.c
 src/gtk/recordatorio.c
+src/gtk/buscar_notas.c
+src/gtk/testimonios.c
 src/gtk/versiculo_dia.c
 src/gtk/parallel_dialog.c
 src/gtk/parallel_tab.c
@@ -91,10 +95,16 @@ src/main/navbar_book_dialog.cc
 src/main/navbar_versekey.cc
 src/main/nube_palabras.cc
 src/main/planes_lectura.c
+src/main/pulpito.cc
+src/main/pulpito_pasos.c
 src/main/memorizacion.c
+src/main/morfologia.c
+src/main/glosa.c
 src/main/racha.c
 src/main/tiempo_lectura.c
 src/main/recordatorio.c
+src/main/buscar_notas.c
+src/main/testimonios.c
 src/main/versiculo_dia.c
 src/main/parallel_view.cc
 src/main/prayerlists.cc
@@ -130,6 +140,8 @@ ui/navbar_versekey.glade
 [type: gettext/glade]ui/nube-palabras.gtkbuilder
 [type: gettext/glade]ui/diccionario.gtkbuilder
 [type: gettext/glade]ui/memorizacion.gtkbuilder
+[type: gettext/glade]ui/buscar-notas.gtkbuilder
+[type: gettext/glade]ui/testimonios.gtkbuilder
 [type: gettext/glade]ui/plan-personal.gtkbuilder
 [type: gettext/glade]ui/planes-lectura.gtkbuilder
 [type: gettext/glade]ui/progreso-lectura.gtkbuilder

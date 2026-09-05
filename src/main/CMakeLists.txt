@@ -41,7 +41,13 @@ add_library (main
   navbar_versekey.cc
   nube_palabras.cc
   planes_lectura.c
+  pulpito.cc
+  pulpito_pasos.c
   memorizacion.c
+  busqueda_tildes.c
+  buscar_notas.c
+  morfologia.c
+  glosa.c
   racha.c
   texto_verso.c
   tiempo_lectura.c
@@ -57,6 +63,7 @@ add_library (main
   sword.cc
   sword_treekey.cc
   tab_history.c
+  testimonios.c
   url.cc
   xml.c
   )

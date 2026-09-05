@@ -41,6 +41,7 @@
 
 #include "backend/sword_main.hh"
 
+#include "main/busqueda_tildes.h"
 #include "main/mod_mgr.h"
 #include "main/settings.h"
 #include "main/sword.h"
@@ -1116,14 +1117,57 @@ int BackEnd::do_module_search(char *module_name,
 	    (search_scope_list.getCount() == 0))
 		return 0;
 
-	results = search_mod->search(search_string,
-				     search_type,
-				     search_params,
-				     current_scope, 0,
-				     (is_dialog
-					  ? main_dialog_search_percent_update
-					  : main_sidebar_search_percent_update),
-				     (void *)&progressunits);
+	void (*percent)(char, void *) = (is_dialog
+					     ? main_dialog_search_percent_update
+					     : main_sidebar_search_percent_update);
+
+	/* Sword compara byte a byte y su REG_ICASE solo sabe de ASCII, así
+	 * que «espiritu» se queda sin «Espíritu» y quien busca deprisa
+	 * cree que el versículo no está. Cuando la búsqueda es por frase o
+	 * por palabras, y no distingue mayúsculas, cada palabra se
+	 * convierte en una expresión regular que acepta la letra con tilde
+	 * y sin ella.
+	 *
+	 * Por palabras se buscan una tras otra, acotando cada búsqueda a
+	 * lo hallado por la anterior: eso es la «y» que la búsqueda por
+	 * palabras promete, y sale más fina que la de Sword, que devuelve
+	 * rangos y arrastra versículos que no vienen al caso. */
+	gchar **palabras = NULL;
+	if ((search_params & REG_ICASE) &&
+	    ((search_type == -1) || (search_type == -2)))
+		palabras = elim_tildes_regex_consulta(search_string);
+
+	if (palabras && palabras[0] && (search_type == -1)) {
+		gchar *frase = g_strjoinv(" ", palabras);
+		results = search_mod->search(frase, 0, search_params,
+					     current_scope, 0, percent,
+					     (void *)&progressunits);
+		g_free(frase);
+	} else if (palabras && palabras[0]) {
+		ListKey acotado;
+		SWKey *ambito = current_scope;
+
+		for (int i = 0; palabras[i]; i++) {
+			acotado = search_mod->search(palabras[i], 0,
+						     search_params, ambito, 0,
+						     percent,
+						     (void *)&progressunits);
+			ambito = &acotado;
+			if (acotado.getCount() == 0)
+				break;
+		}
+		results = acotado;
+	} else {
+		results = search_mod->search(search_string,
+					     search_type,
+					     search_params,
+					     current_scope, 0,
+					     percent,
+					     (void *)&progressunits);
+	}
+	if (palabras)
+		g_strfreev(palabras);
+
 	search_scope_list = results;
 	if (search_type == -4)
 		results.sort();

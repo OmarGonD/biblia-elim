@@ -681,6 +681,7 @@ highlight_note_free(HighlightNote *n)
 	if (!n)
 		return;
 	g_free(n->group_id);
+	g_free(n->module);
 	g_free(n->osisref);
 	g_free(n->text);
 	g_free(n->note);
@@ -928,6 +929,13 @@ highlight_list_notes(const gchar *osis_prefix)
 
 			n = g_new0(HighlightNote, 1);
 			n->group_id = whole_verse ? NULL : g_strdup(gid);
+			{
+				gchar *space = strchr(h->label, ' ');
+
+				n->module = space
+					? g_strndup(h->label, space - h->label)
+					: g_strdup(note_cache_modname);
+			}
 			n->osisref = g_strdup(h->osisref);
 			n->text = whole_verse ? NULL : g_strdup(h->text);
 			n->note = g_strdup(h->note);
@@ -942,6 +950,107 @@ highlight_list_notes(const gchar *osis_prefix)
 
 	g_hash_table_destroy(seen);
 	return out;
+}
+
+// Canonical position of an osisref, so notes from different books sort
+// the way a Bible reads instead of the way the XML happens to be
+// ordered. VerseKey::getIndex() restarts at each testament, so the
+// testament goes in the high bits.
+static guint32
+osis_orden(const gchar *osisref)
+{
+	VerseKey vk;
+
+	vk.setAutoNormalize(1);
+	vk.setText(osisref);
+	if (vk.popError())
+		return G_MAXUINT32; // lo que no se entiende, al final
+	return ((guint32)vk.getTestament() << 24) | (guint32)vk.getIndex();
+}
+
+static gint
+por_orden(gconstpointer a, gconstpointer b)
+{
+	guint32 oa = ((const HighlightNote *)a)->orden;
+	guint32 ob = ((const HighlightNote *)b)->orden;
+
+	return (oa < ob) ? -1 : (oa > ob) ? 1 : 0;
+}
+
+// Every note ever written, from the XML itself: the cache only holds the
+// open book, and a search has to see all of them. One group of
+// highlighted phrases spans one entry per verse it touched, and each of
+// those carries the same note -- so they are folded into one result, the
+// same way highlight_list_notes() does it.
+extern "C" GList *
+highlight_all_notes(void)
+{
+	GList *out = NULL;
+	GHashTable *seen = g_hash_table_new_full(g_str_hash, g_str_equal,
+						 g_free, NULL);
+
+	migrate_legacy_notes_if_needed();
+
+	if (xml_set_section_ptr("osisrefnotes") && xml_get_label()) {
+		do {
+			gchar *full_label = xml_get_label();
+			gchar *value = xml_get_list();
+			gchar *space = full_label ? strchr(full_label, ' ') : NULL;
+			gchar *hash = full_label ? strrchr(full_label, '#') : NULL;
+
+			if (full_label && value &&
+			    strcmp(full_label, NOTES_MIGRATED_MARK) && space &&
+			    (!hash || hash > space + 1)) {
+				gsize oref_len = (hash && hash > space + 1)
+						     ? (gsize)(hash - space - 1)
+						     : strlen(space + 1);
+				gchar *mod = g_strndup(full_label,
+						       space - full_label);
+				gchar *osisref = g_strndup(space + 1, oref_len);
+				gchar *color = NULL, *text = NULL, *note = NULL;
+				gint pos = -1;
+
+				if (decode_note_value(value, &color, &text,
+						      &note, &pos) &&
+				    note && *note) {
+					gboolean whole = !text || !*text;
+					const gchar *gid = (hash && hash[1])
+							       ? hash + 1
+							       : full_label;
+
+					// del grupo, un solo resultado
+					if (whole || !g_hash_table_contains(seen, gid)) {
+						HighlightNote *n =
+						    g_new0(HighlightNote, 1);
+
+						if (!whole)
+							g_hash_table_add(seen, g_strdup(gid));
+						n->group_id = whole ? NULL : g_strdup(gid);
+						n->module = g_strdup(mod);
+						n->osisref = g_strdup(osisref);
+						n->text = whole ? NULL : g_strdup(text);
+						n->note = g_strdup(note);
+						n->color = color ? g_strdup(color) : NULL;
+						n->note_key =
+						    whole ? highlight_note_key_verse(osisref)
+							  : highlight_note_key_group(gid);
+						n->orden = osis_orden(osisref);
+						out = g_list_prepend(out, n);
+					}
+				}
+				g_free(color);
+				g_free(text);
+				g_free(note);
+				g_free(mod);
+				g_free(osisref);
+			}
+			g_free(full_label);
+			g_free(value);
+		} while (xml_next_item() && xml_get_label());
+	}
+
+	g_hash_table_destroy(seen);
+	return g_list_sort(g_list_reverse(out), por_orden);
 }
 
 extern "C" int

@@ -696,6 +696,20 @@ GS_DIALOG *gui_new_dialog(void)
  *   void
  */
 
+/* El nombre con el que la aplicación se presenta en sus propios avisos.
+ * Se pregunta en vez de escribirlo: gui_init() ya lo puso una vez con
+ * g_set_application_name(), y así no hay dos sitios que puedan decir
+ * cosas distintas. Antes aquí ponía «Xiphos», que es de donde viene el
+ * código pero no lo que el lector tiene instalado. */
+static const char *
+nombre_aplicacion(void)
+{
+	const char *nombre = g_get_application_name();
+
+	/* Un aviso muy temprano puede llegar antes de gui_init(). */
+	return (nombre && *nombre) ? nombre : "Biblia Elim";
+}
+
 void gui_generic_warning_modal(const char *message)
 {
 	GS_DIALOG *dialog;
@@ -709,8 +723,8 @@ void gui_generic_warning_modal(const char *message)
 	    GTK_STOCK_DIALOG_INFO;
 #endif
 
-	dialog_text = g_strdup_printf("<span weight=\"bold\">%s</span>",
-				      _("Xiphos:"));
+	dialog_text = g_strdup_printf("<span weight=\"bold\">%s:</span>",
+				      nombre_aplicacion());
 	dialog->label_top = dialog_text;
 	dialog->label2 = (char *)message;
 	dialog->ok = TRUE;
@@ -745,7 +759,8 @@ void gui_generic_warning(const char *message)
 	 * gui_init() has called gtk_init. Creating a GtkMessageDialog
 	 * then SIGSEGVs inside GTK's style provider. */
 	if (gdk_display_get_default() == NULL) {
-		g_printerr("Xiphos: %s\n", message ? message : "");
+		g_printerr("%s: %s\n", nombre_aplicacion(),
+			   message ? message : "");
 		return;
 	}
 
@@ -753,7 +768,8 @@ void gui_generic_warning(const char *message)
 						    GTK_DIALOG_DESTROY_WITH_PARENT,
 						    GTK_MESSAGE_INFO,
 						    GTK_BUTTONS_OK,
-						    "<b><big>Xiphos</big></b>\n\n%s",
+						    "<b><big>%s</big></b>\n\n%s",
+						    nombre_aplicacion(),
 						    message);
 
 	g_signal_connect_swapped(dialog, "response",

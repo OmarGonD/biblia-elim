@@ -35,11 +35,17 @@ typedef WkHtmlPrivate XiphosHtmlPriv;
 #define XIPHOS_HTML WK_HTML
 #define XIPHOS_HTML_NEW(a, b, c) xiphos_html_new(a, b, c)
 #define XIPHOS_HTML_COPY_SELECTION(text_html) wk_html_copy_selection(WK_HTML(text_html))
+#define XIPHOS_HTML_HAS_SELECTION(text_html) wk_html_has_selection(WK_HTML(text_html))
 #define XIPHOS_HTML_OPEN_STREAM(a, b) wk_html_open_stream(WK_HTML(a), b)
 #define XIPHOS_HTML_WRITE(a, b, c) wk_html_write(WK_HTML(a), b, c)
 #define XIPHOS_HTML_CLOSE(a) wk_html_close(WK_HTML(a))
 #define XIPHOS_HTML_FIND(a, b) wk_html_find(a, b)
 #define XIPHOS_HTML_FIND_AGAIN(a, b) wk_html_find_again(a, b)
+#define XIPHOS_HTML_FIND_ALL(a, b) wk_html_find_all(WK_HTML(a), b)
+#define XIPHOS_HTML_FIND_STEP(a, b) wk_html_find_step(WK_HTML(a), b)
+#define XIPHOS_HTML_FIND_COUNT(a) wk_html_find_count(WK_HTML(a))
+#define XIPHOS_HTML_FIND_POSITION(a) wk_html_find_position(WK_HTML(a))
+#define XIPHOS_HTML_FIND_CLEAR(a) wk_html_find_clear(WK_HTML(a))
 #define XIPHOS_HTML_JUMP_TO_ANCHOR wk_html_jump_to_anchor
 #define XIPHOS_HTML_PRINT_DOCUMENT(a) wk_html_print(a) // TODO: Implement?
 #define XIPHOS_HTML_SHUTDOWN wk_html_shutdown

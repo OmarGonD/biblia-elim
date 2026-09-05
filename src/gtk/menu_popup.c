@@ -40,6 +40,7 @@
 #include "gui/widgets.h"
 #include "gui/bookmark_dialog.h"
 #include "gui/export_dialog.h"
+#include "gui/barra_busqueda.h"
 #include "gui/find_dialog.h"
 #include "gui/font_dialog.h"
 #include "gui/about_modules.h"
@@ -461,10 +462,12 @@ G_MODULE_EXPORT void on_popup_copy_activate(GtkMenuItem *menuitem,
 G_MODULE_EXPORT void on_popup_find_activate(GtkMenuItem *menuitem,
 					    gpointer user_data)
 {
+	/* En la ventana principal la búsqueda es una franja empotrada, que
+	 * no tapa el texto; las ventanas sueltas siguen con su diálogo. */
 	if (is_dialog)
 		gui_find_dlg(dialog->html, dialog->mod_name, FALSE, NULL);
 	else
-		gui_find_dlg(_get_html(), menu_mod_name, FALSE, NULL);
+		gui_barra_busqueda_mostrar(_get_html());
 }
 
 /******************************************************************************
@@ -1310,7 +1313,11 @@ G_MODULE_EXPORT void on_lookup_biblemap_activate(GtkMenuItem *menuitem,
 		g_free(enc_key);
 		g_free(showstr);
 	} else
-		gui_generic_warning("No selection made");
+		gui_generic_warning(_("Antes hay que seleccionar algo.\n\n"
+				      "Arrastra el ratón sobre el nombre de un "
+				      "lugar -- «Jerusalén», «Galilea» -- y vuelve "
+				      "a abrir este menú: BibleMap.org lo enseña "
+				      "en el mapa."));
 }
 
 /******************************************************************************
@@ -1351,7 +1358,9 @@ G_MODULE_EXPORT void on_translate_activate(GtkMenuItem *menuitem,
 		g_free(enc_key);
 		g_free(showstr);
 	} else
-		gui_generic_warning("No selection made");
+		gui_generic_warning(_("Antes hay que seleccionar algo.\n\n"
+				      "Arrastra el ratón sobre el texto que quieras "
+				      "traducir y vuelve a abrir este menú."));
 }
 
 /******************************************************************************
@@ -1602,7 +1611,9 @@ G_MODULE_EXPORT void on_read_selection_aloud_activate(GtkMenuItem *
 		ReadAloud(0, text);
 		g_free(text);
 	} else
-		gui_generic_warning("No selection made");
+		gui_generic_warning(_("Antes hay que seleccionar algo.\n\n"
+				      "Arrastra el ratón sobre lo que quieras oír y "
+				      "vuelve a abrir este menú."));
 }
 
 /******************************************************************************
@@ -2010,6 +2021,7 @@ static GtkWidget *_create_popup_menu(XiphosHtml *html, const gchar *mod_name,
 	GtkWidget *lookup = UI_GET_ITEM(gxml, "lookup_selection1");
 	GtkWidget *lookup_sub =
 	    UI_GET_ITEM(gxml, "lookup_selection1_menu");
+	GtkWidget *read_aloud = UI_GET_ITEM(gxml, "read_selection_aloud");
 	GtkWidget *unlock = UI_GET_ITEM(gxml, "unlock_this_module");
 	GtkWidget *book_heading =
 	    UI_GET_ITEM(gxml, "display_book_heading");
@@ -2096,6 +2108,28 @@ static GtkWidget *_create_popup_menu(XiphosHtml *html, const gchar *mod_name,
 
 	gui_add_mods_2_gtk_menu(DICT_DESC_LIST, lookup_sub,
 				(GCallback)_lookup_selection);
+
+	/* Todo lo que trabaja sobre lo seleccionado se apaga cuando no hay
+	 * nada seleccionado. Antes se dejaba encendido y el que lo pulsaba
+	 * se llevaba un aviso de que no había selección, que es la peor
+	 * manera de contarlo: cuesta un clic, no explica para qué sirve la
+	 * opción y parece que la aplicación no funciona. Apagado se ve
+	 * antes de pulsar, y se entiende que primero hay que subrayar
+	 * algo con el ratón. */
+	{
+		gboolean hay = html && XIPHOS_HTML_HAS_SELECTION(html);
+
+		gtk_widget_set_sensitive(lookup, hay);
+		gtk_widget_set_sensitive(read_aloud, hay);
+		gtk_widget_set_tooltip_text(
+		    lookup, hay ? NULL
+				: _("Arrastra antes el ratón sobre una "
+				    "palabra o una frase."));
+		gtk_widget_set_tooltip_text(
+		    read_aloud, hay ? NULL
+				    : _("Arrastra antes el ratón sobre una "
+					"palabra o una frase."));
+	}
 
 	_add_and_check_global_opts(gxml,
 				   (char *)(is_dialog ? d->mod_name : mod_name), mod_opt_sub, d);

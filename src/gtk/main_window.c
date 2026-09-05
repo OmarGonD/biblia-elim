@@ -50,6 +50,7 @@
 #include "gui/commentary.h"
 #include "gui/gbs.h"
 #include "gui/dialog.h"
+#include "gui/barra_busqueda.h"
 #include "gui/find_dialog.h"
 #include "gui/dictlex.h"
 #include "gui/search_dialog.h"
@@ -91,6 +92,7 @@ static GtkWidget *reading_compare_pick = NULL;
 static GtkWidget *reading_font_button = NULL;
 static GtkWidget *reading_hoy_button = NULL;
 static GtkWidget *reading_marcar_button = NULL;
+static GtkWidget *reading_interlinear_button = NULL;
 static guint reading_mode_place_src = 0;
 static guint reading_mode_refit_src = 0;
 static gint reading_mode_last_width = 0;
@@ -103,6 +105,7 @@ static gulong reading_mode_alloc_id = 0;
 
 static void on_reading_mode_button_toggled(GtkToggleButton *button, gpointer data);
 static void on_reading_compare_toggled(GtkToggleButton *button, gpointer data);
+static void on_reading_interlinear_toggled(GtkToggleButton *button, gpointer data);
 static void on_reading_compare_pick(GtkButton *button, gpointer data);
 static void on_reading_font_clicked(GtkButton *button, gpointer data);
 static void reading_strip_sync(void);
@@ -736,6 +739,31 @@ on_reading_compare_toggled(GtkToggleButton *button, gpointer data)
 }
 
 static void
+on_reading_interlinear_toggled(GtkToggleButton *button, gpointer data)
+{
+	(void)data;
+	gui_interlineal_set_active(gtk_toggle_button_get_active(button));
+}
+
+/* Keeps the reading strip's interlinear toggle in step with the real
+ * setting, which can change through any of the other entry points (the
+ * toolbar α button, the View menu) at any time. */
+void
+gui_reading_interlinear_sync(void)
+{
+	if (!reading_interlinear_button)
+		return;
+	g_signal_handlers_block_by_func(reading_interlinear_button,
+					G_CALLBACK(on_reading_interlinear_toggled),
+					NULL);
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(reading_interlinear_button),
+				     settings.show_interlineal != 0);
+	g_signal_handlers_unblock_by_func(reading_interlinear_button,
+					  G_CALLBACK(on_reading_interlinear_toggled),
+					  NULL);
+}
+
+static void
 reading_mode_hover_cancel_hide(void)
 {
 	if (reading_mode_hover_hide_src) {
@@ -867,6 +895,33 @@ reading_strip_build(void)
 	gtk_box_pack_start(GTK_BOX(reading_strip), reading_marcar_button,
 			   FALSE, FALSE, 0);
 
+	/* Interlinear on/off, following the α toggle of the ordinary
+	 * toolbar (bar_interlineal) -- but reading mode hides that strip,
+	 * so the mode needs its own switch. A toggle like the comparison
+	 * one, because "interlinear" is a state worth showing. */
+	reading_interlinear_button = gtk_toggle_button_new();
+	{
+		GtkWidget *alpha = gtk_label_new("α");
+		gtk_style_context_add_class(gtk_widget_get_style_context(alpha),
+					    "elim-greek");
+		gtk_widget_show(alpha);
+		gtk_container_add(GTK_CONTAINER(reading_interlinear_button),
+				  alpha);
+	}
+	gtk_style_context_add_class(
+	    gtk_widget_get_style_context(reading_interlinear_button),
+	    "elim-greek");
+	gtk_button_set_relief(GTK_BUTTON(reading_interlinear_button),
+			      GTK_RELIEF_NONE);
+	gtk_widget_set_tooltip_text(
+	    reading_interlinear_button,
+	    _("Interlineal: griego o hebreo de este versículo, palabra por palabra"));
+	gtk_widget_set_can_focus(reading_interlinear_button, FALSE);
+	g_signal_connect(reading_interlinear_button, "toggled",
+			 G_CALLBACK(on_reading_interlinear_toggled), NULL);
+	gtk_box_pack_start(GTK_BOX(reading_strip), reading_interlinear_button,
+			   FALSE, FALSE, 0);
+
 	/* Compare on/off. A toggle rather than an icon button because it
 	 * is the one control here with a state worth showing. */
 	reading_compare_button = gtk_toggle_button_new();
@@ -956,6 +1011,7 @@ reading_strip_sync(void)
 	if (reading_font_button)
 		gtk_widget_set_sensitive(reading_font_button,
 					 settings.reading_compare != 0);
+	gui_reading_interlinear_sync();
 }
 
 static void
@@ -1959,19 +2015,14 @@ static gboolean on_vbox1_key_press_event(GtkWidget *widget, GdkEventKey *event,
 	case XK_F:
 		if (state == GDK_CONTROL_MASK) { // Ctrl-F  find text
 			if (settings.showtexts) {
-				gui_find_dlg(widgets.html_text,
-					     sM, FALSE, NULL);
+				gui_barra_busqueda_mostrar(widgets.html_text);
 			} else if (settings.showcomms) {
-				if (settings.comm_showing) {
-					gui_find_dlg(widgets.html_comm,
-						     sC, FALSE, NULL);
-				} else {
-					gui_find_dlg(widgets.html_book,
-						     sB, FALSE, NULL);
-				}
+				if (settings.comm_showing)
+					gui_barra_busqueda_mostrar(widgets.html_comm);
+				else
+					gui_barra_busqueda_mostrar(widgets.html_book);
 			} else if (settings.showdicts) {
-				gui_find_dlg(widgets.html_dict,
-					     sD, FALSE, NULL);
+				gui_barra_busqueda_mostrar(widgets.html_dict);
 			} else
 				gui_generic_warning(_("Xiphos: No windows."));
 		} else if (state == (GDK_CONTROL_MASK | GDK_SHIFT_MASK)) {
@@ -2631,6 +2682,12 @@ void create_mainwindow(void)
 	gtk_style_context_add_class(gtk_widget_get_style_context(widgets.nav_toolbar),
 				    "elim-navbar");
 	gtk_box_pack_start(GTK_BOX(widgets.page), widgets.nav_toolbar, FALSE, FALSE, 0);
+
+	/* Franja de búsqueda dentro del texto (Ctrl-F). Va aquí, entre la
+	 * navegación y el texto, para que empuje al capítulo hacia abajo
+	 * en vez de taparlo: lo hallado se queda a la vista. */
+	gtk_box_pack_start(GTK_BOX(widgets.page), gui_barra_busqueda_crear(),
+			   FALSE, FALSE, 0);
 
 	// widgets.hpaned
 	widgets.hpaned = UI_HPANE();

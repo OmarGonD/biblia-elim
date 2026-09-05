@@ -160,6 +160,24 @@
               </object>
             </child>
             <child>
+              <object class="GtkMenuItem" id="buscar_notas">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Buscar en mis n_otas</property>
+                <property name="use_underline">True</property>
+                <signal name="activate" handler="on_buscar_notas_activate" swapped="no"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuItem" id="testimonios">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">_Jesús en la historia</property>
+                <property name="use_underline">True</property>
+                <signal name="activate" handler="on_testimonios_activate" swapped="no"/>
+              </object>
+            </child>
+            <child>
               <object class="GtkMenuItem" id="nube_palabras">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -199,6 +217,15 @@
                 <property name="label" translatable="yes">_Versículo del día</property>
                 <property name="use_underline">True</property>
                 <signal name="activate" handler="on_versiculo_dia_activate" swapped="no"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuItem" id="pulpito">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Abrir en _púlpito…</property>
+                <property name="use_underline">True</property>
+                <signal name="activate" handler="on_pulpito_activate" swapped="no"/>
               </object>
             </child>
             <child>

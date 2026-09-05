@@ -38,8 +38,9 @@ typedef struct _interl_fila {
 	gchar *forma;
 	gchar *raiz;
 	gchar *translit;
-	gchar *morph;
-	gchar *morph_es;
+	gchar *morph;		/* el código: V-PAI-3S */
+	gchar *morph_es;	/* dicho entero */
+	gchar *morph_corto;	/* dicho para que quepa */
 	gboolean phrase;
 	gboolean hebrew;
 } InterlFila;

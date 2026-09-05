@@ -64,6 +64,9 @@ void gui_show_hide_preview(int choice);
 void gui_show_hide_comms(int choice);
 void gui_show_hide_dicts(int choice);
 void gui_toggle_reading_mode(int choice);
+/* Syncs the reading strip's interlinear toggle with the live setting,
+ * called from the interlinear code whenever that setting changes. */
+void gui_reading_interlinear_sync(void);
 
 /* TRUE once create_mainwindow() has finished building the window --
  * main_init_backend() (main.c) runs right after it returns, so before

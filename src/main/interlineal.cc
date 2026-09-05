@@ -32,6 +32,7 @@
 #include "gui/widgets.h"
 #include "gui/dialog.h"
 #include "main/interlineal.h"
+#include "main/morfologia.h"
 #include "main/diccionario.h"
 #include "main/lists.h"
 #include "main/settings.h"
@@ -464,6 +465,37 @@ tokens_ot(const char *key)
 	GList *out = NULL;
 	char *raw = NULL;
 	char *heb = NULL;
+
+	/* Con el Antiguo Testamento de Open Scriptures (OSHB) no hay nada
+	 * que adivinar: cada palabra hebrea trae ya su número de Strong y
+	 * su morfología, pegados a ella. Lo de abajo -- alinear el KJV
+	 * inglés con el WLC contando palabras -- es de cuando no estaba
+	 * instalado, y sigue ahí para quien no lo tenga. */
+	if (mod_ok("OSHB")) {
+		char *oshb = backend->get_raw_text("OSHB", key);
+		GList *toks = parse_w_tags(oshb);
+
+		g_free(oshb);
+		if (toks) {
+			for (GList *l = toks; l; l = l->next) {
+				InterlTok *t = (InterlTok *)l->data;
+				const InterlStrong *info =
+				    t->strong ? main_interlineal_strong(t->strong)
+					      : NULL;
+
+				if (!info)
+					continue;
+				if ((!t->raiz || !*t->raiz) && info->lema)
+					t->raiz = g_strdup(info->lema);
+				if ((!t->translit || !*t->translit) &&
+				    info->translit)
+					t->translit = g_strdup(info->translit);
+				if ((!t->glosa || !*t->glosa) && info->glosa)
+					t->glosa = g_strdup(info->glosa);
+			}
+			return toks;
+		}
+	}
 
 	if (mod_ok("KJV"))
 		raw = backend->get_raw_text("KJV", key);
@@ -1369,215 +1401,114 @@ es_frase(const char *s)
 	return FALSE;
 }
 
+/* En los módulos conviven dos convenios de numeración Strong:
+ *
+ *   - Tischendorf numera por LEMA: toda forma de εἰμί es G1510.
+ *   - La Reina-Valera 1909, como toda la tradición KJV / Textus
+ *     Receptus, da número propio a ciertas formas flexionadas: ἔστω
+ *     es G2077, ἐστίν G2076, ὑμῶν G5216.
+ *
+ * Emparejar por número falla entonces justo en las palabras más
+ * frecuentes -- el verbo ser y los pronombres -- y esas celdas caen a
+ * la glosa del lema. Esta tabla lleva la forma a su lema para poder
+ * compararlas.
+ *
+ * Solo entran equivalencias que Tischendorf no emite nunca por su
+ * cuenta: si usara el número de la forma, fundirlo con el del lema
+ * emparejaría palabras distintas. Por eso quedan fuera ἐρέω (G2046),
+ * φημί (G5346) y εἴδω (G1492), que Tischendorf sí distingue de λέγω y
+ * de ὁράω. Y por eso el singular no se funde con el plural: σύ (G4771)
+ * y ὑμεῖς (G5210) ya van separados en el original, y fundirlos dejaría
+ * «vosotros» colgando de un σοι.
+ *
+ * Medido sobre 110.000 palabras del NT griego, los emparejamientos por
+ * número suben del 66% al 72%. */
+static const struct {
+	const char *forma;
+	const char *lema;
+} STRONG_TR_LEMA[] = {
+	/* εἰμί -- ser */
+	{ "G1488", "G1510" },	/* εἶ       */
+	{ "G1498", "G1510" },	/* εἴην     */
+	{ "G1511", "G1510" },	/* εἶναι    */
+	{ "G1526", "G1510" },	/* εἰσί     */
+	{ "G2070", "G1510" },	/* ἐσμέν    */
+	{ "G2071", "G1510" },	/* ἔσομαι   */
+	{ "G2075", "G1510" },	/* ἐστέ     */
+	{ "G2076", "G1510" },	/* ἐστί     */
+	{ "G2077", "G1510" },	/* ἔστω     */
+	{ "G2258", "G1510" },	/* ἦν       */
+	{ "G2277", "G1510" },	/* ἤτω      */
+	{ "G2468", "G1510" },	/* ἴσθι     */
+	{ "G5600", "G1510" },	/* ὦ        */
+	{ "G5607", "G1510" },	/* ὤν       */
+	/* σύ -- tú (singular) */
+	{ "G4571", "G4771" },	/* σέ       */
+	{ "G4671", "G4771" },	/* σοί      */
+	{ "G4675", "G4771" },	/* σοῦ      */
+	/* ὑμεῖς -- vosotros (plural) */
+	{ "G5209", "G5210" },	/* ὑμᾶς     */
+	{ "G5213", "G5210" },	/* ὑμῖν     */
+	{ "G5216", "G5210" },	/* ὑμῶν     */
+	/* ἐγώ -- yo (singular) */
+	{ "G1691", "G1473" },	/* ἐμέ      */
+	{ "G1698", "G1473" },	/* ἐμοί     */
+	{ "G1700", "G1473" },	/* ἐμοῦ     */
+	{ "G3165", "G1473" },	/* μέ       */
+	{ "G3427", "G1473" },	/* μοί      */
+	{ "G3450", "G1473" },	/* μοῦ      */
+	/* ἡμεῖς -- nosotros (plural) */
+	{ "G2248", "G2249" },	/* ἡμᾶς     */
+	{ "G2254", "G2249" },	/* ἡμῖν     */
+	{ "G2257", "G2249" },	/* ἡμῶν     */
+	/* οὗτος -- este */
+	{ "G5023", "G3778" },	/* ταῦτα    */
+	{ "G5025", "G3778" },	/* ταύταις  */
+	{ "G5026", "G3778" },	/* ταύτῃ    */
+	{ "G5124", "G3778" },	/* τοῦτο    */
+	{ "G5125", "G3778" },	/* τούτοις  */
+	{ "G5126", "G3778" },	/* τοῦτον   */
+	{ "G5127", "G3778" },	/* τούτου   */
+	{ "G5128", "G3778" },	/* τούτους  */
+	{ "G5129", "G3778" },	/* τούτῳ    */
+	{ "G5130", "G3778" },	/* τούτων   */
+	/* λέγω -- decir: el aoristo va aparte en la numeración TR */
+	{ "G2036", "G3004" },	/* ἔπω      */
+	{ "G4483", "G3004" },	/* ῥέω      */
+	/* ὁράω -- ver */
+	{ "G3700", "G3708" },	/* ὀπτάνομαι */
+};
+
+/* El número con el que comparar: el del lema si es una forma del
+ * convenio TR, y el mismo que entró en cualquier otro caso. */
 static const char *
-morph_strip_prefix(const char *code)
+strong_canonico(const char *num)
 {
-	if (!code)
-		return NULL;
-	if (g_str_has_prefix(code, "robinson:"))
-		return code + 9;
-	if (g_str_has_prefix(code, "Robinson:"))
-		return code + 9;
-	if (g_str_has_prefix(code, "strongMorph:"))
-		return code + 12;
-	if (g_str_has_prefix(code, "morph:"))
-		return code + 6;
-	return code;
-}
+	gsize i;
 
-static void
-morph_append(GString *s, const char *bit)
-{
-	if (!bit || !*bit)
-		return;
-	if (s->len)
-		g_string_append(s, " · ");
-	g_string_append(s, bit);
-}
-
-static gchar *
-morph_es(const char *code)
-{
-	const char *raw;
-	gchar **parts;
-	GString *s;
-	const char *pos, *a, *b;
-
-	raw = morph_strip_prefix(code);
-	if (!raw || !*raw)
-		return g_strdup("");
-	if (g_str_has_prefix(raw, "TH") || g_ascii_isdigit(raw[0]))
-		return g_strdup(raw);
-
-	parts = g_strsplit(raw, "-", 3);
-	s = g_string_new(NULL);
-	pos = parts[0] ? parts[0] : "";
-	if (!strcmp(pos, "N"))
-		morph_append(s, _("Sustantivo"));
-	else if (!strcmp(pos, "V"))
-		morph_append(s, _("Verbo"));
-	else if (!strcmp(pos, "A"))
-		morph_append(s, _("Adjetivo"));
-	else if (!strcmp(pos, "P"))
-		morph_append(s, _("Pronombre"));
-	else if (!strcmp(pos, "D"))
-		morph_append(s, _("Demostrativo"));
-	else if (!strcmp(pos, "T") || !strcmp(pos, "RA"))
-		morph_append(s, _("Artículo"));
-	else if (!strcmp(pos, "C") || !strcmp(pos, "CONJ"))
-		morph_append(s, _("Conjunción"));
-	else if (!strcmp(pos, "PREP"))
-		morph_append(s, _("Preposición"));
-	else if (!strcmp(pos, "PRT") || !strcmp(pos, "PRT-N"))
-		morph_append(s, _("Partícula"));
-	else if (!strcmp(pos, "ADV"))
-		morph_append(s, _("Adverbio"));
-	else if (!strcmp(pos, "COND"))
-		morph_append(s, _("Condicional"));
-	else if (!strcmp(pos, "X"))
-		morph_append(s, _("Indefinido"));
-	else if (!strcmp(pos, "I") || !strcmp(pos, "INJ"))
-		morph_append(s, _("Interjección"));
-	else if (!strcmp(pos, "HEB"))
-		morph_append(s, _("Hebreo"));
-	else if (!strcmp(pos, "ARAM"))
-		morph_append(s, _("Arameo"));
-	else if (!strcmp(pos, "NUM"))
-		morph_append(s, _("Numeral"));
-	else if (*pos)
-		morph_append(s, pos);
-
-	a = parts[1] ? parts[1] : "";
-	b = parts[2] ? parts[2] : "";
-	if (!strcmp(pos, "V")) {
-		const char *p = a;
-		if (p[0] == '2' && p[1]) {
-			if (p[1] == 'A')
-				morph_append(s, _("aor. 2")), p += 2;
-			else if (p[1] == 'F')
-				morph_append(s, _("fut. 2")), p += 2;
-			else if (p[1] == 'R')
-				morph_append(s, _("perf. 2")), p += 2;
-			else if (p[1] == 'P')
-				morph_append(s, _("pres. 2")), p += 2;
-		} else if (*p) {
-			switch (*p) {
-			case 'P': morph_append(s, _("pres.")); break;
-			case 'I': morph_append(s, _("impf.")); break;
-			case 'F': morph_append(s, _("fut.")); break;
-			case 'A': morph_append(s, _("aor.")); break;
-			case 'R': morph_append(s, _("perf.")); break;
-			case 'L': morph_append(s, _("plusc.")); break;
-			case 'X': morph_append(s, _("indef.")); break;
-			default: break;
-			}
-			if (*p)
-				p++;
-		}
-		if (*p) {
-			switch (*p) {
-			case 'A': morph_append(s, _("act.")); break;
-			case 'M': morph_append(s, _("med.")); break;
-			case 'P': morph_append(s, _("pas.")); break;
-			case 'E': morph_append(s, _("med./pas.")); break;
-			case 'D': morph_append(s, _("med. dep.")); break;
-			case 'O': morph_append(s, _("pas. dep.")); break;
-			case 'N': morph_append(s, _("m./p. dep.")); break;
-			default: break;
-			}
-			p++;
-		}
-		if (*p) {
-			switch (*p) {
-			case 'I': morph_append(s, _("ind.")); break;
-			case 'S': morph_append(s, _("subj.")); break;
-			case 'O': morph_append(s, _("opt.")); break;
-			case 'M': morph_append(s, _("imper.")); break;
-			case 'N': morph_append(s, _("inf.")); break;
-			case 'P': morph_append(s, _("part.")); break;
-			default: break;
-			}
-		}
-		if (b[0] == '1')
-			morph_append(s, _("1ª"));
-		else if (b[0] == '2')
-			morph_append(s, _("2ª"));
-		else if (b[0] == '3')
-			morph_append(s, _("3ª"));
-		if (strchr(b, 'S'))
-			morph_append(s, _("sg."));
-		else if (strchr(b, 'P'))
-			morph_append(s, _("pl."));
-		if (strchr(b, 'M') && !strchr("123", b[0]))
-			morph_append(s, _("m."));
-		if (strchr(b, 'F'))
-			morph_append(s, _("f."));
-		if (strchr(b, 'N') && b[0] != 'N')
-			morph_append(s, _("n."));
-	} else {
-		const char *p = a;
-		if (*p == '1' || *p == '2' || *p == '3') {
-			if (*p == '1')
-				morph_append(s, _("1ª"));
-			else if (*p == '2')
-				morph_append(s, _("2ª"));
-			else
-				morph_append(s, _("3ª"));
-			p++;
-		}
-		if (*p) {
-			switch (*p) {
-			case 'N': morph_append(s, _("nom.")); break;
-			case 'G': morph_append(s, _("gen.")); break;
-			case 'D': morph_append(s, _("dat.")); break;
-			case 'A': morph_append(s, _("ac.")); break;
-			case 'V': morph_append(s, _("voc.")); break;
-			default: break;
-			}
-			p++;
-		}
-		if (*p) {
-			switch (*p) {
-			case 'S': morph_append(s, _("sg.")); break;
-			case 'P': morph_append(s, _("pl.")); break;
-			case 'D': morph_append(s, _("dual")); break;
-			default: break;
-			}
-			p++;
-		}
-		if (*p) {
-			switch (*p) {
-			case 'M': morph_append(s, _("m.")); break;
-			case 'F': morph_append(s, _("f.")); break;
-			case 'N': morph_append(s, _("n.")); break;
-			default: break;
-			}
-		}
-	}
-	g_strfreev(parts);
-	if (!s->len)
-		g_string_append(s, raw);
-	return g_string_free(s, FALSE);
-}
-
-static gchar *
-morph_code(const char *code)
-{
-	const char *raw = morph_strip_prefix(code);
-	return g_strdup(raw ? raw : "");
+	if (!num || !*num)
+		return num;
+	for (i = 0; i < G_N_ELEMENTS(STRONG_TR_LEMA); i++)
+		if (!strcmp(num, STRONG_TR_LEMA[i].forma))
+			return STRONG_TR_LEMA[i].lema;
+	return num;
 }
 
 static gboolean
 token_has_strong(const InterlTok *t, const char *num)
 {
 	gchar *n, **v;
+	const char *busca;
 	int i;
 	gboolean ok = FALSE;
 
 	if (!t || !num || !*num)
 		return FALSE;
+	/* Por el lema en los dos lados: el original y la versión española
+	 * pueden venir de convenios de numeración distintos. */
+	busca = strong_canonico(num);
 	n = main_interlineal_norm_strong(t->strong);
-	if (n && !strcmp(n, num))
+	if (n && !strcmp(strong_canonico(n), busca))
 		ok = TRUE;
 	g_free(n);
 	if (ok)
@@ -1587,7 +1518,7 @@ token_has_strong(const InterlTok *t, const char *num)
 	v = g_strsplit(t->strongs, " ", -1);
 	for (i = 0; v[i]; i++) {
 		n = main_interlineal_norm_strong(v[i]);
-		if (n && !strcmp(n, num))
+		if (n && !strcmp(strong_canonico(n), busca))
 			ok = TRUE;
 		g_free(n);
 		if (ok)
@@ -1680,8 +1611,9 @@ fila_fill_orig(InterlFila *f, const InterlTok *t)
 	if (t->morph && *t->morph && (!f->morph || !*f->morph)) {
 		g_free(f->morph);
 		g_free(f->morph_es);
-		f->morph = morph_code(t->morph);
-		f->morph_es = morph_es(t->morph);
+		f->morph = main_morf_codigo(t->morph);
+		f->morph_es = main_morf_es(t->morph);
+		f->morph_corto = main_morf_corto(t->morph);
 	}
 	if (t->strong && *t->strong) {
 		gchar *n = main_interlineal_norm_strong(t->strong);
@@ -1740,6 +1672,7 @@ fila_free(gpointer p)
 	g_free(f->translit);
 	g_free(f->morph);
 	g_free(f->morph_es);
+	g_free(f->morph_corto);
 	g_free(f);
 }
 
@@ -1788,33 +1721,47 @@ tokens_es_from_mod(const char *mod, const char *key)
 	return toks;
 }
 
+/* Pospositivas griegas: partículas que en griego no abren nunca la
+ * frase, pero cuya traducción al español sí la abre. «ἔστω δὲ ὁ λόγος»
+ * se lee «Mas sea vuestro hablar»: la segunda del griego es la primera
+ * del español, y de ahí en adelante todo va corrido un puesto.
+ *
+ * Importa porque emparejar por posición da por hecho que la palabra n
+ * del original es la n del español, y el recuento de palabras -- lo
+ * único que mira alineacion_ok() -- no lo desmiente: en Mt 5:37 salen
+ * 18 palabras contra 17 tokens, diferencia de una, y la alineación se
+ * da por buena aunque esté mal de la primera fila. No es un caso raro:
+ * δέ, γάρ y οὖν abren miles de versículos. */
 static gboolean
-alineacion_en_pantalla(GList *orig, const char *key)
+pospositiva_en_segunda(GList *orig)
 {
-	gchar *esline;
-	GList *pal, *st, *l;
-	int n_es = 0, n_st, n_stop = 0;
-	gboolean ok;
+	static const char *const POSPOS[] = {
+		"G1161",	/* δέ     */
+		"G1063",	/* γάρ    */
+		"G3767",	/* οὖν    */
+		"G3303",	/* μέν    */
+		"G5037",	/* τε     */
+		"G1065",	/* γε     */
+		"G1211",	/* δή     */
+		"G3305",	/* μέντοι */
+		"G5106",	/* τοίνυν */
+		NULL
+	};
+	GList *st = toks_con_strong(orig);
+	gboolean hit = FALSE;
 
-	esline = spanish_line(key);
-	pal = parse_es_palabras(esline);
-	st = toks_con_strong(orig);
-	n_st = (int)g_list_length(st);
-	for (l = pal; l; l = l->next) {
-		EsPal *w = (EsPal *)l->data;
-		if (!w->nota && w->core && *w->core) {
-			n_es++;
-			if (es_stopword(w->core))
-				n_stop++;
-		}
+	if (st && st->next) {
+		const InterlTok *t = (const InterlTok *)st->next->data;
+		int i;
+
+		for (i = 0; t && t->strong && POSPOS[i]; i++)
+			if (!g_strcmp0(t->strong, POSPOS[i])) {
+				hit = TRUE;
+				break;
+			}
 	}
-	ok = alineacion_ok(n_es, n_st);
-	if (!ok && n_es > n_st && alineacion_ok(n_es - n_stop, n_st))
-		ok = TRUE;
 	g_list_free(st);
-	g_list_free_full(pal, espal_free);
-	g_free(esline);
-	return ok;
+	return hit;
 }
 
 static GList *
@@ -1933,6 +1880,14 @@ filas_secuencial(GList *orig, const char *key, gboolean reverse)
 		fiable = TRUE;
 		saltar = TRUE;
 	}
+	/* Cuadren o no los recuentos, con una pospositiva en segundo lugar
+	 * el orden de las dos lenguas ya no coincide: mejor dejar la
+	 * columna del original vacía (reverse) o dar la glosa del lema
+	 * (forward) que colgar a cada palabra la del vecino. */
+	if (fiable && pospositiva_en_segunda(orig)) {
+		fiable = FALSE;
+		saltar = FALSE;
+	}
 	if (reverse) {
 		t = st;
 		for (l = pal; l; l = l->next) {
@@ -2007,23 +1962,32 @@ main_interlineal_filas(const char *key, gboolean reverse)
 		main_interlineal_tokens_free(orig);
 		return out;
 	}
-	if (orig && alineacion_en_pantalla(orig, key)) {
-		out = filas_secuencial(orig, key, reverse);
-		main_interlineal_tokens_free(orig);
-		return out;
-	}
+	/* La versión en pantalla no viene etiquetada. Antes de emparejar
+	 * por posición se prueba la Reina-Valera 1909, que sí lo está:
+	 * casar por número de Strong es una correspondencia de verdad,
+	 * mientras que la posición solo acierta cuando las dos lenguas
+	 * ordenan igual, y el griego rara vez lo hace. Donde el número no
+	 * aparezca en la RV1909 esa celda cae a la glosa del lema, que
+	 * dice algo cierto de esa palabra griega; el desfase posicional,
+	 * en cambio, le cuelga la palabra de la de al lado. */
 	es = tokens_es_from_mod("SpaRV1909", key);
 	if (!es)
 		es = tokens_es_from_mod("SpaRV", key);
 	if (es && orig)
 		out = reverse ? filas_reverse(orig, es, key)
 			      : filas_forward(orig, es);
-	if (out)
-		set_pie_es(_("Equivalencia RV1909 — esta versión no trae Strong's"));
-	else
-		out = filas_secuencial(orig, key, reverse);
-	main_interlineal_tokens_free(orig);
 	main_interlineal_tokens_free(es);
+	es = NULL;
+	if (out) {
+		set_pie_es(_("Equivalencia RV1909 — esta versión no trae Strong's"));
+		main_interlineal_tokens_free(orig);
+		return out;
+	}
+
+	/* Sin ninguna versión etiquetada a mano queda la posición, que
+	 * filas_secuencial() ya sabe descartar sola cuando no se sostiene. */
+	out = filas_secuencial(orig, key, reverse);
+	main_interlineal_tokens_free(orig);
 	return out;
 }
 
@@ -2081,11 +2045,26 @@ main_interlineal_html_original(const char *key)
 			continue;
 		w = g_markup_escape_text(t->forma, -1);
 		if (t->strong && *t->strong) {
+			gchar *mo = NULL;
+
 			st = g_markup_escape_text(t->strong, -1);
+			/* La morfología viaja con el enlace, con '+' donde
+			 * hay espacios: así la ficha puede decir cómo está
+			 * la palabra en este versículo. */
+			if (t->morph && *t->morph) {
+				gchar *plano = g_strdelimit(g_strdup(t->morph),
+							    " \t", '+');
+
+				mo = g_markup_escape_text(plano, -1);
+				g_free(plano);
+			}
 			g_string_append_printf(out,
 					       "%s<a class=\"ilw\" href=\"passagestudy.jsp?"
-					       "action=showInterlineal&amp;value=%s\">%s</a>",
-					       any ? "\xE2\x80\x83" : "", st, w);
+					       "action=showInterlineal&amp;value=%s%s%s\">%s</a>",
+					       any ? "\xE2\x80\x83" : "", st,
+					       mo ? "&amp;morph=" : "",
+					       mo ? mo : "", w);
+			g_free(mo);
 			g_free(st);
 		} else {
 			g_string_append_printf(out, "%s%s", any ? "\xE2\x80\x83" : "", w);

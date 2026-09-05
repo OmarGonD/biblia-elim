@@ -36,6 +36,7 @@
 #include "gui/splash.h"
 #include "gui/tabbed_browser.h"
 #include "gui/xiphos.h"
+#include "gui/pulpito.h"
 #include "gui/utilities.h"
 #include "gui/elim_tema.h"
 #include "gui/navbar_versekey.h"
@@ -135,6 +136,7 @@ int main(int argc, char *argv[])
 	int newbookmarks = FALSE;
 	int have_sword_url = FALSE;
 	int have_tab_list = FALSE;
+	const char *pulpito_de = NULL;
 	gint base_step = 0; //needed for splash
 #ifdef WIN32
 	/* see comments on function immediately preceding. */
@@ -284,6 +286,24 @@ int main(int argc, char *argv[])
 
 	if (argc > 1) {
 		/*
+		 * Entrar directo a la vista de púlpito, saltándose los
+		 * menús: es lo que quiere quien la lanza desde un acceso
+		 * directo un minuto antes de subir a predicar. La
+		 * aplicación arranca entera igual; solo se abre además la
+		 * pantalla de entrega al terminar de montar la ventana.
+		 */
+		if (!strncmp(argv[1], "--pulpito=", 10)) {
+			pulpito_de = g_strdup(argv[1] + 10);
+			/*
+			 * Y se le quita de en medio: gtk_init_with_args()
+			 * rechaza cualquier opción que no conozca y se
+			 * lleva el proceso por delante.
+			 */
+			argv[1] = argv[argc - 1];
+			--argc;
+		}
+
+		/*
 		 * these args are for broken configs or bookmarks -
 		 * ie xiphos will not start
 		 */
@@ -407,6 +427,9 @@ int main(int argc, char *argv[])
 	gui_recompute_shows(FALSE);
 
 	initialized = TRUE;
+
+	if (pulpito_de && *pulpito_de)
+		gui_pulpito_abrir(pulpito_de);
 
 	gui_main();
 	return 0;

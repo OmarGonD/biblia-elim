@@ -48,6 +48,9 @@
     <file>languages</file>
     <file>diccionario-elim.xml</file>
     <file>diccionario.gtkbuilder</file>
+    <file>testimonios.gtkbuilder</file>
+    <file>buscar-notas.gtkbuilder</file>
+    <file>testimonios-elim.xml</file>
     <file>strongs-elim.xml</file>
 
     <!--

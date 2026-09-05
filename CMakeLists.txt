@@ -117,6 +117,9 @@ add_subdirectory(src/gtk)
 # build xiphos-nav
 add_subdirectory(src/examples)
 
+# pruebas (no entran en la compilación normal)
+add_subdirectory(tests)
+
 # build other stuff
 add_subdirectory(pixmaps)
 add_subdirectory(ui)

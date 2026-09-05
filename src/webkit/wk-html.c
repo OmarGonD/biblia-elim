@@ -17,6 +17,7 @@
 #include <libxml/tree.h>
 
 #include "main/url.hh"
+#include "main/busqueda_tildes.h"
 #include "main/module_dialogs.h"
 #include "main/sword.h"
 #include "main/settings.h"
@@ -38,6 +39,7 @@ enum {
 	FRAME_SELECTED,
 	TITLE_CHANGED,
 	POPUPMENU_REQUESTED,
+	FIND_UPDATED,
 	LAST_SIGNAL
 };
 
@@ -424,10 +426,14 @@ ensure_il_tags(GtkTextBuffer *buf)
 {
 	GtkTextTagTable *t = gtk_text_buffer_get_tag_table(buf);
 
+	/* Solo separación vertical: ni un margen lateral. Los de una
+	 * etiqueta no se suman a los del GtkTextView, lo *sustituyen*, así
+	 * que fijarlos aquí dejaba la cinta del original pegada al borde
+	 * mientras el modo lectura estrechaba los versículos a su columna.
+	 * Sin ellos el bloque hereda la medida del view y arranca donde
+	 * arranca el texto, que es lo que se quiere en ambos modos. */
 	if (!gtk_text_tag_table_lookup(t, "ilblock"))
 		gtk_text_buffer_create_tag(buf, "ilblock",
-					   "left-margin", 18,
-					   "right-margin", 10,
 					   "pixels-above-lines", 7,
 					   "pixels-below-lines", 7,
 					   "pixels-inside-wrap", 4,
@@ -488,8 +494,15 @@ ensure_stock_tags(GtkTextBuffer *buf)
 				   NULL);
 	gtk_text_buffer_create_tag(buf, "center", "justification", GTK_JUSTIFY_CENTER, NULL);
 	gtk_text_buffer_create_tag(buf, "right", "justification", GTK_JUSTIFY_RIGHT, NULL);
+	/* Todas las apariciones quedan marcadas en amarillo suave; la que
+	 * está enfocada, en naranja, para no perderla de vista entre las
+	 * demás. El orden importa: la etiqueta creada después manda. */
 	gtk_text_buffer_create_tag(buf, "find-hl",
 				   "background", "#ffe08a",
+				   NULL);
+	gtk_text_buffer_create_tag(buf, "find-hl-cur",
+				   "background", "#ff9f1a",
+				   "foreground", "#1b1b1b",
 				   NULL);
 }
 
@@ -830,14 +843,31 @@ child_avail_width(GtkWidget *view, GdkRectangle *alloc)
 	return w;
 }
 
+/*
+ * Interlinear word-by-word table.
+ */
+/* Las filas del interlineal tienen dos columnas de texto más dos fijas
+ * (Strong ~108 px y análisis ~96 px). Pasado ~760 px de ancho la fila
+ * queda con los huecos tan repartidos que se lee peor, no mejor. */
+#define IL_TABLE_MAX_WIDTH 760
+
 static void
 il_table_fit(GtkWidget *view, GdkRectangle *alloc, GtkWidget *box)
 {
 	gint w, cur = -1;
 
 	w = child_avail_width(view, alloc) - 52;
+	/* Reading mode can set a very wide column -- a fullscreen window
+	 * with no characters-per-line cap leaves the measure at most of
+	 * the screen. A word-by-word interlinear reads better capped to a
+	 * comfortable width and centred, same idea as the text measure,
+	 * instead of a row of columns stretched across the whole pane. */
+	if (settings.reading_mode && w > IL_TABLE_MAX_WIDTH)
+		w = IL_TABLE_MAX_WIDTH;
 	if (w < 300)
 		w = 300;
+	if (settings.reading_mode)
+		gtk_widget_set_halign(box, GTK_ALIGN_CENTER);
 	gtk_widget_get_size_request(box, &cur, NULL);
 	if (cur != w)
 		gtk_widget_set_size_request(box, w, -1);
@@ -1646,6 +1676,12 @@ load_html(WkHtml *html)
 	free_anchor_list(priv);
 	links_reset(priv);
 	priv->buffer = fresh;
+	/* El buffer es otro: lo hallado en el anterior ya no señala a
+	 * ningún sitio. La búsqueda se repite en wk_html_close(), cuando
+	 * el texto nuevo esté puesto. */
+	if (priv->find_matches)
+		g_array_set_size(priv->find_matches, 0);
+	priv->find_current = -1;
 	ensure_stock_tags(fresh);
 	kids = g_ptr_array_new();
 
@@ -2325,6 +2361,8 @@ html_finalize(GObject *object)
 	g_free(priv->content);
 	g_free(priv->mime);
 	g_free(priv->find_string);
+	if (priv->find_matches)
+		g_array_free(priv->find_matches, TRUE);
 	g_free(priv->hover_uri);
 	if (priv->css)
 		g_object_unref(priv->css);
@@ -2473,6 +2511,18 @@ wk_html_class_init(WkHtmlClass *klass)
 			 NULL, NULL,
 			 wk_marshal_VOID__POINTER_BOOLEAN,
 			 G_TYPE_NONE, 2, G_TYPE_POINTER, G_TYPE_BOOLEAN);
+
+	/* Avisa de que la lista de coincidencias ha cambiado: la barra de
+	 * búsqueda la usa para poner al día su «3 de 17», también cuando
+	 * es el texto el que ha cambiado bajo sus pies. */
+	signals[FIND_UPDATED] =
+	    g_signal_new("find-updated",
+			 G_TYPE_FROM_CLASS(klass),
+			 G_SIGNAL_RUN_LAST,
+			 G_STRUCT_OFFSET(WkHtmlClass, find_updated),
+			 NULL, NULL,
+			 g_cclosure_marshal_VOID__VOID,
+			 G_TYPE_NONE, 0);
 }
 
 void
@@ -2543,6 +2593,11 @@ wk_html_close(WkHtml *html)
 {
 	html->priv->initialised = TRUE;
 	load_html(html);
+	/* Se cambia de capítulo con la búsqueda abierta: se vuelve a
+	 * marcar lo hallado sobre el texto recién puesto, sin mover la
+	 * vista, que ya la ha colocado quien navegó. */
+	if (html->priv->find_string && *html->priv->find_string)
+		wk_html_find_all(html, html->priv->find_string);
 	g_free(html->priv->content);
 	html->priv->content = NULL;
 	html->priv->content_len = html->priv->content_alloc = 0;
@@ -2558,69 +2613,222 @@ wk_html_render_data(WkHtml *html, const char *data, guint32 len)
 	wk_html_close(html);
 }
 
-static gboolean
-search_buf(WkHtml *html, gboolean forward)
+/* Una aparición del texto buscado, en desplazamientos de carácter sobre
+ * el buffer. */
+typedef struct
 {
-	GtkTextIter start, match_s, match_e, a, b;
-	GtkTextSearchFlags flags = GTK_TEXT_SEARCH_CASE_INSENSITIVE |
-				   GTK_TEXT_SEARCH_TEXT_ONLY;
-	gboolean found;
+	gint inicio, fin;
+} Coincidencia;
 
-	if (!html->priv->find_string || !*html->priv->find_string)
-		return FALSE;
+static void
+find_reset(WkHtml *html)
+{
+	WkHtmlPrivate *priv = html->priv;
+	GtkTextIter a, b;
 
-	ensure_stock_tags(html->priv->buffer);
-	gtk_text_buffer_get_bounds(html->priv->buffer, &a, &b);
-	gtk_text_buffer_remove_tag_by_name(html->priv->buffer, "find-hl", &a, &b);
-
-	gtk_text_buffer_get_iter_at_offset(html->priv->buffer, &start,
-					   html->priv->find_offset);
-	if (forward)
-		found = gtk_text_iter_forward_search(&start, html->priv->find_string,
-						     flags, &match_s, &match_e, NULL);
+	if (!priv->find_matches)
+		priv->find_matches = g_array_new(FALSE, FALSE,
+						 sizeof(Coincidencia));
 	else
-		found = gtk_text_iter_backward_search(&start, html->priv->find_string,
-						      flags, &match_s, &match_e, NULL);
-	if (!found) {
-		if (forward)
-			gtk_text_buffer_get_start_iter(html->priv->buffer, &start);
-		else
-			gtk_text_buffer_get_end_iter(html->priv->buffer, &start);
-		if (forward)
-			found = gtk_text_iter_forward_search(&start, html->priv->find_string,
-							     flags, &match_s, &match_e, NULL);
-		else
-			found = gtk_text_iter_backward_search(&start, html->priv->find_string,
-							      flags, &match_s, &match_e, NULL);
+		g_array_set_size(priv->find_matches, 0);
+	priv->find_current = -1;
+
+	if (!priv->buffer)
+		return;
+	ensure_stock_tags(priv->buffer);
+	gtk_text_buffer_get_bounds(priv->buffer, &a, &b);
+	gtk_text_buffer_remove_tag_by_name(priv->buffer, "find-hl", &a, &b);
+	gtk_text_buffer_remove_tag_by_name(priv->buffer, "find-hl-cur", &a, &b);
+}
+
+/* El versículo por el que va la lectura: si se busca desde ahí en vez de
+ * desde el Génesis, la primera coincidencia cae donde el ojo ya está. */
+static gint
+find_anchor_offset(WkHtml *html)
+{
+	GdkRectangle vis;
+	GtkTextIter it;
+
+	if (!html->priv->view)
+		return 0;
+	gtk_text_view_get_visible_rect(html->priv->view, &vis);
+	gtk_text_view_get_iter_at_location(html->priv->view, &it, vis.x, vis.y);
+	return gtk_text_iter_get_offset(&it);
+}
+
+gint
+wk_html_find_all(WkHtml *html, const gchar *find_string)
+{
+	WkHtmlPrivate *priv;
+	GArray *mapa;
+	gchar *texto, *neutro, *aguja;
+	const gchar *p, *golpe;
+	gint offset = 0, largo;
+	guint i;
+	GtkTextIter a, b;
+
+	g_return_val_if_fail(html != NULL && WK_HTML_IS_HTML(html), 0);
+	priv = html->priv;
+
+	/* Puede llegar la misma cadena que ya guardamos (al recargar el
+	 * capítulo se repite la búsqueda con lo que hubiera), así que se
+	 * copia antes de soltar la anterior. */
+	if (find_string != priv->find_string) {
+		gchar *copia = g_strdup(find_string);
+		g_free(priv->find_string);
+		priv->find_string = copia;
 	}
-	if (!found)
+
+	find_reset(html);
+	if (!priv->find_string || !*priv->find_string || !priv->buffer) {
+		g_signal_emit(html, signals[FIND_UPDATED], 0);
+		return 0;
+	}
+
+	/* get_slice y no get_text: el texto lleva anclas de widgets y solo
+	 * el primero las cuenta, que es como las cuenta GtkTextIter. Sin
+	 * eso los desplazamientos irían corridos. */
+	gtk_text_buffer_get_bounds(priv->buffer, &a, &b);
+	texto = gtk_text_buffer_get_slice(priv->buffer, &a, &b, TRUE);
+
+	mapa = g_array_new(FALSE, FALSE, sizeof(gint));
+	neutro = elim_tildes_neutro(texto, mapa);
+	aguja = elim_tildes_neutro(priv->find_string, NULL);
+	largo = (gint)g_utf8_strlen(aguja, -1);
+
+	p = neutro;
+	while (largo > 0 && (golpe = strstr(p, aguja)) != NULL) {
+		Coincidencia c;
+
+		offset += (gint)g_utf8_pointer_to_offset(p, golpe);
+		if (offset + largo > (gint)mapa->len - 1)
+			break;
+		c.inicio = g_array_index(mapa, gint, offset);
+		c.fin = g_array_index(mapa, gint, offset + largo - 1) + 1;
+		g_array_append_val(priv->find_matches, c);
+
+		p = golpe + strlen(aguja);
+		offset += largo;
+	}
+
+	for (i = 0; i < priv->find_matches->len; i++) {
+		Coincidencia *c = &g_array_index(priv->find_matches,
+						 Coincidencia, i);
+		GtkTextIter s, e;
+
+		gtk_text_buffer_get_iter_at_offset(priv->buffer, &s, c->inicio);
+		gtk_text_buffer_get_iter_at_offset(priv->buffer, &e, c->fin);
+		gtk_text_buffer_apply_tag_by_name(priv->buffer, "find-hl", &s, &e);
+	}
+
+	g_free(texto);
+	g_free(neutro);
+	g_free(aguja);
+	g_array_free(mapa, TRUE);
+
+	g_signal_emit(html, signals[FIND_UPDATED], 0);
+	return (gint)priv->find_matches->len;
+}
+
+gboolean
+wk_html_find_step(WkHtml *html, gboolean forward)
+{
+	WkHtmlPrivate *priv;
+	Coincidencia *c;
+	GtkTextIter s, e, a, b;
+	gint n;
+
+	g_return_val_if_fail(html != NULL && WK_HTML_IS_HTML(html), FALSE);
+	priv = html->priv;
+
+	if (!priv->find_matches || priv->find_matches->len == 0 || !priv->buffer)
 		return FALSE;
-	gtk_text_buffer_apply_tag_by_name(html->priv->buffer, "find-hl", &match_s, &match_e);
-	gtk_text_buffer_select_range(html->priv->buffer, &match_s, &match_e);
-	gtk_text_view_scroll_to_iter(html->priv->view, &match_s, 0.2, FALSE, 0, 0);
-	html->priv->find_offset = gtk_text_iter_get_offset(&match_e);
+	n = (gint)priv->find_matches->len;
+
+	gtk_text_buffer_get_bounds(priv->buffer, &a, &b);
+	gtk_text_buffer_remove_tag_by_name(priv->buffer, "find-hl-cur", &a, &b);
+
+	if (priv->find_current < 0) {
+		/* Primera parada: la que caiga a la altura de lo que se está
+		 * leyendo, y si no queda ninguna por delante, la primera. */
+		gint desde = find_anchor_offset(html);
+		gint i;
+
+		priv->find_current = forward ? 0 : n - 1;
+		if (forward) {
+			for (i = 0; i < n; i++) {
+				c = &g_array_index(priv->find_matches,
+						   Coincidencia, i);
+				if (c->inicio >= desde) {
+					priv->find_current = i;
+					break;
+				}
+			}
+		} else {
+			for (i = n - 1; i >= 0; i--) {
+				c = &g_array_index(priv->find_matches,
+						   Coincidencia, i);
+				if (c->inicio <= desde) {
+					priv->find_current = i;
+					break;
+				}
+			}
+		}
+	} else {
+		priv->find_current =
+		    (priv->find_current + (forward ? 1 : n - 1)) % n;
+	}
+
+	c = &g_array_index(priv->find_matches, Coincidencia, priv->find_current);
+	gtk_text_buffer_get_iter_at_offset(priv->buffer, &s, c->inicio);
+	gtk_text_buffer_get_iter_at_offset(priv->buffer, &e, c->fin);
+	gtk_text_buffer_apply_tag_by_name(priv->buffer, "find-hl-cur", &s, &e);
+	gtk_text_buffer_place_cursor(priv->buffer, &s);
+	if (priv->view)
+		gtk_text_view_scroll_to_iter(priv->view, &s, 0.1, TRUE, 0.0,
+					     READING_FOCUS_YALIGN);
+
+	g_signal_emit(html, signals[FIND_UPDATED], 0);
 	return TRUE;
+}
+
+gint
+wk_html_find_count(WkHtml *html)
+{
+	g_return_val_if_fail(html != NULL && WK_HTML_IS_HTML(html), 0);
+	return html->priv->find_matches ? (gint)html->priv->find_matches->len : 0;
+}
+
+gint
+wk_html_find_position(WkHtml *html)
+{
+	g_return_val_if_fail(html != NULL && WK_HTML_IS_HTML(html), 0);
+	return html->priv->find_current + 1;
+}
+
+void
+wk_html_find_clear(WkHtml *html)
+{
+	g_return_if_fail(html != NULL && WK_HTML_IS_HTML(html));
+	g_free(html->priv->find_string);
+	html->priv->find_string = NULL;
+	find_reset(html);
+	g_signal_emit(html, signals[FIND_UPDATED], 0);
 }
 
 gboolean
 wk_html_find(WkHtml *html, const gchar *find_string)
 {
-	g_free(html->priv->find_string);
-	html->priv->find_string = g_strdup(find_string);
-	html->priv->find_offset = 0;
-	ensure_stock_tags(html->priv->buffer);
-	{
-		GtkTextIter a, b;
-		gtk_text_buffer_get_bounds(html->priv->buffer, &a, &b);
-		gtk_text_buffer_remove_tag_by_name(html->priv->buffer, "find-hl", &a, &b);
-	}
-	return search_buf(html, TRUE);
+	wk_html_find_all(html, find_string);
+	return wk_html_find_step(html, TRUE);
 }
 
 gboolean
 wk_html_find_again(WkHtml *html, gboolean forward)
 {
-	return search_buf(html, forward);
+	if (wk_html_find_count(html) == 0)
+		wk_html_find_all(html, html->priv->find_string);
+	return wk_html_find_step(html, forward);
 }
 
 static void
@@ -2734,6 +2942,14 @@ wk_html_copy_selection(WkHtml *html)
 {
 	GtkClipboard *cb = gtk_widget_get_clipboard(GTK_WIDGET(html), GDK_SELECTION_CLIPBOARD);
 	gtk_text_buffer_copy_clipboard(html->priv->buffer, cb);
+}
+
+gboolean
+wk_html_has_selection(WkHtml *html)
+{
+	if (!html || !html->priv || !html->priv->buffer)
+		return FALSE;
+	return gtk_text_buffer_get_has_selection(html->priv->buffer);
 }
 
 void

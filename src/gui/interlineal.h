@@ -11,6 +11,9 @@ GtkWidget *gui_interlineal_wrap(GtkWidget *html_master);
 void gui_interlineal_set_active(gboolean active);
 void gui_interlineal_rellenar(void);
 void gui_interlineal_ficha(const char *strong);
+/* La misma ficha, diciendo además cómo está la palabra en este
+ * versículo. morph puede ser NULL. */
+void gui_interlineal_ficha_morf(const char *strong, const char *morph);
 GtkWidget *gui_interlineal_tabla_widget(const char *key);
 void gui_verse_tools_popup(const char *key);
 void on_interlineal_activate(GtkCheckMenuItem *menuitem, gpointer user_data);

@@ -19,6 +19,8 @@
 #include "gui/widgets.h"
 
 #include "main/interlineal.h"
+#include "main/morfologia.h"
+#include "main/glosa.h"
 #include "main/diccionario.h"
 #include "main/lectura_sync.h"
 #include "main/settings.h"
@@ -74,6 +76,7 @@ gui_interlineal_rellenar(void)
 					       on);
 		syncing = FALSE;
 	}
+	gui_reading_interlinear_sync();
 }
 
 void
@@ -93,6 +96,7 @@ gui_interlineal_set_active(gboolean active)
 		gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.interlineal_item),
 					       active);
 	syncing = FALSE;
+	gui_reading_interlinear_sync();
 	if (active) {
 		if (!main_interlineal_verso_abierto() && settings.currentverse)
 			main_interlineal_abrir_verso(settings.currentverse);
@@ -221,6 +225,12 @@ escribir(const gchar *html)
 void
 gui_interlineal_ficha(const char *strong)
 {
+	gui_interlineal_ficha_morf(strong, NULL);
+}
+
+void
+gui_interlineal_ficha_morf(const char *strong, const char *morph)
+{
 	const InterlStrong *info;
 	const DiccEntrada *dicc;
 	GList *ocurr, *l;
@@ -256,6 +266,24 @@ gui_interlineal_ficha(const char *strong)
 		g_string_append_printf(body, "<div class=\"gl\">%s</div>", gl);
 		g_free(gl);
 	}
+	/* Cómo está la palabra en este versículo. Va antes que la raíz y la
+	 * definición porque es lo que se acaba de pulsar. */
+	if (morph && *morph) {
+		gchar *m_es = main_morf_es(morph);
+		gchar *m_cod = main_morf_codigo(morph);
+
+		if (m_es && *m_es) {
+			gchar *e1 = esc(m_es), *e2 = esc(m_cod);
+
+			g_string_append_printf(body,
+					       "<p class=\"morf\"><b>%s</b> %s <span class=\"cod\">%s</span></p>",
+					       _("Aquí:"), e1, e2);
+			g_free(e1);
+			g_free(e2);
+		}
+		g_free(m_es);
+		g_free(m_cod);
+	}
 	if (info && info->raiz && *info->raiz) {
 		gchar *rz = esc(info->raiz);
 		g_string_append_printf(body,
@@ -264,9 +292,29 @@ gui_interlineal_ficha(const char *strong)
 		g_free(rz);
 	}
 	if (info && info->definicion && *info->definicion) {
-		gchar *df = esc(info->definicion);
-		g_string_append_printf(body, "<p>%s</p>", df);
-		g_free(df);
+		/* La definición, sin repetir la glosa que ya está arriba. */
+		gchar *limpia = main_glosa_definicion(info->definicion,
+						      info->glosa);
+		gchar *rv = main_glosa_rv1909(info->definicion);
+
+		if (limpia && *limpia) {
+			gchar *df = esc(limpia);
+
+			g_string_append_printf(body, "<p>%s</p>", df);
+			g_free(df);
+		}
+		/* Cómo lo tradujo la Reina-Valera no es lo que la palabra
+		 * significa: es otro dato y va en su renglón. */
+		if (rv) {
+			gchar *r = esc(rv);
+
+			g_string_append_printf(body,
+					       "<p class=\"rv\"><b>%s</b> %s</p>",
+					       _("En la Reina-Valera 1909:"), r);
+			g_free(r);
+		}
+		g_free(limpia);
+		g_free(rv);
 	}
 	if (dicc && dicc->definicion && *dicc->definicion) {
 		gchar *d = esc(dicc->definicion);
@@ -310,6 +358,9 @@ gui_interlineal_ficha(const char *strong)
 	    ".orig{font-size:1.8em;font-family:'Noto Serif','SBL Hebrew','Ezra SIL',serif;margin:.1em 0;}"
 	    ".tr{opacity:.75;font-style:italic;margin-bottom:.5em;}"
 	    ".gl{color:#8B008B;font-weight:700;font-size:1.25em;margin:.15em 0 .45em;}"
+	    ".morf{margin:.2em 0 .6em;opacity:.9;}"
+	    ".morf .cod{opacity:.5;font-size:.85em;margin-left:.4em;}"
+	    ".rv{opacity:.75;font-size:.95em;}"
 	    ".occ{margin-top:1em;}"
 	    "a{color:#1a4f8b;}"
 	    "</style></head><body>%s</body></html>",
@@ -473,10 +524,11 @@ static void
 on_il_strong(GtkButton *button, gpointer data)
 {
 	const char *num = g_object_get_data(G_OBJECT(button), "strong");
+	const char *morf = g_object_get_data(G_OBJECT(button), "morph");
 
 	(void)data;
 	if (num && *num)
-		gui_interlineal_ficha(num);
+		gui_interlineal_ficha_morf(num, morf);
 }
 
 static GtkWidget *
@@ -493,7 +545,7 @@ il_label(const char *text, const char *klass, gboolean wrap)
 }
 
 static GtkWidget *
-il_row_widget(InterlFila *f)
+il_row_widget(InterlFila *f, gboolean reverse)
 {
 	GtkWidget *row, *esbox, *orig, *morphbox, *btn, *badge;
 	gchar *tip;
@@ -515,9 +567,6 @@ il_row_widget(InterlFila *f)
 		gtk_widget_show(badge);
 		gtk_box_pack_start(GTK_BOX(esbox), badge, FALSE, FALSE, 0);
 	}
-	gtk_widget_show(esbox);
-	gtk_box_pack_start(GTK_BOX(row), esbox, TRUE, TRUE, 0);
-
 	btn = gtk_button_new_with_label(f->strongs && *f->strongs ? f->strongs
 								  : (f->strong ? f->strong : ""));
 	gtk_button_set_relief(GTK_BUTTON(btn), GTK_RELIEF_NONE);
@@ -533,14 +582,18 @@ il_row_widget(InterlFila *f)
 						    "il-strong");
 		}
 	}
-	if (f->strong && *f->strong)
+	if (f->strong && *f->strong) {
 		g_object_set_data_full(G_OBJECT(btn), "strong",
 				       g_strdup(f->strong), g_free);
+		/* La ficha enseña además cómo está esa palabra aquí, y eso
+		 * es de la fila, no del número: el mismo Strong sale en un
+		 * versículo en aoristo y en otro en imperativo. */
+		if (f->morph && *f->morph)
+			g_object_set_data_full(G_OBJECT(btn), "morph",
+					       g_strdup(f->morph), g_free);
+	}
 	g_signal_connect(btn, "clicked", G_CALLBACK(on_il_strong), NULL);
 	gtk_widget_set_size_request(btn, 108, -1);
-	gtk_widget_show(btn);
-	gtk_box_pack_start(GTK_BOX(row), btn, FALSE, FALSE, 0);
-
 	orig = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
 	gtk_widget_set_hexpand(orig, TRUE);
 	gtk_widget_set_valign(orig, GTK_ALIGN_START);
@@ -559,6 +612,10 @@ il_row_widget(InterlFila *f)
 						    "il-origbtn");
 			g_object_set_data_full(G_OBJECT(fb), "strong",
 					       g_strdup(f->strong), g_free);
+			if (f->morph && *f->morph)
+				g_object_set_data_full(G_OBJECT(fb), "morph",
+						       g_strdup(f->morph),
+						       g_free);
 			g_signal_connect(fb, "clicked", G_CALLBACK(on_il_strong), NULL);
 			gtk_widget_show(fb);
 			gtk_box_pack_start(GTK_BOX(orig), fb, FALSE, FALSE, 0);
@@ -575,20 +632,51 @@ il_row_widget(InterlFila *f)
 		gtk_box_pack_start(GTK_BOX(orig),
 				   il_label(f->translit, "il-trans", TRUE),
 				   FALSE, FALSE, 0);
+	/* La dirección seleccionada debe verse también en las columnas: en
+	 * «Griego/hebreo → Español» la forma original va primero; en la
+	 * inversa, el español. Antes ambas pestañas empezaban por español. */
+	gtk_widget_show(esbox);
 	gtk_widget_show(orig);
-	gtk_box_pack_start(GTK_BOX(row), orig, TRUE, TRUE, 0);
+	gtk_widget_show(btn);
+	if (reverse) {
+		gtk_box_pack_start(GTK_BOX(row), esbox, TRUE, TRUE, 0);
+		gtk_box_pack_start(GTK_BOX(row), orig, TRUE, TRUE, 0);
+	} else {
+		gtk_box_pack_start(GTK_BOX(row), orig, TRUE, TRUE, 0);
+		gtk_box_pack_start(GTK_BOX(row), esbox, TRUE, TRUE, 0);
+	}
+	gtk_box_pack_start(GTK_BOX(row), btn, FALSE, FALSE, 0);
 
 	morphbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 2);
 	gtk_widget_set_valign(morphbox, GTK_ALIGN_START);
 	gtk_widget_set_halign(morphbox, GTK_ALIGN_END);
 	gtk_widget_set_size_request(morphbox, 96, -1);
+	/* En la etiqueta va el español, no el código: "V-PAI-3S" no le dice
+	 * nada a quien no estudió griego, y es justo para ese lector para
+	 * quien se hizo el interlineal. El código sigue estando, en el
+	 * emergente, para quien sí sepa leerlo. */
 	if (f->morph && *f->morph) {
-		GtkWidget *pill = gtk_label_new(f->morph);
+		const char *visible = (f->morph_corto && *f->morph_corto)
+					  ? f->morph_corto
+					  : f->morph;
+		GtkWidget *pill = gtk_label_new(visible);
+		gchar *tip_m;
+
 		gtk_style_context_add_class(gtk_widget_get_style_context(pill),
 					    "il-morph");
 		gtk_widget_set_halign(pill, GTK_ALIGN_END);
-		if (f->morph_es && *f->morph_es)
-			gtk_widget_set_tooltip_text(pill, f->morph_es);
+		gtk_label_set_line_wrap(GTK_LABEL(pill), TRUE);
+		gtk_label_set_line_wrap_mode(GTK_LABEL(pill),
+					     PANGO_WRAP_WORD_CHAR);
+		gtk_label_set_justify(GTK_LABEL(pill), GTK_JUSTIFY_RIGHT);
+		gtk_label_set_max_width_chars(GTK_LABEL(pill), 14);
+		tip_m = g_strdup_printf("%s\n%s",
+					(f->morph_es && *f->morph_es)
+					    ? f->morph_es
+					    : f->morph,
+					f->morph);
+		gtk_widget_set_tooltip_text(pill, tip_m);
+		g_free(tip_m);
 		gtk_widget_show(pill);
 		gtk_box_pack_start(GTK_BOX(morphbox), pill, FALSE, FALSE, 0);
 	}
@@ -606,21 +694,23 @@ il_row_widget(InterlFila *f)
 }
 
 static GtkWidget *
-il_header_row(void)
+il_header_row(gboolean reverse)
 {
 	GtkWidget *row, *a, *b, *c, *d;
 
 	row = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 10);
 	gtk_style_context_add_class(gtk_widget_get_style_context(row), "il-hdr");
-	a = il_label(_("Español"), "il-hdr-cell", FALSE);
+	a = il_label(reverse ? _("Español") : _("Griego / hebreo"),
+		     "il-hdr-cell", FALSE);
+	c = il_label(reverse ? _("Griego / hebreo") : _("Español"),
+		     "il-hdr-cell", FALSE);
 	gtk_widget_set_hexpand(a, TRUE);
+	gtk_widget_set_hexpand(c, TRUE);
 	gtk_box_pack_start(GTK_BOX(row), a, TRUE, TRUE, 0);
+	gtk_box_pack_start(GTK_BOX(row), c, TRUE, TRUE, 0);
 	b = il_label(_("Strong's"), "il-hdr-cell", FALSE);
 	gtk_widget_set_size_request(b, 108, -1);
 	gtk_box_pack_start(GTK_BOX(row), b, FALSE, FALSE, 0);
-	c = il_label(_("Forma, raíz y transliteración"), "il-hdr-cell", FALSE);
-	gtk_widget_set_hexpand(c, TRUE);
-	gtk_box_pack_start(GTK_BOX(row), c, TRUE, TRUE, 0);
 	d = il_label(_("Análisis"), "il-hdr-cell", FALSE);
 	gtk_widget_set_halign(d, GTK_ALIGN_END);
 	gtk_widget_set_size_request(d, 96, -1);
@@ -641,11 +731,11 @@ il_fill_rows(GtkWidget *box, const char *key, gboolean reverse)
 		gtk_widget_destroy(rows);
 	rows = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
 	gtk_style_context_add_class(gtk_widget_get_style_context(rows), "il-rows");
-	gtk_box_pack_start(GTK_BOX(rows), il_header_row(), FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(rows), il_header_row(reverse), FALSE, FALSE, 0);
 
 	filas = main_interlineal_filas(key, reverse);
 	for (l = filas, i = 0; l; l = l->next, i++) {
-		GtkWidget *r = il_row_widget((InterlFila *)l->data);
+		GtkWidget *r = il_row_widget((InterlFila *)l->data, reverse);
 		if (i % 2)
 			gtk_style_context_add_class(gtk_widget_get_style_context(r),
 						    "il-row-alt");
@@ -711,13 +801,20 @@ gui_interlineal_tabla_widget(const char *key)
 	gtk_style_context_add_class(gtk_widget_get_style_context(box), "il-table");
 	gtk_style_context_add_class(gtk_widget_get_style_context(box),
 				    settings.darktheme ? "il-dark" : "il-light");
+	/* En modo lectura el interlineal vive dentro de la columna de
+	 * lectura, no en su propia franja: se estiliza como parte de la
+	 * página (borde suave, sin caja dura) y se enmarca en el ancho de
+	 * lectura que il_table_fit() le da. */
+	if (settings.reading_mode)
+		gtk_style_context_add_class(gtk_widget_get_style_context(box),
+					    "il-reading");
 	g_object_set_data_full(G_OBJECT(box), "il-key", g_strdup(key), g_free);
 	gtk_widget_set_hexpand(box, TRUE);
 
 	tabs = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
 	gtk_style_context_add_class(gtk_widget_get_style_context(tabs), "il-tabs");
-	fwd = gtk_button_new_with_label(_("Original → Español"));
-	rev = gtk_button_new_with_label(_("Español → Original"));
+	fwd = gtk_button_new_with_label(_("Griego/hebreo → Español"));
+	rev = gtk_button_new_with_label(_("Español → griego/hebreo"));
 	gtk_button_set_relief(GTK_BUTTON(fwd), GTK_RELIEF_NONE);
 	gtk_button_set_relief(GTK_BUTTON(rev), GTK_RELIEF_NONE);
 	gtk_widget_set_can_focus(fwd, FALSE);

@@ -29,6 +29,7 @@
 #include "editor/slib-editor.h"
 #endif
 
+#include "gui/pulpito.h"
 #include "gui/sidebar.h"
 #include "gui/bookmarks_treeview.h"
 #include "gui/dialog.h"
@@ -1141,6 +1142,15 @@ static GtkWidget *create_menu_modules(void)
 	GtkWidget *menu = UI_GET_ITEM(gxml, "menu_modules");
 	GtkWidget *fav_item = UI_GET_ITEM(gxml, "toggle_favorite1");
 	GtkWidget *hide_item = UI_GET_ITEM(gxml, "hide_module1");
+	GtkWidget *pulpito_item = UI_GET_ITEM(gxml, "abrir_en_pulpito1");
+	/* Al púlpito solo suben los libros con árbol de puntos; en una
+	 * Biblia o un diccionario el punto no pinta nada. */
+	if (pulpito_item) {
+		gtk_widget_set_no_show_all(pulpito_item, TRUE);
+		gtk_widget_set_visible(pulpito_item,
+				       main_get_mod_type(buf_module) ==
+					   BOOK_TYPE);
+	}
 	if (fav_item)
 		gtk_menu_item_set_label(GTK_MENU_ITEM(fav_item),
 					module_is_favorite(buf_module)
@@ -1216,6 +1226,14 @@ GtkWidget *create_menu_prayerlist(void)
 void on_edit_activate(GtkMenuItem *menuitem, gpointer user_data)
 {
 		editor_create_new(buf_module, "0", BOOK_EDITOR);
+}
+
+/* Llevar al púlpito el bosquejo sobre el que se hizo clic derecho. */
+G_MODULE_EXPORT void
+on_abrir_en_pulpito_activate(GtkMenuItem *menuitem, gpointer user_data)
+{
+	if (buf_module && *buf_module)
+		gui_pulpito_abrir(buf_module);
 }
 
 G_MODULE_EXPORT void

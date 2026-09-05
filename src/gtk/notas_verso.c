@@ -81,6 +81,10 @@ static gchar *ultimo_verso = NULL;
  * esto, un cambio de versículo con nota nueva hacía el trabajo dos
  * veces. */
 static gboolean notas_en_actualizar = FALSE;
+/* El usuario cerró el panel manualmente con el botón ✕ o Escape.
+ * Mientras siga en el mismo versículo, no reabrirlo aunque tenga notas.
+ * Se limpia al cambiar de versículo. */
+static gboolean notas_cerrado_manual = FALSE;
 
 static gchar *
 notas_texto_actual(void)
@@ -214,6 +218,12 @@ on_notas_tecla(GtkWidget *w, GdkEventKey *ev, gpointer datos)
 		notas_guardar();
 		return TRUE;
 	}
+	if (ev->keyval == GDK_KEY_Escape) {
+		notas_guardar();
+		notas_cerrado_manual = TRUE;
+		gui_show_hide_comms(FALSE);
+		return TRUE;
+	}
 	return FALSE;
 }
 
@@ -225,10 +235,20 @@ on_notas_guardar_clicked(GtkButton *button, gpointer user_data)
 	notas_guardar();
 }
 
+static void
+on_notas_cerrar_clicked(GtkButton *button, gpointer user_data)
+{
+	(void)button;
+	(void)user_data;
+	notas_guardar();
+	notas_cerrado_manual = TRUE;
+	gui_show_hide_comms(FALSE);
+}
+
 GtkWidget *
 gui_create_notes_pane(void)
 {
-	GtkWidget *box, *scroll, *bar;
+	GtkWidget *box, *scroll, *bar, *header, *cerrar;
 	GtkTextBuffer *buf;
 
 	UI_VBOX(box, FALSE, 6);
@@ -238,11 +258,28 @@ gui_create_notes_pane(void)
 	gtk_widget_set_margin_bottom(box, 8);
 	gtk_widget_show(box);
 
+	/* Cabecera: título a la izquierda, botón ✕ a la derecha. */
+	header = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 4);
+	gtk_widget_show(header);
+
 	notas_label = gtk_label_new("");
 	gtk_widget_set_halign(notas_label, GTK_ALIGN_START);
 	gtk_label_set_ellipsize(GTK_LABEL(notas_label), PANGO_ELLIPSIZE_END);
 	gtk_widget_show(notas_label);
-	gtk_box_pack_start(GTK_BOX(box), notas_label, FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(header), notas_label, TRUE, TRUE, 0);
+
+	cerrar = gtk_button_new_from_icon_name("window-close-symbolic",
+					       GTK_ICON_SIZE_SMALL_TOOLBAR);
+	gtk_button_set_relief(GTK_BUTTON(cerrar), GTK_RELIEF_NONE);
+	gtk_widget_set_tooltip_text(cerrar, _("Cerrar panel de notas"));
+	gtk_widget_set_focus_on_click(cerrar, FALSE);
+	gtk_widget_show(cerrar);
+	g_signal_connect(cerrar, "clicked",
+			 G_CALLBACK(on_notas_cerrar_clicked), NULL);
+	gtk_box_pack_end(GTK_BOX(header), cerrar, FALSE, FALSE, 0);
+
+	gtk_box_pack_start(GTK_BOX(box), header, FALSE, FALSE, 0);
+
 
 	scroll = gtk_scrolled_window_new(NULL, NULL);
 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scroll),

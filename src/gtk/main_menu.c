@@ -52,6 +52,9 @@
 #include "gui/progreso_lectura.h"
 #include "gui/versiculo_dia.h"
 #include "gui/memorizacion.h"
+#include "gui/testimonios.h"
+#include "gui/buscar_notas.h"
+#include "gui/pulpito.h"
 #include "gui/diccionario.h"
 #include "gui/tabbed_browser.h"
 #include "gui/utilities.h"
@@ -1001,9 +1004,27 @@ on_memorizacion_activate(GtkMenuItem *menuitem, gpointer user_data)
 }
 
 G_MODULE_EXPORT void
+on_pulpito_activate(GtkMenuItem *menuitem, gpointer user_data)
+{
+	gui_pulpito_elegir(widgets.app ? GTK_WINDOW(widgets.app) : NULL);
+}
+
+G_MODULE_EXPORT void
 on_diccionario_activate(GtkMenuItem *menuitem, gpointer user_data)
 {
 	gui_diccionario_dialog();
+}
+
+G_MODULE_EXPORT void
+on_buscar_notas_activate(GtkMenuItem *menuitem, gpointer user_data)
+{
+	gui_buscar_notas_dialog(widgets.app ? GTK_WINDOW(widgets.app) : NULL);
+}
+
+G_MODULE_EXPORT void
+on_testimonios_activate(GtkMenuItem *menuitem, gpointer user_data)
+{
+	gui_testimonios_dialog(widgets.app ? GTK_WINDOW(widgets.app) : NULL);
 }
 
 G_MODULE_EXPORT void

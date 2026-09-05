@@ -165,9 +165,12 @@ add_executable (xiphos
   navbar_versekey_editor.c
   navbar_versekey_parallel.c
   notas_verso.c
+  barra_busqueda.c
+  buscar_notas.c
   nube_palabras.c
   memorizacion.c
   planes_lectura.c
+  pulpito.c
   plan_personal.c
   progreso_lectura.c
   recordatorio.c
@@ -182,6 +185,7 @@ add_executable (xiphos
   sidebar_dialog.c
   splash.c
   tabbed_browser.c
+  testimonios.c
   treekey-editor.c
   utilities.c
   xiphos.c
@@ -264,6 +268,10 @@ target_link_libraries(xiphos
   Xiphos::Editor
   Xiphos::Webkit
   Xiphos::Xiphos_html
+  # main queda repetida al final a propósito: backend y webkit usan
+  # cosas suyas (busqueda_tildes), y con bibliotecas estáticas el
+  # enlazador solo mira hacia atrás.
+  Xiphos::Main
   )
 
 if(WK_FOUND)

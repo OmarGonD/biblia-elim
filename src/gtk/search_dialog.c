@@ -1686,6 +1686,14 @@ static void _create_search_dialog(void)
 
 	/* lookup the root widget */
 	search1.dialog = UI_GET_ITEM(gxml, "dialog");
+	/* Hija de la ventana principal: así el gestor de ventanas la trata
+	 * como el diálogo que es -- flota sobre el texto, se puede mover y
+	 * se cierra con ella -- en vez de encajarla como una ventana más y
+	 * dejarla clavada encima de lo que uno quiere leer. */
+	if (widgets.app)
+		gtk_window_set_transient_for(GTK_WINDOW(search1.dialog),
+					     GTK_WINDOW(widgets.app));
+	gtk_window_set_destroy_with_parent(GTK_WINDOW(search1.dialog), TRUE);
 	gtk_window_resize(GTK_WINDOW(search1.dialog),
 			  settings.advsearch_width,
 			  settings.advsearch_height);

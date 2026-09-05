@@ -54,6 +54,8 @@ struct _WkHtmlPriv
 	gsize content_alloc;
 	gchar *mime;
 	gchar *find_string;
+	GArray *find_matches;	/* Coincidencia[]: todo lo hallado, en orden */
+	gint find_current;	/* la coincidencia enfocada, o -1 si ninguna */
 	gboolean initialised;
 	gchar *base_uri;
 	gchar *anchor;
@@ -63,7 +65,6 @@ struct _WkHtmlPriv
 	gint pane;
 	gboolean is_dialog;
 	DIALOG_DATA *dialog;
-	gint find_offset;
 	gchar *hover_uri;
 };
 struct _WkHtmlClass
@@ -74,6 +75,7 @@ struct _WkHtmlClass
 	gboolean (*frame_selected)(WkHtml *view, gchar *uri, gboolean handled);
 	void (*title_changed)(WkHtml *view, const gchar *new_title);
 	void (*popupmenu_requested)(WkHtml *view, const gchar *link);
+	void (*find_updated)(WkHtml *view);
 };
 
 GType wk_html_get_type(void);
@@ -90,9 +92,29 @@ void wk_html_render_data(WkHtml *html, const char *data, guint32 len);
 void wk_html_frames(WkHtml *html, gboolean enable);
 gboolean wk_html_find(WkHtml *html, const gchar *find_string);
 gboolean wk_html_find_again(WkHtml *html, gboolean forward);
+
+/* Realza en el texto todas las apariciones de `find_string` -- sin
+ * distinguir mayúsculas ni tildes -- y devuelve cuántas son, sin mover
+ * la vista. Emite «find-updated». */
+gint wk_html_find_all(WkHtml *html, const gchar *find_string);
+
+/* Pasa a la coincidencia siguiente (o anterior) y la trae a la vista,
+ * dando la vuelta al llegar al final. FALSE si no hay ninguna. */
+gboolean wk_html_find_step(WkHtml *html, gboolean forward);
+
+gint wk_html_find_count(WkHtml *html);
+
+/* Cuál está enfocada, contando desde 1, o 0 si todavía ninguna. */
+gint wk_html_find_position(WkHtml *html);
+
+void wk_html_find_clear(WkHtml *html);
 void wk_html_jump_to_anchor(WkHtml *html, gchar *anchor);
 void wk_html_ensure_anchor_visible(WkHtml *html, const gchar *anchor);
 void wk_html_copy_selection(WkHtml *html);
+/* Si hay algo seleccionado con el ratón en este panel. Lo mira en el
+ * buffer y no en el portapapeles primario, que es global y podría traer
+ * una selección hecha en otra aplicación. */
+gboolean wk_html_has_selection(WkHtml *html);
 void wk_html_enable_caret_browsing(WkHtml *html);
 
 void wk_html_select_all(WkHtml *html);

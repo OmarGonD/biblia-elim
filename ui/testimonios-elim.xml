@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Biblia Elim - Jesús en la historia
+
+  Lo que fuentes de fuera de la Biblia dicen sobre Jesús de Nazaret: los
+  historiadores judíos y romanos, los escritores paganos, la arqueología
+  y los manuscritos más antiguos.
+
+  Sobre las licencias. Los originales son de la antigüedad y están en el
+  dominio público desde hace siglos; las traducciones al castellano que
+  se leen aquí están hechas para esta aplicación a partir de esos
+  originales, así que se distribuyen con ella bajo la GPL. No se ha
+  copiado ninguna traducción moderna con derechos.
+
+  Sobre el tono. Cada testimonio dice también qué NO demuestra. Un
+  material de estudio que exagera lo que tiene acaba desarmando al que
+  lo usa: el primero que le señale la costura se lleva por delante todo
+  lo demás. Aquí se prefiere que el lector llegue a la conversación
+  sabiendo dónde está firme y dónde no.
+-->
+<testimonios>
+
+  <grupo id="judios" titulo="Fuentes judías">
+
+    <testimonio id="josefo-jesus">
+      <titulo>Flavio Josefo habla de Jesús</titulo>
+      <obra>Antigüedades de los judíos XVIII, 63-64</obra>
+      <autor>Flavio Josefo, sacerdote y general judío, luego historiador en Roma</autor>
+      <fecha>c. 93-94 d.C.</fecha>
+      <postura>Testigo judío, no cristiano</postura>
+      <cita>Por este tiempo vivió Jesús, un hombre sabio, si es que conviene llamarlo hombre. Porque fue autor de obras asombrosas y maestro de gente que recibe la verdad con gusto. Atrajo a muchos judíos y también a muchos griegos. Él era el Cristo. Y cuando Pilato, ante la denuncia de los principales entre nosotros, lo condenó a la cruz, los que primero lo habían amado no dejaron de hacerlo; pues se les apareció al tercer día vivo otra vez, como los profetas de Dios habían anunciado esto y otras mil maravillas acerca de él. Y hasta hoy no ha desaparecido la tribu de los cristianos, llamada así por él.</cita>
+      <muestra>Un historiador judío que escribe para lectores romanos, sesenta años después de los hechos, da por sabido que Jesús existió, que enseñó, que tuvo seguidores judíos y griegos, y que Poncio Pilato lo mandó crucificar por denuncia de las autoridades de Jerusalén.</muestra>
+      <cautela>Este es el pasaje más discutido de toda la lista, y conviene conocerlo bien antes de citarlo. Tal como se lee arriba no puede ser todo de Josefo: un judío que nunca se hizo cristiano no escribe «él era el Cristo» ni cuenta la resurrección como un hecho. La postura mayoritaria entre los especialistas es que hay un núcleo auténtico al que manos cristianas posteriores añadieron esas frases. Dos datos la sostienen: Orígenes, en el siglo III, dice expresamente que Josefo no creía que Jesús fuera el Cristo, y una versión árabe del siglo X, recogida por el obispo Agapio, conserva una forma mucho más sobria del mismo párrafo. Una minoría de estudiosos sostiene que el pasaje entero es un añadido. Lo honrado es citarlo diciendo esto, o citar mejor el pasaje siguiente, sobre Santiago, que casi nadie discute.</cautela>
+      <referencias>Mateo 27:22-26; Lucas 23:1-25; Juan 19:15-16; Hechos 2:22-24</referencias>
+    </testimonio>
+
+    <testimonio id="josefo-santiago">
+      <titulo>Josefo, la muerte de Santiago</titulo>
+      <obra>Antigüedades de los judíos XX, 200</obra>
+      <autor>Flavio Josefo</autor>
+      <fecha>c. 93-94 d.C.</fecha>
+      <postura>Testigo judío, no cristiano</postura>
+      <cita>Convocó a los jueces del sanedrín y llevó ante ellos al hermano de Jesús, el llamado Cristo, cuyo nombre era Santiago, y a algunos otros; los acusó de haber quebrantado la ley y los entregó para que fueran apedreados.</cita>
+      <muestra>Es el testimonio más sólido de esta lista y el que menos se predica. Josefo está contando otra cosa —el abuso de poder del sumo sacerdote Anano en el año 62, en el hueco entre dos gobernadores romanos— y menciona a Jesús solo de pasada, para identificar de quién era hermano el ejecutado. Un dato que se da al vuelo, para situar a otro, es justamente el que un falsificador no habría inventado.</muestra>
+      <cautela>Prácticamente ningún especialista duda de la autenticidad de este pasaje. Demuestra que Jesús fue una persona real con parientes conocidos en Jerusalén; no demuestra por sí solo nada sobre quién era.</cautela>
+      <referencias>Gálatas 1:18-19; Hechos 12:17; Hechos 15:13; Hechos 21:18; Santiago 1:1</referencias>
+    </testimonio>
+
+    <testimonio id="talmud">
+      <titulo>El Talmud: la víspera de la Pascua</titulo>
+      <obra>Talmud de Babilonia, tratado Sanedrín 43a</obra>
+      <autor>Tradición rabínica, recogida por escrito siglos después</autor>
+      <fecha>Redacción entre los siglos III y VI d.C., sobre material anterior</fecha>
+      <postura>Testigo hostil</postura>
+      <cita>En la víspera de la Pascua colgaron a Yeshu. Cuarenta días antes había salido un heraldo diciendo: «Va a ser apedreado, porque ha practicado la hechicería y ha desviado a Israel. Quien tenga algo que decir en su favor, que venga y lo diga». Y como no encontraron nada en su favor, lo colgaron en la víspera de la Pascua.</cita>
+      <muestra>La tradición que menos motivos tenía para confirmar nada tampoco niega que existiera: discute quién era. Y coincide en dos detalles con los evangelios: la fecha, la víspera de la Pascua, y el cargo. Fíjate en la acusación: no dicen que no hiciera nada, dicen que lo hacía por hechicería. Es la misma respuesta que ya aparece en Mateo 12:24, y reconocer que había algo que explicar es, a su manera, un dato.</muestra>
+      <cautela>Es material tardío y polémico, escrito en un ambiente de disputa con los cristianos, y no todos los estudiosos aceptan que ese «Yeshu» sea siempre Jesús de Nazaret. Sirve como testimonio de una tradición contraria, no como crónica de los hechos.</cautela>
+      <referencias>Mateo 12:22-24; Marcos 3:22; Juan 19:14; Juan 19:31</referencias>
+    </testimonio>
+
+  </grupo>
+
+  <grupo id="romanos" titulo="Roma toma nota">
+
+    <testimonio id="tacito">
+      <titulo>Tácito: ejecutado por Poncio Pilato</titulo>
+      <obra>Anales XV, 44</obra>
+      <autor>Cornelio Tácito, senador e historiador romano</autor>
+      <fecha>c. 116 d.C.</fecha>
+      <postura>Testigo hostil</postura>
+      <cita>Para acabar con el rumor, Nerón presentó como culpables e infligió tormentos refinadísimos a los que el vulgo llamaba cristianos, aborrecidos por sus infamias. Aquel de quien tomaban el nombre, Cristo, había sido ajusticiado durante el reinado de Tiberio por el procurador Poncio Pilato; y contenida por el momento, esta perniciosa superstición irrumpía de nuevo, no solo por Judea, origen de aquel mal, sino también por la Ciudad, adonde de todas partes confluye y se celebra cuanto hay de atroz y vergonzoso.</cita>
+      <muestra>El testimonio romano más importante que existe, y viene del peor enemigo posible: un senador que desprecia a los cristianos y llama «perniciosa superstición» a su fe. Aun así da por hechos el nombre, el suplicio, el gobernante, el gobernador y el lugar. Nadie escribe así de un personaje que sabe inventado; a Tácito le habría bastado con decirlo para acabar con el asunto.</muestra>
+      <cautela>Tácito llama a Pilato «procurador», y las inscripciones de la época —incluida la piedra hallada en Cesarea— muestran que su cargo era el de «prefecto». Es el título de los tiempos de Tácito, no de los de Pilato. Se ha usado para dudar del pasaje; hoy se entiende más bien al revés: prueba que no estaba copiando un archivo oficial, sino escribiendo con las palabras de su propio siglo.</cautela>
+      <referencias>Mateo 27:1-2; Lucas 3:1; Hechos 3:13; 1 Timoteo 6:13</referencias>
+    </testimonio>
+
+    <testimonio id="plinio">
+      <titulo>Plinio escribe al emperador</titulo>
+      <obra>Cartas X, 96, a Trajano</obra>
+      <autor>Plinio el Joven, gobernador de Bitinia y Ponto</autor>
+      <fecha>c. 112 d.C.</fecha>
+      <postura>Testigo hostil</postura>
+      <cita>Afirmaban que toda su culpa, o todo su error, consistía en reunirse un día fijo antes del amanecer y cantar entre ellos, por turnos, un himno a Cristo como a un dios; y en obligarse bajo juramento, no a cometer crimen alguno, sino a no cometer hurtos ni robos ni adulterios, a no faltar a la palabra dada ni negarse a devolver un depósito que les fuera reclamado.</cita>
+      <muestra>Ochenta años después de la crucifixión, en una provincia del otro extremo del imperio, un gobernador romano interroga a cristianos —algunos bajo tortura, como él mismo cuenta— y esto es lo que saca: cantan a Cristo como a un dios y juran no robar, no mentir y no adulterar. Se le adora ya como a Dios, y no dentro de un grupito de Jerusalén, sino en Asia Menor, en gente lo bastante numerosa como para que el gobernador escriba a Roma sin saber qué hacer.</muestra>
+      <cautela>Plinio habla de lo que los cristianos creían y hacían en el año 112, no de lo que pasó en Judea en el año 30. Es testimonio de la fe de la iglesia primitiva, muy temprano y muy independiente, pero no un informe sobre los hechos.</cautela>
+      <referencias>Hechos 16:25; Efesios 5:19; Filipenses 2:9-11; 1 Pedro 4:14-16</referencias>
+    </testimonio>
+
+    <testimonio id="suetonio">
+      <titulo>Suetonio y los disturbios de Roma</titulo>
+      <obra>Vida de Claudio 25,4 y Vida de Nerón 16,2</obra>
+      <autor>Suetonio, secretario imperial y biógrafo</autor>
+      <fecha>c. 121 d.C.</fecha>
+      <postura>Testigo hostil</postura>
+      <cita>Expulsó de Roma a los judíos, que provocaban continuos tumultos por instigación de Cresto. (Claudio 25,4) — Se castigó con suplicios a los cristianos, gente entregada a una superstición nueva y maléfica. (Nerón 16,2)</cita>
+      <muestra>La segunda cita confirma, por vía independiente de Tácito, que ya en tiempos de Nerón había en Roma un grupo bastante conocido como para ser perseguido con nombre propio. La primera encaja con lo que cuenta Hechos 18:2, donde Aquila y Priscila llegan a Corinto porque Claudio ha expulsado de Roma a los judíos.</muestra>
+      <cautela>«Cresto» era un nombre de esclavo bastante común, y Suetonio escribe como si el tal Cresto estuviera en Roma agitando en persona. Puede ser una confusión suya con «Cristo» —es lo que suele pensarse, y explicaría bien un alboroto entre judíos por la predicación cristiana—, pero no es seguro. Cítala como probable, no como prueba.</cautela>
+      <referencias>Hechos 18:1-3; Hechos 11:26; 1 Pedro 4:16</referencias>
+    </testimonio>
+
+  </grupo>
+
+  <grupo id="paganos" titulo="Griegos y sirios">
+
+    <testimonio id="mara">
+      <titulo>Mara bar Serapión: «su rey sabio»</titulo>
+      <obra>Carta a su hijo, en siríaco</obra>
+      <autor>Mara bar Serapión, prisionero estoico sirio</autor>
+      <fecha>Después del año 73 d.C.; la fecha exacta se discute</fecha>
+      <postura>Testigo pagano</postura>
+      <cita>¿Qué ganaron los atenienses con dar muerte a Sócrates, si les vino como castigo hambre y peste? ¿O los de Samos con quemar a Pitágoras, si su tierra entera quedó cubierta de arena en un momento? ¿O los judíos con ejecutar a su rey sabio, si desde entonces les fue arrebatado su reino? Dios vengó con justicia a aquellos tres sabios: los atenienses murieron de hambre; los de Samos, cubiertos por el mar; los judíos, arruinados y expulsados de su reino, viven dispersos por todas partes. Sócrates no murió del todo: siguió viviendo en la estatua de Hera. Ni murió Pitágoras: siguió viviendo en la estatua de Samos. Ni murió del todo el rey sabio: siguió viviendo en la enseñanza que había dado.</cita>
+      <muestra>Un pagano culto, que no es cristiano y que pone a Jesús en la misma fila que Sócrates y Pitágoras, sabe que los judíos ejecutaron a un «rey sabio» y relaciona esa muerte con la ruina de Jerusalén. Es el testimonio de alguien que no tenía nada que ganar contándolo.</muestra>
+      <cautela>No nombra a Jesús. La identificación es muy probable —el rey sabio de los judíos, ejecutado, seguido de la pérdida del reino— pero es una deducción. Y la fecha de la carta se discute entre el siglo I y el III, así que no se puede presentar como testimonio contemporáneo.</cautela>
+      <referencias>Mateo 27:37; Marcos 15:26; Lucas 19:41-44; Juan 19:19-22</referencias>
+    </testimonio>
+
+    <testimonio id="luciano">
+      <titulo>Luciano se ríe de los cristianos</titulo>
+      <obra>Sobre la muerte de Peregrino 11-13</obra>
+      <autor>Luciano de Samósata, satírico griego</autor>
+      <fecha>c. 165 d.C.</fecha>
+      <postura>Testigo hostil</postura>
+      <cita>Todavía hoy siguen adorando a aquel hombre, el que fue crucificado en Palestina por haber introducido en el mundo estos nuevos ritos. [...] Estos infelices se han metido en la cabeza que van a ser inmortales y que vivirán para siempre; por eso desprecian la muerte, y la mayoría hasta se entrega a ella de buen grado. Además, su primer legislador los convenció de que son todos hermanos entre sí desde el momento en que reniegan de los dioses griegos, adoran a aquel sofista crucificado y viven según sus leyes.</cita>
+      <muestra>Luciano se está burlando, y por eso vale: para que la burla funcione, todo lo que dice tiene que ser sabido por su público. En el año 165, en el mundo griego, era cosa corriente que hubiera una religión cuyo fundador había sido crucificado en Palestina, y cuya gente compartía lo que tenía y no temía a la muerte.</muestra>
+      <cautela>Es un siglo y medio posterior, y todo lo que sabe lo sabe de oídas, seguramente de los propios cristianos. Confirma lo que se contaba, no lo que ocurrió.</cautela>
+      <referencias>1 Corintios 1:22-25; Hechos 4:32-35; Hebreos 2:14-15</referencias>
+    </testimonio>
+
+    <testimonio id="celso">
+      <titulo>Celso, el primer gran acusador</titulo>
+      <obra>Discurso verdadero, conservado en las citas de Orígenes, Contra Celso</obra>
+      <autor>Celso, filósofo platónico</autor>
+      <fecha>c. 178 d.C.; Orígenes le responde hacia el 248</fecha>
+      <postura>Testigo hostil</postura>
+      <cita>Celso sostiene que Jesús nació en una aldea de Judea, de una campesina pobre que se ganaba la vida hilando; que su marido la echó de casa por haberle sido infiel con un soldado llamado Pantera; que, expulsada y errante, dio a luz a Jesús en secreto; y que él, más tarde, tuvo que emplearse como jornalero en Egipto, donde aprendió ciertos poderes de los que allí presumen, y volvió muy engreído de ellos, y por causa de ellos se proclamó dios.</cita>
+      <muestra>El ataque más completo que se conserva del siglo II, y no ataca por donde uno esperaría. Celso quiere destruir el cristianismo y podría haber dicho que Jesús nunca existió: no lo dice. Da por hechos su nacimiento en Judea, su humildad, su fama de hacer prodigios y su muerte, y pelea por explicarlos de otra manera —que la madre fue infiel, que los milagros eran magia egipcia—. El adversario discute el sentido, no los hechos.</muestra>
+      <cautela>No conservamos su libro: lo leemos solo a través de lo que Orígenes cita para refutarlo, setenta años más tarde. Y es una polémica, con acusaciones que nada respalda. Sirve para mostrar qué se daba por descontado en la discusión del siglo II, nada más.</cautela>
+      <referencias>Mateo 13:54-57; Marcos 6:2-3; Juan 8:41; Juan 10:19-21</referencias>
+    </testimonio>
+
+  </grupo>
+
+  <grupo id="arqueologia" titulo="Lo que ha salido de la tierra">
+
+    <testimonio id="piedra-pilato">
+      <titulo>La piedra de Poncio Pilato</titulo>
+      <obra>Bloque de caliza hallado en el teatro de Cesarea Marítima</obra>
+      <autor>Inscripción oficial romana</autor>
+      <fecha>Años 26-36 d.C.; hallada en 1961</fecha>
+      <postura>Prueba material</postura>
+      <cita>[...]S TIBERIEVM / [PON]TIVS PILATVS / [PRAEF]ECTVS IVDA[EA]E — «...el Tiberieum, Poncio Pilato, prefecto de Judea».</cita>
+      <muestra>Hasta 1961, Pilato solo se conocía por los textos: los evangelios, Josefo, Filón y Tácito. Una expedición italiana que excavaba el teatro de Cesarea encontró este bloque reutilizado como peldaño, con su nombre y su cargo. El hombre que dictó la sentencia dejó su firma en piedra, en la ciudad desde la que gobernaba. En 2018, la relectura de un anillo hallado en el Herodión añadió otra mención de su nombre.</muestra>
+      <cautela>La piedra demuestra que Pilato gobernó Judea con el título de prefecto, y confirma de paso el marco de los relatos. No dice nada de Jesús ni del juicio.</cautela>
+      <referencias>Mateo 27:11-14; Lucas 3:1; Juan 18:28-31; Hechos 4:27</referencias>
+    </testimonio>
+
+    <testimonio id="caifas">
+      <titulo>El osario de Caifás</titulo>
+      <obra>Osario decorado hallado en el Bosque de la Paz, al sur de Jerusalén</obra>
+      <autor>Inscripción funeraria aramea</autor>
+      <fecha>Siglo I d.C.; hallado en 1990</fecha>
+      <postura>Prueba material</postura>
+      <cita>Yehosef bar Qayafa — «José, hijo de Caifás».</cita>
+      <muestra>Unas obras abrieron por accidente una tumba familiar del siglo I con doce osarios; uno de ellos, el más trabajado de todos, llevaba ese nombre y contenía los huesos de un hombre de unos sesenta años. Josefo llama al sumo sacerdote de aquellos años «José, llamado Caifás»: el mismo nombre, la misma forma. El sumo sacerdote ante el que fue llevado Jesús deja de ser un personaje de relato y pasa a ser un hombre enterrado a un cuarto de hora de donde ocurrió todo.</muestra>
+      <cautela>La identificación es aceptada por la mayoría de los arqueólogos, pero no es unánime: hay quien discute la lectura del nombre y quien recuerda que la familia era numerosa. Y, otra vez: sitúa el escenario, no prueba el juicio.</cautela>
+      <referencias>Mateo 26:57-66; Lucas 3:2; Juan 11:49-52; Juan 18:13-14; Hechos 4:5-6</referencias>
+    </testimonio>
+
+    <testimonio id="nazaret">
+      <titulo>Nazaret existía</titulo>
+      <obra>Excavaciones de la Autoridad de Antigüedades de Israel y del valle de Nazaret</obra>
+      <autor>Arqueología de campo</autor>
+      <fecha>Restos del siglo I; excavaciones publicadas sobre todo desde 2009</fecha>
+      <postura>Prueba material</postura>
+      <cita>Casa de piedra y barro del siglo I, cisternas talladas en la roca, un lagar, silos, tumbas judías y cerámica local: los restos de una aldea agrícola pequeña y pobre, sin edificios públicos ni cerámica importada.</cita>
+      <muestra>Circula la idea de que Nazaret no existía en tiempos de Jesús y de que el pueblo se inventó después. La tierra dice otra cosa: hay casas, tumbas y terrazas de cultivo del siglo I. Y el retrato coincide con el del evangelio: un sitio tan insignificante que ni siquiera aparece en el Antiguo Testamento ni en Josefo, y del que se preguntaba si podía salir algo bueno.</muestra>
+      <cautela>Que la aldea existiera no dice quién vivió en ella. Esto no es una prueba a favor, es la respuesta a una objeción.</cautela>
+      <referencias>Mateo 2:23; Marcos 1:9; Lucas 1:26-27; Lucas 2:39; Juan 1:45-46</referencias>
+    </testimonio>
+
+    <testimonio id="alexamenos">
+      <titulo>El grafito de Alexámenos</titulo>
+      <obra>Pared del pedagogio, en el monte Palatino de Roma</obra>
+      <autor>Anónimo, rascado por alguien de la casa imperial</autor>
+      <fecha>Siglos II-III d.C.</fecha>
+      <postura>Testigo hostil</postura>
+      <cita>Un hombre crucificado con cabeza de asno; a un lado, otro con la mano alzada. Debajo, en griego mal escrito: «Alexámenos adora a su dios».</cita>
+      <muestra>Es la representación más antigua que se conserva de la crucifixión, y la hizo un burlón para reírse de un compañero. Un chiste solo funciona si el que lo ve entiende de qué va: en la Roma del siglo II, cualquiera sabía que había gente que adoraba a un crucificado, y le parecía tan ridículo como para pintarlo en la pared. Ese desprecio es un dato. A nadie se le ocurre inventar como fundador de una religión a un hombre ejecutado del modo más infamante que Roma tenía.</muestra>
+      <cautela>Es tardío y anónimo, y testimonia lo que se sabía y se pensaba de los cristianos en Roma, no los hechos de Judea.</cautela>
+      <referencias>1 Corintios 1:18-25; Gálatas 3:13; Gálatas 5:11; Hebreos 12:2</referencias>
+    </testimonio>
+
+  </grupo>
+
+  <grupo id="manuscritos" titulo="Los papeles más antiguos">
+
+    <testimonio id="credo-corintios">
+      <titulo>Un credo anterior a los evangelios</titulo>
+      <obra>1 Corintios 15:3-8</obra>
+      <autor>Pablo, citando una fórmula que él mismo recibió</autor>
+      <fecha>La carta, hacia el 54-55 d.C.; la fórmula, bastante anterior</fecha>
+      <postura>Fuente cristiana temprana</postura>
+      <cita>Porque primeramente os he enseñado lo que asimismo recibí: que Cristo murió por nuestros pecados, conforme a las Escrituras; y que fue sepultado, y que resucitó al tercer día, conforme a las Escrituras; y que apareció a Cefas, y después a los doce. Después apareció a más de quinientos hermanos a la vez, de los cuales muchos viven aún, y otros ya duermen.</cita>
+      <muestra>Pablo no está redactando: está citando. «Recibí» y «os enseñé» son las palabras técnicas con que se transmitía una fórmula ya fijada, y el texto tiene forma de credo aprendido de memoria. Eso lleva su origen a los años inmediatos a la crucifixión, no a décadas después. Y hay un detalle que ningún inventor pondría: «muchos viven aún». Es una invitación a ir a preguntarles.</muestra>
+      <cautela>Este es un testimonio cristiano, no una fuente externa. Su fuerza no está en ser neutral, sino en ser antiguo: cierra el margen de tiempo en que una leyenda habría podido formarse.</cautela>
+      <referencias>1 Corintios 15:1-11; Lucas 24:34; Hechos 2:32; Hechos 13:30-31</referencias>
+    </testimonio>
+
+    <testimonio id="galatas-santiago">
+      <titulo>Pablo conoció al hermano de Jesús</titulo>
+      <obra>Gálatas 1:18-19</obra>
+      <autor>Pablo de Tarso</autor>
+      <fecha>El viaje, hacia el año 36 d.C.; la carta, hacia el 49-55</fecha>
+      <postura>Fuente cristiana temprana</postura>
+      <cita>Después, pasados tres años, subí a Jerusalén para ver a Pedro, y permanecí con él quince días; pero no vi a ningún otro de los apóstoles, sino a Santiago el hermano del Señor.</cita>
+      <muestra>Pablo escribe en primera persona, a gente que podía desmentirle, que estuvo quince días en casa de Pedro y que trató al hermano de Jesús. No es un rumor lejano: es alguien que empezó persiguiendo a la iglesia y que se sentó a la mesa con la familia y con los testigos. Y encaja exactamente con lo que Josefo cuenta desde fuera sobre la muerte de ese mismo Santiago.</muestra>
+      <cautela>Fuente cristiana otra vez, y de un hombre convencido. Lo que la hace difícil de descartar es el género: es una carta ocasional, escrita para resolver una pelea concreta, ante testigos vivos que conocían a los implicados.</cautela>
+      <referencias>Gálatas 1:13-24; Hechos 9:26-28; Hechos 15:13; 1 Corintios 9:5</referencias>
+    </testimonio>
+
+    <testimonio id="p52">
+      <titulo>El papiro más antiguo</titulo>
+      <obra>Papiro Rylands 457 (P52), con Juan 18:31-33 y 37-38</obra>
+      <autor>Copista anónimo, probablemente en Egipto</autor>
+      <fecha>Siglo II d.C.</fecha>
+      <postura>Prueba material</postura>
+      <cita>Un fragmento del tamaño de la palma de una mano, escrito por las dos caras. En el reverso se lee, entre las roturas: «...Yo para esto he nacido y para esto he venido al mundo, para dar testimonio a la verdad...». Es el diálogo de Jesús con Pilato.</cita>
+      <muestra>Un trozo de un códice copiado en Egipto, a mucha distancia de donde se escribió el evangelio, ya en el siglo II. Para que llegara allí, el texto tuvo que estar escrito, copiado y circulando bastante antes. El hueco entre los hechos y los documentos que los cuentan es de décadas, no de siglos: nada que ver con lo que ocurre con otros personajes de la antigüedad, cuyas biografías conservamos en copias mil años posteriores.</muestra>
+      <cautela>Se citó mucho tiempo la fecha «hacia el 125», y hoy se dice con menos seguridad: la datación es paleográfica —por la forma de las letras— y los especialistas manejan un margen amplio dentro del siglo II. Y un fragmento así prueba la antigüedad de la copia, no la verdad de lo que copia.</cautela>
+      <referencias>Juan 18:33-38; Juan 20:30-31; Lucas 1:1-4; 2 Pedro 1:16</referencias>
+    </testimonio>
+
+    <testimonio id="padres">
+      <titulo>Las cartas de la generación siguiente</titulo>
+      <obra>Clemente de Roma, Primera carta a los Corintios; Ignacio de Antioquía, A los tralianos 9 y A los esmirniotas 1</obra>
+      <autor>Dos obispos que escriben a iglesias, camino uno de ellos del martirio</autor>
+      <fecha>Clemente, c. 96 d.C.; Ignacio, c. 107-110 d.C.</fecha>
+      <postura>Fuente cristiana temprana</postura>
+      <cita>Ignacio, a los tralianos: «Sed sordos cuando alguien os hable de otra cosa que de Jesucristo, del linaje de David, hijo de María, que verdaderamente nació, comió y bebió; que verdaderamente fue perseguido bajo Poncio Pilato; que verdaderamente fue crucificado y murió, a la vista de los del cielo, de los de la tierra y de los de debajo de la tierra; y que verdaderamente resucitó de entre los muertos».</cita>
+      <muestra>Ignacio va camino de Roma para ser ejecutado y escribe contra los que decían que Jesús solo había parecido un hombre. Por eso repite «verdaderamente»: nació de verdad, comió de verdad, murió de verdad, bajo un gobernador con nombre y apellido. La primera discusión doctrinal de la iglesia no fue sobre si Jesús existió, sino sobre si además de Dios era hombre de carne.</muestra>
+      <cautela>Fuentes cristianas y escritas para creyentes. Documentan lo que la iglesia enseñaba a una o dos generaciones de los hechos; no son un testimonio independiente.</cautela>
+      <referencias>1 Juan 1:1-3; 1 Juan 4:2-3; 2 Juan 1:7; Juan 1:14; Romanos 1:3</referencias>
+    </testimonio>
+
+  </grupo>
+
+  <grupo id="balance" titulo="Qué se puede decir y qué no">
+
+    <testimonio id="consenso">
+      <titulo>Dónde está hoy la discusión</titulo>
+      <obra>Estado de la cuestión entre historiadores de la antigüedad</obra>
+      <autor>Especialistas creyentes y no creyentes</autor>
+      <fecha>Hoy</fecha>
+      <postura>Balance</postura>
+      <cita>Que Jesús de Nazaret existió, que fue bautizado por Juan y que fue crucificado en Jerusalén bajo el gobierno de Poncio Pilato es aceptado prácticamente por todos los estudiosos del período, incluidos los que no son cristianos y los que son abiertamente ateos. La tesis de que nunca existió es minoritaria y casi no tiene presencia en la investigación académica.</cita>
+      <muestra>Es útil saber esto antes de una conversación. Quien piense que la existencia de Jesús es una creencia religiosa que se sostiene solo por fe está desinformado, y se le puede decir con calma y sin discutir: en historia antigua eso no está en disputa.</muestra>
+      <cautela>Y aquí está el límite, que conviene decir en voz alta. La historia llega hasta la existencia, la predicación y la cruz; no llega, y no puede llegar por su método, a la resurrección ni a la divinidad. Eso no se demuestra con un documento: se recibe por fe, en el testimonio de quienes lo vieron. Presentar estas fuentes como si probaran más de lo que prueban le hace un flaco favor al evangelio.</cautela>
+      <referencias>Juan 20:29-31; Hechos 17:30-31; 1 Corintios 15:14-17; Hebreos 11:1</referencias>
+    </testimonio>
+
+    <testimonio id="no-usar">
+      <titulo>Lo que no conviene usar</titulo>
+      <obra>Materiales de valor dudoso o nulo</obra>
+      <autor>Advertencia de esta aplicación</autor>
+      <fecha>-</fecha>
+      <postura>Balance</postura>
+      <cita>Talo y el eclipse. Se cita como testigo pagano de las tinieblas de la crucifixión, pero la cadena es larguísima: Talo, perdido, citado por Julio Africano, también perdido, citado a su vez por Jorge Sincelo en el siglo IX. Demasiados eslabones rotos para apoyar nada. Lo mismo vale para Flegonte.
+
+El osario de Santiago. Un osario aparecido en el mercado de antigüedades, sin excavación ni procedencia, con la inscripción «Santiago hijo de José hermano de Jesús». Hubo juicio por falsificación y la autenticidad de la segunda mitad de la inscripción sigue discutida. No se debe usar en el púlpito.
+
+Las cartas de Pilato a Tiberio, las actas del proceso y los informes de Roma sobre el juicio son falsificaciones tardías, de siglos posteriores. Circulan mucho por internet.
+
+La sábana santa de Turín es objeto de un debate abierto y no encaja en una lista de fuentes históricas sobre la existencia de Jesús.</cita>
+      <muestra>Un material de estudio vale tanto por lo que descarta como por lo que reúne. Si en una conversación se apoya el argumento en algo que el otro puede desmontar en dos minutos con el móvil, se pierde también todo lo demás, que era lo bueno. Con Josefo, Tácito, Plinio y la piedra de Cesarea sobra.</muestra>
+      <cautela>Ninguno de estos materiales prueba que Jesús no existiera. Simplemente no sirven para demostrar que existió, y usarlos debilita el caso.</cautela>
+      <referencias>Efesios 4:15; 1 Tesalonicenses 5:21; 1 Pedro 3:15-16; 2 Corintios 4:2</referencias>
+    </testimonio>
+
+  </grupo>
+
+</testimonios>
