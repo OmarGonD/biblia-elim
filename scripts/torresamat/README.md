@@ -38,7 +38,9 @@ Del `djvu.xml` sale cada palabra con su caja y su confianza.
 | `ojear.py` | Enseña por encima qué hay en cada media hoja de un rango |
 | `rescatar.py` | Los capítulos rescatados a mano, uno por uno, contra el facsímil |
 | `cotejar.py` | Coteja cada capítulo con la Vulgata por nombres propios |
-| `ortografia.py` | Corrige erratas usando el propio texto como diccionario |
+| `testigos.py` | Baja las otras Biblias instaladas y las deja consultables |
+| `corrector.py` | Decide errata o palabra preguntándole al pasaje |
+| `pasada.py` / `pasada_notas.py` | Aplican la corrección al texto y a las notas |
 | `notas.py` / `comentario.py` | Extraen las notas de Torres Amat y las publican como comentario |
 | `canon.py` | Versificación Vulgata leída de `canon_vulg.h` de SWORD |
 | `alinear.py` | Alinea los capítulos observados contra el canon |
@@ -142,43 +144,51 @@ tiene cuatro capítulos: es errata de la edición. El OCR lo leyó bien; el
 libro está mal. Conviene tenerlo presente antes de fiarse de los números
 impresos.
 
-## La ortografía, con el corpus como diccionario
+## La ortografía: preguntar a las otras Biblias
 
-Un diccionario español moderno no sirve: marcaría "crió", "cubrian",
+Costó tres intentos, y los dos primeros conviene contarlos.
+
+**Un diccionario español moderno no sirve.** Marcaría "crió", "cubrian",
 "movia", "Egypto" o "tambien" como faltas, y son la ortografía correcta de
-1882. El corpus sí sirve. Una palabra que sale quinientas veces es como se
-escribe en este libro; una que sale una o dos veces y está a un carácter de
-otra que sale quinientas es casi siempre un tropiezo del OCR.
+1882. Corregirlas sería estropear el texto.
 
-508 arreglos en 753 versículos: `tereero` -> `tercero`, `pusleron` ->
-`pusieron`, `Cbristo` -> `Christo`, `esclayas` -> `esclavas`.
+**El propio texto como diccionario** --lo frecuente es bueno, lo rarísimo
+es errata-- arregla mucho, pero no distingue la palabra rara y buena de la
+errata. Dos ejemplos de lo que se le escapaba en los dos sentidos: daba
+por errata `arda` --subjuntivo de arder, "para que arda siempre el
+candelero"-- y lo cambiaba por `anda`; y daba por buena `Enel`, que sale
+45 veces porque el OCR junta siempre igual.
 
-El primer intento daba por sentado que una errata no se repite, y ponía el
-tope en dos apariciones. Es falso: la confusión está en la tipografía, no
-en el azar, así que la misma palabra se lee mal página tras página.
-`reimado` -- la ligadura «in» de la letra antigua leída como «m» -- sale
-seis veces frente a 92 de `reinado`, y se quedaba sin arreglar. Lo que
-distingue la errata no es que sea rarísima, sino que su vecina sea
-muchísimo más frecuente.
+**Lo que vale es preguntar a las Biblias que ya están instaladas.** La
+Reina-Valera de 1909 está a veintisiete años de esta edición; la Platense
+usa además la misma versificación Vulgata, así que se lee el mismo
+versículo en las dos y se ve qué palabra pusieron ellas.
 
-Subir el tope abre la puerta a las palabras buenas, porque el par r/n
-produce parejas legítimas en castellano: `pares`/`panes`, `canta`/`carta`,
-`temia`/`tenia`, `vieren`/`vienen`. Las separa la familia: una palabra de
-verdad casi nunca está sola --`temia` convive con `temian`, `temiendo`,
-`temieron`--, mientras que una errata no tiene parientes, porque nace de
-una ligadura mal leída y no de una raíz.
+Y hay que preguntar **versículo a versículo**, no de una vez, porque la
+misma grafía es errata en un sitio y palabra en otro: `cineo` es errata de
+`cinco` en Números 7:41 --la Platense dice ahí "cinco machos cabríos"-- y
+es el nombre del pueblo cineo en otros pasajes. Un diccionario global
+protege las dos o estropea las dos; el testigo del pasaje acierta en cada
+una.
 
-Dos cosas se probaron y se quitaron, porque hacían más daño del que
-arreglaban:
+921 sustituciones y 816 palabras pegadas separadas, en 1.683 versículos.
+`En el año tercero del reinado` donde antes decía `Enel año tereero del
+reimado`.
 
-- **Los pares a/o y o/e.** Son las vocales de género y conjugación del
-  castellano: admitirlos convertía "casos" en "casas", "Hermanas" en
-  "Hermonos" y "entraren" en "entraron", palabras buenas las seis.
-- **Partir palabras pegadas.** El OCR las junta de verdad ("Puesque",
-  "sumadre"), pero sin un diccionario de la época no hay forma de
-  distinguirlas de las palabras raras legítimas: el corrector proponía
-  "repartirlas" -> "repartir las", "alcázares" -> "alcázar es" y
-  "Estuve" -> "Es tuve".
+### Partir palabras pegadas necesita dos pruebas
+
+Que las dos mitades existan por separado no basta: con eso el corrector
+partía `contengan` en "con tengan", `señalen` en "señal en" y `producidos`
+en "producid os", porque las seis son palabras. Hacen falta dos cosas más:
+
+- **Que las otras Biblias traigan esa pareja seguida en el mismo pasaje.**
+  Lo que no aparece en ningún sitio es "con tengan".
+- **Una lista de enclíticos**, porque en castellano el pronombre se pega
+  detrás del verbo: `criólos`, `echóles`, `inspiróle` son una palabra y no
+  dos.
+
+Con la partición se elige siempre la de más trozos, que es la que explica
+la palabra entera: `Enelaño` es "En el año", no "Enel año".
 
 ## Las notas, por capítulo y no por versículo
 
