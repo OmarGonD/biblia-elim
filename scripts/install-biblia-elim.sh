@@ -77,6 +77,17 @@ if [[ -d "${ROOT}/modulos" ]] && [[ ! -f "${SWORDDIR}/mods.d/torresamat.conf" ]]
 	echo "  Biblia:   Torres Amat instalada en ${SWORDDIR}"
 fi
 
+# Y sus notas, que son la mitad de la obra, como comentario aparte.
+if [[ -d "${ROOT}/modulos" ]] && [[ ! -f "${SWORDDIR}/mods.d/torresamatnotas.conf" ]]; then
+	install -d "${SWORDDIR}/mods.d" \
+		"${SWORDDIR}/modules/comments/zcom/torresamatnotas"
+	install -m 0644 "${ROOT}/modulos/mods.d/torresamatnotas.conf" \
+		"${SWORDDIR}/mods.d/torresamatnotas.conf"
+	install -m 0644 "${ROOT}"/modulos/modules/comments/zcom/torresamatnotas/* \
+		"${SWORDDIR}/modules/comments/zcom/torresamatnotas/"
+	echo "  Notas:    las de Torres Amat, por capítulo"
+fi
+
 if command -v update-desktop-database >/dev/null; then
 	update-desktop-database "${APPDIR}" >/dev/null 2>&1 || true
 fi

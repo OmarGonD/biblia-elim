@@ -38,6 +38,8 @@ Del `djvu.xml` sale cada palabra con su caja y su confianza.
 | `ojear.py` | Enseña por encima qué hay en cada media hoja de un rango |
 | `rescatar.py` | Los capítulos rescatados a mano, uno por uno, contra el facsímil |
 | `cotejar.py` | Coteja cada capítulo con la Vulgata por nombres propios |
+| `ortografia.py` | Corrige erratas usando el propio texto como diccionario |
+| `notas.py` / `comentario.py` | Extraen las notas de Torres Amat y las publican como comentario |
 | `canon.py` | Versificación Vulgata leída de `canon_vulg.h` de SWORD |
 | `alinear.py` | Alinea los capítulos observados contra el canon |
 | `construir.py` | Recorre los cuatro tomos y deja `texto.json` |
@@ -140,6 +142,43 @@ tiene cuatro capítulos: es errata de la edición. El OCR lo leyó bien; el
 libro está mal. Conviene tenerlo presente antes de fiarse de los números
 impresos.
 
+## La ortografía, con el corpus como diccionario
+
+Un diccionario español moderno no sirve: marcaría "crió", "cubrian",
+"movia", "Egypto" o "tambien" como faltas, y son la ortografía correcta de
+1882. El corpus sí sirve. Una palabra que sale quinientas veces es como se
+escribe en este libro; una que sale una o dos veces y está a un carácter de
+otra que sale quinientas es casi siempre un tropiezo del OCR.
+
+468 arreglos en 566 versículos: `tereero` -> `tercero`, `pusleron` ->
+`pusieron`, `Cbristo` -> `Christo`, `esclayas` -> `esclavas`.
+
+Dos cosas se probaron y se quitaron, porque hacían más daño del que
+arreglaban:
+
+- **Los pares a/o y o/e.** Son las vocales de género y conjugación del
+  castellano: admitirlos convertía "casos" en "casas", "Hermanas" en
+  "Hermonos" y "entraren" en "entraron", palabras buenas las seis.
+- **Partir palabras pegadas.** El OCR las junta de verdad ("Puesque",
+  "sumadre"), pero sin un diccionario de la época no hay forma de
+  distinguirlas de las palabras raras legítimas: el corrector proponía
+  "repartirlas" -> "repartir las", "alcázares" -> "alcázar es" y
+  "Estuve" -> "Es tuve".
+
+## Las notas, por capítulo y no por versículo
+
+Las notas son medio libro y el segmentador ya las separaba; lo que no se
+puede es colocarlas versículo a versículo. La llamada es un superíndice
+diminuto que el OCR se come o pega a la palabra vecina: contando llamadas
+en el cuerpo y notas al pie de la misma media hoja **solo coinciden en el
+6 % de los casos**, y detectarlas por geometría -- palabras pequeñas y
+levantadas -- devuelve "un", "NES", "sus" y barras del canto.
+
+Así que van agrupadas por capítulo, en el orden impreso, en un módulo de
+comentario aparte (`TorresAmatNotas`, 6.758 notas en 1.203 capítulos). El
+lector las tiene al lado del capítulo que lee, y no se le miente sobre a
+qué versículo pertenece cada una.
+
 ## Estado
 
 94,0 % de los versículos (33.672 de 35.817). **Ningún capítulo vacío**, y
@@ -148,10 +187,9 @@ lugar, **ninguno corrido**; los otros 23 no traen nombres suficientes para
 pronunciarse, lo que no quiere decir que estén mal. Lo que falta sale en
 blanco, repartido: son versículos sueltos, no bloques.
 
-Lo que sigue sin revisar son las **erratas dentro de cada versículo**:
-«tereero», «reimado», «Bi yo no he sentido». La colocación está comprobada;
-la ortografía no. Y las notas de Torres Amat, que son parte principal de la
-obra, siguen sin importarse.
+Tras la pasada de ortografía siguen quedando erratas sueltas dentro de los
+versículos: el corrector solo toca lo inequívoco. La colocación está
+comprobada; la ortografía, mejorada pero no garantizada.
 
 `revisar.txt` lleva el resultado del cotejo y la lista de los 23
 capítulos sobre los que no se puede opinar.
