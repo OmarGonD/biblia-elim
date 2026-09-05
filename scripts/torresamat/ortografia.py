@@ -25,7 +25,16 @@ import re, collections
 
 RE_TOK = re.compile(r"[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+")
 
-RARO = 2          # una o dos apariciones en toda la Biblia
+RARO = 8          # tope de apariciones para considerarla errata
+PROPORCION = 10   # ...y la palabra buena ha de salir 10 veces más
+
+# Al principio el tope era 2, dando por sentado que una errata no se
+# repite. Es falso: la confusión es de la tipografía, no del azar, así que
+# la misma palabra se lee mal en página tras página. "reimado" sale seis
+# veces en la Biblia entera -- la ligadura "in" de la letra antigua se
+# confunde con una "m" -- frente a 92 de "reinado", y con el tope en 2 se
+# quedaba sin arreglar. Lo que separa la errata de la palabra buena no es
+# que sea rarísima, sino que su vecina sea muchísimo más frecuente.
 FRECUENTE = 15    # desde aquí se considera palabra buena del libro
 MIN_LARGO = 4     # por debajo, demasiadas colisiones
 
@@ -137,6 +146,29 @@ def parte_pegada(pal, frec):
             salidas.append(f"{a} {b}")
     return salidas[0] if len(salidas) == 1 else None
 
+def tiene_parientes(pal, frec, cand):
+    """
+    ¿Tiene la palabra familia en el texto? Una palabra buena del castellano
+    casi nunca está sola: "temia" convive con "temian", "temiendo",
+    "temieron". Una errata del OCR no tiene parientes, porque nace de una
+    ligadura mal leída y no de una raíz.
+
+    Es lo que separa "reimado" -- sin familia, y por tanto errata de
+    "reinado" -- de "temia", "pares", "canta", "arda" o "vieren", que son
+    palabras de verdad con vecinas frecuentes de su misma raíz y que el par
+    r/n convertía en "tenia", "panes", "carta", "anda" y "vienen".
+    """
+    raiz = pal[:4].lower()
+    familia = 0
+    for w, c in frec.items():
+        if c < 5 or w == pal or w == cand:
+            continue
+        if w.lower().startswith(raiz) and w.lower() != pal.lower():
+            familia += 1
+            if familia >= 2:
+                return True
+    return False
+
 def tabla_correcciones(frec, idx):
     """{errata: arreglo} con solo lo inequívoco."""
     tabla = {}
@@ -145,7 +177,15 @@ def tabla_correcciones(frec, idx):
             continue
         cand = candidatos_d1(pal, frec, idx)
         if len(cand) == 1:
-            tabla[pal] = cand.pop()
+            bueno = cand.pop()
+            if frec[bueno] < c * PROPORCION:
+                continue
+            # Para las que se repiten hay que hilar más fino: una errata
+            # suelta puede ser cualquier cosa, pero una que sale cinco veces
+            # y además tiene familia en el texto es palabra de verdad.
+            if c >= 3 and tiene_parientes(pal, frec, bueno):
+                continue
+            tabla[pal] = bueno
             continue
 
     return tabla

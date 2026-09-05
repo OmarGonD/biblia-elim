@@ -150,8 +150,23 @@ Un diccionario español moderno no sirve: marcaría "crió", "cubrian",
 escribe en este libro; una que sale una o dos veces y está a un carácter de
 otra que sale quinientas es casi siempre un tropiezo del OCR.
 
-468 arreglos en 566 versículos: `tereero` -> `tercero`, `pusleron` ->
+508 arreglos en 753 versículos: `tereero` -> `tercero`, `pusleron` ->
 `pusieron`, `Cbristo` -> `Christo`, `esclayas` -> `esclavas`.
+
+El primer intento daba por sentado que una errata no se repite, y ponía el
+tope en dos apariciones. Es falso: la confusión está en la tipografía, no
+en el azar, así que la misma palabra se lee mal página tras página.
+`reimado` -- la ligadura «in» de la letra antigua leída como «m» -- sale
+seis veces frente a 92 de `reinado`, y se quedaba sin arreglar. Lo que
+distingue la errata no es que sea rarísima, sino que su vecina sea
+muchísimo más frecuente.
+
+Subir el tope abre la puerta a las palabras buenas, porque el par r/n
+produce parejas legítimas en castellano: `pares`/`panes`, `canta`/`carta`,
+`temia`/`tenia`, `vieren`/`vienen`. Las separa la familia: una palabra de
+verdad casi nunca está sola --`temia` convive con `temian`, `temiendo`,
+`temieron`--, mientras que una errata no tiene parientes, porque nace de
+una ligadura mal leída y no de una raíz.
 
 Dos cosas se probaron y se quitaron, porque hacían más daño del que
 arreglaban:
