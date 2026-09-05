@@ -35,6 +35,8 @@ Del `djvu.xml` sale cada palabra con su caja y su confianza.
 | `localizar.py` | Dice en qué pliego del escaneo cae cada laguna |
 | `rehacer.sh` | Baja esas páginas sueltas del zip y las vuelve a pasar por tesseract con el modelo español |
 | `hocr.py` / `paginas.py` | Meten las páginas rehechas por el mismo pipeline que las demás |
+| `ojear.py` | Enseña por encima qué hay en cada media hoja de un rango |
+| `rescatar.py` | Los capítulos rescatados a mano, uno por uno, contra el facsímil |
 | `canon.py` | Versificación Vulgata leída de `canon_vulg.h` de SWORD |
 | `alinear.py` | Alinea los capítulos observados contra el canon |
 | `construir.py` | Recorre los cuatro tomos y deja `texto.json` |
@@ -54,6 +56,7 @@ sitio.
     pip install nada   # solo biblioteca estándar
     # bajar los cuatro tomo*.djvu.xml del ítem de arriba
     python3 construir.py     # -> texto.json
+    python3 rescatar.py      # añade los capítulos rescatados a mano
     python3 osis.py          # -> torresamat.osis.xml
     osis2mod salida/ torresamat.osis.xml -v Vulg -z z
 
@@ -82,15 +85,46 @@ solo apenas movió la cifra: de 22 lagunas a 21.
 Lo que sí las movió fue lo que se descubrió al mirar una de esas páginas
 de cerca. Ver abajo.
 
+## El rescate a mano
+
+Lo que el alineador deja vacío casi nunca falta del OCR: está leído y bien,
+pero mal asignado. `localizar.py` dice en qué pliego cae cada laguna,
+`ojear.py` enseña qué hay en esa media hoja, y `rescatar.py` guarda, capítulo
+por capítulo, de dónde sale y por dónde empieza. Cada entrada se ha
+comprobado mirando la página escaneada.
+
+Hicieron falta cuatro afinaciones, todas nacidas de un caso concreto:
+
+- **Varias medias hojas por capítulo.** Colosenses 4 va a caballo del pliego.
+- **Números mal leídos**, corregidos ANTES de repartir. Daniel 1:2 sale como
+  «9», y si se arregla después ya se ha tragado por monotonía los versículos
+  3 a 9.
+- **Marcas falsas degradadas a continuación.** Un «17» espurio dentro de
+  Ezequiel 1:9 se comía los versículos 10 a 16.
+- **Desplazamiento de numeración.** La edición numera algunos salmos
+  siguiendo al anterior: el 115 arranca en el 10 y el 147 en el 12.
+
+De doce capítulos rescatados, nueve quedaron completos. El Salmo 1 cae al
+pie de la página del prefacio al Salterio, compuesto entero en letra de
+nota, así que no hay altura que lo separe: sus seis versículos están
+copiados a mano del facsímil en `TRANSCRITOS`.
+
+## Una errata de 1882
+
+El encabezado de Colosenses 4 dice **CAPITULO VI** en el papel. La carta
+tiene cuatro capítulos: es errata de la edición. El OCR lo leyó bien; el
+libro está mal. Conviene tenerlo presente antes de fiarse de los números
+impresos.
+
 ## Estado
 
-93,5 % de los versículos (33.501 de 35.817), y 90,3 % de los capítulos
+94,0 % de los versículos (33.659 de 35.817), y 90,9 % de los capítulos
 bien alineados según la medida de arriba. Lo que falta sale en blanco.
 
 Sin revisar: el texto conserva erratas del OCR. Las notas de Torres Amat,
-que son parte principal de la obra, no se importan. En `revisar.txt` están
-los 14 capítulos vacíos y los 46 sospechosos de llevar la numeración
-corrida, que es por donde debe empezar quien revise.
+que son parte principal de la obra, no se importan. En `revisar.txt` queda
+el único capítulo vacío -- el Salmo 132 -- y los 47 sospechosos de llevar
+la numeración corrida, que es por donde debe seguir quien revise.
 
 ## El Salterio dice SALMO, no CAPITULO
 

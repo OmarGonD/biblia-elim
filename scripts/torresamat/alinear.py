@@ -15,7 +15,8 @@ def segmenta(sucesos):
     caps, cur, ult = [], None, 0
     def nuevo():
         nonlocal cur, ult
-        cur = {"nums": [], "sucesos": [], "cands": [], "inicio": False}
+        cur = {"nums": [], "sucesos": [], "cands": [], "inicio": False,
+               "num_cap": None}
         caps.append(cur); ult = 0
     for s in sucesos:
         if s[0] == "libro":
@@ -26,6 +27,7 @@ def segmenta(sucesos):
                 marca = cur["inicio"] if cur is not None and not cur["sucesos"] else False
                 nuevo()
                 cur["inicio"] = marca
+            cur["num_cap"] = s[1]
         elif s[0] == "vers":
             n = s[1]
             if cur is None or (n <= 2 and ult >= 5):
@@ -64,11 +66,17 @@ def puntua(cap, osis, n_canon, n_cap=0):
     if cap.get("inicio"):
         if n_cap != 1:
             return -50.0
+    # Probado y descartado: votar con el número romano del encabezado
+    # ("CAPITULO VII"). Suena bien -- es lo que funcionó con los números de
+    # versículo -- pero el OCR destroza los romanos: en el Génesis leía
+    # 1, 2, 48, 4, 5... Con ese voto la cobertura bajaba al 92,8 %, la
+    # alineación al 89,3 % y los capítulos vacíos subían de 14 a 21.
+    cap_voto = 0.0
     voto = 0.0
     if cap["cands"]:
         favor = sum(1 for c in cap["cands"] if osis in c)
         voto = 10.0 * (2.0 * favor / len(cap["cands"]) - 1.0)
-    return dentro * 1.0 - fuera * 2.0 + cierre + voto
+    return dentro * 1.0 - fuera * 2.0 + cierre + voto + cap_voto
 
 def alinea_capitulos(obs, canon_caps):
     """
@@ -93,7 +101,8 @@ def alinea_capitulos(obs, canon_caps):
             if i + 1 < n and j < m:      # dos candidatos = un capítulo real
                 fus = {"nums": obs[i]["nums"] + obs[i + 1]["nums"],
                        "cands": obs[i]["cands"] + obs[i + 1]["cands"],
-                       "inicio": obs[i].get("inicio", False)}
+                       "inicio": obs[i].get("inicio", False),
+                       "num_cap": obs[i].get("num_cap")}
                 s = base + puntua(fus, canon_caps[j][0], canon_caps[j][2],
                                   canon_caps[j][1]) - 1.0
                 if s > D[i + 2][j + 1]:

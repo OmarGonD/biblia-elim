@@ -1,23 +1,10 @@
 Capítulos que hay que mirar antes de fiarse de este texto.
 Generado por validar.py; ver el README de esta carpeta.
 
-== Sin una sola línea (14) ==
-  1Kgs 3
-  Ps 1
-  Ps 114
-  Ps 115
-  Ps 130
+== Sin una sola línea (1) ==
   Ps 132
-  Ps 147
-  Jer 45
-  Bar 5
-  Ezek 1
-  Dan 1
-  Mal 4
-  2Cor 7
-  Col 4
 
-== Posible corrimiento de un versículo (46) ==
+== Posible corrimiento de un versículo (47) ==
    La correlación de longitudes con la Vulgata casa mejor
    desplazada que en su sitio. Es indicio, no prueba: en las
    pruebas acertó en unos capítulos y falló en otros, y por eso
@@ -61,6 +48,7 @@ Generado por validar.py; ver el README de esta carpeta.
   Bar 4            -1  (r=0.62)
   Ezek 4           +1  (r=0.51)
   Ezek 18          +1  (r=0.5)
+  Dan 1            -1  (r=0.37)
   Hos 1            -1  (r=0.47)
   Mic 1            +1  (r=0.55)
   Mal 1            -1  (r=0.51)

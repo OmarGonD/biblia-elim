@@ -58,21 +58,52 @@ def recortar_margen(lineas):
         if keep: out.append(keep)
     return out
 
-def punto_de_corte(lineas):
+def umbral_relativo(alturas):
+    """
+    Altura de referencia medida en la propia página. El cuerpo va siempre
+    arriba, así que el tercio superior lo da; las notas de esta edición se
+    componen a un 87 % de esa altura.
+    """
+    if len(alturas) < 6:
+        return 0.0
+    arriba = alturas[:max(4, len(alturas) // 3)]
+    return sorted(arriba)[len(arriba) // 2] * 0.93
+
+def punto_de_corte(lineas, recuperar=False):
     """Un solo cambio cuerpo->notas: maximiza (grandes arriba)+(pequeñas abajo)."""
     if len(lineas) < 4: return len(lineas)
-    grande = [1 if med_h(l) >= 56 else 0 for l in lineas]
-    n = len(grande)
-    sufijo_peq = [0] * (n + 1)
-    for i in range(n - 1, -1, -1):
-        sufijo_peq[i] = sufijo_peq[i + 1] + (1 - grande[i])
-    mejor, best_k = -1, n
-    acc = 0
-    for k in range(n + 1):
-        score = acc + sufijo_peq[k]
-        if score > mejor: mejor, best_k = score, k
-        if k < n: acc += grande[k]
-    return best_k
+    alturas = [med_h(l) for l in lineas]
+
+    def corte_con(u):
+        grande = [1 if h >= u else 0 for h in alturas]
+        n = len(grande)
+        suf = [0] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            suf[i] = suf[i + 1] + (1 - grande[i])
+        mejor, best_k, acc = -1, n, 0
+        for k in range(n + 1):
+            s = acc + suf[k]
+            if s > mejor:
+                mejor, best_k = s, k
+            if k < n:
+                acc += grande[k]
+        return best_k
+
+    # El umbral fijo es el que mejor alinea: probado contra la Vulgata,
+    # 1205 capítulos en su sitio frente a 1165-1185 midiendo en la página.
+    # Pero en las hojas compuestas con letra algo menor da la página
+    # entera por notas y el capítulo se pierde -- Ezequiel 1, Daniel 1 --.
+    #
+    # Bajar el umbral para todos sale caro: recupera esas páginas y
+    # descoloca otras siete. Así que el pipeline general se queda con el
+    # umbral fijo, y solo rescatar.py -- que actúa sobre páginas
+    # comprobadas a mano contra el facsímil -- pide recuperar=True.
+    k = corte_con(56)
+    if k == 0 and recuperar:
+        rel = umbral_relativo(alturas)
+        if rel:
+            k = corte_con(rel)
+    return k
 
 RE_CABECERA = re.compile(r"CAP[IÍ]TULO|^\s*\d{1,3}\s")
 
