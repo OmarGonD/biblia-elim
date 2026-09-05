@@ -37,6 +37,7 @@ Del `djvu.xml` sale cada palabra con su caja y su confianza.
 | `hocr.py` / `paginas.py` | Meten las páginas rehechas por el mismo pipeline que las demás |
 | `ojear.py` | Enseña por encima qué hay en cada media hoja de un rango |
 | `rescatar.py` | Los capítulos rescatados a mano, uno por uno, contra el facsímil |
+| `cotejar.py` | Coteja cada capítulo con la Vulgata por nombres propios |
 | `canon.py` | Versificación Vulgata leída de `canon_vulg.h` de SWORD |
 | `alinear.py` | Alinea los capítulos observados contra el canon |
 | `construir.py` | Recorre los cuatro tomos y deja `texto.json` |
@@ -59,6 +60,29 @@ sitio.
     python3 rescatar.py      # añade los capítulos rescatados a mano
     python3 osis.py          # -> torresamat.osis.xml
     osis2mod salida/ torresamat.osis.xml -v Vulg -z z
+
+## Cotejar por nombres propios, no por longitud
+
+La correlación de longitudes levanta sospechas pero se equivoca mucho: de
+los 47 capítulos que marcaba como corridos, **45 estaban bien**. Isaías 53,
+Hechos 1, Daniel 1 y Malaquías 1 salían señalados y los cuatro eran
+correctos. Un capítulo de versos parecidos en largo casa igual de bien
+desplazado que en su sitio.
+
+`cotejar.py` mira el contenido. Los nombres propios --Jerusalem, Israel,
+David, Nabuchodonosor-- se escriben casi igual en el latín de la Vulgata y
+en el castellano de Torres Amat, y están repartidos de forma desigual por
+los versículos: si nuestro versículo 7 nombra a Babylonia y el 7 latino
+también, el capítulo está en su sitio. Es prueba de contenido, no de forma.
+
+Con una guarda importante: hace falta acertar de verdad, no solo fallar
+menos. Job 38 --el discurso desde el torbellino, casi sin nombres propios--
+daba cero aciertos en todos los desfases y salía marcado como corrido.
+
+El cotejo sobre los 1.334 capítulos encontró **uno** de verdad mal:
+1 Tesalonicenses 4, y no por culpa del OCR. Esta edición trae ahí
+diecisiete versículos donde el canon Vulgata tiene dieciocho; la
+divergencia arranca en el 12 y se recoloca con `MOVER`.
 
 ## Cómo se mide
 
@@ -118,13 +142,19 @@ impresos.
 
 ## Estado
 
-94,0 % de los versículos (33.659 de 35.817), y 90,9 % de los capítulos
-bien alineados según la medida de arriba. Lo que falta sale en blanco.
+94,0 % de los versículos (33.672 de 35.817). **Ningún capítulo vacío**, y
+el cotejo por nombres propios sitúa 1.311 de los 1.334 capítulos en su
+lugar, **ninguno corrido**; los otros 23 no traen nombres suficientes para
+pronunciarse, lo que no quiere decir que estén mal. Lo que falta sale en
+blanco, repartido: son versículos sueltos, no bloques.
 
-Sin revisar: el texto conserva erratas del OCR. Las notas de Torres Amat,
-que son parte principal de la obra, no se importan. En `revisar.txt` queda
-el único capítulo vacío -- el Salmo 132 -- y los 47 sospechosos de llevar
-la numeración corrida, que es por donde debe seguir quien revise.
+Lo que sigue sin revisar son las **erratas dentro de cada versículo**:
+«tereero», «reimado», «Bi yo no he sentido». La colocación está comprobada;
+la ortografía no. Y las notas de Torres Amat, que son parte principal de la
+obra, siguen sin importarse.
+
+`revisar.txt` lleva el resultado del cotejo y la lista de los 23
+capítulos sobre los que no se puede opinar.
 
 ## El Salterio dice SALMO, no CAPITULO
 

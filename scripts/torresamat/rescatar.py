@@ -46,7 +46,8 @@ RESCATES = [
     # De Jeremías 45 solo se leen los versículos 3 a 5: los dos primeros
     # caen al pie de la media hoja anterior y el segmentador los da por
     # nota. Se rescata lo que hay.
-    ("Jer", 45, "III", [(257, 0)], "Tú has exclamado", {}, []),
+    ("Jer", 45, "III", [(256, 1), (257, 0)], "Palabras que dijo",
+     {1: "Palabras que dijo"}, []),
     # La cara izquierda del pliego 280 es el prefacio a Ezequiel, todo en
     # letra de nota: por eso el umbral fijo daba la página entera por
     # aparato y el capítulo se perdía. El texto empieza al pie.
@@ -59,8 +60,13 @@ RESCATES = [
     ("Ps", 114, "III", [(59, 1)], "Amé al Señor",
      {3: "Cercáronme mortales angustias"}, []),
     ("Ps", 115, "III", [(59, 1), (60, 0)], "Creí", {}, [], -9),
-    ("Ps", 130, "III", [(65, 0)], "no he sentido bajamente", {}, []),
-    ("Ps", 147, "III", [(69, 1), (70, 0)], "Alaba al Señor, oh Jerusalem", {}, [], -11),
+    ("Ps", 130, "III", [(65, 0)], "no he sentido bajamente",
+     {1: "Oh Señor, no se ha engreido"}, []),
+    ("Ps", 132, "III", [(65, 1)], "Cántico gradual de David", {}, []),
+        # Entre el 69 y el 72 hay dos pliegos de lámina, sin texto: el salmo
+    # sigue al otro lado de ellas.
+    ("Ps", 147, "III", [(69, 1), (72, 0)], "Alaba al Señor, oh Jerusalem",
+     {}, [], -11),
 ]
 
 # Cola de nota al pie que se cuela en el último versículo de la media hoja.
@@ -88,6 +94,20 @@ TRANSCRITOS = {
               "pecadores estarán en la asamblea de los justos.",
     "Ps 1:6": "Porque conoce el Señor y premia el proceder de los justos; mas "
               "la senda de los impíos terminará en la perdicion.",
+    # El Salmo 130:1 y el 147:3 están en el OCR pero como continuación, sin
+    # marca propia; se copian ya limpios. Jeremías 45:1-2 caen al pie de la
+    # media hoja y el 2 no llega a leerse: los dos van del facsímil
+    # (tomo III, pliego 256).
+    "Ps 130:1": "Oh Señor, no se ha engreido mi corazon, ni mis ojos se han "
+                "mostrado altivos. No he aspirado á cosas grandes, ni á cosas "
+                "elevadas sobre mi capacidad.",
+    "Ps 147:3": "Ha establecido la paz en tu territorio, y te alimenta de la "
+                "flor de harina.",
+    "Jer 45:1": "Palabras que dijo el Profeta Jeremías á Baruch, hijo de "
+                "Nerías, cuando éste escribió en el libro aquellas cosas que "
+                "le dictó Jeremías, en el año cuarto de Joakim hijo de Josías "
+                "rey de Judá. Dijo Jeremías:",
+    "Jer 45:2": "Esto te dice á tí, oh Baruch, el Señor, el Dios de Israél:",
 }
 
 def _norm(s):
@@ -120,14 +140,6 @@ def rescata(osis, cap, tomo, fuentes, ancla, arreglos=None, pegar=(), desplaza=0
         ev += sucesos_media_hoja(tomo, pliego, lado)
     ev = list(ev)
     tope = POR_OSIS[osis]["versos"][cap - 1]
-    ancla_n = _norm(ancla)
-    ini = None
-    for i, s in enumerate(ev):
-        if s[0] == "vers" and ancla_n in _norm(s[2]):
-            ini = i
-            break
-    if ini is None:
-        return {}, f"{osis} {cap}: no encuentro el ancla {ancla!r}"
     # Marcas falsas: se degradan a continuación del versículo en curso.
     for trozo in pegar or ():
         t_n = _norm(trozo)
@@ -146,6 +158,18 @@ def rescata(osis, cap, tomo, fuentes, ancla, arreglos=None, pegar=(), desplaza=0
             if s2[0] == "vers" and _norm(s2[2]).startswith(ini_n):
                 ev[i] = ("vers", n) + tuple(s2[2:])
                 break
+            # También se promueve texto que quedó como continuación: el
+            # versículo está ahí y bien leído, pero sin marca reconocible
+            # -- Jeremías 45:1 arranca con "1% 1. Palabras que dijo" --.
+            if s2[0] == "sigue" and ini_n in _norm(s2[1]):
+                bruto = s2[1]
+                pos = _norm(bruto).find(ini_n)
+                palabras = bruto.split()
+                for j in range(len(palabras)):
+                    if _norm(" ".join(palabras[j:])).startswith(ini_n):
+                        ev[i] = ("vers", n, " ".join(palabras[j:])) + tuple(s2[2:])
+                        break
+                break
 
     # Esta edición numera algunos salmos a continuación del anterior en
     # vez de empezar por 1 -- el 115 arranca en el 10, siguiendo al 114, y
@@ -154,6 +178,19 @@ def rescata(osis, cap, tomo, fuentes, ancla, arreglos=None, pegar=(), desplaza=0
     if desplaza:
         ev = [("vers", s2[1] + desplaza) + tuple(s2[2:]) if s2[0] == "vers" else s2
               for s2 in ev]
+
+    # El ancla se busca DESPUÉS de arreglar la corriente: si se busca
+    # antes, un versículo que aún está como continuación no es versículo
+    # todavía y no hay dónde anclar -- pasaba con Jeremías 45:1 y con el
+    # Salmo 130:1 --.
+    ancla_n = _norm(ancla)
+    ini = None
+    for i, s in enumerate(ev):
+        if s[0] == "vers" and ancla_n in _norm(s[2]):
+            ini = i
+            break
+    if ini is None:
+        return {}, f"{osis} {cap}: no encuentro el ancla {ancla!r}"
 
     out, ver, trozos = {}, 0, []
     def cierra():
@@ -196,6 +233,31 @@ def rescata(osis, cap, tomo, fuentes, ancla, arreglos=None, pegar=(), desplaza=0
             break
     return out, None
 
+# Desplazamientos parciales: (osis, cap, desde, d).
+#
+# No son fallos del OCR sino diferencias de versificación entre esta
+# edición y el canon Vulgata de SWORD. En 1 Tesalonicenses 4 el impreso
+# trae diecisiete versículos donde el canon tiene dieciocho, y la
+# divergencia arranca en el 12: comprobado cotejando el contenido con la
+# Vulgata latina, nuestro 12 dice lo que allí es el 13. Se recolocan para
+# que cada versículo quede en su dirección canónica; el hueco que deja
+# queda vacío, como el resto de lo que falta.
+MOVER = [
+    ("1Thess", 4, 12, +1),
+]
+
+def aplica_mover(texto):
+    movidos = 0
+    for osis, cap, desde, d in MOVER:
+        n = POR_OSIS[osis]["versos"][cap - 1]
+        rango = range(n, desde - 1, -1) if d > 0 else range(desde, n + 1)
+        for v in rango:
+            k = f"{osis} {cap}:{v}"
+            if texto.get(k) and 1 <= v + d <= n:
+                texto[f"{osis} {cap}:{v + d}"] = texto.pop(k)
+                movidos += 1
+    return movidos
+
 def main():
     texto = json.load(open("texto.json", encoding="utf-8"))
     nuevos = fallos = 0
@@ -216,9 +278,15 @@ def main():
                 texto[k] = t; puestos += 1
         nuevos += puestos
         print(f"  {osis} {cap:<3} {puestos:3} versículos de {tope}")
+    m = aplica_mover(texto)
+    if m:
+        print(f"  recolocados por versificación: {m}")
+
+    # La transcripción a mano manda sobre el OCR: se ha leído del facsímil.
     for k, t in TRANSCRITOS.items():
         if not texto.get(k):
-            texto[k] = t; nuevos += 1
+            nuevos += 1
+        texto[k] = t
     print(f"  transcritos a mano: {len(TRANSCRITOS)}")
     json.dump(texto, open("texto.json", "w", encoding="utf-8"),
               ensure_ascii=False, indent=0)
