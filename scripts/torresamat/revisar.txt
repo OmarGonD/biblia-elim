@@ -1,0 +1,70 @@
+Capítulos que hay que mirar antes de fiarse de este texto.
+Generado por validar.py; ver el README de esta carpeta.
+
+== Sin una sola línea (14) ==
+  1Kgs 3
+  Ps 1
+  Ps 114
+  Ps 115
+  Ps 130
+  Ps 132
+  Ps 147
+  Jer 45
+  Bar 5
+  Ezek 1
+  Dan 1
+  Mal 4
+  2Cor 7
+  Col 4
+
+== Posible corrimiento de un versículo (46) ==
+   La correlación de longitudes con la Vulgata casa mejor
+   desplazada que en su sitio. Es indicio, no prueba: en las
+   pruebas acertó en unos capítulos y falló en otros, y por eso
+   no se corrige solo.
+  Gen 40           +1  (r=0.42)
+  Gen 45           -1  (r=0.31)
+  Exod 35          +1  (r=0.6)
+  Num 36           +1  (r=0.45)
+  Deut 13          +1  (r=0.67)
+  Deut 26          +1  (r=0.5)
+  Josh 18          +1  (r=0.47)
+  Judg 1           -1  (r=0.48)
+  2Sam 9           -1  (r=0.38)
+  2Chr 19          +1  (r=0.83)
+  Job 16           +1  (r=0.56)
+  Job 17           +1  (r=0.43)
+  Job 38           -1  (r=0.33)
+  Ps 8             +1  (r=0.64)
+  Ps 38            +1  (r=0.76)
+  Ps 47            +1  (r=0.45)
+  Ps 52            -1  (r=0.84)
+  Ps 57            +1  (r=0.46)
+  Ps 61            +1  (r=0.62)
+  Ps 72            +1  (r=0.76)
+  Ps 73            -1  (r=0.63)
+  Ps 75            +1  (r=0.63)
+  Ps 91            -1  (r=0.7)
+  Ps 102           +1  (r=0.39)
+  Ps 123           +1  (r=0.48)
+  Ps 141           -1  (r=0.67)
+  Ps 143           +1  (r=0.65)
+  Ps 150           +1  (r=0.86)
+  Song 8           +1  (r=0.42)
+  Wis 6            +1  (r=0.4)
+  Sir 25           -1  (r=0.38)
+  Sir 51           +1  (r=0.3)
+  Isa 53           +1  (r=0.55)
+  Isa 56           -1  (r=0.48)
+  Jer 1            -1  (r=0.74)
+  Lam 5            -1  (r=0.5)
+  Bar 4            -1  (r=0.62)
+  Ezek 4           +1  (r=0.51)
+  Ezek 18          +1  (r=0.5)
+  Hos 1            -1  (r=0.47)
+  Mic 1            +1  (r=0.55)
+  Mal 1            -1  (r=0.51)
+  Acts 1           +1  (r=0.54)
+  1Thess 1         -1  (r=0.54)
+  2Thess 2         +1  (r=0.31)
+  Rev 16           -1  (r=0.39)

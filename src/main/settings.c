@@ -108,9 +108,9 @@ static void main_ensure_default_commentary(void);
  *   anything to read, and again later just to populate Parallel View.
  *   On a genuinely fresh install (no modules present yet) we make one
  *   best-effort, silent attempt to fetch a small default set covering
- *   Spanish, English, Hebrew and Greek from the CrossWire repository,
- *   so Xiphos is immediately useful and Parallel View already has
- *   something to show. Any failure here (no network, source
+ *   Spanish, English, Hebrew, Greek and Latin from the CrossWire
+ *   repository, so Xiphos is immediately useful and Parallel View
+ *   already has something to show. Any failure here (no network, source
  *   unreachable, etc.) is swallowed; settings_init() falls back to the
  *   normal interactive module manager wizard when this doesn't result
  *   in at least one Bible being installed.
@@ -122,13 +122,30 @@ static void main_ensure_default_commentary(void);
 static void main_bootstrap_default_modules(void)
 {
 	static const char *source_caption = "CrossWire";
+	/* Además de las Biblias para leer, las fuentes de las que salen.
+	 *
+	 * La Platense dice de dónde viene: «AT: texto masorético.
+	 * Deuterocanónicos: Vulgata. NT: Textus Receptus, edición crítica
+	 * de Merk». Quien tiene delante el interlineal y el panel partido
+	 * y lee eso en la ficha de su versión va a querer mirar esos
+	 * textos, y mandarlo al gestor de módulos a buscarlos uno por uno
+	 * es mandarlo al mismo sitio del que esta función lo saca. Así que
+	 * bajan con el resto: el masorético (WLC), la Vulgata Clementina
+	 * -- que es la que trae los deuterocanónicos -- y el Receptus.
+	 *
+	 * De esa lista faltan Nácar-Colunga, Bóver-Cantera y la edición de
+	 * Merk, que no tienen módulo en ningún repositorio SWORD: son de
+	 * los años cuarenta y siguen con derechos vigentes.
+	 */
 	static const char *default_modules[] = {
-		"KJV",	       /* English, w/ Strong's numbers */
-		"SpaRV",       /* Spanish, Reina-Valera 1909 */
-		"SpaPlatense", /* Spanish, Biblia Platense (Straubinger) */
-		"SpaRVG",      /* Spanish, Reina Valera Gomez */
-		"WLC",	       /* Hebrew, Westminster Leningrad Codex */
-		"Tisch",       /* Greek, Tischendorf 8th ed. GNT */
+		"KJV",		/* English, w/ Strong's numbers */
+		"SpaRV",	/* Spanish, Reina-Valera 1909 */
+		"SpaPlatense",	/* Spanish, Biblia Platense (Straubinger) */
+		"SpaRVG",	/* Spanish, Reina Valera Gomez */
+		"WLC",		/* Hebrew, Westminster Leningrad Codex */
+		"Tisch",	/* Greek, Tischendorf 8th ed. GNT */
+		"TR",		/* Greek, Textus Receptus (1550/1894) */
+		"VulgClementine", /* Latin, Vulgata Clementina */
 		DEFAULT_COMMENTARY,
 		NULL
 	};

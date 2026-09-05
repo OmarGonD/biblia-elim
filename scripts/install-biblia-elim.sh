@@ -55,6 +55,28 @@ if [[ -d "${ROOT}/build/locale" ]]; then
 	done
 fi
 
+# Torres Amat va dentro del paquete, no se descarga.
+#
+# El resto de las Biblias las trae main_bootstrap_default_modules() de los
+# repositorios SWORD en el primer arranque. Esta no está en ninguno: se
+# construyó para esta aplicación a partir de los escaneos de la edición de
+# 1882 (véase scripts/torresamat/). Como no hay de dónde bajarla, viaja
+# con el instalador.
+#
+# Solo si falta: quien la haya borrado a propósito, o tenga una revisión
+# más nueva que la del paquete, no quiere que se la pisemos en cada
+# reinstalación.
+SWORDDIR="${HOME}/.sword"
+if [[ -d "${ROOT}/modulos" ]] && [[ ! -f "${SWORDDIR}/mods.d/torresamat.conf" ]]; then
+	install -d "${SWORDDIR}/mods.d" \
+		"${SWORDDIR}/modules/texts/ztext/torresamat"
+	install -m 0644 "${ROOT}/modulos/mods.d/torresamat.conf" \
+		"${SWORDDIR}/mods.d/torresamat.conf"
+	install -m 0644 "${ROOT}"/modulos/modules/texts/ztext/torresamat/* \
+		"${SWORDDIR}/modules/texts/ztext/torresamat/"
+	echo "  Biblia:   Torres Amat instalada en ${SWORDDIR}"
+fi
+
 if command -v update-desktop-database >/dev/null; then
 	update-desktop-database "${APPDIR}" >/dev/null 2>&1 || true
 fi
