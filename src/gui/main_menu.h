@@ -83,6 +83,8 @@ void on_show_dictionary_lexicon_activate(GtkCheckMenuItem *
 					 gpointer user_data);
 void on_open_studypad_activate(GtkMenuItem *menuitem,
 			       gpointer user_data);
+void on_export_bible_activate(GtkMenuItem *menuitem,
+			      gpointer user_data);
 void on_advanced_search_activate(GtkMenuItem *menuitem,
 				 gpointer user_data);
 void on_nube_palabras_activate(GtkMenuItem *menuitem,

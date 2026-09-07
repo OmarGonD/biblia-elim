@@ -442,23 +442,17 @@ gui_verse_notes_panel_actualizar(void)
 				   FALSE);
 	}
 
-	/* Visibilidad siempre determinista según si hay notas -- sin
-	 * excepción por "mismo versículo", porque esta función es la
-	 * única fuente de verdad para settings.showcomms y debe poder
-	 * corregir cualquier valor obsoleto que algo externo (memoria por
-	 * pestaña en tabbed_browser.c) le haya pisado de por medio. Como
-	 * solo se llama al navegar/redisplay-ear el versículo actual, un
-	 * panel abierto a mano para escribir una nota nueva sigue a salvo
-	 * mientras el usuario no dispare uno de esos eventos.
-	 *
-	 * La excepción es el redibujo que provoca borrar la nota desde el
-	 * propio panel: cerrarlo ahí le quita el cuadro de las manos a
-	 * quien acaba de vaciarlo, probablemente para escribir otra cosa. */
-	if (!(notas_borrando && !tiene_notas))
-		gui_show_hide_comms(tiene_notas);
-	if (tiene_notas)
+	/* Las notas personales comparten el panel lateral con los comentarios
+	 * del autor, pero no controlan su visibilidad. Ocultarlo aquí cuando
+	 * el versículo no tiene una nota deshacía inmediatamente la elección
+	 * manual "Comentarios del autor"; abrirlo automáticamente cuando sí
+	 * tenía una nota también impedía que el usuario lo mantuviera oculto.
+	 * Si el panel ya está visible, una nota existente puede seleccionar
+	 * su pestaña, pero nunca abrir o cerrar el contenedor por su cuenta. */
+	if (tiene_notas && settings.showcomms) {
 		gtk_notebook_set_current_page(
 		    GTK_NOTEBOOK(widgets.notebook_comm_book), NOTAS_TAB_INDEX);
+	}
 
 	notas_en_actualizar = FALSE;
 }

@@ -47,7 +47,7 @@ def main():
         a, b = CORTES[t]
         libros = [POR_OSIS[o] for o in ORDEN[a:b]]
         ev = sucesos_de(t, set(ORDEN[a:b]))
-        vers, avisos = ensambla(ev, libros)
+        vers, avisos, _procedencia = ensambla(ev, libros)
         todos_avisos += [f"[tomo {t}] {x}" for x in avisos]
         for k, trozos in vers.items():
             todo["%s %d:%d" % k] = une(trozos)

@@ -54,6 +54,7 @@
 #include "gui/parallel_dialog.h"
 #include "gui/parallel_view.h"
 #include "gui/main_window.h"
+#include "gui/lectura_sync.h"
 //#include "gui/toolbar_nav.h"
 
 #include "main/url.hh"
@@ -1033,6 +1034,20 @@ gint main_url_handler(const gchar *url, gboolean clicked)
 		} else if (!strcmp(action, "verseTools")) {
 			if (HAS_URL_PARAM(svalue) && clicked)
 				gui_verse_tools_popup(svalue);
+			retval = 1;
+		} else if (!strcmp(action, "lsyncSwap")) {
+			if (HAS_URL_PARAM(svalue) && HAS_URL_PARAM(stype)) {
+				if (clicked) {
+					int slot = (int)g_ascii_strtoll(svalue, NULL, 10);
+					if (!strcmp(stype, "up"))
+						gui_lectura_sync_intercambiar(slot, slot - 1);
+					else if (!strcmp(stype, "down"))
+						gui_lectura_sync_intercambiar(slot, slot + 1);
+				} else {
+					gui_set_statusbar(
+					    _("Intercambiar el orden de estas versiones"));
+				}
+			}
 			retval = 1;
 		}
 

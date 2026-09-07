@@ -216,6 +216,21 @@ void main_navbar_versekey_spin_verse(NAVBAR_VERSEKEY navbar, int direction)
 	verse = vkey->getVerse() + (direction ? 1 : -1);
 	vkey->setVerse(verse);
 
+	/* Huecos del OCR (Torres Amat y similares): si el verso no tiene
+	 * texto, seguir hasta uno que sí, para que las flechas no se claven. */
+	mod->setKey(vkey);
+	for (int n = 0; n < 40; n++) {
+		const char *raw = mod->getRawEntry();
+		if (raw && *raw)
+			break;
+		int chap = vkey->getChapter();
+		int ver = vkey->getVerse();
+		vkey->setVerse(ver + (direction ? 1 : -1));
+		if (vkey->getChapter() == chap && vkey->getVerse() == ver)
+			break;
+		mod->setKey(vkey);
+	}
+
 	tmpkey = g_strdup_printf("%s %d:%d", vkey->getBookName(),
 				 vkey->getChapter(), vkey->getVerse());
 	gtk_entry_set_text(GTK_ENTRY(navbar.lookup_entry), tmpkey);

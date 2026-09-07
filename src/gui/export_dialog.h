@@ -27,6 +27,7 @@ extern "C" {
 
 gchar *gui_get_export_filename(void);
 void gui_export_dialog(void);
+void gui_export_book_dialog(void);
 void _get_export_filename(void);
 void on_dialog_export_passage_response(GtkDialog *dialog,
 				       gint response_id,

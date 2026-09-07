@@ -99,6 +99,7 @@ char *main_get_search_results_text(char *mod_name, char *key);
 void main_display_book(const char *mod_name, const char *key); //, unsigned long offset);
 void main_display_commentary(const char *mod_name,
 			     const char *key);
+gboolean main_is_author_commentary_module(const char *mod_name);
 void main_display_dictionary(const char *mod_name,
 			     const char *key);
 void main_display_bible(const char *mod_name, const char *key);

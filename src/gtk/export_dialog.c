@@ -40,6 +40,7 @@ gchar *datafile;
 
 static GtkWidget *dialog;
 static gchar *filename;
+static gboolean export_whole_book_default;
 
 typedef struct _export_dialog EXPORT_DIALOG;
 struct _export_dialog
@@ -47,11 +48,13 @@ struct _export_dialog
 	GtkWidget *rb_copy;
 	GtkWidget *rb_export;
 	GtkWidget *rb_book;
+	GtkWidget *rb_bible;
 	GtkWidget *rb_chapter;
 	GtkWidget *rb_verse;
 	GtkWidget *rb_multi_verse;
 	GtkWidget *cb_versenum;
 	GtkWidget *rb_html;
+	GtkWidget *rb_word;
 	GtkWidget *rb_plain;
 	GtkWidget *lb_version;
 	GtkWidget *lb_key;
@@ -101,6 +104,21 @@ static void on_filechooserdialog_response(GtkDialog *fdialog,
 	case GTK_RESPONSE_ACCEPT:
 		edata.filename =
 		    g_strdup(gtk_file_chooser_get_filename(filesel));
+		/* Word abre directamente HTML UTF-8 cuando lleva extensión .doc.
+		 * No cambiar una extensión que el usuario haya escrito de forma
+		 * explícita; solo añadimos .doc a un nombre sin extensión. */
+		if (d.format == 2 && edata.filename) {
+			gchar *lower_name = g_ascii_strdown(edata.filename, -1);
+			gboolean has_word_suffix =
+			    g_str_has_suffix(lower_name, ".doc") ||
+			    g_str_has_suffix(lower_name, ".docx");
+			g_free(lower_name);
+			if (!has_word_suffix) {
+				gchar *word_name = g_strconcat(edata.filename, ".doc", NULL);
+				g_free(edata.filename);
+				edata.filename = word_name;
+			}
+		}
 
 		main_export_content(edata, d.format);
 		break;
@@ -212,13 +230,15 @@ void on_dialog_export_passage_response(GtkDialog *dialog,
 		gtk_widget_destroy(GTK_WIDGET(dialog));
 		break;
 	case GTK_RESPONSE_OK:
-		if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(d.rb_html)))
+		if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(d.rb_word)))
+			d.format = 2; /* HTML UTF-8 con extensión compatible con Word */
+		else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(d.rb_html)))
 			d.format = 1;
 		else
 			d.format = 0;
 
 		edata.passage_type =
-		    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(d.rb_book)) ? BOOK : gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(d.rb_chapter)) ? CHAPTER
+		    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(d.rb_bible)) ? BIBLE : gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(d.rb_book)) ? BOOK : gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(d.rb_chapter)) ? CHAPTER
 																		      : gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(d.rb_verse)) ? VERSE : VERSE_RANGE;
 
 		edata.verse_num =
@@ -488,11 +508,13 @@ void gui_export_dialog(void)
 	dialog = UI_GET_ITEM(gxml, "dialog_export_passage");
 
 	d.rb_book = UI_GET_ITEM(gxml, "radiobutton1");
+	d.rb_bible = UI_GET_ITEM(gxml, "radiobutton_bible");
 	d.rb_chapter = UI_GET_ITEM(gxml, "radiobutton2");
 	d.rb_verse = UI_GET_ITEM(gxml, "radiobutton3");
 	d.rb_multi_verse = UI_GET_ITEM(gxml, "rb_multi_verse");
 	d.cb_versenum = UI_GET_ITEM(gxml, "check_versenum");
 	d.rb_html = UI_GET_ITEM(gxml, "radiobutton4");
+	d.rb_word = UI_GET_ITEM(gxml, "radiobutton6");
 	d.rb_plain = UI_GET_ITEM(gxml, "radiobutton5");
 	d.rb_copy = UI_GET_ITEM(gxml, "rb_copy");
 	d.rb_export = UI_GET_ITEM(gxml, "rb_export");
@@ -522,6 +544,10 @@ void gui_export_dialog(void)
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(d.rb_copy), TRUE);
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(d.rb_multi_verse),
 				     TRUE);
+	if (export_whole_book_default) {
+		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(d.rb_bible), TRUE);
+		export_whole_book_default = FALSE;
+	}
 
 	g_signal_connect(dialog, "response",
 			 G_CALLBACK(on_dialog_export_passage_response),
@@ -565,4 +591,10 @@ void gui_export_dialog(void)
 			 G_CALLBACK(on_cb_version_toggled), NULL);
 	g_signal_connect((gpointer)d.cb_reference_last, "toggled",
 			 G_CALLBACK(on_reference_last_toggled), NULL);
+}
+
+void gui_export_book_dialog(void)
+{
+	export_whole_book_default = TRUE;
+	gui_export_dialog();
 }

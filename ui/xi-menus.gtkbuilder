@@ -67,6 +67,14 @@
               </object>
             </child>
             <child>
+              <object class="GtkImageMenuItem" id="export_bible">
+                <property name="label" translatable="yes">Exportar Biblia/pasaje</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <signal name="activate" handler="on_export_bible_activate" swapped="no"/>
+              </object>
+            </child>
+            <child>
               <object class="GtkImageMenuItem" id="module_manager">
                 <property name="label" translatable="yes">_Instalar Biblias</property>
                 <property name="visible">True</property>
@@ -364,7 +372,7 @@
               <object class="GtkCheckMenuItem" id="commentary">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">_Comentario / libro</property>
+                <property name="label" translatable="yes">_Comentarios del autor</property>
                 <property name="use_underline">True</property>
                 <signal name="activate" handler="on_show_commentary_activate" swapped="no"/>
               </object>

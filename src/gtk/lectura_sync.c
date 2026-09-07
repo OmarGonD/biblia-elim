@@ -41,9 +41,13 @@
 
 #define LSYNC_MAX 4
 
+#define LSYNC_DND_TARGET "application/x-biblia-elim-lsync-slot"
+
 static gulong combo_changed_id[LSYNC_MAX];
 static GtkWidget *combo_slot[LSYNC_MAX];
 static GtkWidget *slot_box[LSYNC_MAX];
+static GtkWidget *drag_handle[LSYNC_MAX];
+static GtkWidget *btn_ord[LSYNC_MAX]; /* ⇄ between slot i and i+1 */
 static GtkWidget *btn_add = NULL;
 static GtkWidget *btn_install = NULL;
 static gboolean paned_positioned = FALSE;
@@ -232,6 +236,13 @@ lsync_apply_slot_visibility(int nslots)
 			gtk_widget_set_visible(slot_box[i], i < nslots);
 		if (combo_slot[i])
 			gtk_widget_set_hexpand(combo_slot[i], nslots == 1);
+		if (drag_handle[i])
+			gtk_widget_set_visible(drag_handle[i],
+					      nslots > 1 && i < nslots);
+		/* ⇄ lives between i and i+1: only if both slots are shown. */
+		if (btn_ord[i])
+			gtk_widget_set_visible(btn_ord[i],
+					      nslots > 1 && i < nslots - 1);
 	}
 	for (b = get_list(TEXT_LIST); b; b = b->next)
 		if (b->data)
@@ -273,6 +284,129 @@ lectura_sync_fill_combo(void)
 					 n_textos() > 1 && names[0] && master &&
 					     strcmp(names[0], master) != 0);
 	g_strfreev(names);
+}
+
+static void
+lsync_swap_slots(int a, int b)
+{
+	gchar **cur;
+	gchar *tmp;
+	int n = 0;
+
+	if (a == b || a < 0 || b < 0)
+		return;
+	cur = lsync_split();
+	while (cur[n])
+		n++;
+	if (a >= n || b >= n) {
+		g_strfreev(cur);
+		return;
+	}
+	tmp = cur[a];
+	cur[a] = cur[b];
+	cur[b] = tmp;
+	lsync_save(cur);
+	g_strfreev(cur);
+	lectura_sync_fill_combo();
+	ficha_strongs = FALSE;
+	main_lectura_sync_actualizar();
+}
+
+void
+gui_lectura_sync_intercambiar(int a, int b)
+{
+	lsync_swap_slots(a, b);
+}
+
+static void
+on_intercambiar(GtkButton *button, gpointer user_data)
+{
+	int i = GPOINTER_TO_INT(user_data);
+
+	(void)button;
+	lsync_swap_slots(i, i + 1);
+}
+
+static const GtkTargetEntry lsync_dnd_targets[] = {
+	{ (gchar *)LSYNC_DND_TARGET, GTK_TARGET_SAME_APP, 0 }
+};
+
+static void
+on_handle_realize(GtkWidget *w, gpointer data)
+{
+	GdkWindow *win = gtk_widget_get_window(w);
+	GdkCursor *c;
+
+	(void)data;
+	if (!win)
+		return;
+	c = gdk_cursor_new_from_name(gtk_widget_get_display(w), "grab");
+	if (c) {
+		gdk_window_set_cursor(win, c);
+		g_object_unref(c);
+	}
+}
+
+static void
+on_slot_drag_begin(GtkWidget *widget, GdkDragContext *context,
+		   gpointer user_data)
+{
+	(void)widget;
+	(void)user_data;
+	gtk_drag_set_icon_name(context, "view-list-symbolic", 8, 8);
+}
+
+static void
+on_slot_drag_data_get(GtkWidget *widget, GdkDragContext *context,
+		      GtkSelectionData *data, guint info, guint time,
+		      gpointer user_data)
+{
+	gchar buf[8];
+
+	(void)widget;
+	(void)context;
+	(void)info;
+	(void)time;
+	g_snprintf(buf, sizeof(buf), "%d", GPOINTER_TO_INT(user_data));
+	gtk_selection_data_set(data, gtk_selection_data_get_target(data),
+			       8, (const guchar *)buf, (gint)strlen(buf));
+}
+
+static void
+on_slot_drag_data_received(GtkWidget *widget, GdkDragContext *context,
+			   gint x, gint y, GtkSelectionData *data,
+			   guint info, guint time, gpointer user_data)
+{
+	const guchar *raw;
+	gint len = 0;
+	gchar *s;
+	int from, to;
+
+	(void)widget;
+	(void)context;
+	(void)x;
+	(void)y;
+	(void)info;
+	(void)time;
+	to = GPOINTER_TO_INT(user_data);
+	raw = gtk_selection_data_get_data_with_length(data, &len);
+	if (!raw || len <= 0)
+		return;
+	s = g_strndup((const gchar *)raw, len);
+	from = (int)g_ascii_strtoll(s, NULL, 10);
+	g_free(s);
+	lsync_swap_slots(from, to);
+}
+
+static void
+lsync_dnd_setup(GtkWidget *w, int slot)
+{
+	gtk_drag_dest_set(w, GTK_DEST_DEFAULT_ALL,
+			  lsync_dnd_targets, G_N_ELEMENTS(lsync_dnd_targets),
+			  GDK_ACTION_MOVE);
+	g_signal_connect(w, "drag-data-received",
+			 G_CALLBACK(on_slot_drag_data_received),
+			 GINT_TO_POINTER(slot));
 }
 
 void
@@ -620,8 +754,32 @@ gui_lectura_sync_wrap(GtkWidget *html_master)
 	{
 		int i;
 		for (i = 0; i < LSYNC_MAX; i++) {
-			GtkWidget *rm;
+			GtkWidget *rm, *grip;
 			slot_box[i] = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 2);
+			drag_handle[i] = gtk_event_box_new();
+			grip = gtk_image_new_from_icon_name("open-menu-symbolic",
+							    GTK_ICON_SIZE_MENU);
+			gtk_container_add(GTK_CONTAINER(drag_handle[i]), grip);
+			gtk_widget_set_tooltip_text(drag_handle[i],
+						    _("Arrastra sobre otra versión para intercambiar el orden"));
+			gtk_widget_set_valign(drag_handle[i], GTK_ALIGN_CENTER);
+			gtk_style_context_add_class(gtk_widget_get_style_context(drag_handle[i]),
+						    "elim-drag-handle");
+			gtk_drag_source_set(drag_handle[i], GDK_BUTTON1_MASK,
+					    lsync_dnd_targets,
+					    G_N_ELEMENTS(lsync_dnd_targets),
+					    GDK_ACTION_MOVE);
+			g_signal_connect(drag_handle[i], "drag-data-get",
+					 G_CALLBACK(on_slot_drag_data_get),
+					 GINT_TO_POINTER(i));
+			g_signal_connect(drag_handle[i], "drag-begin",
+					 G_CALLBACK(on_slot_drag_begin),
+					 GINT_TO_POINTER(i));
+			g_signal_connect(drag_handle[i], "realize",
+					 G_CALLBACK(on_handle_realize), NULL);
+			gtk_box_pack_start(GTK_BOX(slot_box[i]), drag_handle[i],
+					   FALSE, FALSE, 0);
+
 			combo_slot[i] = gtk_combo_box_text_new();
 			gtk_widget_set_valign(combo_slot[i], GTK_ALIGN_CENTER);
 			gtk_widget_set_hexpand(combo_slot[i], i == 0);
@@ -634,10 +792,31 @@ gui_lectura_sync_wrap(GtkWidget *html_master)
 						 GINT_TO_POINTER(i));
 				gtk_box_pack_start(GTK_BOX(slot_box[i]), rm, FALSE, FALSE, 0);
 			}
+			lsync_dnd_setup(drag_handle[i], i);
+			lsync_dnd_setup(slot_box[i], i);
+			lsync_dnd_setup(combo_slot[i], i);
 			gtk_widget_show_all(slot_box[i]);
 			if (i > 0)
 				gtk_widget_hide(slot_box[i]);
+			gtk_widget_hide(drag_handle[i]);
 			gtk_box_pack_start(GTK_BOX(hbox), slot_box[i], TRUE, TRUE, 0);
+
+			if (i < LSYNC_MAX - 1) {
+				btn_ord[i] = gtk_button_new_with_label("⇄");
+				gtk_button_set_relief(GTK_BUTTON(btn_ord[i]), GTK_RELIEF_NONE);
+				gtk_widget_set_tooltip_text(btn_ord[i],
+							    _("Intercambiar el orden de estas dos versiones"));
+#if GTK_CHECK_VERSION(3, 20, 0)
+				gtk_widget_set_focus_on_click(btn_ord[i], FALSE);
+#endif
+				gtk_style_context_add_class(gtk_widget_get_style_context(btn_ord[i]),
+							    "elim-swap-ord");
+				g_signal_connect(btn_ord[i], "clicked",
+						 G_CALLBACK(on_intercambiar),
+						 GINT_TO_POINTER(i));
+				gtk_box_pack_start(GTK_BOX(hbox), btn_ord[i],
+						   FALSE, FALSE, 0);
+			}
 		}
 		widgets.combo_lectura_sync = combo_slot[0];
 	}

@@ -135,7 +135,7 @@ static const BandaCmp bandas_claro[] = {
 
 static void
 append_un_versiculo(GString *html, const char *mod_name, const char *key_text,
-		    int slot)
+		    int slot, int nslots)
 {
 	SWModule *mod;
 	VerseKey *vk;
@@ -170,8 +170,20 @@ append_un_versiculo(GString *html, const char *mod_name, const char *key_text,
 
 	de = g_markup_escape_text(desc_de_modulo(mod_name), -1);
 	g_string_append_printf(html,
-			       "<p class=\"modh\" style=\"background-color:%s;color:%s\">%s</p>",
-			       b->head_bg, b->head_fg, de);
+			       "<p class=\"modh\" style=\"background-color:%s;color:%s\">",
+			       b->head_bg, b->head_fg);
+	if (nslots > 1 && slot > 0)
+		g_string_append_printf(html,
+				       "<a href=\"passagestudy.jsp?action=lsyncSwap&value=%d&type=up\" "
+				       "style=\"color:%s;text-decoration:none\">↑</a> ",
+				       slot, b->head_fg);
+	g_string_append(html, de);
+	if (nslots > 1 && slot < nslots - 1)
+		g_string_append_printf(html,
+				       " <a href=\"passagestudy.jsp?action=lsyncSwap&value=%d&type=down\" "
+				       "style=\"color:%s;text-decoration:none\">↓</a>",
+				       slot, b->head_fg);
+	g_string_append(html, "</p>");
 	g_free(de);
 
 	plain = mod->stripText();
@@ -254,25 +266,33 @@ lectura_sync_render_for(const char *key_text)
 	mods = settings.LecturaSyncModule
 		   ? g_strsplit(settings.LecturaSyncModule, ",", 4)
 		   : NULL;
-	for (i = 0; mods && mods[i]; i++) {
-		int j;
-		gboolean dup = FALSE;
+	{
+		const char *valid[4];
+		int nslots = 0;
 
-		g_strstrip(mods[i]);
-		if (!mods[i][0])
-			continue;
-		for (j = 0; j < i; j++) {
-			if (mods[j] && !strcmp(mods[j], mods[i])) {
-				dup = TRUE;
-				break;
+		for (i = 0; mods && mods[i] && nslots < 4; i++) {
+			int j;
+			gboolean dup = FALSE;
+
+			g_strstrip(mods[i]);
+			if (!mods[i][0])
+				continue;
+			for (j = 0; j < nslots; j++) {
+				if (!strcmp(valid[j], mods[i])) {
+					dup = TRUE;
+					break;
+				}
 			}
+			if (dup)
+				continue;
+			valid[nslots++] = mods[i];
 		}
-		if (dup)
-			continue;
-		if (any)
-			g_string_append_printf(html, "<hr color=\"%s\">", divider);
-		append_un_versiculo(html, mods[i], key_text, i);
-		any = TRUE;
+		for (i = 0; i < nslots; i++) {
+			if (any)
+				g_string_append_printf(html, "<hr color=\"%s\">", divider);
+			append_un_versiculo(html, valid[i], key_text, i, nslots);
+			any = TRUE;
+		}
 	}
 	g_strfreev(mods);
 	g_free(divider);

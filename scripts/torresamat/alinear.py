@@ -133,14 +133,14 @@ def alinea_capitulos(obs, canon_caps):
     return out
 
 def ensambla(sucesos, libros):
-    """Devuelve ({(osis,cap,ver): [trozos]}, [avisos])."""
+    """Devuelve (trozos, avisos, procedencia por versículo)."""
     obs = segmenta(sucesos)
     canon_caps = [(L["osis"], c, n)
                   for L in libros
                   for c, n in enumerate(L["versos"], start=1)]
     plan = alinea_capitulos(obs, canon_caps)
 
-    vers, avisos = {}, []
+    vers, avisos, procedencia = {}, [], {}
     for osis, cap, idxs in plan:
         if not idxs:
             avisos.append(f"{osis} {cap}: capítulo sin texto")
@@ -172,6 +172,8 @@ def ensambla(sucesos, libros):
                         continue
                     actual = (osis, cap, ver)
                     vers.setdefault(actual, []).append(s[2])
+                    if len(s) > 5 and s[5]:
+                        procedencia.setdefault(actual, []).append(s[5])
                 elif actual:
                     vers[actual].append(s[1])
-    return vers, avisos
+    return vers, avisos, procedencia

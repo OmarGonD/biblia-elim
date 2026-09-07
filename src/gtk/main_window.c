@@ -2786,7 +2786,7 @@ void create_mainwindow(void)
 	widgets.box_comm = gui_create_commentary_pane();
 	gtk_container_add(GTK_CONTAINER(widgets.notebook_comm_book), widgets.box_comm);
 
-	label = gtk_label_new(_("Commentary View"));
+	label = gtk_label_new(_("Comentarios del autor"));
 	gtk_widget_show(label);
 	gtk_notebook_set_tab_label(GTK_NOTEBOOK(widgets.notebook_comm_book), gtk_notebook_get_nth_page(GTK_NOTEBOOK(widgets.notebook_comm_book), 0), label);
 

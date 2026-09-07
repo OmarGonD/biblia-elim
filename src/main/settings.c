@@ -1159,12 +1159,9 @@ if (!settings.morph_heb_lex || strlen(settings.morph_heb_lex) == 0) {
 		settings.parallel_cantillationmarks = 0;
 	}
 
-	if ((buf = xml_get_value("parallel", "Footnotes")))
-		settings.parallel_footnotes = atoi(buf);
-	else {
-		xml_add_new_item_to_section("parallel", "Footnotes", "1");
-		settings.parallel_footnotes = 1;
-	}
+	/* Las notas se muestran exclusivamente en Comentarios del autor. */
+	settings.parallel_footnotes = 0;
+	xml_set_or_create_value("parallel", "Footnotes", "0");
 
 	if ((buf = xml_get_value("parallel", "Cross-references")))
 		settings.parallel_crossref = atoi(buf);

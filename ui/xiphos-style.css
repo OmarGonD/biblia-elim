@@ -807,6 +807,26 @@ button.highlight-swatch {
 	padding: 4px 10px;
 }
 
+/* Grip to drag a compared Bible onto another and swap their order. */
+.elim-drag-handle {
+	opacity: 0.45;
+	padding: 0 2px;
+}
+.elim-drag-handle:hover {
+	opacity: 0.95;
+}
+
+/* ⇄ between two compared Bibles in the Comparar strip. */
+button.elim-swap-ord {
+	padding: 0 4px;
+	min-width: 1.6em;
+	font-size: 1.15em;
+	opacity: 0.55;
+}
+button.elim-swap-ord:hover {
+	opacity: 1;
+}
+
 /* Dark variant: slightly cooler ink, keep the same geometry */
 .elim-dark headerbar,
 .elim-dark .elim-navbar,

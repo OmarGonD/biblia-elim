@@ -60,6 +60,7 @@
 #include "gui/utilities.h"
 #include "gui/widgets.h"
 #include "gui/elim_tema.h"
+#include "gui/export_dialog.h"
 
 #include "main/lists.h"
 #include "main/sword.h"
@@ -377,6 +378,14 @@ G_MODULE_EXPORT void
 on_preferences_activate(GtkMenuItem *menuitem, gpointer user_data)
 {
 	gui_setup_preferences_dialog();
+}
+
+G_MODULE_EXPORT void
+on_export_bible_activate(GtkMenuItem *menuitem, gpointer user_data)
+{
+	(void)menuitem;
+	(void)user_data;
+	gui_export_book_dialog();
 }
 
 /******************************************************************************
@@ -895,8 +904,20 @@ G_MODULE_EXPORT void
 on_show_commentary_activate(GtkCheckMenuItem *menuitem,
 			    gpointer user_data)
 {
-	gui_show_hide_comms(gtk_check_menu_item_get_active(menuitem));
+	gboolean show = gtk_check_menu_item_get_active(menuitem);
+
+	/* Esta opción representa específicamente los comentarios propios de
+	 * la edición, no la pestaña Libro ni las notas personales. */
+	if (show)
+		settings.comm_showing = TRUE;
+	gui_show_hide_comms(show);
 	redisplay_to_realign();
+	/* Una nota personal del versículo puede seleccionar temporalmente su
+	 * pestaña durante el redisplay; la acción explícita del menú debe ser
+	 * la última palabra. */
+	if (show)
+		gtk_notebook_set_current_page(
+		    GTK_NOTEBOOK(widgets.notebook_comm_book), 0);
 }
 
 /******************************************************************************

@@ -60,7 +60,8 @@ enum {
 	VERSE,
 	VERSE_RANGE,
 	HTML,
-	PLAIN
+	PLAIN,
+	BIBLE
 };
 
 int main_get_max_verses(const char *name);

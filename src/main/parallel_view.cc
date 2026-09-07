@@ -327,6 +327,10 @@ void main_set_parallel_options_at_start(void)
 {
 	char *value;
 	SWMgr *mgr = backend_p->get_mgr();
+	/* Las notas editoriales pertenecen al panel "Comentarios del autor".
+	 * Nunca se intercalan entre las versiones comparadas. */
+	settings.parallel_footnotes = 0;
+	mgr->setGlobalOption("Footnotes", "Off");
 
 	GList *tmp = backend->get_module_options();
 	while (tmp) {
@@ -381,15 +385,6 @@ void main_load_g_ops_parallel(GtkWidget *menu)
 	g_signal_connect(G_OBJECT(item), "activate",
 			 G_CALLBACK(main_set_parallel_module_global_options),
 			 (char *)"Strong's Numbers");
-
-	item = gtk_check_menu_item_new_with_label(_("Footnotes"));
-	gtk_widget_show(item);
-	gtk_container_add(GTK_CONTAINER(menu), item);
-
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), settings.parallel_footnotes);
-	g_signal_connect(G_OBJECT(item), "activate",
-			 G_CALLBACK(main_set_parallel_module_global_options),
-			 (char *)"Footnotes");
 
 	item = gtk_check_menu_item_new_with_label(_("Morphological Tags"));
 	gtk_widget_show(item);
@@ -636,6 +631,7 @@ void main_update_parallel_page(void)
 	GString *data;
 
 	settings.cvparallel = settings.currentverse;
+	backend_p->get_mgr()->setGlobalOption("Footnotes", "Off");
 
 	tmpBuf = g_strdup_printf(HTML_START
 				 "<body bgcolor=\"%s\" text=\"%s\" link=\"%s\"><table>",
@@ -1091,6 +1087,7 @@ static void interpolate_parallel_display(SWModule *control,
 static gboolean
 parallel_build_html(SWBuf &text, gint *parallel_count_out)
 {
+	backend_p->get_mgr()->setGlobalOption("Footnotes", "Off");
 	gchar buf[5000];
 	gint modidx, parallel_count, fraction;
 

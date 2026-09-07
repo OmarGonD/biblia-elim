@@ -232,6 +232,71 @@ static void _export_book(EXPORT_DATA data, int type)
 	g_string_free(str, TRUE);
 }
 
+/* Export the complete module, preserving book and chapter boundaries. */
+static void _export_bible(EXPORT_DATA data, int type)
+{
+	GString *str = g_string_new(NULL);
+	SWMgr *mgr = backend->get_mgr();
+	SWModule *mod = mgr->Modules[settings.MainWindowModule];
+	if (!mod) {
+		g_string_free(str, TRUE);
+		return;
+	}
+	mod->setKey(settings.currentverse);
+	VerseKey *key = (VerseKey *)(SWKey *)(*mod);
+	key->setTestament(1);
+	key->setBook(1);
+	key->setChapter(1);
+	key->setVerse(1);
+
+	if (type == HTML)
+		g_string_append_printf(str, "%s<h1>%s</h1>", HTML_START,
+				       (data.version ? mod->getDescription() : ""));
+	else
+		g_string_append_printf(str, "%s\n\n", (data.version ? mod->getDescription() : ""));
+
+	int curBook = 0;
+	int curChapter = 0;
+	int myVerse = 1;
+	while (!mod->popError()) {
+		if (key->getBook() != curBook) {
+			curBook = key->getBook();
+			curChapter = 0;
+			myVerse = 1;
+			char *book = backend->key_get_book(settings.MainWindowModule, key->getText());
+			if (type == HTML)
+				g_string_append_printf(str, "<h2>%s</h2>", book ? book : "");
+			else
+				g_string_append_printf(str, "\n%s\n", book ? book : "");
+			if (book)
+				g_free(book);
+		}
+		if (key->getChapter() != curChapter) {
+			curChapter = key->getChapter();
+			myVerse = 1;
+			if (type == HTML)
+				g_string_append_printf(str, data.chapterheader_book, curChapter);
+			else
+				g_string_append_printf(str, data.plain_chapterheader_book, curChapter);
+		}
+		if (data.verse_num)
+			g_string_append_printf(str, type == HTML ? data.versenumber : data.plain_versenumber, myVerse);
+		if (type == HTML)
+			g_string_append_printf(str, " %s%s", mod->renderText().c_str(), settings.versestyle ? "<br>" : "");
+		else
+			g_string_append_printf(str, " %s%s", mod->stripText(), settings.versestyle ? "\n" : "");
+		++myVerse;
+		(*mod)++;
+	}
+	if (type == HTML)
+		g_string_append(str, "</body></html>");
+	if (data.filename)
+		_save(data, str->str, str->len);
+	else
+		_copy_to_clipboard(data, str->str, str->len);
+	g_string_free(str, TRUE);
+}
+
 static void _export_chapter(EXPORT_DATA data, int type)
 {
 	GString *str = g_string_new(NULL);
@@ -446,6 +511,9 @@ void main_export_content(EXPORT_DATA data, gint format)
 	_set_global_textual("Footnotes", "Off");
 
 	switch (data.passage_type) {
+	case BIBLE:
+		_export_bible(data, style);
+		break;
 	case BOOK:
 		_export_book(data, style);
 		break;

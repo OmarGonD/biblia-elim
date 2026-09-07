@@ -1978,6 +1978,9 @@ GTKEntryDisp::display(SWModule &imodule)
 		gtk_widget_realize(gtkText);
 
 	const char *abbreviation = main_name_to_abbrev(imodule.getName());
+	const gboolean author_commentary =
+	    main_is_author_commentary_module(imodule.getName());
+	gchar *entry_heading = NULL;
 	buf = mod_column_count = NULL;
 	mf = get_font(imodule.getName());
 	swbuf = "";
@@ -2003,10 +2006,30 @@ GTKEntryDisp::display(SWModule &imodule)
 		mod_column_count = g_strdup_printf(" body { -webkit-column-count: %d } ", mf->columns_value);
 	}
 
+	if (author_commentary) {
+		gchar *citation = main_interlineal_cita_es(settings.currentverse);
+		const gchar *citation_text =
+		    (citation && *citation) ? citation :
+		    (settings.currentverse ? settings.currentverse : "");
+		gchar *escaped = g_markup_escape_text(
+		    citation_text, -1);
+		entry_heading = g_strdup_printf(
+		    "<div><font color=\"%s\"><b>%s</b></font></div><hr/>",
+		    settings.bible_verse_num_color, escaped);
+		g_free(escaped);
+		g_free(citation);
+	} else {
+		entry_heading = g_strdup_printf(
+		    "[<a href=\"passagestudy.jsp?action=showModInfo&amp;value=%s&amp;module=%s\">"
+		    "<font color=\"%s\">*%s*</font></a>]<br/>",
+		    imodule.getDescription(), imodule.getName(),
+		    settings.bible_verse_num_color,
+		    (abbreviation ? abbreviation : imodule.getName()));
+	}
+
 	swbuf.appendFormatted(HTML_START // //bgcolor=\"%s\" text=\"%s\" link=\"%s\">"
 			      "<font face=\"%s\" size=\"%+d\">"
-			      "[<a href=\"passagestudy.jsp?action=showModInfo&value=%s&module=%s\">"
-			      "<font color=\"%s\">*%s*</font></a>]<br/>",
+			      "%s",
 			      settings.bible_bg_color,
 			      settings.bible_text_color,
 			      settings.display_columns,
@@ -2025,10 +2048,8 @@ GTKEntryDisp::display(SWModule &imodule)
 			      get_css_references(imodule),
 			      ((mf->old_font) ? mf->old_font : ""),
 			      mf->old_font_size_value,
-			      imodule.getDescription(),
-			      imodule.getName(),
-			      settings.bible_verse_num_color,
-			      (abbreviation ? abbreviation : imodule.getName()));
+			      entry_heading);
+	g_free(entry_heading);
 
 	if (mod_column_count)	/* not empty => we created it, so free it. */
 		g_free(mod_column_count);
@@ -2124,10 +2145,13 @@ GTKEntryDisp::display(SWModule &imodule)
 		rework = CleanupContent(rework, ops, imodule.getName());
 	}
 
-	swbuf.append(settings.imageresize
-			 ? AnalyzeForImageSize(rework->str, CURRENT_COLUMNS,
-					       GDK_WINDOW(gtk_widget_get_window(gtkText)))
-			 : rework->str /* left as-is */);
+	if (author_commentary && (!rework->str || !*rework->str))
+		swbuf.append("<p><i>No hay comentario del autor para este versículo.</i></p>");
+	else
+		swbuf.append(settings.imageresize
+				 ? AnalyzeForImageSize(rework->str, CURRENT_COLUMNS,
+						       GDK_WINDOW(gtk_widget_get_window(gtkText)))
+				 : rework->str /* left as-is */);
 
 	swbuf.append("</div></font></body></html>");
 

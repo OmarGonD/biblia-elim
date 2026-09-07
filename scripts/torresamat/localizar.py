@@ -46,7 +46,7 @@ def mapa_paginas():
         ev, pags = sucesos_con_pagina(t, ambito)
         # reproducir el reparto por capítulo mirando el texto ya asignado
         libros = [POR_OSIS[o] for o in ORDEN[a:b]]
-        vers, _ = ensambla(ev, libros)
+        vers, _avisos, _procedencia = ensambla(ev, libros)
         # aproximación: se recorre en paralelo, atribuyendo cada versículo
         # leído al pliego donde apareció su primer trozo
         vistos = collections.defaultdict(list)

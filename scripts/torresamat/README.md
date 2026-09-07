@@ -41,6 +41,8 @@ Del `djvu.xml` sale cada palabra con su caja y su confianza.
 | `testigos.py` | Baja las otras Biblias instaladas y las deja consultables |
 | `corrector.py` | Decide errata o palabra preguntándole al pasaje |
 | `pasada.py` / `pasada_notas.py` | Aplican la corrección al texto y a las notas |
+| `pegadas.py` / `pasada_pegadas.py` | Parten las pegadas que el testigo del pasaje no alcanza (Yo os, Que con) |
+| `fusion.py` / `erratas.py` / `pasada_restos.py` | Parten versos fusionados y limpian yuestra, á4, números sueltos |
 | `notas.py` / `comentario.py` | Extraen las notas de Torres Amat y las publican como comentario |
 | `canon.py` | Versificación Vulgata leída de `canon_vulg.h` de SWORD |
 | `alinear.py` | Alinea los capítulos observados contra el canon |
@@ -62,6 +64,9 @@ sitio.
     # bajar los cuatro tomo*.djvu.xml del ítem de arriba
     python3 construir.py     # -> texto.json
     python3 rescatar.py      # añade los capítulos rescatados a mano
+    python3 pasada.py        # ortografía con las otras Biblias
+    python3 pasada_pegadas.py texto.json texto.json
+    python3 pasada_restos.py texto.json texto.json
     python3 osis.py          # -> torresamat.osis.xml
     osis2mod salida/ torresamat.osis.xml -v Vulg -z z
 
@@ -190,6 +195,35 @@ en "producid os", porque las seis son palabras. Hacen falta dos cosas más:
 Con la partición se elige siempre la de más trozos, que es la que explica
 la palabra entera: `Enelaño` es "En el año", no "Enel año".
 
+### Lo que el testigo del pasaje no alcanza
+
+Torres Amat tiene frases suyas. "Que con toda verdad os digo" no aparece
+así en la Reina-Valera ni en la Platense, y "os" es enclítico: el corrector
+dejaba `Quecon` y `Yoos`. Una segunda pasada (`pegadas.py`) pregunta al
+propio texto: si "yo os" ya sale cientos de veces bien separado y "Yoos"
+no es palabra de las otras Biblias, se parte. La pareja tiene que ser más
+frecuente que la forma pegada, para no abrir `contraer` en "con traer".
+
+`sies tu mano` se parte en "si es" por el posesivo que sigue; `Que sino
+amais` en "si no" porque viene un verbo; `Sila` el topónimo se deja.
+
+    python3 pasada_pegadas.py texto.json texto.json
+
+### Versículos fusionados y erratas de letra
+
+El número de verso es un superíndice diminuto: el OCR se lo come y el
+texto del N queda pegado al N-1. Mateo 5:26 traía el 27, el 27 salía
+en blanco y las flechas no avanzaban. `fusion.py` corta en la
+puntuación + mayúscula ("…maravedí. Habeis oido…") solo si la Platense
+reconoce el trozo de la derecha como el verso que faltaba. 390
+versículos recuperados.
+
+`erratas.py` atiende lo que el corrector de pasaje no toca porque
+cambia la primera letra o no sale en las otras Biblias: `yuestra` →
+`vuestra`, `jurarels` → `jurareis`, `perezeca` → `perezca`, `á4` → `á`.
+
+    python3 pasada_restos.py texto.json texto.json
+
 ## Las notas, por capítulo y no por versículo
 
 Las notas son medio libro y el segmentador ya las separaba; lo que no se
@@ -213,8 +247,12 @@ pronunciarse, lo que no quiere decir que estén mal. Lo que falta sale en
 blanco, repartido: son versículos sueltos, no bloques.
 
 Tras la pasada de ortografía siguen quedando erratas sueltas dentro de los
-versículos: el corrector solo toca lo inequívoco. La colocación está
-comprobada; la ortografía, mejorada pero no garantizada.
+versículos: el corrector solo toca lo inequívoco. La segunda pasada
+(`pegadas.py`) parte 1.295 pegadas más en 1.268 versículos -- `Yo os`,
+`Que con`, `si es` -- que el testigo del pasaje no alcanzaba. Una tercera
+(`fusion.py`, `erratas.py`) recupera 390 versos fusionados y limpia
+`yuestra`, `á4` y la basura de lámina. La colocación está comprobada; la
+ortografía, mejorada pero no garantizada.
 
 `revisar.txt` lleva el resultado del cotejo y la lista de los 23
 capítulos sobre los que no se puede opinar.

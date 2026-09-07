@@ -11,6 +11,7 @@ GtkWidget *gui_lectura_sync_wrap(GtkWidget *html_master);
 void gui_lectura_sync_set_visible(gboolean visible);
 void gui_lectura_sync_actualizar(void);
 void gui_lectura_sync_rellenar_combo(void);
+void gui_lectura_sync_intercambiar(int a, int b);
 void gui_lectura_sync_set_ref(const char *ref);
 void gui_lectura_sync_escribir(const char *html);
 void gui_lectura_sync_ficha_nota(const char *mod, const char *osis,

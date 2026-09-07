@@ -1219,6 +1219,39 @@ void main_display_commentary(const char *mod_name,
 			      settings.showdicts);
 }
 
+/* Comentario propio de la edición que ocupa el panel bíblico.  Platense
+ * se normaliza durante la instalación a SpaPlatenseComentarios; las dos
+ * ediciones OCR ya publican sus notas como zCom independientes. */
+static const char *author_commentary_for_bible(const char *bible)
+{
+	if (!bible) return NULL;
+	if (!strcmp(bible, "SpaPlatense")) return "SpaPlatenseComentarios";
+	if (!strcmp(bible, "NacarColunga")) return "NacarColungaNotas";
+	if (!strcmp(bible, "TorresAmat")) return "TorresAmatNotas";
+	return NULL;
+}
+
+gboolean main_is_author_commentary_module(const char *mod_name)
+{
+	return mod_name &&
+	       (!strcmp(mod_name, "SpaPlatenseComentarios") ||
+		!strcmp(mod_name, "NacarColungaNotas") ||
+		!strcmp(mod_name, "TorresAmatNotas"));
+}
+
+static void main_display_author_commentary(const char *bible, const char *key)
+{
+	const char *commentary = author_commentary_for_bible(bible);
+	if (!settings.showcomms || !settings.comm_showing)
+		return;
+	if (commentary && backend->is_module(commentary)) {
+		main_display_commentary(commentary, key);
+		return;
+	}
+	HtmlOutput((char *)"<html><body><p><i>Esta edición no tiene comentarios del autor instalados.</i></p></body></html>",
+		   widgets.html_comm, NULL, NULL);
+}
+
 void main_display_dictionary(const char *mod_name,
 			     const char *key)
 {
@@ -1599,6 +1632,7 @@ after_display:
 			      settings.showcomms,
 			      settings.showdicts);
 	gui_set_tab_label(settings.currentverse, FALSE);
+	main_display_author_commentary(mod_name, settings.currentverse);
 
 	gui_change_window_title(settings.MainWindowModule);
 	// (called _after_ tab data updated so not overwritten with old tab)
