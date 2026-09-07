@@ -55,6 +55,8 @@ struct _WkHtmlPriv
 	gchar *mime;
 	gchar *find_string;
 	GArray *find_matches;	/* Coincidencia[]: todo lo hallado, en orden */
+	gchar *find_normalized;	/* texto del buffer sin tildes, reutilizable */
+	GArray *find_map;		/* offsets de find_normalized -> buffer */
 	gint find_current;	/* la coincidencia enfocada, o -1 si ninguna */
 	gboolean initialised;
 	gchar *base_uri;

@@ -776,10 +776,10 @@ void redisplay_to_realign()
 	}
 
 	settings.comm_showing = save_comm_show;
-	/* no expulsar al usuario de la pestaña "Notas" (índice 2) por un
+	/* no expulsar al usuario de la pestaña "Notas" (índice 1) por un
 	 * realineado de rutina -- ver el mismo guard en
 	 * gui_set_bible_comm_layout(), main_window.c. */
-	if (gtk_notebook_get_current_page(GTK_NOTEBOOK(widgets.notebook_comm_book)) != 2)
+	if (gtk_notebook_get_current_page(GTK_NOTEBOOK(widgets.notebook_comm_book)) != 1)
 		gtk_notebook_set_current_page(GTK_NOTEBOOK(widgets.notebook_comm_book),
 					      (settings.comm_showing ? 0 : 1));
 

@@ -689,6 +689,7 @@ char *main_get_path_to_mods(void)
 
 typedef std::map<SWBuf, SWBuf> ModLanguageMap;
 ModLanguageMap languageMap;
+static gboolean languageMapLoaded = FALSE;
 
 void main_init_language_map()
 {
@@ -697,6 +698,10 @@ void main_init_language_map()
 	gchar *s, *end, *abbrev, *name, *newline;
 	gchar *mapspace;
 	size_t length;
+
+	if (languageMapLoaded)
+		return;
+	languageMapLoaded = TRUE;
 
 	language_file = gui_general_user_file("languages", FALSE);
 	if (language_file) {
@@ -771,6 +776,7 @@ void main_init_language_map()
 
 const char *main_get_language_map(const char *language)
 {
+	main_init_language_map();
 	if (language == NULL)
 		return "Unknown";
 	return languageMap[language].c_str();

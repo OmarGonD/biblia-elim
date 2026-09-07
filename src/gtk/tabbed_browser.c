@@ -1153,7 +1153,7 @@ void gui_notebook_main_switch_page(GtkNotebook *notebook,
 				      (pt->comm_showing ? 0 : 1));
 
 	/* lo de arriba acaba de restaurar la memoria de la pestaña
-	 * (visibilidad y página del panel Comentario/Libro/Notas), que
+	 * (visibilidad y página del panel Comentario/Notas), que
 	 * puede estar desactualizada respecto de si el versículo que
 	 * quedó enfocado tiene o no una nota guardada -- corregir siempre
 	 * después, como última palabra. */

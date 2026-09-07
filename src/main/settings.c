@@ -351,8 +351,6 @@ int settings_init(int argc, char **argv, int new_configs,
 
 	/* moved here from crud locations in backend. */
 
-	main_init_language_map();
-
 	language_init();
 
 	init_bookmarks(new_bookmarks);

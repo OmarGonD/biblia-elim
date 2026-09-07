@@ -252,7 +252,11 @@ void note_set_whole_verse(const gchar *module, const gchar *osisref,
 void note_remove_whole_verse(const gchar *module, const gchar *osisref);
 char *note_get_whole_verse_color(const gchar *module, const gchar *osisref);
 void highlight_set_verse_note(const gchar *module, const gchar *osisref,
-			      const gchar *note);
+				  const gchar *note);
+void highlight_add_verse_note(const gchar *module, const gchar *osisref,
+				  const gchar *note);
+void highlight_set_verse_note_by_key(const gchar *note_key, const gchar *note);
+void highlight_remove_verse_note_by_key(const gchar *note_key);
 char *highlight_get_verse_note(const gchar *module, const gchar *osisref);
 
 /* Identidad estable de una nota, para poder enlazarla con otras. */

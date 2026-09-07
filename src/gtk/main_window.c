@@ -1427,11 +1427,23 @@ new_open_bible_toggle(const char *tooltip)
 
 void gui_set_bible_comm_layout(void)
 {
+	gint biblepane_width = settings.biblepane_width;
+	/* A restored layout may contain an old, very narrow text-pane width.
+	 * When comments are enabled, keep the Bible pane at least 55% of the
+	 * available horizontal space so the commentary never takes over the
+	 * window.  User drag-resizing still updates settings.biblepane_width. */
+	if (settings.showcomms && widgets.hpaned) {
+		gint allocated_width = gtk_widget_get_allocated_width(widgets.hpaned);
+		if (allocated_width > 0)
+			biblepane_width = MAX(biblepane_width,
+					      (allocated_width * 55) / 100);
+	}
+
 	if (settings.reading_mode)
 		return;
 
 	gtk_paned_set_position(GTK_PANED(widgets.hpaned),
-			       settings.biblepane_width);
+			       biblepane_width);
 	gtk_paned_set_position(GTK_PANED(widgets.vpaned),
 			       settings.biblepane_height);
 	gtk_paned_set_position(GTK_PANED(widgets.vpaned2),
@@ -1443,7 +1455,7 @@ void gui_set_bible_comm_layout(void)
 
 	gtk_paned_set_position(GTK_PANED(widgets.hpaned),
 			       (settings.showtexts
-				    ? settings.biblepane_width
+				    ? biblepane_width
 				    : 0));
 
 	gtk_paned_set_position(GTK_PANED(widgets.vpaned2),
@@ -1464,7 +1476,7 @@ void gui_set_bible_comm_layout(void)
 
 	if ((settings.showcomms == TRUE) || (settings.showdicts == TRUE)) {
 		gtk_paned_set_position(GTK_PANED(widgets.hpaned),
-				       settings.biblepane_width);
+				       biblepane_width);
 	}
 	if (((settings.showcomms == FALSE) && (settings.showtexts == FALSE)) || ((settings.comm_showing == FALSE) && (settings.showtexts == FALSE)))
 		gtk_widget_hide(widgets.nav_toolbar);
@@ -1472,13 +1484,12 @@ void gui_set_bible_comm_layout(void)
 		gtk_widget_show(widgets.nav_toolbar);
 
 	/* Esta función se llama muy seguido (resize, cambios de layout
-	 * ajenos) y hasta acá solo sabía de las pestañas Comentario(0)/
-	 * Libro(1). No tocar la página si ya está en la pestaña "Notas"
-	 * (índice 2, agregada en main_window.c junto a notas_verso.c) --
+	 * ajenos). No tocar la página si ya está en la pestaña "Notas"
+	 * (índice 1, después de retirar la vista de libro) --
 	 * si no, cada una de esas llamadas de rutina expulsaba al usuario
 	 * de la nota que gui_verse_notes_panel_actualizar() acababa de
 	 * abrirle. */
-	if (gtk_notebook_get_current_page(GTK_NOTEBOOK(widgets.notebook_comm_book)) != 2)
+	if (gtk_notebook_get_current_page(GTK_NOTEBOOK(widgets.notebook_comm_book)) != 1)
 		gtk_notebook_set_current_page(GTK_NOTEBOOK(widgets.notebook_comm_book),
 					      (settings.comm_showing ? 0 : 1));
 }
@@ -1726,7 +1737,7 @@ static void on_notebook_comm_book_switch_page(GtkNotebook *notebook,
 	/* pestaña "Notas": tiene su propia gestión de contenido
 	 * (gui_verse_notes_panel_actualizar()), no participa del
 	 * mecanismo comm/book de abajo. */
-	if (page_num == 2)
+	if (page_num == 1)
 		return;
 
 	if (page_num == 0) {
@@ -2038,8 +2049,7 @@ static gboolean on_vbox1_key_press_event(GtkWidget *widget, GdkEventKey *event,
 	case XK_g:
 	case XK_G:
 		if (state == GDK_MOD1_MASK) { // Alt-G  genbook entry
-			gtk_notebook_set_current_page(GTK_NOTEBOOK(widgets.notebook_comm_book),
-						      1);
+			/* La vista genbook ya no tiene una pestaña visible. */
 			gtk_widget_grab_focus(navbar_book.lookup_entry);
 		}
 		break;
@@ -2790,13 +2800,10 @@ void create_mainwindow(void)
 	gtk_widget_show(label);
 	gtk_notebook_set_tab_label(GTK_NOTEBOOK(widgets.notebook_comm_book), gtk_notebook_get_nth_page(GTK_NOTEBOOK(widgets.notebook_comm_book), 0), label);
 
-	// Book pane
+	// Keep the book pane alive for the genbook backend, but do not add it to
+	// the visible notebook: the pane is empty for the Bible study workflow.
 	box_book = gui_create_book_pane();
-	gtk_container_add(GTK_CONTAINER(widgets.notebook_comm_book), box_book);
-
-	label = gtk_label_new(_("Book View"));
-	gtk_widget_show(label);
-	gtk_notebook_set_tab_label(GTK_NOTEBOOK(widgets.notebook_comm_book), gtk_notebook_get_nth_page(GTK_NOTEBOOK(widgets.notebook_comm_book), 1), label);
+	g_object_ref(box_book);
 
 	// Notas pane (nota del versículo enfocado)
 	{
@@ -2804,7 +2811,7 @@ void create_mainwindow(void)
 		gtk_container_add(GTK_CONTAINER(widgets.notebook_comm_book), box_notas);
 		label = gtk_label_new(_("Notas"));
 		gtk_widget_show(label);
-		gtk_notebook_set_tab_label(GTK_NOTEBOOK(widgets.notebook_comm_book), gtk_notebook_get_nth_page(GTK_NOTEBOOK(widgets.notebook_comm_book), 2), label);
+		gtk_notebook_set_tab_label(GTK_NOTEBOOK(widgets.notebook_comm_book), gtk_notebook_get_nth_page(GTK_NOTEBOOK(widgets.notebook_comm_book), 1), label);
 	}
 
 	// Dict/Devotional notebook

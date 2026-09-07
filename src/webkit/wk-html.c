@@ -337,12 +337,23 @@ ctx_offset(ParseCtx *ctx)
 static void
 ctx_append(ParseCtx *ctx, const char *text, gssize len)
 {
+	const guchar *p;
+	const guchar *end;
+	gint chars;
+
 	if (len < 0)
 		len = (gssize)strlen(text);
 	if (!len)
 		return;
 	g_string_append_len(ctx->pending, text, len);
-	ctx->pend_chars += (gint)g_utf8_strlen(text, len);
+	/* UTF-8 continuation bytes do not start a character.  Counting starts
+	 * this way is one pass for both ASCII and translated/original-language
+	 * text, while g_utf8_strlen() would decode every code point. */
+	end = (const guchar *)text + len;
+	chars = 0;
+	for (p = (const guchar *)text; p < end; p++)
+		chars += ((*p & 0xC0) != 0x80);
+	ctx->pend_chars += chars;
 }
 
 static void
@@ -1239,7 +1250,7 @@ insert_table(ParseCtx *ctx, xmlNode *table_node)
 	if (!ctx->html || !ctx->html->priv->view)
 		return;
 
-	rows = g_ptr_array_new();
+	rows = g_ptr_array_sized_new(16);
 	collect_rows(table_node, rows);
 	if (rows->len == 0) {
 		g_ptr_array_free(rows, TRUE);
@@ -1247,7 +1258,7 @@ insert_table(ParseCtx *ctx, xmlNode *table_node)
 	}
 
 	for (r = 0; r < (gint)rows->len; r++) {
-		GPtrArray *cells = g_ptr_array_new();
+		GPtrArray *cells = g_ptr_array_sized_new(8);
 		row_cells(g_ptr_array_index(rows, r), cells);
 		if ((gint)cells->len > ncols)
 			ncols = (gint)cells->len;
@@ -1262,7 +1273,7 @@ insert_table(ParseCtx *ctx, xmlNode *table_node)
 	for (r = 0; r < ncols; r++)
 		pct[r] = 100.0 / ncols;
 	for (r = 0; r < (gint)rows->len; r++) {
-		GPtrArray *cells = g_ptr_array_new();
+		GPtrArray *cells = g_ptr_array_sized_new(8);
 		gint c;
 		row_cells(g_ptr_array_index(rows, r), cells);
 		for (c = 0; c < (gint)cells->len; c++) {
@@ -1290,7 +1301,7 @@ insert_table(ParseCtx *ctx, xmlNode *table_node)
 		xmlNode *row_node = g_ptr_array_index(rows, r);
 		char *row_bg = el_prop(row_node, "bgcolor");
 		const char *fallback_bg = (row_bg && *row_bg) ? row_bg : ctx->body_bg;
-		GPtrArray *cells = g_ptr_array_new();
+		GPtrArray *cells = g_ptr_array_sized_new(8);
 		gint c;
 
 		row_cells(row_node, cells);
@@ -1566,6 +1577,14 @@ links_reset(WkHtmlPrivate *priv)
 }
 
 static void
+find_cache_clear(WkHtmlPrivate *priv)
+{
+	g_clear_pointer(&priv->find_normalized, g_free);
+	if (priv->find_map)
+		g_array_set_size(priv->find_map, 0);
+}
+
+static void
 apply_body_colors(WkHtml *html, const char *bg, const char *fg)
 {
 	gchar *css;
@@ -1675,6 +1694,7 @@ load_html(WkHtml *html)
 	fresh = gtk_text_buffer_new(NULL);
 	free_anchor_list(priv);
 	links_reset(priv);
+	find_cache_clear(priv);
 	priv->buffer = fresh;
 	/* El buffer es otro: lo hallado en el anterior ya no señala a
 	 * ningún sitio. La búsqueda se repite en wk_html_close(), cuando
@@ -1683,7 +1703,7 @@ load_html(WkHtml *html)
 		g_array_set_size(priv->find_matches, 0);
 	priv->find_current = -1;
 	ensure_stock_tags(fresh);
-	kids = g_ptr_array_new();
+	kids = g_ptr_array_sized_new(64);
 
 	if (!priv->content) {
 		attach_buffer(priv, fresh, kids);
@@ -1697,8 +1717,14 @@ load_html(WkHtml *html)
 	ctx.at_line_start = TRUE;
 	ctx.st.scale = 1.0;
 	ctx.scratch = g_string_sized_new(256);
-	ctx.pending = g_string_sized_new(8192);
-	ctx.spans = g_array_new(FALSE, FALSE, sizeof(TagSpan));
+	/* The final plain-text buffer is normally no larger than the source
+	 * HTML.  Reserving that space up front avoids repeated realloc/copy
+	 * cycles when opening an entire book; generated chips can still grow it
+	 * beyond this size through GString's normal growth path. */
+	ctx.pending = g_string_sized_new(MAX((gsize)8192, priv->content_len));
+	ctx.spans = g_array_sized_new(FALSE, FALSE, sizeof(TagSpan),
+				      (guint)MIN(MAX(priv->content_len / 16,
+						       (gsize)128), (gsize)65536));
 	stock_tags_fill(fresh, &ctx.tags);
 
 	doc = htmlReadMemory(priv->content, (int)priv->content_len,
@@ -2363,6 +2389,9 @@ html_finalize(GObject *object)
 	g_free(priv->find_string);
 	if (priv->find_matches)
 		g_array_free(priv->find_matches, TRUE);
+	g_free(priv->find_normalized);
+	if (priv->find_map)
+		g_array_free(priv->find_map, TRUE);
 	g_free(priv->hover_uri);
 	if (priv->css)
 		g_object_unref(priv->css);
@@ -2378,8 +2407,8 @@ wk_html_init(WkHtml *html)
 	html->priv = priv = wk_html_get_instance_private(html);
 	memset(priv, 0, sizeof(*priv));
 	priv->anchor_ht = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, NULL);
-	priv->anchor_list = g_ptr_array_new();
-	priv->links = g_array_new(FALSE, FALSE, sizeof(Link));
+	priv->anchor_list = g_ptr_array_sized_new(128);
+	priv->links = g_array_sized_new(FALSE, FALSE, sizeof(Link), 256);
 
 	gtk_orientable_set_orientation(GTK_ORIENTABLE(html), GTK_ORIENTATION_VERTICAL);
 	gtk_widget_set_hexpand(GTK_WIDGET(html), TRUE);
@@ -2627,8 +2656,8 @@ find_reset(WkHtml *html)
 	GtkTextIter a, b;
 
 	if (!priv->find_matches)
-		priv->find_matches = g_array_new(FALSE, FALSE,
-						 sizeof(Coincidencia));
+		priv->find_matches = g_array_sized_new(FALSE, FALSE,
+						       sizeof(Coincidencia), 64);
 	else
 		g_array_set_size(priv->find_matches, 0);
 	priv->find_current = -1;
@@ -2661,7 +2690,8 @@ wk_html_find_all(WkHtml *html, const gchar *find_string)
 {
 	WkHtmlPrivate *priv;
 	GArray *mapa;
-	gchar *texto, *neutro, *aguja;
+	gchar *texto, *aguja;
+	const gchar *neutro;
 	const gchar *p, *golpe;
 	gint offset = 0, largo;
 	guint i;
@@ -2688,11 +2718,26 @@ wk_html_find_all(WkHtml *html, const gchar *find_string)
 	/* get_slice y no get_text: el texto lleva anclas de widgets y solo
 	 * el primero las cuenta, que es como las cuenta GtkTextIter. Sin
 	 * eso los desplazamientos irían corridos. */
-	gtk_text_buffer_get_bounds(priv->buffer, &a, &b);
-	texto = gtk_text_buffer_get_slice(priv->buffer, &a, &b, TRUE);
-
-	mapa = g_array_new(FALSE, FALSE, sizeof(gint));
-	neutro = elim_tildes_neutro(texto, mapa);
+	/* Normalizing the whole buffer is the expensive part of a search. Keep
+	 * the normalized text and its offset map for subsequent queries while
+	 * this buffer remains installed; load_html() invalidates both together
+	 * with the buffer. */
+	if (!priv->find_normalized) {
+		gtk_text_buffer_get_bounds(priv->buffer, &a, &b);
+		texto = gtk_text_buffer_get_slice(priv->buffer, &a, &b, TRUE);
+		if (!priv->find_map)
+			priv->find_map = g_array_sized_new(
+			    FALSE, FALSE, sizeof(gint),
+			    (guint)MIN(gtk_text_buffer_get_char_count(priv->buffer) + 1,
+				       (gint)G_MAXUINT));
+		else
+			g_array_set_size(priv->find_map, 0);
+		priv->find_normalized = elim_tildes_neutro(texto,
+							 priv->find_map);
+		g_free(texto);
+	}
+	neutro = priv->find_normalized;
+	mapa = priv->find_map;
 	aguja = elim_tildes_neutro(priv->find_string, NULL);
 	largo = (gint)g_utf8_strlen(aguja, -1);
 
@@ -2721,10 +2766,7 @@ wk_html_find_all(WkHtml *html, const gchar *find_string)
 		gtk_text_buffer_apply_tag_by_name(priv->buffer, "find-hl", &s, &e);
 	}
 
-	g_free(texto);
-	g_free(neutro);
 	g_free(aguja);
-	g_array_free(mapa, TRUE);
 
 	g_signal_emit(html, signals[FIND_UPDATED], 0);
 	return (gint)priv->find_matches->len;

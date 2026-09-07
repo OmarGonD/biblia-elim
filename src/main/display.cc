@@ -774,6 +774,73 @@ highlight_set_verse_note(const gchar *module, const gchar *osisref, const gchar 
 	g_free(existing_color);
 }
 
+/* Add/edit/remove whole-verse notes without overwriting the legacy single
+ * note stored under "module osisref". New notes use a stable suffix in the
+ * XML label (and therefore get their own identity in the notes list). */
+extern "C" void
+highlight_add_verse_note(const gchar *module, const gchar *osisref,
+				 const gchar *note)
+{
+	gchar *label, *value;
+	if (!module || !osisref || !note || !*note)
+		return;
+	label = g_strdup_printf("%s %s#MV%" G_GINT64_FORMAT, module, osisref,
+				       g_get_monotonic_time());
+	value = encode_note_value(NULL, "", note, -1);
+	xml_set_list_item("osisrefnotes", "note", label, value);
+	xml_save_settings_doc(settings.fnconfigure);
+	notesCacheFill(settings.MainWindowModule, settings.currentverse);
+	g_free(value);
+	g_free(label);
+}
+
+static gchar *whole_note_label_from_key(const gchar *note_key)
+{
+	const gchar *body;
+	if (!note_key || !g_str_has_prefix(note_key, "MV:"))
+		return NULL;
+	body = note_key + 3;
+	return g_strdup_printf("%s %s", note_cache_modname ? note_cache_modname :
+				       settings.MainWindowModule, body);
+}
+
+extern "C" void
+highlight_set_verse_note_by_key(const gchar *note_key, const gchar *note)
+{
+	gchar *label, *value;
+	if (!note || !*note)
+		return;
+	label = whole_note_label_from_key(note_key);
+	if (!label)
+		return;
+	value = xml_get_list_from_label("osisrefnotes", "note", label);
+	if (value) {
+		gchar *color = NULL, *text = NULL, *old_note = NULL;
+		gint pos = -1;
+		if (decode_note_value(value, &color, &text, &old_note, &pos)) {
+			gchar *newval = encode_note_value(color, text, note, pos);
+			xml_set_list_item("osisrefnotes", "note", label, newval);
+			g_free(newval); g_free(color); g_free(text); g_free(old_note);
+		}
+		g_free(value);
+		xml_save_settings_doc(settings.fnconfigure);
+		notesCacheFill(settings.MainWindowModule, settings.currentverse);
+	}
+	g_free(label);
+}
+
+extern "C" void
+highlight_remove_verse_note_by_key(const gchar *note_key)
+{
+	gchar *label = whole_note_label_from_key(note_key);
+	if (label) {
+		xml_remove_node("osisrefnotes", "note", label);
+		xml_save_settings_doc(settings.fnconfigure);
+		notesCacheFill(settings.MainWindowModule, settings.currentverse);
+		g_free(label);
+	}
+}
+
 extern "C" char *
 highlight_get_verse_note(const gchar *module, const gchar *osisref)
 {
@@ -940,9 +1007,14 @@ highlight_list_notes(const gchar *osis_prefix)
 			n->text = whole_verse ? NULL : g_strdup(h->text);
 			n->note = g_strdup(h->note);
 			n->color = h->color ? g_strdup(h->color) : NULL;
-			n->note_key = whole_verse
-					  ? highlight_note_key_verse(h->osisref)
-					  : highlight_note_key_group(gid);
+			if (whole_verse) {
+				gchar *hash = strrchr(h->label, '#');
+				n->note_key = (hash && hash[1])
+					  ? g_strdup_printf("MV:%s#%s", h->osisref, hash + 1)
+					  : highlight_note_key_verse(h->osisref);
+			} else {
+				n->note_key = highlight_note_key_group(gid);
+			}
 			n->chapter_verse = (*it).first;
 			out = g_list_append(out, n);
 		}
