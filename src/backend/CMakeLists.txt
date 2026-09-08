@@ -17,6 +17,7 @@
 #
 
 # build backend
+pkg_check_modules(XML2 REQUIRED IMPORTED_TARGET libxml-2.0)
 
 add_library (backend STATIC
   bible_backend.h
@@ -33,10 +34,14 @@ add_library (backend STATIC
   module_manager.cc
   usfm_importer.cc
   usfm_importer.h
+  osis_importer.cc
+  osis_importer.h
   sqlite_module_manager.cc
   sqlite_module_manager.h
   sqlite/sqlite_bible_backend.cc
   sqlite/sqlite_bible_backend.h
+  sqlite/sqlite_module_writer.cc
+  sqlite/sqlite_module_writer.h
   sword_main.cc
   sword/sword_backend.cc
   sword/sword_backend.h
@@ -50,9 +55,18 @@ add_executable (biblia-usfm-import
   bible_book_map.cc
   strong_id.cc
   bible_book_map.h
+  sqlite/sqlite_module_writer.cc
+  sqlite/sqlite_module_writer.h
   )
 target_include_directories (biblia-usfm-import PRIVATE PkgConfig::Sqlite3)
 target_link_libraries (biblia-usfm-import PRIVATE PkgConfig::Sqlite3)
+
+add_executable (biblia-osis-import EXCLUDE_FROM_ALL
+  osis_import_main.cc osis_importer.cc osis_importer.h
+  bible_book_map.cc strong_id.cc
+  sqlite/sqlite_module_writer.cc sqlite/sqlite_module_writer.h)
+target_include_directories (biblia-osis-import PRIVATE PkgConfig::Core PkgConfig::Sqlite3 PkgConfig::XML2)
+target_link_libraries (biblia-osis-import PRIVATE PkgConfig::Core PkgConfig::Sqlite3 PkgConfig::XML2)
 # Add alias
 add_library(Xiphos::Backend ALIAS backend)
 
@@ -66,6 +80,7 @@ target_include_directories(backend
   PkgConfig::Gnome
   PkgConfig::Soup
   PkgConfig::Sqlite3
+  PkgConfig::XML2
   PkgConfig::Sword
   )
 
@@ -78,6 +93,7 @@ target_link_libraries(backend
   PkgConfig::Gnome
   PkgConfig::Soup
   PkgConfig::Sqlite3
+  PkgConfig::XML2
   PkgConfig::Sword
   )
 

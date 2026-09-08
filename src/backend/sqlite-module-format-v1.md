@@ -115,6 +115,16 @@ Readers open modules read-only.
 
 ## Example and scope
 
-`tests/fixtures/sqlite/test-bible.sql` is a complete v1 example. This format
-does not yet define Strong, morphology, notes, comments, dictionaries,
-compression, packages, or import formats.
+`footnotes` and `cross_references` are optional v1 tables. They use
+`(book_id,chapter,verse,sequence)` keys plus a byte `offset`; footnotes store
+caller/body and cross-references store cleaned display text. Their metadata
+flags are enabled only when at least one valid row was imported, and readers
+downgrade inconsistent declarations to false. USFM import currently supports
+`\\f`/`\\x` with `\\ft`, `\\fq`, `\\fqa`, `\\fk`, `\\fl`, `\\fw`, `\\fp`, `\\fv`,
+`\\xo`, `\\xk`, `\\xq`, and `\\xt` content; unsupported submarkers are cleaned
+without entering `verses.text`. Cross-reference target resolution is best
+effort and unresolved text remains in `display_text`.
+
+`tests/fixtures/sqlite/test-bible.sql` is a complete v1 example. The format
+does not define morphology, comments, dictionaries, compression, packages, or
+other import formats.

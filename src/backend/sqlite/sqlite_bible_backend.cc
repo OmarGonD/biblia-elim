@@ -1,5 +1,6 @@
 #include "backend/sqlite/sqlite_bible_backend.h"
 #include "backend/strong_id.h"
+#include "backend/bible_book_map.h"
 
 #include <sqlite3.h>
 
@@ -25,7 +26,7 @@ struct Module {
 	BibleModuleCapabilities capabilities;
 	bool hasFts = false;
 	Statement verse, chapter, bookByName, bookInfo, books, counts;
-	Statement annotation, headings, spans;
+	Statement annotation, headings, spans, footnotes, crossReferences, crossReferenceTargets;
 	Statement words;
 	Statement strongOccurrences;
 	Statement next, previous, firstInBook, firstInChapter;
@@ -128,6 +129,11 @@ bool positiveNumber(const std::string &source, int &value)
 	if (number <= 0) return false;
 	value = number;
 	return true;
+}
+
+void parseCrossTargets(const std::string &display, std::vector<BibleReference> &out)
+{
+	std::size_t p=0; while (p<display.size()) { std::size_t e=display.find(';',p); std::string s=display.substr(p,e==std::string::npos?std::string::npos:e-p); std::size_t sp=s.find_last_of(' '), c=s.find(':'); if(sp!=std::string::npos&&c!=std::string::npos&&c>sp) { try { int ch=std::stoi(s.substr(sp+1,c-sp-1)), v=std::stoi(s.substr(c+1)); for(const auto &b:canonicalBibleBooks()) if(s.substr(0,sp)==b.osis || s.substr(0,sp)==b.shortName || s.substr(0,sp)==b.name) out.push_back({b.testament,b.bookId,ch,v}); } catch(...) {} } if(e==std::string::npos) break; p=e+1; }
 }
 
 bool metadataBool(const std::map<std::string, std::string> &values,
@@ -263,6 +269,8 @@ std::unique_ptr<Module> openModule(const std::string &path)
 	const bool hasAnnotations = tableExists(module->db, "verse_annotations");
 	const bool hasHeadings = tableExists(module->db, "headings");
 	const bool hasSpans = tableExists(module->db, "verse_spans");
+	const bool hasFootnotes = tableExists(module->db, "footnotes");
+	const bool hasCrossrefs = tableExists(module->db, "cross_references");
 	const bool hasWords = tableExists(module->db, "verse_words");
 	const bool hasStrongIndex = tableExists(module->db, "verse_word_strongs");
 	const bool hasCanonicalStrongIndex = indexExists(module->db,
@@ -290,6 +298,11 @@ std::unique_ptr<Module> openModule(const std::string &path)
 	if (hasAnnotations) prepare(module->db, "SELECT paragraph_break FROM verse_annotations WHERE book_id=? AND chapter=? AND verse=?", module->annotation);
 	if (hasHeadings) prepare(module->db, "SELECT text FROM headings WHERE book_id=? AND chapter=? AND verse=? ORDER BY sequence", module->headings);
 	if (hasSpans) prepare(module->db, "SELECT start,length,style FROM verse_spans WHERE book_id=? AND chapter=? AND verse=? ORDER BY start", module->spans);
+	if (hasFootnotes) prepare(module->db, "SELECT offset,caller,body FROM footnotes WHERE book_id=? AND chapter=? AND verse=? ORDER BY sequence", module->footnotes);
+	if (hasCrossrefs) prepare(module->db, "SELECT sequence,offset,display_text FROM cross_references WHERE book_id=? AND chapter=? AND verse=? ORDER BY sequence", module->crossReferences);
+	if (hasCrossrefs && tableExists(module->db, "cross_reference_targets")) prepare(module->db, "SELECT sequence,target_sequence,target_book_id,target_chapter,target_verse FROM cross_reference_targets WHERE book_id=? AND chapter=? AND verse=? ORDER BY sequence,target_sequence", module->crossReferenceTargets);
+	module->capabilities.footnotes = module->capabilities.footnotes && hasFootnotes && module->footnotes.value;
+	module->capabilities.crossrefs = module->capabilities.crossrefs && hasCrossrefs && module->crossReferences.value;
 	if (hasWords) prepare(module->db, "SELECT start,length,text,strong FROM verse_words WHERE book_id=? AND chapter=? AND verse=? ORDER BY sequence", module->words);
 	if (hasStrongIndex && hasCanonicalStrongIndex) {
 		if (!prepare(module->db, "SELECT b.testament,s.book_id,s.chapter,s.verse,v.text,vw.text,b.name FROM books b CROSS JOIN verse_word_strongs s INDEXED BY verse_word_strongs_canonical JOIN verse_words vw USING(book_id,chapter,verse,sequence) JOIN verses v USING(book_id,chapter,verse) WHERE s.strong=? AND s.book_id=b.book_id ORDER BY b.position,s.chapter,s.verse,s.sequence LIMIT ? OFFSET ?", module->strongOccurrences))
@@ -470,6 +483,15 @@ BibleVerseContent SqliteBibleBackend::getVerseContent(
 			word.strongs = parseStrongIds(word.strong);
 			result.words.push_back(std::move(word));
 		}
+	}
+	if (module->footnotes.value) {
+		reset(module->footnotes); sqlite3_bind_int(module->footnotes.value,1,reference.book); sqlite3_bind_int(module->footnotes.value,2,reference.chapter); sqlite3_bind_int(module->footnotes.value,3,reference.verse);
+		while (sqlite3_step(module->footnotes.value)==SQLITE_ROW) { BibleFootnote n; n.offset=sqlite3_column_int(module->footnotes.value,0); n.id=text(module->footnotes.value,1); n.body=text(module->footnotes.value,2); n.label=n.id; result.footnotes.push_back(std::move(n)); }
+	}
+	if (module->crossReferences.value) {
+		reset(module->crossReferences); sqlite3_bind_int(module->crossReferences.value,1,reference.book); sqlite3_bind_int(module->crossReferences.value,2,reference.chapter); sqlite3_bind_int(module->crossReferences.value,3,reference.verse);
+		std::map<int,std::vector<BibleReference>> targets; if(module->crossReferenceTargets.value){ reset(module->crossReferenceTargets); sqlite3_bind_int(module->crossReferenceTargets.value,1,reference.book); sqlite3_bind_int(module->crossReferenceTargets.value,2,reference.chapter); sqlite3_bind_int(module->crossReferenceTargets.value,3,reference.verse); while(sqlite3_step(module->crossReferenceTargets.value)==SQLITE_ROW) targets[sqlite3_column_int(module->crossReferenceTargets.value,0)].push_back({0,sqlite3_column_int(module->crossReferenceTargets.value,2),sqlite3_column_int(module->crossReferenceTargets.value,3),sqlite3_column_int(module->crossReferenceTargets.value,4)}); }
+		while (sqlite3_step(module->crossReferences.value)==SQLITE_ROW) { BibleCrossReference x; int seq=sqlite3_column_int(module->crossReferences.value,0); x.offset=sqlite3_column_int(module->crossReferences.value,1); x.displayText=text(module->crossReferences.value,2); x.references=targets[seq]; if(x.references.empty()) parseCrossTargets(x.displayText,x.references); result.crossReferences.push_back(std::move(x)); }
 	}
 	result.valid = true;
 	return result;

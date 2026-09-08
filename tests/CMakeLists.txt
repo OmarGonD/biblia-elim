@@ -126,6 +126,7 @@ add_executable (strong_ui_smoke_test EXCLUDE_FROM_ALL
   fake_bible_backend.cc
   ${PROJECT_SOURCE_DIR}/src/main/strong_interaction.cc
   ${PROJECT_SOURCE_DIR}/src/main/strong_ui.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
   ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
   )
 target_include_directories (strong_ui_smoke_test PRIVATE PkgConfig::Core PkgConfig::Gtk)
@@ -136,6 +137,8 @@ add_executable (sqlite_strong_ui_smoke_test EXCLUDE_FROM_ALL
   ${PROJECT_SOURCE_DIR}/src/main/strong_interaction.cc
   ${PROJECT_SOURCE_DIR}/src/main/strong_ui.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_bible_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_module_writer.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
   ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
   )
 target_include_directories (sqlite_strong_ui_smoke_test PRIVATE
@@ -148,6 +151,8 @@ add_executable (sqlite_bible_backend_test
   sqlite_bible_backend_test.cc
   bible_backend_contract.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_bible_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_module_writer.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
   ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
   )
 
@@ -172,6 +177,7 @@ add_executable (sqlite_bible_backend_benchmark
   EXCLUDE_FROM_ALL
   sqlite_bible_backend_benchmark.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_bible_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
   ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
 	${PROJECT_SOURCE_DIR}/src/main/strong_interaction.cc
   )
@@ -187,6 +193,52 @@ target_link_libraries (sqlite_bible_backend_benchmark
   PkgConfig::Core
   PkgConfig::Sqlite3
   )
+
+add_executable (enriched_content_benchmark EXCLUDE_FROM_ALL
+  enriched_content_benchmark.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_bible_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc)
+target_include_directories (enriched_content_benchmark PRIVATE PkgConfig::Core PkgConfig::Sqlite3)
+target_link_libraries (enriched_content_benchmark PRIVATE PkgConfig::Core PkgConfig::Sqlite3)
+
+add_executable (osis_importer_test EXCLUDE_FROM_ALL
+  osis_importer_test.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/osis_importer.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_module_writer.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_bible_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc)
+target_compile_definitions (osis_importer_test PRIVATE SRCDIR="${PROJECT_SOURCE_DIR}")
+target_include_directories (osis_importer_test PRIVATE PkgConfig::Core PkgConfig::Sqlite3 PkgConfig::XML2)
+target_link_libraries (osis_importer_test PRIVATE PkgConfig::Core PkgConfig::Sqlite3 PkgConfig::XML2)
+
+add_executable (osis_semantic_equivalence_test EXCLUDE_FROM_ALL
+  osis_semantic_equivalence_test.cc
+  neutral_module_comparator.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/osis_importer.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/usfm_importer.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_module_writer.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_bible_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc)
+target_compile_definitions (osis_semantic_equivalence_test PRIVATE SRCDIR="${PROJECT_SOURCE_DIR}")
+target_include_directories (osis_semantic_equivalence_test PRIVATE
+  PkgConfig::Core PkgConfig::Sqlite3 PkgConfig::XML2)
+target_link_libraries (osis_semantic_equivalence_test PRIVATE
+  PkgConfig::Core PkgConfig::Sqlite3 PkgConfig::XML2)
+
+add_executable (osis_operational_test EXCLUDE_FROM_ALL
+  osis_operational_test.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/osis_importer.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_module_writer.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_bible_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc)
+target_include_directories (osis_operational_test PRIVATE
+  PkgConfig::Core PkgConfig::Sqlite3 PkgConfig::XML2)
+target_link_libraries (osis_operational_test PRIVATE
+  PkgConfig::Core PkgConfig::Sqlite3 PkgConfig::XML2)
 
 add_executable (sqlite_strong_profile EXCLUDE_FROM_ALL
   sqlite_strong_profile.cc
@@ -210,6 +262,8 @@ add_executable (usfm_importer_test
   ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
   ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_bible_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_module_writer.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
   )
 target_compile_definitions (usfm_importer_test PRIVATE SRCDIR="${PROJECT_SOURCE_DIR}")
 target_include_directories (usfm_importer_test PRIVATE PkgConfig::Core PkgConfig::Sqlite3)
@@ -220,6 +274,8 @@ add_executable (sqlite_module_manager_test EXCLUDE_FROM_ALL
   ${PROJECT_SOURCE_DIR}/src/backend/sqlite_module_manager.cc
   ${PROJECT_SOURCE_DIR}/src/backend/usfm_importer.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_bible_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_module_writer.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
   ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
   ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc)
 target_include_directories (sqlite_module_manager_test PRIVATE PkgConfig::Core PkgConfig::Gnome PkgConfig::Sqlite3)
@@ -230,6 +286,7 @@ add_executable (sqlite_backend_full_probe
   EXCLUDE_FROM_ALL
   sqlite_backend_full_probe.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_bible_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
   ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
   )
 target_include_directories (sqlite_backend_full_probe PRIVATE PkgConfig::Core PkgConfig::Sqlite3)
@@ -240,6 +297,7 @@ add_executable (backend_comparison_benchmark EXCLUDE_FROM_ALL
   ${PROJECT_SOURCE_DIR}/src/backend/sword_main.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sword/sword_backend.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_bible_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
   ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
   ${PROJECT_SOURCE_DIR}/src/main/busqueda_tildes.c
   )
@@ -251,3 +309,5 @@ target_include_directories (backend_comparison_benchmark PRIVATE
 target_link_libraries (backend_comparison_benchmark PRIVATE
   PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome PkgConfig::Soup
   PkgConfig::Sword PkgConfig::Sqlite3)
+# OSIS importer tests use the project's existing libxml2 dependency.
+pkg_check_modules(XML2 REQUIRED IMPORTED_TARGET libxml-2.0)

@@ -271,3 +271,25 @@ dialog only calls this API and refreshes the active backend after changes.
 `--backend=sword` forces the compatibility backend and
 `--backend=sqlite:/path` selects an explicit directory. If the default SQLite
 directory has no valid modules, startup falls back safely to SWORD.
+
+`BibleVerseContent` carries optional `footnotes` and `crossReferences`. The
+renderer emits only lightweight sequence markers; dialogs resolve the selected
+entry through the neutral backend API. Footnote callers `+`/`-` are displayed
+as generated per-verse numbers, while explicit callers are preserved. Cross
+reference targets are shown in source order and only resolved targets are
+navigable; unresolved display text remains selectable. No marker is inserted
+into the stored verse text.
+
+`biblia-osis-import` supports the initial Bible subset of OSIS and converges
+through the same SQLite v1 writer as USFM (`source_format=osis`). OSIS parsing
+is offline and non-networked; commentaries, dictionaries and morphology are
+outside the current subset.
+
+## SQLite module writer
+
+`SqliteModuleWriter` is the source-agnostic persistence boundary for SQLite
+module format v1. Importers produce neutral books and enriched verses, then
+the writer owns schema creation, prepared inserts, feature derivation, FTS
+construction, offset validation, transaction rollback and atomic final rename.
+It has no dependency on USFM, OSIS or SWORD code; OSIS migration to this
+interface is intentionally a separate step.

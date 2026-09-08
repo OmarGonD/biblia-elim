@@ -36,6 +36,6 @@ int main(int argc, char **argv)
 	if (inputs.empty() || output.empty()) { usage(argv[0]); return 2; }
 	UsfmImportStats stats; std::string error;
 	if (!importUsfm(inputs, output, options, stats, error)) { std::fprintf(stderr, "Import failed: %s\n", error.c_str()); return 1; }
-	std::printf("Module: %s\nBooks: %zu\nChapters: %zu\nVerses: %zu\nParagraph markers: %zu\nHeadings imported: %zu\nAdded spans: %zu\nWords imported: %zu\nWords with Strong: %zu\nFootnotes skipped: %zu\nCross references skipped: %zu\nUnsupported markers: %zu\nOutput: %s\n", options.moduleId.c_str(), stats.books, stats.chapters, stats.verses, stats.paragraphMarkers, stats.headingsImported, stats.addedSpans, stats.wordsImported, stats.wordsWithStrong, stats.footnotesSkipped, stats.crossReferencesSkipped, stats.unsupportedMarkers, output.c_str());
+	std::printf("Module: %s\nBooks: %zu\nChapters: %zu\nVerses: %zu\nParagraph markers: %zu\nHeadings imported: %zu\nAdded spans: %zu\nWords imported: %zu\nWords with Strong: %zu\nFootnotes imported: %zu\nCross references imported: %zu\nCrossref targets resolved: %zu\nCrossref targets unresolved: %zu\nUnsupported markers: %zu\nOutput: %s\n", options.moduleId.c_str(), stats.books, stats.chapters, stats.verses, stats.paragraphMarkers, stats.headingsImported, stats.addedSpans, stats.wordsImported, stats.wordsWithStrong, stats.footnotesImported, stats.crossReferencesImported, stats.crossrefTargetsResolved, stats.crossrefTargetsUnresolved, stats.unsupportedMarkers, output.c_str());
 	return 0;
 }

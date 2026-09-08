@@ -1021,6 +1021,15 @@ gint main_url_handler(const gchar *url, gboolean clicked)
 					retval = 1;
 				}
 			}
+		} else if (!strcmp(action, "showNeutralFootnote") || !strcmp(action, "showNeutralCrossref")) {
+			if (HAS_URL_PARAM(module) && HAS_URL_PARAM(passage) && HAS_URL_PARAM(svalue)) {
+				gchar *end = NULL; guint64 sequence = g_ascii_strtoull(svalue, &end, 10);
+				if (end && !*end && sequence <= G_MAXSIZE && clicked) {
+					if (!strcmp(action, "showNeutralFootnote")) main_show_neutral_footnote(module, passage, (size_t)sequence);
+					else main_show_neutral_crossref(module, passage, (size_t)sequence);
+					retval = 1;
+				}
+			}
 		} else if (!strcmp(action, "showStrongs")) {
 			if (HAS_URL_PARAM(svalue)) {
 				show_strongs(stype, svalue, clicked);

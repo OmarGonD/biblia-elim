@@ -10,6 +10,7 @@
 #include "backend/bible_backend.h"
 #include "backend/bible_resources.h"
 #include "backend/strong_id.h"
+#include "backend/bible_book_map.h"
 #include "gui/widgets.h"
 #include "main/strong_interaction.h"
 #include "main/sword.h"
@@ -233,4 +234,28 @@ extern "C" void main_show_neutral_strong(const char *module,
 		selectStrong(view, view->session->word().strongs.front());
 	gtk_widget_show_all(view->dialog);
 	gtk_widget_set_visible(view->loadMore, view->session->state().hasMore);
+}
+
+extern "C" void main_show_neutral_footnote(const char *module, const char *passage,
+	std::size_t sequence)
+{
+	if (!bible_backend || !module || !passage) return; BibleKeyInfo key;
+	if (!bible_backend->resolveKey(module, passage, key)) return;
+	BibleVerseContent c=bible_backend->getVerseContent(module,key.reference);
+	if (sequence>=c.footnotes.size()) return; const BibleFootnote &n=c.footnotes[sequence];
+	GtkWidget *d=gtk_message_dialog_new(widgets.app?GTK_WINDOW(widgets.app):nullptr,GTK_DIALOG_DESTROY_WITH_PARENT,GTK_MESSAGE_INFO,GTK_BUTTONS_CLOSE,"%s\n\n%s",n.label.empty()?"Nota":n.label.c_str(),n.body.c_str());
+	gtk_widget_show_all(d); gtk_dialog_run(GTK_DIALOG(d)); gtk_widget_destroy(d);
+}
+
+extern "C" void main_show_neutral_crossref(const char *module, const char *passage,
+	std::size_t sequence)
+{
+	if (!bible_backend || !module || !passage) return; BibleKeyInfo key;
+	if (!bible_backend->resolveKey(module, passage, key)) return;
+	BibleVerseContent c=bible_backend->getVerseContent(module,key.reference);
+	if (sequence>=c.crossReferences.size()) return; const auto &x=c.crossReferences[sequence];
+	GtkWidget *d=gtk_dialog_new_with_buttons("Referencias",widgets.app?GTK_WINDOW(widgets.app):nullptr,GTK_DIALOG_DESTROY_WITH_PARENT,"Cerrar",GTK_RESPONSE_CLOSE,nullptr);
+	GtkWidget *box=gtk_dialog_get_content_area(GTK_DIALOG(d)); gtk_container_set_border_width(GTK_CONTAINER(box),10); GtkWidget *label=gtk_label_new(x.displayText.c_str()); gtk_label_set_selectable(GTK_LABEL(label),TRUE); gtk_label_set_xalign(GTK_LABEL(label),0); gtk_box_pack_start(GTK_BOX(box),label,FALSE,FALSE,4);
+	for(const auto &r:x.references){ const auto &books=canonicalBibleBooks(); std::string name=(r.book>0&&r.book<=(int)books.size())?books[r.book-1].name:""; std::string target=name+" "+std::to_string(r.chapter)+":"+std::to_string(r.verse); GtkWidget *b=gtk_button_new_with_label(target.c_str()); g_object_set_data_full(G_OBJECT(b),"neutral-target",g_strdup(target.c_str()),g_free); g_object_set_data_full(G_OBJECT(b),"neutral-module",g_strdup(module),g_free); g_signal_connect(b,"clicked",G_CALLBACK(+[](GtkButton *button,gpointer){ const char *k=(const char*)g_object_get_data(G_OBJECT(button),"neutral-target"); const char *m=(const char*)g_object_get_data(G_OBJECT(button),"neutral-module"); if(k&&m){gchar *v=main_update_nav_controls(m,k); if(v){main_display_bible(m,v);g_free(v);}} }),nullptr); gtk_box_pack_start(GTK_BOX(box),b,FALSE,FALSE,2); }
+	gtk_widget_show_all(d); gtk_dialog_run(GTK_DIALOG(d)); gtk_widget_destroy(d);
 }

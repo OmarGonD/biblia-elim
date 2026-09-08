@@ -1,8 +1,7 @@
 #include "backend/usfm_importer.h"
 #include "backend/strong_id.h"
 #include "backend/bible_book_map.h"
-
-#include <sqlite3.h>
+#include "backend/sqlite/sqlite_module_writer.h"
 
 #include <algorithm>
 #include <cerrno>
@@ -18,7 +17,7 @@
 #include <dirent.h>
 
 namespace {
-struct Verse { int book = 0, chapter = 0, verse = 0; std::string text; bool paragraph = false; std::string heading; std::vector<BibleTextSpan> spans; std::vector<BibleWordInfo> words; };
+struct Verse { int book = 0, chapter = 0, verse = 0; std::string text; bool paragraph = false; std::string heading; std::vector<BibleTextSpan> spans; std::vector<BibleWordInfo> words; std::vector<BibleFootnote> footnotes; std::vector<BibleCrossReference> crossReferences; };
 struct BookState { const BibleBookDefinition *book = nullptr; std::string title; std::string heading; };
 
 std::string trim(const std::string &s)
@@ -29,8 +28,36 @@ std::string trim(const std::string &s)
 	return s.substr(first, last - first + 1);
 }
 
+std::string inlineText(const std::string &s, std::string *field = nullptr)
+{
+	std::string out;
+	for (std::size_t i=0;i<s.size();) {
+		if (s[i]=='\\') { std::size_t e=i+1; while(e<s.size() && std::isalpha((unsigned char)s[e])) ++e; std::string m=s.substr(i+1,e-i-1); if(e<s.size()&&s[e]=='*') ++e; std::size_t n=s.find('\\',e); std::string part=s.substr(e,n==std::string::npos?s.size()-e:n-e); if(m=="ft"||m=="fq"||m=="fqa"||m=="fk"||m=="fl"||m=="fw"||m=="fp"||m=="fv"||m=="xt"||m=="xq") out += part; i=n==std::string::npos?s.size():n; continue; }
+		out+=s[i++];
+	}
+	if (field) *field=trim(out);
+	return trim(out);
+}
+
+bool parseTarget(const std::string &raw, BibleReference &out)
+{
+	std::string s=trim(raw); std::size_t p=s.find_last_of(' '); if(p==std::string::npos) return false;
+	std::string book=s.substr(0,p), cv=s.substr(p+1); std::size_t c=cv.find(':'); if(c==std::string::npos) return false;
+	try { int ch=std::stoi(cv.substr(0,c)), v=std::stoi(cv.substr(c+1)); for(const auto &b:canonicalBibleBooks()) if(book==b.osis || book==b.shortName || book==b.name) { out={b.testament,b.bookId,ch,v}; return ch>0&&v>0; } } catch(...) {}
+	return false;
+}
+
+std::string markerField(const std::string &body, const char *marker)
+{
+	const std::string needle = std::string("\\") + marker;
+	std::size_t p = body.find(needle); if (p == std::string::npos) return {};
+	p += needle.size(); if (p < body.size() && body[p] == ' ') ++p;
+	std::size_t e = body.find('\\', p); return trim(body.substr(p, e == std::string::npos ? std::string::npos : e-p));
+}
+
 std::string cleanInline(const std::string &source, UsfmImportStats &stats,
-	std::vector<BibleTextSpan> &spans, std::vector<BibleWordInfo> &words)
+	std::vector<BibleTextSpan> &spans, std::vector<BibleWordInfo> &words,
+	std::vector<BibleFootnote> &footnotes, std::vector<BibleCrossReference> &crossReferences)
 {
 	std::string out;
 	std::vector<std::size_t> added;
@@ -89,7 +116,10 @@ std::string cleanInline(const std::string &source, UsfmImportStats &stats,
 		if (marker == "f" || marker == "x") {
 			const std::string close = "\\" + marker + "*";
 			const std::size_t finish = source.find(close, end);
-			if (marker == "f") ++stats.footnotesSkipped; else ++stats.crossReferencesSkipped;
+			const std::string body = source.substr(end, finish == std::string::npos ? source.size()-end : finish-end);
+			const std::size_t offset = out.size();
+			if (marker == "f") { BibleFootnote n; n.offset=offset; n.body=markerField(body,"ft"); if(n.body.empty()) n.body=inlineText(body); std::string lead=trim(body); if(!lead.empty() && (lead[0]=='+'||lead[0]=='-')) n.label=lead.substr(0,1); if (!n.body.empty()) { footnotes.push_back(n); ++stats.footnotesImported; } }
+			else { BibleCrossReference x; x.offset=offset; x.displayText=markerField(body,"xt"); if(x.displayText.empty()) x.displayText=inlineText(body); std::size_t pos=0; while(pos<x.displayText.size()) { std::size_t end=x.displayText.find(';',pos); BibleReference target; if(parseTarget(x.displayText.substr(pos,end==std::string::npos?std::string::npos:end-pos),target)) { x.references.push_back(target); ++stats.crossrefTargetsResolved; } else if(!trim(x.displayText.substr(pos,end==std::string::npos?std::string::npos:end-pos)).empty()) ++stats.crossrefTargetsUnresolved; if(end==std::string::npos) break; pos=end+1; } if (!x.displayText.empty()) { crossReferences.push_back(x); ++stats.crossReferencesImported; } }
 			i = finish == std::string::npos ? source.size() : finish + close.size();
 			continue;
 		}
@@ -111,7 +141,18 @@ std::string cleanInline(const std::string &source, UsfmImportStats &stats,
 		if (word.start >= removed) word.start -= removed;
 		else word.start = 0;
 	}
-	return trim(out);
+	for (BibleFootnote &note : footnotes) {
+		if (note.offset >= removed) note.offset -= removed;
+		else note.offset = 0;
+	}
+	for (BibleCrossReference &xref : crossReferences) {
+		if (xref.offset >= removed) xref.offset -= removed;
+		else xref.offset = 0;
+	}
+	const std::string normalized = trim(out);
+	for (auto &note : footnotes) if (note.offset > normalized.size()) note.offset = normalized.size();
+	for (auto &xref : crossReferences) if (xref.offset > normalized.size()) xref.offset = normalized.size();
+	return normalized;
 }
 
 bool parseFile(const std::string &path, std::map<int, BookState> &books,
@@ -126,7 +167,7 @@ bool parseFile(const std::string &path, std::map<int, BookState> &books,
 	std::string line;
 	auto flush = [&]() {
 		if (!verseNumber) return;
-		current.text = cleanInline(current.text, stats, current.spans, current.words);
+		current.text = cleanInline(current.text, stats, current.spans, current.words, current.footnotes, current.crossReferences);
 		verses.push_back(current);
 		verseNumber = 0; current = Verse();
 	};
@@ -162,14 +203,14 @@ bool parseFile(const std::string &path, std::map<int, BookState> &books,
 			std::istringstream parts(content); std::string number; parts >> number;
 			try { verseNumber = std::stoi(number); } catch (...) { verseNumber = 0; }
 			if (!book || chapter <= 0 || verseNumber <= 0) { error = "invalid verse reference in " + path; return false; }
-			current = { book->bookId, chapter, verseNumber, trim(content.substr(number.size())), paragraphPending, books[book->bookId].heading, {}, {} };
+			current = { book->bookId, chapter, verseNumber, trim(content.substr(number.size())), paragraphPending, books[book->bookId].heading, {}, {}, {}, {} };
 			paragraphPending = false;
 			books[book->bookId].heading.clear();
 		} else if (marker == "p") {
 			paragraphPending = true;
 			++stats.paragraphMarkers;
 		} else if (marker == "f" || marker == "x") {
-			if (marker == "f") ++stats.footnotesSkipped; else ++stats.crossReferencesSkipped;
+			/* Inline blocks are parsed when the verse is flushed. */
 		} else {
 			++stats.unsupportedMarkers;
 		}
@@ -178,14 +219,6 @@ bool parseFile(const std::string &path, std::map<int, BookState> &books,
 	return true;
 }
 
-bool exec(sqlite3 *db, const std::string &sql, std::string &error)
-{
-	char *message = nullptr;
-	if (sqlite3_exec(db, sql.c_str(), nullptr, nullptr, &message) != SQLITE_OK) {
-		error = message ? message : "SQLite error"; sqlite3_free(message); return false;
-	}
-	return true;
-}
 }
 
 bool importUsfm(const std::vector<std::string> &inputs, const std::string &output,
@@ -219,66 +252,16 @@ bool importUsfm(const std::vector<std::string> &inputs, const std::string &outpu
 	std::set<std::tuple<int,int,int>> seen;
 	for (const Verse &verse : verses) if (!seen.insert({verse.book,verse.chapter,verse.verse}).second) { error = "duplicate verse reference"; return false; }
 	if (verses.empty()) { error = "no verses found"; return false; }
-	bool hasStrong = false;
-	for (const Verse &verse : verses) for (const BibleWordInfo &word : verse.words)
-		if (!word.strongs.empty()) { hasStrong = true; break; }
-	const std::string temporary = output + ".tmp";
-	std::remove(temporary.c_str());
-	sqlite3 *db = nullptr;
-	if (sqlite3_open(temporary.c_str(), &db) != SQLITE_OK) { error = "cannot create output"; if (db) sqlite3_close(db); return false; }
-	bool ok = exec(db, "PRAGMA user_version=1; PRAGMA foreign_keys=ON; BEGIN IMMEDIATE;", error);
-	ok = ok && exec(db, "CREATE TABLE metadata(key TEXT PRIMARY KEY,value TEXT NOT NULL); CREATE TABLE books(book_id INTEGER PRIMARY KEY,osis TEXT NOT NULL UNIQUE,name TEXT NOT NULL,short_name TEXT,testament INTEGER NOT NULL,position INTEGER NOT NULL UNIQUE); CREATE TABLE verses(book_id INTEGER NOT NULL,chapter INTEGER NOT NULL CHECK(chapter>0),verse INTEGER NOT NULL CHECK(verse>0),text TEXT NOT NULL,PRIMARY KEY(book_id,chapter,verse),FOREIGN KEY(book_id) REFERENCES books(book_id)); CREATE INDEX verses_book_chapter ON verses(book_id,chapter,verse); CREATE TABLE verse_annotations(book_id INTEGER NOT NULL,chapter INTEGER NOT NULL,verse INTEGER NOT NULL,paragraph_break INTEGER NOT NULL DEFAULT 0,PRIMARY KEY(book_id,chapter,verse),FOREIGN KEY(book_id,chapter,verse) REFERENCES verses(book_id,chapter,verse)); CREATE TABLE headings(book_id INTEGER NOT NULL,chapter INTEGER NOT NULL,verse INTEGER NOT NULL,sequence INTEGER NOT NULL,text TEXT NOT NULL,PRIMARY KEY(book_id,chapter,verse,sequence),FOREIGN KEY(book_id,chapter,verse) REFERENCES verses(book_id,chapter,verse)); CREATE TABLE verse_spans(book_id INTEGER NOT NULL,chapter INTEGER NOT NULL,verse INTEGER NOT NULL,start INTEGER NOT NULL,length INTEGER NOT NULL,style TEXT NOT NULL,PRIMARY KEY(book_id,chapter,verse,start,style),FOREIGN KEY(book_id,chapter,verse) REFERENCES verses(book_id,chapter,verse)); CREATE TABLE verse_words(book_id INTEGER NOT NULL,chapter INTEGER NOT NULL,verse INTEGER NOT NULL,sequence INTEGER NOT NULL,start INTEGER NOT NULL,length INTEGER NOT NULL,text TEXT NOT NULL,strong TEXT,PRIMARY KEY(book_id,chapter,verse,sequence),FOREIGN KEY(book_id,chapter,verse) REFERENCES verses(book_id,chapter,verse)); CREATE TABLE verse_word_strongs(book_id INTEGER NOT NULL,chapter INTEGER NOT NULL,verse INTEGER NOT NULL,sequence INTEGER NOT NULL,strong TEXT NOT NULL,PRIMARY KEY(book_id,chapter,verse,sequence,strong),FOREIGN KEY(book_id,chapter,verse,sequence) REFERENCES verse_words(book_id,chapter,verse,sequence)); CREATE INDEX verse_word_strongs_canonical ON verse_word_strongs(strong,book_id,chapter,verse,sequence); CREATE VIRTUAL TABLE verses_fts USING fts5(text,content='verses',content_rowid='rowid');", error);
-	sqlite3_stmt *statement = nullptr;
-	if (ok && sqlite3_prepare_v2(db, "INSERT INTO metadata(key,value) VALUES(?,?)", -1, &statement, nullptr) == SQLITE_OK) {
-		std::map<std::string,std::string> metadata = {{"schema_version","1"},{"module_id",options.moduleId},{"name",options.name},{"language",options.language},{"module_type","bible"},{"versification",options.versification},{"source_format","usfm"},{"feature.verses","true"},{"feature.search","true"},{"feature.strong",hasStrong ? "true" : "false"},{"feature.morphology","false"},{"feature.headings","false"},{"feature.footnotes","false"},{"feature.crossrefs","false"},{"feature.dictionary","false"}};
-		if (!options.abbreviation.empty()) metadata["abbreviation"] = options.abbreviation;
-		if (!options.description.empty()) metadata["description"] = options.description;
-		if (!options.license.empty()) metadata["license"] = options.license;
-		if (!options.publisher.empty()) metadata["publisher"] = options.publisher;
-		if (!options.source.empty()) metadata["source"] = options.source;
-		if (!options.contentVersion.empty()) metadata["content_version"] = options.contentVersion;
-		metadata["feature.headings"] = stats.headingsImported ? "true" : "false";
-		for (const auto &item : metadata) { sqlite3_bind_text(statement,1,item.first.c_str(),-1,SQLITE_TRANSIENT); sqlite3_bind_text(statement,2,item.second.c_str(),-1,SQLITE_TRANSIENT); if (sqlite3_step(statement)!=SQLITE_DONE) { ok=false; break; } sqlite3_reset(statement); sqlite3_clear_bindings(statement); }
-	} else ok = false;
-	if (statement) sqlite3_finalize(statement);
-	if (ok && sqlite3_prepare_v2(db, "INSERT INTO books VALUES(?,?,?,?,?,?)", -1, &statement, nullptr) == SQLITE_OK) {
-		for (const auto &item : books) { const auto &b=*item.second.book; sqlite3_bind_int(statement,1,b.bookId); sqlite3_bind_text(statement,2,b.osis,-1,SQLITE_STATIC); sqlite3_bind_text(statement,3,(item.second.title.empty()?b.name:item.second.title).c_str(),-1,SQLITE_TRANSIENT); sqlite3_bind_text(statement,4,b.shortName,-1,SQLITE_STATIC); sqlite3_bind_int(statement,5,b.testament); sqlite3_bind_int(statement,6,b.position); if (sqlite3_step(statement)!=SQLITE_DONE) { ok=false; break; } sqlite3_reset(statement); sqlite3_clear_bindings(statement); }
-	} else ok = false;
-	if (statement) sqlite3_finalize(statement);
-	if (ok && sqlite3_prepare_v2(db, "INSERT INTO verses VALUES(?,?,?,?)", -1, &statement, nullptr) == SQLITE_OK) {
-		for (const Verse &v : verses) { sqlite3_bind_int(statement,1,v.book); sqlite3_bind_int(statement,2,v.chapter); sqlite3_bind_int(statement,3,v.verse); sqlite3_bind_text(statement,4,v.text.c_str(),-1,SQLITE_TRANSIENT); if (sqlite3_step(statement)!=SQLITE_DONE) { ok=false; break; } sqlite3_reset(statement); sqlite3_clear_bindings(statement); }
-	} else ok = false;
-	if (statement) sqlite3_finalize(statement);
-	if (ok && sqlite3_prepare_v2(db, "INSERT INTO verse_annotations VALUES(?,?,?,?)", -1, &statement, nullptr) == SQLITE_OK) {
-		for (const Verse &v : verses) if (v.paragraph) { sqlite3_bind_int(statement,1,v.book); sqlite3_bind_int(statement,2,v.chapter); sqlite3_bind_int(statement,3,v.verse); sqlite3_bind_int(statement,4,1); if (sqlite3_step(statement)!=SQLITE_DONE) { ok=false; break; } sqlite3_reset(statement); sqlite3_clear_bindings(statement); }
-	} else ok = false;
-	if (statement) sqlite3_finalize(statement);
-	if (ok && sqlite3_prepare_v2(db, "INSERT INTO headings VALUES(?,?,?,?,?)", -1, &statement, nullptr) == SQLITE_OK) {
-		for (const Verse &v : verses) if (!v.heading.empty()) { sqlite3_bind_int(statement,1,v.book); sqlite3_bind_int(statement,2,v.chapter); sqlite3_bind_int(statement,3,v.verse); sqlite3_bind_int(statement,4,0); sqlite3_bind_text(statement,5,v.heading.c_str(),-1,SQLITE_TRANSIENT); if (sqlite3_step(statement)!=SQLITE_DONE) { ok=false; break; } sqlite3_reset(statement); sqlite3_clear_bindings(statement); }
-	} else ok = false;
-	if (statement) sqlite3_finalize(statement);
-	if (ok && sqlite3_prepare_v2(db, "INSERT INTO verse_spans VALUES(?,?,?,?,?,?)", -1, &statement, nullptr) == SQLITE_OK) {
-		for (const Verse &v : verses) for (const BibleTextSpan &span : v.spans) { sqlite3_bind_int(statement,1,v.book); sqlite3_bind_int(statement,2,v.chapter); sqlite3_bind_int(statement,3,v.verse); sqlite3_bind_int(statement,4,span.start); sqlite3_bind_int(statement,5,span.length); sqlite3_bind_text(statement,6,"added",-1,SQLITE_STATIC); if (sqlite3_step(statement)!=SQLITE_DONE) { ok=false; break; } sqlite3_reset(statement); sqlite3_clear_bindings(statement); }
-	} else ok = false;
-	if (statement) sqlite3_finalize(statement);
-	if (ok && sqlite3_prepare_v2(db, "INSERT INTO verse_words VALUES(?,?,?,?,?,?,?,?)", -1, &statement, nullptr) == SQLITE_OK) {
-		for (const Verse &v : verses) { int sequence = 0; for (const BibleWordInfo &word : v.words) { sqlite3_bind_int(statement,1,v.book); sqlite3_bind_int(statement,2,v.chapter); sqlite3_bind_int(statement,3,v.verse); sqlite3_bind_int(statement,4,sequence++); sqlite3_bind_int(statement,5,word.start); sqlite3_bind_int(statement,6,word.length); sqlite3_bind_text(statement,7,word.text.c_str(),-1,SQLITE_TRANSIENT); if (word.strong.empty()) sqlite3_bind_null(statement,8); else sqlite3_bind_text(statement,8,word.strong.c_str(),-1,SQLITE_TRANSIENT); if (sqlite3_step(statement)!=SQLITE_DONE) { ok=false; break; } sqlite3_reset(statement); sqlite3_clear_bindings(statement); } }
-	} else ok = false;
-	if (statement) sqlite3_finalize(statement);
-	if (ok && sqlite3_prepare_v2(db, "INSERT OR IGNORE INTO verse_word_strongs VALUES(?,?,?,?,?)", -1, &statement, nullptr) == SQLITE_OK) {
-		for (const Verse &v : verses) { int sequence = 0; for (const BibleWordInfo &word : v.words) { for (const StrongId &id : word.strongs) { sqlite3_bind_int(statement,1,v.book); sqlite3_bind_int(statement,2,v.chapter); sqlite3_bind_int(statement,3,v.verse); sqlite3_bind_int(statement,4,sequence); std::string strong = formatStrongId(id); sqlite3_bind_text(statement,5,strong.c_str(),-1,SQLITE_TRANSIENT); if (sqlite3_step(statement)!=SQLITE_DONE) { ok=false; error=sqlite3_errmsg(db); break; } sqlite3_reset(statement); sqlite3_clear_bindings(statement); } ++sequence; } }
-	} else ok = false;
-	if (statement) sqlite3_finalize(statement);
-	if (ok) ok = exec(db, "INSERT INTO verses_fts(rowid,text) SELECT rowid,text FROM verses; COMMIT;", error); else exec(db, "ROLLBACK", error);
-	sqlite3_close(db);
-	if (!ok) { std::remove(temporary.c_str()); if (error.empty()) error="failed writing SQLite module"; return false; }
-	if (std::rename(temporary.c_str(), output.c_str()) != 0) { error = "cannot finalize output: " + std::string(std::strerror(errno)); std::remove(temporary.c_str()); return false; }
+	std::vector<SqliteImportBook> outBooks;
+	for (const auto &item : books) { const auto &b = *item.second.book; outBooks.push_back({b.bookId,b.testament,b.position,b.osis,item.second.title.empty()?b.name:item.second.title,b.shortName}); }
+	std::vector<SqliteImportVerse> outVerses;
+	for (const Verse &v : verses) { SqliteImportVerse x; x.reference={v.book, v.book, v.chapter, v.verse}; x.text=v.text; x.paragraphBreak=v.paragraph; if(!v.heading.empty()) x.headings.push_back({v.heading}); x.spans=v.spans; x.words=v.words; x.footnotes=v.footnotes; x.crossReferences=v.crossReferences; outVerses.push_back(std::move(x)); }
+	SqliteModuleMetadata metadata{options.moduleId, options.name, options.language, options.versification, options.abbreviation, options.description, options.license, options.publisher, options.source, options.contentVersion, "usfm"};
+	SqliteModuleWriter writer;
+	if (!writer.write(metadata, outBooks, outVerses, output, error)) return false;
 	stats.books = books.size(); stats.verses = verses.size();
 	for (const Verse &v : verses) stats.addedSpans += v.spans.size();
-	for (const Verse &v : verses) for (const BibleWordInfo &word : v.words) {
-		++stats.wordsImported;
-		if (!word.strong.empty()) ++stats.wordsWithStrong;
-	}
+	for (const Verse &v : verses) for (const BibleWordInfo &word : v.words) { ++stats.wordsImported; if (!word.strong.empty()) ++stats.wordsWithStrong; }
 	std::set<std::pair<int,int>> chapters;
 	for (const Verse &v : verses) chapters.insert({v.book, v.chapter});
 	stats.chapters = chapters.size();

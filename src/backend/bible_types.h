@@ -108,6 +108,14 @@ struct BibleFootnote {
 	std::string body;
 	std::string referenceList;
 	std::string label;
+	std::size_t offset = 0;
+};
+
+struct BibleCrossReference {
+	std::string label;
+	std::vector<BibleReference> references;
+	std::string displayText;
+	std::size_t offset = 0;
 };
 
 struct BibleVerseContent {
@@ -117,6 +125,8 @@ struct BibleVerseContent {
 	std::vector<BibleWordInfo> words;
 	std::vector<BibleHeading> headings;
 	std::vector<BibleTextSpan> spans;
+	std::vector<BibleFootnote> footnotes;
+	std::vector<BibleCrossReference> crossReferences;
 	bool paragraphBreak = false;
 	bool footnotesHaveNumbers = false;
 	bool valid = false;

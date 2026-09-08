@@ -65,17 +65,35 @@ StrongWordResolution resolveStrongInteraction(BibleBackend &backend,
 std::string renderStrongVerseText(const BibleVerseContent &content,
 	const std::string &module, const std::string &key, bool strongEnabled)
 {
-	if (!strongEnabled)
+	const bool anyStrong = std::any_of(content.words.begin(), content.words.end(), [](const BibleWordInfo &w){ return !w.strongs.empty(); });
+	if ((!strongEnabled || !anyStrong) && content.footnotes.empty() && content.crossReferences.empty())
 		return htmlEscape(content.plainText);
+	if (!strongEnabled || !anyStrong) {
+		std::ostringstream plain; std::size_t cursor=0;
+		for (std::size_t i=0;i<content.footnotes.size();++i) { const auto &n=content.footnotes[i]; if(n.offset>cursor) plain<<htmlEscape(content.plainText.substr(cursor,n.offset-cursor)); std::string l=n.label; if(l.empty()||l=="+"||l=="-") l=std::to_string(i+1); plain<<"<a class=\"bible-footnote\" href=\"passagestudy.jsp?action=showNeutralFootnote&amp;module="<<queryEscape(module)<<"&amp;passage="<<queryEscape(key)<<"&amp;value="<<i<<"\">"<<htmlEscape(l)<<"</a>"; cursor=n.offset; }
+		for (std::size_t i=0;i<content.crossReferences.size();++i) { const auto &x=content.crossReferences[i]; if(x.offset>cursor) plain<<htmlEscape(content.plainText.substr(cursor,x.offset-cursor)); plain<<"<a class=\"bible-crossref\" href=\"passagestudy.jsp?action=showNeutralCrossref&amp;module="<<queryEscape(module)<<"&amp;passage="<<queryEscape(key)<<"&amp;value="<<i<<"\">↗</a>"; cursor=x.offset; }
+		plain<<htmlEscape(content.plainText.substr(cursor)); return plain.str();
+	}
 
 	std::ostringstream result;
 	std::size_t cursor = 0;
+	std::size_t noteIndex = 0, crossIndex = 0;
+	auto markers = [&](std::size_t limit) {
+		while (noteIndex < content.footnotes.size() && content.footnotes[noteIndex].offset <= limit) {
+			const auto &n=content.footnotes[noteIndex]; std::string label=n.label;
+			if (label.empty() || label=="+" || label=="-") label=std::to_string(noteIndex+1);
+			result << "<a class=\"bible-footnote\" data-sequence=\"" << noteIndex << "\" href=\"passagestudy.jsp?action=showNeutralFootnote&amp;module=" << queryEscape(module) << "&amp;passage=" << queryEscape(key) << "&amp;value=" << noteIndex << "\">" << htmlEscape(label) << "</a>"; ++noteIndex;
+		}
+		while (crossIndex < content.crossReferences.size() && content.crossReferences[crossIndex].offset <= limit) {
+			result << "<a class=\"bible-crossref\" data-sequence=\"" << crossIndex << "\" href=\"passagestudy.jsp?action=showNeutralCrossref&amp;module=" << queryEscape(module) << "&amp;passage=" << queryEscape(key) << "&amp;value=" << crossIndex << "\">↗</a>"; ++crossIndex;
+		}
+	};
 	for (const BibleWordInfo &word : content.words) {
 		if (word.strongs.empty() || word.length == 0 || word.start < cursor ||
 		    word.start > content.plainText.size() ||
 		    word.length > content.plainText.size() - word.start)
 			continue;
-		result << htmlEscape(content.plainText.substr(cursor, word.start - cursor));
+		result << htmlEscape(content.plainText.substr(cursor, word.start - cursor)); markers(word.start);
 		result << "<a class=\"strong-word\" data-offset=\"" << word.start
 		       << "\" href=\"passagestudy.jsp?action=showNeutralStrong&amp;module="
 		       << queryEscape(module) << "&amp;passage=" << queryEscape(key)
@@ -84,7 +102,7 @@ std::string renderStrongVerseText(const BibleVerseContent &content,
 		       << "</a>";
 		cursor = word.start + word.length;
 	}
-	result << htmlEscape(content.plainText.substr(cursor));
+	result << htmlEscape(content.plainText.substr(cursor)); markers(content.plainText.size());
 	return result.str();
 }
 

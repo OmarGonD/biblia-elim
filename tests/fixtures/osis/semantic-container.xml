@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osis>
+  <osisText>
+    <div type="book" osisID="Gen">
+      <chapter osisID="Gen.1">
+        <title>El principio</title>
+        <p>
+          <verse osisID="Gen.1.1"><w lemma="strong:H430">Dios</w> creó el corazón, dijo.</verse>
+          <verse osisID="Gen.1.2">Moisés vio a <w lemma="strong:H430">Jehová</w>.</verse>
+        </p>
+      </chapter>
+      <chapter osisID="Gen.2">
+        <title>Otro capítulo</title>
+        <p>
+          <verse osisID="Gen.2.1">En el principio creó Dios.</verse>
+        </p>
+      </chapter>
+    </div>
+    <div type="book" osisID="John">
+      <chapter osisID="John.3">
+        <title>El amor</title>
+        <p>
+          <verse osisID="John.3.16">Jesús <w lemma="strong:G25">amó</w><note type="footnote" n="+">Nota de amor.</note> al mundo.</verse>
+          <verse osisID="John.3.17"><w lemma="strong:G2424 strong:G5547">SEÑOR</w><note type="crossReference"><reference osisRef="Gen.1.1">Genesis 1:1</reference>; <reference osisRef="John.3.16">John 3:16</reference></note> vino.</verse>
+        </p>
+      </chapter>
+      <chapter osisID="John.4">
+        <p>
+          <verse osisID="John.4.1">Moisés habló al corazón; Jehová respondió!</verse>
+        </p>
+      </chapter>
+    </div>
+  </osisText>
+</osis>
