@@ -2114,7 +2114,6 @@ main_verse_tools_xrefs(const char *key)
 {
 	gchar *mod;
 	GString *refs;
-	int i;
 
 	if (!key || !*key || !backend)
 		return;
@@ -2123,21 +2122,14 @@ main_verse_tools_xrefs(const char *key)
 		return;
 	backend->set_module_key(mod, (gchar *)key);
 	refs = g_string_new(NULL);
-	for (i = 0; i < 24; i++) {
-		char idx[8];
-		char *list;
-		g_snprintf(idx, sizeof(idx), "%d", i);
-		list = backend->get_entry_attribute("Footnote", idx, "refList");
-		if (!list || !*list) {
-			g_free(list);
-			if (i == 0)
-				continue;
-			break;
-		}
+	std::vector<std::string> cross_references =
+		backend->getCurrentEntryCrossReferences(mod);
+	for (std::vector<std::string>::const_iterator list =
+		     cross_references.begin();
+	     list != cross_references.end(); ++list) {
 		if (refs->len)
 			g_string_append_c(refs, ' ');
-		g_string_append(refs, list);
-		g_free(list);
+		g_string_append(refs, list->c_str());
 	}
 	if (!refs->len) {
 		gui_generic_warning(_("Este versículo no tiene referencias cruzadas."));

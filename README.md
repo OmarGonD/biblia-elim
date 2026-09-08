@@ -49,3 +49,14 @@ Licencia: GPL-2.0-or-later, igual que Xiphos. Léxico Strong 1890 y glosas Reina
 ## Construir Xiphos (documentación original)
 
 Véase `INSTALL.md` para el proceso de compilación heredado.
+
+## Módulos SQLite de Biblia
+
+El backend predeterminado usa módulos instalados en
+`$(g_get_user_data_dir())/biblia-elim/modules`. El diálogo **Módulos SQLite**
+permite instalar archivos `.sqlite`, importar directorios USFM y eliminar
+módulos administrados; las copias se validan y se instalan atómicamente.
+También se puede seleccionar un directorio explícito con
+`--backend=sqlite:/ruta` o forzar compatibilidad SWORD con `--backend=sword`.
+Si no hay módulos SQLite válidos, el arranque utiliza SWORD como fallback.
+El ejecutable `biblia-usfm-import` y la interfaz comparten el mismo importer.

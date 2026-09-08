@@ -24,12 +24,15 @@
 
 #include <gtk/gtk.h>
 #include <string.h>
+#include <memory>
 
 #include "main/lists.h"
 #include "main/sword.h"
 #include "main/settings.h"
 #include "main/xml.h"
 #include "backend/sword_main.hh"
+#include "backend/sword/sword_backend.h"
+#include "backend/sqlite/sqlite_bible_backend.h"
 
 /******************************************************************************
  *  lists to keep for the life of the program
@@ -114,16 +117,34 @@ void main_init_lists(void)
 	settings.havepercomm = FALSE;
 	settings.haveprayerlist = FALSE;
 
-	if (backend) {
-		mods.options = backend->get_module_options();
+	if (!main_backend_is_sword()) {
+		std::unique_ptr<BibleBackend> temporary;
+		BibleBackend *list_backend = bible_backend;
+		if (!list_backend) {
+			temporary.reset(new SqliteBibleBackend(
+				main_sqlite_modules_directory()));
+			list_backend = temporary.get();
+		}
+		for (const BibleModuleInfo &module : list_backend->listModules()) {
+			if (module.type != BibleModuleType::Bible)
+				continue;
+			mods.biblemods = g_list_append(
+				mods.biblemods, g_strdup(module.id.c_str()));
+			mods.text_descriptions = g_list_append(
+				mods.text_descriptions,
+				g_strdup(module.description.c_str()));
+		}
 	} else {
-		start_backend = TRUE;
-		backend = new BackEnd();
-	}
-	backend->init_lists(mod_lists);
-	if (start_backend) {
-		delete backend;
-		backend = NULL;
+		BackEnd *list_backend = backend;
+		if (list_backend) {
+			mods.options = list_backend->get_module_options();
+		} else {
+			start_backend = TRUE;
+			list_backend = new SwordBackend();
+		}
+		list_backend->init_lists(mod_lists);
+		if (start_backend)
+			delete list_backend;
 	}
 
 	settings.havebible = g_list_length(mods.biblemods);

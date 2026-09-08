@@ -427,7 +427,7 @@ void main_entry_display(gpointer data, gchar *mod_name,
 			g_string_printf(tmp_str,
 					"<a href=\"passagestudy.jsp?action=showModInfo&value=%s&module=%s\">"
 					"<font color=\"%s\">[%s]</a></font><br>[%s]<br />",
-					backend->module_description(mod_name),
+					main_get_module_description(mod_name),
 					mod_name,
 					settings.link_color,
 					(abbreviation ? abbreviation : mod_name),
@@ -450,7 +450,7 @@ void main_entry_display(gpointer data, gchar *mod_name,
 
 	HtmlOutput((char *)AnalyzeForImageSize(str->str, 1,
 					       GDK_WINDOW(gtk_widget_get_window(html_widget))),
-		   html_widget, mf, NULL);
+			   html_widget, mf, NULL);
 	free_font(mf);
 	g_string_free(str, TRUE);
 	g_string_free(tmp_str, TRUE);

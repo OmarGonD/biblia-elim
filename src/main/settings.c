@@ -403,13 +403,13 @@ int settings_init(int argc, char **argv, int new_configs,
 	main_ensure_remote_sources();
 
 	/* ensure that the user has a bible with which to work */
-	if (settings.havebible == 0) {
+	if (settings.havebible == 0 && main_backend_is_sword()) {
 		/* try a silent, no-questions-asked default install first. */
 		main_bootstrap_default_modules();
 		main_shutdown_list();
 		main_init_lists();
 	}
-	if (settings.havebible == 0) {
+	if (settings.havebible == 0 && main_backend_is_sword()) {
 		gui_init(argc, argv);
 		main_shutdown_list();
 		gui_open_mod_mgr_initial_run();
@@ -423,9 +423,15 @@ int settings_init(int argc, char **argv, int new_configs,
 		}
 		gui_generic_warning_modal(_("Bible module installation complete."));
 	}
+	if (settings.havebible == 0 && !main_backend_is_sword()) {
+		gui_generic_warning_modal(
+			_("There are no valid SQLite Bible modules in the selected directory."));
+		exit(1);
+	}
 
 	/* Y un comentario clásico con el que trabajar, si no hay ninguno. */
-	main_ensure_default_commentary();
+	if (main_backend_is_sword())
+		main_ensure_default_commentary();
 
 	/* check for template.pad file for studypad */
 	tmp = g_strdup_printf("%s/%s", settings.gSwordDir, "template.pad");

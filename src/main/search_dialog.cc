@@ -23,8 +23,7 @@
 #endif
 #include <gtk/gtk.h>
 #include <regex.h>
-#include <swbuf.h>
-#include <swmodule.h>
+#include <memory>
 
 #include "xiphos_html/xiphos_html.h"
 
@@ -45,6 +44,7 @@
 #include "gui/export_bookmarks.h"
 
 #include "backend/sword_main.hh"
+#include "backend/sword/sword_backend.h"
 
 #include "gui/debug_glib_null.h"
 
@@ -53,7 +53,9 @@
 #define FINDS _("found in ")
 #define HTML_START "<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" /><STYLE type=\"text/css\"><!-- A { text-decoration:none } *[dir=rtl] { text-align: right; } --></STYLE></head>"
 
-static BackEnd *backendSearch = NULL;
+static std::unique_ptr<BibleBackend> backend_search_owner;
+static BibleBackend *backendSearch = NULL;
+static BackEnd *backendSearchLegacy = NULL;
 
 static gboolean is_running = FALSE;
 extern int search_dialog;
@@ -68,17 +70,7 @@ gboolean search_clearing;  // also accessed from search_dialog.c.
 static GList *list_of_finds;
 static GList *list_for_bookmarking = NULL;
 
-#ifndef SEARCHFLAG_MATCHWHOLEENTRY
-/*
- * in official 1.9.0, this flag is a #define. but
- * in sword svn 3895, which still calls itself 1.9.0,
- * it's a class element in SWModule, a const int.
- * this is self-defense against the change.
- */
-# define SpecialSearchFlag SWModule::SEARCHFLAG_MATCHWHOLEENTRY
-#else
-# define SpecialSearchFlag SEARCHFLAG_MATCHWHOLEENTRY
-#endif
+#define SpecialSearchFlag 4096
 
 /******************************************************************************
  * Name
@@ -271,7 +263,9 @@ void main_range_text_changed(GtkEditable *editable)
 
 	gtk_list_store_clear(store_list_ranges);
 	entry = gtk_entry_get_text(GTK_ENTRY(editable));
-	tmp = backend->parse_range_list(settings.MainWindowModule, entry);
+	if (!backendSearchLegacy)
+		return;
+	tmp = backendSearchLegacy->parse_range_list(settings.MainWindowModule, entry);
 	while (tmp) {
 		gchar *buf = (gchar *)tmp->data;
 		if (!buf)
@@ -304,16 +298,8 @@ void main_range_text_changed(GtkEditable *editable)
 
 static void set_search_global_option(const gchar *option, gboolean choice)
 {
-	const char *on_off;
-	SWMgr *mgr = backendSearch->get_mgr();
-
-	if (choice) {
-		on_off = "On";
-	} else {
-		on_off = "Off";
-	}
-	mgr->setGlobalOption(option, on_off);
-	XI_print(("option = %s is %s\n", option, on_off));
+	backendSearch->setGlobalOption(option, choice);
+	XI_print(("option = %s is %s\n", option, choice ? "On" : "Off"));
 }
 
 /******************************************************************************
@@ -508,6 +494,8 @@ static void add_module_finds(GList *versekeys)
 
 static void add_ranges(void)
 {
+	if (!backendSearchLegacy)
+		return;
 	GtkTreeModel *model;
 	GtkListStore *list_store;
 	GtkTreeIter iter;
@@ -734,7 +722,7 @@ void main_add_mod_to_list(GtkWidget *tree_widget, gchar *mod_name)
 
 	model_mods = gtk_tree_view_get_model(GTK_TREE_VIEW(tree_widget));
 	list_store = GTK_LIST_STORE(model_mods);
-	mod_description = backendSearch->module_description(mod_name);
+	mod_description = main_get_module_description(mod_name);
 
 	gtk_list_store_append(list_store, &iter);
 	gtk_list_store_set(list_store, &iter,
@@ -806,7 +794,7 @@ void main_mod_selection_changed(GtkTreeSelection *selection,
 	gtk_tree_model_get(model, &selected, UTIL_COL_MODULE, &mod, -1);
 	if (mod) {
 		const gchar *mod_description =
-		    backendSearch->module_description(mod);
+		    main_get_module_description(mod);
 
 		if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.rb_current_module))) {
 			search1.search_mod = g_strdup(mod);
@@ -940,7 +928,12 @@ void main_finds_verselist_selection_changed(GtkTreeSelection *selection,
 		main_url_handler(verse_selected, TRUE);
 	g_free((gchar *)temp_key);
 
-	text_str = g_string_new(backendSearch->get_render_text(module, key));
+	if (backendSearchLegacy)
+		text_str = g_string_new(backendSearchLegacy->get_render_text(module, key));
+	else {
+		std::string rendered = backendSearch->getText(module, key, true);
+		text_str = g_string_new(rendered.c_str());
+	}
 	mark_search_words(text_str);
 
 	GString *html_text = g_string_new("");
@@ -1017,7 +1010,7 @@ void main_selection_modules_lists_changed(GtkTreeSelection *selection,
 		gtk_list_store_append(list_store, &iter);
 		gtk_list_store_set(list_store, &iter,
 				   0,
-				   backendSearch->module_description((gchar *)
+				   main_get_module_description((gchar *)
 								     tmp->data),
 				   1,
 				   (gchar *)tmp->data, -1);
@@ -1201,7 +1194,9 @@ static GList *get_custom_list_from_name(const gchar *label)
 
 static void set_up_dialog_search(GList *modlist)
 {
-	backendSearch->clear_scope();
+	if (!backendSearchLegacy)
+		return;
+	backendSearchLegacy->clear_scope();
 	if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.rb_custom_range))) {
 		// if any non-bible, non-commentary modules are in use,
 		// we must not respect this "custom range" selector.
@@ -1221,24 +1216,24 @@ static void set_up_dialog_search(GList *modlist)
 		}
 
 		if (range_ok) {
-			backendSearch->clear_search_list();
+			backendSearchLegacy->clear_search_list();
 			const gchar *label =
 			    gtk_entry_get_text(GTK_ENTRY(gtk_bin_get_child(GTK_BIN(search1.combo_range))));
 			gchar *range =
 			    (gchar *)xml_get_list_from_label("ranges", "range", label);
 			if (range) {
-				backendSearch->set_range(name_for_range, range);
-				backendSearch->set_scope2range();
+				backendSearchLegacy->set_range(name_for_range, range);
+				backendSearchLegacy->set_scope2range();
 			}
 		}
 	}
 
 	else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.rb_last))) {
-		backendSearch->set_scope2last_search();
+		backendSearchLegacy->set_scope2last_search();
 	}
 
 	else {
-		backendSearch->clear_search_list();
+		backendSearchLegacy->clear_search_list();
 	}
 }
 
@@ -1304,7 +1299,6 @@ void main_do_dialog_search(void)
 	GList *tmp = NULL;
 	GList *tmp_list = NULL;
 	GList *tmp_bookmark_list = NULL;
-	SWBuf swbuf = "";
 	GtkTreeModel *model;
 	GtkListStore *list_store;
 	GtkTreeIter iter;
@@ -1315,6 +1309,8 @@ void main_do_dialog_search(void)
 	char *num;
 	gchar msg[300];
 	RESULTS *results;
+	BibleSearchQuery query;
+	std::vector<BibleSearchResult> search_results;
 
 	// bracket the clean up to optimize away excess verse formatting.
 	search_clearing = TRUE;
@@ -1403,10 +1399,9 @@ void main_do_dialog_search(void)
 	search_active = TRUE;
 
 	// must ensure that no accents or vowel points are enabled.
-	SWMgr *mgr = backendSearch->get_mgr();
-	mgr->setGlobalOption("Greek Accents", "Off");
-	mgr->setGlobalOption("Hebrew Vowel Points", "Off");
-	mgr->setGlobalOption("Arabic Vowel Points", "Off");
+	backendSearch->setOption(BibleOption::GreekAccents, false);
+	backendSearch->setOption(BibleOption::HebrewVowelPoints, false);
+	backendSearch->setOption(BibleOption::ArabicVowelPoints, false);
 
 	while (search_mods != NULL) {
 		module = (gchar *)search_mods->data;
@@ -1439,7 +1434,8 @@ void main_do_dialog_search(void)
 		search_type = settings.searchType;
 
 		if (search_type == -4) {
-			search_type = backendSearch->check_for_optimal_search(module);
+			search_type = backendSearchLegacy
+				? backendSearchLegacy->check_for_optimal_search(module) : -2;
 			if (search_type == -2) {
 				sprintf(msg, _("No fast-search index exists for %s.%s%s"),
 					module,
@@ -1450,24 +1446,44 @@ void main_do_dialog_search(void)
 		}
 		XI_message(("search_type = %d", search_type));
 
-		finds = backendSearch->do_module_search(module,
-							(attribute_search_string
-							     ? mgr->getModule(module)->stripText(attribute_search_string)
-							     : mgr->getModule(module)->stripText(search_string)),
-							search_type,
-							search_params,
-							TRUE);
+		query = BibleSearchQuery();
+		query.text = attribute_search_string ? attribute_search_string : search_string;
+		query.caseSensitive = (search_params & REG_ICASE) == 0;
+		query.fromDialog = true;
+		query.matchWholeEntry = (search_params & SpecialSearchFlag) != 0;
+		switch (search_type) {
+		case -1:
+			query.mode = BibleSearchMode::Phrase;
+			break;
+		case -2:
+			query.mode = BibleSearchMode::MultiWord;
+			break;
+		case -4:
+			query.mode = BibleSearchMode::Indexed;
+			break;
+		case -3:
+			query.mode = BibleSearchMode::Attribute;
+			break;
+		default:
+			query.mode = BibleSearchMode::Regex;
+			break;
+		}
+		search_results = backendSearch->search(module, query);
+		finds = search_results.size();
 
 		tmp_list = g_list_first(tmp_list);
 		tmp_list = NULL;
 		tmp_bookmark_list = g_list_first(tmp_bookmark_list);
 		tmp_bookmark_list = NULL;
 
-		mod_type = backendSearch->module_type(module);
-		while ((key_buf = backendSearch->get_next_listkey()) != NULL) {
+		mod_type = backendSearchLegacy
+			? backendSearchLegacy->module_type(module)
+			: main_get_mod_type(module);
+		for (const BibleSearchResult &search_result : search_results) {
+			key_buf = search_result.key.c_str();
 			if (mod_type == TEXT_TYPE)
 				g_string_printf(str, "%s: %s  %s", module, key_buf,
-						backendSearch->get_strip_text(module, key_buf));
+						search_result.text.c_str());
 			else
 				g_string_printf(str, "%s: %s", module, key_buf);
 			tmp_list = g_list_append(tmp_list, (char *)g_strdup(str->str));
@@ -1531,13 +1547,22 @@ void main_open_search_dialog(void)
 {
 	if (!is_running) {
 		// get rid of holdover from last time, if it exited poorly.
-		if (backendSearch)
-			delete backendSearch;
+		backendSearch = NULL;
+		backendSearchLegacy = NULL;
+		backend_search_owner.reset();
 
-		backendSearch = new BackEnd();
+		if (!main_backend_is_sword()) {
+			backendSearch = bible_backend;
+			backendSearchLegacy = NULL;
+		} else {
+			backend_search_owner.reset(new SwordBackend());
+			backendSearch = backend_search_owner.get();
+			backendSearchLegacy = dynamic_cast<BackEnd *>(backendSearch);
+			g_assert(backendSearchLegacy != NULL);
+		}
 
 		/* create and show search dialog */
-		backendSearch->init_SWORD(2);
+		if (backendSearchLegacy) backendSearchLegacy->init_SWORD(2);
 		gui_create_search_dialog();
 
 		/* initiate module count to 0 */
@@ -1566,8 +1591,9 @@ void main_close_search_dialog(void)
 	_clear_find_lists();
 	_clear_bookmarking_lists();
 	is_running = FALSE;
-	delete backendSearch;
 	backendSearch = NULL;
+	backendSearchLegacy = NULL;
+	backend_search_owner.reset();
 }
 
 /******************************************************************************
@@ -1591,7 +1617,7 @@ void main_dialog_search_percent_update(char percent, void *userData)
 	char maxHashes = *((char *)userData);
 
 	if (terminate_search) {
-		backendSearch->terminate_search();
+		if (backendSearchLegacy) backendSearchLegacy->terminate_search();
 		// this is WAY WRONG but at least it cleans up the dying window. */
 		// _clear_find_lists();  why would i have ever done this here?  oy.
 		is_running = FALSE;

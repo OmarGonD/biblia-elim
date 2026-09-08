@@ -136,6 +136,7 @@ int main(int argc, char *argv[])
 	int newbookmarks = FALSE;
 	int have_sword_url = FALSE;
 	int have_tab_list = FALSE;
+	gboolean backend_argument = FALSE;
 	const char *pulpito_de = NULL;
 	gint base_step = 0; //needed for splash
 #ifdef WIN32
@@ -159,6 +160,28 @@ int main(int argc, char *argv[])
 		return main_recordatorio_una_vez();
 	}
 #endif
+
+	/* Development backend selector. Remove it before GTK parses argv. The
+	 * optional module directory normally comes from BIBLIA_ELIM_SQLITE_MODULES. */
+	if (argc > 1 && !strncmp(argv[1], "--backend=", 10)) {
+		backend_argument = TRUE;
+		const char *choice = argv[1] + 10;
+		if (!strcmp(choice, "sword"))
+			main_select_bible_backend("sword", NULL);
+		else if (!strcmp(choice, "sqlite"))
+			main_select_bible_backend("sqlite", NULL);
+		else if (!strncmp(choice, "sqlite:", 7) && choice[7])
+			main_select_bible_backend("sqlite", choice + 7);
+		else {
+			g_printerr("Unknown backend: %s\n", choice);
+			return 1;
+		}
+		argv[1] = argv[argc - 1];
+		--argc;
+	}
+	if (!backend_argument)
+		main_select_bible_backend("sqlite", NULL);
+	main_validate_bible_backend_selection();
 
 	// ---------------------------------------------------------
 	// **** LOUD OBNOXIOUS COMMENT TO GET ATTENTION ****

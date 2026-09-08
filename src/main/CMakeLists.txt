@@ -60,6 +60,8 @@ add_library (main
   search_sidebar.cc
   settings.c
   sidebar.cc
+	strong_interaction.cc
+	strong_ui.cc
   sword.cc
   sword_treekey.cc
   tab_history.c

@@ -25,8 +25,7 @@
 
 #include <gtk/gtk.h>
 #include <string.h>
-#include <swmgr.h>
-#include <swmodule.h>
+#include <swconfig.h>
 
 #include "gui/parallel_view.h"
 #include "gui/utilities.h"
@@ -42,14 +41,10 @@
 
 #include "gui/debug_glib_null.h"
 
-static void _set_global_option(const char *option,
+static void _set_global_option(BibleOption option,
 			       gboolean choice)
 {
-	SWMgr *mgr = backend->get_mgr();
-	char *on_off;
-
-	on_off = gui_tf2of(choice);
-	mgr->setGlobalOption(option, on_off);
+	backend->setOption(option, choice != FALSE);
 }
 
 void _set_global_textual(const char *option,
@@ -138,25 +133,25 @@ main_get_one_option(const char *mod_name, const char *op)
 
 void main_set_global_options(GLOBAL_OPS *ops)
 {
-	_set_global_option("Strong's Numbers", ops->strongs);
-	_set_global_option("Morphological Tags", ops->morphs);
-	_set_global_option("Footnotes", ops->footnotes);
-	_set_global_option("Greek Accents", ops->greekaccents);
-	_set_global_option("Lemmas", ops->lemmas);
-	_set_global_option("Cross-references", ops->scripturerefs);
-	_set_global_option("Hebrew Vowel Points", ops->hebrewpoints);
-	_set_global_option("Hebrew Cantillation", ops->hebrewcant);
+	_set_global_option(BibleOption::Strongs, ops->strongs);
+	_set_global_option(BibleOption::Morphology, ops->morphs);
+	_set_global_option(BibleOption::Footnotes, ops->footnotes);
+	_set_global_option(BibleOption::GreekAccents, ops->greekaccents);
+	_set_global_option(BibleOption::Lemmas, ops->lemmas);
+	_set_global_option(BibleOption::CrossReferences, ops->scripturerefs);
+	_set_global_option(BibleOption::HebrewVowelPoints, ops->hebrewpoints);
+	_set_global_option(BibleOption::HebrewCantillation, ops->hebrewcant);
 
 	// always turn on headings in the engine (and later cache them).
 	// whether we display them or not is another matter (display.cc).
-	_set_global_option("Headings", 1);
-	_set_global_option("Italic Headings", ops->italic_headings);
+	_set_global_option(BibleOption::Headings, 1);
+	_set_global_option(BibleOption::ItalicHeadings, ops->italic_headings);
 
-	_set_global_option("Words of Christ in Red", ops->words_in_red);
-	_set_global_option("Transliterated Forms", ops->xlit);
-	_set_global_option("Enumerations", ops->enumerated);
-	_set_global_option("Glosses", ops->glosses);
-	_set_global_option("Morpheme Segmentation", ops->morphseg);
+	_set_global_option(BibleOption::WordsOfChristInRed, ops->words_in_red);
+	_set_global_option(BibleOption::TransliteratedForms, ops->xlit);
+	_set_global_option(BibleOption::Enumerations, ops->enumerated);
+	_set_global_option(BibleOption::Glosses, ops->glosses);
+	_set_global_option(BibleOption::MorphemeSegmentation, ops->morphseg);
 
 	_set_global_textual("Transliteration", (ops->transliteration
 						    ? "Latin"

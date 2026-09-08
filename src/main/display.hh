@@ -28,9 +28,10 @@
 #include <gtk/gtk.h>
 #include <swmgr.h>
 #include <swdisp.h>
+#include <versekey.h>
 #include "main/gtk_compat.h"
 #include "main/global_ops.hh"
-#include "backend/sword_main.hh"
+#include "backend/bible_backend.h"
 #include "gui/utilities.h"
 
 using namespace sword;
@@ -39,7 +40,7 @@ class GTKEntryDisp : public SWDisplay
 {
       public:
 	GTKEntryDisp(GtkWidget *_gtkText,
-		     BackEnd *_be)
+		     BibleBackend *_be)
 	    : gtkText(_gtkText),
 	      be(_be),
 	      swbuf(""),
@@ -59,7 +60,7 @@ class GTKEntryDisp : public SWDisplay
 
       protected:
 	GtkWidget *gtkText;
-	BackEnd *be;
+	BibleBackend *be;
 	SWBuf swbuf;
 	MOD_FONT *mf;
 	GLOBAL_OPS *ops;
@@ -78,7 +79,7 @@ class GTKChapDisp : public GTKEntryDisp
 {
       public:
 	GTKChapDisp(GtkWidget *_gtkText,
-		    BackEnd *_be)
+		    BibleBackend *_be)
 	    : GTKEntryDisp(_gtkText, _be)
 	{
 	}
@@ -99,7 +100,7 @@ class DialogEntryDisp : public SWDisplay
       public:
 	DialogEntryDisp(GtkWidget *_gtkText,
 			DIALOG_DATA *_d,
-			BackEnd *_be)
+			BibleBackend *_be)
 	    : gtkText(_gtkText),
 	      d(_d),
 	      be(_be),
@@ -121,7 +122,7 @@ class DialogEntryDisp : public SWDisplay
       protected:
 	GtkWidget *gtkText;
 	DIALOG_DATA *d;
-	BackEnd *be;
+	BibleBackend *be;
 	SWBuf swbuf;
 	MOD_FONT *mf;
 	GLOBAL_OPS *ops;
@@ -141,7 +142,7 @@ class DialogChapDisp : public DialogEntryDisp
       public:
 	DialogChapDisp(GtkWidget *_gtkText,
 		       DIALOG_DATA *_d,
-		       BackEnd *_be)
+		       BibleBackend *_be)
 	    : DialogEntryDisp(_gtkText, _d, _be)
 	{
 	}
@@ -156,7 +157,7 @@ class GTKPrintEntryDisp : public SWDisplay
 {
       public:
 	GTKPrintEntryDisp(GtkWidget *_gtkText,
-			  BackEnd *_be)
+			  BibleBackend *_be)
 	    : gtkText(_gtkText),
 	      be(_be)
 	{
@@ -165,14 +166,14 @@ class GTKPrintEntryDisp : public SWDisplay
 
       protected:
 	GtkWidget *gtkText;
-	BackEnd *be;
+	BibleBackend *be;
 };
 
 class GTKPrintChapDisp : public GTKPrintEntryDisp
 {
       public:
 	GTKPrintChapDisp(GtkWidget *_gtkText,
-			 BackEnd *_be)
+			 BibleBackend *_be)
 	    : GTKPrintEntryDisp(_gtkText, _be)
 	{
 	}

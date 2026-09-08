@@ -56,6 +56,70 @@ using namespace std;
 
 BackEnd *backend = NULL;
 
+std::vector<BibleModuleInfo> BackEnd::listModules() const
+{
+	std::vector<BibleModuleInfo> modules;
+	if (!main_mgr)
+		return modules;
+
+	for (ModMap::const_iterator it = main_mgr->Modules.begin();
+	     it != main_mgr->Modules.end(); ++it) {
+		SWModule *module = it->second;
+		BibleModuleInfo info;
+		info.id = module->getName();
+		info.description = module->getDescription();
+		info.language = module->getLanguage();
+		info.type = moduleType(info.id);
+		modules.push_back(info);
+	}
+	return modules;
+}
+
+bool BackEnd::hasModule(const std::string &module_id) const
+{
+	return main_mgr &&
+	       main_mgr->Modules.find(module_id.c_str()) != main_mgr->Modules.end();
+}
+
+std::string BackEnd::getText(const std::string &module_id,
+				     const std::string &key,
+				     bool rendered)
+{
+	char *text = rendered ? get_render_text(module_id.c_str(), key.c_str())
+			     : get_raw_text(module_id.c_str(), key.c_str());
+	if (!text)
+		return std::string();
+	std::string result(text);
+	free(text);
+	return result;
+}
+
+std::string BackEnd::moduleDescription(const std::string &module_id) const
+{
+	const char *description =
+		const_cast<BackEnd *>(this)->module_description(module_id.c_str());
+	return description ? std::string(description) : std::string();
+}
+
+std::string BackEnd::moduleLanguage(const std::string &module_id) const
+{
+	const char *language =
+		const_cast<BackEnd *>(this)->module_get_language(module_id.c_str());
+	return language ? std::string(language) : std::string();
+}
+
+std::string BackEnd::osisRefFromKey(const std::string &module_id,
+					    const std::string &key)
+{
+	const char *osis = const_cast<BackEnd *>(this)->get_osisref_from_key(
+		module_id.c_str(), key.c_str());
+	if (!osis)
+		return std::string();
+	std::string result(osis);
+	free(const_cast<char *>(osis));
+	return result;
+}
+
 // rule of thumb for VerseKey usage: you can use
 // if you intend to do nothing more than setText() once plus
 // some gets (getTestament, getBook, getChapter, getVerse),
@@ -188,7 +252,13 @@ void BackEnd::init_lists(MOD_LISTS *mods)
 		const char *abbreviation = m->getConfigEntry("Abbreviation");
 
 		// abbrev collisions disallowed: no dups of any .conf's [Name].
-		if (abbreviation && !main_is_module((char *)abbreviation)) {
+		/* This routine is also used while constructing a temporary SWORD
+		 * backend during neutral (SQLite) startup.  At that point the global
+		 * `bible_backend`/`backend` aliases are intentionally unset, so do not
+		 * call main_is_module(), which resolves through the global backend.
+		 * The collision check only needs this manager's module map. */
+		if (abbreviation &&
+		    main_mgr->Modules.find(abbreviation) == main_mgr->Modules.end()) {
 			main_add_abbreviation(modname, abbreviation);
 		}
 
@@ -706,24 +776,6 @@ int BackEnd::module_get_testaments(const char *module_name)
 	else if (ot && !nt)
 		return 0;
 	return -1;
-}
-
-char *BackEnd::get_entry_attribute(const char *level1,
-				   const char *level2,
-				   const char *level3,
-				   bool render)
-{
-	UTF8HTML u2html;
-	if (render)
-		display_mod->renderText();
-	SWBuf attribute2 = display_mod->getEntryAttributes()[level1][level2][level3].c_str();
-
-	u2html.processText(attribute2);
-
-	if (attribute2.length()) {
-		return strdup(attribute2.c_str());
-	}
-	return NULL;
 }
 
 int BackEnd::set_module(const char *module_name)

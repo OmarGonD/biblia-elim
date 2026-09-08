@@ -137,14 +137,14 @@ biblesync_navigate(char cmd, string speaker_uuid,
 			gui_generic_warning((char *)message.c_str());
 		}
 
-		is_module = backend->is_module(bible.c_str());
+		is_module = bible_backend->hasModule(bible);
 		real_name = main_abbrev_to_name(bible.c_str());
 
 		// if the offered name isn't known,
 		// maybe it's an abbreviation for something we do know.
 		if (!is_module && real_name) {
 			bible = real_name;
-			is_module = backend->is_module(bible.c_str());
+			is_module = bible_backend->hasModule(bible);
 		}
 
 		// direct navigation, or via verse list?

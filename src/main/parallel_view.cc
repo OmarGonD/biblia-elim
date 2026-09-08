@@ -49,6 +49,8 @@
 #include "main/xml.h"
 #include "main/display.hh"
 
+#include "backend/sword/sword_backend.h"
+
 #include "xiphos_html/xiphos_html.h"
 
 #include "gui/debug_glib_null.h"
@@ -332,7 +334,7 @@ void main_set_parallel_options_at_start(void)
 	settings.parallel_footnotes = 0;
 	mgr->setGlobalOption("Footnotes", "Off");
 
-	GList *tmp = backend->get_module_options();
+	GList *tmp = backend_p->get_module_options();
 	while (tmp) {
 		char *option = g_strdup((char *)tmp->data);
 		g_strdelimit(option, "' ", '_');
@@ -1087,6 +1089,11 @@ static void interpolate_parallel_display(SWModule *control,
 static gboolean
 parallel_build_html(SWBuf &text, gint *parallel_count_out)
 {
+	/* Parallel comparison is a SWORD-only renderer for now.  SQLite has no
+	 * legacy backend_p, so fail closed instead of dereferencing it when a
+	 * saved parallel/read-comparison setting is active. */
+	if (!backend_p)
+		return FALSE;
 	backend_p->get_mgr()->setGlobalOption("Footnotes", "Off");
 	gchar buf[5000];
 	gint modidx, parallel_count, fraction;
@@ -1259,7 +1266,7 @@ void main_swap_parallel_with_main(char *intmod)
 
 void main_init_parallel_view(void)
 {
-	backend_p = new BackEnd();
+	backend_p = new SwordBackend();
 }
 
 /******************************************************************************

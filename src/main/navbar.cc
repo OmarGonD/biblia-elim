@@ -22,10 +22,6 @@
 #include <config.h>
 #endif
 #include <gtk/gtk.h>
-#include <swmgr.h>
-#include <swmodule.h>
-#include <versekey.h>
-
 #include "main/module_dialogs.h"
 #include "main/navbar.h"
 #include "main/settings.h"
@@ -36,7 +32,7 @@
 #include "gui/commentary_dialog.h"
 #include "gui/bibletext_dialog.h"
 
-#include "backend/sword_main.hh"
+#include "backend/bible_backend.h"
 
 #include "gui/debug_glib_null.h"
 
@@ -55,13 +51,11 @@ void main_navbar_set(NAVBAR navbar, const char *key)
 	if (!navbar.module_name)
 		return;
 
-	SWModule *mod = backend->get_SWModule(navbar.module_name);
-	if (!mod)
+	BibleKeyInfo key_info;
+	if (!bible_backend->resolveKey(navbar.module_name, key ? key : "", key_info))
 		return;
 
-	VerseKey *vkey = (VerseKey *)mod->createKey();
-
-	navbar.key = backend->get_valid_key(navbar.module_name, key);
+	navbar.key = g_strdup(key_info.key.c_str());
 	if (!navbar.is_dialog) {
 	}
 	GtkTreeModel *chapter_store = gtk_combo_box_get_model(
@@ -71,33 +65,25 @@ void main_navbar_set(NAVBAR navbar, const char *key)
 
 	do_display = FALSE;
 
-	int t = backend->module_type(navbar.module_name);
-	if ((t == TEXT_TYPE) || (t == COMMENTARY_TYPE))
-		vkey->setAutoNormalize(1);
-	vkey->setText(key);
-
 	XI_message(("DEBUG navbar: module=%s key_in=%s testament=%d book=%d chapter=%d/%d verse=%d/%d text=%s\n",
 		    navbar.module_name, key,
-		    vkey->getTestament(), vkey->getBook(),
-		    vkey->getChapter(), vkey->getChapterMax(),
-		    vkey->getVerse(), vkey->getVerseMax(),
-		    vkey->getText()));
+		    key_info.reference.testament, key_info.reference.book,
+		    key_info.reference.chapter, key_info.chapterCount,
+		    key_info.reference.verse, key_info.verseCount,
+		    key_info.key.c_str()));
 		
 	// we need the book index to highlight "active" in the pulldown.
-	if ((backend->module_has_testament(navbar.module_name, 1)) && (vkey->getTestament() == 2))
-		book = vkey->BMAX[0] + vkey->getBook();
-	else
-		book = vkey->getBook();
+	book = key_info.bookIndex;
 
 	gtk_combo_box_set_active((GtkComboBox *)navbar.comboboxentry_book,
 				 book - 1);
 
 	gtk_list_store_clear(GTK_LIST_STORE(chapter_store));
 
-	int xchapter = vkey->getChapter();
-	int xverse = vkey->getVerse();
+	int xchapter = key_info.reference.chapter;
+	int xverse = key_info.reference.verse;
 
-	x = (vkey->getChapterMax());
+	x = key_info.chapterCount;
 	for (i = 1; i <= x; i++) {
 		char *num = main_format_number(i);
 		gtk_list_store_append(GTK_LIST_STORE(chapter_store), &iter);
@@ -113,7 +99,7 @@ void main_navbar_set(NAVBAR navbar, const char *key)
 
 	gtk_list_store_clear(GTK_LIST_STORE(verse_store));
 
-	x = (vkey->getVerseMax());
+	x = key_info.verseCount;
 	for (i = 1; i <= x; i++) {
 		char *num = main_format_number(i);
 		gtk_list_store_append(GTK_LIST_STORE(verse_store), &iter);
@@ -131,5 +117,4 @@ void main_navbar_set(NAVBAR navbar, const char *key)
 	do_display = TRUE;
 	g_free(gkey);
 
-	delete vkey;
 }

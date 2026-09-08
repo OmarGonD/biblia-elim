@@ -56,6 +56,7 @@
 #include "main/url.hh"
 
 #include "backend/sword_main.hh"
+#include "backend/sword/sword_backend.h"
 
 #include "gui/debug_glib_null.h"
 
@@ -886,7 +887,6 @@ void main_dialogs_shutdown(void)
 static gint show_note(DIALOG_DATA *d, const gchar *module, const gchar *passage,
 		      const gchar *type, const gchar *value, gboolean clicked)
 {
-	gchar *tmpbuf = NULL;
 	gchar *buf = NULL;
 	GString *str = g_string_new(NULL);
 	GList *tmp = NULL;
@@ -902,39 +902,31 @@ static gint show_note(DIALOG_DATA *d, const gchar *module, const gchar *passage,
 
 	if (strstr(type, "x") && clicked) {
 		be->set_module_key((gchar *)module, (gchar *)passage);
-		tmpbuf = be->get_entry_attribute("Footnote",
-						 (gchar *)value,
-						 "refList");
-		if (tmpbuf) {
+		BibleFootnote footnote;
+		if (be->getCurrentEntryFootnote(module, value, footnote) &&
+		    !footnote.referenceList.empty()) {
 			main_display_verse_list_in_sidebar(d->key,
 							   (gchar *)module,
-							   tmpbuf);
-			g_free(tmpbuf);
+							   (gchar *)footnote.referenceList.c_str());
 		}
 	} else if (strstr(type, "n") && !clicked) {
 		be->set_module_key((gchar *)module, (gchar *)passage);
-		tmpbuf = be->get_entry_attribute("Footnote",
-						 (gchar *)value,
-						 "body");
-		buf = be->render_this_text((gchar *)module, (gchar *)tmpbuf);
-		if (tmpbuf)
-			g_free(tmpbuf);
-		if (buf) {
+		BibleFootnote footnote;
+		if (be->getCurrentEntryFootnote(module, value, footnote) &&
+		    !footnote.body.empty()) {
 			main_dialog_information_viewer(module,
-						       buf,
+						       footnote.body.c_str(),
 						       value,
 						       "showNote",
 						       type,
 						       NULL,
 						       NULL,
 						       d);
-			g_free(buf);
 		}
 	} else if (strstr(type, "x") && !clicked) {
 		be->set_module_key((gchar *)module, (gchar *)passage);
-		tmpbuf = be->get_entry_attribute("Footnote",
-						 (gchar *)value,
-						 "refList");
+		BibleFootnote footnote;
+		be->getCurrentEntryFootnote(module, value, footnote);
 
 		list_of_verses = g_list_first(list_of_verses);
 		if (list_of_verses) {
@@ -950,7 +942,8 @@ static gint show_note(DIALOG_DATA *d, const gchar *module, const gchar *passage,
 			list_of_verses = NULL;
 		}
 
-		tmp = be->parse_verse_list(d->mod_name, tmpbuf, d->key);
+		tmp = be->parse_verse_list(d->mod_name,
+					   footnote.referenceList.c_str(), d->key);
 		while (tmp != NULL) {
 			buf = g_strdup_printf(
 			    "<a href=\"sword://%s/%s\">"
@@ -981,8 +974,6 @@ static gint show_note(DIALOG_DATA *d, const gchar *module, const gchar *passage,
 		if (buf)
 			g_free(buf);
 
-		if (tmpbuf)
-			g_free(tmpbuf);
 		if (str) {
 			main_dialog_information_viewer(module,
 						       str->str,
@@ -1471,7 +1462,7 @@ DIALOG_DATA *main_dialogs_open(const gchar *mod_name,
 	type = backend->module_type(mod_name);
 
 	t = g_new0(DIALOG_DATA, 1);
-	t->backend = (BackEnd *)new BackEnd();
+	t->backend = (BackEnd *)new SwordBackend();
 	be = (BackEnd *)t->backend;
 
 	t->navbar.module_name = NULL;

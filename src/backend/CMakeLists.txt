@@ -19,10 +19,40 @@
 # build backend
 
 add_library (backend STATIC
+  bible_backend.h
+  bible_types.h
+  bible_resources.h
+  strong_id.cc
+  strong_id.h
+  bible_lexicon.h
+  sqlite/sqlite_strong_lexicon.cc
+  sqlite/sqlite_strong_lexicon.h
+  bible_book_map.cc
+  bible_book_map.h
   gs_stringmgr.cpp
   module_manager.cc
+  usfm_importer.cc
+  usfm_importer.h
+  sqlite_module_manager.cc
+  sqlite_module_manager.h
+  sqlite/sqlite_bible_backend.cc
+  sqlite/sqlite_bible_backend.h
   sword_main.cc
+  sword/sword_backend.cc
+  sword/sword_backend.h
   )
+
+add_executable (biblia-usfm-import
+  EXCLUDE_FROM_ALL
+  usfm_import_main.cc
+  usfm_importer.cc
+  usfm_importer.h
+  bible_book_map.cc
+  strong_id.cc
+  bible_book_map.h
+  )
+target_include_directories (biblia-usfm-import PRIVATE PkgConfig::Sqlite3)
+target_link_libraries (biblia-usfm-import PRIVATE PkgConfig::Sqlite3)
 # Add alias
 add_library(Xiphos::Backend ALIAS backend)
 
@@ -35,6 +65,7 @@ target_include_directories(backend
   PkgConfig::Gtk
   PkgConfig::Gnome
   PkgConfig::Soup
+  PkgConfig::Sqlite3
   PkgConfig::Sword
   )
 
@@ -46,6 +77,7 @@ target_link_libraries(backend
   PkgConfig::Gtk
   PkgConfig::Gnome
   PkgConfig::Soup
+  PkgConfig::Sqlite3
   PkgConfig::Sword
   )
 

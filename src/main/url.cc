@@ -64,6 +64,7 @@
 #include "main/module_dialogs.h"
 #include "main/parallel_view.h"
 #include "main/sidebar.h"
+#include "main/strong_ui.h"
 #include "main/sword.h"
 #include "main/xml.h"
 
@@ -417,7 +418,6 @@ static gint show_strongs(const gchar *stype, const gchar *svalue,
 static gint show_note(const gchar *module, const gchar *passage,
 		      const gchar *stype, const gchar *svalue, gboolean clicked)
 {
-	gchar *tmpbuf = NULL;
 	gchar *buf = NULL;
 	gchar *work_buf = NULL;
 	GString *str = g_string_new(NULL);
@@ -452,44 +452,35 @@ static gint show_note(const gchar *module, const gchar *passage,
 		backend->set_module_key((gchar *)module, (gchar *)passage);
 
 	if (strchr(stype, 'x') && clicked) {
-		tmpbuf = backend->get_entry_attribute("Footnote",
-						      (gchar *)svalue,
-						      "refList");
-		if (tmpbuf) {
+		BibleFootnote footnote;
+		if (backend->getCurrentEntryFootnote(module, svalue, footnote) &&
+		    !footnote.referenceList.empty()) {
 			main_display_verse_list_in_sidebar(settings.currentverse,
 							   (gchar *)module,
-							   tmpbuf);
-			g_free(tmpbuf);
+							   (gchar *)footnote.referenceList.c_str());
 		}
 	} else if (strchr(stype, 'n') && !clicked) {
-		tmpbuf = backend->get_entry_attribute("Footnote",
-						      (gchar *)svalue,
-						      "body");
-		buf = backend->render_this_text((gchar *)module, (gchar *)tmpbuf);
-		if (tmpbuf)
-			g_free(tmpbuf);
-		if (buf) {
+		BibleFootnote footnote;
+		if (backend->getCurrentEntryFootnote(module, svalue, footnote) &&
+		    !footnote.body.empty()) {
 			main_information_viewer((gchar *)module,
-						buf,
+						(gchar *)footnote.body.c_str(),
 						(gchar *)svalue,
 						"showNote",
 						(gchar *)stype,
 						NULL,
 						NULL);
-			if (buf)
-				g_free(buf);
 		}
 	} else if (strchr(stype, 'x') && !clicked) {
-		tmpbuf = backend->get_entry_attribute("Footnote",
-						      (gchar *)svalue,
-						      "refList");
+		BibleFootnote footnote;
+		backend->getCurrentEntryFootnote(module, svalue, footnote);
 		if (settings.xrefs_in_verse_list) {
 			main_display_verse_list_in_sidebar(settings.currentverse,
 							   (gchar *)module,
-							   tmpbuf);
-			g_free(tmpbuf);
+							   (gchar *)footnote.referenceList.c_str());
 		} else {
-			vlist = chaser = backend->parse_verse_list(module, tmpbuf, settings.currentverse);
+			vlist = chaser = backend->parse_verse_list(
+				module, footnote.referenceList.c_str(), settings.currentverse);
 			while (chaser != NULL) {
 				buf = g_strdup_printf(
 				    "<a href=\"sword://%s/%s\">"
@@ -504,8 +495,6 @@ static gint show_note(const gchar *module, const gchar *passage,
 				chaser = g_list_next(chaser);
 			}
 			g_list_free(vlist);
-			g_free(tmpbuf);
-
 			buf = g_strdup_printf("<a href=\"sword://%s/%s\">"
 					      "<font color=\"%s\">%s%s</font></a><br/>",
 					      (gchar *)module,
@@ -1020,6 +1009,18 @@ gint main_url_handler(const gchar *url, gboolean clicked)
 
 		if (!HAS_URL_PARAM(action)) {
 			XI_warning(("URL action missing: %s", url));
+		} else if (!strcmp(action, "showNeutralStrong")) {
+			if (HAS_URL_PARAM(module) && HAS_URL_PARAM(passage) &&
+			    HAS_URL_PARAM(svalue)) {
+				gchar *end = NULL;
+				guint64 offset = g_ascii_strtoull(svalue, &end, 10);
+				if (end && !*end && offset <= G_MAXSIZE) {
+					if (clicked)
+						main_show_neutral_strong(module, passage,
+							(size_t)offset);
+					retval = 1;
+				}
+			}
 		} else if (!strcmp(action, "showStrongs")) {
 			if (HAS_URL_PARAM(svalue)) {
 				show_strongs(stype, svalue, clicked);

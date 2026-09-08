@@ -58,6 +58,8 @@
 #include "gui/diccionario.h"
 #include "gui/tabbed_browser.h"
 #include "gui/utilities.h"
+
+extern void gui_open_sqlite_module_manager(void);
 #include "gui/widgets.h"
 #include "gui/elim_tema.h"
 #include "gui/export_dialog.h"
@@ -961,7 +963,10 @@ on_show_dictionary_lexicon_activate(GtkCheckMenuItem *menuitem,
 G_MODULE_EXPORT void
 on_module_manager_activate(GtkMenuItem *menuitem, gpointer user_data)
 {
-	gui_instalar_biblias();
+	if (!main_backend_is_sword())
+		gui_open_sqlite_module_manager();
+	else
+		gui_instalar_biblias();
 }
 
 /******************************************************************************

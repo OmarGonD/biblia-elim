@@ -1416,6 +1416,10 @@ walk_element(ParseCtx *ctx, xmlNode *node)
 				ctx->st.fg = g_strdup("#6B2D8B");
 		}
 	}
+	/* Strong words in neutral Bible HTML are ordinary verse text with a
+	 * restrained accent. They intentionally are not underlined links. */
+	if (class_has(klass, "strong-word") && !ctx->st.fg)
+		ctx->st.fg = g_strdup("#6B2D8B");
 	if (class_has(klass, "ilblock") || class_has(klass, "illabel") ||
 	    class_has(klass, "ilorig") || class_has(klass, "ilw"))
 		ctx->st.ilblock = TRUE;
@@ -1892,6 +1896,27 @@ press_on_anchor_line(GtkTextView *view, GdkEventButton *event)
 }
 
 static gboolean
+activate_pending_strong(gpointer data)
+{
+	WkHtml *html = WK_HTML(data);
+	html->priv->strong_click_timeout = 0;
+	if (html->priv->pending_strong_uri)
+		main_url_handler(html->priv->pending_strong_uri, TRUE);
+	g_clear_pointer(&html->priv->pending_strong_uri, g_free);
+	return G_SOURCE_REMOVE;
+}
+
+static void
+cancel_pending_strong(WkHtml *html)
+{
+	if (html->priv->strong_click_timeout) {
+		g_source_remove(html->priv->strong_click_timeout);
+		html->priv->strong_click_timeout = 0;
+	}
+	g_clear_pointer(&html->priv->pending_strong_uri, g_free);
+}
+
+static gboolean
 on_button_press(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
 	WkHtml *html = WK_HTML(data);
@@ -1899,6 +1924,7 @@ on_button_press(GtkWidget *widget, GdkEventButton *event, gpointer data)
 	gchar *href;
 
 	if (event->type == GDK_2BUTTON_PRESS) {
+		cancel_pending_strong(html);
 		db_click = TRUE;
 		return FALSE;
 	}
@@ -1913,6 +1939,7 @@ on_button_press(GtkWidget *widget, GdkEventButton *event, gpointer data)
 		return TRUE;
 	if (event->button != 1)
 		return FALSE;
+	cancel_pending_strong(html);
 
 	if (press_on_anchor_line(GTK_TEXT_VIEW(widget), event))
 		return TRUE;
@@ -1920,6 +1947,14 @@ on_button_press(GtkWidget *widget, GdkEventButton *event, gpointer data)
 	iter_at_xy(GTK_TEXT_VIEW(widget), event, &iter);
 	href = iter_href(html, &iter);
 	if (href) {
+		/* Let GtkTextView own press/motion while selecting. A neutral Strong
+		 * link is activated on release only when this did not become a drag. */
+		if (strstr(href, "action=showNeutralStrong")) {
+			html->priv->pending_strong_uri = href;
+			html->priv->strong_press_x = event->x;
+			html->priv->strong_press_y = event->y;
+			return FALSE;
+		}
 		if (html->priv->is_dialog)
 			main_dialogs_url_handler(html->priv->dialog, href, TRUE);
 		else
@@ -1933,7 +1968,31 @@ on_button_press(GtkWidget *widget, GdkEventButton *event, gpointer data)
 static gboolean
 on_button_release(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
-	(void)data;
+	WkHtml *html = WK_HTML(data);
+	if (event->type == GDK_BUTTON_RELEASE && event->button == 1 &&
+	    html->priv->pending_strong_uri) {
+		GtkTextIter iter;
+		gchar *href;
+		gboolean dragged = gtk_drag_check_threshold(widget,
+			(gint)html->priv->strong_press_x,
+			(gint)html->priv->strong_press_y,
+			(gint)event->x, (gint)event->y);
+		iter_at_xy(GTK_TEXT_VIEW(widget), event, &iter);
+		href = iter_href(html, &iter);
+		if (!dragged && href &&
+		    !strcmp(href, html->priv->pending_strong_uri)) {
+			gint double_click_time = 250;
+			GtkSettings *settings = gtk_widget_get_settings(widget);
+			g_object_get(settings, "gtk-double-click-time",
+				&double_click_time, NULL);
+			g_free(href);
+			html->priv->strong_click_timeout = g_timeout_add(
+				MAX(1, double_click_time), activate_pending_strong, html);
+			return TRUE;
+		}
+		g_free(href);
+		g_clear_pointer(&html->priv->pending_strong_uri, g_free);
+	}
 	if (event->type == GDK_BUTTON_RELEASE && db_click) {
 		GtkClipboard *clipboard =
 		    gtk_widget_get_clipboard(widget, GDK_SELECTION_PRIMARY);
@@ -2373,6 +2432,8 @@ html_finalize(GObject *object)
 
 	if (priv->timeout)
 		g_source_remove(priv->timeout);
+	if (priv->strong_click_timeout)
+		g_source_remove(priv->strong_click_timeout);
 	free_anchor_list(priv);	/* buffer is already gone -- see above */
 	if (priv->anchor_list)
 		g_ptr_array_free(priv->anchor_list, TRUE);
@@ -2393,6 +2454,7 @@ html_finalize(GObject *object)
 	if (priv->find_map)
 		g_array_free(priv->find_map, TRUE);
 	g_free(priv->hover_uri);
+	g_free(priv->pending_strong_uri);
 	if (priv->css)
 		g_object_unref(priv->css);
 	parent_class->finalize(object);

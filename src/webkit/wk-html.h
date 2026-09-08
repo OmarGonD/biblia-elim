@@ -68,6 +68,10 @@ struct _WkHtmlPriv
 	gboolean is_dialog;
 	DIALOG_DATA *dialog;
 	gchar *hover_uri;
+	gchar *pending_strong_uri;
+	guint strong_click_timeout;
+	gdouble strong_press_x;
+	gdouble strong_press_y;
 };
 struct _WkHtmlClass
 {

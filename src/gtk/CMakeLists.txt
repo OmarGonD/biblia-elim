@@ -156,6 +156,7 @@ add_executable (xiphos
   lectura_sync.c
   main_menu.c
   main_window.c
+  sqlite_module_manager_dialog.cc
   menu_popup.c
   mod_mgr.c
   navbar_book.c

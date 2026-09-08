@@ -24,7 +24,7 @@
 #include <gtk/gtk.h>
 #include <regex.h>
 #include <ctype.h>
-#include <swmodule.h>
+#include <memory>
 
 #include "main/search_dialog.h"
 #include "main/search_sidebar.h"
@@ -40,6 +40,7 @@
 #include "gui/utilities.h"
 
 #include "backend/sword_main.hh"
+#include "backend/sword/sword_backend.h"
 
 #include "gui/debug_glib_null.h"
 
@@ -51,7 +52,10 @@
 #define SMODULE N_(" Module")
 #define FINDS N_("found in ")
 
-static BackEnd *backendSearch;
+static std::unique_ptr<BibleBackend> backend_search_owner;
+static BibleBackend *backendSearch;
+static BackEnd *backendSearchLegacy;
+static std::vector<BibleSearchResult> sidebar_search_results;
 
 int search_dialog;
 
@@ -78,7 +82,6 @@ int search_dialog;
 static void fill_search_results_list(int finds)
 {
 	gchar buf[256];
-	const gchar *key_buf = NULL;
 	GtkTreeModel *model;
 	GtkListStore *list_store;
 	GtkTreeIter iter;
@@ -110,14 +113,14 @@ static void fill_search_results_list(int finds)
 	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(sidebar.results_list));
 	list_store = gtk_list_store_new(1, G_TYPE_STRING);
 
-	backendSearch->set_listkey_position((char)1); /* TOP */
-	while ((key_buf = backendSearch->get_next_listkey()) != NULL) {
+	for (const BibleSearchResult &search_result : sidebar_search_results) {
+		const gchar *key_buf = search_result.key.c_str();
 		gchar *tmpbuf = (gchar *)key_buf;
 		gtk_list_store_append(list_store, &iter);
 		gtk_list_store_set(list_store, &iter, 0,
 				   tmpbuf, -1);
 		list_item = g_new(RESULTS, 1);
-		list_item->module = g_strdup(settings.sb_search_mod);
+		list_item->module = g_strdup(search_result.module.c_str());
 		list_item->key = g_strdup(tmpbuf);
 		list_of_verses = g_list_append(list_of_verses,
 					       (RESULTS *)list_item);
@@ -207,11 +210,11 @@ void main_do_sidebar_search(gpointer user_data)
 
 	search_module = settings.sb_search_mod;
 
-	backendSearch->clear_scope();
+	if (backendSearchLegacy) backendSearchLegacy->clear_scope();
 
 	if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ss.rrbUseBounds))) {
 		gchar *str;
-		backendSearch->clear_search_list();
+		if (backendSearchLegacy) backendSearchLegacy->clear_search_list();
 		str = g_strdup_printf("%s - %s",
 #ifdef USE_GTK_3
 				      gtk_combo_box_text_get_active_text((GtkComboBoxText *)
@@ -222,13 +225,15 @@ void main_do_sidebar_search(gpointer user_data)
 				      gtk_combo_box_get_active_text(GTK_COMBO_BOX(ss.entryLower)),
 				      gtk_combo_box_get_active_text(GTK_COMBO_BOX(ss.entryUpper)));
 #endif
-		backendSearch->set_range(settings.MainWindowModule, str);
-		backendSearch->set_scope2range();
+		if (backendSearchLegacy) {
+			backendSearchLegacy->set_range(settings.MainWindowModule, str);
+			backendSearchLegacy->set_scope2range();
+		}
 		g_free(str);
 	}
 
 	if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ss.rbLastSearch)))
-		backendSearch->set_scope2last_search();
+		if (backendSearchLegacy) backendSearchLegacy->set_scope2last_search();
 
 	snprintf(settings.searchText, 255, "%s", search_string);
 
@@ -236,7 +241,8 @@ void main_do_sidebar_search(gpointer user_data)
 	    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ss.rbRegExp)) ? 0 : gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ss.rbPhraseSearch)) ? -1 : -2;
 
 	if (settings.searchType == -2)
-		settings.searchType = backendSearch->check_for_optimal_search(search_module);
+		settings.searchType = backendSearchLegacy
+			? backendSearchLegacy->check_for_optimal_search(search_module) : -2;
 
 	// if we do lucene search (-4), we assume AND for simple sidebar search.
 	// therefore, we must prepend '+' to each word to force that semantic.
@@ -267,16 +273,24 @@ void main_do_sidebar_search(gpointer user_data)
 	search_active = TRUE;
 
 	// must ensure that no accents or vowel points are enabled.
-	SWMgr *mgr = backendSearch->get_mgr();
-	mgr->setGlobalOption("Greek Accents", "Off");
-	mgr->setGlobalOption("Hebrew Vowel Points", "Off");
-	mgr->setGlobalOption("Arabic Vowel Points", "Off");
+	backendSearch->setOption(BibleOption::GreekAccents, false);
+	backendSearch->setOption(BibleOption::HebrewVowelPoints, false);
+	backendSearch->setOption(BibleOption::ArabicVowelPoints, false);
 
-	finds = backendSearch->do_module_search(search_module,
-						mgr->getModule(search_module)->stripText(search_string),
-						settings.searchType,
-						search_params,
-						FALSE);
+	BibleSearchQuery query;
+	query.text = search_string;
+	query.caseSensitive = (search_params & REG_ICASE) == 0;
+	query.fromDialog = false;
+	if (settings.searchType == -4)
+		query.mode = BibleSearchMode::Indexed;
+	else if (settings.searchType == -2)
+		query.mode = BibleSearchMode::MultiWord;
+	else if (settings.searchType == -1)
+		query.mode = BibleSearchMode::Phrase;
+	else
+		query.mode = BibleSearchMode::Regex;
+	sidebar_search_results = backendSearch->search(search_module, query);
+	finds = sidebar_search_results.size();
 	g_string_free(new_search, TRUE);
 
 	search_active = FALSE;
@@ -299,43 +313,49 @@ void main_sidebar_perscomm_dump(void)
 		main_init_sidebar_search_backend();
 
 	strcpy(settings.sb_search_mod, settings.MainWindowModule);
-	backendSearch->clear_scope();
-	backendSearch->clear_search_list();
-	fill_search_results_list(backendSearch->do_module_search
-				 /* personal commentary */ (settings.CommWindowModule,
-							    /* find two-plus characters */ "..+",
-							    /* regexp */ 0,
-							    /* case is irrelevant */ 0,
-							    /* happening in sidebar */ FALSE));
+	if (backendSearchLegacy) {
+		backendSearchLegacy->clear_scope();
+		backendSearchLegacy->clear_search_list();
+	}
+	BibleSearchQuery query;
+	query.text = "..+";
+	query.mode = BibleSearchMode::Regex;
+	sidebar_search_results = backendSearch->search(settings.CommWindowModule, query);
+	fill_search_results_list(sidebar_search_results.size());
 }
 
 void main_init_sidebar_search_backend(void)
 {
 	if (!backendSearch) {
-		backendSearch = new BackEnd();
+		if (!main_backend_is_sword()) {
+			backendSearch = bible_backend;
+			backendSearchLegacy = NULL;
+			main_search_sidebar_fill_bounds_combos();
+			return;
+		}
+		backend_search_owner.reset(new SwordBackend());
+		backendSearch = backend_search_owner.get();
+		backendSearchLegacy = dynamic_cast<BackEnd *>(backendSearch);
+		g_assert(backendSearchLegacy != NULL);
 		main_search_sidebar_fill_bounds_combos();
 	}
 }
 
 void main_delete_sidebar_search_backend(void)
 {
-	delete backendSearch;
+	if (!main_backend_is_sword())
+		return;
+	backendSearch = NULL;
+	backendSearchLegacy = NULL;
+	backend_search_owner.reset();
 }
 
 void main_search_sidebar_fill_bounds_combos(void)
 {
-	char *book = NULL;
-	int i = 0;
-
 	if (!backendSearch)
 		main_init_sidebar_search_backend();
 
 	char *module_name = settings.MainWindowModule;
-	SWModule *mod = backendSearch->get_SWModule(module_name);
-	if (!mod)
-		return;
-
-	VerseKey *key = (VerseKey *)mod->createKey();
 
 	GtkTreeModel *upper_model = gtk_combo_box_get_model(
 	    GTK_COMBO_BOX(ss.entryUpper));
@@ -344,44 +364,37 @@ void main_search_sidebar_fill_bounds_combos(void)
 	    GTK_COMBO_BOX(ss.entryLower));
 	gtk_list_store_clear(GTK_LIST_STORE(lower_model));
 
-	if (backendSearch->module_has_testament(module_name, 1)) {
-		while (i < key->BMAX[0]) {
-			key->setTestament(1);
-			key->setBook(i + 1);
-			book = strdup((const char *)key->getBookName());
+	std::vector<std::string> ot_books = backendSearch->bookNames(module_name, 1);
+	if (!ot_books.empty()) {
+		const std::vector<std::string> &books = ot_books;
+		for (const std::string &book : books) {
 #ifdef USE_GTK_3
-			gtk_combo_box_text_append_text((GtkComboBoxText *)ss.entryUpper, book);
-			gtk_combo_box_text_append_text((GtkComboBoxText *)ss.entryLower, book);
+			gtk_combo_box_text_append_text((GtkComboBoxText *)ss.entryUpper, book.c_str());
+			gtk_combo_box_text_append_text((GtkComboBoxText *)ss.entryLower, book.c_str());
 #else
-			gtk_combo_box_append_text(GTK_COMBO_BOX(ss.entryUpper), book);
-			gtk_combo_box_append_text(GTK_COMBO_BOX(ss.entryLower), book);
+			gtk_combo_box_append_text(GTK_COMBO_BOX(ss.entryUpper), book.c_str());
+			gtk_combo_box_append_text(GTK_COMBO_BOX(ss.entryLower), book.c_str());
 #endif
-			++i;
-			g_free(book);
 		}
 	}
 
-	i = 0;
-	if (backendSearch->module_has_testament(module_name, 2)) {
-		while (i < key->BMAX[1]) {
-			key->setTestament(2);
-			key->setBook(i + 1);
-			book = strdup((const char *)key->getBookName());
+	std::vector<std::string> nt_books = backendSearch->bookNames(module_name, 2);
+	if (!nt_books.empty()) {
+		const std::vector<std::string> &books = nt_books;
+		for (const std::string &book : books) {
 #ifdef USE_GTK_3
-			gtk_combo_box_text_append_text((GtkComboBoxText *)ss.entryUpper, book);
-			gtk_combo_box_text_append_text((GtkComboBoxText *)ss.entryLower, book);
+			gtk_combo_box_text_append_text((GtkComboBoxText *)ss.entryUpper, book.c_str());
+			gtk_combo_box_text_append_text((GtkComboBoxText *)ss.entryLower, book.c_str());
 #else
-			gtk_combo_box_append_text(GTK_COMBO_BOX(ss.entryUpper), book);
-			gtk_combo_box_append_text(GTK_COMBO_BOX(ss.entryLower), book);
+			gtk_combo_box_append_text(GTK_COMBO_BOX(ss.entryUpper), book.c_str());
+			gtk_combo_box_append_text(GTK_COMBO_BOX(ss.entryLower), book.c_str());
 #endif
-			++i;
-			g_free(book);
 		}
 	}
 	gtk_combo_box_set_active(GTK_COMBO_BOX(ss.entryLower), 0);
 	gtk_combo_box_set_active(GTK_COMBO_BOX(ss.entryUpper),
-				 key->BMAX[0] + key->BMAX[1] - 1);
-	delete key;
+			 backendSearch->bookNames(module_name, 1).size() +
+			 backendSearch->bookNames(module_name, 2).size() - 1);
 }
 
 /******************************************************************************
@@ -408,7 +421,7 @@ void main_sidebar_search_percent_update(char percent, void *userData)
 		main_init_sidebar_search_backend();
 
 	if (terminate_search) {
-		backendSearch->terminate_search();
+		if (backendSearchLegacy) backendSearchLegacy->terminate_search();
 	} else {
 		while ((((float)percent) / 100) * maxHashes > printed) {
 			float num = (float)percent / 100;

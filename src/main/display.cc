@@ -25,15 +25,8 @@
 #include <glib.h>
 #include <treekeyidx.h>
 
-#include <osisxhtml.h>
-#include <thmlxhtml.h>
-#include <gbfxhtml.h>
-#include <teixhtml.h>
-
 #include <osisvariants.h>
 #include <thmlvariants.h>
-#include <swmgr.h>
-#include <swmodule.h>
 #include <versekey.h>
 
 #include <regex.h>
@@ -1363,7 +1356,7 @@ static const char *stylefile =
 static const char *default_stylefile =
     "default-style.css"; // default name, overall.
 
-const gchar *get_css_references(SWModule &module)
+const gchar *get_css_references(const char *module_name)
 {
 	static string css; // static -> safe to return it
 
@@ -1386,8 +1379,8 @@ const gchar *get_css_references(SWModule &module)
 	g_free(css_file);
 
 	// construct path to module's CSS.
-	char *datapath = main_get_mod_config_entry(module.getName(), "AbsoluteDataPath");
-	char *prefcss = main_get_mod_config_entry(module.getName(), "PreferredCSSXHTML");
+	char *datapath = main_get_mod_config_entry(module_name, "AbsoluteDataPath");
+	char *prefcss = main_get_mod_config_entry(module_name, "PreferredCSSXHTML");
 
 	// module-specific CSS.
 	css_file = g_build_filename(datapath, (prefcss ? prefcss : stylefile), NULL);
@@ -1729,7 +1722,8 @@ GString *
 CleanupContent(GString *text,
 	       GLOBAL_OPS *ops,
 	       const char *name,
-	       bool reset = true)
+	       bool reset = true,
+	       const BibleVerseContent *content = NULL)
 {
 	if (ops->image_content == 0)
 		ClearImages((gchar *)text->str);
@@ -1747,11 +1741,12 @@ CleanupContent(GString *text,
 	}
 
 	gint pos;
-	gchar value[50], *reported, *s = text->str;
+	gchar value[50], *s = text->str;
 
 	// test for any 'n="X"' content.  if so, use it directly.
-	if ((reported = backend->get_entry_attribute("Footnote", "1", "n", false))) {
-		g_free(reported); // dispose of test junk.
+	if (content ? content->footnotesHaveNumbers
+		    : backend->currentEntryFootnotesHaveNumbers(name)) {
+		/* The backend already supplied the note labels. */
 	}
 	// otherwise we simply count notes & xrefs through the verse.
 	else if (ops->xrefnotenumbers) {
@@ -1774,88 +1769,54 @@ CleanupContent(GString *text,
 	return text;
 }
 
+/* Neutral hand-off between retrieval and presentation.  The backend supplies
+ * one enriched value object; this layer alone applies the historical visual
+ * cleanup and Strong/morph layout. */
+static GString *
+prepare_display_content(const BibleVerseContent &content,
+			GLOBAL_OPS *ops, const char *module_name,
+			bool enriched)
+{
+	GString *text = g_string_new(enriched
+				     ? block_render(content.renderedText.c_str())
+				     : content.renderedText.c_str());
+	return CleanupContent(text, ops, module_name, true, &content);
+}
+
 //
 // utility function to fill headers from verses.
 //
 void
 CacheHeader(ModuleCache::CacheVerse &cVerse,
-	    SWModule &mod,
-	    GLOBAL_OPS *ops, BackEnd *be, bool already_rendered)
+	    const BibleVerseContent &content,
+	    GLOBAL_OPS *ops, const char *module_name)
 {
-	int x = 0;
-	gchar heading[32];
-	const gchar *preverse;
-	SWBuf preverse2;
 	GString *text = g_string_new("");
 
 	cVerse.SetHeader("");
-
-	/* get_entry_attribute() renders the entry itself unless told
-	 * otherwise, and this loop asks it once per heading level per
-	 * verse -- so a caller that had already rendered the text was
-	 * paying to render the whole book a second time, verse by verse.
-	 * Render once here when the caller has not, then read the
-	 * attributes without rendering again. */
-	if (!already_rendered)
-		mod.renderText();
-
-	sprintf(heading, "%d", x);
-	while ((preverse = be->get_entry_attribute("Heading", "Preverse",
-						   heading, false)) != NULL) {
-		preverse2 = mod.renderText(preverse);
-		g_string_printf(text,
-				"%s",
-				(((ops->strongs || ops->lemmas) ||
-				  ops->morphs)
-				     ? block_render(preverse2.c_str())
-				     : preverse2.c_str()));
-		text = CleanupContent(text, ops, mod.getName(), false);
+	for (std::vector<BibleHeading>::const_iterator heading =
+		     content.headings.begin();
+	     heading != content.headings.end(); ++heading) {
+		g_string_printf(text, "%s",
+				(((ops->strongs || ops->lemmas) || ops->morphs)
+				     ? block_render(heading->text.c_str())
+				     : heading->text.c_str()));
+		text = CleanupContent(text, ops, module_name, false, &content);
 
 		cVerse.AppendHeader(text->str);
-		g_free((gchar *)preverse);
-		++x;
-		sprintf(heading, "%d", x);
 	}
 	g_string_free(text, TRUE);
 }
 
-void
-set_morph_order(SWModule &imodule)
+static void
+configure_rendering(BibleBackend *content_backend, const char *module_name,
+			GLOBAL_OPS *ops,
+			bool morphology_first)
 {
-	for (FilterList::const_iterator it =
-		 imodule.getRenderFilters().begin();
-	     it != imodule.getRenderFilters().end();
-	     ++it) {
-		OSISXHTML *f = dynamic_cast<OSISXHTML *>(*it);
-		if (f)
-			f->setMorphFirst();
-	}
-}
-
-void
-set_render_numbers(SWModule &imodule, GLOBAL_OPS *ops)
-{
-	// if we have not yet determined options, don't bother.
 	if (!ops)
 		return;
-
-	for (FilterList::const_iterator it =
-		 imodule.getRenderFilters().begin();
-	     it != imodule.getRenderFilters().end();
-	     ++it) {
-		OSISXHTML *f1 = dynamic_cast<OSISXHTML *>(*it);
-		if (f1)
-			f1->setRenderNoteNumbers((ops->xrefnotenumbers != 0));
-		ThMLXHTML *f2 = dynamic_cast<ThMLXHTML *>(*it);
-		if (f2)
-			f2->setRenderNoteNumbers((ops->xrefnotenumbers != 0));
-		GBFXHTML *f3 = dynamic_cast<GBFXHTML *>(*it);
-		if (f3)
-			f3->setRenderNoteNumbers((ops->xrefnotenumbers != 0));
-		TEIXHTML *f4 = dynamic_cast<TEIXHTML *>(*it);
-		if (f4)
-			f4->setRenderNoteNumbers((ops->xrefnotenumbers != 0));
-	}
+	content_backend->configureRendering(module_name, morphology_first,
+					    ops->xrefnotenumbers != 0);
 }
 
 //
@@ -1887,9 +1848,7 @@ GTKEntryDisp::displayByChapter(SWModule &imodule, int columns)
 			     ops->morphs);
 	strongs_or_morph  = ((ops->strongs || ops->lemmas) ||
 			     ops->morphs);
-	if (strongs_and_morph)
-		set_morph_order(imodule);
-	set_render_numbers(imodule, ops);
+	configure_rendering(be, imodule.getName(), ops, strongs_and_morph);
 
 	// open the table.
 	if (settings.showversenum) {
@@ -1904,18 +1863,29 @@ GTKEntryDisp::displayByChapter(SWModule &imodule, int columns)
 
 		ModuleCache::CacheVerse &cVerse =
 			ModuleMap[ModuleName][curTest][curBook][curChapter][key->getVerse()];
+		const bool personal =
+			be->moduleType(imodule.getName()) ==
+				BibleModuleType::PersonalCommentary;
+		const bool needs_text = !cVerse.CacheIsValid(cache_flags) && !personal;
+		const bool needs_header = !cVerse.HeaderIsValid();
+		BibleVerseContent content;
+		if (needs_text || needs_header) {
+			BibleReference reference;
+			reference.testament = curTest;
+			reference.book = curBook;
+			reference.chapter = curChapter;
+			reference.verse = key->getVerse();
+			content = be->getVerseContent(ModuleName, reference);
+		}
 
 		// use the module cache rather than re-accessing Sword.
 		// but editable personal commentaries don't use the cache.
-		if (!cVerse.CacheIsValid(cache_flags) &&
-		    (backend->module_type(imodule.getName()) != PERCOM_TYPE)) {
-			rework = g_string_new(strongs_or_morph
-						  ? block_render(imodule.renderText().c_str())
-						  : imodule.renderText().c_str());
-			rework = CleanupContent(rework, ops, imodule.getName());
+		if (needs_text) {
+			rework = prepare_display_content(content, ops, ModuleName,
+						 strongs_or_morph);
 			cVerse.SetText(rework->str, cache_flags);
 		} else {
-			if (backend->module_type(imodule.getName()) == PERCOM_TYPE)
+			if (personal)
 				rework = g_string_new(strongs_or_morph
 							  ? block_render(imodule.getRawEntry())
 							  : imodule.getRawEntry());
@@ -1923,8 +1893,8 @@ GTKEntryDisp::displayByChapter(SWModule &imodule, int columns)
 				rework = g_string_new(cVerse.GetText());
 		}
 
-		if (!cVerse.HeaderIsValid())
-			CacheHeader(cVerse, imodule, ops, backend, false);
+		if (needs_header)
+			CacheHeader(cVerse, content, ops, ModuleName);
 		if (cache_flags & ModuleCache::Headings) {
 			swbuf.append(settings.imageresize
 					 ? AnalyzeForImageSize(cVerse.GetHeader(), CURRENT_COLUMNS,
@@ -2069,9 +2039,7 @@ GTKEntryDisp::display(SWModule &imodule)
 			     ops->morphs);
 	strongs_or_morph  = ((ops->strongs || ops->lemmas) ||
 			     ops->morphs);
-	if (strongs_and_morph)
-		set_morph_order(imodule);
-	set_render_numbers(imodule, ops);
+	configure_rendering(be, imodule.getName(), ops, strongs_and_morph);
 
 	if (mf->columns_value != -1) {
 		mf->columns_value = CURRENT_COLUMNS;	// restrict [ 1..MAX_COLUMNS ].
@@ -2117,7 +2085,7 @@ GTKEntryDisp::display(SWModule &imodule)
 			      imodule.getRenderHeader(),
 			      ITALIC_SELECT,
 			      (mod_column_count ? mod_column_count : ""),
-			      get_css_references(imodule),
+				get_css_references(imodule.getName()),
 			      ((mf->old_font) ? mf->old_font : ""),
 			      mf->old_font_size_value,
 			      entry_heading);
@@ -2159,8 +2127,8 @@ GTKEntryDisp::display(SWModule &imodule)
 	// for handling potential clearing of images, due to the
 	// difference in how modules are being accessed.
 
-	int modtype = backend->module_type(imodule.getName());
-	if (modtype == COMMENTARY_TYPE) {
+	BibleModuleType modtype = be->moduleType(imodule.getName());
+	if (modtype == BibleModuleType::Commentary) {
 		VerseKey *key = (VerseKey *)(SWKey *) imodule;
 		cache_flags = ConstructFlags(ops);
 		const char *ModuleName = imodule.getName();
@@ -2171,19 +2139,30 @@ GTKEntryDisp::display(SWModule &imodule)
 		    [key->getBook()]
 		    [key->getChapter()]
 		    [key->getVerse()];
-
 		// use the module cache rather than re-accessing Sword.
 		if (!cVerse.CacheIsValid(cache_flags)) {
-			rework = g_string_new(strongs_or_morph
-						  ? block_render(imodule.renderText().c_str())
-						  : imodule.renderText().c_str());
-			rework = CleanupContent(rework, ops, imodule.getName());
+			BibleReference reference;
+			reference.testament = key->getTestament();
+			reference.book = key->getBook();
+			reference.chapter = key->getChapter();
+			reference.verse = key->getVerse();
+			BibleVerseContent content =
+				be->getVerseContent(ModuleName, reference);
+			rework = prepare_display_content(content, ops, ModuleName,
+						 strongs_or_morph);
 			cVerse.SetText(rework->str, cache_flags);
 		} else
 			rework = g_string_new(cVerse.GetText());
 	} else {
-		if ((modtype == PERCOM_TYPE) ||
-		    (modtype == PRAYERLIST_TYPE))
+		if (modtype == BibleModuleType::Dictionary ||
+		    modtype == BibleModuleType::Lexicon) {
+			DictionaryEntry entry = backend->lookupDictionary(
+				imodule.getName(), imodule.getKeyText());
+			rework = g_string_new(strongs_or_morph
+						  ? block_render(entry.text.c_str())
+						  : entry.text.c_str());
+		} else if (modtype == BibleModuleType::PersonalCommentary ||
+			   modtype == BibleModuleType::PrayerList)
 			rework = g_string_new(strongs_or_morph
 					      ? block_render(imodule.getRawEntry())
 					      : imodule.getRawEntry());
@@ -2196,8 +2175,7 @@ GTKEntryDisp::display(SWModule &imodule)
 							  ? block_render(imodule.renderText().c_str())
 							  : imodule.renderText().c_str());
 			} else {
-				SWMgr *mgr = backend->get_mgr();
-				SWModule *mod = mgr->Modules[imodule.getName()];
+				SWModule *mod = backend->get_SWModule(imodule.getName());
 				TreeKeyIdx *treekey = dynamic_cast<TreeKeyIdx *>(mod->getKey());
 				if (!treekey) {
 					rework = g_string_new(imodule.renderText().c_str());
@@ -2256,10 +2234,17 @@ GTKChapDisp::introMaterial(SWModule &imodule, int thisChapter)
 
 		key->setChapter(i * thisChapter);
 		key->setVerse(0);
+		BibleReference reference;
+		reference.testament = key->getTestament();
+		reference.book = key->getBook();
+		reference.chapter = key->getChapter();
+		reference.verse = key->getVerse();
+		BibleVerseContent content =
+			be->getVerseContent(imodule.getName(), reference);
 
 		buf = g_strdup_printf("%s", strongs_or_morph
-				      ? block_render(imodule.renderText().c_str())
-				      : imodule.renderText().c_str());
+				      ? block_render(content.renderedText.c_str())
+				      : content.renderedText.c_str());
 
 		if ((buf != NULL) && (strlen(buf) > 0))
 		{
@@ -2309,9 +2294,14 @@ GTKChapDisp::getVerseBefore(SWModule &imodule)
 				      imodule.getDescription());
 	} else {
 
-		if (strongs_and_morph)
-			set_morph_order(imodule);
-		set_render_numbers(imodule, ops);
+		configure_rendering(be, imodule.getName(), ops, strongs_and_morph);
+		BibleReference reference;
+		reference.testament = key->getTestament();
+		reference.book = key->getBook();
+		reference.chapter = key->getChapter();
+		reference.verse = key->getVerse();
+		BibleVerseContent content =
+			be->getVerseContent(imodule.getName(), reference);
 
 		num = main_format_number(key->getVerse());
 		swbuf.appendFormatted((settings.showversenum
@@ -2329,8 +2319,8 @@ GTKChapDisp::getVerseBefore(SWModule &imodule)
 		swbuf.appendFormatted("<font color=\"%s\">%s</font>%s%s<br/><a name=\"TOP\"></a>%s",
 				      settings.bible_text_color,
 				      (strongs_or_morph
-				       ? block_render(imodule.renderText().c_str())
-				       : imodule.renderText().c_str()),
+				       ? block_render(content.renderedText.c_str())
+				       : content.renderedText.c_str()),
 				      (settings.showversenum ? "</a>" : ""),
 				      // extra break when excess strongs/morph space.
 				      (strongs_or_morph ? "<br/>" : ""),
@@ -2400,15 +2390,20 @@ GTKChapDisp::getVerseAfter(SWModule &imodule)
 				      PRETTYPRINT(num));
 		g_free(num);
 
-		if (strongs_and_morph)
-			set_morph_order(imodule);
-		set_render_numbers(imodule, ops);
+		configure_rendering(be, imodule.getName(), ops, strongs_and_morph);
+		BibleReference reference;
+		reference.testament = key->getTestament();
+		reference.book = key->getBook();
+		reference.chapter = key->getChapter();
+		reference.verse = key->getVerse();
+		BibleVerseContent content =
+			be->getVerseContent(imodule.getName(), reference);
 
 		swbuf.appendFormatted("<font color=\"%s\">%s</font>%s",
 				      settings.bible_text_color,
 				      (strongs_or_morph
-				       ? block_render(imodule.renderText().c_str())
-				       : imodule.renderText().c_str()),
+				       ? block_render(content.renderedText.c_str())
+				       : content.renderedText.c_str()),
 				      (settings.showversenum ? "</a>" : ""));
 
 		imodule--;
@@ -2694,25 +2689,32 @@ GTKChapDisp::RenderOneChapter(SWModule &imodule,
 		 * neutralize header"), so computing the header before it
 		 * meant throwing the header away moments later, on every
 		 * render, and recomputing it on the next one -- the header
-		 * cache never served a single hit. CacheHeader() asks Sword
-		 * for a Preverse attribute per verse, which measured 185 ms
-		 * of the 220 ms this loop took for Psalms.
+		 * cache never served a single hit. The backend now returns rendered
+		 * text and headings from the same entry pass, so display neither
+		 * knows SWORD's attributes nor renders the verse twice.
 		 *
 		 * The output order is unchanged: the heading is still
 		 * appended to swbuf before the verse it introduces. */
-		bool just_rendered = false;
-		if (!cVerse.CacheIsValid(cache_flags)) {
-			rework = g_string_new(strongs_or_morph
-						  ? block_render(imodule.renderText().c_str())
-						  : imodule.renderText().c_str());
-			rework = CleanupContent(rework, ops, imodule.getName());
+		const bool needs_text = !cVerse.CacheIsValid(cache_flags);
+		const bool needs_header = !cVerse.HeaderIsValid();
+		BibleVerseContent content;
+		if (needs_text || needs_header) {
+			BibleReference reference;
+			reference.testament = curTest;
+			reference.book = curBook;
+			reference.chapter = thisChapter;
+			reference.verse = k;
+			content = be->getVerseContent(ModuleName, reference);
+		}
+		if (needs_text) {
+			rework = prepare_display_content(content, ops, ModuleName,
+						 strongs_or_morph);
 			cVerse.SetText(rework->str, cache_flags);
-			just_rendered = true;
 		} else
 			rework = g_string_new(cVerse.GetText());
 
-		if (!cVerse.HeaderIsValid())
-			CacheHeader(cVerse, imodule, ops, be, just_rendered);
+		if (needs_header)
+			CacheHeader(cVerse, content, ops, ModuleName);
 
 		if (cache_flags & ModuleCache::Headings) {
 			swbuf.append(settings.imageresize
@@ -2943,9 +2945,7 @@ GTKChapDisp::display(SWModule &imodule)
 			     ops->morphs);
 	strongs_or_morph  = ((ops->strongs || ops->lemmas) ||
 			     ops->morphs);
-	if (strongs_and_morph)
-		set_morph_order(imodule);
-	set_render_numbers(imodule, ops);
+	configure_rendering(be, imodule.getName(), ops, strongs_and_morph);
 
 	settings.versestyle = ops->verse_per_line;
 
@@ -2981,7 +2981,7 @@ GTKChapDisp::display(SWModule &imodule)
 			      imodule.getRenderHeader(),
 			      ITALIC_SELECT,
 			      (mod_column_count ? mod_column_count : ""),
-			      get_css_references(imodule),
+				get_css_references(imodule.getName()),
 			      ((mf->old_font) ? mf->old_font : ""),
 			      mf->old_font_size_value);
 
@@ -3096,9 +3096,7 @@ DialogEntryDisp::displayByChapter(SWModule &imodule, int columns)
 			     ops->morphs);
 	strongs_or_morph  = ((ops->strongs || ops->lemmas) ||
 			     ops->morphs);
-	if (strongs_and_morph)
-		set_morph_order(imodule);
-	set_render_numbers(imodule, ops);
+	configure_rendering(be, imodule.getName(), ops, strongs_and_morph);
 
 	swbuf.appendFormatted("<div dir=%s>",
 			      ((is_rtol && !ops->transliteration)
@@ -3111,13 +3109,17 @@ DialogEntryDisp::displayByChapter(SWModule &imodule, int columns)
 
 		ModuleCache::CacheVerse &cVerse =
 			ModuleMap[ModuleName][curTest][curBook][curChapter][key->getVerse()];
-
 		// use the module cache rather than re-accessing Sword.
 		if (!cVerse.CacheIsValid(cache_flags)) {
-			rework = g_string_new(strongs_or_morph
-						  ? block_render(imodule.renderText().c_str())
-						  : imodule.renderText().c_str());
-			rework = CleanupContent(rework, ops, imodule.getName());
+			BibleReference reference;
+			reference.testament = curTest;
+			reference.book = curBook;
+			reference.chapter = curChapter;
+			reference.verse = key->getVerse();
+			BibleVerseContent content =
+				be->getVerseContent(ModuleName, reference);
+			rework = prepare_display_content(content, ops, ModuleName,
+						 strongs_or_morph);
 			cVerse.SetText(rework->str, cache_flags);
 		} else
 			rework = g_string_new(cVerse.GetText());
@@ -3175,7 +3177,7 @@ DialogEntryDisp::display(SWModule &imodule)
 			      imodule.getRenderHeader(),
 			      (mod_column_count ? mod_column_count : ""),
 			      ITALIC_SELECT,
-			      get_css_references(imodule),
+				get_css_references(imodule.getName()),
 			      ((mf->old_font) ? mf->old_font : ""),
 			      mf->old_font_size_value,
 			      settings.bible_verse_num_color,
@@ -3203,7 +3205,7 @@ DialogEntryDisp::display(SWModule &imodule)
 	if (ops->commentary_by_chapter)
 		return displayByChapter(imodule, CURRENT_COLUMNS);
 
-	if (be->module_type(imodule.getName()) == COMMENTARY_TYPE) {
+	if (be->moduleType(imodule.getName()) == BibleModuleType::Commentary) {
 		VerseKey *key = (VerseKey *)(SWKey *) imodule;
 		cache_flags = ConstructFlags(ops);
 		const char *ModuleName = imodule.getName();
@@ -3224,8 +3226,14 @@ DialogEntryDisp::display(SWModule &imodule)
 			rework = g_string_new(cVerse.GetText());
 
 	} else {
-		if ((be->module_type(imodule.getName()) == PERCOM_TYPE) ||
-		    (be->module_type(imodule.getName()) == PRAYERLIST_TYPE))
+		BibleModuleType modtype = be->moduleType(imodule.getName());
+		if (modtype == BibleModuleType::Dictionary ||
+		    modtype == BibleModuleType::Lexicon) {
+			DictionaryEntry entry = be->lookupDictionary(
+				imodule.getName(), imodule.getKeyText());
+			rework = g_string_new(entry.text.c_str());
+		} else if (modtype == BibleModuleType::PersonalCommentary ||
+			   modtype == BibleModuleType::PrayerList)
 			rework = g_string_new(imodule.getRawEntry());
 		else
 			rework = g_string_new(imodule.renderText().c_str());
@@ -3271,9 +3279,7 @@ DialogChapDisp::display(SWModule &imodule)
 			     ops->morphs);
 	strongs_or_morph  = ((ops->strongs || ops->lemmas) ||
 			     ops->morphs);
-	if (strongs_and_morph)
-		set_morph_order(imodule);
-	set_render_numbers(imodule, ops);
+	configure_rendering(be, imodule.getName(), ops, strongs_and_morph);
 
 	// if we are no longer where notes/highlights were current, re-load.
 	if (strcasecmp(ModuleName,
@@ -3310,7 +3316,7 @@ DialogChapDisp::display(SWModule &imodule)
 			      imodule.getRenderHeader(),
 			      (mod_column_count ? mod_column_count : ""),
 			      ITALIC_SELECT,
-			      get_css_references(imodule),
+				get_css_references(imodule.getName()),
 			      ((mf->old_font) ? mf->old_font : ""),
 			      mf->old_font_size_value);
 
@@ -3339,19 +3345,28 @@ DialogChapDisp::display(SWModule &imodule)
 
 		ModuleCache::CacheVerse &cVerse =
 		    ModuleMap[ModuleName][curTest][curBook][curChapter][k];
+		const bool needs_text = !cVerse.CacheIsValid(cache_flags);
+		const bool needs_header = !cVerse.HeaderIsValid();
+		BibleVerseContent content;
+		if (needs_text || needs_header) {
+			BibleReference reference;
+			reference.testament = curTest;
+			reference.book = curBook;
+			reference.chapter = curChapter;
+			reference.verse = k;
+			content = be->getVerseContent(ModuleName, reference);
+		}
 
 		// use the module cache rather than re-accessing Sword.
-		if (!cVerse.CacheIsValid(cache_flags)) {
-			rework = g_string_new(strongs_or_morph
-						  ? block_render(imodule.renderText().c_str())
-						  : imodule.renderText().c_str());
-			rework = CleanupContent(rework, ops, imodule.getName());
+		if (needs_text) {
+			rework = prepare_display_content(content, ops, ModuleName,
+						 strongs_or_morph);
 			cVerse.SetText(rework->str, cache_flags);
 		} else
 			rework = g_string_new(cVerse.GetText());
 
-		if (!cVerse.HeaderIsValid())
-			CacheHeader(cVerse, imodule, ops, be, false);
+		if (needs_header)
+			CacheHeader(cVerse, content, ops, ModuleName);
 
 		if (cache_flags & ModuleCache::Headings)
 			swbuf.append(settings.imageresize
@@ -3506,7 +3521,7 @@ GTKPrintEntryDisp::display(SWModule &imodule)
 			      imodule.getRenderHeader(),
 			      (mod_column_count ? mod_column_count : ""),
 			      ITALIC_SELECT,
-			      get_css_references(imodule),
+				get_css_references(imodule.getName()),
 			      ((mf->old_font) ? mf->old_font : ""),
 			      mf->old_font_size_value,
 			      settings.bible_verse_num_color,
@@ -3538,7 +3553,6 @@ GTKPrintChapDisp::display(SWModule &imodule)
 	int curChapter = key->getChapter();
 	int curBook = key->getBook();
 	gchar *buf, *mod_column_count = NULL;
-	gchar heading[32];
 	SWBuf swbuf;
 
 	GLOBAL_OPS *ops = main_new_globals(imodule.getName());
@@ -3563,7 +3577,7 @@ GTKPrintChapDisp::display(SWModule &imodule)
 			      imodule.getRenderHeader(),
 			      (mod_column_count ? mod_column_count : ""),
 			      ITALIC_SELECT,
-			      get_css_references(imodule),
+				get_css_references(imodule.getName()),
 			      ((mf->old_font) ? mf->old_font : ""),
 			      mf->old_font_size_value);
 	if (mod_column_count)	/* not empty => we created it, so free it. */
@@ -3579,18 +3593,17 @@ GTKPrintChapDisp::display(SWModule &imodule)
 	for (key->setVerse(1);
 	     (key->getBook() == curBook) && (key->getChapter() == curChapter) && !imodule.popError();
 	     imodule++) {
-		int x = 0;
-		gchar *preverse;
-		sprintf(heading, "%d", x);
-
-		while ((preverse = backend->get_entry_attribute("Heading", "Preverse",
-								heading)) != NULL) {
-			SWBuf preverse2 = imodule.renderText(preverse);
-			swbuf.appendFormatted("%s", preverse2.c_str());
-			g_free(preverse);
-			++x;
-			sprintf(heading, "%d", x);
-		}
+		BibleReference reference;
+		reference.testament = key->getTestament();
+		reference.book = key->getBook();
+		reference.chapter = key->getChapter();
+		reference.verse = key->getVerse();
+		BibleVerseContent content =
+			be->getVerseContent(imodule.getName(), reference);
+		for (std::vector<BibleHeading>::const_iterator heading =
+			     content.headings.begin();
+		     heading != content.headings.end(); ++heading)
+			swbuf.appendFormatted("%s", heading->text.c_str());
 
 		gchar *num = main_format_number(key->getVerse());
 		swbuf.appendFormatted(settings.showversenum
@@ -3604,7 +3617,7 @@ GTKPrintChapDisp::display(SWModule &imodule)
 				      PRETTYPRINT(num));
 		g_free(num);
 
-		buf = g_strdup_printf("%s", imodule.renderText().c_str());
+		buf = g_strdup_printf("%s", content.renderedText.c_str());
 
 		if (settings.versestyle) {
 			swbuf.append("<br/>");

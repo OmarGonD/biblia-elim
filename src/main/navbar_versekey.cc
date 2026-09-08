@@ -23,9 +23,6 @@
 #endif
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
-#include <swmodule.h>
-#include <versekey.h>
-
 #include "main/module_dialogs.h"
 #include "main/navbar_versekey.h"
 #include "main/interlineal.h"
@@ -42,7 +39,7 @@
 #include "editor/slib-editor.h"
 #endif
 
-#include "backend/sword_main.hh"
+#include "backend/bible_backend.h"
 
 #include "gui/debug_glib_null.h"
 
@@ -52,6 +49,11 @@ extern gboolean do_display_dict;
 static DIALOG_DATA *c_dialog;
 static EDITOR *c_editor;
 static gint c_type;
+
+static BibleBackend &navbar_backend()
+{
+	return *bible_backend;
+}
 
 /******************************************************************************
  * Name
@@ -71,7 +73,13 @@ static gint c_type;
 
 const char *main_get_valid_key(const char *module_name, const char *key)
 {
-	return backend->get_valid_key(module_name, key);
+	static std::string normalized;
+	BibleKeyInfo info;
+	if (!navbar_backend().resolveKey(module_name ? module_name : "",
+						key ? key : "", info))
+		return NULL;
+	normalized = info.key;
+	return normalized.c_str();
 }
 
 /******************************************************************************
@@ -108,24 +116,16 @@ void main_navbar_versekey_spin_book(NAVBAR_VERSEKEY navbar, int direction)
 	if (!navbar.module_name->len)
 		return;
 
-	SWModule *mod = backend->get_SWModule(navbar.module_name->str);
-	if (!mod)
+	BibleKeyInfo info;
+	if (!navbar_backend().resolveKey(navbar.module_name->str,
+					 navbar.key->str, info))
 		return;
-
-	VerseKey *vkey = (VerseKey *)mod->createKey();
-	tmpkey = backend->get_valid_key(navbar.module_name->str, navbar.key->str);
-
-	vkey->setAutoNormalize(1);
-	vkey->setText(tmpkey);
-
-	book = vkey->getBook() + (direction ? 1 : -1);
-	vkey->setBook(book);
-
-	tmpkey = g_strdup_printf("%s 1:1", vkey->getBookName());
+	tmpkey = g_strdup(navbar_backend().setBook(
+		navbar.module_name->str, info.key, info.reference.testament,
+		info.reference.book + (direction ? 1 : -1)).c_str());
 	gtk_entry_set_text(GTK_ENTRY(navbar.lookup_entry), tmpkey);
 	gtk_widget_activate(navbar.lookup_entry);
 	g_free(tmpkey);
-	delete vkey;
 }
 
 /******************************************************************************
@@ -155,24 +155,16 @@ void main_navbar_versekey_spin_chapter(NAVBAR_VERSEKEY navbar, int direction)
 	if (!navbar.module_name->len)
 		return;
 
-	SWModule *mod = backend->get_SWModule(navbar.module_name->str);
-	if (!mod)
+	BibleKeyInfo info;
+	if (!navbar_backend().resolveKey(navbar.module_name->str,
+					 navbar.key->str, info))
 		return;
-
-	VerseKey *vkey = (VerseKey *)mod->createKey();
-	tmpkey = backend->get_valid_key(navbar.module_name->str, navbar.key->str);
-
-	vkey->setAutoNormalize(1);
-	vkey->setText(tmpkey);
-
-	chapter = vkey->getChapter() + (direction ? 1 : -1);
-	vkey->setChapter(chapter);
-
-	tmpkey = g_strdup_printf("%s %d:1", vkey->getBookName(), vkey->getChapter());
+	chapter = info.reference.chapter + (direction ? 1 : -1);
+	tmpkey = g_strdup(navbar_backend().setChapter(
+		navbar.module_name->str, info.key, chapter).c_str());
 	gtk_entry_set_text(GTK_ENTRY(navbar.lookup_entry), tmpkey);
 	gtk_widget_activate(navbar.lookup_entry);
 	g_free(tmpkey);
-	delete vkey;
 }
 
 /******************************************************************************
@@ -203,40 +195,16 @@ void main_navbar_versekey_spin_verse(NAVBAR_VERSEKEY navbar, int direction)
 	if (!navbar.module_name->len)
 		return;
 
-	SWModule *mod = backend->get_SWModule(navbar.module_name->str);
-	if (!mod)
+	BibleKeyInfo info;
+	if (!navbar_backend().resolveKey(navbar.module_name->str,
+					 navbar.key->str, info))
 		return;
-
-	VerseKey *vkey = (VerseKey *)mod->createKey();
-	tmpkey = backend->get_valid_key(navbar.module_name->str, navbar.key->str);
-
-	vkey->setAutoNormalize(1);
-	vkey->setText(tmpkey);
-
-	verse = vkey->getVerse() + (direction ? 1 : -1);
-	vkey->setVerse(verse);
-
-	/* Huecos del OCR (Torres Amat y similares): si el verso no tiene
-	 * texto, seguir hasta uno que sí, para que las flechas no se claven. */
-	mod->setKey(vkey);
-	for (int n = 0; n < 40; n++) {
-		const char *raw = mod->getRawEntry();
-		if (raw && *raw)
-			break;
-		int chap = vkey->getChapter();
-		int ver = vkey->getVerse();
-		vkey->setVerse(ver + (direction ? 1 : -1));
-		if (vkey->getChapter() == chap && vkey->getVerse() == ver)
-			break;
-		mod->setKey(vkey);
-	}
-
-	tmpkey = g_strdup_printf("%s %d:%d", vkey->getBookName(),
-				 vkey->getChapter(), vkey->getVerse());
+	verse = info.reference.verse + (direction ? 1 : -1);
+	tmpkey = g_strdup(navbar_backend().navigate(
+		navbar.module_name->str, info.key, direction ? 1 : -1).c_str());
 	gtk_entry_set_text(GTK_ENTRY(navbar.lookup_entry), tmpkey);
 	gtk_widget_activate(navbar.lookup_entry);
 	g_free(tmpkey);
-	delete vkey;
 }
 
 /******************************************************************************
@@ -295,18 +263,11 @@ static void on_nt_book_menu_select(GtkMenuItem *menuitem, gpointer user_data)
 		return;
 
 	if (entry) {
-		SWModule *mod = backend->get_SWModule(name);
-		if (mod) {
-			VerseKey *vkey = (VerseKey *)mod->createKey();
-			vkey->setAutoNormalize(1);
-			vkey->setText(key);
-			vkey->setTestament(2);
-			vkey->setBook(book + 1);
-
-			gtk_entry_set_text(GTK_ENTRY(entry), vkey->getText());
+		std::string selected = navbar_backend().setBook(
+			name, key, 2, book + 1);
+		if (!selected.empty()) {
+			gtk_entry_set_text(GTK_ENTRY(entry), selected.c_str());
 			gtk_widget_activate(entry);
-
-			delete vkey;
 		}
 	}
 }
@@ -367,18 +328,11 @@ static void on_ot_book_menu_select(GtkMenuItem *menuitem, gpointer user_data)
 		return;
 
 	if (entry) {
-		SWModule *mod = backend->get_SWModule(name);
-		if (mod) {
-			VerseKey *vkey = (VerseKey *)mod->createKey();
-			vkey->setAutoNormalize(1);
-			vkey->setText(key);
-			vkey->setTestament(1);
-			vkey->setBook(book + 1);
-
-			gtk_entry_set_text(GTK_ENTRY(entry), vkey->getText());
+		std::string selected = navbar_backend().setBook(
+			name, key, 1, book + 1);
+		if (!selected.empty()) {
+			gtk_entry_set_text(GTK_ENTRY(entry), selected.c_str());
 			gtk_widget_activate(entry);
-
-			delete vkey;
 		}
 	}
 }
@@ -438,17 +392,10 @@ static void on_chapter_menu_select(GtkMenuItem *menuitem, gpointer user_data)
 	if (c_type == NB_MAIN && main_interlineal_bloquea_navegacion())
 		return;
 	if (entry) {
-		SWModule *mod = backend->get_SWModule(name);
-		if (mod) {
-			VerseKey *vkey = (VerseKey *)mod->createKey();
-			vkey->setAutoNormalize(1);
-			vkey->setText(key);
-			vkey->setChapter(chapter);
-
-			gtk_entry_set_text(GTK_ENTRY(entry), vkey->getText());
+		std::string selected = navbar_backend().setChapter(name, key, chapter);
+		if (!selected.empty()) {
+			gtk_entry_set_text(GTK_ENTRY(entry), selected.c_str());
 			gtk_widget_activate(entry);
-
-			delete vkey;
 		}
 	}
 }
@@ -508,17 +455,10 @@ static void on_verse_menu_select(GtkMenuItem *menuitem, gpointer user_data)
 	if (c_type == NB_MAIN && main_interlineal_bloquea_navegacion())
 		return;
 	if (entry) {
-		SWModule *mod = backend->get_SWModule(name);
-		if (mod) {
-			VerseKey *vkey = (VerseKey *)mod->createKey();
-			vkey->setAutoNormalize(1);
-			vkey->setText(key);
-			vkey->setVerse(verse);
-
-			gtk_entry_set_text(GTK_ENTRY(entry), vkey->getText());
+		std::string selected = navbar_backend().setVerse(name, key, verse);
+		if (!selected.empty()) {
+			gtk_entry_set_text(GTK_ENTRY(entry), selected.c_str());
 			gtk_widget_activate(entry);
-
-			delete vkey;
 		}
 	}
 }
@@ -547,37 +487,31 @@ void main_navbar_versekey_set(NAVBAR_VERSEKEY navbar, const char *key)
 	if (!navbar.module_name->len)
 		return;
 
-	SWModule *mod = backend->get_SWModule(navbar.module_name->str);
-	if (!mod)
-		return;
-
 	// previously, we set and normalized the key, but we also
 	// kept a record of whether that key made sense.
 	if (navbar.valid_key) {
-		VerseKey *vkey = (VerseKey *)mod->createKey();
-		vkey->setAutoNormalize(1);
-		vkey->setText(key);
+		BibleKeyInfo info;
+		if (!navbar_backend().resolveKey(navbar.module_name->str, key, info))
+			return;
 
-		tmpbuf = g_strdup_printf("<b>%s</b>", vkey->getBookName());
+		tmpbuf = g_strdup_printf("<b>%s</b>", info.bookName.c_str());
 		gtk_label_set_label(GTK_LABEL(navbar.label_book_menu), tmpbuf);
 		g_free(tmpbuf);
 
-		gchar *num = main_format_number(vkey->getChapter());
+		gchar *num = main_format_number(info.reference.chapter);
 		tmpbuf = g_strdup_printf("<b>%s</b>", num);
 		g_free(num);
 		gtk_label_set_label(GTK_LABEL(navbar.label_chapter_menu), tmpbuf);
 		g_free(tmpbuf);
 
-		num = main_format_number(vkey->getVerse());
+		num = main_format_number(info.reference.verse);
 		tmpbuf = g_strdup_printf("<b>%s</b>", num);
 		g_free(num);
 		gtk_label_set_label(GTK_LABEL(navbar.label_verse_menu), tmpbuf);
 		g_free(tmpbuf);
 
-		navbar.key = g_string_assign(navbar.key, (char *)vkey->getText());
+		navbar.key = g_string_assign(navbar.key, info.key.c_str());
 		gtk_entry_set_text(GTK_ENTRY(navbar.lookup_entry), navbar.key->str);
-
-		delete vkey;
 	} else {
 		tmpbuf = g_strdup(" ");
 		gtk_label_set_label(GTK_LABEL(navbar.label_book_menu), tmpbuf);
@@ -924,16 +858,12 @@ static void numpicker_popup(NAVBAR_VERSEKEY navbar, gint nb_type,
 	if (!anchor || !navbar.module_name->len)
 		return;
 
-	SWModule *mod = backend->get_SWModule(navbar.module_name->str);
-	if (!mod)
+	BibleKeyInfo info;
+	if (!navbar_backend().resolveKey(navbar.module_name->str,
+					 navbar.key->str, info))
 		return;
-
-	VerseKey *vkey = (VerseKey *)mod->createKey();
-	vkey->setAutoNormalize(1);
-	vkey->setText(navbar.key->str);
-	max = (verse ? vkey->getVerseMax() : vkey->getChapterMax());
-	current = (verse ? vkey->getVerse() : vkey->getChapter());
-	delete vkey;
+	max = verse ? info.verseCount : info.chapterCount;
+	current = verse ? info.reference.verse : info.reference.chapter;
 
 	if (max < 1)
 		return;
@@ -1317,40 +1247,31 @@ void main_versekey_popup_book(NAVBAR_VERSEKEY navbar, gint nb_type,
 	if (!anchor || !navbar.module_name->len)
 		return;
 
-	SWModule *mod = backend->get_SWModule(navbar.module_name->str);
-	if (!mod)
+	BibleKeyInfo current_info;
+	if (!navbar_backend().resolveKey(navbar.module_name->str,
+					 navbar.key->str, current_info))
 		return;
-
-	VerseKey *key = (VerseKey *)mod->createKey();
-	VerseKey *key_current = (VerseKey *)mod->createKey();
-	key->setAutoNormalize(1);
-	key_current->setAutoNormalize(1);
-	key_current->setText(navbar.key->str);
-	current_book = g_strdup((const char *)key_current->getBookName());
+	current_book = g_strdup(current_info.bookName.c_str());
 
 	p = bookpicker_new(anchor);
 
-	if (backend->module_has_testament(navbar.module_name->str, 1)) {
-		for (i = 0; i < key->BMAX[0]; i++) {
-			key->setTestament(1);
-			key->setBook(i + 1);
-			const char *book = (const char *)key->getBookName();
-			bookpicker_add(p, book, 1, i,
-				       !strcmp(book, current_book));
+	if (!navbar_backend().bookNames(navbar.module_name->str, 1).empty()) {
+		std::vector<std::string> books = navbar_backend().bookNames(
+			navbar.module_name->str, 1);
+		for (i = 0; i < (int)books.size(); i++) {
+			bookpicker_add(p, books[i].c_str(), 1, i,
+				       !strcmp(books[i].c_str(), current_book));
 		}
 	}
-	if (backend->module_has_testament(navbar.module_name->str, 2)) {
-		for (i = 0; i < key->BMAX[1]; i++) {
-			key->setTestament(2);
-			key->setBook(i + 1);
-			const char *book = (const char *)key->getBookName();
-			bookpicker_add(p, book, 2, i,
-				       !strcmp(book, current_book));
+	if (!navbar_backend().bookNames(navbar.module_name->str, 2).empty()) {
+		std::vector<std::string> books = navbar_backend().bookNames(
+			navbar.module_name->str, 2);
+		for (i = 0; i < (int)books.size(); i++) {
+			bookpicker_add(p, books[i].c_str(), 2, i,
+				       !strcmp(books[i].c_str(), current_book));
 		}
 	}
 
-	delete key;
-	delete key_current;
 	g_free(current_book);
 
 	gtk_widget_show_all(gtk_bin_get_child(GTK_BIN(p->popover)));
