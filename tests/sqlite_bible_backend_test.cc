@@ -63,14 +63,29 @@ int strongCapability(const std::string &sql)
 	return capability;
 }
 
+int morphologyCapability(const std::string &sql)
+{
+	gchar *directory = g_dir_make_tmp("xiphos-sqlite-morph-cap-XXXXXX", nullptr);
+	if (!directory) return -1;
+	const std::string path = std::string(directory) + "/module.sqlite";
+	const bool created = createDatabase(path, sql.c_str());
+	SqliteBibleBackend backend(directory);
+	const int capability = created && backend.hasModule("x")
+		? (backend.moduleCapabilities("x").morphology ? 1 : 0) : -1;
+	g_remove(path.c_str());
+	g_rmdir(directory);
+	g_free(directory);
+	return capability;
+}
+
 void contractTest()
 {
 	SqliteBibleBackend backend(fixtureDirectory);
 	BibleBackendContractFixture fixture;
 	fixture.chapterSize = 3;
-	fixture.enrichedWords = false;
 	fixture.dictionaryModule.clear();
 	fixture.bookId = 40;
+	fixture.legacyWordFields = false;
 	runBibleBackendContractTests(backend, fixture);
 }
 
@@ -85,8 +100,8 @@ void metadataAndCapabilities()
 	auto capabilities = backend.moduleCapabilities("FakeBible");
 	g_assert_true(capabilities.verses);
 	g_assert_true(capabilities.search);
-	g_assert_false(capabilities.strongs);
-	g_assert_false(capabilities.morphology);
+	g_assert_true(capabilities.strongs);
+	g_assert_true(capabilities.morphology);
 	g_assert_false(capabilities.dictionaryLookup);
 }
 
@@ -184,6 +199,65 @@ void invalidReferencesAndCapabilities()
 	g_assert_true(rejectedModule(validationSchema(noSearch)));
 }
 
+void morphologyCapabilitiesRequireReadableValidData()
+{
+	const char *declared = "('schema_version','1'),('module_id','x'),('name','X'),('language','en'),('module_type','bible'),('versification','custom'),('feature.verses','true'),('feature.search','true'),('feature.strong','false'),('feature.morphology','true'),('feature.headings','false'),('feature.footnotes','false'),('feature.crossrefs','false'),('feature.dictionary','false')";
+	g_assert_cmpint(morphologyCapability(validationSchema(declared)), ==, 0);
+	const std::string tables =
+		"CREATE TABLE verse_words(book_id INTEGER,chapter INTEGER,verse INTEGER,"
+		"sequence INTEGER,start INTEGER,length INTEGER,text TEXT,strong TEXT,"
+		"PRIMARY KEY(book_id,chapter,verse,sequence));"
+		"CREATE TABLE verse_word_morphology(book_id INTEGER,chapter INTEGER,"
+		"verse INTEGER,word_sequence INTEGER,morphology_sequence INTEGER,"
+		"scheme TEXT NOT NULL,code TEXT NOT NULL,PRIMARY KEY(book_id,chapter,verse,"
+		"word_sequence,morphology_sequence));";
+	g_assert_cmpint(morphologyCapability(validationSchema(declared, tables.c_str())), ==, 0);
+	const std::string word = tables +
+		"INSERT INTO verses VALUES(40,1,1,'word');"
+		"INSERT INTO verse_words VALUES(40,1,1,0,0,4,'word',NULL);";
+	const std::string malformed = word +
+		"INSERT INTO verse_word_morphology VALUES(40,1,1,0,0,'bad scheme','code');";
+	g_assert_cmpint(morphologyCapability(validationSchema(declared, malformed.c_str())), ==, 0);
+	const std::string orphan = word +
+		"INSERT INTO verse_word_morphology VALUES(40,1,1,9,0,'unknown','code');";
+	g_assert_cmpint(morphologyCapability(validationSchema(declared, orphan.c_str())), ==, 0);
+	const std::string valid = word +
+		"INSERT INTO verse_word_morphology VALUES(40,1,1,0,0,'unknown','opaque/code');";
+	g_assert_cmpint(morphologyCapability(validationSchema(declared, valid.c_str())), ==, 1);
+	const char *notDeclared = "('schema_version','1'),('module_id','x'),('name','X'),('language','en'),('module_type','bible'),('versification','custom'),('feature.verses','true'),('feature.search','true'),('feature.strong','false'),('feature.morphology','false'),('feature.headings','false'),('feature.footnotes','false'),('feature.crossrefs','false'),('feature.dictionary','false')";
+	g_assert_cmpint(morphologyCapability(validationSchema(notDeclared, valid.c_str())), ==, 0);
+}
+
+void legacyMorphologyLookupWithoutIndex()
+{
+	const char *declared = "('schema_version','1'),('module_id','x'),('name','X'),('language','en'),('module_type','bible'),('versification','custom'),('feature.verses','true'),('feature.search','true'),('feature.strong','false'),('feature.morphology','true'),('feature.headings','false'),('feature.footnotes','false'),('feature.crossrefs','false'),('feature.dictionary','false')";
+	const std::string rows =
+		"CREATE TABLE verse_words(book_id INTEGER,chapter INTEGER,verse INTEGER,"
+		"sequence INTEGER,start INTEGER,length INTEGER,text TEXT,strong TEXT,"
+		"PRIMARY KEY(book_id,chapter,verse,sequence));"
+		"CREATE TABLE verse_word_morphology(book_id INTEGER,chapter INTEGER,"
+		"verse INTEGER,word_sequence INTEGER,morphology_sequence INTEGER,"
+		"scheme TEXT NOT NULL,code TEXT NOT NULL,PRIMARY KEY(book_id,chapter,verse,"
+		"word_sequence,morphology_sequence));"
+		"INSERT INTO verses VALUES(40,1,1,'legacy');"
+		"INSERT INTO verse_words VALUES(40,1,1,0,0,6,'legacy',NULL);"
+		"INSERT INTO verse_word_morphology VALUES(40,1,1,0,0,'old','code');";
+	gchar *directory = g_dir_make_tmp("xiphos-sqlite-old-morph-XXXXXX", nullptr);
+	g_assert_nonnull(directory);
+	const std::string path = std::string(directory) + "/module.sqlite";
+	g_assert_true(createDatabase(path, validationSchema(declared, rows.c_str()).c_str()));
+	SqliteBibleBackend backend(directory);
+	const MorphologyOccurrencePage page = backend.findMorphologyOccurrencePage(
+		"x", { "old", "code" }, 10, 0);
+	g_assert_cmpuint(page.occurrences.size(), ==, 1);
+	g_assert_false(page.hasMore);
+	g_assert_cmpstr(page.occurrences[0].word.c_str(), ==, "legacy");
+	g_assert_cmpstr(page.occurrences[0].key.c_str(), ==, "John 1:1");
+	g_remove(path.c_str());
+	g_rmdir(directory);
+	g_free(directory);
+}
+
 void opensReadOnly()
 {
 	struct stat before {}, after {};
@@ -219,6 +293,10 @@ int main(int argc, char **argv)
 	g_test_add_func("/backend/sqlite/corrupt-database", corruptDatabase);
 	g_test_add_func("/backend/sqlite/schema-validation", schemaValidation);
 	g_test_add_func("/backend/sqlite/invalid-references", invalidReferencesAndCapabilities);
+	g_test_add_func("/backend/sqlite/morphology-capabilities",
+		morphologyCapabilitiesRequireReadableValidData);
+	g_test_add_func("/backend/sqlite/morphology-legacy-lookup",
+		legacyMorphologyLookupWithoutIndex);
 	g_test_add_func("/backend/sqlite/read-only", opensReadOnly);
 	const int result = g_test_run();
 	g_remove(database.c_str());

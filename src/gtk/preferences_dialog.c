@@ -2241,7 +2241,7 @@ on_dialog_prefs_response(GtkDialog *dialog,
 	main_update_parallel_page();
 	if (!settings.dockedInt && settings.parallel_list && settings.parallel_list[0]) {
 		gui_navbar_parallel_set_module(settings.parallel_list[0]);
-		settings.cvparallel = settings.currentverse;
+		gui_reassign_strdup(&settings.cvparallel, settings.currentverse);
 	}
 }
 
@@ -2274,7 +2274,7 @@ on_dialog_prefs_close(GtkDialog *dialog, gpointer user_data)
 	main_update_parallel_page();
 	if (!settings.dockedInt && settings.parallel_list && settings.parallel_list[0]) {
 		gui_navbar_parallel_set_module(settings.parallel_list[0]);
-		settings.cvparallel = settings.currentverse;
+		gui_reassign_strdup(&settings.cvparallel, settings.currentverse);
 		main_update_parallel_page_detached();
 	}
 }
@@ -3581,7 +3581,7 @@ static void on_parallel_sets_combo_changed(GtkComboBox *combo,
 	main_update_parallel_page();
 	if (!settings.dockedInt && settings.parallel_list && settings.parallel_list[0]) {
 		gui_navbar_parallel_set_module(settings.parallel_list[0]);
-		settings.cvparallel = settings.currentverse;
+		gui_reassign_strdup(&settings.cvparallel, settings.currentverse);
 		main_update_parallel_page_detached();
 	}
 }

@@ -3,6 +3,7 @@
 #include <chrono>
 #include <memory>
 #include <string>
+#include <vector>
 
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
@@ -60,6 +61,24 @@ void addField(GtkWidget *box, const char *name, const std::string &value)
 	gtk_box_pack_start(GTK_BOX(box), row, FALSE, FALSE, 0);
 }
 
+void addWordAnnotations(StrongDialog *view)
+{
+	addField(view->details, _("Palabra:"), view->session->word().word);
+	const std::vector<MorphologyTag> &tags =
+		view->session->word().morphologyTags;
+	for (std::size_t index = 0; index < tags.size(); ++index) {
+		const std::string number = tags.size() > 1
+			? " " + std::to_string(index + 1) : "";
+		addField(view->details,
+			(std::string(_("Esquema morfológico")) + number + ":").c_str(),
+			tags[index].scheme.empty() ? _("Sin especificar") :
+				tags[index].scheme);
+		addField(view->details,
+			(std::string(_("Código morfológico")) + number + ":").c_str(),
+			tags[index].code);
+	}
+}
+
 void navigateOccurrence(GtkButton *button, gpointer userData)
 {
 	StrongDialog *view = static_cast<StrongDialog *>(userData);
@@ -98,7 +117,7 @@ void showSelectedStrong(StrongDialog *view)
 	const std::string id = formatStrongId(state.selected);
 	gtk_label_set_text(GTK_LABEL(view->title), ("Strong " + id).c_str());
 	clearContainer(view->details);
-	addField(view->details, _("Palabra:"), view->session->word().word);
+	addWordAnnotations(view);
 	if (state.lexicon.valid) {
 		addField(view->details, _("Lema:"), state.lexicon.lemma);
 		addField(view->details, _("Transliteración:"),
@@ -156,7 +175,7 @@ void dialogDestroyed(GtkWidget *, gpointer userData)
 }
 
 StrongDialog *createDialog(const std::string &module,
-	StrongWordContext context)
+	BibleAnnotatedWord context)
 {
 	auto *view = new StrongDialog;
 	view->module = module;
@@ -164,14 +183,18 @@ StrongDialog *createDialog(const std::string &module,
 	view->resources.strongLexicon = boundLexicon;
 	view->session.reset(new StrongDetailSession(*bible_backend,
 		view->resources, module, std::move(context), kPageSize));
-	view->dialog = gtk_dialog_new_with_buttons(_("Strong"),
+	const bool hasStrongs = !view->session->word().strongs.empty();
+	view->dialog = gtk_dialog_new_with_buttons(hasStrongs ? _("Strong") :
+		_("Detalles de palabra"),
 		widgets.app ? GTK_WINDOW(widgets.app) : nullptr,
 		GTK_DIALOG_DESTROY_WITH_PARENT, _("Cerrar"), GTK_RESPONSE_CLOSE,
 		nullptr);
-	gtk_window_set_default_size(GTK_WINDOW(view->dialog), 680, 560);
+	gtk_window_set_default_size(GTK_WINDOW(view->dialog),
+		hasStrongs ? 680 : 520, hasStrongs ? 560 : -1);
 	GtkWidget *content = gtk_dialog_get_content_area(GTK_DIALOG(view->dialog));
 	gtk_container_set_border_width(GTK_CONTAINER(content), 12);
-	view->title = textLabel(_("Seleccione un Strong"), false);
+	view->title = textLabel(hasStrongs ? _("Seleccione un Strong") :
+		_("Detalles de palabra"), false);
 	PangoAttrList *attributes = pango_attr_list_new();
 	pango_attr_list_insert(attributes, pango_attr_weight_new(PANGO_WEIGHT_BOLD));
 	gtk_label_set_attributes(GTK_LABEL(view->title), attributes);
@@ -189,6 +212,14 @@ StrongDialog *createDialog(const std::string &module,
 
 	view->details = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
 	gtk_box_pack_start(GTK_BOX(content), view->details, FALSE, FALSE, 6);
+	addWordAnnotations(view);
+	if (!hasStrongs) {
+		g_signal_connect(view->dialog, "response",
+			G_CALLBACK(dialogResponse), nullptr);
+		g_signal_connect(view->dialog, "destroy",
+			G_CALLBACK(dialogDestroyed), view);
+		return view;
+	}
 	GtkWidget *separator = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
 	gtk_box_pack_start(GTK_BOX(content), separator, FALSE, FALSE, 4);
 	GtkWidget *heading = textLabel(_("Concordancia"), false);
@@ -216,24 +247,32 @@ extern "C" void main_set_strong_lexicon(BibleLexicon *lexicon)
 	boundLexicon = lexicon;
 }
 
-extern "C" void main_show_neutral_strong(const char *module,
+extern "C" void main_show_neutral_word(const char *module,
 	const char *passage, std::size_t byteOffset)
 {
 	if (!bible_backend || !module || !passage) return;
 	BibleKeyInfo key;
 	if (!bible_backend->resolveKey(module, passage, key)) return;
 	const auto started = std::chrono::steady_clock::now();
-	StrongWordResolution resolution = resolveStrongInteraction(*bible_backend,
+	AnnotatedWordResolution resolution = resolveAnnotatedWordInteraction(*bible_backend,
 		module, key.reference, byteOffset);
 	const auto resolveUs = std::chrono::duration_cast<std::chrono::microseconds>(
 		std::chrono::steady_clock::now() - started).count();
 	g_debug("Strong UI resolve: %lld us", static_cast<long long>(resolveUs));
-	if (resolution.action == StrongWordAction::None) return;
+	if (resolution.action == AnnotatedWordAction::None) return;
 	StrongDialog *view = createDialog(module, std::move(resolution.context));
-	if (resolution.action == StrongWordAction::OpenDetail)
+	if (resolution.action == AnnotatedWordAction::OpenDetail &&
+	    !view->session->word().strongs.empty())
 		selectStrong(view, view->session->word().strongs.front());
 	gtk_widget_show_all(view->dialog);
-	gtk_widget_set_visible(view->loadMore, view->session->state().hasMore);
+	if (view->loadMore)
+		gtk_widget_set_visible(view->loadMore, view->session->state().hasMore);
+}
+
+extern "C" void main_show_neutral_strong(const char *module,
+	const char *passage, std::size_t byteOffset)
+{
+	main_show_neutral_word(module, passage, byteOffset);
 }
 
 extern "C" void main_show_neutral_footnote(const char *module, const char *passage,

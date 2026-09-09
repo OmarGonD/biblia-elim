@@ -52,6 +52,16 @@ order before fetching word and verse text. It does not change `schema_version`;
 readers retain the legacy `strong`-only query for older v1 modules, and modules
 without the derived table remain readable.
 
+New imports also include the optional `verse_word_morphology` child table.
+Each row stores an opaque `scheme` and `code` for a `verse_words` row, while
+`morphology_sequence` preserves source order and duplicates. An empty scheme
+means the source supplied a valid unqualified code. Its composite foreign key
+prevents orphan morphology. Readers that predate this v1 extension can ignore
+the table. New writers add the covering `verse_word_morphology_lookup` index on
+`(scheme, code, book_id, chapter, verse, word_sequence, morphology_sequence)`
+for bounded exact-tag occurrence lookup. Older v1 morphology modules without
+the index remain readable and use the same exact query semantics.
+
 `book_id` is a module-global identifier and need not equal `position`.
 `osis` is the neutral canonical identifier (`Gen`, `John`, `Rev`, etc.).
 `position` controls presentation order; `testament` is only an ordering/grouping
@@ -86,6 +96,8 @@ functional infrastructure cannot be validated. For compatibility, an absent,
 malformed, or explicit false Strong flag is safely treated as false; other
 required feature flags remain mandatory. A Strong lexicon is an independent
 application resource and is never inferred from this flag.
+`feature.morphology=true` means at least one valid morphology child row was
+persisted; table presence alone does not enable it.
 
 Optional metadata includes `description`, `abbreviation`, `publisher`,
 `copyright`, `license`, `source`, `source_format`, and `content_version`.
@@ -125,6 +137,6 @@ downgrade inconsistent declarations to false. USFM import currently supports
 without entering `verses.text`. Cross-reference target resolution is best
 effort and unresolved text remains in `display_text`.
 
-`tests/fixtures/sqlite/test-bible.sql` is a complete v1 example. The format
-does not define morphology, comments, dictionaries, compression, packages, or
-other import formats.
+`tests/fixtures/sqlite/test-bible.sql` is a complete baseline v1 example. The
+format does not define comments, dictionaries, compression, packages, or other
+import formats.

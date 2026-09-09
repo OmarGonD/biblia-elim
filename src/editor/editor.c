@@ -41,6 +41,7 @@
 #include <webkit/webkit.h>
 
 #include "editor/webkit_editor.h"
+#include "webkit/wk-html-surface.h"
 #include "editor/editor.h"
 
 #include "main/sword.h"
@@ -1114,6 +1115,13 @@ void create_editor_window(GtkWidget *scrollwindow, EDITOR *e)
 
 	webview = webkit_web_view_new();
 	e->html_widget = webview;
+	/* WebKit1 otherwise paints an opaque white backing store before the
+	 * document CSS arrives.  Prepare the GTK parent and make the web view
+	 * transparent before either widget can be shown; an explicit body
+	 * background still paints normally once the document is ready. */
+	wk_html_surface_prepare(scrollwindow);
+	wk_html_surface_prepare(webview);
+	webkit_web_view_set_transparent(WEBKIT_WEB_VIEW(webview), TRUE);
 	gtk_widget_show(webview);
 
 	/* Turn on editing */

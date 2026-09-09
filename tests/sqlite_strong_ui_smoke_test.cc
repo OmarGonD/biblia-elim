@@ -83,7 +83,7 @@ void testRvFlow()
 	g_assert_true(bible_backend->resolveKey("rv1909", "Génesis 1:1", genesis));
 	BibleVerseContent content = bible_backend->getVerseContent(
 		"rv1909", genesis.reference);
-	const std::string markup = renderStrongVerseText(content, "rv1909",
+	const std::string markup = renderAnnotatedVerseText(content, "rv1909",
 		genesis.key, true);
 	g_assert_nonnull(strstr(markup.c_str(), "data-offset=\"24\""));
 	g_assert_null(strstr(markup.c_str(), "H430"));

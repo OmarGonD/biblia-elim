@@ -30,6 +30,30 @@ textview.elim-html text {
 	font-size: 12.5pt;
 }
 
+/* The outer pane and scroller are painted before the renderer has a body.
+ * Keep every layer on the live application palette so no toolkit/WebKit
+ * default-white edge can appear during the first document load. */
+.elim-html-surface {
+	background-color: @elim_paper;
+	color: @elim_ink;
+}
+
+/* A deliberately quiet per-panel placeholder.  It occupies the complete
+ * content allocation; only its low-emphasis status text distinguishes it
+ * from the final reading surface. */
+.elim-html-loading {
+	/* Loading is application chrome, not an empty document.  In particular,
+	 * a light reading-paper color must not appear as a blank page while the
+	 * real document is still being prepared. */
+	background-color: @elim_chrome;
+	color: alpha(@elim_ink, 0.58);
+}
+
+.elim-html-error {
+	background-color: @elim_paper;
+	color: @elim_ink;
+}
+
 /* ——— Header bar (Mac titlebar) ——— */
 headerbar {
 	min-height: 44px;

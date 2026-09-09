@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osis xmlns="http://www.bibletechnologies.net/2003/OSIS/namespace">
+  <osisText osisIDWork="morph-equivalent" osisRefWork="Bible" xml:lang="mul">
+    <div type="book" osisID="John">
+      <chapter osisID="John.1">
+        <verse osisID="John.1.1"><w lemma="strong:G3056 logos" morph="robinson:N-NSM custom.alpha:opaque/code">λόγος</w> <w morph="oshb:HNcmpa oshb:HR/Ncfsa">אֱלֹהִים</w> <w lemma="strong:H430" morph="bad: :orphan">intact</w>.</verse>
+      </chapter>
+    </div>
+  </osisText>
+</osis>

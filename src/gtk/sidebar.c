@@ -1560,6 +1560,8 @@ GtkWidget *gui_create_sidebar(GtkWidget *paned)
 
 	sidebar.html_viewer_widget =
 	    GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, SB_VIEWER_TYPE));
+	XIPHOS_HTML_SET_SURFACE_NAME(sidebar.html_viewer_widget,
+				     "sidebar-previewer");
 	gtk_widget_show(sidebar.html_viewer_widget);
 #ifdef USE_WEBKIT2
 	gtk_box_pack_start(GTK_BOX(widgets.box_side_preview), sidebar.html_viewer_widget, TRUE, TRUE, 0);

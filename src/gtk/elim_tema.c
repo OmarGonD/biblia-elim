@@ -219,11 +219,32 @@ push_css(const char *css)
 static void
 vestir_ventana(GtkWidget *w)
 {
+	GtkStyleContext *ctx;
+	const char *mode;
+
 	if (!GTK_IS_WINDOW(w) ||
 	    gtk_window_get_window_type(GTK_WINDOW(w)) != GTK_WINDOW_TOPLEVEL)
 		return;
-	gtk_style_context_add_class(gtk_widget_get_style_context(w),
-				    "elim-app");
+	ctx = gtk_widget_get_style_context(w);
+	gtk_style_context_add_class(ctx, "elim-app");
+
+	/* gui_elim_tema_init() deliberately runs before the main window is
+	 * constructed.  Apply its already-selected class from the pre-map hook so
+	 * the first frame has the same palette as every later frame. */
+	mode = settings.ui_mode ? settings.ui_mode : "omarchy";
+	if (!g_strcmp0(mode, "oscuro")) {
+		gtk_style_context_add_class(ctx, "elim-dark");
+	} else if (!g_strcmp0(mode, "claroluna")) {
+		gtk_style_context_add_class(ctx, "elim-luna");
+	} else if (!g_strcmp0(mode, "pergamino")) {
+		gtk_style_context_add_class(ctx, "elim-pergamino");
+	} else if (!g_strcmp0(mode, "claro")) {
+		gtk_style_context_add_class(ctx, "elim-claro");
+	} else {
+		gtk_style_context_add_class(ctx, "elim-omarchy");
+		if (settings.darktheme)
+			gtk_style_context_add_class(ctx, "elim-dark");
+	}
 }
 
 static gboolean

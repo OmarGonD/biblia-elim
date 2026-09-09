@@ -192,11 +192,11 @@ gchar *gui_tf2of(gint true_false)
 	return (true_false ? "On" : "Off");
 }
 
-void gui_reassign_strdup(gchar **where, gchar *what)
+void gui_reassign_strdup(gchar **where, const gchar *what)
 {
-	if (*where)
-		g_free(*where);
-	*where = g_strdup(what);
+	gchar *replacement = g_strdup(what);
+	g_free(*where);
+	*where = replacement;
 }
 
 void gui_set_progressbar_text(GtkWidget *pb, gchar *text)
@@ -363,7 +363,7 @@ gchar *gui_general_user_file(const char *fname, gboolean critical)
 	    g_build_filename("..", "share", "xiphos", fname, NULL);
 #endif
 	alternative[i++] = g_build_filename(SHARE_DIR, fname, NULL);
-	/* Uninstalled binary lives at <build>/src/gtk/xiphos, three
+	/* Uninstalled binary lives at <build>/src/gtk/biblia-elim, three
 	 * levels above the source ui/ directory. Also try two levels
 	 * in case the layout changes. */
 	{

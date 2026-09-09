@@ -103,6 +103,7 @@ GtkWidget *gui_create_book_pane(void)
 
 	widgets.html_book =
 	    GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, BOOK_TYPE));
+	XIPHOS_HTML_SET_SURFACE_NAME(widgets.html_book, "general-book");
 	gtk_widget_show(widgets.html_book);
 #ifdef USE_WEBKIT2
 	gtk_box_pack_start(GTK_BOX(box), widgets.html_book, TRUE, TRUE, 0);

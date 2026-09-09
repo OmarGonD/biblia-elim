@@ -38,6 +38,7 @@
 #include "gui/parallel_dialog.h"
 #include "gui/parallel_tab.h"
 #include "gui/dialog.h"
+#include "gui/utilities.h"
 #include "gui/widgets.h"
 
 #include "main/parallel_view.h"
@@ -632,7 +633,7 @@ void main_update_parallel_page(void)
 	gboolean is_rtol = FALSE;
 	GString *data;
 
-	settings.cvparallel = settings.currentverse;
+	gui_reassign_strdup(&settings.cvparallel, settings.currentverse);
 	backend_p->get_mgr()->setGlobalOption("Footnotes", "Off");
 
 	tmpBuf = g_strdup_printf(HTML_START
@@ -1183,7 +1184,7 @@ void main_update_parallel_page_detached(void)
 	    !gtk_widget_get_realized(GTK_WIDGET(widgets.html_parallel_dialog)))
 		return;
 
-	settings.cvparallel = settings.currentverse;
+	gui_reassign_strdup(&settings.cvparallel, settings.currentverse);
 	if (!parallel_build_html(text, &parallel_count))
 		return;
 
@@ -1214,7 +1215,8 @@ gboolean main_reading_compare_render(const char *key)
 	    !gtk_widget_get_realized(GTK_WIDGET(widgets.html_text)))
 		return FALSE;
 
-	settings.cvparallel = (gchar *)(key ? key : settings.currentverse);
+	gui_reassign_strdup(&settings.cvparallel,
+			    key ? key : settings.currentverse);
 	if (!parallel_build_html(text, NULL))
 		return FALSE;
 

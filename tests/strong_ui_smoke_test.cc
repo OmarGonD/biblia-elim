@@ -45,14 +45,13 @@ public:
 	}
 };
 
-GtkWidget *strongDialog()
+GtkWidget *wordDialog()
 {
 	GList *windows = gtk_window_list_toplevels();
 	GtkWidget *result = nullptr;
 	for (GList *item = windows; item; item = item->next) {
 		GtkWidget *widget = GTK_WIDGET(item->data);
-		if (GTK_IS_DIALOG(widget) &&
-		    g_strcmp0(gtk_window_get_title(GTK_WINDOW(widget)), "Strong") == 0) {
+		if (GTK_IS_DIALOG(widget)) {
 			result = widget;
 			break;
 		}
@@ -80,6 +79,17 @@ bool hasLabel(GtkWidget *root, const char *expected)
 		    g_strcmp0(gtk_label_get_text(GTK_LABEL(widget)), expected) == 0)
 			return true;
 	return false;
+}
+
+GtkWidget *labelNamed(GtkWidget *root, const char *expected)
+{
+	std::vector<GtkWidget *> widgetsFound;
+	descendants(root, widgetsFound);
+	for (GtkWidget *widget : widgetsFound)
+		if (GTK_IS_LABEL(widget) &&
+		    g_strcmp0(gtk_label_get_text(GTK_LABEL(widget)), expected) == 0)
+			return widget;
+	return nullptr;
 }
 
 GtkWidget *firstCombo(GtkWidget *root)
@@ -115,11 +125,19 @@ void testDialogFlow()
 	FakeBibleBackend backend;
 	bible_backend = &backend;
 	main_set_strong_lexicon(nullptr);
-	main_show_neutral_strong("FakeBible", "John 3:16", 11);
-	GtkWidget *dialog = strongDialog();
+	main_show_neutral_word("FakeBible", "John 3:16", 11);
+	GtkWidget *dialog = wordDialog();
 	g_assert_nonnull(dialog);
 	g_assert_true(hasLabel(dialog, "Strong G25"));
 	g_assert_true(hasLabel(dialog, "loved"));
+	g_assert_true(hasLabel(dialog, "robinson"));
+	g_assert_true(hasLabel(dialog, "V-AAI-3S"));
+	g_assert_true(hasLabel(dialog, "custom.alpha"));
+	g_assert_true(hasLabel(dialog, "opaque/code"));
+	g_assert_true(hasLabel(dialog, "Esquema morfológico 1:"));
+	g_assert_true(hasLabel(dialog, "Código morfológico 2:"));
+	g_assert_true(gtk_label_get_selectable(GTK_LABEL(
+		labelNamed(dialog, "opaque/code"))));
 	g_assert_true(hasLabel(dialog, "John 3:16"));
 	g_assert_false(hasLabel(dialog, "agapao"));
 	GtkWidget *first = occurrenceButton(dialog, "John 3:16");
@@ -131,14 +149,14 @@ void testDialogFlow()
 	TestLexicon lexicon;
 	main_set_strong_lexicon(&lexicon);
 	main_show_neutral_strong("FakeBible", "John 3:16", 11);
-	dialog = strongDialog();
+	dialog = wordDialog();
 	g_assert_nonnull(dialog);
 	g_assert_true(hasLabel(dialog, "agapao"));
 	g_assert_true(hasLabel(dialog, "to love"));
 	closeDialog(dialog);
 
 	main_show_neutral_strong("FakeBible", "John 3:17", 13);
-	dialog = strongDialog();
+	dialog = wordDialog();
 	g_assert_nonnull(dialog);
 	GtkWidget *combo = firstCombo(dialog);
 	g_assert_nonnull(combo);
@@ -147,6 +165,20 @@ void testDialogFlow()
 	g_assert_cmpint(gtk_tree_model_iter_n_children(model, nullptr), ==, 2);
 	gtk_combo_box_set_active(GTK_COMBO_BOX(combo), 1);
 	g_assert_true(hasLabel(dialog, "Strong G5547"));
+	closeDialog(dialog);
+
+	main_set_strong_lexicon(nullptr);
+	main_show_neutral_word("FakeBible", "John 3:16", 21);
+	dialog = wordDialog();
+	g_assert_nonnull(dialog);
+	g_assert_true(hasLabel(dialog, "Detalles de palabra"));
+	g_assert_true(hasLabel(dialog, "world"));
+	g_assert_true(hasLabel(dialog, "Sin especificar"));
+	g_assert_true(hasLabel(dialog, "HR/Ncfsa"));
+	g_assert_true(gtk_label_get_selectable(GTK_LABEL(
+		labelNamed(dialog, "HR/Ncfsa"))));
+	g_assert_false(hasLabel(dialog, "Concordancia"));
+	g_assert_null(firstCombo(dialog));
 	closeDialog(dialog);
 	main_set_strong_lexicon(nullptr);
 }

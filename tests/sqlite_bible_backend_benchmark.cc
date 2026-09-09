@@ -82,16 +82,16 @@ int main(int argc, char **argv)
 	const BibleReference h430Reference{1, 1, 1, 1};
 	const BibleReference g25Reference{2, 40, 5, 43};
 	const long long resolveH430 = benchmark([&] {
-		(void)resolveStrongInteraction(backend, module, h430Reference, 24);
+		(void)resolveAnnotatedWordInteraction(backend, module, h430Reference, 24);
 	}, 1000);
 	const long long resolveG25 = benchmark([&] {
-		(void)resolveStrongInteraction(backend, module, g25Reference, 28);
+		(void)resolveAnnotatedWordInteraction(backend, module, g25Reference, 28);
 	}, 1000);
 	const long long lexiconMissing = benchmark([&] {
 		(void)resources.lookupStrong(h430);
 	}, 1000);
 	const long long firstPage50 = benchmark([&] {
-		StrongWordContext context;
+		BibleAnnotatedWord context;
 		context.reference = h430Reference;
 		context.word = "Dios";
 		context.strongs.push_back(h430);

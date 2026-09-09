@@ -4,7 +4,7 @@ module_dir=${1:?usage: startup_sqlite_regression.sh MODULE_DIRECTORY}
 log_file=$(mktemp)
 trap 'rm -f "$log_file"' EXIT
 set +e
-timeout 8s env NO_AT_BRIDGE=1 dbus-run-session -- xvfb-run -a "$PWD/build/src/gtk/xiphos" "--backend=sqlite:${module_dir}" >"$log_file" 2>&1
+timeout 8s env NO_AT_BRIDGE=1 dbus-run-session -- xvfb-run -a "$PWD/build/src/gtk/biblia-elim" "--backend=sqlite:${module_dir}" >"$log_file" 2>&1
 status=$?
 set -e
 if [ "$status" -eq 124 ]; then

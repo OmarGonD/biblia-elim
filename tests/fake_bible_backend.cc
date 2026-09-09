@@ -54,6 +54,8 @@ FakeBibleBackend::FakeBibleBackend()
 	word.lemma = "agapao";
 	word.strong = "G25";
 	word.strongs.push_back({ StrongLanguage::Greek, 25 });
+	word.morphologyTags.push_back({ "robinson", "V-AAI-3S" });
+	word.morphologyTags.push_back({ "custom.alpha", "opaque/code" });
 	word.morphology = "V-AAI-3S";
 	word.gloss = "love";
 	verses_[1].content.words.push_back(word);
@@ -61,6 +63,7 @@ FakeBibleBackend::FakeBibleBackend()
 	withoutStrong.start = 21;
 	withoutStrong.length = 5;
 	withoutStrong.text = "world";
+	withoutStrong.morphologyTags.push_back({ "", "HR/Ncfsa" });
 	verses_[1].content.words.push_back(withoutStrong);
 	BibleWordInfo secondGreek;
 	secondGreek.start = 0;
@@ -68,6 +71,8 @@ FakeBibleBackend::FakeBibleBackend()
 	secondGreek.text = "God";
 	secondGreek.strong = "G25";
 	secondGreek.strongs.push_back({ StrongLanguage::Greek, 25 });
+	secondGreek.morphologyTags.push_back({ "robinson", "V-AAI-3S" });
+	secondGreek.morphologyTags.push_back({ "custom.alpha", "V-AAI-3S" });
 	verses_[2].content.words.push_back(secondGreek);
 	BibleWordInfo multiple;
 	multiple.start = 13;
@@ -92,6 +97,27 @@ StrongOccurrencePage FakeBibleBackend::findStrongOccurrencePage(
 			if (candidate.language == strong.language && candidate.number == strong.number)
 				all.push_back({record.reference, record.key, word.text,
 					record.content.plainText, strong});
+	if (offset >= all.size()) return page;
+	const auto first = all.begin() + offset;
+	const std::size_t available = all.size() - offset;
+	const std::size_t count = std::min(limit, available);
+	page.occurrences.assign(first, first + count);
+	page.hasMore = available > count;
+	return page;
+}
+
+MorphologyOccurrencePage FakeBibleBackend::findMorphologyOccurrencePage(
+	const std::string &id, const MorphologyTag &morphology, std::size_t limit,
+	std::size_t offset)
+{
+	std::vector<MorphologyOccurrence> all;
+	MorphologyOccurrencePage page;
+	if (id != kBibleModule) return page;
+	for (const auto &record : verses_) for (const auto &word : record.content.words)
+		for (const auto &candidate : word.morphologyTags)
+			if (candidate == morphology)
+				all.push_back({record.reference, record.key, word.text,
+					record.content.plainText, word.start, word.length, morphology});
 	if (offset >= all.size()) return page;
 	const auto first = all.begin() + offset;
 	const std::size_t available = all.size() - offset;

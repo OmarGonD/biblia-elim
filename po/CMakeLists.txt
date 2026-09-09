@@ -64,7 +64,7 @@ if (GETTEXT_FOUND)
 
   add_custom_target(process-pot-file)
 
-  add_dependencies(xiphos process-pot-file )
+  add_dependencies(biblia-elim process-pot-file )
 
   # Also stage the freshly-compiled .gmo files into
   # <build-dir>/locale/<lang>/LC_MESSAGES/xiphos.mo -- the same layout

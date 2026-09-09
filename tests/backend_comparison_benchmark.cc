@@ -174,8 +174,8 @@ int main(int argc, char **argv)
 	}
 	getrusage(RUSAGE_SELF, &cpuAfter);
 
-	StrongWordContext strong;
-	const bool strongResolved = backend->resolveStrongWord(module,
+	BibleAnnotatedWord strong;
+	const bool strongResolved = backend->resolveAnnotatedWord(module,
 		references[0], 24, strong) && !strong.strongs.empty();
 	const BibleModuleCapabilities capabilities = backend->moduleCapabilities(module);
 	std::printf("backend=%s module=%s init_us=%lld chapters100_us=%lld "

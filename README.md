@@ -30,7 +30,7 @@ Dependencias típicas de Xiphos (GTK3, Sword, libxml2, CMake). Desde la raíz de
 
 ```bash
 cmake -S . -B build -DEPUB=OFF -DHELP=OFF
-cmake --build build --target xiphos -j$(nproc)
+cmake --build build --target biblia-elim -j$(nproc)
 ./scripts/install-biblia-elim.sh
 ```
 

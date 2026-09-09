@@ -405,7 +405,7 @@ static void
 on_abrir(GtkButton *boton, gpointer datos)
 {
 	gchar *url;
-	char *valida;
+	gchar *valida;
 
 	(void)boton;
 	(void)datos;
@@ -415,11 +415,10 @@ on_abrir(GtkButton *boton, gpointer datos)
 	/* Igual que las referencias de los planes: la clave lleva el
 	 * nombre OSIS del libro, y el motor la deja en el idioma del
 	 * módulo antes de navegar. */
-	valida = (char *)main_get_valid_key(settings.MainWindowModule,
-					    ui->clave);
+	valida = main_get_valid_key(settings.MainWindowModule, ui->clave);
 	url = g_strdup_printf("sword:///%s",
 			      (valida && *valida) ? valida : ui->clave);
-	free(valida);
+	g_free(valida);
 	main_url_handler(url, TRUE);
 	g_free(url);
 }

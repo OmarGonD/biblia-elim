@@ -40,6 +40,7 @@
 #include "gui/utilities.h"
 #include "gui/elim_tema.h"
 #include "gui/navbar_versekey.h"
+#include "gui/panel_load_state.h"
 
 #include "main/recordatorio.h"
 #include "main/sword.h"
@@ -56,6 +57,13 @@
  * initially false. when we are about to call gui_main(), we set it.
  */
 gboolean initialized = FALSE;
+
+static gboolean startup_ui_heartbeat(gpointer unused)
+{
+	(void)unused;
+	panel_load_debug("app", "UI_HEARTBEAT", NULL);
+	return TRUE;
+}
 
 #ifdef WIN32
 
@@ -132,6 +140,7 @@ static void iniciar_idioma(void)
 
 int main(int argc, char *argv[])
 {
+	panel_load_debug("app", "APP_START", NULL);
 	int newconfigs = FALSE;
 	int newbookmarks = FALSE;
 	int have_sword_url = FALSE;
@@ -397,6 +406,7 @@ int main(int argc, char *argv[])
 	}
 
 	gui_init(argc, argv);
+	panel_load_debug("app", "GTK_INITIALIZED", NULL);
 
 	g_object_set(gtk_settings_get_default(),
 		     "gtk-application-prefer-dark-theme",
@@ -410,11 +420,26 @@ int main(int argc, char *argv[])
 	base_step = 1;
 
 	gui_splash_step(_("Building Interface"), 0.2, 0 + base_step);
-	create_mainwindow();
+	/* Install the selected palette before create_mainwindow() maps and drains
+	 * the first GTK frame.  Otherwise every empty content allocation is
+	 * painted once with the toolkit's default (usually white) background. */
 	gui_elim_tema_init();
+	create_mainwindow();
+	panel_load_debug("app", "WINDOW_CREATED", NULL);
+	if (panel_load_debug_enabled()) {
+		panel_load_debug("nav", "NAV_PREV_SENSITIVE",
+				gtk_widget_get_sensitive(navbar_versekey.button_verse_up)
+					? "true" : "false");
+		panel_load_debug("nav", "NAV_NEXT_SENSITIVE",
+				gtk_widget_get_sensitive(navbar_versekey.button_verse_down)
+					? "true" : "false");
+		g_timeout_add(250, startup_ui_heartbeat, NULL);
+	}
 
 	gui_splash_step(_("Starting Sword"), 0.5, 1 + base_step);
 	main_init_backend();
+	panel_load_debug("app", "MODULE_READY",
+			 settings.havebible ? "havebible=true" : "havebible=false");
 	gui_elim_tema_marcar_listo();
 	gui_navbar_version_combo_refill();
 
@@ -426,7 +451,16 @@ int main(int argc, char *argv[])
 	/* need to get rid of wrongly-formatted annotation labels. */
 	xml_convert_to_osisref();
 
-	frontend_display(have_tab_list ? argv[1] : NULL);
+	{
+		gint64 display_started = g_get_monotonic_time();
+		frontend_display(have_tab_list ? argv[1] : NULL);
+		if (panel_load_debug_enabled()) {
+			gchar *duration = g_strdup_printf("display_ms=%.1f",
+						   (g_get_monotonic_time() - display_started) / 1000.0);
+			panel_load_debug("app", "FRONTEND_DISPLAY_DONE", duration);
+			g_free(duration);
+		}
+	}
 
 	if (have_sword_url) {
 		if (!strncmp(argv[1], "sword:/", 7)) {
@@ -454,6 +488,7 @@ int main(int argc, char *argv[])
 	if (pulpito_de && *pulpito_de)
 		gui_pulpito_abrir(pulpito_de);
 
+	panel_load_debug("app", "GTK_MAIN_ENTER", NULL);
 	gui_main();
 	return 0;
 }

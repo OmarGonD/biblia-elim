@@ -32,30 +32,48 @@ BibleReference referenceFor(FakeBibleBackend &backend, const char *key)
 void testResolution()
 {
 	FakeBibleBackend backend;
-	StrongWordResolution none = resolveStrongInteraction(backend,
+	AnnotatedWordResolution none = resolveAnnotatedWordInteraction(backend,
 		"FakeDictionary", {}, 0);
-	g_assert_true(none.action == StrongWordAction::None);
+	g_assert_true(none.action == AnnotatedWordAction::None);
 
 	const BibleReference john316 = referenceFor(backend, "John 3:16");
-	StrongWordResolution single = resolveStrongInteraction(backend,
+	AnnotatedWordResolution single = resolveAnnotatedWordInteraction(backend,
 		"FakeBible", john316, 11);
-	g_assert_true(single.action == StrongWordAction::OpenDetail);
+	g_assert_true(single.action == AnnotatedWordAction::OpenDetail);
 	g_assert_cmpstr(single.context.word.c_str(), ==, "loved");
 	g_assert_cmpuint(single.context.strongs.size(), ==, 1);
+	g_assert_cmpuint(single.context.morphologyTags.size(), ==, 2);
+	g_assert_true(single.context.morphologyTags[0] ==
+		MorphologyTag({"robinson", "V-AAI-3S"}));
+	g_assert_true(single.context.morphologyTags[1] ==
+		MorphologyTag({"custom.alpha", "opaque/code"}));
 
-	StrongWordResolution noStrong = resolveStrongInteraction(backend,
+	AnnotatedWordResolution morphologyOnly = resolveAnnotatedWordInteraction(backend,
 		"FakeBible", john316, 21);
-	g_assert_true(noStrong.action == StrongWordAction::None);
+	g_assert_true(morphologyOnly.action == AnnotatedWordAction::OpenDetail);
+	g_assert_cmpstr(morphologyOnly.context.word.c_str(), ==, "world");
+	g_assert_true(morphologyOnly.context.strongs.empty());
+	g_assert_cmpuint(morphologyOnly.context.morphologyTags.size(), ==, 1);
+	g_assert_true(morphologyOnly.context.morphologyTags[0] ==
+		MorphologyTag({"", "HR/Ncfsa"}));
+	g_assert_cmpuint(morphologyOnly.context.start, ==, 21);
+	g_assert_cmpuint(morphologyOnly.context.length, ==, 5);
 
 	const BibleReference john317 = referenceFor(backend, "John 3:17");
-	StrongWordResolution multiple = resolveStrongInteraction(backend,
+	AnnotatedWordResolution multiple = resolveAnnotatedWordInteraction(backend,
 		"FakeBible", john317, 13);
-	g_assert_true(multiple.action == StrongWordAction::ChooseStrong);
+	g_assert_true(multiple.action == AnnotatedWordAction::ChooseStrong);
 	g_assert_cmpuint(multiple.context.strongs.size(), ==, 2);
 	const StrongId g2424{StrongLanguage::Greek, 2424};
 	const StrongId g5547{StrongLanguage::Greek, 5547};
 	g_assert_true(multiple.context.strongs[0] == g2424);
 	g_assert_true(multiple.context.strongs[1] == g5547);
+
+	AnnotatedWordResolution strongOnly = resolveAnnotatedWordInteraction(backend,
+		"FakeBible", referenceFor(backend, "Genesis 1:1"), 17);
+	g_assert_true(strongOnly.action == AnnotatedWordAction::OpenDetail);
+	g_assert_cmpuint(strongOnly.context.strongs.size(), ==, 1);
+	g_assert_true(strongOnly.context.morphologyTags.empty());
 }
 
 void testMarkupKeepsUtf8ByteOffsets()
@@ -68,15 +86,26 @@ void testMarkupKeepsUtf8ByteOffsets()
 	word.length = 3;
 	word.text = "amó";
 	word.strongs.push_back({StrongLanguage::Greek, 25});
+	word.morphologyTags.push_back({"robinson", "V-AAI-3S"});
 	content.words.push_back(word);
-	const std::string markup = renderStrongVerseText(content, "RV 1909",
+	const std::string markup = renderAnnotatedVerseText(content, "RV 1909",
 		"Juan 3:16", true);
 	g_assert_nonnull(strstr(markup.c_str(), "data-offset=\"4\""));
+	g_assert_nonnull(strstr(markup.c_str(), "class=\"annotated-word\""));
+	g_assert_nonnull(strstr(markup.c_str(), "action=showNeutralWord"));
 	g_assert_nonnull(strstr(markup.c_str(), "module=RV%201909"));
 	g_assert_nonnull(strstr(markup.c_str(), "passage=Juan%203%3A16"));
 	g_assert_null(strstr(markup.c_str(), "G25"));
-	g_assert_cmpstr(renderStrongVerseText(content, "RV 1909", "Juan 3:16",
-		false).c_str(), ==, "Él amó");
+	g_assert_null(strstr(markup.c_str(), "V-AAI-3S"));
+	const std::string annotationsDisabled = renderAnnotatedVerseText(content,
+		"RV 1909", "Juan 3:16", false);
+	g_assert_cmpstr(annotationsDisabled.c_str(), ==, "Él amó");
+
+	content.words[0].strongs.clear();
+	const std::string morphologyOnly = renderAnnotatedVerseText(content,
+		"RV 1909", "Juan 3:16", true);
+	g_assert_nonnull(strstr(morphologyOnly.c_str(), "data-offset=\"4\""));
+	g_assert_nonnull(strstr(morphologyOnly.c_str(), "action=showNeutralWord"));
 }
 
 void testDetailAndPagination()
@@ -84,7 +113,7 @@ void testDetailAndPagination()
 	FakeBibleBackend backend;
 	BibleApplicationResources resources;
 	resources.bible = &backend;
-	StrongWordResolution resolution = resolveStrongInteraction(backend,
+	AnnotatedWordResolution resolution = resolveAnnotatedWordInteraction(backend,
 		"FakeBible", referenceFor(backend, "John 3:16"), 11);
 	StrongDetailSession withoutLexicon(backend, resources, "FakeBible",
 		resolution.context, 1);

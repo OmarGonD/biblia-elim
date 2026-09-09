@@ -28,10 +28,12 @@
 #include "main/interlineal.h"
 #include "main/settings.h"
 #include "main/sword.h"
+#include "main/verse_navigation.h"
 #include "main/xml.h"
 
 #include "gui/navbar_versekey.h"
 #include "gui/tabbed_browser.h"
+#include "gui/panel_load_state.h"
 
 #ifdef USE_WEBKIT_EDITOR
 #include "editor/webkit_editor.h"
@@ -53,33 +55,6 @@ static gint c_type;
 static BibleBackend &navbar_backend()
 {
 	return *bible_backend;
-}
-
-/******************************************************************************
- * Name
- *   main_get_valid_key
- *
- * Synopsis
- *   #include "main/navbar_versekey.h"
- *
- *   const char *main_get_valid_key(const char *module, const char * key)
- *
- * Description
- *   get a valid versekey from the backend
- *
- * Return value
- *   void
- */
-
-const char *main_get_valid_key(const char *module_name, const char *key)
-{
-	static std::string normalized;
-	BibleKeyInfo info;
-	if (!navbar_backend().resolveKey(module_name ? module_name : "",
-						key ? key : "", info))
-		return NULL;
-	normalized = info.key;
-	return normalized.c_str();
 }
 
 /******************************************************************************
@@ -185,26 +160,28 @@ void main_navbar_versekey_spin_chapter(NAVBAR_VERSEKEY navbar, int direction)
 
 void main_navbar_versekey_spin_verse(NAVBAR_VERSEKEY navbar, int direction)
 {
-
-	char *tmpkey = NULL;
-	int verse;
-
-	if (navbar_main_locked(navbar))
+	panel_load_debug("nav", direction ? "NAV_NEXT_CLICK" : "NAV_PREV_CLICK", NULL);
+	panel_load_debug("nav", "NAV_HANDLER_ENTER",
+			 navbar.key ? navbar.key->str : "key=NULL");
+	const VerseNavigationResult navigation = prepareVerseNavigation(
+		bible_backend,
+		navbar.module_name ? navbar.module_name->str : "",
+		navbar.key ? navbar.key->str : "", direction ? 1 : -1,
+		navbar_main_locked(navbar));
+	if (!navigation) {
+		gchar *detail = g_strdup_printf("early=%s",
+			verseNavigationStatusName(navigation.status));
+		panel_load_debug("nav", "NAV_HANDLER_EXIT", detail);
+		g_free(detail);
 		return;
-
-	if (!navbar.module_name->len)
-		return;
-
-	BibleKeyInfo info;
-	if (!navbar_backend().resolveKey(navbar.module_name->str,
-					 navbar.key->str, info))
-		return;
-	verse = info.reference.verse + (direction ? 1 : -1);
-	tmpkey = g_strdup(navbar_backend().navigate(
-		navbar.module_name->str, info.key, direction ? 1 : -1).c_str());
+	}
+	panel_load_debug("nav", "NAV_REFERENCE_BEFORE", navigation.source.c_str());
+	char *tmpkey = g_strdup(navigation.target.c_str());
 	gtk_entry_set_text(GTK_ENTRY(navbar.lookup_entry), tmpkey);
 	gtk_widget_activate(navbar.lookup_entry);
+	panel_load_debug("nav", "NAV_REFERENCE_AFTER", tmpkey);
 	g_free(tmpkey);
+	panel_load_debug("nav", "NAV_HANDLER_EXIT", "accepted=true");
 }
 
 /******************************************************************************

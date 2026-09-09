@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 root=${1:-$(pwd)}
-bin="$root/build/src/gtk/xiphos"
+bin="$root/build/src/gtk/biblia-elim"
 module_dir=${2:-/tmp/rv1909-strong-enabled}
 export BIBLIA_ELIM_SQLITE_MODULES="$module_dir"
 run_case() {

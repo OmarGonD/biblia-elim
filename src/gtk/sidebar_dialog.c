@@ -83,6 +83,8 @@ void gui_attach_detach_sidebar(void)
 		gtk_widget_destroy(sidebar.html_viewer_widget);
 		sidebar.html_viewer_widget =
 		    GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, SB_VIEWER_TYPE));
+		XIPHOS_HTML_SET_SURFACE_NAME(sidebar.html_viewer_widget,
+					     "sidebar-previewer");
 		gtk_container_add(GTK_CONTAINER(sidebar.html_viewer_eventbox),
 				  sidebar.html_viewer_widget);
 
@@ -109,6 +111,8 @@ void gui_attach_detach_sidebar(void)
 		gtk_widget_destroy(sidebar.html_viewer_widget);
 		sidebar.html_viewer_widget =
 		    GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, SB_VIEWER_TYPE));
+		XIPHOS_HTML_SET_SURFACE_NAME(sidebar.html_viewer_widget,
+					     "sidebar-previewer");
 		gtk_container_add(GTK_CONTAINER(sidebar.html_viewer_eventbox),
 				  sidebar.html_viewer_widget);
 

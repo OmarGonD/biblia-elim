@@ -83,11 +83,20 @@ void runStrongBackendContractTests(BibleBackend &backend,
 	word = wordNamed(content, fixture.noStrongWord);
 	g_assert_nonnull(word);
 	g_assert_true(word->strongs.empty());
-	StrongWordContext context;
-	g_assert_true(backend.resolveStrongWord(fixture.module, reference,
+	BibleAnnotatedWord context;
+	g_assert_true(backend.resolveAnnotatedWord(fixture.module, reference,
 		word->start, context));
 	g_assert_cmpstr(context.word.c_str(), ==, fixture.noStrongWord.c_str());
 	g_assert_true(context.strongs.empty());
+	if (backend.moduleCapabilities(fixture.module).morphology) {
+		g_assert_cmpuint(context.morphologyTags.size(), ==, 1);
+		g_assert_true(context.morphologyTags[0] ==
+			MorphologyTag({"", "HR/Ncfsa"}));
+	} else {
+		g_assert_true(context.morphologyTags.empty());
+	}
+	g_assert_cmpuint(context.start, ==, word->start);
+	g_assert_cmpuint(context.length, ==, word->length);
 
 	StrongOccurrencePage first = backend.findStrongOccurrencePage(
 		fixture.module, g25, 1, 0);

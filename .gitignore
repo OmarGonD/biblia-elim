@@ -39,3 +39,7 @@ scripts/nacarcolunga/tessdata/
 
 # Generado desde el módulo público SpaPlatense instalado.
 scripts/platense/platense-comentarios.imp
+
+# Runtime state from the autonomous Codex agent loop.
+.agent-runtime/
+.codex-last.txt

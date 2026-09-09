@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osis xmlns="http://www.bibletechnologies.net/2003/OSIS/namespace"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.bibletechnologies.net/2003/OSIS/namespace http://www.bibletechnologies.net/osisCore.2.1.1.xsd">
+ <osisText osisIDWork="TorresAmat" osisRefWork="bible" xml:lang="es">
+  <header>
+   <work osisWork="TorresAmat">
+    <title>La Sagrada Biblia (Torres Amat)</title>
+    <identifier type="OSIS">Bible.es.TorresAmat.1882</identifier>
+    <language type="IETF">es</language>
+    <rights type="x-copyright">Dominio público</rights>
+    <refSystem>Bible.Vulg</refSystem>
+   </work>
+  </header>
+  <div type="book" osisID="Ps">
+   <chapter osisID="Ps.1">
+    <verse osisID="Ps.1.1">Dichoso aquel varon que no se deja llevar de los consejos de los malos, ni se detiene en el camino de los pecadores, ni se asienta en la cátedra pestilencial de los libertinos</verse>
+    <verse osisID="Ps.1.2">Sino que tiene puesta toda su voluntad en la Ley del Señor, y está meditando en ella dia y noche.</verse>
+   </chapter>
+  </div>
+ </osisText>
+</osis>

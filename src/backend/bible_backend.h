@@ -105,18 +105,31 @@ public:
 	virtual StrongOccurrencePage findStrongOccurrencePage(
 		const std::string &, const StrongId &, std::size_t, std::size_t)
 	{ return {}; }
-	virtual bool resolveStrongWord(const std::string &module_id,
+	virtual std::vector<MorphologyOccurrence> findMorphologyOccurrences(
+		const std::string &module_id, const MorphologyTag &morphology,
+		std::size_t limit, std::size_t offset)
+	{
+		return findMorphologyOccurrencePage(module_id, morphology, limit, offset)
+			.occurrences;
+	}
+	virtual MorphologyOccurrencePage findMorphologyOccurrencePage(
+		const std::string &, const MorphologyTag &, std::size_t, std::size_t)
+	{ return {}; }
+	virtual bool resolveAnnotatedWord(const std::string &module_id,
 		const BibleReference &reference, std::size_t byte_offset,
-		StrongWordContext &result)
+		BibleAnnotatedWord &result)
 	{
 		const BibleVerseContent content = getVerseContent(module_id, reference);
 		if (!content.valid) return false;
 		for (const BibleWordInfo &word : content.words) {
-			if (byte_offset < word.start ||
-			    byte_offset >= word.start + word.length) continue;
+			if (word.length == 0 || byte_offset < word.start ||
+			    byte_offset - word.start >= word.length) continue;
 			result.reference = reference;
+			result.start = word.start;
+			result.length = word.length;
 			result.word = word.text;
 			result.strongs = word.strongs;
+			result.morphologyTags = word.morphologyTags;
 			return true;
 		}
 		return false;

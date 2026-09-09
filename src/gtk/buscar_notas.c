@@ -115,7 +115,7 @@ pasaje_legible(const gchar *modulo, const gchar *osisref)
 {
 	const char *mod = (modulo && *modulo) ? modulo
 					      : settings.MainWindowModule;
-	char *valida;
+	gchar *valida;
 	gchar *out;
 
 	if (!osisref || !*osisref)
@@ -123,9 +123,9 @@ pasaje_legible(const gchar *modulo, const gchar *osisref)
 	if (!mod || !*mod || !main_is_module((char *)mod))
 		return g_strdup(osisref);
 
-	valida = (char *)main_get_valid_key(mod, osisref);
+	valida = main_get_valid_key(mod, osisref);
 	out = g_strdup((valida && *valida) ? valida : osisref);
-	free(valida);
+	g_free(valida);
 	return out;
 }
 

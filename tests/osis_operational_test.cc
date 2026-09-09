@@ -95,6 +95,12 @@ void generateLarge(const std::string &path, std::size_t verses, bool malformed)
 	else output << "</p></chapter></osisText></osis>\n";
 }
 
+struct MalformedMilestoneCase {
+	const char *name;
+	const char *xml;
+	const char *expectedError;
+};
+
 } // namespace
 
 int main(int argc, char **argv)
@@ -191,6 +197,54 @@ int main(int argc, char **argv)
 		!g_file_test((malformedOutput + ".tmp").c_str(), G_FILE_TEST_EXISTS);
 	if (malformedAccepted || !rollbackClean) ++failures;
 
+	const MalformedMilestoneCase malformedMilestones[] = {
+		{ "unmatched-end",
+			"<osis><osisText><chapter sID=\"John.1\"/>"
+			"<verse eID=\"John.1.1\"/><chapter eID=\"John.1\"/>"
+			"</osisText></osis>",
+			"invalid OSIS verse eID: John.1.1" },
+		{ "mismatched-ids",
+			"<osis><osisText><chapter sID=\"John.1\"/>"
+			"<verse sID=\"John.1.1\"/>Texto<verse eID=\"John.1.2\"/>"
+			"<chapter eID=\"John.1\"/></osisText></osis>",
+			"invalid OSIS verse eID: John.1.2" },
+		{ "nested-starts",
+			"<osis><osisText><chapter sID=\"John.1\"/>"
+			"<verse sID=\"John.1.1\"/>Texto<verse sID=\"John.1.2\"/>"
+			"<verse eID=\"John.1.2\"/><chapter eID=\"John.1\"/>"
+			"</osisText></osis>",
+			"nested OSIS verse" },
+		{ "missing-id",
+			"<osis><osisText><chapter osisID=\"John.1\">"
+			"<verse>Texto</verse></chapter></osisText></osis>",
+			"verse missing OSIS id" },
+		{ "open-at-eof",
+			"<osis><osisText><chapter sID=\"John.1\"/>"
+			"<verse sID=\"John.1.1\"/>Texto"
+			"<chapter eID=\"John.1\"/></osisText></osis>",
+			"EOF with open verse milestone" },
+	};
+	std::size_t malformedMilestoneFailures = 0;
+	for (const MalformedMilestoneCase &test : malformedMilestones) {
+		const std::string input = directory + "/milestone-" + test.name + ".xml";
+		bool caseValid = writeFile(input, test.xml);
+		for (int attempt = 1; attempt <= 2; ++attempt) {
+			const std::string output = directory + "/milestone-" + test.name +
+				"-" + std::to_string(attempt) + ".sqlite";
+			UsfmImportStats stats;
+			std::string error;
+			const bool accepted = importOsis(input, output,
+				options(std::string("milestone-") + test.name), stats, error);
+			caseValid = caseValid && !accepted && error == test.expectedError &&
+				!g_file_test(output.c_str(), G_FILE_TEST_EXISTS) &&
+				!g_file_test((output + ".tmp").c_str(), G_FILE_TEST_EXISTS);
+		}
+		if (!caseValid) {
+			++malformedMilestoneFailures;
+			++failures;
+		}
+	}
+
 	SqliteBibleBackend backend(directory);
 	BibleKeyInfo key;
 	bool sentinelInOutput = true;
@@ -224,8 +278,15 @@ int main(int argc, char **argv)
 	    auditStats.morphSchemes["robinson"] != 1 ||
 	    auditStats.morphSchemes["oshm"] != 1 ||
 	    auditStats.nonStrongLemmaAttributes["lemma"] != 1 ||
-	    total(auditStats.rangeReferences) != 2 ||
-	    auditStats.unresolvedReferences["Bogus.1.1"] != 1)
+	    auditStats.crossReferencesImported != 1 ||
+	    auditStats.crossrefTargetsResolved != 2 ||
+	    auditStats.crossrefTargetsUnresolved != 1 ||
+	    auditStats.rangeReferences !=
+		std::map<std::string, std::size_t>{
+			{ "Gen.1.1-Gen.1.3", 1 },
+			{ "John.3.16-John.3.18", 1 } } ||
+	    auditStats.unresolvedReferences !=
+		std::map<std::string, std::size_t>{ { "Bogus.1.1", 1 } })
 		++failures;
 	if (!backend.resolveKey("audit", "John 1:1", key)) {
 		++failures;
@@ -235,12 +296,19 @@ int main(int argc, char **argv)
 		    content.words.size() != 1 || content.words[0].strongs.size() != 1 ||
 		    content.words[0].strongs[0].number != 25 ||
 		    content.crossReferences.size() != 1 ||
+		    content.crossReferences[0].offset > content.plainText.size() ||
+		    content.plainText.substr(0, content.crossReferences[0].offset) !=
+			"Texto preservado aquí Palabra continúa" ||
 		    content.crossReferences[0].displayText !=
 			"John 3:16; John 3:16-18; inválida; Romans 8:28; Genesis 1:1-3" ||
 		    content.crossReferences[0].references.size() != 2 ||
 		    content.crossReferences[0].references[0].book != 43 ||
+		    content.crossReferences[0].references[0].chapter != 3 ||
+		    content.crossReferences[0].references[0].verse != 16 ||
 		    content.crossReferences[0].references[1].book != 45 ||
-		    backend.moduleCapabilities("audit").morphology)
+		    content.crossReferences[0].references[1].chapter != 8 ||
+		    content.crossReferences[0].references[1].verse != 28 ||
+		    !backend.moduleCapabilities("audit").morphology)
 			++failures;
 	}
 
@@ -274,6 +342,9 @@ int main(int argc, char **argv)
 		<< "unresolved_targets=" << total(auditStats.unresolvedReferences) << '\n'
 		<< "near_eof_import_failed=" << (!malformedAccepted ? "true" : "false") << '\n'
 		<< "near_eof_rollback_clean=" << (rollbackClean ? "true" : "false") << '\n'
+		<< "malformed_milestone_cases="
+		<< sizeof(malformedMilestones) / sizeof(malformedMilestones[0]) << '\n'
+		<< "malformed_milestone_failures=" << malformedMilestoneFailures << '\n'
 		<< "large_backend_sanity=" << (backendSanity ? "true" : "false") << '\n'
 		<< "operational_failures=" << failures << '\n';
 	g_free(temporary);

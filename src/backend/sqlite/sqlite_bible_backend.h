@@ -39,6 +39,8 @@ public:
 					      const BibleSearchQuery &) override;
 	StrongOccurrencePage findStrongOccurrencePage(const std::string &,
 					const StrongId &, std::size_t, std::size_t) override;
+	MorphologyOccurrencePage findMorphologyOccurrencePage(const std::string &,
+					const MorphologyTag &, std::size_t, std::size_t) override;
 
 private:
 	struct Impl;

@@ -7,9 +7,10 @@ libxml2 `XML_PARSE_NONET`; external entities and network access are disabled.
 Supported initially: canonical 66-book Bible `<chapter>`/`<verse>` elements,
 `osisID` (and basic `sID` verse milestones), paragraph/title text, supplied
 word text, `lemma="strong:H.../G..."`, footnote/cross-reference notes and
-OSIS-style book/chapter/verse references. Morphology and unknown attributes are
-ignored without enabling `feature.morphology`. Unknown inline elements retain
-their textual content. Output keeps `schema_version=1`, `user_version=1`,
+OSIS-style book/chapter/verse references. Morphology is parsed, persisted, and
+loaded through the neutral backend word model. Unknown attributes are ignored.
+Unknown inline elements retain their
+textual content. Output keeps `schema_version=1`, `user_version=1`,
 `source_format=osis`, and uses the same FTS and optional note tables as USFM.
 
 The adapter intentionally has no OSIS knowledge in GTK or the backend reader;
@@ -33,12 +34,12 @@ final `std::string`.
 | footnotes / crossrefs | supported subset |
 | `<title>` / `<p>` | basic subset |
 | UTF-8 offsets | supported by converged writer |
-| morphology | audited by scheme, not imported |
+| morphology | parsed/audited, persisted, and loaded neutrally |
 | non-Strong lemmas | audited by scheme, not imported |
 | unknown inline | text preserved and element counted |
 | unknown structural wrapper | children traversed and element counted |
 | ignored attributes | counted as `element.attribute` |
-| ranges | partial; display preserved, no structured range target |
+| structured cross-reference ranges | unsupported; display and audit preserved, no structured target |
 | external entities | not substituted; file and network regressions pass |
 | deuterocanonical books | unsupported (canonical 66-book map) |
 | commentaries/dictionaries | unsupported |
@@ -67,15 +68,20 @@ Unknown elements inside a verse preserve their visible descendant text and
 are counted by element name. Unknown structural wrappers are counted and
 their children continue to be visited, allowing supported chapters and verses
 inside them to import. Unconsumed attributes on known elements are aggregated
-as `element.attribute`. Morph attributes and their schemes are audited but
-not persisted, so `feature.morphology=false`. Non-Strong lemma schemes are
-also audited while valid Strong tokens in the same `lemma` remain available.
+as `element.attribute`. Morph attributes, ordered opaque codes, schemes,
+multi-value cases, and malformed values are audited. Valid tags are persisted
+in source order and enable `feature.morphology`; malformed values create no
+rows. Non-Strong lemma schemes are also audited while valid Strong tokens in
+the same `lemma` remain available. The measured data, neutral representation,
+parsing rules, and SQLite design are documented in `morphology-audit.md`.
 
-Cross-reference `osisRef` values are tokenized into simple and range targets.
-Valid simple targets are retained in source order. Ranges are counted and
-their display text is preserved, but no endpoint is emitted as a structured
-target because schema v1 has no representation for a range. Invalid simple
-targets are aggregated separately. Range support therefore remains partial.
+Cross-reference `osisRef` values are tokenized into simple references and
+range tokens. Valid simple targets surrounding a range are retained in source
+order. Range tokens are counted and their note display text is preserved, but
+neither endpoint is emitted as a structured target because schema v1 has no
+representation for a range. Invalid simple targets are aggregated separately.
+Structured range support therefore remains explicitly unsupported; overall
+range handling is partial and display/audit only.
 
 ## DOM memory benchmark
 

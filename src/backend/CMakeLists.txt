@@ -25,6 +25,8 @@ add_library (backend STATIC
   bible_resources.h
   strong_id.cc
   strong_id.h
+  morphology.cc
+  morphology.h
   bible_lexicon.h
   sqlite/sqlite_strong_lexicon.cc
   sqlite/sqlite_strong_lexicon.h
@@ -54,6 +56,7 @@ add_executable (biblia-usfm-import
   usfm_importer.h
   bible_book_map.cc
   strong_id.cc
+  morphology.cc
   bible_book_map.h
   sqlite/sqlite_module_writer.cc
   sqlite/sqlite_module_writer.h
@@ -63,7 +66,7 @@ target_link_libraries (biblia-usfm-import PRIVATE PkgConfig::Sqlite3)
 
 add_executable (biblia-osis-import EXCLUDE_FROM_ALL
   osis_import_main.cc osis_importer.cc osis_importer.h
-  bible_book_map.cc strong_id.cc
+  bible_book_map.cc strong_id.cc morphology.cc
   sqlite/sqlite_module_writer.cc sqlite/sqlite_module_writer.h)
 target_include_directories (biblia-osis-import PRIVATE PkgConfig::Core PkgConfig::Sqlite3 PkgConfig::XML2)
 target_link_libraries (biblia-osis-import PRIVATE PkgConfig::Core PkgConfig::Sqlite3 PkgConfig::XML2)

@@ -3,7 +3,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-BIN_SRC="${ROOT}/build/src/gtk/xiphos"
+BIN_SRC="${ROOT}/build/src/gtk/biblia-elim"
 PREFIX="${HOME}/.local"
 SHARE="${PREFIX}/share/biblia-elim"
 APPDIR="${PREFIX}/share/applications"
@@ -12,7 +12,7 @@ LOCDIR="${PREFIX}/share/locale"
 
 if [[ ! -x "${BIN_SRC}" ]]; then
 	echo "No encuentro el binario: ${BIN_SRC}" >&2
-	echo "Compila primero: cmake --build ${ROOT}/build --target xiphos" >&2
+	echo "Compila primero: cmake --build ${ROOT}/build --target biblia-elim" >&2
 	exit 1
 fi
 

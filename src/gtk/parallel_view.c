@@ -199,6 +199,7 @@ void gui_create_parallel_page(void)
 
 	widgets.html_parallel =
 	    GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, PARALLEL_TYPE));
+	XIPHOS_HTML_SET_SURFACE_NAME(widgets.html_parallel, "parallel");
 	gtk_widget_show(widgets.html_parallel);
 #ifdef USE_WEBKIT2
 	gtk_container_add(GTK_CONTAINER(widgets.notebook_bible_parallel), widgets.html_parallel);

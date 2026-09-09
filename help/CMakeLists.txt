@@ -435,6 +435,6 @@ if (HELP)
 
   endif (PDFHELP)
 
-  add_dependencies(xiphos mhelp)
+  add_dependencies(biblia-elim mhelp)
 
 endif (HELP)

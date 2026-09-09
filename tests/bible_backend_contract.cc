@@ -48,9 +48,54 @@ void runBibleBackendContractTests(BibleBackend &backend,
 		g_assert_true(capabilities.strongs);
 		g_assert_true(capabilities.morphology);
 		g_assert_cmpuint(content.words.size(), >=, 1);
-		g_assert_cmpstr(content.words[0].lemma.c_str(), ==, "agapao");
 		g_assert_cmpstr(content.words[0].strong.c_str(), ==, "G25");
-		g_assert_cmpstr(content.words[0].morphology.c_str(), ==, "V-AAI-3S");
+		if (fixture.legacyWordFields) {
+			g_assert_cmpstr(content.words[0].lemma.c_str(), ==, "agapao");
+			g_assert_cmpstr(content.words[0].morphology.c_str(), ==, "V-AAI-3S");
+		}
+		g_assert_cmpuint(content.words[0].morphologyTags.size(), ==, 2);
+		g_assert_true(content.words[0].morphologyTags[0] ==
+			MorphologyTag({ "robinson", "V-AAI-3S" }));
+		g_assert_true(content.words[0].morphologyTags[1] ==
+			MorphologyTag({ "custom.alpha", "opaque/code" }));
+		g_assert_cmpuint(content.words.size(), >=, 2);
+		g_assert_true(content.words[1].strongs.empty());
+		g_assert_cmpuint(content.words[1].morphologyTags.size(), ==, 1);
+		g_assert_true(content.words[1].morphologyTags[0] ==
+			MorphologyTag({ "", "HR/Ncfsa" }));
+
+		const MorphologyTag exact{ "robinson", "V-AAI-3S" };
+		MorphologyOccurrencePage first = backend.findMorphologyOccurrencePage(
+			fixture.module, exact, 1, 0);
+		g_assert_cmpuint(first.occurrences.size(), ==, 1);
+		g_assert_true(first.hasMore);
+		g_assert_true(first.occurrences[0].morphology == exact);
+		g_assert_false(first.occurrences[0].key.empty());
+		g_assert_false(first.occurrences[0].word.empty());
+		g_assert_cmpstr(first.occurrences[0].context.substr(
+			first.occurrences[0].start, first.occurrences[0].length).c_str(),
+			==, first.occurrences[0].word.c_str());
+		MorphologyOccurrencePage second = backend.findMorphologyOccurrencePage(
+			fixture.module, exact, 1, 1);
+		g_assert_cmpuint(second.occurrences.size(), ==, 1);
+		g_assert_false(second.hasMore);
+		const BibleReference &firstReference = first.occurrences[0].reference;
+		const BibleReference &secondReference = second.occurrences[0].reference;
+		g_assert_true(firstReference.book < secondReference.book ||
+			(firstReference.book == secondReference.book &&
+			 (firstReference.chapter < secondReference.chapter ||
+			  (firstReference.chapter == secondReference.chapter &&
+			   firstReference.verse < secondReference.verse))));
+		g_assert_true(backend.findMorphologyOccurrencePage(
+			fixture.module, exact, 0, 0).hasMore);
+		g_assert_true(backend.findMorphologyOccurrences(
+			fixture.module, exact, 10, 100).empty());
+		g_assert_cmpuint(backend.findMorphologyOccurrences(fixture.module,
+			{ "custom.alpha", "V-AAI-3S" }, 100, 0).size(), ==, 1);
+		g_assert_true(backend.findMorphologyOccurrences(fixture.module,
+			{ "robinson", "missing" }, 100, 0).empty());
+		g_assert_true(backend.findMorphologyOccurrences("Missing",
+			exact, 100, 0).empty());
 	} else {
 		g_assert_false(capabilities.strongs);
 		g_assert_false(capabilities.morphology);

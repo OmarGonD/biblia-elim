@@ -40,35 +40,42 @@ std::string queryEscape(const std::string &value)
 	return result;
 }
 
-bool containsStrong(const StrongWordContext &context, const StrongId &strong)
+bool containsStrong(const BibleAnnotatedWord &context, const StrongId &strong)
 {
 	return std::find(context.strongs.begin(), context.strongs.end(), strong) !=
 		context.strongs.end();
 }
 }
 
-StrongWordResolution resolveStrongInteraction(BibleBackend &backend,
+AnnotatedWordResolution resolveAnnotatedWordInteraction(BibleBackend &backend,
 	const std::string &module, const BibleReference &reference,
 	std::size_t byteOffset)
 {
-	StrongWordResolution result;
-	if (!backend.moduleCapabilities(module).strongs)
+	AnnotatedWordResolution result;
+	const BibleModuleCapabilities capabilities =
+		backend.moduleCapabilities(module);
+	if (!capabilities.strongs && !capabilities.morphology)
 		return result;
-	if (!backend.resolveStrongWord(module, reference, byteOffset,
-		result.context) || result.context.strongs.empty())
+	if (!backend.resolveAnnotatedWord(module, reference, byteOffset,
+		result.context) || (result.context.strongs.empty() &&
+		result.context.morphologyTags.empty()))
 		return result;
-	result.action = result.context.strongs.size() == 1
-		? StrongWordAction::OpenDetail : StrongWordAction::ChooseStrong;
+	result.action = result.context.strongs.size() > 1
+		? AnnotatedWordAction::ChooseStrong
+		: AnnotatedWordAction::OpenDetail;
 	return result;
 }
 
-std::string renderStrongVerseText(const BibleVerseContent &content,
-	const std::string &module, const std::string &key, bool strongEnabled)
+std::string renderAnnotatedVerseText(const BibleVerseContent &content,
+	const std::string &module, const std::string &key, bool annotationsEnabled)
 {
-	const bool anyStrong = std::any_of(content.words.begin(), content.words.end(), [](const BibleWordInfo &w){ return !w.strongs.empty(); });
-	if ((!strongEnabled || !anyStrong) && content.footnotes.empty() && content.crossReferences.empty())
+	const bool anyAnnotations = std::any_of(content.words.begin(),
+		content.words.end(), [](const BibleWordInfo &word) {
+			return !word.strongs.empty() || !word.morphologyTags.empty();
+		});
+	if ((!annotationsEnabled || !anyAnnotations) && content.footnotes.empty() && content.crossReferences.empty())
 		return htmlEscape(content.plainText);
-	if (!strongEnabled || !anyStrong) {
+	if (!annotationsEnabled || !anyAnnotations) {
 		std::ostringstream plain; std::size_t cursor=0;
 		for (std::size_t i=0;i<content.footnotes.size();++i) { const auto &n=content.footnotes[i]; if(n.offset>cursor) plain<<htmlEscape(content.plainText.substr(cursor,n.offset-cursor)); std::string l=n.label; if(l.empty()||l=="+"||l=="-") l=std::to_string(i+1); plain<<"<a class=\"bible-footnote\" href=\"passagestudy.jsp?action=showNeutralFootnote&amp;module="<<queryEscape(module)<<"&amp;passage="<<queryEscape(key)<<"&amp;value="<<i<<"\">"<<htmlEscape(l)<<"</a>"; cursor=n.offset; }
 		for (std::size_t i=0;i<content.crossReferences.size();++i) { const auto &x=content.crossReferences[i]; if(x.offset>cursor) plain<<htmlEscape(content.plainText.substr(cursor,x.offset-cursor)); plain<<"<a class=\"bible-crossref\" href=\"passagestudy.jsp?action=showNeutralCrossref&amp;module="<<queryEscape(module)<<"&amp;passage="<<queryEscape(key)<<"&amp;value="<<i<<"\">↗</a>"; cursor=x.offset; }
@@ -89,13 +96,14 @@ std::string renderStrongVerseText(const BibleVerseContent &content,
 		}
 	};
 	for (const BibleWordInfo &word : content.words) {
-		if (word.strongs.empty() || word.length == 0 || word.start < cursor ||
+		if ((word.strongs.empty() && word.morphologyTags.empty()) ||
+		    word.length == 0 || word.start < cursor ||
 		    word.start > content.plainText.size() ||
 		    word.length > content.plainText.size() - word.start)
 			continue;
 		result << htmlEscape(content.plainText.substr(cursor, word.start - cursor)); markers(word.start);
-		result << "<a class=\"strong-word\" data-offset=\"" << word.start
-		       << "\" href=\"passagestudy.jsp?action=showNeutralStrong&amp;module="
+		result << "<a class=\"annotated-word\" data-offset=\"" << word.start
+		       << "\" href=\"passagestudy.jsp?action=showNeutralWord&amp;module="
 		       << queryEscape(module) << "&amp;passage=" << queryEscape(key)
 		       << "&amp;value=" << word.start << "\">"
 		       << htmlEscape(content.plainText.substr(word.start, word.length))
@@ -108,7 +116,7 @@ std::string renderStrongVerseText(const BibleVerseContent &content,
 
 StrongDetailSession::StrongDetailSession(BibleBackend &backend,
 	const BibleApplicationResources &resources, std::string module,
-	StrongWordContext context, std::size_t pageSize)
+	BibleAnnotatedWord context, std::size_t pageSize)
 	: backend_(backend), resources_(resources), module_(std::move(module)),
 	  context_(std::move(context)), pageSize_(pageSize)
 {

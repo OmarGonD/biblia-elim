@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osis xmlns="http://www.bibletechnologies.net/2003/OSIS/namespace"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.bibletechnologies.net/2003/OSIS/namespace http://www.bibletechnologies.net/osisCore.2.1.1.xsd">
+  <osisText osisIDWork="OSHB" osisRefWork="Bible" xml:lang="he">
+    <header>
+      <work osisWork="OSHB">
+        <title>Open Scriptures Hebrew Bible</title>
+        <type type="OSIS">Bible</type>
+        <identifier type="OSIS">Bible.he.OSHB</identifier>
+        <language type="IETF">he</language>
+        <rights>WLC text: public domain; morphology: CC BY 4.0</rights>
+        <refSystem>Bible.KJV</refSystem>
+      </work>
+    </header>
+    <div type="book" osisID="Gen">
+      <chapter osisID="Gen.1">
+        <verse osisID="Gen.1.1"><w lemma="b/7225" morph="HR/Ncfsa">בְּרֵאשִׁ֖ית</w>
+          <w lemma="1254" morph="HVqp3ms">בָּרָ֣א</w>
+          <w lemma="430" morph="HNcmpa">אֱלֹהִ֑ים</w>
+          <w lemma="853" morph="HTo">אֵ֥ת</w>
+          <w lemma="d/8064" morph="HTd/Ncmpa">הַשָּׁמַ֖יִם</w>
+          <w lemma="c/853" morph="HC/To">וְאֵ֥ת</w>
+          <w lemma="d/776" morph="HTd/Ncbsa">הָאָֽרֶץ</w><seg type="x-sof-pasuq">׃</seg></verse>
+      </chapter>
+    </div>
+  </osisText>
+</osis>

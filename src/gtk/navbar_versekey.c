@@ -323,7 +323,8 @@ static void on_button_history_back_clicked(GtkButton *button, gpointer user_data
 static void on_entry_activate(GtkEntry *entry, gpointer user_data)
 {
 	gchar *rawtext;
-	const gchar *gkey, *buf = gtk_entry_get_text(entry);
+	gchar *gkey;
+	const gchar *buf = gtk_entry_get_text(entry);
 
 	if (buf == NULL)
 		return;
@@ -342,7 +343,7 @@ static void on_entry_activate(GtkEntry *entry, gpointer user_data)
 		return;
 	}
 	gkey =
-	    main_get_valid_key(settings.MainWindowModule, (gchar *)buf);
+	    main_get_valid_key(settings.MainWindowModule, buf);
 
 	// we got a valid key. but was it really a valid key within v11n?
 	// for future use in determining whether to show normal navbar content.
@@ -366,8 +367,7 @@ static void on_entry_activate(GtkEntry *entry, gpointer user_data)
 	main_url_handler(url, TRUE);
 	if (url)
 		g_free(url);
-	if (gkey)
-		g_free((gchar *)gkey);
+	g_free(gkey);
 }
 
 /******************************************************************************

@@ -200,13 +200,14 @@ Strong IDs. Imports containing valid IDs now declare `feature.strong=true`;
 advertising it. Morphology remains false, and no lexicon is implied by the
 Bible capability.
 
-The neutral future interaction is:
+The neutral annotated-word interaction is:
 
 ```text
-clicked UTF-8 byte offset -> resolveStrongWord() -> StrongWordContext
-0 IDs -> no Strong action
-1 ID  -> open that ID
-N IDs -> present every ID, in source order, as an independent choice
+clicked UTF-8 byte offset -> resolveAnnotatedWord() -> BibleAnnotatedWord
+no annotations -> no word action
+morphology only -> resolve the annotated word for the neutral detail path
+1 Strong ID -> open that ID
+N Strong IDs -> present every ID, in source order, as independent choices
 chosen ID -> optional BibleApplicationResources::lookupStrong()
           + findStrongOccurrencePage()
 ```
@@ -216,15 +217,24 @@ reference, navigation key and verse context. Pagination fetches `limit + 1` in t
 prepared statement to expose `hasMore`; an exact total is deliberately not
 calculated on every page.
 
-The neutral GTK display only marks words when the module capability is true.
+The parallel neutral morphology occurrence API accepts one exact opaque
+`{scheme, code}` tag and returns its token, UTF-8 byte range, reference,
+navigation key, and verse context. It never equates codes from different
+schemes. The SQLite implementation also fetches `limit + 1` in one prepared
+join and uses the optional v1-compatible `verse_word_morphology_lookup`
+covering index when present; older v1 morphology modules retain a scan fallback.
+
+The neutral GTK display marks words when either the Strong or morphology
+capability is true and the word has at least one corresponding annotation.
 It emits `BibleWordInfo.start` as `data-offset` and as the click payload; it
-never derives byte positions from the rendered text and never embeds a Strong
-ID as the source of truth. A click without drag resolves the word again through
-`BibleBackend`. One ID opens a lightweight dialog, while multiple IDs remain
-unselected until the user chooses one in source order. The dialog uses an
-optional application-level `BibleLexicon`, loads concordance pages in groups of
-50, and navigates with the existing neutral module/key path. Modules without
-Strong keep their previous plain-text rendering and never call the resolver.
+never derives byte positions from the rendered text and never embeds Strong or
+morphology values as the source of truth. A click without drag resolves the
+word again through `BibleBackend`, returning both ordered Strong IDs and ordered
+morphology tags. Existing Strong words retain their lightweight detail dialog;
+multiple IDs remain unselected until the user chooses one in source order. The
+dialog uses an optional application-level `BibleLexicon`, loads concordance
+pages in groups of 50, and navigates with the existing neutral module/key path.
+Morphology detail presentation is deliberately deferred to MORPH-106.
 
 The final ownership-stage audit uses the requested expression
 `BackEnd*|SWDisplay|SWMgr|SWModule|SWKey|VerseKey|TreeKey|EntryAttributes|include <sword/>`.

@@ -276,7 +276,12 @@ BibleVerseContent BackEnd::getVerseContent(
 		return content;
 	}
 
-	module->setKey(verse_key);
+	/* The legacy SWORD renderer caches module->getKey() for the duration of
+	 * GTKChapDisp::display().  SWModule::setKey(SWKey *) replaces that owned
+	 * key and leaves the renderer with a dangling VerseKey pointer.  Update
+	 * the existing key in place, as setKeyText() explicitly promises, so a
+	 * neutral content read can safely participate in the legacy render path. */
+	module->setKeyText(verse_key->getText());
 	delete verse_key;
 	if (include_plain_text) {
 		const char *plain = module->stripText();

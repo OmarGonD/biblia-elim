@@ -308,8 +308,7 @@ static void on_entry_activate(GtkEntry *entry, DIALOG_DATA *dialog)
 	if ((settings.special_anchor = strchr(buf, '#')) || /* thml */
 	    (settings.special_anchor = strchr(buf, '!')))   /* osisref */
 		*settings.special_anchor = '\0';
-	const gchar *gkey =
-	    main_get_valid_key(dialog->mod_name, (gchar *)buf);
+	gchar *gkey = main_get_valid_key(dialog->mod_name, buf);
 
 	// we got a valid key. but was it really a valid key within v11n?
 	// for future use in determining whether to show normal navbar content.
@@ -331,7 +330,7 @@ static void on_entry_activate(GtkEntry *entry, DIALOG_DATA *dialog)
 		sword_uri(url, TRUE);
 
 	g_free(url);
-	g_free((gchar *)gkey);
+	g_free(gkey);
 }
 
 /******************************************************************************

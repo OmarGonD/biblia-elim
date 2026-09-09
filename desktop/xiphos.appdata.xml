@@ -4,7 +4,7 @@
  <id>org.xiphos.Xiphos</id>
  <metadata_license>CC0-1.0</metadata_license>
  <project_license>GPL-2.0+</project_license>
- <name>Xiphos</name>
+ <name>Biblia Elim</name>
  <summary>Bible Study Guide</summary>
  <launchable type="desktop-id">xiphos.desktop</launchable>
  <developer id="org.freedesktop">
@@ -12,7 +12,7 @@
  </developer>
  <description>
   <p>
-    Xiphos is a program for high-grade Bible study using the modules and
+    Biblia Elim is a program for high-grade Bible study using the modules and
     underlying engine support of The Sword Project. Sword modules provide the
     widest language coverage of any Bible software anywhere: 400+ Bibles in 150+
     languages, with major support for original languages (a dozen each in Hebrew

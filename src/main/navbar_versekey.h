@@ -90,8 +90,9 @@ struct _navbar_versekey
 extern NAVBAR_VERSEKEY navbar_versekey;
 extern NAVBAR_VERSEKEY navbar_parallel;
 
-const char *main_get_valid_key(const char *module_name,
-			       const char *key);
+/* Returns a newly allocated normalized key, or NULL. The caller owns the
+ * result and must release it with g_free(). */
+gchar *main_get_valid_key(const char *module_name, const char *key);
 void main_versekey_popup_book(NAVBAR_VERSEKEY navbar,
 			      gint nb_type,
 			      gpointer dialog,

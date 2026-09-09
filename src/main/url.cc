@@ -1009,14 +1009,15 @@ gint main_url_handler(const gchar *url, gboolean clicked)
 
 		if (!HAS_URL_PARAM(action)) {
 			XI_warning(("URL action missing: %s", url));
-		} else if (!strcmp(action, "showNeutralStrong")) {
+		} else if (!strcmp(action, "showNeutralWord") ||
+			   !strcmp(action, "showNeutralStrong")) {
 			if (HAS_URL_PARAM(module) && HAS_URL_PARAM(passage) &&
 			    HAS_URL_PARAM(svalue)) {
 				gchar *end = NULL;
 				guint64 offset = g_ascii_strtoull(svalue, &end, 10);
 				if (end && !*end && offset <= G_MAXSIZE) {
 					if (clicked)
-						main_show_neutral_strong(module, passage,
+						main_show_neutral_word(module, passage,
 							(size_t)offset);
 					retval = 1;
 				}

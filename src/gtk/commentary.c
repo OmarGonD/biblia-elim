@@ -134,6 +134,7 @@ GtkWidget *gui_create_commentary_pane(void)
 
 	widgets.html_comm =
 	    GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, COMMENTARY_TYPE));
+	XIPHOS_HTML_SET_SURFACE_NAME(widgets.html_comm, "commentary");
 	gtk_widget_show(widgets.html_comm);
 #ifdef USE_WEBKIT2
 	gtk_box_pack_start(GTK_BOX(box_comm), widgets.html_comm, TRUE, TRUE, 0);

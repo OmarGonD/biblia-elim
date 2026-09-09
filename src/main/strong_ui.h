@@ -8,6 +8,9 @@ class BibleLexicon;
 extern "C" {
 #endif
 
+void main_show_neutral_word(const char *module, const char *passage,
+	size_t byte_offset);
+/* Compatibility entry point for callers holding an older generated URI. */
 void main_show_neutral_strong(const char *module, const char *passage,
 	size_t byte_offset);
 void main_show_neutral_footnote(const char *module, const char *passage,

@@ -99,17 +99,17 @@ static void
 abrir_referencia(const char *ref)
 {
 	gchar *url;
-	char *valida;
+	gchar *valida;
 
 	if (!ref || !*ref)
 		return;
 	/* Las referencias del plan vienen con el nombre OSIS del libro
 	 * ("John 1"); pasarlas por el motor las deja en el idioma del
 	 * módulo antes de navegar, igual que hace la barra de arriba. */
-	valida = (char *)main_get_valid_key(settings.MainWindowModule, ref);
+	valida = main_get_valid_key(settings.MainWindowModule, ref);
 	url = g_strdup_printf("sword:///%s",
 			      (valida && *valida) ? valida : ref);
-	free(valida);
+	g_free(valida);
 	main_url_handler(url, TRUE);
 	g_free(url);
 }

@@ -878,6 +878,7 @@ gui_lectura_sync_wrap(GtkWidget *html_master)
 
 	widgets.html_lectura_sync =
 	    GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, VIEWER_TYPE));
+	XIPHOS_HTML_SET_SURFACE_NAME(widgets.html_lectura_sync, "compare-bible");
 	gtk_widget_show(widgets.html_lectura_sync);
 #ifdef USE_WEBKIT2
 	html_holder = widgets.html_lectura_sync;

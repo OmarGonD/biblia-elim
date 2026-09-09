@@ -3,11 +3,13 @@
 #include "backend/bible_book_map.h"
 #include "backend/sqlite/sqlite_module_writer.h"
 #include "backend/strong_id.h"
+#include "backend/morphology.h"
 
+#include <glib.h>
 #include <libxml/parser.h>
 #include <libxml/tree.h>
 
-#include <cctype>
+#include <algorithm>
 #include <map>
 #include <memory>
 #include <set>
@@ -31,10 +33,35 @@ const BibleBookDefinition *findBook(const std::string &osis)
 	return nullptr;
 }
 
-bool isClosingPunctuation(unsigned char value)
+bool isXmlFormattingSpace(gunichar value)
 {
-	return std::string(",.;:!?)]}").find(static_cast<char>(value)) !=
-		std::string::npos;
+	return value == ' ' || value == '\t' || value == '\n' || value == '\r';
+}
+
+bool isClosingPunctuation(gunichar value)
+{
+	if (value < 0x80 && std::string(",.;:!?)]}").find(static_cast<char>(value)) !=
+	    std::string::npos)
+		return true;
+	const GUnicodeType type = g_unichar_type(value);
+	if (type == G_UNICODE_CLOSE_PUNCTUATION || type == G_UNICODE_FINAL_PUNCTUATION)
+		return true;
+	switch (value) {
+	case 0x060c: /* Arabic comma */
+	case 0x061b: /* Arabic semicolon */
+	case 0x061f: /* Arabic question mark */
+	case 0x3001: /* Ideographic comma */
+	case 0x3002: /* Ideographic full stop */
+	case 0xff01: /* Fullwidth exclamation mark */
+	case 0xff0c: /* Fullwidth comma */
+	case 0xff0e: /* Fullwidth full stop */
+	case 0xff1a: /* Fullwidth colon */
+	case 0xff1b: /* Fullwidth semicolon */
+	case 0xff1f: /* Fullwidth question mark */
+		return true;
+	default:
+		return false;
+	}
 }
 
 /* The sole path by which visible OSIS character data enters a verse. */
@@ -46,20 +73,28 @@ public:
 	{
 		std::size_t first = std::string::npos;
 		std::size_t last = text_.size();
-		for (unsigned char value : source) {
-			if (std::isspace(value)) {
+		for (std::size_t index = 0; index < source.size();) {
+			const char *current = source.c_str() + index;
+			const gunichar value = g_utf8_get_char(current);
+			const std::size_t width = static_cast<std::size_t>(
+				g_utf8_next_char(current) - current);
+			if (isXmlFormattingSpace(value)) {
 				if (!text_.empty()) pendingSpace_ = true;
+				index += width;
 				continue;
 			}
+			const bool unicodeSpace = value > 0x7f && g_unichar_isspace(value);
 			if (pendingSpace_) {
-				if (!text_.empty() && text_.back() != ' ' &&
-				    !isClosingPunctuation(value))
+				if (!text_.empty() && !endsWithUnicodeSpace_ &&
+				    !unicodeSpace && !isClosingPunctuation(value))
 					text_.push_back(' ');
 				pendingSpace_ = false;
 			}
 			if (first == std::string::npos) first = text_.size();
-			text_.push_back(static_cast<char>(value));
+			text_.append(current, width);
 			last = text_.size();
+			endsWithUnicodeSpace_ = unicodeSpace;
+			index += width;
 		}
 		if (first == std::string::npos) return { text_.size(), 0 };
 		return { first, last - first };
@@ -70,6 +105,7 @@ public:
 private:
 	std::string &text_;
 	bool pendingSpace_ = false;
+	bool endsWithUnicodeSpace_ = false;
 };
 
 std::string descendantText(xmlNode *node)
@@ -134,11 +170,6 @@ void auditAttributes(UsfmImportStats &stats, xmlNode *node,
 		if (supported.find(name) == supported.end())
 			++stats.ignoredAttributes[element + "." + name];
 	}
-	if (element == "w" && xmlHasProp(node, BAD_CAST "morph")) {
-		++stats.morphAttributes["w.morph"];
-		for (const std::string &value : tokens(property(node, "morph")))
-			++stats.morphSchemes[scheme(value)];
-	}
 }
 
 bool parseReference(const std::string &source, BibleReference &reference)
@@ -199,6 +230,7 @@ void beginVerse(State &state, const BibleReference &reference)
 	state.verse = SqliteImportVerse();
 	state.verse.reference = reference;
 	state.verse.paragraphBreak = state.pendingParagraph;
+	state.stats.headingsImported += state.pendingHeadings.size();
 	state.verse.headings = std::move(state.pendingHeadings);
 	state.pendingHeadings.clear();
 	state.pendingParagraph = false;
@@ -227,6 +259,26 @@ void addStrongWord(State &state, xmlNode *node)
 	word.start = range.first;
 	word.length = range.second;
 	word.text = state.verse.text.substr(word.start, word.length);
+	if (xmlHasProp(node, BAD_CAST "morph")) {
+		++state.stats.morphAttributes["w.morph"];
+		const MorphologyParseResult parsed = parseMorphology(property(node, "morph"));
+		word.morphologyTags = parsed.tags;
+		state.stats.morphologyWordTags.push_back(parsed.tags);
+		for (const MorphologyTag &tag : parsed.tags) {
+			++state.stats.morphSchemes[tag.scheme.empty() ? "unqualified" : tag.scheme];
+			++state.stats.morphCodes[tag.code];
+		}
+		for (const std::string &malformed : parsed.malformedValues)
+			++state.stats.malformedMorphValues[malformed];
+		state.stats.morphologyTagsParsed += parsed.tags.size();
+		state.stats.malformedMorphologyValues += parsed.malformedValues.size();
+		if (!parsed.tags.empty()) {
+			++state.stats.morphologyBearingTokens;
+			if (parsed.tags.size() > 1) ++state.stats.multiMorphologyTokens;
+			state.stats.maxMorphologyTagsPerToken = std::max(
+				state.stats.maxMorphologyTagsPerToken, parsed.tags.size());
+		}
+	}
 	for (const std::string &lemma : tokens(property(node, "lemma"))) {
 		if (lemma.compare(0, 7, "strong:") == 0) {
 			StrongId strong;
@@ -245,19 +297,15 @@ void addStrongWord(State &state, xmlNode *node)
 	state.verse.words.push_back(std::move(word));
 }
 
-void addNote(State &state, xmlNode *node)
+void addReferenceTargets(State &state, xmlNode *node,
+	BibleCrossReference &crossReference)
 {
-	const std::string body = normalizedStandaloneText(descendantText(node->children));
-	if (property(node, "type") == "crossReference") {
-		BibleCrossReference crossReference;
-		crossReference.offset = state.visible->offset();
-		crossReference.displayText = body;
-		for (xmlNode *child = node->children; child; child = child->next) {
-			if (child->type != XML_ELEMENT_NODE ||
-			    std::string(reinterpret_cast<const char *>(child->name)) != "reference")
-				continue;
-			auditAttributes(state.stats, child, "reference");
-			for (const std::string &osisRef : tokens(property(child, "osisRef"))) {
+	for (; node; node = node->next) {
+		if (node->type != XML_ELEMENT_NODE) continue;
+		const std::string name = reinterpret_cast<const char *>(node->name);
+		if (name == "reference") {
+			auditAttributes(state.stats, node, name);
+			for (const std::string &osisRef : tokens(property(node, "osisRef"))) {
 				if (osisRef.find('-') != std::string::npos) {
 					++state.stats.rangeReferences[osisRef];
 					continue;
@@ -272,6 +320,18 @@ void addNote(State &state, xmlNode *node)
 				}
 			}
 		}
+		addReferenceTargets(state, node->children, crossReference);
+	}
+}
+
+void addNote(State &state, xmlNode *node)
+{
+	const std::string body = normalizedStandaloneText(descendantText(node->children));
+	if (property(node, "type") == "crossReference") {
+		BibleCrossReference crossReference;
+		crossReference.offset = state.visible->offset();
+		crossReference.displayText = body;
+		addReferenceTargets(state, node->children, crossReference);
 		state.verse.crossReferences.push_back(std::move(crossReference));
 		++state.stats.crossReferencesImported;
 	} else {
@@ -288,6 +348,9 @@ void processElement(State &state, xmlNode *node)
 {
 	const std::string name = reinterpret_cast<const char *>(node->name);
 	auditAttributes(state.stats, node, name);
+	/* Work metadata is not canonical content. In particular, its <title>
+	 * must never become a heading on the first imported verse. */
+	if (name == "header" && !state.verseActive) return;
 	if (name == "w" && state.verseActive) {
 		addStrongWord(state, node);
 		return;
@@ -300,14 +363,18 @@ void processElement(State &state, xmlNode *node)
 		const std::string title = normalizedStandaloneText(descendantText(node->children));
 		if (!title.empty()) {
 			state.pendingHeadings.push_back({ title });
-			++state.stats.headingsImported;
 		}
 		return;
 	}
 	if (name == "p" && !state.verseActive) {
+		const bool inheritedParagraph = state.pendingParagraph;
 		state.pendingParagraph = true;
 		++state.stats.paragraphMarkers;
 		processChildren(state, node->children);
+		/* A paragraph boundary belongs to the paragraph's descendants. Preserve
+		 * an outer boundary only when this paragraph did not consume it. */
+		if (state.pendingParagraph)
+			state.pendingParagraph = inheritedParagraph;
 		return;
 	}
 	if (name == "verse") {

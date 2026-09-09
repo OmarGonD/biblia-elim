@@ -32,6 +32,7 @@
 #include "editor/slib-editor.h"
 
 #include "gui/xiphos.h"
+#include "gui/panel_load_state.h"
 #include "gui/bookmarks_treeview.h"
 #include "gui/main_window.h"
 #include "gui/main_menu.h"
@@ -172,6 +173,7 @@ void frontend_display(const char *tabs)
 
 	XI_print(("%s\n", "Displaying Xiphos"));
 	gui_show_main_window();
+	panel_load_debug("app", "WINDOW_SHOW", NULL);
 
 	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.viewtexts_item),
 				       settings.showtexts);
@@ -323,6 +325,7 @@ void shutdown_frontend(void)
 	g_free(settings.gSwordDir);
 	g_free(settings.fnconfigure);
 	g_free(settings.swbmDir);
+	g_free(settings.cvparallel);
 
 	main_dialogs_shutdown();
 	main_delete_sidebar_search_backend();

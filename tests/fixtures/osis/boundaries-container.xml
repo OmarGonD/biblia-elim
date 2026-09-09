@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osis>
+  <osisText>
+    <div type="book" osisID="Gen">
+      <title>Before first chapter</title>
+      <chapter osisID="Gen.1">
+        <div type="section">
+          <title>Wrapped heading</title>
+          <title/>
+          <milestone type="empty"/>
+          <p>
+            <verse osisID="Gen.1.1">One.</verse>
+            <verse osisID="Gen.1.2">Two.</verse>
+          </p>
+        </div>
+        <p/>
+        <verse osisID="Gen.1.3">Three.</verse>
+        <title>First consecutive</title>
+        <title><hi>Second consecutive</hi></title>
+        <p/>
+        <p><div><verse osisID="Gen.1.4">Four.</verse></div></p>
+      </chapter>
+      <title>Between chapters</title>
+      <chapter osisID="Gen.2">
+        <verse osisID="Gen.2.1">Five.</verse>
+        <div type="section">
+          <title>Nested heading</title>
+          <p><div><verse osisID="Gen.2.2">Six.</verse></div></p>
+        </div>
+        <verse osisID="Gen.2.3">Seven.</verse>
+      </chapter>
+      <title>Third chapter</title>
+      <chapter osisID="Gen.3">
+        <p><verse osisID="Gen.3.1">Eight.</verse></p>
+      </chapter>
+    </div>
+  </osisText>
+</osis>

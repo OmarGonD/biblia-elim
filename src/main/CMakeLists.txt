@@ -38,7 +38,9 @@ add_library (main
   navbar_book.cc
   navbar_book_dialog.cc
   navbar.cc
+  navbar_key.cc
   navbar_versekey.cc
+  verse_navigation.cc
   nube_palabras.cc
   planes_lectura.c
   pulpito.cc

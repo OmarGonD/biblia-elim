@@ -1,6 +1,7 @@
 #include "backend/sqlite/sqlite_bible_backend.h"
 #include "backend/strong_id.h"
 #include "backend/bible_book_map.h"
+#include "backend/morphology.h"
 
 #include <sqlite3.h>
 
@@ -28,7 +29,9 @@ struct Module {
 	Statement verse, chapter, bookByName, bookInfo, books, counts;
 	Statement annotation, headings, spans, footnotes, crossReferences, crossReferenceTargets;
 	Statement words;
+	bool wordsIncludeMorphology = false;
 	Statement strongOccurrences;
+	Statement morphologyOccurrences;
 	Statement next, previous, firstInBook, firstInChapter;
 	Statement searchFts, searchText, searchTextCase;
 	/* close_v2 permits the statement members to finalize after this body; the
@@ -97,6 +100,32 @@ bool hasValidStrongData(sqlite3 *db)
 	}
 	sqlite3_finalize(statement);
 	return found;
+}
+
+bool hasValidMorphologyData(sqlite3 *db)
+{
+	sqlite3_stmt *statement = nullptr;
+	if (sqlite3_prepare_v2(db,
+		"SELECT m.scheme,m.code,vw.sequence FROM verse_word_morphology m "
+		"LEFT JOIN verse_words vw ON vw.book_id=m.book_id AND "
+		"vw.chapter=m.chapter AND vw.verse=m.verse AND "
+		"vw.sequence=m.word_sequence ORDER BY m.book_id,m.chapter,m.verse,"
+		"m.word_sequence,m.morphology_sequence",
+		-1, &statement, nullptr) != SQLITE_OK) return false;
+	bool found = false;
+	bool valid = true;
+	int step = SQLITE_ROW;
+	while ((step = sqlite3_step(statement)) == SQLITE_ROW) {
+		const MorphologyTag tag = { text(statement, 0), text(statement, 1) };
+		if (sqlite3_column_type(statement, 2) == SQLITE_NULL ||
+		    !isValidMorphologyTag(tag)) {
+			valid = false;
+			break;
+		}
+		found = true;
+	}
+	sqlite3_finalize(statement);
+	return valid && found && step == SQLITE_DONE;
 }
 
 std::map<std::string, std::string> metadata(sqlite3 *db)
@@ -273,10 +302,15 @@ std::unique_ptr<Module> openModule(const std::string &path)
 	const bool hasCrossrefs = tableExists(module->db, "cross_references");
 	const bool hasWords = tableExists(module->db, "verse_words");
 	const bool hasStrongIndex = tableExists(module->db, "verse_word_strongs");
+	const bool hasMorphology = tableExists(module->db, "verse_word_morphology");
 	const bool hasCanonicalStrongIndex = indexExists(module->db,
 		"verse_word_strongs_canonical");
+	const bool hasMorphologyLookupIndex = indexExists(module->db,
+		"verse_word_morphology_lookup");
 	const bool declaredStrong = module->capabilities.strongs;
+	const bool declaredMorphology = module->capabilities.morphology;
 	module->capabilities.strongs = false;
+	module->capabilities.morphology = false;
 
 	const bool valid =
 		prepare(module->db, "SELECT text FROM verses WHERE book_id=? AND chapter=? AND verse=?", module->verse) &&
@@ -303,7 +337,43 @@ std::unique_ptr<Module> openModule(const std::string &path)
 	if (hasCrossrefs && tableExists(module->db, "cross_reference_targets")) prepare(module->db, "SELECT sequence,target_sequence,target_book_id,target_chapter,target_verse FROM cross_reference_targets WHERE book_id=? AND chapter=? AND verse=? ORDER BY sequence,target_sequence", module->crossReferenceTargets);
 	module->capabilities.footnotes = module->capabilities.footnotes && hasFootnotes && module->footnotes.value;
 	module->capabilities.crossrefs = module->capabilities.crossrefs && hasCrossrefs && module->crossReferences.value;
-	if (hasWords) prepare(module->db, "SELECT start,length,text,strong FROM verse_words WHERE book_id=? AND chapter=? AND verse=? ORDER BY sequence", module->words);
+	if (hasWords && declaredMorphology && hasMorphology &&
+	    hasValidMorphologyData(module->db)) {
+		module->wordsIncludeMorphology = prepare(module->db,
+			"SELECT vw.sequence,vw.start,vw.length,vw.text,vw.strong,"
+			"m.morphology_sequence,m.scheme,m.code FROM verse_words vw "
+			"LEFT JOIN verse_word_morphology m ON m.book_id=vw.book_id AND "
+			"m.chapter=vw.chapter AND m.verse=vw.verse AND "
+			"m.word_sequence=vw.sequence WHERE vw.book_id=? AND "
+			"vw.chapter=? AND vw.verse=? ORDER BY vw.sequence,"
+			"m.morphology_sequence", module->words);
+		module->capabilities.morphology = module->wordsIncludeMorphology;
+		const char *indexedMorphology =
+			"SELECT b.testament,m.book_id,m.chapter,m.verse,v.text,vw.text,"
+			"b.name,vw.start,vw.length FROM books b CROSS JOIN "
+			"verse_word_morphology m INDEXED BY verse_word_morphology_lookup "
+			"JOIN verse_words vw ON vw.book_id=m.book_id AND vw.chapter=m.chapter "
+			"AND vw.verse=m.verse AND vw.sequence=m.word_sequence JOIN verses v "
+			"ON v.book_id=m.book_id AND v.chapter=m.chapter AND v.verse=m.verse "
+			"WHERE m.scheme=? AND m.code=? AND m.book_id=b.book_id ORDER BY "
+			"b.position,m.chapter,m.verse,m.word_sequence,m.morphology_sequence "
+			"LIMIT ? OFFSET ?";
+		const char *legacyMorphology =
+			"SELECT b.testament,m.book_id,m.chapter,m.verse,v.text,vw.text,"
+			"b.name,vw.start,vw.length FROM verse_word_morphology m JOIN "
+			"verse_words vw ON vw.book_id=m.book_id AND vw.chapter=m.chapter "
+			"AND vw.verse=m.verse AND vw.sequence=m.word_sequence JOIN verses v "
+			"ON v.book_id=m.book_id AND v.chapter=m.chapter AND v.verse=m.verse "
+			"JOIN books b ON b.book_id=m.book_id WHERE m.scheme=? AND m.code=? "
+			"ORDER BY b.position,m.chapter,m.verse,m.word_sequence,"
+			"m.morphology_sequence LIMIT ? OFFSET ?";
+		prepare(module->db, hasMorphologyLookupIndex ? indexedMorphology
+			: legacyMorphology, module->morphologyOccurrences);
+		module->capabilities.morphology = module->capabilities.morphology &&
+			module->morphologyOccurrences.value;
+	}
+	if (hasWords && !module->words.value)
+		prepare(module->db, "SELECT start,length,text,strong FROM verse_words WHERE book_id=? AND chapter=? AND verse=? ORDER BY sequence", module->words);
 	if (hasStrongIndex && hasCanonicalStrongIndex) {
 		if (!prepare(module->db, "SELECT b.testament,s.book_id,s.chapter,s.verse,v.text,vw.text,b.name FROM books b CROSS JOIN verse_word_strongs s INDEXED BY verse_word_strongs_canonical JOIN verse_words vw USING(book_id,chapter,verse,sequence) JOIN verses v USING(book_id,chapter,verse) WHERE s.strong=? AND s.book_id=b.book_id ORDER BY b.position,s.chapter,s.verse,s.sequence LIMIT ? OFFSET ?", module->strongOccurrences))
 			prepare(module->db, "SELECT b.testament,v.book_id,v.chapter,v.verse,v.text,vw.text,b.name FROM verse_word_strongs s JOIN verses v USING(book_id,chapter,verse) JOIN verse_words vw USING(book_id,chapter,verse,sequence) JOIN books b USING(book_id) WHERE s.strong=? ORDER BY b.position,v.chapter,v.verse,vw.sequence LIMIT ? OFFSET ?", module->strongOccurrences);
@@ -474,14 +544,27 @@ BibleVerseContent SqliteBibleBackend::getVerseContent(
 		sqlite3_bind_int(module->words.value, 1, reference.book);
 		sqlite3_bind_int(module->words.value, 2, reference.chapter);
 		sqlite3_bind_int(module->words.value, 3, reference.verse);
+		int previousSequence = -1;
 		while (sqlite3_step(module->words.value) == SQLITE_ROW) {
-			BibleWordInfo word;
-			word.start = sqlite3_column_int(module->words.value, 0);
-			word.length = sqlite3_column_int(module->words.value, 1);
-			word.text = text(module->words.value, 2);
-			word.strong = text(module->words.value, 3);
-			word.strongs = parseStrongIds(word.strong);
-			result.words.push_back(std::move(word));
+			const int sequenceColumn = module->wordsIncludeMorphology ? 0 : -1;
+			const int firstWordColumn = module->wordsIncludeMorphology ? 1 : 0;
+			const int sequence = sequenceColumn < 0
+				? static_cast<int>(result.words.size())
+				: sqlite3_column_int(module->words.value, sequenceColumn);
+			if (result.words.empty() || sequence != previousSequence) {
+				BibleWordInfo word;
+				word.start = sqlite3_column_int(module->words.value, firstWordColumn);
+				word.length = sqlite3_column_int(module->words.value, firstWordColumn + 1);
+				word.text = text(module->words.value, firstWordColumn + 2);
+				word.strong = text(module->words.value, firstWordColumn + 3);
+				word.strongs = parseStrongIds(word.strong);
+				result.words.push_back(std::move(word));
+				previousSequence = sequence;
+			}
+			if (module->wordsIncludeMorphology &&
+			    sqlite3_column_type(module->words.value, 5) != SQLITE_NULL)
+				result.words.back().morphologyTags.push_back(
+					{ text(module->words.value, 6), text(module->words.value, 7) });
 		}
 	}
 	if (module->footnotes.value) {
@@ -666,6 +749,47 @@ StrongOccurrencePage SqliteBibleBackend::findStrongOccurrencePage(
 		occurrence.key = keyFor(text(module->strongOccurrences.value, 6),
 			occurrence.reference.chapter, occurrence.reference.verse);
 		occurrence.strong = strong;
+		result.occurrences.push_back(std::move(occurrence));
+	}
+	result.hasMore = result.occurrences.size() > limit;
+	if (result.hasMore) result.occurrences.resize(limit);
+	return result;
+}
+
+MorphologyOccurrencePage SqliteBibleBackend::findMorphologyOccurrencePage(
+	const std::string &id, const MorphologyTag &morphology, std::size_t limit,
+	std::size_t offset)
+{
+	MorphologyOccurrencePage result;
+	Module *module = impl_->find(id);
+	if (!module || !module->morphologyOccurrences.value ||
+	    !isValidMorphologyTag(morphology)) return result;
+	const std::size_t fetchLimit = limit == std::numeric_limits<std::size_t>::max()
+		? limit : limit + 1;
+	reset(module->morphologyOccurrences);
+	sqlite3_bind_text(module->morphologyOccurrences.value, 1,
+		morphology.scheme.c_str(), -1, SQLITE_TRANSIENT);
+	sqlite3_bind_text(module->morphologyOccurrences.value, 2,
+		morphology.code.c_str(), -1, SQLITE_TRANSIENT);
+	sqlite3_bind_int64(module->morphologyOccurrences.value, 3,
+		static_cast<sqlite3_int64>(fetchLimit));
+	sqlite3_bind_int64(module->morphologyOccurrences.value, 4,
+		static_cast<sqlite3_int64>(offset));
+	while (sqlite3_step(module->morphologyOccurrences.value) == SQLITE_ROW) {
+		MorphologyOccurrence occurrence;
+		occurrence.reference = {sqlite3_column_int(module->morphologyOccurrences.value, 0),
+			sqlite3_column_int(module->morphologyOccurrences.value, 1),
+			sqlite3_column_int(module->morphologyOccurrences.value, 2),
+			sqlite3_column_int(module->morphologyOccurrences.value, 3)};
+		occurrence.context = text(module->morphologyOccurrences.value, 4);
+		occurrence.word = text(module->morphologyOccurrences.value, 5);
+		occurrence.key = keyFor(text(module->morphologyOccurrences.value, 6),
+			occurrence.reference.chapter, occurrence.reference.verse);
+		occurrence.start = static_cast<std::size_t>(
+			sqlite3_column_int64(module->morphologyOccurrences.value, 7));
+		occurrence.length = static_cast<std::size_t>(
+			sqlite3_column_int64(module->morphologyOccurrences.value, 8));
+		occurrence.morphology = morphology;
 		result.occurrences.push_back(std::move(occurrence));
 	}
 	result.hasMore = result.occurrences.size() > limit;

@@ -9,6 +9,7 @@
 
 #include <gtk/gtk.h>
 #include "main/module_dialogs.h"
+#include "gui/panel_load_state.h"
 
 G_BEGIN_DECLS
 #define WK_TYPE_HTML (wk_html_get_type())
@@ -45,7 +46,14 @@ struct _WkHtmlPriv
 	GtkTextView *view;
 	GtkTextBuffer *buffer;
 	GtkWidget *scroll;
+	GtkWidget *stack;
+	GtkWidget *loading_surface;
 	GtkCssProvider *css;
+	PanelLoadModel load_model;
+	PanelLoadToken load_token;
+	PanelLoadToken reveal_token;
+	guint reveal_idle;
+	gchar *surface_name;
 	GHashTable *anchor_ht;
 	GPtrArray *anchor_list;
 	GArray *links;		/* Link[]: href por rango de offsets */
@@ -68,10 +76,10 @@ struct _WkHtmlPriv
 	gboolean is_dialog;
 	DIALOG_DATA *dialog;
 	gchar *hover_uri;
-	gchar *pending_strong_uri;
-	guint strong_click_timeout;
-	gdouble strong_press_x;
-	gdouble strong_press_y;
+	gchar *pending_word_uri;
+	guint word_click_timeout;
+	gdouble word_press_x;
+	gdouble word_press_y;
 };
 struct _WkHtmlClass
 {
@@ -87,11 +95,13 @@ struct _WkHtmlClass
 GType wk_html_get_type(void);
 WkHtml *wk_html_create(void);
 WkHtml *wk_html_new(DIALOG_DATA *dialog, gboolean is_dialog, gint pane);
+void wk_html_set_surface_name(WkHtml *html, const gchar *name);
 void wk_html_set_base_uri(WkHtml *html, const gchar *uri);
 void wk_html_open_stream(WkHtml *html, const gchar *mime);
 void wk_html_write(WkHtml *html, const gchar *data, gint len);
 void wk_html_printf(WkHtml *html, gchar *format, ...) G_GNUC_PRINTF(2, 3);
 void wk_html_close(WkHtml *html);
+void wk_html_load_failed(WkHtml *html, const gchar *message);
 
 void wk_html_render_data(WkHtml *html, const char *data, guint32 len);
 
@@ -131,6 +141,7 @@ gboolean wk_html_initialize(void);
 void wk_html_shutdown(void);
 
 GtkTextView *wk_html_get_view(WkHtml *html);
+gboolean wk_html_has_document(WkHtml *html);
 
 /* Pixels a table of `ncols` columns spends on something other than text:
  * the gaps between the columns, the padding inside each cell, and the

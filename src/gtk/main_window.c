@@ -2035,7 +2035,7 @@ static gboolean on_vbox1_key_press_event(GtkWidget *widget, GdkEventKey *event,
 			} else if (settings.showdicts) {
 				gui_barra_busqueda_mostrar(widgets.html_dict);
 			} else
-				gui_generic_warning(_("Xiphos: No windows."));
+				gui_generic_warning(_("Biblia Elim: No windows."));
 		} else if (state == (GDK_CONTROL_MASK | GDK_SHIFT_MASK)) {
 			// Ctrl-Shift-F: toggle distraction-free reading mode
 			gboolean new_state = !settings.reading_mode;
@@ -2437,8 +2437,8 @@ void create_mainwindow(void)
 	 */
 	settings.shadow_type = GTK_SHADOW_IN;
 
-	XI_print(("%s xiphos-%s\n", "Starting", VERSION));
-	XI_print(("%s\n\n", "Building Xiphos interface"));
+	XI_print(("%s biblia-elim-%s\n", "Starting", VERSION));
+	XI_print(("%s\n\n", "Building Biblia Elim interface"));
 
 	widgets.studypad_dialog = NULL;
 	widgets.entry_devotional = NULL;
@@ -2774,6 +2774,7 @@ void create_mainwindow(void)
 	gtk_scrolled_window_set_shadow_type((GtkScrolledWindow *) scrolledwindow, settings.shadow_type);
 #endif
 	widgets.html_previewer_text = GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, VIEWER_TYPE));
+	XIPHOS_HTML_SET_SURFACE_NAME(widgets.html_previewer_text, "lower-previewer");
 	gtk_widget_show(widgets.html_previewer_text);
 #ifdef USE_WEBKIT2
 	gtk_box_pack_start(GTK_BOX(widgets.vbox_previewer), widgets.html_previewer_text, TRUE, TRUE, 0);

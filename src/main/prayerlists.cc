@@ -270,7 +270,7 @@ prayerlist_fundamentals(gchar *summary,
 		g_string_append(path, "/");
 		g_string_append(path, info->text1);
 		if ((Mkdir(path->str, S_IRWXU)) != 0) { // this one matters.
-			char *msg = g_strdup_printf(_("Xiphos cannot create module's path:\n%s"),
+			char *msg = g_strdup_printf(_("Biblia Elim cannot create module's path:\n%s"),
 						    path->str);
 			gui_generic_warning(msg);
 			g_free(msg);

@@ -213,10 +213,12 @@ static void on_entry_activate(GtkEntry *entry, gpointer user_data)
 	 * fall back 10 yards and punt: arbitrarily take the 1st one.
 	 * if there aren't any, use main window bible.
 	 */
-	settings.cvparallel = (gchar *)
+	gchar *valid_key =
 	    main_get_valid_key((settings.parallel_list ? settings.parallel_list[0]
 						       : settings.MainWindowModule),
-			       (gchar *)buf);
+			       buf);
+	g_free(settings.cvparallel);
+	settings.cvparallel = valid_key;
 
 	if (settings.special_anchor)
 		*settings.special_anchor = '#'; /* put it back. */
@@ -710,7 +712,7 @@ static void on_parallel_set_activate(GtkMenuItem *item, gpointer user_data)
 	main_update_parallel_page();
 	if (!settings.dockedInt && settings.parallel_list && settings.parallel_list[0]) {
 		gui_navbar_parallel_set_module(settings.parallel_list[0]);
-		settings.cvparallel = settings.currentverse;
+		gui_reassign_strdup(&settings.cvparallel, settings.currentverse);
 		main_update_parallel_page_detached();
 	}
 

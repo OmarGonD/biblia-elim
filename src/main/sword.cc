@@ -87,6 +87,7 @@ extern "C" {
 #include "biblesync/biblesync.hh"
 
 #include "gui/debug_glib_null.h"
+#include "gui/panel_load_state.h"
 
 #ifdef HAVE_DBUS
 #include "gui/ipc.h"
@@ -591,6 +592,7 @@ char *main_getShortText(char *key)
 
 gchar *main_update_nav_controls(const char *module_name, const gchar *key)
 {
+	panel_load_debug("nav", "NAVIGATION_READY", key ? key : "key=NULL");
 	char *val_key = NULL;
 	if (!backend && bible_backend) {
 		BibleKeyInfo info;
@@ -1574,31 +1576,33 @@ extern int main_rendered_first_chapter, main_rendered_last_chapter;
 /* Minimal normal-display adapter used by non-SWORD backends. It deliberately
  * reuses the existing previewer/WebKit hand-off and only supplies a neutral
  * chapter fragment; the legacy SWDisplay renderer remains untouched. */
-static void main_display_neutral_bible(const char *module_name,
+static bool main_display_neutral_bible(const char *module_name,
 					       const char *key)
 {
 	BibleKeyInfo key_info;
 	if (!bible_backend->resolveKey(module_name, key ? key : "", key_info))
-		return;
+		return false;
 	std::vector<BibleVerse> verses = bible_backend->getChapter(
 		module_name, key_info.reference, false);
-	const bool strong_enabled = bible_backend->moduleCapabilities(
-		module_name).strongs;
+	const BibleModuleCapabilities capabilities =
+		bible_backend->moduleCapabilities(module_name);
+	const bool annotations_enabled = capabilities.strongs ||
+		capabilities.morphology;
 	GString *fragment = g_string_new(NULL);
 	for (const BibleVerse &verse : verses) {
 		std::string rendered;
-		if (strong_enabled) {
+		if (annotations_enabled) {
 			BibleVerseContent content = bible_backend->getVerseContent(
 				module_name, verse.reference);
 			rendered = content.valid
-				? renderStrongVerseText(content, module_name, verse.key, true)
-				: renderStrongVerseText(
+				? renderAnnotatedVerseText(content, module_name, verse.key, true)
+				: renderAnnotatedVerseText(
 					BibleVerseContent{verse.reference, verse.text},
 					module_name, verse.key, false);
 		} else {
 			BibleVerseContent content;
 			content.plainText = verse.text;
-			rendered = renderStrongVerseText(content, module_name,
+			rendered = renderAnnotatedVerseText(content, module_name,
 				verse.key, false);
 		}
 		g_string_append_printf(fragment,
@@ -1614,6 +1618,7 @@ static void main_display_neutral_bible(const char *module_name,
 	g_free(key_copy);
 	g_string_free(fragment, TRUE);
 	valid_scripture_key = TRUE;
+	return true;
 }
 
 /* The chapter of `key` in `mod`'s versification, or -1. */
@@ -1646,6 +1651,14 @@ main_bible_note_interlinear_html(void)
 void main_display_bible(const char *mod_name,
 			const char *key)
 {
+	static gboolean first_request = TRUE;
+	static gboolean first_ready = TRUE;
+	gint64 display_started = g_get_monotonic_time();
+	panel_load_debug("nav", "DISPLAY_REQUEST", key ? key : "key=NULL");
+	if (first_request) {
+		first_request = FALSE;
+		panel_load_debug("app", "FIRST_CONTENT_REQUEST", key ? key : "key=NULL");
+	}
 	gchar *bs_key = g_strdup(key);	// avoid tab data corruption problem.
 	gchar *prev_verse;
 	gboolean in_place;
@@ -1655,8 +1668,6 @@ void main_display_bible(const char *mod_name,
 	/* keeps us out of a crash causing loop */
 	extern guint scroll_adj_signal;
 	extern GtkAdjustment *adjustment;
-	if (adjustment)
-		g_signal_handler_block(adjustment, scroll_adj_signal);
 
 	if (!gtk_widget_get_realized(GTK_WIDGET(widgets.html_text)))
 		return;
@@ -1673,6 +1684,23 @@ void main_display_bible(const char *mod_name,
 	if (bible_backend->moduleType(mod_name) != BibleModuleType::Bible)
 		return; // what are we doing here?
 
+	if (adjustment)
+		g_signal_handler_block(adjustment, scroll_adj_signal);
+	auto finish_display = [&]() {
+		if (adjustment)
+			g_signal_handler_unblock(adjustment, scroll_adj_signal);
+		if (panel_load_debug_enabled()) {
+			gchar *duration = g_strdup_printf("display_ms=%.1f",
+				(g_get_monotonic_time() - display_started) / 1000.0);
+			panel_load_debug("nav", "DISPLAY_COMPLETE", duration);
+			if (first_ready) {
+				first_ready = FALSE;
+				panel_load_debug("app", "FIRST_CONTENT_READY", duration);
+			}
+			g_free(duration);
+		}
+	};
+
 	if (!settings.MainWindowModule)
 		settings.MainWindowModule = g_strdup((gchar *)mod_name);
 
@@ -1681,13 +1709,20 @@ void main_display_bible(const char *mod_name,
 		gui_reassign_strdup(&settings.MainWindowModule, (gchar *)mod_name);
 		xml_set_value("Xiphos", "keys", "verse", key);
 		settings.currentverse = xml_get_value("keys", "verse");
-		main_display_neutral_bible(mod_name, key);
+		if (!main_display_neutral_bible(mod_name, key)) {
+			if (adjustment)
+				g_signal_handler_unblock(adjustment, scroll_adj_signal);
+			g_free(bs_key);
+			return;
+		}
 		gui_update_tab_struct(mod_name, NULL, NULL, NULL, NULL, NULL,
 				      settings.comm_showing, settings.showtexts,
 				      settings.showpreview, settings.showcomms,
 				      settings.showdicts);
 		gui_set_tab_label(settings.currentverse, FALSE);
 		gui_change_window_title(settings.MainWindowModule);
+		finish_display();
+		g_free(bs_key);
 		return;
 	}
 
@@ -1881,8 +1916,7 @@ after_display:
 		gui_bibletext_mark_current_verse();
 	g_free(prev_verse);
 
-	if (adjustment)
-		g_signal_handler_unblock(adjustment, scroll_adj_signal);
+	finish_display();
 }
 
 /******************************************************************************
@@ -2487,13 +2521,20 @@ void main_flush_widgets_content(void)
 			(settings.bible_bg_color   ? settings.bible_bg_color   : "0xFFFFFF"), 
 			(settings.bible_text_color ? settings.bible_text_color : "0x000000"));
 
-	if (gtk_widget_get_realized(GTK_WIDGET(widgets.html_text)))
+	/* On cold startup an uninitialised WkHtml already presents its quiet,
+	 * theme-coherent loading surface.  Do not turn that into a visible blank
+	 * document before the restored passage is ready. */
+	if (gtk_widget_get_realized(GTK_WIDGET(widgets.html_text)) &&
+	    wk_html_has_document(WK_HTML(widgets.html_text)))
 		HtmlOutput(blank_html_content->str, widgets.html_text, NULL, NULL);
-	if (gtk_widget_get_realized(GTK_WIDGET(widgets.html_comm)))
+	if (gtk_widget_get_realized(GTK_WIDGET(widgets.html_comm)) &&
+	    wk_html_has_document(WK_HTML(widgets.html_comm)))
 		HtmlOutput(blank_html_content->str, widgets.html_comm, NULL, NULL);
-	if (gtk_widget_get_realized(GTK_WIDGET(widgets.html_dict)))
+	if (gtk_widget_get_realized(GTK_WIDGET(widgets.html_dict)) &&
+	    wk_html_has_document(WK_HTML(widgets.html_dict)))
 		HtmlOutput(blank_html_content->str, widgets.html_dict, NULL, NULL);
-	if (gtk_widget_get_realized(GTK_WIDGET(widgets.html_book)))
+	if (gtk_widget_get_realized(GTK_WIDGET(widgets.html_book)) &&
+	    wk_html_has_document(WK_HTML(widgets.html_book)))
 		HtmlOutput(blank_html_content->str, widgets.html_book, NULL, NULL);
 	g_string_free(blank_html_content, TRUE);
 }

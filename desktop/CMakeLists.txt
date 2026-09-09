@@ -53,7 +53,7 @@ if (UNIX)
    # for use in the programs menu
    # TODO: on uninstall run gtk-update-icon-cache
    # install icon
-  install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/xiphos.svg
+  install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/biblia-elim.svg
     DESTINATION ${CMAKE_INSTALL_DATADIR}/icons/hicolor/scalable/apps
     COMPONENT data
     )
@@ -130,6 +130,6 @@ if (UNIX)
       )
   endif (HAVE_DBUS)
 
-  add_dependencies(xiphos desktop)
+  add_dependencies(biblia-elim desktop)
 
 endif (UNIX)

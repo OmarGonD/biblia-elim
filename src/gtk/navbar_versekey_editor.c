@@ -312,8 +312,7 @@ static void on_entry_activate(GtkEntry *entry, EDITOR *editor)
 	if ((settings.special_anchor = strchr(buf, '#')) || /* thml */
 	    (settings.special_anchor = strchr(buf, '!')))   /* osisref */
 		*settings.special_anchor = '\0';
-	const gchar *gkey =
-	    main_get_valid_key(settings.MainWindowModule, (gchar *)buf);
+	gchar *gkey = main_get_valid_key(settings.MainWindowModule, buf);
 
 	// we got a valid key. but was it really a valid key within v11n?
 	// for future use in determining whether to show normal navbar content.
@@ -336,8 +335,7 @@ static void on_entry_activate(GtkEntry *entry, EDITOR *editor)
 
 	if (url)
 		g_free(url);
-	if (gkey)
-		g_free((gchar *)gkey);
+	g_free(gkey);
 }
 
 /******************************************************************************

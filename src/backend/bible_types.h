@@ -24,6 +24,24 @@ inline bool operator!=(const StrongId &left, const StrongId &right)
 	return !(left == right);
 }
 
+/* Morphology identifiers are deliberately opaque. A scheme names the grammar
+ * system when the source supplies one; code is interpreted only by that
+ * system. An empty scheme represents a valid unqualified source value. */
+struct MorphologyTag {
+	std::string scheme;
+	std::string code;
+};
+
+inline bool operator==(const MorphologyTag &left, const MorphologyTag &right)
+{
+	return left.scheme == right.scheme && left.code == right.code;
+}
+
+inline bool operator!=(const MorphologyTag &left, const MorphologyTag &right)
+{
+	return !(left == right);
+}
+
 struct BibleReference {
 	int testament = 0;
 	int book = 0;
@@ -85,6 +103,8 @@ struct BibleWordInfo {
 	std::string lemma;
 	std::string strong;
 	std::vector<StrongId> strongs;
+	std::vector<MorphologyTag> morphologyTags;
+	/* Legacy backend display value. New neutral import code uses morphologyTags. */
 	std::string morphology;
 	std::string gloss;
 };
@@ -145,10 +165,30 @@ struct StrongOccurrencePage {
 	bool hasMore = false;
 };
 
-struct StrongWordContext {
+struct MorphologyOccurrence {
 	BibleReference reference;
+	std::string key;
+	std::string word;
+	std::string context;
+	std::size_t start = 0;
+	std::size_t length = 0;
+	MorphologyTag morphology;
+};
+
+struct MorphologyOccurrencePage {
+	std::vector<MorphologyOccurrence> occurrences;
+	bool hasMore = false;
+};
+
+/* A backend-neutral identity and annotation snapshot for an interacted word.
+ * start/length are UTF-8 byte offsets into the owning verse plain text. */
+struct BibleAnnotatedWord {
+	BibleReference reference;
+	std::size_t start = 0;
+	std::size_t length = 0;
 	std::string word;
 	std::vector<StrongId> strongs;
+	std::vector<MorphologyTag> morphologyTags;
 };
 
 struct DictionaryEntry {

@@ -39,6 +39,8 @@ typedef WkHtmlPrivate XiphosHtmlPriv;
 #define XIPHOS_HTML_OPEN_STREAM(a, b) wk_html_open_stream(WK_HTML(a), b)
 #define XIPHOS_HTML_WRITE(a, b, c) wk_html_write(WK_HTML(a), b, c)
 #define XIPHOS_HTML_CLOSE(a) wk_html_close(WK_HTML(a))
+#define XIPHOS_HTML_LOAD_FAILED(a, b) wk_html_load_failed(WK_HTML(a), b)
+#define XIPHOS_HTML_SET_SURFACE_NAME(a, b) wk_html_set_surface_name(WK_HTML(a), b)
 #define XIPHOS_HTML_FIND(a, b) wk_html_find(a, b)
 #define XIPHOS_HTML_FIND_AGAIN(a, b) wk_html_find_again(a, b)
 #define XIPHOS_HTML_FIND_ALL(a, b) wk_html_find_all(WK_HTML(a), b)

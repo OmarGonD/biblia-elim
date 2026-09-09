@@ -1554,12 +1554,12 @@ anotar_posicion_lectura(void)
 	 * navegación muestran al reabrir -- normalizar acá, como hace
 	 * main_display_bible(). De paso descarta un versículo fuera de
 	 * rango en vez de escribirlo en el archivo. */
-	valido = (gchar *)main_get_valid_key(settings.MainWindowModule, ref);
+	valido = main_get_valid_key(settings.MainWindowModule, ref);
 	if (valido && *valido) {
 		g_free(ref);
 		ref = g_strdup(valido);
 	}
-	free(valido);
+	g_free(valido);
 
 	g_free(lectura_posicion);
 	lectura_posicion = ref;
@@ -1701,6 +1701,7 @@ GtkWidget *gui_create_bible_pane(void)
 
 	widgets.html_text =
 	    GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, TEXT_TYPE));
+	XIPHOS_HTML_SET_SURFACE_NAME(widgets.html_text, "bible");
 	gtk_widget_show(widgets.html_text);
 	with_il = gui_interlineal_wrap(widgets.html_text);
 	split = gui_lectura_sync_wrap(with_il);

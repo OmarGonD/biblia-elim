@@ -1,5 +1,6 @@
 #include "backend/usfm_importer.h"
 #include "backend/strong_id.h"
+#include "backend/morphology.h"
 #include "backend/bible_book_map.h"
 #include "backend/sqlite/sqlite_module_writer.h"
 
@@ -55,6 +56,41 @@ std::string markerField(const std::string &body, const char *marker)
 	std::size_t e = body.find('\\', p); return trim(body.substr(p, e == std::string::npos ? std::string::npos : e-p));
 }
 
+std::string attributeValue(const std::string &attributes, const std::string &name,
+	bool &present)
+{
+	present = false;
+	const std::string key = name + "=\"";
+	std::size_t start = 0;
+	while ((start = attributes.find(key, start)) != std::string::npos) {
+		if (start == 0 || std::isspace(static_cast<unsigned char>(attributes[start - 1]))) {
+			present = true;
+			const std::size_t valueStart = start + key.size();
+			const std::size_t valueEnd = attributes.find('"', valueStart);
+			return attributes.substr(valueStart,
+				valueEnd == std::string::npos ? std::string::npos : valueEnd - valueStart);
+		}
+		start += key.size();
+	}
+	return {};
+}
+
+void auditMorphology(const std::string &attribute, const std::string &value,
+	UsfmImportStats &stats, BibleWordInfo &word)
+{
+	++stats.morphAttributes[attribute];
+	const MorphologyParseResult parsed = parseMorphology(value);
+	word.morphologyTags.insert(word.morphologyTags.end(), parsed.tags.begin(), parsed.tags.end());
+	for (const MorphologyTag &tag : parsed.tags) {
+		++stats.morphSchemes[tag.scheme.empty() ? "unqualified" : tag.scheme];
+		++stats.morphCodes[tag.code];
+	}
+	for (const std::string &malformed : parsed.malformedValues)
+		++stats.malformedMorphValues[malformed];
+	stats.morphologyTagsParsed += parsed.tags.size();
+	stats.malformedMorphologyValues += parsed.malformedValues.size();
+}
+
 std::string cleanInline(const std::string &source, UsfmImportStats &stats,
 	std::vector<BibleTextSpan> &spans, std::vector<BibleWordInfo> &words,
 	std::vector<BibleFootnote> &footnotes, std::vector<BibleCrossReference> &crossReferences)
@@ -84,14 +120,26 @@ std::string cleanInline(const std::string &source, UsfmImportStats &stats,
 				info.text = visible.substr(first, info.length);
 				if (attributes != std::string::npos) {
 					const std::string attributeText = word.substr(attributes + 1);
-					const std::string key = "strong=\"";
-					const std::size_t strongStart = attributeText.find(key);
-					if (strongStart != std::string::npos) {
-						const std::size_t valueStart = strongStart + key.size();
-						const std::size_t valueEnd = attributeText.find('"', valueStart);
-						info.strong = attributeText.substr(valueStart, valueEnd == std::string::npos ? std::string::npos : valueEnd - valueStart);
+					bool hasMorphAttribute = false;
+					bool strongPresent = false;
+					info.strong = attributeValue(attributeText, "strong", strongPresent);
+					if (strongPresent)
 						info.strongs = parseStrongIds(info.strong);
+					for (const std::string &name : { std::string("x-morph"), std::string("morph") }) {
+						bool present = false;
+						const std::string value = attributeValue(attributeText, name, present);
+						if (present) {
+							hasMorphAttribute = true;
+							auditMorphology("w." + name, value, stats, info);
+						}
 					}
+					if (hasMorphAttribute) stats.morphologyWordTags.push_back(info.morphologyTags);
+				}
+				if (!info.morphologyTags.empty()) {
+					++stats.morphologyBearingTokens;
+					if (info.morphologyTags.size() > 1) ++stats.multiMorphologyTokens;
+					stats.maxMorphologyTagsPerToken = std::max(
+						stats.maxMorphologyTagsPerToken, info.morphologyTags.size());
 				}
 				words.push_back(info);
 			}
@@ -261,7 +309,11 @@ bool importUsfm(const std::vector<std::string> &inputs, const std::string &outpu
 	if (!writer.write(metadata, outBooks, outVerses, output, error)) return false;
 	stats.books = books.size(); stats.verses = verses.size();
 	for (const Verse &v : verses) stats.addedSpans += v.spans.size();
-	for (const Verse &v : verses) for (const BibleWordInfo &word : v.words) { ++stats.wordsImported; if (!word.strong.empty()) ++stats.wordsWithStrong; }
+	for (const Verse &v : verses) for (const BibleWordInfo &word : v.words) {
+		++stats.wordsImported;
+		if (!word.strongs.empty()) ++stats.wordsWithStrong;
+		stats.strongIdsImported += word.strongs.size();
+	}
 	std::set<std::pair<int,int>> chapters;
 	for (const Verse &v : verses) chapters.insert({v.book, v.chapter});
 	stats.chapters = chapters.size();

@@ -7,26 +7,26 @@
 
 #include "backend/bible_resources.h"
 
-enum class StrongWordAction {
+enum class AnnotatedWordAction {
 	None,
 	OpenDetail,
 	ChooseStrong
 };
 
-struct StrongWordResolution {
-	StrongWordAction action = StrongWordAction::None;
-	StrongWordContext context;
+struct AnnotatedWordResolution {
+	AnnotatedWordAction action = AnnotatedWordAction::None;
+	BibleAnnotatedWord context;
 };
 
-StrongWordResolution resolveStrongInteraction(BibleBackend &backend,
+AnnotatedWordResolution resolveAnnotatedWordInteraction(BibleBackend &backend,
 	const std::string &module, const BibleReference &reference,
 	std::size_t byteOffset);
 
-/* Render only the verse text. Strong IDs intentionally never enter the HTML:
+/* Render only the verse text. Annotations intentionally never enter the HTML:
  * each actionable span carries the authoritative UTF-8 byte offset emitted by
  * the backend. */
-std::string renderStrongVerseText(const BibleVerseContent &content,
-	const std::string &module, const std::string &key, bool strongEnabled);
+std::string renderAnnotatedVerseText(const BibleVerseContent &content,
+	const std::string &module, const std::string &key, bool annotationsEnabled);
 
 struct StrongDetailState {
 	StrongId selected;
@@ -43,18 +43,18 @@ class StrongDetailSession
 public:
 	StrongDetailSession(BibleBackend &backend,
 		const BibleApplicationResources &resources, std::string module,
-		StrongWordContext context, std::size_t pageSize = 50);
+		BibleAnnotatedWord context, std::size_t pageSize = 50);
 
 	bool selectStrong(const StrongId &strong);
 	bool loadMore();
-	const StrongWordContext &word() const { return context_; }
+	const BibleAnnotatedWord &word() const { return context_; }
 	const StrongDetailState &state() const { return state_; }
 
 private:
 	BibleBackend &backend_;
 	const BibleApplicationResources &resources_;
 	std::string module_;
-	StrongWordContext context_;
+	BibleAnnotatedWord context_;
 	std::size_t pageSize_;
 	StrongDetailState state_;
 };

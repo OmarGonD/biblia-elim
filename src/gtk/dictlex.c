@@ -471,6 +471,7 @@ GtkWidget *gui_create_dictionary_pane(void)
 
 	widgets.html_dict =
 	    GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, DICTIONARY_TYPE));
+	XIPHOS_HTML_SET_SURFACE_NAME(widgets.html_dict, "dictionary");
 	gtk_widget_show(widgets.html_dict);
 #ifdef USE_WEBKIT2
 	gtk_box_pack_start(GTK_BOX(box_dict), widgets.html_dict, TRUE, TRUE, 0);
@@ -680,6 +681,7 @@ GtkWidget *gui_create_devotional_pane(void)
 
 	widgets.html_devotional =
 		GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, VIEWER_TYPE));
+	XIPHOS_HTML_SET_SURFACE_NAME(widgets.html_devotional, "devotional");
 	gtk_widget_show(widgets.html_devotional);
 #ifdef USE_WEBKIT2
 	gtk_box_pack_start(GTK_BOX(box_devot), widgets.html_devotional, TRUE, TRUE, 0);

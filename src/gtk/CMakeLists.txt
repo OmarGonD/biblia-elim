@@ -124,7 +124,7 @@ set_source_files_properties(${CMAKE_CURRENT_BINARY_DIR}/locale_set.c PROPERTIES 
 
 
 # build xiphos
-add_executable (xiphos
+add_executable (biblia-elim
   about_modules.c
   about_sword.c
   about_trans.c
@@ -230,20 +230,20 @@ if (DBUS)
     )
 
   # add files to the sources
-  target_sources (xiphos
+  target_sources (biblia-elim
     PRIVATE
     ipc.c
     ${CMAKE_CURRENT_BINARY_DIR}/marshal.c
     ${CMAKE_CURRENT_BINARY_DIR}/ipc-gdbus.c
     )
-  target_include_directories (xiphos
+  target_include_directories (biblia-elim
     PRIVATE ${CMAKE_CURRENT_BINARY_DIR}
     )
 endif (DBUS)
 
 
 # specify include directories to use when compiling
-target_include_directories(xiphos
+target_include_directories(biblia-elim
   PRIVATE
   Threads::Threads
   PkgConfig::Core
@@ -255,7 +255,7 @@ target_include_directories(xiphos
   )
 
 # specify libraries or flags to use when linking
-target_link_libraries(xiphos
+target_link_libraries(biblia-elim
   PRIVATE
   Threads::Threads
   PkgConfig::Core
@@ -276,11 +276,11 @@ target_link_libraries(xiphos
   )
 
 if(WK_FOUND)
-  target_compile_definitions(xiphos
+  target_compile_definitions(biblia-elim
     PRIVATE
     PkgConfig::WK
     )
-  target_link_libraries(xiphos
+  target_link_libraries(biblia-elim
     PRIVATE
     PkgConfig::WK
     )
@@ -289,22 +289,22 @@ endif()
 
 if (WIN32)
   # add X11/keysymdefs.h
-  target_include_directories(xiphos
+  target_include_directories(biblia-elim
     PRIVATE
     ${X11_INCLUDE_DIR}
     )
   # add rc file
-  target_sources(xiphos
+  target_sources(biblia-elim
     PRIVATE
     xiphos-winres.rc
     )
-  target_link_libraries(xiphos
+  target_link_libraries(biblia-elim
     PRIVATE
     -lsapi
   )
 else()
   # only Linux builds link against speech lib.
-  target_link_libraries(xiphos
+  target_link_libraries(biblia-elim
     PRIVATE
     -lspeechd
   )
@@ -312,14 +312,14 @@ endif ()
 
 
 # install executable
-install (TARGETS ${PROJECT_NAME}
+install (TARGETS biblia-elim
   DESTINATION ${CMAKE_INSTALL_BINDIR}
   COMPONENT binaries)
 
 # Find Speech Dispatcher for TTS
 # pkg_check_modules(SPEECHD libspeechd)  # Commenté car .pc manquant
 if(TRUE)  # Force l'activation
-    target_include_directories(xiphos PRIVATE /usr/include/libspeechd)
+    target_include_directories(biblia-elim PRIVATE /usr/include/libspeechd)
     add_definitions(-DHAVE_LIBSPEECHD)
     message(STATUS "Speech Dispatcher found (manual) - TTS support enabled")
 else()

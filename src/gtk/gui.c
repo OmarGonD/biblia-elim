@@ -165,8 +165,8 @@ gchar *XI_g_strdup_printf(const char *filename,
 		gchar *next = va_arg(args, gchar *);
 		if ((next == (gchar *)NULL) && (*(s + 1) == 's')) {
 			gchar *msg = g_strdup_printf("%s\n%s\n\n%s:%d \"%s\"",
-						     _("BUG! Xiphos is about to crash due to a \"STRDUP\" error."),
-						     _("Please report this error to the Xiphos team with:"),
+						     _("BUG! Biblia Elim is about to crash due to a \"STRDUP\" error."),
+						     _("Please report this error to the Biblia Elim team with:"),
 						     filename, linenumber, format);
 			gui_generic_warning_modal(msg);
 			g_free(msg);
@@ -195,8 +195,8 @@ XI_g_string_printf(const char *filename,
 		gchar *next = va_arg(args, gchar *);
 		if ((next == (gchar *)NULL) && (*(s + 1) == 's')) {
 			gchar *msg = g_strdup_printf("%s\n%s\n\n%s:%d \"%s\"",
-						     _("BUG! Xiphos is about to crash due to a \"STRING\" error."),
-						     _("Please report this error to the Xiphos team with:"),
+						     _("BUG! Biblia Elim is about to crash due to a \"STRING\" error."),
+						     _("Please report this error to the Biblia Elim team with:"),
 						     filename, linenumber, format);
 			gui_generic_warning_modal(msg);
 			g_free(msg);

@@ -23,6 +23,7 @@
 #include "main/settings.h"
 
 #include "wk-html.h"
+#include "wk-html-surface.h"
 #include "marshal.h"
 
 #include "gui/dictlex.h"
@@ -45,6 +46,68 @@ enum {
 
 static guint signals[LAST_SIGNAL] = {0};
 static GObjectClass *parent_class = NULL;
+
+static gboolean
+ui_load_trace_enabled(void)
+{
+	static gint enabled = -1;
+	const gchar *value;
+
+	if (enabled >= 0)
+		return enabled != 0;
+	value = g_getenv("BIBLIA_ELIM_UI_LOAD_DEBUG");
+	enabled = value && *value && g_strcmp0(value, "0") != 0;
+	return enabled != 0;
+}
+
+static void
+ui_load_trace(WkHtml *html, const gchar *event)
+{
+	static gint64 origin_us;
+	gint64 now;
+
+	if (!ui_load_trace_enabled())
+		return;
+	/* Nested table-cell renderers are implementation details, not independent
+	 * content surfaces.  Only explicitly named panels participate in this
+	 * startup trace, keeping diagnostics readable. */
+	if (!html->priv->surface_name)
+		return;
+	now = g_get_monotonic_time();
+	if (!origin_us)
+		origin_us = now;
+	g_printerr("[UI-LOAD] %s %s %.1fms\n",
+		   html->priv->surface_name ? html->priv->surface_name : "unnamed",
+		   event, (now - origin_us) / 1000.0);
+}
+
+static void
+on_surface_show(GtkWidget *widget, gpointer data)
+{
+	(void)widget;
+	ui_load_trace(WK_HTML(data), "SHOW");
+}
+
+static void
+on_surface_map(GtkWidget *widget, gpointer data)
+{
+	(void)widget;
+	ui_load_trace(WK_HTML(data), "MAP");
+}
+
+static void
+on_placeholder_map(GtkWidget *widget, gpointer data)
+{
+	(void)widget;
+	ui_load_trace(WK_HTML(data), "PLACEHOLDER_VISIBLE");
+}
+
+static void
+on_renderer_map(GtkWidget *widget, gpointer data)
+{
+	(void)widget;
+	ui_load_trace(WK_HTML(data), "RENDERER_MAP");
+}
 
 typedef struct {
 	gchar *name;
@@ -1416,9 +1479,9 @@ walk_element(ParseCtx *ctx, xmlNode *node)
 				ctx->st.fg = g_strdup("#6B2D8B");
 		}
 	}
-	/* Strong words in neutral Bible HTML are ordinary verse text with a
+	/* Annotated words in neutral Bible HTML are ordinary verse text with a
 	 * restrained accent. They intentionally are not underlined links. */
-	if (class_has(klass, "strong-word") && !ctx->st.fg)
+	if (class_has(klass, "annotated-word") && !ctx->st.fg)
 		ctx->st.fg = g_strdup("#6B2D8B");
 	if (class_has(klass, "ilblock") || class_has(klass, "illabel") ||
 	    class_has(klass, "ilorig") || class_has(klass, "ilw"))
@@ -1667,7 +1730,7 @@ attach_buffer(WkHtmlPrivate *priv, GtkTextBuffer *buf, GPtrArray *kids)
 	g_ptr_array_free(kids, TRUE);
 }
 
-static void
+static gboolean
 load_html(WkHtml *html)
 {
 	htmlDocPtr doc;
@@ -1676,6 +1739,19 @@ load_html(WkHtml *html)
 	WkHtmlPrivate *priv = html->priv;
 	GtkTextBuffer *fresh;
 	GPtrArray *kids;
+
+	/* Parse before disturbing the current document.  A failed replacement
+	 * can then leave an already-ready document visible, while an initial
+	 * failure is presented by the panel's intentional ERROR surface. */
+	doc = NULL;
+	if (priv->content) {
+		doc = htmlReadMemory(priv->content, (int)priv->content_len,
+				     "file://", "UTF-8",
+				     HTML_PARSE_RECOVER | HTML_PARSE_NOERROR |
+					 HTML_PARSE_NOWARNING | HTML_PARSE_NONET);
+		if (!doc)
+			return FALSE;
+	}
 
 	/* Build into a buffer that is not yet the view's, and hand it over
 	 * once it is finished.
@@ -1711,7 +1787,7 @@ load_html(WkHtml *html)
 
 	if (!priv->content) {
 		attach_buffer(priv, fresh, kids);
-		return;
+		return TRUE;
 	}
 
 	memset(&ctx, 0, sizeof(ctx));
@@ -1731,18 +1807,6 @@ load_html(WkHtml *html)
 						       (gsize)128), (gsize)65536));
 	stock_tags_fill(fresh, &ctx.tags);
 
-	doc = htmlReadMemory(priv->content, (int)priv->content_len,
-			     "file://", "UTF-8",
-			     HTML_PARSE_RECOVER | HTML_PARSE_NOERROR |
-				 HTML_PARSE_NOWARNING | HTML_PARSE_NONET);
-	if (!doc) {
-		gtk_text_buffer_set_text(priv->buffer, priv->content, (gint)priv->content_len);
-		attach_buffer(priv, fresh, kids);
-		g_string_free(ctx.scratch, TRUE);
-		g_string_free(ctx.pending, TRUE);
-		g_array_free(ctx.spans, TRUE);
-		return;
-	}
 	root = xmlDocGetRootElement(doc);
 	walk_node(&ctx, root);
 	xmlFreeDoc(doc);
@@ -1764,6 +1828,7 @@ load_html(WkHtml *html)
 	g_free(ctx.body_fg);
 	/* Do not jump here: priv->anchor is still the previous verse
 	 * until HtmlOutput() calls wk_html_jump_to_anchor() after close. */
+	return TRUE;
 }
 
 static gchar *
@@ -1896,24 +1961,24 @@ press_on_anchor_line(GtkTextView *view, GdkEventButton *event)
 }
 
 static gboolean
-activate_pending_strong(gpointer data)
+activate_pending_word(gpointer data)
 {
 	WkHtml *html = WK_HTML(data);
-	html->priv->strong_click_timeout = 0;
-	if (html->priv->pending_strong_uri)
-		main_url_handler(html->priv->pending_strong_uri, TRUE);
-	g_clear_pointer(&html->priv->pending_strong_uri, g_free);
+	html->priv->word_click_timeout = 0;
+	if (html->priv->pending_word_uri)
+		main_url_handler(html->priv->pending_word_uri, TRUE);
+	g_clear_pointer(&html->priv->pending_word_uri, g_free);
 	return G_SOURCE_REMOVE;
 }
 
 static void
-cancel_pending_strong(WkHtml *html)
+cancel_pending_word(WkHtml *html)
 {
-	if (html->priv->strong_click_timeout) {
-		g_source_remove(html->priv->strong_click_timeout);
-		html->priv->strong_click_timeout = 0;
+	if (html->priv->word_click_timeout) {
+		g_source_remove(html->priv->word_click_timeout);
+		html->priv->word_click_timeout = 0;
 	}
-	g_clear_pointer(&html->priv->pending_strong_uri, g_free);
+	g_clear_pointer(&html->priv->pending_word_uri, g_free);
 }
 
 static gboolean
@@ -1924,7 +1989,7 @@ on_button_press(GtkWidget *widget, GdkEventButton *event, gpointer data)
 	gchar *href;
 
 	if (event->type == GDK_2BUTTON_PRESS) {
-		cancel_pending_strong(html);
+		cancel_pending_word(html);
 		db_click = TRUE;
 		return FALSE;
 	}
@@ -1939,7 +2004,7 @@ on_button_press(GtkWidget *widget, GdkEventButton *event, gpointer data)
 		return TRUE;
 	if (event->button != 1)
 		return FALSE;
-	cancel_pending_strong(html);
+	cancel_pending_word(html);
 
 	if (press_on_anchor_line(GTK_TEXT_VIEW(widget), event))
 		return TRUE;
@@ -1947,12 +2012,13 @@ on_button_press(GtkWidget *widget, GdkEventButton *event, gpointer data)
 	iter_at_xy(GTK_TEXT_VIEW(widget), event, &iter);
 	href = iter_href(html, &iter);
 	if (href) {
-		/* Let GtkTextView own press/motion while selecting. A neutral Strong
+		/* Let GtkTextView own press/motion while selecting. A neutral word
 		 * link is activated on release only when this did not become a drag. */
-		if (strstr(href, "action=showNeutralStrong")) {
-			html->priv->pending_strong_uri = href;
-			html->priv->strong_press_x = event->x;
-			html->priv->strong_press_y = event->y;
+		if (strstr(href, "action=showNeutralWord") ||
+		    strstr(href, "action=showNeutralStrong")) {
+			html->priv->pending_word_uri = href;
+			html->priv->word_press_x = event->x;
+			html->priv->word_press_y = event->y;
 			return FALSE;
 		}
 		if (html->priv->is_dialog)
@@ -1970,28 +2036,28 @@ on_button_release(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
 	WkHtml *html = WK_HTML(data);
 	if (event->type == GDK_BUTTON_RELEASE && event->button == 1 &&
-	    html->priv->pending_strong_uri) {
+	    html->priv->pending_word_uri) {
 		GtkTextIter iter;
 		gchar *href;
 		gboolean dragged = gtk_drag_check_threshold(widget,
-			(gint)html->priv->strong_press_x,
-			(gint)html->priv->strong_press_y,
+			(gint)html->priv->word_press_x,
+			(gint)html->priv->word_press_y,
 			(gint)event->x, (gint)event->y);
 		iter_at_xy(GTK_TEXT_VIEW(widget), event, &iter);
 		href = iter_href(html, &iter);
 		if (!dragged && href &&
-		    !strcmp(href, html->priv->pending_strong_uri)) {
+		    !strcmp(href, html->priv->pending_word_uri)) {
 			gint double_click_time = 250;
 			GtkSettings *settings = gtk_widget_get_settings(widget);
 			g_object_get(settings, "gtk-double-click-time",
 				&double_click_time, NULL);
 			g_free(href);
-			html->priv->strong_click_timeout = g_timeout_add(
-				MAX(1, double_click_time), activate_pending_strong, html);
+			html->priv->word_click_timeout = g_timeout_add(
+				MAX(1, double_click_time), activate_pending_word, html);
 			return TRUE;
 		}
 		g_free(href);
-		g_clear_pointer(&html->priv->pending_strong_uri, g_free);
+		g_clear_pointer(&html->priv->pending_word_uri, g_free);
 	}
 	if (event->type == GDK_BUTTON_RELEASE && db_click) {
 		GtkClipboard *clipboard =
@@ -2047,6 +2113,19 @@ wk_html_new(DIALOG_DATA *dialog, gboolean is_dialog, gint pane)
 	html->priv->is_dialog = is_dialog;
 	html->priv->dialog = dialog;
 	return html;
+}
+
+void
+wk_html_set_surface_name(WkHtml *html, const gchar *name)
+{
+	g_return_if_fail(WK_HTML_IS_HTML(html));
+	g_free(html->priv->surface_name);
+	html->priv->surface_name = g_strdup(name && *name ? name : "unnamed");
+	ui_load_trace(html, "CREATE");
+	if (html->priv->stack &&
+	    gtk_stack_get_visible_child(GTK_STACK(html->priv->stack)) ==
+		html->priv->loading_surface)
+		ui_load_trace(html, "PLACEHOLDER_VISIBLE");
 }
 
 GtkTextView *
@@ -2421,6 +2500,12 @@ wk_html_enable_caret_browsing(WkHtml *html)
 static void
 html_dispose(GObject *object)
 {
+	WkHtml *html = WK_HTML(object);
+
+	if (html->priv->reveal_idle) {
+		g_source_remove(html->priv->reveal_idle);
+		html->priv->reveal_idle = 0;
+	}
 	parent_class->dispose(object);
 }
 
@@ -2432,8 +2517,8 @@ html_finalize(GObject *object)
 
 	if (priv->timeout)
 		g_source_remove(priv->timeout);
-	if (priv->strong_click_timeout)
-		g_source_remove(priv->strong_click_timeout);
+	if (priv->word_click_timeout)
+		g_source_remove(priv->word_click_timeout);
 	free_anchor_list(priv);	/* buffer is already gone -- see above */
 	if (priv->anchor_list)
 		g_ptr_array_free(priv->anchor_list, TRUE);
@@ -2454,7 +2539,8 @@ html_finalize(GObject *object)
 	if (priv->find_map)
 		g_array_free(priv->find_map, TRUE);
 	g_free(priv->hover_uri);
-	g_free(priv->pending_strong_uri);
+	g_free(priv->pending_word_uri);
+	g_free(priv->surface_name);
 	if (priv->css)
 		g_object_unref(priv->css);
 	parent_class->finalize(object);
@@ -2471,12 +2557,15 @@ wk_html_init(WkHtml *html)
 	priv->anchor_ht = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, NULL);
 	priv->anchor_list = g_ptr_array_sized_new(128);
 	priv->links = g_array_sized_new(FALSE, FALSE, sizeof(Link), 256);
+	panel_load_model_init(&priv->load_model);
 
 	gtk_orientable_set_orientation(GTK_ORIENTABLE(html), GTK_ORIENTATION_VERTICAL);
 	gtk_widget_set_hexpand(GTK_WIDGET(html), TRUE);
 	gtk_widget_set_vexpand(GTK_WIDGET(html), TRUE);
+	wk_html_surface_prepare(GTK_WIDGET(html));
 
 	priv->view = GTK_TEXT_VIEW(gtk_text_view_new());
+	wk_html_surface_prepare(GTK_WIDGET(priv->view));
 	priv->buffer = gtk_text_view_get_buffer(priv->view);
 	gtk_text_view_set_wrap_mode(priv->view, GTK_WRAP_WORD_CHAR);
 	gtk_text_view_set_editable(priv->view, FALSE);
@@ -2506,6 +2595,7 @@ wk_html_init(WkHtml *html)
 			 G_CALLBACK(on_button_release), html);
 	g_signal_connect(priv->view, "motion-notify-event",
 			 G_CALLBACK(on_motion), html);
+	g_signal_connect(priv->view, "map", G_CALLBACK(on_renderer_map), html);
 
 	gtk_widget_show(GTK_WIDGET(priv->view));
 }
@@ -2556,6 +2646,7 @@ wk_html_add_scroll(WkHtml *html)
 	WkHtmlPrivate *priv = html->priv;
 
 	priv->scroll = gtk_scrolled_window_new(NULL, NULL);
+	wk_html_surface_prepare(priv->scroll);
 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(priv->scroll),
 				       GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
 	gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(priv->scroll),
@@ -2563,8 +2654,18 @@ wk_html_add_scroll(WkHtml *html)
 	gtk_widget_set_hexpand(priv->scroll, TRUE);
 	gtk_widget_set_vexpand(priv->scroll, TRUE);
 	gtk_container_add(GTK_CONTAINER(priv->scroll), GTK_WIDGET(priv->view));
-	gtk_box_pack_start(GTK_BOX(html), priv->scroll, TRUE, TRUE, 0);
-	gtk_widget_show(priv->scroll);
+
+	/* The stack keeps an intentional, theme-painted surface in the panel
+	 * until the first real document has been attached.  Later synchronous
+	 * reloads leave the previous ready document visible, avoiding flicker. */
+	priv->stack = wk_html_surface_create_panel(priv->scroll, _("Loading…"),
+						   &priv->loading_surface);
+	gtk_box_pack_start(GTK_BOX(html), priv->stack, TRUE, TRUE, 0);
+	g_signal_connect(html, "show", G_CALLBACK(on_surface_show), html);
+	g_signal_connect(html, "map", G_CALLBACK(on_surface_map), html);
+	g_signal_connect(priv->loading_surface, "map",
+			 G_CALLBACK(on_placeholder_map), html);
+	gtk_widget_show_all(priv->stack);
 }
 
 static void
@@ -2625,9 +2726,54 @@ wk_html_set_base_uri(WkHtml *html, const gchar *uri)
 	html->priv->base_uri = g_strdup("file://");
 }
 
+static void
+cancel_content_reveal(WkHtml *html)
+{
+	if (!html->priv->reveal_idle)
+		return;
+	g_source_remove(html->priv->reveal_idle);
+	html->priv->reveal_idle = 0;
+}
+
+static gboolean
+reveal_content_idle(gpointer data)
+{
+	WkHtml *html = WK_HTML(data);
+	WkHtmlPrivate *priv = html->priv;
+
+	priv->reveal_idle = 0;
+	if (!gtk_widget_in_destruction(GTK_WIDGET(html)) && priv->stack &&
+	    priv->load_model.state == PANEL_LOAD_READY &&
+	    priv->load_model.current_token == priv->reveal_token) {
+		wk_html_surface_show_content(priv->stack);
+		ui_load_trace(html, "RENDERER_VISIBLE");
+	}
+	return G_SOURCE_REMOVE;
+}
+
+static void
+schedule_content_reveal(WkHtml *html)
+{
+	cancel_content_reveal(html);
+	html->priv->reveal_token = html->priv->load_token;
+	html->priv->reveal_idle =
+	    g_idle_add(reveal_content_idle, html);
+}
+
 void
 wk_html_open_stream(WkHtml *html, const gchar *mime)
 {
+	gboolean had_document;
+
+	g_return_if_fail(WK_HTML_IS_HTML(html));
+	cancel_content_reveal(html);
+	had_document = panel_load_model_content_available(&html->priv->load_model);
+	html->priv->load_token = panel_load_model_begin(&html->priv->load_model);
+	ui_load_trace(html, "LOAD_STARTED");
+	if (html->priv->stack && !had_document) {
+		wk_html_surface_show_loading(html->priv->stack);
+		ui_load_trace(html, "PLACEHOLDER_VISIBLE");
+	}
 	wk_html_set_base_uri(html, NULL);
 	html->priv->frames_enabled = FALSE;
 	g_free(html->priv->content);
@@ -2682,8 +2828,32 @@ wk_html_printf(WkHtml *html, char *format, ...)
 void
 wk_html_close(WkHtml *html)
 {
+	gboolean loaded;
+	gboolean content_was_visible = FALSE;
+
 	html->priv->initialised = TRUE;
-	load_html(html);
+	if (html->priv->stack) {
+		GtkWidget *content = gtk_stack_get_child_by_name(
+		    GTK_STACK(html->priv->stack), WK_HTML_CONTENT_CHILD);
+		content_was_visible =
+		    gtk_stack_get_visible_child(GTK_STACK(html->priv->stack)) == content;
+	}
+	loaded = load_html(html);
+	if (loaded)
+		ui_load_trace(html, "LOAD_COMMITTED");
+	if (loaded && panel_load_model_ready(&html->priv->load_model,
+				   html->priv->load_token) &&
+	    html->priv->stack) {
+		ui_load_trace(html, "LOAD_FINISHED");
+		/* The native renderer has already attached its complete off-screen
+		 * buffer.  Keep the startup placeholder through one main-loop turn so
+		 * GTK can paint it before the renderer becomes selectable.  Ordinary
+		 * reloads retain their previous visible document and do not flash. */
+		if (!content_was_visible)
+			schedule_content_reveal(html);
+	}
+	else if (!loaded)
+		wk_html_load_failed(html, _("Unable to load content."));
 	/* Se cambia de capítulo con la búsqueda abierta: se vuelve a
 	 * marcar lo hallado sobre el texto recién puesto, sin mover la
 	 * vista, que ya la ha colocado quien navegó. */
@@ -2694,6 +2864,40 @@ wk_html_close(WkHtml *html)
 	html->priv->content_len = html->priv->content_alloc = 0;
 	g_free(html->priv->mime);
 	html->priv->mime = NULL;
+}
+
+void
+wk_html_load_failed(WkHtml *html, const gchar *message)
+{
+	gboolean had_document;
+
+	g_return_if_fail(WK_HTML_IS_HTML(html));
+	cancel_content_reveal(html);
+	had_document = panel_load_model_content_available(&html->priv->load_model);
+	/* Content acquisition can fail before a stream is opened.  Treat that as
+	 * a complete failed request too, rather than leaving the initial loading
+	 * surface up forever. */
+	if (html->priv->load_model.state != PANEL_LOAD_LOADING)
+		html->priv->load_token =
+		    panel_load_model_begin(&html->priv->load_model);
+	if (!panel_load_model_error(&html->priv->load_model,
+				    html->priv->load_token))
+		return;
+	if (!html->priv->stack)
+		return;
+	if (had_document)
+		wk_html_surface_show_content(html->priv->stack);
+	else
+		wk_html_surface_show_error(
+		    html->priv->stack,
+		    (message && *message) ? message : _("Unable to load content."));
+}
+
+gboolean
+wk_html_has_document(WkHtml *html)
+{
+	g_return_val_if_fail(WK_HTML_IS_HTML(html), FALSE);
+	return panel_load_model_content_available(&html->priv->load_model);
 }
 
 void

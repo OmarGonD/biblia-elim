@@ -19,6 +19,7 @@ struct BibleBackendContractFixture {
 	int testament = 2;
 	int bookId = 4;
 	bool enrichedWords = true;
+	bool legacyWordFields = true;
 	std::string dictionaryModule = "FakeDictionary";
 };
 
