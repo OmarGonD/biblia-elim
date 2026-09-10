@@ -1603,6 +1603,7 @@ static void _add_html_widget(GtkWidget *vbox)
 
 	search1.preview_html =
 	    GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, DIALOG_SEARCH_PREVIEW_TYPE));
+	XIPHOS_HTML_SET_SURFACE_NAME(search1.preview_html, "search-previewer");
 	gtk_widget_show(search1.preview_html);
 #ifdef USE_WEBKIT2
 	gtk_box_pack_start(GTK_BOX(vbox), search1.preview_html, TRUE, TRUE, 0);

@@ -38,6 +38,8 @@
 
 #include "gui/xiphos.h"
 #include "gui/main_window.h"
+#include "main_window_layout.h"
+#include "zoom_indicator.h"
 #include "gui/main_menu.h"
 #include "gui/sidebar.h"
 #include "gui/utilities.h"
@@ -59,6 +61,7 @@
 #include "gui/bookmark_dialog.h"
 #include "gui/search_dialog.h"
 #include "gui/navbar_versekey.h"
+#include "gui/panel_load_state.h"
 #include "gui/notas_verso.h"
 #include "gui/planes_lectura.h"
 #include "gui/tabbed_browser.h"
@@ -90,6 +93,8 @@ static GtkWidget *reading_exit_button = NULL;
 static GtkWidget *reading_compare_button = NULL;
 static GtkWidget *reading_compare_pick = NULL;
 static GtkWidget *reading_font_button = NULL;
+static GtkWidget *zoom_target_label = NULL;
+static GtkWidget *reading_zoom_target_label = NULL;
 static GtkWidget *reading_hoy_button = NULL;
 static GtkWidget *reading_marcar_button = NULL;
 static GtkWidget *reading_interlinear_button = NULL;
@@ -119,6 +124,8 @@ static gboolean on_lectura_hoy_tooltip(GtkWidget *widget, gint x, gint y,
 				       gboolean del_teclado, GtkTooltip *tooltip,
 				       gpointer data);
 static void on_marcar_leido_clicked(GtkWidget *widget, gpointer data);
+static void on_zoom_target_changed(ZoomSurface surface, gint percent,
+				   gpointer data);
 static gboolean on_marcar_leido_tooltip(GtkWidget *widget, gint x, gint y,
 					gboolean del_teclado,
 					GtkTooltip *tooltip, gpointer data);
@@ -860,6 +867,19 @@ reading_strip_build(void)
 	gtk_style_context_add_class(gtk_widget_get_style_context(reading_strip),
 				    "elim-reading-strip");
 
+	reading_zoom_target_label = gtk_label_new(NULL);
+	gtk_label_set_ellipsize(GTK_LABEL(reading_zoom_target_label),
+				PANGO_ELLIPSIZE_MIDDLE);
+	gtk_label_set_max_width_chars(GTK_LABEL(reading_zoom_target_label), 24);
+	gtk_widget_set_tooltip_text(reading_zoom_target_label,
+				    _("Destino del zoom de texto"));
+	gtk_box_pack_start(GTK_BOX(reading_strip), reading_zoom_target_label,
+			   FALSE, FALSE, 4);
+	on_zoom_target_changed(zoom_state_active(&settings.zoom_state),
+			       zoom_state_get(&settings.zoom_state,
+					      zoom_state_active(&settings.zoom_state)),
+			       NULL);
+
 	sep = gtk_separator_new(GTK_ORIENTATION_VERTICAL);
 	gtk_widget_set_margin_start(sep, 6);
 	gtk_widget_set_margin_end(sep, 6);
@@ -1428,6 +1448,7 @@ new_open_bible_toggle(const char *tooltip)
 void gui_set_bible_comm_layout(void)
 {
 	gint biblepane_width = settings.biblepane_width;
+	MainStudyPaneLayout study_layout;
 	/* A restored layout may contain an old, very narrow text-pane width.
 	 * When comments are enabled, keep the Bible pane at least 55% of the
 	 * available horizontal space so the commentary never takes over the
@@ -1441,35 +1462,41 @@ void gui_set_bible_comm_layout(void)
 
 	if (settings.reading_mode)
 		return;
+	study_layout = main_study_pane_layout(settings.showcomms,
+					     settings.showdicts,
+					     settings.commpane_height);
 
 	gtk_paned_set_position(GTK_PANED(widgets.hpaned),
 			       biblepane_width);
 	gtk_paned_set_position(GTK_PANED(widgets.vpaned),
 			       settings.biblepane_height);
-	gtk_paned_set_position(GTK_PANED(widgets.vpaned2),
-			       settings.commpane_height);
 
-	if ((settings.showcomms == TRUE) || (settings.showdicts == TRUE)) {
+	/* Keep inactive study notebooks out of GtkPaned allocation, and only
+	 * restore a saved divider while both children participate in layout.
+	 * This remains the correct visibility contract independently of the
+	 * inline GtkTextView separator warning diagnosed in UI-LAYOUT-101. */
+	if (study_layout.commentary_visible)
+		gtk_widget_show(widgets.notebook_comm_book);
+	else
+		gtk_widget_hide(widgets.notebook_comm_book);
+	if (study_layout.dictionary_visible)
+		gtk_widget_show(widgets.notebook_dict_devot);
+	else
+		gtk_widget_hide(widgets.notebook_dict_devot);
+	if (study_layout.set_divider_position)
+		gtk_paned_set_position(GTK_PANED(widgets.vpaned2),
+				       study_layout.divider_position);
+	if (study_layout.pane_visible)
 		gtk_widget_show(widgets.vpaned2);
-	}
+	else
+		gtk_widget_hide(widgets.vpaned2);
 
 	gtk_paned_set_position(GTK_PANED(widgets.hpaned),
 			       (settings.showtexts
 				    ? biblepane_width
 				    : 0));
 
-	gtk_paned_set_position(GTK_PANED(widgets.vpaned2),
-			       (settings.showcomms
-				    ? settings.commpane_height
-				    : 0));
-
-	gtk_paned_set_position(GTK_PANED(widgets.vpaned2),
-			       (settings.showdicts
-				    ? settings.commpane_height
-				    : settings.gs_height));
-
 	if ((settings.showcomms == FALSE) && (settings.showdicts == FALSE)) {
-		gtk_widget_hide(widgets.vpaned2);
 		gtk_paned_set_position(GTK_PANED(widgets.hpaned),
 				       settings.gs_width);
 	}
@@ -1771,40 +1798,34 @@ static void on_notebook_comm_book_switch_page(GtkNotebook *notebook,
 	gui_set_tab_label(settings.currentverse, TRUE);
 }
 
-static void new_base_font_size(gboolean up)
-{
-	if (up) {
-		settings.base_font_size++;
-		if (settings.base_font_size > 5)
-			settings.base_font_size = 5;
-	} else {
-		settings.base_font_size--;
-		if (settings.base_font_size < -2)
-			settings.base_font_size = -2;
-	}
-
-	if (settings.base_font_size_str)
-		g_free(settings.base_font_size_str);
-	settings.base_font_size_str =
-	    g_strdup_printf("%+d", settings.base_font_size);
-
-	xml_set_value("Xiphos", "fontsize", "basefontsize",
-		      settings.base_font_size_str);
-	redisplay_to_realign();
-}
-
-/* Header-bar zoom buttons: this is the same base-font-size bias already
- * reachable via Ctrl+Shift+'+'/Ctrl+'-' (see on_vbox1_key_press_event
- * below) -- just given a visible, discoverable control instead of only
- * a keyboard shortcut. */
+/* Header-bar and keyboard zoom target the last genuinely focused renderer.
+ * Clicking these buttons may focus the button itself, so WkHtml remembers the
+ * most recent focus-in event from a named content surface. */
 static void on_zoom_in_clicked(GtkWidget *widget, gpointer data)
 {
-	new_base_font_size(TRUE);
+	wk_html_zoom_active(TRUE);
 }
 
 static void on_zoom_out_clicked(GtkWidget *widget, gpointer data)
 {
-	new_base_font_size(FALSE);
+	wk_html_zoom_active(FALSE);
+}
+
+static void
+on_zoom_target_changed(ZoomSurface surface, gint percent, gpointer data)
+{
+	gchar *text;
+	const gchar *name;
+
+	(void)percent;
+	(void)data;
+	name = _(zoom_indicator_surface_name(surface));
+	text = zoom_indicator_format(&settings.zoom_state, name);
+	if (zoom_target_label)
+		gtk_label_set_text(GTK_LABEL(zoom_target_label), text);
+	if (reading_zoom_target_label)
+		gtk_label_set_text(GTK_LABEL(reading_zoom_target_label), text);
+	g_free(text);
 }
 
 /* Botón "Lectura de hoy" de la barra de arriba: abre de un clic la
@@ -1903,11 +1924,10 @@ static void on_sidebar_toggle_button_toggled(GtkToggleButton *button, gpointer d
 	gui_sidebar_showhide();
 }
 
-/* Exposed so bibletext.c can hook Ctrl+scroll on the text pane into the
- * same base-font-size bias, without a second, divergent zoom mechanism. */
+/* Exposed so Ctrl+scroll uses the same focused-surface state. */
 void gui_zoom_base_font(int up)
 {
-	new_base_font_size(up ? TRUE : FALSE);
+	wk_html_zoom_active(up ? TRUE : FALSE);
 }
 
 /* temporary shorthand for too-common use */
@@ -2289,21 +2309,19 @@ static gboolean on_vbox1_key_press_event(GtkWidget *widget, GdkEventKey *event,
 			access_to_edit_percomm();
 		break;
 
-	case XK_plus: // Ctrl-Plus  Increase base font size
+	case XK_plus: // Ctrl-Plus  Increase the focused surface's text
 		if (state == (GDK_CONTROL_MASK | GDK_SHIFT_MASK))
-			new_base_font_size(TRUE);
+			wk_html_zoom_active(TRUE);
 		break;
 
-	case XK_minus: // Ctrl-Minus  Decrease base font size
+	case XK_minus: // Ctrl-Minus  Decrease the focused surface's text
 		if (state == GDK_CONTROL_MASK)
-			new_base_font_size(FALSE);
+			wk_html_zoom_active(FALSE);
 		break;
 
-	case XK_0: // Ctrl-0 (zero)  Neutralize base font size.
-		if (state == GDK_CONTROL_MASK) {
-			settings.base_font_size = 1;
-			new_base_font_size(FALSE);
-		}
+	case XK_0: // Ctrl-0 (zero)  Reset the focused surface.
+		if (state == GDK_CONTROL_MASK)
+			wk_html_zoom_active_reset();
 		break;
 
 	// ctrl-DIGIT [1-9] selects DIGIT-th tab.
@@ -2375,6 +2393,69 @@ static gboolean on_vbox1_key_release_event(GtkWidget *widget,
 	return FALSE;
 }
 
+static void startup_window_signal(GtkWidget *widget, gpointer event)
+{
+	(void)widget;
+	panel_load_debug("app", (const char *)event, NULL);
+}
+
+static void startup_window_size_allocate(GtkWidget *widget,
+					 GtkAllocation *allocation,
+					 gpointer detail)
+{
+	char value[96];
+
+	(void)widget;
+	g_snprintf(value, sizeof(value), "%s width=%d height=%d",
+		   (const char *)detail, allocation->width, allocation->height);
+	panel_load_debug("app", "WINDOW_SIZE_ALLOCATE", value);
+}
+
+static void
+startup_set_subtree_visible(GtkWidget *widget, gboolean visible)
+{
+	if (!widget)
+		return;
+	/* Explicit gtk_widget_show() calls used by panel toggles intentionally
+	 * continue to work. This flag only prevents an ancestor's show_all()
+	 * from overriding the startup visibility contract. */
+	gtk_widget_set_no_show_all(widget, !visible);
+	gtk_widget_set_visible(widget, visible);
+}
+
+static void
+startup_apply_visibility(void)
+{
+	MainStartupVisibility visibility = main_startup_visibility(
+	    settings.browsing, settings.showtexts, settings.showpreview,
+	    settings.show_previewer_in_sidebar, settings.showcomms,
+	    settings.showdicts, settings.show_lectura_sync,
+	    settings.statusbar == 1, settings.reading_mode);
+
+	startup_set_subtree_visible(widgets.hboxtb,
+				    visibility.tabstrip_visible);
+	startup_set_subtree_visible(widgets.nav_toolbar,
+				    visibility.navbar_visible);
+	startup_set_subtree_visible(widgets.vpaned,
+				    visibility.text_pane_visible);
+	startup_set_subtree_visible(widgets.vbox_previewer,
+				    visibility.lower_previewer_visible);
+	startup_set_subtree_visible(widgets.notebook_comm_book,
+				    visibility.commentary_visible);
+	startup_set_subtree_visible(widgets.notebook_dict_devot,
+				    visibility.dictionary_visible);
+	startup_set_subtree_visible(widgets.vpaned2,
+				    visibility.study_pane_visible);
+	startup_set_subtree_visible(widgets.box_lectura_sync,
+				    visibility.compare_visible);
+	startup_set_subtree_visible(widgets.appbar,
+				    visibility.statusbar_visible);
+	startup_set_subtree_visible(header_menu,
+				    visibility.header_menu_visible);
+	startup_set_subtree_visible(widgets.bar_interlineal,
+				    visibility.interlinear_bar_visible);
+}
+
 #ifdef USE_GTK_3
 static void on_notebook_dict_devot_switch_page(GtkNotebook *notebook,
                                                gpointer arg,
@@ -2417,6 +2498,7 @@ void create_mainwindow(void)
 	GtkWidget *header_bar;
 	GtkWidget *zoom_out_button;
 	GtkWidget *zoom_in_button;
+	GtkWidget *zoom_controls;
 	GtkWidget *lectura_hoy_button;
 	GtkWidget *marcar_leido_button;
 	GtkWidget *hbox25;
@@ -2500,8 +2582,6 @@ void create_mainwindow(void)
 	g_free(imagename);
 	gtk_window_set_icon(GTK_WINDOW(widgets.app), pixbuf);
 	gtk_window_set_icon_name(GTK_WINDOW(widgets.app), "biblia-elim");
-	g_set_prgname("biblia-elim");
-	g_set_application_name(_("Biblia Elim"));
 
 	// The main box for our toplevel window.
 	UI_VBOX(vbox_gs, FALSE, 0);
@@ -2599,9 +2679,24 @@ void create_mainwindow(void)
 	gtk_header_bar_pack_start(GTK_HEADER_BAR(header_bar),
 				  marcar_leido_button);
 
-	// Quick text-size controls -- surfaces the existing base-font-size
-	// bias (previously reachable only via Ctrl+Shift+'+'/Ctrl+'-') as
-	// visible buttons, Kindle-style.
+	/* One compact group makes both the active target and its real persistent
+	 * value explicit beside the global controls. Focus changes are reported by
+	 * WkHtml immediately; clicking these buttons does not steal that target. */
+	zoom_controls = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 2);
+	gtk_widget_set_valign(zoom_controls, GTK_ALIGN_CENTER);
+	zoom_target_label = gtk_label_new(NULL);
+	gtk_label_set_ellipsize(GTK_LABEL(zoom_target_label), PANGO_ELLIPSIZE_MIDDLE);
+	/* This label lives in a GtkHeaderBar side child.  A width-chars value is
+	 * a minimum-width request, so the former 20-character request could leave
+	 * GTK's centred title/subtitle box with a negative width during the
+	 * transient fresh-start allocation.  Ellipsize plus max-width-chars keeps
+	 * the indicator bounded while allowing the header to compress it. */
+	gtk_label_set_max_width_chars(GTK_LABEL(zoom_target_label), 24);
+	gtk_widget_set_tooltip_text(zoom_target_label,
+				    _("Destino del zoom de texto"));
+	gtk_box_pack_start(GTK_BOX(zoom_controls), zoom_target_label,
+			   FALSE, FALSE, 4);
+
 	zoom_in_button = gtk_button_new_from_icon_name("zoom-in-symbolic",
 						       GTK_ICON_SIZE_BUTTON);
 	gtk_widget_set_tooltip_text(zoom_in_button, _("Aumentar tamaño del texto"));
@@ -2609,8 +2704,7 @@ void create_mainwindow(void)
 	gtk_style_context_add_class(gtk_widget_get_style_context(zoom_in_button), "circular");
 	g_signal_connect(zoom_in_button, "clicked",
 			 G_CALLBACK(on_zoom_in_clicked), NULL);
-	gtk_widget_show(zoom_in_button);
-	gtk_header_bar_pack_end(GTK_HEADER_BAR(header_bar), zoom_in_button);
+	gtk_box_pack_end(GTK_BOX(zoom_controls), zoom_in_button, FALSE, FALSE, 0);
 
 	zoom_out_button = gtk_button_new_from_icon_name("zoom-out-symbolic",
 							GTK_ICON_SIZE_BUTTON);
@@ -2619,8 +2713,10 @@ void create_mainwindow(void)
 	gtk_widget_set_tooltip_text(zoom_out_button, _("Reducir tamaño del texto"));
 	g_signal_connect(zoom_out_button, "clicked",
 			 G_CALLBACK(on_zoom_out_clicked), NULL);
-	gtk_widget_show(zoom_out_button);
-	gtk_header_bar_pack_end(GTK_HEADER_BAR(header_bar), zoom_out_button);
+	gtk_box_pack_end(GTK_BOX(zoom_controls), zoom_out_button, FALSE, FALSE, 0);
+	gtk_widget_show_all(zoom_controls);
+	gtk_header_bar_pack_end(GTK_HEADER_BAR(header_bar), zoom_controls);
+	wk_html_set_zoom_observer(on_zoom_target_changed, NULL);
 
 	gtk_widget_show(header_bar);
 	gtk_window_set_titlebar(GTK_WINDOW(widgets.app), header_bar);
@@ -2751,6 +2847,7 @@ void create_mainwindow(void)
 
 	g_signal_connect(G_OBJECT(widgets.notebook_bible_parallel), "switch-page",
 			 G_CALLBACK(on_notebook_bible_parallel_switch_page), NULL);
+	panel_load_debug("app", "WINDOW_SHELL_READY", NULL);
 
 	// Text notebook (The bible text show in the standard view)
 	widgets.notebook_text = gui_create_bible_pane();
@@ -2759,6 +2856,7 @@ void create_mainwindow(void)
 	label = gtk_label_new(_("Standard View"));
 	gtk_widget_show(label);
 	gtk_notebook_set_tab_label(GTK_NOTEBOOK(widgets.notebook_bible_parallel), gtk_notebook_get_nth_page(GTK_NOTEBOOK(widgets.notebook_bible_parallel), 0), label);
+	panel_load_debug("app", "BIBLE_PANE_READY", NULL);
 
 	// Another box (For the previewer?)
 	UI_VBOX(widgets.vbox_previewer, FALSE, 0);
@@ -2781,6 +2879,7 @@ void create_mainwindow(void)
 #else
 	gtk_container_add(GTK_CONTAINER(scrolledwindow), widgets.html_previewer_text);
 #endif
+	panel_load_debug("app", "PREVIEWER_PANE_READY", NULL);
 
 	// Commentary/book notebook
 	widgets.notebook_comm_book = gtk_notebook_new();
@@ -2800,11 +2899,17 @@ void create_mainwindow(void)
 	label = gtk_label_new(_("Comentarios del autor"));
 	gtk_widget_show(label);
 	gtk_notebook_set_tab_label(GTK_NOTEBOOK(widgets.notebook_comm_book), gtk_notebook_get_nth_page(GTK_NOTEBOOK(widgets.notebook_comm_book), 0), label);
+	panel_load_debug("app", "COMMENTARY_PANE_READY", NULL);
 
-	// Keep the book pane alive for the genbook backend, but do not add it to
-	// the visible notebook: the pane is empty for the Bible study workflow.
+	/* Keep the book pane anchored for the genbook backend and its startup
+	 * realization, but outside the visible notebook: the pane is empty for
+	 * the Bible study workflow.  no-show-all keeps the main window's later
+	 * show_all() from exposing or allocating this backend-only surface. */
 	box_book = gui_create_book_pane();
-	g_object_ref(box_book);
+	gtk_widget_set_no_show_all(box_book, TRUE);
+	gtk_widget_hide(box_book);
+	gtk_box_pack_start(GTK_BOX(vbox_gs), box_book, FALSE, FALSE, 0);
+	panel_load_debug("app", "BOOK_PANE_READY", NULL);
 
 	// Notas pane (nota del versículo enfocado)
 	{
@@ -2814,6 +2919,7 @@ void create_mainwindow(void)
 		gtk_widget_show(label);
 		gtk_notebook_set_tab_label(GTK_NOTEBOOK(widgets.notebook_comm_book), gtk_notebook_get_nth_page(GTK_NOTEBOOK(widgets.notebook_comm_book), 1), label);
 	}
+	panel_load_debug("app", "NOTES_PANE_READY", NULL);
 
 	// Dict/Devotional notebook
 	widgets.notebook_dict_devot = gtk_notebook_new();
@@ -2832,6 +2938,7 @@ void create_mainwindow(void)
 	gtk_notebook_set_tab_label(GTK_NOTEBOOK(widgets.notebook_dict_devot),
                            gtk_notebook_get_nth_page(GTK_NOTEBOOK(widgets.notebook_dict_devot), 0),
                            label);
+	panel_load_debug("app", "DICTIONARY_PANE_READY", NULL);
 
 	// Tab 1 : Devotional
 box_devot = gui_create_devotional_pane();
@@ -2841,6 +2948,7 @@ box_devot = gui_create_devotional_pane();
 	gtk_notebook_set_tab_label(GTK_NOTEBOOK(widgets.notebook_dict_devot),
 	    gtk_notebook_get_nth_page(GTK_NOTEBOOK(widgets.notebook_dict_devot), 1),
 	    label);
+	panel_load_debug("app", "DEVOTIONAL_PANE_READY", NULL);
 
 
 	// Statusbar
@@ -2851,6 +2959,7 @@ box_devot = gui_create_devotional_pane();
 #endif
 	gtk_box_pack_start(GTK_BOX(vbox_gs), widgets.appbar, FALSE, TRUE, 0);
 	gui_set_statusbar(_("Bienvenido a Biblia Elim"));
+	panel_load_debug("app", "STATUSBAR_READY", NULL);
 
 	gtk_paned_pack2(GTK_PANED(widgets.hpaned), widgets.vpaned2, TRUE, FALSE);
 	gtk_widget_grab_focus(navbar_versekey.lookup_entry);
@@ -2865,17 +2974,42 @@ box_devot = gui_create_devotional_pane();
 		}
 		gtk_window_set_default_size(GTK_WINDOW(widgets.app), w, h);
 	}
+	panel_load_debug("app", "WINDOW_LAYOUT_RESTORED", NULL);
+	if (panel_load_debug_enabled()) {
+		g_signal_connect(widgets.app, "realize",
+				 G_CALLBACK(startup_window_signal), "WINDOW_REALIZE");
+		g_signal_connect(widgets.app, "map",
+				 G_CALLBACK(startup_window_signal), "WINDOW_MAP");
+		g_signal_connect(widgets.app, "style-updated",
+				 G_CALLBACK(startup_window_signal), "WINDOW_STYLE_UPDATED");
+		g_signal_connect(widgets.app, "size-allocate",
+				 G_CALLBACK(startup_window_size_allocate), "app");
+		g_signal_connect(widgets.hpaned, "size-allocate",
+				 G_CALLBACK(startup_window_size_allocate), "hpaned");
+		g_signal_connect(widgets.vpaned, "size-allocate",
+				 G_CALLBACK(startup_window_size_allocate), "vpaned-left");
+		g_signal_connect(widgets.vpaned2, "size-allocate",
+				 G_CALLBACK(startup_window_size_allocate), "vpaned-right");
+		g_signal_connect(widgets.notebook_bible_parallel, "size-allocate",
+				 G_CALLBACK(startup_window_size_allocate), "bible-notebook");
+		g_signal_connect(widgets.notebook_comm_book, "size-allocate",
+				 G_CALLBACK(startup_window_size_allocate), "commentary-notebook");
+		g_signal_connect(widgets.notebook_dict_devot, "size-allocate",
+				 G_CALLBACK(startup_window_size_allocate), "dictionary-notebook");
+	}
+	/* Constructors deliberately create every pane so backends and later
+	 * toggles have stable widget anchors. Apply the settings contract before
+	 * the recursive show, otherwise show_all() temporarily maps panes that
+	 * frontend_display() immediately hides again. */
+	startup_apply_visibility();
+	startup_event_drain_profile_attach(widgets.app);
+	panel_load_debug("app", "WINDOW_SHOW_ALL_BEGIN", NULL);
 	gtk_widget_show_all(widgets.app);
+	panel_load_debug("app", "WINDOW_SHOW_ALL_END", NULL);
 
 	reading_strip_sync();
-	if (settings.statusbar != 1)
-		gtk_widget_hide(widgets.appbar);
-	/* gtk_widget_show_all() above just unconditionally re-showed every
-	 * widget in the window, including the "Comparar" split-view panel
-	 * gui_lectura_sync_wrap() had already hidden a moment earlier
-	 * (on-demand only, off by default) -- put it back the way the
-	 * user's settings actually say. */
-	gui_lectura_sync_set_visible(settings.show_lectura_sync);
+	panel_load_debug("app", "WINDOW_VISIBILITY_SYNCED", NULL);
+	panel_load_debug("app", "WINDOW_TREE_SHOWN", NULL);
 
 	/* must connect signals *after* instantiating window above, */
 	/* immediately above, otherwise window creation induces */
@@ -2883,6 +3017,7 @@ box_devot = gui_create_devotional_pane();
 	/* *important*: drain gtk event queue first (i.e. sync). */
 
 	sync_windows();
+	panel_load_debug("app", "WINDOW_EVENTS_DRAINED", NULL);
 	g_signal_connect((gpointer)vbox_gs, "key_press_event", G_CALLBACK(on_vbox1_key_press_event), NULL);
 	g_signal_connect((gpointer)vbox_gs, "key_release_event", G_CALLBACK(on_vbox1_key_release_event), NULL);
 
@@ -2897,6 +3032,7 @@ box_devot = gui_create_devotional_pane();
 	g_signal_connect(G_OBJECT(widgets.vpaned), "button_release_event", G_CALLBACK(epaned_button_release_event), (gchar *)"vpaned");
 	g_signal_connect(G_OBJECT(widgets.vpaned2), "button_release_event", G_CALLBACK(epaned_button_release_event), (gchar *)"vpaned2");
 	g_signal_connect(G_OBJECT(widgets.hpaned), "button_release_event", G_CALLBACK(epaned_button_release_event), (gchar *)"hpaned1");
+	panel_load_debug("app", "WINDOW_SIGNALS_CONNECTED", NULL);
 
 	main_window_created = TRUE;
 }

@@ -64,8 +64,8 @@ gboolean shift_key_pressed = FALSE;
 guint scroll_adj_signal;
 GtkAdjustment *adjustment;
 
-/* Ctrl+scroll over the text pane bumps the same base-font-size bias as
- * the header-bar zoom buttons / Ctrl+Shift+'+'/Ctrl+'-', instead of
+/* Ctrl+scroll over the text pane bumps this Bible surface's persistent zoom,
+ * the same operation as the header-bar buttons / Ctrl+Shift+'+'/Ctrl+'-', instead of
  * scrolling the page -- a standard e-reader/browser gesture that was
  * entirely missing. Plain scroll (no Ctrl) is left alone so normal page
  * scrolling still works. */
@@ -76,9 +76,9 @@ _scroll_zoom_cb(GtkWidget *widget, GdkEventScroll *event, gpointer user_data)
 		return FALSE;
 
 	if (event->direction == GDK_SCROLL_UP)
-		gui_zoom_base_font(TRUE);
+		wk_html_zoom(WK_HTML(widgets.html_text), TRUE);
 	else if (event->direction == GDK_SCROLL_DOWN)
-		gui_zoom_base_font(FALSE);
+		wk_html_zoom(WK_HTML(widgets.html_text), FALSE);
 	else
 		return FALSE;
 
@@ -1701,7 +1701,7 @@ GtkWidget *gui_create_bible_pane(void)
 
 	widgets.html_text =
 	    GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, TEXT_TYPE));
-	XIPHOS_HTML_SET_SURFACE_NAME(widgets.html_text, "bible");
+	XIPHOS_HTML_SET_SURFACE_NAME(widgets.html_text, "bible-main");
 	gtk_widget_show(widgets.html_text);
 	with_il = gui_interlineal_wrap(widgets.html_text);
 	split = gui_lectura_sync_wrap(with_il);

@@ -44,6 +44,7 @@
 #include "main/url.hh"
 
 #include "gui/debug_glib_null.h"
+#include "navbar_entry_reference.h"
 
 NAVBAR_VERSEKEY navbar_versekey;
 
@@ -325,40 +326,41 @@ static void on_entry_activate(GtkEntry *entry, gpointer user_data)
 	gchar *rawtext;
 	gchar *gkey;
 	const gchar *buf = gtk_entry_get_text(entry);
+	NavbarEntryReference reference;
 
 	if (buf == NULL)
 		return;
-	/* handle potential subsection anchor */
-	if ((settings.special_anchor = strchr(buf, '#')) || /* thml */
-	    (settings.special_anchor = strchr(buf, '!')))   /* osisref */
-		*settings.special_anchor = '\0';
+	reference = navbar_entry_reference_parse(buf);
+	settings.special_anchor = reference.anchor;
 
 	rawtext =
 	    main_get_raw_text(navbar_versekey.module_name->str,
-			      (gchar *)buf);
+			      reference.key);
 
 	if (!rawtext || (rawtext && (strlen(rawtext) < 2))) {
 		gtk_entry_set_text(entry, navbar_versekey.key->str);
 		g_free(rawtext);
+		settings.special_anchor = NULL;
+		navbar_entry_reference_clear(&reference);
 		return;
 	}
 	gkey =
-	    main_get_valid_key(settings.MainWindowModule, buf);
+	    main_get_valid_key(settings.MainWindowModule, reference.key);
 
 	// we got a valid key. but was it really a valid key within v11n?
 	// for future use in determining whether to show normal navbar content.
 	navbar_versekey.valid_key =
 	    main_is_Bible_key(settings.MainWindowModule, gkey);
 
-	if (settings.special_anchor)
-		*settings.special_anchor = '#'; /* put it back. */
 	if (gkey == NULL) {
 		gtk_entry_set_text(entry, navbar_versekey.key->str);
+		settings.special_anchor = NULL;
+		navbar_entry_reference_clear(&reference);
 		return;
 	}
 
 	gchar *url = g_strdup_printf("sword:///%s%s", gkey,
-				     (settings.special_anchor ? settings.special_anchor : ""));
+				     reference.anchor ? reference.anchor : "");
 
 	navbar_versekey.module_name =
 	    g_string_assign(navbar_versekey.module_name,
@@ -368,6 +370,8 @@ static void on_entry_activate(GtkEntry *entry, gpointer user_data)
 	if (url)
 		g_free(url);
 	g_free(gkey);
+	settings.special_anchor = NULL;
+	navbar_entry_reference_clear(&reference);
 }
 
 /******************************************************************************

@@ -71,6 +71,7 @@ extern "C" {
 #include "main/settings.h"
 #include "main/sidebar.h"
 #include "main/strong_interaction.h"
+#include "main/startup_diagnostics.h"
 #include "main/lectura_sync.h"
 #include "main/interlineal.h"
 #include "main/sword.h"
@@ -102,24 +103,30 @@ using namespace sword;
 static std::unique_ptr<BibleBackend> bible_backend_owner;
 BibleBackend *bible_backend = NULL;
 static bool sqlite_backend_selected = false;
+static bool sqlite_backend_explicitly_configured = false;
 static std::string sqlite_modules_directory;
 
-void main_select_bible_backend(const char *name, const char *modules_directory)
+void main_select_bible_backend(const char *name, const char *modules_directory,
+			       gboolean explicitly_selected)
 {
 	sqlite_backend_selected = name && !strcmp(name, "sqlite");
+	sqlite_backend_explicitly_configured = false;
 	if (!sqlite_backend_selected) {
 		sqlite_modules_directory.clear();
 		return;
 	}
 	if (modules_directory && *modules_directory) {
 		sqlite_modules_directory = modules_directory;
+		sqlite_backend_explicitly_configured = true;
 		return;
 	}
 	const char *environment = g_getenv("BIBLIA_ELIM_SQLITE_MODULES");
 	if (environment && *environment) {
 		sqlite_modules_directory = environment;
+		sqlite_backend_explicitly_configured = true;
 		return;
 	}
+	sqlite_backend_explicitly_configured = explicitly_selected;
 	gchar *path = g_build_filename(g_get_user_data_dir(), "biblia_elim",
 				       "modules", NULL);
 	sqlite_modules_directory = path;
@@ -133,8 +140,14 @@ void main_validate_bible_backend_selection(void)
 	SqliteBibleBackend candidate(sqlite_modules_directory);
 	if (!candidate.listModules().empty())
 		return;
-	g_warning("SQLite backend unavailable at '%s'; falling back to SWORD",
-		  sqlite_modules_directory.c_str());
+	if (sqliteFallbackDiagnosticLevel(sqlite_modules_directory,
+			sqlite_backend_explicitly_configured) ==
+	    StartupDiagnosticLevel::Warning)
+		g_warning("SQLite backend unavailable at '%s'; falling back to SWORD",
+			  sqlite_modules_directory.c_str());
+	else
+		g_message("No SQLite modules found at '%s'; using SWORD fallback",
+			  sqlite_modules_directory.c_str());
 	sqlite_backend_selected = false;
 }
 

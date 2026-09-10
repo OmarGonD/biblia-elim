@@ -36,6 +36,7 @@
 #include "gui/debug_glib_null.h"
 #include "main/xml.h"
 #include "gui/preferences_dialog.h"
+#include "navbar_entry_reference.h"
 
 NAVBAR_VERSEKEY navbar_parallel;
 gboolean sync_on;
@@ -200,13 +201,12 @@ static gboolean select_verse_button_press_callback(GtkWidget *widget,
 static void on_entry_activate(GtkEntry *entry, gpointer user_data)
 {
 	const gchar *buf = gtk_entry_get_text(entry);
+	NavbarEntryReference reference;
 	if (buf == NULL)
 		return;
 
-	/* handle potential subsection anchor */
-	if ((settings.special_anchor = strchr(buf, '#')) || /* thml */
-	    (settings.special_anchor = strchr(buf, '!')))   /* osisref */
-		*settings.special_anchor = '\0';
+	reference = navbar_entry_reference_parse(buf);
+	settings.special_anchor = reference.anchor;
 
 	/* gross.  we need a valid key.
 	 * but we have multiple modules whose v11n may not even be the same.
@@ -216,14 +216,15 @@ static void on_entry_activate(GtkEntry *entry, gpointer user_data)
 	gchar *valid_key =
 	    main_get_valid_key((settings.parallel_list ? settings.parallel_list[0]
 						       : settings.MainWindowModule),
-			       buf);
+			       reference.key);
 	g_free(settings.cvparallel);
 	settings.cvparallel = valid_key;
 
-	if (settings.special_anchor)
-		*settings.special_anchor = '#'; /* put it back. */
-	if (settings.cvparallel == NULL)
+	if (settings.cvparallel == NULL) {
+		settings.special_anchor = NULL;
+		navbar_entry_reference_clear(&reference);
 		return;
+	}
 
 	navbar_parallel.valid_key = TRUE;
 	main_navbar_versekey_set(navbar_parallel, settings.cvparallel);
@@ -235,12 +236,12 @@ static void on_entry_activate(GtkEntry *entry, gpointer user_data)
 		const gchar *main_window_url =
 		    g_strdup_printf("sword:///%s%s",
 				    settings.cvparallel,
-				    (settings.special_anchor
-					 ? settings.special_anchor
-					 : ""));
+				    reference.anchor ? reference.anchor : "");
 		sword_uri(main_window_url, TRUE);
 		g_free((gchar *)main_window_url);
 	}
+	settings.special_anchor = NULL;
+	navbar_entry_reference_clear(&reference);
 }
 
 /******************************************************************************

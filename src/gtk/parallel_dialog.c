@@ -363,6 +363,8 @@ static GtkWidget *create_parallel_dialog(void)
 
 	widgets.html_parallel_dialog =
 	    GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, PARALLEL_TYPE));
+	XIPHOS_HTML_SET_SURFACE_NAME(widgets.html_parallel_dialog,
+				     "bible-parallel");
 	gtk_widget_show(widgets.html_parallel_dialog);
 #ifdef USE_WEBKIT2
 	gtk_box_pack_start(GTK_BOX(vboxInt), widgets.html_parallel_dialog, TRUE, TRUE, 0);

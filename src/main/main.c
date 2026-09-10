@@ -41,6 +41,7 @@
 #include "gui/elim_tema.h"
 #include "gui/navbar_versekey.h"
 #include "gui/panel_load_state.h"
+#include "gtk/gtk_lifecycle_smoke.h"
 
 #include "main/recordatorio.h"
 #include "main/sword.h"
@@ -141,6 +142,7 @@ static void iniciar_idioma(void)
 int main(int argc, char *argv[])
 {
 	panel_load_debug("app", "APP_START", NULL);
+	gtk_lifecycle_smoke_install();
 	int newconfigs = FALSE;
 	int newbookmarks = FALSE;
 	int have_sword_url = FALSE;
@@ -176,11 +178,11 @@ int main(int argc, char *argv[])
 		backend_argument = TRUE;
 		const char *choice = argv[1] + 10;
 		if (!strcmp(choice, "sword"))
-			main_select_bible_backend("sword", NULL);
+			main_select_bible_backend("sword", NULL, TRUE);
 		else if (!strcmp(choice, "sqlite"))
-			main_select_bible_backend("sqlite", NULL);
+			main_select_bible_backend("sqlite", NULL, TRUE);
 		else if (!strncmp(choice, "sqlite:", 7) && choice[7])
-			main_select_bible_backend("sqlite", choice + 7);
+			main_select_bible_backend("sqlite", choice + 7, TRUE);
 		else {
 			g_printerr("Unknown backend: %s\n", choice);
 			return 1;
@@ -189,7 +191,7 @@ int main(int argc, char *argv[])
 		--argc;
 	}
 	if (!backend_argument)
-		main_select_bible_backend("sqlite", NULL);
+		main_select_bible_backend("sqlite", NULL, FALSE);
 	main_validate_bible_backend_selection();
 
 	// ---------------------------------------------------------
@@ -415,7 +417,9 @@ int main(int argc, char *argv[])
 	gui_splash_init();
 
 	gui_splash_step(_("Initiating HTML"), 0.0, 0);
+	panel_load_debug("app", "WINDOW_PREPARED", NULL);
 	XIPHOS_HTML_INITIALIZE();
+	panel_load_debug("app", "HTML_INITIALIZED", NULL);
 
 	base_step = 1;
 
@@ -424,6 +428,7 @@ int main(int argc, char *argv[])
 	 * the first GTK frame.  Otherwise every empty content allocation is
 	 * painted once with the toolkit's default (usually white) background. */
 	gui_elim_tema_init();
+	panel_load_debug("app", "THEME_INITIALIZED", NULL);
 	create_mainwindow();
 	panel_load_debug("app", "WINDOW_CREATED", NULL);
 	if (panel_load_debug_enabled()) {
@@ -489,6 +494,7 @@ int main(int argc, char *argv[])
 		gui_pulpito_abrir(pulpito_de);
 
 	panel_load_debug("app", "GTK_MAIN_ENTER", NULL);
+	gtk_lifecycle_smoke_schedule();
 	gui_main();
-	return 0;
+	return gtk_lifecycle_smoke_exit_status();
 }

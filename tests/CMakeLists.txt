@@ -4,6 +4,47 @@
 #
 #   cmake --build build --target pulpito_test && ./build/tests/pulpito_test
 
+if (BUILD_TESTING AND UNIX)
+  find_program (PYTHON3_EXECUTABLE NAMES python3)
+  if (PYTHON3_EXECUTABLE)
+    add_test (
+      NAME startup_performance_baseline
+      COMMAND ${PYTHON3_EXECUTABLE}
+              ${CMAKE_CURRENT_SOURCE_DIR}/startup_performance_baseline_test.py
+      )
+    add_custom_target (startup_performance_baseline_test
+      COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure
+              -R ^startup_performance_baseline$
+      USES_TERMINAL
+      )
+  endif ()
+
+  find_program (XVFB_RUN_EXECUTABLE NAMES xvfb-run)
+  find_program (SQLITE3_EXECUTABLE NAMES sqlite3)
+  if (XVFB_RUN_EXECUTABLE AND SQLITE3_EXECUTABLE)
+    add_test (
+      NAME gtk_lifecycle_smoke
+      COMMAND ${CMAKE_COMMAND}
+              -DAPP=$<TARGET_FILE:biblia-elim>
+              -DSQLITE3=${SQLITE3_EXECUTABLE}
+              -DXVFB_RUN=${XVFB_RUN_EXECUTABLE}
+              -DFIXTURE=${PROJECT_SOURCE_DIR}/tests/fixtures/sqlite/test-bible.sql
+              -DRUNTIME_ROOT=${CMAKE_CURRENT_BINARY_DIR}
+              -P ${CMAKE_CURRENT_SOURCE_DIR}/run_gtk_lifecycle_smoke.cmake
+      )
+    set_tests_properties (gtk_lifecycle_smoke PROPERTIES
+      SKIP_RETURN_CODE 77
+      TIMEOUT 45
+      )
+    add_custom_target (gtk_lifecycle_smoke_test
+      COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure
+              -R ^gtk_lifecycle_smoke$
+      DEPENDS biblia-elim
+      USES_TERMINAL
+      )
+  endif ()
+endif ()
+
 add_executable (pulpito_test
   EXCLUDE_FROM_ALL
   pulpito_test.c
@@ -19,6 +60,141 @@ add_executable (panel_load_state_test
   EXCLUDE_FROM_ALL
   panel_load_state_test.c
   ${PROJECT_SOURCE_DIR}/src/gtk/panel_load_state.c
+  )
+
+add_executable (zoom_state_test
+  EXCLUDE_FROM_ALL
+  zoom_state_test.c
+  ${PROJECT_SOURCE_DIR}/src/main/zoom_state.c
+  )
+
+target_include_directories (zoom_state_test
+  PRIVATE
+  ${PROJECT_SOURCE_DIR}/src
+  PkgConfig::Core
+  PkgConfig::Gtk
+  )
+
+target_compile_definitions (zoom_state_test
+  PRIVATE
+  SRCDIR="${PROJECT_SOURCE_DIR}"
+  )
+
+target_link_libraries (zoom_state_test
+  PRIVATE
+  PkgConfig::Core
+  PkgConfig::Gtk
+  )
+
+add_executable (zoom_anchor_reflow_test
+  EXCLUDE_FROM_ALL
+  zoom_anchor_reflow_test.c
+  ${PROJECT_SOURCE_DIR}/src/webkit/wk-html-zoom-anchor.c
+  )
+
+target_include_directories (zoom_anchor_reflow_test
+  PRIVATE
+  ${PROJECT_SOURCE_DIR}/src
+  PkgConfig::Core
+  )
+
+target_compile_definitions (zoom_anchor_reflow_test
+  PRIVATE
+  SRCDIR="${PROJECT_SOURCE_DIR}"
+  )
+
+target_link_libraries (zoom_anchor_reflow_test
+  PRIVATE
+  PkgConfig::Core
+  )
+
+add_executable (zoom_indicator_test
+  EXCLUDE_FROM_ALL
+  zoom_indicator_test.c
+  ${PROJECT_SOURCE_DIR}/src/gtk/zoom_indicator.c
+  ${PROJECT_SOURCE_DIR}/src/main/zoom_state.c
+  )
+
+target_include_directories (zoom_indicator_test
+  PRIVATE
+  ${PROJECT_SOURCE_DIR}/src
+  PkgConfig::Core
+  )
+
+target_compile_definitions (zoom_indicator_test
+  PRIVATE
+  SRCDIR="${PROJECT_SOURCE_DIR}"
+  )
+
+target_link_libraries (zoom_indicator_test
+  PRIVATE
+  PkgConfig::Core
+  )
+
+add_executable (application_name_startup_test
+  EXCLUDE_FROM_ALL
+  application_name_startup_test.c
+  )
+
+target_compile_definitions (application_name_startup_test
+  PRIVATE
+  SRCDIR="${PROJECT_SOURCE_DIR}"
+  )
+
+target_link_libraries (application_name_startup_test
+  PRIVATE
+  PkgConfig::Core
+  )
+
+add_executable (startup_diagnostics_test
+  EXCLUDE_FROM_ALL
+  startup_diagnostics_test.cc
+  ${PROJECT_SOURCE_DIR}/src/main/startup_diagnostics.cc
+  )
+
+target_include_directories (startup_diagnostics_test
+  PRIVATE
+  ${PROJECT_SOURCE_DIR}/src
+  PkgConfig::Core
+  )
+
+target_link_libraries (startup_diagnostics_test
+  PRIVATE
+  PkgConfig::Core
+  )
+
+add_executable (startup_profile_test
+  EXCLUDE_FROM_ALL
+  startup_profile_test.c
+  ${PROJECT_SOURCE_DIR}/src/main/startup_profile.c
+  )
+
+target_include_directories (startup_profile_test
+  PRIVATE
+  ${PROJECT_SOURCE_DIR}/src
+  PkgConfig::Core
+  )
+
+target_link_libraries (startup_profile_test
+  PRIVATE
+  PkgConfig::Core
+  )
+
+add_executable (main_window_layout_test
+  EXCLUDE_FROM_ALL
+  main_window_layout_test.c
+  ${PROJECT_SOURCE_DIR}/src/gtk/main_window_layout.c
+  )
+
+target_include_directories (main_window_layout_test
+  PRIVATE
+  ${PROJECT_SOURCE_DIR}/src/gtk
+  PkgConfig::Core
+  )
+
+target_link_libraries (main_window_layout_test
+  PRIVATE
+  PkgConfig::Core
   )
 
 add_executable (verse_navigation_readiness_test
@@ -45,6 +221,17 @@ target_include_directories (navbar_valid_key_ownership_test PRIVATE
   PkgConfig::Core PkgConfig::Gtk)
 target_link_libraries (navbar_valid_key_ownership_test PRIVATE
   PkgConfig::Core PkgConfig::Gtk)
+
+add_executable (navbar_entry_reference_test
+  EXCLUDE_FROM_ALL
+  navbar_entry_reference_test.c
+  ${PROJECT_SOURCE_DIR}/src/gtk/navbar_entry_reference.c
+  )
+target_include_directories (navbar_entry_reference_test PRIVATE
+  ${PROJECT_SOURCE_DIR}/src/gtk
+  PkgConfig::Core)
+target_link_libraries (navbar_entry_reference_test PRIVATE
+  PkgConfig::Core)
 
 add_executable (wk_html_surface_test
   EXCLUDE_FROM_ALL

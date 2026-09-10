@@ -94,7 +94,8 @@ char *main_get_active_pane_module(void);
 char *set_sword_locale(const char *sys_locale);
 void main_init_backend(void);
 void main_recreate_bible_backend(void);
-void main_select_bible_backend(const char *name, const char *modules_directory);
+void main_select_bible_backend(const char *name, const char *modules_directory,
+			       gboolean explicitly_selected);
 void main_validate_bible_backend_selection(void);
 gboolean main_backend_is_sword(void);
 const char *main_sqlite_modules_directory(void);

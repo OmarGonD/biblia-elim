@@ -9,7 +9,9 @@
 
 #include <gtk/gtk.h>
 #include "main/module_dialogs.h"
+#include "main/zoom_state.h"
 #include "gui/panel_load_state.h"
+#include "webkit/wk-html-zoom-anchor.h"
 
 G_BEGIN_DECLS
 #define WK_TYPE_HTML (wk_html_get_type())
@@ -54,6 +56,10 @@ struct _WkHtmlPriv
 	PanelLoadToken reveal_token;
 	guint reveal_idle;
 	gchar *surface_name;
+	ZoomSurface zoom_surface;
+	gchar *body_bg;
+	gchar *body_fg;
+	WkHtmlZoomAnchor zoom_anchor;
 	GHashTable *anchor_ht;
 	GPtrArray *anchor_list;
 	GArray *links;		/* Link[]: href por rango de offsets */
@@ -93,9 +99,15 @@ struct _WkHtmlClass
 };
 
 GType wk_html_get_type(void);
+typedef void (*WkHtmlZoomObserver)(ZoomSurface surface, gint percent,
+				   gpointer user_data);
 WkHtml *wk_html_create(void);
 WkHtml *wk_html_new(DIALOG_DATA *dialog, gboolean is_dialog, gint pane);
 void wk_html_set_surface_name(WkHtml *html, const gchar *name);
+void wk_html_set_zoom_observer(WkHtmlZoomObserver observer, gpointer user_data);
+void wk_html_zoom(WkHtml *html, gboolean increase);
+void wk_html_zoom_active(gboolean increase);
+void wk_html_zoom_active_reset(void);
 void wk_html_set_base_uri(WkHtml *html, const gchar *uri);
 void wk_html_open_stream(WkHtml *html, const gchar *mime);
 void wk_html_write(WkHtml *html, const gchar *data, gint len);

@@ -657,8 +657,8 @@
     - Automated regression: PASS
     - Manual real-display validation: PASS (immediate startup and repeated PREV/NEXT)
 
-- [ ] UI-LAYOUT-101 Diagnose repeated negative-height GTK allocation warnings
-  - Status: PENDING
+- [x] UI-LAYOUT-101 Diagnose repeated negative-height GTK allocation warnings
+  - Status: DONE
   - Description:
     Investigate and fix repeated `gtk_widget_size_allocate(): attempt to
     allocate widget with positive width and height -5` warnings observed
@@ -689,10 +689,35 @@
   - Evidence:
     - A real-display current-build session emitted hundreds of repeated
       `gtk_widget_size_allocate()` warnings for width 396 and height -5,
-      apparently continuously during normal use. Pending diagnosis.
+      apparently continuously during normal use.
+    - Real GDB evidence identifies the affected widget as the horizontal
+      `GtkSeparator` embedded by `<hr>` inside the `GtkTextView` named
+      `elim-html`. `style_hr_separator()` supplied 3px top and bottom widget
+      margins while the child-anchor line allocated the separator its 1px
+      height. During frame-clock scroll adjustment GTK subtracted both
+      margins, producing exactly `1 - 3 - 3 = -5` and repeating the warning
+      on `GtkAdjustment::value-changed` during PREV/NEXT.
+    - Inline `<hr>` now has zero widget margins because its existing
+      `insert_break()` calls already provide vertical spacing. Bare `<hr>`
+      table cells remain visually distinct and retain their valid 3px top and
+      bottom margins under `GtkGrid`; no warning suppression, global clamp,
+      delay, debounce, hidden separator, or GTK patch was added.
+    - The earlier GtkPaned visibility change is preserved as an independent
+      valid layout contract, but its obsolete warning-cause comment was
+      corrected. `main_window_layout_test` covers commentary/dictionary
+      visibility combinations, while `wk_html_surface_test` locks down the
+      inline-versus-table separator geometry and existing renderer/panel
+      behavior.
+    - `main_window_layout_test`, `panel_load_state_test`, headless
+      `wk_html_surface_test`, and `verse_navigation_readiness_test` PASS; the
+      `biblia-elim` target, full default build, and `git diff --check` PASS.
+    - Real-display manual validation PASS during prolonged idle, repeated
+      PREV/NEXT, chapter crossings, and additional references/chapters, with
+      zero negative-height `Gtk-WARNING` occurrences and zero
+      `gtk_widget_size_allocate()` height -5 occurrences.
 
-- [ ] NAV-ANCHOR-101 Stop navbar callbacks from mutating borrowed GtkEntry text
-  - Status: PENDING
+- [x] NAV-ANCHOR-101 Stop navbar callbacks from mutating borrowed GtkEntry text
+  - Status: DONE
   - Description:
     Replace the four navbar callbacks' in-place mutation of the borrowed
     `gtk_entry_get_text()` buffer with an owned local parse that preserves the
@@ -701,6 +726,74 @@
   - Evidence:
     - Deferred from STARTUP-CRASH-101 because it is independent from the
       confirmed `main_get_valid_key()` invalid-free root cause.
+    - All four verse-key entry callbacks now parse from independently owned
+      key and anchor strings, preserve the first original `#` or `!` delimiter,
+      and clear `settings.special_anchor` before releasing that storage on
+      success and every early-return path. No callback writes into the buffer
+      returned by `gtk_entry_get_text()`.
+    - `navbar_entry_reference_test` verifies unchanged entry storage, exact
+      `#`/`!` preservation, earliest-delimiter parsing, lifetime after the
+      source buffer is freed, and cleanup; it passes normally and under ASan
+      (`detect_leaks=0`; LeakSanitizer is unavailable under ptrace here).
+    - `navbar_valid_key_ownership_test`, `verse_navigation_readiness_test`,
+      `panel_load_state_test`, and headless `wk_html_surface_test` PASS; the
+      `biblia-elim` target, full default build, callback source audit, and
+      `git diff --check` PASS.
+
+- [x] UI-REALIZE-101 Eliminate startup realization of an unanchored GTK widget
+  - Status: DONE
+  - Description:
+    Eliminate the startup Gtk-CRITICAL caused by attempting to realize a widget
+    that is not anchored to a valid GTK hierarchy. Real startup evidence shows
+    `gtk_widget_realize: assertion 'widget->priv->anchored ||
+    GTK_IS_INVISIBLE (widget)' failed` approximately after creating/showing
+    `sidebar-previewer` and `parallel`, and before `WINDOW_SHOW`; do not assume
+    yet which widget is responsible.
+  - Investigation requirements:
+    - Reproduce the Gtk-CRITICAL in the current build.
+    - Identify the exact widget reaching `gtk_widget_realize()`.
+    - Obtain GDB, logging, or localized instrumentation evidence as needed.
+    - Identify who calls realize/show/map before correct parenting/anchoring.
+    - Correct the actual lifecycle/order at its source.
+    - Audit `gtk_widget_realize()`, `gtk_widget_show()`,
+      `gtk_widget_show_all()`, `gtk_widget_map()`, `gtk_container_add()`,
+      `gtk_box_pack_*`, `gtk_scrolled_window_add*`, renderer surface creation
+      or reparenting, `sidebar-previewer`, `parallel`, lifecycle callbacks, and
+      any manual realize/map calls.
+  - Do not:
+    - Suppress the Gtk-CRITICAL or filter its logging.
+    - Add sleeps, `usleep`, arbitrary delays, or main-iteration hacks.
+    - Permanently hide widgets or disable sidebar/parallel.
+    - Ignore the assertion or move a manual realize call without understanding
+      the hierarchy.
+  - Acceptance criteria:
+    - Zero occurrences of `gtk_widget_realize: assertion
+      'widget->priv->anchored || GTK_IS_INVISIBLE (widget)' failed`.
+    - Normal startup remains operational.
+    - Sidebar previewer, parallel view, Bible renderer, commentary, and
+      dictionary remain operational.
+    - No white-flash regression.
+    - PREV/NEXT navigation remains operational.
+    - Related tests pass.
+    - The `biblia-elim` target passes.
+    - Full default build passes.
+    - `git diff --check` passes.
+    - Real-display validation is required before DONE.
+    - Automated fixes leave status `READY FOR REAL-DISPLAY MANUAL VALIDATION`.
+  - Evidence:
+    - Root cause/fix automatizado: `widgets.html_book` oculto fue anclado
+      correctamente a la jerarquía de la ventana principal.
+    - Regression tests: PASS.
+    - target `biblia-elim`: PASS.
+    - full default build: PASS.
+    - `git diff --check`: PASS.
+    - Real-display manual validation: PASS.
+    - Startup real: PASS.
+    - PREV/NEXT: PASS.
+    - cambios de capítulo/referencia: PASS.
+    - compare-bible lifecycle: PASS.
+    - 0 ocurrencias de `Gtk-CRITICAL`, `gtk_widget_realize` y
+      `anchored assertion`.
 
 - [x] BRAND-101 Rename runtime executable from xiphos to biblia-elim
   - Status: DONE
@@ -730,6 +823,993 @@
     - `cmake -S . -B build`
     - `cmake --build build --target biblia-elim -j$(nproc)`
     - `git diff --check`
+
+# Pending
+
+- [x] APP-NAME-101 Eliminate duplicate g_set_application_name startup warning
+  - Status: DONE
+  - Objective:
+    Eliminate the real startup warning:
+    `GLib-WARNING: g_set_application_name() called multiple times`.
+  - Requirements:
+    - Locate every call to `g_set_application_name()`.
+    - Identify the canonical initialization point and leave exactly one valid
+      initialization.
+    - Preserve the visible `Biblia Elim` branding.
+    - Fix the cause rather than merely silencing the warning.
+    - Do not touch the backend, schema, or importers.
+    - Add a regression when reasonably viable.
+    - The `biblia-elim` target passes.
+    - Full default build passes.
+    - `git diff --check` passes.
+    - Real startup validation is required before DONE if the warning depends
+      on the real GTK lifecycle.
+  - Do not:
+    - Suppress warnings or add GLib filters.
+    - Add sleeps, `usleep`, or arbitrary delays.
+    - Commit or push.
+  - Evidence:
+    - `gui_init()` remains the single canonical owner of process identity and
+      sets application name `Biblia Elim` before GTK initialization;
+      `create_mainwindow()` no longer repeats either global setter, while its
+      window and header titles retain the visible `Biblia Elim` branding.
+    - Repository call-site audit finds exactly one active
+      `g_set_application_name()` call. The new headless
+      `application_name_startup_test` locks down canonical ownership, absence
+      of the duplicate window-construction call, and both visible titles; it
+      passes with `application_name_startup_failures=0`.
+    - The duplicate-setter warning is GLib-global and does not depend on GTK
+      realization or mapping. `biblia-elim`, the full default build, and the
+      related headless `wk_html_surface_test` pass; `git diff --check` passes.
+
+- [x] UI-ZOOM-101 Implement persistent independent per-view zoom with ZoomState
+  - Status: DONE
+  - Objective:
+    Allow each Bible view and each panel to maintain an independent zoom level
+    that survives closing and restarting Biblia Elim. The design must avoid a
+    single global zoom.
+  - State model:
+    - Introduce or consolidate a logical abstraction equivalent to:
+      `ZoomState { bible-main, bible-parallel, commentary, dictionary,
+      sidebar-previewer, lower-previewer, general-book, devotional, ... }`.
+    - The exact structure or class name may follow the project's architecture,
+      but the model must be central and coherent, avoiding separate global
+      variables and duplicated logic.
+    - Give every zoomable surface/view a stable identity, including future
+      surfaces.
+  - Bible views:
+    - Every open Bible view keeps an independent zoom. For example,
+      `bible-main=125%` and `bible-parallel=100%` may coexist.
+    - Changing the main Bible zoom must not change the parallel Bible zoom.
+    - The design must extend to additional future Bible views without
+      reintroducing a global zoom.
+  - Panels:
+    - Every zoomable panel keeps an independent zoom. For example,
+      `commentary=110%`, `dictionary=95%`, `sidebar-previewer=100%`, and
+      `lower-previewer=105%` may coexist.
+    - Changing one panel must not change Bible views or other panels.
+  - Active view and focus:
+    - The `+`/`-` commands act only on the active/focused surface: main Bible,
+      parallel Bible, commentary, dictionary, or another zoomable panel.
+    - Use the real GTK/application focus or active-surface model; do not infer
+      focus through timing, sleeps, or fragile heuristics.
+  - Reading mode:
+    - Reading mode does not create another zoom state; it uses the ZoomState of
+      the Bible view that entered reading mode.
+    - Entering reading mode preserves that view's zoom, changing zoom there
+      updates the same view, and leaving preserves the updated value.
+    - `ESC` exits through the existing normal toggle/exit flow without
+      resetting zoom, creating state, or affecting panels.
+  - Persistence between sessions:
+    - Persist every zoom level across application close and restart using the
+      existing settings/preferences mechanism when appropriate; do not create
+      a parallel configuration system when the project already has one.
+    - Inspect the existing settings/config XML mechanism and integrate
+      coherently.
+    - Use stable per-surface keys and backward-compatible defaults.
+    - Tolerate absent keys and old configuration.
+    - Validate or clamp only persisted values outside the allowed range; never
+      use clamps to hide layout bugs.
+    - Avoid excessive writes when repeated `+`/`-` input could otherwise cause
+      unnecessary I/O.
+    - Do not modify Bible SQLite schemas or importers; this is UI/configuration
+      state.
+  - Render and navigation persistence:
+    - Preserve each surface's zoom through PREV/NEXT, verse/chapter/reference
+      changes, rerender, content reload, commentary/dictionary updates,
+      compare/parallel refresh, entering/leaving reading mode, closing and
+      reopening panels when applicable, and application restart.
+    - A new render must not reset zoom to the default.
+  - Range:
+    - Reuse existing ranges and steps when available.
+    - If no policy exists, investigate before choosing values and centralize
+      min/max/step rather than duplicating magic values.
+    - Do not change existing UX arbitrarily.
+  - Compatibility:
+    - Preserve Strong, morphology, footnotes, cross-references, headings,
+      anchors, navigation, renderer lifecycle, existing right-panel zoom,
+      compare Bible, normal mode, and reading mode.
+    - Do not introduce N+1 behavior.
+    - Do not touch `BibleBackend`, SQLite schema, or USFM/OSIS importers.
+    - Do not change SWORD behavior except where strictly necessary for UI
+      state.
+  - Minimum tests:
+    - Independence of `bible-main` versus `bible-parallel`.
+    - Independence of Bible versus commentary.
+    - Independence of commentary versus dictionary.
+    - Persistence through PREV/NEXT.
+    - Persistence through chapter change.
+    - Persistence through reference change.
+    - Persistence through rerender.
+    - Persistence entering and leaving reading mode.
+    - `ESC` exits reading mode without changing zoom.
+    - Persistence after panel reload.
+    - ZoomState serialization.
+    - ZoomState restoration from configuration.
+    - Defaults when no previous configuration exists.
+    - Compatibility with old configuration.
+    - Safe handling of invalid persisted values.
+    - Regression coverage for existing right-panel zoom.
+    - Cover all headless logic possible and clearly identify any remaining
+      real-display validation.
+  - Acceptance criteria:
+    - Values such as `bible-main=125%`, `bible-parallel=100%`,
+      `commentary=110%`, and `dictionary=95%` can coexist.
+    - Any one value can be changed without altering the others.
+    - Navigation and reading-mode transitions preserve the values.
+    - Closing and reopening Biblia Elim restores the same values.
+    - Related tests pass.
+    - The `biblia-elim` target passes.
+    - Full default build passes.
+    - `git diff --check` passes.
+    - If complete functional validation requires a real display, leave the
+      task unchecked with `Status: BLOCKED` and evidence stating `Automated
+      implementation complete. READY FOR REAL-DISPLAY MANUAL VALIDATION.`
+    - Do not mark DONE until real validation when focus, keyboard shortcuts,
+      or reading mode cannot be sufficiently verified automatically.
+  - Do not:
+    - Use one global zoom, one zoom shared by all Bible views, or one zoom
+      shared by all panels.
+    - Reset zoom during rendering or keep state only in a recreated widget.
+    - Store ZoomState using pointers or ephemeral IDs.
+    - Write excessively to disk on each frame or render.
+    - Add sleeps, `usleep`, delays, debounce to hide bugs, or
+      `gtk_main_iteration` hacks.
+    - Infer focus through timing.
+    - Touch backend, schema, or importers.
+    - Commit or push.
+  - Evidence:
+    - Persistent per-surface ZoomState: PASS.
+    - Persistencia entre sesiones: PASS.
+    - Focus-directed zoom: PASS.
+    - Bible principal y Bible paralela mantienen zoom independiente.
+    - Panels mantienen zoom independiente.
+    - Reflow fix validado en display real.
+    - Zoom repetido +/- no cambia el versículo lógico.
+    - Anchor lógico visible y posición relativa se preservan tras layout/draw
+      real.
+    - PREV/NEXT después del zoom: PASS.
+    - Reading mode + zoom + ESC: PASS.
+    - `zoom_state_test`: PASS.
+    - `zoom_anchor_reflow_test`: PASS.
+    - UI/navigation regressions: PASS.
+    - target `biblia-elim`: PASS.
+    - full default build: PASS.
+    - `git diff --check`: PASS.
+
+- [x] UI-ZOOM-UX-101 Make active zoom target explicit in the UI
+  - Status: DONE
+  - Objective:
+    Make it evident which surface will receive the global zoom controls.
+  - Current problem:
+    - There are only two global +/- buttons. They correctly affect the
+      selected/focused surface, but the user must first select Bible,
+      commentary, dictionary, or another surface and there is no sufficiently
+      clear indication of which one will receive the next zoom action.
+  - Preserve the current model:
+    - Zoom remains independent per surface.
+    - ZoomState remains persistent.
+    - +/- continue to act on the active/focused surface.
+    - Improve only discoverability and clarity.
+  - Preferred UX direction:
+    - Show the active target and its percentage beside the zoom controls, for
+      example `Biblia principal · 125% [-] [+]`,
+      `Comentario · 110% [-] [+]`, or
+      `Biblia paralela · 95% [-] [+]`.
+    - When focus/active surface changes, immediately update the target name and
+      displayed percentage without changing its zoom.
+    - Investigate the current toolbar and find a compact visual integration.
+    - Do not add a +/- pair to every panel unless clear evidence shows that it
+      fits the existing UI better.
+  - Acceptance criteria:
+    - It is always visible which surface will receive +/-.
+    - The displayed percentage matches the target's real ZoomState.
+    - Changing focus updates the label and percentage.
+    - Changing zoom updates the percentage.
+    - Chapter changes and rerenders do not break the indicator.
+    - Restarting the application restores the correct values.
+    - Main Bible, parallel Bible, and panels remain independent.
+    - Reading mode shows the correct target.
+    - `ESC` does not alter ZoomState.
+    - Add logic/state tests when viable.
+    - The `biblia-elim` target passes.
+    - Full default build passes.
+    - `git diff --check` passes.
+  - Do not:
+    - Introduce global zoom.
+    - Duplicate controls across all panels without need.
+    - Infer the active surface through timing.
+    - Add sleeps or `usleep`.
+    - Touch backend, schema, or importers.
+    - Commit or push.
+  - Evidence:
+    - El header muestra un indicador compacto y traducible:
+      `surface · percentage` junto al único par global +/-.
+    - El focus real del renderer, los eventos de zoom y reset actualizan
+      inmediatamente el indicador usando el ZoomState persistente por surface,
+      sin modificar el zoom de otras surfaces.
+    - Reading mode refleja el mismo target/valor en su hover toolbar.
+    - Los cambios de capítulo/rerender no poseen ni resetean el estado del
+      indicador.
+    - Tests PASS: `zoom_indicator_test`, `zoom_state_test`,
+      `zoom_anchor_reflow_test`, `main_window_layout_test`,
+      `application_name_startup_test`, `wk_html_surface_test`.
+    - target `biblia-elim`: PASS.
+    - full default build: PASS.
+    - `git diff --check`: PASS.
+
+- [x] STARTUP-DIAGNOSTICS-101 Normalize expected startup diagnostics
+  - Status: DONE
+  - Objective:
+    Review startup messages and distinguish real failures from expected
+    fallbacks.
+  - Requirements:
+    - Investigate the known message `SQLite backend unavailable at
+      '.../modules'; falling back to SWORD` and determine whether it represents
+      a supported expected condition, incomplete installation, incorrect
+      configuration, or a real error.
+    - If the fallback is normal and supported, use an appropriate MESSAGE/INFO
+      level following project conventions without making real failures silent.
+    - Preserve the functional fallback behavior.
+  - Acceptance criteria:
+    - Real errors remain visible.
+    - An expected fallback does not cause unnecessary fatal warnings.
+    - Related tests pass.
+    - The `biblia-elim` target passes.
+    - Full default build passes.
+    - `git diff --check` passes.
+  - Do not:
+    - Silence all warnings.
+    - Change the default backend without evidence.
+    - Hide open or corruption errors.
+    - Touch schema or importers.
+    - Commit or push.
+  - Evidence:
+    - The automatic per-user SQLite directory is the documented default and
+      its absence or emptiness is now an informational `g_message` before the
+      supported SWORD fallback. CLI/environment selections, unreadable paths,
+      rejected `.sqlite` candidates, and a backend lost after validation
+      remain `g_warning` paths.
+    - Bounded startup probes confirmed the missing automatic directory emits
+      `Message` even with `G_DEBUG=fatal-warnings`, while an explicit missing
+      SQLite path emits `WARNING`; functional fallback selection is unchanged.
+    - `startup_diagnostics_test`, `sqlite_bible_backend_test`, and
+      `application_name_startup_test` PASS. The `biblia-elim` target and full
+      default build PASS; `git diff --check` PASS.
+
+- [x] UI-SMOKE-101 Add GTK lifecycle smoke regression coverage
+  - Status: DONE
+  - Objective:
+    Add automated smoke/lifecycle coverage that detects previously encountered
+    GTK regressions.
+  - Coverage where technically viable:
+    - Startup and clean shutdown.
+    - Bible renderer.
+    - PREV/NEXT and chapter/reference changes.
+    - Opening and closing panels.
+    - Commentary and dictionary.
+    - Compare Bible.
+    - Sidebar and lower previewers.
+    - Renderer CREATE/SHOW/MAP lifecycle.
+  - Detect where possible:
+    - `Gtk-WARNING` and `Gtk-CRITICAL`.
+    - Invalid or negative size allocation.
+    - Invalid realize/map lifecycle.
+    - Aborts and crashes.
+  - Design constraints:
+    - Historical cases such as an inline `GtkSeparator` with allocation
+      `height=-5` and `gtk_widget_realize` on an unanchored widget must inform
+      the design.
+    - Do not hardcode only historical strings; provide useful coverage for
+      similar regressions.
+    - Automated coverage does not replace real-display validation when a
+      CI/headless environment cannot fully reproduce GTK behavior.
+  - Acceptance criteria:
+    - The test is reproducible.
+    - It uses no arbitrary sleeps or fragile timing dependencies.
+    - Integrate it with CTest/the existing test framework when appropriate.
+    - The `biblia-elim` target passes.
+    - Full default build passes.
+    - `git diff --check` passes.
+  - Do not:
+    - Commit or push.
+  - Evidence:
+    - The new isolated `gtk_lifecycle_smoke` CTest launches the real
+      `biblia-elim` window under Xvfb with a deterministic SQLite fixture and
+      advances through GTK idles without sleeps. It covers startup/shutdown,
+      reference and PREV/NEXT/chapter navigation, six renderer surfaces, and
+      panel hide/show cycles; all renderers complete CREATE/SHOW/MAP and 359
+      widget/lifecycle/allocation checks pass with zero GTK/GDK diagnostics.
+    - The smoke exposed and now regresses a SQLite navigation crash caused by
+      `sword_uri()` dereferencing the legacy SWORD backend; URI module/type
+      dispatch uses the existing neutral helpers and the lifecycle run passes.
+    - `wk_html_surface_test`, `panel_load_state_test`,
+      `verse_navigation_readiness_test`, `navbar_valid_key_ownership_test`,
+      `sqlite_bible_backend_test`, and `startup_diagnostics_test` PASS. The
+      `biblia-elim` target and full default build PASS; `git diff --check`
+      PASS.
+
+- [x] UI-LAYOUT-102 Diagnose negative-width GTK allocation on fresh profile
+  - Status: DONE
+  - Objective:
+    Identify and correct the widget/layout that produces negative-width GTK
+    allocations during startup with a fresh profile:
+    `width -107 / height 38`, `Negative content width -23`, and a `GtkLabel`
+    allocation of 1 with extents 12x12.
+  - Evidence:
+    - The warnings occur on a real display during fresh-profile startup,
+      repeat several times in the same run, and do not stop the process.
+    - This is distinct from UI-LAYOUT-101's diagnosed and fixed `height=-5`
+      inline-separator warning.
+    - The retained real-display trace and GTK's paired diagnostics identify
+      the negative widget as the main `GtkHeaderBar`'s internal title box: its
+      title and subtitle are the two `GtkLabel` children subsequently given
+      one-pixel allocations. The application-side trigger is the header zoom
+      label's 20-character minimum width; the label now remains ellipsized and
+      bounded but has no fixed minimum-width request.
+    - `zoom_indicator_test`, `main_window_layout_test`, `zoom_state_test`,
+      `zoom_anchor_reflow_test`, `application_name_startup_test`,
+      `startup_diagnostics_test`, `startup_profile_test`,
+      `wk_html_surface_test`, and `panel_load_state_test` PASS. The
+      `biblia-elim` target and full default build PASS.
+    - Root cause: the zoom/header indicator imposed a minimum width equivalent
+      to 20 characters and could force invalid geometry during fresh-profile
+      startup.
+    - Fix: the artificial minimum width was removed so the title box can
+      compress according to normal GTK geometry.
+    - Regression coverage: PASS. Related headless tests: PASS. The
+      `biblia-elim` target: PASS. Full default build: PASS.
+      `git diff --check`: PASS.
+    - Real-display validation in
+      `build/startup-layout-check-20260909-145401`: three fresh-profile
+      startups PASS and three reused-profile startups PASS; the collector
+      completed both series.
+    - Across both real-display series there were zero occurrences of
+      `negative-width gtk_widget_size_allocate`, zero occurrences of
+      `Negative content width`, zero `Gtk-WARNING`, zero `Gtk-CRITICAL`, and
+      zero related `GLib-CRITICAL` diagnostics or assertions.
+  - Investigation requirements:
+    - Reproduce with a fresh profile.
+    - Identify the exact widget using GDB or localized logging and identify its
+      parent/container.
+    - Review the new zoom/header indicator, fresh-profile defaults, toolbar,
+      labels, and other candidate widgets without assuming UI-ZOOM-UX-101 is
+      responsible before evidence establishes the cause.
+    - Correct the geometry at its source.
+  - Do not:
+    - Suppress the warning or use `MAX(width, 0)`.
+    - Add hardcoded sizes, sleeps, or `usleep` to hide the warning.
+    - Hide the toolbar or panel.
+    - Revert UI-ZOOM-UX-101 without evidence.
+    - Touch the backend, schema, or importers.
+  - Future validation:
+    - Zero negative-width `Gtk-WARNING` diagnostics during fresh-profile
+      startup.
+    - Normal startup, toolbar/zoom indicator, PREV/NEXT, and panels remain
+      operational.
+    - Related tests, the `biblia-elim` target, and the full default build pass.
+    - Complete real-display manual validation.
+
+- [x] STARTUP-PERF-101 Establish measurable startup performance baseline
+  - Status: DONE
+  - Objective:
+    Establish a reproducible startup baseline using existing instrumentation
+    before making optimizations.
+  - Available events:
+    - `APP_START`.
+    - `GTK_INITIALIZED`.
+    - `WINDOW_CREATED`.
+    - `MODULE_READY`.
+    - `FIRST_CONTENT_REQUEST`.
+    - `FIRST_CONTENT_READY`.
+    - `FRONTEND_DISPLAY_DONE`.
+    - `GTK_MAIN_ENTER`.
+  - Requirements:
+    - Measure multiple executions and never draw conclusions from one run.
+    - Report the median and useful dispersion/variability.
+    - Identify the dominant phases.
+    - Distinguish cold and warm behavior when possible.
+    - Preserve reproducible evidence.
+    - Do not optimize yet except for obvious micro-fixes required to measure.
+    - Do not add excessive instrumentation to normal release behavior.
+    - Do not set arbitrary budgets before measuring.
+  - Acceptance criteria:
+    - Document a reproducible procedure.
+    - Collect multiple samples and summarize the baseline.
+    - Identify dominant phases.
+    - The `biblia-elim` target passes.
+    - Full default build passes.
+    - `git diff --check` passes.
+  - Do not:
+    - Use sleeps to stabilize benchmarks.
+    - Artificially preload data to improve numbers.
+    - Hide work after `GTK_MAIN_ENTER`.
+    - Make optimizations that degrade first paint or navigation.
+    - Commit or push.
+  - Evidence:
+    - Added `scripts/startup_performance_baseline.py` and a documented
+      procedure for seven fresh-profile and seven reused-profile executions
+      using the existing opt-in milestones and deterministic idle-driven GTK
+      smoke shutdown. It retains raw logs plus environment/Git metadata and
+      reports median, MAD, minimum, maximum, and the dominant median phase;
+      it neither sleeps nor modifies release startup behavior.
+    - The `startup_performance_baseline` parser/statistics regression passes
+      and rejects missing, unordered, or fewer-than-three samples. Its
+      collector regression also executes all seven fresh samples, the
+      independent reused setup, and seven reused samples against an isolated
+      deterministic fixture, verifies every HOME/XDG parent at process launch,
+      and proves no application-specific profile or real-user HOME is seeded;
+      `startup_diagnostics_test`, the `biblia-elim` target, and the full
+      default build pass. `git diff --check` passes.
+    - The real-display first-run failure was an application bug. The collector
+      created valid isolated HOME plus XDG config/data/cache parents, but
+      `settings_init()` ignored `XDG_CONFIG_HOME`, attempted
+      `<profile>/home/.config/xiphos`, and used one-level `mkdir(0700)` while
+      `<profile>/home/.config` did not exist. Reproduction: return `-1`,
+      immediate `errno=2` (`No such file or directory`). The dialog formatted
+      `strerror(errno)` only after `gui_init()`, explaining the observed
+      `strerror(0)`/`Conseguido` text.
+    - Startup now resolves the historical `xiphos` leaf under GLib's
+      platform/XDG config root, creates missing parents with
+      `g_mkdir_with_parents()`, and captures errno immediately on failure. The
+      fatal flow now reports the full path and visible `Biblia Elim` name.
+      `startup_profile_test` validates fresh and reused creation plus exact
+      failure return/errno; the lifecycle smoke now starts without a seeded
+      `HOME/.config` and asserts profile creation and absence of the fatal
+      dialog when a display is available.
+    - A real `DISPLAY=:0` run is confirmed. Its first retained raw trace
+      reached `GTK_INITIALIZED`, all later content milestones, and
+      `GTK_MAIN_ENTER`; the earlier collector diagnosis was a parser failure,
+      not evidence of an X11 or XAUTHORITY failure.
+    - The trace parser accepted only dot-decimal timestamps while the process
+      emitted `APP_START 0.0ms` before locale adoption and comma-decimal
+      timestamps such as `GTK_INITIALIZED 51,2ms` afterwards. The parser now
+      accepts both separators and normalizes them to Python floats; focused
+      dot, comma, mixed, auxiliary-field, and genuinely-missing-event
+      regressions cover the locale boundary.
+    - Reanalysis of
+      `build/startup-baseline-20260909-135212/fresh-profile-01.log` extracts
+      all 8 required milestones: `APP_START=0.0`, `GTK_INITIALIZED=51.2`,
+      `WINDOW_CREATED=812.4`, `MODULE_READY=815.3`,
+      `FIRST_CONTENT_REQUEST=1147.4`, `FIRST_CONTENT_READY=1158.9`,
+      `FRONTEND_DISPLAY_DONE=1165.6`, and `GTK_MAIN_ENTER=1195.5` ms.
+    - The real fresh-profile trace also exposes the separate negative-width
+      GTK warnings tracked by UI-LAYOUT-102. Final seven fresh-profile plus
+      seven reused-profile collection is deferred until UI-LAYOUT-102 is
+      resolved, because its geometry fix may affect the measured timings. No
+      baseline statistics or dominant runtime phase were fabricated.
+    - Final real-display baseline: seven fresh-profile samples and seven
+      reused-profile samples. The final diagnostic scan found 0 `Gtk-WARNING`,
+      0 `Gtk-CRITICAL`, 0 `GLib-CRITICAL`, 0 `Negative content width`, 0
+      negative-width size allocations, 0 assertions, and 0 `ERROR`.
+    - Fresh-profile `APP_START -> GTK_MAIN_ENTER`: median 1548.8 ms, MAD
+      48.1 ms, minimum 1271.3 ms, maximum 1600.1 ms. Its dominant phase was
+      `GTK_INITIALIZED -> WINDOW_CREATED`: median 915.0 ms, MAD 61.1 ms,
+      minimum 826.0 ms, maximum 1024.5 ms.
+    - Reused-profile `APP_START -> GTK_MAIN_ENTER`: median 1537.7 ms, MAD
+      24.6 ms, minimum 1394.6 ms, maximum 1598.8 ms. Its dominant phase was
+      `GTK_INITIALIZED -> WINDOW_CREATED`: median 962.5 ms, MAD 1.8 ms,
+      minimum 951.3 ms, maximum 1024.6 ms.
+    - `GTK_INITIALIZED -> WINDOW_CREATED` is the dominant startup phase in
+      both scenarios, representing approximately 59% of the fresh startup
+      median and 63% of the reused startup median.
+    - The total fresh versus reused median differs by only about 11.1 ms
+      (approximately 0.7%), so this baseline does not support a meaningful
+      overall startup advantage for the reused application profile. These
+      scenarios describe application profile state, not true OS/storage
+      cold-versus-warm cache behavior.
+    - No optimization was performed as part of STARTUP-PERF-101.
+
+- [x] STARTUP-PERF-102 Profile GTK_INITIALIZED-to-WINDOW_CREATED startup phase
+  - Status: DONE
+  - Objective:
+    Explain where the roughly 0.9-1.0 second dominant startup phase between
+    `GTK_INITIALIZED` and `WINDOW_CREATED` is spent before making any
+    optimization.
+  - Measured baseline motivating this task:
+    - Fresh-profile `GTK_INITIALIZED -> WINDOW_CREATED` median: 915.0 ms.
+    - Reused-profile `GTK_INITIALIZED -> WINDOW_CREATED` median: 962.5 ms.
+    - This phase accounts for the majority of total startup time.
+  - Investigation requirements:
+    - Instrument or profile only this phase with enough granularity to
+      identify major contributors.
+    - Prefer existing monotonic timing infrastructure.
+    - Add localized milestones/spans rather than broad noisy logging.
+    - Identify expensive operations such as, where applicable:
+      - GtkBuilder/UI construction.
+      - Renderer/WebKit creation.
+      - Widget tree creation.
+      - Module discovery.
+      - Settings/config loading.
+      - Sidebar/panel construction.
+      - CSS/theme initialization.
+      - Synchronous filesystem work.
+      - Synchronous backend/module probes.
+      - Repeated initialization.
+      - Unnecessary work for initially hidden panels.
+    - Do not assume WebKit, backend, GtkBuilder, or any specific subsystem is
+      the bottleneck without measurements.
+    - Produce a breakdown whose component durations substantially account for
+      the measured `GTK_INITIALIZED -> WINDOW_CREATED` interval.
+    - Compare multiple runs; do not infer from a single execution.
+    - Preserve the fresh/reused distinction when useful.
+  - Acceptance criteria:
+    - Reproducible profiling procedure.
+    - Multiple real or deterministic samples where technically possible.
+    - Named sub-phases with median timings.
+    - Major contributors identified with objective evidence.
+    - Explain any residual/unaccounted time.
+    - No speculative optimization required for DONE.
+    - The `biblia-elim` target passes.
+    - Full default build passes.
+    - Relevant tests pass.
+    - `git diff --check` passes.
+  - If real display is required for final profiling:
+    - Leave unchecked with `Status: BLOCKED`.
+    - State `READY FOR REAL-DISPLAY PROFILING`.
+  - Do not:
+    - Optimize before identifying contributors.
+    - Move work after `GTK_MAIN_ENTER` merely to improve the metric.
+    - Hide startup work.
+    - Add sleeps or `usleep`.
+    - Add arbitrary lazy-loading without measurement.
+    - Change backend, schema, or importers unless profiling proves direct
+      relevance.
+    - Commit or push.
+  - Evidence:
+    - Added opt-in monotonic boundaries that partition the complete measured
+      interval across splash preparation, global HTML initialization, theme
+      setup, window chrome/navigation, all six startup panes, widget-tree
+      show/realization, and GTK event draining. The focused analyzer reports
+      per-sub-phase median, MAD, minimum, and maximum for retained fresh and
+      reused profile logs; deterministic parser/partition regressions PASS.
+    - `biblia-elim` and the full default build PASS.
+      `startup_performance_baseline`, `wk_html_surface_test`,
+      `startup_diagnostics_test`, and `startup_profile_test` PASS;
+      `gtk_lifecycle_smoke` skips because no display is reachable.
+    - At the automated stage, real collection could not pass
+      `GTK_INITIALIZED`: both X11 and Wayland attempts exited immediately after
+      `APP_START`. The supported `xvfb-run` fallback was also unavailable
+      because Xorg rejected the non-root-owned `/tmp/.X11-unix` directory and
+      could not establish a listener. The failed traces and Xvfb diagnostics
+      are retained under `build/startup-window-profile-20260909*`.
+    - Final named sub-phase medians and contributor attribution could not be
+      produced in that environment without fabricating evidence. Automated
+      instrumentation was complete and READY FOR REAL-DISPLAY PROFILING.
+    - Final real-display profiling evidence is retained under
+      `build/startup-window-profile-real-20260909-152725`: seven fresh-profile
+      samples and seven reused-profile samples, with zero `Gtk-WARNING`, zero
+      `Gtk-CRITICAL`, zero `GLib-CRITICAL`, zero `Negative content width`, zero
+      negative-width allocations, zero assertions, and zero `ERROR`.
+    - Fresh-profile medians/MAD: `GTK_INITIALIZED -> WINDOW_CREATED` 1013.0 /
+      13.5 ms; `DEVOTIONAL_PANE_READY -> WINDOW_TREE_SHOWN` 332.3 / 3.8 ms;
+      `WINDOW_TREE_SHOWN -> WINDOW_EVENTS_DRAINED` 506.4 / 8.3 ms.
+    - Reused-profile medians/MAD: `GTK_INITIALIZED -> WINDOW_CREATED` 986.6 /
+      13.3 ms; `DEVOTIONAL_PANE_READY -> WINDOW_TREE_SHOWN` 323.7 / 6.7 ms;
+      `WINDOW_TREE_SHOWN -> WINDOW_EVENTS_DRAINED` 492.1 / 8.5 ms.
+    - `DEVOTIONAL_PANE_READY -> WINDOW_TREE_SHOWN` accounts for about 32.8%
+      of the measured dominant interval in both scenarios, and
+      `WINDOW_TREE_SHOWN -> WINDOW_EVENTS_DRAINED` accounts for about 50% in
+      both. Together these consecutive sub-phases account for about 82.8%
+      fresh and 82.7% reused.
+    - All individual pane-construction boundaries before those sub-phases are
+      small, roughly 1-11 ms each. HTML initialization is effectively 0 ms at
+      this boundary, theme initialization costs roughly 60 ms, and window
+      shell construction costs roughly 54-57 ms.
+    - The focused instrumentation partitions the complete
+      `GTK_INITIALIZED -> WINDOW_CREATED` interval apart from display rounding.
+      These broad boundaries do not establish WebKit, devotional construction,
+      or any individual widget as the root cause. No optimization was
+      performed.
+    - The reproducible procedure, multiple fresh/reused real-display samples,
+      named sub-phases, objective major contributors, complete interval
+      accounting, previously passing builds/tests, and `git diff --check` PASS
+      satisfy the acceptance criteria.
+
+- [x] STARTUP-PERF-103 Profile window-show and GTK event-drain hotspots
+  - Status: DONE
+  - Objective:
+    Explain the two remaining broad startup hotspots before performing any
+    optimization:
+    1. `DEVOTIONAL_PANE_READY -> WINDOW_TREE_SHOWN`, approximately 332 ms
+       fresh / 324 ms reused.
+    2. `WINDOW_TREE_SHOWN -> WINDOW_EVENTS_DRAINED`, approximately 506 ms
+       fresh / 492 ms reused.
+    Together they account for about 83% of
+    `GTK_INITIALIZED -> WINDOW_CREATED`.
+  - Investigation requirements:
+    - Profile these two intervals separately and with finer-grained monotonic
+      boundaries.
+    - Inspect exactly what executes between `DEVOTIONAL_PANE_READY` and
+      `WINDOW_TREE_SHOWN`.
+    - Split that interval around meaningful operations actually present in the
+      code, such as statusbar construction, layout restoration, signal setup,
+      `gtk_widget_show()`/`gtk_widget_show_all()` calls, visibility
+      synchronization, renderer/widget realization triggers, and any other
+      substantial operations.
+    - Do not infer contributors from names; instrument actual call boundaries.
+    - For `WINDOW_TREE_SHOWN -> WINDOW_EVENTS_DRAINED`, inspect
+      `sync_windows()` and what it actually drains.
+    - Determine whether that time is primarily realize/map, size allocation,
+      WebKit widget realization, `GtkPaned`/notebook layout, CSS/style
+      resolution, renderer lifecycle callbacks, synchronous work triggered by
+      GTK signals, or another measured cause.
+    - Add nested timing spans around actual expensive sections/callbacks where
+      technically safe.
+    - Account for most of the approximately 500 ms rather than treating
+      `sync_windows()` as an unexplained black box.
+    - Compare multiple real-display samples.
+    - Preserve the fresh/reused distinction if useful.
+    - Quantify residual/unaccounted time.
+  - Acceptance criteria:
+    - Reproducible profiling procedure.
+    - Multiple samples.
+    - Fine-grained median/MAD timings.
+    - Objective attribution of both approximately 330 ms and 500 ms broad
+      intervals.
+    - Enough evidence to choose a concrete optimization target.
+    - No speculative optimization required.
+    - Relevant tests PASS.
+    - The `biblia-elim` target PASS.
+    - Full default build PASS.
+    - `git diff --check` PASS.
+  - If final attribution requires real display:
+    - Leave unchecked.
+    - Set `Status: BLOCKED`.
+    - State `READY FOR REAL-DISPLAY PROFILING`.
+  - Evidence:
+    - Added opt-in monotonic boundaries around actual post-devotional work:
+      statusbar construction, layout restoration, `gtk_widget_show_all()`,
+      visibility synchronization, the existing GTK drain, and final signal
+      setup. Window realize/map/style and selected `GtkPaned`/notebook
+      allocations are recorded, while named renderer lifecycle events now use
+      the same monotonic origin as application events.
+    - `sync_windows()` remains behaviorally intact and now exposes its actual
+      `gtk_main_iteration()` calls as paired nested spans. The focused analyzer
+      validates those pairs and reports fine-grained phase median/MAD/min/max,
+      iteration count, summed iteration time, longest iteration, drain
+      residual, and lifecycle markers. Sixteen deterministic analyzer tests
+      PASS, including complete accounting and malformed-pair rejection.
+    - The `biblia-elim` target and full default build PASS.
+      `startup_performance_baseline`, `wk_html_surface_test`, and
+      `main_window_layout_test` PASS with zero reported failures; live GTK
+      assertions and `gtk_lifecycle_smoke` skip because no display is
+      reachable. `git diff --check` PASS.
+    - Real-display collection was attempted at
+      `build/startup-window-hotspots-20260909-01`, but forced X11 and a direct
+      Wayland attempt both exited immediately after `APP_START`. The supported
+      Xvfb fallback also cannot start: `/tmp/.X11-unix` is owned by `nobody`,
+      and Xorg reports `Cannot establish any listening sockets` after the
+      ownership warning. Consequently no multi-sample attribution or concrete
+      optimization target is claimed or fabricated.
+    - Final real-display profiling collected seven fresh-profile samples and
+      seven reused-profile samples. The diagnostic scan found zero
+      `Gtk-WARNING`, zero `Gtk-CRITICAL`, zero `GLib-CRITICAL`, zero `Negative
+      content width`, zero negative-width allocations, zero assertions, and
+      zero `ERROR`.
+    - Fresh-profile medians/MAD: `GTK_INITIALIZED -> WINDOW_CREATED` 987.8 /
+      34.3 ms; `WINDOW_SHOW_ALL_BEGIN -> WINDOW_SHOW_ALL_END` 348.3 / 22.9 ms;
+      `GTK_EVENT_DRAIN_BEGIN -> GTK_EVENT_DRAIN_END` 469.7 / 31.5 ms. The GTK
+      drain had median iteration count 44, median iteration total 459.6 ms,
+      median longest iteration 98.5 ms, and median residual 10.1 ms.
+    - Reused-profile medians/MAD: `GTK_INITIALIZED -> WINDOW_CREATED` 976.6 /
+      62.2 ms; `WINDOW_SHOW_ALL_BEGIN -> WINDOW_SHOW_ALL_END` 327.5 / 8.1 ms;
+      `GTK_EVENT_DRAIN_BEGIN -> GTK_EVENT_DRAIN_END` 468.7 / 31.3 ms. The GTK
+      drain had median iteration count 43, median iteration total 465.9 ms,
+      median longest iteration 103.9 ms, and median residual 9.9 ms.
+    - `gtk_widget_show_all()` accounts for approximately 35.3% fresh and 33.5%
+      reused of `GTK_INITIALIZED -> WINDOW_CREATED`. The synchronous GTK event
+      drain accounts for approximately 47.6% fresh and 48.0% reused. Together
+      they account for approximately 82.8% fresh and 81.5% reused.
+    - Almost all drain time is actual GTK iterations: approximately 459.6 of
+      469.7 ms fresh and 465.9 of 468.7 ms reused. The residual outside
+      iterations is only about 10 ms. Statusbar creation, layout restoration,
+      visibility synchronization, and final signal connection are negligible.
+    - These measurements objectively localize the two broad hotspots to
+      recursive window show and synchronous GTK event processing caused during
+      realization/layout, satisfying the acceptance criteria and providing a
+      concrete optimization target. They do not establish that WebKit, CSS,
+      `GtkPaned`, allocations, or another specific subsystem dominates the GTK
+      iterations, and they do not establish that `sync_windows()` itself is
+      unnecessary. No optimization was performed in STARTUP-PERF-103.
+  - Do not:
+    - Optimize yet.
+    - Remove `sync_windows()` merely because it is expensive.
+    - Defer work after `GTK_MAIN_ENTER` to improve the metric.
+    - Add sleeps or `usleep`.
+    - Suppress GTK events.
+    - Skip required realization.
+    - Add arbitrary lazy loading.
+    - Touch backend, schema, or importers without measured evidence.
+    - Commit or push.
+
+- [x] STARTUP-PERF-104 Reduce unnecessary startup show/realize work
+  - Status: DONE
+  - Objective:
+    Reduce startup time by avoiding unnecessary recursive
+    show/realize/allocation work at application startup while preserving the
+    exact visible UI and behavior.
+  - Measured motivation:
+    - Fresh-profile:
+      - `gtk_widget_show_all()`: 348.3 ms median.
+      - Subsequent GTK drain: 469.7 ms median.
+    - Reused-profile:
+      - `gtk_widget_show_all()`: 327.5 ms median.
+      - Subsequent GTK drain: 468.7 ms median.
+    - The show plus drain path accounts for approximately 82% of the dominant
+      window-creation interval.
+  - Hypothesis to test:
+    The top-level recursive `gtk_widget_show_all()` may be showing/realizing
+    widgets or subtrees that startup visibility settings immediately hide
+    again, causing avoidable realization, layout, and event work. This is a
+    hypothesis, not an established root cause.
+  - Investigation requirements:
+    - Locate the exact startup `gtk_widget_show_all()`/show calls and subsequent
+      visibility synchronization.
+    - Enumerate which major child subtrees are intended to be visible at
+      startup for the current settings and which are intended to remain hidden.
+    - Determine whether `show_all` temporarily shows/realizes hidden subtrees
+      before visibility is restored.
+    - Use existing visibility/settings semantics as the source of truth.
+    - Measure before modifying behavior.
+  - Preferred optimization:
+    If evidence confirms unnecessary recursive showing:
+    - Prevent known-hidden startup subtrees from participating in `show_all`,
+      using normal GTK visibility/no-show-all semantics or an equally simple
+      visibility-aware approach.
+    - Continue showing the real main window normally.
+    - Keep widgets that must exist/anchor for backend or lifecycle reasons alive
+      without unnecessarily mapping them.
+    - Pay particular attention to commentary/dictionary/devotional panes,
+      previewers, sidebar, compare/parallel areas, backend-only book pane, and
+      any other subtree whose startup visibility is false.
+    - Do not assume all of these are unnecessary. Check actual settings and
+      lifecycle requirements individually.
+    - Do not remove `sync_windows()` as the first optimization. Instead measure
+      whether reducing show/realize work also reduces
+      `WINDOW_SHOW_ALL_BEGIN -> WINDOW_SHOW_ALL_END`, GTK event-drain iteration
+      count, and GTK event-drain total time.
+  - Acceptance criteria:
+    - Correctness:
+      - Visible startup UI is unchanged.
+      - Bible main view renders normally.
+      - PREV/NEXT works immediately.
+      - Chapter/reference navigation works.
+      - Commentary/dictionary/panels open when requested.
+      - Sidebar and previewers work.
+      - Compare/parallel Bible works.
+      - Reading mode works.
+      - Zoom target indicator works.
+      - Hidden backend-only surfaces remain correctly anchored where required.
+      - No white-panel regression.
+      - No realize/map regression.
+      - Zero new GTK warnings/criticals.
+    - Performance:
+      - Collect a post-change real-display seven fresh-profile plus seven
+        reused-profile benchmark.
+      - Compare against the STARTUP-PERF-103 baseline.
+      - Report median/MAD before and after for:
+        - `WINDOW_SHOW_ALL_BEGIN -> WINDOW_SHOW_ALL_END`.
+        - `GTK_EVENT_DRAIN_BEGIN -> GTK_EVENT_DRAIN_END`.
+        - Iteration count.
+        - Iteration total milliseconds.
+        - `APP_START -> GTK_MAIN_ENTER`.
+      - Do not call an improvement successful from a single run.
+      - If there is no meaningful improvement, retain the measured result and
+        do not manufacture a win.
+    - Tests:
+      - Relevant layout/surface/lifecycle tests PASS.
+      - `gtk_lifecycle_smoke` PASS where a display is available.
+      - The `biblia-elim` target PASS.
+      - Full default build PASS.
+      - `git diff --check` PASS.
+  - If final real-display comparison is needed:
+    - Leave unchecked.
+    - Set `Status: BLOCKED`.
+    - State `READY FOR REAL-DISPLAY VALIDATION`.
+  - Evidence:
+    - Confirmed that the top-level `gtk_widget_show_all()` ran before
+      `frontend_display()` restored settings and therefore temporarily showed
+      startup-hidden study, preview, compare, tabstrip, statusbar, and
+      reading-mode subtrees. A source-of-truth startup visibility policy now
+      applies GTK `no-show-all` semantics before the recursive show while
+      preserving every existing explicit panel-open path and backend anchor.
+    - `main_window_layout_test` covers default, all-visible, and reading-mode
+      policy matrices. The lifecycle smoke hook additionally checks that the
+      default commentary, dictionary, and compare roots cannot be re-shown by
+      an ancestor `show_all()` but do reopen through explicit show calls.
+    - `main_window_layout_test`, `wk_html_surface_test`,
+      `startup_diagnostics_test`, `startup_performance_baseline`,
+      `verse_navigation_readiness_test`, `navbar_entry_reference_test`, and
+      the zoom state/indicator/anchor regressions PASS. The `biblia-elim`
+      target and full default build PASS. `gtk_lifecycle_smoke` skips because
+      this environment cannot start its Xvfb server.
+    - The retained seven-fresh/seven-reused STARTUP-PERF-103 dataset was
+      re-analyzed before the change and reproduces the 348.3/22.9 ms fresh and
+      327.5/8.1 ms reused show medians/MAD, plus 469.7/31.5 ms fresh and
+      468.7/31.3 ms reused drain medians/MAD.
+    - Post-change collection was attempted at
+      `build/startup-perf-104-post-20260909`, but current X11 and Wayland runs
+      both exit immediately after `APP_START`; Xvfb also reports that it cannot
+      establish Unix or TCP listening sockets. The required seven-fresh plus
+      seven-reused performance comparison and real-display correctness checks
+      therefore remained unverified at that automated stage, which was
+      recorded as `READY FOR REAL-DISPLAY VALIDATION`.
+    - Manual real-display functional validation: PASS.
+      - Startup visual normal.
+      - Bible renderer PASS.
+      - PREV/NEXT PASS.
+      - Chapter/reference navigation PASS.
+      - Commentary/dictionary PASS.
+      - Sidebar/previewers PASS.
+      - Compare/parallel PASS.
+      - Reading mode PASS.
+      - Zoom indicator PASS.
+      - Clean shutdown PASS.
+      - Diagnostic grep clean.
+    - Real-display post-change performance from seven fresh and seven reused
+      samples: fresh `show_all` 348.3 -> 279.1 ms (-19.9%), GTK drain 469.7 ->
+      410.3 ms (-12.6%), `GTK_INITIALIZED -> WINDOW_CREATED` 987.8 -> 872.6 ms
+      (-11.7%), and `APP_START -> GTK_MAIN_ENTER` 1603.5 -> 1401.9 ms (-12.6%).
+      Reused `show_all` 327.5 -> 263.2 ms (-19.6%), GTK drain 468.7 -> 407.1 ms
+      (-13.1%), `GTK_INITIALIZED -> WINDOW_CREATED` 976.6 -> 863.2 ms (-11.6%),
+      and `APP_START -> GTK_MAIN_ENTER` 1512.7 -> 1419.4 ms (-6.2%).
+    - The iteration count did not decrease. The longest iteration did decrease,
+      fresh 98.5 -> 62.2 ms and reused 103.9 -> 61.0 ms. Therefore the measured
+      improvement is cheaper work per iteration, not fewer iterations.
+  - Do not:
+    - Remove `sync_windows()` just because it is expensive.
+    - Delay required startup work until after `GTK_MAIN_ENTER` solely to
+      improve the metric.
+    - Hide the complete application until loading finishes.
+    - Add arbitrary lazy loading.
+    - Add sleeps or `usleep`.
+    - Suppress warnings.
+    - Add hardcoded geometry.
+    - Change backend, schema, or importers.
+    - Commit or push.
+
+- [ ] STARTUP-PERF-105 Attribute and reduce remaining GTK event-drain cost
+  - Status: BLOCKED
+  - Objective:
+    Reduce the remaining approximately 407-410 ms synchronous GTK event-drain
+    startup cost, but only after objectively identifying what consumes it.
+  - Current measured baseline:
+    - Fresh: `GTK_EVENT_DRAIN_BEGIN -> GTK_EVENT_DRAIN_END` 410.3 ms median,
+      iteration count 45, iteration total 408.5 ms, longest iteration 62.2 ms.
+    - Reused: `GTK_EVENT_DRAIN_BEGIN -> GTK_EVENT_DRAIN_END` 407.1 ms median,
+      iteration count 48, iteration total 398.6 ms, longest iteration 61.0 ms.
+  - Phase A -- attribution:
+    - Inspect `sync_windows()` and preserve its behavior.
+    - Profile actual expensive callbacks/operations, not only iteration
+      duration, and record which iterations are expensive.
+    - Correlate long iterations with concrete lifecycle/callback categories:
+      realize/map, allocation/layout, paned/notebook geometry, CSS/style,
+      renderer lifecycle, application signal callbacks, draw/frame work,
+      repeated visibility/layout changes, or another measured cause.
+    - Use monotonic timing and keep diagnostics opt-in under
+      `BIBLIA_ELIM_UI_LOAD_DEBUG=1` or an equivalent diagnostic switch.
+    - Avoid noisy release logging, account for most of the drain where
+      technically possible, and compare multiple samples where available.
+  - Phase B -- optimization:
+    - Optimize only if Phase A identifies a clear avoidable contributor.
+    - Apply the smallest safe change that removes redundant startup work while
+      preserving required GTK semantics and all startup-visible behavior.
+    - If attribution is inconclusive, do not change behavior; leave the task
+      blocked with profiling evidence.
+  - Correctness constraints:
+    - Preserve immediate PREV/NEXT, chapter/reference navigation, Bible
+      renderer, commentary/dictionary, sidebar/previewers, compare/parallel,
+      reading mode, zoom state/indicator, themed placeholders, backend-only
+      anchors, and clean shutdown.
+    - Do not remove `sync_windows()`, replace it with sleeps, spin arbitrary
+      GTK loops elsewhere, defer required work past `GTK_MAIN_ENTER`, hide the
+      complete main window, suppress warnings, hardcode geometry, or disable
+      required realize/map behavior.
+    - Do not touch backend/schema/importers unless direct profiling proves
+      relevance.
+  - Tests and validation:
+    - Add focused tests for any optimization contract introduced.
+    - Run startup/performance analyzer, layout, `wk_html_surface_test`,
+      `panel_load_state_test`, navigation readiness, zoom, startup diagnostics,
+      `gtk_lifecycle_smoke` where available, `biblia-elim`, full default build,
+      and `git diff --check`.
+    - Final success requires seven fresh plus seven reused real-display samples.
+      Compare before/after medians and MAD for GTK drain duration, iteration
+      count/total/longest, show-all duration, window creation, and total startup.
+    - If real display is unavailable, leave unchecked, set `Status: BLOCKED`,
+      state `READY FOR REAL-DISPLAY VALIDATION`, and do not manufacture a win.
+  - Evidence:
+    - `sync_windows()` was inspected and remains the same conditional drain of
+      every pending event through `gtk_main_iteration()`; it was not removed,
+      relocated, delayed, or replaced.
+    - Re-analysis of all seven fresh and seven reused STARTUP-PERF-104 traces
+      shows that iterations containing the existing selected-widget
+      `size-allocate` markers account for median 341.8/408.5 ms (83.7%) fresh
+      and 356.8/398.6 ms (89.5%) reused. Every longest iteration in both
+      seven-run sets contains allocation activity. Style-correlated iteration
+      time is 35.9 ms fresh and 36.5 ms reused; no renderer lifecycle marker
+      occurs inside the startup drain. This objectively localizes most time to
+      allocation-correlated iterations, but does not prove that allocation
+      itself consumes the whole interval or that any GTK layout pass is
+      avoidable.
+    - Added opt-in per-iteration attribution over the already constructed
+      widget tree. It counts actual realize, map, style, and size-allocation
+      signal deliveries split into renderer, GtkPaned, notebook, and other
+      categories, and measures top-level frame draw and renderer draw with the
+      monotonic clock. No observers are connected and no new output is emitted
+      unless `BIBLIA_ELIM_UI_LOAD_DEBUG=1`. Profile reporting occurs after the
+      iteration end marker so its I/O is excluded from iteration duration.
+    - The analyzer validates complete numbered profile pairs, retains legacy
+      trace compatibility, aggregates callback categories across samples, and
+      records the three longest concrete iterations per log with their
+      lifecycle evidence. Nineteen deterministic analyzer tests PASS.
+    - No optimization was applied: the retained traces cannot distinguish a
+      redundant application geometry update from required GTK layout, style,
+      or draw work, and the newly attributed binary cannot be sampled in this
+      environment.
+    - `main_window_layout_test`, `wk_html_surface_test`,
+      `panel_load_state_test`, `verse_navigation_readiness_test`,
+      `navbar_entry_reference_test`, `zoom_state_test`,
+      `zoom_indicator_test`, `zoom_anchor_reflow_test`, and
+      `startup_diagnostics_test` PASS with zero failures. The `biblia-elim`
+      target and full default build PASS; the legacy 7+7 analyzer pass
+      reproduces the 104 medians. `gtk_lifecycle_smoke` skips with
+      `gtk_lifecycle_smoke_skipped=no-usable-xvfb`.
+    - A direct Wayland run also exits immediately after `APP_START`. Therefore
+      no attributed real-display samples, safe Phase-B target, or post-change
+      7+7 comparison can be produced here. Human/external execution on an
+      accessible real display must first collect 7 fresh plus 7 reused
+      attributed samples; only a demonstrated avoidable contributor may then
+      be optimized and validated with a second 7+7 set.
+    - `git diff --check` PASS. `READY FOR REAL-DISPLAY VALIDATION`.
+    - Phase A2 opens both `style_other` and `allocate_other` by runtime GObject
+      type without a hardcoded type list. Per iteration it now retains
+      process-local widget identity, type, last allocation geometry, unique
+      allocation/style recipients, same-instance repeats, and identical versus
+      changed geometry repeats. Detailed output remains strictly opt-in under
+      `BIBLIA_ELIM_UI_LOAD_DEBUG=1` and is emitted after the drain end marker so
+      report I/O is excluded from the measured drain; no GTK work is suppressed,
+      reordered, skipped, coalesced, or deferred.
+    - The analyzer validates the extended per-type and per-instance records,
+      preserves the original attributed and unattributed trace formats, reports
+      per-type median/MAD/min/max and scenario churn medians, and expands each
+      sample's three longest iterations with top types, churn, paned/notebook
+      allocation, and root draw evidence. Twenty-seven deterministic analyzer
+      tests PASS, including type aggregation, unique/repeated instance tracking,
+      identical/changed geometry, repeated style, malformed records, and legacy
+      compatibility. The supplied seven-fresh/seven-reused round-1 collection
+      still analyzes successfully.
+    - `main_window_layout_test`, `wk_html_surface_test`,
+      `panel_load_state_test`, `verse_navigation_readiness_test`,
+      `zoom_state_test`, `zoom_indicator_test`, `zoom_anchor_reflow_test`, and
+      `startup_diagnostics_test` PASS with zero failures. The `biblia-elim`
+      target and full default build PASS. No optimization was applied because
+      round 1 predates the per-instance/type probes and cannot establish safe
+      application-side redundancy.
+    - Leave unchecked with `Status: BLOCKED`; an accessible real X11 display
+      must collect the official seven fresh plus seven reused extended traces
+      before any Phase-B decision. `READY FOR REAL-DISPLAY ATTRIBUTION ROUND 2`.
 
 # Future / not scheduled
 

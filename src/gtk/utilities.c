@@ -41,6 +41,7 @@
 #include <minizip/zip.h>
 
 #include "gui/utilities.h"
+#include "gui/panel_load_state.h"
 #include "gui/preferences_dialog.h"
 #include "gui/xiphos.h"
 #include "gui/mod_mgr.h"
@@ -116,11 +117,602 @@ char *(month_names[]) = {
 
 gint stop_window_sync = 0;
 
+enum {
+	DRAIN_WIDGET_RENDERER,
+	DRAIN_WIDGET_PANED,
+	DRAIN_WIDGET_NOTEBOOK,
+	DRAIN_WIDGET_OTHER,
+	DRAIN_WIDGET_CATEGORY_COUNT
+};
+
+typedef struct {
+	guint realize[DRAIN_WIDGET_CATEGORY_COUNT];
+	guint map[DRAIN_WIDGET_CATEGORY_COUNT];
+	guint style[DRAIN_WIDGET_CATEGORY_COUNT];
+	guint allocate[DRAIN_WIDGET_CATEGORY_COUNT];
+	guint root_draws;
+	guint renderer_draws;
+	gint64 root_draw_us;
+	gint64 renderer_draw_us;
+} DrainIterationProfile;
+
+typedef struct {
+	guint category;
+	gboolean root;
+	gint64 draw_begin_us;
+	guint draw_iteration;
+} DrainWidgetProfile;
+
+typedef struct {
+	const gchar *type;
+	guint allocate_count;
+	guint style_count;
+	guint identical_geometry_repeats;
+	guint changed_geometry_repeats;
+	GtkAllocation last_allocation;
+} DrainWidgetInstanceProfile;
+
+typedef struct {
+	gchar *type;
+	gchar *name;
+	gchar *parent_type;
+	gchar *parent_name;
+	gchar *path;
+	guint allocate_count;
+	guint allocate_iterations;
+	guint allocate_first_iteration;
+	guint allocate_last_iteration;
+	guint style_count;
+	guint style_iterations;
+	guint style_first_iteration;
+	guint style_last_iteration;
+	guint identical_geometry_repeats;
+	guint changed_geometry_repeats;
+	GtkAllocation last_allocation;
+	GString *geometry_sequence;
+} DrainSessionWidgetProfile;
+
+typedef struct {
+	guint count;
+	guint repeated;
+} DrainWidgetTypeProfile;
+
+typedef struct {
+	DrainIterationProfile profile;
+	guint iteration;
+	GHashTable *instances;
+	GHashTable *allocate_types;
+	GHashTable *style_types;
+} DrainIterationSnapshot;
+
+static DrainIterationProfile drain_iteration_profile;
+static gboolean drain_profile_active;
+static guint drain_profile_iteration;
+static GHashTable *drain_profile_instances;
+static GHashTable *drain_profile_allocate_types;
+static GHashTable *drain_profile_style_types;
+static GHashTable *drain_session_instances;
+
+static void
+drain_session_widget_profile_free(gpointer data)
+{
+	DrainSessionWidgetProfile *profile = data;
+
+	g_free(profile->type);
+	g_free(profile->name);
+	g_free(profile->parent_type);
+	g_free(profile->parent_name);
+	g_free(profile->path);
+	if (profile->geometry_sequence)
+		g_string_free(profile->geometry_sequence, TRUE);
+	g_free(profile);
+}
+
+static gchar *
+drain_widget_label(GtkWidget *widget)
+{
+	const gchar *name = gtk_widget_get_name(widget);
+
+	if (GTK_IS_BUILDABLE(widget)) {
+		const gchar *buildable_name = gtk_buildable_get_name(GTK_BUILDABLE(widget));
+		if (buildable_name && *buildable_name)
+			name = buildable_name;
+	}
+	return g_uri_escape_string(name ? name : "-", NULL, TRUE);
+}
+
+static gchar *
+drain_widget_path(GtkWidget *widget)
+{
+	GPtrArray *parts = g_ptr_array_new_with_free_func(g_free);
+	GtkWidget *ancestor;
+	GString *path = g_string_new(NULL);
+	gint index;
+
+	for (ancestor = widget; ancestor && parts->len < 8;
+	     ancestor = gtk_widget_get_parent(ancestor)) {
+		gchar *name = drain_widget_label(ancestor);
+		g_ptr_array_add(parts, g_strdup_printf("%s#%s",
+						      G_OBJECT_TYPE_NAME(ancestor), name));
+		g_free(name);
+	}
+	for (index = (gint)parts->len - 1; index >= 0; index--) {
+		if (path->len)
+			g_string_append_c(path, '/');
+		g_string_append(path, g_ptr_array_index(parts, index));
+	}
+	g_ptr_array_free(parts, TRUE);
+	return g_string_free(path, FALSE);
+}
+
+static DrainSessionWidgetProfile *
+drain_session_profile(GtkWidget *widget)
+{
+	DrainSessionWidgetProfile *profile;
+	GtkWidget *parent;
+
+	profile = g_hash_table_lookup(drain_session_instances, widget);
+	if (profile)
+		return profile;
+	profile = g_new0(DrainSessionWidgetProfile, 1);
+	profile->type = g_strdup(G_OBJECT_TYPE_NAME(widget));
+	profile->name = drain_widget_label(widget);
+	parent = gtk_widget_get_parent(widget);
+	profile->parent_type = g_strdup(parent ? G_OBJECT_TYPE_NAME(parent) : "-");
+	profile->parent_name = parent ? drain_widget_label(parent) : g_strdup("-");
+	profile->path = drain_widget_path(widget);
+	profile->geometry_sequence = g_string_new(NULL);
+	g_hash_table_insert(drain_session_instances, widget, profile);
+	return profile;
+}
+
+static void
+drain_iteration_snapshot_free(gpointer data)
+{
+	DrainIterationSnapshot *snapshot = data;
+
+	g_hash_table_destroy(snapshot->instances);
+	g_hash_table_destroy(snapshot->allocate_types);
+	g_hash_table_destroy(snapshot->style_types);
+	g_free(snapshot);
+}
+
+static DrainWidgetInstanceProfile *
+drain_instance_profile(GtkWidget *widget)
+{
+	DrainWidgetInstanceProfile *instance;
+
+	instance = g_hash_table_lookup(drain_profile_instances, widget);
+	if (!instance) {
+		instance = g_new0(DrainWidgetInstanceProfile, 1);
+		instance->type = G_OBJECT_TYPE_NAME(widget);
+		g_hash_table_insert(drain_profile_instances, widget, instance);
+	}
+	return instance;
+}
+
+static void
+drain_type_profile_record(GHashTable *types, const gchar *type, gboolean repeated)
+{
+	DrainWidgetTypeProfile *profile = g_hash_table_lookup(types, type);
+
+	if (!profile) {
+		profile = g_new0(DrainWidgetTypeProfile, 1);
+		g_hash_table_insert(types, g_strdup(type), profile);
+	}
+	profile->count++;
+	if (repeated)
+		profile->repeated++;
+}
+
+static guint
+drain_widget_category(GtkWidget *widget)
+{
+	GtkWidget *ancestor;
+
+	for (ancestor = widget; ancestor; ancestor = gtk_widget_get_parent(ancestor)) {
+		if (!g_strcmp0(G_OBJECT_TYPE_NAME(ancestor), "WkHtml"))
+			return DRAIN_WIDGET_RENDERER;
+	}
+	if (GTK_IS_PANED(widget))
+		return DRAIN_WIDGET_PANED;
+	if (GTK_IS_NOTEBOOK(widget))
+		return DRAIN_WIDGET_NOTEBOOK;
+	return DRAIN_WIDGET_OTHER;
+}
+
+static void
+drain_profile_realize(GtkWidget *widget, gpointer data)
+{
+	DrainWidgetProfile *profile = data;
+	(void)widget;
+	if (drain_profile_active)
+		drain_iteration_profile.realize[profile->category]++;
+}
+
+static void
+drain_profile_map(GtkWidget *widget, gpointer data)
+{
+	DrainWidgetProfile *profile = data;
+	(void)widget;
+	if (drain_profile_active)
+		drain_iteration_profile.map[profile->category]++;
+}
+
+static void
+drain_profile_style(GtkWidget *widget, gpointer data)
+{
+	DrainWidgetProfile *profile = data;
+	DrainWidgetInstanceProfile *instance;
+
+	if (drain_profile_active) {
+		drain_iteration_profile.style[profile->category]++;
+		instance = drain_instance_profile(widget);
+		drain_type_profile_record(drain_profile_style_types, instance->type,
+					  instance->style_count > 0);
+		instance->style_count++;
+		if (drain_session_instances) {
+			DrainSessionWidgetProfile *session = drain_session_profile(widget);
+			session->style_count++;
+			if (!session->style_iterations ||
+			    session->style_last_iteration != drain_profile_iteration) {
+				if (!session->style_iterations)
+					session->style_first_iteration = drain_profile_iteration;
+				session->style_last_iteration = drain_profile_iteration;
+				session->style_iterations++;
+			}
+		}
+	}
+}
+
+static void
+drain_profile_allocate(GtkWidget *widget, GtkAllocation *allocation,
+		       gpointer data)
+{
+	DrainWidgetProfile *profile = data;
+	DrainWidgetInstanceProfile *instance;
+	gboolean repeated;
+
+	if (drain_profile_active) {
+		drain_iteration_profile.allocate[profile->category]++;
+		instance = drain_instance_profile(widget);
+		repeated = instance->allocate_count > 0;
+		drain_type_profile_record(drain_profile_allocate_types, instance->type,
+					  repeated);
+		if (repeated) {
+			if (instance->last_allocation.x == allocation->x &&
+			    instance->last_allocation.y == allocation->y &&
+			    instance->last_allocation.width == allocation->width &&
+			    instance->last_allocation.height == allocation->height)
+				instance->identical_geometry_repeats++;
+			else
+				instance->changed_geometry_repeats++;
+		}
+		instance->last_allocation = *allocation;
+		instance->allocate_count++;
+		if (drain_session_instances) {
+			DrainSessionWidgetProfile *session = drain_session_profile(widget);
+			session->allocate_count++;
+			if (!session->allocate_iterations ||
+			    session->allocate_last_iteration != drain_profile_iteration) {
+				if (!session->allocate_iterations)
+					session->allocate_first_iteration = drain_profile_iteration;
+				else if (session->last_allocation.x == allocation->x &&
+					 session->last_allocation.y == allocation->y &&
+					 session->last_allocation.width == allocation->width &&
+					 session->last_allocation.height == allocation->height)
+					session->identical_geometry_repeats++;
+				else
+					session->changed_geometry_repeats++;
+				session->allocate_last_iteration = drain_profile_iteration;
+				session->allocate_iterations++;
+				if (session->geometry_sequence->len)
+					g_string_append_c(session->geometry_sequence, ';');
+				g_string_append_printf(session->geometry_sequence,
+						       "%u:%d,%d,%d,%d", drain_profile_iteration,
+						       allocation->x, allocation->y,
+						       allocation->width, allocation->height);
+			}
+			session->last_allocation = *allocation;
+		}
+	}
+}
+
+static gboolean
+drain_profile_draw_begin(GtkWidget *widget, cairo_t *cr, gpointer data)
+{
+	DrainWidgetProfile *profile = data;
+	(void)widget;
+	(void)cr;
+	if (drain_profile_active) {
+		profile->draw_begin_us = g_get_monotonic_time();
+		profile->draw_iteration = drain_profile_iteration;
+	}
+	return FALSE;
+}
+
+static gboolean
+drain_profile_draw_end(GtkWidget *widget, cairo_t *cr, gpointer data)
+{
+	DrainWidgetProfile *profile = data;
+	gint64 elapsed;
+	(void)widget;
+	(void)cr;
+	if (!drain_profile_active || !profile->draw_begin_us ||
+	    profile->draw_iteration != drain_profile_iteration)
+		return FALSE;
+	elapsed = g_get_monotonic_time() - profile->draw_begin_us;
+	profile->draw_begin_us = 0;
+	if (profile->root) {
+		drain_iteration_profile.root_draws++;
+		drain_iteration_profile.root_draw_us += elapsed;
+	} else {
+		drain_iteration_profile.renderer_draws++;
+		drain_iteration_profile.renderer_draw_us += elapsed;
+	}
+	return FALSE;
+}
+
+static void
+startup_event_drain_profile_attach_one(GtkWidget *widget, gpointer root)
+{
+	DrainWidgetProfile *profile;
+
+	if (g_object_get_data(G_OBJECT(widget), "biblia-elim-drain-profile"))
+		return;
+	profile = g_new0(DrainWidgetProfile, 1);
+	profile->category = drain_widget_category(widget);
+	profile->root = widget == GTK_WIDGET(root);
+	g_object_set_data_full(G_OBJECT(widget), "biblia-elim-drain-profile",
+			       profile, g_free);
+	g_signal_connect(widget, "realize", G_CALLBACK(drain_profile_realize), profile);
+	g_signal_connect(widget, "map", G_CALLBACK(drain_profile_map), profile);
+	g_signal_connect(widget, "style-updated", G_CALLBACK(drain_profile_style), profile);
+	g_signal_connect(widget, "size-allocate", G_CALLBACK(drain_profile_allocate), profile);
+	/* A top-level draw covers the whole frame. Renderer draws are reported
+	 * separately and deliberately not summed with it because they are nested. */
+	if (profile->root || (profile->category == DRAIN_WIDGET_RENDERER &&
+			      GTK_IS_TEXT_VIEW(widget))) {
+		g_signal_connect(widget, "draw", G_CALLBACK(drain_profile_draw_begin), profile);
+		g_signal_connect_after(widget, "draw", G_CALLBACK(drain_profile_draw_end), profile);
+	}
+	if (GTK_IS_CONTAINER(widget))
+		gtk_container_foreach(GTK_CONTAINER(widget),
+				      startup_event_drain_profile_attach_one, root);
+}
+
+void
+startup_event_drain_profile_attach(GtkWidget *root)
+{
+	if (root && panel_load_debug_enabled())
+		startup_event_drain_profile_attach_one(root, root);
+}
+
+static void
+drain_profile_report_type(gpointer key, gpointer value, gpointer data)
+{
+	const gchar *type = key;
+	DrainWidgetTypeProfile *profile = value;
+	const gchar *kind = ((gpointer *)data)[0];
+	guint iteration = GPOINTER_TO_UINT(((gpointer *)data)[1]);
+	char detail[256];
+
+	g_snprintf(detail, sizeof(detail),
+		   "iteration=%u kind=%s type=%s count=%u repeated=%u",
+		   iteration, kind, type, profile->count, profile->repeated);
+	panel_load_debug("app", "GTK_EVENT_ITERATION_WIDGET_TYPE", detail);
+}
+
+static void
+drain_profile_report_instance(gpointer key, gpointer value, gpointer data)
+{
+	GtkWidget *widget = key;
+	DrainWidgetInstanceProfile *profile = value;
+	guint iteration = GPOINTER_TO_UINT(data);
+	char detail[384];
+
+	if (!profile->allocate_count)
+		return;
+	g_snprintf(detail, sizeof(detail),
+		   "iteration=%u id=%p type=%s count=%u repeated=%u "
+		   "identical=%u changed=%u x=%d y=%d width=%d height=%d",
+		   iteration, (void *)widget, profile->type, profile->allocate_count,
+		   profile->allocate_count - 1,
+		   profile->identical_geometry_repeats,
+		   profile->changed_geometry_repeats,
+		   profile->last_allocation.x, profile->last_allocation.y,
+		   profile->last_allocation.width, profile->last_allocation.height);
+	panel_load_debug("app", "GTK_EVENT_ITERATION_ALLOCATE_INSTANCE", detail);
+}
+
+static void
+drain_profile_report(DrainIterationSnapshot *snapshot)
+{
+	GHashTableIter iterator;
+	gpointer value;
+	guint unique_allocated = 0;
+	guint repeated_allocations = 0;
+	guint identical_repeats = 0;
+	guint changed_repeats = 0;
+	guint unique_style = 0;
+	guint repeated_style = 0;
+	gpointer allocate_data[2] = {(gpointer)"allocate",
+		GINT_TO_POINTER(snapshot->iteration)};
+	gpointer style_data[2] = {(gpointer)"style",
+		GINT_TO_POINTER(snapshot->iteration)};
+	char detail[896];
+
+	g_hash_table_iter_init(&iterator, snapshot->instances);
+	while (g_hash_table_iter_next(&iterator, NULL, &value)) {
+		DrainWidgetInstanceProfile *instance = value;
+		if (instance->allocate_count) {
+			unique_allocated++;
+			repeated_allocations += instance->allocate_count - 1;
+			identical_repeats += instance->identical_geometry_repeats;
+			changed_repeats += instance->changed_geometry_repeats;
+		}
+		if (instance->style_count) {
+			unique_style++;
+			repeated_style += instance->style_count - 1;
+		}
+	}
+
+	g_snprintf(detail, sizeof(detail),
+		   "iteration=%u attribution_version=2 realize_renderer=%u realize_paned=%u "
+		   "realize_notebook=%u realize_other=%u map_renderer=%u "
+		   "map_paned=%u map_notebook=%u map_other=%u style_renderer=%u "
+		   "style_paned=%u style_notebook=%u style_other=%u "
+		   "allocate_renderer=%u allocate_paned=%u allocate_notebook=%u "
+		   "allocate_other=%u root_draws=%u root_draw_us=%" G_GINT64_FORMAT " "
+		   "renderer_draws=%u renderer_draw_us=%" G_GINT64_FORMAT " "
+		   "unique_allocated_widgets=%u repeated_allocations=%u "
+		   "identical_geometry_repeats=%u changed_geometry_repeats=%u "
+		   "unique_style_widgets=%u repeated_style_updates=%u",
+		   snapshot->iteration,
+		   snapshot->profile.realize[0], snapshot->profile.realize[1],
+		   snapshot->profile.realize[2], snapshot->profile.realize[3],
+		   snapshot->profile.map[0], snapshot->profile.map[1],
+		   snapshot->profile.map[2], snapshot->profile.map[3],
+		   snapshot->profile.style[0], snapshot->profile.style[1],
+		   snapshot->profile.style[2], snapshot->profile.style[3],
+		   snapshot->profile.allocate[0], snapshot->profile.allocate[1],
+		   snapshot->profile.allocate[2], snapshot->profile.allocate[3],
+		   snapshot->profile.root_draws, snapshot->profile.root_draw_us,
+		   snapshot->profile.renderer_draws,
+		   snapshot->profile.renderer_draw_us, unique_allocated,
+		   repeated_allocations, identical_repeats, changed_repeats,
+		   unique_style, repeated_style);
+	panel_load_debug("app", "GTK_EVENT_ITERATION_PROFILE", detail);
+	g_hash_table_foreach(snapshot->allocate_types, drain_profile_report_type,
+			     allocate_data);
+	g_hash_table_foreach(snapshot->style_types, drain_profile_report_type,
+			     style_data);
+	g_hash_table_foreach(snapshot->instances, drain_profile_report_instance,
+			     GUINT_TO_POINTER(snapshot->iteration));
+}
+
+static void
+drain_session_report_instance(gpointer key, gpointer value, gpointer data)
+{
+	GtkWidget *widget = key;
+	DrainSessionWidgetProfile *profile = value;
+	gchar *detail;
+	(void)data;
+
+	detail = g_strdup_printf(
+		"attribution_version=3 id=%p type=%s name=%s parent_type=%s "
+		"parent_name=%s path=%s allocate_count=%u allocate_iterations=%u "
+		"allocate_first=%u allocate_last=%u allocate_identical=%u "
+		"allocate_changed=%u geometry=%s style_count=%u style_iterations=%u "
+		"style_first=%u style_last=%u",
+		(void *)widget, profile->type, profile->name, profile->parent_type,
+		profile->parent_name, profile->path, profile->allocate_count,
+		profile->allocate_iterations, profile->allocate_first_iteration,
+		profile->allocate_last_iteration,
+		profile->identical_geometry_repeats,
+		profile->changed_geometry_repeats,
+		profile->geometry_sequence->len ? profile->geometry_sequence->str : "-",
+		profile->style_count, profile->style_iterations,
+		profile->style_first_iteration, profile->style_last_iteration);
+	panel_load_debug("app", "GTK_EVENT_DRAIN_WIDGET_INSTANCE", detail);
+	g_free(detail);
+}
+
+static gint
+drain_session_compare_instance(gconstpointer left, gconstpointer right,
+			       gpointer data)
+{
+	GHashTable *instances = data;
+	DrainSessionWidgetProfile *left_profile =
+		g_hash_table_lookup(instances, (gpointer)left);
+	DrainSessionWidgetProfile *right_profile =
+		g_hash_table_lookup(instances, (gpointer)right);
+	gint order = g_strcmp0(left_profile->path, right_profile->path);
+
+	if (order)
+		return order;
+	if ((guintptr)left < (guintptr)right)
+		return -1;
+	return (guintptr)left > (guintptr)right;
+}
+
+static void
+drain_session_report(GHashTable *instances, guint iterations)
+{
+	gchar detail[160];
+	GList *keys;
+	GList *item;
+
+	g_snprintf(detail, sizeof(detail),
+		   "attribution_version=3 iterations=%u instances=%u",
+		   iterations, g_hash_table_size(instances));
+	panel_load_debug("app", "GTK_EVENT_DRAIN_SESSION_PROFILE", detail);
+	keys = g_hash_table_get_keys(instances);
+	keys = g_list_sort_with_data(keys, drain_session_compare_instance, instances);
+	for (item = keys; item; item = item->next)
+		drain_session_report_instance(item->data,
+				      g_hash_table_lookup(instances, item->data), NULL);
+	g_list_free(keys);
+}
+
 void sync_windows()
 {
 	if (stop_window_sync == 0) {
-		while (gtk_events_pending())
+		guint iteration = 0;
+		guint profile_index;
+		char detail[48];
+		gboolean debug = panel_load_debug_enabled();
+		GPtrArray *snapshots = debug ?
+			g_ptr_array_new_with_free_func(drain_iteration_snapshot_free) : NULL;
+		if (debug)
+			drain_session_instances = g_hash_table_new_full(
+				g_direct_hash, g_direct_equal, NULL,
+				drain_session_widget_profile_free);
+
+		panel_load_debug("app", "GTK_EVENT_DRAIN_BEGIN", NULL);
+		while (gtk_events_pending()) {
+			g_snprintf(detail, sizeof(detail), "iteration=%u", iteration);
+			panel_load_debug("app", "GTK_EVENT_ITERATION_BEGIN", detail);
+			if (debug) {
+				memset(&drain_iteration_profile, 0,
+				       sizeof(drain_iteration_profile));
+				drain_profile_instances = g_hash_table_new_full(
+					g_direct_hash, g_direct_equal, NULL, g_free);
+				drain_profile_allocate_types = g_hash_table_new_full(
+					g_str_hash, g_str_equal, g_free, g_free);
+				drain_profile_style_types = g_hash_table_new_full(
+					g_str_hash, g_str_equal, g_free, g_free);
+				drain_profile_iteration = iteration;
+				drain_profile_active = TRUE;
+			}
 			gtk_main_iteration();
+			drain_profile_active = FALSE;
+			panel_load_debug("app", "GTK_EVENT_ITERATION_END", detail);
+			if (debug) {
+				DrainIterationSnapshot *snapshot =
+					g_new0(DrainIterationSnapshot, 1);
+				snapshot->profile = drain_iteration_profile;
+				snapshot->iteration = iteration;
+				snapshot->instances = drain_profile_instances;
+				snapshot->allocate_types = drain_profile_allocate_types;
+				snapshot->style_types = drain_profile_style_types;
+				g_ptr_array_add(snapshots, snapshot);
+			}
+			iteration++;
+		}
+		g_snprintf(detail, sizeof(detail), "iterations=%u", iteration);
+		panel_load_debug("app", "GTK_EVENT_DRAIN_END", detail);
+		for (profile_index = 0; debug && profile_index < snapshots->len;
+		     profile_index++)
+			drain_profile_report(g_ptr_array_index(snapshots, profile_index));
+		if (debug)
+			drain_session_report(drain_session_instances, iteration);
+		if (snapshots)
+			g_ptr_array_free(snapshots, TRUE);
+		if (drain_session_instances) {
+			g_hash_table_destroy(drain_session_instances);
+			drain_session_instances = NULL;
+		}
 	}
 }
 

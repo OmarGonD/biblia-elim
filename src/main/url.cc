@@ -726,7 +726,7 @@ gint sword_uri(const gchar *url, gboolean clicked)
 			// might be an abbrev.  get the real.
 			const char *real_mod = main_abbrev_to_name(name);
 
-			int mod_type = backend->module_type(real_mod ? real_mod : name);
+			int mod_type = main_get_mod_type(real_mod ? real_mod : name);
 
 			if (slash)
 				*slash = '/';
@@ -782,8 +782,8 @@ gint sword_uri(const gchar *url, gboolean clicked)
 	}
 
 	verse_count = 1; //backend->is_Bible_key(mykey, settings.currentverse);
-	if (backend->is_module(mod)) {
-		mod_type = backend->module_type(mod);
+	if (main_is_module(mod)) {
+		mod_type = main_get_mod_type(mod);
 		switch (mod_type) {
 		case TEXT_TYPE:
 			key = main_update_nav_controls(mod, tmpkey);

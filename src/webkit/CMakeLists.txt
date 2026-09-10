@@ -45,6 +45,8 @@ add_library (webkit
   STATIC
   wk-html.c
   wk-html.h
+  wk-html-zoom-anchor.c
+  wk-html-zoom-anchor.h
   wk-html-surface.c
   wk-html-surface.h
   ${PROJECT_SOURCE_DIR}/src/gtk/panel_load_state.c

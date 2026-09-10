@@ -151,16 +151,19 @@ add_executable (biblia-elim
   gbs.c
   gbs_dialog.c
   gui.c
+  gtk_lifecycle_smoke.c
   interlineal.c
   instalar_biblias.c
   lectura_sync.c
   main_menu.c
   main_window.c
+  main_window_layout.c
   sqlite_module_manager_dialog.cc
   menu_popup.c
   mod_mgr.c
   navbar_book.c
   navbar_book_dialog.c
+  navbar_entry_reference.c
   navbar_versekey.c
   navbar_versekey_dialog.c
   navbar_versekey_editor.c
@@ -190,6 +193,8 @@ add_executable (biblia-elim
   treekey-editor.c
   utilities.c
   xiphos.c
+  zoom_indicator.c
+  zoom_indicator.h
   ${CMAKE_CURRENT_BINARY_DIR}/locale_set.c
   ${xiphos_resources_c}
   )

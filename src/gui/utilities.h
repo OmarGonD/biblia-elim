@@ -43,6 +43,7 @@ extern "C" {
 
 extern gint stop_window_sync;
 void sync_windows(void);
+void startup_event_drain_profile_attach(GtkWidget *root);
 
 gint gui_of2tf(const gchar *on_off);
 gchar *gui_tf2of(gint true_false);

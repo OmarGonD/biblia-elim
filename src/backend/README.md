@@ -159,8 +159,11 @@ The SQLite contract and error tests create temporary databases, so CI does not
 need `~/.sword/`. Backend selection is performed once during startup. Explicit
 `--backend=...` has priority, followed by `BIBLIA_ELIM_SQLITE_MODULES`, then
 the application data directory (`biblia-elim/modules`). If SQLite has no valid
-modules, startup logs a warning and falls back to SWORD; invalid Bible
-references do not change the selected backend.
+modules, startup falls back to SWORD. A missing or empty default per-user
+module directory is an expected condition and is logged as a message. An
+explicit CLI/environment path, an unreadable path, or rejected `.sqlite`
+candidates remain warnings so configuration and module failures stay visible;
+invalid Bible references do not change the selected backend.
 
 ```text
 xiphos                         # SQLite default, with SWORD fallback

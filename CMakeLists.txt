@@ -23,6 +23,8 @@ cmake_policy(VERSION 3.11)
 ### set project name (version set later)
 project (xiphos C CXX)
 
+include (CTest)
+
 # set commonly used Xiphos variables:
 # Xiphos website
 set (XIPHOS_WEBSITE "http://xiphos.org")

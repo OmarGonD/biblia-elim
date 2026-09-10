@@ -44,6 +44,7 @@
 #include "main/lectura_sync.h"
 #include "main/mod_mgr.h"
 #include "main/settings.h"
+#include "main/startup_profile.h"
 #include "main/sword.h"
 #include "main/xml.h"
 
@@ -57,13 +58,39 @@
 /******************************************************************************
  * defines
  */
-#define XI_DIR		"xiphos"	/* modern choice, within ~/.config */
 #define OLD_XI_DIR	".xiphos"	/* for compatibility movement */
 
 /******************************************************************************
  * globals
  */
 SETTINGS settings;
+
+static void
+store_zoom_state(void)
+{
+	gchar *serialized = zoom_state_serialize(&settings.zoom_state);
+
+	xml_set_or_create_value("fontsize", "surfacezoom", serialized);
+	g_free(serialized);
+}
+
+gint
+main_settings_zoom_set(ZoomSurface surface, gint percent)
+{
+	gint result = zoom_state_set(&settings.zoom_state, surface, percent);
+
+	store_zoom_state();
+	return result;
+}
+
+gint
+main_settings_zoom_adjust(ZoomSurface surface, gint delta)
+{
+	gint result = zoom_state_adjust(&settings.zoom_state, surface, delta);
+
+	store_zoom_state();
+	return result;
+}
 
 /******************************************************************************
  * static
@@ -278,22 +305,17 @@ int settings_init(int argc, char **argv, int new_configs,
 		exit(0);
 	}
 
-	/* set gSwordDir to $home + .xiphos */
-	settings.gSwordDir =
-		g_build_filename(settings.homedir,
-#ifndef WIN32
-				 ".config",
-#endif
-				 XI_DIR, NULL);
+	/* Keep the historical leaf name, under the platform/XDG config root. */
+	settings.gSwordDir = startup_profile_config_directory();
 
 	/* --------------------------------------------------------------- */
-	/* convert old presence in ~, move into ~/.config (linux), no dot. */
+	/* Convert the old presence in HOME to the platform/XDG config path. */
 
 	old_gSwordDir = g_build_filename(settings.homedir, OLD_XI_DIR, NULL);
 
 	if ((g_access(old_gSwordDir,      F_OK) == 0) &&
 	    (g_access(settings.gSwordDir, F_OK) != 0)) {
-		/* ~/.xiphos exists, but not ~/.config/xiphos: move. */
+		/* The legacy directory exists, but the current one does not: move. */
 		if (g_rename(old_gSwordDir, settings.gSwordDir) == 0) {
 			g_free(old_gSwordDir);
 		} else {
@@ -307,13 +329,17 @@ int settings_init(int argc, char **argv, int new_configs,
 
 	/* if gSwordDir does not exist, create it. */
 	if (g_access(settings.gSwordDir, F_OK) == -1) {
-		if ((Mkdir(settings.gSwordDir, S_IRWXU)) != 0) {
-			char msg[300];
+		gint directory_errno = 0;
+
+		if (startup_profile_ensure_directory(settings.gSwordDir,
+						     &directory_errno) != 0) {
+			gchar *msg = g_strdup_printf(
+				_("Biblia Elim cannot create directory %s:\n%s\n\n"
+				  "Biblia Elim cannot continue."),
+				settings.gSwordDir, g_strerror(directory_errno));
 			gui_init(argc, argv);
-			sprintf(msg, _("Xiphos can not create directory " XI_DIR
-				       ":\n%s\n\nXiphos cannot continue."),
-				strerror(errno));
 			gui_generic_warning_modal(msg);
+			g_free(msg);
 			/* if we can not create gSwordDir exit */
 			exit(1);
 		}
@@ -1086,6 +1112,11 @@ if (!settings.morph_heb_lex || strlen(settings.morph_heb_lex) == 0) {
 	}
 
 	/* font sizes */
+	zoom_state_init(&settings.zoom_state);
+	if ((buf = xml_get_value("fontsize", "surfacezoom"))) {
+		zoom_state_deserialize(&settings.zoom_state, buf);
+		g_free(buf);
+	}
 	if ((buf = xml_get_value("fontsize", "versenum"))) {
 		settings.verse_num_font_size_str = buf;
 		settings.verse_num_font_size = atoi(buf);

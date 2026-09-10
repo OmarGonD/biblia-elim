@@ -21,6 +21,7 @@
 #include "main/module_dialogs.h"
 #include "main/sword.h"
 #include "main/settings.h"
+#include "gui/panel_load_state.h"
 
 #include "wk-html.h"
 #include "wk-html-surface.h"
@@ -46,6 +47,21 @@ enum {
 
 static guint signals[LAST_SIGNAL] = {0};
 static GObjectClass *parent_class = NULL;
+static WkHtml *active_zoom_surface = NULL;
+static WkHtmlZoomObserver zoom_observer = NULL;
+static gpointer zoom_observer_data = NULL;
+
+static void
+notify_zoom_observer(void)
+{
+	ZoomSurface surface;
+
+	if (!zoom_observer)
+		return;
+	surface = zoom_state_active(&settings.zoom_state);
+	zoom_observer(surface, zoom_state_get(&settings.zoom_state, surface),
+		      zoom_observer_data);
+}
 
 static gboolean
 ui_load_trace_enabled(void)
@@ -63,9 +79,6 @@ ui_load_trace_enabled(void)
 static void
 ui_load_trace(WkHtml *html, const gchar *event)
 {
-	static gint64 origin_us;
-	gint64 now;
-
 	if (!ui_load_trace_enabled())
 		return;
 	/* Nested table-cell renderers are implementation details, not independent
@@ -73,12 +86,7 @@ ui_load_trace(WkHtml *html, const gchar *event)
 	 * startup trace, keeping diagnostics readable. */
 	if (!html->priv->surface_name)
 		return;
-	now = g_get_monotonic_time();
-	if (!origin_us)
-		origin_us = now;
-	g_printerr("[UI-LOAD] %s %s %.1fms\n",
-		   html->priv->surface_name ? html->priv->surface_name : "unnamed",
-		   event, (now - origin_us) / 1000.0);
+	panel_load_debug(html->priv->surface_name, event, NULL);
 }
 
 static void
@@ -216,6 +224,115 @@ static void wk_html_add_reading_font(GtkStyleContext *ctx);
 static void wk_html_add_scroll(WkHtml *html);
 static void wk_html_class_init(WkHtmlClass *klass);
 static void wk_html_init(WkHtml *html);
+
+static gboolean
+zoom_preserves_reading_anchor(ZoomSurface surface)
+{
+	return surface == ZOOM_SURFACE_BIBLE_MAIN ||
+	       surface == ZOOM_SURFACE_BIBLE_PARALLEL ||
+	       surface == ZOOM_SURFACE_BIBLE_COMPARE;
+}
+
+static gboolean
+is_content_anchor(const gchar *name)
+{
+	return name && *name && strcmp(name, "0") && strcmp(name, "0next") &&
+	       strcmp(name, "0hdr") && strcmp(name, "TOP");
+}
+
+/* Capture a logical verse, not the adjustment's current pixel value. Prefer
+ * the renderer's navigation anchor while it is visible; after manual scroll,
+ * retain the first visible verse instead. The saved y is relative to the
+ * viewport, so the same verse returns to the same reading position after its
+ * preceding text changes height. */
+static void
+capture_zoom_anchor(WkHtml *html)
+{
+	WkHtmlPrivate *priv = html->priv;
+	GdkRectangle visible;
+	Anchor *chosen = NULL;
+	GtkTextIter iter;
+	GdkRectangle location;
+	guint i;
+
+	if (!zoom_preserves_reading_anchor(priv->zoom_surface) ||
+	    wk_html_zoom_anchor_is_set(&priv->zoom_anchor) || !priv->view ||
+	    !gtk_widget_get_realized(GTK_WIDGET(priv->view)))
+		return;
+	gtk_text_view_get_visible_rect(priv->view, &visible);
+	if (visible.height <= 0)
+		return;
+
+	if (is_content_anchor(priv->anchor)) {
+		Anchor *current = g_hash_table_lookup(priv->anchor_ht, priv->anchor);
+		if (current && current->mark &&
+		    !gtk_text_mark_get_deleted(current->mark)) {
+			gtk_text_buffer_get_iter_at_mark(priv->buffer, &iter,
+						 current->mark);
+			gtk_text_view_get_iter_location(priv->view, &iter, &location);
+			if (location.y + location.height >= visible.y &&
+			    location.y < visible.y + visible.height)
+				chosen = current;
+		}
+	}
+
+	for (i = 0; !chosen && i < priv->anchor_list->len; i++) {
+		Anchor *candidate = g_ptr_array_index(priv->anchor_list, i);
+		if (!is_content_anchor(candidate->name) || !candidate->mark ||
+		    gtk_text_mark_get_deleted(candidate->mark))
+			continue;
+		gtk_text_buffer_get_iter_at_mark(priv->buffer, &iter,
+						 candidate->mark);
+		gtk_text_view_get_iter_location(priv->view, &iter, &location);
+		if (location.y + location.height >= visible.y &&
+		    location.y < visible.y + visible.height)
+			chosen = candidate;
+	}
+	if (!chosen)
+		return;
+
+	gtk_text_buffer_get_iter_at_mark(priv->buffer, &iter, chosen->mark);
+	gtk_text_view_get_iter_location(priv->view, &iter, &location);
+	wk_html_zoom_anchor_capture(&priv->zoom_anchor, chosen->name,
+				    location.y - visible.y);
+}
+
+/* GtkTextView's draw follows style invalidation and Pango reflow. Restoring
+ * here uses actual post-reflow geometry and requires neither a guessed delay
+ * nor a nested main-loop iteration. Clearing first makes the adjustment
+ * update/repaint reentrancy-safe. */
+static gboolean
+restore_zoom_anchor_after_draw(GtkWidget *widget, cairo_t *cr, gpointer data)
+{
+	WkHtml *html = WK_HTML(data);
+	WkHtmlPrivate *priv = html->priv;
+	Anchor *anchor;
+	GtkTextIter iter;
+	GdkRectangle location;
+	GtkAdjustment *adjustment;
+	gdouble value;
+
+	(void)widget;
+	(void)cr;
+	if (!wk_html_zoom_anchor_is_set(&priv->zoom_anchor))
+		return FALSE;
+	anchor = g_hash_table_lookup(priv->anchor_ht, priv->zoom_anchor.name);
+	if (!anchor || !anchor->mark || gtk_text_mark_get_deleted(anchor->mark)) {
+		wk_html_zoom_anchor_clear(&priv->zoom_anchor);
+		return FALSE;
+	}
+	gtk_text_buffer_get_iter_at_mark(priv->buffer, &iter, anchor->mark);
+	gtk_text_view_get_iter_location(priv->view, &iter, &location);
+	adjustment = gtk_scrollable_get_vadjustment(GTK_SCROLLABLE(priv->view));
+	value = wk_html_zoom_anchor_scroll_value(
+	    &priv->zoom_anchor, location.y,
+	    gtk_adjustment_get_lower(adjustment),
+	    gtk_adjustment_get_upper(adjustment),
+	    gtk_adjustment_get_page_size(adjustment));
+	wk_html_zoom_anchor_clear(&priv->zoom_anchor);
+	gtk_adjustment_set_value(adjustment, value);
+	return FALSE;
+}
 
 G_DEFINE_TYPE_WITH_PRIVATE(WkHtml, wk_html, GTK_TYPE_BOX)
 
@@ -983,16 +1100,16 @@ hr_fit(GtkWidget *view, GdkRectangle *alloc, GtkWidget *sep)
 	gtk_widget_set_size_request(sep, w, -1);
 }
 
-/* Shared by insert_hr() below and build_hr_cell() further down (a bare
- * <hr> that is a <table> cell's only content gets the same lean
- * separator, not a whole nested page -- see the comment on
- * cell_is_bare_hr()). */
+/* Common visual treatment for <hr>. Vertical spacing is deliberately not
+ * shared: an inline GtkTextView child-anchor gets its spacing from the text
+ * breaks around it, while a bare <hr> used as a GtkGrid cell may safely use
+ * widget margins. GtkTextView allocates an inline separator at its one-pixel
+ * line height, then GTK subtracts widget margins in adjust_allocation(); 3px
+ * above and below therefore turn a 1px allocation into -5px. */
 static void
 style_hr_separator(GtkWidget *sep, const char *color)
 {
 	gtk_widget_set_valign(sep, GTK_ALIGN_CENTER);
-	gtk_widget_set_margin_top(sep, 3);
-	gtk_widget_set_margin_bottom(sep, 3);
 	if (color && *color) {
 		GtkCssProvider *css = gtk_css_provider_new();
 		gchar *rule = g_strdup_printf(
@@ -1032,6 +1149,11 @@ insert_hr(ParseCtx *ctx, const char *color_attr)
 
 	sep = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
 	style_hr_separator(sep, color);
+	/* insert_break() before and after this child supplies the intended
+	 * vertical whitespace. Keep margins out of the one-pixel inline
+	 * allocation consumed by GtkTextView's child-anchor layout. */
+	gtk_widget_set_margin_top(sep, 0);
+	gtk_widget_set_margin_bottom(sep, 0);
 	place_child(ctx, sep);
 	g_signal_connect_object(GTK_WIDGET(ctx->html->priv->view), "size-allocate",
 				G_CALLBACK(hr_fit), sep, 0);
@@ -1169,6 +1291,10 @@ build_hr_cell(xmlNode *hr_node)
 	if (!color)
 		color = el_prop(hr_node, "bgcolor");
 	style_hr_separator(sep, color);
+	/* This separator is a GtkGrid cell rather than a GtkTextView inline
+	 * child, so its original 3px breathing room remains valid. */
+	gtk_widget_set_margin_top(sep, 3);
+	gtk_widget_set_margin_bottom(sep, 3);
 	g_free(color);
 	return sep;
 }
@@ -1652,19 +1778,36 @@ find_cache_clear(WkHtmlPrivate *priv)
 }
 
 static void
-apply_body_colors(WkHtml *html, const char *bg, const char *fg)
+apply_surface_style(WkHtml *html)
 {
 	gchar *css;
 	WkHtmlPrivate *priv = html->priv;
+	gint zoom = zoom_state_get(&settings.zoom_state, priv->zoom_surface);
 
 	if (!priv->css)
 		return;
 	css = g_strdup_printf(
-	    "textview, textview text { background-color: %s; color: %s; }",
-	    (bg && *bg) ? bg : "@theme_base_color",
-	    (fg && *fg) ? fg : "@theme_text_color");
+	    "textview { background-color: %s; color: %s; font-size: %d%%; } "
+	    "textview text { background-color: %s; color: %s; }",
+	    (priv->body_bg && *priv->body_bg) ? priv->body_bg : "@theme_base_color",
+	    (priv->body_fg && *priv->body_fg) ? priv->body_fg : "@theme_text_color",
+	    zoom,
+	    (priv->body_bg && *priv->body_bg) ? priv->body_bg : "@theme_base_color",
+	    (priv->body_fg && *priv->body_fg) ? priv->body_fg : "@theme_text_color");
 	gtk_css_provider_load_from_data(priv->css, css, -1, NULL);
 	g_free(css);
+}
+
+static void
+apply_body_colors(WkHtml *html, const char *bg, const char *fg)
+{
+	WkHtmlPrivate *priv = html->priv;
+
+	g_free(priv->body_bg);
+	g_free(priv->body_fg);
+	priv->body_bg = g_strdup(bg);
+	priv->body_fg = g_strdup(fg);
+	apply_surface_style(html);
 }
 
 /* Cambia cada hueco reservado por el ancla de widget que le toca. GTK no
@@ -2121,11 +2264,77 @@ wk_html_set_surface_name(WkHtml *html, const gchar *name)
 	g_return_if_fail(WK_HTML_IS_HTML(html));
 	g_free(html->priv->surface_name);
 	html->priv->surface_name = g_strdup(name && *name ? name : "unnamed");
+	html->priv->zoom_surface = zoom_surface_from_name(name);
+	if (html->priv->zoom_surface != ZOOM_SURFACE_INVALID) {
+		if (zoom_state_active(&settings.zoom_state) ==
+		    html->priv->zoom_surface)
+			active_zoom_surface = html;
+		apply_surface_style(html);
+	}
 	ui_load_trace(html, "CREATE");
 	if (html->priv->stack &&
 	    gtk_stack_get_visible_child(GTK_STACK(html->priv->stack)) ==
 		html->priv->loading_surface)
 		ui_load_trace(html, "PLACEHOLDER_VISIBLE");
+}
+
+void
+wk_html_set_zoom_observer(WkHtmlZoomObserver observer, gpointer user_data)
+{
+	zoom_observer = observer;
+	zoom_observer_data = user_data;
+	notify_zoom_observer();
+}
+
+static gboolean
+on_zoom_surface_focus(GtkWidget *widget, GdkEventFocus *event, gpointer data)
+{
+	WkHtml *html = WK_HTML(data);
+
+	(void)widget;
+	(void)event;
+	if (html->priv->zoom_surface != ZOOM_SURFACE_INVALID) {
+		active_zoom_surface = html;
+		zoom_state_set_active(&settings.zoom_state,
+				      html->priv->zoom_surface);
+		notify_zoom_observer();
+	}
+	return FALSE;
+}
+
+void
+wk_html_zoom(WkHtml *html, gboolean increase)
+{
+	g_return_if_fail(WK_HTML_IS_HTML(html));
+	if (html->priv->zoom_surface == ZOOM_SURFACE_INVALID)
+		return;
+	active_zoom_surface = html;
+	zoom_state_set_active(&settings.zoom_state, html->priv->zoom_surface);
+	capture_zoom_anchor(html);
+	main_settings_zoom_adjust(html->priv->zoom_surface,
+				  increase ? ZOOM_PERCENT_STEP
+					   : -ZOOM_PERCENT_STEP);
+	apply_surface_style(html);
+	notify_zoom_observer();
+}
+
+void
+wk_html_zoom_active(gboolean increase)
+{
+	if (active_zoom_surface)
+		wk_html_zoom(active_zoom_surface, increase);
+}
+
+void
+wk_html_zoom_active_reset(void)
+{
+	if (!active_zoom_surface)
+		return;
+	capture_zoom_anchor(active_zoom_surface);
+	main_settings_zoom_set(active_zoom_surface->priv->zoom_surface,
+			       ZOOM_PERCENT_DEFAULT);
+	apply_surface_style(active_zoom_surface);
+	notify_zoom_observer();
 }
 
 GtkTextView *
@@ -2541,6 +2750,11 @@ html_finalize(GObject *object)
 	g_free(priv->hover_uri);
 	g_free(priv->pending_word_uri);
 	g_free(priv->surface_name);
+	g_free(priv->body_bg);
+	g_free(priv->body_fg);
+	wk_html_zoom_anchor_clear(&priv->zoom_anchor);
+	if (active_zoom_surface == html)
+		active_zoom_surface = NULL;
 	if (priv->css)
 		g_object_unref(priv->css);
 	parent_class->finalize(object);
@@ -2557,6 +2771,8 @@ wk_html_init(WkHtml *html)
 	priv->anchor_ht = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, NULL);
 	priv->anchor_list = g_ptr_array_sized_new(128);
 	priv->links = g_array_sized_new(FALSE, FALSE, sizeof(Link), 256);
+	priv->zoom_surface = ZOOM_SURFACE_INVALID;
+	wk_html_zoom_anchor_init(&priv->zoom_anchor);
 	panel_load_model_init(&priv->load_model);
 
 	gtk_orientable_set_orientation(GTK_ORIENTABLE(html), GTK_ORIENTATION_VERTICAL);
@@ -2596,6 +2812,10 @@ wk_html_init(WkHtml *html)
 	g_signal_connect(priv->view, "motion-notify-event",
 			 G_CALLBACK(on_motion), html);
 	g_signal_connect(priv->view, "map", G_CALLBACK(on_renderer_map), html);
+	g_signal_connect_after(priv->view, "draw",
+			       G_CALLBACK(restore_zoom_anchor_after_draw), html);
+	g_signal_connect(priv->view, "focus-in-event",
+			 G_CALLBACK(on_zoom_surface_focus), html);
 
 	gtk_widget_show(GTK_WIDGET(priv->view));
 }

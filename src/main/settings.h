@@ -21,6 +21,8 @@
 #ifndef _SETTINGS_H_
 #define _SETTINGS_H_
 
+#include "main/zoom_state.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -28,6 +30,7 @@ extern "C" {
 typedef struct _settings SETTINGS;
 struct _settings
 {
+	ZoomState zoom_state; /* independent persistent zoom for named surfaces */
 	char *gs_version,	 /* Xiphos version */
 	    *path_to_mods,	/* one-time retrieval */
 	    *MainWindowModule,    /* module to open at program startup  */
@@ -264,6 +267,9 @@ struct _settings
 	/* if set, this is used for an anchor jump if possible */
 	char *special_anchor;
 };
+
+gint main_settings_zoom_set(ZoomSurface surface, gint percent);
+gint main_settings_zoom_adjust(ZoomSurface surface, gint delta);
 
 extern SETTINGS settings;
 

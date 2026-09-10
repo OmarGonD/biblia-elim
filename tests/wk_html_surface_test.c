@@ -124,12 +124,19 @@ main(int argc, char **argv)
 	gchar *stylesheet = NULL;
 	gchar *renderer = NULL;
 	gchar *startup = NULL;
+	gchar *main_window = NULL;
 	gchar *rule;
 	gchar *rule_end;
 	gchar *loading_rule;
 	gchar *loading_rule_end;
 	gchar *error_rule;
 	gchar *error_rule_end;
+	gchar *common_hr;
+	gchar *common_hr_end;
+	gchar *inline_hr;
+	gchar *inline_hr_end;
+	gchar *table_hr;
+	gchar *table_hr_end;
 	GError *error = NULL;
 	gboolean have_display;
 
@@ -148,6 +155,8 @@ main(int argc, char **argv)
 	CHECK(g_file_get_contents(SRCDIR "/src/webkit/wk-html.c", &renderer,
 				  NULL, NULL));
 	CHECK(g_file_get_contents(SRCDIR "/src/main/main.c", &startup,
+				  NULL, NULL));
+	CHECK(g_file_get_contents(SRCDIR "/src/gtk/main_window.c", &main_window,
 				  NULL, NULL));
 
 	rule = stylesheet ? strstr(stylesheet, "." WK_HTML_SURFACE_CLASS " {")
@@ -222,6 +231,51 @@ main(int argc, char **argv)
 		CHECK(strstr(renderer, "GDK_2BUTTON_PRESS") != NULL);
 		CHECK(strstr(renderer, "event->button == 3") != NULL);
 		CHECK(strstr(renderer, "activate_pending_word") != NULL);
+
+		/* GtkTextView gives an anchored horizontal separator its 1px line
+		 * allocation. Inline margins must therefore be zero: GTK subtracts
+		 * them during scroll adjustment, and the former 3+3 produced the
+		 * observed 1-3-3 == -5 allocation. Table-cell separators retain
+		 * their independent spacing because their parent is GtkGrid. */
+		common_hr = strstr(renderer, "static void\nstyle_hr_separator(");
+		common_hr_end = common_hr
+				    ? strstr(common_hr, "static void\ninsert_hr(")
+				    : NULL;
+		CHECK(common_hr != NULL);
+		CHECK(common_hr_end != NULL);
+		if (common_hr && common_hr_end) {
+			gchar *body = g_strndup(common_hr, common_hr_end - common_hr);
+			CHECK(strstr(body, "gtk_widget_set_margin_top") == NULL);
+			CHECK(strstr(body, "gtk_widget_set_margin_bottom") == NULL);
+			g_free(body);
+		}
+		inline_hr = strstr(renderer, "static void\ninsert_hr(");
+		inline_hr_end = inline_hr
+				    ? strstr(inline_hr, "static gboolean\ncell_is_bare_hr(")
+				    : NULL;
+		CHECK(inline_hr != NULL);
+		CHECK(inline_hr_end != NULL);
+		if (inline_hr && inline_hr_end) {
+			gchar *body = g_strndup(inline_hr, inline_hr_end - inline_hr);
+			CHECK(strstr(body, "gtk_separator_new(GTK_ORIENTATION_HORIZONTAL)") != NULL);
+			CHECK(strstr(body, "gtk_widget_set_margin_top(sep, 0)") != NULL);
+			CHECK(strstr(body, "gtk_widget_set_margin_bottom(sep, 0)") != NULL);
+			CHECK(strstr(body, "gtk_widget_set_margin_top(sep, 3)") == NULL);
+			CHECK(strstr(body, "gtk_widget_set_margin_bottom(sep, 3)") == NULL);
+			g_free(body);
+		}
+		table_hr = strstr(renderer, "static GtkWidget *\nbuild_hr_cell(");
+		table_hr_end = table_hr
+				   ? strstr(table_hr, "static GtkWidget *\nbuild_table_cell(")
+				   : NULL;
+		CHECK(table_hr != NULL);
+		CHECK(table_hr_end != NULL);
+		if (table_hr && table_hr_end) {
+			gchar *body = g_strndup(table_hr, table_hr_end - table_hr);
+			CHECK(strstr(body, "gtk_widget_set_margin_top(sep, 3)") != NULL);
+			CHECK(strstr(body, "gtk_widget_set_margin_bottom(sep, 3)") != NULL);
+			g_free(body);
+		}
 	}
 	if (startup) {
 		const gchar *theme = strstr(startup, "gui_elim_tema_init();");
@@ -234,6 +288,36 @@ main(int argc, char **argv)
 		if (theme && window)
 			CHECK(theme < window);
 	}
+	if (main_window) {
+		const gchar *book_create =
+		    strstr(main_window, "box_book = gui_create_book_pane();");
+		const gchar *book_no_show = book_create
+					      ? strstr(book_create,
+						       "gtk_widget_set_no_show_all(box_book, TRUE);")
+					      : NULL;
+		const gchar *book_hide = book_create
+					   ? strstr(book_create,
+						    "gtk_widget_hide(box_book);")
+					   : NULL;
+		const gchar *book_pack = book_create
+					   ? strstr(book_create,
+						    "gtk_box_pack_start(GTK_BOX(vbox_gs), box_book,")
+					   : NULL;
+
+		/* The backend-only general-book renderer is still explicitly realized
+		 * during startup.  Its pane must therefore have a toplevel ancestry,
+		 * while remaining immune to the window's show_all(). */
+		CHECK(book_create != NULL);
+		CHECK(book_no_show != NULL);
+		CHECK(book_hide != NULL);
+		CHECK(book_pack != NULL);
+		if (book_create && book_no_show && book_hide && book_pack) {
+			CHECK(book_create < book_no_show);
+			CHECK(book_no_show < book_hide);
+			CHECK(book_hide < book_pack);
+		}
+		CHECK(strstr(main_window, "g_object_ref(box_book);") == NULL);
+	}
 	if (have_display)
 		check_panel_contract();
 	else
@@ -241,6 +325,7 @@ main(int argc, char **argv)
 
 	g_free(renderer);
 	g_free(startup);
+	g_free(main_window);
 	g_free(stylesheet);
 	g_object_unref(provider);
 	printf("wk_html_surface_failures=%d\n", failures);

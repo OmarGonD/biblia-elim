@@ -61,6 +61,9 @@ add_library (main
   search_dialog.cc
   search_sidebar.cc
   settings.c
+  startup_profile.c
+  startup_diagnostics.cc
+  zoom_state.c
   sidebar.cc
 	strong_interaction.cc
 	strong_ui.cc

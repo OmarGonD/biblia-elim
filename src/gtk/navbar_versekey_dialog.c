@@ -37,6 +37,7 @@
 #include "main/url.hh"
 
 #include "gui/debug_glib_null.h"
+#include "navbar_entry_reference.h"
 
 /******************************************************************************
  * Name
@@ -302,25 +303,25 @@ static gboolean select_verse_button_press_callback(GtkWidget *widget,
 static void on_entry_activate(GtkEntry *entry, DIALOG_DATA *dialog)
 {
 	const gchar *buf = gtk_entry_get_text(entry);
+	NavbarEntryReference reference;
 	if (buf == NULL)
 		return;
-	/* handle potential subsection anchor */
-	if ((settings.special_anchor = strchr(buf, '#')) || /* thml */
-	    (settings.special_anchor = strchr(buf, '!')))   /* osisref */
-		*settings.special_anchor = '\0';
-	gchar *gkey = main_get_valid_key(dialog->mod_name, buf);
+	reference = navbar_entry_reference_parse(buf);
+	settings.special_anchor = reference.anchor;
+	gchar *gkey = main_get_valid_key(dialog->mod_name, reference.key);
 
 	// we got a valid key. but was it really a valid key within v11n?
 	// for future use in determining whether to show normal navbar content.
 	dialog->navbar.valid_key =
 	    main_is_Bible_key(dialog->mod_name, gkey);
 
-	if (settings.special_anchor)
-		*settings.special_anchor = '#'; /* put it back. */
-	if (gkey == NULL)
+	if (gkey == NULL) {
+		settings.special_anchor = NULL;
+		navbar_entry_reference_clear(&reference);
 		return;
+	}
 	gchar *url = g_strdup_printf("sword:///%s%s", gkey,
-				     (settings.special_anchor ? settings.special_anchor : ""));
+				     reference.anchor ? reference.anchor : "");
 
 	dialog->navbar.module_name =
 	    g_string_assign(dialog->navbar.module_name, dialog->mod_name);
@@ -331,6 +332,8 @@ static void on_entry_activate(GtkEntry *entry, DIALOG_DATA *dialog)
 
 	g_free(url);
 	g_free(gkey);
+	settings.special_anchor = NULL;
+	navbar_entry_reference_clear(&reference);
 }
 
 /******************************************************************************
