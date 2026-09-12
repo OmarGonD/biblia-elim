@@ -64,6 +64,7 @@ add_library (main
   startup_profile.c
   startup_diagnostics.cc
   zoom_state.c
+  font_size.c
   sidebar.cc
 	strong_interaction.cc
 	strong_ui.cc

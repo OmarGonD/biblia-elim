@@ -725,6 +725,7 @@ void main_update_parallel_page(void)
 			}
 
 			MOD_FONT *mf = get_font(mod_name);
+			apply_bible_body_font(mf);
 			gchar *fontstring = g_strdup_printf((((strlen(mf->old_font) < 2) ||
 							      !strncmp(mf->old_font, "none", 4))
 							     ? "<font size=\"%+d\">"
@@ -880,6 +881,7 @@ static void interpolate_parallel_display(SWModule *control,
 		if (is_module[modidx]) {
 			is_rtol[modidx] = main_is_mod_rtol(mod);
 			mf[modidx] = get_font(mod);
+			apply_bible_body_font(mf[modidx]);
 			is_bible_text[modidx] =
 			    (main_get_mod_type(mod) == TEXT_TYPE);
 		} else {

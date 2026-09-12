@@ -1689,6 +1689,302 @@
     - Change backend, schema, or importers.
     - Commit or push.
 
+- [x] UI-WIDTH-101 Diagnose unused reading-panel width for SpaPlatense versus SpaRV
+  - Status: DONE
+  - Objective:
+    Determine, with runtime measurements, the exact cause of the apparently
+    reduced reading width for SWORD module SpaPlatense in the main reading
+    panel, using SpaRV as the control. Do not implement a fix until the
+    first differing layer and the root cause are demonstrated. This task is
+    independent of STARTUP-PERF-105.
+  - Symptom:
+    - SpaPlatense does not appear to use the full available width of the
+      main reading panel.
+    - SpaRV renders at the expected width.
+    - The problem is visual and occurs in prose as well as poetry.
+  - Required comparison case:
+    - SpaPlatense → Hechos 1
+    - SpaRV → Hechos 1
+    - Use Hechos 1:2 as the GtkTextBuffer probe position for tags and
+      effective attributes.
+  - Rendering pipeline to verify in source (do not assume exact lines):
+    GTKChapDisp::display()
+    → HtmlOutput(...)
+    → XiphosHtml / WkHtml
+    → wk_html_open_stream()
+    → wk_html_write()
+    → wk_html_close()
+    → load_html()
+    → xmlReadMemory()
+    → walk_node()
+    → ctx_append()
+    → record_style_spans()
+    → spans_apply()
+    → GtkTextBuffer
+    → GtkTextView
+    Likely files: `src/main/display.cc`, `src/gtk/utilities.c`,
+    `src/webkit/wk-html.c`. Also inspect `src/gtk/main_window.c` for
+    `reading_mode_apply_measure()`. Confirm the real chain with search;
+    do not treat this outline as line-accurate.
+  - Previously fixed poetry bug — do not reopen:
+    A different earlier bug involved invalid OSIS poetry HTML. SWORD could
+    return `BibleVerseContent.headings` containing
+    `<span class="line indent0">` and `BibleVerseContent.renderedText`
+    containing `Texto...</span><br />`, which became invalid when wrapped
+    in `<p class="verse">`. That was already fixed by
+    `normalize_poetry_carry(BibleVerseContent &content)`, which normalizes
+    `BibleVerseContent` after `getVerseContent()`. Nine `getVerseContent()`
+    call sites in `display.cc` were adapted. It was verified that:
+    - `<span class="line..."><p class="verse">` no longer occurs;
+    - `</p><span class="line..."><p class="verse">` no longer occurs;
+    - first and second renders produce identical HTML;
+    - the cache stores the normalized content.
+    Therefore do NOT modify `normalize_poetry_carry()`, SWORD, OSIS,
+    `prepare_display_content()`, `CleanupContent()`, module `.conf` files,
+    or module CSS unless new incontrovertible evidence appears. Do not use
+    SpaPlatense-specific hacks.
+  - Width bug is not poetry-only:
+    The unused-width problem is also observed in prose. SpaPlatense
+    Hechos 1 produces ordinary verses such as
+    `<p class="verse">` ... long prose text ... `</p>` without
+    `class="line"`. Poetic `<br />` line breaks therefore do not explain
+    the general problem.
+  - Static findings to confirm, not assume blindly:
+    1. `HtmlOutput` is probably in `src/gtk/utilities.c`.
+    2. `WkHtml` is probably in `src/webkit/wk-html.c`.
+    3. `WkHtml` creates a `GtkTextView`.
+    4. The `GtkTextView` uses `GTK_WRAP_WORD_CHAR`.
+    5. Global side margins are near 14 px (`NORMAL_SIDE_MARGIN`).
+    6. `<p>` is processed as a block and produces paragraph breaks.
+    7. `class="verse"` apparently does not create a special GtkTextTag.
+    8. The parser interprets some styles as: bold, italic, underline,
+       strike, sup, sub, small, big, center, right, family, scale.
+    9. `text-align: justify` is apparently not implemented by WkHtml.
+    10. `<font size="...">` is transformed into scale.
+    11. `reading_mode_apply_measure()` can change side margins dynamically
+        and MUST be investigated.
+  - Existing incomplete instrumentation in the working tree:
+    A previous session may already have temporary `g_printerr` probes in
+    `GTKChapDisp::display()` (runtime width / visible rect / margins /
+    verse-2 line geometry / tag dump) and in
+    `reading_mode_apply_measure()` (`[READING MEASURE]`). Those probes
+    print to stderr, are incomplete versus the required metrics below, and
+    must not be treated as finished diagnosis. Reuse and complete them;
+    prefer a stable log file over stderr; remove all temporary probes
+    before DONE unless a permanent test is justified.
+  - Technical goal:
+    Do not stop at static analysis. Discover with runtime measurements the
+    FIRST layer where SpaPlatense and SpaRV diverge:
+    - A. GtkTextView / container global geometry
+    - B. effective GtkTextTags and attributes
+    - C. HtmlOutput / WkHtml parser
+    - D. real module HTML
+  - Subtask 1 — locate the real implementation:
+    Run searches equivalent to:
+    `rg -n '(^|[^A-Za-z_])HtmlOutput\s*(' src`
+    `rg -n 'wk_html_open_stream|wk_html_write|wk_html_close|load_html|walk_node|ctx_append|record_style_spans|spans_apply' src`
+    Document the real chain through GtkTextBuffer / GtkTextView.
+  - Subtask 2 — global runtime metrics:
+    For SpaPlatense Hechos 1 and SpaRV Hechos 1, instrument temporarily
+    and obtain REAL values of:
+    `gtk_widget_get_allocated_width()`, `gtk_widget_get_allocated_height()`,
+    `gtk_text_view_get_left_margin()`, `gtk_text_view_get_right_margin()`,
+    `gtk_text_view_get_top_margin()`, `gtk_text_view_get_bottom_margin()`,
+    `gtk_text_view_get_indent()`, `gtk_text_view_get_wrap_mode()`,
+    `gtk_text_view_get_justification()`, and
+    `gtk_text_view_get_visible_rect()` including
+    `visible.x`, `visible.y`, `visible.width`, `visible.height`.
+    Also measure the immediate parent, GtkScrolledWindow, and the
+    relevant viewport/container. Do not accept values inferred from
+    source; they must come from runtime.
+  - Subtask 3 — `reading_mode_apply_measure()`:
+    Search `rg -n 'reading_mode_apply_measure' src`. Determine definition,
+    call sites, when it activates, target-width calculation, margin
+    calculation, font dependence, and behavior when switching modules.
+    Instrument temporarily:
+    `[READING MEASURE]`
+    `module=`
+    `enabled=`
+    `widget_width=`
+    `target_width=`
+    `left_margin_before=`
+    `right_margin_before=`
+    `left_margin_after=`
+    `right_margin_after=`
+    `font=`
+    `font_size=`
+    Also record `settings.reading_mode`, `settings.reading_compare`, and
+    `settings.render_whole_books`.
+  - Subtask 4 — real GtkTextTags:
+    In the GtkTextBuffer, find a position inside Hechos 1:2 for
+    SpaPlatense and SpaRV. Use `gtk_text_iter_get_tags()`. For each
+    active GtkTextTag obtain, when applicable: name, priority,
+    left-margin-set/left-margin, right-margin-set/right-margin,
+    indent-set/indent, justification-set/justification,
+    wrap-mode-set/wrap-mode, pixels-above-lines-set/pixels-above-lines,
+    pixels-below-lines-set/pixels-below-lines,
+    pixels-inside-wrap-set/pixels-inside-wrap, scale-set/scale,
+    family-set/family, size-set/size, rise-set/rise. Report both
+    modules side by side.
+  - Subtask 5 — effective attributes:
+    Obtain effective attributes of the GtkTextIter via the available GTK
+    API, for example `gtk_text_iter_get_attributes()`. Compare family,
+    size, scale, left_margin, right_margin, indent, justification, and
+    wrap_mode for SpaPlatense Hechos 1:2 versus SpaRV Hechos 1:2.
+  - Subtask 6 — real line geometry:
+    For at least 3 long visual lines of each module, use GtkTextView
+    display-line APIs: `gtk_text_view_backward_display_line_start()`,
+    `gtk_text_view_forward_display_line_end()`,
+    `gtk_text_view_get_iter_location()`. Measure `visible_width`,
+    `line_start_x`, `line_end_x`, `line_width`, and
+    `remaining_right_space = visible.x + visible.width - line_end_x`.
+    Quantify whether SpaPlatense actually leaves hundreds of unused
+    pixels.
+  - Subtask 7 — identical direct-text control:
+    Create a TEMPORARY test in the same GtkTextView: clear the buffer
+    temporarily, insert the same long untagged string several times, for
+    example "Este es un texto de control destinado exclusivamente a medir
+    el ancho de representación del GtkTextView. Este mismo texto debe
+    aparecer exactamente igual independientemente del módulo
+    seleccionado. " Run with SpaPlatense selected and with SpaRV
+    selected. Remeasure `visible_width`, `line_start_x`, `line_end_x`,
+    `remaining_right_space`. Then revert this test.
+  - Subtask 8 — identical HTML control:
+    Create identical minimal temporary HTML:
+    `<html><body><p>texto largo idéntico repetido...</p></body></html>`
+    Pass it through `HtmlOutput()` for both SpaPlatense and SpaRV.
+    Measure visible_width, line geometry, tags, and effective
+    attributes. Compare A. direct text, B. minimal HTML, C. real HTML.
+    The FIRST layer where the difference appears is the most important.
+  - Subtask 9 — state leakage:
+    Sequence A: SpaRV Hechos 1 → SpaPlatense Hechos 1 → SpaRV Hechos 1.
+    Sequence B after restart: SpaPlatense Hechos 1 → SpaRV Hechos 1 →
+    SpaPlatense Hechos 1. Compare margins, visible_width, font, scale,
+    tags, and line geometry. Determine whether the result depends on
+    navigation order.
+  - Subtask 10 — HTML element handling:
+    Confirm exactly how `<p>`, `<p class="verse">`, `<div dir=ltr>`,
+    `<font>`, `<br>`, and `body { text-align: justify; }` are processed.
+    Do not assume they are guilty. In particular demonstrate whether
+    `dir=ltr` creates Pango/GTK state, whether justify is implemented,
+    and whether font-family/scale changes logical width or only wrap.
+  - Restrictions:
+    Do not apply as a solution without evidence: `width:100%`, removing
+    `dir=ltr`, resetting margins to 0, changing font, changing CSS, or a
+    SpaPlatense-specific hack. No trial-and-error. The root cause must
+    be backed by measurements.
+  - No graphical session:
+    If GTK runtime tests cannot run because no real graphical session is
+    available, do not invent results. Instead:
+    1. implement only the necessary instrumentation;
+    2. compile it;
+    3. leave the changes prepared;
+    4. generate a reproducible script/command for the user to run the app;
+    5. state exactly where logs will be written;
+    6. leave this task unchecked with `Status: BLOCKED` (the loop
+       recognizes only PENDING, BLOCKED, or DONE; do not invent another
+       status name);
+    7. in Evidence, record the attempted action, the concrete display
+       error, the exact user command, the log path, and the exact output
+       the user must provide;
+    8. end the agent response with `BLOCKED:` plus the reason.
+    When those logs exist, the next execution of this SAME task must
+    resume from Evidence and analyze the logs without starting over.
+  - Artifacts / logs:
+    `/tmp/SpaPlatense-final-after-fix.html` may already exist. Do not
+    delete it until this investigation is finished. Prefer writing
+    instrumentation to a stable file such as
+    `/tmp/biblia-width-debug.log` and document that path in Evidence.
+  - Resume protocol:
+    On every execution, read this entire task block including Evidence
+    first. If `/tmp/biblia-width-debug.log` or equivalent documented logs
+    already exist, analyze them before adding more probes. Continue
+    unfinished subtasks. Implement a fix only after the root cause is
+    proven. After a BLOCKED wait for user data, resume this same task
+    rather than creating a new one.
+  - Acceptance criteria:
+    This task may be marked DONE only when evidence answers:
+    1. Does GtkTextView have the same available width for SpaPlatense
+       and SpaRV?
+    2. Are the global margins equal?
+    3. Does reading_mode alter one of the modules?
+    4. Do the effective GtkTextTags differ?
+    5. Does identical direct text use the same width?
+    6. Does identical minimal HTML use the same width?
+    7. At which first layer does the difference appear?
+    8. How many px of remaining_right_space does each module leave?
+    9. Is there state leakage?
+    10. What is the root cause?
+    11. Which file/function must be corrected?
+    12. What is the appropriate minimal fix?
+    Only AFTER proving the root cause may the agent implement the
+    minimal fix. After the fix: compile; run available tests; repeat
+    measurements; demonstrate that SpaPlatense uses the width correctly;
+    confirm SpaRV has no regression; remove temporary instrumentation;
+    keep only justified permanent tests/instrumentation.
+  - Relevant tests:
+    - `wk_html_surface_test`
+    - `panel_load_state_test`
+    - any focused renderer/layout regression added for the proven cause
+    - target `biblia-elim`
+    - full default build
+    - `git diff --check`
+    - real-display comparison of SpaPlatense Hechos 1 versus SpaRV
+      Hechos 1
+  - Do not:
+    - Reopen the already-fixed OSIS poetry HTML bug.
+    - Modify `normalize_poetry_carry()`, SWORD, OSIS,
+      `prepare_display_content()`, `CleanupContent()`, module `.conf`
+      files, or module CSS without new incontrovertible evidence.
+    - Apply `width:100%`, remove `dir=ltr`, zero margins, change font,
+      change CSS, or add a SpaPlatense-specific hack without
+      measurements.
+    - Invent GTK runtime numbers when no display is available.
+    - Start STARTUP-PERF-105 or any other TASKS.md task in the same
+      execution.
+    - Commit or push.
+  - Evidence:
+    - Real chain confirmed: `GTKChapDisp::display()` → `HtmlOutput()`
+      (`src/gtk/utilities.c`) → `wk_html_open_stream/write/close` →
+      `load_html()` → `walk_node()` → `spans_apply()` → `GtkTextBuffer` /
+      `GtkTextView` (`GTK_WRAP_WORD_CHAR`, `VIEW_SIDE_PAD`/`NORMAL_SIDE_MARGIN`
+      = 14). `reading_mode_apply_measure()` only widens side margins when
+      `settings.reading_mode` is on; it is module-agnostic.
+    - Runtime Hechos 1:2 comparison (`scripts/ui-width-101-measure.sh`,
+      logs `/tmp/biblia-width-debug.log`, HTML dumps
+      `/tmp/biblia-width-{SpaPlatense,SpaRV}.html`):
+      1. Same available width: view/scroller allocated 817×363 (normal) and
+         1718×718 (reading mode) for both modules.
+      2. Global margins equal: 14/14 with reading_mode=0; 496/496 with
+         reading_mode=1 (cpl=100, width_pct=90).
+      3. reading_mode does not alter one module differently; both share the
+         same measure path and font sample.
+      4. Effective tags at verse 2 match (small, ff:Serif, sz≈0.833, fg,
+         curverse); no left/right-margin or indent tags.
+      5. Identical direct text: remaining_right_space 21/26/39 for both.
+      6. Identical minimal HTML: same remaining 21/26/39 for both.
+      7. First differing layer is D (real module HTML / content structure),
+         not A/B/C. SpaPlatense emits section `<h3 class="title">` headings
+         and more paragraph boundaries; SpaRV has `Feature=NoParagraphs`
+         continuous prose. Long prose lines fill equally.
+      8. Long prose remaining ≈20–120 px (wrap remainder) for both; short
+         heading/paragraph-end lines leave 600+ px because the content is
+         short, not because the view is narrower.
+      9. No state leakage across SpaRV↔SpaPlatense relaunches; controls and
+         margins stay identical.
+      10. Root cause: apparent unused width is SpaPlatense content structure
+          (headings + paragraph ends + poetic `<l>` line breaks elsewhere),
+          not a GtkTextView/margin/parser width bug.
+      11. No production file/function requires a width fix.
+      12. Appropriate minimal fix: none. Temporary probes removed; permanent
+          `reading_width_contract_test` locks the geometry contract; measure
+          script retained for reruns.
+    - `reading_width_contract_test`: PASS (`reading_width_contract_failures=0`;
+      prose remaining=19, heading remaining=605 with margins unchanged).
+    - `panel_load_state_test`, `wk_html_surface_test`: PASS.
+    - target `biblia-elim` and full default build: PASS.
+    - `git diff --check`: PASS.
+
 - [x] STARTUP-PERF-105 Attribute and reduce remaining GTK event-drain cost
   - Status: DONE
   - Objective:

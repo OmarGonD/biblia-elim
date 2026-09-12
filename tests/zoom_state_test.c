@@ -61,25 +61,33 @@ main(void)
 	zoom_state_set_active(&state, ZOOM_SURFACE_BIBLE_MAIN);
 	CHECK(zoom_state_get(&state, ZOOM_SURFACE_BIBLE_MAIN) == 125);
 
+	/* In-session bible-main may be 125, but persistence always records 100%
+	 * so the next launch starts at the shared baseline. */
+	CHECK(zoom_surface_session_local(ZOOM_SURFACE_BIBLE_MAIN));
+	CHECK(!zoom_surface_session_local(ZOOM_SURFACE_COMMENTARY));
 	serialized = zoom_state_serialize(&state);
-	CHECK(strstr(serialized, "bible-main=125") != NULL);
+	CHECK(strstr(serialized, "bible-main=100") != NULL);
+	CHECK(strstr(serialized, "bible-main=125") == NULL);
 	CHECK(strstr(serialized, "bible-parallel=100") != NULL);
 	CHECK(strstr(serialized, "commentary=120") != NULL);
 	CHECK(strstr(serialized, "dictionary=95") != NULL);
 	CHECK(strstr(serialized, "lower-previewer=105") != NULL);
+	/* Live session value is unchanged by serialize. */
+	CHECK(zoom_state_get(&state, ZOOM_SURFACE_BIBLE_MAIN) == 125);
 	zoom_state_deserialize(&restored, serialized);
-	CHECK(zoom_state_get(&restored, ZOOM_SURFACE_BIBLE_MAIN) == 125);
+	CHECK(zoom_state_get(&restored, ZOOM_SURFACE_BIBLE_MAIN) == 100);
 	CHECK(zoom_state_get(&restored, ZOOM_SURFACE_COMMENTARY) == 120);
 	CHECK(zoom_state_get(&restored, ZOOM_SURFACE_DICTIONARY) == 95);
 	g_free(serialized);
 
 	/* Missing/old configuration uses safe defaults. Unknown future keys are
-	 * ignored by this version; malformed values do not overwrite defaults. */
+	 * ignored by this version; malformed values do not overwrite defaults.
+	 * A persisted bible-main=999 must not survive deserialize. */
 	zoom_state_deserialize(&restored, NULL);
 	CHECK(zoom_state_get(&restored, ZOOM_SURFACE_BIBLE_MAIN) == 100);
 	zoom_state_deserialize(&restored,
 		"bible-main=999;commentary=-20;dictionary=nope;future=175");
-	CHECK(zoom_state_get(&restored, ZOOM_SURFACE_BIBLE_MAIN) == 300);
+	CHECK(zoom_state_get(&restored, ZOOM_SURFACE_BIBLE_MAIN) == 100);
 	CHECK(zoom_state_get(&restored, ZOOM_SURFACE_COMMENTARY) == 50);
 	CHECK(zoom_state_get(&restored, ZOOM_SURFACE_DICTIONARY) == 100);
 	CHECK(zoom_surface_from_name("future") == ZOOM_SURFACE_INVALID);

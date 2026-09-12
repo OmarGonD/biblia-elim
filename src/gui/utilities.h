@@ -66,6 +66,15 @@ gchar *gui_general_user_file(const char *fname, gboolean critical);
 void gui_load_module_tree(GtkWidget *tree, gboolean limited);
 MOD_FONT *get_font(const gchar *mod_name);
 void free_font(MOD_FONT *mf);
+/* Common body size for Bible panes (main/parallel/compare/print): Default
+ * Fontsize + global base bias. Ignores per-module Fontsize so zoom alone
+ * owns the effective size. */
+int bible_body_font_size_value(void);
+/* Default Font family from fonts.conf (or "" to inherit the reading face). */
+gchar *bible_body_font_family(void);
+/* After get_font(): replace per-module Font + Fontsize with the shared
+ * Bible body baseline so switching modules does not change optical size. */
+void apply_bible_body_font(MOD_FONT *mf);
 gchar *remove_linefeeds(gchar *buf);
 void gui_add_mods_to_menus(GList *modlist, gchar *menu,
 			   GCallback callback);

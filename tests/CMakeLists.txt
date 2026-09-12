@@ -248,6 +248,43 @@ target_include_directories (navbar_entry_reference_test PRIVATE
 target_link_libraries (navbar_entry_reference_test PRIVATE
   PkgConfig::Core)
 
+add_executable (reading_width_contract_test
+  EXCLUDE_FROM_ALL
+  reading_width_contract_test.c
+  )
+
+target_include_directories (reading_width_contract_test
+  PRIVATE
+  PkgConfig::Gtk
+  )
+
+target_link_libraries (reading_width_contract_test
+  PRIVATE
+  PkgConfig::Gtk
+  )
+
+add_executable (font_size_contract_test
+  EXCLUDE_FROM_ALL
+  font_size_contract_test.c
+  ${PROJECT_SOURCE_DIR}/src/main/font_size.c
+  )
+
+target_compile_definitions (font_size_contract_test
+  PRIVATE
+  SRCDIR="${PROJECT_SOURCE_DIR}"
+  )
+
+target_include_directories (font_size_contract_test
+  PRIVATE
+  ${PROJECT_SOURCE_DIR}/src
+  PkgConfig::Core
+  )
+
+target_link_libraries (font_size_contract_test
+  PRIVATE
+  PkgConfig::Core
+  )
+
 add_executable (wk_html_surface_test
   EXCLUDE_FROM_ALL
   wk_html_surface_test.c

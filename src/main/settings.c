@@ -1116,6 +1116,9 @@ if (!settings.morph_heb_lex || strlen(settings.morph_heb_lex) == 0) {
 	if ((buf = xml_get_value("fontsize", "surfacezoom"))) {
 		zoom_state_deserialize(&settings.zoom_state, buf);
 		g_free(buf);
+		/* Normalize disk: bible-main is session-local and must not
+		 * remain at a previous session's percent in settings.xml. */
+		store_zoom_state();
 	}
 	if ((buf = xml_get_value("fontsize", "versenum"))) {
 		settings.verse_num_font_size_str = buf;

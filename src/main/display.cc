@@ -2940,6 +2940,9 @@ GTKChapDisp::display(SWModule &imodule)
 
 	is_rtol = main_is_mod_rtol(ModuleName);
 	mf = get_font(ModuleName);
+	/* Zoom owns size; Default owns family. Per-module Font/Fontsize
+	 * must not change optical body size when switching Bibles. */
+	apply_bible_body_font(mf);
 
 	strongs_and_morph = ((ops->strongs || ops->lemmas) &&
 			     ops->morphs);
@@ -3274,6 +3277,7 @@ DialogChapDisp::display(SWModule &imodule)
 
 	is_rtol = main_is_mod_rtol(ModuleName);
 	mf = get_font(ModuleName);
+	apply_bible_body_font(mf);
 
 	strongs_and_morph = ((ops->strongs || ops->lemmas) &&
 			     ops->morphs);
@@ -3558,6 +3562,7 @@ GTKPrintChapDisp::display(SWModule &imodule)
 	GLOBAL_OPS *ops = main_new_globals(imodule.getName());
 	gboolean is_rtol = main_is_mod_rtol(imodule.getName());
 	mf = get_font(imodule.getName());
+	apply_bible_body_font(mf);
 
 	swbuf = "";
 

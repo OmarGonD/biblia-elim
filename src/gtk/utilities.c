@@ -52,7 +52,9 @@
 #include "main/mod_mgr.h"
 #include "main/settings.h"
 #include "main/configs.h"
+#include "main/font_size.h"
 #include "main/sword.h"
+/* bible_body_font_size_value() lives below get_font(). */
 #include "main/url.hh"
 #include "main/xml.h"
 #include "gui/bookmarks_treeview.h"
@@ -1473,16 +1475,33 @@ MOD_FONT *get_font(const gchar *mod_name)
 	 * el texto casi el doble de grande. Un número sin signo a partir de
 	 * ocho no puede ser un paso ni un tamaño HTML (que llega hasta 7):
 	 * es uno de aquellos cuerpos, y se convierte a la diferencia contra
-	 * los doce puntos que toma como base font_size_scale(). */
-	if (mf->old_font_size) {
-		const gchar *v = mf->old_font_size;
-		int n = atoi(v);
+	 * los doce puntos que toma como base html_font_size_scale(). */
+	mf->old_font_size_value =
+	    mod_font_size_steps(mf->old_font_size, settings.base_font_size);
 
-		if ((v[0] != '+') && (v[0] != '-') && (n >= 8))
-			n -= 12;
-		mf->old_font_size_value = n + settings.base_font_size;
-	} else
-		mf->old_font_size_value = settings.base_font_size;
+	if (g_getenv("BIBLIA_ELIM_FONT_DEBUG") &&
+	    !g_strcmp0(g_getenv("BIBLIA_ELIM_FONT_DEBUG"), "1")) {
+		gint zoom = zoom_state_get(&settings.zoom_state,
+					   ZOOM_SURFACE_BIBLE_MAIN);
+		gchar size_attr[16];
+		gdouble scale;
+
+		g_snprintf(size_attr, sizeof(size_attr), "%+d",
+			   mf->old_font_size_value);
+		scale = html_font_size_scale(size_attr);
+		g_printerr(
+		    "[FONT DEBUG get_font] module=%s configured_font=%s "
+		    "configured_font_size=%s old_font=%s old_font_size_value=%d "
+		    "base_font_size=%d global_zoom=%d html_size_attr=%s "
+		    "font_size_scale=%.6f\n",
+		    mod_name ? mod_name : "(null)",
+		    (mf->old_font && *mf->old_font) ? mf->old_font : "(null)",
+		    (mf->old_font_size && *mf->old_font_size) ? mf->old_font_size
+							     : "(null)",
+		    (mf->old_font && *mf->old_font) ? mf->old_font : "(null)",
+		    mf->old_font_size_value, settings.base_font_size, zoom,
+		    size_attr, scale);
+	}
 
 	return mf;
 }
@@ -1511,6 +1530,68 @@ void free_font(MOD_FONT *mf)
 	if (mf->old_font_size)
 		g_free(mf->old_font_size);
 	g_free(mf);
+}
+
+int
+bible_body_font_size_value(void)
+{
+	static gchar *file = NULL;
+	gchar *defsz;
+	int value;
+
+	if (file == NULL)
+		file = g_strdup_printf("%s/fonts.conf", settings.gSwordDir);
+	defsz = get_conf_file_item(file, "Default", "Fontsize");
+	value = bible_body_font_size_steps(defsz, settings.base_font_size);
+	if (g_getenv("BIBLIA_ELIM_FONT_DEBUG") &&
+	    !g_strcmp0(g_getenv("BIBLIA_ELIM_FONT_DEBUG"), "1")) {
+		gchar attr[16];
+		g_snprintf(attr, sizeof(attr), "%+d", value);
+		g_printerr(
+		    "[FONT DEBUG bible_body] default_fontsize=%s "
+		    "base_font_size=%d body_size_value=%d html_size_attr=%s "
+		    "font_size_scale=%.6f\n",
+		    (defsz && *defsz) ? defsz : "+0", settings.base_font_size,
+		    value, attr, html_font_size_scale(attr));
+	}
+	g_free(defsz);
+	return value;
+}
+
+gchar *
+bible_body_font_family(void)
+{
+	static gchar *file = NULL;
+	gchar *font;
+
+	if (file == NULL)
+		file = g_strdup_printf("%s/fonts.conf", settings.gSwordDir);
+	font = get_conf_file_item(file, "Default", "Font");
+	if (!font || !*font || !g_ascii_strcasecmp(font, "none")) {
+		g_free(font);
+		return g_strdup("");
+	}
+	return font;
+}
+
+void
+apply_bible_body_font(MOD_FONT *mf)
+{
+	gchar *family;
+
+	if (!mf)
+		return;
+	mf->old_font_size_value = bible_body_font_size_value();
+	family = bible_body_font_family();
+	g_free(mf->old_font);
+	mf->old_font = family;
+	if (g_getenv("BIBLIA_ELIM_FONT_DEBUG") &&
+	    !g_strcmp0(g_getenv("BIBLIA_ELIM_FONT_DEBUG"), "1"))
+		g_printerr("[FONT DEBUG bible_body] applied_family=%s "
+			   "body_size_value=%d\n",
+			   (mf->old_font && *mf->old_font) ? mf->old_font
+							   : "(reading)",
+			   mf->old_font_size_value);
 }
 
 /******************************************************************************
@@ -2012,6 +2093,35 @@ HtmlOutput(char *text, GtkWidget *gtkText, MOD_FONT *mf, char *anchor)
 {
 	XiphosHtml *html = XIPHOS_HTML(gtkText);
 	const gchar *jump;
+
+	if (g_getenv("BIBLIA_ELIM_FONT_DEBUG") &&
+	    !g_strcmp0(g_getenv("BIBLIA_ELIM_FONT_DEBUG"), "1") && text) {
+		const gchar *mod =
+		    settings.MainWindowModule ? settings.MainWindowModule
+					      : "unknown";
+		gsize nbytes = strlen(text);
+		/* Keep the largest dump per module (chapter HTML), not the
+		 * later preview/sidebar snippets that would overwrite it. */
+		gchar *path =
+		    g_strdup_printf("/tmp/%s-font-debug.html", mod);
+		gsize old_len = 0;
+		gchar *old = NULL;
+		if (!g_file_get_contents(path, &old, &old_len, NULL) ||
+		    nbytes >= old_len) {
+			g_file_set_contents(path, text, (gssize)nbytes, NULL);
+			g_printerr(
+			    "[FONT DEBUG HtmlOutput] module=%s html_bytes=%zu "
+			    "old_font=%s old_font_size=%s old_font_size_value=%d "
+			    "dumped=%s\n",
+			    mod, nbytes,
+			    (mf && mf->old_font) ? mf->old_font : "(null)",
+			    (mf && mf->old_font_size) ? mf->old_font_size
+						     : "(null)",
+			    mf ? mf->old_font_size_value : 0, path);
+		}
+		g_free(old);
+		g_free(path);
+	}
 
 	(void)mf;
 	XIPHOS_HTML_OPEN_STREAM(html, "text/html");

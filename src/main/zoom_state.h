@@ -34,11 +34,15 @@ typedef struct {
 void zoom_state_init(ZoomState *state);
 const gchar *zoom_surface_name(ZoomSurface surface);
 ZoomSurface zoom_surface_from_name(const gchar *name);
+/* Bible-main zoom is session-local: never restored from disk. */
+gboolean zoom_surface_session_local(ZoomSurface surface);
 gint zoom_state_get(const ZoomState *state, ZoomSurface surface);
 gint zoom_state_set(ZoomState *state, ZoomSurface surface, gint percent);
 gint zoom_state_adjust(ZoomState *state, ZoomSurface surface, gint delta);
 void zoom_state_set_active(ZoomState *state, ZoomSurface surface);
 ZoomSurface zoom_state_active(const ZoomState *state);
+/* Serializes for settings.xml. Session-local surfaces are written as 100%
+ * so a later launch never restores an in-session zoom. */
 gchar *zoom_state_serialize(const ZoomState *state);
 void zoom_state_deserialize(ZoomState *state, const gchar *serialized);
 

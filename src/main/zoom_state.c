@@ -51,6 +51,15 @@ zoom_surface_from_name(const gchar *name)
 	return ZOOM_SURFACE_INVALID;
 }
 
+gboolean
+zoom_surface_session_local(ZoomSurface surface)
+{
+	/* "Biblia principal - N%" is owned by the session only. Family may
+	 * stay per-module; body size baseline is shared; zoom must not be
+	 * restored after restart and must not be remembered per module. */
+	return surface == ZOOM_SURFACE_BIBLE_MAIN;
+}
+
 gint
 zoom_state_get(const ZoomState *state, ZoomSurface surface)
 {
@@ -105,10 +114,15 @@ zoom_state_serialize(const ZoomState *state)
 	g_return_val_if_fail(state != NULL, g_strdup(""));
 	serialized = g_string_sized_new(256);
 	for (i = 0; i < ZOOM_SURFACE_COUNT; i++) {
+		gint percent;
+
 		if (i)
 			g_string_append_c(serialized, ';');
+		percent = zoom_surface_session_local((ZoomSurface)i)
+			      ? ZOOM_PERCENT_DEFAULT
+			      : zoom_state_get(state, (ZoomSurface)i);
 		g_string_append_printf(serialized, "%s=%d", surface_names[i],
-				       zoom_state_get(state, (ZoomSurface)i));
+				       percent);
 	}
 	return g_string_free(serialized, FALSE);
 }
@@ -137,6 +151,9 @@ zoom_state_deserialize(ZoomState *state, const gchar *serialized)
 		surface = zoom_surface_from_name(items[i]);
 		if (surface == ZOOM_SURFACE_INVALID)
 			continue;
+		/* Session-local surfaces ignore any persisted value. */
+		if (zoom_surface_session_local(surface))
+			continue;
 		errno = 0;
 		value = g_ascii_strtoll(equals + 1, &end, 10);
 		if (errno || end == equals + 1 || *end != '\0')
@@ -146,4 +163,6 @@ zoom_state_deserialize(ZoomState *state, const gchar *serialized)
 			       value > G_MAXINT ? G_MAXINT : (gint)value);
 	}
 	g_strfreev(items);
+	/* init() already set bible-main to 100%; keep that after load. */
+	zoom_state_set(state, ZOOM_SURFACE_BIBLE_MAIN, ZOOM_PERCENT_DEFAULT);
 }

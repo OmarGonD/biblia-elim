@@ -18,6 +18,7 @@
 
 #include "main/url.hh"
 #include "main/busqueda_tildes.h"
+#include "main/font_size.h"
 #include "main/module_dialogs.h"
 #include "main/sword.h"
 #include "main/settings.h"
@@ -779,31 +780,183 @@ record_style_spans(ParseCtx *ctx, gint start, gint end)
 	}
 }
 
-/* El tamaño de <font size>.
- *
- * Con signo es relativo, y es la forma que usa la app para su propia
- * preferencia: el diálogo de fuente del módulo ofrece de "+5" a "-3" y
- * display.cc lo emite con %+d. Se toma cada paso como un punto sobre una
- * base de doce, que es lo que se espera de "un punto más grande" y lo que
- * permite que el selector de fuente de lectura vaya y vuelva sin perder
- * la talla elegida.
- *
- * Sin signo es la escala de 1 a 7 de HTML, que es lo que puede traer el
- * marcado de un módulo, con 3 como tamaño normal.
- *
- * Antes esto no miraba el signo: "+1" caía en la rama de 1 a 2 y hacía el
- * texto MÁS PEQUEÑO, y "+2" encendía a la vez grande y pequeño. */
+/* El tamaño de <font size>: ver html_font_size_scale() en font_size.c. */
 static gdouble
 font_size_scale(const char *size)
 {
-	static const gdouble html[7] = { 0.63, 0.82, 1.0, 1.13, 1.5, 2.0, 3.0 };
-	int n = atoi(size);
+	return html_font_size_scale(size);
+}
 
-	if (size[0] == '+' || size[0] == '-')
-		return CLAMP(1.0 + (n / 12.0), 0.5, 3.0);
-	if (n >= 1 && n <= 7)
-		return html[n - 1];
-	return 1.0;
+/* Probe body text of the jumped verse: skip verse-tools chip and verse
+ * number, then dump GtkTextTags + Pango attributes for normal bible text. */
+static gboolean
+font_debug_probe_idle(gpointer data)
+{
+	WkHtml *html = WK_HTML(data);
+	WkHtmlPrivate *priv;
+	Anchor *a;
+	GtkTextIter iter, end;
+	GtkTextAttributes *attrs;
+	PangoFontDescription *desc;
+	GSList *tags, *l;
+	gchar *snippet;
+	gint zoom;
+	gboolean saw_alpha = FALSE;
+	int steps;
+
+	priv = html->priv;
+	if (!priv->view || !priv->buffer || !priv->anchor || !*priv->anchor)
+		return G_SOURCE_REMOVE;
+	a = g_hash_table_lookup(priv->anchor_ht, priv->anchor);
+	if (!a || !a->mark || gtk_text_mark_get_deleted(a->mark))
+		return G_SOURCE_REMOVE;
+
+	gtk_text_buffer_get_iter_at_mark(priv->buffer, &iter, a->mark);
+	end = iter;
+	gtk_text_iter_forward_chars(&end, 120);
+	snippet = gtk_text_iter_get_text(&iter, &end);
+
+	/* Advance past chip (☰), spaces, verse digits, nbsp and note
+	 * markers (*n12) until a letter of normal bible body text. */
+	for (steps = 0; steps < 80 && !gtk_text_iter_is_end(&iter); steps++) {
+		gunichar ch = gtk_text_iter_get_char(&iter);
+		GSList *tags, *l;
+		gboolean in_note = FALSE;
+
+		tags = gtk_text_iter_get_tags(&iter);
+		for (l = tags; l; l = l->next) {
+			gchar *name = NULL;
+			g_object_get(l->data, "name", &name, NULL);
+			if (name && (!strcmp(name, "small") || !strcmp(name, "sup") ||
+				     !strcmp(name, "sub")))
+				in_note = TRUE;
+			g_free(name);
+		}
+		g_slist_free(tags);
+
+		if (g_unichar_isalpha(ch) && !in_note) {
+			saw_alpha = TRUE;
+			break;
+		}
+		gtk_text_iter_forward_char(&iter);
+	}
+
+	zoom = zoom_state_get(&settings.zoom_state, priv->zoom_surface);
+	g_printerr("===== FONT EFFECTIVE [%s] anchor=%s zoom=%d =====\n",
+		   settings.MainWindowModule ? settings.MainWindowModule
+					     : "(null)",
+		   priv->anchor, zoom);
+	g_printerr("probe_snippet=%s\n", snippet ? snippet : "");
+	g_printerr("body_offset=%d landed_on_alpha=%d\n",
+		   gtk_text_iter_get_offset(&iter), saw_alpha);
+
+	tags = gtk_text_iter_get_tags(&iter);
+	for (l = tags; l; l = l->next) {
+		GtkTextTag *tag = l->data;
+		gchar *name = NULL;
+		gboolean scale_set = FALSE, size_set = FALSE, family_set = FALSE;
+		gboolean rise_set = FALSE;
+		gdouble scale = 1.0;
+		gint size = 0, rise = 0, weight = 400;
+		PangoStyle style = PANGO_STYLE_NORMAL;
+		gchar *family = NULL;
+
+		g_object_get(tag,
+			     "name", &name,
+			     "scale-set", &scale_set,
+			     "scale", &scale,
+			     "size-set", &size_set,
+			     "size", &size,
+			     "family-set", &family_set,
+			     "family", &family,
+			     "rise-set", &rise_set,
+			     "rise", &rise,
+			     "weight", &weight,
+			     "style", &style,
+			     NULL);
+		g_printerr(
+		    "  tag name=%s scale_set=%d scale=%.3f size_set=%d size=%d "
+		    "family_set=%d family=%s rise_set=%d rise=%d weight=%d style=%d\n",
+		    name ? name : "(null)", scale_set, scale, size_set, size,
+		    family_set, family ? family : "", rise_set, rise, weight,
+		    (int)style);
+		g_free(name);
+		g_free(family);
+	}
+	g_slist_free(tags);
+
+	attrs = gtk_text_view_get_default_attributes(priv->view);
+	if (gtk_text_iter_get_attributes(&iter, attrs)) {
+		desc = attrs->font;
+		if (desc) {
+			const char *fam = pango_font_description_get_family(desc);
+			gint psz = pango_font_description_get_size(desc);
+			gboolean absolute =
+			    pango_font_description_get_size_is_absolute(desc);
+			gdouble base = psz / (gdouble)PANGO_SCALE;
+			gdouble effective = base * attrs->font_scale;
+			g_printerr(
+			    "effective_pango family=%s size_pango=%d absolute=%d "
+			    "base_size=%.3f font_scale=%.3f effective_size=%.3f "
+			    "(%s)\n",
+			    fam ? fam : "(null)", psz, absolute, base,
+			    attrs->font_scale, effective,
+			    absolute ? "px" : "pt");
+		} else {
+			g_printerr(
+			    "effective_pango: no font description font_scale=%.3f\n",
+			    attrs->font_scale);
+		}
+	} else {
+		g_printerr("effective_pango: gtk_text_iter_get_attributes failed\n");
+	}
+
+	/* Pixel ink height of a short body run — the number that should
+	 * match across modules at the same zoom. */
+	{
+		GtkTextIter run_end = iter;
+		gchar *run;
+		PangoLayout *layout;
+		PangoRectangle ink, logical;
+		PangoContext *pctx;
+
+		gtk_text_iter_forward_chars(&run_end, 24);
+		run = gtk_text_iter_get_text(&iter, &run_end);
+		pctx = gtk_widget_get_pango_context(GTK_WIDGET(priv->view));
+		layout = pango_layout_new(pctx);
+		if (attrs && attrs->font) {
+			PangoFontDescription *fd =
+			    pango_font_description_copy(attrs->font);
+			if (attrs->font_scale != 1.0 &&
+			    pango_font_description_get_size(fd) > 0) {
+				gint sz = pango_font_description_get_size(fd);
+				pango_font_description_set_size(
+				    fd, (gint)(sz * attrs->font_scale + 0.5));
+			}
+			pango_layout_set_font_description(layout, fd);
+			pango_font_description_free(fd);
+		}
+		pango_layout_set_text(layout, run ? run : "", -1);
+		pango_layout_get_pixel_extents(layout, &ink, &logical);
+		g_printerr(
+		    "glyph_run=\"%s\" ink_w=%d ink_h=%d logical_w=%d logical_h=%d\n",
+		    run ? run : "", ink.width, ink.height, logical.width,
+		    logical.height);
+		g_object_unref(layout);
+		g_free(run);
+	}
+	gtk_text_attributes_unref(attrs);
+
+	/* Also report view CSS zoom factor from surface style. */
+	g_printerr("zoom_surface=%d css_zoom_percent=%d\n",
+		   (int)priv->zoom_surface, zoom);
+	g_printerr("===== END FONT EFFECTIVE =====\n");
+	g_free(snippet);
+
+	if (g_getenv("BIBLIA_ELIM_FONT_DEBUG_QUIT") &&
+	    !g_strcmp0(g_getenv("BIBLIA_ELIM_FONT_DEBUG_QUIT"), "1"))
+		gtk_main_quit();
+	return G_SOURCE_REMOVE;
 }
 
 static gboolean
@@ -3463,6 +3616,12 @@ wk_html_jump_to_anchor(WkHtml *html, gchar *anchor)
 						 scroll_to_stored_anchor_later,
 						 g_object_ref(html),
 						 g_object_unref);
+	if (g_getenv("BIBLIA_ELIM_FONT_DEBUG") &&
+	    !g_strcmp0(g_getenv("BIBLIA_ELIM_FONT_DEBUG"), "1") &&
+	    html->priv->zoom_surface == ZOOM_SURFACE_BIBLE_MAIN)
+		g_timeout_add_full(G_PRIORITY_DEFAULT_IDLE, 400,
+				   font_debug_probe_idle, g_object_ref(html),
+				   g_object_unref);
 }
 
 void
