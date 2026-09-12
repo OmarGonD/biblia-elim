@@ -14,8 +14,8 @@ At the beginning of every task:
 5. Run `git status --short`.
 6. Work only on the first pending task in `TASKS.md`.
 
-One Codex execution processes exactly one task. Never continue to the next
-task; the external loop starts a separate execution for it.
+One agent execution processes exactly one task. Never continue to the next
+task in the same execution.
 
 ## Architecture
 

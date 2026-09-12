@@ -16,12 +16,12 @@ readonly AGENTS_FILE="${REPO_ROOT}/AGENTS.md"
 readonly RUNTIME_DIR="${REPO_ROOT}/.agent-runtime"
 readonly LOOP_LOG="${RUNTIME_DIR}/agent-loop.log"
 readonly LOCK_FILE="${RUNTIME_DIR}/agent-loop.lock"
-readonly LAST_OUTPUT="${REPO_ROOT}/.codex-last.txt"
+readonly LAST_OUTPUT="${REPO_ROOT}/.agent-last.txt"
 
 readonly MAX_ITERATIONS="${AGENT_MAX_ITERATIONS:-20}"
 readonly MAX_SAME_TASK_REPEATS="${AGENT_MAX_SAME_TASK_REPEATS:-2}"
-readonly CODEX_TIMEOUT="${AGENT_CODEX_TIMEOUT:-90m}"
-readonly CODEX_BIN="${CODEX_BIN:-codex}"
+readonly AGENT_TIMEOUT="${AGENT_TIMEOUT:-90m}"
+readonly AGENT_BIN="${AGENT_BIN:-grok}"
 readonly DRY_RUN="${AGENT_DRY_RUN:-0}"
 
 log() {
@@ -234,32 +234,37 @@ while (( iteration < MAX_ITERATIONS )); do
         log "DRY RUN: repository=${REPO_ROOT}"
         log "DRY RUN: selected=${task_id}"
         log "DRY RUN: prompt=${prompt_file}"
-        log "DRY RUN: would run ${CODEX_BIN} --ask-for-approval never exec --cd ${REPO_ROOT} --sandbox workspace-write --output-last-message ${LAST_OUTPUT} -"
+        log "DRY RUN: would run ${AGENT_BIN} --cwd ${REPO_ROOT} --always-approve --output-format plain --prompt-file ${prompt_file}"
         exit "${EXIT_OK}"
     fi
 
     command -v timeout >/dev/null 2>&1 ||
-        die "GNU timeout is required before starting Codex"
+        die "GNU timeout is required before starting agent"
     timeout_version="$(timeout --version 2>/dev/null)"
     grep -q 'GNU coreutils' <<<"${timeout_version}" ||
-        die "GNU timeout is required before starting Codex"
-    command -v "${CODEX_BIN}" >/dev/null 2>&1 ||
-        die "Codex executable not found: ${CODEX_BIN}"
+        die "GNU timeout is required before starting agent"
+    command -v "${AGENT_BIN}" >/dev/null 2>&1 ||
+        die "Agent executable not found: ${AGENT_BIN}"
 
-    codex_args=()
-    if [[ -n "${CODEX_EXEC_ARGS:-}" ]]; then
+    agent_args=()
+    if [[ -n "${AGENT_EXEC_ARGS:-}" ]]; then
         # Intentionally simple: whitespace-separated arguments only; shell quoting
         # and embedded whitespace are not interpreted.
-        read -r -a codex_args <<<"${CODEX_EXEC_ARGS}"
-        for extra_arg in "${codex_args[@]}"; do
+        read -r -a agent_args <<<"${AGENT_EXEC_ARGS}"
+        for extra_arg in "${agent_args[@]}"; do
             case "${extra_arg}" in
-                --full-auto|--dangerously-bypass-approvals-and-sandbox|\
-                --dangerously-bypass-hook-trust|danger-full-access|\
-                --sandbox|--sandbox=*|-s|-s=*|\
-                --ask-for-approval|--ask-for-approval=*|-a|-a=*|\
-                --cd|--cd=*|-C|-C=*|--add-dir|--add-dir=*|\
-                --output-last-message|--output-last-message=*|-o|-o=*)
-                    die "CODEX_EXEC_ARGS may not override safety/runtime option: ${extra_arg}"
+                --cwd|--cwd=*|\
+                --prompt-file|--prompt-file=*|\
+                -p|--single|--single=*|\
+                --permission-mode|--permission-mode=*|\
+                --always-approve|\
+                --sandbox|--sandbox=*|\
+                --output-format|--output-format=*|\
+                --resume|--resume=*|-r|\
+                --continue|-c|\
+                --worktree|--worktree=*|-w|\
+                --session-id|--session-id=*|-s)
+                    die "AGENT_EXEC_ARGS may not override safety/runtime option: ${extra_arg}"
                     ;;
             esac
         done
@@ -270,20 +275,21 @@ while (( iteration < MAX_ITERATIONS )); do
     log "Starting ${task_id} (iteration $((iteration + 1))/${MAX_ITERATIONS})"
 
     set +e
-    timeout --foreground "${CODEX_TIMEOUT}" \
-        "${CODEX_BIN}" --ask-for-approval never exec \
-        --cd "${REPO_ROOT}" \
-        --sandbox workspace-write \
-        --output-last-message "${LAST_OUTPUT}" \
-        "${codex_args[@]}" \
-        - <"${prompt_file}" 2>&1 | tee "${iteration_log}"
+    timeout --foreground "${AGENT_TIMEOUT}" \
+        "${AGENT_BIN}" \
+        --cwd "${REPO_ROOT}" \
+        --always-approve \
+        --output-format plain \
+        "${agent_args[@]}" \
+        --prompt-file "${prompt_file}" \
+        2>&1 | tee "${iteration_log}" "${LAST_OUTPUT}"
     pipeline_status=("${PIPESTATUS[@]}")
     set -e
-    codex_status="${pipeline_status[0]}"
+    agent_status="${pipeline_status[0]}"
     tee_status="${pipeline_status[1]}"
 
-    if [[ "${codex_status}" == "${EXIT_TIMEOUT}" ]]; then
-        log "Codex timed out after ${CODEX_TIMEOUT}"
+    if [[ "${agent_status}" == "${EXIT_TIMEOUT}" ]]; then
+        log "Agent timed out after ${AGENT_TIMEOUT}"
         exit "${EXIT_TIMEOUT}"
     fi
     [[ "${tee_status}" == "0" ]] || die "tee failed with exit ${tee_status}"
@@ -301,12 +307,12 @@ while (( iteration < MAX_ITERATIONS )); do
         exit "${EXIT_BLOCKED}"
     fi
 
-    [[ "${codex_status}" == "0" ]] ||
-        die "Codex exited with status ${codex_status} while processing ${task_id}"
+    [[ "${agent_status}" == "0" ]] ||
+        die "Agent exited with status ${agent_status} while processing ${task_id}"
 
     after_hash="$(sha256sum "${TASKS_FILE}" | awk '{ print $1 }')"
     if [[ "${before_hash}" == "${after_hash}" ]]; then
-        die "Codex returned success without changing TASKS.md for ${task_id}"
+        die "Agent returned success without changing TASKS.md for ${task_id}"
     fi
 
     if grep -Eq "^- \\[x\\] ${task_id}([[:space:]]|$)" <<<"${task_block}"; then

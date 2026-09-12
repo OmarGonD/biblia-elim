@@ -43,3 +43,9 @@ scripts/platense/platense-comentarios.imp
 # Runtime state from the autonomous Codex agent loop.
 .agent-runtime/
 .codex-last.txt
+
+# Agent runtime output
+.agent-last.txt
+
+# CTest runtime artifacts
+Testing/
