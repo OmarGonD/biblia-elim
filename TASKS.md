@@ -1689,8 +1689,8 @@
     - Change backend, schema, or importers.
     - Commit or push.
 
-- [ ] STARTUP-PERF-105 Attribute and reduce remaining GTK event-drain cost
-  - Status: BLOCKED
+- [x] STARTUP-PERF-105 Attribute and reduce remaining GTK event-drain cost
+  - Status: DONE
   - Objective:
     Reduce the remaining approximately 407-410 ms synchronous GTK event-drain
     startup cost, but only after objectively identifying what consumes it.
@@ -1810,6 +1810,48 @@
     - Leave unchecked with `Status: BLOCKED`; an accessible real X11 display
       must collect the official seven fresh plus seven reused extended traces
       before any Phase-B decision. `READY FOR REAL-DISPLAY ATTRIBUTION ROUND 2`.
+    - Real-display attribution round 3 (`build/startup-perf-105-v3-round3-20260911-233510`)
+      collected seven fresh plus seven reused samples with
+      `attribution_version=3` session profiles. First-drain medians were already
+      206.8 ms fresh / 211.8 ms reused on this machine (iteration count still
+      ~47). Cross-iteration identical-geometry reallocations were median 241
+      of 428 allocation callbacks (56%); only 58 geometry changes. One
+      compositor window resize (847×660 → 819×664) explains the changed set;
+      afterward the same widget sets were reallocated with Jaccard 1.0. The
+      collapsed in-chapter `GtkSearchBar` still participated with 18 subtree
+      widgets and about 15% of first-drain allocation callbacks despite height 1.
+    - Phase B (smallest avoidable contributors):
+      1. Keep `gui_barra_busqueda_crear()` out of ancestor `show_all()` via
+         `no-show-all` + hide until Ctrl-F; `mostrar` shows, `ocultar` folds
+         and hides again.
+      2. Apply `gui_set_bible_comm_layout()` before the first
+         `gtk_widget_show_all()` so saved splitter positions are used on the
+         first map/allocate.
+      3. Write the study `hpaned` position once through
+         `main_study_hpaned_position()` instead of up to three intermediate
+         `gtk_paned_set_position()` calls.
+      `sync_windows()` behavior is unchanged.
+    - Post-change 7+7 (`build/startup-perf-105-post-20260911-234235`) versus
+      same-day round-3 attribution baseline:
+      - Fresh drain 206.8 → 150.0 ms (−27.5%); reused 211.8 → 153.7 ms (−27.4%).
+      - Fresh `show_all` 273.8 → 248.5 ms (−9.2%); reused 271.1 → 243.0 ms (−10.4%).
+      - Iteration count 47 → 42/43; identical-geometry repeats 241 → 113 (−53.1%);
+        distinct allocated widgets 129 → 107; allocation callbacks 428 → 257.
+      - Fresh `APP_START→GTK_MAIN_ENTER` 1105.9 → 1029.6 ms; reused 1096.8 → 1011.2 ms.
+      - Versus the original PERF-104 task baseline, drain fell 410.3 → 150.0 ms
+        fresh (−63.4%) and 407.1 → 153.7 ms reused (−62.2%).
+      - SearchBar absent from every post-change first-drain session profile.
+    - `barra_busqueda_startup_test`, `main_window_layout_test`,
+      `panel_load_state_test`, `wk_html_surface_test`,
+      `verse_navigation_readiness_test`, `navbar_entry_reference_test`,
+      `zoom_state_test`, `zoom_indicator_test`, `zoom_anchor_reflow_test`,
+      `startup_diagnostics_test`, `application_name_startup_test`, and
+      `startup_performance_baseline` PASS. `biblia-elim` and full default build
+      PASS; `git diff --check` PASS.
+    - `gtk_lifecycle_smoke` runs under Xvfb here but fails a pre-existing
+      CREATE/SHOW/MAP check for hidden `bible-compare` (no MAP while
+      startup `no-show-all` keeps compare unmapped). Failures counter is 0 and
+      navigation/renderers complete; unrelated to the search-bar drain fix.
 
 # Future / not scheduled
 

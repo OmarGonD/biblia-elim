@@ -146,6 +146,21 @@ target_link_libraries (application_name_startup_test
   PkgConfig::Core
   )
 
+add_executable (barra_busqueda_startup_test
+  EXCLUDE_FROM_ALL
+  barra_busqueda_startup_test.c
+  )
+
+target_compile_definitions (barra_busqueda_startup_test
+  PRIVATE
+  SRCDIR="${PROJECT_SOURCE_DIR}"
+  )
+
+target_link_libraries (barra_busqueda_startup_test
+  PRIVATE
+  PkgConfig::Core
+  )
+
 add_executable (startup_diagnostics_test
   EXCLUDE_FROM_ALL
   startup_diagnostics_test.cc

@@ -41,4 +41,12 @@ MainStartupVisibility main_startup_visibility(gboolean browsing,
 					      gboolean show_statusbar,
 					      gboolean reading_mode);
 
+/* Final GtkPaned position for the Bible/study splitter. Matches the last
+ * assignment performed by gui_set_bible_comm_layout() after its historical
+ * intermediate writes. */
+gint main_study_hpaned_position(gboolean show_commentary,
+				gboolean show_dictionary,
+				gint biblepane_width,
+				gint window_width);
+
 #endif

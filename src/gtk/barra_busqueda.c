@@ -265,8 +265,13 @@ gui_barra_busqueda_crear(void)
 	g_signal_connect(barra, "notify::search-mode-enabled",
 			 G_CALLBACK(on_modo), NULL);
 
+	/* Keep children ready for the first reveal, but leave the bar itself
+	 * out of ancestor show_all()/startup layout. A collapsed search bar
+	 * still allocated its revealer subtree on every startup size-allocate
+	 * pass; hiding it until Ctrl-F removes that redundant drain work. */
 	gtk_widget_show_all(caja);
-	gtk_widget_show(barra);
+	gtk_widget_set_no_show_all(barra, TRUE);
+	gtk_widget_hide(barra);
 	return barra;
 }
 
@@ -283,6 +288,7 @@ gui_barra_busqueda_mostrar(GtkWidget *html)
 					 G_CALLBACK(on_find_updated), NULL);
 	}
 
+	gtk_widget_show(barra);
 	gtk_search_bar_set_search_mode(GTK_SEARCH_BAR(barra), TRUE);
 	gtk_widget_grab_focus(entrada);
 	gtk_editable_select_region(GTK_EDITABLE(entrada), 0, -1);
@@ -300,6 +306,8 @@ gui_barra_busqueda_ocultar(void)
 {
 	if (!barra)
 		return;
-	/* Basta con plegarla: on_modo() se encarga de apagar lo realzado. */
+	/* Fold first so on_modo() clears highlights, then leave the layout
+	 * entirely until the next explicit show. */
 	gtk_search_bar_set_search_mode(GTK_SEARCH_BAR(barra), FALSE);
+	gtk_widget_hide(barra);
 }

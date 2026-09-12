@@ -90,6 +90,13 @@ median/MAD/min/max by widget type and for churn totals, plus type and churn
 details for the three longest iterations in each sample. Repetition is evidence
 to investigate, not proof that GTK work is safely avoidable.
 
+When `GTK_EVENT_DRAIN_SESSION_PROFILE` / `GTK_EVENT_DRAIN_WIDGET_INSTANCE`
+records are present (`attribution_version=3`), `profile-window-hotspots` also
+reports cross-iteration identical versus changed geometry, the widgets and
+subtrees that keep receiving the same allocation, and overlap among the most
+expensive iterations. Those session records are likewise emitted after the
+drain end marker.
+
 The harness uses the deterministic GTK lifecycle smoke hook to exit through
 GTK idles after `GTK_MAIN_ENTER`; it does not sleep, delay startup, or move work
 past the main-loop milestone. Every run uses the same small SQLite fixture.

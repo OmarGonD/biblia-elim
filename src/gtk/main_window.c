@@ -1448,6 +1448,7 @@ new_open_bible_toggle(const char *tooltip)
 void gui_set_bible_comm_layout(void)
 {
 	gint biblepane_width = settings.biblepane_width;
+	gint hpaned_position;
 	MainStudyPaneLayout study_layout;
 	/* A restored layout may contain an old, very narrow text-pane width.
 	 * When comments are enabled, keep the Bible pane at least 55% of the
@@ -1466,8 +1467,6 @@ void gui_set_bible_comm_layout(void)
 					     settings.showdicts,
 					     settings.commpane_height);
 
-	gtk_paned_set_position(GTK_PANED(widgets.hpaned),
-			       biblepane_width);
 	gtk_paned_set_position(GTK_PANED(widgets.vpaned),
 			       settings.biblepane_height);
 
@@ -1491,20 +1490,14 @@ void gui_set_bible_comm_layout(void)
 	else
 		gtk_widget_hide(widgets.vpaned2);
 
-	gtk_paned_set_position(GTK_PANED(widgets.hpaned),
-			       (settings.showtexts
-				    ? biblepane_width
-				    : 0));
-
-	if ((settings.showcomms == FALSE) && (settings.showdicts == FALSE)) {
-		gtk_paned_set_position(GTK_PANED(widgets.hpaned),
-				       settings.gs_width);
-	}
-
-	if ((settings.showcomms == TRUE) || (settings.showdicts == TRUE)) {
-		gtk_paned_set_position(GTK_PANED(widgets.hpaned),
-				       biblepane_width);
-	}
+	/* One write of the final splitter position. Earlier code assigned the
+	 * hpaned up to three times per call; only the last value survived and
+	 * the intermediates still queued resize work. */
+	hpaned_position = main_study_hpaned_position(settings.showcomms,
+						     settings.showdicts,
+						     biblepane_width,
+						     settings.gs_width);
+	gtk_paned_set_position(GTK_PANED(widgets.hpaned), hpaned_position);
 	if (((settings.showcomms == FALSE) && (settings.showtexts == FALSE)) || ((settings.comm_showing == FALSE) && (settings.showtexts == FALSE)))
 		gtk_widget_hide(widgets.nav_toolbar);
 	else
@@ -3002,6 +2995,10 @@ box_devot = gui_create_devotional_pane();
 	 * the recursive show, otherwise show_all() temporarily maps panes that
 	 * frontend_display() immediately hides again. */
 	startup_apply_visibility();
+	/* Restore saved splitter positions before the first map/allocate so the
+	 * startup event drain does not lay out default paned geometry and then
+	 * immediately redo the same tree after frontend_display(). */
+	gui_set_bible_comm_layout();
 	startup_event_drain_profile_attach(widgets.app);
 	panel_load_debug("app", "WINDOW_SHOW_ALL_BEGIN", NULL);
 	gtk_widget_show_all(widgets.app);

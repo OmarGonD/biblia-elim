@@ -89,6 +89,19 @@ expect_reading_startup(void)
 	EXPECT_FIELD("reading mode", visibility.interlinear_bar_visible, FALSE);
 }
 
+static void
+expect_hpaned_position(void)
+{
+	EXPECT_FIELD("study split",
+		     main_study_hpaned_position(TRUE, FALSE, 420, 960), 420);
+	EXPECT_FIELD("dictionary split",
+		     main_study_hpaned_position(FALSE, TRUE, 420, 960), 420);
+	EXPECT_FIELD("both study panes",
+		     main_study_hpaned_position(TRUE, TRUE, 420, 960), 420);
+	EXPECT_FIELD("bible only uses window width",
+		     main_study_hpaned_position(FALSE, FALSE, 420, 960), 960);
+}
+
 int
 main(void)
 {
@@ -99,6 +112,7 @@ main(void)
 	expect_default_startup();
 	expect_all_visible_startup();
 	expect_reading_startup();
+	expect_hpaned_position();
 
 	printf("main_window_layout_failures=%d\n", failures);
 	return failures ? 1 : 0;

@@ -53,3 +53,17 @@ main_startup_visibility(gboolean browsing, gboolean show_texts,
 	visibility.interlinear_bar_visible = !reading_mode;
 	return visibility;
 }
+
+gint
+main_study_hpaned_position(gboolean show_commentary,
+			   gboolean show_dictionary,
+			   gint biblepane_width,
+			   gint window_width)
+{
+	/* gui_set_bible_comm_layout() historically wrote the hpaned position
+	 * up to three times. The surviving value depends only on whether any
+	 * study child participates in the split. */
+	if (show_commentary || show_dictionary)
+		return biblepane_width;
+	return window_width;
+}
