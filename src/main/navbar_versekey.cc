@@ -530,6 +530,36 @@ typedef struct {
 /* los botones de un GtkGrid heredan el relleno generoso del tema y una
  * rejilla de diez columnas se iba a un tercio de la pantalla: aquí basta
  * con que el número quepa holgado. */
+/* El popover de GTK3 en Wayland no está mapeado cuando se llama
+ * gtk_popover_popup(); un grab_focus inmediato sobre la entrada se pierde
+ * y el foco se queda en el toggle de la barra. Las teclas no llegan y la
+ * caja parece bloqueada. Enfocamos al mapear y otra vez en idle. */
+static void
+picker_focus_entry(GtkWidget *popover, gpointer entry)
+{
+	(void)popover;
+	if (GTK_IS_WIDGET(entry))
+		gtk_widget_grab_focus(GTK_WIDGET(entry));
+}
+
+static gboolean
+picker_focus_entry_idle(gpointer entry)
+{
+	if (GTK_IS_WIDGET(entry) && gtk_widget_get_mapped(GTK_WIDGET(entry)))
+		gtk_widget_grab_focus(GTK_WIDGET(entry));
+	return G_SOURCE_REMOVE;
+}
+
+static void
+picker_focus_entry_later(GtkWidget *popover, GtkWidget *entry)
+{
+	gtk_widget_set_can_focus(entry, TRUE);
+	g_signal_connect(popover, "map", G_CALLBACK(picker_focus_entry),
+			 entry);
+	g_idle_add_full(G_PRIORITY_DEFAULT_IDLE, picker_focus_entry_idle,
+			g_object_ref(entry), g_object_unref);
+}
+
 static void picker_add_style(GtkWidget *popover)
 {
 	static GtkCssProvider *css = NULL;
@@ -760,7 +790,8 @@ static NUMPICKER *numpicker_new(GtkWidget *anchor, gint max, gint current,
 	gtk_entry_set_max_length(GTK_ENTRY(p->entry), 3);
 	gtk_entry_set_width_chars(GTK_ENTRY(p->entry), 6);
 	gtk_entry_set_alignment(GTK_ENTRY(p->entry), 0.5);
-	text = g_strdup_printf(verse ? _("Versículo 1–%d") : _("Capítulo 1–%d"),
+	text = g_strdup_printf(verse ? _("Versículo (1–%d)")
+				     : _("Capítulo (1–%d)"),
 			       max);
 	gtk_entry_set_placeholder_text(GTK_ENTRY(p->entry), text);
 	g_free(text);
@@ -853,7 +884,7 @@ static void numpicker_popup(NAVBAR_VERSEKEY navbar, gint nb_type,
 #else
 	gtk_widget_show(p->popover);
 #endif
-	gtk_widget_grab_focus(p->entry);
+	picker_focus_entry_later(p->popover, p->entry);
 }
 
 /******************************************************************************
@@ -1263,5 +1294,5 @@ void main_versekey_popup_book(NAVBAR_VERSEKEY navbar, gint nb_type,
 #else
 	gtk_widget_show(p->popover);
 #endif
-	gtk_widget_grab_focus(p->entry);
+	picker_focus_entry_later(p->popover, p->entry);
 }

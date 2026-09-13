@@ -131,6 +131,21 @@ target_link_libraries (zoom_indicator_test
   PkgConfig::Core
   )
 
+add_executable (comm_panel_close_test
+  EXCLUDE_FROM_ALL
+  comm_panel_close_test.c
+  )
+
+target_compile_definitions (comm_panel_close_test
+  PRIVATE
+  SRCDIR="${PROJECT_SOURCE_DIR}"
+  )
+
+target_link_libraries (comm_panel_close_test
+  PRIVATE
+  PkgConfig::Core
+  )
+
 add_executable (application_name_startup_test
   EXCLUDE_FROM_ALL
   application_name_startup_test.c
@@ -195,6 +210,36 @@ target_link_libraries (startup_profile_test
   PkgConfig::Core
   )
 
+add_executable (study_reading_layout_test
+  EXCLUDE_FROM_ALL
+  study_reading_layout_test.c
+  )
+
+target_compile_definitions (study_reading_layout_test
+  PRIVATE
+  SRCDIR="${PROJECT_SOURCE_DIR}"
+  )
+
+target_link_libraries (study_reading_layout_test
+  PRIVATE
+  PkgConfig::Core
+  )
+
+add_executable (study_pane_collapse_test
+  EXCLUDE_FROM_ALL
+  study_pane_collapse_test.c
+  )
+
+target_include_directories (study_pane_collapse_test
+  PRIVATE
+  PkgConfig::Gtk
+  )
+
+target_link_libraries (study_pane_collapse_test
+  PRIVATE
+  PkgConfig::Gtk
+  )
+
 add_executable (main_window_layout_test
   EXCLUDE_FROM_ALL
   main_window_layout_test.c
@@ -236,6 +281,36 @@ target_include_directories (navbar_valid_key_ownership_test PRIVATE
   PkgConfig::Core PkgConfig::Gtk)
 target_link_libraries (navbar_valid_key_ownership_test PRIVATE
   PkgConfig::Core PkgConfig::Gtk)
+
+add_executable (poetry_line_wrap_test
+  EXCLUDE_FROM_ALL
+  poetry_line_wrap_test.c
+  )
+
+target_compile_definitions (poetry_line_wrap_test
+  PRIVATE
+  SRCDIR="${PROJECT_SOURCE_DIR}"
+  )
+
+target_link_libraries (poetry_line_wrap_test
+  PRIVATE
+  PkgConfig::Core
+  )
+
+add_executable (navbar_picker_focus_test
+  EXCLUDE_FROM_ALL
+  navbar_picker_focus_test.c
+  )
+
+target_compile_definitions (navbar_picker_focus_test
+  PRIVATE
+  SRCDIR="${PROJECT_SOURCE_DIR}"
+  )
+
+target_link_libraries (navbar_picker_focus_test
+  PRIVATE
+  PkgConfig::Core
+  )
 
 add_executable (navbar_entry_reference_test
   EXCLUDE_FROM_ALL

@@ -1769,6 +1769,117 @@ CleanupContent(GString *text,
 	return text;
 }
 
+/* SWORD poetry: an <l sID> in the previous verse/heading opens
+ * <span class="line">, and the matching <l eID> in this verse emits
+ * </span><br />. Wrapped as <p class="verse"> that becomes
+ * <span><p>first cola</p></span><br /><span>rest — libxml closes the
+ * <p> after the first cola, so the verse never wraps to the pane.
+ * Drop carry-only wrappers; leave real titles. */
+static void
+skip_html_ws(const char **p)
+{
+	while (**p == ' ' || **p == '\t' || **p == '\n' || **p == '\r')
+		(*p)++;
+}
+
+static void
+strip_leading_poetry_close(std::string &html)
+{
+	const char *p = html.c_str();
+
+	skip_html_ws(&p);
+	if (g_ascii_strncasecmp(p, "</span>", 7) != 0)
+		return;
+	p += 7;
+	skip_html_ws(&p);
+	if (g_ascii_strncasecmp(p, "<br", 3) == 0) {
+		p += 3;
+		while (*p && *p != '>')
+			p++;
+		if (*p == '>')
+			p++;
+	}
+	html = p;
+}
+
+static void
+strip_trailing_open_line_span(std::string &html)
+{
+	size_t pos = html.rfind("<span");
+
+	while (pos != std::string::npos) {
+		size_t gt = html.find('>', pos);
+		std::string tag;
+
+		if (gt == std::string::npos)
+			break;
+		tag = html.substr(pos, gt - pos + 1);
+		if (tag.find("line") != std::string::npos &&
+		    html.find("</span>", pos) == std::string::npos) {
+			html.erase(pos);
+			while (!html.empty() &&
+			       (html[html.size() - 1] == ' ' ||
+				html[html.size() - 1] == '\n' ||
+				html[html.size() - 1] == '\t'))
+				html.erase(html.size() - 1);
+			return;
+		}
+		if (pos == 0)
+			break;
+		pos = html.rfind("<span", pos - 1);
+	}
+}
+
+static gboolean
+html_is_poetry_carry_only(const std::string &html)
+{
+	std::string s = html;
+	size_t pos;
+
+	strip_leading_poetry_close(s);
+	strip_trailing_open_line_span(s);
+	while ((pos = s.find("<br")) != std::string::npos) {
+		size_t gt = s.find('>', pos);
+		if (gt == std::string::npos)
+			break;
+		s.erase(pos, gt - pos + 1);
+	}
+	while ((pos = s.find("<span")) != std::string::npos) {
+		size_t gt = s.find('>', pos);
+		if (gt == std::string::npos)
+			break;
+		std::string tag = s.substr(pos, gt - pos + 1);
+		if (tag.find("line") == std::string::npos)
+			break;
+		s.erase(pos, gt - pos + 1);
+	}
+	while ((pos = s.find("</span>")) != std::string::npos)
+		s.erase(pos, 7);
+	for (size_t i = 0; i < s.size(); i++) {
+		char c = s[i];
+		if (c != ' ' && c != '\t' && c != '\n' && c != '\r')
+			return FALSE;
+	}
+	return TRUE;
+}
+
+static void
+normalize_poetry_carry(BibleVerseContent &content)
+{
+	std::vector<BibleHeading> kept;
+
+	strip_leading_poetry_close(content.renderedText);
+	strip_trailing_open_line_span(content.renderedText);
+	for (size_t i = 0; i < content.headings.size(); i++) {
+		strip_leading_poetry_close(content.headings[i].text);
+		strip_trailing_open_line_span(content.headings[i].text);
+		if (html_is_poetry_carry_only(content.headings[i].text))
+			continue;
+		kept.push_back(content.headings[i]);
+	}
+	content.headings.swap(kept);
+}
+
 /* Neutral hand-off between retrieval and presentation.  The backend supplies
  * one enriched value object; this layer alone applies the historical visual
  * cleanup and Strong/morph layout. */
@@ -1777,10 +1888,14 @@ prepare_display_content(const BibleVerseContent &content,
 			GLOBAL_OPS *ops, const char *module_name,
 			bool enriched)
 {
-	GString *text = g_string_new(enriched
-				     ? block_render(content.renderedText.c_str())
-				     : content.renderedText.c_str());
-	return CleanupContent(text, ops, module_name, true, &content);
+	BibleVerseContent normalized = content;
+	GString *text;
+
+	normalize_poetry_carry(normalized);
+	text = g_string_new(enriched
+				? block_render(normalized.renderedText.c_str())
+				: normalized.renderedText.c_str());
+	return CleanupContent(text, ops, module_name, true, &normalized);
 }
 
 //
@@ -1793,15 +1908,18 @@ CacheHeader(ModuleCache::CacheVerse &cVerse,
 {
 	GString *text = g_string_new("");
 
+	BibleVerseContent normalized = content;
+
+	normalize_poetry_carry(normalized);
 	cVerse.SetHeader("");
 	for (std::vector<BibleHeading>::const_iterator heading =
-		     content.headings.begin();
-	     heading != content.headings.end(); ++heading) {
+		     normalized.headings.begin();
+	     heading != normalized.headings.end(); ++heading) {
 		g_string_printf(text, "%s",
 				(((ops->strongs || ops->lemmas) || ops->morphs)
 				     ? block_render(heading->text.c_str())
 				     : heading->text.c_str()));
-		text = CleanupContent(text, ops, module_name, false, &content);
+		text = CleanupContent(text, ops, module_name, false, &normalized);
 
 		cVerse.AppendHeader(text->str);
 	}
@@ -2246,7 +2364,10 @@ GTKChapDisp::introMaterial(SWModule &imodule, int thisChapter)
 				      ? block_render(content.renderedText.c_str())
 				      : content.renderedText.c_str());
 
-		if ((buf != NULL) && (strlen(buf) > 0))
+		if ((buf != NULL) && (strlen(buf) > 0) &&
+		    !html_is_poetry_carry_only(buf) &&
+		    !(strstr(buf, "class=\"line\"") &&
+		      !strcasestr(buf, "<title") && !strcasestr(buf, "<h3")))
 		{
 			if (!started_intro)
 			{

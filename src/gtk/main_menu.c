@@ -913,7 +913,10 @@ on_show_commentary_activate(GtkCheckMenuItem *menuitem,
 	if (show)
 		settings.comm_showing = TRUE;
 	gui_show_hide_comms(show);
-	redisplay_to_realign();
+	/* Redisplay after the paned has allocated the new Bible width.
+	 * Doing it here laid the chapter out at the old wrap, which left
+	 * verses in a left-hand column once the study pane closed. */
+	gui_schedule_bible_text_reflow(TRUE);
 	/* Una nota personal del versículo puede seleccionar temporalmente su
 	 * pestaña durante el redisplay; la acción explícita del menú debe ser
 	 * la última palabra. */

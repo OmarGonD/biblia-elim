@@ -41,12 +41,34 @@ MainStartupVisibility main_startup_visibility(gboolean browsing,
 					      gboolean show_statusbar,
 					      gboolean reading_mode);
 
+/* Width the Bible/study splitter should treat as its allocation. An
+ * unrealized GtkPaned reports 1; fall back to the saved window width. */
+gint main_study_hpaned_available_width(gint allocated_hpaned,
+				       gint window_width);
+
 /* Final GtkPaned position for the Bible/study splitter. Matches the last
  * assignment performed by gui_set_bible_comm_layout() after its historical
- * intermediate writes. */
+ * intermediate writes. available_width is the splitter's own allocation,
+ * not the toplevel window. */
 gint main_study_hpaned_position(gboolean show_commentary,
 				gboolean show_dictionary,
 				gint biblepane_width,
-				gint window_width);
+				gint available_width);
+
+/* Standard-view reading column: a capped width centred in the Bible
+ * pane's actual allocation. Verses stay left-aligned inside the column;
+ * only the block is centred. Parallel view does not use this. */
+#define STUDY_READING_COLUMN_MAX 950
+#define STUDY_READING_COLUMN_PAD 14
+
+typedef struct {
+	gint left_margin;
+	gint right_margin;
+	gint column_width;
+} StudyReadingColumn;
+
+StudyReadingColumn main_study_reading_column(gint available_width,
+					     gint max_width,
+					     gint min_pad);
 
 #endif

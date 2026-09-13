@@ -119,6 +119,8 @@ static gboolean on_open_bible_icon_draw(GtkWidget *widget, cairo_t *cr, gpointer
 static gboolean reading_mode_keep_place(gpointer data);
 static gboolean reading_mode_on_window_state(GtkWidget *widget, GdkEventWindowState *event, gpointer data);
 static void reading_mode_float_toolbar(gboolean floating, GtkTextView *view);
+static void bible_text_apply_measure(GtkTextView *view);
+static void bible_text_bind_measure(void);
 static void on_lectura_hoy_clicked(GtkWidget *widget, gpointer data);
 static gboolean on_lectura_hoy_tooltip(GtkWidget *widget, gint x, gint y,
 				       gboolean del_teclado, GtkTooltip *tooltip,
@@ -225,6 +227,59 @@ void gui_show_hide_preview(gboolean choice)
  *   void
  */
 
+static guint bible_text_reflow_src;
+static gboolean bible_text_reflow_redisplay;
+
+static void
+bible_text_reflow(void)
+{
+	GtkTextView *view;
+
+	if (!widgets.html_text)
+		return;
+	view = wk_html_get_view(WK_HTML(widgets.html_text));
+	if (!view)
+		return;
+	/* Re-setting wrap mode invalidates the Pango layout so verses
+	 * pick up the allocation the paned just gave the view. queue_resize
+	 * alone is not enough if child-anchor widgets still hold the old
+	 * width from the previous render. */
+	gtk_widget_queue_resize(GTK_WIDGET(view));
+	gtk_text_view_set_wrap_mode(view, gtk_text_view_get_wrap_mode(view));
+	bible_text_apply_measure(view);
+}
+
+static gboolean
+bible_text_reflow_idle(gpointer data)
+{
+	(void)data;
+	bible_text_reflow_src = 0;
+	if (!widgets.html_text || !GTK_IS_WIDGET(widgets.html_text)) {
+		bible_text_reflow_redisplay = FALSE;
+		return G_SOURCE_REMOVE;
+	}
+	bible_text_reflow();
+	if (bible_text_reflow_redisplay) {
+		bible_text_reflow_redisplay = FALSE;
+		redisplay_to_realign();
+	}
+	return G_SOURCE_REMOVE;
+}
+
+void
+gui_schedule_bible_text_reflow(gboolean redisplay)
+{
+	if (redisplay)
+		bible_text_reflow_redisplay = TRUE;
+	if (bible_text_reflow_src)
+		return;
+	/* Default idle runs after the size-allocate queued by hiding the
+	 * study pane. Redisplaying in the click handler itself laid the
+	 * chapter out at the old wrap width, which is why the verses stayed
+	 * in a left column while the centred heading used the new pane. */
+	bible_text_reflow_src = g_idle_add(bible_text_reflow_idle, NULL);
+}
+
 void gui_show_hide_comms(gboolean choice)
 {
 	settings.showcomms = choice;
@@ -241,6 +296,46 @@ void gui_show_hide_comms(gboolean choice)
 	}
 	if (main_window_created && !settings.reading_mode)
 		gui_set_bible_comm_layout();
+	if (main_window_created)
+		gui_schedule_bible_text_reflow(FALSE);
+}
+
+void gui_close_comms_panel(void)
+{
+	gui_verse_notes_guardar_pendiente();
+	if (widgets.viewcomms_item &&
+	    gtk_check_menu_item_get_active(
+		GTK_CHECK_MENU_ITEM(widgets.viewcomms_item)))
+		gtk_check_menu_item_set_active(
+		    GTK_CHECK_MENU_ITEM(widgets.viewcomms_item), FALSE);
+	else {
+		gui_show_hide_comms(FALSE);
+		gui_schedule_bible_text_reflow(TRUE);
+	}
+}
+
+static void
+on_comms_panel_close_clicked(GtkButton *button, gpointer user_data)
+{
+	(void)button;
+	(void)user_data;
+	gui_close_comms_panel();
+}
+
+static GtkWidget *
+comms_panel_close_button(const char *tooltip, GtkIconSize size)
+{
+	GtkWidget *cerrar;
+
+	cerrar = gtk_button_new_from_icon_name("window-close-symbolic", size);
+	gtk_button_set_relief(GTK_BUTTON(cerrar), GTK_RELIEF_NONE);
+	gtk_widget_set_tooltip_text(cerrar, tooltip);
+	gtk_widget_set_focus_on_click(cerrar, FALSE);
+	gtk_widget_set_name(cerrar, "comm-panel-close");
+	gtk_widget_show(cerrar);
+	g_signal_connect(cerrar, "clicked",
+			 G_CALLBACK(on_comms_panel_close_clicked), NULL);
+	return cerrar;
 }
 
 /******************************************************************************
@@ -312,7 +407,6 @@ void gui_show_hide_dicts(gboolean choice)
 
 #define READING_MODE_SIDE_MARGIN 64
 #define READING_MODE_LINE_PAD 4
-#define NORMAL_SIDE_MARGIN 14
 #define NORMAL_LINE_PAD 1
 
 /* Reading mode caps the line length instead of just padding the sides.
@@ -405,6 +499,31 @@ reading_mode_columns(void)
 	return (n > 0) ? n : 1;
 }
 
+/* Standard view: cap the Bible column and centre the block in whatever
+ * width this text view actually received. GtkPaned already subtracted
+ * the sidebar and commentary, so available_width is the remaining
+ * centre — no hardcoded panel offsets. Verses stay left-aligned;
+ * chapter headings use the view's wrap width, which is this column. */
+static void
+study_reading_apply_measure(GtkTextView *view)
+{
+	StudyReadingColumn col;
+	gint avail;
+
+	if (!view)
+		return;
+
+	avail = gtk_widget_get_allocated_width(GTK_WIDGET(view));
+	col = main_study_reading_column(avail, STUDY_READING_COLUMN_MAX,
+					STUDY_READING_COLUMN_PAD);
+	if (gtk_text_view_get_left_margin(view) == col.left_margin &&
+	    gtk_text_view_get_right_margin(view) == col.right_margin)
+		return;
+
+	gtk_text_view_set_left_margin(view, col.left_margin);
+	gtk_text_view_set_right_margin(view, col.right_margin);
+}
+
 /* Side margins for reading mode: a percentage of the window by
  * default, tightened further to centre a capped measure when
  * reading_mode_cpl asks for one. Never narrower than
@@ -417,12 +536,6 @@ reading_mode_apply_measure(GtkTextView *view)
 
 	if (!view)
 		return;
-
-	if (!settings.reading_mode) {
-		gtk_text_view_set_left_margin(view, NORMAL_SIDE_MARGIN);
-		gtk_text_view_set_right_margin(view, NORMAL_SIDE_MARGIN);
-		return;
-	}
 
 	avail = gtk_widget_get_allocated_width(GTK_WIDGET(view));
 
@@ -458,6 +571,15 @@ reading_mode_apply_measure(GtkTextView *view)
 	gtk_text_view_set_right_margin(view, margin);
 }
 
+static void
+bible_text_apply_measure(GtkTextView *view)
+{
+	if (settings.reading_mode)
+		reading_mode_apply_measure(view);
+	else
+		study_reading_apply_measure(view);
+}
+
 /* Re-laying the comparison out for a width it did not start at.
  *
  * The columns are widgets anchored in the text buffer, and a
@@ -490,26 +612,41 @@ reading_mode_refit(gpointer data)
 	return G_SOURCE_REMOVE;
 }
 
-/* The allocation is not final when reading mode is switched on: the
- * compositor answers gtk_window_fullscreen() a frame or two later, and
- * the user can move the window between monitors afterwards. Recompute
- * on every allocation instead of only at the toggle. */
+/* Recompute the reading column whenever this view's allocation changes:
+ * sidebar, commentary, window resize, or leaving fullscreen. Parallel
+ * view is a different widget and is not connected. */
 static void
-reading_mode_on_size_allocate(GtkWidget *widget, GdkRectangle *alloc,
-			      gpointer data)
+bible_text_on_size_allocate(GtkWidget *widget, GdkRectangle *alloc,
+			    gpointer data)
 {
 	(void)data;
-	reading_mode_apply_measure(GTK_TEXT_VIEW(widget));
+	bible_text_apply_measure(GTK_TEXT_VIEW(widget));
 
 	if (!alloc || alloc->width == reading_mode_last_width)
 		return;
 	reading_mode_last_width = alloc->width;
-	if (!settings.reading_compare)
+	if (!settings.reading_mode || !settings.reading_compare)
 		return;
 	if (reading_mode_refit_src)
 		g_source_remove(reading_mode_refit_src);
 	reading_mode_refit_src = g_timeout_add(READING_MODE_REFIT_DELAY_MS,
 					       reading_mode_refit, NULL);
+}
+
+static void
+bible_text_bind_measure(void)
+{
+	GtkTextView *view;
+
+	if (!widgets.html_text || reading_mode_alloc_id)
+		return;
+	view = wk_html_get_view(WK_HTML(widgets.html_text));
+	if (!view)
+		return;
+	reading_mode_alloc_id = g_signal_connect(
+	    view, "size-allocate",
+	    G_CALLBACK(bible_text_on_size_allocate), NULL);
+	bible_text_apply_measure(view);
 }
 
 /* Switches the reading pane between the single Bible and the
@@ -1209,23 +1346,17 @@ void gui_toggle_reading_mode(gboolean choice)
 		gtk_text_view_set_pixels_above_lines(view, line_pad);
 		gtk_text_view_set_pixels_below_lines(view, line_pad);
 
-		/* Follow the allocation only while reading mode is on; outside
-		 * it the margin is the fixed NORMAL_SIDE_MARGIN and there is
-		 * nothing to recompute. */
-		if (choice && !reading_mode_alloc_id) {
-			reading_mode_alloc_id = g_signal_connect(
-			    view, "size-allocate",
-			    G_CALLBACK(reading_mode_on_size_allocate), NULL);
-		} else if (!choice && reading_mode_alloc_id) {
-			g_signal_handler_disconnect(view, reading_mode_alloc_id);
-			reading_mode_alloc_id = 0;
-			if (reading_mode_refit_src) {
-				g_source_remove(reading_mode_refit_src);
-				reading_mode_refit_src = 0;
-			}
-			reading_mode_last_width = 0;
+		/* The Bible view follows its allocation in both standard
+		 * view (capped centred column) and reading mode. Keep the
+		 * handler attached; only the measure function switches. */
+		if (!choice && reading_mode_refit_src) {
+			g_source_remove(reading_mode_refit_src);
+			reading_mode_refit_src = 0;
 		}
-		reading_mode_apply_measure(view);
+		if (!choice)
+			reading_mode_last_width = 0;
+		bible_text_bind_measure();
+		bible_text_apply_measure(view);
 
 		if (choice)
 			gtk_widget_grab_focus(GTK_WIDGET(view));
@@ -1485,19 +1616,37 @@ void gui_set_bible_comm_layout(void)
 	if (study_layout.set_divider_position)
 		gtk_paned_set_position(GTK_PANED(widgets.vpaned2),
 				       study_layout.divider_position);
-	if (study_layout.pane_visible)
+	if (study_layout.pane_visible) {
+		gtk_widget_set_no_show_all(widgets.vpaned2, FALSE);
 		gtk_widget_show(widgets.vpaned2);
-	else
+	} else {
+		/* no-show-all so a later show_all() on an ancestor cannot
+		 * resurrect an empty study splitter and keep the Bible pane
+		 * pinned to the old divider. */
+		gtk_widget_set_no_show_all(widgets.vpaned2, TRUE);
 		gtk_widget_hide(widgets.vpaned2);
+	}
 
 	/* One write of the final splitter position. Earlier code assigned the
 	 * hpaned up to three times per call; only the last value survived and
-	 * the intermediates still queued resize work. */
-	hpaned_position = main_study_hpaned_position(settings.showcomms,
-						     settings.showdicts,
-						     biblepane_width,
-						     settings.gs_width);
+	 * the intermediates still queued resize work. Use the splitter's own
+	 * allocation, not the toplevel window width: gs_width includes the
+	 * sidebar and chrome, so pinning to it left a stale gap. */
+	hpaned_position = main_study_hpaned_position(
+	    settings.showcomms, settings.showdicts, biblepane_width,
+	    main_study_hpaned_available_width(
+		widgets.hpaned ? gtk_widget_get_allocated_width(widgets.hpaned)
+			       : 0,
+		settings.gs_width));
 	gtk_paned_set_position(GTK_PANED(widgets.hpaned), hpaned_position);
+	if (!study_layout.pane_visible) {
+		gtk_widget_queue_resize(widgets.hpaned);
+		gtk_widget_queue_resize(widgets.vpaned);
+		gtk_container_check_resize(GTK_CONTAINER(widgets.hpaned));
+		gtk_widget_queue_allocate(widgets.hpaned);
+		if (widgets.html_text)
+			gtk_widget_queue_resize(widgets.html_text);
+	}
 	if (((settings.showcomms == FALSE) && (settings.showtexts == FALSE)) || ((settings.comm_showing == FALSE) && (settings.showtexts == FALSE)))
 		gtk_widget_hide(widgets.nav_toolbar);
 	else
@@ -2850,6 +2999,7 @@ void create_mainwindow(void)
 	gtk_widget_show(label);
 	gtk_notebook_set_tab_label(GTK_NOTEBOOK(widgets.notebook_bible_parallel), gtk_notebook_get_nth_page(GTK_NOTEBOOK(widgets.notebook_bible_parallel), 0), label);
 	panel_load_debug("app", "BIBLE_PANE_READY", NULL);
+	bible_text_bind_measure();
 
 	// Another box (For the previewer?)
 	UI_VBOX(widgets.vbox_previewer, FALSE, 0);
@@ -2912,6 +3062,12 @@ void create_mainwindow(void)
 		gtk_widget_show(label);
 		gtk_notebook_set_tab_label(GTK_NOTEBOOK(widgets.notebook_comm_book), gtk_notebook_get_nth_page(GTK_NOTEBOOK(widgets.notebook_comm_book), 1), label);
 	}
+	gtk_notebook_set_action_widget(
+	    GTK_NOTEBOOK(widgets.notebook_comm_book),
+	    comms_panel_close_button(
+		_("Cerrar panel de comentarios y notas"),
+		GTK_ICON_SIZE_MENU),
+	    GTK_PACK_END);
 	panel_load_debug("app", "NOTES_PANE_READY", NULL);
 
 	// Dict/Devotional notebook

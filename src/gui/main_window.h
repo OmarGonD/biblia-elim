@@ -62,6 +62,13 @@ void gui_zoom_base_font(int up);
 void gui_show_hide_texts(int choice);
 void gui_show_hide_preview(int choice);
 void gui_show_hide_comms(int choice);
+/* Hide the right-hand commentary/notes notebook and keep the View menu
+ * in sync. Saves a note still being typed. */
+void gui_close_comms_panel(void);
+/* After the study pane shows or hides, wrap the Bible text to the new
+ * allocation. redisplay TRUE also re-renders so the current verse stays
+ * in view; do that only from an explicit View-menu toggle, after idle. */
+void gui_schedule_bible_text_reflow(gboolean redisplay);
 void gui_show_hide_dicts(int choice);
 void gui_toggle_reading_mode(int choice);
 /* Syncs the reading strip's interlinear toggle with the live setting,

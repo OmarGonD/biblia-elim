@@ -431,6 +431,7 @@ void gui_sidebar_showhide(void)
 		gtk_toggle_button_set_active(
 		    GTK_TOGGLE_BUTTON(widgets.sidebar_toggle_button),
 		    settings.showshortcutbar);
+	gui_schedule_bible_text_reflow(FALSE);
 }
 
 /******************************************************************************

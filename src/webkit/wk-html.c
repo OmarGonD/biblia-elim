@@ -1098,6 +1098,53 @@ is_block(const char *n)
 	       !g_ascii_strcasecmp(n, "blockquote") || !g_ascii_strcasecmp(n, "center");
 }
 
+/* OSIS poetry: SWORD emits <br /><span class="line indentN">cola</span>.
+ * A hard break leaves the cola occupying a fraction of the pane. Adjacent
+ * to a line span, the <br> is a wrap opportunity (a space), so the verse
+ * fills the same width as prose modules. Unrelated <br> stay line breaks. */
+static gboolean
+node_is_line_span(xmlNode *n)
+{
+	xmlChar *klass;
+	gboolean line;
+
+	if (!n || n->type != XML_ELEMENT_NODE ||
+	    g_ascii_strcasecmp(el_name(n), "span"))
+		return FALSE;
+	klass = xmlGetProp(n, (const xmlChar *)"class");
+	if (!klass)
+		return FALSE;
+	line = class_has((const char *)klass, "line");
+	xmlFree(klass);
+	return line;
+}
+
+static xmlNode *
+skip_blank(xmlNode *n, int dir)
+{
+	while (n && n->type == XML_TEXT_NODE && xmlIsBlankNode(n))
+		n = (dir < 0) ? n->prev : n->next;
+	return n;
+}
+
+static gboolean
+br_joins_poetry_line(xmlNode *node)
+{
+	return node_is_line_span(skip_blank(node->prev, -1)) ||
+	       node_is_line_span(skip_blank(node->next, 1));
+}
+
+static gboolean
+ctx_ends_with_space(ParseCtx *ctx)
+{
+	guchar c;
+
+	if (ctx->at_line_start || !ctx->pending || !ctx->pending->len)
+		return TRUE;
+	c = (guchar)ctx->pending->str[ctx->pending->len - 1];
+	return c == ' ' || c == '\n' || c == '\t';
+}
+
 /* The tools affordance next to each verse used to be a real GtkButton
  * holding a GtkDrawingArea that painted the icon, anchored into the
  * buffer -- two widgets per verse, rebuilt from scratch on every
@@ -1691,7 +1738,11 @@ walk_element(ParseCtx *ctx, xmlNode *node)
 		return;
 	}
 	if (!g_ascii_strcasecmp(name, "br")) {
-		insert_break(ctx, FALSE);
+		if (br_joins_poetry_line(node)) {
+			if (!ctx_ends_with_space(ctx))
+				insert_text(ctx, " ");
+		} else
+			insert_break(ctx, FALSE);
 		return;
 	}
 	if (!g_ascii_strcasecmp(name, "hr")) {

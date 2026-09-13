@@ -340,9 +340,8 @@ on_notas_tecla(GtkWidget *w, GdkEventKey *ev, gpointer datos)
 		return TRUE;
 	}
 	if (ev->keyval == GDK_KEY_Escape) {
-		notas_guardar();
 		notas_cerrado_manual = TRUE;
-		gui_show_hide_comms(FALSE);
+		gui_close_comms_panel();
 		return TRUE;
 	}
 	return FALSE;
@@ -361,9 +360,8 @@ on_notas_cerrar_clicked(GtkButton *button, gpointer user_data)
 {
 	(void)button;
 	(void)user_data;
-	notas_guardar();
 	notas_cerrado_manual = TRUE;
-	gui_show_hide_comms(FALSE);
+	gui_close_comms_panel();
 }
 
 GtkWidget *

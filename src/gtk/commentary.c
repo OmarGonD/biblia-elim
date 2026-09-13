@@ -24,6 +24,7 @@
 
 #include <errno.h>
 #include <gtk/gtk.h>
+#include <glib/gi18n.h>
 
 #include "xiphos_html/xiphos_html.h"
 
@@ -99,6 +100,14 @@ _popupmenu_requested_cb(XiphosHtml *html, gchar *uri, gpointer user_data)
 	gui_menu_popup(html, settings.CommWindowModule, NULL);
 }
 
+static void
+on_commentary_close_clicked(GtkButton *button, gpointer user_data)
+{
+	(void)button;
+	(void)user_data;
+	gui_close_comms_panel();
+}
+
 /******************************************************************************
  * Name
  *   gui_create_commentary_pane
@@ -118,12 +127,40 @@ _popupmenu_requested_cb(XiphosHtml *html, gchar *uri, gpointer user_data)
 GtkWidget *gui_create_commentary_pane(void)
 {
 	GtkWidget *box_comm;
+	GtkWidget *header;
+	GtkWidget *title;
+	GtkWidget *cerrar;
 #ifndef USE_WEBKIT2
 	GtkWidget *scrolledwindow;
 #endif
 
 	UI_VBOX(box_comm, FALSE, 0);
 	gtk_widget_show(box_comm);
+
+	header = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 4);
+	gtk_widget_set_margin_start(header, 6);
+	gtk_widget_set_margin_end(header, 4);
+	gtk_widget_set_margin_top(header, 2);
+	gtk_widget_show(header);
+
+	title = gtk_label_new(_("Comentarios del autor"));
+	gtk_widget_set_halign(title, GTK_ALIGN_START);
+	gtk_label_set_ellipsize(GTK_LABEL(title), PANGO_ELLIPSIZE_END);
+	gtk_widget_show(title);
+	gtk_box_pack_start(GTK_BOX(header), title, TRUE, TRUE, 0);
+
+	cerrar = gtk_button_new_from_icon_name("window-close-symbolic",
+					       GTK_ICON_SIZE_SMALL_TOOLBAR);
+	gtk_button_set_relief(GTK_BUTTON(cerrar), GTK_RELIEF_NONE);
+	gtk_widget_set_tooltip_text(cerrar,
+				    _("Cerrar panel de comentarios y notas"));
+	gtk_widget_set_focus_on_click(cerrar, FALSE);
+	gtk_widget_set_name(cerrar, "comm-panel-close");
+	gtk_widget_show(cerrar);
+	g_signal_connect(cerrar, "clicked",
+			 G_CALLBACK(on_commentary_close_clicked), NULL);
+	gtk_box_pack_end(GTK_BOX(header), cerrar, FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(box_comm), header, FALSE, FALSE, 0);
 
 #ifndef USE_WEBKIT2
 	scrolledwindow = gtk_scrolled_window_new(NULL, NULL);

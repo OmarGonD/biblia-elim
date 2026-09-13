@@ -167,11 +167,39 @@ show_panels(gpointer unused)
 	gtk_widget_show_all(widgets.app);
 	check(gtk_widget_get_visible(widgets.notebook_comm_book),
 	      "commentary panel did not reopen explicitly");
+	{
+		GtkWidget *cerrar = gtk_notebook_get_action_widget(
+		    GTK_NOTEBOOK(widgets.notebook_comm_book), GTK_PACK_END);
+
+		check(cerrar != NULL && GTK_IS_BUTTON(cerrar),
+		      "commentary close button missing after show");
+		if (cerrar && GTK_IS_BUTTON(cerrar)) {
+			gint splitter;
+			gint bible;
+
+			gtk_button_clicked(GTK_BUTTON(cerrar));
+			while (gtk_events_pending())
+				gtk_main_iteration();
+			check(!gtk_widget_get_visible(widgets.notebook_comm_book),
+			      "commentary close button did not hide the panel");
+			check(!gtk_widget_get_visible(widgets.vpaned2),
+			      "study splitter still visible after commentary close");
+			splitter = gtk_widget_get_allocated_width(widgets.hpaned);
+			bible = gtk_widget_get_allocated_width(widgets.vpaned);
+			check(splitter > 0 && bible >= splitter - 24,
+			      "bible pane did not expand after commentary close");
+			gtk_widget_set_no_show_all(widgets.vpaned2, FALSE);
+			gtk_widget_show(widgets.vpaned2);
+			gtk_widget_show(widgets.notebook_comm_book);
+			check(gtk_widget_get_visible(widgets.notebook_comm_book),
+			      "commentary panel did not reopen after close");
+		}
+	}
 	check(gtk_widget_get_visible(widgets.notebook_dict_devot),
 	      "dictionary panel did not reopen explicitly");
 	check(gtk_widget_get_visible(widgets.box_lectura_sync),
 	      "compare panel did not reopen explicitly");
-	panel_checks += 6;
+	panel_checks += 12;
 	g_idle_add(finish_smoke, NULL);
 	return G_SOURCE_REMOVE;
 }
@@ -216,6 +244,9 @@ exercise_application(gpointer unused)
 	      "startup-hidden compare pane participates in show-all");
 	check(!gtk_widget_get_visible(widgets.notebook_comm_book),
 	      "commentary is visible at default startup");
+	check(gtk_notebook_get_action_widget(
+		  GTK_NOTEBOOK(widgets.notebook_comm_book), GTK_PACK_END) != NULL,
+	      "commentary panel has no close button");
 	check(!gtk_widget_get_visible(widgets.notebook_dict_devot),
 	      "dictionary is visible at default startup");
 	check(!gtk_widget_get_visible(widgets.box_lectura_sync),

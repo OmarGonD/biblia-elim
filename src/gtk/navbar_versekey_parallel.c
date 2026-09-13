@@ -109,7 +109,6 @@ static gboolean select_book_button_press_callback(GtkWidget *widget,
 	if ((event->type != GDK_BUTTON_PRESS) || (event->button != 1))
 		return FALSE;
 
-	gtk_widget_grab_focus(widget);
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
 	main_versekey_popup_book(navbar_parallel, NB_PARALLEL,
 				 NULL, NULL, widget);
@@ -142,7 +141,6 @@ static gboolean select_chapter_button_press_callback(GtkWidget *widget,
 	if ((event->type != GDK_BUTTON_PRESS) || (event->button != 1))
 		return FALSE;
 
-	gtk_widget_grab_focus(widget);
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
 	main_versekey_popup_chapter(navbar_parallel, NB_PARALLEL,
 				    NULL, NULL, widget);
@@ -175,7 +173,6 @@ static gboolean select_verse_button_press_callback(GtkWidget *widget,
 	if ((event->type != GDK_BUTTON_PRESS) || (event->button != 1))
 		return FALSE;
 
-	gtk_widget_grab_focus(widget);
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
 	main_versekey_popup_verse(navbar_parallel, NB_PARALLEL,
 				    NULL, NULL, widget);
