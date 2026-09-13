@@ -5,10 +5,12 @@
  * loading or caching logic.
  */
 #include "backend/sword/sword_backend.h"
+#include "backend/source_quirks.h"
 
 #include <regex.h>
 #include <string.h>
 #include <sstream>
+#include <string>
 #include <utility>
 
 #include <gbfxhtml.h>
@@ -23,6 +25,58 @@
 #include "main/search_sidebar.h"
 
 namespace {
+
+/*
+ * getVerseContent() must not leave the SWModule on the verse it read.
+ * GTKChapDisp holds module->getKey() for the whole paint; walking 1..N
+ * without restoring made k=1 emit name/href/number from verse N.
+ * setKey() would replace that pointer -- only setKeyText().
+ */
+struct ModuleKeyGuard {
+	sword::SWModule *module;
+	sword::SWKey *key_ptr;
+	std::string saved_text;
+	char old_norm;
+	bool old_skip;
+	bool armed;
+
+	explicit ModuleKeyGuard(sword::SWModule *m)
+		: module(m),
+		  key_ptr(NULL),
+		  old_norm(1),
+		  old_skip(false),
+		  armed(false)
+	{
+		if (!module)
+			return;
+		key_ptr = module->getKey();
+		if (key_ptr && module->getKeyText())
+			saved_text = module->getKeyText();
+		if (sword::VerseKey *vk =
+			    dynamic_cast<sword::VerseKey *>(key_ptr))
+			old_norm = vk->isAutoNormalize();
+		old_skip = module->isSkipConsecutiveLinks();
+		armed = true;
+	}
+
+	~ModuleKeyGuard()
+	{
+		if (!armed || !module)
+			return;
+		module->setSkipConsecutiveLinks(old_skip);
+		if (sword::VerseKey *vk =
+			    dynamic_cast<sword::VerseKey *>(module->getKey())) {
+			if (vk == key_ptr)
+				vk->setAutoNormalize(old_norm);
+		}
+		if (!saved_text.empty())
+			module->setKeyText(saved_text.c_str());
+	}
+
+private:
+	ModuleKeyGuard(const ModuleKeyGuard &);
+	ModuleKeyGuard &operator=(const ModuleKeyGuard &);
+};
 
 static sword::VerseKey *verseKeyFor(sword::SWModule *module,
 					    const std::string &key)
@@ -126,6 +180,16 @@ static const char *swordOptionName(BibleOption option)
 
 } // namespace
 
+std::string BackEnd::versification(const std::string &module_id) const
+{
+	sword::SWModule *module =
+		const_cast<BackEnd *>(this)->get_SWModule(module_id.c_str());
+	if (!module)
+		return "KJV";
+	const char *v11n = module->getConfigEntry("Versification");
+	return (v11n && *v11n) ? std::string(v11n) : std::string("KJV");
+}
+
 BibleModuleType BackEnd::moduleType(const std::string &module_id) const
 {
 	sword::SWModule *module =
@@ -188,6 +252,7 @@ bool BackEnd::resolveKey(const std::string &module_id,
 	result.reference = referenceFor(*verse_key);
 	result.key = verse_key->getText();
 	result.bookName = verse_key->getBookName();
+	result.osisBook = verse_key->getOSISBookName();
 	result.bookIndex = result.reference.book;
 	if (result.reference.testament == 2)
 		result.bookIndex += verse_key->BMAX[0];
@@ -217,9 +282,15 @@ std::vector<BibleVerse> BackEnd::getChapter(const std::string &module_id,
 	if (reference.chapter > 0)
 		verse_key->setChapter(reference.chapter);
 	int last_verse = verse_key->getVerseMax();
+	/* Same constraint as getVerseContent(): the chapter renderer holds
+	 * module->getKey() for the whole paint. setKey() replaces that
+	 * object; setKeyText() updates it in place. */
+	const std::string saved =
+		module->getKey() ? std::string(module->getKeyText())
+				 : std::string();
 	for (int verse = 1; verse <= last_verse; ++verse) {
 		verse_key->setVerse(verse);
-		module->setKey(verse_key);
+		module->setKeyText(verse_key->getText());
 		BibleVerse item;
 		item.reference = referenceFor(*verse_key);
 		item.key = verse_key->getText();
@@ -230,6 +301,8 @@ std::vector<BibleVerse> BackEnd::getChapter(const std::string &module_id,
 			item.text = module->getRawEntry();
 		verses.push_back(item);
 	}
+	if (!saved.empty())
+		module->setKeyText(saved.c_str());
 	delete verse_key;
 	return verses;
 }
@@ -243,6 +316,8 @@ BibleVerseContent BackEnd::getVerseContent(
 	sword::SWModule *module = get_SWModule(module_id.c_str());
 	if (!module)
 		return content;
+
+	ModuleKeyGuard restore(module);
 
 	sword::VerseKey *verse_key =
 		dynamic_cast<sword::VerseKey *>(module->createKey());
@@ -281,8 +356,35 @@ BibleVerseContent BackEnd::getVerseContent(
 	 * key and leaves the renderer with a dangling VerseKey pointer.  Update
 	 * the existing key in place, as setKeyText() explicitly promises, so a
 	 * neutral content read can safely participate in the legacy render path. */
-	module->setKeyText(verse_key->getText());
-	delete verse_key;
+	sword::VerseKey *mod_vk =
+		dynamic_cast<sword::VerseKey *>(module->getKey());
+	const bool intro_slot = (reference.verse == 0);
+	if (intro_slot && mod_vk) {
+		mod_vk->setAutoNormalize(0);
+		module->setSkipConsecutiveLinks(false);
+		/* setKeyText("Book 2:0") still snaps to 2:1.  Position
+		 * the live key in place so an empty verse 0 stays 0. */
+		mod_vk->setTestament(reference.testament);
+		mod_vk->setBook(reference.book);
+		mod_vk->setChapter(reference.chapter);
+		mod_vk->setVerse(0);
+		delete verse_key;
+		verse_key = NULL;
+	} else {
+		module->setKeyText(verse_key->getText());
+		delete verse_key;
+		verse_key = NULL;
+	}
+
+	const int landed_verse = mod_vk ? mod_vk->getVerse() : -1;
+	const bool stole_intro = intro_slot && landed_verse != 0;
+	if (stole_intro) {
+		/* Requested verse 0, SWORD landed on a real verse.  The
+		 * body belongs to that verse, not to chapter intro. */
+		content.valid = true;
+		return content;
+	}
+
 	if (include_plain_text) {
 		const char *plain = module->stripText();
 		if (plain)
@@ -350,6 +452,7 @@ BibleVerseContent BackEnd::getVerseContent(
 		heading.text = module->renderText(raw->c_str()).c_str();
 		content.headings.push_back(std::move(heading));
 	}
+	applySourceQuirks(module_id, content);
 	return content;
 }
 

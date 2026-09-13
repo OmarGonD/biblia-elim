@@ -45,8 +45,9 @@ def limpia_final(s):
     return s.strip(" ,;:")
 
 
-def genera(texto, destino):
+def genera(texto, destino, introducciones=None):
     faltan = 0
+    introducciones = introducciones or {}
     reconstruidos_path = os.path.join(DIR, "reconstruidos.txt")
     reconstruidos = set(open(reconstruidos_path, encoding="utf-8").read().splitlines()) if os.path.exists(reconstruidos_path) else set()
     with open(destino, "w", encoding="utf-8") as f:
@@ -54,6 +55,12 @@ def genera(texto, destino):
         for osisid in ORDEN:
             L = POR_OSIS[osisid]
             f.write(f'  <div type="book" osisID="{osisid}">\n')
+            intro = introducciones.get(osisid)
+            if intro:
+                intro = limpia_final(intro)
+                if intro:
+                    f.write('   <div type="introduction"><p>'
+                            f"{html.escape(intro, quote=False)}</p></div>\n")
             for c, nver in enumerate(L["versos"], start=1):
                 f.write(f'   <chapter osisID="{osisid}.{c}">\n')
                 for v in range(1, nver + 1):
@@ -77,9 +84,13 @@ def genera(texto, destino):
 
 if __name__ == "__main__":
     texto = json.load(open(os.path.join(DIR, "texto.json"), encoding="utf-8"))
+    intro_path = os.path.join(DIR, "introducciones.json")
+    introducciones = {}
+    if os.path.exists(intro_path):
+        introducciones = json.load(open(intro_path, encoding="utf-8"))
     total = sum(sum(POR_OSIS[o]["versos"]) for o in ORDEN)
     dest = os.path.join(DIR, "salida", "nacarcolunga.osis.xml")
     os.makedirs(os.path.dirname(dest), exist_ok=True)
-    faltan = genera(texto, dest)
+    faltan = genera(texto, dest, introducciones)
     print(f"OSIS escrito: {total - faltan}/{total} versículos con texto "
           f"({100 * (total - faltan) / total:.1f}%), {faltan} vacíos")

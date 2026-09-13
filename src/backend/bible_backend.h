@@ -38,6 +38,14 @@ public:
 		const std::string &module_id) const = 0;
 	virtual std::string moduleDescription(const std::string &module_id) const = 0;
 	virtual std::string moduleLanguage(const std::string &module_id) const = 0;
+	/* SWORD versification system name (KJV, NRSVA, Vulg, ...). Used
+	 * only by the missing-content resolver to map citations before
+	 * reading the fallback module. Default is KJV identity. */
+	virtual std::string versification(const std::string &module_id) const
+	{
+		(void)module_id;
+		return "KJV";
+	}
 	virtual std::string osisRefFromKey(const std::string &module_id,
 						  const std::string &key) = 0;
 	virtual bool resolveKey(const std::string &module_id,

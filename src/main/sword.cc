@@ -83,6 +83,7 @@ extern "C" {
 #include "backend/sword_main.hh"
 #include "backend/sword/sword_backend.h"
 #include "backend/sqlite/sqlite_bible_backend.h"
+#include "backend/content_resolver.h"
 #include "backend/gs_stringmgr.h"
 
 #include "biblesync/biblesync.hh"
@@ -1603,21 +1604,15 @@ static bool main_display_neutral_bible(const char *module_name,
 		capabilities.morphology;
 	GString *fragment = g_string_new(NULL);
 	for (const BibleVerse &verse : verses) {
-		std::string rendered;
-		if (annotations_enabled) {
-			BibleVerseContent content = bible_backend->getVerseContent(
-				module_name, verse.reference);
-			rendered = content.valid
-				? renderAnnotatedVerseText(content, module_name, verse.key, true)
-				: renderAnnotatedVerseText(
-					BibleVerseContent{verse.reference, verse.text},
-					module_name, verse.key, false);
-		} else {
-			BibleVerseContent content;
-			content.plainText = verse.text;
-			rendered = renderAnnotatedVerseText(content, module_name,
-				verse.key, false);
-		}
+		BibleVerseContent content = resolveVerseContent(
+			*bible_backend, module_name, verse.reference, true);
+		if (content.plainText.empty())
+			content.plainText = content.renderedText.empty()
+						    ? verse.text
+						    : content.renderedText;
+		const std::string rendered = renderAnnotatedVerseText(
+			content, module_name, verse.key,
+			annotations_enabled && content.valid);
 		g_string_append_printf(fragment,
 			"<a name=\"%d\"></a><font color=\"%s\">%d&nbsp;%s</font><br />",
 			verse.reference.verse, settings.bible_verse_num_color,

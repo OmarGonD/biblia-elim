@@ -1,14 +1,24 @@
 {
-"Gen 1:1": [
+"Gen 1:2": [
 {
-"pagina": 109,
-"columna": 0,
-"fuente": "princeton:109",
-"x1": 40,
-"x2": 730,
-"top": 1408,
-"bot": 1462,
-"confianza": 95.1
+"pagina": 104,
+"columna": 1,
+"fuente": "princeton:104",
+"x1": 1036,
+"x2": 1547,
+"top": 2266,
+"bot": 2303,
+"confianza": 89.6
+},
+{
+"pagina": 105,
+"columna": 1,
+"fuente": "princeton:105",
+"x1": 1036,
+"x2": 1448,
+"top": 1044,
+"bot": 1079,
+"confianza": 92.7
 },
 {
 "pagina": 109,
@@ -21,7 +31,49 @@
 "confianza": 81.4
 }
 ],
-"Gen 1:2": [
+"Gen 1:6": [
+{
+"pagina": 106,
+"columna": 0,
+"fuente": "princeton:106",
+"x1": 129,
+"x2": 791,
+"top": 75,
+"bot": 108,
+"confianza": 93.0
+},
+{
+"pagina": 109,
+"columna": 0,
+"fuente": "princeton:109",
+"x1": 39,
+"x2": 731,
+"top": 1703,
+"bot": 1740,
+"confianza": 94.8
+},
+{
+"pagina": 109,
+"columna": 0,
+"fuente": "princeton:109",
+"x1": 83,
+"x2": 731,
+"top": 1813,
+"bot": 1850,
+"confianza": 76.6
+}
+],
+"Gen 1:1": [
+{
+"pagina": 109,
+"columna": 0,
+"fuente": "princeton:109",
+"x1": 40,
+"x2": 730,
+"top": 1408,
+"bot": 1462,
+"confianza": 95.1
+},
 {
 "pagina": 109,
 "columna": 0,
@@ -55,28 +107,6 @@
 "top": 1665,
 "bot": 1704,
 "confianza": 90.6
-}
-],
-"Gen 1:6": [
-{
-"pagina": 109,
-"columna": 0,
-"fuente": "princeton:109",
-"x1": 39,
-"x2": 731,
-"top": 1703,
-"bot": 1740,
-"confianza": 94.8
-},
-{
-"pagina": 109,
-"columna": 0,
-"fuente": "princeton:109",
-"x1": 83,
-"x2": 731,
-"top": 1813,
-"bot": 1850,
-"confianza": 76.6
 }
 ],
 "Gen 1:7": [
@@ -16689,16 +16719,6 @@
 "top": 515,
 "bot": 579,
 "confianza": 96.0
-},
-{
-"pagina": 163,
-"columna": 0,
-"fuente": "princeton:163",
-"x1": 89,
-"x2": 740,
-"top": 1491,
-"bot": 1542,
-"confianza": 89.4
 }
 ],
 "Gen 50:2": [
@@ -16711,16 +16731,6 @@
 "top": 589,
 "bot": 620,
 "confianza": 94.6
-},
-{
-"pagina": 163,
-"columna": 0,
-"fuente": "princeton:163",
-"x1": 85,
-"x2": 740,
-"top": 1601,
-"bot": 1638,
-"confianza": 94.3
 }
 ],
 "Gen 50:3": [
@@ -16733,16 +16743,6 @@
 "top": 700,
 "bot": 737,
 "confianza": 92.1
-},
-{
-"pagina": 163,
-"columna": 0,
-"fuente": "princeton:163",
-"x1": 84,
-"x2": 738,
-"top": 1638,
-"bot": 1675,
-"confianza": 85.6
 }
 ],
 "Gen 50:4": [
@@ -16755,16 +16755,6 @@
 "top": 884,
 "bot": 921,
 "confianza": 93.4
-},
-{
-"pagina": 163,
-"columna": 0,
-"fuente": "princeton:163",
-"x1": 84,
-"x2": 744,
-"top": 1675,
-"bot": 1712,
-"confianza": 92.1
 }
 ],
 "Gen 50:5": [
@@ -16777,16 +16767,6 @@
 "top": 1069,
 "bot": 1106,
 "confianza": 95.9
-},
-{
-"pagina": 163,
-"columna": 0,
-"fuente": "princeton:163",
-"x1": 87,
-"x2": 742,
-"top": 1712,
-"bot": 1742,
-"confianza": 95.1
 }
 ],
 "Gen 50:6": [
@@ -16799,16 +16779,6 @@
 "top": 1253,
 "bot": 1290,
 "confianza": 95.2
-},
-{
-"pagina": 163,
-"columna": 0,
-"fuente": "princeton:163",
-"x1": 84,
-"x2": 723,
-"top": 1786,
-"bot": 1822,
-"confianza": 85.8
 }
 ],
 "Gen 50:7": [
@@ -16821,16 +16791,6 @@
 "top": 1327,
 "bot": 1364,
 "confianza": 90.7
-},
-{
-"pagina": 163,
-"columna": 0,
-"fuente": "princeton:163",
-"x1": 84,
-"x2": 744,
-"top": 1859,
-"bot": 1895,
-"confianza": 79.2
 }
 ],
 "Gen 50:8": [
@@ -16843,16 +16803,6 @@
 "top": 1470,
 "bot": 1516,
 "confianza": 84.5
-},
-{
-"pagina": 163,
-"columna": 0,
-"fuente": "princeton:163",
-"x1": 84,
-"x2": 744,
-"top": 2006,
-"bot": 2044,
-"confianza": 89.6
 }
 ],
 "Gen 50:9": [
@@ -16865,16 +16815,6 @@
 "top": 1621,
 "bot": 1659,
 "confianza": 86.7
-},
-{
-"pagina": 163,
-"columna": 0,
-"fuente": "princeton:163",
-"x1": 83,
-"x2": 742,
-"top": 2079,
-"bot": 2117,
-"confianza": 93.9
 }
 ],
 "Gen 50:10": [
@@ -16887,16 +16827,6 @@
 "top": 1695,
 "bot": 1733,
 "confianza": 95.7
-},
-{
-"pagina": 163,
-"columna": 0,
-"fuente": "princeton:163",
-"x1": 82,
-"x2": 740,
-"top": 2153,
-"bot": 2193,
-"confianza": 94.6
 }
 ],
 "Gen 50:11": [
@@ -16921,16 +16851,6 @@
 "top": 2064,
 "bot": 2095,
 "confianza": 93.6
-},
-{
-"pagina": 163,
-"columna": 1,
-"fuente": "princeton:163",
-"x1": 811,
-"x2": 1504,
-"top": 1452,
-"bot": 1484,
-"confianza": 95.0
 }
 ],
 "Gen 50:13": [
@@ -16943,16 +16863,6 @@
 "top": 2137,
 "bot": 2175,
 "confianza": 85.0
-},
-{
-"pagina": 163,
-"columna": 1,
-"fuente": "princeton:163",
-"x1": 810,
-"x2": 1503,
-"top": 1600,
-"bot": 1638,
-"confianza": 94.6
 }
 ],
 "Gen 50:14": [
@@ -16965,16 +16875,6 @@
 "top": 331,
 "bot": 369,
 "confianza": 95.0
-},
-{
-"pagina": 163,
-"columna": 1,
-"fuente": "princeton:163",
-"x1": 811,
-"x2": 1504,
-"top": 1637,
-"bot": 1674,
-"confianza": 94.7
 }
 ],
 "Gen 50:15": [
@@ -16987,16 +16887,6 @@
 "top": 515,
 "bot": 548,
 "confianza": 96.0
-},
-{
-"pagina": 163,
-"columna": 1,
-"fuente": "princeton:163",
-"x1": 753,
-"x2": 1504,
-"top": 1785,
-"bot": 1822,
-"confianza": 89.1
 }
 ],
 "Gen 50:16": [
@@ -17021,16 +16911,6 @@
 "top": 737,
 "bot": 773,
 "confianza": 90.9
-},
-{
-"pagina": 163,
-"columna": 1,
-"fuente": "princeton:163",
-"x1": 752,
-"x2": 1504,
-"top": 2042,
-"bot": 2080,
-"confianza": 94.0
 }
 ],
 "Gen 50:18": [
@@ -17043,16 +16923,6 @@
 "top": 957,
 "bot": 989,
 "confianza": 90.3
-},
-{
-"pagina": 163,
-"columna": 1,
-"fuente": "princeton:163",
-"x1": 809,
-"x2": 1503,
-"top": 2189,
-"bot": 2227,
-"confianza": 91.9
 }
 ],
 "Gen 50:19": [
@@ -17065,16 +16935,6 @@
 "top": 1031,
 "bot": 1068,
 "confianza": 92.3
-},
-{
-"pagina": 163,
-"columna": 1,
-"fuente": "princeton:163",
-"x1": 809,
-"x2": 1504,
-"top": 2299,
-"bot": 2339,
-"confianza": 94.9
 }
 ],
 "Gen 50:20": [
@@ -17152,6 +17012,16 @@
 "Exod 1:1": [
 {
 "pagina": 163,
+"columna": 0,
+"fuente": "princeton:163",
+"x1": 89,
+"x2": 740,
+"top": 1491,
+"bot": 1542,
+"confianza": 89.4
+},
+{
+"pagina": 163,
 "columna": 1,
 "fuente": "princeton:163",
 "x1": 774,
@@ -17159,6 +17029,198 @@
 "top": 2404,
 "bot": 2449,
 "confianza": 82.9
+}
+],
+"Exod 1:2": [
+{
+"pagina": 163,
+"columna": 0,
+"fuente": "princeton:163",
+"x1": 85,
+"x2": 740,
+"top": 1601,
+"bot": 1638,
+"confianza": 94.3
+}
+],
+"Exod 1:3": [
+{
+"pagina": 163,
+"columna": 0,
+"fuente": "princeton:163",
+"x1": 84,
+"x2": 738,
+"top": 1638,
+"bot": 1675,
+"confianza": 85.6
+}
+],
+"Exod 1:4": [
+{
+"pagina": 163,
+"columna": 0,
+"fuente": "princeton:163",
+"x1": 84,
+"x2": 744,
+"top": 1675,
+"bot": 1712,
+"confianza": 92.1
+}
+],
+"Exod 1:5": [
+{
+"pagina": 163,
+"columna": 0,
+"fuente": "princeton:163",
+"x1": 87,
+"x2": 742,
+"top": 1712,
+"bot": 1742,
+"confianza": 95.1
+}
+],
+"Exod 1:6": [
+{
+"pagina": 163,
+"columna": 0,
+"fuente": "princeton:163",
+"x1": 84,
+"x2": 723,
+"top": 1786,
+"bot": 1822,
+"confianza": 85.8
+}
+],
+"Exod 1:7": [
+{
+"pagina": 163,
+"columna": 0,
+"fuente": "princeton:163",
+"x1": 84,
+"x2": 744,
+"top": 1859,
+"bot": 1895,
+"confianza": 79.2
+}
+],
+"Exod 1:8": [
+{
+"pagina": 163,
+"columna": 0,
+"fuente": "princeton:163",
+"x1": 84,
+"x2": 744,
+"top": 2006,
+"bot": 2044,
+"confianza": 89.6
+}
+],
+"Exod 1:9": [
+{
+"pagina": 163,
+"columna": 0,
+"fuente": "princeton:163",
+"x1": 83,
+"x2": 742,
+"top": 2079,
+"bot": 2117,
+"confianza": 93.9
+}
+],
+"Exod 1:10": [
+{
+"pagina": 163,
+"columna": 0,
+"fuente": "princeton:163",
+"x1": 82,
+"x2": 740,
+"top": 2153,
+"bot": 2193,
+"confianza": 94.6
+}
+],
+"Exod 1:12": [
+{
+"pagina": 163,
+"columna": 1,
+"fuente": "princeton:163",
+"x1": 811,
+"x2": 1504,
+"top": 1452,
+"bot": 1484,
+"confianza": 95.0
+}
+],
+"Exod 1:13": [
+{
+"pagina": 163,
+"columna": 1,
+"fuente": "princeton:163",
+"x1": 810,
+"x2": 1503,
+"top": 1600,
+"bot": 1638,
+"confianza": 94.6
+}
+],
+"Exod 1:14": [
+{
+"pagina": 163,
+"columna": 1,
+"fuente": "princeton:163",
+"x1": 811,
+"x2": 1504,
+"top": 1637,
+"bot": 1674,
+"confianza": 94.7
+}
+],
+"Exod 1:15": [
+{
+"pagina": 163,
+"columna": 1,
+"fuente": "princeton:163",
+"x1": 753,
+"x2": 1504,
+"top": 1785,
+"bot": 1822,
+"confianza": 89.1
+}
+],
+"Exod 1:17": [
+{
+"pagina": 163,
+"columna": 1,
+"fuente": "princeton:163",
+"x1": 752,
+"x2": 1504,
+"top": 2042,
+"bot": 2080,
+"confianza": 94.0
+}
+],
+"Exod 1:18": [
+{
+"pagina": 163,
+"columna": 1,
+"fuente": "princeton:163",
+"x1": 809,
+"x2": 1503,
+"top": 2189,
+"bot": 2227,
+"confianza": 91.9
+}
+],
+"Exod 1:19": [
+{
+"pagina": 163,
+"columna": 1,
+"fuente": "princeton:163",
+"x1": 809,
+"x2": 1504,
+"top": 2299,
+"bot": 2339,
+"confianza": 94.9
 }
 ],
 "Exod 1:20": [
@@ -64491,7 +64553,29 @@
 "confianza": 93.5
 }
 ],
-"Deut 34:10": [
+"Josh 1:2": [
+{
+"pagina": 312,
+"columna": 0,
+"fuente": "princeton:312",
+"x1": 105,
+"x2": 814,
+"top": 560,
+"bot": 595,
+"confianza": 90.4
+},
+{
+"pagina": 316,
+"columna": 0,
+"fuente": "princeton:316",
+"x1": 91,
+"x2": 783,
+"top": 1295,
+"bot": 1331,
+"confianza": 94.0
+}
+],
+"Josh 1:10": [
 {
 "pagina": 312,
 "columna": 1,
@@ -64501,9 +64585,19 @@
 "top": 298,
 "bot": 343,
 "confianza": 89.0
+},
+{
+"pagina": 316,
+"columna": 1,
+"fuente": "princeton:316",
+"x1": 867,
+"x2": 1516,
+"top": 1220,
+"bot": 1258,
+"confianza": 94.3
 }
 ],
-"Deut 34:11": [
+"Josh 1:11": [
 {
 "pagina": 312,
 "columna": 1,
@@ -64513,9 +64607,19 @@
 "top": 369,
 "bot": 412,
 "confianza": 88.6
+},
+{
+"pagina": 316,
+"columna": 1,
+"fuente": "princeton:316",
+"x1": 824,
+"x2": 1516,
+"top": 1330,
+"bot": 1369,
+"confianza": 88.0
 }
 ],
-"Deut 34:12": [
+"Josh 1:12": [
 {
 "pagina": 312,
 "columna": 1,
@@ -64525,6 +64629,28 @@
 "top": 559,
 "bot": 592,
 "confianza": 88.4
+}
+],
+"Josh 1:18": [
+{
+"pagina": 315,
+"columna": 0,
+"fuente": "princeton:315",
+"x1": 61,
+"x2": 985,
+"top": 2250,
+"bot": 2292,
+"confianza": 95.5
+},
+{
+"pagina": 317,
+"columna": 0,
+"fuente": "princeton:317",
+"x1": 38,
+"x2": 746,
+"top": 193,
+"bot": 231,
+"confianza": 84.3
 }
 ],
 "Josh 1:1": [
@@ -64537,18 +64663,6 @@
 "top": 1183,
 "bot": 1243,
 "confianza": 94.9
-}
-],
-"Josh 1:2": [
-{
-"pagina": 316,
-"columna": 0,
-"fuente": "princeton:316",
-"x1": 91,
-"x2": 783,
-"top": 1295,
-"bot": 1331,
-"confianza": 94.0
 }
 ],
 "Josh 1:3": [
@@ -64623,30 +64737,6 @@
 "confianza": 81.3
 }
 ],
-"Josh 1:10": [
-{
-"pagina": 316,
-"columna": 1,
-"fuente": "princeton:316",
-"x1": 867,
-"x2": 1516,
-"top": 1220,
-"bot": 1258,
-"confianza": 94.3
-}
-],
-"Josh 1:11": [
-{
-"pagina": 316,
-"columna": 1,
-"fuente": "princeton:316",
-"x1": 824,
-"x2": 1516,
-"top": 1330,
-"bot": 1369,
-"confianza": 88.0
-}
-],
 "Josh 1:13": [
 {
 "pagina": 316,
@@ -64691,18 +64781,6 @@
 "top": 2361,
 "bot": 2399,
 "confianza": 92.3
-}
-],
-"Josh 1:18": [
-{
-"pagina": 317,
-"columna": 0,
-"fuente": "princeton:317",
-"x1": 38,
-"x2": 746,
-"top": 193,
-"bot": 231,
-"confianza": 84.3
 }
 ],
 "Josh 2:1": [
@@ -112689,6 +112767,16 @@
 "top": 345,
 "bot": 376,
 "confianza": 95.3
+},
+{
+"pagina": 494,
+"columna": 0,
+"fuente": "princeton:494",
+"x1": 116,
+"x2": 798,
+"top": 1196,
+"bot": 1250,
+"confianza": 90.6
 }
 ],
 "2Kgs 25:2": [
@@ -112701,6 +112789,16 @@
 "top": 567,
 "bot": 597,
 "confianza": 84.0
+},
+{
+"pagina": 494,
+"columna": 0,
+"fuente": "princeton:494",
+"x1": 116,
+"x2": 798,
+"top": 1196,
+"bot": 1250,
+"confianza": 90.6
 }
 ],
 "2Kgs 25:3": [
@@ -112713,6 +112811,16 @@
 "top": 640,
 "bot": 672,
 "confianza": 83.4
+},
+{
+"pagina": 494,
+"columna": 0,
+"fuente": "princeton:494",
+"x1": 175,
+"x2": 820,
+"top": 1229,
+"bot": 1274,
+"confianza": 91.0
 }
 ],
 "2Kgs 25:4": [
@@ -112725,6 +112833,16 @@
 "top": 787,
 "bot": 825,
 "confianza": 90.7
+},
+{
+"pagina": 494,
+"columna": 0,
+"fuente": "princeton:494",
+"x1": 108,
+"x2": 797,
+"top": 1256,
+"bot": 1308,
+"confianza": 84.4
 }
 ],
 "2Kgs 25:5": [
@@ -112737,6 +112855,16 @@
 "top": 1046,
 "bot": 1091,
 "confianza": 93.3
+},
+{
+"pagina": 494,
+"columna": 0,
+"fuente": "princeton:494",
+"x1": 150,
+"x2": 797,
+"top": 1307,
+"bot": 1380,
+"confianza": 80.7
 }
 ],
 "2Kgs 25:6": [
@@ -112749,6 +112877,16 @@
 "top": 1193,
 "bot": 1230,
 "confianza": 94.5
+},
+{
+"pagina": 494,
+"columna": 0,
+"fuente": "princeton:494",
+"x1": 149,
+"x2": 797,
+"top": 1381,
+"bot": 1417,
+"confianza": 94.0
 }
 ],
 "2Kgs 25:7": [
@@ -112761,6 +112899,16 @@
 "top": 1267,
 "bot": 1304,
 "confianza": 92.7
+},
+{
+"pagina": 494,
+"columna": 0,
+"fuente": "princeton:494",
+"x1": 106,
+"x2": 797,
+"top": 1418,
+"bot": 1455,
+"confianza": 90.3
 }
 ],
 "2Kgs 25:8": [
@@ -112773,6 +112921,16 @@
 "top": 1450,
 "bot": 1489,
 "confianza": 92.6
+},
+{
+"pagina": 494,
+"columna": 0,
+"fuente": "princeton:494",
+"x1": 150,
+"x2": 798,
+"top": 1492,
+"bot": 1529,
+"confianza": 92.5
 }
 ],
 "2Kgs 25:9": [
@@ -112785,6 +112943,16 @@
 "top": 1633,
 "bot": 1672,
 "confianza": 87.2
+},
+{
+"pagina": 494,
+"columna": 0,
+"fuente": "princeton:494",
+"x1": 105,
+"x2": 816,
+"top": 1529,
+"bot": 1571,
+"confianza": 86.9
 }
 ],
 "2Kgs 25:10": [
@@ -112797,6 +112965,16 @@
 "top": 1709,
 "bot": 1746,
 "confianza": 93.5
+},
+{
+"pagina": 494,
+"columna": 0,
+"fuente": "princeton:494",
+"x1": 147,
+"x2": 798,
+"top": 1640,
+"bot": 1677,
+"confianza": 93.4
 }
 ],
 "2Kgs 25:11": [
@@ -112821,6 +112999,16 @@
 "top": 1991,
 "bot": 2042,
 "confianza": 92.4
+},
+{
+"pagina": 494,
+"columna": 0,
+"fuente": "princeton:494",
+"x1": 104,
+"x2": 797,
+"top": 1788,
+"bot": 1824,
+"confianza": 86.1
 }
 ],
 "2Kgs 25:13": [
@@ -112833,6 +113021,16 @@
 "top": 2112,
 "bot": 2152,
 "confianza": 92.3
+},
+{
+"pagina": 494,
+"columna": 0,
+"fuente": "princeton:494",
+"x1": 105,
+"x2": 795,
+"top": 1861,
+"bot": 1898,
+"confianza": 91.0
 }
 ],
 "2Kgs 25:14": [
@@ -112845,6 +113043,16 @@
 "top": 2263,
 "bot": 2297,
 "confianza": 94.1
+},
+{
+"pagina": 494,
+"columna": 0,
+"fuente": "princeton:494",
+"x1": 103,
+"x2": 795,
+"top": 1897,
+"bot": 1935,
+"confianza": 93.9
 }
 ],
 "2Kgs 25:15": [
@@ -113039,160 +113247,16 @@
 "confianza": 91.9
 }
 ],
-"1Chr 1:1": [
-{
-"pagina": 494,
-"columna": 0,
-"fuente": "princeton:494",
-"x1": 116,
-"x2": 798,
-"top": 1196,
-"bot": 1250,
-"confianza": 90.6
-}
-],
 "1Chr 1:2": [
 {
 "pagina": 494,
 "columna": 0,
 "fuente": "princeton:494",
-"x1": 116,
-"x2": 798,
-"top": 1196,
-"bot": 1250,
-"confianza": 90.6
-}
-],
-"1Chr 1:3": [
-{
-"pagina": 494,
-"columna": 0,
-"fuente": "princeton:494",
-"x1": 175,
-"x2": 820,
-"top": 1229,
-"bot": 1274,
-"confianza": 91.0
-}
-],
-"1Chr 1:4": [
-{
-"pagina": 494,
-"columna": 0,
-"fuente": "princeton:494",
-"x1": 108,
-"x2": 797,
-"top": 1256,
-"bot": 1308,
-"confianza": 84.4
-}
-],
-"1Chr 1:5": [
-{
-"pagina": 494,
-"columna": 0,
-"fuente": "princeton:494",
-"x1": 150,
-"x2": 797,
-"top": 1307,
-"bot": 1380,
-"confianza": 80.7
-}
-],
-"1Chr 1:6": [
-{
-"pagina": 494,
-"columna": 0,
-"fuente": "princeton:494",
-"x1": 149,
-"x2": 797,
-"top": 1381,
-"bot": 1417,
-"confianza": 94.0
-}
-],
-"1Chr 1:7": [
-{
-"pagina": 494,
-"columna": 0,
-"fuente": "princeton:494",
-"x1": 106,
-"x2": 797,
-"top": 1418,
-"bot": 1455,
-"confianza": 90.3
-}
-],
-"1Chr 1:8": [
-{
-"pagina": 494,
-"columna": 0,
-"fuente": "princeton:494",
-"x1": 150,
-"x2": 798,
-"top": 1492,
-"bot": 1529,
-"confianza": 92.5
-}
-],
-"1Chr 1:9": [
-{
-"pagina": 494,
-"columna": 0,
-"fuente": "princeton:494",
-"x1": 105,
-"x2": 816,
-"top": 1529,
-"bot": 1571,
-"confianza": 86.9
-}
-],
-"1Chr 1:10": [
-{
-"pagina": 494,
-"columna": 0,
-"fuente": "princeton:494",
-"x1": 147,
-"x2": 798,
-"top": 1640,
-"bot": 1677,
-"confianza": 93.4
-}
-],
-"1Chr 1:12": [
-{
-"pagina": 494,
-"columna": 0,
-"fuente": "princeton:494",
 "x1": 104,
-"x2": 797,
-"top": 1788,
-"bot": 1824,
-"confianza": 86.1
-}
-],
-"1Chr 1:13": [
-{
-"pagina": 494,
-"columna": 0,
-"fuente": "princeton:494",
-"x1": 105,
 "x2": 795,
-"top": 1861,
-"bot": 1898,
-"confianza": 91.0
-}
-],
-"1Chr 1:14": [
-{
-"pagina": 494,
-"columna": 0,
-"fuente": "princeton:494",
-"x1": 103,
-"x2": 795,
-"top": 1897,
-"bot": 1935,
-"confianza": 93.9
+"top": 1920,
+"bot": 1972,
+"confianza": 77.5
 }
 ],
 "1Chr 1:16": [
@@ -113433,6 +113497,198 @@
 "top": 2360,
 "bot": 2412,
 "confianza": 68.4
+}
+],
+"1Chr 1:38": [
+{
+"pagina": 495,
+"columna": 0,
+"fuente": "princeton:495",
+"x1": 94,
+"x2": 786,
+"top": 164,
+"bot": 204,
+"confianza": 90.1
+}
+],
+"1Chr 1:39": [
+{
+"pagina": 495,
+"columna": 0,
+"fuente": "princeton:495",
+"x1": 94,
+"x2": 786,
+"top": 239,
+"bot": 278,
+"confianza": 90.1
+}
+],
+"1Chr 1:41": [
+{
+"pagina": 495,
+"columna": 0,
+"fuente": "princeton:495",
+"x1": 96,
+"x2": 785,
+"top": 423,
+"bot": 460,
+"confianza": 93.3
+}
+],
+"1Chr 1:42": [
+{
+"pagina": 495,
+"columna": 0,
+"fuente": "princeton:495",
+"x1": 95,
+"x2": 785,
+"top": 459,
+"bot": 498,
+"confianza": 83.9
+}
+],
+"1Chr 1:43": [
+{
+"pagina": 495,
+"columna": 0,
+"fuente": "princeton:495",
+"x1": 138,
+"x2": 784,
+"top": 572,
+"bot": 609,
+"confianza": 90.4
+}
+],
+"1Chr 1:44": [
+{
+"pagina": 495,
+"columna": 0,
+"fuente": "princeton:495",
+"x1": 95,
+"x2": 786,
+"top": 718,
+"bot": 753,
+"confianza": 92.0
+}
+],
+"1Chr 1:45": [
+{
+"pagina": 495,
+"columna": 0,
+"fuente": "princeton:495",
+"x1": 96,
+"x2": 785,
+"top": 791,
+"bot": 828,
+"confianza": 87.6
+}
+],
+"1Chr 1:46": [
+{
+"pagina": 495,
+"columna": 0,
+"fuente": "princeton:495",
+"x1": 97,
+"x2": 784,
+"top": 862,
+"bot": 906,
+"confianza": 92.0
+}
+],
+"1Chr 1:47": [
+{
+"pagina": 495,
+"columna": 0,
+"fuente": "princeton:495",
+"x1": 95,
+"x2": 785,
+"top": 975,
+"bot": 1006,
+"confianza": 91.8
+}
+],
+"1Chr 1:48": [
+{
+"pagina": 495,
+"columna": 0,
+"fuente": "princeton:495",
+"x1": 94,
+"x2": 786,
+"top": 1050,
+"bot": 1086,
+"confianza": 89.9
+}
+],
+"1Chr 1:49": [
+{
+"pagina": 495,
+"columna": 0,
+"fuente": "princeton:495",
+"x1": 97,
+"x2": 786,
+"top": 1085,
+"bot": 1123,
+"confianza": 90.7
+}
+],
+"1Chr 1:50": [
+{
+"pagina": 495,
+"columna": 0,
+"fuente": "princeton:495",
+"x1": 96,
+"x2": 787,
+"top": 1161,
+"bot": 1196,
+"confianza": 90.0
+}
+],
+"1Chr 1:51": [
+{
+"pagina": 495,
+"columna": 0,
+"fuente": "princeton:495",
+"x1": 96,
+"x2": 660,
+"top": 1307,
+"bot": 1337,
+"confianza": 89.0
+}
+],
+"1Chr 1:52": [
+{
+"pagina": 495,
+"columna": 0,
+"fuente": "princeton:495",
+"x1": 98,
+"x2": 786,
+"top": 1418,
+"bot": 1454,
+"confianza": 90.1
+}
+],
+"1Chr 1:53": [
+{
+"pagina": 495,
+"columna": 0,
+"fuente": "princeton:495",
+"x1": 95,
+"x2": 787,
+"top": 1455,
+"bot": 1491,
+"confianza": 89.0
+}
+],
+"1Chr 1:54": [
+{
+"pagina": 495,
+"columna": 0,
+"fuente": "princeton:495",
+"x1": 95,
+"x2": 786,
+"top": 1491,
+"bot": 1528,
+"confianza": 90.3
 }
 ],
 "1Chr 2:1": [
@@ -148431,16 +148687,6 @@
 "top": 1089,
 "bot": 1140,
 "confianza": 88.8
-},
-{
-"pagina": 627,
-"columna": 1,
-"fuente": "princeton:627",
-"x1": 941,
-"x2": 1493,
-"top": 2017,
-"bot": 2053,
-"confianza": 94.5
 }
 ],
 "Esth 10:2": [
@@ -164493,73 +164739,17 @@
 "confianza": 92.1
 }
 ],
-"Isa 1:3": [
-{
-"pagina": 692,
-"columna": 0,
-"fuente": "princeton:692",
-"x1": 187,
-"x2": 821,
-"top": 337,
-"bot": 374,
-"confianza": 94.0
-},
-{
-"pagina": 693,
-"columna": 0,
-"fuente": "princeton:693",
-"x1": 117,
-"x2": 768,
-"top": 941,
-"bot": 978,
-"confianza": 93.4
-}
-],
-"Isa 1:4": [
-{
-"pagina": 692,
-"columna": 0,
-"fuente": "princeton:692",
-"x1": 185,
-"x2": 833,
-"top": 665,
-"bot": 711,
-"confianza": 88.6
-},
-{
-"pagina": 693,
-"columna": 0,
-"fuente": "princeton:693",
-"x1": 117,
-"x2": 767,
-"top": 1088,
-"bot": 1126,
-"confianza": 88.8
-}
-],
-"Isa 1:10": [
-{
-"pagina": 692,
-"columna": 1,
-"fuente": "princeton:692",
-"x1": 834,
-"x2": 1543,
-"top": 506,
-"bot": 546,
-"confianza": 94.8
-},
-{
-"pagina": 693,
-"columna": 0,
-"fuente": "princeton:693",
-"x1": 104,
-"x2": 754,
-"top": 2006,
-"bot": 2044,
-"confianza": 92.0
-}
-],
 "Isa 1:1": [
+{
+"pagina": 691,
+"columna": 0,
+"fuente": "princeton:691",
+"x1": 133,
+"x2": 777,
+"top": 1379,
+"bot": 1415,
+"confianza": 83.0
+},
 {
 "pagina": 693,
 "columna": 0,
@@ -164573,6 +164763,16 @@
 ],
 "Isa 1:2": [
 {
+"pagina": 691,
+"columna": 0,
+"fuente": "princeton:691",
+"x1": 132,
+"x2": 777,
+"top": 1926,
+"bot": 1962,
+"confianza": 85.6
+},
+{
 "pagina": 693,
 "columna": 0,
 "fuente": "princeton:693",
@@ -164581,6 +164781,74 @@
 "top": 795,
 "bot": 831,
 "confianza": 92.5
+}
+],
+"Isa 1:7": [
+{
+"pagina": 691,
+"columna": 1,
+"fuente": "princeton:691",
+"x1": 861,
+"x2": 1485,
+"top": 1799,
+"bot": 1836,
+"confianza": 94.3
+},
+{
+"pagina": 693,
+"columna": 0,
+"fuente": "princeton:693",
+"x1": 109,
+"x2": 757,
+"top": 1566,
+"bot": 1601,
+"confianza": 93.6
+}
+],
+"Isa 1:11": [
+{
+"pagina": 691,
+"columna": 1,
+"fuente": "princeton:691",
+"x1": 811,
+"x2": 1487,
+"top": 2344,
+"bot": 2382,
+"confianza": 94.8
+},
+{
+"pagina": 693,
+"columna": 0,
+"fuente": "princeton:693",
+"x1": 59,
+"x2": 753,
+"top": 2115,
+"bot": 2182,
+"confianza": 75.4
+}
+],
+"Isa 1:3": [
+{
+"pagina": 693,
+"columna": 0,
+"fuente": "princeton:693",
+"x1": 117,
+"x2": 768,
+"top": 941,
+"bot": 978,
+"confianza": 93.4
+}
+],
+"Isa 1:4": [
+{
+"pagina": 693,
+"columna": 0,
+"fuente": "princeton:693",
+"x1": 117,
+"x2": 767,
+"top": 1088,
+"bot": 1126,
+"confianza": 88.8
 }
 ],
 "Isa 1:5": [
@@ -164607,18 +164875,6 @@
 "confianza": 96.0
 }
 ],
-"Isa 1:7": [
-{
-"pagina": 693,
-"columna": 0,
-"fuente": "princeton:693",
-"x1": 109,
-"x2": 757,
-"top": 1566,
-"bot": 1601,
-"confianza": 93.6
-}
-],
 "Isa 1:8": [
 {
 "pagina": 693,
@@ -164643,16 +164899,16 @@
 "confianza": 80.3
 }
 ],
-"Isa 1:11": [
+"Isa 1:10": [
 {
 "pagina": 693,
 "columna": 0,
 "fuente": "princeton:693",
-"x1": 59,
-"x2": 753,
-"top": 2115,
-"bot": 2182,
-"confianza": 75.4
+"x1": 104,
+"x2": 754,
+"top": 2006,
+"bot": 2044,
+"confianza": 92.0
 }
 ],
 "Isa 1:12": [
@@ -193719,330 +193975,6 @@
 "confianza": 89.3
 }
 ],
-"Jer 52:4": [
-{
-"pagina": 791,
-"columna": 0,
-"fuente": "princeton:791",
-"x1": 89,
-"x2": 774,
-"top": 272,
-"bot": 308,
-"confianza": 93.6
-}
-],
-"Jer 52:6": [
-{
-"pagina": 791,
-"columna": 0,
-"fuente": "princeton:791",
-"x1": 88,
-"x2": 774,
-"top": 453,
-"bot": 489,
-"confianza": 89.3
-}
-],
-"Jer 52:7": [
-{
-"pagina": 791,
-"columna": 0,
-"fuente": "princeton:791",
-"x1": 89,
-"x2": 774,
-"top": 676,
-"bot": 710,
-"confianza": 93.7
-}
-],
-"Jer 52:8": [
-{
-"pagina": 791,
-"columna": 0,
-"fuente": "princeton:791",
-"x1": 86,
-"x2": 774,
-"top": 931,
-"bot": 968,
-"confianza": 92.1
-}
-],
-"Jer 52:9": [
-{
-"pagina": 791,
-"columna": 0,
-"fuente": "princeton:791",
-"x1": 84,
-"x2": 774,
-"top": 1078,
-"bot": 1116,
-"confianza": 91.0
-}
-],
-"Jer 52:10": [
-{
-"pagina": 791,
-"columna": 0,
-"fuente": "princeton:791",
-"x1": 83,
-"x2": 774,
-"top": 1188,
-"bot": 1226,
-"confianza": 95.9
-}
-],
-"Jer 52:11": [
-{
-"pagina": 791,
-"columna": 0,
-"fuente": "princeton:791",
-"x1": 84,
-"x2": 774,
-"top": 1297,
-"bot": 1335,
-"confianza": 92.6
-}
-],
-"Jer 52:12": [
-{
-"pagina": 791,
-"columna": 0,
-"fuente": "princeton:791",
-"x1": 84,
-"x2": 773,
-"top": 1481,
-"bot": 1519,
-"confianza": 95.9
-}
-],
-"Jer 52:13": [
-{
-"pagina": 791,
-"columna": 0,
-"fuente": "princeton:791",
-"x1": 82,
-"x2": 774,
-"top": 1665,
-"bot": 1702,
-"confianza": 95.1
-}
-],
-"Jer 52:14": [
-{
-"pagina": 791,
-"columna": 0,
-"fuente": "princeton:791",
-"x1": 81,
-"x2": 770,
-"top": 1775,
-"bot": 1811,
-"confianza": 92.6
-}
-],
-"Jer 52:16": [
-{
-"pagina": 791,
-"columna": 0,
-"fuente": "princeton:791",
-"x1": 82,
-"x2": 768,
-"top": 1921,
-"bot": 1958,
-"confianza": 96.0
-}
-],
-"Jer 52:17": [
-{
-"pagina": 791,
-"columna": 0,
-"fuente": "princeton:791",
-"x1": 78,
-"x2": 766,
-"top": 2177,
-"bot": 2214,
-"confianza": 87.0
-}
-],
-"Jer 52:18": [
-{
-"pagina": 791,
-"columna": 0,
-"fuente": "princeton:791",
-"x1": 78,
-"x2": 766,
-"top": 2323,
-"bot": 2354,
-"confianza": 93.9
-}
-],
-"Jer 52:20": [
-{
-"pagina": 791,
-"columna": 1,
-"fuente": "princeton:791",
-"x1": 824,
-"x2": 1512,
-"top": 379,
-"bot": 415,
-"confianza": 90.4
-}
-],
-"Jer 52:22": [
-{
-"pagina": 791,
-"columna": 1,
-"fuente": "princeton:791",
-"x1": 816,
-"x2": 1511,
-"top": 674,
-"bot": 708,
-"confianza": 95.6
-}
-],
-"Jer 52:23": [
-{
-"pagina": 791,
-"columna": 1,
-"fuente": "princeton:791",
-"x1": 816,
-"x2": 1511,
-"top": 857,
-"bot": 893,
-"confianza": 95.7
-}
-],
-"Jer 52:24": [
-{
-"pagina": 791,
-"columna": 1,
-"fuente": "princeton:791",
-"x1": 815,
-"x2": 1507,
-"top": 929,
-"bot": 967,
-"confianza": 81.0
-}
-],
-"Jer 52:25": [
-{
-"pagina": 791,
-"columna": 1,
-"fuente": "princeton:791",
-"x1": 816,
-"x2": 1509,
-"top": 1077,
-"bot": 1108,
-"confianza": 85.6
-}
-],
-"Jer 52:26": [
-{
-"pagina": 791,
-"columna": 1,
-"fuente": "princeton:791",
-"x1": 814,
-"x2": 1510,
-"top": 1334,
-"bot": 1365,
-"confianza": 92.0
-}
-],
-"Jer 52:27": [
-{
-"pagina": 791,
-"columna": 1,
-"fuente": "princeton:791",
-"x1": 813,
-"x2": 1508,
-"top": 1407,
-"bot": 1445,
-"confianza": 89.0
-}
-],
-"Jer 52:28": [
-{
-"pagina": 791,
-"columna": 1,
-"fuente": "princeton:791",
-"x1": 814,
-"x2": 1507,
-"top": 1517,
-"bot": 1548,
-"confianza": 94.4
-}
-],
-"Jer 52:29": [
-{
-"pagina": 791,
-"columna": 1,
-"fuente": "princeton:791",
-"x1": 813,
-"x2": 1509,
-"top": 1627,
-"bot": 1665,
-"confianza": 92.9
-}
-],
-"Jer 52:30": [
-{
-"pagina": 791,
-"columna": 1,
-"fuente": "princeton:791",
-"x1": 814,
-"x2": 1506,
-"top": 1664,
-"bot": 1701,
-"confianza": 88.7
-}
-],
-"Jer 52:31": [
-{
-"pagina": 791,
-"columna": 1,
-"fuente": "princeton:791",
-"x1": 812,
-"x2": 1508,
-"top": 1848,
-"bot": 1885,
-"confianza": 83.7
-}
-],
-"Jer 52:32": [
-{
-"pagina": 791,
-"columna": 1,
-"fuente": "princeton:791",
-"x1": 810,
-"x2": 1505,
-"top": 2105,
-"bot": 2142,
-"confianza": 91.3
-}
-],
-"Jer 52:33": [
-{
-"pagina": 791,
-"columna": 1,
-"fuente": "princeton:791",
-"x1": 810,
-"x2": 1503,
-"top": 2214,
-"bot": 2251,
-"confianza": 89.5
-}
-],
-"Jer 52:34": [
-{
-"pagina": 791,
-"columna": 1,
-"fuente": "princeton:791",
-"x1": 810,
-"x2": 1503,
-"top": 2324,
-"bot": 2355,
-"confianza": 86.8
-}
-],
 "Lam 1:1": [
 {
 "pagina": 792,
@@ -212123,16 +212055,6 @@
 "top": 153,
 "bot": 277,
 "confianza": 88.5
-},
-{
-"pagina": 853,
-"columna": 0,
-"fuente": "princeton:853",
-"x1": 14,
-"x2": 921,
-"top": 2334,
-"bot": 2390,
-"confianza": 81.6
 }
 ],
 "Ezek 48:2": [
@@ -212443,28 +212365,6 @@
 "confianza": 87.9
 }
 ],
-"Dan 1:3": [
-{
-"pagina": 854,
-"columna": 0,
-"fuente": "princeton:854",
-"x1": 150,
-"x2": 840,
-"top": 532,
-"bot": 569,
-"confianza": 91.9
-},
-{
-"pagina": 854,
-"columna": 0,
-"fuente": "princeton:854",
-"x1": 136,
-"x2": 821,
-"top": 1708,
-"bot": 1744,
-"confianza": 92.6
-}
-],
 "Dan 1:1": [
 {
 "pagina": 854,
@@ -212487,6 +212387,18 @@
 "top": 1487,
 "bot": 1524,
 "confianza": 90.6
+}
+],
+"Dan 1:3": [
+{
+"pagina": 854,
+"columna": 0,
+"fuente": "princeton:854",
+"x1": 136,
+"x2": 821,
+"top": 1708,
+"bot": 1744,
+"confianza": 92.6
 }
 ],
 "Dan 1:6": [
@@ -215759,6 +215671,26 @@
 "top": 2073,
 "bot": 2122,
 "confianza": 88.1
+},
+{
+"pagina": 870,
+"columna": 1,
+"fuente": "princeton:870",
+"x1": 888,
+"x2": 1579,
+"top": 1449,
+"bot": 1502,
+"confianza": 91.9
+},
+{
+"pagina": 870,
+"columna": 1,
+"fuente": "princeton:870",
+"x1": 896,
+"x2": 1578,
+"top": 1479,
+"bot": 1523,
+"confianza": 79.8
 }
 ],
 "Dan 11:2": [
@@ -215771,6 +215703,16 @@
 "top": 2155,
 "bot": 2193,
 "confianza": 87.1
+},
+{
+"pagina": 870,
+"columna": 1,
+"fuente": "princeton:870",
+"x1": 883,
+"x2": 1574,
+"top": 1707,
+"bot": 1745,
+"confianza": 82.5
 }
 ],
 "Dan 11:3": [
@@ -215783,6 +215725,16 @@
 "top": 304,
 "bot": 336,
 "confianza": 92.4
+},
+{
+"pagina": 870,
+"columna": 1,
+"fuente": "princeton:870",
+"x1": 881,
+"x2": 1586,
+"top": 1853,
+"bot": 1894,
+"confianza": 75.3
 }
 ],
 "Dan 11:4": [
@@ -215795,6 +215747,16 @@
 "top": 378,
 "bot": 416,
 "confianza": 88.5
+},
+{
+"pagina": 870,
+"columna": 1,
+"fuente": "princeton:870",
+"x1": 880,
+"x2": 1570,
+"top": 2038,
+"bot": 2073,
+"confianza": 94.9
 }
 ],
 "Dan 11:6": [
@@ -215817,6 +215779,16 @@
 "top": 782,
 "bot": 819,
 "confianza": 91.4
+},
+{
+"pagina": 871,
+"columna": 0,
+"fuente": "princeton:871",
+"x1": 113,
+"x2": 759,
+"top": 222,
+"bot": 259,
+"confianza": 95.5
 }
 ],
 "Dan 11:7": [
@@ -215829,6 +215801,16 @@
 "top": 1077,
 "bot": 1107,
 "confianza": 94.1
+},
+{
+"pagina": 871,
+"columna": 0,
+"fuente": "princeton:871",
+"x1": 65,
+"x2": 754,
+"top": 479,
+"bot": 510,
+"confianza": 95.7
 }
 ],
 "Dan 11:8": [
@@ -215841,6 +215823,16 @@
 "top": 1224,
 "bot": 1261,
 "confianza": 93.1
+},
+{
+"pagina": 871,
+"columna": 0,
+"fuente": "princeton:871",
+"x1": 63,
+"x2": 752,
+"top": 808,
+"bot": 848,
+"confianza": 91.7
 }
 ],
 "Dan 11:9": [
@@ -215853,6 +215845,16 @@
 "top": 1407,
 "bot": 1444,
 "confianza": 89.6
+},
+{
+"pagina": 871,
+"columna": 0,
+"fuente": "princeton:871",
+"x1": 63,
+"x2": 753,
+"top": 883,
+"bot": 921,
+"confianza": 93.2
 }
 ],
 "Dan 11:10": [
@@ -215865,6 +215867,16 @@
 "top": 1516,
 "bot": 1555,
 "confianza": 96.0
+},
+{
+"pagina": 871,
+"columna": 0,
+"fuente": "princeton:871",
+"x1": 60,
+"x2": 751,
+"top": 994,
+"bot": 1031,
+"confianza": 91.9
 }
 ],
 "Dan 11:11": [
@@ -215877,6 +215889,16 @@
 "top": 1737,
 "bot": 1774,
 "confianza": 95.0
+},
+{
+"pagina": 871,
+"columna": 0,
+"fuente": "princeton:871",
+"x1": 60,
+"x2": 751,
+"top": 1177,
+"bot": 1214,
+"confianza": 94.0
 }
 ],
 "Dan 11:13": [
@@ -215889,6 +215911,16 @@
 "top": 191,
 "bot": 230,
 "confianza": 91.6
+},
+{
+"pagina": 871,
+"columna": 0,
+"fuente": "princeton:871",
+"x1": 58,
+"x2": 746,
+"top": 1398,
+"bot": 1430,
+"confianza": 93.0
 }
 ],
 "Dan 11:14": [
@@ -216237,137 +216269,7 @@
 "confianza": 93.0
 }
 ],
-"Dan 12:1": [
-{
-"pagina": 870,
-"columna": 1,
-"fuente": "princeton:870",
-"x1": 888,
-"x2": 1579,
-"top": 1449,
-"bot": 1502,
-"confianza": 91.9
-},
-{
-"pagina": 870,
-"columna": 1,
-"fuente": "princeton:870",
-"x1": 896,
-"x2": 1578,
-"top": 1479,
-"bot": 1523,
-"confianza": 79.8
-}
-],
-"Dan 12:2": [
-{
-"pagina": 870,
-"columna": 1,
-"fuente": "princeton:870",
-"x1": 883,
-"x2": 1574,
-"top": 1707,
-"bot": 1745,
-"confianza": 82.5
-}
-],
-"Dan 12:3": [
-{
-"pagina": 870,
-"columna": 1,
-"fuente": "princeton:870",
-"x1": 881,
-"x2": 1586,
-"top": 1853,
-"bot": 1894,
-"confianza": 75.3
-}
-],
-"Dan 12:4": [
-{
-"pagina": 870,
-"columna": 1,
-"fuente": "princeton:870",
-"x1": 880,
-"x2": 1570,
-"top": 2038,
-"bot": 2073,
-"confianza": 94.9
-}
-],
-"Dan 12:6": [
-{
-"pagina": 871,
-"columna": 0,
-"fuente": "princeton:871",
-"x1": 113,
-"x2": 759,
-"top": 222,
-"bot": 259,
-"confianza": 95.5
-}
-],
-"Dan 12:7": [
-{
-"pagina": 871,
-"columna": 0,
-"fuente": "princeton:871",
-"x1": 65,
-"x2": 754,
-"top": 479,
-"bot": 510,
-"confianza": 95.7
-}
-],
-"Dan 12:8": [
-{
-"pagina": 871,
-"columna": 0,
-"fuente": "princeton:871",
-"x1": 63,
-"x2": 752,
-"top": 808,
-"bot": 848,
-"confianza": 91.7
-}
-],
-"Dan 12:9": [
-{
-"pagina": 871,
-"columna": 0,
-"fuente": "princeton:871",
-"x1": 63,
-"x2": 753,
-"top": 883,
-"bot": 921,
-"confianza": 93.2
-}
-],
-"Dan 12:10": [
-{
-"pagina": 871,
-"columna": 0,
-"fuente": "princeton:871",
-"x1": 60,
-"x2": 751,
-"top": 994,
-"bot": 1031,
-"confianza": 91.9
-}
-],
-"Dan 12:11": [
-{
-"pagina": 871,
-"columna": 0,
-"fuente": "princeton:871",
-"x1": 60,
-"x2": 751,
-"top": 1177,
-"bot": 1214,
-"confianza": 94.0
-}
-],
-"Dan 12:12": [
+"Dan 11:12": [
 {
 "pagina": 871,
 "columna": 0,
@@ -216379,19 +216281,7 @@
 "confianza": 88.2
 }
 ],
-"Dan 12:13": [
-{
-"pagina": 871,
-"columna": 0,
-"fuente": "princeton:871",
-"x1": 58,
-"x2": 746,
-"top": 1398,
-"bot": 1430,
-"confianza": 93.0
-}
-],
-"Hos 1:1": [
+"Dan 12:1": [
 {
 "pagina": 873,
 "columna": 0,
@@ -216403,7 +216293,7 @@
 "confianza": 94.0
 }
 ],
-"Hos 1:2": [
+"Dan 12:2": [
 {
 "pagina": 873,
 "columna": 0,
@@ -216415,7 +216305,7 @@
 "confianza": 85.4
 }
 ],
-"Hos 1:3": [
+"Dan 12:3": [
 {
 "pagina": 873,
 "columna": 0,
@@ -216427,7 +216317,7 @@
 "confianza": 94.7
 }
 ],
-"Hos 1:4": [
+"Dan 12:4": [
 {
 "pagina": 873,
 "columna": 0,
@@ -216439,7 +216329,7 @@
 "confianza": 94.3
 }
 ],
-"Hos 1:6": [
+"Dan 12:6": [
 {
 "pagina": 873,
 "columna": 0,
@@ -216461,7 +216351,7 @@
 "confianza": 94.6
 }
 ],
-"Hos 1:7": [
+"Dan 12:7": [
 {
 "pagina": 873,
 "columna": 0,
@@ -216473,7 +216363,7 @@
 "confianza": 94.8
 }
 ],
-"Hos 1:8": [
+"Dan 12:8": [
 {
 "pagina": 873,
 "columna": 0,
@@ -216485,7 +216375,7 @@
 "confianza": 94.4
 }
 ],
-"Hos 1:9": [
+"Dan 12:9": [
 {
 "pagina": 873,
 "columna": 0,
@@ -216497,7 +216387,7 @@
 "confianza": 90.2
 }
 ],
-"Hos 1:10": [
+"Dan 12:10": [
 {
 "pagina": 873,
 "columna": 0,
@@ -216509,7 +216399,7 @@
 "confianza": 95.9
 }
 ],
-"Hos 1:11": [
+"Dan 12:11": [
 {
 "pagina": 873,
 "columna": 0,
@@ -216521,7 +216411,31 @@
 "confianza": 94.4
 }
 ],
-"Hos 2:1": [
+"Dan 12:12": [
+{
+"pagina": 873,
+"columna": 0,
+"fuente": "princeton:873",
+"x1": 69,
+"x2": 758,
+"top": 2067,
+"bot": 2105,
+"confianza": 92.6
+}
+],
+"Dan 12:13": [
+{
+"pagina": 873,
+"columna": 0,
+"fuente": "princeton:873",
+"x1": 109,
+"x2": 758,
+"top": 2248,
+"bot": 2288,
+"confianza": 93.8
+}
+],
+"Hos 1:1": [
 {
 "pagina": 877,
 "columna": 0,
@@ -216533,7 +216447,7 @@
 "confianza": 83.6
 }
 ],
-"Hos 2:2": [
+"Hos 1:2": [
 {
 "pagina": 877,
 "columna": 0,
@@ -216545,7 +216459,7 @@
 "confianza": 83.0
 }
 ],
-"Hos 2:4": [
+"Hos 1:4": [
 {
 "pagina": 878,
 "columna": 0,
@@ -216567,7 +216481,7 @@
 "confianza": 91.6
 }
 ],
-"Hos 2:6": [
+"Hos 1:6": [
 {
 "pagina": 878,
 "columna": 0,
@@ -216609,7 +216523,7 @@
 "confianza": 95.5
 }
 ],
-"Hos 2:8": [
+"Hos 1:8": [
 {
 "pagina": 878,
 "columna": 0,
@@ -216631,7 +216545,7 @@
 "confianza": 94.1
 }
 ],
-"Hos 2:9": [
+"Hos 1:9": [
 {
 "pagina": 878,
 "columna": 0,
@@ -216653,7 +216567,7 @@
 "confianza": 92.9
 }
 ],
-"Hos 2:7": [
+"Hos 1:7": [
 {
 "pagina": 878,
 "columna": 0,
@@ -216665,7 +216579,7 @@
 "confianza": 94.7
 }
 ],
-"Hos 2:10": [
+"Hos 1:10": [
 {
 "pagina": 878,
 "columna": 0,
@@ -216677,7 +216591,7 @@
 "confianza": 95.7
 }
 ],
-"Hos 2:11": [
+"Hos 1:11": [
 {
 "pagina": 878,
 "columna": 0,
@@ -216689,149 +216603,7 @@
 "confianza": 95.0
 }
 ],
-"Hos 2:12": [
-{
-"pagina": 878,
-"columna": 0,
-"fuente": "princeton:878",
-"x1": 159,
-"x2": 850,
-"top": 2028,
-"bot": 2064,
-"confianza": 93.9
-}
-],
-"Hos 2:13": [
-{
-"pagina": 878,
-"columna": 0,
-"fuente": "princeton:878",
-"x1": 159,
-"x2": 851,
-"top": 2138,
-"bot": 2170,
-"confianza": 92.9
-}
-],
-"Hos 2:14": [
-{
-"pagina": 878,
-"columna": 0,
-"fuente": "princeton:878",
-"x1": 159,
-"x2": 849,
-"top": 2249,
-"bot": 2284,
-"confianza": 87.7
-}
-],
-"Hos 2:16": [
-{
-"pagina": 878,
-"columna": 0,
-"fuente": "princeton:878",
-"x1": 153,
-"x2": 848,
-"top": 2431,
-"bot": 2469,
-"confianza": 94.6
-},
-{
-"pagina": 878,
-"columna": 1,
-"fuente": "princeton:878",
-"x1": 931,
-"x2": 1580,
-"top": 441,
-"bot": 479,
-"confianza": 93.8
-}
-],
-"Hos 2:17": [
-{
-"pagina": 878,
-"columna": 1,
-"fuente": "princeton:878",
-"x1": 890,
-"x2": 1580,
-"top": 515,
-"bot": 552,
-"confianza": 95.8
-}
-],
-"Hos 2:18": [
-{
-"pagina": 878,
-"columna": 1,
-"fuente": "princeton:878",
-"x1": 887,
-"x2": 1581,
-"top": 698,
-"bot": 736,
-"confianza": 63.2
-}
-],
-"Hos 2:19": [
-{
-"pagina": 878,
-"columna": 1,
-"fuente": "princeton:878",
-"x1": 890,
-"x2": 1582,
-"top": 772,
-"bot": 808,
-"confianza": 92.4
-}
-],
-"Hos 2:20": [
-{
-"pagina": 878,
-"columna": 1,
-"fuente": "princeton:878",
-"x1": 889,
-"x2": 1581,
-"top": 882,
-"bot": 921,
-"confianza": 81.9
-}
-],
-"Hos 2:21": [
-{
-"pagina": 878,
-"columna": 1,
-"fuente": "princeton:878",
-"x1": 892,
-"x2": 1582,
-"top": 1103,
-"bot": 1141,
-"confianza": 86.0
-}
-],
-"Hos 2:22": [
-{
-"pagina": 878,
-"columna": 1,
-"fuente": "princeton:878",
-"x1": 893,
-"x2": 1583,
-"top": 1213,
-"bot": 1252,
-"confianza": 91.1
-}
-],
-"Hos 2:23": [
-{
-"pagina": 878,
-"columna": 1,
-"fuente": "princeton:878",
-"x1": 934,
-"x2": 1582,
-"top": 1324,
-"bot": 1362,
-"confianza": 95.7
-}
-],
-"Hos 3:1": [
+"Hos 2:1": [
 {
 "pagina": 878,
 "columna": 1,
@@ -216841,7 +216613,33 @@
 "top": 1801,
 "bot": 1840,
 "confianza": 94.1
-},
+}
+],
+"Hos 2:2": [
+{
+"pagina": 878,
+"columna": 1,
+"fuente": "princeton:878",
+"x1": 892,
+"x2": 1579,
+"top": 2021,
+"bot": 2058,
+"confianza": 91.2
+}
+],
+"Hos 2:3": [
+{
+"pagina": 878,
+"columna": 1,
+"fuente": "princeton:878",
+"x1": 890,
+"x2": 1584,
+"top": 2168,
+"bot": 2206,
+"confianza": 93.8
+}
+],
+"Hos 3:1": [
 {
 "pagina": 879,
 "columna": 0,
@@ -216855,16 +216653,6 @@
 ],
 "Hos 3:2": [
 {
-"pagina": 878,
-"columna": 1,
-"fuente": "princeton:878",
-"x1": 892,
-"x2": 1579,
-"top": 2021,
-"bot": 2058,
-"confianza": 91.2
-},
-{
 "pagina": 879,
 "columna": 0,
 "fuente": "princeton:879",
@@ -216876,16 +216664,6 @@
 }
 ],
 "Hos 3:3": [
-{
-"pagina": 878,
-"columna": 1,
-"fuente": "princeton:878",
-"x1": 890,
-"x2": 1584,
-"top": 2168,
-"bot": 2206,
-"confianza": 93.8
-},
 {
 "pagina": 879,
 "columna": 0,
@@ -220123,255 +219901,7 @@
 "confianza": 91.0
 }
 ],
-"Mic 1:6": [
-{
-"pagina": 889,
-"columna": 0,
-"fuente": "princeton:889",
-"x1": 123,
-"x2": 770,
-"top": 251,
-"bot": 287,
-"confianza": 94.1
-}
-],
-"Mic 1:7": [
-{
-"pagina": 889,
-"columna": 0,
-"fuente": "princeton:889",
-"x1": 122,
-"x2": 768,
-"top": 580,
-"bot": 618,
-"confianza": 95.8
-}
-],
-"Mic 1:8": [
-{
-"pagina": 889,
-"columna": 0,
-"fuente": "princeton:889",
-"x1": 79,
-"x2": 767,
-"top": 763,
-"bot": 802,
-"confianza": 94.5
-}
-],
-"Mic 1:9": [
-{
-"pagina": 889,
-"columna": 0,
-"fuente": "princeton:889",
-"x1": 78,
-"x2": 766,
-"top": 947,
-"bot": 984,
-"confianza": 93.5
-}
-],
-"Mic 1:10": [
-{
-"pagina": 889,
-"columna": 0,
-"fuente": "princeton:889",
-"x1": 67,
-"x2": 764,
-"top": 1095,
-"bot": 1131,
-"confianza": 92.4
-}
-],
-"Mic 1:4": [
-{
-"pagina": 889,
-"columna": 0,
-"fuente": "princeton:889",
-"x1": 75,
-"x2": 783,
-"top": 1910,
-"bot": 1947,
-"confianza": 89.5
-}
-],
-"Mic 2:1": [
-{
-"pagina": 889,
-"columna": 0,
-"fuente": "princeton:889",
-"x1": 73,
-"x2": 782,
-"top": 1952,
-"bot": 1989,
-"confianza": 94.0
-},
-{
-"pagina": 889,
-"columna": 0,
-"fuente": "princeton:889",
-"x1": 0,
-"x2": 762,
-"top": 2289,
-"bot": 2357,
-"confianza": 80.3
-}
-],
-"Mic 2:11": [
-{
-"pagina": 889,
-"columna": 1,
-"fuente": "princeton:889",
-"x1": 846,
-"x2": 1498,
-"top": 248,
-"bot": 287,
-"confianza": 91.9
-}
-],
-"Mic 2:12": [
-{
-"pagina": 889,
-"columna": 1,
-"fuente": "princeton:889",
-"x1": 804,
-"x2": 1494,
-"top": 395,
-"bot": 433,
-"confianza": 81.3
-}
-],
-"Mic 2:13": [
-{
-"pagina": 889,
-"columna": 1,
-"fuente": "princeton:889",
-"x1": 803,
-"x2": 1494,
-"top": 543,
-"bot": 579,
-"confianza": 94.9
-}
-],
-"Mic 3:2": [
-{
-"pagina": 889,
-"columna": 1,
-"fuente": "princeton:889",
-"x1": 817,
-"x2": 1491,
-"top": 1914,
-"bot": 1950,
-"confianza": 87.2
-}
-],
-"Mic 3:3": [
-{
-"pagina": 889,
-"columna": 1,
-"fuente": "princeton:889",
-"x1": 796,
-"x2": 1487,
-"top": 2417,
-"bot": 2459,
-"confianza": 92.3
-}
-],
-"Mic 3:4": [
-{
-"pagina": 890,
-"columna": 0,
-"fuente": "princeton:890",
-"x1": 137,
-"x2": 828,
-"top": 226,
-"bot": 264,
-"confianza": 91.8
-}
-],
-"Mic 3:5": [
-{
-"pagina": 890,
-"columna": 0,
-"fuente": "princeton:890",
-"x1": 183,
-"x2": 829,
-"top": 410,
-"bot": 448,
-"confianza": 96.0
-}
-],
-"Mic 3:8": [
-{
-"pagina": 890,
-"columna": 0,
-"fuente": "princeton:890",
-"x1": 142,
-"x2": 830,
-"top": 595,
-"bot": 632,
-"confianza": 95.5
-},
-{
-"pagina": 890,
-"columna": 0,
-"fuente": "princeton:890",
-"x1": 186,
-"x2": 831,
-"top": 962,
-"bot": 1001,
-"confianza": 83.1
-}
-],
-"Mic 3:9": [
-{
-"pagina": 890,
-"columna": 0,
-"fuente": "princeton:890",
-"x1": 143,
-"x2": 833,
-"top": 1074,
-"bot": 1112,
-"confianza": 90.4
-}
-],
-"Mic 3:10": [
-{
-"pagina": 890,
-"columna": 0,
-"fuente": "princeton:890",
-"x1": 143,
-"x2": 833,
-"top": 1185,
-"bot": 1222,
-"confianza": 95.3
-}
-],
-"Mic 3:11": [
-{
-"pagina": 890,
-"columna": 0,
-"fuente": "princeton:890",
-"x1": 146,
-"x2": 833,
-"top": 1258,
-"bot": 1295,
-"confianza": 91.2
-}
-],
-"Mic 3:12": [
-{
-"pagina": 890,
-"columna": 0,
-"fuente": "princeton:890",
-"x1": 144,
-"x2": 835,
-"top": 1443,
-"bot": 1481,
-"confianza": 85.7
-}
-],
-"Mic 4:1": [
+"Mic 1:1": [
 {
 "pagina": 890,
 "columna": 0,
@@ -220381,19 +219911,9 @@
 "top": 2289,
 "bot": 2344,
 "confianza": 92.4
-},
-{
-"pagina": 890,
-"columna": 1,
-"fuente": "princeton:890",
-"x1": 939,
-"x2": 1587,
-"top": 2209,
-"bot": 2255,
-"confianza": 92.9
 }
 ],
-"Mic 4:2": [
+"Mic 1:2": [
 {
 "pagina": 890,
 "columna": 1,
@@ -220403,19 +219923,9 @@
 "top": 153,
 "bot": 192,
 "confianza": 91.3
-},
-{
-"pagina": 890,
-"columna": 1,
-"fuente": "princeton:890",
-"x1": 870,
-"x2": 1561,
-"top": 2322,
-"bot": 2354,
-"confianza": 93.1
 }
 ],
-"Mic 4:8": [
+"Mic 1:8": [
 {
 "pagina": 890,
 "columna": 1,
@@ -220435,19 +219945,9 @@
 "top": 852,
 "bot": 890,
 "confianza": 85.5
-},
-{
-"pagina": 891,
-"columna": 0,
-"fuente": "princeton:891",
-"x1": 117,
-"x2": 762,
-"top": 1003,
-"bot": 1041,
-"confianza": 94.7
 }
 ],
-"Mic 4:6": [
+"Mic 1:6": [
 {
 "pagina": 890,
 "columna": 1,
@@ -220457,19 +219957,9 @@
 "top": 779,
 "bot": 817,
 "confianza": 94.4
-},
-{
-"pagina": 891,
-"columna": 0,
-"fuente": "princeton:891",
-"x1": 22,
-"x2": 762,
-"top": 710,
-"bot": 746,
-"confianza": 89.8
 }
 ],
-"Mic 4:9": [
+"Mic 1:9": [
 {
 "pagina": 890,
 "columna": 1,
@@ -220479,19 +219969,9 @@
 "top": 1294,
 "bot": 1331,
 "confianza": 84.9
-},
-{
-"pagina": 891,
-"columna": 0,
-"fuente": "princeton:891",
-"x1": 74,
-"x2": 762,
-"top": 1150,
-"bot": 1188,
-"confianza": 93.7
 }
 ],
-"Mic 4:10": [
+"Mic 1:10": [
 {
 "pagina": 890,
 "columna": 1,
@@ -220501,19 +219981,9 @@
 "top": 1405,
 "bot": 1442,
 "confianza": 90.7
-},
-{
-"pagina": 891,
-"columna": 0,
-"fuente": "princeton:891",
-"x1": 73,
-"x2": 763,
-"top": 1260,
-"bot": 1298,
-"confianza": 94.5
 }
 ],
-"Mic 4:11": [
+"Mic 1:11": [
 {
 "pagina": 890,
 "columna": 1,
@@ -220523,19 +219993,9 @@
 "top": 1552,
 "bot": 1589,
 "confianza": 93.7
-},
-{
-"pagina": 891,
-"columna": 0,
-"fuente": "princeton:891",
-"x1": 73,
-"x2": 762,
-"top": 1334,
-"bot": 1370,
-"confianza": 95.3
 }
 ],
-"Mic 4:12": [
+"Mic 1:12": [
 {
 "pagina": 890,
 "columna": 1,
@@ -220545,19 +220005,9 @@
 "top": 1661,
 "bot": 1700,
 "confianza": 89.1
-},
-{
-"pagina": 891,
-"columna": 0,
-"fuente": "princeton:891",
-"x1": 0,
-"x2": 763,
-"top": 1554,
-"bot": 1586,
-"confianza": 72.0
 }
 ],
-"Mic 4:13": [
+"Mic 1:13": [
 {
 "pagina": 890,
 "columna": 1,
@@ -220569,7 +220019,31 @@
 "confianza": 83.8
 }
 ],
-"Mic 4:4": [
+"Mic 3:1": [
+{
+"pagina": 890,
+"columna": 1,
+"fuente": "princeton:890",
+"x1": 939,
+"x2": 1587,
+"top": 2209,
+"bot": 2255,
+"confianza": 92.9
+}
+],
+"Mic 3:2": [
+{
+"pagina": 890,
+"columna": 1,
+"fuente": "princeton:890",
+"x1": 870,
+"x2": 1561,
+"top": 2322,
+"bot": 2354,
+"confianza": 93.1
+}
+],
+"Mic 3:4": [
 {
 "pagina": 891,
 "columna": 0,
@@ -220581,7 +220055,7 @@
 "confianza": 76.3
 }
 ],
-"Mic 4:5": [
+"Mic 3:5": [
 {
 "pagina": 891,
 "columna": 0,
@@ -220593,7 +220067,19 @@
 "confianza": 93.3
 }
 ],
-"Mic 4:7": [
+"Mic 3:6": [
+{
+"pagina": 891,
+"columna": 0,
+"fuente": "princeton:891",
+"x1": 22,
+"x2": 762,
+"top": 710,
+"bot": 746,
+"confianza": 89.8
+}
+],
+"Mic 3:7": [
 {
 "pagina": 891,
 "columna": 0,
@@ -220605,7 +220091,67 @@
 "confianza": 92.0
 }
 ],
-"Mic 5:1": [
+"Mic 3:8": [
+{
+"pagina": 891,
+"columna": 0,
+"fuente": "princeton:891",
+"x1": 117,
+"x2": 762,
+"top": 1003,
+"bot": 1041,
+"confianza": 94.7
+}
+],
+"Mic 3:9": [
+{
+"pagina": 891,
+"columna": 0,
+"fuente": "princeton:891",
+"x1": 74,
+"x2": 762,
+"top": 1150,
+"bot": 1188,
+"confianza": 93.7
+}
+],
+"Mic 3:10": [
+{
+"pagina": 891,
+"columna": 0,
+"fuente": "princeton:891",
+"x1": 73,
+"x2": 763,
+"top": 1260,
+"bot": 1298,
+"confianza": 94.5
+}
+],
+"Mic 3:11": [
+{
+"pagina": 891,
+"columna": 0,
+"fuente": "princeton:891",
+"x1": 73,
+"x2": 762,
+"top": 1334,
+"bot": 1370,
+"confianza": 95.3
+}
+],
+"Mic 3:12": [
+{
+"pagina": 891,
+"columna": 0,
+"fuente": "princeton:891",
+"x1": 0,
+"x2": 763,
+"top": 1554,
+"bot": 1586,
+"confianza": 72.0
+}
+],
+"Mic 4:1": [
 {
 "pagina": 891,
 "columna": 0,
@@ -220617,7 +220163,7 @@
 "confianza": 96.1
 }
 ],
-"Mic 5:2": [
+"Mic 4:2": [
 {
 "pagina": 891,
 "columna": 0,
@@ -220629,7 +220175,7 @@
 "confianza": 91.9
 }
 ],
-"Mic 5:3": [
+"Mic 4:3": [
 {
 "pagina": 891,
 "columna": 1,
@@ -220641,7 +220187,7 @@
 "confianza": 94.0
 }
 ],
-"Mic 5:4": [
+"Mic 4:4": [
 {
 "pagina": 891,
 "columna": 1,
@@ -220651,19 +220197,9 @@
 "top": 631,
 "bot": 677,
 "confianza": 94.1
-},
-{
-"pagina": 892,
-"columna": 0,
-"fuente": "princeton:892",
-"x1": 183,
-"x2": 833,
-"top": 740,
-"bot": 778,
-"confianza": 94.2
 }
 ],
-"Mic 5:6": [
+"Mic 4:6": [
 {
 "pagina": 891,
 "columna": 1,
@@ -220673,29 +220209,9 @@
 "top": 731,
 "bot": 782,
 "confianza": 94.8
-},
-{
-"pagina": 892,
-"columna": 0,
-"fuente": "princeton:892",
-"x1": 141,
-"x2": 832,
-"top": 887,
-"bot": 925,
-"confianza": 84.2
-},
-{
-"pagina": 892,
-"columna": 0,
-"fuente": "princeton:892",
-"x1": 140,
-"x2": 832,
-"top": 1072,
-"bot": 1102,
-"confianza": 91.2
 }
 ],
-"Mic 5:5": [
+"Mic 4:5": [
 {
 "pagina": 891,
 "columna": 1,
@@ -220717,7 +220233,7 @@
 "confianza": 92.3
 }
 ],
-"Mic 5:7": [
+"Mic 4:7": [
 {
 "pagina": 891,
 "columna": 1,
@@ -220727,7 +220243,151 @@
 "top": 999,
 "bot": 1046,
 "confianza": 90.9
+}
+],
+"Mic 4:8": [
+{
+"pagina": 891,
+"columna": 1,
+"fuente": "princeton:891",
+"x1": 804,
+"x2": 1496,
+"top": 1187,
+"bot": 1225,
+"confianza": 88.6
+}
+],
+"Mic 4:9": [
+{
+"pagina": 891,
+"columna": 1,
+"fuente": "princeton:891",
+"x1": 804,
+"x2": 1496,
+"top": 1335,
+"bot": 1372,
+"confianza": 94.8
+}
+],
+"Mic 4:10": [
+{
+"pagina": 891,
+"columna": 1,
+"fuente": "princeton:891",
+"x1": 803,
+"x2": 1496,
+"top": 1445,
+"bot": 1482,
+"confianza": 95.1
+}
+],
+"Mic 4:11": [
+{
+"pagina": 891,
+"columna": 1,
+"fuente": "princeton:891",
+"x1": 859,
+"x2": 1496,
+"top": 1702,
+"bot": 1738,
+"confianza": 96.0
+}
+],
+"Mic 4:12": [
+{
+"pagina": 891,
+"columna": 1,
+"fuente": "princeton:891",
+"x1": 804,
+"x2": 1497,
+"top": 1813,
+"bot": 1852,
+"confianza": 88.0
+}
+],
+"Mic 4:13": [
+{
+"pagina": 891,
+"columna": 1,
+"fuente": "princeton:891",
+"x1": 804,
+"x2": 1498,
+"top": 1922,
+"bot": 1959,
+"confianza": 88.7
+}
+],
+"Mic 5:1": [
+{
+"pagina": 892,
+"columna": 0,
+"fuente": "princeton:892",
+"x1": 101,
+"x2": 837,
+"top": 188,
+"bot": 226,
+"confianza": 80.2
+}
+],
+"Mic 5:2": [
+{
+"pagina": 892,
+"columna": 0,
+"fuente": "princeton:892",
+"x1": 142,
+"x2": 836,
+"top": 372,
+"bot": 411,
+"confianza": 88.2
+}
+],
+"Mic 5:3": [
+{
+"pagina": 892,
+"columna": 0,
+"fuente": "princeton:892",
+"x1": 142,
+"x2": 834,
+"top": 520,
+"bot": 558,
+"confianza": 92.0
+}
+],
+"Mic 5:4": [
+{
+"pagina": 892,
+"columna": 0,
+"fuente": "princeton:892",
+"x1": 183,
+"x2": 833,
+"top": 740,
+"bot": 778,
+"confianza": 94.2
+}
+],
+"Mic 5:6": [
+{
+"pagina": 892,
+"columna": 0,
+"fuente": "princeton:892",
+"x1": 141,
+"x2": 832,
+"top": 887,
+"bot": 925,
+"confianza": 84.2
 },
+{
+"pagina": 892,
+"columna": 0,
+"fuente": "princeton:892",
+"x1": 140,
+"x2": 832,
+"top": 1072,
+"bot": 1102,
+"confianza": 91.2
+}
+],
+"Mic 5:7": [
 {
 "pagina": 892,
 "columna": 0,
@@ -220741,16 +220401,6 @@
 ],
 "Mic 5:8": [
 {
-"pagina": 891,
-"columna": 1,
-"fuente": "princeton:891",
-"x1": 804,
-"x2": 1496,
-"top": 1187,
-"bot": 1225,
-"confianza": 88.6
-},
-{
 "pagina": 892,
 "columna": 0,
 "fuente": "princeton:892",
@@ -220762,16 +220412,6 @@
 }
 ],
 "Mic 5:9": [
-{
-"pagina": 891,
-"columna": 1,
-"fuente": "princeton:891",
-"x1": 804,
-"x2": 1496,
-"top": 1335,
-"bot": 1372,
-"confianza": 94.8
-},
 {
 "pagina": 892,
 "columna": 0,
@@ -220785,16 +220425,6 @@
 ],
 "Mic 5:10": [
 {
-"pagina": 891,
-"columna": 1,
-"fuente": "princeton:891",
-"x1": 803,
-"x2": 1496,
-"top": 1445,
-"bot": 1482,
-"confianza": 95.1
-},
-{
 "pagina": 892,
 "columna": 0,
 "fuente": "princeton:892",
@@ -220806,16 +220436,6 @@
 }
 ],
 "Mic 5:11": [
-{
-"pagina": 891,
-"columna": 1,
-"fuente": "princeton:891",
-"x1": 859,
-"x2": 1496,
-"top": 1702,
-"bot": 1738,
-"confianza": 96.0
-},
 {
 "pagina": 892,
 "columna": 0,
@@ -220829,16 +220449,6 @@
 ],
 "Mic 5:12": [
 {
-"pagina": 891,
-"columna": 1,
-"fuente": "princeton:891",
-"x1": 804,
-"x2": 1497,
-"top": 1813,
-"bot": 1852,
-"confianza": 88.0
-},
-{
 "pagina": 892,
 "columna": 0,
 "fuente": "princeton:892",
@@ -220850,16 +220460,6 @@
 }
 ],
 "Mic 5:13": [
-{
-"pagina": 891,
-"columna": 1,
-"fuente": "princeton:891",
-"x1": 804,
-"x2": 1498,
-"top": 1922,
-"bot": 1959,
-"confianza": 88.7
-},
 {
 "pagina": 892,
 "columna": 0,
@@ -221299,157 +220899,7 @@
 "confianza": 96.0
 }
 ],
-"Nah 1:4": [
-{
-"pagina": 894,
-"columna": 0,
-"fuente": "princeton:894",
-"x1": 126,
-"x2": 817,
-"top": 197,
-"bot": 234,
-"confianza": 90.4
-}
-],
-"Nah 1:6": [
-{
-"pagina": 894,
-"columna": 0,
-"fuente": "princeton:894",
-"x1": 126,
-"x2": 816,
-"top": 380,
-"bot": 411,
-"confianza": 83.8
-},
-{
-"pagina": 894,
-"columna": 0,
-"fuente": "princeton:894",
-"x1": 168,
-"x2": 816,
-"top": 527,
-"bot": 565,
-"confianza": 82.0
-}
-],
-"Nah 1:7": [
-{
-"pagina": 894,
-"columna": 0,
-"fuente": "princeton:894",
-"x1": 127,
-"x2": 816,
-"top": 675,
-"bot": 706,
-"confianza": 91.8
-}
-],
-"Nah 1:8": [
-{
-"pagina": 894,
-"columna": 0,
-"fuente": "princeton:894",
-"x1": 125,
-"x2": 816,
-"top": 821,
-"bot": 860,
-"confianza": 87.1
-}
-],
-"Nah 1:9": [
-{
-"pagina": 894,
-"columna": 0,
-"fuente": "princeton:894",
-"x1": 124,
-"x2": 815,
-"top": 969,
-"bot": 1007,
-"confianza": 91.3
-}
-],
-"Nah 1:10": [
-{
-"pagina": 894,
-"columna": 0,
-"fuente": "princeton:894",
-"x1": 124,
-"x2": 817,
-"top": 1080,
-"bot": 1117,
-"confianza": 79.0
-},
-{
-"pagina": 894,
-"columna": 0,
-"fuente": "princeton:894",
-"x1": 124,
-"x2": 817,
-"top": 1373,
-"bot": 1405,
-"confianza": 58.4
-}
-],
-"Nah 1:11": [
-{
-"pagina": 894,
-"columna": 0,
-"fuente": "princeton:894",
-"x1": 164,
-"x2": 817,
-"top": 1152,
-"bot": 1191,
-"confianza": 91.3
-}
-],
-"Nah 1:12": [
-{
-"pagina": 894,
-"columna": 0,
-"fuente": "princeton:894",
-"x1": 123,
-"x2": 815,
-"top": 1262,
-"bot": 1299,
-"confianza": 91.8
-}
-],
-"Nah 1:13": [
-{
-"pagina": 894,
-"columna": 0,
-"fuente": "princeton:894",
-"x1": 165,
-"x2": 816,
-"top": 1484,
-"bot": 1522,
-"confianza": 93.0
-}
-],
-"Nah 1:14": [
-{
-"pagina": 894,
-"columna": 0,
-"fuente": "princeton:894",
-"x1": 124,
-"x2": 817,
-"top": 1557,
-"bot": 1595,
-"confianza": 72.1
-},
-{
-"pagina": 894,
-"columna": 0,
-"fuente": "princeton:894",
-"x1": 123,
-"x2": 815,
-"top": 1668,
-"bot": 1699,
-"confianza": 92.4
-}
-],
-"Nah 2:1": [
+"Nah 1:1": [
 {
 "pagina": 894,
 "columna": 0,
@@ -221461,7 +220911,7 @@
 "confianza": 66.0
 }
 ],
-"Nah 2:3": [
+"Nah 1:3": [
 {
 "pagina": 894,
 "columna": 0,
@@ -221473,7 +220923,7 @@
 "confianza": 91.7
 }
 ],
-"Nah 2:2": [
+"Nah 1:2": [
 {
 "pagina": 894,
 "columna": 0,
@@ -221485,7 +220935,7 @@
 "confianza": 95.3
 }
 ],
-"Nah 2:4": [
+"Nah 1:4": [
 {
 "pagina": 894,
 "columna": 1,
@@ -221497,7 +220947,7 @@
 "confianza": 91.7
 }
 ],
-"Nah 2:6": [
+"Nah 1:6": [
 {
 "pagina": 894,
 "columna": 1,
@@ -221509,7 +220959,7 @@
 "confianza": 91.6
 }
 ],
-"Nah 2:7": [
+"Nah 1:7": [
 {
 "pagina": 894,
 "columna": 1,
@@ -221521,7 +220971,7 @@
 "confianza": 95.4
 }
 ],
-"Nah 2:8": [
+"Nah 1:8": [
 {
 "pagina": 894,
 "columna": 1,
@@ -221533,7 +220983,7 @@
 "confianza": 93.9
 }
 ],
-"Nah 2:9": [
+"Nah 1:9": [
 {
 "pagina": 894,
 "columna": 1,
@@ -221545,7 +220995,7 @@
 "confianza": 94.3
 }
 ],
-"Nah 2:10": [
+"Nah 1:10": [
 {
 "pagina": 894,
 "columna": 1,
@@ -221557,7 +221007,7 @@
 "confianza": 91.6
 }
 ],
-"Nah 2:11": [
+"Nah 1:11": [
 {
 "pagina": 894,
 "columna": 1,
@@ -221569,7 +221019,7 @@
 "confianza": 88.6
 }
 ],
-"Nah 2:12": [
+"Nah 1:12": [
 {
 "pagina": 894,
 "columna": 1,
@@ -221581,7 +221031,7 @@
 "confianza": 95.1
 }
 ],
-"Nah 2:13": [
+"Nah 1:13": [
 {
 "pagina": 894,
 "columna": 1,
@@ -221593,7 +221043,19 @@
 "confianza": 91.0
 }
 ],
-"Nah 3:1": [
+"Nah 1:14": [
+{
+"pagina": 894,
+"columna": 1,
+"fuente": "princeton:894",
+"x1": 861,
+"x2": 1551,
+"top": 1408,
+"bot": 1448,
+"confianza": 92.2
+}
+],
+"Nah 2:1": [
 {
 "pagina": 894,
 "columna": 1,
@@ -221605,7 +221067,7 @@
 "confianza": 84.9
 }
 ],
-"Nah 3:2": [
+"Nah 2:2": [
 {
 "pagina": 894,
 "columna": 1,
@@ -221617,7 +221079,7 @@
 "confianza": 91.0
 }
 ],
-"Nah 3:3": [
+"Nah 2:3": [
 {
 "pagina": 894,
 "columna": 1,
@@ -221629,7 +221091,7 @@
 "confianza": 88.9
 }
 ],
-"Nah 3:4": [
+"Nah 2:4": [
 {
 "pagina": 894,
 "columna": 1,
@@ -221641,7 +221103,7 @@
 "confianza": 91.0
 }
 ],
-"Nah 3:6": [
+"Nah 2:6": [
 {
 "pagina": 894,
 "columna": 1,
@@ -221957,16 +221419,6 @@
 "top": 1697,
 "bot": 1739,
 "confianza": 90.2
-},
-{
-"pagina": 896,
-"columna": 1,
-"fuente": "princeton:896",
-"x1": 857,
-"x2": 1536,
-"top": 2247,
-"bot": 2310,
-"confianza": 82.2
 }
 ],
 "Hab 3:2": [
@@ -221979,16 +221431,6 @@
 "top": 1844,
 "bot": 1881,
 "confianza": 76.0
-},
-{
-"pagina": 896,
-"columna": 1,
-"fuente": "princeton:896",
-"x1": 899,
-"x2": 1543,
-"top": 2319,
-"bot": 2356,
-"confianza": 85.3
 }
 ],
 "Hab 3:3": [
@@ -222165,6 +221607,50 @@
 "top": 1624,
 "bot": 1661,
 "confianza": 93.8
+}
+],
+"Zeph 1:1": [
+{
+"pagina": 896,
+"columna": 1,
+"fuente": "princeton:896",
+"x1": 857,
+"x2": 1536,
+"top": 2247,
+"bot": 2310,
+"confianza": 82.2
+},
+{
+"pagina": 897,
+"columna": 0,
+"fuente": "princeton:897",
+"x1": 63,
+"x2": 762,
+"top": 2191,
+"bot": 2246,
+"confianza": 93.5
+}
+],
+"Zeph 1:2": [
+{
+"pagina": 896,
+"columna": 1,
+"fuente": "princeton:896",
+"x1": 899,
+"x2": 1543,
+"top": 2319,
+"bot": 2356,
+"confianza": 85.3
+},
+{
+"pagina": 897,
+"columna": 0,
+"fuente": "princeton:897",
+"x1": 101,
+"x2": 641,
+"top": 2379,
+"bot": 2447,
+"confianza": 96.0
 }
 ],
 "Zeph 1:3": [
@@ -222353,30 +221839,6 @@
 "top": 1318,
 "bot": 1355,
 "confianza": 93.5
-}
-],
-"Zeph 1:1": [
-{
-"pagina": 897,
-"columna": 0,
-"fuente": "princeton:897",
-"x1": 63,
-"x2": 762,
-"top": 2191,
-"bot": 2246,
-"confianza": 93.5
-}
-],
-"Zeph 1:2": [
-{
-"pagina": 897,
-"columna": 0,
-"fuente": "princeton:897",
-"x1": 101,
-"x2": 641,
-"top": 2379,
-"bot": 2447,
-"confianza": 96.0
 }
 ],
 "Zeph 1:12": [
@@ -227555,26 +227017,6 @@
 "top": 1100,
 "bot": 1136,
 "confianza": 94.0
-},
-{
-"pagina": 921,
-"columna": 1,
-"fuente": "princeton:921",
-"x1": 1096,
-"x2": 1526,
-"top": 919,
-"bot": 956,
-"confianza": 95.5
-},
-{
-"pagina": 923,
-"columna": 1,
-"fuente": "princeton:923",
-"x1": 859,
-"x2": 1497,
-"top": 2195,
-"bot": 2230,
-"confianza": 95.0
 }
 ],
 "Mal 3:15": [
@@ -227625,6 +227067,82 @@
 "confianza": 93.6
 }
 ],
+"Job 1:2": [
+{
+"pagina": 921,
+"columna": 1,
+"fuente": "princeton:921",
+"x1": 1018,
+"x2": 1524,
+"top": 793,
+"bot": 830,
+"confianza": 88.8
+},
+{
+"pagina": 924,
+"columna": 0,
+"fuente": "princeton:924",
+"x1": 158,
+"x2": 933,
+"top": 2344,
+"bot": 2382,
+"confianza": 83.8
+}
+],
+"Job 1:12": [
+{
+"pagina": 921,
+"columna": 1,
+"fuente": "princeton:921",
+"x1": 1009,
+"x2": 1523,
+"top": 835,
+"bot": 872,
+"confianza": 88.8
+},
+{
+"pagina": 925,
+"columna": 0,
+"fuente": "princeton:925",
+"x1": 75,
+"x2": 763,
+"top": 1335,
+"bot": 1372,
+"confianza": 90.9
+}
+],
+"Job 1:14": [
+{
+"pagina": 921,
+"columna": 1,
+"fuente": "princeton:921",
+"x1": 1096,
+"x2": 1526,
+"top": 919,
+"bot": 956,
+"confianza": 95.5
+},
+{
+"pagina": 923,
+"columna": 1,
+"fuente": "princeton:923",
+"x1": 859,
+"x2": 1497,
+"top": 2195,
+"bot": 2230,
+"confianza": 95.0
+},
+{
+"pagina": 925,
+"columna": 0,
+"fuente": "princeton:925",
+"x1": 77,
+"x2": 763,
+"top": 1591,
+"bot": 1631,
+"confianza": 95.0
+}
+],
 "Job 1:1": [
 {
 "pagina": 924,
@@ -227635,18 +227153,6 @@
 "top": 2235,
 "bot": 2272,
 "confianza": 93.4
-}
-],
-"Job 1:2": [
-{
-"pagina": 924,
-"columna": 0,
-"fuente": "princeton:924",
-"x1": 158,
-"x2": 933,
-"top": 2344,
-"bot": 2382,
-"confianza": 83.8
 }
 ],
 "Job 1:3": [
@@ -227745,18 +227251,6 @@
 "confianza": 92.1
 }
 ],
-"Job 1:12": [
-{
-"pagina": 925,
-"columna": 0,
-"fuente": "princeton:925",
-"x1": 75,
-"x2": 763,
-"top": 1335,
-"bot": 1372,
-"confianza": 90.9
-}
-],
 "Job 1:13": [
 {
 "pagina": 925,
@@ -227767,18 +227261,6 @@
 "top": 1481,
 "bot": 1520,
 "confianza": 95.2
-}
-],
-"Job 1:14": [
-{
-"pagina": 925,
-"columna": 0,
-"fuente": "princeton:925",
-"x1": 77,
-"x2": 763,
-"top": 1591,
-"bot": 1631,
-"confianza": 95.0
 }
 ],
 "Job 1:16": [
@@ -239445,137 +238927,7 @@
 "confianza": 95.4
 }
 ],
-"Ps 2:1": [
-{
-"pagina": 956,
-"columna": 0,
-"fuente": "princeton:956",
-"x1": 228,
-"x2": 711,
-"top": 2320,
-"bot": 2350,
-"confianza": 79.0
-}
-],
-"Ps 2:7": [
-{
-"pagina": 956,
-"columna": 1,
-"fuente": "princeton:956",
-"x1": 836,
-"x2": 1584,
-"top": 1938,
-"bot": 1980,
-"confianza": 94.8
-}
-],
-"Ps 2:8": [
-{
-"pagina": 957,
-"columna": 1,
-"fuente": "princeton:957",
-"x1": 987,
-"x2": 1447,
-"top": 470,
-"bot": 499,
-"confianza": 89.6
-}
-],
-"Ps 3:1": [
-{
-"pagina": 960,
-"columna": 0,
-"fuente": "princeton:960",
-"x1": 161,
-"x2": 693,
-"top": 651,
-"bot": 687,
-"confianza": 95.3
-}
-],
-"Ps 3:2": [
-{
-"pagina": 960,
-"columna": 0,
-"fuente": "princeton:960",
-"x1": 162,
-"x2": 693,
-"top": 693,
-"bot": 723,
-"confianza": 86.0
-}
-],
-"Ps 3:4": [
-{
-"pagina": 960,
-"columna": 0,
-"fuente": "princeton:960",
-"x1": 161,
-"x2": 693,
-"top": 778,
-"bot": 810,
-"confianza": 84.8
-}
-],
-"Ps 3:7": [
-{
-"pagina": 960,
-"columna": 0,
-"fuente": "princeton:960",
-"x1": 163,
-"x2": 693,
-"top": 904,
-"bot": 941,
-"confianza": 92.2
-}
-],
-"Ps 3:3": [
-{
-"pagina": 960,
-"columna": 1,
-"fuente": "princeton:960",
-"x1": 737,
-"x2": 1582,
-"top": 735,
-"bot": 772,
-"confianza": 93.4
-}
-],
-"Ps 3:5": [
-{
-"pagina": 960,
-"columna": 1,
-"fuente": "princeton:960",
-"x1": 873,
-"x2": 1581,
-"top": 820,
-"bot": 858,
-"confianza": 78.1
-}
-],
-"Ps 4:2": [
-{
-"pagina": 960,
-"columna": 1,
-"fuente": "princeton:960",
-"x1": 710,
-"x2": 1579,
-"top": 2245,
-"bot": 2286,
-"confianza": 92.1
-},
-{
-"pagina": 962,
-"columna": 0,
-"fuente": "princeton:962",
-"x1": 223,
-"x2": 867,
-"top": 1065,
-"bot": 1102,
-"confianza": 94.3
-}
-],
-"Ps 4:1": [
+"Ps 1:1": [
 {
 "pagina": 962,
 "columna": 0,
@@ -239587,7 +238939,19 @@
 "confianza": 93.2
 }
 ],
-"Ps 4:3": [
+"Ps 1:2": [
+{
+"pagina": 962,
+"columna": 0,
+"fuente": "princeton:962",
+"x1": 223,
+"x2": 867,
+"top": 1065,
+"bot": 1102,
+"confianza": 94.3
+}
+],
+"Ps 1:3": [
 {
 "pagina": 962,
 "columna": 0,
@@ -239599,7 +238963,7 @@
 "confianza": 95.4
 }
 ],
-"Ps 4:4": [
+"Ps 1:4": [
 {
 "pagina": 962,
 "columna": 0,
@@ -239611,7 +238975,7 @@
 "confianza": 95.4
 }
 ],
-"Ps 4:6": [
+"Ps 1:6": [
 {
 "pagina": 962,
 "columna": 0,
@@ -239623,7 +238987,7 @@
 "confianza": 78.8
 }
 ],
-"Ps 5:1": [
+"Ps 2:1": [
 {
 "pagina": 962,
 "columna": 0,
@@ -239635,7 +238999,7 @@
 "confianza": 93.4
 }
 ],
-"Ps 5:2": [
+"Ps 2:2": [
 {
 "pagina": 962,
 "columna": 1,
@@ -239647,7 +239011,7 @@
 "confianza": 94.7
 }
 ],
-"Ps 5:3": [
+"Ps 2:3": [
 {
 "pagina": 962,
 "columna": 1,
@@ -239659,7 +239023,7 @@
 "confianza": 92.5
 }
 ],
-"Ps 5:4": [
+"Ps 2:4": [
 {
 "pagina": 962,
 "columna": 1,
@@ -239671,7 +239035,7 @@
 "confianza": 90.3
 }
 ],
-"Ps 5:6": [
+"Ps 2:6": [
 {
 "pagina": 962,
 "columna": 1,
@@ -239693,7 +239057,7 @@
 "confianza": 88.2
 }
 ],
-"Ps 5:7": [
+"Ps 2:7": [
 {
 "pagina": 962,
 "columna": 1,
@@ -239705,7 +239069,7 @@
 "confianza": 93.9
 }
 ],
-"Ps 5:8": [
+"Ps 2:8": [
 {
 "pagina": 962,
 "columna": 1,
@@ -239717,7 +239081,7 @@
 "confianza": 93.7
 }
 ],
-"Ps 5:9": [
+"Ps 2:9": [
 {
 "pagina": 962,
 "columna": 1,
@@ -239729,7 +239093,7 @@
 "confianza": 94.2
 }
 ],
-"Ps 5:10": [
+"Ps 2:10": [
 {
 "pagina": 962,
 "columna": 1,
@@ -239741,7 +239105,7 @@
 "confianza": 93.7
 }
 ],
-"Ps 5:11": [
+"Ps 2:11": [
 {
 "pagina": 962,
 "columna": 1,
@@ -239753,7 +239117,7 @@
 "confianza": 92.5
 }
 ],
-"Ps 5:12": [
+"Ps 2:12": [
 {
 "pagina": 962,
 "columna": 1,
@@ -239765,7 +239129,7 @@
 "confianza": 92.2
 }
 ],
-"Ps 6:1": [
+"Ps 3:1": [
 {
 "pagina": 963,
 "columna": 0,
@@ -239777,7 +239141,7 @@
 "confianza": 95.5
 }
 ],
-"Ps 6:2": [
+"Ps 3:2": [
 {
 "pagina": 963,
 "columna": 0,
@@ -239789,7 +239153,7 @@
 "confianza": 88.9
 }
 ],
-"Ps 6:3": [
+"Ps 3:3": [
 {
 "pagina": 963,
 "columna": 0,
@@ -239801,7 +239165,7 @@
 "confianza": 95.4
 }
 ],
-"Ps 6:4": [
+"Ps 3:4": [
 {
 "pagina": 963,
 "columna": 0,
@@ -239813,7 +239177,7 @@
 "confianza": 94.0
 }
 ],
-"Ps 6:6": [
+"Ps 3:6": [
 {
 "pagina": 963,
 "columna": 0,
@@ -239835,7 +239199,7 @@
 "confianza": 78.8
 }
 ],
-"Ps 6:7": [
+"Ps 3:7": [
 {
 "pagina": 963,
 "columna": 0,
@@ -239847,7 +239211,7 @@
 "confianza": 93.1
 }
 ],
-"Ps 6:8": [
+"Ps 3:8": [
 {
 "pagina": 963,
 "columna": 0,
@@ -239859,19 +239223,7 @@
 "confianza": 92.0
 }
 ],
-"Ps 6:9": [
-{
-"pagina": 963,
-"columna": 0,
-"fuente": "princeton:963",
-"x1": 109,
-"x2": 754,
-"top": 1217,
-"bot": 1256,
-"confianza": 79.7
-}
-],
-"Ps 7:1": [
+"Ps 4:1": [
 {
 "pagina": 963,
 "columna": 0,
@@ -239881,7 +239233,91 @@
 "top": 1442,
 "bot": 1475,
 "confianza": 95.5
+}
+],
+"Ps 4:2": [
+{
+"pagina": 963,
+"columna": 0,
+"fuente": "princeton:963",
+"x1": 106,
+"x2": 751,
+"top": 1515,
+"bot": 1553,
+"confianza": 87.9
+}
+],
+"Ps 4:3": [
+{
+"pagina": 963,
+"columna": 0,
+"fuente": "princeton:963",
+"x1": 103,
+"x2": 750,
+"top": 1662,
+"bot": 1699,
+"confianza": 94.3
+}
+],
+"Ps 4:4": [
+{
+"pagina": 963,
+"columna": 0,
+"fuente": "princeton:963",
+"x1": 105,
+"x2": 748,
+"top": 1809,
+"bot": 1847,
+"confianza": 95.0
+}
+],
+"Ps 4:6": [
+{
+"pagina": 963,
+"columna": 1,
+"fuente": "princeton:963",
+"x1": 851,
+"x2": 1496,
+"top": 186,
+"bot": 224,
+"confianza": 92.4
 },
+{
+"pagina": 963,
+"columna": 1,
+"fuente": "princeton:963",
+"x1": 849,
+"x2": 1495,
+"top": 297,
+"bot": 334,
+"confianza": 91.3
+}
+],
+"Ps 4:7": [
+{
+"pagina": 963,
+"columna": 1,
+"fuente": "princeton:963",
+"x1": 850,
+"x2": 1493,
+"top": 371,
+"bot": 408,
+"confianza": 92.0
+}
+],
+"Ps 4:8": [
+{
+"pagina": 963,
+"columna": 1,
+"fuente": "princeton:963",
+"x1": 848,
+"x2": 1492,
+"top": 481,
+"bot": 519,
+"confianza": 91.1
+}
+],
+"Ps 5:1": [
 {
 "pagina": 963,
 "columna": 1,
@@ -239903,17 +239339,7 @@
 "confianza": 90.2
 }
 ],
-"Ps 7:2": [
-{
-"pagina": 963,
-"columna": 0,
-"fuente": "princeton:963",
-"x1": 106,
-"x2": 751,
-"top": 1515,
-"bot": 1553,
-"confianza": 87.9
-},
+"Ps 5:2": [
 {
 "pagina": 963,
 "columna": 1,
@@ -239925,17 +239351,7 @@
 "confianza": 84.1
 }
 ],
-"Ps 7:3": [
-{
-"pagina": 963,
-"columna": 0,
-"fuente": "princeton:963",
-"x1": 103,
-"x2": 750,
-"top": 1662,
-"bot": 1699,
-"confianza": 94.3
-},
+"Ps 5:3": [
 {
 "pagina": 963,
 "columna": 1,
@@ -239947,17 +239363,7 @@
 "confianza": 95.0
 }
 ],
-"Ps 7:4": [
-{
-"pagina": 963,
-"columna": 0,
-"fuente": "princeton:963",
-"x1": 105,
-"x2": 748,
-"top": 1809,
-"bot": 1847,
-"confianza": 95.0
-},
+"Ps 5:4": [
 {
 "pagina": 963,
 "columna": 1,
@@ -239969,105 +239375,7 @@
 "confianza": 93.5
 }
 ],
-"Ps 7:6": [
-{
-"pagina": 963,
-"columna": 1,
-"fuente": "princeton:963",
-"x1": 851,
-"x2": 1496,
-"top": 186,
-"bot": 224,
-"confianza": 92.4
-},
-{
-"pagina": 963,
-"columna": 1,
-"fuente": "princeton:963",
-"x1": 849,
-"x2": 1495,
-"top": 297,
-"bot": 334,
-"confianza": 91.3
-},
-{
-"pagina": 963,
-"columna": 1,
-"fuente": "princeton:963",
-"x1": 837,
-"x2": 1482,
-"top": 1515,
-"bot": 1552,
-"confianza": 95.7
-}
-],
-"Ps 7:7": [
-{
-"pagina": 963,
-"columna": 1,
-"fuente": "princeton:963",
-"x1": 850,
-"x2": 1493,
-"top": 371,
-"bot": 408,
-"confianza": 92.0
-},
-{
-"pagina": 963,
-"columna": 1,
-"fuente": "princeton:963",
-"x1": 837,
-"x2": 1481,
-"top": 1625,
-"bot": 1663,
-"confianza": 90.1
-}
-],
-"Ps 7:8": [
-{
-"pagina": 963,
-"columna": 1,
-"fuente": "princeton:963",
-"x1": 848,
-"x2": 1492,
-"top": 481,
-"bot": 519,
-"confianza": 91.1
-},
-{
-"pagina": 963,
-"columna": 1,
-"fuente": "princeton:963",
-"x1": 835,
-"x2": 1479,
-"top": 1735,
-"bot": 1773,
-"confianza": 93.9
-}
-],
-"Ps 7:9": [
-{
-"pagina": 963,
-"columna": 1,
-"fuente": "princeton:963",
-"x1": 845,
-"x2": 1490,
-"top": 629,
-"bot": 666,
-"confianza": 95.6
-},
-{
-"pagina": 963,
-"columna": 1,
-"fuente": "princeton:963",
-"x1": 835,
-"x2": 1476,
-"top": 1882,
-"bot": 1920,
-"confianza": 68.7
-}
-],
-"Ps 7:5": [
+"Ps 5:5": [
 {
 "pagina": 963,
 "columna": 1,
@@ -240079,7 +239387,55 @@
 "confianza": 83.8
 }
 ],
-"Ps 7:10": [
+"Ps 5:6": [
+{
+"pagina": 963,
+"columna": 1,
+"fuente": "princeton:963",
+"x1": 837,
+"x2": 1482,
+"top": 1515,
+"bot": 1552,
+"confianza": 95.7
+}
+],
+"Ps 5:7": [
+{
+"pagina": 963,
+"columna": 1,
+"fuente": "princeton:963",
+"x1": 837,
+"x2": 1481,
+"top": 1625,
+"bot": 1663,
+"confianza": 90.1
+}
+],
+"Ps 5:8": [
+{
+"pagina": 963,
+"columna": 1,
+"fuente": "princeton:963",
+"x1": 835,
+"x2": 1479,
+"top": 1735,
+"bot": 1773,
+"confianza": 93.9
+}
+],
+"Ps 5:9": [
+{
+"pagina": 963,
+"columna": 1,
+"fuente": "princeton:963",
+"x1": 835,
+"x2": 1476,
+"top": 1882,
+"bot": 1920,
+"confianza": 68.7
+}
+],
+"Ps 5:10": [
 {
 "pagina": 963,
 "columna": 1,
@@ -240091,7 +239447,7 @@
 "confianza": 93.1
 }
 ],
-"Ps 7:11": [
+"Ps 5:11": [
 {
 "pagina": 963,
 "columna": 1,
@@ -240103,7 +239459,7 @@
 "confianza": 93.2
 }
 ],
-"Ps 7:12": [
+"Ps 5:12": [
 {
 "pagina": 963,
 "columna": 1,
@@ -240115,19 +239471,7 @@
 "confianza": 93.6
 }
 ],
-"Ps 7:13": [
-{
-"pagina": 964,
-"columna": 0,
-"fuente": "princeton:964",
-"x1": 214,
-"x2": 853,
-"top": 222,
-"bot": 262,
-"confianza": 93.7
-}
-],
-"Ps 8:1": [
+"Ps 6:1": [
 {
 "pagina": 964,
 "columna": 0,
@@ -240149,7 +239493,7 @@
 "confianza": 92.4
 }
 ],
-"Ps 8:2": [
+"Ps 6:2": [
 {
 "pagina": 964,
 "columna": 0,
@@ -240161,7 +239505,7 @@
 "confianza": 88.7
 }
 ],
-"Ps 8:3": [
+"Ps 6:3": [
 {
 "pagina": 964,
 "columna": 0,
@@ -240173,7 +239517,7 @@
 "confianza": 92.4
 }
 ],
-"Ps 8:4": [
+"Ps 6:4": [
 {
 "pagina": 964,
 "columna": 0,
@@ -240185,7 +239529,7 @@
 "confianza": 93.9
 }
 ],
-"Ps 8:6": [
+"Ps 6:6": [
 {
 "pagina": 964,
 "columna": 0,
@@ -240207,7 +239551,7 @@
 "confianza": 95.1
 }
 ],
-"Ps 8:7": [
+"Ps 6:7": [
 {
 "pagina": 964,
 "columna": 0,
@@ -240219,7 +239563,7 @@
 "confianza": 93.7
 }
 ],
-"Ps 8:8": [
+"Ps 6:8": [
 {
 "pagina": 964,
 "columna": 0,
@@ -240231,7 +239575,7 @@
 "confianza": 94.1
 }
 ],
-"Ps 8:9": [
+"Ps 6:9": [
 {
 "pagina": 964,
 "columna": 0,
@@ -240243,7 +239587,19 @@
 "confianza": 93.4
 }
 ],
-"Ps 9:1": [
+"Ps 6:10": [
+{
+"pagina": 964,
+"columna": 0,
+"fuente": "princeton:964",
+"x1": 203,
+"x2": 847,
+"top": 1515,
+"bot": 1547,
+"confianza": 76.7
+}
+],
+"Ps 7:1": [
 {
 "pagina": 964,
 "columna": 0,
@@ -240253,19 +239609,9 @@
 "top": 1922,
 "bot": 1961,
 "confianza": 92.3
-},
-{
-"pagina": 964,
-"columna": 1,
-"fuente": "princeton:964",
-"x1": 934,
-"x2": 1572,
-"top": 1958,
-"bot": 1988,
-"confianza": 93.0
 }
 ],
-"Ps 9:2": [
+"Ps 7:2": [
 {
 "pagina": 964,
 "columna": 0,
@@ -240275,19 +239621,9 @@
 "top": 1995,
 "bot": 2035,
 "confianza": 88.6
-},
-{
-"pagina": 964,
-"columna": 1,
-"fuente": "princeton:964",
-"x1": 933,
-"x2": 1572,
-"top": 2031,
-"bot": 2068,
-"confianza": 94.2
 }
 ],
-"Ps 9:4": [
+"Ps 7:4": [
 {
 "pagina": 964,
 "columna": 1,
@@ -240297,19 +239633,9 @@
 "top": 262,
 "bot": 308,
 "confianza": 94.9
-},
-{
-"pagina": 965,
-"columna": 0,
-"fuente": "princeton:965",
-"x1": 113,
-"x2": 754,
-"top": 364,
-"bot": 401,
-"confianza": 94.6
 }
 ],
-"Ps 9:6": [
+"Ps 7:6": [
 {
 "pagina": 964,
 "columna": 1,
@@ -240329,7 +239655,177 @@
 "top": 447,
 "bot": 485,
 "confianza": 88.0
-},
+}
+],
+"Ps 7:7": [
+{
+"pagina": 964,
+"columna": 1,
+"fuente": "princeton:964",
+"x1": 947,
+"x2": 1587,
+"top": 557,
+"bot": 604,
+"confianza": 90.8
+}
+],
+"Ps 7:8": [
+{
+"pagina": 964,
+"columna": 1,
+"fuente": "princeton:964",
+"x1": 946,
+"x2": 1586,
+"top": 696,
+"bot": 743,
+"confianza": 92.9
+}
+],
+"Ps 7:9": [
+{
+"pagina": 964,
+"columna": 1,
+"fuente": "princeton:964",
+"x1": 943,
+"x2": 1586,
+"top": 779,
+"bot": 825,
+"confianza": 94.1
+}
+],
+"Ps 7:10": [
+{
+"pagina": 964,
+"columna": 1,
+"fuente": "princeton:964",
+"x1": 942,
+"x2": 1586,
+"top": 926,
+"bot": 958,
+"confianza": 93.7
+}
+],
+"Ps 7:11": [
+{
+"pagina": 964,
+"columna": 1,
+"fuente": "princeton:964",
+"x1": 939,
+"x2": 1584,
+"top": 1000,
+"bot": 1045,
+"confianza": 91.7
+}
+],
+"Ps 7:12": [
+{
+"pagina": 964,
+"columna": 1,
+"fuente": "princeton:964",
+"x1": 954,
+"x2": 1581,
+"top": 1111,
+"bot": 1142,
+"confianza": 90.1
+}
+],
+"Ps 7:13": [
+{
+"pagina": 964,
+"columna": 1,
+"fuente": "princeton:964",
+"x1": 939,
+"x2": 1469,
+"top": 1220,
+"bot": 1258,
+"confianza": 91.2
+}
+],
+"Ps 7:14": [
+{
+"pagina": 964,
+"columna": 1,
+"fuente": "princeton:964",
+"x1": 938,
+"x2": 1579,
+"top": 1253,
+"bot": 1318,
+"confianza": 91.7
+}
+],
+"Ps 7:16": [
+{
+"pagina": 964,
+"columna": 1,
+"fuente": "princeton:964",
+"x1": 939,
+"x2": 1579,
+"top": 1404,
+"bot": 1443,
+"confianza": 83.0
+}
+],
+"Ps 7:17": [
+{
+"pagina": 964,
+"columna": 1,
+"fuente": "princeton:964",
+"x1": 938,
+"x2": 1577,
+"top": 1514,
+"bot": 1546,
+"confianza": 93.5
+}
+],
+"Ps 8:1": [
+{
+"pagina": 964,
+"columna": 1,
+"fuente": "princeton:964",
+"x1": 934,
+"x2": 1572,
+"top": 1958,
+"bot": 1988,
+"confianza": 93.0
+}
+],
+"Ps 8:2": [
+{
+"pagina": 964,
+"columna": 1,
+"fuente": "princeton:964",
+"x1": 933,
+"x2": 1572,
+"top": 2031,
+"bot": 2068,
+"confianza": 94.2
+}
+],
+"Ps 8:3": [
+{
+"pagina": 964,
+"columna": 1,
+"fuente": "princeton:964",
+"x1": 931,
+"x2": 1571,
+"top": 2177,
+"bot": 2214,
+"confianza": 87.3
+}
+],
+"Ps 8:4": [
+{
+"pagina": 965,
+"columna": 0,
+"fuente": "princeton:965",
+"x1": 113,
+"x2": 754,
+"top": 364,
+"bot": 401,
+"confianza": 94.6
+}
+],
+"Ps 8:6": [
 {
 "pagina": 965,
 "columna": 0,
@@ -240351,17 +239847,7 @@
 "confianza": 91.8
 }
 ],
-"Ps 9:7": [
-{
-"pagina": 964,
-"columna": 1,
-"fuente": "princeton:964",
-"x1": 947,
-"x2": 1587,
-"top": 557,
-"bot": 604,
-"confianza": 90.8
-},
+"Ps 8:7": [
 {
 "pagina": 965,
 "columna": 0,
@@ -240373,17 +239859,7 @@
 "confianza": 82.1
 }
 ],
-"Ps 9:8": [
-{
-"pagina": 964,
-"columna": 1,
-"fuente": "princeton:964",
-"x1": 946,
-"x2": 1586,
-"top": 696,
-"bot": 743,
-"confianza": 92.9
-},
+"Ps 8:8": [
 {
 "pagina": 965,
 "columna": 0,
@@ -240395,17 +239871,7 @@
 "confianza": 79.0
 }
 ],
-"Ps 9:9": [
-{
-"pagina": 964,
-"columna": 1,
-"fuente": "princeton:964",
-"x1": 943,
-"x2": 1586,
-"top": 779,
-"bot": 825,
-"confianza": 94.1
-},
+"Ps 8:9": [
 {
 "pagina": 965,
 "columna": 0,
@@ -240417,125 +239883,7 @@
 "confianza": 95.8
 }
 ],
-"Ps 9:10": [
-{
-"pagina": 964,
-"columna": 1,
-"fuente": "princeton:964",
-"x1": 942,
-"x2": 1586,
-"top": 926,
-"bot": 958,
-"confianza": 93.7
-},
-{
-"pagina": 965,
-"columna": 0,
-"fuente": "princeton:965",
-"x1": 128,
-"x2": 758,
-"top": 1064,
-"bot": 1101,
-"confianza": 89.1
-}
-],
-"Ps 9:11": [
-{
-"pagina": 964,
-"columna": 1,
-"fuente": "princeton:964",
-"x1": 939,
-"x2": 1584,
-"top": 1000,
-"bot": 1045,
-"confianza": 91.7
-}
-],
-"Ps 9:12": [
-{
-"pagina": 964,
-"columna": 1,
-"fuente": "princeton:964",
-"x1": 954,
-"x2": 1581,
-"top": 1111,
-"bot": 1142,
-"confianza": 90.1
-}
-],
-"Ps 9:13": [
-{
-"pagina": 964,
-"columna": 1,
-"fuente": "princeton:964",
-"x1": 939,
-"x2": 1469,
-"top": 1220,
-"bot": 1258,
-"confianza": 91.2
-}
-],
-"Ps 9:14": [
-{
-"pagina": 964,
-"columna": 1,
-"fuente": "princeton:964",
-"x1": 938,
-"x2": 1579,
-"top": 1253,
-"bot": 1318,
-"confianza": 91.7
-}
-],
-"Ps 9:16": [
-{
-"pagina": 964,
-"columna": 1,
-"fuente": "princeton:964",
-"x1": 939,
-"x2": 1579,
-"top": 1404,
-"bot": 1443,
-"confianza": 83.0
-}
-],
-"Ps 9:17": [
-{
-"pagina": 964,
-"columna": 1,
-"fuente": "princeton:964",
-"x1": 938,
-"x2": 1577,
-"top": 1514,
-"bot": 1546,
-"confianza": 93.5
-}
-],
-"Ps 9:18": [
-{
-"pagina": 964,
-"columna": 1,
-"fuente": "princeton:964",
-"x1": 936,
-"x2": 1578,
-"top": 1624,
-"bot": 1662,
-"confianza": 92.5
-}
-],
-"Ps 9:3": [
-{
-"pagina": 964,
-"columna": 1,
-"fuente": "princeton:964",
-"x1": 931,
-"x2": 1571,
-"top": 2177,
-"bot": 2214,
-"confianza": 87.3
-}
-],
-"Ps 10:1": [
+"Ps 9:1": [
 {
 "pagina": 965,
 "columna": 0,
@@ -240557,7 +239905,7 @@
 "confianza": 89.6
 }
 ],
-"Ps 10:2": [
+"Ps 9:2": [
 {
 "pagina": 965,
 "columna": 0,
@@ -240579,7 +239927,7 @@
 "confianza": 94.1
 }
 ],
-"Ps 10:3": [
+"Ps 9:3": [
 {
 "pagina": 965,
 "columna": 0,
@@ -240601,7 +239949,7 @@
 "confianza": 90.1
 }
 ],
-"Ps 10:4": [
+"Ps 9:4": [
 {
 "pagina": 965,
 "columna": 0,
@@ -240623,7 +239971,7 @@
 "confianza": 90.5
 }
 ],
-"Ps 10:6": [
+"Ps 9:6": [
 {
 "pagina": 965,
 "columna": 0,
@@ -240655,7 +240003,7 @@
 "confianza": 93.1
 }
 ],
-"Ps 10:7": [
+"Ps 9:7": [
 {
 "pagina": 965,
 "columna": 1,
@@ -240677,7 +240025,7 @@
 "confianza": 94.5
 }
 ],
-"Ps 10:8": [
+"Ps 9:8": [
 {
 "pagina": 965,
 "columna": 1,
@@ -240699,7 +240047,7 @@
 "confianza": 78.6
 }
 ],
-"Ps 10:9": [
+"Ps 9:9": [
 {
 "pagina": 965,
 "columna": 1,
@@ -240721,7 +240069,7 @@
 "confianza": 93.6
 }
 ],
-"Ps 10:10": [
+"Ps 9:10": [
 {
 "pagina": 965,
 "columna": 1,
@@ -240743,7 +240091,7 @@
 "confianza": 95.9
 }
 ],
-"Ps 10:11": [
+"Ps 9:11": [
 {
 "pagina": 965,
 "columna": 1,
@@ -240765,7 +240113,7 @@
 "confianza": 95.2
 }
 ],
-"Ps 10:12": [
+"Ps 9:12": [
 {
 "pagina": 965,
 "columna": 1,
@@ -240787,7 +240135,7 @@
 "confianza": 92.7
 }
 ],
-"Ps 10:13": [
+"Ps 9:13": [
 {
 "pagina": 965,
 "columna": 1,
@@ -240809,7 +240157,7 @@
 "confianza": 95.1
 }
 ],
-"Ps 10:14": [
+"Ps 9:14": [
 {
 "pagina": 965,
 "columna": 1,
@@ -240831,7 +240179,7 @@
 "confianza": 94.3
 }
 ],
-"Ps 10:15": [
+"Ps 9:15": [
 {
 "pagina": 965,
 "columna": 1,
@@ -240853,7 +240201,7 @@
 "confianza": 92.0
 }
 ],
-"Ps 10:16": [
+"Ps 9:16": [
 {
 "pagina": 965,
 "columna": 1,
@@ -240875,7 +240223,7 @@
 "confianza": 89.6
 }
 ],
-"Ps 10:17": [
+"Ps 9:17": [
 {
 "pagina": 965,
 "columna": 1,
@@ -240897,7 +240245,7 @@
 "confianza": 93.3
 }
 ],
-"Ps 10:18": [
+"Ps 9:18": [
 {
 "pagina": 965,
 "columna": 1,
@@ -240919,7 +240267,31 @@
 "confianza": 94.7
 }
 ],
-"Ps 10:5": [
+"Ps 9:19": [
+{
+"pagina": 965,
+"columna": 1,
+"fuente": "princeton:965",
+"x1": 846,
+"x2": 1492,
+"top": 1835,
+"bot": 1872,
+"confianza": 94.2
+}
+],
+"Ps 9:20": [
+{
+"pagina": 965,
+"columna": 1,
+"fuente": "princeton:965",
+"x1": 849,
+"x2": 1493,
+"top": 1945,
+"bot": 1981,
+"confianza": 95.0
+}
+],
+"Ps 9:5": [
 {
 "pagina": 966,
 "columna": 0,
@@ -240931,7 +240303,7 @@
 "confianza": 95.7
 }
 ],
-"Ps 11:1": [
+"Ps 10:1": [
 {
 "pagina": 966,
 "columna": 0,
@@ -240943,7 +240315,7 @@
 "confianza": 94.4
 }
 ],
-"Ps 11:2": [
+"Ps 10:2": [
 {
 "pagina": 966,
 "columna": 1,
@@ -240955,7 +240327,7 @@
 "confianza": 86.1
 }
 ],
-"Ps 11:3": [
+"Ps 10:3": [
 {
 "pagina": 966,
 "columna": 1,
@@ -240967,7 +240339,7 @@
 "confianza": 95.7
 }
 ],
-"Ps 11:4": [
+"Ps 10:4": [
 {
 "pagina": 966,
 "columna": 1,
@@ -240979,7 +240351,7 @@
 "confianza": 92.0
 }
 ],
-"Ps 11:5": [
+"Ps 10:5": [
 {
 "pagina": 966,
 "columna": 1,
@@ -240991,7 +240363,7 @@
 "confianza": 94.6
 }
 ],
-"Ps 11:6": [
+"Ps 10:6": [
 {
 "pagina": 966,
 "columna": 1,
@@ -241003,7 +240375,7 @@
 "confianza": 89.8
 }
 ],
-"Ps 11:7": [
+"Ps 10:7": [
 {
 "pagina": 966,
 "columna": 1,
@@ -241015,7 +240387,7 @@
 "confianza": 93.4
 }
 ],
-"Ps 12:1": [
+"Ps 11:1": [
 {
 "pagina": 966,
 "columna": 1,
@@ -241027,7 +240399,7 @@
 "confianza": 83.8
 }
 ],
-"Ps 12:2": [
+"Ps 11:2": [
 {
 "pagina": 966,
 "columna": 1,
@@ -241039,7 +240411,7 @@
 "confianza": 82.7
 }
 ],
-"Ps 12:3": [
+"Ps 11:3": [
 {
 "pagina": 966,
 "columna": 1,
@@ -241051,7 +240423,7 @@
 "confianza": 95.1
 }
 ],
-"Ps 12:4": [
+"Ps 11:4": [
 {
 "pagina": 966,
 "columna": 1,
@@ -241063,7 +240435,7 @@
 "confianza": 89.5
 }
 ],
-"Ps 12:5": [
+"Ps 11:5": [
 {
 "pagina": 966,
 "columna": 1,
@@ -241075,7 +240447,7 @@
 "confianza": 95.7
 }
 ],
-"Ps 12:6": [
+"Ps 11:6": [
 {
 "pagina": 966,
 "columna": 1,
@@ -241087,7 +240459,7 @@
 "confianza": 95.8
 }
 ],
-"Ps 12:7": [
+"Ps 11:7": [
 {
 "pagina": 966,
 "columna": 1,
@@ -241109,19 +240481,7 @@
 "confianza": 93.7
 }
 ],
-"Ps 12:8": [
-{
-"pagina": 966,
-"columna": 1,
-"fuente": "princeton:966",
-"x1": 951,
-"x2": 1596,
-"top": 2058,
-"bot": 2098,
-"confianza": 94.3
-}
-],
-"Ps 13:1": [
+"Ps 12:1": [
 {
 "pagina": 967,
 "columna": 0,
@@ -241133,7 +240493,7 @@
 "confianza": 94.6
 }
 ],
-"Ps 13:2": [
+"Ps 12:2": [
 {
 "pagina": 967,
 "columna": 0,
@@ -241145,7 +240505,7 @@
 "confianza": 94.9
 }
 ],
-"Ps 13:3": [
+"Ps 12:3": [
 {
 "pagina": 967,
 "columna": 0,
@@ -241157,7 +240517,7 @@
 "confianza": 93.6
 }
 ],
-"Ps 13:4": [
+"Ps 12:4": [
 {
 "pagina": 967,
 "columna": 0,
@@ -241169,7 +240529,7 @@
 "confianza": 90.2
 }
 ],
-"Ps 13:6": [
+"Ps 12:6": [
 {
 "pagina": 967,
 "columna": 0,
@@ -241191,7 +240551,7 @@
 "confianza": 87.8
 }
 ],
-"Ps 14:1": [
+"Ps 13:1": [
 {
 "pagina": 967,
 "columna": 0,
@@ -241203,7 +240563,7 @@
 "confianza": 96.0
 }
 ],
-"Ps 14:2": [
+"Ps 13:2": [
 {
 "pagina": 967,
 "columna": 0,
@@ -241215,7 +240575,7 @@
 "confianza": 94.1
 }
 ],
-"Ps 14:4": [
+"Ps 13:4": [
 {
 "pagina": 967,
 "columna": 0,
@@ -241227,7 +240587,7 @@
 "confianza": 91.0
 }
 ],
-"Ps 14:6": [
+"Ps 13:6": [
 {
 "pagina": 967,
 "columna": 0,
@@ -241239,7 +240599,7 @@
 "confianza": 94.6
 }
 ],
-"Ps 15:1": [
+"Ps 14:1": [
 {
 "pagina": 967,
 "columna": 0,
@@ -241251,7 +240611,31 @@
 "confianza": 94.1
 }
 ],
-"Ps 16:1": [
+"Ps 14:6": [
+{
+"pagina": 967,
+"columna": 0,
+"fuente": "princeton:967",
+"x1": 104,
+"x2": 741,
+"top": 2054,
+"bot": 2090,
+"confianza": 76.4
+}
+],
+"Ps 14:7": [
+{
+"pagina": 967,
+"columna": 0,
+"fuente": "princeton:967",
+"x1": 76,
+"x2": 741,
+"top": 2164,
+"bot": 2202,
+"confianza": 85.7
+}
+],
+"Ps 15:1": [
 {
 "pagina": 967,
 "columna": 1,
@@ -241263,7 +240647,7 @@
 "confianza": 95.8
 }
 ],
-"Ps 16:2": [
+"Ps 15:2": [
 {
 "pagina": 967,
 "columna": 1,
@@ -241285,7 +240669,7 @@
 "confianza": 86.1
 }
 ],
-"Ps 16:3": [
+"Ps 15:3": [
 {
 "pagina": 967,
 "columna": 1,
@@ -241297,7 +240681,7 @@
 "confianza": 94.0
 }
 ],
-"Ps 16:4": [
+"Ps 15:4": [
 {
 "pagina": 967,
 "columna": 1,
@@ -241309,19 +240693,7 @@
 "confianza": 90.4
 }
 ],
-"Ps 16:6": [
-{
-"pagina": 967,
-"columna": 1,
-"fuente": "princeton:967",
-"x1": 829,
-"x2": 1476,
-"top": 1060,
-"bot": 1098,
-"confianza": 95.1
-}
-],
-"Ps 17:1": [
+"Ps 16:1": [
 {
 "pagina": 967,
 "columna": 1,
@@ -241331,7 +240703,129 @@
 "top": 1505,
 "bot": 1542,
 "confianza": 93.4
-},
+}
+],
+"Ps 16:2": [
+{
+"pagina": 967,
+"columna": 1,
+"fuente": "princeton:967",
+"x1": 831,
+"x2": 1481,
+"top": 1615,
+"bot": 1651,
+"confianza": 95.0
+}
+],
+"Ps 16:3": [
+{
+"pagina": 967,
+"columna": 1,
+"fuente": "princeton:967",
+"x1": 839,
+"x2": 1483,
+"top": 1688,
+"bot": 1725,
+"confianza": 96.0
+}
+],
+"Ps 16:4": [
+{
+"pagina": 967,
+"columna": 1,
+"fuente": "princeton:967",
+"x1": 836,
+"x2": 1491,
+"top": 1797,
+"bot": 1835,
+"confianza": 89.7
+}
+],
+"Ps 16:5": [
+{
+"pagina": 967,
+"columna": 1,
+"fuente": "princeton:967",
+"x1": 837,
+"x2": 1483,
+"top": 1981,
+"bot": 2017,
+"confianza": 94.8
+}
+],
+"Ps 16:6": [
+{
+"pagina": 967,
+"columna": 1,
+"fuente": "princeton:967",
+"x1": 837,
+"x2": 1469,
+"top": 2089,
+"bot": 2127,
+"confianza": 90.8
+}
+],
+"Ps 16:7": [
+{
+"pagina": 968,
+"columna": 0,
+"fuente": "princeton:968",
+"x1": 219,
+"x2": 866,
+"top": 280,
+"bot": 319,
+"confianza": 86.7
+}
+],
+"Ps 16:8": [
+{
+"pagina": 968,
+"columna": 0,
+"fuente": "princeton:968",
+"x1": 221,
+"x2": 863,
+"top": 389,
+"bot": 430,
+"confianza": 94.4
+}
+],
+"Ps 16:9": [
+{
+"pagina": 968,
+"columna": 0,
+"fuente": "princeton:968",
+"x1": 216,
+"x2": 866,
+"top": 500,
+"bot": 539,
+"confianza": 95.9
+}
+],
+"Ps 16:10": [
+{
+"pagina": 968,
+"columna": 0,
+"fuente": "princeton:968",
+"x1": 217,
+"x2": 865,
+"top": 611,
+"bot": 649,
+"confianza": 93.9
+}
+],
+"Ps 16:11": [
+{
+"pagina": 968,
+"columna": 0,
+"fuente": "princeton:968",
+"x1": 217,
+"x2": 865,
+"top": 721,
+"bot": 753,
+"confianza": 94.0
+}
+],
+"Ps 17:1": [
 {
 "pagina": 968,
 "columna": 0,
@@ -241345,16 +240839,6 @@
 ],
 "Ps 17:2": [
 {
-"pagina": 967,
-"columna": 1,
-"fuente": "princeton:967",
-"x1": 831,
-"x2": 1481,
-"top": 1615,
-"bot": 1651,
-"confianza": 95.0
-},
-{
 "pagina": 968,
 "columna": 0,
 "fuente": "princeton:968",
@@ -241365,29 +240849,7 @@
 "confianza": 92.6
 }
 ],
-"Ps 17:3": [
-{
-"pagina": 967,
-"columna": 1,
-"fuente": "princeton:967",
-"x1": 839,
-"x2": 1483,
-"top": 1688,
-"bot": 1725,
-"confianza": 96.0
-}
-],
 "Ps 17:4": [
-{
-"pagina": 967,
-"columna": 1,
-"fuente": "princeton:967",
-"x1": 836,
-"x2": 1491,
-"top": 1797,
-"bot": 1835,
-"confianza": 89.7
-},
 {
 "pagina": 968,
 "columna": 0,
@@ -241399,29 +240861,7 @@
 "confianza": 92.9
 }
 ],
-"Ps 17:5": [
-{
-"pagina": 967,
-"columna": 1,
-"fuente": "princeton:967",
-"x1": 837,
-"x2": 1483,
-"top": 1981,
-"bot": 2017,
-"confianza": 94.8
-}
-],
 "Ps 17:6": [
-{
-"pagina": 967,
-"columna": 1,
-"fuente": "princeton:967",
-"x1": 837,
-"x2": 1469,
-"top": 2089,
-"bot": 2127,
-"confianza": 90.8
-},
 {
 "pagina": 968,
 "columna": 0,
@@ -241448,16 +240888,6 @@
 "pagina": 968,
 "columna": 0,
 "fuente": "princeton:968",
-"x1": 219,
-"x2": 866,
-"top": 280,
-"bot": 319,
-"confianza": 86.7
-},
-{
-"pagina": 968,
-"columna": 0,
-"fuente": "princeton:968",
 "x1": 217,
 "x2": 858,
 "top": 1753,
@@ -241466,16 +240896,6 @@
 }
 ],
 "Ps 17:8": [
-{
-"pagina": 968,
-"columna": 0,
-"fuente": "princeton:968",
-"x1": 221,
-"x2": 863,
-"top": 389,
-"bot": 430,
-"confianza": 94.4
-},
 {
 "pagina": 968,
 "columna": 0,
@@ -241492,16 +240912,6 @@
 "pagina": 968,
 "columna": 0,
 "fuente": "princeton:968",
-"x1": 216,
-"x2": 866,
-"top": 500,
-"bot": 539,
-"confianza": 95.9
-},
-{
-"pagina": 968,
-"columna": 0,
-"fuente": "princeton:968",
 "x1": 217,
 "x2": 864,
 "top": 1972,
@@ -241514,16 +240924,6 @@
 "pagina": 968,
 "columna": 0,
 "fuente": "princeton:968",
-"x1": 217,
-"x2": 865,
-"top": 611,
-"bot": 649,
-"confianza": 93.9
-},
-{
-"pagina": 968,
-"columna": 0,
-"fuente": "princeton:968",
 "x1": 216,
 "x2": 864,
 "top": 2082,
@@ -241532,16 +240932,6 @@
 }
 ],
 "Ps 17:11": [
-{
-"pagina": 968,
-"columna": 0,
-"fuente": "princeton:968",
-"x1": 217,
-"x2": 865,
-"top": 721,
-"bot": 753,
-"confianza": 94.0
-},
 {
 "pagina": 968,
 "columna": 0,
@@ -278656,16 +278046,6 @@
 "pagina": 1066,
 "columna": 0,
 "fuente": "princeton:1066",
-"x1": 131,
-"x2": 749,
-"top": 2183,
-"bot": 2236,
-"confianza": 87.0
-},
-{
-"pagina": 1066,
-"columna": 0,
-"fuente": "princeton:1066",
 "x1": 141,
 "x2": 673,
 "top": 2205,
@@ -281093,50 +280473,6 @@
 "confianza": 90.7
 }
 ],
-"Song 1:12": [
-{
-"pagina": 1079,
-"columna": 0,
-"fuente": "princeton:1079",
-"x1": 57,
-"x2": 1010,
-"top": 938,
-"bot": 976,
-"confianza": 85.3
-},
-{
-"pagina": 1081,
-"columna": 1,
-"fuente": "princeton:1081",
-"x1": 811,
-"x2": 1465,
-"top": 945,
-"bot": 983,
-"confianza": 95.7
-}
-],
-"Song 1:8": [
-{
-"pagina": 1079,
-"columna": 1,
-"fuente": "princeton:1079",
-"x1": 1029,
-"x2": 1493,
-"top": 939,
-"bot": 975,
-"confianza": 95.5
-},
-{
-"pagina": 1081,
-"columna": 0,
-"fuente": "princeton:1081",
-"x1": 75,
-"x2": 741,
-"top": 1955,
-"bot": 2006,
-"confianza": 92.0
-}
-],
 "Song 1:1": [
 {
 "pagina": 1081,
@@ -281221,6 +280557,18 @@
 "confianza": 95.7
 }
 ],
+"Song 1:8": [
+{
+"pagina": 1081,
+"columna": 0,
+"fuente": "princeton:1081",
+"x1": 75,
+"x2": 741,
+"top": 1955,
+"bot": 2006,
+"confianza": 92.0
+}
+],
 "Song 1:9": [
 {
 "pagina": 1081,
@@ -281255,6 +280603,18 @@
 "top": 743,
 "bot": 782,
 "confianza": 95.6
+}
+],
+"Song 1:12": [
+{
+"pagina": 1081,
+"columna": 1,
+"fuente": "princeton:1081",
+"x1": 811,
+"x2": 1465,
+"top": 945,
+"bot": 983,
+"confianza": 95.7
 }
 ],
 "Song 1:13": [
@@ -303317,6 +302677,16 @@
 ],
 "Sir 51:1": [
 {
+"pagina": 1151,
+"columna": 0,
+"fuente": "princeton:1151",
+"x1": 0,
+"x2": 470,
+"top": 176,
+"bot": 216,
+"confianza": 78.0
+},
+{
 "pagina": 1155,
 "columna": 0,
 "fuente": "princeton:1155",
@@ -303335,6 +302705,192 @@
 "top": 1745,
 "bot": 1785,
 "confianza": 91.4
+}
+],
+"Sir 51:4": [
+{
+"pagina": 1151,
+"columna": 0,
+"fuente": "princeton:1151",
+"x1": 0,
+"x2": 753,
+"top": 1345,
+"bot": 1390,
+"confianza": 91.4
+},
+{
+"pagina": 1156,
+"columna": 0,
+"fuente": "princeton:1156",
+"x1": 202,
+"x2": 671,
+"top": 2302,
+"bot": 2333,
+"confianza": 71.0
+}
+],
+"Sir 51:18": [
+{
+"pagina": 1151,
+"columna": 0,
+"fuente": "princeton:1151",
+"x1": 109,
+"x2": 753,
+"top": 1747,
+"bot": 1786,
+"confianza": 95.9
+}
+],
+"Sir 51:19": [
+{
+"pagina": 1151,
+"columna": 0,
+"fuente": "princeton:1151",
+"x1": 108,
+"x2": 755,
+"top": 1858,
+"bot": 1897,
+"confianza": 96.0
+}
+],
+"Sir 51:20": [
+{
+"pagina": 1151,
+"columna": 0,
+"fuente": "princeton:1151",
+"x1": 110,
+"x2": 753,
+"top": 1931,
+"bot": 1971,
+"confianza": 92.7
+},
+{
+"pagina": 1157,
+"columna": 1,
+"fuente": "princeton:1157",
+"x1": 879,
+"x2": 1481,
+"top": 2111,
+"bot": 2148,
+"confianza": 95.9
+}
+],
+"Sir 51:21": [
+{
+"pagina": 1151,
+"columna": 1,
+"fuente": "princeton:1151",
+"x1": 839,
+"x2": 1490,
+"top": 226,
+"bot": 282,
+"confianza": 92.1
+}
+],
+"Sir 51:22": [
+{
+"pagina": 1151,
+"columna": 1,
+"fuente": "princeton:1151",
+"x1": 839,
+"x2": 1490,
+"top": 263,
+"bot": 317,
+"confianza": 92.6
+}
+],
+"Sir 51:23": [
+{
+"pagina": 1151,
+"columna": 1,
+"fuente": "princeton:1151",
+"x1": 854,
+"x2": 1490,
+"top": 347,
+"bot": 393,
+"confianza": 94.5
+}
+],
+"Sir 51:25": [
+{
+"pagina": 1151,
+"columna": 1,
+"fuente": "princeton:1151",
+"x1": 839,
+"x2": 1491,
+"top": 533,
+"bot": 574,
+"confianza": 93.3
+}
+],
+"Sir 51:26": [
+{
+"pagina": 1151,
+"columna": 1,
+"fuente": "princeton:1151",
+"x1": 840,
+"x2": 1490,
+"top": 603,
+"bot": 651,
+"confianza": 94.9
+}
+],
+"Sir 51:27": [
+{
+"pagina": 1151,
+"columna": 1,
+"fuente": "princeton:1151",
+"x1": 841,
+"x2": 1491,
+"top": 681,
+"bot": 719,
+"confianza": 93.0
+}
+],
+"Sir 51:28": [
+{
+"pagina": 1151,
+"columna": 1,
+"fuente": "princeton:1151",
+"x1": 838,
+"x2": 1490,
+"top": 755,
+"bot": 794,
+"confianza": 93.6
+},
+{
+"pagina": 1151,
+"columna": 1,
+"fuente": "princeton:1151",
+"x1": 836,
+"x2": 1490,
+"top": 903,
+"bot": 940,
+"confianza": 60.1
+}
+],
+"Sir 51:29": [
+{
+"pagina": 1151,
+"columna": 1,
+"fuente": "princeton:1151",
+"x1": 840,
+"x2": 1491,
+"top": 941,
+"bot": 970,
+"confianza": 94.2
+}
+],
+"Sir 51:30": [
+{
+"pagina": 1151,
+"columna": 1,
+"fuente": "princeton:1151",
+"x1": 839,
+"x2": 1490,
+"top": 1051,
+"bot": 1087,
+"confianza": 94.6
 }
 ],
 "Sir 51:2": [
@@ -303371,30 +302927,6 @@
 "confianza": 86.5
 }
 ],
-"Sir 51:4": [
-{
-"pagina": 1156,
-"columna": 0,
-"fuente": "princeton:1156",
-"x1": 202,
-"x2": 671,
-"top": 2302,
-"bot": 2333,
-"confianza": 71.0
-}
-],
-"Sir 51:20": [
-{
-"pagina": 1157,
-"columna": 1,
-"fuente": "princeton:1157",
-"x1": 879,
-"x2": 1481,
-"top": 2111,
-"bot": 2148,
-"confianza": 95.9
-}
-],
 "Sir 51:6": [
 {
 "pagina": 1158,
@@ -303427,16 +302959,6 @@
 "top": 1201,
 "bot": 1238,
 "confianza": 83.4
-},
-{
-"pagina": 1162,
-"columna": 0,
-"fuente": "princeton:1162",
-"x1": 150,
-"x2": 653,
-"top": 1429,
-"bot": 1459,
-"confianza": 63.7
 }
 ],
 "Sir 51:8": [
@@ -303449,16 +302971,6 @@
 "top": 652,
 "bot": 688,
 "confianza": 93.6
-},
-{
-"pagina": 1162,
-"columna": 1,
-"fuente": "princeton:1162",
-"x1": 654,
-"x2": 1566,
-"top": 2097,
-"bot": 2140,
-"confianza": 94.9
 }
 ],
 "Sir 51:9": [
@@ -303531,110 +303043,6 @@
 "top": 1247,
 "bot": 1284,
 "confianza": 93.4
-},
-{
-"pagina": 1161,
-"columna": 1,
-"fuente": "princeton:1161",
-"x1": 1008,
-"x2": 1493,
-"top": 239,
-"bot": 275,
-"confianza": 85.0
-}
-],
-"Sir 51:13": [
-{
-"pagina": 1161,
-"columna": 0,
-"fuente": "princeton:1161",
-"x1": 113,
-"x2": 932,
-"top": 2385,
-"bot": 2422,
-"confianza": 94.4
-}
-],
-"Sir 51:15": [
-{
-"pagina": 1162,
-"columna": 0,
-"fuente": "princeton:1162",
-"x1": 154,
-"x2": 653,
-"top": 794,
-"bot": 831,
-"confianza": 83.6
-},
-{
-"pagina": 1162,
-"columna": 0,
-"fuente": "princeton:1162",
-"x1": 215,
-"x2": 653,
-"top": 1683,
-"bot": 1713,
-"confianza": 91.2
-}
-],
-"Sir 51:14": [
-{
-"pagina": 1162,
-"columna": 0,
-"fuente": "princeton:1162",
-"x1": 215,
-"x2": 649,
-"top": 1048,
-"bot": 1078,
-"confianza": 92.0
-}
-],
-"Sir 51:21": [
-{
-"pagina": 1162,
-"columna": 0,
-"fuente": "princeton:1162",
-"x1": 151,
-"x2": 651,
-"top": 2105,
-"bot": 2145,
-"confianza": 64.8
-}
-],
-"Sir 51:16": [
-{
-"pagina": 1162,
-"columna": 0,
-"fuente": "princeton:1162",
-"x1": 213,
-"x2": 653,
-"top": 2317,
-"bot": 2352,
-"confianza": 84.5
-}
-],
-"Sir 51:17": [
-{
-"pagina": 1163,
-"columna": 0,
-"fuente": "princeton:1163",
-"x1": 127,
-"x2": 765,
-"top": 716,
-"bot": 745,
-"confianza": 90.2
-}
-],
-"Sir 51:26": [
-{
-"pagina": 1163,
-"columna": 0,
-"fuente": "princeton:1163",
-"x1": 64,
-"x2": 765,
-"top": 1431,
-"bot": 1470,
-"confianza": 90.4
 }
 ],
 "Matt 1:1": [
@@ -334353,6 +333761,26 @@
 ],
 "John 1:1": [
 {
+"pagina": 1285,
+"columna": 1,
+"fuente": "princeton:1285",
+"x1": 800,
+"x2": 1481,
+"top": 458,
+"bot": 494,
+"confianza": 93.6
+},
+{
+"pagina": 1285,
+"columna": 1,
+"fuente": "princeton:1285",
+"x1": 870,
+"x2": 1482,
+"top": 500,
+"bot": 537,
+"confianza": 79.0
+},
+{
 "pagina": 1286,
 "columna": 0,
 "fuente": "princeton:1286",
@@ -334361,6 +333789,28 @@
 "top": 515,
 "bot": 565,
 "confianza": 95.1
+}
+],
+"John 1:30": [
+{
+"pagina": 1285,
+"columna": 1,
+"fuente": "princeton:1285",
+"x1": 814,
+"x2": 1479,
+"top": 1046,
+"bot": 1084,
+"confianza": 93.6
+},
+{
+"pagina": 1287,
+"columna": 0,
+"fuente": "princeton:1287",
+"x1": 103,
+"x2": 792,
+"top": 1836,
+"bot": 1872,
+"confianza": 83.4
 }
 ],
 "John 1:2": [
@@ -334691,18 +334141,6 @@
 "top": 1726,
 "bot": 1763,
 "confianza": 93.4
-}
-],
-"John 1:30": [
-{
-"pagina": 1287,
-"columna": 0,
-"fuente": "princeton:1287",
-"x1": 103,
-"x2": 792,
-"top": 1836,
-"bot": 1872,
-"confianza": 83.4
 }
 ],
 "John 1:32": [
@@ -365415,26 +364853,6 @@
 ],
 "Rom 1:1": [
 {
-"pagina": 1398,
-"columna": 0,
-"fuente": "princeton:1398",
-"x1": 139,
-"x2": 572,
-"top": 1094,
-"bot": 1129,
-"confianza": 89.8
-},
-{
-"pagina": 1398,
-"columna": 0,
-"fuente": "princeton:1398",
-"x1": 134,
-"x2": 669,
-"top": 1679,
-"bot": 1717,
-"confianza": 95.7
-},
-{
 "pagina": 1399,
 "columna": 0,
 "fuente": "princeton:1399",
@@ -365443,50 +364861,6 @@
 "top": 589,
 "bot": 661,
 "confianza": 89.2
-}
-],
-"Rom 1:4": [
-{
-"pagina": 1398,
-"columna": 0,
-"fuente": "princeton:1398",
-"x1": 129,
-"x2": 656,
-"top": 1890,
-"bot": 1927,
-"confianza": 92.0
-},
-{
-"pagina": 1399,
-"columna": 0,
-"fuente": "princeton:1399",
-"x1": 105,
-"x2": 796,
-"top": 809,
-"bot": 848,
-"confianza": 93.4
-}
-],
-"Rom 1:18": [
-{
-"pagina": 1398,
-"columna": 1,
-"fuente": "princeton:1398",
-"x1": 686,
-"x2": 1601,
-"top": 239,
-"bot": 292,
-"confianza": 85.5
-},
-{
-"pagina": 1399,
-"columna": 1,
-"fuente": "princeton:1399",
-"x1": 880,
-"x2": 1547,
-"top": 1505,
-"bot": 1544,
-"confianza": 87.0
 }
 ],
 "Rom 1:2": [
@@ -365511,6 +364885,18 @@
 "top": 735,
 "bot": 771,
 "confianza": 93.9
+}
+],
+"Rom 1:4": [
+{
+"pagina": 1399,
+"columna": 0,
+"fuente": "princeton:1399",
+"x1": 105,
+"x2": 796,
+"top": 809,
+"bot": 848,
+"confianza": 93.4
 }
 ],
 "Rom 1:5": [
@@ -365631,6 +365017,18 @@
 "top": 1211,
 "bot": 1249,
 "confianza": 90.9
+}
+],
+"Rom 1:18": [
+{
+"pagina": 1399,
+"columna": 1,
+"fuente": "princeton:1399",
+"x1": 880,
+"x2": 1547,
+"top": 1505,
+"bot": 1544,
+"confianza": 87.0
 }
 ],
 "Rom 1:19": [
@@ -371037,53 +370435,7 @@
 "confianza": 94.2
 }
 ],
-"Eph 1:17": [
-{
-"pagina": 1420,
-"columna": 0,
-"fuente": "princeton:1420",
-"x1": 107,
-"x2": 717,
-"top": 1506,
-"bot": 1543,
-"confianza": 83.3
-}
-],
 "Eph 1:1": [
-{
-"pagina": 1420,
-"columna": 0,
-"fuente": "princeton:1420",
-"x1": 98,
-"x2": 700,
-"top": 2261,
-"bot": 2300,
-"confianza": 94.1
-}
-],
-"Eph 1:6": [
-{
-"pagina": 1420,
-"columna": 0,
-"fuente": "princeton:1420",
-"x1": 97,
-"x2": 717,
-"top": 2426,
-"bot": 2470,
-"confianza": 83.0
-}
-],
-"Eph 2:1": [
-{
-"pagina": 1420,
-"columna": 1,
-"fuente": "princeton:1420",
-"x1": 720,
-"x2": 1518,
-"top": 2112,
-"bot": 2174,
-"confianza": 91.6
-},
 {
 "pagina": 1421,
 "columna": 0,
@@ -371095,29 +370447,7 @@
 "confianza": 94.8
 }
 ],
-"Eph 2:4": [
-{
-"pagina": 1420,
-"columna": 1,
-"fuente": "princeton:1420",
-"x1": 774,
-"x2": 1475,
-"top": 2300,
-"bot": 2341,
-"confianza": 90.2
-},
-{
-"pagina": 1421,
-"columna": 0,
-"fuente": "princeton:1421",
-"x1": 92,
-"x2": 783,
-"top": 1230,
-"bot": 1268,
-"confianza": 94.6
-}
-],
-"Eph 2:2": [
+"Eph 1:2": [
 {
 "pagina": 1421,
 "columna": 0,
@@ -371129,7 +370459,7 @@
 "confianza": 95.6
 }
 ],
-"Eph 2:3": [
+"Eph 1:3": [
 {
 "pagina": 1421,
 "columna": 0,
@@ -371141,7 +370471,19 @@
 "confianza": 96.0
 }
 ],
-"Eph 2:5": [
+"Eph 1:4": [
+{
+"pagina": 1421,
+"columna": 0,
+"fuente": "princeton:1421",
+"x1": 92,
+"x2": 783,
+"top": 1230,
+"bot": 1268,
+"confianza": 94.6
+}
+],
+"Eph 1:5": [
 {
 "pagina": 1421,
 "columna": 0,
@@ -371153,7 +370495,7 @@
 "confianza": 94.2
 }
 ],
-"Eph 2:7": [
+"Eph 1:7": [
 {
 "pagina": 1421,
 "columna": 0,
@@ -371165,7 +370507,7 @@
 "confianza": 90.0
 }
 ],
-"Eph 2:8": [
+"Eph 1:8": [
 {
 "pagina": 1421,
 "columna": 0,
@@ -371177,7 +370519,7 @@
 "confianza": 91.0
 }
 ],
-"Eph 2:9": [
+"Eph 1:9": [
 {
 "pagina": 1421,
 "columna": 0,
@@ -371189,7 +370531,7 @@
 "confianza": 87.4
 }
 ],
-"Eph 2:12": [
+"Eph 1:12": [
 {
 "pagina": 1421,
 "columna": 1,
@@ -371201,7 +370543,7 @@
 "confianza": 91.6
 }
 ],
-"Eph 2:13": [
+"Eph 1:13": [
 {
 "pagina": 1421,
 "columna": 1,
@@ -371213,7 +370555,7 @@
 "confianza": 94.6
 }
 ],
-"Eph 2:14": [
+"Eph 1:14": [
 {
 "pagina": 1421,
 "columna": 1,
@@ -371225,7 +370567,7 @@
 "confianza": 94.2
 }
 ],
-"Eph 2:15": [
+"Eph 1:15": [
 {
 "pagina": 1421,
 "columna": 1,
@@ -371237,7 +370579,7 @@
 "confianza": 95.0
 }
 ],
-"Eph 2:16": [
+"Eph 1:16": [
 {
 "pagina": 1421,
 "columna": 1,
@@ -371249,7 +370591,7 @@
 "confianza": 92.9
 }
 ],
-"Eph 2:17": [
+"Eph 1:17": [
 {
 "pagina": 1421,
 "columna": 1,
@@ -371261,7 +370603,7 @@
 "confianza": 96.0
 }
 ],
-"Eph 2:18": [
+"Eph 1:18": [
 {
 "pagina": 1421,
 "columna": 1,
@@ -371273,7 +370615,7 @@
 "confianza": 81.7
 }
 ],
-"Eph 2:19": [
+"Eph 1:19": [
 {
 "pagina": 1421,
 "columna": 1,
@@ -371285,7 +370627,7 @@
 "confianza": 95.6
 }
 ],
-"Eph 2:20": [
+"Eph 1:20": [
 {
 "pagina": 1421,
 "columna": 1,
@@ -371297,7 +370639,7 @@
 "confianza": 87.5
 }
 ],
-"Eph 2:21": [
+"Eph 1:21": [
 {
 "pagina": 1421,
 "columna": 1,
@@ -371309,7 +370651,7 @@
 "confianza": 93.6
 }
 ],
-"Eph 2:22": [
+"Eph 1:22": [
 {
 "pagina": 1422,
 "columna": 0,
@@ -371321,7 +370663,19 @@
 "confianza": 93.6
 }
 ],
-"Eph 3:1": [
+"Eph 1:23": [
+{
+"pagina": 1422,
+"columna": 0,
+"fuente": "princeton:1422",
+"x1": 116,
+"x2": 809,
+"top": 335,
+"bot": 374,
+"confianza": 93.5
+}
+],
+"Eph 2:1": [
 {
 "pagina": 1422,
 "columna": 0,
@@ -371333,7 +370687,7 @@
 "confianza": 85.0
 }
 ],
-"Eph 3:2": [
+"Eph 2:2": [
 {
 "pagina": 1422,
 "columna": 0,
@@ -371345,7 +370699,7 @@
 "confianza": 84.0
 }
 ],
-"Eph 3:3": [
+"Eph 2:3": [
 {
 "pagina": 1422,
 "columna": 0,
@@ -371357,7 +370711,7 @@
 "confianza": 94.9
 }
 ],
-"Eph 3:4": [
+"Eph 2:4": [
 {
 "pagina": 1422,
 "columna": 0,
@@ -371369,7 +370723,7 @@
 "confianza": 93.5
 }
 ],
-"Eph 3:6": [
+"Eph 2:6": [
 {
 "pagina": 1422,
 "columna": 0,
@@ -371381,7 +370735,7 @@
 "confianza": 83.3
 }
 ],
-"Eph 3:7": [
+"Eph 2:7": [
 {
 "pagina": 1422,
 "columna": 0,
@@ -371393,7 +370747,7 @@
 "confianza": 93.8
 }
 ],
-"Eph 3:8": [
+"Eph 2:8": [
 {
 "pagina": 1422,
 "columna": 0,
@@ -371403,6 +370757,18 @@
 "top": 1369,
 "bot": 1401,
 "confianza": 91.6
+}
+],
+"Eph 3:2": [
+{
+"pagina": 1422,
+"columna": 0,
+"fuente": "princeton:1422",
+"x1": 119,
+"x2": 812,
+"top": 1479,
+"bot": 1517,
+"confianza": 90.7
 }
 ],
 "Eph 3:10": [
@@ -372691,28 +372057,6 @@
 "confianza": 92.9
 }
 ],
-"Col 1:2": [
-{
-"pagina": 1427,
-"columna": 0,
-"fuente": "princeton:1427",
-"x1": 90,
-"x2": 777,
-"top": 326,
-"bot": 368,
-"confianza": 94.6
-},
-{
-"pagina": 1427,
-"columna": 0,
-"fuente": "princeton:1427",
-"x1": 85,
-"x2": 777,
-"top": 963,
-"bot": 1001,
-"confianza": 93.9
-}
-],
 "Col 1:1": [
 {
 "pagina": 1427,
@@ -372723,6 +372067,18 @@
 "top": 886,
 "bot": 928,
 "confianza": 82.0
+}
+],
+"Col 1:2": [
+{
+"pagina": 1427,
+"columna": 0,
+"fuente": "princeton:1427",
+"x1": 85,
+"x2": 777,
+"top": 963,
+"bot": 1001,
+"confianza": 93.9
 }
 ],
 "Col 1:5": [
@@ -373769,7 +373125,7 @@
 "confianza": 80.2
 }
 ],
-"1Tim 1:13": [
+"Phlm 1:13": [
 {
 "pagina": 1432,
 "columna": 0,
@@ -373779,19 +373135,9 @@
 "top": 182,
 "bot": 220,
 "confianza": 74.9
-},
-{
-"pagina": 1433,
-"columna": 1,
-"fuente": "princeton:1433",
-"x1": 741,
-"x2": 1510,
-"top": 2144,
-"bot": 2182,
-"confianza": 87.5
 }
 ],
-"1Tim 1:14": [
+"Phlm 1:14": [
 {
 "pagina": 1432,
 "columna": 0,
@@ -373801,19 +373147,9 @@
 "top": 255,
 "bot": 293,
 "confianza": 84.9
-},
-{
-"pagina": 1434,
-"columna": 0,
-"fuente": "princeton:1434",
-"x1": 128,
-"x2": 823,
-"top": 315,
-"bot": 354,
-"confianza": 86.8
 }
 ],
-"1Tim 1:15": [
+"Phlm 1:15": [
 {
 "pagina": 1432,
 "columna": 0,
@@ -373825,7 +373161,7 @@
 "confianza": 89.3
 }
 ],
-"1Tim 1:16": [
+"Phlm 1:16": [
 {
 "pagina": 1432,
 "columna": 0,
@@ -373835,19 +373171,9 @@
 "top": 476,
 "bot": 514,
 "confianza": 81.5
-},
-{
-"pagina": 1434,
-"columna": 0,
-"fuente": "princeton:1434",
-"x1": 128,
-"x2": 823,
-"top": 389,
-"bot": 428,
-"confianza": 94.1
 }
 ],
-"1Tim 1:17": [
+"Phlm 1:17": [
 {
 "pagina": 1432,
 "columna": 0,
@@ -373857,19 +373183,9 @@
 "top": 623,
 "bot": 663,
 "confianza": 94.6
-},
-{
-"pagina": 1434,
-"columna": 0,
-"fuente": "princeton:1434",
-"x1": 128,
-"x2": 823,
-"top": 721,
-"bot": 759,
-"confianza": 95.3
 }
 ],
-"1Tim 1:18": [
+"Phlm 1:18": [
 {
 "pagina": 1432,
 "columna": 0,
@@ -373879,19 +373195,9 @@
 "top": 697,
 "bot": 735,
 "confianza": 89.9
-},
-{
-"pagina": 1434,
-"columna": 0,
-"fuente": "princeton:1434",
-"x1": 168,
-"x2": 823,
-"top": 1016,
-"bot": 1055,
-"confianza": 94.8
 }
 ],
-"1Tim 1:19": [
+"Phlm 1:19": [
 {
 "pagina": 1432,
 "columna": 1,
@@ -373903,7 +373209,7 @@
 "confianza": 90.4
 }
 ],
-"1Tim 1:20": [
+"Phlm 1:20": [
 {
 "pagina": 1432,
 "columna": 1,
@@ -373913,26 +373219,66 @@
 "top": 331,
 "bot": 370,
 "confianza": 92.1
-},
+}
+],
+"Phlm 1:21": [
 {
-"pagina": 1433,
+"pagina": 1432,
 "columna": 1,
-"fuente": "princeton:1433",
-"x1": 855,
-"x2": 1501,
-"top": 956,
-"bot": 994,
-"confianza": 84.9
-},
+"fuente": "princeton:1432",
+"x1": 888,
+"x2": 1543,
+"top": 441,
+"bot": 474,
+"confianza": 90.7
+}
+],
+"Phlm 1:22": [
 {
-"pagina": 1434,
-"columna": 0,
-"fuente": "princeton:1434",
-"x1": 126,
-"x2": 822,
-"top": 1238,
-"bot": 1276,
-"confianza": 85.9
+"pagina": 1432,
+"columna": 1,
+"fuente": "princeton:1432",
+"x1": 848,
+"x2": 1543,
+"top": 515,
+"bot": 554,
+"confianza": 87.0
+}
+],
+"Phlm 1:23": [
+{
+"pagina": 1432,
+"columna": 1,
+"fuente": "princeton:1432",
+"x1": 847,
+"x2": 1545,
+"top": 626,
+"bot": 664,
+"confianza": 80.0
+}
+],
+"Phlm 1:24": [
+{
+"pagina": 1432,
+"columna": 1,
+"fuente": "princeton:1432",
+"x1": 848,
+"x2": 1542,
+"top": 699,
+"bot": 737,
+"confianza": 80.0
+}
+],
+"Phlm 1:25": [
+{
+"pagina": 1432,
+"columna": 1,
+"fuente": "princeton:1432",
+"x1": 890,
+"x2": 1544,
+"top": 773,
+"bot": 811,
+"confianza": 88.2
 }
 ],
 "1Tim 1:1": [
@@ -373971,6 +373317,28 @@
 "confianza": 86.1
 }
 ],
+"1Tim 1:20": [
+{
+"pagina": 1433,
+"columna": 1,
+"fuente": "princeton:1433",
+"x1": 855,
+"x2": 1501,
+"top": 956,
+"bot": 994,
+"confianza": 84.9
+},
+{
+"pagina": 1434,
+"columna": 0,
+"fuente": "princeton:1434",
+"x1": 126,
+"x2": 822,
+"top": 1238,
+"bot": 1276,
+"confianza": 85.9
+}
+],
 "1Tim 1:5": [
 {
 "pagina": 1433,
@@ -374005,6 +373373,66 @@
 "top": 2071,
 "bot": 2108,
 "confianza": 94.4
+}
+],
+"1Tim 1:13": [
+{
+"pagina": 1433,
+"columna": 1,
+"fuente": "princeton:1433",
+"x1": 741,
+"x2": 1510,
+"top": 2144,
+"bot": 2182,
+"confianza": 87.5
+}
+],
+"1Tim 1:14": [
+{
+"pagina": 1434,
+"columna": 0,
+"fuente": "princeton:1434",
+"x1": 128,
+"x2": 823,
+"top": 315,
+"bot": 354,
+"confianza": 86.8
+}
+],
+"1Tim 1:16": [
+{
+"pagina": 1434,
+"columna": 0,
+"fuente": "princeton:1434",
+"x1": 128,
+"x2": 823,
+"top": 389,
+"bot": 428,
+"confianza": 94.1
+}
+],
+"1Tim 1:17": [
+{
+"pagina": 1434,
+"columna": 0,
+"fuente": "princeton:1434",
+"x1": 128,
+"x2": 823,
+"top": 721,
+"bot": 759,
+"confianza": 95.3
+}
+],
+"1Tim 1:18": [
+{
+"pagina": 1434,
+"columna": 0,
+"fuente": "princeton:1434",
+"x1": 168,
+"x2": 823,
+"top": 1016,
+"bot": 1055,
+"confianza": 94.8
 }
 ],
 "1Tim 2:1": [
@@ -375681,7 +375109,7 @@
 "confianza": 95.3
 }
 ],
-"2Tim 4:1": [
+"Titus 1:1": [
 {
 "pagina": 1440,
 "columna": 0,
@@ -375693,7 +375121,7 @@
 "confianza": 86.1
 }
 ],
-"2Tim 4:3": [
+"Titus 1:3": [
 {
 "pagina": 1440,
 "columna": 1,
@@ -375705,7 +375133,7 @@
 "confianza": 91.3
 }
 ],
-"2Tim 4:5": [
+"Titus 1:5": [
 {
 "pagina": 1440,
 "columna": 1,
@@ -375717,7 +375145,7 @@
 "confianza": 95.1
 }
 ],
-"2Tim 4:6": [
+"Titus 1:6": [
 {
 "pagina": 1440,
 "columna": 1,
@@ -375729,7 +375157,7 @@
 "confianza": 79.1
 }
 ],
-"2Tim 4:7": [
+"Titus 1:7": [
 {
 "pagina": 1440,
 "columna": 1,
@@ -375741,7 +375169,7 @@
 "confianza": 94.6
 }
 ],
-"2Tim 4:8": [
+"Titus 1:8": [
 {
 "pagina": 1440,
 "columna": 1,
@@ -375753,7 +375181,7 @@
 "confianza": 94.4
 }
 ],
-"2Tim 4:10": [
+"Titus 1:10": [
 {
 "pagina": 1440,
 "columna": 1,
@@ -375763,9 +375191,19 @@
 "top": 1309,
 "bot": 1347,
 "confianza": 94.6
+},
+{
+"pagina": 1441,
+"columna": 0,
+"fuente": "princeton:1441",
+"x1": 76,
+"x2": 682,
+"top": 306,
+"bot": 345,
+"confianza": 77.2
 }
 ],
-"2Tim 4:11": [
+"Titus 1:11": [
 {
 "pagina": 1440,
 "columna": 1,
@@ -375777,7 +375215,7 @@
 "confianza": 91.7
 }
 ],
-"2Tim 4:12": [
+"Titus 1:12": [
 {
 "pagina": 1440,
 "columna": 1,
@@ -375789,7 +375227,7 @@
 "confianza": 93.0
 }
 ],
-"2Tim 4:13": [
+"Titus 1:13": [
 {
 "pagina": 1440,
 "columna": 1,
@@ -375801,7 +375239,7 @@
 "confianza": 88.5
 }
 ],
-"2Tim 4:14": [
+"Titus 1:14": [
 {
 "pagina": 1440,
 "columna": 1,
@@ -375813,7 +375251,7 @@
 "confianza": 95.7
 }
 ],
-"2Tim 4:15": [
+"Titus 1:15": [
 {
 "pagina": 1440,
 "columna": 1,
@@ -375825,7 +375263,7 @@
 "confianza": 95.1
 }
 ],
-"2Tim 4:16": [
+"Titus 1:16": [
 {
 "pagina": 1440,
 "columna": 1,
@@ -375835,42 +375273,6 @@
 "top": 1897,
 "bot": 1934,
 "confianza": 78.0
-}
-],
-"2Tim 4:17": [
-{
-"pagina": 1440,
-"columna": 1,
-"fuente": "princeton:1440",
-"x1": 861,
-"x2": 1570,
-"top": 2007,
-"bot": 2046,
-"confianza": 90.8
-}
-],
-"2Tim 4:18": [
-{
-"pagina": 1440,
-"columna": 1,
-"fuente": "princeton:1440",
-"x1": 861,
-"x2": 1575,
-"top": 2152,
-"bot": 2208,
-"confianza": 87.4
-}
-],
-"Titus 1:10": [
-{
-"pagina": 1441,
-"columna": 0,
-"fuente": "princeton:1441",
-"x1": 76,
-"x2": 682,
-"top": 306,
-"bot": 345,
-"confianza": 77.2
 }
 ],
 "Titus 2:1": [
@@ -375931,16 +375333,6 @@
 "top": 926,
 "bot": 964,
 "confianza": 91.7
-},
-{
-"pagina": 1442,
-"columna": 0,
-"fuente": "princeton:1442",
-"x1": 139,
-"x2": 831,
-"top": 1853,
-"bot": 1888,
-"confianza": 92.7
 }
 ],
 "Titus 3:6": [
@@ -375953,16 +375345,6 @@
 "top": 1926,
 "bot": 1964,
 "confianza": 95.0
-},
-{
-"pagina": 1442,
-"columna": 1,
-"fuente": "princeton:1442",
-"x1": 858,
-"x2": 1571,
-"top": 484,
-"bot": 531,
-"confianza": 94.7
 }
 ],
 "Titus 3:7": [
@@ -375987,16 +375369,6 @@
 "top": 339,
 "bot": 378,
 "confianza": 89.2
-},
-{
-"pagina": 1442,
-"columna": 1,
-"fuente": "princeton:1442",
-"x1": 876,
-"x2": 1568,
-"top": 634,
-"bot": 673,
-"confianza": 90.0
 }
 ],
 "Titus 3:9": [
@@ -376009,16 +375381,6 @@
 "top": 413,
 "bot": 452,
 "confianza": 86.2
-},
-{
-"pagina": 1442,
-"columna": 1,
-"fuente": "princeton:1442",
-"x1": 876,
-"x2": 1568,
-"top": 781,
-"bot": 818,
-"confianza": 94.3
 }
 ],
 "Titus 3:10": [
@@ -376031,16 +375393,6 @@
 "top": 746,
 "bot": 785,
 "confianza": 94.6
-},
-{
-"pagina": 1442,
-"columna": 1,
-"fuente": "princeton:1442",
-"x1": 874,
-"x2": 1567,
-"top": 855,
-"bot": 892,
-"confianza": 92.5
 }
 ],
 "Titus 3:11": [
@@ -376053,16 +375405,6 @@
 "top": 856,
 "bot": 895,
 "confianza": 84.8
-},
-{
-"pagina": 1442,
-"columna": 1,
-"fuente": "princeton:1442",
-"x1": 914,
-"x2": 1566,
-"top": 1149,
-"bot": 1187,
-"confianza": 95.8
 }
 ],
 "Titus 3:12": [
@@ -376075,16 +375417,6 @@
 "top": 967,
 "bot": 1005,
 "confianza": 84.7
-},
-{
-"pagina": 1442,
-"columna": 1,
-"fuente": "princeton:1442",
-"x1": 872,
-"x2": 1567,
-"top": 1223,
-"bot": 1262,
-"confianza": 93.4
 }
 ],
 "Titus 3:13": [
@@ -376097,16 +375429,6 @@
 "top": 1114,
 "bot": 1146,
 "confianza": 92.5
-},
-{
-"pagina": 1442,
-"columna": 1,
-"fuente": "princeton:1442",
-"x1": 871,
-"x2": 1567,
-"top": 1333,
-"bot": 1372,
-"confianza": 90.6
 }
 ],
 "Titus 3:14": [
@@ -376119,19 +375441,9 @@
 "top": 1225,
 "bot": 1265,
 "confianza": 95.0
-},
-{
-"pagina": 1442,
-"columna": 1,
-"fuente": "princeton:1442",
-"x1": 870,
-"x2": 1565,
-"top": 1445,
-"bot": 1482,
-"confianza": 92.8
 }
 ],
-"Titus 3:1": [
+"Heb 1:1": [
 {
 "pagina": 1442,
 "columna": 0,
@@ -376141,33 +375453,7 @@
 "top": 1779,
 "bot": 1816,
 "confianza": 87.6
-}
-],
-"Titus 3:3": [
-{
-"pagina": 1442,
-"columna": 0,
-"fuente": "princeton:1442",
-"x1": 137,
-"x2": 831,
-"top": 1925,
-"bot": 1964,
-"confianza": 91.9
-}
-],
-"Titus 3:4": [
-{
-"pagina": 1442,
-"columna": 1,
-"fuente": "princeton:1442",
-"x1": 878,
-"x2": 1571,
-"top": 304,
-"bot": 344,
-"confianza": 88.8
-}
-],
-"Heb 1:1": [
+},
 {
 "pagina": 1442,
 "columna": 1,
@@ -376182,6 +375468,16 @@
 "Heb 1:2": [
 {
 "pagina": 1442,
+"columna": 0,
+"fuente": "princeton:1442",
+"x1": 139,
+"x2": 831,
+"top": 1853,
+"bot": 1888,
+"confianza": 92.7
+},
+{
+"pagina": 1442,
 "columna": 1,
 "fuente": "princeton:1442",
 "x1": 870,
@@ -376192,6 +375488,16 @@
 }
 ],
 "Heb 1:3": [
+{
+"pagina": 1442,
+"columna": 0,
+"fuente": "princeton:1442",
+"x1": 137,
+"x2": 831,
+"top": 1925,
+"bot": 1964,
+"confianza": 91.9
+},
 {
 "pagina": 1442,
 "columna": 1,
@@ -376205,6 +375511,16 @@
 ],
 "Heb 1:4": [
 {
+"pagina": 1442,
+"columna": 1,
+"fuente": "princeton:1442",
+"x1": 878,
+"x2": 1571,
+"top": 304,
+"bot": 344,
+"confianza": 88.8
+},
+{
 "pagina": 1443,
 "columna": 0,
 "fuente": "princeton:1443",
@@ -376217,6 +375533,16 @@
 ],
 "Heb 1:6": [
 {
+"pagina": 1442,
+"columna": 1,
+"fuente": "princeton:1442",
+"x1": 858,
+"x2": 1571,
+"top": 484,
+"bot": 531,
+"confianza": 94.7
+},
+{
 "pagina": 1443,
 "columna": 0,
 "fuente": "princeton:1443",
@@ -376227,19 +375553,17 @@
 "confianza": 92.6
 }
 ],
-"Heb 1:7": [
-{
-"pagina": 1443,
-"columna": 0,
-"fuente": "princeton:1443",
-"x1": 71,
-"x2": 766,
-"top": 679,
-"bot": 716,
-"confianza": 90.9
-}
-],
 "Heb 1:8": [
+{
+"pagina": 1442,
+"columna": 1,
+"fuente": "princeton:1442",
+"x1": 876,
+"x2": 1568,
+"top": 634,
+"bot": 673,
+"confianza": 90.0
+},
 {
 "pagina": 1443,
 "columna": 0,
@@ -376253,6 +375577,16 @@
 ],
 "Heb 1:9": [
 {
+"pagina": 1442,
+"columna": 1,
+"fuente": "princeton:1442",
+"x1": 876,
+"x2": 1568,
+"top": 781,
+"bot": 818,
+"confianza": 94.3
+},
+{
 "pagina": 1443,
 "columna": 1,
 "fuente": "princeton:1443",
@@ -376264,6 +375598,16 @@
 }
 ],
 "Heb 1:10": [
+{
+"pagina": 1442,
+"columna": 1,
+"fuente": "princeton:1442",
+"x1": 874,
+"x2": 1567,
+"top": 855,
+"bot": 892,
+"confianza": 92.5
+},
 {
 "pagina": 1443,
 "columna": 1,
@@ -376277,6 +375621,16 @@
 ],
 "Heb 1:11": [
 {
+"pagina": 1442,
+"columna": 1,
+"fuente": "princeton:1442",
+"x1": 914,
+"x2": 1566,
+"top": 1149,
+"bot": 1187,
+"confianza": 95.8
+},
+{
 "pagina": 1443,
 "columna": 1,
 "fuente": "princeton:1443",
@@ -376289,6 +375643,16 @@
 ],
 "Heb 1:12": [
 {
+"pagina": 1442,
+"columna": 1,
+"fuente": "princeton:1442",
+"x1": 872,
+"x2": 1567,
+"top": 1223,
+"bot": 1262,
+"confianza": 93.4
+},
+{
 "pagina": 1443,
 "columna": 1,
 "fuente": "princeton:1443",
@@ -376300,6 +375664,16 @@
 }
 ],
 "Heb 1:13": [
+{
+"pagina": 1442,
+"columna": 1,
+"fuente": "princeton:1442",
+"x1": 871,
+"x2": 1567,
+"top": 1333,
+"bot": 1372,
+"confianza": 90.6
+},
 {
 "pagina": 1443,
 "columna": 1,
@@ -376323,6 +375697,16 @@
 ],
 "Heb 1:14": [
 {
+"pagina": 1442,
+"columna": 1,
+"fuente": "princeton:1442",
+"x1": 870,
+"x2": 1565,
+"top": 1445,
+"bot": 1482,
+"confianza": 92.8
+},
+{
 "pagina": 1443,
 "columna": 1,
 "fuente": "princeton:1443",
@@ -376331,6 +375715,18 @@
 "top": 792,
 "bot": 832,
 "confianza": 95.8
+}
+],
+"Heb 1:7": [
+{
+"pagina": 1443,
+"columna": 0,
+"fuente": "princeton:1443",
+"x1": 71,
+"x2": 766,
+"top": 679,
+"bot": 716,
+"confianza": 90.9
 }
 ],
 "Heb 2:1": [
@@ -378595,26 +377991,6 @@
 "top": 794,
 "bot": 849,
 "confianza": 63.5
-},
-{
-"pagina": 1454,
-"columna": 1,
-"fuente": "princeton:1454",
-"x1": 856,
-"x2": 1544,
-"top": 458,
-"bot": 508,
-"confianza": 95.2
-},
-{
-"pagina": 1454,
-"columna": 1,
-"fuente": "princeton:1454",
-"x1": 858,
-"x2": 1544,
-"top": 487,
-"bot": 535,
-"confianza": 67.4
 }
 ],
 "Heb 11:2": [
@@ -378627,16 +378003,6 @@
 "top": 883,
 "bot": 921,
 "confianza": 92.5
-},
-{
-"pagina": 1454,
-"columna": 1,
-"fuente": "princeton:1454",
-"x1": 855,
-"x2": 1546,
-"top": 641,
-"bot": 679,
-"confianza": 92.0
 }
 ],
 "Heb 11:3": [
@@ -378649,16 +378015,6 @@
 "top": 920,
 "bot": 958,
 "confianza": 93.5
-},
-{
-"pagina": 1454,
-"columna": 1,
-"fuente": "princeton:1454",
-"x1": 855,
-"x2": 1546,
-"top": 825,
-"bot": 865,
-"confianza": 87.7
 }
 ],
 "Heb 11:4": [
@@ -378671,16 +378027,6 @@
 "top": 1067,
 "bot": 1105,
 "confianza": 94.4
-},
-{
-"pagina": 1454,
-"columna": 1,
-"fuente": "princeton:1454",
-"x1": 895,
-"x2": 1544,
-"top": 1195,
-"bot": 1226,
-"confianza": 91.9
 }
 ],
 "Heb 11:5": [
@@ -378705,16 +378051,6 @@
 "top": 1434,
 "bot": 1472,
 "confianza": 89.6
-},
-{
-"pagina": 1454,
-"columna": 1,
-"fuente": "princeton:1454",
-"x1": 853,
-"x2": 1544,
-"top": 1268,
-"bot": 1306,
-"confianza": 95.8
 }
 ],
 "Heb 11:7": [
@@ -378727,16 +378063,6 @@
 "top": 1617,
 "bot": 1655,
 "confianza": 92.1
-},
-{
-"pagina": 1454,
-"columna": 1,
-"fuente": "princeton:1454",
-"x1": 895,
-"x2": 1542,
-"top": 1562,
-"bot": 1600,
-"confianza": 90.3
 }
 ],
 "Heb 11:8": [
@@ -378749,16 +378075,6 @@
 "top": 1836,
 "bot": 1875,
 "confianza": 78.6
-},
-{
-"pagina": 1454,
-"columna": 1,
-"fuente": "princeton:1454",
-"x1": 851,
-"x2": 1544,
-"top": 1671,
-"bot": 1709,
-"confianza": 82.8
 }
 ],
 "Heb 11:9": [
@@ -378771,16 +378087,6 @@
 "top": 1948,
 "bot": 1979,
 "confianza": 89.0
-},
-{
-"pagina": 1454,
-"columna": 1,
-"fuente": "princeton:1454",
-"x1": 850,
-"x2": 1543,
-"top": 1781,
-"bot": 1820,
-"confianza": 91.6
 }
 ],
 "Heb 11:10": [
@@ -378793,16 +378099,6 @@
 "top": 304,
 "bot": 343,
 "confianza": 95.7
-},
-{
-"pagina": 1454,
-"columna": 1,
-"fuente": "princeton:1454",
-"x1": 847,
-"x2": 1542,
-"top": 1965,
-"bot": 2004,
-"confianza": 88.3
 }
 ],
 "Heb 11:11": [
@@ -378815,16 +378111,6 @@
 "top": 381,
 "bot": 419,
 "confianza": 71.8
-},
-{
-"pagina": 1454,
-"columna": 1,
-"fuente": "princeton:1454",
-"x1": 847,
-"x2": 1542,
-"top": 2184,
-"bot": 2224,
-"confianza": 79.8
 }
 ],
 "Heb 11:12": [
@@ -378837,16 +378123,6 @@
 "top": 565,
 "bot": 602,
 "confianza": 95.1
-},
-{
-"pagina": 1455,
-"columna": 0,
-"fuente": "princeton:1455",
-"x1": 140,
-"x2": 791,
-"top": 468,
-"bot": 505,
-"confianza": 94.6
 }
 ],
 "Heb 11:13": [
@@ -378859,16 +378135,6 @@
 "top": 784,
 "bot": 816,
 "confianza": 90.1
-},
-{
-"pagina": 1455,
-"columna": 0,
-"fuente": "princeton:1455",
-"x1": 99,
-"x2": 791,
-"top": 504,
-"bot": 542,
-"confianza": 91.6
 }
 ],
 "Heb 11:14": [
@@ -378881,16 +378147,6 @@
 "top": 931,
 "bot": 970,
 "confianza": 95.0
-},
-{
-"pagina": 1455,
-"columna": 0,
-"fuente": "princeton:1455",
-"x1": 98,
-"x2": 791,
-"top": 614,
-"bot": 646,
-"confianza": 94.5
 }
 ],
 "Heb 11:15": [
@@ -378902,16 +378158,6 @@
 "x2": 1524,
 "top": 1006,
 "bot": 1044,
-"confianza": 94.6
-},
-{
-"pagina": 1455,
-"columna": 0,
-"fuente": "princeton:1455",
-"x1": 98,
-"x2": 791,
-"top": 688,
-"bot": 724,
 "confianza": 94.6
 }
 ],
@@ -378937,16 +378183,6 @@
 "top": 1263,
 "bot": 1294,
 "confianza": 84.2
-},
-{
-"pagina": 1455,
-"columna": 0,
-"fuente": "princeton:1455",
-"x1": 96,
-"x2": 790,
-"top": 981,
-"bot": 1020,
-"confianza": 92.7
 }
 ],
 "Heb 11:19": [
@@ -378959,16 +378195,6 @@
 "top": 1373,
 "bot": 1411,
 "confianza": 95.9
-},
-{
-"pagina": 1455,
-"columna": 0,
-"fuente": "princeton:1455",
-"x1": 96,
-"x2": 787,
-"top": 1424,
-"bot": 1461,
-"confianza": 93.9
 }
 ],
 "Heb 11:20": [
@@ -378981,16 +378207,6 @@
 "top": 1557,
 "bot": 1595,
 "confianza": 86.7
-},
-{
-"pagina": 1455,
-"columna": 0,
-"fuente": "princeton:1455",
-"x1": 95,
-"x2": 788,
-"top": 1534,
-"bot": 1571,
-"confianza": 89.0
 }
 ],
 "Heb 11:21": [
@@ -379003,16 +378219,6 @@
 "top": 1667,
 "bot": 1704,
 "confianza": 91.9
-},
-{
-"pagina": 1455,
-"columna": 0,
-"fuente": "princeton:1455",
-"x1": 95,
-"x2": 788,
-"top": 1643,
-"bot": 1680,
-"confianza": 90.6
 }
 ],
 "Heb 11:22": [
@@ -379025,16 +378231,6 @@
 "top": 1740,
 "bot": 1779,
 "confianza": 93.0
-},
-{
-"pagina": 1455,
-"columna": 0,
-"fuente": "princeton:1455",
-"x1": 95,
-"x2": 789,
-"top": 1718,
-"bot": 1755,
-"confianza": 82.2
 }
 ],
 "Heb 11:23": [
@@ -379047,16 +378243,6 @@
 "top": 1889,
 "bot": 1924,
 "confianza": 94.9
-},
-{
-"pagina": 1455,
-"columna": 0,
-"fuente": "princeton:1455",
-"x1": 95,
-"x2": 789,
-"top": 1864,
-"bot": 1902,
-"confianza": 94.2
 }
 ],
 "Heb 11:24": [
@@ -379069,16 +378255,6 @@
 "top": 2034,
 "bot": 2073,
 "confianza": 88.9
-},
-{
-"pagina": 1455,
-"columna": 0,
-"fuente": "princeton:1455",
-"x1": 94,
-"x2": 787,
-"top": 2011,
-"bot": 2048,
-"confianza": 93.0
 }
 ],
 "Heb 11:25": [
@@ -379113,16 +378289,6 @@
 "top": 567,
 "bot": 606,
 "confianza": 93.2
-},
-{
-"pagina": 1455,
-"columna": 1,
-"fuente": "princeton:1455",
-"x1": 836,
-"x2": 1531,
-"top": 501,
-"bot": 534,
-"confianza": 79.1
 }
 ],
 "Heb 11:27": [
@@ -379135,16 +378301,6 @@
 "top": 457,
 "bot": 494,
 "confianza": 85.7
-},
-{
-"pagina": 1455,
-"columna": 1,
-"fuente": "princeton:1455",
-"x1": 836,
-"x2": 1531,
-"top": 354,
-"bot": 394,
-"confianza": 94.6
 }
 ],
 "Heb 11:29": [
@@ -379157,16 +378313,6 @@
 "top": 714,
 "bot": 753,
 "confianza": 68.4
-},
-{
-"pagina": 1455,
-"columna": 1,
-"fuente": "princeton:1455",
-"x1": 835,
-"x2": 1530,
-"top": 648,
-"bot": 687,
-"confianza": 92.9
 }
 ],
 "Heb 11:30": [
@@ -379289,7 +378435,197 @@
 "confianza": 92.0
 }
 ],
-"Heb 11:18": [
+"Heb 12:1": [
+{
+"pagina": 1454,
+"columna": 1,
+"fuente": "princeton:1454",
+"x1": 856,
+"x2": 1544,
+"top": 458,
+"bot": 508,
+"confianza": 95.2
+},
+{
+"pagina": 1454,
+"columna": 1,
+"fuente": "princeton:1454",
+"x1": 858,
+"x2": 1544,
+"top": 487,
+"bot": 535,
+"confianza": 67.4
+}
+],
+"Heb 12:2": [
+{
+"pagina": 1454,
+"columna": 1,
+"fuente": "princeton:1454",
+"x1": 855,
+"x2": 1546,
+"top": 641,
+"bot": 679,
+"confianza": 92.0
+}
+],
+"Heb 12:3": [
+{
+"pagina": 1454,
+"columna": 1,
+"fuente": "princeton:1454",
+"x1": 855,
+"x2": 1546,
+"top": 825,
+"bot": 865,
+"confianza": 87.7
+}
+],
+"Heb 12:4": [
+{
+"pagina": 1454,
+"columna": 1,
+"fuente": "princeton:1454",
+"x1": 895,
+"x2": 1544,
+"top": 1195,
+"bot": 1226,
+"confianza": 91.9
+}
+],
+"Heb 12:6": [
+{
+"pagina": 1454,
+"columna": 1,
+"fuente": "princeton:1454",
+"x1": 853,
+"x2": 1544,
+"top": 1268,
+"bot": 1306,
+"confianza": 95.8
+}
+],
+"Heb 12:7": [
+{
+"pagina": 1454,
+"columna": 1,
+"fuente": "princeton:1454",
+"x1": 895,
+"x2": 1542,
+"top": 1562,
+"bot": 1600,
+"confianza": 90.3
+}
+],
+"Heb 12:8": [
+{
+"pagina": 1454,
+"columna": 1,
+"fuente": "princeton:1454",
+"x1": 851,
+"x2": 1544,
+"top": 1671,
+"bot": 1709,
+"confianza": 82.8
+}
+],
+"Heb 12:9": [
+{
+"pagina": 1454,
+"columna": 1,
+"fuente": "princeton:1454",
+"x1": 850,
+"x2": 1543,
+"top": 1781,
+"bot": 1820,
+"confianza": 91.6
+}
+],
+"Heb 12:10": [
+{
+"pagina": 1454,
+"columna": 1,
+"fuente": "princeton:1454",
+"x1": 847,
+"x2": 1542,
+"top": 1965,
+"bot": 2004,
+"confianza": 88.3
+}
+],
+"Heb 12:11": [
+{
+"pagina": 1454,
+"columna": 1,
+"fuente": "princeton:1454",
+"x1": 847,
+"x2": 1542,
+"top": 2184,
+"bot": 2224,
+"confianza": 79.8
+}
+],
+"Heb 12:12": [
+{
+"pagina": 1455,
+"columna": 0,
+"fuente": "princeton:1455",
+"x1": 140,
+"x2": 791,
+"top": 468,
+"bot": 505,
+"confianza": 94.6
+}
+],
+"Heb 12:13": [
+{
+"pagina": 1455,
+"columna": 0,
+"fuente": "princeton:1455",
+"x1": 99,
+"x2": 791,
+"top": 504,
+"bot": 542,
+"confianza": 91.6
+}
+],
+"Heb 12:14": [
+{
+"pagina": 1455,
+"columna": 0,
+"fuente": "princeton:1455",
+"x1": 98,
+"x2": 791,
+"top": 614,
+"bot": 646,
+"confianza": 94.5
+}
+],
+"Heb 12:15": [
+{
+"pagina": 1455,
+"columna": 0,
+"fuente": "princeton:1455",
+"x1": 98,
+"x2": 791,
+"top": 688,
+"bot": 724,
+"confianza": 94.6
+}
+],
+"Heb 12:17": [
+{
+"pagina": 1455,
+"columna": 0,
+"fuente": "princeton:1455",
+"x1": 96,
+"x2": 790,
+"top": 981,
+"bot": 1020,
+"confianza": 92.7
+}
+],
+"Heb 12:18": [
 {
 "pagina": 1455,
 "columna": 0,
@@ -379301,7 +378637,79 @@
 "confianza": 92.9
 }
 ],
-"Heb 11:26": [
+"Heb 12:19": [
+{
+"pagina": 1455,
+"columna": 0,
+"fuente": "princeton:1455",
+"x1": 96,
+"x2": 787,
+"top": 1424,
+"bot": 1461,
+"confianza": 93.9
+}
+],
+"Heb 12:20": [
+{
+"pagina": 1455,
+"columna": 0,
+"fuente": "princeton:1455",
+"x1": 95,
+"x2": 788,
+"top": 1534,
+"bot": 1571,
+"confianza": 89.0
+}
+],
+"Heb 12:21": [
+{
+"pagina": 1455,
+"columna": 0,
+"fuente": "princeton:1455",
+"x1": 95,
+"x2": 788,
+"top": 1643,
+"bot": 1680,
+"confianza": 90.6
+}
+],
+"Heb 12:22": [
+{
+"pagina": 1455,
+"columna": 0,
+"fuente": "princeton:1455",
+"x1": 95,
+"x2": 789,
+"top": 1718,
+"bot": 1755,
+"confianza": 82.2
+}
+],
+"Heb 12:23": [
+{
+"pagina": 1455,
+"columna": 0,
+"fuente": "princeton:1455",
+"x1": 95,
+"x2": 789,
+"top": 1864,
+"bot": 1902,
+"confianza": 94.2
+}
+],
+"Heb 12:24": [
+{
+"pagina": 1455,
+"columna": 0,
+"fuente": "princeton:1455",
+"x1": 94,
+"x2": 787,
+"top": 2011,
+"bot": 2048,
+"confianza": 93.0
+}
+],
+"Heb 12:26": [
 {
 "pagina": 1455,
 "columna": 0,
@@ -379313,7 +378721,43 @@
 "confianza": 94.4
 }
 ],
-"Heb 12:1": [
+"Heb 12:27": [
+{
+"pagina": 1455,
+"columna": 1,
+"fuente": "princeton:1455",
+"x1": 836,
+"x2": 1531,
+"top": 354,
+"bot": 394,
+"confianza": 94.6
+}
+],
+"Heb 12:28": [
+{
+"pagina": 1455,
+"columna": 1,
+"fuente": "princeton:1455",
+"x1": 836,
+"x2": 1531,
+"top": 501,
+"bot": 534,
+"confianza": 79.1
+}
+],
+"Heb 12:29": [
+{
+"pagina": 1455,
+"columna": 1,
+"fuente": "princeton:1455",
+"x1": 835,
+"x2": 1530,
+"top": 648,
+"bot": 687,
+"confianza": 92.9
+}
+],
+"Heb 13:1": [
 {
 "pagina": 1455,
 "columna": 1,
@@ -379325,7 +378769,7 @@
 "confianza": 88.2
 }
 ],
-"Heb 12:2": [
+"Heb 13:2": [
 {
 "pagina": 1455,
 "columna": 1,
@@ -379337,7 +378781,7 @@
 "confianza": 93.2
 }
 ],
-"Heb 12:3": [
+"Heb 13:3": [
 {
 "pagina": 1455,
 "columna": 1,
@@ -379349,7 +378793,7 @@
 "confianza": 94.4
 }
 ],
-"Heb 12:4": [
+"Heb 13:4": [
 {
 "pagina": 1455,
 "columna": 1,
@@ -379361,7 +378805,7 @@
 "confianza": 93.0
 }
 ],
-"Heb 12:5": [
+"Heb 13:5": [
 {
 "pagina": 1455,
 "columna": 1,
@@ -379373,7 +378817,7 @@
 "confianza": 94.7
 }
 ],
-"Heb 12:7": [
+"Heb 13:7": [
 {
 "pagina": 1455,
 "columna": 1,
@@ -379385,7 +378829,7 @@
 "confianza": 92.6
 }
 ],
-"Heb 12:8": [
+"Heb 13:8": [
 {
 "pagina": 1455,
 "columna": 1,
@@ -379397,7 +378841,7 @@
 "confianza": 88.4
 }
 ],
-"Heb 12:9": [
+"Heb 13:9": [
 {
 "pagina": 1455,
 "columna": 1,
@@ -379409,7 +378853,7 @@
 "confianza": 94.2
 }
 ],
-"Heb 12:10": [
+"Heb 13:10": [
 {
 "pagina": 1455,
 "columna": 1,
@@ -379421,7 +378865,7 @@
 "confianza": 95.0
 }
 ],
-"Heb 12:11": [
+"Heb 13:11": [
 {
 "pagina": 1455,
 "columna": 1,
@@ -379433,7 +378877,7 @@
 "confianza": 94.4
 }
 ],
-"Heb 12:19": [
+"Heb 13:19": [
 {
 "pagina": 1456,
 "columna": 0,
@@ -379445,7 +378889,7 @@
 "confianza": 93.9
 }
 ],
-"Heb 12:13": [
+"Heb 13:13": [
 {
 "pagina": 1456,
 "columna": 0,
@@ -379457,7 +378901,7 @@
 "confianza": 95.0
 }
 ],
-"Heb 12:15": [
+"Heb 13:15": [
 {
 "pagina": 1456,
 "columna": 0,
@@ -379469,7 +378913,7 @@
 "confianza": 85.5
 }
 ],
-"Heb 12:16": [
+"Heb 13:16": [
 {
 "pagina": 1456,
 "columna": 0,
@@ -379479,19 +378923,9 @@
 "top": 677,
 "bot": 714,
 "confianza": 95.9
-},
-{
-"pagina": 1459,
-"columna": 0,
-"fuente": "princeton:1459",
-"x1": 90,
-"x2": 939,
-"top": 918,
-"bot": 956,
-"confianza": 91.8
 }
 ],
-"Heb 12:17": [
+"Heb 13:17": [
 {
 "pagina": 1456,
 "columna": 0,
@@ -379503,7 +378937,7 @@
 "confianza": 94.5
 }
 ],
-"Heb 12:18": [
+"Heb 13:18": [
 {
 "pagina": 1456,
 "columna": 0,
@@ -379515,7 +378949,7 @@
 "confianza": 93.5
 }
 ],
-"Heb 12:20": [
+"Heb 13:20": [
 {
 "pagina": 1456,
 "columna": 1,
@@ -379527,7 +378961,7 @@
 "confianza": 93.9
 }
 ],
-"Heb 12:23": [
+"Heb 13:23": [
 {
 "pagina": 1456,
 "columna": 1,
@@ -379539,7 +378973,7 @@
 "confianza": 80.4
 }
 ],
-"Heb 12:24": [
+"Heb 13:24": [
 {
 "pagina": 1456,
 "columna": 1,
@@ -379551,153 +378985,7 @@
 "confianza": 89.8
 }
 ],
-"Heb 13:1": [
-{
-"pagina": 1459,
-"columna": 0,
-"fuente": "princeton:1459",
-"x1": 83,
-"x2": 787,
-"top": 2371,
-"bot": 2423,
-"confianza": 90.1
-},
-{
-"pagina": 1459,
-"columna": 1,
-"fuente": "princeton:1459",
-"x1": 995,
-"x2": 1498,
-"top": 1002,
-"bot": 1039,
-"confianza": 95.8
-}
-],
-"Heb 13:2": [
-{
-"pagina": 1459,
-"columna": 0,
-"fuente": "princeton:1459",
-"x1": 141,
-"x2": 936,
-"top": 2410,
-"bot": 2455,
-"confianza": 86.9
-}
-],
-"Heb 13:21": [
-{
-"pagina": 1459,
-"columna": 1,
-"fuente": "princeton:1459",
-"x1": 1034,
-"x2": 1492,
-"top": 1626,
-"bot": 1669,
-"confianza": 85.0
-}
-],
-"Jas 1:8": [
-{
-"pagina": 1460,
-"columna": 0,
-"fuente": "princeton:1460",
-"x1": 114,
-"x2": 808,
-"top": 196,
-"bot": 234,
-"confianza": 94.8
-},
-{
-"pagina": 1460,
-"columna": 0,
-"fuente": "princeton:1460",
-"x1": 119,
-"x2": 812,
-"top": 710,
-"bot": 748,
-"confianza": 93.9
-},
-{
-"pagina": 1460,
-"columna": 1,
-"fuente": "princeton:1460",
-"x1": 857,
-"x2": 1547,
-"top": 2070,
-"bot": 2104,
-"confianza": 88.5
-}
-],
-"Jas 1:4": [
-{
-"pagina": 1460,
-"columna": 0,
-"fuente": "princeton:1460",
-"x1": 118,
-"x2": 809,
-"top": 269,
-"bot": 307,
-"confianza": 90.0
-}
-],
-"Jas 1:6": [
-{
-"pagina": 1460,
-"columna": 0,
-"fuente": "princeton:1460",
-"x1": 117,
-"x2": 810,
-"top": 490,
-"bot": 529,
-"confianza": 92.4
-},
-{
-"pagina": 1460,
-"columna": 1,
-"fuente": "princeton:1460",
-"x1": 856,
-"x2": 1571,
-"top": 1704,
-"bot": 1744,
-"confianza": 70.8
-}
-],
-"Jas 1:7": [
-{
-"pagina": 1460,
-"columna": 0,
-"fuente": "princeton:1460",
-"x1": 119,
-"x2": 811,
-"top": 636,
-"bot": 675,
-"confianza": 92.8
-}
-],
-"Jas 1:9": [
-{
-"pagina": 1460,
-"columna": 0,
-"fuente": "princeton:1460",
-"x1": 161,
-"x2": 814,
-"top": 784,
-"bot": 822,
-"confianza": 92.5
-}
-],
 "Jas 1:10": [
-{
-"pagina": 1460,
-"columna": 0,
-"fuente": "princeton:1460",
-"x1": 119,
-"x2": 815,
-"top": 821,
-"bot": 858,
-"confianza": 93.1
-},
 {
 "pagina": 1461,
 "columna": 0,
@@ -379711,16 +378999,6 @@
 ],
 "Jas 1:11": [
 {
-"pagina": 1460,
-"columna": 0,
-"fuente": "princeton:1460",
-"x1": 121,
-"x2": 814,
-"top": 894,
-"bot": 932,
-"confianza": 94.0
-},
-{
 "pagina": 1461,
 "columna": 0,
 "fuente": "princeton:1461",
@@ -379731,37 +379009,55 @@
 "confianza": 95.4
 }
 ],
+"Jas 1:12": [
+{
+"pagina": 1461,
+"columna": 0,
+"fuente": "princeton:1461",
+"x1": 67,
+"x2": 763,
+"top": 503,
+"bot": 541,
+"confianza": 80.5
+}
+],
+"Jas 1:13": [
+{
+"pagina": 1461,
+"columna": 0,
+"fuente": "princeton:1461",
+"x1": 69,
+"x2": 764,
+"top": 576,
+"bot": 615,
+"confianza": 93.0
+}
+],
+"Jas 1:14": [
+{
+"pagina": 1461,
+"columna": 0,
+"fuente": "princeton:1461",
+"x1": 113,
+"x2": 763,
+"top": 872,
+"bot": 911,
+"confianza": 94.4
+}
+],
+"Jas 1:15": [
+{
+"pagina": 1461,
+"columna": 0,
+"fuente": "princeton:1461",
+"x1": 71,
+"x2": 765,
+"top": 983,
+"bot": 1020,
+"confianza": 93.5
+}
+],
 "Jas 1:18": [
-{
-"pagina": 1460,
-"columna": 0,
-"fuente": "princeton:1460",
-"x1": 122,
-"x2": 815,
-"top": 1041,
-"bot": 1079,
-"confianza": 93.6
-},
-{
-"pagina": 1460,
-"columna": 0,
-"fuente": "princeton:1460",
-"x1": 123,
-"x2": 815,
-"top": 1702,
-"bot": 1740,
-"confianza": 95.2
-},
-{
-"pagina": 1460,
-"columna": 0,
-"fuente": "princeton:1460",
-"x1": 163,
-"x2": 815,
-"top": 1999,
-"bot": 2036,
-"confianza": 87.6
-},
 {
 "pagina": 1461,
 "columna": 0,
@@ -379783,95 +379079,7 @@
 "confianza": 92.8
 }
 ],
-"Jas 1:13": [
-{
-"pagina": 1460,
-"columna": 0,
-"fuente": "princeton:1460",
-"x1": 161,
-"x2": 815,
-"top": 1189,
-"bot": 1227,
-"confianza": 93.0
-},
-{
-"pagina": 1461,
-"columna": 0,
-"fuente": "princeton:1461",
-"x1": 69,
-"x2": 764,
-"top": 576,
-"bot": 615,
-"confianza": 93.0
-}
-],
-"Jas 1:14": [
-{
-"pagina": 1460,
-"columna": 0,
-"fuente": "princeton:1460",
-"x1": 122,
-"x2": 815,
-"top": 1299,
-"bot": 1336,
-"confianza": 94.9
-},
-{
-"pagina": 1461,
-"columna": 0,
-"fuente": "princeton:1461",
-"x1": 113,
-"x2": 763,
-"top": 872,
-"bot": 911,
-"confianza": 94.4
-}
-],
-"Jas 1:15": [
-{
-"pagina": 1460,
-"columna": 0,
-"fuente": "princeton:1460",
-"x1": 122,
-"x2": 815,
-"top": 1372,
-"bot": 1411,
-"confianza": 93.4
-},
-{
-"pagina": 1461,
-"columna": 0,
-"fuente": "princeton:1461",
-"x1": 71,
-"x2": 765,
-"top": 983,
-"bot": 1020,
-"confianza": 93.5
-}
-],
-"Jas 1:16": [
-{
-"pagina": 1460,
-"columna": 0,
-"fuente": "princeton:1460",
-"x1": 122,
-"x2": 815,
-"top": 1482,
-"bot": 1520,
-"confianza": 88.7
-}
-],
 "Jas 1:17": [
-{
-"pagina": 1460,
-"columna": 0,
-"fuente": "princeton:1460",
-"x1": 125,
-"x2": 815,
-"top": 1555,
-"bot": 1594,
-"confianza": 95.5
-},
 {
 "pagina": 1461,
 "columna": 0,
@@ -379881,152 +379089,6 @@
 "top": 1239,
 "bot": 1276,
 "confianza": 91.6
-}
-],
-"Jas 1:23": [
-{
-"pagina": 1460,
-"columna": 1,
-"fuente": "princeton:1460",
-"x1": 829,
-"x2": 1553,
-"top": 343,
-"bot": 385,
-"confianza": 76.1
-},
-{
-"pagina": 1461,
-"columna": 0,
-"fuente": "princeton:1461",
-"x1": 75,
-"x2": 764,
-"top": 1753,
-"bot": 1790,
-"confianza": 88.6
-}
-],
-"Jas 1:24": [
-{
-"pagina": 1460,
-"columna": 1,
-"fuente": "princeton:1460",
-"x1": 851,
-"x2": 1557,
-"top": 489,
-"bot": 528,
-"confianza": 81.1
-},
-{
-"pagina": 1460,
-"columna": 1,
-"fuente": "princeton:1460",
-"x1": 894,
-"x2": 1546,
-"top": 784,
-"bot": 823,
-"confianza": 94.4
-},
-{
-"pagina": 1461,
-"columna": 0,
-"fuente": "princeton:1461",
-"x1": 75,
-"x2": 764,
-"top": 1862,
-"bot": 1900,
-"confianza": 90.6
-}
-],
-"Jas 1:25": [
-{
-"pagina": 1460,
-"columna": 1,
-"fuente": "princeton:1460",
-"x1": 850,
-"x2": 1556,
-"top": 563,
-"bot": 602,
-"confianza": 94.4
-},
-{
-"pagina": 1461,
-"columna": 0,
-"fuente": "princeton:1461",
-"x1": 73,
-"x2": 763,
-"top": 1973,
-"bot": 2010,
-"confianza": 92.7
-}
-],
-"Jas 1:27": [
-{
-"pagina": 1460,
-"columna": 1,
-"fuente": "princeton:1460",
-"x1": 855,
-"x2": 1546,
-"top": 857,
-"bot": 896,
-"confianza": 86.3
-}
-],
-"Jas 1:1": [
-{
-"pagina": 1460,
-"columna": 1,
-"fuente": "princeton:1460",
-"x1": 853,
-"x2": 1572,
-"top": 1227,
-"bot": 1267,
-"confianza": 84.9
-}
-],
-"Jas 1:2": [
-{
-"pagina": 1460,
-"columna": 1,
-"fuente": "princeton:1460",
-"x1": 854,
-"x2": 1549,
-"top": 1338,
-"bot": 1376,
-"confianza": 91.6
-}
-],
-"Jas 1:3": [
-{
-"pagina": 1460,
-"columna": 1,
-"fuente": "princeton:1460",
-"x1": 855,
-"x2": 1549,
-"top": 1486,
-"bot": 1522,
-"confianza": 95.1
-},
-{
-"pagina": 1461,
-"columna": 0,
-"fuente": "princeton:1461",
-"x1": 87,
-"x2": 762,
-"top": 2369,
-"bot": 2420,
-"confianza": 67.1
-}
-],
-"Jas 1:12": [
-{
-"pagina": 1461,
-"columna": 0,
-"fuente": "princeton:1461",
-"x1": 67,
-"x2": 763,
-"top": 503,
-"bot": 541,
-"confianza": 80.5
 }
 ],
 "Jas 1:20": [
@@ -380065,6 +379127,42 @@
 "confianza": 89.4
 }
 ],
+"Jas 1:23": [
+{
+"pagina": 1461,
+"columna": 0,
+"fuente": "princeton:1461",
+"x1": 75,
+"x2": 764,
+"top": 1753,
+"bot": 1790,
+"confianza": 88.6
+}
+],
+"Jas 1:24": [
+{
+"pagina": 1461,
+"columna": 0,
+"fuente": "princeton:1461",
+"x1": 75,
+"x2": 764,
+"top": 1862,
+"bot": 1900,
+"confianza": 90.6
+}
+],
+"Jas 1:25": [
+{
+"pagina": 1461,
+"columna": 0,
+"fuente": "princeton:1461",
+"x1": 73,
+"x2": 763,
+"top": 1973,
+"bot": 2010,
+"confianza": 92.7
+}
+],
 "Jas 1:26": [
 {
 "pagina": 1461,
@@ -380075,6 +379173,18 @@
 "top": 2083,
 "bot": 2120,
 "confianza": 86.1
+}
+],
+"Jas 1:3": [
+{
+"pagina": 1461,
+"columna": 0,
+"fuente": "princeton:1461",
+"x1": 87,
+"x2": 762,
+"top": 2369,
+"bot": 2420,
+"confianza": 67.1
 }
 ],
 "Jas 2:2": [
@@ -381549,6 +380659,16 @@
 "top": 1875,
 "bot": 1914,
 "confianza": 86.8
+},
+{
+"pagina": 1468,
+"columna": 0,
+"fuente": "princeton:1468",
+"x1": 127,
+"x2": 820,
+"top": 211,
+"bot": 253,
+"confianza": 95.6
 }
 ],
 "1Pet 4:17": [
@@ -381563,19 +380683,7 @@
 "confianza": 95.9
 }
 ],
-"2Pet 1:18": [
-{
-"pagina": 1468,
-"columna": 0,
-"fuente": "princeton:1468",
-"x1": 127,
-"x2": 820,
-"top": 211,
-"bot": 253,
-"confianza": 95.6
-}
-],
-"2Pet 1:19": [
+"1Pet 4:19": [
 {
 "pagina": 1468,
 "columna": 0,
@@ -381597,6 +380705,16 @@
 "top": 618,
 "bot": 669,
 "confianza": 83.9
+},
+{
+"pagina": 1468,
+"columna": 0,
+"fuente": "princeton:1468",
+"x1": 136,
+"x2": 821,
+"top": 1829,
+"bot": 1879,
+"confianza": 94.7
 }
 ],
 "2Pet 1:2": [
@@ -381609,6 +380727,16 @@
 "top": 766,
 "bot": 804,
 "confianza": 93.1
+},
+{
+"pagina": 1468,
+"columna": 0,
+"fuente": "princeton:1468",
+"x1": 129,
+"x2": 821,
+"top": 1976,
+"bot": 2014,
+"confianza": 95.3
 }
 ],
 "2Pet 1:3": [
@@ -381621,6 +380749,16 @@
 "top": 913,
 "bot": 951,
 "confianza": 91.8
+},
+{
+"pagina": 1468,
+"columna": 0,
+"fuente": "princeton:1468",
+"x1": 170,
+"x2": 821,
+"top": 2270,
+"bot": 2307,
+"confianza": 95.8
 }
 ],
 "2Pet 1:4": [
@@ -381633,87 +380771,7 @@
 "top": 1024,
 "bot": 1061,
 "confianza": 85.7
-}
-],
-"2Pet 1:6": [
-{
-"pagina": 1468,
-"columna": 0,
-"fuente": "princeton:1468",
-"x1": 168,
-"x2": 819,
-"top": 1133,
-"bot": 1172,
-"confianza": 95.6
-}
-],
-"2Pet 2:1": [
-{
-"pagina": 1468,
-"columna": 0,
-"fuente": "princeton:1468",
-"x1": 136,
-"x2": 821,
-"top": 1829,
-"bot": 1879,
-"confianza": 94.7
 },
-{
-"pagina": 1469,
-"columna": 1,
-"fuente": "princeton:1469",
-"x1": 792,
-"x2": 1481,
-"top": 484,
-"bot": 535,
-"confianza": 79.6
-}
-],
-"2Pet 2:2": [
-{
-"pagina": 1468,
-"columna": 0,
-"fuente": "princeton:1468",
-"x1": 129,
-"x2": 821,
-"top": 1976,
-"bot": 2014,
-"confianza": 95.3
-},
-{
-"pagina": 1469,
-"columna": 1,
-"fuente": "princeton:1469",
-"x1": 773,
-"x2": 1481,
-"top": 663,
-"bot": 709,
-"confianza": 90.4
-}
-],
-"2Pet 2:3": [
-{
-"pagina": 1468,
-"columna": 0,
-"fuente": "princeton:1468",
-"x1": 170,
-"x2": 821,
-"top": 2270,
-"bot": 2307,
-"confianza": 95.8
-},
-{
-"pagina": 1469,
-"columna": 1,
-"fuente": "princeton:1469",
-"x1": 788,
-"x2": 1480,
-"top": 778,
-"bot": 809,
-"confianza": 88.3
-}
-],
-"2Pet 2:4": [
 {
 "pagina": 1468,
 "columna": 0,
@@ -381733,19 +380791,19 @@
 "top": 442,
 "bot": 480,
 "confianza": 78.7
-},
-{
-"pagina": 1469,
-"columna": 1,
-"fuente": "princeton:1469",
-"x1": 788,
-"x2": 1478,
-"top": 961,
-"bot": 999,
-"confianza": 94.0
 }
 ],
-"2Pet 2:6": [
+"2Pet 1:6": [
+{
+"pagina": 1468,
+"columna": 0,
+"fuente": "princeton:1468",
+"x1": 168,
+"x2": 819,
+"top": 1133,
+"bot": 1172,
+"confianza": 95.6
+},
 {
 "pagina": 1468,
 "columna": 1,
@@ -381755,19 +380813,9 @@
 "top": 251,
 "bot": 291,
 "confianza": 74.8
-},
-{
-"pagina": 1469,
-"columna": 1,
-"fuente": "princeton:1469",
-"x1": 783,
-"x2": 1478,
-"top": 1109,
-"bot": 1146,
-"confianza": 95.6
 }
 ],
-"2Pet 2:7": [
+"2Pet 1:7": [
 {
 "pagina": 1468,
 "columna": 1,
@@ -381787,19 +380835,9 @@
 "top": 2086,
 "bot": 2127,
 "confianza": 78.0
-},
-{
-"pagina": 1469,
-"columna": 1,
-"fuente": "princeton:1469",
-"x1": 779,
-"x2": 1474,
-"top": 1403,
-"bot": 1442,
-"confianza": 77.2
 }
 ],
-"2Pet 2:8": [
+"2Pet 1:8": [
 {
 "pagina": 1468,
 "columna": 1,
@@ -381819,19 +380857,9 @@
 "top": 2119,
 "bot": 2157,
 "confianza": 87.5
-},
-{
-"pagina": 1469,
-"columna": 1,
-"fuente": "princeton:1469",
-"x1": 782,
-"x2": 1473,
-"top": 1513,
-"bot": 1552,
-"confianza": 93.0
 }
 ],
-"2Pet 2:10": [
+"2Pet 1:10": [
 {
 "pagina": 1468,
 "columna": 1,
@@ -381851,19 +380879,9 @@
 "top": 296,
 "bot": 334,
 "confianza": 95.3
-},
-{
-"pagina": 1469,
-"columna": 1,
-"fuente": "princeton:1469",
-"x1": 779,
-"x2": 1472,
-"top": 1770,
-"bot": 1808,
-"confianza": 96.0
 }
 ],
-"2Pet 2:11": [
+"2Pet 1:11": [
 {
 "pagina": 1468,
 "columna": 1,
@@ -381873,19 +380891,9 @@
 "top": 839,
 "bot": 882,
 "confianza": 89.0
-},
-{
-"pagina": 1469,
-"columna": 1,
-"fuente": "princeton:1469",
-"x1": 776,
-"x2": 1471,
-"top": 1991,
-"bot": 2028,
-"confianza": 93.1
 }
 ],
-"2Pet 2:12": [
+"2Pet 1:12": [
 {
 "pagina": 1468,
 "columna": 1,
@@ -381905,19 +380913,9 @@
 "top": 670,
 "bot": 700,
 "confianza": 76.3
-},
-{
-"pagina": 1469,
-"columna": 1,
-"fuente": "princeton:1469",
-"x1": 774,
-"x2": 1469,
-"top": 2100,
-"bot": 2137,
-"confianza": 90.9
 }
 ],
-"2Pet 2:13": [
+"2Pet 1:13": [
 {
 "pagina": 1468,
 "columna": 1,
@@ -381939,7 +380937,7 @@
 "confianza": 94.3
 }
 ],
-"2Pet 2:14": [
+"2Pet 1:14": [
 {
 "pagina": 1468,
 "columna": 1,
@@ -381959,19 +380957,9 @@
 "top": 889,
 "bot": 926,
 "confianza": 87.3
-},
-{
-"pagina": 1470,
-"columna": 0,
-"fuente": "princeton:1470",
-"x1": 153,
-"x2": 845,
-"top": 334,
-"bot": 373,
-"confianza": 94.9
 }
 ],
-"2Pet 2:15": [
+"2Pet 1:15": [
 {
 "pagina": 1469,
 "columna": 0,
@@ -381983,7 +380971,7 @@
 "confianza": 94.8
 }
 ],
-"2Pet 2:16": [
+"2Pet 1:16": [
 {
 "pagina": 1469,
 "columna": 0,
@@ -381993,7 +380981,177 @@
 "top": 1300,
 "bot": 1338,
 "confianza": 93.8
-},
+}
+],
+"2Pet 1:17": [
+{
+"pagina": 1469,
+"columna": 0,
+"fuente": "princeton:1469",
+"x1": 50,
+"x2": 740,
+"top": 1483,
+"bot": 1521,
+"confianza": 95.7
+}
+],
+"2Pet 1:18": [
+{
+"pagina": 1469,
+"columna": 0,
+"fuente": "princeton:1469",
+"x1": 49,
+"x2": 742,
+"top": 1667,
+"bot": 1706,
+"confianza": 90.5
+}
+],
+"2Pet 2:1": [
+{
+"pagina": 1469,
+"columna": 1,
+"fuente": "princeton:1469",
+"x1": 792,
+"x2": 1481,
+"top": 484,
+"bot": 535,
+"confianza": 79.6
+}
+],
+"2Pet 2:2": [
+{
+"pagina": 1469,
+"columna": 1,
+"fuente": "princeton:1469",
+"x1": 773,
+"x2": 1481,
+"top": 663,
+"bot": 709,
+"confianza": 90.4
+}
+],
+"2Pet 2:3": [
+{
+"pagina": 1469,
+"columna": 1,
+"fuente": "princeton:1469",
+"x1": 788,
+"x2": 1480,
+"top": 778,
+"bot": 809,
+"confianza": 88.3
+}
+],
+"2Pet 2:4": [
+{
+"pagina": 1469,
+"columna": 1,
+"fuente": "princeton:1469",
+"x1": 788,
+"x2": 1478,
+"top": 961,
+"bot": 999,
+"confianza": 94.0
+}
+],
+"2Pet 2:6": [
+{
+"pagina": 1469,
+"columna": 1,
+"fuente": "princeton:1469",
+"x1": 783,
+"x2": 1478,
+"top": 1109,
+"bot": 1146,
+"confianza": 95.6
+}
+],
+"2Pet 2:7": [
+{
+"pagina": 1469,
+"columna": 1,
+"fuente": "princeton:1469",
+"x1": 779,
+"x2": 1474,
+"top": 1403,
+"bot": 1442,
+"confianza": 77.2
+}
+],
+"2Pet 2:8": [
+{
+"pagina": 1469,
+"columna": 1,
+"fuente": "princeton:1469",
+"x1": 782,
+"x2": 1473,
+"top": 1513,
+"bot": 1552,
+"confianza": 93.0
+}
+],
+"2Pet 2:9": [
+{
+"pagina": 1469,
+"columna": 1,
+"fuente": "princeton:1469",
+"x1": 821,
+"x2": 1472,
+"top": 1661,
+"bot": 1692,
+"confianza": 95.6
+}
+],
+"2Pet 2:10": [
+{
+"pagina": 1469,
+"columna": 1,
+"fuente": "princeton:1469",
+"x1": 779,
+"x2": 1472,
+"top": 1770,
+"bot": 1808,
+"confianza": 96.0
+}
+],
+"2Pet 2:11": [
+{
+"pagina": 1469,
+"columna": 1,
+"fuente": "princeton:1469",
+"x1": 776,
+"x2": 1471,
+"top": 1991,
+"bot": 2028,
+"confianza": 93.1
+}
+],
+"2Pet 2:12": [
+{
+"pagina": 1469,
+"columna": 1,
+"fuente": "princeton:1469",
+"x1": 774,
+"x2": 1469,
+"top": 2100,
+"bot": 2137,
+"confianza": 90.9
+}
+],
+"2Pet 2:14": [
+{
+"pagina": 1470,
+"columna": 0,
+"fuente": "princeton:1470",
+"x1": 153,
+"x2": 845,
+"top": 334,
+"bot": 373,
+"confianza": 94.9
+}
+],
+"2Pet 2:16": [
 {
 "pagina": 1470,
 "columna": 0,
@@ -382015,29 +381173,7 @@
 "confianza": 90.4
 }
 ],
-"2Pet 2:17": [
-{
-"pagina": 1469,
-"columna": 0,
-"fuente": "princeton:1469",
-"x1": 50,
-"x2": 740,
-"top": 1483,
-"bot": 1521,
-"confianza": 95.7
-}
-],
 "2Pet 2:18": [
-{
-"pagina": 1469,
-"columna": 0,
-"fuente": "princeton:1469",
-"x1": 49,
-"x2": 742,
-"top": 1667,
-"bot": 1706,
-"confianza": 90.5
-},
 {
 "pagina": 1470,
 "columna": 0,
@@ -382047,18 +381183,6 @@
 "top": 886,
 "bot": 918,
 "confianza": 93.5
-}
-],
-"2Pet 2:9": [
-{
-"pagina": 1469,
-"columna": 1,
-"fuente": "princeton:1469",
-"x1": 821,
-"x2": 1472,
-"top": 1661,
-"bot": 1692,
-"confianza": 95.6
 }
 ],
 "2Pet 2:19": [
@@ -382705,6 +381829,16 @@
 "top": 173,
 "bot": 223,
 "confianza": 75.6
+},
+{
+"pagina": 1474,
+"columna": 1,
+"fuente": "princeton:1474",
+"x1": 946,
+"x2": 1568,
+"top": 1351,
+"bot": 1388,
+"confianza": 78.7
 }
 ],
 "1John 3:2": [
@@ -382971,19 +382105,7 @@
 "confianza": 85.7
 }
 ],
-"1John 4:1": [
-{
-"pagina": 1474,
-"columna": 1,
-"fuente": "princeton:1474",
-"x1": 946,
-"x2": 1568,
-"top": 1351,
-"bot": 1388,
-"confianza": 78.7
-}
-],
-"1John 5:2": [
+"1John 4:2": [
 {
 "pagina": 1474,
 "columna": 1,
@@ -382995,7 +382117,7 @@
 "confianza": 93.0
 }
 ],
-"1John 5:3": [
+"1John 4:3": [
 {
 "pagina": 1474,
 "columna": 1,
@@ -383007,7 +382129,7 @@
 "confianza": 90.9
 }
 ],
-"1John 5:4": [
+"1John 4:4": [
 {
 "pagina": 1474,
 "columna": 1,
@@ -383019,7 +382141,7 @@
 "confianza": 91.0
 }
 ],
-"1John 5:6": [
+"1John 4:6": [
 {
 "pagina": 1475,
 "columna": 0,
@@ -383031,7 +382153,7 @@
 "confianza": 82.1
 }
 ],
-"1John 5:7": [
+"1John 4:7": [
 {
 "pagina": 1475,
 "columna": 0,
@@ -383043,7 +382165,7 @@
 "confianza": 84.3
 }
 ],
-"1John 5:8": [
+"1John 4:8": [
 {
 "pagina": 1475,
 "columna": 0,
@@ -383055,7 +382177,7 @@
 "confianza": 88.7
 }
 ],
-"1John 5:9": [
+"1John 4:9": [
 {
 "pagina": 1475,
 "columna": 0,
@@ -383067,7 +382189,7 @@
 "confianza": 84.1
 }
 ],
-"1John 5:10": [
+"1John 4:10": [
 {
 "pagina": 1475,
 "columna": 0,
@@ -383079,7 +382201,7 @@
 "confianza": 94.9
 }
 ],
-"1John 5:11": [
+"1John 4:11": [
 {
 "pagina": 1475,
 "columna": 0,
@@ -383091,7 +382213,7 @@
 "confianza": 94.9
 }
 ],
-"1John 5:12": [
+"1John 4:12": [
 {
 "pagina": 1475,
 "columna": 0,
@@ -383103,7 +382225,7 @@
 "confianza": 88.6
 }
 ],
-"1John 5:13": [
+"1John 4:13": [
 {
 "pagina": 1475,
 "columna": 0,
@@ -383115,7 +382237,7 @@
 "confianza": 95.7
 }
 ],
-"1John 5:14": [
+"1John 4:14": [
 {
 "pagina": 1475,
 "columna": 0,
@@ -383127,7 +382249,7 @@
 "confianza": 92.8
 }
 ],
-"1John 5:15": [
+"1John 4:15": [
 {
 "pagina": 1475,
 "columna": 0,
@@ -383139,7 +382261,7 @@
 "confianza": 86.7
 }
 ],
-"1John 5:16": [
+"1John 4:16": [
 {
 "pagina": 1475,
 "columna": 0,
@@ -383151,7 +382273,7 @@
 "confianza": 94.0
 }
 ],
-"1John 5:17": [
+"1John 4:17": [
 {
 "pagina": 1475,
 "columna": 0,
@@ -383163,7 +382285,7 @@
 "confianza": 90.1
 }
 ],
-"1John 5:18": [
+"1John 4:18": [
 {
 "pagina": 1475,
 "columna": 0,
@@ -383175,7 +382297,7 @@
 "confianza": 91.9
 }
 ],
-"1John 5:19": [
+"1John 4:19": [
 {
 "pagina": 1475,
 "columna": 1,
@@ -383187,7 +382309,7 @@
 "confianza": 82.5
 }
 ],
-"1John 5:20": [
+"1John 4:20": [
 {
 "pagina": 1475,
 "columna": 1,
@@ -383199,7 +382321,7 @@
 "confianza": 77.8
 }
 ],
-"1John 5:21": [
+"1John 4:21": [
 {
 "pagina": 1475,
 "columna": 1,
@@ -383211,7 +382333,7 @@
 "confianza": 91.9
 }
 ],
-"2John 1:1": [
+"1John 5:1": [
 {
 "pagina": 1475,
 "columna": 1,
@@ -383221,9 +382343,19 @@
 "top": 738,
 "bot": 776,
 "confianza": 95.6
+},
+{
+"pagina": 1476,
+"columna": 0,
+"fuente": "princeton:1476",
+"x1": 184,
+"x2": 828,
+"top": 1676,
+"bot": 1713,
+"confianza": 90.3
 }
 ],
-"2John 1:2": [
+"1John 5:2": [
 {
 "pagina": 1475,
 "columna": 1,
@@ -383233,9 +382365,19 @@
 "top": 847,
 "bot": 885,
 "confianza": 80.4
+},
+{
+"pagina": 1476,
+"columna": 0,
+"fuente": "princeton:1476",
+"x1": 143,
+"x2": 828,
+"top": 1784,
+"bot": 1823,
+"confianza": 91.9
 }
 ],
-"2John 1:3": [
+"1John 5:3": [
 {
 "pagina": 1475,
 "columna": 1,
@@ -383245,9 +382387,19 @@
 "top": 959,
 "bot": 989,
 "confianza": 75.7
+},
+{
+"pagina": 1476,
+"columna": 0,
+"fuente": "princeton:1476",
+"x1": 142,
+"x2": 828,
+"top": 1896,
+"bot": 1933,
+"confianza": 87.1
 }
 ],
-"2John 1:4": [
+"1John 5:4": [
 {
 "pagina": 1475,
 "columna": 1,
@@ -383257,9 +382409,19 @@
 "top": 1069,
 "bot": 1106,
 "confianza": 95.3
+},
+{
+"pagina": 1476,
+"columna": 0,
+"fuente": "princeton:1476",
+"x1": 186,
+"x2": 828,
+"top": 2224,
+"bot": 2261,
+"confianza": 84.4
 }
 ],
-"2John 1:6": [
+"1John 5:6": [
 {
 "pagina": 1475,
 "columna": 1,
@@ -383269,9 +382431,19 @@
 "top": 1179,
 "bot": 1217,
 "confianza": 89.4
+},
+{
+"pagina": 1476,
+"columna": 0,
+"fuente": "princeton:1476",
+"x1": 143,
+"x2": 828,
+"top": 2333,
+"bot": 2369,
+"confianza": 95.3
 }
 ],
-"2John 1:7": [
+"1John 5:7": [
 {
 "pagina": 1475,
 "columna": 1,
@@ -383281,9 +382453,19 @@
 "top": 1436,
 "bot": 1473,
 "confianza": 94.1
+},
+{
+"pagina": 1476,
+"columna": 1,
+"fuente": "princeton:1476",
+"x1": 909,
+"x2": 1566,
+"top": 1809,
+"bot": 1846,
+"confianza": 87.4
 }
 ],
-"2John 1:8": [
+"1John 5:8": [
 {
 "pagina": 1475,
 "columna": 1,
@@ -383293,9 +382475,19 @@
 "top": 1472,
 "bot": 1511,
 "confianza": 74.8
+},
+{
+"pagina": 1476,
+"columna": 1,
+"fuente": "princeton:1476",
+"x1": 878,
+"x2": 1557,
+"top": 1957,
+"bot": 1994,
+"confianza": 93.1
 }
 ],
-"2John 1:9": [
+"1John 5:9": [
 {
 "pagina": 1475,
 "columna": 1,
@@ -383305,6 +382497,168 @@
 "top": 1546,
 "bot": 1585,
 "confianza": 91.0
+},
+{
+"pagina": 1476,
+"columna": 1,
+"fuente": "princeton:1476",
+"x1": 870,
+"x2": 1507,
+"top": 2028,
+"bot": 2068,
+"confianza": 91.5
+}
+],
+"1John 5:10": [
+{
+"pagina": 1476,
+"columna": 0,
+"fuente": "princeton:1476",
+"x1": 135,
+"x2": 828,
+"top": 254,
+"bot": 292,
+"confianza": 84.8
+},
+{
+"pagina": 1476,
+"columna": 1,
+"fuente": "princeton:1476",
+"x1": 867,
+"x2": 1555,
+"top": 2214,
+"bot": 2251,
+"confianza": 95.2
+}
+],
+"1John 5:11": [
+{
+"pagina": 1476,
+"columna": 0,
+"fuente": "princeton:1476",
+"x1": 135,
+"x2": 828,
+"top": 438,
+"bot": 476,
+"confianza": 88.7
+}
+],
+"1John 5:12": [
+{
+"pagina": 1476,
+"columna": 0,
+"fuente": "princeton:1476",
+"x1": 136,
+"x2": 828,
+"top": 511,
+"bot": 549,
+"confianza": 90.9
+}
+],
+"1John 5:13": [
+{
+"pagina": 1476,
+"columna": 0,
+"fuente": "princeton:1476",
+"x1": 180,
+"x2": 828,
+"top": 771,
+"bot": 809,
+"confianza": 91.9
+}
+],
+"1John 5:14": [
+{
+"pagina": 1476,
+"columna": 0,
+"fuente": "princeton:1476",
+"x1": 138,
+"x2": 828,
+"top": 882,
+"bot": 920,
+"confianza": 87.6
+}
+],
+"1John 5:16": [
+{
+"pagina": 1476,
+"columna": 0,
+"fuente": "princeton:1476",
+"x1": 139,
+"x2": 828,
+"top": 992,
+"bot": 1031,
+"confianza": 88.6
+},
+{
+"pagina": 1476,
+"columna": 1,
+"fuente": "princeton:1476",
+"x1": 861,
+"x2": 1550,
+"top": 253,
+"bot": 292,
+"confianza": 93.1
+}
+],
+"1John 5:17": [
+{
+"pagina": 1476,
+"columna": 1,
+"fuente": "princeton:1476",
+"x1": 862,
+"x2": 1554,
+"top": 474,
+"bot": 512,
+"confianza": 93.0
+}
+],
+"1John 5:18": [
+{
+"pagina": 1476,
+"columna": 1,
+"fuente": "princeton:1476",
+"x1": 863,
+"x2": 1553,
+"top": 546,
+"bot": 585,
+"confianza": 92.7
+}
+],
+"1John 5:21": [
+{
+"pagina": 1476,
+"columna": 1,
+"fuente": "princeton:1476",
+"x1": 865,
+"x2": 1556,
+"top": 914,
+"bot": 953,
+"confianza": 94.3
+}
+],
+"2John 1:11": [
+{
+"pagina": 1477,
+"columna": 0,
+"fuente": "princeton:1477",
+"x1": 85,
+"x2": 767,
+"top": 192,
+"bot": 230,
+"confianza": 90.6
+}
+],
+"2John 1:12": [
+{
+"pagina": 1477,
+"columna": 0,
+"fuente": "princeton:1477",
+"x1": 123,
+"x2": 767,
+"top": 378,
+"bot": 415,
+"confianza": 94.7
 }
 ],
 "3John 1:1": [

@@ -2,8 +2,14 @@
 import re
 
 from load import BOT, TOP
-from nombres import candidatos, sin_tildes
+from nombres import TABLA, _dist, candidatos, sin_tildes
 from segment import agrupar_lineas, med_y, texto
+
+# OSIS → nombres de cabecera de esta edición (SALMOS, SALMO, …).
+NOMBRES_POR_OSIS = {}
+for _nom, _osis in TABLA.items():
+    for _o in _osis:
+        NOMBRES_POR_OSIS.setdefault(_o, []).append(_nom)
 
 
 def normaliza(s):
@@ -22,6 +28,45 @@ def normaliza(s):
 
 RE_SOLO_NUM = re.compile(r"^[\dIVXLC\s.,;:]+$", re.I)
 RE_CAP_EN_CAB = re.compile(r"\b(\d{1,3})\b")
+
+
+def es_running_header(t, cands=None):
+    """¿Este fragmento es la cabecera corrida del libro, o su OCR?
+
+    Conservador: un solo token, 3–12 letras, casi todo mayúsculas, y
+    distancia de Levenshtein contra el *nombre esperado* de la página
+    (no contra toda la Biblia).  Umbral, el de nombres._busca:
+
+      nombre ≤ 4 letras → distancia 0 (JOB no come JOY)
+      nombre ≤ 8 letras → distancia 1 (SALMOS acepta ALMOS)
+      nombre > 8 letras → distancia 2
+
+    ``0`` se lee como ``O`` (SALM0S).  Una palabra bíblica en mayúsculas
+    que no coincida con el encabezado de *esta* página se conserva.
+    """
+    raw = (t or "").strip()
+    if not raw or len(raw) > 16:
+        return False
+    n = normaliza(raw)
+    toks = n.split()
+    if len(toks) != 1:
+        return False
+    tok = toks[0].replace("0", "O")
+    if not (3 <= len(tok) <= 12):
+        return False
+    letras = sum(ch.isalpha() for ch in tok)
+    if letras < len(tok) or letras / max(1, len(raw)) < 0.75:
+        return False
+    if not cands:
+        return False
+    nombres = []
+    for osis in cands:
+        nombres.extend(NOMBRES_POR_OSIS.get(osis, []))
+    for nom in nombres:
+        tope = 0 if len(nom) <= 4 else (1 if len(nom) <= 8 else 2)
+        if _dist(tok, nom) <= tope:
+            return True
+    return False
 
 
 def es_linea_cabecera(t):
@@ -95,12 +140,18 @@ def cabecera_pagina(page, ambito):
     return cands, caps, cab
 
 
-def quita_cabecera(lineas, page_h):
+def quita_cabecera(lineas, page_h, cands=None):
     if not lineas:
         return lineas
     i = 0
     while i < min(3, len(lineas)):
-        if med_y(lineas[i]) < page_h * 0.12 and es_linea_cabecera(texto(lineas[i])):
+        t = texto(lineas[i])
+        # Cabecera de columna: ALMOS al abrir la columna derecha no
+        # siempre cae en el 12 % superior.
+        if es_running_header(t, cands):
+            i += 1
+            continue
+        if med_y(lineas[i]) < page_h * 0.12 and es_linea_cabecera(t):
             i += 1
             continue
         break

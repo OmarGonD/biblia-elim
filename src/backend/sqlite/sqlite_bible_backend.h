@@ -19,6 +19,7 @@ public:
 	BibleModuleCapabilities moduleCapabilities(const std::string &) const override;
 	std::string moduleDescription(const std::string &) const override;
 	std::string moduleLanguage(const std::string &) const override;
+	std::string versification(const std::string &) const override;
 	std::string osisRefFromKey(const std::string &, const std::string &) override;
 	bool resolveKey(const std::string &, const std::string &,
 			BibleKeyInfo &) override;

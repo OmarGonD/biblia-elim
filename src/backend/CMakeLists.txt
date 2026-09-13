@@ -38,6 +38,14 @@ add_library (backend STATIC
   usfm_importer.h
   osis_importer.cc
   osis_importer.h
+  quoted_heading.cc
+  quoted_heading.h
+  source_quirks.cc
+  source_quirks.h
+  content_availability.cc
+  content_availability.h
+  content_resolver.cc
+  content_resolver.h
   sqlite_module_manager.cc
   sqlite_module_manager.h
   sqlite/sqlite_bible_backend.cc

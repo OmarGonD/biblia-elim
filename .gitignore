@@ -29,6 +29,7 @@ scripts/nacarcolunga/fuentes/
 scripts/nacarcolunga/salida/
 scripts/nacarcolunga/*.pkl
 scripts/nacarcolunga/texto.json
+scripts/nacarcolunga/introducciones.json
 scripts/nacarcolunga/notas.json
 scripts/nacarcolunga/avisos.txt
 scripts/nacarcolunga/reconstruidos.txt

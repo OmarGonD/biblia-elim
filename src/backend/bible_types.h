@@ -83,6 +83,7 @@ struct BibleKeyInfo {
 	BibleReference reference;
 	std::string key;
 	std::string bookName;
+	std::string osisBook;
 	int bookIndex = 0;
 	int chapterCount = 0;
 	int verseCount = 0;
@@ -150,6 +151,26 @@ struct BibleVerseContent {
 	bool paragraphBreak = false;
 	bool footnotesHaveNumbers = false;
 	bool valid = false;
+	/* Provenance after resolution. requested is what the user asked
+	 * for; sourceModuleId is who supplied the verse body. isFallback
+	 * is true only when that body came from the fallback module.
+	 * headingSourceModuleId names who supplied headings: the requested
+	 * module when it had any, otherwise the same as sourceModuleId. */
+	std::string requestedModuleId;
+	std::string sourceModuleId;
+	std::string headingSourceModuleId;
+	bool isFallback = false;
+};
+
+enum class ContentAvailability {
+	Available,
+	Missing,
+	NotApplicable
+};
+
+struct FallbackPolicy {
+	std::string fallbackModuleId;
+	std::string fallbackDisplayName;
 };
 
 struct StrongOccurrence {

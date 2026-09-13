@@ -70,20 +70,27 @@ int main()
 	sword::SWKey *const original_key = module->getKey();
 	g_assert_nonnull(original_key);
 
+	const std::string before_reads = module->getKeyText();
 	for (int iteration = 0; iteration < 1000; ++iteration) {
 		BibleReference reference = key_info.reference;
 		reference.verse = 1 + (iteration % 5);
 		BibleVerseContent content = backend.getVerseContent(module_id, reference);
 		g_assert_true(content.valid);
 		g_assert_true(module->getKey() == original_key);
+		g_assert_cmpstr(module->getKeyText(), ==, before_reads.c_str());
 	}
+
+	const std::string before_chapter = module->getKeyText();
+	(void)backend.getChapter(module_id, key_info.reference, false);
+	g_assert_true(module->getKey() == original_key);
+	g_assert_cmpstr(module->getKeyText(), ==, before_chapter.c_str());
 
 	auto *final_key = dynamic_cast<sword::VerseKey *>(module->getKey());
 	g_assert_nonnull(final_key);
 	g_assert_cmpint(final_key->getTestament(), ==, key_info.reference.testament);
 	g_assert_cmpint(final_key->getBook(), ==, key_info.reference.book);
 	g_assert_cmpint(final_key->getChapter(), ==, key_info.reference.chapter);
-	g_assert_cmpint(final_key->getVerse(), ==, 5);
+	g_assert_cmpint(final_key->getVerse(), ==, key_info.reference.verse);
 	std::printf("sword_backend_key_lifecycle_failures=0 module=%s reads=1000\n",
 		module_id.c_str());
 	return 0;

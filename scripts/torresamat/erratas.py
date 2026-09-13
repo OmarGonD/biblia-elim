@@ -34,6 +34,10 @@ RE_LIMPIA = [
     (re.compile(r"\s+\|(?=\s|$)"), ""),
     (re.compile(r"\s+Y(?=[,.])"), ""),             # "tierra Y." "prójimo Y,"
     (re.compile(r"(?<=:\s)mi por\b"), "ni por"),    # "jureis…: mi por el cielo"
+    # Catchword / footnote callout glued to the verse (hOCR: low-confidence
+    # "o", "//", then a leftover word such as "WMestas." in its own block).
+    # Applied only at module rebuild; the renderer does not strip this.
+    (re.compile(r",\s+o\s+//\s+\S+\.?\s*$"), "."),
     (re.compile(r"\s{2,}"), " "),
 ]
 

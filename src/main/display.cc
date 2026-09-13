@@ -37,6 +37,7 @@
 #include "xiphos_html/xiphos_html.h"
 
 #include "main/display.hh"
+#include "main/intro_lookup.h"
 #include "main/settings.h"
 #include "main/global_ops.hh"
 #include "main/sword.h"
@@ -50,6 +51,10 @@
 #include "gui/dialog.h"
 
 #include "backend/sword_main.hh"
+#include "backend/content_resolver.h"
+
+#include <string>
+#include <vector>
 
 #include "gui/debug_glib_null.h"
 
@@ -1895,7 +1900,126 @@ prepare_display_content(const BibleVerseContent &content,
 	text = g_string_new(enriched
 				? block_render(normalized.renderedText.c_str())
 				: normalized.renderedText.c_str());
-	return CleanupContent(text, ops, module_name, true, &normalized);
+	text = CleanupContent(text, ops, module_name, true, &normalized);
+	if (content.isFallback) {
+		const std::string &src = content.sourceModuleId.empty()
+			? defaultFallbackPolicy().fallbackModuleId
+			: content.sourceModuleId;
+		gchar *mark = g_markup_printf_escaped(
+			"<span data-content-fallback=\"%s\"></span>",
+			src.c_str());
+		g_string_prepend(text, mark);
+		g_free(mark);
+	}
+	return text;
+}
+
+/* Consecutive visible fallback verses with the same sourceModuleId form
+ * one block. Empty skipped slots are not original text and do not split
+ * it. A change of source, or an original verse, closes the block. */
+struct FallbackBlockState {
+	bool open;
+	std::string source;
+};
+
+static bool
+html_fallback_source(const char *html, std::string *source)
+{
+	const char *p;
+	const char *q;
+
+	if (!html)
+		return false;
+	p = strstr(html, "data-content-fallback=\"");
+	if (!p)
+		return false;
+	p += 23; /* strlen("data-content-fallback=\"") */
+	q = strchr(p, '"');
+	if (!q || q == p)
+		return true;
+	if (q - p == 1 && *p == '1') {
+		if (source)
+			source->clear();
+		return true;
+	}
+	if (source)
+		source->assign(p, (std::size_t)(q - p));
+	return true;
+}
+
+static bool
+verse_is_fallback(const BibleVerseContent &content, const char *html,
+		  std::string *source)
+{
+	if (content.isFallback) {
+		if (source)
+			*source = content.sourceModuleId;
+		return true;
+	}
+	return html_fallback_source(html, source);
+}
+
+static std::string
+fallback_notice_label(const std::string &source)
+{
+	BibleVerseContent synthetic;
+	synthetic.isFallback = true;
+	synthetic.sourceModuleId = source.empty()
+		? defaultFallbackPolicy().fallbackModuleId
+		: source;
+	return missingContentFallbackNotice(synthetic);
+}
+
+static void
+append_fallback_badge(SWBuf &swbuf, const std::string &source)
+{
+	const std::string label = fallback_notice_label(source);
+	if (label.empty())
+		return;
+	gchar *html = g_markup_printf_escaped(
+		"<div class=\"content-fallback-notice\" "
+		"data-fallback-source=\"%s\">%s</div>",
+		source.empty()
+			? defaultFallbackPolicy().fallbackModuleId.c_str()
+			: source.c_str(),
+		label.c_str());
+	swbuf.append(html);
+	g_free(html);
+}
+
+static void
+fallback_block_before_verse(SWBuf &swbuf, FallbackBlockState *st, bool is_fb,
+			    const std::string &source)
+{
+	if (!st)
+		return;
+	if (is_fb) {
+		if (st->open && st->source != source) {
+			append_fallback_badge(swbuf, st->source);
+			st->open = false;
+		}
+		if (!st->open) {
+			append_fallback_badge(swbuf, source);
+			st->open = true;
+			st->source = source;
+		}
+		return;
+	}
+	if (st->open) {
+		append_fallback_badge(swbuf, st->source);
+		st->open = false;
+		st->source.clear();
+	}
+}
+
+static void
+fallback_block_close(SWBuf &swbuf, FallbackBlockState *st)
+{
+	if (!st || !st->open)
+		return;
+	append_fallback_badge(swbuf, st->source);
+	st->open = false;
+	st->source.clear();
 }
 
 //
@@ -1993,7 +2117,7 @@ GTKEntryDisp::displayByChapter(SWModule &imodule, int columns)
 			reference.book = curBook;
 			reference.chapter = curChapter;
 			reference.verse = key->getVerse();
-			content = be->getVerseContent(ModuleName, reference);
+			content = resolveVerseContent(*be, ModuleName, reference);
 		}
 
 		// use the module cache rather than re-accessing Sword.
@@ -2332,6 +2456,21 @@ GTKEntryDisp::display(SWModule &imodule)
 	return 0;
 }
 
+/* Re-pin the paint key after a stateful backend read.  getVerseContent
+ * restores on return, but the loop must not emit name/href/number from
+ * residual key state if anything else moved book/chapter/verse. */
+static void
+pin_display_verse(VerseKey *key, int testament, int book, int chapter,
+		  int verse)
+{
+	if (!key)
+		return;
+	key->setTestament(testament);
+	key->setBook(book);
+	key->setChapter(chapter);
+	key->setVerse(verse);
+}
+
 GString *
 GTKChapDisp::introMaterial(SWModule &imodule, int thisChapter)
 {
@@ -2341,6 +2480,7 @@ GTKChapDisp::introMaterial(SWModule &imodule, int thisChapter)
 	// displayable content at 0:0 and n:0.
 	//
 	char oldAutoNorm = key->isAutoNormalize();
+	bool oldSkip = imodule.isSkipConsecutiveLinks();
 	key->setAutoNormalize(0);
 
 	bool started_intro = false;
@@ -2350,6 +2490,9 @@ GTKChapDisp::introMaterial(SWModule &imodule, int thisChapter)
 		if ((i == 0) && (thisChapter != 1))
 			continue;
 
+		/* skipConsecutiveLinks turns an empty verse 0 into verse 1
+		 * (the next populated slot).  That body is not intro. */
+		imodule.setSkipConsecutiveLinks(false);
 		key->setChapter(i * thisChapter);
 		key->setVerse(0);
 		BibleReference reference;
@@ -2360,11 +2503,19 @@ GTKChapDisp::introMaterial(SWModule &imodule, int thisChapter)
 		BibleVerseContent content =
 			be->getVerseContent(imodule.getName(), reference);
 
+		VerseKey *landed =
+			dynamic_cast<VerseKey *>((SWKey *)imodule);
+		int landed_verse = landed ? landed->getVerse() : -1;
+		bool stole = intro_lookup_stole_verse_body(reference.verse,
+							   landed_verse);
+
 		buf = g_strdup_printf("%s", strongs_or_morph
 				      ? block_render(content.renderedText.c_str())
 				      : content.renderedText.c_str());
 
-		if ((buf != NULL) && (strlen(buf) > 0) &&
+		/* Stolen lookups keep Heading/Preverse on the real verse;
+		 * only the captured BODY is withheld from chapter intro. */
+		if (!stole && (buf != NULL) && (strlen(buf) > 0) &&
 		    !html_is_poetry_carry_only(buf) &&
 		    !(strstr(buf, "class=\"line\"") &&
 		      !strcasestr(buf, "<title") && !strcasestr(buf, "<h3")))
@@ -2381,8 +2532,10 @@ GTKChapDisp::introMaterial(SWModule &imodule, int thisChapter)
 							       GDK_WINDOW(gtk_widget_get_window(gtkText)))
 					 : buf));
 			g_string_append(intro, "<br />");
-			g_free(buf);
 		}
+		g_free(buf);
+		buf = NULL;
+		imodule.setSkipConsecutiveLinks(oldSkip);
 	}
 
 	if (started_intro)
@@ -2422,7 +2575,7 @@ GTKChapDisp::getVerseBefore(SWModule &imodule)
 		reference.chapter = key->getChapter();
 		reference.verse = key->getVerse();
 		BibleVerseContent content =
-			be->getVerseContent(imodule.getName(), reference);
+			resolveVerseContent(*be, imodule.getName(), reference);
 
 		num = main_format_number(key->getVerse());
 		swbuf.appendFormatted((settings.showversenum
@@ -2518,7 +2671,7 @@ GTKChapDisp::getVerseAfter(SWModule &imodule)
 		reference.chapter = key->getChapter();
 		reference.verse = key->getVerse();
 		BibleVerseContent content =
-			be->getVerseContent(imodule.getName(), reference);
+			resolveVerseContent(*be, imodule.getName(), reference);
 
 		swbuf.appendFormatted("<font color=\"%s\">%s</font>%s",
 				      settings.bible_text_color,
@@ -2798,7 +2951,12 @@ GTKChapDisp::RenderOneChapter(SWModule &imodule,
 		}
 	}
 
-	for (int k = 1 ; k <= key->getVerseMax() ; ++k) {
+	std::vector<BibleVerseContent> resolved_chapter;
+	bool have_resolved_chapter = false;
+	FallbackBlockState fallback_block = {};
+	const int verse_max = key->getVerseMax();
+
+	for (int k = 1 ; k <= verse_max ; ++k) {
 
 		key->setVerse(k);
 
@@ -2820,13 +2978,30 @@ GTKChapDisp::RenderOneChapter(SWModule &imodule,
 		const bool needs_header = !cVerse.HeaderIsValid();
 		BibleVerseContent content;
 		if (needs_text || needs_header) {
-			BibleReference reference;
-			reference.testament = curTest;
-			reference.book = curBook;
-			reference.chapter = thisChapter;
-			reference.verse = k;
-			content = be->getVerseContent(ModuleName, reference);
+			if (!have_resolved_chapter) {
+				BibleReference chapter_ref;
+				chapter_ref.testament = curTest;
+				chapter_ref.book = curBook;
+				chapter_ref.chapter = thisChapter;
+				chapter_ref.verse = 1;
+				resolved_chapter = resolveChapterContent(
+					*be, ModuleName, chapter_ref, verse_max);
+				have_resolved_chapter = true;
+			}
+			if (k >= 1 &&
+			    (std::size_t)k <= resolved_chapter.size())
+				content = resolved_chapter[(std::size_t)k - 1];
+			else {
+				BibleReference reference;
+				reference.testament = curTest;
+				reference.book = curBook;
+				reference.chapter = thisChapter;
+				reference.verse = k;
+				content = resolveVerseContent(*be, ModuleName,
+							     reference);
+			}
 		}
+		pin_display_verse(key, curTest, curBook, thisChapter, k);
 		if (needs_text) {
 			rework = prepare_display_content(content, ops, ModuleName,
 						 strongs_or_morph);
@@ -2847,6 +3022,14 @@ GTKChapDisp::RenderOneChapter(SWModule &imodule,
 
 		if (*rework->str == '\0')
 			continue;		// no verse content there.
+
+		{
+			std::string fb_source;
+			const bool is_fb =
+				verse_is_fallback(content, rework->str, &fb_source);
+			fallback_block_before_verse(swbuf, &fallback_block, is_fb,
+						    fb_source);
+		}
 
 		// tag-group (bookmark folder) color highlight -- wraps the
 		// verse number, user-note reference, and verse text below.
@@ -2871,11 +3054,11 @@ GTKChapDisp::RenderOneChapter(SWModule &imodule,
 		// Anchor first so the next verse's tools chip is not
 		// inside this verse's reading-focus bounds.
 		swbuf.appendFormatted("<p class=\"verse\"><a name=\"%d\"></a>",
-				      (thisChapter * 1000) + key->getVerse());
+				      (thisChapter * 1000) + k);
 		append_verse_tools(swbuf, key->getText(),
-				  highlight_count_notes_at((thisChapter * 1000) + key->getVerse()) > 0);
+				  highlight_count_notes_at((thisChapter * 1000) + k) > 0);
 
-		gchar *num = main_format_number(key->getVerse());
+		gchar *num = main_format_number(k);
 		if (settings.showversenum)
 			swbuf.appendFormatted("&nbsp;<span class=\"word\"><a href=\"sword:///%s\">"
 					     "<font size=\"%+d\" color=\"%s\">%s%s%s%s%s%s%s</font></a></span>&nbsp;",
@@ -2970,6 +3153,7 @@ GTKChapDisp::RenderOneChapter(SWModule &imodule,
 			}
 		}
 	}
+	fallback_block_close(swbuf, &fallback_block);
 }
 
 void
@@ -3464,7 +3648,12 @@ DialogChapDisp::display(SWModule &imodule)
 		return 0;
 	}
 
-	for (int k = 1; k <= key->getVerseMax(); ++k) {
+	std::vector<BibleVerseContent> resolved_chapter;
+	bool have_resolved_chapter = false;
+	FallbackBlockState fallback_block = {};
+	const int verse_max = key->getVerseMax();
+
+	for (int k = 1; k <= verse_max; ++k) {
 
 		key->setVerse(k);
 
@@ -3474,13 +3663,30 @@ DialogChapDisp::display(SWModule &imodule)
 		const bool needs_header = !cVerse.HeaderIsValid();
 		BibleVerseContent content;
 		if (needs_text || needs_header) {
-			BibleReference reference;
-			reference.testament = curTest;
-			reference.book = curBook;
-			reference.chapter = curChapter;
-			reference.verse = k;
-			content = be->getVerseContent(ModuleName, reference);
+			if (!have_resolved_chapter) {
+				BibleReference chapter_ref;
+				chapter_ref.testament = curTest;
+				chapter_ref.book = curBook;
+				chapter_ref.chapter = curChapter;
+				chapter_ref.verse = 1;
+				resolved_chapter = resolveChapterContent(
+					*be, ModuleName, chapter_ref, verse_max);
+				have_resolved_chapter = true;
+			}
+			if (k >= 1 &&
+			    (std::size_t)k <= resolved_chapter.size())
+				content = resolved_chapter[(std::size_t)k - 1];
+			else {
+				BibleReference reference;
+				reference.testament = curTest;
+				reference.book = curBook;
+				reference.chapter = curChapter;
+				reference.verse = k;
+				content = resolveVerseContent(*be, ModuleName,
+							     reference);
+			}
 		}
+		pin_display_verse(key, curTest, curBook, curChapter, k);
 
 		// use the module cache rather than re-accessing Sword.
 		if (needs_text) {
@@ -3504,12 +3710,20 @@ DialogChapDisp::display(SWModule &imodule)
 		if (*rework->str == '\0')
 			continue;		// no verse content there.
 
-		gchar *num = main_format_number(key->getVerse());
+		{
+			std::string fb_source;
+			const bool is_fb =
+				verse_is_fallback(content, rework->str, &fb_source);
+			fallback_block_before_verse(swbuf, &fallback_block, is_fb,
+						    fb_source);
+		}
+
+		gchar *num = main_format_number(k);
 		swbuf.appendFormatted((settings.showversenum
 				       ? "&nbsp;<span class=\"word\"><a name=\"%d\" href=\"sword:///%s\">"
 				       "<font size=\"%+d\" color=\"%s\">%s%s%s%s%s%s%s</font></a></span>&nbsp;"
 				       : "&nbsp;<a name=\"%d\"> </a>"),
-				      (curChapter * 1000) + key->getVerse(),
+				      (curChapter * 1000) + k,
 				      (char *)key->getText(),
 				      settings.verse_num_font_size + settings.base_font_size,
 				      settings.bible_verse_num_color,
@@ -3582,6 +3796,7 @@ DialogChapDisp::display(SWModule &imodule)
 				swbuf.append("<br/>");
 		}
 	}
+	fallback_block_close(swbuf, &fallback_block);
 
 	// Reset the Bible location before GTK gets access:
 	// Mouse activity destroys this key, so we must be finished with it.
@@ -3716,16 +3931,41 @@ GTKPrintChapDisp::display(SWModule &imodule)
 
 	main_set_global_options(ops);
 
+	FallbackBlockState fallback_block = {};
+	const int verse_max = key->getVerseMax();
+	BibleReference chapter_ref;
+	chapter_ref.testament = key->getTestament();
+	chapter_ref.book = curBook;
+	chapter_ref.chapter = curChapter;
+	chapter_ref.verse = 1;
+	const std::vector<BibleVerseContent> resolved_chapter =
+		resolveChapterContent(*be, imodule.getName(), chapter_ref,
+				      verse_max);
+
 	for (key->setVerse(1);
 	     (key->getBook() == curBook) && (key->getChapter() == curChapter) && !imodule.popError();
 	     imodule++) {
-		BibleReference reference;
-		reference.testament = key->getTestament();
-		reference.book = key->getBook();
-		reference.chapter = key->getChapter();
-		reference.verse = key->getVerse();
-		BibleVerseContent content =
-			be->getVerseContent(imodule.getName(), reference);
+		const int verse = key->getVerse();
+		BibleVerseContent content;
+		if (verse >= 1 &&
+		    (std::size_t)verse <= resolved_chapter.size())
+			content = resolved_chapter[(std::size_t)verse - 1];
+		else {
+			BibleReference reference;
+			reference.testament = key->getTestament();
+			reference.book = key->getBook();
+			reference.chapter = key->getChapter();
+			reference.verse = verse;
+			content = resolveVerseContent(*be, imodule.getName(),
+						      reference);
+		}
+		{
+			std::string fb_source;
+			const bool is_fb = verse_is_fallback(
+				content, content.renderedText.c_str(), &fb_source);
+			fallback_block_before_verse(swbuf, &fallback_block, is_fb,
+						    fb_source);
+		}
 		for (std::vector<BibleHeading>::const_iterator heading =
 			     content.headings.begin();
 		     heading != content.headings.end(); ++heading)
@@ -3749,6 +3989,7 @@ GTKPrintChapDisp::display(SWModule &imodule)
 			swbuf.append("<br/>");
 		}
 	}
+	fallback_block_close(swbuf, &fallback_block);
 
 	// Reset the Bible location before GTK gets access:
 	// Mouse activity destroys this key, so we must be finished with it.

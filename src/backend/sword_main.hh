@@ -79,6 +79,7 @@ class BackEnd : public BibleBackend
 		const std::string &module_id) const override;
 	std::string moduleDescription(const std::string &module_id) const override;
 	std::string moduleLanguage(const std::string &module_id) const override;
+	std::string versification(const std::string &module_id) const override;
 	std::string osisRefFromKey(const std::string &module_id,
 					   const std::string &key) override;
 	bool resolveKey(const std::string &module_id,

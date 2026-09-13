@@ -1,6 +1,8 @@
 #include "backend/osis_importer.h"
 
 #include "backend/bible_book_map.h"
+#include "backend/quoted_heading.h"
+#include "backend/source_quirks.h"
 #include "backend/sqlite/sqlite_module_writer.h"
 #include "backend/strong_id.h"
 #include "backend/morphology.h"
@@ -192,7 +194,8 @@ bool parseReference(const std::string &source, BibleReference &reference)
 }
 
 struct State {
-	explicit State(UsfmImportStats &importStats) : stats(importStats) {}
+	explicit State(UsfmImportStats &importStats, std::string id)
+		: stats(importStats), moduleId(std::move(id)) {}
 
 	std::vector<SqliteImportBook> books;
 	std::vector<SqliteImportVerse> verses;
@@ -205,6 +208,7 @@ struct State {
 	SqliteImportVerse verse;
 	std::unique_ptr<VisibleVerseText> visible;
 	UsfmImportStats &stats;
+	std::string moduleId;
 	std::string error;
 };
 
@@ -240,6 +244,20 @@ void beginVerse(State &state, const BibleReference &reference)
 
 void finishVerse(State &state, bool milestone)
 {
+	if (sourceQuirksForModule(state.moduleId) &
+	    SOURCE_QUIRK_LEADING_QUOTED_SUPERSCRIPTION) {
+		BibleVerseContent normalized;
+		normalized.renderedText = state.verse.text;
+		normalized.plainText = state.verse.text;
+		normalized.headings = state.verse.headings;
+		const std::size_t before = normalized.headings.size();
+		promoteLeadingQuotedHeading(normalized);
+		state.verse.text = normalized.renderedText;
+		state.verse.headings = std::move(normalized.headings);
+		if (state.verse.headings.size() > before)
+			state.stats.headingsImported +=
+			    state.verse.headings.size() - before;
+	}
 	state.verses.push_back(std::move(state.verse));
 	state.visible.reset();
 	state.verseActive = false;
@@ -453,7 +471,7 @@ bool importOsis(const std::string &input, const std::string &output,
 		error = "invalid OSIS XML";
 		return false;
 	}
-	State state(stats);
+	State state(stats, options.moduleId);
 	processChildren(state, xmlDocGetRootElement(document));
 	xmlFreeDoc(document);
 	if (state.error.empty() && state.verseActive)

@@ -1,6 +1,7 @@
 """Convierte las líneas de cuerpo en una corriente de versículos."""
 import re
 
+from cabeceras import es_running_header
 from segment import texto
 
 LETRA_DIGITO = {"T": "7", "I": "1", "l": "1", "|": "1", "i": "1",
@@ -150,6 +151,8 @@ def corriente(lineas, cands=None, origen=None):
     for l in lineas:
         t = texto(l).strip()
         if es_ruido(t) or es_titulo(t):
+            continue
+        if es_running_header(t, cands):
             continue
         ini = abre_versiculo(t)
         if ini and ini[0] == "capver":

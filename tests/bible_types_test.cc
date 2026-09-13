@@ -44,6 +44,10 @@ static void content_without_attributes_is_empty()
 	g_assert_false(content.footnotesHaveNumbers);
 	g_assert_true(content.words.empty());
 	g_assert_true(content.headings.empty());
+	g_assert_false(content.isFallback);
+	g_assert_true(content.requestedModuleId.empty());
+	g_assert_true(content.sourceModuleId.empty());
+	g_assert_true(content.headingSourceModuleId.empty());
 }
 
 static void invalid_reference_stays_explicit()

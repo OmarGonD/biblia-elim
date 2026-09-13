@@ -450,6 +450,20 @@ std::string SqliteBibleBackend::moduleLanguage(const std::string &id) const
 	return module ? module->info.language : std::string();
 }
 
+std::string SqliteBibleBackend::versification(const std::string &id) const
+{
+	Module *module = impl_->find(id);
+	if (!module || module->versification.empty() ||
+	    module->versification == "kjv" ||
+	    module->versification == "custom")
+		return "KJV";
+	if (module->versification == "nrsva")
+		return "NRSVA";
+	if (module->versification == "vulg")
+		return "Vulg";
+	return "KJV";
+}
+
 bool SqliteBibleBackend::resolveKey(const std::string &id, const std::string &key,
 				    BibleKeyInfo &result)
 {
@@ -474,6 +488,10 @@ bool SqliteBibleBackend::resolveKey(const std::string &id, const std::string &ke
 	result.key = keyFor(canonical, chapter, verse);
 	result.bookName = canonical;
 	result.bookIndex = bookId;
+	reset(module->bookInfo);
+	sqlite3_bind_int(module->bookInfo.value, 1, bookId);
+	if (sqlite3_step(module->bookInfo.value) == SQLITE_ROW)
+		result.osisBook = text(module->bookInfo.value, 1);
 	reset(module->counts);
 	sqlite3_bind_int(module->counts.value, 1, chapter);
 	sqlite3_bind_int(module->counts.value, 2, bookId);

@@ -444,6 +444,46 @@ target_link_libraries (buscar_notas_test
   PkgConfig::Core
   )
 
+add_executable (quoted_heading_test
+  EXCLUDE_FROM_ALL
+  quoted_heading_test.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/quoted_heading.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/source_quirks.cc
+  )
+
+add_executable (content_resolver_test
+  EXCLUDE_FROM_ALL
+  content_resolver_test.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/content_resolver.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/content_availability.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/quoted_heading.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/source_quirks.cc
+  )
+
+target_include_directories (content_resolver_test
+  PRIVATE
+  ${PROJECT_SOURCE_DIR}/src
+  PkgConfig::Core
+  PkgConfig::Sword
+  )
+
+target_link_libraries (content_resolver_test
+  PRIVATE
+  PkgConfig::Core
+  PkgConfig::Sword
+  )
+
+target_include_directories (quoted_heading_test
+  PRIVATE
+  ${PROJECT_SOURCE_DIR}/src
+  PkgConfig::Core
+  )
+
+target_link_libraries (quoted_heading_test
+  PRIVATE
+  PkgConfig::Core
+  )
+
 add_executable (bible_types_test
   EXCLUDE_FROM_ALL
   bible_types_test.cc
@@ -595,6 +635,8 @@ target_sources(enriched_content_benchmark PRIVATE
 add_executable (osis_importer_test EXCLUDE_FROM_ALL
   osis_importer_test.cc
   ${PROJECT_SOURCE_DIR}/src/backend/osis_importer.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/quoted_heading.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/source_quirks.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_module_writer.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_bible_backend.cc
   ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
@@ -608,6 +650,8 @@ add_executable (osis_semantic_equivalence_test EXCLUDE_FROM_ALL
   osis_semantic_equivalence_test.cc
   neutral_module_comparator.cc
   ${PROJECT_SOURCE_DIR}/src/backend/osis_importer.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/quoted_heading.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/source_quirks.cc
   ${PROJECT_SOURCE_DIR}/src/backend/usfm_importer.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_module_writer.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_bible_backend.cc
@@ -623,6 +667,8 @@ target_sources(osis_semantic_equivalence_test PRIVATE ${PROJECT_SOURCE_DIR}/src/
 add_executable (osis_operational_test EXCLUDE_FROM_ALL
   osis_operational_test.cc
   ${PROJECT_SOURCE_DIR}/src/backend/osis_importer.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/quoted_heading.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/source_quirks.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_module_writer.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_bible_backend.cc
   ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
@@ -637,6 +683,8 @@ add_executable (osis_property_test EXCLUDE_FROM_ALL
   osis_property_test.cc
   neutral_module_comparator.cc
   ${PROJECT_SOURCE_DIR}/src/backend/osis_importer.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/quoted_heading.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/source_quirks.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_module_writer.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_bible_backend.cc
   ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
@@ -681,6 +729,8 @@ add_executable (morphology_audit_test EXCLUDE_FROM_ALL
   morphology_audit_test.cc
   ${PROJECT_SOURCE_DIR}/src/backend/morphology.cc
   ${PROJECT_SOURCE_DIR}/src/backend/osis_importer.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/quoted_heading.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/source_quirks.cc
   ${PROJECT_SOURCE_DIR}/src/backend/usfm_importer.cc
   ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
   ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
@@ -696,6 +746,8 @@ add_executable (morphology_integration_benchmark EXCLUDE_FROM_ALL
   morphology_integration_benchmark.cc
   ${PROJECT_SOURCE_DIR}/src/backend/morphology.cc
   ${PROJECT_SOURCE_DIR}/src/backend/osis_importer.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/quoted_heading.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/source_quirks.cc
   ${PROJECT_SOURCE_DIR}/src/backend/usfm_importer.cc
   ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
   ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
@@ -758,10 +810,35 @@ add_executable (sword_backend_key_lifecycle_test EXCLUDE_FROM_ALL
   sword_backend_key_lifecycle_test.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sword_main.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sword/sword_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/quoted_heading.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/source_quirks.cc
   ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
   ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
   ${PROJECT_SOURCE_DIR}/src/backend/morphology.cc
   ${PROJECT_SOURCE_DIR}/src/main/busqueda_tildes.c)
+
+add_executable (content_resolver_sword_test EXCLUDE_FROM_ALL
+  content_resolver_sword_test.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/content_resolver.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/content_availability.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/quoted_heading.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/source_quirks.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sword_main.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sword/sword_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/morphology.cc
+  ${PROJECT_SOURCE_DIR}/src/main/busqueda_tildes.c)
+target_compile_options (content_resolver_sword_test PRIVATE
+  -ffunction-sections)
+target_link_options (content_resolver_sword_test PRIVATE
+  -Wl,--gc-sections)
+target_include_directories (content_resolver_sword_test PRIVATE
+  PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome PkgConfig::Soup
+  PkgConfig::Sword)
+target_link_libraries (content_resolver_sword_test PRIVATE
+  PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome PkgConfig::Soup
+  PkgConfig::Sword)
 target_compile_options (sword_backend_key_lifecycle_test PRIVATE
   -ffunction-sections)
 target_link_options (sword_backend_key_lifecycle_test PRIVATE

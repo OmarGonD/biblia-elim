@@ -1365,6 +1365,132 @@ insert_hr(ParseCtx *ctx, const char *color_attr)
 	insert_break(ctx, TRUE);
 }
 
+static GtkCssProvider *
+fallback_badge_css_provider(void)
+{
+	static GtkCssProvider *provider;
+
+	if (provider)
+		return provider;
+	provider = gtk_css_provider_new();
+	gtk_css_provider_load_from_data(provider,
+	    ".fallback-badge {"
+	    "  border-radius: 999px;"
+	    "  padding: 5px 14px;"
+	    "  font-size: 13px;"
+	    "  font-weight: 500;"
+	    "  letter-spacing: 0.015em;"
+	    "}"
+	    ".fallback-badge.dark {"
+	    "  color: #F4F0E6;"
+	    "  border: 1px solid rgba(226, 208, 160, 0.40);"
+	    "  background-image: linear-gradient(118deg,"
+	    "    #3C4A62 0%,"
+	    "    #524760 30%,"
+	    "    #3E5856 52%,"
+	    "    #4A5344 76%,"
+	    "    #3C4A62 100%);"
+	    "}"
+	    ".fallback-badge.light {"
+	    "  color: #2A2832;"
+	    "  border: 1px solid rgba(92, 82, 112, 0.26);"
+	    "  background-image: linear-gradient(118deg,"
+	    "    #E3E9F3 0%,"
+	    "    #EDE5EE 30%,"
+	    "    #E1EBE6 52%,"
+	    "    #E8EBDA 76%,"
+	    "    #E3E9F3 100%);"
+	    "}",
+	    -1, NULL);
+	return provider;
+}
+
+static void
+badge_row_fit(GtkWidget *view, GdkRectangle *alloc, GtkWidget *row)
+{
+	gint w = child_avail_width(view, alloc);
+
+	if (w < 80)
+		w = 80;
+	gtk_widget_set_size_request(row, w, -1);
+}
+
+static void
+xml_collect_text(xmlNode *node, GString *out)
+{
+	xmlNode *c;
+
+	for (c = node; c; c = c->next) {
+		if ((c->type == XML_TEXT_NODE ||
+		     c->type == XML_CDATA_SECTION_NODE) &&
+		    c->content)
+			g_string_append(out, (const char *)c->content);
+		if (c->children)
+			xml_collect_text(c->children, out);
+	}
+}
+
+/* Meta badge for a contiguous fallback block. Two widgets per block,
+ * not per verse — cheap enough to be a real GtkLabel pill. The text
+ * lives on the widget, not in the buffer, so copy/search of bible
+ * text does not pick it up. */
+static void
+insert_fallback_badge(ParseCtx *ctx, xmlNode *node)
+{
+	GString *text;
+	GtkWidget *row, *label, *left, *right;
+	GtkAllocation alloc;
+	GtkStyleContext *sc;
+
+	if (ctx->skip || !ctx->html || !ctx->html->priv->view)
+		return;
+
+	text = g_string_new(NULL);
+	xml_collect_text(node->children, text);
+	g_strstrip(text->str);
+	if (!text->str[0]) {
+		g_string_free(text, TRUE);
+		return;
+	}
+
+	label = gtk_label_new(text->str);
+	gtk_label_set_selectable(GTK_LABEL(label), FALSE);
+	gtk_widget_set_can_focus(label, FALSE);
+	gtk_label_set_xalign(GTK_LABEL(label), 0.5);
+	gtk_widget_set_valign(label, GTK_ALIGN_CENTER);
+
+	sc = gtk_widget_get_style_context(label);
+	gtk_style_context_add_class(sc, "fallback-badge");
+	gtk_style_context_add_class(sc, settings.darktheme ? "dark" : "light");
+	gtk_style_context_add_provider(
+	    sc, GTK_STYLE_PROVIDER(fallback_badge_css_provider()),
+	    GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+	left = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+	right = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+	gtk_widget_set_hexpand(left, TRUE);
+	gtk_widget_set_hexpand(right, TRUE);
+
+	row = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+	gtk_box_pack_start(GTK_BOX(row), left, TRUE, TRUE, 0);
+	gtk_box_pack_start(GTK_BOX(row), label, FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(row), right, TRUE, TRUE, 0);
+	gtk_widget_set_margin_top(row, 4);
+	gtk_widget_set_margin_bottom(row, 4);
+	gtk_widget_set_valign(row, GTK_ALIGN_CENTER);
+
+	place_child(ctx, row);
+	g_signal_connect_object(GTK_WIDGET(ctx->html->priv->view),
+				"size-allocate", G_CALLBACK(badge_row_fit),
+				row, 0);
+	gtk_widget_get_allocation(GTK_WIDGET(ctx->html->priv->view), &alloc);
+	if (alloc.width > 80)
+		badge_row_fit(GTK_WIDGET(ctx->html->priv->view), &alloc, row);
+	gtk_widget_show_all(row);
+	ctx->at_line_start = FALSE;
+	g_string_free(text, TRUE);
+}
+
 /* Real <table> support: unlike every other tag, a table's subtree is NOT
  * walked by the normal recursive walk_node() -- it needs actual columns,
  * which a linear GtkTextBuffer can't give it. Each <td>/<th> becomes its
@@ -1888,6 +2014,8 @@ walk_element(ParseCtx *ctx, xmlNode *node)
 		char *key = el_prop(node, "data-key");
 		insert_il_table(ctx, key);
 		g_free(key);
+	} else if (class_has(klass, "content-fallback-notice")) {
+		insert_fallback_badge(ctx, node);
 	} else if (class_has(klass, "vtools")) {
 		char *key = el_prop(node, "data-key");
 		char *has_note = el_prop(node, "data-has-note");
