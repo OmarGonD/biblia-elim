@@ -6,7 +6,7 @@ import os
 DIR = os.path.dirname(os.path.abspath(__file__))
 
 from cabeceras import cabecera_pagina, quita_cabecera
-from canon import ORDEN, POR_OSIS
+from canon import ORDEN, POR_OSIS, SALMOS_HEBREO, TITULO_SALMOS
 from front_matter import separa_front_matter
 from load import load
 from segment import cuerpo_y_notas, columnas, texto
@@ -144,13 +144,39 @@ def sucesos_y_notas(pages):
     return ev, notas_pag
 
 
+def titulos_de_salmo(vers, procedencia):
+    """Pasa los Salmos de la numeración impresa (hebrea) a NRSVA.
+
+    El alineador cuenta los versos de cada salmo como los imprime
+    Nácar-Colunga, con el título como versículo 1 (o 1-2). NRSVA no numera
+    el título: se guarda como versículo 0 del capítulo -- osis.py lo
+    escribe como <title> -- y el resto de versos se corre hacia atrás.
+    Contarlos con NRSVA hacía que el título ocupara el 1, que el último
+    verso se fundiera con el anterior y que el alineador corriera salmos
+    enteros de capítulo.
+    """
+    def mueve(dic):
+        out = {}
+        for (osis, cap, ver), val in dic.items():
+            d = TITULO_SALMOS.get(cap, 0) if osis == "Ps" else 0
+            if d and ver <= d:
+                clave = (osis, cap, 0)
+            else:
+                clave = (osis, cap, ver - d)
+            out.setdefault(clave, []).extend(val)
+        return out
+    return mueve(vers), mueve(procedencia)
+
+
 def main():
     pages = load()
     print(f"{len(pages)} páginas cargadas", flush=True)
     ev, notas_pag = sucesos_y_notas(pages)
     ev, intros_frags = separa_front_matter(ev)
-    libros = [POR_OSIS[o] for o in ORDEN]
+    libros = [dict(POR_OSIS[o], versos=SALMOS_HEBREO) if o == "Ps"
+              else POR_OSIS[o] for o in ORDEN]
     vers, avisos, procedencia = ensambla(ev, libros)
+    vers, procedencia = titulos_de_salmo(vers, procedencia)
     todo = {}
     for k, trozos in vers.items():
         todo["%s %d:%d" % k] = une(trozos)
@@ -180,11 +206,14 @@ def main():
     with open(os.path.join(DIR, "notas.json"), "w", encoding="utf-8") as f:
         json.dump(notas, f, ensure_ascii=False, indent=0)
 
+    # Cuentas en NRSVA y sin los títulos de salmo (versículo 0).
+    libros = [POR_OSIS[o] for o in ORDEN]
+    hay = sum(1 for k in vers if k[2] > 0)
     esp = sum(sum(L["versos"]) for L in libros)
-    print(f"\nTOTAL: {len(todo)}/{esp} versículos "
-          f"({100 * len(todo) / esp:.1f}%), {len(avisos)} avisos")
+    print(f"\nTOTAL: {hay}/{esp} versículos "
+          f"({100 * hay / esp:.1f}%), {len(avisos)} avisos")
     for L in libros:
-        g = sum(1 for k in vers if k[0] == L["osis"])
+        g = sum(1 for k in vers if k[0] == L["osis"] and k[2] > 0)
         e = sum(L["versos"])
         marca = "  <-- REVISAR" if e and g / e < 0.60 else ""
         print(f"    {L['osis']:6} {g:5}/{e:5}  {100 * g / e:5.1f}%{marca}")

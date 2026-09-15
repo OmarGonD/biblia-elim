@@ -18,7 +18,7 @@ import re
 import subprocess
 import unicodedata
 
-from canon import ORDEN
+from canon import ORDEN, TITULO_SALMOS
 
 DIR = os.path.dirname(os.path.abspath(__file__))
 CACHE = os.path.join(DIR, "fuentes", "testigos.pkl")
@@ -101,11 +101,42 @@ def solapamiento(ocr_t, wit_t):
     return n
 
 
+RE_TITULO_RVG = re.compile(r"^«[^»]*»\s*")
+# Reina-Valera 1909 abre el verso en versalitas: «… su hijo. ¡OH Jehová».
+RE_VERSALITAS = re.compile(r"[¡¿]?[A-ZÁÉÍÓÚÜÑ]{2,}")
+
+
+def testigo_nrsva(mod, ref, wit):
+    """El verso del testigo con la numeración de Nácar-Colunga (NRSVA).
+
+    En Salmos los testigos no numeran igual: la Platense va por la Vulgata
+    (otra cuenta de salmos, título como versículo) y las Reina-Valera meten
+    el título dentro del versículo 1. construir.py ya saca el título de
+    Nácar-Colunga a su propio <title>, así que el testigo tiene que llegar
+    sin él o el relleno lo volvería a pegar al verso.
+    """
+    if not wit or not ref.startswith("Ps "):
+        return wit
+    if mod == "SpaPlatense":
+        return None
+    cap, ver = (int(x) for x in ref[3:].split(":"))
+    if ver != 1:
+        return wit
+    if mod == "SpaRVG":
+        # SpaRVG pone «…» delante del v. 1 también en salmos sin título
+        # hebreo («El piadoso será prosperado…», Sal 1): nunca es verso.
+        return RE_TITULO_RVG.sub("", wit) or None
+    if cap not in TITULO_SALMOS:
+        return wit
+    m = RE_VERSALITAS.search(wit)
+    return wit[m.start():] if m else None
+
+
 def mejor_testigo(ocr, testigos, ref):
     ocr_t = toks(ocr)
     mejor, sc = None, -1
-    for d in testigos.values():
-        wit = d.get(ref)
+    for mod, d in testigos.items():
+        wit = testigo_nrsva(mod, ref, d.get(ref))
         if not wit:
             continue
         s = solapamiento(ocr_t, toks(wit))

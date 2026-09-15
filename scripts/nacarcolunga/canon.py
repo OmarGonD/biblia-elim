@@ -61,6 +61,38 @@ def cargar():
 CANON = cargar()
 POR_OSIS = {L["osis"]: L for L in CANON}
 
+SRC_LENINGRAD = "/usr/include/sword/canon_leningrad.h"
+
+
+def _salmos_hebreo():
+    """Versos por salmo contando el título, como numera la Biblia hebrea.
+
+    Nácar-Colunga imprime el título del salmo como versículo 1 (o 1-2),
+    igual que el texto hebreo; NRSVA, la versificación del módulo, lo deja
+    sin número. Leningrad es la numeración hebrea que trae SWORD.
+    """
+    libros = _libros(SRC_LENINGRAD, "otbooks_leningrad")
+    txt = open(SRC_LENINGRAD, encoding="utf-8", errors="replace").read()
+    m = re.search(r"int vm_leningrad\[\]\s*=\s*\{(.*?)\n\};", txt, re.S)
+    nums = [int(x) for x in re.findall(r"\d+", re.sub(r"//.*", "", m.group(1)))]
+    i = 0
+    for L in libros:
+        if L["osis"] == "Ps":
+            return nums[i:i + L["caps"]]
+        i += L["caps"]
+    raise ValueError("Leningrad sin Salmos")
+
+
+SALMOS_HEBREO = _salmos_hebreo()
+
+# Salmo -> cuántos versículos impresos ocupa el título (1 o 2).
+TITULO_SALMOS = {
+    c: h - n
+    for c, (h, n) in enumerate(zip(SALMOS_HEBREO, POR_OSIS["Ps"]["versos"]), 1)
+    if h != n
+}
+assert len(SALMOS_HEBREO) == 150 and all(d in (1, 2) for d in TITULO_SALMOS.values())
+
 
 if __name__ == "__main__":
     cat = [POR_OSIS[o] for o in ORDEN]

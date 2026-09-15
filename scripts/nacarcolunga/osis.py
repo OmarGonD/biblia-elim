@@ -63,6 +63,14 @@ def genera(texto, destino, introducciones=None):
                             f"{html.escape(intro, quote=False)}</p></div>\n")
             for c, nver in enumerate(L["versos"], start=1):
                 f.write(f'   <chapter osisID="{osisid}.{c}">\n')
+                # Título del salmo: construir.py lo deja como versículo 0.
+                titulo = limpia_final(texto.get(f"{osisid} {c}:0") or "")
+                # Restos del renglón anterior: la cifra del v. 2 que el
+                # título ocupa («2 Al maestro…») o una «y» suelta del OCR.
+                titulo = re.sub(r"^(?:\d{1,3}|y)\s+(?=[A-ZÁÉÍÓÚÑ])", "", titulo)
+                if titulo:
+                    f.write('    <title type="psalm" canonical="true">'
+                            f"{html.escape(titulo, quote=False)}</title>\n")
                 for v in range(1, nver + 1):
                     t = texto.get(f"{osisid} {c}:{v}")
                     if t is None:
