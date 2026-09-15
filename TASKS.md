@@ -2149,6 +2149,282 @@
       startup `no-show-all` keeps compare unmapped). Failures counter is 0 and
       navigation/renderers complete; unrelated to the search-bar drain fix.
 
+- [x] UI-LAYOUT-103 Eliminate GtkLabel negative allocations in fallback badges
+  - Status: DONE
+  - Description:
+    Diagnose and fix the repeated `Negative content height -3 (allocation 9,
+    extents 6x6)`, `Negative content height -11 (allocation 1, extents 6x6)`
+    (node label, owner GtkLabel) and `gtk_widget_size_allocate(): attempt to
+    allocate widget with width ... and height -7` warnings observed during
+    normal real-display use.
+  - Evidence:
+    - Real GDB evidence under `G_DEBUG=fatal-warnings` identifies the widget as
+      the fallback badge: a real `GtkLabel` (classes `fallback-badge dark`,
+      text `Texto suplido desde Reina-Valera 1909`) created by
+      `src/webkit/wk-html.c::insert_fallback_badge()`, not HTML content.
+    - Hierarchy: `GtkLabel` → `GtkBox row` (inline child anchored directly in
+      the `GtkTextView` named `elim-html`) → `GtkScrolledWindow` → `GtkStack`
+      → `WkHtml` → … → `GtkWindow elim-app`.
+    - Root cause: `row` carried widget margins `margin_top = 4` and
+      `margin_bottom = 4`. Under GTK 3.24.52, `adjust_allocation()` in
+      `gtk_text_view_value_changed()` re-feeds the child's stored allocation
+      (margins already removed) into `gtk_widget_size_allocate()`, which
+      subtracts the margins again on every frame-clock scroll step. Height
+      progressed roughly `41 -> 33 -> 25 -> 17 -> 9 -> 1 -> -7`.
+    - The badge label has 6 px vertical extents on each side (padding 5 +
+      border 1), hence `9 - 12 = -3` and `1 - 12 = -11`; the row itself then
+      reached `height -7`. Same GTK behavior as UI-LAYOUT-101's inline
+      `<hr>` separator.
+    - Trigger: startup/scroll on a chapter that contains fallback badges
+      (reproduced with TorresAmat, Mateo 12:20). Passages without badges
+      (e.g. Ps 2:1) do not reproduce it.
+    - Fix: moved `gtk_widget_set_margin_top/bottom(row, 4)` to
+      `gtk_widget_set_margin_top/bottom(label, 4)`. `row` keeps the default
+      zero margin; `GtkBox` allocates the label margins correctly. Visual
+      spacing is equivalent. No change to content, fallback, badges logic,
+      versification, or the content resolver.
+    - Modified file: `src/webkit/wk-html.c`.
+    - Real-display validation (TorresAmat, Mateo 12:20 with fallback badges):
+      before the fix about 120 `Gtk-WARNING` in a normal run; after the fix a
+      ~70 s normal run with 0 `Gtk-WARNING` and 0 `CRITICAL`, and a ~75 s run
+      under `G_DEBUG=fatal-warnings` with no stop. Maximize/restore and
+      vertical/horizontal resize exercised; badge spacing visually correct.
+    - `wk_html_surface_test`, `poetry_line_wrap_test`,
+      `zoom_anchor_reflow_test`, `study_reading_layout_test`, and
+      `main_window_layout_test` PASS. `cmake --build build --target
+      biblia-elim -j4` PASS; `git diff --check` PASS.
+  - Do not:
+    - Commit or push.
+
+- [ ] UI-SIGNAL-101 Investigate stale GObject signal handler
+  - Status: TODO
+  - Description:
+    A previous real-display run emitted
+    `GLib-GObject-CRITICAL: instance '0x...' has no handler with id '...'`
+    a few seconds after the UI-LAYOUT-103 warnings.
+  - Evidence:
+    - Not reproduced again, including runs under `G_DEBUG=fatal-criticals`;
+      no stop and no backtrace were obtained.
+    - No evidence identifies a concrete caller. Static review found
+      `src/main/sword.cc` `g_signal_handler_block/unblock(adjustment,
+      scroll_adj_signal)` unreachable (the globals are never assigned) and no
+      stale-id pattern in the other project disconnect sites.
+    - No preventive fix was applied.
+  - Resume only if it reappears:
+    1. Record the exact UI action.
+    2. Reproduce with `G_DEBUG=fatal-criticals`.
+    3. Capture `bt` and `bt full`.
+    4. Identify the instance, handler id, where it was connected, where the
+       id was stored, where it is disconnected, and how it became stale.
+    5. Only then propose a fix.
+  - Do not:
+    - Use `g_signal_handler_is_connected()` to hide it without a root cause.
+    - Commit or push.
+
+- [ ] UI-SMOKE-102 Fix "dictionary panel did not reopen explicitly"
+  - Status: TODO
+  - Description:
+    `gtk_lifecycle_smoke` fails with
+    `GTK_LIFECYCLE_SMOKE_CHECK_FAILED dictionary panel did not reopen
+    explicitly` (check at `src/gtk/gtk_lifecycle_smoke.c:199`).
+  - Evidence:
+    - Pre-existing: reproduced identically with the UI-LAYOUT-103 fix stashed
+      via `git stash`, so it is not a regression of UI-LAYOUT-103.
+    - Distinct from the earlier pre-existing `bible-compare` CREATE/SHOW/MAP
+      smoke failure noted under STARTUP-PERF-105.
+  - Do not:
+    - Mix this with the fallback badge fix.
+    - Commit or push.
+
+- [x] NACAR-PSALMS-101 Separate Nácar-Colunga psalm superscriptions from verse 1
+  - Status: DONE
+  - Description:
+    Nácar-Colunga (BAC 1944) prints each psalm superscription as verse 1
+    (or 1-2), following the Hebrew numbering, while the module uses NRSVA,
+    which leaves the title unnumbered. The pipeline stored the title as
+    verse 1, shifted the body one or two verses, and the chapter aligner
+    (using NRSVA verse counts) moved whole psalms to the wrong chapter.
+    Ps 3:1 was not Nácar text at all: `completar.py` had filled it with the
+    full SpaRVG verse, superscription included.
+  - Evidence:
+    - `scripts/nacarcolunga/canon.py` reads the Hebrew psalm verse counts from
+      SWORD's `canon_leningrad.h` and derives `TITULO_SALMOS` (62 psalms: 58
+      with a one-verse title, 4 with two).
+    - `construir.py` aligns Psalms against the Hebrew counts and then maps them
+      to NRSVA: title verses become `Ps c:0`, body verses shift back.
+      `osis.py` emits `Ps c:0` as `<title type="psalm" canonical="true">`
+      before verse 1. `completar.py` compares Psalms against witnesses without
+      their superscription (SpaRVG `«…»`, SpaRV small-caps prefix) and skips
+      SpaPlatense, whose psalm numbering is Vulgate.
+    - The unmodified pipeline was first rebuilt and verified byte-identical
+      to the previous outputs, so the comparison isolates this change.
+    - Alignment metric over the Psalter (verse token overlap against the
+      witnesses): misaligned psalms 41 → 1 of 143-144, mean 0.461 → 0.535.
+    - Ps 3: the Nácar superscription («Salmo de David, al huir de Absalón, su
+      hijo») is stored as pre-verse heading (`x-preverse` title) and shown
+      between «Capítulo 3» and verse 1; Ps 3:1 is Nácar text again. Ps 51,
+      52, and 53 are back in their canonical chapters.
+    - Outside Psalms: 0 differences in `texto.json`, `procedencia.json`, and
+      `reconstruidos.txt` (28,098 keys); the compiled module differs only in
+      osis2mod's auto-numbered `sID`/`eID` counters.
+    - `test_load.py`, `test_cabeceras.py`, and `test_front_matter.py` PASS.
+      Module rebuilt with `osis2mod -v NRSVA -z z` and installed in
+      `~/.sword` after backup
+      (`~/.sword/modules/texts/ztext/nacarcolunga.respaldo-20260914-183425`).
+    - Real app validation (`sword://NacarColunga/Psalms 3:1` and `51:1`):
+      heading rendered before verse 1, 0 `Gtk-WARNING`, 0 `CRITICAL`.
+    - Remaining Psalter defects are tracked separately in NACAR-PSALMS-102,
+      NACAR-PSALMS-103, NACAR-OCR-101, and NACAR-OCR-102.
+  - Do not:
+    - Commit or push.
+
+- [ ] NACAR-PSALMS-102 Fix Nácar-Colunga Psalms 14–17 misalignment
+  - Status: TODO
+  - Description:
+    Ps 14–17 remain misaligned after NACAR-PSALMS-101 (e.g. Ps 15 content
+    lands in Ps 16 and Ps 16 content in Ps 17). These are short psalms whose
+    boundaries the OCR segmentation did not detect; the chapter aligner can
+    drop or merge candidate chapters but cannot split one that the OCR
+    already merged.
+  - Evidence:
+    - Observed in the rebuilt `texto.json` after NACAR-PSALMS-101; the new
+      alignment did not resolve this range.
+  - Acceptance criteria:
+    - Each psalm in 14–17 ends up in its correct canonical chapter.
+    - Neighbouring chapters are not displaced.
+    - A before/after comparison outside the affected range shows no
+      regressions.
+  - Do not:
+    - Apply manual verse or chapter offsets.
+    - Move chapters by hand.
+    - Commit or push.
+  - Requires:
+    - Specific investigation of the OCR segmentation for these pages.
+
+- [ ] NACAR-PSALMS-103 Fix Nácar-Colunga Psalms 117/118 boundary
+  - Status: TODO
+  - Description:
+    Ps 117 has no text of its own in the module: its two verses are glued to
+    the start of Ps 118:1 («Alabad a Yave las gentes todas… Alabad a Yave,
+    porque es bueno…»). Misalignment around Ps 117–118 was also observed
+    during the NACAR-PSALMS-101 investigation.
+  - Evidence:
+    - Ps 118 has not been explicitly verified; do not assume it is correct.
+  - Acceptance criteria:
+    - Ps 117 has exactly its 2 verses.
+    - Ps 118 begins with its own content.
+    - No verses are displaced between both psalms.
+  - Do not:
+    - Use offsets or hardcoded references.
+    - Commit or push.
+
+- [ ] NACAR-OCR-101 Recover Nácar-Colunga Ps 3:4 from the Ps 3:5 OCR merge
+  - Status: TODO
+  - Description:
+    Ps 3:4 is empty in the module and falls back to Reina-Valera 1909 (shown
+    with the fallback badge), because the Nácar OCR merged the content of
+    two verses into Ps 3:5 («Clamaba con mi voz a Yave… (Sela.) S A veces me
+    acostaba…»).
+  - Objective:
+    Recover and split the authentic Nácar text if the facsimile evidence
+    allows it.
+  - Acceptance criteria:
+    - Ps 3:4 and Ps 3:5 each contain only their own Nácar text, supported by
+      the facsimile/OCR source.
+    - The current fallback may remain while the original body is missing.
+  - Do not:
+    - Copy Reina-Valera text and present it as Nácar-Colunga.
+    - Commit or push.
+
+- [ ] NACAR-OCR-102 Audit residual Nácar-Colunga OCR errors
+  - Status: TODO
+  - Description:
+    Audit and clean residual OCR errors observed while comparing the Psalter,
+    e.g. «Yavel» (Yavé), fragments such as «multi. plicado», «sor» (son),
+    «Ab: salón» (Absalón), and residues in psalm titles («SAI meo», «delo
+    de»). This is an audit/cleanup task, not a bulk replacement.
+  - Acceptance criteria:
+    - Each correction is supported by the facsimile/OCR source or by a
+      demonstrable general rule.
+    - Changes are reproducible from the pipeline, not hand edits to the
+      installed module.
+  - Do not:
+    - Modernize the text automatically.
+    - Commit or push.
+
+- [x] TORRES-FACSIMILE-101 Correct Torres Amat Ps 3 and Mt 12 against the 1882 facsimile
+  - Status: DONE
+  - Description:
+    Torres Amat verses with OCR defects were corrected after reading the
+    printed page of the 1882 edition
+    (`https://archive.org/details/la-sagrada-biblia-vulgata-tomo-iiv_202111`).
+    The build data (djvu.xml, `texto.json`) is not available locally, so the
+    compiled module is patched by the reproducible script
+    `scripts/torresamat/parche_facsimil.py`.
+  - Evidence:
+    - Ps 3:2 «¡Ah Señor!;Cómo» → «¡Ah Señor! ¿Cómo» (tomo III, hoja 11).
+    - Ps 3:3 was empty; its text had been glued before Ps 3:5 and is restored.
+    - Ps 3:4 «oh Senor, 44 eres» → «oh Señor, tú eres».
+    - Ps 3:5 keeps only its own text.
+    - Mt 12:4 spurious «$» (footnote callout 3) removed; «ú solos» → «á solos»
+      (tomo IV, hoja 22).
+    - Mt 12:5 «eon» → «con».
+    - Mt 12:11 lost continuation recovered: «…en dia de sábado, no la levante y
+      saque fuera?».
+    - The script exports with `mod2imp`, replaces an entry only if the old text
+      matches exactly, re-imports with `imp2vs -v Vulg -z z`, and verifies with
+      an isolated round trip (renamed module) that only the 7 authorized
+      entries changed. An unmodified export/re-import round trip was
+      byte-identical (38,698 entries).
+    - Installed in `~/.sword` (backup
+      `~/.sword/modules/texts/ztext/torresamat.respaldo-20260914-183425`) and in
+      `modulos/modules/texts/ztext/torresamat/`.
+    - Real app validation (`sword://TorresAmat/Matthew 12:4` and
+      `Psalms 3:3`): corrected text shown, 0 `Gtk-WARNING`, 0 `CRITICAL`.
+  - Do not:
+    - Commit or push.
+
+- [ ] TORRES-FACSIMILE-102 Remove spurious fragment at the end of Torres Amat Mt 12:6
+  - Status: TODO
+  - Description:
+    Mt 12:6 ends with a spurious fragment `" i"` («…mayor que el templo. i»).
+  - Acceptance criteria:
+    - Verified against the 1882 facsimile (tomo IV, hoja 22) before changing.
+    - If confirmed as OCR noise, corrected through
+      `scripts/torresamat/parche_facsimil.py`.
+  - Do not:
+    - Edit only the installed module.
+    - Commit or push.
+
+- [ ] TORRES-FACSIMILE-103 Fix Torres Amat Mt 12:10 «hallabaun»
+  - Status: TODO
+  - Description:
+    Mt 12:10 reads «Donde se hallabaun hombre…».
+  - Acceptance criteria:
+    - The correct reading is verified in the 1882 facsimile (tomo IV,
+      hoja 22).
+    - Corrected through `scripts/torresamat/parche_facsimil.py`.
+    - A focused regression covers the corrected verse.
+  - Do not:
+    - Edit only the installed module.
+    - Commit or push.
+
+- [ ] TORRES-FACSIMILE-104 Harden the Torres Amat facsimile patch mechanism
+  - Status: TODO
+  - Description:
+    `scripts/torresamat/parche_facsimil.py` was used in
+    TORRES-FACSIMILE-101 to correct Ps 3:2, Ps 3:3, Ps 3:4, Ps 3:5, Mt 12:4,
+    Mt 12:5, and Mt 12:11. Verify that the mechanism remains reproducible from
+    a known source, limited to changes demonstrated by the facsimile,
+    idempotent, and free of collateral changes.
+  - Acceptance criteria:
+    - Running the patch twice produces the same result.
+    - A comparison demonstrates that only authorized references change.
+    - The regenerated module matches the expected module.
+    - It does not depend on manually editing `~/.sword`.
+  - Do not:
+    - Commit or push.
+
 # Future / not scheduled
 
 - Human-readable grammatical decoding of morphology codes.
