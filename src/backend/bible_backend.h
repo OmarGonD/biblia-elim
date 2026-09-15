@@ -51,6 +51,59 @@ public:
 	virtual bool resolveKey(const std::string &module_id,
 				       const std::string &key,
 				       BibleKeyInfo &result) = 0;
+	/* Carries source_key, native to source_module, to the reference
+	 * native to target_module. References are never reread as text in
+	 * another versification. Without a real mapper only identical
+	 * versifications are accepted; everything else is Unmapped. */
+	virtual BibleReferenceConversion convertReference(
+		const std::string &source_module,
+		const std::string &source_key,
+		const std::string &target_module)
+	{
+		BibleReferenceConversion result;
+		BibleKeyInfo source;
+		if (!resolveKey(source_module, source_key, source))
+			return result;
+		if (!hasModule(target_module)) {
+			result.status = BibleReferenceMapping::InvalidTarget;
+			return result;
+		}
+		if (versification(source_module) != versification(target_module)) {
+			result.status = BibleReferenceMapping::Unmapped;
+			return result;
+		}
+		if (!resolveKey(target_module, source.key, result.target)) {
+			result.status = BibleReferenceMapping::InvalidTarget;
+			return result;
+		}
+		result.status = BibleReferenceMapping::Mapped;
+		return result;
+	}
+	/* Same, when only the source's versification name survives (the
+	 * module itself is gone, e.g. just uninstalled). */
+	virtual BibleReferenceConversion convertReferenceFromVersification(
+		const std::string &source_versification,
+		const std::string &source_key,
+		const std::string &target_module)
+	{
+		BibleReferenceConversion result;
+		if (source_versification.empty() || source_key.empty())
+			return result;
+		if (!hasModule(target_module)) {
+			result.status = BibleReferenceMapping::InvalidTarget;
+			return result;
+		}
+		if (versification(target_module) != source_versification) {
+			result.status = BibleReferenceMapping::Unmapped;
+			return result;
+		}
+		if (!resolveKey(target_module, source_key, result.target)) {
+			result.status = BibleReferenceMapping::InvalidTarget;
+			return result;
+		}
+		result.status = BibleReferenceMapping::Mapped;
+		return result;
+	}
 	virtual std::vector<BibleVerse> getChapter(
 		const std::string &module_id,
 		const BibleReference &reference,

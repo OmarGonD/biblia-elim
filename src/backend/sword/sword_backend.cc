@@ -9,6 +9,7 @@
 
 #include <regex.h>
 #include <string.h>
+#include <memory>
 #include <sstream>
 #include <string>
 #include <utility>
@@ -260,6 +261,110 @@ bool BackEnd::resolveKey(const std::string &module_id,
 	result.verseCount = verse_key->getVerseMax();
 	delete verse_key;
 	return true;
+}
+
+BibleReferenceMapping swordMapVerseKey(const sword::VerseKey &source,
+				       sword::VerseKey &target)
+{
+	if (source.getTestament() < 1 || source.getBook() < 1)
+		return BibleReferenceMapping::Unmapped;
+	target.setIntros(true);
+	target.setAutoNormalize(0);
+	if (source.getChapter() > 0 && source.getVerse() > 0) {
+		target.positionFrom(source);
+		if (target.popError() || target.getChapter() < 1 ||
+		    target.getVerse() < 1)
+			return BibleReferenceMapping::Unmapped;
+		return BibleReferenceMapping::Mapped;
+	}
+
+	sword::VerseKey body(source);
+	body.setIntros(true);
+	body.setAutoNormalize(0);
+	if (source.getChapter() < 1)
+		body.setChapter(1);
+	body.setVerse(1);
+	target.positionFrom(body);
+	if (target.popError() || target.getChapter() < 1)
+		return BibleReferenceMapping::Unmapped;
+	if (source.getChapter() < 1)
+		target.setChapter(0);
+	target.setVerse(0);
+	if (target.popError())
+		return BibleReferenceMapping::Unmapped;
+	return BibleReferenceMapping::Mapped;
+}
+
+/* Intros on, normalization off: the text is already a native key, and
+ * normalizing would move an intro slot or an out-of-range verse somewhere
+ * else before it is even mapped. */
+static bool parseNativeVerseKey(sword::VerseKey &key, const std::string &text)
+{
+	key.setIntros(true);
+	key.setAutoNormalize(0);
+	key.setText(text.c_str());
+	return !key.popError();
+}
+
+/* Maps into a key of the target's own making: the module's live key is
+ * never touched. */
+static BibleReferenceConversion convertIntoModule(
+	const sword::VerseKey &source, sword::SWModule *target)
+{
+	BibleReferenceConversion result;
+	std::unique_ptr<sword::SWKey> target_owner(
+		target ? target->createKey() : NULL);
+	sword::VerseKey *target_key =
+		dynamic_cast<sword::VerseKey *>(target_owner.get());
+	if (!target_key) {
+		result.status = BibleReferenceMapping::InvalidTarget;
+		return result;
+	}
+
+	result.status = swordMapVerseKey(source, *target_key);
+	if (result.status != BibleReferenceMapping::Mapped)
+		return result;
+	result.target.reference = referenceFor(*target_key);
+	result.target.key = target_key->getText();
+	result.target.bookName = target_key->getBookName();
+	result.target.osisBook = target_key->getOSISBookName();
+	result.target.bookIndex = result.target.reference.book;
+	if (result.target.reference.testament == 2)
+		result.target.bookIndex += target_key->BMAX[0];
+	result.target.chapterCount = target_key->getChapterMax();
+	result.target.verseCount = target_key->getVerseMax();
+	return result;
+}
+
+BibleReferenceConversion BackEnd::convertReference(
+	const std::string &source_module, const std::string &source_key,
+	const std::string &target_module)
+{
+	sword::SWModule *source = get_SWModule(source_module.c_str());
+	std::unique_ptr<sword::SWKey> source_owner(
+		source ? source->createKey() : NULL);
+	sword::VerseKey *source_key_obj =
+		dynamic_cast<sword::VerseKey *>(source_owner.get());
+	if (!source_key_obj || !parseNativeVerseKey(*source_key_obj, source_key))
+		return BibleReferenceConversion();
+	return convertIntoModule(*source_key_obj,
+				 get_SWModule(target_module.c_str()));
+}
+
+BibleReferenceConversion BackEnd::convertReferenceFromVersification(
+	const std::string &source_versification, const std::string &source_key,
+	const std::string &target_module)
+{
+	if (source_versification.empty())
+		return BibleReferenceConversion();
+	sword::VerseKey source;
+	/* An unknown name silently leaves the key on KJV: check it took. */
+	source.setVersificationSystem(source_versification.c_str());
+	const char *applied = source.getVersificationSystem();
+	if (!applied || source_versification != applied ||
+	    !parseNativeVerseKey(source, source_key))
+		return BibleReferenceConversion();
+	return convertIntoModule(source, get_SWModule(target_module.c_str()));
 }
 
 std::vector<BibleVerse> BackEnd::getChapter(const std::string &module_id,

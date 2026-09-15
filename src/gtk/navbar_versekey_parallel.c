@@ -230,12 +230,25 @@ static void on_entry_activate(GtkEntry *entry, gpointer user_data)
 	else
 		main_update_parallel_page_detached();
 	if (sync_on) {
-		const gchar *main_window_url =
-		    g_strdup_printf("sword:///%s%s",
-				    settings.cvparallel,
-				    reference.anchor ? reference.anchor : "");
-		sword_uri(main_window_url, TRUE);
-		g_free((gchar *)main_window_url);
+		/* cvparallel was validated in the 1st parallel module; the
+		 * main window reads its own Bible, so carry the reference
+		 * over, or leave the main window alone without one. */
+		const char *control = settings.parallel_list
+					  ? settings.parallel_list[0]
+					  : settings.MainWindowModule;
+		const char *real_control = main_abbrev_to_name(control);
+		gchar *main_key = main_reference_for_module(
+		    real_control ? real_control : control,
+		    settings.cvparallel, settings.MainWindowModule);
+		if (main_key) {
+			const gchar *main_window_url =
+			    g_strdup_printf("sword:///%s%s",
+					    main_key,
+					    reference.anchor ? reference.anchor : "");
+			sword_uri(main_window_url, TRUE);
+			g_free((gchar *)main_window_url);
+			g_free(main_key);
+		}
 	}
 	settings.special_anchor = NULL;
 	navbar_entry_reference_clear(&reference);

@@ -691,7 +691,8 @@ void main_mod_treeview_button_one(GtkTreeModel *model,
 		if (key)
 			main_url_handler(key, TRUE);
 		else
-			main_display_bible(mod, settings.currentverse);
+			main_display_bible_from_module(settings.MainWindowModule,
+						       settings.currentverse, mod);
 		break;
 
 	case COMMENTARY_TYPE:

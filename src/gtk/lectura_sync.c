@@ -647,6 +647,19 @@ on_swap_clicked(GtkButton *button, gpointer user_data)
 		g_strfreev(cur);
 		return;
 	}
+	/* Check before reordering the list: a verse with no counterpart in
+	 * the new main Bible leaves both the pane and the list untouched. */
+	{
+		gchar *mapped = main_reference_for_module(
+		    settings.MainWindowModule, settings.currentverse, cur[0]);
+		if (!mapped) {
+			main_warn_reference_unmapped(settings.currentverse,
+						     cur[0]);
+			g_strfreev(cur);
+			return;
+		}
+		g_free(mapped);
+	}
 	new_top = g_strdup(cur[0]);
 	next = g_new0(gchar *, LSYNC_MAX + 1);
 	next[0] = g_strdup(settings.MainWindowModule);
@@ -658,7 +671,8 @@ on_swap_clicked(GtkButton *button, gpointer user_data)
 	verse = settings.currentverse;
 	g_free(last_master);
 	last_master = NULL;
-	main_display_bible(new_top, verse);
+	main_display_bible_from_module(settings.MainWindowModule, verse,
+				       new_top);
 	g_free(new_top);
 	lectura_sync_fill_combo();
 }

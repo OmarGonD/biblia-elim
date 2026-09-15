@@ -35,6 +35,15 @@ using std::map;
 using std::list;
 using namespace sword;
 
+/* Positions target (a key in the destination versification) on the verse
+ * that source denotes in its own versification, via
+ * VerseKey::positionFrom(). Neither key belongs to a module. A chapter or
+ * book introduction (verse 0) is carried by mapping verse 1 and taking
+ * the intro of the chapter it lands in: positionFrom() on the intro slot
+ * itself follows the chapter number, not the text. */
+BibleReferenceMapping swordMapVerseKey(const sword::VerseKey &source,
+				       sword::VerseKey &target);
+
 class BackEnd : public BibleBackend
 {
 	SWMgr *main_mgr;
@@ -85,6 +94,14 @@ class BackEnd : public BibleBackend
 	bool resolveKey(const std::string &module_id,
 			       const std::string &key,
 			       BibleKeyInfo &result) override;
+	BibleReferenceConversion convertReference(
+		const std::string &source_module,
+		const std::string &source_key,
+		const std::string &target_module) override;
+	BibleReferenceConversion convertReferenceFromVersification(
+		const std::string &source_versification,
+		const std::string &source_key,
+		const std::string &target_module) override;
 	std::vector<BibleVerse> getChapter(const std::string &module_id,
 					    const BibleReference &reference,
 					    bool rendered) override;

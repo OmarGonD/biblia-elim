@@ -89,6 +89,24 @@ struct BibleKeyInfo {
 	int verseCount = 0;
 };
 
+/* Outcome of carrying a reference from one module's versification to
+ * another's. Unmapped means the source verse has no counterpart in the
+ * target system: callers must not fall back to reading the same numbers
+ * in the target module. */
+enum class BibleReferenceMapping {
+	Mapped,
+	Unmapped,
+	InvalidSource,
+	InvalidTarget,
+};
+
+struct BibleReferenceConversion {
+	BibleReferenceMapping status = BibleReferenceMapping::InvalidSource;
+	/* Valid only when status == Mapped: the key is native to the
+	 * target module, and chapterCount/verseCount are the target's. */
+	BibleKeyInfo target;
+};
+
 struct BibleVerse {
 	BibleReference reference;
 	std::string key;

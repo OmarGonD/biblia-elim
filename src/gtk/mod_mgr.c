@@ -2573,8 +2573,7 @@ static void on_dialog_destroy(GObject *object, gpointer user_data)
 	 */
 	if (!main_is_module(settings.MainWindowModule)) {
 		if ((tmp = get_list(TEXT_LIST)))
-			main_display_bible((char *)tmp->data,
-					   settings.currentverse);
+			main_display_bible_after_removal((char *)tmp->data);
 		else {
 			/* Zero Bibles is just not workable in Xiphos. */
 			gui_generic_warning_modal(_("You have uninstalled your last Bible.\n"

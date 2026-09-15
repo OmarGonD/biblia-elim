@@ -133,16 +133,22 @@ static const BandaCmp bandas_claro[] = {
 	{"#E4CCD8", "#28141E", "#F4E8EE", "#28141E"},
 };
 
+/* key_text is native to source_mod (the main pane's Bible). Each
+ * column shows the same passage under its own numbering: TorresAmat
+ * beside SpaRV Salmos 119:1 is 118:1. */
 static void
-append_un_versiculo(GString *html, const char *mod_name, const char *key_text,
+append_un_versiculo(GString *html, const char *source_mod,
+		    const char *mod_name, const char *key_text,
 		    int slot, int nslots)
 {
 	SWModule *mod;
 	VerseKey *vk;
 	SWBuf saved;
 	const char *plain;
-	gchar *esc, *de;
-	int v;
+	gchar *esc, *de, *target_key, *num;
+	int v, c;
+	gboolean other_chapter;
+	BibleKeyInfo source_info;
 	const BandaCmp *b;
 
 	if (slot < 0)
@@ -160,13 +166,7 @@ append_un_versiculo(GString *html, const char *mod_name, const char *key_text,
 	mod = backend->get_SWModule(mod_name);
 	if (!mod)
 		return;
-	saved = mod->getKey()->getText();
-	vk = (VerseKey *)mod->createKey();
-	vk->setAutoNormalize(1);
-	vk->setText(key_text);
-	v = vk->getVerse();
-	mod->setKey(*vk);
-	delete vk;
+	target_key = main_reference_for_module(source_mod, key_text, mod_name);
 
 	de = g_markup_escape_text(desc_de_modulo(mod_name), -1);
 	g_string_append_printf(html,
@@ -186,13 +186,38 @@ append_un_versiculo(GString *html, const char *mod_name, const char *key_text,
 	g_string_append(html, "</p>");
 	g_free(de);
 
+	if (!target_key) {
+		g_string_append_printf(html,
+				       "<p class=\"miss\" style=\"background-color:%s;color:%s\">%s</p>",
+				       b->row_bg, b->row_fg,
+				       _("Este versículo no está en esta versión."));
+		return;
+	}
+
+	/* Position the module's own key in place: setKey() with a key
+	 * object would replace the pointer the chapter renderer holds. */
+	saved = mod->getKeyText();
+	mod->setKeyText(target_key);
+	vk = dynamic_cast<VerseKey *>(mod->getKey());
+	v = vk ? vk->getVerse() : 0;
+	c = vk ? vk->getChapter() : 0;
+	other_chapter = bible_backend &&
+			bible_backend->resolveKey(source_mod, key_text,
+						  source_info) &&
+			vk &&
+			(source_info.reference.chapter != c ||
+			 source_info.osisBook != vk->getOSISBookName());
+	num = other_chapter ? g_strdup_printf("%d:%d", c, v)
+			    : g_strdup_printf("%d", v);
+	g_free(target_key);
+
 	plain = mod->stripText();
 	if (plain && *plain) {
 		esc = esc_con_saltos(plain);
 		g_string_append_printf(html,
 				       "<p class=\"cur\" style=\"background-color:%s;color:%s\">"
-				       "<span class=\"v\">%d</span> %s</p>",
-				       b->row_bg, b->row_fg, v, esc);
+				       "<span class=\"v\">%s</span> %s</p>",
+				       b->row_bg, b->row_fg, num, esc);
 		g_free(esc);
 	} else {
 		g_string_append_printf(html,
@@ -200,6 +225,7 @@ append_un_versiculo(GString *html, const char *mod_name, const char *key_text,
 				       b->row_bg, b->row_fg,
 				       _("Este versículo no está en esta versión."));
 	}
+	g_free(num);
 	mod->setKeyText(saved.c_str());
 }
 
@@ -290,7 +316,8 @@ lectura_sync_render_for(const char *key_text)
 		for (i = 0; i < nslots; i++) {
 			if (any)
 				g_string_append_printf(html, "<hr color=\"%s\">", divider);
-			append_un_versiculo(html, valid[i], key_text, i, nslots);
+			append_un_versiculo(html, settings.MainWindowModule,
+					    valid[i], key_text, i, nslots);
 			any = TRUE;
 		}
 	}

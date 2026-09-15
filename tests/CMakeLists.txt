@@ -817,6 +817,28 @@ add_executable (sword_backend_key_lifecycle_test EXCLUDE_FROM_ALL
   ${PROJECT_SOURCE_DIR}/src/backend/morphology.cc
   ${PROJECT_SOURCE_DIR}/src/main/busqueda_tildes.c)
 
+add_executable (versification_transition_test EXCLUDE_FROM_ALL
+  versification_transition_test.cc
+  ${PROJECT_SOURCE_DIR}/src/main/reference_transition.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sword_main.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sword/sword_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/quoted_heading.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/source_quirks.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/morphology.cc
+  ${PROJECT_SOURCE_DIR}/src/main/busqueda_tildes.c)
+target_compile_options (versification_transition_test PRIVATE
+  -ffunction-sections)
+target_link_options (versification_transition_test PRIVATE
+  -Wl,--gc-sections)
+target_include_directories (versification_transition_test PRIVATE
+  PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome PkgConfig::Soup
+  PkgConfig::Sword)
+target_link_libraries (versification_transition_test PRIVATE
+  PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome PkgConfig::Soup
+  PkgConfig::Sword)
+
 add_executable (content_resolver_sword_test EXCLUDE_FROM_ALL
   content_resolver_sword_test.cc
   ${PROJECT_SOURCE_DIR}/src/backend/content_resolver.cc

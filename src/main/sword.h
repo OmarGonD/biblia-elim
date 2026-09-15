@@ -108,7 +108,28 @@ void main_display_commentary(const char *mod_name,
 gboolean main_is_author_commentary_module(const char *mod_name);
 void main_display_dictionary(const char *mod_name,
 			     const char *key);
+/* key must be native to mod_name. To carry the reader's place from
+ * another module use main_display_bible_from_module(). */
 void main_display_bible(const char *mod_name, const char *key);
+/* Converts source_key (native to source_mod) to target_mod's
+ * versification. Returns a newly allocated native key, or NULL when the
+ * verse does not exist in target_mod (never the same text reread). */
+gchar *main_reference_for_module(const char *source_mod,
+				 const char *source_key,
+				 const char *target_mod);
+void main_warn_reference_unmapped(const char *source_key,
+				  const char *target_mod);
+/* Switches the main pane from source_mod to target_mod keeping the
+ * passage. Returns FALSE, leaving the pane as it was, when the verse has
+ * no counterpart in target_mod. */
+gboolean main_display_bible_from_module(const char *source_mod,
+					const char *source_key,
+					const char *target_mod);
+/* Replaces the main Bible after it was uninstalled: converts
+ * settings.currentverse from the versification the removed module had.
+ * Returns FALSE when that is not possible, after opening target_mod at
+ * its first verse (never the old key reread in target_mod). */
+gboolean main_display_bible_after_removal(const char *target_mod);
 void main_bible_note_interlinear_html(void);
 void main_display_devotional(GtkWidget *target_widget);
 void main_setup_displays(void);

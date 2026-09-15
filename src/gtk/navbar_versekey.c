@@ -647,9 +647,10 @@ static void _connect_signals(NAVBAR_VERSEKEY navbar)
 }
 
 /* Picker de versión bíblica en la barra de navegación: cambia el
- * módulo de la ventana principal preservando libro/capítulo/versículo
- * enfocado (main_display_bible() re-usa settings.currentverse tal
- * cual se lo pasamos).
+ * módulo de la ventana principal preservando el pasaje enfocado. La
+ * referencia se convierte a la versificación del módulo nuevo (SpaRV
+ * Salmos 119:1 es TorresAmat Salmos 118:1), así que los números de la
+ * barra pueden cambiar.
  *
  * Va agrupado por idioma, y el idioma de la interfaz manda: la lista era
  * plana y mezclaba castellano, inglés, griego, hebreo y siríaco en el
@@ -817,7 +818,8 @@ on_version_elegida(GtkCheckMenuItem *item, gpointer datos)
 	if (!mod || (settings.MainWindowModule &&
 		     !strcmp(mod, settings.MainWindowModule)))
 		return;
-	main_display_bible((char *)mod, settings.currentverse);
+	main_display_bible_from_module(settings.MainWindowModule,
+				       settings.currentverse, mod);
 }
 
 /* El botón enseña la versión puesta; el nombre completo, en el tooltip,

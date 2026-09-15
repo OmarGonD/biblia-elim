@@ -79,6 +79,7 @@ extern "C" {
 #include "main/xml.h"
 #include "main/parallel_view.h"
 #include "main/modulecache.hh"
+#include "main/reference_transition.h"
 
 #include "backend/sword_main.hh"
 #include "backend/sword/sword_backend.h"
@@ -1298,6 +1299,29 @@ void main_display_book(const char *mod_name,
 			      settings.showdicts);
 }
 
+/* Key for a companion module opened from source's key. Verse-keyed
+ * companions (Bibles, commentaries) get the reference converted to their
+ * own versification, or NULL when the verse has no counterpart there.
+ * Dictionaries and books have keys of their own kind: those keep the
+ * string, as before. */
+static gchar *companion_key(const char *source, const char *key,
+			    const char *companion)
+{
+	switch (bible_backend->moduleType(companion)) {
+	case BibleModuleType::Bible:
+	case BibleModuleType::Commentary:
+	case BibleModuleType::PersonalCommentary: {
+		gchar *converted =
+		    main_reference_for_module(source, key, companion);
+		if (!converted)
+			main_warn_reference_unmapped(key, companion);
+		return converted;
+	}
+	default:
+		return g_strdup(key);
+	}
+}
+
 void main_display_commentary(const char *mod_name,
 			     const char *key)
 {
@@ -1351,9 +1375,17 @@ void main_display_commentary(const char *mod_name,
 						 : ""));
 
 			if (gui_yes_no_dialog(companion_question, NULL)) {
-				main_display_bible(name_set[0], key);
+				if (bible_backend->moduleType(name_set[0]) ==
+				    BibleModuleType::Bible)
+					main_display_bible_from_module(
+					    mod_name, key, name_set[0]);
 				for (int i = 1; i < name_length; i++) {
-					main_dialogs_open(name_set[i], key, FALSE);
+					gchar *ck = companion_key(mod_name, key,
+								  name_set[i]);
+					if (ck) {
+						main_dialogs_open(name_set[i], ck, FALSE);
+						g_free(ck);
+					}
 				}
 			}
 			g_free(companion_question);
@@ -1394,10 +1426,7 @@ void main_display_commentary(const char *mod_name,
 static const char *author_commentary_for_bible(const char *bible)
 {
 	if (!bible) return NULL;
-	if (!strcmp(bible, "SpaPlatense")) return "SpaPlatenseComentarios";
-	if (!strcmp(bible, "NacarColunga")) return "NacarColungaNotas";
-	if (!strcmp(bible, "TorresAmat")) return "TorresAmatNotas";
-	return NULL;
+	return authorCommentaryForBible(bible);
 }
 
 gboolean main_is_author_commentary_module(const char *mod_name)
@@ -1414,7 +1443,18 @@ static void main_display_author_commentary(const char *bible, const char *key)
 	if (!settings.showcomms || !settings.comm_showing)
 		return;
 	if (commentary && bible_backend->hasModule(commentary)) {
-		main_display_commentary(commentary, key);
+		/* key is native to the edition. Its notes declare the same
+		 * versification today, so this is identity; converting keeps
+		 * the notes on the right verse if that ever changes. */
+		gchar *comment_key =
+		    main_reference_for_module(bible, key, commentary);
+		if (!comment_key) {
+			HtmlOutput((char *)"<html><body><p><i>Este versículo no tiene equivalente en los comentarios del autor.</i></p></body></html>",
+				   widgets.html_comm, NULL, NULL);
+			return;
+		}
+		main_display_commentary(commentary, comment_key);
+		g_free(comment_key);
 		return;
 	}
 	HtmlOutput((char *)"<html><body><p><i>Esta edición no tiene comentarios del autor instalados.</i></p></body></html>",
@@ -1656,6 +1696,123 @@ main_bible_note_interlinear_html(void)
 	bible_pane_is_interlinear = TRUE;
 }
 
+/* The Bible last put on screen and the versification it declared, kept
+ * so the reader's place can still be converted after that module is
+ * uninstalled (see main_display_bible_after_removal()). */
+static std::string displayed_bible_name;
+static std::string displayed_bible_versification;
+
+static void remember_displayed_bible(const char *mod_name)
+{
+	if (!mod_name || !bible_backend || !bible_backend->hasModule(mod_name))
+		return;
+	displayed_bible_name = mod_name;
+	displayed_bible_versification = bible_backend->versification(mod_name);
+}
+
+/* After a module switch the navbar still shows the numbers read in the
+ * previous module; refresh it with the target's own key and counts. */
+static void refresh_nav_after_switch(const char *target_mod)
+{
+	if (settings.MainWindowModule &&
+	    !strcmp(settings.MainWindowModule, target_mod) &&
+	    settings.currentverse) {
+		gchar *nav_key = main_update_nav_controls(
+		    target_mod, settings.currentverse);
+		g_free(nav_key);
+	}
+}
+
+gchar *main_reference_for_module(const char *source_mod,
+				 const char *source_key,
+				 const char *target_mod)
+{
+	if (!bible_backend || !source_mod || !source_key || !target_mod)
+		return NULL;
+	const BibleModuleTransitionPlan plan = planBibleModuleTransition(
+		*bible_backend, source_mod, source_key, target_mod);
+	if (plan.status != BibleModuleTransition::SameModule &&
+	    plan.status != BibleModuleTransition::Converted)
+		return NULL;
+	return g_strdup(plan.key.c_str());
+}
+
+void main_warn_reference_unmapped(const char *source_key,
+				  const char *target_mod)
+{
+	gchar *msg = g_strdup_printf(
+	    _("%s no tiene equivalente en %s: se mantiene la versión actual."),
+	    source_key ? source_key : "", target_mod ? target_mod : "");
+	gui_generic_warning(msg);
+	g_free(msg);
+}
+
+gboolean main_display_bible_from_module(const char *source_mod,
+					const char *source_key,
+					const char *target_mod)
+{
+	if (!target_mod || !source_key)
+		return FALSE;
+	/* Nothing displayed yet: there is no source versification to
+	 * convert from, and <bible>+<verse> are saved as a native pair. */
+	if (!source_mod) {
+		main_display_bible(target_mod, source_key);
+		return TRUE;
+	}
+
+	/* Convert while source_key still denotes a verse of source_mod:
+	 * main_display_bible() replaces settings.currentverse and
+	 * settings.MainWindowModule, which callers usually pass in. */
+	gchar *target_key = main_reference_for_module(source_mod, source_key,
+						      target_mod);
+	if (!target_key) {
+		main_warn_reference_unmapped(source_key, target_mod);
+		gui_navbar_version_combo_sync();
+		return FALSE;
+	}
+	main_display_bible(target_mod, target_key);
+	refresh_nav_after_switch(target_mod);
+	g_free(target_key);
+	return TRUE;
+}
+
+gboolean main_display_bible_after_removal(const char *target_mod)
+{
+	const char *removed = settings.MainWindowModule;
+	const char *key = settings.currentverse;
+	gchar *target_key = NULL;
+
+	if (!target_mod)
+		return FALSE;
+	/* The removed module can no longer be asked for its numbering; the
+	 * versification it had when it was displayed is all that is left.
+	 * Without it the old key is not reread in the replacement. */
+	if (bible_backend && removed && key &&
+	    displayed_bible_name == removed &&
+	    !displayed_bible_versification.empty()) {
+		const BibleModuleTransitionPlan plan =
+		    planBibleVersificationTransition(
+			*bible_backend, displayed_bible_versification, key,
+			target_mod);
+		if (plan.status == BibleModuleTransition::Converted)
+			target_key = g_strdup(plan.key.c_str());
+	}
+	if (!target_key) {
+		gchar *msg = g_strdup_printf(
+		    _("%s no tiene equivalente en %s: se abre desde el principio."),
+		    key ? key : "", target_mod);
+		gui_generic_warning(msg);
+		g_free(msg);
+		main_display_bible(target_mod, "Genesis 1:1");
+		refresh_nav_after_switch(target_mod);
+		return FALSE;
+	}
+	main_display_bible(target_mod, target_key);
+	refresh_nav_after_switch(target_mod);
+	g_free(target_key);
+	return TRUE;
+}
+
 void main_display_bible(const char *mod_name,
 			const char *key)
 {
@@ -1695,6 +1852,7 @@ void main_display_bible(const char *mod_name,
 	if (adjustment)
 		g_signal_handler_block(adjustment, scroll_adj_signal);
 	auto finish_display = [&]() {
+		remember_displayed_bible(settings.MainWindowModule);
 		if (adjustment)
 			g_signal_handler_unblock(adjustment, scroll_adj_signal);
 		if (panel_load_debug_enabled()) {
@@ -1804,9 +1962,16 @@ void main_display_bible(const char *mod_name,
 						 : ""));
 
 			if (gui_yes_no_dialog(companion_question, NULL)) {
-				main_display_commentary(name_set[0], key);
-				for (int i = 1; i < name_length; i++) {
-					main_dialogs_open(name_set[i], key, FALSE);
+				for (int i = 0; i < name_length; i++) {
+					gchar *ck = companion_key(mod_name, key,
+								  name_set[i]);
+					if (!ck)
+						continue;
+					if (i == 0)
+						main_display_commentary(name_set[0], ck);
+					else
+						main_dialogs_open(name_set[i], ck, FALSE);
+					g_free(ck);
 				}
 			}
 			g_free(companion_question);

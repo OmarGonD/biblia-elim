@@ -40,6 +40,7 @@ add_library (main
   navbar.cc
   navbar_key.cc
   navbar_versekey.cc
+  reference_transition.cc
   verse_navigation.cc
   nube_palabras.cc
   planes_lectura.c

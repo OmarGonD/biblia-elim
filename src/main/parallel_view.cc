@@ -755,17 +755,23 @@ void main_update_parallel_page(void)
 			if (is_rtol)
 				g_string_append(data, "<br/><div align=right>");
 
+			/* cvparallel is native to the main pane's Bible;
+			 * each module reads the same passage under its own
+			 * numbering, or shows nothing when it has none. */
+			gchar *modkey = main_reference_for_module(
+			    settings.MainWindowModule, settings.cvparallel,
+			    mod_name);
 			// does this verse exist for this module?
-			if (!backend_p->is_Bible_key(mod_name,
-						     settings.cvparallel, settings.cvparallel)) {
+			if (!modkey ||
+			    !backend_p->is_Bible_key(mod_name, modkey, modkey)) {
 				g_string_append(data, no_content);
 			} else {
 				SWBuf text("");
-				backend_p->set_module_key(mod_name, settings.cvparallel);
+				backend_p->set_module_key(mod_name, modkey);
 				get_heading(text, backend_p, modidx);
 				g_string_append(data, text.c_str());
 
-				gchar *utf8str = backend_p->get_render_text(mod_name, settings.currentverse);
+				gchar *utf8str = backend_p->get_render_text(mod_name, modkey);
 				if (utf8str) {
 					char fontcolor[32];
 
@@ -776,6 +782,7 @@ void main_update_parallel_page(void)
 					g_free(utf8str);
 				}
 			}
+			g_free(modkey);
 
 			if (is_rtol)
 				g_string_append(data, "</div><br/>");
@@ -858,10 +865,6 @@ static void interpolate_parallel_display(SWModule *control,
 	xverses = (vkey->getVerseMax());
 	delete vkey;
 
-	VerseKey *ctlkey = dynamic_cast<VerseKey *>(control->createKey());
-	if (ctlkey)
-		ctlkey->setAutoNormalize(1);
-
 	is_module = g_new(gboolean, parallel_count);
 	is_rtol = g_new(gboolean, parallel_count);
 	is_bible_text = g_new(gboolean, parallel_count);
@@ -939,11 +942,9 @@ static void interpolate_parallel_display(SWModule *control,
 			g_free(lab_bg);
 		}
 
-		/* the control key as an object, so each module can map from
-		 * it below rather than reparsing the string in its own
-		 * (possibly different) versification. */
-		if (ctlkey)
-			ctlkey->setText(tmpkey);
+		BibleKeyInfo row_info;
+		const bool have_row = bible_backend &&
+			bible_backend->resolveKey(control_name, tmpkey, row_info);
 
 		text += "<tr valign=\"top\">";
 
@@ -967,8 +968,37 @@ static void interpolate_parallel_display(SWModule *control,
 						? settings.currentverse_color
 						: settings.bible_text_color;
 
+				/* tmpkey is expressed in the *control* module's
+				 * versification. Each cell maps it to its own:
+				 * comparing SpaRV1909 (KJV) against SpaPlatense
+				 * (Vulg) by reusing the string put Psalm 121
+				 * beside Psalm 120. Modules without verse keys
+				 * have no versification to map through. */
+				SWModule *target = backend_p->get_SWModule(mod);
+				const bool verse_keyed = target &&
+					dynamic_cast<VerseKey *>(target->getKey());
+				gchar *modkey = verse_keyed
+					? main_reference_for_module(control_name, tmpkey, mod)
+					: g_strdup(tmpkey);
+
+				/* The cell numbers its own verse, with the
+				 * chapter when it is not the row's. */
+				BibleKeyInfo cell_info;
+				gchar *num;
+				if (modkey && verse_keyed && have_row &&
+				    bible_backend->resolveKey(mod, modkey, cell_info) &&
+				    (cell_info.reference.chapter != row_info.reference.chapter ||
+				     cell_info.osisBook != row_info.osisBook))
+					num = g_strdup_printf("%d:%d",
+							      cell_info.reference.chapter,
+							      cell_info.reference.verse);
+				else if (modkey && verse_keyed && have_row &&
+					 bible_backend->resolveKey(mod, modkey, cell_info))
+					num = main_format_number(cell_info.reference.verse);
+				else
+					num = main_format_number(verse);
+
 				const gchar *newurl = main_url_encode(tmpkey);
-				gchar *num = main_format_number(verse);
 				snprintf(str, 499,
 					 "<td width=\"%d%%\" bgcolor=\"%s\">"
 					 "<a name=\"%d\">%s</a>"
@@ -993,52 +1023,27 @@ static void interpolate_parallel_display(SWModule *control,
 				if (is_rtol[modidx])
 					text += "<br/><div align=right>";
 
-				/* tmpkey is expressed in the *control*
-				 * module's versification. Handing that same
-				 * string to a module on another one lands on
-				 * a different verse: comparing SpaRV1909
-				 * (KJV) against SpaPlatense (Vulg) put Psalm
-				 * 121 beside Psalm 120, silently. The comment
-				 * above admits upstream never solved this
-				 * ("very possibly wrong for all but the 1st")
-				 * -- but Sword does map between systems, so
-				 * ask each module's own key to position
-				 * itself from the control's. */
-				/* Map through a key of our own, never through
-				 * the module's: getText() hands back a pointer
-				 * into the live key's buffer, and feeding that
-				 * straight back into set_module_key() for the
-				 * same module aliases it onto itself. Doing
-				 * exactly that produced Revelation 1:1 in
-				 * every row. */
-				gchar *modkey = NULL;
-				if (ctlkey) {
-					SWModule *target = backend_p->get_SWModule(mod);
-					VerseKey *tv = target
-						? dynamic_cast<VerseKey *>(target->getKey())
-						: NULL;
-					if (tv) {
-						VerseKey probe;
-						probe.setVersificationSystem(
-						    tv->getVersificationSystem());
-						probe.setAutoNormalize(1);
-						probe.positionFrom(*ctlkey);
-						if (!probe.popError())
-							modkey = g_strdup(probe.getText());
+				/* Mapped per verse, never chapter + offset: KJV
+				 * Psalm 147:11 is Vulgate 146:11 and 147:12 is
+				 * Vulgate 147:1. A verse with no counterpart
+				 * stays empty rather than reading the same
+				 * numbers in the other versification. modkey
+				 * is our own copy, never the live key's buffer
+				 * (aliasing that produced Revelation 1:1 in
+				 * every row). */
+				if (modkey) {
+					backend_p->set_module_key(mod, modkey);
+					get_heading(text, backend_p, modidx);
+
+					utf8str = backend_p->get_render_text(mod, modkey);
+					if (utf8str) {
+						text += utf8str;
+						g_free(utf8str);
 					}
+				} else {
+					text += no_content;
 				}
-				if (!modkey)
-					modkey = g_strdup(tmpkey);
-
-				backend_p->set_module_key(mod, modkey);
-				get_heading(text, backend_p, modidx);
-
-				utf8str = backend_p->get_render_text(mod, modkey);
 				g_free(modkey);
-				if (utf8str) {
-					text += utf8str;
-					g_free(utf8str);
-				}
 
 				if (is_rtol[modidx])
 					text += "</div>";
@@ -1060,7 +1065,6 @@ static void interpolate_parallel_display(SWModule *control,
 	g_free(is_rtol);
 	g_free(is_module);
 	g_free(is_bible_text);
-	delete ctlkey;
 	g_free(row_tint);
 }
 
@@ -1129,6 +1133,14 @@ parallel_build_html(SWBuf &text, gint *parallel_count_out)
 		return FALSE;
 	}
 
+	/* cvparallel is native to the main pane's Bible, but the rows are
+	 * laid out in the control module's chapter: carry the reference
+	 * over first. No counterpart there, no table. */
+	gchar *control_key = main_reference_for_module(
+	    settings.MainWindowModule, settings.cvparallel, control_name);
+	if (!control_key)
+		return FALSE;
+
 	snprintf(buf, 4999, HTML_START
 		 "<body bgcolor=\"%s\" text=\"%s\" link=\"%s\">"
 		 "  <div class=\"table-container\">"
@@ -1168,7 +1180,8 @@ parallel_build_html(SWBuf &text, gint *parallel_count_out)
 	}
 
 	text += "</tr> </thead> <tbody>";
-	interpolate_parallel_display(control, control_name, text, settings.cvparallel, parallel_count, fraction);
+	interpolate_parallel_display(control, control_name, text, control_key, parallel_count, fraction);
+	g_free(control_key);
 	text += "</tbody> </table> </div> </body> </html>";
 
 	if (parallel_count_out)
@@ -1245,7 +1258,9 @@ gboolean main_reading_compare_render(const char *key)
 
 void main_swap_parallel_with_main(char *intmod)
 {
-	main_display_bible(intmod, settings.currentverse);
+	if (!main_display_bible_from_module(settings.MainWindowModule,
+					    settings.currentverse, intmod))
+		return;
 	main_update_parallel_page();
 	gtk_notebook_set_current_page(GTK_NOTEBOOK(widgets.notebook_bible_parallel), 0);
 }

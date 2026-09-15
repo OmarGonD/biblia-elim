@@ -805,10 +805,29 @@ gint sword_uri(const gchar *url, gboolean clicked)
 				settings.special_anchor = save;
 			}
 			settings.comm_showing = TRUE;
-			key = main_update_nav_controls(mod, tmpkey);
-			main_display_commentary(mod, key);
-			main_display_bible(NULL, key);
-			main_keep_bibletext_dialog_in_sync((gchar *)key);
+			{
+				/* key is native to the commentary; the Bible
+				 * pane follows with the same passage under its
+				 * own numbering, or stays put without one. */
+				gchar *prev_verse = g_strdup(settings.currentverse);
+				key = main_update_nav_controls(mod, tmpkey);
+				main_display_commentary(mod, key);
+				gchar *bible_key = main_reference_for_module(
+				    mod, key, settings.MainWindowModule);
+				gchar *nav_key = main_update_nav_controls(
+				    settings.MainWindowModule,
+				    bible_key ? bible_key : prev_verse);
+				if (bible_key) {
+					main_display_bible(NULL, nav_key);
+					main_keep_bibletext_dialog_in_sync(nav_key);
+				} else {
+					main_warn_reference_unmapped(
+					    key, settings.MainWindowModule);
+				}
+				g_free(nav_key);
+				g_free(bible_key);
+				g_free(prev_verse);
+			}
 			if (key)
 				g_free((gchar *)key);
 			break;

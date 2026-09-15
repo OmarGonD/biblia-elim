@@ -812,9 +812,18 @@ void main_keep_bibletext_dialog_in_sync(gchar *key)
 	while (tmp != NULL) {
 		DIALOG_DATA *t = (DIALOG_DATA *)tmp->data;
 		if (t->sync) {
-			url = g_strdup_printf("sword://%s/%s", t->mod_name, key);
-			main_dialogs_url_handler(t, url, TRUE);
-			g_free(url);
+			/* key is native to the main Bible: each dialog
+			 * follows the passage under its own numbering, and
+			 * stays where it is when it has no counterpart. */
+			gchar *dialog_key = main_reference_for_module(
+			    settings.MainWindowModule, key, t->mod_name);
+			if (dialog_key) {
+				url = g_strdup_printf("sword://%s/%s",
+						      t->mod_name, dialog_key);
+				main_dialogs_url_handler(t, url, TRUE);
+				g_free(url);
+				g_free(dialog_key);
+			}
 		}
 		tmp = g_list_next(tmp);
 	}
