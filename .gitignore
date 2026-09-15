@@ -37,6 +37,7 @@ scripts/nacarcolunga/*.osis.xml
 scripts/nacarcolunga/*.imp
 scripts/nacarcolunga/reocr/
 scripts/nacarcolunga/tessdata/
+scripts/torresamat/salida/
 
 # Generado desde el módulo público SpaPlatense instalado.
 scripts/platense/platense-comentarios.imp
