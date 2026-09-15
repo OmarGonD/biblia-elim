@@ -1475,8 +1475,13 @@ insert_fallback_badge(ParseCtx *ctx, xmlNode *node)
 	gtk_box_pack_start(GTK_BOX(row), left, TRUE, TRUE, 0);
 	gtk_box_pack_start(GTK_BOX(row), label, FALSE, FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(row), right, TRUE, TRUE, 0);
-	gtk_widget_set_margin_top(row, 4);
-	gtk_widget_set_margin_bottom(row, 4);
+	/* The breathing room goes on the label, not on row: row is the
+	 * GtkTextView inline child, and GTK 3's adjust_allocation() on
+	 * scroll re-subtracts an anchored child's margins every step,
+	 * shrinking it into negative heights. GtkBox allocates the label's
+	 * margins correctly. */
+	gtk_widget_set_margin_top(label, 4);
+	gtk_widget_set_margin_bottom(label, 4);
 	gtk_widget_set_valign(row, GTK_ALIGN_CENTER);
 
 	place_child(ctx, row);
