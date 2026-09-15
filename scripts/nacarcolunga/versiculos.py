@@ -140,38 +140,76 @@ def _origen(linea, base):
     return out
 
 
+# Cabecera impresa de cada salmo: «14 (Vulg. 13.)». Es la única marca de
+# capítulo del Salterio: los salmos no llevan el «3 1» de los demás libros.
+# Con pocas letras y muchas cifras, es_ruido la descartaba, y un salmo
+# nuevo solo se notaba cuando la numeración volvía a 1.
+RE_CABECERA_SALMO = re.compile(
+    r"^\s*(\d{1,3})\s*\(\s*Vulg\.?\s*\d{1,3}\s*[.,]?\s*\)\s*$")
+
+
+def _sucesos_linea(l, t, cands, origen):
+    if es_ruido(t) or es_titulo(t):
+        return []
+    if es_running_header(t, cands):
+        return []
+    out = []
+    ini = abre_versiculo(t)
+    if ini and ini[0] == "capver":
+        out.append(("cap", ini[1], cands))
+        resto = ini[2]
+        trozos = parte_internos(resto)
+        out.append(("vers", 1, trozos[0][1], cands, True, _origen(l, origen)))
+        for num, txt in trozos[1:]:
+            out.append(("vers", num, txt, cands, False, _origen(l, origen)))
+        return out
+    resto = ini[2] if ini else t
+    trozos = parte_internos(resto)
+    primero, cola = trozos[0], trozos[1:]
+    if ini:
+        out.append(("vers", ini[1], primero[1], cands, True, _origen(l, origen)))
+    elif primero[1]:
+        out.append(("sigue", primero[1], cands))
+    for num, txt in cola:
+        out.append(("vers", num, txt, cands, False, _origen(l, origen)))
+    return out
+
+
 def corriente(lineas, cands=None, origen=None):
     """
     Sucesos:
       ("cap", n, cands)
+      ("cap", n, cands, "cabecera")   cabecera impresa de salmo
       ("vers", n, texto, cands, True/False)
       ("sigue", texto, cands)
+
+    La cabecera de salmo abre capítulo justo delante de su primer verso,
+    no en su propio renglón: lo que va entre medias (el epígrafe «Seguridad
+    del justo…») sigue yendo a donde iba antes. Limpiar esos epígrafes es
+    otra tarea, y quitarlos del último verso sin más dejaba versos cortos
+    que completar.py sustituía por Reina-Valera.
     """
     out = []
+    cabecera = None
     for l in lineas:
         t = texto(l).strip()
-        if es_ruido(t) or es_titulo(t):
+        m = RE_CABECERA_SALMO.match(t)
+        if m:
+            cabecera = int(m.group(1))
             continue
-        if es_running_header(t, cands):
-            continue
-        ini = abre_versiculo(t)
-        if ini and ini[0] == "capver":
-            out.append(("cap", ini[1], cands))
-            resto = ini[2]
-            trozos = parte_internos(resto)
-            out.append(("vers", 1, trozos[0][1], cands, True, _origen(l, origen)))
-            for num, txt in trozos[1:]:
-                out.append(("vers", num, txt, cands, False, _origen(l, origen)))
-            continue
-        resto = ini[2] if ini else t
-        trozos = parte_internos(resto)
-        primero, cola = trozos[0], trozos[1:]
-        if ini:
-            out.append(("vers", ini[1], primero[1], cands, True, _origen(l, origen)))
-        elif primero[1]:
-            out.append(("sigue", primero[1], cands))
-        for num, txt in cola:
-            out.append(("vers", num, txt, cands, False, _origen(l, origen)))
+        nuevos = _sucesos_linea(l, t, cands, origen)
+        if cabecera is not None:
+            i = next((k for k, s in enumerate(nuevos)
+                      if s[0] in ("vers", "cap")), None)
+            if i is not None:
+                if nuevos[i][0] == "cap":
+                    nuevos[i] = nuevos[i][:3] + ("cabecera",)
+                else:
+                    nuevos.insert(i, ("cap", cabecera, cands, "cabecera"))
+                cabecera = None
+        out += nuevos
+    if cabecera is not None:
+        out.append(("cap", cabecera, cands, "cabecera"))
     return out
 
 

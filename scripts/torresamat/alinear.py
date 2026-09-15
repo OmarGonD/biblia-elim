@@ -16,7 +16,7 @@ def segmenta(sucesos):
     def nuevo():
         nonlocal cur, ult
         cur = {"nums": [], "sucesos": [], "cands": [], "inicio": False,
-               "num_cap": None}
+               "num_cap": None, "cabecera": False}
         caps.append(cur); ult = 0
     for s in sucesos:
         if s[0] == "libro":
@@ -28,9 +28,18 @@ def segmenta(sucesos):
                 nuevo()
                 cur["inicio"] = marca
             cur["num_cap"] = s[1]
+            # ("cap", n, cands, "cabecera"): capítulo abierto por su cabecera
+            # impresa (los salmos de Nácar-Colunga). Torres Amat no la emite.
+            cur["cabecera"] = len(s) > 3 and s[3] == "cabecera"
         elif s[0] == "vers":
             n = s[1]
-            if cur is None or (n <= 2 and ult >= 5):
+            # Un 1 o 2 tras versos altos abre capítulo. Pero si el capítulo en
+            # curso lo abrió una cabecera impresa y la marca va a mitad de
+            # renglón, es ruido: el siguiente traerá su propia cabecera. En el
+            # Sal 14:5 el OCR leyó «tiempo, | porque» como «tiempo, 1 porque»;
+            # ese 1 partía el salmo en dos y corría del 15 al 17.
+            if cur is None or (n <= 2 and ult >= 5 and
+                               (s[4] or not cur["cabecera"])):
                 nuevo()
             cur["nums"].append(n)
             cur["sucesos"].append(s)
