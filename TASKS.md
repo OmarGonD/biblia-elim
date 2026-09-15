@@ -2720,6 +2720,256 @@
   - Do not:
     - Commit or push.
 
+- [x] V11N-MODULE-101 Convert references between modules instead of rereading them
+  - Status: DONE
+  - Description:
+    Switching Bibles reused `settings.currentverse` as text and applied it
+    to the new module (`set_module_key` → `setKey(text)`), so SpaRV
+    Psalms 119:1 opened TorresAmat (Vulg) at its own 119:1 («Cántico de los
+    grados…») instead of Vulg 118:1. The approved contract is: a reference
+    is (module, key native to that module's versification); crossing modules
+    converts with `VerseKey::positionFrom`, never by rereading the text.
+    Branch `fix/module-versification-transition`, commit `9d0e9e8d`
+    (not pushed when recorded).
+  - Evidence:
+    - Central helper: `BibleBackend::convertReference` and
+      `convertReferenceFromVersification` (SWORD implementation maps into
+      keys of their own, never the modules' live keys) and
+      `planBibleModuleTransition` / `planBibleVersificationTransition` in
+      `src/main/reference_transition.cc`. Results are Mapped / Unmapped /
+      Invalid; Unmapped is never turned into identity. Verse 0 is carried by
+      mapping verse 1 and taking that chapter's intro.
+    - Routes converted: version picker, sidebar, parallel swap, Comparar
+      swap, reading sync columns, stacked parallel page, verse-by-verse
+      parallel table (control key first, then per cell), synced Bible
+      dialogs, parallel navbar `sync_on`, `sword://Commentary/ref` → Bible,
+      Companion modules (verse-keyed companions converted, dictionaries and
+      books keep their keys; no installed module declares `Companion`),
+      author commentary (SpaPlatenseComentarios / NacarColungaNotas /
+      TorresAmatNotas declare the same versification as their edition, so
+      identity today, converted anyway), and replacement after uninstalling
+      the main Bible (converted from the versification remembered at
+      display time; without a mapping, warning + first verse of the
+      replacement).
+    - Unmapped switch: warning, previous Bible and reference kept.
+    - Global audit of `setText` / `setKeyText` / `set_module_key` /
+      `setKey` / `main_display_bible`: 0 Bible→Bible routes rereading
+      another module's reference as text.
+    - `versification_transition_test`: KJV→Vulg Ps 118:10/119:1/120:1/147:12,
+      Vulg→KJV 118:1/119:1, identities, NRSVA/KJVA Psalms, deuterocanon
+      (NRSVA Tob, KJVA Sir, NRSVA Bar, Vulg Tob→NRSVA), explicit Unmapped
+      (KJV Ps 13:6, NRSVA Tob→KJV, Vulg Bar 6:1→NRSVA), Ps 147:1–20 verse by
+      verse, intros (KJV 119:0→Vulg 118:0, 51:0→50:0), module transitions
+      with installed modules (0 skipped), removed-module transitions, author
+      commentary identity, and live key pointer/text unchanged.
+    - Regressions green: `sword_backend_key_lifecycle_test`,
+      `content_resolver_sword_test`, `content_resolver_test`,
+      `navbar_valid_key_ownership_test`, `verse_navigation_readiness_test`,
+      `bible_backend_contract_test`, `sqlite_bible_backend_test`.
+      `gtk_lifecycle_smoke` fails only with the known UI-SMOKE-102 message.
+    - Real app (picker clicks): SpaRV 119:1 → TorresAmat 118:1
+      «Bienaventurados…»; TorresAmat 118:1 → SpaRV 119:1; TorresAmat 119:1 →
+      SpaRV 120:1; SpaRV 147:12 → TorresAmat 147:1; SpaRV 119:1 →
+      SpaPlatense 118:1; SpaRV → SpaRV unchanged. Stacked parallel shows
+      SpaPlatense 118:1 beside SpaRV 119:1. Reading-mode table SpaRV Ps 147:
+      rows 1–11 beside TorresAmat 146:1–11, row 12 beside Vulg 147:1. 0
+      `WARNING` / `CRITICAL`.
+  - Follow-ups:
+    - General commentary pane still receives the Bible's native key (e.g.
+      TSK, KJV, beside TorresAmat, Vulg): registered as V11N-COMMENTARY-101.
+    - Text rendering helpers (`BackEnd::getText` → `get_raw_text` /
+      `get_render_text`) replace the module's live key pointer; pre-existing
+      (reproduced on HEAD before this fix): registered as SWORD-KEY-101.
+    - Bookmarks without module name remain ambiguous and were not migrated.
+    - Torres Amat data: native Ps 119:1 «0 gradual. eme», Ps 146:11 with
+      Ps 147 glued, Ps 147:6 `&amp;##x27;`.
+  - Do not:
+    - Renumber Vulg references to look like Reina-Valera.
+    - Push without review.
+
+- [ ] TORRES-PSALM-TITLES-101 Preserve and mark native psalm title slots in Torres Amat
+  - Status: TODO
+  - Description:
+    Torres Amat follows the Vulgate and numbers a psalm's superscription as
+    a real verse. Confirmed in the 1882 facsimile (tomo III, hoja 11):
+    «1, Salmo de David cuando temeroso iba huyendo de su hijo Absalom» /
+    «2, ¡Ah Señor!…». That numbering is correct and must not change.
+    `scripts/torresamat/osis.py` emits those slots as plain body text, with
+    no `<title>`, Heading or Preverse, so nothing downstream can tell a
+    title from a verse.
+  - Known cases:
+    - Ps 3:1: correct title, no metadata.
+    - Ps 4:1: correct title, no metadata.
+    - Ps 4:2 holds v2 + v3 merged (Ps 4:3 empty).
+    - Ps 50:1: first part of the title missing (slot empty).
+    - Ps 51:1: first part of the title missing (slot empty).
+    - Ps 52:1: title and first verse merged.
+  - Acceptance criteria:
+    - The native Vulg verse number is kept.
+    - Titles are not moved to another verse (not to v0, not to Preverse of
+      the next verse).
+    - The title is represented structurally in the OSIS.
+    - Missing title text is recovered from the facsimile (the full djvu
+      source is not available locally; Ps 50–52 pages must be fetched).
+    - Merged slots are split.
+    - No runtime text heuristics.
+  - Do not:
+    - Edit only the installed module.
+    - Commit or push.
+
+- [ ] RENDER-PSALM-TITLES-101 Render structurally marked native psalm-title verses as titles
+  - Status: TODO
+  - Description:
+    `GTKChapDisp::RenderOneChapter` paints number + body for every non-empty
+    verse, so TorresAmat Ps 3:1 looks like an ordinary verse. Only
+    Preverse headings (e.g. NacarColunga's `<title type="psalm"
+    canonical="true">`, rendered as `<h3 class="title psalm canonical">`)
+    reach the renderer as structure today.
+  - Acceptance criteria:
+    - Acts only when structural metadata exists.
+    - The native number is kept: `1  Salmo de David…`.
+    - Superscription/title styling is applied.
+    - Ps 3:2 is not renumbered as Ps 3:1.
+    - Titles are not inferred from strings.
+    - Existing NacarColunga headings keep working.
+    - A title-only body is not classified as missing content
+      (`content_availability.cc` treats `title` / `h1`–`h6` as heading tags),
+      or it would trigger fallback.
+  - Depends on:
+    - TORRES-PSALM-TITLES-101.
+  - Do not:
+    - Commit or push.
+
+- [ ] FALLBACK-V11N-101 Prevent cross-versification fallback from filling native title slots
+  - Status: TODO
+  - Description:
+    Vulg↔KJV mappings can be many-to-one: Vulg Ps 3:1 → KJV Ps 3:1 and
+    Vulg Ps 3:2 → KJV Ps 3:1; Vulg Ps 50:1/2/3 → KJV Ps 51:1. When a Vulg
+    title slot is empty, fallback can insert a KJV verse that carries title +
+    body already present in other Vulg slots, duplicating content.
+  - Evidence:
+    - Real app: TorresAmat Ps 50:1 (empty) receives SpaRV1909 KJV Ps 51:1
+      («Al Músico principal… TEN piedad de mí, oh Dios…»), and TorresAmat's
+      own body appears again at Ps 50:3 («Ten piedad de mí, oh Dios…»).
+    - Resolver probe: TorresAmat Ps 51:1 (empty) receives SpaRV1909 KJV
+      Ps 52:1 (title + «¿POR qué te glorías…»), duplicating Ps 51:3.
+  - Acceptance criteria:
+    - A truly missing native verse is distinguished from a structural title
+      slot.
+    - A title-only slot is not filled with body from a many-to-one mapping.
+    - Legitimate body fallback is not lost.
+    - The policy relies on structural metadata / mapping, not on text.
+    - Tests cover Ps 3, Ps 50 and Ps 51.
+  - Do not:
+    - Commit or push.
+
+- [ ] V11N-COMMENTARY-101 Convert general commentary references across versifications
+  - Status: TODO
+  - Description:
+    The general commentary pane can receive the active Bible's native key
+    directly even when the commentary and the Bible use different
+    versifications (e.g. TorresAmat = Vulg beside TSK = KJV). Out of scope
+    for V11N-MODULE-101, which closed Bible→Bible routes and the author
+    commentary route only.
+  - Acceptance criteria:
+    - Bible native reference → commentary native reference is converted.
+    - Uses the transition contract adopted in V11N-MODULE-101
+      (`planBibleModuleTransition` / `convertReference`).
+    - Unmapped is explicit.
+    - Text is never reread by identity.
+    - Commentaries with the same versification as the Bible keep working.
+  - Do not:
+    - Commit or push.
+
+- [ ] SWORD-KEY-101 Stop text rendering helpers from replacing module key pointers
+  - Status: TODO
+  - Description:
+    Text rendering helpers can replace the SWKey owned by a SWORD module
+    instead of preserving the existing shared key object. Other parts of the
+    application keep and reuse the pointer returned by `module->getKey()`;
+    replacing that SWKey can leave those references on an object that no
+    longer represents the module's active key, or introduce lifetime/state
+    problems. No crash or use-after-free has been reproduced for this path
+    yet; none is claimed here.
+  - Evidence:
+    - Found while validating V11N-MODULE-101 with a probe that records
+      `module->getKey()` before and after each backend call (TorresAmat and
+      SpaRV, `Psalms 118:1`).
+    - Reproduced identically against `2cd008b7` (HEAD before the
+      versification fix) and against the tree with V11N-MODULE-101, so it is
+      not a regression introduced by `9d0e9e8d fix(v11n): convert references
+      across Bible modules`.
+    - `resolveKey()` and `getVerseContent()` (first and repeated reads) did
+      not change the pointer in that probe.
+    - A read through `getText()` did change it: `BackEnd::getText` →
+      `get_raw_text`, which ends in an operation equivalent to
+      `module->setKey(key)`. By code reading, `get_render_text` (and
+      `get_strip_text`) use the same pattern; only the raw path was
+      exercised by the probe.
+    - The new transition helpers `convertReference()` and
+      `planBibleModuleTransition()` work on temporary keys of their own and
+      do not change the module's key pointer or text
+      (`versification_transition_test` asserts this).
+    - Line numbers in `sword_main.cc` may change and are not part of this
+      task's contract.
+  - Root cause to investigate (hypothesis, not a settled fix):
+    The rendering paths build or receive another SWKey and hand it to the
+    module through `setKey(...)`. With the libsword semantics used here,
+    that can substitute the module-owned key instead of repositioning the
+    existing SWKey in place. The task must determine exactly:
+    - object ownership;
+    - lifetime;
+    - which `setKey` overload is used;
+    - when the object is substituted;
+    - which VerseKey state must be preserved.
+  - Acceptance criteria:
+    - `module->getKey()` keeps the same pointer before and after a text
+      read, at least for `getText`, `get_raw_text` and `get_render_text` (or
+      their current equivalents).
+    - Position and relevant key configuration are preserved or restored in
+      place when the operation is temporary.
+    - The shared SWKey is not replaced just to position the module.
+    - In-place repositioning APIs (e.g. `setKeyText()` or safe VerseKey
+      manipulation) are preferred, but the solution is not fixed before the
+      real semantics are audited.
+    - At least 1000 repeated reads keep a stable pointer, correct text,
+      correct reference and no state corruption.
+    - Covered at least for modules of different versifications: SpaRV
+      (KJV) and TorresAmat (Vulg).
+    - `ModuleKeyGuard` still restores position, text, AutoNormalize,
+      skip-consecutive-links and any other flag it already preserves.
+    - `content_resolver` keeps its current behavior.
+    - No regression between first read and later reads (cold/warm state).
+    - SWORD lifecycle tests keep passing.
+  - Regressions to check when implemented:
+    - `sword_backend_key_lifecycle_test`.
+    - `content_resolver_sword_test`.
+    - `content_resolver_test`.
+    - `versification_transition_test`.
+    - Any existing `ModuleKeyGuard` test.
+    - Repeated reads of the same verse.
+    - Chapter change after `getText`/render.
+    - Module change after render.
+    - KJV and Vulg modules.
+  - Related history:
+    Conceptually related to earlier SWORD key-state problems: replacing an
+    SWKey could leave a legacy pointer out of sync or dangling, and
+    repositioning with `setKeyText()` was preferred (see the
+    `ModuleKeyGuard` / `getVerseContent` notes in `sword_backend.cc`, and the
+    parallel view key aliasing that produced Revelation 1:1 in every row).
+    Not assumed to be the same cause until audited; this task must not
+    reintroduce that pattern.
+  - Do not:
+    - Mix this fix with V11N-MODULE-101.
+    - Change versification rules.
+    - Touch fallback.
+    - Modify SWORD modules or Bible data.
+    - Do a massive refactor of `sword_main`.
+    - Convert every `setKey()` call automatically without analyzing
+      ownership and semantics.
+    - Declare it fixed only because nothing crashes.
+    - Commit or push.
+
 # Future / not scheduled
 
 - Human-readable grammatical decoding of morphology codes.
