@@ -2488,50 +2488,164 @@
   - Do not:
     - Commit or push.
 
-- [ ] NACAR-FALLBACK-101 Stop completar.py from replacing valid Nácar text with Reina-Valera
+- [ ] NACAR-OCR-106 Record structural truncation/loss metadata from the parser
   - Status: TODO
   - Description:
-    `scripts/nacarcolunga/completar.py` replaces authentic Nácar-Colunga text
-    with Reina-Valera witness text based on the length of a different
-    translation.
-  - Root cause:
-    - `hay_que_completar()` considers a Nácar verse incomplete when it has
-      fewer than `max(8, 80 %)` of the words of the Reina-Valera witness: it
-      compares the length of two different translations and consults no
-      provenance or structural signal.
-    - `tejer()` keeps only the OCR words before the first match and appends the
-      rest of the witness.
-    - `completar_todo()` accepts the replacement when the result has more
-      words.
-    - Aggravating factor: for psalms not in `TITULO_SALMOS` (e.g. Ps 15, 17,
-      124, 133), the SpaRV witness still carries the title inside verse 1,
-      which inflates its length.
+    With NACAR-FALLBACK-101 the pipeline correctly preserves Nácar-Colunga
+    text, but verses that are really truncated stay partial without any badge:
+    they have a body, so the runtime fallback does not apply, and the pipeline
+    does not know that text is missing.
   - Evidence:
-    - Ps 17:7: complete Nácar text in the facsimile and OCR («Ostenta tu
-      magnífica piedad, tú que salvas del enemigo a los que a ti se acogen.»,
-      16 words vs threshold 18); replaced only because it is shorter than
-      Reina-Valera.
-    - Ps 16:3: ends up replaced by Reina-Valera; here `es_titulo()` also
-      discards an authentic line (NACAR-OCR-103).
-    - Of the 11 new fills after NACAR-PSALMS-102: 3 were complete Nácar
-      verses (Ps 17:7, 131:2, 133:1), 7 were truncated by `es_titulo()`, and 1
-      by the OCR itself (Ps 124:1); none was an absent verse.
-    - Global impact: the current policy replaces about 4,602 verses across the
-      Bible (180 in Psalms, 4,422 elsewhere); 3,054 of them have OCR text that
-      ends in terminal punctuation with 5 or more words.
+    - Truncated verses confirmed on the facsimile during the
+      NACAR-FALLBACK-101 audit: Josh 5:1, 2Cor 11:31, Exod 25:8, 1Thess 3:7,
+      and Rev 11:12.
+    - Only structural signals available today: a word cut with a hyphen and no
+      continuation (64 of the 4,602 audited replacements) and several verse
+      marks in the same slot (27). The remaining 4,511 carry no structural
+      signal of loss or completeness.
+    - `procedencia.json` records only the line that opens each verse
+      (page/column/box/confidence), not continuation lines or discarded lines.
+  - Missing metadata:
+    - Lines discarded by the parser (`es_titulo()`, `es_ruido()`, running
+      headers).
+    - Column/page cuts.
+    - Lost continuations.
+    - Relevant geometry of continuation lines.
+    - An explicit truncation/loss flag per verse.
   - Acceptance criteria:
-    - Present and valid Nácar text prevails over Reina-Valera.
-    - The length of another translation is not used as proof of
-      incompleteness.
-    - Fallback only on a demonstrable structural signal of absence or
-      truncation.
-    - Test: source present but shorter than the witness ⇒ source is kept.
-    - Test: source really absent ⇒ fallback allowed.
-    - Global before/after audit of the ~4,602 replacements.
+    - The parser records structural loss.
+    - A complete verse is not marked as truncated.
+    - A really truncated verse can be identified without comparing
+      translations.
+    - That metadata can enable a later, traceable recovery.
   - Do not:
-    - Fix it with a local change without global audit.
-    - Hardcode Ps 16:3 or Ps 17:7.
+    - Reintroduce a length heuristic between translations.
+    - Implement it as part of NACAR-FALLBACK-101.
     - Commit or push.
+
+- [x] NACAR-FALLBACK-101 Stop completar.py from replacing valid Nácar text with Reina-Valera
+  - Status: DONE
+  - Commit: `17e50aa5` fix(nacar): preserve source text over witness substitutions
+  - Description:
+    `scripts/nacarcolunga/completar.py` no longer replaces Nácar-Colunga text
+    with other translations. The NacarColunga module contains only Nácar/OCR
+    text; verses without a body are supplied by Biblia Elim at runtime, with a
+    visible fallback badge.
+  - Historical root cause:
+    - `hay_que_completar()` treated a Nácar verse as incomplete when it had
+      fewer than `max(8, 80 %)` of the words of the witness: it compared the
+      length of two different translations and consulted no provenance or
+      structural signal.
+    - `tejer()` kept only the OCR words before the first match and inserted the
+      rest from the witness (SpaRV, SpaRVG, or SpaPlatense);
+      `completar_todo()` accepted the result when it had more words.
+    - Aggravating factor: for psalms not in `TITULO_SALMOS` (e.g. Ps 15, 17,
+      124, 133), the SpaRV witness still carried the title inside verse 1,
+      which inflated its length.
+  - Audit (reproducible replica of `completar_todo()`, identical to the
+    validated baseline):
+    - 4,602 verses modified: 180 in Psalms, 4,422 elsewhere.
+    - 3,179 full replacements and 1,423 OCR + witness mixes.
+    - 21,377 Nácar words lost across 4,327 verses.
+    - No modified verse had an empty source; all were triggered only by the
+      length threshold.
+    - Authentic complete verses were replaced only for being shorter, e.g. Ps
+      17:7 («Ostenta tu magnífica piedad, tú que salvas del enemigo a los que a
+      ti se acogen.», 16 words vs threshold 18). Also confirmed on the
+      facsimile: Ps 35:5, Gen 38:6, Luke 23:21, Mark 12:30, Hos 13:3.
+    - Ps 16:3 was replaced after `es_titulo()` had already discarded an
+      authentic line (NACAR-OCR-103).
+    - The available metadata cannot reliably distinguish a complete authentic
+      verse from a really truncated one (only 64 hyphen cuts and 27 multi-mark
+      slots carry structural signals; see NACAR-OCR-106).
+    - The UI could not distinguish those verses: the backend counted
+      `reconstruido-testigos` segments as available body, so no badge was
+      shown.
+  - New policy:
+    - Any present Nácar text prevails; `completar.py` does not modify
+      `texto.json`.
+    - No length, punctuation, similarity, or witness size is used to decide
+      completeness.
+    - Partial verses remain partial; verses without a body are not fabricated.
+    - Those gaps are supplied by Biblia Elim at runtime through the marked
+      fallback.
+    - `completar.py` writes an empty `reconstruidos.txt` for compatibility;
+      `reconstruido-testigos` is no longer produced.
+    - `completar.py` no longer loads `testigos.pkl`, does not call diatheke,
+      does not need SpaRV/SpaRVG/SpaPlatense, and does not need network: the
+      stage works offline.
+    - The historical collation helpers (`descarga`, `testigo_nrsva`,
+      `mejor_testigo`, `tejer`) remain as auxiliary code for a future recovery
+      based on explicit structural metadata (NACAR-OCR-106); they are not part
+      of the normal path.
+    - README, `instalar.sh` (module `About`), and the `completar.py` docstring
+      describe the current behavior.
+  - Reconstruction validation:
+    - 30,316 OSIS verses; 4,905 gaps.
+    - 30,316 `ocr-facsímil` segments; 0 `reconstruido-testigos`.
+    - `reconstruidos.txt` empty.
+    - Final `texto.json` == `texto.json` right after `construir.py`.
+    - `procedencia.json` unchanged by `completar.py` (identical to HEAD).
+    - Exactly 4,602 references differ from the historical policy, each
+      restoring its Nácar source.
+    - Audit hooks on the official install: no step opened `testigos.pkl`,
+      called diatheke, opened sockets, or spawned subprocesses; `bajar.py`
+      downloaded nothing.
+    - Tests 5/5 PASS: `scripts/nacarcolunga/test_completar.py`,
+      `scripts/nacarcolunga/test_salmos_cabecera.py`,
+      `scripts/nacarcolunga/test_load.py`,
+      `scripts/nacarcolunga/test_cabeceras.py`, and
+      `scripts/nacarcolunga/test_front_matter.py`.
+    - The new test also shows that `main()` works without `testigos.pkl`, with
+      `descarga()`, `subprocess.run`, and sockets blocked, preserving
+      `texto.json` byte for byte.
+  - Real installation:
+    - The official `instalar.sh` was used; the new module is installed in
+      `~/.sword`.
+    - Backup before installing:
+      `~/.sword/modules/texts/ztext/nacarcolunga.respaldo-20260914-205222` and
+      notes `~/.sword/modules/comments/zcom/nacarcolunganotas.respaldo-20260914-205222`
+      (each with its `.conf`). Previous backups remain intact.
+    - The installed module matches the validated temporary run byte for byte.
+  - Direct SWORD validation (diatheke on the installed module):
+    - Ps 17:7: «Ostenta tu magnífica piedad, tú que salvas del enemigo a los
+      que a ti se acogen.» ⇒ authentic Nácar restored.
+    - Ps 16:3: «Los santos que en la tierra están, tengo todas mis delicias.» ⇒
+      deliberately left partial, not hidden with Reina-Valera; NACAR-OCR-103
+      remains pending.
+    - Gen 38:6, Luke 23:21, and Mark 12:30 verified as Nácar.
+    - Gaps such as Ps 117:1-2, Ps 14:5, Gen 38:5, Ps 17:3, and Ps 17:5 remain
+      empty inside the module.
+  - Real GUI validation (Biblia Elim run for real, one launch per passage):
+    - A. Ps 17:7: authentic Nácar, no fallback badge.
+    - B. Ps 16:3: partial text visible, no Reina-Valera text incorporated.
+    - C. Gen 38:6: authentic Nácar.
+    - D. Ps 14:5: a gap in the module; Biblia Elim supplies it from
+      Reina-Valera 1909 between «Texto suplido desde Reina-Valera 1909» badges;
+      the fallback is not persisted inside the Nácar module.
+    - E. Ps 18:1 and Ps 17:7 opened correctly.
+    - stderr: 0 `Gtk-WARNING`, 0 `GLib-GObject-CRITICAL`, 0 crashes.
+      `settings.xml` was restored.
+    - Real multi-launch/cold-cache validation PASS; same-session warm cache was
+      not verified in this round (the automation could not send keystrokes to
+      the app). This does not block NACAR-FALLBACK-101.
+  - Final architecture (main acceptance criterion):
+    - NacarColunga module: contains only Nácar/OCR text; may contain partial
+      text; does not incorporate Reina-Valera or Platense.
+    - Biblia Elim runtime: only when a slot lacks a body can it supply text
+      from the fallback; the fallback is identified visually with a badge and
+      is not persisted as Nácar.
+  - Related pending tasks:
+    - NACAR-OCR-103: `es_titulo()` discards authentic lines (e.g. Ps 16:3).
+    - NACAR-OCR-104: wrong OCR verse numbers.
+    - NACAR-OCR-105: glued epigraphs.
+    - NACAR-OCR-106: structural truncation metadata (truncated verses such as
+      Josh 5:1 stay partial without a badge).
+    - NACAR-PSALMS-104: Ps 13.
+    - NACAR-PSALMS-103: Ps 117/118.
+  - Do not:
+    - Reintroduce a length heuristic between translations.
+    - Push without review.
 
 - [x] TORRES-FACSIMILE-101 Correct Torres Amat Ps 3 and Mt 12 against the 1882 facsimile
   - Status: DONE
