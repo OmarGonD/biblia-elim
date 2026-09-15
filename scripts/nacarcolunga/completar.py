@@ -1,15 +1,27 @@
 """
-Completa versos que el OCR dejó a medias, con las otras Biblias.
+Etapa entre construir.py y osis.py. Con la política actual no completa nada.
 
-No se mete griego en el castellano: «mentos» no es una palabra griega,
-es el final de «juramentos». El griego (Tisch) y las Biblias testigo
-dicen qué iba en el hueco; el castellano que se rellena sale de la
-Reina-Valera y de la Platense, que son de la misma época, y se
-conservan las palabras que el OCR sí leyó (También, fué, pues).
+Contrato (NACAR-FALLBACK-101):
+  - Ningún verso de texto.json se modifica: el texto de Nácar-Colunga,
+    completo o a medias, sale como lo dejó construir.py. texto.json no se
+    reescribe.
+  - Un verso sin texto no se rellena. osis.py no lo escribe y el visor lo
+    suple al leer el módulo, desde otra Biblia y con su aviso.
+  - reconstruidos.txt se escribe vacío: osis.py y revision.py lo leen para
+    marcar versos «reconstruido-testigos», que hoy son cero.
+  - No usa otras Biblias: ni diatheke, ni testigos.pkl, ni red.
 
-Solo se toca un verso si hay al menos tres palabras del OCR, en orden,
-dentro del testigo. Si no, se deja el fragmento: completar a ciegas
-sería sustituir Nácar-Colunga por otra versión.
+Antes se tenía por incompleto todo verso con menos palabras que el 80 % de
+un testigo (Reina-Valera o Platense) y se cambiaba por él. Eso comparaba la
+longitud de dos traducciones distintas: la auditoría encontró 4.602 versos
+sustituidos (21.377 palabras de Nácar perdidas) y, en el facsímil, versos
+completos como Sal 17:7 o Gn 38:6 cambiados por Reina-Valera sin rastro en
+la interfaz. No hay metadata que distinga un verso truncado de uno
+completo, así que no se decide por longitud, puntuación ni parecido.
+
+Las herramientas de cotejo (descarga, testigo_nrsva, mejor_testigo, tejer)
+siguen aquí para una recuperación futura basada en metadata explícita de
+cuerpo perdido, pero main() no las llama.
 """
 import json
 import os
@@ -44,6 +56,13 @@ def limpia_diatheke(s):
     s = re.sub(r"<[^>]+>", " ", s)
     s = re.sub(r"\s+", " ", s).strip()
     return s
+
+
+# --- Herramientas de cotejo con otras Biblias --------------------------------
+# No las usa main(). Se conservan para una recuperación futura que solo actúe
+# sobre versos con cuerpo perdido marcado de forma explícita por el parser, y
+# para auditar la política retirada. descarga() lanza diatheke si no existe
+# fuentes/testigos.pkl.
 
 
 def descarga():
@@ -193,49 +212,24 @@ def tejer(ocr, wit):
     return cola
 
 
-def hay_que_completar(ocr, wit):
-    ot, wt = toks(ocr), toks(wit)
-    if len(wt) < 6:
-        return False
-    if len(ot) >= max(8, int(len(wt) * 0.80)):
-        return False
-    return True
+def completar_todo(texto):
+    """(texto, versos tocados) con la política actual: nada se toca.
 
-
-def completar_todo(texto, testigos):
-    nuevo = dict(texto)
-    tocados = []
-    for ref, ocr in texto.items():
-        wit, sc = mejor_testigo(ocr, testigos, ref)
-        if not wit or sc < 3:
-            continue
-        if not hay_que_completar(ocr, wit):
-            continue
-        t = tejer(ocr, wit)
-        if not t or t == ocr:
-            continue
-        if len(toks(t)) <= len(toks(ocr)):
-            continue
-        nuevo[ref] = t
-        tocados.append(ref)
-    return nuevo, tocados
+    Un verso con texto de Nácar se conserva; uno sin texto no se rellena
+    (lo suple el visor). No hay testigos que consultar.
+    """
+    return dict(texto), []
 
 
 def main():
     path = os.path.join(DIR, "texto.json")
     texto = json.load(open(path, encoding="utf-8"))
-    print("testigos…", flush=True)
-    tg = descarga()
-    nuevo, tocados = completar_todo(texto, tg)
-    json.dump(nuevo, open(path, "w", encoding="utf-8"),
-              ensure_ascii=False, indent=0)
+    _, tocados = completar_todo(texto)
+    # texto.json no se reescribe: sale byte a byte como lo dejó construir.py.
     with open(os.path.join(DIR, "reconstruidos.txt"), "w", encoding="utf-8") as f:
         f.write("\n".join(tocados))
-    print(f"versículos completados: {len(tocados)}")
-    for ref in ("Matt 5:33", "Matt 5:34", "Matt 5:35", "Matt 5:36",
-                "Matt 5:27", "Matt 5:6"):
-        if ref in tocados:
-            print(f"  {ref}: {nuevo[ref][:160]}")
+    print(f"versículos: {len(texto)}; completados con otras Biblias: "
+          f"{len(tocados)}")
 
 
 if __name__ == "__main__":

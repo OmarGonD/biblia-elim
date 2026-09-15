@@ -32,7 +32,7 @@ Del `djvu.xml` sale cada palabra con su caja.
 | `nombres.py` | Nombres de esta edición a identificadores OSIS |
 | `versiculos.py` | Marcas de versículo y el `3 1` que abre capítulo |
 | `construir.py` | Alinea contra el canon NRSVA (reusa `alinear.py` de Torres Amat) |
-| `completar.py` | Rellena versos a medias con Reina-Valera / Platense, cotejo griego |
+| `completar.py` | Hoy no completa nada: deja `texto.json` intacto y `reconstruidos.txt` vacío (ver «Versos incompletos») |
 | `osis.py` | Genera el OSIS |
 | `comentario.py` | Notas por capítulo, como comentario aparte |
 | `instalar.sh` | `osis2mod` y copia a `~/.sword` |
@@ -79,9 +79,10 @@ una palabra si la caja coincide y su confianza mejora:
 Cada entrada lleva referencia, motivo, confianza y, cuando existe, hoja,
 columna y caja del facsímil. Es el punto de partida para el cotejo humano.
 
-Los versos se marcan en OSIS como `ocr-facsímil` o
-`reconstruido-testigos`; los segundos no deben confundirse con una lectura
-certificada del impreso. Tras reunir líneas revisadas manualmente en
+Los versos se marcan en OSIS como `ocr-facsímil`. El tipo
+`reconstruido-testigos` marcaba los versos que `completar.py` rellenaba con
+otra Biblia; con la política actual ya no se genera (ver «Versos
+incompletos»). Tras reunir líneas revisadas manualmente en
 `ground-truth/`, `./entrenar_tesseract.sh` deja preparado el ajuste de un
 modelo `spa_nacar1944`; no se entrena con OCR sin verificar.
 
@@ -94,13 +95,29 @@ Hace falta `osis2mod` e `imp2vs` del paquete `sword` del sistema.
 El resultado aparece en Biblia Elim como **NacarColunga**. Las notas,
 si se pudieron extraer, como comentario **NacarColungaNotas**.
 
-Estado de esta pasada: **30.218 de 35.221 versículos (85,8 %)**, con
+Estado de esta pasada: **30.316 de 35.221 versículos (~86,1 %)**, con
 Tesseract español columna a columna. El castellano de 1944 se lee
 mucho mejor que el OCR de Archive (Mateo 5:33-36 sale el texto de
 Nácar, no un relleno). La cobertura no equivale a fidelidad: quedan
-5.003 huecos, erratas de OCR y versos parciales completados de forma
-conservadora. No usar como texto de referencia sin cotejar con el
-facsímil.
+4.905 huecos, erratas de OCR y versos parciales. No usar como texto de
+referencia sin cotejar con el facsímil.
+
+## Versos incompletos
+
+El pipeline no usa otras Biblias para modificar Nácar-Colunga ni rellena
+huecos. Un verso que el OCR o el parser dejaron a medias se escribe tal
+cual, parcial. Un verso sin texto no se escribe en el módulo; el visor lo
+suple al leerlo, desde otra Biblia y con su aviso. `completar.py` sigue en
+la cadena solo por compatibilidad: no llama a diatheke, no necesita
+`fuentes/testigos.pkl` ni red.
+
+Antes `completar.py` daba por incompleto todo verso con menos palabras que
+el 80 % de la Reina-Valera o la Platense y lo cambiaba por el testigo: la
+auditoría de NACAR-FALLBACK-101 contó 4.602 versos así, con 21.377 palabras
+de Nácar perdidas, entre ellos versos completos en el facsímil (Sal 17:7,
+Gn 38:6, Lc 23:21). No hay hoy metadata que distinga un verso truncado de
+uno completo; rellenar volverá a ser posible cuando el parser marque de
+forma explícita el cuerpo perdido. `python3 test_completar.py` lo comprueba.
 
 La fusión de numeración usa el DjVu solo para corregir una caja de
 Tesseract coincidente. No inserta una segunda cifra encima de una ya
