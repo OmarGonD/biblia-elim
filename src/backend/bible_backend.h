@@ -141,6 +141,17 @@ public:
 	virtual std::string navigate(const std::string &module_id,
 					 const std::string &key,
 					 int direction) = 0;
+	/* One native slot from a position already resolved, in the module's
+	 * versification. At either end result is the same slot. The default
+	 * goes through the key text; a backend whose key text can fail to
+	 * identify its slot steps on the structural position instead. */
+	virtual bool navigateFrom(const std::string &module_id,
+				  const BibleKeyInfo &from, int direction,
+				  BibleKeyInfo &result)
+	{
+		const std::string next = navigate(module_id, from.key, direction);
+		return !next.empty() && resolveKey(module_id, next, result);
+	}
 	virtual std::string setChapter(const std::string &module_id,
 					   const std::string &key,
 					   int chapter) = 0;

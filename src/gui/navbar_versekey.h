@@ -29,6 +29,12 @@ extern "C" {
 
 GtkWidget *gui_navbar_versekey_new(void);
 
+/* Goes to a key the backend already produced for the main Bible (the
+ * verse arrows): normalizes it, updates the navbar and displays it, as
+ * activating the entry does, without re-checking that the slot has raw
+ * text of its own. */
+void gui_navbar_versekey_go_to(const gchar *key);
+
 /* Re-sincroniza el combo de versión (widgets.combo_bible_version) con
  * settings.MainWindowModule. Llamar cada vez que el módulo activo de
  * la ventana principal cambie por una vía que no sea el propio combo

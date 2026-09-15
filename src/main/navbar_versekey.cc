@@ -29,9 +29,11 @@
 #include "main/settings.h"
 #include "main/sword.h"
 #include "main/verse_navigation.h"
+#include "main/picker_entry.h"
 #include "main/xml.h"
 
 #include "gui/navbar_versekey.h"
+#include "gui/bibletext.h"
 #include "gui/tabbed_browser.h"
 #include "gui/panel_load_state.h"
 
@@ -163,11 +165,14 @@ void main_navbar_versekey_spin_verse(NAVBAR_VERSEKEY navbar, int direction)
 	panel_load_debug("nav", direction ? "NAV_NEXT_CLICK" : "NAV_PREV_CLICK", NULL);
 	panel_load_debug("nav", "NAV_HANDLER_ENTER",
 			 navbar.key ? navbar.key->str : "key=NULL");
+	const std::string module = navbar.module_name ? navbar.module_name->str : "";
 	const VerseNavigationResult navigation = prepareVerseNavigation(
-		bible_backend,
-		navbar.module_name ? navbar.module_name->str : "",
+		bible_backend, module,
 		navbar.key ? navbar.key->str : "", direction ? 1 : -1,
-		navbar_main_locked(navbar));
+		navbar_main_locked(navbar),
+		[&module](const BibleReference &reference) {
+			return verseSlotNavigable(*bible_backend, module, reference);
+		});
 	if (!navigation) {
 		gchar *detail = g_strdup_printf("early=%s",
 			verseNavigationStatusName(navigation.status));
@@ -176,11 +181,20 @@ void main_navbar_versekey_spin_verse(NAVBAR_VERSEKEY navbar, int direction)
 		return;
 	}
 	panel_load_debug("nav", "NAV_REFERENCE_BEFORE", navigation.source.c_str());
-	char *tmpkey = g_strdup(navigation.target.c_str());
-	gtk_entry_set_text(GTK_ENTRY(navbar.lookup_entry), tmpkey);
-	gtk_widget_activate(navbar.lookup_entry);
-	panel_load_debug("nav", "NAV_REFERENCE_AFTER", tmpkey);
-	g_free(tmpkey);
+	if (navbar.lookup_entry == navbar_versekey.lookup_entry) {
+		/* The target is already a navigable slot of this module.
+		 * Typing it into the entry and activating it would put it
+		 * through the "does raw text exist" check meant for typed
+		 * references, which rejects a slot the resolver fills from the
+		 * fallback module -- the arrows then stopped dead in front of
+		 * it. One transition: navbar, key, display. */
+		gui_navbar_versekey_go_to(navigation.target.c_str());
+	} else {
+		gtk_entry_set_text(GTK_ENTRY(navbar.lookup_entry),
+				   navigation.target.c_str());
+		gtk_widget_activate(navbar.lookup_entry);
+	}
+	panel_load_debug("nav", "NAV_REFERENCE_AFTER", navigation.target.c_str());
 	panel_load_debug("nav", "NAV_HANDLER_EXIT", "accepted=true");
 }
 
@@ -534,30 +548,158 @@ typedef struct {
  * gtk_popover_popup(); un grab_focus inmediato sobre la entrada se pierde
  * y el foco se queda en el toggle de la barra. Las teclas no llegan y la
  * caja parece bloqueada. Enfocamos al mapear y otra vez en idle. */
+/* BIBLIA_ELIM_UI_LOAD_DEBUG: how long from opening a picker until its
+ * entry has the focus and until what is typed reaches it. */
+static gint64 picker_opened_us = 0;
+
 static void
-picker_focus_entry(GtkWidget *popover, gpointer entry)
+picker_debug(const char *event, GtkWidget *entry, const char *extra)
 {
-	(void)popover;
-	if (GTK_IS_WIDGET(entry))
-		gtk_widget_grab_focus(GTK_WIDGET(entry));
+	GtkWidget *top, *focus;
+	const char *kind;
+	gchar *detail;
+
+	if (!panel_load_debug_enabled() || !entry)
+		return;
+	top = gtk_widget_get_toplevel(entry);
+	focus = GTK_IS_WINDOW(top) ? gtk_window_get_focus(GTK_WINDOW(top)) : NULL;
+	kind = (const char *)g_object_get_data(G_OBJECT(entry), "elim-picker-kind");
+	/* strings first: debug_glib_null.h's g_strdup_printf reads every
+	 * argument as a pointer, and a double shifts the rest */
+	detail = g_strdup_printf(
+	    "kind=%s window_focus=%s%s%s visible=%d mapped=%d realized=%d "
+	    "has_focus=%d ms_since_open=%.1f",
+	    kind ? kind : "book",
+	    focus ? G_OBJECT_TYPE_NAME(focus) : "none",
+	    extra ? " " : "", extra ? extra : "",
+	    gtk_widget_get_visible(entry), gtk_widget_get_mapped(entry),
+	    gtk_widget_get_realized(entry), gtk_widget_has_focus(entry),
+	    picker_opened_us ? (g_get_monotonic_time() - picker_opened_us) / 1000.0 : -1.0);
+	panel_load_debug("nav", event, detail);
+	g_free(detail);
+}
+
+static void
+picker_debug_realize(GtkWidget *entry, gpointer data)
+{
+	(void)data;
+	picker_debug("NAV_ENTRY_REALIZE", entry, NULL);
+}
+
+static void
+picker_debug_map(GtkWidget *entry, gpointer data)
+{
+	(void)data;
+	picker_debug("NAV_ENTRY_MAP", entry, NULL);
 }
 
 static gboolean
-picker_focus_entry_idle(gpointer entry)
+picker_debug_focus_in(GtkWidget *entry, GdkEventFocus *event, gpointer data)
 {
-	if (GTK_IS_WIDGET(entry) && gtk_widget_get_mapped(GTK_WIDGET(entry)))
-		gtk_widget_grab_focus(GTK_WIDGET(entry));
-	return G_SOURCE_REMOVE;
+	(void)event;
+	(void)data;
+	picker_debug("NAV_ENTRY_FOCUS_IN", entry, NULL);
+	return FALSE;
+}
+
+static gboolean
+picker_debug_focus_out(GtkWidget *entry, GdkEventFocus *event, gpointer data)
+{
+	(void)event;
+	(void)data;
+	picker_debug("NAV_ENTRY_FOCUS_OUT", entry, NULL);
+	return FALSE;
 }
 
 static void
+picker_debug_key_event(const char *event_name, GtkWidget *entry,
+		       GdkEventKey *event)
+{
+	gchar *extra = g_strdup_printf(
+	    "keyval=%s hardware_keycode=%u state=0x%x text='%s'",
+	    gdk_keyval_name(event->keyval), event->hardware_keycode,
+	    event->state, gtk_entry_get_text(GTK_ENTRY(entry)));
+	picker_debug(event_name, entry, extra);
+	g_free(extra);
+}
+
+/* before the entry's own handler: the text is still the one before */
+static gboolean
+picker_debug_key(GtkWidget *entry, GdkEventKey *event, gpointer data)
+{
+	(void)data;
+	picker_debug_key_event(event->type == GDK_KEY_PRESS
+				   ? "NAV_ENTRY_KEY_PRESS"
+				   : "NAV_ENTRY_KEY_RELEASE",
+			       entry, event);
+	return FALSE;
+}
+
+/* after handlers only run when nothing before them handled the key, so
+ * this line means handled=0 (its absence after a KEY_PRESS: handled=1) */
+static gboolean
+picker_debug_key_unhandled(GtkWidget *entry, GdkEventKey *event, gpointer data)
+{
+	(void)data;
+	picker_debug_key_event(event->type == GDK_KEY_PRESS
+				   ? "NAV_ENTRY_KEY_PRESS_UNHANDLED"
+				   : "NAV_ENTRY_KEY_RELEASE_UNHANDLED",
+			       entry, event);
+	return FALSE;
+}
+
+static void
+picker_debug_changed(GtkEditable *editable, gpointer data)
+{
+	gchar *extra = g_strdup_printf("text='%s'",
+				       gtk_entry_get_text(GTK_ENTRY(editable)));
+	(void)data;
+	picker_debug("NAV_ENTRY_TEXT_CHANGED", GTK_WIDGET(editable), extra);
+	g_free(extra);
+}
+
+static void
+picker_debug_watch(GtkWidget *entry)
+{
+	if (!panel_load_debug_enabled())
+		return;
+	g_signal_connect(entry, "realize", G_CALLBACK(picker_debug_realize), NULL);
+	g_signal_connect(entry, "map", G_CALLBACK(picker_debug_map), NULL);
+	g_signal_connect(entry, "focus-in-event", G_CALLBACK(picker_debug_focus_in), NULL);
+	g_signal_connect(entry, "focus-out-event", G_CALLBACK(picker_debug_focus_out), NULL);
+	g_signal_connect(entry, "key-press-event", G_CALLBACK(picker_debug_key), NULL);
+	g_signal_connect(entry, "key-release-event", G_CALLBACK(picker_debug_key), NULL);
+	g_signal_connect_after(entry, "key-press-event",
+			       G_CALLBACK(picker_debug_key_unhandled), NULL);
+	g_signal_connect_after(entry, "key-release-event",
+			       G_CALLBACK(picker_debug_key_unhandled), NULL);
+	g_signal_connect_after(entry, "changed", G_CALLBACK(picker_debug_changed), NULL);
+	{
+		gchar *im = NULL;
+		gchar *extra;
+
+		g_object_get(entry, "im-module", &im, NULL);
+		extra = g_strdup_printf("im_module=%s GTK_IM_MODULE=%s",
+					im ? im : "(null)",
+					g_getenv("GTK_IM_MODULE")
+					    ? g_getenv("GTK_IM_MODULE")
+					    : "(unset)");
+		picker_debug("NAV_ENTRY_IM_MODULE", entry, extra);
+		g_free(extra);
+		g_free(im);
+	}
+}
+
+/* The entry takes the focus once, when the popover maps (picker_entry.c).
+ * This used to be a grab at map plus a default-priority idle: that idle
+ * ranks below GtkTextView's layout validation, so right after the Bible
+ * pane laid out a large text it could wait for seconds. */
+static void
 picker_focus_entry_later(GtkWidget *popover, GtkWidget *entry)
 {
-	gtk_widget_set_can_focus(entry, TRUE);
-	g_signal_connect(popover, "map", G_CALLBACK(picker_focus_entry),
-			 entry);
-	g_idle_add_full(G_PRIORITY_DEFAULT_IDLE, picker_focus_entry_idle,
-			g_object_ref(entry), g_object_unref);
+	picker_debug("NAV_ENTRY_FOCUS_REQUEST", entry, "source=open");
+	picker_entry_focus_on_open(popover, entry,
+				   c_type == NB_MAIN ? gui_bibletext_view : NULL);
 }
 
 static void picker_add_style(GtkWidget *popover)
@@ -650,6 +792,10 @@ static void numpicker_mark_typed(NUMPICKER *p, gint n)
 
 static gboolean picker_destroy_idle(gpointer popover)
 {
+	/* Closed already, with the focus given back. Still modal, disposing it
+	 * would run GtkPopover's "give the focus back" once more, with nothing
+	 * recorded, and put the focus on the window itself (picker_entry.h). */
+	gtk_popover_set_modal(GTK_POPOVER(popover), FALSE);
 	gtk_widget_destroy(GTK_WIDGET(popover));
 	return G_SOURCE_REMOVE;
 }
@@ -687,11 +833,15 @@ static void numpicker_go(NUMPICKER *p, gint n)
 
 	if (n < 1 || n > p->max)
 		return;
+	panel_load_debug("nav", "NAV_REFERENCE_BEFORE",
+			 settings.currentverse ? settings.currentverse : "-");
 	picker_popdown(p->popover);
 	if (verse)
 		on_verse_menu_select(NULL, GINT_TO_POINTER(n));
 	else
 		on_chapter_menu_select(NULL, GINT_TO_POINTER(n));
+	panel_load_debug("nav", "NAV_REFERENCE_AFTER",
+			 settings.currentverse ? settings.currentverse : "-");
 }
 
 /* 0 = entrada vacía, -1 = escrito pero fuera de rango, >0 = número válido */
@@ -785,6 +935,7 @@ static NUMPICKER *numpicker_new(GtkWidget *anchor, gint max, gint current,
 	gtk_container_add(GTK_CONTAINER(p->popover), box);
 
 	p->entry = gtk_entry_new();
+	/* the system input method stays: digits need nothing special */
 	gtk_entry_set_input_purpose(GTK_ENTRY(p->entry),
 				    GTK_INPUT_PURPOSE_DIGITS);
 	gtk_entry_set_max_length(GTK_ENTRY(p->entry), 3);
@@ -876,7 +1027,32 @@ static void numpicker_popup(NAVBAR_VERSEKEY navbar, gint nb_type,
 	if (max < 1)
 		return;
 
+	picker_opened_us = g_get_monotonic_time();
 	p = numpicker_new(anchor, max, current, verse);
+	g_object_set_data(G_OBJECT(p->entry), "elim-picker-kind",
+			  (gpointer)(verse ? "verse" : "chapter"));
+	picker_debug_watch(p->entry);
+	if (panel_load_debug_enabled()) {
+		/* what GtkPopover will record as the focus to give back */
+		GtkWidget *top = gtk_widget_get_toplevel(anchor);
+		GtkWidget *prev = GTK_IS_WINDOW(top)
+				      ? gtk_window_get_focus(GTK_WINDOW(top))
+				      : NULL;
+		gchar *detail = g_strdup_printf(
+		    "kind=%s prev_focus=%s max=%d current=%d "
+		    "prev_focus_is_window=%d window=%p window_active=%d build_ms=%.1f",
+		    verse ? "verse" : "chapter",
+		    prev ? G_OBJECT_TYPE_NAME(prev) : "none", max, current,
+		    (int)(prev && prev == top), (gpointer)top,
+		    (int)(GTK_IS_WINDOW(top) && gtk_window_is_active(GTK_WINDOW(top))),
+		    (g_get_monotonic_time() - picker_opened_us) / 1000.0);
+		panel_load_debug("nav", "NAV_POPOVER_OPEN", detail);
+		g_free(detail);
+	}
+	/* GtkPopover gives the focus back to whatever had it on popup: make
+	 * that a real widget (picker_entry.h) */
+	picker_entry_settle_window_focus(
+	    anchor, nb_type == NB_MAIN ? gui_bibletext_view : NULL);
 	g_signal_connect(p->popover, "closed", G_CALLBACK(picker_closed),
 			 anchor);
 #if GTK_CHECK_VERSION(3, 22, 0)
@@ -1287,6 +1463,10 @@ void main_versekey_popup_book(NAVBAR_VERSEKEY navbar, gint nb_type,
 		gtk_list_box_select_row(GTK_LIST_BOX(p->list),
 					GTK_LIST_BOX_ROW(p->current));
 
+	/* GtkPopover gives the focus back to whatever had it on popup: make
+	 * that a real widget (picker_entry.h) */
+	picker_entry_settle_window_focus(
+	    anchor, nb_type == NB_MAIN ? gui_bibletext_view : NULL);
 	g_signal_connect(p->popover, "closed", G_CALLBACK(picker_closed),
 			 anchor);
 #if GTK_CHECK_VERSION(3, 22, 0)

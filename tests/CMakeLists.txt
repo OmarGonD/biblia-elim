@@ -262,12 +262,76 @@ add_executable (verse_navigation_readiness_test
   verse_navigation_readiness_test.cc
   fake_bible_backend.cc
   ${PROJECT_SOURCE_DIR}/src/main/verse_navigation.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/content_resolver.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/content_availability.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/quoted_heading.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/source_quirks.cc
   ${PROJECT_SOURCE_DIR}/src/gtk/panel_load_state.c
   )
 
 target_include_directories (verse_navigation_readiness_test
   PRIVATE
   ${PROJECT_SOURCE_DIR}/src
+  PkgConfig::Core
+  PkgConfig::Sword
+  )
+
+target_link_libraries (verse_navigation_readiness_test
+  PRIVATE
+  PkgConfig::Core
+  PkgConfig::Sword
+  )
+
+add_executable (reading_window_test
+  EXCLUDE_FROM_ALL
+  reading_window_test.c
+  ${PROJECT_SOURCE_DIR}/src/main/reading_window.c
+  )
+
+target_include_directories (reading_window_test
+  PRIVATE
+  ${PROJECT_SOURCE_DIR}/src
+  PkgConfig::Core
+  )
+
+target_link_libraries (reading_window_test
+  PRIVATE
+  PkgConfig::Core
+  )
+
+add_executable (wheel_scroll_test
+  EXCLUDE_FROM_ALL
+  wheel_scroll_test.c
+  ${PROJECT_SOURCE_DIR}/src/main/wheel_scroll.c
+  )
+
+target_include_directories (wheel_scroll_test
+  PRIVATE
+  ${PROJECT_SOURCE_DIR}/src
+  PkgConfig::Core
+  )
+
+target_link_libraries (wheel_scroll_test
+  PRIVATE
+  PkgConfig::Core
+  m
+  )
+
+add_executable (reading_focus_test
+  EXCLUDE_FROM_ALL
+  reading_focus_test.c
+  ${PROJECT_SOURCE_DIR}/src/main/reading_focus.c
+  )
+
+target_include_directories (reading_focus_test
+  PRIVATE
+  ${PROJECT_SOURCE_DIR}/src
+  PkgConfig::Core
+  )
+
+target_link_libraries (reading_focus_test
+  PRIVATE
+  PkgConfig::Core
   )
 
 add_executable (navbar_valid_key_ownership_test
@@ -310,6 +374,29 @@ target_compile_definitions (navbar_picker_focus_test
 target_link_libraries (navbar_picker_focus_test
   PRIVATE
   PkgConfig::Core
+  )
+
+add_executable (navbar_picker_entry_test
+  EXCLUDE_FROM_ALL
+  navbar_picker_entry_test.c
+  ${PROJECT_SOURCE_DIR}/src/main/picker_entry.c
+  )
+
+target_include_directories (navbar_picker_entry_test
+  PRIVATE
+  ${PROJECT_SOURCE_DIR}/src
+  PkgConfig::Gtk
+  )
+
+# real keyboard input through the X server (XTest), under xvfb
+find_library (PICKER_TEST_X11_LIB X11)
+find_library (PICKER_TEST_XTST_LIB Xtst)
+
+target_link_libraries (navbar_picker_entry_test
+  PRIVATE
+  PkgConfig::Gtk
+  ${PICKER_TEST_X11_LIB}
+  ${PICKER_TEST_XTST_LIB}
   )
 
 add_executable (navbar_entry_reference_test
@@ -836,6 +923,30 @@ target_include_directories (versification_transition_test PRIVATE
   PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome PkgConfig::Soup
   PkgConfig::Sword)
 target_link_libraries (versification_transition_test PRIVATE
+  PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome PkgConfig::Soup
+  PkgConfig::Sword)
+
+add_executable (verse_navigation_sword_test EXCLUDE_FROM_ALL
+  verse_navigation_sword_test.cc
+  ${PROJECT_SOURCE_DIR}/src/main/verse_navigation.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/content_resolver.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/content_availability.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/quoted_heading.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/source_quirks.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sword_main.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sword/sword_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/morphology.cc
+  ${PROJECT_SOURCE_DIR}/src/main/busqueda_tildes.c)
+target_compile_options (verse_navigation_sword_test PRIVATE
+  -ffunction-sections)
+target_link_options (verse_navigation_sword_test PRIVATE
+  -Wl,--gc-sections)
+target_include_directories (verse_navigation_sword_test PRIVATE
+  PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome PkgConfig::Soup
+  PkgConfig::Sword)
+target_link_libraries (verse_navigation_sword_test PRIVATE
   PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome PkgConfig::Soup
   PkgConfig::Sword)
 

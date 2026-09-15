@@ -40,7 +40,7 @@ static gchar *tools_key = NULL;
 /* Módulo capturado junto con tools_key, en el mismo instante en que se
  * abrió el menú de herramientas. on_tools_nota() no debe releer
  * settings.MainWindowModule al momento del clic en "Agregar nota": si
- * un refresco por scroll (gui_bibletext_lectura_sync_focus_refresh)
+ * el seguimiento del foco por scroll (reading_focus_update() en bibletext.c)
  * dispara mientras el menú sigue abierto, ese global puede haber
  * cambiado de módulo -y hasta de versículo, si el otro módulo usa una
  * versificación distinta- para cuando el usuario efectivamente hace

@@ -41,6 +41,10 @@ add_library (main
   navbar_key.cc
   navbar_versekey.cc
   reference_transition.cc
+  reading_focus.c
+  reading_window.c
+  picker_entry.c
+  wheel_scroll.c
   verse_navigation.cc
   nube_palabras.cc
   planes_lectura.c
@@ -97,6 +101,7 @@ target_include_directories(main
 # specify libraries or flags to use when linking
 target_link_libraries(main
   PRIVATE
+  m
   Threads::Threads
   PkgConfig::Core
   PkgConfig::Gtk

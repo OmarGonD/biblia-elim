@@ -1116,8 +1116,8 @@ gui_lectura_sync_set_visible(gboolean visible)
 		 * that same verse up in the main pane -- so opening starts
 		 * on the verse the user actually navigated to, not wherever
 		 * a fresh chapter's natural scroll position happens to land.
-		 * Scrolling from there on is what hands off to
-		 * gui_bibletext_lectura_sync_focus_refresh(). */
+		 * Scrolling from there on is what hands off to the reading
+		 * focus tracking in bibletext.c (reading_focus_update()). */
 		main_lectura_sync_actualizar();
 	} else if (gui_main_window_ready()) {
 		gui_bibletext_lectura_sync_clear_focus();

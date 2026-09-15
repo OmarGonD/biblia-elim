@@ -30,6 +30,7 @@
 #include "editor/slib-editor.h"
 
 #include "gui/navbar_versekey.h"
+#include "gui/bibletext.h"
 #include "gui/bibletext_dialog.h"
 #include "gui/tabbed_browser.h"
 #include "gui/utilities.h"
@@ -318,6 +319,36 @@ static void on_button_history_back_clicked(GtkButton *button, gpointer user_data
  *   void
  */
 
+/* Everything after "this reference exists": normalize the key, update the
+ * navbar and display it through the sword:// handler. Shared by the typed
+ * entry and the verse arrows, which reach here with a slot the backend
+ * already produced. FALSE if the key does not normalize. */
+static gboolean navbar_versekey_go_to(const gchar *key, const gchar *anchor)
+{
+	gchar *gkey =
+	    main_get_valid_key(settings.MainWindowModule, key);
+
+	// we got a valid key. but was it really a valid key within v11n?
+	// for future use in determining whether to show normal navbar content.
+	navbar_versekey.valid_key =
+	    main_is_Bible_key(settings.MainWindowModule, gkey);
+
+	if (gkey == NULL)
+		return FALSE;
+
+	gchar *url = g_strdup_printf("sword:///%s%s", gkey,
+				     anchor ? anchor : "");
+
+	navbar_versekey.module_name =
+	    g_string_assign(navbar_versekey.module_name,
+			    settings.MainWindowModule);
+	main_navbar_versekey_set(navbar_versekey, gkey);
+	main_url_handler(url, TRUE);
+	g_free(url);
+	g_free(gkey);
+	return TRUE;
+}
+
 static void on_entry_activate(GtkEntry *entry, gpointer user_data)
 {
 	gchar *rawtext;
@@ -341,34 +372,17 @@ static void on_entry_activate(GtkEntry *entry, gpointer user_data)
 		navbar_entry_reference_clear(&reference);
 		return;
 	}
-	gkey =
-	    main_get_valid_key(settings.MainWindowModule, reference.key);
-
-	// we got a valid key. but was it really a valid key within v11n?
-	// for future use in determining whether to show normal navbar content.
-	navbar_versekey.valid_key =
-	    main_is_Bible_key(settings.MainWindowModule, gkey);
-
-	if (gkey == NULL) {
+	g_free(rawtext);
+	if (!navbar_versekey_go_to(reference.key, reference.anchor))
 		gtk_entry_set_text(entry, navbar_versekey.key->str);
-		settings.special_anchor = NULL;
-		navbar_entry_reference_clear(&reference);
-		return;
-	}
-
-	gchar *url = g_strdup_printf("sword:///%s%s", gkey,
-				     reference.anchor ? reference.anchor : "");
-
-	navbar_versekey.module_name =
-	    g_string_assign(navbar_versekey.module_name,
-			    settings.MainWindowModule);
-	main_navbar_versekey_set(navbar_versekey, gkey);
-	main_url_handler(url, TRUE);
-	if (url)
-		g_free(url);
-	g_free(gkey);
 	settings.special_anchor = NULL;
 	navbar_entry_reference_clear(&reference);
+}
+
+void gui_navbar_versekey_go_to(const gchar *key)
+{
+	settings.special_anchor = NULL;
+	navbar_versekey_go_to(key, NULL);
 }
 
 /******************************************************************************
@@ -482,6 +496,7 @@ static gboolean on_up_eventbox_button_release_event(GtkWidget *widget,
 		main_navbar_versekey_spin_chapter(navbar_versekey, 0);
 		break;
 	case VERSE_BUTTON:
+		gui_bibletext_reading_focus_flush();
 		main_navbar_versekey_spin_verse(navbar_versekey, 0);
 		break;
 	}
@@ -518,6 +533,7 @@ static gboolean on_down_eventbox_button_release_event(GtkWidget *widget,
 		main_navbar_versekey_spin_chapter(navbar_versekey, 1);
 		break;
 	case VERSE_BUTTON:
+		gui_bibletext_reading_focus_flush();
 		main_navbar_versekey_spin_verse(navbar_versekey, 1);
 		break;
 	}

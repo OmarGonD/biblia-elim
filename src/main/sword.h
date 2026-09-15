@@ -111,6 +111,10 @@ void main_display_dictionary(const char *mod_name,
 /* key must be native to mod_name. To carry the reader's place from
  * another module use main_display_bible_from_module(). */
 void main_display_bible(const char *mod_name, const char *key);
+/* The pane's window of chapters (reading_window.h): whether it has to
+ * move for the reader to be at `key`, and moving it without navigating. */
+gboolean main_bible_window_needs_recenter(const char *key);
+gboolean main_bible_window_recenter(const char *key);
 /* Converts source_key (native to source_mod) to target_mod's
  * versification. Returns a newly allocated native key, or NULL when the
  * verse does not exist in target_mod (never the same text reread). */

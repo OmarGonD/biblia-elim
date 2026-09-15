@@ -103,6 +103,43 @@ static BibleReference referenceFor(const sword::VerseKey &key)
 	return reference;
 }
 
+static bool sameReference(const BibleReference &a, const BibleReference &b)
+{
+	return a.testament == b.testament && a.book == b.book &&
+	       a.chapter == b.chapter && a.verse == b.verse;
+}
+
+/* Key text that parses back to this very slot. Keys leave the backend as
+ * text and come back through setText() (navbar, display, settings), but
+ * getText() prints the book's display name and SWORD cannot parse every
+ * display name it prints: NRSVA "Esther (Greek) 1:1" reads back as
+ * Revelation 1:1 in any locale. The OSIS book id always parses, so it is
+ * used whenever the display form would not return to the same slot. */
+static std::string keyTextFor(const sword::VerseKey &key)
+{
+	std::string text = key.getText();
+	sword::VerseKey probe(key);
+	probe.setText(text.c_str());
+	if (!probe.popError() && sameReference(referenceFor(probe), referenceFor(key)))
+		return text;
+	return std::string(key.getOSISBookName()) + " " +
+	       std::to_string(key.getChapter()) + ":" +
+	       std::to_string(key.getVerse());
+}
+
+static void fillKeyInfo(const sword::VerseKey &verse_key, BibleKeyInfo &result)
+{
+	result.reference = referenceFor(verse_key);
+	result.key = keyTextFor(verse_key);
+	result.bookName = verse_key.getBookName();
+	result.osisBook = verse_key.getOSISBookName();
+	result.bookIndex = result.reference.book;
+	if (result.reference.testament == 2)
+		result.bookIndex += verse_key.BMAX[0];
+	result.chapterCount = verse_key.getChapterMax();
+	result.verseCount = verse_key.getVerseMax();
+}
+
 static int swordSearchType(BibleSearchMode mode)
 {
 	switch (mode) {
@@ -250,15 +287,7 @@ bool BackEnd::resolveKey(const std::string &module_id,
 	if (!verse_key)
 		return false;
 
-	result.reference = referenceFor(*verse_key);
-	result.key = verse_key->getText();
-	result.bookName = verse_key->getBookName();
-	result.osisBook = verse_key->getOSISBookName();
-	result.bookIndex = result.reference.book;
-	if (result.reference.testament == 2)
-		result.bookIndex += verse_key->BMAX[0];
-	result.chapterCount = verse_key->getChapterMax();
-	result.verseCount = verse_key->getVerseMax();
+	fillKeyInfo(*verse_key, result);
 	delete verse_key;
 	return true;
 }
@@ -673,33 +702,54 @@ std::string BackEnd::navigate(const std::string &module_id,
 	sword::VerseKey *verse_key = verseKeyFor(module, key);
 	if (!verse_key)
 		return std::string();
+	/* One native slot, like the other backends; at either end VerseKey
+	 * stays put and the same key comes back. Skipping slots with no raw
+	 * entry used to happen here, but an empty raw entry is not an empty
+	 * verse -- the content resolver may fill it from the fallback module,
+	 * and it is then rendered and must be reachable (TorresAmat Gen 2:24-25,
+	 * the last verses of the chapter). Which slots to stop on is decided
+	 * by stepVerse() in main/verse_navigation.cc, on resolved content. */
 	if (direction < 0)
 		--(*verse_key);
 	else if (direction > 0)
 		++(*verse_key);
-	/* Preserve the existing navbar behavior for modules with OCR gaps: keep
-	 * moving in the requested direction until a readable verse is found, but
-	 * stop at the same key or after the historical safety bound. */
-	module->setKey(verse_key);
-	for (int n = 0; n < 40 && direction != 0; ++n) {
-		const char *raw = module->getRawEntry();
-		if (raw && *raw)
-			break;
-		BibleReference before = referenceFor(*verse_key);
-		if (direction < 0)
-			--(*verse_key);
-		else
-			++(*verse_key);
-		BibleReference after = referenceFor(*verse_key);
-		if (before.testament == after.testament &&
-		    before.book == after.book && before.chapter == after.chapter &&
-		    before.verse == after.verse)
-			break;
-		module->setKey(verse_key);
-	}
-	std::string result(verse_key->getText());
+	std::string result(keyTextFor(*verse_key));
 	delete verse_key;
 	return result;
+}
+
+/* The step itself never goes through text: the key is positioned from the
+ * resolved testament/book/chapter/verse, moved one slot, and described
+ * again. */
+bool BackEnd::navigateFrom(const std::string &module_id,
+			   const BibleKeyInfo &from, int direction,
+			   BibleKeyInfo &result)
+{
+	sword::SWModule *module = get_SWModule(module_id.c_str());
+	sword::VerseKey *verse_key = module
+		? dynamic_cast<sword::VerseKey *>(module->createKey()) : NULL;
+	if (!verse_key)
+		return false;
+	const BibleReference &at = from.reference;
+	verse_key->setAutoNormalize(1);
+	/* verse 0 is only a starting point; slots reached are never intros */
+	verse_key->setIntros(at.chapter < 1 || at.verse < 1);
+	verse_key->setTestament(at.testament);
+	verse_key->setBook(at.book);
+	verse_key->setChapter(at.chapter);
+	verse_key->setVerse(at.verse);
+	if (verse_key->popError() || !sameReference(referenceFor(*verse_key), at)) {
+		delete verse_key;
+		return false;
+	}
+	if (direction < 0)
+		--(*verse_key);
+	else if (direction > 0)
+		++(*verse_key);
+	verse_key->popError();
+	fillKeyInfo(*verse_key, result);
+	delete verse_key;
+	return true;
 }
 
 std::string BackEnd::setChapter(const std::string &module_id,
@@ -710,7 +760,7 @@ std::string BackEnd::setChapter(const std::string &module_id,
 	if (!verse_key)
 		return std::string();
 	verse_key->setChapter(chapter);
-	std::string result(verse_key->getText());
+	std::string result(keyTextFor(*verse_key));
 	delete verse_key;
 	return result;
 }
@@ -723,7 +773,7 @@ std::string BackEnd::setVerse(const std::string &module_id,
 	if (!verse_key)
 		return std::string();
 	verse_key->setVerse(verse);
-	std::string result(verse_key->getText());
+	std::string result(keyTextFor(*verse_key));
 	delete verse_key;
 	return result;
 }
@@ -738,7 +788,7 @@ std::string BackEnd::setBook(const std::string &module_id,
 		return std::string();
 	verse_key->setTestament(testament);
 	verse_key->setBook(book);
-	std::string result(verse_key->getText());
+	std::string result(keyTextFor(*verse_key));
 	delete verse_key;
 	return result;
 }

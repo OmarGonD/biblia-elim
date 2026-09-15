@@ -36,6 +36,7 @@
 extern "C" {
 #include "gui/bibletext.h"
 #include "main/gtk_compat.h"
+#include "main/reading_window.h"
 }
 
 #include <ctype.h>
@@ -1826,7 +1827,7 @@ void main_display_bible(const char *mod_name,
 	}
 	gchar *bs_key = g_strdup(key);	// avoid tab data corruption problem.
 	gchar *prev_verse;
-	gboolean in_place;
+	gboolean in_place = FALSE;
 	BibleKeyInfo key_info;
 	bool resolved = false;
 
@@ -1856,8 +1857,12 @@ void main_display_bible(const char *mod_name,
 		if (adjustment)
 			g_signal_handler_unblock(adjustment, scroll_adj_signal);
 		if (panel_load_debug_enabled()) {
-			gchar *duration = g_strdup_printf("display_ms=%.1f",
-				(g_get_monotonic_time() - display_started) / 1000.0);
+			/* in_place=1: same pane content, only the focus
+			 * band and scroll moved; 0: the chapter was laid out
+			 * again. */
+			gchar *duration = g_strdup_printf("display_ms=%.1f in_place=%d",
+				(g_get_monotonic_time() - display_started) / 1000.0,
+				in_place ? 1 : 0);
 			panel_load_debug("nav", "DISPLAY_COMPLETE", duration);
 			if (first_ready) {
 				first_ready = FALSE;
@@ -1892,12 +1897,11 @@ void main_display_bible(const char *mod_name,
 		return;
 	}
 
-	/* Mirrors the condition GTKChapDisp::display() uses to decide
-	 * between RenderWholeBook() and one chapter. */
+	/* GTKChapDisp::display() always lays out a window of chapters of
+	 * the book (reading_window.h); only reading mode's comparison
+	 * replaces the pane with something else. */
 	gboolean whole_book_pane =
-	    settings.render_whole_books ||
-	    (settings.reading_mode && settings.reading_mode_whole_book &&
-	     !settings.reading_compare);
+	    !(settings.reading_mode && settings.reading_compare);
 
 	prev_verse = bible_pane_last_verse ? g_strdup(bible_pane_last_verse) : NULL;
 	{
@@ -2007,6 +2011,8 @@ void main_display_bible(const char *mod_name,
 		g_free(bible_pane_last_verse);
 		bible_pane_last_verse = g_strdup(key);
 		bible_pane_is_interlinear = FALSE;
+		/* the pane holds the comparison table now, no chapters */
+		main_rendered_first_chapter = main_rendered_last_chapter = 0;
 		goto after_display;
 	}
 
@@ -2090,6 +2096,54 @@ after_display:
 	g_free(prev_verse);
 
 	finish_display();
+}
+
+/* Whether the chapter window in the pane has to move for `key`: the pane
+ * holds chapters of key's book, but not both of key's neighbouring
+ * chapters (reading_window.h). In the module's own versification. */
+gboolean main_bible_window_needs_recenter(const char *key)
+{
+	BibleKeyInfo info;
+
+	if (!key || !*key || !settings.MainWindowModule || !bible_backend ||
+	    !bible_pane_whole_book || bible_pane_is_interlinear ||
+	    (settings.reading_mode && settings.reading_compare) ||
+	    main_rendered_first_chapter < 1 || !bible_pane_last_verse ||
+	    !osis_same_book(settings.MainWindowModule, bible_pane_last_verse, key))
+		return FALSE;
+	if (!bible_backend->resolveKey(settings.MainWindowModule, key, info))
+		return FALSE;
+	return reading_window_needs_recenter(info.reference.chapter,
+					     info.chapterCount,
+					     main_rendered_first_chapter,
+					     main_rendered_last_chapter);
+}
+
+/* Lays the chapter window out again around `key` -- the reader has
+ * scrolled or stepped into a chapter at its edge -- without any of a
+ * navigation's side effects: no jump to an anchor (the caller keeps the
+ * text where the reader has it), no focus band, no other panels. */
+gboolean main_bible_window_recenter(const char *key)
+{
+	extern guint scroll_adj_signal;
+	extern GtkAdjustment *adjustment;
+	static gchar no_jump[] = "";
+
+	if (!backend || !backend->display_mod || !widgets.html_text ||
+	    !gtk_widget_get_realized(GTK_WIDGET(widgets.html_text)) ||
+	    !main_bible_window_needs_recenter(key))
+		return FALSE;
+	if (adjustment)
+		g_signal_handler_block(adjustment, scroll_adj_signal);
+	backend->set_module_key(settings.MainWindowModule, key);
+	settings.special_anchor = no_jump; /* HtmlOutput(): no jump */
+	backend->display_mod->display();
+	settings.special_anchor = NULL;
+	g_free(bible_pane_last_verse);
+	bible_pane_last_verse = g_strdup(key);
+	if (adjustment)
+		g_signal_handler_unblock(adjustment, scroll_adj_signal);
+	return TRUE;
 }
 
 /******************************************************************************

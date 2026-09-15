@@ -121,6 +121,9 @@ class BackEnd : public BibleBackend
 	std::string navigate(const std::string &module_id,
 					 const std::string &key,
 					 int direction) override;
+	bool navigateFrom(const std::string &module_id,
+			  const BibleKeyInfo &from, int direction,
+			  BibleKeyInfo &result) override;
 	std::string setChapter(const std::string &module_id,
 					   const std::string &key,
 					   int chapter) override;

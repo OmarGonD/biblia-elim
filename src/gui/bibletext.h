@@ -50,9 +50,13 @@ void gui_bibletext_mark_current_verse(void);
  * (settings.currentverse) -- used when the panel opens and whenever
  * the navigated verse changes while it's open. */
 void gui_bibletext_lectura_sync_focus_current(void);
-/* Picks up whatever verse is at the center of the main pane's viewport
- * right now as the focused verse (used after each scroll settles). */
-void gui_bibletext_lectura_sync_focus_refresh(void);
+/* Runs a reading-focus update still waiting for the next frame after a
+ * user scroll, so a navigation that follows starts from the verse the
+ * reader scrolled to (see on_up/down_eventbox_button_release_event). */
+void gui_bibletext_reading_focus_flush(void);
+/* The Bible pane's text view (NULL before it exists): where the keyboard
+ * focus goes when a navbar picker has nothing else to give it back to. */
+GtkWidget *gui_bibletext_view(void);
 /* Clears the reading-focus highlight (used when the panel closes). */
 void gui_bibletext_lectura_sync_clear_focus(void);
 /* Vuelca la posición de lectura seguida durante la sesión (dónde quedó

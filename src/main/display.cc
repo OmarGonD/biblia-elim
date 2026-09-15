@@ -37,6 +37,7 @@
 #include "xiphos_html/xiphos_html.h"
 
 #include "main/display.hh"
+#include "main/reading_window.h"
 #include "main/intro_lookup.h"
 #include "main/settings.h"
 #include "main/global_ops.hh"
@@ -2619,8 +2620,7 @@ GTKChapDisp::getVerseAfter(SWModule &imodule)
 	 * reliably recognize this specific block. A real anchor sidesteps
 	 * the heuristics entirely, the same fix already applied for "0next"
 	 * itself. Inert like "0"/"0next" -- see the sentinel checks in
-	 * wk_html_anchor_at(), find_focus_anchor(), and
-	 * gui_bibletext_lectura_sync_focus_refresh(). */
+	 * wk_html_anchor_at() and collect_focus_block() (bibletext.c). */
 	swbuf.appendFormatted("<a name=\"0hdr\"></a>");
 
 	imodule++;
@@ -3156,61 +3156,77 @@ GTKChapDisp::RenderOneChapter(SWModule &imodule,
 	fallback_block_close(swbuf, &fallback_block);
 }
 
+/* A window of chapters of the current book around the one being read:
+ * `radius` chapters either side (READING_WINDOW_RADIUS in the normal pane,
+ * settings.reading_mode_window in whole-book reading; 0 = the whole book).
+ *
+ * The window is what makes reading continuous: past the end of a chapter
+ * the next one is simply there, laid out in full. Rendering is Sword's cost
+ * and it is not reducible -- measured on this machine, renderText() over
+ * the 2461 verses of Psalms takes 146 ms inside Sword itself, against 18 ms
+ * to read the same entries raw -- so the pane holds only the chapters
+ * around the reader, and moves the window as the reading focus reaches
+ * its edge (bibletext.c).
+ *
+ * book_edge_previews: where the window reaches the first or last chapter
+ * of the book, show the adjacent book's nearest verse as before
+ * (getVerseBefore/After). Anchors are chapter * 1000 + verse, unique only
+ * within a book, so another book's text is never laid out as verses. */
 void
-GTKChapDisp::RenderWholeBook(SWModule &imodule)
+GTKChapDisp::RenderWholeBook(SWModule &imodule, int radius,
+			     bool book_edge_previews)
 {
 	int thisChapter, first_chapter, last_chapter;
+	const int chapter_count = key->getChapterMax();
 
-	// pre-Genesis, name the Bible.
-	if (curBook == 1 && (settings.reading_mode_window <= 0 ||
-			     curChapter - settings.reading_mode_window <= 1)) {
+	reading_window_bounds(curChapter, chapter_count, radius,
+			      &first_chapter, &last_chapter);
+
+	if (book_edge_previews) {
+		if (first_chapter == 1) {
+			/* getVerseBefore() steps back from verse 1 of the
+			 * chapter the key is on: the previous book's last
+			 * verse, or the module's title before Genesis. */
+			key->setChapter(1);
+			getVerseBefore(imodule);
+		}
+	} else if (curBook == 1 && first_chapter == 1) {
+		// pre-Genesis, name the Bible.
 		swbuf.appendFormatted("<a name=\"TOP\"></a><div style=\"text-align: center\">"
 				      "<p><b><font size=\"%+d\">%s</font></b></p></div>",
 				      1 + mf->old_font_size_value,
 				      imodule.getDescription());
 	}
 
-	/* A window of chapters around the one being read, rather than the
-	 * whole book. Rendering is Sword's cost and it is not reducible:
-	 * measured on this machine, renderText() over the 2461 verses of
-	 * Psalms takes 146 ms inside Sword itself, against 18 ms to read
-	 * the same entries raw. The only lever left is rendering fewer
-	 * verses, and a reader looking at one chapter has no use for the
-	 * other 149.
-	 *
-	 * The window is what makes scrolling continuous: it is wide enough
-	 * to read through without hitting an edge, and moving beyond it
-	 * lays out a new one, which costs a fraction of the book.
-	 * settings.reading_mode_window is the number of chapters kept
-	 * either side; 0 restores rendering the entire book. */
-	first_chapter = 1;
-	last_chapter = key->getChapterMax();
-	if (settings.reading_mode_window > 0) {
-		first_chapter = curChapter - settings.reading_mode_window;
-		last_chapter = curChapter + settings.reading_mode_window;
-		if (first_chapter < 1)
-			first_chapter = 1;
-		if (last_chapter > key->getChapterMax())
-			last_chapter = key->getChapterMax();
-	}
-
 	/* what the pane will actually hold, for main_display_bible()'s
-	 * in-place shortcut to check against. */
+	 * in-place shortcut and the reading window to check against. */
 	main_rendered_first_chapter = first_chapter;
 	main_rendered_last_chapter = last_chapter;
 
 	for (thisChapter = first_chapter; thisChapter <= last_chapter; ++thisChapter) {
 		RenderOneChapter(imodule, thisChapter);
-		swbuf.appendFormatted("%s%s",
-				      // extra break when excess strongs/morph space.
-				      (strongs_or_morph ? "<br/><br/>" : ""),
-				      (ops->headings ? "<hr/>" : ""));
+		if (thisChapter < last_chapter || !book_edge_previews)
+			swbuf.appendFormatted("%s%s",
+					      // extra break when excess strongs/morph space.
+					      (strongs_or_morph ? "<br/><br/>" : ""),
+					      (ops->headings ? "<hr/>" : ""));
 	}
 
-	// post-Revelation, name the Bible.
-	if (curBook == key->getBookMax() &&
-	    (settings.reading_mode_window <= 0 ||
-	     curChapter + settings.reading_mode_window >= key->getChapterMax())) {
+	if (book_edge_previews) {
+		if (last_chapter == chapter_count) {
+			/* the key is on the last verse laid out: the next
+			 * book's first verse, or the module's name after
+			 * Revelation */
+			key->setChapter(last_chapter);
+			key->setVerse(key->getVerseMax());
+			getVerseAfter(imodule);
+		} else {
+			/* bounds the last verse's reading-focus band, as
+			 * getVerseAfter() does */
+			swbuf.appendFormatted("<a name=\"0hdr\"></a>");
+		}
+	} else if (curBook == key->getBookMax() && last_chapter == chapter_count) {
+		// post-Revelation, name the Bible.
 		swbuf.appendFormatted("%s<hr/><div style=\"text-align: center\"><p><b>%s</b></p></div>",
 				      // extra break when excess strongs/morph space.
 				      (strongs_or_morph ? "<br/><br/>" : ""),
@@ -3330,28 +3346,17 @@ GTKChapDisp::display(SWModule &imodule)
 	 * want continuous reading more than they want fast navigation.
 	 * Never for the comparison: a whole book of nested per-cell views
 	 * would be far worse (~1.3 ms a cell). */
+	/* The pane lays out a window of chapters: the previous, current and
+	 * next chapter of the book (READING_WINDOW_RADIUS), so reading goes
+	 * on past the end of a chapter; whole-book reading keeps its own,
+	 * wider window. Never for the comparison: a book's worth of nested
+	 * per-cell views would be far worse (~1.3 ms a cell). */
 	if (settings.render_whole_books ||
 	    (settings.reading_mode && settings.reading_mode_whole_book &&
-	     !settings.reading_compare)) {
-#ifdef CHATTY
-		GTimer *t;
-		double d;
-		t = g_timer_new();
-#endif
-		RenderWholeBook(imodule);
-#ifdef CHATTY
-		g_timer_stop(t);
-		d = g_timer_elapsed(t, NULL);
-		g_timer_destroy(t);
-		XI_message(("main render time = %f", d));
-#endif
-	}
+	     !settings.reading_compare))
+		RenderWholeBook(imodule, settings.reading_mode_window, false);
 	else
-	{
-		getVerseBefore(imodule);
-		RenderOneChapter(imodule, curChapter);
-		getVerseAfter(imodule);
-	}
+		RenderWholeBook(imodule, READING_WINDOW_RADIUS, true);
 
 	// Reset the Bible location before GTK gets access:
 	// Mouse activity destroys this key, so we must be finished with it.

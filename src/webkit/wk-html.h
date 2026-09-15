@@ -137,7 +137,8 @@ gint wk_html_find_position(WkHtml *html);
 
 void wk_html_find_clear(WkHtml *html);
 void wk_html_jump_to_anchor(WkHtml *html, gchar *anchor);
-void wk_html_ensure_anchor_visible(WkHtml *html, const gchar *anchor);
+/* Drops the retries of a pending wk_html_jump_to_anchor(). */
+void wk_html_cancel_anchor_jump(WkHtml *html);
 void wk_html_copy_selection(WkHtml *html);
 /* Si hay algo seleccionado con el ratón en este panel. Lo mira en el
  * buffer y no en el portapapeles primario, que es global y podría traer
@@ -177,6 +178,21 @@ gboolean wk_html_highlight_bounds(WkHtml *html, const gchar *id,
  * chapter begins (or the end of the buffer, for the last one). */
 gboolean wk_html_anchor_bounds(WkHtml *html, const gchar *anchor,
 			       GtkTextIter *start, GtkTextIter *end);
+/* The same span as wk_html_anchor_bounds(), as laid out: top and bottom
+ * in buffer pixel coordinates. */
+gboolean wk_html_anchor_block(WkHtml *html, const gchar *anchor,
+			      gint *top, gint *bottom);
+/* Calls func, in document order, for every anchor whose laid-out span
+ * overlaps [y_top, y_bottom) (buffer coordinates), until it returns
+ * FALSE. Only the anchors near the range are measured. */
+typedef gboolean (*WkHtmlAnchorBlockFunc)(const gchar *name, gint top,
+					  gint bottom, gpointer data);
+void wk_html_foreach_anchor_block(WkHtml *html, gint y_top, gint y_bottom,
+				  WkHtmlAnchorBlockFunc func, gpointer data);
+/* Every anchor, from the last one back, until func returns FALSE. */
+void wk_html_foreach_anchor_block_reverse(WkHtml *html,
+					  WkHtmlAnchorBlockFunc func,
+					  gpointer data);
 /* Moves (or clears, if start/end are NULL) a single reading-position
  * indicator -- a solid background + slightly larger text, no underline,
  * distinct from wk_html_highlight_* above's user-created highlights --

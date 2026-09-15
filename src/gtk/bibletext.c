@@ -45,6 +45,7 @@
 #include "gui/diccionario.h"
 #include "gui/interlineal.h"
 #include "gui/lectura_sync.h"
+#include "gui/panel_load_state.h"
 #include "gui/tabbed_browser.h"
 #include "gui/utilities.h"
 #include "gui/widgets.h"
@@ -54,6 +55,8 @@
 #include "main/lectura_sync.h"
 #include "main/lists.h"
 #include "main/navbar_versekey.h"
+#include "main/reading_focus.h"
+#include "main/wheel_scroll.h"
 #include "main/sword.h"
 #include "main/url.hh"
 #include "main/xml.h"
@@ -1215,120 +1218,206 @@ gui_show_verse_notes_dialog(const gchar *module, const gchar *passage)
 }
 
 // ---------------------------------------------------------------------
-// "Comparar" reading focus: while the split-view panel is open, track
-// which verse is at the top of the main pane's viewport as the user
-// scrolls, and mirror it -- a native tag highlight up here, the
-// matching verse rendered below -- without re-rendering this pane out
-// from under the user's own scrolling (a full re-render would fight the
-// scroll position instead of following it).
+// Reading focus: the band on the verse being read, in step with the
+// navbar and settings.currentverse.
+//
+// Two things move the viewport, and they are kept apart explicitly:
+//
+//   SCROLL_ORIGIN_NAVIGATION -- the arrows (or any navigation) chose a
+//   verse; the view follows it with the least scroll that brings it into
+//   the reading zone (reading_zone_scroll_delta()). Scroll changes that
+//   follow -- this minimal scroll, wk_html_jump_to_anchor()'s retries,
+//   GtkTextView settling its layout -- never re-derive the focus: that
+//   was the loop where a scroll caused by navigating to verse 15 picked
+//   verse 14 back from the viewport.
+//
+//   SCROLL_ORIGIN_USER -- a wheel, touchpad or scrollbar gesture; the
+//   viewport moves freely and the focus follows it: the verse on the
+//   reading line (reading_focus_pick()), measured at most once per frame
+//   from the anchors already laid out. Nothing here scrolls, and a jump
+//   still retrying is cancelled, so the view is never pulled back.
+//
+// The origin switches on the input event itself, not on a timer.
+//
+// When the focus follows the viewport to another verse, that verse
+// becomes the current reference: band, navbar (which the arrows step
+// from), settings.currentverse and the tab label, once per verse change,
+// not per scroll event. keys/verse only changes in memory; settings.xml
+// is written at the usual times. With Comparar open the panel follows too.
+//
+// The pane holds a window of chapters of the book (reading_window.h):
+// the focus follows the reader from one chapter into the next, and when it
+// reaches a chapter at the window's edge the window moves with it
+// (recenter_reading_window()), keeping the text on screen where it is.
+// The adjacent book's one-verse previews (anchors "0"/"0next") are not
+// verses and never take the focus.
+//
+// End of the pane: the view carries a bottom reading reserve so the last
+// verse can reach the reading line, and a wheel step pushed against the
+// bottom (or top) moves the focus one visible verse on, since the viewport
+// has nowhere to go. Neither scrolls anything.
 // ---------------------------------------------------------------------
 
-#define READING_FOCUS_DEBOUNCE_MS 50
-#define READING_FOCUS_CHROME_PAD 44
-#define READING_FOCUS_MAX_STEP 8
+typedef enum {
+	SCROLL_ORIGIN_NAVIGATION,
+	SCROLL_ORIGIN_USER
+} ScrollOrigin;
 
-static gchar *lectura_sync_focus_anchor = NULL;
-static guint lectura_sync_scroll_debounce_id = 0;
-/* Ignore adjustment changes caused by programmatic jump / split resize
- * so they don't steal the navigated verse and point Comparar elsewhere. */
-static gint64 lectura_sync_ignore_scroll_until = 0;
+static ScrollOrigin scroll_origin = SCROLL_ORIGIN_NAVIGATION;
+static guint reading_focus_tick_id = 0;
+/* chapter * 1000 + verse of the verse carrying the band, 0 if none */
+static gint reading_focus_id = 0;
+/* The reading line's position (buffer y) at the last focus update, so an
+ * update sees everything the line went past since, however many scroll
+ * events a frame coalesced. */
+static gdouble reading_line_doc_y = 0.0;
+static gboolean reading_line_valid = FALSE;
+static gdouble reading_focus_prev_value = 0.0;
+/* Explicit navigation -> scroll handoff (reading_focus.h): the verse a
+ * navigation settled on becomes where the first scroll starts from. Taken
+ * at that scroll, from the geometry it finds; then the tracking line is
+ * shifted by reading_line_offset, which shrinks as the view moves. */
+static gboolean focus_rebase_pending = FALSE;
+static gint focus_rebase_target = 0;
+static gdouble reading_line_offset = 0.0;
+static gboolean first_scroll_after_nav = FALSE;
+static void rebase_focus_for_user_scroll(const GdkRectangle *vis);
+/* A wheel/touchpad step made against the top (-1) or bottom (+1) of the
+ * pane, where the viewport cannot move and no value-changed follows. */
+static gint reading_focus_edge_push = 0;
+static gdouble reading_focus_edge_accum = 0.0;
+/* the same GdkEventScroll reaches the view and then its scrolled window */
+static gpointer last_scroll_event = NULL;
+static guint32 last_scroll_event_time = 0;
+static guint scroll_event_seq = 0;
+static gdouble last_viewport_value = 0.0;
+static gdouble last_range_upper = -1.0, last_range_page = -1.0;
+/* A mouse wheel notch glides instead of jumping (wheel_scroll.h). */
+static WheelScroll wheel_scroll = { FALSE, 0.0, 0.0, 0 };
+static guint wheel_tick_id = 0;
+/* The chapter window moving with the reader (reading_window.h). */
+static guint window_tick_id = 0;
+static gdouble window_last_value = -1.0;
+static gdouble window_resume_distance = 0.0;
+/* Restoring the view after a re-layout: the text that was on the reading
+ * line (verse anchor, character offset) and its distance from the top. */
+static gboolean window_restore_pending = FALSE;
+static gchar *window_restore_anchor = NULL;
+static gint window_restore_offset = 0;
+static gdouble window_restore_y = 0.0;
+static gint window_restore_frames = 0;
+static gdouble window_restore_last_target = -1.0;
+static gdouble window_restore_last_upper = -1.0;
+static GdkWindow *window_restore_frozen = NULL;
+static gint64 window_restore_started = 0;
+static void schedule_window_recenter(void);
+/* bottom margin wk-html gives the view, before any reading reserve */
+static gint reading_reserve_base = -1;
+static guint reading_reserve_idle_id = 0;
 
-/* Dónde se quedó leyendo, para retomar ahí en el próximo arranque.
- * El scroll se sigue siempre, no solo con Comparar abierto, pero acá
- * *solo* se anota: settings.currentverse no se toca durante la sesión,
- * porque reasignarlo mientras el lector se desplaza es justo lo que
- * hacía desaparecer la banda de foco y pisaba la navegación manual
- * (ver gui_bibletext_lectura_sync_focus_refresh()). La posición se
- * vuelca a settings.xml y al archivo de pestañas recién al cerrar. */
+/* Dónde se quedó leyendo, para la pestaña en el próximo arranque: el
+ * versículo al que llevó el scroll, que ya es también
+ * settings.currentverse. Una navegación la borra, porque entonces la
+ * referencia buena es el versículo navegado. */
 static gchar *lectura_posicion = NULL;
 
 static void
-ignore_scroll_briefly(void)
+cancel_reading_focus_tick(void)
 {
-	if (lectura_sync_scroll_debounce_id) {
-		g_source_remove(lectura_sync_scroll_debounce_id);
-		lectura_sync_scroll_debounce_id = 0;
-	}
-	/* Cover jump retries (~240 ms) plus a settle so arrow-next is
-	 * not immediately overwritten by the still-old viewport. */
-	lectura_sync_ignore_scroll_until = g_get_monotonic_time() + 600000;
-	/* Un salto programático quiere decir que el lector navegó: el
-	 * versículo actual vuelve a ser la referencia buena hasta que
-	 * se desplace de nuevo por su cuenta. Sin esto, una posición de
-	 * lectura vieja pisaría al cerrar el versículo recién elegido. */
+	GtkTextView *view = bible_view();
+
+	if (reading_focus_tick_id && view)
+		gtk_widget_remove_tick_callback(GTK_WIDGET(view),
+						reading_focus_tick_id);
+	reading_focus_tick_id = 0;
+}
+
+static void
+cancel_wheel_scroll(void)
+{
+	GtkTextView *view = bible_view();
+
+	if (wheel_tick_id && view)
+		gtk_widget_remove_tick_callback(GTK_WIDGET(view), wheel_tick_id);
+	wheel_tick_id = 0;
+	wheel_scroll_cancel(&wheel_scroll);
+}
+
+static void
+begin_navigation_scroll(void)
+{
+	cancel_wheel_scroll();
+	cancel_reading_focus_tick();
+	scroll_origin = SCROLL_ORIGIN_NAVIGATION;
+	reading_line_valid = FALSE;
+	reading_line_offset = 0.0;
+	focus_rebase_pending = FALSE;
+	first_scroll_after_nav = FALSE;
+	/* a wheel glide carried across a window re-layout must not resume
+	 * after a navigation either */
+	window_resume_distance = 0.0;
+	reading_focus_edge_push = 0;
+	reading_focus_edge_accum = 0.0;
 	g_clear_pointer(&lectura_posicion, g_free);
 }
 
-/* First verse whose start sits below the top chrome, so a short verse
- * fully on screen is never skipped in favour of one further down. */
-static gchar *
-find_focus_anchor(GtkTextView *view)
+static void
+begin_user_scroll(void)
 {
-	GdkRectangle vis, loc;
-	GtkTextIter iter, vs, ve;
-	gchar *anchor, *next;
+	GtkTextView *view;
 
-	gtk_text_view_get_visible_rect(view, &vis);
-	gtk_text_view_get_iter_at_location(view, &iter, vis.x,
-					   vis.y + READING_FOCUS_CHROME_PAD);
-	anchor = wk_html_anchor_at(WK_HTML(widgets.html_text), &iter);
-	if (!anchor || !*anchor || !strcmp(anchor, "0") || !strcmp(anchor, "0next") ||
-	    !strcmp(anchor, "0hdr"))
-		return anchor;
-	if (!wk_html_anchor_bounds(WK_HTML(widgets.html_text), anchor, &vs, &ve))
-		return anchor;
-	gtk_text_view_get_iter_location(view, &vs, &loc);
-	if (loc.y >= vis.y + READING_FOCUS_CHROME_PAD - 2)
-		return anchor;
-	next = wk_html_anchor_at(WK_HTML(widgets.html_text), &ve);
-	if (next && *next && strcmp(next, "0") && strcmp(next, "0next") &&
-	    strcmp(next, "0hdr") && strcmp(next, anchor)) {
-		g_free(anchor);
-		return next;
+	if (scroll_origin == SCROLL_ORIGIN_USER)
+		return;
+	scroll_origin = SCROLL_ORIGIN_USER;
+	if (widgets.html_text)
+		wk_html_cancel_anchor_jump(WK_HTML(widgets.html_text));
+	/* Called before the scrolled window applies the event: this is where
+	 * the reading line starts from. */
+	view = bible_view();
+	if (view && gtk_widget_get_mapped(GTK_WIDGET(view))) {
+		GdkRectangle vis;
+		GtkAdjustment *vadj =
+		    gtk_scrollable_get_vadjustment(GTK_SCROLLABLE(view));
+		gtk_text_view_get_visible_rect(view, &vis);
+		reading_line_doc_y = vis.y + vis.height * READING_FOCUS_LINE_RATIO;
+		reading_line_valid = vis.height > 1;
+		if (vadj)
+			reading_focus_prev_value = gtk_adjustment_get_value(vadj);
+		rebase_focus_for_user_scroll(&vis);
 	}
-	g_free(next);
-	return anchor;
 }
 
-/* Do not skip verses: if the viewport jumped over several, advance one
- * at a time so a brief verse still gets the focus band. Snap only when
- * the user clearly dragged a long way. */
-static gchar *
-step_focus_anchor(const gchar *from, const gchar *toward)
+/* The first scroll after an explicit navigation: the tracking line starts
+ * inside the navigated verse, wherever the reading zone left it. */
+static void
+rebase_focus_for_user_scroll(const GdkRectangle *vis)
 {
-	long a, b, n, cand_n;
-	gchar *cand;
-	GtkTextIter s, e;
+	gchar anchor[16];
+	gint top, bottom;
 
-	if (!toward)
-		return NULL;
-	if (!from || !*from)
-		return g_strdup(toward);
-	a = atol(from);
-	b = atol(toward);
-	if (a / 1000 != b / 1000)
-		return g_strdup(toward);
-	n = labs(b - a);
-	if (n <= 1 || n > READING_FOCUS_MAX_STEP)
-		return g_strdup(toward);
-	cand_n = (b > a) ? a + 1 : a - 1;
-	cand = g_strdup_printf("%ld", cand_n);
-	if (widgets.html_text &&
-	    wk_html_anchor_bounds(WK_HTML(widgets.html_text), cand, &s, &e))
-		return cand;
-	g_free(cand);
-	return g_strdup(toward);
-}
-
-void
-gui_bibletext_lectura_sync_clear_focus(void)
-{
-	if (lectura_sync_scroll_debounce_id) {
-		g_source_remove(lectura_sync_scroll_debounce_id);
-		lectura_sync_scroll_debounce_id = 0;
+	if (!focus_rebase_pending)
+		return;
+	focus_rebase_pending = FALSE;
+	reading_line_offset = 0.0;
+	if (!focus_rebase_target || focus_rebase_target != reading_focus_id ||
+	    !widgets.html_text || vis->height <= 1)
+		return;
+	g_snprintf(anchor, sizeof anchor, "%d", focus_rebase_target);
+	if (!wk_html_anchor_block(WK_HTML(widgets.html_text), anchor, &top, &bottom))
+		return;
+	reading_line_offset = reading_focus_rebase_line_offset(
+	    top - vis->y, bottom - vis->y, vis->height);
+	first_scroll_after_nav = TRUE;
+	if (panel_load_debug_enabled()) {
+		gchar *detail = g_strdup_printf(
+		    "target=%d targetTop=%d targetBottom=%d scrollTop=%d "
+		    "readingLineY=%.1f readingDocumentY=%.1f lineOffset=%.1f",
+		    focus_rebase_target, top - vis->y, bottom - vis->y, vis->y,
+		    vis->height * READING_FOCUS_LINE_RATIO, reading_line_doc_y,
+		    reading_line_offset);
+		panel_load_debug("focus", "FOCUS_REBASE_BASELINE", detail);
+		g_free(detail);
 	}
-	g_clear_pointer(&lectura_sync_focus_anchor, g_free);
-	gui_bibletext_mark_current_verse();
 }
 
 static gchar *
@@ -1359,217 +1448,362 @@ anchor_from_current_verse(void)
 	return anchor;
 }
 
-void
-gui_bibletext_mark_current_verse(void)
+/* The least scroll that puts the verse inside the reading zone; nothing
+ * when it is already comfortably visible. */
+static void
+scroll_anchor_into_reading_zone(const gchar *anchor)
+{
+	GtkTextView *view = bible_view();
+	GtkAdjustment *vadj;
+	GdkRectangle vis;
+	gint top, bottom;
+	gdouble delta;
+
+	/* Measuring a view that has not been laid out yet makes GtkTextView
+	 * build its layout without a size, and the next tag change then
+	 * crashes inside gtk_text_layout_changed() (startup with a sword://
+	 * argument displays before the first allocation). Until then the
+	 * render's own wk_html_jump_to_anchor() positions the verse. */
+	if (!view || !widgets.html_text ||
+	    !gtk_widget_get_mapped(GTK_WIDGET(view)) ||
+	    gtk_widget_get_allocated_height(GTK_WIDGET(view)) <= 1)
+		return;
+	if (!wk_html_anchor_block(WK_HTML(widgets.html_text), anchor, &top, &bottom))
+		return;
+	vadj = gtk_scrollable_get_vadjustment(GTK_SCROLLABLE(view));
+	if (!vadj)
+		return;
+	gtk_text_view_get_visible_rect(view, &vis);
+	delta = reading_zone_scroll_delta(top - vis.y, bottom - vis.y, vis.height);
+	if (delta != 0.0)
+		gtk_adjustment_set_value(vadj, gtk_adjustment_get_value(vadj) + delta);
+}
+
+static void
+focus_band_on_current_verse(gboolean scroll)
 {
 	gchar *anchor;
 	GtkTextIter s, e;
 
 	if (!widgets.html_text)
 		return;
-	ignore_scroll_briefly();
+	if (panel_load_debug_enabled()) {
+		gchar *detail = g_strdup_printf(
+		    "origin=%s focused=%d prevScrollTop=%.1f "
+		    "prevReadingDocumentY=%.1f lineValid=%d lineOffset=%.1f",
+		    scroll_origin == SCROLL_ORIGIN_USER ? "user" : "navigation",
+		    reading_focus_id, reading_focus_prev_value, reading_line_doc_y,
+		    reading_line_valid, reading_line_offset);
+		panel_load_debug("focus", "FOCUS_STATE_BEFORE_NAV", detail);
+		g_free(detail);
+	}
+	begin_navigation_scroll();
 	anchor = anchor_from_current_verse();
 	if (!anchor)
 		return;
 	if (wk_html_anchor_bounds(WK_HTML(widgets.html_text), anchor, &s, &e))
 		wk_html_reading_focus_set(WK_HTML(widgets.html_text), &s, &e,
 					  NULL, NULL);
-	wk_html_ensure_anchor_visible(WK_HTML(widgets.html_text), anchor);
+	reading_focus_id = atoi(anchor);
+	if (scroll)
+		scroll_anchor_into_reading_zone(anchor);
+	/* The navigation decided the verse: the next scroll starts from it
+	 * (rebase_focus_for_user_scroll), not from whatever the reading line
+	 * happens to cover. Geometry is taken then -- a full render may still
+	 * be positioning the verse now. */
+	focus_rebase_target = reading_focus_id;
+	focus_rebase_pending = reading_focus_id_is_verse(reading_focus_id);
+	if (panel_load_debug_enabled()) {
+		GtkTextView *view = bible_view();
+		GdkRectangle vis = { 0, 0, 0, 0 };
+		gchar *detail;
+
+		if (view && gtk_widget_get_mapped(GTK_WIDGET(view)))
+			gtk_text_view_get_visible_rect(view, &vis);
+		detail = g_strdup_printf(
+		    "target=%d scrollTop=%d readingLineY=%.1f readingDocumentY=%.1f "
+		    "pending=%d",
+		    reading_focus_id, vis.y, vis.height * READING_FOCUS_LINE_RATIO,
+		    vis.y + vis.height * READING_FOCUS_LINE_RATIO,
+		    focus_rebase_pending);
+		panel_load_debug("focus", "FOCUS_REBASE", detail);
+		g_free(detail);
+	}
 	g_free(anchor);
+	/* stepped into a chapter at the window's edge */
+	schedule_window_recenter();
+}
+
+void
+gui_bibletext_mark_current_verse(void)
+{
+	focus_band_on_current_verse(TRUE);
 }
 
 void
 gui_bibletext_lectura_sync_focus_current(void)
 {
-	gchar *anchor;
-	GtkTextIter s, e;
-
-	if (!settings.currentverse || !widgets.html_text)
+	if (!settings.currentverse)
 		return;
-
-	ignore_scroll_briefly();
-
-	anchor = anchor_from_current_verse();
-	if (!anchor)
-		return;
-
-	if (settings.show_lectura_sync)
-		wk_html_ensure_anchor_visible(WK_HTML(widgets.html_text), anchor);
-
-	if (wk_html_anchor_bounds(WK_HTML(widgets.html_text), anchor, &s, &e))
-		wk_html_reading_focus_set(WK_HTML(widgets.html_text), &s, &e,
-					  NULL, NULL);
-
-	g_free(lectura_sync_focus_anchor);
-	lectura_sync_focus_anchor = anchor;
+	focus_band_on_current_verse(settings.show_lectura_sync);
 }
 
 void
-gui_bibletext_lectura_sync_focus_refresh(void)
+gui_bibletext_lectura_sync_clear_focus(void)
 {
-	GtkTextView *view;
-	gchar *anchor;
-	GtkTextIter s, e;
-	long cv;
-	gchar *book, *ref;
-
-	view = bible_view();
-	if (!view || !widgets.html_text)
-		return;
-
-	/* This whole function exists to keep the Comparar panel tracking
-	 * along as the reader scrolls -- with it closed, none of this
-	 * (reassigning the reading-focus band, "current verse", the navbar,
-	 * or forcing a redisplay when the interlineal panel auto-collapses)
-	 * should run at all. Splitting hairs on which piece to skip instead
-	 * of bailing out entirely is what caused the last two rounds of
-	 * bugs here (the reading-focus band vanishing on scroll, then manual
-	 * chapter/verse navigation getting silently overwritten moments
-	 * later by this function's own re-render, racing on stale state) --
-	 * bailing out completely removes the whole class of races, at the
-	 * cost of the interlineal panel not auto-collapsing on scroll while
-	 * Comparar is closed. */
-	if (!settings.show_lectura_sync)
-		return;
-
-	anchor = find_focus_anchor(view);
-	if (!anchor || !*anchor || !strcmp(anchor, "0") || !strcmp(anchor, "0next") ||
-	    !strcmp(anchor, "0hdr")) {
-		g_free(anchor);
-		return;
-	}
-	{
-		gchar *stepped = step_focus_anchor(lectura_sync_focus_anchor, anchor);
-		g_free(anchor);
-		anchor = stepped;
-	}
-	if (lectura_sync_focus_anchor && !strcmp(anchor, lectura_sync_focus_anchor)) {
-		g_free(anchor);
-		return;
-	}
-
-	/* The reading-focus band and "current verse" reassignment below
-	 * exist so the Comparar panel tracks along as the reader scrolls --
-	 * outside of that, scrolling shouldn't silently reassign the verse
-	 * the reader actually navigated to (that read as "the focus
-	 * disappears" the moment you scroll at all, even with Comparar
-	 * closed). The interlineal-collapse check further down still runs
-	 * regardless -- it tracks scroll on its own terms, unrelated to
-	 * Comparar. */
-	if (settings.show_lectura_sync &&
-	    wk_html_anchor_bounds(WK_HTML(widgets.html_text), anchor, &s, &e))
-		wk_html_reading_focus_set(WK_HTML(widgets.html_text), &s, &e,
-					  NULL, NULL);
-
-	g_free(lectura_sync_focus_anchor);
-	lectura_sync_focus_anchor = anchor;
-
-	cv = atol(lectura_sync_focus_anchor);
-	book = book_from_current_verse();
-	ref = g_strdup_printf("%s %ld:%ld", book, cv / 1000, cv % 1000);
-	g_free(book);
-
-	if (settings.show_lectura_sync) {
-		xml_set_value("Xiphos", "keys", "verse", ref);
-		settings.currentverse = xml_get_value("keys", "verse");
-		main_navbar_versekey_set(navbar_versekey, ref);
-		gui_set_tab_label(ref, FALSE);
-		main_lectura_sync_focus_verse(ref);
-	}
-	if (main_interlineal_quizas_plegar(ref)) {
-		/* Redisplay the verse actually navigated to, not `ref` (the
-		 * scroll-tracked position) -- with Comparar closed those two
-		 * can now differ (see the show_lectura_sync gate above), and
-		 * targeting `ref` here was snapping the reader's own
-		 * navigation back to wherever they'd scrolled, mid-chapter,
-		 * even after explicitly jumping to a different chapter. The
-		 * collapse check itself still uses the scroll position --
-		 * only the redisplay target changes. */
-		main_bible_note_interlinear_html();
-		main_display_bible(NULL, settings.currentverse);
-	}
-	g_free(ref);
+	reading_focus_id = 0;
+	gui_bibletext_mark_current_verse();
 }
 
-/* Same tag application gui_bibletext_mark_current_verse() does, minus its
- * wk_html_ensure_anchor_visible() call -- that would fight the user's own
- * scroll, snapping the view back to the current verse every time they
- * pause. Just repaints the band wherever settings.currentverse already
- * is, without moving anything. */
+/* The focus followed the viewport onto verse `id`: it is now the current
+ * reference. */
 static void
-reapply_current_verse_band(void)
+apply_scrolled_focus(gint id)
 {
-	gchar *anchor;
+	gchar anchor[16];
 	GtkTextIter s, e;
+	gchar *book, *ref, *valido;
 
-	if (!widgets.html_text || !settings.currentverse)
+	g_snprintf(anchor, sizeof anchor, "%d", id);
+	if (!wk_html_anchor_bounds(WK_HTML(widgets.html_text), anchor, &s, &e))
 		return;
-	anchor = anchor_from_current_verse();
-	if (!anchor)
-		return;
-	if (wk_html_anchor_bounds(WK_HTML(widgets.html_text), anchor, &s, &e))
-		wk_html_reading_focus_set(WK_HTML(widgets.html_text), &s, &e,
-					  NULL, NULL);
-	g_free(anchor);
-}
-
-/* Versículo que quedó arriba del viewport, anotado como posición de
- * lectura. No toca el versículo actual, la banda de foco, la navbar ni
- * la etiqueta de la pestaña: es solo memoria para el próximo arranque. */
-static void
-anotar_posicion_lectura(void)
-{
-	GtkTextView *view = bible_view();
-	gchar *anchor, *book, *ref, *valido;
-	long cv;
-
-	if (!view || !widgets.html_text || !settings.currentverse ||
-	    !settings.MainWindowModule)
-		return;
-
-	anchor = find_focus_anchor(view);
-	if (!anchor || !*anchor || !strcmp(anchor, "0") ||
-	    !strcmp(anchor, "0next") || !strcmp(anchor, "0hdr")) {
-		g_free(anchor);
-		return;
-	}
-	cv = atol(anchor);
-	g_free(anchor);
-	/* capítulo*1000 + versículo: sin uno u otro no es un versículo
-	 * (encabezados de capítulo, separadores de la ventana de lectura). */
-	if (cv < 1000 || (cv % 1000) == 0)
-		return;
+	wk_html_reading_focus_set(WK_HTML(widgets.html_text), &s, &e, NULL, NULL);
+	reading_focus_id = id;
 
 	book = book_from_current_verse();
 	if (!book || !*book) {
 		g_free(book);
 		return;
 	}
-	ref = g_strdup_printf("%s %ld:%ld", book, cv / 1000, cv % 1000);
+	ref = g_strdup_printf("%s %d:%d", book, id / 1000, id % 1000);
 	g_free(book);
-
-	/* El ancla trae el nombre OSIS del libro ("Num 1:33"); keys/verse
-	 * guarda siempre la clave ya validada y en el idioma del módulo
-	 * ("Números 1:33"), que es lo que la pestaña y la barra de
-	 * navegación muestran al reabrir -- normalizar acá, como hace
-	 * main_display_bible(). De paso descarta un versículo fuera de
-	 * rango en vez de escribirlo en el archivo. */
+	/* El ancla trae el nombre OSIS del libro ("Num 1:33"); keys/verse,
+	 * la navbar y la pestaña llevan la clave validada en el idioma del
+	 * módulo ("Números 1:33"), como deja main_display_bible(). */
 	valido = main_get_valid_key(settings.MainWindowModule, ref);
 	if (valido && *valido) {
 		g_free(ref);
-		ref = g_strdup(valido);
-	}
-	g_free(valido);
+		ref = valido;
+	} else
+		g_free(valido);
 
+	xml_set_value("Xiphos", "keys", "verse", ref);
+	settings.currentverse = xml_get_value("keys", "verse");
+	main_navbar_versekey_set(navbar_versekey, ref);
+	gui_set_tab_label(ref, FALSE);
 	g_free(lectura_posicion);
-	lectura_posicion = ref;
+	lectura_posicion = g_strdup(ref);
+	/* scrolled into a chapter at the window's edge */
+	schedule_window_recenter();
+
+	if (settings.show_lectura_sync) {
+		main_lectura_sync_focus_verse(ref);
+		if (main_interlineal_quizas_plegar(ref)) {
+			main_bible_note_interlinear_html();
+			main_display_bible(NULL, settings.currentverse);
+		}
+	}
+	g_free(ref);
 }
 
-/* Última palabra al cerrar: si el lector se desplazó después de su
- * última navegación, lo que guardamos es dónde dejó la vista, no el
- * versículo que había pinchado hace media hora. Se escribe en los dos
- * lados que se releen al arrancar -- keys/verse de settings.xml y la
- * clave de la pestaña actual (.last_session_tabs). */
+typedef struct {
+	GArray *blocks;
+	gint y0;
+	gint height;
+	gint last_visible;
+} FocusBlocks;
+
+static gboolean
+collect_focus_block(const gchar *name, gint top, gint bottom, gpointer data)
+{
+	FocusBlocks *fb = data;
+	ReadingFocusBlock block;
+	gchar *end;
+	glong id;
+
+	if (!name || !*name)
+		return TRUE;
+	id = strtol(name, &end, 10);
+	/* "0", "0next", "0hdr", "TOP", chapter anchors: not verses */
+	if (*end || !reading_focus_id_is_verse((gint)id))
+		return TRUE;
+	block.id = (gint)id;
+	block.top = top - fb->y0;
+	block.bottom = bottom - fb->y0;
+	g_array_append_val(fb->blocks, block);
+	if (block.bottom > 0 && block.top < fb->height)
+		fb->last_visible = block.id;
+	return TRUE;
+}
+
+/* Whether the viewport is at the top / bottom of what it can scroll. */
+static void
+scroll_edges(GtkAdjustment *adj, gboolean *at_top, gboolean *at_bottom)
+{
+	const gdouble tolerance = 1.0; /* px; values are fractional */
+	gdouble value = gtk_adjustment_get_value(adj);
+
+	*at_top = value - gtk_adjustment_get_lower(adj) <= tolerance;
+	*at_bottom = gtk_adjustment_get_upper(adj) -
+			     gtk_adjustment_get_page_size(adj) - value <=
+		     tolerance;
+}
+
+static void
+reading_focus_update(void)
+{
+	GtkTextView *view = bible_view();
+	GtkAdjustment *vadj;
+	GdkRectangle vis;
+	FocusBlocks fb;
+	ReadingFocusStep step;
+	gint current, push, lo, hi;
+	guint n_blocks;
+	gint64 started;
+	gdouble line_doc, prev_line_y, value, prev_value, offset;
+	gboolean at_top = FALSE, at_bottom = FALSE, pushing;
+
+	if (!view || !widgets.html_text || !settings.currentverse ||
+	    !settings.MainWindowModule)
+		return;
+	/* the interlinear pins the reference, as it does for the arrows */
+	if (main_interlineal_bloquea_navegacion())
+		return;
+	/* the chapter window is being laid out again: positions are not
+	 * final until the view is restored */
+	if (window_restore_pending)
+		return;
+	if (!gtk_widget_get_mapped(GTK_WIDGET(view)))
+		return;
+	gtk_text_view_get_visible_rect(view, &vis);
+	if (vis.height <= 1)
+		return;
+	vadj = gtk_scrollable_get_vadjustment(GTK_SCROLLABLE(view));
+	if (!vadj)
+		return;
+	scroll_edges(vadj, &at_top, &at_bottom);
+	push = reading_focus_edge_push;
+	reading_focus_edge_push = 0;
+	pushing = (push > 0 && at_bottom) || (push < 0 && at_top);
+
+	started = g_get_monotonic_time();
+	current = reading_focus_id;
+	if (!current) {
+		gchar *anchor = anchor_from_current_verse();
+		current = anchor ? atoi(anchor) : 0;
+		g_free(anchor);
+	}
+
+	/* The verses the line went past since the last update are measured
+	 * too, not only the viewport as it is now -- unless the view jumped
+	 * too far for that to mean anything (scrollbar drag, Page keys). */
+	line_doc = vis.y + vis.height * READING_FOCUS_LINE_RATIO;
+	offset = reading_line_offset;
+	prev_line_y = vis.height * READING_FOCUS_LINE_RATIO + offset;
+	lo = vis.y;
+	hi = vis.y + vis.height;
+	if (reading_line_valid) {
+		if (ABS(reading_line_doc_y - line_doc) <= 2.0 * vis.height) {
+			gdouble prev_doc = reading_line_doc_y + reading_line_offset;
+
+			prev_line_y = prev_doc - vis.y;
+			/* the handoff shift shrinks by however far the view moved */
+			offset = reading_focus_line_offset_decay(
+			    offset, line_doc - reading_line_doc_y);
+			lo = MIN(lo, (gint)prev_doc - 1);
+			hi = MAX(hi, (gint)prev_doc + 2);
+		} else {
+			offset = 0.0; /* jumped: nothing left to hand off */
+			prev_line_y = vis.height * READING_FOCUS_LINE_RATIO;
+		}
+	}
+	lo = MIN(lo, (gint)(line_doc + offset) - 1);
+	hi = MAX(hi, (gint)(line_doc + offset) + 2);
+	fb.blocks = g_array_new(FALSE, FALSE, sizeof(ReadingFocusBlock));
+	fb.y0 = vis.y;
+	fb.height = vis.height;
+	fb.last_visible = 0;
+	wk_html_foreach_anchor_block(WK_HTML(widgets.html_text), lo, hi,
+				     collect_focus_block, &fb);
+	n_blocks = fb.blocks->len;
+	step = reading_focus_track_offset(
+	    (const ReadingFocusBlock *)fb.blocks->data, n_blocks, vis.height,
+	    current, prev_line_y, pushing ? push : 0, offset);
+	g_array_free(fb.blocks, TRUE);
+
+	value = gtk_adjustment_get_value(vadj);
+	prev_value = reading_focus_prev_value;
+	reading_focus_prev_value = value;
+	reading_line_doc_y = line_doc;
+	reading_line_valid = TRUE;
+	reading_line_offset = offset;
+
+	if (first_scroll_after_nav && panel_load_debug_enabled()) {
+		gchar *detail = g_strdup_printf(
+		    "target=%d prevFocused=%d candidate=%d picked=%d direction=%d "
+		    "deltaScrollTop=%.1f lineOffset=%.1f",
+		    focus_rebase_target, current, step.candidate, step.picked,
+		    step.direction, value - prev_value, offset);
+		panel_load_debug("focus", "FIRST_USER_SCROLL_AFTER_NAV", detail);
+		g_free(detail);
+	}
+	first_scroll_after_nav = FALSE;
+
+	if (panel_load_debug_enabled()) {
+		gchar *detail = g_strdup_printf(
+		    "prevScrollTop=%.1f scrollTop=%.1f deltaScrollTop=%.1f "
+		    "maxScrollTop=%.1f viewportHeight=%d readingLineY=%.0f "
+		    "prevLineY=%.1f prevFocused=%d candidate=%d picked=%d "
+		    "crossed=%d dir=%d push=%d blocks=%u lastVisible=%d "
+		    "atTop=%d atBottom=%d reserve=%d lineOffset=%.1f us=%" G_GINT64_FORMAT,
+		    prev_value, value, value - prev_value,
+		    gtk_adjustment_get_upper(vadj) -
+			gtk_adjustment_get_page_size(vadj),
+		    vis.height, vis.height * READING_FOCUS_LINE_RATIO,
+		    prev_line_y, current, step.candidate, step.picked,
+		    step.crossed, step.direction, pushing ? push : 0, n_blocks,
+		    fb.last_visible, at_top, at_bottom,
+		    reading_reserve_base >= 0
+			? gtk_text_view_get_bottom_margin(view) -
+			      reading_reserve_base
+			: 0,
+		    offset, g_get_monotonic_time() - started);
+		panel_load_debug("focus", "FOCUS_CANDIDATE", detail);
+		g_free(detail);
+		if (step.picked != current) {
+			detail = g_strdup_printf("from=%d to=%d crossed=%d",
+						 current, step.picked,
+						 step.crossed);
+			panel_load_debug("focus", "FOCUS_CHANGED", detail);
+			g_free(detail);
+		}
+	}
+
+	if (step.picked && reading_focus_id_is_verse(step.picked) &&
+	    step.picked != reading_focus_id)
+		apply_scrolled_focus(step.picked);
+}
+
+GtkWidget *
+gui_bibletext_view(void)
+{
+	GtkTextView *view = bible_view();
+
+	return view ? GTK_WIDGET(view) : NULL;
+}
+
+void
+gui_bibletext_reading_focus_flush(void)
+{
+	if (!reading_focus_tick_id)
+		return;
+	cancel_reading_focus_tick();
+	if (scroll_origin == SCROLL_ORIGIN_USER)
+		reading_focus_update();
+}
+
+/* Guarda al cerrar la posición a la que llevó el scroll en la pestaña
+ * actual (.last_session_tabs); keys/verse ya la tiene. */
 void
 gui_bibletext_guardar_posicion_lectura(void)
 {
@@ -1582,44 +1816,621 @@ gui_bibletext_guardar_posicion_lectura(void)
 }
 
 static gboolean
-on_lectura_sync_scroll_settle(gpointer data)
+on_reading_focus_tick(GtkWidget *widget, GdkFrameClock *clock, gpointer data)
 {
+	(void)widget;
+	(void)clock;
 	(void)data;
-	lectura_sync_scroll_debounce_id = 0;
-	anotar_posicion_lectura();
-	if (settings.show_lectura_sync)
-		gui_bibletext_lectura_sync_focus_refresh();
-	else
-		/* Comparar closed: nothing should be reassigning the current
-		 * verse as the reader scrolls, but the reading-focus band was
-		 * still going missing after a scroll (reported: visible right
-		 * after navigating, gone as soon as the view scrolls, even
-		 * with the verse still on screen) -- self-heal by repainting
-		 * it every time scrolling settles, instead of chasing exactly
-		 * which redraw path was dropping it. */
-		reapply_current_verse_band();
+	reading_focus_tick_id = 0;
+	if (scroll_origin == SCROLL_ORIGIN_USER)
+		reading_focus_update();
 	return G_SOURCE_REMOVE;
 }
 
-/* Throttle, not debounce: a debounce (cancel + reschedule on every
- * event) only ever fires once scrolling fully stops, so during one
- * continuous scroll gesture the focus silently skips straight from
- * wherever it started to wherever the user let go -- verses in
- * between never got a turn. Letting the first scroll tick schedule an
- * update and ignoring further ticks until it fires instead gives a
- * steady update every READING_FOCUS_DEBOUNCE_MS *throughout* the
- * scroll, so it follows along verse by verse. */
 static void
-on_lectura_sync_scroll_value_changed(GtkAdjustment *adj, gpointer data)
+schedule_reading_focus_update(void)
 {
-	(void)adj;
+	GtkTextView *view;
+
+	if (scroll_origin != SCROLL_ORIGIN_USER || reading_focus_tick_id)
+		return;
+	view = bible_view();
+	if (view)
+		reading_focus_tick_id = gtk_widget_add_tick_callback(
+		    GTK_WIDGET(view), on_reading_focus_tick, NULL, NULL);
+}
+
+static void
+on_reading_scroll_value_changed(GtkAdjustment *adj, gpointer data)
+{
+	gdouble value = gtk_adjustment_get_value(adj);
+
 	(void)data;
-	if (g_get_monotonic_time() < lectura_sync_ignore_scroll_until)
+	if (panel_load_debug_enabled()) {
+		gchar *detail = g_strdup_printf(
+		    "previous=%.1f scrollTop=%.1f delta=%.1f maxScrollTop=%.1f "
+		    "origin=%s gliding=%d",
+		    last_viewport_value, value, value - last_viewport_value,
+		    gtk_adjustment_get_upper(adj) -
+			gtk_adjustment_get_page_size(adj),
+		    scroll_origin == SCROLL_ORIGIN_USER ? "user" : "navigation",
+		    wheel_scroll.active);
+		panel_load_debug("focus", "SCROLL_VIEWPORT", detail);
+		g_free(detail);
+	}
+	last_viewport_value = value;
+	schedule_reading_focus_update();
+}
+
+/* Bottom reading reserve: empty space below the pane's content, as the
+ * view's own bottom margin -- outside the buffer, so no anchor, nothing
+ * to select, copy or find -- sized so the chapter's last verse can be
+ * scrolled up past the reading line.
+ *
+ * Its inputs are layout geometry only: the viewport height, where the
+ * laid-out text ends, where the last verse starts. Never the scroll
+ * position -- computed from a fractional scroll value it flipped between
+ * two sizes (117/118) as the reader scrolled.
+ *
+ * It is applied from an idle, never from the adjustment's "changed"
+ * handler: GtkTextView emits that while validating its layout to draw, and
+ * changing the margin there invalidated the layout under it
+ * (Gtk:ERROR gtk_text_view_validate_onscreen: assertion failed:
+ * (priv->onscreen_validated)). The idle runs after GTK's own validation
+ * and redraw; the range change it causes schedules one more computation,
+ * which finds nothing to change. Scrolling alone does not emit "changed". */
+typedef struct {
+	gboolean found;
+	gint top;
+} LastVerse;
+
+static gboolean
+find_last_verse(const gchar *name, gint top, gint bottom, gpointer data)
+{
+	LastVerse *lv = data;
+	gchar *end;
+	glong id;
+
+	(void)bottom;
+	if (!name || !*name)
+		return TRUE;
+	id = strtol(name, &end, 10);
+	if (*end || !reading_focus_id_is_verse((gint)id))
+		return TRUE;
+	lv->found = TRUE;
+	lv->top = top;
+	return FALSE;
+}
+
+static gboolean
+apply_reading_reserve(gpointer data)
+{
+	GtkTextView *view = bible_view();
+	GdkRectangle vis;
+	GtkTextIter end;
+	LastVerse lv = { FALSE, 0 };
+	gint margin, wanted, line_y = 0, line_height = 0, content_bottom = 0;
+	gint reserve = 0;
+
+	(void)data;
+	reading_reserve_idle_id = 0;
+	if (!view || !widgets.html_text ||
+	    !gtk_widget_get_mapped(GTK_WIDGET(view)))
+		return G_SOURCE_REMOVE;
+	gtk_text_view_get_visible_rect(view, &vis);
+	if (vis.height <= 1)
+		return G_SOURCE_REMOVE;
+	margin = gtk_text_view_get_bottom_margin(view);
+	if (reading_reserve_base < 0)
+		reading_reserve_base = margin;
+
+	wk_html_foreach_anchor_block_reverse(WK_HTML(widgets.html_text),
+					     find_last_verse, &lv);
+	if (lv.found) {
+		gtk_text_buffer_get_end_iter(gtk_text_view_get_buffer(view), &end);
+		gtk_text_view_get_line_yrange(view, &end, &line_y, &line_height);
+		/* where scrolling ends without the reserve, in the buffer
+		 * coordinates of the anchors */
+		content_bottom = line_y + line_height + reading_reserve_base;
+		reserve = reading_focus_bottom_reserve(vis.height, content_bottom,
+						       lv.top);
+	}
+	wanted = reading_reserve_base + reserve;
+	if (wanted == margin)
+		return G_SOURCE_REMOVE;
+	if (panel_load_debug_enabled()) {
+		gchar *detail = g_strdup_printf(
+		    "reserve=%d previous=%d viewportHeight=%d contentBottom=%d "
+		    "lastVerseTop=%d found=%d",
+		    reserve, margin - reading_reserve_base, vis.height,
+		    content_bottom, lv.top, lv.found);
+		panel_load_debug("focus", "READING_RESERVE", detail);
+		g_free(detail);
+	}
+	gtk_text_view_set_bottom_margin(view, wanted);
+	return G_SOURCE_REMOVE;
+}
+
+static void
+on_reading_adjustment_changed(GtkAdjustment *adj, gpointer data)
+{
+	(void)data;
+	if (panel_load_debug_enabled() &&
+	    (gtk_adjustment_get_upper(adj) != last_range_upper ||
+	     gtk_adjustment_get_page_size(adj) != last_range_page)) {
+		gchar *detail = g_strdup_printf(
+		    "documentHeight=%.1f previous=%.1f viewportHeight=%.1f "
+		    "maxScrollTop=%.1f",
+		    gtk_adjustment_get_upper(adj), last_range_upper,
+		    gtk_adjustment_get_page_size(adj),
+		    gtk_adjustment_get_upper(adj) -
+			gtk_adjustment_get_page_size(adj));
+		panel_load_debug("focus", "SCROLL_RANGE", detail);
+		g_free(detail);
+	}
+	last_range_upper = gtk_adjustment_get_upper(adj);
+	last_range_page = gtk_adjustment_get_page_size(adj);
+	if (!reading_reserve_idle_id)
+		reading_reserve_idle_id =
+		    g_idle_add(apply_reading_reserve, NULL);
+}
+
+static gint
+scroll_event_direction(GdkEventScroll *event, gdouble *dx, gdouble *dy,
+		       gdouble *amount)
+{
+	*dx = 0;
+	*dy = 0;
+	*amount = 1.0;
+	switch (event->direction) {
+	case GDK_SCROLL_DOWN:
+		*dy = 1;
+		return 1;
+	case GDK_SCROLL_UP:
+		*dy = -1;
+		return -1;
+	case GDK_SCROLL_SMOOTH:
+		if (!gdk_event_get_scroll_deltas((GdkEvent *)event, dx, dy) ||
+		    *dy == 0)
+			return 0;
+		*amount = ABS(*dy);
+		return *dy > 0 ? 1 : -1;
+	default:
+		return 0;
+	}
+}
+
+static const gchar *
+input_source_name(GdkInputSource source)
+{
+	switch (source) {
+	case GDK_SOURCE_MOUSE:
+		return "mouse";
+	case GDK_SOURCE_TOUCHPAD:
+		return "touchpad";
+	case GDK_SOURCE_TRACKPOINT:
+		return "trackpoint";
+	case GDK_SOURCE_TOUCHSCREEN:
+		return "touchscreen";
+	case GDK_SOURCE_PEN:
+	case GDK_SOURCE_ERASER:
+	case GDK_SOURCE_CURSOR:
+	case GDK_SOURCE_TABLET_PAD:
+		return "tablet";
+	case GDK_SOURCE_KEYBOARD:
+		return "keyboard";
+	default:
+		return "other";
+	}
+}
+
+static gboolean
+on_wheel_scroll_tick(GtkWidget *widget, GdkFrameClock *clock, gpointer data)
+{
+	GtkAdjustment *vadj = gtk_scrollable_get_vadjustment(GTK_SCROLLABLE(widget));
+	gint64 now = gdk_frame_clock_get_frame_time(clock);
+	gdouble max, value, progress;
+
+	(void)data;
+	if (!vadj || !wheel_scroll.active) {
+		wheel_tick_id = 0;
+		return G_SOURCE_REMOVE;
+	}
+	max = gtk_adjustment_get_upper(vadj) - gtk_adjustment_get_page_size(vadj);
+	progress = wheel_scroll_progress(&wheel_scroll, now);
+	value = wheel_scroll_value(&wheel_scroll, now,
+				   gtk_adjustment_get_lower(vadj), max);
+	if (panel_load_debug_enabled()) {
+		gchar *detail = g_strdup_printf(
+		    "current=%.1f next=%.1f target=%.1f progress=%.2f durationMs=%d",
+		    gtk_adjustment_get_value(vadj), value, wheel_scroll.target,
+		    progress, WHEEL_SCROLL_DURATION_US / 1000);
+		panel_load_debug("focus", "SCROLL_TARGET", detail);
+		g_free(detail);
+	}
+	gtk_adjustment_set_value(vadj, value);
+	if (!wheel_scroll.active) {
+		wheel_tick_id = 0;
+		return G_SOURCE_REMOVE;
+	}
+	return G_SOURCE_CONTINUE;
+}
+
+/* Moves the chapter window around the verse being read, keeping the text
+ * on the reading line exactly where it is on screen.
+ *
+ * The pane is laid out again (main_bible_window_recenter()), into a new
+ * buffer, and GtkTextView starts that buffer from the top with its layout
+ * mostly unmeasured: for the next two or three frames no scroll request
+ * can put the text back where it was (measured on the real pane with
+ * Matthew 15-17 -> 16-18: gtk_text_view_scroll_to_mark() landed 650-1300
+ * px away; correcting by pixels converges to 0 px within 2-4 frames, but
+ * the frames in between were painted 280-2400 px off). So painting is
+ * frozen, the view is corrected by pixels on each frame until the text on
+ * the reading line and the document height stop moving, and painting
+ * resumes: the reader sees the old frame for ~3 frames, then the same text
+ * in the same place (0 frames painted out of place on the real pane). A
+ * wheel glide in progress is paused and what was left of it carried on
+ * from the restored position. */
+static gboolean
+window_restore_target_iter(GtkTextIter *at)
+{
+	GtkTextIter s, e;
+
+	if (!window_restore_anchor || !widgets.html_text ||
+	    !wk_html_anchor_bounds(WK_HTML(widgets.html_text), window_restore_anchor,
+				   &s, &e))
+		return FALSE;
+	*at = s;
+	gtk_text_iter_forward_chars(at, MAX(window_restore_offset, 0));
+	return TRUE;
+}
+
+static void
+finish_window_restore(GtkTextView *view, gboolean converged)
+{
+	GtkAdjustment *vadj = view ? gtk_scrollable_get_vadjustment(GTK_SCROLLABLE(view)) : NULL;
+	GtkTextIter s, e;
+	gchar *focus_anchor;
+
+	if (window_restore_frozen) {
+		gdk_window_thaw_updates(window_restore_frozen);
+		g_object_unref(window_restore_frozen);
+		window_restore_frozen = NULL;
+	}
+	window_restore_pending = FALSE;
+
+	/* the focus band, on the new buffer */
+	focus_anchor = reading_focus_id ? g_strdup_printf("%d", reading_focus_id)
+					: anchor_from_current_verse();
+	if (focus_anchor && widgets.html_text &&
+	    wk_html_anchor_bounds(WK_HTML(widgets.html_text), focus_anchor, &s, &e))
+		wk_html_reading_focus_set(WK_HTML(widgets.html_text), &s, &e, NULL, NULL);
+	g_free(focus_anchor);
+	reading_line_valid = FALSE;
+
+	if (panel_load_debug_enabled()) {
+		gchar *detail = g_strdup_printf(
+		    "lineAnchor=%s offset=%d viewportY=%.0f frames=%d converged=%d "
+		    "scrollTop=%.1f resumeDistance=%.1f ms=%.1f",
+		    window_restore_anchor ? window_restore_anchor : "-",
+		    window_restore_offset, window_restore_y, window_restore_frames,
+		    converged, vadj ? gtk_adjustment_get_value(vadj) : 0.0,
+		    window_resume_distance,
+		    (g_get_monotonic_time() - window_restore_started) / 1000.0);
+		panel_load_debug("focus", "WINDOW_RESTORED", detail);
+		g_free(detail);
+	}
+	g_clear_pointer(&window_restore_anchor, g_free);
+
+	/* carry on with what was left of the wheel glide */
+	if (view && vadj && window_resume_distance != 0.0 &&
+	    scroll_origin == SCROLL_ORIGIN_USER) {
+		GdkFrameClock *clock = gtk_widget_get_frame_clock(GTK_WIDGET(view));
+		if (wheel_scroll_add(&wheel_scroll, gtk_adjustment_get_value(vadj),
+				     window_resume_distance,
+				     gtk_adjustment_get_lower(vadj),
+				     gtk_adjustment_get_upper(vadj) -
+					 gtk_adjustment_get_page_size(vadj),
+				     clock ? gdk_frame_clock_get_frame_time(clock)
+					   : g_get_monotonic_time()) &&
+		    !wheel_tick_id)
+			wheel_tick_id = gtk_widget_add_tick_callback(
+			    GTK_WIDGET(view), on_wheel_scroll_tick, NULL, NULL);
+	}
+	window_resume_distance = 0.0;
+}
+
+static void
+recenter_reading_window(void)
+{
+	GtkTextView *view = bible_view();
+	GtkAdjustment *vadj;
+	GtkTextIter at, s, e;
+	GdkRectangle vis, rect;
+	GdkWindow *toplevel;
+
+	if (!view || !widgets.html_text || !settings.currentverse)
 		return;
-	if (lectura_sync_scroll_debounce_id)
+	vadj = gtk_scrollable_get_vadjustment(GTK_SCROLLABLE(view));
+	gtk_text_view_get_visible_rect(view, &vis);
+	gtk_text_view_get_iter_at_location(view, &at, vis.x,
+		vis.y + (gint)(vis.height * READING_FOCUS_LINE_RATIO));
+	gtk_text_view_get_iter_location(view, &at, &rect);
+
+	g_free(window_restore_anchor);
+	window_restore_anchor = wk_html_anchor_at(WK_HTML(widgets.html_text), &at);
+	window_restore_offset = 0;
+	if (window_restore_anchor &&
+	    wk_html_anchor_bounds(WK_HTML(widgets.html_text), window_restore_anchor, &s, &e))
+		window_restore_offset =
+		    gtk_text_iter_get_offset(&at) - gtk_text_iter_get_offset(&s);
+	window_restore_y = rect.y - vis.y;
+	window_resume_distance = (wheel_scroll.active && vadj)
+		? wheel_scroll.target - gtk_adjustment_get_value(vadj) : 0.0;
+	cancel_wheel_scroll();
+
+	toplevel = gtk_widget_get_window(gtk_widget_get_toplevel(GTK_WIDGET(view)));
+	if (toplevel) {
+		window_restore_frozen = g_object_ref(toplevel);
+		gdk_window_freeze_updates(window_restore_frozen);
+	}
+	window_restore_started = g_get_monotonic_time();
+
+	if (!main_bible_window_recenter(settings.currentverse)) {
+		window_resume_distance = 0.0;
+		finish_window_restore(view, FALSE);
 		return;
-	lectura_sync_scroll_debounce_id =
-	    g_timeout_add(READING_FOCUS_DEBOUNCE_MS, on_lectura_sync_scroll_settle, NULL);
+	}
+	wk_html_cancel_anchor_jump(WK_HTML(widgets.html_text));
+	window_restore_pending = TRUE;
+	window_restore_frames = 0;
+	window_restore_last_target = -1.0;
+	window_restore_last_upper = -1.0;
+
+	if (panel_load_debug_enabled()) {
+		gchar *detail = g_strdup_printf(
+		    "key=%s first=%s lineAnchor=%s offset=%d viewportY=%.0f "
+		    "resumeDistance=%.1f", settings.currentverse, "window",
+		    window_restore_anchor ? window_restore_anchor : "-",
+		    window_restore_offset, window_restore_y, window_resume_distance);
+		panel_load_debug("focus", "WINDOW_RECENTER", detail);
+		g_free(detail);
+	}
+}
+
+/* One frame of the restore: put the remembered text back at its distance
+ * from the top by pixels, until neither it nor the document height moves
+ * any more. TRUE while more frames are needed. */
+#define WINDOW_RESTORE_MAX_FRAMES 12
+
+static gboolean
+step_window_restore(GtkTextView *view, GtkAdjustment *vadj)
+{
+	GtkTextIter at;
+	GdkRectangle vis, rect;
+	gdouble target, upper;
+
+	window_restore_frames++;
+	if (!window_restore_target_iter(&at)) {
+		finish_window_restore(view, FALSE);
+		return FALSE;
+	}
+	gtk_text_view_get_visible_rect(view, &vis);
+	gtk_text_view_get_iter_location(view, &at, &rect);
+	target = gtk_adjustment_get_value(vadj) + (rect.y - vis.y) - window_restore_y;
+	upper = gtk_adjustment_get_upper(vadj);
+	if (ABS(target - gtk_adjustment_get_value(vadj)) >= 0.5) {
+		gtk_adjustment_set_value(vadj, target);
+	} else if (ABS(target - window_restore_last_target) < 0.5 &&
+		   upper == window_restore_last_upper) {
+		finish_window_restore(view, TRUE);
+		return FALSE;
+	}
+	window_restore_last_target = target;
+	window_restore_last_upper = upper;
+	if (window_restore_frames >= WINDOW_RESTORE_MAX_FRAMES) {
+		finish_window_restore(view, FALSE);
+		return FALSE;
+	}
+	return TRUE;
+}
+
+static gboolean
+on_window_tick(GtkWidget *widget, GdkFrameClock *clock, gpointer data)
+{
+	GtkTextView *view = GTK_TEXT_VIEW(widget);
+	GtkAdjustment *vadj = gtk_scrollable_get_vadjustment(GTK_SCROLLABLE(widget));
+	gdouble value;
+
+	(void)clock;
+	(void)data;
+	if (!vadj) {
+		if (window_restore_pending)
+			finish_window_restore(view, FALSE);
+		window_tick_id = 0;
+		return G_SOURCE_REMOVE;
+	}
+
+	if (window_restore_pending) {
+		if (step_window_restore(view, vadj))
+			return G_SOURCE_CONTINUE;
+		window_tick_id = 0;
+		return G_SOURCE_REMOVE;
+	}
+
+	if (!settings.currentverse ||
+	    !main_bible_window_needs_recenter(settings.currentverse)) {
+		window_tick_id = 0;
+		return G_SOURCE_REMOVE;
+	}
+	value = gtk_adjustment_get_value(vadj);
+	/* A touchpad, the scrollbar or GTK's kinetic scrolling still moving
+	 * the view would fight the restored position: wait for a still frame.
+	 * A wheel glide is ours, and is carried across the re-layout. */
+	if (!wheel_scroll.active && value != window_last_value) {
+		window_last_value = value;
+		return G_SOURCE_CONTINUE;
+	}
+	recenter_reading_window();
+	if (window_restore_pending)
+		return G_SOURCE_CONTINUE;
+	window_tick_id = 0;
+	return G_SOURCE_REMOVE;
+}
+
+static void
+schedule_window_recenter(void)
+{
+	GtkTextView *view = bible_view();
+	GtkAdjustment *vadj;
+
+	if (window_tick_id || !view || !settings.currentverse ||
+	    !gtk_widget_get_mapped(GTK_WIDGET(view)) ||
+	    !main_bible_window_needs_recenter(settings.currentverse))
+		return;
+	vadj = gtk_scrollable_get_vadjustment(GTK_SCROLLABLE(view));
+	window_last_value = vadj ? gtk_adjustment_get_value(vadj) : -1.0;
+	window_tick_id = gtk_widget_add_tick_callback(GTK_WIDGET(view),
+						      on_window_tick, NULL, NULL);
+}
+
+/* Watches every wheel/touchpad event on the Bible view.
+ *
+ * A mouse wheel (GDK source MOUSE, smooth or discrete) is handled here:
+ * half GTK's own distance for the event (delta_y * page_size^(2/3), the
+ * GtkScrolledWindow scroll unit; wheel_scroll_notch_distance()) becomes
+ * the target of a short glide
+ * driven by the frame clock, and the event is consumed so the scrolled
+ * window does not also jump. Touchpads, trackpoints and anything else
+ * keep GTK's native scrolling, which already follows the fingers.
+ *
+ * Against an edge the view cannot move; that step is counted as a push
+ * for the reading focus (reading_focus_track). */
+static gboolean
+on_bible_user_scroll_event(GtkWidget *widget, GdkEventScroll *event,
+			   gpointer data)
+{
+	GtkTextView *view = bible_view();
+	GtkAdjustment *vadj;
+	GdkDevice *source_device;
+	GdkInputSource source = GDK_SOURCE_MOUSE;
+	gboolean at_top = FALSE, at_bottom = FALSE, duplicate, emulated, wheel;
+	gdouble amount, dx, dy;
+	gint direction;
+
+	(void)data;
+	/* Ctrl+wheel is zoom (_scroll_zoom_cb), not a scroll */
+	if (event->state & GDK_CONTROL_MASK)
+		return FALSE;
+	begin_user_scroll();
+	duplicate = (gpointer)event == last_scroll_event &&
+		    event->time == last_scroll_event_time;
+	if (!duplicate) {
+		last_scroll_event = event;
+		last_scroll_event_time = event->time;
+		scroll_event_seq++;
+	}
+	emulated = gdk_event_get_pointer_emulated((GdkEvent *)event);
+	source_device = gdk_event_get_source_device((GdkEvent *)event);
+	if (source_device)
+		source = gdk_device_get_source(source_device);
+	wheel = source_device && source == GDK_SOURCE_MOUSE;
+	direction = scroll_event_direction(event, &dx, &dy, &amount);
+	vadj = view ? gtk_scrollable_get_vadjustment(GTK_SCROLLABLE(view)) : NULL;
+	if (vadj)
+		scroll_edges(vadj, &at_top, &at_bottom);
+
+	if (panel_load_debug_enabled()) {
+		gchar *detail = g_strdup_printf(
+		    "seq=%u widget=%s source_device=%s source_type=%s type=%s "
+		    "dx=%.3f dy=%.3f time=%u emulated=%d duplicate=%d "
+		    "scrollTop=%.1f atTop=%d atBottom=%d",
+		    scroll_event_seq,
+		    GTK_IS_SCROLLED_WINDOW(widget) ? "scrolled-window" : "view",
+		    source_device ? gdk_device_get_name(source_device) : "none",
+		    source_device ? input_source_name(source) : "none",
+		    event->direction == GDK_SCROLL_SMOOTH ? "smooth" : "discrete",
+		    dx, dy, event->time, emulated, duplicate,
+		    vadj ? gtk_adjustment_get_value(vadj) : 0.0, at_top,
+		    at_bottom);
+		panel_load_debug("focus", "SCROLL_INPUT", detail);
+		g_free(detail);
+	}
+
+	if (duplicate || !vadj)
+		return FALSE;
+	if (!wheel)
+		cancel_wheel_scroll(); /* the fingers take over */
+	if (wheel && emulated)
+		return TRUE; /* the smooth event it copies does the work */
+	if (!direction)
+		return FALSE;
+
+	if (wheel) {
+		GdkFrameClock *clock =
+		    gtk_widget_get_frame_clock(GTK_WIDGET(view));
+		gint64 now = clock ? gdk_frame_clock_get_frame_time(clock)
+				   : g_get_monotonic_time();
+		gdouble delta = wheel_scroll_notch_distance(
+		    dy, gtk_adjustment_get_page_size(vadj));
+
+		if (wheel_scroll_add(&wheel_scroll, gtk_adjustment_get_value(vadj),
+				     delta, gtk_adjustment_get_lower(vadj),
+				     gtk_adjustment_get_upper(vadj) -
+					 gtk_adjustment_get_page_size(vadj),
+				     now)) {
+			reading_focus_edge_accum = 0.0;
+			if (!wheel_tick_id)
+				wheel_tick_id = gtk_widget_add_tick_callback(
+				    GTK_WIDGET(view), on_wheel_scroll_tick, NULL,
+				    NULL);
+			if (panel_load_debug_enabled()) {
+				gchar *detail = g_strdup_printf(
+				    "seq=%u current=%.1f delta=%.1f target=%.1f "
+				    "durationMs=%d", scroll_event_seq,
+				    gtk_adjustment_get_value(vadj), delta,
+				    wheel_scroll.target,
+				    WHEEL_SCROLL_DURATION_US / 1000);
+				panel_load_debug("focus", "SCROLL_TARGET", detail);
+				g_free(detail);
+			}
+			return TRUE;
+		}
+		/* nowhere to glide that way: at the edge, handled below */
+	}
+
+	if (!((direction > 0 && at_bottom) || (direction < 0 && at_top))) {
+		reading_focus_edge_accum = 0.0;
+		return wheel;
+	}
+	/* Against the edge the viewport does not move, so nothing else
+	 * would update the focus. A wheel notch is one step; a touchpad
+	 * sends many small deltas, and it takes about a notch's worth of
+	 * them to make one. */
+	if (reading_focus_edge_accum * direction < 0)
+		reading_focus_edge_accum = 0.0;
+	reading_focus_edge_accum += amount * direction;
+	if (ABS(reading_focus_edge_accum) < 1.0)
+		return wheel;
+	reading_focus_edge_accum = 0.0;
+	reading_focus_edge_push = direction;
+	schedule_reading_focus_update();
+	return wheel;
+}
+
+static gboolean
+on_bible_scrollbar_press(GtkWidget *widget, GdkEventButton *event,
+			 gpointer data)
+{
+	(void)widget;
+	(void)event;
+	(void)data;
+	if (panel_load_debug_enabled())
+		panel_load_debug("focus", "SCROLL_INPUT", "type=scrollbar");
+	cancel_wheel_scroll();
+	begin_user_scroll();
+	return FALSE;
 }
 
 /* Verse navigation with the arrows, for when the Bible view has the
@@ -1634,7 +2445,10 @@ on_lectura_sync_scroll_value_changed(GtkAdjustment *adj, gpointer data)
  * main_interlineal_bloquea_navegacion(), the guard every other
  * navigation path consults, so the check meant to be able to pin the
  * view while the interlinear is open was bypassed on the one path the
- * reader actually uses. Keep them in step. */
+ * reader actually uses. Keep them in step.
+ *
+ * Page Up/Down, Home and End move the viewport, not the verse: they are
+ * the reader scrolling, like the wheel. */
 static gboolean
 on_bible_key_press(GtkWidget *widget, GdkEventKey *event, gpointer user_data)
 {
@@ -1643,6 +2457,19 @@ on_bible_key_press(GtkWidget *widget, GdkEventKey *event, gpointer user_data)
 
 	(void)widget;
 	(void)user_data;
+	switch (event->keyval) {
+	case GDK_KEY_Page_Up:
+	case GDK_KEY_Page_Down:
+	case GDK_KEY_KP_Page_Up:
+	case GDK_KEY_KP_Page_Down:
+	case GDK_KEY_Home:
+	case GDK_KEY_End:
+		if (panel_load_debug_enabled())
+			panel_load_debug("focus", "SCROLL_INPUT", "type=keyboard");
+		cancel_wheel_scroll();
+		begin_user_scroll();
+		return FALSE;
+	}
 	if (state != 0)
 		return FALSE;
 	if (event->keyval == GDK_KEY_Up || event->keyval == GDK_KEY_KP_Up ||
@@ -1675,19 +2502,33 @@ gui_setup_text_selection_bridge(void)
 	g_signal_connect(view, "key-release-event",
 			 G_CALLBACK(on_native_select_done), NULL);
 	g_signal_connect(view, "scroll-event",
+			 G_CALLBACK(on_bible_user_scroll_event), NULL);
+	g_signal_connect(view, "scroll-event",
 			 G_CALLBACK(_scroll_zoom_cb), NULL);
 	{
 		GtkWidget *sw = gtk_widget_get_ancestor(GTK_WIDGET(view),
 							GTK_TYPE_SCROLLED_WINDOW);
-		if (sw)
+		if (sw) {
+			GtkWidget *bar = gtk_scrolled_window_get_vscrollbar(
+			    GTK_SCROLLED_WINDOW(sw));
+			g_signal_connect(sw, "scroll-event",
+					 G_CALLBACK(on_bible_user_scroll_event), NULL);
 			g_signal_connect(sw, "scroll-event",
 					 G_CALLBACK(_scroll_zoom_cb), NULL);
+			if (bar)
+				g_signal_connect(bar, "button-press-event",
+						 G_CALLBACK(on_bible_scrollbar_press),
+						 NULL);
+		}
 	}
 
 	vadj = gtk_scrollable_get_vadjustment(GTK_SCROLLABLE(view));
-	if (vadj)
+	if (vadj) {
 		g_signal_connect(vadj, "value-changed",
-				 G_CALLBACK(on_lectura_sync_scroll_value_changed), NULL);
+				 G_CALLBACK(on_reading_scroll_value_changed), NULL);
+		g_signal_connect(vadj, "changed",
+				 G_CALLBACK(on_reading_adjustment_changed), NULL);
+	}
 }
 
 GtkWidget *gui_create_bible_pane(void)

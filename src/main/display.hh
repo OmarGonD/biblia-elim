@@ -88,7 +88,8 @@ class GTKChapDisp : public GTKEntryDisp
 	virtual void getVerseBefore(SWModule &imodule);
 	virtual void getVerseAfter(SWModule &imodule);
 	virtual void RenderOneChapter(SWModule &imodule, int chapter);
-	virtual void RenderWholeBook(SWModule &imodule);
+	virtual void RenderWholeBook(SWModule &imodule, int radius,
+			     bool book_edge_previews);
 
       private:
 	int curTest, curBook, curChapter, curVerse;

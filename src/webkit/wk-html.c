@@ -2918,6 +2918,27 @@ trim_trailing_heading(GtkTextBuffer *buf, const GtkTextIter *start, GtkTextIter 
 	}
 }
 
+static gboolean
+anchor_bounds_at(WkHtmlPrivate *priv, guint i, GtkTextIter *start,
+		 GtkTextIter *end)
+{
+	Anchor *a = g_ptr_array_index(priv->anchor_list, i);
+
+	if (!a->mark || gtk_text_mark_get_deleted(a->mark))
+		return FALSE;
+	gtk_text_buffer_get_iter_at_mark(priv->buffer, start, a->mark);
+	gtk_text_buffer_get_end_iter(priv->buffer, end);
+	if (i + 1 < priv->anchor_list->len) {
+		Anchor *nxt = g_ptr_array_index(priv->anchor_list, i + 1);
+		if (nxt->mark && !gtk_text_mark_get_deleted(nxt->mark))
+			gtk_text_buffer_get_iter_at_mark(priv->buffer, end, nxt->mark);
+	}
+	trim_trailing_heading(priv->buffer, start, end);
+	trim_ilblock(priv->buffer, start, end);
+	trim_trailing_chrome(priv->buffer, start, end);
+	return TRUE;
+}
+
 gboolean
 wk_html_anchor_bounds(WkHtml *html, const gchar *anchor,
 		      GtkTextIter *start, GtkTextIter *end)
@@ -2932,28 +2953,129 @@ wk_html_anchor_bounds(WkHtml *html, const gchar *anchor,
 
 	for (i = 0; i < priv->anchor_list->len; i++) {
 		Anchor *a = g_ptr_array_index(priv->anchor_list, i);
-		if (!a->name || strcmp(a->name, anchor))
-			continue;
-		if (gtk_text_mark_get_deleted(a->mark))
-			return FALSE;
-		gtk_text_buffer_get_iter_at_mark(priv->buffer, start, a->mark);
-		if (i + 1 < priv->anchor_list->len) {
-			Anchor *nxt = g_ptr_array_index(priv->anchor_list, i + 1);
-			if (nxt->mark && !gtk_text_mark_get_deleted(nxt->mark)) {
-				gtk_text_buffer_get_iter_at_mark(priv->buffer, end, nxt->mark);
-				trim_trailing_heading(priv->buffer, start, end);
-				trim_ilblock(priv->buffer, start, end);
-				trim_trailing_chrome(priv->buffer, start, end);
-				return TRUE;
-			}
-		}
-		gtk_text_buffer_get_end_iter(priv->buffer, end);
-		trim_trailing_heading(priv->buffer, start, end);
-		trim_ilblock(priv->buffer, start, end);
-		trim_trailing_chrome(priv->buffer, start, end);
-		return TRUE;
+		if (a->name && !strcmp(a->name, anchor))
+			return anchor_bounds_at(priv, i, start, end);
 	}
 	return FALSE;
+}
+
+/* Vertical extent, in buffer coordinates, of the text between start and
+ * end: from the top of start's display line to the bottom of the line
+ * holding the last character. */
+static void
+anchor_block_y(WkHtmlPrivate *priv, const GtkTextIter *start,
+	       const GtkTextIter *end, gint *top, gint *bottom)
+{
+	GdkRectangle r;
+	GtkTextIter last = *end;
+
+	gtk_text_view_get_iter_location(priv->view, start, &r);
+	*top = r.y;
+	if (gtk_text_iter_compare(&last, start) > 0)
+		gtk_text_iter_backward_char(&last);
+	gtk_text_view_get_iter_location(priv->view, &last, &r);
+	*bottom = MAX(*top, r.y + r.height);
+}
+
+gboolean
+wk_html_anchor_block(WkHtml *html, const gchar *anchor, gint *top, gint *bottom)
+{
+	GtkTextIter s, e;
+
+	g_return_val_if_fail(WK_HTML_IS_HTML(html), FALSE);
+	/* Never the first to lay the view out: see
+	 * scroll_anchor_into_reading_zone() in bibletext.c. */
+	if (!html->priv->view ||
+	    !gtk_widget_get_mapped(GTK_WIDGET(html->priv->view)) ||
+	    !wk_html_anchor_bounds(html, anchor, &s, &e))
+		return FALSE;
+	anchor_block_y(html->priv, &s, &e, top, bottom);
+	return TRUE;
+}
+
+static gint
+anchor_offset(WkHtmlPrivate *priv, guint i)
+{
+	Anchor *a = g_ptr_array_index(priv->anchor_list, i);
+	GtkTextIter m;
+
+	if (!a->mark || gtk_text_mark_get_deleted(a->mark))
+		return a->off;
+	gtk_text_buffer_get_iter_at_mark(priv->buffer, &m, a->mark);
+	return gtk_text_iter_get_offset(&m);
+}
+
+void
+wk_html_foreach_anchor_block(WkHtml *html, gint y_top, gint y_bottom,
+			     WkHtmlAnchorBlockFunc func, gpointer data)
+{
+	WkHtmlPrivate *priv;
+	GtkTextIter at, s, e;
+	guint lo, hi, i;
+	gint off;
+
+	g_return_if_fail(WK_HTML_IS_HTML(html));
+	priv = html->priv;
+	if (!func || !priv->view || !priv->anchor_list ||
+	    priv->anchor_list->len == 0 ||
+	    !gtk_widget_get_mapped(GTK_WIDGET(priv->view)))
+		return;
+
+	/* Anchors are placed in document order, so the last one at or
+	 * before the top line -- whose block may run down into the range --
+	 * is found by bisection, not by walking the whole window of
+	 * chapters on every frame. */
+	gtk_text_view_get_line_at_y(priv->view, &at, y_top, NULL);
+	off = gtk_text_iter_get_offset(&at);
+	lo = 0;
+	hi = priv->anchor_list->len;
+	while (lo < hi) {
+		guint mid = lo + (hi - lo) / 2;
+		if (anchor_offset(priv, mid) <= off)
+			lo = mid + 1;
+		else
+			hi = mid;
+	}
+
+	for (i = lo > 0 ? lo - 1 : 0; i < priv->anchor_list->len; i++) {
+		Anchor *a = g_ptr_array_index(priv->anchor_list, i);
+		gint top, bottom;
+
+		if (!anchor_bounds_at(priv, i, &s, &e))
+			continue;
+		anchor_block_y(priv, &s, &e, &top, &bottom);
+		if (top >= y_bottom)
+			break;
+		if (bottom <= y_top)
+			continue;
+		if (!func(a->name, top, bottom, data))
+			break;
+	}
+}
+
+void
+wk_html_foreach_anchor_block_reverse(WkHtml *html, WkHtmlAnchorBlockFunc func,
+				     gpointer data)
+{
+	WkHtmlPrivate *priv;
+	GtkTextIter s, e;
+	guint i;
+
+	g_return_if_fail(WK_HTML_IS_HTML(html));
+	priv = html->priv;
+	if (!func || !priv->view || !priv->anchor_list ||
+	    !gtk_widget_get_mapped(GTK_WIDGET(priv->view)))
+		return;
+	for (i = priv->anchor_list->len; i-- > 0;) {
+		Anchor *a = g_ptr_array_index(priv->anchor_list, i);
+		gint top, bottom;
+
+		if (!anchor_bounds_at(priv, i, &s, &e))
+			continue;
+		anchor_block_y(priv, &s, &e, &top, &bottom);
+		if (!func(a->name, top, bottom, data))
+			break;
+	}
 }
 
 static gboolean
@@ -2973,7 +3095,13 @@ ensure_curverse_tag(GtkTextBuffer *buf)
 	gboolean dark = bg_is_dark(settings.bible_bg_color);
 	/* High-contrast band on the verse characters only (not
 	 * paragraph-background: that painted the whole following
-	 * section). Gold on dark, navy on light. */
+	 * section). Gold on dark, navy on light.
+	 *
+	 * Colours only, nothing that changes glyph metrics: the band used
+	 * to be semibold too, and wider glyphs made a verse wrap onto one
+	 * more line whenever the focus reached it -- the document grew and
+	 * shrank by a line (maxScrollTop 779 <-> 796) as the reader
+	 * scrolled. */
 	const char *wash = dark ? "#E6C989" : "#2C4A6E";
 	const char *ink = dark ? "#1A1610" : "#F7F4EE";
 
@@ -2981,7 +3109,6 @@ ensure_curverse_tag(GtkTextBuffer *buf)
 		tag = gtk_text_buffer_create_tag(buf, "curverse",
 						 "background", wash,
 						 "foreground", ink,
-						 "weight", PANGO_WEIGHT_SEMIBOLD,
 						 NULL);
 	else
 		g_object_set(tag,
@@ -2991,7 +3118,7 @@ ensure_curverse_tag(GtkTextBuffer *buf)
 			     "background-set", TRUE,
 			     "foreground", ink,
 			     "foreground-set", TRUE,
-			     "weight", PANGO_WEIGHT_SEMIBOLD,
+			     "weight-set", FALSE,
 			     NULL);
 	return tag;
 }
@@ -3731,51 +3858,18 @@ scroll_to_stored_anchor_later(gpointer data)
 	return G_SOURCE_REMOVE;
 }
 
+/* The reader took the viewport (wheel, touchpad, scrollbar): a jump still
+ * retrying against GtkTextView's settling layout must not drag it back to
+ * the verse it was aiming at. */
 void
-wk_html_ensure_anchor_visible(WkHtml *html, const gchar *anchor)
+wk_html_cancel_anchor_jump(WkHtml *html)
 {
-	Anchor *a;
-
-	g_return_if_fail(html != NULL);
-	if (!anchor || !*anchor)
-		return;
-	a = g_hash_table_lookup(html->priv->anchor_ht, anchor);
-	if (a && a->mark && !gtk_text_mark_get_deleted(a->mark))
-		/* Scroll only if the verse sits in the top/bottom margin
-		 * or off-screen — never yank it to a fixed slot.
-		 *
-		 * Deliberately does NOT touch priv->anchor/timeout/jump_tries
-		 * here anymore. Those belong to wk_html_jump_to_anchor()'s own
-		 * self-healing retry loop (a sync scroll right after a fresh
-		 * render, then 3 retries at 80ms while GtkTextView's layout
-		 * settles -- the sync one runs against stale/zero line
-		 * heights and is known-unreliable, which is why the retries
-		 * exist at all). gui_bibletext_mark_current_verse() calls
-		 * this function shortly after every render, for the *same*
-		 * anchor jump_to_anchor already targeted; it used to cancel
-		 * that pending retry timer, freezing the view at whatever the
-		 * first unreliable scroll produced. Harmless most of the
-		 * time, but on a last-verse-of-chapter jump -- very little
-		 * text left after the mark -- that stale position could land
-		 * past all visible text, making the pane look completely
-		 * blank. */
-		/* Align rather than do the minimal scroll. With
-		 * use_align=FALSE this only moved the view when the verse
-		 * had fallen off the edge, so walking forward with the
-		 * arrows left the page still and the highlight creeping
-		 * down it -- measured at 21%, 25%, 28% of the viewport on
-		 * successive presses, then a jump when it hit the bottom.
-		 * Anchoring it at READING_FOCUS_YALIGN keeps the verse you
-		 * are on in the same place, high but not against the top
-		 * edge, with a few lines of context above it.
-		 *
-		 * Safe to always align here because this is the
-		 * navigation path: scroll-driven tracking repaints the band
-		 * through reapply_current_verse_band(), which deliberately
-		 * does not call this. */
-		gtk_text_view_scroll_to_mark(html->priv->view, a->mark,
-					     0.0, TRUE, 0.0,
-					     READING_FOCUS_YALIGN);
+	g_return_if_fail(WK_HTML_IS_HTML(html));
+	if (html->priv->timeout) {
+		g_source_remove(html->priv->timeout);
+		html->priv->timeout = 0;
+	}
+	html->priv->jump_tries = 0;
 }
 
 void
