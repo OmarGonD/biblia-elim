@@ -2278,28 +2278,71 @@
   - Do not:
     - Commit or push.
 
-- [ ] NACAR-PSALMS-102 Fix Nácar-Colunga Psalms 14–17 misalignment
-  - Status: TODO
+- [x] NACAR-PSALMS-102 Fix Nácar-Colunga Psalms 14–17 misalignment
+  - Status: DONE
+  - Commit: `9352fad7` fix(nacar): realign psalms using printed chapter headers
   - Description:
-    Ps 14–17 remain misaligned after NACAR-PSALMS-101 (e.g. Ps 15 content
-    lands in Ps 16 and Ps 16 content in Ps 17). These are short psalms whose
-    boundaries the OCR segmentation did not detect; the chapter aligner can
-    drop or merge candidate chapters but cannot split one that the OCR
-    already merged.
+    Resolved the chapter misalignments/boundaries detected through the
+    printed Psalter headers, avoiding false restarts caused by internal OCR
+    numbers. This is not a claim that the whole Psalter is corrected:
+    independent OCR, verse-division, and fallback problems remain (see the
+    related tasks below).
+  - Root cause:
+    - The printed psalm headers `N (Vulg. M.)` were discarded by the noise
+      filter (`es_ruido`: few letters, many digits).
+    - Without that explicit boundary, the aligner relied on the numbering
+      restarting at 1/2 to detect a new psalm.
+    - In Ps 14:5 the OCR read the hemistich separator `|` as `1` in the middle
+      of a line («a su tiempo, | porque está Dios…» → «tiempo, 1 porque»),
+      confirmed on the facsimile (Princeton leaf 967).
+    - That false `1`, after high verse numbers, was treated as the start of a
+      chapter: it split Ps 14 into two candidates and shifted Ps 15–17 (the
+      real Ps 16 and Ps 17 ended up merged into chapter 17).
+  - Fix:
+    - `scripts/nacarcolunga/versiculos.py` recognizes the printed Psalter
+      headers `N (Vulg. M.)`.
+    - The chapter opens right before its first verse, not on the header line,
+      so the lines in between (epigraphs) keep their previous routing.
+    - `scripts/torresamat/alinear.py` marks chapters opened by a printed
+      header (`"cabecera"`).
+    - An internal 1/2 in the middle of a line does not restart a chapter opened
+      by a header; a 1/2 at the real start of a line can still restart.
+    - Without an explicit header the historical behavior is preserved; Torres
+      Amat never emits `"cabecera"`, so its behavior is unchanged.
+    - No per-psalm offsets, no hardcoded references to Ps 14–17, no
+      versification changes, no renderer/fallback changes.
+    - The false internal `1` can still exist as a verse event in the OCR
+      stream; this task fixes segmentation/chapter boundaries, not the textual
+      cleanup of that `1`.
   - Evidence:
-    - Observed in the rebuilt `texto.json` after NACAR-PSALMS-101; the new
-      alignment did not resolve this range.
-  - Acceptance criteria:
-    - Each psalm in 14–17 ends up in its correct canonical chapter.
-    - Neighbouring chapters are not displaced.
-    - A before/after comparison outside the affected range shows no
-      regressions.
-  - Do not:
-    - Apply manual verse or chapter offsets.
-    - Move chapters by hand.
-    - Commit or push.
-  - Requires:
-    - Specific investigation of the OCR segmentation for these pages.
+    - 13 affected psalms corrected: 14–17, 95, 96, 123, 124, and 131–135.
+    - 73 keys changed in `procedencia.json`, all belonging to those 13 psalms;
+      0 differences outside Psalms in `texto.json`, `procedencia.json`, and
+      `reconstruidos.txt`.
+    - Ps 3, 13, 18, 51–53, and 117/118 remain unchanged.
+    - Previous misalignment metric: 3 → 0, plus additional verse-by-verse
+      review of the 13 affected chapters.
+    - An intermediate variant that opened the chapter on the header line was
+      rejected: removing epigraphs from the previous last verse made
+      `completar.py` replace 10 authentic Nácar verses with Reina-Valera. A
+      global "restart only at line start" rule was also rejected (281
+      chapters changed outside Psalms).
+    - Tests 6/6 PASS: `scripts/nacarcolunga/test_salmos_cabecera.py`,
+      `scripts/nacarcolunga/test_load.py`,
+      `scripts/nacarcolunga/test_cabeceras.py`,
+      `scripts/nacarcolunga/test_front_matter.py`,
+      `scripts/torresamat/test_pegadas.py`, and
+      `scripts/torresamat/test_restos.py`.
+    - `git diff --check` clean; the commit is limited to 4 files; the module
+      was not reinstalled; no push.
+  - Out of scope (tracked separately):
+    - Ps 13 (NACAR-PSALMS-104).
+    - Ps 117/118 (NACAR-PSALMS-103).
+    - Verse number 5 read as 6 (NACAR-OCR-104).
+    - `es_titulo()` discarding real text (NACAR-OCR-103).
+    - Epigraphs glued to the previous verse (NACAR-OCR-105).
+    - `completar.py` replacing valid Nácar text with Reina-Valera
+      (NACAR-FALLBACK-101).
 
 - [ ] NACAR-PSALMS-103 Fix Nácar-Colunga Psalms 117/118 boundary
   - Status: TODO
@@ -2310,12 +2353,36 @@
     during the NACAR-PSALMS-101 investigation.
   - Evidence:
     - Ps 118 has not been explicitly verified; do not assume it is correct.
+    - Unchanged by NACAR-PSALMS-102 (`9352fad7`): Ps 117 still has no text
+      and Ps 118 still begins with the Ps 117 content.
   - Acceptance criteria:
     - Ps 117 has exactly its 2 verses.
     - Ps 118 begins with its own content.
     - No verses are displaced between both psalms.
   - Do not:
     - Use offsets or hardcoded references.
+    - Commit or push.
+
+- [ ] NACAR-PSALMS-104 Fix Nácar-Colunga Psalm 13 superscription and verse division
+  - Status: TODO
+  - Description:
+    Ps 13 still has an incorrect title/verse division. Nácar-Colunga prints
+    the superscription as verse 1 and the body from verse 2, but Leningrad and
+    NRSVA both have 6 verses for Ps 13 while distributing the content
+    differently, so the verse-count comparison used by NACAR-PSALMS-101
+    (`TITULO_SALMOS`) does not detect the superscription or the division.
+  - Evidence:
+    - Current module: Ps 13:1 is Reina-Valera filler (title plus verse), Ps
+      13:2–4 hold the Nácar body shifted one slot, Ps 13:5 is empty, and Ps
+      13:6 merges two printed verses.
+    - Unchanged by NACAR-PSALMS-102 (`9352fad7`).
+  - Acceptance criteria:
+    - The superscription is stored as a psalm title, not as verse text.
+    - Each NRSVA verse contains its own Nácar content.
+    - The mapping comes from verse-level correspondence or structural
+      evidence, not from verse counts alone.
+  - Do not:
+    - Apply a manual offset or hardcode Ps 13.
     - Commit or push.
 
 - [ ] NACAR-OCR-101 Recover Nácar-Colunga Ps 3:4 from the Ps 3:5 OCR merge
@@ -2350,6 +2417,120 @@
       installed module.
   - Do not:
     - Modernize the text automatically.
+    - Commit or push.
+
+- [ ] NACAR-OCR-103 Keep es_titulo() from discarding biblical continuation lines
+  - Status: TODO
+  - Description:
+    `es_titulo()` in `scripts/nacarcolunga/versiculos.py` classifies some
+    authentic body lines as section titles/epigraphs and drops them: a line
+    without digits, 8–70 characters long, not starting in lowercase, and not
+    ending in punctuation is discarded. Continuation lines that start with the
+    hemistich separator `|` or with a capital letter match that rule.
+  - Evidence:
+    - Ps 16:3 loses «| son de mí muy honrados, | en ellos», confirmed on the
+      facsimile (Princeton leaf 967). The verse becomes artificially short
+      and `completar.py` then replaces it with Reina-Valera.
+    - Similar lost lines observed during NACAR-PSALMS-102: Ps 15:1 («¡Oh Yavel
+      ¿Quién es el que podrá»), Ps 17:1 («Oye, Yave, mi justa causa, |
+      atiende»), Ps 95:1, Ps 96:11, Ps 124:2, and Ps 124:3 («| cuando ardía su
+      ira contr»).
+  - Acceptance criteria:
+    - Distinguish real epigraphs from biblical continuation lines.
+    - Authentic lines are kept in the verse body.
+    - Epigraphs are not moved into the body.
+    - No new fallbacks are caused.
+  - Do not:
+    - Add per-reference exceptions.
+    - Commit or push.
+
+- [ ] NACAR-OCR-104 Handle verse numbers misread by the OCR (5 read as 6)
+  - Status: TODO
+  - Description:
+    The OCR misreads some small superscript verse numbers, especially 5 as 6.
+    The printed verse 5 then lands in slot 6: verse 5 stays empty and its text
+    merges with verse 6.
+  - Evidence:
+    - Ps 14:5 is empty and its text is merged into Ps 14:6.
+    - Ps 17: the printed «⁵ Y mis pies…» is read as 6 (Princeton leaf 968).
+    - The sequence «4, 6, 6» appears in many psalm candidates (e.g. Ps 9, 13,
+      18, 19, 20, 21).
+    - Related to the Ps 3:4/3:5 pattern in NACAR-OCR-101, but do not assume
+      that every case has the same cause.
+  - Acceptance criteria:
+    - Detection/correction relies on a general structural signal (e.g. a
+      duplicated number with a missing predecessor), validated against the
+      facsimile.
+    - A before/after comparison shows no regressions elsewhere.
+  - Do not:
+    - Hardcode verses.
+    - Commit or push.
+
+- [ ] NACAR-OCR-105 Separate psalm epigraphs glued to the previous verse
+  - Status: TODO
+  - Description:
+    Editorial epigraphs printed between psalms (e.g. «Canto triunfal de
+    David.», «Deprecación contra los impíos.») can end up appended to the last
+    verse of the previous psalm (e.g. Ps 17:15 ends with «EF Canto triunfal de
+    David.»).
+  - Evidence:
+    - NACAR-PSALMS-102 deliberately kept the previous epigraph routing: opening
+      the chapter on the header line removed the epigraphs, but the shortened
+      verses made `completar.py` replace 10 authentic Nácar verses with
+      Reina-Valera (e.g. Ps 11:7, Ps 37:40, Ps 111:10).
+    - Not covered by NACAR-OCR-102, which is about textual OCR errors.
+  - Acceptance criteria:
+    - The epigraph is preserved as metadata/heading.
+    - It is not glued to the previous verse.
+    - It is not deleted.
+    - Shortening the verse does not cause a fallback (depends on
+      NACAR-FALLBACK-101).
+  - Do not:
+    - Commit or push.
+
+- [ ] NACAR-FALLBACK-101 Stop completar.py from replacing valid Nácar text with Reina-Valera
+  - Status: TODO
+  - Description:
+    `scripts/nacarcolunga/completar.py` replaces authentic Nácar-Colunga text
+    with Reina-Valera witness text based on the length of a different
+    translation.
+  - Root cause:
+    - `hay_que_completar()` considers a Nácar verse incomplete when it has
+      fewer than `max(8, 80 %)` of the words of the Reina-Valera witness: it
+      compares the length of two different translations and consults no
+      provenance or structural signal.
+    - `tejer()` keeps only the OCR words before the first match and appends the
+      rest of the witness.
+    - `completar_todo()` accepts the replacement when the result has more
+      words.
+    - Aggravating factor: for psalms not in `TITULO_SALMOS` (e.g. Ps 15, 17,
+      124, 133), the SpaRV witness still carries the title inside verse 1,
+      which inflates its length.
+  - Evidence:
+    - Ps 17:7: complete Nácar text in the facsimile and OCR («Ostenta tu
+      magnífica piedad, tú que salvas del enemigo a los que a ti se acogen.»,
+      16 words vs threshold 18); replaced only because it is shorter than
+      Reina-Valera.
+    - Ps 16:3: ends up replaced by Reina-Valera; here `es_titulo()` also
+      discards an authentic line (NACAR-OCR-103).
+    - Of the 11 new fills after NACAR-PSALMS-102: 3 were complete Nácar
+      verses (Ps 17:7, 131:2, 133:1), 7 were truncated by `es_titulo()`, and 1
+      by the OCR itself (Ps 124:1); none was an absent verse.
+    - Global impact: the current policy replaces about 4,602 verses across the
+      Bible (180 in Psalms, 4,422 elsewhere); 3,054 of them have OCR text that
+      ends in terminal punctuation with 5 or more words.
+  - Acceptance criteria:
+    - Present and valid Nácar text prevails over Reina-Valera.
+    - The length of another translation is not used as proof of
+      incompleteness.
+    - Fallback only on a demonstrable structural signal of absence or
+      truncation.
+    - Test: source present but shorter than the witness ⇒ source is kept.
+    - Test: source really absent ⇒ fallback allowed.
+    - Global before/after audit of the ~4,602 replacements.
+  - Do not:
+    - Fix it with a local change without global audit.
+    - Hardcode Ps 16:3 or Ps 17:7.
     - Commit or push.
 
 - [x] TORRES-FACSIMILE-101 Correct Torres Amat Ps 3 and Mt 12 against the 1882 facsimile
