@@ -1082,6 +1082,23 @@ if (BUILD_TESTING AND UNIX)
     )
 endif ()
 
+# TORRES-1835-BASELINE-101: the foundation of the 1832-1835 edition --
+# manifest provenance, checksum-verified acquisition, the neutral model and
+# the parser fail-safe that keeps an unrecognised boundary out of the
+# previous verse. Pure python over in-memory fixtures; never touches the
+# network or ~/.sword.
+find_program (PYTHON3_EXECUTABLE NAMES python3)
+if (BUILD_TESTING AND UNIX AND PYTHON3_EXECUTABLE)
+  add_test (
+    NAME torresamat1835_baseline_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_baseline.py
+    )
+  set_tests_properties (torresamat1835_baseline_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
+    )
+endif ()
+
 # The import side of TORRES-PSALM-TITLES-101: the deterministic transform
 # that marks a psalm inscription <seg type="x-psalm-title"> without moving
 # its verse number. Pure python over in-memory fixtures; the SWORD

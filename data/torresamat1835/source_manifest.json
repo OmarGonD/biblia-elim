@@ -1,0 +1,109 @@
+{
+  "manifest_version": 1,
+  "edition_id": "TorresAmat1835",
+  "display_name": "La Sagrada Biblia — Torres Amat (1835)",
+  "work": {
+    "title": "La Sagrada Biblia nuevamente traducida de la Vulgata latina al español, aclarado el sentido de algunos lugares con la luz que dan los textos originales hebreo y griego, é ilustrada con varias notas sacadas de los Santos Padres y expositores sagrados",
+    "translator": "Torres Amat, Félix (1772-1847)",
+    "edition_statement": "Segunda edición",
+    "city": "Madrid",
+    "publisher": "Imprenta de D. Miguel de Burgos",
+    "years": "1832-1835",
+    "volumes_total": 6,
+    "versification": "Vulg",
+    "language": "spa",
+    "work_rights": "public-domain",
+    "work_rights_note": "Torres Amat died in 1847; the translation itself is out of copyright everywhere relevant. This says nothing about any particular modern scan -- see each witness."
+  },
+  "witnesses": [
+    {
+      "role": "primary",
+      "id": "bne-bdh0000014290",
+      "institution": "Biblioteca Nacional de España — Biblioteca Digital Hispánica",
+      "persistent_id": "bdh0000014290",
+      "url": "https://bdh.bne.es/bnesearch/detalle/bdh0000014290",
+      "catalogued_as": "entre 1832 y 1835",
+      "volumes_available": 6,
+      "scan_rights": "CC-BY-4.0-or-equivalent",
+      "scan_rights_source": "https://www.bne.es/es/noticias/0430-bne-permitira-uso-comercial-gratuito-imagenes-digitalizadas-obras-dominio-publico",
+      "redistribution": "allowed-with-attribution",
+      "commercial_use": "allowed",
+      "automated_fetch": "blocked",
+      "automated_fetch_evidence": "HTTP 403 from bdh.bne.es/bnesearch/detalle, bdh-rd.bne.es/viewer.vm, bdh-rd.bne.es/pdf.raw and datos.bne.es on 2026-09-16",
+      "acquisition": "manual-download-then-verify",
+      "files": [],
+      "notes": "Legally the right witness and the only one holding the complete second edition. Acquisition has to be a human download; fetch_source.py then verifies checksums and refuses anything unrecorded."
+    },
+    {
+      "role": "secondary-partial",
+      "id": "ia-lasagradabiblia01unkngoog",
+      "institution": "University of Michigan, digitised by Google, hosted by Internet Archive",
+      "persistent_id": "ark:/13960/t05x2xq7c",
+      "url": "https://archive.org/details/lasagradabiblia01unkngoog",
+      "source_of_scan": "http://books.google.com/books?id=E65IAAAAMAAJ",
+      "title_page_reads": "SEGUNDA EDICIÓN. Madrid. Imprenta de D. Miguel de Burgos",
+      "volume": "Tomo III del Antiguo Testamento",
+      "contents": "Salmos, Proverbios, Eclesiastés, Cantar de los Cantares, Sabiduría, Eclesiástico, Isaías",
+      "layout": "Vulgate Latin and Spanish in parallel columns",
+      "imagecount": 652,
+      "ia_copyright_status": "NOT_IN_COPYRIGHT",
+      "scan_rights": "restricted-google-terms",
+      "redistribution": "not-established",
+      "commercial_use": "requested-not-to",
+      "attribution_required": true,
+      "scan_rights_note": "The scan carries Google's boilerplate asking for non-commercial use, no automated querying and retention of the watermark. That applies to this digital object, not to the 1832 text. Do not redistribute these files from this repository.",
+      "automated_fetch": "allowed",
+      "acquisition": "fetch_source.py",
+      "files": [
+        {
+          "name": "lasagradabiblia01unkngoog_djvu.txt",
+          "url": "https://archive.org/download/lasagradabiblia01unkngoog/lasagradabiblia01unkngoog_djvu.txt",
+          "format": "DjVuTXT",
+          "bytes": 2408735,
+          "sha256": "e3cf8f77a26ab4f27a4df31099f22a58ab668cca6972a74226608fc2705ec17e",
+          "verified_on": "2026-09-16"
+        },
+        {
+          "name": "lasagradabiblia01unkngoog_djvu.xml",
+          "url": "https://archive.org/download/lasagradabiblia01unkngoog/lasagradabiblia01unkngoog_djvu.xml",
+          "format": "Djvu XML",
+          "bytes": 29548544,
+          "sha256": null,
+          "verified_on": null
+        }
+      ],
+      "notes": "Only one volume of the second edition is on Internet Archive, and it happens to be the Psalter one. Useful as a working witness for parser development; not a distribution source."
+    },
+    {
+      "role": "comparison",
+      "id": "ia-universidad-de-sevilla-first-edition",
+      "institution": "Biblioteca de la Universidad de Sevilla, hosted by Internet Archive",
+      "edition_statement": "Primera edición",
+      "publisher": "Madrid: Imprenta de Don Leon Amarita",
+      "years": "1823-1825",
+      "scan_rights": "CC0-public-domain-mark-1.0",
+      "scan_rights_source": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "redistribution": "allowed",
+      "commercial_use": "allowed",
+      "automated_fetch": "allowed",
+      "items": [
+        "A030134", "A030135", "A030136", "A030137", "A030138",
+        "A030139", "A030140", "A030141", "A030142"
+      ],
+      "files": [],
+      "notes": "The complete first edition, cleanly redistributable. Not the target edition, but the witness to collate 1823-25 against 1832-35."
+    }
+  ],
+  "current_module_for_comparison": {
+    "module": "TorresAmat",
+    "edition": "1882 (late nineteenth century)",
+    "text_source": "https://archive.org/details/la-sagrada-biblia-vulgata-tomo-iiv_202111",
+    "note": "The edition Biblia Elim ships today. Not modified by this task."
+  },
+  "retrieval_date": "2026-09-16",
+  "provenance_notes": [
+    "The task brief said '1835, Miguel de Burgos'. The edition is in fact 1832-1835 in six volumes; 1835 is the year the set was completed, not the year of every volume. The one volume verified here (Tomo III del Antiguo Testamento) has an 1832-range imprint.",
+    "The edition statement was read from the object itself, not from a catalogue: the title page of lasagradabiblia01unkngoog reads 'SEGUNDA EDICIÓN' with the Miguel de Burgos imprint.",
+    "No source files are stored in this repository. Only this manifest, checksums and reproducible acquisition instructions."
+  ]
+}
