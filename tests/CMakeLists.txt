@@ -1082,6 +1082,71 @@ if (BUILD_TESTING AND UNIX)
     )
 endif ()
 
+# The import side of TORRES-PSALM-TITLES-101: the deterministic transform
+# that marks a psalm inscription <seg type="x-psalm-title"> without moving
+# its verse number. Pure python over in-memory fixtures; the SWORD
+# round-trips inside it skip themselves when the tools are absent.
+find_program (PYTHON3_EXECUTABLE NAMES python3)
+if (BUILD_TESTING AND UNIX AND PYTHON3_EXECUTABLE)
+  add_test (
+    NAME torresamat_titulos_pipeline_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat/test_titulos.py
+    )
+  set_tests_properties (torresamat_titulos_pipeline_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat
+    )
+endif ()
+
+add_executable (psalm_title_render_test EXCLUDE_FROM_ALL
+  psalm_title_render_test.cc
+  ${PROJECT_SOURCE_DIR}/src/main/psalm_title.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/content_availability.cc
+  )
+target_compile_definitions (psalm_title_render_test PRIVATE
+  SRCDIR="${PROJECT_SOURCE_DIR}")
+target_include_directories (psalm_title_render_test PRIVATE
+  ${PROJECT_SOURCE_DIR}/src PkgConfig::Core)
+target_link_libraries (psalm_title_render_test PRIVATE PkgConfig::Core)
+
+if (BUILD_TESTING AND UNIX)
+  add_test (
+    NAME psalm_title_render_test
+    COMMAND $<TARGET_FILE:psalm_title_render_test>
+    )
+endif ()
+
+add_executable (torresamat_psalter_structure_test EXCLUDE_FROM_ALL
+  torresamat_psalter_structure_test.cc
+  ${PROJECT_SOURCE_DIR}/src/main/psalm_title.cc
+  ${PROJECT_SOURCE_DIR}/src/main/reference_transition.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/content_availability.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sword_main.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sword/sword_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/quoted_heading.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/source_quirks.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/morphology.cc
+  ${PROJECT_SOURCE_DIR}/src/main/busqueda_tildes.c)
+target_compile_options (torresamat_psalter_structure_test PRIVATE
+  -ffunction-sections)
+target_link_options (torresamat_psalter_structure_test PRIVATE
+  -Wl,--gc-sections)
+target_include_directories (torresamat_psalter_structure_test PRIVATE
+  PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome PkgConfig::Soup
+  PkgConfig::Sword)
+target_link_libraries (torresamat_psalter_structure_test PRIVATE
+  PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome PkgConfig::Soup
+  PkgConfig::Sword)
+
+if (BUILD_TESTING AND UNIX)
+  add_test (
+    NAME torresamat_psalter_structure_test
+    COMMAND $<TARGET_FILE:torresamat_psalter_structure_test>
+    )
+endif ()
+
 add_executable (uri_navigation_v11n_test EXCLUDE_FROM_ALL
   uri_navigation_v11n_test.cc
   ${PROJECT_SOURCE_DIR}/src/main/reference_transition.cc

@@ -151,6 +151,7 @@ typedef struct {
 	guint ilorig : 1;
 	guint ilrtl : 1;
 	guint para_bg : 1;
+	guint psalm_title : 1;
 	gchar *fg;
 	gchar *bg;
 	gchar *href;
@@ -189,6 +190,7 @@ typedef struct {
 	GtkTextTag *sup, *sub, *small, *big;
 	GtkTextTag *center, *right;
 	GtkTextTag *ilblock, *illabel, *ilorig, *ilorig_he;
+	GtkTextTag *psalm_title;
 } StockTags;
 
 typedef struct {
@@ -584,6 +586,7 @@ stock_tags_fill(GtkTextBuffer *buf, StockTags *t)
 	t->illabel = gtk_text_tag_table_lookup(tt, "illabel");
 	t->ilorig = gtk_text_tag_table_lookup(tt, "ilorig");
 	t->ilorig_he = gtk_text_tag_table_lookup(tt, "ilorig-he");
+	t->psalm_title = gtk_text_tag_table_lookup(tt, "psalm-title");
 }
 
 /* Los tramos salen en orden de documento, así que se aplican paseando un
@@ -654,6 +657,16 @@ ensure_il_tags(GtkTextBuffer *buf)
 	/* El hebreo se queda en Noto Serif Hebrew: comparada con Cardo
 	 * bajo el mismo motor de Pango, pega mejor los puntos vocálicos y
 	 * los acentos de cantilación y no separa las letras. */
+	/* A psalm title numbered as its own verse (Vulgate editions): a
+	 * quiet superscription, not a heading -- italic, a touch smaller
+	 * than the verse, no weight, no colour, nothing that competes with
+	 * "Capitulo N". Only the title text: the verse number in front of
+	 * it keeps the ordinary number style. */
+	if (!gtk_text_tag_table_lookup(t, "psalm-title"))
+		gtk_text_buffer_create_tag(buf, "psalm-title",
+					   "style", PANGO_STYLE_ITALIC,
+					   "scale", 0.94,
+					   NULL);
 	if (!gtk_text_tag_table_lookup(t, "ilorig-he"))
 		gtk_text_buffer_create_tag(buf, "ilorig-he",
 					   "family", ELIM_FONT_HEBREW_LIST,
@@ -733,6 +746,8 @@ record_style_spans(ParseCtx *ctx, gint start, gint end)
 		span_add(ctx, t->illabel, start, end);
 	if (st->ilorig)
 		span_add(ctx, st->ilrtl ? t->ilorig_he : t->ilorig, start, end);
+	if (st->psalm_title)
+		span_add(ctx, t->psalm_title, start, end);
 	if (st->family)
 		span_add(ctx, attr_tag_memo(ctx, TAG_SLOT_FAMILY, "ff",
 					    st->family, "family"),
@@ -1966,6 +1981,8 @@ walk_element(ParseCtx *ctx, xmlNode *node)
 		ctx->st.big = TRUE, ctx->st.bold = TRUE;
 	if (class_has(klass, "tr") || class_has(klass, "introMaterial"))
 		ctx->st.italic = TRUE;
+	if (class_has(klass, "x-psalm-title"))
+		ctx->st.psalm_title = TRUE;
 	if (!g_ascii_strcasecmp(name, "b") || !g_ascii_strcasecmp(name, "strong"))
 		ctx->st.bold = TRUE;
 	if (!g_ascii_strcasecmp(name, "i") || !g_ascii_strcasecmp(name, "em"))

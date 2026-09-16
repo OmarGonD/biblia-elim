@@ -407,6 +407,24 @@ test_availability_semantics()
 	g_assert_true(classifyVerseContent(html_heading, verse) ==
 		      ContentAvailability::Missing);
 
+	/* A Vulgate psalm title numbered as its own verse (Torres Amat
+	 * Ps 3:1). Marked <title type="psalm"> in the verse, SWORD renders
+	 * <h3> and the slot would read as missing and pull in fallback text;
+	 * marked <seg type="x-psalm-title"> it stays body. */
+	BibleVerseContent psalm_title_seg;
+	psalm_title_seg.renderedText =
+		"<span class=\"x-psalm-title\">Salmo de David cuando temeroso "
+		"iba huyendo de su hijo Absalom</span>";
+	g_assert_true(classifyVerseContent(psalm_title_seg, verse) ==
+		      ContentAvailability::Available);
+
+	BibleVerseContent psalm_title_h3;
+	psalm_title_h3.renderedText =
+		"<h3 class=\"title psalm canonical\">Salmo de David cuando "
+		"temeroso iba huyendo de su hijo Absalom</h3>";
+	g_assert_true(classifyVerseContent(psalm_title_h3, verse) ==
+		      ContentAvailability::Missing);
+
 	BibleVerseContent heading_and_body;
 	heading_and_body.headings.push_back(heading);
 	heading_and_body.renderedText = "Bienaventurado el varón.";

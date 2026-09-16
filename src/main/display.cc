@@ -44,6 +44,7 @@
 #include "main/sword.h"
 #include "main/interlineal.h"
 #include "main/modulecache.hh"
+#include "main/psalm_title.h"
 #include "main/xml.h"
 
 #include "gui/utilities.h"
@@ -3117,6 +3118,25 @@ GTKChapDisp::RenderOneChapter(SWModule &imodule,
 		// native full-line band after render,
 		// wk_html_reading_focus_set(), not a green font color here.)
 		apply_verse_notes(rework, (thisChapter * 1000) + k);
+
+		/* A psalm title that is numbered as its own verse (Vulgate
+		 * editions: Torres Amat). The module marks the text
+		 * <seg type="x-psalm-title">, which SWORD hands us as
+		 * <span class="x-psalm-title">; the reference stays the
+		 * native verse and keeps its number, only the presentation
+		 * changes. Detection is structural -- that class, never the
+		 * words -- and when the same verse also carries body text
+		 * (Vulg Ps 52:1) the two are separated instead of running
+		 * together on one line. An ordinary verse is unchanged. */
+		{
+			const PsalmTitleParts title_parts =
+			    splitPsalmTitle(rework->str ? rework->str : "");
+			if (title_parts.hasTitle) {
+				const std::string shown =
+				    psalmTitleVerseHtml(title_parts);
+				g_string_assign(rework, shown.c_str());
+			}
+		}
 
 		// ugly ... ugly ... ugly.
 		// text containing <p/> in the middle of a <span> or <font> block

@@ -64,6 +64,7 @@ add_library (main
   recordatorio.c
   versiculo_dia.c
   parallel_view.cc
+  psalm_title.cc
   prayerlists.cc
   previewer.cc
   search_dialog.cc

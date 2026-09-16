@@ -1,7 +1,13 @@
-"""Genera el OSIS a partir del JSON intermedio."""
+"""Genera el OSIS a partir del JSON intermedio.
+
+Cada versículo del JSON es un texto, o bien {"titulo": …, "texto": …} cuando
+el facsímil dice que ese versículo es (o empieza por) el título del salmo;
+ver titulos.py.
+"""
 import json, re, html
 from canon import CANON, POR_OSIS
 from construir import ORDEN
+from titulos import marca_titulo
 
 # Las llamadas a nota van en el texto como superíndices que el OCR convierte
 # en asteriscos, interrogantes y comillas sueltas. Las notas no se importan
@@ -32,11 +38,23 @@ http://www.bibletechnologies.net/osisCore.2.1.1.xsd">
   </header>
 """
 
-def genera(texto, destino):
+def contenido_verso(t):
+    """Contenido OSIS de un versículo del JSON, o "" si no trae texto."""
+    if isinstance(t, dict):
+        titulo = limpia_final(t.get("titulo", ""))
+        cuerpo = limpia_final(t.get("texto", ""))
+        if titulo:
+            return marca_titulo(titulo, cuerpo)
+        t = cuerpo
+    else:
+        t = limpia_final(t)
+    return html.escape(t) if t else ""
+
+def genera(texto, destino, orden=ORDEN):
     faltan = 0
     with open(destino, "w", encoding="utf-8") as f:
         f.write(CABECERA)
-        for osisid in ORDEN:
+        for osisid in orden:
             L = POR_OSIS[osisid]
             f.write(f'  <div type="book" osisID="{osisid}">\n')
             for c, nver in enumerate(L["versos"], start=1):
@@ -46,12 +64,12 @@ def genera(texto, destino):
                     if t is None:
                         faltan += 1
                         continue
-                    t = limpia_final(t)
+                    t = contenido_verso(t)
                     if not t:
                         faltan += 1
                         continue
                     f.write(f'    <verse osisID="{osisid}.{c}.{v}">'
-                            f'{html.escape(t)}</verse>\n')
+                            f'{t}</verse>\n')
                 f.write("   </chapter>\n")
             f.write("  </div>\n")
         f.write(" </osisText>\n</osis>\n")

@@ -8,6 +8,9 @@ módulo instalado: lo exporta con mod2imp, sustituye solo las entradas de
 CORRECCIONES -- y solo si el texto viejo coincide exactamente --, lo
 reimporta con imp2vs y comprueba que la ida y vuelta no toca nada más.
 
+Además de erratas (CORRECCIONES), marca los títulos de salmo que el impreso
+numera como versículo (TITULOS; ver titulos.py) sin mover ningún número.
+
 Cada entrada lleva el tomo y la hoja del ítem de Internet Archive donde se
 ha leído el impreso:
 
@@ -26,6 +29,8 @@ import shutil
 import subprocess
 import sys
 import tempfile
+
+from titulos import marca_titulo
 
 DIR = os.path.dirname(os.path.abspath(__file__))
 MODULO = "TorresAmat"
@@ -91,6 +96,83 @@ CORRECCIONES = {
     ),
 }
 
+# Versículos que el impreso numera y que son título del salmo (la Vulgata
+# cuenta la inscripción como versículo). No se renumera nada: el texto se
+# queda en su versículo y se marca como título (titulos.py).
+#
+# ref: (texto actual en el módulo, título impreso, cuerpo que comparte el
+#       versículo o "", dónde se ha leído)
+#
+# El título es el del módulo cuando ya estaba; solo se toma del impreso lo
+# que faltaba. Las erratas que traen (Sal 50:2) quedan para su propia
+# corrección.
+TITULOS = {
+    "Psalms 3:1": (
+        "Salmo de David cuando temeroso iba huyendo de su hijo Absalom",
+        "Salmo de David cuando temeroso iba huyendo de su hijo Absalom",
+        "",
+        "tomo III, hoja 11",
+    ),
+    "Psalms 4:1": (
+        "Para el fin: Salmo y Cántico de David.",
+        "Para el fin: Salmo y Cántico de David.",
+        "",
+        "tomo III, hoja 11",
+    ),
+    # SALMO L. Título en dos versículos; el OCR perdió el primero.
+    "Psalms 50:1": (
+        "",
+        "Para el fin: Salmo de David;",
+        "",
+        "tomo III, hoja 29",
+    ),
+    "Psalms 50:2": (
+        "Cuando despues que pecó con Bethsabée, y vino: á él el Profeta "
+        "Nathán 4",
+        "Cuando despues que pecó con Bethsabée, y vino: á él el Profeta "
+        "Nathán 4",
+        "",
+        "tomo III, hoja 29",
+    ),
+    # SALMO LI. Igual que el L.
+    "Psalms 51:1": (
+        "",
+        "Para el fin: Salmo de inteligencia de David,",
+        "",
+        "tomo III, hoja 30",
+    ),
+    "Psalms 51:2": (
+        "Cuando Doeg, Iduméo, fué á dar aviso á Saul, diciéndole que David "
+        "habia estado en casa de Achimelech",
+        "Cuando Doeg, Iduméo, fué á dar aviso á Saul, diciéndole que David "
+        "habia estado en casa de Achimelech",
+        "",
+        "tomo III, hoja 30",
+    ),
+    # SALMO LII. El impreso pone «Para el fin: 1. Por Maeleth. Salmo de
+    # inteligencia de David. Dijo el insensato…»: título y primer renglón
+    # comparten el versículo 1. «Para el fin:» va delante del número y el
+    # OCR lo perdió.
+    "Psalms 52:1": (
+        "Por Maeleth. Salmo de inteligencia de David. Dijo el insensato en "
+        "su corazon: No hay Dios.",
+        "Para el fin: Por Maeleth. Salmo de inteligencia de David.",
+        "Dijo el insensato en su corazon: No hay Dios.",
+        "tomo III, hoja 30",
+    ),
+}
+
+
+def cambios():
+    """ref -> (texto viejo, texto nuevo): CORRECCIONES y TITULOS juntos."""
+    todos = {ref: (viejo, nuevo) for ref, (viejo, nuevo, _hoja)
+             in CORRECCIONES.items()}
+    for ref, (viejo, titulo, cuerpo, _hoja) in TITULOS.items():
+        if ref in todos:
+            raise ValueError(f"{ref} está en CORRECCIONES y en TITULOS")
+        todos[ref] = (viejo, marca_titulo(titulo, cuerpo))
+    return todos
+
 
 def lee_imp(texto):
     """[(clave, cuerpo)] en el orden del fichero."""
@@ -138,11 +220,12 @@ def main():
     if escribe_imp(entradas) != original:
         sys.exit("el export no se puede reescribir sin pérdida; no se toca")
 
-    pendientes = dict(CORRECCIONES)
+    autorizados = cambios()
+    pendientes = dict(autorizados)
     nuevas = []
     for clave, cuerpo in entradas:
         if clave in pendientes:
-            viejo, nuevo, _hoja = pendientes.pop(clave)
+            viejo, nuevo = pendientes.pop(clave)
             if cuerpo == nuevo:
                 print(f"  ya corregido: {clave}")
             elif cuerpo != viejo:
@@ -185,9 +268,9 @@ def main():
         sys.exit("la ida y vuelta del módulo parcheado no coincide")
     cambiadas = [c for (c, a), (_, b) in zip(entradas, lee_imp(vuelta))
                  if a != b]
-    esperadas = [c for c in cambiadas if c in CORRECCIONES]
+    esperadas = [c for c in cambiadas if c in autorizados]
     if cambiadas != esperadas:
-        sys.exit(f"cambió algo fuera de CORRECCIONES: {cambiadas}")
+        sys.exit(f"cambió algo fuera de CORRECCIONES/TITULOS: {cambiadas}")
     print(f"módulo parcheado en {destino} ({len(cambiadas)} versos)")
 
 

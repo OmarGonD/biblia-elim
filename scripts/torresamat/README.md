@@ -37,6 +37,8 @@ Del `djvu.xml` sale cada palabra con su caja y su confianza.
 | `hocr.py` / `paginas.py` | Meten las páginas rehechas por el mismo pipeline que las demás |
 | `ojear.py` | Enseña por encima qué hay en cada media hoja de un rango |
 | `rescatar.py` | Los capítulos rescatados a mano, uno por uno, contra el facsímil |
+| `titulos.py` | Marca como `<seg type="x-psalm-title">` el título de salmo que el impreso numera como versículo |
+| `parche_facsimil.py` | Corrige el módulo ya compilado contra el facsímil: erratas y títulos de salmo, cada uno con su hoja |
 | `cotejar.py` | Coteja cada capítulo con la Vulgata por nombres propios |
 | `testigos.py` | Baja las otras Biblias instaladas y las deja consultables |
 | `corrector.py` | Decide errata o palabra preguntándole al pasaje |
