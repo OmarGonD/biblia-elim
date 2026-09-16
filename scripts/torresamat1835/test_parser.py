@@ -113,9 +113,13 @@ def test_heading_is_a_barrier_and_survives_a_broken_numeral():
     headings = [b for c in chapters.values() for b in c.paratext
                 if b.kind is BlockKind.CHAPTER_HEADING]
     assert headings
+    # Sin el contexto de estructura (este parse no le pasa cabeceras) no
+    # hay con qué corroborar ningún numeral, así que todas las divisiones
+    # quedan sin resolver y marcadas. Que la frontera sobreviva igual es
+    # lo que importa aquí; resolverlas es cosa de test_structure.py.
     broken = [b for b in headings if b.review_required]
-    assert broken, "el numeral roto tiene que quedar marcado"
-    assert stats.get("chapter_headings_unresolved", 0) >= 1
+    assert broken, "sin corroboración, la división queda marcada"
+    assert stats.get("chapters_unresolved", 0) >= 1
 
     editorial = [b for c in chapters.values() for b in c.paratext
                  if b.kind is BlockKind.EDITORIAL_HEADING]

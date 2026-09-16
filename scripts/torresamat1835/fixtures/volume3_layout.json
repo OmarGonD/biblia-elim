@@ -1,8 +1,8 @@
 {
  "provenance": {
-  "derived_from": "geometry measured on scan pages 48-51 of the volume 3 witness (3402x4837 px @600 dpi, gutter ~1690, columns 380-1660 and 1700-3040, header band y<290, footnote band y>4200)",
+  "derived_from": "geometry measured on scan pages 48-51 of the volume 3 witness (3402x4837 px @600 dpi, gutter ~1690, columns 380-1660 and 1700-3040, header band y<290, footnote band y>4200); running headers in this edition carry book name, chapter numeral and printed page",
   "text": "synthetic",
-  "why_synthetic": "The volume 3 witness is a Google-digitised scan whose redistribution is not permitted (see source_manifest.json: role=development_witness, redistribution_allowed=no). Its geometry is a measurement and can be reproduced here; its OCR text is not committed. The parser is validated against the real volume by the audit run, not by this fixture.",
+  "why_synthetic": "The volume 3 witness is a Google-digitised scan whose redistribution is not permitted (source_manifest.json: role=development_witness, redistribution_allowed=no). Its geometry is a measurement and is reproduced here; its OCR text is not committed. The parser and the structure resolver are validated against the real volume by the audit run.",
   "covers": [
    "two columns latin/spanish",
    "verse number + continuation",
@@ -12,7 +12,9 @@
    "footnote",
    "page header/footer",
    "cross-page continuation",
-   "OCR-broken heading numeral",
+   "clean chapter numeral (direct)",
+   "OCR-broken numeral corroborated by the running header",
+   "OCR-broken numeral with no corroboration (unresolved)",
    "ambiguous block"
   ]
  },
@@ -34,7 +36,7 @@
      "confidence": 60
     },
     {
-     "text": "LOS SALMOS.",
+     "text": "LOS SALMOS. I.",
      "bbox": [
       1697,
       195,
@@ -44,11 +46,11 @@
      "confidence": 60
     },
     {
-     "text": "SALMO LIM",
+     "text": "SALMO I",
      "bbox": [
-      700,
+      760,
       420,
-      2650,
+      2600,
       500
      ],
      "confidence": 60
@@ -162,7 +164,7 @@
    "dpi": 600,
    "lines": [
     {
-     "text": "LOS SALMOS.",
+     "text": "LOS SALMOS. II.",
      "bbox": [
       1697,
       195,
@@ -202,7 +204,7 @@
      "confidence": 60
     },
     {
-     "text": "SALMO II",
+     "text": "SALMO LIM",
      "bbox": [
       760,
       1000,
@@ -248,6 +250,54 @@
       2000,
       1900,
       2070
+     ],
+     "confidence": 60
+    }
+   ]
+  },
+  {
+   "scan_page": 2,
+   "width": 3402,
+   "height": 4837,
+   "dpi": 600,
+   "lines": [
+    {
+     "text": "LOS SALMOS.",
+     "bbox": [
+      1697,
+      195,
+      2117,
+      255
+     ],
+     "confidence": 60
+    },
+    {
+     "text": "SALMO XQZ",
+     "bbox": [
+      760,
+      600,
+      2600,
+      680
+     ],
+     "confidence": 60
+    },
+    {
+     "text": "Argumento del tercero.",
+     "bbox": [
+      700,
+      720,
+      2600,
+      794
+     ],
+     "confidence": 60
+    },
+    {
+     "text": "1 Texto del salmo que no se ha podido identificar.",
+     "bbox": [
+      1720,
+      860,
+      3030,
+      932
      ],
      "confidence": 60
     }

@@ -21,6 +21,7 @@ revisión; nunca al `body` del verso anterior.
 from typing import Iterable, Optional
 
 import parser as classifier
+import structure
 from layout import Column, Zone, split_columns, measure
 from model import Block, BlockKind, Edition, Provenance
 
@@ -61,7 +62,8 @@ class VolumeParser:
     """Estado de lectura a lo largo de las páginas del tomo."""
 
     def __init__(self, edition: Edition, *, witness: str, volume: str,
-                 book: str = "Ps", gutter_hint: Optional[int] = None):
+                 book: str = "Ps", gutter_hint: Optional[int] = None,
+                 book_spans=None, header_chapters=None):
         self.edition = edition
         self.witness = witness
         self.volume = volume
@@ -74,6 +76,15 @@ class VolumeParser:
         #: las páginas donde la medición no alcanza.
         self.gutters = []
         self.gutter_hint = gutter_hint
+        #: Tramos de libro y numerales de la cabecera corrida, leídos en
+        #: una pasada previa. Son las señales redundantes con que se
+        #: identifica cada división.
+        self.book_spans = book_spans or []
+        self.header_chapters = header_chapters or {}
+        self.current_book = book
+        self.last_chapter = {}
+        self.resolutions = []
+        self.page = None
 
     def _bump(self, key, amount=1):
         self.stats[key] = self.stats.get(key, 0) + amount
@@ -95,7 +106,22 @@ class VolumeParser:
             return ordered[len(ordered) // 2]
         return self.gutter_hint
 
+    def _book_for(self, page):
+        if not self.book_spans:
+            return self.book
+        found = structure.book_at(self.book_spans, page.scan_page)
+        return found or self.book
+
     def feed_page(self, page):
+        self.page = page
+        book = self._book_for(page)
+        if book != self.current_book:
+            # Cambio de libro: se cierra lo abierto. Ni un versículo ni un
+            # capítulo puede cruzar la frontera.
+            self._close_verse("book_change")
+            self.chapter = None
+            self.current_book = book
+            self._bump("book_boundaries")
         hint = self._hint()
         layout = measure(page, gutter_hint=hint)
         if layout.gutter is not None:
@@ -123,7 +149,7 @@ class VolumeParser:
                 if self.chapter is not None:
                     self.chapter.paratext.append(block)
                 else:
-                    self.edition.book(self.book).chapter(0).paratext.append(block)
+                    self.edition.book(self.current_book).chapter(0).paratext.append(block)
                 continue
 
             # --- bloque que cruza el canal ----------------------------
@@ -174,25 +200,65 @@ class VolumeParser:
         if self.chapter is not None:
             self.chapter.paratext.append(block)
         else:
-            self.edition.book(self.book).chapter(0).paratext.append(block)
+            self.edition.book(self.current_book).chapter(0).paratext.append(block)
 
     def _open_chapter(self, placed, prov, number, raw):
-        expected = (self.chapter.number + 1) if self.chapter else 1
-        reason = None
-        if number is None:
-            reason = "division recognised but its numeral is unreadable"
-        elif number != expected:
-            reason = f"division numbered {number} where {expected} was due"
-        if reason:
-            self._bump("chapter_headings_unresolved")
-            number = expected
+        """Abre la división cruzando las señales del testigo.
+
+        `number` es sólo lo que dio el numeral de la marca. Se resuelve
+        con structure.resolve_chapter(), que exige que dos señales
+        independientes coincidan. Si no se puede, el capítulo queda sin
+        número resuelto y marcado: la frontera sobrevive igual, que es lo
+        que impide que el texto se corra.
+        """
+        book = self.current_book
+        page = self.page.scan_page if self.page is not None else None
+        previous = self.last_chapter.get(book)
+        resolution = structure.resolve_chapter(
+            raw_numeral=raw,
+            header_chapters=self.header_chapters.get(page, []),
+            previous=previous, book=book)
+
+        self._bump("chapters_resolved_" + resolution.method
+                   if resolution.resolved is not None
+                   else "chapters_unresolved")
+        if resolution.method == "direct_ocr":
+            self._bump("chapters_resolved_direct")
+        elif resolution.resolved is not None:
+            self._bump("chapters_resolved_correlated")
+
+        self.resolutions.append({
+            "book": book, "scan_page": page,
+            "source_heading": raw[:120],
+            "raw_numeral": resolution.raw_numeral[:60] if resolution.raw_numeral else None,
+            "parsed_candidate": resolution.parsed_candidate,
+            "resolved_number": resolution.resolved,
+            "method": resolution.method,
+            "evidence": resolution.evidence,
+            "confidence": resolution.confidence,
+            "review_required": resolution.review_required,
+            "block_id": prov.block_id,
+        })
+
+        # Sin número resuelto el capítulo no recibe una cifra inventada:
+        # se le da una posición correlativa NEGATIVA de trabajo, que no
+        # puede confundirse con un capítulo real, y queda en revisión.
+        if resolution.resolved is None:
+            slot = -(len([k for k in self.edition.book(book).chapters
+                          if k < 0]) + 1)
         else:
-            self._bump("chapter_headings_resolved")
+            slot = resolution.resolved
+            self.last_chapter[book] = slot
+
         block = _block(BlockKind.CHAPTER_HEADING, placed, prov,
-                       number=number, reason=reason, decision="division")
-        if reason:
+                       number=resolution.resolved,
+                       reason=(None if not resolution.review_required else
+                               f"chapter identity unresolved "
+                               f"({resolution.evidence.get('why', '')})"),
+                       decision=resolution.method)
+        if resolution.review_required:
             self.edition.review_queue.append(block)
-        self.chapter = self.edition.book(self.book).chapter(number)
+        self.chapter = self.edition.book(book).chapter(slot)
         self.chapter.paratext.append(block)
         self.verse_number = None
         self.expect_editorial = True
@@ -246,11 +312,15 @@ class VolumeParser:
 
 def parse_volume(pages: Iterable, *, witness: str, volume: str,
                  book: str = "Ps", edition: Optional[Edition] = None,
-                 gutter_hint: Optional[int] = None):
+                 gutter_hint: Optional[int] = None, book_spans=None,
+                 header_chapters=None, with_walker: bool = False):
     """Recorre las páginas y devuelve (edición, métricas)."""
     edition = edition or Edition(edition_id="TorresAmat1835")
     walker = VolumeParser(edition, witness=witness, volume=volume, book=book,
-                          gutter_hint=gutter_hint)
+                          gutter_hint=gutter_hint, book_spans=book_spans,
+                          header_chapters=header_chapters)
     for page in pages:
         walker.feed_page(page)
+    if with_walker:
+        return edition, walker.stats, walker
     return edition, walker.stats
