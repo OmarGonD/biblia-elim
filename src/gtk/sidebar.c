@@ -835,10 +835,28 @@ static gboolean on_treeview_button_press_event(GtkWidget *widget,
 		return FALSE;
 
 	if (event->type == GDK_2BUTTON_PRESS) {
-		if (verse_selected)
-			g_free(verse_selected);
-		verse_selected = g_strdup_printf("sword:///%s", key);
-		main_url_handler(verse_selected, TRUE);
+		/* The rows are native to the module the list was built for
+		 * -- the Bible that published the cross reference, or the
+		 * module that was searched -- which is not necessarily the
+		 * Bible on screen. A module-less URI navigates whatever
+		 * Bible is selected, so the key has to be carried into its
+		 * numbering first; the text is never reparsed there. */
+		gchar *main_key = main_bible_key_for_uri(settings.sb_search_mod,
+							 key);
+		if (main_key) {
+			if (verse_selected)
+				g_free(verse_selected);
+			verse_selected = g_strdup_printf("sword:///%s",
+							 main_key);
+			main_url_handler(verse_selected, TRUE);
+			g_free(main_key);
+		} else {
+			/* No counterpart in the Bible on screen: say so and
+			 * stay put, rather than navigate to whatever the
+			 * same text happens to mean there. */
+			main_warn_reference_unmapped(key,
+						     settings.MainWindowModule);
+		}
 	}
 	switch (event->button) {
 	case 3:

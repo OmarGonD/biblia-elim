@@ -57,6 +57,9 @@ void main_interlineal_tokens_free(GList *lista);
 /* Hasta max claves (gchar*) en un solo módulo (G→Tisch, H→KJV).
  * Libro actual primero. Caller g_list_free_full(..., g_free). */
 GList *main_interlineal_ocurrencias(const char *strong, int max);
+/* The module main_interlineal_ocurrencias() keys are native to, or NULL.
+ * Their versification need not be the reader's Bible. */
+const char *main_interlineal_ocurrencias_modulo(const char *strong);
 gboolean main_interlineal_indice_listo(void);
 void main_interlineal_empezar_indice(void);
 /* Cita corta en español: "1 Ti 1:1". Caller g_free. */

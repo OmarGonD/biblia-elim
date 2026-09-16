@@ -752,6 +752,28 @@ main_interlineal_indice_listo(void)
 	return TRUE;
 }
 
+/* The module the occurrence keys below are native to. They are KJV- (or
+ * Tisch/WLC-) numbered, which is not the reader's Bible when that Bible
+ * is a Vulgate one, so a caller turning them into links has to carry
+ * them across rather than hand the text to the main Bible. */
+const char *
+main_interlineal_ocurrencias_modulo(const char *strong)
+{
+	gchar *norm;
+	const char *modname;
+
+	if (!strong || !backend)
+		return NULL;
+	norm = main_interlineal_norm_strong(strong);
+	if (!norm || !norm[0]) {
+		g_free(norm);
+		return NULL;
+	}
+	modname = occ_pick_module(norm[0]);
+	g_free(norm);
+	return modname;
+}
+
 GList *
 main_interlineal_ocurrencias(const char *strong, int max)
 {

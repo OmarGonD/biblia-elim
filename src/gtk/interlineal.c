@@ -47,14 +47,27 @@ static gchar *tools_key = NULL;
  * clic. */
 static gchar *tools_mod = NULL;
 
+/* `key` is native to tools_mod, captured with it when the menu opened.
+ * A module-less URI navigates whatever Bible is selected *now*, which
+ * the comment above explains can already be a different one -- and with
+ * a different versification. Carry the reference over rather than let
+ * the new module reparse the text. */
 static void
 verse_tools_goto(const char *key)
 {
 	gchar *url;
+	gchar *main_key;
+
 	if (!key || !*key)
 		return;
-	url = g_strdup_printf("sword:///%s", key);
+	main_key = main_bible_key_for_uri(tools_mod, key);
+	if (!main_key) {
+		main_warn_reference_unmapped(key, settings.MainWindowModule);
+		return;
+	}
+	url = g_strdup_printf("sword:///%s", main_key);
 	main_url_handler(url, TRUE);
+	g_free(main_key);
 	g_free(url);
 }
 
@@ -332,15 +345,30 @@ gui_interlineal_ficha_morf(const char *strong, const char *morph)
 				       _("Ocurrencias"), nocc);
 		if (ocurr) {
 			g_string_append(body, "<p>");
+			const char *occ_mod =
+			    main_interlineal_ocurrencias_modulo(strong);
 			for (l = ocurr; l; l = l->next) {
 				const char *k = (const char *)l->data;
-				gchar *cita = main_interlineal_cita_es(k);
-				gchar *ke = esc(k);
-				gchar *ce = esc(cita);
+				/* The concordance is numbered by its own
+				 * module; the link navigates the reader's
+				 * Bible, so carry the reference across and
+				 * label it with where it actually lands. A
+				 * verse that has no counterpart there is
+				 * not offered as a link. */
+				gchar *nk = main_bible_key_for_uri(occ_mod, k);
+				gchar *cita;
+				gchar *ke, *ce;
+
+				if (!nk)
+					continue;
+				cita = main_interlineal_cita_es(nk);
+				ke = esc(nk);
+				ce = esc(cita);
 				g_string_append_printf(body,
 						       "<a href=\"sword:///%s\">%s</a>%s",
 						       ke, ce,
 						       l->next ? "; " : "");
+				g_free(nk);
 				g_free(ke);
 				g_free(ce);
 				g_free(cita);

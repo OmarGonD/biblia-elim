@@ -1846,6 +1846,42 @@ gchar *main_reference_for_module(const char *source_mod,
 	return g_strdup(plan.key.c_str());
 }
 
+/*
+ * The main Bible's own key for a reference that belongs to another module.
+ *
+ * A "sword:///KEY" URI carries no module: sword_uri() navigates whatever
+ * Bible is currently selected, so KEY has to be native to *that* module's
+ * versification.  Emitters whose key comes from somewhere else -- the
+ * verse list built for the module that published a cross reference, the
+ * Strong's concordance built over OSHB/Tisch, a Bible dialog syncing the
+ * main window -- used to interpolate their own key and let the main
+ * Bible reparse the text.  Between Vulgate and KJV numbering that lands
+ * on a different psalm.
+ *
+ * So convert here, through the one conversion the project has, before
+ * the reference ever becomes URI text.  Same module is identity, so a
+ * same-versification emitter keeps its exact previous behaviour.
+ *
+ * The policy itself lives in planUriKeyForMainBible(), with the rest of
+ * the versification transitions and away from the GTK layer, so it is
+ * testable on its own.  Returns NULL only when the verse genuinely has
+ * no counterpart in the main Bible -- never the same text reread there.
+ * Callers report that and stay put; main_warn_reference_unmapped()
+ * below is the usual way.
+ */
+gchar *main_bible_key_for_uri(const char *source_mod, const char *source_key)
+{
+	if (!bible_backend || !source_key)
+		return NULL;
+	const BibleModuleTransitionPlan plan = planUriKeyForMainBible(
+		*bible_backend, source_mod ? source_mod : "", source_key,
+		settings.MainWindowModule ? settings.MainWindowModule : "");
+	if (plan.status != BibleModuleTransition::SameModule &&
+	    plan.status != BibleModuleTransition::Converted)
+		return NULL;
+	return g_strdup(plan.key.c_str());
+}
+
 void main_warn_reference_unmapped(const char *source_key,
 				  const char *target_mod)
 {

@@ -126,6 +126,13 @@ gboolean main_bible_window_recenter(const char *key);
 gchar *main_reference_for_module(const char *source_mod,
 				 const char *source_key,
 				 const char *target_mod);
+/* The main Bible's own key for source_key, which is native to
+ * source_mod: what a module-less "sword:///KEY" URI has to carry, since
+ * such a URI navigates the currently selected Bible. Identity when
+ * source_mod already is that Bible or is not verse-keyed. NULL when the
+ * verse has no counterpart there (never the same text reread). */
+gchar *main_bible_key_for_uri(const char *source_mod,
+			      const char *source_key);
 void main_warn_reference_unmapped(const char *source_key,
 				  const char *target_mod);
 /* Switches the main pane from source_mod to target_mod keeping the

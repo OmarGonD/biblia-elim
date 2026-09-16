@@ -53,6 +53,39 @@ BibleModuleTransitionPlan planBibleVersificationTransition(
 		source_versification, source_key, target_module));
 }
 
+static bool isVerseKeyed(BibleBackend &backend, const std::string &module)
+{
+	switch (backend.moduleType(module)) {
+	case BibleModuleType::Bible:
+	case BibleModuleType::Commentary:
+	case BibleModuleType::PersonalCommentary:
+		return true;
+	default:
+		return false;
+	}
+}
+
+BibleModuleTransitionPlan planUriKeyForMainBible(
+	BibleBackend &backend, const std::string &source_module,
+	const std::string &source_key, const std::string &main_module)
+{
+	BibleModuleTransitionPlan plan;
+	if (source_key.empty())
+		return plan;
+	/* Nothing to carry the reference away from, or nowhere to carry
+	 * it to: the key is used as given, which is what these routes
+	 * always did. */
+	if (source_module.empty() || main_module.empty() ||
+	    source_module == main_module ||
+	    !isVerseKeyed(backend, source_module)) {
+		plan.status = BibleModuleTransition::SameModule;
+		plan.key = source_key;
+		return plan;
+	}
+	return planBibleModuleTransition(backend, source_module, source_key,
+					 main_module);
+}
+
 /* Platense is normalized at install time to SpaPlatenseComentarios; the
  * two OCR editions publish their notes as separate zCom modules. Each
  * declares the same versification as its edition in its .conf; callers

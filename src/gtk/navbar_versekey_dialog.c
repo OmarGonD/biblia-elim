@@ -324,8 +324,25 @@ static void on_entry_activate(GtkEntry *entry, DIALOG_DATA *dialog)
 	    g_string_assign(dialog->navbar.module_name, dialog->mod_name);
 	main_navbar_versekey_set(dialog->navbar, gkey);
 	main_dialogs_url_handler(dialog, url, TRUE);
-	if (dialog->sync)
-		sword_uri(url, TRUE);
+	if (dialog->sync) {
+		/* gkey is native to the dialog's own module. The main
+		 * window may be on a Bible numbered differently, and a
+		 * module-less URI navigates that one, so carry the
+		 * reference over instead of handing it the same text. */
+		gchar *main_key = main_bible_key_for_uri(dialog->mod_name,
+							 gkey);
+		if (main_key) {
+			gchar *main_url = g_strdup_printf(
+			    "sword:///%s%s", main_key,
+			    reference.anchor ? reference.anchor : "");
+			sword_uri(main_url, TRUE);
+			g_free(main_url);
+			g_free(main_key);
+		} else {
+			main_warn_reference_unmapped(
+			    gkey, settings.MainWindowModule);
+		}
+	}
 
 	g_free(url);
 	g_free(gkey);

@@ -1082,6 +1082,33 @@ if (BUILD_TESTING AND UNIX)
     )
 endif ()
 
+add_executable (uri_navigation_v11n_test EXCLUDE_FROM_ALL
+  uri_navigation_v11n_test.cc
+  ${PROJECT_SOURCE_DIR}/src/main/reference_transition.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sword_main.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sword/sword_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/quoted_heading.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/source_quirks.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/morphology.cc
+  ${PROJECT_SOURCE_DIR}/src/main/busqueda_tildes.c)
+target_compile_options (uri_navigation_v11n_test PRIVATE -ffunction-sections)
+target_link_options (uri_navigation_v11n_test PRIVATE -Wl,--gc-sections)
+target_include_directories (uri_navigation_v11n_test PRIVATE
+  PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome PkgConfig::Soup
+  PkgConfig::Sword)
+target_link_libraries (uri_navigation_v11n_test PRIVATE
+  PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome PkgConfig::Soup
+  PkgConfig::Sword)
+
+if (BUILD_TESTING AND UNIX)
+  add_test (
+    NAME uri_navigation_v11n_test
+    COMMAND $<TARGET_FILE:uri_navigation_v11n_test>
+    )
+endif ()
+
 add_executable (author_commentary_header_test EXCLUDE_FROM_ALL
   author_commentary_header_test.cc
   ${PROJECT_SOURCE_DIR}/src/main/interlineal.cc
