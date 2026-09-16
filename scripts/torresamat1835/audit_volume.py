@@ -118,7 +118,25 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
     for item in resolutions:
         by_method[item["method"]] = by_method.get(item["method"], 0) + 1
 
+    cand = walker.division_candidates
+    by_class = {}
+    for item in cand:
+        by_class[item["classification"]] = by_class.get(item["classification"], 0) + 1
+    rejected_reasons = {}
+    for item in cand:
+        for reason in item["rejections"]:
+            rejected_reasons[reason] = rejected_reasons.get(reason, 0) + 1
+
     report = {
+        "division_detection": {
+            "candidates": len(cand),
+            "by_classification": dict(sorted(by_class.items())),
+            "rejection_reasons": dict(sorted(rejected_reasons.items())),
+            "rejected_sample": [c for c in cand
+                                if c["classification"] == "not_boundary"][:40],
+            "review_sample": [c for c in cand if c["review_required"]][:40],
+            "all": cand,
+        },
         "structure_resolution": {
             "books_detected": [s.osis for s in spans],
             "book_boundaries": len(spans) - 1 if spans else 0,
@@ -174,6 +192,11 @@ def main():
             json.dump(report, handle, ensure_ascii=False, indent=1)
             handle.write("\n")
         print(f"informe en {args.out}")
+    dd = report["division_detection"]
+    print(f"  division candidates        {dd['candidates']}")
+    print(f"  by_classification          {dd['by_classification']}")
+    for reason, count in dd["rejection_reasons"].items():
+        print(f"    rejected: {reason[:56]:58} {count}")
     sr = report["structure_resolution"]
     print(f"  books_detected             {sr['books_detected']}")
     print(f"  book_boundaries            {sr['book_boundaries']}")

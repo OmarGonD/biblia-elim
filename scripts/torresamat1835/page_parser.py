@@ -20,6 +20,7 @@ revisión; nunca al `body` del verso anterior.
 """
 from typing import Iterable, Optional
 
+import divisions
 import parser as classifier
 import structure
 from layout import Column, Zone, split_columns, measure
@@ -85,6 +86,8 @@ class VolumeParser:
         self.last_chapter = {}
         self.resolutions = []
         self.page = None
+        self.division_candidates = []
+        self._seen_on_page = set()
 
     def _bump(self, key, amount=1):
         self.stats[key] = self.stats.get(key, 0) + amount
@@ -122,6 +125,7 @@ class VolumeParser:
             self.chapter = None
             self.current_book = book
             self._bump("book_boundaries")
+        self._seen_on_page = set()
         hint = self._hint()
         layout = measure(page, gutter_hint=hint)
         if layout.gutter is not None:
@@ -138,6 +142,24 @@ class VolumeParser:
             # --- fuera del cuerpo: cabecera, pie, notas ---------------
             if placed.zone in _ZONE_KIND:
                 kind = _ZONE_KIND[placed.zone]
+                if classifier.carries_division_marker(placed.line.raw_text):
+                    # Un rótulo de división en la cabecera corrida o en
+                    # el aparato NO es una frontera: es la propia
+                    # cabecera de la plana repitiendo el capítulo.
+                    verdict = divisions.judge(
+                        raw_text=placed.line.raw_text, column=placed.column,
+                        zone=placed.zone, bbox=placed.line.bbox,
+                        page_width=page.width)
+                    self.division_candidates.append({
+                        "page": page.scan_page, "block_id": prov.block_id,
+                        "bbox": list(placed.line.bbox),
+                        "raw": placed.line.raw_text[:100],
+                        "column": placed.column.value, "zone": placed.zone.value,
+                        "classification": verdict.classification.value,
+                        "signals": verdict.signals,
+                        "rejections": verdict.rejections,
+                        "score": verdict.score, "review_required": False})
+                    self._bump("division_" + verdict.classification.value)
                 # La cabecera corrida, el pie y las notas son mobiliario
                 # de la plana: no entran en el versículo, pero tampoco
                 # son una frontera. Cerrar aquí rompía la continuidad
@@ -188,7 +210,25 @@ class VolumeParser:
         """
         raw = placed.line.raw_text
         self._close_verse("spanning")
-        if classifier.looks_like_division(raw):
+        verdict = divisions.judge(
+            raw_text=raw, column=placed.column, zone=placed.zone,
+            bbox=placed.line.bbox, page_width=self.page.width,
+            header_chapters=self.header_chapters.get(self.page.scan_page),
+            seen_on_page=self._seen_on_page)
+        if verdict.signals and "division_word" in verdict.signals:
+            self.division_candidates.append({
+                "page": self.page.scan_page, "block_id": prov.block_id,
+                "bbox": list(placed.line.bbox), "raw": raw[:100],
+                "column": placed.column.value, "zone": placed.zone.value,
+                "classification": verdict.classification.value,
+                "signals": verdict.signals, "rejections": verdict.rejections,
+                "score": verdict.score,
+                "review_required": verdict.review_required,
+            })
+            self._bump("division_" + verdict.classification.value)
+        if verdict.is_boundary:
+            self._seen_on_page.add(raw.strip())
+        if verdict.is_boundary:
             number = classifier.division_number(
                 classifier._DIVISION_RE.match(
                     classifier._fold(raw).upper()).group("rest"))
