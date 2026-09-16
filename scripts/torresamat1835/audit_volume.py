@@ -14,6 +14,7 @@ import json
 import os
 import time
 
+import book_boundaries
 import layout
 import page_parser
 import source_ocr
@@ -43,6 +44,29 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
     started = time.time()
     readings, spans = read_structure(xml_path, limit=limit)
     header_chapters = {r.scan_page: r.chapters for r in readings}
+    spans_before = [(s.osis, s.first_page) for s in spans]
+
+    # La identidad de cada libro ya está confirmada por tres cabeceras.
+    # Ahora, y sólo dentro de una ventana acotada, se busca desde qué
+    # bloque empieza de verdad. Las planas de la ventana se releen una
+    # sola vez: el coste sigue siendo lineal.
+    needed = set()
+    for index in range(1, len(spans)):
+        low = max(spans[index - 1].first_page + 1,
+                  spans[index].first_page - book_boundaries.LOOKBACK_PAGES)
+        needed.update(range(low, spans[index].first_page + 1))
+    window_cache = {}
+    if needed:
+        for page in source_ocr.read_pages(xml_path, limit=limit):
+            if page.scan_page in needed:
+                window_cache[page.scan_page] = (
+                    page.width, layout.split_columns(page, gutter_hint=1700))
+
+    def window_for(low, high):
+        return [(p, window_cache[p][0], window_cache[p][1])
+                for p in range(low, high + 1) if p in window_cache]
+
+    boundary_decisions = book_boundaries.refine_spans(spans, window_for)
 
     pages = source_ocr.read_pages(xml_path, limit=limit)
     edition, stats, walker = page_parser.parse_volume(
@@ -118,6 +142,19 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
     for item in resolutions:
         by_method[item["method"]] = by_method.get(item["method"], 0) + 1
 
+    boundaries_report = [{
+        "from_book": d.from_book, "to_book": d.to_book,
+        "confirmation_page": d.confirmation_page,
+        "confirmation_evidence": d.confirmation_evidence,
+        "first_evidence_page": d.first_evidence_page,
+        "first_evidence_block": d.first_evidence_block,
+        "effective_boundary_page": d.effective_page,
+        "effective_boundary_block": d.effective_block,
+        "lookback_distance": d.lookback_distance,
+        "evidence": d.evidence, "confidence": d.confidence,
+        "review_required": d.review_required,
+    } for d in boundary_decisions]
+
     cand = walker.division_candidates
     by_class = {}
     for item in cand:
@@ -128,6 +165,13 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
             rejected_reasons[reason] = rejected_reasons.get(reason, 0) + 1
 
     report = {
+        "book_boundary_resolution": {
+            "lookback_pages": book_boundaries.LOOKBACK_PAGES,
+            "spans_before": spans_before,
+            "spans_after": [(s.osis, s.first_page) for s in spans],
+            "boundaries": boundaries_report,
+            "ambiguous": [b for b in boundaries_report if b["review_required"]],
+        },
         "division_detection": {
             "candidates": len(cand),
             "by_classification": dict(sorted(by_class.items())),
@@ -192,6 +236,14 @@ def main():
             json.dump(report, handle, ensure_ascii=False, indent=1)
             handle.write("\n")
         print(f"informe en {args.out}")
+    bb_r = report["book_boundary_resolution"]
+    print(f"  lookback K                 {bb_r['lookback_pages']}")
+    for b in bb_r["boundaries"]:
+        print(f"    {b['from_book']:5}->{b['to_book']:5} confirm={b['confirmation_page']:3}"
+              f" effective={b['effective_boundary_page']:3} K={b['lookback_distance']}"
+              f" conf={b['confidence']} review={b['review_required']}")
+    print(f"  spans before               {bb_r['spans_before']}")
+    print(f"  spans after                {bb_r['spans_after']}")
     dd = report["division_detection"]
     print(f"  division candidates        {dd['candidates']}")
     print(f"  by_classification          {dd['by_classification']}")
