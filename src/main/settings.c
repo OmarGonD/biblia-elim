@@ -44,6 +44,7 @@
 #include "main/lectura_sync.h"
 #include "main/mod_mgr.h"
 #include "main/settings.h"
+#include "main/navigation_prefs.h"
 #include "main/startup_profile.h"
 #include "main/sword.h"
 #include "main/xml.h"
@@ -1349,6 +1350,11 @@ if (!settings.morph_heb_lex || strlen(settings.morph_heb_lex) == 0) {
 		settings.reading_mode_window = 5;
 	}
 	settings.reading_mode_window = CLAMP(settings.reading_mode_window, 0, 200);
+
+	/* Mouse wheel distance and how readily the focused verse follows the
+	 * scroll (Ver > Navegación y rueda). Missing values keep the defaults,
+	 * and nothing is written for them. */
+	navigation_prefs_load_settings();
 
 	/* Optional cap on line length, in characters; 0 disables it and
 	 * lets the text fill reading_mode_width_pct. The comfortable

@@ -4,6 +4,36 @@
 
 #include "main/reading_focus.h"
 
+static ReadingFocusMode focus_mode = READING_FOCUS_BALANCED;
+
+gdouble
+reading_focus_hysteresis_ratio(ReadingFocusMode mode)
+{
+	switch (mode) {
+	case READING_FOCUS_IMMEDIATE:
+		return READING_FOCUS_HYSTERESIS_IMMEDIATE_RATIO;
+	case READING_FOCUS_STABLE:
+		return READING_FOCUS_HYSTERESIS_STABLE_RATIO;
+	case READING_FOCUS_BALANCED:
+	default:
+		return READING_FOCUS_HYSTERESIS_BALANCED_RATIO;
+	}
+}
+
+void
+reading_focus_set_mode(ReadingFocusMode mode)
+{
+	focus_mode = (mode == READING_FOCUS_IMMEDIATE || mode == READING_FOCUS_STABLE)
+			 ? mode
+			 : READING_FOCUS_BALANCED;
+}
+
+ReadingFocusMode
+reading_focus_get_mode(void)
+{
+	return focus_mode;
+}
+
 gboolean
 reading_focus_id_is_verse(gint id)
 {
@@ -68,7 +98,7 @@ reading_focus_pick(const ReadingFocusBlock *blocks, guint n_blocks,
 	if (!blocks || n_blocks == 0 || viewport_height <= 0)
 		return current_id;
 	line = viewport_height * READING_FOCUS_LINE_RATIO;
-	slack = viewport_height * READING_FOCUS_HYSTERESIS_RATIO;
+	slack = viewport_height * reading_focus_hysteresis_ratio(focus_mode);
 
 	for (i = 0; i < n_blocks; i++)
 		if (usable_block(&blocks[i]) && blocks[i].id == current_id)
@@ -142,7 +172,7 @@ reading_focus_track_offset(const ReadingFocusBlock *blocks, guint n_blocks,
 	if (!blocks || n_blocks == 0 || viewport_height <= 0)
 		return step;
 	line = viewport_height * READING_FOCUS_LINE_RATIO + line_offset;
-	slack = viewport_height * READING_FOCUS_HYSTERESIS_RATIO;
+	slack = viewport_height * reading_focus_hysteresis_ratio(focus_mode);
 	moved = line - previous_line_y;
 	step.direction = moved > 0.5 ? 1 : (moved < -0.5 ? -1 : 0);
 	if (push_direction)

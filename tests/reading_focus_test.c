@@ -586,7 +586,14 @@ test_handoff_after_explicit_navigation(void)
 				N(visited));
 		CHECK(n >= 3);
 		CHECK(n >= 1 && visited[0] == 18011);
-		CHECK(n >= 2 && visited[1] == 18010);
+		/* in order after that; which verses in turn is the ordinary
+		 * tracker's business (a 16 px verse can go by in one update of
+		 * a wide boundary), not the handoff's */
+		{
+			gint i;
+			for (i = 1; i < n; i++)
+				CHECK(visited[i] < visited[i - 1]);
+		}
 	}
 	g_free(l.doc);
 }
@@ -619,7 +626,8 @@ test_handoff_up_does_not_skip_short_verse(void)
 	offset = reading_focus_rebase_line_offset(l.doc[11].top - value,
 						  l.doc[11].bottom - value, h);
 	CHECK(offset > 100);
-	for (k = 0; k < 3 * (gint)N(steps); k++) {
+	/* long enough for the stable mode's wider boundary too */
+	for (k = 0; k < 8 * (gint)N(steps); k++) {
 		gdouble previous = value, previous_offset = offset;
 		ReadingFocusStep s;
 
@@ -680,6 +688,130 @@ test_handoff_across_chapters(void)
 	g_free(l.doc);
 	g_free(l17.doc);
 	g_free(l18.doc);
+}
+
+/* ---- reader's focus modes (Ver > Navegación y rueda) --------------- */
+
+/* How far past the boundary with the next verse (direction +1) or the
+ * previous one (-1) the reading line has to go, scrolling 1 px per update,
+ * before the focus moves to it. */
+static gdouble
+switch_distance(ReadingFocusMode mode, gint direction)
+{
+	const gdouble h = 363;
+	Layout l = layout_chapter(16, matthew16_heights, N(matthew16_heights),
+				  71, 120, 1.0);
+	/* 16:10 (34 px) focused, boundary with 16:11 below / 16:9 above */
+	gint from = 9, to = from + direction;
+	gdouble boundary = direction > 0
+		? value_with_verse_on_line(&l, to, h)
+		: l.doc[to].bottom - h * READING_FOCUS_LINE_RATIO;
+	gdouble value = direction > 0 ? boundary - 5 : boundary + 5, previous;
+	gint focus = l.doc[from].id, k;
+	gdouble distance = -1;
+
+	reading_focus_set_mode(mode);
+	for (k = 0; k < 200; k++) {
+		ReadingFocusStep s;
+		previous = value;
+		value += direction;
+		s = track_at(&l, value, previous, h, focus, 0);
+		CHECK(s.picked == focus || s.picked == l.doc[to].id);
+		if (s.picked != focus) {
+			distance = (value - boundary) * direction;
+			break;
+		}
+	}
+	reading_focus_set_mode(READING_FOCUS_BALANCED);
+	g_free(l.doc);
+	return distance;
+}
+
+static void
+test_focus_modes(void)
+{
+	const gdouble h = 363;
+	gdouble imm_down, bal_down, stab_down, imm_up, bal_up, stab_up;
+
+	/* the default is the behaviour everything above was written for */
+	CHECK(reading_focus_get_mode() == READING_FOCUS_BALANCED);
+	CHECK(reading_focus_hysteresis_ratio(READING_FOCUS_BALANCED) ==
+	      READING_FOCUS_HYSTERESIS_RATIO);
+	CHECK(READING_FOCUS_HYSTERESIS_RATIO == 0.03);
+	CHECK(reading_focus_hysteresis_ratio(READING_FOCUS_IMMEDIATE) <
+	      reading_focus_hysteresis_ratio(READING_FOCUS_BALANCED));
+	CHECK(reading_focus_hysteresis_ratio(READING_FOCUS_BALANCED) <
+	      reading_focus_hysteresis_ratio(READING_FOCUS_STABLE));
+	CHECK(reading_focus_hysteresis_ratio(READING_FOCUS_IMMEDIATE) > 0);
+	reading_focus_set_mode((ReadingFocusMode)42);
+	CHECK(reading_focus_get_mode() == READING_FOCUS_BALANCED);
+
+	imm_down = switch_distance(READING_FOCUS_IMMEDIATE, 1);
+	bal_down = switch_distance(READING_FOCUS_BALANCED, 1);
+	stab_down = switch_distance(READING_FOCUS_STABLE, 1);
+	imm_up = switch_distance(READING_FOCUS_IMMEDIATE, -1);
+	bal_up = switch_distance(READING_FOCUS_BALANCED, -1);
+	stab_up = switch_distance(READING_FOCUS_STABLE, -1);
+	printf("switch distance past the boundary (px, 363 px viewport): "
+	       "immediate %.0f/%.0f balanced %.0f/%.0f stable %.0f/%.0f "
+	       "(down/up)\n", imm_down, imm_up, bal_down, bal_up, stab_down,
+	       stab_up);
+
+	/* every mode gets there */
+	CHECK(imm_down >= 0 && bal_down >= 0 && stab_down >= 0);
+	CHECK(imm_up >= 0 && bal_up >= 0 && stab_up >= 0);
+	/* immediate first, stable last */
+	CHECK(imm_down <= bal_down && bal_down <= stab_down);
+	CHECK(imm_up <= bal_up && bal_up <= stab_up);
+	CHECK(imm_down < stab_down);
+	/* balanced: the hysteresis distance of before, 3 % of the viewport */
+	CHECK(ABS(bal_down - h * 0.03) <= 1.0);
+	/* the same effort either way */
+	CHECK(ABS(imm_down - imm_up) <= 1.0);
+	CHECK(ABS(bal_down - bal_up) <= 1.0);
+	CHECK(ABS(stab_down - stab_up) <= 1.0);
+	/* stable: roughly the boundary distance of its ratio */
+	CHECK(ABS(stab_down - h * READING_FOCUS_HYSTERESIS_STABLE_RATIO) <= 1.0);
+}
+
+/* A fast step is not held by any mode: the geometry decides. */
+static void
+test_focus_modes_do_not_hold_real_movement(void)
+{
+	static const ReadingFocusMode modes[] = { READING_FOCUS_IMMEDIATE,
+		READING_FOCUS_BALANCED, READING_FOCUS_STABLE };
+	const gdouble h = 363;
+	Layout l = layout_chapter(16, matthew16_heights, N(matthew16_heights),
+				  71, 120, 1.0);
+	guint m;
+
+	for (m = 0; m < N(modes); m++) {
+		gdouble from = value_with_verse_on_line(&l, 23, h) + 2;
+		gdouble to = value_with_verse_on_line(&l, 27, h) + 5;
+
+		reading_focus_set_mode(modes[m]);
+		CHECK(track_at(&l, to, from, h, 16024, 0).picked == 16028);
+		CHECK(track_at(&l, from, to, h, 16028, 0).picked == 16024);
+	}
+	reading_focus_set_mode(READING_FOCUS_BALANCED);
+	g_free(l.doc);
+}
+
+/* The navigation handoff comes first, whatever the mode. */
+static void
+test_handoff_in_every_mode(void)
+{
+	static const ReadingFocusMode modes[] = { READING_FOCUS_IMMEDIATE,
+		READING_FOCUS_BALANCED, READING_FOCUS_STABLE };
+	guint m;
+
+	for (m = 0; m < N(modes); m++) {
+		reading_focus_set_mode(modes[m]);
+		test_handoff_after_explicit_navigation();
+		test_handoff_across_chapters();
+		test_handoff_up_does_not_skip_short_verse();
+	}
+	reading_focus_set_mode(READING_FOCUS_BALANCED);
 }
 
 /* ---- the edges of the pane ------------------------------------------ */
@@ -961,6 +1093,9 @@ main(void)
 	test_reserve_is_stable();
 	test_reserve_reaches_last_verse();
 	test_reading_zone();
+	test_focus_modes();
+	test_focus_modes_do_not_hold_real_movement();
+	test_handoff_in_every_mode();
 	printf("reading_focus_failures=%d\n", failures);
 	return failures ? 1 : 0;
 }

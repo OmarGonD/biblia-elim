@@ -45,6 +45,8 @@ add_library (main
   reading_window.c
   picker_entry.c
   wheel_scroll.c
+  navigation_prefs.c
+  navigation_prefs_settings.c
   verse_navigation.cc
   nube_palabras.cc
   planes_lectura.c

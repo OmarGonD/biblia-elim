@@ -12,10 +12,25 @@ wheel_scroll_unit(gdouble page_size)
 	return page_size > 0 ? pow(page_size, 2.0 / 3.0) : 0;
 }
 
+static gdouble distance_scale = WHEEL_SCROLL_DISTANCE_SCALE;
+
+void
+wheel_scroll_set_distance_scale(gdouble scale)
+{
+	distance_scale = CLAMP(scale, WHEEL_SCROLL_DISTANCE_SCALE_MIN,
+			       WHEEL_SCROLL_DISTANCE_SCALE_MAX);
+}
+
+gdouble
+wheel_scroll_get_distance_scale(void)
+{
+	return distance_scale;
+}
+
 gdouble
 wheel_scroll_notch_distance(gdouble dy, gdouble page_size)
 {
-	return dy * wheel_scroll_unit(page_size) * WHEEL_SCROLL_DISTANCE_SCALE;
+	return dy * wheel_scroll_unit(page_size) * distance_scale;
 }
 
 gboolean

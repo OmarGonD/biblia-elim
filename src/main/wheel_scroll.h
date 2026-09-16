@@ -35,12 +35,22 @@ G_BEGIN_DECLS
  * moves WHEEL_SCROLL_DISTANCE_SCALE of it. */
 #define WHEEL_SCROLL_DURATION_US 168000
 
-/* A mouse wheel notch goes half as far as GTK would move it. At GTK's
- * distance (76 px on a 363 px viewport) a single notch of a Logitech MX
- * Master still carried the reading focus across two or three verses:
- * reading needs more turning of the wheel per verse, not a slower jump.
- * The distance still follows the viewport through GTK's own formula. */
+/* By default a mouse wheel notch goes half as far as GTK would move it.
+ * At GTK's distance (76 px on a 363 px viewport) a single notch of a
+ * Logitech MX Master still carried the reading focus across two or three
+ * verses: reading needs more turning of the wheel per verse, not a slower
+ * jump. The distance still follows the viewport through GTK's own formula.
+ * The reader can change the fraction (Ver > Navegación y rueda, 25-100 %);
+ * this is the value until they do. */
 #define WHEEL_SCROLL_DISTANCE_SCALE 0.50
+#define WHEEL_SCROLL_DISTANCE_SCALE_MIN 0.25
+#define WHEEL_SCROLL_DISTANCE_SCALE_MAX 1.00
+
+/* The fraction of GTK's distance a notch moves from now on, clamped to
+ * MIN..MAX. A glide already under way keeps the target it was given: only
+ * the next wheel event uses the new value. */
+void wheel_scroll_set_distance_scale(gdouble scale);
+gdouble wheel_scroll_get_distance_scale(void);
 
 typedef struct {
 	gboolean active;
@@ -54,7 +64,7 @@ typedef struct {
 gdouble wheel_scroll_unit(gdouble page_size);
 
 /* Distance of one wheel event of delta_y `dy` in this viewport: GTK's
- * (dy * page_size^(2/3)) times WHEEL_SCROLL_DISTANCE_SCALE. */
+ * (dy * page_size^(2/3)) times the current distance scale. */
 gdouble wheel_scroll_notch_distance(gdouble dy, gdouble page_size);
 
 /* A wheel step of `delta` px at time `now`, with the view at `current`

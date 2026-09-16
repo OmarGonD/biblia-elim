@@ -317,6 +317,43 @@ target_link_libraries (wheel_scroll_test
   m
   )
 
+target_compile_definitions (wheel_scroll_test
+  PRIVATE
+  SRCDIR="${PROJECT_SOURCE_DIR}"
+  )
+
+# the reader's wheel / reading-focus preferences, through settings.xml
+# (xml.c parses it with libxml2)
+pkg_check_modules (TestXml REQUIRED IMPORTED_TARGET "libxml-2.0")
+
+add_executable (navigation_prefs_test
+  EXCLUDE_FROM_ALL
+  navigation_prefs_test.c
+  navigation_prefs_stubs.c
+  ${PROJECT_SOURCE_DIR}/src/main/navigation_prefs.c
+  ${PROJECT_SOURCE_DIR}/src/main/navigation_prefs_settings.c
+  ${PROJECT_SOURCE_DIR}/src/main/wheel_scroll.c
+  ${PROJECT_SOURCE_DIR}/src/main/reading_focus.c
+  ${PROJECT_SOURCE_DIR}/src/main/xml.c
+  )
+
+target_include_directories (navigation_prefs_test
+  PRIVATE
+  ${PROJECT_SOURCE_DIR}/src
+  ${CMAKE_BINARY_DIR}
+  PkgConfig::Core
+  PkgConfig::Gtk
+  PkgConfig::TestXml
+  )
+
+target_link_libraries (navigation_prefs_test
+  PRIVATE
+  PkgConfig::Core
+  PkgConfig::Gtk
+  PkgConfig::TestXml
+  m
+  )
+
 add_executable (reading_focus_test
   EXCLUDE_FROM_ALL
   reading_focus_test.c

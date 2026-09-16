@@ -2,6 +2,7 @@
 
 #include <math.h>
 #include <stdio.h>
+#include <string.h>
 
 static int failures;
 
@@ -188,6 +189,112 @@ test_edges(void)
 	CHECK(!ws.active);
 }
 
+/* Ver > Navegación y rueda: the reader's distance per notch. Only the
+ * fraction of GTK's distance changes; the formula, the 168 ms and the
+ * curve do not. */
+static void
+test_reader_distance_scale(void)
+{
+	static const gdouble scales[] = { 0.25, 0.50, 0.75, 1.00 };
+	const gdouble native = 1.5 * wheel_scroll_unit(page);
+	guint i;
+
+	CHECK(wheel_scroll_get_distance_scale() == WHEEL_SCROLL_DISTANCE_SCALE);
+	for (i = 0; i < G_N_ELEMENTS(scales); i++) {
+		wheel_scroll_set_distance_scale(scales[i]);
+		CHECK(wheel_scroll_get_distance_scale() == scales[i]);
+		CHECK(fabs(wheel_scroll_notch_distance(1.5, page) -
+			   native * scales[i]) < 1e-9);
+		/* still the viewport's own distance, not a fixed number */
+		CHECK(fabs(wheel_scroll_notch_distance(1.5, 456) -
+			   1.5 * wheel_scroll_unit(456) * scales[i]) < 1e-9);
+	}
+	wheel_scroll_set_distance_scale(1.00);
+	CHECK(fabs(wheel_scroll_notch_distance(1.5, page) - native) < 1e-9);
+
+	/* out of range */
+	wheel_scroll_set_distance_scale(0.05);
+	CHECK(wheel_scroll_get_distance_scale() == WHEEL_SCROLL_DISTANCE_SCALE_MIN);
+	wheel_scroll_set_distance_scale(3.0);
+	CHECK(wheel_scroll_get_distance_scale() == WHEEL_SCROLL_DISTANCE_SCALE_MAX);
+
+	/* glide and curve unchanged by the scale */
+	CHECK(WHEEL_SCROLL_DURATION_US == 168000);
+	{
+		WheelScroll ws = { 0 };
+		gdouble d;
+
+		wheel_scroll_set_distance_scale(0.35);
+		d = wheel_scroll_notch_distance(1.5, page);
+		CHECK(wheel_scroll_add(&ws, 100, d, lower, max, 0));
+		CHECK(fabs(wheel_scroll_value(&ws, WHEEL_SCROLL_DURATION_US / 2,
+					      lower, max) -
+			   (100 + d * sin(G_PI / 4))) < 1e-6);
+	}
+
+	/* several notches add up at the scale in use */
+	{
+		WheelScroll ws = { 0 };
+		gdouble v = 100;
+		gint64 now = 0;
+		gint n;
+
+		wheel_scroll_set_distance_scale(0.75);
+		for (n = 0; n < 3; n++) {
+			CHECK(wheel_scroll_add(&ws, v, wheel_scroll_notch_distance(1.5, page),
+					       lower, max, now));
+			now += FRAME_US;
+			v = wheel_scroll_value(&ws, now, lower, max);
+		}
+		CHECK(fabs(ws.target - (100 + 3 * native * 0.75)) < 1e-9);
+	}
+
+	/* changing the scale during a glide leaves that glide alone: same
+	 * target, same path; only the next notch uses the new scale */
+	{
+		WheelScroll ws = { 0 };
+		gdouble d50, before, after, target;
+
+		wheel_scroll_set_distance_scale(0.50);
+		d50 = wheel_scroll_notch_distance(1.5, page);
+		CHECK(wheel_scroll_add(&ws, 200, d50, lower, max, 0));
+		before = wheel_scroll_value(&ws, 3 * FRAME_US, lower, max);
+		target = ws.target;
+		wheel_scroll_set_distance_scale(0.25);
+		CHECK(ws.target == target);
+		after = wheel_scroll_value(&ws, 4 * FRAME_US, lower, max);
+		CHECK(after >= before && after <= target);
+		CHECK(fabs(after - (200 + d50 * sin(4.0 * FRAME_US /
+						    WHEEL_SCROLL_DURATION_US *
+						    G_PI / 2))) < 1e-6);
+		CHECK(fabs(wheel_scroll_notch_distance(1.5, page) - native * 0.25) <
+		      1e-9);
+	}
+	wheel_scroll_set_distance_scale(WHEEL_SCROLL_DISTANCE_SCALE);
+}
+
+/* The scale is the mouse wheel's only: the Bible pane asks for a notch
+ * distance in its wheel (GDK_SOURCE_MOUSE) branch alone, and touchpads
+ * keep GTK's native scrolling. */
+static void
+test_scale_is_for_mouse_wheels_only(void)
+{
+	gchar *src = NULL;
+	const char *first, *wheel_branch;
+
+	CHECK(g_file_get_contents(SRCDIR "/src/gtk/bibletext.c", &src, NULL, NULL));
+	if (!src)
+		return;
+	/* the call itself, not the comment that names it */
+	first = strstr(src, "= wheel_scroll_notch_distance(");
+	CHECK(first != NULL);
+	CHECK(first && strstr(first + 1, "= wheel_scroll_notch_distance(") == NULL);
+	CHECK(strstr(src, "wheel = source_device && source == GDK_SOURCE_MOUSE;") != NULL);
+	wheel_branch = strstr(src, "\tif (wheel) {");
+	CHECK(wheel_branch != NULL && first != NULL && wheel_branch < first);
+	g_free(src);
+}
+
 static void
 test_cancel(void)
 {
@@ -207,6 +314,8 @@ main(void)
 	test_reversal();
 	test_edges();
 	test_cancel();
+	test_reader_distance_scale();
+	test_scale_is_for_mouse_wheels_only();
 	printf("wheel_scroll_failures=%d\n", failures);
 	return failures ? 1 : 0;
 }

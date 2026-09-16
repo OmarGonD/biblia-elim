@@ -28,8 +28,31 @@ G_BEGIN_DECLS
 /* How far past the boundary between the focused verse and the next (or
  * previous) one the reading line has to go before the focus follows, as
  * a fraction of viewport height: a boundary sitting right on the line
- * cannot make the band flicker. Only that one boundary. */
+ * cannot make the band flicker. Only that one boundary. This is the
+ * balanced mode's (the default); the placement of the navigation handoff
+ * and the bottom reserve always use it. */
 #define READING_FOCUS_HYSTERESIS_RATIO 0.03
+
+/* How readily the focus leaves the verse it is on while scrolling (Ver >
+ * Navegación y rueda). Only the boundary distance above changes, the same
+ * both ways; the reading line, the geometry and the navigation handoff do
+ * not. */
+typedef enum {
+	READING_FOCUS_IMMEDIATE, /* almost as soon as the next verse is on the line */
+	READING_FOCUS_BALANCED,	 /* the default */
+	READING_FOCUS_STABLE	 /* a little more scrolling before letting go */
+} ReadingFocusMode;
+
+#define READING_FOCUS_HYSTERESIS_IMMEDIATE_RATIO 0.01
+#define READING_FOCUS_HYSTERESIS_BALANCED_RATIO READING_FOCUS_HYSTERESIS_RATIO
+#define READING_FOCUS_HYSTERESIS_STABLE_RATIO 0.06
+
+/* The boundary distance of `mode`, as a fraction of viewport height. */
+gdouble reading_focus_hysteresis_ratio(ReadingFocusMode mode);
+/* The mode reading_focus_pick() and reading_focus_track*() use from now on
+ * (an out-of-range value selects the balanced mode). */
+void reading_focus_set_mode(ReadingFocusMode mode);
+ReadingFocusMode reading_focus_get_mode(void);
 
 /* Arrow navigation leaves the viewport alone while the focused verse is
  * inside this band, and otherwise scrolls just enough to bring it back. */

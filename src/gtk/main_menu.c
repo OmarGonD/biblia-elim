@@ -43,6 +43,7 @@
 #include "gui/instalar_biblias.h"
 #include "gui/mod_mgr.h"
 #include "gui/preferences_dialog.h"
+#include "gui/navigation_prefs_dialog.h"
 #include "gui/parallel_tab.h"
 #include "gui/sidebar.h"
 #include "gui/sidebar_dialog.h"
@@ -380,6 +381,15 @@ G_MODULE_EXPORT void
 on_preferences_activate(GtkMenuItem *menuitem, gpointer user_data)
 {
 	gui_setup_preferences_dialog();
+}
+
+/* Ver > Navegación y rueda: wheel distance and verse-following */
+G_MODULE_EXPORT void
+on_navigation_prefs_activate(GtkMenuItem *menuitem, gpointer user_data)
+{
+	(void)menuitem;
+	(void)user_data;
+	gui_navigation_prefs_dialog_show();
 }
 
 G_MODULE_EXPORT void

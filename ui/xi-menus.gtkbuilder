@@ -458,6 +458,15 @@
               </object>
             </child>
             <child>
+              <object class="GtkMenuItem" id="navigation_prefs">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Nave_gación y rueda…</property>
+                <property name="use_underline">True</property>
+                <signal name="activate" handler="on_navigation_prefs_activate" swapped="no"/>
+              </object>
+            </child>
+            <child>
               <object class="GtkSeparatorMenuItem" id="separador9">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>

@@ -156,6 +156,7 @@ add_executable (biblia-elim
   instalar_biblias.c
   lectura_sync.c
   main_menu.c
+  navigation_prefs_dialog.c
   main_window.c
   main_window_layout.c
   sqlite_module_manager_dialog.cc
