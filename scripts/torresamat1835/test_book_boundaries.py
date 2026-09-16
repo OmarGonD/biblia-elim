@@ -14,7 +14,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import book_boundaries as bb
 import structure
 from layout import Column, PlacedLine, Zone
-from source_ocr import SourceLine, SourceWord
+from source_ocr import SourceLine, SourcePage, SourceWord
 
 W = 3402
 
@@ -64,27 +64,26 @@ def test_book_identity_still_needs_three_headers():
 
 
 # ---- E. Ventana acotada -------------------------------------------------
-def test_lookback_is_bounded():
+def test_no_age_based_discarding():
     far = bb.resolve_boundary(
         from_book="Song", to_book="Wis", confirmation_page=340,
         window=window([(300, [placed(1, TITLE, *CENTRED)])]))
-    # El título está en la ventana que le pasa el llamante, pero la
-    # constante que acota esa ventana es explícita y pequeña.
-    assert bb.LOOKBACK_PAGES <= 12
+    # El llamante decide qué ventana pasa; la función no descarta por
+    # edad. La única constante que queda es adyacencia local entre
+    # bloques del mismo frontmatter.
+    assert bb.CLUSTER_GAP_PAGES <= 5
     assert far.effective_page == 300
 
 
-def test_window_never_reaches_the_previous_book():
-    spans = [structure.BookSpan("Song", 303), structure.BookSpan("Wis", 326)]
-    seen = {}
-
-    def window_fn(low, high):
-        seen["low"], seen["high"] = low, high
-        return []
-
-    bb.refine_spans(spans, window_fn)
-    assert seen["low"] > 303, seen
-    assert seen["high"] == 326
+def test_candidates_never_reach_the_previous_book():
+    """Un bloque anterior al comienzo del libro en curso no es candidato."""
+    tracker = bb.BookCandidateTracker()
+    from source_ocr import SourcePage
+    page = SourcePage(scan_page=302, width=W, height=4837, dpi=600)
+    found = tracker.observe_page(
+        page, [placed(1, "LIBRO DE LA SABIDURIA", *CENTRED)],
+        current_book="Song", current_book_started=303)
+    assert found == []
 
 
 # ---- F. Geometría manda -------------------------------------------------
@@ -145,16 +144,21 @@ def test_ambiguous_boundary_is_flagged_not_guessed():
 
 def test_ambiguous_boundary_does_not_move_the_span():
     spans = [structure.BookSpan("Song", 303), structure.BookSpan("Wis", 326)]
-    bb.refine_spans(spans, lambda low, high: [])
+    decisions, _t = bb.resolve_with_candidates(
+        spans, lambda: iter([(SourcePage(scan_page=n, width=W, height=4837,
+                                         dpi=600), [])
+                             for n in range(303, 327)]))
+    assert decisions[0].review_required is True
     assert spans[1].first_page == 326, "sin evidencia no se mueve nada"
 
 
 # ---- J/K. Un bloque, un libro ------------------------------------------
 def test_spans_stay_disjoint_and_ordered():
     spans = [structure.BookSpan("Song", 303), structure.BookSpan("Wis", 326)]
-    bb.refine_spans(
-        spans, lambda low, high: window(
-            [(319, [placed(1, TITLE, *CENTRED)])]))
+    pages = [(SourcePage(scan_page=n, width=W, height=4837, dpi=600),
+              [placed(1, TITLE, *CENTRED)] if n == 319 else [])
+             for n in range(303, 327)]
+    bb.resolve_with_candidates(spans, lambda: iter(pages))
     assert spans[0].first_page == 303
     assert spans[0].last_page == 318
     assert spans[1].first_page == 319

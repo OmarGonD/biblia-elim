@@ -46,27 +46,16 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
     header_chapters = {r.scan_page: r.chapters for r in readings}
     spans_before = [(s.osis, s.first_page) for s in spans]
 
-    # La identidad de cada libro ya está confirmada por tres cabeceras.
-    # Ahora, y sólo dentro de una ventana acotada, se busca desde qué
-    # bloque empieza de verdad. Las planas de la ventana se releen una
-    # sola vez: el coste sigue siendo lineal.
-    needed = set()
-    for index in range(1, len(spans)):
-        low = max(spans[index - 1].first_page + 1,
-                  spans[index].first_page - book_boundaries.LOOKBACK_PAGES)
-        needed.update(range(low, spans[index].first_page + 1))
-    window_cache = {}
-    if needed:
+    # Candidatos pendientes: se detectan durante el barrido y esperan
+    # hacia adelante hasta que tres cabeceras coherentes confirmen el
+    # libro. Sin ventana fija: entre el comienzo de Isaías y su
+    # confirmación hay 42 planas de cabeceras ilegibles.
+    def pages_with_layout():
         for page in source_ocr.read_pages(xml_path, limit=limit):
-            if page.scan_page in needed:
-                window_cache[page.scan_page] = (
-                    page.width, layout.split_columns(page, gutter_hint=1700))
+            yield page, layout.split_columns(page, gutter_hint=1700)
 
-    def window_for(low, high):
-        return [(p, window_cache[p][0], window_cache[p][1])
-                for p in range(low, high + 1) if p in window_cache]
-
-    boundary_decisions = book_boundaries.refine_spans(spans, window_for)
+    boundary_decisions, tracker = book_boundaries.resolve_with_candidates(
+        spans, pages_with_layout)
 
     pages = source_ocr.read_pages(xml_path, limit=limit)
     edition, stats, walker = page_parser.parse_volume(
@@ -166,7 +155,16 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
 
     report = {
         "book_boundary_resolution": {
-            "lookback_pages": book_boundaries.LOOKBACK_PAGES,
+            "model": "pending candidate held forward until confirmation",
+            "cluster_gap_pages": book_boundaries.CLUSTER_GAP_PAGES,
+            "candidates": [{
+                "to_book": c.to_book, "from_book": c.from_book,
+                "page": c.scan_page, "block_id": c.block_id,
+                "bbox": list(c.bbox), "score": c.score,
+                "raw": c.raw_text, "evidence": c.evidence,
+                "disposition": c.disposition,
+                "rejection_reason": c.rejection_reason,
+            } for c in tracker.candidates],
             "spans_before": spans_before,
             "spans_after": [(s.osis, s.first_page) for s in spans],
             "boundaries": boundaries_report,
@@ -237,7 +235,11 @@ def main():
             handle.write("\n")
         print(f"informe en {args.out}")
     bb_r = report["book_boundary_resolution"]
-    print(f"  lookback K                 {bb_r['lookback_pages']}")
+    print(f"  model                      {bb_r['model']}")
+    print(f"  candidates                 {len(bb_r['candidates'])}"
+          f" confirmed={sum(1 for c in bb_r['candidates'] if c['disposition']=='confirmed')}"
+          f" rejected={sum(1 for c in bb_r['candidates'] if c['disposition']=='rejected')}"
+          f" pending={sum(1 for c in bb_r['candidates'] if c['disposition']=='pending')}")
     for b in bb_r["boundaries"]:
         print(f"    {b['from_book']:5}->{b['to_book']:5} confirm={b['confirmation_page']:3}"
               f" effective={b['effective_boundary_page']:3} K={b['lookback_distance']}"
