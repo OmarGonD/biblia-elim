@@ -266,6 +266,20 @@
           "verified": true,
           "witness_role": "development_witness",
           "may_produce_release_artifact": false
+        },
+        {
+          "format": "Abbyy GZ",
+          "filename": "lasagradabiblia01unkngoog_abbyy.gz",
+          "url": "https://archive.org/download/lasagradabiblia01unkngoog/lasagradabiblia01unkngoog_abbyy.gz",
+          "size": 35843263,
+          "sha256": "938b7587327ee5fd62fcabbc7ac0e83d5f9aeadfaff6c3ec4f125ce271cc86f7",
+          "page_count": 652,
+          "witness": "ia-lasagradabiblia01unkngoog",
+          "witness_role": "development_witness",
+          "may_produce_release_artifact": false,
+          "acquisition": "automatic",
+          "verified": true,
+          "lineage": "Upstream of chOCR/hOCR/DjVu XML; the ABBYY recognition itself (source derivative of the JP2 images). Not an independent witness. Audited against DjVu XML: 652 pages, 57,700 lines and 286 chapter-label candidates in both; no additional chapter labels were preserved upstream."
         }
       ],
       "acquisition": "automatic",
