@@ -2788,22 +2788,83 @@
     - Push without review.
 
 - [ ] TORRES-PSALM-TITLES-101 Preserve and mark native psalm title slots in Torres Amat
-  - Status: TODO
+  - Status: IN PROGRESS (first batch validated; rest of the Psalter not audited)
   - Description:
     Torres Amat follows the Vulgate and numbers a psalm's superscription as
     a real verse. Confirmed in the 1882 facsimile (tomo III, hoja 11):
     «1, Salmo de David cuando temeroso iba huyendo de su hijo Absalom» /
     «2, ¡Ah Señor!…». That numbering is correct and must not change.
-    `scripts/torresamat/osis.py` emits those slots as plain body text, with
-    no `<title>`, Heading or Preverse, so nothing downstream can tell a
+    `scripts/torresamat/osis.py` emitted those slots as plain body text, with
+    no `<title>`, Heading or Preverse, so nothing downstream could tell a
     title from a verse.
-  - Known cases:
-    - Ps 3:1: correct title, no metadata.
-    - Ps 4:1: correct title, no metadata.
-    - Ps 4:2 holds v2 + v3 merged (Ps 4:3 empty).
-    - Ps 50:1: first part of the title missing (slot empty).
-    - Ps 51:1: first part of the title missing (slot empty).
-    - Ps 52:1: title and first verse merged.
+  - Commit:
+    - `ee2b0938 fix(torresamat): preserve native psalm title structure`
+      (branch `fix/torresamat-psalm-titles`, not pushed when recorded).
+  - Structure / policy:
+    - Title slots are marked `<seg type="x-psalm-title">…</seg>` inside their
+      own native verse (`scripts/torresamat/titulos.py`, shared by
+      `osis.py` and `parche_facsimil.py`). Title + body sharing a printed
+      verse: `<seg …>title</seg> body`.
+    - Not moved to verse 0, not moved to Preverse of another verse, not
+      renumbered; `Versification=Vulg` unchanged.
+    - Which verses are titles comes from an explicit table with the
+      facsimile sheet for each entry (`parche_facsimil.TITULOS`), never from
+      runtime text heuristics. The facsimile is the source of truth; no text
+      from Reina-Valera or other Bibles.
+    - Why not `<title>`: SWORD renders it as `<h3>`, `content_availability`
+      strips headings from the body, a title-only verse becomes Missing and
+      fallback fills it (probe: RV 1909 title + first verse, duplicated).
+      With `<seg>` SWORD renders `<span class="x-psalm-title">`, the slot
+      stays Available, no fallback, and the renderer can identify it.
+  - First validated batch (Ps 3, 4, 50, 51, 52): 9 references changed:
+    - Ps 3:1: native title marked `x-psalm-title`; key still Vulg Ps 3:1.
+    - Ps 4:1: title marked.
+    - Ps 4:3: recovered from the facsimile (its number was OCR'd as «5.»);
+      no longer uses fallback.
+    - Ps 4:5: the duplicated Ps 4:3 prefix the OCR glued in front was
+      removed; it now starts «Enojaos, y no querais pecar mas…» (tomo III,
+      hoja 11). Its own OCR errata were left as they were.
+    - Ps 50:1: first part of the title recovered («Para el fin: Salmo de
+      David;», tomo III, hoja 29); Ps 50:2 marked as title; Ps 50:3 body,
+      no duplication.
+    - Ps 51:1 / 51:2: same pattern («Para el fin: Salmo de inteligencia de
+      David,», tomo III, hoja 30); Ps 51:3 body.
+    - Ps 52:1: the print shares title and first line in verse 1 («Para el
+      fin: 1. Por Maeleth…»); kept as title + body in the same native slot,
+      not split or renumbered. «Para el fin:» recovered.
+    - The earlier note that Ps 4:2 held v2 + v3 merged was wrong: v3 was
+      glued to v5, not v2.
+  - Batch validation:
+    - `mod2imp`: 38,698 entries before and after, same keys and order,
+      exactly the 9 references above changed; two rebuilds byte-identical;
+      the patch is idempotent (already-applied entries report «ya
+      corregido»). `Versification=Vulg` and TorresAmatNotas unchanged.
+    - Installed in `~/.sword` byte-identical to the isolated build (backups
+      `torresamat.respaldo-20260915-001854` before the batch and
+      `torresamat.respaldo-20260915-080236` before the 9-reference install).
+    - Tests pass: `test_titulos.py` (includes `test_salmo4_v5_sin_el_v3`:
+      Ps 4:3 not inside Ps 4:5, Ps 4:5 starts «Enojaos», OLD = Ps 4:3 +
+      space + NEW), `test_pegadas.py`, `test_restos.py`,
+      `content_resolver_test`, `content_resolver_sword_test`,
+      `psalm_title_render_test`.
+    - Backend probe: 14 references in Ps 3, 4, 50, 51, 52 Available,
+      `isFallback = false`, source TorresAmat.
+    - Real app: Ps 3 correct; Ps 4:3 appears once; Ps 4:5 no longer repeats
+      v3; Ps 50/51 without duplication; Ps 52 title + body correct. Earlier
+      facsimile patches (Ps 3:2–5, Mt 12:4, 12:5, 12:11) intact. 0
+      `Gtk-WARNING` / `CRITICAL` / `ERROR` / crashes.
+  - Still open (why this task is not DONE):
+    - Only Ps 3, 4, 50, 51 and 52 are covered. Every other psalm with a
+      numbered title must be located, checked against the facsimile one by
+      one, and its title slots marked; text recovered only where the
+      facsimile justifies it; no unsupported hardcodes.
+  - Known OCR / structure issues outside the batch (not fixed):
+    - Ps 4:2 and Ps 4:4: OCR errata («0% Dios», «4un», «vabed», «á E st
+      santo»).
+    - Ps 50:2 («y vino:», «Nathán 4») and Ps 50:3 («MS borra»): OCR errata.
+    - Ps 4:10 and Ps 52:7: the next psalm's «SALMO …» heading and argument
+      glued to the verse.
+    - Ps 4:8: visible `&lt;` («abundan&lt;cia»).
   - Acceptance criteria:
     - The native Vulg verse number is kept.
     - Titles are not moved to another verse (not to v0, not to Preverse of
@@ -2817,14 +2878,59 @@
     - Edit only the installed module.
     - Commit or push.
 
-- [ ] RENDER-PSALM-TITLES-101 Render structurally marked native psalm-title verses as titles
-  - Status: TODO
+- [x] RENDER-PSALM-TITLES-101 Render structurally marked native psalm-title verses as titles
+  - Status: DONE
+  - Commit:
+    - `40cd5b57 feat(render): style structural psalm titles`.
   - Description:
-    `GTKChapDisp::RenderOneChapter` paints number + body for every non-empty
-    verse, so TorresAmat Ps 3:1 looks like an ordinary verse. Only
+    `GTKChapDisp::RenderOneChapter` painted number + body for every non-empty
+    verse, so TorresAmat Ps 3:1 looked like an ordinary verse. Only
     Preverse headings (e.g. NacarColunga's `<title type="psalm"
     canonical="true">`, rendered as `<h3 class="title psalm canonical">`)
-    reach the renderer as structure today.
+    reached the renderer as structure.
+  - Final contract:
+    - The visible number is the module's NATIVE number; TorresAmat (Vulg)
+      keeps its printed numbering.
+    - `x-psalm-title` changes only the typographic presentation of the
+      title text. KJV/RV numbering and `positionFrom()` are never used to
+      decide the displayed number.
+    - TorresAmat Ps 3 renders:
+      `1  Salmo de David cuando temeroso iba huyendo…` (title in italics),
+      `2  ¡Ah Señor! ¿Cómo es que…`, `3  Muchos dicen…`.
+  - Implementation:
+    - Module markup `<seg type="x-psalm-title">…</seg>` reaches the renderer
+      as `<span class="x-psalm-title">…</span>` inside `renderedText`; there
+      is no Heading/Preverse for it.
+    - `src/main/psalm_title.{h,cc}`: `splitPsalmTitle()` separates a leading
+      title span from the rest of the verse by markup only (no text
+      heuristics); `psalmTitleVerseHtml()` lays out what follows the number.
+    - `src/main/display.cc`: `RenderOneChapter` and the adjacent-chapter
+      previews (`getVerseBefore` / `getVerseAfter`) use it. Title only:
+      native number + styled title. Title + body: native number once, styled
+      title, body on the next line. Verses without the marker: unchanged.
+      Anchor, verse tools, key and highlighting unchanged.
+    - `src/webkit/wk-html.c`: `psalm-title` text tag (italic, scale 0.94, no
+      weight, colour, background or border) applied to `x-psalm-title`; the
+      verse number keeps its normal style.
+    - CMake target and `tests/psalm_title_render_test.cc`.
+  - Validation:
+    - Real app, TorresAmat: Ps 3 «1 Salmo de David…» in italics and «2 ¡Ah
+      Señor!…»; direct navigation to 3:1 highlights that slot. Ps 4:1 title
+      with its number. Ps 50 and Ps 51: 1 and 2 styled titles, 3 ordinary
+      body. Ps 52:1 title + body in one slot, number 1 exactly once. Chapter
+      previews use the same presentation (the next psalm's title keeps its
+      number).
+    - Regressions: SpaRV unchanged; NacarColunga headings/Preverse unchanged.
+    - Tests pass: `psalm_title_render_test`, `content_resolver_test`,
+      `content_resolver_sword_test`, `sword_backend_key_lifecycle_test`,
+      `versification_transition_test`, `navbar_valid_key_ownership_test`,
+      `verse_navigation_readiness_test`, `navbar_entry_reference_test`,
+      `poetry_line_wrap_test`, `wk_html_surface_test`,
+      `quoted_heading_test`.
+    - `cmake --build build -j4` passes. GUI stderr: 0 `Gtk-WARNING`, 0
+      `GLib-GObject-CRITICAL`, 0 `ERROR`, 0 crashes.
+    - `gtk_lifecycle_smoke` still fails only with UI-SMOKE-102 («dictionary
+      panel did not reopen explicitly»); not a regression.
   - Acceptance criteria:
     - Acts only when structural metadata exists.
     - The native number is kept: `1  Salmo de David…`.
@@ -2853,6 +2959,11 @@
       own body appears again at Ps 50:3 («Ten piedad de mí, oh Dios…»).
     - Resolver probe: TorresAmat Ps 51:1 (empty) receives SpaRV1909 KJV
       Ps 52:1 (title + «¿POR qué te glorías…»), duplicating Ps 51:3.
+    - Update: the first TORRES-PSALM-TITLES-101 batch filled Ps 50:1 and
+      Ps 51:1 with facsimile text, so those two no longer duplicate. That
+      avoids fallback only in title slots that now have content; the general
+      many-to-one problem remains for any other Vulg title slot that stays
+      empty. Still TODO.
   - Acceptance criteria:
     - A truly missing native verse is distinguished from a structural title
       slot.
@@ -2968,6 +3079,34 @@
     - Convert every `setKey()` call automatically without analyzing
       ownership and semantics.
     - Declare it fixed only because nothing crashes.
+    - Commit or push.
+
+- [ ] V11N-URI-NAV-101 Refresh navbar after resolving sword:// reference in the target module
+  - Status: TODO
+  - Description:
+    Opening `sword://TorresAmat/Psalms 3:9` shows the tab/reference as 3:9,
+    but the navbar shows 4:1; `TorresAmat 118:176` shows navbar 119:147.
+    `url.cc` calls `main_update_nav_controls` before switching to the target
+    module, so the navbar resolves the reference with the module the app
+    started with (e.g. SpaRVG, KJV). KJV Ps 3 has 8 verses and Ps 118 has 29,
+    so 3:9 and 118:176 are normalized in the wrong versification before
+    TorresAmat (Vulg) is loaded.
+  - Evidence:
+    - Diagnosed from the code path and observed in the real app; not caused
+      by V11N-MODULE-101, RENDER-PSALM-TITLES-101 or
+      TORRES-PSALM-TITLES-101 (none of them touch that `url.cc` path or the
+      navbar).
+  - Acceptance criteria:
+    - `sword://Module/ref` is interpreted first with the module it names.
+    - The navbar is updated after the target module and its native key are
+      active.
+    - Vulg references are not normalized with KJV.
+    - TorresAmat Ps 3:9 stays 3:9; TorresAmat Ps 118:176 is not transformed
+      using the KJV verse maximum.
+    - SpaRV (KJV) keeps working.
+    - A URI still means a reference NATIVE to the module it names.
+    - The V11N-MODULE-101 contract does not change.
+  - Do not:
     - Commit or push.
 
 # Future / not scheduled
