@@ -39,28 +39,42 @@ def _fixture_edition():
 
 # ---- A. Provenance manifest -------------------------------------------
 def test_manifest_provenance():
+    """La procedencia de la edición, en el esquema por tomos (v2).
+
+    Lo que este test cuida es lo de siempre -- que la edición esté
+    identificada, que cada testigo diga qué se puede hacer con él y que
+    ningún fichero fuente viva en el repositorio --. El detalle por tomo
+    lo cubre test_sources.py.
+    """
     data = _manifest()
-    for field in ("manifest_version", "edition_id", "work", "witnesses",
+    for field in ("manifest_version", "edition_id", "edition", "volumes",
                   "retrieval_date", "provenance_notes"):
         assert field in data, field
-    work = data["work"]
-    for field in ("title", "translator", "edition_statement", "city",
-                  "publisher", "years", "versification", "work_rights"):
-        assert work[field], field
-    assert work["versification"] == "Vulg"
-    assert work["publisher"].endswith("Miguel de Burgos")
 
-    roles = {w["role"] for w in data["witnesses"]}
-    assert "primary" in roles
-    for witness in data["witnesses"]:
-        # Cada testigo dice de dónde sale y qué se puede hacer con él.
-        for field in ("id", "institution", "url" if "url" in witness else "items",
-                      "scan_rights", "redistribution"):
-            assert witness.get(field), (witness["id"], field)
-        for entry in witness.get("files", []):
-            assert entry["url"].startswith("https://"), entry
+    edition = data["edition"]
+    for field in ("edition_statement", "city", "publisher", "years",
+                  "volumes_total", "versification", "work_rights"):
+        assert edition[field], field
+    assert edition["versification"] == "Vulg"
+    assert edition["publisher"].endswith("Miguel de Burgos")
+    assert edition["volumes_total"] == len(data["volumes"]) == 6
+
+    seen = set()
+    for volume in data["volumes"]:
+        assert volume["volume"] not in seen
+        seen.add(volume["volume"])
+        assert volume["witnesses"], volume["volume"]
+        for witness in volume["witnesses"]:
+            assert witness.get("id"), volume["volume"]
+            assert witness.get("rights", {}).get("redistribution_allowed")
+        for entry in volume.get("files", []):
+            assert entry["filename"], volume["volume"]
             if entry.get("sha256") is not None:
                 assert len(entry["sha256"]) == 64, entry
+                assert entry.get("verified") is True, entry
+            else:
+                assert entry.get("verified") is False, entry
+
     # Ningún fichero fuente en el repositorio.
     data_dir = os.path.join(ROOT, "data", "torresamat1835")
     assert sorted(os.listdir(data_dir)) == ["source_manifest.json"]

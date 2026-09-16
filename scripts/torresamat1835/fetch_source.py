@@ -65,28 +65,48 @@ def load_manifest(path=MANIFEST):
 
 
 def witnesses(manifest):
-    return {w["id"]: w for w in manifest["witnesses"]}
+    """Testigos de todos los tomos, indexados por id (esquema v2).
+
+    Un mismo testigo (el juego de la BNE) aparece en varios tomos; aquí
+    se funde en una entrada que recuerda a qué tomos pertenece y qué
+    ficheros de esos tomos le corresponden.
+    """
+    found = {}
+    for volume in manifest["volumes"]:
+        for witness in volume.get("witnesses", []):
+            entry = found.setdefault(witness["id"], dict(witness, volumes=[],
+                                                         files=[]))
+            entry["volumes"].append(volume["volume"])
+            for handle in volume.get("files", []):
+                if handle.get("witness") == witness["id"]:
+                    entry["files"].append(dict(handle, volume=volume["volume"]))
+    return found
 
 
 def describe(witness):
-    lines = [f"  {witness['id']}  [{witness['role']}]",
-             f"    institución    {witness['institution']}"]
-    for key in ("url", "persistent_id", "volume", "scan_rights",
-                "redistribution", "commercial_use", "automated_fetch",
-                "acquisition"):
-        if witness.get(key):
-            lines.append(f"    {key:14} {witness[key]}")
-    if witness.get("scan_rights_note"):
-        lines.append(f"    aviso          {witness['scan_rights_note']}")
+    rights = witness.get("rights", {})
+    lines = [f"  {witness['id']}  [{witness.get('role', '?')}]",
+             f"    institución    {witness.get('institution', '?')}",
+             f"    tomos          {witness.get('volumes', [])}"]
+    for key, value in (("url", witness.get("url") or witness.get("record_url")),
+                       ("persistent_id", witness.get("persistent_id")),
+                       ("acceso", witness.get("automated_access")),
+                       ("redistribución", rights.get("redistribution_allowed")),
+                       ("uso comercial", rights.get("commercial_use")),
+                       ("release", "sí" if witness.get(
+                           "may_produce_release_artifact") else "NO")):
+        if value:
+            lines.append(f"    {key:14} {value}")
+    if rights.get("note"):
+        lines.append(f"    aviso          {rights['note']}")
     return "\n".join(lines)
 
 
 def fetch(witness, cache=DEFAULT_CACHE, record=False, retries=3):
-    if witness.get("automated_fetch") == "blocked":
+    if witness.get("automated_access") == "blocked":
         raise ManifestError(
-            f"{witness['id']}: la fuente no admite descarga automatizada "
-            f"({witness.get('automated_fetch_evidence','')}). "
-            f"Descárgalo a mano en {cache} y vuelve a ejecutar para verificar.")
+            f"{witness['id']}: la fuente no admite descarga automatizada. "
+            f"Descarga los tomos a mano y regístralos con register_source.py.")
     files = witness.get("files") or []
     if not files:
         raise ManifestError(f"{witness['id']}: el manifest no lista ficheros")
@@ -95,28 +115,26 @@ def fetch(witness, cache=DEFAULT_CACHE, record=False, retries=3):
     print(describe(witness))
     done = []
     for entry in files:
-        target = os.path.join(cache, entry["name"])
+        target = os.path.join(cache, entry["filename"])
         if not os.path.exists(target):
             last = None
             for attempt in range(1, retries + 1):
                 try:
-                    print(f"    descargando ({attempt}/{retries}) {entry['name']}")
+                    print(f"    descargando ({attempt}/{retries}) {entry['filename']}")
                     urllib.request.urlretrieve(entry["url"], target + ".part")
                     os.replace(target + ".part", target)
                     break
                 except Exception as exc:          # noqa: BLE001
                     last = exc
             else:
-                raise ManifestError(f"{entry['name']}: no se pudo bajar: {last}")
+                raise ManifestError(f"{entry['filename']}: no se pudo bajar: {last}")
         else:
-            print(f"    en caché {entry['name']}")
+            print(f"    en caché {entry['filename']}")
 
-        if record and not entry.get("sha256"):
-            entry["sha256"] = sha256_of(target)
-            print(f"    sha256 registrado {entry['sha256']}")
-        else:
-            verify_file(target, entry.get("sha256"))
-            print("    sha256 ok")
+        # Registrar un checksum nuevo es cosa de register_source.py, que
+        # escribe en el tomo que corresponde. Aquí sólo se verifica.
+        verify_file(target, entry.get("sha256"))
+        print("    sha256 ok")
         done.append(target)
     return done
 
@@ -133,10 +151,12 @@ def main():
     manifest = load_manifest()
     known = witnesses(manifest)
     if args.list or not args.witness:
+        edition = manifest["edition"]
         print(f"edición: {manifest['display_name']}  "
-              f"({manifest['work']['years']}, {manifest['work']['publisher']})")
-        for witness in manifest["witnesses"]:
+              f"({edition['years']}, {edition['publisher']})")
+        for witness in known.values():
             print(describe(witness))
+        print("\nEl estado por tomo está en register_source.py --status")
         return 0
 
     if args.witness not in known:

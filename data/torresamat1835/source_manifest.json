@@ -1,109 +1,573 @@
 {
-  "manifest_version": 1,
+  "manifest_version": 2,
   "edition_id": "TorresAmat1835",
   "display_name": "La Sagrada Biblia — Torres Amat (1835)",
-  "work": {
-    "title": "La Sagrada Biblia nuevamente traducida de la Vulgata latina al español, aclarado el sentido de algunos lugares con la luz que dan los textos originales hebreo y griego, é ilustrada con varias notas sacadas de los Santos Padres y expositores sagrados",
-    "translator": "Torres Amat, Félix (1772-1847)",
-    "edition_statement": "Segunda edición",
+  "bibliographic_citation": "Torres Amat, Félix. La Sagrada Biblia nuevamente traducida de la Vulgata latina al español. 2.ª ed. Madrid: Imprenta de D. Miguel de Burgos, 1832-1835. 6 tomos.",
+  "edition": {
+    "edition_statement": "Segunda edición (MARC 250: '2 ed.' / '2a. ed.')",
     "city": "Madrid",
     "publisher": "Imprenta de D. Miguel de Burgos",
     "years": "1832-1835",
     "volumes_total": 6,
+    "volumes_with_biblical_text": 5,
+    "language": "Latin and Spanish in parallel columns (MARC 546)",
     "versification": "Vulg",
-    "language": "spa",
-    "work_rights": "public-domain",
-    "work_rights_note": "Torres Amat died in 1847; the translation itself is out of copyright everywhere relevant. This says nothing about any particular modern scan -- see each witness."
+    "work_rights": "public-domain (Torres Amat died 1847)",
+    "corpus": {
+      "biblical_corpus_volumes": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "supplementary_volumes": [
+        6
+      ],
+      "note": "Volume 6 is the dictionary of general notes, not biblical text. A complete biblical corpus needs volumes 1-5; volume 6 missing does not make the corpus incomplete. It belongs to the edition and stays registered: a future notes/dictionary feature would require it."
+    }
   },
-  "witnesses": [
+  "volumes": [
     {
-      "role": "primary",
-      "id": "bne-bdh0000014290",
-      "institution": "Biblioteca Nacional de España — Biblioteca Digital Hispánica",
-      "persistent_id": "bdh0000014290",
-      "url": "https://bdh.bne.es/bnesearch/detalle/bdh0000014290",
-      "catalogued_as": "entre 1832 y 1835",
-      "volumes_available": 6,
-      "scan_rights": "CC-BY-4.0-or-equivalent",
-      "scan_rights_source": "https://www.bne.es/es/noticias/0430-bne-permitira-uso-comercial-gratuito-imagenes-digitalizadas-obras-dominio-publico",
-      "redistribution": "allowed-with-attribution",
-      "commercial_use": "allowed",
-      "automated_fetch": "blocked",
-      "automated_fetch_evidence": "HTTP 403 from bdh.bne.es/bnesearch/detalle, bdh-rd.bne.es/viewer.vm, bdh-rd.bne.es/pdf.raw and datos.bne.es on 2026-09-16",
-      "acquisition": "manual-download-then-verify",
-      "files": [],
-      "notes": "Legally the right witness and the only one holding the complete second edition. Acquisition has to be a human download; fetch_source.py then verifies checksums and refuses anything unrecorded."
-    },
-    {
-      "role": "secondary-partial",
-      "id": "ia-lasagradabiblia01unkngoog",
-      "institution": "University of Michigan, digitised by Google, hosted by Internet Archive",
-      "persistent_id": "ark:/13960/t05x2xq7c",
-      "url": "https://archive.org/details/lasagradabiblia01unkngoog",
-      "source_of_scan": "http://books.google.com/books?id=E65IAAAAMAAJ",
-      "title_page_reads": "SEGUNDA EDICIÓN. Madrid. Imprenta de D. Miguel de Burgos",
-      "volume": "Tomo III del Antiguo Testamento",
-      "contents": "Salmos, Proverbios, Eclesiastés, Cantar de los Cantares, Sabiduría, Eclesiástico, Isaías",
-      "layout": "Vulgate Latin and Spanish in parallel columns",
-      "imagecount": 652,
-      "ia_copyright_status": "NOT_IN_COPYRIGHT",
-      "scan_rights": "restricted-google-terms",
-      "redistribution": "not-established",
-      "commercial_use": "requested-not-to",
-      "attribution_required": true,
-      "scan_rights_note": "The scan carries Google's boilerplate asking for non-commercial use, no automated querying and retention of the watermark. That applies to this digital object, not to the 1832 text. Do not redistribute these files from this repository.",
-      "automated_fetch": "allowed",
-      "acquisition": "fetch_source.py",
-      "files": [
+      "volume": 1,
+      "printed_volume_label": "Tomo 1, Antiguo Testamento",
+      "publication_year": 1832,
+      "title_page_text": "La sagrada Biblia nuevamente traducida de la Vulgata latina al español … Tomo 1, Antiguo Testamento",
+      "books_covered": [
+        "Genesis",
+        "Exodus",
+        "Leviticus",
+        "Numbers",
+        "Deuteronomy",
+        "Joshua",
+        "Judges",
+        "Ruth"
+      ],
+      "page_count": "XXXVI, 668 p. ; 22 cm",
+      "carries_biblical_text": true,
+      "metadata_status": "verified",
+      "metadata_evidence": {
+        "source": "HathiTrust MARC record 009348595",
+        "url": "https://catalog.hathitrust.org/Record/009348595",
+        "marc_250": "2 ed.",
+        "marc_260": "Madrid : Imprenta de D. Miguel de Burgos, 1832.",
+        "marc_300": "XXXVI, 668 p. ; 22 cm.",
+        "marc_546": "Texto en latín y español."
+      },
+      "witnesses": [
         {
-          "name": "lasagradabiblia01unkngoog_djvu.txt",
-          "url": "https://archive.org/download/lasagradabiblia01unkngoog/lasagradabiblia01unkngoog_djvu.txt",
-          "format": "DjVuTXT",
-          "bytes": 2408735,
-          "sha256": "e3cf8f77a26ab4f27a4df31099f22a58ab668cca6972a74226608fc2705ec17e",
-          "verified_on": "2026-09-16"
+          "id": "ht-009348595",
+          "record_url": "https://catalog.hathitrust.org/Record/009348595",
+          "rights": {
+            "rights_statement": "Public domain (HathiTrust rights code 'pd', US Full view); scans produced by Google from Universidad Complutense de Madrid copies",
+            "license_url": null,
+            "attribution_text": "Universidad Complutense de Madrid, digitised by Google, via HathiTrust Digital Library",
+            "redistribution_allowed": "not-established",
+            "commercial_use": "not-established",
+            "note": "HathiTrust marks these public domain for US users and serves Full view. That is an access statement, not a redistribution licence for the scan. Google-digitised library scans carry Google's own usage request. Use for corroboration and development; do not redistribute the scans.",
+            "release_use": "forbidden: this witness may not become the TorresAmat1835 release artifact"
+          },
+          "items": [
+            {
+              "htid": "ucm.5310743585",
+              "item_url": "https://babel.hathitrust.org/cgi/pt?id=ucm.5310743585",
+              "us_rights": "Full view",
+              "rights_code": "pd",
+              "holding": "Universidad Complutense de Madrid",
+              "digitised_by": "google"
+            },
+            {
+              "htid": "ucm.5324030588",
+              "item_url": "https://babel.hathitrust.org/cgi/pt?id=ucm.5324030588",
+              "us_rights": "Full view",
+              "rights_code": "pd",
+              "holding": "Universidad Complutense de Madrid",
+              "digitised_by": "google"
+            },
+            {
+              "htid": "ucm.5302623334",
+              "item_url": "https://babel.hathitrust.org/cgi/pt?id=ucm.5302623334",
+              "us_rights": "Full view",
+              "rights_code": "pd",
+              "holding": "Universidad Complutense de Madrid",
+              "digitised_by": "google"
+            }
+          ],
+          "role": "development_witness",
+          "may_produce_release_artifact": false,
+          "institution": "HathiTrust Digital Library (Universidad Complutense de Madrid copies, digitised by Google)"
         },
         {
-          "name": "lasagradabiblia01unkngoog_djvu.xml",
-          "url": "https://archive.org/download/lasagradabiblia01unkngoog/lasagradabiblia01unkngoog_djvu.xml",
-          "format": "Djvu XML",
-          "bytes": 29548544,
-          "sha256": null,
-          "verified_on": null
+          "id": "bne-set",
+          "institution": "Biblioteca Nacional de España",
+          "platform": "BNE Digital (replaced Biblioteca Digital Hispánica in Oct/Nov 2025)",
+          "legacy_identifier": "bdh0000014290",
+          "legacy_url": "https://bdh.bne.es/bnesearch/detalle/bdh0000014290",
+          "current_platform_url": "https://bnedigital.bne.es/",
+          "identifier_status": "legacy-identifier-not-re-verified",
+          "rights": {
+            "rights_statement": "Public domain work; BNE publishes its public-domain digitisations for free reuse including commercial use",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "attribution_text": "Biblioteca Nacional de España",
+            "redistribution_allowed": "yes-with-attribution",
+            "commercial_use": "yes",
+            "evidence_url": "https://www.bne.es/es/noticias/0430-bne-permitira-uso-comercial-gratuito-imagenes-digitalizadas-obras-dominio-publico",
+            "note": "The only witness family whose scan we could redistribute. Could not be re-verified in this session: the whole *.bne.es domain returned 403."
+          },
+          "automated_access": "blocked",
+          "role": "distributable_primary",
+          "may_produce_release_artifact": true
         }
       ],
-      "notes": "Only one volume of the second edition is on Internet Archive, and it happens to be the Psalter one. Useful as a working witness for parser development; not a distribution source."
+      "files": [],
+      "acquisition": "manual_download_required",
+      "status": "manual_download_required",
+      "notes": null,
+      "corpus_role": "biblical_corpus",
+      "required_for_biblical_corpus": true,
+      "required_for": [
+        "biblical_corpus"
+      ]
     },
     {
-      "role": "comparison",
-      "id": "ia-universidad-de-sevilla-first-edition",
-      "institution": "Biblioteca de la Universidad de Sevilla, hosted by Internet Archive",
-      "edition_statement": "Primera edición",
-      "publisher": "Madrid: Imprenta de Don Leon Amarita",
-      "years": "1823-1825",
-      "scan_rights": "CC0-public-domain-mark-1.0",
-      "scan_rights_source": "https://creativecommons.org/publicdomain/mark/1.0/",
-      "redistribution": "allowed",
-      "commercial_use": "allowed",
-      "automated_fetch": "allowed",
-      "items": [
-        "A030134", "A030135", "A030136", "A030137", "A030138",
-        "A030139", "A030140", "A030141", "A030142"
+      "volume": 2,
+      "printed_volume_label": null,
+      "publication_year": null,
+      "title_page_text": null,
+      "books_covered": null,
+      "page_count": null,
+      "carries_biblical_text": true,
+      "metadata_status": "incomplete",
+      "metadata_evidence": {
+        "source": null,
+        "note": "No authoritative record for volume 2 of this edition was reachable in this session. Its contents are deliberately left null rather than inferred from a standard Bible or from a bookseller listing."
+      },
+      "witnesses": [
+        {
+          "id": "bne-set",
+          "institution": "Biblioteca Nacional de España",
+          "platform": "BNE Digital (replaced Biblioteca Digital Hispánica in Oct/Nov 2025)",
+          "legacy_identifier": "bdh0000014290",
+          "legacy_url": "https://bdh.bne.es/bnesearch/detalle/bdh0000014290",
+          "current_platform_url": "https://bnedigital.bne.es/",
+          "identifier_status": "legacy-identifier-not-re-verified",
+          "rights": {
+            "rights_statement": "Public domain work; BNE publishes its public-domain digitisations for free reuse including commercial use",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "attribution_text": "Biblioteca Nacional de España",
+            "redistribution_allowed": "yes-with-attribution",
+            "commercial_use": "yes",
+            "evidence_url": "https://www.bne.es/es/noticias/0430-bne-permitira-uso-comercial-gratuito-imagenes-digitalizadas-obras-dominio-publico",
+            "note": "The only witness family whose scan we could redistribute. Could not be re-verified in this session: the whole *.bne.es domain returned 403."
+          },
+          "automated_access": "blocked",
+          "role": "distributable_primary",
+          "may_produce_release_artifact": true
+        }
       ],
       "files": [],
-      "notes": "The complete first edition, cleanly redistributable. Not the target edition, but the witness to collate 1823-25 against 1832-35."
+      "acquisition": "manual_download_required",
+      "status": "metadata_incomplete",
+      "notes": "Blocks a complete Old Testament corpus until identified.",
+      "corpus_role": "biblical_corpus",
+      "required_for_biblical_corpus": true,
+      "required_for": [
+        "biblical_corpus"
+      ]
+    },
+    {
+      "volume": 3,
+      "printed_volume_label": "Tomo III del Antiguo Testamento",
+      "publication_year": 1832,
+      "title_page_text": "SEGUNDA EDICIÓN. Madrid. Imprenta de D. Miguel de Burgos. Tomo III del Antiguo Testamento",
+      "books_covered": [
+        "Psalms",
+        "Proverbs",
+        "Ecclesiastes",
+        "Song of Songs",
+        "Wisdom",
+        "Sirach",
+        "Isaiah"
+      ],
+      "page_count": null,
+      "carries_biblical_text": true,
+      "metadata_status": "verified",
+      "metadata_evidence": {
+        "source": "read from the title page of the digitised object itself",
+        "url": "https://archive.org/details/lasagradabiblia01unkngoog",
+        "image_count": 652,
+        "note": "The Internet Archive identifier says '01' but the title page says Tomo III. The identifier is not evidence; the page is."
+      },
+      "witnesses": [
+        {
+          "id": "ia-lasagradabiblia01unkngoog",
+          "institution": "University of Michigan / Google / Internet Archive",
+          "persistent_id": "ark:/13960/t05x2xq7c",
+          "url": "https://archive.org/details/lasagradabiblia01unkngoog",
+          "rights": {
+            "rights_statement": "Work in the public domain; scan carries Google's usage request",
+            "license_url": null,
+            "attribution_text": "University of Michigan, digitised by Google, via Internet Archive",
+            "redistribution_allowed": "no",
+            "commercial_use": "requested-not-to",
+            "note": "Google boilerplate is embedded in the file itself: non-commercial use, no automated querying, keep the watermark. Development witness only.",
+            "release_use": "forbidden: this witness may not become the TorresAmat1835 release artifact"
+          },
+          "automated_access": "allowed",
+          "role": "development_witness",
+          "may_produce_release_artifact": false
+        },
+        {
+          "id": "bne-set",
+          "institution": "Biblioteca Nacional de España",
+          "platform": "BNE Digital (replaced Biblioteca Digital Hispánica in Oct/Nov 2025)",
+          "legacy_identifier": "bdh0000014290",
+          "legacy_url": "https://bdh.bne.es/bnesearch/detalle/bdh0000014290",
+          "current_platform_url": "https://bnedigital.bne.es/",
+          "identifier_status": "legacy-identifier-not-re-verified",
+          "rights": {
+            "rights_statement": "Public domain work; BNE publishes its public-domain digitisations for free reuse including commercial use",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "attribution_text": "Biblioteca Nacional de España",
+            "redistribution_allowed": "yes-with-attribution",
+            "commercial_use": "yes",
+            "evidence_url": "https://www.bne.es/es/noticias/0430-bne-permitira-uso-comercial-gratuito-imagenes-digitalizadas-obras-dominio-publico",
+            "note": "The only witness family whose scan we could redistribute. Could not be re-verified in this session: the whole *.bne.es domain returned 403."
+          },
+          "automated_access": "blocked",
+          "role": "distributable_primary",
+          "may_produce_release_artifact": true
+        }
+      ],
+      "files": [
+        {
+          "format": "DjVuTXT",
+          "filename": "lasagradabiblia01unkngoog_djvu.txt",
+          "url": "https://archive.org/download/lasagradabiblia01unkngoog/lasagradabiblia01unkngoog_djvu.txt",
+          "size": 2408735,
+          "sha256": "e3cf8f77a26ab4f27a4df31099f22a58ab668cca6972a74226608fc2705ec17e",
+          "page_count": null,
+          "witness": "ia-lasagradabiblia01unkngoog",
+          "acquisition": "automatic",
+          "verified": true,
+          "verified_on": "2026-09-16",
+          "witness_role": "development_witness",
+          "may_produce_release_artifact": false
+        },
+        {
+          "format": "Djvu XML",
+          "filename": "lasagradabiblia01unkngoog_djvu.xml",
+          "url": "https://archive.org/download/lasagradabiblia01unkngoog/lasagradabiblia01unkngoog_djvu.xml",
+          "size": null,
+          "sha256": null,
+          "page_count": null,
+          "witness": "ia-lasagradabiblia01unkngoog",
+          "acquisition": "automatic",
+          "verified": false,
+          "witness_role": "development_witness",
+          "may_produce_release_artifact": false
+        }
+      ],
+      "acquisition": "automatic",
+      "status": "available",
+      "notes": "The only volume of this edition with an artifact actually in hand. Its scan may not be redistributed.",
+      "corpus_role": "biblical_corpus",
+      "required_for_biblical_corpus": true,
+      "required_for": [
+        "biblical_corpus"
+      ]
+    },
+    {
+      "volume": 4,
+      "printed_volume_label": "Tomo 4, Antiguo Testamento",
+      "publication_year": 1834,
+      "title_page_text": "… Tomo 4, Antiguo Testamento. La Profecía de Jeremías con los Threnos, la de Baruch, la de Ezechiel, la de Daniel, la de los doce Profetas Menores y los dos libros de los Machabeos",
+      "books_covered": [
+        "Jeremiah",
+        "Lamentations",
+        "Baruch",
+        "Ezekiel",
+        "Daniel",
+        "Minor Prophets (twelve)",
+        "1 Maccabees",
+        "2 Maccabees"
+      ],
+      "page_count": "684 p.",
+      "carries_biblical_text": true,
+      "metadata_status": "verified",
+      "metadata_evidence": {
+        "source": "HathiTrust MARC record 009348596",
+        "url": "https://catalog.hathitrust.org/Record/009348596",
+        "marc_250": "2 ed.",
+        "marc_260": "Madrid : Imprenta de D. Miguel de Burgos, 1834.",
+        "marc_300": "684 p. ;",
+        "marc_546": "Texto en latín y español."
+      },
+      "witnesses": [
+        {
+          "id": "ht-009348596",
+          "record_url": "https://catalog.hathitrust.org/Record/009348596",
+          "rights": {
+            "rights_statement": "Public domain (HathiTrust rights code 'pd', US Full view); scans produced by Google from Universidad Complutense de Madrid copies",
+            "license_url": null,
+            "attribution_text": "Universidad Complutense de Madrid, digitised by Google, via HathiTrust Digital Library",
+            "redistribution_allowed": "not-established",
+            "commercial_use": "not-established",
+            "note": "HathiTrust marks these public domain for US users and serves Full view. That is an access statement, not a redistribution licence for the scan. Google-digitised library scans carry Google's own usage request. Use for corroboration and development; do not redistribute the scans.",
+            "release_use": "forbidden: this witness may not become the TorresAmat1835 release artifact"
+          },
+          "items": [
+            {
+              "htid": "ucm.5310743558",
+              "item_url": "https://babel.hathitrust.org/cgi/pt?id=ucm.5310743558",
+              "us_rights": "Full view",
+              "rights_code": "pd",
+              "holding": "Universidad Complutense de Madrid",
+              "digitised_by": "google"
+            },
+            {
+              "htid": "ucm.5302623361",
+              "item_url": "https://babel.hathitrust.org/cgi/pt?id=ucm.5302623361",
+              "us_rights": "Full view",
+              "rights_code": "pd",
+              "holding": "Universidad Complutense de Madrid",
+              "digitised_by": "google"
+            }
+          ],
+          "role": "development_witness",
+          "may_produce_release_artifact": false,
+          "institution": "HathiTrust Digital Library (Universidad Complutense de Madrid copies, digitised by Google)"
+        },
+        {
+          "id": "bne-set",
+          "institution": "Biblioteca Nacional de España",
+          "platform": "BNE Digital (replaced Biblioteca Digital Hispánica in Oct/Nov 2025)",
+          "legacy_identifier": "bdh0000014290",
+          "legacy_url": "https://bdh.bne.es/bnesearch/detalle/bdh0000014290",
+          "current_platform_url": "https://bnedigital.bne.es/",
+          "identifier_status": "legacy-identifier-not-re-verified",
+          "rights": {
+            "rights_statement": "Public domain work; BNE publishes its public-domain digitisations for free reuse including commercial use",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "attribution_text": "Biblioteca Nacional de España",
+            "redistribution_allowed": "yes-with-attribution",
+            "commercial_use": "yes",
+            "evidence_url": "https://www.bne.es/es/noticias/0430-bne-permitira-uso-comercial-gratuito-imagenes-digitalizadas-obras-dominio-publico",
+            "note": "The only witness family whose scan we could redistribute. Could not be re-verified in this session: the whole *.bne.es domain returned 403."
+          },
+          "automated_access": "blocked",
+          "role": "distributable_primary",
+          "may_produce_release_artifact": true
+        }
+      ],
+      "files": [],
+      "acquisition": "manual_download_required",
+      "status": "manual_download_required",
+      "notes": null,
+      "corpus_role": "biblical_corpus",
+      "required_for_biblical_corpus": true,
+      "required_for": [
+        "biblical_corpus"
+      ]
+    },
+    {
+      "volume": 5,
+      "printed_volume_label": "Tomo 5, El Nuevo Testamento",
+      "publication_year": 1832,
+      "title_page_text": "… / por Félix Torres Amat. Tomo 5, El Nuevo Testamento.",
+      "books_covered": [
+        "New Testament (complete)"
+      ],
+      "page_count": "X, 726 p.",
+      "carries_biblical_text": true,
+      "metadata_status": "verified",
+      "metadata_evidence": {
+        "source": "HathiTrust MARC record 009348597",
+        "url": "https://catalog.hathitrust.org/Record/009348597",
+        "marc_250": "2a. ed.",
+        "marc_260": "Madrid : Imprenta de D. Miguel de Burgos, 1832.",
+        "marc_300": "X,726 p. ;",
+        "marc_546": "Texto en latín y español."
+      },
+      "witnesses": [
+        {
+          "id": "ht-009348597",
+          "record_url": "https://catalog.hathitrust.org/Record/009348597",
+          "rights": {
+            "rights_statement": "Public domain (HathiTrust rights code 'pd', US Full view); scans produced by Google from Universidad Complutense de Madrid copies",
+            "license_url": null,
+            "attribution_text": "Universidad Complutense de Madrid, digitised by Google, via HathiTrust Digital Library",
+            "redistribution_allowed": "not-established",
+            "commercial_use": "not-established",
+            "note": "HathiTrust marks these public domain for US users and serves Full view. That is an access statement, not a redistribution licence for the scan. Google-digitised library scans carry Google's own usage request. Use for corroboration and development; do not redistribute the scans.",
+            "release_use": "forbidden: this witness may not become the TorresAmat1835 release artifact"
+          },
+          "items": [
+            {
+              "htid": "ucm.5310743567",
+              "item_url": "https://babel.hathitrust.org/cgi/pt?id=ucm.5310743567",
+              "us_rights": "Full view",
+              "rights_code": "pd",
+              "holding": "Universidad Complutense de Madrid",
+              "digitised_by": "google"
+            },
+            {
+              "htid": "ucm.5323295812",
+              "item_url": "https://babel.hathitrust.org/cgi/pt?id=ucm.5323295812",
+              "us_rights": "Full view",
+              "rights_code": "pd",
+              "holding": "Universidad Complutense de Madrid",
+              "digitised_by": "google"
+            },
+            {
+              "htid": "ucm.5302623370",
+              "item_url": "https://babel.hathitrust.org/cgi/pt?id=ucm.5302623370",
+              "us_rights": "Full view",
+              "rights_code": "pd",
+              "holding": "Universidad Complutense de Madrid",
+              "digitised_by": "google"
+            }
+          ],
+          "role": "development_witness",
+          "may_produce_release_artifact": false,
+          "institution": "HathiTrust Digital Library (Universidad Complutense de Madrid copies, digitised by Google)"
+        },
+        {
+          "id": "bne-set",
+          "institution": "Biblioteca Nacional de España",
+          "platform": "BNE Digital (replaced Biblioteca Digital Hispánica in Oct/Nov 2025)",
+          "legacy_identifier": "bdh0000014290",
+          "legacy_url": "https://bdh.bne.es/bnesearch/detalle/bdh0000014290",
+          "current_platform_url": "https://bnedigital.bne.es/",
+          "identifier_status": "legacy-identifier-not-re-verified",
+          "rights": {
+            "rights_statement": "Public domain work; BNE publishes its public-domain digitisations for free reuse including commercial use",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "attribution_text": "Biblioteca Nacional de España",
+            "redistribution_allowed": "yes-with-attribution",
+            "commercial_use": "yes",
+            "evidence_url": "https://www.bne.es/es/noticias/0430-bne-permitira-uso-comercial-gratuito-imagenes-digitalizadas-obras-dominio-publico",
+            "note": "The only witness family whose scan we could redistribute. Could not be re-verified in this session: the whole *.bne.es domain returned 403."
+          },
+          "automated_access": "blocked",
+          "role": "distributable_primary",
+          "may_produce_release_artifact": true
+        }
+      ],
+      "files": [],
+      "acquisition": "manual_download_required",
+      "status": "manual_download_required",
+      "notes": "The New Testament volume is dated 1832, earlier than volume 4 (1834). Recorded as catalogued, not reordered.",
+      "corpus_role": "biblical_corpus",
+      "required_for_biblical_corpus": true,
+      "required_for": [
+        "biblical_corpus"
+      ]
+    },
+    {
+      "volume": 6,
+      "printed_volume_label": "Tomo VI",
+      "publication_year": 1835,
+      "title_page_text": "Notas generales puestas en forma de diccionario : que facilitan la inteligencia de muchos pasages obscuros de la Sagrada Escritura",
+      "books_covered": [],
+      "page_count": null,
+      "carries_biblical_text": false,
+      "metadata_status": "verified",
+      "metadata_evidence": {
+        "source": "HathiTrust MARC record 009348650",
+        "url": "https://catalog.hathitrust.org/Record/009348650",
+        "marc_250": "2 ed.",
+        "marc_260": "Madrid : Imprenta de D. Miguel de Burgos, 1835.",
+        "item_enumcron": "T. VI"
+      },
+      "witnesses": [
+        {
+          "id": "ht-009348650",
+          "record_url": "https://catalog.hathitrust.org/Record/009348650",
+          "rights": {
+            "rights_statement": "Public domain (HathiTrust rights code 'pd', US Full view); scans produced by Google from Universidad Complutense de Madrid copies",
+            "license_url": null,
+            "attribution_text": "Universidad Complutense de Madrid, digitised by Google, via HathiTrust Digital Library",
+            "redistribution_allowed": "not-established",
+            "commercial_use": "not-established",
+            "note": "HathiTrust marks these public domain for US users and serves Full view. That is an access statement, not a redistribution licence for the scan. Google-digitised library scans carry Google's own usage request. Use for corroboration and development; do not redistribute the scans.",
+            "release_use": "forbidden: this witness may not become the TorresAmat1835 release artifact"
+          },
+          "items": [
+            {
+              "htid": "ucm.5324234533",
+              "item_url": "https://babel.hathitrust.org/cgi/pt?id=ucm.5324234533",
+              "us_rights": "Full view",
+              "rights_code": "pd",
+              "holding": "Universidad Complutense de Madrid",
+              "digitised_by": "google"
+            },
+            {
+              "htid": "ucm.5325214713",
+              "item_url": "https://babel.hathitrust.org/cgi/pt?id=ucm.5325214713",
+              "us_rights": "Full view",
+              "rights_code": "pd",
+              "holding": "Universidad Complutense de Madrid",
+              "digitised_by": "google"
+            },
+            {
+              "htid": "ucm.5325214722",
+              "item_url": "https://babel.hathitrust.org/cgi/pt?id=ucm.5325214722",
+              "us_rights": "Full view",
+              "rights_code": "pd",
+              "holding": "Universidad Complutense de Madrid",
+              "digitised_by": "google"
+            }
+          ],
+          "role": "development_witness",
+          "may_produce_release_artifact": false,
+          "institution": "HathiTrust Digital Library (Universidad Complutense de Madrid copies, digitised by Google)"
+        },
+        {
+          "id": "bne-set",
+          "institution": "Biblioteca Nacional de España",
+          "platform": "BNE Digital (replaced Biblioteca Digital Hispánica in Oct/Nov 2025)",
+          "legacy_identifier": "bdh0000014290",
+          "legacy_url": "https://bdh.bne.es/bnesearch/detalle/bdh0000014290",
+          "current_platform_url": "https://bnedigital.bne.es/",
+          "identifier_status": "legacy-identifier-not-re-verified",
+          "rights": {
+            "rights_statement": "Public domain work; BNE publishes its public-domain digitisations for free reuse including commercial use",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "attribution_text": "Biblioteca Nacional de España",
+            "redistribution_allowed": "yes-with-attribution",
+            "commercial_use": "yes",
+            "evidence_url": "https://www.bne.es/es/noticias/0430-bne-permitira-uso-comercial-gratuito-imagenes-digitalizadas-obras-dominio-publico",
+            "note": "The only witness family whose scan we could redistribute. Could not be re-verified in this session: the whole *.bne.es domain returned 403."
+          },
+          "automated_access": "blocked",
+          "role": "distributable_primary",
+          "may_produce_release_artifact": true
+        }
+      ],
+      "files": [],
+      "acquisition": "manual_download_required",
+      "status": "manual_download_required",
+      "notes": "Apparatus, not biblical text: the dictionary of general notes. It is the volume that carries the 1835 date and closes the edition. Not needed for the biblical corpus; relevant later if the notes are ever imported.",
+      "corpus_role": "supplementary",
+      "required_for_biblical_corpus": false,
+      "required_for": [
+        "notes_dictionary_feature"
+      ]
     }
   ],
-  "current_module_for_comparison": {
-    "module": "TorresAmat",
-    "edition": "1882 (late nineteenth century)",
-    "text_source": "https://archive.org/details/la-sagrada-biblia-vulgata-tomo-iiv_202111",
-    "note": "The edition Biblia Elim ships today. Not modified by this task."
+  "cache": {
+    "default": "build/torresamat1835-cache",
+    "env_override": "TORRESAMAT1835_CACHE",
+    "policy": "Source files never enter Git. The cache lives under build/, which is already ignored. Nothing touches ~/.sword or any user module."
   },
   "retrieval_date": "2026-09-16",
   "provenance_notes": [
-    "The task brief said '1835, Miguel de Burgos'. The edition is in fact 1832-1835 in six volumes; 1835 is the year the set was completed, not the year of every volume. The one volume verified here (Tomo III del Antiguo Testamento) has an 1832-range imprint.",
-    "The edition statement was read from the object itself, not from a catalogue: the title page of lasagradabiblia01unkngoog reads 'SEGUNDA EDICIÓN' with the Miguel de Burgos imprint.",
-    "No source files are stored in this repository. Only this manifest, checksums and reproducible acquisition instructions."
+    "Volume-level metadata comes from HathiTrust MARC records, which carry the edition statement, imprint, collation and the 'Texto en latín y español' note. Volume 3 was read from the title page of the digitised object itself.",
+    "Volume 2 could not be identified from any authoritative source reachable in this session. Its fields are null on purpose.",
+    "The BNE identifier bdh0000014290 was recorded by the previous task against Biblioteca Digital Hispánica. BDH was replaced by BNE Digital in Oct/Nov 2025 and the whole *.bne.es domain answered 403 here, so neither the identifier nor its rights page could be re-verified in this session.",
+    "No checksum in this manifest was computed from anything other than the exact file it names.",
+    "Volume 6 carries no biblical text. The manifest says so with corpus_role, so a missing volume 6 never reads as an incomplete Bible.",
+    "Every witness carries a role. Only a distributable_primary witness (BNE) may produce the release artifact; the Google-digitised volume 3 is a development_witness and is marked as forbidden for release, so it cannot become the shipped TorresAmat1835 by accident."
   ]
 }

@@ -52,3 +52,59 @@ Ver el informe de la task. En resumen: la BNE tiene los seis tomos con
 licencia buena (CC-BY) pero devuelve 403 a todo acceso automatizado;
 Internet Archive sólo tiene un tomo de esta edición y bajo condiciones de
 Google. Sin los seis tomos no hay corpus.
+
+## Conseguir los tomos en una máquina nueva
+
+Los ficheros fuente no están en Git y no hacen falta para compilar ni para
+pasar los tests. Sólo hacen falta para construir el corpus.
+
+```bash
+git clone <repo> && cd biblia_elim
+
+# 1. qué hay y qué falta
+python3 scripts/torresamat1835/register_source.py --status
+
+# 2. para el tomo que puede bajarse solo (tomo 3, Internet Archive)
+python3 scripts/torresamat1835/fetch_source.py --list
+
+# 3. para los demás: abrir BNE Digital en un navegador, buscar la edición
+#    (2.ª ed., Madrid, Imprenta de D. Miguel de Burgos, 1832-1835) y
+#    descargar el tomo. BNE no admite descarga automatizada.
+#
+# 4. registrar la primera vez (acto humano: fija el sha256)
+python3 scripts/torresamat1835/register_source.py \
+    --volume 1 --file ~/Descargas/tomo1.pdf --record
+
+# 5. a partir de ahí, cualquiera verifica sin --record
+python3 scripts/torresamat1835/register_source.py \
+    --volume 1 --file ~/Descargas/tomo1.pdf
+
+# 6. seguir hasta que --status diga 6/6 verificados
+```
+
+`--record` es lo único que escribe un checksum en el manifest, y sólo
+cuando se le pide. Sin él, un artefacto que no cuadre se rechaza: distinto
+tamaño, distintos bytes o un nombre que el manifest no describe.
+
+La caché va a `build/torresamat1835-cache` (o `TORRESAMAT1835_CACHE`).
+`build/` está ignorado por Git. Nada toca `~/.sword`.
+
+## Los seis tomos
+
+| Tomo | Año | Contenido | Metadata |
+|---|---|---|---|
+| 1 | 1832 | Génesis · Éxodo · Levítico · Números · Deuteronomio · Josué · Jueces · Rut | verificada |
+| 2 | — | **sin identificar** | incompleta |
+| 3 | 1832 | Salmos · Proverbios · Eclesiastés · Cantar · Sabiduría · Eclesiástico · Isaías | verificada |
+| 4 | 1834 | Jeremías · Lamentaciones · Baruc · Ezequiel · Daniel · Profetas Menores · 1-2 Macabeos | verificada |
+| 5 | 1832 | Nuevo Testamento | verificada |
+| 6 | 1835 | Notas generales en forma de diccionario (**no es texto bíblico**) | verificada |
+
+El tomo 6 es el que lleva la fecha de 1835 y cierra la edición. El texto
+bíblico está en los tomos 1–5.
+
+## El usuario final no hace nada de esto
+
+Este flujo es para el pipeline de construcción. Biblia Elim distribuirá un
+módulo ya procesado y verificado: el lector no necesitará BNE, ni OCR, ni
+descargar seis tomos históricos.
