@@ -49,16 +49,28 @@ PARATEXT_KINDS = frozenset({
 
 @dataclass(frozen=True)
 class Provenance:
-    """De dónde sale cada bloque. Sin esto no se puede auditar nada."""
+    """De dónde sale cada bloque. Sin esto no se puede auditar nada.
+
+    `page` es la página del escaneo; `printed_page` la del impreso cuando
+    se conoce, que no es la misma y es la que tendrá que citar cualquier
+    corrección futura contra el facsímil.
+    """
     witness: str
     volume: Optional[str] = None
     page: Optional[int] = None
     line: Optional[int] = None
     column: Optional[str] = None
+    printed_page: Optional[int] = None
+    zone: Optional[str] = None
+    bbox: Optional[tuple] = None
+    block_id: Optional[str] = None
 
 
 @dataclass
 class Block:
+    #: `text` es el texto normalizado (el que se usa); `raw_text` es lo
+    #: que dijo el OCR y no se sobrescribe nunca. Cuando no hay
+    #: normalización, son iguales.
     kind: BlockKind
     text: str
     provenance: Provenance
@@ -68,6 +80,15 @@ class Block:
     number: Optional[int] = None
     #: Motivo por el que hace falta que lo mire una persona.
     review_reason: Optional[str] = None
+    #: El OCR sin tocar, y su confianza media.
+    raw_text: Optional[str] = None
+    confidence: Optional[int] = None
+    #: Qué decidió el parser y por qué, para poder auditarlo.
+    decision: Optional[str] = None
+
+    def __post_init__(self):
+        if self.raw_text is None:
+            self.raw_text = self.text
 
     @property
     def review_required(self) -> bool:
@@ -98,6 +119,9 @@ class Chapter:
     number: int
     verses: dict = field(default_factory=dict)
     paratext: list = field(default_factory=list)
+    #: El latín paralelo de la columna izquierda, conservado aparte: es
+    #: procedencia, no cuerpo del versículo español.
+    parallel_latin: list = field(default_factory=list)
 
     def verse(self, n: int) -> Verse:
         return self.verses.setdefault(n, Verse(number=n))

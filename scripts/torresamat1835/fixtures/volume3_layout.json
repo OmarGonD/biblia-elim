@@ -1,0 +1,257 @@
+{
+ "provenance": {
+  "derived_from": "geometry measured on scan pages 48-51 of the volume 3 witness (3402x4837 px @600 dpi, gutter ~1690, columns 380-1660 and 1700-3040, header band y<290, footnote band y>4200)",
+  "text": "synthetic",
+  "why_synthetic": "The volume 3 witness is a Google-digitised scan whose redistribution is not permitted (see source_manifest.json: role=development_witness, redistribution_allowed=no). Its geometry is a measurement and can be reproduced here; its OCR text is not committed. The parser is validated against the real volume by the audit run, not by this fixture.",
+  "covers": [
+   "two columns latin/spanish",
+   "verse number + continuation",
+   "editorial heading spanning the gutter",
+   "canonical title",
+   "title + body in one verse",
+   "footnote",
+   "page header/footer",
+   "cross-page continuation",
+   "OCR-broken heading numeral",
+   "ambiguous block"
+  ]
+ },
+ "pages": [
+  {
+   "scan_page": 0,
+   "width": 3402,
+   "height": 4837,
+   "dpi": 600,
+   "lines": [
+    {
+     "text": "LIBRO DE",
+     "bbox": [
+      455,
+      193,
+      1654,
+      253
+     ],
+     "confidence": 60
+    },
+    {
+     "text": "LOS SALMOS.",
+     "bbox": [
+      1697,
+      195,
+      2117,
+      255
+     ],
+     "confidence": 60
+    },
+    {
+     "text": "SALMO LIM",
+     "bbox": [
+      700,
+      420,
+      2650,
+      500
+     ],
+     "confidence": 60
+    },
+    {
+     "text": "Argumento que el editor pone bajo la division.",
+     "bbox": [
+      620,
+      540,
+      2700,
+      614
+     ],
+     "confidence": 60
+    },
+    {
+     "text": "1 Verbum latinum primae lineae.",
+     "bbox": [
+      400,
+      700,
+      1650,
+      772
+     ],
+     "confidence": 60
+    },
+    {
+     "text": "continuatio latina eiusdem versus.",
+     "bbox": [
+      400,
+      790,
+      1600,
+      862
+     ],
+     "confidence": 60
+    },
+    {
+     "text": "2 Alterum verbum latinum.",
+     "bbox": [
+      400,
+      880,
+      1640,
+      952
+     ],
+     "confidence": 60
+    },
+    {
+     "text": "1 Texto espanol del primer versiculo,",
+     "bbox": [
+      1720,
+      700,
+      3030,
+      772
+     ],
+     "confidence": 60
+    },
+    {
+     "text": "que sigue en la linea siguiente.",
+     "bbox": [
+      1720,
+      790,
+      3010,
+      862
+     ],
+     "confidence": 60
+    },
+    {
+     "text": "2 Texto espanol del segundo versiculo.",
+     "bbox": [
+      1720,
+      880,
+      3020,
+      952
+     ],
+     "confidence": 60
+    },
+    {
+     "text": "1 Nota al pie de la columna izquierda.",
+     "bbox": [
+      400,
+      4260,
+      1640,
+      4324
+     ],
+     "confidence": 60
+    },
+    {
+     "text": "2 Segunda nota.",
+     "bbox": [
+      1720,
+      4260,
+      2900,
+      4324
+     ],
+     "confidence": 60
+    },
+    {
+     "text": "Digitized by",
+     "bbox": [
+      2304,
+      4674,
+      2569,
+      4724
+     ],
+     "confidence": 60
+    }
+   ]
+  },
+  {
+   "scan_page": 1,
+   "width": 3402,
+   "height": 4837,
+   "dpi": 600,
+   "lines": [
+    {
+     "text": "LOS SALMOS.",
+     "bbox": [
+      1697,
+      195,
+      2117,
+      255
+     ],
+     "confidence": 60
+    },
+    {
+     "text": "3 Tertium verbum latinum.",
+     "bbox": [
+      400,
+      700,
+      1640,
+      772
+     ],
+     "confidence": 60
+    },
+    {
+     "text": "continuacion del versiculo abierto en la pagina anterior.",
+     "bbox": [
+      1720,
+      700,
+      3030,
+      772
+     ],
+     "confidence": 60
+    },
+    {
+     "text": "3 Texto espanol del tercer versiculo.",
+     "bbox": [
+      1720,
+      790,
+      3020,
+      862
+     ],
+     "confidence": 60
+    },
+    {
+     "text": "SALMO II",
+     "bbox": [
+      760,
+      1000,
+      2600,
+      1080
+     ],
+     "confidence": 60
+    },
+    {
+     "text": "Otro argumento del editor.",
+     "bbox": [
+      700,
+      1120,
+      2600,
+      1194
+     ],
+     "confidence": 60
+    },
+    {
+     "text": "1 Inscripcion del salmo. Y aqui empieza el cuerpo.",
+     "bbox": [
+      1720,
+      1260,
+      3030,
+      1332
+     ],
+     "confidence": 60
+    },
+    {
+     "text": "2 Segundo versiculo del salmo nuevo.",
+     "bbox": [
+      1720,
+      1350,
+      3020,
+      1422
+     ],
+     "confidence": 60
+    },
+    {
+     "text": "fragmento suelto",
+     "bbox": [
+      1560,
+      2000,
+      1900,
+      2070
+     ],
+     "confidence": 60
+    }
+   ]
+  }
+ ]
+}
