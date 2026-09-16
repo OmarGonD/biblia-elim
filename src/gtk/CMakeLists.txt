@@ -152,6 +152,7 @@ add_executable (biblia-elim
   gbs_dialog.c
   gui.c
   gtk_lifecycle_smoke.c
+  author_commentary_probe.c
   interlineal.c
   instalar_biblias.c
   lectura_sync.c

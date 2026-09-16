@@ -27,6 +27,7 @@
 #include <glib/gstdio.h>
 
 #include <memory>
+#include <string>
 
 #include <swmgr.h>
 #include <swmodule.h>
@@ -1438,28 +1439,135 @@ gboolean main_is_author_commentary_module(const char *mod_name)
 		!strcmp(mod_name, "TorresAmatNotas"));
 }
 
-static void main_display_author_commentary(const char *bible, const char *key)
+/* Page 0 of widgets.notebook_comm_book is "Comentarios del autor";
+ * page 1 is "Notas" (NOTAS_TAB_INDEX in gtk/notas_verso.c). */
+#define COMENTARIOS_TAB_INDEX 0
+
+/*
+ * Whether the author commentary is actually on screen.
+ *
+ * settings.showcomms is a *request* to open the comm/notes notebook,
+ * not a report that it is open, and the two drift apart: the per-tab
+ * memory restored during startup writes the flag while the window is
+ * still being built, and gui_show_hide_comms() only touches the widget
+ * once main_window_created is set and, for TRUE, only outside reading
+ * mode.  Gating the refresh on the flag is what froze this pane: with
+ * the panel plainly visible and the flag at 0, every navigation
+ * returned here before rendering and left the previous verse's comment
+ * (and its heading) in place -- Mateo 11:30 still showing while the
+ * Bible had moved to Mateo 12:4.
+ *
+ * So ask the widget, which cannot lie about being visible, plus the
+ * selected tab.  That is the single source of truth for "render or
+ * not"; settings.showcomms keeps its own job of persisting the user's
+ * open/closed choice.
+ */
+static gboolean author_commentary_pane_is_live(void)
+{
+	return widgets.notebook_comm_book &&
+	       gtk_widget_get_visible(widgets.notebook_comm_book) &&
+	       gtk_notebook_get_current_page(
+		   GTK_NOTEBOOK(widgets.notebook_comm_book)) ==
+		   COMENTARIOS_TAB_INDEX;
+}
+
+/* Whether the author commentary actually says anything about this
+ * verse. SpaPlatense comments 13071 of its 37255 verses, so navigating
+ * lands on a silent verse most of the time; the pane has to say so
+ * explicitly instead of leaving a bare heading over an empty body,
+ * which reads exactly like the stale content this pane used to keep. */
+static gboolean author_commentary_has_text(const char *commentary,
+					   const char *key)
+{
+	BibleKeyInfo info;
+
+	if (!bible_backend->resolveKey(commentary, key, info))
+		return FALSE;
+	const std::string text =
+	    bible_backend->getVerseContent(commentary, info.reference, true)
+		.plainText;
+	return text.find_first_not_of(" \t\r\n") != std::string::npos;
+}
+
+/* Renders `key` of `bible` into the pane. Assumes the caller decided
+ * the pane should be rendered into at all. Returns FALSE only when the
+ * author commentary could not be shown at all, so a caller with a
+ * fallback (the clicked-marker path) knows to use it. */
+static gboolean author_commentary_render(const char *bible, const char *key)
 {
 	const char *commentary = author_commentary_for_bible(bible);
-	if (!settings.showcomms || !settings.comm_showing)
-		return;
-	if (commentary && bible_backend->hasModule(commentary)) {
-		/* key is native to the edition. Its notes declare the same
-		 * versification today, so this is identity; converting keeps
-		 * the notes on the right verse if that ever changes. */
-		gchar *comment_key =
-		    main_reference_for_module(bible, key, commentary);
-		if (!comment_key) {
-			HtmlOutput((char *)"<html><body><p><i>Este versículo no tiene equivalente en los comentarios del autor.</i></p></body></html>",
-				   widgets.html_comm, NULL, NULL);
-			return;
-		}
-		main_display_commentary(commentary, comment_key);
-		g_free(comment_key);
-		return;
+	gchar *comment_key;
+
+	if (!commentary || !bible_backend->hasModule(commentary)) {
+		HtmlOutput((char *)"<html><body><p><i>Esta edición no tiene comentarios del autor instalados.</i></p></body></html>",
+			   widgets.html_comm, NULL, NULL);
+		return FALSE;
 	}
-	HtmlOutput((char *)"<html><body><p><i>Esta edición no tiene comentarios del autor instalados.</i></p></body></html>",
-		   widgets.html_comm, NULL, NULL);
+	/* key is native to the edition. Its notes declare the same
+	 * versification today, so this is identity; converting keeps
+	 * the notes on the right verse if that ever changes. */
+	comment_key = main_reference_for_module(bible, key, commentary);
+	if (!comment_key) {
+		HtmlOutput((char *)"<html><body><p><i>Este versículo no tiene equivalente en los comentarios del autor.</i></p></body></html>",
+			   widgets.html_comm, NULL, NULL);
+		return FALSE;
+	}
+	if (!author_commentary_has_text(commentary, comment_key)) {
+		HtmlOutput((char *)"<html><body><p><i>Este versículo no tiene comentario del autor.</i></p></body></html>",
+			   widgets.html_comm, NULL, NULL);
+		g_free(comment_key);
+		return TRUE;
+	}
+	main_display_commentary(commentary, comment_key);
+	g_free(comment_key);
+	return TRUE;
+}
+
+/* Keeps an open pane in step with the Bible pane. Called once per
+ * main_display_bible(); never opens the pane by itself, so a panel the
+ * user closed stays closed while navigating. */
+static void main_display_author_commentary(const char *bible, const char *key)
+{
+	if (!author_commentary_pane_is_live())
+		return;
+	author_commentary_render(bible, key);
+}
+
+/*
+ * The one way to open "Comentarios del autor" on a reference.
+ *
+ * Every entry point goes through here -- today a clicked editorial note
+ * marker -- so the notebook's visibility, settings.showcomms, the
+ * selected tab, settings.comm_showing, the commentary module and the
+ * rendered reference are never set half-way.  Opening with a bare
+ * gtk_widget_show() would leave the flags behind and reproduce exactly
+ * the frozen-content bug this pane already had.
+ */
+gboolean main_show_author_commentary(const char *bible, const char *key)
+{
+	const char *commentary = author_commentary_for_bible(bible);
+
+	if (!commentary || !bible_backend->hasModule(commentary))
+		return FALSE;
+	if (!widgets.notebook_comm_book)
+		return FALSE;
+
+	/* gui_show_hide_comms() is the only writer of settings.showcomms
+	 * and carries the widget and the pane layout with it. Skip it when
+	 * both already agree, so reopening does not churn the layout. */
+	if (!settings.showcomms ||
+	    !gtk_widget_get_visible(widgets.notebook_comm_book))
+		gui_show_hide_comms(TRUE);
+
+	if (gtk_notebook_get_current_page(
+		GTK_NOTEBOOK(widgets.notebook_comm_book)) !=
+	    COMENTARIOS_TAB_INDEX)
+		gtk_notebook_set_current_page(
+		    GTK_NOTEBOOK(widgets.notebook_comm_book),
+		    COMENTARIOS_TAB_INDEX);
+	settings.comm_showing = TRUE;
+
+	return author_commentary_render(bible, key);
 }
 
 void main_display_dictionary(const char *mod_name,

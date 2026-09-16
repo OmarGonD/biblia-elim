@@ -40,6 +40,7 @@ add_library (main
   navbar.cc
   navbar_key.cc
   navbar_versekey.cc
+  note_action.c
   reference_transition.cc
   reading_focus.c
   reading_window.c

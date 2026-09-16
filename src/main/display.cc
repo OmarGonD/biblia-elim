@@ -2256,6 +2256,30 @@ _render_display_level(SWModule &imodule, unsigned long offset,
 	}
 }
 
+/*
+ * The reference the "Comentarios del autor" heading must name.
+ *
+ * It is the module's own key -- the very entry whose body is rendered
+ * just below the heading, put there by the set_module_key() that
+ * main_display_commentary() does before asking for this display().
+ * Reading settings.currentverse here instead made the two halves
+ * disagree: clicking an editorial note of Matthew 11:6 while the Bible
+ * pane was focused on 11:5 rendered 11:6's comment under an "Mt 11:5"
+ * heading.  The clicked note is an aside about one reference and must
+ * not move the Bible pane, so the heading follows the key, not the focus.
+ *
+ * getOSISRef() is deliberate: it is locale-independent, which is what
+ * main_interlineal_cita_es() parses back into the Spanish abbreviation.
+ */
+static gchar *author_commentary_heading_key(SWModule &imodule)
+{
+	VerseKey *key = dynamic_cast<VerseKey *>((SWKey *)imodule);
+
+	if (key)
+		return g_strdup((const char *)key->getOSISRef());
+	return g_strdup((const char *)imodule.getKeyText());
+}
+
 char
 GTKEntryDisp::display(SWModule &imodule)
 {
@@ -2290,10 +2314,11 @@ GTKEntryDisp::display(SWModule &imodule)
 	}
 
 	if (author_commentary) {
-		gchar *citation = main_interlineal_cita_es(settings.currentverse);
+		gchar *heading_key = author_commentary_heading_key(imodule);
+		gchar *citation = main_interlineal_cita_es(heading_key);
 		const gchar *citation_text =
 		    (citation && *citation) ? citation :
-		    (settings.currentverse ? settings.currentverse : "");
+		    (heading_key ? heading_key : "");
 		gchar *escaped = g_markup_escape_text(
 		    citation_text, -1);
 		entry_heading = g_strdup_printf(
@@ -2301,6 +2326,7 @@ GTKEntryDisp::display(SWModule &imodule)
 		    settings.bible_verse_num_color, escaped);
 		g_free(escaped);
 		g_free(citation);
+		g_free(heading_key);
 	} else {
 		entry_heading = g_strdup_printf(
 		    "[<a href=\"passagestudy.jsp?action=showModInfo&amp;value=%s&amp;module=%s\">"

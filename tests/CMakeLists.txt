@@ -43,6 +43,27 @@ if (BUILD_TESTING AND UNIX)
       USES_TERMINAL
       )
   endif ()
+
+  if (XVFB_RUN_EXECUTABLE)
+    add_test (
+      NAME author_commentary_probe
+      COMMAND ${CMAKE_COMMAND}
+              -DAPP=$<TARGET_FILE:biblia-elim>
+              -DXVFB_RUN=${XVFB_RUN_EXECUTABLE}
+              -DRUNTIME_ROOT=${CMAKE_CURRENT_BINARY_DIR}
+              -P ${CMAKE_CURRENT_SOURCE_DIR}/run_author_commentary_probe.cmake
+      )
+    set_tests_properties (author_commentary_probe PROPERTIES
+      SKIP_RETURN_CODE 77
+      TIMEOUT 140
+      )
+    add_custom_target (author_commentary_probe_test
+      COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure
+              -R ^author_commentary_probe$
+      DEPENDS biblia-elim
+      USES_TERMINAL
+      )
+  endif ()
 endif ()
 
 add_executable (pulpito_test
@@ -986,6 +1007,110 @@ target_include_directories (verse_navigation_sword_test PRIVATE
 target_link_libraries (verse_navigation_sword_test PRIVATE
   PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome PkgConfig::Soup
   PkgConfig::Sword)
+
+add_executable (note_action_test
+  EXCLUDE_FROM_ALL
+  note_action_test.c
+  ${PROJECT_SOURCE_DIR}/src/main/note_action.c
+  )
+
+target_include_directories (note_action_test
+  PRIVATE
+  PkgConfig::Core
+  )
+
+target_link_libraries (note_action_test
+  PRIVATE
+  PkgConfig::Core
+  )
+
+if (BUILD_TESTING AND UNIX)
+  add_test (
+    NAME note_action_test
+    COMMAND $<TARGET_FILE:note_action_test>
+    )
+endif ()
+
+add_executable (author_commentary_panel_test
+  EXCLUDE_FROM_ALL
+  author_commentary_panel_test.c
+  )
+
+target_compile_definitions (author_commentary_panel_test
+  PRIVATE
+  SRCDIR="${PROJECT_SOURCE_DIR}"
+  )
+
+target_link_libraries (author_commentary_panel_test
+  PRIVATE
+  PkgConfig::Core
+  )
+
+if (BUILD_TESTING AND UNIX)
+  add_test (
+    NAME author_commentary_panel_test
+    COMMAND $<TARGET_FILE:author_commentary_panel_test>
+    )
+endif ()
+
+add_executable (author_commentary_content_test EXCLUDE_FROM_ALL
+  author_commentary_content_test.cc
+  ${PROJECT_SOURCE_DIR}/src/main/reference_transition.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sword_main.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sword/sword_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/quoted_heading.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/source_quirks.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/morphology.cc
+  ${PROJECT_SOURCE_DIR}/src/main/busqueda_tildes.c)
+target_compile_options (author_commentary_content_test PRIVATE
+  -ffunction-sections)
+target_link_options (author_commentary_content_test PRIVATE
+  -Wl,--gc-sections)
+target_include_directories (author_commentary_content_test PRIVATE
+  PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome PkgConfig::Soup
+  PkgConfig::Sword)
+target_link_libraries (author_commentary_content_test PRIVATE
+  PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome PkgConfig::Soup
+  PkgConfig::Sword)
+
+if (BUILD_TESTING AND UNIX)
+  add_test (
+    NAME author_commentary_content_test
+    COMMAND $<TARGET_FILE:author_commentary_content_test>
+    )
+endif ()
+
+add_executable (author_commentary_header_test EXCLUDE_FROM_ALL
+  author_commentary_header_test.cc
+  ${PROJECT_SOURCE_DIR}/src/main/interlineal.cc
+  ${PROJECT_SOURCE_DIR}/src/main/reference_transition.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sword_main.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sword/sword_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/quoted_heading.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/source_quirks.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/morphology.cc
+  ${PROJECT_SOURCE_DIR}/src/main/busqueda_tildes.c)
+target_compile_options (author_commentary_header_test PRIVATE
+  -ffunction-sections -fdata-sections)
+target_link_options (author_commentary_header_test PRIVATE
+  -Wl,--gc-sections)
+target_include_directories (author_commentary_header_test PRIVATE
+  PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome PkgConfig::Soup
+  PkgConfig::Sword)
+target_link_libraries (author_commentary_header_test PRIVATE
+  PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome PkgConfig::Soup
+  PkgConfig::Sword)
+
+if (BUILD_TESTING AND UNIX)
+  add_test (
+    NAME author_commentary_header_test
+    COMMAND $<TARGET_FILE:author_commentary_header_test>
+    )
+endif ()
 
 add_executable (compare_canonical_body_test EXCLUDE_FROM_ALL
   compare_canonical_body_test.cc

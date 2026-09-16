@@ -65,6 +65,7 @@
 #include "main/parallel_view.h"
 #include "main/sidebar.h"
 #include "main/strong_ui.h"
+#include "main/note_action.h"
 #include "main/sword.h"
 #include "main/xml.h"
 
@@ -451,7 +452,8 @@ static gint show_note(const gchar *module, const gchar *passage,
 	} else
 		backend->set_module_key((gchar *)module, (gchar *)passage);
 
-	if (strchr(stype, 'x') && clicked) {
+	switch (main_note_action_for(stype, clicked)) {
+	case NOTE_ACTION_CROSSREF_LIST: {
 		BibleFootnote footnote;
 		if (backend->getCurrentEntryFootnote(module, svalue, footnote) &&
 		    !footnote.referenceList.empty()) {
@@ -459,7 +461,36 @@ static gint show_note(const gchar *module, const gchar *passage,
 							   (gchar *)module,
 							   (gchar *)footnote.referenceList.c_str());
 		}
-	} else if (strchr(stype, 'n') && !clicked) {
+		break;
+	}
+	case NOTE_ACTION_AUTHOR_COMMENTARY: {
+		/* An editorial note marker the user actually clicked: open
+		 * the author commentary on that verse. The whole verse is
+		 * what gets opened -- see the note below on why there is no
+		 * per-note anchor to honour.
+		 *
+		 * Editions with no author commentary module fall back to the
+		 * previewer, i.e. to what hovering the same marker already
+		 * shows. Doing nothing (the previous behaviour) is what left
+		 * a click looking broken and invited the second click that
+		 * GTK then delivered as a double click. */
+		if (!main_show_author_commentary(module, passage)) {
+			BibleFootnote footnote;
+			if (backend->getCurrentEntryFootnote(module, svalue,
+							     footnote) &&
+			    !footnote.body.empty()) {
+				main_information_viewer((gchar *)module,
+							(gchar *)footnote.body.c_str(),
+							(gchar *)svalue,
+							"showNote",
+							(gchar *)stype,
+							NULL,
+							NULL);
+			}
+		}
+		break;
+	}
+	case NOTE_ACTION_NOTE_PREVIEW: {
 		BibleFootnote footnote;
 		if (backend->getCurrentEntryFootnote(module, svalue, footnote) &&
 		    !footnote.body.empty()) {
@@ -471,7 +502,9 @@ static gint show_note(const gchar *module, const gchar *passage,
 						NULL,
 						NULL);
 		}
-	} else if (strchr(stype, 'x') && !clicked) {
+		break;
+	}
+	case NOTE_ACTION_CROSSREF_PREVIEW: {
 		BibleFootnote footnote;
 		backend->getCurrentEntryFootnote(module, svalue, footnote);
 		if (settings.xrefs_in_verse_list) {
@@ -513,6 +546,10 @@ static gint show_note(const gchar *module, const gchar *passage,
 						NULL,
 						NULL);
 		}
+		break;
+	}
+	case NOTE_ACTION_NONE:
+		break;
 	}
 
 	if (work_buf)

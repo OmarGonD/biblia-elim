@@ -42,6 +42,7 @@
 #include "gui/navbar_versekey.h"
 #include "gui/panel_load_state.h"
 #include "gtk/gtk_lifecycle_smoke.h"
+#include "gtk/author_commentary_probe.h"
 
 #include "main/recordatorio.h"
 #include "main/sword.h"
@@ -495,6 +496,9 @@ int main(int argc, char *argv[])
 
 	panel_load_debug("app", "GTK_MAIN_ENTER", NULL);
 	gtk_lifecycle_smoke_schedule();
+	author_commentary_probe_schedule();
 	gui_main();
-	return gtk_lifecycle_smoke_exit_status();
+	if (gtk_lifecycle_smoke_exit_status())
+		return gtk_lifecycle_smoke_exit_status();
+	return author_commentary_probe_exit_status();
 }

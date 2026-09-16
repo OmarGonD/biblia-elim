@@ -46,6 +46,7 @@
 #include "gui/xiphos.h"
 #include "gui/mod_mgr.h"
 #include "gui/widgets.h"
+#include "gtk/author_commentary_probe.h"
 #include "gui/dialog.h"
 
 #include "main/lists.h"
@@ -2093,6 +2094,10 @@ HtmlOutput(char *text, GtkWidget *gtkText, MOD_FONT *mf, char *anchor)
 {
 	XiphosHtml *html = XIPHOS_HTML(gtkText);
 	const gchar *jump;
+
+	/* One place every pane is painted through, so the author
+	 * commentary probe sees exactly what the panel is handed. */
+	author_commentary_probe_capture(gtkText, text);
 
 	if (g_getenv("BIBLIA_ELIM_FONT_DEBUG") &&
 	    !g_strcmp0(g_getenv("BIBLIA_ELIM_FONT_DEBUG"), "1") && text) {

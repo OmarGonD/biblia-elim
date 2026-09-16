@@ -106,6 +106,11 @@ void main_display_book(const char *mod_name, const char *key); //, unsigned long
 void main_display_commentary(const char *mod_name,
 			     const char *key);
 gboolean main_is_author_commentary_module(const char *mod_name);
+/* Opens "Comentarios del autor" on `key` of `bible`, bringing the
+ * notebook, its flags, the tab and the rendered reference along
+ * together. FALSE when that edition has no author commentary installed.
+ * This is the only supported way to open the pane. */
+gboolean main_show_author_commentary(const char *bible, const char *key);
 void main_display_dictionary(const char *mod_name,
 			     const char *key);
 /* key must be native to mod_name. To carry the reader's place from
