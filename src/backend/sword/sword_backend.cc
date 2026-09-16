@@ -79,6 +79,59 @@ private:
 	ModuleKeyGuard &operator=(const ModuleKeyGuard &);
 };
 
+/*
+ * BibleVerseContent keeps the verse body (plainText) apart from the
+ * annotations hung off it (footnotes, crossReferences, headings) -- see
+ * bible_types.h.  SWORD's plain-text filters do not honour that split:
+ * with the Footnotes option on, OSISPlain inlines each <note> body into
+ * the stripped text between square brackets, so SpaPlatense Matthew
+ * 11:30 strips as the verse followed by the whole of Straubinger's
+ * commentary, and Genesis 1:1 strips as the commentary followed by the
+ * verse.  Those options are global and belong to the main reading pane,
+ * which legitimately wants its note markers; a neutral body read must
+ * not inherit them.  Force them off for the duration of the strip and
+ * put back exactly what was there.
+ *
+ * Source-agnostic on purpose: this is the note/annotation split the
+ * interface already documents, not a quirk of any one module.
+ */
+struct CanonicalBodyGuard {
+	sword::SWMgr *mgr;
+	std::string saved[2];
+	bool had[2];
+
+	explicit CanonicalBodyGuard(sword::SWMgr *manager)
+		: mgr(manager)
+	{
+		for (int i = 0; i < 2; ++i) {
+			had[i] = false;
+			if (!mgr)
+				continue;
+			const char *now = mgr->getGlobalOption(name(i));
+			if (!now)
+				continue;
+			had[i] = true;
+			saved[i] = now;
+			mgr->setGlobalOption(name(i), "Off");
+		}
+	}
+
+	~CanonicalBodyGuard()
+	{
+		for (int i = 0; i < 2; ++i)
+			if (mgr && had[i])
+				mgr->setGlobalOption(name(i), saved[i].c_str());
+	}
+
+private:
+	static const char *name(int index)
+	{
+		return index == 0 ? "Footnotes" : "Cross-references";
+	}
+	CanonicalBodyGuard(const CanonicalBodyGuard &);
+	CanonicalBodyGuard &operator=(const CanonicalBodyGuard &);
+};
+
 static sword::VerseKey *verseKeyFor(sword::SWModule *module,
 					    const std::string &key)
 {
@@ -520,6 +573,7 @@ BibleVerseContent BackEnd::getVerseContent(
 	}
 
 	if (include_plain_text) {
+		CanonicalBodyGuard body_only(get_mgr());
 		const char *plain = module->stripText();
 		if (plain)
 			content.plainText = plain;
@@ -588,6 +642,55 @@ BibleVerseContent BackEnd::getVerseContent(
 	}
 	applySourceQuirks(module_id, content);
 	return content;
+}
+
+/*
+ * The verse body with nothing hung off it, for callers that render no
+ * annotations at all -- see BibleBackend::getVerseBodyText().
+ *
+ * It positions and strips exactly as the display path does, so the text
+ * is byte-for-byte what the module yields, minus the note and cross
+ * reference bodies the plain-text filters would otherwise inline.  It
+ * deliberately skips applySourceQuirks(): those reshape the body for a
+ * view that draws headings, and this caller does not.
+ */
+std::string BackEnd::getVerseBodyText(const std::string &module_id,
+				      const BibleReference &reference)
+{
+	sword::SWModule *module = get_SWModule(module_id.c_str());
+	if (!module)
+		return std::string();
+	if (reference.testament < 1 || reference.testament > 2 ||
+	    reference.book < 1 || reference.chapter < 1 || reference.verse < 1)
+		return std::string();
+
+	ModuleKeyGuard restore(module);
+	sword::VerseKey *verse_key =
+		dynamic_cast<sword::VerseKey *>(module->createKey());
+	if (!verse_key)
+		return std::string();
+	verse_key->setAutoNormalize(0);
+	verse_key->setTestament(reference.testament);
+	std::string key_text;
+	if (reference.book <= verse_key->getBookMax()) {
+		verse_key->setBook(reference.book);
+		if (reference.chapter <= verse_key->getChapterMax()) {
+			verse_key->setChapter(reference.chapter);
+			if (reference.verse <= verse_key->getVerseMax()) {
+				verse_key->setVerse(reference.verse);
+				if (!verse_key->popError())
+					key_text = keyTextFor(*verse_key);
+			}
+		}
+	}
+	delete verse_key;
+	if (key_text.empty())
+		return std::string();
+
+	module->setKeyText(key_text.c_str());
+	CanonicalBodyGuard body_only(get_mgr());
+	const char *plain = module->stripText();
+	return plain ? std::string(plain) : std::string();
 }
 
 bool BackEnd::currentEntryFootnotesHaveNumbers(

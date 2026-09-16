@@ -8,9 +8,8 @@
 
 #include <stdio.h>
 #include <string.h>
-#include <swmodule.h>
-#include <versekey.h>
-#include <swbuf.h>
+
+#include <string>
 
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
@@ -24,8 +23,6 @@
 #include "main/lists.h"
 #include "main/settings.h"
 #include "main/sword.h"
-
-using namespace sword;
 
 static gchar *
 css_color(const char *c, const char *fallback)
@@ -141,14 +138,10 @@ append_un_versiculo(GString *html, const char *source_mod,
 		    const char *mod_name, const char *key_text,
 		    int slot, int nslots)
 {
-	SWModule *mod;
-	VerseKey *vk;
-	SWBuf saved;
-	const char *plain;
 	gchar *esc, *de, *target_key, *num;
-	int v, c;
 	gboolean other_chapter;
-	BibleKeyInfo source_info;
+	BibleKeyInfo source_info, target_info;
+	std::string body;
 	const BandaCmp *b;
 
 	if (slot < 0)
@@ -163,10 +156,12 @@ append_un_versiculo(GString *html, const char *source_mod,
 				       _("Módulo no disponible."));
 		return;
 	}
-	mod = backend->get_SWModule(mod_name);
-	if (!mod)
-		return;
 	target_key = main_reference_for_module(source_mod, key_text, mod_name);
+	if (target_key && !bible_backend->resolveKey(mod_name, target_key,
+						     target_info)) {
+		g_free(target_key);
+		target_key = NULL;
+	}
 
 	de = g_markup_escape_text(desc_de_modulo(mod_name), -1);
 	g_string_append_printf(html,
@@ -194,26 +189,29 @@ append_un_versiculo(GString *html, const char *source_mod,
 		return;
 	}
 
-	/* Position the module's own key in place: setKey() with a key
-	 * object would replace the pointer the chapter renderer holds. */
-	saved = mod->getKeyText();
-	mod->setKeyText(target_key);
-	vk = dynamic_cast<VerseKey *>(mod->getKey());
-	v = vk ? vk->getVerse() : 0;
-	c = vk ? vk->getChapter() : 0;
-	other_chapter = bible_backend &&
-			bible_backend->resolveKey(source_mod, key_text,
+	other_chapter = bible_backend->resolveKey(source_mod, key_text,
 						  source_info) &&
-			vk &&
-			(source_info.reference.chapter != c ||
-			 source_info.osisBook != vk->getOSISBookName());
-	num = other_chapter ? g_strdup_printf("%d:%d", c, v)
-			    : g_strdup_printf("%d", v);
+			(source_info.reference.chapter !=
+				 target_info.reference.chapter ||
+			 source_info.osisBook != target_info.osisBook);
+	num = other_chapter
+		  ? g_strdup_printf("%d:%d", target_info.reference.chapter,
+				    target_info.reference.verse)
+		  : g_strdup_printf("%d", target_info.reference.verse);
 	g_free(target_key);
 
-	plain = mod->stripText();
-	if (plain && *plain) {
-		esc = esc_con_saltos(plain);
+	/* Comparing versions compares scripture, not the editorial
+	 * apparatus wrapped around it. Reading the module's stripped text
+	 * here inherited the main pane's Footnotes option -- on by default
+	 * for every module -- and with it the whole of a Straubinger
+	 * comment inlined beside the verse, bracketed: SpaPlatense Matthew
+	 * 11:30 came out as the verse plus the note, and Genesis 1:1 as
+	 * the note followed by the verse. Ask the backend for the verse
+	 * body instead; annotations stay in the module, and in the main
+	 * view, untouched. */
+	body = bible_backend->getVerseBodyText(mod_name, target_info.reference);
+	if (!body.empty()) {
+		esc = esc_con_saltos(body.c_str());
 		g_string_append_printf(html,
 				       "<p class=\"cur\" style=\"background-color:%s;color:%s\">"
 				       "<span class=\"v\">%s</span> %s</p>",
@@ -226,7 +224,6 @@ append_un_versiculo(GString *html, const char *source_mod,
 				       _("Este versículo no está en esta versión."));
 	}
 	g_free(num);
-	mod->setKeyText(saved.c_str());
 }
 
 /* Renders the focused verse in every Comparar version (up to 4). */

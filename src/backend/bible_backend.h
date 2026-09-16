@@ -112,6 +112,26 @@ public:
 		const std::string &module_id,
 		const BibleReference &reference,
 		bool include_plain_text = false) = 0;
+	/* The verse body on its own: no notes, no footnotes, no cross
+	 * references, no editorial apparatus -- and no display-oriented
+	 * reinterpretation of the body either.  This is what a consumer
+	 * that puts one version's verse beside another's must read.
+	 *
+	 * It is deliberately not the same thing as getVerseContent()'s
+	 * plainText.  That one is the main reading view's model, where a
+	 * source quirk may legitimately lift part of the body out into
+	 * headings (SpaRVG's quoted Psalm superscriptions) because that
+	 * view draws headings.  A plain side-by-side comparison draws
+	 * none, so taking its text from there would silently drop them.
+	 *
+	 * The default suits any backend that already stores body and
+	 * annotations apart and applies no such quirk.
+	 */
+	virtual std::string getVerseBodyText(const std::string &module_id,
+					     const BibleReference &reference)
+	{
+		return getVerseContent(module_id, reference, true).plainText;
+	}
 	/* Compatibility helper for non-VerseKey displays which still render the
 	 * module's current entry. */
 	virtual bool currentEntryFootnotesHaveNumbers(

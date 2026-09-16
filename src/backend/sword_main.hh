@@ -109,6 +109,8 @@ class BackEnd : public BibleBackend
 		const std::string &module_id,
 		const BibleReference &reference,
 		bool include_plain_text = false) override;
+	std::string getVerseBodyText(const std::string &module_id,
+				     const BibleReference &reference) override;
 	bool currentEntryFootnotesHaveNumbers(
 		const std::string &module_id) const override;
 	bool getCurrentEntryFootnote(const std::string &module_id,
