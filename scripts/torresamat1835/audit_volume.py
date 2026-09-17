@@ -16,6 +16,7 @@ import time
 
 import book_boundaries
 import chapter_claims
+import corrupted_markers
 import heading_validity
 import image_reviews
 import layout
@@ -376,6 +377,67 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         } for item in resolutions if item.get("recovered")],
     }
 
+    # Rótulos que el reconocimiento dejó con la PALABRA rota. Es otra
+    # cola y no sustituye a `missing_heading`: aquélla busca planas donde
+    # falta el renglón, y ésta renglones que están y no se leen como lo
+    # que son. Genera preguntas, no capítulos.
+    represented = {}
+    for entry in (payload.get("reviews", []) if payload else []):
+        if entry.get("heading_block"):
+            represented[entry["heading_block"]] = entry["id"]
+    for entry in (payload.get("numeral_reviews", []) if payload else []):
+        represented[entry["target_block"]] = entry["id"]
+    marker_started = time.time()
+    marker_candidates, marker_rejections = corrupted_markers.scan(
+        pages_with_layout(), book_at=lambda page: structure.book_at(spans, page),
+        header_chapters=header_chapters, represented=represented)
+    marker_seconds = round(time.time() - marker_started, 2)
+    accepted_by_block = {c.block_id: c for c in ledger.accepted()}
+    marker_rows = []
+    for candidate in marker_candidates:
+        row = candidate.as_dict()
+        review_id = candidate.already_represented_by
+        row["review_outcome"] = ("already_represented" if review_id
+                                 else "awaiting_review")
+        row["linked_recovery"] = review_id
+        # Un candidato ya recuperado se ve por su reclamo: el rótulo pasó
+        # a llevar «r» en el identificador, porque quien lo leyó fue una
+        # persona en la imagen.
+        recovered_id = f"p{candidate.scan_page:04d}r{candidate.block_id[6:]}"
+        claim = accepted_by_block.get(recovered_id)
+        row["recovered_chapter"] = claim.accepted_number if claim else None
+        marker_rows.append(row)
+    marker_report = {
+        "about": ("headings the recognition DID emit and whose division word "
+                  "it destroyed («S A L M O X L.», «5ALMO CXXXVI.»). The text "
+                  "cannot be read as a division, so no boundary opened and "
+                  "the psalm's content waited in review. This queue only says "
+                  "where to look: candidate generation may be heuristic, "
+                  "recovery may not -- every entry here is confirmed in the "
+                  "facsimile before it becomes a chapter, and the raw OCR is "
+                  "never edited."),
+        "not_the_same_as_missing_heading": (
+            "`image_review_queue.missing_heading` ranks pages where the "
+            "heading LINE is absent. These are pages where the line is "
+            "present and unreadable as a division. The two queues are kept "
+            "apart on purpose."),
+        "signals": {"marker_similarity_at_least": corrupted_markers.SIMILAR_ENOUGH,
+                    "quite_similar": corrupted_markers.QUITE_SIMILAR,
+                    "max_content_words": corrupted_markers.MAX_CONTENT_WORDS},
+        "scan_seconds": marker_seconds,
+        "lines_inspected": sum(marker_rejections.values()) + len(marker_rows),
+        "rejected_by_reason": dict(sorted(marker_rejections.items())),
+        "summary": corrupted_markers.summary(marker_candidates),
+        "total": len(marker_rows),
+        "already_represented": sum(1 for r in marker_rows
+                                   if r["review_outcome"] == "already_represented"),
+        "awaiting_review": sum(1 for r in marker_rows
+                               if r["review_outcome"] == "awaiting_review"),
+        "recovered": sum(1 for r in marker_rows
+                         if r["recovered_chapter"] is not None),
+        "candidates": marker_rows,
+    }
+
     # Cola de revisión visual, ordenada por lo que más devuelve. No crea
     # estructura: sólo dice dónde mirar.
     geometry = {}
@@ -695,6 +757,7 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         "chapter_claims": claims_report,
         "competing_chapter_claims": len(ledger.collisions()),
         "chapter_image_recovery": recovery_report,
+        "corrupted_division_marker_candidates": marker_report,
         "image_review_queue": candidate_report,
         "book_boundary_resolution": {
             "model": "pending candidate held forward until confirmation",
@@ -845,6 +908,22 @@ def main():
             print(f"    {osis:5} {stat['before']:6} {stat['after']:6}"
                   f"  {stat['gained']} lost={stat['lost']}"
                   f" vulg={stat['vulg_audit_limit']}")
+    mk = report.get("corrupted_division_marker_candidates", {})
+    if mk:
+        print(f"  corrupted markers          candidates={mk['total']}"
+              f" recovered={mk['recovered']}"
+              f" already_represented={mk['already_represented']}"
+              f" awaiting={mk['awaiting_review']}"
+              f"  ({mk['scan_seconds']}s over {mk['lines_inspected']} lines)")
+        print(f"    by rank                  {mk['summary']['by_rank']}"
+              f"  by family {mk['summary']['by_marker_family']}"
+              f"  by book {mk['summary']['by_book']}")
+        for row in mk["candidates"]:
+            print(f"    {row['rank']:6} {row['book']:5} p{row['scan_page']:<4}"
+                  f" {row['block_id']:14} sim={row['marker_similarity']:.2f}"
+                  f" {row['raw_text'][:34]!r} -> {row['recovered_chapter']}"
+                  f" {row['review_outcome']}")
+
     q = report.get("image_review_queue", {})
     if q:
         print(f"  review queue               {q['total']} {q['by_family']}")

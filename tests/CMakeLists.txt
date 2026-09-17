@@ -1097,6 +1097,16 @@ if (BUILD_TESTING AND UNIX AND PYTHON3_EXECUTABLE)
   set_tests_properties (torresamat1835_numeral_review_test PROPERTIES
     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
     )
+  # El barrido que busca ese mismo daño en las 652 planas: rótulos
+  # presentes cuya palabra de división el reconocimiento destrozó.
+  add_test (
+    NAME torresamat1835_corrupted_markers_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_corrupted_markers.py
+    )
+  set_tests_properties (torresamat1835_corrupted_markers_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
+    )
   # El rótulo estaba en el reconocimiento con la PALABRA rota («S A L M O
   # X L.»), así que ninguna lectura del texto podía verlo. Aquí vive la
   # recuperación de esas tres fronteras contra el facsímil.

@@ -24,6 +24,13 @@ from typing import Optional
 
 from model import Block, BlockKind, Edition, Provenance
 
+#: Las palabras CANÓNICAS con que esta edición abre una división, tal y
+#: como están impresas. El vocabulario vive aquí y sólo aquí: quien
+#: necesite reconocerlas de otra manera -- por su forma, por su
+#: esqueleto, por lo que el reconocimiento haya hecho con ellas -- parte
+#: de esta lista y no escribe otra.
+DIVISION_WORDS = ("SALMO", "CAPITULO")
+
 #: Palabras con que el impreso abre una división. La tolerancia al ruido
 #: del OCR está aquí, en la PALABRA, que es larga y sobrevive bien; nunca
 #: en el numeral, que es corto y se rompe.

@@ -428,8 +428,14 @@ def test_N_the_numeral_reviews_of_the_previous_batches_are_unaffected():
         return
     nr = report["numeral_image_review"]
     assert nr["schema_problems"] == []
-    assert nr["reviews_attempted"] == 113
-    assert nr["reviews_resolved"] == 111
+    # Lo que se fija no es un total -- las tandas siguen llegando -- sino
+    # que TODA lectura de numeral registrada se intenta y que las que dan
+    # número siguen dándolo.
+    shipped = ir.load()["numeral_reviews"]
+    assert nr["reviews_attempted"] == len(shipped)
+    assert nr["reviews_resolved"] == sum(
+        1 for r in shipped if r["outcome"] in ir.NUMERAL_RESOLVING
+        and r.get("recovered_chapter") is not None)
     claims = {c["block_id"]: c for c in report["chapter_claims"]["claims"]}
     for review in ir.load()["numeral_reviews"]:
         claim = claims.get(review["target_block"])
