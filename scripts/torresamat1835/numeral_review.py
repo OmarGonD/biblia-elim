@@ -73,7 +73,7 @@ class QueueEntry:
 
 
 def build(claims: List[dict], *, permissive_groups=None,
-          competing_groups=None) -> List[QueueEntry]:
+          competing_groups=None, reviewed_blocks=None) -> List[QueueEntry]:
     """La cola, a partir de los reclamos que el ledger ya tiene.
 
     `claims` son los diccionarios que el ledger publica; no se vuelve a
@@ -82,6 +82,11 @@ def build(claims: List[dict], *, permissive_groups=None,
     """
     permissive_groups = permissive_groups or []
     competing_groups = competing_groups or []
+    # Un rótulo que ya se miró no vuelve a la cola aunque siga sin
+    # número: si la imagen dijo que no era un capítulo, o que su numeral
+    # no se deja leer, mandar a alguien a mirarlo otra vez no añade nada
+    # y esconde lo que sí está sin revisar.
+    reviewed_blocks = set(reviewed_blocks or ())
 
     ordered = sorted(claims, key=lambda c: c.get("order", 0))
 
@@ -130,6 +135,8 @@ def build(claims: List[dict], *, permissive_groups=None,
     for claim in ordered:
         disposition = claim["disposition"]
         if disposition not in QUEUED:
+            continue
+        if claim["block_id"] in reviewed_blocks:
             continue
         if disposition == COMPETING:
             priority = PRIORITY_COMPETING

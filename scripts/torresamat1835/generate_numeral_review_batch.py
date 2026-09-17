@@ -20,6 +20,7 @@ mirar. El ensanchado queda anotado en el manifiesto.
 Esto NO lee nada: sólo prepara imágenes para que las lea una persona.
 """
 import argparse
+import glob
 import hashlib
 import json
 import os
@@ -53,12 +54,23 @@ def sha256_of(path, chunk=1 << 20):
 
 
 def render_page(pdf, pdf_page, out_dir, dpi):
+    """Rinde una plana y devuelve el fichero que pdftoppm haya escrito.
+
+    El sufijo no se puede componer a mano: pdftoppm lo rellena con tantos
+    dígitos como tenga el total de páginas del PDF, así que la plana 21 de
+    un tomo de 652 sale como «-021» y no como «-21». Componerlo funcionaba
+    con las planas de tres cifras y se rompía con las primeras del tomo.
+    """
     stem = os.path.join(out_dir, f"page{pdf_page:04d}")
-    produced = f"{stem}-{pdf_page}.png"
-    if not os.path.isfile(produced):
-        subprocess.run(["pdftoppm", "-f", str(pdf_page), "-l", str(pdf_page),
-                        "-r", str(dpi), "-png", pdf, stem], check=True)
-    return produced
+    existing = glob.glob(f"{stem}-*.png")
+    if existing:
+        return existing[0]
+    subprocess.run(["pdftoppm", "-f", str(pdf_page), "-l", str(pdf_page),
+                    "-r", str(dpi), "-png", pdf, stem], check=True)
+    produced = glob.glob(f"{stem}-*.png")
+    if not produced:
+        raise SystemExit(f"pdftoppm no escribió nada para la plana {pdf_page}")
+    return produced[0]
 
 
 def crop(page_png, bbox, out_path, *, scan_width, scan_height, scale=4):
@@ -131,14 +143,31 @@ def main():
         print(f"  P{entry.priority} {entry.book:5} scan={entry.scan_page:4} "
               f"{entry.block_id:14} raw={entry.raw_heading[:34]!r} -> {name}")
 
+    # El manifiesto se ACUMULA: una tanda puede prepararse en varias
+    # llamadas (un libro cada vez), y sobrescribirlo perdía las
+    # anteriores, que es justo lo que hace falta para poder repetir la
+    # revisión entera más tarde.
     manifest = os.path.join(args.out, "batch.json")
+    merged = {}
+    if os.path.isfile(manifest):
+        try:
+            with open(manifest, encoding="utf-8") as handle:
+                for old_entry in json.load(handle).get("entries", []):
+                    merged[old_entry.get("block_id")] = old_entry
+        except (ValueError, OSError):
+            merged = {}
+    for entry in entries:
+        merged[entry["block_id"]] = entry
+    ordered = sorted(merged.values(),
+                     key=lambda e: (e.get("book", ""), e.get("scan_page", 0)))
     with open(manifest, "w", encoding="utf-8") as handle:
         json.dump({"source_sha256": digest,
                    "source_filename": os.path.basename(args.pdf),
                    "page_mapping": "pdf_page = scan_page + 1",
                    "note": "local only; crops are not versioned",
-                   "entries": entries}, handle, ensure_ascii=False, indent=1)
-    print(f"\n{len(entries)} recortes en {args.out}; manifiesto {manifest}")
+                   "entries": ordered}, handle, ensure_ascii=False, indent=1)
+    print(f"\n{len(entries)} recortes nuevos en {args.out};"
+          f" manifiesto {manifest} con {len(ordered)} entradas")
     return 0
 
 

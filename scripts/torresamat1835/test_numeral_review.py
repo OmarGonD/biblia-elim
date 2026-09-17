@@ -516,6 +516,81 @@ def test_the_queue_is_derived_from_the_ledger_not_rebuilt():
     assert entry.priority == numeral_review.PRIORITY_REST
 
 
+# ======================================================================
+# Tanda 113: reclamos falsos, exclusión de la cola y atribución por tanda
+# ======================================================================
+def test_C_no_duplicate_review_ids_or_targets():
+    payload = ir.load()
+    ids = [r["id"] for r in payload["numeral_reviews"]]
+    blocks = [r["target_block"] for r in payload["numeral_reviews"]]
+    assert len(ids) == len(set(ids)), "identificadores repetidos"
+    assert len(blocks) == len(set(blocks)), "dos revisiones al mismo rótulo"
+
+
+def test_a_rejected_false_claim_leaves_the_claim_alone():
+    """Mirar una plana y descubrir que ahí no hay capítulo es un resultado.
+
+    En el tomo hay dos: líneas de inscripción del salmo («Salmo de David:
+    de los hijos de…») de las que el reconocimiento sacó un romano. No
+    dan número, no crean capítulo, y quedan registradas para no volver a
+    mandarlas a revisión.
+    """
+    false_claims = [r for r in _shipped() if r.outcome == ir.FALSE_CLAIM]
+    assert false_claims, "el tomo tiene reclamos falsos revisados"
+    for review in false_claims:
+        assert not review.resolves
+        assert review.recovered_chapter is None
+        assert review.observed_printed_numeral is None
+        assert review.raw_heading            # el crudo se conserva
+        assert len(review.rationale) > 40
+
+    fixture = _page([("CAPÍTULO XXL", 0)])
+    block = _heading_blocks(fixture, {"CAPÍTULO XXL"})["CAPÍTULO XXL"]
+    edition, _s, walker = _parse(fixture, [_review(
+        target_block=block, outcome=ir.FALSE_CLAIM,
+        observed_printed_text=None, observed_printed_numeral=None,
+        recovered_chapter=None)])
+    assert walker.ledger.claims[0].accepted_number is None
+    assert not [n for n in edition.books["Sir"].chapters if n > 0]
+
+
+def test_the_queue_does_not_send_a_reviewed_heading_back():
+    claims = [{
+        "claim_id": "c0", "order": 0, "book": "Ps", "scan_page": 101,
+        "block_id": "p0101l0062", "disposition": "invalid_numeral",
+        "raw_heading": "Salmo de Bavid : f He los hijos de",
+        "bbox": [1, 2, 3, 4],
+        "numeral": {"token": "IC", "status": "invalid_roman_syntax",
+                    "permissive_value": 99},
+        "candidate_numbers": [], "competing_with": [], "reason": "r"}]
+    assert len(numeral_review.build(claims)) == 1
+    assert numeral_review.build(claims, reviewed_blocks={"p0101l0062"}) == []
+
+
+def test_every_review_declares_which_batch_it_came_from():
+    payload = ir.load()
+    batches = {r.get("batch", "batch-112") for r in payload["numeral_reviews"]}
+    assert len(batches) >= 2, "las tandas tienen que poder distinguirse"
+    for name in batches:
+        assert name.startswith("batch-")
+
+
+def test_a_lower_confidence_is_recorded_when_the_plate_is_the_problem():
+    """Cuando el tipo impreso está dañado, no se finge certeza.
+
+    Hay rótulos donde el reconocimiento leyó BIEN lo que hay en la plana
+    y lo que está mal es la plana. Esas lecturas se apoyan en otra cosa
+    impresa en la misma página y van con menos confianza declarada.
+    """
+    payload = ir.load()
+    lowered = [r for r in payload["numeral_reviews"]
+               if r.get("confidence", 1.0) < 0.95]
+    assert lowered, "alguna lectura tiene que ir con confianza menor"
+    for review in lowered:
+        assert review["confidence"] >= 0.5
+        assert len(review["rationale"]) > 80
+
+
 if __name__ == "__main__":
     failures = 0
     for name, func in sorted(globals().items()):

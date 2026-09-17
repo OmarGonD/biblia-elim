@@ -18,6 +18,7 @@ import book_boundaries
 import chapter_claims
 import image_reviews
 import layout
+import numeral_review
 import recovery as image_recovery
 import recovery_candidates
 import page_parser
@@ -357,6 +358,64 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
     for review in numerals:
         by_outcome[review.outcome] = by_outcome.get(review.outcome, 0) + 1
 
+    # Las tandas se acumulan: lo revisado antes sigue a la vista, y cada
+    # tanda dice qué aportó ella. Sin esto no se puede saber si un
+    # capítulo aceptado viene de mirar una plana la semana pasada o hoy.
+    raw_numerals = (payload.get("numeral_reviews", []) if payload else [])
+    batches = {}
+    accepted_by_block = {c.block_id: c for c in ledger.accepted()}
+    for entry in raw_numerals:
+        name = entry.get("batch") or "batch-112"
+        stat = batches.setdefault(name, {
+            "reviewed": 0, "resolved": 0, "unreadable": 0,
+            "still_ambiguous": 0, "rejected_false_claim": 0,
+            "by_outcome": {}, "by_book": {}, "accepted_from_this_batch": 0,
+            "review_ids": []})
+        stat["reviewed"] += 1
+        stat["review_ids"].append(entry["id"])
+        outcome = entry.get("outcome")
+        stat["by_outcome"][outcome] = stat["by_outcome"].get(outcome, 0) + 1
+        stat["by_book"][entry["book"]] = stat["by_book"].get(entry["book"], 0) + 1
+        if outcome in image_reviews.NUMERAL_RESOLVING and \
+                entry.get("recovered_chapter") is not None:
+            stat["resolved"] += 1
+        if outcome == image_reviews.UNREADABLE:
+            stat["unreadable"] += 1
+        if outcome == image_reviews.STILL_AMBIGUOUS:
+            stat["still_ambiguous"] += 1
+        if outcome == image_reviews.FALSE_CLAIM:
+            stat["rejected_false_claim"] += 1
+        if entry["target_block"] in accepted_by_block:
+            stat["accepted_from_this_batch"] += 1
+
+    # La cola de numerales pendientes, calculada AQUÍ y publicada junto a
+    # los recuentos del ledger. Son dos cosas distintas y las dos hacen
+    # falta, así que van con nombre y en el mismo sitio:
+    #
+    #   invalid_numeral_total            estado del reclamo en el ledger
+    #   invalid_numeral_reviewed         ya se miró la plana (p.ej. no era
+    #                                    un rótulo); no vuelve a la cola
+    #   invalid_numeral_pending_review   lo que queda por mirar
+    #
+    # Publicarlas por separado es lo que impide volver a informar de una
+    # y llamarla la otra.
+    reviewed_blocks = {r.target_block for r in numerals}
+    numeral_queue = numeral_review.build(
+        claims_report["claims"],
+        permissive_groups=claims_report["permissive_value_collision_detail"],
+        competing_groups=claims_report["competing_claim_groups_detail"],
+        reviewed_blocks=reviewed_blocks)
+    queue_summary = numeral_review.summary(numeral_queue)
+    pending_invalid = [e for e in numeral_queue
+                       if e.disposition == numeral_review.INVALID]
+    invalid_pending_by_book = {}
+    for entry in pending_invalid:
+        invalid_pending_by_book[entry.book] = \
+            invalid_pending_by_book.get(entry.book, 0) + 1
+    dismissed = [c for c in ledger.claims
+                 if c.block_id in reviewed_blocks
+                 and c.disposition == chapter_claims.INVALID_NUMERAL]
+
     numeral_report = {
         "about": ("headings the recognition did produce, whose numeral it "
                   "could not identify, read one by one in the facsimile. "
@@ -374,6 +433,7 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         "reviews_still_ambiguous": sum(
             1 for r in numerals if r.outcome == image_reviews.STILL_AMBIGUOUS),
         "reviews_by_outcome": dict(sorted(by_outcome.items())),
+        "batches": {name: batches[name] for name in sorted(batches)},
         "reviews_applied_to_a_claim": len(
             [c for c in ledger.claims if c.block_id in reviewed_blocks
              and c.proposal_method == "numeral_review"]),
@@ -381,6 +441,14 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         "competing_groups_after": counts_after_competing,
         "invalid_before": pre_counts["invalid_numeral"],
         "invalid_after": claims_report["invalid_numeral"],
+        "invalid_numeral_total": claims_report["invalid_numeral"],
+        "invalid_numeral_reviewed": len(dismissed),
+        "invalid_numeral_reviewed_blocks": sorted(c.block_id for c in dismissed),
+        "invalid_numeral_pending_review": len(pending_invalid),
+        "invalid_numeral_pending_by_book": dict(sorted(
+            invalid_pending_by_book.items())),
+        "review_queue": queue_summary,
+        "review_queue_next": [e.as_dict() for e in numeral_queue[:40]],
         "ambiguous_before": pre_counts["ambiguous_numeral"],
         "ambiguous_after": claims_report["ambiguous_numeral"],
         "accepted_before": pre_counts["accepted"],
@@ -556,6 +624,13 @@ def main():
               f"     ambiguous  {nr['ambiguous_before']:4} -> {nr['ambiguous_after']:4}")
         print(f"    competing groups {nr['competing_groups_before']} -> "
               f"{nr['competing_groups_after']}")
+        print(f"    invalid_numeral: total {nr['invalid_numeral_total']}"
+              f" = reviewed {nr['invalid_numeral_reviewed']}"
+              f" + pending review {nr['invalid_numeral_pending_review']}")
+        print(f"    pending invalid by book  "
+              f"{nr['invalid_numeral_pending_by_book']}")
+        print(f"    review queue             {nr['review_queue']['total']}"
+              f" {nr['review_queue']['by_disposition']}")
         print("    book   accepted      invalid       unresolved")
         for osis, stat in sorted(nr["per_book"].items()):
             print(f"      {osis:5} {stat['accepted_before']:3} -> {stat['accepted_after']:3}"
