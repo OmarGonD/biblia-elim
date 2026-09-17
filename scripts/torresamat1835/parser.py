@@ -18,6 +18,8 @@ a la cola de revisión. Nunca se concatena al versículo anterior.
 """
 import re
 import unicodedata
+
+import roman
 from typing import Optional
 
 from model import Block, BlockKind, Edition, Provenance
@@ -41,7 +43,6 @@ _DIVISION_RE = re.compile(
 _DIVISION_ANYWHERE_RE = re.compile(
     r"\b(?:" + "|".join(_DIVISION_WORDS) + r")\b")
 
-_ROMAN_VALUES = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
 _ORDINAL_WORDS = {
     "PRIMERO": 1, "PRIMERA": 1, "SEGUNDO": 2, "TERCERO": 3, "CUARTO": 4,
     "QUINTO": 5, "SEXTO": 6, "SEPTIMO": 7, "OCTAVO": 8, "NOVENO": 9,
@@ -56,20 +57,14 @@ def _fold(text: str) -> str:
 
 
 def roman_value(token: str) -> Optional[int]:
-    """El valor del romano, o None si no es un romano limpio.
+    """El valor del romano, o None si no es un romano.
 
-    Deliberadamente estricto y deliberadamente sin consecuencias: que
-    devuelva None no degrada el bloque, sólo deja su número sin saber.
+    Delega en roman.py a propósito. Había aquí una segunda
+    implementación, y tener dos ideas distintas de qué es un número
+    romano en el mismo programa es exactamente la grieta por la que
+    «XXL» acabó valiendo 30 en un sitio mientras en otro no valía nada.
     """
-    token = token.strip(" .,:;")
-    if not token or any(c not in _ROMAN_VALUES for c in token.upper()):
-        return None
-    total = previous = 0
-    for char in reversed(token.upper()):
-        value = _ROMAN_VALUES[char]
-        total += -value if value < previous else value
-        previous = max(previous, value)
-    return total or None
+    return roman.to_int(token)
 
 
 def division_number(rest: str) -> Optional[int]:

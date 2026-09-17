@@ -116,18 +116,23 @@ def test_resolution_paths():
     assert direct["resolved_number"] == 1
     assert direct["review_required"] is False
 
-    # D/F: LIM da 949, absurdo; la cabecera y la secuencia dicen 2.
+    # D/F: «LIM» no es un número romano. Antes se le sacaba un 949 y la
+    # cabecera corrida lo «corregía» a 2; ahora el numeral se rechaza por
+    # sintaxis y la cabecera NO puede convertir sola un numeral inválido
+    # (ver chapter_claims.py y roman.py). La propuesta queda registrada
+    # con su método, pero no se acepta: el capítulo va a revisión.
     broken = by_raw["SALMO LIM"]
-    assert 949 in broken["evidence"]["heading_candidates"] or \
-        broken["parsed_candidate"] != 949
+    assert broken["numeral_status"] == "invalid_roman_syntax"
     assert broken["method"] == "running_header_correlated"
-    assert broken["resolved_number"] == 2
-    assert broken["review_required"] is False
+    assert broken["disposition"] == "invalid_numeral"
+    assert broken["resolved_number"] is None
+    assert broken["review_required"] is True
 
     # E: numeral ilegible y sin apoyo -> sin número, a revisión.
     lost = by_raw["SALMO XQZ"]
-    assert lost["method"] == "unresolved"
+    assert lost["numeral_status"] == "invalid_roman_syntax"
     assert lost["resolved_number"] is None
+    assert lost["review_required"] is True
     assert lost["review_required"] is True
 
 

@@ -17,6 +17,8 @@ import difflib
 import re
 import sys
 import unicodedata
+
+import roman
 from dataclasses import dataclass, field
 from typing import List, Optional
 
@@ -39,12 +41,11 @@ BOOK_HEADER_NAMES = {
 #: Orden en que el tomo 3 los imprime, leído de su portada.
 VOLUME3_ORDER = ("Ps", "Prov", "Eccl", "Song", "Wis", "Sir", "Isa")
 
-_ROMAN = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
-#: El OCR de esta plana confunde estas formas con romanos.
-_ROMAN_OCR = str.maketrans({"1": "I", "l": "I", "|": "I", "!": "I",
-                            "J": "I", "i": "I", "T": "I",
-                            "0": "C", "O": "C", "U": "V", "Y": "V"})
-_ROMAN_RE = re.compile(r"[IVXLCDM]{1,9}")
+#: Leer, validar y convertir un numeral son tres cosas distintas y viven
+#: en roman.py. Aquí sólo se usan. Antes se hacían de una vez en una
+#: función que sumaba y restaba sin comprobar nada, y por ahí se coló
+#: «XXL» valiendo 30.
+_ROMAN_RE = roman.TOKEN_RE
 
 
 def fold(text: str) -> str:
@@ -58,23 +59,31 @@ def skeleton(text: str) -> str:
 
 
 def roman_value(token: str) -> Optional[int]:
-    token = token.strip(" .,:;·'").upper()
-    if not token or any(c not in _ROMAN for c in token):
-        return None
-    total = previous = 0
-    for char in reversed(token):
-        value = _ROMAN[char]
-        total += -value if value < previous else value
-        previous = max(previous, value)
-    return total or None
+    """El valor de un romano BIEN ESCRITO, o None.
+
+    Ya no acumula a ciegas: «XXL» no es un romano y devuelve None en vez
+    de 30.
+    """
+    return roman.to_int(token)
+
+
+def roman_reading(text: str, *, limit: Optional[int] = None):
+    """La lectura completa del numeral, con su procedencia y su motivo."""
+    return roman.read(text, limit=limit)
 
 
 def roman_candidates(text: str) -> List[int]:
-    """Números romanos plausibles en un texto, con y sin arreglo de OCR."""
+    """Los romanos BIEN ESCRITOS que hay en un texto, en orden.
+
+    Una secuencia de letras romanas que no es un número romano ya no
+    aporta un candidato: aportaba corroboración falsa, que es lo que
+    hacía que la cabecera corrida de la plana 411 «confirmase» el mismo
+    error tipográfico que traía el rótulo.
+    """
     found = []
-    for variant in (fold(text).upper(), fold(text).upper().translate(_ROMAN_OCR)):
-        for match in _ROMAN_RE.finditer(variant):
-            value = roman_value(match.group(0))
+    for variant, _origin in roman.variants(text):
+        for token in roman.delimited_tokens(variant):
+            value = roman.to_int(token)
             if value is not None and 1 <= value <= 200:
                 found.append(value)
     ordered = []
@@ -239,7 +248,7 @@ def chapter_limit(osis: str) -> Optional[int]:
 
 
 def resolve_chapter(*, raw_numeral, header_chapters, previous, book,
-                    ) -> Resolution:
+                    sequence_available=True) -> Resolution:
     """Resuelve una división cruzando señales independientes.
 
     Señales: el numeral de la propia marca, el numeral de la cabecera
@@ -259,7 +268,18 @@ def resolve_chapter(*, raw_numeral, header_chapters, previous, book,
             break
 
     header = [c for c in header_chapters if limit is None or c <= limit]
-    sequential = (previous + 1) if previous is not None else 1
+    # «Lo que tocaba» sólo existe si hay algo antes de lo que tocar. Un
+    # rótulo sin ningún capítulo ACEPTADO por delante no está en el
+    # primero salvo que sea, de verdad, el primero de su libro: dar por
+    # supuesto un 1 haría que cualquier rótulo cuyo numeral se lea «I»
+    # --y el reconocimiento produce muchos-- recibiera corroboración de
+    # secuencia por no tener nada detrás.
+    if previous is not None:
+        sequential = previous + 1
+    elif sequence_available:
+        sequential = 1
+    else:
+        sequential = None
     evidence = {"heading_candidates": direct[:4],
                 "header_candidates": header[:4],
                 "sequential": sequential,
@@ -270,7 +290,7 @@ def resolve_chapter(*, raw_numeral, header_chapters, previous, book,
         agrees = []
         if direct_value in header:
             agrees.append("running_header")
-        if direct_value == sequential:
+        if sequential is not None and direct_value == sequential:
             agrees.append("sequence")
         if agrees:
             return Resolution(raw_numeral, direct_value, direct_value,
@@ -278,14 +298,23 @@ def resolve_chapter(*, raw_numeral, header_chapters, previous, book,
                               0.99 if len(agrees) > 1 else 0.9, False)
 
     # 2. El numeral está roto, pero cabecera y secuencia coinciden.
-    if sequential in header:
+    #
+    # «Roto» de verdad: si el rótulo trae un numeral que se lee, esta
+    # regla NO puede pisarlo. La cabecera corrida nombra el capítulo EN
+    # CURSO al principio de la plana, que es el anterior cuando el nuevo
+    # empieza a media página, así que dejarla mandar sobre un numeral
+    # legible hacía que el rótulo de un capítulo reclamase el número del
+    # de antes -- y entonces dos rótulos seguidos pedían el mismo.
+    if direct_value is None and sequential is not None and sequential in header:
         return Resolution(raw_numeral, direct_value, sequential,
                           "running_header_correlated",
                           dict(evidence, agrees=["running_header", "sequence"]),
                           0.85, False)
 
     # 3. Sólo la cabecera da un número, y es plausible como siguiente.
-    if len(header) == 1 and previous is not None and header[0] == previous + 1:
+    #    «Sólo» quiere decir sólo: con numeral legible no se aplica.
+    if direct_value is None and len(header) == 1 and previous is not None \
+            and header[0] == previous + 1:
         return Resolution(raw_numeral, direct_value, header[0],
                           "multi_signal",
                           dict(evidence, agrees=["running_header",

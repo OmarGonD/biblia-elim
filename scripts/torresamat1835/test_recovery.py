@@ -266,15 +266,25 @@ def test_crop_that_does_not_cover_the_anchors_fails_closed():
 
 # ---- K. No se duplica un rótulo que ya está ---------------------------
 def test_existing_compatible_heading_prevents_a_duplicate():
+    """El rótulo no se duplica, y la lectura del facsímil no se tira.
+
+    Cuando la resolución ya daba ese mismo número, la revisión no tiene
+    nada que corregir, pero sigue siendo mejor evidencia que la de la
+    máquina: se queda marcando el MISMO renglón, con su procedencia. Lo
+    que no puede pasar -- y es lo que este test vigila -- es que aparezca
+    un segundo rótulo.
+    """
     page = _page(with_heading="CAPÍTULO XLVI.")
     entries = _entries(page)
     out, records = _apply(
         page, entries,
         [_review(insert_before_block=_ANCHOR_BEFORE_WITH_HEADING)],
         resolve_numeral=lambda raw: 46)
-    assert records[0].action == recovery.REDUNDANT
+    assert records[0].action == recovery.CONFIRMED
     assert len(out) == len(entries)
-    assert not any(getattr(e, "recovery", None) for e in out)
+    marked = [e for e in out if getattr(e, "recovery", None)]
+    assert len(marked) == 1
+    assert marked[0].recovery.chapter_number == 46
 
 
 def test_existing_unidentified_heading_gets_its_number_without_duplicating():

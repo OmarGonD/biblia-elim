@@ -50,6 +50,12 @@ RECOVERED = "image_review"
 INSERTED = "inserted"
 RESOLVED = "resolved_number"
 REDUNDANT = "redundant_review"
+#: El rótulo ya estaba Y la resolución le daba el mismo número. No hay
+#: nada que corregir, pero la lectura del facsímil es mejor evidencia que
+#: la de la máquina y se queda como la autoridad del reclamo: si se
+#: descartara por «redundante», el capítulo perdería su procedencia
+#: visual justo por haber sido leído bien dos veces.
+CONFIRMED = "confirmed_existing"
 REJECTED = "rejected_no_effect"
 FAILED = "failed_anchor_validation"
 CONFLICT = "conflicting_number"
@@ -147,7 +153,7 @@ class Application:
 
     @property
     def changed_stream(self) -> bool:
-        return self.action in (INSERTED, RESOLVED)
+        return self.action in (INSERTED, RESOLVED, CONFIRMED)
 
 
 def _block_id(scan_page: int, line_index: int) -> str:
@@ -360,25 +366,23 @@ def apply_verified_image_reviews(page, entries, reviews, *, source,
                 record.target_block = _entry_block_id(existing, page.scan_page)
                 applications.append(record)
                 continue
-            if seen is not None and seen == review.chapter_number:
-                record.action = REDUNDANT
-                record.reason = ("the chapter resolution already identified "
-                                 "this heading as that number")
-                record.target_block = _entry_block_id(existing, page.scan_page)
-                record.chapter_number = seen
-                applications.append(record)
-                continue
-            # La frontera ya estaba; lo que faltaba era el numeral, y eso
-            # es lo que da la imagen. Se completa en su sitio, sin
-            # duplicar el rótulo.
-            recovery.action = RESOLVED
+            # La frontera ya estaba. Si el numeral faltaba, la imagen lo
+            # da; si coincidía, la imagen lo confirma y pasa a ser la
+            # autoridad del reclamo. En los dos casos se marca el MISMO
+            # renglón: no se duplica el rótulo, que es lo que aquí hay
+            # que evitar.
+            recovery.action = RESOLVED if seen is None else CONFIRMED
             stream[position] = StreamEntry(
                 line=existing.line, column=existing.column,
                 zone=existing.zone, recovery=recovery)
-            record.action = RESOLVED
-            record.reason = ("the heading was there but the chapter "
-                             "resolution could not identify it; the "
-                             "facsimile supplies the printed numeral")
+            record.action = recovery.action
+            record.reason = (
+                "the heading was there but the chapter resolution could not "
+                "identify it; the facsimile supplies the printed numeral"
+                if recovery.action == RESOLVED else
+                "the heading was there and the chapter resolution agreed; "
+                "the facsimile reading stands as the authority and keeps "
+                "its provenance")
             record.target_block = _entry_block_id(existing, page.scan_page)
             record.resulting_block = record.target_block
             record.chapter_number = review.chapter_number

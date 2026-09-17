@@ -1090,6 +1090,14 @@ endif ()
 find_program (PYTHON3_EXECUTABLE NAMES python3)
 if (BUILD_TESTING AND UNIX AND PYTHON3_EXECUTABLE)
   add_test (
+    NAME torresamat1835_chapter_claims_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_chapter_claims.py
+    )
+  set_tests_properties (torresamat1835_chapter_claims_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
+    )
+  add_test (
     NAME torresamat1835_recovery_test
     COMMAND ${PYTHON3_EXECUTABLE}
             ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_recovery.py

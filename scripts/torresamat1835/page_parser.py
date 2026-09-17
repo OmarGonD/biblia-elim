@@ -20,6 +20,7 @@ revisión; nunca al `body` del verso anterior.
 """
 from typing import Iterable, Optional
 
+import chapter_claims
 import divisions
 import parser as classifier
 import recovery as image_recovery
@@ -89,7 +90,11 @@ class VolumeParser:
         self.book_spans = book_spans or []
         self.header_chapters = header_chapters or {}
         self.current_book = book
-        self.last_chapter = {}
+        #: NO hay ancla de secuencia durante la lectura. La había, y era
+        #: el fallo: una propuesta que después se rechazaba ya había
+        #: servido de segunda señal a los rótulos siguientes. La
+        #: secuencia se aplica ahora en chapter_claims.ClaimLedger, por
+        #: rondas y sólo sobre capítulos ACEPTADOS.
         self.resolutions = []
         self.page = None
         self.division_candidates = []
@@ -100,6 +105,14 @@ class VolumeParser:
         self.image_reviews = image_reviews or {}
         self.recovery_source = recovery_source
         self.recoveries = []
+        #: Todos los rótulos que dicen ser un capítulo, conservados antes
+        #: de que ninguno se escriba. Ver chapter_claims.py: un
+        #: diccionario indexado por número no puede representar dos
+        #: reclamantes de la misma clave, así que la comprobación tiene
+        #: que ocurrir aquí y no después.
+        self.ledger = chapter_claims.ClaimLedger()
+        self._slots = {}
+        self._blocks_by_claim = {}
 
     def _bump(self, key, amount=1):
         self.stats[key] = self.stats.get(key, 0) + amount
@@ -155,21 +168,30 @@ class VolumeParser:
         reviews = self.image_reviews.get(page.scan_page)
         if reviews and self.recovery_source is not None:
             def resolve_numeral(raw, book=book, page=page):
-                # La misma pregunta que se le hará al rótulo unos
-                # renglones más abajo, hecha con la misma evidencia.
+                # ¿Afirma este rótulo un número por sí mismo? Sólo con lo
+                # que hay en la plana: su numeral y la cabecera corrida.
+                # Sin secuencia: durante la lectura todavía no hay ningún
+                # capítulo aceptado en que apoyarse, y usar una propuesta
+                # sería justo lo que esta corrección viene a quitar.
                 return structure.resolve_chapter(
                     raw_numeral=raw,
                     header_chapters=self.header_chapters.get(page.scan_page, []),
-                    previous=self.last_chapter.get(book),
-                    book=book).resolved
+                    previous=None, book=book).resolved
 
             placed_lines, applications = \
                 image_recovery.apply_verified_image_reviews(
                     page, placed_lines, reviews,
                     source=self.recovery_source, book=book,
-                    resolve_numeral=resolve_numeral,
-                    claimed_numbers=frozenset(
-                        n for n in self.edition.book(book).chapters if n > 0))
+                    resolve_numeral=resolve_numeral)
+            # Sin `claimed_numbers`: la guarda temprana de colisión que
+            # esta capa traía dejó de hacer falta y estorbaba. Cada
+            # reclamo abre ahora su propio hueco de trabajo, así que dos
+            # capítulos no pueden fundirse por escribir antes de tiempo;
+            # y quién se queda con un número disputado lo decide el
+            # ledger, que ve a TODOS los reclamantes -- también los que
+            # vienen en planas posteriores, que una guarda en streaming
+            # no puede ver.  La lectura del facsímil ya no pierde el
+            # número por llegar la segunda.
             for record in applications:
                 self._bump("image_review_" + record.action)
                 self.recoveries.append(record)
@@ -277,10 +299,7 @@ class VolumeParser:
         if verdict.is_boundary:
             self._seen_on_page.add(raw.strip())
         if verdict.is_boundary:
-            number = classifier.division_number(
-                classifier._DIVISION_RE.match(
-                    classifier._fold(raw).upper()).group("rest"))
-            self._open_chapter(placed, prov, number, raw)
+            self._open_chapter(placed, prov, raw)
             return
         block = _block(BlockKind.EDITORIAL_HEADING, placed, prov,
                        decision="spans the gutter")
@@ -290,66 +309,35 @@ class VolumeParser:
         else:
             self.edition.book(self.current_book).chapter(0).paratext.append(block)
 
-    def _open_chapter(self, placed, prov, number, raw):
-        """Abre la división cruzando las señales del testigo.
+    def _open_chapter(self, placed, prov, raw):
+        """Anota lo que este rótulo RECLAMA ser. Todavía no lo escribe.
 
-        `number` es sólo lo que dio el numeral de la marca. Se resuelve
-        con structure.resolve_chapter(), que exige que dos señales
-        independientes coincidan. Si no se puede, el capítulo queda sin
-        número resuelto y marcado: la frontera sobrevive igual, que es lo
-        que impide que el texto se corra.
+        Llevaba un parámetro `number` con el numeral que había sacado el
+        clasificador y que aquí no se miraba nunca: se resolvía otra vez
+        desde el texto. Se ha quitado, porque un número que viaja sin que
+        nadie lo use es un número esperando a que alguien lo use.
+
+        El numeral se lee y se VALIDA (roman.py), y el resultado -- con
+        su estado, su procedencia y sus candidatos -- se guarda como un
+        reclamo. Quién se queda con cada número lo decide el ledger
+        cuando ya están todos, no aquí.
         """
         book = self.current_book
         page = self.page.scan_page if self.page is not None else None
-        previous = self.last_chapter.get(book)
-        resolution = structure.resolve_chapter(
-            raw_numeral=raw,
-            header_chapters=self.header_chapters.get(page, []),
-            previous=previous, book=book)
-
-        self._bump("chapters_resolved_" + resolution.method
-                   if resolution.resolved is not None
-                   else "chapters_unresolved")
-        if resolution.method == "direct_ocr":
-            self._bump("chapters_resolved_direct")
-        elif resolution.resolved is not None:
-            self._bump("chapters_resolved_correlated")
-
-        self.resolutions.append({
-            "book": book, "scan_page": page,
-            "source_heading": raw[:120],
-            "raw_numeral": resolution.raw_numeral[:60] if resolution.raw_numeral else None,
-            "parsed_candidate": resolution.parsed_candidate,
-            "resolved_number": resolution.resolved,
-            "method": resolution.method,
-            "evidence": resolution.evidence,
-            "confidence": resolution.confidence,
-            "review_required": resolution.review_required,
-            "block_id": prov.block_id,
-        })
-
-        # Sin número resuelto el capítulo no recibe una cifra inventada:
-        # se le da una posición correlativa NEGATIVA de trabajo, que no
-        # puede confundirse con un capítulo real, y queda en revisión.
-        if resolution.resolved is None:
-            slot = -(len([k for k in self.edition.book(book).chapters
-                          if k < 0]) + 1)
-        else:
-            slot = resolution.resolved
-            self.last_chapter[book] = slot
+        numeral = structure.roman_reading(
+            structure._without_book_words(raw or ""),
+            limit=structure.chapter_limit(book))
+        self._bump("chapters_claimed")
+        claim = self._claim(
+            book=book, page=page, prov=prov, placed=placed, raw=raw,
+            source=chapter_claims.FROM_OCR, numeral=numeral,
+            candidates=list(numeral.candidates),
+            proposed=None, method=chapter_claims.UNRESOLVED,
+            evidence={}, confidence=0.0)
 
         block = _block(BlockKind.CHAPTER_HEADING, placed, prov,
-                       number=resolution.resolved,
-                       reason=(None if not resolution.review_required else
-                               f"chapter identity unresolved "
-                               f"({resolution.evidence.get('why', '')})"),
-                       decision=resolution.method)
-        if resolution.review_required:
-            self.edition.review_queue.append(block)
-        self.chapter = self.edition.book(book).chapter(slot)
-        self.chapter.paratext.append(block)
-        self.verse_number = None
-        self.expect_editorial = True
+                       number=None, decision="claimed")
+        self._open_claim_chapter(claim, block)
 
     def _open_recovered_chapter(self, placed, prov):
         """Abre una división que el reconocimiento no dejó legible.
@@ -368,45 +356,156 @@ class VolumeParser:
         raw = getattr(placed.line, "raw_text", "") or ""
 
         self._bump("chapters_recovered_" + recovery.action)
-        if number is not None:
-            self.last_chapter[book] = number
-            slot = number
-        else:
-            slot = -(len([k for k in self.edition.book(book).chapters
-                          if k < 0]) + 1)
-
         provenance = recovery.provenance.as_dict()
-        self.resolutions.append({
-            "book": book, "scan_page": page,
-            "source_heading": (recovery.provenance.observed_printed_text
-                               or raw)[:120],
-            "raw_numeral": None,
-            "parsed_candidate": None,
-            "resolved_number": number,
-            "method": "image_review",
-            "evidence": {"review_id": recovery.review_id,
-                         "action": recovery.action,
-                         "witness": recovery.provenance.witness,
-                         "source_sha256": recovery.provenance.source_sha256,
-                         "pdf_page": recovery.provenance.pdf_page,
-                         "printed_page": recovery.provenance.printed_page,
-                         "observed": recovery.provenance.observed_printed_text},
-            "confidence": recovery.provenance.confidence,
-            "review_required": number is None,
-            "recovered": True,
-            "block_id": prov.block_id,
-        })
+        observed = recovery.provenance.observed_printed_text or raw
+        numeral = structure.roman_reading(
+            structure._without_book_words(observed or ""),
+            limit=structure.chapter_limit(book))
+        claim = self._claim(
+            book=book, page=page, prov=prov, placed=placed,
+            raw=observed, source=chapter_claims.FROM_IMAGE_REVIEW,
+            numeral=numeral.as_dict(), candidates=list(numeral.candidates),
+            proposed=number, method="image_review",
+            evidence={"review_id": recovery.review_id,
+                      "action": recovery.action,
+                      "witness": recovery.provenance.witness,
+                      "source_sha256": recovery.provenance.source_sha256,
+                      "pdf_page": recovery.provenance.pdf_page,
+                      "printed_page": recovery.provenance.printed_page,
+                      "observed": recovery.provenance.observed_printed_text},
+            confidence=recovery.provenance.confidence,
+            provenance=provenance, recovered=True)
 
-        block = _block(BlockKind.CHAPTER_HEADING, placed, prov, number=number,
-                       reason=(None if number is not None else
-                               "chapter boundary read from the facsimile; "
-                               "the printed numeral was not legible"),
+        block = _block(BlockKind.CHAPTER_HEADING, placed, prov, number=None,
                        decision="image_review:" + recovery.review_id)
         block.recovered = provenance
-        if number is None:
-            self.edition.review_queue.append(block)
-        self.chapter = self.edition.book(book).chapter(slot)
+        self._open_claim_chapter(claim, block)
+
+    def finish(self):
+        """Cierra la pasada: resolver los reclamos y sólo entonces escribir.
+
+        Este es el único punto donde un número de capítulo llega a la
+        estructura final. Todo lo anterior son reclamos con su evidencia.
+        """
+        # La política de numeración vive en structure.resolve_chapter y
+        # se le entrega al ledger, que decide CUÁNDO llamarla y con qué
+        # ancla. `previous` es siempre un capítulo ya aceptado o None:
+        # esa es la garantía que esta función existe para dar.
+        def propose(claim, previous):
+            resolution = structure.resolve_chapter(
+                raw_numeral=claim.raw_heading,
+                header_chapters=self.header_chapters.get(claim.scan_page, []),
+                previous=previous, book=claim.book,
+                sequence_available=claim.first_in_book)
+            return chapter_claims.Proposal(
+                resolution.resolved, resolution.method,
+                dict(resolution.evidence), resolution.confidence)
+
+        def propose_or_review(claim, previous):
+            # Una revisión del facsímil trae su propio número leído en la
+            # imagen; no se vuelve a deducir de nada.
+            if claim.source == chapter_claims.FROM_IMAGE_REVIEW:
+                return chapter_claims.Proposal(
+                    claim.proposed_number, "image_review",
+                    dict(claim.proposal_evidence), claim.confidence)
+            return propose(claim, previous)
+
+        self.ledger.resolve(propose_or_review)
+        self._bump("claim_resolution_rounds", self.ledger.rounds)
+        outcome = chapter_claims.materialize(self.edition, self.ledger)
+        self._bump("chapters_materialized", outcome["materialized"])
+        self._bump("chapters_left_in_review", outcome["left_in_review"])
+
+        by_claim = {r["claim_id"]: r for r in self.resolutions
+                    if r.get("claim_id")}
+        for claim in self.ledger.claims:
+            block = self._blocks_by_claim.get(claim.claim_id)
+            if block is not None:
+                block.number = claim.accepted_number
+                block.review_reason = (
+                    None if not claim.review_required
+                    else f"{claim.disposition}: {claim.reason}")
+                if claim.review_required:
+                    self.edition.review_queue.append(block)
+            record = by_claim.get(claim.claim_id)
+            if record is not None:
+                record["resolved_number"] = claim.accepted_number
+                record["review_required"] = claim.review_required
+                record["disposition"] = claim.disposition
+                record["disposition_reason"] = claim.reason
+                record["accepted_from"] = claim.source
+                record["method"] = claim.proposal_method
+                record["evidence"] = dict(claim.proposal_evidence)
+                record["confidence"] = claim.confidence
+                record["parsed_candidate"] = claim.proposed_number
+                record["accepted_round"] = claim.accepted_round
+                record["sequence_anchor"] = claim.anchor_number
+                record["sequence_anchor_claim"] = claim.anchor_claim
+                # `method` dice CÓMO se propuso el número y `disposition`
+                # QUÉ se decidió con él. Machacar el primero con el
+                # segundo borraba de dónde venía el reclamo, que es
+                # justamente lo que hay que poder auditar.
+            key = ("chapters_accepted_" + claim.source
+                   if claim.disposition == chapter_claims.ACCEPTED
+                   else "chapters_" + claim.disposition)
+            self._bump(key)
+            if claim.disposition == chapter_claims.ACCEPTED:
+                self._bump(f"chapters_accepted_round_{claim.accepted_round}")
+        return self.ledger
+
+    def _claim(self, *, book, page, prov, placed, raw, source, numeral,
+               candidates, proposed, method, evidence, confidence,
+               provenance=None, recovered=False):
+        """Anota un reclamo. No escribe todavía ningún capítulo."""
+        reading = numeral if isinstance(numeral, dict) else numeral.as_dict()
+        claim = chapter_claims.ChapterClaim(
+            claim_id=f"c{len(self.ledger.claims):04d}:{prov.block_id}",
+            book=book, scan_page=page, block_id=prov.block_id,
+            raw_heading=raw or "", source=source,
+            bbox=tuple(placed.line.bbox) if placed is not None else None,
+            column=prov.column, zone=prov.zone,
+            numeral=reading, candidate_numbers=candidates,
+            proposed_number=proposed, proposal_method=method,
+            proposal_evidence=dict(evidence or {}), confidence=confidence,
+            provenance=provenance)
+        self.ledger.add(claim)
+        self.resolutions.append({
+            "book": book, "scan_page": page,
+            "claim_id": claim.claim_id,
+            "source_heading": (raw or "")[:120],
+            # `raw_numeral` conserva el sentido que tenía: el texto del
+            # rótulo tal y como entró al resolver. El token concreto que
+            # se intentó leer va aparte, para no cambiarle el significado
+            # a un campo que ya tiene consumidores.
+            "raw_numeral": (raw or "")[:60],
+            "numeral_token": reading.get("token"),
+            "numeral_status": reading.get("status"),
+            "numeral_permissive_value": reading.get("permissive_value"),
+            "parsed_candidate": proposed,
+            "resolved_number": None,          # lo fija la materialización
+            "method": method,
+            "evidence": dict(evidence or {}),
+            "confidence": confidence,
+            "review_required": True,          # idem
+            "recovered": recovered,
+            "block_id": prov.block_id,
+        })
+        return claim
+
+    def _open_claim_chapter(self, claim, block):
+        """Abre el capítulo de un reclamo en un hueco de trabajo.
+
+        El hueco es SIEMPRE negativo y único, aunque el numeral se haya
+        leído sin dudas: mientras el ledger no haya visto a todos los
+        reclamantes, escribir en `capitulos[número]` es justo lo que
+        impide detectar que dos rótulos piden el mismo.
+        """
+        book = claim.book
+        self._slots[book] = self._slots.get(book, 0) + 1
+        claim.slot = -self._slots[book]
+        self.chapter = self.edition.book(book).chapter(claim.slot)
         self.chapter.paratext.append(block)
+        self._blocks_by_claim[claim.claim_id] = block
         self.verse_number = None
         self.expect_editorial = True
 
@@ -417,7 +516,7 @@ class VolumeParser:
         self.expect_editorial = False
 
         if block.kind is BlockKind.CHAPTER_HEADING:
-            self._open_chapter(placed, prov, block.number, raw)
+            self._open_chapter(placed, prov, raw)
             return
 
         if self.chapter is None:
@@ -471,6 +570,7 @@ def parse_volume(pages: Iterable, *, witness: str, volume: str,
                           recovery_source=recovery_source)
     for page in pages:
         walker.feed_page(page)
+    walker.finish()
     if with_walker:
         return edition, walker.stats, walker
     return edition, walker.stats

@@ -133,6 +133,13 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
                          "missing": missing[:40],
                          "missing_total": len(missing)})
 
+    # `duplicate_chapters` mide sobre `chapters`, que es un diccionario
+    # indexado por (libro, número). Por construcción no puede tener dos
+    # entradas con la misma clave, así que esta lista sale vacía SIEMPRE
+    # -- también cuando seis rótulos distintos reclamaban el mismo
+    # capítulo. Se conserva porque hay consumidores, pero no demuestra
+    # nada: la medida buena es `competing_chapter_claims`, que se toma
+    # sobre los reclamos ANTES de materializarlos (ver chapter_claims.py).
     chapter_numbers = {}
     duplicate_chapters = []
     for osis, number in chapters:
@@ -142,6 +149,16 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         chapter_numbers[key] = chapter_numbers.get(key, 0) + 1
     duplicate_chapters = [f"{o}.{n}" for (o, n), c in chapter_numbers.items()
                           if c > 1]
+
+    ledger = walker.ledger
+    claims_report = ledger.report()
+    claims_report["measured"] = (
+        "before materialisation: every heading that claimed a chapter is "
+        "still a separate record here, so two headings claiming the same "
+        "number are visible. In the chapter map they are not: a dict keyed "
+        "by chapter number cannot hold two claimants, which is why the old "
+        "duplicate_chapters is empty even when collisions exist.")
+    claims_report["old_duplicate_chapters_is_vacuous"] = True
 
     issues = []
     for block in edition.review_queue:
@@ -303,6 +320,8 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
             candidate_report["by_book"].get(key, 0) + 1
 
     report = {
+        "chapter_claims": claims_report,
+        "competing_chapter_claims": len(ledger.collisions()),
         "chapter_image_recovery": recovery_report,
         "image_review_queue": candidate_report,
         "book_boundary_resolution": {
@@ -417,6 +436,45 @@ def main():
     q = report.get("image_review_queue", {})
     if q:
         print(f"  review queue               {q['total']} {q['by_family']}")
+    cc = report.get("chapter_claims", {})
+    if cc:
+        print(f"  chapter claims             total={cc['total_claims']}"
+              f" accepted={cc['accepted']}"
+              f" unresolved={cc['unresolved_claims']}")
+        print(f"    invalid_numeral          {cc['invalid_numeral']}")
+        print(f"    ambiguous_numeral        {cc['ambiguous_numeral']}")
+        print(f"    uncorroborated           {cc['uncorroborated_correction']}")
+        print(f"    same_physical            {cc['same_physical_claim']}")
+        print(f"    competing                {cc['competing_claim']}"
+              f" in {cc['competing_claim_groups']} groups")
+        print(f"    by image review          {cc['recovered_by_image_review']}")
+        for group in cc["collision_groups"]:
+            print(f"    COLLISION {group['book']} {group['claimed_number']}:"
+                  f" {group['claimant_count']} claimants at"
+                  f" {group['distinct_physical_places']} places"
+                  f" -> {group['disposition']}")
+            for claimant in group["claimants"]:
+                print(f"        p{claimant['scan_page']:<4}"
+                      f" {claimant['block_id']:14} {claimant['source']:12}"
+                      f" {claimant['raw_heading'][:34]!r}")
+        print("  book   raw  valid invalid ambig uncorr samephys compet accepted unres")
+        for osis, stat in sorted(cc["per_book"].items()):
+            print(f"    {osis:5} {stat['raw_claims']:4} {stat['valid_numeral']:6}"
+                  f" {stat['invalid_numeral']:7} {stat['ambiguous']:5}"
+                  f" {stat['uncorroborated']:6} {stat['same_physical_duplicates']:8}"
+                  f" {stat['competing']:6} {stat['accepted']:8}"
+                  f" {stat['unresolved']:5}")
+        print(f"  resolution rounds          {cc['rounds']}"
+              f"   (only accepted chapters anchor the sequence)")
+        print(f"  competing_chapter_claims   {report['competing_chapter_claims']}"
+              f"  <- REAL conflicts, measured before materialisation")
+        print(f"  old duplicate_chapters     {report['structure_resolution']['duplicate_chapters']}"
+              f"  <- vacuous: measured after the dict collapsed them")
+        print(f"  permissive_value_collision_groups"
+              f" {cc['permissive_value_collision_groups']:6}"
+              f"  <- DIAGNOSTIC ONLY, not competing claims:")
+        print(f"      how many chapter slots two distinct headings would have")
+        print(f"      landed on under the old permissive numeral reading.")
     bb_r = report["book_boundary_resolution"]
     print(f"  model                      {bb_r['model']}")
     print(f"  candidates                 {len(bb_r['candidates'])}"

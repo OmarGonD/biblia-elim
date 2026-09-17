@@ -119,7 +119,11 @@ def test_heading_is_a_barrier_and_survives_a_broken_numeral():
     # lo que importa aquí; resolverlas es cosa de test_structure.py.
     broken = [b for b in headings if b.review_required]
     assert broken, "sin corroboración, la división queda marcada"
-    assert stats.get("chapters_unresolved", 0) >= 1
+    # Lo que se cuenta es cuántas divisiones se quedaron sin número, sea
+    # cual sea el motivo concreto (numeral inválido, ambiguo, disputado):
+    # el motivo lo desglosa el informe de reclamos, aquí lo que importa
+    # es que la frontera exista y no lleve cifra inventada.
+    assert stats.get("chapters_left_in_review", 0) >= 1
 
     editorial = [b for c in chapters.values() for b in c.paratext
                  if b.kind is BlockKind.EDITORIAL_HEADING]
