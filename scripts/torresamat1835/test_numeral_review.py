@@ -591,6 +591,88 @@ def test_a_lower_confidence_is_recorded_when_the_plate_is_the_problem():
         assert len(review["rationale"]) > 80
 
 
+# ======================================================================
+# Identidades del informe: el total y lo pendiente no son lo mismo
+#
+# 113 informó 49 por un lado y 47 por otro sin decir que medían cosas
+# distintas. La diferencia eran los dos reclamos falsos: revisados, pero
+# con la disposición intacta porque su numeral SIGUE siendo inválido.
+# Estas comprobaciones fijan la identidad para que no se vuelva a mezclar.
+# ======================================================================
+def _audit():
+    path = os.path.join(DIR, "..", "..", "build", "torresamat1835-audit",
+                        "volume3.json")
+    if not os.path.isfile(path):
+        return None
+    with open(path, encoding="utf-8") as handle:
+        return json.load(handle)
+
+
+def test_J_invalid_total_equals_reviewed_plus_pending():
+    report = _audit()
+    if report is None:
+        print("  (saltado: no hay audit en build/)")
+        return
+    nr = report["numeral_image_review"]
+    assert nr["invalid_numeral_total"] == (
+        nr["invalid_numeral_reviewed"] + nr["invalid_numeral_pending_review"])
+    # y el total es el del ledger, no otro recuento
+    assert nr["invalid_numeral_total"] == \
+        report["chapter_claims"]["invalid_numeral"]
+
+
+def test_K_pending_by_book_sums_to_pending_total():
+    report = _audit()
+    if report is None:
+        return
+    nr = report["numeral_image_review"]
+    assert sum(nr["invalid_numeral_pending_by_book"].values()) == \
+        nr["invalid_numeral_pending_review"]
+    # nadie con cero ocupa sitio en el desglose
+    assert all(n > 0 for n in nr["invalid_numeral_pending_by_book"].values())
+
+
+def test_I_a_reviewed_false_claim_keeps_its_disposition_but_leaves_the_queue():
+    """Revisado no es lo mismo que resuelto, ni que pendiente."""
+    report = _audit()
+    if report is None:
+        return
+    nr = report["numeral_image_review"]
+    blocks = set(nr["invalid_numeral_reviewed_blocks"])
+    assert blocks, "el tomo tiene reclamos revisados que siguen inválidos"
+    claims = {c["block_id"]: c for c in report["chapter_claims"]["claims"]}
+    for block in blocks:
+        assert claims[block]["disposition"] == "invalid_numeral"
+        assert claims[block]["accepted_number"] is None
+    # ninguno vuelve a la cola
+    queued = {e["block_id"] for e in nr["review_queue_next"]}
+    assert not (blocks & queued)
+
+
+def test_the_queue_summary_and_the_pending_count_agree():
+    report = _audit()
+    if report is None:
+        return
+    nr = report["numeral_image_review"]
+    by_disposition = nr["review_queue"]["by_disposition"]
+    assert by_disposition.get("invalid_numeral", 0) == \
+        nr["invalid_numeral_pending_review"]
+    assert by_disposition.get("ambiguous_numeral", 0) == \
+        report["chapter_claims"]["ambiguous_numeral"]
+
+
+def test_batches_are_disjoint_and_every_review_names_one():
+    payload = ir.load()
+    seen = {}
+    for review in payload["numeral_reviews"]:
+        batch = review.get("batch", "batch-112")
+        assert batch.startswith("batch-")
+        assert review["target_block"] not in seen, review["target_block"]
+        seen[review["target_block"]] = batch
+    # las tandas posteriores no reescriben lo de las anteriores
+    assert len({b for b in seen.values()}) >= 3
+
+
 if __name__ == "__main__":
     failures = 0
     for name, func in sorted(globals().items()):
