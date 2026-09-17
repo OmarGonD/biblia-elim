@@ -75,9 +75,15 @@ def test_manifest_provenance():
             else:
                 assert entry.get("verified") is False, entry
 
-    # Ningún fichero fuente en el repositorio.
+    # Metadata versionada sí; assets de la fuente no. Lo que no puede
+    # haber aquí son escaneos, OCR masivo ni nada pesado: eso vive en la
+    # caché de build/, ignorada por Git.
     data_dir = os.path.join(ROOT, "data", "torresamat1835")
-    assert sorted(os.listdir(data_dir)) == ["source_manifest.json"]
+    listing = sorted(os.listdir(data_dir))
+    assert "source_manifest.json" in listing
+    for name in listing:
+        assert name.endswith(".json"), name
+        assert os.path.getsize(os.path.join(data_dir, name)) < 256 * 1024, name
 
 
 # ---- B. Acquisition (sin red) -----------------------------------------

@@ -280,6 +280,20 @@
           "acquisition": "automatic",
           "verified": true,
           "lineage": "Upstream of chOCR/hOCR/DjVu XML; the ABBYY recognition itself (source derivative of the JP2 images). Not an independent witness. Audited against DjVu XML: 652 pages, 57,700 lines and 286 chapter-label candidates in both; no additional chapter labels were preserved upstream."
+        },
+        {
+          "format": "Image Container PDF",
+          "filename": "lasagradabiblia01unkngoog.pdf",
+          "url": "https://archive.org/download/lasagradabiblia01unkngoog/lasagradabiblia01unkngoog.pdf",
+          "size": 35016274,
+          "sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346",
+          "page_count": null,
+          "witness": "ia-lasagradabiblia01unkngoog",
+          "witness_role": "development_witness",
+          "may_produce_release_artifact": false,
+          "acquisition": "automatic",
+          "verified": true,
+          "lineage": "Declared source=original by the item: the primary visual artefact of this witness. The JP2 ZIP (879 MB) is a derivative of this PDF, so the PDF is both the more faithful and the smaller representation. Used for facsimile review of chapter headings the OCR never produced."
         }
       ],
       "acquisition": "automatic",

@@ -85,6 +85,17 @@ class Block:
     confidence: Optional[int] = None
     #: Qué decidió el parser y por qué, para poder auditarlo.
     decision: Optional[str] = None
+    #: Procedencia cuando el bloque NO salió del reconocimiento sino de
+    #: una lectura verificada del facsímil: identificador de la revisión,
+    #: testigo, sha256 del artefacto, plana y numeral observado. Que sea
+    #: un campo propio y no un texto dentro de `decision` es lo que
+    #: permite a las capas de abajo separar un rótulo leído por el OCR de
+    #: uno leído en la imagen.
+    recovered: Optional[dict] = None
+
+    @property
+    def is_recovered(self) -> bool:
+        return self.recovered is not None
 
     def __post_init__(self):
         if self.raw_text is None:

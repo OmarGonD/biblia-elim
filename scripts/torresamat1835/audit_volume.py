@@ -15,7 +15,10 @@ import os
 import time
 
 import book_boundaries
+import image_reviews
 import layout
+import recovery as image_recovery
+import recovery_candidates
 import page_parser
 import source_ocr
 import structure
@@ -57,10 +60,38 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
     boundary_decisions, tracker = book_boundaries.resolve_with_candidates(
         spans, pages_with_layout)
 
+    # Revisiones del facsímil: se cargan con la guarda de hash puesta. Si
+    # el artefacto visual no es el que se miró, `reviews` queda vacío y no
+    # se aplica ninguna -- y el informe dice por qué, no lo silencia.
+    cache = os.path.dirname(xml_path)
+    payload, source, reviews, guard = None, None, [], "ok"
+    try:
+        payload = image_reviews.load()
+        pdf = os.path.join(cache, payload["visual_source"]["filename"])
+        source = image_recovery.source_identity(payload)
+        try:
+            reviews = image_reviews.reviews_for(payload, source_path=pdf)
+        except image_reviews.ReviewError as exc:
+            guard = str(exc)
+    except FileNotFoundError:
+        guard = "no review metadata"
+
+    # Se parsea dos veces con exactamente el mismo código y sólo las
+    # revisiones cambiadas. Es la única forma honesta de poder decir qué
+    # cambió la imagen y qué ya estaba: deducir el «antes» restando
+    # esconde las resoluciones que un capítulo recuperado vuelve a hacer
+    # posibles al devolverle a la secuencia su punto de apoyo.
+    before_edition, _before_stats, before_walker = page_parser.parse_volume(
+        source_ocr.read_pages(xml_path, limit=limit), witness=witness,
+        volume=volume, book=book, book_spans=spans,
+        header_chapters=header_chapters, with_walker=True)
+
     pages = source_ocr.read_pages(xml_path, limit=limit)
     edition, stats, walker = page_parser.parse_volume(
         pages, witness=witness, volume=volume, book=book,
-        book_spans=spans, header_chapters=header_chapters, with_walker=True)
+        book_spans=spans, header_chapters=header_chapters, with_walker=True,
+        image_reviews=image_recovery.by_page(reviews) if reviews else None,
+        recovery_source=source if reviews else None)
 
     chapters = {}
     for osis, entry in edition.books.items():
@@ -153,7 +184,127 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         for reason in item["rejections"]:
             rejected_reasons[reason] = rejected_reasons.get(reason, 0) + 1
 
+    # Revisiones facsimilares: qué demostró la imagen y qué hizo con el
+    # flujo estructural. El «antes» sale de la pasada gemela sin
+    # revisiones, no de una resta.
+    def chapter_view(ed):
+        return {osis: sorted(n for n in bk.chapters if n > 0)
+                for osis, bk in ed.books.items()}
+
+    before_view, after_view = chapter_view(before_edition), chapter_view(edition)
+    per_book_recovery = {}
+    for osis in sorted(set(before_view) | set(after_view)):
+        was, now = set(before_view.get(osis, [])), set(after_view.get(osis, []))
+        per_book_recovery[osis] = {
+            "before": len(was), "after": len(now),
+            "gained": sorted(now - was), "lost": sorted(was - now),
+            "vulg_audit_limit": structure.chapter_limit(osis),
+        }
+
+    applications = walker.recoveries
+    def count(action):
+        return sum(1 for a in applications if a.action == action)
+
+    applied = [a for a in applications if a.changed_stream]
+    problems = image_reviews.validate(payload, page_count=652) if payload else []
+    pdf_path = (os.path.join(cache, payload["visual_source"]["filename"])
+                if payload else None)
+    mapping = None
+    if pdf_path and os.path.isfile(pdf_path):
+        mapping = image_reviews.verify_page_mapping(xml_path, pdf_path)
+
+    # Un número recuperado que otro rótulo también reclama sería dos
+    # capítulos en el mismo hueco. La capa de aplicación lo rechaza al
+    # aplicar, pero sólo ve lo ya escrito; esta comprobación mira el tomo
+    # entero, incluidos los rótulos posteriores.
+    claims = {}
+    for item in resolutions:
+        if item["resolved_number"] is not None:
+            claims.setdefault((item["book"], item["resolved_number"]),
+                              []).append({"scan_page": item["scan_page"],
+                                          "method": item["method"],
+                                          "block_id": item["block_id"]})
+    recovered_keys = {(a.book, a.chapter_number) for a in applied
+                      if a.chapter_number is not None}
+    collisions = [{"book": b, "chapter": n, "claimants": claims[(b, n)]}
+                  for (b, n) in sorted(recovered_keys)
+                  if len(claims.get((b, n), [])) > 1]
+
+    recovery_report = {
+        "available": payload is not None,
+        "visual_source": payload["visual_source"] if payload else None,
+        "hash_guard": guard,
+        "page_mapping": mapping,
+        "schema_problems": problems,
+        "reviews_loaded": len(payload.get("reviews", [])) if payload else 0,
+        "reviews_valid": len(reviews),
+        "reviews_applied": len(applied),
+        "reviews_rejected": count(image_recovery.REJECTED),
+        "reviews_redundant": count(image_recovery.REDUNDANT),
+        "reviews_failed_anchor_validation": count(image_recovery.FAILED),
+        "reviews_conflicting_number": count(image_recovery.CONFLICT),
+        "reviews_colliding_with_existing_chapter": count(
+            image_recovery.COLLISION),
+        "recovered_boundaries": sum(1 for a in applied
+                                    if a.action == image_recovery.INSERTED),
+        "recovered_numbers": sum(1 for a in applied
+                                 if a.chapter_number is not None),
+        "recovered_unknown_numbers": sum(1 for a in applied
+                                         if a.chapter_number is None),
+        "recovered_number_collisions": collisions,
+        "raw_ocr_blocks": stats.get("ocr_blocks"),
+        "per_book": per_book_recovery,
+        "applications": [{
+            "review_id": a.review_id, "book": a.book, "scan_page": a.scan_page,
+            "action": a.action, "reason": a.reason,
+            "anchor_after": a.anchor_after, "anchor_before": a.anchor_before,
+            "target_block": a.target_block,
+            "resulting_block": a.resulting_block,
+            "chapter_number": a.chapter_number,
+            "provenance": a.provenance,
+        } for a in applications],
+        "recovered_events": [{
+            "book": item["book"], "scan_page": item["scan_page"],
+            "block_id": item["block_id"],
+            "chapter_number": item["resolved_number"],
+            "method": item["method"],
+            "review_required": item["review_required"],
+            "observed": item["source_heading"],
+            "provenance": item["evidence"],
+        } for item in resolutions if item.get("recovered")],
+    }
+
+    # Cola de revisión visual, ordenada por lo que más devuelve. No crea
+    # estructura: sólo dice dónde mirar.
+    geometry = {}
+    for page, placed in pages_with_layout():
+        geometry[page.scan_page] = recovery_candidates.page_geometry(page, placed)
+    queue = recovery_candidates.rank(readings=readings, resolutions=resolutions,
+                                     spans=spans, geometry=geometry)
+    candidate_report = {
+        "model": "two families: boundary certain with the number lost, and "
+                 "no heading at all. Ranking only -- nothing here confirms "
+                 "anything or supplies a number.",
+        "weights": recovery_candidates.WEIGHTS,
+        "total": len(queue),
+        "by_family": {family: sum(1 for c in queue if c.family == family)
+                      for family in (recovery_candidates.UNRESOLVED_NUMERAL,
+                                     recovery_candidates.MISSING_HEADING)},
+        "by_book": {},
+        "top": [{"family": c.family, "book": c.book, "scan_page": c.scan_page,
+                 "pdf_page": c.scan_page + 1, "score": c.score,
+                 "target_block": c.target_block,
+                 "signals": {k: str(v) for k, v in c.signals.items()}}
+                for c in queue[:60]],
+    }
+    for c in queue:
+        key = f"{c.book}/{c.family}"
+        candidate_report["by_book"][key] = \
+            candidate_report["by_book"].get(key, 0) + 1
+
     report = {
+        "chapter_image_recovery": recovery_report,
+        "image_review_queue": candidate_report,
         "book_boundary_resolution": {
             "model": "pending candidate held forward until confirmation",
             "cluster_gap_pages": book_boundaries.CLUSTER_GAP_PAGES,
@@ -234,6 +385,38 @@ def main():
             json.dump(report, handle, ensure_ascii=False, indent=1)
             handle.write("\n")
         print(f"informe en {args.out}")
+    cr = report.get("chapter_image_recovery", {})
+    if cr.get("available"):
+        print(f"  image reviews loaded       {cr['reviews_loaded']}"
+              f" valid={cr['reviews_valid']} applied={cr['reviews_applied']}"
+              f" rejected={cr['reviews_rejected']}"
+              f" redundant={cr['reviews_redundant']}"
+              f" failed_anchors={cr['reviews_failed_anchor_validation']}"
+              f" conflicting={cr['reviews_conflicting_number']}"
+              f" colliding={cr['reviews_colliding_with_existing_chapter']}")
+        print(f"  recovered                  boundaries={cr['recovered_boundaries']}"
+              f" numbers={cr['recovered_numbers']}"
+              f" unknown_numbers={cr['recovered_unknown_numbers']}")
+        print(f"  hash guard                 {cr['hash_guard'][:60]}")
+        print(f"  schema problems            {cr['schema_problems'] or 'none'}")
+        mapping = cr.get("page_mapping") or {}
+        print(f"  page mapping               {mapping.get('relation')}"
+              f" invariant={mapping.get('invariant')}"
+              f" leaves={mapping.get('declared_leaves')}"
+              f" pdf_pages={mapping.get('pdf_pages')}"
+              f" problems={mapping.get('problems')}")
+        print(f"  recovered collisions       {cr['recovered_number_collisions'] or 'none'}")
+        for a in cr["applications"]:
+            print(f"    {a['review_id']:20} {a['action']:34} n={a['chapter_number']}")
+            print(f"      {a['reason'][:100]}")
+        print("  book   before  after  gained")
+        for osis, stat in cr["per_book"].items():
+            print(f"    {osis:5} {stat['before']:6} {stat['after']:6}"
+                  f"  {stat['gained']} lost={stat['lost']}"
+                  f" vulg={stat['vulg_audit_limit']}")
+    q = report.get("image_review_queue", {})
+    if q:
+        print(f"  review queue               {q['total']} {q['by_family']}")
     bb_r = report["book_boundary_resolution"]
     print(f"  model                      {bb_r['model']}")
     print(f"  candidates                 {len(bb_r['candidates'])}"

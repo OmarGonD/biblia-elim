@@ -22,6 +22,7 @@ from typing import Iterable, Optional
 
 import divisions
 import parser as classifier
+import recovery as image_recovery
 import structure
 from layout import Column, Zone, split_columns, measure
 from model import Block, BlockKind, Edition, Provenance
@@ -41,11 +42,15 @@ _ZONE_KIND = {
 
 def _provenance(witness, volume, page, placed, printed_page=None):
     line = placed.line
+    # Un evento recuperado del facsímil lleva «r» en su identificador
+    # donde el reconocimiento lleva «l»: aguas abajo no puede confundirse
+    # con un renglón que dijo el OCR.
+    prefix = "r" if getattr(placed, "recovery", None) is not None else "l"
     return Provenance(
         witness=witness, volume=volume, page=page.scan_page,
         line=line.index, column=placed.column.value, zone=placed.zone.value,
         bbox=line.bbox, printed_page=printed_page,
-        block_id=f"p{page.scan_page:04d}l{line.index:04d}")
+        block_id=f"p{page.scan_page:04d}{prefix}{line.index:04d}")
 
 
 def _block(kind, placed, prov, *, number=None, reason=None, decision=None,
@@ -64,7 +69,8 @@ class VolumeParser:
 
     def __init__(self, edition: Edition, *, witness: str, volume: str,
                  book: str = "Ps", gutter_hint: Optional[int] = None,
-                 book_spans=None, header_chapters=None):
+                 book_spans=None, header_chapters=None,
+                 image_reviews=None, recovery_source=None):
         self.edition = edition
         self.witness = witness
         self.volume = volume
@@ -88,6 +94,12 @@ class VolumeParser:
         self.page = None
         self.division_candidates = []
         self._seen_on_page = set()
+        #: Revisiones del facsímil, indexadas por plana, y la identidad
+        #: del artefacto visual sobre el que se hicieron. Sin las dos
+        #: cosas no se aplica ninguna: ver recovery.py.
+        self.image_reviews = image_reviews or {}
+        self.recovery_source = recovery_source
+        self.recoveries = []
 
     def _bump(self, key, amount=1):
         self.stats[key] = self.stats.get(key, 0) + amount
@@ -135,9 +147,45 @@ class VolumeParser:
         self._bump("ocr_blocks", len(placed_lines))
         self._bump("gutter_found", 1 if layout.gutter is not None else 0)
 
+        # Aquí, y sólo aquí, entra lo que se leyó en el facsímil: la
+        # plana ya está parseada y colocada en orden de lectura, y
+        # todavía no se ha resuelto ninguna división. El recuento de
+        # `ocr_blocks` se ha tomado ANTES, de modo que un evento
+        # recuperado no puede disfrazarse de bloque de reconocimiento.
+        reviews = self.image_reviews.get(page.scan_page)
+        if reviews and self.recovery_source is not None:
+            def resolve_numeral(raw, book=book, page=page):
+                # La misma pregunta que se le hará al rótulo unos
+                # renglones más abajo, hecha con la misma evidencia.
+                return structure.resolve_chapter(
+                    raw_numeral=raw,
+                    header_chapters=self.header_chapters.get(page.scan_page, []),
+                    previous=self.last_chapter.get(book),
+                    book=book).resolved
+
+            placed_lines, applications = \
+                image_recovery.apply_verified_image_reviews(
+                    page, placed_lines, reviews,
+                    source=self.recovery_source, book=book,
+                    resolve_numeral=resolve_numeral,
+                    claimed_numbers=frozenset(
+                        n for n in self.edition.book(book).chapters if n > 0))
+            for record in applications:
+                self._bump("image_review_" + record.action)
+                self.recoveries.append(record)
+
         for placed in placed_lines:
             self._bump("column_" + placed.column.value)
             prov = _provenance(self.witness, self.volume, page, placed)
+
+            # --- rótulo leído en la imagen ----------------------------
+            # No pasa por la resolución de capítulo: su numeral no es una
+            # inferencia que haya que corroborar, es una lectura directa
+            # del impreso. Y si la imagen no dejó leer el numeral, sigue
+            # sin número: la secuencia no lo completa.
+            if getattr(placed, "recovery", None) is not None:
+                self._open_recovered_chapter(placed, prov)
+                continue
 
             # --- fuera del cuerpo: cabecera, pie, notas ---------------
             if placed.zone in _ZONE_KIND:
@@ -303,6 +351,65 @@ class VolumeParser:
         self.verse_number = None
         self.expect_editorial = True
 
+    def _open_recovered_chapter(self, placed, prov):
+        """Abre una división que el reconocimiento no dejó legible.
+
+        El número viene del numeral impreso leído en la imagen y de
+        ningún otro sitio. Si la revisión confirmó la frontera pero no el
+        numeral, el capítulo queda sin número y marcado para revisión:
+        exactamente igual que una división del OCR que no se pudo
+        identificar. Una frontera sin número sigue siendo una frontera, y
+        eso es lo que impide que el texto se corra.
+        """
+        recovery = placed.recovery
+        book = self.current_book
+        page = self.page.scan_page if self.page is not None else None
+        number = recovery.chapter_number
+        raw = getattr(placed.line, "raw_text", "") or ""
+
+        self._bump("chapters_recovered_" + recovery.action)
+        if number is not None:
+            self.last_chapter[book] = number
+            slot = number
+        else:
+            slot = -(len([k for k in self.edition.book(book).chapters
+                          if k < 0]) + 1)
+
+        provenance = recovery.provenance.as_dict()
+        self.resolutions.append({
+            "book": book, "scan_page": page,
+            "source_heading": (recovery.provenance.observed_printed_text
+                               or raw)[:120],
+            "raw_numeral": None,
+            "parsed_candidate": None,
+            "resolved_number": number,
+            "method": "image_review",
+            "evidence": {"review_id": recovery.review_id,
+                         "action": recovery.action,
+                         "witness": recovery.provenance.witness,
+                         "source_sha256": recovery.provenance.source_sha256,
+                         "pdf_page": recovery.provenance.pdf_page,
+                         "printed_page": recovery.provenance.printed_page,
+                         "observed": recovery.provenance.observed_printed_text},
+            "confidence": recovery.provenance.confidence,
+            "review_required": number is None,
+            "recovered": True,
+            "block_id": prov.block_id,
+        })
+
+        block = _block(BlockKind.CHAPTER_HEADING, placed, prov, number=number,
+                       reason=(None if number is not None else
+                               "chapter boundary read from the facsimile; "
+                               "the printed numeral was not legible"),
+                       decision="image_review:" + recovery.review_id)
+        block.recovered = provenance
+        if number is None:
+            self.edition.review_queue.append(block)
+        self.chapter = self.edition.book(book).chapter(slot)
+        self.chapter.paratext.append(block)
+        self.verse_number = None
+        self.expect_editorial = True
+
     def _handle_spanish(self, placed, prov):
         raw = placed.line.raw_text
         block = classifier.classify(raw, prov,
@@ -353,12 +460,15 @@ class VolumeParser:
 def parse_volume(pages: Iterable, *, witness: str, volume: str,
                  book: str = "Ps", edition: Optional[Edition] = None,
                  gutter_hint: Optional[int] = None, book_spans=None,
-                 header_chapters=None, with_walker: bool = False):
+                 header_chapters=None, with_walker: bool = False,
+                 image_reviews=None, recovery_source=None):
     """Recorre las páginas y devuelve (edición, métricas)."""
     edition = edition or Edition(edition_id="TorresAmat1835")
     walker = VolumeParser(edition, witness=witness, volume=volume, book=book,
                           gutter_hint=gutter_hint, book_spans=book_spans,
-                          header_chapters=header_chapters)
+                          header_chapters=header_chapters,
+                          image_reviews=image_reviews,
+                          recovery_source=recovery_source)
     for page in pages:
         walker.feed_page(page)
     if with_walker:

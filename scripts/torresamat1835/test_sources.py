@@ -177,8 +177,15 @@ def test_no_silent_record():
 
 # ---- H. Nada grande vive en Git ----------------------------------------
 def test_sources_do_not_live_in_git():
+    # Metadata versionada sí; assets de la fuente no. Lo que no puede
+    # haber aquí son escaneos, OCR masivo ni nada pesado: eso vive en la
+    # caché de build/, ignorada por Git.
     data_dir = os.path.join(ROOT, "data", "torresamat1835")
-    assert sorted(os.listdir(data_dir)) == ["source_manifest.json"]
+    listing = sorted(os.listdir(data_dir))
+    assert "source_manifest.json" in listing
+    for name in listing:
+        assert name.endswith(".json"), name
+        assert os.path.getsize(os.path.join(data_dir, name)) < 256 * 1024, name
 
     heavy = (".pdf", ".jp2", ".djvu", ".tif", ".tiff", ".zip", ".gz", ".xml")
     for base in (data_dir, DIR):
