@@ -479,13 +479,16 @@ def test_the_two_queues_stay_apart():
         return
     markers = report["corrupted_division_marker_candidates"]
     missing = report["image_review_queue"]
-    assert markers["total"] != missing["total"] or True
     assert "not_the_same_as_missing_heading" in markers
-    # la cola de rótulos ausentes sigue existiendo y midiendo lo suyo
-    assert "missing_heading" in missing["by_family"]
+    # la cola de rótulos ausentes sigue existiendo y midiendo lo suyo:
+    # se mira lo DESCUBIERTO, que es lo que esa familia detecta, y no lo
+    # pendiente, que puede estar a cero por haberse revisado entero
+    assert "missing_heading" in missing["discovered_by_family"]
+    assert missing["discovered_by_family"]["missing_heading"] > 0
     marker_pages = {row["scan_page"] for row in markers["candidates"]}
-    missing_pages = {c["scan_page"] for c in missing["top"]
-                     if c["family"] == "missing_heading"}
+    missing_pages = {row["scan_page"]
+                     for row in report["missing_heading_reviews"]["candidates"]
+                     if row["discovered_now"]}
     assert not (marker_pages & missing_pages), \
         "una plana ya recuperada no puede seguir contando como rótulo ausente"
 

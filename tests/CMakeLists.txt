@@ -1097,6 +1097,16 @@ if (BUILD_TESTING AND UNIX AND PYTHON3_EXECUTABLE)
   set_tests_properties (torresamat1835_numeral_review_test PROPERTIES
     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
     )
+  # La cola de rótulos que parecían ausentes: qué se vio en la imagen y
+  # cómo se representa un rótulo impreso que el OCR no dejó.
+  add_test (
+    NAME torresamat1835_missing_headings_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_missing_headings.py
+    )
+  set_tests_properties (torresamat1835_missing_headings_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
+    )
   # El barrido que busca ese mismo daño en las 652 planas: rótulos
   # presentes cuya palabra de división el reconocimiento destrozó.
   add_test (

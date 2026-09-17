@@ -61,6 +61,17 @@ FAILED = "failed_anchor_validation"
 CONFLICT = "conflicting_number"
 COLLISION = "collision_with_existing_chapter"
 
+#: Cómo se encontró un rótulo que ya estaba entre las anclas.
+#:
+#:   BY_MARKER  por su propia palabra de división: la máquina lee una
+#:              división ahí, así que su numeral es una lectura rival y
+#:              una discrepancia con el facsímil hay que pararla.
+#:   BY_NAME    porque la revisión lo nombró: ninguna lectura del texto
+#:              veía una división ahí, y el número que se saque de ese
+#:              renglón es precisamente el ruido que lo dejó invisible.
+BY_MARKER = "found_by_its_division_word"
+BY_NAME = "named_by_the_review"
+
 
 @dataclass(frozen=True)
 class SourceIdentity:
@@ -149,6 +160,8 @@ class Application:
     target_block: Optional[str] = None
     resulting_block: Optional[str] = None
     chapter_number: Optional[int] = None
+    #: Cómo se encontró el rótulo que ya estaba, cuando lo había.
+    found_by: Optional[str] = None
     provenance: dict = field(default_factory=dict)
 
     @property
@@ -279,16 +292,23 @@ def _existing_heading(entries, start: int, stop: int, *, scan_page=None,
     teniendo que caer entre las anclas; lo que cambia es que la frontera
     se marca sobre el renglón que ya existe en vez de añadir otro al
     lado.
+
+    Devuelve (posición, renglón, cómo se encontró). El «cómo» importa
+    aguas abajo: si el renglón se encontró por su propia palabra, la
+    máquina SÍ lee una división ahí y lo que diga de su numeral es una
+    lectura que se puede contradecir; si hubo que nombrarlo, es que
+    ninguna lectura del texto veía nada, y entonces el número que salga
+    de ese renglón es el ruido que lo hizo invisible.
     """
     for position in range(start + 1, stop):
         entry = entries[position]
         if heading_block is not None and scan_page is not None and \
                 _entry_block_id(entry, scan_page) == heading_block:
-            return position, entry
+            return position, entry, BY_NAME
         raw = getattr(entry.line, "raw_text", "") or ""
         if classifier.carries_division_marker(raw):
-            return position, entry
-    return None, None
+            return position, entry, BY_MARKER
+    return None, None, None
 
 
 def apply_verified_image_reviews(page, entries, reviews, *, source,
@@ -380,13 +400,22 @@ def apply_verified_image_reviews(page, entries, reviews, *, source,
             chapter_number=review.chapter_number,
             review_required=review.review_required)
 
-        position, existing = _existing_heading(
+        position, existing, found_by = _existing_heading(
             stream, start, stop, scan_page=page.scan_page,
             heading_block=review.heading_block)
         if existing is not None:
             seen = resolve_numeral(getattr(existing.line, "raw_text", ""))
-            if seen is not None and review.chapter_number is not None and \
-                    seen != review.chapter_number:
+            disagreement = (seen is not None
+                            and review.chapter_number is not None
+                            and seen != review.chapter_number)
+            # La discrepancia sólo PARA cuando la máquina lee de verdad
+            # una división en ese renglón. Si el rótulo hubo que
+            # nombrarlo, es que no la lee: el número que salga de ahí
+            # viene de la palabra rota o de una cabecera corrida que
+            # tampoco se dejó leer, y comparar la lectura del facsímil
+            # contra ese ruido bloquearía justo lo que se ha ido a
+            # comprobar a la imagen. Se anota y se sigue.
+            if disagreement and found_by == BY_MARKER:
                 record.action = CONFLICT
                 record.reason = (
                     f"the chapter resolution identified the heading between "
@@ -412,6 +441,19 @@ def apply_verified_image_reviews(page, entries, reviews, *, source,
                 "the heading was there and the chapter resolution agreed; "
                 "the facsimile reading stands as the authority and keeps "
                 "its provenance")
+            record.found_by = found_by
+            if disagreement:
+                # No se esconde: la máquina sacaba un número de ese
+                # renglón y el facsímil dice otro. Queda escrito con lo
+                # que sostiene cada lectura.
+                recovery.action = RESOLVED
+                record.action = RESOLVED
+                record.reason = (
+                    f"no reading of the text saw a division in this line, so "
+                    f"the review had to name it; what the chapter resolution "
+                    f"did get out of it ({seen}) comes from the broken word "
+                    f"or from a running header that could not be read either, "
+                    f"and the facsimile reads {review.chapter_number}")
             record.target_block = _entry_block_id(existing, page.scan_page)
             record.resulting_block = record.target_block
             record.chapter_number = review.chapter_number

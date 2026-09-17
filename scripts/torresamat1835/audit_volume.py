@@ -364,6 +364,7 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
             "target_block": a.target_block,
             "resulting_block": a.resulting_block,
             "chapter_number": a.chapter_number,
+            "found_by": a.found_by,
             "provenance": a.provenance,
         } for a in applications],
         "recovered_events": [{
@@ -445,23 +446,155 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         geometry[page.scan_page] = recovery_candidates.page_geometry(page, placed)
     queue = recovery_candidates.rank(readings=readings, resolutions=resolutions,
                                      spans=spans, geometry=geometry)
+    # Qué se hizo con cada candidato de `missing_heading`. La cola dice
+    # dónde MIRAR; esto dice qué se vio. Un candidato revisado no
+    # desaparece: cambia de estado y se queda con su procedencia, que es
+    # lo que impide volver a rankearlo y lo que permite auditar si la
+    # familia acierta o no.
+    missing_reviews = {}
+    for entry in (payload.get("reviews", []) if payload else []):
+        if entry.get("discovered_by") != "missing_heading":
+            continue
+        missing_reviews[entry["scan_page"]] = entry
+    accepted_by_block = {c.block_id: c for c in ledger.accepted()}
+    # La lista es la UNIÓN de lo que la cola señala hoy y de todo lo que
+    # se revisó como `missing_heading` alguna vez. Un candidato
+    # recuperado deja de aparecer en la cola --su plana ya tiene rótulo--
+    # y si sólo se mirase la cola, el trabajo hecho desaparecería del
+    # informe y el contador bajaría sin decir por qué.
+    still_queued = {c.scan_page: c for c in queue
+                    if c.family == recovery_candidates.MISSING_HEADING}
+    missing_rows = []
+    for page_number in sorted(set(still_queued) | set(missing_reviews)):
+        candidate = still_queued.get(page_number)
+        review = missing_reviews.get(page_number)
+        row = {
+            "book": (candidate.book if candidate else review["book"]),
+            "scan_page": page_number, "pdf_page": page_number + 1,
+            "score": candidate.score if candidate else None,
+            "signals": ({k: str(v) for k, v in candidate.signals.items()}
+                        if candidate else {}),
+            # Descubrir y estar pendiente son cosas distintas. El
+            # generador sigue señalando la plana --es un diagnóstico y no
+            # se le quita-- pero una vez mirada no es trabajo por hacer.
+            "discovered_now": candidate is not None,
+            "still_pending": candidate is not None and review is None,
+            "gap_after_block": candidate.gap_after_block if candidate else None,
+            "gap_before_block": candidate.gap_before_block if candidate else None,
+            "review_outcome": (review.get("review_outcome") if review
+                               else "awaiting_review"),
+            "review_id": review["id"] if review else None,
+            "printed_heading": review.get("observed_printed_text") if review else None,
+            "printed_numeral": (review.get("observed_printed_numeral")
+                                if review else None),
+            "heading_block": review.get("heading_block") if review else None,
+            "anchor_after": review.get("insert_after_block") if review else None,
+            "anchor_before": review.get("insert_before_block") if review else None,
+            "bbox": review.get("crop_bbox") if review else None,
+            "recovered_chapter": None,
+        }
+        block = row["heading_block"]
+        if block:
+            recovered_id = f"p{page_number:04d}r{block[6:]}"
+            claim = accepted_by_block.get(recovered_id)
+            row["recovered_chapter"] = claim.accepted_number if claim else None
+        missing_rows.append(row)
+    by_outcome = {}
+    for row in missing_rows:
+        by_outcome[row["review_outcome"]] = \
+            by_outcome.get(row["review_outcome"], 0) + 1
+    by_book = {}
+    for row in missing_rows:
+        stat = by_book.setdefault(row["book"], {})
+        stat[row["review_outcome"]] = stat.get(row["review_outcome"], 0) + 1
+    pending_by_book = {}
+    for row in missing_rows:
+        if not row["still_pending"]:
+            continue
+        pending_by_book[row["book"]] = pending_by_book.get(row["book"], 0) + 1
+    missing_report = {
+        "about": ("what was seen at each `missing_heading` candidate. The "
+                  "queue ranks blanks in the body where a label could have "
+                  "been lost; only the facsimile says whether one was. A "
+                  "reviewed candidate does not vanish from the queue -- it "
+                  "changes state and keeps its provenance."),
+        "outcomes": ("confirmed_missing_heading: the label is printed and NO "
+                     "OCR block represents it, so a structural event is "
+                     "inserted. existing_ocr_heading_found: the label is "
+                     "printed and the recognition did emit a block for it, so "
+                     "that block is marked and nothing is inserted. "
+                     "false_missing_heading_candidate: no label is printed "
+                     "there."),
+        "counted_apart": ("`candidates_total` is what the generator has "
+                          "found; `pending_review` is what is left to do. "
+                          "They are not the same number and conflating them "
+                          "is what made a finished family look like open "
+                          "work: the seven blanks that turned out to be "
+                          "margins, book endings and editorial section marks "
+                          "are still discovered every run, and that is "
+                          "correct -- they are simply no longer pending."),
+        "candidates_total": len(missing_rows),
+        "discovered_now": sum(1 for r in missing_rows if r["discovered_now"]),
+        "reviewed": sum(1 for r in missing_rows
+                        if r["review_outcome"] != "awaiting_review"),
+        "existing_ocr_heading_found": sum(
+            1 for r in missing_rows
+            if r["review_outcome"] == "existing_ocr_heading_found"),
+        "false_reviewed": sum(
+            1 for r in missing_rows
+            if r["review_outcome"] == "false_missing_heading_candidate"),
+        "confirmed_missing_heading": sum(
+            1 for r in missing_rows
+            if r["review_outcome"] == "confirmed_missing_heading"),
+        "pending_review": sum(1 for r in missing_rows if r["still_pending"]),
+        "pending_by_book": pending_by_book,
+        "by_outcome": dict(sorted(by_outcome.items())),
+        "by_book": {book: dict(sorted(stat.items()))
+                    for book, stat in sorted(by_book.items())},
+        "recovered_chapters": sum(1 for r in missing_rows
+                                  if r["recovered_chapter"] is not None),
+        "candidates": missing_rows,
+    }
+
+    # La cola de revisión visual informa de lo que queda POR MIRAR. Una
+    # plana ya mirada se sigue descubriendo --el blanco en la caja no se
+    # va porque alguien lo haya explicado-- pero deja de ser trabajo
+    # pendiente, y mezclar las dos cosas hacía que una familia terminada
+    # pareciera abierta. Las dos cuentas se publican por separado.
+    reviewed_missing_pages = {row["scan_page"] for row in missing_rows
+                              if row["review_outcome"] != "awaiting_review"}
+    pending_queue = [c for c in queue
+                     if not (c.family == recovery_candidates.MISSING_HEADING
+                             and c.scan_page in reviewed_missing_pages)]
+    families = (recovery_candidates.UNRESOLVED_NUMERAL,
+                recovery_candidates.MISSING_HEADING)
     candidate_report = {
         "model": "two families: boundary certain with the number lost, and "
                  "no heading at all. Ranking only -- nothing here confirms "
                  "anything or supplies a number.",
+        "counted_apart": ("`total` is what is left to review. "
+                          "`discovered_total` is what the generator found, "
+                          "reviewed candidates included: a blank that turned "
+                          "out to be a margin keeps being discovered and is "
+                          "no longer pending."),
         "weights": recovery_candidates.WEIGHTS,
-        "total": len(queue),
-        "by_family": {family: sum(1 for c in queue if c.family == family)
-                      for family in (recovery_candidates.UNRESOLVED_NUMERAL,
-                                     recovery_candidates.MISSING_HEADING)},
+        "total": len(pending_queue),
+        "discovered_total": len(queue),
+        "reviewed_and_closed": len(queue) - len(pending_queue),
+        "by_family": {family: sum(1 for c in pending_queue
+                                  if c.family == family)
+                      for family in families},
+        "discovered_by_family": {family: sum(1 for c in queue
+                                             if c.family == family)
+                                 for family in families},
         "by_book": {},
         "top": [{"family": c.family, "book": c.book, "scan_page": c.scan_page,
                  "pdf_page": c.scan_page + 1, "score": c.score,
                  "target_block": c.target_block,
                  "signals": {k: str(v) for k, v in c.signals.items()}}
-                for c in queue[:60]],
+                for c in pending_queue[:60]],
     }
-    for c in queue:
+    for c in pending_queue:
         key = f"{c.book}/{c.family}"
         candidate_report["by_book"][key] = \
             candidate_report["by_book"].get(key, 0) + 1
@@ -759,6 +892,7 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         "chapter_image_recovery": recovery_report,
         "corrupted_division_marker_candidates": marker_report,
         "image_review_queue": candidate_report,
+        "missing_heading_reviews": missing_report,
         "book_boundary_resolution": {
             "model": "pending candidate held forward until confirmation",
             "cluster_gap_pages": book_boundaries.CLUSTER_GAP_PAGES,
@@ -924,9 +1058,31 @@ def main():
                   f" {row['raw_text'][:34]!r} -> {row['recovered_chapter']}"
                   f" {row['review_outcome']}")
 
+    mh = report.get("missing_heading_reviews", {})
+    if mh:
+        print(f"  missing heading reviews    candidates={mh['candidates_total']}"
+              f" reviewed={mh['reviewed']}"
+              f" existing_ocr_found={mh['existing_ocr_heading_found']}"
+              f" false={mh['false_reviewed']}"
+              f" confirmed_missing={mh['confirmed_missing_heading']}"
+              f" PENDING={mh['pending_review']}")
+        print(f"    pending by book          {mh['pending_by_book'] or 'none'}"
+              f"   (still discovered: {mh['discovered_now']})")
+        print(f"    by outcome               {mh['by_outcome']}")
+        print(f"    by book                  {mh['by_book']}")
+        for row in mh["candidates"]:
+            print(f"    {row['book']:5} p{row['scan_page']:<4}"
+                  f" {row['review_outcome']:32}"
+                  f" {str(row['printed_heading'] or '-'):22}"
+                  f" -> {row['recovered_chapter']}")
+
     q = report.get("image_review_queue", {})
     if q:
-        print(f"  review queue               {q['total']} {q['by_family']}")
+        print(f"  review queue               pending={q['total']}"
+              f" {q['by_family']}")
+        print(f"    discovered                 {q['discovered_total']}"
+              f" {q['discovered_by_family']}"
+              f"   reviewed_and_closed={q['reviewed_and_closed']}")
     nr = report.get("numeral_image_review", {})
     if nr:
         print(f"  numeral image review       attempted={nr['reviews_attempted']}"
