@@ -22,6 +22,8 @@ from typing import Iterable, Optional
 
 import chapter_claims
 import divisions
+import heading_validity
+import image_reviews as review_outcomes
 import parser as classifier
 import recovery as image_recovery
 import structure
@@ -39,6 +41,24 @@ _ZONE_KIND = {
     Zone.FOOTER: BlockKind.PAGE_FOOTER,
     Zone.APPARATUS: BlockKind.FOOTNOTE,
 }
+
+
+def _heading_says(review):
+    """Qué dijo el facsímil de ESTE bloque como RÓTULO, si alguien lo miró.
+
+    Una revisión que leyó el numeral impreso vio el rótulo; una que
+    comprobó que ahí no hay rótulo lo niega. Las demás -- numeral
+    ilegible, numeral todavía ambiguo -- hablan del NÚMERO y no de la
+    existencia del rótulo, así que no responden a esta pregunta y dejan
+    decidir a la estructura.
+    """
+    if review is None:
+        return None
+    if review.outcome in review_outcomes.NUMERAL_RESOLVING:
+        return True
+    if review.outcome == review_outcomes.FALSE_CLAIM:
+        return False
+    return None
 
 
 def _provenance(witness, volume, page, placed, printed_page=None):
@@ -335,11 +355,69 @@ class VolumeParser:
             limit=structure.chapter_limit(book))
         self._bump("chapters_claimed")
 
+        # ¿Es esto un rótulo? El clasificador ha visto la PALABRA; que el
+        # impreso componga aquí una división lo dicen la plana y la forma
+        # del renglón. Un renglón que la lleva dentro de una frase --la
+        # inscripción del salmo, por ejemplo-- se conserva como reclamo
+        # con su evidencia, pero no abre capítulo ninguno.
+        review = self.numeral_reviews.get(prov.block_id)
+        heading = heading_validity.judge(
+            raw_text=raw, column=placed.column, zone=placed.zone,
+            bbox=placed.line.bbox,
+            page_width=self.page.width if self.page is not None else None,
+            header_chapters=self.header_chapters.get(page),
+            image_review_outcome=_heading_says(review))
+        if not heading.is_heading:
+            # No se cuenta aquí: `finish` ya cuenta una vez por
+            # disposición, y dos contadores con el mismo nombre daban
+            # doce rechazos donde hay seis.
+            claim = self._claim(
+                book=book, page=page, prov=prov, placed=placed, raw=raw,
+                source=chapter_claims.FROM_OCR, numeral=numeral,
+                candidates=list(numeral.candidates),
+                proposed=None, method=chapter_claims.UNRESOLVED,
+                evidence={}, confidence=0.0, heading=heading.as_dict())
+            # El renglón sale a revisión. Y queda por decidir qué pasa
+            # con lo que venga DETRÁS, que es donde está el peligro.
+            #
+            # Estas líneas son inscripciones de salmo («Salmo de David,
+            # cuando le perseguía su hijo Absalón»), y el impreso las
+            # pone en dos sitios distintos:
+            #
+            #   tras un rótulo que sí se leyó -- el capítulo está
+            #   abierto y todavía no ha tomado ningún versículo: la
+            #   inscripción es el principio de SU texto y sigue siendo
+            #   suyo;
+            #
+            #   en medio del cuerpo -- el capítulo abierto ya tiene
+            #   versículos: entonces aquí empieza un salmo cuyo rótulo
+            #   el reconocimiento NO produjo, y seguir echando lo que
+            #   venga en el capítulo anterior lo mezclaría en silencio.
+            #   Eso es el fallo de 1882 con otro disfraz, así que se
+            #   cierra y el texto espera en la cola con su procedencia
+            #   hasta que una recuperación de frontera diga qué división
+            #   falta.
+            if self.chapter is not None and self.chapter.verses:
+                self._close_verse("not_a_heading")
+                self.chapter = None
+            # El bloque se encola AQUÍ y no se registra en
+            # `_blocks_by_claim`: si se registrara, `finish` lo volvería
+            # a encolar al repasar los reclamos sin número y la misma
+            # línea saldría dos veces en la cola de revisión.
+            self._queue(_block(
+                BlockKind.UNCLASSIFIED, placed, prov,
+                reason=(f"{chapter_claims.REJECTED_FALSE_HEADING}: carries a "
+                        f"division word but is not a chapter heading: "
+                        + (heading.rejection_reason or "")),
+                decision="not-a-heading"))
+            return
+        if heading.review_required:
+            self._bump("chapters_heading_review_required")
+
         # ¿Ha mirado alguien esta plana? Si el facsímil dice qué numeral
         # lleva este rótulo, el reclamo nace con la autoridad de la
         # imagen y con su procedencia. El texto crudo del reconocimiento
         # sigue siendo el suyo: lo que cambia es de dónde sale el número.
-        review = self.numeral_reviews.get(prov.block_id)
         if review is not None and review.resolves:
             self._bump("chapters_numeral_reviewed")
             provenance = {
@@ -369,7 +447,7 @@ class VolumeParser:
                           "observed": review.observed_printed_numeral,
                           "raw_ocr_numeral": review.raw_numeral},
                 confidence=review.confidence, provenance=provenance,
-                recovered=True)
+                recovered=True, heading=heading.as_dict())
             block = _block(BlockKind.CHAPTER_HEADING, placed, prov,
                            number=None,
                            decision="numeral_review:" + review.id)
@@ -382,7 +460,7 @@ class VolumeParser:
             source=chapter_claims.FROM_OCR, numeral=numeral,
             candidates=list(numeral.candidates),
             proposed=None, method=chapter_claims.UNRESOLVED,
-            evidence={}, confidence=0.0)
+            evidence={}, confidence=0.0, heading=heading.as_dict())
 
         block = _block(BlockKind.CHAPTER_HEADING, placed, prov,
                        number=None, decision="claimed")
@@ -423,7 +501,15 @@ class VolumeParser:
                       "printed_page": recovery.provenance.printed_page,
                       "observed": recovery.provenance.observed_printed_text},
             confidence=recovery.provenance.confidence,
-            provenance=provenance, recovered=True)
+            provenance=provenance, recovered=True,
+            # La frontera la vio una persona en la imagen: eso ES la
+            # evidencia estructural, y no se vuelve a juzgar por la
+            # geometría de un renglón que el reconocimiento no produjo.
+            heading=heading_validity.judge(
+                raw_text=observed or raw, column=placed.column,
+                zone=placed.zone, bbox=placed.line.bbox,
+                page_width=self.page.width if self.page is not None else None,
+                image_review_outcome=True).as_dict())
 
         block = _block(BlockKind.CHAPTER_HEADING, placed, prov, number=None,
                        decision="image_review:" + recovery.review_id)
@@ -504,7 +590,7 @@ class VolumeParser:
 
     def _claim(self, *, book, page, prov, placed, raw, source, numeral,
                candidates, proposed, method, evidence, confidence,
-               provenance=None, recovered=False):
+               provenance=None, recovered=False, heading=None):
         """Anota un reclamo. No escribe todavía ningún capítulo."""
         reading = numeral if isinstance(numeral, dict) else numeral.as_dict()
         claim = chapter_claims.ChapterClaim(
@@ -513,7 +599,8 @@ class VolumeParser:
             raw_heading=raw or "", source=source,
             bbox=tuple(placed.line.bbox) if placed is not None else None,
             column=prov.column, zone=prov.zone,
-            numeral=reading, candidate_numbers=candidates,
+            numeral=reading, heading=heading,
+            candidate_numbers=candidates,
             proposed_number=proposed, proposal_method=method,
             proposal_evidence=dict(evidence or {}), confidence=confidence,
             provenance=provenance)

@@ -632,18 +632,31 @@ def test_K_pending_by_book_sums_to_pending_total():
     assert all(n > 0 for n in nr["invalid_numeral_pending_by_book"].values())
 
 
-def test_I_a_reviewed_false_claim_keeps_its_disposition_but_leaves_the_queue():
-    """Revisado no es lo mismo que resuelto, ni que pendiente."""
+def test_I_a_reviewed_false_claim_keeps_a_disposition_but_leaves_the_queue():
+    """Revisado no es lo mismo que resuelto, ni que pendiente.
+
+    Los dos reclamos falsos del tomo -- inscripciones del salmo de las
+    que el reconocimiento sacó un romano -- llevaban `invalid_numeral`
+    porque se los juzgaba por su numeral. Desde la validación de rótulo
+    llevan `rejected_false_heading`, que dice lo que de verdad pasa:
+    donde no hay rótulo no hay numeral que recuperar. Lo que esta
+    comprobación fija no es CUÁL de las dos disposiciones tienen, sino
+    que ninguno se queda con un número y que ninguno vuelve a la cola.
+    """
     report = _audit()
     if report is None:
         return
     nr = report["numeral_image_review"]
-    blocks = set(nr["invalid_numeral_reviewed_blocks"])
-    assert blocks, "el tomo tiene reclamos revisados que siguen inválidos"
     claims = {c["block_id"]: c for c in report["chapter_claims"]["claims"]}
+    reviewed = {r["target_block"] for r in ir.load()["numeral_reviews"]
+                if r["outcome"] == ir.FALSE_CLAIM}
+    assert reviewed, "el tomo tiene reclamos falsos revisados"
+    blocks = set(nr["invalid_numeral_reviewed_blocks"]) | reviewed
     for block in blocks:
-        assert claims[block]["disposition"] == "invalid_numeral"
-        assert claims[block]["accepted_number"] is None
+        claim = claims[block]
+        assert claim["disposition"] in (cc.INVALID_NUMERAL,
+                                        cc.REJECTED_FALSE_HEADING), claim
+        assert claim["accepted_number"] is None
     # ninguno vuelve a la cola
     queued = {e["block_id"] for e in nr["review_queue_next"]}
     assert not (blocks & queued)

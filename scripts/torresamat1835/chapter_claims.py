@@ -65,6 +65,10 @@ SAME_PHYSICAL = "same_physical_claim"
 COMPETING = "competing_claim"
 #: Se leyó un número pero ninguna otra señal lo corrobora.
 UNRESOLVED = "unresolved"
+#: La línea lleva la palabra de división pero NO es un rótulo del
+#: impreso: es prosa, una inscripción o aparato que la contiene. No hay
+#: capítulo que numerar, así que el numeral ya no importa.
+REJECTED_FALSE_HEADING = "rejected_false_heading"
 
 #: De dónde viene el reclamo. Decide su autoridad.
 FROM_OCR = "ocr"
@@ -108,6 +112,12 @@ class ChapterClaim:
     #: Lo que dio la lectura del numeral, con su estado y su motivo.
     numeral: dict = field(default_factory=dict)
     candidate_numbers: List[int] = field(default_factory=list)
+    #: Lo que se sabe del bloque COMO rótulo: composición de la plana y
+    #: forma del renglón (heading_validity). `None` quiere decir que
+    #: nadie lo ha evaluado -- así lo construyen las pruebas --, y
+    #: entonces no se rechaza por ello: sólo se rechaza lo que se ha
+    #: comprobado que NO es un rótulo.
+    heading: Optional[dict] = None
     #: Lo que el resolver propone, con qué método y con qué pruebas. Una
     #: propuesta no es una aceptación.
     proposed_number: Optional[int] = None
@@ -149,6 +159,23 @@ class ChapterClaim:
         return self.accepted_number is None
 
     @property
+    def is_structural_heading(self) -> bool:
+        """¿Se ha comprobado que este bloque NO es un rótulo?
+
+        Sin evaluación no se afirma nada: sólo miente quien dice «esto
+        no es un rótulo» sin haberlo mirado. Lo que hace falta impedir
+        es lo contrario -- que algo comprobado como prosa llegue a
+        capítulo --, y eso es lo que decide esta propiedad.
+        """
+        if not self.heading:
+            return True
+        return bool(self.heading.get("is_heading"))
+
+    @property
+    def heading_review_required(self) -> bool:
+        return bool(self.heading and self.heading.get("review_required"))
+
+    @property
     def physical_key(self):
         """Dónde está el rótulo, no qué dice.
 
@@ -173,6 +200,7 @@ class ChapterClaim:
             "column": self.column, "zone": self.zone,
             "raw_heading": self.raw_heading[:120],
             "numeral": self.numeral,
+            "heading": self.heading,
             "candidate_numbers": list(self.candidate_numbers),
             "proposed_number": self.proposed_number,
             "proposal_method": self.proposal_method,
@@ -282,6 +310,20 @@ class ClaimLedger:
         ancla que haya en este momento. Se vuelve a evaluar en cada
         ronda, porque el ancla cambia según se van aceptando otros.
         """
+        # Antes que el numeral: ¿es esto un rótulo? Un numeral impecable
+        # dentro de una frase no es un capítulo, y preguntar por el
+        # numeral primero es lo que dejó entrar una inscripción del
+        # salmo como si fuera el salmo primero. Un rechazo aquí es
+        # definitivo: ni la secuencia ni la autoridad de la imagen
+        # pueden convertir prosa en rótulo.
+        if not claim.is_structural_heading:
+            claim.disposition = REJECTED_FALSE_HEADING
+            claim.reason = (
+                (claim.heading or {}).get("rejections")
+                and "; ".join((claim.heading or {})["rejections"])
+                or "the block carries a division word but is not a heading")
+            return False
+
         status = claim.numeral.get("status")
         if claim.source == FROM_IMAGE_REVIEW:
             # Una revisión visual con numeral es la mejor evidencia que
@@ -376,8 +418,17 @@ class ClaimLedger:
                                 claim.confidence)
 
         survivors = self._merge_same_physical()
+        # ¿Quién es el primer rótulo de su libro? Sólo cuentan los que
+        # son rótulos. Una línea de prosa con la palabra dentro ocupaba
+        # ese puesto y se lo quitaba al rótulo verdadero, que perdía así
+        # la única corroboración que tiene el primero de un libro: no
+        # tener nada aceptado detrás. Un reclamo falso no puede influir
+        # en ningún otro, y esto es una de las formas en que influía.
         seen_books = set()
         for claim in sorted(self.claims, key=lambda c: c.order):
+            if not claim.is_structural_heading:
+                claim.first_in_book = False
+                continue
             claim.first_in_book = claim.book not in seen_books
             seen_books.add(claim.book)
         pending = list(survivors)
@@ -531,7 +582,8 @@ class ClaimLedger:
     def counts(self) -> dict:
         out = {"total_claims": len(self.claims)}
         for name in (ACCEPTED, INVALID_NUMERAL, AMBIGUOUS_NUMERAL,
-                     UNCORROBORATED, SAME_PHYSICAL, COMPETING, UNRESOLVED):
+                     UNCORROBORATED, SAME_PHYSICAL, COMPETING,
+                     REJECTED_FALSE_HEADING, UNRESOLVED):
             out[name] = sum(1 for c in self.claims if c.disposition == name)
         out["unresolved_claims"] = len(self.claims) - out[ACCEPTED]
         out["competing_claim_groups"] = len(self.collisions())
@@ -552,6 +604,7 @@ class ClaimLedger:
                 # Lo que se ha DECIDIDO con el reclamo. Esto sí cambia.
                 "invalid_numeral": 0, "ambiguous": 0, "uncorroborated": 0,
                 "same_physical_duplicates": 0, "competing": 0,
+                "rejected_false_heading": 0,
                 "accepted": 0, "unresolved": 0})
             stat["raw_claims"] += 1
             if claim.numeral.get("status") == roman.VALID:
@@ -568,6 +621,8 @@ class ClaimLedger:
                 stat["same_physical_duplicates"] += 1
             elif claim.disposition == COMPETING:
                 stat["competing"] += 1
+            elif claim.disposition == REJECTED_FALSE_HEADING:
+                stat["rejected_false_heading"] += 1
             if claim.disposition == ACCEPTED:
                 stat["accepted"] += 1
             else:
@@ -633,6 +688,14 @@ class ClaimLedger:
         #                                   medida del daño que el
         #                                   diccionario ocultaba.
         counts["competing_chapter_claims"] = len(self.collisions())
+        # No es lo mismo un rótulo sin número que una línea que no era
+        # un rótulo. Lo segundo no vuelve a la cola de numerales: no hay
+        # numeral que recuperar.
+        counts["rejected_false_heading_detail"] = [
+            c.as_dict() for c in self.claims
+            if c.disposition == REJECTED_FALSE_HEADING]
+        counts["heading_review_required"] = sum(
+            1 for c in self.claims if c.heading_review_required)
         counts["competing_claim_groups_detail"] = [
             g.as_dict() for g in self.collisions()]
         counts["collision_groups"] = counts["competing_claim_groups_detail"]

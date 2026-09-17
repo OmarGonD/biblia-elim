@@ -16,6 +16,7 @@ import time
 
 import book_boundaries
 import chapter_claims
+import heading_validity
 import image_reviews
 import layout
 import numeral_review
@@ -549,7 +550,84 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
             "unresolved_after": now.get("unresolved", 0),
         }
 
+    # --- ¿era un rótulo? ----------------------------------------------
+    #
+    # Casar la palabra no es ser un rótulo. Esta sección informa de lo
+    # que la validación estructural dijo de cada reclamo: qué rechazó,
+    # qué dejó en duda y qué reclamos ACEPTADOS tienen la forma más
+    # floja, que es por dónde habría que mirar si apareciera otro falso.
+    heading_rejected = [c for c in ledger.claims
+                        if c.disposition == chapter_claims.REJECTED_FALSE_HEADING]
+    evaluated = [c for c in ledger.claims if c.heading]
+    accepted_claims = ledger.accepted()
+    reviewed_by_block = {r.target_block: r for r in numerals}
+
+    def heading_row(claim):
+        evidence = claim.heading or {}
+        review = reviewed_by_block.get(claim.block_id)
+        return {
+            "book": claim.book, "scan_page": claim.scan_page,
+            "pdf_page": claim.scan_page + 1, "block_id": claim.block_id,
+            "bbox": list(claim.bbox) if claim.bbox else None,
+            "column": claim.column, "zone": claim.zone,
+            "raw_heading": claim.raw_heading,
+            "raw_numeral": claim.numeral.get("token"),
+            "numeral_status": claim.numeral.get("status"),
+            # Lo que la política de numeración HABRÍA propuesto para esta
+            # línea. Para un rótulo falso es la medida del daño evitado.
+            "number_the_policy_would_have_given": claim.proposed_number,
+            "proposal_method": claim.proposal_method,
+            "disposition": claim.disposition,
+            "accepted_number": claim.accepted_number,
+            "heading_evidence": evidence,
+            "image_review": (None if review is None else
+                             {"review_id": review.id, "outcome": review.outcome,
+                              "observed_printed_text":
+                                  review.observed_printed_text}),
+        }
+
+    # Sospecha entre los ACEPTADOS: no decide nada, ordena la mirada. Se
+    # ordena por la evidencia de forma más floja primero.
+    suspicious = sorted(
+        (c for c in accepted_claims
+         if c.heading and (c.heading.get("rejections")
+                           or c.heading.get("score", 1.0) < 0.75)),
+        key=lambda c: (c.heading.get("score", 1.0), c.book, c.scan_page))
+    heading_report = {
+        "about": ("a line that carries the division word is not yet a "
+                  "heading. The page's composition decides first "
+                  "(divisions.judge), the shape of the line second, and a "
+                  "facsimile reading of the same block overrides both. "
+                  "Neither the canon nor the sequence takes part."),
+        "signal_weights": heading_validity._WEIGHTS,
+        "thresholds": {"heading_at": heading_validity.HEADING_AT,
+                       "content_words": heading_validity.CONTENT_WORDS,
+                       "upper_ratio": heading_validity.UPPER_RATIO,
+                       "lower_ratio": heading_validity.LOWER_RATIO,
+                       "prose_words": heading_validity.PROSE_WORDS},
+        "total_claims_checked": len(ledger.claims),
+        "claims_evaluated": len(evaluated),
+        "accepted_checked": len(accepted_claims),
+        "false_heading_count": len(heading_rejected),
+        "uncertain_count": sum(1 for c in ledger.claims
+                               if c.heading_review_required),
+        "suspicious_count": len(suspicious),
+        "by_source": {src: sum(1 for c in evaluated
+                               if (c.heading or {}).get("source") == src)
+                      for src in (heading_validity.FROM_STRUCTURE,
+                                  heading_validity.FROM_IMAGE_REVIEW)},
+        "false_headings": [heading_row(c) for c in heading_rejected],
+        "uncertain": [heading_row(c) for c in ledger.claims
+                      if c.heading_review_required],
+        "suspicious_accepted": [heading_row(c) for c in suspicious[:40]],
+        "note": ("a rejected false heading leaves the numeral review "
+                 "queues: there is no numeral to recover where there is no "
+                 "heading. It stays here, with its raw OCR and its "
+                 "geometry, and it can never anchor the sequence."),
+    }
+
     report = {
+        "heading_claim_validation": heading_report,
         "numeral_image_review": numeral_report,
         "chapter_claims": claims_report,
         "competing_chapter_claims": len(ledger.collisions()),
@@ -604,6 +682,14 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         "metrics": dict(sorted(stats.items())),
         "chapters": len([c for c in chapters if c]),
         "verse_refs": len(refs),
+        # `verse_refs` cuenta también los huecos de trabajo negativos, que
+        # son texto EN REVISIÓN y no texto publicado. Separarlos es lo que
+        # permite ver si un cambio movió versículos o si sólo cambió de
+        # sitio lo que todavía no se ha identificado.
+        "materialized_verse_refs": len(
+            [r for r in refs if not r.split(".")[1].startswith("-")]),
+        "verse_refs_in_review_slots": len(
+            [r for r in refs if r.split(".")[1].startswith("-")]),
         "duplicate_refs": sorted(set(duplicates)),
         "out_of_order_refs": out_of_order,
         "out_of_order_chapters": out_of_order,
@@ -635,6 +721,27 @@ def main():
             json.dump(report, handle, ensure_ascii=False, indent=1)
             handle.write("\n")
         print(f"informe en {args.out}")
+    hv = report.get("heading_claim_validation", {})
+    if hv:
+        print(f"  heading validation         claims={hv['total_claims_checked']}"
+              f" evaluated={hv['claims_evaluated']}"
+              f" accepted={hv['accepted_checked']}"
+              f" false_headings={hv['false_heading_count']}"
+              f" uncertain={hv['uncertain_count']}"
+              f" suspicious_accepted={hv['suspicious_count']}")
+        print(f"    by evidence source       {hv['by_source']}")
+        for row in hv["false_headings"]:
+            print(f"    FALSE HEADING {row['book']:5} p{row['scan_page']:<4}"
+                  f" {row['block_id']:14} {row['raw_heading'][:38]!r}")
+            print(f"      the policy would have given it"
+                  f" {row['number_the_policy_would_have_given']};"
+                  f" rejected: {'; '.join(row['heading_evidence'].get('rejections', []))[:90]}")
+        for row in hv["suspicious_accepted"][:12]:
+            print(f"    suspicious   {row['book']:5} p{row['scan_page']:<4}"
+                  f" {row['block_id']:14} score="
+                  f"{row['heading_evidence'].get('score')} "
+                  f"{row['raw_heading'][:34]!r} -> {row['accepted_number']}")
+
     cr = report.get("chapter_image_recovery", {})
     if cr.get("available"):
         print(f"  image reviews loaded       {cr['reviews_loaded']}"

@@ -1097,6 +1097,16 @@ if (BUILD_TESTING AND UNIX AND PYTHON3_EXECUTABLE)
   set_tests_properties (torresamat1835_numeral_review_test PROPERTIES
     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
     )
+  # Casar la palabra de división no es ser un rótulo: una inscripción del
+  # salmo llegó a aceptarse como Ps 1. Aquí vive esa regresión.
+  add_test (
+    NAME torresamat1835_heading_validity_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_heading_validity.py
+    )
+  set_tests_properties (torresamat1835_heading_validity_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
+    )
   add_test (
     NAME torresamat1835_chapter_claims_test
     COMMAND ${PYTHON3_EXECUTABLE}
