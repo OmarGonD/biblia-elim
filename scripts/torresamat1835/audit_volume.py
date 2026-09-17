@@ -15,6 +15,7 @@ import os
 import time
 
 import book_boundaries
+import chapter_claims
 import image_reviews
 import layout
 import recovery as image_recovery
@@ -65,12 +66,15 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
     # se aplica ninguna -- y el informe dice por qué, no lo silencia.
     cache = os.path.dirname(xml_path)
     payload, source, reviews, guard = None, None, [], "ok"
+    numerals = []
     try:
         payload = image_reviews.load()
         pdf = os.path.join(cache, payload["visual_source"]["filename"])
         source = image_recovery.source_identity(payload)
         try:
             reviews = image_reviews.reviews_for(payload, source_path=pdf)
+            numerals = image_reviews.numeral_reviews_for(payload,
+                                                         source_path=pdf)
         except image_reviews.ReviewError as exc:
             guard = str(exc)
     except FileNotFoundError:
@@ -86,12 +90,27 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         volume=volume, book=book, book_spans=spans,
         header_chapters=header_chapters, with_walker=True)
 
+    # Segunda referencia: CON las recuperaciones de frontera pero SIN las
+    # lecturas de numeral. Es el estado justo antes de esta tanda de
+    # revisión, y es lo único contra lo que tiene sentido medir lo que la
+    # tanda aporta: restarlo del total mezclaría dos trabajos distintos.
+    pre_numeral_edition, _pn_stats, pre_numeral_walker = \
+        page_parser.parse_volume(
+            source_ocr.read_pages(xml_path, limit=limit), witness=witness,
+            volume=volume, book=book, book_spans=spans,
+            header_chapters=header_chapters, with_walker=True,
+            image_reviews=(image_recovery.by_page(reviews)
+                           if reviews else None),
+            recovery_source=source if reviews else None)
+
     pages = source_ocr.read_pages(xml_path, limit=limit)
     edition, stats, walker = page_parser.parse_volume(
         pages, witness=witness, volume=volume, book=book,
         book_spans=spans, header_chapters=header_chapters, with_walker=True,
         image_reviews=image_recovery.by_page(reviews) if reviews else None,
-        recovery_source=source if reviews else None)
+        recovery_source=source if reviews else None,
+        numeral_reviews=(image_reviews.numerals_by_block(numerals)
+                         if numerals else None))
 
     chapters = {}
     for osis, entry in edition.books.items():
@@ -152,6 +171,7 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
 
     ledger = walker.ledger
     claims_report = ledger.report()
+    counts_after_competing = claims_report["competing_chapter_claims"]
     claims_report["measured"] = (
         "before materialisation: every heading that claimed a chapter is "
         "still a separate record here, so two headings claiming the same "
@@ -319,7 +339,90 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         candidate_report["by_book"][key] = \
             candidate_report["by_book"].get(key, 0) + 1
 
+    # --- lo que aportó la revisión de numerales -----------------------
+    pre = pre_numeral_walker.ledger
+    pre_counts = pre.counts()
+    reviewed_blocks = {r.target_block for r in numerals}
+    direct, cascade = [], []
+    for claim in ledger.accepted():
+        if claim.proposal_method == "numeral_review":
+            direct.append(claim)
+            continue
+        was = next((c for c in pre.claims
+                    if c.block_id == claim.block_id), None)
+        if was is not None and was.disposition != chapter_claims.ACCEPTED:
+            cascade.append(claim)
+
+    by_outcome = {}
+    for review in numerals:
+        by_outcome[review.outcome] = by_outcome.get(review.outcome, 0) + 1
+
+    numeral_report = {
+        "about": ("headings the recognition did produce, whose numeral it "
+                  "could not identify, read one by one in the facsimile. "
+                  "Each entry points at an OCR block and keeps the raw OCR "
+                  "beside what the page prints; the OCR is never edited."),
+        "visual_source": (payload["visual_source"] if payload else None),
+        "hash_guard": guard,
+        "schema_problems": (image_reviews.validate_numerals(payload,
+                                                            page_count=652)
+                            if payload else []),
+        "reviews_attempted": len(numerals),
+        "reviews_resolved": sum(1 for r in numerals if r.resolves),
+        "reviews_unreadable": sum(
+            1 for r in numerals if r.outcome == image_reviews.UNREADABLE),
+        "reviews_still_ambiguous": sum(
+            1 for r in numerals if r.outcome == image_reviews.STILL_AMBIGUOUS),
+        "reviews_by_outcome": dict(sorted(by_outcome.items())),
+        "reviews_applied_to_a_claim": len(
+            [c for c in ledger.claims if c.block_id in reviewed_blocks
+             and c.proposal_method == "numeral_review"]),
+        "competing_groups_before": pre_counts["competing_claim_groups"],
+        "competing_groups_after": counts_after_competing,
+        "invalid_before": pre_counts["invalid_numeral"],
+        "invalid_after": claims_report["invalid_numeral"],
+        "ambiguous_before": pre_counts["ambiguous_numeral"],
+        "ambiguous_after": claims_report["ambiguous_numeral"],
+        "accepted_before": pre_counts["accepted"],
+        "accepted_after": claims_report["accepted"],
+        "unresolved_before": pre_counts["unresolved_claims"],
+        "unresolved_after": claims_report["unresolved_claims"],
+        "direct_image_recoveries": len(direct),
+        "cascade_resolutions": len(cascade),
+        "direct": [{"review_id": c.proposal_evidence.get("review_id"),
+                    "book": c.book, "scan_page": c.scan_page,
+                    "block_id": c.block_id,
+                    "raw_ocr_heading": c.raw_heading,
+                    "raw_ocr_numeral": c.numeral.get("token"),
+                    "observed_printed_numeral":
+                        c.proposal_evidence.get("observed"),
+                    "accepted_number": c.accepted_number,
+                    "accepted_round": c.accepted_round,
+                    "provenance": c.provenance} for c in direct],
+        "cascade": [{"book": c.book, "scan_page": c.scan_page,
+                     "block_id": c.block_id,
+                     "raw_ocr_heading": c.raw_heading,
+                     "accepted_number": c.accepted_number,
+                     "accepted_round": c.accepted_round,
+                     "sequence_anchor": c.anchor_number,
+                     "anchor_claim": c.anchor_claim,
+                     "source": c.source} for c in cascade],
+        "per_book": {},
+    }
+    for osis in sorted(set(list(pre.per_book()) + list(ledger.per_book()))):
+        was = pre.per_book().get(osis, {})
+        now = ledger.per_book().get(osis, {})
+        numeral_report["per_book"][osis] = {
+            "accepted_before": was.get("accepted", 0),
+            "accepted_after": now.get("accepted", 0),
+            "invalid_before": was.get("invalid_numeral", 0),
+            "invalid_after": now.get("invalid_numeral", 0),
+            "unresolved_before": was.get("unresolved", 0),
+            "unresolved_after": now.get("unresolved", 0),
+        }
+
     report = {
+        "numeral_image_review": numeral_report,
         "chapter_claims": claims_report,
         "competing_chapter_claims": len(ledger.collisions()),
         "chapter_image_recovery": recovery_report,
@@ -436,6 +539,29 @@ def main():
     q = report.get("image_review_queue", {})
     if q:
         print(f"  review queue               {q['total']} {q['by_family']}")
+    nr = report.get("numeral_image_review", {})
+    if nr:
+        print(f"  numeral image review       attempted={nr['reviews_attempted']}"
+              f" resolved={nr['reviews_resolved']}"
+              f" unreadable={nr['reviews_unreadable']}"
+              f" still_ambiguous={nr['reviews_still_ambiguous']}")
+        print(f"    by outcome               {nr['reviews_by_outcome']}")
+        print(f"    schema problems          {nr['schema_problems'] or 'none'}")
+        print(f"    direct recoveries        {nr['direct_image_recoveries']}"
+              f"   cascade resolutions {nr['cascade_resolutions']}"
+              f"   (a cascade is NOT a second image recovery)")
+        print(f"    accepted   {nr['accepted_before']:4} -> {nr['accepted_after']:4}"
+              f"     unresolved {nr['unresolved_before']:4} -> {nr['unresolved_after']:4}")
+        print(f"    invalid    {nr['invalid_before']:4} -> {nr['invalid_after']:4}"
+              f"     ambiguous  {nr['ambiguous_before']:4} -> {nr['ambiguous_after']:4}")
+        print(f"    competing groups {nr['competing_groups_before']} -> "
+              f"{nr['competing_groups_after']}")
+        print("    book   accepted      invalid       unresolved")
+        for osis, stat in sorted(nr["per_book"].items()):
+            print(f"      {osis:5} {stat['accepted_before']:3} -> {stat['accepted_after']:3}"
+                  f"    {stat['invalid_before']:3} -> {stat['invalid_after']:3}"
+                  f"    {stat['unresolved_before']:3} -> {stat['unresolved_after']:3}")
+
     cc = report.get("chapter_claims", {})
     if cc:
         print(f"  chapter claims             total={cc['total_claims']}"
@@ -459,8 +585,8 @@ def main():
                       f" {claimant['raw_heading'][:34]!r}")
         print("  book   raw  valid invalid ambig uncorr samephys compet accepted unres")
         for osis, stat in sorted(cc["per_book"].items()):
-            print(f"    {osis:5} {stat['raw_claims']:4} {stat['valid_numeral']:6}"
-                  f" {stat['invalid_numeral']:7} {stat['ambiguous']:5}"
+            print(f"    {osis:5} {stat['raw_claims']:4} {stat['raw_numeral_valid']:6}"
+                  f" {stat['raw_numeral_invalid']:7} {stat['ambiguous']:5}"
                   f" {stat['uncorroborated']:6} {stat['same_physical_duplicates']:8}"
                   f" {stat['competing']:6} {stat['accepted']:8}"
                   f" {stat['unresolved']:5}")

@@ -235,6 +235,12 @@ def read(text: str, *, limit: Optional[int] = None) -> NumeralReading:
     attempts = variants(text)
 
     tried = []
+    #: Un romano bien escrito cuyo valor no cabe en el libro. No es lo
+    #: mismo que un numeral roto: «XL» es un numeral perfecto que vale
+    #: 40, y si el libro tiene 19 capítulos lo que falla es la
+    #: correspondencia, no la escritura. Llamarlo «sintaxis inválida»
+    #: mandaba a revisar con el diagnóstico equivocado.
+    over_limit = None
     for variant, origin in attempts:
         found = []
         for token in delimited_tokens(variant):
@@ -242,6 +248,8 @@ def read(text: str, *, limit: Optional[int] = None) -> NumeralReading:
             if value is None or not 1 <= value <= 200:
                 continue
             if limit is not None and value > limit:
+                if over_limit is None:
+                    over_limit = (token, value)
                 continue
             found.append((token, value))
         if not found:
@@ -263,18 +271,36 @@ def read(text: str, *, limit: Optional[int] = None) -> NumeralReading:
         break
 
     if reading.status != VALID:
-        # Nada validó. Se dice qué había, para que se pueda revisar.
-        raw_tokens = ([m.group(0) for m in TOKEN_RE.finditer(tried[-1])]
-                      if tried else [])
-        if raw_tokens:
-            reading.status = INVALID_SYNTAX
-            reading.token = raw_tokens[0]
-            reading.permissive_value = accumulate(raw_tokens[0])
+        # Nada validó. Se dice QUÉ había y de qué clase es el problema,
+        # porque no todos se revisan igual.
+        if over_limit is not None:
+            token, value = over_limit
+            reading.status = OUT_OF_RANGE
+            reading.token = token
+            reading.value = None
+            reading.permissive_value = value
             reading.reason = (
-                f"{raw_tokens[0]!r} is not a Roman numeral"
-                + (f"; a permissive reading would have made it "
-                   f"{reading.permissive_value}"
-                   if reading.permissive_value is not None else ""))
+                f"{token!r} is a well-formed Roman numeral worth {value}, "
+                f"which is beyond the {limit} chapters this book has; what "
+                f"the page prints has to be read, not guessed")
         else:
-            reading.reason = "no Roman letters survived in the heading"
+            # Sólo cuentan los numerales que estén enteros. Sacar letras
+            # de dentro de una palabra daba «IM» por «PRIMERO» y «VI» por
+            # «VIH.», y presentaba esa basura como el numeral del rótulo.
+            broken = [t for variant in (tried or [folded])
+                      for t in delimited_tokens(variant)]
+            if broken:
+                reading.status = INVALID_SYNTAX
+                reading.token = broken[0]
+                reading.permissive_value = accumulate(broken[0])
+                reading.reason = (
+                    f"{broken[0]!r} is not a Roman numeral"
+                    + (f"; a permissive reading would have made it "
+                       f"{reading.permissive_value}"
+                       if reading.permissive_value is not None else ""))
+            else:
+                reading.status = NO_NUMERAL
+                reading.reason = (
+                    "no whole Roman numeral in the heading: the letters that "
+                    "look like one are stuck to other characters")
     return reading

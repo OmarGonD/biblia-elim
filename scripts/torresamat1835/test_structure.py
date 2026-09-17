@@ -128,9 +128,13 @@ def test_resolution_paths():
     assert broken["resolved_number"] is None
     assert broken["review_required"] is True
 
-    # E: numeral ilegible y sin apoyo -> sin número, a revisión.
+    # E: aquí no hay numeral que valga. La X va pegada a una Q, así que
+    # no hay ningún romano ENTERO en el rótulo -- que no es lo mismo que
+    # haber leído uno y que esté mal escrito. Sin numeral y sin apoyo:
+    # sin número, a revisión.
     lost = by_raw["SALMO XQZ"]
-    assert lost["numeral_status"] == "invalid_roman_syntax"
+    assert lost["numeral_status"] == "no_numeral"
+    assert lost["numeral_token"] is None
     assert lost["resolved_number"] is None
     assert lost["review_required"] is True
     assert lost["review_required"] is True

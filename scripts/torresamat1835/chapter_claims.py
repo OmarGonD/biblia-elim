@@ -543,14 +543,22 @@ class ClaimLedger:
         out: Dict[str, dict] = {}
         for claim in self.claims:
             stat = out.setdefault(claim.book, {
-                "raw_claims": 0, "valid_numeral": 0, "invalid_numeral": 0,
-                "ambiguous": 0, "uncorroborated": 0,
+                # Lo que dice el RECONOCIMIENTO del numeral. No cambia
+                # nunca por revisar: el OCR crudo es inmutable, y que
+                # siga diciendo «XXL» después de leer XXI en la plana es
+                # precisamente la propiedad que hay que poder enseñar.
+                "raw_claims": 0, "raw_numeral_valid": 0,
+                "raw_numeral_invalid": 0,
+                # Lo que se ha DECIDIDO con el reclamo. Esto sí cambia.
+                "invalid_numeral": 0, "ambiguous": 0, "uncorroborated": 0,
                 "same_physical_duplicates": 0, "competing": 0,
                 "accepted": 0, "unresolved": 0})
             stat["raw_claims"] += 1
             if claim.numeral.get("status") == roman.VALID:
-                stat["valid_numeral"] += 1
+                stat["raw_numeral_valid"] += 1
             elif claim.numeral.get("status") == roman.INVALID_SYNTAX:
+                stat["raw_numeral_invalid"] += 1
+            if claim.disposition == INVALID_NUMERAL:
                 stat["invalid_numeral"] += 1
             if claim.disposition == AMBIGUOUS_NUMERAL:
                 stat["ambiguous"] += 1

@@ -27,11 +27,31 @@ ROOT = os.path.dirname(os.path.dirname(DIR))
 REVIEWS = os.path.join(ROOT, "data", "torresamat1835",
                        "chapter_image_reviews.json")
 
-#: Los tres desenlaces posibles de mirar una plana.
+#: Los tres desenlaces posibles de mirar una plana buscando una FRONTERA
+#: que el reconocimiento no produjo.
 BOUNDARY_AND_NUMBER = "boundary_and_number_confirmed"
 BOUNDARY_ONLY = "boundary_confirmed_number_unknown"
 NO_BOUNDARY = "no_boundary"
 OUTCOMES = (BOUNDARY_AND_NUMBER, BOUNDARY_ONLY, NO_BOUNDARY)
+
+#: Y los desenlaces de mirar un rótulo que SÍ está pero cuyo numeral no
+#: se pudo identificar. Son otra cosa: aquí la frontera no se discute, y
+#: la revisión no inserta nada -- apunta a un bloque concreto del
+#: reconocimiento y dice qué pone en el impreso.
+NUMERAL_CONFIRMED = "confirmed_number"
+NUMERAL_CORRECTED = "invalid_ocr_corrected"
+COMPETING_RESOLVED = "competing_claim_resolved"
+SAME_PHYSICAL = "same_physical_duplicate"
+FALSE_CLAIM = "rejected_false_claim"
+UNREADABLE = "unreadable"
+STILL_AMBIGUOUS = "still_ambiguous"
+NUMERAL_OUTCOMES = (NUMERAL_CONFIRMED, NUMERAL_CORRECTED, COMPETING_RESOLVED,
+                    SAME_PHYSICAL, FALSE_CLAIM, UNREADABLE, STILL_AMBIGUOUS)
+
+#: Los que dan un número. Los demás dejan el reclamo donde estaba: en
+#: revisión. Que una persona haya mirado la plana no obliga a que salga
+#: un número de ahí.
+NUMERAL_RESOLVING = (NUMERAL_CONFIRMED, NUMERAL_CORRECTED, COMPETING_RESOLVED)
 
 
 class ReviewError(Exception):
@@ -68,6 +88,53 @@ class ChapterImageReview:
         return self.outcome == BOUNDARY_ONLY
 
 
+@dataclass
+class NumeralReview:
+    """Lo que el impreso dice del numeral de un rótulo que ya existe.
+
+    No crea fronteras ni mueve bloques: apunta a un bloque del
+    reconocimiento y afirma qué numeral lleva impreso. El texto crudo del
+    OCR no se toca -- se conserva aquí al lado, para que siempre se pueda
+    contrastar qué leyó la máquina y qué pone la plana.
+    """
+    id: str
+    book: str
+    scan_page: int
+    target_block: str
+    outcome: str
+    raw_heading: str
+    raw_numeral: Optional[str]
+    observed_printed_text: Optional[str]
+    observed_printed_numeral: Optional[str]
+    recovered_chapter: Optional[int]
+    confidence: float
+    rationale: str
+    reviewer_method: str
+    bbox: Optional[tuple] = None
+    pdf_page: Optional[int] = None
+    printed_page: Optional[int] = None
+
+    @property
+    def resolves(self) -> bool:
+        return (self.outcome in NUMERAL_RESOLVING
+                and self.recovered_chapter is not None)
+
+    def as_dict(self) -> dict:
+        return {
+            "review_id": self.id, "book": self.book,
+            "scan_page": self.scan_page, "pdf_page": self.pdf_page,
+            "printed_page": self.printed_page,
+            "target_block": self.target_block, "outcome": self.outcome,
+            "raw_heading": self.raw_heading, "raw_numeral": self.raw_numeral,
+            "observed_printed_text": self.observed_printed_text,
+            "observed_printed_numeral": self.observed_printed_numeral,
+            "recovered_chapter": self.recovered_chapter,
+            "bbox": list(self.bbox) if self.bbox else None,
+            "confidence": self.confidence, "rationale": self.rationale,
+            "reviewer_method": self.reviewer_method,
+        }
+
+
 def sha256_of(path, chunk=1 << 20):
     digest = hashlib.sha256()
     with open(path, "rb") as handle:
@@ -79,6 +146,30 @@ def sha256_of(path, chunk=1 << 20):
 def load(path=REVIEWS):
     with open(path, encoding="utf-8") as handle:
         return json.load(handle)
+
+
+def _check_source(data, *, source_path=None, expected_sha256=None):
+    """La llave de todo: el artefacto tiene que ser el que se miró.
+
+    Sin esta comprobación, «plana 411, bloque X» podría caer sobre otra
+    edición y escribir un capítulo donde no lo hay. Falla cerrado y dice
+    por qué; nunca degrada a aviso.
+    """
+    declared = data.get("visual_source", {}).get("sha256")
+    actual = expected_sha256
+    if actual is None and source_path:
+        if not os.path.isfile(source_path):
+            raise ReviewError(
+                f"{os.path.basename(source_path)} is not in the cache; the "
+                f"reviews cannot be checked against the witness")
+        actual = sha256_of(source_path)
+    if actual is None:
+        raise ReviewError("no visual source to check the reviews against")
+    if actual != declared:
+        raise ReviewError(
+            f"visual source sha256 {actual} != {declared} recorded with the "
+            f"reviews; they describe another artefact and are not applied")
+    return actual
 
 
 def validate(data, *, page_bounds=None, page_count=None) -> List[str]:
@@ -140,21 +231,8 @@ def reviews_for(data, *, source_path=None, expected_sha256=None
     Si el artefacto visual no es el que se revisó, no se aplica ninguna:
     se falla y se dice por qué. Nunca en silencio.
     """
-    declared = data.get("visual_source", {}).get("sha256")
-    actual = expected_sha256
-    if actual is None and source_path:
-        if not os.path.isfile(source_path):
-            raise ReviewError(
-                f"{os.path.basename(source_path)} is not in the cache; the "
-                f"reviews cannot be checked against the witness")
-        actual = sha256_of(source_path)
-    if actual is None:
-        raise ReviewError("no visual source to check the reviews against")
-    if actual != declared:
-        raise ReviewError(
-            f"visual source sha256 {actual} != {declared} recorded with the "
-            f"reviews; they describe another artefact and are not applied")
-
+    _check_source(data, source_path=source_path,
+                  expected_sha256=expected_sha256)
     out = []
     for review in data.get("reviews", []):
         out.append(ChapterImageReview(
@@ -229,6 +307,82 @@ def verify_page_mapping(xml_path, pdf_path, *, chunk=1 << 22) -> dict:
         "invariant": not problems and leaves > 0,
         "problems": problems,
     }
+
+
+def validate_numerals(data, *, page_count=None) -> List[str]:
+    """Comprueba la metadata de numerales contra sí misma."""
+    problems = []
+    seen = set()
+    for review in data.get("numeral_reviews", []):
+        rid = review.get("id") or "(sin id)"
+        if rid in seen:
+            problems.append(f"{rid}: duplicated id")
+        seen.add(rid)
+        if review.get("outcome") not in NUMERAL_OUTCOMES:
+            problems.append(f"{rid}: unknown outcome {review.get('outcome')!r}")
+        if not review.get("rationale"):
+            problems.append(f"{rid}: empty rationale")
+        if not review.get("target_block"):
+            problems.append(f"{rid}: no target block")
+        page = review.get("scan_page")
+        if not isinstance(page, int) or page < 0:
+            problems.append(f"{rid}: bad scan_page")
+        elif page_count is not None and page >= page_count:
+            problems.append(f"{rid}: scan_page {page} beyond the witness")
+        elif review.get("pdf_page") not in (None, page + 1):
+            problems.append(f"{rid}: pdf_page does not match the mapping")
+        # El identificador del bloque lleva su propia plana dentro; si no
+        # coinciden, la revisión apunta a otro sitio del que dice.
+        target = review.get("target_block") or ""
+        if target[:1] == "p" and target[1:5].isdigit():
+            if int(target[1:5]) != page:
+                problems.append(
+                    f"{rid}: target block {target} is not on scan page {page}")
+        if review.get("outcome") in NUMERAL_RESOLVING:
+            if not isinstance(review.get("recovered_chapter"), int):
+                problems.append(f"{rid}: a resolving outcome needs a chapter")
+            if not review.get("observed_printed_numeral"):
+                problems.append(f"{rid}: no printed numeral was recorded")
+        else:
+            if review.get("recovered_chapter") is not None:
+                problems.append(
+                    f"{rid}: {review['outcome']} cannot carry a chapter number")
+        # El crudo del reconocimiento se conserva SIEMPRE: sin él no se
+        # puede contrastar qué leyó la máquina y qué pone la plana.
+        if "raw_heading" not in review:
+            problems.append(f"{rid}: the raw OCR heading was not kept")
+    return problems
+
+
+def numeral_reviews_for(data, *, source_path=None, expected_sha256=None
+                        ) -> List[NumeralReview]:
+    """Las revisiones de numeral, con la misma guarda de hash.
+
+    Si el artefacto visual no es el que se miró, no se aplica ninguna.
+    """
+    _check_source(data, source_path=source_path,
+                  expected_sha256=expected_sha256)
+    out = []
+    for review in data.get("numeral_reviews", []):
+        out.append(NumeralReview(
+            id=review["id"], book=review["book"],
+            scan_page=review["scan_page"], target_block=review["target_block"],
+            outcome=review["outcome"], raw_heading=review.get("raw_heading", ""),
+            raw_numeral=review.get("raw_numeral"),
+            observed_printed_text=review.get("observed_printed_text"),
+            observed_printed_numeral=review.get("observed_printed_numeral"),
+            recovered_chapter=review.get("recovered_chapter"),
+            confidence=float(review.get("confidence", 0.0)),
+            rationale=review["rationale"],
+            reviewer_method=review.get("reviewer_method", ""),
+            bbox=tuple(review["bbox"]) if review.get("bbox") else None,
+            pdf_page=review.get("pdf_page"),
+            printed_page=review.get("printed_page")))
+    return out
+
+
+def numerals_by_block(reviews) -> Dict[str, NumeralReview]:
+    return {r.target_block: r for r in reviews}
 
 
 def boundaries_by_page(reviews) -> Dict[int, List[ChapterImageReview]]:

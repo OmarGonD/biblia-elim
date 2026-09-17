@@ -71,7 +71,8 @@ class VolumeParser:
     def __init__(self, edition: Edition, *, witness: str, volume: str,
                  book: str = "Ps", gutter_hint: Optional[int] = None,
                  book_spans=None, header_chapters=None,
-                 image_reviews=None, recovery_source=None):
+                 image_reviews=None, recovery_source=None,
+                 numeral_reviews=None):
         self.edition = edition
         self.witness = witness
         self.volume = volume
@@ -103,6 +104,11 @@ class VolumeParser:
         #: del artefacto visual sobre el que se hicieron. Sin las dos
         #: cosas no se aplica ninguna: ver recovery.py.
         self.image_reviews = image_reviews or {}
+        #: Lecturas del facsímil sobre rótulos que YA existen, indexadas
+        #: por el bloque del reconocimiento al que apuntan. No insertan
+        #: nada: le dan a un reclamo el numeral que la máquina no supo
+        #: leer, y con él la autoridad de la imagen.
+        self.numeral_reviews = numeral_reviews or {}
         self.recovery_source = recovery_source
         self.recoveries = []
         #: Todos los rótulos que dicen ser un capítulo, conservados antes
@@ -328,6 +334,49 @@ class VolumeParser:
             structure._without_book_words(raw or ""),
             limit=structure.chapter_limit(book))
         self._bump("chapters_claimed")
+
+        # ¿Ha mirado alguien esta plana? Si el facsímil dice qué numeral
+        # lleva este rótulo, el reclamo nace con la autoridad de la
+        # imagen y con su procedencia. El texto crudo del reconocimiento
+        # sigue siendo el suyo: lo que cambia es de dónde sale el número.
+        review = self.numeral_reviews.get(prov.block_id)
+        if review is not None and review.resolves:
+            self._bump("chapters_numeral_reviewed")
+            provenance = {
+                "source": image_recovery.RECOVERED,
+                "review_id": review.id, "kind": "numeral_review",
+                "outcome": review.outcome,
+                "witness": (self.recovery_source.witness
+                            if self.recovery_source else None),
+                "source_sha256": (self.recovery_source.sha256
+                                  if self.recovery_source else None),
+                "scan_page": review.scan_page, "pdf_page": review.pdf_page,
+                "printed_page": review.printed_page,
+                "bbox": list(review.bbox) if review.bbox else None,
+                "raw_ocr_heading": review.raw_heading,
+                "raw_ocr_numeral": review.raw_numeral,
+                "observed_printed_text": review.observed_printed_text,
+                "observed_printed_numeral": review.observed_printed_numeral,
+                "confidence": review.confidence,
+                "reviewer_method": review.reviewer_method,
+            }
+            claim = self._claim(
+                book=book, page=page, prov=prov, placed=placed, raw=raw,
+                source=chapter_claims.FROM_IMAGE_REVIEW, numeral=numeral,
+                candidates=list(numeral.candidates),
+                proposed=review.recovered_chapter, method="numeral_review",
+                evidence={"review_id": review.id, "outcome": review.outcome,
+                          "observed": review.observed_printed_numeral,
+                          "raw_ocr_numeral": review.raw_numeral},
+                confidence=review.confidence, provenance=provenance,
+                recovered=True)
+            block = _block(BlockKind.CHAPTER_HEADING, placed, prov,
+                           number=None,
+                           decision="numeral_review:" + review.id)
+            block.recovered = provenance
+            self._open_claim_chapter(claim, block)
+            return
+
         claim = self._claim(
             book=book, page=page, prov=prov, placed=placed, raw=raw,
             source=chapter_claims.FROM_OCR, numeral=numeral,
@@ -406,7 +455,7 @@ class VolumeParser:
             # imagen; no se vuelve a deducir de nada.
             if claim.source == chapter_claims.FROM_IMAGE_REVIEW:
                 return chapter_claims.Proposal(
-                    claim.proposed_number, "image_review",
+                    claim.proposed_number, claim.proposal_method,
                     dict(claim.proposal_evidence), claim.confidence)
             return propose(claim, previous)
 
@@ -560,14 +609,16 @@ def parse_volume(pages: Iterable, *, witness: str, volume: str,
                  book: str = "Ps", edition: Optional[Edition] = None,
                  gutter_hint: Optional[int] = None, book_spans=None,
                  header_chapters=None, with_walker: bool = False,
-                 image_reviews=None, recovery_source=None):
+                 image_reviews=None, recovery_source=None,
+                 numeral_reviews=None):
     """Recorre las páginas y devuelve (edición, métricas)."""
     edition = edition or Edition(edition_id="TorresAmat1835")
     walker = VolumeParser(edition, witness=witness, volume=volume, book=book,
                           gutter_hint=gutter_hint, book_spans=book_spans,
                           header_chapters=header_chapters,
                           image_reviews=image_reviews,
-                          recovery_source=recovery_source)
+                          recovery_source=recovery_source,
+                          numeral_reviews=numeral_reviews)
     for page in pages:
         walker.feed_page(page)
     walker.finish()
