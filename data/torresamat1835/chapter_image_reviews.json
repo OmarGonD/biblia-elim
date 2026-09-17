@@ -2403,6 +2403,774 @@
       "confidence": 0.95,
       "reviewer_method": "pdftoppm render at 200 dpi, expanded crop, visual reading",
       "rationale": "El impreso dice «CAPÍTULO LI»; el reconocimiento dejó «LL», con la I final entintada de más y leída como L. Lo confirma el argumento de la propia plana: «…hijo de Sirach, en la cual da g… muchos y graves peligros, y e… estudio de la sabiduría». Ni la secuencia ni el canon intervienen: el numeral se leyó en la imagen."
+    },
+    {
+      "id": "ps-3-p16",
+      "batch": "batch-115",
+      "book": "Ps",
+      "scan_page": 16,
+      "pdf_page": 17,
+      "target_block": "p0016l0062",
+      "bbox": [
+        1404,
+        3038,
+        2029,
+        3099
+      ],
+      "outcome": "invalid_ocr_corrected",
+      "raw_heading": "SALMO II L",
+      "raw_numeral": "II",
+      "raw_numeral_status": "valid",
+      "permissive_value_diagnostic": null,
+      "observed_printed_text": "SALMO III.",
+      "observed_printed_numeral": "III",
+      "recovered_chapter": 3,
+      "confidence": 0.95,
+      "reviewer_method": "pdftoppm render at 600 dpi (native scan resolution), heading-line, numeral-only and page-context crops, visual reading",
+      "rationale": "Reclamo ambiguo: el reconocimiento dejó «SALMO II L», con los candidatos [2, 50]. El impreso dice «SALMO III.», leído como una unidad visual; el reconocimiento partió el numeral en «II» y «L»: la «L» es la tercera I con el punto pegado. Ninguno de los candidatos (2, 50) es lo que imprime la plana. Lo confirma el numeral latino impreso en la misma plana al final de la inscripción, «Psalmus David, cum fugeret á facie Absalom filii sui. III.», y el argumento «David perseguido implora el auxilio de Dios contra sus enemigos». Ni la secuencia ni el canon intervienen: el numeral se leyó en la imagen.",
+      "queue_disposition": "ambiguous_numeral",
+      "candidate_numbers": [
+        2,
+        50
+      ],
+      "supporting_facsimile_evidence": "Latin inscription numeral on the same page: «Psalmus David, cum fugeret á facie Absalom filii sui. III.»",
+      "patterns": [
+        "split numeral",
+        "L/I confusion",
+        "multi-token ambiguity"
+      ]
+    },
+    {
+      "id": "ps-12-p26",
+      "batch": "batch-115",
+      "book": "Ps",
+      "scan_page": 26,
+      "pdf_page": 27,
+      "target_block": "p0026l0049",
+      "bbox": [
+        1394,
+        2356,
+        2118,
+        2422
+      ],
+      "outcome": "invalid_ocr_corrected",
+      "raw_heading": "SALMO XIL *",
+      "raw_numeral": "XIL",
+      "raw_numeral_status": "invalid_roman_syntax",
+      "permissive_value_diagnostic": 39,
+      "observed_printed_text": "SALMO XII.",
+      "observed_printed_numeral": "XII",
+      "recovered_chapter": 12,
+      "confidence": 0.95,
+      "reviewer_method": "pdftoppm render at 600 dpi (native scan resolution), heading-line, numeral-only and page-context crops, visual reading",
+      "rationale": "El impreso dice «SALMO XII.», leído como una unidad visual; la I final lleva el punto pegado al remate y el reconocimiento la leyó como L; el «*» del crudo es una mota de tinta a la derecha del rótulo. Lo confirma el numeral latino impreso en la misma plana al final de la inscripción, «In finem, Psalmus David. XII.», y el argumento «Sentimientos de una alma atribulada, que con firme esperanza recurre á Dios». Ni la secuencia ni el canon intervienen: el numeral se leyó en la imagen.",
+      "queue_disposition": "invalid_numeral",
+      "candidate_numbers": [],
+      "supporting_facsimile_evidence": "Latin inscription numeral on the same page: «In finem, Psalmus David. XII.»",
+      "patterns": [
+        "L/I confusion",
+        "punctuation"
+      ]
+    },
+    {
+      "id": "ps-17-p31",
+      "batch": "batch-115",
+      "book": "Ps",
+      "scan_page": 31,
+      "pdf_page": 32,
+      "target_block": "p0031l0030",
+      "bbox": [
+        1362,
+        1655,
+        2097,
+        1720
+      ],
+      "outcome": "invalid_ocr_corrected",
+      "raw_heading": "SALMO XVIL",
+      "raw_numeral": "XVIL",
+      "raw_numeral_status": "invalid_roman_syntax",
+      "permissive_value_diagnostic": 34,
+      "observed_printed_text": "SALMO XVII.",
+      "observed_printed_numeral": "XVII",
+      "recovered_chapter": 17,
+      "confidence": 0.95,
+      "reviewer_method": "pdftoppm render at 600 dpi (native scan resolution), heading-line, numeral-only and page-context crops, visual reading",
+      "rationale": "El impreso dice «SALMO XVII.», leído como una unidad visual; la I final lleva el punto pegado al remate y se leyó como L. Lo confirma el numeral latino impreso en la misma plana al final de la inscripción, «…et dixit. XVII», y el argumento «David, figura del Mesías, da gracias á Dios por haberle librado de grandes peligros». Ni la secuencia ni el canon intervienen: el numeral se leyó en la imagen.",
+      "queue_disposition": "invalid_numeral",
+      "candidate_numbers": [],
+      "supporting_facsimile_evidence": "Latin inscription numeral on the same page: «…et dixit. XVII»",
+      "patterns": [
+        "L/I confusion"
+      ]
+    },
+    {
+      "id": "ps-30-p48",
+      "batch": "batch-115",
+      "book": "Ps",
+      "scan_page": 48,
+      "pdf_page": 49,
+      "target_block": "p0048l0044",
+      "bbox": [
+        1337,
+        2227,
+        2213,
+        2312
+      ],
+      "outcome": "invalid_ocr_corrected",
+      "raw_heading": "SALMO X*XX. ,",
+      "raw_numeral": "X",
+      "raw_numeral_status": "valid",
+      "permissive_value_diagnostic": null,
+      "observed_printed_text": "SALMO XXX.",
+      "observed_printed_numeral": "XXX",
+      "recovered_chapter": 30,
+      "confidence": 0.95,
+      "reviewer_method": "pdftoppm render at 600 dpi (native scan resolution), heading-line, numeral-only and page-context crops, visual reading",
+      "rationale": "Reclamo ambiguo: el reconocimiento dejó «SALMO X*XX. ,», con los candidatos [10, 20]. El impreso dice «SALMO XXX.», leído como una unidad visual; una mota de tinta entre la primera y la segunda X partió el numeral en «X» y «XX» (el «*» del crudo); la mota no toca los glifos. Ninguno de los candidatos (10, 20) es lo que imprime la plana. Lo confirma el numeral latino impreso en la misma plana al final de la inscripción, «In finem, Psalmus David, pro extasi. XXX.», y el argumento «En los mayores peligros brilla mas la misericordia de Dios. En este salmo David es figura de Jesu-Christo en su pasion». Ni la secuencia ni el canon intervienen: el numeral se leyó en la imagen.",
+      "queue_disposition": "ambiguous_numeral",
+      "candidate_numbers": [
+        10,
+        20
+      ],
+      "supporting_facsimile_evidence": "Latin inscription numeral on the same page: «In finem, Psalmus David, pro extasi. XXX.»",
+      "patterns": [
+        "split numeral",
+        "punctuation",
+        "multi-token ambiguity"
+      ]
+    },
+    {
+      "id": "ps-36-p57",
+      "batch": "batch-115",
+      "book": "Ps",
+      "scan_page": 57,
+      "pdf_page": 58,
+      "target_block": "p0057l0048",
+      "bbox": [
+        1263,
+        2298,
+        2101,
+        2364
+      ],
+      "outcome": "invalid_ocr_corrected",
+      "raw_heading": "SALMO XXXVL",
+      "raw_numeral": "XXXVL",
+      "raw_numeral_status": "invalid_roman_syntax",
+      "permissive_value_diagnostic": 15,
+      "observed_printed_text": "SALMO XXXVI.",
+      "observed_printed_numeral": "XXXVI",
+      "recovered_chapter": 36,
+      "confidence": 0.95,
+      "reviewer_method": "pdftoppm render at 600 dpi (native scan resolution), heading-line, numeral-only and page-context crops, visual reading",
+      "rationale": "El impreso dice «SALMO XXXVI.», leído como una unidad visual; la I final lleva el punto pegado al remate y se leyó como L. Lo confirma el numeral latino impreso en la misma plana al final de la inscripción, «Psalmus ipsi David. XXXVI.», y el argumento «Amonesta David á los justos que no se aflijan ni acobarden al ver la felicidad de los malos». Ni la secuencia ni el canon intervienen: el numeral se leyó en la imagen.",
+      "queue_disposition": "invalid_numeral",
+      "candidate_numbers": [],
+      "supporting_facsimile_evidence": "Latin inscription numeral on the same page: «Psalmus ipsi David. XXXVI.»",
+      "patterns": [
+        "L/I confusion",
+        "long Roman numeral"
+      ]
+    },
+    {
+      "id": "ps-38-p61",
+      "batch": "batch-115",
+      "book": "Ps",
+      "scan_page": 61,
+      "pdf_page": 62,
+      "target_block": "p0061l0067",
+      "bbox": [
+        1225,
+        3168,
+        2165,
+        3235
+      ],
+      "outcome": "invalid_ocr_corrected",
+      "raw_heading": "SALMO XXXVIIL",
+      "raw_numeral": "XXXVIIL",
+      "raw_numeral_status": "invalid_roman_syntax",
+      "permissive_value_diagnostic": 13,
+      "observed_printed_text": "SALMO XXXVIII.",
+      "observed_printed_numeral": "XXXVIII",
+      "recovered_chapter": 38,
+      "confidence": 0.95,
+      "reviewer_method": "pdftoppm render at 600 dpi (native scan resolution), heading-line, numeral-only and page-context crops, visual reading",
+      "rationale": "El impreso dice «SALMO XXXVIII.», leído como una unidad visual; la I final lleva el punto pegado al remate y se leyó como L. Lo confirma el numeral latino impreso en la misma plana al final de la inscripción, «In finem, ipsi Idithun, Canticum David. XXXVIII.», y el argumento «Afligido David con una grave tribulacion, confiesa sus culpas». Ni la secuencia ni el canon intervienen: el numeral se leyó en la imagen.",
+      "queue_disposition": "invalid_numeral",
+      "candidate_numbers": [],
+      "supporting_facsimile_evidence": "Latin inscription numeral on the same page: «In finem, ipsi Idithun, Canticum David. XXXVIII.»",
+      "patterns": [
+        "L/I confusion",
+        "long Roman numeral"
+      ]
+    },
+    {
+      "id": "ps-46-p71",
+      "batch": "batch-115",
+      "book": "Ps",
+      "scan_page": 71,
+      "pdf_page": 72,
+      "target_block": "p0071l0061",
+      "bbox": [
+        1273,
+        2927,
+        2033,
+        2985
+      ],
+      "outcome": "invalid_ocr_corrected",
+      "raw_heading": "SALMO XLVL",
+      "raw_numeral": "XLVL",
+      "raw_numeral_status": "invalid_roman_syntax",
+      "permissive_value_diagnostic": 85,
+      "observed_printed_text": "SALMO XLVI.",
+      "observed_printed_numeral": "XLVI",
+      "recovered_chapter": 46,
+      "confidence": 0.95,
+      "reviewer_method": "pdftoppm render at 600 dpi (native scan resolution), heading-line, numeral-only and page-context crops, visual reading",
+      "rationale": "El impreso dice «SALMO XLVI.», leído como una unidad visual; la I final lleva el punto pegado al remate y se leyó como L; la L del medio es una L auténtica. Lo confirma el numeral latino impreso en la misma plana al final de la inscripción, «In finem, pro filiis Core, Psalmus. XLVI.», y el argumento «Bajo la figura de la entrada del arca en Sion se describe la ascension de Jesu-Christo». Ni la secuencia ni el canon intervienen: el numeral se leyó en la imagen.",
+      "queue_disposition": "invalid_numeral",
+      "candidate_numbers": [],
+      "supporting_facsimile_evidence": "Latin inscription numeral on the same page: «In finem, pro filiis Core, Psalmus. XLVI.»",
+      "patterns": [
+        "L/I confusion"
+      ]
+    },
+    {
+      "id": "ps-48-p73",
+      "batch": "batch-115",
+      "book": "Ps",
+      "scan_page": 73,
+      "pdf_page": 74,
+      "target_block": "p0073l0048",
+      "bbox": [
+        1258,
+        2306,
+        2121,
+        2371
+      ],
+      "outcome": "invalid_ocr_corrected",
+      "raw_heading": "SALMO XLVUL",
+      "raw_numeral": "XLVVL",
+      "raw_numeral_status": "invalid_roman_syntax",
+      "permissive_value_diagnostic": 80,
+      "observed_printed_text": "SALMO XLVIII.",
+      "observed_printed_numeral": "XLVIII",
+      "recovered_chapter": 48,
+      "confidence": 0.95,
+      "reviewer_method": "pdftoppm render at 600 dpi (native scan resolution), heading-line, numeral-only and page-context crops, visual reading",
+      "rationale": "El impreso dice «SALMO XLVIII.», leído como una unidad visual; el crudo «XLVUL» tiene dos errores: las dos I centrales salieron como U (normalizada a V) y la I final con su punto como L. Lo confirma el numeral latino impreso en la misma plana al final de la inscripción, «In finem, filiis Core, Psalmus. XLVIII.», y el argumento «Exhortacion á la virtud y á la fuga del vicio». Ni la secuencia ni el canon intervienen: el numeral se leyó en la imagen.",
+      "queue_disposition": "invalid_numeral",
+      "candidate_numbers": [],
+      "supporting_facsimile_evidence": "Latin inscription numeral on the same page: «In finem, filiis Core, Psalmus. XLVIII.»",
+      "patterns": [
+        "L/I confusion",
+        "long Roman numeral",
+        "other"
+      ]
+    },
+    {
+      "id": "ps-49-p75",
+      "batch": "batch-115",
+      "book": "Ps",
+      "scan_page": 75,
+      "pdf_page": 76,
+      "target_block": "p0075l0014",
+      "bbox": [
+        1269,
+        979,
+        2020,
+        1040
+      ],
+      "outcome": "invalid_ocr_corrected",
+      "raw_heading": "SALMO X L I X.",
+      "raw_numeral": "X",
+      "raw_numeral_status": "valid",
+      "permissive_value_diagnostic": null,
+      "observed_printed_text": "SALMO XLIX.",
+      "observed_printed_numeral": "XLIX",
+      "recovered_chapter": 49,
+      "confidence": 0.95,
+      "reviewer_method": "pdftoppm render at 600 dpi (native scan resolution), heading-line, numeral-only and page-context crops, visual reading",
+      "rationale": "Reclamo ambiguo: el reconocimiento dejó «SALMO X L I X.», con los candidatos [10, 50, 1, 10]. El impreso dice «SALMO XLIX.», leído como una unidad visual; el espaciado del rótulo hizo que cada letra saliera como un token («X L I X»). Ninguno de los candidatos (10, 50, 1, 10) es lo que imprime la plana. Lo confirma el numeral latino impreso en la misma plana al final de la inscripción, «Psalmus Asaph. XLIX.», y el argumento «Jesu-Christo salvará á los hombres, no por las ceremonias exteriores de la Ley antigua». Ni la secuencia ni el canon intervienen: el numeral se leyó en la imagen.",
+      "queue_disposition": "ambiguous_numeral",
+      "candidate_numbers": [
+        10,
+        50,
+        1,
+        10
+      ],
+      "supporting_facsimile_evidence": "Latin inscription numeral on the same page: «Psalmus Asaph. XLIX.»",
+      "patterns": [
+        "split numeral",
+        "multi-token ambiguity"
+      ]
+    },
+    {
+      "id": "ps-53-p80",
+      "batch": "batch-115",
+      "book": "Ps",
+      "scan_page": 80,
+      "pdf_page": 81,
+      "target_block": "p0080l0002",
+      "bbox": [
+        1384,
+        346,
+        2094,
+        409
+      ],
+      "outcome": "invalid_ocr_corrected",
+      "raw_heading": "SALMO LIIL",
+      "raw_numeral": "LIIL",
+      "raw_numeral_status": "invalid_roman_syntax",
+      "permissive_value_diagnostic": 98,
+      "observed_printed_text": "SALMO LIII.",
+      "observed_printed_numeral": "LIII",
+      "recovered_chapter": 53,
+      "confidence": 0.9,
+      "reviewer_method": "pdftoppm render at 600 dpi (native scan resolution), heading-line, numeral-only and page-context crops, visual reading",
+      "rationale": "El impreso dice «SALMO LIII.», leído como una unidad visual; el último glifo es una I con el punto casi fundido en el remate derecho; aun a 600 ppi recuerda una L, pero lo que sobresale es un punto redondo sobre la línea base -- igual que el «I.» de SALMO LVI. en la plana 83 -- y no el remate ascendente de la L inicial del mismo numeral. Por esa semejanza la confianza se declara menor y se apoya en el numeral latino de la misma plana. Lo confirma el numeral latino impreso en la misma plana al final de la inscripción, «…apud nos? LIII.», y el argumento «David implora el auxilio de Dios contra sus enemigos; y promete, vencidos éstos, cantar las alabanzas de su Libertador». Ni la secuencia ni el canon intervienen: el numeral se leyó en la imagen.",
+      "queue_disposition": "invalid_numeral",
+      "candidate_numbers": [],
+      "supporting_facsimile_evidence": "Latin inscription numeral on the same page: «…apud nos? LIII.»",
+      "patterns": [
+        "L/I confusion"
+      ]
+    },
+    {
+      "id": "ps-54-p80",
+      "batch": "batch-115",
+      "book": "Ps",
+      "scan_page": 80,
+      "pdf_page": 81,
+      "target_block": "p0080l0051",
+      "bbox": [
+        1394,
+        2855,
+        2070,
+        2919
+      ],
+      "outcome": "invalid_ocr_corrected",
+      "raw_heading": "SALMO L I y.",
+      "raw_numeral": "L",
+      "raw_numeral_status": "valid",
+      "permissive_value_diagnostic": null,
+      "observed_printed_text": "SALMO LIV.",
+      "observed_printed_numeral": "LIV",
+      "recovered_chapter": 54,
+      "confidence": 0.95,
+      "reviewer_method": "pdftoppm render at 600 dpi (native scan resolution), heading-line, numeral-only and page-context crops, visual reading",
+      "rationale": "Reclamo ambiguo: el reconocimiento dejó «SALMO L I y.», con los candidatos [50, 1]. El impreso dice «SALMO LIV.», leído como una unidad visual; el numeral salió letra a letra y la V como «y» («L I y.»). Ninguno de los candidatos (50, 1) es lo que imprime la plana. Lo confirma el numeral latino impreso en la misma plana al final de la inscripción, «In finem, in carminibus intellectus David. LIV.», y el argumento «David, calumniado y perseguido por sus enemigos, pide socorro á Dios». Ni la secuencia ni el canon intervienen: el numeral se leyó en la imagen.",
+      "queue_disposition": "ambiguous_numeral",
+      "candidate_numbers": [
+        50,
+        1
+      ],
+      "supporting_facsimile_evidence": "Latin inscription numeral on the same page: «In finem, in carminibus intellectus David. LIV.»",
+      "patterns": [
+        "split numeral",
+        "multi-token ambiguity",
+        "other"
+      ]
+    },
+    {
+      "id": "ps-56-p83",
+      "batch": "batch-115",
+      "book": "Ps",
+      "scan_page": 83,
+      "pdf_page": 84,
+      "target_block": "p0083l0042",
+      "bbox": [
+        1329,
+        2227,
+        2003,
+        2286
+      ],
+      "outcome": "invalid_ocr_corrected",
+      "raw_heading": "SALMO LVL",
+      "raw_numeral": "LVL",
+      "raw_numeral_status": "invalid_roman_syntax",
+      "permissive_value_diagnostic": 95,
+      "observed_printed_text": "SALMO LVI.",
+      "observed_printed_numeral": "LVI",
+      "recovered_chapter": 56,
+      "confidence": 0.95,
+      "reviewer_method": "pdftoppm render at 600 dpi (native scan resolution), heading-line, numeral-only and page-context crops, visual reading",
+      "rationale": "El impreso dice «SALMO LVI.», leído como una unidad visual; la I final lleva el punto pegado y se leyó como L; la L inicial es auténtica. Lo confirma el numeral latino impreso en la misma plana al final de la inscripción, «…in speluncam. LVI.», y el argumento «David, figura de Jesu-Christo, pide á Dios auxilio contra sus enemigos». Ni la secuencia ni el canon intervienen: el numeral se leyó en la imagen.",
+      "queue_disposition": "invalid_numeral",
+      "candidate_numbers": [],
+      "supporting_facsimile_evidence": "Latin inscription numeral on the same page: «…in speluncam. LVI.»",
+      "patterns": [
+        "L/I confusion"
+      ]
+    },
+    {
+      "id": "ps-60-p88",
+      "batch": "batch-115",
+      "book": "Ps",
+      "scan_page": 88,
+      "pdf_page": 89,
+      "target_block": "p0088l0017",
+      "bbox": [
+        1432,
+        1017,
+        2054,
+        1080
+      ],
+      "outcome": "invalid_ocr_corrected",
+      "raw_heading": "SALMO L X.",
+      "raw_numeral": "L",
+      "raw_numeral_status": "valid",
+      "permissive_value_diagnostic": null,
+      "observed_printed_text": "SALMO LX.",
+      "observed_printed_numeral": "LX",
+      "recovered_chapter": 60,
+      "confidence": 0.95,
+      "reviewer_method": "pdftoppm render at 600 dpi (native scan resolution), heading-line, numeral-only and page-context crops, visual reading",
+      "rationale": "Reclamo ambiguo: el reconocimiento dejó «SALMO L X.», con los candidatos [50, 10]. El impreso dice «SALMO LX.», leído como una unidad visual; el numeral salió letra a letra («L X.»). Ninguno de los candidatos (50, 10) es lo que imprime la plana. Lo confirma el numeral latino impreso en la misma plana al final de la inscripción, «In finem, 1 In Hymnis David. LX.», y el argumento «Implora David, y obtiene el auxilio Divino en sus angustias, y suspira por el tabernáculo de su Dios». Ni la secuencia ni el canon intervienen: el numeral se leyó en la imagen.",
+      "queue_disposition": "ambiguous_numeral",
+      "candidate_numbers": [
+        50,
+        10
+      ],
+      "supporting_facsimile_evidence": "Latin inscription numeral on the same page: «In finem, 1 In Hymnis David. LX.»",
+      "patterns": [
+        "split numeral",
+        "multi-token ambiguity"
+      ]
+    },
+    {
+      "id": "ps-62-p90",
+      "batch": "batch-115",
+      "book": "Ps",
+      "scan_page": 90,
+      "pdf_page": 91,
+      "target_block": "p0090l0002",
+      "bbox": [
+        1375,
+        387,
+        2084,
+        448
+      ],
+      "outcome": "invalid_ocr_corrected",
+      "raw_heading": "SALMO LXIL",
+      "raw_numeral": "LXIL",
+      "raw_numeral_status": "invalid_roman_syntax",
+      "permissive_value_diagnostic": 89,
+      "observed_printed_text": "SALMO LXII.",
+      "observed_printed_numeral": "LXII",
+      "recovered_chapter": 62,
+      "confidence": 0.95,
+      "reviewer_method": "pdftoppm render at 600 dpi (native scan resolution), heading-line, numeral-only and page-context crops, visual reading",
+      "rationale": "El impreso dice «SALMO LXII.», leído como una unidad visual; la I final lleva el punto pegado y se leyó como L; la L inicial es auténtica. Lo confirma el numeral latino impreso en la misma plana al final de la inscripción, «…I. Reg. 22. 5. LXII.», y el argumento «Perseguido David, y separado del tabernáculo del Señor, manifiesta sus ardientes deseos de volver á su vista». Ni la secuencia ni el canon intervienen: el numeral se leyó en la imagen.",
+      "queue_disposition": "invalid_numeral",
+      "candidate_numbers": [],
+      "supporting_facsimile_evidence": "Latin inscription numeral on the same page: «…I. Reg. 22. 5. LXII.»",
+      "patterns": [
+        "L/I confusion"
+      ]
+    },
+    {
+      "id": "ps-71-p103",
+      "batch": "batch-115",
+      "book": "Ps",
+      "scan_page": 103,
+      "pdf_page": 104,
+      "target_block": "p0103l0032",
+      "bbox": [
+        1313,
+        1815,
+        2045,
+        1875
+      ],
+      "outcome": "invalid_ocr_corrected",
+      "raw_heading": "SALMO LX XI.",
+      "raw_numeral": "LX",
+      "raw_numeral_status": "valid",
+      "permissive_value_diagnostic": null,
+      "observed_printed_text": "SALMO LXXI.",
+      "observed_printed_numeral": "LXXI",
+      "recovered_chapter": 71,
+      "confidence": 0.95,
+      "reviewer_method": "pdftoppm render at 600 dpi (native scan resolution), heading-line, numeral-only and page-context crops, visual reading",
+      "rationale": "Reclamo ambiguo: el reconocimiento dejó «SALMO LX XI.», con los candidatos [60, 11]. El impreso dice «SALMO LXXI.», leído como una unidad visual; el numeral se partió en «LX» y «XI». Ninguno de los candidatos (60, 11) es lo que imprime la plana. Lo confirma el numeral latino impreso en la misma plana al final de la inscripción, «Psalmus, 1 In Salomonem. LXXI.», y el argumento «Con ocasion del reinado de Salomon, describe David el reino pacífico universal y eterno del Mesías». Ni la secuencia ni el canon intervienen: el numeral se leyó en la imagen.",
+      "queue_disposition": "ambiguous_numeral",
+      "candidate_numbers": [
+        60,
+        11
+      ],
+      "supporting_facsimile_evidence": "Latin inscription numeral on the same page: «Psalmus, 1 In Salomonem. LXXI.»",
+      "patterns": [
+        "split numeral",
+        "multi-token ambiguity"
+      ]
+    },
+    {
+      "id": "ps-73-p107",
+      "batch": "batch-115",
+      "book": "Ps",
+      "scan_page": 107,
+      "pdf_page": 108,
+      "target_block": "p0107l0000",
+      "bbox": [
+        1260,
+        320,
+        2127,
+        385
+      ],
+      "outcome": "invalid_ocr_corrected",
+      "raw_heading": "SALMO LXXIIL",
+      "raw_numeral": "LXXIIL",
+      "raw_numeral_status": "invalid_roman_syntax",
+      "permissive_value_diagnostic": 78,
+      "observed_printed_text": "SALMO LXXIII.",
+      "observed_printed_numeral": "LXXIII",
+      "recovered_chapter": 73,
+      "confidence": 0.95,
+      "reviewer_method": "pdftoppm render at 600 dpi (native scan resolution), heading-line, numeral-only and page-context crops, visual reading",
+      "rationale": "El impreso dice «SALMO LXXIII.», leído como una unidad visual; la I final lleva el punto pegado y se leyó como L; la L inicial es auténtica. Lo confirma el numeral latino impreso en la misma plana al final de la inscripción, «Intellectus Asaph. LXXIII.», y el argumento «Oracion á Dios en las calamidades del pueblo oprimido por los idólatras». Ni la secuencia ni el canon intervienen: el numeral se leyó en la imagen.",
+      "queue_disposition": "invalid_numeral",
+      "candidate_numbers": [],
+      "supporting_facsimile_evidence": "Latin inscription numeral on the same page: «Intellectus Asaph. LXXIII.»",
+      "patterns": [
+        "L/I confusion",
+        "long Roman numeral"
+      ]
+    },
+    {
+      "id": "ps-87-p126",
+      "batch": "batch-115",
+      "book": "Ps",
+      "scan_page": 126,
+      "pdf_page": 127,
+      "target_block": "p0126l0048",
+      "bbox": [
+        1233,
+        2758,
+        2215,
+        2825
+      ],
+      "outcome": "invalid_ocr_corrected",
+      "raw_heading": "SALMO L XXX VIL",
+      "raw_numeral": "L",
+      "raw_numeral_status": "valid",
+      "permissive_value_diagnostic": null,
+      "observed_printed_text": "SALMO LXXXVII.",
+      "observed_printed_numeral": "LXXXVII",
+      "recovered_chapter": 87,
+      "confidence": 0.95,
+      "reviewer_method": "pdftoppm render at 600 dpi (native scan resolution), heading-line, numeral-only and page-context crops, visual reading",
+      "rationale": "Reclamo ambiguo: el reconocimiento dejó «SALMO L XXX VIL», con los candidatos [50, 30]. El impreso dice «SALMO LXXXVII.», leído como una unidad visual; el numeral se partió en «L», «XXX» y «VIL», con la I final y su punto leídos como L. Ninguno de los candidatos (50, 30) es lo que imprime la plana. Lo confirma el numeral latino impreso en la misma plana al final de la inscripción, «…intellectus Eman Ezrahitæ. LXXXVII.», y el argumento «El profeta representa á Dios la enormidad de sus trabajos, débil figura de los del Redentor en su pasion». Ni la secuencia ni el canon intervienen: el numeral se leyó en la imagen.",
+      "queue_disposition": "ambiguous_numeral",
+      "candidate_numbers": [
+        50,
+        30
+      ],
+      "supporting_facsimile_evidence": "Latin inscription numeral on the same page: «…intellectus Eman Ezrahitæ. LXXXVII.»",
+      "patterns": [
+        "split numeral",
+        "L/I confusion",
+        "long Roman numeral",
+        "multi-token ambiguity"
+      ]
+    },
+    {
+      "id": "ps-89-p131",
+      "batch": "batch-115",
+      "book": "Ps",
+      "scan_page": 131,
+      "pdf_page": 132,
+      "target_block": "p0131l0042",
+      "bbox": [
+        1243,
+        2129,
+        2159,
+        2190
+      ],
+      "outcome": "invalid_ocr_corrected",
+      "raw_heading": "SALMO XX XX IX.",
+      "raw_numeral": "XX",
+      "raw_numeral_status": "valid",
+      "permissive_value_diagnostic": null,
+      "observed_printed_text": "SALMO LXXXIX.",
+      "observed_printed_numeral": "LXXXIX",
+      "recovered_chapter": 89,
+      "confidence": 0.9,
+      "reviewer_method": "pdftoppm render at 600 dpi (native scan resolution), heading-line, numeral-only and page-context crops, visual reading",
+      "rationale": "Reclamo ambiguo: el reconocimiento dejó «SALMO XX XX IX.», con los candidatos [20, 20, 9]. El impreso dice «SALMO LXXXIX.», leído como una unidad visual; el reconocimiento no vio la L inicial y partió el resto en «XX», «XX» e «IX». La plana tiene transparencia del reverso y la I lleva una muesca en el remate superior, pero las seis letras se leen como unidad; por la plana, confianza algo menor. Lo confirma el numeral latino impreso en la misma plana al final de la inscripción, «Oratio Moysi hominis Dei. LXXXIX.», y el argumento «Son los años de nuestra vida pocos, y están llenos de miserias; por lo mismo implora el Profeta la Divina misericordia». Ni la secuencia ni el canon intervienen: el numeral se leyó en la imagen.",
+      "queue_disposition": "ambiguous_numeral",
+      "candidate_numbers": [
+        20,
+        20,
+        9
+      ],
+      "supporting_facsimile_evidence": "Latin inscription numeral on the same page: «Oratio Moysi hominis Dei. LXXXIX.»",
+      "patterns": [
+        "split numeral",
+        "long Roman numeral",
+        "multi-token ambiguity",
+        "possible damaged print"
+      ]
+    },
+    {
+      "id": "ps-97-p140",
+      "batch": "batch-115",
+      "book": "Ps",
+      "scan_page": 140,
+      "pdf_page": 141,
+      "target_block": "p0140l0011",
+      "bbox": [
+        1334,
+        815,
+        2125,
+        878
+      ],
+      "outcome": "invalid_ocr_corrected",
+      "raw_heading": "SALMO XCVIL",
+      "raw_numeral": "XCVIL",
+      "raw_numeral_status": "invalid_roman_syntax",
+      "permissive_value_diagnostic": 134,
+      "observed_printed_text": "SALMO XCVII.",
+      "observed_printed_numeral": "XCVII",
+      "recovered_chapter": 97,
+      "confidence": 0.95,
+      "reviewer_method": "pdftoppm render at 600 dpi (native scan resolution), heading-line, numeral-only and page-context crops, visual reading",
+      "rationale": "El impreso dice «SALMO XCVII.», leído como una unidad visual; la I final lleva el punto pegado y se leyó como L. Lo confirma el numeral latino impreso en la misma plana al final de la inscripción, «Psalmus ipsi David. XCVII.», y el argumento «Sigue el mismo argumento del salmo precedente». Ni la secuencia ni el canon intervienen: el numeral se leyó en la imagen.",
+      "queue_disposition": "invalid_numeral",
+      "candidate_numbers": [],
+      "supporting_facsimile_evidence": "Latin inscription numeral on the same page: «Psalmus ipsi David. XCVII.»",
+      "patterns": [
+        "L/I confusion",
+        "long Roman numeral"
+      ]
+    },
+    {
+      "id": "ps-98-p140",
+      "batch": "batch-115",
+      "book": "Ps",
+      "scan_page": 140,
+      "pdf_page": 141,
+      "target_block": "p0140l0071",
+      "bbox": [
+        1272,
+        3684,
+        2143,
+        3746
+      ],
+      "outcome": "invalid_ocr_corrected",
+      "raw_heading": "SALMO XCVII L",
+      "raw_numeral": "XCVII",
+      "raw_numeral_status": "valid",
+      "permissive_value_diagnostic": null,
+      "observed_printed_text": "SALMO XCVIII.",
+      "observed_printed_numeral": "XCVIII",
+      "recovered_chapter": 98,
+      "confidence": 0.95,
+      "reviewer_method": "pdftoppm render at 600 dpi (native scan resolution), heading-line, numeral-only and page-context crops, visual reading",
+      "rationale": "Reclamo ambiguo: el reconocimiento dejó «SALMO XCVII L», con los candidatos [97, 50]. El impreso dice «SALMO XCVIII.», leído como una unidad visual; el numeral se partió en «XCVII» y «L»: la «L» es la tercera I con el punto pegado. Ninguno de los candidatos (97, 50) es lo que imprime la plana. Lo confirma el numeral latino impreso en la misma plana al final de la inscripción, «Psalmus ipsi David. XCVIII.», y el argumento «Celebra el Salmista el reino de Dios y de su Christo». Ni la secuencia ni el canon intervienen: el numeral se leyó en la imagen.",
+      "queue_disposition": "ambiguous_numeral",
+      "candidate_numbers": [
+        97,
+        50
+      ],
+      "supporting_facsimile_evidence": "Latin inscription numeral on the same page: «Psalmus ipsi David. XCVIII.»",
+      "patterns": [
+        "split numeral",
+        "L/I confusion",
+        "long Roman numeral",
+        "multi-token ambiguity"
+      ]
+    },
+    {
+      "id": "ps-121-p180",
+      "batch": "batch-115",
+      "book": "Ps",
+      "scan_page": 180,
+      "pdf_page": 181,
+      "target_block": "p0180l0012",
+      "bbox": [
+        1347,
+        796,
+        2093,
+        858
+      ],
+      "outcome": "invalid_ocr_corrected",
+      "raw_heading": "SALMO CXXL",
+      "raw_numeral": "CXXL",
+      "raw_numeral_status": "invalid_roman_syntax",
+      "permissive_value_diagnostic": 130,
+      "observed_printed_text": "SALMO CXXI.",
+      "observed_printed_numeral": "CXXI",
+      "recovered_chapter": 121,
+      "confidence": 0.95,
+      "reviewer_method": "pdftoppm render at 600 dpi (native scan resolution), heading-line, numeral-only and page-context crops, visual reading",
+      "rationale": "El impreso dice «SALMO CXXI.», leído como una unidad visual; la I final lleva el punto pegado y se leyó como L. Lo confirma el numeral latino impreso en la misma plana al final de la inscripción, «Canticum graduum. CXXI.», y el argumento «Bajo la alegoría de los que iban á visitar el templo del Señor en Jerusalem». Ni la secuencia ni el canon intervienen: el numeral se leyó en la imagen.",
+      "queue_disposition": "invalid_numeral",
+      "candidate_numbers": [],
+      "supporting_facsimile_evidence": "Latin inscription numeral on the same page: «Canticum graduum. CXXI.»",
+      "patterns": [
+        "L/I confusion"
+      ]
+    },
+    {
+      "id": "ps-141-p195",
+      "batch": "batch-115",
+      "book": "Ps",
+      "scan_page": 195,
+      "pdf_page": 196,
+      "target_block": "p0195l0065",
+      "bbox": [
+        1259,
+        3060,
+        2013,
+        3121
+      ],
+      "outcome": "invalid_ocr_corrected",
+      "raw_heading": "SALMO CXLL",
+      "raw_numeral": "CXLL",
+      "raw_numeral_status": "invalid_roman_syntax",
+      "permissive_value_diagnostic": 190,
+      "observed_printed_text": "SALMO CXLI.",
+      "observed_printed_numeral": "CXLI",
+      "recovered_chapter": 141,
+      "confidence": 0.95,
+      "reviewer_method": "pdftoppm render at 600 dpi (native scan resolution), heading-line, numeral-only and page-context crops, visual reading",
+      "rationale": "El impreso dice «SALMO CXLI.», leído como una unidad visual; la I final lleva el punto pegado y se leyó como L; la L central es auténtica. Lo confirma el numeral latino impreso en la misma plana al final de la inscripción, «Intellectus David, cum esset in spelunca, oratio. CXLI.», y el argumento «Oracion del justo en el mayor conflicto. Conviene á Christo y á la Iglesia». Ni la secuencia ni el canon intervienen: el numeral se leyó en la imagen.",
+      "queue_disposition": "invalid_numeral",
+      "candidate_numbers": [],
+      "supporting_facsimile_evidence": "Latin inscription numeral on the same page: «Intellectus David, cum esset in spelunca, oratio. CXLI.»",
+      "patterns": [
+        "L/I confusion"
+      ]
+    },
+    {
+      "id": "ps-142-p196",
+      "batch": "batch-115",
+      "book": "Ps",
+      "scan_page": 196,
+      "pdf_page": 197,
+      "target_block": "p0196l0047",
+      "bbox": [
+        1325,
+        2287,
+        2133,
+        2347
+      ],
+      "outcome": "invalid_ocr_corrected",
+      "raw_heading": "SALMO CXLIL",
+      "raw_numeral": "CXLIL",
+      "raw_numeral_status": "invalid_roman_syntax",
+      "permissive_value_diagnostic": 189,
+      "observed_printed_text": "SALMO CXLII.",
+      "observed_printed_numeral": "CXLII",
+      "recovered_chapter": 142,
+      "confidence": 0.95,
+      "reviewer_method": "pdftoppm render at 600 dpi (native scan resolution), heading-line, numeral-only and page-context crops, visual reading",
+      "rationale": "El impreso dice «SALMO CXLII.», leído como una unidad visual; la I final lleva el punto pegado y se leyó como L; la L central es auténtica. Lo confirma el numeral latino impreso en la misma plana al final de la inscripción, «…Absalon filius ejus. CXLII.», y el argumento «Implora David el socorro del Señor, y le pide perseverancia en la nueva vida». Ni la secuencia ni el canon intervienen: el numeral se leyó en la imagen.",
+      "queue_disposition": "invalid_numeral",
+      "candidate_numbers": [],
+      "supporting_facsimile_evidence": "Latin inscription numeral on the same page: «…Absalon filius ejus. CXLII.»",
+      "patterns": [
+        "L/I confusion"
+      ]
     }
   ],
   "about_numeral_reviews": "Rótulos de capítulo que el reconocimiento SÍ produjo pero cuyo numeral no se pudo identificar, leídos uno a uno en el facsímil. Cada entrada apunta a un bloque del OCR y guarda al lado lo que la máquina leyó y lo que la plana imprime; el OCR no se toca. Ni la secuencia ni el canon intervienen: el número sale del numeral impreso. No se deriva de aquí ninguna regla automática de corrección de glifos."

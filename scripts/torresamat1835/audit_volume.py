@@ -370,9 +370,19 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
             "reviewed": 0, "resolved": 0, "unreadable": 0,
             "still_ambiguous": 0, "rejected_false_claim": 0,
             "by_outcome": {}, "by_book": {}, "accepted_from_this_batch": 0,
-            "review_ids": []})
+            "by_queue_disposition": {}, "by_pattern": {},
+            "cascade_resolutions_anchored_here": 0,
+            "longest_cascade_chain": 0, "review_ids": []})
         stat["reviewed"] += 1
         stat["review_ids"].append(entry["id"])
+        # De qué cola salió el reclamo y qué aspecto tenía el fallo del
+        # reconocimiento. Sólo se cuenta: ninguna de las dos cosas decide
+        # el número, que sale del numeral impreso.
+        queued = entry.get("queue_disposition") or "unrecorded"
+        stat["by_queue_disposition"][queued] = \
+            stat["by_queue_disposition"].get(queued, 0) + 1
+        for pattern in entry.get("patterns") or ():
+            stat["by_pattern"][pattern] = stat["by_pattern"].get(pattern, 0) + 1
         outcome = entry.get("outcome")
         stat["by_outcome"][outcome] = stat["by_outcome"].get(outcome, 0) + 1
         stat["by_book"][entry["book"]] = stat["by_book"].get(entry["book"], 0) + 1
@@ -387,6 +397,38 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
             stat["rejected_false_claim"] += 1
         if entry["target_block"] in accepted_by_block:
             stat["accepted_from_this_batch"] += 1
+
+    # Cada cascada se atribuye a la lectura facsimilar de la que cuelga,
+    # siguiendo su cadena de anclas ACEPTADAS hasta la primera revisión
+    # directa. Una cascada no es otra lectura de la imagen: aquí sólo se
+    # dice de qué lectura depende y a cuántos saltos está.
+    batch_of_review = {e["id"]: (e.get("batch") or "batch-112")
+                       for e in raw_numerals}
+    direct_ids = {c.claim_id for c in direct}
+    cascade_ids = {c.claim_id for c in cascade}
+    chains = []
+    for claim in cascade:
+        hops, root = 0, claim
+        while root.claim_id in cascade_ids and root.anchor_claim:
+            nxt = ledger.by_id(root.anchor_claim)
+            if nxt is None:
+                break
+            root, hops = nxt, hops + 1
+        root_batch = (batch_of_review.get(root.proposal_evidence.get("review_id"))
+                      if root.claim_id in direct_ids else None)
+        chains.append({"block_id": claim.block_id, "book": claim.book,
+                       "accepted_number": claim.accepted_number,
+                       "accepted_round": claim.accepted_round,
+                       "anchor_claim": claim.anchor_claim,
+                       "root_claim": root.claim_id,
+                       "root_review_id": root.proposal_evidence.get("review_id")
+                       if root.claim_id in direct_ids else None,
+                       "root_batch": root_batch, "hops": hops})
+        if root_batch in batches:
+            stat = batches[root_batch]
+            stat["cascade_resolutions_anchored_here"] += 1
+            stat["longest_cascade_chain"] = max(stat["longest_cascade_chain"],
+                                                hops)
 
     # La cola de numerales pendientes, calculada AQUÍ y publicada junto a
     # los recuentos del ledger. Son dos cosas distintas y las dos hacen
@@ -415,6 +457,15 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
     dismissed = [c for c in ledger.claims
                  if c.block_id in reviewed_blocks
                  and c.disposition == chapter_claims.INVALID_NUMERAL]
+    queue_by_disposition_book, queue_by_reason = {}, {}
+    claim_by_block = {c.block_id: c for c in ledger.claims}
+    for entry in numeral_queue:
+        books = queue_by_disposition_book.setdefault(entry.disposition, {})
+        books[entry.book] = books.get(entry.book, 0) + 1
+        claim = claim_by_block.get(entry.block_id)
+        why = ((claim.proposal_evidence.get("why") if claim else None)
+               or entry.reason or "unrecorded")
+        queue_by_reason[why] = queue_by_reason.get(why, 0) + 1
 
     numeral_report = {
         "about": ("headings the recognition did produce, whose numeral it "
@@ -449,6 +500,13 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
             invalid_pending_by_book.items())),
         "review_queue": queue_summary,
         "review_queue_next": [e.as_dict() for e in numeral_queue[:40]],
+        # Qué clase de trabajo queda, medido y no supuesto: la primera
+        # disposición de la cola ordenada y el desglose por libro y por
+        # motivo.
+        "review_queue_first_category": (numeral_queue[0].disposition
+                                        if numeral_queue else None),
+        "review_queue_by_disposition_and_book": queue_by_disposition_book,
+        "review_queue_by_reason": queue_by_reason,
         "ambiguous_before": pre_counts["ambiguous_numeral"],
         "ambiguous_after": claims_report["ambiguous_numeral"],
         "accepted_before": pre_counts["accepted"],
@@ -475,6 +533,8 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
                      "sequence_anchor": c.anchor_number,
                      "anchor_claim": c.anchor_claim,
                      "source": c.source} for c in cascade],
+        "cascade_chains": chains,
+        "longest_cascade_chain": max((c["hops"] for c in chains), default=0),
         "per_book": {},
     }
     for osis in sorted(set(list(pre.per_book()) + list(ledger.per_book()))):
@@ -631,6 +691,15 @@ def main():
               f"{nr['invalid_numeral_pending_by_book']}")
         print(f"    review queue             {nr['review_queue']['total']}"
               f" {nr['review_queue']['by_disposition']}")
+        print(f"    queue first category     {nr['review_queue_first_category']}"
+              f"   longest cascade chain {nr['longest_cascade_chain']}")
+        for name, stat in nr["batches"].items():
+            print(f"    {name:10} reviewed={stat['reviewed']:3}"
+                  f" resolved={stat['resolved']:3}"
+                  f" accepted={stat['accepted_from_this_batch']:3}"
+                  f" cascades={stat['cascade_resolutions_anchored_here']:3}"
+                  f" longest={stat['longest_cascade_chain']}"
+                  f" queues={stat['by_queue_disposition']}")
         print("    book   accepted      invalid       unresolved")
         for osis, stat in sorted(nr["per_book"].items()):
             print(f"      {osis:5} {stat['accepted_before']:3} -> {stat['accepted_after']:3}"

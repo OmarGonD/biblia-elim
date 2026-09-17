@@ -673,6 +673,219 @@ def test_batches_are_disjoint_and_every_review_names_one():
     assert len({b for b in seen.values()}) >= 3
 
 
+# ======================================================================
+# Tanda 115: numerales inválidos y AMBIGUOS de Salmos
+#
+# Los ambiguos son otra cola: el reconocimiento partió el numeral en
+# varios romanos válidos («SALMO LX XI.») y ninguno es el impreso (LXXI).
+# La imagen decide; ni juntar los trozos ni cambiar L por I lo hace.
+# ======================================================================
+def _batch(name):
+    return [r for r in ir.load()["numeral_reviews"] if r.get("batch") == name]
+
+
+def test_115_A_batch_metadata_is_valid_and_says_which_queue_it_came_from():
+    reviews = _batch("batch-115")
+    assert reviews, "la tanda 115 está en los datos"
+    assert ir.validate_numerals(ir.load(), page_count=652) == []
+    queues = {r["queue_disposition"] for r in reviews}
+    assert queues <= {cc.INVALID_NUMERAL, cc.AMBIGUOUS_NUMERAL}, queues
+    for review in reviews:
+        assert review["pdf_page"] == review["scan_page"] + 1
+        assert review["raw_heading"] and review["raw_numeral"]
+        assert isinstance(review["candidate_numbers"], list)
+        assert isinstance(review["patterns"], list) and review["patterns"]
+        assert review["supporting_facsimile_evidence"]
+        assert len(review["rationale"]) > 80
+        if review["outcome"] in ir.NUMERAL_RESOLVING:
+            printed = review["observed_printed_numeral"]
+            assert roman.is_valid(printed), review["id"]
+            assert roman.to_int(printed) == review["recovered_chapter"]
+        if review["queue_disposition"] == cc.AMBIGUOUS_NUMERAL:
+            assert len(review["candidate_numbers"]) > 1, review["id"]
+            # el candidato no se eligió: lo que la plana imprime queda
+            # anotado aunque no estuviera entre ellos
+            assert review["raw_numeral_status"] == roman.VALID
+        else:
+            assert review["candidate_numbers"] == []
+            assert review["raw_numeral_status"] == roman.INVALID_SYNTAX
+            assert roman.is_valid(review["raw_numeral"]) is False
+
+
+def test_115_BCD_ids_and_blocks_stay_unique_and_earlier_batches_stand():
+    payload = ir.load()
+    ids = [r["id"] for r in payload["numeral_reviews"]]
+    blocks = [r["target_block"] for r in payload["numeral_reviews"]]
+    assert len(ids) == len(set(ids))
+    assert len(blocks) == len(set(blocks))
+    names = {r.get("batch", "batch-112") for r in payload["numeral_reviews"]}
+    assert {"batch-112", "batch-113", "batch-114", "batch-115"} <= names
+    for review in _shipped():
+        if review.resolves:
+            assert roman.to_int(review.observed_printed_numeral) == \
+                review.recovered_chapter, review.id
+
+
+def _ambiguous_fixture():
+    fixture = _page([("SALMO LX XI.", 0)])
+    block = _heading_blocks(fixture, {"SALMO LX XI."})["SALMO LX XI."]
+    return fixture, block
+
+
+def test_115_F_a_resolved_ambiguous_claim_leaves_the_ambiguous_queue():
+    fixture, block = _ambiguous_fixture()
+    _ed, _s, without = _parse(fixture, [], book="Ps")
+    claim = without.ledger.claims[0]
+    assert claim.disposition == cc.AMBIGUOUS_NUMERAL
+    assert sorted(claim.candidate_numbers) == [11, 60]
+
+    review = _review(book="Ps", target_block=block,
+                     raw_heading="SALMO LX XI.", raw_numeral="LX",
+                     observed_printed_text="SALMO LXXI.",
+                     observed_printed_numeral="LXXI", recovered_chapter=71)
+    _ed, _s, walker = _parse(fixture, [review], book="Ps")
+    claim = walker.ledger.claims[0]
+    assert claim.disposition == cc.ACCEPTED
+    assert claim.accepted_number == 71
+    # el crudo sigue diciendo lo que dijo
+    assert claim.raw_heading == "SALMO LX XI."
+    assert sorted(claim.candidate_numbers) == [11, 60]
+    report = walker.ledger.report()
+    queue = numeral_review.build(report["claims"])
+    assert not [e for e in queue if e.disposition == cc.AMBIGUOUS_NUMERAL]
+
+
+def test_115_G_an_unreadable_ambiguous_claim_stays_ambiguous():
+    fixture, block = _ambiguous_fixture()
+    review = _review(book="Ps", target_block=block, outcome=ir.UNREADABLE,
+                     raw_heading="SALMO LX XI.", raw_numeral="LX",
+                     observed_printed_text=None,
+                     observed_printed_numeral=None, recovered_chapter=None)
+    _ed, _s, walker = _parse(fixture, [review], book="Ps")
+    claim = walker.ledger.claims[0]
+    assert claim.disposition == cc.AMBIGUOUS_NUMERAL
+    assert claim.accepted_number is None
+    # mirada, sí; resuelta, no: sale de la cola sin cambiar de estado
+    claims = walker.ledger.report()["claims"]
+    assert numeral_review.build(claims, reviewed_blocks={block}) == []
+    assert numeral_review.build(claims)[0].disposition == cc.AMBIGUOUS_NUMERAL
+
+
+def test_115_H_a_false_heading_review_creates_no_chapter():
+    fixture, block = _ambiguous_fixture()
+    review = _review(book="Ps", target_block=block, outcome=ir.FALSE_CLAIM,
+                     raw_heading="SALMO LX XI.", observed_printed_text=None,
+                     observed_printed_numeral=None, recovered_chapter=None)
+    edition, _s, walker = _parse(fixture, [review], book="Ps")
+    assert walker.ledger.claims[0].accepted_number is None
+    assert not [n for n in edition.books["Ps"].chapters if n > 0]
+
+
+def test_115_J_split_numeral_tokens_are_never_joined_automatically():
+    fixture, _block = _ambiguous_fixture()
+    _ed, _s, walker = _parse(fixture, [], book="Ps")
+    claim = walker.ledger.claims[0]
+    assert claim.accepted_number is None
+    assert 71 not in claim.candidate_numbers
+    reading = roman.read(" LX XI.")
+    assert 71 not in list(reading.candidates)
+    assert reading.value != 71
+
+
+def test_115_K_a_final_l_is_never_read_as_i_without_the_facsimile():
+    fixture = _page([("SALMO XVI.", 0), ("SALMO XVIL", 1),
+                     ("SALMO XVIII.", 2)])
+    blocks = _heading_blocks(fixture, {"SALMO XVI.", "SALMO XVIL"})
+    anchor = _review(book="Ps", target_block=blocks["SALMO XVI."],
+                     raw_heading="SALMO XVI.", raw_numeral="XVI",
+                     observed_printed_text="SALMO XVI.",
+                     observed_printed_numeral="XVI", recovered_chapter=16)
+    _ed, _s, walker = _parse(fixture, [anchor], book="Ps")
+    middle = next(c for c in walker.ledger.claims
+                  if c.block_id == blocks["SALMO XVIL"])
+    assert middle.disposition == cc.INVALID_NUMERAL
+    assert middle.accepted_number is None
+    assert 17 not in {c.accepted_number for c in walker.ledger.accepted()}
+    assert roman.read(" XVIL").status == roman.INVALID_SYNTAX
+
+
+def test_115_I_raw_ocr_of_every_reviewed_claim_is_untouched():
+    report = _audit()
+    if report is None:
+        return
+    claims = {c["block_id"]: c for c in report["chapter_claims"]["claims"]}
+    for review in _batch("batch-115"):
+        claim = claims[review["target_block"]]
+        assert claim["raw_heading"] == review["raw_heading"]
+        assert claim["numeral"]["token"] == review["raw_numeral"]
+        assert claim["numeral"]["status"] == review["raw_numeral_status"]
+        assert claim["candidate_numbers"] == review["candidate_numbers"]
+        assert claim["accepted_number"] == review["recovered_chapter"]
+        assert claim["proposal_method"] == "numeral_review"
+        assert claim["provenance"]["raw_ocr_numeral"] == review["raw_numeral"]
+        assert claim["provenance"]["observed_printed_numeral"] == \
+            review["observed_printed_numeral"]
+
+
+def test_115_E_reviewed_invalid_and_ambiguous_claims_leave_the_queues():
+    report = _audit()
+    if report is None:
+        return
+    nr = report["numeral_image_review"]
+    blocks = {r["target_block"] for r in _batch("batch-115")}
+    queued = {e["block_id"] for e in nr["review_queue_next"]}
+    assert not (blocks & queued)
+    stat = nr["batches"]["batch-115"]
+    assert sum(stat["by_queue_disposition"].values()) == stat["reviewed"]
+
+
+def test_115_LM_direct_and_cascade_are_counted_apart_on_accepted_anchors():
+    report = _audit()
+    if report is None:
+        return
+    nr = report["numeral_image_review"]
+    claims = {c["claim_id"]: c for c in report["chapter_claims"]["claims"]}
+    direct = {d["block_id"] for d in nr["direct"]}
+    cascade = {c["block_id"] for c in nr["cascade"]}
+    assert not (direct & cascade), "una cascada no es otra lectura"
+    assert len(direct) == nr["direct_image_recoveries"]
+    assert len(cascade) == nr["cascade_resolutions"]
+    assert sum(b["accepted_from_this_batch"]
+               for b in nr["batches"].values()) == len(direct)
+    assert len(nr["cascade_chains"]) == nr["cascade_resolutions"]
+    anchored = sum(b["cascade_resolutions_anchored_here"]
+                   for b in nr["batches"].values())
+    assert anchored <= nr["cascade_resolutions"]
+    for chain in nr["cascade_chains"]:
+        assert chain["hops"] >= 1
+        assert chain["hops"] <= nr["longest_cascade_chain"]
+        # sólo un capítulo ACEPTADO sirve de ancla
+        anchor = claims[chain["anchor_claim"]]
+        assert anchor["disposition"] == cc.ACCEPTED
+        assert anchor["accepted_round"] < chain["accepted_round"]
+    for item in nr["cascade"]:
+        assert item["source"] == cc.FROM_OCR
+
+
+def test_115_O_queue_next_reflects_the_categories_that_really_remain():
+    report = _audit()
+    if report is None:
+        return
+    nr = report["numeral_image_review"]
+    summary = nr["review_queue"]
+    split = nr["review_queue_by_disposition_and_book"]
+    assert {k: sum(v.values()) for k, v in split.items()} == \
+        summary["by_disposition"]
+    assert sum(nr["review_queue_by_reason"].values()) == summary["total"]
+    if nr["review_queue_next"]:
+        assert nr["review_queue_first_category"] == \
+            nr["review_queue_next"][0]["disposition"]
+    else:
+        assert nr["review_queue_first_category"] is None
+    for entry in nr["review_queue_next"]:
+        assert entry["disposition"] in summary["by_disposition"]
+
+
 if __name__ == "__main__":
     failures = 0
     for name, func in sorted(globals().items()):
