@@ -484,6 +484,13 @@ class VolumeParser:
 
         self._bump("chapters_recovered_" + recovery.action)
         provenance = recovery.provenance.as_dict()
+        # Qué dijo la máquina en ESTE renglón, al lado de lo que dice la
+        # plana. Cuando la recuperación marca un renglón que el
+        # reconocimiento sí produjo -- con la palabra de división rota --
+        # las dos lecturas existen, y el informe tiene que poder
+        # enseñarlas juntas. Vacío cuando el renglón es sintético porque
+        # el reconocimiento no dejó nada.
+        provenance["raw_ocr_heading"] = raw
         observed = recovery.provenance.observed_printed_text or raw
         numeral = structure.roman_reading(
             structure._without_book_words(observed or ""),

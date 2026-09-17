@@ -269,6 +269,67 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
                   for (b, n) in sorted(recovered_keys)
                   if len(claims.get((b, n), [])) > 1]
 
+    # Qué contenido rescata cada frontera recuperada, y de dónde venía.
+    #
+    # El «antes» no se deduce restando: sale de la pasada gemela SIN
+    # revisiones, que es el mismo código leyendo lo mismo. Para cada
+    # recuperación se dice qué bloques están hoy bajo ese capítulo, dónde
+    # estaban sin ella y cuántas referencias pasan a estar publicadas.
+    def ownership(edition_obj):
+        out = {}
+        for osis, entry in edition_obj.books.items():
+            for number, chapter in entry.chapters.items():
+                label = f"{osis}.{number}"
+                for verse_number, verse in chapter.verses.items():
+                    for blk in verse.blocks:
+                        out[blk.provenance.block_id] = (label, verse_number)
+                for blk in chapter.paratext:
+                    out.setdefault(blk.provenance.block_id, (label, None))
+        return out
+
+    before_owner = ownership(before_edition)
+    after_owner = ownership(edition)
+    recovered_ownership = []
+    for record in applications:
+        if not record.changed_stream or record.chapter_number is None:
+            continue
+        label = f"{record.book}.{record.chapter_number}"
+        blocks = sorted(b for b, (owner, _v) in after_owner.items()
+                        if owner == label)
+        was = {}
+        for block in blocks:
+            previous = before_owner.get(block)
+            key = previous[0] if previous else "(not in any chapter)"
+            was[key] = was.get(key, 0) + 1
+        refs_now = sum(1 for b in blocks if after_owner[b][1] is not None)
+        refs_before = sum(
+            1 for b in blocks
+            if before_owner.get(b) and before_owner[b][1] is not None
+            and not before_owner[b][0].split(".")[1].startswith("-"))
+        recovered_ownership.append({
+            "review_id": record.review_id, "book": record.book,
+            "chapter": record.chapter_number, "action": record.action,
+            "heading_block": record.target_block or record.resulting_block,
+            "anchor_after": record.anchor_after,
+            "anchor_before": record.anchor_before,
+            "source_blocks_now_in_this_chapter": len(blocks),
+            "scan_pages": sorted({int(b[1:5]) for b in blocks}),
+            "where_those_blocks_were_without_the_review": dict(sorted(
+                was.items())),
+            "verse_refs_in_this_chapter": refs_now,
+            "verse_refs_already_published_before": refs_before,
+        })
+
+    review_batches = {}
+    for entry in (payload.get("reviews", []) if payload else []):
+        name = entry.get("batch") or "batch-110"
+        stat = review_batches.setdefault(
+            name, {"reviews": 0, "review_ids": [], "by_outcome": {}})
+        stat["reviews"] += 1
+        stat["review_ids"].append(entry["id"])
+        outcome = entry.get("outcome")
+        stat["by_outcome"][outcome] = stat["by_outcome"].get(outcome, 0) + 1
+
     recovery_report = {
         "available": payload is not None,
         "visual_source": payload["visual_source"] if payload else None,
@@ -291,6 +352,8 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         "recovered_unknown_numbers": sum(1 for a in applied
                                          if a.chapter_number is None),
         "recovered_number_collisions": collisions,
+        "batches": {name: review_batches[name] for name in sorted(review_batches)},
+        "recovered_chapter_ownership": recovered_ownership,
         "raw_ocr_blocks": stats.get("ocr_blocks"),
         "per_book": per_book_recovery,
         "applications": [{
@@ -763,6 +826,17 @@ def main():
               f" pdf_pages={mapping.get('pdf_pages')}"
               f" problems={mapping.get('problems')}")
         print(f"  recovered collisions       {cr['recovered_number_collisions'] or 'none'}")
+        for name, stat in cr.get("batches", {}).items():
+            print(f"    {name:12} reviews={stat['reviews']:3}"
+                  f" {stat['by_outcome']}")
+        for row in cr.get("recovered_chapter_ownership", []):
+            print(f"    {row['review_id']:16} {row['book']} {row['chapter']:<4}"
+                  f" blocks={row['source_blocks_now_in_this_chapter']:4}"
+                  f" pages={row['scan_pages']}"
+                  f" refs={row['verse_refs_in_this_chapter']:3}"
+                  f" (published before: {row['verse_refs_already_published_before']})")
+            print(f"      without the review those blocks sat in:"
+                  f" {row['where_those_blocks_were_without_the_review']}")
         for a in cr["applications"]:
             print(f"    {a['review_id']:20} {a['action']:34} n={a['chapter_number']}")
             print(f"      {a['reason'][:100]}")

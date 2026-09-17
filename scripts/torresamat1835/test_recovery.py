@@ -426,19 +426,39 @@ def test_book_ownership_is_unchanged_by_a_recovery():
 
 # ---- P. El salmo 118 sigue siendo un rechazo --------------------------
 def test_psalm_118_stays_a_rejection_with_no_effect():
+    """El control negativo sigue siendo un rechazo.
+
+    Salmos ya no tiene una sola revisión de frontera: desde la tanda 117
+    tiene además las tres que recuperan rótulos que el reconocimiento
+    dejó ilegibles. Lo que este test fija es que MIRAR una plana no
+    obliga a que salga una frontera de ahí: el hueco de once planas del
+    salmo 118 se miró y no había ninguna.
+    """
     payload = ir.load()
-    entry = [r for r in payload["reviews"] if r["book"] == "Ps"]
-    assert entry, "the Ps 118 control must stay in the metadata"
-    for review in entry:
-        assert review["outcome"] == NO_BOUNDARY
+    psalms = [r for r in payload["reviews"] if r["book"] == "Ps"]
+    rejections = [r for r in psalms if r["outcome"] == NO_BOUNDARY]
+    assert rejections, "the Ps 118 control must stay in the metadata"
+    for review in rejections:
         assert review["chapter_number"] is None
         assert review["insert_after_block"] is None
         assert review["insert_before_block"] is None
+        assert review.get("heading_block") is None
         assert review["boundary_confirmed"] is False
         assert review["rationale"]
-    parsed = [r for r in ir.reviews_for(payload, expected_sha256=_sha())
-              if r.book == "Ps"]
-    assert parsed and not any(r.creates_boundary for r in parsed)
+    parsed = {r.id: r for r in ir.reviews_for(payload, expected_sha256=_sha())
+              if r.book == "Ps"}
+    assert parsed
+    for review in rejections:
+        assert not parsed[review["id"]].creates_boundary
+
+    # y las que sí recuperan una frontera la llevan entera
+    for review in psalms:
+        if review["outcome"] == NO_BOUNDARY:
+            continue
+        assert review["boundary_confirmed"] is True
+        assert isinstance(review["chapter_number"], int)
+        assert review["insert_after_block"] and review["insert_before_block"]
+        assert parsed[review["id"]].creates_boundary
 
 
 # ---- Q/R. Los libros sin revisión no se mueven ------------------------

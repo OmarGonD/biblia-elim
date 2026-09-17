@@ -76,6 +76,13 @@ class ChapterImageReview:
     reviewer_method: str
     printed_page: Optional[int] = None
     pdf_page: Optional[int] = None
+    #: El bloque del reconocimiento que el facsímil muestra que ES el
+    #: rótulo impreso, cuando la máquina SÍ produjo el renglón pero con
+    #: la palabra de división rota («S A L M O X L.», «5ALMO CXXXVI.»).
+    #: Entonces no hay nada que insertar: la frontera ya está en el flujo
+    #: y lo que falta es reconocerla. Sin este campo la recuperación
+    #: añadiría un rótulo sintético al lado del que ya existe.
+    heading_block: Optional[str] = None
     evidence: List[str] = field(default_factory=list)
 
     @property
@@ -213,6 +220,25 @@ def validate(data, *, page_bounds=None, page_count=None) -> List[str]:
                 problems.append(f"{rid}: rejected candidate cannot confirm a boundary")
             if review.get("insert_before_block") or review.get("insert_after_block"):
                 problems.append(f"{rid}: a rejection has no insertion anchor")
+            if review.get("heading_block"):
+                problems.append(f"{rid}: a rejection names no printed heading")
+        # El bloque que el facsímil señala como rótulo tiene que ser un
+        # bloque de la plana que la revisión dice, y tiene que venir del
+        # reconocimiento: si llevara «r» sería un renglón recuperado, no
+        # uno que la máquina produjo.
+        heading_block = review.get("heading_block")
+        if heading_block is not None:
+            if not review.get("boundary_confirmed"):
+                problems.append(
+                    f"{rid}: a printed heading block needs a confirmed boundary")
+            if heading_block[:1] != "p" or heading_block[5:6] != "l" or \
+                    not heading_block[1:5].isdigit() or \
+                    not heading_block[6:].isdigit():
+                problems.append(f"{rid}: {heading_block} is not an OCR block id")
+            elif isinstance(page, int) and int(heading_block[1:5]) != page:
+                problems.append(
+                    f"{rid}: heading block {heading_block} is not on scan "
+                    f"page {page}")
         box = review.get("crop_bbox")
         if box is not None:
             if len(box) != 4 or box[0] >= box[2] or box[1] >= box[3]:
@@ -243,6 +269,7 @@ def reviews_for(data, *, source_path=None, expected_sha256=None
             numeral_confirmed=bool(review.get("numeral_confirmed")),
             insert_after_block=review.get("insert_after_block"),
             insert_before_block=review.get("insert_before_block"),
+            heading_block=review.get("heading_block"),
             observed_printed_text=review.get("observed_printed_text"),
             crop_bbox=tuple(review["crop_bbox"]) if review.get("crop_bbox") else None,
             confidence=float(review.get("confidence", 0.0)),

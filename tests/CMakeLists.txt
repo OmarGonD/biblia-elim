@@ -1097,6 +1097,17 @@ if (BUILD_TESTING AND UNIX AND PYTHON3_EXECUTABLE)
   set_tests_properties (torresamat1835_numeral_review_test PROPERTIES
     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
     )
+  # El rótulo estaba en el reconocimiento con la PALABRA rota («S A L M O
+  # X L.»), así que ninguna lectura del texto podía verlo. Aquí vive la
+  # recuperación de esas tres fronteras contra el facsímil.
+  add_test (
+    NAME torresamat1835_missing_boundaries_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_missing_boundaries.py
+    )
+  set_tests_properties (torresamat1835_missing_boundaries_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
+    )
   # Casar la palabra de división no es ser un rótulo: una inscripción del
   # salmo llegó a aceptarse como Ps 1. Aquí vive esa regresión.
   add_test (

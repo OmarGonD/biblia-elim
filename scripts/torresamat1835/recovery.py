@@ -244,6 +244,17 @@ def validate_anchors(review, entries, page, *, book) -> Optional[str]:
         return (f"anchors are out of reading order: {after} is not before "
                 f"{before}")
 
+    # El rótulo que la revisión señala tiene que existir en esta plana y
+    # caer ENTRE las anclas. Si no, la revisión describe otra cosa.
+    heading_block = getattr(review, "heading_block", None)
+    if heading_block is not None:
+        if heading_block not in order:
+            return (f"the printed heading block {heading_block} is not a "
+                    f"block of scan page {page.scan_page}")
+        if not (order[after] < order[heading_block] < order[before]):
+            return (f"the printed heading block {heading_block} does not fall "
+                    f"between the anchors {after} and {before}")
+
     if review.crop_bbox:
         top = entries[order[after]].line.bbox[3]
         bottom = entries[order[before]].line.bbox[1]
@@ -254,10 +265,26 @@ def validate_anchors(review, entries, page, *, book) -> Optional[str]:
     return None
 
 
-def _existing_heading(entries, start: int, stop: int):
-    """Un rótulo de división ya presente entre las dos anclas."""
+def _existing_heading(entries, start: int, stop: int, *, scan_page=None,
+                      heading_block=None):
+    """Un rótulo de división ya presente entre las dos anclas.
+
+    Normalmente se reconoce por la palabra de división. Pero el
+    reconocimiento a veces produce el renglón del rótulo y destroza la
+    PALABRA en vez del numeral -- la compone letra a letra («S A L M O
+    X L.») o cambia la primera letra («5ALMO CXXXVI.») --, y entonces
+    ninguna lectura del texto lo va a encontrar. Para eso está
+    `heading_block`: la revisión nombra el bloque que la imagen muestra
+    que es el rótulo. Sigue siendo el facsímil quien lo afirma, y sigue
+    teniendo que caer entre las anclas; lo que cambia es que la frontera
+    se marca sobre el renglón que ya existe en vez de añadir otro al
+    lado.
+    """
     for position in range(start + 1, stop):
         entry = entries[position]
+        if heading_block is not None and scan_page is not None and \
+                _entry_block_id(entry, scan_page) == heading_block:
+            return position, entry
         raw = getattr(entry.line, "raw_text", "") or ""
         if classifier.carries_division_marker(raw):
             return position, entry
@@ -353,7 +380,9 @@ def apply_verified_image_reviews(page, entries, reviews, *, source,
             chapter_number=review.chapter_number,
             review_required=review.review_required)
 
-        position, existing = _existing_heading(stream, start, stop)
+        position, existing = _existing_heading(
+            stream, start, stop, scan_page=page.scan_page,
+            heading_block=review.heading_block)
         if existing is not None:
             seen = resolve_numeral(getattr(existing.line, "raw_text", ""))
             if seen is not None and review.chapter_number is not None and \
