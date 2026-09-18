@@ -28,6 +28,7 @@ import parser as classifier
 import recovery as image_recovery
 import roman
 import structure
+import verse_markers
 import written_ordinals
 from layout import Column, Zone, split_columns, measure
 from model import Block, BlockKind, Edition, Provenance
@@ -133,6 +134,12 @@ class VolumeParser:
         self.numeral_reviews = numeral_reviews or {}
         self.recovery_source = recovery_source
         self.recoveries = []
+        #: Marcadores de versículo que el canon nativo desmiente. Se
+        #: llenan al materializar, que es cuando el capítulo tiene
+        #: número.
+        self.impossible_markers = []
+        #: Marcadores aceptados sólo tras quitar la puntuación exterior.
+        self.framed_markers = []
         #: Todos los rótulos que dicen ser un capítulo, conservados antes
         #: de que ninguno se escriba. Ver chapter_claims.py: un
         #: diccionario indexado por número no puede representar dos
@@ -596,6 +603,19 @@ class VolumeParser:
         self._bump("chapters_materialized", outcome["materialized"])
         self._bump("chapters_left_in_review", outcome["left_in_review"])
 
+        # Ahora --y no antes-- cada capítulo aceptado sabe su número, así
+        # que ya se puede decir qué marcadores de versículo no puede
+        # tener. Un «196» en un capítulo de veintisiete versículos no es
+        # una frontera: su texto pasa al versículo anterior y el número
+        # se queda anotado como lo que era, una lectura imposible. Esto
+        # forma parte de construir la edición, no es un arreglo posterior
+        # sobre las referencias.
+        self.impossible_markers = verse_markers.enforce_edition(
+            self.edition, verse_limit=structure.verse_limit)
+        self._bump("verse_markers_rejected_impossible",
+                   len(self.impossible_markers))
+        self._attribute_framed_markers()
+
         by_claim = {r["claim_id"]: r for r in self.resolutions
                     if r.get("claim_id")}
         for claim in self.ledger.claims:
@@ -696,6 +716,66 @@ class VolumeParser:
         self.verse_number = None
         self.expect_editorial = True
 
+    def _attribute_framed_markers(self):
+        """Qué hizo cada marcador recuperado por puntuación exterior.
+
+        Recuperar un marcador y ganar una referencia no son lo mismo, y
+        la diferencia hay que poder verla: un marcador puede caer en un
+        versículo que OTRO renglón numerado ya abría, puede repetir un
+        número que ya trajo otro marcador enmarcado, o puede haber sido
+        retirado después por imposible. Sin este reparto, la cuenta de
+        marcadores y la de referencias no cuadran y no se sabe por qué.
+
+        Se calcula sobre la edición ya construida, sin comparar con
+        ninguna pasada anterior: lo único que hace falta es mirar, en el
+        versículo donde acabó, cuántos renglones numerados lo declaran.
+        """
+        rejected = {block_id for record in self.impossible_markers
+                    for block_id in record["block_ids"]}
+        placed_at, numbered = {}, {}
+        for osis, entry in self.edition.books.items():
+            for number, chapter in entry.chapters.items():
+                for verse, slot in chapter.verses.items():
+                    ordered = sorted(
+                        slot.blocks,
+                        key=lambda block: block.provenance.block_id or "")
+                    marks = [block.provenance.block_id for block in ordered
+                             if block.decision == "numbered line"]
+                    for block in ordered:
+                        placed_at[block.provenance.block_id] = (
+                            osis, number, verse)
+                        numbered[block.provenance.block_id] = marks
+        framed = {row["block_id"] for row in self.framed_markers}
+        for row in self.framed_markers:
+            block_id = row["block_id"]
+            osis, number, verse = placed_at.get(block_id, (None, None, None))
+            row["final_book"] = osis
+            row["final_chapter"] = number
+            row["final_verse"] = verse
+            row["final_ref"] = (f"{osis}.{number}.{verse}"
+                                if isinstance(number, int) and number > 0
+                                else None)
+            if block_id in rejected:
+                row["outcome"] = "rejected_later_by_range_guard"
+                continue
+            if not isinstance(number, int) or number < 1:
+                row["outcome"] = "chapter_left_in_review"
+                continue
+            # ¿Es este el ÚNICO renglón numerado de su versículo? Si lo
+            # es, la referencia existe porque él la abrió. Si hay otro
+            # --antes o después, da igual: los dos declaran el mismo
+            # número-- la referencia tiene más de un origen y este
+            # marcador no la explica solo.
+            marks = [mark for mark in numbered.get(block_id, [])
+                     if mark != block_id]
+            row["numbered_lines_in_ref"] = len(marks) + 1
+            if not marks:
+                row["outcome"] = "only_numbered_line_of_its_ref"
+            elif any(mark in framed for mark in marks):
+                row["outcome"] = "duplicate_same_verse_marker"
+            else:
+                row["outcome"] = "shares_ref_with_plain_marker"
+
     def _handle_spanish(self, placed, prov):
         raw = placed.line.raw_text
         block = classifier.classify(raw, prov,
@@ -723,6 +803,20 @@ class VolumeParser:
         if block.kind is BlockKind.VERSE:
             self.verse_number = block.number
             self._bump("spanish_verse_starts")
+            if getattr(block, "decision", None) == "framed_marker":
+                # La cifra estaba entera en el crudo y sólo la tapaba la
+                # puntuación de al lado. Se cuenta aparte para poder
+                # medir cuánto aporta esa sola regla.
+                self._bump("spanish_verse_starts_framed")
+                self.framed_markers.append({
+                    "book": self.current_book,
+                    "chapter_slot": getattr(self.chapter, "number", None),
+                    "verse": block.number,
+                    "block_id": prov.block_id,
+                    "scan_page": prov.page,
+                    "raw": raw[:90],
+                    "text_head": (block.text or "")[:60],
+                })
             self.chapter.verse(self.verse_number).blocks.append(
                 _block(BlockKind.VERSE, placed, prov, number=block.number,
                        decision="numbered line", text=block.text))

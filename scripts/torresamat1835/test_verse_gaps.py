@@ -255,11 +255,19 @@ def test_N_a_split_verse_is_representable():
 def test_O_a_numbering_difference_corrects_no_reference():
     audit = _audit()
     section = audit["verse_segmentation_audit"]
-    # el tomo tiene capítulos cuyo último materializado excede el canon
+    # La señal sigue existiendo como diagnóstico --un capítulo cuyo
+    # último materializado excede el canon-- y la tanda 125 la dejó sin
+    # casos: los números imposibles ya no llegan a ser marcadores. Lo
+    # que este test fija es lo que no cambia con ello: rechazar un
+    # número no corrige ninguna referencia por su cuenta.
+    assert verse_gaps.SPURIOUS_TOP
     spurious = [g for g in section["gaps"]
                 if verse_gaps.SPURIOUS_TOP in g["signals"]]
-    assert spurious, "el caso existe en el tomo"
-    # y aun así no se ha tocado ninguna referencia
+    assert not spurious, "125 retiró los marcadores imposibles"
+    assert section["beyond_canonical_top"] == 0
+    rejected = section["impossible_marker_audit"]["rejected"]
+    assert rejected > 0, "y quedan contados, con su texto conservado"
+    assert section["impossible_marker_audit"]["blocks_preserved"] > 0
     assert audit["duplicate_refs"] == []
     assert audit["verse_refs"] == audit["materialized_verse_refs"]
 

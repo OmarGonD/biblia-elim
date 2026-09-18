@@ -1107,6 +1107,16 @@ if (BUILD_TESTING AND UNIX AND PYTHON3_EXECUTABLE)
   set_tests_properties (torresamat1835_missing_headings_test PROPERTIES
     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
     )
+  # Qué número puede abrir un versículo: el canon RECHAZA un número
+  # imposible, y una cifra entera tapada por puntuación sí es marcador.
+  add_test (
+    NAME torresamat1835_verse_marker_sanity_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_verse_marker_sanity.py
+    )
+  set_tests_properties (torresamat1835_verse_marker_sanity_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
+    )
   # Los huecos de numeración de VERSÍCULO: cuántos hay de verdad, de qué
   # forma, y por qué la cuenta antigua se miraba a sí misma.
   add_test (

@@ -22,6 +22,7 @@ import heading_validity
 import image_reviews
 import layout
 import numeral_review
+import parser as classifier
 import recovery as image_recovery
 import recovery_candidates
 import page_parser
@@ -30,6 +31,20 @@ import source_ocr
 import structure
 import verse_gaps
 import written_ordinals
+
+#: Cómo se llama cada forma de puntuación exterior en el informe. El
+#: glifo suelto no dice nada a quien lee la tabla; el nombre sí.
+_PUNCTUATION_FORMS = {
+    ".": "leading_dot", ",": "leading_comma", ";": "leading_semicolon",
+    ":": "leading_colon", "(": "parentheses", "[": "brackets",
+    "'": "leading_apostrophe", '"': "leading_quote", "«": "leading_guillemet",
+    "»": "trailing_guillemet", "·": "leading_middle_dot",
+    "•": "leading_bullet", "*": "leading_asterisk", "-": "leading_dash",
+    "—": "leading_em_dash", "_": "leading_underscore", "|": "leading_bar",
+    "^": "leading_caret", "¿": "leading_question", "?": "trailing_question",
+    "¡": "leading_bang", "!": "trailing_bang", "{": "braces",
+    "~": "leading_tilde",
+}
 
 #: La raíz del repositorio, para la metadata versionada.
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(
@@ -1378,6 +1393,61 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
                     "paratext_blocks": len(getattr(chapter, "paratext", ())),
                 }
         out["priority_bank"] = dict(sorted(bank.items()))
+        # Lo que la tanda 125 rechazó y lo que recuperó, contado aparte:
+        # descartar un número imposible NO es recuperar un versículo, y
+        # mezclar las dos cosas haría ilegible el efecto de cada regla.
+        impossible = list(getattr(walker, "impossible_markers", []))
+        out["impossible_marker_audit"] = {
+            "about": ("Marcadores de versículo que la versificación nativa "
+                      "desmiente: un número mayor que el último verso del "
+                      "capítulo no puede ser una frontera suya. El canon "
+                      "RECHAZA; no crea nada. El texto que llevaba el número "
+                      "imposible no se borra: pasa al versículo anterior."),
+            "rejected": len(impossible),
+            "chapters_affected": len({(r["book"], r["chapter"])
+                                      for r in impossible}),
+            "by_book": dict(sorted(collections.Counter(
+                r["book"] for r in impossible).items())),
+            "by_reason": dict(sorted(collections.Counter(
+                r["reason"] for r in impossible).items())),
+            "by_landing": dict(sorted(collections.Counter(
+                r["text_landed"] for r in impossible).items())),
+            "blocks_preserved": sum(r["blocks"] for r in impossible),
+            "worst": sorted(impossible,
+                            key=lambda r: -(r["marker"] - r["verse_limit"]))[:12],
+            "markers": impossible,
+        }
+        framed = list(getattr(walker, "framed_markers", []))
+        forms = collections.Counter()
+        for row in framed:
+            head = row["raw"].strip()[:1]
+            forms[_PUNCTUATION_FORMS.get(head, "other_outer_punctuation")] += 1
+        out["exact_numeric_marker_recovery"] = {
+            "about": ("Marcadores cuyas cifras ya estaban ENTERAS en el crudo "
+                      "y a los que sólo tapaba la puntuación de al lado. Se "
+                      "recortan los signos de los extremos y nada más: aquí "
+                      "no se convierte ninguna letra en cifra, ni se completa "
+                      "ningún dígito que falte."),
+            "whitelist": classifier.SAFE_OUTER_PUNCTUATION,
+            "counted_apart": (
+                "Recuperar un marcador no es ganar una referencia. "
+                "`accepted` son los marcadores; `by_outcome` dice qué hizo "
+                "cada uno. `only_numbered_line_of_its_ref` es el marcador que "
+                "es el único renglón numerado de su versículo, que es lo que "
+                "se puede afirmar mirando SÓLO el resultado; cuántas "
+                "referencias son nuevas respecto de no aplicar la regla es "
+                "otra pregunta, y se responde comparando dos pasadas."),
+            "accepted": len(framed),
+            "by_outcome": dict(sorted(collections.Counter(
+                row.get("outcome", "unclassified") for row in framed).items())),
+            "only_numbered_line_of_its_ref": sum(
+                1 for row in framed
+                if row.get("outcome") == "only_numbered_line_of_its_ref"),
+            "by_punctuation_form": dict(sorted(forms.items())),
+            "by_book": dict(sorted(collections.Counter(
+                r["book"] for r in framed).items())),
+            "markers": framed,
+        }
         out["gaps"] = [g.as_dict() for g in found]
         return out
 

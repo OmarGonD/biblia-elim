@@ -57,6 +57,61 @@ _ORDINAL_WORDS = {
 }
 _VERSE_RE = re.compile(r"^\s*(?P<num>\d{1,3})\s*[.,]?\s+(?P<text>\S.*)$")
 
+#: Puntuación que el reconocimiento deja PEGADA al marcador de
+#: versículo, delante o detrás, y que no forma parte de la cifra. La
+#: lista es cerrada y se escribe entera a propósito: son los signos que
+#: aparecen de verdad en este testigo --el punto del final del renglón
+#: anterior que se arrastra, las comillas y guiones del canto, el punto
+#: medio de la caja-- y ninguno es letra ni dígito, así que quitarlos de
+#: los EXTREMOS no puede cambiar qué número hay escrito.
+#:
+#: Lo que esta lista NO es: una tabla de sustituciones. Aquí no se
+#: convierte «a» en 2 ni «S» en 8; eso exige mirar la plana y es otra
+#: tanda. Sólo se quita lo que sobra alrededor de unas cifras que YA
+#: están completas en el crudo.
+SAFE_OUTER_PUNCTUATION = ".,;:()[]{}¿?¡!'\"«»·•*-—_|^~"
+
+#: El mismo marcador con esa puntuación alrededor: «.63», «63.»,
+#: «(63)», «•33». Las cifras tienen que ir seguidas --nada entre
+#: ellas-- y detrás tiene que venir espacio y texto, como en el caso
+#: limpio. Se admiten hasta tres signos por lado: más que eso ya no es
+#: puntuación pegada, es un renglón de otra cosa.
+_FRAMED_VERSE_RE = re.compile(
+    r"^(?P<lead>[" + re.escape(SAFE_OUTER_PUNCTUATION) + r"]{1,3})\s*"
+    r"(?P<num>\d{1,3})\s*"
+    r"(?P<trail>[" + re.escape(SAFE_OUTER_PUNCTUATION) + r"]{0,3})\s+"
+    r"(?P<text>\S.*)$")
+
+
+def safe_outer_trim(token: str) -> str:
+    """El token sin la puntuación de los extremos. Nada por dentro.
+
+    «.63» y «(63)» dan «63»; «6.3» sigue siendo «6.3», porque el punto
+    está DENTRO y quitarlo cambiaría el número. Es la diferencia entre
+    limpiar y enmendar.
+    """
+    return (token or "").strip().strip(SAFE_OUTER_PUNCTUATION)
+
+
+def framed_verse_marker(text: str):
+    """(número, texto) si el renglón lleva un marcador enmarcado.
+
+    Sólo cuenta cuando la cifra está ENTERA en el crudo y lo único que
+    la tapa es puntuación exterior. Y hay una condición más, que es la
+    que evita el peor falso positivo de este testigo: si lo que sigue al
+    número empieza por otra cifra, el impreso tenía un número de dos
+    dígitos que el reconocimiento partió en dos («. 1 7 Yq sin
+    embargo…» por 17), y entonces tomar el primer trozo como marcador
+    inventaría el versículo 1. En ese caso no se lee nada.
+    """
+    match = _FRAMED_VERSE_RE.match((text or "").strip())
+    if not match:
+        return None, None
+    tail = match.group("text")
+    if tail[:1].isdigit():
+        return None, None
+    return int(match.group("num")), tail
+
 
 def _fold(text: str) -> str:
     text = unicodedata.normalize("NFD", text)
@@ -124,6 +179,18 @@ def classify(line: str, prov: Provenance, *, expect_editorial: bool = False) -> 
         )
 
     verse = _VERSE_RE.match(stripped)
+    framed_number, framed_text = (None, None) if verse else \
+        framed_verse_marker(stripped)
+    if framed_number is not None:
+        # Mismo camino que el marcador limpio: si además arrastra una
+        # marca de división, sigue yendo a revisión.
+        if carries_division_marker(framed_text):
+            return Block(BlockKind.UNCLASSIFIED, stripped, prov,
+                         number=framed_number,
+                         review_reason="verse line also carries a division "
+                                       "marker; boundary not resolved")
+        return Block(BlockKind.VERSE, framed_text.strip(), prov,
+                     number=framed_number, decision="framed_marker")
     if verse:
         # Un renglón numerado es versículo aunque venga justo detrás de
         # la división: el argumento del editor no lleva número, y no
