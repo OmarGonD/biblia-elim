@@ -83,7 +83,14 @@ def test_manifest_provenance():
     assert "source_manifest.json" in listing
     for name in listing:
         assert name.endswith(".json"), name
-        assert os.path.getsize(os.path.join(data_dir, name)) < 256 * 1024, name
+        # El registro de revisiones crece una entrada por cada decisión
+        # humana, y cada entrada lleva su evidencia: qué se vio en la
+        # plana y por qué. Eso es exactamente lo que debe estar
+        # versionado, así que tiene su propio techo. Lo que el guarda
+        # persigue --escaneos, volcados de OCR, cualquier cosa pesada de
+        # la fuente-- sigue prohibido en todos los demás ficheros.
+        cap = 512 if name == "chapter_image_reviews.json" else 256
+        assert os.path.getsize(os.path.join(data_dir, name)) < cap * 1024, name
 
 
 # ---- B. Acquisition (sin red) -----------------------------------------

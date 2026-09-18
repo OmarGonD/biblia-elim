@@ -10,6 +10,7 @@ facsímil. Ninguna de estas señales se usa jamás para arreglar el texto.
         --out build/torresamat1835-audit/volume3.json
 """
 import argparse
+import collections
 import json
 import os
 import time
@@ -24,6 +25,7 @@ import numeral_review
 import recovery as image_recovery
 import recovery_candidates
 import page_parser
+import severe_headings
 import source_ocr
 import structure
 from model import BlockKind
@@ -437,6 +439,105 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         "recovered": sum(1 for r in marker_rows
                          if r["recovered_chapter"] is not None),
         "candidates": marker_rows,
+    }
+
+    # Rótulos rotos por los dos lados: ni la palabra ni el numeral se
+    # leen, así que lo único que queda es cómo está compuesta la plana.
+    # Descubre geometría; confirma el facsímil.
+    severe_started = time.time()
+    severe_represented = {}
+    for claim in ledger.claims:
+        block = claim.block_id
+        if block[5:6] == "r":
+            block = "p" + block[1:5] + "l" + block[6:]
+        severe_represented.setdefault(block, f"claim:{claim.disposition}")
+    for entry in (payload.get("reviews", []) if payload else []):
+        if entry.get("heading_block"):
+            severe_represented[entry["heading_block"]] = entry["id"]
+    for entry in (payload.get("numeral_reviews", []) if payload else []):
+        severe_represented[entry["target_block"]] = entry["id"]
+    severe_candidates, severe_discarded = severe_headings.scan(
+        pages_with_layout(), book_at=lambda page: structure.book_at(spans, page),
+        represented=severe_represented)
+    severe_seconds = round(time.time() - severe_started, 2)
+    severe_reviews = {}
+    for entry in (payload.get("reviews", []) if payload else []):
+        if entry.get("discovered_by") != "severely_corrupted_heading":
+            continue
+        # Un rótulo confirmado nombra su renglón; un rechazo nombra el
+        # candidato que contestó. Los dos cierran la misma fila.
+        key = entry.get("heading_block") or entry.get("candidate_block")
+        if key:
+            severe_reviews[key] = entry
+    severe_rows = []
+    for candidate in severe_candidates:
+        row = candidate.as_dict()
+        review = next((severe_reviews[b] for b in candidate.block_ids
+                       if b in severe_reviews), None)
+        row["review_id"] = review["id"] if review else candidate.represented_by
+        row["review_outcome"] = (
+            review["review_outcome"] if review else
+            "already_represented" if candidate.represented_by else
+            "pending_review")
+        row["printed_heading"] = (review.get("observed_printed_text")
+                                  if review else None)
+        # Mirada, con o sin texto legible que transcribir.
+        row["reviewed_here"] = review is not None
+        row["recovered_chapter"] = None
+        for block in candidate.block_ids:
+            recovered = f"p{candidate.scan_page:04d}r{block[6:]}"
+            claim = accepted_by_block.get(recovered)
+            if claim is not None:
+                row["recovered_chapter"] = claim.accepted_number
+                break
+        # Descubrir no es estar pendiente: lo ya mirado se queda en la
+        # historia y sale de la lista de trabajo.
+        row["still_pending"] = row["review_outcome"] == "pending_review"
+        severe_rows.append(row)
+    severe_by_rank = {}
+    for row in severe_rows:
+        if not row["still_pending"]:
+            continue
+        severe_by_rank[row["rank"]] = severe_by_rank.get(row["rank"], 0) + 1
+    severe_by_book = {}
+    for row in severe_rows:
+        if not row["still_pending"]:
+            continue
+        severe_by_book[row["book"] or "(front matter)"] = \
+            severe_by_book.get(row["book"] or "(front matter)", 0) + 1
+    severe_report = {
+        "about": ("rows that look like a printed label by their composition "
+                  "alone: narrow, centred over the gutter, white above and "
+                  "the editor's argument below. Neither the division word nor "
+                  "the numeral is required, because in these the recognition "
+                  "destroyed both. GEOMETRY DISCOVERS, THE FACSIMILE "
+                  "CONFIRMS: nothing here becomes a chapter on its own."),
+        "counted_apart": ("`candidates_total` is what the sweep finds every "
+                          "run, already-recovered labels included; "
+                          "`pending_review` is what is left to look at."),
+        "thresholds": {"max_width_ratio": severe_headings.MAX_WIDTH_RATIO,
+                       "max_off_centre": severe_headings.MAX_OFF_CENTRE,
+                       "min_gap_before": severe_headings.MIN_GAP_BEFORE,
+                       "max_tokens": severe_headings.MAX_TOKENS,
+                       "argument_width": severe_headings.ARGUMENT_WIDTH,
+                       "argument_within_rows": severe_headings.ARGUMENT_WITHIN},
+        "scan_seconds": severe_seconds,
+        "rows_discarded_by_reason": dict(sorted(severe_discarded.items())),
+        "candidates_total": len(severe_rows),
+        "already_represented": sum(1 for r in severe_rows
+                                   if r["review_outcome"] == "already_represented"),
+        "reviewed_here": sum(1 for r in severe_rows if r["reviewed_here"]),
+        "reviewed_by_outcome": dict(sorted(collections.Counter(
+            r["review_outcome"] for r in severe_rows
+            if r["reviewed_here"]).items())),
+        "pending_review": sum(1 for r in severe_rows if r["still_pending"]),
+        "pending_by_rank": dict(sorted(severe_by_rank.items())),
+        "pending_by_book": dict(sorted(severe_by_book.items())),
+        "multi_block_rows": sum(1 for r in severe_rows if r["multi_block"]),
+        "recovered_chapters": sum(1 for r in severe_rows
+                                  if r["recovered_chapter"] is not None),
+        "summary": severe_headings.summary(severe_candidates),
+        "candidates": severe_rows,
     }
 
     # Cola de revisión visual, ordenada por lo que más devuelve. No crea
@@ -891,6 +992,7 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         "competing_chapter_claims": len(ledger.collisions()),
         "chapter_image_recovery": recovery_report,
         "corrupted_division_marker_candidates": marker_report,
+        "severely_corrupted_heading_candidates": severe_report,
         "image_review_queue": candidate_report,
         "missing_heading_reviews": missing_report,
         "book_boundary_resolution": {
@@ -1042,6 +1144,18 @@ def main():
             print(f"    {osis:5} {stat['before']:6} {stat['after']:6}"
                   f"  {stat['gained']} lost={stat['lost']}"
                   f" vulg={stat['vulg_audit_limit']}")
+    sv = report.get("severely_corrupted_heading_candidates", {})
+    if sv:
+        print(f"  severe headings            candidates={sv['candidates_total']}"
+              f" already_represented={sv['already_represented']}"
+              f" reviewed_here={sv['reviewed_here']}"
+              f" recovered={sv['recovered_chapters']}"
+              f" PENDING={sv['pending_review']}"
+              f"  ({sv['scan_seconds']}s)")
+        print(f"    pending by rank          {sv['pending_by_rank'] or 'none'}"
+              f"   by book {sv['pending_by_book'] or 'none'}")
+        print(f"    multi-block rows         {sv['multi_block_rows']}")
+
     mk = report.get("corrupted_division_marker_candidates", {})
     if mk:
         print(f"  corrupted markers          candidates={mk['total']}"

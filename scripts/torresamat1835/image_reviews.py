@@ -83,6 +83,13 @@ class ChapterImageReview:
     #: y lo que falta es reconocerla. Sin este campo la recuperación
     #: añadiría un rótulo sintético al lado del que ya existe.
     heading_block: Optional[str] = None
+    #: El renglón del reconocimiento por el que esta plana llegó a la
+    #: cola y que el facsímil muestra que NO es un rótulo: un renglón de
+    #: los preliminares, una nota al pie, un trozo suelto. Se nombra
+    #: para que el descubrimiento pueda decir que ese candidato ya se
+    #: miró; sin él, un rechazo no tendría a qué candidato responder y
+    #: la fila volvería a salir en cada barrido.
+    candidate_block: Optional[str] = None
     evidence: List[str] = field(default_factory=list)
 
     @property
@@ -226,6 +233,19 @@ def validate(data, *, page_bounds=None, page_count=None) -> List[str]:
         # bloque de la plana que la revisión dice, y tiene que venir del
         # reconocimiento: si llevara «r» sería un renglón recuperado, no
         # uno que la máquina produjo.
+        candidate_block = review.get("candidate_block")
+        if candidate_block is not None:
+            if review.get("heading_block"):
+                problems.append(
+                    f"{rid}: a confirmed heading already names its block")
+            if candidate_block[:1] != "p" or candidate_block[5:6] != "l" or \
+                    not candidate_block[1:5].isdigit() or \
+                    not candidate_block[6:].isdigit():
+                problems.append(f"{rid}: {candidate_block} is not an OCR block id")
+            elif isinstance(page, int) and int(candidate_block[1:5]) != page:
+                problems.append(
+                    f"{rid}: candidate block {candidate_block} is not on scan "
+                    f"page {page}")
         heading_block = review.get("heading_block")
         if heading_block is not None:
             if not review.get("boundary_confirmed"):
@@ -270,6 +290,7 @@ def reviews_for(data, *, source_path=None, expected_sha256=None
             insert_after_block=review.get("insert_after_block"),
             insert_before_block=review.get("insert_before_block"),
             heading_block=review.get("heading_block"),
+            candidate_block=review.get("candidate_block"),
             observed_printed_text=review.get("observed_printed_text"),
             crop_bbox=tuple(review["crop_bbox"]) if review.get("crop_bbox") else None,
             confidence=float(review.get("confidence", 0.0)),

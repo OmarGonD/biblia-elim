@@ -1107,6 +1107,16 @@ if (BUILD_TESTING AND UNIX AND PYTHON3_EXECUTABLE)
   set_tests_properties (torresamat1835_missing_headings_test PROPERTIES
     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
     )
+  # Cuando la palabra Y el numeral están rotos a la vez no queda texto
+  # que buscar: el rótulo se descubre por cómo está compuesta la plana.
+  add_test (
+    NAME torresamat1835_severe_headings_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_severe_headings.py
+    )
+  set_tests_properties (torresamat1835_severe_headings_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
+    )
   # El barrido que busca ese mismo daño en las 652 planas: rótulos
   # presentes cuya palabra de división el reconocimiento destrozó.
   add_test (

@@ -185,7 +185,14 @@ def test_sources_do_not_live_in_git():
     assert "source_manifest.json" in listing
     for name in listing:
         assert name.endswith(".json"), name
-        assert os.path.getsize(os.path.join(data_dir, name)) < 256 * 1024, name
+        # El registro de revisiones crece una entrada por cada decisión
+        # humana, y cada entrada lleva su evidencia: qué se vio en la
+        # plana y por qué. Eso es exactamente lo que debe estar
+        # versionado, así que tiene su propio techo. Lo que el guarda
+        # persigue --escaneos, volcados de OCR, cualquier cosa pesada de
+        # la fuente-- sigue prohibido en todos los demás ficheros.
+        cap = 512 if name == "chapter_image_reviews.json" else 256
+        assert os.path.getsize(os.path.join(data_dir, name)) < cap * 1024, name
 
     heavy = (".pdf", ".jp2", ".djvu", ".tif", ".tiff", ".zip", ".gz", ".xml")
     for base in (data_dir, DIR):
@@ -195,7 +202,8 @@ def test_sources_do_not_live_in_git():
             for name in files:
                 assert not name.lower().endswith(heavy), os.path.join(root, name)
                 size = os.path.getsize(os.path.join(root, name))
-                assert size < 256 * 1024, (name, size)
+                cap = 512 if name == "chapter_image_reviews.json" else 256
+                assert size < cap * 1024, (name, size)
 
     cache = _manifest()["cache"]["default"]
     assert cache.startswith("build/"), cache
