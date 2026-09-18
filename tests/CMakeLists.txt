@@ -1150,6 +1150,17 @@ if (BUILD_TESTING AND UNIX AND PYTHON3_EXECUTABLE)
   set_tests_properties (torresamat1835_a_glyph_width_test PROPERTIES
     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
     )
+  # La forma de la tinta del facsímil: mide el glifo impreso en vez de la
+  # caja del reconocimiento, y vigila que el diagnóstico no se convierta
+  # en recuperación sin pasar por otra tanda.
+  add_test (
+    NAME torresamat1835_a_glyph_pixel_shape_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_a_glyph_pixel_shape.py
+    )
+  set_tests_properties (torresamat1835_a_glyph_pixel_shape_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
+    )
   # Qué número puede abrir un versículo: el canon RECHAZA un número
   # imposible, y una cifra entera tapada por puntuación sí es marcador.
   add_test (

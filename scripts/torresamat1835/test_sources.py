@@ -176,9 +176,13 @@ def test_no_silent_record():
 
 
 # ---- H. Nada grande vive en Git ----------------------------------------
-#: Los registros de revisión humana. Crecen con el trabajo hecho y no
-#: son assets de la fuente, así que tienen su propio techo.
-_REVIEW_LEDGERS = ("chapter_image_reviews.json", "verse_boundary_reviews.json")
+#: Los registros de revisión humana y las tablas de medidas que los
+#: acompañan. Crecen con el trabajo hecho, son texto reproducible y no
+#: son assets de la fuente -- ni escaneos ni volcados de OCR --, así que
+#: tienen su propio techo. Lo que el guarda persigue sigue prohibido en
+#: todos los demás ficheros.
+_REVIEW_LEDGERS = ("chapter_image_reviews.json", "verse_boundary_reviews.json",
+                   "a_glyph_pixel_features.json")
 
 
 def test_sources_do_not_live_in_git():

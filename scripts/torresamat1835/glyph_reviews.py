@@ -51,7 +51,10 @@ GLYPH_BATCHES = (BATCH, COMPOUND_BATCH)
 #: forma nueva. Cuenta aparte de las dos anteriores y, como ellas, fuera
 #: de la sección de FRONTERAS del audit, que pregunta otra cosa.
 WIDTH_BATCH = "batch-129"
-NON_BOUNDARY_BATCHES = GLYPH_BATCHES + (WIDTH_BATCH,)
+#: Y la 130 mide la TINTA del facsímil. Misma familia de preguntas, mismo
+#: sitio fuera de la sección de fronteras.
+PIXEL_BATCH = "batch-130"
+NON_BOUNDARY_BATCHES = GLYPH_BATCHES + (WIDTH_BATCH, PIXEL_BATCH)
 
 #: De qué población sale cada revisión. La matriz de formas se calcula
 #: SÓLO con las de `GLYPH_POPULATIONS`, que son renglones de esta clase:
@@ -63,6 +66,7 @@ NON_BOUNDARY_BATCHES = GLYPH_BATCHES + (WIDTH_BATCH,)
 GLYPH_POPULATIONS = ("glyph_candidate", "negative_control", "regression_124")
 COMPOUND_POPULATIONS = ("compound_exhaustive",)
 WIDTH_POPULATIONS = ("a_glyph_width",)
+PIXEL_POPULATIONS = ("a_glyph_pixel_shape",)
 CARRIED_POPULATIONS = ("pending_126", "detached_number")
 
 CONFIRMED = "confirmed_digit_confusion"
@@ -136,7 +140,8 @@ def problems(rows: List[dict]) -> List[str]:
             found.append(f"{rid}: no glyph form")
         if row.get("population") not in (GLYPH_POPULATIONS + CARRIED_POPULATIONS
                                          + COMPOUND_POPULATIONS
-                                         + WIDTH_POPULATIONS):
+                                         + WIDTH_POPULATIONS
+                                         + PIXEL_POPULATIONS):
             found.append(f"{rid}: unknown population {row.get('population')!r}")
     return found
 

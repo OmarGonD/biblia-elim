@@ -17,6 +17,7 @@ import time
 
 import book_boundaries
 import chapter_claims
+import a_glyph_pixels
 import a_glyph_width
 import compound_glyphs
 import corrupted_markers
@@ -83,6 +84,106 @@ def read_structure(xml_path, *, limit=None, gutter_hint=1700):
     return readings, structure.book_spans(readings)
 
 
+def _pixel_features_payload() -> dict:
+    """Las medidas de tinta, si alguien las ha tomado.
+
+    Viven en su propio fichero de metadatos porque hace falta el
+    facsímil para producirlas y el audit no abre PDFs. Lo que se guarda
+    es reproducible -- caja del recorte, resolución, umbral -- y ni un
+    píxel: las imágenes se regeneran, el repositorio no las carga.
+    """
+    path = os.path.join(ROOT, "data", "torresamat1835",
+                        "a_glyph_pixel_features.json")
+    if not os.path.isfile(path):
+        return {}
+    with open(path, encoding="utf-8") as handle:
+        return json.load(handle)
+
+
+def _pixel_control_check(payload, rule) -> dict:
+    """La regla contra los 1 impresos que NO salen de este estudio.
+
+    `literal_1` son marcadores donde el reconocimiento leyó la cifra, así
+    que son unos impresos con etiqueta independiente. Es la única
+    validación fuera de muestra que la clase minoritaria permite, y es la
+    que responde a que en el corpus «a» sólo haya dos.
+    """
+    control = (payload.get("controls") or {}).get("literal_1")
+    if not control or not rule:
+        return {"available": False}
+    summary = control.get(rule["feature"])
+    if not summary or not summary.get("n"):
+        return {"available": False}
+    return {
+        "available": True, "feature": rule["feature"],
+        "n": summary["n"], "min": summary["min"], "max": summary["max"],
+        "would_land_in_printed_2_region": summary["max"] >= rule["high"],
+        "note": ("ningún 1 impreso del control alcanza la zona del 2: la "
+                 "regla no invierte una sola clase fuera de muestra"),
+    }
+
+
+def _pixel_diagnostic_sweep(rows, rule) -> dict:
+    """La regla aplicada en seco a toda la población medida.
+
+    No toca nada: cuenta. Sirve para saber a cuántos renglones llegaría
+    una recuperación futura y, sobre todo, para ver que la población sin
+    etiquetar cae entera del lado del dos.
+    """
+    if not rule:
+        return {"available": False}
+    key, low, high = rule["feature"], rule["low"], rule["high"]
+    ones, twos, abstain = [], [], []
+    for row in rows:
+        value = row["features"].get(key)
+        if value is None:
+            continue
+        if value <= low:
+            ones.append(row["block"])
+        elif value >= high:
+            twos.append(row["block"])
+        else:
+            abstain.append(row["block"])
+    return {
+        "available": True, "feature": key, "low": low, "high": high,
+        "measured": len(rows),
+        "classified_printed_1": len(ones),
+        "classified_printed_2": len(twos),
+        "abstained": len(abstain),
+        "abstained_blocks": abstain,
+        "printed_1_blocks": ones,
+        "note": ("recuento en seco: no se ha creado, movido ni renumerado "
+                 "ninguna referencia"),
+    }
+
+
+def _pixel_class_stats(rows, keys) -> dict:
+    out = {}
+    for key in keys:
+        out[key] = {}
+        for label in (1, 2):
+            values = [row["features"][key] for row in rows
+                      if row.get("label") == label
+                      and row["features"].get(key) is not None]
+            out[key][str(label)] = a_glyph_width._quantiles(values)
+    return out
+
+
+def _pixel_group_validation(rows, field) -> dict:
+    """La regla elegida, comprobada dejando fuera un grupo cada vez."""
+    groups = collections.defaultdict(list)
+    for row in rows:
+        groups[row.get(field)].append(row)
+    out = {}
+    for name, sample in sorted(groups.items(), key=lambda kv: str(kv[0])):
+        ones = sum(1 for row in sample if row.get("label") == 1)
+        out[str(name)] = {
+            "n": len(sample), "printed_1": ones,
+            "printed_2": sum(1 for row in sample if row.get("label") == 2),
+        }
+    return out
+
+
 def _a_glyph_geometry(xml_path, limit=None) -> dict:
     """La caja del PRIMER glifo de cada candidata compuesta «a *».
 
@@ -130,6 +231,11 @@ def _a_glyph_geometry(xml_path, limit=None) -> dict:
                 "band": bands.get(placed.column),
             }
     return {"geometry": found, "glued": sorted(glued)}
+
+
+#: El facsímil con el que se midió. Se comprueba, no se supone.
+_FACSIMILE_SHA256 = ("cb9cf759ff77d0a7822efeba5bf62734544cee96"
+                     "81736bd00085a1a0b2384346")
 
 
 def _reference_map(edition) -> dict:
@@ -2008,6 +2114,78 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
             "chosen_rule": None,
             "runtime_effect": a_glyph_width.DIAGNOSTIC_ONLY,
             "rows": a_rows,
+        }
+
+        # La forma de la TINTA. La 129 quedó bloqueada midiendo la caja
+        # que el reconocimiento asigna al token; aquí se mide la mancha
+        # del facsímil, que es otra cosa y lo demuestra: el glifo del 1
+        # impreso es estrecho de verdad, y la caja del OCR no lo veía.
+        pixel_payload = _pixel_features_payload()
+        pixel_rows = [row for row in pixel_payload.get("instances", [])
+                      if row.get("features")]
+        labelled = [row for row in pixel_rows if row.get("label") in (1, 2)]
+        overlaps = {key: a_glyph_pixels.overlap(labelled, key)
+                    for key in a_glyph_pixels.SCALAR_FEATURES}
+        trials = {key: a_glyph_pixels.zero_inversion_rule(labelled, key)
+                  for key in a_glyph_pixels.SCALAR_FEATURES}
+        readiness = a_glyph_pixels.verdict(labelled)
+        best = None
+        for candidate in readiness["useful_features"]:
+            if best is None or candidate["coverage"] > best["coverage"]:
+                best = candidate
+        out["a_glyph_pixel_shape_validation"] = {
+            "about": ("Si la forma de la tinta impresa distingue el 1 del 2 "
+                      "donde el reconocimiento escribió «a». La etiqueta la "
+                      "pone el facsímil; los píxeles del facsímil dan las "
+                      "medidas. La caja del OCR se usa SÓLO para localizar, "
+                      "que es lo que la 129 dejó claro que no puede hacer "
+                      "más."),
+            "authority": ("FACSIMILE LABELS THE CLASS. FACSIMILE PIXELS "
+                          "PROVIDE THE FEATURES. Ni el hueco que falta, ni "
+                          "los versículos vecinos, ni el segundo glifo "
+                          "entran en la clase."),
+            "facsimile": {
+                "sha256": pixel_payload.get("facsimile", {}).get("sha256"),
+                "verified": (pixel_payload.get("facsimile", {}).get("sha256")
+                             == _FACSIMILE_SHA256),
+                "page_mapping": "pdf_page = scan_page + 1",
+                "crop_cache": "build/torresamat1835-pixels (no versionado)",
+                "render_dpi": (pixel_rows[0]["crop_dpi"] if pixel_rows
+                               else None),
+            },
+            "crop_parameters": pixel_payload.get("crop", {}),
+            "preprocessing": pixel_payload.get("preprocessing", {}),
+            "feature_definitions": list(a_glyph_pixels.SCALAR_FEATURES),
+            "population": len(population),
+            "measured_population": len(pixel_rows),
+            "labelled_population": len(labelled),
+            "printed_1": sum(1 for row in labelled if row["label"] == 1),
+            "printed_2": sum(1 for row in labelled if row["label"] == 2),
+            "new_reviews": len(glyph_reviews.reviews_of(
+                verse_payload, batch="batch-130")),
+            "per_class_stats": _pixel_class_stats(
+                labelled, a_glyph_pixels.SCALAR_FEATURES),
+            "overlap_by_feature": overlaps,
+            "threshold_trials": trials,
+            "simple_rule_trials": (
+                "no se probó ninguna combinación de dos medidas: varias "
+                "medidas sueltas ya separan sin inversiones, y una regla de "
+                "una sola variable es más fácil de explicar y de vigilar"),
+            "chosen_rule": None,
+            "best_single_feature_rule": best,
+            "coverage": best["coverage"] if best else 0.0,
+            "abstentions": best["abstentions"] if best else None,
+            "class_inversions": 0 if best else None,
+            "page_validation": _pixel_group_validation(labelled, "scan_page"),
+            "book_validation": _pixel_group_validation(labelled, "book"),
+            "controls": pixel_payload.get("controls", {}),
+            "out_of_sample_control": _pixel_control_check(
+                pixel_payload, best),
+            "diagnostic_sweep": _pixel_diagnostic_sweep(pixel_rows, best),
+            "readiness_for_runtime": readiness,
+            "runtime_effect": a_glyph_width.DIAGNOSTIC_ONLY,
+            "parser_runtime_delta": 0,
+            "rows": labelled,
         }
         out["gaps"] = [g.as_dict() for g in found]
         return out

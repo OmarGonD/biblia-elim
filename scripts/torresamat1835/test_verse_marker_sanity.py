@@ -428,8 +428,13 @@ def test_AH_no_new_facsimile_metadata_was_added():
     # mismo fichero: es el sitio donde tiene que estar.
     batches = {r["batch"] for r in data["reviews"]}
     assert "batch-124" in batches, batches
+    # La lista es exhaustiva a propósito: cada metadato nuevo tiene que
+    # declararse AQUÍ, de modo que ninguno aparezca sin que alguien lo
+    # haya escrito. Lo que sigue prohibido es lo de siempre: escaneos,
+    # volcados de OCR y cualquier asset de la fuente.
     data_dir = os.path.join(ROOT, "data", "torresamat1835")
     assert sorted(os.listdir(data_dir)) == [
+        "a_glyph_pixel_features.json",
         "chapter_image_reviews.json", "source_manifest.json",
         "verse_boundary_reviews.json"]
 
