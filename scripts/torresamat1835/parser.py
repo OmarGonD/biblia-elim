@@ -71,15 +71,37 @@ _VERSE_RE = re.compile(r"^\s*(?P<num>\d{1,3})\s*[.,]?\s+(?P<text>\S.*)$")
 #: están completas en el crudo.
 SAFE_OUTER_PUNCTUATION = ".,;:()[]{}¿?¡!'\"«»·•*-—_|^~"
 
+#: Y lo que no es puntuación de ninguna lengua: manchas del canto, el
+#: filete de la caja, restos del rayado de la plana. El reconocimiento
+#: los devuelve como estos glifos y los deja pegados delante del
+#: marcador igual que un punto. Se listan aparte de la puntuación
+#: porque no son lo mismo, aunque hagan el mismo daño, y porque así se
+#: ve de un vistazo qué se ha ido admitiendo.
+#:
+#: Los cuatro están medidos: en el tomo desbloquean veintiún renglones y
+#: los veintiuno se han mirado uno a uno -- todos son «cifra, espacio,
+#: palabra de la Escritura». Se dejaron FUERA, a propósito, otros
+#: candidatos que el barrido ofrecía:
+#:
+#:   «\»   cazaba también la inscripción «Cántico gradual», que no es
+#:         un versículo;
+#:   «§»   la edición lo usa para sus divisiones de sección («§. II.»),
+#:         así que tiene significado propio y competiría;
+#:   «#»   un solo caso, y basura.
+SCAN_DEBRIS = "■><="
+
+#: Lo que puede rodear a un marcador sin formar parte del número.
+SAFE_OUTER_MARKER_FRAME = SAFE_OUTER_PUNCTUATION + SCAN_DEBRIS
+
 #: El mismo marcador con esa puntuación alrededor: «.63», «63.»,
 #: «(63)», «•33». Las cifras tienen que ir seguidas --nada entre
 #: ellas-- y detrás tiene que venir espacio y texto, como en el caso
 #: limpio. Se admiten hasta tres signos por lado: más que eso ya no es
 #: puntuación pegada, es un renglón de otra cosa.
 _FRAMED_VERSE_RE = re.compile(
-    r"^(?P<lead>[" + re.escape(SAFE_OUTER_PUNCTUATION) + r"]{1,3})\s*"
+    r"^(?P<lead>[" + re.escape(SAFE_OUTER_MARKER_FRAME) + r"]{1,3})\s*"
     r"(?P<num>\d{1,3})\s*"
-    r"(?P<trail>[" + re.escape(SAFE_OUTER_PUNCTUATION) + r"]{0,3})\s+"
+    r"(?P<trail>[" + re.escape(SAFE_OUTER_MARKER_FRAME) + r"]{0,3})\s+"
     r"(?P<text>\S.*)$")
 
 
@@ -90,7 +112,7 @@ def safe_outer_trim(token: str) -> str:
     está DENTRO y quitarlo cambiaría el número. Es la diferencia entre
     limpiar y enmendar.
     """
-    return (token or "").strip().strip(SAFE_OUTER_PUNCTUATION)
+    return (token or "").strip().strip(SAFE_OUTER_MARKER_FRAME)
 
 
 def framed_verse_marker(text: str):

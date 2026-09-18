@@ -1107,6 +1107,16 @@ if (BUILD_TESTING AND UNIX AND PYTHON3_EXECUTABLE)
   set_tests_properties (torresamat1835_missing_headings_test PROPERTIES
     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
     )
+  # La cifra que ya estaba: marcadores tapados por basura del canto, y
+  # los casos ambiguos que se quedan pendientes en vez de adivinarse.
+  add_test (
+    NAME torresamat1835_embedded_markers_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_embedded_markers.py
+    )
+  set_tests_properties (torresamat1835_embedded_markers_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
+    )
   # Qué número puede abrir un versículo: el canon RECHAZA un número
   # imposible, y una cifra entera tapada por puntuación sí es marcador.
   add_test (

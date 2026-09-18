@@ -1448,6 +1448,62 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
                 r["book"] for r in framed).items())),
             "markers": framed,
         }
+        # La clase que la tanda 126 fue a buscar: el hueco cuyo número
+        # ya está, entero, en un renglón del versículo anterior. Al
+        # mirarla se vio que en este tomo NINGUNO está en medio del
+        # texto: todos encabezan su renglón detrás de basura del canto,
+        # así que se recuperan por el mismo camino de la 125 con el
+        # marco ensanchado, y no hizo falta partir ningún bloque.
+        embedded = [gap for gap in found
+                    if verse_gaps.SWALLOWED_DIGIT in gap.signals]
+        pending = []
+        for gap in embedded:
+            text = (gap.swallowed_text or "").strip()
+            literal = str(gap.verse)
+            after = text.split(literal, 1)[1] if literal in text else ""
+            head = text[:text.find(literal)] if literal in text else text
+            if literal in text and after[:1] and not after[:1].isspace() \
+                    and (after[:1].isalpha() or after[:1].isdigit()):
+                reason = "marker_glued_to_word"
+            elif after.strip()[:1].isdigit():
+                reason = "digit_follows_marker"
+            elif any(ch.isdigit() for ch in head):
+                reason = "two_candidate_digits"
+            else:
+                reason = "other_context"
+            pending.append({
+                "key": gap.key, "book": gap.book, "chapter": gap.chapter,
+                "verse": gap.verse, "shape": gap.shape,
+                "block_id": gap.swallowed_block,
+                "scan_page": int(gap.swallowed_block[1:5])
+                             if gap.swallowed_block else None,
+                "raw": gap.swallowed_text, "literal": literal,
+                "reason": reason,
+                "current_owner_verse": gap.previous_verse,
+            })
+        frames = collections.Counter()
+        for row in framed:
+            lead = row["raw"].strip()[:1]
+            frames["scan_debris" if lead in classifier.SCAN_DEBRIS
+                   else "outer_punctuation"] += 1
+        out["embedded_exact_marker_recovery"] = {
+            "about": ("Huecos cuyo número decimal ya está ENTERO en un "
+                      "renglón del versículo anterior. En este tomo ninguno "
+                      "está embebido en mitad del texto: todos encabezan su "
+                      "renglón tras un glifo de basura, así que se recuperan "
+                      "por el marco del marcador -- ensanchado con los "
+                      "cuatro glifos de canto medidos -- y ningún bloque del "
+                      "reconocimiento se ha partido."),
+            "scan_debris_alphabet": classifier.SCAN_DEBRIS,
+            "markers_by_frame_class": dict(sorted(frames.items())),
+            "still_pending": len(pending),
+            "pending_by_reason": dict(sorted(collections.Counter(
+                row["reason"] for row in pending).items())),
+            "pending_by_book": dict(sorted(collections.Counter(
+                row["book"] for row in pending).items())),
+            "pending": pending,
+            "blocks_logically_split": 0,
+        }
         out["gaps"] = [g.as_dict() for g in found]
         return out
 
