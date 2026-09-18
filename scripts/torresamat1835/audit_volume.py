@@ -645,13 +645,106 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         "candidates": ordinal_rows,
     }
 
+    # Lo que quedaba: reclamos que ya eran rótulos válidos y seguían sin
+    # número. No hay descubrimiento aquí --la lista la da el ledger--,
+    # sólo lo que dijo la plana de cada uno. Se cuenta aparte de las
+    # demás familias porque su causa es otra: no faltaba el rótulo,
+    # faltaba poder leer su numeral.
+    remaining_reviews = {}
+    for entry in (payload.get("numeral_reviews", []) if payload else []):
+        if entry.get("discovered_by") == "remaining_chapter_claim":
+            remaining_reviews[entry["target_block"]] = entry
+    remaining_rows = []
+    for claim in ledger.claims:
+        entry = remaining_reviews.get(claim.block_id)
+        if entry is None:
+            continue
+        remaining_rows.append({
+            "claim_id": claim.claim_id, "book": claim.book,
+            "scan_page": claim.scan_page, "pdf_page": claim.scan_page + 1,
+            "block_id": claim.block_id,
+            "raw_heading": claim.raw_heading[:120],
+            "raw_numeral": entry.get("raw_numeral"),
+            "numeral_status_before": claim.numeral.get("status"),
+            "review_id": entry["id"], "review_outcome": entry["outcome"],
+            "observed_printed_text": entry.get("observed_printed_text"),
+            "printed_numeral": entry.get("observed_printed_numeral"),
+            "supporting_facsimile_evidence":
+                entry.get("supporting_facsimile_evidence"),
+            "resolved_chapter": entry.get("recovered_chapter"),
+            "previous_anchor": entry.get("previous_anchor"),
+            "next_anchor": entry.get("next_anchor"),
+            "disposition_after": claim.disposition,
+            "chapter_after": claim.accepted_number,
+            "number_source": claim.number_source,
+            "proposal_method": claim.proposal_method,
+            # Directo es lo que resolvió la plana; cascada, lo que se
+            # aceptó después apoyándose en un ancla ya aceptada. No es lo
+            # mismo y no puede contarse junto.
+            "resolution": ("direct_image_review"
+                           if claim.proposal_method == "numeral_review"
+                           else "cascade"),
+            "still_pending": claim.accepted_number is None,
+        })
+    remaining_rows.sort(key=lambda r: (r["scan_page"], r["block_id"]))
+    # Cascada de ESTA tanda: un reclamo que se aceptó apoyándose en un
+    # ancla que acaba de resolverse aquí. Las cascadas antiguas del tomo
+    # no cuentan: contarlas diría que esta revisión desbloqueó cosas que
+    # ya estaban desbloqueadas.
+    resolved_here = {r["claim_id"] for r in remaining_rows
+                     if r["chapter_after"] is not None}
+    cascades = [c for c in ledger.claims
+                if c.anchor_claim in resolved_here
+                and c.claim_id not in resolved_here
+                and c.accepted_number is not None]
+    remaining_report = {
+        "about": ("Reclamos que ya eran rótulos válidos y seguían sin número. "
+                  "La lista la da el ledger, no un barrido; lo que decide "
+                  "cada uno es la plana. Un numeral romano canónico no es un "
+                  "numeral correcto: trece de estos lo eran y decían otra "
+                  "cosa que el impreso."),
+        "baseline_unresolved": len(remaining_rows),
+        "reviewed": sum(1 for r in remaining_rows if r["review_id"]),
+        "resolved_direct": sum(1 for r in remaining_rows
+                               if r["resolution"] == "direct_image_review"
+                               and r["chapter_after"] is not None),
+        "cascades": len(cascades),
+        "cascade_detail": [{"claim_id": c.claim_id, "book": c.book,
+                            "scan_page": c.scan_page, "block_id": c.block_id,
+                            "chapter": c.accepted_number,
+                            "own_numeral": c.numeral.get("token"),
+                            "own_numeral_status": c.numeral.get("status"),
+                            "number_source": c.number_source,
+                            "anchor_claim": c.anchor_claim,
+                            "anchor_number": c.anchor_number}
+                           for c in cascades],
+        "by_outcome": dict(sorted(collections.Counter(
+            r["review_outcome"] for r in remaining_rows).items())),
+        "by_book": dict(sorted(collections.Counter(
+            r["book"] for r in remaining_rows).items())),
+        "by_numeral_status_before": dict(sorted(collections.Counter(
+            r["numeral_status_before"] for r in remaining_rows).items())),
+        "with_supporting_evidence": sum(
+            1 for r in remaining_rows if r["supporting_facsimile_evidence"]),
+        "still_pending": sum(1 for r in remaining_rows if r["still_pending"]),
+        "remaining_unresolved": claims_report["unresolved"],
+        "claims": remaining_rows,
+    }
+
     # Cola de revisión visual, ordenada por lo que más devuelve. No crea
     # estructura: sólo dice dónde mirar.
     geometry = {}
     for page, placed in pages_with_layout():
         geometry[page.scan_page] = recovery_candidates.page_geometry(page, placed)
+    # Lo decidido no está pendiente: un reclamo rechazado como falso
+    # rótulo tiene respuesta, y pedir que lo revisen otra vez confunde
+    # «sin número» con «sin decidir».
+    decided_blocks = {c.block_id for c in ledger.claims
+                      if c.accepted_number is None
+                      and c.disposition != chapter_claims.UNRESOLVED}
     queue = recovery_candidates.rank(readings=readings, resolutions=resolutions,
-                                     spans=spans, geometry=geometry)
+                                     spans=spans, geometry=geometry,
+                                     decided_blocks=decided_blocks)
     # Qué se hizo con cada candidato de `missing_heading`. La cola dice
     # dónde MIRAR; esto dice qué se vio. Un candidato revisado no
     # desaparece: cambia de estado y se queda con su procedencia, que es
@@ -1105,6 +1198,7 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         "corrupted_division_marker_candidates": marker_report,
         "severely_corrupted_heading_candidates": severe_report,
         "written_ordinal_headings": ordinal_report,
+        "remaining_chapter_claim_reviews": remaining_report,
         "image_review_queue": candidate_report,
         "missing_heading_reviews": missing_report,
         "book_boundary_resolution": {
@@ -1256,6 +1350,16 @@ def main():
             print(f"    {osis:5} {stat['before']:6} {stat['after']:6}"
                   f"  {stat['gained']} lost={stat['lost']}"
                   f" vulg={stat['vulg_audit_limit']}")
+    rc = report.get("remaining_chapter_claim_reviews", {})
+    if rc:
+        print(f"  remaining claims          baseline={rc['baseline_unresolved']}"
+              f" reviewed={rc['reviewed']}"
+              f" direct={rc['resolved_direct']}"
+              f" cascades={rc['cascades']}"
+              f" PENDING={rc['still_pending']}")
+        print(f"    by outcome               {rc['by_outcome']}")
+        print(f"    by book                  {rc['by_book']}"
+              f"   latin/vernacular support {rc['with_supporting_evidence']}")
     wo = report.get("written_ordinal_headings", {})
     if wo:
         print(f"  written ordinals          candidates={wo['candidates_total']}"

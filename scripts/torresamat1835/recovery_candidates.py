@@ -143,12 +143,19 @@ UNRESOLVED_NUMERAL = "unresolved_numeral"
 MISSING_HEADING = "missing_heading"
 
 
-def rank(*, readings, resolutions, spans, geometry) -> List[RecoveryCandidate]:
+def rank(*, readings, resolutions, spans, geometry,
+         decided_blocks=()) -> List[RecoveryCandidate]:
     """Ordena la cola de revisión visual.
 
     `readings` son las cabeceras corridas leídas, `resolutions` los
     rótulos que el reconocimiento sí produjo, `spans` los tramos de
     libro y `geometry` lo medido plana a plana.
+
+    `decided_blocks` son los bloques cuyo reclamo YA se decidió aunque no
+    tenga número: una inscripción que se comprobó que no es un rótulo no
+    espera a nadie. Sin esta lista, la cola pedía revisar seis renglones
+    que la tanda 116 ya había rechazado, y «pendiente» acababa
+    significando dos cosas a la vez.
 
     Salen dos familias, y la primera va delante porque es la que más
     devuelve por revisión:
@@ -169,10 +176,13 @@ def rank(*, readings, resolutions, spans, geometry) -> List[RecoveryCandidate]:
     candidates: List[RecoveryCandidate] = []
 
     # --- familia 1: la frontera está, el número no --------------------
+    decided = set(decided_blocks or ())
     for item in resolutions:
         page = item["scan_page"]
         pages_with_heading.add(page)
         if item["resolved_number"] is not None or item.get("recovered"):
+            continue
+        if item.get("block_id") in decided:
             continue
         raw = item.get("source_heading") or ""
         book = item["book"]

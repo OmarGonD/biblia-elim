@@ -40,18 +40,28 @@ OUTCOMES = (BOUNDARY_AND_NUMBER, BOUNDARY_ONLY, NO_BOUNDARY)
 #: reconocimiento y dice qué pone en el impreso.
 NUMERAL_CONFIRMED = "confirmed_number"
 NUMERAL_CORRECTED = "invalid_ocr_corrected"
+#: El caso que hay que poder nombrar aparte: el reconocimiento produjo un
+#: numeral romano PERFECTAMENTE ESCRITO que la plana no imprime. «SALMO
+#: XL» donde pone «SALMO XI.», porque el punto final se funde con la I y
+#: el conjunto parece una L. No es un numeral roto --valida-- y por eso
+#: ninguna comprobación de sintaxis podía cazarlo: sólo la imagen.
+#: Llamarlo `invalid_ocr_corrected` diría que el problema era la
+#: escritura, y el problema era la lectura.
+NUMERAL_CONTRADICTED = "ocr_numeral_contradicted"
 COMPETING_RESOLVED = "competing_claim_resolved"
 SAME_PHYSICAL = "same_physical_duplicate"
 FALSE_CLAIM = "rejected_false_claim"
 UNREADABLE = "unreadable"
 STILL_AMBIGUOUS = "still_ambiguous"
-NUMERAL_OUTCOMES = (NUMERAL_CONFIRMED, NUMERAL_CORRECTED, COMPETING_RESOLVED,
-                    SAME_PHYSICAL, FALSE_CLAIM, UNREADABLE, STILL_AMBIGUOUS)
+NUMERAL_OUTCOMES = (NUMERAL_CONFIRMED, NUMERAL_CORRECTED, NUMERAL_CONTRADICTED,
+                    COMPETING_RESOLVED, SAME_PHYSICAL, FALSE_CLAIM, UNREADABLE,
+                    STILL_AMBIGUOUS)
 
 #: Los que dan un número. Los demás dejan el reclamo donde estaba: en
 #: revisión. Que una persona haya mirado la plana no obliga a que salga
 #: un número de ahí.
-NUMERAL_RESOLVING = (NUMERAL_CONFIRMED, NUMERAL_CORRECTED, COMPETING_RESOLVED)
+NUMERAL_RESOLVING = (NUMERAL_CONFIRMED, NUMERAL_CORRECTED, NUMERAL_CONTRADICTED,
+                     COMPETING_RESOLVED)
 
 
 class ReviewError(Exception):
