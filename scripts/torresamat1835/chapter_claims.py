@@ -74,6 +74,15 @@ REJECTED_FALSE_HEADING = "rejected_false_heading"
 FROM_OCR = "ocr"
 FROM_IMAGE_REVIEW = "image_review"
 
+#: El número de un rótulo puede estar escrito en dos sistemas distintos,
+#: y no son la misma evidencia: un romano se valida con `roman.py` y una
+#: palabra ordinal con `written_ordinals.py`. El método lo dice para que
+#: el informe nunca tenga que deducirlo del texto.
+WRITTEN_ORDINAL = "written_ordinal"
+#: Un rótulo que trae las dos cosas y no dicen lo mismo. No se elige:
+#: se para. Sólo una revisión del facsímil puede desempatar.
+ORDINAL_CONFLICT = "ordinal_roman_conflict"
+
 #: Orden de autoridad. La secuencia y el canon NO están: no son fuentes
 #: de número, son corroboración y auditoría. Un reclamo nunca se acepta
 #: por tener un hueco delante y otro detrás.
@@ -111,6 +120,12 @@ class ChapterClaim:
     zone: Optional[str] = None
     #: Lo que dio la lectura del numeral, con su estado y su motivo.
     numeral: dict = field(default_factory=dict)
+    #: Y lo que dio la lectura del número ESCRITO CON PALABRA, que es
+    #: otra evidencia y se guarda aparte: un rótulo puede no tener
+    #: numeral romano y llevar el número igualmente («SALMO PRIMERO.»).
+    #: Vacío quiere decir que nadie lo ha mirado; `status: absent`, que
+    #: se miró y no había.
+    ordinal: dict = field(default_factory=dict)
     candidate_numbers: List[int] = field(default_factory=list)
     #: Lo que se sabe del bloque COMO rótulo: composición de la plana y
     #: forma del renglón (heading_validity). `None` quiere decir que
@@ -176,6 +191,34 @@ class ChapterClaim:
         return bool(self.heading and self.heading.get("review_required"))
 
     @property
+    def ordinal_value(self) -> Optional[int]:
+        """El número que dio la palabra, sólo si se leyó entera."""
+        if self.ordinal.get("status") != "recognized":
+            return None
+        return self.ordinal.get("value")
+
+    @property
+    def number_source(self) -> Optional[str]:
+        """En qué sistema estaba escrito el número que se aceptó.
+
+        Deriva de lo que ya hay --la procedencia del reclamo y el método
+        con el que se propuso--, así que no puede contradecirlos.
+        """
+        if self.accepted_number is None:
+            return None
+        if self.source == FROM_IMAGE_REVIEW:
+            return ("image_review_ordinal"
+                    if (self.provenance or {}).get("ordinal_value") is not None
+                    else "image_review_roman")
+        if self.proposal_method == WRITTEN_ORDINAL:
+            return WRITTEN_ORDINAL
+        if self.proposal_method == "direct_ocr":
+            return "roman_ocr"
+        if self.anchor_claim is not None:
+            return "roman_ocr_cascade"
+        return "roman_ocr_corroborated"
+
+    @property
     def physical_key(self):
         """Dónde está el rótulo, no qué dice.
 
@@ -200,6 +243,7 @@ class ChapterClaim:
             "column": self.column, "zone": self.zone,
             "raw_heading": self.raw_heading[:120],
             "numeral": self.numeral,
+            "ordinal": self.ordinal,
             "heading": self.heading,
             "candidate_numbers": list(self.candidate_numbers),
             "proposed_number": self.proposed_number,
@@ -209,6 +253,7 @@ class ChapterClaim:
             "accepted_number": self.accepted_number,
             "disposition": self.disposition, "reason": self.reason,
             "review_required": self.review_required,
+            "number_source": self.number_source,
             "merged_into": self.merged_into,
             "competing_with": list(self.competing_with),
             "order": self.order,
@@ -585,7 +630,23 @@ class ClaimLedger:
                      UNCORROBORATED, SAME_PHYSICAL, COMPETING,
                      REJECTED_FALSE_HEADING, UNRESOLVED):
             out[name] = sum(1 for c in self.claims if c.disposition == name)
-        out["unresolved_claims"] = len(self.claims) - out[ACCEPTED]
+        # DOS COSAS DISTINTAS, DOS NOMBRES.
+        #
+        #   unresolved        el reclamo sigue sin decidirse: nadie sabe
+        #                     qué capítulo es y está esperando evidencia.
+        #
+        #   without_number    todo lo que no llegó a capítulo, que
+        #                     incluye lo YA DECIDIDO en contra: una
+        #                     inscripción rechazada como falso rótulo no
+        #                     está pendiente de nada.
+        #
+        # Llamar «unresolved» a la segunda contaba seis rechazos de la
+        # tanda 116 como si fueran trabajo por hacer, y hacía que el
+        # total del tomo y el desglose por libro no sumaran lo mismo.
+        out["without_number"] = len(self.claims) - out[ACCEPTED]
+        #: Alias histórico de `without_number`. Se conserva porque hay
+        #: informes anteriores que lo citan; el nombre bueno es el otro.
+        out["unresolved_claims"] = out["without_number"]
         out["competing_claim_groups"] = len(self.collisions())
         out["recovered_by_image_review"] = sum(
             1 for c in self.accepted() if c.source == FROM_IMAGE_REVIEW)
@@ -605,7 +666,7 @@ class ClaimLedger:
                 "invalid_numeral": 0, "ambiguous": 0, "uncorroborated": 0,
                 "same_physical_duplicates": 0, "competing": 0,
                 "rejected_false_heading": 0,
-                "accepted": 0, "unresolved": 0})
+                "accepted": 0, "unresolved": 0, "without_number": 0})
             stat["raw_claims"] += 1
             if claim.numeral.get("status") == roman.VALID:
                 stat["raw_numeral_valid"] += 1
@@ -626,7 +687,12 @@ class ClaimLedger:
             if claim.disposition == ACCEPTED:
                 stat["accepted"] += 1
             else:
-                stat["unresolved"] += 1
+                # Sin número, sí; pendiente, sólo si de verdad lo está.
+                # Un falso rótulo ya tiene su columna y no puede volver
+                # a contarse en ésta.
+                stat["without_number"] += 1
+                if claim.disposition == UNRESOLVED:
+                    stat["unresolved"] += 1
         for book, stat in out.items():
             stat["competing_claim_groups"] = sum(
                 1 for g in self.collisions() if g.book == book)

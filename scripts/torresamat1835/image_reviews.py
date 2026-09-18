@@ -90,6 +90,18 @@ class ChapterImageReview:
     #: miró; sin él, un rechazo no tendría a qué candidato responder y
     #: la fila volvería a salir en cada barrido.
     candidate_block: Optional[str] = None
+    #: Cuando el número del rótulo no está escrito con numeral romano
+    #: sino con palabra («CAPÍTULO PRIMERO»), lo que la plana imprime y
+    #: lo que vale. Se guarda aparte del numeral porque es otra
+    #: evidencia: un romano se valida con `roman.py` y una palabra con
+    #: `written_ordinals.py`, y confundirlos sería empezar a leer
+    #: «PRIMERO» como una variante mal escrita de «I».
+    observed_printed_ordinal: Optional[str] = None
+    ordinal_value: Optional[int] = None
+    #: Lo que la máquina dejó donde el impreso pone el rótulo. Se
+    #: conserva al lado de la lectura para que siempre se pueda
+    #: contrastar; el crudo del OCR no se toca nunca.
+    raw_ocr_heading: Optional[str] = None
     evidence: List[str] = field(default_factory=list)
 
     @property
@@ -233,6 +245,24 @@ def validate(data, *, page_bounds=None, page_count=None) -> List[str]:
         # bloque de la plana que la revisión dice, y tiene que venir del
         # reconocimiento: si llevara «r» sería un renglón recuperado, no
         # uno que la máquina produjo.
+        # El número escrito con palabra: si la revisión dice cuánto
+        # vale, tiene que decir también qué palabra leyó, y el capítulo
+        # que declara no puede ser otro.
+        ordinal_value = review.get("ordinal_value")
+        if ordinal_value is not None:
+            if not isinstance(ordinal_value, int):
+                problems.append(f"{rid}: ordinal value is not an integer")
+            if not review.get("observed_printed_ordinal"):
+                problems.append(
+                    f"{rid}: an ordinal value needs the printed word it came from")
+            if review.get("chapter_number") is not None and \
+                    review.get("chapter_number") != ordinal_value:
+                problems.append(
+                    f"{rid}: chapter {review.get('chapter_number')} does not "
+                    f"match the written ordinal {ordinal_value}")
+        elif review.get("observed_printed_ordinal"):
+            problems.append(
+                f"{rid}: a printed ordinal was read but given no value")
         candidate_block = review.get("candidate_block")
         if candidate_block is not None:
             if review.get("heading_block"):
@@ -291,6 +321,9 @@ def reviews_for(data, *, source_path=None, expected_sha256=None
             insert_before_block=review.get("insert_before_block"),
             heading_block=review.get("heading_block"),
             candidate_block=review.get("candidate_block"),
+            observed_printed_ordinal=review.get("observed_printed_ordinal"),
+            ordinal_value=review.get("ordinal_value"),
+            raw_ocr_heading=review.get("raw_ocr_heading"),
             observed_printed_text=review.get("observed_printed_text"),
             crop_bbox=tuple(review["crop_bbox"]) if review.get("crop_bbox") else None,
             confidence=float(review.get("confidence", 0.0)),

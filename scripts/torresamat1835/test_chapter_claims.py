@@ -866,6 +866,52 @@ def test_sequence_is_unavailable_without_an_accepted_anchor():
     assert stray.review_required
 
 
+def test_the_counts_add_up_to_the_same_claims():
+    """Las sumas tienen que cuadrar, y «sin resolver» significa una cosa.
+
+    Un rótulo rechazado como falso está DECIDIDO: no es trabajo
+    pendiente. Contarlo como «unresolved» en el desglose por libro --y
+    a la vez en su propia columna-- hacía que el total del tomo y la
+    suma por libros no coincidieran, y que seis rechazos de la 116
+    parecieran seis revisiones por hacer.
+    """
+    ledger = cc.ClaimLedger()
+    plan = [("Ps", cc.ACCEPTED, 1), ("Ps", cc.ACCEPTED, 2),
+            ("Ps", cc.UNRESOLVED, None), ("Ps", cc.REJECTED_FALSE_HEADING, None),
+            ("Prov", cc.ACCEPTED, 1), ("Prov", cc.UNRESOLVED, None),
+            ("Prov", cc.REJECTED_FALSE_HEADING, None)]
+    for index, (book, disposition, number) in enumerate(plan):
+        claim = cc.ChapterClaim(
+            claim_id=f"c{index}", book=book, scan_page=10 + index,
+            block_id=f"p{10 + index:04d}l0001", raw_heading="SALMO X.")
+        claim.disposition = disposition
+        claim.accepted_number = number
+        ledger.add(claim)
+
+    counts, per_book = ledger.counts(), ledger.per_book()
+    dispositions = (cc.ACCEPTED, cc.INVALID_NUMERAL, cc.AMBIGUOUS_NUMERAL,
+                    cc.UNCORROBORATED, cc.SAME_PHYSICAL, cc.COMPETING,
+                    cc.REJECTED_FALSE_HEADING, cc.UNRESOLVED)
+    assert sum(counts[name] for name in dispositions) == counts["total_claims"]
+    assert counts["unresolved"] == 2
+    assert counts["rejected_false_heading"] == 2
+    assert counts["without_number"] == counts["total_claims"] - counts["accepted"]
+    assert counts["without_number"] == 4, "sin número: pendientes y rechazados"
+    assert counts["unresolved_claims"] == counts["without_number"], "alias"
+
+    # y el desglose por libro suma exactamente lo mismo, columna a columna
+    for name in ("accepted", "unresolved", "rejected_false_heading",
+                 "without_number"):
+        assert sum(stat[name] for stat in per_book.values()) == counts[name], name
+    for book, stat in per_book.items():
+        assert stat["accepted"] + stat["without_number"] == stat["raw_claims"], book
+        assert stat["without_number"] == (
+            stat["unresolved"] + stat["rejected_false_heading"]
+            + stat["invalid_numeral"] + stat["ambiguous"]
+            + stat["uncorroborated"] + stat["same_physical_duplicates"]
+            + stat["competing"]), book
+
+
 if __name__ == "__main__":
     failures = 0
     for name, func in sorted(globals().items()):

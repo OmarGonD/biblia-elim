@@ -2748,6 +2748,37 @@
       "discovered_by": "severely_corrupted_heading",
       "review_outcome": "body_text_not_a_division",
       "rationale": "Texto del cuerpo de la plana --cola de columna, argumento del editor, inscripción del salmo, nota al pie o fe de erratas--, no un rótulo de división."
+    },
+    {
+      "id": "wis-1-p319",
+      "batch": "batch-121",
+      "book": "Wis",
+      "scan_page": 319,
+      "pdf_page": 320,
+      "crop_bbox": [
+        0,
+        560,
+        3402,
+        1440
+      ],
+      "outcome": "boundary_and_number_confirmed",
+      "observed_printed_text": "CAPÍTULO PRIMERO.",
+      "observed_printed_ordinal": "PRIMERO",
+      "ordinal_value": 1,
+      "raw_ocr_heading": "CÁFÍTXJLO PRIMERa",
+      "observed_context": "La banda entre las anclas: «LIBRO DE LA SABIDURÍA.» con su orla, y debajo el rótulo «CAPÍTULO PRIMERO.» en la versalita espaciada que esta edición usa para las divisiones, seguido del argumento «Aviso á los soberanos de la tierra. A quiénes ama la Sabiduría, y de quiénes huye. La muerte viene del hombre, no de Dios.»",
+      "chapter_number": 1,
+      "boundary_confirmed": true,
+      "numeral_confirmed": true,
+      "heading_block": "p0319l0002",
+      "insert_after_block": "p0319l0001",
+      "insert_before_block": "p0319l0003",
+      "confidence": 0.95,
+      "reviewer_method": "pdftoppm render at 300 dpi of the band around the heading row, visual reading",
+      "ocr_state": "heading present, division word and written ordinal both corrupted",
+      "discovered_by": "written_ordinal",
+      "review_outcome": "resolved_written_ordinal",
+      "rationale": "El número de este rótulo no está escrito con numeral romano sino con palabra, y el reconocimiento destrozó las dos mitades: dejó «CÁFÍTXJLO PRIMERa». La palabra de división rota la encontró el barrido estructural de la 120; la palabra del número no puede leerla ningún lector de texto, porque «PRIMERa» no es «PRIMERO» y convertir una en otra sería enmendar una letra por parecido -- o peor, por concordancia de género con «CAPÍTULO». Así que el valor sale de la plana: el impreso pone «CAPÍTULO PRIMERO.», ordinal PRIMERO, capítulo 1. Se guardan las dos lecturas, la de la máquina y la del testigo, y el crudo del OCR no se toca. Ni la secuencia, ni el canon, ni que sea el primer capítulo del libro han intervenido: si la plana hubiera impreso otra palabra, aquí pondría otra cosa."
     }
   ],
   "numeral_reviews": [

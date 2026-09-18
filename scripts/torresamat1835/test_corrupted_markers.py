@@ -433,16 +433,19 @@ def test_J_the_false_headings_stay_rejected():
         assert claims[block]["accepted_number"] is None
 
 
-def test_U_the_first_psalm_is_untouched():
+def test_U_the_first_psalm_owes_nothing_to_this_sweep():
     report = _audit()
     if report is None:
         return
     claim = {c["block_id"]: c
              for c in report["chapter_claims"]["claims"]}["p0015l0003"]
     assert claim["raw_heading"].upper().startswith("SALMO PRIMERO")
-    assert claim["disposition"] == cc.UNRESOLVED
-    assert claim["accepted_number"] is None
+    # Su numeral sigue sin leerse, y tiene que seguir así: «PRIMERO» no
+    # es un romano roto. Lo que le dio número fue la palabra, leída por
+    # `written_ordinals` en la tanda 121 -- nunca este barrido.
     assert claim["numeral"]["status"] == "no_numeral"
+    assert claim["number_source"] == "written_ordinal"
+    assert claim["accepted_number"] == 1
 
 
 def test_ST_the_volume_keeps_its_invariants():

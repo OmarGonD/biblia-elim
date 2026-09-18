@@ -545,17 +545,21 @@ def test_QR_the_earlier_work_is_not_touched():
         assert claims[block]["accepted_number"] is None
 
 
-def test_S_the_first_psalm_is_untouched():
+def test_S_the_first_psalm_was_never_a_missing_heading():
     report = _audit()
     if report is None:
         return
     claim = {c["block_id"]: c
              for c in report["chapter_claims"]["claims"]}["p0015l0003"]
     assert claim["raw_heading"].upper().startswith("SALMO PRIMERO")
-    assert claim["disposition"] == cc.UNRESOLVED
-    assert claim["accepted_number"] is None
+    # Su numeral sigue sin leerse, y tiene que seguir así: «PRIMERO» no
+    # es un romano roto. Lo que le dio número fue la palabra, leída por
+    # `written_ordinals` en la tanda 121 -- nunca este barrido.
     assert claim["numeral"]["status"] == "no_numeral"
-    # y no aparece como candidato de rótulo ausente
+    assert claim["number_source"] == "written_ordinal"
+    assert claim["accepted_number"] == 1
+    # y nunca apareció como candidato de rótulo ausente: el rótulo
+    # estaba impreso y el reconocimiento lo produjo entero
     pages = {row["scan_page"]
              for row in report["missing_heading_reviews"]["candidates"]}
     assert 15 not in pages

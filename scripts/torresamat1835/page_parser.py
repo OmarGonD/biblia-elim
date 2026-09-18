@@ -26,7 +26,9 @@ import heading_validity
 import image_reviews as review_outcomes
 import parser as classifier
 import recovery as image_recovery
+import roman
 import structure
+import written_ordinals
 from layout import Column, Zone, split_columns, measure
 from model import Block, BlockKind, Edition, Provenance
 
@@ -539,9 +541,45 @@ class VolumeParser:
                 header_chapters=self.header_chapters.get(claim.scan_page, []),
                 previous=previous, book=claim.book,
                 sequence_available=claim.first_in_book)
+            ordinal = claim.ordinal_value
+            if ordinal is None:
+                return chapter_claims.Proposal(
+                    resolution.resolved, resolution.method,
+                    dict(resolution.evidence), resolution.confidence)
+
+            # El rótulo trae el número escrito con palabra, leído entero
+            # y sin enmendar ninguna letra.
+            evidence = dict(resolution.evidence,
+                            ordinal_token=claim.ordinal.get("normalized_token"),
+                            ordinal_raw=claim.ordinal.get("raw_token"),
+                            ordinal_value=ordinal,
+                            why=claim.ordinal.get("reason"))
+            # «Evidencia romana» es un numeral VALIDADO, no un candidato
+            # que se le parezca: lo que el propio reclamo trae leído.
+            roman_value = (claim.numeral.get("value")
+                           if claim.numeral.get("status") == roman.VALID
+                           else None)
+            if roman_value is not None and roman_value != ordinal:
+                # Dos sistemas de numeración en el mismo rótulo diciendo
+                # cosas distintas. No se elige el que más guste: se para
+                # y se deja dicho, que es recuperable. Sólo una revisión
+                # del facsímil de ESTE rótulo puede desempatar.
+                return chapter_claims.Proposal(
+                    None, chapter_claims.ORDINAL_CONFLICT,
+                    dict(evidence, roman_value=roman_value,
+                         why=(f"the heading carries a Roman numeral reading "
+                              f"{roman_value} and the written ordinal "
+                              f"{ordinal}; nothing in the text decides "
+                              f"between them")),
+                    0.0)
+            # La palabra es la evidencia, y se sostiene sola: no hace
+            # falta que la secuencia ni la cabecera la corroboren, igual
+            # que no hacen falta para un romano que se lee limpio y
+            # concuerda. Lo que sí hace falta es que el renglón sea un
+            # rótulo, y de eso responde `is_structural_heading`.
             return chapter_claims.Proposal(
-                resolution.resolved, resolution.method,
-                dict(resolution.evidence), resolution.confidence)
+                ordinal, chapter_claims.WRITTEN_ORDINAL, evidence,
+                claim.ordinal.get("confidence") or 0.95)
 
         def propose_or_review(claim, previous):
             # Una revisión del facsímil trae su propio número leído en la
@@ -597,16 +635,22 @@ class VolumeParser:
 
     def _claim(self, *, book, page, prov, placed, raw, source, numeral,
                candidates, proposed, method, evidence, confidence,
-               provenance=None, recovered=False, heading=None):
+               provenance=None, recovered=False, heading=None, ordinal=None):
         """Anota un reclamo. No escribe todavía ningún capítulo."""
         reading = numeral if isinstance(numeral, dict) else numeral.as_dict()
+        # El número puede estar escrito con palabra en vez de con
+        # numeral. Se lee SIEMPRE, también cuando hay romano: es la
+        # única forma de poder decir después que los dos no coinciden.
+        if ordinal is None:
+            ordinal = written_ordinals.read(
+                structure._without_book_words(raw or "")).as_dict()
         claim = chapter_claims.ChapterClaim(
             claim_id=f"c{len(self.ledger.claims):04d}:{prov.block_id}",
             book=book, scan_page=page, block_id=prov.block_id,
             raw_heading=raw or "", source=source,
             bbox=tuple(placed.line.bbox) if placed is not None else None,
             column=prov.column, zone=prov.zone,
-            numeral=reading, heading=heading,
+            numeral=reading, ordinal=ordinal, heading=heading,
             candidate_numbers=candidates,
             proposed_number=proposed, proposal_method=method,
             proposal_evidence=dict(evidence or {}), confidence=confidence,

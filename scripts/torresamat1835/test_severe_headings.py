@@ -493,16 +493,27 @@ def test_AI_a_rejection_changes_nothing_in_the_stream():
     assert all(getattr(e, "recovery", None) is None for e in out)
 
 
-def test_AJ_the_ordinal_heading_is_left_pending_on_purpose():
-    # Sab p319 imprime «CAPÍTULO PRIMERO»: rótulo de verdad, numeral en
-    # palabra. Leer ordinales no es de esta tanda, así que el candidato
-    # se queda en la cola en vez de cerrarse en falso.
-    answered = set()
+def test_AJ_the_ordinal_heading_was_closed_by_the_next_round():
+    # Sab p319 imprime «CAPÍTULO PRIMERO»: rótulo de verdad, con el
+    # número escrito en palabra. Esta tanda lo ofreció y lo dejó
+    # pendiente a propósito --leer ordinales no era suyo--; la 121 lo
+    # contestó. Lo que este barrido tiene que seguir garantizando es lo
+    # de siempre: que la fila que encontró no se cierre en falso desde
+    # aquí, sino con una revisión del facsímil que diga qué se vio.
+    answered = {}
     for entry in _metadata()["reviews"]:
         block = entry.get("heading_block") or entry.get("candidate_block")
         if block:
-            answered.add(block)
-    assert "p0319l0002" not in answered
+            answered[block] = entry
+    entry = answered.get("p0319l0002")
+    assert entry is not None, "la fila sigue sin contestar"
+    assert entry["discovered_by"] == "written_ordinal"
+    assert entry["review_outcome"] == "resolved_written_ordinal"
+    assert entry["observed_printed_ordinal"] == "PRIMERO"
+    # y ninguna revisión de ESTE barrido se la atribuye
+    ours = [e for e in _batch120()
+            if (e.get("heading_block") or e.get("candidate_block")) == "p0319l0002"]
+    assert ours == []
 
 
 if __name__ == "__main__":

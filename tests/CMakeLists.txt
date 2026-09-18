@@ -1107,6 +1107,16 @@ if (BUILD_TESTING AND UNIX AND PYTHON3_EXECUTABLE)
   set_tests_properties (torresamat1835_missing_headings_test PROPERTIES
     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
     )
+  # La primera división de cada libro no lleva numeral romano sino la
+  # palabra: «SALMO PRIMERO». Otra evidencia, otro lector, otra tabla.
+  add_test (
+    NAME torresamat1835_written_ordinals_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_written_ordinals.py
+    )
+  set_tests_properties (torresamat1835_written_ordinals_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
+    )
   # Cuando la palabra Y el numeral están rotos a la vez no queda texto
   # que buscar: el rótulo se descubre por cómo está compuesta la plana.
   add_test (

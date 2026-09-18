@@ -478,23 +478,29 @@ def test_LM_the_false_inscriptions_stay_rejected():
     for block in rejected:
         assert claims[block]["disposition"] == cc.REJECTED_FALSE_HEADING
         assert claims[block]["accepted_number"] is None
-    # y el de la plana 196 no vuelve a ser el salmo primero
+    # y el de la plana 196 no vuelve a ser el salmo primero: Ps 1 es
+    # ahora el rótulo de la plana 15, y por su palabra impresa, no por
+    # esta inscripción ni por ninguna corrección de frontera.
     ones = [c for c in report["chapter_claims"]["claims"]
             if c["book"] == "Ps" and c["accepted_number"] == 1]
-    assert not ones, "Ps 1 sigue sin adjudicarse a nadie"
+    assert [c["block_id"] for c in ones] == ["p0015l0003"], ones
+    assert ones[0]["number_source"] == "written_ordinal"
 
 
-def test_N_the_true_psalm_one_is_untouched():
+def test_N_the_true_psalm_one_owes_nothing_to_boundary_recovery():
     report = _audit()
     if report is None:
         return
     claims = {c["block_id"]: c for c in report["chapter_claims"]["claims"]}
     real = claims["p0015l0003"]
     assert real["raw_heading"].upper().startswith("SALMO PRIMERO")
-    assert real["disposition"] == cc.UNRESOLVED
-    assert real["accepted_number"] is None
-    assert real["numeral"]["status"] == "no_numeral"
     assert real["heading"]["is_heading"] is True
+    # Su frontera nunca hizo falta recuperarla --el rótulo está impreso
+    # y el reconocimiento lo produjo entero--, y su numeral sigue sin
+    # leerse: el número se lo dio la palabra, en la tanda 121.
+    assert real["numeral"]["status"] == "no_numeral"
+    assert real["number_source"] == "written_ordinal"
+    assert real["accepted_number"] == 1
 
 
 def test_OPQR_the_volume_keeps_its_integrity():

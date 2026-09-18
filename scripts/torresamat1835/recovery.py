@@ -102,6 +102,12 @@ class RecoveryProvenance:
     observed_printed_text: Optional[str]
     confidence: float
     reviewer_method: str
+    #: Cuando el número venía escrito con palabra, la palabra que la
+    #: plana imprime y lo que vale. Viaja con la procedencia para que
+    #: aguas abajo se pueda decir en qué sistema estaba escrito el
+    #: número que se aceptó, sin volver a mirar la metadata.
+    observed_printed_ordinal: Optional[str] = None
+    ordinal_value: Optional[int] = None
 
     def as_dict(self) -> dict:
         return {
@@ -111,6 +117,8 @@ class RecoveryProvenance:
             "printed_page": self.printed_page,
             "bbox": list(self.bbox) if self.bbox else None,
             "observed_printed_text": self.observed_printed_text,
+            "observed_printed_ordinal": self.observed_printed_ordinal,
+            "ordinal_value": self.ordinal_value,
             "confidence": self.confidence,
             "reviewer_method": self.reviewer_method,
         }
@@ -202,6 +210,8 @@ def _provenance(review, source: SourceIdentity) -> RecoveryProvenance:
         pdf_page=review.pdf_page, printed_page=review.printed_page,
         bbox=review.crop_bbox,
         observed_printed_text=review.observed_printed_text,
+        observed_printed_ordinal=getattr(review, "observed_printed_ordinal", None),
+        ordinal_value=getattr(review, "ordinal_value", None),
         confidence=review.confidence, reviewer_method=review.reviewer_method)
 
 

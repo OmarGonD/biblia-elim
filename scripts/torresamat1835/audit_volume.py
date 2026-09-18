@@ -28,6 +28,7 @@ import page_parser
 import severe_headings
 import source_ocr
 import structure
+import written_ordinals
 from model import BlockKind
 
 
@@ -461,8 +462,13 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         represented=severe_represented)
     severe_seconds = round(time.time() - severe_started, 2)
     severe_reviews = {}
+    # Una fila del barrido estructural la cierra la revisión que la
+    # contestó, venga del barrido mismo o de la tanda de ordinales
+    # escritos: el candidato de Sabiduría salió de aquí y se resolvió
+    # allí, y tiene que dejar de estar pendiente sin desaparecer.
     for entry in (payload.get("reviews", []) if payload else []):
-        if entry.get("discovered_by") != "severely_corrupted_heading":
+        if entry.get("discovered_by") not in ("severely_corrupted_heading",
+                                              "written_ordinal"):
             continue
         # Un rótulo confirmado nombra su renglón; un rechazo nombra el
         # candidato que contestó. Los dos cierran la misma fila.
@@ -538,6 +544,105 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
                                   if r["recovered_chapter"] is not None),
         "summary": severe_headings.summary(severe_candidates),
         "candidates": severe_rows,
+    }
+
+    # Números de división escritos con palabra. Es otra evidencia que el
+    # numeral romano y se cuenta aparte: la primera división de cada
+    # libro de este tomo lleva «PRIMERO» donde las demás llevan «XXIV».
+    ordinal_started = time.time()
+    ordinal_rows = []
+    seen_ordinal_blocks = set()
+    for claim in ledger.claims:
+        evidence = claim.ordinal or {}
+        if evidence.get("status") not in (written_ordinals.RECOGNIZED,
+                                          written_ordinals.UNSUPPORTED):
+            continue
+        seen_ordinal_blocks.add(claim.block_id)
+        ordinal_rows.append({
+            "found_in": "chapter_claim",
+            "book": claim.book, "scan_page": claim.scan_page,
+            "pdf_page": claim.scan_page + 1, "block_id": claim.block_id,
+            "raw_text": claim.raw_heading[:120],
+            "is_heading": bool(claim.is_structural_heading),
+            "heading_source": (claim.heading or {}).get("source"),
+            "ordinal_raw": evidence.get("raw_token"),
+            "ordinal_normalized": evidence.get("normalized_token"),
+            "ordinal_status": evidence.get("status"),
+            "ordinal_value": evidence.get("value"),
+            "numeral_status": claim.numeral.get("status"),
+            "numeral_value": claim.numeral.get("value"),
+            "claim_id": claim.claim_id,
+            "claim_disposition": claim.disposition,
+            "claim_number": claim.accepted_number,
+            "number_source": claim.number_source,
+            "proposal_method": claim.proposal_method,
+            "review_id": (claim.provenance or {}).get("review_id"),
+            "evidence_source": ("image_review"
+                                if claim.source == chapter_claims.FROM_IMAGE_REVIEW
+                                else "ocr_text"),
+            "still_pending": claim.accepted_number is None,
+        })
+    # Y las filas que el barrido estructural ofreció sin que llegaran a
+    # ser reclamo: ahí es donde estaba el rótulo de Sabiduría, con la
+    # palabra de división y la del número rotas a la vez.
+    for row in severe_rows:
+        if not written_ordinals.looks_ordinal(row["raw_text"]):
+            continue
+        if any(block in seen_ordinal_blocks for block in row["block_ids"]):
+            continue
+        reading = written_ordinals.read(row["raw_text"], strict=False)
+        ordinal_rows.append({
+            "found_in": "severe_heading_candidate",
+            "book": row["book"], "scan_page": row["scan_page"],
+            "pdf_page": row["pdf_page"], "block_id": row["block_ids"][0],
+            "raw_text": row["raw_text"][:120],
+            "is_heading": None,
+            "heading_source": "structural_sweep",
+            "ordinal_raw": reading.raw_token,
+            "ordinal_normalized": reading.normalized_token,
+            "ordinal_status": reading.status,
+            "ordinal_value": reading.value,
+            "numeral_status": None, "numeral_value": None,
+            "claim_id": None,
+            "claim_disposition": None, "claim_number": None,
+            "number_source": None, "proposal_method": None,
+            "review_id": row["review_id"],
+            "evidence_source": "structural_sweep",
+            "still_pending": bool(row["still_pending"]),
+        })
+    ordinal_rows.sort(key=lambda r: (r["scan_page"], r["block_id"]))
+    ordinal_conflicts = [c.as_dict() for c in ledger.claims
+                         if c.proposal_method == chapter_claims.ORDINAL_CONFLICT]
+    ordinal_report = {
+        "about": ("Divisiones cuyo número está escrito con palabra y no con "
+                  "numeral romano. Son evidencia distinta y se leen con un "
+                  "vocabulario cerrado, medido en el tomo: lo que no está en "
+                  "la tabla no se lee, y una palabra dañada espera a la "
+                  "imagen en vez de arreglarse por parecido."),
+        "vocabulary": written_ordinals.vocabulary(),
+        "language": written_ordinals.LANGUAGE,
+        "candidates_total": len(ordinal_rows),
+        "reviewed": sum(1 for r in ordinal_rows if r["review_id"]),
+        "recognized_clean": sum(
+            1 for r in ordinal_rows
+            if r["ordinal_status"] == written_ordinals.RECOGNIZED
+            and r["evidence_source"] == "ocr_text"),
+        "image_resolved": sum(1 for r in ordinal_rows
+                              if r["number_source"] == "image_review_ordinal"),
+        "unsupported": sum(1 for r in ordinal_rows
+                           if r["ordinal_status"] == written_ordinals.UNSUPPORTED),
+        "conflicts": len(ordinal_conflicts),
+        "conflict_detail": ordinal_conflicts,
+        "pending_review": sum(1 for r in ordinal_rows if r["still_pending"]),
+        "by_book": dict(sorted(collections.Counter(
+            r["book"] or "(front matter)" for r in ordinal_rows).items())),
+        "by_ordinal_value": dict(sorted(collections.Counter(
+            str(r["ordinal_value"]) for r in ordinal_rows).items())),
+        "by_number_source": dict(sorted(collections.Counter(
+            r["number_source"] for r in ordinal_rows
+            if r["number_source"]).items())),
+        "scan_seconds": round(time.time() - ordinal_started, 2),
+        "candidates": ordinal_rows,
     }
 
     # Cola de revisión visual, ordenada por lo que más devuelve. No crea
@@ -871,8 +976,12 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         "ambiguous_after": claims_report["ambiguous_numeral"],
         "accepted_before": pre_counts["accepted"],
         "accepted_after": claims_report["accepted"],
-        "unresolved_before": pre_counts["unresolved_claims"],
-        "unresolved_after": claims_report["unresolved_claims"],
+        # «Sin número» y «sin resolver» no son lo mismo: lo segundo
+        # excluye lo que se decidió rechazar. Se publican los dos.
+        "without_number_before": pre_counts["without_number"],
+        "without_number_after": claims_report["without_number"],
+        "unresolved_before": pre_counts["unresolved"],
+        "unresolved_after": claims_report["unresolved"],
         "direct_image_recoveries": len(direct),
         "cascade_resolutions": len(cascade),
         "direct": [{"review_id": c.proposal_evidence.get("review_id"),
@@ -905,6 +1014,8 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
             "accepted_after": now.get("accepted", 0),
             "invalid_before": was.get("invalid_numeral", 0),
             "invalid_after": now.get("invalid_numeral", 0),
+            "without_number_before": was.get("without_number", 0),
+            "without_number_after": now.get("without_number", 0),
             "unresolved_before": was.get("unresolved", 0),
             "unresolved_after": now.get("unresolved", 0),
         }
@@ -993,6 +1104,7 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         "chapter_image_recovery": recovery_report,
         "corrupted_division_marker_candidates": marker_report,
         "severely_corrupted_heading_candidates": severe_report,
+        "written_ordinal_headings": ordinal_report,
         "image_review_queue": candidate_report,
         "missing_heading_reviews": missing_report,
         "book_boundary_resolution": {
@@ -1144,6 +1256,17 @@ def main():
             print(f"    {osis:5} {stat['before']:6} {stat['after']:6}"
                   f"  {stat['gained']} lost={stat['lost']}"
                   f" vulg={stat['vulg_audit_limit']}")
+    wo = report.get("written_ordinal_headings", {})
+    if wo:
+        print(f"  written ordinals          candidates={wo['candidates_total']}"
+              f" clean={wo['recognized_clean']}"
+              f" image={wo['image_resolved']}"
+              f" unsupported={wo['unsupported']}"
+              f" conflicts={wo['conflicts']}"
+              f" PENDING={wo['pending_review']}  ({wo['scan_seconds']}s)")
+        print(f"    vocabulary               {wo['vocabulary']}"
+              f"   by book {wo['by_book']}")
+        print(f"    by number source         {wo['by_number_source']}")
     sv = report.get("severely_corrupted_heading_candidates", {})
     if sv:
         print(f"  severe headings            candidates={sv['candidates_total']}"
@@ -1240,7 +1363,9 @@ def main():
     if cc:
         print(f"  chapter claims             total={cc['total_claims']}"
               f" accepted={cc['accepted']}"
-              f" unresolved={cc['unresolved_claims']}")
+              f" unresolved={cc['unresolved']}"
+              f" without_number={cc['without_number']}"
+              f" (= unresolved + {cc['rejected_false_heading']} rejected)")
         print(f"    invalid_numeral          {cc['invalid_numeral']}")
         print(f"    ambiguous_numeral        {cc['ambiguous_numeral']}")
         print(f"    uncorroborated           {cc['uncorroborated_correction']}")
@@ -1257,13 +1382,13 @@ def main():
                 print(f"        p{claimant['scan_page']:<4}"
                       f" {claimant['block_id']:14} {claimant['source']:12}"
                       f" {claimant['raw_heading'][:34]!r}")
-        print("  book   raw  valid invalid ambig uncorr samephys compet accepted unres")
+        print("  book   raw  valid invalid ambig uncorr samephys compet accepted unres  nonum")
         for osis, stat in sorted(cc["per_book"].items()):
             print(f"    {osis:5} {stat['raw_claims']:4} {stat['raw_numeral_valid']:6}"
                   f" {stat['raw_numeral_invalid']:7} {stat['ambiguous']:5}"
                   f" {stat['uncorroborated']:6} {stat['same_physical_duplicates']:8}"
                   f" {stat['competing']:6} {stat['accepted']:8}"
-                  f" {stat['unresolved']:5}")
+                  f" {stat['unresolved']:5} {stat['without_number']:6}")
         print(f"  resolution rounds          {cc['rounds']}"
               f"   (only accepted chapters anchor the sequence)")
         print(f"  competing_chapter_claims   {report['competing_chapter_claims']}"
