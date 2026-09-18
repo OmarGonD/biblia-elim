@@ -1117,6 +1117,17 @@ if (BUILD_TESTING AND UNIX AND PYTHON3_EXECUTABLE)
   set_tests_properties (torresamat1835_embedded_markers_test PROPERTIES
     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
     )
+  # Qué imprime la plana donde el reconocimiento dejó un glifo: el
+  # inventario por forma exacta, la muestra reproducible y la prueba de
+  # que nada de esto ha entrado en el programa como tabla de glifos.
+  add_test (
+    NAME torresamat1835_verse_glyph_reviews_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_verse_glyph_reviews.py
+    )
+  set_tests_properties (torresamat1835_verse_glyph_reviews_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
+    )
   # Qué número puede abrir un versículo: el canon RECHAZA un número
   # imposible, y una cifra entera tapada por puntuación sí es marcador.
   add_test (

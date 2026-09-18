@@ -18,6 +18,8 @@ import time
 import book_boundaries
 import chapter_claims
 import corrupted_markers
+import glyph_forms
+import glyph_reviews
 import heading_validity
 import image_reviews
 import layout
@@ -1356,8 +1358,17 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         out["sample"] = [g.key for g in
                          verse_gaps.sample(found, size=out["sample_size"])]
         # Lo que se miró en el facsímil, y cómo acabó cada uno.
+        # Sólo las tandas de FRONTERA. La 127 mira otra cosa --qué cifra
+        # imprime la plana donde el reconocimiento dejó un glifo-- y
+        # tiene su propio vocabulario de desenlaces; sumarlas aquí
+        # mezclaría dos preguntas distintas en un mismo recuento y
+        # haría ilegibles las dos.
         seen, by_outcome, bank = [], {}, {}
-        for entry in (verse_payload.get("reviews", []) if verse_payload else []):
+        boundary_reviews = [entry for entry
+                            in (verse_payload.get("reviews", [])
+                                if verse_payload else [])
+                            if entry.get("batch") != glyph_reviews.BATCH]
+        for entry in boundary_reviews:
             key = f"{entry['book']}.{entry['chapter']}.{entry['verse']}"
             by_outcome[entry["outcome"]] = by_outcome.get(entry["outcome"], 0) + 1
             seen.append({
@@ -1503,6 +1514,88 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
                 row["book"] for row in pending).items())),
             "pending": pending,
             "blocks_logically_split": 0,
+        }
+
+        # La clase que la 127 fue a inventariar: el hueco cuyo indicio es
+        # un GLIFO suelto dentro del verso anterior. No se recupera nada
+        # aquí; se cuenta por forma exacta, se lleva una muestra al
+        # facsímil y se dice qué imprime la plana. La correspondencia
+        # --si la hay-- la establece la imagen, y vive en las revisiones.
+        instances = glyph_forms.inventory(edition, found)
+        forms_table = glyph_forms.forms(instances)
+        picked = glyph_forms.sample(instances)
+        glyph_rows = glyph_reviews.reviews_of(verse_payload)
+        # La matriz se calcula SÓLO sobre los renglones de esta clase.
+        # Los cuatro pendientes de la 126 y las cifras sueltas se miraron
+        # en la misma tanda, pero son otra población: si entrasen aquí
+        # inventariarían formas que este inventario no tiene.
+        form_rows = glyph_reviews.of_population(
+            glyph_rows, glyph_reviews.GLYPH_POPULATIONS)
+        carried = glyph_reviews.of_population(
+            glyph_rows, glyph_reviews.CARRIED_POPULATIONS)
+        matrix = glyph_reviews.by_form(form_rows)
+        verdicts = glyph_reviews.classify(matrix)
+        out["glyph_facsimile_validation"] = {
+            "about": ("Formas que el reconocimiento dejó donde el impreso "
+                      "pone la cifra del versículo. Se agrupan por la forma "
+                      "EXACTA --sin quitar acentos, sin unificar la caja y "
+                      "sin colapsar las compuestas-- y se validan contra el "
+                      "facsímil. La plana establece la correspondencia; ni "
+                      "el hueco esperado ni la secuencia de los vecinos "
+                      "intervienen en la lectura."),
+            "counted_apart": (
+                "`candidate_instances_total` son RENGLONES y "
+                "`candidate_gaps_total` son HUECOS: varios huecos seguidos "
+                "señalan el mismo renglón, así que mirar uno contesta por "
+                "todos ellos y confundir las dos cuentas multiplicaría la "
+                "evidencia por cerca de cuatro. `reviewed` es lo mirado; "
+                "`candidate_for_automation` es lo que además cumple el "
+                "criterio, que es mucho menos."),
+            "authority": ("FACSIMILE ESTABLISHES THE GLYPH MAPPING. El valor "
+                          "impreso sale de la imagen. El hueco esperado se "
+                          "guarda como estrato y está marcado como "
+                          "diagnóstico en cada registro."),
+            "candidate_signal": glyph_forms.CANDIDATE_SIGNAL,
+            "candidate_instances_total": len(instances),
+            "candidate_gaps_total": sum(len(i.gap_keys) for i in instances),
+            "forms_total": len(forms_table),
+            "forms_by_frequency": forms_table,
+            "candidates_by_book": dict(sorted(collections.Counter(
+                book for i in instances for book in i.books).items())),
+            "review_floor": glyph_forms.REVIEW_FLOOR,
+            "indent_floor_px": glyph_forms.INDENT_FLOOR,
+            "sample_size": len(picked),
+            "sample_by_form": dict(sorted(collections.Counter(
+                i.glyph_form for i in picked).items())),
+            "sample_by_book": dict(sorted(collections.Counter(
+                i.book for i in picked).items())),
+            "sample": [i.block_id for i in picked],
+            "schema_problems": glyph_reviews.problems(glyph_rows),
+            "reviewed": len(glyph_rows),
+            "reviewed_in_this_class": len(form_rows),
+            "reviewed_by_population": dict(sorted(collections.Counter(
+                row["population"] for row in glyph_rows).items())),
+            "by_outcome": dict(sorted(collections.Counter(
+                row["outcome"] for row in form_rows).items())),
+            "by_outcome_all_populations": dict(sorted(collections.Counter(
+                row["outcome"] for row in glyph_rows).items())),
+            "carried_cases": carried,
+            "by_form": matrix,
+            "by_printed_value": dict(sorted(
+                (str(value), count) for value, count in collections.Counter(
+                    row["observed_printed_value"] for row in form_rows
+                    if row["observed_printed_value"] is not None).items())),
+            "negative_controls": glyph_reviews.negative_controls(form_rows),
+            "candidate_for_automation":
+                sorted(verdicts["candidate_for_automation"]),
+            "unsafe_forms": sorted(verdicts["unsafe"]),
+            "unresolved_forms": sorted(verdicts["unresolved"]),
+            "verdicts": verdicts,
+            "coverage": glyph_reviews.coverage(matrix, forms_table),
+            "population_estimate": glyph_reviews.estimate(matrix, forms_table),
+            "runtime_glyph_map": None,
+            "structural_effect": glyph_reviews.DIAGNOSTIC_ONLY,
+            "reviews": glyph_rows,
         }
         out["gaps"] = [g.as_dict() for g in found]
         return out

@@ -293,9 +293,15 @@ def test_R_the_raw_ocr_is_never_rewritten():
     assert audit["metrics"]["ocr_blocks"] == 57700
     for entry in _reviews()["reviews"]:
         assert "raw_ocr" in entry
+        # cada tanda nombra su campo de contexto a su manera; lo que se
+        # vigila es lo mismo en todas: que el crudo del reconocimiento y
+        # lo que se leyó en la plana son dos lecturas distintas y las dos
+        # se conservan.
+        context = (entry.get("observed_printed_text_context")
+                   or entry.get("observed_text_context"))
         if entry["observed_printed_marker"] and entry["raw_ocr"]:
-            # las dos lecturas se conservan, y son distintas
-            assert entry["raw_ocr"] != entry["observed_printed_text_context"]
+            assert context, entry["review_id"]
+            assert entry["raw_ocr"] != context, entry["review_id"]
 
 
 def test_S_a_multi_block_verse_keeps_its_context():

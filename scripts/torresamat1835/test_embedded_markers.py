@@ -276,8 +276,12 @@ def test_AB_ocr_blocks_stay_at_57700():
 def test_AC_the_verse_boundary_reviews_are_untouched():
     with open(REVIEWS, encoding="utf-8") as handle:
         data = json.load(handle)
-    assert len(data["reviews"]) == 12
-    assert {r["batch"] for r in data["reviews"]} == {"batch-124"}
+    # La 124 sigue con sus doce y con su vocabulario. Otras tandas pueden
+    # añadir las suyas -- la 127 añade las del facsímil de glifos -- y lo
+    # que no puede cambiar es lo que la 124 dejó escrito ni el hecho de
+    # que NINGUNA revisión, de la tanda que sea, toque el texto.
+    old = [r for r in data["reviews"] if r["batch"] == "batch-124"]
+    assert len(old) == 12, len(old)
     for entry in data["reviews"]:
         assert entry["structural_effect"] == "none_diagnostic_only"
 
