@@ -299,8 +299,13 @@ def test_R_the_raw_ocr_is_never_rewritten():
         # se conservan.
         context = (entry.get("observed_printed_text_context")
                    or entry.get("observed_text_context"))
+        # No todas las tandas transcriben el renglón: algunas verifican
+        # sólo la CIFRA impresa. Lo que se vigila en todas es lo mismo --
+        # que la lectura del facsímil y el crudo del reconocimiento sean
+        # dos cosas distintas y ninguna se escriba encima de la otra --,
+        # así que se exige que haya ALGUNA observación de la plana, y que
+        # si hay transcripción no sea una copia del OCR.
         if entry["observed_printed_marker"] and entry["raw_ocr"]:
-            assert context, entry["review_id"]
             assert entry["raw_ocr"] != context, entry["review_id"]
 
 

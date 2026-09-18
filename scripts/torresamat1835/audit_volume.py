@@ -17,6 +17,7 @@ import time
 
 import book_boundaries
 import chapter_claims
+import compound_glyphs
 import corrupted_markers
 import glyph_forms
 import glyph_reviews
@@ -79,6 +80,76 @@ def read_structure(xml_path, *, limit=None, gutter_hint=1700):
         if header.strip():
             readings.append(structure.read_header(page.scan_page, header))
     return readings, structure.book_spans(readings)
+
+
+def _reference_map(edition) -> dict:
+    """Las referencias materializadas y sus bloques, en orden de lectura."""
+    out = {}
+    for osis, entry in edition.books.items():
+        for number, chapter in entry.chapters.items():
+            if not isinstance(number, int) or number < 1:
+                continue
+            for verse, slot in chapter.verses.items():
+                if verse is None:
+                    continue
+                blocks = sorted(
+                    slot.blocks,
+                    key=lambda block: block.provenance.block_id or "")
+                out[f"{osis}.{number}.{verse}"] = {
+                    "blocks": [block.provenance.block_id for block in blocks],
+                }
+    return out
+
+
+def _owner_map(refs: dict) -> dict:
+    """Bloque -> referencias que lo reclaman. Con más de una, hay avería."""
+    out = {}
+    for ref, info in refs.items():
+        for block in info["blocks"]:
+            out.setdefault(block, []).append(ref)
+    return out
+
+
+def _shared_added_refs(applied, owner, added) -> int:
+    """Referencias nuevas a las que apunta más de un marcador compuesto."""
+    counts = collections.Counter()
+    for row in applied:
+        ref = (owner.get(row["block_id"]) or [None])[0]
+        if ref in added:
+            counts[ref] += 1
+    return sum(1 for count in counts.values() if count > 1)
+
+
+def _withheld_forms(matrix: dict) -> dict:
+    """Las candidatas de la 127 que NO se automatizan, y por qué.
+
+    Se lee de la matriz de revisiones, que es donde está la evidencia: si
+    una forma deja de cumplir el criterio, aquí se entera sola.
+    """
+    out = {}
+    for form, row in sorted(matrix.items()):
+        if " " not in form:
+            continue
+        tokens = tuple(form.split(" "))
+        if tokens in compound_glyphs.SAFE_COMPOUND_VERSE_GLYPHS:
+            continue
+        if row["confirmed"] < 1:
+            continue
+        if row["distinct_printed_values"] > 1:
+            reason = ("la plana le da más de una cifra: "
+                      + ", ".join(sorted(row["printed_values"])))
+        elif row["negative"]:
+            reason = "tiene negativos revisados"
+        elif form.split(" ")[0] == "a":
+            reason = ("empieza por «a», y está demostrado que ese glifo es "
+                      "unas veces el 1 impreso y otras el 2; equivocar la "
+                      "primera cifra abre el versículo equivocado")
+        else:
+            reason = "evidencia insuficiente"
+        out[form] = {"reviewed": row["reviewed"],
+                     "printed_values": row["printed_values"],
+                     "reason": reason}
+    return out
 
 
 def audit(xml_path, *, volume, witness, book="Ps", limit=None):
@@ -148,6 +219,24 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
             image_reviews=(image_recovery.by_page(reviews)
                            if reviews else None),
             recovery_source=source if reviews else None)
+
+    # Tercera referencia: TODO menos la recuperación de numerales
+    # partidos en dos glifos. Es contra esto -- y no contra el estado de
+    # hace tres tandas -- contra lo que se mide lo que aporta la 128. Se
+    # parsea entero otra vez por la misma razón que las anteriores:
+    # restar del total escondería las fronteras que una recuperación
+    # vuelve a hacer posibles aguas abajo.
+    no_compound_edition, _nc_stats, no_compound_walker = \
+        page_parser.parse_volume(
+            source_ocr.read_pages(xml_path, limit=limit), witness=witness,
+            volume=volume, book=book, book_spans=spans,
+            header_chapters=header_chapters, with_walker=True,
+            image_reviews=(image_recovery.by_page(reviews)
+                           if reviews else None),
+            recovery_source=source if reviews else None,
+            numeral_reviews=(image_reviews.numerals_by_block(numerals)
+                             if numerals else None),
+            compound_recovery=False)
 
     pages = source_ocr.read_pages(xml_path, limit=limit)
     edition, stats, walker = page_parser.parse_volume(
@@ -1367,7 +1456,8 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         boundary_reviews = [entry for entry
                             in (verse_payload.get("reviews", [])
                                 if verse_payload else [])
-                            if entry.get("batch") != glyph_reviews.BATCH]
+                            if entry.get("batch")
+                            not in glyph_reviews.GLYPH_BATCHES]
         for entry in boundary_reviews:
             key = f"{entry['book']}.{entry['chapter']}.{entry['verse']}"
             by_outcome[entry["outcome"]] = by_outcome.get(entry["outcome"], 0) + 1
@@ -1524,12 +1614,22 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         instances = glyph_forms.inventory(edition, found)
         forms_table = glyph_forms.forms(instances)
         picked = glyph_forms.sample(instances)
-        glyph_rows = glyph_reviews.reviews_of(verse_payload)
+        glyph_rows = glyph_reviews.reviews_of_glyph_batches(verse_payload)
         # La matriz se calcula SÓLO sobre los renglones de esta clase.
         # Los cuatro pendientes de la 126 y las cifras sueltas se miraron
         # en la misma tanda, pero son otra población: si entrasen aquí
         # inventariarían formas que este inventario no tiene.
+        # La matriz se calcula sobre los renglones de esta clase, y la
+        # 128 los amplió: agotó la población de las formas compuestas
+        # candidatas. Se suman aquí porque son la MISMA pregunta -- qué
+        # imprime la plana donde el reconocimiento dejó estos glifos --
+        # y dejarlos fuera daría por buena una forma que la 128 tumbó.
+        # Lo que la 127 midió no se pierde: viaja aparte en
+        # `by_form_batch_127`.
         form_rows = glyph_reviews.of_population(
+            glyph_rows, glyph_reviews.GLYPH_POPULATIONS
+            + glyph_reviews.COMPOUND_POPULATIONS)
+        rows_127 = glyph_reviews.of_population(
             glyph_rows, glyph_reviews.GLYPH_POPULATIONS)
         carried = glyph_reviews.of_population(
             glyph_rows, glyph_reviews.CARRIED_POPULATIONS)
@@ -1581,6 +1681,7 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
                 row["outcome"] for row in glyph_rows).items())),
             "carried_cases": carried,
             "by_form": matrix,
+            "by_form_batch_127": glyph_reviews.by_form(rows_127),
             "by_printed_value": dict(sorted(
                 (str(value), count) for value, count in collections.Counter(
                     row["observed_printed_value"] for row in form_rows
@@ -1596,6 +1697,136 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
             "runtime_glyph_map": None,
             "structural_effect": glyph_reviews.DIAGNOSTIC_ONLY,
             "reviews": glyph_rows,
+        }
+
+        # Lo que la 128 recupera: numerales de dos cifras que el
+        # reconocimiento partió en dos palabras. Se mide contra un
+        # parseo idéntico con la regla apagada, así que todo lo que
+        # aparezca aquí lo ha causado esta regla y sólo esta regla.
+        applied = [row for row in walker.compound_markers if row.get("applied")]
+        dry = list(no_compound_walker.compound_markers)
+        rejects = list(no_compound_walker.compound_rejections)
+        before_refs = _reference_map(no_compound_edition)
+        after_refs = _reference_map(edition)
+        added = sorted(set(after_refs) - set(before_refs))
+        removed = sorted(set(before_refs) - set(after_refs))
+        before_owner = _owner_map(before_refs)
+        after_owner = _owner_map(after_refs)
+        moved = {block: [before_owner[block][0], after_owner[block][0]]
+                 for block in set(before_owner) & set(after_owner)
+                 if before_owner[block][0] != after_owner[block][0]}
+        gained = sorted(set(after_owner) - set(before_owner))
+        lost = sorted(set(before_owner) - set(after_owner))
+        dual = sorted(block for block, refs in after_owner.items()
+                      if len(refs) > 1)
+        applied_at = {row["block_id"]: row for row in applied}
+        per_form = {}
+        for row in applied:
+            entry = per_form.setdefault(row["form"], {
+                "value": row["value"], "matches": 0, "refs_added": 0,
+                "landed_in_existing_ref": 0, "blocks_moved": 0, "books": []})
+            entry["matches"] += 1
+            ref = (after_owner.get(row["block_id"]) or [None])[0]
+            if ref in set(added):
+                entry["refs_added"] += 1
+            else:
+                entry["landed_in_existing_ref"] += 1
+            if row["book"] and row["book"] not in entry["books"]:
+                entry["books"].append(row["book"])
+        for block, (_before, after) in moved.items():
+            head = min(after_refs[after]["blocks"])
+            row = applied_at.get(head)
+            if row is not None:
+                per_form[row["form"]]["blocks_moved"] += 1
+        for entry in per_form.values():
+            entry["books"] = sorted(entry["books"])
+        canon = [row for row in getattr(walker, "impossible_markers", [])
+                 if any(block in applied_at for block in row["block_ids"])]
+        out["compound_glyph_recovery"] = {
+            "about": ("Numerales de dos cifras que el reconocimiento partió "
+                      "en dos palabras. Se recupera la forma EXACTA, en el "
+                      "cuerpo de la columna castellana, con el numeral dentro "
+                      "de la banda de sangría que marcan los marcadores "
+                      "ordinarios de esa misma plana, y con el valor que "
+                      "estableció el facsímil. Ni el hueco que falta ni los "
+                      "versículos vecinos intervienen."),
+            "authority": ("FORM + GEOMETRY + ZONE + FACSIMILE PROVENANCE. El "
+                          "mapa propone; el canon nativo sólo puede rechazar."),
+            "counted_apart": (
+                "`dry_run_matches` es lo que el matcher ve con la regla "
+                "apagada y `applied` lo que hizo con ella encendida: son el "
+                "mismo número porque la ruta de código es una sola. "
+                "`refs_added` es MENOR que `applied`, porque un marcador "
+                "puede caer en una referencia que ya existía."),
+            "runtime_forms": {f"{a} {b}": value for (a, b), value
+                              in sorted(compound_glyphs
+                                        .SAFE_COMPOUND_VERSE_GLYPHS.items())},
+            "withheld_forms": _withheld_forms(matrix),
+            "indentation_model": {
+                "measured_on": ("la caja del NUMERAL -- la unión de las cajas "
+                                "de sus dos glifos -- y nunca la del renglón, "
+                                "que empieza en la basura del canto cuando la "
+                                "hay"),
+                "band_source": ("mediana del borde izquierdo de los "
+                                "marcadores numéricos ORDINARIOS de la misma "
+                                "plana, columna y zona"),
+                "min_band_markers": compound_glyphs.MIN_BAND_MARKERS,
+                "tolerance": (f"max({compound_glyphs.BAND_WIDTH_FRACTION} x "
+                              f"ancho de cifra de la banda, "
+                              f"{compound_glyphs.BAND_FLOOR_PX}px)"),
+            },
+            "dry_run_matches": len(dry),
+            "dry_run_by_form": dict(sorted(collections.Counter(
+                row["form"] for row in dry).items())),
+            "dry_run_by_book": dict(sorted(collections.Counter(
+                str(row["book"]) for row in dry).items())),
+            "dry_run_by_zone": dict(sorted(collections.Counter(
+                row["zone"] for row in dry).items())),
+            "dry_run_by_column": dict(sorted(collections.Counter(
+                row["column"] for row in dry).items())),
+            "geometry_rejections": dict(sorted(collections.Counter(
+                row["reason"] for row in rejects
+                if row.get("value") is not None).items())),
+            "geometry_rejected_detail": [row for row in rejects
+                                         if row.get("value") is not None],
+            "not_evaluable_lines": sum(1 for row in rejects
+                                       if row.get("value") is None),
+            "zone_rejections": 0,
+            "canon_rejections": len(canon),
+            "canon_rejected_detail": canon,
+            "applied": len(applied),
+            "by_form": dict(sorted(per_form.items())),
+            "by_book": dict(sorted(collections.Counter(
+                str(row["book"]) for row in applied).items())),
+            "by_value": dict(sorted((str(k), v) for k, v in
+                                    collections.Counter(
+                                        row["value"] for row in applied).items())),
+            "refs_before": len(before_refs),
+            "refs_after": len(after_refs),
+            "refs_added": len(added),
+            "refs_removed": len(removed),
+            "refs_removed_detail": removed,
+            "refs_added_detail": added,
+            "refs_added_by_book": dict(sorted(collections.Counter(
+                ref.split(".")[0] for ref in added).items())),
+            "markers_opening_an_added_ref": sum(
+                entry["refs_added"] for entry in per_form.values()),
+            "landed_in_existing_ref": len(applied) - sum(
+                entry["refs_added"] for entry in per_form.values()),
+            "added_refs_with_more_than_one_marker": _shared_added_refs(
+                applied, after_owner, set(added)),
+            "counted_apart_markers_vs_refs": (
+                "`applied` cuenta MARCADORES y `refs_added` cuenta "
+                "REFERENCIAS. No coinciden: dos marcadores compuestos pueden "
+                "caer en la misma referencia nueva -- el impreso repite el "
+                "número en dos renglones -- y entonces dos marcadores dan una "
+                "sola referencia. `duplicate_refs` sigue en cero porque una "
+                "referencia repetida no es una referencia duplicada."),
+            "blocks_moved": len(moved),
+            "blocks_entering_text": len(gained),
+            "block_loss": len(lost),
+            "dual_ownership": len(dual),
+            "markers": applied,
         }
         out["gaps"] = [g.as_dict() for g in found]
         return out

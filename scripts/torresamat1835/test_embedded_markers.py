@@ -184,10 +184,19 @@ def test_P_a_marker_equal_to_the_limit_is_accepted():
 def test_Q_a_repeated_verse_does_not_duplicate_a_reference():
     audit = _audit()
     assert audit["duplicate_refs"] == []
-    outcomes = _section()["exact_numeric_marker_recovery"]["by_outcome"]
-    assert "duplicate_same_verse_marker" in outcomes
-    assert sum(outcomes.values()) == \
-        _section()["exact_numeric_marker_recovery"]["accepted"]
+    # El reparto tiene que ser exhaustivo: cada marcador aceptado cae en
+    # una categoría y en una sola. QUÉ categorías aparecen depende de lo
+    # que haya en el tomo -- una recuperación posterior puede dejar la de
+    # los duplicados vacía porque ya no hay verso compartido -- y eso no
+    # es lo que este test cuida.
+    recovery = _section()["exact_numeric_marker_recovery"]
+    outcomes = recovery["by_outcome"]
+    assert sum(outcomes.values()) == recovery["accepted"]
+    assert set(outcomes) <= {"only_numbered_line_of_its_ref",
+                             "duplicate_same_verse_marker",
+                             "shares_ref_with_plain_marker",
+                             "rejected_later_by_range_guard",
+                             "chapter_left_in_review"}, outcomes
 
 
 def test_R_ambiguous_candidates_are_left_pending_with_a_reason():
@@ -244,10 +253,25 @@ def test_W_no_text_was_lost():
 
 
 def test_X_the_glyph_cases_are_untouched():
+    """Esta tanda no convierte ninguna letra en cifra.
+
+    Los cinco casos eran, en la 126, huecos que sólo se podían cerrar
+    mirando la plana. Tres lo siguen siendo, y por la misma razón de
+    entonces: su marcador es un glifo SUELTO, y un glifo suelto es unas
+    veces cifra y otras castellano. Los otros dos los cerró la 128, pero
+    no por parecido: su numeral son DOS glifos, la 128 agotó esa
+    población en el facsímil y exige además que el número caiga en la
+    banda de sangría de la plana. Lo que aquí se vigila es que la regla
+    de la 126 --cifras decimales enteras y nada más-- no se haya
+    ensanchado a hurtadillas.
+    """
     gaps = {(g["book"], g["chapter"], g["verse"]) for g in _section()["gaps"]}
-    for key in (("Ps", 1, 2), ("Eccl", 1, 2), ("Isa", 17, 8),
-                ("Eccl", 4, 10), ("Ps", 72, 10)):
+    for key in (("Ps", 1, 2), ("Eccl", 1, 2), ("Isa", 17, 8)):
         assert key in gaps, f"{key} debe seguir sin recuperar"
+    for raw in ("a sino que tiene puesta toda su voluntad",
+                "S y no se postrará ante los altares",
+                "I o Si uno va á caer, el otro le sostiene"):
+        assert classifier.framed_verse_marker(raw) == (None, None), raw
 
 
 # ======================================================================

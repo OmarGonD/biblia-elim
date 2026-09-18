@@ -21,6 +21,7 @@ revisión; nunca al `body` del verso anterior.
 from typing import Iterable, Optional
 
 import chapter_claims
+import compound_glyphs
 import divisions
 import heading_validity
 import image_reviews as review_outcomes
@@ -38,6 +39,13 @@ LATIN_HINT = ("dominus", "domine", "deus", "quoniam", "et", "in", "meus",
               "est", "non", "qui")
 SPANISH_HINT = ("señor", "dios", "que", "los", "de", "su", "porque", "el",
                 "la", "no")
+
+#: Las decisiones que significan «este renglón declara un número de
+#: versículo». Son varias porque el número puede haber llegado por
+#: caminos distintos --limpio, enmarcado, o partido en dos glifos-- y
+#: todas cuentan igual a la hora de preguntar cuántos renglones
+#: numerados tiene un versículo.
+_NUMBERED_DECISIONS = frozenset({"numbered line", "compound_glyph_marker"})
 
 _ZONE_KIND = {
     Zone.HEADER: BlockKind.PAGE_HEADER,
@@ -95,7 +103,8 @@ class VolumeParser:
                  book: str = "Ps", gutter_hint: Optional[int] = None,
                  book_spans=None, header_chapters=None,
                  image_reviews=None, recovery_source=None,
-                 numeral_reviews=None):
+                 numeral_reviews=None, compound_recovery: bool = True):
+        self.compound_recovery = compound_recovery
         self.edition = edition
         self.witness = witness
         self.volume = volume
@@ -140,6 +149,14 @@ class VolumeParser:
         self.impossible_markers = []
         #: Marcadores aceptados sólo tras quitar la puntuación exterior.
         self.framed_markers = []
+        #: Numerales de dos cifras que el reconocimiento partió en dos
+        #: palabras («I o» por 10). Se anota SIEMPRE lo que el matcher
+        #: ve, se aplique o no: con `compound_recovery` apagado la lista
+        #: es una simulación, y con él encendido es el registro de lo que
+        #: se hizo. Una sola ruta de código para las dos cosas.
+        self.compound_markers = []
+        self.compound_rejections = []
+        self._band = None
         #: Todos los rótulos que dicen ser un capítulo, conservados antes
         #: de que ninguno se escriba. Ver chapter_claims.py: un
         #: diccionario indexado por número no puede representar dos
@@ -191,6 +208,17 @@ class VolumeParser:
         if layout.gutter is not None:
             self.gutters.append(layout.gutter)
         placed_lines = split_columns(page, gutter_hint=hint)
+        # La banda de sangría del marcador, medida en ESTA plana sobre
+        # sus propios marcadores numéricos ordinarios. Se calcula por
+        # columna y sólo con el cuerpo: la cabecera, el pie y las notas
+        # tienen otra caja y mezclarlas movería el centro.
+        self._band = {}
+        by_column = {}
+        for placed in placed_lines:
+            if placed.zone is Zone.BODY:
+                by_column.setdefault(placed.column, []).append(placed.line)
+        for column, lines in by_column.items():
+            self._band[column] = compound_glyphs.band_of(lines)
         self._bump("pages")
         self._bump("ocr_blocks", len(placed_lines))
         self._bump("gutter_found", 1 if layout.gutter is not None else 0)
@@ -306,6 +334,45 @@ class VolumeParser:
 
             # --- español canónico -------------------------------------
             self._handle_spanish(placed, prov)
+
+    def _try_compound(self, placed, prov, block):
+        """Mira si el renglón abre versículo con un numeral partido.
+
+        Anota siempre lo que ve. Sólo construye el bloque si la
+        recuperación está encendida: con ella apagada esto es la
+        simulación que pide medir antes de tocar nada.
+        """
+        self._compound_block = None
+        band = (self._band or {}).get(placed.column)
+        value, rest, detail = compound_glyphs.match(placed.line, band)
+        record = {
+            "page": self.page.scan_page, "block_id": prov.block_id,
+            "column": placed.column.value, "zone": placed.zone.value,
+            "raw": placed.line.raw_text[:90], "book": self.current_book,
+            "chapter_slot": getattr(self.chapter, "number", None),
+        }
+        record.update(detail)
+        if value is None:
+            # Sin forma conocida no hay nada que contar: la inmensa
+            # mayoría de los renglones del tomo caen aquí y llenarían el
+            # informe de ruido.
+            if rest not in (compound_glyphs.NO_TOKENS,
+                            compound_glyphs.NOT_IN_MAP):
+                record["reason"] = rest
+                self.compound_rejections.append(record)
+            return
+        record["text_head"] = rest[:60]
+        record["applied"] = bool(self.compound_recovery)
+        self.compound_markers.append(record)
+        if not self.compound_recovery:
+            return
+        if self.chapter is None:
+            record["applied"] = False
+            record["reason"] = "no_chapter_open"
+            return
+        self._compound_block = classifier.Block(
+            BlockKind.VERSE, rest, prov, number=value,
+            decision="compound_glyph_marker")
 
     def _handle_spanning(self, placed, prov):
         """Un bloque a dos columnas nunca continúa un versículo.
@@ -740,7 +807,7 @@ class VolumeParser:
                         slot.blocks,
                         key=lambda block: block.provenance.block_id or "")
                     marks = [block.provenance.block_id for block in ordered
-                             if block.decision == "numbered line"]
+                             if block.decision in _NUMBERED_DECISIONS]
                     for block in ordered:
                         placed_at[block.provenance.block_id] = (
                             osis, number, verse)
@@ -782,6 +849,17 @@ class VolumeParser:
                                     expect_editorial=self.expect_editorial)
         self.expect_editorial = False
 
+        # El numeral partido en dos palabras. Se prueba DESPUÉS de
+        # clasificar y sólo sobre lo que el clasificador no supo leer:
+        # así no le quita el sitio a ningún marcador que ya se leyera
+        # bien, ni a un rótulo, ni al argumento del editor.
+        if block.kind not in (BlockKind.VERSE, BlockKind.CHAPTER_HEADING,
+                              BlockKind.EDITORIAL_HEADING):
+            self._try_compound(placed, prov, block)
+            if getattr(self, "_compound_block", None) is not None:
+                block = self._compound_block
+                self._compound_block = None
+
         if block.kind is BlockKind.CHAPTER_HEADING:
             self._open_chapter(placed, prov, raw)
             return
@@ -803,6 +881,10 @@ class VolumeParser:
         if block.kind is BlockKind.VERSE:
             self.verse_number = block.number
             self._bump("spanish_verse_starts")
+            if getattr(block, "decision", None) == "compound_glyph_marker":
+                # Se cuenta aparte, igual que el enmarcado, para poder
+                # medir lo que aporta esta sola regla.
+                self._bump("spanish_verse_starts_compound_glyph")
             if getattr(block, "decision", None) == "framed_marker":
                 # La cifra estaba entera en el crudo y sólo la tapaba la
                 # puntuación de al lado. Se cuenta aparte para poder
@@ -819,7 +901,9 @@ class VolumeParser:
                 })
             self.chapter.verse(self.verse_number).blocks.append(
                 _block(BlockKind.VERSE, placed, prov, number=block.number,
-                       decision="numbered line", text=block.text))
+                       decision=(getattr(block, "decision", None)
+                                 or "numbered line"),
+                       text=block.text))
             return
 
         # Sin número. Sólo continúa si hay un versículo abierto en esta
@@ -842,7 +926,7 @@ def parse_volume(pages: Iterable, *, witness: str, volume: str,
                  gutter_hint: Optional[int] = None, book_spans=None,
                  header_chapters=None, with_walker: bool = False,
                  image_reviews=None, recovery_source=None,
-                 numeral_reviews=None):
+                 numeral_reviews=None, compound_recovery: bool = True):
     """Recorre las páginas y devuelve (edición, métricas)."""
     edition = edition or Edition(edition_id="TorresAmat1835")
     walker = VolumeParser(edition, witness=witness, volume=volume, book=book,
@@ -850,7 +934,8 @@ def parse_volume(pages: Iterable, *, witness: str, volume: str,
                           header_chapters=header_chapters,
                           image_reviews=image_reviews,
                           recovery_source=recovery_source,
-                          numeral_reviews=numeral_reviews)
+                          numeral_reviews=numeral_reviews,
+                          compound_recovery=compound_recovery)
     for page in pages:
         walker.feed_page(page)
     walker.finish()

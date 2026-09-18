@@ -257,15 +257,25 @@ def test_L_every_review_is_diagnostic_only():
 # --------------------------------------------------------------- M .. N
 # Lo que la tanda NO ha tocado.
 
-def test_M_no_verse_reference_changed():
+def test_M_the_glyph_reviews_change_no_verse_reference():
+    """Las revisiones son evidencia; no mueven nada por sí solas.
+
+    La 127 no creó ni una referencia. Una tanda POSTERIOR sí puede
+    recuperar, y la 128 lo hizo con nueve formas compuestas -- pero por
+    su propia regla, con su propia guarda y con su propia sección del
+    informe. Lo que este test sigue vigilando es que la vía de las
+    revisiones no sea nunca la que toca el texto: ni una entrada con
+    efecto estructural, ni un recuento de recuperaciones en esta
+    sección.
+    """
     audit = _audit()
-    assert audit["verse_refs"] == 3395, audit["verse_refs"]
-    assert audit["materialized_verse_refs"] == 3395
+    assert audit["materialized_verse_refs"] == audit["verse_refs"]
     assert audit["verse_refs_in_review_slots"] == 0
-    # y la sección nueva no dice haber recuperado nada
     section = _section()
     assert "recovered" not in section
     assert section["structural_effect"] == glyph_reviews.DIAGNOSTIC_ONLY
+    for row in _rows():
+        assert row["structural_effect"] == glyph_reviews.DIAGNOSTIC_ONLY
 
 
 def test_N_raw_ocr_is_unchanged():
@@ -385,10 +395,17 @@ def test_W_the_four_cases_pending_from_126_are_represented():
     for key in PENDING_126:
         assert key in rows, f"sin revisar: {key}"
         assert rows[key]["observed_text_context"], key
-    # y el audit sigue diciendo que son cuatro y que siguen pendientes
+    # Los cuatro de la 126 siguen pendientes. La lista puede haber
+    # CRECIDO -- una recuperación posterior cambia la vecindad y puede
+    # destapar un hueco nuevo de esa misma clase -- y lo que no puede es
+    # encogerse por la puerta de atrás ni partir un bloque.
     embedded = _audit()["verse_segmentation_audit"][
         "embedded_exact_marker_recovery"]
-    assert embedded["still_pending"] == 4, embedded["still_pending"]
+    still = {row["key"] for row in embedded["pending"]}
+    for key in PENDING_126:
+        assert key in still, f"{key} dejó de estar pendiente sin revisión"
+    assert embedded["still_pending"] == len(embedded["pending"])
+    assert embedded["still_pending"] >= 4, embedded["still_pending"]
     assert embedded["blocks_logically_split"] == 0
 
 
@@ -429,8 +446,15 @@ def test_AB_ocr_blocks_stay_at_57700():
     assert _audit()["metrics"]["ocr_blocks"] == 57700
 
 
-def test_AC_verse_refs_are_unchanged():
-    assert _audit()["verse_refs"] == 3395
+def test_AC_the_volume_still_adds_up():
+    # El total ya no es el de la 127 -- la 128 recuperó numerales
+    # partidos -- pero lo que no puede cambiar es que todas las
+    # referencias estén materializadas y ninguna quede en una ranura de
+    # revisión.
+    audit = _audit()
+    assert audit["verse_refs"] == audit["materialized_verse_refs"]
+    assert audit["verse_refs_in_review_slots"] == 0
+    assert audit["verse_refs"] >= 3395, audit["verse_refs"]
 
 
 def test_AD_the_inventory_is_offline():

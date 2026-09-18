@@ -42,6 +42,11 @@ import collections
 from typing import Dict, List, Optional
 
 BATCH = "batch-127"
+COMPOUND_BATCH = "batch-128"
+#: Todas las tandas que miran GLIFOS. La sección de fronteras del audit
+#: las excluye en bloque: preguntan otra cosa y tienen otro vocabulario
+#: de desenlaces, y sumarlas allí haría ilegibles las dos cuentas.
+GLYPH_BATCHES = (BATCH, COMPOUND_BATCH)
 
 #: De qué población sale cada revisión. La matriz de formas se calcula
 #: SÓLO con las de `GLYPH_POPULATIONS`, que son renglones de esta clase:
@@ -51,6 +56,7 @@ BATCH = "batch-127"
 #: dejó pendientes y las cifras sueltas-- y meterlas en la matriz
 #: inventariaría formas que no pertenecen a esta población.
 GLYPH_POPULATIONS = ("glyph_candidate", "negative_control", "regression_124")
+COMPOUND_POPULATIONS = ("compound_exhaustive",)
 CARRIED_POPULATIONS = ("pending_126", "detached_number")
 
 CONFIRMED = "confirmed_digit_confusion"
@@ -86,6 +92,18 @@ def reviews_of(payload, *, batch: str = BATCH) -> List[dict]:
     return sorted(rows, key=lambda row: row.get("review_id") or "")
 
 
+def reviews_of_glyph_batches(payload) -> List[dict]:
+    """Las revisiones de TODAS las tandas que miran glifos, en orden.
+
+    La 127 inventarió y la 128 agotó lo que la 127 dejó a medias. Son la
+    misma pregunta y se leen juntas; lo que no se mezcla nunca es esto
+    con las revisiones de FRONTERA de la 124, que preguntan otra cosa.
+    """
+    rows = [row for row in (payload or {}).get("reviews", [])
+            if row.get("batch") in GLYPH_BATCHES]
+    return sorted(rows, key=lambda row: row.get("review_id") or "")
+
+
 def of_population(rows: List[dict], populations) -> List[dict]:
     """Las revisiones de una población concreta."""
     wanted = frozenset(populations)
@@ -110,7 +128,8 @@ def problems(rows: List[dict]) -> List[str]:
             found.append(f"{rid}: printed value on a non-confirmed outcome")
         if not row.get("glyph_form"):
             found.append(f"{rid}: no glyph form")
-        if row.get("population") not in GLYPH_POPULATIONS + CARRIED_POPULATIONS:
+        if row.get("population") not in (GLYPH_POPULATIONS + CARRIED_POPULATIONS
+                                         + COMPOUND_POPULATIONS):
             found.append(f"{rid}: unknown population {row.get('population')!r}")
     return found
 
