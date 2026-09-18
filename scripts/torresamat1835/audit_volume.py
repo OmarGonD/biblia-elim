@@ -17,6 +17,7 @@ import time
 
 import book_boundaries
 import chapter_claims
+import a_glyph_width
 import compound_glyphs
 import corrupted_markers
 import glyph_forms
@@ -82,6 +83,55 @@ def read_structure(xml_path, *, limit=None, gutter_hint=1700):
     return readings, structure.book_spans(readings)
 
 
+def _a_glyph_geometry(xml_path, limit=None) -> dict:
+    """La caja del PRIMER glifo de cada candidata compuesta «a *».
+
+    Se recorre el reconocimiento por el mismo camino que el parser
+    --`split_columns`, la misma zona y la misma columna-- y se toma la
+    caja que el OCR dio a esa palabra. Los renglones con el marco pegado
+    NO entran: su caja empieza en la mancha y no en el glifo, y estimar
+    dónde empieza la cifra dentro de la palabra sería fabricar la medida
+    que la tanda viene a comprobar.
+    """
+    found, glued = {}, []
+    for page in source_ocr.read_pages(xml_path, limit=limit):
+        placed_lines = layout.split_columns(page)
+        bands = {}
+        for placed in placed_lines:
+            if placed.zone is layout.Zone.BODY:
+                bands.setdefault(placed.column, []).append(placed.line)
+        bands = {column: compound_glyphs.band_of(lines)
+                 for column, lines in bands.items()}
+        for placed in placed_lines:
+            words = placed.line.words
+            if len(words) < 2:
+                continue
+            block_id = f"p{page.scan_page:04d}l{placed.line.index:04d}"
+            first, reason = compound_glyphs.marker_tokens(words)
+            if first is None:
+                if reason == compound_glyphs.GLUED_FRAME:
+                    head = words[0].text.lstrip(
+                        classifier.SAFE_OUTER_MARKER_FRAME)
+                    if head[:1] == "a":
+                        glued.append(block_id)
+                continue
+            if first + 1 >= len(words) or words[first].text != "a":
+                continue
+            if len(words[first + 1].text) != 1:
+                continue
+            box = words[first].bbox
+            found[block_id] = {
+                "page": page.scan_page, "column": placed.column.value,
+                "zone": placed.zone.value,
+                "form": f"a {words[first + 1].text}",
+                "first_bbox": list(box), "width": box[2] - box[0],
+                "height": box[3] - box[1],
+                "second_bbox": list(words[first + 1].bbox),
+                "band": bands.get(placed.column),
+            }
+    return {"geometry": found, "glued": sorted(glued)}
+
+
 def _reference_map(edition) -> dict:
     """Las referencias materializadas y sus bloques, en orden de lectura."""
     out = {}
@@ -118,6 +168,73 @@ def _shared_added_refs(applied, owner, added) -> int:
         if ref in added:
             counts[ref] += 1
     return sum(1 for count in counts.values() if count > 1)
+
+
+def _a_rows_by_form(rows) -> dict:
+    """Lo medido, agrupado por la forma compuesta exacta."""
+    out = {}
+    for form in sorted({row["form"] for row in rows}):
+        sample = [row for row in rows if row["form"] == form]
+        widths = [row["width"] for row in sample]
+        out[form] = {
+            "n": len(sample),
+            "printed_values": dict(sorted(collections.Counter(
+                str(row["printed_value"]) for row in sample).items())),
+            "labels": dict(sorted(collections.Counter(
+                str(row["label"]) for row in sample).items())),
+            "width_min": min(widths), "width_max": max(widths),
+        }
+    return out
+
+
+def _literal_digit_controls(xml_path, limit=None) -> dict:
+    """La geometría de los marcadores donde el OCR SÍ leyó la cifra.
+
+    Es el contraste que dice si se está midiendo la tipografía o la
+    decisión del reconocimiento. Va aparte del corpus «a» porque no
+    necesita revisión: la cifra la puso el propio OCR.
+    """
+    import re as _re
+    plain = _re.compile(r"^[12]$")
+    found = {"1": [], "2": []}
+    for page in source_ocr.read_pages(xml_path, limit=limit):
+        for placed in layout.split_columns(page):
+            if placed.zone is not layout.Zone.BODY:
+                continue
+            if placed.column is not layout.Column.RIGHT:
+                continue
+            words = placed.line.words
+            if len(words) < 2:
+                continue
+            first, _reason = compound_glyphs.marker_tokens(words)
+            if first is None or first + 1 >= len(words):
+                continue
+            token = words[first].text
+            if not plain.match(token):
+                continue
+            box = words[first].bbox
+            found[token].append({"width": box[2] - box[0],
+                                 "height": box[3] - box[1]})
+    out = {}
+    for digit, rows in found.items():
+        widths = [row["width"] for row in rows]
+        aspects = [row["width"] / row["height"] for row in rows if row["height"]]
+        out[digit] = {
+            "n": len(rows),
+            "width": (_quantiles_of(widths) if widths else {"n": 0}),
+            "aspect": (_quantiles_of(aspects) if aspects else {"n": 0}),
+        }
+    ones = [row["width"] for row in found["1"]]
+    twos = [row["width"] for row in found["2"]]
+    out["separable"] = (max(ones) < min(twos)) if (ones and twos) else None
+    out["note"] = ("los controles tampoco se separan: el propio conjunto de "
+                   "«1» literales tiene una cola ancha que se mete de lleno "
+                   "en el rango de los «2»")
+    return out
+
+
+def _quantiles_of(values) -> dict:
+    return a_glyph_width._quantiles(list(values))
 
 
 def _withheld_forms(matrix: dict) -> dict:
@@ -1457,7 +1574,7 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
                             in (verse_payload.get("reviews", [])
                                 if verse_payload else [])
                             if entry.get("batch")
-                            not in glyph_reviews.GLYPH_BATCHES]
+                            not in glyph_reviews.NON_BOUNDARY_BATCHES]
         for entry in boundary_reviews:
             key = f"{entry['book']}.{entry['chapter']}.{entry['verse']}"
             by_outcome[entry["outcome"]] = by_outcome.get(entry["outcome"], 0) + 1
@@ -1827,6 +1944,70 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
             "block_loss": len(lost),
             "dual_ownership": len(dual),
             "markers": applied,
+        }
+
+        # ¿Separa el ancho del glifo «a» el 1 impreso del 2 impreso? La
+        # 128 dejó esa hipótesis apuntada al retener todas las formas que
+        # empiezan por «a». Aquí se mide, y sólo se mide: no hay regla
+        # que el parser pueda llamar, ni la habrá mientras las dos clases
+        # se sigan pisando.
+        measured = _a_glyph_geometry(xml_path, limit)
+        a_rows = a_glyph_width.dataset(
+            (verse_payload.get("reviews", []) if verse_payload else []),
+            measured["geometry"])
+        population = {block: row for block, row in measured["geometry"].items()
+                      if row["zone"] == "body" and row["column"] == "right"}
+        out["a_glyph_width_validation"] = {
+            "about": ("Si la caja del glifo que el reconocimiento devuelve "
+                      "como «a» permite decir cuál es la cifra impresa. La "
+                      "etiqueta la pone el facsímil --la PRIMERA cifra de lo "
+                      "leído en la plana-- y la geometría sólo puede "
+                      "predecirla. Ni el hueco que falta, ni los versículos "
+                      "vecinos, ni el segundo glifo entran en la etiqueta."),
+            "authority": ("FACSIMILE LABELS THE CLASS. GEOMETRY MAY PREDICT "
+                          "IT. El segundo glifo queda fuera a propósito: «a "
+                          "4» ya insinúa un 24, y usarlo sería fuga de la "
+                          "variable que se quiere predecir."),
+            "population": len(population),
+            "population_all_zones": len(measured["geometry"]),
+            "forms_in_population": dict(sorted(collections.Counter(
+                row["form"] for row in population.values()).items())),
+            "reviewed": len(a_rows),
+            "unreviewed": len(population) - sum(
+                1 for row in a_rows if row["block"] in population),
+            "excluded_glued_frame": len(measured["glued"]),
+            "excluded_glued_frame_blocks": measured["glued"][:40],
+            "labelled_printed_1": sum(1 for row in a_rows
+                                      if row["label"] == a_glyph_width.PRINTED_1),
+            "labelled_printed_2": sum(1 for row in a_rows
+                                      if row["label"] == a_glyph_width.PRINTED_2),
+            "forms_with_printed_1": sorted({row["form"] for row in a_rows
+                                            if row["label"] == 1}),
+            "forms_with_printed_2": sorted({row["form"] for row in a_rows
+                                            if row["label"] == 2}),
+            "raw_width_stats": a_glyph_width.stats(a_rows, "width"),
+            "normalized_width_definition": (
+                "ancho del glifo dividido por el ancho de cifra de la banda "
+                "de marcadores ordinarios de su misma plana y columna"),
+            "normalized_width_stats": a_glyph_width.stats(
+                a_rows, "normalized_width"),
+            "aspect_ratio_stats": a_glyph_width.stats(a_rows, "aspect"),
+            "overlap_raw_width": a_glyph_width.overlap(a_rows, "width"),
+            "overlap_normalized_width": a_glyph_width.overlap(
+                a_rows, "normalized_width"),
+            "overlap_aspect_ratio": a_glyph_width.overlap(a_rows, "aspect"),
+            "candidate_thresholds": a_glyph_width.thresholds(a_rows, "width"),
+            "abstention_band": a_glyph_width.abstention_band(a_rows, "width"),
+            "leave_one_out": a_glyph_width.leave_one_out(a_rows, "width"),
+            "cross_book_results": a_glyph_width.by_book(a_rows),
+            "cross_page_results": a_glyph_width.by_page(a_rows),
+            "control_digit_results": _literal_digit_controls(
+                xml_path, limit),
+            "by_form": _a_rows_by_form(a_rows),
+            "readiness_for_runtime": a_glyph_width.verdict(a_rows),
+            "chosen_rule": None,
+            "runtime_effect": a_glyph_width.DIAGNOSTIC_ONLY,
+            "rows": a_rows,
         }
         out["gaps"] = [g.as_dict() for g in found]
         return out

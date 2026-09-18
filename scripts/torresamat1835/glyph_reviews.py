@@ -47,6 +47,11 @@ COMPOUND_BATCH = "batch-128"
 #: las excluye en bloque: preguntan otra cosa y tienen otro vocabulario
 #: de desenlaces, y sumarlas allí haría ilegibles las dos cuentas.
 GLYPH_BATCHES = (BATCH, COMPOUND_BATCH)
+#: La 129 mide la GEOMETRÍA del glifo «a», no qué imprime la plana en una
+#: forma nueva. Cuenta aparte de las dos anteriores y, como ellas, fuera
+#: de la sección de FRONTERAS del audit, que pregunta otra cosa.
+WIDTH_BATCH = "batch-129"
+NON_BOUNDARY_BATCHES = GLYPH_BATCHES + (WIDTH_BATCH,)
 
 #: De qué población sale cada revisión. La matriz de formas se calcula
 #: SÓLO con las de `GLYPH_POPULATIONS`, que son renglones de esta clase:
@@ -57,6 +62,7 @@ GLYPH_BATCHES = (BATCH, COMPOUND_BATCH)
 #: inventariaría formas que no pertenecen a esta población.
 GLYPH_POPULATIONS = ("glyph_candidate", "negative_control", "regression_124")
 COMPOUND_POPULATIONS = ("compound_exhaustive",)
+WIDTH_POPULATIONS = ("a_glyph_width",)
 CARRIED_POPULATIONS = ("pending_126", "detached_number")
 
 CONFIRMED = "confirmed_digit_confusion"
@@ -129,7 +135,8 @@ def problems(rows: List[dict]) -> List[str]:
         if not row.get("glyph_form"):
             found.append(f"{rid}: no glyph form")
         if row.get("population") not in (GLYPH_POPULATIONS + CARRIED_POPULATIONS
-                                         + COMPOUND_POPULATIONS):
+                                         + COMPOUND_POPULATIONS
+                                         + WIDTH_POPULATIONS):
             found.append(f"{rid}: unknown population {row.get('population')!r}")
     return found
 
