@@ -249,38 +249,53 @@ def validate_anchors(review, entries, page, *, book) -> Optional[str]:
         return (f"review claims book {review.book} but the boundary "
                 f"resolution owns this page for {book}")
     after, before = review.insert_after_block, review.insert_before_block
-    if not after:
-        return "no insert_after_block anchor"
-    if not before:
-        return "no insert_before_block anchor"
+    heading_block = getattr(review, "heading_block", None)
 
     order = {}
     for position, entry in enumerate(entries):
         block_id = _entry_block_id(entry, page.scan_page)
         if block_id is not None:
             order[block_id] = position
-    if after not in order:
+
+    # Un rótulo puede ser la PRIMERA línea de su plana -- la edición
+    # empieza salmo en cabeza de página -- y entonces no hay ningún
+    # bloque delante que pueda servir de ancla. Eso sólo se admite
+    # cuando la revisión NOMBRA el renglón que ya existe: ahí no se
+    # inserta nada y el bloque nombrado es su propio anclaje. Para una
+    # inserción las dos anclas siguen siendo obligatorias, porque son
+    # ellas las que deciden DÓNDE va el renglón que no existe.
+    at_top = (heading_block is not None and order.get(heading_block) == 0)
+    at_bottom = (heading_block is not None
+                 and order.get(heading_block) == len(order) - 1)
+    if not after and not at_top:
+        return "no insert_after_block anchor"
+    if not before and not at_bottom:
+        return "no insert_before_block anchor"
+
+    if after and after not in order:
         return f"anchor {after} is not a block of scan page {page.scan_page}"
-    if before not in order:
+    if before and before not in order:
         return f"anchor {before} is not a block of scan page {page.scan_page}"
-    if order[after] >= order[before]:
+    if after and before and order[after] >= order[before]:
         return (f"anchors are out of reading order: {after} is not before "
                 f"{before}")
 
     # El rótulo que la revisión señala tiene que existir en esta plana y
     # caer ENTRE las anclas. Si no, la revisión describe otra cosa.
-    heading_block = getattr(review, "heading_block", None)
     if heading_block is not None:
         if heading_block not in order:
             return (f"the printed heading block {heading_block} is not a "
                     f"block of scan page {page.scan_page}")
-        if not (order[after] < order[heading_block] < order[before]):
+        low = order[after] if after else -1
+        high = order[before] if before else len(order)
+        if not (low < order[heading_block] < high):
             return (f"the printed heading block {heading_block} does not fall "
                     f"between the anchors {after} and {before}")
 
     if review.crop_bbox:
-        top = entries[order[after]].line.bbox[3]
-        bottom = entries[order[before]].line.bbox[1]
+        top = entries[order[after]].line.bbox[3] if after else 0
+        bottom = (entries[order[before]].line.bbox[1] if before
+                  else getattr(page, "height", 0) or 0)
         x0, y0, x1, y1 = review.crop_bbox
         if not (y0 <= top and bottom <= y1):
             return (f"crop_bbox {list(review.crop_bbox)} does not cover the "
@@ -402,8 +417,13 @@ def apply_verified_image_reviews(page, entries, reviews, *, source,
 
         order = {_entry_block_id(e, page.scan_page): i
                  for i, e in enumerate(stream)}
-        start = order[review.insert_after_block]
-        stop = order[review.insert_before_block]
+        # Sin ancla delante, la ventana empieza en la primera línea de la
+        # plana; sin ancla detrás, acaba en la última. Sólo ocurre con un
+        # rótulo ya presente que la revisión nombra (ver validate_anchors).
+        start = (order[review.insert_after_block]
+                 if review.insert_after_block else -1)
+        stop = (order[review.insert_before_block]
+                if review.insert_before_block else len(stream))
         provenance = _provenance(review, source)
         recovery = Recovery(
             review_id=review.id, action=INSERTED, provenance=provenance,

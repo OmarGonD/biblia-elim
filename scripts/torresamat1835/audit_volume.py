@@ -731,6 +731,109 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         "claims": remaining_rows,
     }
 
+    # Números que la versificación espera y el tomo no tiene. Un hueco
+    # del canon es una PREGUNTA --dónde mirar--, nunca una respuesta:
+    # esta edición puede fundir dos salmos, saltarse un número o
+    # numerar distinto, y eso sólo lo dice la plana. La sección existe
+    # para poder afirmar «revisado y explicado» sin que el número tenga
+    # que aparecer en el mapa de capítulos.
+    #
+    # Todo esto vive en su propia función a propósito: calcularlo al
+    # hilo del informe reutilizaba el nombre `limit`, que es el
+    # parámetro con el que este audit recorta cuántas planas lee, y
+    # dejaba el resto del recorrido leyendo sólo las primeras. Un
+    # ámbito propio es más barato que recordarlo.
+    def _canonical_gap_report():
+        accepted_numbers = {}
+        for claim in ledger.claims:
+            if claim.disposition == chapter_claims.ACCEPTED \
+                    and claim.accepted_number is not None:
+                accepted_numbers.setdefault(claim.book, {})[claim.accepted_number] = claim
+        gap_reviews = {}
+        for entry in (payload.get("reviews", []) if payload else []):
+            if entry.get("discovered_by") == "canonical_chapter_gap":
+                gap_reviews[(entry["book"], entry["expected_chapter"])] = entry
+        canonical_expected, canonical_missing = {}, {}
+        for span in spans:
+            canon_limit = structure.chapter_limit(span.osis)
+            if canon_limit is None:
+                continue
+            canonical_expected[span.osis] = canon_limit
+            have = set(accepted_numbers.get(span.osis, {}))
+            canonical_missing[span.osis] = sorted(set(range(1, canon_limit + 1)) - have)
+        gap_rows = []
+        keys = {(book, number) for book, numbers in canonical_missing.items()
+                for number in numbers} | set(gap_reviews)
+        for book, number in sorted(keys, key=lambda k: (k[0], k[1])):
+            entry = gap_reviews.get((book, number))
+            claim = accepted_numbers.get(book, {}).get(number)
+            row = {
+                "book": book, "canonical_number": number,
+                "present_in_chapter_map": claim is not None,
+                "scan_page": claim.scan_page if claim else (
+                    entry.get("scan_page") if entry else None),
+                "block_id": claim.block_id if claim else None,
+                "previous_accepted": entry.get("previous_accepted_heading") if entry else None,
+                "next_accepted": entry.get("next_accepted_heading") if entry else None,
+                "scan_range": entry.get("scan_range") if entry else None,
+                "observed_printed_text": entry.get("observed_printed_text") if entry else None,
+                "observed_printed_numeral": entry.get("observed_printed_numeral") if entry else None,
+                "observed_spanish_structure": entry.get("observed_spanish_structure") if entry else None,
+                "observed_latin_structure": entry.get("observed_latin_structure") if entry else None,
+                "ocr_state": entry.get("ocr_state") if entry else None,
+                "raw_ocr_heading": entry.get("raw_ocr_heading") if entry else None,
+                "outcome": entry.get("gap_outcome") if entry else None,
+                "review_id": entry["id"] if entry else None,
+                "structural_action": entry.get("structural_action") if entry else None,
+                "number_source": claim.number_source if claim else None,
+                # Revisado no es resuelto: un hueco puede quedar explicado
+                # porque la edición no imprime esa división, y entonces sigue
+                # sin estar en el mapa y ya no espera a nadie.
+                "still_pending": entry is None,
+            }
+            gap_rows.append(row)
+        report = {
+            "about": ("Números que la versificación espera y el mapa de capítulos "
+                      "no tiene. El canon localiza la anomalía; lo que ocurre lo "
+                      "dice el facsímil. Un hueco revisado sale de la cola aunque "
+                      "el número siga ausente: puede que la edición no lo "
+                      "imprima."),
+            "counted_apart": ("`canonical_missing` es lo que le falta al mapa "
+                              "frente al canon; `pending_review` es lo que nadie "
+                              "ha ido a mirar todavía. No son lo mismo."),
+            "canonical_expected": dict(sorted(canonical_expected.items())),
+            "accepted_physical": {book: len(numbers) for book, numbers
+                                  in sorted(accepted_numbers.items())},
+            "canonical_missing": {book: numbers for book, numbers
+                                  in sorted(canonical_missing.items()) if numbers},
+            "candidates_total": len(gap_rows),
+            "reviewed": sum(1 for r in gap_rows if r["review_id"]),
+            "physically_present": sum(1 for r in gap_rows
+                                      if r["outcome"] == "confirmed_missing_ocr_heading"),
+            "physically_absent": sum(1 for r in gap_rows
+                                     if r["outcome"] == "omitted_in_print"),
+            "merged": sum(1 for r in gap_rows if r["outcome"] in
+                          ("merged_with_previous", "merged_with_next")),
+            "local_renumbering": sum(1 for r in gap_rows if r["outcome"] ==
+                                     "local_renumbering_difference"),
+            "editorial_without_number": sum(
+                1 for r in gap_rows
+                if r["outcome"] == "editorial_division_without_number"),
+            "unreadable": sum(1 for r in gap_rows
+                              if r["outcome"] == "unreadable_facsimile"),
+            "by_outcome": dict(sorted(collections.Counter(
+                r["outcome"] or "(sin revisar)" for r in gap_rows).items())),
+            "by_book": dict(sorted(collections.Counter(
+                r["book"] for r in gap_rows).items())),
+            "pending_review": sum(1 for r in gap_rows if r["still_pending"]),
+            "unexplained": sum(1 for r in gap_rows
+                               if r["still_pending"] and not r["present_in_chapter_map"]),
+            "gaps": gap_rows,
+        }
+        return report
+
+    gap_report = _canonical_gap_report()
+
     # Cola de revisión visual, ordenada por lo que más devuelve. No crea
     # estructura: sólo dice dónde mirar.
     geometry = {}
@@ -1199,6 +1302,7 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         "severely_corrupted_heading_candidates": severe_report,
         "written_ordinal_headings": ordinal_report,
         "remaining_chapter_claim_reviews": remaining_report,
+        "canonical_chapter_gap_reviews": gap_report,
         "image_review_queue": candidate_report,
         "missing_heading_reviews": missing_report,
         "book_boundary_resolution": {
@@ -1350,6 +1454,18 @@ def main():
             print(f"    {osis:5} {stat['before']:6} {stat['after']:6}"
                   f"  {stat['gained']} lost={stat['lost']}"
                   f" vulg={stat['vulg_audit_limit']}")
+    cg = report.get("canonical_chapter_gap_reviews", {})
+    if cg:
+        print(f"  canonical gaps            candidates={cg['candidates_total']}"
+              f" reviewed={cg['reviewed']}"
+              f" present={cg['physically_present']}"
+              f" absent={cg['physically_absent']}"
+              f" merged={cg['merged']}"
+              f" PENDING={cg['pending_review']}"
+              f" unexplained={cg['unexplained']}")
+        print(f"    canonical missing        "
+              f"{cg['canonical_missing'] or 'none'}")
+        print(f"    accepted physical        {cg['accepted_physical']}")
     rc = report.get("remaining_chapter_claim_reviews", {})
     if rc:
         print(f"  remaining claims          baseline={rc['baseline_unresolved']}"

@@ -469,10 +469,19 @@ def test_a_reviewed_candidate_is_history_and_not_pending_work():
     assert queue["by_family"]["missing_heading"] == 0
     assert not [c for c in queue["top"] if c["family"] == "missing_heading"]
 
-    # 2. el generador los sigue encontrando, y el informe lo dice
-    assert section["discovered_now"] == len(FALSE_PAGES)
-    assert queue["discovered_by_family"]["missing_heading"] == len(FALSE_PAGES)
-    assert queue["reviewed_and_closed"] == len(FALSE_PAGES)
+    # 2. el generador los sigue encontrando, y el informe lo dice.
+    #    Menos aquellos cuyo blanco ya tiene explicación: la plana 53
+    #    llevaba impreso un rótulo que la tanda 123 recuperó, así que
+    #    ese blanco dejó de ser un blanco sin dueño. Lo que se fija aquí
+    #    es que ninguno de los descubiertos vuelva a estar pendiente, no
+    #    que su número no pueda bajar.
+    discovered = {r["scan_page"] for r in section["candidates"]
+                  if r["discovered_now"]}
+    assert discovered <= set(FALSE_PAGES)
+    assert discovered, "el diagnóstico sigue vivo"
+    assert section["discovered_now"] == len(discovered)
+    assert queue["discovered_by_family"]["missing_heading"] == len(discovered)
+    assert queue["reviewed_and_closed"] == len(discovered)
     assert queue["discovered_total"] == queue["total"] + \
         queue["reviewed_and_closed"]
 
@@ -482,7 +491,9 @@ def test_a_reviewed_candidate_is_history_and_not_pending_work():
         set(FALSE_PAGES)
     for page in FALSE_PAGES:
         row = rows[page]
-        assert row["discovered_now"] is True, page
+        # El blanco puede dejar de descubrirse --si otra tanda explicó
+        # esa plana-- pero la revisión no se borra: eso es la historia.
+        assert row["discovered_now"] is (page in discovered), page
         assert row["still_pending"] is False, page
         assert row["review_id"], page
 
@@ -505,8 +516,18 @@ def test_nothing_was_inserted_in_the_volume_and_no_ocr_block_appeared():
         assert record["action"] in (recovery.RESOLVED, recovery.CONFIRMED)
         assert record["target_block"] == block
         assert record["chapter_number"] == number
-    assert cr["recovered_boundaries"] == 0, \
-        "en este tomo no hubo ningún rótulo realmente ausente"
+    # Ninguno de los VEINTE candidatos de esta familia resultó ser un
+    # rótulo ausente: los trece que había estaban en el reconocimiento y
+    # los otros siete no eran rótulos. Que el tomo tenga inserciones --la
+    # tanda 123 encontró dos rótulos impresos que el reconocimiento no
+    # produjo, en planas que esta familia nunca señaló-- no cambia ese
+    # resultado, y por eso se mide sobre las revisiones de ESTA familia.
+    ours = {r["id"] for r in ir.load()["reviews"]
+            if r.get("discovered_by") == "missing_heading"}
+    inserted_here = [a for a in cr["applications"]
+                     if a["review_id"] in ours and a["action"] == recovery.INSERTED]
+    assert inserted_here == [], \
+        "en esta familia no hubo ningún rótulo realmente ausente"
     assert cr["reviews_failed_anchor_validation"] == 0
     assert cr["reviews_colliding_with_existing_chapter"] == 0
     assert cr["recovered_number_collisions"] == []

@@ -204,7 +204,11 @@ def test_every_review_keeps_its_provenance():
         assert review.scan_page >= 0
         assert review.confidence > 0
         if review.creates_boundary:
-            assert review.insert_after_block and review.insert_before_block
+            # Con anclas, o nombrando el rótulo que ya está: lo segundo
+            # es lo que permite marcar una división impresa en cabeza de
+            # plana, donde no hay ningún bloque delante que anclar.
+            assert (review.insert_after_block and review.insert_before_block) \
+                or review.heading_block, review.id
             assert review.observed_printed_text
 
 

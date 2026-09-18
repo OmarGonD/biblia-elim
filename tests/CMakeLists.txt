@@ -1107,6 +1107,16 @@ if (BUILD_TESTING AND UNIX AND PYTHON3_EXECUTABLE)
   set_tests_properties (torresamat1835_missing_headings_test PROPERTIES
     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
     )
+  # Un hueco del canon es una pregunta, no una respuesta: qué imprime la
+  # plana donde la versificación espera un número que el tomo no tiene.
+  add_test (
+    NAME torresamat1835_canonical_gaps_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_canonical_gaps.py
+    )
+  set_tests_properties (torresamat1835_canonical_gaps_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
+    )
   # Lo que quedaba al final: rótulos válidos sin número, y la lección de
   # que un romano canónico puede no ser el numeral que la plana imprime.
   add_test (

@@ -106,6 +106,10 @@ class ChapterImageReview:
     #: evidencia: un romano se valida con `roman.py` y una palabra con
     #: `written_ordinals.py`, y confundirlos sería empezar a leer
     #: «PRIMERO» como una variante mal escrita de «I».
+    #: El numeral romano tal y como lo imprime la plana, cuando la
+    #: revisión lo leyó. Va al lado del texto completo del rótulo para
+    #: que el informe pueda citar la lectura sin volver a partirla.
+    observed_printed_numeral: Optional[str] = None
     observed_printed_ordinal: Optional[str] = None
     ordinal_value: Optional[int] = None
     #: Lo que la máquina dejó donde el impreso pone el rótulo. Se
@@ -251,6 +255,18 @@ def validate(data, *, page_bounds=None, page_count=None) -> List[str]:
                 problems.append(f"{rid}: a rejection has no insertion anchor")
             if review.get("heading_block"):
                 problems.append(f"{rid}: a rejection names no printed heading")
+        # Una frontera que hay que INSERTAR necesita sus dos anclas: son
+        # las que deciden dónde va el renglón que no existe. Una que
+        # nombra el rótulo ya presente puede prescindir de una de ellas
+        # --el rótulo es la primera o la última línea de su plana--, y
+        # entonces es la geometría de la plana la que lo justifica, no la
+        # revisión: eso lo comprueba `recovery.validate_anchors`.
+        if review.get("outcome") in (BOUNDARY_AND_NUMBER, BOUNDARY_ONLY):
+            anchored = (review.get("insert_after_block")
+                        and review.get("insert_before_block"))
+            if not anchored and not review.get("heading_block"):
+                problems.append(
+                    f"{rid}: an inserted boundary needs both anchors")
         # El bloque que el facsímil señala como rótulo tiene que ser un
         # bloque de la plana que la revisión dice, y tiene que venir del
         # reconocimiento: si llevara «r» sería un renglón recuperado, no
@@ -331,6 +347,7 @@ def reviews_for(data, *, source_path=None, expected_sha256=None
             insert_before_block=review.get("insert_before_block"),
             heading_block=review.get("heading_block"),
             candidate_block=review.get("candidate_block"),
+            observed_printed_numeral=review.get("observed_printed_numeral"),
             observed_printed_ordinal=review.get("observed_printed_ordinal"),
             ordinal_value=review.get("ordinal_value"),
             raw_ocr_heading=review.get("raw_ocr_heading"),

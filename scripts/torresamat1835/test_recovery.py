@@ -457,7 +457,11 @@ def test_psalm_118_stays_a_rejection_with_no_effect():
             continue
         assert review["boundary_confirmed"] is True
         assert isinstance(review["chapter_number"], int)
-        assert review["insert_after_block"] and review["insert_before_block"]
+        # Con las dos anclas, o nombrando el renglón que ya está: lo
+        # segundo es lo que permite marcar un rótulo impreso en cabeza
+        # de plana, donde no hay ningún bloque delante que anclar.
+        assert (review["insert_after_block"] and review["insert_before_block"]) \
+            or review.get("heading_block"), review["id"]
         assert parsed[review["id"]].creates_boundary
 
 
