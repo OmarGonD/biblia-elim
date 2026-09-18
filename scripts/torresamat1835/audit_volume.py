@@ -28,7 +28,21 @@ import page_parser
 import severe_headings
 import source_ocr
 import structure
+import verse_gaps
 import written_ordinals
+
+#: La raíz del repositorio, para la metadata versionada.
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(
+    os.path.abspath(__file__))))
+
+#: Los capítulos que la tanda 124 revisó a mano: los dos casos
+#: obligatorios y los que la 123 acabó de separar. Viven aquí --en la
+#: entrada del informe-- y no en la lógica: el parser no sabe nada de
+#: ellos.
+_VERSE_BANK = frozenset({
+    ("Ps", 1), ("Wis", 1), ("Ps", 14), ("Ps", 15), ("Ps", 16), ("Ps", 25),
+    ("Ps", 129), ("Sir", 1), ("Sir", 2), ("Sir", 47), ("Sir", 48),
+})
 from model import BlockKind
 
 
@@ -72,6 +86,15 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
     # se aplica ninguna -- y el informe dice por qué, no lo silencia.
     cache = os.path.dirname(xml_path)
     payload, source, reviews, guard = None, None, [], "ok"
+    # Las fronteras de versículo miradas en el facsímil. Son un
+    # diagnóstico: ninguna crea, mueve ni renumera nada, y por eso se
+    # cargan aparte de las revisiones de capítulo.
+    verse_payload = None
+    verse_path = os.path.join(ROOT, "data", "torresamat1835",
+                              "verse_boundary_reviews.json")
+    if os.path.isfile(verse_path):
+        with open(verse_path, encoding="utf-8") as handle:
+            verse_payload = json.load(handle)
     numerals = []
     try:
         payload = image_reviews.load()
@@ -1292,6 +1315,72 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
                  "geometry, and it can never anchor the sequence."),
     }
 
+    # Segmentación de versículos: cuántas fronteras faltan, de qué forma
+    # y con qué indicio al lado. El inventario no crea nada -- ni un
+    # versículo, ni una cola de trabajo humano: un hueco detectado es
+    # una pregunta, y sólo una revisión del facsímil la contesta.
+    def _verse_segmentation_report():
+        found = verse_gaps.inventory(edition, verse_limit=structure.verse_limit)
+        out = dict(verse_gaps.summary(found))
+        out["about"] = (
+            "Huecos en la numeración de versículos. El dominio va de 1 al "
+            "mayor entre el último verso materializado y el último que "
+            "numera la versificación nativa (Vulgata de SWORD), así que "
+            "también se ven los huecos de cola. Un número materializado por "
+            "encima del último canónico no es un verso perdido: es el rastro "
+            "de un numeral espurio, y se cuenta aparte.")
+        out["counted_apart"] = (
+            "`total` son huecos detectados; `reviewed` los mirados en la "
+            "imagen. Ni uno de los detectados es trabajo humano pendiente "
+            "hasta que se sepa qué patrones se pueden recuperar solos.")
+        out["expected_count_source"] = (
+            "materialized top and native Vulgate versification (SWORD "
+            "canon_vulg.h), never sequence and never the neighbours")
+        out["strata"] = verse_gaps.strata(found)
+        out["sample_size"] = min(30, len(found))
+        out["sample"] = [g.key for g in
+                         verse_gaps.sample(found, size=out["sample_size"])]
+        # Lo que se miró en el facsímil, y cómo acabó cada uno.
+        seen, by_outcome, bank = [], {}, {}
+        for entry in (verse_payload.get("reviews", []) if verse_payload else []):
+            key = f"{entry['book']}.{entry['chapter']}.{entry['verse']}"
+            by_outcome[entry["outcome"]] = by_outcome.get(entry["outcome"], 0) + 1
+            seen.append({
+                "key": key, "review_id": entry["review_id"],
+                "scan_page": entry["scan_page"], "pdf_page": entry["pdf_page"],
+                "gap_shape": entry["gap_shape"],
+                "marker_block": entry["marker_block"],
+                "marker_case": entry["marker_case"],
+                "raw_ocr": entry["raw_ocr"],
+                "observed_printed_marker": entry["observed_printed_marker"],
+                "latin_support": entry.get("latin_support"),
+                "outcome": entry["outcome"],
+                "structural_effect": entry["structural_effect"],
+                "confidence": entry["confidence"],
+            })
+        out["reviewed"] = len(seen)
+        out["reviewed_by_outcome"] = dict(sorted(by_outcome.items()))
+        out["reviewed_detail"] = seen
+        out["manual_review_pending"] = 0
+        # El banco prioritario, con su recuento frente a la versificación.
+        for osis, entry in edition.books.items():
+            for number, chapter in entry.chapters.items():
+                if not number or (osis, number) not in _VERSE_BANK:
+                    continue
+                verses = sorted(v for v in chapter.verses if v is not None)
+                canonical = structure.verse_limit(osis, number)
+                bank[f"{osis}.{number}"] = {
+                    "canonical_verses": canonical,
+                    "materialized": verses,
+                    "materialized_count": len(verses),
+                    "missing": [g.verse for g in found
+                                if g.book == osis and g.chapter == number],
+                    "paratext_blocks": len(getattr(chapter, "paratext", ())),
+                }
+        out["priority_bank"] = dict(sorted(bank.items()))
+        out["gaps"] = [g.as_dict() for g in found]
+        return out
+
     report = {
         "heading_claim_validation": heading_report,
         "numeral_image_review": numeral_report,
@@ -1366,7 +1455,12 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         "out_of_order_refs": out_of_order,
         "out_of_order_chapters": out_of_order,
         "verse_number_gaps": gaps[:60],
+        # OJO: cuenta CAPÍTULOS con al menos un hueco, no huecos. Se
+        # conserva porque hay informes que la citan; la cuenta de huecos
+        # está en `verse_segmentation_audit`.
         "verse_number_gaps_total": len(gaps),
+        "verse_number_gap_chapters": len(gaps),
+        "verse_segmentation_audit": _verse_segmentation_report(),
         "review_queue": len(edition.review_queue),
         "review_issues_sample": issues[:200],
         "note": "Detection only. Nothing here is used to correct the text.",

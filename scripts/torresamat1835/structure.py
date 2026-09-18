@@ -247,6 +247,24 @@ def chapter_limit(osis: str) -> Optional[int]:
     return entry["caps"] if entry else None
 
 
+def verse_limit(osis: str, chapter: int) -> Optional[int]:
+    """Cuántos versículos tiene ese capítulo en la Vulgata, según SWORD.
+
+    La misma fuente que `chapter_limit` y por la misma razón: es la
+    versificación NATIVA de esta edición, no una reinterpretación. Sirve
+    para localizar anomalías --un numeral de verso que se sale del
+    capítulo-- y nunca para crear una frontera.
+    """
+    try:
+        import canon
+    except ImportError:
+        return None
+    entry = canon.POR_OSIS.get(osis)
+    if not entry or not 1 <= chapter <= len(entry["versos"]):
+        return None
+    return entry["versos"][chapter - 1]
+
+
 def resolve_chapter(*, raw_numeral, header_chapters, previous, book,
                     sequence_available=True) -> Resolution:
     """Resuelve una división cruzando señales independientes.
