@@ -92,7 +92,9 @@ def test_manifest_provenance():
         cap = 768 if name in ("chapter_image_reviews.json",
                                   "verse_boundary_reviews.json",
                                   "a_glyph_pixel_features.json",
-                                  "glued_marker_segments.json") else 256
+                                  "glued_marker_segments.json") else (2048 if name in
+                                  ("glued_marker_discriminator.json",
+                                   "remaining_glyph_inventory.json") else 256)
         assert os.path.getsize(os.path.join(data_dir, name)) < cap * 1024, name
 
 

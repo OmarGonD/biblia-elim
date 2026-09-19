@@ -2704,6 +2704,14 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         "review_issues_sample": issues[:200],
         "note": "Detection only. Nothing here is used to correct the text.",
     }
+    inventory_path = Path("data/torresamat1835/remaining_glyph_inventory.json")
+    if inventory_path.exists():
+        try:
+            report["verse_segmentation_audit"]["remaining_glyph_priority"] = json.loads(
+                inventory_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            report["verse_segmentation_audit"]["remaining_glyph_priority"] = {
+                "status": "artifact_unavailable"}
     return edition, report
 
 
