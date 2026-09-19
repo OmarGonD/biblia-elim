@@ -2341,8 +2341,8 @@
       `out_of_order_refs = 0`; `outside-canon = 0`; `ocr_blocks = 57700`.
     - CTest Torres passed 28/28; full CTest passed 40/40.
 
-- [ ] TORRES-1835-GLUED-MARKER-DISCRIMINATOR-133 Determine whether source-derived structural and pixel evidence can distinguish glued verse markers from ordinary text
-  - Status: PENDING
+- [x] TORRES-1835-GLUED-MARKER-DISCRIMINATOR-133 Determine whether source-derived structural and pixel evidence can distinguish glued verse markers from ordinary text
+  - Status: DONE
   - Description:
     Task 132 showed that physically stable segmentation is not sufficient:
     ordinary Spanish text can produce the same whitespace/component signal.
@@ -2395,6 +2395,99 @@
     - Hardcode pages, blocks, books, chapters, or verses in production.
     - Divide OCR word bboxes by character count.
     - Process facsimile pixels in parser runtime.
+    - Edit raw OCR or chapter structure.
+    - Touch unrelated UI work.
+    - Commit or push implementation work from the task agent.
+
+  - Evidence:
+    - Result: BLOCKED; diagnostic scope completed.
+    - Verdict: UNSAFE_TO_AUTOMATE.
+    - Final labelled positives: 33; ordinary-text negatives: 25;
+      apparatus negatives: 2; Latin negatives: 7; labelled population: 67.
+    - No transparent single-feature or two-feature rule achieved useful
+      positive acceptance with zero negative acceptance. Selected safe rule:
+      NONE. Safe behavior is complete abstention.
+    - true positives accepted = 0; false positives = 0; true negatives = 34;
+      false negatives = 33; abstentions = 67; positive coverage = 0%.
+    - Potential automated markers = 0; refs = 0; gaps = 0.
+    - All seven task-132 ordinary-text false-positive regressions were
+      rejected or abstained. Four difficult task-132 true-marker positives
+      remained abstained.
+    - VerseRefs remained 3848 -> 3848; ownership remained unchanged;
+      physical gaps remained 3255 -> 3255; glyph gaps remained 1310 -> 1310.
+    - Task-128 and task-131 marker/ref behavior remained unchanged.
+    - Chapters = 337/337; unresolved chapters = 0; canonical chapter gaps = 0;
+      duplicate_refs = 0; out_of_order_refs = 0; outside-canon = 0;
+      ocr_blocks = 57700.
+    - CTest Torres 28/28 passed; full CTest 40/40 passed.
+    - GLUED_FRAME recovery must remain disabled with current evidence.
+    - Task 133 is DONE because its diagnostic question was answered: permitted
+      transparent source-derived evidence cannot safely distinguish true glued
+      markers from ordinary text with useful positive coverage.
+
+- [ ] TORRES-1835-REMAINING-GLYPH-PRIORITY-134 Reclassify remaining verse glyph gaps and identify the next evidence-backed recovery family
+  - Status: PENDING
+  - Description:
+    Return to the global remaining verse-gap inventory after tasks 125-133.
+    Recompute every remaining physical/glyph gap from the current parser,
+    classify each by reproducible root cause, separate already-handled and
+    closed-unsafe families, measure existing review coverage, and identify
+    exactly one bounded family for the next task using factual evidence.
+    This task is diagnostic only.
+  - Baseline context:
+    - Current VerseRefs are approximately 3848; measure rather than assume.
+    - Current physical gaps are approximately 3255.
+    - Current glyph gaps are approximately 1310.
+    - Safe compound forms from task 128 are already handled.
+    - Safe compound a* forms from task 131 are already handled.
+    - GLUED_FRAME was investigated by tasks 132-133 and is CLOSED_UNSAFE
+      with current evidence.
+  - Required behavior:
+    - Recompute the full remaining gap inventory from current source.
+    - Give every physical gap exactly one primary root-cause category.
+    - Keep gap count, candidate-line count, unique-block count and exact-form
+      count distinct.
+    - Preserve exact OCR forms including case, accents, punctuation and token
+      spacing.
+    - Cross-reference all existing facsimile review batches before adding new
+      reviews.
+    - Audit major remaining forms such as standalone `y`, `á`, `a`, `S`,
+      unsafe compounds such as `a I`, detached numeric fragments, exact-digit
+      context rejections, layout/fused-column cases and no-local-evidence
+      cases.
+    - Keep GLUED_FRAME closed and out of the automation candidate pool.
+    - Measure positive, negative, conflicting and unreviewed evidence per
+      major family.
+    - Recommend exactly one next family using factual population, evidence,
+      negative-control safety and bounded implementation scope.
+    - If no family is recovery-ready, recommend a targeted diagnostic task
+      instead of inventing a recovery.
+  - Acceptance:
+    - Every current physical gap has exactly one primary root cause.
+    - Root-cause counts sum exactly to the physical-gap total.
+    - Exact OCR-form inventory is complete and deterministic.
+    - Already-handled families are separated from remaining work.
+    - GLUED_FRAME remains explicitly CLOSED_UNSAFE.
+    - Major remaining families have review coverage and negative-control
+      evidence measured.
+    - Exactly one task-135 family is recommended from measurable evidence.
+    - No parser/runtime recovery changes.
+    - VerseRefs, ownership and gap output remain unchanged.
+    - Chapters remain 337/337.
+    - duplicate_refs = 0.
+    - out_of_order_refs = 0.
+    - outside-canon = 0.
+    - ocr_blocks = 57700.
+  - Do not:
+    - Recover any new VerseRefs.
+    - Modify parser recovery or glyph maps.
+    - Reopen GLUED_FRAME recovery.
+    - Use expected verse as a glyph label.
+    - Use previous+1 or next-1.
+    - Normalize accents or merge exact OCR forms by visual similarity.
+    - Create arbitrary priority scores.
+    - Use ML, embeddings, neural OCR or fuzzy classification.
+    - Hardcode pages, blocks, chapters or verses.
     - Edit raw OCR or chapter structure.
     - Touch unrelated UI work.
     - Commit or push implementation work from the task agent.
