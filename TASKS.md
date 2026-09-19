@@ -2425,8 +2425,8 @@
       transparent source-derived evidence cannot safely distinguish true glued
       markers from ordinary text with useful positive coverage.
 
-- [ ] TORRES-1835-REMAINING-GLYPH-PRIORITY-134 Reclassify remaining verse glyph gaps and identify the next evidence-backed recovery family
-  - Status: PENDING
+- [x] TORRES-1835-REMAINING-GLYPH-PRIORITY-134 Reclassify remaining verse glyph gaps and identify the next evidence-backed recovery family
+  - Status: DONE
   - Description:
     Return to the global remaining verse-gap inventory after tasks 125-133.
     Recompute every remaining physical/glyph gap from the current parser,
@@ -2488,6 +2488,84 @@
     - Create arbitrary priority scores.
     - Use ML, embeddings, neural OCR or fuzzy classification.
     - Hardcode pages, blocks, chapters or verses.
+    - Edit raw OCR or chapter structure.
+    - Touch unrelated UI work.
+    - Commit or push implementation work from the task agent.
+
+  - Closure record:
+    - Result: FOUNDATION READY; diagnostic scope completed.
+    - VerseRefs = 3848; physical gaps = 3255 (interior 2302, leading 184,
+      trailing 769); glyph gaps = 1310.
+    - Primary root causes: standalone glyph 1310; detached numeric fragment
+      71; exact digit/context rejected 5; layout/column corruption 1685;
+      no-local marker evidence 184. The artifact provides the exact mutually
+      exclusive accounting semantics.
+    - Tasks 125, 126, 128 and 131 remain already handled; GLUED_FRAME remains
+      CLOSED_UNSAFE from tasks 132-133.
+    - No parser/runtime recovery was introduced. Ownership, physical gaps,
+      glyph gaps, task-128 behavior and task-131 behavior remained unchanged.
+    - Chapters = 337/337; unresolved chapters = 0; canonical chapter gaps = 0;
+      duplicate_refs = 0; out_of_order_refs = 0; outside-canon = 0;
+      ocr_blocks = 57700.
+    - remaining_glyph_inventory.json is deterministic; source/provenance guards
+      remain fail-closed.
+    - Focused sources/baseline CTest = 2/2 passed; TorresAmat CTest = 28/28
+      passed; full CTest = 39/40 passed. The only failure was the known
+      pre-existing unrelated gtk_lifecycle_smoke failure: "dictionary panel
+      did not reopen explicitly".
+    - Recommended next family: standalone_glyph_candidate. No standalone
+      glyph family is approved for recovery; task 135 must be diagnostic
+      facsimile-review work first.
+    - Task 134 is DONE because it completed the global inventory and identified
+      the next bounded evidence-gathering family without changing runtime
+      behavior.
+
+- [ ] TORRES-1835-STANDALONE-GLYPH-FACSIMILE-135 Build facsimile evidence for remaining standalone verse-marker glyphs
+  - Status: PENDING
+  - Description:
+    Build a reproducible facsimile-labelled evidence set for remaining
+    standalone verse-marker glyph candidates identified by task 134. Study
+    exact standalone OCR forms independently, including `y`, `á`, `a`, `S`
+    and other current candidates. Determine which forms, if any, show
+    consistent printed-digit semantics and strong negative discrimination to
+    justify a later bounded recovery task. This task is diagnostic only.
+  - Baseline context:
+    - Current VerseRefs are approximately 3848; measure rather than assume.
+    - Current physical gaps are approximately 3255.
+    - Current glyph gaps are approximately 1310.
+    - Task 134 identifies standalone_glyph_candidate as the next bounded
+      family requiring evidence.
+    - Compound forms solved by tasks 128/131 must not be mixed into this
+      population; GLUED_FRAME remains CLOSED_UNSAFE.
+  - Required behavior:
+    - Recompute the standalone-glyph inventory from the current parser.
+    - Preserve exact OCR forms; do not merge case, accents or visually similar
+      glyphs.
+    - Reuse prior facsimile provenance and build deterministic stratified
+      samples with explicit positive and negative controls.
+    - For each form measure population, books/pages, reviewed count, confirmed
+      printed digits, ordinary-text negatives, conflicts and unreviewed count.
+    - Audit `y`, `á`, `a` and `S` explicitly where they remain major forms.
+    - Never infer a printed digit from an expected missing verse.
+    - Classify forms as EVIDENCE_READY, NEEDS_MORE_REVIEW or
+      UNSAFE_WITH_CURRENT_EVIDENCE and recommend exactly one bounded family or
+      exact form for task 136.
+  - Acceptance:
+    - Standalone population is complete and deterministic; exact forms remain
+      distinct; prior review provenance is not duplicated.
+    - Labels come from printed evidence, with explicit negative controls.
+    - No form is recovery-ready from frequency or expected gaps alone.
+    - Exactly one next task is recommended from factual evidence.
+    - Parser/runtime, VerseRefs, ownership, physical/glyph gaps and chapter
+      invariants remain unchanged; duplicate_refs = 0; out_of_order_refs = 0;
+      outside-canon = 0; ocr_blocks = 57700.
+  - Do not:
+    - Recover standalone glyphs or modify runtime glyph maps.
+    - Normalize `á` to `a`, lowercase forms, or merge visual variants.
+    - Treat `S`, `a` or `y` as globally numeric; use expected verse,
+      previous+1 or next-1.
+    - Reopen GLUED_FRAME or use ML, embeddings, neural OCR or fuzzy matching.
+    - Hardcode pages, blocks, books, chapters or verses in production.
     - Edit raw OCR or chapter structure.
     - Touch unrelated UI work.
     - Commit or push implementation work from the task agent.
