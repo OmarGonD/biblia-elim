@@ -2196,6 +2196,66 @@
   - Do not:
     - Commit or push.
 
+- [ ] TORRES-1835-A-GLYPH-PIXEL-RECOVERY-131 Recover safe compound a* verse markers using validated facsimile pixel evidence
+  - Status: PENDING
+  - Description:
+    Use the facsimile pixel evidence validated by
+    TORRES-1835-A-GLYPH-PIXEL-SHAPE-130 to recover only safe compound `a*`
+    verse markers.
+    The first OCR token `a` may represent printed digit 1 or 2 and must be
+    interpreted exclusively from precomputed facsimile pixel evidence.
+    The parser must not open, render, or process the PDF at runtime.
+  - Preconditions:
+    - TORRES-1835-A-GLYPH-PIXEL-SHAPE-130 is integrated in master.
+    - `data/torresamat1835/a_glyph_pixel_features.json` is present and its
+      provenance matches the validated facsimile.
+    - The existing nine safe compound glyph mappings from task 128 remain
+      unchanged.
+    - No standalone `a` or other simple glyph form is enabled.
+  - Required behavior:
+    - Fail closed if pixel evidence is missing, stale, mismatched, or from an
+      unsupported schema/source.
+    - Require agreement between validated ink-width and aspect-ratio evidence
+      for the first printed digit; disagreement or intermediate values must
+      abstain.
+    - Interpret the second token independently. Literal decimal second tokens
+      may be used literally.
+    - `a o` may be enabled only after confirming that the second `o` represents
+      printed 0 in every eligible would-apply case.
+    - `a a` may be enabled only after confirming that the second `a` represents
+      printed 2 in every eligible would-apply case.
+    - `a I` remains withheld unless an independent safe rule for its second
+      token is demonstrated.
+    - Require right-column Bible body context, marker-like indentation, valid
+      framing, and native verse-limit validation.
+    - Never infer a value from the expected gap, previous verse, next verse,
+      or canonical sequence.
+  - Acceptance:
+    - Perform a complete dry run before enabling recovery.
+    - Visually verify every case predicted as first digit 1.
+    - Reparse from source; do not patch VerseRefs after parsing.
+    - Report exact marker/ref and block-ownership deltas.
+    - Preserve raw OCR and all previous review batches.
+    - Preserve the task-128 compound recoveries unchanged.
+    - Chapter map remains 337/337.
+    - `duplicate_refs = 0`.
+    - `out_of_order_refs = 0`.
+    - `outside-canon = 0`.
+    - `ocr_blocks = 57700`.
+    - No block loss or dual ownership.
+    - Parser runtime performs no PDF rendering or image processing.
+  - Do not:
+    - Open or render the facsimile in parser runtime.
+    - Recompute Otsu or pixel features during parsing.
+    - Use OCR bbox width as the classifier.
+    - Add global `a -> 1`, `a -> 2`, `o -> 0`, or `I -> 1` substitutions.
+    - Recover standalone `a`, `S`, `y`, `o`, or other simple glyph families.
+    - Recover `GLUED_FRAME` cases.
+    - Use expected-gap, previous+1, or next-1 inference.
+    - Hardcode block IDs, pages, chapters, or verses.
+    - Edit raw OCR, chapter structure, `roman.py`, or `written_ordinals.py`.
+    - Commit or push implementation work from the task agent.
+
 - [ ] UI-SIGNAL-101 Investigate stale GObject signal handler
   - Status: TODO
   - Description:
