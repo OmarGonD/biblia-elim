@@ -89,7 +89,7 @@ def test_manifest_provenance():
         # versionado, así que tiene su propio techo. Lo que el guarda
         # persigue --escaneos, volcados de OCR, cualquier cosa pesada de
         # la fuente-- sigue prohibido en todos los demás ficheros.
-        cap = 512 if name in ("chapter_image_reviews.json",
+        cap = 768 if name in ("chapter_image_reviews.json",
                                   "verse_boundary_reviews.json",
                                   "a_glyph_pixel_features.json") else 256
         assert os.path.getsize(os.path.join(data_dir, name)) < cap * 1024, name

@@ -21,6 +21,7 @@ revisión; nunca al `body` del verso anterior.
 from typing import Iterable, Optional
 
 import chapter_claims
+import a_glyph_pixel_recovery
 import compound_glyphs
 import divisions
 import heading_validity
@@ -103,8 +104,20 @@ class VolumeParser:
                  book: str = "Ps", gutter_hint: Optional[int] = None,
                  book_spans=None, header_chapters=None,
                  image_reviews=None, recovery_source=None,
-                 numeral_reviews=None, compound_recovery: bool = True):
+                 numeral_reviews=None, compound_recovery: bool = True,
+                 a_glyph_recovery: Optional[bool] = None,
+                 a_glyph_evidence=None):
         self.compound_recovery = compound_recovery
+        self.a_glyph_recovery = (compound_recovery if a_glyph_recovery is None
+                                 else a_glyph_recovery)
+        if a_glyph_evidence is not None:
+            self.a_glyph_evidence = a_glyph_evidence
+        elif (str(volume) != a_glyph_pixel_recovery.SOURCE_VOLUME
+              or witness != a_glyph_pixel_recovery.SOURCE_WITNESS):
+            self.a_glyph_evidence = a_glyph_pixel_recovery.EvidenceIndex.invalid(
+                "parser_source_provenance_mismatch")
+        else:
+            self.a_glyph_evidence = a_glyph_pixel_recovery.default_index()
         self.edition = edition
         self.witness = witness
         self.volume = volume
@@ -156,6 +169,7 @@ class VolumeParser:
         #: se hizo. Una sola ruta de código para las dos cosas.
         self.compound_markers = []
         self.compound_rejections = []
+        self.a_glyph_candidates = []
         self._band = None
         #: Todos los rótulos que dicen ser un capítulo, conservados antes
         #: de que ninguno se escriba. Ver chapter_claims.py: un
@@ -352,6 +366,10 @@ class VolumeParser:
             "chapter_slot": getattr(self.chapter, "number", None),
         }
         record.update(detail)
+        if value is None and (detail.get("form") or "").startswith("a "):
+            value, rest, pixel = self._try_a_glyph(
+                placed, prov, band, detail)
+            record.update(pixel)
         if value is None:
             # Sin forma conocida no hay nada que contar: la inmensa
             # mayoría de los renglones del tomo caen aquí y llenarían el
@@ -361,6 +379,9 @@ class VolumeParser:
                 record["reason"] = rest
                 self.compound_rejections.append(record)
             return
+        record["value"] = value
+        if detail.get("value") is None:
+            detail["value"] = value
         record["text_head"] = rest[:60]
         record["applied"] = bool(self.compound_recovery)
         self.compound_markers.append(record)
@@ -373,6 +394,91 @@ class VolumeParser:
         self._compound_block = classifier.Block(
             BlockKind.VERSE, rest, prov, number=value,
             decision="compound_glyph_marker")
+
+    def _try_a_glyph(self, placed, prov, band, detail):
+        """Interpreta ``a *`` desde metadata ya medida; jamás desde huecos."""
+        words = placed.line.words
+        first, framing = compound_glyphs.marker_tokens(words)
+        record = {
+            "block_id": prov.block_id, "raw": placed.line.raw_text[:90],
+            "scan_page": self.page.scan_page,
+            "pdf_page": self.page.scan_page + 1,
+            "book": self.current_book,
+            "chapter_slot": getattr(self.chapter, "number", None),
+            "form": detail.get("form"), "zone": placed.zone.value,
+            "column": placed.column.value, "pixel_status": None,
+            "first_digit_decision": None, "second_token": None,
+            "second_digit": None, "candidate": None, "geometry": None,
+            "framing": framing or "valid", "final_outcome": None,
+        }
+        if first is None or first + 1 >= len(words):
+            record["final_outcome"] = framing or compound_glyphs.NO_TOKENS
+            self.a_glyph_candidates.append(record)
+            return None, record["final_outcome"], record
+        one, two = words[first].text, words[first + 1].text
+        record["second_token"] = two
+        if one != "a" or len(two) != 1:
+            record["final_outcome"] = "not_exact_a_compound"
+            self.a_glyph_candidates.append(record)
+            return None, record["final_outcome"], record
+        evidence, decision, problem = self.a_glyph_evidence.lookup(
+            prov.block_id, scan_page=self.page.scan_page,
+            form=f"{one} {two}", column=placed.column.value,
+            zone=placed.zone.value, first_bbox=words[first].bbox,
+            second_bbox=words[first + 1].bbox)
+        record["pixel_status"] = problem or "valid"
+        record["first_digit_decision"] = decision
+        if evidence:
+            record.update({"ink_width": evidence.ink_width,
+                           "ink_aspect": evidence.ink_aspect,
+                           "ink_pixels": evidence.ink_pixels})
+        if decision not in (a_glyph_pixel_recovery.PRINTED_1,
+                            a_glyph_pixel_recovery.PRINTED_2):
+            record["final_outcome"] = decision.lower()
+            self.a_glyph_candidates.append(record)
+            return None, record["final_outcome"], record
+        second = a_glyph_pixel_recovery.second_digit(two)
+        record["second_digit"] = second
+        if second is None:
+            record["final_outcome"] = a_glyph_pixel_recovery.UNSAFE_SECOND_TOKEN
+            self.a_glyph_candidates.append(record)
+            return None, record["final_outcome"], record
+        first_digit = 1 if decision == a_glyph_pixel_recovery.PRINTED_1 else 2
+        value = first_digit * 10 + second
+        record["candidate"] = value
+        # Reutiliza, sin rebajarla, la geometría y el encuadre de la 128.
+        box = compound_glyphs.marker_bbox(words, first)
+        if band is None:
+            record["geometry"] = compound_glyphs.NO_BAND
+            record["final_outcome"] = compound_glyphs.NO_BAND
+            self.a_glyph_candidates.append(record)
+            return None, record["final_outcome"], record
+        if abs(box[0] - band[0]) > compound_glyphs.tolerance(band):
+            record["geometry"] = compound_glyphs.OUT_OF_BAND
+            record["final_outcome"] = compound_glyphs.OUT_OF_BAND
+            self.a_glyph_candidates.append(record)
+            return None, record["final_outcome"], record
+        record["geometry"] = "valid"
+        rest = " ".join(word.text for word in words[first + 2:]).strip()
+        if not rest:
+            record["final_outcome"] = compound_glyphs.NO_TEXT
+            self.a_glyph_candidates.append(record)
+            return None, record["final_outcome"], record
+        if rest[:1].isdigit():
+            record["final_outcome"] = compound_glyphs.DIGIT_FOLLOWS
+            self.a_glyph_candidates.append(record)
+            return None, record["final_outcome"], record
+        record["final_outcome"] = ("would_create_marker" if
+                                   not self.a_glyph_recovery else "applied")
+        record["applied"] = bool(self.a_glyph_recovery)
+        self.a_glyph_candidates.append(record)
+        if not self.a_glyph_recovery:
+            return None, "a_glyph_recovery_disabled", record
+        detail.update({"form": f"{one} {two}", "value": value,
+                       "marker_bbox": list(box), "marker_x0": box[0],
+                       "band_center": band[0], "indent": box[0] - band[0],
+                       "tolerance": compound_glyphs.tolerance(band)})
+        return value, rest, record
 
     def _handle_spanning(self, placed, prov):
         """Un bloque a dos columnas nunca continúa un versículo.
@@ -926,7 +1032,9 @@ def parse_volume(pages: Iterable, *, witness: str, volume: str,
                  gutter_hint: Optional[int] = None, book_spans=None,
                  header_chapters=None, with_walker: bool = False,
                  image_reviews=None, recovery_source=None,
-                 numeral_reviews=None, compound_recovery: bool = True):
+                 numeral_reviews=None, compound_recovery: bool = True,
+                 a_glyph_recovery: Optional[bool] = None,
+                 a_glyph_evidence=None):
     """Recorre las páginas y devuelve (edición, métricas)."""
     edition = edition or Edition(edition_id="TorresAmat1835")
     walker = VolumeParser(edition, witness=witness, volume=volume, book=book,
@@ -935,7 +1043,9 @@ def parse_volume(pages: Iterable, *, witness: str, volume: str,
                           image_reviews=image_reviews,
                           recovery_source=recovery_source,
                           numeral_reviews=numeral_reviews,
-                          compound_recovery=compound_recovery)
+                          compound_recovery=compound_recovery,
+                          a_glyph_recovery=a_glyph_recovery,
+                          a_glyph_evidence=a_glyph_evidence)
     for page in pages:
         walker.feed_page(page)
     walker.finish()

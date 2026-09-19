@@ -1,5 +1,12 @@
 {
- "schema_version": 1,
+ "schema_version": 2,
+ "source_ocr": {
+  "volume": "3",
+  "witness": "ia-lasagradabiblia01unkngoog",
+  "filename": "lasagradabiblia01unkngoog_djvu.xml",
+  "sha256": "545fe8dcedac680271334613f3ae9c3253bd57ed80610868a7e13fdfb78ada5f",
+  "binding": "block + scan_page + exact form + column + zone + crop_bbox_scan"
+ },
  "about": "Medidas de la TINTA del primer glifo de cada candidata «a *», tomadas sobre el facsímil. La etiqueta (`label`) viene de las revisiones visuales de las tandas 127-130 y NO de estas medidas; aquí sólo se guarda geometría de la mancha. No hay ninguna imagen versionada: con `crop_bbox_render`, `crop_dpi` y `otsu_threshold` el recorte se reconstruye desde el PDF.",
  "facsimile": {
   "filename": "lasagradabiblia01unkngoog.pdf",
@@ -11,6 +18,7 @@
   "right_edge": "a medio camino entre el fin del primer token y el principio del segundo: aislamiento físico, no lectura del segundo glifo"
  },
  "preprocessing": {
+  "schema": "binary-ink-component-v1",
   "grayscale": true,
   "threshold": "Otsu por recorte",
   "threshold_deltas": [

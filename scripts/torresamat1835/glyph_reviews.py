@@ -54,7 +54,11 @@ WIDTH_BATCH = "batch-129"
 #: Y la 130 mide la TINTA del facsímil. Misma familia de preguntas, mismo
 #: sitio fuera de la sección de fronteras.
 PIXEL_BATCH = "batch-130"
-NON_BOUNDARY_BATCHES = GLYPH_BATCHES + (WIDTH_BATCH, PIXEL_BATCH)
+# La 131 verifica las decisiones de recuperación; tampoco revisa huecos de
+# frontera y tiene su propio esquema y contabilidad.
+RECOVERY_BATCH = "batch-131"
+NON_BOUNDARY_BATCHES = GLYPH_BATCHES + (WIDTH_BATCH, PIXEL_BATCH,
+                                        RECOVERY_BATCH)
 
 #: De qué población sale cada revisión. La matriz de formas se calcula
 #: SÓLO con las de `GLYPH_POPULATIONS`, que son renglones de esta clase:

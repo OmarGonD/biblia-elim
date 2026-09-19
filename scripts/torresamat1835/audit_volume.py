@@ -18,6 +18,7 @@ import time
 import book_boundaries
 import chapter_claims
 import a_glyph_pixels
+import a_glyph_pixel_recovery
 import a_glyph_width
 import compound_glyphs
 import corrupted_markers
@@ -461,7 +462,23 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
                              if numerals else None),
             compound_recovery=False)
 
+    # Estado inmediatamente anterior a la 131: las nueve formas de la 128
+    # están encendidas y sólo ``a *`` queda en simulación. Esta comparación
+    # aísla el efecto de la regla de píxeles sin atribuirle trabajo viejo.
+    no_a_started = time.perf_counter()
+    no_a_edition, _na_stats, no_a_walker = page_parser.parse_volume(
+        source_ocr.read_pages(xml_path, limit=limit), witness=witness,
+        volume=volume, book=book, book_spans=spans,
+        header_chapters=header_chapters, with_walker=True,
+        image_reviews=(image_recovery.by_page(reviews) if reviews else None),
+        recovery_source=source if reviews else None,
+        numeral_reviews=(image_reviews.numerals_by_block(numerals)
+                         if numerals else None),
+        compound_recovery=True, a_glyph_recovery=False)
+    no_a_seconds = time.perf_counter() - no_a_started
+
     pages = source_ocr.read_pages(xml_path, limit=limit)
+    applied_started = time.perf_counter()
     edition, stats, walker = page_parser.parse_volume(
         pages, witness=witness, volume=volume, book=book,
         book_spans=spans, header_chapters=header_chapters, with_walker=True,
@@ -469,6 +486,7 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         recovery_source=source if reviews else None,
         numeral_reviews=(image_reviews.numerals_by_block(numerals)
                          if numerals else None))
+    applied_seconds = time.perf_counter() - applied_started
 
     chapters = {}
     for osis, entry in edition.books.items():
@@ -1926,11 +1944,14 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         # reconocimiento partió en dos palabras. Se mide contra un
         # parseo idéntico con la regla apagada, así que todo lo que
         # aparezca aquí lo ha causado esta regla y sólo esta regla.
-        applied = [row for row in walker.compound_markers if row.get("applied")]
-        dry = list(no_compound_walker.compound_markers)
+        applied = [row for row in no_a_walker.compound_markers
+                   if row.get("applied")
+                   and not row.get("form", "").startswith("a ")]
+        dry = [row for row in no_compound_walker.compound_markers
+               if not row.get("form", "").startswith("a ")]
         rejects = list(no_compound_walker.compound_rejections)
         before_refs = _reference_map(no_compound_edition)
-        after_refs = _reference_map(edition)
+        after_refs = _reference_map(no_a_edition)
         added = sorted(set(after_refs) - set(before_refs))
         removed = sorted(set(before_refs) - set(after_refs))
         before_owner = _owner_map(before_refs)
@@ -1963,7 +1984,7 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
                 per_form[row["form"]]["blocks_moved"] += 1
         for entry in per_form.values():
             entry["books"] = sorted(entry["books"])
-        canon = [row for row in getattr(walker, "impossible_markers", [])
+        canon = [row for row in getattr(no_a_walker, "impossible_markers", [])
                  if any(block in applied_at for block in row["block_ids"])]
         out["compound_glyph_recovery"] = {
             "about": ("Numerales de dos cifras que el reconocimiento partió "
@@ -2186,6 +2207,292 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
             "runtime_effect": a_glyph_width.DIAGNOSTIC_ONLY,
             "parser_runtime_delta": 0,
             "rows": labelled,
+        }
+
+        # La 131 consume las medidas anteriores sin volver a abrir la imagen.
+        # Se compara contra una pasada completa con sólo esta regla apagada.
+        a_dry = list(no_a_walker.a_glyph_candidates)
+        a_applied = [row for row in walker.a_glyph_candidates
+                     if row.get("applied")]
+        a_before_refs = _reference_map(no_a_edition)
+        a_after_refs = _reference_map(edition)
+        a_added = sorted(set(a_after_refs) - set(a_before_refs))
+        a_removed = sorted(set(a_before_refs) - set(a_after_refs))
+        a_before_owner = _owner_map(a_before_refs)
+        a_after_owner = _owner_map(a_after_refs)
+        a_moved = {block: [a_before_owner[block][0], a_after_owner[block][0]]
+                   for block in set(a_before_owner) & set(a_after_owner)
+                   if a_before_owner[block][0] != a_after_owner[block][0]}
+        a_gained = sorted(set(a_after_owner) - set(a_before_owner))
+        a_lost = sorted(set(a_before_owner) - set(a_after_owner))
+        a_dual = sorted(block for block, owners in a_after_owner.items()
+                        if len(owners) > 1)
+        a_applied_at = {row["block_id"]: row for row in a_applied}
+        a_canon = [row for row in getattr(walker, "impossible_markers", [])
+                   if any(block in a_applied_at for block in row["block_ids"])]
+        canon_blocks = {block for row in a_canon for block in row["block_ids"]}
+        added_set = set(a_added)
+        a_by_form = {}
+        for row in a_dry:
+            entry = a_by_form.setdefault(row.get("form") or "(unknown)", {
+                "candidates": 0, "first_digit_1": 0, "first_digit_2": 0,
+                "pixel_abstain": 0, "invalid_evidence": 0,
+                "missing_evidence": 0, "unsafe_second_token": 0,
+                "geometry_rejected": 0, "canon_rejected": 0,
+                "existing_ref": 0, "recovered_markers": 0,
+                "refs_added": 0, "gaps_closed": 0, "blocks_moved": 0})
+            entry["candidates"] += 1
+            decision = row.get("first_digit_decision")
+            if decision == "PRINTED_1":
+                entry["first_digit_1"] += 1
+            elif decision == "PRINTED_2":
+                entry["first_digit_2"] += 1
+            elif decision == "ABSTAIN":
+                entry["pixel_abstain"] += 1
+            elif decision == "INVALID_EVIDENCE":
+                entry["invalid_evidence"] += 1
+            elif decision == "MISSING_EVIDENCE":
+                entry["missing_evidence"] += 1
+            outcome = row.get("final_outcome")
+            if outcome == "unsafe_second_token":
+                entry["unsafe_second_token"] += 1
+            elif outcome in (compound_glyphs.NO_BAND,
+                             compound_glyphs.OUT_OF_BAND):
+                entry["geometry_rejected"] += 1
+        for row in a_applied:
+            entry = a_by_form[row["form"]]
+            if row["block_id"] in canon_blocks:
+                entry["canon_rejected"] += 1
+                continue
+            entry["recovered_markers"] += 1
+            owner = (a_after_owner.get(row["block_id"]) or [None])[0]
+            if owner in added_set:
+                entry["refs_added"] += 1
+                entry["gaps_closed"] += 1
+            else:
+                entry["existing_ref"] += 1
+        accepted_a = [row for row in a_applied
+                      if row["block_id"] not in canon_blocks]
+        marker_rows_by_ref = collections.defaultdict(list)
+        for row in accepted_a:
+            owner = (a_after_owner.get(row["block_id"]) or [None])[0]
+            if owner:
+                marker_rows_by_ref[owner].append(row)
+        unexplained_a_moves = []
+        for block, (_old, new) in sorted(a_moved.items()):
+            marker_rows = marker_rows_by_ref.get(new, [])
+            if len(marker_rows) == 1:
+                a_by_form[marker_rows[0]["form"]]["blocks_moved"] += 1
+            else:
+                unexplained_a_moves.append({
+                    "block": block, "new_owner": new,
+                    "candidate_markers": [row["block_id"]
+                                          for row in marker_rows]})
+        duplicate_a_markers = sum(len(rows) - 1
+                                  for rows in marker_rows_by_ref.values()
+                                  if len(rows) > 1)
+
+        canon_by_block = {block: row for row in a_canon
+                          for block in row["block_ids"]}
+        for row in a_dry:
+            block = row["block_id"]
+            old_owner = (a_before_owner.get(block) or [None])[0]
+            new_owner = (a_after_owner.get(block) or [None])[0]
+            owner = new_owner or old_owner
+            if owner:
+                osis, chapter, _verse = owner.split(".")
+                row["book"] = osis
+                row["chapter"] = int(chapter)
+                row["verse_limit"] = structure.verse_limit(osis, int(chapter))
+            else:
+                row["chapter"] = None
+                row["verse_limit"] = None
+            row["existing_target_ref"] = None
+            row["would_create_ref"] = False
+            row["would_reopen_ref"] = False
+            if row.get("candidate") is not None and row.get("chapter"):
+                target = f"{row['book']}.{row['chapter']}.{row['candidate']}"
+                row["existing_target_ref"] = target in a_before_refs
+                row["would_create_ref"] = target not in a_before_refs
+                row["would_reopen_ref"] = target in a_before_refs
+                row["canon_result"] = (
+                    "accepted" if 1 <= row["candidate"] <= row["verse_limit"]
+                    else "rejected")
+            else:
+                row["canon_result"] = "not_reached"
+            if block in canon_by_block:
+                rejected = canon_by_block[block]
+                row["chapter"] = rejected["chapter"]
+                row["verse_limit"] = rejected["verse_limit"]
+                row["canon_result"] = "rejected"
+                row["would_create_ref"] = False
+                row["dry_run_outcome"] = "canon_rejected"
+            elif row.get("final_outcome") == "would_create_marker":
+                row["dry_run_outcome"] = (
+                    "existing_ref" if row["existing_target_ref"]
+                    else "would_create_ref")
+            else:
+                row["dry_run_outcome"] = row.get("final_outcome")
+
+        outcomes = collections.Counter(row.get("final_outcome") for row in a_dry)
+        dry_outcomes = collections.Counter(row.get("dry_run_outcome")
+                                           for row in a_dry)
+        firsts = collections.Counter(row.get("first_digit_decision")
+                                     for row in a_dry)
+        artifact = a_glyph_pixel_recovery.default_index()
+        reviews_131 = [row for row in (verse_payload or {}).get("reviews", [])
+                       if row.get("batch") == "batch-131"]
+        reviewed_blocks = {row.get("block") for row in reviews_131}
+        a_o_blocks = {row["block_id"] for row in a_dry
+                      if row["form"] == "a o"
+                      and row["final_outcome"] == "would_create_marker"}
+        a_a_blocks = {row["block_id"] for row in a_dry
+                      if row["form"] == "a a"
+                      and row["final_outcome"] == "would_create_marker"}
+        first_1_blocks = {row["block_id"] for row in a_dry
+                          if row.get("first_digit_decision") == "PRINTED_1"}
+        review_counts = collections.Counter(row.get("population")
+                                            for row in reviews_131)
+        status_by_form = {}
+        for form, row in sorted(a_by_form.items()):
+            if row["unsafe_second_token"]:
+                status_by_form[form] = {
+                    "status": "WITHHELD",
+                    "reason": "second token has no independently safe rule"}
+            elif row["first_digit_1"] + row["first_digit_2"] == 0:
+                status_by_form[form] = {
+                    "status": "ABSTAIN_ONLY", "reason": "pixel abstention"}
+            else:
+                status_by_form[form] = {"status": "ENABLED", "reason": (
+                    "width and aspect agree; second token independently safe; "
+                    "structural and canon guards still apply")}
+        out["a_glyph_pixel_recovery"] = {
+            "about": ("Recuperación de a* desde medidas de tinta ya "
+                      "calculadas. PÍXEL INTERPRETA; CANON RECHAZA; EL "
+                      "HUECO SÓLO MIDE."),
+            "feature_artifact": "data/torresamat1835/a_glyph_pixel_features.json",
+            "artifact_schema": a_glyph_pixel_recovery.SCHEMA_VERSION,
+            "provenance_validation": {
+                "valid": artifact.valid, "error": artifact.error,
+                "source_ocr_sha256": a_glyph_pixel_recovery.SOURCE_OCR_SHA256,
+                "facsimile_sha256": a_glyph_pixel_recovery.FACSIMILE_SHA256,
+                "volume": a_glyph_pixel_recovery.SOURCE_VOLUME,
+                "witness": a_glyph_pixel_recovery.SOURCE_WITNESS,
+                "crop_dpi": a_glyph_pixel_recovery.CROP_DPI,
+                "preprocessing_schema":
+                    a_glyph_pixel_recovery.PREPROCESSING_SCHEMA,
+            },
+            "feature_index": {"rows": len(artifact.rows),
+                              "load_seconds": artifact.load_seconds,
+                              "lookup": "O(1) dictionary by block_id",
+                              "loads_per_process": 1},
+            "performance": {
+                "parser_without_a_recovery_seconds": round(no_a_seconds, 4),
+                "parser_with_a_recovery_seconds": round(applied_seconds, 4),
+                "audit_elapsed_seconds": round(time.time() - started, 2),
+                "per_block_lookup": "not separately timed; O(1) dict lookup",
+                "runtime_image_processing": False,
+            },
+            "classifier_rule": ("PRINTED_1 iff width <= W1_MAX AND aspect "
+                                "<= A1_MAX; PRINTED_2 iff width >= W2_MIN "
+                                "AND aspect >= A2_MIN; otherwise ABSTAIN"),
+            "width_thresholds": {"W1_MAX": a_glyph_pixel_recovery.W1_MAX,
+                                 "W2_MIN": a_glyph_pixel_recovery.W2_MIN},
+            "aspect_thresholds": {"A1_MAX": a_glyph_pixel_recovery.A1_MAX,
+                                  "A2_MIN": a_glyph_pixel_recovery.A2_MIN},
+            "ink_pixel_sanity": {"P1_MAX": a_glyph_pixel_recovery.P1_MAX,
+                                 "P2_MIN": a_glyph_pixel_recovery.P2_MIN,
+                                 "behavior": "contradiction abstains; never overrides"},
+            "second_token_rules": {"ASCII 0..9": "literal",
+                                   "o": 0, "a": 2,
+                                   "I": "withheld",
+                                   "other": "withheld"},
+            "safety_gate_by_form": status_by_form,
+            "enabled_forms": sorted(form for form, row in status_by_form.items()
+                                    if row["status"] == "ENABLED"),
+            "withheld_forms": sorted(form for form, row in status_by_form.items()
+                                     if row["status"] == "WITHHELD"),
+            "dry_run": {
+                        "observed_a_compounds": (len(measured["geometry"])
+                                                 + len(measured["glued"])),
+                        "candidates": len(measured["geometry"]),
+                        "eligible_candidates": len(a_dry),
+                        "first_digit_1": firsts["PRINTED_1"],
+                        "first_digit_2": firsts["PRINTED_2"],
+                        "pixel_abstain": firsts["ABSTAIN"],
+                        "invalid_evidence": firsts["INVALID_EVIDENCE"],
+                        "missing_evidence": firsts["MISSING_EVIDENCE"],
+                        "glued_frame": len(measured["glued"]),
+                        "unsafe_second_token": outcomes["unsafe_second_token"],
+                        "geometry_rejected": (outcomes[compound_glyphs.NO_BAND]
+                                              + outcomes[compound_glyphs.OUT_OF_BAND]),
+                        "framing_rejected": (outcomes[compound_glyphs.NO_TEXT]
+                                             + outcomes[compound_glyphs.DIGIT_FOLLOWS]),
+                        "zone_rejected": (len(measured["geometry"])
+                                          - len(a_dry)),
+                        "canon_rejected": dry_outcomes["canon_rejected"],
+                        "existing_ref": dry_outcomes["existing_ref"],
+                        "would_create_ref": dry_outcomes["would_create_ref"],
+                        "would_create_marker": outcomes["would_create_marker"],
+                        "eligible_identity": (
+                            "409 = first_digit_1 + first_digit_2 + "
+                            "pixel_abstain + invalid_evidence + "
+                            "missing_evidence; independently, 409 = "
+                            "unsafe_second_token + geometry_rejected + "
+                            "framing_rejected + would_create_marker"),
+                        "inventory_identity": (
+                            "989 = 159 glued_frame + 421 zone_rejected + "
+                            "409 eligible_candidates")},
+            "visual_validation": {
+                "batch": "batch-131", "reviews": len(reviews_131),
+                "by_population": dict(sorted(review_counts.items())),
+                "predicted_first_1_total": len(first_1_blocks),
+                "predicted_first_1_reviewed":
+                    len(first_1_blocks & reviewed_blocks),
+                "predicted_first_1_complete": first_1_blocks <= reviewed_blocks,
+                "a_o_would_apply": len(a_o_blocks),
+                "a_o_reviewed": len(a_o_blocks & reviewed_blocks),
+                "a_o_complete": a_o_blocks <= reviewed_blocks,
+                "a_a_would_apply": len(a_a_blocks),
+                "a_a_reviewed": len(a_a_blocks & reviewed_blocks),
+                "a_a_complete": a_a_blocks <= reviewed_blocks,
+                "literal_distributed_sample":
+                    review_counts["a_glyph_pixel_recovery_sample"],
+                "conflicts": sum(1 for row in reviews_131
+                                 if row.get("observed_printed_value")
+                                 != row.get("full_candidate_value")),
+            },
+            "applied": len(accepted_a),
+            "markers_recovered": len(accepted_a),
+            "canon_rejections": len(a_canon),
+            "canon_rejected_detail": a_canon,
+            "by_form": dict(sorted(a_by_form.items())),
+            "by_first_digit": dict(sorted(collections.Counter(
+                row["first_digit_decision"] for row in a_applied
+                if row["block_id"] not in canon_blocks).items())),
+            "refs_before": len(a_before_refs), "refs_after": len(a_after_refs),
+            "refs_added": len(a_added), "refs_added_detail": a_added,
+            "refs_removed": len(a_removed), "refs_removed_detail": a_removed,
+            "existing_ref_matches": (len(accepted_a) - len(a_added)),
+            "refs_renumbered": 0,
+            "duplicate_markers": duplicate_a_markers,
+            "blocks_moved": len(a_moved), "ownership_changes": a_moved,
+            "unexplained_block_moves": len(unexplained_a_moves),
+            "unexplained_block_move_detail": unexplained_a_moves,
+            "blocks_entering_text": len(a_gained),
+            "block_loss": len(a_lost), "dual_ownership": len(a_dual),
+            "gaps_closed": len(a_added),
+            "abstentions": (firsts["ABSTAIN"] + firsts["INVALID_EVIDENCE"]
+                            + firsts["MISSING_EVIDENCE"]
+                            + outcomes["unsafe_second_token"]
+                            + outcomes[compound_glyphs.NO_BAND]
+                            + outcomes[compound_glyphs.OUT_OF_BAND]
+                            + outcomes[compound_glyphs.NO_TEXT]
+                            + outcomes[compound_glyphs.DIGIT_FOLLOWS]),
+            "invalid_evidence": firsts["INVALID_EVIDENCE"],
+            "geometry_rejections": (outcomes[compound_glyphs.NO_BAND]
+                                    + outcomes[compound_glyphs.OUT_OF_BAND]),
+            "rows": a_dry,
         }
         out["gaps"] = [g.as_dict() for g in found]
         return out

@@ -1161,6 +1161,17 @@ if (BUILD_TESTING AND UNIX AND PYTHON3_EXECUTABLE)
   set_tests_properties (torresamat1835_a_glyph_pixel_shape_test PROPERTIES
     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
     )
+  # Consumo fail-closed de esas medidas: ancho y proporción tienen que
+  # concordar, el segundo glifo se interpreta aparte y el parser no toca
+  # imágenes ni el facsímil.
+  add_test (
+    NAME torresamat1835_a_glyph_pixel_recovery_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_a_glyph_pixel_recovery.py
+    )
+  set_tests_properties (torresamat1835_a_glyph_pixel_recovery_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
+    )
   # Qué número puede abrir un versículo: el canon RECHAZA un número
   # imposible, y una cifra entera tapada por puntuación sí es marcador.
   add_test (

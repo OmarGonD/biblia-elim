@@ -409,8 +409,10 @@ def test_AH_no_a_mapping_was_added_to_the_runtime():
 
 def test_AI_verse_refs_are_unchanged():
     audit = _audit()
-    assert audit["verse_refs"] == 3572, audit["verse_refs"]
-    assert audit["materialized_verse_refs"] == 3572
+    pixel = audit["verse_segmentation_audit"]["a_glyph_pixel_recovery"]
+    assert pixel["refs_before"] == 3572
+    assert audit["verse_refs"] == pixel["refs_after"]
+    assert audit["materialized_verse_refs"] == pixel["refs_after"]
     assert audit["verse_refs_in_review_slots"] == 0
 
 

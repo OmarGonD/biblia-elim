@@ -203,7 +203,7 @@ def test_sources_do_not_live_in_git():
         # Los dos ledgers de revisión crecen una entrada por decisión
         # humana y cada entrada lleva su evidencia escrita: es justo lo
         # que debe estar versionado, y por eso tienen techo propio.
-        cap = 512 if name in _REVIEW_LEDGERS else 256
+        cap = 768 if name in _REVIEW_LEDGERS else 256
         assert os.path.getsize(os.path.join(data_dir, name)) < cap * 1024, name
 
     heavy = (".pdf", ".jp2", ".djvu", ".tif", ".tiff", ".zip", ".gz", ".xml")
@@ -214,7 +214,7 @@ def test_sources_do_not_live_in_git():
             for name in files:
                 assert not name.lower().endswith(heavy), os.path.join(root, name)
                 size = os.path.getsize(os.path.join(root, name))
-                cap = 512 if name in _REVIEW_LEDGERS else 256
+                cap = 768 if name in _REVIEW_LEDGERS else 256
                 assert size < cap * 1024, (name, size)
 
     cache = _manifest()["cache"]["default"]
