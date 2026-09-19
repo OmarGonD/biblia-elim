@@ -2196,8 +2196,8 @@
   - Do not:
     - Commit or push.
 
-- [ ] TORRES-1835-A-GLYPH-PIXEL-RECOVERY-131 Recover safe compound a* verse markers using validated facsimile pixel evidence
-  - Status: PENDING
+- [x] TORRES-1835-A-GLYPH-PIXEL-RECOVERY-131 Recover safe compound a* verse markers using validated facsimile pixel evidence
+  - Status: DONE
   - Description:
     Use the facsimile pixel evidence validated by
     TORRES-1835-A-GLYPH-PIXEL-SHAPE-130 to recover only safe compound `a*`
@@ -2254,6 +2254,74 @@
     - Use expected-gap, previous+1, or next-1 inference.
     - Hardcode block IDs, pages, chapters, or verses.
     - Edit raw OCR, chapter structure, `roman.py`, or `written_ordinals.py`.
+    - Commit or push implementation work from the task agent.
+
+  - Evidence:
+    - Result: PARTIAL READY, scope closed conservatively.
+    - Recovered markers: 276.
+    - VerseRefs: 3572 -> 3848; `refs_added = 276`, `refs_removed = 0`,
+      and `refs_renumbered = 0`.
+    - Physical gaps: 3531 -> 3255; glyph gaps: 1747 -> 1310.
+    - Block ownership changes: 1900, all explained; `block loss = 0` and
+      `dual ownership = 0`.
+    - Chapters: 337/337; unresolved chapter claims: 0; `duplicate_refs = 0`;
+      `out_of_order_refs = 0`; outside-canon artifacts: 0; `ocr_blocks = 57700`.
+    - Task-128 behavior was preserved. Standalone `a`/`S`/`y`/`o` families
+      remain excluded; `a-I` and other unsafe second-token forms remain
+      withheld; `GLUED_FRAME` remains intentionally unresolved.
+    - CTest Torres passed. Full CTest passed in the final task-131 report.
+
+- [ ] TORRES-1835-GLUED-COMPOUND-MARKER-AUDIT-132 Diagnose glued compound verse markers using reproducible facsimile segmentation
+  - Status: PENDING
+  - Description:
+    Investigate compound verse-marker candidates whose scan debris, marker
+    glyph, or neighboring character was merged into one OCR word
+    (`GLUED_FRAME`), preventing tasks 128-131 from obtaining a reliable
+    marker bbox.
+    This task is diagnostic only. Determine whether the actual marker glyph
+    can be segmented reproducibly from facsimile pixels offline without
+    estimating character positions from OCR word geometry.
+  - Baseline context:
+    - Task 131 left GLUED_FRAME intentionally unrecovered.
+    - The final task-131 report counted 159 glued `a*` candidates.
+    - Runtime parsing must remain free of PDF/image processing.
+    - Existing pixel evidence and safe recoveries from tasks 128-131 must
+      remain unchanged.
+  - Required behavior:
+    - Inventory all GLUED_FRAME candidates from the current corpus.
+    - Distinguish scan debris glued to a marker from true multi-character OCR
+      words and ordinary text.
+    - Use the verified facsimile offline to test reproducible pixel
+      segmentation.
+    - Treat OCR bbox only as a localization anchor.
+    - Never divide a word bbox by character count or assume monospacing.
+    - Preserve exact source/page/block provenance.
+    - Measure whether marker segmentation is stable under reasonable
+      binarization changes.
+    - Produce diagnostic metadata and a reproducible audit.
+    - Do not create or move VerseRefs in this task.
+  - Acceptance:
+    - Candidate inventory is complete and deterministic.
+    - Segmentation method is explicit, reproducible, and source-bound.
+    - Known positive/negative cases are visually reviewed.
+    - False splits of ordinary Spanish text are measured.
+    - No runtime image access is introduced.
+    - VerseRefs and block ownership remain unchanged.
+    - Chapters remain 337/337.
+    - `duplicate_refs = 0`.
+    - `out_of_order_refs = 0`.
+    - `outside-canon = 0`.
+    - `ocr_blocks = 57700`.
+    - Recommendation clearly states whether a later recovery task is safe.
+  - Do not:
+    - Recover GLUED_FRAME markers yet.
+    - Infer glyph positions by dividing OCR bboxes.
+    - Use expected gaps, previous+1, or next-1.
+    - Hardcode pages, blocks, books, chapters, or verses.
+    - Process facsimile images in parser runtime.
+    - Edit raw OCR.
+    - Change chapter structure.
+    - Touch unrelated UI work.
     - Commit or push implementation work from the task agent.
 
 - [ ] UI-SIGNAL-101 Investigate stale GObject signal handler
