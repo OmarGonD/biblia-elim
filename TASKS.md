@@ -2271,8 +2271,8 @@
       withheld; `GLUED_FRAME` remains intentionally unresolved.
     - CTest Torres passed. Full CTest passed in the final task-131 report.
 
-- [ ] TORRES-1835-GLUED-COMPOUND-MARKER-AUDIT-132 Diagnose glued compound verse markers using reproducible facsimile segmentation
-  - Status: PENDING
+- [x] TORRES-1835-GLUED-COMPOUND-MARKER-AUDIT-132 Diagnose glued compound verse markers using reproducible facsimile segmentation
+  - Status: DONE
   - Description:
     Investigate compound verse-marker candidates whose scan debris, marker
     glyph, or neighboring character was merged into one OCR word
@@ -2321,6 +2321,81 @@
     - Process facsimile images in parser runtime.
     - Edit raw OCR.
     - Change chapter structure.
+    - Touch unrelated UI work.
+    - Commit or push implementation work from the task agent.
+  - Evidence:
+    - Result: FOUNDATION READY; diagnostic scope closed.
+    - GLUED_FRAME scoped population = 159; eligible BODY/right candidates =
+      81; all 81/81 eligible candidates were processed.
+    - Reproducible single segments = 24; reproducible multi-segments = 33;
+      ambiguous = 12; no physical separation = 12.
+    - Seven of eight ordinary-text controls produced false-positive automated
+      splits; four of eight reviewed positive controls failed; the 300/600-DPI
+      control had one structural mismatch.
+    - No family qualified `SAFE_FOR_FUTURE_RECOVERY`; estimated safely
+      automatable population under the current rule = 0.
+    - VerseRefs remained 3848 -> 3848; ownership remained unchanged; physical
+      gaps remained 3255 -> 3255; glyph gaps remained 1310 -> 1310.
+    - Task-128 and task-131 marker/ref behavior remained unchanged.
+    - Chapters = 337/337; unresolved chapters = 0; `duplicate_refs = 0`;
+      `out_of_order_refs = 0`; `outside-canon = 0`; `ocr_blocks = 57700`.
+    - CTest Torres passed 28/28; full CTest passed 40/40.
+
+- [ ] TORRES-1835-GLUED-MARKER-DISCRIMINATOR-133 Determine whether source-derived structural and pixel evidence can distinguish glued verse markers from ordinary text
+  - Status: PENDING
+  - Description:
+    Task 132 showed that physically stable segmentation is not sufficient:
+    ordinary Spanish text can produce the same whitespace/component signal.
+    Determine whether a small, transparent, source-derived discriminator can
+    separate true glued verse-marker segments from ordinary text with zero
+    accepted negative controls.
+    This task is diagnostic only.
+  - Baseline context:
+    - Task 132 processed all 81 eligible BODY/right GLUED_FRAME candidates.
+    - 57 produced physically stable segmentations, but seven of eight ordinary
+      text controls were also split positively.
+    - No GLUED_FRAME family is currently safe for recovery.
+    - Existing tasks 128 and 131 recoveries must remain unchanged.
+  - Required behavior:
+    - Build a facsimile-labelled positive/negative dataset from the task-132
+      population.
+    - Evaluate only transparent source-derived structural/pixel features.
+    - Treat task-132 segment geometry as candidate evidence, not proof of a
+      marker.
+    - Measure exact segment position relative to trusted marker indentation,
+      following-text geometry, baseline alignment, segment/body separation,
+      and simple pixel morphology.
+    - Prefer explicit abstention.
+    - Require zero ordinary-text negatives accepted by any proposed future
+      rule.
+    - Do not use expected verse, previous+1, next-1, or canonical gaps.
+    - Do not create VerseRefs or move ownership.
+    - Do not introduce runtime facsimile/image processing.
+  - Acceptance:
+    - Labelled dataset is reproducible and provenance-complete.
+    - Positives and negatives are sufficiently represented.
+    - Candidate features and rules are explicit and auditable.
+    - Any proposed safe rule has zero accepted negative controls and no
+      class inversion on reviewed data.
+    - Cross-page / resolution robustness is measured.
+    - Runtime parser remains unchanged.
+    - VerseRefs and ownership remain unchanged.
+    - Chapters remain 337/337.
+    - `duplicate_refs = 0`.
+    - `out_of_order_refs = 0`.
+    - `outside-canon = 0`.
+    - `ocr_blocks = 57700`.
+    - The task ends with a clear decision:
+      `SAFE_FOR_FUTURE_RECOVERY` or `UNSAFE_TO_AUTOMATE`.
+  - Do not:
+    - Recover GLUED_FRAME markers.
+    - Use ML, neural OCR, embeddings, or fuzzy recognition.
+    - Tune rules from expected verse numbers.
+    - Use previous+1 or next-1.
+    - Hardcode pages, blocks, books, chapters, or verses in production.
+    - Divide OCR word bboxes by character count.
+    - Process facsimile pixels in parser runtime.
+    - Edit raw OCR or chapter structure.
     - Touch unrelated UI work.
     - Commit or push implementation work from the task agent.
 
