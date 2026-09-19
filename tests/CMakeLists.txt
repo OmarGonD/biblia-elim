@@ -1172,6 +1172,17 @@ if (BUILD_TESTING AND UNIX AND PYTHON3_EXECUTABLE)
   set_tests_properties (torresamat1835_a_glyph_pixel_recovery_test PROPERTIES
     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
     )
+  # Diagnóstico offline de palabras que pegaron marco y glifo. El parser no
+  # consume imágenes ni este artefacto: se valida inventario, procedencia,
+  # estabilidad, controles negativos y ausencia total de efecto estructural.
+  add_test (
+    NAME torresamat1835_glued_compound_markers_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_glued_compound_markers.py
+    )
+  set_tests_properties (torresamat1835_glued_compound_markers_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
+    )
   # Qué número puede abrir un versículo: el canon RECHAZA un número
   # imposible, y una cifra entera tapada por puntuación sí es marcador.
   add_test (

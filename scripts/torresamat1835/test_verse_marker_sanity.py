@@ -435,7 +435,8 @@ def test_AH_no_new_facsimile_metadata_was_added():
     data_dir = os.path.join(ROOT, "data", "torresamat1835")
     assert sorted(os.listdir(data_dir)) == [
         "a_glyph_pixel_features.json",
-        "chapter_image_reviews.json", "source_manifest.json",
+        "chapter_image_reviews.json", "glued_marker_segments.json",
+        "source_manifest.json",
         "verse_boundary_reviews.json"]
 
 

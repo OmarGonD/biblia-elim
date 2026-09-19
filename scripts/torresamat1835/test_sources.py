@@ -182,7 +182,8 @@ def test_no_silent_record():
 #: tienen su propio techo. Lo que el guarda persigue sigue prohibido en
 #: todos los demás ficheros.
 _REVIEW_LEDGERS = ("chapter_image_reviews.json", "verse_boundary_reviews.json",
-                   "a_glyph_pixel_features.json")
+                   "a_glyph_pixel_features.json",
+                   "glued_marker_segments.json")
 
 
 def test_sources_do_not_live_in_git():

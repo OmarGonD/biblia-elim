@@ -24,6 +24,7 @@ import compound_glyphs
 import corrupted_markers
 import glyph_forms
 import glyph_reviews
+import glued_compound_markers
 import heading_validity
 import image_reviews
 import layout
@@ -1957,7 +1958,7 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         before_owner = _owner_map(before_refs)
         after_owner = _owner_map(after_refs)
         moved = {block: [before_owner[block][0], after_owner[block][0]]
-                 for block in set(before_owner) & set(after_owner)
+                 for block in sorted(set(before_owner) & set(after_owner))
                  if before_owner[block][0] != after_owner[block][0]}
         gained = sorted(set(after_owner) - set(before_owner))
         lost = sorted(set(before_owner) - set(after_owner))
@@ -2221,7 +2222,7 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         a_before_owner = _owner_map(a_before_refs)
         a_after_owner = _owner_map(a_after_refs)
         a_moved = {block: [a_before_owner[block][0], a_after_owner[block][0]]
-                   for block in set(a_before_owner) & set(a_after_owner)
+                   for block in sorted(set(a_before_owner) & set(a_after_owner))
                    if a_before_owner[block][0] != a_after_owner[block][0]}
         a_gained = sorted(set(a_after_owner) - set(a_before_owner))
         a_lost = sorted(set(a_before_owner) - set(a_after_owner))
@@ -2494,6 +2495,96 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
                                     + outcomes[compound_glyphs.OUT_OF_BAND]),
             "rows": a_dry,
         }
+
+        # Tanda 132: metadatos producidos fuera del parser a partir del
+        # facsímil verificado.  Cargar este JSON no cambia clasificación ni
+        # propiedad; sólo publica el diagnóstico junto al resto del audit.
+        glued_path = os.path.join(ROOT, "data", "torresamat1835",
+                                  "glued_marker_segments.json")
+        if os.path.exists(glued_path):
+            with open(glued_path, encoding="utf-8") as handle:
+                glued_payload = json.load(handle)
+            glued = glued_compound_markers.summary(glued_payload)
+            gap_by_block = {g.swallowed_block: g for g in found
+                            if g.swallowed_block}
+            by_book = collections.Counter()
+            inventory_rows = []
+            accepted_chapters = sorted(
+                (row for row in resolutions
+                 if row.get("resolved_number") is not None),
+                key=lambda row: row["block_id"])
+            for source_row in glued_payload.get("instances", []):
+                row = dict(source_row)
+                owner = (a_after_owner.get(row["block"]) or [None])[0]
+                row["current_owner_ref"] = owner
+                if owner:
+                    book, chapter, _verse = owner.split(".")
+                    row["book"], row["chapter"] = book, int(chapter)
+                gap = gap_by_block.get(row["block"])
+                if gap:
+                    row["diagnostic_verse"] = gap.verse
+                    row["current_gap_signal"] = list(gap.signals)
+                    if not row.get("book"):
+                        row["book"], row["chapter"] = gap.book, gap.chapter
+                if not row.get("book"):
+                    prior = [chapter for chapter in accepted_chapters
+                             if chapter["block_id"] <= row["block"]]
+                    if prior:
+                        chapter = prior[-1]
+                        row["book"] = chapter["book"]
+                        row["chapter"] = chapter["resolved_number"]
+                if row.get("book"):
+                    by_book[row["book"]] += 1
+                inventory_rows.append(row)
+            reviews_132 = [row for row in
+                           (verse_payload or {}).get("reviews", [])
+                           if row.get("batch") == "batch-132"]
+            glued["by_book"] = dict(sorted(by_book.items()))
+            glued["reviewed_total"] = len(reviews_132)
+            glued["reviews"] = reviews_132
+            review_outcomes = collections.Counter(
+                row.get("segmentation_outcome") for row in reviews_132)
+            automated = {row["block"]: row.get("outcome")
+                         for row in inventory_rows}
+            reproducible = {glued_compound_markers.SINGLE,
+                            glued_compound_markers.MULTIPLE}
+            false_positive_blocks = sorted(
+                row["block"] for row in reviews_132
+                if row.get("segmentation_outcome") ==
+                "ordinary_text_false_candidate"
+                and automated.get(row["block"]) in reproducible)
+            positive_failures = sorted(
+                row["block"] for row in reviews_132
+                if row.get("observed_printed_marker")
+                and row.get("segmentation_outcome") not in reproducible)
+            glued["visual_review_outcomes"] = dict(sorted(
+                (str(k), v) for k, v in review_outcomes.items()))
+            glued["ordinary_text_false_candidates"] = \
+                review_outcomes["ordinary_text_false_candidate"]
+            glued["false_positive_count"] = len(false_positive_blocks)
+            glued["false_positive_blocks"] = false_positive_blocks
+            glued["positive_control_failures"] = len(positive_failures)
+            glued["positive_control_failure_blocks"] = positive_failures
+            glued["negative_controls"] = {
+                "reviewed": review_outcomes["ordinary_text_false_candidate"],
+                "false_positive_count": len(false_positive_blocks),
+                "body_text": review_outcomes["ordinary_text_false_candidate"],
+                "apparatus": glued.get("apparatus_or_note", 0),
+                "latin": glued.get("latin_material", 0),
+            }
+            glued["inventory"] = inventory_rows
+            glued["metadata_artifact"] = \
+                "data/torresamat1835/glued_marker_segments.json"
+            glued["metadata_schema"] = glued_payload.get("schema_version")
+            glued["prior_batches_preserved"] = all(
+                any(r.get("batch") == batch
+                    for r in (verse_payload or {}).get("reviews", []))
+                for batch in ("batch-124", "batch-127", "batch-128",
+                              "batch-129", "batch-130", "batch-131"))
+            glued["refs_before"] = glued["refs_after"] = len(a_after_refs)
+            glued["ownership_changes"] = 0
+            glued["future_recovery_readiness"] = "UNSAFE_TO_AUTOMATE"
+            out["glued_compound_marker_validation"] = glued
         out["gaps"] = [g.as_dict() for g in found]
         return out
 

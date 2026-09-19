@@ -186,10 +186,13 @@ def test_H_canon_creates_no_verse():
 # I-N. Las clases que el facsímil distinguió
 # ======================================================================
 def test_I_a_printed_marker_missing_from_ocr_is_classifiable():
-    outcomes = {r["outcome"] for r in _reviews()["reviews"]}
+    # Later diagnostic batches have their own outcome vocabulary and field;
+    # this test intentionally addresses only boundary-review outcomes.
+    outcomes = {r["outcome"] for r in _reviews()["reviews"]
+                if "outcome" in r}
     assert "printed_marker_missing_from_ocr" in outcomes
     entry = next(r for r in _reviews()["reviews"]
-                 if r["outcome"] == "printed_marker_missing_from_ocr")
+                 if r.get("outcome") == "printed_marker_missing_from_ocr")
     assert entry["marker_case"] == "text_present_without_marker"
     assert entry["observed_printed_marker"] is None
     assert entry["structural_effect"] == "none_diagnostic_only"
@@ -197,7 +200,7 @@ def test_I_a_printed_marker_missing_from_ocr_is_classifiable():
 
 def test_J_a_corrupted_printed_marker_is_classifiable():
     entries = [r for r in _reviews()["reviews"]
-               if r["outcome"] == "printed_marker_corrupted"]
+               if r.get("outcome") == "printed_marker_corrupted"]
     assert len(entries) >= 4, "el patrón se vio en varios libros"
     read = {(r["book"], r["chapter"], r["verse"]): r["observed_printed_marker"]
             for r in entries}
