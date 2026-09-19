@@ -2585,6 +2585,38 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
             glued["ownership_changes"] = 0
             glued["future_recovery_readiness"] = "UNSAFE_TO_AUTOMATE"
             out["glued_compound_marker_validation"] = glued
+            discriminator_path = os.path.join(ROOT, "data", "torresamat1835",
+                                              "glued_marker_discriminator.json")
+            if os.path.exists(discriminator_path):
+                with open(discriminator_path, encoding="utf-8") as handle:
+                    discriminator = json.load(handle)
+                out["glued_marker_discriminator_validation"] = {
+                    "labelled_population": discriminator["diagnostic_full_population"],
+                    "positives": discriminator["label_counts"].get("TRUE_MARKER", 0),
+                    "ordinary_text_negatives": discriminator["label_counts"].get("ORDINARY_TEXT", 0),
+                    "apparatus_negatives": discriminator["label_counts"].get("APPARATUS", 0),
+                    "latin_negatives": discriminator["label_counts"].get("LATIN", 0),
+                    "feature_definitions": discriminator["feature_definitions"],
+                    "per_feature_stats": discriminator["per_feature_stats"],
+                    "rules_tested": discriminator["rules_tested"],
+                    "selected_rule_or_none": discriminator["selected_rule_or_none"],
+                    "true_positive": discriminator["evaluation"]["true_positive"],
+                    "false_positive": discriminator["evaluation"]["false_positive"],
+                    "true_negative": discriminator["evaluation"]["true_negative"],
+                    "false_negative": discriminator["evaluation"]["false_negative"],
+                    "abstentions": discriminator["evaluation"]["abstentions"],
+                    "hard_negative_results": discriminator["hard_negative_results"],
+                    "cross_page_results": discriminator["cross_page_results"],
+                    "cross_book_results": discriminator["cross_book_results"],
+                    "dpi_results": discriminator["dpi_results"],
+                    "threshold_results": discriminator["threshold_results"],
+                    "diagnostic_full_population": discriminator["diagnostic_full_population"],
+                    "potential_recovery_impact": discriminator["potential_recovery_impact"],
+                    "future_recovery_readiness": discriminator["future_recovery_readiness"],
+                    "metadata_artifact": "data/torresamat1835/glued_marker_discriminator.json",
+                    "metadata_schema": discriminator["version"],
+                    "runtime_effect": "none_diagnostic_only",
+                }
         out["gaps"] = [g.as_dict() for g in found]
         return out
 
