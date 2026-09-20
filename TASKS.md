@@ -2520,8 +2520,8 @@
       the next bounded evidence-gathering family without changing runtime
       behavior.
 
-- [ ] TORRES-1835-STANDALONE-GLYPH-FACSIMILE-135 Build facsimile evidence for remaining standalone verse-marker glyphs
-  - Status: PENDING
+- [x] TORRES-1835-STANDALONE-GLYPH-FACSIMILE-135 Build facsimile evidence for remaining standalone verse-marker glyphs
+  - Status: DONE
   - Description:
     Build a reproducible facsimile-labelled evidence set for remaining
     standalone verse-marker glyph candidates identified by task 134. Study
@@ -2568,6 +2568,91 @@
     - Hardcode pages, blocks, books, chapters or verses in production.
     - Edit raw OCR or chapter structure.
     - Touch unrelated UI work.
+    - Commit or push implementation work from the task agent.
+
+  - Closure record:
+    - Result: PARTIAL READY; diagnostic scope completed.
+    - Original standalone population = 1310. Refined taxonomy: true-single-
+      token = 6; projected multi-token = 1304; unknown = 0.
+    - `standalone_glyph_candidate` is a projected-token diagnostic category,
+      not necessarily a physically one-token OCR line.
+    - All 6 true-single-token occurrences were visually reviewed; recovery-
+      ready cases = 0. Batch-135 reviews = 8.
+    - Prior review records examined = 496; exact reusable prior matches = 0.
+    - Task-128 stable linkage: HANDLED_EXACT = 0; REJECTED_EXACT = 23;
+      NOT_APPLICABLE = 1281; linkage mismatch = 0; unresolved = 0.
+    - Task-128 rejected exact reasons: no_trusted_marker_band = 18;
+      outside_marker_band = 5.
+    - Form 3: total 51, true-single 0, projected 51. Form 4: total 73,
+      true-single 2, projected 71.
+    - The reviewed `y` occurrence is projected multi-token ORDINARY_TEXT;
+      the reviewed `a` occurrence is projected multi-token PRINTED_DIGIT 2.
+      No global glyph mapping was approved.
+    - No parser/runtime recovery was introduced. VerseRefs = 3848, physical
+      gaps = 3255, glyph gaps = 1310, ownership unchanged. Task-128 and
+      task-131 runtime behavior remained unchanged; GLUED_FRAME remains
+      CLOSED_UNSAFE.
+    - Chapters = 337/337; unresolved chapter claims = 0; canonical chapter
+      gaps = 0; duplicate_refs = 0; out_of_order_refs = 0; outside-canon = 0;
+      ocr_blocks = 57700; block loss = 0; dual ownership = 0.
+    - Artifact is deterministic, idempotent, source-provenanced and
+      diagnostic-only, and is not consumed by parser/runtime. The test_AH
+      metadata allowlist remains exhaustive and fail-closed.
+    - Focused/direct tests passed; build passed; TorresAmat CTest = 28/28;
+      full CTest = 39/40. The only tolerated unrelated failure is
+      gtk_lifecycle_smoke: "dictionary panel did not reopen explicitly".
+    - Recommended next work: diagnostic audit of the 23 TASK128_REJECTED_EXACT
+      projected occurrences before any recovery consideration.
+    - Task 135 is DONE because its diagnostic question was answered: the
+      supposed standalone family is overwhelmingly projected-token data, and
+      the six physically true-single cases were exhaustively reviewed with
+      zero recovery-ready cases.
+
+- [ ] TORRES-1835-PROJECTED-REJECTION-AUDIT-136 Validate task-128 rejected projected-marker occurrences
+  - Status: PENDING
+  - Description:
+    Audit the 23 projected occurrences linked exactly to task-128 rejected
+    candidates. Preserve stable occurrence linkage and determine whether the
+    historical rejection reasons remain correct or whether a bounded
+    discriminator/recovery study is justified. This task is diagnostic only.
+  - Baseline context:
+    - Original task-134 standalone population = 1310.
+    - Refined task-135 taxonomy: true-single-token = 6, projected multi-token
+      = 1304, unknown = 0; no true-single recovery candidate exists.
+    - Task-128 projected linkage: HANDLED_EXACT = 0, REJECTED_EXACT = 23,
+      NOT_APPLICABLE = 1281; rejected reasons are no_trusted_marker_band = 18
+      and outside_marker_band = 5.
+    - Current VerseRefs = 3848; physical gaps = 3255; glyph gaps = 1310.
+      Do not broaden to the full projected population without evidence.
+  - Required behavior:
+    - Enumerate all 23 rejected occurrences with source SHA, scan page, block,
+      raw OCR, token sequence/index and bbox/geometry.
+    - Reconstruct each exact task-128 decision and preserve the two historical
+      rejection reasons without merging them.
+    - Verify reasons against current source-derived geometry and use facsimile
+      review only where needed.
+    - Distinguish correct historical rejection, stale classification,
+      discriminator candidate, later recovery candidate and insufficient
+      evidence; never use expected verse sequence.
+    - Recommend exactly one bounded task-137 target from evidence.
+  - Acceptance:
+    - All 23 occurrences are accounted for exactly once with deterministic
+      stable linkage; 18 + 5 reconciles unless a documented mismatch is
+      proven.
+    - No parser/runtime, VerseRef, ownership, physical/glyph gap, task-128 or
+      task-131 changes; GLUED_FRAME remains CLOSED_UNSAFE.
+    - Chapters remain 337/337; duplicate_refs = 0; out_of_order_refs = 0;
+      outside-canon = 0; ocr_blocks = 57700; exactly one task-137 target is
+      recommended.
+  - Do not:
+    - Recover projected markers or modify task-128 runtime rules.
+    - Widen marker-band thresholds or accept no_trusted_marker_band/outside-
+      marker_band cases by default.
+    - Use expected verse, previous+1 or next-1; reopen GLUED_FRAME or
+      standalone recovery; use ML, embeddings or neural OCR.
+    - Hardcode page/block/book/chapter/verse cases in production.
+    - Touch unrelated UI work.
+    - Modify TASKS.md from the task agent.
     - Commit or push implementation work from the task agent.
 
 - [ ] UI-SIGNAL-101 Investigate stale GObject signal handler
