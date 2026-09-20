@@ -1,0 +1,2909 @@
+{
+  "all_true_single_occurrences": [
+    {
+      "book": "Ps",
+      "candidate_line": true,
+      "chapter": 45,
+      "column": "right",
+      "key": "Ps.45.12",
+      "pdf_page": 72,
+      "primary_root_cause": "standalone_glyph_candidate",
+      "projection_class": "TRUE_SINGLE_TOKEN_LINE",
+      "raw_ocr_form": "4",
+      "raw_ocr_line": "4acob.",
+      "scan_page": 71,
+      "shape": "trailing_gap",
+      "signals": [
+        "lone_glyph_inside_previous_verse",
+        "ocr_block_split_candidate"
+      ],
+      "source_bbox": [
+        1699,
+        2749,
+        1897,
+        2813
+      ],
+      "source_block": "p0071l0060",
+      "task128_overlap": "OTHER_UNRESOLVED",
+      "token_count": 1,
+      "zone": "verse_body"
+    },
+    {
+      "book": "Ps",
+      "candidate_line": true,
+      "chapter": 46,
+      "column": "right",
+      "key": "Ps.46.2",
+      "pdf_page": 72,
+      "primary_root_cause": "standalone_glyph_candidate",
+      "projection_class": "TRUE_SINGLE_TOKEN_LINE",
+      "raw_ocr_form": "8",
+      "raw_ocr_line": "8aloM>.",
+      "scan_page": 71,
+      "shape": "interior_gap",
+      "signals": [
+        "lone_glyph_inside_previous_verse",
+        "ocr_block_split_candidate"
+      ],
+      "source_bbox": [
+        2240,
+        3377,
+        2451,
+        3433
+      ],
+      "source_block": "p0071l0065",
+      "task128_overlap": "OTHER_UNRESOLVED",
+      "token_count": 1,
+      "zone": "verse_body"
+    },
+    {
+      "book": "Ps",
+      "candidate_line": true,
+      "chapter": 65,
+      "column": "right",
+      "key": "Ps.65.18",
+      "pdf_page": 95,
+      "primary_root_cause": "standalone_glyph_candidate",
+      "projection_class": "TRUE_SINGLE_TOKEN_LINE",
+      "raw_ocr_form": "40",
+      "raw_ocr_line": "40i>dia.",
+      "scan_page": 94,
+      "shape": "trailing_gap",
+      "signals": [
+        "lone_glyph_inside_previous_verse",
+        "ocr_block_split_candidate"
+      ],
+      "source_bbox": [
+        1811,
+        2350,
+        2028,
+        2408
+      ],
+      "source_block": "p0094l0047",
+      "task128_overlap": "OTHER_UNRESOLVED",
+      "token_count": 1,
+      "zone": "verse_body"
+    },
+    {
+      "book": "Ps",
+      "candidate_line": true,
+      "chapter": 65,
+      "column": "right",
+      "key": "Ps.65.19",
+      "pdf_page": 95,
+      "primary_root_cause": "standalone_glyph_candidate",
+      "projection_class": "TRUE_SINGLE_TOKEN_LINE",
+      "raw_ocr_form": "40",
+      "raw_ocr_line": "40i>dia.",
+      "scan_page": 94,
+      "shape": "trailing_gap",
+      "signals": [
+        "lone_glyph_inside_previous_verse",
+        "ocr_block_split_candidate"
+      ],
+      "source_bbox": [
+        1811,
+        2350,
+        2028,
+        2408
+      ],
+      "source_block": "p0094l0047",
+      "task128_overlap": "OTHER_UNRESOLVED",
+      "token_count": 1,
+      "zone": "verse_body"
+    },
+    {
+      "book": "Ps",
+      "candidate_line": true,
+      "chapter": 65,
+      "column": "right",
+      "key": "Ps.65.20",
+      "pdf_page": 95,
+      "primary_root_cause": "standalone_glyph_candidate",
+      "projection_class": "TRUE_SINGLE_TOKEN_LINE",
+      "raw_ocr_form": "40",
+      "raw_ocr_line": "40i>dia.",
+      "scan_page": 94,
+      "shape": "trailing_gap",
+      "signals": [
+        "lone_glyph_inside_previous_verse",
+        "ocr_block_split_candidate"
+      ],
+      "source_bbox": [
+        1811,
+        2350,
+        2028,
+        2408
+      ],
+      "source_block": "p0094l0047",
+      "task128_overlap": "OTHER_UNRESOLVED",
+      "token_count": 1,
+      "zone": "verse_body"
+    },
+    {
+      "book": "Ps",
+      "candidate_line": true,
+      "chapter": 73,
+      "column": "right",
+      "key": "Ps.73.15",
+      "pdf_page": 109,
+      "primary_root_cause": "standalone_glyph_candidate",
+      "projection_class": "TRUE_SINGLE_TOKEN_LINE",
+      "raw_ocr_form": "4",
+      "raw_ocr_line": "4alosos^",
+      "scan_page": 108,
+      "shape": "interior_gap",
+      "signals": [
+        "lone_glyph_inside_previous_verse",
+        "ocr_block_split_candidate"
+      ],
+      "source_bbox": [
+        1781,
+        1256,
+        2076,
+        1325
+      ],
+      "source_block": "p0108l0048",
+      "task128_overlap": "OTHER_UNRESOLVED",
+      "token_count": 1,
+      "zone": "verse_body"
+    }
+  ],
+  "batch_135_reviews": [
+    {
+      "batch": "batch-135",
+      "bbox": [
+        1766,
+        1642,
+        2980,
+        1713
+      ],
+      "block_id": "p0276l0033",
+      "classification": "PRINTED_DIGIT",
+      "confidence": "high",
+      "exact_ocr_form": "a",
+      "observed_printed_digit": "2",
+      "pdf_page": 277,
+      "rationale": "Visible numeral at the Spanish verse start in the verified facsimile.",
+      "raw_ocr": "a Vanidad de vanidades, dijo el Eccle-",
+      "review_id": "batch-135-p0276l0033",
+      "scan_page": 276,
+      "structural_effect": "none_diagnostic_only",
+      "visible_printed_content": "2 Vanidad de vanidades, dijo el Eclesiastés"
+    },
+    {
+      "batch": "batch-135",
+      "bbox": [
+        1793,
+        512,
+        3056,
+        590
+      ],
+      "block_id": "p0296l0015",
+      "classification": "ORDINARY_TEXT",
+      "confidence": "high",
+      "exact_ocr_form": "y",
+      "observed_printed_digit": null,
+      "pdf_page": 297,
+      "rationale": "Visible Spanish conjunction in the verified facsimile.",
+      "raw_ocr": "y bebidas para reir y banquetear; pacs",
+      "review_id": "batch-135-p0296l0015",
+      "scan_page": 296,
+      "structural_effect": "none_diagnostic_only",
+      "visible_printed_content": "y bebidas para reir y banquetear"
+    },
+    {
+      "batch": "batch-135",
+      "bbox": [
+        1699,
+        2749,
+        1897,
+        2813
+      ],
+      "block_id": "p0071l0060",
+      "classification": "ORDINARY_TEXT",
+      "confidence": "high",
+      "exact_ocr_form": "4",
+      "observed_printed_digit": null,
+      "pdf_page": 72,
+      "rationale": "Visible final word Jacob in Spanish verse body; OCR leading 4 is not a marker.",
+      "raw_ocr": "4acob.",
+      "review_id": "batch-135-p0071l0060",
+      "scan_page": 71,
+      "structural_effect": "none_diagnostic_only",
+      "visible_printed_content": "Jacob"
+    },
+    {
+      "batch": "batch-135",
+      "bbox": [
+        2240,
+        3377,
+        2451,
+        3433
+      ],
+      "block_id": "p0071l0065",
+      "classification": "OTHER",
+      "confidence": "medium",
+      "exact_ocr_form": "8",
+      "observed_printed_digit": null,
+      "pdf_page": 72,
+      "rationale": "Printed Psalm heading, not a verse marker occurrence.",
+      "raw_ocr": "8aloM>.",
+      "review_id": "batch-135-p0071l0065",
+      "scan_page": 71,
+      "structural_effect": "none_diagnostic_only",
+      "visible_printed_content": "SALMO XLVI"
+    },
+    {
+      "batch": "batch-135",
+      "bbox": [
+        1811,
+        2350,
+        2028,
+        2408
+      ],
+      "block_id": "p0094l0047",
+      "classification": "UNREADABLE",
+      "confidence": "high",
+      "exact_ocr_form": "40",
+      "observed_printed_digit": null,
+      "pdf_page": 95,
+      "rationale": "The isolated OCR token cannot be matched to a legible standalone printed glyph.",
+      "raw_ocr": "40i>dia.",
+      "review_id": "batch-135-p0094l0047-v18",
+      "scan_page": 94,
+      "structural_effect": "none_diagnostic_only",
+      "visible_printed_content": "unreadable OCR/print correspondence"
+    },
+    {
+      "batch": "batch-135",
+      "bbox": [
+        1811,
+        2350,
+        2028,
+        2408
+      ],
+      "block_id": "p0094l0047",
+      "classification": "UNREADABLE",
+      "confidence": "high",
+      "exact_ocr_form": "40",
+      "observed_printed_digit": null,
+      "pdf_page": 95,
+      "rationale": "Same physical source line, distinct diagnostic gap occurrence.",
+      "raw_ocr": "40i>dia.",
+      "review_id": "batch-135-p0094l0047-v19",
+      "scan_page": 94,
+      "structural_effect": "none_diagnostic_only",
+      "visible_printed_content": "unreadable OCR/print correspondence"
+    },
+    {
+      "batch": "batch-135",
+      "bbox": [
+        1811,
+        2350,
+        2028,
+        2408
+      ],
+      "block_id": "p0094l0047",
+      "classification": "UNREADABLE",
+      "confidence": "high",
+      "exact_ocr_form": "40",
+      "observed_printed_digit": null,
+      "pdf_page": 95,
+      "rationale": "Same physical source line, distinct diagnostic gap occurrence.",
+      "raw_ocr": "40i>dia.",
+      "review_id": "batch-135-p0094l0047-v20",
+      "scan_page": 94,
+      "structural_effect": "none_diagnostic_only",
+      "visible_printed_content": "unreadable OCR/print correspondence"
+    },
+    {
+      "batch": "batch-135",
+      "bbox": [
+        1781,
+        1256,
+        2076,
+        1325
+      ],
+      "block_id": "p0108l0048",
+      "classification": "LATIN",
+      "confidence": "medium",
+      "exact_ocr_form": "4",
+      "observed_printed_digit": null,
+      "pdf_page": 109,
+      "rationale": "Source line is in the Latin parallel column, not a Spanish verse marker.",
+      "raw_ocr": "4alosos^",
+      "review_id": "batch-135-p0108l0048",
+      "scan_page": 108,
+      "structural_effect": "none_diagnostic_only",
+      "visible_printed_content": "Latin-column text"
+    }
+  ],
+  "forms": [
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Isa",
+        "Prov",
+        "Sir",
+        "Wis"
+      ],
+      "chapters": [
+        "Isa.23",
+        "Isa.37",
+        "Isa.8",
+        "Prov.10",
+        "Prov.14",
+        "Sir.36",
+        "Sir.45",
+        "Wis.6"
+      ],
+      "columns": {
+        "right": 14
+      },
+      "conflicts": [],
+      "exact_ocr_form": "1",
+      "gap_count": 14,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 14,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 14
+      },
+      "scan_pages": [
+        229,
+        237,
+        329,
+        451,
+        473,
+        515,
+        544,
+        578
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0031"
+      ],
+      "unique_blocks": 8,
+      "unreadable": 0,
+      "unreviewed": 14
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Ps"
+      ],
+      "chapters": [
+        "Ps.118"
+      ],
+      "columns": {
+        "right": 1
+      },
+      "conflicts": [],
+      "exact_ocr_form": "17",
+      "gap_count": 1,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 1,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 1
+      },
+      "scan_pages": [
+        178
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0031",
+        "U+0037"
+      ],
+      "unique_blocks": 1,
+      "unreadable": 0,
+      "unreviewed": 1
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Prov",
+        "Sir"
+      ],
+      "chapters": [
+        "Prov.26",
+        "Sir.38"
+      ],
+      "columns": {
+        "right": 11
+      },
+      "conflicts": [],
+      "exact_ocr_form": "2",
+      "gap_count": 11,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 11,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 11
+      },
+      "scan_pages": [
+        261,
+        455
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0032"
+      ],
+      "unique_blocks": 2,
+      "unreadable": 0,
+      "unreviewed": 11
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Eccl",
+        "Isa",
+        "Prov",
+        "Ps",
+        "Sir",
+        "Wis"
+      ],
+      "chapters": [
+        "Eccl.5",
+        "Isa.34",
+        "Isa.41",
+        "Isa.65",
+        "Prov.21",
+        "Prov.23",
+        "Ps.105",
+        "Ps.106",
+        "Ps.135",
+        "Ps.148",
+        "Ps.18",
+        "Ps.21",
+        "Ps.36",
+        "Ps.75",
+        "Ps.88",
+        "Sir.1",
+        "Sir.10",
+        "Sir.26",
+        "Sir.3",
+        "Sir.31",
+        "Sir.38",
+        "Sir.4",
+        "Wis.14",
+        "Wis.15"
+      ],
+      "columns": {
+        "right": 51
+      },
+      "conflicts": [],
+      "exact_ocr_form": "3",
+      "gap_count": 51,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 51,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 51
+      },
+      "scan_pages": [
+        36,
+        40,
+        58,
+        110,
+        129,
+        152,
+        155,
+        189,
+        203,
+        251,
+        256,
+        286,
+        348,
+        351,
+        367,
+        370,
+        373,
+        388,
+        426,
+        439,
+        456,
+        572,
+        588,
+        642
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0033"
+      ],
+      "unique_blocks": 24,
+      "unreadable": 0,
+      "unreviewed": 51
+    },
+    {
+      "batch_135_reviewed": 2,
+      "books": [
+        "Eccl",
+        "Isa",
+        "Prov",
+        "Ps",
+        "Sir",
+        "Song",
+        "Wis"
+      ],
+      "chapters": [
+        "Eccl.8",
+        "Isa.2",
+        "Isa.45",
+        "Isa.48",
+        "Isa.7",
+        "Prov.13",
+        "Prov.2",
+        "Prov.27",
+        "Prov.3",
+        "Prov.5",
+        "Prov.9",
+        "Ps.104",
+        "Ps.105",
+        "Ps.106",
+        "Ps.107",
+        "Ps.113",
+        "Ps.118",
+        "Ps.138",
+        "Ps.143",
+        "Ps.33",
+        "Ps.45",
+        "Ps.58",
+        "Ps.70",
+        "Ps.73",
+        "Ps.76",
+        "Ps.77",
+        "Ps.85",
+        "Ps.87",
+        "Ps.88",
+        "Sir.24",
+        "Sir.29",
+        "Sir.30",
+        "Sir.38",
+        "Song.8",
+        "Wis.3",
+        "Wis.8"
+      ],
+      "columns": {
+        "right": 73
+      },
+      "conflicts": [],
+      "exact_ocr_form": "4",
+      "gap_count": 73,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 1,
+      "other_negatives": 0,
+      "population": 73,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 71,
+        "TRUE_SINGLE_TOKEN_LINE": 2
+      },
+      "scan_pages": [
+        53,
+        71,
+        86,
+        102,
+        108,
+        111,
+        114,
+        115,
+        126,
+        127,
+        131,
+        151,
+        154,
+        156,
+        158,
+        164,
+        171,
+        177,
+        193,
+        198,
+        213,
+        214,
+        218,
+        227,
+        234,
+        264,
+        292,
+        317,
+        324,
+        334,
+        421,
+        433,
+        436,
+        455,
+        502,
+        513,
+        600,
+        607
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0034"
+      ],
+      "unique_blocks": 41,
+      "unreadable": 0,
+      "unreviewed": 71
+    },
+    {
+      "batch_135_reviewed": 3,
+      "books": [
+        "Ps"
+      ],
+      "chapters": [
+        "Ps.65"
+      ],
+      "columns": {
+        "right": 3
+      },
+      "conflicts": [],
+      "exact_ocr_form": "40",
+      "gap_count": 3,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 3,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "TRUE_SINGLE_TOKEN_LINE": 3
+      },
+      "scan_pages": [
+        94
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0034",
+        "U+0030"
+      ],
+      "unique_blocks": 1,
+      "unreadable": 0,
+      "unreviewed": 0
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Isa"
+      ],
+      "chapters": [
+        "Isa.17"
+      ],
+      "columns": {
+        "right": 3
+      },
+      "conflicts": [],
+      "exact_ocr_form": "49",
+      "gap_count": 3,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 3,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 3
+      },
+      "scan_pages": [
+        534
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0034",
+        "U+0039"
+      ],
+      "unique_blocks": 1,
+      "unreadable": 0,
+      "unreviewed": 3
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Eccl",
+        "Isa",
+        "Prov",
+        "Ps",
+        "Sir",
+        "Wis"
+      ],
+      "chapters": [
+        "Eccl.9",
+        "Isa.3",
+        "Isa.9",
+        "Prov.11",
+        "Prov.20",
+        "Prov.30",
+        "Prov.7",
+        "Ps.101",
+        "Ps.115",
+        "Sir.12",
+        "Sir.32",
+        "Sir.34",
+        "Sir.42",
+        "Sir.50",
+        "Sir.7",
+        "Wis.13",
+        "Wis.18"
+      ],
+      "columns": {
+        "right": 24
+      },
+      "conflicts": [],
+      "exact_ocr_form": "5",
+      "gap_count": 24,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 24,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 24
+      },
+      "scan_pages": [
+        144,
+        166,
+        223,
+        230,
+        249,
+        271,
+        294,
+        345,
+        358,
+        380,
+        393,
+        441,
+        446,
+        466,
+        485,
+        504,
+        518
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0035"
+      ],
+      "unique_blocks": 17,
+      "unreadable": 0,
+      "unreviewed": 24
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Isa",
+        "Ps",
+        "Wis"
+      ],
+      "chapters": [
+        "Isa.23",
+        "Ps.118",
+        "Ps.43",
+        "Ps.68",
+        "Ps.72",
+        "Ps.77",
+        "Wis.1"
+      ],
+      "columns": {
+        "right": 16
+      },
+      "conflicts": [],
+      "exact_ocr_form": "6",
+      "gap_count": 16,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 16,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 16
+      },
+      "scan_pages": [
+        68,
+        98,
+        106,
+        113,
+        172,
+        320,
+        545
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0036"
+      ],
+      "unique_blocks": 7,
+      "unreadable": 0,
+      "unreviewed": 16
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Ps",
+        "Sir",
+        "Wis"
+      ],
+      "chapters": [
+        "Ps.147",
+        "Sir.15",
+        "Sir.27",
+        "Wis.2"
+      ],
+      "columns": {
+        "right": 10
+      },
+      "conflicts": [],
+      "exact_ocr_form": "7",
+      "gap_count": 10,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 10,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 10
+      },
+      "scan_pages": [
+        202,
+        322,
+        398,
+        428
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0037"
+      ],
+      "unique_blocks": 4,
+      "unreadable": 0,
+      "unreviewed": 10
+    },
+    {
+      "batch_135_reviewed": 1,
+      "books": [
+        "Isa",
+        "Ps",
+        "Sir"
+      ],
+      "chapters": [
+        "Isa.32",
+        "Isa.51",
+        "Ps.117",
+        "Ps.37",
+        "Ps.46",
+        "Sir.21"
+      ],
+      "columns": {
+        "right": 6
+      },
+      "conflicts": [],
+      "exact_ocr_form": "8",
+      "gap_count": 6,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 6,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 5,
+        "TRUE_SINGLE_TOKEN_LINE": 1
+      },
+      "scan_pages": [
+        61,
+        71,
+        167,
+        412,
+        567,
+        614
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0038"
+      ],
+      "unique_blocks": 6,
+      "unreadable": 0,
+      "unreviewed": 5
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Eccl",
+        "Prov",
+        "Ps",
+        "Sir"
+      ],
+      "chapters": [
+        "Eccl.2",
+        "Prov.19",
+        "Ps.32",
+        "Ps.68",
+        "Ps.73",
+        "Sir.20",
+        "Sir.41"
+      ],
+      "columns": {
+        "right": 15
+      },
+      "conflicts": [],
+      "exact_ocr_form": "9",
+      "gap_count": 15,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 15,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 15
+      },
+      "scan_pages": [
+        52,
+        99,
+        108,
+        247,
+        279,
+        410,
+        464
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0039"
+      ],
+      "unique_blocks": 7,
+      "unreadable": 0,
+      "unreviewed": 15
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Ps",
+        "Song"
+      ],
+      "chapters": [
+        "Ps.125",
+        "Song.1"
+      ],
+      "columns": {
+        "right": 2
+      },
+      "conflicts": [],
+      "exact_ocr_form": "A",
+      "gap_count": 2,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 2,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 2
+      },
+      "scan_pages": [
+        182,
+        305
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0041"
+      ],
+      "unique_blocks": 2,
+      "unreadable": 0,
+      "unreviewed": 2
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Ps",
+        "Sir"
+      ],
+      "chapters": [
+        "Ps.66",
+        "Sir.27"
+      ],
+      "columns": {
+        "right": 3
+      },
+      "conflicts": [],
+      "exact_ocr_form": "B",
+      "gap_count": 3,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 3,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 3
+      },
+      "scan_pages": [
+        95,
+        427
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0042"
+      ],
+      "unique_blocks": 2,
+      "unreadable": 0,
+      "unreviewed": 3
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Ps"
+      ],
+      "chapters": [
+        "Ps.72"
+      ],
+      "columns": {
+        "right": 9
+      },
+      "conflicts": [],
+      "exact_ocr_form": "D",
+      "gap_count": 9,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 9,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 9
+      },
+      "scan_pages": [
+        106
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0044"
+      ],
+      "unique_blocks": 1,
+      "unreadable": 0,
+      "unreviewed": 9
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Eccl",
+        "Isa",
+        "Ps",
+        "Wis"
+      ],
+      "chapters": [
+        "Eccl.12",
+        "Eccl.7",
+        "Isa.19",
+        "Isa.22",
+        "Isa.27",
+        "Isa.66",
+        "Ps.104",
+        "Ps.109",
+        "Ps.17",
+        "Ps.34",
+        "Ps.83",
+        "Wis.9"
+      ],
+      "columns": {
+        "right": 43
+      },
+      "conflicts": [],
+      "exact_ocr_form": "I",
+      "gap_count": 43,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 43,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 43
+      },
+      "scan_pages": [
+        32,
+        55,
+        123,
+        149,
+        160,
+        289,
+        299,
+        337,
+        537,
+        542,
+        554,
+        643
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0049"
+      ],
+      "unique_blocks": 12,
+      "unreadable": 0,
+      "unreviewed": 43
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Prov",
+        "Ps"
+      ],
+      "chapters": [
+        "Prov.13",
+        "Ps.131"
+      ],
+      "columns": {
+        "right": 2
+      },
+      "conflicts": [],
+      "exact_ocr_form": "M",
+      "gap_count": 2,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 2,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 2
+      },
+      "scan_pages": [
+        186,
+        235
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+004D"
+      ],
+      "unique_blocks": 2,
+      "unreadable": 0,
+      "unreviewed": 2
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Isa",
+        "Prov",
+        "Ps",
+        "Sir"
+      ],
+      "chapters": [
+        "Isa.17",
+        "Isa.23",
+        "Isa.24",
+        "Isa.37",
+        "Isa.39",
+        "Isa.55",
+        "Prov.15",
+        "Prov.28",
+        "Prov.8",
+        "Ps.100",
+        "Ps.105",
+        "Ps.106",
+        "Ps.123",
+        "Ps.128",
+        "Ps.29",
+        "Ps.33",
+        "Ps.35",
+        "Ps.38",
+        "Ps.56",
+        "Ps.58",
+        "Ps.59",
+        "Ps.66",
+        "Ps.83",
+        "Sir.13",
+        "Sir.34",
+        "Sir.39",
+        "Sir.48"
+      ],
+      "columns": {
+        "right": 30
+      },
+      "conflicts": [],
+      "exact_ocr_form": "S",
+      "gap_count": 30,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 30,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 30
+      },
+      "scan_pages": [
+        48,
+        53,
+        57,
+        62,
+        83,
+        86,
+        88,
+        94,
+        123,
+        142,
+        152,
+        155,
+        181,
+        184,
+        225,
+        238,
+        265,
+        393,
+        445,
+        458,
+        482,
+        534,
+        544,
+        546,
+        577,
+        583,
+        621
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0053"
+      ],
+      "unique_blocks": 27,
+      "unreadable": 0,
+      "unreviewed": 30
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Sir"
+      ],
+      "chapters": [
+        "Sir.27"
+      ],
+      "columns": {
+        "right": 3
+      },
+      "conflicts": [],
+      "exact_ocr_form": "T",
+      "gap_count": 3,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 3,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 3
+      },
+      "scan_pages": [
+        428
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0054"
+      ],
+      "unique_blocks": 1,
+      "unreadable": 0,
+      "unreviewed": 3
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Sir"
+      ],
+      "chapters": [
+        "Sir.4"
+      ],
+      "columns": {
+        "right": 3
+      },
+      "conflicts": [],
+      "exact_ocr_form": "U",
+      "gap_count": 3,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 3,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 3
+      },
+      "scan_pages": [
+        373
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0055"
+      ],
+      "unique_blocks": 1,
+      "unreadable": 0,
+      "unreviewed": 3
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Isa",
+        "Prov",
+        "Ps"
+      ],
+      "chapters": [
+        "Isa.14",
+        "Prov.6",
+        "Ps.25"
+      ],
+      "columns": {
+        "right": 11
+      },
+      "conflicts": [],
+      "exact_ocr_form": "V",
+      "gap_count": 11,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 11,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 11
+      },
+      "scan_pages": [
+        44,
+        220,
+        527
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0056"
+      ],
+      "unique_blocks": 3,
+      "unreadable": 0,
+      "unreviewed": 11
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Prov",
+        "Ps",
+        "Wis"
+      ],
+      "chapters": [
+        "Prov.18",
+        "Ps.105",
+        "Ps.9",
+        "Wis.7"
+      ],
+      "columns": {
+        "right": 30
+      },
+      "conflicts": [],
+      "exact_ocr_form": "X",
+      "gap_count": 30,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 30,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 30
+      },
+      "scan_pages": [
+        23,
+        154,
+        245,
+        332
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0058"
+      ],
+      "unique_blocks": 4,
+      "unreadable": 0,
+      "unreviewed": 30
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Eccl",
+        "Isa",
+        "Ps",
+        "Sir",
+        "Wis"
+      ],
+      "chapters": [
+        "Eccl.3",
+        "Isa.53",
+        "Ps.31",
+        "Ps.34",
+        "Ps.36",
+        "Sir.25",
+        "Wis.11",
+        "Wis.5"
+      ],
+      "columns": {
+        "right": 14
+      },
+      "conflicts": [],
+      "exact_ocr_form": "Y",
+      "gap_count": 14,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 14,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 14
+      },
+      "scan_pages": [
+        50,
+        56,
+        58,
+        281,
+        328,
+        339,
+        424,
+        618
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0059"
+      ],
+      "unique_blocks": 8,
+      "unreadable": 0,
+      "unreviewed": 14
+    },
+    {
+      "batch_135_reviewed": 1,
+      "books": [
+        "Eccl",
+        "Isa",
+        "Prov",
+        "Ps",
+        "Sir",
+        "Song",
+        "Wis"
+      ],
+      "chapters": [
+        "Eccl.1",
+        "Eccl.12",
+        "Eccl.4",
+        "Isa.12",
+        "Isa.13",
+        "Isa.16",
+        "Isa.17",
+        "Isa.2",
+        "Isa.20",
+        "Isa.21",
+        "Isa.22",
+        "Isa.24",
+        "Isa.26",
+        "Isa.29",
+        "Isa.30",
+        "Isa.33",
+        "Isa.36",
+        "Isa.37",
+        "Isa.40",
+        "Isa.42",
+        "Isa.43",
+        "Isa.45",
+        "Isa.47",
+        "Isa.49",
+        "Isa.5",
+        "Isa.52",
+        "Isa.56",
+        "Isa.58",
+        "Isa.61",
+        "Isa.7",
+        "Isa.8",
+        "Prov.1",
+        "Prov.10",
+        "Prov.12",
+        "Prov.15",
+        "Prov.17",
+        "Prov.18",
+        "Prov.25",
+        "Prov.26",
+        "Prov.27",
+        "Prov.28",
+        "Prov.29",
+        "Prov.31",
+        "Prov.4",
+        "Ps.1",
+        "Ps.100",
+        "Ps.127",
+        "Ps.128",
+        "Ps.137",
+        "Ps.145",
+        "Ps.146",
+        "Ps.17",
+        "Ps.30",
+        "Ps.43",
+        "Ps.47",
+        "Ps.61",
+        "Ps.7",
+        "Ps.79",
+        "Ps.90",
+        "Ps.93",
+        "Ps.96",
+        "Ps.97",
+        "Ps.99",
+        "Sir.1",
+        "Sir.15",
+        "Sir.16",
+        "Sir.18",
+        "Sir.19",
+        "Sir.20",
+        "Sir.21",
+        "Sir.22",
+        "Sir.23",
+        "Sir.24",
+        "Sir.27",
+        "Sir.28",
+        "Sir.30",
+        "Sir.39",
+        "Sir.40",
+        "Sir.43",
+        "Sir.44",
+        "Sir.5",
+        "Sir.50",
+        "Sir.51",
+        "Sir.6",
+        "Song.5",
+        "Song.7",
+        "Wis.10",
+        "Wis.11",
+        "Wis.18",
+        "Wis.19",
+        "Wis.2",
+        "Wis.9"
+      ],
+      "columns": {
+        "right": 260
+      },
+      "conflicts": [],
+      "exact_ocr_form": "a",
+      "gap_count": 260,
+      "marker_positives": 1,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 260,
+      "printed_value_distribution": {
+        "2": 1
+      },
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 260
+      },
+      "scan_pages": [
+        15,
+        20,
+        33,
+        50,
+        68,
+        72,
+        73,
+        89,
+        119,
+        133,
+        136,
+        139,
+        140,
+        141,
+        142,
+        183,
+        184,
+        191,
+        200,
+        201,
+        211,
+        217,
+        228,
+        233,
+        238,
+        244,
+        246,
+        260,
+        262,
+        264,
+        266,
+        267,
+        269,
+        273,
+        277,
+        284,
+        299,
+        312,
+        315,
+        322,
+        335,
+        338,
+        341,
+        358,
+        360,
+        361,
+        366,
+        376,
+        377,
+        399,
+        400,
+        405,
+        408,
+        409,
+        413,
+        415,
+        417,
+        421,
+        429,
+        431,
+        436,
+        458,
+        461,
+        469,
+        471,
+        486,
+        489,
+        502,
+        508,
+        513,
+        515,
+        516,
+        524,
+        526,
+        533,
+        538,
+        540,
+        542,
+        546,
+        551,
+        560,
+        562,
+        569,
+        576,
+        579,
+        585,
+        587,
+        592,
+        594,
+        595,
+        601,
+        605,
+        609,
+        616,
+        622,
+        626,
+        634
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0061"
+      ],
+      "unique_blocks": 101,
+      "unreadable": 0,
+      "unreviewed": 259
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Prov",
+        "Ps",
+        "Sir"
+      ],
+      "chapters": [
+        "Prov.10",
+        "Prov.9",
+        "Ps.36",
+        "Sir.18"
+      ],
+      "columns": {
+        "right": 20
+      },
+      "conflicts": [],
+      "exact_ocr_form": "d",
+      "gap_count": 20,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 20,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 20
+      },
+      "scan_pages": [
+        58,
+        227,
+        229,
+        404
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0064"
+      ],
+      "unique_blocks": 4,
+      "unreadable": 0,
+      "unreviewed": 20
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Sir"
+      ],
+      "chapters": [
+        "Sir.19"
+      ],
+      "columns": {
+        "right": 1
+      },
+      "conflicts": [],
+      "exact_ocr_form": "e",
+      "gap_count": 1,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 1,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 1
+      },
+      "scan_pages": [
+        407
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0065"
+      ],
+      "unique_blocks": 1,
+      "unreadable": 0,
+      "unreviewed": 1
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Isa",
+        "Prov",
+        "Ps",
+        "Sir"
+      ],
+      "chapters": [
+        "Isa.44",
+        "Prov.25",
+        "Ps.34",
+        "Ps.84",
+        "Sir.14",
+        "Sir.39"
+      ],
+      "columns": {
+        "right": 14
+      },
+      "conflicts": [],
+      "exact_ocr_form": "f",
+      "gap_count": 14,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 14,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 14
+      },
+      "scan_pages": [
+        55,
+        124,
+        260,
+        396,
+        460,
+        596
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0066"
+      ],
+      "unique_blocks": 6,
+      "unreadable": 0,
+      "unreviewed": 14
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Isa",
+        "Prov",
+        "Ps",
+        "Sir",
+        "Wis"
+      ],
+      "chapters": [
+        "Isa.3",
+        "Isa.55",
+        "Isa.57",
+        "Prov.24",
+        "Prov.30",
+        "Ps.35",
+        "Ps.82",
+        "Ps.91",
+        "Sir.13",
+        "Sir.18",
+        "Sir.30",
+        "Sir.47",
+        "Sir.48",
+        "Wis.12",
+        "Wis.4",
+        "Wis.8"
+      ],
+      "columns": {
+        "right": 47
+      },
+      "conflicts": [],
+      "exact_ocr_form": "i",
+      "gap_count": 47,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 47,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 47
+      },
+      "scan_pages": [
+        57,
+        122,
+        134,
+        258,
+        270,
+        326,
+        334,
+        343,
+        394,
+        404,
+        436,
+        478,
+        480,
+        504,
+        621,
+        625
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0069"
+      ],
+      "unique_blocks": 17,
+      "unreadable": 0,
+      "unreviewed": 47
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Isa",
+        "Prov",
+        "Ps",
+        "Sir"
+      ],
+      "chapters": [
+        "Isa.19",
+        "Prov.16",
+        "Ps.79",
+        "Sir.40",
+        "Sir.47"
+      ],
+      "columns": {
+        "right": 35
+      },
+      "conflicts": [],
+      "exact_ocr_form": "j",
+      "gap_count": 35,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 35,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 35
+      },
+      "scan_pages": [
+        119,
+        242,
+        462,
+        479,
+        537
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+006A"
+      ],
+      "unique_blocks": 5,
+      "unreadable": 0,
+      "unreviewed": 35
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Ps",
+        "Wis"
+      ],
+      "chapters": [
+        "Ps.67",
+        "Wis.18"
+      ],
+      "columns": {
+        "right": 6
+      },
+      "conflicts": [],
+      "exact_ocr_form": "k",
+      "gap_count": 6,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 6,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 6
+      },
+      "scan_pages": [
+        97,
+        357
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+006B"
+      ],
+      "unique_blocks": 2,
+      "unreadable": 0,
+      "unreviewed": 6
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Isa",
+        "Ps"
+      ],
+      "chapters": [
+        "Isa.22",
+        "Ps.2"
+      ],
+      "columns": {
+        "right": 12
+      },
+      "conflicts": [],
+      "exact_ocr_form": "l",
+      "gap_count": 12,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 12,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 12
+      },
+      "scan_pages": [
+        16,
+        543
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+006C"
+      ],
+      "unique_blocks": 2,
+      "unreadable": 0,
+      "unreviewed": 12
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Ps"
+      ],
+      "chapters": [
+        "Ps.108",
+        "Ps.117"
+      ],
+      "columns": {
+        "right": 6
+      },
+      "conflicts": [],
+      "exact_ocr_form": "m",
+      "gap_count": 6,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 6,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 6
+      },
+      "scan_pages": [
+        159,
+        167
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+006D"
+      ],
+      "unique_blocks": 2,
+      "unreadable": 0,
+      "unreviewed": 6
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Eccl",
+        "Isa",
+        "Ps",
+        "Sir"
+      ],
+      "chapters": [
+        "Eccl.10",
+        "Isa.5",
+        "Ps.58",
+        "Ps.68",
+        "Sir.44"
+      ],
+      "columns": {
+        "right": 18
+      },
+      "conflicts": [],
+      "exact_ocr_form": "n",
+      "gap_count": 18,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 18,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 18
+      },
+      "scan_pages": [
+        86,
+        99,
+        295,
+        471,
+        508
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+006E"
+      ],
+      "unique_blocks": 5,
+      "unreadable": 0,
+      "unreviewed": 18
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Isa",
+        "Prov",
+        "Ps",
+        "Sir",
+        "Wis"
+      ],
+      "chapters": [
+        "Isa.22",
+        "Prov.23",
+        "Prov.8",
+        "Ps.103",
+        "Ps.76",
+        "Sir.37",
+        "Wis.1"
+      ],
+      "columns": {
+        "right": 14
+      },
+      "conflicts": [],
+      "exact_ocr_form": "o",
+      "gap_count": 14,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 14,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 14
+      },
+      "scan_pages": [
+        111,
+        147,
+        225,
+        255,
+        320,
+        452,
+        543
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+006F"
+      ],
+      "unique_blocks": 7,
+      "unreadable": 0,
+      "unreviewed": 14
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Isa",
+        "Sir"
+      ],
+      "chapters": [
+        "Isa.23",
+        "Sir.37"
+      ],
+      "columns": {
+        "right": 5
+      },
+      "conflicts": [],
+      "exact_ocr_form": "r",
+      "gap_count": 5,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 5,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 5
+      },
+      "scan_pages": [
+        452,
+        545
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0072"
+      ],
+      "unique_blocks": 2,
+      "unreadable": 0,
+      "unreviewed": 5
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Ps",
+        "Sir",
+        "Wis"
+      ],
+      "chapters": [
+        "Ps.131",
+        "Ps.4",
+        "Ps.78",
+        "Sir.36",
+        "Wis.19"
+      ],
+      "columns": {
+        "right": 7
+      },
+      "conflicts": [],
+      "exact_ocr_form": "t",
+      "gap_count": 7,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 7,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 7
+      },
+      "scan_pages": [
+        18,
+        117,
+        186,
+        360,
+        450
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0074"
+      ],
+      "unique_blocks": 5,
+      "unreadable": 0,
+      "unreviewed": 7
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Isa",
+        "Prov"
+      ],
+      "chapters": [
+        "Isa.53",
+        "Prov.23"
+      ],
+      "columns": {
+        "right": 3
+      },
+      "conflicts": [],
+      "exact_ocr_form": "u",
+      "gap_count": 3,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 3,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 3
+      },
+      "scan_pages": [
+        255,
+        618
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+0075"
+      ],
+      "unique_blocks": 3,
+      "unreadable": 0,
+      "unreviewed": 3
+    },
+    {
+      "batch_135_reviewed": 1,
+      "books": [
+        "Eccl",
+        "Isa",
+        "Prov",
+        "Ps",
+        "Sir",
+        "Song",
+        "Wis"
+      ],
+      "chapters": [
+        "Eccl.10",
+        "Eccl.12",
+        "Eccl.2",
+        "Isa.10",
+        "Isa.11",
+        "Isa.13",
+        "Isa.2",
+        "Isa.28",
+        "Isa.29",
+        "Isa.3",
+        "Isa.41",
+        "Isa.43",
+        "Isa.44",
+        "Isa.45",
+        "Isa.49",
+        "Isa.5",
+        "Isa.54",
+        "Isa.57",
+        "Isa.59",
+        "Isa.60",
+        "Isa.61",
+        "Isa.62",
+        "Isa.65",
+        "Isa.9",
+        "Prov.12",
+        "Prov.14",
+        "Prov.18",
+        "Prov.20",
+        "Prov.21",
+        "Prov.24",
+        "Prov.25",
+        "Prov.26",
+        "Prov.27",
+        "Prov.30",
+        "Prov.31",
+        "Prov.5",
+        "Prov.6",
+        "Prov.7",
+        "Ps.101",
+        "Ps.105",
+        "Ps.106",
+        "Ps.107",
+        "Ps.117",
+        "Ps.118",
+        "Ps.119",
+        "Ps.13",
+        "Ps.134",
+        "Ps.136",
+        "Ps.139",
+        "Ps.144",
+        "Ps.2",
+        "Ps.21",
+        "Ps.24",
+        "Ps.39",
+        "Ps.4",
+        "Ps.40",
+        "Ps.41",
+        "Ps.42",
+        "Ps.43",
+        "Ps.44",
+        "Ps.46",
+        "Ps.49",
+        "Ps.50",
+        "Ps.53",
+        "Ps.62",
+        "Ps.63",
+        "Ps.68",
+        "Ps.7",
+        "Ps.77",
+        "Ps.78",
+        "Ps.82",
+        "Ps.88",
+        "Ps.89",
+        "Sir.10",
+        "Sir.13",
+        "Sir.16",
+        "Sir.17",
+        "Sir.2",
+        "Sir.22",
+        "Sir.25",
+        "Sir.26",
+        "Sir.29",
+        "Sir.31",
+        "Sir.32",
+        "Sir.33",
+        "Sir.35",
+        "Sir.38",
+        "Sir.39",
+        "Sir.4",
+        "Sir.41",
+        "Sir.45",
+        "Sir.46",
+        "Sir.48",
+        "Sir.49",
+        "Sir.5",
+        "Sir.51",
+        "Sir.6",
+        "Song.2",
+        "Song.3",
+        "Wis.15",
+        "Wis.16",
+        "Wis.17",
+        "Wis.19",
+        "Wis.2",
+        "Wis.3",
+        "Wis.5",
+        "Wis.6",
+        "Wis.7"
+      ],
+      "columns": {
+        "right": 349
+      },
+      "conflicts": [],
+      "exact_ocr_form": "y",
+      "gap_count": 349,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 1,
+      "other_negatives": 0,
+      "population": 349,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 349
+      },
+      "scan_pages": [
+        16,
+        18,
+        21,
+        28,
+        38,
+        42,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        72,
+        76,
+        77,
+        80,
+        90,
+        91,
+        100,
+        113,
+        115,
+        118,
+        122,
+        129,
+        132,
+        143,
+        153,
+        156,
+        157,
+        167,
+        178,
+        179,
+        188,
+        190,
+        194,
+        199,
+        218,
+        220,
+        223,
+        232,
+        236,
+        245,
+        250,
+        252,
+        257,
+        259,
+        262,
+        265,
+        271,
+        273,
+        274,
+        280,
+        296,
+        298,
+        306,
+        308,
+        321,
+        323,
+        327,
+        328,
+        330,
+        331,
+        333,
+        350,
+        353,
+        355,
+        361,
+        368,
+        373,
+        376,
+        379,
+        387,
+        395,
+        400,
+        402,
+        415,
+        424,
+        425,
+        426,
+        427,
+        434,
+        439,
+        441,
+        444,
+        448,
+        455,
+        458,
+        459,
+        460,
+        464,
+        474,
+        475,
+        476,
+        482,
+        483,
+        488,
+        502,
+        505,
+        508,
+        509,
+        517,
+        520,
+        524,
+        526,
+        555,
+        557,
+        559,
+        588,
+        594,
+        598,
+        600,
+        609,
+        610,
+        620,
+        625,
+        630,
+        632,
+        634,
+        636,
+        642
+      ],
+      "status": "UNSAFE_WITH_CURRENT_EVIDENCE",
+      "unicode_codepoints": [
+        "U+0079"
+      ],
+      "unique_blocks": 133,
+      "unreadable": 0,
+      "unreviewed": 348
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Ps"
+      ],
+      "chapters": [
+        "Ps.118"
+      ],
+      "columns": {
+        "right": 4
+      },
+      "conflicts": [],
+      "exact_ocr_form": "Á",
+      "gap_count": 4,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 4,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 4
+      },
+      "scan_pages": [
+        170
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+00C1"
+      ],
+      "unique_blocks": 1,
+      "unreadable": 0,
+      "unreviewed": 4
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Sir"
+      ],
+      "chapters": [
+        "Sir.2"
+      ],
+      "columns": {
+        "right": 3
+      },
+      "conflicts": [],
+      "exact_ocr_form": "Ó",
+      "gap_count": 3,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 3,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 3
+      },
+      "scan_pages": [
+        369
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+00D3"
+      ],
+      "unique_blocks": 1,
+      "unreadable": 0,
+      "unreviewed": 3
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Eccl",
+        "Isa",
+        "Prov",
+        "Ps",
+        "Sir",
+        "Song",
+        "Wis"
+      ],
+      "chapters": [
+        "Eccl.3",
+        "Isa.43",
+        "Isa.65",
+        "Prov.13",
+        "Prov.20",
+        "Prov.24",
+        "Prov.7",
+        "Ps.106",
+        "Ps.118",
+        "Ps.144",
+        "Ps.26",
+        "Ps.41",
+        "Ps.67",
+        "Ps.68",
+        "Ps.71",
+        "Ps.9",
+        "Ps.95",
+        "Sir.16",
+        "Sir.17",
+        "Sir.21",
+        "Sir.46",
+        "Sir.47",
+        "Sir.50",
+        "Sir.8",
+        "Song.5",
+        "Song.7",
+        "Wis.10",
+        "Wis.11",
+        "Wis.14",
+        "Wis.19"
+      ],
+      "columns": {
+        "right": 103
+      },
+      "conflicts": [],
+      "exact_ocr_form": "á",
+      "gap_count": 103,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 103,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 103
+      },
+      "scan_pages": [
+        24,
+        45,
+        66,
+        96,
+        100,
+        104,
+        138,
+        155,
+        173,
+        175,
+        199,
+        223,
+        234,
+        249,
+        257,
+        281,
+        312,
+        315,
+        339,
+        340,
+        346,
+        347,
+        361,
+        384,
+        401,
+        402,
+        403,
+        412,
+        476,
+        478,
+        484,
+        485,
+        594,
+        641
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+00E1"
+      ],
+      "unique_blocks": 34,
+      "unreadable": 0,
+      "unreviewed": 103
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Ps",
+        "Wis"
+      ],
+      "chapters": [
+        "Ps.22",
+        "Ps.38",
+        "Wis.8"
+      ],
+      "columns": {
+        "right": 6
+      },
+      "conflicts": [],
+      "exact_ocr_form": "é",
+      "gap_count": 6,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 6,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 6
+      },
+      "scan_pages": [
+        40,
+        62,
+        335
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+00E9"
+      ],
+      "unique_blocks": 3,
+      "unreadable": 0,
+      "unreviewed": 6
+    },
+    {
+      "batch_135_reviewed": 0,
+      "books": [
+        "Isa",
+        "Prov",
+        "Sir"
+      ],
+      "chapters": [
+        "Isa.6",
+        "Isa.63",
+        "Prov.3",
+        "Sir.18",
+        "Sir.34",
+        "Sir.45"
+      ],
+      "columns": {
+        "right": 20
+      },
+      "conflicts": [],
+      "exact_ocr_form": "ó",
+      "gap_count": 20,
+      "marker_positives": 0,
+      "ordinary_text_negatives": 0,
+      "other_negatives": 0,
+      "population": 20,
+      "printed_value_distribution": {},
+      "prior_reviewed": 0,
+      "projection_counts": {
+        "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 20
+      },
+      "scan_pages": [
+        215,
+        405,
+        445,
+        473,
+        510,
+        638
+      ],
+      "status": "NEEDS_MORE_REVIEW",
+      "unicode_codepoints": [
+        "U+00F3"
+      ],
+      "unique_blocks": 6,
+      "unreadable": 0,
+      "unreviewed": 20
+    }
+  ],
+  "inventory_accounting": {
+    "candidate_lines": 1310,
+    "exact_form_count": 43,
+    "glyph_gaps": 1310,
+    "standalone_population": 1310,
+    "unique_blocks": 522
+  },
+  "pixel_findings": {
+    "performed": false
+  },
+  "prior_reviews": {
+    "batches": [
+      124,
+      127,
+      128,
+      129,
+      130,
+      131,
+      132,
+      133
+    ],
+    "contextual_nonreusable": 0,
+    "exact_block_matches": 0,
+    "records_examined": 496,
+    "reused": 0,
+    "unmatched_current": 1310
+  },
+  "projection_taxonomy": {
+    "PROJECTED_TOKEN_FROM_MULTI_TOKEN_LINE": 1304,
+    "TRUE_SINGLE_TOKEN_LINE": 6
+  },
+  "provenance": {
+    "baseline_commit": "8e27f9d20da6c2b59dfae233da48c1423b505c7c",
+    "edition": "Torres Amat 1832-1835",
+    "expected_source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346",
+    "offline": true,
+    "pdf": "build/torresamat1835-cache/lasagradabiblia01unkngoog.pdf",
+    "pdf_pages": 652,
+    "source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346",
+    "witness": "ia-lasagradabiblia01unkngoog"
+  },
+  "rules": {
+    "expected_verse_used": false,
+    "previous_next_verse_used": false,
+    "runtime_changed": false
+  },
+  "schema_version": 3,
+  "standalone_candidate_definition": "Task-134 rows with lone_glyph signal; refined only diagnostically by source-line token count. GLUED_FRAME excluded. The historical name denotes projected candidate token, not necessarily a one-token OCR line.",
+  "statuses": {
+    "EVIDENCE_READY": [],
+    "NEEDS_MORE_REVIEW": [
+      "1",
+      "17",
+      "2",
+      "3",
+      "4",
+      "40",
+      "49",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "A",
+      "B",
+      "D",
+      "I",
+      "M",
+      "S",
+      "T",
+      "U",
+      "V",
+      "X",
+      "Y",
+      "a",
+      "d",
+      "e",
+      "f",
+      "i",
+      "j",
+      "k",
+      "l",
+      "m",
+      "n",
+      "o",
+      "r",
+      "t",
+      "u",
+      "Á",
+      "Ó",
+      "á",
+      "é",
+      "ó"
+    ],
+    "UNSAFE_WITH_CURRENT_EVIDENCE": [
+      "y"
+    ]
+  },
+  "structural_findings": {
+    "descriptive_only": true
+  },
+  "task128_linkage_method": "Exact source block_id against task-128 marker/rejection detail; grammar-only similarity is not exact linkage.",
+  "task128_overlap": {
+    "TASK128_NOT_APPLICABLE": 1281,
+    "TASK128_REJECTED_EXACT": 23
+  },
+  "task128_rejection_reasons": {
+    "no_trusted_marker_band": 18,
+    "outside_marker_band": 5
+  },
+  "task_136_reason": "Exact block linkage distinguishes historical task-128 evidence from grammar-only resemblance; remaining rejected/not-applicable projections require bounded audit.",
+  "task_136_target": "task-128 rejected-projection occurrence audit"
+}

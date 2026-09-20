@@ -185,7 +185,8 @@ _REVIEW_LEDGERS = ("chapter_image_reviews.json", "verse_boundary_reviews.json",
                    "a_glyph_pixel_features.json",
                    "glued_marker_segments.json")
 _DIAGNOSTIC_ARTIFACTS = ("glued_marker_discriminator.json",
-                         "remaining_glyph_inventory.json")
+                         "remaining_glyph_inventory.json",
+                         "standalone_glyph_facsimile.json")
 
 
 def test_sources_do_not_live_in_git():

@@ -2712,6 +2712,10 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         except (OSError, json.JSONDecodeError):
             report["verse_segmentation_audit"]["remaining_glyph_priority"] = {
                 "status": "artifact_unavailable"}
+    facsimile_path = Path("data/torresamat1835/standalone_glyph_facsimile.json")
+    if facsimile_path.exists():
+        report["verse_segmentation_audit"]["standalone_glyph_facsimile_validation"] = json.loads(
+            facsimile_path.read_text(encoding="utf-8"))
     return edition, report
 
 

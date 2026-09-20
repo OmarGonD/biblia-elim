@@ -437,7 +437,7 @@ def test_AH_no_new_facsimile_metadata_was_added():
         "a_glyph_pixel_features.json",
         "chapter_image_reviews.json", "glued_marker_discriminator.json",
         "glued_marker_segments.json", "remaining_glyph_inventory.json",
-        "source_manifest.json",
+        "source_manifest.json", "standalone_glyph_facsimile.json",
         "verse_boundary_reviews.json"]
 
 
