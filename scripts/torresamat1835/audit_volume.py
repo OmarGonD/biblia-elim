@@ -2837,6 +2837,12 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         report["verse_segmentation_audit"][
             "zero_anchor_io_recovery_validation"] = json.loads(
                 recovery_validation_path.read_text(encoding="utf-8"))
+    reprioritization_path = Path(
+        "data/torresamat1835/remaining_glyph_reprioritization.json")
+    if reprioritization_path.exists():
+        report["verse_segmentation_audit"][
+            "remaining_glyph_reprioritization"] = json.loads(
+                reprioritization_path.read_text(encoding="utf-8"))
     return edition, report
 
 
