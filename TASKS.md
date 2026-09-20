@@ -3113,8 +3113,8 @@
     - Recommended next work: reprioritize remaining glyph-rooted gaps before choosing another recovery family.
     - Task 139 is DONE because runtime output exactly reproduced the semantic delta validated by task 138.
 
-- [ ] TORRES-1835-REMAINING-GLYPH-REPRIORITIZATION-140 Reprioritize remaining glyph-rooted verse gaps after bounded recovery
-  - Status: PENDING
+- [x] TORRES-1835-REMAINING-GLYPH-REPRIORITIZATION-140 Reprioritize remaining glyph-rooted verse gaps after bounded recovery
+  - Status: DONE
   - Description:
     Recompute and classify the 1309 remaining glyph-rooted verse gaps after
     task 139, reconcile them with the historical task-134/task-135/task-136/
@@ -3259,6 +3259,178 @@
     of one layout-corruption subclass, or validation of one narrowly bounded
     projected-marker family. Do not queue broad remaining-glyph,
     standalone-glyph, or all-projected-marker recovery.
+
+  - Closure record:
+    - Result: READY; current glyph-rooted inventory recomputed and reprioritized without recovery.
+    - Frozen task baseline: 13eb5c80d8cf03dead7940391cfc84b11e600262.
+    - Runtime remained unchanged: VerseRefs = 3849; physical gaps = 3254; glyph gaps = 1309.
+    - Current glyph inventory recomputed from current parser/source state: 1309.
+    - Historical glyph inventory: 1310.
+    - Reconciled removed occurrences: 1.
+    - Removed stable occurrence: p0032l0052::Ps.17.10.
+    - Removed occurrence historical category: standalone_glyph_candidate.
+    - Removal explained exclusively by task-139 zero-anchor I o recovery.
+    - No additional occurrence identities changed.
+    - Current physical/projected split: PHYSICAL_SINGLE_TOKEN = 6; PHYSICAL_MULTI_TOKEN = 0; PROJECTED_FROM_MULTI_TOKEN = 1303; DETACHED_NUMERIC_FRAGMENT primary = 0; COMPOUND_FORM primary = 0; LAYOUT_COLUMN_CORRUPTION primary = 0; NO_LOCAL_MARKER_EVIDENCE primary = 0; OTHER_SOURCE_BACKED = 0; UNRESOLVED = 0.
+    - Historical 6/1304 split no longer applies because the task-139 occurrence belonged to the projected population.
+    - Current equivalent: 6 true physical single-token; 1303 projected multi-token.
+    - Secondary/root-cause diagnostic signals include: physical standalone-like = 6; projected multi-token = 1303; detached numeric fragment = 42; compound marker = 0; layout/column signal = 1309; no-local-marker = 0; reviewed unsafe = 3; other/unresolved = 0. Secondary tags may overlap and are not required to sum to 1309.
+    - Review coverage: REVIEWED_POSITIVE = 1; REVIEWED_NEGATIVE = 3; REVIEWED_AMBIGUOUS = 4; NOT_REVIEWED = 1301; REVIEW_NOT_APPLICABLE = 0.
+    - Top exact/diagnostic forms include: y = 366; a = 260; á = 103; 4 = 73; 3 = 51; i = 47; j = 35; S = 30; X = 30; I = 25.
+    - Exact form a: population = 260; physical = 0; projected = 260; books = 7; pages = 97; existing reviewed positives = 1; existing reviewed negatives = 0; remaining ambiguous/unreviewed = 259.
+    - Closed families preserved: GLUED_FRAME = CLOSED_UNSAFE; outside_marker_band = CLOSED_REJECTED; task-128 not widened; task-131 not widened; zero-anchor I o solved; generic single-glyph mapping not established.
+    - Bounded candidate families evaluated = 3.
+    - Selected next family: PROJECTED_MULTI_TOKEN_EXACT_FORM_A.
+    - Selected task type: exhaustive/source-backed facsimile audit before any discriminator or recovery validation.
+    - Artifact: data/torresamat1835/remaining_glyph_reprioritization.json; schema_version = 1.
+    - Artifact deterministic and idempotent.
+    - Frozen baseline provenance stable.
+    - Audit integrated as: verse_segmentation_audit.remaining_glyph_reprioritization.
+    - Chapters = 337/337; unresolved chapter claims = 0; canonical chapter gaps = 0; duplicate_refs = 0; out_of_order_refs = 0; outside_canon = 0; ocr_blocks = 57700; block loss = 0; dual ownership = 0.
+    - task-128 remains: 183 markers; 177 refs; 1355 ownership moves.
+    - task-131 remains: 276 markers/refs; 1900 ownership moves.
+    - Direct tests passed.
+    - Build passed.
+    - TorresAmat CTest = 31/31 passed.
+    - Full CTest = 43/43 passed.
+    - Two environment-dependent tests skipped.
+    - New failures = 0.
+    - Recommended next work: exhaustive facsimile/source audit of the finite projected exact-form a family.
+    - Task 140 is DONE because the current 1309 glyph-rooted population was recomputed and reconciled, and exactly one bounded evidence-gathering family was selected without introducing runtime recovery.
+
+- [ ] TORRES-1835-PROJECTED-FORM-A-FACSIMILE-AUDIT-141 Audit projected multi-token exact-form a candidates against facsimile
+  - Status: PENDING
+  - Description:
+    Exhaustively audit the 260 current PROJECTED_FROM_MULTI_TOKEN candidates
+    with exact diagnostic form `a` against source/facsimile evidence. Determine
+    what the printed source actually contains and whether this population
+    contains one or more narrower source-backed verse-marker families worth
+    validating later. This is evidence gathering only; no recovery or new
+    runtime heuristic is allowed.
+  - Baseline context:
+    - Runtime VerseRefs = 3849.
+    - Physical gaps = 3254.
+    - Glyph gaps = 1309.
+    - Current projected multi-token population = 1303.
+    - Selected exact-form a family: 260 occurrences; 7 books; 97 pages; physical single-token = 0; projected multi-token = 260.
+    - Existing stable review evidence: reviewed positive = 1; reviewed negative = 0; remaining ambiguous/unreviewed = 259.
+    - Historical task-135 evidence showed at least one projected form-a case could correspond visually to a printed numeral, but this must NOT be generalized to the current family without facsimile evidence.
+  - Purpose:
+    - Review all 260 stable occurrences, not merely a sample, if the configured facsimile/source witness is available.
+    - Determine whether projected OCR form `a` corresponds to: printed verse-marker numeral; ordinary body text; heading/title; Latin parallel column; apparatus/note; scan/layout corruption; unreadable/ambiguous source; other.
+    - For confirmed printed verse markers, record the visible printed numeric value from source evidence.
+    - Do not infer printed value from expected VerseRef or verse sequence.
+    - Identify narrower repeated subfamilies, if any, using source-derived structural evidence.
+  - Candidate derivation:
+    - Recompute the current exact-form-a family from CURRENT task-140 inventory / parser source state.
+    - Do not hardcode 260 occurrence IDs as the family definition.
+    - Family definition must include: exact diagnostic form = `a`; PROJECTED_FROM_MULTI_TOKEN; verse-body/source structural context already established by task 140.
+    - Stable occurrence IDs may be used for review tracking only.
+  - Facsimile review:
+    - Review every one of the 260 current occurrences if source images/pages are available.
+    - Use the configured development facsimile/source witness; do not download or commit raw scans into the repository.
+    - Preserve the current source-page/PDF-page mapping from existing project provenance rather than inventing one.
+    - For every occurrence record: stable occurrence id; book/chapter diagnostic context; scan/source page; facsimile page; OCR line/block identity; raw source OCR line; projected token; exact form; physical token count; source zone/column; source crop/geometry coordinates if available; classification; visible printed value if confidently readable; review confidence/evidence reason; historical review lineage if applicable.
+  - Review classifications:
+    - Each occurrence must end in exactly one primary review class: PRINTED_VERSE_MARKER; ORDINARY_TEXT; HEADING_OR_TITLE; LATIN_PARALLEL_TEXT; APPARATUS_OR_NOTE; LAYOUT_OR_SCAN_ARTIFACT; UNREADABLE; OTHER.
+    - Do not force unreadable evidence into positive/negative categories.
+  - Printed value:
+    - For PRINTED_VERSE_MARKER only, record: visible_printed_value; visual basis; source coordinates/page.
+    - Do NOT derive printed value from expected missing verse, previous + 1, next - 1, or neighboring canonical sequence.
+    - If the glyph visually resembles more than one digit, classify UNREADABLE/ambiguous rather than choosing by expected verse.
+  - Structural evidence:
+    - For each confirmed positive and negative, preserve measurable context: right/left column; verse-body zone; line position; projected token position within source line; neighboring OCR tokens; geometry relative to known marker bands/anchors if available; block ownership context.
+    - Token identity `a` alone is NEVER sufficient evidence.
+  - Existing review:
+    - Reconcile the one existing REVIEWED_POSITIVE by stable occurrence identity.
+    - Verify it again against current source evidence where possible.
+    - Do not duplicate-count it.
+  - Required aggregate results:
+    - total = 260.
+    - reviewed = 260 if facsimile is available for all cases.
+    - exact counts by review class.
+    - exact counts by visible printed value among positives.
+    - positives by book/page.
+    - negatives by book/page.
+    - unreadable/ambiguous count.
+    - structural subfamilies discovered.
+    - candidate controls/negatives for any future discriminator.
+  - Subfamily discovery:
+    - Group reviewed positives and negatives only by transparent source-derived characteristics, such as visible printed value/morphology; token position within multi-token line; geometric band/offset; neighboring punctuation/token pattern; column/body context; repeated source-page layout.
+    - Do NOT use expected VerseRef, expected verse number, previous+1, next-1, occurrence id, or page identity alone as a discriminator feature.
+  - Future-task decision:
+    - End with exactly one task-142 recommendation: A. bounded discriminator validation for one explicit subfamily; B. narrower facsimile/source audit; C. close/defer form-a family as unsafe.
+    - Do not implement task 142.
+    - Do not recommend generic `a -> digit` recovery.
+  - Artifact:
+    - Create deterministic diagnostic artifact, preferably: data/torresamat1835/projected_form_a_facsimile.json.
+    - Include schema_version; frozen baseline provenance; candidate-family derivation; 260 occurrence review records; class counts; positive visible-value counts; geometry/context summaries; discovered subfamilies; controls/negatives; selected task-142 target; runtime invariants.
+    - Do not embed raw images.
+    - Do not embed PDFs.
+    - Stable deterministic ordering.
+  - Provenance:
+    - Freeze task-141 input baseline commit.
+    - Do not derive persisted baseline_commit from whatever HEAD happens to be during later regeneration.
+    - Follow the corrected explicit/frozen provenance pattern already used by tasks 137/138/140.
+  - Audit:
+    - Add diagnostic audit equivalent to: verse_segmentation_audit.projected_form_a_facsimile.
+    - Include: candidate_count; reviewed_count; class_counts; positive_count; visible_value_counts; negative_count; unreadable_count; structural_subfamilies; selected_task142_target; selected_task142_reason.
+  - Runtime invariants:
+    - No new recovery.
+    - VerseRefs remain = 3849.
+    - Physical gaps remain = 3254.
+    - Glyph gaps remain = 1309.
+    - Ownership unchanged.
+    - task-128 unchanged.
+    - task-131 unchanged.
+    - task-139 unchanged.
+    - GLUED_FRAME remains CLOSED_UNSAFE.
+    - Chapters remain 337/337.
+    - unresolved chapter claims = 0.
+    - canonical chapter gaps = 0.
+    - duplicate_refs = 0.
+    - out_of_order_refs = 0.
+    - outside_canon = 0.
+    - ocr_blocks = 57700.
+    - block loss = 0.
+    - dual ownership = 0.
+  - Acceptance:
+    - Current exact-form-a population deterministically recomputes to 260.
+    - All 260 occurrences are accounted for.
+    - Every source-accessible occurrence is facsimile reviewed.
+    - No review decision uses expected verse sequence.
+    - Existing positive lineage is reconciled by stable occurrence identity.
+    - PRINTED_VERSE_MARKER cases have source-visible printed values or are explicitly unreadable.
+    - Ordinary text / Latin / heading / artifact negatives are preserved.
+    - Token identity alone is never used as marker authority.
+    - Any proposed subfamily has both positive evidence and explicit controls/negative analysis.
+    - Exactly one bounded task-142 recommendation is produced.
+    - No runtime/parser recovery change.
+    - Artifact deterministic and idempotent.
+    - Frozen provenance stable.
+  - Do not:
+    - Implement recovery.
+    - Add `a -> 2` or any other global glyph mapping.
+    - Assume the existing positive generalizes to all 260.
+    - Infer numeral from missing VerseRef.
+    - Use previous+1 or next-1.
+    - Use page/book identity as sole discriminator.
+    - Treat projected token as physical standalone OCR.
+    - Reopen generic standalone glyph recovery.
+    - Reopen GLUED_FRAME.
+    - Reopen outside_marker_band.
+    - Widen task-128.
+    - Widen task-131.
+    - Modify task-139.
+    - Use ML, embeddings, neural OCR or opaque classifiers.
+    - Commit raw facsimile images/PDFs.
+    - Modify unrelated UI.
+    - Modify TASKS.md from the task agent.
+    - Commit or push implementation work from the task agent.
+  - Important task-141 boundary:
+    Task 141 is an exhaustive SOURCE/FACSIMILE AUDIT. It is not a recovery task, a discriminator implementation task, or proof that OCR form `a` means a numeral. The task must first answer: What is actually printed at these 260 projected occurrences?
+  - Source availability:
+    If the configured facsimile/source witness needed for review is unavailable, do not classify cases from expected verse sequence, do not invent labels, and do not silently downgrade to OCR-only inference. Report the exact missing source requirement. A partial source audit may be PARTIAL READY only if every reviewed label is source-backed and the unreviewed population is explicit.
 
 
 - [ ] UI-SIGNAL-101 Investigate stale GObject signal handler
