@@ -7,12 +7,14 @@ import tempfile
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 ART = ROOT / "data/torresamat1835/no_trusted_band_discriminator.json"
+BASELINE_COMMIT = json.loads(ART.read_text())['provenance']['baseline_commit']
 ARGS = ["python3", str(ROOT / "scripts/torresamat1835/no_trusted_band_discriminator.py"),
         "--inventory", str(ROOT / "data/torresamat1835/remaining_glyph_inventory.json"),
         "--projected", str(ROOT / "data/torresamat1835/projected_rejection_audit.json"),
         "--audit", str(ROOT / "build/torresamat1835-audit/volume3.json"),
         "--xml", str(ROOT / "build/torresamat1835-cache/lasagradabiblia01unkngoog_djvu.xml"),
-        "--pdf", str(ROOT / "build/torresamat1835-cache/lasagradabiblia01unkngoog.pdf")]
+        "--pdf", str(ROOT / "build/torresamat1835-cache/lasagradabiblia01unkngoog.pdf"),
+        "--baseline-commit", BASELINE_COMMIT]
 
 
 def test_artifact_contract():

@@ -10,7 +10,6 @@ import argparse
 import hashlib
 import json
 import statistics
-import subprocess
 import sys
 from collections import Counter
 from pathlib import Path
@@ -362,9 +361,22 @@ def main():
     ap.add_argument("--inventory", required=True); ap.add_argument("--projected", required=True)
     ap.add_argument("--audit", required=True); ap.add_argument("--xml", required=True)
     ap.add_argument("--pdf", required=True); ap.add_argument("--out", required=True)
+    ap.add_argument("--baseline-commit", help="immutable task-input baseline commit")
     ns = ap.parse_args()
-    commit = subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
-    out = build(ns.inventory, ns.projected, ns.audit, ns.xml, ns.pdf, commit)
+
+    # The artifact's baseline identifies the repository state whose inputs
+    # were audited.  It must not change merely because a later commit invokes
+    # this generator again.  An explicit value is preferred for new artifacts;
+    # the existing canonical artifact supplies the frozen value for the
+    # task-137 regeneration path.
+    baseline_commit = ns.baseline_commit
+    if baseline_commit is None:
+        try:
+            canonical = json.loads(OUT.read_text(encoding="utf-8"))
+            baseline_commit = canonical["provenance"]["baseline_commit"]
+        except (FileNotFoundError, KeyError, TypeError, json.JSONDecodeError) as exc:
+            raise SystemExit("--baseline-commit is required when no canonical artifact provenance is available") from exc
+    out = build(ns.inventory, ns.projected, ns.audit, ns.xml, ns.pdf, baseline_commit)
     Path(ns.out).write_text(json.dumps(out, ensure_ascii=False, indent=1, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps({"population": len(out["occurrences"]), "status": out["overall_family_status"], "sha256": sha256(ns.out)}, sort_keys=True))
 
