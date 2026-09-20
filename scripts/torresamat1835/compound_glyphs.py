@@ -165,6 +165,29 @@ def band_of(lines) -> Optional[Tuple[float, float, int]]:
     return statistics.median(edges), statistics.median(widths), len(edges)
 
 
+def trusted_anchor_count(lines) -> int:
+    """Count the ordinary marker anchors used by :func:`band_of`.
+
+    This deliberately exposes the count without changing the three-anchor
+    policy.  A caller may distinguish the separately validated zero-anchor
+    fallback from the other cases where no trusted band is available.
+    """
+    count = 0
+    for line in lines:
+        words = getattr(line, "words", None)
+        if not words or len(words) < 2:
+            continue
+        first, _ = marker_tokens(words)
+        if first is None or first + 1 >= len(words):
+            continue
+        if _PLAIN_NUMERAL.match(words[first].text):
+            count += 1
+    # Match the task-128 meaning of *trusted* anchors: a band with fewer
+    # than the unchanged minimum is unavailable, so it contributes zero
+    # trusted anchors rather than a partial band.
+    return count if count >= MIN_BAND_MARKERS else 0
+
+
 def tolerance(band) -> float:
     """Cuánto puede apartarse un marcador del centro de su banda."""
     return max(BAND_WIDTH_FRACTION * band[1], BAND_FLOOR_PX)

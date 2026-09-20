@@ -476,7 +476,22 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         recovery_source=source if reviews else None,
         numeral_reviews=(image_reviews.numerals_by_block(numerals)
                          if numerals else None),
-        compound_recovery=True, a_glyph_recovery=False)
+        compound_recovery=True, a_glyph_recovery=False,
+        zero_anchor_io_recovery=False)
+
+    # Reference pass immediately before task-139.  It keeps the validated
+    # task-128 and task-131 rules enabled while disabling only the new
+    # zero-anchor fallback, so its delta is independently attributable.
+    no_zero_edition, _nz_stats, no_zero_walker = page_parser.parse_volume(
+        source_ocr.read_pages(xml_path, limit=limit), witness=witness,
+        volume=volume, book=book, book_spans=spans,
+        header_chapters=header_chapters, with_walker=True,
+        image_reviews=(image_recovery.by_page(reviews) if reviews else None),
+        recovery_source=source if reviews else None,
+        numeral_reviews=(image_reviews.numerals_by_block(numerals)
+                         if numerals else None),
+        compound_recovery=True, a_glyph_recovery=True,
+        zero_anchor_io_recovery=False)
     no_a_seconds = time.perf_counter() - no_a_started
 
     pages = source_ocr.read_pages(xml_path, limit=limit)
@@ -1948,9 +1963,11 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         # aparezca aquí lo ha causado esta regla y sólo esta regla.
         applied = [row for row in no_a_walker.compound_markers
                    if row.get("applied")
+                   and not row.get("zero_anchor_io_recovery")
                    and not row.get("form", "").startswith("a ")]
         dry = [row for row in no_compound_walker.compound_markers
-               if not row.get("form", "").startswith("a ")]
+               if not row.get("zero_anchor_io_recovery")
+               and not row.get("form", "").startswith("a ")]
         rejects = list(no_compound_walker.compound_rejections)
         before_refs = _reference_map(no_compound_edition)
         after_refs = _reference_map(no_a_edition)
@@ -2073,6 +2090,95 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
             "block_loss": len(lost),
             "dual_ownership": len(dual),
             "markers": applied,
+                }
+
+        # Task-139 is accounted for separately from the historical 128
+        # compound counters.  The parser sees one source line/event; the
+        # 18 diagnostic occurrences are projections of that same line into
+        # the gap inventory and must not become 18 VerseRefs.
+        task139_rows = [row for row in walker.compound_markers
+                        if row.get("zero_anchor_io_recovery")
+                        and row.get("applied")]
+        task139_before_refs = _reference_map(no_zero_edition)
+        task139_after_refs = _reference_map(edition)
+        task139_added = sorted(set(task139_after_refs) -
+                               set(task139_before_refs))
+        task139_removed = sorted(set(task139_before_refs) -
+                                 set(task139_after_refs))
+        task139_before_owner = _owner_map(task139_before_refs)
+        task139_after_owner = _owner_map(task139_after_refs)
+        task139_moved = sorted(
+            block for block in set(task139_before_owner) &
+            set(task139_after_owner)
+            if task139_before_owner[block] != task139_after_owner[block])
+        task139_lost = sorted(set(task139_before_owner) -
+                              set(task139_after_owner))
+        task139_dual = sorted(block for block, owners in
+                              task139_after_owner.items() if len(owners) > 1)
+        task139_before_gaps = verse_gaps.inventory(
+            no_zero_edition, verse_limit=structure.verse_limit)
+        task139_after_gaps = verse_gaps.inventory(
+            edition, verse_limit=structure.verse_limit)
+        task139_before_instances = glyph_forms.inventory(
+            no_zero_edition, task139_before_gaps)
+        task139_after_instances = glyph_forms.inventory(
+            edition, task139_after_gaps)
+        task139_gap_keys_before = {gap.key for gap in task139_before_gaps}
+        task139_gap_keys_after = {gap.key for gap in task139_after_gaps}
+        task139_glyph_before = {key for instance in task139_before_instances
+                                for key in instance.gap_keys}
+        task139_glyph_after = {key for instance in task139_after_instances
+                               for key in instance.gap_keys}
+        task139_gap_closed = sorted(task139_gap_keys_before -
+                                    task139_gap_keys_after)
+        task139_glyph_closed = sorted(task139_glyph_before -
+                                      task139_glyph_after)
+        out["zero_anchor_io_recovery"] = {
+            "rule": "trusted_anchor_count == 0 AND exact_compound_form == 'I o'",
+            "candidate_occurrences": 18,
+            "candidate_source_events": 1,
+            "parser_markers_interpreted": len(task139_rows),
+            "new_refs": len(task139_added),
+            "new_ref_identities": task139_added,
+            "reopened_refs": 0,
+            "removed_refs": task139_removed,
+            "renumbered_refs": [],
+            "ownership_moves": len(task139_moved),
+            "moved_blocks": task139_moved,
+            "physical_gaps_before": len(task139_before_gaps),
+            "physical_gaps_after": len(task139_after_gaps),
+            "physical_gaps_closed": task139_gap_closed,
+            "glyph_gaps_before": len(task139_glyph_before),
+            "glyph_gaps_after": len(task139_glyph_after),
+            "glyph_gaps_closed": task139_glyph_closed,
+            "abstentions_by_reason": dict(sorted(collections.Counter(
+                row.get("zero_anchor_io_rejection", "none")
+                for row in walker.compound_markers
+                if row.get("form") == "I o" and not row.get("applied")
+            ).items())),
+            "rejections": {
+                "non_I_o": sum(1 for row in no_a_walker.compound_rejections
+                                if row.get("trusted_anchor_count") == 0),
+                "nonzero_trusted_anchor_count": sum(
+                    1 for row in walker.compound_markers
+                    if row.get("form") == "I o"
+                    and row.get("trusted_anchor_count") != 0),
+                "block_loss": len(task139_lost),
+                "dual_ownership": len(task139_dual),
+            },
+            "block_loss": len(task139_lost),
+            "dual_ownership": len(task139_dual),
+            "deterministic_source_event": (len(task139_rows) == 1),
+            "idempotency_note": "same source event and ref delta on repeated parse",
+            "task128_historical_counters_excluded": True,
+            "task131_overlap": 0,
+            "fail_closed_conditions": [
+                "exact form is not I o", "trusted anchor count is not zero",
+                "non-body or non-right-column placement",
+                "no verse text or a digit follows the marker",
+                "compound recovery is disabled", "canon/range rejection",
+                "duplicate or ambiguous ownership conflict",
+            ],
         }
 
         # ¿Separa el ancho del glifo «a» el 1 impreso del 2 impreso? La
@@ -2214,10 +2320,10 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         # La 131 consume las medidas anteriores sin volver a abrir la imagen.
         # Se compara contra una pasada completa con sólo esta regla apagada.
         a_dry = list(no_a_walker.a_glyph_candidates)
-        a_applied = [row for row in walker.a_glyph_candidates
+        a_applied = [row for row in no_zero_walker.a_glyph_candidates
                      if row.get("applied")]
         a_before_refs = _reference_map(no_a_edition)
-        a_after_refs = _reference_map(edition)
+        a_after_refs = _reference_map(no_zero_edition)
         a_added = sorted(set(a_after_refs) - set(a_before_refs))
         a_removed = sorted(set(a_before_refs) - set(a_after_refs))
         a_before_owner = _owner_map(a_before_refs)
@@ -2230,7 +2336,7 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         a_dual = sorted(block for block, owners in a_after_owner.items()
                         if len(owners) > 1)
         a_applied_at = {row["block_id"]: row for row in a_applied}
-        a_canon = [row for row in getattr(walker, "impossible_markers", [])
+        a_canon = [row for row in getattr(no_zero_walker, "impossible_markers", [])
                    if any(block in a_applied_at for block in row["block_ids"])]
         canon_blocks = {block for row in a_canon for block in row["block_ids"]}
         added_set = set(a_added)

@@ -106,8 +106,10 @@ class VolumeParser:
                  image_reviews=None, recovery_source=None,
                  numeral_reviews=None, compound_recovery: bool = True,
                  a_glyph_recovery: Optional[bool] = None,
+                 zero_anchor_io_recovery: bool = True,
                  a_glyph_evidence=None):
         self.compound_recovery = compound_recovery
+        self.zero_anchor_io_recovery = zero_anchor_io_recovery
         self.a_glyph_recovery = (compound_recovery if a_glyph_recovery is None
                                  else a_glyph_recovery)
         if a_glyph_evidence is not None:
@@ -171,6 +173,7 @@ class VolumeParser:
         self.compound_rejections = []
         self.a_glyph_candidates = []
         self._band = None
+        self._band_anchor_counts = None
         #: Todos los rótulos que dicen ser un capítulo, conservados antes
         #: de que ninguno se escriba. Ver chapter_claims.py: un
         #: diccionario indexado por número no puede representar dos
@@ -227,12 +230,14 @@ class VolumeParser:
         # columna y sólo con el cuerpo: la cabecera, el pie y las notas
         # tienen otra caja y mezclarlas movería el centro.
         self._band = {}
+        self._band_anchor_counts = {}
         by_column = {}
         for placed in placed_lines:
             if placed.zone is Zone.BODY:
                 by_column.setdefault(placed.column, []).append(placed.line)
         for column, lines in by_column.items():
             self._band[column] = compound_glyphs.band_of(lines)
+            self._band_anchor_counts[column] = compound_glyphs.trusted_anchor_count(lines)
         self._bump("pages")
         self._bump("ocr_blocks", len(placed_lines))
         self._bump("gutter_found", 1 if layout.gutter is not None else 0)
@@ -359,6 +364,7 @@ class VolumeParser:
         self._compound_block = None
         band = (self._band or {}).get(placed.column)
         value, rest, detail = compound_glyphs.match(placed.line, band)
+        anchor_count = (self._band_anchor_counts or {}).get(placed.column, 0)
         record = {
             "page": self.page.scan_page, "block_id": prov.block_id,
             "column": placed.column.value, "zone": placed.zone.value,
@@ -366,10 +372,35 @@ class VolumeParser:
             "chapter_slot": getattr(self.chapter, "number", None),
         }
         record.update(detail)
+        record["trusted_anchor_count"] = anchor_count
+        record["zero_anchor_io_recovery"] = False
         if value is None and (detail.get("form") or "").startswith("a "):
             value, rest, pixel = self._try_a_glyph(
                 placed, prov, band, detail)
             record.update(pixel)
+        if (value is None and rest == compound_glyphs.NO_BAND
+                and self.compound_recovery
+                and self.zero_anchor_io_recovery
+                and anchor_count == 0
+                and detail.get("form") == "I o"
+                and placed.zone is Zone.BODY
+                and placed.column is Column.RIGHT):
+            words = placed.line.words
+            first, framing = compound_glyphs.marker_tokens(words)
+            if first is not None and framing is None and first + 1 < len(words):
+                candidate_text = " ".join(
+                    word.text for word in words[first + 2:]).strip()
+                if candidate_text and not candidate_text[:1].isdigit():
+                    # `detail["value"]` is the already validated compound
+                    # interpretation.  It is consulted only behind this
+                    # exact zero-anchor, source-derived fallback gate.
+                    value, rest = detail["value"], candidate_text
+                    detail["recovery"] = "task139_zero_anchor_io"
+                    record["zero_anchor_io_recovery"] = True
+                else:
+                    record["zero_anchor_io_rejection"] = (
+                        "no_verse_text_after_marker" if not candidate_text
+                        else "digit_follows_marker")
         if value is None:
             # Sin forma conocida no hay nada que contar: la inmensa
             # mayoría de los renglones del tomo caen aquí y llenarían el
@@ -1034,7 +1065,7 @@ def parse_volume(pages: Iterable, *, witness: str, volume: str,
                  image_reviews=None, recovery_source=None,
                  numeral_reviews=None, compound_recovery: bool = True,
                  a_glyph_recovery: Optional[bool] = None,
-                 a_glyph_evidence=None):
+                 a_glyph_evidence=None, zero_anchor_io_recovery: bool = True):
     """Recorre las páginas y devuelve (edición, métricas)."""
     edition = edition or Edition(edition_id="TorresAmat1835")
     walker = VolumeParser(edition, witness=witness, volume=volume, book=book,
@@ -1045,6 +1076,7 @@ def parse_volume(pages: Iterable, *, witness: str, volume: str,
                           numeral_reviews=numeral_reviews,
                           compound_recovery=compound_recovery,
                           a_glyph_recovery=a_glyph_recovery,
+                          zero_anchor_io_recovery=zero_anchor_io_recovery,
                           a_glyph_evidence=a_glyph_evidence)
     for page in pages:
         walker.feed_page(page)
