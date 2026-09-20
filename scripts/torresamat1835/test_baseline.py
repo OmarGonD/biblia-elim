@@ -97,7 +97,8 @@ def test_manifest_provenance():
                                    "remaining_glyph_inventory.json",
                                    "standalone_glyph_facsimile.json",
                                    "projected_rejection_audit.json",
-                                   "no_trusted_band_discriminator.json") else 256)
+                                   "no_trusted_band_discriminator.json",
+                                   "zero_anchor_io_recovery_validation.json") else 256)
         assert os.path.getsize(os.path.join(data_dir, name)) < cap * 1024, name
 
 

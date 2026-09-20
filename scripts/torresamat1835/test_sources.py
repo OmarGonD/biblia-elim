@@ -188,7 +188,8 @@ _DIAGNOSTIC_ARTIFACTS = ("glued_marker_discriminator.json",
                          "remaining_glyph_inventory.json",
                          "standalone_glyph_facsimile.json",
                          "projected_rejection_audit.json",
-                         "no_trusted_band_discriminator.json")
+                         "no_trusted_band_discriminator.json",
+                         "zero_anchor_io_recovery_validation.json")
 
 
 def test_sources_do_not_live_in_git():

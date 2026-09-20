@@ -2725,6 +2725,12 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
     if discriminator_path.exists():
         report["verse_segmentation_audit"]["no_trusted_band_discriminator_validation"] = json.loads(
             discriminator_path.read_text(encoding="utf-8"))
+    recovery_validation_path = Path(
+        "data/torresamat1835/zero_anchor_io_recovery_validation.json")
+    if recovery_validation_path.exists():
+        report["verse_segmentation_audit"][
+            "zero_anchor_io_recovery_validation"] = json.loads(
+                recovery_validation_path.read_text(encoding="utf-8"))
     return edition, report
 
 
