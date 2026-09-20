@@ -2608,8 +2608,8 @@
       the six physically true-single cases were exhaustively reviewed with
       zero recovery-ready cases.
 
-- [ ] TORRES-1835-PROJECTED-REJECTION-AUDIT-136 Validate task-128 rejected projected-marker occurrences
-  - Status: PENDING
+- [x] TORRES-1835-PROJECTED-REJECTION-AUDIT-136 Validate task-128 rejected projected-marker occurrences
+  - Status: DONE
   - Description:
     Audit the 23 projected occurrences linked exactly to task-128 rejected
     candidates. Preserve stable occurrence linkage and determine whether the
@@ -2654,6 +2654,79 @@
     - Touch unrelated UI work.
     - Modify TASKS.md from the task agent.
     - Commit or push implementation work from the task agent.
+
+  - Closure record:
+    - Result: READY; diagnostic scope completed.
+    - Exact rejected projected occurrences audited = 23; unique stable
+      occurrence identities = 23.
+    - Historical and recomputed rejection split: no_trusted_marker_band = 18;
+      outside_marker_band = 5. Reason mismatches = 0.
+    - Final status: REJECTION_CONFIRMED = 23; stale classification = 0;
+      discriminator candidates = 0; recovery-validation candidates = 0;
+      insufficient evidence = 0.
+    - no_trusted_marker_band: 18 Psalms occurrences on scan page 32, form
+      `I o`, caused by fewer than three trusted marker-band anchors.
+    - outside_marker_band: 5 Isaiah occurrences on scan pages 542 and 553,
+      forms `I o` / `I a`; measured outside-band distances include +48 px
+      against tolerances 33 px and 37.5 px.
+    - Accepted task-128 controls = 183; negative controls = 3; facsimile
+      reviews added = 0 because source-derived geometry was sufficient.
+    - All 23 historical rejections remain justified. No marker was recovered;
+      no task-128 threshold or grammar changed.
+    - VerseRefs = 3848; physical gaps = 3255; glyph gaps = 1310; ownership,
+      task-128 behavior and task-131 behavior unchanged; GLUED_FRAME remains
+      CLOSED_UNSAFE.
+    - Chapters = 337/337; unresolved chapter claims = 0; canonical chapter
+      gaps = 0; duplicate_refs = 0; out_of_order_refs = 0; outside-canon = 0;
+      ocr_blocks = 57700; block loss = 0; dual ownership = 0.
+    - Artifact deterministic and idempotent. Direct tests and build passed;
+      TorresAmat CTest = 28/28; full CTest = 40/40, with two environment-
+      dependent tests skipped by the suite and no new failures.
+    - Recommended next work: bounded diagnostic discriminator study of the
+      18 no_trusted_marker_band occurrences.
+    - Task 136 is DONE because all 23 exact projected rejections were
+      reconciled against current source-derived evidence and every historical
+      rejection was confirmed.
+
+- [ ] TORRES-1835-NO-TRUSTED-BAND-DISCRIMINATOR-137 Evaluate whether no_trusted_marker_band cases admit a safe source-derived discriminator
+  - Status: PENDING
+  - Description:
+    Study only the 18 task-128 projected occurrences rejected as
+    no_trusted_marker_band. Determine whether transparent source-derived
+    geometry or neighboring-marker evidence can distinguish a safe bounded
+    subfamily without weakening task-128 trusted-band policy. Diagnostic only.
+  - Baseline context:
+    - Task 136 confirmed all 23 projected task-128 rejections: 18
+      no_trusted_marker_band and 5 outside_marker_band.
+    - The 18 cases are concentrated in Psalms, scan page 32, form `I o`;
+      historical cause is fewer than three trusted marker-band anchors.
+    - Accepted task-128 controls = 183; negative controls = 3; VerseRefs =
+      3848; physical gaps = 3255; glyph gaps = 1310.
+  - Required behavior:
+    - Enumerate all 18 stable occurrences and reproduce trusted-band failure.
+    - Measure neighboring marker count/spacing, local and candidate x,
+      indentation, body alignment, bbox geometry, following-text gap and
+      page/column position where available.
+    - Compare against accepted controls and explicit negatives using at most
+      two transparent features; require zero accepted known negatives.
+    - Report coverage and abstentions and recommend exactly one bounded
+      task-138 target.
+  - Acceptance:
+    - All 18 occurrences are accounted for once; reason semantics are
+      deterministic; controls and negatives remain unchanged.
+    - No expected-verse inference, threshold widening, marker recovery,
+      parser/runtime, VerseRef, ownership, gap, task-128 or task-131 changes;
+      GLUED_FRAME remains CLOSED_UNSAFE.
+    - Chapters remain 337/337; duplicate_refs = 0; out_of_order_refs = 0;
+      outside-canon = 0; ocr_blocks = 57700; exactly one task-138 target is
+      supported by evidence.
+  - Do not:
+    - Recover the 18 markers, lower trusted-anchor requirements or widen
+      tolerances.
+    - Accept candidates from expected verses, previous+1 or next-1; reopen
+      outside_marker_band, GLUED_FRAME or standalone recovery.
+    - Use ML, embeddings, neural OCR or opaque classifiers; hardcode source
+      locations; touch UI; modify TASKS.md; commit or push.
 
 - [ ] UI-SIGNAL-101 Investigate stale GObject signal handler
   - Status: TODO
