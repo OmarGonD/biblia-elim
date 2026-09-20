@@ -2688,8 +2688,8 @@
       reconciled against current source-derived evidence and every historical
       rejection was confirmed.
 
-- [ ] TORRES-1835-NO-TRUSTED-BAND-DISCRIMINATOR-137 Evaluate whether no_trusted_marker_band cases admit a safe source-derived discriminator
-  - Status: PENDING
+- [x] TORRES-1835-NO-TRUSTED-BAND-DISCRIMINATOR-137 Evaluate whether no_trusted_marker_band cases admit a safe source-derived discriminator
+  - Status: DONE
   - Description:
     Study only the 18 task-128 projected occurrences rejected as
     no_trusted_marker_band. Determine whether transparent source-derived
@@ -2727,6 +2727,171 @@
       outside_marker_band, GLUED_FRAME or standalone recovery.
     - Use ML, embeddings, neural OCR or opaque classifiers; hardcode source
       locations; touch UI; modify TASKS.md; commit or push.
+
+  - Closure record:
+    - Result: READY; diagnostic scope completed.
+    - Target population = 18.
+    - Unique stable occurrences = 18.
+    - Family: Psalms; scan page 32; PDF page 33; exact compound form = `I o`.
+    - task-128 failure reproduced: trusted_anchor_count = 0; minimum required
+      anchors = 3.
+    - The three-anchor task-128 policy remained unchanged.
+    - Batch-137 facsimile reviews = 18.
+    - Visual result: PRINTED_VERSE_MARKER = 18; ORDINARY_TEXT = 0; HEADING = 0;
+      LATIN = 0; APPARATUS = 0; UNREADABLE = 0; OTHER = 0.
+    - Printed marker value: 10 = 18/18.
+    - Accepted task-128 geometry controls reconstructed = 183.
+    - Control coverage: 133 pages; 7 books.
+    - Hard negatives = 9.
+    - Safe diagnostic discriminator found: trusted_anchor_count == 0 AND
+      exact_compound_form == "I o".
+    - Diagnostic rule results: target positives accepted = 18/18; known target
+      negatives accepted = 0; hard negatives accepted = 0; accepted task-128
+      controls accepted = 0/183; abstentions = 2.
+    - Overall family status: SAFE_DISCRIMINATOR_FOUND.
+    - No runtime recovery was introduced.
+    - No task-128 threshold was changed.
+    - No trusted-anchor requirement was lowered.
+    - No marker-band tolerance was widened.
+    - No compound grammar was changed.
+    - VerseRefs = 3848 unchanged.
+    - Physical gaps = 3255 unchanged.
+    - Glyph gaps = 1310 unchanged.
+    - Ownership unchanged.
+    - task-128 runtime behavior unchanged.
+    - task-131 runtime behavior unchanged.
+    - GLUED_FRAME remains CLOSED_UNSAFE.
+    - Chapters = 337/337; unresolved chapter claims = 0; canonical chapter
+      gaps = 0; duplicate_refs = 0; out_of_order_refs = 0; outside-canon = 0.
+    - ocr_blocks = 57700; block loss = 0; dual ownership = 0.
+    - Artifact deterministic and idempotent.
+    - Direct tests passed.
+    - Build passed.
+    - TorresAmat CTest = 29/29 passed.
+    - Full CTest = 41/41 passed.
+    - Two environment-dependent tests were skipped as reported by the suite.
+    - New failures = 0.
+    - Recommended next work: bounded recovery-validation for the exact
+      zero-anchor I o family.
+    - Task 137 is DONE because the complete 18-case family was visually
+      resolved and a transparent two-feature diagnostic discriminator with
+      zero accepted known negatives was established. The absence of runtime
+      recovery is not incomplete work; runtime recovery was explicitly
+      outside task-137 scope.
+
+- [ ] TORRES-1835-ZERO-ANCHOR-IO-RECOVERY-VALIDATION-138 Validate bounded recovery for zero-anchor I o verse markers
+  - Status: PENDING
+  - Description:
+    Validate, in a bounded diagnostic/dry-run recovery model, whether the exact
+    family established by task 137 can be recovered safely:
+        trusted_anchor_count == 0
+        AND exact_compound_form == "I o".
+    Quantify exact VerseRef/ownership effects before any production recovery
+    logic is introduced. Task 138 must validate the proposed recovery family
+    against the full current corpus, known positives, accepted task-128
+    controls and hard negatives.
+  - Baseline context:
+    - Task-137 target population = 18.
+    - All 18 were visually confirmed PRINTED_VERSE_MARKER.
+    - All 18 visible printed values = 10.
+    - trusted_anchor_count = 0 for all 18.
+    - exact_compound_form = I o for all 18.
+    - Diagnostic discriminator:
+        trusted_anchor_count == 0
+        AND exact_compound_form == "I o".
+    - Task-137 diagnostic outcome:
+        positives accepted = 18/18
+        known negatives accepted = 0
+        hard negatives accepted = 0.
+    - Accepted task-128 controls = 183.
+    - Current VerseRefs = 3848.
+    - Current physical gaps = 3255.
+    - Current glyph gaps = 1310.
+  - Required behavior:
+    - Recompute the zero-anchor I o candidate family from CURRENT parser data.
+    - Do not derive the family from a hardcoded list of the 18 known cases.
+    - Apply the task-137 discriminator diagnostically across the full relevant
+      corpus.
+    - Report:
+        total matches
+        matches among known 18 positives
+        additional matches outside the known 18
+        accepted task-128 controls matched
+        known hard negatives matched.
+    - Any additional corpus match outside the known 18 must be individually
+      audited before recovery can be considered.
+    - Build a DRY-RUN recovery simulation only.
+    - For each would-recover case determine:
+        native book/chapter
+        visible marker value
+        proposed native VerseRef
+        current ownership
+        proposed ownership movement
+        whether a VerseRef already exists
+        whether reopening/duplication would occur
+        whether canonical range permits the ref.
+    - The printed marker value must come from source-backed task-137 evidence or
+      equivalent current evidence, never expected verse sequence.
+    - Validate the dry-run against:
+        duplicate_refs
+        out_of_order_refs
+        outside-canon
+        block loss
+        dual ownership
+        chapter structure
+        existing task-128/task-131 recoveries.
+    - Report exact predicted:
+        new VerseRefs
+        reopened existing VerseRefs
+        ownership moves
+        physical-gap reduction
+        glyph-gap reduction.
+    - Compare dry-run before/after identities and prove no unrelated VerseRef
+      is changed.
+    - Keep runtime/parser unchanged in task 138.
+    - Recommend exactly one task-139 action:
+        bounded implementation
+        narrower validation
+        or abandonment.
+  - Acceptance:
+    - Candidate family is derived from source/current parser state, not from
+      hardcoded pages/blocks/verses.
+    - Full-corpus diagnostic match count is deterministic.
+    - Known 18 positives are all accounted for.
+    - Any extra matches are explicitly audited.
+    - Known negatives accepted = 0.
+    - Hard negatives accepted = 0.
+    - Accepted task-128 controls are not accidentally reclassified.
+    - Proposed dry-run recovery produces no:
+        duplicate refs
+        out-of-order refs
+        outside-canon refs
+        block loss
+        dual ownership.
+    - Existing VerseRefs outside the bounded family are unchanged.
+    - task-128 behavior unchanged.
+    - task-131 behavior unchanged.
+    - GLUED_FRAME remains CLOSED_UNSAFE.
+    - Chapters remain 337/337.
+    - ocr_blocks remain 57700.
+    - Parser/runtime remains unchanged.
+    - Exactly one task-139 recommendation supported by evidence.
+  - Do not:
+    - Implement production recovery.
+    - Modify task-128 runtime logic.
+    - Lower trusted-anchor count.
+    - Widen marker-band tolerance.
+    - Alter task-128 grammar.
+    - Hardcode the 18 occurrence IDs as a recovery allowlist.
+    - Hardcode pages, blocks, chapters or verses in production.
+    - Infer marker value from expected verse, previous+1 or next-1.
+    - Accept additional matches without source review.
+    - Reopen outside_marker_band recovery.
+    - Reopen GLUED_FRAME.
+    - Reopen general standalone glyph recovery.
+    - Use ML, embeddings, neural OCR or opaque classifiers.
+    - Modify TASKS.md from the task agent.
+    - Commit or push implementation work from the task agent.
 
 - [ ] UI-SIGNAL-101 Investigate stale GObject signal handler
   - Status: TODO
