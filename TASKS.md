@@ -2944,8 +2944,8 @@
     - Task 138 is DONE because the bounded fallback was exhaustively dry-run validated against the full current corpus and its ref/ownership/gap effects are known exactly.
     - Task 138 validated the implementation candidate only; it did not implement runtime recovery.
 
-- [ ] TORRES-1835-ZERO-ANCHOR-IO-RECOVERY-139 Implement bounded zero-anchor I o verse-marker recovery
-  - Status: PENDING
+- [x] TORRES-1835-ZERO-ANCHOR-IO-RECOVERY-139 Implement bounded zero-anchor I o verse-marker recovery
+  - Status: DONE
   - Description:
     Implement the task-137/task-138 validated recovery fallback for the exact
     bounded family:
@@ -3066,6 +3066,200 @@
     - If runtime behavior produces anything other than the validated bounded
       delta, STOP, report the discrepancy, and do not update tests or
       artifacts merely to bless broader behavior.
+
+  - Closure:
+    - Result: READY; bounded runtime recovery implemented.
+    - Frozen task baseline: b16abc761e49fe4ff70c67ab21af187b823102bb.
+    - Implemented fallback: trusted_anchor_count == 0 AND exact_compound_form == "I o", with task-138 fail-closed guards.
+    - Fallback runs only after stronger task-128/task-131 behavior.
+    - No production hardcoding of page, PDF page, block, occurrence, Ps.17.10, or expected verse sequence.
+    - No previous+1 / next-1 inference.
+    - Runtime VerseRefs: 3848 -> 3849.
+    - New native VerseRef: Ps.17.10.
+    - New refs = 1.
+    - Reopened refs = 0.
+    - Removed refs = 0.
+    - Renumbered refs = 0.
+    - Candidate diagnostic occurrences = 18.
+    - Source recovery events = 1.
+    - Ownership moves = 27 OCR blocks.
+    - Block loss = 0.
+    - Dual ownership = 0.
+    - Physical gaps: 3255 -> 3254.
+    - Closed physical gap: Ps.17.10.
+    - Glyph gaps: 1310 -> 1309.
+    - Closed glyph gap: Ps.17.10.
+    - duplicate_refs = 0.
+    - out_of_order_refs = 0.
+    - outside_canon = 0.
+    - Chapters = 337/337.
+    - unresolved chapter claims = 0.
+    - canonical chapter gaps = 0.
+    - ocr_blocks = 57700.
+    - task-128 remains: 183 markers / 177 refs / 1355 ownership moves.
+    - task-131 remains: 276 markers/refs / 1900 ownership moves.
+    - GLUED_FRAME remains CLOSED_UNSAFE.
+    - Task-137 and task-138 historical artifacts remain frozen and reproducible.
+    - Runtime recovery deterministic and idempotent.
+    - Direct tests passed.
+    - Build passed.
+    - TorresAmat CTest = 30/30 passed.
+    - Full CTest = 42/42 passed.
+    - Two environment-dependent tests skipped.
+    - New failures = 0.
+    - Audit runtime observed approximately: 65.26 s -> 71.27 s.
+    - No per-candidate PDF/image reads were introduced.
+    - Post-recovery inventory: physical gaps = 3254; glyph gaps = 1309.
+    - Recommended next work: reprioritize remaining glyph-rooted gaps before choosing another recovery family.
+    - Task 139 is DONE because runtime output exactly reproduced the semantic delta validated by task 138.
+
+- [ ] TORRES-1835-REMAINING-GLYPH-REPRIORITIZATION-140 Reprioritize remaining glyph-rooted verse gaps after bounded recovery
+  - Status: PENDING
+  - Description:
+    Recompute and classify the 1309 remaining glyph-rooted verse gaps after
+    task 139, reconcile them with the historical task-134/task-135/task-136/
+    task-137 evidence, and identify exactly one next bounded family worth
+    investigating. This is a diagnostic/prioritization task only; it must not
+    introduce new verse recovery.
+  - Baseline context:
+    - Current runtime VerseRefs = 3849.
+    - Current physical gaps = 3254.
+    - Current glyph gaps = 1309.
+    - task-139 closed exactly Ps.17.10.
+    - task-128 remains 183 markers / 177 refs / 1355 ownership moves.
+    - task-131 remains 276 markers/refs / 1900 ownership moves.
+    - GLUED_FRAME remains CLOSED_UNSAFE.
+    - Historical task-135 result:
+        standalone_glyph_candidate = 1310 historical cases,
+        but only 6 were true one-token physical cases;
+        1304 were projected multi-token cases;
+        zero true-single cases were recovery-ready.
+  - Required behavior:
+    - Recompute the current 1309 glyph-gap inventory from CURRENT parser state.
+    - Do not start from a copied historical list.
+    - Identify which historical gap disappeared due to task 139.
+    - Reconcile current gaps against historical categories from:
+        remaining_glyph_inventory
+        standalone_glyph_facsimile
+        projected_rejection_audit
+        no_trusted_band_discriminator
+        zero_anchor_io recovery evidence.
+    - Preserve stable occurrence identities where possible.
+    - Explicitly distinguish:
+        physical one-token OCR lines
+        projected token candidates from multi-token lines
+        detached numeric fragments
+        compound-form candidates
+        layout/column corruption
+        no-local-marker evidence
+        other source-backed categories.
+    - Do not label projected multi-token candidates as physical standalone
+      glyphs.
+    - Produce exact counts by:
+        root-cause family
+        OCR form
+        book
+        page
+        physical vs projected status
+        previously reviewed vs unreviewed status
+        existing safe-recovery coverage.
+    - Determine which remaining family has the highest combination of:
+        boundedness
+        source evidence
+        recurrence
+        structural consistency
+        potential recoverable VerseRefs
+        low false-positive risk.
+    - Select exactly ONE task-141 family.
+    - The selected task-141 family must be narrower than the entire remaining
+      glyph population.
+    - If no family has enough evidence for recovery work, select one
+      diagnostic family for further facsimile/source review instead.
+  - Required historical reconciliation:
+    - Explain what happened to the historical 1310 glyph gaps after task 139.
+    - Confirm current total = 1309.
+    - Identify the exact removed occurrence/ref family corresponding to
+      Ps.17.10.
+    - Recompute, do not merely assert, the current equivalent of the historical
+      1310 standalone/projected split.
+    - Report whether the old 6 true-single / 1304 projected structure remains
+      applicable after removal, and if not, provide the new exact split.
+  - Closed families that must remain closed unless new contradictory evidence exists:
+    - GLUED_FRAME: CLOSED_UNSAFE.
+    - Generic task-128 compound recovery: do not widen.
+    - Generic a-glyph recovery: do not widen.
+    - outside_marker_band projected rejections: confirmed rejections.
+    - zero-anchor I o: solved by task 139.
+    - generic true-single standalone glyph mapping: no reusable safe mapping established by task 135.
+  - Evidence requirements:
+    - Use source-derived facts.
+    - Do not infer verse markers from expected sequence.
+    - Do not use previous+1 / next-1.
+    - Do not treat OCR token identity alone as proof of a verse marker.
+    - Any proposed family must include explicit positives/controls/negatives or
+      a plan to obtain them.
+    - Clearly separate observed source evidence, diagnostic classification,
+      and recovery hypothesis.
+  - Artifact:
+    - Create a deterministic diagnostic artifact, preferably:
+        data/torresamat1835/remaining_glyph_reprioritization.json
+    - Include schema_version, frozen baseline provenance, current inventory
+      totals, historical reconciliation, root-cause buckets,
+      physical/projected split, reviewed/unreviewed split, form frequencies,
+      candidate family rankings as raw evidence only, selected task-141 family,
+      selection rationale, rejected/deferred families, and runtime invariants.
+    - Do not store raw facsimile images.
+    - Use stable ordering.
+  - Audit:
+    - Add diagnostic output equivalent to:
+        verse_segmentation_audit.remaining_glyph_reprioritization
+    - Include current glyph-gap total, reconciled historical total,
+      physical-single count, projected-multi-token count, root-cause counts,
+      reviewed/unreviewed counts, selected next family, selected family
+      population, and selected family evidence state.
+  - Acceptance:
+    - Current VerseRefs remain = 3849.
+    - Current physical gaps remain = 3254.
+    - Current glyph gaps remain = 1309.
+    - No runtime recovery is added.
+    - No ownership changes.
+    - Current 1309 inventory is deterministic.
+    - Historical 1310 -> 1309 delta is explicitly accounted for.
+    - Physical single-token and projected multi-token candidates are not conflated.
+    - Historical task-135 classifications are reconciled rather than blindly copied.
+    - Closed unsafe families remain closed.
+    - Exactly one bounded task-141 target is selected.
+    - Selection is supported by measurable evidence.
+    - Chapters remain 337/337; unresolved chapter claims = 0; canonical chapter gaps = 0.
+    - duplicate_refs = 0; out_of_order_refs = 0; outside_canon = 0.
+    - ocr_blocks = 57700; block loss = 0; dual ownership = 0.
+    - Artifact deterministic/idempotent.
+    - Frozen baseline provenance remains stable across later HEAD changes.
+  - Do not:
+    - Implement any new recovery.
+    - Assume all 1309 glyph gaps are standalone markers.
+    - Queue a broad standalone-glyph recovery.
+    - Reopen task-135 true-single cases without new evidence.
+    - Reopen GLUED_FRAME, outside_marker_band, task-128, or task-131.
+    - Hardcode page/block/ref identities as recovery logic.
+    - Infer verses from expected sequence.
+    - Use ML, embeddings, neural OCR or opaque classifiers.
+    - Modify unrelated UI code.
+    - Modify TASKS.md from the task agent.
+    - Commit or push implementation work from the task agent.
+  - Semantic boundary:
+    Task 140 is not a recovery implementation task. Its job is current 1309
+    glyph gaps -> source-backed reclassification -> one bounded next family.
+    It must distinguish diagnostic projection from physical OCR structure.
+  - Task-141 selection requirement:
+    Select exactly ONE next task. The family must have a measurable finite
+    population and be narrower than the entire remaining glyph population.
+    Valid outcomes include facsimile review of a specific recurring OCR form,
+    validation of a specific detached numeric-fragment family, investigation
+    of one layout-corruption subclass, or validation of one narrowly bounded
+    projected-marker family. Do not queue broad remaining-glyph,
+    standalone-glyph, or all-projected-marker recovery.
+
 
 - [ ] UI-SIGNAL-101 Investigate stale GObject signal handler
   - Status: TODO
