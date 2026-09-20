@@ -2716,6 +2716,10 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
     if facsimile_path.exists():
         report["verse_segmentation_audit"]["standalone_glyph_facsimile_validation"] = json.loads(
             facsimile_path.read_text(encoding="utf-8"))
+    projected_path = Path("data/torresamat1835/projected_rejection_audit.json")
+    if projected_path.exists():
+        report["verse_segmentation_audit"]["projected_rejection_validation"] = json.loads(
+            projected_path.read_text(encoding="utf-8"))
     return edition, report
 
 

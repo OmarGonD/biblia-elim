@@ -1,0 +1,5413 @@
+{
+  "accepted_task128_controls": {
+    "controls": [
+      {
+        "band_center": 1817,
+        "block_id": "p0019l0074",
+        "column": "right",
+        "form": "I a",
+        "indent": 11,
+        "marker_x0": 1828,
+        "page": 19,
+        "tolerance": 39.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1800,
+        "block_id": "p0022l0073",
+        "column": "right",
+        "form": "I a",
+        "indent": 10,
+        "marker_x0": 1810,
+        "page": 22,
+        "tolerance": 39.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1776.5,
+        "block_id": "p0024l0069",
+        "column": "right",
+        "form": "I a",
+        "indent": -1.5,
+        "marker_x0": 1775,
+        "page": 24,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1790,
+        "block_id": "p0030l0069",
+        "column": "right",
+        "form": "I o",
+        "indent": 2,
+        "marker_x0": 1792,
+        "page": 30,
+        "tolerance": 39.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1789.5,
+        "block_id": "p0038l0061",
+        "column": "right",
+        "form": "I o",
+        "indent": 2.5,
+        "marker_x0": 1792,
+        "page": 38,
+        "tolerance": 38.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1840.0,
+        "block_id": "p0042l0075",
+        "column": "right",
+        "form": "I a",
+        "indent": -1.0,
+        "marker_x0": 1839,
+        "page": 42,
+        "tolerance": 38.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1803,
+        "block_id": "p0049l0064",
+        "column": "right",
+        "form": "I a",
+        "indent": 3,
+        "marker_x0": 1806,
+        "page": 49,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1763.5,
+        "block_id": "p0053l0063",
+        "column": "right",
+        "form": "I o",
+        "indent": 15.5,
+        "marker_x0": 1779,
+        "page": 53,
+        "tolerance": 37.75,
+        "zone": "body"
+      },
+      {
+        "band_center": 1763.5,
+        "block_id": "p0053l0066",
+        "column": "right",
+        "form": "I I",
+        "indent": 18.5,
+        "marker_x0": 1782,
+        "page": 53,
+        "tolerance": 37.75,
+        "zone": "body"
+      },
+      {
+        "band_center": 1847,
+        "block_id": "p0062l0062",
+        "column": "right",
+        "form": "I o",
+        "indent": -10,
+        "marker_x0": 1837,
+        "page": 62,
+        "tolerance": 38.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1815.0,
+        "block_id": "p0065l0033",
+        "column": "right",
+        "form": "I a",
+        "indent": 3.0,
+        "marker_x0": 1818,
+        "page": 65,
+        "tolerance": 32.625,
+        "zone": "body"
+      },
+      {
+        "band_center": 1801.5,
+        "block_id": "p0066l0031",
+        "column": "right",
+        "form": "I o",
+        "indent": 8.5,
+        "marker_x0": 1810,
+        "page": 66,
+        "tolerance": 39.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1801.5,
+        "block_id": "p0066l0035",
+        "column": "right",
+        "form": "I I",
+        "indent": 12.5,
+        "marker_x0": 1814,
+        "page": 66,
+        "tolerance": 39.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1842,
+        "block_id": "p0068l0046",
+        "column": "right",
+        "form": "I o",
+        "indent": -8,
+        "marker_x0": 1834,
+        "page": 68,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1841.5,
+        "block_id": "p0070l0039",
+        "column": "right",
+        "form": "I a",
+        "indent": -0.5,
+        "marker_x0": 1841,
+        "page": 70,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1834,
+        "block_id": "p0074l0054",
+        "column": "right",
+        "form": "I o",
+        "indent": -4,
+        "marker_x0": 1830,
+        "page": 74,
+        "tolerance": 38.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1834,
+        "block_id": "p0074l0055",
+        "column": "right",
+        "form": "I I",
+        "indent": -6,
+        "marker_x0": 1828,
+        "page": 74,
+        "tolerance": 38.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1745.5,
+        "block_id": "p0077l0058",
+        "column": "right",
+        "form": "I a",
+        "indent": 4.5,
+        "marker_x0": 1750,
+        "page": 77,
+        "tolerance": 33.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1756.0,
+        "block_id": "p0081l0057",
+        "column": "right",
+        "form": "I o",
+        "indent": 8.0,
+        "marker_x0": 1764,
+        "page": 81,
+        "tolerance": 34.25,
+        "zone": "body"
+      },
+      {
+        "band_center": 1756.0,
+        "block_id": "p0081l0060",
+        "column": "right",
+        "form": "1 1",
+        "indent": 12.0,
+        "marker_x0": 1768,
+        "page": 81,
+        "tolerance": 34.25,
+        "zone": "body"
+      },
+      {
+        "band_center": 1826,
+        "block_id": "p0084l0032",
+        "column": "right",
+        "form": "I o",
+        "indent": 6,
+        "marker_x0": 1832,
+        "page": 84,
+        "tolerance": 39.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1826,
+        "block_id": "p0084l0035",
+        "column": "right",
+        "form": "I I",
+        "indent": 7,
+        "marker_x0": 1833,
+        "page": 84,
+        "tolerance": 39.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1772,
+        "block_id": "p0089l0059",
+        "column": "right",
+        "form": "I o",
+        "indent": -2,
+        "marker_x0": 1770,
+        "page": 89,
+        "tolerance": 38.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1772,
+        "block_id": "p0089l0064",
+        "column": "right",
+        "form": "I I",
+        "indent": -1,
+        "marker_x0": 1771,
+        "page": 89,
+        "tolerance": 38.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1772,
+        "block_id": "p0089l0068",
+        "column": "right",
+        "form": "I a",
+        "indent": 1,
+        "marker_x0": 1773,
+        "page": 89,
+        "tolerance": 38.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1801.0,
+        "block_id": "p0096l0031",
+        "column": "right",
+        "form": "I a",
+        "indent": 23.0,
+        "marker_x0": 1824,
+        "page": 96,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1870.0,
+        "block_id": "p0104l0042",
+        "column": "right",
+        "form": "1 1",
+        "indent": 15.0,
+        "marker_x0": 1885,
+        "page": 104,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1870.0,
+        "block_id": "p0104l0045",
+        "column": "right",
+        "form": "I a",
+        "indent": 9.0,
+        "marker_x0": 1879,
+        "page": 104,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1764,
+        "block_id": "p0105l0060",
+        "column": "right",
+        "form": "I o",
+        "indent": 8,
+        "marker_x0": 1772,
+        "page": 105,
+        "tolerance": 38.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1806.5,
+        "block_id": "p0107l0063",
+        "column": "right",
+        "form": "I I",
+        "indent": 14.5,
+        "marker_x0": 1821,
+        "page": 107,
+        "tolerance": 36.75,
+        "zone": "body"
+      },
+      {
+        "band_center": 1839,
+        "block_id": "p0108l0043",
+        "column": "right",
+        "form": "1 4",
+        "indent": -2,
+        "marker_x0": 1837,
+        "page": 108,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1826.0,
+        "block_id": "p0110l0053",
+        "column": "right",
+        "form": "I a",
+        "indent": 10.0,
+        "marker_x0": 1836,
+        "page": 110,
+        "tolerance": 38.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1763,
+        "block_id": "p0119l0036",
+        "column": "right",
+        "form": "I a",
+        "indent": -4,
+        "marker_x0": 1759,
+        "page": 119,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1750.0,
+        "block_id": "p0125l0071",
+        "column": "right",
+        "form": "I o",
+        "indent": 4.0,
+        "marker_x0": 1754,
+        "page": 125,
+        "tolerance": 38.25,
+        "zone": "body"
+      },
+      {
+        "band_center": 1800.0,
+        "block_id": "p0143l0067",
+        "column": "right",
+        "form": "I o",
+        "indent": 12.0,
+        "marker_x0": 1812,
+        "page": 143,
+        "tolerance": 38.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1800.0,
+        "block_id": "p0143l0070",
+        "column": "right",
+        "form": "I I",
+        "indent": 10.0,
+        "marker_x0": 1810,
+        "page": 143,
+        "tolerance": 38.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1800.0,
+        "block_id": "p0143l0073",
+        "column": "right",
+        "form": "I a",
+        "indent": 8.0,
+        "marker_x0": 1808,
+        "page": 143,
+        "tolerance": 38.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1836.5,
+        "block_id": "p0144l0055",
+        "column": "right",
+        "form": "1 9",
+        "indent": 1.5,
+        "marker_x0": 1838,
+        "page": 144,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1776,
+        "block_id": "p0145l0071",
+        "column": "right",
+        "form": "I o",
+        "indent": 1,
+        "marker_x0": 1777,
+        "page": 145,
+        "tolerance": 38.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1776,
+        "block_id": "p0145l0074",
+        "column": "right",
+        "form": "I I",
+        "indent": 0,
+        "marker_x0": 1776,
+        "page": 145,
+        "tolerance": 38.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1776,
+        "block_id": "p0145l0078",
+        "column": "right",
+        "form": "I a",
+        "indent": 1,
+        "marker_x0": 1777,
+        "page": 145,
+        "tolerance": 38.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1762,
+        "block_id": "p0147l0052",
+        "column": "right",
+        "form": "I o",
+        "indent": 10,
+        "marker_x0": 1772,
+        "page": 147,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1762,
+        "block_id": "p0147l0055",
+        "column": "right",
+        "form": "I I",
+        "indent": 10,
+        "marker_x0": 1772,
+        "page": 147,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1759.0,
+        "block_id": "p0149l0072",
+        "column": "right",
+        "form": "I I",
+        "indent": 7.0,
+        "marker_x0": 1766,
+        "page": 149,
+        "tolerance": 37.75,
+        "zone": "body"
+      },
+      {
+        "band_center": 1759.0,
+        "block_id": "p0149l0082",
+        "column": "right",
+        "form": "1 5",
+        "indent": 11.0,
+        "marker_x0": 1770,
+        "page": 149,
+        "tolerance": 37.75,
+        "zone": "body"
+      },
+      {
+        "band_center": 1815,
+        "block_id": "p0162l0056",
+        "column": "right",
+        "form": "I o",
+        "indent": 23,
+        "marker_x0": 1838,
+        "page": 162,
+        "tolerance": 38.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1806,
+        "block_id": "p0164l0067",
+        "column": "right",
+        "form": "I o",
+        "indent": 8,
+        "marker_x0": 1814,
+        "page": 164,
+        "tolerance": 38.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1806,
+        "block_id": "p0164l0072",
+        "column": "right",
+        "form": "I a",
+        "indent": 10,
+        "marker_x0": 1816,
+        "page": 164,
+        "tolerance": 38.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1771.0,
+        "block_id": "p0165l0066",
+        "column": "right",
+        "form": "I a",
+        "indent": -7.0,
+        "marker_x0": 1764,
+        "page": 165,
+        "tolerance": 39.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1802.0,
+        "block_id": "p0189l0080",
+        "column": "right",
+        "form": "1 4",
+        "indent": 18.0,
+        "marker_x0": 1820,
+        "page": 189,
+        "tolerance": 32.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1804,
+        "block_id": "p0192l0070",
+        "column": "right",
+        "form": "I o",
+        "indent": 10,
+        "marker_x0": 1814,
+        "page": 192,
+        "tolerance": 37.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1804,
+        "block_id": "p0192l0073",
+        "column": "right",
+        "form": "I I",
+        "indent": 11,
+        "marker_x0": 1815,
+        "page": 192,
+        "tolerance": 37.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1804,
+        "block_id": "p0192l0077",
+        "column": "right",
+        "form": "I a",
+        "indent": 6,
+        "marker_x0": 1810,
+        "page": 192,
+        "tolerance": 37.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1849,
+        "block_id": "p0194l0061",
+        "column": "right",
+        "form": "I o",
+        "indent": 11,
+        "marker_x0": 1860,
+        "page": 194,
+        "tolerance": 40.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1849,
+        "block_id": "p0194l0065",
+        "column": "right",
+        "form": "I I",
+        "indent": 5,
+        "marker_x0": 1854,
+        "page": 194,
+        "tolerance": 40.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1799.5,
+        "block_id": "p0198l0060",
+        "column": "right",
+        "form": "I a",
+        "indent": 5.5,
+        "marker_x0": 1805,
+        "page": 198,
+        "tolerance": 36.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1795.5,
+        "block_id": "p0210l0061",
+        "column": "right",
+        "form": "I I",
+        "indent": -5.5,
+        "marker_x0": 1790,
+        "page": 210,
+        "tolerance": 39.75,
+        "zone": "body"
+      },
+      {
+        "band_center": 1855.0,
+        "block_id": "p0214l0070",
+        "column": "right",
+        "form": "I a",
+        "indent": 14.0,
+        "marker_x0": 1869,
+        "page": 214,
+        "tolerance": 34.25,
+        "zone": "body"
+      },
+      {
+        "band_center": 1883,
+        "block_id": "p0218l0069",
+        "column": "right",
+        "form": "I I",
+        "indent": 8,
+        "marker_x0": 1891,
+        "page": 218,
+        "tolerance": 38.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1869.5,
+        "block_id": "p0222l0028",
+        "column": "right",
+        "form": "I o",
+        "indent": 11.5,
+        "marker_x0": 1881,
+        "page": 222,
+        "tolerance": 38.75,
+        "zone": "body"
+      },
+      {
+        "band_center": 1869.5,
+        "block_id": "p0222l0032",
+        "column": "right",
+        "form": "I I",
+        "indent": 17.5,
+        "marker_x0": 1887,
+        "page": 222,
+        "tolerance": 38.75,
+        "zone": "body"
+      },
+      {
+        "band_center": 1869.5,
+        "block_id": "p0222l0034",
+        "column": "right",
+        "form": "I a",
+        "indent": 22.5,
+        "marker_x0": 1892,
+        "page": 222,
+        "tolerance": 38.75,
+        "zone": "body"
+      },
+      {
+        "band_center": 1853,
+        "block_id": "p0224l0056",
+        "column": "right",
+        "form": "I o",
+        "indent": 32,
+        "marker_x0": 1885,
+        "page": 224,
+        "tolerance": 37.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1819.0,
+        "block_id": "p0226l0075",
+        "column": "right",
+        "form": "I I",
+        "indent": 11.0,
+        "marker_x0": 1830,
+        "page": 226,
+        "tolerance": 39.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1836,
+        "block_id": "p0230l0061",
+        "column": "right",
+        "form": "I a",
+        "indent": 3,
+        "marker_x0": 1839,
+        "page": 230,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1830.5,
+        "block_id": "p0232l0064",
+        "column": "right",
+        "form": "I a",
+        "indent": 3.5,
+        "marker_x0": 1834,
+        "page": 232,
+        "tolerance": 38.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1856.0,
+        "block_id": "p0234l0063",
+        "column": "right",
+        "form": "I o",
+        "indent": 4.0,
+        "marker_x0": 1860,
+        "page": 234,
+        "tolerance": 38.75,
+        "zone": "body"
+      },
+      {
+        "band_center": 1856.0,
+        "block_id": "p0234l0066",
+        "column": "right",
+        "form": "I I",
+        "indent": 2.0,
+        "marker_x0": 1858,
+        "page": 234,
+        "tolerance": 38.75,
+        "zone": "body"
+      },
+      {
+        "band_center": 1814.5,
+        "block_id": "p0241l0045",
+        "column": "right",
+        "form": "I a",
+        "indent": 0.5,
+        "marker_x0": 1815,
+        "page": 241,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1764.5,
+        "block_id": "p0245l0066",
+        "column": "right",
+        "form": "I a",
+        "indent": 2.5,
+        "marker_x0": 1767,
+        "page": 245,
+        "tolerance": 33.125,
+        "zone": "body"
+      },
+      {
+        "band_center": 1793.0,
+        "block_id": "p0249l0043",
+        "column": "right",
+        "form": "I a",
+        "indent": -2.0,
+        "marker_x0": 1791,
+        "page": 249,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1787,
+        "block_id": "p0253l0049",
+        "column": "right",
+        "form": "I o",
+        "indent": 7,
+        "marker_x0": 1794,
+        "page": 253,
+        "tolerance": 31.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1787,
+        "block_id": "p0253l0052",
+        "column": "right",
+        "form": "I I",
+        "indent": 9,
+        "marker_x0": 1796,
+        "page": 253,
+        "tolerance": 31.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1773.5,
+        "block_id": "p0257l0066",
+        "column": "right",
+        "form": "I a",
+        "indent": 5.5,
+        "marker_x0": 1779,
+        "page": 257,
+        "tolerance": 37.75,
+        "zone": "body"
+      },
+      {
+        "band_center": 1812.0,
+        "block_id": "p0259l0076",
+        "column": "right",
+        "form": "I a",
+        "indent": 14.0,
+        "marker_x0": 1826,
+        "page": 259,
+        "tolerance": 37.25,
+        "zone": "body"
+      },
+      {
+        "band_center": 1836.0,
+        "block_id": "p0260l0041",
+        "column": "right",
+        "form": "1 4",
+        "indent": 2.0,
+        "marker_x0": 1838,
+        "page": 260,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1878.0,
+        "block_id": "p0264l0052",
+        "column": "right",
+        "form": "I a",
+        "indent": 4.0,
+        "marker_x0": 1882,
+        "page": 264,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1858,
+        "block_id": "p0266l0044",
+        "column": "right",
+        "form": "I o",
+        "indent": 0,
+        "marker_x0": 1858,
+        "page": 266,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1858,
+        "block_id": "p0266l0048",
+        "column": "right",
+        "form": "I I",
+        "indent": 2,
+        "marker_x0": 1860,
+        "page": 266,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1822.5,
+        "block_id": "p0268l0051",
+        "column": "right",
+        "form": "I a",
+        "indent": 0.5,
+        "marker_x0": 1823,
+        "page": 268,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1808.5,
+        "block_id": "p0279l0042",
+        "column": "right",
+        "form": "I a",
+        "indent": -13.5,
+        "marker_x0": 1795,
+        "page": 279,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1841.5,
+        "block_id": "p0283l0080",
+        "column": "right",
+        "form": "I o",
+        "indent": 14.5,
+        "marker_x0": 1856,
+        "page": 283,
+        "tolerance": 38.25,
+        "zone": "body"
+      },
+      {
+        "band_center": 1841.5,
+        "block_id": "p0283l0083",
+        "column": "right",
+        "form": "I I",
+        "indent": 15.5,
+        "marker_x0": 1857,
+        "page": 283,
+        "tolerance": 38.25,
+        "zone": "body"
+      },
+      {
+        "band_center": 1773.0,
+        "block_id": "p0285l0069",
+        "column": "right",
+        "form": "I a",
+        "indent": 6.0,
+        "marker_x0": 1779,
+        "page": 285,
+        "tolerance": 33.625,
+        "zone": "body"
+      },
+      {
+        "band_center": 1774.5,
+        "block_id": "p0287l0026",
+        "column": "right",
+        "form": "I o",
+        "indent": 7.5,
+        "marker_x0": 1782,
+        "page": 287,
+        "tolerance": 37.75,
+        "zone": "body"
+      },
+      {
+        "band_center": 1774.5,
+        "block_id": "p0287l0032",
+        "column": "right",
+        "form": "I I",
+        "indent": 7.5,
+        "marker_x0": 1782,
+        "page": 287,
+        "tolerance": 37.75,
+        "zone": "body"
+      },
+      {
+        "band_center": 1760.0,
+        "block_id": "p0291l0060",
+        "column": "right",
+        "form": "I a",
+        "indent": 0.0,
+        "marker_x0": 1760,
+        "page": 291,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1814.0,
+        "block_id": "p0298l0072",
+        "column": "right",
+        "form": "I o",
+        "indent": -2.0,
+        "marker_x0": 1812,
+        "page": 298,
+        "tolerance": 38.75,
+        "zone": "body"
+      },
+      {
+        "band_center": 1802,
+        "block_id": "p0304l0046",
+        "column": "right",
+        "form": "I o",
+        "indent": 6,
+        "marker_x0": 1808,
+        "page": 304,
+        "tolerance": 37.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1845.0,
+        "block_id": "p0306l0030",
+        "column": "right",
+        "form": "I a",
+        "indent": 19.0,
+        "marker_x0": 1864,
+        "page": 306,
+        "tolerance": 31.875,
+        "zone": "body"
+      },
+      {
+        "band_center": 1799.0,
+        "block_id": "p0311l0063",
+        "column": "right",
+        "form": "I a",
+        "indent": 12.0,
+        "marker_x0": 1811,
+        "page": 311,
+        "tolerance": 35.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1770,
+        "block_id": "p0313l0052",
+        "column": "right",
+        "form": "I o",
+        "indent": 8,
+        "marker_x0": 1778,
+        "page": 313,
+        "tolerance": 36.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1770,
+        "block_id": "p0313l0056",
+        "column": "right",
+        "form": "1 1",
+        "indent": 4,
+        "marker_x0": 1774,
+        "page": 313,
+        "tolerance": 36.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1810.0,
+        "block_id": "p0321l0080",
+        "column": "right",
+        "form": "I a",
+        "indent": 4.0,
+        "marker_x0": 1814,
+        "page": 321,
+        "tolerance": 43.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1796.0,
+        "block_id": "p0323l0064",
+        "column": "right",
+        "form": "I o",
+        "indent": 20.0,
+        "marker_x0": 1816,
+        "page": 323,
+        "tolerance": 37.75,
+        "zone": "body"
+      },
+      {
+        "band_center": 1750.5,
+        "block_id": "p0329l0072",
+        "column": "right",
+        "form": "I a",
+        "indent": 14.5,
+        "marker_x0": 1765,
+        "page": 329,
+        "tolerance": 35.25,
+        "zone": "body"
+      },
+      {
+        "band_center": 1775.0,
+        "block_id": "p0331l0072",
+        "column": "right",
+        "form": "I o",
+        "indent": -3.0,
+        "marker_x0": 1772,
+        "page": 331,
+        "tolerance": 38.75,
+        "zone": "body"
+      },
+      {
+        "band_center": 1846,
+        "block_id": "p0334l0065",
+        "column": "right",
+        "form": "I o",
+        "indent": 7,
+        "marker_x0": 1853,
+        "page": 334,
+        "tolerance": 39.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1848.0,
+        "block_id": "p0340l0051",
+        "column": "right",
+        "form": "I a",
+        "indent": -6.0,
+        "marker_x0": 1842,
+        "page": 340,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1742,
+        "block_id": "p0347l0046",
+        "column": "right",
+        "form": "I o",
+        "indent": 8,
+        "marker_x0": 1750,
+        "page": 347,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1838.0,
+        "block_id": "p0352l0075",
+        "column": "right",
+        "form": "1 5",
+        "indent": 0.0,
+        "marker_x0": 1838,
+        "page": 352,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1850,
+        "block_id": "p0360l0074",
+        "column": "right",
+        "form": "1 1",
+        "indent": 0,
+        "marker_x0": 1850,
+        "page": 360,
+        "tolerance": 38.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1850,
+        "block_id": "p0360l0077",
+        "column": "right",
+        "form": "I a",
+        "indent": -7,
+        "marker_x0": 1843,
+        "page": 360,
+        "tolerance": 38.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1863.0,
+        "block_id": "p0366l0050",
+        "column": "right",
+        "form": "I a",
+        "indent": 1.0,
+        "marker_x0": 1864,
+        "page": 366,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1811,
+        "block_id": "p0368l0077",
+        "column": "right",
+        "form": "I o",
+        "indent": -7,
+        "marker_x0": 1804,
+        "page": 368,
+        "tolerance": 39.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1811,
+        "block_id": "p0368l0083",
+        "column": "right",
+        "form": "I a",
+        "indent": -11,
+        "marker_x0": 1800,
+        "page": 368,
+        "tolerance": 39.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1754.0,
+        "block_id": "p0373l0067",
+        "column": "right",
+        "form": "I a",
+        "indent": 0.0,
+        "marker_x0": 1754,
+        "page": 373,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1754.0,
+        "block_id": "p0373l0074",
+        "column": "right",
+        "form": "1 4",
+        "indent": 0.0,
+        "marker_x0": 1754,
+        "page": 373,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1754.0,
+        "block_id": "p0377l0086",
+        "column": "right",
+        "form": "1 5",
+        "indent": -2.0,
+        "marker_x0": 1752,
+        "page": 377,
+        "tolerance": 38.25,
+        "zone": "body"
+      },
+      {
+        "band_center": 1816,
+        "block_id": "p0384l0073",
+        "column": "right",
+        "form": "I I",
+        "indent": -5,
+        "marker_x0": 1811,
+        "page": 384,
+        "tolerance": 38.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1815,
+        "block_id": "p0385l0049",
+        "column": "right",
+        "form": "I a",
+        "indent": -9,
+        "marker_x0": 1806,
+        "page": 385,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1815,
+        "block_id": "p0385l0059",
+        "column": "right",
+        "form": "1 5",
+        "indent": -1,
+        "marker_x0": 1814,
+        "page": 385,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1844,
+        "block_id": "p0386l0072",
+        "column": "right",
+        "form": "I I",
+        "indent": -4,
+        "marker_x0": 1840,
+        "page": 386,
+        "tolerance": 38.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1858.0,
+        "block_id": "p0392l0064",
+        "column": "right",
+        "form": "I o",
+        "indent": 6.0,
+        "marker_x0": 1864,
+        "page": 392,
+        "tolerance": 37.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1858.0,
+        "block_id": "p0392l0067",
+        "column": "right",
+        "form": "I I",
+        "indent": 4.0,
+        "marker_x0": 1862,
+        "page": 392,
+        "tolerance": 37.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1866.0,
+        "block_id": "p0394l0048",
+        "column": "right",
+        "form": "I a",
+        "indent": -7.0,
+        "marker_x0": 1859,
+        "page": 394,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1863,
+        "block_id": "p0396l0052",
+        "column": "right",
+        "form": "I o",
+        "indent": 7,
+        "marker_x0": 1870,
+        "page": 396,
+        "tolerance": 32.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1845.0,
+        "block_id": "p0398l0066",
+        "column": "right",
+        "form": "I a",
+        "indent": -3.0,
+        "marker_x0": 1842,
+        "page": 398,
+        "tolerance": 31.625,
+        "zone": "body"
+      },
+      {
+        "band_center": 1844,
+        "block_id": "p0402l0075",
+        "column": "right",
+        "form": "I a",
+        "indent": 8,
+        "marker_x0": 1852,
+        "page": 402,
+        "tolerance": 37.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1819,
+        "block_id": "p0404l0077",
+        "column": "right",
+        "form": "I a",
+        "indent": 10,
+        "marker_x0": 1829,
+        "page": 404,
+        "tolerance": 38.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1786,
+        "block_id": "p0409l0072",
+        "column": "right",
+        "form": "1 3",
+        "indent": 16,
+        "marker_x0": 1802,
+        "page": 409,
+        "tolerance": 38.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1866,
+        "block_id": "p0412l0064",
+        "column": "right",
+        "form": "I a",
+        "indent": -1,
+        "marker_x0": 1865,
+        "page": 412,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1849.5,
+        "block_id": "p0414l0075",
+        "column": "right",
+        "form": "I o",
+        "indent": 10.5,
+        "marker_x0": 1860,
+        "page": 414,
+        "tolerance": 37.75,
+        "zone": "body"
+      },
+      {
+        "band_center": 1849.5,
+        "block_id": "p0414l0078",
+        "column": "right",
+        "form": "I I",
+        "indent": 12.5,
+        "marker_x0": 1862,
+        "page": 414,
+        "tolerance": 37.75,
+        "zone": "body"
+      },
+      {
+        "band_center": 1849.5,
+        "block_id": "p0414l0080",
+        "column": "right",
+        "form": "I a",
+        "indent": 12.5,
+        "marker_x0": 1862,
+        "page": 414,
+        "tolerance": 37.75,
+        "zone": "body"
+      },
+      {
+        "band_center": 1844,
+        "block_id": "p0420l0063",
+        "column": "right",
+        "form": "I o",
+        "indent": 10,
+        "marker_x0": 1854,
+        "page": 420,
+        "tolerance": 36.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1870.0,
+        "block_id": "p0426l0052",
+        "column": "right",
+        "form": "I a",
+        "indent": 9.0,
+        "marker_x0": 1879,
+        "page": 426,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1870.0,
+        "block_id": "p0426l0058",
+        "column": "right",
+        "form": "1 4",
+        "indent": 11.0,
+        "marker_x0": 1881,
+        "page": 426,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1894.5,
+        "block_id": "p0428l0070",
+        "column": "right",
+        "form": "1 4",
+        "indent": 2.5,
+        "marker_x0": 1897,
+        "page": 428,
+        "tolerance": 30.125,
+        "zone": "body"
+      },
+      {
+        "band_center": 1860,
+        "block_id": "p0430l0067",
+        "column": "right",
+        "form": "1 1",
+        "indent": 2,
+        "marker_x0": 1862,
+        "page": 430,
+        "tolerance": 39.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1777,
+        "block_id": "p0433l0053",
+        "column": "right",
+        "form": "1 3",
+        "indent": -5,
+        "marker_x0": 1772,
+        "page": 433,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1891,
+        "block_id": "p0438l0046",
+        "column": "right",
+        "form": "I o",
+        "indent": -2,
+        "marker_x0": 1889,
+        "page": 438,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1891,
+        "block_id": "p0438l0050",
+        "column": "right",
+        "form": "I I",
+        "indent": -2,
+        "marker_x0": 1889,
+        "page": 438,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1769.0,
+        "block_id": "p0443l0049",
+        "column": "right",
+        "form": "I a",
+        "indent": -1.0,
+        "marker_x0": 1768,
+        "page": 443,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1855,
+        "block_id": "p0450l0049",
+        "column": "right",
+        "form": "I a",
+        "indent": -7,
+        "marker_x0": 1848,
+        "page": 450,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1902.0,
+        "block_id": "p0452l0070",
+        "column": "right",
+        "form": "I o",
+        "indent": 8.0,
+        "marker_x0": 1910,
+        "page": 452,
+        "tolerance": 38.75,
+        "zone": "body"
+      },
+      {
+        "band_center": 1902.0,
+        "block_id": "p0452l0072",
+        "column": "right",
+        "form": "I I",
+        "indent": 6.0,
+        "marker_x0": 1908,
+        "page": 452,
+        "tolerance": 38.75,
+        "zone": "body"
+      },
+      {
+        "band_center": 1752.0,
+        "block_id": "p0455l0057",
+        "column": "right",
+        "form": "1 1",
+        "indent": -4.0,
+        "marker_x0": 1748,
+        "page": 455,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1771.5,
+        "block_id": "p0461l0071",
+        "column": "right",
+        "form": "I a",
+        "indent": 4.5,
+        "marker_x0": 1776,
+        "page": 461,
+        "tolerance": 32.875,
+        "zone": "body"
+      },
+      {
+        "band_center": 1778,
+        "block_id": "p0463l0071",
+        "column": "right",
+        "form": "I I",
+        "indent": 7,
+        "marker_x0": 1785,
+        "page": 463,
+        "tolerance": 39.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1851,
+        "block_id": "p0466l0067",
+        "column": "right",
+        "form": "I a",
+        "indent": 2,
+        "marker_x0": 1853,
+        "page": 466,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1865,
+        "block_id": "p0468l0062",
+        "column": "right",
+        "form": "I a",
+        "indent": 3,
+        "marker_x0": 1868,
+        "page": 468,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1747.5,
+        "block_id": "p0473l0050",
+        "column": "right",
+        "form": "I o",
+        "indent": 19.5,
+        "marker_x0": 1767,
+        "page": 473,
+        "tolerance": 30.375,
+        "zone": "body"
+      },
+      {
+        "band_center": 1808.5,
+        "block_id": "p0478l0058",
+        "column": "right",
+        "form": "I a",
+        "indent": 16.5,
+        "marker_x0": 1825,
+        "page": 478,
+        "tolerance": 33.75,
+        "zone": "body"
+      },
+      {
+        "band_center": 1782.0,
+        "block_id": "p0480l0068",
+        "column": "right",
+        "form": "I I",
+        "indent": -3.0,
+        "marker_x0": 1779,
+        "page": 480,
+        "tolerance": 36.75,
+        "zone": "body"
+      },
+      {
+        "band_center": 1873,
+        "block_id": "p0484l0070",
+        "column": "right",
+        "form": "I o",
+        "indent": -14,
+        "marker_x0": 1859,
+        "page": 484,
+        "tolerance": 38.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1873,
+        "block_id": "p0484l0073",
+        "column": "right",
+        "form": "I I",
+        "indent": -15,
+        "marker_x0": 1858,
+        "page": 484,
+        "tolerance": 38.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1826.0,
+        "block_id": "p0498l0055",
+        "column": "right",
+        "form": "I o",
+        "indent": 19.0,
+        "marker_x0": 1845,
+        "page": 498,
+        "tolerance": 34.25,
+        "zone": "body"
+      },
+      {
+        "band_center": 1826.0,
+        "block_id": "p0498l0060",
+        "column": "right",
+        "form": "I I",
+        "indent": 12.0,
+        "marker_x0": 1838,
+        "page": 498,
+        "tolerance": 34.25,
+        "zone": "body"
+      },
+      {
+        "band_center": 1826.0,
+        "block_id": "p0498l0067",
+        "column": "right",
+        "form": "I a",
+        "indent": 12.0,
+        "marker_x0": 1838,
+        "page": 498,
+        "tolerance": 34.25,
+        "zone": "body"
+      },
+      {
+        "band_center": 1853,
+        "block_id": "p0502l0045",
+        "column": "right",
+        "form": "I a",
+        "indent": 12,
+        "marker_x0": 1865,
+        "page": 502,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1835.5,
+        "block_id": "p0504l0047",
+        "column": "right",
+        "form": "I o",
+        "indent": 19.5,
+        "marker_x0": 1855,
+        "page": 504,
+        "tolerance": 34.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1835.5,
+        "block_id": "p0504l0052",
+        "column": "right",
+        "form": "I a",
+        "indent": 13.5,
+        "marker_x0": 1849,
+        "page": 504,
+        "tolerance": 34.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1784.0,
+        "block_id": "p0512l0056",
+        "column": "right",
+        "form": "I o",
+        "indent": 9.0,
+        "marker_x0": 1793,
+        "page": 512,
+        "tolerance": 33.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1784.0,
+        "block_id": "p0512l0058",
+        "column": "right",
+        "form": "I I",
+        "indent": 8.0,
+        "marker_x0": 1792,
+        "page": 512,
+        "tolerance": 33.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1784.0,
+        "block_id": "p0512l0062",
+        "column": "right",
+        "form": "I a",
+        "indent": 5.0,
+        "marker_x0": 1789,
+        "page": 512,
+        "tolerance": 33.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1776.0,
+        "block_id": "p0517l0062",
+        "column": "right",
+        "form": "I o",
+        "indent": 11.0,
+        "marker_x0": 1787,
+        "page": 517,
+        "tolerance": 35.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1776.0,
+        "block_id": "p0517l0067",
+        "column": "right",
+        "form": "1 1",
+        "indent": 9.0,
+        "marker_x0": 1785,
+        "page": 517,
+        "tolerance": 35.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1847,
+        "block_id": "p0536l0076",
+        "column": "right",
+        "form": "I o",
+        "indent": -1,
+        "marker_x0": 1846,
+        "page": 536,
+        "tolerance": 38.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1903.0,
+        "block_id": "p0540l0068",
+        "column": "right",
+        "form": "1 3",
+        "indent": 4.0,
+        "marker_x0": 1907,
+        "page": 540,
+        "tolerance": 33.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1731.0,
+        "block_id": "p0553l0063",
+        "column": "right",
+        "form": "I o",
+        "indent": 24.0,
+        "marker_x0": 1755,
+        "page": 553,
+        "tolerance": 37.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1731.0,
+        "block_id": "p0553l0070",
+        "column": "right",
+        "form": "I I",
+        "indent": 34.0,
+        "marker_x0": 1765,
+        "page": 553,
+        "tolerance": 37.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1727,
+        "block_id": "p0555l0049",
+        "column": "right",
+        "form": "I a",
+        "indent": 12,
+        "marker_x0": 1739,
+        "page": 555,
+        "tolerance": 33.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1772,
+        "block_id": "p0561l0072",
+        "column": "right",
+        "form": "I o",
+        "indent": 11,
+        "marker_x0": 1783,
+        "page": 561,
+        "tolerance": 39.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1772,
+        "block_id": "p0561l0078",
+        "column": "right",
+        "form": "I I",
+        "indent": 9,
+        "marker_x0": 1781,
+        "page": 561,
+        "tolerance": 39.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1770,
+        "block_id": "p0567l0034",
+        "column": "right",
+        "form": "I o",
+        "indent": -21,
+        "marker_x0": 1749,
+        "page": 567,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1770,
+        "block_id": "p0567l0039",
+        "column": "right",
+        "form": "I I",
+        "indent": -15,
+        "marker_x0": 1755,
+        "page": 567,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1770,
+        "block_id": "p0567l0043",
+        "column": "right",
+        "form": "I a",
+        "indent": -8,
+        "marker_x0": 1762,
+        "page": 567,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1836.0,
+        "block_id": "p0572l0031",
+        "column": "right",
+        "form": "I a",
+        "indent": 14.0,
+        "marker_x0": 1850,
+        "page": 572,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1884,
+        "block_id": "p0588l0064",
+        "column": "right",
+        "form": "I a",
+        "indent": 0,
+        "marker_x0": 1884,
+        "page": 588,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1873,
+        "block_id": "p0602l0074",
+        "column": "right",
+        "form": "I o",
+        "indent": 7,
+        "marker_x0": 1880,
+        "page": 602,
+        "tolerance": 38.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1868,
+        "block_id": "p0604l0078",
+        "column": "right",
+        "form": "I a",
+        "indent": 8,
+        "marker_x0": 1876,
+        "page": 604,
+        "tolerance": 38.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1848.5,
+        "block_id": "p0608l0082",
+        "column": "right",
+        "form": "I o",
+        "indent": -0.5,
+        "marker_x0": 1848,
+        "page": 608,
+        "tolerance": 38.75,
+        "zone": "body"
+      },
+      {
+        "band_center": 1786,
+        "block_id": "p0609l0044",
+        "column": "right",
+        "form": "I a",
+        "indent": 2,
+        "marker_x0": 1788,
+        "page": 609,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1734.0,
+        "block_id": "p0611l0086",
+        "column": "right",
+        "form": "I o",
+        "indent": 1.0,
+        "marker_x0": 1735,
+        "page": 611,
+        "tolerance": 39.25,
+        "zone": "body"
+      },
+      {
+        "band_center": 1805.0,
+        "block_id": "p0613l0064",
+        "column": "right",
+        "form": "I a",
+        "indent": 13.0,
+        "marker_x0": 1818,
+        "page": 613,
+        "tolerance": 30.125,
+        "zone": "body"
+      },
+      {
+        "band_center": 1880.5,
+        "block_id": "p0620l0030",
+        "column": "right",
+        "form": "I a",
+        "indent": 7.5,
+        "marker_x0": 1888,
+        "page": 620,
+        "tolerance": 30,
+        "zone": "body"
+      },
+      {
+        "band_center": 1717.0,
+        "block_id": "p0627l0061",
+        "column": "right",
+        "form": "I o",
+        "indent": 16.0,
+        "marker_x0": 1733,
+        "page": 627,
+        "tolerance": 36.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1717.0,
+        "block_id": "p0627l0066",
+        "column": "right",
+        "form": "I I",
+        "indent": 21.0,
+        "marker_x0": 1738,
+        "page": 627,
+        "tolerance": 36.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1717.0,
+        "block_id": "p0627l0072",
+        "column": "right",
+        "form": "I a",
+        "indent": 24.0,
+        "marker_x0": 1741,
+        "page": 627,
+        "tolerance": 36.0,
+        "zone": "body"
+      },
+      {
+        "band_center": 1919,
+        "block_id": "p0636l0021",
+        "column": "right",
+        "form": "I a",
+        "indent": -7,
+        "marker_x0": 1912,
+        "page": 636,
+        "tolerance": 36.5,
+        "zone": "body"
+      },
+      {
+        "band_center": 1765.5,
+        "block_id": "p0637l0067",
+        "column": "right",
+        "form": "1 1",
+        "indent": 2.5,
+        "marker_x0": 1768,
+        "page": 637,
+        "tolerance": 32.75,
+        "zone": "body"
+      },
+      {
+        "band_center": 1765.5,
+        "block_id": "p0637l0074",
+        "column": "right",
+        "form": "I a",
+        "indent": 2.5,
+        "marker_x0": 1768,
+        "page": 637,
+        "tolerance": 32.75,
+        "zone": "body"
+      }
+    ],
+    "features": [
+      "marker_x0",
+      "band_center",
+      "indent",
+      "tolerance",
+      "column",
+      "zone"
+    ],
+    "population": 183
+  },
+  "accounting": {
+    "duplicate_stable_identities": [],
+    "historical_split_expected": {
+      "no_trusted_marker_band": 18,
+      "outside_marker_band": 5
+    },
+    "sum_statuses": 23,
+    "total": 23,
+    "unique_stable_identities": 23
+  },
+  "current_reason_reconciliation": {
+    "all_reason_matches": true,
+    "mismatches": [],
+    "recomputed_reasons": {
+      "no_trusted_marker_band": 18,
+      "outside_marker_band": 5
+    }
+  },
+  "facsimile_review": {
+    "findings": [],
+    "performed_count": 0,
+    "policy": "geometry was sufficient for all 23"
+  },
+  "historical_reasons": {
+    "no_trusted_marker_band": 18,
+    "outside_marker_band": 5
+  },
+  "negative_controls": [
+    {
+      "classification": "ORDINARY_TEXT",
+      "form": "y",
+      "reason": "Visible Spanish conjunction in the verified facsimile.",
+      "review_id": "batch-135-p0296l0015",
+      "source": "task-135-facsimile"
+    },
+    {
+      "classification": "ORDINARY_TEXT",
+      "form": "4",
+      "reason": "Visible final word Jacob in Spanish verse body; OCR leading 4 is not a marker.",
+      "review_id": "batch-135-p0071l0060",
+      "source": "task-135-facsimile"
+    },
+    {
+      "forms": [
+        "I a",
+        "I o"
+      ],
+      "population": 23,
+      "purpose": "rejecting geometry cases remain negative controls",
+      "source": "task-128-rejected"
+    }
+  ],
+  "no_trusted_marker_band": {
+    "definition_from_task128": {
+      "abstention": "reject without widening or guessing a band",
+      "band_derivation": "median left edge and median per-digit width",
+      "failure": "fewer than three ordinary numeric anchors yields no band",
+      "geometry": "marker bbox is the union of the two glyph bboxes",
+      "inputs": [
+        "same-page",
+        "same-column",
+        "same-zone ordinary numeric markers"
+      ],
+      "minimum_trusted_markers": 3
+    },
+    "family": {
+      "blocks": [
+        "p0032l0052"
+      ],
+      "books": {
+        "Ps": 18
+      },
+      "forms": {
+        "I o": 18
+      },
+      "geometry_patterns": {
+        "band_unavailable": 18
+      },
+      "population": 18,
+      "scan_pages": [
+        32
+      ],
+      "task128_forms": {
+        "I o": 18
+      }
+    },
+    "later_diagnostic_evidence": "No additional source-derived band anchors; no facsimile review required.",
+    "rejection_justified": true,
+    "root_cause_distribution": {
+      "insufficient neighboring marker anchors": 18
+    },
+    "source_data_genuinely_insufficient": true
+  },
+  "occurrences": [
+    {
+      "book": "Ps",
+      "chapter_diagnostic_context": {
+        "candidate_key": "Ps.17.10",
+        "chapter": 17,
+        "column": "right",
+        "expected_verse_used": false,
+        "next_minus_one_used": false,
+        "previous_plus_one_used": false,
+        "shape": "interior_gap",
+        "signals": [
+          "lone_glyph_inside_previous_verse",
+          "ocr_block_split_candidate",
+          "page_transition_candidate"
+        ],
+        "zone": "verse_body"
+      },
+      "exact_projected_form": "I o",
+      "facsimile_evidence": null,
+      "final_status": "REJECTION_CONFIRMED",
+      "geometry_evidence": {
+        "band_boundary": null,
+        "band_center": null,
+        "current_recomputed_reason": "no_trusted_marker_band",
+        "indent": null,
+        "marker_bbox": [
+          1804,
+          858,
+          1916,
+          916
+        ],
+        "marker_x0": 1804,
+        "reason_match": true,
+        "signed_distance_from_band": null,
+        "source_derived": true,
+        "tolerance": null,
+        "trusted_band_available": false
+      },
+      "projected_bbox": [
+        1804,
+        858,
+        1916,
+        916
+      ],
+      "projected_token_index": 0,
+      "raw_ocr_line": "I o Inclinó Jos ciflM, y desceadió, lle<-",
+      "stable_identity": {
+        "block_id": "p0032l0052",
+        "gap_key": "Ps.17.10",
+        "pdf_page": 33,
+        "scan_page": 32,
+        "source": "lasagradabiblia01unkngoog",
+        "source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346"
+      },
+      "task128_candidate": {
+        "form": "I o",
+        "historical_decision": "REJECTED_EXACT",
+        "historical_reason": "no_trusted_marker_band",
+        "value": 10
+      },
+      "token_sequence": [
+        {
+          "bbox": [
+            1804,
+            875,
+            1840,
+            916
+          ],
+          "text": "I"
+        },
+        {
+          "bbox": [
+            1840,
+            858,
+            1916,
+            916
+          ],
+          "text": "o"
+        },
+        {
+          "bbox": [
+            1916,
+            856,
+            2161,
+            916
+          ],
+          "text": "Inclinó"
+        },
+        {
+          "bbox": [
+            2161,
+            859,
+            2284,
+            916
+          ],
+          "text": "Jos"
+        },
+        {
+          "bbox": [
+            2284,
+            859,
+            2502,
+            926
+          ],
+          "text": "ciflM,"
+        },
+        {
+          "bbox": [
+            2502,
+            859,
+            2568,
+            932
+          ],
+          "text": "y"
+        },
+        {
+          "bbox": [
+            2568,
+            859,
+            2904,
+            928
+          ],
+          "text": "desceadió,"
+        },
+        {
+          "bbox": [
+            2904,
+            861,
+            3019,
+            920
+          ],
+          "text": "lle<-"
+        }
+      ]
+    },
+    {
+      "book": "Ps",
+      "chapter_diagnostic_context": {
+        "candidate_key": "Ps.17.11",
+        "chapter": 17,
+        "column": "right",
+        "expected_verse_used": false,
+        "next_minus_one_used": false,
+        "previous_plus_one_used": false,
+        "shape": "interior_gap",
+        "signals": [
+          "lone_glyph_inside_previous_verse",
+          "ocr_block_split_candidate",
+          "page_transition_candidate"
+        ],
+        "zone": "verse_body"
+      },
+      "exact_projected_form": "I o",
+      "facsimile_evidence": null,
+      "final_status": "REJECTION_CONFIRMED",
+      "geometry_evidence": {
+        "band_boundary": null,
+        "band_center": null,
+        "current_recomputed_reason": "no_trusted_marker_band",
+        "indent": null,
+        "marker_bbox": [
+          1804,
+          858,
+          1916,
+          916
+        ],
+        "marker_x0": 1804,
+        "reason_match": true,
+        "signed_distance_from_band": null,
+        "source_derived": true,
+        "tolerance": null,
+        "trusted_band_available": false
+      },
+      "projected_bbox": [
+        1804,
+        858,
+        1916,
+        916
+      ],
+      "projected_token_index": 0,
+      "raw_ocr_line": "I o Inclinó Jos ciflM, y desceadió, lle<-",
+      "stable_identity": {
+        "block_id": "p0032l0052",
+        "gap_key": "Ps.17.11",
+        "pdf_page": 33,
+        "scan_page": 32,
+        "source": "lasagradabiblia01unkngoog",
+        "source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346"
+      },
+      "task128_candidate": {
+        "form": "I o",
+        "historical_decision": "REJECTED_EXACT",
+        "historical_reason": "no_trusted_marker_band",
+        "value": 10
+      },
+      "token_sequence": [
+        {
+          "bbox": [
+            1804,
+            875,
+            1840,
+            916
+          ],
+          "text": "I"
+        },
+        {
+          "bbox": [
+            1840,
+            858,
+            1916,
+            916
+          ],
+          "text": "o"
+        },
+        {
+          "bbox": [
+            1916,
+            856,
+            2161,
+            916
+          ],
+          "text": "Inclinó"
+        },
+        {
+          "bbox": [
+            2161,
+            859,
+            2284,
+            916
+          ],
+          "text": "Jos"
+        },
+        {
+          "bbox": [
+            2284,
+            859,
+            2502,
+            926
+          ],
+          "text": "ciflM,"
+        },
+        {
+          "bbox": [
+            2502,
+            859,
+            2568,
+            932
+          ],
+          "text": "y"
+        },
+        {
+          "bbox": [
+            2568,
+            859,
+            2904,
+            928
+          ],
+          "text": "desceadió,"
+        },
+        {
+          "bbox": [
+            2904,
+            861,
+            3019,
+            920
+          ],
+          "text": "lle<-"
+        }
+      ]
+    },
+    {
+      "book": "Ps",
+      "chapter_diagnostic_context": {
+        "candidate_key": "Ps.17.12",
+        "chapter": 17,
+        "column": "right",
+        "expected_verse_used": false,
+        "next_minus_one_used": false,
+        "previous_plus_one_used": false,
+        "shape": "interior_gap",
+        "signals": [
+          "lone_glyph_inside_previous_verse",
+          "ocr_block_split_candidate",
+          "page_transition_candidate"
+        ],
+        "zone": "verse_body"
+      },
+      "exact_projected_form": "I o",
+      "facsimile_evidence": null,
+      "final_status": "REJECTION_CONFIRMED",
+      "geometry_evidence": {
+        "band_boundary": null,
+        "band_center": null,
+        "current_recomputed_reason": "no_trusted_marker_band",
+        "indent": null,
+        "marker_bbox": [
+          1804,
+          858,
+          1916,
+          916
+        ],
+        "marker_x0": 1804,
+        "reason_match": true,
+        "signed_distance_from_band": null,
+        "source_derived": true,
+        "tolerance": null,
+        "trusted_band_available": false
+      },
+      "projected_bbox": [
+        1804,
+        858,
+        1916,
+        916
+      ],
+      "projected_token_index": 0,
+      "raw_ocr_line": "I o Inclinó Jos ciflM, y desceadió, lle<-",
+      "stable_identity": {
+        "block_id": "p0032l0052",
+        "gap_key": "Ps.17.12",
+        "pdf_page": 33,
+        "scan_page": 32,
+        "source": "lasagradabiblia01unkngoog",
+        "source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346"
+      },
+      "task128_candidate": {
+        "form": "I o",
+        "historical_decision": "REJECTED_EXACT",
+        "historical_reason": "no_trusted_marker_band",
+        "value": 10
+      },
+      "token_sequence": [
+        {
+          "bbox": [
+            1804,
+            875,
+            1840,
+            916
+          ],
+          "text": "I"
+        },
+        {
+          "bbox": [
+            1840,
+            858,
+            1916,
+            916
+          ],
+          "text": "o"
+        },
+        {
+          "bbox": [
+            1916,
+            856,
+            2161,
+            916
+          ],
+          "text": "Inclinó"
+        },
+        {
+          "bbox": [
+            2161,
+            859,
+            2284,
+            916
+          ],
+          "text": "Jos"
+        },
+        {
+          "bbox": [
+            2284,
+            859,
+            2502,
+            926
+          ],
+          "text": "ciflM,"
+        },
+        {
+          "bbox": [
+            2502,
+            859,
+            2568,
+            932
+          ],
+          "text": "y"
+        },
+        {
+          "bbox": [
+            2568,
+            859,
+            2904,
+            928
+          ],
+          "text": "desceadió,"
+        },
+        {
+          "bbox": [
+            2904,
+            861,
+            3019,
+            920
+          ],
+          "text": "lle<-"
+        }
+      ]
+    },
+    {
+      "book": "Ps",
+      "chapter_diagnostic_context": {
+        "candidate_key": "Ps.17.13",
+        "chapter": 17,
+        "column": "right",
+        "expected_verse_used": false,
+        "next_minus_one_used": false,
+        "previous_plus_one_used": false,
+        "shape": "interior_gap",
+        "signals": [
+          "lone_glyph_inside_previous_verse",
+          "ocr_block_split_candidate",
+          "page_transition_candidate"
+        ],
+        "zone": "verse_body"
+      },
+      "exact_projected_form": "I o",
+      "facsimile_evidence": null,
+      "final_status": "REJECTION_CONFIRMED",
+      "geometry_evidence": {
+        "band_boundary": null,
+        "band_center": null,
+        "current_recomputed_reason": "no_trusted_marker_band",
+        "indent": null,
+        "marker_bbox": [
+          1804,
+          858,
+          1916,
+          916
+        ],
+        "marker_x0": 1804,
+        "reason_match": true,
+        "signed_distance_from_band": null,
+        "source_derived": true,
+        "tolerance": null,
+        "trusted_band_available": false
+      },
+      "projected_bbox": [
+        1804,
+        858,
+        1916,
+        916
+      ],
+      "projected_token_index": 0,
+      "raw_ocr_line": "I o Inclinó Jos ciflM, y desceadió, lle<-",
+      "stable_identity": {
+        "block_id": "p0032l0052",
+        "gap_key": "Ps.17.13",
+        "pdf_page": 33,
+        "scan_page": 32,
+        "source": "lasagradabiblia01unkngoog",
+        "source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346"
+      },
+      "task128_candidate": {
+        "form": "I o",
+        "historical_decision": "REJECTED_EXACT",
+        "historical_reason": "no_trusted_marker_band",
+        "value": 10
+      },
+      "token_sequence": [
+        {
+          "bbox": [
+            1804,
+            875,
+            1840,
+            916
+          ],
+          "text": "I"
+        },
+        {
+          "bbox": [
+            1840,
+            858,
+            1916,
+            916
+          ],
+          "text": "o"
+        },
+        {
+          "bbox": [
+            1916,
+            856,
+            2161,
+            916
+          ],
+          "text": "Inclinó"
+        },
+        {
+          "bbox": [
+            2161,
+            859,
+            2284,
+            916
+          ],
+          "text": "Jos"
+        },
+        {
+          "bbox": [
+            2284,
+            859,
+            2502,
+            926
+          ],
+          "text": "ciflM,"
+        },
+        {
+          "bbox": [
+            2502,
+            859,
+            2568,
+            932
+          ],
+          "text": "y"
+        },
+        {
+          "bbox": [
+            2568,
+            859,
+            2904,
+            928
+          ],
+          "text": "desceadió,"
+        },
+        {
+          "bbox": [
+            2904,
+            861,
+            3019,
+            920
+          ],
+          "text": "lle<-"
+        }
+      ]
+    },
+    {
+      "book": "Ps",
+      "chapter_diagnostic_context": {
+        "candidate_key": "Ps.17.14",
+        "chapter": 17,
+        "column": "right",
+        "expected_verse_used": false,
+        "next_minus_one_used": false,
+        "previous_plus_one_used": false,
+        "shape": "interior_gap",
+        "signals": [
+          "lone_glyph_inside_previous_verse",
+          "ocr_block_split_candidate",
+          "page_transition_candidate"
+        ],
+        "zone": "verse_body"
+      },
+      "exact_projected_form": "I o",
+      "facsimile_evidence": null,
+      "final_status": "REJECTION_CONFIRMED",
+      "geometry_evidence": {
+        "band_boundary": null,
+        "band_center": null,
+        "current_recomputed_reason": "no_trusted_marker_band",
+        "indent": null,
+        "marker_bbox": [
+          1804,
+          858,
+          1916,
+          916
+        ],
+        "marker_x0": 1804,
+        "reason_match": true,
+        "signed_distance_from_band": null,
+        "source_derived": true,
+        "tolerance": null,
+        "trusted_band_available": false
+      },
+      "projected_bbox": [
+        1804,
+        858,
+        1916,
+        916
+      ],
+      "projected_token_index": 0,
+      "raw_ocr_line": "I o Inclinó Jos ciflM, y desceadió, lle<-",
+      "stable_identity": {
+        "block_id": "p0032l0052",
+        "gap_key": "Ps.17.14",
+        "pdf_page": 33,
+        "scan_page": 32,
+        "source": "lasagradabiblia01unkngoog",
+        "source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346"
+      },
+      "task128_candidate": {
+        "form": "I o",
+        "historical_decision": "REJECTED_EXACT",
+        "historical_reason": "no_trusted_marker_band",
+        "value": 10
+      },
+      "token_sequence": [
+        {
+          "bbox": [
+            1804,
+            875,
+            1840,
+            916
+          ],
+          "text": "I"
+        },
+        {
+          "bbox": [
+            1840,
+            858,
+            1916,
+            916
+          ],
+          "text": "o"
+        },
+        {
+          "bbox": [
+            1916,
+            856,
+            2161,
+            916
+          ],
+          "text": "Inclinó"
+        },
+        {
+          "bbox": [
+            2161,
+            859,
+            2284,
+            916
+          ],
+          "text": "Jos"
+        },
+        {
+          "bbox": [
+            2284,
+            859,
+            2502,
+            926
+          ],
+          "text": "ciflM,"
+        },
+        {
+          "bbox": [
+            2502,
+            859,
+            2568,
+            932
+          ],
+          "text": "y"
+        },
+        {
+          "bbox": [
+            2568,
+            859,
+            2904,
+            928
+          ],
+          "text": "desceadió,"
+        },
+        {
+          "bbox": [
+            2904,
+            861,
+            3019,
+            920
+          ],
+          "text": "lle<-"
+        }
+      ]
+    },
+    {
+      "book": "Ps",
+      "chapter_diagnostic_context": {
+        "candidate_key": "Ps.17.15",
+        "chapter": 17,
+        "column": "right",
+        "expected_verse_used": false,
+        "next_minus_one_used": false,
+        "previous_plus_one_used": false,
+        "shape": "interior_gap",
+        "signals": [
+          "lone_glyph_inside_previous_verse",
+          "ocr_block_split_candidate",
+          "page_transition_candidate"
+        ],
+        "zone": "verse_body"
+      },
+      "exact_projected_form": "I o",
+      "facsimile_evidence": null,
+      "final_status": "REJECTION_CONFIRMED",
+      "geometry_evidence": {
+        "band_boundary": null,
+        "band_center": null,
+        "current_recomputed_reason": "no_trusted_marker_band",
+        "indent": null,
+        "marker_bbox": [
+          1804,
+          858,
+          1916,
+          916
+        ],
+        "marker_x0": 1804,
+        "reason_match": true,
+        "signed_distance_from_band": null,
+        "source_derived": true,
+        "tolerance": null,
+        "trusted_band_available": false
+      },
+      "projected_bbox": [
+        1804,
+        858,
+        1916,
+        916
+      ],
+      "projected_token_index": 0,
+      "raw_ocr_line": "I o Inclinó Jos ciflM, y desceadió, lle<-",
+      "stable_identity": {
+        "block_id": "p0032l0052",
+        "gap_key": "Ps.17.15",
+        "pdf_page": 33,
+        "scan_page": 32,
+        "source": "lasagradabiblia01unkngoog",
+        "source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346"
+      },
+      "task128_candidate": {
+        "form": "I o",
+        "historical_decision": "REJECTED_EXACT",
+        "historical_reason": "no_trusted_marker_band",
+        "value": 10
+      },
+      "token_sequence": [
+        {
+          "bbox": [
+            1804,
+            875,
+            1840,
+            916
+          ],
+          "text": "I"
+        },
+        {
+          "bbox": [
+            1840,
+            858,
+            1916,
+            916
+          ],
+          "text": "o"
+        },
+        {
+          "bbox": [
+            1916,
+            856,
+            2161,
+            916
+          ],
+          "text": "Inclinó"
+        },
+        {
+          "bbox": [
+            2161,
+            859,
+            2284,
+            916
+          ],
+          "text": "Jos"
+        },
+        {
+          "bbox": [
+            2284,
+            859,
+            2502,
+            926
+          ],
+          "text": "ciflM,"
+        },
+        {
+          "bbox": [
+            2502,
+            859,
+            2568,
+            932
+          ],
+          "text": "y"
+        },
+        {
+          "bbox": [
+            2568,
+            859,
+            2904,
+            928
+          ],
+          "text": "desceadió,"
+        },
+        {
+          "bbox": [
+            2904,
+            861,
+            3019,
+            920
+          ],
+          "text": "lle<-"
+        }
+      ]
+    },
+    {
+      "book": "Ps",
+      "chapter_diagnostic_context": {
+        "candidate_key": "Ps.17.16",
+        "chapter": 17,
+        "column": "right",
+        "expected_verse_used": false,
+        "next_minus_one_used": false,
+        "previous_plus_one_used": false,
+        "shape": "interior_gap",
+        "signals": [
+          "lone_glyph_inside_previous_verse",
+          "ocr_block_split_candidate",
+          "page_transition_candidate"
+        ],
+        "zone": "verse_body"
+      },
+      "exact_projected_form": "I o",
+      "facsimile_evidence": null,
+      "final_status": "REJECTION_CONFIRMED",
+      "geometry_evidence": {
+        "band_boundary": null,
+        "band_center": null,
+        "current_recomputed_reason": "no_trusted_marker_band",
+        "indent": null,
+        "marker_bbox": [
+          1804,
+          858,
+          1916,
+          916
+        ],
+        "marker_x0": 1804,
+        "reason_match": true,
+        "signed_distance_from_band": null,
+        "source_derived": true,
+        "tolerance": null,
+        "trusted_band_available": false
+      },
+      "projected_bbox": [
+        1804,
+        858,
+        1916,
+        916
+      ],
+      "projected_token_index": 0,
+      "raw_ocr_line": "I o Inclinó Jos ciflM, y desceadió, lle<-",
+      "stable_identity": {
+        "block_id": "p0032l0052",
+        "gap_key": "Ps.17.16",
+        "pdf_page": 33,
+        "scan_page": 32,
+        "source": "lasagradabiblia01unkngoog",
+        "source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346"
+      },
+      "task128_candidate": {
+        "form": "I o",
+        "historical_decision": "REJECTED_EXACT",
+        "historical_reason": "no_trusted_marker_band",
+        "value": 10
+      },
+      "token_sequence": [
+        {
+          "bbox": [
+            1804,
+            875,
+            1840,
+            916
+          ],
+          "text": "I"
+        },
+        {
+          "bbox": [
+            1840,
+            858,
+            1916,
+            916
+          ],
+          "text": "o"
+        },
+        {
+          "bbox": [
+            1916,
+            856,
+            2161,
+            916
+          ],
+          "text": "Inclinó"
+        },
+        {
+          "bbox": [
+            2161,
+            859,
+            2284,
+            916
+          ],
+          "text": "Jos"
+        },
+        {
+          "bbox": [
+            2284,
+            859,
+            2502,
+            926
+          ],
+          "text": "ciflM,"
+        },
+        {
+          "bbox": [
+            2502,
+            859,
+            2568,
+            932
+          ],
+          "text": "y"
+        },
+        {
+          "bbox": [
+            2568,
+            859,
+            2904,
+            928
+          ],
+          "text": "desceadió,"
+        },
+        {
+          "bbox": [
+            2904,
+            861,
+            3019,
+            920
+          ],
+          "text": "lle<-"
+        }
+      ]
+    },
+    {
+      "book": "Ps",
+      "chapter_diagnostic_context": {
+        "candidate_key": "Ps.17.17",
+        "chapter": 17,
+        "column": "right",
+        "expected_verse_used": false,
+        "next_minus_one_used": false,
+        "previous_plus_one_used": false,
+        "shape": "interior_gap",
+        "signals": [
+          "lone_glyph_inside_previous_verse",
+          "ocr_block_split_candidate",
+          "page_transition_candidate"
+        ],
+        "zone": "verse_body"
+      },
+      "exact_projected_form": "I o",
+      "facsimile_evidence": null,
+      "final_status": "REJECTION_CONFIRMED",
+      "geometry_evidence": {
+        "band_boundary": null,
+        "band_center": null,
+        "current_recomputed_reason": "no_trusted_marker_band",
+        "indent": null,
+        "marker_bbox": [
+          1804,
+          858,
+          1916,
+          916
+        ],
+        "marker_x0": 1804,
+        "reason_match": true,
+        "signed_distance_from_band": null,
+        "source_derived": true,
+        "tolerance": null,
+        "trusted_band_available": false
+      },
+      "projected_bbox": [
+        1804,
+        858,
+        1916,
+        916
+      ],
+      "projected_token_index": 0,
+      "raw_ocr_line": "I o Inclinó Jos ciflM, y desceadió, lle<-",
+      "stable_identity": {
+        "block_id": "p0032l0052",
+        "gap_key": "Ps.17.17",
+        "pdf_page": 33,
+        "scan_page": 32,
+        "source": "lasagradabiblia01unkngoog",
+        "source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346"
+      },
+      "task128_candidate": {
+        "form": "I o",
+        "historical_decision": "REJECTED_EXACT",
+        "historical_reason": "no_trusted_marker_band",
+        "value": 10
+      },
+      "token_sequence": [
+        {
+          "bbox": [
+            1804,
+            875,
+            1840,
+            916
+          ],
+          "text": "I"
+        },
+        {
+          "bbox": [
+            1840,
+            858,
+            1916,
+            916
+          ],
+          "text": "o"
+        },
+        {
+          "bbox": [
+            1916,
+            856,
+            2161,
+            916
+          ],
+          "text": "Inclinó"
+        },
+        {
+          "bbox": [
+            2161,
+            859,
+            2284,
+            916
+          ],
+          "text": "Jos"
+        },
+        {
+          "bbox": [
+            2284,
+            859,
+            2502,
+            926
+          ],
+          "text": "ciflM,"
+        },
+        {
+          "bbox": [
+            2502,
+            859,
+            2568,
+            932
+          ],
+          "text": "y"
+        },
+        {
+          "bbox": [
+            2568,
+            859,
+            2904,
+            928
+          ],
+          "text": "desceadió,"
+        },
+        {
+          "bbox": [
+            2904,
+            861,
+            3019,
+            920
+          ],
+          "text": "lle<-"
+        }
+      ]
+    },
+    {
+      "book": "Ps",
+      "chapter_diagnostic_context": {
+        "candidate_key": "Ps.17.18",
+        "chapter": 17,
+        "column": "right",
+        "expected_verse_used": false,
+        "next_minus_one_used": false,
+        "previous_plus_one_used": false,
+        "shape": "interior_gap",
+        "signals": [
+          "lone_glyph_inside_previous_verse",
+          "ocr_block_split_candidate",
+          "page_transition_candidate"
+        ],
+        "zone": "verse_body"
+      },
+      "exact_projected_form": "I o",
+      "facsimile_evidence": null,
+      "final_status": "REJECTION_CONFIRMED",
+      "geometry_evidence": {
+        "band_boundary": null,
+        "band_center": null,
+        "current_recomputed_reason": "no_trusted_marker_band",
+        "indent": null,
+        "marker_bbox": [
+          1804,
+          858,
+          1916,
+          916
+        ],
+        "marker_x0": 1804,
+        "reason_match": true,
+        "signed_distance_from_band": null,
+        "source_derived": true,
+        "tolerance": null,
+        "trusted_band_available": false
+      },
+      "projected_bbox": [
+        1804,
+        858,
+        1916,
+        916
+      ],
+      "projected_token_index": 0,
+      "raw_ocr_line": "I o Inclinó Jos ciflM, y desceadió, lle<-",
+      "stable_identity": {
+        "block_id": "p0032l0052",
+        "gap_key": "Ps.17.18",
+        "pdf_page": 33,
+        "scan_page": 32,
+        "source": "lasagradabiblia01unkngoog",
+        "source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346"
+      },
+      "task128_candidate": {
+        "form": "I o",
+        "historical_decision": "REJECTED_EXACT",
+        "historical_reason": "no_trusted_marker_band",
+        "value": 10
+      },
+      "token_sequence": [
+        {
+          "bbox": [
+            1804,
+            875,
+            1840,
+            916
+          ],
+          "text": "I"
+        },
+        {
+          "bbox": [
+            1840,
+            858,
+            1916,
+            916
+          ],
+          "text": "o"
+        },
+        {
+          "bbox": [
+            1916,
+            856,
+            2161,
+            916
+          ],
+          "text": "Inclinó"
+        },
+        {
+          "bbox": [
+            2161,
+            859,
+            2284,
+            916
+          ],
+          "text": "Jos"
+        },
+        {
+          "bbox": [
+            2284,
+            859,
+            2502,
+            926
+          ],
+          "text": "ciflM,"
+        },
+        {
+          "bbox": [
+            2502,
+            859,
+            2568,
+            932
+          ],
+          "text": "y"
+        },
+        {
+          "bbox": [
+            2568,
+            859,
+            2904,
+            928
+          ],
+          "text": "desceadió,"
+        },
+        {
+          "bbox": [
+            2904,
+            861,
+            3019,
+            920
+          ],
+          "text": "lle<-"
+        }
+      ]
+    },
+    {
+      "book": "Ps",
+      "chapter_diagnostic_context": {
+        "candidate_key": "Ps.17.19",
+        "chapter": 17,
+        "column": "right",
+        "expected_verse_used": false,
+        "next_minus_one_used": false,
+        "previous_plus_one_used": false,
+        "shape": "interior_gap",
+        "signals": [
+          "lone_glyph_inside_previous_verse",
+          "ocr_block_split_candidate",
+          "page_transition_candidate"
+        ],
+        "zone": "verse_body"
+      },
+      "exact_projected_form": "I o",
+      "facsimile_evidence": null,
+      "final_status": "REJECTION_CONFIRMED",
+      "geometry_evidence": {
+        "band_boundary": null,
+        "band_center": null,
+        "current_recomputed_reason": "no_trusted_marker_band",
+        "indent": null,
+        "marker_bbox": [
+          1804,
+          858,
+          1916,
+          916
+        ],
+        "marker_x0": 1804,
+        "reason_match": true,
+        "signed_distance_from_band": null,
+        "source_derived": true,
+        "tolerance": null,
+        "trusted_band_available": false
+      },
+      "projected_bbox": [
+        1804,
+        858,
+        1916,
+        916
+      ],
+      "projected_token_index": 0,
+      "raw_ocr_line": "I o Inclinó Jos ciflM, y desceadió, lle<-",
+      "stable_identity": {
+        "block_id": "p0032l0052",
+        "gap_key": "Ps.17.19",
+        "pdf_page": 33,
+        "scan_page": 32,
+        "source": "lasagradabiblia01unkngoog",
+        "source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346"
+      },
+      "task128_candidate": {
+        "form": "I o",
+        "historical_decision": "REJECTED_EXACT",
+        "historical_reason": "no_trusted_marker_band",
+        "value": 10
+      },
+      "token_sequence": [
+        {
+          "bbox": [
+            1804,
+            875,
+            1840,
+            916
+          ],
+          "text": "I"
+        },
+        {
+          "bbox": [
+            1840,
+            858,
+            1916,
+            916
+          ],
+          "text": "o"
+        },
+        {
+          "bbox": [
+            1916,
+            856,
+            2161,
+            916
+          ],
+          "text": "Inclinó"
+        },
+        {
+          "bbox": [
+            2161,
+            859,
+            2284,
+            916
+          ],
+          "text": "Jos"
+        },
+        {
+          "bbox": [
+            2284,
+            859,
+            2502,
+            926
+          ],
+          "text": "ciflM,"
+        },
+        {
+          "bbox": [
+            2502,
+            859,
+            2568,
+            932
+          ],
+          "text": "y"
+        },
+        {
+          "bbox": [
+            2568,
+            859,
+            2904,
+            928
+          ],
+          "text": "desceadió,"
+        },
+        {
+          "bbox": [
+            2904,
+            861,
+            3019,
+            920
+          ],
+          "text": "lle<-"
+        }
+      ]
+    },
+    {
+      "book": "Ps",
+      "chapter_diagnostic_context": {
+        "candidate_key": "Ps.17.20",
+        "chapter": 17,
+        "column": "right",
+        "expected_verse_used": false,
+        "next_minus_one_used": false,
+        "previous_plus_one_used": false,
+        "shape": "interior_gap",
+        "signals": [
+          "lone_glyph_inside_previous_verse",
+          "ocr_block_split_candidate",
+          "page_transition_candidate"
+        ],
+        "zone": "verse_body"
+      },
+      "exact_projected_form": "I o",
+      "facsimile_evidence": null,
+      "final_status": "REJECTION_CONFIRMED",
+      "geometry_evidence": {
+        "band_boundary": null,
+        "band_center": null,
+        "current_recomputed_reason": "no_trusted_marker_band",
+        "indent": null,
+        "marker_bbox": [
+          1804,
+          858,
+          1916,
+          916
+        ],
+        "marker_x0": 1804,
+        "reason_match": true,
+        "signed_distance_from_band": null,
+        "source_derived": true,
+        "tolerance": null,
+        "trusted_band_available": false
+      },
+      "projected_bbox": [
+        1804,
+        858,
+        1916,
+        916
+      ],
+      "projected_token_index": 0,
+      "raw_ocr_line": "I o Inclinó Jos ciflM, y desceadió, lle<-",
+      "stable_identity": {
+        "block_id": "p0032l0052",
+        "gap_key": "Ps.17.20",
+        "pdf_page": 33,
+        "scan_page": 32,
+        "source": "lasagradabiblia01unkngoog",
+        "source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346"
+      },
+      "task128_candidate": {
+        "form": "I o",
+        "historical_decision": "REJECTED_EXACT",
+        "historical_reason": "no_trusted_marker_band",
+        "value": 10
+      },
+      "token_sequence": [
+        {
+          "bbox": [
+            1804,
+            875,
+            1840,
+            916
+          ],
+          "text": "I"
+        },
+        {
+          "bbox": [
+            1840,
+            858,
+            1916,
+            916
+          ],
+          "text": "o"
+        },
+        {
+          "bbox": [
+            1916,
+            856,
+            2161,
+            916
+          ],
+          "text": "Inclinó"
+        },
+        {
+          "bbox": [
+            2161,
+            859,
+            2284,
+            916
+          ],
+          "text": "Jos"
+        },
+        {
+          "bbox": [
+            2284,
+            859,
+            2502,
+            926
+          ],
+          "text": "ciflM,"
+        },
+        {
+          "bbox": [
+            2502,
+            859,
+            2568,
+            932
+          ],
+          "text": "y"
+        },
+        {
+          "bbox": [
+            2568,
+            859,
+            2904,
+            928
+          ],
+          "text": "desceadió,"
+        },
+        {
+          "bbox": [
+            2904,
+            861,
+            3019,
+            920
+          ],
+          "text": "lle<-"
+        }
+      ]
+    },
+    {
+      "book": "Ps",
+      "chapter_diagnostic_context": {
+        "candidate_key": "Ps.17.21",
+        "chapter": 17,
+        "column": "right",
+        "expected_verse_used": false,
+        "next_minus_one_used": false,
+        "previous_plus_one_used": false,
+        "shape": "interior_gap",
+        "signals": [
+          "lone_glyph_inside_previous_verse",
+          "ocr_block_split_candidate",
+          "page_transition_candidate"
+        ],
+        "zone": "verse_body"
+      },
+      "exact_projected_form": "I o",
+      "facsimile_evidence": null,
+      "final_status": "REJECTION_CONFIRMED",
+      "geometry_evidence": {
+        "band_boundary": null,
+        "band_center": null,
+        "current_recomputed_reason": "no_trusted_marker_band",
+        "indent": null,
+        "marker_bbox": [
+          1804,
+          858,
+          1916,
+          916
+        ],
+        "marker_x0": 1804,
+        "reason_match": true,
+        "signed_distance_from_band": null,
+        "source_derived": true,
+        "tolerance": null,
+        "trusted_band_available": false
+      },
+      "projected_bbox": [
+        1804,
+        858,
+        1916,
+        916
+      ],
+      "projected_token_index": 0,
+      "raw_ocr_line": "I o Inclinó Jos ciflM, y desceadió, lle<-",
+      "stable_identity": {
+        "block_id": "p0032l0052",
+        "gap_key": "Ps.17.21",
+        "pdf_page": 33,
+        "scan_page": 32,
+        "source": "lasagradabiblia01unkngoog",
+        "source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346"
+      },
+      "task128_candidate": {
+        "form": "I o",
+        "historical_decision": "REJECTED_EXACT",
+        "historical_reason": "no_trusted_marker_band",
+        "value": 10
+      },
+      "token_sequence": [
+        {
+          "bbox": [
+            1804,
+            875,
+            1840,
+            916
+          ],
+          "text": "I"
+        },
+        {
+          "bbox": [
+            1840,
+            858,
+            1916,
+            916
+          ],
+          "text": "o"
+        },
+        {
+          "bbox": [
+            1916,
+            856,
+            2161,
+            916
+          ],
+          "text": "Inclinó"
+        },
+        {
+          "bbox": [
+            2161,
+            859,
+            2284,
+            916
+          ],
+          "text": "Jos"
+        },
+        {
+          "bbox": [
+            2284,
+            859,
+            2502,
+            926
+          ],
+          "text": "ciflM,"
+        },
+        {
+          "bbox": [
+            2502,
+            859,
+            2568,
+            932
+          ],
+          "text": "y"
+        },
+        {
+          "bbox": [
+            2568,
+            859,
+            2904,
+            928
+          ],
+          "text": "desceadió,"
+        },
+        {
+          "bbox": [
+            2904,
+            861,
+            3019,
+            920
+          ],
+          "text": "lle<-"
+        }
+      ]
+    },
+    {
+      "book": "Ps",
+      "chapter_diagnostic_context": {
+        "candidate_key": "Ps.17.22",
+        "chapter": 17,
+        "column": "right",
+        "expected_verse_used": false,
+        "next_minus_one_used": false,
+        "previous_plus_one_used": false,
+        "shape": "interior_gap",
+        "signals": [
+          "lone_glyph_inside_previous_verse",
+          "ocr_block_split_candidate",
+          "page_transition_candidate"
+        ],
+        "zone": "verse_body"
+      },
+      "exact_projected_form": "I o",
+      "facsimile_evidence": null,
+      "final_status": "REJECTION_CONFIRMED",
+      "geometry_evidence": {
+        "band_boundary": null,
+        "band_center": null,
+        "current_recomputed_reason": "no_trusted_marker_band",
+        "indent": null,
+        "marker_bbox": [
+          1804,
+          858,
+          1916,
+          916
+        ],
+        "marker_x0": 1804,
+        "reason_match": true,
+        "signed_distance_from_band": null,
+        "source_derived": true,
+        "tolerance": null,
+        "trusted_band_available": false
+      },
+      "projected_bbox": [
+        1804,
+        858,
+        1916,
+        916
+      ],
+      "projected_token_index": 0,
+      "raw_ocr_line": "I o Inclinó Jos ciflM, y desceadió, lle<-",
+      "stable_identity": {
+        "block_id": "p0032l0052",
+        "gap_key": "Ps.17.22",
+        "pdf_page": 33,
+        "scan_page": 32,
+        "source": "lasagradabiblia01unkngoog",
+        "source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346"
+      },
+      "task128_candidate": {
+        "form": "I o",
+        "historical_decision": "REJECTED_EXACT",
+        "historical_reason": "no_trusted_marker_band",
+        "value": 10
+      },
+      "token_sequence": [
+        {
+          "bbox": [
+            1804,
+            875,
+            1840,
+            916
+          ],
+          "text": "I"
+        },
+        {
+          "bbox": [
+            1840,
+            858,
+            1916,
+            916
+          ],
+          "text": "o"
+        },
+        {
+          "bbox": [
+            1916,
+            856,
+            2161,
+            916
+          ],
+          "text": "Inclinó"
+        },
+        {
+          "bbox": [
+            2161,
+            859,
+            2284,
+            916
+          ],
+          "text": "Jos"
+        },
+        {
+          "bbox": [
+            2284,
+            859,
+            2502,
+            926
+          ],
+          "text": "ciflM,"
+        },
+        {
+          "bbox": [
+            2502,
+            859,
+            2568,
+            932
+          ],
+          "text": "y"
+        },
+        {
+          "bbox": [
+            2568,
+            859,
+            2904,
+            928
+          ],
+          "text": "desceadió,"
+        },
+        {
+          "bbox": [
+            2904,
+            861,
+            3019,
+            920
+          ],
+          "text": "lle<-"
+        }
+      ]
+    },
+    {
+      "book": "Ps",
+      "chapter_diagnostic_context": {
+        "candidate_key": "Ps.17.23",
+        "chapter": 17,
+        "column": "right",
+        "expected_verse_used": false,
+        "next_minus_one_used": false,
+        "previous_plus_one_used": false,
+        "shape": "interior_gap",
+        "signals": [
+          "lone_glyph_inside_previous_verse",
+          "ocr_block_split_candidate",
+          "page_transition_candidate"
+        ],
+        "zone": "verse_body"
+      },
+      "exact_projected_form": "I o",
+      "facsimile_evidence": null,
+      "final_status": "REJECTION_CONFIRMED",
+      "geometry_evidence": {
+        "band_boundary": null,
+        "band_center": null,
+        "current_recomputed_reason": "no_trusted_marker_band",
+        "indent": null,
+        "marker_bbox": [
+          1804,
+          858,
+          1916,
+          916
+        ],
+        "marker_x0": 1804,
+        "reason_match": true,
+        "signed_distance_from_band": null,
+        "source_derived": true,
+        "tolerance": null,
+        "trusted_band_available": false
+      },
+      "projected_bbox": [
+        1804,
+        858,
+        1916,
+        916
+      ],
+      "projected_token_index": 0,
+      "raw_ocr_line": "I o Inclinó Jos ciflM, y desceadió, lle<-",
+      "stable_identity": {
+        "block_id": "p0032l0052",
+        "gap_key": "Ps.17.23",
+        "pdf_page": 33,
+        "scan_page": 32,
+        "source": "lasagradabiblia01unkngoog",
+        "source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346"
+      },
+      "task128_candidate": {
+        "form": "I o",
+        "historical_decision": "REJECTED_EXACT",
+        "historical_reason": "no_trusted_marker_band",
+        "value": 10
+      },
+      "token_sequence": [
+        {
+          "bbox": [
+            1804,
+            875,
+            1840,
+            916
+          ],
+          "text": "I"
+        },
+        {
+          "bbox": [
+            1840,
+            858,
+            1916,
+            916
+          ],
+          "text": "o"
+        },
+        {
+          "bbox": [
+            1916,
+            856,
+            2161,
+            916
+          ],
+          "text": "Inclinó"
+        },
+        {
+          "bbox": [
+            2161,
+            859,
+            2284,
+            916
+          ],
+          "text": "Jos"
+        },
+        {
+          "bbox": [
+            2284,
+            859,
+            2502,
+            926
+          ],
+          "text": "ciflM,"
+        },
+        {
+          "bbox": [
+            2502,
+            859,
+            2568,
+            932
+          ],
+          "text": "y"
+        },
+        {
+          "bbox": [
+            2568,
+            859,
+            2904,
+            928
+          ],
+          "text": "desceadió,"
+        },
+        {
+          "bbox": [
+            2904,
+            861,
+            3019,
+            920
+          ],
+          "text": "lle<-"
+        }
+      ]
+    },
+    {
+      "book": "Ps",
+      "chapter_diagnostic_context": {
+        "candidate_key": "Ps.17.24",
+        "chapter": 17,
+        "column": "right",
+        "expected_verse_used": false,
+        "next_minus_one_used": false,
+        "previous_plus_one_used": false,
+        "shape": "interior_gap",
+        "signals": [
+          "lone_glyph_inside_previous_verse",
+          "ocr_block_split_candidate",
+          "page_transition_candidate"
+        ],
+        "zone": "verse_body"
+      },
+      "exact_projected_form": "I o",
+      "facsimile_evidence": null,
+      "final_status": "REJECTION_CONFIRMED",
+      "geometry_evidence": {
+        "band_boundary": null,
+        "band_center": null,
+        "current_recomputed_reason": "no_trusted_marker_band",
+        "indent": null,
+        "marker_bbox": [
+          1804,
+          858,
+          1916,
+          916
+        ],
+        "marker_x0": 1804,
+        "reason_match": true,
+        "signed_distance_from_band": null,
+        "source_derived": true,
+        "tolerance": null,
+        "trusted_band_available": false
+      },
+      "projected_bbox": [
+        1804,
+        858,
+        1916,
+        916
+      ],
+      "projected_token_index": 0,
+      "raw_ocr_line": "I o Inclinó Jos ciflM, y desceadió, lle<-",
+      "stable_identity": {
+        "block_id": "p0032l0052",
+        "gap_key": "Ps.17.24",
+        "pdf_page": 33,
+        "scan_page": 32,
+        "source": "lasagradabiblia01unkngoog",
+        "source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346"
+      },
+      "task128_candidate": {
+        "form": "I o",
+        "historical_decision": "REJECTED_EXACT",
+        "historical_reason": "no_trusted_marker_band",
+        "value": 10
+      },
+      "token_sequence": [
+        {
+          "bbox": [
+            1804,
+            875,
+            1840,
+            916
+          ],
+          "text": "I"
+        },
+        {
+          "bbox": [
+            1840,
+            858,
+            1916,
+            916
+          ],
+          "text": "o"
+        },
+        {
+          "bbox": [
+            1916,
+            856,
+            2161,
+            916
+          ],
+          "text": "Inclinó"
+        },
+        {
+          "bbox": [
+            2161,
+            859,
+            2284,
+            916
+          ],
+          "text": "Jos"
+        },
+        {
+          "bbox": [
+            2284,
+            859,
+            2502,
+            926
+          ],
+          "text": "ciflM,"
+        },
+        {
+          "bbox": [
+            2502,
+            859,
+            2568,
+            932
+          ],
+          "text": "y"
+        },
+        {
+          "bbox": [
+            2568,
+            859,
+            2904,
+            928
+          ],
+          "text": "desceadió,"
+        },
+        {
+          "bbox": [
+            2904,
+            861,
+            3019,
+            920
+          ],
+          "text": "lle<-"
+        }
+      ]
+    },
+    {
+      "book": "Ps",
+      "chapter_diagnostic_context": {
+        "candidate_key": "Ps.17.25",
+        "chapter": 17,
+        "column": "right",
+        "expected_verse_used": false,
+        "next_minus_one_used": false,
+        "previous_plus_one_used": false,
+        "shape": "interior_gap",
+        "signals": [
+          "lone_glyph_inside_previous_verse",
+          "ocr_block_split_candidate",
+          "page_transition_candidate"
+        ],
+        "zone": "verse_body"
+      },
+      "exact_projected_form": "I o",
+      "facsimile_evidence": null,
+      "final_status": "REJECTION_CONFIRMED",
+      "geometry_evidence": {
+        "band_boundary": null,
+        "band_center": null,
+        "current_recomputed_reason": "no_trusted_marker_band",
+        "indent": null,
+        "marker_bbox": [
+          1804,
+          858,
+          1916,
+          916
+        ],
+        "marker_x0": 1804,
+        "reason_match": true,
+        "signed_distance_from_band": null,
+        "source_derived": true,
+        "tolerance": null,
+        "trusted_band_available": false
+      },
+      "projected_bbox": [
+        1804,
+        858,
+        1916,
+        916
+      ],
+      "projected_token_index": 0,
+      "raw_ocr_line": "I o Inclinó Jos ciflM, y desceadió, lle<-",
+      "stable_identity": {
+        "block_id": "p0032l0052",
+        "gap_key": "Ps.17.25",
+        "pdf_page": 33,
+        "scan_page": 32,
+        "source": "lasagradabiblia01unkngoog",
+        "source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346"
+      },
+      "task128_candidate": {
+        "form": "I o",
+        "historical_decision": "REJECTED_EXACT",
+        "historical_reason": "no_trusted_marker_band",
+        "value": 10
+      },
+      "token_sequence": [
+        {
+          "bbox": [
+            1804,
+            875,
+            1840,
+            916
+          ],
+          "text": "I"
+        },
+        {
+          "bbox": [
+            1840,
+            858,
+            1916,
+            916
+          ],
+          "text": "o"
+        },
+        {
+          "bbox": [
+            1916,
+            856,
+            2161,
+            916
+          ],
+          "text": "Inclinó"
+        },
+        {
+          "bbox": [
+            2161,
+            859,
+            2284,
+            916
+          ],
+          "text": "Jos"
+        },
+        {
+          "bbox": [
+            2284,
+            859,
+            2502,
+            926
+          ],
+          "text": "ciflM,"
+        },
+        {
+          "bbox": [
+            2502,
+            859,
+            2568,
+            932
+          ],
+          "text": "y"
+        },
+        {
+          "bbox": [
+            2568,
+            859,
+            2904,
+            928
+          ],
+          "text": "desceadió,"
+        },
+        {
+          "bbox": [
+            2904,
+            861,
+            3019,
+            920
+          ],
+          "text": "lle<-"
+        }
+      ]
+    },
+    {
+      "book": "Ps",
+      "chapter_diagnostic_context": {
+        "candidate_key": "Ps.17.26",
+        "chapter": 17,
+        "column": "right",
+        "expected_verse_used": false,
+        "next_minus_one_used": false,
+        "previous_plus_one_used": false,
+        "shape": "interior_gap",
+        "signals": [
+          "lone_glyph_inside_previous_verse",
+          "ocr_block_split_candidate",
+          "page_transition_candidate"
+        ],
+        "zone": "verse_body"
+      },
+      "exact_projected_form": "I o",
+      "facsimile_evidence": null,
+      "final_status": "REJECTION_CONFIRMED",
+      "geometry_evidence": {
+        "band_boundary": null,
+        "band_center": null,
+        "current_recomputed_reason": "no_trusted_marker_band",
+        "indent": null,
+        "marker_bbox": [
+          1804,
+          858,
+          1916,
+          916
+        ],
+        "marker_x0": 1804,
+        "reason_match": true,
+        "signed_distance_from_band": null,
+        "source_derived": true,
+        "tolerance": null,
+        "trusted_band_available": false
+      },
+      "projected_bbox": [
+        1804,
+        858,
+        1916,
+        916
+      ],
+      "projected_token_index": 0,
+      "raw_ocr_line": "I o Inclinó Jos ciflM, y desceadió, lle<-",
+      "stable_identity": {
+        "block_id": "p0032l0052",
+        "gap_key": "Ps.17.26",
+        "pdf_page": 33,
+        "scan_page": 32,
+        "source": "lasagradabiblia01unkngoog",
+        "source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346"
+      },
+      "task128_candidate": {
+        "form": "I o",
+        "historical_decision": "REJECTED_EXACT",
+        "historical_reason": "no_trusted_marker_band",
+        "value": 10
+      },
+      "token_sequence": [
+        {
+          "bbox": [
+            1804,
+            875,
+            1840,
+            916
+          ],
+          "text": "I"
+        },
+        {
+          "bbox": [
+            1840,
+            858,
+            1916,
+            916
+          ],
+          "text": "o"
+        },
+        {
+          "bbox": [
+            1916,
+            856,
+            2161,
+            916
+          ],
+          "text": "Inclinó"
+        },
+        {
+          "bbox": [
+            2161,
+            859,
+            2284,
+            916
+          ],
+          "text": "Jos"
+        },
+        {
+          "bbox": [
+            2284,
+            859,
+            2502,
+            926
+          ],
+          "text": "ciflM,"
+        },
+        {
+          "bbox": [
+            2502,
+            859,
+            2568,
+            932
+          ],
+          "text": "y"
+        },
+        {
+          "bbox": [
+            2568,
+            859,
+            2904,
+            928
+          ],
+          "text": "desceadió,"
+        },
+        {
+          "bbox": [
+            2904,
+            861,
+            3019,
+            920
+          ],
+          "text": "lle<-"
+        }
+      ]
+    },
+    {
+      "book": "Ps",
+      "chapter_diagnostic_context": {
+        "candidate_key": "Ps.17.27",
+        "chapter": 17,
+        "column": "right",
+        "expected_verse_used": false,
+        "next_minus_one_used": false,
+        "previous_plus_one_used": false,
+        "shape": "interior_gap",
+        "signals": [
+          "lone_glyph_inside_previous_verse",
+          "ocr_block_split_candidate",
+          "page_transition_candidate"
+        ],
+        "zone": "verse_body"
+      },
+      "exact_projected_form": "I o",
+      "facsimile_evidence": null,
+      "final_status": "REJECTION_CONFIRMED",
+      "geometry_evidence": {
+        "band_boundary": null,
+        "band_center": null,
+        "current_recomputed_reason": "no_trusted_marker_band",
+        "indent": null,
+        "marker_bbox": [
+          1804,
+          858,
+          1916,
+          916
+        ],
+        "marker_x0": 1804,
+        "reason_match": true,
+        "signed_distance_from_band": null,
+        "source_derived": true,
+        "tolerance": null,
+        "trusted_band_available": false
+      },
+      "projected_bbox": [
+        1804,
+        858,
+        1916,
+        916
+      ],
+      "projected_token_index": 0,
+      "raw_ocr_line": "I o Inclinó Jos ciflM, y desceadió, lle<-",
+      "stable_identity": {
+        "block_id": "p0032l0052",
+        "gap_key": "Ps.17.27",
+        "pdf_page": 33,
+        "scan_page": 32,
+        "source": "lasagradabiblia01unkngoog",
+        "source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346"
+      },
+      "task128_candidate": {
+        "form": "I o",
+        "historical_decision": "REJECTED_EXACT",
+        "historical_reason": "no_trusted_marker_band",
+        "value": 10
+      },
+      "token_sequence": [
+        {
+          "bbox": [
+            1804,
+            875,
+            1840,
+            916
+          ],
+          "text": "I"
+        },
+        {
+          "bbox": [
+            1840,
+            858,
+            1916,
+            916
+          ],
+          "text": "o"
+        },
+        {
+          "bbox": [
+            1916,
+            856,
+            2161,
+            916
+          ],
+          "text": "Inclinó"
+        },
+        {
+          "bbox": [
+            2161,
+            859,
+            2284,
+            916
+          ],
+          "text": "Jos"
+        },
+        {
+          "bbox": [
+            2284,
+            859,
+            2502,
+            926
+          ],
+          "text": "ciflM,"
+        },
+        {
+          "bbox": [
+            2502,
+            859,
+            2568,
+            932
+          ],
+          "text": "y"
+        },
+        {
+          "bbox": [
+            2568,
+            859,
+            2904,
+            928
+          ],
+          "text": "desceadió,"
+        },
+        {
+          "bbox": [
+            2904,
+            861,
+            3019,
+            920
+          ],
+          "text": "lle<-"
+        }
+      ]
+    },
+    {
+      "book": "Isa",
+      "chapter_diagnostic_context": {
+        "candidate_key": "Isa.22.16",
+        "chapter": 22,
+        "column": "right",
+        "expected_verse_used": false,
+        "next_minus_one_used": false,
+        "previous_plus_one_used": false,
+        "shape": "interior_gap",
+        "signals": [
+          "lone_glyph_inside_previous_verse",
+          "ocr_block_split_candidate",
+          "page_transition_candidate",
+          "recovered_chapter_boundary_candidate"
+        ],
+        "zone": "verse_body"
+      },
+      "exact_projected_form": "I o",
+      "facsimile_evidence": null,
+      "final_status": "REJECTION_CONFIRMED",
+      "geometry_evidence": {
+        "band_boundary": {
+          "lower": 1754.0,
+          "upper": 1820.0
+        },
+        "band_center": 1787,
+        "current_recomputed_reason": "outside_marker_band",
+        "indent": 48,
+        "marker_bbox": [
+          1835,
+          831,
+          1951,
+          869
+        ],
+        "marker_x0": 1835,
+        "reason_match": true,
+        "signed_distance_from_band": 48,
+        "source_derived": true,
+        "tolerance": 33.0,
+        "trusted_band_available": true
+      },
+      "projected_bbox": [
+        1835,
+        831,
+        1951,
+        869
+      ],
+      "projected_token_index": 0,
+      "raw_ocr_line": "I o y habéis contado las casas de Je*",
+      "stable_identity": {
+        "block_id": "p0542l0037",
+        "gap_key": "Isa.22.16",
+        "pdf_page": 543,
+        "scan_page": 542,
+        "source": "lasagradabiblia01unkngoog",
+        "source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346"
+      },
+      "task128_candidate": {
+        "form": "I o",
+        "historical_decision": "REJECTED_EXACT",
+        "historical_reason": "outside_marker_band",
+        "value": 10
+      },
+      "token_sequence": [
+        {
+          "bbox": [
+            1835,
+            831,
+            1873,
+            869
+          ],
+          "text": "I"
+        },
+        {
+          "bbox": [
+            1873,
+            831,
+            1951,
+            869
+          ],
+          "text": "o"
+        },
+        {
+          "bbox": [
+            1951,
+            815,
+            2017,
+            888
+          ],
+          "text": "y"
+        },
+        {
+          "bbox": [
+            2017,
+            815,
+            2237,
+            869
+          ],
+          "text": "habéis"
+        },
+        {
+          "bbox": [
+            2237,
+            812,
+            2523,
+            869
+          ],
+          "text": "contado"
+        },
+        {
+          "bbox": [
+            2523,
+            813,
+            2643,
+            867
+          ],
+          "text": "las"
+        },
+        {
+          "bbox": [
+            2643,
+            810,
+            2843,
+            867
+          ],
+          "text": "casas"
+        },
+        {
+          "bbox": [
+            2843,
+            810,
+            2943,
+            867
+          ],
+          "text": "de"
+        },
+        {
+          "bbox": [
+            2943,
+            812,
+            3048,
+            866
+          ],
+          "text": "Je*"
+        }
+      ]
+    },
+    {
+      "book": "Isa",
+      "chapter_diagnostic_context": {
+        "candidate_key": "Isa.22.17",
+        "chapter": 22,
+        "column": "right",
+        "expected_verse_used": false,
+        "next_minus_one_used": false,
+        "previous_plus_one_used": false,
+        "shape": "interior_gap",
+        "signals": [
+          "lone_glyph_inside_previous_verse",
+          "ocr_block_split_candidate",
+          "page_transition_candidate",
+          "recovered_chapter_boundary_candidate"
+        ],
+        "zone": "verse_body"
+      },
+      "exact_projected_form": "I o",
+      "facsimile_evidence": null,
+      "final_status": "REJECTION_CONFIRMED",
+      "geometry_evidence": {
+        "band_boundary": {
+          "lower": 1754.0,
+          "upper": 1820.0
+        },
+        "band_center": 1787,
+        "current_recomputed_reason": "outside_marker_band",
+        "indent": 48,
+        "marker_bbox": [
+          1835,
+          831,
+          1951,
+          869
+        ],
+        "marker_x0": 1835,
+        "reason_match": true,
+        "signed_distance_from_band": 48,
+        "source_derived": true,
+        "tolerance": 33.0,
+        "trusted_band_available": true
+      },
+      "projected_bbox": [
+        1835,
+        831,
+        1951,
+        869
+      ],
+      "projected_token_index": 0,
+      "raw_ocr_line": "I o y habéis contado las casas de Je*",
+      "stable_identity": {
+        "block_id": "p0542l0037",
+        "gap_key": "Isa.22.17",
+        "pdf_page": 543,
+        "scan_page": 542,
+        "source": "lasagradabiblia01unkngoog",
+        "source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346"
+      },
+      "task128_candidate": {
+        "form": "I o",
+        "historical_decision": "REJECTED_EXACT",
+        "historical_reason": "outside_marker_band",
+        "value": 10
+      },
+      "token_sequence": [
+        {
+          "bbox": [
+            1835,
+            831,
+            1873,
+            869
+          ],
+          "text": "I"
+        },
+        {
+          "bbox": [
+            1873,
+            831,
+            1951,
+            869
+          ],
+          "text": "o"
+        },
+        {
+          "bbox": [
+            1951,
+            815,
+            2017,
+            888
+          ],
+          "text": "y"
+        },
+        {
+          "bbox": [
+            2017,
+            815,
+            2237,
+            869
+          ],
+          "text": "habéis"
+        },
+        {
+          "bbox": [
+            2237,
+            812,
+            2523,
+            869
+          ],
+          "text": "contado"
+        },
+        {
+          "bbox": [
+            2523,
+            813,
+            2643,
+            867
+          ],
+          "text": "las"
+        },
+        {
+          "bbox": [
+            2643,
+            810,
+            2843,
+            867
+          ],
+          "text": "casas"
+        },
+        {
+          "bbox": [
+            2843,
+            810,
+            2943,
+            867
+          ],
+          "text": "de"
+        },
+        {
+          "bbox": [
+            2943,
+            812,
+            3048,
+            866
+          ],
+          "text": "Je*"
+        }
+      ]
+    },
+    {
+      "book": "Isa",
+      "chapter_diagnostic_context": {
+        "candidate_key": "Isa.22.18",
+        "chapter": 22,
+        "column": "right",
+        "expected_verse_used": false,
+        "next_minus_one_used": false,
+        "previous_plus_one_used": false,
+        "shape": "interior_gap",
+        "signals": [
+          "lone_glyph_inside_previous_verse",
+          "ocr_block_split_candidate",
+          "page_transition_candidate",
+          "recovered_chapter_boundary_candidate"
+        ],
+        "zone": "verse_body"
+      },
+      "exact_projected_form": "I o",
+      "facsimile_evidence": null,
+      "final_status": "REJECTION_CONFIRMED",
+      "geometry_evidence": {
+        "band_boundary": {
+          "lower": 1754.0,
+          "upper": 1820.0
+        },
+        "band_center": 1787,
+        "current_recomputed_reason": "outside_marker_band",
+        "indent": 48,
+        "marker_bbox": [
+          1835,
+          831,
+          1951,
+          869
+        ],
+        "marker_x0": 1835,
+        "reason_match": true,
+        "signed_distance_from_band": 48,
+        "source_derived": true,
+        "tolerance": 33.0,
+        "trusted_band_available": true
+      },
+      "projected_bbox": [
+        1835,
+        831,
+        1951,
+        869
+      ],
+      "projected_token_index": 0,
+      "raw_ocr_line": "I o y habéis contado las casas de Je*",
+      "stable_identity": {
+        "block_id": "p0542l0037",
+        "gap_key": "Isa.22.18",
+        "pdf_page": 543,
+        "scan_page": 542,
+        "source": "lasagradabiblia01unkngoog",
+        "source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346"
+      },
+      "task128_candidate": {
+        "form": "I o",
+        "historical_decision": "REJECTED_EXACT",
+        "historical_reason": "outside_marker_band",
+        "value": 10
+      },
+      "token_sequence": [
+        {
+          "bbox": [
+            1835,
+            831,
+            1873,
+            869
+          ],
+          "text": "I"
+        },
+        {
+          "bbox": [
+            1873,
+            831,
+            1951,
+            869
+          ],
+          "text": "o"
+        },
+        {
+          "bbox": [
+            1951,
+            815,
+            2017,
+            888
+          ],
+          "text": "y"
+        },
+        {
+          "bbox": [
+            2017,
+            815,
+            2237,
+            869
+          ],
+          "text": "habéis"
+        },
+        {
+          "bbox": [
+            2237,
+            812,
+            2523,
+            869
+          ],
+          "text": "contado"
+        },
+        {
+          "bbox": [
+            2523,
+            813,
+            2643,
+            867
+          ],
+          "text": "las"
+        },
+        {
+          "bbox": [
+            2643,
+            810,
+            2843,
+            867
+          ],
+          "text": "casas"
+        },
+        {
+          "bbox": [
+            2843,
+            810,
+            2943,
+            867
+          ],
+          "text": "de"
+        },
+        {
+          "bbox": [
+            2943,
+            812,
+            3048,
+            866
+          ],
+          "text": "Je*"
+        }
+      ]
+    },
+    {
+      "book": "Isa",
+      "chapter_diagnostic_context": {
+        "candidate_key": "Isa.27.12",
+        "chapter": 27,
+        "column": "right",
+        "expected_verse_used": false,
+        "next_minus_one_used": false,
+        "previous_plus_one_used": false,
+        "shape": "trailing_gap",
+        "signals": [
+          "lone_glyph_inside_previous_verse",
+          "ocr_block_split_candidate"
+        ],
+        "zone": "verse_body"
+      },
+      "exact_projected_form": "I a",
+      "facsimile_evidence": null,
+      "final_status": "REJECTION_CONFIRMED",
+      "geometry_evidence": {
+        "band_boundary": {
+          "lower": 1693.5,
+          "upper": 1768.5
+        },
+        "band_center": 1731.0,
+        "current_recomputed_reason": "outside_marker_band",
+        "indent": 48.0,
+        "marker_bbox": [
+          1779,
+          3699,
+          1889,
+          3753
+        ],
+        "marker_x0": 1779,
+        "reason_match": true,
+        "signed_distance_from_band": 48.0,
+        "source_derived": true,
+        "tolerance": 37.5,
+        "trusted_band_available": true
+      },
+      "projected_bbox": [
+        1779,
+        3699,
+        1889,
+        3753
+      ],
+      "projected_token_index": 0,
+      "raw_ocr_line": "I a Y en aquel dia el SeSor hará sen«",
+      "stable_identity": {
+        "block_id": "p0553l0077",
+        "gap_key": "Isa.27.12",
+        "pdf_page": 555,
+        "scan_page": 554,
+        "source": "lasagradabiblia01unkngoog",
+        "source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346"
+      },
+      "task128_candidate": {
+        "form": "I a",
+        "historical_decision": "REJECTED_EXACT",
+        "historical_reason": "outside_marker_band",
+        "value": 12
+      },
+      "token_sequence": [
+        {
+          "bbox": [
+            1779,
+            3714,
+            1814,
+            3753
+          ],
+          "text": "I"
+        },
+        {
+          "bbox": [
+            1814,
+            3699,
+            1889,
+            3753
+          ],
+          "text": "a"
+        },
+        {
+          "bbox": [
+            1889,
+            3699,
+            1974,
+            3753
+          ],
+          "text": "Y"
+        },
+        {
+          "bbox": [
+            1974,
+            3715,
+            2076,
+            3753
+          ],
+          "text": "en"
+        },
+        {
+          "bbox": [
+            2076,
+            3697,
+            2272,
+            3768
+          ],
+          "text": "aquel"
+        },
+        {
+          "bbox": [
+            2272,
+            3697,
+            2397,
+            3753
+          ],
+          "text": "dia"
+        },
+        {
+          "bbox": [
+            2397,
+            3698,
+            2480,
+            3753
+          ],
+          "text": "el"
+        },
+        {
+          "bbox": [
+            2480,
+            3697,
+            2686,
+            3754
+          ],
+          "text": "SeSor"
+        },
+        {
+          "bbox": [
+            2686,
+            3698,
+            2853,
+            3754
+          ],
+          "text": "hará"
+        },
+        {
+          "bbox": [
+            2853,
+            3715,
+            2986,
+            3756
+          ],
+          "text": "sen«"
+        }
+      ]
+    },
+    {
+      "book": "Isa",
+      "chapter_diagnostic_context": {
+        "candidate_key": "Isa.27.13",
+        "chapter": 27,
+        "column": "right",
+        "expected_verse_used": false,
+        "next_minus_one_used": false,
+        "previous_plus_one_used": false,
+        "shape": "trailing_gap",
+        "signals": [
+          "lone_glyph_inside_previous_verse",
+          "ocr_block_split_candidate"
+        ],
+        "zone": "verse_body"
+      },
+      "exact_projected_form": "I a",
+      "facsimile_evidence": null,
+      "final_status": "REJECTION_CONFIRMED",
+      "geometry_evidence": {
+        "band_boundary": {
+          "lower": 1693.5,
+          "upper": 1768.5
+        },
+        "band_center": 1731.0,
+        "current_recomputed_reason": "outside_marker_band",
+        "indent": 48.0,
+        "marker_bbox": [
+          1779,
+          3699,
+          1889,
+          3753
+        ],
+        "marker_x0": 1779,
+        "reason_match": true,
+        "signed_distance_from_band": 48.0,
+        "source_derived": true,
+        "tolerance": 37.5,
+        "trusted_band_available": true
+      },
+      "projected_bbox": [
+        1779,
+        3699,
+        1889,
+        3753
+      ],
+      "projected_token_index": 0,
+      "raw_ocr_line": "I a Y en aquel dia el SeSor hará sen«",
+      "stable_identity": {
+        "block_id": "p0553l0077",
+        "gap_key": "Isa.27.13",
+        "pdf_page": 555,
+        "scan_page": 554,
+        "source": "lasagradabiblia01unkngoog",
+        "source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346"
+      },
+      "task128_candidate": {
+        "form": "I a",
+        "historical_decision": "REJECTED_EXACT",
+        "historical_reason": "outside_marker_band",
+        "value": 12
+      },
+      "token_sequence": [
+        {
+          "bbox": [
+            1779,
+            3714,
+            1814,
+            3753
+          ],
+          "text": "I"
+        },
+        {
+          "bbox": [
+            1814,
+            3699,
+            1889,
+            3753
+          ],
+          "text": "a"
+        },
+        {
+          "bbox": [
+            1889,
+            3699,
+            1974,
+            3753
+          ],
+          "text": "Y"
+        },
+        {
+          "bbox": [
+            1974,
+            3715,
+            2076,
+            3753
+          ],
+          "text": "en"
+        },
+        {
+          "bbox": [
+            2076,
+            3697,
+            2272,
+            3768
+          ],
+          "text": "aquel"
+        },
+        {
+          "bbox": [
+            2272,
+            3697,
+            2397,
+            3753
+          ],
+          "text": "dia"
+        },
+        {
+          "bbox": [
+            2397,
+            3698,
+            2480,
+            3753
+          ],
+          "text": "el"
+        },
+        {
+          "bbox": [
+            2480,
+            3697,
+            2686,
+            3754
+          ],
+          "text": "SeSor"
+        },
+        {
+          "bbox": [
+            2686,
+            3698,
+            2853,
+            3754
+          ],
+          "text": "hará"
+        },
+        {
+          "bbox": [
+            2853,
+            3715,
+            2986,
+            3756
+          ],
+          "text": "sen«"
+        }
+      ]
+    }
+  ],
+  "outside_marker_band": {
+    "boundary_analysis": "all five are outside the accepted boundary; no threshold tuning performed",
+    "definition_from_task128": "trusted band exists and abs(marker_x0 - band_center) > tolerance",
+    "family": {
+      "blocks": [
+        "p0542l0037",
+        "p0553l0077"
+      ],
+      "books": {
+        "Isa": 5
+      },
+      "forms": {
+        "I a": 2,
+        "I o": 3
+      },
+      "geometry_patterns": {
+        "band_available_outside": 5
+      },
+      "population": 5,
+      "scan_pages": [
+        542,
+        554
+      ],
+      "task128_forms": {
+        "I a": 2,
+        "I o": 3
+      }
+    },
+    "measurements": [
+      {
+        "band_center": 1787,
+        "block_id": "p0542l0037",
+        "gap_key": "Isa.22.16",
+        "marker_x0": 1835,
+        "signed_distance": 48,
+        "tolerance": 33.0
+      },
+      {
+        "band_center": 1787,
+        "block_id": "p0542l0037",
+        "gap_key": "Isa.22.17",
+        "marker_x0": 1835,
+        "signed_distance": 48,
+        "tolerance": 33.0
+      },
+      {
+        "band_center": 1787,
+        "block_id": "p0542l0037",
+        "gap_key": "Isa.22.18",
+        "marker_x0": 1835,
+        "signed_distance": 48,
+        "tolerance": 33.0
+      },
+      {
+        "band_center": 1731.0,
+        "block_id": "p0553l0077",
+        "gap_key": "Isa.27.12",
+        "marker_x0": 1779,
+        "signed_distance": 48.0,
+        "tolerance": 37.5
+      },
+      {
+        "band_center": 1731.0,
+        "block_id": "p0553l0077",
+        "gap_key": "Isa.27.13",
+        "marker_x0": 1779,
+        "signed_distance": 48.0,
+        "tolerance": 37.5
+      }
+    ],
+    "rejection_reproducible": true,
+    "visual_evidence": "No facsimile review required; measured source geometry is decisive."
+  },
+  "population": 23,
+  "provenance": {
+    "baseline_commit": "bd68a68baeb57d771e7e92369fd30cd26d4f3cfa",
+    "expected_source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346",
+    "mapping": "pdf_page = scan_page + 1",
+    "offline": true,
+    "pdf": "build/torresamat1835-cache/lasagradabiblia01unkngoog.pdf",
+    "source_sha256": "cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346",
+    "task": "TORRES-1835-PROJECTED-REJECTION-AUDIT-136",
+    "task135_linkage_source": "data/torresamat1835/remaining_glyph_inventory.json + build/torresamat1835-audit/volume3.json",
+    "witness": "lasagradabiblia01unkngoog"
+  },
+  "rules": {
+    "expected_verse_used": false,
+    "ml_used": false,
+    "next_minus_one_used": false,
+    "previous_plus_one_used": false,
+    "recovery_performed": false,
+    "runtime_changed": false
+  },
+  "schema_version": 1,
+  "status_counts": {
+    "DISCRIMINATOR_CANDIDATE": 0,
+    "INSUFFICIENT_EVIDENCE": 0,
+    "RECOVERY_VALIDATION_CANDIDATE": 0,
+    "REJECTION_CONFIRMED": 23,
+    "STALE_DIAGNOSTIC_CLASSIFICATION": 0
+  },
+  "task137_recommendation": {
+    "reason": "18 confirmed rejections share one explicitly bounded abstention cause; a study can test anchor availability with accepted controls and ordinary-text negatives without changing thresholds or recovering markers.",
+    "scope": "Measure same-page/column/zone anchor availability and hard negatives; no recovery, no threshold changes, no canonical inference.",
+    "target": "no_trusted_marker_band_discriminator_study"
+  }
+}
