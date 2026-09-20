@@ -1354,6 +1354,14 @@ if (BUILD_TESTING AND UNIX AND PYTHON3_EXECUTABLE)
   set_tests_properties (torresamat1835_baseline_test PROPERTIES
     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
     )
+  add_test (
+    NAME torresamat1835_no_trusted_band_discriminator_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_no_trusted_band_discriminator.py
+    )
+  set_tests_properties (torresamat1835_no_trusted_band_discriminator_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
+    )
 endif ()
 
 # The import side of TORRES-PSALM-TITLES-101: the deterministic transform

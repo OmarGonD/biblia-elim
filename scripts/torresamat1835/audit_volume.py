@@ -14,6 +14,7 @@ import collections
 import json
 import os
 import time
+from pathlib import Path
 
 import book_boundaries
 import chapter_claims
@@ -2720,6 +2721,10 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
     if projected_path.exists():
         report["verse_segmentation_audit"]["projected_rejection_validation"] = json.loads(
             projected_path.read_text(encoding="utf-8"))
+    discriminator_path = Path("data/torresamat1835/no_trusted_band_discriminator.json")
+    if discriminator_path.exists():
+        report["verse_segmentation_audit"]["no_trusted_band_discriminator_validation"] = json.loads(
+            discriminator_path.read_text(encoding="utf-8"))
     return edition, report
 
 
