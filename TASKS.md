@@ -2779,8 +2779,8 @@
       recovery is not incomplete work; runtime recovery was explicitly
       outside task-137 scope.
 
-- [ ] TORRES-1835-ZERO-ANCHOR-IO-RECOVERY-VALIDATION-138 Validate bounded recovery for zero-anchor I o verse markers
-  - Status: PENDING
+- [x] TORRES-1835-ZERO-ANCHOR-IO-RECOVERY-VALIDATION-138 Validate bounded recovery for zero-anchor I o verse markers
+  - Status: DONE
   - Description:
     Validate, in a bounded diagnostic/dry-run recovery model, whether the exact
     family established by task 137 can be recovered safely:
@@ -2892,6 +2892,180 @@
     - Use ML, embeddings, neural OCR or opaque classifiers.
     - Modify TASKS.md from the task agent.
     - Commit or push implementation work from the task agent.
+
+  - Closure:
+    - Result: READY; dry-run recovery validation completed.
+    - Frozen task baseline commit = 33f4944d1a298a3d967ffca11bb799eb9dd831c4.
+    - Bounded discriminator: trusted_anchor_count == 0 AND exact_compound_form == "I o".
+    - Full-corpus diagnostic matches = 18 occurrences.
+    - Source events represented = 1.
+    - Known task-137 positives matched = 18/18.
+    - Additional matches outside known positives = 0.
+    - Accepted task-128 controls matched = 0/183.
+    - Hard negatives matched = 0.
+    - Dry-run ref effects: CREATE_NEW_REF = 1, REOPEN_EXISTING_REF = 0, INVALID = 0.
+    - Proposed native VerseRef: Ps.17.10.
+    - Predicted ownership movement: 27 OCR blocks.
+    - Predicted block loss = 0.
+    - Predicted dual ownership = 0.
+    - Predicted physical gaps: 3255 -> 3254; reduction = 1.
+    - Predicted glyph gaps: 1310 -> 1309; reduction = 1.
+    - Predicted new duplicate refs = 0.
+    - Predicted new out-of-order refs = 0.
+    - Predicted outside-canon refs = 0.
+    - No existing VerseRef is removed or renumbered.
+    - Runtime/parser remained unchanged during task 138.
+    - Actual VerseRefs remained = 3848.
+    - Actual physical gaps remained = 3255.
+    - Actual glyph gaps remained = 1310.
+    - Actual ownership remained unchanged.
+    - task-128 behavior unchanged.
+    - task-131 behavior unchanged.
+    - GLUED_FRAME remains CLOSED_UNSAFE.
+    - Chapters = 337/337.
+    - unresolved chapter claims = 0.
+    - canonical chapter gaps = 0.
+    - duplicate_refs = 0.
+    - out_of_order_refs = 0.
+    - outside-canon = 0.
+    - ocr_blocks = 57700.
+    - block loss = 0.
+    - dual ownership = 0.
+    - Artifact deterministic and idempotent.
+    - Artifact uses frozen baseline provenance and does not leak current HEAD.
+    - Direct tests passed.
+    - Build passed.
+    - TorresAmat CTest = 29/29 passed.
+    - Full CTest = 41/41 passed.
+    - Two environment-dependent tests skipped.
+    - New failures = 0.
+    - Family status: IMPLEMENTATION_READY.
+    - Recommended next work: implement the bounded zero-anchor I o recovery fallback using the exact task-137/138 discriminator and task-138 fail-closed conditions.
+    - Task 138 is DONE because the bounded fallback was exhaustively dry-run validated against the full current corpus and its ref/ownership/gap effects are known exactly.
+    - Task 138 validated the implementation candidate only; it did not implement runtime recovery.
+
+- [ ] TORRES-1835-ZERO-ANCHOR-IO-RECOVERY-139 Implement bounded zero-anchor I o verse-marker recovery
+  - Status: PENDING
+  - Description:
+    Implement the task-137/task-138 validated recovery fallback for the exact
+    bounded family:
+        trusted_anchor_count == 0
+        AND exact_compound_form == "I o".
+    The implementation must recover only cases satisfying the validated
+    source-derived discriminator and fail closed everywhere else.
+  - Baseline context:
+    - Current VerseRefs = 3848.
+    - Current physical gaps = 3255.
+    - Current glyph gaps = 1310.
+    - Task-137 visual evidence:
+        18/18 target occurrences are PRINTED_VERSE_MARKER.
+        printed value = 10 for all 18.
+    - Task-138 full-corpus matches = 18.
+    - Additional matches = 0.
+    - Accepted task-128 controls matched = 0/183.
+    - Hard negatives matched = 0.
+    - Dry-run predicts:
+        CREATE_NEW_REF = 1
+        REOPEN_EXISTING_REF = 0
+        new native ref = Ps.17.10
+        ownership moves = 27 blocks
+        physical gaps 3255 -> 3254
+        glyph gaps 1310 -> 1309.
+    - Predicted duplicate/out-of-order/outside-canon = 0.
+  - Required behavior:
+    - Derive the bounded family from current source/parser state.
+    - Do not hardcode the 18 occurrence IDs.
+    - Do not hardcode page, block, chapter or verse identities.
+    - Apply the fallback only when:
+        trusted_anchor_count == 0
+        AND exact_compound_form == "I o"
+      plus all task-138 fail-closed conditions.
+    - Marker value must come from the validated compound-form interpretation,
+      not expected verse sequence.
+    - Preserve task-128 as the stronger existing rule.
+    - The new fallback must run only after stronger existing compound recovery
+      has abstained/rejected for lack of trusted band.
+    - It must not steal task-128 accepted occurrences.
+    - It must not overlap task-131 recovery.
+    - Enforce native canon/range validation.
+    - Enforce duplicate/reopen safety.
+    - Enforce ownership safety.
+    - Preserve all unrelated refs and ownership.
+    - Produce exactly the task-138 predicted semantic delta unless current
+      corpus evidence proves a legitimate discrepancy.
+    - If runtime behavior differs from task-138 dry-run, STOP and investigate
+      instead of updating expected results to fit implementation.
+  - Expected implementation delta:
+    - VerseRefs: 3848 -> 3849.
+    - New native VerseRef: Ps.17.10.
+    - Reopened refs: 0.
+    - Removed refs: 0.
+    - Renumbered refs: 0.
+    - Ownership movement: 27 blocks.
+    - Physical gaps: 3255 -> 3254.
+    - Glyph gaps: 1310 -> 1309.
+    - duplicate_refs: 0.
+    - out_of_order_refs: 0.
+    - outside-canon: 0.
+    - block loss: 0.
+    - dual ownership: 0.
+  - Fail-closed conditions:
+    - form != "I o" -> abstain.
+    - trusted_anchor_count != 0 -> existing task-128 behavior only.
+    - wrong zone/column/context -> abstain.
+    - invalid native canon/range -> abstain.
+    - ambiguous ownership -> abstain.
+    - duplicate/reopen conflict -> abstain.
+    - missing validated source/provenance assumptions -> abstain.
+    - any unvalidated additional corpus match -> abstain and fail test.
+  - Acceptance:
+    - Exactly the validated bounded family is recovered.
+    - Full-corpus runtime candidate count matches task-138 expectation.
+    - VerseRefs = 3849.
+    - Ps.17.10 exists with correct native identity.
+    - No unrelated VerseRef changes.
+    - Ownership movement matches validated 27-block prediction.
+    - Physical gaps = 3254.
+    - Glyph gaps = 1309.
+    - task-128 accepted behavior unchanged.
+    - task-131 behavior unchanged.
+    - GLUED_FRAME remains CLOSED_UNSAFE.
+    - Chapters remain 337/337.
+    - unresolved chapter claims = 0.
+    - canonical chapter gaps = 0.
+    - duplicate_refs = 0.
+    - out_of_order_refs = 0.
+    - outside-canon = 0.
+    - ocr_blocks = 57700.
+    - block loss = 0.
+    - dual ownership = 0.
+    - implementation deterministic and idempotent.
+    - task-137/138 diagnostic artifacts remain reproducible.
+    - Exactly one task-140 recommendation supported by post-recovery evidence.
+  - Do not:
+    - Hardcode Ps.17.10 in production recovery logic.
+    - Hardcode the 18 occurrence IDs.
+    - Hardcode scan page 32 or PDF page 33.
+    - Lower task-128 trusted-anchor requirement.
+    - Widen marker-band tolerance.
+    - Alter task-128 accepted grammar.
+    - Alter task-131 recovery.
+    - Use expected verse, previous+1 or next-1.
+    - Reopen outside_marker_band recovery.
+    - Reopen GLUED_FRAME.
+    - Reopen general standalone glyph recovery.
+    - Use ML, embeddings, neural OCR or opaque classifiers.
+    - Touch unrelated UI code.
+    - Modify TASKS.md from the task agent.
+    - Commit or push implementation work from the task agent.
+
+  - Implementation boundary:
+    - Task-137 evidence defines the discriminator.
+    - Task-138 evidence defines the expected semantic delta.
+    - Do not broaden the family during implementation.
+    - If runtime behavior produces anything other than the validated bounded
+      delta, STOP, report the discrepancy, and do not update tests or
+      artifacts merely to bless broader behavior.
 
 - [ ] UI-SIGNAL-101 Investigate stale GObject signal handler
   - Status: TODO
