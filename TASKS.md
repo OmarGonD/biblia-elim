@@ -3298,8 +3298,8 @@
     - Recommended next work: exhaustive facsimile/source audit of the finite projected exact-form a family.
     - Task 140 is DONE because the current 1309 glyph-rooted population was recomputed and reconciled, and exactly one bounded evidence-gathering family was selected without introducing runtime recovery.
 
-- [ ] TORRES-1835-PROJECTED-FORM-A-FACSIMILE-AUDIT-141 Audit projected multi-token exact-form a candidates against facsimile
-  - Status: PENDING
+- [x] TORRES-1835-PROJECTED-FORM-A-FACSIMILE-AUDIT-141 Audit projected multi-token exact-form a candidates against facsimile
+  - Status: DONE
   - Description:
     Exhaustively audit the 260 current PROJECTED_FROM_MULTI_TOKEN candidates
     with exact diagnostic form `a` against source/facsimile evidence. Determine
@@ -3432,6 +3432,241 @@
   - Source availability:
     If the configured facsimile/source witness needed for review is unavailable, do not classify cases from expected verse sequence, do not invent labels, and do not silently downgrade to OCR-only inference. Report the exact missing source requirement. A partial source audit may be PARTIAL READY only if every reviewed label is source-backed and the unreviewed population is explicit.
 
+
+  - Closure record:
+    - Result: READY; exhaustive source/facsimile audit completed.
+    - Frozen task baseline: ca3afefec401b3e94dad190de53144e66a9fc74b.
+    - Source witness: ia-lasagradabiblia01unkngoog.
+    - PDF SHA-256: cb9cf759ff77d0a7822efeba5bf62734544cee9681736bd00085a1a0b2384346.
+    - Candidate family: PROJECTED_FROM_MULTI_TOKEN; exact diagnostic form = `a`.
+    - Candidate population: 260 unique occurrences; 7 books; 97 pages; physical single-token = 0; projected multi-token = 260.
+    - Source accessible = 260/260; facsimile reviewed = 260/260.
+    - Primary review classes: PRINTED_VERSE_MARKER = 238; ORDINARY_TEXT = 1; HEADING_OR_TITLE = 0; LATIN_PARALLEL_TEXT = 0; APPARATUS_OR_NOTE = 21; LAYOUT_OR_SCAN_ARTIFACT = 0; UNREADABLE = 0; OTHER = 0.
+    - Visible printed values among PRINTED_VERSE_MARKER: 1 = 1; 2 = 77; 3 = 1; 8 = 2; 12 = 1; 13 = 1; 20 = 29; 21 = 67; 22 = 19; 24 = 31; 25 = 9.
+    - Sum of printed-marker values = 238.
+    - Exact OCR form `a` corresponds to multiple printed numeric values. Therefore NO global `a -> digit` mapping is safe.
+    - Historical reviewed positive: p0276l0033::Eccl.1.2; historical/current classification: PRINTED_VERSE_MARKER (historical artifact label: PRINTED_DIGIT); visible value = 2; historical/current source evidence agrees.
+    - Selected candidate task-142 family from task 141: PROJECTED_FORM_A_VISIBLE_2_MARKER_BAND.
+    - Ground-truth positives for printed value 2 = 77.
+    - IMPORTANT control correction for task 142: all non-target task-141 occurrences must act as controls.
+    - Full task-142 negative/control population = 183: 161 PRINTED_VERSE_MARKER occurrences with visible value != 2, plus 22 non-marker occurrences (ORDINARY_TEXT = 1; APPARATUS_OR_NOTE = 21).
+    - The 161 other printed-marker values are critical controls because a future runtime rule must distinguish printed `2`, not merely distinguish marker from non-marker.
+    - Selected next-task type: BOUNDED_DISCRIMINATOR_VALIDATION.
+    - Artifact: data/torresamat1835/projected_form_a_facsimile.json; schema_version = 1.
+    - Artifact deterministic and idempotent; frozen baseline provenance stable.
+    - Audit integrated as: verse_segmentation_audit.projected_form_a_facsimile.
+    - Runtime unchanged: VerseRefs = 3849; physical gaps = 3254; glyph gaps = 1309.
+    - Ownership unchanged; task-128 unchanged; task-131 unchanged; task-139 unchanged; GLUED_FRAME = CLOSED_UNSAFE.
+    - Chapters = 337/337; unresolved chapter claims = 0; canonical chapter gaps = 0; duplicate_refs = 0; out_of_order_refs = 0; outside_canon = 0; ocr_blocks = 57700; block loss = 0; dual ownership = 0.
+    - Direct tests passed: python3 scripts/torresamat1835/test_projected_form_a_facsimile.py; python3 scripts/torresamat1835/test_remaining_glyph_reprioritization.py (rerun on current master for this planning closure).
+    - Integrated implementation validation record supplied for closure: Build passed; TorresAmat CTest = 31/31 passed; Full CTest = 43/43 passed; two environment-dependent tests skipped; new failures = 0.
+    - Recommended next work: determine whether runtime-available source geometry/context can distinguish the 77 facsimile-confirmed printed-2 occurrences from ALL 183 known non-target controls without using facsimile labels as rule features.
+    - Task 141 is DONE because all 260 current exact-form-a projected occurrences were independently source-reviewed and the family is now fully labeled.
+
+- [ ] TORRES-1835-PROJECTED-FORM-A-VISIBLE-2-DISCRIMINATOR-142 Validate a runtime-safe discriminator for facsimile-confirmed printed-2 projected form-a markers
+  - Status: PENDING
+  - Description:
+    Determine whether a transparent discriminator using only source/parser
+    features available before knowing the facsimile label can distinguish the
+    77 task-141 occurrences whose printed value is visually confirmed as `2`
+    from all 183 other exact-form-a occurrences. This is diagnostic validation
+    only; no recovery or runtime mapping may be implemented.
+  - Ground truth:
+    - Total exact-form-a family = 260.
+    - Positive target:
+        PRINTED_VERSE_MARKER
+        visible_printed_value = 2
+        population = 77.
+    - Negative/control target = 183:
+        161 PRINTED_VERSE_MARKER with visible_printed_value != 2
+        1 ORDINARY_TEXT
+        21 APPARATUS_OR_NOTE.
+    - The 183 controls MUST all participate in validation.
+    - Do not reduce controls to only the 22 non-markers.
+  - Critical semantic boundary:
+    - `visible_printed_value == 2` is GROUND-TRUTH LABEL ONLY.
+    - It MUST NOT be a discriminator feature.
+    - Facsimile classification MUST NOT be available to simulated runtime
+      candidate selection.
+    - The rule must operate on features available from OCR/parser/source
+      geometry before the visual label is consulted.
+  - Candidate runtime-safe features may include only transparent
+    source-derived data already available or reproducibly derivable without
+    facsimile interpretation, for example:
+        projected-token position
+        physical source-line structure
+        neighboring OCR token pattern
+        source/body column
+        x/y geometry
+        relationship to trusted marker bands/anchors
+        indentation
+        line-start structure
+        source block geometry
+        deterministic OCR morphology/context.
+    - Every feature used must be explicitly documented.
+  - Forbidden discriminator features:
+        visible_printed_value
+        facsimile review class
+        expected verse
+        missing VerseRef identity
+        previous + 1
+        next - 1
+        occurrence ID
+        page identity alone
+        book identity alone
+        chapter identity alone
+        expected canonical sequence.
+  - Do not:
+    - implement recovery;
+    - add `a -> 2`;
+    - add a global form-a mapping;
+    - use the 77 occurrence IDs as an allowlist;
+    - memorize pages containing positives;
+    - use facsimile labels as runtime inputs;
+    - change task-128;
+    - change task-131;
+    - change task-139.
+  - Required evaluation:
+    - Recompute all 260 current exact-form-a candidates.
+    - Join task-141 visual labels only AFTER feature extraction.
+    - Separate:
+        77 target positives
+        183 controls.
+    - Evaluate candidate transparent rules against the complete population.
+    - Report for every evaluated rule:
+        positives accepted
+        positives rejected
+        controls accepted
+        controls rejected
+        false-positive identities
+        false-negative identities.
+    - Explicitly report controls by:
+        other printed value
+        ordinary text
+        apparatus/note.
+    - A rule that accepts a value-20/21/22/24/etc marker as value 2 is a false
+      positive even though it is a real verse marker.
+  - Safety requirement:
+    - Do NOT call a discriminator safe if any known non-2 control is accepted.
+    - Required for SAFE_DISCRIMINATOR_FOUND:
+        controls accepted = 0 / 183.
+    - Positive recall may be <77 if the resulting family is a genuinely
+      narrower bounded subset.
+    - If only a subset of the 77 can be selected with zero false positives,
+      report that exact finite subset as the candidate for task 143.
+    - Do NOT broaden a rule to obtain higher recall at the expense of known
+      false positives.
+  - Overfitting protection:
+    - Do not use page/book/chapter/occurrence identity as proxy features.
+    - Prefer reusable structural measurements.
+    - Evaluate near-miss controls sharing the same form/context.
+    - Report feature distributions for positives and controls.
+    - If separation exists only because of one page/source identity,
+      classify as overfit and reject it as runtime-safe.
+  - Rule complexity:
+    - Prefer a minimal transparent conjunction of measurable features.
+    - No arbitrary scoring model.
+    - No opaque classifier.
+    - No ML.
+    - No embeddings.
+    - No neural OCR.
+  - Result status must be exactly one:
+        SAFE_DISCRIMINATOR_FOUND
+        NARROWER_SAFE_SUBFAMILY_FOUND
+        NO_SAFE_DISCRIMINATOR
+    - SAFE_DISCRIMINATOR_FOUND:
+        a transparent rule safely identifies all intended 77 positives with
+        zero accepted controls.
+    - NARROWER_SAFE_SUBFAMILY_FOUND:
+        a transparent rule identifies a strict subset of the 77 with zero
+        accepted controls.
+    - NO_SAFE_DISCRIMINATOR:
+        no transparent rule survives the 183-control set without known false
+        positives.
+  - Task-143 recommendation:
+    - If SAFE_DISCRIMINATOR_FOUND:
+        queue dry-run recovery validation for that exact rule.
+    - If NARROWER_SAFE_SUBFAMILY_FOUND:
+        queue dry-run recovery validation only for the exact safe subset/rule.
+    - If NO_SAFE_DISCRIMINATOR:
+        close/defer this form-a value-2 family and select one different
+        diagnostic target from task-141 evidence.
+    - Exactly one task-143 recommendation.
+  - Artifact:
+    - Create deterministic diagnostic artifact, preferably:
+        data/torresamat1835/projected_form_a_visible_2_discriminator.json
+    - Include:
+        schema_version
+        frozen baseline provenance
+        ground-truth population
+        pre-label feature extraction
+        positive/control feature summaries
+        candidate rules evaluated
+        confusion counts
+        false-positive/false-negative records
+        selected rule if any
+        final status
+        task-143 recommendation
+        runtime invariants.
+    - Do not duplicate raw facsimile image data.
+  - Audit:
+    - Add diagnostic equivalent to:
+        verse_segmentation_audit.projected_form_a_visible_2_discriminator
+    - Include:
+        positives = 77
+        controls = 183
+        printed-other-value controls = 161
+        non-marker controls = 22
+        candidate-rule count
+        selected-rule definition
+        selected-rule TP/FN/FP/TN
+        final status
+        task143 target.
+  - Runtime invariants:
+    - VerseRefs remain = 3849.
+    - Physical gaps remain = 3254.
+    - Glyph gaps remain = 1309.
+    - Ownership unchanged.
+    - task-128 unchanged.
+    - task-131 unchanged.
+    - task-139 unchanged.
+    - GLUED_FRAME = CLOSED_UNSAFE.
+    - Chapters = 337/337.
+    - unresolved chapter claims = 0.
+    - canonical chapter gaps = 0.
+    - duplicate_refs = 0.
+    - out_of_order_refs = 0.
+    - outside_canon = 0.
+    - ocr_blocks = 57700.
+    - block loss = 0.
+    - dual ownership = 0.
+  - Acceptance:
+    - Exactly 260 task-141 occurrences reconciled.
+    - Exactly 77 positive labels.
+    - Exactly 183 controls.
+    - All 161 other printed marker values are included as negative controls.
+    - All 22 non-marker cases are included as controls.
+    - Feature extraction is independent of visual ground-truth labels.
+    - No expected-verse inference.
+    - No occurrence/page allowlist.
+    - Every evaluated rule has complete confusion accounting.
+    - Final status supported by observed evidence.
+    - Exactly one task-143 recommendation.
+    - No runtime change.
+    - Artifact deterministic/idempotent.
+    - Frozen baseline provenance stable.
+  - Do not:
+    - Implement recovery.
+    - Treat visible value 2 as a runtime feature.
+    - Treat marker-vs-non-marker discrimination as sufficient.
+    - Ignore the 161 markers with other visible values.
+    - Hardcode IDs/pages/books/chapters.
+    - Infer expected verse.
+    - Use previous+1 or next-1.
+    - Introduce global `a -> 2`.
+    - Use ML, embeddings, neural OCR, opaque classifiers.
+    - Modify TASKS.md from the task agent.
+    - Commit or push task implementation.
 
 - [ ] UI-SIGNAL-101 Investigate stale GObject signal handler
   - Status: TODO
