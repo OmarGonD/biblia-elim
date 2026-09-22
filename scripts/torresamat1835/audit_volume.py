@@ -2843,6 +2843,12 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         report["verse_segmentation_audit"][
             "remaining_glyph_reprioritization"] = json.loads(
                 reprioritization_path.read_text(encoding="utf-8"))
+    projected_form_a_path = Path(
+        "data/torresamat1835/projected_form_a_facsimile.json")
+    if projected_form_a_path.exists():
+        report["verse_segmentation_audit"][
+            "projected_form_a_facsimile"] = json.loads(
+                projected_form_a_path.read_text(encoding="utf-8"))
     return edition, report
 
 

@@ -96,6 +96,7 @@ def test_manifest_provenance():
                                   ("glued_marker_discriminator.json",
                                    "remaining_glyph_inventory.json",
                                    "remaining_glyph_reprioritization.json",
+                                   "projected_form_a_facsimile.json",
                                    "standalone_glyph_facsimile.json",
                                    "projected_rejection_audit.json",
                                    "no_trusted_band_discriminator.json",
