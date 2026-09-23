@@ -4703,8 +4703,8 @@
       reproduces the task-145 dry-run delta.
 
 
-- [ ] TORRES-1835-PROJECTED-FORM-A-REFINED-SCOPE-RECOVERY-146 Implement the validated refined production-safe projected form-a recovery
-  - Status: PENDING
+- [x] TORRES-1835-PROJECTED-FORM-A-REFINED-SCOPE-RECOVERY-146 Implement the validated refined production-safe projected form-a recovery
+  - Status: DONE
   - Description:
     Implement the exact production fallback validated by tasks 142, 144 and
     145. The runtime parser must derive the same refined source-safe population
@@ -4889,6 +4889,67 @@
     - Touch unrelated UI.
     - Modify TASKS.md from the task agent.
     - Commit or push.
+  - Closure evidence:
+    - Result: IMPLEMENTED_AND_VALIDATED.
+    - Implementation commit: 43f99cd9ccd9e668a88d09e3bf0ba1607e22896a.
+    - Production runtime now implements the exact refined task-145 scope.
+    - Runtime derives the recovery population from parser/source guards; there is no 43-ID/ref/page allowlist.
+    - Production runtime does NOT read task-141–145 diagnostic JSON artifacts as selection authority.
+    - Recovery remains enabled by default in normal runtime.
+    - Historical diagnostic reproduction uses explicit opt-out: `projected_form_a_recovery=False` or `--without-projected-form-a-recovery`.
+    - Historical frozen artifacts remain byte-reproducible under pre-task-146 mode.
+    - task-142 discriminator preserved: first physical OCR token == "a"; next three physical tokens each contain >=2 Unicode letters; trusted marker band exists; candidate lies inside existing validated band tolerance.
+    - task-144 projected-gap provenance guard implemented.
+    - task-144 native progression/order guard implemented.
+    - Recovery remains a fallback after stronger existing paths.
+    - Actual production recovery events: 43.
+    - CREATE_NEW_REF: 43.
+    - REOPEN_EXISTING_REF: 0.
+    - NO_REF_EFFECT: 0.
+    - INVALID: 0.
+    - Actual VerseRefs: 3849 -> 3892.
+    - New refs: 43.
+    - Actual new-ref identities match task-145 prediction.
+    - Actual ownership moves: 581.
+    - Actual moved-block identities match task-145 prediction.
+    - Owned blocks: 25434 -> 25434.
+    - Block loss: 0.
+    - Dual ownership: 0.
+    - Actual physical gaps: 3254 -> 3211.
+    - Physical gaps closed: 43.
+    - Physical gaps opened: 0.
+    - Physical gap identities match task-145 prediction.
+    - Actual glyph gaps: 1309 -> 1266.
+    - Glyph gaps closed: 43.
+    - Glyph gaps opened: 0.
+    - Glyph gap identities match task-145 prediction.
+    - External task-144 UNREADABLE cases recovered: 0/111.
+    - Known task-144 order conflicts recovered: 0/13.
+    - Wrong-value controls recovered: 0.
+    - Non-marker controls recovered: 0.
+    - Unknown extra recoveries: 0.
+    - Stronger recovery overlap: 0.
+    - task-128 remains unchanged: 183 markers; 177 refs; 1355 ownership moves.
+    - task-131 remains unchanged: 276 markers; 276 refs; 1900 ownership moves.
+    - task-139 remains unchanged, including Ps.17.10.
+    - GLUED_FRAME remains: CLOSED_UNSAFE.
+    - Corpus invariants: chapters = 337/337; unresolved chapter claims = 0; canonical chapter gaps = 0; ocr_blocks = 57700; duplicate_refs = 0; out_of_order_refs = 0; outside_canon = 0; block loss = 0; dual ownership = 0.
+    - Historical task-138–145 tests/generators that require the pre-task-146 parser explicitly disable the new recovery rather than weakening their historical expected values.
+    - task-142 historical page_parser freeze was scoped to the final pre-146 commit: d5085fa2608845def169a8e1a84e4c0f01ec8dd4.
+    - compound_glyphs.py, parser.py, layout.py and verse_gaps.py historical freezes remain intact.
+    - Known true printed marker outside validated scope: p0184l0043 remains deliberately unrecovered because its validated geometry lies outside the task-142 marker-band scope.
+    - No ID-specific exception was added for that case.
+    - Focused task-146 test: PASS.
+    - Required direct regression tests: PASS.
+    - Build: PASS.
+    - Focused CTest: PASS.
+    - TorresAmat CTest: PASS.
+    - Full CTest: all task-related tests PASS; only the previously tracked unrelated GTK lifecycle failure remains: gtk_lifecycle_smoke "dictionary panel did not reopen explicitly".
+    - task-146 modified no UI/GTK files.
+    - Task-related failures: 0.
+    - git diff --check before implementation commit: PASS.
+    - No historical diagnostic data artifact was modified.
+    - Task 146 is DONE because production parser behavior now reproduces the complete task-145 validated semantic delta exactly, including ref identities, ownership movement and gap identities, while rejecting all known unsafe/unknown cases.
 
 
 - [ ] UI-SIGNAL-101 Investigate stale GObject signal handler
