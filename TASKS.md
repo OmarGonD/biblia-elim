@@ -4081,8 +4081,8 @@
         source-safe abstention condition for the two known late-ref/order
         conflicts before any production implementation.
 
-- [ ] TORRES-1835-PROJECTED-FORM-A-PRODUCTION-SCOPE-AUDIT-144 Audit out-of-family production matches and unsafe late ref reopenings
-  - Status: PENDING
+- [x] TORRES-1835-PROJECTED-FORM-A-PRODUCTION-SCOPE-AUDIT-144 Audit out-of-family production matches and unsafe late ref reopenings
+  - Status: DONE
   - Description:
     Exhaustively analyze the 111 additional production-placement matches
     discovered by task 143 and the two known reviewed events that would reopen
@@ -4302,6 +4302,300 @@
     - Use expected missing verse.
     - Use previous+1 / next-1.
     - Broaden task-142 rule.
+    - Change task-128/task-131/task-139.
+    - Reopen GLUED_FRAME.
+    - Use ML/opaque classifiers.
+    - Modify TASKS.md from the task agent.
+    - Commit or push.
+  - Closure evidence (verified against the canonical artifact/report):
+    - Result: NARROWER_SCOPE_FOUND.
+    - Frozen baseline: baseline_commit = 216dd562236b13fff25c1cf5f739366cd0a0c0b0
+      (data/torresamat1835/projected_form_a_production_scope_audit.json ->
+      provenance.baseline_commit).
+    - Production-placement population: 158 matches.
+    - Previously reviewed task-143 family: 47.
+    - External production matches: 111.
+    - External source-accessible: 111/111.
+    - External source result: UNREADABLE = 111 (external_class_counts ==
+      {"UNREADABLE": 111}, all other classes 0).
+    - IMPORTANT: UNREADABLE was treated as unknown evidence, NOT as negative
+      evidence (external_review() leaves visible_printed_value = null and
+      never infers a value; the guard never conditions on this label).
+    - Selected refined scope accepts: external UNREADABLE = 0/111.
+    - Native/physical order conflicts discovered: 13 total
+      (late_ref_conflict_analysis has 13 entries; known_order_conflicts = 13).
+    - Selected refined scope accepts: known order conflicts = 0.
+    - Historical task-143 conflicts are rejected by the general order guard:
+      p0072l0083 / Ps.47.2 (physical_context Ps.47.7) and p0136l0092 / Ps.93.2
+      (physical_context Ps.93.19) both present among the 13 conflicts.
+    - Production rule uses transparent runtime-safe guards based on:
+      projected-gap provenance (`row["projected_gap_path"]`) plus native
+      progression/order safety (`order_state(row) != "backward"`, derived
+      from native_active_book/chapter/verse and the proposed marker value).
+    - The guard does NOT use occurrence IDs, page allowlists, book/chapter
+      allowlists, hardcoded VerseRefs, or expected missing verses (verified
+      by reading scripts/torresamat1835/projected_form_a_production_scope_audit.py
+      directly: no literal Ps.47.2/Ps.93.2/p0072l0083/p0136l0092 anywhere in
+      selection logic, only in the historical conflict-report rendering).
+    - Selected refined production scope: 43 physical blocks/events.
+    - From the artifact's selected_scope / audit_summary: selected
+      occurrences = 43, selected physical blocks = 43, selected source
+      events = 43, selected reviewed printed-2 = 43, selected other-value
+      marker count = 0, selected non-marker count = 0, selected UNREADABLE
+      external count = 0, selected order-conflict count = 0.
+    - Required safe counts confirmed: accepted other-value markers = 0,
+      accepted non-markers = 0, accepted external UNREADABLE = 0, accepted
+      known order conflicts = 0.
+    - Exact reason the reviewed 47 became refined 43 (from
+      order_guard_candidates[0] in the canonical artifact): the
+      nonbackward_native_progression guard has reviewed_accepted = 43 and
+      reviewed_rejected = 4 — 4 of the 47 previously-reviewed task-143 events
+      are rejected because their proposed marker value is backward relative
+      to native active progression (the same guard class as the two known
+      historical conflicts); known_conflicts_accepted stays 0.
+    - Runtime remained unchanged: VerseRefs = 3849, physical gaps = 3254,
+      glyph gaps = 1309 (all confirmed in runtime_invariants). Owned blocks =
+      25434 is the pre-existing invariant from task 143/139 (TASKS.md lines
+      3706/4013-4014/4039) and is not independently recomputed by this
+      diagnostic-only artifact; no runtime mutation occurred
+      (runtime_image_reads = false), so it is unchanged by construction.
+    - task-128 unchanged: 183 markers, 177 refs, 1355 ownership moves
+      (runtime_invariants.task128).
+    - task-131 unchanged: 276 markers, 276 refs, 1900 ownership moves
+      (runtime_invariants.task131).
+    - task-139 unchanged (runtime_invariants.task139, ownership_moves = 27,
+      untouched by this audit).
+    - GLUED_FRAME = CLOSED_UNSAFE.
+    - Chapters = 337/337. unresolved chapter claims = 0. canonical chapter
+      gaps = 0. duplicate_refs = 0. out_of_order_refs = 0. outside_canon = 0.
+      ocr_blocks = 57700. block loss = 0. dual ownership = 0.
+    - Artifact deterministic/idempotent: verified by the focused test
+      (build() called twice, both renders byte-identical to the file on
+      disk and to a round-tripped copy).
+    - Focused task-144 test = PASS
+      (`python3 scripts/torresamat1835/test_projected_form_a_production_scope_audit.py`
+      -> "ok", exit 0).
+    - Direct task regression = PASS
+      (`python3 scripts/torresamat1835/test_projected_form_a_visible_2_dry_run.py`
+      -> "ok", exit 0; task-143's own dry-run stays unaffected).
+    - Build = PASS (existing build/ tree, torresamat1835 tests link and run).
+    - TorresAmat CTest = 36/36 PASS (build/Testing/Temporary/LastTest.log,
+      36 torresamat*/torresamat1835* entries, all "Test Passed.").
+    - Full CTest: 46 registered, 45 passed, 1 failed
+      (build/Testing/Temporary/LastTestsFailed.log lists exactly one failing
+      test: "2:gtk_lifecycle_smoke"; that full run's detailed log was
+      overwritten by a later torresamat-only rerun, so the failed-test
+      ledger is the surviving direct evidence for this session).
+    - Unrelated full-suite failure: gtk_lifecycle_smoke, "dictionary panel
+      did not reopen explicitly" — this exact failure text matches the
+      already-tracked TASKS.md entry UI-SMOKE-102 ("Fix \"dictionary panel
+      did not reopen explicitly\""), confirming it is a pre-existing,
+      separately-tracked UI issue, not something introduced here.
+    - TASK-144 changed no UI/GTK/dictionary-panel files: task 144's only
+      changed files are under data/torresamat1835/ and
+      scripts/torresamat1835/.
+    - Task-related failures = 0.
+    - Recommended next work: recompute a NEW dry-run semantic delta for
+      exactly the refined production-safe 43-event scope
+      (task145_recommendation in the artifact).
+    - Task 144 is DONE because it resolved the production-scope ambiguity
+      into a strict transparent scope with zero accepted external UNREADABLE
+      cases and zero accepted known order conflicts.
+
+
+- [ ] TORRES-1835-PROJECTED-FORM-A-REFINED-SCOPE-DRY-RUN-145 Validate semantic dry-run effects for the refined production-safe form-a scope
+  - Status: PENDING
+  - Description:
+    Perform a fresh semantic dry-run for ONLY the task-144 refined production
+    scope. Recompute the scope from its transparent runtime-safe provenance and
+    native-order guards, then determine exact VerseRef, ownership and gap
+    effects before any production implementation.
+  - Baseline context:
+    - Runtime VerseRefs = 3849.
+    - Physical gaps = 3254.
+    - Glyph gaps = 1309.
+    - Owned blocks = 25434.
+    - Task-143 production population = 158.
+    - Task-144 refined production scope = 43 blocks/events.
+    - External UNREADABLE accepted by refined scope = 0/111.
+    - Known order conflicts accepted = 0/13.
+    - Other-value marker accepted = 0.
+    - Non-marker accepted = 0.
+  - Critical requirement:
+    - Recompute the 43-event scope from task-144 runtime-safe guards.
+    - Do NOT use a hardcoded list of 43 IDs.
+    - Do NOT inherit task-143 semantic deltas.
+    - Task 143's:
+        +45 refs
+        2 reopens
+        595 ownership moves
+        physical gaps -45
+        glyph gaps -54
+      belong to the older 47-event scope and are NOT task-145 expectations.
+  - Scope validation:
+    - Recompute all 158 production matches.
+    - Apply task-144 projected-gap provenance guard.
+    - Apply task-144 native-order/progression guard.
+    - Require resulting safe production scope = 43 events.
+    - Require:
+        accepted external UNREADABLE = 0
+        accepted other-value markers = 0
+        accepted non-markers = 0
+        accepted known order conflicts = 0.
+    - Any additional/unreviewed match blocks implementation readiness.
+  - Event reconciliation:
+    - Report independently:
+        selected diagnostic occurrences
+        physical OCR blocks
+        source marker events
+        recovery events.
+    - Do not assume all counts are identical.
+    - Deduplicate using source structure, not occurrence IDs.
+  - Dry-run ref simulation:
+    - For each refined recovery event use normal native parser semantics.
+    - Determine:
+        native book/chapter
+        interpreted marker value
+        proposed native VerseRef
+        existing ref status.
+    - Classify:
+        CREATE_NEW_REF
+        REOPEN_EXISTING_REF
+        NO_REF_EFFECT
+        INVALID.
+    - Do not infer refs from expected missing-gap identities.
+  - Native-order safety:
+    - Re-run the task-144 general progression guard during simulation.
+    - Require:
+        backward/order conflicts accepted = 0.
+    - Do not hardcode historical conflict IDs or refs.
+  - Ref-set effects:
+    - Measure exact:
+        VerseRefs before/after
+        new refs
+        reopened refs
+        no-effect events
+        invalid events
+        removed refs
+        renumbered refs
+        unrelated refs changed.
+    - Required:
+        removed = 0
+        renumbered = 0
+        unrelated existing refs changed = 0.
+  - Ownership effects:
+    - Simulate exact ownership movement.
+    - Report:
+        moved blocks
+        unique moved blocks
+        old owner refs
+        receiving refs.
+    - Required:
+        block loss = 0
+        dual ownership = 0
+        unrelated ownership unchanged.
+  - Gap effects:
+    - Recompute exact predicted:
+        physical gaps before/after
+        exact physical gaps closed/opened
+        glyph gaps before/after
+        exact glyph gaps closed/opened.
+    - Do not infer reductions from event count.
+  - Safety:
+    - Predicted duplicate_refs = 0.
+    - Predicted out_of_order_refs = 0.
+    - Predicted outside_canon = 0.
+    - Predicted impossible refs = 0.
+    - Predicted block loss = 0.
+    - Predicted dual ownership = 0.
+  - Existing recovery isolation:
+    - task-128 unchanged.
+    - task-131 unchanged.
+    - task-139 unchanged.
+    - GLUED_FRAME remains CLOSED_UNSAFE.
+    - No double recovery with stronger paths.
+  - Runtime boundary:
+    - Task 145 is DRY-RUN ONLY.
+    - Actual runtime must remain:
+        VerseRefs = 3849
+        physical gaps = 3254
+        glyph gaps = 1309
+        ownership = 25434.
+  - Final result:
+        IMPLEMENTATION_READY
+        NEEDS_NARROWER_VALIDATION
+        UNSAFE_TO_IMPLEMENT.
+    - IMPLEMENTATION_READY requires:
+        exact refined scope reproduced
+        zero unknown/unsafe accepted cases
+        exact ref delta known
+        exact ownership delta known
+        exact gap delta known
+        no duplicate/order/canon/ownership violations.
+  - Task-146 recommendation:
+    - If IMPLEMENTATION_READY:
+        exactly one bounded production implementation task reproducing the
+        task-145 validated semantic delta.
+    - Otherwise:
+        exactly one narrower diagnostic task.
+    - Do not implement task 146.
+  - Artifact:
+    - Create deterministic artifact, preferably:
+        data/torresamat1835/projected_form_a_refined_scope_dry_run.json
+    - Include:
+        schema_version
+        frozen baseline provenance
+        task-144 scope definition
+        production-scope recomputation
+        occurrence/block/event reconciliation
+        ref effects
+        ownership effects
+        physical/glyph gap effects
+        native-order safety
+        existing-recovery isolation
+        final status
+        task146 recommendation
+        runtime invariants.
+  - Audit:
+    - Add diagnostic equivalent to:
+        verse_segmentation_audit.projected_form_a_refined_scope_dry_run
+    - Include:
+        production matches
+        refined selected events
+        external unreadable selected
+        order conflicts selected
+        create_new_refs
+        reopened_refs
+        no_ref_effect
+        invalid
+        ownership moves
+        physical gap delta
+        glyph gap delta
+        duplicate/order/canon results
+        final status
+        task146 target.
+  - Acceptance:
+    - 158 production matches recomputed.
+    - Refined scope deterministically recomputes to 43 events.
+    - 0/111 external UNREADABLE selected.
+    - 0/13 known order conflicts selected.
+    - Zero wrong-value/non-marker controls selected.
+    - Exact semantic dry-run delta known.
+    - No hardcoded IDs/pages/refs.
+    - No expected-gap inference.
+    - No runtime change.
+    - Historical task-141/142/143/144 artifacts remain frozen.
+    - Artifact deterministic/idempotent.
+    - Exactly one task-146 recommendation.
+  - Do not:
+    - Implement recovery.
+    - Reuse task-143 delta as expected result.
+    - Hardcode the 43-event list.
+    - Hardcode external IDs.
+    - Hardcode historical conflict refs.
+    - Use expected VerseRefs or missing gaps to construct refs.
+    - Use previous+1 / next-1.
+    - Broaden task-144 scope.
     - Change task-128/task-131/task-139.
     - Reopen GLUED_FRAME.
     - Use ML/opaque classifiers.
