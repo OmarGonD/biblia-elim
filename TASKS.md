@@ -3463,8 +3463,8 @@
     - Recommended next work: determine whether runtime-available source geometry/context can distinguish the 77 facsimile-confirmed printed-2 occurrences from ALL 183 known non-target controls without using facsimile labels as rule features.
     - Task 141 is DONE because all 260 current exact-form-a projected occurrences were independently source-reviewed and the family is now fully labeled.
 
-- [ ] TORRES-1835-PROJECTED-FORM-A-VISIBLE-2-DISCRIMINATOR-142 Validate a runtime-safe discriminator for facsimile-confirmed printed-2 projected form-a markers
-  - Status: PENDING
+- [x] TORRES-1835-PROJECTED-FORM-A-VISIBLE-2-DISCRIMINATOR-142 Validate a runtime-safe discriminator for facsimile-confirmed printed-2 projected form-a markers
+  - Status: DONE
   - Description:
     Determine whether a transparent discriminator using only source/parser
     features available before knowing the facsimile label can distinguish the
@@ -3667,6 +3667,295 @@
     - Use ML, embeddings, neural OCR, opaque classifiers.
     - Modify TASKS.md from the task agent.
     - Commit or push task implementation.
+
+  - Closure:
+    - Result: NARROWER_SAFE_SUBFAMILY_FOUND.
+    - Frozen task baseline: edef6d28d0e647ca97aa8ac91c3c68284137711c.
+    - Full exact-form-a family: 260 unique occurrences.
+    - Ground-truth printed-2 positives: 77.
+    - Full controls: 183.
+    - Controls consist of: 161 PRINTED_VERSE_MARKER occurrences with visible value != 2; 1 ORDINARY_TEXT; 21 APPARATUS_OR_NOTE.
+    - Physical source blocks represented by the full population: 101.
+    - Runtime-safe features extracted: 38.
+    - Features were constructed/frozen before task-141 visual labels were joined.
+    - Label mutation, identity independence and forbidden-feature tests passed.
+    - Candidate transparent rules evaluated: 298.
+    - Selected exact transparent rule: first physical OCR token == "a" AND each of the following three tokens contains >=2 Unicode letters AND a trusted marker band exists AND abs(candidate_x - band_center) <= existing band tolerance.
+    - Trusted marker-band semantics remain unchanged: minimum trusted anchors = 3; center = median existing marker-band center; tolerance = max(30 px, 0.5 * median digit width).
+    - Selected-rule confusion: TP = 53; FN = 24; FP = 0; TN = 183.
+    - Selected safe diagnostic occurrences: 53.
+    - Selected population represents: 47 physical OCR blocks; 46 pages; 6 books.
+    - Accepted other-value marker controls: 0/161.
+    - Accepted non-marker controls: 0/22.
+    - Accepted controls by visible value: 1 = 0; 3 = 0; 8 = 0; 12 = 0; 13 = 0; 20 = 0; 21 = 0; 22 = 0; 24 = 0; 25 = 0.
+    - ORDINARY_TEXT accepted: 0/1.
+    - APPARATUS_OR_NOTE accepted: 0/21.
+    - Width-only candidate rejected because its safe boundary was separated from the printed-1 control by only about 2 px.
+    - Height-only zero-FP candidate rejected as over-narrow/page-local: 4 positives, all in Psalms.
+    - Selected rule was not widened to capture the remaining 24 positives.
+    - False-negative guard failures overlap and include: frame/start condition = 8; three-following-token condition = 11; marker-band condition = 12.
+    - Selected-rule TP/FN by book: Eccl = 3/0; Isa = 11/7; Prov = 5/6; Ps = 23/1; Sir = 10/2; Song = 1/0; Wis = 0/8.
+    - No occurrence/page/book/chapter allowlist used.
+    - No visible_printed_value or facsimile class used as runtime rule input.
+    - No expected VerseRef or expected-verse sequence used.
+    - No previous+1 / next-1.
+    - No ML, embeddings or opaque classifier.
+    - Artifact: data/torresamat1835/projected_form_a_visible_2_discriminator.json; schema_version = 1.
+    - Artifact deterministic and idempotent.
+    - Runtime unchanged: VerseRefs = 3849; physical gaps = 3254; glyph gaps = 1309.
+    - Ownership unchanged: 25434 owned blocks.
+    - task-128 remains: 183 markers; 177 refs; 1355 ownership moves.
+    - task-131 remains: 276 markers; 276 refs; 1900 ownership moves.
+    - task-139 unchanged.
+    - GLUED_FRAME = CLOSED_UNSAFE.
+    - Chapters = 337/337.
+    - unresolved chapter claims = 0.
+    - canonical chapter gaps = 0.
+    - duplicate_refs = 0.
+    - out_of_order_refs = 0.
+    - outside_canon = 0.
+    - ocr_blocks = 57700.
+    - block loss = 0.
+    - dual ownership = 0.
+    - Direct tests: 13/13 PASS.
+    - Build: PASS.
+    - Torres CTest: 32/32 PASS.
+    - Full suite: 44 registered; 42 passed; 2 skipped; 0 failed.
+    - Skipped: gtk_lifecycle_smoke; author_commentary_probe.
+    - Recommended next work: bounded dry-run recovery validation for ONLY the exact selected 53-occurrence / 47-physical-block rule.
+    - Task 142 is DONE because a strict transparent subfamily of the task-141 printed-2 population was isolated with zero accepted known controls.
+    - The remaining 24 printed-2 positives are not described as recoverable.
+
+- [ ] TORRES-1835-PROJECTED-FORM-A-VISIBLE-2-DRY-RUN-143 Validate dry-run recovery effects for the safe projected form-a printed-2 subfamily
+  - Status: PENDING
+  - Description:
+    Simulate, without modifying runtime recovery, the exact semantic effects
+    of interpreting only the task-142 selected safe subfamily as printed verse
+    marker value `2`. Recompute the discriminator from runtime-safe features,
+    reconcile projected occurrences into physical/source recovery events, and
+    measure exact VerseRef, ownership and gap effects before production
+    implementation.
+  - Validated discriminator:
+        first physical OCR token == "a"
+        AND each of the following three physical tokens contains >=2 Unicode
+            letters
+        AND a trusted marker band exists
+        AND abs(candidate_x - band_center) <= existing marker-band tolerance.
+  - Marker-band semantics:
+        trusted_anchor_count >= 3
+        center = existing median marker-band center
+        tolerance = max(30 px, 0.5 * median digit width).
+  - Baseline evidence:
+        full form-a population = 260
+        printed-2 ground-truth positives = 77
+        selected safe occurrences = 53
+        false negatives = 24
+        selected known controls = 0/183
+        selected physical blocks = 47
+        selected pages = 46
+        selected books = 6.
+  - Critical distinction:
+    - 53 projected diagnostic occurrences != necessarily 53 physical events.
+    - 47 physical blocks != necessarily 47 VerseRefs.
+    - Deduplicate all projections into actual source/recovery events.
+    - Measure independently:
+        diagnostic occurrences
+        physical blocks
+        source marker events
+        recovery events
+        resulting VerseRefs.
+  - Candidate derivation:
+    - Recompute the complete current exact-form-a family.
+    - Recompute the exact task-142 selected rule from runtime-safe features.
+    - Do not define the task-143 population by a hardcoded list of 53 IDs.
+    - Stable IDs may be used only for validation/reconciliation.
+    - Require selected task-142 occurrences = 53.
+    - Require accepted task-142 controls = 0/183.
+  - Ground-truth validation:
+    - Join task-141 labels only after selection.
+    - Require every selected occurrence to be one of the task-141
+      facsimile-confirmed printed-2 positives.
+    - If any selected case is not printed value 2:
+        BLOCK implementation readiness.
+  - Full-corpus production-placement check:
+    - Evaluate how the exact proposed fallback would encounter candidates in
+      the real parser context.
+    - Detect any additional match outside the task-141 260-family scope.
+    - Any unreviewed additional match blocks implementation readiness.
+  - Printed value:
+    - Within ONLY the exact task-142 validated family, dry-run interpretation
+      may use numeric value 2.
+    - This bounded interpretation is justified by task-141 facsimile labels
+      plus task-142 zero-known-FP discriminator.
+    - visible_printed_value must NOT participate in candidate selection.
+    - Do not derive `2` from expected missing verse.
+    - Do not use previous+1 / next-1.
+  - Deduplication:
+    - Reconcile selected 53 projections into:
+        physical OCR blocks
+        source marker events
+        proposed recovery events.
+    - Report exact counts and mappings.
+    - Prove duplicate projections do not create duplicate recovery events.
+  - Dry-run native ref simulation:
+    - For each proposed recovery event determine:
+        native book
+        native chapter
+        interpreted printed value = 2
+        proposed native VerseRef
+        existing neighboring/parser ownership context
+        whether ref already exists.
+    - Classify every event:
+        CREATE_NEW_REF
+        REOPEN_EXISTING_REF
+        NO_REF_EFFECT
+        INVALID.
+    - Proposed VerseRef must emerge from normal native parser semantics.
+    - Do not hardcode expected refs.
+    - Do not use another module/KJV numbering as authority.
+  - Ref-set effects:
+    - Report exact predicted:
+        VerseRefs before
+        VerseRefs after
+        new refs
+        reopened refs
+        no-effect events
+        invalid events
+        removed refs
+        renumbered refs.
+    - Required:
+        removed refs = 0
+        renumbered refs = 0
+        unrelated existing refs changed = 0.
+  - Ownership dry-run:
+    - For every recovery event calculate:
+        currently owning ref(s)
+        blocks that would move
+        receiving recovered ref
+        blocks remaining with prior ref.
+    - Report:
+        total ownership moves
+        unique blocks moved
+        block loss
+        dual ownership.
+    - Do not mutate actual runtime ownership.
+  - Gap dry-run:
+    - Calculate exact predicted:
+        physical gaps before/after
+        physical gap identities closed
+        glyph gaps before/after
+        glyph gap identities closed.
+    - Do not assume one selected projection closes one gap.
+  - Safety:
+    - Predicted duplicate_refs = 0.
+    - Predicted out_of_order_refs = 0.
+    - Predicted outside_canon = 0.
+    - Predicted impossible native refs = 0.
+    - Predicted block loss = 0.
+    - Predicted dual ownership = 0.
+  - Existing recovery isolation:
+    - task-128 behavior unchanged.
+    - task-131 behavior unchanged.
+    - task-139 behavior unchanged.
+    - GLUED_FRAME remains CLOSED_UNSAFE.
+    - No double recovery with stronger existing paths.
+  - Runtime boundary:
+    - Task 143 is DRY-RUN ONLY.
+    - Actual parser/runtime output must remain:
+        VerseRefs = 3849
+        physical gaps = 3254
+        glyph gaps = 1309
+        ownership unchanged.
+  - Result status:
+        IMPLEMENTATION_READY
+        NEEDS_NARROWER_VALIDATION
+        UNSAFE_TO_IMPLEMENT.
+    - IMPLEMENTATION_READY requires:
+        task-142 rule reproduces exactly the validated selected family
+        zero known controls accepted
+        no unreviewed full-corpus extra matches
+        deterministic event deduplication
+        exact ref delta known
+        ownership safe
+        gap delta known
+        no duplicate/order/canon violations.
+  - Task-144 recommendation:
+    - IMPLEMENTATION_READY:
+        exactly one bounded runtime implementation task.
+    - otherwise:
+        exactly one narrower diagnostic task.
+    - Do not implement task 144.
+  - Artifact:
+    - Create deterministic diagnostic artifact, preferably:
+        data/torresamat1835/projected_form_a_visible_2_dry_run.json
+    - Include:
+        schema_version
+        frozen baseline provenance
+        exact task-142 rule
+        selected occurrence reconciliation
+        physical-block mapping
+        source-event mapping
+        recovery-event mapping
+        native ref effects
+        ownership effects
+        gap effects
+        control/full-corpus validation
+        semantic safety checks
+        final status
+        task144 recommendation
+        runtime invariants.
+  - Audit:
+    - Add diagnostic equivalent to:
+        verse_segmentation_audit.projected_form_a_visible_2_dry_run
+    - Include:
+        selected_occurrences
+        physical_blocks
+        source_events
+        recovery_events
+        create_new_refs
+        reopened_refs
+        no_ref_effect
+        invalid
+        ownership_moves
+        physical_gap_delta
+        glyph_gap_delta
+        controls_selected
+        full_corpus_extra_matches
+        duplicate/order/canon checks
+        final_status
+        task144_target.
+  - Acceptance:
+    - Current rule recomputes 53 selected occurrences.
+    - Controls selected = 0/183.
+    - 47 physical blocks reconcile exactly.
+    - All selected cases remain task-141 printed-2 ground truth.
+    - Source/recovery event deduplication deterministic.
+    - Exact proposed refs known.
+    - Exact ownership delta known.
+    - Exact gap delta known.
+    - No occurrence/block/ref allowlist as recovery authority.
+    - No expected verse inference.
+    - No runtime mutation.
+    - Historical task-141/task-142 artifacts remain frozen.
+    - Artifact deterministic/idempotent.
+    - Frozen provenance stable.
+    - Exactly one task-144 recommendation.
+  - Do not:
+    - Implement production recovery.
+    - Hardcode the 53 occurrence IDs.
+    - Hardcode the 47 block IDs.
+    - Hardcode expected VerseRefs.
+    - Recover the remaining 24 printed-2 false negatives.
+    - Recover any of the 183 controls.
+    - Broaden the task-142 discriminator.
+    - Infer refs from expected gap sequence.
+    - Use previous+1 / next-1.
+    - Alter task-128/task-131/task-139.
+    - Reopen GLUED_FRAME.
+    - Use ML/opaque classifiers.
+    - Modify TASKS.md from the task agent.
+    - Commit or push implementation work from the task agent.
+
 
 - [ ] UI-SIGNAL-101 Investigate stale GObject signal handler
   - Status: TODO
