@@ -438,6 +438,7 @@ def test_AH_no_new_facsimile_metadata_was_added():
         "chapter_image_reviews.json", "glued_marker_discriminator.json",
         "glued_marker_segments.json", "no_trusted_band_discriminator.json",
         "projected_form_a_facsimile.json",
+        "projected_form_a_production_scope_audit.json",
         "projected_form_a_visible_2_discriminator.json",
         "projected_form_a_visible_2_dry_run.json",
         "projected_rejection_audit.json",

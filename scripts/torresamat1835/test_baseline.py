@@ -99,6 +99,7 @@ def test_manifest_provenance():
                                    "projected_form_a_facsimile.json",
                                    "projected_form_a_visible_2_discriminator.json",
                                    "projected_form_a_visible_2_dry_run.json",
+                                   "projected_form_a_production_scope_audit.json",
                                    "standalone_glyph_facsimile.json",
                                    "projected_rejection_audit.json",
                                    "no_trusted_band_discriminator.json",
