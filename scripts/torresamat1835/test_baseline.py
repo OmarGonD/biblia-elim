@@ -98,6 +98,7 @@ def test_manifest_provenance():
                                    "remaining_glyph_reprioritization.json",
                                    "projected_form_a_facsimile.json",
                                    "projected_form_a_visible_2_discriminator.json",
+                                   "projected_form_a_visible_2_dry_run.json",
                                    "standalone_glyph_facsimile.json",
                                    "projected_rejection_audit.json",
                                    "no_trusted_band_discriminator.json",
