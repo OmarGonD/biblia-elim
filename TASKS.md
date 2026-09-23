@@ -4403,8 +4403,8 @@
       cases and zero accepted known order conflicts.
 
 
-- [ ] TORRES-1835-PROJECTED-FORM-A-REFINED-SCOPE-DRY-RUN-145 Validate semantic dry-run effects for the refined production-safe form-a scope
-  - Status: PENDING
+- [x] TORRES-1835-PROJECTED-FORM-A-REFINED-SCOPE-DRY-RUN-145 Validate semantic dry-run effects for the refined production-safe form-a scope
+  - Status: DONE
   - Description:
     Perform a fresh semantic dry-run for ONLY the task-144 refined production
     scope. Recompute the scope from its transparent runtime-safe provenance and
@@ -4599,6 +4599,294 @@
     - Change task-128/task-131/task-139.
     - Reopen GLUED_FRAME.
     - Use ML/opaque classifiers.
+    - Modify TASKS.md from the task agent.
+    - Commit or push.
+  - Closure evidence:
+    - Result: IMPLEMENTATION_READY.
+    - Frozen task baseline: 03ac293bdd0ce735dd950eb4a49e8628a3a39182.
+    - Full production-placement population: 158.
+    - Task-144 reviewed/projected-gap provenance family: 47.
+    - Task-144 refined production-safe scope: 43.
+    - Refined scope recomputed from runtime/source guards, not from an ID
+      allowlist.
+    - Selected accounting:
+        43 diagnostic occurrences
+        43 physical OCR blocks
+        43 source marker events
+        43 recovery events.
+    - External production matches: 111.
+    - External source classification: UNREADABLE = 111.
+    - External UNREADABLE accepted by refined scope: 0/111.
+    - Known native/order conflicts: 13.
+    - Known order conflicts accepted: 0/13.
+    - Wrong-value controls accepted: 0.
+    - Non-marker controls accepted: 0.
+    - Unknown extra production matches accepted: 0.
+    - Ref effect classification:
+        CREATE_NEW_REF = 43
+        REOPEN_EXISTING_REF = 0
+        NO_REF_EFFECT = 0
+        INVALID = 0.
+    - Predicted VerseRefs: 3849 -> 3892.
+    - New native refs: 43.
+    - Reopened refs: 0.
+    - Removed refs: 0.
+    - Renumbered refs: 0.
+    - Unrelated existing refs changed: 0.
+    - Duplicate proposed refs: 0.
+    - Predicted duplicate refs: 0.
+    - Predicted out_of_order_refs: 0.
+    - Predicted outside_canon: 0.
+    - Predicted impossible native refs: 0.
+    - Fresh ownership simulation: ownership moves = 581.
+    - Owned blocks: 25434 -> 25434.
+    - Predicted block loss: 0.
+    - Predicted dual ownership: 0.
+    - Physical gaps: 3254 -> 3211.
+    - Physical gaps closed: 43.
+    - Physical gaps opened: 0.
+    - Glyph gaps: 1309 -> 1266.
+    - Glyph gaps closed: 43.
+    - Glyph gaps opened: 0.
+    - IMPORTANT: task-145 recomputed all semantic deltas from scratch.
+    - Task-143 historical delta was NOT reused:
+        old scope = 47 events
+        old +45 refs / 2 reopens / 595 ownership moves / -45 physical /
+        -54 glyph does not describe the final production-safe scope.
+    - Refined production-safe scope uses transparent runtime-safe guards
+      established by tasks 142 and 144, including:
+        task-142 exact form-a/prefix/marker-band discriminator
+        task-144 projected-gap provenance restriction
+        task-144 native progression/order safety.
+    - No occurrence IDs, page allowlists, book/chapter allowlists,
+      hardcoded VerseRefs or expected-gap identities are used as runtime
+      selection authority.
+    - Stronger recovery isolation:
+        no double recovery with task-128
+        no double recovery with task-131
+        no double recovery with task-139.
+    - task-128 actual runtime unchanged: 183 markers, 177 refs,
+      1355 ownership moves.
+    - task-131 actual runtime unchanged: 276 markers, 276 refs,
+      1900 ownership moves.
+    - task-139 unchanged.
+    - GLUED_FRAME = CLOSED_UNSAFE.
+    - Actual runtime remained unchanged during dry-run:
+        VerseRefs = 3849
+        physical gaps = 3254
+        glyph gaps = 1309
+        owned blocks = 25434.
+    - Chapters = 337/337.
+    - unresolved chapter claims = 0.
+    - canonical chapter gaps = 0.
+    - current duplicate_refs = 0.
+    - current out_of_order_refs = 0.
+    - current outside_canon = 0.
+    - ocr_blocks = 57700.
+    - current block loss = 0.
+    - current dual ownership = 0.
+    - Artifact: data/torresamat1835/projected_form_a_refined_scope_dry_run.json,
+      schema_version = 1.
+    - Artifact deterministic and idempotent.
+    - Focused task-145 test: PASS.
+    - All required direct regression scripts: PASS.
+    - Build: PASS.
+    - Focused CTest: PASS.
+    - TorresAmat CTest: 35/35 PASS.
+    - Full CTest: 47 registered, 46 passed, 1 failed.
+    - Unrelated known full-suite failure: gtk_lifecycle_smoke
+      "dictionary panel did not reopen explicitly".
+    - Task 145 changed no UI/GTK files.
+    - Task-related failures: 0.
+    - Recommended next work: implement exactly the validated 43-event
+      production-safe fallback and verify that actual parser output
+      reproduces the task-145 dry-run delta.
+
+
+- [ ] TORRES-1835-PROJECTED-FORM-A-REFINED-SCOPE-RECOVERY-146 Implement the validated refined production-safe projected form-a recovery
+  - Status: PENDING
+  - Description:
+    Implement the exact production fallback validated by tasks 142, 144 and
+    145. The runtime parser must derive the same refined source-safe population
+    using transparent parser/source state, recover exactly the validated native
+    verse boundaries, and reproduce task-145's semantic delta without
+    occurrence/ref/page allowlists.
+  - Validated production scope:
+    - Production placement population before refined guards: 158.
+    - Refined validated recovery population: 43 events.
+    - Exact event cardinality validated by task 145:
+        43 occurrences
+        43 physical blocks
+        43 source events
+        43 recovery events.
+    - Required effect:
+        CREATE_NEW_REF = 43
+        REOPEN_EXISTING_REF = 0
+        NO_REF_EFFECT = 0
+        INVALID = 0.
+  - Validated runtime-safe selection chain:
+    - Existing stronger/native marker recovery paths execute first.
+    - Apply the exact task-142 projected form-a discriminator:
+        first physical OCR token == "a"
+        AND each of the next three physical tokens contains >=2 Unicode letters
+        AND a trusted marker band exists
+        AND candidate lies within the existing marker-band tolerance.
+    - Preserve existing trusted-band semantics from task 142.
+    - Apply task-144 projected-gap provenance restriction.
+    - Apply task-144 native progression/order safety guard.
+    - Only then interpret the bounded candidate as printed marker value 2.
+  - Critical:
+    - Reconstruct exact guard semantics from the canonical task-142/task-144
+      implementations/artifacts.
+    - Do NOT approximate or paraphrase those guards if the code contains a
+      more exact condition.
+  - Recovery ordering:
+    - This is a fallback only.
+    - It must execute after stronger existing marker paths.
+    - It must never steal/reprocess candidates handled by:
+        exact markers
+        task-128
+        task-131
+        task-139.
+    - double recovery = 0.
+  - Numeric interpretation:
+    - Within ONLY the exact refined scope, interpreted marker value is 2.
+    - This is justified by the source-backed diagnostic chain.
+    - Do not infer 2 from expected gap sequence.
+    - Do not use previous+1 or next-1.
+  - Native reference semantics:
+    - Construct native refs through the normal TorresAmat1835 parser state.
+    - Stay in native versification.
+    - Do not consult another Bible module.
+    - No expected ref allowlist.
+  - Fail closed:
+    - candidate fails task-142 discriminator -> abstain
+    - candidate fails projected-gap provenance -> abstain
+    - trusted marker band unavailable -> abstain
+    - outside marker-band tolerance -> abstain
+    - candidate already handled by stronger recovery -> abstain
+    - native progression/order guard fails -> abstain
+    - proposed ref invalid/outside canon -> abstain
+    - duplicate/ref conflict -> abstain
+    - unsafe reopen -> abstain
+    - ambiguous event ownership -> abstain.
+  - Required actual runtime result:
+        VerseRefs:
+            3849 -> 3892
+        new refs:
+            +43
+        reopened refs:
+            0
+        physical gaps:
+            3254 -> 3211
+        physical gap reduction:
+            43
+        glyph gaps:
+            1309 -> 1266
+        glyph gap reduction:
+            43
+        ownership moves:
+            581
+        owned blocks:
+            25434 -> 25434.
+  - Exact identity validation:
+    - Actual new native refs must equal task-145 predicted refs.
+    - Actual ownership-moved block identities must equal task-145 predicted
+      movement.
+    - Actual physical gap identities closed must equal task-145 predictions.
+    - Actual glyph gap identities closed must equal task-145 predictions.
+    - Use diagnostic artifact identities only for TEST ASSERTION after runtime
+      derivation, never as production selection input.
+  - Required safety:
+        reopened refs = 0
+        duplicate_refs = 0
+        out_of_order_refs = 0
+        outside_canon = 0
+        impossible refs = 0
+        block loss = 0
+        dual ownership = 0
+        unrelated refs changed = 0
+        unrelated ownership changed = 0.
+  - External/control safety:
+    - External UNREADABLE accepted: 0/111.
+    - Known task-144 order conflicts accepted: 0/13.
+    - Wrong-value controls accepted: 0.
+    - Non-marker controls accepted: 0.
+    - No new unknown/out-of-family production match may be recovered.
+  - Existing recovery invariants:
+    - task-128 remains: 183 markers, 177 refs, 1355 ownership moves.
+    - task-131 remains: 276 markers, 276 refs, 1900 ownership moves.
+    - task-139 remains unchanged, including Ps.17.10.
+    - GLUED_FRAME remains CLOSED_UNSAFE.
+  - Corpus invariants after implementation:
+        chapters = 337/337
+        unresolved chapter claims = 0
+        canonical chapter gaps = 0
+        ocr_blocks = 57700
+        duplicate_refs = 0
+        out_of_order_refs = 0
+        outside_canon = 0
+        block loss = 0
+        dual ownership = 0.
+  - Architecture:
+    - Keep the implementation bounded and local to the current verse-marker
+      recovery pipeline.
+    - Reuse existing feature/provenance/order helpers where practical.
+    - Do not create a parallel parser.
+    - Avoid corpus-wide repeated rescans.
+    - No runtime PDF/facsimile reads.
+  - Diagnostic continuity:
+    - Historical artifacts from tasks 141-145 remain frozen.
+    - Extend current runtime audit with explicit counters for the production
+      recovery, following existing task-128/task-131/task-139 conventions.
+    - The runtime audit must distinguish this path from previous recoveries.
+  - Tests:
+    - Add focused production-recovery coverage proving:
+        exact runtime recovery count = 43
+        CREATE_NEW_REF = 43
+        REOPEN = 0
+        refs 3849 -> 3892
+        physical gaps 3254 -> 3211
+        glyph gaps 1309 -> 1266
+        ownership moves = 581
+        actual new ref identities equal task-145 prediction
+        actual moved block identities equal task-145 prediction
+        exact physical/glyph gap closure identities equal task-145 prediction
+        external UNREADABLE recovered = 0
+        order conflicts recovered = 0
+        wrong/non-marker controls recovered = 0
+        stronger-rule overlap = 0
+        duplicate/order/canon/block safety = 0 violations.
+    - Tests may read task-145 artifact as oracle AFTER runtime recovery.
+    - Production parser must not read that artifact.
+  - Historical artifacts:
+    - Do NOT mutate diagnostic artifacts from tasks 141-145.
+  - Acceptance:
+    - Production parser derives exactly the validated 43-event family.
+    - Actual runtime delta equals task-145 prediction exactly.
+    - No identity allowlist drives runtime behavior.
+    - No expected-gap inference.
+    - No unsafe reopen.
+    - Existing recoveries unchanged.
+    - Full Torres regression green.
+    - Build green.
+    - No unrelated UI modifications.
+  - Do not:
+    - Hardcode the 43 IDs.
+    - Hardcode the 43 refs.
+    - Hardcode page/book/chapter allowlists.
+    - Read task-145 JSON in production runtime.
+    - Recover any external UNREADABLE candidate.
+    - Recover any known task-144 order conflict.
+    - Recover remaining excluded task-141/task-143 candidates.
+    - Broaden task-142 discriminator.
+    - Weaken task-144 order/provenance guards.
+    - Use expected missing verses.
+    - Use previous+1 / next-1.
+    - Change task-128/task-131/task-139 behavior.
+    - Reopen GLUED_FRAME.
+    - Use ML/opaque classifiers.
+    - Touch unrelated UI.
     - Modify TASKS.md from the task agent.
     - Commit or push.
 
