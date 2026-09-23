@@ -1403,6 +1403,15 @@ if (BUILD_TESTING AND UNIX AND PYTHON3_EXECUTABLE)
   set_tests_properties (torresamat1835_projected_form_a_production_scope_audit_test PROPERTIES
     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
   )
+
+  add_test (
+    NAME torresamat1835_projected_form_a_refined_scope_dry_run_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_projected_form_a_refined_scope_dry_run.py
+  )
+  set_tests_properties (torresamat1835_projected_form_a_refined_scope_dry_run_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
+  )
 endif ()
 
 # The import side of TORRES-PSALM-TITLES-101: the deterministic transform

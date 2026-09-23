@@ -2867,6 +2867,12 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         report["verse_segmentation_audit"][
             "projected_form_a_production_scope_audit"] = json.loads(
                 production_scope_path.read_text(encoding="utf-8"))["audit_summary"]
+    refined_scope_dry_run_path = Path(ROOT) / (
+        "data/torresamat1835/projected_form_a_refined_scope_dry_run.json")
+    if refined_scope_dry_run_path.exists():
+        report["verse_segmentation_audit"][
+            "projected_form_a_refined_scope_dry_run"] = json.loads(
+                refined_scope_dry_run_path.read_text(encoding="utf-8"))["audit_summary"]
     return edition, report
 
 
