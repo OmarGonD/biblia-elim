@@ -412,7 +412,8 @@ def main():
     args = parser.parse_args()
     edition, audit = audit_volume.audit(str(args.xml), volume="3",
                                         witness="ia-lasagradabiblia01unkngoog",
-                                        book="Ps")
+                                        book="Ps",
+                                        projected_form_a_recovery=False)
     timings = {}
     data = build(edition, audit, args.baseline_commit, args.xml, timings)
     args.out.write_text(encode(data), encoding="utf-8")

@@ -33,6 +33,7 @@ def _audit(path):
         "python3", str(ROOT / "scripts/torresamat1835/audit_volume.py"),
         "--xml", str(XML), "--volume", "3",
         "--witness", "ia-lasagradabiblia01unkngoog", "--book", "Ps",
+        "--without-projected-form-a-recovery",
         "--out", str(path)], cwd=ROOT, check=True,
         stdout=subprocess.DEVNULL)
 

@@ -131,9 +131,10 @@ def _simulate_parser(target_signatures):
 
     compound_glyphs.band_of = band_with_validated_target
     try:
+        # The task-138 artifact froze the runtime before task 146.
         return audit_volume.audit(str(XML), volume="3",
                                   witness="ia-lasagradabiblia01unkngoog",
-                                  book="Ps")
+                                  book="Ps", projected_form_a_recovery=False)
     finally:
         compound_glyphs.band_of = original
 

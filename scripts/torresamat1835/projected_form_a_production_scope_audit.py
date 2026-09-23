@@ -108,8 +108,10 @@ def build(baseline_commit=BASELINE, xml=XML):
     if baseline_commit != BASELINE:
         raise ValueError("task 144 requires its explicit frozen baseline")
     started = time.perf_counter()
+    # Measured on the pre-task-146 runtime, which this artifact froze.
     edition, report = audit_volume.audit(str(xml), volume="3",
-                                         witness="ia-lasagradabiblia01unkngoog", book="Ps")
+                                         witness="ia-lasagradabiblia01unkngoog", book="Ps",
+                                         projected_form_a_recovery=False)
     # Keep the edition private to the feature extractor; it is never serialized.
     report["_edition"] = edition
     family = task142.family(report["verse_segmentation_audit"]["gaps"])

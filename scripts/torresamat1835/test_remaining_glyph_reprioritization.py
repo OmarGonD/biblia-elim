@@ -17,7 +17,8 @@ BASELINE = "13eb5c80d8cf03dead7940391cfc84b11e600262"
 def _make_audit(path):
     subprocess.run(["python3", str(ROOT / "scripts/torresamat1835/audit_volume.py"),
                     "--xml", str(XML), "--volume", "3", "--witness",
-                    "ia-lasagradabiblia01unkngoog", "--book", "Ps", "--out", str(path)],
+                    "ia-lasagradabiblia01unkngoog", "--book", "Ps",
+                    "--without-projected-form-a-recovery", "--out", str(path)],
                    cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
 
 

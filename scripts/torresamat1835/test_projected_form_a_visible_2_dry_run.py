@@ -35,7 +35,8 @@ def main():
     artifact = json.loads(canonical)
     edition, audit = audit_volume.audit(XML, volume="3",
                                         witness="ia-lasagradabiblia01unkngoog",
-                                        book="Ps")
+                                        book="Ps",
+                                        projected_form_a_recovery=False)
     first = diagnostic.build(edition, audit, diagnostic.BASELINE, XML)
     second = diagnostic.build(edition, audit, diagnostic.BASELINE, XML)
     assert diagnostic.encode(first).encode() == canonical

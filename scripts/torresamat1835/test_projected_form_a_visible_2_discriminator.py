@@ -83,11 +83,19 @@ def test_contract():
         path='data/torresamat1835/'+filename
         baseline=subprocess.check_output(['git','show',diagnostic.BASELINE+':'+path],cwd=ROOT)
         assert (ROOT/path).read_bytes()==baseline,filename
-    for filename in ('page_parser.py','compound_glyphs.py','parser.py','layout.py','verse_gaps.py'):
+    for filename in ('compound_glyphs.py','parser.py','layout.py','verse_gaps.py'):
         path='scripts/torresamat1835/'+filename
         assert (ROOT/path).read_bytes()==subprocess.check_output(['git','show',diagnostic.BASELINE+':'+path],cwd=ROOT)
+    # page_parser.py still matched the task-142 frozen baseline at the final
+    # pre-task-146 commit (d5085fa2); task 146 then intentionally changed it.
+    # The behaviour this artifact froze is still enforced below: it is rebuilt
+    # byte-for-byte from a live parse with that fallback switched off.
+    path='scripts/torresamat1835/page_parser.py'
+    assert subprocess.check_output(['git','show',diagnostic.BASELINE+':'+path],cwd=ROOT)==subprocess.check_output(
+        ['git','show','d5085fa2608845def169a8e1a84e4c0f01ec8dd4:'+path],cwd=ROOT)
 
-    edition,audit=audit_volume.audit(str(diagnostic.XML),volume='3',witness='ia-lasagradabiblia01unkngoog',book='Ps')
+    edition,audit=audit_volume.audit(str(diagnostic.XML),volume='3',witness='ia-lasagradabiblia01unkngoog',book='Ps',
+                                     projected_form_a_recovery=False)
     before_refs=copy.deepcopy(audit_volume._reference_map(edition))
     before_owners=copy.deepcopy(audit_volume._owner_map(before_refs))
     before_audit=copy.deepcopy(audit)

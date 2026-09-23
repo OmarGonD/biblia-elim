@@ -1412,6 +1412,17 @@ if (BUILD_TESTING AND UNIX AND PYTHON3_EXECUTABLE)
   set_tests_properties (torresamat1835_projected_form_a_refined_scope_dry_run_test PROPERTIES
     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
   )
+
+  # TORRES-1835 task 146: the refined projected form-a fallback, measured on
+  # the actual parser output against the task-145 dry-run oracle.
+  add_test (
+    NAME torresamat1835_projected_form_a_refined_scope_recovery_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_projected_form_a_refined_scope_recovery.py
+  )
+  set_tests_properties (torresamat1835_projected_form_a_refined_scope_recovery_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
+  )
 endif ()
 
 # The import side of TORRES-PSALM-TITLES-101: the deterministic transform

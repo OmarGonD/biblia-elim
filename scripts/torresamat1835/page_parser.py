@@ -27,6 +27,7 @@ import divisions
 import heading_validity
 import image_reviews as review_outcomes
 import parser as classifier
+import projected_form_a_recovery
 import recovery as image_recovery
 import roman
 import structure
@@ -46,7 +47,8 @@ SPANISH_HINT = ("señor", "dios", "que", "los", "de", "su", "porque", "el",
 #: caminos distintos --limpio, enmarcado, o partido en dos glifos-- y
 #: todas cuentan igual a la hora de preguntar cuántos renglones
 #: numerados tiene un versículo.
-_NUMBERED_DECISIONS = frozenset({"numbered line", "compound_glyph_marker"})
+_NUMBERED_DECISIONS = frozenset({"numbered line", "compound_glyph_marker",
+                                 projected_form_a_recovery.DECISION})
 
 _ZONE_KIND = {
     Zone.HEADER: BlockKind.PAGE_HEADER,
@@ -107,9 +109,14 @@ class VolumeParser:
                  numeral_reviews=None, compound_recovery: bool = True,
                  a_glyph_recovery: Optional[bool] = None,
                  zero_anchor_io_recovery: bool = True,
-                 a_glyph_evidence=None):
+                 a_glyph_evidence=None,
+                 projected_form_a_recovery: bool = True):
         self.compound_recovery = compound_recovery
         self.zero_anchor_io_recovery = zero_anchor_io_recovery
+        #: Task 146. Es un respaldo: sólo actúa con las recuperaciones
+        #: más fuertes encendidas, y sólo sobre lo que ellas no tomaron.
+        self.projected_form_a_recovery = (bool(projected_form_a_recovery)
+                                          and compound_recovery)
         self.a_glyph_recovery = (compound_recovery if a_glyph_recovery is None
                                  else a_glyph_recovery)
         if a_glyph_evidence is not None:
@@ -172,6 +179,14 @@ class VolumeParser:
         self.compound_markers = []
         self.compound_rejections = []
         self.a_glyph_candidates = []
+        #: Task 146: renglones que pasan el discriminador de la 142 tras
+        #: perder contra todas las rutas más fuertes. Se anotan siempre;
+        #: el desenlace (recuperado o por qué se abstuvo) lo pone
+        #: `finish`, que es donde las guardas de la 144 son evaluables.
+        self.projected_form_a_candidates = []
+        self.projected_form_a_rejections = {}
+        self._form_a_blocks = {}
+        self._form_a_geometry = None
         self._band = None
         self._band_anchor_counts = None
         #: Todos los rótulos que dicen ser un capítulo, conservados antes
@@ -220,6 +235,7 @@ class VolumeParser:
             self.current_book = book
             self._bump("book_boundaries")
         self._seen_on_page = set()
+        self._form_a_geometry = None
         hint = self._hint()
         layout = measure(page, gutter_hint=hint)
         if layout.gutter is not None:
@@ -818,6 +834,16 @@ class VolumeParser:
             self.edition, verse_limit=structure.verse_limit)
         self._bump("verse_markers_rejected_impossible",
                    len(self.impossible_markers))
+        # Task 146: sus guardas (procedencia del hueco proyectado y
+        # progresión nativa) sólo existen sobre la edición materializada.
+        projected_form_a_recovery.apply(
+            self.edition, self.projected_form_a_candidates,
+            self._form_a_blocks, enabled=self.projected_form_a_recovery,
+            verse_limit=structure.verse_limit)
+        form_a_applied = sum(1 for row in self.projected_form_a_candidates
+                             if row["applied"])
+        if form_a_applied:
+            self._bump("spanish_verse_starts_projected_form_a", form_a_applied)
         self._attribute_framed_markers()
 
         by_claim = {r["claim_id"]: r for r in self.resolutions
@@ -856,6 +882,46 @@ class VolumeParser:
             if claim.disposition == chapter_claims.ACCEPTED:
                 self._bump(f"chapters_accepted_round_{claim.accepted_round}")
         return self.ledger
+
+    def _note_projected_form_a(self, placed, prov):
+        """Anota un renglón que pasa el discriminador exacto de la 142.
+
+        Sólo llega aquí lo que el clasificador, el marcador enmarcado y
+        las recuperaciones 128/131/139 ya dejaron sin número: el respaldo
+        no puede quitarle el sitio a ninguna de ellas. Es una comprobación
+        local sobre la plana que se está leyendo; no relee nada.
+        """
+        if (placed.zone is not Zone.BODY or placed.column is not Column.RIGHT
+                or not projected_form_a_recovery.has_form(placed.line)):
+            return None
+        # La geometría validada de la 142, medida una vez por plana y sólo
+        # en las planas que tienen algún renglón con la forma.
+        if self._form_a_geometry is None:
+            self._form_a_geometry = projected_form_a_recovery.validated_geometry(
+                self.page)
+        where, bands = self._form_a_geometry
+        column, zone = where.get(placed.line.index, (None, None))
+        if column is not Column.RIGHT or zone is not Zone.BODY:
+            text, reason = None, projected_form_a_recovery.NOT_VALIDATED_PLACEMENT
+        else:
+            text, reason, detail = projected_form_a_recovery.match(
+                placed.line, bands.get(column))
+        if text is None:
+            self.projected_form_a_rejections[reason] = (
+                self.projected_form_a_rejections.get(reason, 0) + 1)
+            return None
+        record = {
+            "block_id": prov.block_id, "scan_page": self.page.scan_page,
+            "book": self.current_book,
+            "chapter_slot": getattr(self.chapter, "number", None),
+            "raw": placed.line.raw_text[:90], "text": text,
+            "open_verse_at_encounter": None,
+            "owned_as_continuation": False,
+            "outcome": None, "applied": False,
+        }
+        record.update(detail)
+        self.projected_form_a_candidates.append(record)
+        return record
 
     def _claim(self, *, book, page, prov, placed, raw, source, numeral,
                candidates, proposed, method, evidence, confidence,
@@ -996,6 +1062,12 @@ class VolumeParser:
             if getattr(self, "_compound_block", None) is not None:
                 block = self._compound_block
                 self._compound_block = None
+        # Task 146: el respaldo de la forma proyectada «a» mira sólo lo que
+        # sigue sin número después de TODAS las rutas anteriores.
+        form_a = None
+        if block.kind not in (BlockKind.VERSE, BlockKind.CHAPTER_HEADING,
+                              BlockKind.EDITORIAL_HEADING):
+            form_a = self._note_projected_form_a(placed, prov)
 
         if block.kind is BlockKind.CHAPTER_HEADING:
             self._open_chapter(placed, prov, raw)
@@ -1047,10 +1119,14 @@ class VolumeParser:
         # misma columna y banda; si no, a revisión.
         if self.verse_number is not None:
             self._bump("continuations")
-            self.chapter.verse(self.verse_number).blocks.append(
-                _block(BlockKind.VERSE, placed, prov,
-                       number=self.verse_number,
-                       decision="continuation of the open verse"))
+            continued = _block(BlockKind.VERSE, placed, prov,
+                               number=self.verse_number,
+                               decision="continuation of the open verse")
+            self.chapter.verse(self.verse_number).blocks.append(continued)
+            if form_a is not None:
+                form_a["open_verse_at_encounter"] = self.verse_number
+                form_a["owned_as_continuation"] = True
+                self._form_a_blocks[prov.block_id] = continued
             return
 
         self._queue(_block(BlockKind.UNCLASSIFIED, placed, prov,
@@ -1065,7 +1141,8 @@ def parse_volume(pages: Iterable, *, witness: str, volume: str,
                  image_reviews=None, recovery_source=None,
                  numeral_reviews=None, compound_recovery: bool = True,
                  a_glyph_recovery: Optional[bool] = None,
-                 a_glyph_evidence=None, zero_anchor_io_recovery: bool = True):
+                 a_glyph_evidence=None, zero_anchor_io_recovery: bool = True,
+                 projected_form_a_recovery: bool = True):
     """Recorre las páginas y devuelve (edición, métricas)."""
     edition = edition or Edition(edition_id="TorresAmat1835")
     walker = VolumeParser(edition, witness=witness, volume=volume, book=book,
@@ -1077,7 +1154,8 @@ def parse_volume(pages: Iterable, *, witness: str, volume: str,
                           compound_recovery=compound_recovery,
                           a_glyph_recovery=a_glyph_recovery,
                           zero_anchor_io_recovery=zero_anchor_io_recovery,
-                          a_glyph_evidence=a_glyph_evidence)
+                          a_glyph_evidence=a_glyph_evidence,
+                          projected_form_a_recovery=projected_form_a_recovery)
     for page in pages:
         walker.feed_page(page)
     walker.finish()

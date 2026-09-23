@@ -61,7 +61,7 @@ def main():
     assert runtime["task128"] == {"markers":183,"refs":177,"moves":1355}
     assert runtime["task131"] == {"markers":276,"refs":276,"moves":1900}
     assert runtime["task139"]["ownership_moves"] == 27 and runtime["GLUED_FRAME"] == "CLOSED_UNSAFE"
-    assert first["audit_summary"] == diagnostic.audit_volume.audit(str(diagnostic.XML), volume="3", witness="ia-lasagradabiblia01unkngoog", book="Ps")[1]["verse_segmentation_audit"]["projected_form_a_production_scope_audit"]
+    assert first["audit_summary"] == diagnostic.audit_volume.audit(str(diagnostic.XML), volume="3", witness="ia-lasagradabiblia01unkngoog", book="Ps", projected_form_a_recovery=False)[1]["verse_segmentation_audit"]["projected_form_a_production_scope_audit"]
     with tempfile.TemporaryDirectory() as tmp:
         path = os.path.join(tmp, "a.json")
         open(path, "wb").write(rendered)

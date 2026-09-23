@@ -19,7 +19,8 @@ def _audit():
         subprocess.run([
             "python3", str(ROOT / "scripts/torresamat1835/audit_volume.py"),
             "--xml", str(XML), "--volume", "3", "--witness",
-            "ia-lasagradabiblia01unkngoog", "--book", "Ps", "--out",
+            "ia-lasagradabiblia01unkngoog", "--book", "Ps",
+            "--without-projected-form-a-recovery", "--out",
             str(output)], cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
         return json.loads(output.read_text(encoding="utf-8"))
 

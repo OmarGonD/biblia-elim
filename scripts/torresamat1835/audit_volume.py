@@ -34,6 +34,7 @@ import parser as classifier
 import recovery as image_recovery
 import recovery_candidates
 import page_parser
+import projected_form_a_recovery as form_a_rule
 import severe_headings
 import source_ocr
 import structure
@@ -378,7 +379,15 @@ def _withheld_forms(matrix: dict) -> dict:
     return out
 
 
-def audit(xml_path, *, volume, witness, book="Ps", limit=None):
+def audit(xml_path, *, volume, witness, book="Ps", limit=None,
+          projected_form_a_recovery=True):
+    """El informe del tomo.
+
+    ``projected_form_a_recovery=False`` reproduce el estado de ejecución
+    anterior a la 146 (sin el respaldo de la forma proyectada «a»). Lo
+    usan los diagnósticos 139-145, que se midieron y congelaron sobre ese
+    estado; la edición de producción lo lleva encendido.
+    """
     started = time.time()
     readings, spans = read_structure(xml_path, limit=limit)
     header_chapters = {r.scan_page: r.chapters for r in readings}
@@ -431,7 +440,8 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
     before_edition, _before_stats, before_walker = page_parser.parse_volume(
         source_ocr.read_pages(xml_path, limit=limit), witness=witness,
         volume=volume, book=book, book_spans=spans,
-        header_chapters=header_chapters, with_walker=True)
+        header_chapters=header_chapters, with_walker=True,
+        projected_form_a_recovery=projected_form_a_recovery)
 
     # Segunda referencia: CON las recuperaciones de frontera pero SIN las
     # lecturas de numeral. Es el estado justo antes de esta tanda de
@@ -444,7 +454,8 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
             header_chapters=header_chapters, with_walker=True,
             image_reviews=(image_recovery.by_page(reviews)
                            if reviews else None),
-            recovery_source=source if reviews else None)
+            recovery_source=source if reviews else None,
+            projected_form_a_recovery=projected_form_a_recovery)
 
     # Tercera referencia: TODO menos la recuperación de numerales
     # partidos en dos glifos. Es contra esto -- y no contra el estado de
@@ -462,7 +473,7 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
             recovery_source=source if reviews else None,
             numeral_reviews=(image_reviews.numerals_by_block(numerals)
                              if numerals else None),
-            compound_recovery=False)
+            compound_recovery=False, projected_form_a_recovery=False)
 
     # Estado inmediatamente anterior a la 131: las nueve formas de la 128
     # están encendidas y sólo ``a *`` queda en simulación. Esta comparación
@@ -477,7 +488,7 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         numeral_reviews=(image_reviews.numerals_by_block(numerals)
                          if numerals else None),
         compound_recovery=True, a_glyph_recovery=False,
-        zero_anchor_io_recovery=False)
+        zero_anchor_io_recovery=False, projected_form_a_recovery=False)
 
     # Reference pass immediately before task-139.  It keeps the validated
     # task-128 and task-131 rules enabled while disabling only the new
@@ -491,8 +502,24 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         numeral_reviews=(image_reviews.numerals_by_block(numerals)
                          if numerals else None),
         compound_recovery=True, a_glyph_recovery=True,
-        zero_anchor_io_recovery=False)
+        zero_anchor_io_recovery=False, projected_form_a_recovery=False)
     no_a_seconds = time.perf_counter() - no_a_started
+
+    # Reference pass immediately before task-146: every earlier recovery
+    # (128/131/139) enabled and only the projected form-a fallback off.
+    # Task-139's attribution is measured against this state, and task-146's
+    # delta is measured from it, so neither absorbs the other's effect.
+    form_a_started = time.perf_counter()
+    no_form_a_edition, _nf_stats, no_form_a_walker = page_parser.parse_volume(
+        source_ocr.read_pages(xml_path, limit=limit), witness=witness,
+        volume=volume, book=book, book_spans=spans,
+        header_chapters=header_chapters, with_walker=True,
+        image_reviews=(image_recovery.by_page(reviews) if reviews else None),
+        recovery_source=source if reviews else None,
+        numeral_reviews=(image_reviews.numerals_by_block(numerals)
+                         if numerals else None),
+        projected_form_a_recovery=False)
+    no_form_a_seconds = time.perf_counter() - form_a_started
 
     pages = source_ocr.read_pages(xml_path, limit=limit)
     applied_started = time.perf_counter()
@@ -502,7 +529,8 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         image_reviews=image_recovery.by_page(reviews) if reviews else None,
         recovery_source=source if reviews else None,
         numeral_reviews=(image_reviews.numerals_by_block(numerals)
-                         if numerals else None))
+                         if numerals else None),
+        projected_form_a_recovery=projected_form_a_recovery)
     applied_seconds = time.perf_counter() - applied_started
 
     chapters = {}
@@ -2100,7 +2128,7 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
                         if row.get("zero_anchor_io_recovery")
                         and row.get("applied")]
         task139_before_refs = _reference_map(no_zero_edition)
-        task139_after_refs = _reference_map(edition)
+        task139_after_refs = _reference_map(no_form_a_edition)
         task139_added = sorted(set(task139_after_refs) -
                                set(task139_before_refs))
         task139_removed = sorted(set(task139_before_refs) -
@@ -2118,11 +2146,11 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
         task139_before_gaps = verse_gaps.inventory(
             no_zero_edition, verse_limit=structure.verse_limit)
         task139_after_gaps = verse_gaps.inventory(
-            edition, verse_limit=structure.verse_limit)
+            no_form_a_edition, verse_limit=structure.verse_limit)
         task139_before_instances = glyph_forms.inventory(
             no_zero_edition, task139_before_gaps)
         task139_after_instances = glyph_forms.inventory(
-            edition, task139_after_gaps)
+            no_form_a_edition, task139_after_gaps)
         task139_gap_keys_before = {gap.key for gap in task139_before_gaps}
         task139_gap_keys_after = {gap.key for gap in task139_after_gaps}
         task139_glyph_before = {key for instance in task139_before_instances
@@ -2178,6 +2206,133 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None):
                 "no verse text or a digit follows the marker",
                 "compound recovery is disabled", "canon/range rejection",
                 "duplicate or ambiguous ownership conflict",
+            ],
+        }
+
+        # Task-146: the projected form-a fallback, measured against the
+        # pass with ONLY this fallback disabled.  Every counter below is
+        # derived from parser state; no diagnostic artifact is read here.
+        form_a_rows = list(walker.projected_form_a_candidates)
+        form_a_applied = [row for row in form_a_rows if row["applied"]]
+        form_a_outcomes = collections.Counter(row["outcome"]
+                                              for row in form_a_rows)
+        form_a_before_refs = _reference_map(no_form_a_edition)
+        form_a_after_refs = _reference_map(edition)
+        form_a_added = sorted(set(form_a_after_refs) - set(form_a_before_refs))
+        form_a_removed = sorted(set(form_a_before_refs) -
+                                set(form_a_after_refs))
+        form_a_before_owner = _owner_map(form_a_before_refs)
+        form_a_after_owner = _owner_map(form_a_after_refs)
+        form_a_moved = sorted(
+            block for block in set(form_a_before_owner) &
+            set(form_a_after_owner)
+            if form_a_before_owner[block] != form_a_after_owner[block])
+        form_a_lost = sorted(set(form_a_before_owner) -
+                             set(form_a_after_owner))
+        form_a_gained = sorted(set(form_a_after_owner) -
+                               set(form_a_before_owner))
+        form_a_dual = sorted(block for block, owners in
+                             form_a_after_owner.items() if len(owners) > 1)
+        form_a_after_gaps = verse_gaps.inventory(
+            edition, verse_limit=structure.verse_limit)
+        form_a_after_instances = glyph_forms.inventory(
+            edition, form_a_after_gaps)
+        form_a_physical_before = task139_gap_keys_after
+        form_a_physical_after = {gap.key for gap in form_a_after_gaps}
+        form_a_glyph_before = task139_glyph_after
+        form_a_glyph_after = {key for instance in form_a_after_instances
+                              for key in instance.gap_keys}
+        stronger_blocks = (
+            {row["block_id"] for row in walker.compound_markers
+             if row.get("applied")} |
+            {row["block_id"] for row in walker.framed_markers})
+        form_a_blocks = {row["block_id"] for row in form_a_applied}
+        out["projected_form_a_refined_scope_recovery"] = {
+            "rule": ("task-142 unframed_start AND next_three_are_words AND "
+                     "in_band (right/body) AND task-144 projected-gap "
+                     "provenance AND task-144 nonbackward native progression"),
+            "interpreted_value": form_a_rule.VALUE,
+            "placement": ("after exact/framed markers, task-128, task-131 "
+                          "and task-139; guards evaluated on the "
+                          "materialized edition right after the native "
+                          "range guard"),
+            "selection_authority": {
+                "occurrence_or_block_allowlist": False,
+                "page_book_chapter_allowlist": False,
+                "expected_gap_or_verse": False,
+                "previous_plus_one": False, "next_minus_one": False,
+                "diagnostic_artifacts_read": False,
+                "runtime_pdf_or_image_reads": False,
+            },
+            "verse_refs_before": len(form_a_before_refs),
+            "verse_refs_after": len(form_a_after_refs),
+            "candidate_matches": len(form_a_rows),
+            "candidate_rejections": dict(sorted(
+                walker.projected_form_a_rejections.items())),
+            "outcomes": dict(sorted(form_a_outcomes.items())),
+            "provenance_guard_rejections":
+                form_a_outcomes[form_a_rule.PROVENANCE],
+            "order_guard_rejections":
+                form_a_outcomes[form_a_rule.ORDER],
+            "recovered_markers": len(form_a_applied),
+            "recovered_blocks": sorted(form_a_blocks),
+            "created_refs": len(form_a_added),
+            "created_ref_identities": form_a_added,
+            "reopened_refs": sum(
+                1 for row in form_a_applied
+                if row["proposed_native_ref"] in form_a_before_refs),
+            "removed_refs": form_a_removed,
+            "ownership_moves": len(form_a_moved),
+            "moved_blocks": form_a_moved,
+            "owned_blocks_before": len(form_a_before_owner),
+            "owned_blocks_after": len(form_a_after_owner),
+            "block_loss": len(form_a_lost),
+            "blocks_entering_text": len(form_a_gained),
+            "dual_ownership": len(form_a_dual),
+            "physical_gaps_before": len(form_a_physical_before),
+            "physical_gaps_after": len(form_a_physical_after),
+            "physical_gaps_closed": sorted(form_a_physical_before -
+                                           form_a_physical_after),
+            "physical_gaps_opened": sorted(form_a_physical_after -
+                                           form_a_physical_before),
+            "glyph_gaps_before": len(form_a_glyph_before),
+            "glyph_gaps_after": len(form_a_glyph_after),
+            "glyph_gaps_closed": sorted(form_a_glyph_before -
+                                        form_a_glyph_after),
+            "glyph_gaps_opened": sorted(form_a_glyph_after -
+                                        form_a_glyph_before),
+            "stronger_path_overlap": len(form_a_blocks & stronger_blocks),
+            # Runtime-derived equivalents of the task-144 safety classes:
+            # a recovery outside projected-gap provenance is exactly an
+            # external (task-144 UNREADABLE) placement match, and a
+            # recovery behind native progression is an order conflict.
+            "external_unreadable_recovered": sum(
+                1 for row in form_a_applied
+                if not row["projected_gap_provenance"]),
+            "known_order_conflicts_recovered": sum(
+                1 for row in form_a_applied
+                if row["native_active_verse"] > form_a_rule.VALUE),
+            "timing": {
+                "parser_without_form_a_seconds": round(no_form_a_seconds, 4),
+                "parser_with_form_a_seconds": round(applied_seconds, 4),
+            },
+            "records": [{key: row.get(key) for key in (
+                "block_id", "scan_page", "outcome", "applied",
+                "projected_gap_provenance", "native_owner_refs",
+                "native_active_verse", "proposed_native_ref",
+                "prior_owner_ref", "band_center", "indent", "tolerance")}
+                for row in sorted(form_a_rows, key=lambda r: r["block_id"])],
+            "fail_closed_conditions": [
+                "task-142 discriminator fails", "no trusted marker band",
+                "outside marker-band tolerance",
+                "already handled by a stronger path",
+                "not owned as a continuation line",
+                "projected-gap provenance fails",
+                "ambiguous ownership", "native chapter unresolved",
+                "proposed marker behind native progression",
+                "outside native canon", "verse 2 already exists (reopen)",
+                "two source events propose the same ref",
+                "fallback disabled",
             ],
         }
 
@@ -2884,11 +3039,16 @@ def main():
     ap.add_argument("--book", default="Ps")
     ap.add_argument("--limit", type=int)
     ap.add_argument("--out")
+    # The frozen task-139..145 diagnostics were measured on the runtime
+    # before the task-146 fallback existed; this reproduces that state.
+    ap.add_argument("--without-projected-form-a-recovery",
+                    dest="projected_form_a_recovery", action="store_false")
     args = ap.parse_args()
 
     _edition, report = audit(args.xml, volume=args.volume,
                              witness=args.witness, book=args.book,
-                             limit=args.limit)
+                             limit=args.limit,
+                             projected_form_a_recovery=args.projected_form_a_recovery)
     if args.out:
         os.makedirs(os.path.dirname(args.out), exist_ok=True)
         with open(args.out, "w", encoding="utf-8") as handle:
