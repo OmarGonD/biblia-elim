@@ -3726,8 +3726,8 @@
     - Task 142 is DONE because a strict transparent subfamily of the task-141 printed-2 population was isolated with zero accepted known controls.
     - The remaining 24 printed-2 positives are not described as recoverable.
 
-- [ ] TORRES-1835-PROJECTED-FORM-A-VISIBLE-2-DRY-RUN-143 Validate dry-run recovery effects for the safe projected form-a printed-2 subfamily
-  - Status: PENDING
+- [x] TORRES-1835-PROJECTED-FORM-A-VISIBLE-2-DRY-RUN-143 Validate dry-run recovery effects for the safe projected form-a printed-2 subfamily
+  - Status: DONE
   - Description:
     Simulate, without modifying runtime recovery, the exact semantic effects
     of interpreting only the task-142 selected safe subfamily as printed verse
@@ -3955,6 +3955,358 @@
     - Use ML/opaque classifiers.
     - Modify TASKS.md from the task agent.
     - Commit or push implementation work from the task agent.
+  - Result:
+        NEEDS_NARROWER_VALIDATION.
+  - Frozen task baseline:
+        fd69a8603b98dacf89bb3561cfa80e6e8044e21a.
+  - Task-142 selected projected occurrences:
+        53.
+  - Selected physical OCR blocks:
+        47.
+  - Selected source marker events:
+        47.
+  - Proposed recovery events:
+        47.
+  - All 53 selected task-142 occurrences remain facsimile-confirmed
+    printed-value-2 positives.
+  - Known task-142 controls selected:
+        0/183.
+  - Recovery-event effects among the 47 reviewed events:
+        CREATE_NEW_REF = 45
+        REOPEN_EXISTING_REF = 2
+        NO_REF_EFFECT = 0
+        INVALID = 0.
+  - Predicted new VerseRefs:
+        45.
+  - Predicted reopened refs:
+        Ps.47.2
+        Ps.93.2.
+  - Two known reopened-ref events violate physical/native source order:
+        p0072l0083:
+            current physical context Ps.47.7
+            proposed reopen Ps.47.2
+        p0136l0092:
+            current physical context Ps.93.19
+            proposed reopen Ps.93.2.
+  - These two order conflicts prevent production implementation.
+  - Production-placement scan:
+        total matches = 158
+        in reviewed task-142 physical family = 47
+        external/unreviewed matches = 111.
+  - The 111 out-of-family production matches lack task-141 visual
+    ground truth and therefore prevent implementation.
+  - Do NOT interpret those 111 as recoverable printed-2 markers.
+  - Predicted VerseRefs for reviewed dry-run:
+        3849 -> 3894.
+  - Predicted physical gaps:
+        3254 -> 3209
+        reduction = 45.
+  - Predicted glyph gaps:
+        1309 -> 1255
+        reduction = 54.
+  - Predicted ownership moves:
+        595 unique OCR blocks.
+  - Affected old refs:
+        47.
+  - Receiving new refs:
+        45.
+  - Owned blocks:
+        25434 -> 25434.
+  - Predicted block loss:
+        0.
+  - Predicted dual ownership:
+        0.
+  - Duplicate proposed refs:
+        0.
+  - Duplicate final refs:
+        0.
+  - Physical-order conflicts:
+        2.
+  - outside-canon:
+        0.
+  - impossible native refs:
+        0.
+  - Removed refs:
+        0.
+  - Renumbered refs:
+        0.
+  - Unrelated existing refs changed:
+        0.
+  - Actual runtime remained unchanged:
+        VerseRefs = 3849
+        physical gaps = 3254
+        glyph gaps = 1309
+        ownership = 25434.
+  - task-128 unchanged:
+        183 markers
+        177 refs
+        1355 ownership moves.
+  - task-131 unchanged:
+        276 markers
+        276 refs
+        1900 ownership moves.
+  - task-139 unchanged, including Ps.17.10.
+  - GLUED_FRAME remains CLOSED_UNSAFE.
+  - Chapters = 337/337.
+  - unresolved chapter claims = 0.
+  - canonical chapter gaps = 0.
+  - current duplicate_refs = 0.
+  - current out_of_order_refs = 0.
+  - current outside_canon = 0.
+  - ocr_blocks = 57700.
+  - current block loss = 0.
+  - current dual ownership = 0.
+  - Artifact:
+        data/torresamat1835/projected_form_a_visible_2_dry_run.json
+        schema_version = 1.
+  - Artifact deterministic and idempotent.
+  - Direct tests:
+        14/14 PASS.
+  - Focused registered CTest:
+        1/1 PASS.
+  - Build:
+        PASS.
+  - Torres CTest:
+        33/33 PASS.
+  - Full CTest:
+        45 registered
+        43 passed
+        2 skipped
+        0 failed.
+  - Skipped:
+        gtk_lifecycle_smoke
+        author_commentary_probe.
+  - Recommended next work:
+        audit all 111 out-of-family production matches and derive a
+        source-safe abstention condition for the two known late-ref/order
+        conflicts before any production implementation.
+
+- [ ] TORRES-1835-PROJECTED-FORM-A-PRODUCTION-SCOPE-AUDIT-144 Audit out-of-family production matches and unsafe late ref reopenings
+  - Status: PENDING
+  - Description:
+    Exhaustively analyze the 111 additional production-placement matches
+    discovered by task 143 and the two known reviewed events that would reopen
+    earlier VerseRefs out of physical order. Determine whether transparent,
+    source/runtime-safe guards can restrict the task-142 discriminator to a
+    genuinely implementation-safe family. This is diagnostic/source review
+    only; no runtime recovery may be implemented.
+  - Baseline context:
+    - Current runtime:
+        VerseRefs = 3849
+        physical gaps = 3254
+        glyph gaps = 1309.
+    - Task-142 reviewed safe discriminator:
+        53 projected occurrences
+        47 physical blocks
+        0/183 known controls.
+    - Task-143 reviewed recovery events:
+        47.
+    - Dry-run ref effects:
+        CREATE_NEW_REF = 45
+        REOPEN_EXISTING_REF = 2.
+    - Known unsafe reopens:
+        p0072l0083 -> Ps.47.2 after physical context Ps.47.7
+        p0136l0092 -> Ps.93.2 after physical context Ps.93.19.
+    - Production-placement matches:
+        158 total
+        47 in reviewed family
+        111 additional/unreviewed.
+    - Production recovery remains BLOCKED until both issues are resolved.
+  - Primary objective A — external matches:
+    - Recompute all 158 production-placement matches from CURRENT source/parser
+      state.
+    - Reconcile the 47 reviewed task-142/task-143 blocks.
+    - Enumerate exactly the 111 external matches.
+    - Do not define the 111 by list subtraction alone; derive them from actual
+      production candidate enumeration.
+    - Determine why each external match satisfies the task-142 structural
+      rule despite not belonging to the reviewed task-141 family.
+    - Record source/runtime-safe features before any visual label is added.
+  - Source review of external matches:
+    - Obtain source/facsimile evidence for all 111 where available.
+    - Classify each into exactly one:
+        PRINTED_VALUE_2_MARKER
+        PRINTED_OTHER_VALUE_MARKER
+        ORDINARY_TEXT
+        HEADING_OR_TITLE
+        LATIN_PARALLEL_TEXT
+        APPARATUS_OR_NOTE
+        LAYOUT_OR_SCAN_ARTIFACT
+        UNREADABLE
+        OTHER.
+    - For marker cases record visible printed value from source evidence.
+    - Do not infer values from missing verses or expected sequence.
+    - If facsimile is unavailable, preserve the match as UNREVIEWED and do not
+      treat it as recoverable.
+  - Primary objective B — late-ref conflicts:
+    - Analyze independently:
+        p0072l0083
+        p0136l0092.
+    - Determine source-backed reason these candidates would attempt to reopen
+      verse 2 after physical contexts verse 7 / verse 19.
+    - Establish whether a GENERAL runtime-safe ordering/ref guard can reject
+      these cases without hardcoding IDs or expected refs.
+    - Candidate guard may use existing parser state such as:
+        candidate marker value
+        current active native verse
+        physical source order
+        whether proposed ref already exists
+        whether proposed ref would move backward in current native chapter.
+    - Do NOT automatically adopt a guard merely because it rejects these two;
+      validate against all reviewed positives/events.
+  - Critical distinction:
+    - A marker may be visually a real printed `2` and still be unsafe to treat
+      as a NEW verse boundary in current parser context.
+    - Source truth and parser boundary semantics are separate questions.
+  - Required guard validation:
+    - Any proposed implementation-safe guard must be evaluated against:
+        47 reviewed task-143 source events
+        111 external production matches
+        all 183 task-142 controls where applicable
+        existing task-128/task-131/task-139 behavior.
+    - Report exact accepted/rejected populations.
+    - Any accepted unreviewed external match prevents implementation readiness.
+    - Any accepted known physical-order conflict prevents implementation
+      readiness.
+  - Ordering guard:
+    - Test whether a transparent condition equivalent to:
+        proposed native marker does not reopen an earlier ref behind current
+        physical/native progression
+      can be expressed using existing parser state.
+    - Do not use:
+        occurrence ID
+        Ps.47.2
+        Ps.93.2
+        specific page/block
+      as the guard.
+    - Verify the guard does not reject legitimate reviewed CREATE_NEW_REF
+      events unnecessarily unless that narrower safe family is explicitly
+      accepted as the result.
+  - External-family discriminator:
+    - Determine whether the difference between the reviewed 47 and external
+      111 is source-structural and runtime-visible.
+    - Potential dimensions may include:
+        candidate provenance/path
+        projected-vs-other candidate class
+        physical token origin
+        verse-body zone
+        source column
+        marker-band construction
+        projection mechanism
+        line/block ownership state
+        existing stronger-rule classification.
+    - Page/book/ref identity may be metadata, not authority.
+  - Result status must be exactly one:
+        IMPLEMENTATION_SCOPE_FOUND
+        NARROWER_SCOPE_FOUND
+        NO_SAFE_PRODUCTION_SCOPE.
+    - IMPLEMENTATION_SCOPE_FOUND:
+        all accepted production matches are source-reviewed safe events,
+        no known controls,
+        no late-ref/order conflicts.
+    - NARROWER_SCOPE_FOUND:
+        a strict subset can be transparently isolated with the same safety.
+    - NO_SAFE_PRODUCTION_SCOPE:
+        remaining external/unreviewed/control/order ambiguity prevents safe
+        implementation.
+  - Do not require preserving all 45 task-143 CREATE_NEW_REF events.
+    Safety is more important than recall.
+  - Task-145:
+    - If IMPLEMENTATION_SCOPE_FOUND or NARROWER_SCOPE_FOUND:
+        recommend exactly one new dry-run validation task over the refined
+        production-safe scope.
+    - Do NOT jump directly to runtime implementation.
+    - A new dry-run is required because the selected population changed.
+    - If NO_SAFE_PRODUCTION_SCOPE:
+        recommend one different bounded diagnostic direction.
+  - Artifact:
+    - Create deterministic diagnostic artifact, preferably:
+        data/torresamat1835/projected_form_a_production_scope_audit.json
+    - Include:
+        schema_version
+        frozen baseline provenance
+        production-match derivation
+        all 158 production matches
+        reviewed-family reconciliation
+        all 111 external records
+        source review labels where available
+        late-ref conflict analysis
+        candidate guard evaluations
+        accepted/rejected populations
+        selected production scope
+        result status
+        task145 recommendation
+        runtime invariants.
+  - Audit:
+    - Add diagnostic equivalent to:
+        verse_segmentation_audit.projected_form_a_production_scope_audit
+    - Include:
+        production_matches = 158
+        reviewed_matches = 47
+        external_matches = 111
+        external_reviewed
+        external_unreviewed
+        external printed-2
+        external other-marker
+        external non-marker
+        known late-order conflicts = 2
+        selected scope population
+        accepted unreviewed
+        accepted controls
+        accepted order conflicts
+        result status
+        task145 target.
+  - Runtime invariants:
+    - No recovery.
+    - VerseRefs remain 3849.
+    - Physical gaps remain 3254.
+    - Glyph gaps remain 1309.
+    - Ownership remains 25434.
+    - task-128 unchanged.
+    - task-131 unchanged.
+    - task-139 unchanged.
+    - GLUED_FRAME remains CLOSED_UNSAFE.
+    - Chapters remain 337/337.
+    - unresolved chapter claims = 0.
+    - canonical chapter gaps = 0.
+    - duplicate_refs = 0.
+    - out_of_order_refs = 0.
+    - outside_canon = 0.
+    - ocr_blocks = 57700.
+    - block loss = 0.
+    - dual ownership = 0.
+  - Acceptance:
+    - 158 production matches recomputed.
+    - 47 reviewed-family matches reconciled.
+    - 111 external matches explicitly accounted for.
+    - Every source-accessible external match reviewed.
+    - No external value inferred from expected verse sequence.
+    - Both late-ref conflicts explained.
+    - Proposed order guard is general and runtime-safe, not identity-specific.
+    - Any selected production scope contains:
+        zero accepted known controls
+        zero accepted unreviewed external matches
+        zero accepted known order conflicts.
+    - Selected scope derived without page/block/ref allowlists.
+    - Exactly one task-145 recommendation.
+    - No runtime change.
+    - Artifact deterministic/idempotent.
+    - Frozen provenance stable.
+  - Do not:
+    - Implement production recovery.
+    - Hardcode the 111 external IDs.
+    - Hardcode the two conflict IDs.
+    - Hardcode Ps.47.2 / Ps.93.2.
+    - Treat all 111 as negatives without source review.
+    - Treat visually valid `2` as automatically valid verse boundary.
+    - Use expected missing verse.
+    - Use previous+1 / next-1.
+    - Broaden task-142 rule.
+    - Change task-128/task-131/task-139.
+    - Reopen GLUED_FRAME.
+    - Use ML/opaque classifiers.
+    - Modify TASKS.md from the task agent.
+    - Commit or push.
 
 
 - [ ] UI-SIGNAL-101 Investigate stale GObject signal handler
