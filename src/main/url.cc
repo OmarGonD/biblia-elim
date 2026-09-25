@@ -609,9 +609,23 @@ static int show_module_and_key(const char *module, const char *key,
 			       const char *stype, gboolean clicked)
 {
 	gint mod_type;
+	g_autofree gchar *legacy_key = NULL;
 
 	if (module && (strlen((char *)module) < 3) &&
 	    backend->is_Bible_key((char *)module, key, settings.currentverse)) {
+		/* Saved without a module: its numbering is KJV, not the
+		 * selected Bible's (BOOKMARK-V11N-101). */
+		if (!*module) {
+			legacy_key = main_legacy_bookmark_key(
+				key, settings.MainWindowModule);
+			if (!legacy_key) {
+				if (clicked)
+					main_warn_reference_unmapped(
+						key, settings.MainWindowModule);
+				return 1;
+			}
+			key = legacy_key;
+		}
 		module = settings.MainWindowModule;
 	}
 	if (!clicked) {
@@ -823,8 +837,16 @@ gint sword_uri(const gchar *url, gboolean clicked)
 		mod_type = main_get_mod_type(mod);
 		switch (mod_type) {
 		case TEXT_TYPE:
-			key = main_update_nav_controls(mod, tmpkey);
-			main_display_bible(mod, key);
+			/* A module-qualified URI must be parsed by the target Bible before
+			 * touching the navbar.  Updating it here would normalize a Vulg
+			 * key with the previously selected KJV module. */
+			if (work_buf[MODULE] && *work_buf[MODULE]) {
+				main_display_bible(mod, tmpkey);
+				key = g_strdup(settings.currentverse);
+			} else {
+				key = main_update_nav_controls(mod, tmpkey);
+				main_display_bible(mod, key);
+			}
 			if (settings.comm_showing)
 				main_display_commentary(NULL, key);
 			main_keep_bibletext_dialog_in_sync((gchar *)key);

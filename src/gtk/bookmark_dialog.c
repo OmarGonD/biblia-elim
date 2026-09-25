@@ -123,6 +123,10 @@ static void add_bookmark_button(void)
 		module_to_use = module_from_entry;
 	} else if (global_module_name && strlen(global_module_name) > 0) {
 		module_to_use = global_module_name;
+	} else if (settings.MainWindowModule && *settings.MainWindowModule) {
+		/* Never save a bookmark without a module: its key would be
+		 * read in another versification later (BOOKMARK-V11N-101). */
+		module_to_use = settings.MainWindowModule;
 	} else {
 		module_to_use = "";
 	}

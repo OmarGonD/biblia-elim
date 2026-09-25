@@ -88,8 +88,12 @@ const char *main_planes_inicio(const PL_PLAN *plan);
 gboolean main_planes_dia_hecho(const PL_PLAN *plan, int dia);
 void main_planes_marcar(const PL_PLAN *plan, int dia, gboolean hecho);
 int main_planes_dias_hechos(const PL_PLAN *plan);
-/* Primer día sin marcar: lo que toca leer ahora. */
+/* Día programado para la fecha local actual desde el inicio del plan.
+ * Si el plan no tiene fecha válida, devuelve el primer día sin marcar. */
 int main_planes_dia_de_hoy(const PL_PLAN *plan);
+/* Día programado para una fecha local explícita; 0 si no hay fecha de inicio
+ * válida. Es la versión sin reloj de main_planes_dia_segun_calendario(). */
+int main_planes_dia_para_fecha(const PL_PLAN *plan, const GDate *fecha);
 /* Día en que iría el lector si hubiera leído uno por jornada desde que
  * empezó; sirve para decirle si va al día, adelantado o atrasado. 0 si
  * el plan no se ha empezado. */

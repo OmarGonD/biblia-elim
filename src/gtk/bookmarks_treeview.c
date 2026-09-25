@@ -829,6 +829,21 @@ static gboolean button_release_event(GtkWidget *widget,
 	if (!module || !strcmp(module, "")) {
 		g_free(module);
 		module = g_strdup(settings.MainWindowModule);
+		/* Saved without a module: the key is in KJV numbering, not
+		 * the selected Bible's (BOOKMARK-V11N-101). */
+		if (key && is_selected && event->button == 1 &&
+		    main_is_Bible_key(module, key)) {
+			gchar *native = main_legacy_bookmark_key(key, module);
+			if (!native) {
+				main_warn_reference_unmapped(key, module);
+				g_free(caption);
+				g_free(key);
+				g_free(module);
+				return FALSE;
+			}
+			g_free(key);
+			key = native;
+		}
 	}
 
 	switch (event->button) {

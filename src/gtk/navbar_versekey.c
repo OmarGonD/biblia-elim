@@ -39,6 +39,7 @@
 #include "main/lists.h"
 #include "main/module_dialogs.h"
 #include "main/navbar_versekey.h"
+#include "main/interlineal.h"
 #include "main/settings.h"
 #include "main/sword.h"
 #include "main/tab_history.h"
@@ -582,25 +583,46 @@ gboolean access_on_down_eventbox_button_release_event(gint element)
 	return on_down_eventbox_button_release_event(NULL, NULL, GINT_TO_POINTER(element));
 }
 
-/******************************************************************************
- * Name
- *   _connect_signals
- *
- * Synopsis
- *   #include "gui/navbar_versekey.h"
- *
- *   void _connect_signals(NAVBAR_VERSEKEY navbar)
- *
- * Description
- *
- *
- * Return value
- *  void
- */
+/* Up/Down on the reference entry. The entry shows the verse the reader
+ * is on, and that is where the keyboard often is when the app opens.
+ * A single-line entry does not move its caret on those keys, so GTK
+ * hands the key on and focus drops to whatever sits under the bar
+ * (Comparar). The verse does not change until the next press. While
+ * the entry still shows the current reference, the arrows move that
+ * verse instead. A reference the reader has started to type is left
+ * alone. */
+static gboolean on_lookup_entry_key_press(GtkWidget *widget, GdkEventKey *event,
+					  gpointer user_data)
+{
+	const gchar *text, *key;
+
+	(void)user_data;
+	if (event->state & (GDK_SHIFT_MASK | GDK_CONTROL_MASK | GDK_MOD1_MASK))
+		return FALSE;
+	if (event->keyval != GDK_KEY_Up && event->keyval != GDK_KEY_KP_Up &&
+	    event->keyval != GDK_KEY_Down && event->keyval != GDK_KEY_KP_Down)
+		return FALSE;
+	if (widget != navbar_versekey.lookup_entry)
+		return FALSE;
+	text = gtk_entry_get_text(GTK_ENTRY(widget));
+	key = navbar_versekey.key ? navbar_versekey.key->str : NULL;
+	if (!text || !key || !*key || strcmp(text, key) != 0)
+		return FALSE;
+	if (main_interlineal_bloquea_navegacion())
+		return TRUE;
+	if (event->keyval == GDK_KEY_Up || event->keyval == GDK_KEY_KP_Up)
+		access_on_up_eventbox_button_release_event(VERSE_BUTTON);
+	else
+		access_on_down_eventbox_button_release_event(VERSE_BUTTON);
+	return TRUE;
+}
 
 static void _connect_signals(NAVBAR_VERSEKEY navbar)
 {
 
+	g_signal_connect((gpointer)navbar.lookup_entry,
+			 "key-press-event",
+			 G_CALLBACK(on_lookup_entry_key_press), NULL);
 	g_signal_connect((gpointer)navbar.lookup_entry,
 			 "activate", G_CALLBACK(on_entry_activate), NULL);
 	g_signal_connect((gpointer)navbar.button_book_up,

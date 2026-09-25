@@ -77,6 +77,26 @@ target_link_libraries (pulpito_test
   PkgConfig::Core
   )
 
+add_executable (planes_lectura_test
+  EXCLUDE_FROM_ALL
+  planes_lectura_test.c
+  ${PROJECT_SOURCE_DIR}/src/main/planes_lectura.c
+  )
+
+target_compile_options (planes_lectura_test PRIVATE -ffunction-sections -fdata-sections)
+target_link_options (planes_lectura_test PRIVATE -Wl,--gc-sections)
+target_include_directories (planes_lectura_test
+  PRIVATE
+  ${PROJECT_SOURCE_DIR}/src
+  PkgConfig::Core
+  PkgConfig::TestXml
+  )
+target_link_libraries (planes_lectura_test
+  PRIVATE
+  PkgConfig::Core
+  PkgConfig::TestXml
+  )
+
 add_executable (panel_load_state_test
   EXCLUDE_FROM_ALL
   panel_load_state_test.c
@@ -1379,6 +1399,46 @@ if (BUILD_TESTING AND UNIX AND PYTHON3_EXECUTABLE)
     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
     )
   add_test (
+    NAME torresamat1835_split_digit_marker_audit_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_split_digit_marker_audit.py
+    )
+  set_tests_properties (torresamat1835_split_digit_marker_audit_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
+    )
+  add_test (
+    NAME torresamat1835_projected_form_a_printed_2x_recovery_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_projected_form_a_printed_2x_recovery.py
+    )
+  set_tests_properties (torresamat1835_projected_form_a_printed_2x_recovery_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
+    )
+  add_test (
+    NAME torresamat1835_projected_form_a_printed_2x_dry_run_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_projected_form_a_printed_2x_dry_run.py
+    )
+  set_tests_properties (torresamat1835_projected_form_a_printed_2x_dry_run_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
+    )
+  add_test (
+    NAME torresamat1835_projected_form_a_printed_2x_discriminator_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_projected_form_a_printed_2x_discriminator.py
+    )
+  set_tests_properties (torresamat1835_projected_form_a_printed_2x_discriminator_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
+    )
+  add_test (
+    NAME torresamat1835_remaining_glyph_reprioritization_147_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_remaining_glyph_reprioritization_147.py
+    )
+  set_tests_properties (torresamat1835_remaining_glyph_reprioritization_147_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
+    )
+  add_test (
     NAME torresamat1835_projected_form_a_visible_2_discriminator_test
     COMMAND ${PYTHON3_EXECUTABLE}
             ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_projected_form_a_visible_2_discriminator.py
@@ -1439,6 +1499,18 @@ if (BUILD_TESTING AND UNIX AND PYTHON3_EXECUTABLE)
   set_tests_properties (torresamat_titulos_pipeline_test PROPERTIES
     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat
     )
+  # TORRES-ENTITY-101, TORRES-PSALM-GLUE-101 and the facsimile patch
+  # mechanism they extend.
+  foreach (torres_script entidades parche cabeceras columnas)
+    add_test (
+      NAME torresamat_${torres_script}_test
+      COMMAND ${PYTHON3_EXECUTABLE}
+              ${PROJECT_SOURCE_DIR}/scripts/torresamat/test_${torres_script}.py
+      )
+    set_tests_properties (torresamat_${torres_script}_test PROPERTIES
+      WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat
+      )
+  endforeach ()
 endif ()
 
 add_executable (psalm_title_render_test EXCLUDE_FROM_ALL

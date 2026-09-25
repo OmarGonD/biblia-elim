@@ -78,6 +78,19 @@ int main()
 		g_assert_true(content.valid);
 		g_assert_true(module->getKey() == original_key);
 		g_assert_cmpstr(module->getKeyText(), ==, before_reads.c_str());
+		const std::string raw = backend.getText(
+			module_id, key_info.key, false);
+		const std::string rendered = backend.getText(
+			module_id, key_info.key, true);
+		char *stripped_c = backend.get_strip_text(
+			module_id.c_str(), key_info.key.c_str());
+		g_assert_nonnull(stripped_c);
+		g_assert_true(*stripped_c != '\0');
+		free(stripped_c);
+		g_assert_false(raw.empty());
+		g_assert_false(rendered.empty());
+		g_assert_true(module->getKey() == original_key);
+		g_assert_cmpstr(module->getKeyText(), ==, before_reads.c_str());
 	}
 
 	const std::string before_chapter = module->getKeyText();
@@ -93,5 +106,25 @@ int main()
 	g_assert_cmpint(final_key->getVerse(), ==, key_info.reference.verse);
 	std::printf("sword_backend_key_lifecycle_failures=0 module=%s reads=1000\n",
 		module_id.c_str());
+	if (backend.hasModule("TorresAmat") &&
+	    backend.resolveKey("TorresAmat", "Psalms 118:1", key_info)) {
+		sword::SWModule *torres = backend.get_SWModule("TorresAmat");
+		g_assert_nonnull(torres);
+		torres->setKeyText(key_info.key.c_str());
+		sword::SWKey *const torres_key = torres->getKey();
+		const std::string torres_position = torres->getKeyText();
+		for (int iteration = 0; iteration < 1000; ++iteration) {
+			const std::string raw = backend.getText(
+				"TorresAmat", key_info.key, false);
+			const std::string rendered = backend.getText(
+				"TorresAmat", key_info.key, true);
+			g_assert_false(raw.empty());
+			g_assert_false(rendered.empty());
+			g_assert_true(torres->getKey() == torres_key);
+			g_assert_cmpstr(torres->getKeyText(), ==,
+					torres_position.c_str());
+		}
+		std::puts("sword_backend_key_lifecycle_torres=1000");
+	}
 	return 0;
 }

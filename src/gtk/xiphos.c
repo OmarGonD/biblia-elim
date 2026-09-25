@@ -254,6 +254,14 @@ void frontend_display(const char *tabs)
 	 * verdadero último paso del arranque, según si el versículo
 	 * inicial tiene o no una nota guardada. */
 	gui_verse_notes_panel_actualizar();
+	/* The module list and the reference entry both consume Up/Down.
+	 * Opening the app is for reading, so the Bible view takes the
+	 * keyboard once that selection side effect has run. */
+	{
+		GtkWidget *view = gui_bibletext_view();
+		if (view)
+			gtk_widget_grab_focus(view);
+	}
 
 	/* Con la ventana ya montada: el aviso de la lectura del día puede
 	 * saltar en cuanto se abre la aplicación, si su hora ya pasó. */

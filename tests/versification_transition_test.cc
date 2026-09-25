@@ -301,6 +301,58 @@ static void test_removed_module_transition(SwordBackend &backend)
 	std::puts("removed_module_transition=ok");
 }
 
+/* BOOKMARK-V11N-101: a bookmark saved without a module is KJV numbering. */
+static void expect_legacy(SwordBackend &backend, const char *key,
+			  const char *target, const char *want)
+{
+	if (!have(backend, target))
+		return;
+	const BibleModuleTransitionPlan plan =
+		planLegacyBookmarkKeyList(backend, key, target);
+	if (!want) {
+		if (plan.status != BibleModuleTransition::Unmapped)
+			g_error("legacy %s -> %s: expected Unmapped, got %s", key,
+				target, plan.key.c_str());
+		return;
+	}
+	if ((plan.status != BibleModuleTransition::Converted &&
+	     plan.status != BibleModuleTransition::SameModule) ||
+	    plan.key != want)
+		g_error("legacy %s -> %s: got \"%s\" (status %d), want \"%s\"",
+			key, target, plan.key.c_str(), (int)plan.status, want);
+	std::printf("legacy bookmark %s -> %s %s ok\n", key, target, want);
+}
+
+static void test_legacy_bookmarks(SwordBackend &backend)
+{
+	g_assert_cmpstr(kLegacyBookmarkVersification, ==, "KJV");
+	/* Same verse in either Bible: KJV identity, Vulgate converted. */
+	expect_legacy(backend, "Psalms 119:1", "SpaRV", "Psalms 119:1");
+	expect_legacy(backend, "Psalms 119:1", "TorresAmat", "Psalms 118:1");
+	expect_legacy(backend, "Psalms 119:1", "SpaPlatense", "Psalms 118:1");
+	if (have(backend, "TorresAmat")) {
+		const BibleModuleTransitionPlan one =
+			planLegacyBookmarkKey(backend, "Psalms 119:1", "TorresAmat");
+		g_assert_true(one.status == BibleModuleTransition::Converted);
+		BibleKeyInfo info;
+		g_assert_true(backend.resolveKey("TorresAmat", one.key, info));
+		g_assert_cmpint(info.reference.chapter, ==, 118);
+		g_assert_cmpint(info.reference.verse, ==, 1);
+	}
+	/* Lists, ranges and comma lists, item by item. */
+	expect_legacy(backend, "Psalms 119:1-5; Psalms 121:1", "TorresAmat",
+		      "Psalms 118:1-5; Psalms 120:1");
+	expect_legacy(backend, "Ephesians 2:8,9", "SpaRV",
+		      "Ephesians 2:8; Ephesians 2:9");
+	expect_legacy(backend, "Psalms 147:10-12", "TorresAmat",
+		      "Psalms 146:10-147:1");
+	/* No counterpart: explicit, never the same numbers reread. */
+	expect_legacy(backend, "Psalms 13:6", "TorresAmat", nullptr);
+	expect_legacy(backend, "Psalms 119:1; Psalms 13:6", "TorresAmat",
+		      nullptr);
+	std::puts("legacy_bookmarks=ok");
+}
+
 /* Each edition's own notes: same versification as the edition, so the
  * conversion is identity; from another Bible it maps. */
 static void test_author_commentaries(SwordBackend &backend)
@@ -354,6 +406,7 @@ int main()
 	test_module_transitions(backend);
 	test_removed_module_transition(backend);
 	test_author_commentaries(backend);
+	test_legacy_bookmarks(backend);
 	std::printf("versification_transition=ok skipped_cases=%d\n", skipped);
 	return 0;
 }

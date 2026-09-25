@@ -57,6 +57,34 @@ BibleModuleTransitionPlan planUriKeyForMainBible(
 	BibleBackend &backend, const std::string &source_module,
 	const std::string &source_key, const std::string &main_module);
 
+/*
+ * A bookmark saved without a module name (older bookmark files, imports).
+ *
+ * Its key names no module, so its numbering is not the selected Bible's:
+ * opening it there used to reread "Psalms 119:1" as TorresAmat's Vulgate
+ * Ps 119 instead of the psalm it was saved at. The deterministic reading
+ * is SWORD's default versification, KJV, which is what such a bookmark was
+ * written against; the key is converted from it to target_module like any
+ * other reference. Identity for a KJV target and for a target that is not
+ * verse-keyed; Unmapped when the verse has no counterpart there.
+ */
+extern const char *const kLegacyBookmarkVersification;
+BibleModuleTransitionPlan planLegacyBookmarkKey(
+	BibleBackend &backend, const std::string &key,
+	const std::string &target_module);
+
+/*
+ * The same for a bookmark key that is a list or a range ("Eph 2:8,9",
+ * "Ps 119:1-5; Ps 121:1"): each reference is converted on its own and the
+ * list is rebuilt in the target's numbering. A range keeps both ends,
+ * "C:V" when the end moved to another chapter. Unmapped when any
+ * reference has no counterpart: a partial list would silently open other
+ * verses than the ones saved.
+ */
+BibleModuleTransitionPlan planLegacyBookmarkKeyList(
+	BibleBackend &backend, const std::string &key,
+	const std::string &target_module);
+
 /* The commentary module that carries an edition's own notes, or NULL. */
 const char *authorCommentaryForBible(const char *bible);
 

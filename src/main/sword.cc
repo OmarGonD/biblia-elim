@@ -1329,6 +1329,7 @@ void main_display_commentary(const char *mod_name,
 {
 	if (!settings.havecomm || !settings.comm_showing)
 		return;
+	const char *requested_source = mod_name;
 
 	if (!mod_name)
 		mod_name = ((settings.browsing && (cur_passage_tab != NULL))
@@ -1342,6 +1343,16 @@ void main_display_commentary(const char *mod_name,
 	if ((modtype != BibleModuleType::Commentary) &&
 	    (modtype != BibleModuleType::PersonalCommentary))
 		return; // what are we doing here?
+
+	/* A NULL module means the key came from the selected Bible. Commentary
+	 * modules may declare a different versification, so carry the reference
+	 * through the transition contract before handing it to SWORD. */
+	const char *source_module = requested_source ? requested_source :
+		(settings.MainWindowModule ? settings.MainWindowModule : "");
+	gchar *native_key = companion_key(source_module, key, mod_name);
+	if (!native_key)
+		return;
+	key = native_key;
 
 	if (!settings.CommWindowModule)
 		settings.CommWindowModule = g_strdup((gchar *)mod_name);
@@ -1418,8 +1429,9 @@ void main_display_commentary(const char *mod_name,
 			      TRUE,
 			      settings.showtexts,
 			      settings.showpreview,
-			      settings.showcomms,
-			      settings.showdicts);
+				      settings.showcomms,
+				      settings.showdicts);
+	g_free(native_key);
 }
 
 /* Comentario propio de la edición que ocupa el panel bíblico.  Platense
@@ -1840,6 +1852,18 @@ gchar *main_reference_for_module(const char *source_mod,
 		return NULL;
 	const BibleModuleTransitionPlan plan = planBibleModuleTransition(
 		*bible_backend, source_mod, source_key, target_mod);
+	if (plan.status != BibleModuleTransition::SameModule &&
+	    plan.status != BibleModuleTransition::Converted)
+		return NULL;
+	return g_strdup(plan.key.c_str());
+}
+
+gchar *main_legacy_bookmark_key(const char *key, const char *target_mod)
+{
+	if (!bible_backend || !key || !target_mod)
+		return NULL;
+	const BibleModuleTransitionPlan plan =
+		planLegacyBookmarkKeyList(*bible_backend, key, target_mod);
 	if (plan.status != BibleModuleTransition::SameModule &&
 	    plan.status != BibleModuleTransition::Converted)
 		return NULL;

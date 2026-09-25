@@ -133,6 +133,11 @@ gchar *main_reference_for_module(const char *source_mod,
  * verse has no counterpart there (never the same text reread). */
 gchar *main_bible_key_for_uri(const char *source_mod,
 			      const char *source_key);
+/* A bookmark key saved without a module, carried to target_mod: read in
+ * KJV numbering (planLegacyBookmarkKey), lists and ranges item by item.
+ * Newly allocated native key, or NULL when a verse has no counterpart
+ * there (never the same text reread). */
+gchar *main_legacy_bookmark_key(const char *key, const char *target_mod);
 void main_warn_reference_unmapped(const char *source_key,
 				  const char *target_mod);
 /* Switches the main pane from source_mod to target_mod keeping the

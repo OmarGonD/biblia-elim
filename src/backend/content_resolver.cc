@@ -304,6 +304,48 @@ mapFallbackKey(BibleBackend &backend, const std::string &requested,
 	return false;
 }
 
+/* A Vulgate psalm inscription is a native verse, but its corresponding KJV
+ * verse can also contain the first body verse.  When the native slot is
+ * empty, do not copy that many-to-one fallback into it: the mapping itself
+ * identifies the structural title slot, without inspecting verse text. */
+bool
+isNativePsalmTitleSlot(BibleBackend &backend, const std::string &requested,
+			       const std::string &fallback,
+			       const BibleReference &reference)
+{
+	if (backend.versification(requested) != "Vulg" ||
+	    (backend.versification(fallback) != "KJV" &&
+	     backend.versification(fallback) != "KJVA") ||
+	    reference.verse < 1)
+		return false;
+	const std::string key = verseKeyFor(backend, requested, reference);
+	BibleKeyInfo source_info;
+	if (key.empty() || !backend.resolveKey(requested, key, source_info) ||
+	    source_info.osisBook != "Ps")
+		return false;
+	BibleKeyInfo mapped;
+	if (!mapFallbackKey(backend, requested, fallback, reference, mapped))
+		return false;
+	const BibleVerseContent mapped_content = backend.getVerseContent(
+		fallback, mapped.reference, true);
+	if (mapped_content.headings.empty())
+		return false;
+	for (int verse = reference.verse + 1;
+	     verse <= source_info.verseCount; verse++) {
+		BibleReference later = reference;
+		later.verse = verse;
+		BibleKeyInfo later_mapped;
+		if (!mapFallbackKey(backend, requested, fallback, later,
+				    later_mapped))
+			continue;
+		if (later_mapped.osisBook == mapped.osisBook &&
+		    later_mapped.reference.chapter == mapped.reference.chapter &&
+		    later_mapped.reference.verse == mapped.reference.verse)
+			return true;
+	}
+	return false;
+}
+
 BibleVerseContent
 fetchFallback(BibleBackend &backend, const std::string &requested,
 	      const std::string &fallback, const BibleReference &reference,
@@ -312,6 +354,8 @@ fetchFallback(BibleBackend &backend, const std::string &requested,
 	BibleVerseContent failed = original;
 	stampOriginal(failed, requested);
 	if (fallback.empty() || fallback == requested)
+		return failed;
+	if (isNativePsalmTitleSlot(backend, requested, fallback, reference))
 		return failed;
 
 	BibleKeyInfo mapped;

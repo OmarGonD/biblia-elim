@@ -1114,7 +1114,7 @@ main_planes_dias_hechos(const PL_PLAN *plan)
 }
 
 int
-main_planes_dia_de_hoy(const PL_PLAN *plan)
+primer_dia_pendiente(const PL_PLAN *plan)
 {
 	gchar *inicio, *marcas;
 	int i, dia = 0;
@@ -1135,28 +1135,63 @@ main_planes_dia_de_hoy(const PL_PLAN *plan)
 }
 
 int
-main_planes_dia_segun_calendario(const PL_PLAN *plan)
+main_planes_dia_para_fecha(const PL_PLAN *plan, const GDate *fecha)
 {
 	const char *inicio = main_planes_inicio(plan);
 	int a = 0, m = 0, d = 0, dias;
-	GDate empezo, hoy;
+	GDate empezo;
 
+	if (!plan || !fecha || !g_date_valid(fecha))
+		return 0;
 	if (!inicio || sscanf(inicio, "%d-%d-%d", &a, &m, &d) != 3)
 		return 0;
 	if (!g_date_valid_dmy(d, m, a))
 		return 0;
 
 	g_date_clear(&empezo, 1);
-	g_date_clear(&hoy, 1);
 	g_date_set_dmy(&empezo, d, m, a);
-	g_date_set_time_t(&hoy, time(NULL));
 
-	dias = (int)g_date_days_between(&empezo, &hoy) + 1;
+	dias = (int)g_date_days_between(&empezo, fecha) + 1;
 	if (dias < 1)
 		dias = 1;
 	if (dias > plan->dias)
 		dias = plan->dias;
 	return dias;
+}
+
+int
+main_planes_dia_segun_calendario(const PL_PLAN *plan)
+{
+	GDateTime *ahora;
+	GDate hoy;
+	int dia;
+
+	if (!plan)
+		return 0;
+	ahora = g_date_time_new_now_local();
+	g_date_clear(&hoy, 1);
+	g_date_set_dmy(&hoy, g_date_time_get_day_of_month(ahora),
+		       g_date_time_get_month(ahora), g_date_time_get_year(ahora));
+	g_date_time_unref(ahora);
+	dia = main_planes_dia_para_fecha(plan, &hoy);
+	return dia;
+}
+
+int
+main_planes_dia_de_hoy(const PL_PLAN *plan)
+{
+	int calendario;
+
+	if (!plan)
+		return 0;
+
+	/* La entrada "Lectura de hoy" sigue el calendario desde que se
+	 * activó el plan. Antes devolvía el primer día sin marcar y, por
+	 * tanto, repetía una lectura olvidada durante varios días. Los planes
+	 * antiguos sin fecha conservan el comportamiento recuperable: abrir
+	 * el primer día pendiente. */
+	calendario = main_planes_dia_segun_calendario(plan);
+	return calendario ? calendario : primer_dia_pendiente(plan);
 }
 
 void
@@ -1189,9 +1224,9 @@ main_planes_estado_hoy(gchar **detalle)
 		return PL_HOY_SIN_PLAN;
 
 	dia = main_planes_dia_de_hoy(plan);
-	/* El día que toca es el primero sin marcar; que ese salga ya
-	 * marcado solo pasa cuando no queda ninguno, o sea, al final. */
-	if (main_planes_dia_hecho(plan, dia)) {
+	/* Solo se terminó cuando todos los días están marcados. El día
+	 * programado de hoy puede haberse marcado aunque quede un atraso. */
+	if (main_planes_dias_hechos(plan) >= plan->dias) {
 		if (detalle)
 			*detalle = g_strdup_printf(_("%s · terminado"),
 						   _(plan->nombre));
@@ -1214,7 +1249,7 @@ int
 main_planes_dias_atrasados(const PL_PLAN *plan)
 {
 	int calendario = main_planes_dia_segun_calendario(plan);
-	int hoy = main_planes_dia_de_hoy(plan);
+	int hoy = primer_dia_pendiente(plan);
 
 	if (!plan || !calendario || calendario <= hoy)
 		return 0;
@@ -1256,7 +1291,7 @@ main_planes_reprogramar(const PL_PLAN *plan)
 
 	/* El día pendiente pasa a caer hoy: si va por el 7, el plan
 	 * empezó hace seis días, no cuando fuera. Nada se marca. */
-	dia = main_planes_dia_de_hoy(plan);
+	dia = primer_dia_pendiente(plan);
 	g_date_clear(&fecha, 1);
 	g_date_set_time_t(&fecha, time(NULL));
 	if (dia > 1)

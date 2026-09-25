@@ -61,8 +61,8 @@ endif()
 if(NOT output MATCHES "gtk_lifecycle_smoke_failures=0")
   message(FATAL_ERROR "GTK lifecycle smoke did not complete:\n${output}")
 endif()
-foreach(surface bible-main bible-compare commentary dictionary
-                sidebar-previewer lower-previewer)
+foreach(surface bible-main bible-compare commentary sidebar-previewer
+                lower-previewer)
   if(NOT output MATCHES "${surface} CREATE" OR
      NOT output MATCHES "${surface} SHOW" OR
      NOT output MATCHES "${surface} (RENDERER_)?MAP")

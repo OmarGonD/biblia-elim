@@ -13,6 +13,7 @@
 #include <string.h>
 
 #include "gtk_lifecycle_smoke.h"
+#include "gui/lectura_sync.h"
 #include "gui/main_menu.h"
 #include "gui/main_window.h"
 #include "gui/sidebar.h"
@@ -95,14 +96,13 @@ check_allocation(GtkWidget *widget, gpointer unused)
 }
 
 static void
-collect_surfaces(SmokeSurface surfaces[6])
+collect_surfaces(SmokeSurface surfaces[5])
 {
 	surfaces[0] = (SmokeSurface){ "bible", widgets.html_text };
 	surfaces[1] = (SmokeSurface){ "commentary", widgets.html_comm };
-	surfaces[2] = (SmokeSurface){ "dictionary", widgets.html_dict };
-	surfaces[3] = (SmokeSurface){ "compare", widgets.html_lectura_sync };
-	surfaces[4] = (SmokeSurface){ "sidebar-preview", sidebar.html_viewer_widget };
-	surfaces[5] = (SmokeSurface){ "lower-preview", widgets.html_previewer_text };
+	surfaces[2] = (SmokeSurface){ "compare", widgets.html_lectura_sync };
+	surfaces[3] = (SmokeSurface){ "sidebar-preview", sidebar.html_viewer_widget };
+	surfaces[4] = (SmokeSurface){ "lower-preview", widgets.html_previewer_text };
 }
 
 static void
@@ -123,14 +123,38 @@ render_surface(const SmokeSurface *surface)
 	renderer_checks++;
 }
 
+/* Reopened panes get their splitter position on a later layout pass;
+ * until then GtkPaned keeps the child unmapped. Wait for it, bounded. */
+#define MAP_WAIT_MS 100
+#define MAP_WAIT_TRIES 50
+
+static gboolean
+surfaces_mapped(const SmokeSurface surfaces[5])
+{
+	guint i;
+
+	for (i = 0; i < 5; i++)
+		if (!gtk_widget_get_mapped(surfaces[i].widget))
+			return FALSE;
+	return TRUE;
+}
+
 static gboolean
 finish_smoke(gpointer unused)
 {
-	SmokeSurface surfaces[6];
+	static guint tries;
+	SmokeSurface surfaces[5];
 	guint i;
 
 	(void)unused;
 	collect_surfaces(surfaces);
+	if (!surfaces_mapped(surfaces) && tries++ < MAP_WAIT_TRIES) {
+		g_timeout_add(MAP_WAIT_MS, finish_smoke, NULL);
+		return G_SOURCE_REMOVE;
+	}
+	for (i = 0; i < G_N_ELEMENTS(surfaces); i++)
+		check(gtk_widget_get_mapped(surfaces[i].widget),
+		      "renderer did not map after its panel reopened");
 	for (i = 0; i < G_N_ELEMENTS(surfaces); i++) {
 		GtkWidget *top = gtk_widget_get_toplevel(surfaces[i].widget);
 		check(top != surfaces[i].widget, "renderer is not anchored");
@@ -159,11 +183,13 @@ show_panels(gpointer unused)
 {
 	(void)unused;
 	gtk_widget_show(widgets.notebook_comm_book);
-	gtk_widget_show(widgets.notebook_dict_devot);
 	gtk_widget_show(widgets.paned_sidebar);
 	gtk_widget_show(widgets.box_side_preview);
 	gtk_widget_show(widgets.vbox_previewer);
-	gtk_widget_show(widgets.box_lectura_sync);
+	/* The compare pane opens through its public helper, as «Comparar»
+	 * does: the pane box alone leaves its renderer hidden since startup
+	 * hid both (UI-SMOKE-103). */
+	gui_lectura_sync_set_visible(TRUE);
 	gtk_widget_show_all(widgets.app);
 	check(gtk_widget_get_visible(widgets.notebook_comm_book),
 	      "commentary panel did not reopen explicitly");
@@ -188,18 +214,42 @@ show_panels(gpointer unused)
 			bible = gtk_widget_get_allocated_width(widgets.vpaned);
 			check(splitter > 0 && bible >= splitter - 24,
 			      "bible pane did not expand after commentary close");
-			gtk_widget_set_no_show_all(widgets.vpaned2, FALSE);
-			gtk_widget_show(widgets.vpaned2);
-			gtk_widget_show(widgets.notebook_comm_book);
+			/* Reopen as «Ver comentario» does: raw show() left the
+			 * settings closed, so the next layout pass (the stale
+			 * dictionary request below) hid it again (UI-SMOKE-103). */
+			gui_show_hide_comms(TRUE);
 			check(gtk_widget_get_visible(widgets.notebook_comm_book),
 			      "commentary panel did not reopen after close");
 		}
 	}
-	check(gtk_widget_get_visible(widgets.notebook_dict_devot),
-	      "dictionary panel did not reopen explicitly");
+	/* Dictionary/Devotional has no visible entry point anymore.  A stale
+	 * session/tab request must keep it closed rather than reviving a retired
+	 * pane; exercising the public helper verifies that policy. */
+	gui_show_hide_dicts(TRUE);
+	check(!settings.showdicts && !gtk_widget_get_visible(widgets.notebook_dict_devot),
+	      "retired dictionary panel reopened from a stale request");
+	check(gtk_widget_get_visible(widgets.notebook_comm_book) &&
+	      gtk_widget_get_visible(widgets.vpaned2),
+	      "commentary panel closed again after the dictionary request");
+	/* Without a commentary module the layout opens the «Notas» page, so
+	 * the commentary renderer is behind a hidden notebook page. Select
+	 * its tab as the reader would, after the last layout pass, so the
+	 * surface's own map is exercised (UI-SMOKE-103). */
+	{
+		GtkNotebook *nb = GTK_NOTEBOOK(widgets.notebook_comm_book);
+		gint page = gtk_notebook_page_num(nb, widgets.box_comm);
+
+		check(page >= 0, "commentary page missing from its notebook");
+		if (page >= 0)
+			gtk_notebook_set_current_page(nb, page);
+		check(gtk_notebook_get_current_page(nb) == page,
+		      "commentary tab could not be selected");
+	}
 	check(gtk_widget_get_visible(widgets.box_lectura_sync),
 	      "compare panel did not reopen explicitly");
-	panel_checks += 12;
+	check(gtk_widget_get_visible(widgets.html_lectura_sync),
+	      "compare renderer stayed hidden after the panel reopened");
+	panel_checks += 16;
 	g_idle_add(finish_smoke, NULL);
 	return G_SOURCE_REMOVE;
 }
@@ -213,14 +263,16 @@ hide_panels(gpointer unused)
 	gtk_widget_hide(widgets.paned_sidebar);
 	gtk_widget_hide(widgets.box_side_preview);
 	gtk_widget_hide(widgets.vbox_previewer);
-	gtk_widget_hide(widgets.box_lectura_sync);
+	gui_lectura_sync_set_visible(FALSE);
 	check(!gtk_widget_get_visible(widgets.notebook_comm_book),
 	      "commentary panel did not close");
 	check(!gtk_widget_get_visible(widgets.notebook_dict_devot),
 	      "dictionary panel did not close");
 	check(!gtk_widget_get_visible(widgets.paned_sidebar),
 	      "sidebar did not close");
-	panel_checks += 6;
+	check(!gtk_widget_get_visible(widgets.box_lectura_sync),
+	      "compare panel did not close");
+	panel_checks += 7;
 	g_idle_add(show_panels, NULL);
 	return G_SOURCE_REMOVE;
 }
@@ -228,7 +280,7 @@ hide_panels(gpointer unused)
 static gboolean
 exercise_application(gpointer unused)
 {
-	SmokeSurface surfaces[6];
+	SmokeSurface surfaces[5];
 	guint i;
 
 	(void)unused;

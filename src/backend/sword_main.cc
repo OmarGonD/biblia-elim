@@ -54,6 +54,46 @@
 using namespace sword;
 using namespace std;
 
+namespace {
+
+/* Legacy string helpers are also used while GTK owns module->getKey().
+ * Position the existing VerseKey in place; SWModule::setKey(const char *)
+ * replaces the owned key object and invalidates shared observers. */
+struct LegacyModuleKeyGuard {
+	SWModule *module = NULL;
+	SWKey *key = NULL;
+	std::string text;
+	char auto_normalize = 1;
+	bool skip_links = false;
+
+	explicit LegacyModuleKeyGuard(SWModule *m) : module(m)
+	{
+		if (!module)
+			return;
+		key = module->getKey();
+		if (key)
+			text = module->getKeyText();
+		if (VerseKey *vk = dynamic_cast<VerseKey *>(key))
+			auto_normalize = vk->isAutoNormalize();
+		skip_links = module->isSkipConsecutiveLinks();
+	}
+
+	~LegacyModuleKeyGuard()
+	{
+		if (!module || !key)
+			return;
+		module->setSkipConsecutiveLinks(skip_links);
+		if (VerseKey *vk = dynamic_cast<VerseKey *>(module->getKey())) {
+			if (vk == key)
+				vk->setAutoNormalize(auto_normalize);
+		}
+		if (module->getKey() == key)
+			module->setKeyText(text.c_str());
+	}
+};
+
+} // namespace
+
 BackEnd *backend = NULL;
 
 std::vector<BibleModuleInfo> BackEnd::listModules() const
@@ -411,7 +451,8 @@ char *BackEnd::get_render_text(const char *module_name, const char *key)
 	SWModule *mod = get_SWModule(module_name);
 
 	if (mod) {
-		mod->setKey(key);
+		LegacyModuleKeyGuard restore(mod);
+		mod->setKeyText(key);
 		return strdup(mod->renderText().c_str());
 	}
 	return NULL;
@@ -422,7 +463,8 @@ char *BackEnd::get_raw_text(const char *module_name, const char *key)
 	SWModule *mod = get_SWModule(module_name);
 
 	if (mod) {
-		mod->setKey(key);
+		LegacyModuleKeyGuard restore(mod);
+		mod->setKeyText(key);
 		return strdup((char *)mod->getRawEntry());
 	}
 	return NULL;
@@ -452,7 +494,8 @@ char *BackEnd::get_strip_text(const char *module_name, const char *key)
 	SWModule *mod = get_SWModule(module_name);
 
 	if (mod) {
-		mod->setKey(key);
+		LegacyModuleKeyGuard restore(mod);
+		mod->setKeyText(key);
 		return strdup(mod->stripText());
 	}
 	return NULL;

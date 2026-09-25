@@ -363,7 +363,7 @@ makeCorpus()
 	backend.addVerse("NacarColunga", ref(1, 2, 3, 1), "Psalms", "Ps", "",
 			 { heading });
 	backend.addVerse("SpaRV1909", ref(1, 2, 3, 1), "Psalms", "Ps",
-			 "Señor, cuán multiplicados son mis enemigos.");
+			 "Señor, cuán multiplicados son mis enemigos.", { heading });
 	return backend;
 }
 
@@ -610,7 +610,41 @@ test_vulg_psalm_uses_sword_mapping()
 	g_assert_true(content.renderedText.find("TEXTO-KJV-PS-11") !=
 		      std::string::npos);
 	g_assert_true(content.renderedText.find("TEXTO-KJV-PS-10") ==
-		      std::string::npos);
+			      std::string::npos);
+}
+
+void
+test_vulg_native_psalm_title_slots_do_not_fallback()
+{
+	resetContentResolverCache();
+	HarnessBackend backend = makeCorpus();
+	/* The native title slots are intentionally absent. Their later native
+	 * verses map to the same KJV slots, which is the structural signal. */
+	backend.addVerse("TorresAmat", ref(1, 2, 3, 2), "Psalms", "Ps",
+			 "Cuerpo de Salmo 3:2");
+	backend.addVerse("TorresAmat", ref(1, 2, 50, 3), "Psalms", "Ps",
+			 "Cuerpo de Salmo 50:3");
+	backend.addVerse("TorresAmat", ref(1, 2, 51, 3), "Psalms", "Ps",
+			 "Cuerpo de Salmo 51:3");
+	BibleHeading psalm_heading;
+	psalm_heading.text = "<h3>Salmo de David</h3>";
+	backend.addVerse("SpaRV1909", ref(1, 2, 3, 2), "Psalms", "Ps",
+			 "KJV Salmo 3:2 body");
+	backend.addVerse("SpaRV1909", ref(1, 2, 51, 1), "Psalms", "Ps",
+			 "KJV Salmo 51:1 title + body", { psalm_heading });
+	backend.addVerse("SpaRV1909", ref(1, 2, 51, 2), "Psalms", "Ps",
+			 "KJV Salmo 51:2 body");
+	backend.addVerse("SpaRV1909", ref(1, 2, 52, 1), "Psalms", "Ps",
+			 "KJV Salmo 52:1 title + body", { psalm_heading });
+	backend.addVerse("SpaRV1909", ref(1, 2, 52, 2), "Psalms", "Ps",
+			 "KJV Salmo 52:2 body");
+	for (const BibleReference &slot : {
+		     ref(1, 2, 3, 1), ref(1, 2, 50, 1), ref(1, 2, 51, 1)}) {
+		BibleVerseContent content = resolveVerseContent(
+			backend, "TorresAmat", slot);
+		g_assert_false(content.isFallback);
+		g_assert_cmpstr(content.sourceModuleId.c_str(), ==, "TorresAmat");
+	}
 }
 
 void
@@ -783,6 +817,7 @@ main(void)
 	test_default_policy_id_is_sparv1909();
 	test_nrsva_keeps_kjv_psalm_numbers();
 	test_vulg_psalm_uses_sword_mapping();
+	test_vulg_native_psalm_title_slots_do_not_fallback();
 	test_kjv_to_kjv_is_verified_identity();
 	test_nrsva_psalm_1_is_verified_identity();
 	test_mt_to_kjv_is_unsupported();
