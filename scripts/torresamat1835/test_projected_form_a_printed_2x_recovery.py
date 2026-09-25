@@ -32,7 +32,8 @@ def test_match_2x_is_source_only():
 def test_production_reproduces_task149():
     _edition, report = audit_volume.audit(XML, volume="3",
                                           witness="ia-lasagradabiblia01unkngoog",
-                                          book="Ps")
+                                          book="Ps",
+                                          split_digit_recovery=False)
     seg = report["verse_segmentation_audit"]
     run = seg["projected_form_a_printed_2x_recovery"]
     dry = json.loads(DRY.read_text())["predicted_delta"]

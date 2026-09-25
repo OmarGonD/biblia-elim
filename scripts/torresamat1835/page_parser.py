@@ -28,6 +28,7 @@ import heading_validity
 import image_reviews as review_outcomes
 import parser as classifier
 import projected_form_a_recovery
+import split_digit_recovery
 import recovery as image_recovery
 import roman
 import structure
@@ -49,7 +50,9 @@ SPANISH_HINT = ("señor", "dios", "que", "los", "de", "su", "porque", "el",
 #: numerados tiene un versículo.
 _NUMBERED_DECISIONS = frozenset({"numbered line", "compound_glyph_marker",
                                  projected_form_a_recovery.DECISION,
-                                 projected_form_a_recovery.DECISION_2X})
+                                 projected_form_a_recovery.DECISION_2X,
+                                 split_digit_recovery.DECISION,
+                                 split_digit_recovery.DECISION_GLUED})
 
 _ZONE_KIND = {
     Zone.HEADER: BlockKind.PAGE_HEADER,
@@ -112,7 +115,9 @@ class VolumeParser:
                  zero_anchor_io_recovery: bool = True,
                  a_glyph_evidence=None,
                  projected_form_a_recovery: bool = True,
-                 printed_2x_recovery: bool = True):
+                 printed_2x_recovery: bool = True,
+                 split_digit_recovery: bool = True,
+                 glued_marker_recovery: bool = True):
         self.compound_recovery = compound_recovery
         self.zero_anchor_io_recovery = zero_anchor_io_recovery
         #: Task 146. Es un respaldo: sólo actúa con las recuperaciones
@@ -123,6 +128,12 @@ class VolumeParser:
         #: una segunda pasada sobre la edición que ella dejó.
         self.printed_2x_recovery = (bool(printed_2x_recovery)
                                     and self.projected_form_a_recovery)
+        #: Task 153. Tercera pasada, sólo con la 150 encendida.
+        self.split_digit_recovery = (bool(split_digit_recovery)
+                                     and self.printed_2x_recovery)
+        #: Task 156. Cuarta pasada, sólo con la 153 encendida.
+        self.glued_marker_recovery = (bool(glued_marker_recovery)
+                                      and self.split_digit_recovery)
         self.a_glyph_recovery = (compound_recovery if a_glyph_recovery is None
                                  else a_glyph_recovery)
         if a_glyph_evidence is not None:
@@ -192,6 +203,8 @@ class VolumeParser:
         self.projected_form_a_candidates = []
         self.projected_form_a_rejections = {}
         self.printed_2x_candidates = []
+        self.split_digit_candidates = []
+        self.glued_marker_candidates = []
         self._form_a_blocks = {}
         self._form_a_geometry = None
         self._band = None
@@ -862,6 +875,25 @@ class VolumeParser:
         if form_2x_applied:
             self._bump("spanish_verse_starts_projected_form_a_2x",
                        form_2x_applied)
+        # Task 153: sobre la edición que dejó la 150, como midió la 152.
+        split_digit_recovery.apply(
+            self.edition, self.split_digit_candidates,
+            enabled=self.split_digit_recovery,
+            verse_limit=structure.verse_limit)
+        split_applied = sum(1 for row in self.split_digit_candidates
+                            if row.get("applied"))
+        if split_applied:
+            self._bump("spanish_verse_starts_split_two_digit", split_applied)
+        # Task 156: sobre la edición que dejó la 153, como midió la 155.
+        split_digit_recovery.apply(
+            self.edition, self.glued_marker_candidates,
+            enabled=self.glued_marker_recovery,
+            verse_limit=structure.verse_limit, skip_openers=True,
+            decision=split_digit_recovery.DECISION_GLUED)
+        glued_applied = sum(1 for row in self.glued_marker_candidates
+                            if row.get("applied"))
+        if glued_applied:
+            self._bump("spanish_verse_starts_glued_two_char", glued_applied)
         self._attribute_framed_markers()
 
         by_claim = {r["claim_id"]: r for r in self.resolutions
@@ -944,6 +976,29 @@ class VolumeParser:
         record.update(detail)
         self.projected_form_a_candidates.append(record)
         return record
+
+    def _note_split_digit(self, placed, prov):
+        """Task 153: anota un renglón «d d Frase» en la columna castellana."""
+        if placed.zone is not Zone.BODY or placed.column is not Column.RIGHT:
+            return
+        text, value = split_digit_recovery.match(placed.line)
+        target = self.split_digit_candidates
+        if text is None:
+            text, value = split_digit_recovery.match_glued(placed.line)
+            target = self.glued_marker_candidates
+        if text is None:
+            return
+        if self._form_a_geometry is None:
+            self._form_a_geometry = projected_form_a_recovery.validated_geometry(
+                self.page)
+        where, _bands = self._form_a_geometry
+        column, zone = where.get(placed.line.index, (None, None))
+        if column is not Column.RIGHT or zone is not Zone.BODY:
+            return
+        target.append({
+            "block_id": prov.block_id, "scan_page": self.page.scan_page,
+            "raw": placed.line.raw_text[:90], "text": text, "value": value,
+            "outcome": None, "applied": False})
 
     def _note_printed_2x(self, placed, prov, text, value):
         """Task 150: anota «a» + segunda cifra en el cuerpo castellano.
@@ -1109,6 +1164,9 @@ class VolumeParser:
             if getattr(self, "_compound_block", None) is not None:
                 block = self._compound_block
                 self._compound_block = None
+        # Task 153: «d d Frase» en el cuerpo castellano, sea cual sea la
+        # clase que le dio el clasificador; se decide en finish().
+        self._note_split_digit(placed, prov)
         # Task 146: el respaldo de la forma proyectada «a» mira sólo lo que
         # sigue sin número después de TODAS las rutas anteriores.
         form_a = None
@@ -1190,7 +1248,9 @@ def parse_volume(pages: Iterable, *, witness: str, volume: str,
                  a_glyph_recovery: Optional[bool] = None,
                  a_glyph_evidence=None, zero_anchor_io_recovery: bool = True,
                  projected_form_a_recovery: bool = True,
-                 printed_2x_recovery: bool = True):
+                 printed_2x_recovery: bool = True,
+                 split_digit_recovery: bool = True,
+                 glued_marker_recovery: bool = True):
     """Recorre las páginas y devuelve (edición, métricas)."""
     edition = edition or Edition(edition_id="TorresAmat1835")
     walker = VolumeParser(edition, witness=witness, volume=volume, book=book,
@@ -1204,7 +1264,9 @@ def parse_volume(pages: Iterable, *, witness: str, volume: str,
                           zero_anchor_io_recovery=zero_anchor_io_recovery,
                           a_glyph_evidence=a_glyph_evidence,
                           projected_form_a_recovery=projected_form_a_recovery,
-                          printed_2x_recovery=printed_2x_recovery)
+                          printed_2x_recovery=printed_2x_recovery,
+                          split_digit_recovery=split_digit_recovery,
+                          glued_marker_recovery=glued_marker_recovery)
     for page in pages:
         walker.feed_page(page)
     walker.finish()

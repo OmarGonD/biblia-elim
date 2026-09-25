@@ -1399,6 +1399,30 @@ if (BUILD_TESTING AND UNIX AND PYTHON3_EXECUTABLE)
     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
     )
   add_test (
+    NAME torresamat1835_glued_two_char_marker_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_glued_two_char_marker.py
+    )
+  set_tests_properties (torresamat1835_glued_two_char_marker_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
+    )
+  add_test (
+    NAME torresamat1835_split_digit_recovery_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_split_digit_recovery.py
+    )
+  set_tests_properties (torresamat1835_split_digit_recovery_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
+    )
+  add_test (
+    NAME torresamat1835_split_digit_marker_dry_run_test
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_split_digit_marker_dry_run.py
+    )
+  set_tests_properties (torresamat1835_split_digit_marker_dry_run_test PROPERTIES
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat1835
+    )
+  add_test (
     NAME torresamat1835_split_digit_marker_audit_test
     COMMAND ${PYTHON3_EXECUTABLE}
             ${PROJECT_SOURCE_DIR}/scripts/torresamat1835/test_split_digit_marker_audit.py

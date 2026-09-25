@@ -159,7 +159,7 @@ def main():
     ns = ap.parse_args()
     edition, _audit = audit_volume.audit(
         str(XML), volume="3", witness="ia-lasagradabiblia01unkngoog",
-        book="Ps")
+        book="Ps", split_digit_recovery=False)  # measured before task 153
     data = build(edition)
     ns.out.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n",
                       encoding="utf-8")

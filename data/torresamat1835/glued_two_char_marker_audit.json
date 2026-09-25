@@ -1,0 +1,9643 @@
+{
+ "schema_version": 1,
+ "provenance": {
+  "generator": "scripts/torresamat1835/glued_two_char_marker_audit.py",
+  "source_xml_sha256": "545fe8dcedac680271334613f3ae9c3253bd57ed80610868a7e13fdfb78ada5f",
+  "runtime_mode": "production (task-153 recovery enabled)"
+ },
+ "glyph_map": {
+  "i": 1,
+  "I": 1,
+  "l": 1,
+  "a": 2,
+  "o": 0,
+  "O": 0
+ },
+ "corpus_candidates": 698,
+ "family_population": 670,
+ "already_opening_a_ref": 0,
+ "token_forms": {
+  "i3": 83,
+  "i5": 70,
+  "ai": 66,
+  "ao": 60,
+  "aa": 55,
+  "a6": 51,
+  "a3": 42,
+  "i4": 41,
+  "3a": 32,
+  "i6": 27,
+  "a4": 21,
+  "a5": 19,
+  "II": 18,
+  "a8": 16,
+  "3o": 14,
+  "a9": 11,
+  "a7": 10,
+  "3i": 7,
+  "4a": 4,
+  "io": 4,
+  "i8": 4,
+  "ia": 2,
+  "4i": 2,
+  "5a": 2,
+  "li": 2,
+  "a2": 1,
+  "i7": 1,
+  "ii": 1,
+  "4o": 1,
+  "6a": 1,
+  "7a": 1,
+  "9a": 1
+ },
+ "books": {
+  "Eccl": 22,
+  "Isa": 134,
+  "Prov": 119,
+  "Ps": 160,
+  "Sir": 202,
+  "Song": 1,
+  "Wis": 32
+ },
+ "facsimile_sample": {
+  "seed": 154,
+  "size": 32,
+  "agreement": 32,
+  "reviews": [
+   {
+    "block": "p0033l0055",
+    "source_reading": 29,
+    "facsimile_value": 29,
+    "agrees": true
+   },
+   {
+    "block": "p0102l0093",
+    "source_reading": 20,
+    "facsimile_value": 20,
+    "agrees": true
+   },
+   {
+    "block": "p0146l0034",
+    "source_reading": 20,
+    "facsimile_value": 20,
+    "agrees": true
+   },
+   {
+    "block": "p0190l0040",
+    "source_reading": 20,
+    "facsimile_value": 20,
+    "agrees": true
+   },
+   {
+    "block": "p0194l0074",
+    "source_reading": 14,
+    "facsimile_value": 14,
+    "agrees": true
+   },
+   {
+    "block": "p0242l0037",
+    "source_reading": 26,
+    "facsimile_value": 26,
+    "agrees": true
+   },
+   {
+    "block": "p0244l0041",
+    "source_reading": 22,
+    "facsimile_value": 22,
+    "agrees": true
+   },
+   {
+    "block": "p0244l0060",
+    "source_reading": 28,
+    "facsimile_value": 28,
+    "agrees": true
+   },
+   {
+    "block": "p0265l0020",
+    "source_reading": 26,
+    "facsimile_value": 26,
+    "agrees": true
+   },
+   {
+    "block": "p0266l0055",
+    "source_reading": 13,
+    "facsimile_value": 13,
+    "agrees": true
+   },
+   {
+    "block": "p0282l0036",
+    "source_reading": 21,
+    "facsimile_value": 21,
+    "agrees": true
+   },
+   {
+    "block": "p0285l0084",
+    "source_reading": 16,
+    "facsimile_value": 16,
+    "agrees": true
+   },
+   {
+    "block": "p0289l0048",
+    "source_reading": 20,
+    "facsimile_value": 20,
+    "agrees": true
+   },
+   {
+    "block": "p0289l0051",
+    "source_reading": 21,
+    "facsimile_value": 21,
+    "agrees": true
+   },
+   {
+    "block": "p0291l0077",
+    "source_reading": 15,
+    "facsimile_value": 15,
+    "agrees": true
+   },
+   {
+    "block": "p0291l0084",
+    "source_reading": 16,
+    "facsimile_value": 16,
+    "agrees": true
+   },
+   {
+    "block": "p0310l0015",
+    "source_reading": 16,
+    "facsimile_value": 16,
+    "agrees": true
+   },
+   {
+    "block": "p0324l0036",
+    "source_reading": 13,
+    "facsimile_value": 13,
+    "agrees": true
+   },
+   {
+    "block": "p0331l0083",
+    "source_reading": 13,
+    "facsimile_value": 13,
+    "agrees": true
+   },
+   {
+    "block": "p0340l0068",
+    "source_reading": 16,
+    "facsimile_value": 16,
+    "agrees": true
+   },
+   {
+    "block": "p0350l0066",
+    "source_reading": 14,
+    "facsimile_value": 14,
+    "agrees": true
+   },
+   {
+    "block": "p0358l0073",
+    "source_reading": 20,
+    "facsimile_value": 20,
+    "agrees": true
+   },
+   {
+    "block": "p0374l0040",
+    "source_reading": 22,
+    "facsimile_value": 22,
+    "agrees": true
+   },
+   {
+    "block": "p0415l0069",
+    "source_reading": 26,
+    "facsimile_value": 26,
+    "agrees": true
+   },
+   {
+    "block": "p0433l0069",
+    "source_reading": 20,
+    "facsimile_value": 20,
+    "agrees": true
+   },
+   {
+    "block": "p0468l0089",
+    "source_reading": 21,
+    "facsimile_value": 21,
+    "agrees": true
+   },
+   {
+    "block": "p0481l0051",
+    "source_reading": 14,
+    "facsimile_value": 14,
+    "agrees": true
+   },
+   {
+    "block": "p0509l0060",
+    "source_reading": 29,
+    "facsimile_value": 29,
+    "agrees": true
+   },
+   {
+    "block": "p0552l0015",
+    "source_reading": 20,
+    "facsimile_value": 20,
+    "agrees": true
+   },
+   {
+    "block": "p0597l0046",
+    "source_reading": 10,
+    "facsimile_value": 10,
+    "agrees": true
+   },
+   {
+    "block": "p0603l0020",
+    "source_reading": 11,
+    "facsimile_value": 11,
+    "agrees": true
+   },
+   {
+    "block": "p0626l0013",
+    "source_reading": 21,
+    "facsimile_value": 21,
+    "agrees": true
+   }
+  ]
+ },
+ "runtime_invariants": {
+  "new_recovery": false,
+  "expected_verse_used": false
+ },
+ "rows": [
+  {
+   "block": "p0022l0076",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Porque",
+    "vengando",
+    "ía"
+   ],
+   "owner_refs": [
+    "Ps.9.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0023l0066",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Levántate",
+    "y",
+    "oh"
+   ],
+   "owner_refs": [
+    "Ps.9.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0024l0070",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Xo.'",
+    "poderosa",
+    "manp;"
+   ],
+   "owner_refs": [
+    "Ps.9.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0032l0061",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Al",
+    "resplandor",
+    "de"
+   ],
+   "owner_refs": [
+    "Ps.17.10"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0032l0064",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Y",
+    "tronó",
+    "el.SeSor"
+   ],
+   "owner_refs": [
+    "Ps.17.10"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0032l0071",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "Hidéronse",
+    "visibles",
+    "los"
+   ],
+   "owner_refs": [
+    "Ps.17.10"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0032l0086",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Sacóme*",
+    "á",
+    "la'anchnca*:"
+   ],
+   "owner_refs": [
+    "Ps.17.18"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0033l0042",
+   "value": 24,
+   "tokens": [
+    "a4",
+    "Y",
+    "me",
+    "manteodré"
+   ],
+   "owner_refs": [
+    "Ps.17.21"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0033l0055",
+   "value": 29,
+   "tokens": [
+    "a9",
+    "Y",
+    "paes",
+    "qoe"
+   ],
+   "owner_refs": [
+    "Ps.17.28"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0033l0065",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "Porqae",
+    "¿qué",
+    "otro"
+   ],
+   "owner_refs": [
+    "Ps.17.31"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0034l0048",
+   "value": 42,
+   "tokens": [
+    "4a",
+    "Clamaron;",
+    "mas",
+    "no."
+   ],
+   "owner_refs": [
+    "Ps.17.41"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0037l0078",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Tú",
+    "empero",
+    "los"
+   ],
+   "owner_refs": [
+    "Ps.20.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0038l0071",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Cercado",
+    "me",
+    "han"
+   ],
+   "owner_refs": [
+    "Ps.21.10"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0039l0052",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Mas",
+    "tú,",
+    "ob"
+   ],
+   "owner_refs": [
+    "Ps.21.9"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0039l0055",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Libra",
+    "mi",
+    "vida,"
+   ],
+   "owner_refs": [
+    "Ps.21.9"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0039l0058",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Sálvame",
+    "de",
+    "la"
+   ],
+   "owner_refs": [
+    "Ps.21.9"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0040l0033",
+   "value": 30,
+   "tokens": [
+    "3o",
+    "Comieron",
+    ",",
+    "y"
+   ],
+   "owner_refs": [
+    "Ps.21.17"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0040l0036",
+   "value": 31,
+   "tokens": [
+    "3i",
+    "Y",
+    "mi",
+    "alma"
+   ],
+   "owner_refs": [
+    "Ps.21.17"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0040l0038",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "Será",
+    "contada",
+    "como"
+   ],
+   "owner_refs": [
+    "Ps.21.17"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0045l0061",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Aguarda",
+    "al",
+    "SeBor,"
+   ],
+   "owner_refs": [
+    "Ps.26.13"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0050l0020",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Bendito",
+    "'tea",
+    "el"
+   ],
+   "owner_refs": [
+    "Ps.30.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0050l0023",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Yo,",
+    "es",
+    "verdad,"
+   ],
+   "owner_refs": [
+    "Ps.30.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0050l0031",
+   "value": 25,
+   "tokens": [
+    "a5",
+    "Portaos",
+    "varonilmente",
+    "todos"
+   ],
+   "owner_refs": [
+    "Ps.30.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0052l0054",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Él",
+    "es",
+    "el"
+   ],
+   "owner_refs": [
+    "Ps.32.10"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0052l0068",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Asi",
+    "nuestra",
+    "alma"
+   ],
+   "owner_refs": [
+    "Ps.32.18"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0052l0071",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "En",
+    "él",
+    "bailará"
+   ],
+   "owner_refs": [
+    "Ps.32.18"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0054l0041",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Mq^has",
+    ",",
+    "app'"
+   ],
+   "owner_refs": [
+    "Ps.34.18"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0058l0072",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Pero",
+    "su",
+    "misma"
+   ],
+   "owner_refs": [
+    "Ps.36.13"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0058l0091",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Tomará",
+    "prestado",
+    "el"
+   ],
+   "owner_refs": [
+    "Ps.36.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0058l0094",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Por",
+    "tanto",
+    "oqneUoa"
+   ],
+   "owner_refs": [
+    "Ps.36.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0058l0097",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "El",
+    "Seüor",
+    "dirigirá"
+   ],
+   "owner_refs": [
+    "Ps.36.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0061l0041",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Y",
+    "me",
+    "hice"
+   ],
+   "owner_refs": [
+    "Ps.37.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0062l0076",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Afloja",
+    "un",
+    "poco"
+   ],
+   "owner_refs": [
+    "Ps.38.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0063l0084",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Porque",
+    "me",
+    "hallo"
+   ],
+   "owner_refs": [
+    "Ps.39.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0068l0049",
+   "value": 11,
+   "tokens": [
+    "II",
+    "Nos",
+    "hiciste",
+    "volver"
+   ],
+   "owner_refs": [
+    "Ps.43.10"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0068l0055",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Has",
+    "vendido",
+    "á"
+   ],
+   "owner_refs": [
+    "Ps.43.10"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0068l0082",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "¿",
+    "por",
+    "ventura"
+   ],
+   "owner_refs": [
+    "Ps.43.21"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0069l0010",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Levántale,",
+    "oh",
+    "Señor,"
+   ],
+   "owner_refs": [
+    "Ps.43.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0073l0038",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Dad",
+    "vueltas",
+    "al"
+   ],
+   "owner_refs": [
+    "Ps.47.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0074l0065",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Y",
+    "el",
+    "hombre,"
+   ],
+   "owner_refs": [
+    "Ps.48.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0075l0008",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Eainirá",
+    "el",
+    "lograr"
+   ],
+   "owner_refs": [
+    "Ps.48.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0075l0010",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Porque",
+    "él",
+    "bomliref"
+   ],
+   "owner_refs": [
+    "Ps.48.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0076l0057",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Entended",
+    "esto",
+    "bien"
+   ],
+   "owner_refs": [
+    "Ps.49.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0077l0068",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "Líbrame",
+    "de",
+    "la"
+   ],
+   "owner_refs": [
+    "Ps.50.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0078l0024",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Eo",
+    "lotices",
+    "aceptarás"
+   ],
+   "owner_refs": [
+    "Ps.50.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0079l0006",
+   "value": 11,
+   "tokens": [
+    "II",
+    "Alabarte",
+    "he,",
+    "Selior^"
+   ],
+   "owner_refs": [
+    "Ps.51.10"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0083l0035",
+   "value": 12,
+   "tokens": [
+    "ia",
+    "A",
+    "mi",
+    "cuidado"
+   ],
+   "owner_refs": [
+    "Ps.55.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0086l0086",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "Eáparciráase",
+    "para",
+    "buscar"
+   ],
+   "owner_refs": [
+    "Ps.58.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0087l0064",
+   "value": 11,
+   "tokens": [
+    "II",
+    "¿Quién",
+    "me",
+    "conducirá"
+   ],
+   "owner_refs": [
+    "Ps.59.9"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0096l0028",
+   "value": 11,
+   "tokens": [
+    "II",
+    "En",
+    "ella",
+    "tendrán"
+   ],
+   "owner_refs": [
+    "Ps.67.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0096l0033",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Los",
+    "Reyes",
+    "poderosos"
+   ],
+   "owner_refs": [
+    "Ps.67.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0097l0067",
+   "value": 42,
+   "tokens": [
+    "4a",
+    "JUvael",
+    ",",
+    "."
+   ],
+   "owner_refs": [
+    "Ps.67.36"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0102l0074",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Mi",
+    "boca",
+    "predicará"
+   ],
+   "owner_refs": [
+    "Ps.70.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0102l0093",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "¡Cuántaa",
+    "y",
+    "cuAn"
+   ],
+   "owner_refs": [
+    "Ps.70.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0103l0017",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Diste",
+    "á",
+    "conocer"
+   ],
+   "owner_refs": [
+    "Ps.70.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0103l0020",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Por",
+    "lo",
+    "que"
+   ],
+   "owner_refs": [
+    "Ps.70.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0103l0025",
+   "value": 22,
+   "tokens": [
+    "a2",
+    "De",
+    "goEo",
+    "rebosarán"
+   ],
+   "owner_refs": [
+    "Ps.70.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0103l0028",
+   "value": 24,
+   "tokens": [
+    "a4",
+    "Todo",
+    "el",
+    "dia"
+   ],
+   "owner_refs": [
+    "Ps.70.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0105l0069",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Yo",
+    "también",
+    "esclakné:"
+   ],
+   "owner_refs": [
+    "Ps.72.10"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0106l0056",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Porque",
+    "mi",
+    "coracoa"
+   ],
+   "owner_refs": [
+    "Ps.72.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0106l0063",
+   "value": 24,
+   "tokens": [
+    "a4",
+    "Tú",
+    "me",
+    "asiste"
+   ],
+   "owner_refs": [
+    "Ps.72.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0106l0069",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "¡Ahí",
+    "asi",
+    "carne"
+   ],
+   "owner_refs": [
+    "Ps.72.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0111l0066",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Y",
+    "meditaré",
+    "todas"
+   ],
+   "owner_refs": [
+    "Ps.76.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0111l0071",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Tá",
+    "eres",
+    "el"
+   ],
+   "owner_refs": [
+    "Ps.76.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0113l0044",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Rompió",
+    "la",
+    "mar"
+   ],
+   "owner_refs": [
+    "Ps.77.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0113l0046",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Y",
+    "los",
+    "fué"
+   ],
+   "owner_refs": [
+    "Ps.77.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0114l0063",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "A",
+    "pesar",
+    "'de"
+   ],
+   "owner_refs": [
+    "Ps.77.3"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0114l0091",
+   "value": 41,
+   "tokens": [
+    "4i",
+    "Yvélvian^eUNMvoá'teHUréXMoir"
+   ],
+   "owner_refs": [
+    "Ps.77.39"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0115l0070",
+   "value": 52,
+   "tokens": [
+    "5a",
+    "Entóñf«ii",
+    "saoó",
+    "A"
+   ],
+   "owner_refs": [
+    "Ps.77.5"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0118l0021",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Entretanto",
+    "nosotros",
+    ","
+   ],
+   "owner_refs": [
+    "Ps.78.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0119l0038",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "¿For^",
+    "boa",
+    "¿errihado"
+   ],
+   "owner_refs": [
+    "Ps.79.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0119l0044",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Ob",
+    "Dios",
+    "de"
+   ],
+   "owner_refs": [
+    "Ps.79.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0119l0059",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Ob",
+    "Señor",
+    "Dios"
+   ],
+   "owner_refs": [
+    "Ps.79.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0120l0067",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Y",
+    "asi",
+    "los"
+   ],
+   "owner_refs": [
+    "Ps.80.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0124l0055",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Por",
+    "lo",
+    "que"
+   ],
+   "owner_refs": [
+    "Ps.84.9"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0125l0073",
+   "value": 11,
+   "tokens": [
+    "II",
+    "Guíame,",
+    "Señor,",
+    "por"
+   ],
+   "owner_refs": [
+    "Ps.85.10"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0127l0082",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "¿Cómo",
+    "han",
+    "de"
+   ],
+   "owner_refs": [
+    "Ps.87.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0129l0067",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Hallé",
+    "á",
+    "David"
+   ],
+   "owner_refs": [
+    "Ps.88.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0129l0071",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Nada",
+    "podrá",
+    "adelantar"
+   ],
+   "owner_refs": [
+    "Ps.88.22"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0129l0074",
+   "value": 24,
+   "tokens": [
+    "a4",
+    "Y",
+    "exterminaré",
+    "de"
+   ],
+   "owner_refs": [
+    "Ps.88.22"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0129l0080",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Y",
+    "extenderé",
+    "su"
+   ],
+   "owner_refs": [
+    "Ps.88.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0129l0082",
+   "value": 27,
+   "tokens": [
+    "a7",
+    "Él",
+    "me",
+    "invocará,"
+   ],
+   "owner_refs": [
+    "Ps.88.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0129l0088",
+   "value": 29,
+   "tokens": [
+    "a9",
+    "EteHiaraentrlé'^sdnwrtftré",
+    "«n'«ai«^t"
+   ],
+   "owner_refs": [
+    "Ps.88.28"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0129l0091",
+   "value": 10,
+   "tokens": [
+    "io",
+    "Haré",
+    "qitfé'",
+    "stfblfMa^"
+   ],
+   "owner_refs": [
+    "Ps.88.28"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0130l0084",
+   "value": 17,
+   "tokens": [
+    "i7",
+    "¿9a^",
+    "^Í4^t^9^^y^,^",
+    "^"
+   ],
+   "owner_refs": [
+    "Ps.88.45"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0132l0053",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Vuélvete",
+    "hacia",
+    "nosotros"
+   ],
+   "owner_refs": [
+    "Ps.89.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0132l0056",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Bien",
+    "presto",
+    "seremos"
+   ],
+   "owner_refs": [
+    "Ps.89.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0133l0066",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Clamará",
+    "á",
+    "mí,"
+   ],
+   "owner_refs": [
+    "Ps.90.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0134l0062",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Florecerá",
+    "como",
+    "la"
+   ],
+   "owner_refs": [
+    "Ps.91.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0134l0067",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Y",
+    "aun",
+    "en"
+   ],
+   "owner_refs": [
+    "Ps.91.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0136l0064",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Porque",
+    "no",
+    "ha"
+   ],
+   "owner_refs": [
+    "Ps.93.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0136l0083",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Porque",
+    "¿",
+    "acaso"
+   ],
+   "owner_refs": [
+    "Ps.93.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0137l0009",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Andan",
+    "Xm",
+    "malwtdos"
+   ],
+   "owner_refs": [
+    "Ps.93.3"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0137l0014",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Y",
+    "bará",
+    "caer"
+   ],
+   "owner_refs": [
+    "Ps.93.22"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0138l0074",
+   "value": 10,
+   "tokens": [
+    "io",
+    "Publicad",
+    "entre",
+    "las"
+   ],
+   "owner_refs": [
+    "Ps.95.8"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0139l0012",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "A",
+    "la",
+    "yista"
+   ],
+   "owner_refs": [
+    "Ps.95.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0143l0075",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Pero",
+    "tú,",
+    "Seilor,."
+   ],
+   "owner_refs": [
+    "Ps.101.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0144l0073",
+   "value": 25,
+   "tokens": [
+    "a5",
+    "No",
+    "me",
+    "llames"
+   ],
+   "owner_refs": [
+    "Ps.101.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0144l0084",
+   "value": 29,
+   "tokens": [
+    "a9",
+    "Los",
+    "hijos",
+    "de"
+   ],
+   "owner_refs": [
+    "Ps.101.28"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0145l0081",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Como",
+    "un",
+    "padre"
+   ],
+   "owner_refs": [
+    "Ps.102.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0146l0034",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Bendecid",
+    "al",
+    "SeSor"
+   ],
+   "owner_refs": [
+    "Ps.102.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0146l0039",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Bendecid",
+    "al",
+    "Señor"
+   ],
+   "owner_refs": [
+    "Ps.102.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0147l0061",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Tú",
+    "riegas",
+    "los"
+   ],
+   "owner_refs": [
+    "Ps.103.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0147l0064",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Tú",
+    "produces",
+    "el"
+   ],
+   "owner_refs": [
+    "Ps.103.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0147l0087",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Bu^en",
+    "en",
+    "busca"
+   ],
+   "owner_refs": [
+    "Ps.103.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0148l0048",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Por",
+    "él",
+    "transitan"
+   ],
+   "owner_refs": [
+    "Ps.103.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0149l0079",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "No",
+    "permitió",
+    "que"
+   ],
+   "owner_refs": [
+    "Ps.104.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0150l0054",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "El",
+    "Rey",
+    "dio"
+   ],
+   "owner_refs": [
+    "Ps.104.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0150l0057",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "HÍEole",
+    "dueño",
+    "de"
+   ],
+   "owner_refs": [
+    "Ps.104.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0150l0062",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Entonces",
+    "entró",
+    "Israel"
+   ],
+   "owner_refs": [
+    "Ps.104.4"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0150l0065",
+   "value": 24,
+   "tokens": [
+    "a4",
+    "Y",
+    "Dios",
+    "multiplicó"
+   ],
+   "owner_refs": [
+    "Ps.104.4"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0150l0072",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Mas",
+    "envió",
+    "á"
+   ],
+   "owner_refs": [
+    "Ps.104.4"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0150l0085",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "En",
+    "lugar",
+    "de"
+   ],
+   "owner_refs": [
+    "Ps.104.31"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0151l0041",
+   "value": 42,
+   "tokens": [
+    "4a",
+    "Porque",
+    "tnvo",
+    "presente"
+   ],
+   "owner_refs": [
+    "Ps.104.41"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0152l0073",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Otorgóles",
+    "lo",
+    "que"
+   ],
+   "owner_refs": [
+    "Ps.105.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0152l0084",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Y",
+    "trocaron",
+    "su"
+   ],
+   "owner_refs": [
+    "Ps.105.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0153l0057",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Y",
+    "ievantó",
+    "el"
+   ],
+   "owner_refs": [
+    "Ps.105.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0153l0062",
+   "value": 28,
+   "tokens": [
+    "a8",
+    "Y",
+    "se",
+    "consagraron"
+   ],
+   "owner_refs": [
+    "Ps.105.27"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0153l0068",
+   "value": 30,
+   "tokens": [
+    "3o",
+    "Pero",
+    "levantóse",
+    "Pbinées*"
+   ],
+   "owner_refs": [
+    "Ps.105.9"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0153l0070",
+   "value": 31,
+   "tokens": [
+    "3i",
+    "Lo",
+    "cual",
+    "k"
+   ],
+   "owner_refs": [
+    "Ps.105.9"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0153l0073",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "Asimismo",
+    "irritaron",
+    "al"
+   ],
+   "owner_refs": [
+    "Ps.105.9"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0154l0023",
+   "value": 42,
+   "tokens": [
+    "4a",
+    "Fueron",
+    "tratados",
+    "duramente"
+   ],
+   "owner_refs": [
+    "Ps.105.41"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0155l0068",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Y",
+    "sacólos",
+    "die"
+   ],
+   "owner_refs": [
+    "Ps.106.13"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0155l0089",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Y",
+    "ofriscanle",
+    "éstos"
+   ],
+   "owner_refs": [
+    "Ps.106.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0155l0091",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Los",
+    "que-sttireiSXl",
+    "el"
+   ],
+   "owner_refs": [
+    "Ps.106.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0156l0059",
+   "value": 29,
+   "tokens": [
+    "a9",
+    "Gimbió",
+    "el",
+    "huracán"
+   ],
+   "owner_refs": [
+    "Ps.106.28"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0156l0067",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "Y",
+    "ensalcen",
+    "sn"
+   ],
+   "owner_refs": [
+    "Ps.106.31"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0156l0094",
+   "value": 41,
+   "tokens": [
+    "4i",
+    "Y",
+    "libró",
+    "al"
+   ],
+   "owner_refs": [
+    "Ps.106.40"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0159l0049",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Sean",
+    "ealériDi",
+    "nados"
+   ],
+   "owner_refs": [
+    "Ps.108.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0159l0073",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Esto",
+    "es",
+    "lo"
+   ],
+   "owner_refs": [
+    "Ps.108.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0159l0076",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Pero",
+    "tú,",
+    "oh"
+   ],
+   "owner_refs": [
+    "Ps.108.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0159l0086",
+   "value": 24,
+   "tokens": [
+    "a4",
+    "Mis",
+    "rodillas",
+    "se"
+   ],
+   "owner_refs": [
+    "Ps.108.23"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0159l0089",
+   "value": 25,
+   "tokens": [
+    "a5",
+    "Estoy",
+    "hecho",
+    "el"
+   ],
+   "owner_refs": [
+    "Ps.108.23"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0159l0092",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Ayúdame",
+    "lú,",
+    "Settor"
+   ],
+   "owner_refs": [
+    "Ps.108.23"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0164l0069",
+   "value": 11,
+   "tokens": [
+    "II",
+    "En",
+    "el",
+    "Sefior"
+   ],
+   "owner_refs": [
+    "Ps.113.10"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0167l0044",
+   "value": 11,
+   "tokens": [
+    "ii",
+    "Cercáronme",
+    "estrechamente;",
+    "pero"
+   ],
+   "owner_refs": [
+    "Ps.117.10"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0167l0052",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "A",
+    "empellones",
+    "procuraban"
+   ],
+   "owner_refs": [
+    "Ps.117.10"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0167l0058",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Voces",
+    "de",
+    "jubile"
+   ],
+   "owner_refs": [
+    "Ps.117.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0169l0059",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Anunciado",
+    "han",
+    "mis"
+   ],
+   "owner_refs": [
+    "Ps.118.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0169l0064",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Yo",
+    "contemplaré",
+    "tus"
+   ],
+   "owner_refs": [
+    "Ps.118.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0170l0038",
+   "value": 30,
+   "tokens": [
+    "3o",
+    "Csoegido",
+    "be.",
+    "el"
+   ],
+   "owner_refs": [
+    "Ps.118.9"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0170l0062",
+   "value": 40,
+   "tokens": [
+    "4o",
+    "Mira",
+    "como",
+    "estoy"
+   ],
+   "owner_refs": [
+    "Ps.118.39"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0171l0065",
+   "value": 52,
+   "tokens": [
+    "5a",
+    "Acordéme^",
+    "ob",
+    "SeSor"
+   ],
+   "owner_refs": [
+    "Ps.118.51"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0172l0048",
+   "value": 62,
+   "tokens": [
+    "6a",
+    "A",
+    "laedU",
+    "aocbr"
+   ],
+   "owner_refs": [
+    "Ps.118.60"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0172l0077",
+   "value": 72,
+   "tokens": [
+    "7a",
+    "Mejor",
+    "ei",
+    "psra"
+   ],
+   "owner_refs": [
+    "Ps.118.71"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0173l0088",
+   "value": 92,
+   "tokens": [
+    "9a",
+    "K",
+    "no",
+    "haber"
+   ],
+   "owner_refs": [
+    "Ps.118.9"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0188l0078",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Oh",
+    "Señor»",
+    "tu"
+   ],
+   "owner_refs": [
+    "Ps.134.4"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0188l0083",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Los",
+    "ídolos",
+    "de.las.ikadoees"
+   ],
+   "owner_refs": [
+    "Ps.134.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0188l0095",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Casa",
+    "de",
+    "l^eví,"
+   ],
+   "owner_refs": [
+    "Ps.134.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0189l0003",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Bendígase",
+    "al",
+    "Señor"
+   ],
+   "owner_refs": [
+    "Ps.134.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0190l0040",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Y",
+    "á",
+    "Og,"
+   ],
+   "owner_refs": [
+    "Ps.135.26"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0190l0042",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Y",
+    "dio",
+    "la"
+   ],
+   "owner_refs": [
+    "Ps.135.26"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0190l0046",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Al",
+    "que",
+    "se"
+   ],
+   "owner_refs": [
+    "Ps.135.22"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0193l0035",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "No",
+    "te",
+    "iOB"
+   ],
+   "owner_refs": [
+    "Ps.138.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0194l0071",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Yo",
+    "sé",
+    "de"
+   ],
+   "owner_refs": [
+    "Ps.139.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0194l0074",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Y",
+    "asi",
+    "los"
+   ],
+   "owner_refs": [
+    "Ps.139.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0198l0072",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Felia",
+    "llamaron",
+    "al"
+   ],
+   "owner_refs": [
+    "Ps.143.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0200l0015",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Canta",
+    "ri",
+    "mi"
+   ],
+   "owner_refs": [
+    "Ps.144.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0202l0025",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "Él",
+    "nos",
+    "da"
+   ],
+   "owner_refs": [
+    "Ps.147.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0203l0050",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Su",
+    "gloria",
+    "resplandece"
+   ],
+   "owner_refs": [
+    "Ps.148.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0211l0049",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "No",
+    "sigas,",
+    "oh"
+   ],
+   "owner_refs": [
+    "Prov.1.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0211l0075",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Convertios",
+    "á",
+    "la"
+   ],
+   "owner_refs": [
+    "Prov.1.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0211l0078",
+   "value": 24,
+   "tokens": [
+    "a4",
+    "Mas",
+    "ya",
+    "que"
+   ],
+   "owner_refs": [
+    "Prov.1.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0212l0036",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "I^",
+    "indocilidad",
+    "causará"
+   ],
+   "owner_refs": [
+    "Prov.1.3"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0213l0064",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Anda",
+    "té.",
+    "pues,"
+   ],
+   "owner_refs": [
+    "Prov.2.9"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0213l0067",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Porque",
+    "los",
+    "buenos"
+   ],
+   "owner_refs": [
+    "Prov.2.9"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0213l0069",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Maá",
+    "los",
+    "impíos"
+   ],
+   "owner_refs": [
+    "Prov.2.9"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0214l0074",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Dichoso",
+    "el",
+    "hombre"
+   ],
+   "owner_refs": [
+    "Prov.3.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0214l0080",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Es",
+    "mas",
+    "apreciable"
+   ],
+   "owner_refs": [
+    "Prov.3.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0215l0042",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Hi)0",
+    "mío,",
+    "nunca"
+   ],
+   "owner_refs": [
+    "Prov.3.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0215l0048",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Entonces",
+    "seguirás",
+    "lleno"
+   ],
+   "owner_refs": [
+    "Prov.3.22"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0215l0050",
+   "value": 24,
+   "tokens": [
+    "a4",
+    "Te",
+    "acostarás",
+    "sin"
+   ],
+   "owner_refs": [
+    "Prov.3.22"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0215l0060",
+   "value": 28,
+   "tokens": [
+    "a8",
+    "No",
+    "digas",
+    "áinMoígo:"
+   ],
+   "owner_refs": [
+    "Prov.3.35"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0217l0055",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Escucha,",
+    "hijo",
+    "mió,"
+   ],
+   "owner_refs": [
+    "Prov.4.18"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0217l0062",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Guarda",
+    "tu",
+    "corason"
+   ],
+   "owner_refs": [
+    "Prov.4.22"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0217l0070",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Examina",
+    "la",
+    "senda"
+   ],
+   "owner_refs": [
+    "Prov.4.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0217l0072",
+   "value": 27,
+   "tokens": [
+    "a7",
+    "No",
+    "tuertas",
+    "ni"
+   ],
+   "owner_refs": [
+    "Prov.4.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0218l0081",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Bebe",
+    "pues",
+    "el"
+   ],
+   "owner_refs": [
+    "Prov.5.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0218l0083",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "Rebosen",
+    "por",
+    "fuera"
+   ],
+   "owner_refs": [
+    "Prov.5.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0219l0038",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "AlfinAX",
+    "morirá",
+    "infelizmente^"
+   ],
+   "owner_refs": [
+    "Prov.5.22"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0220l0066",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "De",
+    "repente",
+    "\\h"
+   ],
+   "owner_refs": [
+    "Prov.6.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0220l0080",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Obeervm,",
+    "htfo",
+    "mió"
+   ],
+   "owner_refs": [
+    "Prov.6.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0221l0042",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Cuando",
+    "caminares",
+    "vayan"
+   ],
+   "owner_refs": [
+    "Prov.6.3"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0221l0073",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "Pero",
+    "el",
+    "adúltero"
+   ],
+   "owner_refs": [
+    "Prov.6.31"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0222l0037",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Esta",
+    "muger",
+    "^"
+   ],
+   "owner_refs": [
+    "Prov.7.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0223l0047",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Al",
+    "ponto",
+    "la"
+   ],
+   "owner_refs": [
+    "Prov.7.21"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0223l0058",
+   "value": 25,
+   "tokens": [
+    "a5",
+    "No",
+    "dejes",
+    "arrastrar"
+   ],
+   "owner_refs": [
+    "Prov.7.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0223l0063",
+   "value": 27,
+   "tokens": [
+    "a7",
+    "Sn",
+    "casa",
+    "es"
+   ],
+   "owner_refs": [
+    "Prov.7.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0225l0065",
+   "value": 24,
+   "tokens": [
+    "a4",
+    "Todavía",
+    "no",
+    "existian"
+   ],
+   "owner_refs": [
+    "Prov.8.23"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0225l0092",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "Ahora",
+    "pues,",
+    "oh"
+   ],
+   "owner_refs": [
+    "Prov.8.3"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0227l0037",
+   "value": 18,
+   "tokens": [
+    "i8",
+    "Y",
+    "no",
+    "sabe"
+   ],
+   "owner_refs": [
+    "Prov.9.17"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0228l0082",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Plata",
+    "finísima",
+    "es"
+   ],
+   "owner_refs": [
+    "Prov.10.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0228l0085",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Los",
+    "labios",
+    "del"
+   ],
+   "owner_refs": [
+    "Prov.10.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0228l0089",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "La",
+    "bendición",
+    "del"
+   ],
+   "owner_refs": [
+    "Prov.10.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0229l0044",
+   "value": 29,
+   "tokens": [
+    "a9",
+    "JSi",
+    "seguir",
+    "la-"
+   ],
+   "owner_refs": [
+    "Prov.10.30"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0230l0089",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Aanque",
+    "se",
+    "esté"
+   ],
+   "owner_refs": [
+    "Prov.11.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0231l0040",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Quien",
+    "esconde",
+    "los"
+   ],
+   "owner_refs": [
+    "Prov.11.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0232l0075",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Al",
+    "uecio",
+    "se"
+   ],
+   "owner_refs": [
+    "Prov.12.13"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0233l0036",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Lleno",
+    "está",
+    "de"
+   ],
+   "owner_refs": [
+    "Prov.12.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0233l0043",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Abomina",
+    "el",
+    "Señor"
+   ],
+   "owner_refs": [
+    "Prov.12.21"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0233l0051",
+   "value": 25,
+   "tokens": [
+    "a5",
+    "Abate",
+    "al",
+    "hombre"
+   ],
+   "owner_refs": [
+    "Prov.12.21"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0234l0082",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "La",
+    "buena",
+    "doctrina"
+   ],
+   "owner_refs": [
+    "Prov.13.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0234l0086",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "El",
+    "hombre",
+    "cuerdo"
+   ],
+   "owner_refs": [
+    "Prov.13.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0235l0032",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "El",
+    "mal",
+    "persigue"
+   ],
+   "owner_refs": [
+    "Prov.13.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0235l0046",
+   "value": 25,
+   "tokens": [
+    "a5",
+    "Come",
+    "el",
+    "justo,"
+   ],
+   "owner_refs": [
+    "Prov.13.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0236l0062",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Mezclada",
+    "anda",
+    "la"
+   ],
+   "owner_refs": [
+    "Prov.14.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0236l0064",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "El",
+    "necio",
+    "saciará"
+   ],
+   "owner_refs": [
+    "Prov.14.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0236l0067",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "El",
+    "hombre",
+    "sencillo"
+   ],
+   "owner_refs": [
+    "Prov.14.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0237l0050",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "En",
+    "el",
+    "temor"
+   ],
+   "owner_refs": [
+    "Prov.14.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0237l0068",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "Desechado",
+    "de",
+    "Dios"
+   ],
+   "owner_refs": [
+    "Prov.14.31"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0240l0016",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "Quien",
+    "desecha",
+    "la"
+   ],
+   "owner_refs": [
+    "Prov.15.3"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0241l0048",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Son",
+    "gratos",
+    "»l"
+   ],
+   "owner_refs": [
+    "Prov.16.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0241l0071",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "El",
+    "que",
+    "es"
+   ],
+   "owner_refs": [
+    "Prov.16.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0241l0075",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Fuente",
+    "de",
+    "vida"
+   ],
+   "owner_refs": [
+    "Prov.16.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0242l0037",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "El",
+    "hombre",
+    "que"
+   ],
+   "owner_refs": [
+    "Prov.16.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0242l0053",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "Mejor",
+    "es",
+    "el"
+   ],
+   "owner_refs": [
+    "Prov.16.31"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0243l0074",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Quien",
+    "absuelve",
+    "al"
+   ],
+   "owner_refs": [
+    "Prov.17.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0244l0029",
+   "value": 18,
+   "tokens": [
+    "i8",
+    "El",
+    "hombre",
+    "necio"
+   ],
+   "owner_refs": [
+    "Prov.17.4"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0244l0035",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Quien",
+    "es",
+    "de"
+   ],
+   "owner_refs": [
+    "Prov.17.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0244l0038",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Nacido",
+    "parece",
+    "el"
+   ],
+   "owner_refs": [
+    "Prov.17.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0244l0041",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "El",
+    "ánimo",
+    "alegre"
+   ],
+   "owner_refs": [
+    "Prov.17.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0244l0054",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Cosa",
+    "mala",
+    "es"
+   ],
+   "owner_refs": [
+    "Prov.17.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0244l0060",
+   "value": 28,
+   "tokens": [
+    "a8",
+    "Aun",
+    "el",
+    "ignorante,"
+   ],
+   "owner_refs": [
+    "Prov.17.27"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0245l0069",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Quien",
+    "responde",
+    "antes"
+   ],
+   "owner_refs": [
+    "Prov.18.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0245l0075",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "El",
+    "corazón",
+    "del"
+   ],
+   "owner_refs": [
+    "Prov.18.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0246l0016",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "El",
+    "vientre",
+    "del"
+   ],
+   "owner_refs": [
+    "Prov.18.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0246l0022",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Quien",
+    "baila",
+    "una"
+   ],
+   "owner_refs": [
+    "Prov.18.21"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0246l0028",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Habla",
+    "el",
+    "pobre"
+   ],
+   "owner_refs": [
+    "Prov.18.21"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0247l0054",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Dolor",
+    "es",
+    "del"
+   ],
+   "owner_refs": [
+    "Prov.19.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0247l0060",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "La",
+    "pereza",
+    "hace"
+   ],
+   "owner_refs": [
+    "Prov.19.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0247l0078",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Muchos",
+    "pensamientos",
+    "se"
+   ],
+   "owner_refs": [
+    "Prov.19.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0247l0087",
+   "value": 24,
+   "tokens": [
+    "a4",
+    "Mete",
+    "el",
+    "peretoso"
+   ],
+   "owner_refs": [
+    "Prov.19.22"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0249l0045",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "No",
+    "seas",
+    "amigo"
+   ],
+   "owner_refs": [
+    "Prov.20.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0249l0056",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "Tómate",
+    "el",
+    "vestido"
+   ],
+   "owner_refs": [
+    "Prov.20.15"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0249l0070",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "A",
+    "aquel",
+    "que"
+   ],
+   "owner_refs": [
+    "Prov.20.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0249l0073",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "El",
+    "patrimonio",
+    "adquirido"
+   ],
+   "owner_refs": [
+    "Prov.20.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0249l0076",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "No",
+    "digas",
+    ":"
+   ],
+   "owner_refs": [
+    "Prov.20.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0251l0078",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "El",
+    "que",
+    "ejercita"
+   ],
+   "owner_refs": [
+    "Prov.21.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0251l0080",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Machas",
+    "veces",
+    "el"
+   ],
+   "owner_refs": [
+    "Prov.21.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0251l0084",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Guarda",
+    "de",
+    "angustias"
+   ],
+   "owner_refs": [
+    "Prov.21.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0252l0021",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Todo",
+    "el",
+    "dia"
+   ],
+   "owner_refs": [
+    "Prov.21.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0253l0065",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Pegada",
+    "está",
+    "la"
+   ],
+   "owner_refs": [
+    "Prov.22.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0253l0080",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Ya",
+    "ves",
+    "qiMv^O"
+   ],
+   "owner_refs": [
+    "Prov.22.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0254l0041",
+   "value": 28,
+   "tokens": [
+    "a8",
+    "No",
+    "traspases",
+    "los"
+   ],
+   "owner_refs": [
+    "Prov.22.29"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0255l0067",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Hijo",
+    "mió,",
+    "si"
+   ],
+   "owner_refs": [
+    "Prov.23.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0256l0035",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Dame,",
+    "ob",
+    "faijoniio,"
+   ],
+   "owner_refs": [
+    "Prov.23.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0258l0066",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "El",
+    "que",
+    "responde"
+   ],
+   "owner_refs": [
+    "Prov.24.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0258l0084",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "A",
+    "vista",
+    "de"
+   ],
+   "owner_refs": [
+    "Prov.24.3"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0260l0067",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Si",
+    "tu",
+    "enemigo"
+   ],
+   "owner_refs": [
+    "Prov.25.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0261l0036",
+   "value": 10,
+   "tokens": [
+    "io",
+    "La",
+    "sentencia",
+    "del"
+   ],
+   "owner_refs": [
+    "Prov.26.9"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0262l0049",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Como",
+    "la",
+    "puerta"
+   ],
+   "owner_refs": [
+    "Prov.26.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0262l0055",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "Imaginase",
+    "el",
+    "peresoso"
+   ],
+   "owner_refs": [
+    "Prov.26.15"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0262l0069",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Como",
+    "en",
+    "faltando"
+   ],
+   "owner_refs": [
+    "Prov.26.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0262l0075",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Parecen",
+    "sencillas",
+    "ó"
+   ],
+   "owner_refs": [
+    "Prov.26.21"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0262l0079",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Los",
+    "labios",
+    "hinchados"
+   ],
+   "owner_refs": [
+    "Prov.26.21"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0263l0014",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Mas",
+    "la",
+    "malicia"
+   ],
+   "owner_refs": [
+    "Prov.26.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0264l0055",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Coge",
+    "el",
+    "vestido"
+   ],
+   "owner_refs": [
+    "Prov.27.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0264l0070",
+   "value": 18,
+   "tokens": [
+    "i8",
+    "Quien",
+    "cuida",
+    "de"
+   ],
+   "owner_refs": [
+    "Prov.27.17"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0265l0017",
+   "value": 25,
+   "tokens": [
+    "a5",
+    "Tieoes",
+    "á",
+    "tu"
+   ],
+   "owner_refs": [
+    "Prov.27.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0265l0020",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Los",
+    "corderos",
+    "te"
+   ],
+   "owner_refs": [
+    "Prov.27.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0266l0055",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Quien",
+    "encubre",
+    "sus"
+   ],
+   "owner_refs": [
+    "Prov.28.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0266l0085",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Obra",
+    "muy",
+    "mal,"
+   ],
+   "owner_refs": [
+    "Prov.28.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0266l0089",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "El",
+    "hombre",
+    "que"
+   ],
+   "owner_refs": [
+    "Prov.28.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0266l0093",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Quien",
+    "corrige",
+    "á"
+   ],
+   "owner_refs": [
+    "Prov.28.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0267l0021",
+   "value": 24,
+   "tokens": [
+    "a4",
+    "El",
+    "que",
+    "burta"
+   ],
+   "owner_refs": [
+    "Prov.28.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0267l0024",
+   "value": 25,
+   "tokens": [
+    "a5",
+    "Aquel",
+    "que",
+    "se"
+   ],
+   "owner_refs": [
+    "Prov.28.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0267l0031",
+   "value": 27,
+   "tokens": [
+    "a7",
+    "El",
+    "que",
+    "da"
+   ],
+   "owner_refs": [
+    "Prov.28.26"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0268l0054",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Encontráronse",
+    "el",
+    "pobre"
+   ],
+   "owner_refs": [
+    "Prov.29.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0268l0060",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "El",
+    "castigo",
+    "y"
+   ],
+   "owner_refs": [
+    "Prov.29.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0268l0078",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "¿Has",
+    "visto",
+    "tú"
+   ],
+   "owner_refs": [
+    "Prov.29.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0268l0096",
+   "value": 12,
+   "tokens": [
+    "ia",
+    "Ley,",
+    "y",
+    "sacerdotes"
+   ],
+   "owner_refs": [
+    "Prov.29.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0269l0022",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Levanta",
+    "quimeras",
+    "el"
+   ],
+   "owner_refs": [
+    "Prov.29.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0269l0025",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Sigue",
+    "al",
+    "soberbio"
+   ],
+   "owner_refs": [
+    "Prov.29.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0270l0078",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Otra",
+    "casta",
+    "de"
+   ],
+   "owner_refs": [
+    "Prov.30.13"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0271l0060",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Tal",
+    "es",
+    "también"
+   ],
+   "owner_refs": [
+    "Prov.30.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0273l0057",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Busca",
+    "lana",
+    "y"
+   ],
+   "owner_refs": [
+    "Prov.31.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0273l0062",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Se",
+    "levanta",
+    "antes"
+   ],
+   "owner_refs": [
+    "Prov.31.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0274l0027",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Abre",
+    "su",
+    "boca"
+   ],
+   "owner_refs": [
+    "Prov.31.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0274l0032",
+   "value": 28,
+   "tokens": [
+    "a8",
+    "Levantáronse",
+    "sus",
+    "bijos,"
+   ],
+   "owner_refs": [
+    "Prov.31.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0277l0053",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "I^as",
+    "almas",
+    "pervertidas"
+   ],
+   "owner_refs": [
+    "Eccl.1.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0279l0054",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Por",
+    "lo",
+    "que"
+   ],
+   "owner_refs": [
+    "Eccl.2.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0280l0033",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Porque",
+    "¿qué",
+    "fruto"
+   ],
+   "owner_refs": [
+    "Eccl.2.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0280l0041",
+   "value": 24,
+   "tokens": [
+    "a4",
+    "¿",
+    "No",
+    "sería"
+   ],
+   "owner_refs": [
+    "Eccl.2.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0280l0048",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Dios,",
+    "al",
+    "hombre"
+   ],
+   "owner_refs": [
+    "Eccl.2.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0281l0074",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Lo",
+    "que",
+    "fué"
+   ],
+   "owner_refs": [
+    "Eccl.3.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0282l0036",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "¿Quién",
+    "ha",
+    "visto"
+   ],
+   "owner_refs": [
+    "Eccl.3.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0282l0039",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Entiendo",
+    "pues",
+    "que"
+   ],
+   "owner_refs": [
+    "Eccl.3.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0283l0090",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Vale",
+    "mas",
+    "un"
+   ],
+   "owner_refs": [
+    "Eccl.4.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0285l0084",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "Todos",
+    "los",
+    "dias"
+   ],
+   "owner_refs": [
+    "Eccl.5.15"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0288l0063",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Porque",
+    "como",
+    "la"
+   ],
+   "owner_refs": [
+    "Eccl.7.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0289l0048",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "La",
+    "sabiduría",
+    "hace"
+   ],
+   "owner_refs": [
+    "Eccl.7.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0289l0051",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Porque",
+    "no",
+    "hay"
+   ],
+   "owner_refs": [
+    "Eccl.7.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0289l0067",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Recorrió",
+    "mi",
+    "espíritu"
+   ],
+   "owner_refs": [
+    "Eccl.7.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0289l0079",
+   "value": 28,
+   "tokens": [
+    "a8",
+    "Esto",
+    "es",
+    "lo"
+   ],
+   "owner_refs": [
+    "Eccl.7.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0291l0077",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Por",
+    "tanto",
+    "alabé"
+   ],
+   "owner_refs": [
+    "Eccl.8.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0291l0084",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "Y",
+    "apliqué",
+    "mi"
+   ],
+   "owner_refs": [
+    "Eccl.8.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0293l0078",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Vi",
+    "también",
+    "debajo"
+   ],
+   "owner_refs": [
+    "Eccl.9.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0293l0081",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Habia",
+    "una",
+    "ciudad"
+   ],
+   "owner_refs": [
+    "Eccl.9.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0294l0027",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "Y",
+    "decía",
+    "yo:"
+   ],
+   "owner_refs": [
+    "Eccl.9.15"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0295l0059",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Sus",
+    "primeras",
+    "palabras"
+   ],
+   "owner_refs": [
+    "Eccl.10.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0295l0066",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "El",
+    "fruto",
+    "de"
+   ],
+   "owner_refs": [
+    "Eccl.10.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0310l0015",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "Retírate,",
+    "ob",
+    "Aquilón,"
+   ],
+   "owner_refs": [
+    "Song.4.15"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0322l0073",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Poi^e",
+    "Diaa",
+    "crió"
+   ],
+   "owner_refs": [
+    "Wis.2.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0324l0036",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "AJlaldUa",
+    "U",
+    "raaa"
+   ],
+   "owner_refs": [
+    "Wis.3.5"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0324l0049",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Porque",
+    "glorioso",
+    "es"
+   ],
+   "owner_refs": [
+    "Wis.3.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0325l0084",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Con",
+    "k>",
+    "poco"
+   ],
+   "owner_refs": [
+    "Wis.4.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0327l0078",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Asi",
+    "discnrred",
+    "en"
+   ],
+   "owner_refs": [
+    "Wis.5.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0327l0087",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "Al",
+    "contraria",
+    "los"
+   ],
+   "owner_refs": [
+    "Wis.5.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0330l0049",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Ahora",
+    "bien,",
+    "oh"
+   ],
+   "owner_refs": [
+    "Wis.6.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0330l0066",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "La",
+    "muchedumbre",
+    "de"
+   ],
+   "owner_refs": [
+    "Wis.6.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0330l0069",
+   "value": 27,
+   "tokens": [
+    "a7",
+    "Recibid",
+    "pues",
+    "la"
+   ],
+   "owner_refs": [
+    "Wis.6.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0331l0083",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Aprendila",
+    "sin",
+    "ficción,"
+   ],
+   "owner_refs": [
+    "Wis.7.10"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0332l0047",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "A",
+    "mi",
+    "me"
+   ],
+   "owner_refs": [
+    "Wis.7.10"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0332l0072",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "En",
+    "suma^",
+    "aprendí"
+   ],
+   "owner_refs": [
+    "Wis.7.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0334l0082",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Temh^rán",
+    "al",
+    "oír"
+   ],
+   "owner_refs": [
+    "Wis.8.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0334l0085",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "Entrando",
+    "en",
+    "mi"
+   ],
+   "owner_refs": [
+    "Wis.8.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0336l0064",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Porque",
+    "¿quién",
+    "de"
+   ],
+   "owner_refs": [
+    "Wis.9.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0338l0064",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Eaia",
+    "misma",
+    "no"
+   ],
+   "owner_refs": [
+    "Wis.10.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0340l0053",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Porque",
+    "eran",
+    "castigados"
+   ],
+   "owner_refs": [
+    "Wis.11.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0340l0056",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Pues",
+    "al",
+    "oir"
+   ],
+   "owner_refs": [
+    "Wis.11.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0340l0068",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "Y",
+    "en",
+    "castigo"
+   ],
+   "owner_refs": [
+    "Wis.11.15"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0340l0090",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Pero",
+    "aun",
+    "sin"
+   ],
+   "owner_refs": [
+    "Wis.11.17"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0341l0046",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "¿",
+    "Y",
+    "cómo"
+   ],
+   "owner_refs": [
+    "Wis.11.22"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0342l0087",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Siendo",
+    "como",
+    "eres"
+   ],
+   "owner_refs": [
+    "Wis.12.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0343l0075",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Por",
+    "la",
+    "misma"
+   ],
+   "owner_refs": [
+    "Wis.12.22"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0347l0048",
+   "value": 11,
+   "tokens": [
+    "II",
+    "Y",
+    "por",
+    "eso"
+   ],
+   "owner_refs": [
+    "Wis.14.10"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0350l0066",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Son",
+    "pues",
+    "necios,"
+   ],
+   "owner_refs": [
+    "Wis.15.13"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0352l0066",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Pues",
+    "tú",
+    "eres,"
+   ],
+   "owner_refs": [
+    "Wis.16.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0355l0079",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Lo",
+    "cierto",
+    "es"
+   ],
+   "owner_refs": [
+    "Wis.17.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0358l0049",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Y",
+    "cuando",
+    "un"
+   ],
+   "owner_refs": [
+    "Wis.18.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0358l0073",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "También",
+    "los",
+    "jastoa"
+   ],
+   "owner_refs": [
+    "Wis.18.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0359l0027",
+   "value": 25,
+   "tokens": [
+    "a5",
+    "A",
+    "estas",
+    "cosas"
+   ],
+   "owner_refs": [
+    "Wis.18.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0361l0025",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "Por",
+    "lo",
+    "qae"
+   ],
+   "owner_refs": [
+    "Wis.19.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0361l0045",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Al",
+    "contrario",
+    "las"
+   ],
+   "owner_refs": [
+    "Wis.19.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0366l0053",
+   "value": 11,
+   "tokens": [
+    "li",
+    "Af",
+    "que",
+    "teme"
+   ],
+   "owner_refs": [
+    "Sir.1.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0366l0084",
+   "value": 24,
+   "tokens": [
+    "a4",
+    "La",
+    "sabiduría",
+    "reparte"
+   ],
+   "owner_refs": [
+    "Sir.1.21"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0367l0048",
+   "value": 29,
+   "tokens": [
+    "a9",
+    "Por",
+    "algún",
+    "tiempo"
+   ],
+   "owner_refs": [
+    "Sir.1.28"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0367l0055",
+   "value": 31,
+   "tokens": [
+    "3i",
+    "En",
+    "los",
+    "tesoros"
+   ],
+   "owner_refs": [
+    "Sir.1.28"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0369l0038",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "¡Ay",
+    "del",
+    "que"
+   ],
+   "owner_refs": [
+    "Sir.2.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0369l0042",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "¡Ay",
+    "de",
+    "los"
+   ],
+   "owner_refs": [
+    "Sir.2.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0369l0061",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Loa",
+    "que",
+    "temen"
+   ],
+   "owner_refs": [
+    "Sir.2.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0369l0067",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Porque",
+    "cnanto",
+    "él"
+   ],
+   "owner_refs": [
+    "Sir.2.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0370l0080",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Hijo,",
+    "alivia",
+    "la"
+   ],
+   "owner_refs": [
+    "Sir.3.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0370l0087",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "Por",
+    "sobrellevar",
+    "los"
+   ],
+   "owner_refs": [
+    "Sir.3.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0371l0052",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Cuanto",
+    "fueres",
+    "mas"
+   ],
+   "owner_refs": [
+    "Sir.3.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0371l0058",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "No",
+    "te",
+    "ibetas"
+   ],
+   "owner_refs": [
+    "Sir.3.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0371l0072",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "A",
+    "muchos",
+    "sedujo"
+   ],
+   "owner_refs": [
+    "Sir.3.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0371l0079",
+   "value": 28,
+   "tokens": [
+    "a8",
+    "El",
+    "corazón",
+    "que"
+   ],
+   "owner_refs": [
+    "Sir.3.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0372l0022",
+   "value": 30,
+   "tokens": [
+    "3o",
+    "La",
+    "reunión",
+    "de"
+   ],
+   "owner_refs": [
+    "Sir.3.5"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0372l0026",
+   "value": 31,
+   "tokens": [
+    "3i",
+    "El",
+    "coraaon",
+    "del"
+   ],
+   "owner_refs": [
+    "Sir.3.5"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0372l0030",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "El",
+    "hombre",
+    "de"
+   ],
+   "owner_refs": [
+    "Sir.3.5"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0373l0077",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Los",
+    "que",
+    "la"
+   ],
+   "owner_refs": [
+    "Sir.4.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0374l0040",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Mas",
+    "sí",
+    "se"
+   ],
+   "owner_refs": [
+    "Sir.4.4"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0374l0043",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Hiio",
+    "mio^",
+    "ten"
+   ],
+   "owner_refs": [
+    "Sir.4.4"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0374l0072",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "Na",
+    "quieras",
+    "resistir"
+   ],
+   "owner_refs": [
+    "Sir.4.31"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0378l0063",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "¡Oh",
+    "cuan",
+    "sumamente"
+   ],
+   "owner_refs": [
+    "Sir.6.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0378l0069",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Porque",
+    "la",
+    "sabiduría"
+   ],
+   "owner_refs": [
+    "Sir.6.22"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0378l0077",
+   "value": 25,
+   "tokens": [
+    "a5",
+    "Mete",
+    "tus",
+    "pies"
+   ],
+   "owner_refs": [
+    "Sir.6.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0378l0080",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Inclina",
+    "tus",
+    "hombros"
+   ],
+   "owner_refs": [
+    "Sir.6.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0378l0083",
+   "value": 27,
+   "tokens": [
+    "a7",
+    "Arrímate",
+    "á",
+    "ella"
+   ],
+   "owner_refs": [
+    "Sir.6.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0378l0091",
+   "value": 30,
+   "tokens": [
+    "3o",
+    "Y",
+    "sus",
+    "grillos"
+   ],
+   "owner_refs": [
+    "Sir.6.37"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0379l0027",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "De",
+    "ella",
+    "te"
+   ],
+   "owner_refs": [
+    "Sir.6.3"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0381l0046",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "No",
+    "te",
+    "separes"
+   ],
+   "owner_refs": [
+    "Sir.7.6"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0381l0050",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "No",
+    "trates",
+    "mal"
+   ],
+   "owner_refs": [
+    "Sir.7.6"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0381l0056",
+   "value": 24,
+   "tokens": [
+    "a4",
+    "¿Tienes",
+    "ganados?",
+    "cuida"
+   ],
+   "owner_refs": [
+    "Sir.7.23"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0381l0060",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "¿Tienes",
+    "hijas?",
+    "sela"
+   ],
+   "owner_refs": [
+    "Sir.7.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0383l0066",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "No",
+    "enciendas",
+    "los"
+   ],
+   "owner_refs": [
+    "Sir.8.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0383l0075",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "No",
+    "prestes",
+    "al"
+   ],
+   "owner_refs": [
+    "Sir.8.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0383l0092",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "No",
+    "te",
+    "aconsejes"
+   ],
+   "owner_refs": [
+    "Sir.8.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0384l0005",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Ni",
+    "descubras",
+    "tu"
+   ],
+   "owner_refs": [
+    "Sir.8.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0385l0075",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Sábete",
+    "que",
+    "conversas"
+   ],
+   "owner_refs": [
+    "Sir.9.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0385l0079",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Procede",
+    "con",
+    "cuanta"
+   ],
+   "owner_refs": [
+    "Sir.9.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0387l0044",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Cuando",
+    "muera",
+    "el"
+   ],
+   "owner_refs": [
+    "Sir.10.6"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0387l0071",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Aniquiló",
+    "Dios",
+    "la"
+   ],
+   "owner_refs": [
+    "Sir.10.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0387l0074",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "No",
+    "fué",
+    "criada"
+   ],
+   "owner_refs": [
+    "Sir.10.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0387l0077",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Honrada",
+    "será",
+    "la"
+   ],
+   "owner_refs": [
+    "Sir.10.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0388l0036",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Guárdate",
+    "de",
+    "menospreciar"
+   ],
+   "owner_refs": [
+    "Sir.10.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0388l0052",
+   "value": 30,
+   "tokens": [
+    "3o",
+    "Es",
+    "mas",
+    "digno"
+   ],
+   "owner_refs": [
+    "Sir.10.29"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0388l0055",
+   "value": 31,
+   "tokens": [
+    "3i",
+    "Hijo,",
+    "conserva",
+    "en"
+   ],
+   "owner_refs": [
+    "Sir.10.29"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0388l0057",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "¿Quién",
+    "justificará",
+    "al"
+   ],
+   "owner_refs": [
+    "Sir.10.29"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0390l0045",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "De",
+    "Dios",
+    "vienen"
+   ],
+   "owner_refs": [
+    "Sir.11.5"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0390l0048",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "De",
+    "Dios",
+    "son"
+   ],
+   "owner_refs": [
+    "Sir.11.5"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0390l0082",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Tampoco",
+    "digas:",
+    "Bastóme"
+   ],
+   "owner_refs": [
+    "Sir.11.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0390l0088",
+   "value": 28,
+   "tokens": [
+    "a8",
+    "Porqoe",
+    "ftcil",
+    "ea"
+   ],
+   "owner_refs": [
+    "Sir.11.27"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0392l0083",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Algún",
+    "tiempo",
+    "estará"
+   ],
+   "owner_refs": [
+    "Sir.12.13"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0392l0089",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "Derrama",
+    "lágrimas",
+    "de"
+   ],
+   "owner_refs": [
+    "Sir.12.15"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0394l0045",
+   "value": 11,
+   "tokens": [
+    "II",
+    "Guárdate",
+    "de",
+    "abatirle"
+   ],
+   "owner_refs": [
+    "Sir.13.10"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0394l0060",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Su",
+    "corazón",
+    "fiero"
+   ],
+   "owner_refs": [
+    "Sir.13.13"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0394l0076",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Cuando",
+    "el",
+    "lobo"
+   ],
+   "owner_refs": [
+    "Sir.13.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0394l0088",
+   "value": 25,
+   "tokens": [
+    "a5",
+    "Si",
+    "bambolea",
+    "el"
+   ],
+   "owner_refs": [
+    "Sir.13.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0395l0031",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "La",
+    "señal",
+    "del"
+   ],
+   "owner_refs": [
+    "Sir.13.3"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0396l0056",
+   "value": 11,
+   "tokens": [
+    "II",
+    "Tú,",
+    "hijo",
+    "mió"
+   ],
+   "owner_refs": [
+    "Sir.14.10"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0396l0064",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Antes",
+    "de",
+    "morir"
+   ],
+   "owner_refs": [
+    "Sir.14.10"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0396l0071",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "¿No",
+    "ves",
+    "que"
+   ],
+   "owner_refs": [
+    "Sir.14.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0397l0029",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Mas",
+    "todas",
+    "las"
+   ],
+   "owner_refs": [
+    "Sir.14.7"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0397l0032",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Bienaventurado",
+    "el",
+    "hombre"
+   ],
+   "owner_refs": [
+    "Sir.14.7"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0398l0069",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Aborrece",
+    "el",
+    "Señor"
+   ],
+   "owner_refs": [
+    "Sir.15.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0398l0075",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Dióle",
+    "ademas",
+    "sus"
+   ],
+   "owner_refs": [
+    "Sir.15.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0400l0070",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Y",
+    "en",
+    "medio"
+   ],
+   "owner_refs": [
+    "Sir.16.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0400l0073",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "¿y",
+    "quién",
+    "es"
+   ],
+   "owner_refs": [
+    "Sir.16.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0402l0077",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Están",
+    "siempre",
+    "á"
+   ],
+   "owner_refs": [
+    "Sir.17.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0402l0080",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "A",
+    "todas",
+    "las"
+   ],
+   "owner_refs": [
+    "Sir.17.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0403l0043",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Pero",
+    "á",
+    "los"
+   ],
+   "owner_refs": [
+    "Sir.17.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0403l0049",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Conviértete",
+    "pues",
+    "al"
+   ],
+   "owner_refs": [
+    "Sir.17.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0403l0053",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Cofiviértete",
+    "al",
+    "Señor,"
+   ],
+   "owner_refs": [
+    "Sir.17.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0403l0061",
+   "value": 25,
+   "tokens": [
+    "a5",
+    "Entra",
+    "en",
+    "la"
+   ],
+   "owner_refs": [
+    "Sir.17.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0403l0065",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "No",
+    "te",
+    "pares"
+   ],
+   "owner_refs": [
+    "Sir.17.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0403l0073",
+   "value": 28,
+   "tokens": [
+    "a8",
+    "¡Oh'",
+    "cuan",
+    "grande"
+   ],
+   "owner_refs": [
+    "Sir.17.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0403l0081",
+   "value": 30,
+   "tokens": [
+    "3o",
+    "¿Qué",
+    "cosa",
+    "mas"
+   ],
+   "owner_refs": [
+    "Sir.17.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0405l0048",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Hijo",
+    "y",
+    "no"
+   ],
+   "owner_refs": [
+    "Sir.18.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0405l0065",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Antes",
+    "de",
+    "la"
+   ],
+   "owner_refs": [
+    "Sir.18.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0405l0073",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Nada",
+    "te",
+    "detenga"
+   ],
+   "owner_refs": [
+    "Sir.18.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0406l0043",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "No",
+    "gustes",
+    "de"
+   ],
+   "owner_refs": [
+    "Sir.18.3"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0407l0073",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Corrige",
+    "al",
+    "amigo;"
+   ],
+   "owner_refs": [
+    "Sir.19.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0408l0066",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Por",
+    "el",
+    "semblante"
+   ],
+   "owner_refs": [
+    "Sir.19.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0410l0064",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "El",
+    "deslía",
+    "de"
+   ],
+   "owner_refs": [
+    "Sir.20.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0410l0075",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Hay",
+    "quien",
+    "de¡a"
+   ],
+   "owner_refs": [
+    "Sir.20.22"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0410l0086",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Es",
+    "una",
+    "tacha"
+   ],
+   "owner_refs": [
+    "Sir.20.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0411l0034",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "La",
+    "sabiduría",
+    "que"
+   ],
+   "owner_refs": [
+    "Sir.20.3"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0412l0070",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Mas",
+    "hay",
+    "una"
+   ],
+   "owner_refs": [
+    "Sir.21.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0412l0093",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "G>mo",
+    "una",
+    "casa"
+   ],
+   "owner_refs": [
+    "Sir.21.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0413l0045",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "El",
+    "necio",
+    "registra"
+   ],
+   "owner_refs": [
+    "Sir.21.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0414l0082",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Siete",
+    "dias",
+    "dura"
+   ],
+   "owner_refs": [
+    "Sir.22.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0414l0087",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Guárdate",
+    "de",
+    "él"
+   ],
+   "owner_refs": [
+    "Sir.22.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0415l0058",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Así",
+    "como",
+    "el"
+   ],
+   "owner_refs": [
+    "Sir.22.22"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0415l0069",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Aunque",
+    "hubieres",
+    "desenvainado"
+   ],
+   "owner_refs": [
+    "Sir.22.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0418l0057",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Rodeado",
+    "estoy",
+    "de"
+   ],
+   "owner_refs": [
+    "Sir.23.3"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0418l0072",
+   "value": 29,
+   "tokens": [
+    "a9",
+    "Porque",
+    "todas",
+    "las"
+   ],
+   "owner_refs": [
+    "Sir.23.3"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0419l0025",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "Lo",
+    "mismo",
+    "será"
+   ],
+   "owner_refs": [
+    "Sir.23.31"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0420l0080",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "Y",
+    "me",
+    "arraigué"
+   ],
+   "owner_refs": [
+    "Sir.24.15"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0421l0059",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Yo",
+    "como",
+    "la"
+   ],
+   "owner_refs": [
+    "Sir.24.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0421l0080",
+   "value": 30,
+   "tokens": [
+    "3o",
+    "El",
+    "que",
+    "me"
+   ],
+   "owner_refs": [
+    "Sir.24.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0421l0085",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "Todas",
+    "estas",
+    "cosas"
+   ],
+   "owner_refs": [
+    "Sir.24.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0423l0079",
+   "value": 11,
+   "tokens": [
+    "II",
+    "Dichoso",
+    "el",
+    "que"
+   ],
+   "owner_refs": [
+    "Sir.25.7"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0424l0043",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "¡Ob",
+    "cuan",
+    "grande"
+   ],
+   "owner_refs": [
+    "Sir.25.7"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0424l0049",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Bienaventurado",
+    "el",
+    "bombreá"
+   ],
+   "owner_refs": [
+    "Sir.25.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0424l0068",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "No",
+    "bay",
+    "cabeaa"
+   ],
+   "owner_refs": [
+    "Sir.25.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0424l0082",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Toda",
+    "malicia",
+    "es"
+   ],
+   "owner_refs": [
+    "Sir.25.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0428l0085",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Porque",
+    "el",
+    "hombre"
+   ],
+   "owner_refs": [
+    "Sir.27.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0429l0042",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "No",
+    "le",
+    "sigas"
+   ],
+   "owner_refs": [
+    "Sir.27.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0429l0046",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Jamas",
+    "podrás",
+    "atraértele"
+   ],
+   "owner_refs": [
+    "Sir.27.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0429l0077",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "Perecerán",
+    "en",
+    "el"
+   ],
+   "owner_refs": [
+    "Sir.27.31"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0431l0062",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "El",
+    "que",
+    "la"
+   ],
+   "owner_refs": [
+    "Sir.28.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0431l0068",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Muchos",
+    "han",
+    "perecido"
+   ],
+   "owner_refs": [
+    "Sir.28.21"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0431l0071",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Bienaventurado",
+    "el",
+    "que"
+   ],
+   "owner_refs": [
+    "Sir.28.21"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0431l0080",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Ella",
+    "no",
+    "será"
+   ],
+   "owner_refs": [
+    "Sir.28.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0431l0084",
+   "value": 27,
+   "tokens": [
+    "a7",
+    "Los",
+    "que",
+    "abandonan"
+   ],
+   "owner_refs": [
+    "Sir.28.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0433l0069",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "No",
+    "te",
+    "olvides"
+   ],
+   "owner_refs": [
+    "Sir.29.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0433l0078",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Sale",
+    "uno",
+    "por"
+   ],
+   "owner_refs": [
+    "Sir.29.22"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0433l0081",
+   "value": 24,
+   "tokens": [
+    "a4",
+    "Fianzas",
+    "jndiscrclas",
+    "ban"
+   ],
+   "owner_refs": [
+    "Sir.29.22"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0433l0084",
+   "value": 25,
+   "tokens": [
+    "a5",
+    "Ellas",
+    "son",
+    "las"
+   ],
+   "owner_refs": [
+    "Sir.29.22"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0434l0045",
+   "value": 30,
+   "tokens": [
+    "3o",
+    "Conténtate",
+    "con",
+    "lo"
+   ],
+   "owner_refs": [
+    "Sir.29.35"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0434l0053",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "Le",
+    "hospedará",
+    "uno,"
+   ],
+   "owner_refs": [
+    "Sir.29.35"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0436l0062",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "No*",
+    "dejes",
+    "que"
+   ],
+   "owner_refs": [
+    "Sir.30.21"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0437l0020",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "La",
+    "envidia",
+    "y"
+   ],
+   "owner_refs": [
+    "Sir.30.7"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0438l0056",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Tampoco",
+    "digas",
+    "con"
+   ],
+   "owner_refs": [
+    "Sir.31.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0438l0064",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "No",
+    "alargues",
+    "el"
+   ],
+   "owner_refs": [
+    "Sir.31.15"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0438l0078",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Que",
+    "si",
+    "estás"
+   ],
+   "owner_refs": [
+    "Sir.31.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0438l0082",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "¡Oh",
+    "cuan",
+    "poco"
+   ],
+   "owner_refs": [
+    "Sir.31.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0438l0086",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Pervigilio,",
+    "cólera",
+    "y"
+   ],
+   "owner_refs": [
+    "Sir.31.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0439l0039",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Escúchame,",
+    "hijo",
+    "mio^"
+   ],
+   "owner_refs": [
+    "Sir.31.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0439l0044",
+   "value": 28,
+   "tokens": [
+    "a8",
+    "Al",
+    "liberal",
+    "en"
+   ],
+   "owner_refs": [
+    "Sir.31.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0439l0052",
+   "value": 30,
+   "tokens": [
+    "3o",
+    "A.",
+    "los",
+    "buenos"
+   ],
+   "owner_refs": [
+    "Sir.31.29"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0439l0059",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "Vida",
+    "tranquila^",
+    "para"
+   ],
+   "owner_refs": [
+    "Sir.31.29"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0441l0051",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "En",
+    "medio",
+    "de"
+   ],
+   "owner_refs": [
+    "Sir.32.10"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0441l0079",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Huye",
+    "de",
+    "la"
+   ],
+   "owner_refs": [
+    "Sir.32.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0441l0096",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Cautélate",
+    "aun",
+    "de"
+   ],
+   "owner_refs": [
+    "Sir.32.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0443l0060",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Contra",
+    "el",
+    "mal"
+   ],
+   "owner_refs": [
+    "Sir.33.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0444l0040",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Mientras",
+    "ttiUi",
+    "en"
+   ],
+   "owner_refs": [
+    "Sir.33.33"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0444l0047",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Eo",
+    "todas",
+    "tas"
+   ],
+   "owner_refs": [
+    "Sir.33.33"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0444l0056",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Éste",
+    "trabaja",
+    "cuando"
+   ],
+   "owner_refs": [
+    "Sir.33.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0444l0062",
+   "value": 28,
+   "tokens": [
+    "a8",
+    "Ar",
+    "siervo",
+    "de"
+   ],
+   "owner_refs": [
+    "Sir.33.33"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0444l0078",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "Si",
+    "le",
+    "maltratas"
+   ],
+   "owner_refs": [
+    "Sir.33.3"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0445l0072",
+   "value": 11,
+   "tokens": [
+    "II",
+    "Quien",
+    "no",
+    "ha"
+   ],
+   "owner_refs": [
+    "Sir.34.9"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0446l0047",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Por",
+    "esta",
+    "razoa"
+   ],
+   "owner_refs": [
+    "Sir.34.3"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0446l0073",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Inmunda",
+    "es",
+    "la"
+   ],
+   "owner_refs": [
+    "Sir.34.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0446l0077",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Ei",
+    "Señor",
+    "solo"
+   ],
+   "owner_refs": [
+    "Sir.34.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0446l0089",
+   "value": 25,
+   "tokens": [
+    "a5",
+    "Es",
+    "la",
+    "vida"
+   ],
+   "owner_refs": [
+    "Sir.34.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0447l0017",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Quien",
+    "qaiU",
+    "á"
+   ],
+   "owner_refs": [
+    "Sir.34.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0447l0023",
+   "value": 28,
+   "tokens": [
+    "a8",
+    "Si",
+    "lo",
+    "que"
+   ],
+   "owner_refs": [
+    "Sir.34.27"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0448l0068",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Y",
+    "no",
+    "cuentes"
+   ],
+   "owner_refs": [
+    "Sir.35.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0451l0036",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "La",
+    "mug'er",
+    "tomará"
+   ],
+   "owner_refs": [
+    "Sir.36.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0451l0043",
+   "value": 25,
+   "tokens": [
+    "a5",
+    "Si",
+    "su",
+    "lengua"
+   ],
+   "owner_refs": [
+    "Sir.36.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0453l0060",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Una",
+    "palabra",
+    "ó"
+   ],
+   "owner_refs": [
+    "Sir.37.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0453l0067",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Otro",
+    "es",
+    "prudente"
+   ],
+   "owner_refs": [
+    "Sir.37.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0453l0082",
+   "value": 27,
+   "tokens": [
+    "a7",
+    "Colmado",
+    "será",
+    "de"
+   ],
+   "owner_refs": [
+    "Sir.37.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0453l0085",
+   "value": 28,
+   "tokens": [
+    "a8",
+    "La",
+    "vida",
+    "del"
+   ],
+   "owner_refs": [
+    "Sir.37.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0454l0028",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "Guáirdate",
+    "de",
+    "ser"
+   ],
+   "owner_refs": [
+    "Sir.37.3"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0455l0064",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Puesto",
+    "que",
+    "hay"
+   ],
+   "owner_refs": [
+    "Sir.38.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0455l0090",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "No",
+    "abandones",
+    "tu"
+   ],
+   "owner_refs": [
+    "Sir.38.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0456l0073",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "Así",
+    "el",
+    "alfarero,"
+   ],
+   "owner_refs": [
+    "Sir.38.9"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0458l0070",
+   "value": 11,
+   "tokens": [
+    "li",
+    "Las",
+    "naciones",
+    "pregonarán"
+   ],
+   "owner_refs": [
+    "Sir.39.2"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0458l0090",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "EagnMeced",
+    "aa",
+    "smnto^"
+   ],
+   "owner_refs": [
+    "Sir.39.2"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0459l0058",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "CoiD«",
+    "el",
+    "dUovjo,"
+   ],
+   "owner_refs": [
+    "Sir.39.27"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0461l0074",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Secaránse",
+    "como",
+    "un"
+   ],
+   "owner_refs": [
+    "Sir.40.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0461l0078",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Al",
+    "abrir",
+    "su"
+   ],
+   "owner_refs": [
+    "Sir.40.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0461l0081",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "No",
+    "multiplicarán",
+    "Sus"
+   ],
+   "owner_refs": [
+    "Sir.40.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0462l0047",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "El",
+    "vino",
+    "y"
+   ],
+   "owner_refs": [
+    "Sir.40.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0462l0050",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "La",
+    "flauta",
+    "y"
+   ],
+   "owner_refs": [
+    "Sir.40.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0462l0066",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Engrandecen",
+    "el",
+    "corazón"
+   ],
+   "owner_refs": [
+    "Sir.40.5"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0462l0075",
+   "value": 29,
+   "tokens": [
+    "a9",
+    "Hijo,",
+    "no",
+    "andes"
+   ],
+   "owner_refs": [
+    "Sir.40.5"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0462l0084",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "En",
+    "la",
+    "boca"
+   ],
+   "owner_refs": [
+    "Sir.40.5"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0464l0047",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Ten",
+    "cuidado",
+    "de"
+   ],
+   "owner_refs": [
+    "Sir.41.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0464l0066",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Avergonzaos",
+    "de",
+    "la"
+   ],
+   "owner_refs": [
+    "Sir.41.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0466l0070",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Pues",
+    "como",
+    "de"
+   ],
+   "owner_refs": [
+    "Sir.42.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0466l0073",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Porque",
+    "menos",
+    "te"
+   ],
+   "owner_refs": [
+    "Sir.42.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0466l0081",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "Como",
+    "el",
+    "sol"
+   ],
+   "owner_refs": [
+    "Sir.42.15"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0467l0033",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "No",
+    "se",
+    "le"
+   ],
+   "owner_refs": [
+    "Sir.42.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0467l0035",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Hermoseó",
+    "con",
+    "bellisimo"
+   ],
+   "owner_refs": [
+    "Sir.42.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0468l0075",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "Con",
+    "su",
+    "gran"
+   ],
+   "owner_refs": [
+    "Sir.43.15"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0468l0086",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Los",
+    "ojos",
+    "admiran"
+   ],
+   "owner_refs": [
+    "Sir.43.18"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0468l0089",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "El",
+    "Señor",
+    "derrama"
+   ],
+   "owner_refs": [
+    "Sir.43.18"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0469l0049",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "AI",
+    "soplo",
+    "del"
+   ],
+   "owner_refs": [
+    "Sir.43.18"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0471l0071",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Abraham^,",
+    "aquel",
+    "gran"
+   ],
+   "owner_refs": [
+    "Sir.44.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0471l0078",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Por",
+    "eso",
+    "juró"
+   ],
+   "owner_refs": [
+    "Sir.44.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0472l0019",
+   "value": 24,
+   "tokens": [
+    "a4",
+    "Y",
+    "del",
+    "mismo"
+   ],
+   "owner_refs": [
+    "Sir.44.6"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0472l0025",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Al",
+    "cual",
+    "reconoció"
+   ],
+   "owner_refs": [
+    "Sir.44.6"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0472l0028",
+   "value": 27,
+   "tokens": [
+    "a7",
+    "Y",
+    "le",
+    "concedió"
+   ],
+   "owner_refs": [
+    "Sir.44.6"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0473l0069",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Sobre",
+    "su",
+    "mitra"
+   ],
+   "owner_refs": [
+    "Sir.45.10"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0474l0058",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Con",
+    "ellas",
+    "Je"
+   ],
+   "owner_refs": [
+    "Sir.45.18"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0477l0019",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Y\"",
+    "tronó",
+    "el"
+   ],
+   "owner_refs": [
+    "Sir.46.18"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0477l0024",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Y",
+    "antes",
+    "que"
+   ],
+   "owner_refs": [
+    "Sir.46.18"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0477l0031",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Después",
+    "de",
+    "esto"
+   ],
+   "owner_refs": [
+    "Sir.46.18"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0478l0065",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Purificóle",
+    "el",
+    "SeBor"
+   ],
+   "owner_refs": [
+    "Sir.47.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0481l0046",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "En",
+    "fin",
+    "Elittfué"
+   ],
+   "owner_refs": [
+    "Sir.48.9"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0481l0051",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Ni",
+    "hubo",
+    "cosa"
+   ],
+   "owner_refs": [
+    "Sir.48.9"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0481l0054",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Durante",
+    "su",
+    "vida"
+   ],
+   "owner_refs": [
+    "Sir.48.9"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0482l0021",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "En",
+    "su",
+    "tiempo"
+   ],
+   "owner_refs": [
+    "Sir.48.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0482l0027",
+   "value": 28,
+   "tokens": [
+    "a8",
+    "Anunció",
+    "las",
+    "cosas"
+   ],
+   "owner_refs": [
+    "Sir.48.7"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0483l0070",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Durará",
+    "también",
+    "largo"
+   ],
+   "owner_refs": [
+    "Sir.49.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0486l0056",
+   "value": 30,
+   "tokens": [
+    "3o",
+    "Bienaventurado",
+    "el",
+    "que"
+   ],
+   "owner_refs": [
+    "Sir.50.21"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0486l0059",
+   "value": 31,
+   "tokens": [
+    "3i",
+    "Porque",
+    "obrando",
+    "asij"
+   ],
+   "owner_refs": [
+    "Sir.50.21"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0488l0055",
+   "value": 18,
+   "tokens": [
+    "i8",
+    "Siendo",
+    "yo",
+    "todavía"
+   ],
+   "owner_refs": [
+    "Sir.51.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0488l0070",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "A",
+    "aquel",
+    "que-"
+   ],
+   "owner_refs": [
+    "Sir.51.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0488l0085",
+   "value": 29,
+   "tokens": [
+    "a9",
+    "Acongojado",
+    "anduvo",
+    "mi"
+   ],
+   "owner_refs": [
+    "Sir.51.28"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0489l0022",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "¿Por",
+    "qaé",
+    "Of"
+   ],
+   "owner_refs": [
+    "Sir.51.3"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0498l0071",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "No",
+    "me",
+    "ofreuais"
+   ],
+   "owner_refs": [
+    "Isa.1.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0499l0056",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Pero",
+    "si",
+    "no"
+   ],
+   "owner_refs": [
+    "Isa.1.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0499l0061",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "¿GSmo",
+    "la",
+    "ciudad"
+   ],
+   "owner_refs": [
+    "Isa.1.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0499l0065",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Tu",
+    "plata",
+    "se"
+   ],
+   "owner_refs": [
+    "Isa.1.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0500l0039",
+   "value": 28,
+   "tokens": [
+    "a8",
+    "Pero",
+    "Dios",
+    "destruirá"
+   ],
+   "owner_refs": [
+    "Isa.1.6"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0502l0071",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "En",
+    "aquel",
+    "dia"
+   ],
+   "owner_refs": [
+    "Isa.2.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0502l0082",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Cesad",
+    "pues",
+    "de"
+   ],
+   "owner_refs": [
+    "Isa.2.21"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0504l0050",
+   "value": 11,
+   "tokens": [
+    "II",
+    "¡Ay",
+    "del",
+    "impío"
+   ],
+   "owner_refs": [
+    "Isa.3.10"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0508l0045",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Por",
+    "esto",
+    "ensanchó"
+   ],
+   "owner_refs": [
+    "Isa.5.13"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0508l0049",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Y",
+    "tendrá",
+    "que"
+   ],
+   "owner_refs": [
+    "Isa.5.13"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0508l0069",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "¡Ay",
+    "de",
+    "vosotros"
+   ],
+   "owner_refs": [
+    "Isa.5.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0508l0077",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "¡Ay",
+    "de",
+    "vosotros"
+   ],
+   "owner_refs": [
+    "Isa.5.21"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0508l0080",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "¡Vosotros,",
+    "qne",
+    "por"
+   ],
+   "owner_refs": [
+    "Isa.5.21"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0509l0038",
+   "value": 25,
+   "tokens": [
+    "a5",
+    "Por",
+    "esta",
+    "causa"
+   ],
+   "owner_refs": [
+    "Isa.5.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0509l0046",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Y",
+    "altará",
+    "bandera"
+   ],
+   "owner_refs": [
+    "Isa.5.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0509l0060",
+   "value": 29,
+   "tokens": [
+    "a9",
+    "Rugirá",
+    "como",
+    "león,"
+   ],
+   "owner_refs": [
+    "Isa.5.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0509l0064",
+   "value": 30,
+   "tokens": [
+    "3o",
+    "Y",
+    "su",
+    "estruendo"
+   ],
+   "owner_refs": [
+    "Isa.5.24"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0511l0014",
+   "value": 11,
+   "tokens": [
+    "II",
+    "Y",
+    "dije",
+    "yo:"
+   ],
+   "owner_refs": [
+    "Isa.6.8"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0511l0022",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Y",
+    "todavía",
+    "serán"
+   ],
+   "owner_refs": [
+    "Isa.6.8"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0512l0075",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "Porque",
+    "antes",
+    "qáe"
+   ],
+   "owner_refs": [
+    "Isa.7.15"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0513l0050",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "En",
+    "aquel",
+    "dia"
+   ],
+   "owner_refs": [
+    "Isa.7.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0516l0026",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "A",
+    "la",
+    "Ley"
+   ],
+   "owner_refs": [
+    "Isa.8.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0518l0075",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Y",
+    "volveráse",
+    "á"
+   ],
+   "owner_refs": [
+    "Isa.9.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0520l0043",
+   "value": 11,
+   "tokens": [
+    "II",
+    "¿",
+    "Acaso",
+    "lo"
+   ],
+   "owner_refs": [
+    "Isa.10.10"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0520l0053",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Ya",
+    "que",
+    "ha"
+   ],
+   "owner_refs": [
+    "Isa.10.10"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0522l0024",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "Aun",
+    "falta",
+    "un"
+   ],
+   "owner_refs": [
+    "Isa.10.3"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0523l0079",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Y",
+    "será",
+    "quitado"
+   ],
+   "owner_refs": [
+    "Isa.11.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0524l0020",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Y",
+    "volarán",
+    "juntos"
+   ],
+   "owner_refs": [
+    "Isa.11.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0524l0032",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "Y",
+    "quedará",
+    "libre"
+   ],
+   "owner_refs": [
+    "Isa.11.15"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0526l0059",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Y",
+    "echarán",
+    "á"
+   ],
+   "owner_refs": [
+    "Isa.13.13"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0526l0087",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Sino",
+    "que",
+    "se"
+   ],
+   "owner_refs": [
+    "Isa.13.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0530l0018",
+   "value": 32,
+   "tokens": [
+    "3a",
+    "Y",
+    "¿qué",
+    "respuesta"
+   ],
+   "owner_refs": [
+    "Isa.14.31"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0534l0060",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Los",
+    "pueblos",
+    "moverán"
+   ],
+   "owner_refs": [
+    "Isa.17.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0534l0067",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "¡",
+    "Al",
+    "tiempo"
+   ],
+   "owner_refs": [
+    "Isa.17.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0537l0055",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Los",
+    "príncipes",
+    "de"
+   ],
+   "owner_refs": [
+    "Isa.19.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0537l0065",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Y",
+    "el",
+    "Egypto"
+   ],
+   "owner_refs": [
+    "Isa.19.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0543l0039",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Y",
+    "en",
+    "aquel"
+   ],
+   "owner_refs": [
+    "Isa.22.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0543l0041",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Y",
+    "le",
+    "revistiré"
+   ],
+   "owner_refs": [
+    "Isa.22.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0543l0050",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Y",
+    "le",
+    "colocaré"
+   ],
+   "owner_refs": [
+    "Isa.22.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0545l0035",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Mirad",
+    "la",
+    "tierra.de"
+   ],
+   "owner_refs": [
+    "Isa.23.4"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0545l0041",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Aullad,",
+    "ob",
+    "naves"
+   ],
+   "owner_refs": [
+    "Isa.23.4"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0545l0043",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Y",
+    "entonces",
+    "será"
+   ],
+   "owner_refs": [
+    "Isa.23.4"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0548l0032",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Y",
+    "serán",
+    "reunidos"
+   ],
+   "owner_refs": [
+    "Isa.24.4"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0552l0015",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Anda,",
+    "pueblo",
+    "mío,"
+   ],
+   "owner_refs": [
+    "Isa.26.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0555l0060",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "B|r",
+    "tanto,",
+    "escuchad"
+   ],
+   "owner_refs": [
+    "Isa.28.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0555l0064",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "-Pues",
+    "que",
+    "vosotros"
+   ],
+   "owner_refs": [
+    "Isa.28.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0557l0056",
+   "value": 29,
+   "tokens": [
+    "a9",
+    "Esto",
+    "es",
+    "lo"
+   ],
+   "owner_refs": [
+    "Isa.28.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0559l0039",
+   "value": 11,
+   "tokens": [
+    "II",
+    "Y",
+    "las",
+    "visiones"
+   ],
+   "owner_refs": [
+    "Isa.29.9"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0559l0048",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Y",
+    "dijo",
+    "el"
+   ],
+   "owner_refs": [
+    "Isa.29.9"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0560l0034",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Por",
+    "tanto",
+    "el"
+   ],
+   "owner_refs": [
+    "Isa.29.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0562l0050",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Porque",
+    "el",
+    "SeSor"
+   ],
+   "owner_refs": [
+    "Isa.30.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0563l0047",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Escuchen",
+    "tus",
+    "oídos"
+   ],
+   "owner_refs": [
+    "Isa.30.3"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0563l0071",
+   "value": 25,
+   "tokens": [
+    "a5",
+    "Y",
+    "de",
+    "todo"
+   ],
+   "owner_refs": [
+    "Isa.30.3"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0563l0076",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "La",
+    "lúa",
+    "de"
+   ],
+   "owner_refs": [
+    "Isa.30.3"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0567l0052",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Lo",
+    "cierto",
+    "es"
+   ],
+   "owner_refs": [
+    "Isa.32.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0569l0042",
+   "value": 11,
+   "tokens": [
+    "II",
+    "AacAiiwx",
+    "or^u/ZoAMi",
+    "voaolrks"
+   ],
+   "owner_refs": [
+    "Isa.33.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0569l0050",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Vosotros",
+    "los",
+    "que"
+   ],
+   "owner_refs": [
+    "Isa.33.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0569l0060",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Aquel",
+    "que",
+    "anda"
+   ],
+   "owner_refs": [
+    "Isa.33.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0569l0068",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "Este",
+    "es",
+    "el"
+   ],
+   "owner_refs": [
+    "Isa.33.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0570l0034",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Vuelve",
+    "la",
+    "vista"
+   ],
+   "owner_refs": [
+    "Isa.33.7"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0570l0042",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Porque",
+    "allí",
+    "solamente"
+   ],
+   "owner_refs": [
+    "Isa.33.7"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0570l0049",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Pues",
+    "el",
+    "Señor"
+   ],
+   "owner_refs": [
+    "Isa.33.7"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0570l0053",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Aflojáronse,",
+    "oh",
+    "nave"
+   ],
+   "owner_refs": [
+    "Isa.33.7"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0575l0075",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Y",
+    "púsose",
+    "en"
+   ],
+   "owner_refs": [
+    "Isa.36.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0575l0081",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "No",
+    "os",
+    "llene"
+   ],
+   "owner_refs": [
+    "Isa.36.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0576l0055",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Callaron",
+    "iodos",
+    "y"
+   ],
+   "owner_refs": [
+    "Isa.36.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0576l0058",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Y",
+    "«n",
+    "seguida"
+   ],
+   "owner_refs": [
+    "Isa.36.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0578l0044",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "¿Do",
+    "ealAel",
+    "Rey"
+   ],
+   "owner_refs": [
+    "Isa.37.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0578l0071",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Mas",
+    "tú",
+    "ahora"
+   ],
+   "owner_refs": [
+    "Isa.37.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0578l0076",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "En",
+    "esto",
+    "Isaías,"
+   ],
+   "owner_refs": [
+    "Isa.37.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0578l0087",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "¿Á",
+    "quién",
+    "has"
+   ],
+   "owner_refs": [
+    "Isa.37.22"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0579l0080",
+   "value": 30,
+   "tokens": [
+    "3o",
+    "Pero",
+    "tú,",
+    "0/1"
+   ],
+   "owner_refs": [
+    "Isa.37.38"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0579l0087",
+   "value": 31,
+   "tokens": [
+    "3i",
+    "Y",
+    "lo",
+    "que"
+   ],
+   "owner_refs": [
+    "Isa.37.38"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0581l0084",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Esperaba",
+    "vioir",
+    "hasta"
+   ],
+   "owner_refs": [
+    "Isa.38.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0582l0064",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Oh",
+    "Señor",
+    ","
+   ],
+   "owner_refs": [
+    "Isa.38.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0582l0067",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Ss",
+    "de",
+    "saber"
+   ],
+   "owner_refs": [
+    "Isa.38.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0582l0073",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Y",
+    "entonces",
+    "fué"
+   ],
+   "owner_refs": [
+    "Isa.38.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0585l0056",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "¿Quién",
+    "ayudó",
+    "al"
+   ],
+   "owner_refs": [
+    "Isa.40.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0585l0059",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "¿A",
+    "quién",
+    "llamó"
+   ],
+   "owner_refs": [
+    "Isa.40.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0586l0042",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "El",
+    "hábil",
+    "artífice"
+   ],
+   "owner_refs": [
+    "Isa.40.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0586l0051",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Sabed",
+    "que",
+    "é\\"
+   ],
+   "owner_refs": [
+    "Isa.40.21"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0586l0058",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Él",
+    "es",
+    "quien"
+   ],
+   "owner_refs": [
+    "Isa.40.21"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0586l0062",
+   "value": 24,
+   "tokens": [
+    "a4",
+    "Estos",
+    "sonpara",
+    "Dios"
+   ],
+   "owner_refs": [
+    "Isa.40.21"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0586l0068",
+   "value": 25,
+   "tokens": [
+    "a5",
+    "¿",
+    "A",
+    "qué"
+   ],
+   "owner_refs": [
+    "Isa.40.21"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0586l0071",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Alsad",
+    "hacia",
+    "lo"
+   ],
+   "owner_refs": [
+    "Isa.40.21"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0586l0079",
+   "value": 27,
+   "tokens": [
+    "a7",
+    "Pues",
+    "¿porqué",
+    "dices"
+   ],
+   "owner_refs": [
+    "Isa.40.21"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0586l0084",
+   "value": 28,
+   "tokens": [
+    "a8",
+    "¿Por",
+    "ventura",
+    "Ignoras"
+   ],
+   "owner_refs": [
+    "Isa.40.21"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0587l0018",
+   "value": 30,
+   "tokens": [
+    "3o",
+    "Desfallecerá",
+    "fatigada",
+    "de"
+   ],
+   "owner_refs": [
+    "Isa.40.21"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0589l0050",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Salid",
+    "ahora",
+    "*"
+   ],
+   "owner_refs": [
+    "Isa.41.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0589l0053",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Vengan",
+    "vuestros",
+    "dioses"
+   ],
+   "owner_refs": [
+    "Isa.41.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0589l0059",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Vaticinad,",
+    "oh",
+    "ídotos^^"
+   ],
+   "owner_refs": [
+    "Isa.41.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0589l0074",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "¿Quién",
+    "otro",
+    "mo^"
+   ],
+   "owner_refs": [
+    "Isa.41.25"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0591l0081",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "Y",
+    "guiaré",
+    "á"
+   ],
+   "owner_refs": [
+    "Isa.42.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0592l0065",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "Mas",
+    "ese",
+    "misnko"
+   ],
+   "owner_refs": [
+    "Isa.42.9"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0592l0071",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "¿Quién",
+    "hay",
+    "entre"
+   ],
+   "owner_refs": [
+    "Isa.42.9"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0594l0071",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Yo",
+    "el",
+    "Señor,"
+   ],
+   "owner_refs": [
+    "Isa.43.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0597l0046",
+   "value": 10,
+   "tokens": [
+    "io",
+    "¿Quién",
+    "es,",
+    "pues"
+   ],
+   "owner_refs": [
+    "Isa.44.9"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0597l0079",
+   "value": 16,
+   "tokens": [
+    "i6",
+    "Una",
+    "parte",
+    "del"
+   ],
+   "owner_refs": [
+    "Isa.44.15"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0598l0075",
+   "value": 24,
+   "tokens": [
+    "a4",
+    "Esto",
+    "dice",
+    "el"
+   ],
+   "owner_refs": [
+    "Isa.44.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0598l0085",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Yo",
+    "soy",
+    "el"
+   ],
+   "owner_refs": [
+    "Isa.44.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0601l0044",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Reunios",
+    "y",
+    "venid"
+   ],
+   "owner_refs": [
+    "Isa.45.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0601l0073",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Y",
+    "entontes",
+    "será"
+   ],
+   "owner_refs": [
+    "Isa.45.22"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0603l0020",
+   "value": 11,
+   "tokens": [
+    "II",
+    "Yo",
+    "que",
+    "Hamo"
+   ],
+   "owner_refs": [
+    "Isa.46.10"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0607l0034",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Salid",
+    "paes",
+    "ahora"
+   ],
+   "owner_refs": [
+    "Isa.48.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0609l0056",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Pues",
+    "qué",
+    "9"
+   ],
+   "owner_refs": [
+    "Isa.49.13"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0609l0084",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "T",
+    "t6",
+    "dirás"
+   ],
+   "owner_refs": [
+    "Isa.49.20"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0610l0035",
+   "value": 23,
+   "tokens": [
+    "a3",
+    "Y",
+    "los",
+    "Reyes"
+   ],
+   "owner_refs": [
+    "Isa.49.22"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0610l0042",
+   "value": 24,
+   "tokens": [
+    "a4",
+    "¿",
+    "Por",
+    "ventura"
+   ],
+   "owner_refs": [
+    "Isa.49.22"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0610l0046",
+   "value": 25,
+   "tokens": [
+    "a5",
+    "Sí:",
+    "porque",
+    "esto"
+   ],
+   "owner_refs": [
+    "Isa.49.22"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0610l0053",
+   "value": 26,
+   "tokens": [
+    "a6",
+    "Yo",
+    "haré",
+    "comer"
+   ],
+   "owner_refs": [
+    "Isa.49.22"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0613l0075",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Presto",
+    "llegará",
+    "aquel"
+   ],
+   "owner_refs": [
+    "Isa.51.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0613l0079",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "En",
+    "fin",
+    "f"
+   ],
+   "owner_refs": [
+    "Isa.51.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0614l0061",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Por",
+    "tanto,",
+    "escucha"
+   ],
+   "owner_refs": [
+    "Isa.51.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0616l0052",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Al",
+    "modo",
+    "que"
+   ],
+   "owner_refs": [
+    "Isa.52.13"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0616l0058",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Él",
+    "rociarA",
+    "ó"
+   ],
+   "owner_refs": [
+    "Isa.52.13"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0620l0033",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Tus",
+    "hijos",
+    "todos"
+   ],
+   "owner_refs": [
+    "Isa.54.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0620l0036",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "V",
+    "tendrás",
+    "por"
+   ],
+   "owner_refs": [
+    "Isa.54.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0624l0098",
+   "value": 11,
+   "tokens": [
+    "II",
+    "Ezech.XXULv.",
+    "16."
+   ],
+   "owner_refs": [
+    "Isa.57.9"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0626l0013",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "No",
+    "'bay",
+    "pas"
+   ],
+   "owner_refs": [
+    "Isa.57.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0627l0078",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Si",
+    "le",
+    "abstuvieres"
+   ],
+   "owner_refs": [
+    "Isa.58.12"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0629l0068",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "Pecado",
+    "hemos",
+    "y"
+   ],
+   "owner_refs": [
+    "Isa.59.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0629l0074",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Y",
+    "asi",
+    "es"
+   ],
+   "owner_refs": [
+    "Isa.59.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0629l0079",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Y",
+    "la",
+    "verdad"
+   ],
+   "owner_refs": [
+    "Isa.59.11"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0632l0041",
+   "value": 13,
+   "tokens": [
+    "i3",
+    "A",
+    "ti",
+    "vendrá"
+   ],
+   "owner_refs": [
+    "Isa.60.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0632l0046",
+   "value": 14,
+   "tokens": [
+    "i4",
+    "Y",
+    "á",
+    "tí"
+   ],
+   "owner_refs": [
+    "Isa.60.1"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0632l0079",
+   "value": 20,
+   "tokens": [
+    "ao",
+    "Nunca",
+    "jamas",
+    "se"
+   ],
+   "owner_refs": [
+    "Isa.60.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0638l0027",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Atiende",
+    "desde",
+    "el"
+   ],
+   "owner_refs": [
+    "Isa.63.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0641l0076",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Y",
+    "dejaréis",
+    "cubierto"
+   ],
+   "owner_refs": [
+    "Isa.65.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0642l0057",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Y",
+    "edificarán",
+    "casas,"
+   ],
+   "owner_refs": [
+    "Isa.65.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0642l0060",
+   "value": 22,
+   "tokens": [
+    "aa",
+    "No",
+    "acontecerá",
+    "que"
+   ],
+   "owner_refs": [
+    "Isa.65.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0642l0071",
+   "value": 24,
+   "tokens": [
+    "a4",
+    "Y",
+    "antes",
+    "que"
+   ],
+   "owner_refs": [
+    "Isa.65.19"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0645l0040",
+   "value": 15,
+   "tokens": [
+    "i5",
+    "Porque",
+    "he",
+    "aquí"
+   ],
+   "owner_refs": [
+    "Isa.66.14"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0646l0041",
+   "value": 21,
+   "tokens": [
+    "ai",
+    "Y",
+    "de",
+    "entre"
+   ],
+   "owner_refs": [
+    "Isa.66.7"
+   ],
+   "opens_a_ref": false
+  },
+  {
+   "block": "p0646l0053",
+   "value": 24,
+   "tokens": [
+    "a4",
+    "Y",
+    ")",
+    "saldrán"
+   ],
+   "owner_refs": [
+    "Isa.66.7"
+   ],
+   "opens_a_ref": false
+  }
+ ]
+}

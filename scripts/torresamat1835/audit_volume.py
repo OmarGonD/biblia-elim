@@ -380,7 +380,8 @@ def _withheld_forms(matrix: dict) -> dict:
 
 
 def audit(xml_path, *, volume, witness, book="Ps", limit=None,
-          projected_form_a_recovery=True, printed_2x_recovery=True):
+          projected_form_a_recovery=True, printed_2x_recovery=True,
+          split_digit_recovery=True, glued_marker_recovery=True):
     """El informe del tomo.
 
     ``projected_form_a_recovery=False`` reproduce el estado de ejecución
@@ -442,7 +443,9 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None,
         volume=volume, book=book, book_spans=spans,
         header_chapters=header_chapters, with_walker=True,
         projected_form_a_recovery=projected_form_a_recovery,
-        printed_2x_recovery=printed_2x_recovery)
+        printed_2x_recovery=printed_2x_recovery,
+        split_digit_recovery=split_digit_recovery,
+        glued_marker_recovery=glued_marker_recovery)
 
     # Segunda referencia: CON las recuperaciones de frontera pero SIN las
     # lecturas de numeral. Es el estado justo antes de esta tanda de
@@ -457,7 +460,9 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None,
                            if reviews else None),
             recovery_source=source if reviews else None,
             projected_form_a_recovery=projected_form_a_recovery,
-            printed_2x_recovery=printed_2x_recovery)
+            printed_2x_recovery=printed_2x_recovery,
+            split_digit_recovery=split_digit_recovery,
+        glued_marker_recovery=glued_marker_recovery)
 
     # Tercera referencia: TODO menos la recuperación de numerales
     # partidos en dos glifos. Es contra esto -- y no contra el estado de
@@ -523,19 +528,61 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None,
         projected_form_a_recovery=False)
     no_form_a_seconds = time.perf_counter() - form_a_started
 
+    # Effective switches (each fallback needs the previous one). A
+    # reference pass «only X off» is identical to the main pass when X is
+    # effectively off, so it is not parsed twice (see below).
+    eff_2x = bool(projected_form_a_recovery and printed_2x_recovery)
+    eff_split = bool(eff_2x and split_digit_recovery)
+    eff_glued = bool(eff_split and glued_marker_recovery)
+
     # Reference pass immediately before task-150: task-146 on, only the
     # printed 2x fallback off. Task 146 is measured up to this state and
     # task 150 from it, so neither absorbs the other's effect.
-    no_2x_edition, _n2_stats, _no_2x_walker = page_parser.parse_volume(
-        source_ocr.read_pages(xml_path, limit=limit), witness=witness,
-        volume=volume, book=book, book_spans=spans,
-        header_chapters=header_chapters, with_walker=True,
-        image_reviews=(image_recovery.by_page(reviews) if reviews else None),
-        recovery_source=source if reviews else None,
-        numeral_reviews=(image_reviews.numerals_by_block(numerals)
-                         if numerals else None),
-        projected_form_a_recovery=projected_form_a_recovery,
-        printed_2x_recovery=False)
+    no_2x_edition = None
+    if eff_2x:
+        no_2x_edition, _n2_stats, _no_2x_walker = page_parser.parse_volume(
+            source_ocr.read_pages(xml_path, limit=limit), witness=witness,
+            volume=volume, book=book, book_spans=spans,
+            header_chapters=header_chapters, with_walker=True,
+            image_reviews=(image_recovery.by_page(reviews) if reviews else None),
+            recovery_source=source if reviews else None,
+            numeral_reviews=(image_reviews.numerals_by_block(numerals)
+                             if numerals else None),
+            projected_form_a_recovery=projected_form_a_recovery,
+            printed_2x_recovery=False)
+
+    # Reference pass immediately before task-153: task 150 on, only the
+    # split two-digit fallback off (task 150 measured up to it).
+    no_split_edition = None
+    if eff_split:
+        no_split_edition, _ns_stats, _no_split_walker = page_parser.parse_volume(
+            source_ocr.read_pages(xml_path, limit=limit), witness=witness,
+            volume=volume, book=book, book_spans=spans,
+            header_chapters=header_chapters, with_walker=True,
+            image_reviews=(image_recovery.by_page(reviews) if reviews else None),
+            recovery_source=source if reviews else None,
+            numeral_reviews=(image_reviews.numerals_by_block(numerals)
+                             if numerals else None),
+            projected_form_a_recovery=projected_form_a_recovery,
+            printed_2x_recovery=printed_2x_recovery,
+            split_digit_recovery=False)
+
+    # Reference pass immediately before task-156: task 153 on, only the
+    # glued two-character fallback off (task 153 measured up to it).
+    no_glued_edition = None
+    if eff_glued:
+        no_glued_edition, _ng_stats, _no_glued_walker = page_parser.parse_volume(
+            source_ocr.read_pages(xml_path, limit=limit), witness=witness,
+            volume=volume, book=book, book_spans=spans,
+            header_chapters=header_chapters, with_walker=True,
+            image_reviews=(image_recovery.by_page(reviews) if reviews else None),
+            recovery_source=source if reviews else None,
+            numeral_reviews=(image_reviews.numerals_by_block(numerals)
+                             if numerals else None),
+            projected_form_a_recovery=projected_form_a_recovery,
+            printed_2x_recovery=printed_2x_recovery,
+            split_digit_recovery=split_digit_recovery,
+            glued_marker_recovery=False)
 
     pages = source_ocr.read_pages(xml_path, limit=limit)
     applied_started = time.perf_counter()
@@ -547,8 +594,17 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None,
         numeral_reviews=(image_reviews.numerals_by_block(numerals)
                          if numerals else None),
         projected_form_a_recovery=projected_form_a_recovery,
-        printed_2x_recovery=printed_2x_recovery)
+        printed_2x_recovery=printed_2x_recovery,
+        split_digit_recovery=split_digit_recovery,
+        glued_marker_recovery=glued_marker_recovery)
     applied_seconds = time.perf_counter() - applied_started
+    # Fallbacks effectively off: their «only X off» pass IS the main pass.
+    if no_2x_edition is None:
+        no_2x_edition = edition
+    if no_split_edition is None:
+        no_split_edition = edition
+    if no_glued_edition is None:
+        no_glued_edition = edition
 
     chapters = {}
     for osis, entry in edition.books.items():
@@ -2359,16 +2415,17 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None,
         x_rows = list(walker.printed_2x_candidates)
         x_applied = [row for row in x_rows if row["applied"]]
         x_before_refs = form_a_after_refs
-        x_after_refs = _reference_map(edition)
+        # Task 150 is measured up to the pass with task 153 off.
+        x_after_refs = _reference_map(no_split_edition)
         x_before_owner = _owner_map(x_before_refs)
         x_after_owner = _owner_map(x_after_refs)
         x_moved = sorted(block for block in
                          set(x_before_owner) & set(x_after_owner)
                          if x_before_owner[block] != x_after_owner[block])
         x_after_gaps = verse_gaps.inventory(
-            edition, verse_limit=structure.verse_limit)
+            no_split_edition, verse_limit=structure.verse_limit)
         x_glyph_after = {key for instance in
-                         glyph_forms.inventory(edition, x_after_gaps)
+                         glyph_forms.inventory(no_split_edition, x_after_gaps)
                          for key in instance.gap_keys}
         x_physical_after = {gap.key for gap in x_after_gaps}
         out["projected_form_a_printed_2x_recovery"] = {
@@ -2408,6 +2465,102 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None,
                 "projected_gap_provenance", "native_owner_refs",
                 "proposed_native_ref", "prior_owner_ref")}
                 for row in sorted(x_rows, key=lambda r: r["block_id"])],
+        }
+
+        # Task 153: split two-digit markers, from the pass with only it
+        # disabled. Parser state only.
+        sd_rows = list(walker.split_digit_candidates)
+        sd_applied = [row for row in sd_rows if row.get("applied")]
+        sd_before_owner = _owner_map(x_after_refs)
+        # Task 153 is measured up to the pass with task 156 off.
+        sd_after_refs = _reference_map(no_glued_edition)
+        sd_after_owner = _owner_map(sd_after_refs)
+        sd_moved = sorted(b for b in set(sd_before_owner) & set(sd_after_owner)
+                          if sd_before_owner[b] != sd_after_owner[b])
+        sd_after_gaps = {gap.key for gap in verse_gaps.inventory(
+            no_glued_edition, verse_limit=structure.verse_limit)}
+        out["split_two_digit_marker_recovery"] = {
+            "rule": ("task-152: right/body «d d Sentence», value = two "
+                     "source digits, physical-order progression, canon, no "
+                     "existing verse, one event per ref; third pass after "
+                     "task 150"),
+            "selection_authority": {
+                "occurrence_or_block_allowlist": False,
+                "expected_gap_or_verse": False,
+                "previous_plus_one": False, "next_minus_one": False,
+                "diagnostic_artifacts_read": False},
+            "verse_refs_before": len(x_after_refs),
+            "verse_refs_after": len(sd_after_refs),
+            "candidate_matches": len(sd_rows),
+            "outcomes": dict(sorted(collections.Counter(
+                row["outcome"] for row in sd_rows).items())),
+            "applied": len(sd_applied),
+            "created_ref_identities": sorted(set(sd_after_refs) -
+                                             set(x_after_refs)),
+            "removed_ref_identities": sorted(set(x_after_refs) -
+                                             set(sd_after_refs)),
+            "ownership_moves": len(sd_moved),
+            "block_loss": len(set(sd_before_owner) - set(sd_after_owner)),
+            "blocks_entering_text": len(set(sd_after_owner) -
+                                        set(sd_before_owner)),
+            "dual_ownership": sum(1 for owners in sd_after_owner.values()
+                                  if len(owners) > 1),
+            "physical_gaps_before": len(x_physical_after),
+            "physical_gaps_after": len(sd_after_gaps),
+            "physical_gaps_closed": sorted(x_physical_after - sd_after_gaps),
+            "physical_gaps_opened": sorted(sd_after_gaps - x_physical_after),
+            "records": [{key: row.get(key) for key in (
+                "block_id", "value", "outcome", "applied", "prior_verse",
+                "proposed_native_ref")}
+                for row in sorted(sd_rows, key=lambda r: r["block_id"])],
+        }
+
+        # Task 156: glued two-character markers, from the pass with only
+        # it disabled. Parser state only.
+        gl_rows = list(walker.glued_marker_candidates)
+        gl_applied = [row for row in gl_rows if row.get("applied")]
+        gl_before_owner = _owner_map(sd_after_refs)
+        gl_after_refs = _reference_map(edition)
+        gl_after_owner = _owner_map(gl_after_refs)
+        gl_moved = sorted(b for b in set(gl_before_owner) & set(gl_after_owner)
+                          if gl_before_owner[b] != gl_after_owner[b])
+        gl_after_gaps = {gap.key for gap in verse_gaps.inventory(
+            edition, verse_limit=structure.verse_limit)}
+        out["glued_two_char_marker_recovery"] = {
+            "rule": ("task-155: right/body «xy Sentence» with x,y in "
+                     "{digit, i/I/l=1, a=2, o/O=0} and at least one letter, "
+                     "not a Spanish word, not already opening its verse; "
+                     "task-153 guards; fourth pass"),
+            "selection_authority": {
+                "occurrence_or_block_allowlist": False,
+                "expected_gap_or_verse": False,
+                "previous_plus_one": False, "next_minus_one": False,
+                "diagnostic_artifacts_read": False},
+            "verse_refs_before": len(sd_after_refs),
+            "verse_refs_after": len(gl_after_refs),
+            "candidate_matches": len(gl_rows),
+            "outcomes": dict(sorted(collections.Counter(
+                row["outcome"] for row in gl_rows).items())),
+            "applied": len(gl_applied),
+            "created_ref_identities": sorted(set(gl_after_refs) -
+                                             set(sd_after_refs)),
+            "removed_ref_identities": sorted(set(sd_after_refs) -
+                                             set(gl_after_refs)),
+            "ownership_moves": len(gl_moved),
+            "block_loss": len(set(gl_before_owner) - set(gl_after_owner)),
+            "blocks_entering_text": len(set(gl_after_owner) -
+                                        set(gl_before_owner)),
+            "dual_ownership": sum(1 for owners in gl_after_owner.values()
+                                  if len(owners) > 1),
+            "physical_gaps_before": len(sd_after_gaps),
+            "physical_gaps_after": len(gl_after_gaps),
+            "physical_gaps_closed": sorted(sd_after_gaps - gl_after_gaps),
+            "physical_gaps_opened": sorted(gl_after_gaps - sd_after_gaps),
+            "records": [{key: row.get(key) for key in (
+                "block_id", "value", "outcome", "planned_outcome", "applied",
+                "prior_verse", "proposed_native_ref", "native_owner_refs",
+                "blocks_moved")}
+                for row in sorted(gl_rows, key=lambda r: r["block_id"])],
         }
 
         # ¿Separa el ancho del glifo «a» el 1 impreso del 2 impreso? La
@@ -3135,13 +3288,21 @@ def main():
     # Task 147-149 diagnostics were measured before the task-150 fallback.
     ap.add_argument("--without-printed-2x-recovery",
                     dest="printed_2x_recovery", action="store_false")
+    # Task 151-152 diagnostics were measured before task 153.
+    ap.add_argument("--without-split-digit-recovery",
+                    dest="split_digit_recovery", action="store_false")
+    # Task 154-155 diagnostics were measured before task 156.
+    ap.add_argument("--without-glued-marker-recovery",
+                    dest="glued_marker_recovery", action="store_false")
     args = ap.parse_args()
 
     _edition, report = audit(args.xml, volume=args.volume,
                              witness=args.witness, book=args.book,
                              limit=args.limit,
                              projected_form_a_recovery=args.projected_form_a_recovery,
-                             printed_2x_recovery=args.printed_2x_recovery)
+                             printed_2x_recovery=args.printed_2x_recovery,
+                             split_digit_recovery=args.split_digit_recovery,
+                             glued_marker_recovery=args.glued_marker_recovery)
     if args.out:
         os.makedirs(os.path.dirname(args.out), exist_ok=True)
         with open(args.out, "w", encoding="utf-8") as handle:

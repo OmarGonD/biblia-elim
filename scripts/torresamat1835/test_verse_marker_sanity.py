@@ -436,7 +436,9 @@ def test_AH_no_new_facsimile_metadata_was_added():
     assert sorted(os.listdir(data_dir)) == [
         "a_glyph_pixel_features.json",
         "chapter_image_reviews.json", "glued_marker_discriminator.json",
-        "glued_marker_segments.json", "no_trusted_band_discriminator.json",
+        "glued_marker_segments.json",
+        "glued_two_char_marker_audit.json",
+        "glued_two_char_marker_dry_run.json", "no_trusted_band_discriminator.json",
         "projected_form_a_facsimile.json",
         "projected_form_a_printed_2x_discriminator.json",
         "projected_form_a_printed_2x_dry_run.json",
@@ -449,6 +451,7 @@ def test_AH_no_new_facsimile_metadata_was_added():
         "remaining_glyph_reprioritization_147.json",
         "source_manifest.json",
         "split_digit_marker_audit.json",
+        "split_digit_marker_dry_run.json",
         "standalone_glyph_facsimile.json",
         "verse_boundary_reviews.json",
         "zero_anchor_io_recovery_validation.json"]
