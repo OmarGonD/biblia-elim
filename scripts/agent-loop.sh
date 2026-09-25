@@ -140,13 +140,16 @@ ${REPO_ROOT}
 
 Read AGENTS.md and TASKS.md first.
 
-The external agent loop selected exactly this task:
+The external agent loop selected this first pending task:
 
 ${task_id}: ${task_line}
 
-Work on THIS TASK ONLY.
-
-Do not start the next pending task.
+Unless the original requester explicitly asks to complete all pending tasks
+in this same execution, work on THIS TASK ONLY and do not start the next
+pending task. When that request is explicit, process pending tasks
+sequentially: verify each one, record its evidence, update its status, and
+continue without confirmation. Document a truly blocked task and continue
+with independent pending tasks.
 
 Required behavior:
 
@@ -165,13 +168,14 @@ Required behavior:
 13. Do not run destructive Git commands.
 14. Run git diff --check.
 15. Inspect the final diff.
-16. Update only the selected task's Status/Evidence.
+16. Update the Status/Evidence for every task processed in this execution.
 17. Mark [x] only after objective acceptance verification.
-18. If truly blocked, leave [ ], set Status: BLOCKED, record evidence and finish the response with:
+18. If truly blocked, leave [ ], set Status: BLOCKED, record evidence and,
+when this is a single-task execution, finish the response with:
 BLOCKED:
-19. Otherwise set Status: DONE, add concise evidence, mark [x], and stop.
-
-Do not continue to another TASKS.md task.
+19. Otherwise set Status: DONE, add concise evidence, mark [x], and stop
+after the selected task unless the requester explicitly asked to complete all
+pending tasks.
 EOF
 }
 

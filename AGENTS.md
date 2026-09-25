@@ -12,10 +12,14 @@ At the beginning of every task:
 3. Inspect the relevant implementation.
 4. Inspect the relevant tests.
 5. Run `git status --short`.
-6. Work only on the first pending task in `TASKS.md`.
+6. Start with the first pending task in `TASKS.md`.
 
-One agent execution processes exactly one task. Never continue to the next
-task in the same execution.
+By default, one agent execution processes one task. When the requester
+explicitly asks to complete all pending tasks, process them sequentially in
+the same execution: verify each task, record its evidence, update its status,
+and continue to the next pending task without requesting confirmation. If a
+task is truly blocked, document it under the BLOCKED protocol and continue
+with independent pending tasks.
 
 ## Architecture
 
@@ -128,14 +132,16 @@ git diff --check
 
 ## TASKS.md protocol
 
-Work only on the first main line matching:
+Start with the first main line matching:
 
 ```markdown
 - [ ] TASK-ID ...
 ```
 
-Do not begin a second task in the same execution. Change a task to `- [x]`
-only when its block also contains `Status: DONE` and objective, real evidence.
+Unless the requester explicitly asks to complete all pending tasks, do not
+begin a second task in the same execution. In an all-tasks execution, process
+each task sequentially and change a task to `- [x]` only when its block also
+contains `Status: DONE` and objective, real evidence.
 
 Never mark a task complete merely because code was written, compilation
 succeeded, behavior was assumed, or only partial tests ran.
@@ -152,7 +158,9 @@ When truly blocked:
 - set `Status: BLOCKED`;
 - record the attempted action, concrete error, evidence, and the human decision
   or information required;
-- end the final response with `BLOCKED:` followed by the reason.
+- in a single-task execution, end the final response with `BLOCKED:` followed
+  by the reason; in an all-tasks execution, continue with independent pending
+  tasks and report the blocked task in the final response.
 
 ## Reporting
 
