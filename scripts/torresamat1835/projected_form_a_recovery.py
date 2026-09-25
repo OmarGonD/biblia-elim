@@ -71,12 +71,39 @@ ORDER = "order_guard_backward"
 OUTSIDE_CANON = "outside_native_canon"
 REOPEN = "existing_ref_reopen"
 AMBIGUOUS_EVENT = "ambiguous_source_event"
+EMPTIES_OWNER = "would_empty_prior_owner"
 
 
 def has_form(line) -> bool:
     """El filtro barato: primera palabra física exactamente «a», y tres más."""
     words = getattr(line, "words", None) or []
     return len(words) >= 4 and words[0].text == "a"
+
+
+#: TASK 150. La «a» es también el 2 de un número impreso de dos cifras
+#: (20-29) cuando la SEGUNDA palabra física es la segunda cifra. Formas de
+#: esa segunda cifra medidas en la 147-148 (el facsímil las confirma).
+SECOND_DIGIT = {"I": 1, "1": 1, "l": 1, "o": 0, "O": 0, "0": 0,
+                "4": 4, "4'": 4, "a": 2, "5": 5, "3": 3}
+
+#: La decisión de los renglones abiertos por la lectura «a» + cifra.
+DECISION_2X = "projected_form_a_2x_marker"
+
+
+def match_2x(line) -> Tuple[Optional[str], Optional[int]]:
+    """(texto, valor) si el renglón empieza por «a» + segunda cifra (R2X).
+
+    Disjunta de ``match``: allí las tres palabras siguientes llevan al menos
+    dos letras, aquí la siguiente es una cifra de una sola letra. Sin marco
+    delante: una puntuación antes de la «a» no se admite (148). No mira la
+    banda: la de una cifra no mide un número de dos (148).
+    """
+    words = getattr(line, "words", None) or []
+    if len(words) < 3 or words[0].text != "a" or \
+            words[1].text not in SECOND_DIGIT:
+        return None, None
+    text = " ".join(word.text for word in words[2:]).strip()
+    return text, 20 + SECOND_DIGIT[words[1].text]
 
 
 def validated_geometry(page) -> Tuple[dict, dict]:
@@ -192,17 +219,25 @@ def apply(edition, candidates: List[dict], blocks: Dict[str, object], *,
             record["outcome"] = AMBIGUOUS_OWNER
             continue
         record["native_active_verse"] = verse
-        if VALUE < verse:
+        value = record.get("value", VALUE)
+        if value < verse:
             record["outcome"] = ORDER
             continue
         limit = verse_limit(osis, number)
-        if limit is None or not 1 <= VALUE <= limit:
+        if limit is None or not 1 <= value <= limit:
             record["outcome"] = OUTSIDE_CANON
             continue
-        if VALUE in edition.books[osis].chapters[number].verses:
+        if value in edition.books[osis].chapters[number].verses:
             record["outcome"] = REOPEN
             continue
-        record["proposed_native_ref"] = f"{osis}.{number}.{VALUE}"
+        if "value" in record and all(
+                (blk.provenance.block_id or "") >= block_id
+                for blk in edition.books[osis].chapters[number]
+                .verses[verse].blocks):
+            # Task 150: el versículo que lo tenía no puede quedarse vacío.
+            record["outcome"] = EMPTIES_OWNER
+            continue
+        record["proposed_native_ref"] = f"{osis}.{number}.{value}"
         proposals.setdefault((osis, number), []).append(record)
 
     for (osis, number), records in sorted(proposals.items()):
@@ -223,12 +258,13 @@ def apply(edition, candidates: List[dict], blocks: Dict[str, object], *,
                   if (blk.provenance.block_id or "") >= block_id]
         old.blocks = [blk for blk in old.blocks
                       if (blk.provenance.block_id or "") < block_id]
+        value = record.get("value", VALUE)
         marker = blocks[block_id]
         marker.text = record["text"]
-        marker.decision = DECISION
+        marker.decision = DECISION_2X if "value" in record else DECISION
         for blk in moving:
-            blk.number = VALUE
-        chapter.verse(VALUE).blocks.extend(moving)
+            blk.number = value
+        chapter.verse(value).blocks.extend(moving)
         record.update(outcome=RECOVERED, applied=True,
                       prior_owner_ref=f"{osis}.{number}.{verse}",
                       blocks_moved=sorted(blk.provenance.block_id

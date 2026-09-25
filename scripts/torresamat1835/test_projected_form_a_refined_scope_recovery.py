@@ -274,8 +274,9 @@ def test_parser_reads_no_diagnostic_or_image_input():
 
 def test_runtime_recovery_reproduces_task145():
     started = time.perf_counter()
+    # The task-146 contract is the production state before task 150.
     edition, report = audit_volume.audit(XML, volume="3", witness=WITNESS,
-                                         book="Ps")
+                                         book="Ps", printed_2x_recovery=False)
     production_seconds = time.perf_counter() - started
     _pre_edition, pre = audit_volume.audit(XML, volume="3", witness=WITNESS,
                                            book="Ps",

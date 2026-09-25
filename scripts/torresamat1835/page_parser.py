@@ -48,7 +48,8 @@ SPANISH_HINT = ("señor", "dios", "que", "los", "de", "su", "porque", "el",
 #: todas cuentan igual a la hora de preguntar cuántos renglones
 #: numerados tiene un versículo.
 _NUMBERED_DECISIONS = frozenset({"numbered line", "compound_glyph_marker",
-                                 projected_form_a_recovery.DECISION})
+                                 projected_form_a_recovery.DECISION,
+                                 projected_form_a_recovery.DECISION_2X})
 
 _ZONE_KIND = {
     Zone.HEADER: BlockKind.PAGE_HEADER,
@@ -110,13 +111,18 @@ class VolumeParser:
                  a_glyph_recovery: Optional[bool] = None,
                  zero_anchor_io_recovery: bool = True,
                  a_glyph_evidence=None,
-                 projected_form_a_recovery: bool = True):
+                 projected_form_a_recovery: bool = True,
+                 printed_2x_recovery: bool = True):
         self.compound_recovery = compound_recovery
         self.zero_anchor_io_recovery = zero_anchor_io_recovery
         #: Task 146. Es un respaldo: sólo actúa con las recuperaciones
         #: más fuertes encendidas, y sólo sobre lo que ellas no tomaron.
         self.projected_form_a_recovery = (bool(projected_form_a_recovery)
                                           and compound_recovery)
+        #: Task 150. Respaldo del respaldo: sólo con la 146 encendida, y en
+        #: una segunda pasada sobre la edición que ella dejó.
+        self.printed_2x_recovery = (bool(printed_2x_recovery)
+                                    and self.projected_form_a_recovery)
         self.a_glyph_recovery = (compound_recovery if a_glyph_recovery is None
                                  else a_glyph_recovery)
         if a_glyph_evidence is not None:
@@ -185,6 +191,7 @@ class VolumeParser:
         #: `finish`, que es donde las guardas de la 144 son evaluables.
         self.projected_form_a_candidates = []
         self.projected_form_a_rejections = {}
+        self.printed_2x_candidates = []
         self._form_a_blocks = {}
         self._form_a_geometry = None
         self._band = None
@@ -844,6 +851,17 @@ class VolumeParser:
                              if row["applied"])
         if form_a_applied:
             self._bump("spanish_verse_starts_projected_form_a", form_a_applied)
+        # Task 150: las mismas guardas, sobre la edición que dejó la 146
+        # (propietarios y huecos ya actualizados), como midió la 149.
+        projected_form_a_recovery.apply(
+            self.edition, self.printed_2x_candidates,
+            self._form_a_blocks, enabled=self.printed_2x_recovery,
+            verse_limit=structure.verse_limit)
+        form_2x_applied = sum(1 for row in self.printed_2x_candidates
+                              if row["applied"])
+        if form_2x_applied:
+            self._bump("spanish_verse_starts_projected_form_a_2x",
+                       form_2x_applied)
         self._attribute_framed_markers()
 
         by_claim = {r["claim_id"]: r for r in self.resolutions
@@ -891,8 +909,12 @@ class VolumeParser:
         no puede quitarle el sitio a ninguna de ellas. Es una comprobación
         local sobre la plana que se está leyendo; no relee nada.
         """
-        if (placed.zone is not Zone.BODY or placed.column is not Column.RIGHT
-                or not projected_form_a_recovery.has_form(placed.line)):
+        if placed.zone is not Zone.BODY or placed.column is not Column.RIGHT:
+            return None
+        text_2x, value_2x = projected_form_a_recovery.match_2x(placed.line)
+        if text_2x is not None:
+            return self._note_printed_2x(placed, prov, text_2x, value_2x)
+        if not projected_form_a_recovery.has_form(placed.line):
             return None
         # La geometría validada de la 142, medida una vez por plana y sólo
         # en las planas que tienen algún renglón con la forma.
@@ -921,6 +943,31 @@ class VolumeParser:
         }
         record.update(detail)
         self.projected_form_a_candidates.append(record)
+        return record
+
+    def _note_printed_2x(self, placed, prov, text, value):
+        """Task 150: anota «a» + segunda cifra en el cuerpo castellano.
+
+        Misma colocación validada que la 146 (columna derecha, cuerpo); el
+        número sale de las dos palabras físicas, nunca del hueco.
+        """
+        if self._form_a_geometry is None:
+            self._form_a_geometry = projected_form_a_recovery.validated_geometry(
+                self.page)
+        where, _bands = self._form_a_geometry
+        column, zone = where.get(placed.line.index, (None, None))
+        if column is not Column.RIGHT or zone is not Zone.BODY:
+            return None
+        record = {
+            "block_id": prov.block_id, "scan_page": self.page.scan_page,
+            "book": self.current_book,
+            "chapter_slot": getattr(self.chapter, "number", None),
+            "raw": placed.line.raw_text[:90], "text": text, "value": value,
+            "open_verse_at_encounter": None,
+            "owned_as_continuation": False,
+            "outcome": None, "applied": False,
+        }
+        self.printed_2x_candidates.append(record)
         return record
 
     def _claim(self, *, book, page, prov, placed, raw, source, numeral,
@@ -1142,7 +1189,8 @@ def parse_volume(pages: Iterable, *, witness: str, volume: str,
                  numeral_reviews=None, compound_recovery: bool = True,
                  a_glyph_recovery: Optional[bool] = None,
                  a_glyph_evidence=None, zero_anchor_io_recovery: bool = True,
-                 projected_form_a_recovery: bool = True):
+                 projected_form_a_recovery: bool = True,
+                 printed_2x_recovery: bool = True):
     """Recorre las páginas y devuelve (edición, métricas)."""
     edition = edition or Edition(edition_id="TorresAmat1835")
     walker = VolumeParser(edition, witness=witness, volume=volume, book=book,
@@ -1155,7 +1203,8 @@ def parse_volume(pages: Iterable, *, witness: str, volume: str,
                           a_glyph_recovery=a_glyph_recovery,
                           zero_anchor_io_recovery=zero_anchor_io_recovery,
                           a_glyph_evidence=a_glyph_evidence,
-                          projected_form_a_recovery=projected_form_a_recovery)
+                          projected_form_a_recovery=projected_form_a_recovery,
+                          printed_2x_recovery=printed_2x_recovery)
     for page in pages:
         walker.feed_page(page)
     walker.finish()

@@ -1,0 +1,1042 @@
+{
+  "schema_version": 1,
+  "provenance": {
+    "generator": "scripts/torresamat1835/projected_form_a_printed_2x_dry_run.py",
+    "source_xml_sha256": "545fe8dcedac680271334613f3ae9c3253bd57ed80610868a7e13fdfb78ada5f",
+    "artifact_sha256": {
+      "projected_form_a_printed_2x_discriminator.json": "d786668fef5d6aadb79bd8bc65989fae2ef44fcda1c73d0c38cabd379bf1d9e9",
+      "remaining_glyph_reprioritization_147.json": "83043529486a541ef7fb4809a618a0b96ff9da29e27374d337bd226f8dfd46e8"
+    },
+    "runtime_mode": "production (task-146 recovery enabled), dry run: nothing applied"
+  },
+  "runtime_baseline": {
+    "verse_refs": 3892,
+    "physical_gaps": 3211,
+    "glyph_gaps": 1266,
+    "chapters": 337,
+    "ocr_blocks": 57700,
+    "duplicate_refs": 0,
+    "out_of_order_refs": 0
+  },
+  "rule": "R2X (task 148)",
+  "accepted_blocks": 24,
+  "outcomes": {
+    "CREATE_NEW_REF": 24
+  },
+  "events": [
+    {
+      "physical_block": "p0032l0089",
+      "source_tokens": [
+        "a",
+        "1",
+        "£1"
+      ],
+      "source_reading": 21,
+      "native_owner_refs": [
+        "Ps.17.1"
+      ],
+      "proposed_native_ref": "Ps.17.21",
+      "prior_owner_ref": "Ps.17.1",
+      "blocks_moved": [
+        "p0032l0089",
+        "p0032l0090",
+        "p0032l0091",
+        "p0032l0092",
+        "p0032l0093",
+        "p0032l0094",
+        "p0033l0041",
+        "p0033l0042",
+        "p0033l0043",
+        "p0033l0044",
+        "p0033l0045",
+        "p0033l0046",
+        "p0033l0047",
+        "p0033l0048",
+        "p0033l0049",
+        "p0033l0050",
+        "p0033l0051",
+        "p0033l0052"
+      ],
+      "blocks_remaining_with_prior_owner": 10,
+      "outcome": "CREATE_NEW_REF",
+      "label": "OUTSIDE_FAMILY"
+    },
+    {
+      "physical_block": "p0050l0027",
+      "source_tokens": [
+        "a",
+        "4",
+        "Amad"
+      ],
+      "source_reading": 24,
+      "native_owner_refs": [
+        "Ps.30.19"
+      ],
+      "proposed_native_ref": "Ps.30.24",
+      "prior_owner_ref": "Ps.30.19",
+      "blocks_moved": [
+        "p0050l0027",
+        "p0050l0028",
+        "p0050l0029",
+        "p0050l0030",
+        "p0050l0031",
+        "p0050l0032",
+        "p0050l0033"
+      ],
+      "blocks_remaining_with_prior_owner": 19,
+      "outcome": "CREATE_NEW_REF",
+      "label": "FAMILY_MEMBER",
+      "facsimile_value": 24,
+      "task147_gap_key": "Ps.30.24"
+    },
+    {
+      "physical_block": "p0068l0079",
+      "source_tokens": [
+        "a",
+        "I",
+        "Si"
+      ],
+      "source_reading": 21,
+      "native_owner_refs": [
+        "Ps.43.19"
+      ],
+      "proposed_native_ref": "Ps.43.21",
+      "prior_owner_ref": "Ps.43.19",
+      "blocks_moved": [
+        "p0068l0079",
+        "p0068l0080",
+        "p0068l0081",
+        "p0068l0082",
+        "p0068l0083",
+        "p0068l0084",
+        "p0068l0085",
+        "p0068l0086",
+        "p0068l0087"
+      ],
+      "blocks_remaining_with_prior_owner": 6,
+      "outcome": "CREATE_NEW_REF",
+      "label": "FAMILY_MEMBER",
+      "facsimile_value": 21,
+      "task147_gap_key": "Ps.43.21"
+    },
+    {
+      "physical_block": "p0211l0081",
+      "source_tokens": [
+        "a",
+        "5",
+        "menospreciasteis"
+      ],
+      "source_reading": 25,
+      "native_owner_refs": [
+        "Prov.1.20"
+      ],
+      "proposed_native_ref": "Prov.1.25",
+      "prior_owner_ref": "Prov.1.20",
+      "blocks_moved": [
+        "p0211l0081",
+        "p0211l0082",
+        "p0211l0083",
+        "p0211l0084",
+        "p0211l0085",
+        "p0211l0086",
+        "p0211l0093",
+        "p0211l0094",
+        "p0211l0095",
+        "p0211l0096"
+      ],
+      "blocks_remaining_with_prior_owner": 17,
+      "outcome": "CREATE_NEW_REF",
+      "label": "FAMILY_MEMBER",
+      "facsimile_value": 25,
+      "task147_gap_key": "Prov.1.25"
+    },
+    {
+      "physical_block": "p0233l0040",
+      "source_tokens": [
+        "a",
+        "I",
+        "Ningún"
+      ],
+      "source_reading": 21,
+      "native_owner_refs": [
+        "Prov.12.19"
+      ],
+      "proposed_native_ref": "Prov.12.21",
+      "prior_owner_ref": "Prov.12.19",
+      "blocks_moved": [
+        "p0233l0040",
+        "p0233l0041",
+        "p0233l0042",
+        "p0233l0043",
+        "p0233l0044",
+        "p0233l0045",
+        "p0233l0046",
+        "p0233l0047",
+        "p0233l0048",
+        "p0233l0049",
+        "p0233l0050",
+        "p0233l0051",
+        "p0233l0052",
+        "p0233l0053",
+        "p0233l0054",
+        "p0233l0055",
+        "p0233l0056",
+        "p0233l0057",
+        "p0233l0058",
+        "p0233l0059",
+        "p0233l0060",
+        "p0233l0061",
+        "p0233l0062",
+        "p0233l0063"
+      ],
+      "blocks_remaining_with_prior_owner": 7,
+      "outcome": "CREATE_NEW_REF",
+      "label": "FAMILY_MEMBER",
+      "facsimile_value": 21,
+      "task147_gap_key": "Prov.12.21"
+    },
+    {
+      "physical_block": "p0246l0019",
+      "source_tokens": [
+        "a",
+        "I",
+        "La"
+      ],
+      "source_reading": 21,
+      "native_owner_refs": [
+        "Prov.18.19"
+      ],
+      "proposed_native_ref": "Prov.18.21",
+      "prior_owner_ref": "Prov.18.19",
+      "blocks_moved": [
+        "p0246l0019",
+        "p0246l0020",
+        "p0246l0021",
+        "p0246l0022",
+        "p0246l0023",
+        "p0246l0024",
+        "p0246l0025",
+        "p0246l0026",
+        "p0246l0027",
+        "p0246l0028",
+        "p0246l0029"
+      ],
+      "blocks_remaining_with_prior_owner": 7,
+      "outcome": "CREATE_NEW_REF",
+      "label": "FAMILY_MEMBER",
+      "facsimile_value": 21,
+      "task147_gap_key": "Prov.18.21"
+    },
+    {
+      "physical_block": "p0264l0086",
+      "source_tokens": [
+        "a",
+        "a",
+        "Aun"
+      ],
+      "source_reading": 22,
+      "native_owner_refs": [
+        "Prov.27.21"
+      ],
+      "proposed_native_ref": "Prov.27.22",
+      "prior_owner_ref": "Prov.27.21",
+      "blocks_moved": [
+        "p0264l0086",
+        "p0264l0087",
+        "p0264l0088",
+        "p0264l0089",
+        "p0264l0090",
+        "p0264l0091"
+      ],
+      "blocks_remaining_with_prior_owner": 6,
+      "outcome": "CREATE_NEW_REF",
+      "label": "FAMILY_MEMBER",
+      "facsimile_value": 22,
+      "task147_gap_key": "Prov.27.22"
+    },
+    {
+      "physical_block": "p0269l0028",
+      "source_tokens": [
+        "a",
+        "4",
+        "Quien"
+      ],
+      "source_reading": 24,
+      "native_owner_refs": [
+        "Prov.29.19"
+      ],
+      "proposed_native_ref": "Prov.29.24",
+      "prior_owner_ref": "Prov.29.19",
+      "blocks_moved": [
+        "p0269l0028",
+        "p0269l0029",
+        "p0269l0030",
+        "p0269l0031",
+        "p0269l0032",
+        "p0269l0033",
+        "p0269l0034",
+        "p0269l0035",
+        "p0269l0036",
+        "p0269l0037",
+        "p0269l0038",
+        "p0269l0039",
+        "p0269l0040",
+        "p0269l0041"
+      ],
+      "blocks_remaining_with_prior_owner": 25,
+      "outcome": "CREATE_NEW_REF",
+      "label": "FAMILY_MEMBER",
+      "facsimile_value": 24,
+      "task147_gap_key": "Prov.29.24"
+    },
+    {
+      "physical_block": "p0341l0030",
+      "source_tokens": [
+        "a",
+        "a",
+        "porque"
+      ],
+      "source_reading": 22,
+      "native_owner_refs": [
+        "Wis.11.17"
+      ],
+      "proposed_native_ref": "Wis.11.22",
+      "prior_owner_ref": "Wis.11.17",
+      "blocks_moved": [
+        "p0341l0030",
+        "p0341l0031",
+        "p0341l0032",
+        "p0341l0033",
+        "p0341l0034",
+        "p0341l0035",
+        "p0341l0036",
+        "p0341l0037",
+        "p0341l0038",
+        "p0341l0039",
+        "p0341l0040",
+        "p0341l0041",
+        "p0341l0042",
+        "p0341l0043",
+        "p0341l0044",
+        "p0341l0045",
+        "p0341l0046",
+        "p0341l0047",
+        "p0341l0048",
+        "p0341l0049",
+        "p0341l0050",
+        "p0341l0051"
+      ],
+      "blocks_remaining_with_prior_owner": 23,
+      "outcome": "CREATE_NEW_REF",
+      "label": "FAMILY_MEMBER",
+      "facsimile_value": 22,
+      "task147_gap_key": "Wis.11.22"
+    },
+    {
+      "physical_block": "p0366l0076",
+      "source_tokens": [
+        "a",
+        "I",
+        "Llenará"
+      ],
+      "source_reading": 21,
+      "native_owner_refs": [
+        "Sir.1.20"
+      ],
+      "proposed_native_ref": "Sir.1.21",
+      "prior_owner_ref": "Sir.1.20",
+      "blocks_moved": [
+        "p0366l0076",
+        "p0366l0077",
+        "p0366l0078",
+        "p0366l0079",
+        "p0366l0080",
+        "p0366l0081",
+        "p0366l0082",
+        "p0366l0083",
+        "p0366l0084",
+        "p0366l0085",
+        "p0366l0086"
+      ],
+      "blocks_remaining_with_prior_owner": 3,
+      "outcome": "CREATE_NEW_REF",
+      "label": "FAMILY_MEMBER",
+      "facsimile_value": 21,
+      "task147_gap_key": "Sir.1.21"
+    },
+    {
+      "physical_block": "p0399l0015",
+      "source_tokens": [
+        "a",
+        "I",
+        "A"
+      ],
+      "source_reading": 21,
+      "native_owner_refs": [
+        "Sir.15.20"
+      ],
+      "proposed_native_ref": "Sir.15.21",
+      "prior_owner_ref": "Sir.15.20",
+      "blocks_moved": [
+        "p0399l0015",
+        "p0399l0016",
+        "p0399l0017",
+        "p0399l0018",
+        "p0399l0019"
+      ],
+      "blocks_remaining_with_prior_owner": 3,
+      "outcome": "CREATE_NEW_REF",
+      "label": "FAMILY_MEMBER",
+      "facsimile_value": 21,
+      "task147_gap_key": "Sir.15.21"
+    },
+    {
+      "physical_block": "p0408l0045",
+      "source_tokens": [
+        "a",
+        "o",
+        "Es"
+      ],
+      "source_reading": 20,
+      "native_owner_refs": [
+        "Sir.19.19"
+      ],
+      "proposed_native_ref": "Sir.19.20",
+      "prior_owner_ref": "Sir.19.19",
+      "blocks_moved": [
+        "p0408l0045",
+        "p0408l0046",
+        "p0408l0047",
+        "p0408l0048",
+        "p0408l0049",
+        "p0408l0050",
+        "p0408l0051",
+        "p0408l0052",
+        "p0408l0053",
+        "p0408l0054",
+        "p0408l0055",
+        "p0408l0056",
+        "p0408l0057",
+        "p0408l0058",
+        "p0408l0059",
+        "p0408l0060",
+        "p0408l0061",
+        "p0408l0062",
+        "p0408l0063",
+        "p0408l0064",
+        "p0408l0065",
+        "p0408l0066",
+        "p0408l0067",
+        "p0408l0068",
+        "p0408l0069",
+        "p0408l0070",
+        "p0408l0071",
+        "p0408l0072",
+        "p0408l0073",
+        "p0408l0074",
+        "p0408l0075",
+        "p0408l0082",
+        "p0408l0083",
+        "p0408l0084",
+        "p0408l0085",
+        "p0408l0086"
+      ],
+      "blocks_remaining_with_prior_owner": 3,
+      "outcome": "CREATE_NEW_REF",
+      "label": "FAMILY_MEMBER",
+      "facsimile_value": 20,
+      "task147_gap_key": "Sir.19.20"
+    },
+    {
+      "physical_block": "p0412l0089",
+      "source_tokens": [
+        "a",
+        "o",
+        "La"
+      ],
+      "source_reading": 20,
+      "native_owner_refs": [
+        "Sir.21.19"
+      ],
+      "proposed_native_ref": "Sir.21.20",
+      "prior_owner_ref": "Sir.21.19",
+      "blocks_moved": [
+        "p0412l0089",
+        "p0412l0090",
+        "p0412l0091",
+        "p0412l0092",
+        "p0412l0093",
+        "p0413l0030",
+        "p0413l0031"
+      ],
+      "blocks_remaining_with_prior_owner": 4,
+      "outcome": "CREATE_NEW_REF",
+      "label": "FAMILY_MEMBER",
+      "facsimile_value": 20,
+      "task147_gap_key": "Sir.21.20"
+    },
+    {
+      "physical_block": "p0421l0048",
+      "source_tokens": [
+        "a",
+        "o",
+        "Como"
+      ],
+      "source_reading": 20,
+      "native_owner_refs": [
+        "Sir.24.19"
+      ],
+      "proposed_native_ref": "Sir.24.20",
+      "prior_owner_ref": "Sir.24.19",
+      "blocks_moved": [
+        "p0421l0048",
+        "p0421l0049",
+        "p0421l0050",
+        "p0421l0051",
+        "p0421l0052",
+        "p0421l0053",
+        "p0421l0054",
+        "p0421l0055",
+        "p0421l0056",
+        "p0421l0057",
+        "p0421l0058",
+        "p0421l0059",
+        "p0421l0060",
+        "p0421l0061",
+        "p0421l0062",
+        "p0421l0063",
+        "p0421l0064",
+        "p0421l0065",
+        "p0421l0066",
+        "p0421l0067",
+        "p0421l0068",
+        "p0421l0069",
+        "p0421l0070",
+        "p0421l0071",
+        "p0421l0072",
+        "p0421l0073",
+        "p0421l0074",
+        "p0421l0075",
+        "p0421l0076",
+        "p0421l0077",
+        "p0421l0078",
+        "p0421l0079",
+        "p0421l0080",
+        "p0421l0081",
+        "p0421l0082",
+        "p0421l0083",
+        "p0421l0084",
+        "p0421l0085",
+        "p0421l0086",
+        "p0421l0087"
+      ],
+      "blocks_remaining_with_prior_owner": 3,
+      "outcome": "CREATE_NEW_REF",
+      "label": "FAMILY_MEMBER",
+      "facsimile_value": 20,
+      "task147_gap_key": "Sir.24.20"
+    },
+    {
+      "physical_block": "p0431l0065",
+      "source_tokens": [
+        "a",
+        "I",
+        "El"
+      ],
+      "source_reading": 21,
+      "native_owner_refs": [
+        "Sir.28.19"
+      ],
+      "proposed_native_ref": "Sir.28.21",
+      "prior_owner_ref": "Sir.28.19",
+      "blocks_moved": [
+        "p0431l0065",
+        "p0431l0066",
+        "p0431l0067",
+        "p0431l0068",
+        "p0431l0069",
+        "p0431l0070",
+        "p0431l0071",
+        "p0431l0072",
+        "p0431l0073",
+        "p0431l0074"
+      ],
+      "blocks_remaining_with_prior_owner": 6,
+      "outcome": "CREATE_NEW_REF",
+      "label": "FAMILY_MEMBER",
+      "facsimile_value": 21,
+      "task147_gap_key": "Sir.28.21"
+    },
+    {
+      "physical_block": "p0436l0058",
+      "source_tokens": [
+        "a",
+        "I",
+        "está"
+      ],
+      "source_reading": 21,
+      "native_owner_refs": [
+        "Sir.30.19"
+      ],
+      "proposed_native_ref": "Sir.30.21",
+      "prior_owner_ref": "Sir.30.19",
+      "blocks_moved": [
+        "p0436l0058",
+        "p0436l0059",
+        "p0436l0060",
+        "p0436l0061",
+        "p0436l0062",
+        "p0436l0063",
+        "p0436l0064"
+      ],
+      "blocks_remaining_with_prior_owner": 5,
+      "outcome": "CREATE_NEW_REF",
+      "label": "FAMILY_MEMBER",
+      "facsimile_value": 21,
+      "task147_gap_key": "Sir.30.21"
+    },
+    {
+      "physical_block": "p0485l0080",
+      "source_tokens": [
+        "a",
+        "I",
+        "Y"
+      ],
+      "source_reading": 21,
+      "native_owner_refs": [
+        "Sir.50.20"
+      ],
+      "proposed_native_ref": "Sir.50.21",
+      "prior_owner_ref": "Sir.50.20",
+      "blocks_moved": [
+        "p0485l0080",
+        "p0485l0081",
+        "p0485l0082",
+        "p0485l0083",
+        "p0485l0084",
+        "p0485l0085",
+        "p0486l0041",
+        "p0486l0042",
+        "p0486l0043",
+        "p0486l0044",
+        "p0486l0045",
+        "p0486l0046",
+        "p0486l0047",
+        "p0486l0048",
+        "p0486l0049",
+        "p0486l0050",
+        "p0486l0051",
+        "p0486l0052",
+        "p0486l0053",
+        "p0486l0054",
+        "p0486l0055",
+        "p0486l0056",
+        "p0486l0057",
+        "p0486l0058",
+        "p0486l0059",
+        "p0486l0060",
+        "p0486l0061"
+      ],
+      "blocks_remaining_with_prior_owner": 4,
+      "outcome": "CREATE_NEW_REF",
+      "label": "FAMILY_MEMBER",
+      "facsimile_value": 21,
+      "task147_gap_key": "Sir.50.21"
+    },
+    {
+      "physical_block": "p0502l0076",
+      "source_tokens": [
+        "a",
+        "I",
+        "Y"
+      ],
+      "source_reading": 21,
+      "native_owner_refs": [
+        "Isa.2.19"
+      ],
+      "proposed_native_ref": "Isa.2.21",
+      "prior_owner_ref": "Isa.2.19",
+      "blocks_moved": [
+        "p0502l0076",
+        "p0502l0077",
+        "p0502l0078",
+        "p0502l0079",
+        "p0502l0080",
+        "p0502l0081",
+        "p0502l0082",
+        "p0502l0090"
+      ],
+      "blocks_remaining_with_prior_owner": 11,
+      "outcome": "CREATE_NEW_REF",
+      "label": "FAMILY_MEMBER",
+      "facsimile_value": 21,
+      "task147_gap_key": "Isa.2.21"
+    },
+    {
+      "physical_block": "p0516l0030",
+      "source_tokens": [
+        "a",
+        "I",
+        "Y"
+      ],
+      "source_reading": 21,
+      "native_owner_refs": [
+        "Isa.8.19"
+      ],
+      "proposed_native_ref": "Isa.8.21",
+      "prior_owner_ref": "Isa.8.19",
+      "blocks_moved": [
+        "p0516l0030",
+        "p0516l0031",
+        "p0516l0032",
+        "p0516l0033",
+        "p0516l0034",
+        "p0516l0035",
+        "p0516l0036",
+        "p0516l0037",
+        "p0516l0038",
+        "p0516l0039",
+        "p0516l0040"
+      ],
+      "blocks_remaining_with_prior_owner": 10,
+      "outcome": "CREATE_NEW_REF",
+      "label": "FAMILY_MEMBER",
+      "facsimile_value": 21,
+      "task147_gap_key": "Isa.8.21"
+    },
+    {
+      "physical_block": "p0560l0025",
+      "source_tokens": [
+        "a",
+        "o",
+        "porque"
+      ],
+      "source_reading": 20,
+      "native_owner_refs": [
+        "Isa.29.19"
+      ],
+      "proposed_native_ref": "Isa.29.20",
+      "prior_owner_ref": "Isa.29.19",
+      "blocks_moved": [
+        "p0560l0025",
+        "p0560l0026",
+        "p0560l0027",
+        "p0560l0028",
+        "p0560l0029",
+        "p0560l0030",
+        "p0560l0031",
+        "p0560l0032",
+        "p0560l0033",
+        "p0560l0034",
+        "p0560l0035",
+        "p0560l0036",
+        "p0560l0037",
+        "p0560l0038",
+        "p0560l0039",
+        "p0560l0040",
+        "p0560l0041",
+        "p0560l0042",
+        "p0560l0043",
+        "p0560l0044",
+        "p0560l0045",
+        "p0560l0046",
+        "p0560l0047"
+      ],
+      "blocks_remaining_with_prior_owner": 4,
+      "outcome": "CREATE_NEW_REF",
+      "label": "FAMILY_MEMBER",
+      "facsimile_value": 20,
+      "task147_gap_key": "Isa.29.20"
+    },
+    {
+      "physical_block": "p0579l0044",
+      "source_tokens": [
+        "a",
+        "4",
+        "Por"
+      ],
+      "source_reading": 24,
+      "native_owner_refs": [
+        "Isa.37.22"
+      ],
+      "proposed_native_ref": "Isa.37.24",
+      "prior_owner_ref": "Isa.37.22",
+      "blocks_moved": [
+        "p0579l0044",
+        "p0579l0045",
+        "p0579l0046",
+        "p0579l0047",
+        "p0579l0048",
+        "p0579l0049",
+        "p0579l0050",
+        "p0579l0051",
+        "p0579l0052",
+        "p0579l0053",
+        "p0579l0054",
+        "p0579l0055",
+        "p0579l0056",
+        "p0579l0057",
+        "p0579l0058",
+        "p0579l0059",
+        "p0579l0060",
+        "p0579l0061",
+        "p0579l0062",
+        "p0579l0063",
+        "p0579l0064"
+      ],
+      "blocks_remaining_with_prior_owner": 10,
+      "outcome": "CREATE_NEW_REF",
+      "label": "FAMILY_MEMBER",
+      "facsimile_value": 24,
+      "task147_gap_key": "Isa.37.24"
+    },
+    {
+      "physical_block": "p0586l0045",
+      "source_tokens": [
+        "a",
+        "1",
+        "¿"
+      ],
+      "source_reading": 21,
+      "native_owner_refs": [
+        "Isa.40.19"
+      ],
+      "proposed_native_ref": "Isa.40.21",
+      "prior_owner_ref": "Isa.40.19",
+      "blocks_moved": [
+        "p0586l0045",
+        "p0586l0046",
+        "p0586l0047",
+        "p0586l0048",
+        "p0586l0049",
+        "p0586l0050",
+        "p0586l0051",
+        "p0586l0052",
+        "p0586l0053",
+        "p0586l0054",
+        "p0586l0055",
+        "p0586l0056",
+        "p0586l0057",
+        "p0586l0058",
+        "p0586l0059",
+        "p0586l0060",
+        "p0586l0061",
+        "p0586l0062",
+        "p0586l0063",
+        "p0586l0064",
+        "p0586l0065",
+        "p0586l0066",
+        "p0586l0067",
+        "p0586l0068",
+        "p0586l0069",
+        "p0586l0070",
+        "p0586l0071",
+        "p0586l0072",
+        "p0586l0073",
+        "p0586l0074",
+        "p0586l0075",
+        "p0586l0076",
+        "p0586l0077",
+        "p0586l0078",
+        "p0586l0079",
+        "p0586l0080",
+        "p0586l0081",
+        "p0586l0082",
+        "p0586l0083",
+        "p0586l0084",
+        "p0586l0085",
+        "p0586l0086",
+        "p0587l0013",
+        "p0587l0014",
+        "p0587l0015",
+        "p0587l0016",
+        "p0587l0017",
+        "p0587l0018",
+        "p0587l0019",
+        "p0587l0020",
+        "p0587l0021",
+        "p0587l0022",
+        "p0587l0023",
+        "p0587l0024",
+        "p0587l0025"
+      ],
+      "blocks_remaining_with_prior_owner": 8,
+      "outcome": "CREATE_NEW_REF",
+      "label": "FAMILY_MEMBER",
+      "facsimile_value": 21,
+      "task147_gap_key": "Isa.40.21"
+    },
+    {
+      "physical_block": "p0595l0052",
+      "source_tokens": [
+        "a",
+        "4'",
+        "No"
+      ],
+      "source_reading": 24,
+      "native_owner_refs": [
+        "Isa.43.23"
+      ],
+      "proposed_native_ref": "Isa.43.24",
+      "prior_owner_ref": "Isa.43.23",
+      "blocks_moved": [
+        "p0595l0052",
+        "p0595l0053",
+        "p0595l0054",
+        "p0595l0055",
+        "p0595l0056",
+        "p0595l0057"
+      ],
+      "blocks_remaining_with_prior_owner": 6,
+      "outcome": "CREATE_NEW_REF",
+      "label": "FAMILY_MEMBER",
+      "facsimile_value": 24,
+      "task147_gap_key": "Isa.43.24"
+    },
+    {
+      "physical_block": "p0601l0058",
+      "source_tokens": [
+        "a",
+        "a",
+        "G>nvertios"
+      ],
+      "source_reading": 22,
+      "native_owner_refs": [
+        "Isa.45.19"
+      ],
+      "proposed_native_ref": "Isa.45.22",
+      "prior_owner_ref": "Isa.45.19",
+      "blocks_moved": [
+        "p0601l0058",
+        "p0601l0059",
+        "p0601l0060",
+        "p0601l0061",
+        "p0601l0062",
+        "p0601l0063",
+        "p0601l0064",
+        "p0601l0065",
+        "p0601l0066",
+        "p0601l0067",
+        "p0601l0068",
+        "p0601l0069",
+        "p0601l0070",
+        "p0601l0071",
+        "p0601l0072",
+        "p0601l0073",
+        "p0601l0074",
+        "p0601l0075",
+        "p0601l0079",
+        "p0601l0080",
+        "p0601l0081"
+      ],
+      "blocks_remaining_with_prior_owner": 19,
+      "outcome": "CREATE_NEW_REF",
+      "label": "FAMILY_MEMBER",
+      "facsimile_value": 22,
+      "task147_gap_key": "Isa.45.22"
+    }
+  ],
+  "predicted_delta": {
+    "CREATE_NEW_REF": 24,
+    "REOPEN_EXISTING_REF": 0,
+    "new_refs": [
+      "Isa.2.21",
+      "Isa.29.20",
+      "Isa.37.24",
+      "Isa.40.21",
+      "Isa.43.24",
+      "Isa.45.22",
+      "Isa.8.21",
+      "Prov.1.25",
+      "Prov.12.21",
+      "Prov.18.21",
+      "Prov.27.22",
+      "Prov.29.24",
+      "Ps.17.21",
+      "Ps.30.24",
+      "Ps.43.21",
+      "Sir.1.21",
+      "Sir.15.21",
+      "Sir.19.20",
+      "Sir.21.20",
+      "Sir.24.20",
+      "Sir.28.21",
+      "Sir.30.21",
+      "Sir.50.21",
+      "Wis.11.22"
+    ],
+    "verse_refs_after": 3916,
+    "ownership_moves": 409,
+    "physical_gaps_closed": [
+      "Isa.2.21",
+      "Isa.29.20",
+      "Isa.37.24",
+      "Isa.40.21",
+      "Isa.43.24",
+      "Isa.45.22",
+      "Isa.8.21",
+      "Prov.1.25",
+      "Prov.12.21",
+      "Prov.18.21",
+      "Prov.27.22",
+      "Prov.29.24",
+      "Ps.17.21",
+      "Ps.30.24",
+      "Ps.43.21",
+      "Sir.1.21",
+      "Sir.15.21",
+      "Sir.19.20",
+      "Sir.21.20",
+      "Sir.24.20",
+      "Sir.28.21",
+      "Sir.30.21",
+      "Sir.50.21",
+      "Wis.11.22"
+    ],
+    "glyph_gaps_closed": [
+      "Isa.2.21",
+      "Isa.29.20",
+      "Isa.37.24",
+      "Isa.40.21",
+      "Isa.43.24",
+      "Isa.45.22",
+      "Isa.8.21",
+      "Prov.1.25",
+      "Prov.12.21",
+      "Prov.18.21",
+      "Prov.27.22",
+      "Prov.29.24",
+      "Ps.17.21",
+      "Ps.30.24",
+      "Ps.43.21",
+      "Sir.1.21",
+      "Sir.15.21",
+      "Sir.19.20",
+      "Sir.21.20",
+      "Sir.24.20",
+      "Sir.28.21",
+      "Sir.30.21",
+      "Sir.50.21",
+      "Wis.11.22"
+    ],
+    "block_loss": 0,
+    "dual_ownership": 0,
+    "prior_owner_emptied": 0
+  },
+  "label_reconciliation": {
+    "created_family_members": 23,
+    "created_outside_family": [
+      "p0032l0089"
+    ],
+    "created_value_equals_facsimile": true,
+    "created_ref_equals_task147_gap": true
+  },
+  "runtime_invariants": {
+    "new_recovery": false,
+    "ownership_unchanged": true,
+    "expected_verse_used": false,
+    "previous_plus_one_used": false,
+    "next_minus_one_used": false,
+    "gap_key_used_by_guards": false
+  }
+}

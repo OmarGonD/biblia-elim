@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "provenance": {
+    "generator": "scripts/torresamat1835/projected_form_a_printed_2x_discriminator.py",
+    "source_xml_sha256": "545fe8dcedac680271334613f3ae9c3253bd57ed80610868a7e13fdfb78ada5f",
+    "artifact_sha256": {
+      "remaining_glyph_reprioritization_147.json": "83043529486a541ef7fb4809a618a0b96ff9da29e27374d337bd226f8dfd46e8",
+      "projected_form_a_facsimile.json": "7827a66c6cde64508f75aa448d764bf7be54542b19224c9b2c73996013114646"
+    },
+    "runtime_mode": "production (projected form-a recovery enabled)"
+  },
+  "runtime_baseline": {
+    "verse_refs": 3892,
+    "physical_gaps": 3211,
+    "glyph_gaps": 1266
+  },
+  "feature_boundary": "source OCR + current gap provenance only; labels joined after all decisions",
+  "second_digit_forms": {
+    "I": 1,
+    "1": 1,
+    "l": 1,
+    "o": 0,
+    "O": 0,
+    "0": 0,
+    "4": 4,
+    "4'": 4,
+    "a": 2,
+    "5": 5,
+    "3": 3
+  },
+  "two_digit_band_window_digits": [
+    -2.0,
+    0.5
+  ],
+  "corpus_candidates": 553,
+  "candidate_zones": {
+    "left/apparatus": 6,
+    "left/body": 260,
+    "left/header": 2,
+    "right/apparatus": 2,
+    "right/body": 279,
+    "right/header": 2,
+    "spanning/header": 1,
+    "unknown/body": 1
+  },
+  "rules": {
+    "R2X": {
+      "accepted": 24,
+      "by_label": {
+        "FAMILY_MEMBER": 23,
+        "REVIEWED_MARKER_OTHER_GAP": 1
+      },
+      "family_true_positive": 23,
+      "family_false_negative": [
+        "p0217l0057",
+        "p0322l0066",
+        "p0513l0066"
+      ],
+      "reviewed_non_marker_accepted": 0,
+      "wrong_value_on_family": [],
+      "other_gap_markers_accepted": [
+        "p0032l0089"
+      ]
+    },
+    "R2X_WINDOW": {
+      "accepted": 13,
+      "by_label": {
+        "FAMILY_MEMBER": 13
+      },
+      "family_true_positive": 13,
+      "family_false_negative": [
+        "p0050l0027",
+        "p0217l0057",
+        "p0233l0040",
+        "p0269l0028",
+        "p0322l0066",
+        "p0341l0030",
+        "p0408l0045",
+        "p0421l0048",
+        "p0513l0066",
+        "p0560l0025",
+        "p0579l0044",
+        "p0586l0045",
+        "p0601l0058"
+      ],
+      "reviewed_non_marker_accepted": 0,
+      "wrong_value_on_family": [],
+      "other_gap_markers_accepted": []
+    },
+    "R2X_ALLOW_LEADING_NOISE": {
+      "accepted": 27,
+      "by_label": {
+        "FAMILY_MEMBER": 26,
+        "REVIEWED_MARKER_OTHER_GAP": 1
+      },
+      "family_true_positive": 26,
+      "family_false_negative": [],
+      "reviewed_non_marker_accepted": 0,
+      "wrong_value_on_family": [],
+      "other_gap_markers_accepted": [
+        "p0032l0089"
+      ]
+    },
+    "R2X_NO_PROVENANCE": {
+      "accepted": 271,
+      "by_label": {
+        "FAMILY_MEMBER": 23,
+        "REVIEWED_MARKER_OTHER_GAP": 1,
+        "UNREVIEWED": 247
+      },
+      "family_true_positive": 23,
+      "family_false_negative": [
+        "p0217l0057",
+        "p0322l0066",
+        "p0513l0066"
+      ],
+      "reviewed_non_marker_accepted": 0,
+      "wrong_value_on_family": [],
+      "other_gap_markers_accepted": [
+        "p0032l0089"
+      ]
+    }
+  },
+  "selected_rule": "R2X",
+  "findings": [
+    "every corpus line starting with 'a' + digit-like token that was reviewed is a printed verse marker; the risk is placement, not identity",
+    "without the projected-gap provenance guard the rule reaches hundreds of markers already owned by their verses",
+    "the task-142 one-digit band tolerance does not fit two-digit markers, and a digit-width window rejects every member whose column has no trusted band: geometry is not selected",
+    "three members carry a punctuation token before 'a'; admitting it is measured separately and not selected",
+    "one accepted block is a printed 21 in the gap of another verse: the task-144 native-order guard must decide it"
+  ],
+  "recommendation": {
+    "outcome": "READY_FOR_DRY_RUN",
+    "next_task": "dry-run the R2X rule with the task-144 provenance and native-order guards and measure the semantic delta before any recovery"
+  },
+  "runtime_invariants": {
+    "new_recovery": false,
+    "ownership_unchanged": true,
+    "expected_verse_used": false,
+    "previous_plus_one_used": false,
+    "next_minus_one_used": false,
+    "gap_key_used_by_rule": false
+  }
+}

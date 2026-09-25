@@ -380,7 +380,7 @@ def _withheld_forms(matrix: dict) -> dict:
 
 
 def audit(xml_path, *, volume, witness, book="Ps", limit=None,
-          projected_form_a_recovery=True):
+          projected_form_a_recovery=True, printed_2x_recovery=True):
     """El informe del tomo.
 
     ``projected_form_a_recovery=False`` reproduce el estado de ejecución
@@ -441,7 +441,8 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None,
         source_ocr.read_pages(xml_path, limit=limit), witness=witness,
         volume=volume, book=book, book_spans=spans,
         header_chapters=header_chapters, with_walker=True,
-        projected_form_a_recovery=projected_form_a_recovery)
+        projected_form_a_recovery=projected_form_a_recovery,
+        printed_2x_recovery=printed_2x_recovery)
 
     # Segunda referencia: CON las recuperaciones de frontera pero SIN las
     # lecturas de numeral. Es el estado justo antes de esta tanda de
@@ -455,7 +456,8 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None,
             image_reviews=(image_recovery.by_page(reviews)
                            if reviews else None),
             recovery_source=source if reviews else None,
-            projected_form_a_recovery=projected_form_a_recovery)
+            projected_form_a_recovery=projected_form_a_recovery,
+            printed_2x_recovery=printed_2x_recovery)
 
     # Tercera referencia: TODO menos la recuperación de numerales
     # partidos en dos glifos. Es contra esto -- y no contra el estado de
@@ -521,6 +523,20 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None,
         projected_form_a_recovery=False)
     no_form_a_seconds = time.perf_counter() - form_a_started
 
+    # Reference pass immediately before task-150: task-146 on, only the
+    # printed 2x fallback off. Task 146 is measured up to this state and
+    # task 150 from it, so neither absorbs the other's effect.
+    no_2x_edition, _n2_stats, _no_2x_walker = page_parser.parse_volume(
+        source_ocr.read_pages(xml_path, limit=limit), witness=witness,
+        volume=volume, book=book, book_spans=spans,
+        header_chapters=header_chapters, with_walker=True,
+        image_reviews=(image_recovery.by_page(reviews) if reviews else None),
+        recovery_source=source if reviews else None,
+        numeral_reviews=(image_reviews.numerals_by_block(numerals)
+                         if numerals else None),
+        projected_form_a_recovery=projected_form_a_recovery,
+        printed_2x_recovery=False)
+
     pages = source_ocr.read_pages(xml_path, limit=limit)
     applied_started = time.perf_counter()
     edition, stats, walker = page_parser.parse_volume(
@@ -530,7 +546,8 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None,
         recovery_source=source if reviews else None,
         numeral_reviews=(image_reviews.numerals_by_block(numerals)
                          if numerals else None),
-        projected_form_a_recovery=projected_form_a_recovery)
+        projected_form_a_recovery=projected_form_a_recovery,
+        printed_2x_recovery=printed_2x_recovery)
     applied_seconds = time.perf_counter() - applied_started
 
     chapters = {}
@@ -2217,7 +2234,8 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None,
         form_a_outcomes = collections.Counter(row["outcome"]
                                               for row in form_a_rows)
         form_a_before_refs = _reference_map(no_form_a_edition)
-        form_a_after_refs = _reference_map(edition)
+        # Task 146 is measured up to the pass with task 150 off.
+        form_a_after_refs = _reference_map(no_2x_edition)
         form_a_added = sorted(set(form_a_after_refs) - set(form_a_before_refs))
         form_a_removed = sorted(set(form_a_before_refs) -
                                 set(form_a_after_refs))
@@ -2234,9 +2252,9 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None,
         form_a_dual = sorted(block for block, owners in
                              form_a_after_owner.items() if len(owners) > 1)
         form_a_after_gaps = verse_gaps.inventory(
-            edition, verse_limit=structure.verse_limit)
+            no_2x_edition, verse_limit=structure.verse_limit)
         form_a_after_instances = glyph_forms.inventory(
-            edition, form_a_after_gaps)
+            no_2x_edition, form_a_after_gaps)
         form_a_physical_before = task139_gap_keys_after
         form_a_physical_after = {gap.key for gap in form_a_after_gaps}
         form_a_glyph_before = task139_glyph_after
@@ -2334,6 +2352,62 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None,
                 "two source events propose the same ref",
                 "fallback disabled",
             ],
+        }
+
+        # Task 150: the printed 2x fallback («a» + second digit), measured
+        # from the pass with only it disabled. Parser state only.
+        x_rows = list(walker.printed_2x_candidates)
+        x_applied = [row for row in x_rows if row["applied"]]
+        x_before_refs = form_a_after_refs
+        x_after_refs = _reference_map(edition)
+        x_before_owner = _owner_map(x_before_refs)
+        x_after_owner = _owner_map(x_after_refs)
+        x_moved = sorted(block for block in
+                         set(x_before_owner) & set(x_after_owner)
+                         if x_before_owner[block] != x_after_owner[block])
+        x_after_gaps = verse_gaps.inventory(
+            edition, verse_limit=structure.verse_limit)
+        x_glyph_after = {key for instance in
+                         glyph_forms.inventory(edition, x_after_gaps)
+                         for key in instance.gap_keys}
+        x_physical_after = {gap.key for gap in x_after_gaps}
+        out["projected_form_a_printed_2x_recovery"] = {
+            "rule": ("task-148 R2X: unframed 'a' + second-digit token, "
+                     "right/body, task-144 projected-gap provenance and "
+                     "native progression; second pass after task 146"),
+            "selection_authority": {
+                "occurrence_or_block_allowlist": False,
+                "expected_gap_or_verse": False,
+                "previous_plus_one": False, "next_minus_one": False,
+                "diagnostic_artifacts_read": False},
+            "verse_refs_before": len(x_before_refs),
+            "verse_refs_after": len(x_after_refs),
+            "candidate_matches": len(x_rows),
+            "outcomes": dict(sorted(collections.Counter(
+                row["outcome"] for row in x_rows).items())),
+            "recovered_markers": len(x_applied),
+            "created_ref_identities": sorted(
+                set(x_after_refs) - set(x_before_refs)),
+            "removed_refs": sorted(set(x_before_refs) - set(x_after_refs)),
+            "reopened_refs": sum(1 for row in x_applied
+                                 if row["proposed_native_ref"]
+                                 in x_before_refs),
+            "ownership_moves": len(x_moved),
+            "moved_blocks": x_moved,
+            "block_loss": len(set(x_before_owner) - set(x_after_owner)),
+            "dual_ownership": sum(1 for owners in x_after_owner.values()
+                                  if len(owners) > 1),
+            "physical_gaps_closed": sorted(form_a_physical_after -
+                                           x_physical_after),
+            "physical_gaps_opened": sorted(x_physical_after -
+                                           form_a_physical_after),
+            "glyph_gaps_closed": sorted(form_a_glyph_after - x_glyph_after),
+            "glyph_gaps_opened": sorted(x_glyph_after - form_a_glyph_after),
+            "records": [{key: row.get(key) for key in (
+                "block_id", "scan_page", "value", "outcome", "applied",
+                "projected_gap_provenance", "native_owner_refs",
+                "proposed_native_ref", "prior_owner_ref")}
+                for row in sorted(x_rows, key=lambda r: r["block_id"])],
         }
 
         # ¿Separa el ancho del glifo «a» el 1 impreso del 2 impreso? La
@@ -3028,6 +3102,21 @@ def audit(xml_path, *, volume, witness, book="Ps", limit=None,
         report["verse_segmentation_audit"][
             "projected_form_a_refined_scope_dry_run"] = json.loads(
                 refined_scope_dry_run_path.read_text(encoding="utf-8"))["audit_summary"]
+    reprioritization_147_path = Path(ROOT) / (
+        "data/torresamat1835/remaining_glyph_reprioritization_147.json")
+    if reprioritization_147_path.exists():
+        r147 = json.loads(reprioritization_147_path.read_text(encoding="utf-8"))
+        report["verse_segmentation_audit"][
+            "remaining_glyph_reprioritization_147"] = {
+                "runtime_baseline": r147["runtime_baseline"],
+                "historical_reconciliation": {
+                    k: v for k, v in r147["historical_reconciliation"].items()
+                    if k != "removed_occurrences"},
+                "selected_family": r147["selected_task148_family"]["name"],
+                "selected_population":
+                    r147["selected_task148_family"]["population"],
+                "selected_evidence_state":
+                    r147["selected_task148_family"]["evidence_state"]}
     return edition, report
 
 
@@ -3043,12 +3132,16 @@ def main():
     # before the task-146 fallback existed; this reproduces that state.
     ap.add_argument("--without-projected-form-a-recovery",
                     dest="projected_form_a_recovery", action="store_false")
+    # Task 147-149 diagnostics were measured before the task-150 fallback.
+    ap.add_argument("--without-printed-2x-recovery",
+                    dest="printed_2x_recovery", action="store_false")
     args = ap.parse_args()
 
     _edition, report = audit(args.xml, volume=args.volume,
                              witness=args.witness, book=args.book,
                              limit=args.limit,
-                             projected_form_a_recovery=args.projected_form_a_recovery)
+                             projected_form_a_recovery=args.projected_form_a_recovery,
+                             printed_2x_recovery=args.printed_2x_recovery)
     if args.out:
         os.makedirs(os.path.dirname(args.out), exist_ok=True)
         with open(args.out, "w", encoding="utf-8") as handle:
