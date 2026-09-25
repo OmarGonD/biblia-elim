@@ -30,10 +30,15 @@ Del `djvu.xml` sale cada palabra con su caja.
 | `segment.py` | Parte la página por el medianil, agrupa renglones, separa cuerpo de notas por altura de letra |
 | `cabeceras.py` | Lee la cabecera corrida (`GÉNESIS, 4`, `SAN LUCAS, 9`) |
 | `nombres.py` | Nombres de esta edición a identificadores OSIS |
-| `versiculos.py` | Marcas de versículo y el `3 1` que abre capítulo |
+| `versiculos.py` | Marcas de versículo y el `3 1` que abre capítulo; `corrige_repetidos` (⁵ leído 6) y `parte_dolar` (⁵ leído 6 con el ⁶ leído «$», tras ensamblar) |
 | `construir.py` | Alinea contra el canon NRSVA (reusa `alinear.py` de Torres Amat) |
+| `correspondencias.json` | Verso impreso → NRSVA documentado con el facsímil cuando la cuenta no basta (Sal 13, hoja 967) |
+| `limpieza.py` | Errores de OCR con regla general: «!» leído «l» («¡oh Yavel»), guion de fin de renglón leído «.»/«:» |
+| `erratas.json` | Lecturas sueltas cotejadas con el facsímil, cada una con su hoja |
 | `completar.py` | Hoy no completa nada: deja `texto.json` intacto y `reconstruidos.txt` vacío (ver «Versos incompletos») |
-| `osis.py` | Genera el OSIS |
+| `osis.py` | Genera el OSIS; los epígrafes de salmo van como `<title canonical="false">` |
+| `epigrafes.json` | Epígrafes editoriales de salmo («Canto triunfal.»), con su procedencia; salida de `construir.py` |
+| `perdidas.json` | Pérdida estructural por verso vista por el parser (`truncado`, `perdida_probable`, señales con su caja del facsímil); no completa texto |
 | `comentario.py` | Notas por capítulo, como comentario aparte |
 | `instalar.sh` | `osis2mod` y copia a `~/.sword` |
 

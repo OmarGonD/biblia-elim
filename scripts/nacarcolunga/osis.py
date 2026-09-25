@@ -45,9 +45,10 @@ def limpia_final(s):
     return s.strip(" ,;:")
 
 
-def genera(texto, destino, introducciones=None):
+def genera(texto, destino, introducciones=None, epigrafes=None):
     faltan = 0
     introducciones = introducciones or {}
+    epigrafes = epigrafes or {}
     reconstruidos_path = os.path.join(DIR, "reconstruidos.txt")
     reconstruidos = set(open(reconstruidos_path, encoding="utf-8").read().splitlines()) if os.path.exists(reconstruidos_path) else set()
     with open(destino, "w", encoding="utf-8") as f:
@@ -63,6 +64,13 @@ def genera(texto, destino, introducciones=None):
                             f"{html.escape(intro, quote=False)}</p></div>\n")
             for c, nver in enumerate(L["versos"], start=1):
                 f.write(f'   <chapter osisID="{osisid}.{c}">\n')
+                # Epígrafe editorial de Nácar-Colunga («Canto triunfal.»): no
+                # es texto bíblico, va como encabezado no canónico.
+                epi = limpia_final((epigrafes.get(f"{osisid} {c}") or {})
+                                   .get("texto") or "")
+                if epi:
+                    f.write('    <title canonical="false">'
+                            f"{html.escape(epi, quote=False)}</title>\n")
                 # Título del salmo: construir.py lo deja como versículo 0.
                 titulo = limpia_final(texto.get(f"{osisid} {c}:0") or "")
                 # Restos del renglón anterior: la cifra del v. 2 que el
@@ -96,9 +104,13 @@ if __name__ == "__main__":
     introducciones = {}
     if os.path.exists(intro_path):
         introducciones = json.load(open(intro_path, encoding="utf-8"))
+    epi_path = os.path.join(DIR, "epigrafes.json")
+    epigrafes = {}
+    if os.path.exists(epi_path):
+        epigrafes = json.load(open(epi_path, encoding="utf-8"))
     total = sum(sum(POR_OSIS[o]["versos"]) for o in ORDEN)
     dest = os.path.join(DIR, "salida", "nacarcolunga.osis.xml")
     os.makedirs(os.path.dirname(dest), exist_ok=True)
-    faltan = genera(texto, dest, introducciones)
+    faltan = genera(texto, dest, introducciones, epigrafes)
     print(f"OSIS escrito: {total - faltan}/{total} versículos con texto "
           f"({100 * (total - faltan) / total:.1f}%), {faltan} vacíos")

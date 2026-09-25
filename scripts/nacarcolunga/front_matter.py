@@ -198,6 +198,10 @@ def separa_front_matter(sucesos):
         if frags and book:
             intros.setdefault(book, []).extend(frags)
         out.append(s)
+        # El epígrafe del primer salmo («Las dos sendas: La del justo y la
+        # del impío.») va delante del verso 1, pero no es introducción:
+        # sigue en la corriente para que construir.py lo ate al salmo.
+        out.extend(x for x in front if x[0] == "epigrafe")
         i = i + 1 + ap
         prev_nums = []
     return out, intros

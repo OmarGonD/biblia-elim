@@ -38,9 +38,23 @@ def parse(path):
     return pages
 
 
-def _es_marca(t):
+# Tesseract lee a veces el volado pequeño como «S»: el ⁶ de Sal 3 y de Sal
+# 28 (Princeton 963, 974). Cuenta como marca solo si es más baja que el
+# texto corriente -- una capitular «S» de «SIMON» no lo es -- y, como toda
+# marca, solo se toca si el DjVu trae un número en esa misma caja.
+PARECE_CIFRA = {"S"}
+
+
+def _alto_texto(words):
+    altos = sorted(w[BOT] - w[TOP] for w in words)
+    return altos[len(altos) // 2] if altos else 0
+
+
+def _es_marca(t, alto=0, tope=0):
     if t.isdigit():
         return 1 <= int(t) <= 176
+    if t in PARECE_CIFRA:
+        return 0 < alto <= tope
     if len(t) > 4:
         return False
     return not any(c.isalpha() for c in t)
@@ -85,9 +99,11 @@ def fusion_numeros(djvu, tess):
         return mejor if distancia < cerca else None
 
     out = []
+    tope = _alto_texto(tess["words"])
     for tw in tess["words"]:
         t = tw[TXT]
-        mejor = numero_cercano(tw) if _es_marca(t) else None
+        marca = _es_marca(t, tw[BOT] - tw[TOP], tope)
+        mejor = numero_cercano(tw) if marca else None
         if mejor is not None:
             num = digits[mejor][2]
             usado.add(mejor)
