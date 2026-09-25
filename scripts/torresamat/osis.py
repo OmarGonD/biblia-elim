@@ -4,8 +4,9 @@ Cada versículo del JSON es un texto, o bien {"titulo": …, "texto": …} cuand
 el facsímil dice que ese versículo es (o empieza por) el título del salmo;
 ver titulos.py.
 """
-import json, re, html
+import collections, json, re, html
 from canon import CANON, POR_OSIS
+from entidades import lexico, ruido_en_crudo, CRUDO
 from construir import ORDEN
 from titulos import marca_titulo
 
@@ -38,20 +39,36 @@ http://www.bibletechnologies.net/osisCore.2.1.1.xsd">
   </header>
 """
 
-def contenido_verso(t):
-    """Contenido OSIS de un versículo del JSON, o "" si no trae texto."""
+def contenido_verso(t, frec=None):
+    """Contenido OSIS de un versículo del JSON, o "" si no trae texto.
+
+    El «'», «<» y «>» del OCR es ruido (entidades.py) y se quita antes de
+    escapar; se escapa sin quote porque osis2mod no entiende «&#x27;».
+    frec es el léxico de todo el texto (entidades.lexico).
+    """
+    frec = frec if frec is not None else collections.Counter()
     if isinstance(t, dict):
-        titulo = limpia_final(t.get("titulo", ""))
-        cuerpo = limpia_final(t.get("texto", ""))
+        titulo = limpia_final(ruido_en_crudo(t.get("titulo", ""), frec))
+        cuerpo = limpia_final(ruido_en_crudo(t.get("texto", ""), frec))
         if titulo:
             return marca_titulo(titulo, cuerpo)
         t = cuerpo
     else:
-        t = limpia_final(t)
-    return html.escape(t) if t else ""
+        t = limpia_final(ruido_en_crudo(t, frec))
+    return html.escape(t, quote=False) if t else ""
+
+
+def _textos(texto):
+    for t in texto.values():
+        if isinstance(t, dict):
+            yield t.get("titulo", "")
+            yield t.get("texto", "")
+        else:
+            yield t
 
 def genera(texto, destino, orden=ORDEN):
     faltan = 0
+    frec = lexico(_textos(texto), CRUDO)
     with open(destino, "w", encoding="utf-8") as f:
         f.write(CABECERA)
         for osisid in orden:
@@ -64,7 +81,7 @@ def genera(texto, destino, orden=ORDEN):
                     if t is None:
                         faltan += 1
                         continue
-                    t = contenido_verso(t)
+                    t = contenido_verso(t, frec)
                     if not t:
                         faltan += 1
                         continue

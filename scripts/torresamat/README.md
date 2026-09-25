@@ -38,7 +38,10 @@ Del `djvu.xml` sale cada palabra con su caja y su confianza.
 | `ojear.py` | Enseña por encima qué hay en cada media hoja de un rango |
 | `rescatar.py` | Los capítulos rescatados a mano, uno por uno, contra el facsímil |
 | `titulos.py` | Marca como `<seg type="x-psalm-title">` el título de salmo que el impreso numera como versículo |
-| `parche_facsimil.py` | Corrige el módulo ya compilado contra el facsímil: erratas y títulos de salmo, cada uno con su hoja |
+| `parche_facsimil.py` | Corrige el módulo ya compilado contra el facsímil: erratas y títulos de salmo, cada uno con su hoja. `--origen` parte de cualquier árbol SWORD (el `modulos/` de git sin parchear, commit `9c036c87`, regenera el instalado byte a byte); la segunda pasada no cambia nada |
+| `cabeceras_pegadas.py` | Encabezado, argumento y cabecera de página del salmo siguiente que el OCR pegó al último versículo, cotejados hoja por hoja; los aplica `parche_facsimil.py` |
+| `columnas_fundidas.py` | Versos de dos columnas que el OCR leyó renglón a renglón (Sal 112–115, 130–133) y cabeceras de página o lámina dentro de un verso, recompuestos solo con trozos del propio texto; los aplica `parche_facsimil.py` |
+| `entidades.py` | Quita del módulo los «'», «<» y «>» del OCR que llegaron escapados dos veces (`&amp;amp;##x27;`, `&amp;gt;`); lo aplica `parche_facsimil.py` a todo el módulo, y `osis.py` los quita antes de escapar |
 | `cotejar.py` | Coteja cada capítulo con la Vulgata por nombres propios |
 | `testigos.py` | Baja las otras Biblias instaladas y las deja consultables |
 | `corrector.py` | Decide errata o palabra preguntándole al pasaje |
