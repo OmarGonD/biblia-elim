@@ -21,6 +21,7 @@
 #include "main/navbar_versekey.h"
 #include "main/settings.h"
 #include "main/sword.h"
+#include "main/url.hh"
 #include "xiphos_html/xiphos_html.h"
 
 typedef struct
@@ -277,6 +278,56 @@ hide_panels(gpointer unused)
 	return G_SOURCE_REMOVE;
 }
 
+/* BOOKMARK-V11N-101 in the running app: the URL route every bookmark
+ * opens through (it used to dereference the SWORD BackEnd, NULL under the
+ * SQLite backend). A bookmark with its module navigates; one saved without
+ * a module is read as KJV, which this fixture's Bible declares, so it
+ * navigates too and raises no «no equivalent» warning. The unmapped case
+ * (Vulgate) is covered by versification_transition_test. */
+static gboolean
+current_verse_is(const char *suffix)
+{
+	return settings.currentverse &&
+	       g_str_has_suffix(settings.currentverse, suffix);
+}
+
+static guint
+warning_dialogs(void)
+{
+	GList *tops = gtk_window_list_toplevels();
+	GList *l;
+	guint n = 0;
+
+	for (l = tops; l; l = l->next)
+		if (GTK_IS_MESSAGE_DIALOG(l->data))
+			n++;
+	g_list_free(tops);
+	return n;
+}
+
+static void
+check_bookmark_routes(void)
+{
+	gchar *module = g_strdup(main_url_encode(settings.MainWindowModule));
+	gchar *url = g_strdup_printf(
+	    "passagestudy.jsp?action=showBookmark&type=currentTab&"
+	    "value=John%%203:16&module=%s", module);
+
+	main_url_handler(url, TRUE);
+	g_free(url);
+	g_free(module);
+	check(current_verse_is("3:16"),
+	      "module-qualified bookmark did not navigate");
+
+	main_url_handler("passagestudy.jsp?action=showBookmark&type=currentTab&"
+			 "value=John%203:15&module=", TRUE);
+	check(current_verse_is("3:15"),
+	      "module-less bookmark did not navigate in a KJV Bible");
+	check(warning_dialogs() == 0,
+	      "module-less bookmark warned although KJV maps to KJV");
+	navigation_checks += 3;
+}
+
 static gboolean
 exercise_application(gpointer unused)
 {
@@ -321,6 +372,7 @@ exercise_application(gpointer unused)
 		main_navbar_versekey_spin_chapter(navbar_versekey, 1);
 		main_navbar_versekey_spin_chapter(navbar_versekey, 0);
 		navigation_checks += 5;
+		check_bookmark_routes();
 	} else {
 		check(FALSE, "smoke fixture did not provide a Bible module");
 	}

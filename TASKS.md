@@ -8467,6 +8467,69 @@
       or repairing the ordering damage that trips the guards) and is listed
       under «Future / not scheduled».
 
+- [x] BOOKMARK-SQLITE-101 Open bookmarks without crashing under the SQLite backend; exercise the route in the running app
+  - Status: DONE
+  - Evidence:
+    - Found while adding the real-app bookmark check: under the SQLite
+      backend there is no SWORD `BackEnd` (`backend == NULL`), and
+      `show_module_and_key()` (`src/main/url.cc`) called
+      `backend->is_module()` / `is_Bible_key()` / `module_type()`: opening
+      any bookmark crashed (gdb: SIGSEGV in `BackEnd::get_SWModule
+      (this=0x0)` from `show_module_and_key`). Pre-existing, not introduced
+      by BOOKMARK-V11N-101.
+    - Fix: the route uses the backend-neutral `main_is_Bible_key()`,
+      `main_is_module()` and `main_get_mod_type()`; a module-less key is
+      validated against the Bible it will open in. Other SWORD-only uses in
+      `url.cc` (notes, bookmark sources) are outside this route.
+    - `gtk_lifecycle_smoke` now opens bookmarks through `main_url_handler`
+      in the running app: module-qualified → John 3:16; module-less →
+      John 3:15 with no «no equivalent» warning (the SQLite fixture
+      declares «custom», reported as KJV, so KJV maps by identity). The
+      unmapped (Vulgate) case stays covered by
+      `versification_transition_test`. Smoke PASS 3/3.
+
+- [x] NACAR-OCR-108 Split the facsimile-confirmed «$» verses whose next slot is empty
+  - Status: DONE
+  - Evidence:
+    - Of the 28 verses still holding one standalone «$», 7 have the shape
+      «b-1 and b+2 present, b+1 empty» (the «$» would be b+1's lost
+      number), but 2 of them (Acts 15:8, Jas 2:8) sit in misaligned chapters
+      whose text is Acts 15:5-6 and Jas 3:5-6: an automatic rule would split
+      them wrongly, and the «$» is not one fixed digit here. No rule added.
+    - The other 5 were read on the Princeton facsimile and recorded in
+      `erratas.json` (a reading that drops the tail from «$» plus an «alta»
+      for b+1, each with its leaf): Deut 29:7/8 (305, ⁸), 2 Kgs 22:5/6
+      (486, ⁶), 2 Chr 33:4/5 (548, ⁵), Jdt 4:5/6 (598, ⁶), Jer 49:7/8
+      (785-786, ⁸).
+    - Rebuild: exactly these 10 keys change; `avisos.txt` identical.
+      `test_dolar.py` adds `test_erratas_dolar_cotejadas` (and asserts
+      Acts 15:8 / Jas 2:8 untouched); all Nácar tests PASS.
+    - Module reinstalled in `~/.sword` (backup
+      `nacarcolunga.respaldo-20260925-174818`). The earlier reinstall of the
+      same session was a no-op: the installed module already matched the
+      committed pipeline byte for byte.
+
+- [ ] TORRES-NOISE-101 Remove engraving/apparatus OCR noise inside Torres Amat 1882 verses
+  - Status: BLOCKED
+  - Description:
+    About 85 verses carry runs such as «AR Ú 5 AA A», plate captions
+    («ELTAS ALIM POR UN ÁNG EL») and letters misread inside words
+    («ceneral»).
+  - Attempted:
+    - Token-shape rule (short all-caps / single letters / symbols, runs of
+      ≥4, extended over rare neighbours): it would delete real small-caps
+      text (Exod 3:14 «YO SOY EL QUE») and leaves mixed residue.
+    - OCR confidence from the Archive `djvu.xml`: the noise runs are not in
+      it (they come from the tesseract re-OCR of `rehacer.sh`, not kept in
+      the repo), and plate captions score as high as real small caps
+      (90-96).
+  - Needed (human decision / data): either the re-OCR hOCR with word
+    geometry for those pages (to drop words inside plate regions), or a
+    verse-by-verse facsimile review of the ~85 verses through the patch
+    mechanism. No automatic rule is safe with the data in the repo.
+  - Do not:
+    - Remove text by token shape alone.
+
 # Future / not scheduled
 
 - Human-readable grammatical decoding of morphology codes.

@@ -611,8 +611,11 @@ static int show_module_and_key(const char *module, const char *key,
 	gint mod_type;
 	g_autofree gchar *legacy_key = NULL;
 
+	/* Backend-neutral checks: with the SQLite backend there is no SWORD
+	 * BackEnd, and opening any bookmark dereferenced it. */
 	if (module && (strlen((char *)module) < 3) &&
-	    backend->is_Bible_key((char *)module, key, settings.currentverse)) {
+	    main_is_Bible_key(*module ? module : settings.MainWindowModule,
+			      key)) {
 		/* Saved without a module: its numbering is KJV, not the
 		 * selected Bible's (BOOKMARK-V11N-101). */
 		if (!*module) {
@@ -632,7 +635,7 @@ static int show_module_and_key(const char *module, const char *key,
 		return 1;
 	}
 
-	if (backend->is_module(module)) {
+	if (main_is_module((char *)module)) {
 		if (!strcmp(stype, "newTab")) {
 			main_open_bookmark_in_new_tab((gchar *)module,
 						      (gchar *)key);
@@ -647,7 +650,7 @@ static int show_module_and_key(const char *module, const char *key,
 						  (gchar *)key);
 			return 1;
 		}
-		mod_type = backend->module_type((gchar *)module);
+		mod_type = main_get_mod_type(module);
 		switch (mod_type) {
 		case TEXT_TYPE:
 		case COMMENTARY_TYPE:

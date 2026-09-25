@@ -104,6 +104,26 @@ def test_texto_construido():
     assert "$" not in texto["Ps 118:6"]
 
 
+def test_erratas_dolar_cotejadas():
+    """Los cinco «$» con n+1 vacío, cotejados uno a uno en el facsímil
+    (erratas.json); no hay regla automática: Hch 15:8 y Sant 2:8 tienen la
+    misma forma y su texto es de otros versos."""
+    ruta = os.path.join(DIR, "texto.json")
+    if not os.path.exists(ruta):
+        print("  (sin texto.json: se salta)")
+        return
+    texto = json.load(open(ruta, encoding="utf-8"))
+    for ref, sig, comienzo in (("Deut 29:7", "Deut 29:8", "y nos apoderamos"),
+                               ("2Kgs 22:5", "2Kgs 22:6", "a los carpinteros"),
+                               ("2Chr 33:4", "2Chr 33:5", "pero los alzó"),
+                               ("Jdt 4:5", "Jdt 4:6", "Escribió Joaquim"),
+                               ("Jer 49:7", "Jer 49:8", "Huid,")):
+        assert "$" not in texto[ref], ref
+        assert texto[sig].startswith(comienzo), sig
+    # Los de forma igual y texto ajeno siguen sin tocar.
+    assert "$" in texto["Acts 15:8"] and "$" in texto["Jas 2:8"]
+
+
 if __name__ == "__main__":
     for nombre, f in list(globals().items()):
         if nombre.startswith("test_"):
