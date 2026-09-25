@@ -4952,8 +4952,8 @@
     - Task 146 is DONE because production parser behavior now reproduces the complete task-145 validated semantic delta exactly, including ref identities, ownership movement and gap identities, while rejecting all known unsafe/unknown cases.
 
 
-- [ ] UI-SIGNAL-101 Investigate stale GObject signal handler
-  - Status: TODO
+- [x] UI-SIGNAL-101 Investigate stale GObject signal handler
+  - Status: DONE
   - Description:
     A previous real-display run emitted
     `GLib-GObject-CRITICAL: instance '0x...' has no handler with id '...'`
@@ -4966,6 +4966,53 @@
       scroll_adj_signal)` unreachable (the globals are never assigned) and no
       stale-id pattern in the other project disconnect sites.
     - No preventive fix was applied.
+    - Rechecked on the real Wayland display with an isolated temporary
+      profile/module and `G_DEBUG=fatal-criticals`. The controlled lifecycle
+      sequence rendered all six surfaces, navigated John 3:17 → 3:18 → 3:17
+      → 4:1 → 3:16, and opened/closed the smoke panels without the stale
+      GObject handler critical or an abort/backtrace.
+    - That run ended only at the already tracked unrelated
+      `UI-SMOKE-102` assertion: `dictionary panel did not reopen explicitly`.
+      The CTest Xvfb variant remains unavailable in this environment
+      (`gtk_lifecycle_smoke_skipped=no-usable-xvfb`).
+    - A fresh tree-wide assignment search still finds only the declarations
+      of `scroll_adj_signal` and `adjustment` in `src/gtk/bibletext.c`; their
+      `src/main/sword.cc` block/unblock sites remain unreachable and are not
+      evidence of the reported active-handler failure.
+    - Root cause reproduced deterministically on the real X11 display with
+      `G_DEBUG=fatal-criticals` under GDB. The bare-control sequence is:
+      start with no window focus; open and Escape-close a bare GtkPopover;
+      open the next picker; type `12` and Enter. GTK then reports the exact
+      failure, `instance '0x...' has no handler with id '...'`.
+    - `bt`/`bt full` identify the instance as the test's `GtkWindow`
+      (`window == 0x555555729ca0` in the captured run), not an application
+      adjustment. GTK reaches `g_signal_handler_disconnect()` from its
+      GtkPopover close path while `on_activate()` calls
+      `gtk_popover_popdown()`; the stale id is GTK's internal `unmap`
+      handler (id 430 in that capture).
+    - The first bare close leaves the `GtkWindow` as its own focus. The
+      second bare popover records that invalid focus-return target; GTK's
+      internal data-disconnect path has already removed its `unmap` handler
+      when the later close attempts to disconnect the stored id. The popover
+      is otherwise destroyed only from `picker_destroy_idle()`, after
+      `closed`, so it is not destroyed while emitting `closed`.
+    - The limited production correction is already integrated in
+      `picker_entry.c` (introduced by `297aa66a`): before each chapter,
+      verse, or book picker opens, `picker_entry_settle_window_focus()` gives
+      GtkPopover a drawable reading-pane/anchor focus target. Its
+      `g_signal_connect_object(..., "set-focus", ..., entry,
+      G_CONNECT_AFTER)` repairs any later window-self focus and is owned by
+      the entry, so it is disconnected with that entry rather than by the
+      popover's internal window-data cleanup. No
+      `g_signal_handler_is_connected()` suppression is used.
+    - Verification on the same real X11 display: the intentionally unguarded
+      control emits one expected critical; the guarded sequence completes
+      100 rounds (chapter/verse, Escape and `12`+Enter, including a pane
+      rebuild while open) with `bad_rounds=0`, `criticals=0`,
+      `popovers_alive=0`, and `window_active=1`.
+    - `navbar_picker_focus_test` passes with 0 failures. This is distinct
+      from the still-open UI-SMOKE-102 dictionary-reopen assertion.
+    - Result: ROOT_CAUSE_IDENTIFIED_AND_CURRENT_FIX_VALIDATED.
   - Resume only if it reappears:
     1. Record the exact UI action.
     2. Reproduce with `G_DEBUG=fatal-criticals`.
@@ -4977,8 +5024,8 @@
     - Use `g_signal_handler_is_connected()` to hide it without a root cause.
     - Commit or push.
 
-- [ ] UI-SMOKE-102 Fix "dictionary panel did not reopen explicitly"
-  - Status: TODO
+- [x] UI-SMOKE-102 Fix "dictionary panel did not reopen explicitly"
+  - Status: DONE
   - Description:
     `gtk_lifecycle_smoke` fails with
     `GTK_LIFECYCLE_SMOKE_CHECK_FAILED dictionary panel did not reopen
@@ -4988,6 +5035,43 @@
       via `git stash`, so it is not a regression of UI-LAYOUT-103.
     - Distinct from the earlier pre-existing `bible-compare` CREATE/SHOW/MAP
       smoke failure noted under STARTUP-PERF-105.
+  - Closure evidence:
+    - Root cause: the smoke expectation was stale, not an application
+      re-open failure. Commit `36df30d5` deliberately retired the visible
+      Dictionary/Devotional entry and `gui_show_hide_dicts()` forces every
+      current or restored `showdicts=1` request to false so the retired pane
+      cannot reappear.
+    - Exact pre-fix real-display sequence reproduced the failure with an
+      isolated SQLite profile and `G_DEBUG=fatal-criticals`:
+      `GTK_LIFECYCLE_SMOKE_CHECK_FAILED dictionary panel did not reopen
+      explicitly`, `gtk_lifecycle_smoke_failures=1 checks=244`.
+    - The smoke now omits Dictionary/Devotional from its required mapped
+      renderer surfaces and, after its hide/show cycle, calls the public
+      `gui_show_hide_dicts(TRUE)` contract. It asserts that both
+      `settings.showdicts` and the retired pane remain hidden; this validates
+      the intended stale-session protection rather than bypassing it with a
+      direct `gtk_widget_show()`.
+    - `tests/run_gtk_lifecycle_smoke.cmake` now requires CREATE/SHOW/MAP only
+      for active surfaces; the retired dictionary surface is no longer a
+      false mandatory map.
+    - Same real Wayland-display smoke sequence, isolated profile and
+      `G_DEBUG=fatal-criticals`: PASS with
+      `gtk_lifecycle_smoke_failures=0 checks=241 navigation=5 renderers=5
+      panels=18`; no GTK/GDK critical or abort.
+    - Build: PASS (`biblia-elim`, `main_window_layout_test`,
+      `navbar_picker_focus_test`, `navbar_picker_entry_test`).
+    - `main_window_layout_test`: PASS, 0 failures.
+    - `navbar_picker_focus_test`: PASS, 0 failures.
+    - `navbar_picker_entry_test`: PASS: its deliberately unguarded control
+      still demonstrates one expected GTK critical, while the guarded
+      100-round production path reports `bad_rounds=0`, `criticals=0`,
+      `popovers_alive=0`, `window_active=1`.
+    - CTest `gtk_lifecycle_smoke` remains environment-skipped only because
+      this host has no usable Xvfb; the equivalent real-display sequence
+      passed above.
+    - UI-SIGNAL-101 closure evidence remains preserved; this change does not
+      modify production panel or popover code.
+    - Result: IMPLEMENTED_AND_VALIDATED.
   - Do not:
     - Mix this with the fallback badge fix.
     - Commit or push.
@@ -5100,8 +5184,8 @@
     - `completar.py` replacing valid Nácar text with Reina-Valera
       (NACAR-FALLBACK-101).
 
-- [ ] NACAR-PSALMS-103 Fix Nácar-Colunga Psalms 117/118 boundary
-  - Status: TODO
+- [x] NACAR-PSALMS-103 Fix Nácar-Colunga Psalms 117/118 boundary
+  - Status: DONE
   - Description:
     Ps 117 has no text of its own in the module: its two verses are glued to
     the start of Ps 118:1 («Alabad a Yave las gentes todas… Alabad a Yave,
@@ -5111,6 +5195,54 @@
     - Ps 118 has not been explicitly verified; do not assume it is correct.
     - Unchanged by NACAR-PSALMS-102 (`9352fad7`): Ps 117 still has no text
       and Ps 118 still begins with the Ps 117 content.
+  - Root cause:
+    - The OCR reads the printed Ps 118 header as `118. (Vulg. 117.)`
+      (Princeton leaf 1020, right column). `RE_CABECERA_SALMO` did not allow
+      punctuation after the psalm number, so the line fell to `es_ruido` and
+      no chapter boundary was emitted.
+    - Without that header, the fallback restart (a verse 1/2 after verse
+      >= 5) cannot fire after Ps 117, which has only 2 verses. Both psalms
+      formed one candidate `[1, 2, 1, 2, 3, …]`; the aligner left Ps 117
+      empty and `ensambla` placed Ps 117:1–2 into Ps 118:1–2.
+  - Fix:
+    - `scripts/nacarcolunga/versiculos.py`: `RE_CABECERA_SALMO` tolerates
+      one OCR punctuation mark (`.`, `,`, `:`) after the psalm number, after
+      `Vulg`, and before `)` (`118. (Vulg. 117.)`, `121: (Vulg. 120.)`,
+      `44 (Vulg: 43.)`, `119. (Vulg. 118:)`). General rule; no offsets, no
+      hardcoded references, no aligner or versification changes.
+  - Closure evidence:
+    - Unmodified pipeline rebuilt first: `texto.json`, `procedencia.json`,
+      `avisos.txt`, and `reconstruidos.txt` byte-identical to the previous
+      outputs.
+    - After the fix: `Ps 117:1` = «Alabad a Yave las gentes todas, alabadle
+      todos los pueblos (1).», `Ps 117:2` = «Porque claramente se ha
+      manifestado … ¡Aleluya! Canto triunfal.»; `Ps 118:1` = «Alabad a Yave,
+      porque es bueno, porque es eterna su misericordia (2).», `Ps 118:2` =
+      «iga Israel que es bueno, …». Ps 118:3–29 are unchanged. Provenance
+      now points Ps 117:1–2 to leaf 1020 col 1 top 1053/1128 and Ps 118:1–2
+      only to top 1537/1610.
+    - Only 4 keys changed in `texto.json` and 4 in `procedencia.json`, all in
+      Ps 117/118; 0 differences outside those psalms, even though the wider
+      regex newly matches 21 punctuated Psalter headers, 20 besides Ps 118
+      (their boundaries were already found by the numbering restart; this
+      includes the misread `34, (Vulg. 83.)` for Ps 84, whose number the
+      aligner does not use).
+      `reconstruidos.txt` unchanged. The `Ps 117: capítulo sin texto`
+      warning is gone (13 → 12 warnings); Psalms coverage 2218 → 2220.
+    - Regenerated OSIS (not installed) has `Ps.117.1`, `Ps.117.2`,
+      `Ps.118.1`, `Ps.118.2` with the texts above.
+    - Regression tests added to `test_salmos_cabecera.py`
+      (`test_cabecera_con_puntuacion_del_ocr`,
+      `test_salmo_corto_no_se_pega_al_siguiente`); both fail with the old
+      regex and pass with the fix.
+    - PASS: `test_salmos_cabecera.py`, `test_load.py`, `test_cabeceras.py`,
+      `test_front_matter.py`, `test_completar.py`,
+      `scripts/torresamat/test_pegadas.py`, `scripts/torresamat/test_restos.py`.
+    - Known out of scope: the epigraph «Canto triunfal.» now ends Ps 117:2
+      instead of Ps 118:2 (epigraph routing, NACAR-OCR-105); Ps 118:5 is
+      still missing and Ps 118:6 still holds merged text (verse-number OCR,
+      NACAR-OCR-104); «iga» for «Diga» is an OCR error (NACAR-OCR-102).
+    - Module not reinstalled; no commit or push.
   - Acceptance criteria:
     - Ps 117 has exactly its 2 verses.
     - Ps 118 begins with its own content.
@@ -5119,8 +5251,8 @@
     - Use offsets or hardcoded references.
     - Commit or push.
 
-- [ ] NACAR-PSALMS-104 Fix Nácar-Colunga Psalm 13 superscription and verse division
-  - Status: TODO
+- [x] NACAR-PSALMS-104 Fix Nácar-Colunga Psalm 13 superscription and verse division
+  - Status: DONE
   - Description:
     Ps 13 still has an incorrect title/verse division. Nácar-Colunga prints
     the superscription as verse 1 and the body from verse 2, but Leningrad and
@@ -5132,6 +5264,101 @@
       13:2–4 hold the Nácar body shifted one slot, Ps 13:5 is empty, and Ps
       13:6 merges two printed verses.
     - Unchanged by NACAR-PSALMS-102 (`9352fad7`).
+  - Investigation (2026-09-23):
+    - Reproduced with the current pipeline (baseline rebuilt byte-identical).
+      Current output differs from the original evidence: after
+      NACAR-FALLBACK-101, Ps 13:1 is no longer Reina-Valera but the Nácar
+      superscription «Al maestro del coro. Salmo de David.»; 13:2–4 hold
+      printed verses 2–4; 13:5 is empty; 13:6 holds printed 5 and 6
+      merged, plus «impíos.» from the Ps 14 epigraph.
+    - Facsimile (Princeton leaf 967, left column) confirms: printed ¹ is the
+      superscription only; body is ²–⁶; printed ⁶ «Después de haber esperado
+      en tu piedad. | Que se alegre mi corazón con tu socorro, | que pueda
+      cantar a Yave: «Bien me proveyó.»» corresponds to NRSVA 13:5–6
+      together. Correct target: title → 13:0, printed 2–5 → NRSVA 1–4,
+      printed 6 split at the second hemistich into NRSVA 5 and 6.
+    - Event stream: `vers 4, vers 6, vers 6`. The printed ⁵ is read as 6
+      (the NACAR-OCR-104 pattern); without that fix no mapping can place
+      «Que no pueda decir mi enemigo…» in its own slot.
+    - Also lost in printed ³: the line «tinuo sobre mi corazón? | ¿Hasta»
+      (present in the OCR, dropped by `es_titulo()`) and «mí?» (2 letters,
+      dropped by `es_ruido`). That is OCR/parser scope, not mapping scope.
+    - No local verse-level Hebrew↔NRSVA correspondence exists:
+      `canon_leningrad.h` and `canon_nrsva.h` (SWORD 1.9.0) have no
+      `mappings_*` table; `mappings_nrsv` only covers Rev 12:18; the Vulg
+      table targets KJV and follows the Clementine division (title fused
+      into v1), so it is not a Hebrew proxy. Leningrad and NRSVA both
+      count 6 verses for Ps 13, so `TITULO_SALMOS` cannot see it.
+    - 62 psalms have a superscription in SpaRV v1 without a count
+      difference; most are short titles inside the Hebrew v1 (e.g. Ps 23),
+      so a title-prefix signal alone does not identify Ps 13.
+    - The only remaining evidence for a general rule is content
+      correspondence with a witness (SpaRV, KJV numbering = NRSVA for
+      Psalms) to detect a title-only printed v1 and choose the split
+      hemistich. That adds witness data to `construir.py`, which the
+      current README/NACAR-FALLBACK-101 policy says the pipeline does not
+      use.
+  - Human decisions (2026-09-23):
+    1. Keep the no-other-Bibles policy in `construir.py`, even for
+       alignment. Use a documented correspondence, limited to Ps 13, as
+       import data based on the numbering and content of Princeton 967.
+    2. Resolve NACAR-OCR-104 first (done; it fixes printed ⁵ read as 6).
+  - Fix:
+    - `scripts/nacarcolunga/correspondencias.json`: printed → NRSVA map for
+      Ps 13 only (`1→0` title, `2→1`, `3→2`, `4→3`, `5→4`, `6→5+6` split
+      after the 2nd hemistich separator), with source leaf and per-verse
+      justification.
+    - `construir.py`: `carga_correspondencias()` validates the data (every
+      printed verse 1..Leningrad count mapped, every NRSVA verse 1..n
+      reached exactly once, a two-way split only with a documented cut, and
+      no overlap with `TITULO_SALMOS`) and raises on any inconsistency.
+      `aplica_correspondencias()` runs after `ensambla` and before
+      `titulos_de_salmo`; it splits the raw fragments at the `|`
+      separator, keeps provenance only on the slots that received text,
+      never fills an absent printed verse, and if the separator is missing
+      keeps the whole verse in the first slot with an `avisos.txt` entry.
+    - Correspondence evidence: facsimile (printed ¹ title only, body ²–⁶,
+      ⁶ with three hemistichs) plus the local KJV module, which numbers the
+      Psalms like NRSVA: 13:1 «How long wilt thou forget me» = printed ²;
+      13:4 «Lest mine enemy say» = printed ⁵; 13:5 «But I have trusted in
+      thy mercy; my heart shall rejoice…» = first two hemistichs of printed
+      ⁶; 13:6 «I will sing unto the Lord» = its third hemistich. The KJV is
+      used only as documentation, not by the pipeline.
+  - Closure evidence:
+    - Result: `Ps 13:0` (title) «Al maestro del coro. Salmo de David.»;
+      13:1 «¿Hasta cuándo, por fin, te olvidarás…»; 13:2 «¿Hasta cuándo
+      mandarás dolores…»; 13:3 «¡Mírame ya, óyeme, Yave…»; 13:4 «Que no pueda
+      decir mi enemigo:…»; 13:5 «Después de haber esperado en tu piedad. Que
+      se alegre mi corazón con tu socorro,»; 13:6 «que pueda cantar a Yave:
+      «Bien me proveyó.» impíos.». Regenerated OSIS (not installed) emits
+      the title as `<title type="psalm" canonical="true">` before 13:1.
+    - Before/after (baseline = NACAR-OCR-104 outputs): only `Ps 13:0–6`
+      changed in `texto.json` and `Ps 13:0–5` in `procedencia.json` (13:5
+      and 13:6 share leaf 967 top 955); 0 changes in other psalms or books;
+      coverage 31084 unchanged; `avisos.txt` and `reconstruidos.txt`
+      unchanged.
+    - Tests: new `scripts/nacarcolunga/test_correspondencias.py` (data
+      validation and rejection of duplicated/missing/uncut data, title and
+      split, concatenation equals the printed psalm with nothing duplicated
+      or lost, absent printed verse not filled, missing separator warns
+      without filling, neighbour psalm untouched) PASS;
+      `test_repetidos.py`, `test_salmos_cabecera.py`, `test_load.py`,
+      `test_cabeceras.py`, `test_front_matter.py`, `test_completar.py`,
+      `torresamat/test_pegadas.py`, `torresamat/test_restos.py` PASS.
+    - Remaining text defects, legible in the facsimile but outside this
+      mapping task (not recovered here, not filled from other Bibles):
+      - 13:2: the line «tinuo sobre mi corazón? | ¿Hasta» is in the OCR
+        (`*tinuo…`) but `es_titulo()` drops it; the next OCR line reads
+        «cuándo» as «euango» (confidence 15); «mí?» is dropped by
+        `es_ruido()` (2 letters). Printed text: «…y penas de continuo sobre
+        mi corazón? | ¿Hasta cuándo mis enemigos triunfarán de mí?».
+        Tracked by NACAR-OCR-103 (and NACAR-OCR-102 for «euango»).
+      - 13:4: the line ««Le vencí.» | Que mis enemigos se» is in the OCR but
+        dropped by `es_titulo()`. Tracked by NACAR-OCR-103.
+      - 13:6: the trailing «impíos.» is the end of the Ps 14 epigraph
+        «Seguridad del justo en el castigo de los impíos.». Tracked by
+        NACAR-OCR-105.
+    - Module not reinstalled; no commit or push.
   - Acceptance criteria:
     - The superscription is stored as a psalm title, not as verse text.
     - Each NRSVA verse contains its own Nácar content.
@@ -5141,8 +5368,8 @@
     - Apply a manual offset or hardcode Ps 13.
     - Commit or push.
 
-- [ ] NACAR-OCR-101 Recover Nácar-Colunga Ps 3:4 from the Ps 3:5 OCR merge
-  - Status: TODO
+- [x] NACAR-OCR-101 Recover Nácar-Colunga Ps 3:4 from the Ps 3:5 OCR merge
+  - Status: DONE
   - Description:
     Ps 3:4 is empty in the module and falls back to Reina-Valera 1909 (shown
     with the fallback badge), because the Nácar OCR merged the content of
@@ -5151,6 +5378,69 @@
   - Objective:
     Recover and split the authentic Nácar text if the facsimile evidence
     allows it.
+  - Reproduction (2026-09-23):
+    - Before NACAR-OCR-104: Ps 3:4 empty; Ps 3:5 «Clamaba con mi voz a Yave,
+      y él me oyó desde su monte santo. (Sela.) S A veces me acostaba…»
+      (provenance leaf 963 col 0 tops 741 and 850).
+    - Facsimile (Princeton leaf 963, left column): «⁵ Clamaba con mi voz a
+      Yave, | y él me oyó desde su monte santo. (Sela.)» and «⁶ A veces me
+      acostaba y me dormía, | y despertaba incólume porque Yave me
+      defendía.» (Hebrew numbering; NRSVA 3:4 and 3:5). There is no «S».
+    - Two separate causes:
+      1. The merge: the printed ⁵ is read as 6 (event stream `4, 6, 6, 7`).
+         Already fixed by NACAR-OCR-104 (`corrige_repetidos()`); the current
+         output has Ps 3:4 «Clamaba…» and Ps 3:5 «S A veces…».
+      2. The stray «S»: `load.fusion_numeros()` stage. Tesseract reads the
+         superscript ⁶ as the letter «S» (conf 68, box x 115–128, top 851);
+         the DjVu has «6» in the same box. `_es_marca()` rejected any
+         alphabetic token, so the «S» was not linked to that number and the
+         DjVu «6» was appended as an unread mark: two readings of one glyph
+         («6 S A veces»), and the «S» ended up as verse text.
+  - Fix:
+    - `scripts/nacarcolunga/load.py`: `_es_marca()` also accepts the single
+      letter «S» as a candidate verse mark, only when it is not taller than
+      the page's median word height (`_alto_texto()`), so a drop cap «S»
+      (e.g. «SIMON», Princeton 1463, 60 px) is excluded. As with any mark,
+      it is replaced only if an unused DjVu number lies in the same box
+      (`numero_cercano()`, distance < 55); otherwise it is untouched.
+    - A first version that also accepted `I l B G T Z` was rejected: it
+      changed Wis 7:8/7:9 and Wis 19:2 through a vertical rule read as «l»
+      (78 px, conf 0) and removed the drop cap of «SIMON». There was no
+      facsimile evidence for those letters.
+  - Closure evidence:
+    - Result: Ps 3:4 = «Clamaba con mi voz a Yave, y él me oyó desde su
+      monte santo. (Sela.)» (leaf 963 top 741); Ps 3:5 = «A veces me
+      acostaba y me dormía, y despertaba incólume porque Yave me
+      defendía.» (top 850). Both contain only their own Nácar text as
+      printed; no fallback is needed for either slot.
+    - Before/after (baseline = NACAR-PSALMS-104 outputs): coverage 31084
+      unchanged; `avisos.txt`, `reconstruidos.txt`, `introducciones.json`,
+      `notas.json` unchanged. 19 `texto.json` keys changed: 17 are exactly
+      the removal of a leading «S » from the same duplicated-superscript
+      pattern (Ps 3:5, 28:6, 30:7, 40:5, 74:6, 132:6, 147:9, Job 40:6,
+      Prov 1:6, Wis 1:6, Sir 32:6, Ezra 5:6, Num 7:6, Mark 6:6, Luke 13:16,
+      1 Cor 10:6, 2 Cor 7:7); Num 17:6 drops a mid-verse «S »; Heb 6:20
+      drops a «1» in the section heading «El sacerdocio de Melquisedec,
+      superior al de Leví», which the facsimile (leaf 1448) shows has no
+      digit. Ps 28:6 checked on leaf 974 (same `5`/`S` pattern).
+      `procedencia.json`: 47 keys changed, 29 without text change; all of
+      those only change `confianza` (the low-confidence «S» no longer
+      counts), one also `top`.
+    - Tests: `test_load.py` adds
+      `test_volado_leido_como_letra_no_deja_dos_lecturas` (fails before:
+      `['S', 'A', 'veces', '6']`), `test_letra_lejos_de_un_numero_no_se_toca`
+      and `test_capitular_s_no_es_numero`; the 3:4/3:5 split itself is
+      covered by `test_repetidos.py` (NACAR-OCR-104). PASS: `test_load.py`,
+      `test_repetidos.py`, `test_correspondencias.py`,
+      `test_salmos_cabecera.py`, `test_cabeceras.py`,
+      `test_front_matter.py`, `test_completar.py`,
+      `torresamat/test_pegadas.py`, `torresamat/test_restos.py`. Torres Amat
+      has its own `load.py` and is unaffected.
+    - Limits: only «S» is handled; other letter-for-digit confusions are
+      not covered without facsimile evidence. Other Ps 3 OCR errors
+      («Ab: salón», «multi. plicado», «sor», «mil», «vid:», «sal vación»,
+      «hicres», «Yavel») remain for NACAR-OCR-102.
+    - Module not reinstalled; no commit or push.
   - Acceptance criteria:
     - Ps 3:4 and Ps 3:5 each contain only their own Nácar text, supported by
       the facsimile/OCR source.
@@ -5159,13 +5449,102 @@
     - Copy Reina-Valera text and present it as Nácar-Colunga.
     - Commit or push.
 
-- [ ] NACAR-OCR-102 Audit residual Nácar-Colunga OCR errors
-  - Status: TODO
+- [x] NACAR-OCR-102 Audit residual Nácar-Colunga OCR errors
+  - Status: DONE
   - Description:
     Audit and clean residual OCR errors observed while comparing the Psalter,
     e.g. «Yavel» (Yavé), fragments such as «multi. plicado», «sor» (son),
     «Ab: salón» (Absalón), and residues in psalm titles («SAI meo», «delo
     de»). This is an audit/cleanup task, not a bulk replacement.
+  - Cases in scope: the ones named above plus those assigned here by earlier
+    tasks: «iga» (Ps 118:2, NACAR-PSALMS-103) and the Ps 3 residues listed
+    by NACAR-OCR-101 («Ab: salón», «multi. plicado», «sor», «mil», «vid:»,
+    «sal vación», «hicres», «Yavel»). «euango» (Ps 13:2) is not corrected
+    here: it belongs to the line lost by `es_titulo()` (NACAR-OCR-103).
+  - Findings (facsimile reading → responsible stage):
+    - «Yavel», «Diosl», «reyl», «Israell», «casol»… → «Yave!», «Dios!»…:
+      Tesseract reads the closing «!» of this typeface as «l». Stage:
+      Tesseract text; fixed after `une()` in `construir.py`.
+    - «multi. plicado», «Ab: salón», «san: gre»… → «multi-plicado»,
+      «Ab-salón», «san-gre»: the line-end hyphen is read as «.» or «:», so
+      `une()` does not join. Stage: line joining.
+    - «¹ y ² Al maestro…» in the four two-verse titles (Ps 51, 52, 54, 60):
+      the «y» (or the «2» when the OCR drops the «y») of the verse mark
+      stays in the title («y Al maestro», «2 Al maestro»). Stage:
+      `titulos_de_salmo()`.
+    - Single readings: «sor» (son), «contra mil» (mí!), «vid:» (vida),
+      «sal vación» (lost hyphen), «hicres» (hieres), «odic» (odio), «delo
+      de» (de lo de, tight setting), «iga» (Diga, initial lost), Ps 52
+      title «Mas … i e SAI meo» (Masquil … idu-|meo; «e SAI» is the running
+      header «SALMOS» of leaf 987). No general rule is demonstrable; each is
+      a documented exception.
+  - Fix:
+    - New `scripts/nacarcolunga/limpieza.py`:
+      - `cierra_exclamaciones()`: `Xl` → `X!` only if an «¡» is open (or
+        «oh»/«joh» precedes), the next thing is end, punctuation, or a
+        capital/«¡¿«(», the stem occurs >= 20 times and `Xl` < 1/20 of the
+        stem in the built text itself. «el», «mil», «Israel», «aquel»,
+        «Mil setecientos» are untouched.
+      - `repara_guiones()`: a fragment ending «X.»/«X:» followed by a
+        lowercase fragment of >= 2 letters becomes a hyphen join when the
+        joined word occurs >= 2 times and at least as often as «X» alone.
+        Single-letter right fragments (e.g. «angusti: a», «mir: a») are
+        excluded.
+      - `aplica_erratas()` with new `erratas.json` (10 entries, each with
+        its Princeton leaf/column and printed reading); applied only when
+        the OCR reading occurs exactly once and the printed reading is not
+        already there; otherwise nothing is changed and `avisos.txt` gets
+        a line.
+    - `construir.py`: vocabulary from the uncorrected build, then
+      `repara_guiones` → `une` → `cierra_exclamaciones` → `aplica_erratas`;
+      `titulos_de_salmo()` strips the «y»/«2» mark residue only for
+      two-verse titles (`TITULO_SALMOS == 2`).
+  - Closure evidence:
+    - Baseline = NACAR-OCR-101 outputs. Coverage 31084 unchanged; key set
+      identical; `procedencia.json` identical; `avisos.txt` unchanged (all
+      10 exceptions applied); `reconstruidos.txt`, `introducciones.json`,
+      `notas.json` unchanged. 374 `texto.json` keys changed: 296 «l»→«!»,
+      85 hyphen joins, and 14 edits from the exceptions and title marks;
+      no other change.
+    - Facsimile checks: Ps 3 (963: «¡Oh Yave!», «multi-plicado», «son»,
+      «contra mí!», «Ab-salón», «vida», «sal-vación», «hieres»), Ps 25:19
+      (973), Ps 51–52 titles (986, 987), Ps 118:2 (1020); «!» rule on 10
+      doubtful forms: 1 Sam 25:34 «mal!» (400), Heb 9:14 «vivo!» (1451),
+      Jude 1:11 «Coré!» (1478), Rom 11:24 «olivo!» (1410), Matt 26:28
+      «entregado!» (1203), Job 30:20 «caso!» (943), Isa 5:18 «carro!»
+      (696), Judg 16:12 «ti!» (360), Ps 17:6 «Dios!» (968); hyphen rule:
+      Exod 24:6 «san-gre» (185), Luke 4:41 «tam-bién» (1249), 1 John 5:16
+      «Espí-ritu» (1476), Sir 44:9 «pasa-ron» (1145), Jer 40:1
+      «Nebu-saradán» (779), 2 Chr 16:9 «insensata-mente» (533).
+    - Result: Ps 3:0 «…al huir de Absalón, su hijo (1).»; Ps 3:1 «¡Oh
+      Yave! ¡Cómo se han multiplicado mis enemigos! ¡Cuántos son los que se
+      alzan contra mí!»; Ps 3:2 «…de mi vida dicen: «No tiene ya en Dios
+      salvación»…»; Ps 3:7 «Tú hieres…»; Ps 51:0 «Al maestro del coro. …
+      después de lo de Betsabé.»; Ps 52:0 «Al maestro del coro, Masquil de
+      David (1), cuando Doeg, idumeo, …»; Ps 118:2 «Diga Israel…».
+    - Tests: new `scripts/nacarcolunga/test_limpieza.py` (7 cases,
+      including negatives for real words ending in «l», non-exclamation
+      contexts, frequent split fragments, single-letter fragments,
+      one-verse titles, absent/already-correct exceptions, and exceptions
+      without a source). It fails on the previous state (no `limpieza`
+      module; «y Al maestro» title) and passes now; it caught an
+      idempotence bug («iga Israel» inside «Diga Israel») that was fixed
+      before closing. PASS: `test_limpieza.py`, `test_load.py`,
+      `test_repetidos.py`, `test_correspondencias.py`,
+      `test_salmos_cabecera.py`, `test_cabeceras.py`,
+      `test_front_matter.py`, `test_completar.py`,
+      `torresamat/test_pegadas.py`, `torresamat/test_restos.py`.
+    - Reproducible: all corrections run in `construir.py` from versioned
+      rules/data; the installed module was not edited or reinstalled.
+  - Limits / left for other tasks:
+    - 26 «Yavel» remain where no «¡»/«oh» signal survives (e.g. «ante
+      Yavel», «Bendice,:o0h Yavel»); «¡» read as «j/J» is only covered
+      before «oh».
+    - Ps 13:2 «euango» and lost line: NACAR-OCR-103.
+    - Ps 54:0 ends «nosotros.,» and Ps 60:0 starts «Al]» and lacks «David,
+      para enseñar, cuando»: not audited here.
+    - Other OCR errors seen but not in scope (e.g. Ps 17:6 «bacia»).
+    - Module not reinstalled; no commit or push.
   - Acceptance criteria:
     - Each correction is supported by the facsimile/OCR source or by a
       demonstrable general rule.
@@ -5175,8 +5554,8 @@
     - Modernize the text automatically.
     - Commit or push.
 
-- [ ] NACAR-OCR-103 Keep es_titulo() from discarding biblical continuation lines
-  - Status: TODO
+- [x] NACAR-OCR-103 Keep es_titulo() from discarding biblical continuation lines
+  - Status: DONE
   - Description:
     `es_titulo()` in `scripts/nacarcolunga/versiculos.py` classifies some
     authentic body lines as section titles/epigraphs and drops them: a line
@@ -5191,6 +5570,105 @@
       ¿Quién es el que podrá»), Ps 17:1 («Oye, Yave, mi justa causa, |
       atiende»), Ps 95:1, Ps 96:11, Ps 124:2, and Ps 124:3 («| cuando ardía su
       ira contr»).
+    - Also assigned here by NACAR-PSALMS-104: Ps 13:2 «tinuo sobre mi
+      corazón? | ¿Hasta» and Ps 13:4 ««Le vencí.» | Que mis enemigos se».
+  - Reproduction (facsimile → OCR → `es_titulo()` → output):
+    - All listed lines are present in the Tesseract OCR with normal line
+      pitch (gaps of −4 to 7 px to their neighbours) and are dropped only by
+      `es_titulo()` (no digit, 8–70 chars, no lowercase start, no final
+      punctuation). Checked on Princeton 967 (Ps 13, 15, 16), 968 (Ps 17),
+      1009 (Ps 95–96), 1026 (Ps 124).
+    - Scope: across the whole stream `es_titulo()` dropped 7,813 body
+      lines of this kind; real epigraphs are set off by 26–60 px of blank
+      space above and below, while continuation lines keep the normal pitch.
+  - Fix (`scripts/nacarcolunga/versiculos.py`):
+    - New `epigrafes(lineas, cands)`: splits the column into blocks of
+      normal pitch (gap >= half the median line height starts a new block).
+      A line can be an epigraph only if it belongs to (a) a block of 1–3
+      lines without a verse mark, or (b) the first short block of the
+      column (running-header zone, whose page number looks like a verse
+      mark), or (c) after a block that ends a sentence, a centered line
+      (measured on letter words only, ignoring the column rule «|» and
+      stray commas) placed before the block's first verse mark and not
+      ending in «, ; : -». Psalm headers «N (Vulg. M.)», noise and running
+      headers do not count as verse marks.
+    - `corriente()`: between a psalm header and its first verse every
+      `es_titulo()` line is an epigraph (Ps 91: «Canto a la providencia de
+      Dios sobre | el justo.» sits 12 px above verse 1).
+    - `_sucesos_linea()`: drops an `es_titulo()` line only if it is an
+      epigraph by the rules above; otherwise it is kept as body. The text
+      test itself is unchanged, so lines that were never dropped keep their
+      previous routing (epigraph routing stays with NACAR-OCR-105).
+    - Rejected during the work (measured, not kept): horizontal centering
+      as the main signal (bold headings have unreliable OCR boxes; 557
+      headings/header scraps were recovered into the body); an exception for
+      lines starting with «|» (the column rule makes headings start with
+      «|»); treating every line before the first verse mark after a blank as
+      an epigraph (dropped 953 body lines at column tops, Sir 51, intros).
+  - Closure evidence:
+    - Result: Ps 13:2 «…y penas de con*tinuo sobre mi corazón? ¿Hasta euango
+      mis enemigos triunfarán de»; Ps 13:4 «Que no pueda decir mi enemigo:
+      «Le vencí.» Que mis enemigos se regocijarían si yo cayese,»; Ps 15:1
+      «…¡Oh Yave! ¿Quién es el que podrá habitar…»; Ps 16:3 «…son de mí muy
+      honrados, en ellos tengo todas mis delicias.»; Ps 16:4 «…los que se
+      van tras los dioses ajenos. No libaré…»; Ps 17:1 «…Oye, Yave, mi justa
+      causa, atiende a mi súplica…»; Ps 95:1 «…a Yavel ¡Cantemos gozosos a
+      la roca…»; Ps 96:11 «…regocíjese 'a tierra, truene el mar…»; Ps 124:2
+      «…por noscuando se alzaron contra los hombres,»; Ps 124:3 «…tragado
+      encuando ardía su ira contr»; Rev 12:7 «…Miguel y sus ángeles
+      peleaban con el dragón,».
+    - Before/after (baseline = NACAR-OCR-102 outputs): coverage 31084
+      unchanged; key set identical; `procedencia.json` identical (recovered
+      lines are continuation events without their own provenance);
+      `avisos.txt` unchanged; `reconstruidos.txt`, `notas.json` unchanged.
+      5,247 `texto.json` values changed and all grew (0 shrank). 17
+      `introducciones.json` entries grew (introduction lines lost the same
+      way); none shrank. No fallback can be new: no key was removed and no
+      verse lost text.
+    - Line accounting over the stream: 6,977 previously dropped lines are
+      now kept; 838 are still dropped as epigraphs.
+    - Epigraphs not moved into the body: none of «Seguridad del justo»,
+      «Canto a la providencia», «Exhortación a la alabanza», «Condiciones
+      de pureza», «Invitación a las gentes», «El justo, en peligro», «El
+      justo espera», «Separación de Abram y Lot», «Circuncisión», «La
+      amistad», «Curación de un paralítico», «La batalla en el cielo»,
+      «Destrucción de Sodoma», «Alianza de Dios con el pueblo» newly
+      appears in any verse. A random sample of 70 kept lines from
+      normal-pitch blocks was all body text; the 34 kept lines from short
+      blocks with a verse mark were reviewed (column-foot continuations,
+      poetry). Facsimile checks of random kept lines: Isa 45:24 (725), 2 Sam
+      12:27 (417), Judg 1:31 (345), John 7:6 (1297), Jer 15:19 (755), Dan
+      3:58 (859) and two introduction lines (922, 1166): all authentic.
+    - Tests: new `scripts/nacarcolunga/test_epigrafes.py` (7 cases with
+      facsimile geometry). The five recovery cases fail with the previous
+      behaviour and pass now; the two controls (Ps 91 epigraph attached to
+      verse 1, Gen 13 centered heading attached to verse 5) stay dropped
+      in both. PASS: `test_epigrafes.py`, `test_salmos_cabecera.py`,
+      `test_limpieza.py`, `test_load.py`, `test_repetidos.py`,
+      `test_correspondencias.py`, `test_cabeceras.py`,
+      `test_front_matter.py`, `test_completar.py`,
+      `torresamat/test_pegadas.py`, `torresamat/test_restos.py`.
+    - Module not reinstalled; no commit or push.
+  - Limits / not solved here:
+    - Ps 13:2 «euango» is not resolved by recovering the line: it is
+      Tesseract's reading (confidence 15) of «cuándo» on the next line,
+      and «mí?» is dropped by `es_ruido()` (2 letters). Fixing it needs a
+      documented reading (the NACAR-OCR-102 `erratas.json` mechanism), which
+      this task forbids («no per-reference exceptions»). «con*tinuo» keeps
+      the OCR «*».
+    - Ps 124:2–3 «noscuando», «encuando»: the OCR lost the left edge of
+      those lines at the column gutter («otros,», «tonces,», «nosotros»);
+      column-split/OCR scope, not `es_titulo()`.
+    - Ps 95:1 «Yavel» stays: no «¡»/«oh» context survives for the
+      NACAR-OCR-102 rule.
+    - Num 24:6 poetry lines («Como un jardín…», «Como cedro…») are still
+      dropped: the OCR lost the neighbouring short lines («valle;»,
+      «aguas.»), which fakes an isolated block.
+    - Two-line headings whose first line is full width and sits directly
+      on its verse are not detected by rule (c); their first line was
+      already outside `es_titulo()` or stays as before.
+    - Gen 1:2 already contained Pentateuch introduction text (front-matter
+      separation); it now also receives recovered introduction lines.
   - Acceptance criteria:
     - Distinguish real epigraphs from biblical continuation lines.
     - Authentic lines are kept in the verse body.
@@ -5200,8 +5678,8 @@
     - Add per-reference exceptions.
     - Commit or push.
 
-- [ ] NACAR-OCR-104 Handle verse numbers misread by the OCR (5 read as 6)
-  - Status: TODO
+- [x] NACAR-OCR-104 Handle verse numbers misread by the OCR (5 read as 6)
+  - Status: DONE
   - Description:
     The OCR misreads some small superscript verse numbers, especially 5 as 6.
     The printed verse 5 then lands in slot 6: verse 5 stays empty and its text
@@ -5213,6 +5691,54 @@
       18, 19, 20, 21).
     - Related to the Ps 3:4/3:5 pattern in NACAR-OCR-101, but do not assume
       that every case has the same cause.
+  - Fix:
+    - `scripts/nacarcolunga/versiculos.py`: `corrige_repetidos()` runs on
+      the Nácar event stream in `construir.py` (after `separa_front_matter`,
+      before `ensambla`). Within a chapter segment (reset at `libro`/`cap`),
+      for consecutive verse marks `a, b, c, d` with `b == c`, `a == b - 2`
+      and `d` in (end of chapter, `1`, `c + 1`), `b` is relabeled `b - 1`.
+      With `d == c + 2` or another value it is ambiguous (lost 7 vs. misread
+      5) and is left untouched. The shared `torresamat/alinear.py` is not
+      modified; Torres Amat is unaffected. No hardcoded verses.
+  - Closure evidence:
+    - Pattern count in the stream: 857 duplicated-with-missing-predecessor
+      triples; 821 meet the confirmation rule and are relabeled; 36
+      ambiguous are left untouched. Mostly final digit 5 → 6 (6, 16, 26, 36…), but also 2 → 3
+      and 18 → 19.
+    - Facsimile validation (Princeton leaves), all confirming the printed
+      number is `b - 1`: Ps 13 ⁵ (967), Ps 17 ⁵ (968), Ps 19 ⁵ (970),
+      Ps 119 ¹²⁵ and ¹³⁵ (1024), 2 Sam 20 ⁵ (426, mid-line), Lev 13 ² read
+      as 3 (216), Heb 11 ¹⁸ read as 19 (1453), Exod 19 ⁵ (180).
+    - Before/after (baseline = NACAR-PSALMS-103 outputs): coverage
+      30318 → 31084 verses (+766 filled slots, 0 removed); `avisos.txt`
+      unchanged (12, no chapter alignment change); `reconstruidos.txt`
+      unchanged. 1604 `texto.json` keys changed; every changed key belongs
+      to a corrected `(n-1, n)` pair (0 isolated changes); all 1598
+      `procedencia.json` changes are within those keys.
+    - Validation-only witness metric (SpaRV/SpaRVG overlap at the same
+      reference, not used by the pipeline): merged slot before 0.121 →
+      after 0.423 (slot n-1) and 0.416 (slot n) over 763 scored pairs. The
+      5 pairs where slot n scored lower were inspected: all are correct
+      splits whose score drops because the verse is already truncated by
+      the OCR (Mark 5:6 «Viendo desde») or KJV numbering differs from NRSVA
+      (Isa 9, Mic 5).
+    - 75 changed keys whose `n-1` slot already had text were inspected
+      (e.g. 2 Chr 20:5–6, 2 Sam 23:15–16, Dan 5:5–6): the correct verse
+      start now lands in `n-1`; stray text from other column/page issues
+      that was already there remains (pre-existing, not introduced).
+    - Psalms from the evidence: Ps 9, 13, 17, 18, 19, 20, 21 fixed (e.g.
+      Ps 17:5 «Y mis pies, sin titubear, se mantuvieron firmes.», Ps 17:6
+      «Te invoco…»). Not fixed: Ps 14:5, because the false internal `1`
+      («tiempo, 1 porque», NACAR-PSALMS-102) sits between the two 6s and
+      breaks the signal; Ps 118:5, where the OCR reads the printed ⁵ as 6
+      but the line carrying ⁶ lost its number (no duplicate, no signal).
+    - Tests: new `scripts/nacarcolunga/test_repetidos.py` (6 cases,
+      including ambiguous and chapter-crossing negatives and an
+      `ensambla` end-to-end check) PASS; `test_salmos_cabecera.py`,
+      `test_load.py`, `test_cabeceras.py`, `test_front_matter.py`,
+      `test_completar.py`, `torresamat/test_pegadas.py`,
+      `torresamat/test_restos.py` PASS.
+    - Module not reinstalled; no commit or push.
   - Acceptance criteria:
     - Detection/correction relies on a general structural signal (e.g. a
       duplicated number with a missing predecessor), validated against the
@@ -5222,8 +5748,8 @@
     - Hardcode verses.
     - Commit or push.
 
-- [ ] NACAR-OCR-105 Separate psalm epigraphs glued to the previous verse
-  - Status: TODO
+- [x] NACAR-OCR-105 Separate psalm epigraphs glued to the previous verse
+  - Status: DONE
   - Description:
     Editorial epigraphs printed between psalms (e.g. «Canto triunfal de
     David.», «Deprecación contra los impíos.») can end up appended to the last
@@ -5235,6 +5761,104 @@
       verses made `completar.py` replace 10 authentic Nácar verses with
       Reina-Valera (e.g. Ps 11:7, Ps 37:40, Ps 111:10).
     - Not covered by NACAR-OCR-102, which is about textual OCR errors.
+  - Reproduction (baseline = NACAR-OCR-103 outputs):
+    - Ps 17:15 «…de tu gloria. EF Canto triunfal de David.», Ps 117:2
+      «…¡Aleluya! Canto triunfal.», Ps 13:6 «…«Bien me proveyó.» impíos.»,
+      Ps 11:7 «…Deprecación contra los impíos.», Ps 37:40 «…Oración de un
+      pecador arrepentido,», Ps 111:10 «…Bienandanza del justo. ¡Aleluya!».
+    - Path: `corriente()` sees the header «N (Vulg. M.)» and defers the
+      `cap` event to the first verse; the lines in between are either
+      dropped by `es_titulo()` (first line of «Seguridad del justo en el
+      castigo de los | impíos.», lost) or emitted as `sigue` before `cap`;
+      the shared aligner (`torresamat/alinear.py`, `ensambla`) appends any
+      non-verse event to the current verse, i.e. the last verse of the
+      previous psalm. Facsimile: Princeton 967 (Ps 13/14), 968 (Ps 18),
+      1020 (Ps 117/118), 965 (Ps 9), 1019 (Ps 114), 1035 (Ps 148), 971
+      (Ps 22), 970 (Ps 21), 1021 (Ps 119), 962 (Ps 1).
+  - Fix:
+    - `versiculos.py`, `corriente()`: after a psalm header, up to three
+      lines that do not open a verse (noise and running headers skipped)
+      are emitted as `("epigrafe", texto, cands, origen)`; collection ends
+      at the first verse mark, or at the first blank >= half a line height
+      once a line is collected. What follows that blank (e.g. the title
+      «Salmo de David.» whose «1» the OCR lost, Ps 110/127/132/139) keeps
+      its previous routing. The `cap` placement is unchanged.
+    - `RE_CABECERA_LAXA`: headers the strict pattern does not read (bare
+      «5», «148,», «114, 115 (Vulg. 113.) (1).», «22 (Vulg. 21», «| 85
+      (Vulg. 84.)», «66 (Vulg. 65.) +») only start an epigraph
+      collection, never a chapter; the collected lines become an epigraph
+      only if the line that ends them opens a psalm (verse 1 or 2),
+      otherwise they are emitted as before. Active on Psalms pages or pages
+      without a read running header.
+    - `construir.py`: `separa_epigrafes()` removes the epigraph events
+      before the shared aligner and ties each to the next verse event;
+      `asigna_epigrafes()` finds that verse's chapter through its
+      provenance object (kept by `ensambla`) and writes `epigrafes.json`
+      (`{"Ps N": {"texto", "procedencia"}}`); unassignable or duplicate
+      epigraphs go to `avisos.txt` (none occurred).
+    - `front_matter.py`: epigraph events before the first verse of a book
+      stay in the stream instead of going to the introduction (Ps 1 «Las
+      dos sendas: La del justo y la del impío.»).
+    - `osis.py`: writes the epigraph as `<title canonical="false">` at the
+      start of its chapter, before the canonical psalm title.
+    - Bug found and fixed during validation: a bare verse number on its own
+      line («21», Ps 51, leaf 986) started a loose collection that a strict
+      header then discarded, deleting «ciones y holocaustos. Entonces
+      pondrán becerros en tu altar,». Pending loose lines are now emitted
+      normally when a strict header interrupts them.
+  - Closure evidence:
+    - `epigrafes.json`: 139 epigraphs for Ps 1, 5, 7, 9, 11–42, 44–98,
+      100–114, 116–121, 123–149 (e.g. Ps 14 «Seguridad del justo en el
+      castigo de los impíos.», Ps 18 «EF Canto triunfal de David.», Ps 91
+      «Canto a la providencia de Dios sobre el justo.», Ps 118 «Canto
+      triunfal.»). Regenerated OSIS (not installed) has 139
+      `<title canonical="false">`.
+    - Before/after: coverage 31084 unchanged; key set identical;
+      `procedencia.json` identical; `avisos.txt` unchanged;
+      `reconstruidos.txt`, `notas.json` unchanged. 133 `texto.json`
+      values changed, all in Psalms, all shorter (0 grew); every removed
+      fragment is contained in an epigraph. Three removals also change the
+      preceding «Yavel» into «Yave!» (Ps 8:9, 43:5, 126:6): with the
+      epigraph gone it ends the verse and the NACAR-OCR-102 rule applies.
+      `introducciones.json`: only «impío.» leaves the Psalms introduction
+      (it is the end of the Ps 1 epigraph).
+    - No fallback: no verse became empty (shortest changed verse, Ps 78:72,
+      keeps 40 characters); keys are identical. NACAR-FALLBACK-101 keeps
+      `completar.py` from substituting shortened verses.
+    - Controls: NACAR-OCR-103 recovered lines stay in the body (Ps 14:1
+      «Dice en su corazón el necio…»); legitimate verse ends are untouched
+      (Ps 117:2 ends «¡Aleluya!», Ps 51:18 keeps «…pondrán becerros en tu
+      altar,»); a bare number without a psalm opening behind it is not a
+      header.
+    - Facsimile checks of assignments: Ps 9 (965), Ps 114 (1019, printed
+      «114, 115» as one psalm), Ps 148 (1035), Ps 22 (971), Ps 21 (970),
+      Ps 119 (1021), Ps 1 (962): all epigraphs belong to the psalm they are
+      attached to.
+    - Tests: new `scripts/nacarcolunga/test_epigrafes_salmo.py` (8 cases);
+      7 fail on the pre-105 code and pass now; the control «bare number
+      without psalm behind» passes on both. `test_salmos_cabecera.py`:
+      `test_epigrafe_queda_antes_del_capitulo`, which asserted the old
+      glued routing, was replaced by
+      `test_epigrafe_sale_aparte_y_el_capitulo_abre_en_el_verso_1` (same
+      `cap` placement assertions, plus epigraph events and no `sigue`).
+      PASS: `test_epigrafes_salmo.py`, `test_epigrafes.py`,
+      `test_salmos_cabecera.py`, `test_limpieza.py`, `test_load.py`,
+      `test_repetidos.py`, `test_correspondencias.py`, `test_cabeceras.py`,
+      `test_front_matter.py`, `test_completar.py`,
+      `torresamat/test_pegadas.py`, `torresamat/test_restos.py`.
+    - Module not reinstalled; no commit or push.
+  - Limits:
+    - 11 psalms have no separated epigraph: Ps 2, 3, 4, 6, 10 (the OCR did
+      not read the bare header number), Ps 8, 43, 99, 115, 122, 150 (header
+      or epigraph not confirmed by a following verse 1–2). Where their
+      epigraph text exists it keeps the previous routing (e.g. Ps 149:9
+      «…¡Aleluya! Doxología final del Saltcrio. Canto de alabanza.»).
+    - Ps 119: «Alef. (1).» (italic stanza label) is taken as the heading;
+      the epigraph «Excelencias de la ley del Señor.», after a blank, still
+      ends Ps 118:29.
+    - Epigraph text keeps OCR defects: lost first word at the bold left
+      margin (Ps 21 «de gracias…» for «Canto de gracias…», also Ps 40, 71,
+      82, 123, 124, 129, 147, 149), junk («EF», «'»), «Yavel»-type errors.
   - Acceptance criteria:
     - The epigraph is preserved as metadata/heading.
     - It is not glued to the previous verse.
@@ -5244,8 +5868,8 @@
   - Do not:
     - Commit or push.
 
-- [ ] NACAR-OCR-106 Record structural truncation/loss metadata from the parser
-  - Status: TODO
+- [x] NACAR-OCR-106 Record structural truncation/loss metadata from the parser
+  - Status: DONE
   - Description:
     With NACAR-FALLBACK-101 the pipeline correctly preserves Nácar-Colunga
     text, but verses that are really truncated stay partial without any badge:
@@ -5268,6 +5892,117 @@
     - Lost continuations.
     - Relevant geometry of continuation lines.
     - An explicit truncation/loss flag per verse.
+  - Reproduction (baseline = NACAR-OCR-105 outputs):
+    - Josh 5:1 «Cuando todos los reyes de los»: the chapter drop cap «5»
+      (Princeton 319) is read «*7» on the second line; `quita_basura()`
+      strips «*» and the continuation «amorreos, a occidente…» opens a
+      false verse 7, so it lands in Josh 5:7. Displacement, not loss.
+    - 1 Thess 3:7 «…gran conpor vuestra fe…tribuAhora ya vivimos»: the OCR
+      lost the first word of four consecutive lines at the gutter
+      («suelo», «todas», «laciones. ⁸», «que»; Princeton 1363).
+    - Rev 11:12 «…sus enemi-»: the next line «gos. 13 Y en aquella…» only
+      opens verse 13 after `quita_basura()` deletes «gos.» (Princeton
+      1495).
+    - 2 Cor 11:31 and Exod 25:8 are complete now (recovered by
+      NACAR-OCR-103), confirmed on Princeton 1389 and 185; they must not be
+      flagged.
+  - Signals (distinct, each with its own evidence):
+    - `guion_final`: the verse text ends in a hyphenated word fragment
+      («su pro-»); its continuation is not in the verse.
+    - `fragmento_descartado`: text with lowercase that `quita_basura()`
+      removed before a verse mark («gos.», «do:», «del rey.»), attached to
+      the verse in progress. Fragments that are not mostly lowercase
+      («ABiOs,», «MH») are kept as `descarte:basura`.
+    - `continuacion_desplazada` / `contenido_desplazado`: a mark that only
+      appears after stripping junk (`marca_tras_basura`), makes the
+      numbering spike (1, 7, 2…) and is followed by lowercase text: the
+      previous verse is cut and its continuation sits in another slot.
+    - `borde_perdido`: a line ending in a hyphen followed by a
+      continuation that starts >= 3 letter widths right of the column's
+      modal left edge and reaches the right edge (justified prose), not
+      next to a drop cap, a verse-1 opening, a Job «[» overflow, a
+      footnote «(1)» or a short line.
+    - Evidence only: `descarte:ruido|titulo|titulillo|basura` (lines the
+      parser drops, with >= 2 letters; `titulillo` includes lines removed
+      by `quita_cabecera`), `marca_tras_basura`, and
+      `renglon_descartado_alineador` (lines read by the parser that
+      `ensambla()` put in no verse, found by string identity right after
+      `ensambla`).
+  - Fix:
+    - `versiculos.py`: `_sucesos_linea()` emits `("perdida", tipo, texto,
+      cands, origen)` for dropped lines, stripped fragments and junk
+      marks; `corriente()` emits `borde_perdido`; `("sigue", …)` now carries
+      its line provenance as 4th element (geometry of continuation lines);
+      `_abre()` reports what `quita_basura()` removed. `abre_versiculo()`
+      keeps its behaviour.
+    - `construir.py`: `separa_perdidas()` removes the evidence before the
+      shared aligner (it would glue it as text); `no_ensamblados()`;
+      `registra_perdidas()` attaches each signal to the verse in progress
+      via provenance identity, adds `guion_final` and mark spikes, and
+      writes `perdidas.json`: `{ref: {truncado, perdida_probable,
+      senales: [{tipo, texto, origen}], renglones: [line boxes],
+      columnas: n}}`. `_extrae_pagina()` records lines removed by
+      `quita_cabecera`.
+    - Two levels, by measured precision: `truncado` only for
+      `guion_final`, `fragmento_descartado`, `continuacion_desplazada`,
+      `contenido_desplazado`; `perdida_probable` for `borde_perdido`.
+    - No text is completed or compared with another translation;
+      `texto.json`, OSIS and the runtime fallback are unchanged.
+  - Closure evidence:
+    - Before/after: `texto.json`, `procedencia.json`, `avisos.txt`,
+      `reconstruidos.txt`, `introducciones.json`, `notas.json`,
+      `epigrafes.json` and the regenerated OSIS are byte-identical; coverage
+      31084. New output `perdidas.json`: 2,544 verses with evidence, 645
+      `truncado`, 305 `perdida_probable` (23 both). Signal counts:
+      `renglon_descartado_alineador` 2,165, `descarte:titulillo` 803,
+      `descarte:titulo` 723, `fragmento_descartado` 559, `borde_perdido`
+      418, `descarte:ruido` 398, `guion_final` 322, `marca_tras_basura`
+      207, `descarte:basura` 81, `continuacion_desplazada`/
+      `contenido_desplazado` 2 each (Josh 5:1→5:7, 1 Kgs 9:1→9:9).
+    - Evidence verses: Josh 5:1 truncado (continuacion_desplazada), Josh
+      5:7 contenido_desplazado; Rev 11:12 truncado (guion_final +
+      fragmento «gos.»); 1 Thess 3:7 perdida_probable (two borde_perdido);
+      2 Cor 11:31 and Exod 25:8 no entry (complete).
+    - Controls (complete, audited in NACAR-FALLBACK-101): Ps 17:7, Ps
+      35:5, Gen 38:6, Luke 23:21, Mark 12:30, Hos 13:3, Ps 16:3, Ps
+      117:1–2: no entry.
+    - Measured precision: `guion_final` 12/12 sampled verses really end
+      mid-word; `fragmento_descartado` 13/15 sampled fragments complete the
+      verse end («ante el | rey,», «auxi|lio.», «hubo | luz.»), the other 2
+      are real lost text with uncertain attribution; before the lowercase
+      filter the misses were a running header («ABiOs,») and an
+      introduction («(Sal.»). `borde_perdido` checked on 20 random cases
+      in the facsimile: 12 real lost line starts («manos», «cia,»,
+      «lequet», «tros», «piento», «remos,», «mate», «do», «lidas», «dad»,
+      «justo,», «tes»), 5 misplaced italic introduction text, 3 in biblical
+      text (Dan 3 margin on leaf 858, Sir 15:1 unread drop cap) — hence
+      probable, not truncated. Mark spikes: 8 before the lowercase
+      condition, of which running headers («EA ÉXOI», «—CRÓN:»),
+      introduction references and Prov 31 were false.
+    - Tests: new `scripts/nacarcolunga/test_perdidas.py` (7 cases: each
+      signal positive, drop-cap / Job overflow / footnote / no-hyphen
+      controls, per-verse registry with complete verses unflagged, aligner
+      drop as evidence only). PASS together with `test_epigrafes_salmo.py`,
+      `test_epigrafes.py`, `test_salmos_cabecera.py`, `test_limpieza.py`,
+      `test_load.py`, `test_repetidos.py`, `test_correspondencias.py`,
+      `test_cabeceras.py`, `test_front_matter.py`, `test_completar.py`,
+      `torresamat/test_pegadas.py`, `torresamat/test_restos.py`.
+    - Module not reinstalled; no commit or push.
+  - Limits:
+    - `perdidas.json` is metadata only: nothing uses it yet for a badge or
+      a recovery; the runtime still badges only empty slots.
+    - A verse without any structural signal can still be truncated (e.g. a
+      line lost entirely by the OCR with normal spacing); it is not
+      flagged.
+    - `renglon_descartado_alineador` cannot say which verse lost the line
+      (often introductions or notes between books), so it never flags.
+    - Isa 37:1 is missed: the text after its junk mark starts «+ aquello».
+    - Misplaced introduction text inside verses produces
+      `borde_perdido` noise; drop caps the OCR reads small or not at all
+      can too.
+    - Not in this task's scope and not resolved by metadata: the psalms
+      without separated epigraph and Ps 119 «Excelencias de la ley del
+      Señor.» (NACAR-OCR-105 limits).
   - Acceptance criteria:
     - The parser records structural loss.
     - A complete verse is not marked as truncated.
@@ -5435,10 +6170,54 @@
   - Do not:
     - Commit or push.
 
-- [ ] TORRES-FACSIMILE-102 Remove spurious fragment at the end of Torres Amat Mt 12:6
-  - Status: TODO
+- [x] TORRES-FACSIMILE-102 Remove spurious fragment at the end of Torres Amat Mt 12:6
+  - Status: DONE
   - Description:
     Mt 12:6 ends with a spurious fragment `" i"` («…mayor que el templo. i»).
+  - Reproduction:
+    - Installed module (`mod2imp TorresAmat`, which already carries the
+      TORRES-FACSIMILE-101 patch): `Matthew 12:6` = «Pues yo os digo, que
+      aquí está uno que es mayor que el templo. i».
+    - Facsimile: item `la-sagrada-biblia-vulgata-tomo-iiv_202111`, tomo IV,
+      leaf `_0022` (downloaded read-only from Internet Archive, not
+      stored in the repo). The printed verse ends «…mayor que | el
+      templo.»; the rest of the line is blank paper.
+    - Archive OCR (`…tomo IV_djvu.xml`, page `_0022`, 5865×8945): after
+      «templo.» (x 471–744) the OCR emits `i` at x 1800–1803, y 5996–6004
+      (a 3×8 px box, confidence 0) and `|` at x 2048 (confidence 33). The
+      zoomed crop shows only a paper speck there: OCR noise belonging to
+      no printed element.
+  - Fix:
+    - `scripts/torresamat/parche_facsimil.py`: new `CORRECCIONES`
+      entry `Matthew 12:6` (old text with « i» → «…mayor que el templo.»,
+      «tomo IV, hoja 22»). The substitution loop of `main()` is factored
+      into `aplica(entradas, autorizados)` (same rules: exact old text
+      required, already-corrected entries kept, missing keys or unexpected
+      text stop the patch, now via `ValueError`) so it can be tested
+      without the installed module.
+  - Closure evidence:
+    - `python3 parche_facsimil.py`: «corrige Matthew 12:6», the other 15
+      authorized entries «ya corregido», round trip OK, «(1 versos)».
+    - Export of the regenerated module (`salida/parche`, loaded under a
+      renamed conf) vs. the installed baseline export: 38,698 entries in
+      both, same keys in the same order, 35,475 non-empty in both, exactly
+      one changed entry: `Matthew 12:6` loses « i». Mt 12:5 and 12:7 are
+      unchanged.
+    - Torres Amat has no `procedencia.json`/`avisos.txt` on this path:
+      build data are not local, the patch works on the compiled module.
+    - Nácar-Colunga untouched: `texto.json`, `procedencia.json`,
+      `avisos.txt`, `epigrafes.json`, `introducciones.json` identical to
+      the NACAR-OCR-106 baseline; no Nácar file edited.
+    - Tests: new `scripts/torresamat/test_parche.py` (Mt 12:6 without the
+      speck, with Mt 12:5/12:7 and the «el templo.» ending as controls;
+      unexpected text stops the patch; already corrected text is kept).
+      It cannot pass on the previous `parche_facsimil.py` (no `aplica()`,
+      no `Matthew 12:6` entry). PASS: `test_parche.py`,
+      `test_titulos.py`, `test_pegadas.py`, `test_restos.py` and the 11
+      Nácar-Colunga tests.
+    - The patched module is only in `scripts/torresamat/salida/parche`
+      (git-ignored); neither `modulos/` nor `~/.sword` was touched; no
+      commit or push.
   - Acceptance criteria:
     - Verified against the 1882 facsimile (tomo IV, hoja 22) before changing.
     - If confirmed as OCR noise, corrected through
@@ -5447,10 +6226,55 @@
     - Edit only the installed module.
     - Commit or push.
 
-- [ ] TORRES-FACSIMILE-103 Fix Torres Amat Mt 12:10 «hallabaun»
-  - Status: TODO
+- [x] TORRES-FACSIMILE-103 Fix Torres Amat Mt 12:10 «hallabaun»
+  - Status: DONE
   - Description:
     Mt 12:10 reads «Donde se hallabaun hombre…».
+  - Reproduction:
+    - Installed module (`mod2imp TorresAmat`, unchanged since the
+      TORRES-FACSIMILE-102 baseline): `Matthew 12:10` = «Donde se hallabaun
+      hombre que tenia seca una mano; y preguntaron á Jesus, para hallar
+      motivo de acusarle: ¿Si era lícito curar en dia de sábado?».
+    - Facsimile, tomo IV, leaf `_0022`: «10. Donde se hallaba un hombre que
+      tenia seca una mano; | y preguntaron á Jesus, para *hallar motivo de*
+      acusarle: ¿Si | era lícito curar en dia de sábado?». The print sets
+      «hallaba un» with almost no space.
+    - Archive OCR (`…tomo IV_djvu.xml`, page `_0022`): a single word
+      `hallabaun` (x 1004–1380, confidence 91). The error is introduced by
+      the OCR and carried into the module unchanged; the rest of the verse
+      matches the print.
+    - Neighbours: Mt 12:11 already carries the TORRES-FACSIMILE-101
+      correction and matches the print. Mt 12:9 in the module ends «…de
+      ellos» while the print (and the djvu.xml) has «de ellos,»: a missing
+      comma, outside this task's scope; not changed, noted for review.
+  - Fix:
+    - `scripts/torresamat/parche_facsimil.py`: `CORRECCIONES["Matthew
+      12:10"]` (exact old text → «Donde se hallaba un hombre…», «tomo IV,
+      hoja 22»). Only «hallabaun» → «hallaba un» differs. The existing
+      `aplica()` checks (exact old text, idempotent «ya corregido», stop on
+      unexpected text or missing keys) and the round-trip check are kept.
+  - Closure evidence:
+    - `python3 parche_facsimil.py`: «corrige Matthew 12:6», «corrige
+      Matthew 12:10», other entries «ya corregido», round trip OK, «(2
+      versos)».
+    - Regenerated module (`salida/parche`) export vs. installed baseline:
+      38,698 entries in both, same keys in the same order, 35,475 non-empty
+      in both; exactly two changed entries: `Matthew 12:6` (loses « i»,
+      TORRES-FACSIMILE-102, not yet installed) and `Matthew 12:10`
+      («hallabaun» → «hallaba un»). Mt 12:9 and 12:11 unchanged.
+    - `modulos/` and `~/.sword` untouched (no git changes under
+      `modulos/`, no newer files in the installed module directory).
+    - Nácar-Colunga: `texto.json`, `procedencia.json`, `avisos.txt`,
+      `epigrafes.json`, `introducciones.json` identical to the
+      NACAR-OCR-106 baseline.
+    - Tests: `scripts/torresamat/test_parche.py` adds
+      `test_mt_12_10_hallaba_un` (Mt 12:10 corrected, only that word
+      changes; Mt 12:9 untouched and Mt 12:11 already corrected are
+      controls). It fails on the previous patch table (`KeyError`, no
+      `Matthew 12:10` entry) and passes now. PASS: `test_parche.py`,
+      `test_titulos.py`, `test_pegadas.py`, `test_restos.py` and the 11
+      Nácar-Colunga tests.
+    - No commit or push.
   - Acceptance criteria:
     - The correct reading is verified in the 1882 facsimile (tomo IV,
       hoja 22).
@@ -5460,14 +6284,90 @@
     - Edit only the installed module.
     - Commit or push.
 
-- [ ] TORRES-FACSIMILE-104 Harden the Torres Amat facsimile patch mechanism
-  - Status: TODO
+- [x] TORRES-FACSIMILE-104 Harden the Torres Amat facsimile patch mechanism
+  - Status: DONE
   - Description:
     `scripts/torresamat/parche_facsimil.py` was used in
     TORRES-FACSIMILE-101 to correct Ps 3:2, Ps 3:3, Ps 3:4, Ps 3:5, Mt 12:4,
     Mt 12:5, and Mt 12:11. Verify that the mechanism remains reproducible from
     a known source, limited to changes demonstrated by the facsimile,
     idempotent, and free of collateral changes.
+  - Baseline and findings:
+    - Baseline = installed module (`mod2imp TorresAmat`, 38,698 entries,
+      35,475 non-empty). Known source = `modulos/` in git: commit
+      `9c036c87` (parent of `d705cb5b`) holds the unpatched module; HEAD
+      holds it with the 7 TORRES-FACSIMILE-101 corrections.
+    - Defect: the installed module was not reproducible from the known
+      source with the patch on `master`. Git source → installed differs in
+      16 references; 14 are authorized in `parche_facsimil.py`, but
+      `Psalms 4:3` and `Psalms 4:5` are not. They were installed by
+      TORRES-PSALM-TITLES-101 from branch `fix/torresamat-psalm-titles`
+      (`ee2b0938`); `master` carries the variant `e223d8d5`, which lacks
+      those two entries and `test_salmo4_v5_sin_el_v3`.
+    - The script also always read the installed module and its `.conf`
+      (`conf_instalada()` → `~/.sword/mods.d/torresamat.conf`), so it could
+      not start from a known source.
+    - Facsimile check of the two missing entries (tomo III, leaf `_0011`,
+      downloaded read-only): right column top «3. Oh hijos de los hombres,
+      ¿hasta cuándo sereis de estúpido corazon? ¿por qué amais la vanidad
+      y vais en pos de la mentira?» and «5. Enojaos⁸, y no querais pecar
+      mas; compungíos…». Ps 4:5's own errata (missing final period) are
+      left as recorded in TORRES-PSALM-TITLES-101.
+  - Fix (`scripts/torresamat/parche_facsimil.py`):
+    - `CORRECCIONES` gains `Psalms 4:3` ("" → the facsimile text) and
+      `Psalms 4:5` (drops the glued Ps 4:3 prefix), both «tomo III, hoja
+      11», exactly as installed from `ee2b0938`.
+    - `--origen RAIZ` (default `~/.sword`): any SWORD tree (`mods.d/` +
+      `modules/`); its own `.conf` is used (`conf_de()`), and every export
+      goes through `exporta_aislado()` under a distinct module name, so
+      `~/.sword` is never read by accident and never written.
+    - The output is a complete SWORD tree (`modules/` + `mods.d/` with the
+      origin `.conf`), reusable as `--origen`; `--salida` may not equal
+      `--origen`. `cambiadas()` requires identical keys and order; any
+      change outside `CORRECCIONES`/`TITULOS`, a round-trip mismatch,
+      unexpected text or missing keys stop the patch (existing `aplica()`
+      checks kept).
+    - README entry updated.
+  - Closure evidence (scratch trees, nothing installed):
+    - A: `--origen` = git `9c036c87` `modulos/` → «18 versos».
+    - B: default origin (installed) → «2 versos».
+    - C: B again → module files byte-identical to B (running twice gives
+      the same result).
+    - D: `--origen B` → «0 versos», 18 «ya corregido», byte-identical to B
+      (idempotent on its own output).
+    - E: as A with `HOME` pointing to an empty directory (no `~/.sword` at
+      all) → byte-identical to B (no dependence on `~/.sword`).
+    - A == B byte for byte: the expected module is reproducible from the
+      known source.
+    - Exports: git source → regenerated: 38,698/38,698 entries, same keys
+      and order, exactly the 18 authorized references changed, none
+      missing. Installed → regenerated: 35,475 non-empty in both, exactly
+      2 changed entries, both inherited from closed tasks, not from this
+      one: `Matthew 12:6` (« i» removed, TORRES-FACSIMILE-102) and
+      `Matthew 12:10` («hallaba un», TORRES-FACSIMILE-103), neither
+      installed yet. This task adds no text change to the installed module:
+      Ps 4:3/4:5 were already installed; they only enter the versioned
+      patch.
+    - `modulos/` unchanged in git; no file under the installed
+      `~/.sword/.../torresamat` or its `.conf` modified; installed export
+      byte-identical before/after. Nácar-Colunga outputs identical to the
+      NACAR-OCR-106 baseline.
+    - Tests: `scripts/torresamat/test_parche.py` adds
+      `test_salmo4_v3_vuelve_y_v5_se_queda_con_lo_suyo`,
+      `test_regenera_desde_origen_conocido_e_idempotente` (mini SWORD tree
+      with the 18 authorized keys plus the Mt 12:7 control: only authorized
+      references change, second pass «0 versos» with byte-identical files,
+      control intact) and `test_texto_inesperado_detiene_la_regeneracion`.
+      All three fail on the pre-task patch (`KeyError 'Psalms 4:3'`;
+      `unrecognized arguments: --origen`) and pass now. PASS:
+      `test_parche.py`, `test_titulos.py`, `test_pegadas.py`,
+      `test_restos.py` and the 11 Nácar-Colunga tests.
+    - Default output `scripts/torresamat/salida/parche` (git-ignored)
+      regenerated («2 versos»). No commit or push.
+  - Pending outside this task:
+    - Installing the regenerated module (Mt 12:6, 12:10) into `modulos/`
+      and `~/.sword` is a separate, explicit step.
+    - Mt 12:9 missing comma (noted in TORRES-FACSIMILE-103).
   - Acceptance criteria:
     - Running the patch twice produces the same result.
     - A comparison demonstrates that only authorized references change.
@@ -5543,8 +6443,35 @@
     - Renumber Vulg references to look like Reina-Valera.
     - Push without review.
 
-- [ ] TORRES-PSALM-TITLES-101 Preserve and mark native psalm title slots in Torres Amat
-  - Status: IN PROGRESS (first batch validated; rest of the Psalter not audited)
+- [x] PLAN-DAILY-101 Select "Lectura de hoy" by calendar date
+  - Status: DONE
+  - Description:
+    The daily-reading entry point currently selects the first unmarked plan
+    day, so an unmarked reading is shown again on subsequent calendar days.
+    Select the scheduled plan day from its start date while retaining the
+    first-pending-day calculation for catch-up and rescheduling workflows.
+  - Acceptance criteria:
+    - An active plan advances its "Lectura de hoy" on each local calendar
+      date, even if an earlier day remains unmarked.
+    - A plan without a valid start date retains the existing first-pending
+      fallback.
+    - Catch-up and reprogramming continue to use the first unmarked day.
+    - Add a deterministic regression test for an unmarked multi-day plan.
+  - Relevant tests:
+    - `planes_lectura_test`.
+  - Evidence:
+    - `main_planes_dia_de_hoy()` now uses the local calendar day calculated
+      from the plan start date; only plans without a valid start date fall
+      back to their first unmarked day.
+    - The first-pending calculation remains private to catch-up and
+      reprogramming, so an earlier unmarked day neither repeats as today's
+      reading nor changes those workflows.
+    - `planes_lectura_test` PASS: fixed-date unmarked day 3 selection,
+      invalid-start fallback, pending-day overdue calculation, and
+      reprogramming; `biblia-elim` build PASS; `git diff --check` PASS.
+
+- [x] TORRES-PSALM-TITLES-101 Preserve and mark native psalm title slots in Torres Amat
+  - Status: DONE
   - Description:
     Torres Amat follows the Vulgate and numbers a psalm's superscription as
     a real verse. Confirmed in the 1882 facsimile (tomo III, hoja 11):
@@ -5609,26 +6536,850 @@
       v3; Ps 50/51 without duplication; Ps 52 title + body correct. Earlier
       facsimile patches (Ps 3:2–5, Mt 12:4, 12:5, 12:11) intact. 0
       `Gtk-WARNING` / `CRITICAL` / `ERROR` / crashes.
-  - Still open (why this task is not DONE):
-    - Only Ps 3, 4, 50, 51 and 52 are covered. Every other psalm with a
-      numbered title must be located, checked against the facsimile one by
-      one, and its title slots marked; text recovered only where the
-      facsimile justifies it; no unsupported hardcodes.
+  - Second batch (2026-09-23, not installed, no commit):
+    - Base: installed module + the reproducible patch of
+      TORRES-FACSIMILE-104 (`parche_facsimil.py --origen`), whose
+      authorized entries are kept (no overlap with `CORRECCIONES` or the
+      first batch).
+    - Structure locator (offline, not runtime): the installed
+      `VulgClementine` module (same `Vulg` versification) closes each
+      psalm's inscription with a paragraph end `<div eID=… type="x-p"/>`.
+      From that markup only (no text is used): 2 psalms without title
+      (1, 2), 62 with a title-only v1, 4 with title in v1–v2 (50, 51, 53,
+      59) and 82 with title + body sharing v1. It only says which native
+      slot may be a title; each entry is decided on the 1882 facsimile.
+    - Facsimile collation: the Archive OCR of tomo III (`…tomo III_djvu.xml`)
+      was used to locate each psalm (verse 2 of the module matched against
+      the printed lines, then the printed «1.» … «2.» span); only 12
+      title-only psalms were located reliably (the OCR often loses the
+      «2.» mark), so every accepted entry was then checked visually on its
+      leaf (read-only downloads of `…tomo III_00NN.jp2`).
+    - 12 references marked in `parche_facsimil.TITULOS`, text unchanged
+      (the module's own OCR errata stay for their own correction, as with
+      Ps 50:2): Ps 5:1 and 6:1 (hoja 11), 18:1 (16; the print itself reads
+      «Salvo de David»), 21:1 (17), 29:1 (19; module «Balmo de Dayid»),
+      35:1 (24; module «Para el tin»), 39:1 (25), 43:1 (26), 59:1 and 59:2
+      (34; inscription in two printed verses, «…Inscripcion para una
+      columna. / Al mismo David para instruccion: / 2. Cuando quemó la
+      Mesopotamia…», like Ps 50/51), 88:1 (47) and 99:1 (51). In each case
+      the printed v1 is only the inscription and the body starts at the
+      next number; the next body verse (Ps 5:2 … 99:2, Ps 59:3) is checked
+      as a control and not touched.
+    - Regeneration: from the installed module «14 versos»: the 12
+      references above plus `Matthew 12:6` and `Matthew 12:10`, which
+      belong to TORRES-FACSIMILE-102/-103 (pending installation), not to
+      this batch. 38,698/38,698 entries, same keys and order, 35,475
+      non-empty before and after; the 12 changes only add the
+      `x-psalm-title` seg around the unchanged text. From the git source
+      (`9c036c87` `modulos/`): «30 versos», exactly the 30 authorized
+      references, byte-identical to the regeneration from the installed
+      module; a second pass over the output reports «0 versos» and is
+      byte-identical (idempotent). `modulos/`, `~/.sword` and the
+      Nácar-Colunga outputs unchanged.
+    - Tests: `test_titulos.py::test_segundo_lote_solo_marca` (entries,
+      sheets, unchanged text, body verses not marked, Ps 59 in two
+      verses); fails on the pre-batch patch (`KeyError 'Psalms 5:1'`),
+      passes now. PASS: `test_titulos.py` (9), `test_parche.py` (7),
+      `test_pegadas.py`, `test_restos.py`, 11 Nácar-Colunga tests.
+  - Third batch (2026-09-23, not installed, no commit):
+    - Same criterion as the second batch: the printed «1.» is only the
+      inscription and the body starts at «2.»; the Clementine markup only
+      located the slot. Each case checked visually on its leaf; where the
+      OCR/title search was ambiguous (identical titles in Ps 10/13, 19/20,
+      45/46/48) the whole leaf was read (leaves 13, 16, 27, 28).
+    - 15 references marked in `parche_facsimil.TITULOS`, text unchanged:
+
+      | Psalm | Leaf | Printed «1.» (inscription) → body starts at «2.» |
+      |---|---|---|
+      | 7:1 | 12 | «Salmo de David, cantado… hijo de Jemini» → «Señor, Dios mio…» |
+      | 10:1 | 13 | «Para el fin: Salmo de David.» → «En el Señor tengo puesta…» |
+      | 11:1 | 13 | «Para el fin: para la octava: Salmo de David.» (module «Dayid») → «Sálvame Señor…» |
+      | 17:1 | 15 | «Para el fin: Salmo de David, siervo del Señor… con cuyo motivo dijo:» → «Á tí he de amarte…» |
+      | 19:1 | 16 | «Para el fin: Salmo de David.» → «Óigate, oh rey…» |
+      | 20:1 | 16 | «Para el fin: Salmo de David.» → «Oh, Señor, en tu gran poder…» |
+      | 30:1 | 19 | «Para el fin: Salmo de David, por un éxtasi ó exceso de pena.» (module «0 exceso de Pen.») → «Oh Señor, en tí…» |
+      | 33:1 | 21 | «Salmo de David, cuando se desfiguró… se escapó.» (module «Achimelech 3») → «Alabaré al Señor…» |
+      | 37:1 | 25 | «Salmo de David para recuerdo; en sábado.» → «Oh Señor no me reprendas…» |
+      | 40:1 | 26 | «Para el fin: Salmo del mismo David.» → «Bienaventurado aquel…» |
+      | 44:1 | 27 | «Para el fin: para aquellos que han de ser mudados… Cántico en alabanza del amado.» (module «alabamea») → «Hirviendo está…» |
+      | 45:1 | 27 | «Para el fin á los hijos de Coré: Salmo para los misterios.» (module «mistea) rios») → «Dios es nuestro refugio…» |
+      | 46:1 | 28 | «Para el fin: á los hijos de Coré, Salmo.» → «Naciones todas…» |
+      | 47:1 | 28 | «Salmo de cántico: á los hijos de Coré: para el segundo dia de la semana.» → «Grande es el Señor…» |
+      | 48:1 | 28 | «Para el fin: á los hijos de Coré, Salmo.» → «Oid estas cosas…» |
+
+    - Set aside (not marked on structure alone): Ps 9 (leaf 13: the
+      print restarts numbering at «1. ¿Y por qué, oh Señor…» for the
+      «Segunda parte, que es el Salmo X segun los Hebreos», and that text
+      is merged into the module's 9:1) and Ps 41 (leaf 26: «Para el fin:
+      1. Salmo de instruccion…» — «Para el fin:» precedes the number, as in
+      Ps 52, and is missing from the module: recovery case).
+    - Also seen: Ps 17:2 holds printed v2 + v3 merged and 17:3 is empty
+      (body slot issue, not the title).
+    - Regeneration: from the installed module «29 versos»: the 15 references
+      of this batch (text identical once the seg is stripped), the 12 of
+      the second batch (not installed either), plus `Matthew 12:6` and
+      `Matthew 12:10` (TORRES-FACSIMILE-102/-103). 38,698/38,698 entries,
+      same keys and order, 35,475 non-empty before and after. From the git
+      source: «45 versos», exactly the 45 authorized references,
+      byte-identical to the regeneration from the installed module; second
+      pass «0 versos», byte-identical. `modulos/`, `~/.sword` and
+      Nácar-Colunga outputs unchanged.
+    - Tests: `test_titulos.py::test_tercer_lote_solo_marca` (sheets,
+      unchanged text, v2 not marked, Ps 9/41 not marked, batches disjoint);
+      fails on the pre-batch patch (`KeyError 'Psalms 7:1'`), passes now.
+      PASS: `test_titulos.py` (10), `test_parche.py` (7),
+      `test_pegadas.py`, `test_restos.py`, 11 Nácar-Colunga tests.
+  - Fourth batch (2026-09-23, not installed, no commit): Ps 53, 54, 55,
+    56, 57, 58, 60, 61, 62, 63, 64, read on leaves 30, 31, 34, 35 (whole
+    leaves).
+    - Marked (4 references, text unchanged):
+
+      | Ref | Leaf | Printed evidence |
+      |---|---|---|
+      | 53:1 | 30 | «1. Para el fin: sobre los Cánticos. Salmo de inteligencia de David,» |
+      | 53:2 | 30 | «2. Cuando fueron los Ziphéos á decir á Saul: ¿No sabes que David está escondido entre nosotros?» — still the inscription; body starts «3. Sálvame, oh Dios…» (checked explicitly: title in v1–v2, like Ps 50/51/59) |
+      | 54:1 | 30 | «1. Para el fin: sobre los Cánticos. Salmo de inteligencia de David.» → «2. Oye benigno…» |
+      | 60:1 | 34 | «1. Para el fin: sobre los Cánticos de David.» → «2. Escucha, oh Dios mio…» (checked explicitly: title only in v1; v2 is body) |
+
+    - Set aside (recovery, not marking): the print sets part of the
+      inscription BEFORE the «1.» and the module lacks it:
+      Ps 55 («Para el fin: 1. Para la gente que estaba lejos…», leaf 31),
+      56, 57, 58 («Para el fin: 1. No destruyas á tu siervo…», leaf 31),
+      61 («Para el fin: 1. Salmo de David para Idithun.», leaf 34), 62
+      («Salmo de David. 1. Estando en el desierto de Iduméa.», leaf 35), 63
+      («Para el fin: 1. Salmo de David.», leaf 35), 64 («Para el fin: Salmo
+      de David. 1. Cántico de Jeremías…», leaf 35). Same pattern as Ps 41
+      and 52.
+    - Errata / merges noted, not fixed: Ps 53:3 «Pálvame» (Sálvame), 54:2
+      «hunvlde», 56:1/57:1/58:1 «ú tu siervo» (á), 56:3 «USIEO»
+      (Altísimo), 57:2 «ii verdaderamente» (Si), 61:2 holds printed v2+v3
+      with «&amp;gt;3, E» and 61:3 empty, 63:2 «ú4 t£», 64:2 «A t£».
+    - Regeneration: from the installed module «33 versos» = the 4 references
+      of this batch (text identical without the seg) + 27 psalm marks of
+      batches 2–3 (not installed) + `Matthew 12:6` and `Matthew 12:10`
+      (TORRES-FACSIMILE-102/-103). 38,698/38,698 entries, same keys and
+      order, 35,475 non-empty before and after. From the git source «49
+      versos», exactly the 49 authorized references, byte-identical to the
+      regeneration from the installed module; second pass «0 versos»,
+      byte-identical. `modulos/`, `~/.sword`, Nácar-Colunga unchanged.
+    - Tests: `test_titulos.py::test_cuarto_lote_solo_marca` (sheets,
+      unchanged text, body verses 53:3/54:2/60:2 not marked, set-aside
+      psalms not marked, no overlap among batches 1–4); fails on the
+      pre-batch patch (`KeyError 'Psalms 53:1'`). PASS: `test_titulos.py`
+      (11), `test_parche.py` (7), `test_pegadas.py`, `test_restos.py`, 11
+      Nácar-Colunga tests.
+  - Fifth batch (2026-09-23, not installed, no commit): Ps 66, 67, 68,
+    69, 74, 75, 76, whole leaves 36, 37, 38, 40 read. In every case the
+    printed «1.» is only the inscription, fully present in the module, and
+    the body starts at «2.». 7 references marked, text unchanged:
+
+      | Ref | Leaf | Printed «1.» → body «2.» |
+      |---|---|---|
+      | 66:1 | 36 | «Para el fin, sobre los himnos: Salmo y Cántico de David.» → «Dios tenga misericordia…» |
+      | 67:1 | 36 | «Para el fin: Salmo y Cántico del mismo David.» → «Levántese Dios…» |
+      | 68:1 | 37 | «Para el fin: por los que han de ser mudados. Salmo de David.» (module «Dayid») → «Sálvame, oh Dios…» |
+      | 69:1 | 38 | «Para el fin: Salmo de David, en memoria de haberle el Señor salvado.» (module «Senor») → «Oh Dios, atiende…» |
+      | 74:1 | 40 | «Para el fin: No nos destruyas. Salmo y Cántico de Asaph.» → «Profeta. Alabarémoste…» (the italic speaker label is printed in v2) |
+      | 75:1 | 40 | «Para el fin: para alabar. Salmo de Asaph. Cántico sobre los Assyrios.» → «Dios es conocido…» |
+      | 76:1 | 40 | «Para el fin: Para Idithun: Salmo de Asaph.» → «Alcé mi voz…» |
+
+    - Set aside: Ps 71 (leaf 38: printed «1. Salmo sobre Salomon, figura
+      de Christo.»; the module holds OCR garbage «Salmo 1 sobre &amp;gt;podas
+      Salomon…»: recovery). Also seen on leaf 38: Ps 70 prints «Salmo de
+      David: 1. De los hijos de Jonadab…» (prefix before «1.»; title and
+      body share v1 in the Clementine — in the shared-v1 group).
+    - Errata noted, not fixed: 67:2 «Dios $» and trailing «E», 68:1
+      «Dayid», 69:1 «Senor», 74:1 missing final period, 76:2 «me tendió»
+      (print «me atendió»).
+    - Regeneration: from the installed module «40 versos» = these 7 + 31
+      psalm marks of batches 2–4 (not installed) + `Matthew 12:6` and
+      `Matthew 12:10` (TORRES-FACSIMILE-102/-103). 38,698/38,698 entries,
+      same keys and order, 35,475 non-empty before and after; batch text
+      identical without the seg. From the git source «56 versos», exactly
+      the 56 authorized references, byte-identical to the regeneration from
+      the installed module; second pass «0 versos», byte-identical.
+      `modulos/`, `~/.sword`, Nácar-Colunga unchanged.
+    - Tests: `test_titulos.py::test_quinto_lote_solo_marca` (sheets,
+      unchanged text, v2 not marked, Ps 71 not marked, batches 2–5
+      disjoint); fails on the pre-batch patch (`KeyError 'Psalms 66:1'`).
+      PASS: `test_titulos.py` (12), `test_parche.py` (7),
+      `test_pegadas.py`, `test_restos.py`, 11 Nácar-Colunga tests.
+  - Sixth batch (2026-09-23, not installed, no commit): Ps 79, 80, 82,
+    83, 84, 87, 91, 101, 141, whole leaves 44, 45, 46, 47, 49, 51, 68 read.
+    - Marked (5 references, text unchanged):
+
+      | Ref | Leaf | Printed «1.» → body «2.» |
+      |---|---|---|
+      | 79:1 | 44 | «Para el fin: Para aquellos que han de ser mudados. Testimonio de Asaph. Salmo.» → «Escucha, oh tú pastor de Israél…» (leaf 45) |
+      | 82:1 | 45 | «Cántico y Salmo de Asaph.» → «Oh Dios, ¿quién hay semejante á tí?…» |
+      | 83:1 | 46 | «Para el fin. Para los lagares, ó vendimia. Salmo para los hijos de Coré.» (module «d vendimia») → «¡Oh cuán amables…» |
+      | 101:1 | 51 | «Oracion de un miserable, que hallándose atribulado, derrama en la presencia del Señor sus plegarias.» → «Escucha, oh Señor…» |
+      | 141:1 | 68 | «Salmo de inteligencia de David: su oracion cuando estaba en la cueva.» (module «intelivencia») → «Alcé mi voz…» |
+
+    - Set aside:
+      - Prefix printed before «1.» and missing in the module (recovery):
+        Ps 80 («Para el fin: 1. Para los lugares…», leaf 45), 87
+        («Cántico y Salmo. 1. Para los hijos de Coré…», leaf 47), 91
+        («Salmo y Cántico. 1. Para el dia del sábado.», leaf 49).
+      - Merged slot: Ps 84 (leaf 46 prints «1. Para el fin: Salmo para los
+        hijos de Coré.» / «2. Oh Señor, tú has derramado…»; the module
+        holds both in 84:1 and 84:2 is empty; needs a split).
+    - Errata noted, not fixed: 79:1 missing final period, 82:2 «Ob Dios»,
+      83:1 «d vendimia», 87:1 «Ezrabita», 91:2 «á tu Io e Sao» (print «á
+      tu nombre, oh Altísimo»), 141:1 «intelivencia».
+    - Regeneration: from the installed module «45 versos» = these 5 + 38
+      psalm marks of batches 2–5 (not installed) + `Matthew 12:6` and
+      `Matthew 12:10` (TORRES-FACSIMILE-102/-103). 38,698/38,698 entries,
+      same keys and order, 35,475 non-empty before and after; batch text
+      identical without the seg. From the git source «61 versos», exactly
+      the 61 authorized references, byte-identical to the regeneration from
+      the installed module; second pass «0 versos», byte-identical.
+      `modulos/`, `~/.sword`, Nácar-Colunga unchanged.
+    - Tests: `test_titulos.py::test_sexto_lote_solo_marca` (sheets,
+      unchanged text, v2 not marked, Ps 80/84/87/91 not marked, 84:2 not
+      touched, batches 2–6 disjoint); fails on the pre-batch patch
+      (`KeyError 'Psalms 79:1'`). PASS: `test_titulos.py` (13),
+      `test_parche.py` (7), `test_pegadas.py`, `test_restos.py`, 11
+      Nácar-Colunga tests.
+    - With this batch the group «title-only v1 with text present» is fully
+      reviewed.
+  - First recovery batch (2026-09-23, not installed, no commit): Ps 41,
+    55, 56, 57, 58. Leaves 26 and 31 read; the Archive OCR agrees.
+    - Pattern (same mechanism as Ps 52:1): the print sets «Para el fin:»
+      BEFORE the verse number; the OCR dropped it; the rest of the
+      inscription is complete in the module's v1, and the body starts at
+      the printed «2.» (module v2). Missing text = exactly «Para el fin: »;
+      nothing else is recovered or changed.
+
+      | Ref | Leaf | Printed | Module v1 (kept whole) | Body «2.» (module v2, untouched) |
+      |---|---|---|---|---|
+      | 41:1 | 26 | «Para el fin: 1. Salmo de instruccion, á los hijos de Coré.» | «Salmo de instruccion, á los hijos de Coré.» | «Como brama…» |
+      | 55:1 | 31 | «Para el fin: 1. Para la gente que estaba lejos del Santuario: Inscripcion… le detuvieron en Geth¹.» | «Para la gente… d Philisthéos le detuvieron en Geth 1» | «Apiádate de mí…» |
+      | 56:1 | 31 | «Para el fin: 1. No destruyas á tu siervo. Salmo de David… se retiró en una cueva³.» | «No destruyas ú tu siervo… en una cueva» | «Ten piedad de mí…» |
+      | 57:1 | 31 | «Para el fin: 1. No destruyas á tu siervo. Salmo de David para inscribirse en una columna.» | «No destruyas ú tu siervo… en una columna» | «ii verdaderamente…» |
+      | 58:1 | 31 | «Para el fin: 1. No destruyas á tu siervo. Salmo de David… con el fin de quitarle la vida.» | «No destruyas ú tu siervo… quitarle la vida» | «Sálvame, Dios mio…» |
+
+    - Result: `<seg type="x-psalm-title">Para el fin: {module v1}</seg>`
+      in the native v1; «Para el fin:» appears once, the old text once, at
+      the end; v2 unchanged; no renumbering.
+    - Errata inside the title left untouched (tests assert they are still
+      there): 55:1 «d Philisthéos» (ó) and «Geth 1» (footnote callout),
+      56:1–58:1 «ú tu siervo» (á), missing final periods; body errata 56:2
+      «apládate», 57:2 «ii» (Si).
+    - Regeneration: from the installed module «50 versos» = these 5 + 43
+      psalm marks of earlier batches (not installed) + `Matthew 12:6` and
+      `Matthew 12:10` (TORRES-FACSIMILE-102/-103). 38,698/38,698 entries,
+      same keys and order, 35,475 non-empty before and after; each of the 5
+      equals «Para el fin: » + the installed text once the seg is stripped.
+      From the git source «66 versos», exactly the 66 authorized
+      references, byte-identical to the regeneration from the installed
+      module; second pass «0 versos», byte-identical. `modulos/`,
+      `~/.sword`, Nácar-Colunga unchanged.
+    - Tests: `test_titulos.py::test_recupera_para_el_fin_delante_del_numero`
+      (sheets, exact prefix, no duplication, v2 untouched, errata kept,
+      pending Ps 61–64/80/87/91 untouched, no overlap with batches 2–6);
+      `test_sin_textos_de_otras_biblias` extended to these 5. The earlier
+      set-aside assertions (batch 3 for Ps 41, batch 4 for Ps 55–58) now
+      require that those psalms are never marked as the incomplete title,
+      only with the recovered prefix. The new test fails on the pre-batch
+      patch (`KeyError 'Psalms 41:1'`). PASS: `test_titulos.py` (14),
+      `test_parche.py` (7), `test_pegadas.py`, `test_restos.py`, 11
+      Nácar-Colunga tests.
+  - Second recovery batch (2026-09-23, not installed, no commit): Ps 61,
+    62, 63, 64, 80, 87, 91. Leaves 34, 35, 45, 47, 49 read (whole
+    leaves); the Archive OCR has the same prefix lines. Same mechanism as
+    Ps 41/55–58: only the printed prefix before «1.» is prepended; the rest
+    of the inscription is complete in the module's v1; the body starts at
+    the printed «2.» (module v2, untouched).
+
+      | Ref | Leaf | Recovered prefix | Printed | Module v1 (kept whole) | Body «2.» |
+      |---|---|---|---|---|---|
+      | 61:1 | 34 | «Para el fin:» | «Para el fin: 1. Salmo de David para Idithun.» | «Salmo de David para Idithun.» | «¿Cómo no ha de estar…» |
+      | 62:1 | 35 | «Salmo de David.» | «Salmo de David. 1. Estando en el desierto de Iduméa¹.» | «Estando en el desierto de Iduméa.» | «Dios mio, oh mi Dios…» |
+      | 63:1 | 35 | «Para el fin:» | «Para el fin: 1. Salmo de David.» | «Salmo de David.» | «Escucha, oh Dios mío…» |
+      | 64:1 | 35 | «Para el fin: Salmo de David.» | «Para el fin: Salmo de David. 1. Cántico de Jeremías y de Ezechiel… cuando empezaba á salir de él.» | «Cántico de Jeremías… salir de él.» | «A tí, oh Dios…» |
+      | 80:1 | 45 | «Para el fin:» | «Para el fin: 1. Para los lugares. Salmo para el mismo Asaph.» | «Para los lugares. Salmo para el mismo Asaph.» | «Regocijaos…» |
+      | 87:1 | 47 | «Cántico y Salmo.» | «Cántico y Salmo.» (own line) / «1. Para los hijos de Coré, hasta el fin, sobre Maheleth… Instruccion de Eman Ezrahita.» | «Para los hijos de Coré… Eman Ezrabita» | «Señor Dios de mi salud…» |
+      | 91:1 | 49 | «Salmo y Cántico.» | «Salmo y Cántico.» (own line) / «1. Para el dia del sábado.» | «Para el día del sábado.» | «Bueno es tributar…» |
+
+    - Ps 61:2–3 (body, not title): printed «2. ¿Cómo no ha de estar mi alma
+      sometida á Dios, dependiendo de él mi salvacion?» / «3. Él es mi Dios
+      y mi Salvador: siendo él mi defensa, no seré jamás conmovido.» (leaf
+      34); the module holds both in 61:2 with OCR junk «&amp;gt;3, E» and
+      61:3 is empty. Not redistributed here: it is a body-verse split, not a
+      title slot. The acceptance criterion «Merged slots are split» is about
+      title slots; this belongs to a separate body-errata task. Tests
+      assert 61:2 and 61:3 are untouched.
+    - Errata left untouched: 62:1 «Iduméa» without the footnote callout,
+      63:2 «ú4 t£», 64:2 «A t£», 64:3 «mortales 7», 87:1 «Ezrabita», 91:1
+      «día» (print «dia»), 91:2 «á tu Io e Sao», 91:3 «por la poca eras».
+    - Regeneration: from the installed module «57 versos» = these 7 + 48
+      psalm marks of earlier batches (not installed) + `Matthew 12:6` and
+      `Matthew 12:10` (TORRES-FACSIMILE-102/-103). 38,698/38,698 entries,
+      same keys and order, 35,475 non-empty before and after; each of the 7
+      equals prefix + installed text once the seg is stripped; v2 and v3 of
+      each psalm (incl. 61:2/61:3) identical. From the git source «73
+      versos», exactly the 73 authorized references, byte-identical to the
+      regeneration from the installed module; second pass «0 versos»,
+      byte-identical. `modulos/`, `~/.sword`, Nácar-Colunga unchanged.
+    - Tests: `test_titulos.py::test_recupera_prefijos_segundo_lote`
+      (sheets, exact prefix per psalm, no duplication, v2 untouched, 61:2/3
+      untouched, batches disjoint); `test_sin_textos_de_otras_biblias`
+      extended; the batch-6 set-aside assertion for Ps 80/87/91 now only
+      forbids marking the incomplete title (Ps 84 still untouched). Fails on
+      the pre-batch patch (`KeyError 'Psalms 61:1'`). PASS:
+      `test_titulos.py` (15), `test_parche.py` (7), `test_pegadas.py`,
+      `test_restos.py`, 11 Nácar-Colunga tests.
+    - With this batch the group «prefix before 1. missing» is complete.
+  - Whole-title recovery batch (2026-09-24, not installed, no commit):
+    Ps 8, 38, 71, 107, 108, 139, 145. Source: 1882 facsimile, tomo III,
+    leaves 12, 25, 38, 55, 67, 69 (whole leaves read, each title line
+    zoomed); the Archive OCR (`…tomo III_djvu.xml`) has the same lines.
+    In every case the printed «1.» is only the inscription and the body
+    starts at the printed «2.».
+
+      | Ref | Leaf | Printed «1.» (transcribed) | Module before | Body «2.» (print) |
+      |---|---|---|---|---|
+      | 8:1 | 12 | «Al fin: para los lagares: Salmo de David.» | empty | «Oh Señor, Soberano dueño nuestro…» |
+      | 38:1 | 25 | «Para el fin, á Idithun: Cántico de David.» | empty | «Dije yo en mi corazon: Velaré…» |
+      | 71:1 | 38 | «Salmo sobre Salomon, *figura de Christo*.» | «Salmo 1 sobre &amp;gt;podas Salomon, er figura A de SA Christo. pt ANA» | «Da, oh Dios, al rey tus leyes…» |
+      | 107:1 | 55 | «Cántico y Salmo del mismo David³.» | empty | «Dispuesto está mi corazon…» |
+      | 108:1 | 55 | «Salmo de David: para el fin.» | empty | «Oh Dios mio, no calles mi alabanza…» |
+      | 139:1 | 67 | «Para el fin: Salmo de David.» | empty | «Líbrame, oh Señor…» |
+      | 145:1 | 69 | «Aleluya: de Aggéo y de Zacharias.» | empty | «Alaba al Señor, oh alma mia…» |
+
+    - Transcription rule: printed text as is, without the footnote callout
+      (Ps 107 «David³.» → «David.»), as for Ps 50:1/51:1. Italics are not
+      encoded (Ps 71 «figura de Christo»).
+    - Strict previous value: the patch requires "" for the six empty slots
+      and the exact garbage string for Ps 71; anything else stops it. Ps 71
+      is the only entry whose old text is not preserved: it is listed in
+      `parche_facsimil.SUSTITUYE_BASURA` with the reading it replaces, and
+      `test_cambios_autorizados` keeps its «old text never lost» invariant
+      for every other entry.
+    - Not done here (body, not title): the module also lacks body verses
+      8:2, 38:2–3 and 145:2–3 (printed on leaves 12, 25, 69). They stay
+      empty; tests assert v0/v2/v3 of each psalm are untouched. Separate
+      body-recovery work.
+    - Regeneration: from the installed module «64 versos» = these 7 + 55
+      psalm marks of earlier batches (not installed) + `Matthew 12:6` and
+      `Matthew 12:10` (TORRES-FACSIMILE-102/-103). 38,698/38,698 entries,
+      same keys and order; non-empty 35,475 → 35,481 (+6: the six empty
+      title slots now carry their printed title; Ps 71 was already
+      non-empty). v0/v2/v3 of each psalm identical. From the git source
+      «80 versos», exactly the 80 authorized references, byte-identical to
+      the regeneration from the installed module; second pass «0 versos»,
+      byte-identical. `modulos/`, `~/.sword`, Nácar-Colunga outputs
+      unchanged (sha256).
+    - Tests: `test_titulos.py::test_recupera_titulos_enteros` (sheet, exact
+      printed title, required previous value, v0/v2/v3 untouched, batches
+      disjoint) and `test_valor_anterior_inesperado_detiene_el_parche`
+      (non-empty 8:1 or a different Ps 71 reading → `ValueError`; already
+      applied → kept). Both fail on the pre-batch patch (`KeyError
+      'Psalms 8:1'`). `test_cambios_autorizados` gets the explicit
+      exception; the batch-5 set-aside check for Ps 71 now forbids only
+      marking the garbage as title; `test_sin_textos_de_otras_biblias`
+      extended. PASS: `test_titulos.py` (17), `test_parche.py` (7),
+      `test_pegadas.py`, `test_restos.py`, 11 Nácar-Colunga tests.
+  - Merged title slots, Ps 84 and Ps 9 (2026-09-24, not installed, no
+    commit). Scratch baselines rebuilt from git (`9c036c87` `modulos/`),
+    `mod2imp TorresAmat` and fresh downloads (tomo III leaves 12, 13, 46,
+    `…tomo III_djvu.xml`).
+    - Ps 84 (leaf 46, zoomed): «1. Para el fin: Salmo para los hijos de
+      Coré.» / «2. Oh Señor, tú has derramado la bendicion sobre tu
+      tierra: tú has libertado del cautiverio á Jacob.» / «3. Perdonado
+      has…». Module: 84:1 = «Para el fin: Salmo para los hijos de Coré. 2
+      Oh Señor, tá has derramado…» (the OCR kept the «2» inside), 84:2
+      empty. Result: 84:1 = title marked; 84:2 = the body text exactly as
+      it was (errata «tá» kept); the stray «2» is dropped as the verse
+      number it is. 84:0 and 84:3 untouched.
+    - Ps 9 (leaves 12–13, whole leaf 13 read): the print gives 1 = title
+      («Para el fin: por los ocultos arcanos del Hijo: Salmo de David.»),
+      2–21 first part; then an unnumbered italic editorial line «Segunda
+      parte, que es el Salmo X segun los Hebreos: en la que implora el
+      Profeta el auxilio del Señor.», and a second part renumbered 1–18.
+      Correspondence: second part n = Vulgata 9:(21+n), unambiguous by
+      count (Clementine Ps 9 has 39 verses) and content (Clementine 9:22
+      «Ut quid, Domine, recessisti longe… in tribulatione?» = printed
+      second-part «1. ¿Y por qué, oh Señor, te has retirado á lo lejos…, en
+      la tribulacion?»; 9:39 «judicare pupillo et humili…» = printed 18
+      «Para hacer justicia al huérfano…»). Module: 9:1 = title + the whole
+      second-part v1; 9:2–21 each hold a first-part verse with second-part
+      verses interleaved irregularly (e.g. 9:3 holds second-part 3 only,
+      first-part 3 sits at the start of 9:5); 9:22–39 empty.
+      Done here (title scope only): 9:1 = title marked (module text kept:
+      «Salmo de — David,» errata stay); the second-part v1, complete in the
+      module («…crítico, en la tribulaclon?»), moves unchanged to 9:22.
+      Not done: redistributing second-part vv. 2–18 from 9:2–21 into
+      9:23–39 (body unscrambling, not a title slot); 9:0, 9:2–21 and
+      9:23–39 untouched. The italic «Segunda parte…» line is editorial, not
+      marked.
+    - Mechanism: `parche_facsimil.TRASLADOS` (origin title → empty
+      destination), destinations as `CORRECCIONES` from "" to the moved
+      text. `cambios()` checks that each origin's old text is exactly
+      title + separator (spaces, optionally the stray verse number) +
+      destination text, and fails otherwise: nothing lost, nothing
+      duplicated. The «old text never lost» invariant in
+      `test_cambios_autorizados` accepts only these two explicit transfers
+      and the Ps 71 garbage replacement.
+    - Regeneration: from the installed module «68 versos» = these 4 entries
+      (84:1, 84:2, 9:1, 9:22) + 62 psalm entries of earlier batches (not
+      installed) + `Matthew 12:6` and `Matthew 12:10`
+      (TORRES-FACSIMILE-102/-103). 38,698/38,698 entries, same keys and
+      order; non-empty 35,475 → 35,483 (6 recovered titles of the previous
+      batch + 84:2 + 9:22). From the git source «84 versos», exactly the 84
+      authorized references, byte-identical to the regeneration from the
+      installed module; second pass «0 versos», byte-identical.
+      `modulos/`, `~/.sword`, Nácar-Colunga outputs unchanged (sha256).
+    - Tests: `test_salmo_84_parte_el_v2`, `test_salmo_9_segunda_parte`
+      (title, moved text, exact reconstruction, each fragment once, all
+      other Ps 9 verses untouched) and `test_traslado_incoherente_se_rechaza`;
+      all three fail on the pre-batch patch. Set-aside checks of batches 3
+      and 6 for Ps 9/84 now forbid only marking the merged slot as a
+      title. PASS: `test_titulos.py` (20), `test_parche.py` (7),
+      `test_pegadas.py`, `test_restos.py`, 11 Nácar-Colunga tests.
+  - Shared-v1 batch 1 (2026-09-24, not installed, no commit): Ps 12, 13,
+    14, 15, 16, 22. Scratch baselines rebuilt from git, `mod2imp` and fresh
+    downloads (tomo III leaves 13, 14, 17, `…tomo III_djvu.xml`); leaves
+    read whole. In all six the printed «1.» sets the inscription on its own
+    line and the body continues on the next line without a number; the
+    boundary is that line break, not punctuation. Same mechanism as Ps
+    52:1 (`<seg>title</seg> body` in the native v1), module text kept.
+
+      | Ref | Leaf | Title (own line) | Body of «1.» starts | Body «2.» |
+      |---|---|---|---|---|
+      | 12:1 | 13 | «Para el fin: Salmo de David.» (module «Dayid») | «¿Hasta cuándo, oh Señor…» (module «¡Hasta») | «¿Cuánto tiempo andaré…» |
+      | 13:1 | 14 | «Para el fin: Salmo de David.» | «Dijo en su corazon el insensato: No hay Dios… no hay uno siquiera.» | «El Señor echó desde el cielo…» |
+      | 14:1 | 14 | «Salmo de David.» | «¡Ah! Señor, ¿quién morará…» | «Aquel que vive sin mancilla…» |
+      | 15:1 | 14 | «Inscripcion de título: Del mismo David.» (module «titulo») | «Sálvame, oh Señor…» (module «Senor», «todw») | «Yo dije al Señor…» |
+      | 16:1 | 14 | «Oracion de David.» | «Atiende, oh Señor, á mi justicia…» | «Salga de tu benigno rostro…» |
+      | 22:1 | 17 | «Salmo de David.» | «El Señor me pastorea, nada me faltará.» (module «A El Señor…», stray «A» kept) | «Él me ha colocado…» |
+
+    - Ps 13: the module's 13:1 also held the printed «2.» («El Señor echó
+      desde el cielo… ó que buscase á Dios.») and 13:2 was empty; it moves
+      unchanged to 13:2 via `TRASLADOS`. `_comprueba_traslados()` now
+      accepts title + own body + moved text (exact reconstruction still
+      required); the Ps 9 and 84 transfers are unchanged and verified in
+      the regenerated module.
+    - Regeneration: from the installed module «75 versos» = these 7 entries
+      (12:1, 13:1, 13:2, 14:1, 15:1, 16:1, 22:1) + 66 psalm entries of
+      earlier batches (not installed) + `Matthew 12:6` and `Matthew 12:10`
+      (TORRES-FACSIMILE-102/-103). 38,698/38,698 entries, same keys and
+      order; non-empty 35,475 → 35,484 (+1 for 13:2). Each entry's text
+      without the seg equals the installed text (13:1 + 13:2 = old 13:1);
+      v2 of 12, 14, 15, 16, 22 and 13:3 identical. From the git source «91
+      versos», exactly the 91 authorized references, byte-identical to the
+      regeneration from the installed module; second pass «0 versos»,
+      byte-identical. `modulos/`, `~/.sword`, Nácar-Colunga outputs
+      unchanged (sha256).
+    - Tests: `test_titulo_y_cuerpo_compartidos_primer_lote` (sheet, title,
+      body outside the seg, each fragment once, title + body = module text,
+      v2 untouched, printed body start) and `test_salmo_13_v2_trasladado`
+      (exact reconstruction, 13:0/13:3 untouched, Ps 9/84 transfers intact,
+      no overlap with any earlier batch); both fail on the pre-batch patch
+      (`KeyError`). PASS: `test_titulos.py` (22), `test_parche.py` (7),
+      `test_pegadas.py`, `test_restos.py`, 11 Nácar-Colunga tests.
+  - Shared-v1 batch 2 (2026-09-24, not installed, no commit): Ps 23, 24,
+    25, 26, 27, 28, 31, 32. Scratch baselines rebuilt; tomo III leaves 17,
+    18, 19, 20, 21 read whole. Cuts differ per psalm:
+
+      | Ref | Leaf | Layout in the print | Decision |
+      |---|---|---|---|
+      | 23:1 | 17 | «1. Para el primer dia de la semana: Salmo de David.» / next line «Del Señor es la tierra…» | cut at the line break; body keeps the module's stray «Y» |
+      | 24:1 | 18 | «1. Para el fin: Salmo de David.» / «Á tí, oh Señor, he levantado mi espíritu.» | cut at the line break |
+      | 25:1 | 18 | «1. Para el fin: Salmo de David.» / «Oh, Señor, seas tú mi Juez…» | cut; body keeps junk «a! y» |
+      | 26:1 | 18 | «1. Salmo de David antes de ser ungido⁵.» / «El Señor es mi luz…» | cut at the line break |
+      | 27:1 | 19 | «Salmo del mismo David.» BEFORE «1. Á tí, oh Señor, clamaré…» | title recovered from the print; the whole module v1 kept as body |
+      | 28:1 | 19 | «1. Salmo de David, cuando se concluyó el Tabernáculo.» / «Presentad al Señor…» | cut; module «Dayid» kept |
+      | 31:1 | 20 | «Del mismo David, *Salmo de* inteligencia.» BEFORE «1. Felices aquellos…» / «2. Dichoso el hombre…» | SET ASIDE: title missing, and the module's 31:1 also holds printed v2 without its start («o el hombre…») plus junk («Pi», «e»); 31:2 empty. Body recovery, not a clean cut |
+      | 32:1 | 21 | «Salmo de David.» BEFORE «1. Regocijaos, oh justos…» | title recovered; whole module v1 kept as body (junk «hRegoeijaos») |
+
+    - Also seen: 32:2 holds printed v2 + v3 merged (body, not touched).
+    - Regeneration: from the installed module «82 versos» = these 7 entries
+      (23:1–28:1, 32:1) + 73 psalm entries of earlier batches (not
+      installed) + `Matthew 12:6` and `Matthew 12:10`
+      (TORRES-FACSIMILE-102/-103). 38,698/38,698 entries, same keys and
+      order; non-empty 35,475 → 35,484 (no new slots in this batch). Each
+      entry without the seg equals the installed text (27:1/32:1: title +
+      installed text); v0/v2 of each and Ps 31:1–2 identical; transfers
+      84:1→84:2, 9:1→9:22 and 13:1→13:2 intact. From the git source «98
+      versos», exactly the 98 authorized references, byte-identical to the
+      regeneration from the installed module; second pass «0 versos»,
+      byte-identical. `modulos/`, `~/.sword`, Nácar-Colunga outputs
+      unchanged (sha256).
+    - Tests: `test_titulo_y_cuerpo_compartidos_segundo_lote` (sheet, title,
+      printed body start, title + body = module text or title + whole v1,
+      each fragment once, v2 untouched, Ps 31 untouched, TRASLADOS
+      unchanged, no overlap with any earlier batch); fails on the pre-batch
+      patch (`KeyError 'Psalms 23:1'`). PASS: `test_titulos.py` (23),
+      `test_parche.py` (7), `test_pegadas.py`, `test_restos.py`, 11
+      Nácar-Colunga tests.
+  - Shared-v1 batch 3 (2026-09-24, not installed, no commit): Ps 34, 36,
+    42, 49, 65, 70, 72, 73. Scratch baselines rebuilt; tomo III leaves 21,
+    24, 26, 29, 35, 38, 39 read (title zones zoomed).
+
+      | Ref | Leaf | Print | Decision |
+      |---|---|---|---|
+      | 34:1 | 21 | «1. *Salmo* del mismo David.» / «Juzga, oh Señor, á los que me dañan…» | SET ASIDE: module 34:1 and 34:2 empty; needs body recovery, not a cut |
+      | 36:1 | 24 | «1. Salmo del mismo David.» / «No envidies la prosperidad…» | cut at the line break |
+      | 42:1 | 26 | «1. Salmo de David.» / «Júzgame tú, oh Dios…» | cut; module «¡Salmo» (stray «¡») kept in the title |
+      | 49:1 | 29 | «1. Salmo de *ó para* Asaph.» / «El Dios de los dioses…» | cut; module «de d para» kept |
+      | 65:1 | 35 | «Para el fin: 1. Salmo y Cántico de la Resurreccion.» / «Moradores todos de la tierra…» / «2. Cantad salmos…» | SET ASIDE: prefix lost AND 65:1 also holds printed v2 behind junk («de y Júbilo: e 2,»), 65:2 empty: body redistribution with junk at the boundary |
+      | 70:1 | 38 | «Salmo de David: 1. De los hijos de Jonadab, y de los primeros cautivos.» / «En tí, oh Señor…» | SET ASIDE: prefix lost and the title part after «1.» is OCR-garbled («De los hijos.. de ] Jonadab, z y de los pri-. ImMeéros cautivos.»); needs a title replacement decision |
+      | 72:1 | 39 | «1. Salmo de Asaph.» / «¡Cuán bondadoso es Dios…» | cut; module «¡ Salmo» kept |
+      | 73:1 | 39 | «1. *Salmo de* inteligencia de Asaph.» / «¿Y por qué, oh Dios…» | cut at the line break |
+
+    - Regeneration: from the installed module «87 versos» = these 5
+      entries (36:1, 42:1, 49:1, 72:1, 73:1) + 80 psalm entries of earlier
+      batches (not installed) + `Matthew 12:6` and `Matthew 12:10`
+      (TORRES-FACSIMILE-102/-103). 38,698/38,698 entries, same keys and
+      order, non-empty 35,484 (unchanged by this batch). Each entry
+      without the seg equals the installed text; v0/v2 of each and
+      Ps 34/65/70 v1–v2 identical; transfers 84:1→84:2, 9:1→9:22,
+      13:1→13:2 intact. From the git source «103 versos», exactly the 103
+      authorized references, byte-identical to the regeneration from the
+      installed module; second pass «0 versos», byte-identical.
+      `modulos/`, `~/.sword`, Nácar-Colunga outputs unchanged (sha256).
+    - Tests: `test_titulo_y_cuerpo_compartidos_tercer_lote` (sheet, title,
+      printed body start, title + body = module text, each fragment once,
+      v0/v2 untouched, set-aside psalms untouched, TRASLADOS unchanged, no
+      overlap with any earlier batch); fails on the pre-batch patch
+      (`KeyError 'Psalms 36:1'`). PASS: `test_titulos.py` (24),
+      `test_parche.py` (7), `test_pegadas.py`, `test_restos.py`, 11
+      Nácar-Colunga tests.
+  - Shared-v1 batch 4 (2026-09-24, not installed, no commit): Ps 77, 78,
+    81, 85, 86, 89, 90, 92. Baselines rebuilt in the session scratchpad
+    from git (`9c036c87`), `mod2imp TorresAmat` and fresh downloads (tomo
+    III leaves 41, 44, 45, 46, 47, 48, 49, `…tomo III_djvu.xml`); every
+    title zone zoomed.
+
+      | Ref | Leaf | Print | Decision |
+      |---|---|---|---|
+      | 77:1 | 41 | «1. Inteligencia, *ó instruccion* de Asaph.» / «Escucha, pueblo mio…» | cut; module title «Inteligencia, ¿mstruccion de Asaph,.» kept |
+      | 78:1 | 44 | «1. Salmo de Asaph.» / «Oh Dios, los Gentiles…» | cut |
+      | 81:1 | 45 | «1. Salmo de Asaph.» / «Presente está Dios…» | cut |
+      | 85:1 | 46 | «Oracion del mismo David.» BEFORE «1. Inclina, Señor…» | module keeps none of the inscription (85:1 = «Inelina, Señor…»); title recovered, whole v1 kept as body |
+      | 86:1 | 47 | «1. Á los hijos de Coré. Salmo y Cántico.» / «Sobre los montes santos…» | cut; module «4 los hijos… Cántico,» kept |
+      | 89:1 | 48 | «1. Oracion de Moysés, varon de Dios.» / «Señor, en todas épocas…» | cut; module «M OYSÉs» kept |
+      | 90:1 | 48 | «Alabanza y Cántico de David.» BEFORE «1. El que se acoge al asilo…» | title recovered, whole v1 kept as body |
+      | 92:1 | 49 | «Salmo y Cántico del mismo David, para la víspera del sábado, que es cuando fué criada la tierra.» BEFORE «1. El Señor reinó…» | title recovered, whole v1 kept as body |
+
+    - No case needed body recovery; none set aside. Seen but not touched:
+      92:2 holds printed v2 + v3 (body).
+    - Regeneration: from the installed module «95 versos» = these 8 entries
+      + 85 psalm entries of earlier batches (not installed) + `Matthew
+      12:6` and `Matthew 12:10` (TORRES-FACSIMILE-102/-103). 38,698/38,698
+      entries, same keys and order, non-empty 35,484 (unchanged by this
+      batch). Each entry without the seg equals the installed text (85,
+      90, 92: title + installed text); v0/v2 of each untouched; transfers
+      84:1→84:2, 9:1→9:22, 13:1→13:2 intact. From the git source «111
+      versos», exactly the 111 authorized references, byte-identical to the
+      regeneration from the installed module; second pass «0 versos»,
+      byte-identical. `modulos/`, `~/.sword`, Nácar-Colunga outputs
+      unchanged (sha256).
+    - Tests: `test_titulo_y_cuerpo_compartidos_cuarto_lote` (sheet, title,
+      printed body start, exact reconstruction, body once, v0/v2
+      untouched, TRASLADOS unchanged, no overlap with any earlier batch);
+      `test_sin_textos_de_otras_biblias` extended to 85/90/92. Fails on the
+      pre-batch patch (`KeyError 'Psalms 77:1'`). PASS: `test_titulos.py`
+      (25), `test_parche.py` (7), `test_pegadas.py`, `test_restos.py`, 11
+      Nácar-Colunga tests.
+  - Shared-v1 batch 5 (2026-09-24, not installed, no commit): Ps 93, 94,
+    95, 96, 97, 98, 100, 102. Baselines rebuilt in the scratchpad (git
+    `9c036c87`, `mod2imp TorresAmat`); tomo III leaves 49–52 and the
+    Archive OCR; every title zone zoomed (Ps 97 cropped from the right
+    column of leaf 50, where the OCR fused both columns).
+
+      | Ref | Leaf | Print | Decision |
+      |---|---|---|---|
+      | 93:1 | 49 | «Salmo del mismo David, para el cuarto dia de la semana.» BEFORE «1. El Señor *ó Jehovah*, es el Dios de las venganzas…» | SET ASIDE: title is before «1.» (confirmed); the module keeps nothing — 93:1 is empty, so the body is missing too (body recovery) |
+      | 94:1 | 50 | «Alabanza ó Cántico del mismo David.» BEFORE «1. Venid, regocijémonos…» | title recovered, whole module v1 kept as body |
+      | 95:1 | 50 | «Cántico del mismo David, *cantado*. 1. Cuando se reedificó la Casa *de Dios* despues de la cautividad⁶.» / «Cantad al Señor un cántico nuevo…» | mixed: prefix «Cántico del mismo David, cantado.» recovered + the title part the module keeps («Cuando se reedificó… cautividad.»); body = rest of v1 |
+      | 96:1 | 50 | «1. *Salmo de* David, cuando fué restaurada su tierra.» / «El Señor es el que reina…» | cut |
+      | 97:1 | 50 | «1. Salmo del mismo David.» / «Cantad al Señor un cántico nuevo; porque…» | cut |
+      | 98:1 | 51 | «1. Salmo del mismo David.» / «Reina *ya* el Señor…» | cut |
+      | 100:1 | 51 | «1. Salmo del mismo David.» / «Cantaré, Señor, las alabanzas…» | cut; the title is AFTER the «1.» (not before) and the module keeps it whole |
+      | 102:1 | 52 | «1. Del mismo David.» / «Bendice, oh alma mia…» | cut |
+
+    - Errata/merges seen, not touched: 94:2 «eracias», 95:2 «anuneciad»,
+      96:2 «Uircuido», 98:1 «quel», 98:2 holds printed v2 plus fragments of
+      later verses, 100:1 body truncated at «jus-» (print «justicia:»),
+      102:2 «nineuno».
+    - Regeneration: from the installed module «102 versos» = these 7
+      entries (94:1–102:1) + 93 psalm entries of earlier batches (not
+      installed) + `Matthew 12:6` and `Matthew 12:10`
+      (TORRES-FACSIMILE-102/-103). 38,698/38,698 entries, same keys and
+      order, non-empty 35,484 (unchanged by this batch). Each entry
+      without the seg contains the installed text once and ends with the
+      kept body; v0/v2 of each and Ps 93:1–2 untouched; transfers
+      84:1→84:2, 9:1→9:22, 13:1→13:2 intact. From the git source «118
+      versos», exactly the 118 authorized references, byte-identical to the
+      regeneration from the installed module; second pass «0 versos»,
+      byte-identical. `modulos/`, `~/.sword`, Nácar-Colunga outputs
+      unchanged (sha256).
+    - Tests: `test_titulo_y_cuerpo_compartidos_quinto_lote` (sheets, cuts,
+      Ps 100 title after «1.», Ps 94 prefix + whole v1, Ps 95 mixed title,
+      title + body reconstruction, body once, v0/v2 untouched, Ps 93
+      untouched, TRASLADOS unchanged, no overlap with any earlier batch);
+      `test_sin_textos_de_otras_biblias` extended to 94/95. Fails on the
+      pre-batch patch (`KeyError 'Psalms 96:1'`). PASS: `test_titulos.py`
+      (26), `test_parche.py` (7), `test_pegadas.py`, `test_restos.py`, 11
+      Nácar-Colunga tests.
+  - Shared-v1 batch 6 (2026-09-24, not installed, no commit): Ps 103,
+    104, 105, 106, 109, 110, 111, 112. Baselines rebuilt in the scratchpad
+    (git `9c036c87`, `mod2imp TorresAmat`); tomo III leaves 52–59 and the
+    Archive OCR; every title zone zoomed.
+
+      | Ref | Leaf | Print | Decision |
+      |---|---|---|---|
+      | 103:1 | 52 | «1. Del mismo David.» / «Oh alma mia, bendice al Señor…» | cut |
+      | 104:1 | 53 | «Aleluya⁶.» BEFORE «1. Alabad al Señor, é invocad…» | «Aleluya.» recovered (callout dropped), whole v1 kept as body |
+      | 105:1 | 54 | «Aleluya¹.» BEFORE «1. Alabad al Señor porque es *tan* bueno…» | same |
+      | 106:1 | 54 | «Aleluya¹¹.» BEFORE «1. Alabad al Señor, porque es *tan* bueno…» | same |
+      | 109:1 | 58 | «1. Salmo de David.» / «El Señor dijo⁵ á mi Señor…» | cut; the module's stray «D» stays in the body |
+      | 110:1 | 58 | «Aleluya.» BEFORE «1. Oh Señor, loarte he…» | «Aleluya.» recovered, whole v1 kept as body |
+      | 111:1 | 58 | «Aleluya: del regreso de Aggéo y de Zacharias.» BEFORE «1. Bienaventurado el hombre…» | title recovered, whole v1 kept as body |
+      | 112:1 | 59 | «Aleluya.» BEFORE «1. Alabad, oh jóvenes, al Señor…» | SET ASIDE: 112:1 and 112:2 also carry verses of Ps 113 («Cuando Israél salió de Esypto…», «Consagró Dios á su servicio…»); body redistribution across psalms |
+
+    - Errata seen, not touched: 103:1 «Senor», «de! erloria», 103:2
+      «¿los», «0 cortina», 104:1 «Invocad», 109:1 «%», «Já», 110:1
+      «sociedarl», «/glesia», 111:1 «Bienayenturado», 111:2 «ben- De:».
+    - Regeneration: from the installed module «109 versos» = these 7
+      entries (103:1–111:1) + 100 psalm entries of earlier batches (not
+      installed) + `Matthew 12:6` and `Matthew 12:10`
+      (TORRES-FACSIMILE-102/-103). 38,698/38,698 entries, same keys and
+      order, non-empty 35,484 (unchanged by this batch). Each entry
+      without the seg equals the installed text or the recovered title +
+      the installed text; v0/v2 of each and Ps 112:1–2 untouched;
+      transfers 84:1→84:2, 9:1→9:22, 13:1→13:2 intact. From the git source
+      «125 versos», exactly the 125 authorized references, byte-identical
+      to the regeneration from the installed module; second pass «0
+      versos», byte-identical. `modulos/`, `~/.sword`, Nácar-Colunga
+      outputs unchanged (sha256).
+    - Tests: `test_titulo_y_cuerpo_compartidos_sexto_lote` (sheets, cuts,
+      recovered Aleluya titles with the whole v1 as body, title and body
+      once, v0/v2 untouched, Ps 112 untouched, TRASLADOS unchanged, no
+      overlap with any earlier batch); fails on the pre-batch patch
+      (`KeyError 'Psalms 103:1'`). PASS: `test_titulos.py` (27),
+      `test_parche.py` (7), `test_pegadas.py`, `test_restos.py`, 11
+      Nácar-Colunga tests.
+  - Batch 7, Ps 113–120 (2026-09-24, not installed, no commit). Baselines
+    rebuilt in the scratchpad (git `9c036c87`, `mod2imp TorresAmat`);
+    tomo III leaves 59, 60, 63 read whole (61–62 hold only Ps 118 body),
+    compared with the Archive OCR and `VulgClementine` (structure only).
+    - Numbering vs. Vulgata:
+      - Ps 113 (leaf 59): «Aleluya.» / «1. Cuando Israél salió de
+        Egypto…» … «8.»; then, without a new heading, «1. No á nosotros,
+        Señor…» … «18.» (footnote 5: «En el hebreo comienza aquí otro
+        Salmo. Pero en los Setenta, como en la Vulgata, solo comienza nueva
+        numeracion de versos»). Printed second part n = Vulgata 113:(8+n)
+        (Clementine 113:9 «Non nobis, Domine…», 113:26 «…benedicimus
+        Domino…»).
+      - Ps 114 (leaf 59): a separate psalm in Torres Amat, «Aleluya.» /
+        «1. Amé al Señor…» … «9.» = Vulgata 114:1–9. (The «114, 115» single
+        heading belongs to Nácar-Colunga, which follows the Hebrew; not to
+        this edition.)
+      - Ps 115 (leaves 59–60): «Aleluya.» / «10. Creí á Dios…» … «19.»:
+        the print keeps the Hebrew continuation numbers 10–19; they are
+        Vulgata 115:1–10 (Clementine 115:1 «Credidi…», 10 verses). The
+        module already maps printed 10 → 115:1.
+      - Ps 116, 117, 118 (leaf 60), 119, 120 (leaf 63): numbering matches
+        Vulgata.
+    - Decisions:
+
+      | Ref | Leaf | Print | Decision |
+      |---|---|---|---|
+      | 113 | 59 | as above | SET ASIDE: module 113:1 holds second-part v1 («No á nosotros…») plus Ps 114:1 («Amé al Señor…»), 113:2 holds 113:10 plus 114:2; Ps 112:1–3 hold 113:1–3 interleaved. Body redistribution across Ps 112/113/114 |
+      | 114:1 | 59 | «Aleluya.» BEFORE «1. Amé al Señor…» | «Aleluya.» recovered, whole v1 kept as body (module 114:1–9 are the printed 1–9) |
+      | 115:1 | 59 | «Aleluya.» BEFORE «10. Creí á Dios…» | «Aleluya.» recovered, whole v1 kept (incl. the running-header junk «85 SALMOS.» and «d Dios», «contado 5») |
+      | 116:1 | 60 | «Aleluya.» BEFORE «1. Alabad al Señor, naciones todas…» | «Aleluya.» recovered, whole v1 kept |
+      | 117:1 | 60 | «Aleluya.» BEFORE «1. Alabad al Señor, porque es *tan* bueno…» | same |
+      | 118:1 | 60 | «Aleluya.» / «ALEPH. 1. Bienaventurados los que proceden…» | «Aleluya.» recovered; the stanza label «ALEPH.» is not part of the inscription and is not added |
+      | 119:1 | 63 | «1. Cántico de los grados, *ó gradual*.» / «Clamé al Señor…» | cut; module «0 gradual.» stays in the title, junk «eme» stays in the body |
+      | 120:1 | 63 | «Cántico gradual.» BEFORE «1. Alcé mis ojos…» | title recovered, whole v1 kept (module «Aleé») |
+
+    - Boundary with Ps 112 checked: the print ends Ps 112 at «9. Él á la
+      mujer, antes estéril…» and starts Ps 113 with its own «Aleluya.»;
+      nothing of Ps 112 or 113 is changed here.
+    - Body errata/merges seen, not touched: 119:2 holds printed v2 + v3
+      (119:3 empty), 120:2 holds printed v2 + v3 (120:3 empty), 118:1 «man
+      cilla», 118:2 «d su Ley».
+    - Regeneration: from the installed module «116 versos» = these 7
+      entries (114:1–120:1) + 107 psalm entries of earlier batches (not
+      installed) + `Matthew 12:6` and `Matthew 12:10`
+      (TORRES-FACSIMILE-102/-103). 38,698/38,698 entries, same keys and
+      order, non-empty 35,484 (unchanged by this batch). Each entry
+      without the seg contains the installed text exactly once; v0/v2 of
+      each and every verse of Ps 112 and 113 untouched; transfers
+      84:1→84:2, 9:1→9:22, 13:1→13:2 intact. From the git source «132
+      versos», exactly the 132 authorized references, byte-identical to the
+      regeneration from the installed module; second pass «0 versos»,
+      byte-identical. `modulos/`, `~/.sword`, Nácar-Colunga outputs
+      unchanged (sha256).
+    - Tests: `test_septimo_lote_sal_114_120` (sheets, prefixes with whole
+      v1, «ALEPH» not in the title, Ps 119 cut, v0/v2 untouched, Ps 112/113
+      untouched, TRASLADOS unchanged, no overlap with any earlier batch);
+      fails on the pre-batch patch (`KeyError 'Psalms 114:1'`). PASS:
+      `test_titulos.py` (28), `test_parche.py` (7), `test_pegadas.py`,
+      `test_restos.py`, 11 Nácar-Colunga tests.
+  - Batch 8, Ps 121–128 «Cántico gradual» (2026-09-24, not installed, no
+    commit). Baselines rebuilt in the scratchpad (git `9c036c87`,
+    `mod2imp TorresAmat`); tomo III leaves 63, 64, 65 read whole. The
+    common name hides two layouts, checked one by one; numbering matches
+    Vulgata in all eight.
+
+      | Ref | Leaf | Print | Decision |
+      |---|---|---|---|
+      | 121:1 | 63 | «1. Cántico gradual.» / «Gran contento tuve…» | cut |
+      | 122:1 | 64 | «Cántico gradual.» BEFORE «1. Á tí, *Señor*, que habitas…» | title recovered, whole module v1 kept as body («Átí») |
+      | 123:1 | 64 | «1. Cántico gradual.» / «Á no haber estado el Señor con nosotros, confiéselo ahora Israél,» | SET ASIDE: module 123:1 is empty; title and body both missing (body recovery) |
+      | 124:1 | 64 | «1. Cántico gradual.» / «Los que ponen en el Señor…» | cut; module «gradual,» kept |
+      | 125:1 | 64 | «1. Cántico gradual.» / «Cuando el Señor hará volver…» | cut |
+      | 126:1 | 64 | «1. Cántico gradual de Salomon.» / «Si el Señor no es el que edifica…» | cut; module «SI» kept |
+      | 127:1 | 64 | «1. Cántico gradual.» / «Bienaventurados todos aquellos…» | cut |
+      | 128:1 | 65 | «1. Cántico gradual.» / «Muchas veces me han asaltado *los enemigos*…» / «2. Muchas veces…» | cut; the title decision is independent of the body anomaly: module 128:1 also carries printed v2 («…desde 2 Muchas veces… no han podido conmigo.») and 128:2–3 are empty. That body stays untouched in 128:1 for its own task |
+
+    - Body anomalies seen, not touched: 128:1–3 (v2 merged into v1, v2–3
+      empty), 126:2–3 and 126:4–5 merged (126:3 empty), 125:6–7 (125:7
+      empty); errata 121:1 «remos», «Senor», 121:2 «muestros», «dJeru|
+      salem», 124:2 «Senor», 126:1 «eindad», 127:1 «sentos eaminos», 127:2
+      «puz», «1rá».
+    - Regeneration: from the installed module «123 versos» = these 7
+      entries + 114 psalm entries of earlier batches (not installed) +
+      `Matthew 12:6` and `Matthew 12:10` (TORRES-FACSIMILE-102/-103).
+      38,698/38,698 entries, same keys and order, non-empty 35,484
+      (unchanged by this batch). Each entry without the seg contains the
+      installed text exactly once; v0/v2 of each, all of Ps 123 and 128:3
+      untouched; transfers 84:1→84:2, 9:1→9:22, 13:1→13:2 intact. From the
+      git source «139 versos», exactly the 139 authorized references,
+      byte-identical to the regeneration from the installed module; second
+      pass «0 versos», byte-identical. `modulos/`, `~/.sword`, Nácar-Colunga
+      outputs unchanged (sha256). Ps 113 not touched.
+    - Tests: `test_octavo_lote_graduales` (sheets, per-psalm title and body
+      start, Ps 122 prefix + whole v1, Ps 128 merged v2 kept in the body,
+      v0/v2 untouched, Ps 123 untouched, TRASLADOS unchanged, no overlap
+      with any earlier batch); fails on the pre-batch patch (`KeyError
+      'Psalms 121:1'`). PASS: `test_titulos.py` (29), `test_parche.py` (7),
+      `test_pegadas.py`, `test_restos.py`, 11 Nácar-Colunga tests.
+  - Final batch (2026-09-25, not installed, no commit). Source: the 1882
+    facsimile, Internet Archive item
+    `la-sagrada-biblia-vulgata-tomo-iiv_202111`, the per-leaf jp2
+    `LA SAGRADA BIBLIA - Vulgata tomo III_NNNN.jp2` (JPEG 2000, read on
+    the sheet). Not hOCR, not the 1835 scan, not Nácar, not Reina-Valera.
+    26 title slots and 3 glued headings.
+    - Shared-v1, cut on the printed line of «1.»; module spelling kept:
+
+      | Ref | Leaf | Title kept from the module |
+      |---|---|---|
+      | 129:1 | 65 | «Cántico gradual.» |
+      | 131:1 | 65 | «Cántico gradual.» |
+      | 132:1 | 65 | «Cántico gradual de David.» |
+      | 134:1 | 66 | «Aleluya.» |
+      | 135:1 | 66 | «Aleluya.» |
+      | 137:1 | 67 | «Del mismo David.» |
+      | 138:1 | 67 | «Para el fin: Salmo de David.» |
+      | 140:1 | 68 | «Salmo de David,» (module comma) |
+      | 144:1 | 69 | «Alabanza inspirada al mismo David.» |
+      | 148:1 | 72 | «Alehiya.» (module spelling) |
+      | 149:1 | 72 | «Aleluya.» |
+      | 150:1 | 72 | «Aleluya,» (module comma) |
+
+    - Title missing from the module; the whole v1 stays the body:
+      130:1 «Cántico gradual de David.» (hoja 65), 136:1 «Salmo de David,
+      para Jeremías.» (66), 147:1 «Aleluya.» before the printed «12.»
+      (69; the module's truncated «á tu» stays), 31:1 «Del mismo David,
+      Salmo de inteligencia.» (20; the fused «2.» and the junk «Pi» stay
+      in the body, 31:2 stays empty), 112:1 «Aleluya.» (59; the verses of
+      Ps 113 that the OCR left inside 112:1 stay there).
+    - Prefix plus the inscription the module already has: 142:1 «Salmo de
+      David:» in front of «E. Cuando le perseguia…» (68; the «E.» and the
+      «7» stay), 143:1 «Salmo de David: Contra Goliath.» (68; the later
+      verse glued at the end of 143:1 stays), 65:1 «Para el fin:» in front
+      of «Salmo y Cántico de la Resurreccion,» (35; the junk «e 2,» and
+      the printed v2 stay in the body, 65:2 stays empty).
+    - Ps 133:1 (hoja 65): the module repeats 132:1 in front of «Cántico
+      gracual.» The copy is dropped (`DUPLICADO_DELANTE`); 132:1 is
+      unchanged. Title «Cántico gracual.» (module spelling), body the rest.
+    - Empty slots filled from the sheet only (v2 not filled): 34:1 «Salmo
+      del mismo David.» + «Juzga, oh Señor, á los que me dañan: bate á los
+      que pelean contra mí.» (21); 123:1 «Cántico gradual.» + «Á no haber
+      estado el Señor con nosotros, confiéselo ahora Israél,» (64); 146:1
+      «Aleluya.» + «Alabad al Señor; porque justa cosa es cantarle himnos.
+      Cántese á nuestro Dios un grato y digno cántico.» (69); 93:1 «Salmo
+      del mismo David, para el cuarto dia de la semana.» + «El Señor ó
+      Jehovah, es el Dios de las venganzas: y el Dios de las venganzas ha
+      obrado con independiente libertad.» (49; «ó Jehovah» is the italic
+      gloss on the sheet).
+    - Ps 70:1 (hoja 38): the garbled inscription is replaced
+      (`SUSTITUYE_BASURA`) by «Salmo de David: De los hijos de Jonadab, y
+      de los primeros cautivos.» The body «En tí, oh Señor…» is the
+      module's own text.
+    - Ps 113 is not marked. On hoja 59 the inscription is «Aleluya.»
+      before «1. Cuando Israél salió de Egypto…», and that verse is not
+      in 113:1 (113:1 holds the second numbering, «No á nosotros…»).
+      Putting the title there, or moving verses across 112/113/114, is
+      outside a title slot. 113:1–3 unchanged.
+    - Glued «SALMO …» headings removed from the last verse, not marked as
+      titles (`CORRECCIONES`): Ps 4:10 (hoja 11; the verse keeps
+      «esperanza +,»), Ps 52:7 (hoja 30), Ps 130:3 (hoja 65).
+    - Regeneration: from the installed module «152 versos» = the 29
+      references of this batch plus the earlier psalm marks and
+      `Matthew 12:6` / `Matthew 12:10` that were not installed. 38,698
+      entries, same keys and order; non-empty 35,475 → 35,488 (+13: the
+      six empty titles of the whole-title batch, the three transfer
+      destinations, and 34:1, 93:1, 123:1, 146:1). Nothing outside
+      `CORRECCIONES`/`TITULOS`. From git `9c036c87` `modulos/` «168
+      versos», every authorized reference, export and module files
+      byte-identical to the regeneration from the installed module.
+      Second pass «0 versos», byte-identical. Nácar-Colunga outputs
+      unchanged (sha256).
+    - Installed on request, so a future first install ships the corrected
+      text: the patched ztext replaced `modulos/modules/texts/ztext/torresamat/`
+      (the conf was already identical) and the same files were copied to
+      `~/.sword`. Differences against the previous repo module, the
+      installed module, and git `9c036c87` were only authorized
+      `CORRECCIONES`/`TITULOS` entries. `install-biblia-elim.sh` still
+      copies Torres Amat only when `~/.sword/mods.d/torresamat.conf` is
+      absent, so an existing install is not overwritten by a reinstall.
+    - Tests: `test_noveno_lote_y_apartados` and
+      `test_encabezado_pegado_no_es_titulo`. The older set-aside checks
+      now require the recovered title and still forbid touching v2 or
+      redistributing the fused body. PASS: `test_titulos.py`,
+      `test_parche.py`, `test_pegadas.py`, `test_restos.py`.
+  - Outside this task (body, not a title slot; not done):
+    - Ps 9 second part (vv. 2–18 still interleaved in 9:2–21; 9:23–39
+      empty). Ps 113's own verses still sit in Ps 112, and 113:1 still
+      holds the second numbering plus Ps 114:1.
+    - Empty body verses: 8:2, 38:2–3, 34:2, 145:2–3, 31:2, 65:2.
+    - Merged body slots left as they were: 17:2–3, 32:2–3, 61:2–3,
+      65:1 (printed v2 still inside, behind «e 2,»), 92:2–3, 98:2,
+      119:2–3, 120:2–3, 126:2–5, 128:1–3, 31:1 (printed v2 still inside),
+      143:1 (a later verse still inside the body). 100:1 still truncated;
+      147:1 still ends at «á tu».
+    - Italic argument lines are editorial and are not marked.
+  - Closed (was the blocker):
+    - Shared-v1 pending (19): 129, 130, 131, 132, 133, 134, 135, 136,
+      137, 138, 140, 142, 143, 144, 146, 147, 148, 149, 150.
+    - Set aside: 31, 34, 65, 70, 93, 112 and 123 marked from the sheet;
+      113 reviewed on hoja 59 and left unmarked, as above.
+    - Glued headings Ps 4:10, 52:7 and, on the same leaves, Ps 130:3.
+  - Blocked evidence (superseded 2026-09-25): the sheets were not on disk
+    in the first pass. They were then fetched from the Archive item above
+    and read. That block is closed.
   - Known OCR / structure issues outside the batch (not fixed):
     - Ps 4:2 and Ps 4:4: OCR errata («0% Dios», «4un», «vabed», «á E st
       santo»).
     - Ps 50:2 («y vino:», «Nathán 4») and Ps 50:3 («MS borra»): OCR errata.
-    - Ps 4:10 and Ps 52:7: the next psalm's «SALMO …» heading and argument
-      glued to the verse.
     - Ps 4:8: visible `&lt;` («abundan&lt;cia»).
   - Acceptance criteria:
     - The native Vulg verse number is kept.
     - Titles are not moved to another verse (not to v0, not to Preverse of
       the next verse).
     - The title is represented structurally in the OSIS.
-    - Missing title text is recovered from the facsimile (the full djvu
-      source is not available locally; Ps 50–52 pages must be fetched).
-    - Merged slots are split.
+    - Missing title text is recovered from the 1882 sheet.
+    - A title slot that cleanly holds another verse is split only by the
+      existing `TRASLADOS` (9, 13, 84). Body merges that are not a clean
+      title-slot split stay for a body task.
     - No runtime text heuristics.
   - Do not:
     - Edit only the installed module.
@@ -5702,8 +7453,8 @@
   - Do not:
     - Commit or push.
 
-- [ ] FALLBACK-V11N-101 Prevent cross-versification fallback from filling native title slots
-  - Status: TODO
+- [x] FALLBACK-V11N-101 Prevent cross-versification fallback from filling native title slots
+  - Status: DONE
   - Description:
     Vulg↔KJV mappings can be many-to-one: Vulg Ps 3:1 → KJV Ps 3:1 and
     Vulg Ps 3:2 → KJV Ps 3:1; Vulg Ps 50:1/2/3 → KJV Ps 51:1. When a Vulg
@@ -5727,11 +7478,19 @@
     - Legitimate body fallback is not lost.
     - The policy relies on structural metadata / mapping, not on text.
     - Tests cover Ps 3, Ps 50 and Ps 51.
+  - Evidence:
+    - `content_resolver.cc` now recognizes a Vulgate psalm title slot from
+      the structural heading on the mapped KJV/KJVA entry plus a many-to-one
+      SWORD versification mapping, and refuses only that fallback; ordinary
+      body fallback remains available.
+    - `content_resolver_test` covers empty native Ps 3:1, 50:1 and 51:1
+      title slots and preserves the existing Ps 10 mapping regression;
+      `content_resolver_sword_test` passes with the Vulg/KJV mapping table.
   - Do not:
     - Commit or push.
 
-- [ ] V11N-COMMENTARY-101 Convert general commentary references across versifications
-  - Status: TODO
+- [x] V11N-COMMENTARY-101 Convert general commentary references across versifications
+  - Status: DONE
   - Description:
     The general commentary pane can receive the active Bible's native key
     directly even when the commentary and the Bible use different
@@ -5745,11 +7504,19 @@
     - Unmapped is explicit.
     - Text is never reread by identity.
     - Commentaries with the same versification as the Bible keep working.
+  - Evidence:
+    - `main_display_commentary()` now converts a key from the selected Bible
+      to the target commentary through `main_reference_for_module()` before
+      setting or rendering the commentary module; unmapped references are
+      rejected without rereading text by identity.
+    - The full build passes, and `author_commentary_content_test` plus
+      `author_commentary_header_test` pass their conversion, navigation,
+      unmapped/empty-content, and same-versification checks.
   - Do not:
     - Commit or push.
 
-- [ ] SWORD-KEY-101 Stop text rendering helpers from replacing module key pointers
-  - Status: TODO
+- [x] SWORD-KEY-101 Stop text rendering helpers from replacing module key pointers
+  - Status: DONE
   - Description:
     Text rendering helpers can replace the SWKey owned by a SWORD module
     instead of preserving the existing shared key object. Other parts of the
@@ -5808,6 +7575,16 @@
     - `content_resolver` keeps its current behavior.
     - No regression between first read and later reads (cold/warm state).
     - SWORD lifecycle tests keep passing.
+  - Evidence:
+    - `BackEnd::get_render_text`, `get_raw_text`, and `get_strip_text` now
+      use an in-place `setKeyText()` guard that preserves the owned pointer,
+      key text, AutoNormalize, and skip-consecutive-links state.
+    - `sword_backend_key_lifecycle_test` performs 1000 repeated raw/rendered/
+      stripped
+      reads for SpaRV (KJV) and, when installed, TorresAmat (Vulg), verifying
+      pointer, position, and non-empty text stability; both passes report
+      zero failures. The full build plus content-resolver and versification
+      transition regressions pass as well.
   - Regressions to check when implemented:
     - `sword_backend_key_lifecycle_test`.
     - `content_resolver_sword_test`.
@@ -5837,8 +7614,8 @@
     - Declare it fixed only because nothing crashes.
     - Commit or push.
 
-- [ ] V11N-URI-NAV-101 Refresh navbar after resolving sword:// reference in the target module
-  - Status: TODO
+- [x] V11N-URI-NAV-101 Refresh navbar after resolving sword:// reference in the target module
+  - Status: DONE
   - Description:
     Opening `sword://TorresAmat/Psalms 3:9` shows the tab/reference as 3:9,
     but the navbar shows 4:1; `TorresAmat 118:176` shows navbar 119:147.
@@ -5862,7 +7639,687 @@
     - SpaRV (KJV) keeps working.
     - A URI still means a reference NATIVE to the module it names.
     - The V11N-MODULE-101 contract does not change.
+  - Evidence:
+    - The module-qualified text path in `sword_uri()` now lets
+      `main_display_bible()` resolve and activate the named Bible before
+      updating navbar state; module-less URIs retain the existing path.
+    - `uri_navigation_v11n_test` passes all KJV/Vulg/SpaRV transition,
+      native-reference, unmapped, and non-Bible cases. The full build also
+      passes after the change.
   - Do not:
+    - Commit or push.
+
+- [x] TORRES-ENTITY-101 Remove double-escaped entity artifacts from the Torres Amat module
+  - Status: DONE
+  - Description:
+    The installed TorresAmat module carries literal, double-escaped markup
+    fragments in verse text, e.g. Ps 147:6 «Él despide el granizo en menudos
+    pedazos &amp;amp;##x27;: al rigor…» and 1 Sam 19:20 «Envió &amp;amp;##x27;
+    pues Saul =&amp;gt; soldados…». They render as visible garbage.
+  - Evidence (2026-09-25, `mod2imp TorresAmat` against `modulos/`):
+    - 552 occurrences of `&amp;amp;##x27` (524 with `;`, 26 without, 2 with
+      `;;`), spread over most books (1/2 Samuel/Kings/Chronicles, Psalms,
+      Jeremiah, Ezekiel, Isaiah, Sirach, Genesis, Exodus, Acts…).
+    - `&amp;gt;` also appears in 122 verses (e.g. 1 Sam 19:20 «Saul
+      =&amp;gt; soldados»).
+  - Root cause to determine:
+    Locate the pipeline stage under `scripts/torresamat/` that escapes an
+    already-escaped OCR apostrophe/`>` (`'` → `&#x27;` → `&amp;##x27;` →
+    `&amp;amp;##x27;`). Fix the escaping at that stage; do not post-filter
+    the module with a blind regex.
+  - Acceptance criteria:
+    - Each artifact is classified against the source OCR/facsimile: printed
+      apostrophe/character to keep (escaped exactly once) vs. OCR noise to
+      drop. Classification is reproducible and recorded.
+    - Rebuilt module: 0 occurrences of `&amp;amp;`, `&amp;gt;`, `##x27`.
+    - No other verse text changes (diff of `mod2imp` before/after limited to
+      the classified occurrences).
+    - Facsimile corrections (TORRES-FACSIMILE-101..104) and psalm-title
+      slots (TORRES-PSALM-TITLES-101) are preserved.
+    - Regression test in `scripts/torresamat/` covering the escaping stage.
+  - Do not:
+    - Replace text from another Bible.
+    - Commit or push.
+  - Evidence:
+    - Root cause, two steps (reproduced with osis2mod, SWORD 1.9.0):
+      `osis.py` escaped with `html.escape(t)`, turning `'` into `&#x27;`,
+      which osis2mod does not understand and stores as `&amp;##x27;`
+      (present since dd16f715); the 9c036c87 regeneration escaped the text
+      again (`&amp;amp;##x27;`, `&gt;` → `&amp;gt;`, `&lt;` → `&amp;lt;`).
+      Traced by exporting the module at dd16f715, 39c88261, ed1e9195 and
+      9c036c87.
+    - Classification against the source OCR (the four Archive
+      `tomo*_djvu.xml`, downloaded): the printed 1882 body uses no `'`, `<`
+      or `>`; the OCR tokens are paper specks (1484 boxes ≤12 px) or pieces
+      of a misread letter (`testig'os`, `lare'o`, `c'eneral`). Nothing
+      printed is kept; every artifact is noise.
+    - New `scripts/torresamat/entidades.py`: removes the artifact forms and
+      decides the space when an artifact sat between letters (96 cases) from
+      the module's own lexicon (words touching an artifact excluded):
+      two real words → space (`celebrado en`, `No prostituyas`), inside a
+      word → joined (`testigos`, `consigo`, `cincuenta`). Two entities split
+      across verses (Ps 106:42/43, Ez 33:11/12) are handled.
+    - `parche_facsimil.py` applies it to the whole module (`autoriza`,
+      `quita_restos`), checking that each change only removes an artifact
+      and whitespace; correction texts are compared already cleaned, so the
+      patch accepts both pre- and post-task modules.
+    - `osis.py` removes the noise before escaping and escapes with
+      `quote=False`, so a future rebuild emits no numeric references.
+    - Result on the real module: 566 verses changed; `&amp;amp` 0, `##x27`
+      0, `&amp;gt` 0, `&amp;lt` 0, `&#x27;` 0. Regenerating from 9c036c87
+      and from the current `modulos/` gives byte-identical output; a second
+      pass changes 0 verses. Other verses unchanged (round-trip guard).
+      E.g. Ps 147:6 «…en menudos pedazos: al rigor de su frio ¿quién
+      resistirá?», 1 Sam 19:20 «Envió pues Saul = soldados…».
+    - Installed to `modulos/` and `~/.sword` (identical); previous
+      `~/.sword` copy kept in the session scratchpad.
+    - Tests: new `test_entidades.py` (10 checks incl. osis2mod round trip),
+      `test_parche.py` (idempotent regeneration updated to the cleaned
+      authorizations), `test_titulos.py`; registered in CTest as
+      `torresamat_entidades_test` and `torresamat_parche_test`; PASS.
+    - Build PASS; full CTest 49/50: only `gtk_lifecycle_smoke` fails
+      («Renderer bible-compare did not complete CREATE/SHOW/MAP»), identical
+      with the pre-task module restored, so unrelated; registered as
+      UI-SMOKE-103.
+    - Out of scope, left as is: surrounding apparatus noise in some verses
+      (e.g. «AR Ú 5 AA A») and letters misread inside words
+      (`ceneral` for «general»).
+
+- [x] TORRES-PSALM-GLUE-101 Split following-psalm headers glued into the last verse of Torres Amat psalms
+  - Status: DONE
+  - Description:
+    The last verse of several psalms carries the printed header of the next
+    psalm (`SALMO CXLVII`, its argument) and sometimes the whole next psalm.
+    Worst case: Ps 146:11 holds the full text of Ps 147 plus the header of
+    Ps 148, while Ps 147:1.. also carry that text (duplicate display).
+  - Evidence (2026-09-25, `mod2imp TorresAmat`): verses containing
+    `SALMO <roman>`: Ps 6:11, 18:15, 21:32, 40:14, 47:15, 82:19, 83:13,
+    92:5, 95:13, 96:12, 97:9, 101:29, 117:14, 120:8, 131:3, 139:14, 141:8,
+    146:11, 147:9 (Vulgate numbering).
+  - Acceptance criteria:
+    - For every listed verse, the glued tail is classified against the
+      facsimile: (a) next-psalm header/argument (not verse text), (b) text
+      duplicated in native slots of the next psalm, (c) text missing from
+      those slots.
+    - (a) and (b) are removed from the verse; (c) is moved only to the empty
+      native slot it belongs to, following the structural boundary, never by
+      string guessing across psalms.
+    - The fix lives in the parser/segmentation stage (or the facsimile
+      patch mechanism of TORRES-FACSIMILE-104 if the source is a patch), not
+      in the backend.
+    - Native psalm-title slots (TORRES-PSALM-TITLES-101) stay correct.
+    - After rebuild: no verse contains a `SALMO <roman>` header; Ps 146:11
+      contains only its own text; Ps 147/148 are not duplicated.
+    - Regression test covers Ps 146:11, Ps 147:9 and at least one short case
+      (e.g. Ps 131:3).
+  - Do not:
+    - Renumber psalms to KJV.
+    - Fill from other Bibles.
+    - Commit or push.
+  - Evidence:
+    - Scope correction: the original 19-verse list used a narrow regex; a
+      scan for `SALMOS?` found 40 verses in two families. This task closes
+      family A (end of a psalm / page header inside a verse): 26 last
+      verses of a psalm plus Ps 18:15 and 117:14 (running page head mid
+      verse). Family B (mid-chapter misalignment in Ps 113–115 and 131–133,
+      running heads with apparatus noise in Ps 58:4 and 77:38, and the
+      volume title glued to 2 Macc 15:40) moves to TORRES-PSALM-ALIGN-101.
+      Ps 131:3 from the example list belongs to family B (it carries a copy
+      of Ps 130:3), so the short-case test covers Ps 18:15 and 117:14/15
+      instead.
+    - Every case checked against the 1882 facsimile (tomo III jp2 leaves
+      downloaded from the Archive item: hojas 12, 16, 26, 28, 31, 37, 44,
+      46, 49–52, 58, 60, 63–65, 67–69, 72). Classification: (a) header +
+      italic argument (+ start of the title already in :1) → removed;
+      (b) Ps 92:5, 146:11, 147:9 tails repeat Ps 93:1, 147:1–9 and 148
+      text already in their native slots (word-run check: only header,
+      argument, the Doré plate caption «…DESPUES DE SU RUINA» and noise
+      are not in the slots) → removed; Ps 147:2 repeated 147:3 → removed;
+      (c) Ps 117:15 was empty and its printed text sat after a footnote and
+      the page head in 117:14 → moved.
+    - Text the OCR lost, read on the facsimile and added: Ps 83:13 «…que
+      pone en tí su esperanza.», Ps 139:14 «…de tu divina cara.» («divi-/na
+      cara.»), Ps 147:1 «…oh Sion, á tu Dios.». A final comma read from a
+      note call becomes the printed period (e.g. Ps 47:15, 67:36, 95:13).
+    - New `scripts/torresamat/cabeceras_pegadas.py` (CABECERAS, AÑADIDOS,
+      NOTAS, TRASLADADOS, REPETIDOS), merged by `parche_facsimil.cambios()`.
+      `_comprueba_cabeceras()` enforces that each entry only removes a span
+      starting at the header (≤25 chars of engraving noise before it, or a
+      declared footnote), adds nothing undeclared, and that the moved text
+      comes from the declared source. `ANTERIORES` lets the patch start
+      from the already patched Ps 147:1, so it works on `~/.sword` too.
+    - Result: 31 verses changed. After rebuild no family-A verse contains a
+      `SALMO` header; Ps 146:11 = «Se complace sí en aquellos que le temen y
+      adoran, y en los que confian en su misericordia.»; in Ps 146–147
+      «Ha establecido la paz» and «despide el granizo» each appear once.
+      Psalm-title segs unchanged. Regeneration from 9c036c87 and from the
+      current `modulos/` is byte-identical; a second pass changes 0.
+      Installed to `modulos/` and `~/.sword` (identical).
+    - Tests: new `test_cabeceras.py` (6 checks incl. rejection of malformed
+      entries); `test_titulos.py` updated (CABECERAS in the authorized set,
+      Ps 147:1 mode «completado», Ps 147:2 declared repeat);
+      `test_parche.py`, `test_entidades.py`; CTest
+      `torresamat_{titulos_pipeline,entidades,parche,cabeceras}_test`,
+      `psalm_title_render_test`, `uri_navigation_v11n_test`: PASS.
+
+- [x] TORRES-PSALM-TITLE-OCR-101 Clean OCR noise in Torres Amat Ps 119:1 title slot
+  - Status: DONE
+  - Description:
+    Ps 119:1 (Vulg) reads `<seg type="x-psalm-title">Cántico de los grados,
+    0 gradual.</seg> eme Clamé al Señor…`: `0` is presumably OCR for «ó» and
+    `eme` is noise. Registered as a follow-up in V11N-MODULE-101.
+  - Acceptance criteria:
+    - Title and body verified against the 1882 facsimile and corrected
+      through the facsimile patch mechanism (TORRES-FACSIMILE-104).
+    - Audit the other Gradual psalms (Vulg 119–133) title slots for the same
+      pattern and correct only facsimile-confirmed defects.
+    - Patch test updated; psalm-title structure preserved.
+  - Do not:
+    - Commit or push.
+  - Evidence:
+    - Facsimile (tomo III, hoja 63, zoomed crop): «1. Cántico de los grados,
+      ó gradual.» (italic «ó gradual.») then «Clamé al Señor en mi
+      tribulacion, y me atendió.»; `0` = «ó», `eme` = engraving noise.
+    - Audit of all Gradual title slots Vulg 120–133 against hojas 63–65:
+      two more facsimile-confirmed title defects: Ps 124:1 «Cántico
+      gradual,» → «Cántico gradual.» (hoja 64) and Ps 133:1 «Cántico
+      gracual.» → «Cántico gradual.» (hoja 65). The other titles already
+      match the print. Body OCR errors in those psalms are not title-slot
+      defects and were left alone.
+    - `parche_facsimil.py`: new `IMPRESO` (printed title/body for a TITULOS
+      entry) with `_comprueba_impreso()` (title ≤2 edits from the OCR,
+      body only loses leading noise) and `impreso()`; TITULOS keeps the raw
+      OCR used to validate the cut. The previous patched readings are
+      accepted via `ANTERIORES`, so the patch applies on `~/.sword` too.
+    - Result: 3 verses changed. Ps 119:1 = `<seg type="x-psalm-title">Cántico
+      de los grados, ó gradual.</seg> Clamé al Señor en mi tribulacion, y me
+      atendió.`; Ps 124:1 and 133:1 titles «Cántico gradual.». Regeneration
+      from 9c036c87 and from `modulos/` byte-identical; second pass 0.
+      Installed to `modulos/` and `~/.sword` (identical).
+    - Tests: `test_titulos.py` adds `test_erratas_de_titulo_graduales`
+      (incl. guard rejection) and reads printed values through
+      `parche.impreso()`; CTest torresamat titulos/entidades/parche/
+      cabeceras and `psalm_title_render_test`: PASS.
+
+- [x] NACAR-OCR-107 Split Nácar-Colunga Ps 118:5/118:6 merge
+  - Status: DONE
+  - Description:
+    Ps 118:5 is empty and Ps 118:6 holds «En la angustia invoqué a Yave, y me
+    oyó Yave poniéndome en salvo. $ Está por mí Yave: ¿Qué puedo temer…».
+    Known out of scope since NACAR-PSALMS-103 / NACAR-OCR-104; the `$` marks
+    the lost verse-number glyph.
+  - Acceptance criteria:
+    - Diagnose why NACAR-OCR-104 does not cover this case (misread glyph
+      form) using the OCR/provenance record.
+    - Ps 118:5 = «En la angustia … poniéndome en salvo.»; Ps 118:6 = «Está
+      por mí Yave: …», supported by the facsimile, no `$`.
+    - The rule is structural and does not regress Ps 3, 13, 14–17, 117/118.
+    - Regression test in `scripts/nacarcolunga/`.
+    - Report whether other `$` residues exist and which remain.
+  - Do not:
+    - Copy Reina-Valera text.
+    - Commit or push.
+  - Evidence:
+    - Diagnosis: NACAR-OCR-104 needs a repeated number; here the printed ⁵
+      is read as 6 and the printed ⁶ is not read as a digit but as a lone
+      «$» (event stream around Ps 118: marks 4, 6, 7 with «$ Está por mí…»
+      as a continuation line). The «$» is the usual OCR reading of the
+      small superscript 6: 12 of the 46 standalone-«$» occurrences show the
+      same shape (verse b ending in 6, b-1 empty, b-2 and b+1 present).
+    - Fix: `versiculos.parte_dolar()` runs in `construir.py` right after
+      `ensambla()` (before `aplica_correspondencias`). A first version that
+      split in the event stream before assembly changed chapter lengths
+      seen by the aligner and displaced Lev 9–10 (coverage −1); it was
+      replaced by the post-assembly rule, which leaves alignment untouched.
+      Signal: b % 10 == 6, slot b-1 empty, b-2 and b+1 with text, exactly
+      one standalone «$» in b with text before and after. Text before →
+      b-1, after → b; provenance of b becomes the «$» line. No hardcoded
+      verses.
+    - Result (rebuild vs. reproduced baseline): coverage 31084 → 31096
+      (+12); `texto.json` and `procedencia.json` change only the 12 split
+      pairs (1 Chr 4, Jdt 11, Jer 17, Lam 1, Lev 6, Prov 10, Prov 15,
+      Ps 32, Ps 103, Ps 118, Sir 37, Wis 19 — verses 5/6); `perdidas.json`
+      only moves the Wis 19:6 record to 19:5 (the merged verse's opening
+      line is now 19:5); `epigrafes.json`, `avisos.txt`,
+      `introducciones.json`, `notas.json` byte-identical.
+    - Ps 118:5 = «En la angustia invoqué a Yave, y me oyó Yave poniéndome
+      en salvo.»; Ps 118:6 = «Está por mí Yave: ¿Qué puedo temer, qué
+      podrán. hacerme los hombres?», no «$».
+    - Facsimile (Princeton leaves): Ps 118 ⁵/⁶ (1020), Prov 10 ⁵/⁶ (1045),
+      Jer 17 ⁵/⁶ (756), Lev ⁵/⁶ (210) confirm each split.
+    - Remaining «$»: 37 verses still contain «$» (30 standalone). Not
+      touched because the signal is incomplete or ambiguous: «$» with n+2
+      after (Gen 45, Deut, 2 Kgs 22, Jdt 4, Jer 49: the «$» may be 5, 6 or
+      8), two numbers lost (Exod 7, 1 Kgs 19, Dan 1), wrong neighbours
+      (Luke 10:4 empty, Matt 2:5 where «$» is 6 and the hole is 4), and
+      «$» inside introductions/notes (Song, Sir prologue, John, Rom).
+    - Tests: new `test_dolar.py` (5 cases incl. negatives and a check on the
+      built `texto.json`); all `scripts/nacarcolunga/test_*.py` plus
+      `torresamat/test_pegadas.py` and `test_restos.py` PASS.
+    - Module not reinstalled in `~/.sword` (copyrighted, installed on
+      request, as in NACAR-OCR-104); run `scripts/nacarcolunga/instalar.sh`
+      to publish.
+
+- [x] BOOKMARK-V11N-101 Resolve module-less bookmarks without cross-versification ambiguity
+  - Status: DONE
+  - Description:
+    `src/gtk/bookmarks_treeview.c` opens a bookmark with an empty module
+    using `settings.MainWindowModule`. The same key («Psalms 118:1») means a
+    different psalm under KJV and Vulg, so a bookmark saved in SpaRV opens a
+    different passage when TorresAmat is active. Registered as a follow-up in
+    V11N-MODULE-101 («Bookmarks without module name remain ambiguous»).
+  - Acceptance criteria:
+    - New bookmarks always store the module (or at least its versification).
+    - Legacy module-less bookmarks: documented, deterministic policy (e.g.
+      interpret as KJV and convert via `convertReference()` to the active
+      module), with explicit unmapped handling; never reread by identity.
+    - Bookmarks with a module keep working unchanged.
+    - Test covers module-less Ps 119:1 opened with SpaRV (KJV) and
+      TorresAmat (Vulg), and a module-qualified bookmark.
+  - Do not:
+    - Migrate/rewrite the user's bookmark file silently.
+    - Commit or push.
+  - Evidence:
+    - Paths audited: the bookmark tree (`button_release_event`) replaced an
+      empty module by `settings.MainWindowModule` and sent the key as is;
+      the menu «open in dialog/tab» routes send `module=""`, which
+      `show_module_and_key()` (`url.cc`) turned into the main module with
+      the same key. Both reread KJV numbering in the active Bible.
+    - Policy (`src/main/reference_transition.{h,cc}`): a module-less key is
+      read in `kLegacyBookmarkVersification` = KJV (SWORD's default) and
+      converted with the V11N-MODULE-101 contract
+      (`planBibleVersificationTransition`): `planLegacyBookmarkKey()` for one
+      reference, `planLegacyBookmarkKeyList()` for lists, comma lists and
+      ranges (item by item; a range keeps both ends, `C:V` when the end
+      changes chapter; any unmapped item makes the whole key Unmapped).
+      Identity for KJV targets and non-verse-keyed targets.
+    - Wiring: `main_legacy_bookmark_key()` (`sword.cc`) used by
+      `show_module_and_key()` for an empty module and by the bookmark tree
+      before building its URLs; Unmapped shows
+      `main_warn_reference_unmapped()` and does not navigate. Bookmarks with
+      a module are untouched. The bookmark file is not rewritten.
+    - New bookmarks: `bookmark_dialog.c` falls back to
+      `settings.MainWindowModule` when neither the entry nor the caller
+      gives a module, so no new bookmark is saved without one.
+    - Tests: `versification_transition_test` adds `test_legacy_bookmarks`:
+      module-less «Psalms 119:1» opens SpaRV (KJV) 119:1 and TorresAmat /
+      SpaPlatense (Vulg) 118:1; «Psalms 119:1-5; Psalms 121:1» → «Psalms
+      118:1-5; Psalms 120:1»; «Ephesians 2:8,9» → «Ephesians 2:8; Ephesians
+      2:9»; «Psalms 147:10-12» → «Psalms 146:10-147:1»; «Psalms 13:6» →
+      Unmapped (also inside a list). Module-qualified transitions keep
+      passing (`test_module_transitions`). Result
+      `versification_transition=ok skipped_cases=0`.
+    - Build PASS with no warnings in the touched files;
+      `uri_navigation_v11n_test`, `content_resolver_test`,
+      `author_commentary_content_test`, `author_commentary_header_test` PASS.
+    - Not exercised in the running GUI (bookmark clicks need an interactive
+      session); the GTK code only routes through the tested policy.
+
+- [x] TORRES-1835-REMAINING-GLYPH-REPRIORITIZATION-147 Reprioritize remaining glyph-rooted verse gaps after task-146
+  - Status: DONE
+  - Description:
+    After task 146, 1266 glyph gaps and 3211 physical gaps remain. Recompute
+    the inventory from the current parser (recovery enabled) and select
+    exactly one bounded next family, as in task 140.
+  - Acceptance criteria:
+    - Deterministic inventory artifact with schema version and provenance.
+    - Families ranked by population, facsimile reviewability and
+      negative-control availability; excluded populations stay excluded
+      (111 task-144 UNREADABLE, 13 order conflicts, p0184l0043 out of band,
+      GLUED_FRAME CLOSED_UNSAFE) unless new evidence is recorded.
+    - Exactly one next task recommended with a finite measurable population.
+    - Corpus invariants unchanged (no runtime change in this task).
+  - Do not:
+    - Change production runtime.
+    - Mutate historical artifacts 138–146.
+    - Commit or push.
+  - Evidence:
+    - Result: READY; diagnostic only, no runtime change.
+    - Frozen baseline: e7dedfc80cc1f8e78afdd3e93d19a0236f9357aa (HEAD; no
+      torresamat1835 runtime file modified).
+    - Current audit in production mode (task-146 recovery enabled):
+      VerseRefs 3892; physical gaps 3211; glyph gaps 1266; chapters 337/337;
+      unresolved claims 0; canonical chapter gaps 0; ocr_blocks 57700;
+      duplicate_refs 0; out_of_order_refs 0; outside_canon 0.
+    - Reconciliation with task 140: 1309 → 1266; 43 removed occurrences,
+      exactly the task-145/146 CREATE_NEW_REF identities; 0 added.
+    - Split: PHYSICAL_SINGLE_TOKEN 6; PROJECTED_FROM_MULTI_TOKEN 1260.
+      Review coverage: REVIEWED_POSITIVE 195, REVIEWED_NEGATIVE 25,
+      REVIEWED_AMBIGUOUS 4, NOT_REVIEWED 1042. Top forms: y 366, a 217,
+      á 103, 4 73, 3 51.
+    - Remaining form-a occurrences by task-141 facsimile value: 21 → 67,
+      2 → 34, 24 → 31, 20 → 29, 22 → 19, 25 → 9, none (non-marker) → 22,
+      others ≤2. Exclusions kept: 111 task-144 external UNREADABLE, 13
+      known order conflicts, p0184l0043, GLUED_FRAME CLOSED_UNSAFE.
+    - Families ranked (raw evidence): PROJECTED_FORM_A_PRINTED_2X_VALUE_MATCH
+      (26, facsimile-reviewed), form y (366, unreviewed, token identity
+      only), form á (103, unreviewed), physical single token (6, no
+      reusable rule).
+    - Selected next family: PROJECTED_FORM_A_PRINTED_2X_VALUE_MATCH, 26
+      occurrences in 26 distinct blocks (Isa 8, Sir 8, Prov 6, Ps 2, Wis 2);
+      printed values 20 (4), 21 (13), 22 (3), 24 (5), 25 (1). Every member
+      is a task-141 PRINTED_VERSE_MARKER whose value equals its gap's verse
+      and whose next OCR token carries the second digit («I»/«1» → 1,
+      «o» → 0, «4»/«4'» → 4, «a» → 2, «5» → 5). Controls on record: 129
+      printed-2x occurrences in other gaps, 22 reviewed non-markers, 34
+      printed-2 left by task 146. The gap-key comparison is a diagnostic
+      partition of values already read on the facsimile, not inference.
+    - Artifact `data/torresamat1835/remaining_glyph_reprioritization_147.json`
+      (schema_version 1, provenance hashes, deterministic: two runs
+      byte-identical); summary integrated as
+      `verse_segmentation_audit.remaining_glyph_reprioritization_147`.
+    - Tests: new `test_remaining_glyph_reprioritization_147.py` (CTest
+      `torresamat1835_remaining_glyph_reprioritization_147_test`); the
+      artifact allowlists in `test_baseline.py`,
+      `test_verse_marker_sanity.py` and `test_sources.py` gained the new
+      file as for tasks 140–145. Torres 1835 CTest 37/37 PASS.
+
+- [x] UI-SMOKE-103 Fix gtk_lifecycle_smoke «Renderer bible-compare did not complete CREATE/SHOW/MAP»
+  - Status: DONE
+  - Description:
+    Found while validating TORRES-ENTITY-101 (2026-09-25): CTest
+    `gtk_lifecycle_smoke` fails deterministically with
+    `Renderer bible-compare did not complete CREATE/SHOW/MAP:
+    gtk_lifecycle_smoke_failures=0 checks=241 navigation=5 renderers=5`
+    (`tests/run_gtk_lifecycle_smoke.cmake:69`). It fails identically with
+    the pre-TORRES-ENTITY-101 TorresAmat module restored, so it is not a
+    data regression. UI-SMOKE-102 closed with the CTest variant skipped for
+    lack of Xvfb; the runner now executes on this host.
+  - Acceptance criteria:
+    - Determine whether bible-compare is an active surface that must map in
+      the smoke sequence or is retired/hidden by design (as the dictionary
+      surface in UI-SMOKE-102).
+    - Fix the product or the runner expectation accordingly, with evidence;
+      do not weaken checks for active surfaces.
+    - `gtk_lifecycle_smoke` passes repeatedly (≥3 runs).
+  - Do not:
+    - Commit or push.
+  - Evidence:
+    - Diagnosis (temporary parent-chain dump in the smoke, removed): the
+      compare `WkHtml` was `visible=0` inside a visible box. Startup calls
+      `gui_lectura_sync_set_visible(FALSE)`, which since b2164a75 hides the
+      renderer holder too; «Comparar» reopens through the same helper and
+      shows it. The smoke reopened only `box_lectura_sync` with
+      `gtk_widget_show()`, bypassing the product path, so the renderer
+      never mapped. Product behaviour is correct; the smoke was not.
+    - Two more surfaces were hidden behind the first failure (the runner
+      stops at the first surface): commentary reopened with raw
+      `gtk_widget_show()` left `settings.showcomms` off, so the stale
+      dictionary request's layout pass hid it again; and with no commentary
+      module in the SQLite fixture the layout opens the «Notas» page
+      (`comm_showing ? 0 : 1`), keeping the commentary renderer behind a
+      hidden notebook page. The same failures occur with the HEAD smoke.
+    - Fix (`src/gtk/gtk_lifecycle_smoke.c` only; product and runner
+      unchanged, all five surfaces still required): compare pane
+      opened/closed with `gui_lectura_sync_set_visible()`; commentary
+      reopened with `gui_show_hide_comms(TRUE)`; after the last layout pass
+      the smoke selects the «Comentarios del autor» tab as a reader would;
+      new checks: compare renderer visible, compare closes, commentary
+      survives the dictionary request, commentary tab selectable, and every
+      renderer mapped (bounded wait of up to 50×100 ms for the splitter's
+      layout pass, failing if a surface never maps).
+    - Result: `gtk_lifecycle_smoke` PASS 3/3 consecutive runs
+      (`gtk_lifecycle_smoke_failures=0 checks=290 renderers=5 panels=23`);
+      bible-main, bible-compare, commentary, sidebar-previewer and
+      lower-previewer each log CREATE, SHOW and MAP/RENDERER_MAP; no
+      Gtk/Gdk WARNING/CRITICAL. Full CTest 52/52 PASS.
+
+- [x] TORRES-PSALM-ALIGN-101 Repair Torres Amat mid-chapter psalm misalignments and running heads
+  - Status: DONE
+  - Description:
+    Family B found by TORRES-PSALM-GLUE-101 (2026-09-25): verses carrying
+    another psalm's text or header in the middle of a chapter, and page
+    running heads with apparatus noise.
+  - Evidence (`mod2imp TorresAmat` after TORRES-PSALM-GLUE-101):
+    - Ps 113:9, 113:10, 113:18, 113:19, 114:9, 115:1, 115:10 carry
+      `SALMO CXV/CXIV/CXVI` headers and text of Vulg Ps 114–115 in wrong
+      slots (Vulg 113 = Heb 114+115; the printed numbering continues).
+    - Ps 131:3 holds a copy of Ps 130:3 plus the Ps 131 header; Ps 132:3 and
+      133:3 carry the Ps 133 header and Ps 133:1 text.
+    - Ps 58:4 and 77:38 end with apparatus/plate noise and the running head
+      «… SALMOS.».
+    - 2 Macc 15:40 ends «TOMO III LIBRO DE LOS SALMOS.».
+  - Acceptance criteria:
+    - Each verse checked against the facsimile leaf and recorded.
+    - Text moved only to the native Vulgate slot it belongs to; duplicates
+      removed; nothing filled from other Bibles.
+    - Through the facsimile patch mechanism with the same guards; the
+      regeneration from 9c036c87 stays byte-identical to the patched
+      `modulos/` and idempotent.
+    - Regression tests for Ps 113–115 and 131–133.
+  - Do not:
+    - Commit or push.
+  - Evidence:
+    - Root cause (facsimile, tomo III hoja 59): the OCR read both columns
+      line by line. Each Ps 112:k slot held its own verse plus «In exitu»
+      verse k (Vulg 113:1–8); 112:9 also held the Ps 113 argument and its
+      «Aleluya.». Module 113:1–18 held «Non nobis» (printed 1–18 = Vulg
+      113:9–26) plus copies of Ps 114/115 verses already in their slots;
+      printed 6 and 7 shared slot 113:6, 113:7 held only a copy, and
+      113:20–26 were empty. Hoja 65: 131:2–3 carried copies of 130:2–3 and
+      the Ps 131 header, while 131:3 («No me meteré yo…») sat at the start
+      of 131:5; 133:2–3 carried copies of 132:2–3 and the Ps 133 header.
+      Ps 58:4 (hoja 31) and 77:38 (hoja 41) ended with a plate caption and
+      the next page's running head («41 SALMOS.», «57 SALMOS.»); 2 Macc
+      15:40 ended with the tomo III half-title.
+    - Fix: new `scripts/torresamat/columnas_fundidas.py` (COLUMNAS: 47
+      verses, each with its hoja) merged by `parche_facsimil.cambios()`;
+      `_comprueba_columnas()` rejects any text not taken from the old
+      verses (only a final «,»→«.» is allowed). Ps 112:1 and 115:1 (TITULOS)
+      are trimmed through `IMPRESO`, whose guard now accepts a body that
+      is a substring of the OCR body. Nothing is filled from other Bibles.
+    - Result: Ps 113 has 26/26 verses in Vulgate order (113:1 «Aleluya.»
+      title + «Cuando Israél salió…», 113:9 «No á nosotros…», 113:14/15
+      split, 113:26 «Nosotros sí…»); Ps 112 without «In exitu»; 114:9 and
+      115:10 without headers; 131:2/3/5, 132:3, 133:2/3 corrected; Ps 58:4,
+      77:38 and 2 Macc 15:40 cleaned. No verse in the module contains a
+      `SALMO`/`SALMOS` header any more. 47 verses changed; regeneration
+      from 9c036c87 and from `modulos/` byte-identical; second pass 0.
+      Installed to `modulos/` and `~/.sword` (identical).
+    - Tests: new `test_columnas.py` (4 checks incl. rejection of invented
+      text; CTest `torresamat_columnas_test`); `test_titulos.py` updated:
+      the old «no body moves between Ps 112 and 113» assertions now state
+      the facsimile-backed contract (113:1–3 not in TITULOS but in
+      COLUMNAS; mode «recortado» for 112:1; printed values through
+      `parche.impreso()`). torresamat/psalm_title/content_resolver/
+      uri_navigation CTest 8/8 PASS.
+
+- [x] TORRES-1835-PROJECTED-FORM-A-PRINTED-2X-DISCRIMINATOR-148 Validate a source-derived discriminator for printed two-digit 2x markers read as «a» + digit
+  - Status: DONE
+  - Description:
+    Selected by task 147. 26 open glyph gaps whose projected token «a» is a
+    facsimile-confirmed printed marker 20–25 equal to the gap's verse; the
+    second digit is the next OCR token. Validate, without recovery, whether
+    a runtime-safe rule can read «a» + second-digit token as 2d.
+  - Acceptance criteria:
+    - Rule derived from source tokens and geometry only; task-141 values
+      and the task-147 member list are the oracle, never runtime input.
+    - Measure true positives on the 26 members and false positives on every
+      other «a» + digit-like sequence (129 printed-2x occurrences in other
+      gaps, reviewed non-markers, corpus-wide matches).
+    - task-144 native-order and provenance guards applied; no gap key,
+      expected verse, previous+1 or next-1.
+    - Deterministic artifact; runtime unchanged; Torres 1835 CTest green.
+  - Do not:
+    - Implement recovery.
+    - Widen task-142/146 scope or reopen GLUED_FRAME.
+    - Commit or push.
+  - Evidence:
+    - Result: READY_FOR_DRY_RUN; diagnostic only, runtime unchanged
+      (VerseRefs 3892, physical gaps 3211, glyph gaps 1266).
+    - Generator `scripts/torresamat1835/projected_form_a_printed_2x_discriminator.py`:
+      features frozen from source OCR (`source_ocr.read_pages`, task-146
+      `validated_geometry`) and current gap provenance; labels (task-147
+      members, task-141 reviews) joined only after all rule decisions. No
+      gap key, expected verse, previous+1 or next-1 in any rule.
+    - Corpus: 534 lines start with «a» + a digit-like token (271 right/body,
+      249 left/body — the Latin column also prints markers).
+    - Rules (accepted / family TP / FN / reviewed non-markers):
+      R2X (unframed «a», right body, projected-«a» gap provenance)
+      24 / 23 / 3 / 0; R2X_ALLOW_LEADING_NOISE 27 / 26 / 0 / 0;
+      R2X_WINDOW (two-digit band window) 13 / 13 / 13 / 0;
+      R2X_NO_PROVENANCE 271 / 23 / 3 / 0 (+247 unreviewed markers already
+      owned by their verses). Reading value equals the facsimile value on
+      every accepted member (0 wrong values).
+    - Selected: R2X. FN = the 3 members with a punctuation token before
+      «a» (measured, not admitted). One accepted block, p0032l0089, is a
+      real printed 21 in another verse's gap: the task-144 native-order
+      guard must decide it in the dry run. The one-digit band tolerance and
+      a digit-width window are not usable (10 members have no trusted band
+      in their column).
+    - Artifact `data/torresamat1835/projected_form_a_printed_2x_discriminator.json`
+      (deterministic); allowlists in `test_baseline.py`, `test_sources.py`,
+      `test_verse_marker_sanity.py` updated; new
+      `test_projected_form_a_printed_2x_discriminator.py` (CTest). Torres
+      1835 CTest 38/38 PASS.
+
+
+- [x] TORRES-1835-PROJECTED-FORM-A-PRINTED-2X-DRY-RUN-149 Dry-run the R2X rule with task-144 guards and measure its semantic delta
+  - Status: DONE
+  - Description:
+    Queued by task 148. Apply R2X in dry-run mode (no ownership change)
+    with the task-144 projected-gap provenance and native-order guards and
+    measure CREATE_NEW_REF / REOPEN / ownership moves / gap delta, as task
+    145 did for the printed-2 family.
+  - Acceptance criteria:
+    - Predicted events per block, deterministic artifact, runtime unchanged.
+    - p0032l0089 (printed 21 in another verse's gap) resolved by the guards,
+      not by an identity exception.
+    - No unsafe reopen; corpus invariants unchanged; Torres 1835 CTest green.
+  - Do not:
+    - Implement recovery (task 150 would, if the dry run is clean).
+    - Admit the leading-punctuation variant without its own evidence.
+    - Commit or push.
+  - Evidence:
+    - Result: CLEAN_DRY_RUN; nothing applied, runtime unchanged
+      (VerseRefs 3892, physical gaps 3211, glyph gaps 1266, chapters 337,
+      ocr_blocks 57700, duplicate/out-of-order refs 0).
+    - Generator `scripts/torresamat1835/projected_form_a_printed_2x_dry_run.py`
+      re-derives R2X from source OCR and live provenance on the production
+      edition and applies the `projected_form_a_recovery.apply` guards
+      (single owner, resolved chapter, native progression value > owner
+      verse, Vulgate canon limit, no existing ref, owner keeps ≥1 block, one
+      event per ref). Value = «2» + second-digit token; no gap key,
+      expected verse, previous+1 or next-1. Labels joined afterwards.
+    - Predicted delta: 24 CREATE_NEW_REF, 0 REOPEN, 0 ambiguous/order/
+      canon abstentions; VerseRefs 3892 → 3916; 409 ownership moves; 24
+      physical and 24 glyph gaps closed; no prior owner emptied.
+    - Label reconciliation: 23 family members, each created at exactly its
+      task-147 gap ref with the facsimile value; 1 outside the family,
+      p0032l0089 → Ps.17.21.
+    - p0032l0089 checked in the source: «a 1 £1 Se^qr me recompénsala…» =
+      «21 El Señor me recompensará…» (Vulg Ps 17:21). Its current owner
+      Ps.17.1 is a pre-existing misread: p0032l0079 «1 8 - Libóme de mis
+      poderosísimos enemigos» is the printed 18 split by the OCR, so 17.1
+      holds verses 18–27. The event moves 21–27 to 17.21 (correct) and
+      leaves 18–20 under 17.1 as before; no identity exception was added.
+      Registered as TORRES-1835-SPLIT-DIGIT-MARKER-AUDIT-151.
+    - Artifact `data/torresamat1835/projected_form_a_printed_2x_dry_run.json`
+      (deterministic, regenerated byte-identical by the test); new
+      `test_projected_form_a_printed_2x_dry_run.py` (CTest); artifact
+      allowlists updated. Torres 1835 CTest 39/39 PASS.
+
+
+- [x] TORRES-1835-PROJECTED-FORM-A-PRINTED-2X-RECOVERY-150 Implement the dry-run-validated R2X recovery
+  - Status: DONE
+  - Description:
+    Queued by task 149. Add R2X to production as a fallback after the
+    stronger paths, reproducing exactly the task-149 prediction.
+  - Acceptance criteria:
+    - Actual delta equals task 149: 24 CREATE_NEW_REF (identities match),
+      409 ownership moves, 24 glyph gaps closed, 0 reopen, 0 block loss,
+      0 dual ownership; VerseRefs 3892 → 3916.
+    - No block/ref/page allowlist; production does not read diagnostic JSON.
+    - Historical tests that need the pre-150 parser disable it explicitly.
+    - Tasks 128/131/139/146 unchanged; Torres 1835 CTest and build green.
+  - Do not:
+    - Admit the leading-punctuation variant.
+    - Commit or push.
+  - Evidence:
+    - Result: IMPLEMENTED_AND_VALIDATED.
+    - Runtime: `projected_form_a_recovery.match_2x()` (unframed «a» +
+      second-digit token → 20+d; `SECOND_DIGIT`, `DECISION_2X`) and
+      `apply()` now takes the value per record and, for 2x records, refuses
+      to empty the prior owner. `page_parser` notes R2X candidates in the
+      same validated right/body placement as task 146 and runs a second
+      `apply()` pass right after task 146's, on the edition it left (the
+      state the dry run measured). New switch `printed_2x_recovery`
+      (default on, implied off whenever task 146 is off) and CLI flag
+      `--without-printed-2x-recovery`. No block/ref/page allowlist; no
+      diagnostic JSON read at runtime.
+    - Audit: new pass «task 146 on, task 150 off»; task 146 is measured up
+      to it (unchanged: 43 refs, 581 moves) and task 150 from it, in
+      `verse_segmentation_audit.projected_form_a_printed_2x_recovery`.
+    - Actual delta = task-149 prediction: 24 recovered (outcomes: recovered
+      24, provenance_guard 53, not_owned_as_continuation 7), created ref
+      identities identical, 409 ownership moves, 0 reopen, 0 removed refs,
+      0 block loss, 0 dual ownership; VerseRefs 3892 → 3916; physical gaps
+      3211 → 3187 (the 24 predicted), 0 opened.
+    - Glyph gaps 1266 → 1198: the 24 predicted close; 44 more remain
+      physical gaps but lose the glyph signal because their only evidence
+      was the same projected «a» now read as a marker (e.g. Isa.2.20 next
+      to the recovered Isa.2.21); 0 opened. The dry run counted only the
+      24 direct closures.
+    - Corpus: chapters 337, ocr_blocks 57700, duplicate_refs 0,
+      out_of_order_refs 0.
+    - Historical freezes: task-146 contract test and the task-147/148/149
+      generators/tests run with `printed_2x_recovery=False` /
+      `--without-printed-2x-recovery`; their artifacts stay byte-identical.
+    - Tests: new `test_projected_form_a_printed_2x_recovery.py` (source-only
+      matcher incl. prose/framed negatives; production = dry run; task 146
+      untouched; no allowlist). Torres 1835 CTest 40/40 PASS.
+
+- [x] TORRES-1835-SPLIT-DIGIT-MARKER-AUDIT-151 Audit printed two-digit markers split by the OCR («1 8» read as verse 1)
+  - Status: DONE
+  - Description:
+    Found in task 149: p0032l0079 «1 8 - Libóme…» is the printed Ps 17:18,
+    read as marker 1, so Ps.17.1 owns verses 18–27. Measure the family of
+    lines whose first two tokens are single digits forming a valid marker,
+    diagnostic only.
+  - Acceptance criteria:
+    - Corpus population, facsimile review of a sample, controls.
+    - Exactly one bounded next step recommended; runtime unchanged.
+  - Do not:
+    - Implement recovery.
+    - Commit or push.
+  - Evidence:
+    - Result: READY_FOR_DISCRIMINATOR_AND_DRY_RUN; diagnostic only.
+    - Generator `scripts/torresamat1835/split_digit_marker_audit.py`
+      (production runtime, task 150 on): lines opening «d d Sentence» in
+      the whole volume, with placement, parser ownership, native canon and
+      existing refs; the facsimile sample is joined afterwards.
+    - Corpus: 962 candidates. Classes: SPLIT_MARKER_READ_AS_FIRST_DIGIT
+      379 (right/body, singly owned by the first digit's verse, two-digit
+      value inside the canon and not yet a ref); OUTSIDE_SPANISH_BODY 517
+      (mostly the Latin column); OWNER_IS_NOT_FIRST_DIGIT 54;
+      OUTSIDE_NATIVE_CANON 11; TWO_DIGIT_REF_EXISTS 1.
+    - Facsimile (source PDF, seeded random sample of 8 family members):
+      8/8 are printed two-digit markers with the value read from the two
+      tokens (78, 13, 15, 13, 17, 18, 15, 17), e.g. p0614l0047 «18 De
+      todos los hijos…» owned by Isa.51.1. The task-149 case p0032l0079
+      (Ps 17:18) is in the family.
+    - Artifact `data/torresamat1835/split_digit_marker_audit.json`
+      (deterministic); new `test_split_digit_marker_audit.py` (shape
+      negatives + contract); allowlists updated. Torres 1835 CTest 41/41.
+    - Next step (one): TORRES-1835-SPLIT-DIGIT-MARKER-DRY-RUN-152.
+
+
+- [ ] TORRES-1835-SPLIT-DIGIT-MARKER-DRY-RUN-152 Dry-run a source-only rule for split two-digit markers
+  - Status: PENDING
+  - Description:
+    Selected by task 151: 379 right/body lines «d d Sentence» owned by the
+    first digit's verse (8/8 facsimile sample are printed two-digit
+    markers). Dry-run the rule (value = the two source digits) with the
+    task-144/150 guards: single owner, native progression, canon, no
+    existing ref, owner never emptied, one event per ref.
+  - Acceptance criteria:
+    - Predicted CREATE/REOPEN/abstention counts, ownership moves and gap
+      delta; deterministic artifact; runtime unchanged.
+    - A larger facsimile sample (≥30, stratified by book) confirms values;
+      the 54 OWNER_IS_NOT_FIRST_DIGIT rows are explained as controls.
+    - No gap key, expected verse, previous+1 or next-1.
+  - Do not:
+    - Implement recovery.
     - Commit or push.
 
 # Future / not scheduled
