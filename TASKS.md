@@ -8304,8 +8304,8 @@
     - Next step (one): TORRES-1835-SPLIT-DIGIT-MARKER-DRY-RUN-152.
 
 
-- [ ] TORRES-1835-SPLIT-DIGIT-MARKER-DRY-RUN-152 Dry-run a source-only rule for split two-digit markers
-  - Status: PENDING
+- [x] TORRES-1835-SPLIT-DIGIT-MARKER-DRY-RUN-152 Dry-run a source-only rule for split two-digit markers
+  - Status: DONE
   - Description:
     Selected by task 151: 379 right/body lines «d d Sentence» owned by the
     first digit's verse (8/8 facsimile sample are printed two-digit
@@ -8321,6 +8321,151 @@
   - Do not:
     - Implement recovery.
     - Commit or push.
+  - Evidence:
+    - Result: CLEAN_DRY_RUN; nothing applied.
+    - Generator `scripts/torresamat1835/split_digit_marker_dry_run.py`:
+      right/body «d d Sentence» lines, value = the two source digits,
+      simulated in physical block order per chapter so each event sees the
+      labels earlier events left (needed: Ps 9 prints a second numbering;
+      Isa 7 has 13, 14, 15, 18 in one false verse 1). Guards: single owner,
+      canon, verse not present, every earlier block lower and the first
+      different block after the moved run higher, one event per ref. A run
+      that is the whole owner verse is RELABELLED (a verse that existed
+      only through the misread first digit), otherwise MOVED.
+    - Outcomes: MOVE 270, RELABEL 90 (89 false verse 1, 1 false verse 3),
+      progression_past_next 46, progression_behind_previous 24,
+      outside_native_canon 11, verse_already_present 4, ambiguous 0.
+      Predicted: 360 refs created, 90 false refs removed (they become
+      visible gaps), VerseRefs 3916 → 4186, 360 physical gaps closed.
+    - Facsimile: stratified sample of 32 accepted events (20 RELABEL, 12
+      MOVE across Ps, Prov, Eccl, Song, Wis, Sir, Isa) read on the source
+      PDF: 32/32 printed two-digit markers with the source value (e.g. «71
+      Bien me está», «31 Con todo eso», «18 Y sucederá»). The 54
+      task-151 OWNER_IS_NOT_FIRST_DIGIT rows are lines already owned by a
+      different verse (earlier markers in the run); they enter the rule and
+      are decided by the progression guards like any other.
+    - Artifact `data/torresamat1835/split_digit_marker_dry_run.json`
+      (deterministic); `test_split_digit_marker_dry_run.py`; allowlists.
+
+- [x] TORRES-1835-SPLIT-DIGIT-MARKER-RECOVERY-153 Implement the dry-run-validated split two-digit recovery
+  - Status: DONE
+  - Description:
+    Production version of task 152, third pass after tasks 146 and 150.
+  - Evidence:
+    - Runtime: new `scripts/torresamat1835/split_digit_recovery.py`
+      (`match`, `apply`; decision `split_two_digit_marker`, counted as a
+      numbered decision); `page_parser` notes right/body «d d Sentence»
+      lines in the validated geometry and applies them in `finish()` after
+      task 150. Switch `split_digit_recovery` (implied off when task 150 is
+      off), CLI `--without-split-digit-recovery`. No allowlist, no
+      diagnostic JSON, no gap or expected verse.
+    - Audit: pass «150 on, 153 off»; task 150 measured up to it (unchanged:
+      24 recovered); `verse_segmentation_audit.split_two_digit_marker_recovery`.
+    - Actual = dry run: 360 applied (270 moved, 90 relabelled), same
+      abstentions; created/removed ref identities identical; VerseRefs 3916
+      → 4186; physical gaps 3187 → 2917 (360 closed; the 90 opened are
+      exactly the removed false verses); 2423 distinct blocks change owner
+      (the dry run's 3000 counted blocks moved twice); block loss 0, dual
+      ownership 0, blocks entering text 0; chapters 337, ocr_blocks 57700,
+      duplicate/out-of-order refs 0.
+    - Historical freezes: task-150 test and task-151/152 generators run with
+      `split_digit_recovery=False`; artifacts byte-identical.
+    - Tests: `test_split_digit_recovery.py` (matcher negatives; production
+      = dry run; no allowlist). Torres 1835 CTest 43/43 PASS.
+
+
+- [x] TORRES-1835-GLUED-TWO-CHAR-MARKER-AUDIT-154 Audit two-digit markers read as one glued token («i3», «a6», «3a»)
+  - Status: DONE
+  - Description:
+    Found after task 153: right/body continuation lines opening with a
+    two-character token whose characters are unambiguous digit misreads
+    (i/I/l → 1, a → 2, o/O → 0, plus real digits; at least one letter)
+    followed by a sentence. Diagnostic: population, facsimile sample ≥30.
+  - Do not:
+    - Implement recovery; admit ambiguous glyphs (S, 9) without evidence.
+    - Commit or push.
+  - Evidence:
+    - Generator `scripts/torresamat1835/glued_two_char_marker_audit.py`
+      (production before task 156): right/body continuation lines whose
+      first token is two characters from {digit, i/I/l = 1, a = 2, o/O = 0}
+      with at least one letter, not a Spanish word (la, lo, al… excluded
+      after the first measurement found 103 «la»), followed by a sentence.
+      S and 9 are excluded as ambiguous.
+    - Family: 670 lines (Sir 202, Ps 160, Isa 134, Prov 119, Wis 32, Eccl
+      22, Song 1); forms i3 83, i5 70, ai 66, ao 60, aa 55, a6 51, a3 42…
+    - Facsimile: stratified sample of 32 read on the source PDF: 32/32 are
+      printed two-digit markers with the value of the mapping, including
+      the letter-only forms («ai» 21, «ao» 20, «aa» 22, «io» 10, «II» 11).
+    - Artifact `data/torresamat1835/glued_two_char_marker_audit.json`.
+
+- [x] TORRES-1835-GLUED-TWO-CHAR-MARKER-DRY-RUN-155 Dry-run the glued two-character marker rule
+  - Status: DONE
+  - Description:
+    Task-152 simulator (physical order, progression, canon, no existing
+    verse, one event per ref) on the task-154 candidates.
+  - Do not:
+    - Implement recovery.
+    - Commit or push.
+  - Evidence:
+    - Generator `glued_two_char_marker_dry_run.py`: the production parser
+      with the task-156 switch off runs the same code path
+      (`split_digit_recovery.apply(enabled=False)`), as task 146 did, and
+      records the planned outcome of every candidate. Lines that already
+      open their verse are skipped (read by another route).
+    - Planned: 524 MOVE, 0 RELABEL; abstentions: progression_past_next 95,
+      progression_behind_previous 43, not_owned 28, verse_already_present
+      6, outside_native_canon 2. VerseRefs 4186 → 4710; 524 gaps closed.
+      Of the 32 facsimile-confirmed sample lines, 29 would apply and 3 are
+      held back by the progression guards (conservative, not wrong).
+    - Artifact `data/torresamat1835/glued_two_char_marker_dry_run.json`.
+
+- [x] TORRES-1835-GLUED-TWO-CHAR-MARKER-RECOVERY-156 Implement the glued two-character marker recovery
+  - Status: DONE
+  - Description:
+    Fourth pass after task 153, reproducing task 155 exactly; historical
+    tools pinned to the pre-156 runtime.
+  - Do not:
+    - Commit or push.
+  - Evidence:
+    - Runtime: `split_digit_recovery.match_glued` (GLYPH map, WORDS
+      exclusion, `DECISION_GLUED`), `apply(skip_openers=True)`;
+      `page_parser` fourth pass after task 153; switch
+      `glued_marker_recovery` (implied off when task 153 is off), CLI
+      `--without-glued-marker-recovery`; audit pass «153 on, 156 off»
+      and summary `verse_segmentation_audit.glued_two_char_marker_recovery`.
+    - Actual = dry run: 524 applied with identical ref identities, same
+      abstentions; VerseRefs 4186 → 4710; physical gaps 2917 → 2393, 0
+      opened; 2668 blocks change owner; block loss 0, dual ownership 0,
+      blocks entering text 0; chapters 337, ocr_blocks 57700,
+      duplicate/out-of-order refs 0. Task 153 unchanged (360).
+    - Historical freezes: task-153 test and tasks 154/155 generators run
+      with `glued_marker_recovery=False`.
+    - Audit cost: a reference pass «only X off» is skipped (the main pass
+      is reused) when X is effectively off, so historical modes do not pay
+      for passes identical to the main one; the task-140 contract keeps its
+      120 s budget unchanged.
+    - Tests: `test_glued_two_char_marker.py` (matcher incl. Spanish-word,
+      ambiguous-glyph and digit-only negatives; diagnostic = runtime
+      matcher; artifacts regenerate byte-identical; production = dry run).
+      Torres 1835 CTest 44/44 PASS.
+
+- [x] TORRES-1835-CHAIN-CLOSURE-157 Measure what remains after tasks 150-156 and close the bounded-family chain
+  - Status: DONE
+  - Evidence:
+    - Production after task 156: VerseRefs 3892 (task 146) → 4710;
+      physical gaps 3211 → 2393 over tasks 150/153/156.
+    - Remaining unrecognized marker-like right/body line starts (1400):
+      357 single digits, of which 356 already sit in their own verse (not
+      a recovery target) and 1 is an «1 S» form; 58 «d d» and 50 «a d»
+      and 19/12/10 «i3/a6/i4» already rejected by the progression guards
+      (their chapters have other ordering damage); ambiguous glyphs «iS»
+      20, «aS» 15, «99» 13, «39» 9, «93» 8 (S = 5 or 8, 9 = 2 or 3); prose
+      or noise («a», «á», «y», «^», «%»).
+    - No remaining family is both bounded and unambiguous from the source:
+      the chain of source-only marker recoveries is closed. Further work
+      needs new evidence (facsimile value reviews for the ambiguous glyphs,
+      or repairing the ordering damage that trips the guards) and is listed
+      under «Future / not scheduled».
 
 # Future / not scheduled
 
@@ -8333,3 +8478,7 @@
 - Non-Bible OSIS modules.
 - Importer-specific UI.
 - e-Sword importer.
+- Torres 1835: ambiguous glued glyphs («iS», «aS», «99», «39», «93»; ≈65
+  lines) need a facsimile value review before any rule (task 157).
+- Torres 1835: marker lines held back by progression guards (≈140) point
+  to chapter-order damage worth a dedicated audit (task 157).
