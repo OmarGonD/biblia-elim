@@ -146,102 +146,6 @@ on_help_contents_activate(GtkMenuItem *menuitem, gpointer user_data)
 
 /******************************************************************************
  * Name
- *  on_mailing_list_activate
- *
- * Synopsis
- *   #include "gui/main_menu.h"
- *
- *   void on_mailing_list_activate(GtkMenuItem * menuitem,
- *						gpointer user_data)
- *
- * Description
- *   open web browser to the mailing list signup page
- *
- * Return value
- *   void
- */
-G_MODULE_EXPORT void
-on_mailing_list_activate(GtkMenuItem *menuitem, gpointer user_data)
-{
-	xiphos_open_default("http://www.crosswire.org/mailman/listinfo/xiphos-users/");
-}
-
-/******************************************************************************
- * Name
- *  on_view_releases_activate
- *
- * Synopsis
- *   #include "gui/main_menu.h"
- *
- *   void on_view_releases_activate(GtkMenuItem * menuitem,
- *				    gpointer user_data)
- *
- * Description
- *   open web browser to GitHub releases page.
- *
- * Return value
- *   void
- */
-G_MODULE_EXPORT void
-on_view_releases_activate(GtkMenuItem *menuitem, gpointer user_data)
-{
-	xiphos_open_default("https://github.com/crosswire/xiphos/releases/");
-}
-
-/******************************************************************************
- * Name
- *  on_live_chat_activate
- *
- * Synopsis
- *   #include "gui/main_menu.h"
- *
- *   void on_live_chat_activate(GtkMenuItem * menuitem,
- *						gpointer user_data)
- *
- * Description
- *   open web browser to freenode irc chat
- *
- * Return value
- *   void
- */
-G_MODULE_EXPORT void
-on_live_chat_activate(GtkMenuItem *menuitem, gpointer user_data)
-{
-	gchar *user = g_strdup_printf("%s", g_get_user_name()), *s, *url;
-	gchar version[] = VERSION;
-	int i;
-	gchar platform =
-#ifdef WIN32
-	    'W'
-#else
-	    'L'
-#endif
-	    ;
-
-	/* no periods in irc nicks. */
-	for (i = 0; version[i]; ++i)
-		if (version[i] == '.')
-			version[i] = '-';
-
-	/* mibbit nick length limit = 16 chars. */
-	/* cut name off at 8, leaving 8 for "|platform+version". */
-	if (strlen(user) > 8)
-		user[8] = '\0';
-
-	/* no blanks in irc nicks. */
-	for (s = strchr(user, ' '); s; s = strchr(s, ' '))
-		*s = '_';
-
-	url =
-	    g_strdup_printf("https://web.libera.chat/?nick=%s|%c%s?#xiphos",
-			    user, platform, version);
-	xiphos_open_default(url);
-	g_free(url);
-	g_free(user);
-}
-
-/******************************************************************************
- * Name
  *  on_report_bug_activate
  *
  * Synopsis
@@ -982,28 +886,6 @@ on_module_manager_activate(GtkMenuItem *menuitem, gpointer user_data)
 		gui_instalar_biblias();
 }
 
-/******************************************************************************
- * Name
- *   on_open_studypad_activate
- *
- * Synopsis
- *   #include "gui/main_menu.h"
- *
- *   void on_open_studypad_activate(GtkMenuItem * menuitem, gpointer user_data)
- *
- * Description
- *    open studypad editor - if studypad dialog exist bring it to the
- *    top
- *
- * Return value
- *   void
- */
-G_MODULE_EXPORT void
-on_open_studypad_activate(GtkMenuItem *menuitem, gpointer user_data)
-{
-	editor_create_new(settings.studypadfilename, NULL, FALSE);
-}
-
 G_MODULE_EXPORT void
 on_advanced_search_activate(GtkMenuItem *menuitem, gpointer user_data)
 {
@@ -1079,6 +961,20 @@ on_sidebar_showhide_activate(GtkMenuItem *menuitem, gpointer user_data)
 	gui_sidebar_showhide();
 }
 
+/* The shortcut beside the entry, right-aligned as in any GTK menu. Only
+ * shown: the key itself is handled by the main window's key handler, so
+ * no accelerator is installed and nothing fires twice. */
+static void
+mostrar_atajo(GtkBuilder *gxml, const char *id, guint key,
+	      GdkModifierType mods)
+{
+	GtkWidget *item = UI_GET_ITEM(gxml, id);
+	GtkWidget *child = item ? gtk_bin_get_child(GTK_BIN(item)) : NULL;
+
+	if (child && GTK_IS_ACCEL_LABEL(child))
+		gtk_accel_label_set_accel(GTK_ACCEL_LABEL(child), key, mods);
+}
+
 GtkWidget *gui_create_main_menu(void)
 {
 	GtkBuilder *gxml = elim_gtk_builder_new();
@@ -1104,7 +1000,6 @@ GtkWidget *gui_create_main_menu(void)
 	    UI_GET_ITEM(gxml, "show_parallel_view_in_a_tab");
 	widgets.side_preview_item =
 	    UI_GET_ITEM(gxml, "show_previewer_in_sidebar");
-	widgets.new_journal_item = UI_GET_ITEM(gxml, "newjournal");
 	widgets.reading_mode_item = UI_GET_ITEM(gxml, "reading_mode");
 	widgets.lectura_sync_item = UI_GET_ITEM(gxml, "lectura_sync");
 	widgets.interlineal_item = UI_GET_ITEM(gxml, "interlineal");
@@ -1133,6 +1028,16 @@ GtkWidget *gui_create_main_menu(void)
 
 	gui_elim_tema_bind_menu(gxml);
 
+	mostrar_atajo(gxml, "read_aloud", GDK_KEY_r, GDK_CONTROL_MASK);
+	mostrar_atajo(gxml, "reading_mode", GDK_KEY_f,
+		      GDK_CONTROL_MASK | GDK_SHIFT_MASK);
+	mostrar_atajo(gxml, "show_hide_sidebar", GDK_KEY_s, GDK_CONTROL_MASK);
+	mostrar_atajo(gxml, "quit", GDK_KEY_q, GDK_CONTROL_MASK);
+	mostrar_atajo(gxml, "contents", GDK_KEY_F1, 0);
+	mostrar_atajo(gxml, "preferences", GDK_KEY_F2, 0);
+	mostrar_atajo(gxml, "advanced_search", GDK_KEY_F3, 0);
+	mostrar_atajo(gxml, "module_manager", GDK_KEY_F4, 0);
+
 	/* update other status toys */
 	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.linkedtabs_item),
 				       settings.linkedtabs);
@@ -1151,10 +1056,6 @@ GtkWidget *gui_create_main_menu(void)
 	   (gxml, (GtkBuilderConnectFunc)gui_glade_signal_connect_func, NULL); */
 	//set up global function to handle all link buttons
 
-	if (settings.prayerlist)
-		gtk_widget_show(widgets.new_journal_item);
-	else
-		gtk_widget_hide(widgets.new_journal_item);
 	gtk_widget_show(menu);
 	return menu;
 }

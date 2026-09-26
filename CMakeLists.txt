@@ -30,7 +30,7 @@ include (CTest)
 set (XIPHOS_WEBSITE "http://xiphos.org")
 
 # Xiphos issues report website
-set (XIPHOS_BUG_REPORT "https://github.com/crosswire/xiphos/issues")
+set (XIPHOS_BUG_REPORT "https://github.com/OmarGonD/biblia-elim/issues")
 
 # Xiphos release date, (read from 'ChangeLog')
 # read last entry in ChangeLog

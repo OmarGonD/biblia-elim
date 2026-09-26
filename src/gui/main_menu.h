@@ -34,12 +34,6 @@ void on_preferences_activate(GtkMenuItem *menuitem,
 			     gpointer user_data);
 void on_help_contents_activate(GtkMenuItem *menuitem,
 			       gpointer user_data);
-void on_mailing_list_activate(GtkMenuItem *menuitem,
-			      gpointer user_data);
-void on_view_releases_activate(GtkMenuItem *menuitem,
-			       gpointer user_data);
-void on_live_chat_activate(GtkMenuItem *menuitem,
-			   gpointer user_data);
 void on_report_bug_activate(GtkMenuItem *menuitem,
 			    gpointer user_data);
 void on_about_the_sword_project_activate(GtkMenuItem *menuitem,
@@ -81,8 +75,6 @@ void on_show_commentary_activate(GtkCheckMenuItem *menuitem,
 void on_show_dictionary_lexicon_activate(GtkCheckMenuItem *
 					     menuitem,
 					 gpointer user_data);
-void on_open_studypad_activate(GtkMenuItem *menuitem,
-			       gpointer user_data);
 void on_export_bible_activate(GtkMenuItem *menuitem,
 			      gpointer user_data);
 void on_advanced_search_activate(GtkMenuItem *menuitem,

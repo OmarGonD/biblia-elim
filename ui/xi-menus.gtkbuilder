@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.18.3 -->
 <interface>
-  <requires lib="gtk+" version="3.14"/>
+  <requires lib="gtk+" version="3.14" />
   <object class="GtkMenuBar" id="menu_main">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -13,89 +12,53 @@
         <property name="use_underline">True</property>
         <child type="submenu">
           <object class="GtkMenu" id="menuitem4_menu">
+            <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
-              <object class="GtkImageMenuItem" id="newjournal">
-                <property name="label" translatable="yes">_Nueva lista de oración</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="use_underline">True</property>
-                <property name="use_stock">True</property>
-                <signal name="activate" handler="gui_menu_prayerlist_popup" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkImageMenuItem" id="open_studypad">
-                <property name="label" translatable="yes">Abrir _bloc de estudio</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="use_underline">True</property>
-                <property name="use_stock">True</property>
-                <signal name="activate" handler="on_open_studypad_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkSeparatorMenuItem" id="separador1">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkImageMenuItem" id="open_session">
-                <property name="label" translatable="yes">_Abrir sesión</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="use_underline">True</property>
-                <property name="use_stock">True</property>
-                <signal name="activate" handler="on_open_session_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkImageMenuItem" id="save_session">
-                <property name="label" translatable="yes">_Guardar sesión</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="use_underline">True</property>
-                <property name="use_stock">True</property>
-                <signal name="activate" handler="on_save_session_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkSeparatorMenuItem" id="separador2">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-              </object>
-            </child>
-            <child>
               <object class="GtkImageMenuItem" id="export_bible">
-                <property name="label" translatable="yes">Exportar Biblia/pasaje</property>
+                <property name="label" translatable="yes">_Exportar pasaje…</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <signal name="activate" handler="on_export_bible_activate" swapped="no"/>
+                <signal name="activate" handler="on_export_bible_activate" swapped="no" />
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparatorMenuItem" id="sep_1">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
               </object>
             </child>
             <child>
               <object class="GtkImageMenuItem" id="module_manager">
-                <property name="label" translatable="yes">_Instalar Biblias</property>
+                <property name="label" translatable="yes">_Instalar Biblias…</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="use_underline">True</property>
                 <property name="use_stock">True</property>
-                <signal name="activate" handler="on_module_manager_activate" swapped="no"/>
+                <signal name="activate" handler="on_module_manager_activate" swapped="no" />
               </object>
             </child>
             <child>
               <object class="GtkImageMenuItem" id="preferences">
-                <property name="label" translatable="yes">_Preferencias</property>
+                <property name="label" translatable="yes">_Preferencias…</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="use_underline">True</property>
                 <property name="use_stock">True</property>
-                <signal name="activate" handler="on_preferences_activate" swapped="no"/>
+                <signal name="activate" handler="on_preferences_activate" swapped="no" />
               </object>
             </child>
             <child>
-              <object class="GtkSeparatorMenuItem" id="separador3">
+              <object class="GtkMenuItem" id="navigation_prefs">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Nave_gación y rueda…</property>
+                <property name="use_underline">True</property>
+                <signal name="activate" handler="on_navigation_prefs_activate" swapped="no" />
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparatorMenuItem" id="sep_2">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
               </object>
@@ -107,7 +70,50 @@
                 <property name="can_focus">False</property>
                 <property name="use_underline">True</property>
                 <property name="use_stock">True</property>
-                <signal name="activate" handler="on_quit_activate" swapped="no"/>
+                <signal name="activate" handler="on_quit_activate" swapped="no" />
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="menu_buscar">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">_Buscar</property>
+        <property name="use_underline">True</property>
+        <child type="submenu">
+          <object class="GtkMenu" id="menu_buscar_menu">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkImageMenuItem" id="search">
+                <property name="label" translatable="yes">_Buscar en la Biblia</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="use_underline">True</property>
+                <property name="use_stock">True</property>
+                <signal name="activate" handler="on_search_activate" swapped="no" />
+              </object>
+            </child>
+            <child>
+              <object class="GtkImageMenuItem" id="advanced_search">
+                <property name="label" translatable="yes">Búsqueda a_vanzada…</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="use_underline">True</property>
+                <property name="use_stock">True</property>
+                <signal name="activate" handler="on_advanced_search_activate" swapped="no" />
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuItem" id="buscar_notas">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Buscar en mis _notas…</property>
+                <property name="use_underline">True</property>
+                <signal name="activate" handler="on_buscar_notas_activate" swapped="no" />
               </object>
             </child>
           </object>
@@ -122,133 +128,116 @@
         <property name="use_underline">True</property>
         <child type="submenu">
           <object class="GtkMenu" id="menuitem5_menu">
+            <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <child>
-              <object class="GtkImageMenuItem" id="search">
-                <property name="label" translatable="yes">_Buscar</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="use_underline">True</property>
-                <property name="use_stock">True</property>
-                <signal name="activate" handler="on_search_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkImageMenuItem" id="advanced_search">
-                <property name="label" translatable="yes">Búsqueda a_vanzada</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="use_underline">True</property>
-                <property name="use_stock">True</property>
-                <signal name="activate" handler="on_advanced_search_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkSeparatorMenuItem" id="separador4">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-              </object>
-            </child>
             <child>
               <object class="GtkCheckMenuItem" id="interlineal">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Biblia _interlineal</property>
                 <property name="use_underline">True</property>
-                <signal name="activate" handler="on_interlineal_activate" swapped="no"/>
+                <signal name="activate" handler="on_interlineal_activate" swapped="no" />
               </object>
             </child>
             <child>
               <object class="GtkMenuItem" id="diccionario">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Di_ccionario</property>
+                <property name="label" translatable="yes">Di_ccionario…</property>
                 <property name="use_underline">True</property>
-                <signal name="activate" handler="on_diccionario_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkMenuItem" id="buscar_notas">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Buscar en mis n_otas</property>
-                <property name="use_underline">True</property>
-                <signal name="activate" handler="on_buscar_notas_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkMenuItem" id="testimonios">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">_Jesús en la historia</property>
-                <property name="use_underline">True</property>
-                <signal name="activate" handler="on_testimonios_activate" swapped="no"/>
+                <signal name="activate" handler="on_diccionario_activate" swapped="no" />
               </object>
             </child>
             <child>
               <object class="GtkMenuItem" id="nube_palabras">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">_Nube de palabras</property>
+                <property name="label" translatable="yes">_Nube de palabras…</property>
                 <property name="use_underline">True</property>
-                <signal name="activate" handler="on_nube_palabras_activate" swapped="no"/>
+                <signal name="activate" handler="on_nube_palabras_activate" swapped="no" />
               </object>
             </child>
             <child>
-              <object class="GtkSeparatorMenuItem" id="separador_planes">
+              <object class="GtkMenuItem" id="testimonios">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="label" translatable="yes">_Jesús en la historia…</property>
+                <property name="use_underline">True</property>
+                <signal name="activate" handler="on_testimonios_activate" swapped="no" />
               </object>
             </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="menu_lectura">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">_Lectura</property>
+        <property name="use_underline">True</property>
+        <child type="submenu">
+          <object class="GtkMenu" id="menu_lectura_menu">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
             <child>
               <object class="GtkMenuItem" id="planes_lectura">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">_Planes de lectura</property>
+                <property name="label" translatable="yes">_Planes de lectura…</property>
                 <property name="use_underline">True</property>
-                <signal name="activate" handler="on_planes_lectura_activate" swapped="no"/>
+                <signal name="activate" handler="on_planes_lectura_activate" swapped="no" />
               </object>
             </child>
             <child>
               <object class="GtkMenuItem" id="progreso_lectura">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">_Mi progreso</property>
+                <property name="label" translatable="yes">_Mi progreso…</property>
                 <property name="use_underline">True</property>
-                <signal name="activate" handler="on_progreso_lectura_activate" swapped="no"/>
+                <signal name="activate" handler="on_progreso_lectura_activate" swapped="no" />
               </object>
             </child>
             <child>
               <object class="GtkMenuItem" id="versiculo_dia">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">_Versículo del día</property>
+                <property name="label" translatable="yes">_Versículo del día…</property>
                 <property name="use_underline">True</property>
-                <signal name="activate" handler="on_versiculo_dia_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkMenuItem" id="pulpito">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Abrir en _púlpito…</property>
-                <property name="use_underline">True</property>
-                <signal name="activate" handler="on_pulpito_activate" swapped="no"/>
+                <signal name="activate" handler="on_versiculo_dia_activate" swapped="no" />
               </object>
             </child>
             <child>
               <object class="GtkMenuItem" id="memorizacion">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Me_morización</property>
+                <property name="label" translatable="yes">Me_morización…</property>
                 <property name="use_underline">True</property>
-                <signal name="activate" handler="on_memorizacion_activate" swapped="no"/>
+                <signal name="activate" handler="on_memorizacion_activate" swapped="no" />
               </object>
             </child>
             <child>
-              <object class="GtkSeparatorMenuItem" id="separador5">
+              <object class="GtkSeparatorMenuItem" id="sep_3">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkCheckMenuItem" id="read_aloud">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">_Leer en voz alta</property>
+                <property name="use_underline">True</property>
+                <signal name="activate" handler="on_read_aloud_activate" swapped="no" />
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuItem" id="pulpito">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Abrir en p_úlpito…</property>
+                <property name="use_underline">True</property>
+                <signal name="activate" handler="on_pulpito_activate" swapped="no" />
               </object>
             </child>
             <child>
@@ -257,16 +246,7 @@
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Vista previa de la _devoción diaria</property>
                 <property name="use_underline">True</property>
-                <signal name="activate" handler="on_daily_devotion_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkCheckMenuItem" id="read_aloud">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">_Leer en voz alta (Ctrl+R)</property>
-                <property name="use_underline">True</property>
-                <signal name="activate" handler="on_read_aloud_activate" swapped="no"/>
+                <signal name="activate" handler="on_daily_devotion_activate" swapped="no" />
               </object>
             </child>
           </object>
@@ -281,6 +261,7 @@
         <property name="use_underline">True</property>
         <child type="submenu">
           <object class="GtkMenu" id="menuitem6_menu">
+            <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
               <object class="GtkMenuItem" id="aparencia">
@@ -345,158 +326,205 @@
               </object>
             </child>
             <child>
-              <object class="GtkSeparatorMenuItem" id="separador6">
+              <object class="GtkSeparatorMenuItem" id="sep_4">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkCheckMenuItem" id="show_bible_text">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">_Biblia</property>
-                <property name="use_underline">True</property>
-                <signal name="activate" handler="on_show_bible_text_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkCheckMenuItem" id="preview">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">_Vista previa</property>
-                <property name="use_underline">True</property>
-                <signal name="activate" handler="on_preview_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkCheckMenuItem" id="commentary">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">_Comentarios del autor</property>
-                <property name="use_underline">True</property>
-                <signal name="activate" handler="on_show_commentary_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkCheckMenuItem" id="show_dictionary_lexicon">
-                <property name="visible">False</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Diccionar_io</property>
-                <property name="use_underline">True</property>
-                <signal name="activate" handler="on_show_dictionary_lexicon_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkSeparatorMenuItem" id="separador7">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkMenuItem" id="show_hide_sidebar">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Mostrar/ocultar _panel lateral</property>
-                <property name="use_underline">True</property>
-                <signal name="activate" handler="on_sidebar_showhide_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkCheckMenuItem" id="show_previewer_in_sidebar">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Vista previa en el _lateral</property>
-                <property name="use_underline">True</property>
-                <signal name="activate" handler="on_side_preview_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkSeparatorMenuItem" id="separador8">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkCheckMenuItem" id="link_tabs">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Vi_ncular pestañas</property>
-                <property name="use_underline">True</property>
-                <signal name="activate" handler="on_linked_tabs_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkCheckMenuItem" id="show_parallel_view_in_a_tab">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Vista paralela en pe_staña</property>
-                <property name="use_underline">True</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkSeparatorMenuItem" id="separador10">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkCheckMenuItem" id="lectura_sync">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Pantalla _dividida (lectura sincronizada)</property>
-                <property name="use_underline">True</property>
-                <signal name="activate" handler="on_lectura_sync_activate" swapped="no"/>
               </object>
             </child>
             <child>
               <object class="GtkCheckMenuItem" id="reading_mode">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">_Modo lectura (Ctrl+Mayús+F)</property>
+                <property name="label" translatable="yes">_Modo lectura</property>
                 <property name="use_underline">True</property>
-                <signal name="activate" handler="on_reading_mode_activate" swapped="no"/>
+                <signal name="activate" handler="on_reading_mode_activate" swapped="no" />
               </object>
             </child>
             <child>
-              <object class="GtkMenuItem" id="navigation_prefs">
+              <object class="GtkCheckMenuItem" id="lectura_sync">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Nave_gación y rueda…</property>
+                <property name="label" translatable="yes">Pantalla _dividida</property>
                 <property name="use_underline">True</property>
-                <signal name="activate" handler="on_navigation_prefs_activate" swapped="no"/>
+                <signal name="activate" handler="on_lectura_sync_activate" swapped="no" />
               </object>
             </child>
             <child>
-              <object class="GtkSeparatorMenuItem" id="separador9">
+              <object class="GtkSeparatorMenuItem" id="sep_5">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
               </object>
             </child>
             <child>
-              <object class="GtkCheckMenuItem" id="show_verse_numbers">
+              <object class="GtkMenuItem" id="menu_paneles">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Mostrar números de ve_rsículo</property>
+                <property name="label" translatable="yes">_Paneles</property>
                 <property name="use_underline">True</property>
-                <signal name="activate" handler="on_show_verse_numbers_activate" swapped="no"/>
+                <child type="submenu">
+                  <object class="GtkMenu" id="menu_paneles_menu">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="show_bible_text">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">_Biblia</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="on_show_bible_text_activate" swapped="no" />
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="preview">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">_Vista previa</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="on_preview_activate" swapped="no" />
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="commentary">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">_Comentarios del autor</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="on_show_commentary_activate" swapped="no" />
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="show_dictionary_lexicon">
+                        <property name="visible">False</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Diccionar_io</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="on_show_dictionary_lexicon_activate" swapped="no" />
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="sep_6">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="show_hide_sidebar">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Mostrar u ocultar panel _lateral</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="on_sidebar_showhide_activate" swapped="no" />
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="show_previewer_in_sidebar">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Vista previa _en el lateral</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="on_side_preview_activate" swapped="no" />
+                      </object>
+                    </child>
+                  </object>
+                </child>
               </object>
             </child>
             <child>
-              <object class="GtkCheckMenuItem" id="highlight_current_verse">
+              <object class="GtkMenuItem" id="menu_texto">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Resaltar versículo act_ual</property>
+                <property name="label" translatable="yes">_Texto</property>
                 <property name="use_underline">True</property>
-                <signal name="activate" handler="on_versehighlight_activate" swapped="no"/>
+                <child type="submenu">
+                  <object class="GtkMenu" id="menu_texto_menu">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="show_verse_numbers">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">_Números de versículo</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="on_show_verse_numbers_activate" swapped="no" />
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="highlight_current_verse">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Resaltar versículo _actual</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="on_versehighlight_activate" swapped="no" />
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="highlight_annotated_verses">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Resaltar versículos _anotados</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="on_annotate_highlight_activate" swapped="no" />
+                      </object>
+                    </child>
+                  </object>
+                </child>
               </object>
             </child>
             <child>
-              <object class="GtkCheckMenuItem" id="highlight_annotated_verses">
+              <object class="GtkMenuItem" id="menu_pestanas">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Resaltar versículos an_otados</property>
+                <property name="label" translatable="yes">Pe_stañas</property>
                 <property name="use_underline">True</property>
-                <signal name="activate" handler="on_annotate_highlight_activate" swapped="no"/>
+                <child type="submenu">
+                  <object class="GtkMenu" id="menu_pestanas_menu">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="link_tabs">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">_Vincular pestañas</property>
+                        <property name="use_underline">True</property>
+                        <signal name="activate" handler="on_linked_tabs_activate" swapped="no" />
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkCheckMenuItem" id="show_parallel_view_in_a_tab">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Vista _paralela en pestaña</property>
+                        <property name="use_underline">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="sep_7">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="open_session">
+                        <property name="label" translatable="yes">_Abrir sesión…</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <signal name="activate" handler="on_open_session_activate" swapped="no" />
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="save_session">
+                        <property name="label" translatable="yes">_Guardar sesión…</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <signal name="activate" handler="on_save_session_activate" swapped="no" />
+                      </object>
+                    </child>
+                  </object>
+                </child>
               </object>
             </child>
           </object>
@@ -511,6 +539,7 @@
         <property name="use_underline">True</property>
         <child type="submenu">
           <object class="GtkMenu" id="menuitem7_menu">
+            <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
               <object class="GtkImageMenuItem" id="contents">
@@ -519,13 +548,7 @@
                 <property name="can_focus">False</property>
                 <property name="use_underline">True</property>
                 <property name="use_stock">True</property>
-                <signal name="activate" handler="on_help_contents_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkSeparatorMenuItem" id="separador13">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <signal name="activate" handler="on_help_contents_activate" swapped="no" />
               </object>
             </child>
             <child>
@@ -535,31 +558,11 @@
                 <property name="can_focus">False</property>
                 <property name="use_underline">True</property>
                 <property name="use_stock">True</property>
-                <signal name="activate" handler="on_report_bug_activate" swapped="no"/>
+                <signal name="activate" handler="on_report_bug_activate" swapped="no" />
               </object>
             </child>
             <child>
-              <object class="GtkImageMenuItem" id="mailing_list">
-                <property name="label" translatable="yes">_Lista de correo</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="use_underline">True</property>
-                <property name="use_stock">True</property>
-                <signal name="activate" handler="on_mailing_list_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkImageMenuItem" id="live_chat">
-                <property name="label" translatable="yes">Chat en _vivo</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="use_underline">True</property>
-                <property name="use_stock">True</property>
-                <signal name="activate" handler="on_live_chat_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkSeparatorMenuItem" id="separador11">
+              <object class="GtkSeparatorMenuItem" id="sep_8">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
               </object>
@@ -571,53 +574,51 @@
                 <property name="can_focus">False</property>
                 <property name="use_underline">True</property>
                 <property name="use_stock">True</property>
-                <signal name="activate" handler="on_about_xiphos_activate" swapped="no"/>
+                <signal name="activate" handler="on_about_xiphos_activate" swapped="no" />
               </object>
             </child>
             <child>
-              <object class="GtkImageMenuItem" id="view_releases">
-                <property name="label" translatable="yes">_Notas de versión</property>
+              <object class="GtkMenuItem" id="menu_creditos">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="label" translatable="yes">_Créditos</property>
                 <property name="use_underline">True</property>
-                <property name="use_stock">True</property>
-                <signal name="activate" handler="on_view_releases_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkSeparatorMenuItem" id="separador12">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkImageMenuItem" id="about_the_sword_project">
-                <property name="label" translatable="yes">Acerca de _SWORD</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="use_underline">True</property>
-                <property name="use_stock">True</property>
-                <signal name="activate" handler="on_about_the_sword_project_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkImageMenuItem" id="about_biblesync">
-                <property name="label" translatable="yes">Acerca de BibleS_ync</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="use_underline">True</property>
-                <property name="use_stock">True</property>
-                <signal name="activate" handler="on_about_biblesync_activate" swapped="no"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkImageMenuItem" id="about">
-                <property name="label" translatable="yes">Acerca de la _traducción</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="use_underline">True</property>
-                <property name="use_stock">True</property>
-                <signal name="activate" handler="on_about_translation_activate" swapped="no"/>
+                <child type="submenu">
+                  <object class="GtkMenu" id="menu_creditos_menu">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <object class="GtkImageMenuItem" id="about_the_sword_project">
+                        <property name="label" translatable="yes">_SWORD</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <signal name="activate" handler="on_about_the_sword_project_activate" swapped="no" />
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="about_biblesync">
+                        <property name="label" translatable="yes">Bible_Sync</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <signal name="activate" handler="on_about_biblesync_activate" swapped="no" />
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="about">
+                        <property name="label" translatable="yes">_Traducción</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <signal name="activate" handler="on_about_translation_activate" swapped="no" />
+                      </object>
+                    </child>
+                  </object>
+                </child>
               </object>
             </child>
           </object>
