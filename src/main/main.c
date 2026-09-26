@@ -194,6 +194,7 @@ int main(int argc, char *argv[])
 	if (!backend_argument)
 		main_select_bible_backend("sqlite", NULL, FALSE);
 	main_validate_bible_backend_selection();
+	main_init_sword_locale();
 
 	// ---------------------------------------------------------
 	// **** LOUD OBNOXIOUS COMMENT TO GET ATTENTION ****

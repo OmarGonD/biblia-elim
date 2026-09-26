@@ -66,6 +66,25 @@ if (BUILD_TESTING AND UNIX)
   endif ()
 endif ()
 
+# CLOUD-CASE-101: nombres propios aprendidos del texto.
+add_executable (nube_mayusculas_test
+  nube_mayusculas_test.c
+  ${PROJECT_SOURCE_DIR}/src/main/nube_mayusculas.c)
+target_include_directories (nube_mayusculas_test PRIVATE ${PROJECT_SOURCE_DIR}/src)
+target_link_libraries (nube_mayusculas_test PRIVATE PkgConfig::Core)
+if (BUILD_TESTING)
+  add_test (NAME nube_mayusculas_test COMMAND nube_mayusculas_test)
+endif ()
+
+add_executable (nube_canvas_test EXCLUDE_FROM_ALL nube_canvas_test.c
+  ${PROJECT_SOURCE_DIR}/src/main/nube_mayusculas.c)
+target_include_directories (nube_canvas_test PRIVATE ${PROJECT_SOURCE_DIR}/src)
+target_link_libraries (nube_canvas_test PRIVATE PkgConfig::Gtk m)
+if (BUILD_TESTING AND XVFB_RUN_EXECUTABLE)
+  add_test (NAME nube_canvas_test
+    COMMAND ${XVFB_RUN_EXECUTABLE} -a $<TARGET_FILE:nube_canvas_test>)
+endif ()
+
 add_executable (pulpito_test
   EXCLUDE_FROM_ALL
   pulpito_test.c
@@ -96,6 +115,47 @@ target_link_libraries (planes_lectura_test
   PkgConfig::Core
   PkgConfig::TestXml
   )
+
+add_executable (notes_store_test
+  notes_store_test.c
+  ${PROJECT_SOURCE_DIR}/src/main/notes_store.c
+  )
+target_include_directories (notes_store_test
+  PRIVATE
+  ${PROJECT_SOURCE_DIR}/src
+  PkgConfig::Core
+  PkgConfig::TestXml
+  )
+target_link_libraries (notes_store_test
+  PRIVATE
+  PkgConfig::Core
+  PkgConfig::TestXml
+  )
+if (BUILD_TESTING)
+  add_test (NAME notes_store_test COMMAND notes_store_test)
+endif ()
+
+# NOTES-EXPORT-101: exportar e importar las notas.
+pkg_check_modules (TestJson REQUIRED IMPORTED_TARGET "json-glib-1.0")
+add_executable (notes_exchange_test
+  notes_exchange_test.c
+  ${PROJECT_SOURCE_DIR}/src/main/notes_exchange.c
+  ${PROJECT_SOURCE_DIR}/src/main/notes_store.c
+  ${PROJECT_SOURCE_DIR}/src/main/note_value.c
+  )
+target_include_directories (notes_exchange_test
+  PRIVATE
+  ${PROJECT_SOURCE_DIR}/src
+  )
+target_link_libraries (notes_exchange_test
+  PRIVATE
+  PkgConfig::Core
+  PkgConfig::TestXml
+  PkgConfig::TestJson
+  )
+if (BUILD_TESTING)
+  add_test (NAME notes_exchange_test COMMAND notes_exchange_test)
+endif ()
 
 add_executable (panel_load_state_test
   EXCLUDE_FROM_ALL
@@ -598,7 +658,6 @@ target_link_libraries (testimonios_test
   )
 
 add_executable (buscar_notas_test
-  EXCLUDE_FROM_ALL
   buscar_notas_test.c
   ${PROJECT_SOURCE_DIR}/src/main/buscar_notas.c
   ${PROJECT_SOURCE_DIR}/src/main/busqueda_tildes.c
@@ -608,6 +667,9 @@ target_link_libraries (buscar_notas_test
   PRIVATE
   PkgConfig::Core
   )
+if (BUILD_TESTING)
+  add_test (NAME buscar_notas_test COMMAND buscar_notas_test)
+endif ()
 
 add_executable (quoted_heading_test
   EXCLUDE_FROM_ALL
@@ -757,6 +819,7 @@ target_sources(sqlite_bible_backend_test PRIVATE
 add_executable (sqlite_module_writer_morphology_test EXCLUDE_FROM_ALL
   sqlite_module_writer_morphology_test.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_module_writer.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
   ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
   ${PROJECT_SOURCE_DIR}/src/backend/morphology.cc)
 target_include_directories (sqlite_module_writer_morphology_test PRIVATE
@@ -969,7 +1032,49 @@ target_link_libraries (backend_comparison_benchmark PRIVATE
   PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome PkgConfig::Soup
   PkgConfig::Sword PkgConfig::Sqlite3)
 target_sources(backend_comparison_benchmark PRIVATE
-  ${PROJECT_SOURCE_DIR}/src/backend/morphology.cc)
+  ${PROJECT_SOURCE_DIR}/src/backend/morphology.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/quoted_heading.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/source_quirks.cc)
+
+# SWORD-LOCALE-101: the reader-locale manager equals SWORD's full one.
+add_executable (sword_locale_test
+  sword_locale_test.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sword/sword_locale.cc)
+target_include_directories (sword_locale_test PRIVATE ${PROJECT_SOURCE_DIR}/src)
+target_link_libraries (sword_locale_test PRIVATE PkgConfig::Core PkgConfig::Sword)
+pkg_get_variable (TEST_SWORD_PREFIX sword prefix)
+if (TEST_SWORD_PREFIX)
+  target_compile_definitions (sword_locale_test PRIVATE
+    SWORD_INSTALL_PREFIX="${TEST_SWORD_PREFIX}")
+endif ()
+if (BUILD_TESTING)
+  add_test (NAME sword_locale_test COMMAND sword_locale_test)
+endif ()
+
+# SQLITE-REAL-101: versifications of SQLite modules, mapped as SWORD does.
+add_executable (sqlite_versification_test
+  sqlite_versification_test.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sword_main.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sword/sword_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_bible_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_module_writer.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/morphology.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/quoted_heading.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/source_quirks.cc
+  ${PROJECT_SOURCE_DIR}/src/main/busqueda_tildes.c)
+target_compile_options (sqlite_versification_test PRIVATE -ffunction-sections)
+target_link_options (sqlite_versification_test PRIVATE -Wl,--gc-sections)
+target_include_directories (sqlite_versification_test PRIVATE
+  PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome PkgConfig::Soup
+  PkgConfig::Sword PkgConfig::Sqlite3)
+target_link_libraries (sqlite_versification_test PRIVATE
+  PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome PkgConfig::Soup
+  PkgConfig::Sword PkgConfig::Sqlite3)
+if (BUILD_TESTING)
+  add_test (NAME sqlite_versification_test COMMAND sqlite_versification_test)
+endif ()
 
 add_executable (sword_backend_key_lifecycle_test EXCLUDE_FROM_ALL
   sword_backend_key_lifecycle_test.cc

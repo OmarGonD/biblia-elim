@@ -8509,6 +8509,420 @@
       same session was a no-op: the installed module already matched the
       committed pipeline byte for byte.
 
+- [x] NOTES-STORE-101 Keep the reader's notes in their own file, written atomically, with rotating backups
+  - Status: DONE
+  - Evidence:
+    - Notes and note links lived inside `settings.xml`: every autosave
+      rewrote the whole file and a settings reset erased them. New
+      `src/main/notes_store.{c,h}`: `notas.xml` next to `settings.xml`,
+      same label -> value semantics and insertion order as the old
+      «osisrefnotes» / «osisrefnotelinks» sections; written with
+      `g_file_set_contents_full(CONSISTENT|DURABLE)` (temp + fsync +
+      rename); the first save of each session rotates `.bak.1`..`.bak.5`;
+      a file that exists but cannot be parsed is renamed
+      `.ilegible-<date>`, never overwritten.
+    - `display.cc` reads and writes only through the store; on first use
+      it imports both sections from `settings.xml` without touching them
+      (non-destructive: an older build still sees its notes).
+    - Migration checked on a copy of the real profile under Xvfb:
+      `notas.xml` created with the 18 notes, same labels, values and
+      order; `settings.xml` sections unchanged.
+    - Found on the way: `notesCacheFill()` wrote through a NULL
+      `strrchr()` for a key the backend cannot express as «Book.C.V»
+      (SIGSEGV under the SQLite backend) and leaked the osisref string;
+      both fixed, the cache is left empty for such a key.
+    - Tests: new `notes_store_test` (roundtrip with escaped characters and
+      newlines, order, snapshot iteration, backups once per session and at
+      most 5, no temp files left, unreadable file set aside) PASS 5/5;
+      `gtk_lifecycle_smoke` writes/reads/removes a verse note in the
+      running app and asserts `notas.xml` exists and `settings.xml` does
+      not carry the note: PASS.
+
+- [x] NOTES-V11N-101 Show a whole-verse note in every Bible, at its counterpart in that Bible's numbering
+  - Status: DONE
+  - Evidence:
+    - A note was only visible in the Bible it was written in. Now a note
+      on the whole verse written in another Bible is shown at the
+      converted verse (SpaRV Ps 23:1 -> TorresAmat Ps 22:1); a verse with
+      no counterpart shows nothing (never another verse reread); a
+      highlighted phrase stays in its edition (it is that wording).
+    - Policy is neutral, next to the other versification plans:
+      `planNoteVerseProjection()` (`reference_transition.cc`, through
+      `planBibleModuleTransition` + `osisRefFromKey`), wrapped by
+      `main_note_verse_in_module()`. `notesCacheFill()` appends projected
+      notes after the verse's own entries, so a native note keeps deciding
+      the verse's color.
+    - Identity: a projected note's key is
+      «MV:<osisref here>#<original label>»; `whole_note_label_from_key()`
+      resolves keys through the cache, so editing or removing it changes
+      the entry where it was written and never creates a native copy.
+      `highlight_note_key_osisref()` drops the «#...» suffix (a suffixed
+      key used to navigate to «Ps.23.1#MV...»). The verse-notes dialog
+      (`bibletext.c`) edits foreign notes by key and labels them
+      «escrita en <Bible>»; the notes panel (`notas_verso.c`) shows
+      «Escrita en <Bible>».
+    - Tests: `versification_transition_test` adds
+      `test_note_verse_projection` with the installed modules (SpaRV <->
+      TorresAmat Psalms, NT identity, same module, Ps 13:6 unmapped,
+      uninstalled source, malformed refs, SpaRV -> SpaPlatense Ps 118:1):
+      PASS, skipped_cases=0. `gtk_lifecycle_smoke` now builds a second
+      SQLite Bible and checks, in the running app, that a note written
+      there is listed alone at John 3:16 with its Bible's name, a foreign
+      phrase highlight is not, editing by key updates the original entry
+      without a native copy, and removing it removes it: PASS; with the
+      projection disabled the smoke fails with 3 checks (mutation check).
+    - Full CTest (`-j4`, both tasks together): 60/61; the one failure,
+      `torresamat1835_remaining_glyph_reprioritization_test`, is the Torres
+      1835 audit exceeding its own time budget under parallel load (121 s);
+      rerun alone it PASSES (103 s). No Torres file is touched here.
+
+- [x] NOTES-DATES-101 Record when each note was written and last changed
+  - Status: DONE
+  - Evidence:
+    - The store stamps entries itself: `created`/`modified` (Unix seconds,
+      saved as ISO 8601 UTC attributes in `notas.xml`); a new label gets
+      both, a changed value gets `modified`, rewriting the same value
+      changes nothing. `notes_store_generation()` changes with content.
+      Notes imported from `settings.xml` stay undated (0), not "today".
+    - Shown as «Escrita el … · modificada el …» (`highlight_note_dates_text`)
+      in the notes panel (`notas_verso.c`), the verse-notes dialog
+      (`bibletext.c`) and a «Fecha» column in «Buscar en mis notas».
+    - Tests: `notes_store_test` `/notes_store/dates` (stamping, unchanged
+      rewrite, creation kept on change, dates survive the file, undated
+      stays 0): PASS 6/6. Smoke: a new note in the running app has
+      `created`/`modified`: PASS.
+
+- [x] NOTES-EXPORT-101 Export notes to Markdown and JSON, import a JSON copy
+  - Status: DONE
+  - Evidence:
+    - `src/main/notes_exchange.{c,h}` (no Sword/GTK; json-glib, now a
+      declared dependency in `cmake/XiphosDependencies.cmake`, INSTALL.md
+      and the win32 DLL list). JSON: every entry with its exact label and
+      value (what import uses) plus readable module/osisref/text/note/
+      color and dates; links too. Markdown: by book in Bible order, phrase
+      as a quote, note, dates.
+    - Import reads and validates everything before touching the store and
+      never replaces or deletes: new -> added; identical -> skipped; a
+      different whole-verse note on the same verse -> added beside it
+      (`#MV<n>` label); a different highlight or link with the same
+      identity -> conflict, the reader's kept; malformed entries counted.
+      Importing the same copy twice adds nothing. The app copies
+      `notas.xml` to `notas.xml.antes-de-importar-<date>` first and says
+      where; if nothing changed the copy is removed.
+    - The codec shared with display.cc moved to `src/main/note_value.{c,h}`
+      (no duplicate).
+    - UI: «Exportar…» (shown notes -> Markdown; all -> JSON) and «Importar
+      copia…» in «Buscar en mis notas», with a summary of what happened.
+    - Tests: new `notes_exchange_test` (readable JSON, lossless roundtrip
+      with dates and links, idempotent re-import, never replaces a note,
+      rejects non-copies/newer versions/wrong types without changes,
+      malformed entries counted, Markdown layout): PASS 5/5. Smoke: export,
+      remove, import restores the note, backup copy exists, second import
+      adds nothing: PASS.
+
+- [x] NOTES-TAGS-101 Tags inside notes and filters by tag, book and version
+  - Status: DONE
+  - Evidence:
+    - `main_notas_etiquetas()` (`src/main/buscar_notas.c`): «#palabra» at
+      start of text or after a non-word character, letters/digits/_/-, not
+      only digits («#1»), trailing '-' dropped, NFC + lowercase, unique, in
+      order («C#», «pagina#3», «##titulo» are not tags).
+      `main_buscar_notas_filtrar()` filters by tag, OSIS book (whole book
+      id, «P» is not «Ps») and version.
+    - «Buscar en mis notas» gets Etiqueta (with counts) / Libro (Bible
+      order, readable names) / Versión filters; they apply to the full
+      list and to searches. The existing empty-search view already is the
+      «all my notes in Bible order» index.
+    - Tests: `buscar_notas_test` gains `/notas/etiquetas` and
+      `/notas/filtrar` and is now built and registered in CTest: PASS
+      11/11. Smoke opens and closes the dialog with a tagged note, no GTK
+      warnings: PASS.
+
+- [x] NOTES-INDICATOR-101 Note marker in the parallel view and the compare panel
+  - Status: DONE
+  - Evidence:
+    - `fill_note_cache()` extracted from `notesCacheFill()`; other Bibles
+      get per-(module, book) caches, dropped when the notes generation
+      changes. `highlight_count_notes_for()`, `highlight_list_notes_in()`
+      and `highlight_note_marker_for()` count and list native notes plus
+      whole-verse notes projected from other Bibles (NOTES-V11N-101).
+    - The «n»/«n2» marker (same HTML as the main view, one shared
+      formatter) is added to each cell of the parallel table, the
+      single-verse parallel view and each version in «Comparar»; it opens
+      the verse-notes dialog for that Bible, which now lists with
+      `highlight_list_notes_in()`; foreign-note edits reach their original
+      entry through the per-module caches.
+    - Smoke: a note written in FakeBible is counted in OtherBible at John
+      3:16 and not 3:15, the marker points to `module=OtherBible&passage=
+      John.3.16`, the list there names FakeBible, and editing it from
+      there changes the original: PASS (318 checks, 0 failures).
+    - Full CTest with NOTES-DATES/EXPORT/TAGS/INDICATOR-101 (`-j2`): 63/63
+      PASS (new `notes_exchange_test`, `buscar_notas_test` now registered);
+      `versification_transition_test` ok, skipped_cases=0. Rerun after the
+      last change (export menu destroyed from idle): smoke,
+      `notes_store_test`, `notes_exchange_test`, `buscar_notas_test` PASS.
+
+- [x] CLOUD-CASE-101 Word cloud shows every proper name capitalized, learned from the text
+  - Status: DONE
+  - Evidence:
+    - The cloud counts words lowercased and restored capitals only for a
+      fixed list of names in `src/gtk/nube_canvas.h`, so Noemí, Booz,
+      Moab, Elimelec, Mahalón, Isaí, Fares... stayed lowercase; any list
+      misses names and spellings (Noemi/Noemí, Booz/Boaz/Boz, Rut/Ruth).
+    - New pure `src/main/nube_mayusculas.{c,h}`: one word walk
+      (`nube_recorrer_palabras`, now also the counter's tokenizer, so no
+      duplicate) records how each word is written. A word capitalized
+      inside the sentence more often than lowercase is a proper noun;
+      capitals at a sentence or verse start, after «.!?:¿¡», and all-caps
+      words among a verse's first two (a chapter's small-caps opening, «Y
+      ACONTECIÓ») say nothing. `NUBE_PALABRA.etiqueta` carries the
+      spelling; canvas, HTML cloud and table show it. The fixed list is
+      gone.
+    - Real modules, all of Ruth, no list: SpaRV/SpaRV1909 Noemi, Booz,
+      Moab, Elimelech, Mahalón, Chelión, Orpha, Isaí, Phares, Obed,
+      Jehová; SpaRVG Noemí, Boaz, Belén, Quilión, Fares; NacarColunga
+      Rut, Majalón, Quelyón, Yave; SpaPlatense Betlehem, Yahvé, Orfá;
+      TorresAmat Bethlehem, Mahalon, Señor. Common words stay lowercase.
+    - Tests: new `nube_mayusculas_test` (Ruth 1909 names, common words
+      incl. small-caps openings, majority rule «Señor»/«señor», walker
+      boundaries and invalid UTF-8): PASS 4/4, registered in CTest.
+      `nube_canvas_test` now takes spellings learned from text instead of
+      the list: PASS.
+
+- [x] MENU-TIDY-101 Reorganize the main menu bar
+  - Status: DONE
+  - Evidence:
+    - Before: 4 menus, ~48 visible entries; «Estudio» mixed search,
+      study tools, reading plans, pulpit and read-aloud (14); «Ver» mixed
+      theme, panels, tabs, text options and a preference (17); «Ayuda»
+      carried Xiphos upstream links (users' mailing list, IRC live chat,
+      crosswire/xiphos release notes and bug tracker); sessions (tab sets)
+      sat in «Archivo»; shortcuts were typed into labels «(Ctrl+R)».
+    - After (`ui/xi-menus.gtkbuilder`, generated from the old file so
+      every id the code uses and every handler are kept): Archivo (prayer
+      list, study pad, export, install Bibles, preferences, navigation,
+      quit) · Buscar (Bible, advanced, my notes) · Estudio (interlinear,
+      dictionary, word cloud, Jesus in history) · Lectura (plans,
+      progress, verse of the day, memorization, read aloud, pulpit) · Ver
+      (appearance, reading mode, split screen, Paneles ▸, Texto ▸,
+      Pestañas ▸ with the sessions) · Ayuda (contents, report a bug, about,
+      Créditos ▸ SWORD/BibleSync/translation).
+    - Removed only the Xiphos upstream entries and their dead handlers
+      (`on_mailing_list_activate`, `on_live_chat_activate`,
+      `on_view_releases_activate`); «Informar de un error» now opens
+      github.com/OmarGonD/biblia-elim/issues (`XIPHOS_BUG_REPORT`).
+    - Real shortcuts shown right-aligned via `gtk_accel_label_set_accel`
+      (display only, the window key handler still owns the keys): Ctrl+R,
+      Ctrl+Shift+F, Ctrl+S, Ctrl+Q, F1, F2, F3, F4.
+    - Smoke `check_menu_bar`: six menus in order, read aloud under
+      Lectura; PASS (342 checks, 0 failures, no GTK warnings).
+    - Follow-up at the reader's request: «Nueva lista de oración» and
+      «Abrir bloc de estudio» removed from Archivo, with the code only
+      they used (`widgets.new_journal_item` and its show/hide in
+      main_menu.c, preferences_dialog.c and xiphos.c;
+      `on_open_studypad_activate`). Prayer lists stay reachable from the
+      sidebar's right-click menu (`gui_menu_prayerlist_popup`). Smoke PASS
+      (342 checks, 0 failures).
+
+- [x] PERF-SQLITE-101 Measure SWORD vs SQLite on the reader's own modules (step 1 of moving reading to SQLite)
+  - Status: DONE
+  - Evidence:
+    - The app was not reading SQLite at all: no SQLite module is
+      installed (neither `~/.local/share/biblia_elim/modules`, the code's
+      path, nor `~/.local/share/biblia-elim/modules`, the README's), so
+      startup silently falls back to SWORD. The two paths disagree.
+    - SpaRV1909 converted with `mod2osis` + `biblia-osis-import` (7 s,
+      27 MB, 31,084 verses, John 3:16 checked). `backend_comparison_
+      benchmark`, 5 alternating runs each, medians: init 196 -> 12 ms;
+      100 chapters 782 -> 18 ms (43x); 1000 verses 3476 -> 55 ms (63x);
+      100 chapter changes 385 -> 59 ms (6.6x); phrase searches 2.5-6.9 s
+      -> 2-10 ms (650-1000x); CPU 24.9 s -> 0.41 s. Only sequential
+      navigation is slower in SQLite: 1000 steps 30 -> 253 ms (0.25 ms per
+      step, not perceptible, worth a look).
+    - Real app, copy of the reader's profile, Xvfb, 5 runs each, same
+      Bible and verse: first chapter shown 1177 -> 881 ms; chapter render
+      96 -> 13 ms; main loop entered 1759 -> 1168 ms.
+    - Found and fixed on the way: `biblia-osis-import` and
+      `backend_comparison_benchmark` no longer linked (missing
+      `quoted_heading.cc`/`source_quirks.cc`); the benchmark assumed
+      Spanish book names; `sync_windows()` profiling was not reentrant: a
+      nested call freed the outer call's tables (SIGSEGV at startup with
+      BIBLIA_ELIM_UI_LOAD_DEBUG=1 under SQLite; normal runs unaffected).
+      Smoke PASS.
+    - Blockers found for converting the reader's Bibles (next steps):
+      the OSIS importer rejects deuterocanonical books (SpaPlatense fails
+      at Tob.1.1; also TorresAmat, NacarColunga); mod2osis writes
+      `Strong:H…` and the importer only takes `strong:` (4,240 of ~390k
+      tagged words imported); converted modules keep English book names,
+      so a saved «Lucas 23:33» does not resolve; under SQLite there is no
+      SWORD `backend`, so commentaries and dictionaries need their own
+      path; `settings.xml` carries 808 empty `<offset/>` elements.
+
+- [x] DEUTERO-101 Import Catholic Bibles: deuterocanonical books in the module's own order
+  - Status: DONE
+  - Evidence:
+    - `bible_book_map.cc` adds Tob, Jdt, Wis, Sir, Bar, 1Macc, 2Macc as
+      ids 67-73 (an id still indexes the table; `strong_ui` relies on it).
+      The reader's three Catholic Bibles contain exactly these seven.
+    - The OSIS importer sets `position` from the source's order (Vulgate:
+      Tobit after Nehemiah; NRSVA: after Malachi). The SQLite backend no
+      longer assumes id == position: `navigate` compares positions,
+      `bookIndex` is the book's place in the module's list (as the navbar
+      uses it), and `setBook(testament, n)` follows BibleBackend's
+      contract (the n-th book of that testament). This also fixes a
+      pre-existing SQLite bug: the New Testament book menu called
+      `setBook(2, n)` and landed on book id n (Mateo -> Génesis). Navbar
+      book arrows now step by `bookIndex` in both backends.
+    - `neutral_module_comparator.cc` walked books as `setBook(0, id)` for
+      ids 1-66; once setBook followed the contract it found no book and
+      every equivalence comparison ran on empty lists (offset rows 54 ->
+      0, caught by comparing counters with a baseline). It now walks
+      testaments by position; all counters equal the baseline again.
+    - Negative control kept: `unsupported-esdras-structure.xml` (1Esd) is
+      still rejected; Tob imports as itself. Docs updated
+      (`osis-importer.md`, fixture README).
+    - Real data (mod2osis + biblia-osis-import): SpaPlatense 73 books /
+      35,792 verses, TorresAmat 73 / 34,122, NacarColunga 73 / 31,102,
+      SpaRV1909 66 / 31,084. Every SWORD verse is present in SQLite (0
+      missing in all four); identical text after whitespace normalization:
+      RV1909 99.99%, TorresAmat 99.59%, NacarColunga 99.60%, SpaPlatense
+      84.71% (see remaining issues).
+    - Tests: `osis_importer_test` gains the synthetic
+      `deuterocanon-vulgate-order.xml` (order, Spanish names, ids, aliases,
+      bookIndex, navigate across Neh->Tob and OT->NT, setBook contract and
+      range): PASS; mutation (navigate by id) fails 2 checks. Baseline vs
+      after, identical counters: osis_importer, osis_semantic_equivalence,
+      osis_property, osis_operational, usfm_importer, sqlite_bible_backend,
+      bible_backend_contract; versification_transition ok; smoke and
+      uri_navigation_v11n PASS. `sqlite_module_manager_test` needs an
+      external `/tmp/rv1909-strong-enabled/rv1909.sqlite` fixture and
+      aborts before and after (environment, unchanged).
+    - Remaining (not in scope): SpaPlatense section titles inside verses
+      are imported into the verse text (5,473 verses); a space inside
+      `<w>…</w>` is dropped («humillarándelante», 4 RV1909 verses);
+      mod2osis `Strong:` prefix not recognized; converted Catholic Bibles
+      are declared `custom` (read as KJV), so conversions to/from them
+      would use KJV numbering instead of Vulgate/NRSVA.
+
+- [x] BOOKNAMES-ES-101 Spanish book names in SQLite modules; any spelling resolves
+  - Status: DONE
+  - Evidence:
+    - `bibleBookName(book, language)`: Spanish for `es`/`spa` with SWORD's
+      Spanish locale spelling (Génesis … Apocalipsis; Tobías, Judit,
+      Sabiduría, Eclesiástico, Baruc, 1-2 Macabeos, which SWORD lacks),
+      English otherwise. Used by the OSIS importer and by the USFM
+      importer when a book has no `\h`/`\toc1` title (kept USFM/OSIS
+      equivalence).
+    - `findBibleBookByAnyName` (OSIS id, English, short or Spanish name,
+      any case incl. accented capitals, no new dependency) is the SQLite
+      backend's fallback in `resolveKey`: «Luke 23:33» resolves in a
+      Spanish module and «Juan 3:16» in an English one.
+    - Reader's unmodified profile (main Bible SpaPlatense, saved «Lucas
+      23:33», session tabs) under `--backend=sqlite` with the converted
+      Platense: opens at Lucas 23:33, no crash, 5 runs each vs SWORD:
+      first chapter shown 1159 -> 977 ms, chapter render 53 -> 8.5 ms,
+      main loop 1983 -> 1166 ms.
+    - Tests: covered by the DEUTERO-101 fixture checks (Spanish names,
+      English/OSIS/lowercase aliases, English module answering to «Juan»).
+
+- [x] SQLITE-REAL-101 Remove the five blockers to reading the reader's Bibles from SQLite
+  - Status: DONE
+  - Evidence:
+    - Titles (OSIS importer): `<title>` inside SWORD's pre-verse region
+      (`div subType="x-preverse"` sID/eID), and section/acrostic titles
+      (`x-s`, `x-ms`, `section`, `acrostic`, ...) anywhere in a verse, are
+      headings of that verse; other text in the pre-verse region is not
+      verse text; canonical or untyped titles inside a verse (RV1909 psalm
+      superscriptions, with Strong numbers) stay text. The SQLite main
+      view now renders headings (`<h3>`), which it never did.
+    - Versification: modules may declare any SWORD system (`vulg`,
+      `nrsva`, `kjva`, `lxx`, ...; `versificationSystemName`, one table
+      for writer, USFM importer and backend; metadata value only, schema
+      v1 unchanged). `SqliteBibleBackend` takes an injected
+      `VersificationMapper` (`src/backend/versification_mapper.h`); the app
+      passes `makeSwordVersificationMapper()` (libsword tables, no module,
+      reusing `swordMapVerseKey`). Without a mapper behaviour is as before.
+      Same-versification keys resolve as before.
+    - Strong: `strong:` scheme matched case-insensitively (mod2osis writes
+      `Strong:`): RV1909 words with Strong 4,240 -> 390,759.
+    - Word spaces: a space at the edge of `<w>` is emitted outside the
+      word's range («humillarán delante»); offsets stay exact.
+    - Commentaries/dictionaries under SQLite: a SWORD library is created
+      beside the SQLite Bibles (`backend`); every guard that meant "SQLite
+      mode" now decides per module (`sqlite_bible()`, `backend_for()`);
+      `main_reference_for_module` converts across backends by
+      versification name; module lists come from SWORD with the Bibles
+      replaced by SQLite's (`havecomm` was always 0 under SQLite); the
+      SQLite display branch now runs the same follow-ups as SWORD's (author
+      commentary, compare panel, interlinear, notes panel, version combo,
+      verse mark) through one shared `follow_display`. The parallel view
+      still reads Bibles only through SWORD, so under SQLite it keeps not
+      following, as before (SQLITE-PARALLEL-101).
+    - Real data, every verse vs SWORD (mod2osis + biblia-osis-import):
+      SpaRV1909 31,083/31,084 identical, the other differs only by the
+      importer's space before «,»; TorresAmat and NacarColunga: identical
+      or differing only by SWORD's note markers «*» / space before
+      punctuation, NacarColunga's 63 pre-verse psalm titles now headings;
+      SpaPlatense 33,904 identical + 1,885 note-marker/spacing only + 2
+      explained (Jer 33:9 has no space in the source; John 18:24 markers).
+    - Conversions, every verse of every pair of the 4 Bibles (396,300):
+      379,855 equal to SWORD's; the other 16,445 are all verses SWORD maps
+      onto a verse its own module leaves empty, where SQLite (no row)
+      answers "no counterpart"; 0 other differences.
+    - Reader's profile, SQLite mode: `SWORD_LIBRARY_READY commentaries=4
+      dictionaries=3`; author commentary SpaPlatenseComentarios at «Lucas
+      23:33» `result=shown` 5/5 (as in SWORD mode). 5 runs each vs SWORD:
+      main loop 1941 -> 1439 ms, chapter render 54 -> 11 ms, first chapter
+      shown 1132 -> 1195 ms (the SWORD library is built before it and
+      also loads SWORD's 15 Bibles: room for a later optimization).
+    - Found on the way: `libsword getBookNumberByOSISName` is 1-based
+      (caught by the synthetic test); `sync_windows` fix from PERF-SQLITE.
+    - Tests: `osis_importer_test` gains `mod2osis-structure.xml`
+      (pre-verse titles/text, mid-verse section title, acrostic, untyped
+      psalm title kept, `Strong:`/`strong:`, `<w>` edge space, exact
+      offsets): PASS. New `sqlite_versification_test` in CTest (Vulgate
+      Ps 22:1 <-> KJV Ps 23:1, identity, Tobit unmapped in KJV, no mapper
+      => Unmapped, from a versification name, unknown name) PASS; with
+      `BIBLIA_ELIM_SQLITE_COMPARE=<dir>` it runs the exhaustive comparison
+      above. osis_importer, osis_semantic_equivalence, osis_property,
+      osis_operational, usfm_importer, sqlite_bible_backend,
+      bible_backend_contract: counters identical to the baseline;
+      sqlite_module_writer_morphology, versification_transition ok;
+      gtk_lifecycle_smoke PASS (it now prints the text of any warning
+      dialog).
+
+- [x] SWORD-LOCALE-101 Stop SWORD from loading all its locales at startup
+  - Status: DONE
+  - Evidence:
+    - Measured, not assumed: the SWORD library beside SQLite takes 19 ms
+      (SWMgr with all 22 modules: 20 ms), so its 15 Bibles were not the
+      cost. The cost was SWORD's LocaleMgr reading its 58 locales (95
+      files, 172 ms alone), done up to three times per startup:
+      `StringMgr::setSystemStringMgr()` rebuilds the LocaleMgr (and first
+      creates the old one), and in SWORD mode settings_init()'s early
+      module list, before GTK, was SWORD's first use.
+    - Fixes: (1) `swordInstallReaderLocale()` (src/backend/sword/
+      sword_locale.cc) builds a LocaleMgr with only the reader's locale,
+      chosen by the same rule and loaded as SWORD loads a directory
+      (encoding filter, same-name files merged), from SWORD's install,
+      config-prefix and augment `locales.d`; full manager as fallback when
+      nothing matches. (2) GS_StringMgr is installed only when SWORD has no
+      UTF-8 StringMgr of its own (ICU builds already do: «LUCAS GÉNESIS
+      ÉXODO ÑANDÚ»). (3) `main_init_sword_locale()` runs once, before
+      settings_init().
+    - Test: new `sword_locale_test` (CTest): for es_PE/es_ES/es/de/pt_BR/
+      fr/en/zh/ru the chosen locale, 88 book names (KJV, Vulg, NRSVA, LXX),
+      abbreviations, encoding and default equal SWORD's full manager; C and
+      xx_YY choose none in both: PASS.
+    - Reader's profile, 5 runs each, medians before -> after: SWORD mode
+      GTK ready 258 -> 101 ms, first chapter 1132 -> 823 ms, main loop 1941
+      -> 1637 ms; mixed mode (SQLite Bibles + SWORD commentaries) first
+      chapter 1195 -> 821 ms, main loop 1439 -> 1103 ms. Author commentary
+      shown 5/5 in both modes; no crash or GTK critical.
+    - Regressions: full CTest 67/67 PASS (incl. smoke, sqlite_versification,
+      sword_locale); versification_transition ok (0 skipped),
+      verse_navigation_sword 0 failures, sword_backend_key_lifecycle PASS.
+
 - [ ] TORRES-NOISE-101 Remove engraving/apparatus OCR noise inside Torres Amat 1882 verses
   - Status: BLOCKED
   - Description:
@@ -8535,7 +8949,7 @@
 - Human-readable grammatical decoding of morphology codes.
 - Dedicated morphology search/browser UI beyond MORPH-107's bounded backend capability.
 - Cross-scheme grammatical equivalence.
-- Deuterocanonical OSIS support.
+- Deuterocanonical OSIS books beyond Tob/Jdt/Wis/Sir/Bar/1-2Macc (1Esd, 2Esd, PrMan, Ps151): DEUTERO-101 covers the reader's Bibles.
 - Structured OSIS range expansion.
 - `xmlTextReader` migration; measured decision remains `KEEP DOM`.
 - Non-Bible OSIS modules.

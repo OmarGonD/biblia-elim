@@ -47,16 +47,23 @@ std::vector<BibleReference> references(BibleBackend &backend,
 	const std::string &module)
 {
 	std::vector<BibleReference> result;
-	for (int book = 1; book <= 66; ++book) {
-		const std::string firstKey = backend.setBook(module, "", 0, book);
-		if (firstKey.empty()) continue;
-		BibleKeyInfo first;
-		if (!backend.resolveKey(module, firstKey, first)) continue;
-		for (int chapter = 1; chapter <= first.chapterCount; ++chapter) {
-			BibleReference key = first.reference;
-			key.chapter = chapter;
-			for (const BibleVerse &verse : backend.getChapter(module, key, false))
-				result.push_back(verse.reference);
+	/* Every book the module has, through BibleBackend's contract: the
+	 * n-th book of each testament, in the module's order. (Walking ids
+	 * 1-66 with testament 0 relied on an id being a place, which a
+	 * deuterocanonical module breaks, and found nothing once setBook
+	 * followed the contract, so every comparison ran on empty lists.) */
+	for (int testament = 1; testament <= 2; ++testament) {
+		for (int book = 1;; ++book) {
+			const std::string firstKey = backend.setBook(module, "", testament, book);
+			if (firstKey.empty()) break;
+			BibleKeyInfo first;
+			if (!backend.resolveKey(module, firstKey, first)) continue;
+			for (int chapter = 1; chapter <= first.chapterCount; ++chapter) {
+				BibleReference key = first.reference;
+				key.chapter = chapter;
+				for (const BibleVerse &verse : backend.getChapter(module, key, false))
+					result.push_back(verse.reference);
+			}
 		}
 	}
 	return result;

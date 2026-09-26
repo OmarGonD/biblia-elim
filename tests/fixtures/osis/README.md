@@ -40,13 +40,18 @@ metadata, Vulgate ref-system declaration, and container verse structure.
 
 ### Inputs outside the supported module scope
 
-`unsupported-tobit-structure.xml` is a text-free negative control derived
+`unsupported-esdras-structure.xml` is a text-free negative control derived
 from the Torres Amat generator's structure, not a source extract. It proves
-that the deuterocanonical `Tob` identifier is rejected and is never silently
-mapped into the documented canonical 66-book subset. Deuterocanonical works
-remain future scope.
+that a book outside the supported set (the Vulgate appendix's `1Esd`) is
+rejected and never silently mapped into another book. Until DEUTERO-101 the
+same control used `Tob`; Tobit is now supported and imports as itself.
 
-Only Bible modules in that 66-book subset are supported. Commentary,
+`deuterocanon-vulgate-order.xml` is synthetic (placeholder text, no source
+extract): Nehemiah, Tobit, Judith, Esther in Vulgate order, then Matthew and
+Luke 23:33. It checks module order, Spanish names, aliases and navigation.
+
+Only Bible modules in the 66 books plus Tob, Jdt, Wis, Sir, Bar, 1Macc and
+2Macc are supported. Commentary,
 dictionary, general-book, and other OSIS work types are not fixture candidates
 and must not be imported as Bibles; they remain documented as unsupported in
 `src/backend/osis-importer.md`.

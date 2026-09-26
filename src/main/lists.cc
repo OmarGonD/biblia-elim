@@ -118,6 +118,17 @@ void main_init_lists(void)
 	settings.haveprayerlist = FALSE;
 
 	if (!main_backend_is_sword()) {
+		/* SQLITE-REAL-101: SWORD, beside SQLite, lists the reader's
+		 * commentaries, dictionaries, books, devotionals; the Bibles
+		 * listed are the ones SQLite reads. */
+		if (backend) {
+			mods.options = backend->get_module_options();
+			backend->init_lists(mod_lists);
+			g_list_free_full(mods.biblemods, free);
+			g_list_free_full(mods.text_descriptions, free);
+			mods.biblemods = NULL;
+			mods.text_descriptions = NULL;
+		}
 		std::unique_ptr<BibleBackend> temporary;
 		BibleBackend *list_backend = bible_backend;
 		if (!list_backend) {

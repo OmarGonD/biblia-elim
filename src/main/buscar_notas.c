@@ -299,6 +299,7 @@ main_buscar_notas(GList *notas, const gchar *consulta, BN_MODO modo,
 		r->nota = g_strdup(n->nota ? n->nota : "");
 		r->en_frase = en_frase;
 		r->cuantas = cuantas;
+		r->fecha = n->fecha;
 		r->extracto = extracto_de(donde, ini_c, fin_c, &r->ini,
 					  &r->fin);
 		out = g_list_prepend(out, r);
@@ -306,5 +307,116 @@ main_buscar_notas(GList *notas, const gchar *consulta, BN_MODO modo,
 
 	if (re)
 		g_regex_unref(re);
+	return g_list_reverse(out);
+}
+
+/* --------------------------------------------------------------------
+ * Etiquetas y filtros (NOTES-TAGS-101)
+ * ------------------------------------------------------------------ */
+
+static gboolean
+es_de_etiqueta(gunichar c)
+{
+	return g_unichar_isalnum(c) || g_unichar_ismark(c) || c == '_' ||
+	       c == '-';
+}
+
+GPtrArray *
+main_notas_etiquetas(const gchar *texto)
+{
+	GPtrArray *out = g_ptr_array_new_with_free_func(g_free);
+	const gchar *p;
+	gunichar antes = 0;
+
+	if (!texto || !g_utf8_validate(texto, -1, NULL))
+		return out;
+	for (p = texto; *p; p = g_utf8_next_char(p)) {
+		gunichar c = g_utf8_get_char(p);
+		gboolean empieza = (c == '#') &&
+				   (antes == 0 || !(g_unichar_isalnum(antes) ||
+						    g_unichar_ismark(antes) ||
+						    antes == '_' || antes == '#'));
+		antes = c;
+		if (!empieza)
+			continue;
+
+		const gchar *ini = g_utf8_next_char(p), *fin = ini;
+		gboolean solo_numeros = TRUE;
+		while (*fin && es_de_etiqueta(g_utf8_get_char(fin))) {
+			if (!g_unichar_isdigit(g_utf8_get_char(fin)))
+				solo_numeros = FALSE;
+			fin = g_utf8_next_char(fin);
+		}
+		/* «#fe-» al final de una frase: el guion no es parte. */
+		while (fin > ini && (fin[-1] == '-' || fin[-1] == '_'))
+			fin--;
+		if (fin > ini && !solo_numeros) {
+			gchar *crudo = g_strndup(ini, (gsize)(fin - ini));
+			gchar *nfc = g_utf8_normalize(crudo, -1, G_NORMALIZE_NFC);
+			gchar *et = g_utf8_strdown(nfc ? nfc : crudo, -1);
+			gboolean ya = FALSE;
+			for (guint i = 0; i < out->len && !ya; i++)
+				ya = !strcmp(g_ptr_array_index(out, i), et);
+			if (ya)
+				g_free(et);
+			else
+				g_ptr_array_add(out, et);
+			g_free(nfc);
+			g_free(crudo);
+		}
+		if (fin > p) {
+			antes = g_utf8_get_char(g_utf8_prev_char(fin));
+			p = g_utf8_prev_char(fin);
+		}
+	}
+	return out;
+}
+
+gchar *
+main_notas_libro(const gchar *osisref)
+{
+	const gchar *punto;
+
+	if (!osisref)
+		return g_strdup("");
+	punto = strchr(osisref, '.');
+	return punto ? g_strndup(osisref, (gsize)(punto - osisref))
+		     : g_strdup(osisref);
+}
+
+static gboolean
+lleva_etiqueta(const BN_NOTA *n, const gchar *etiqueta)
+{
+	GPtrArray *et = main_notas_etiquetas(n->nota);
+	gboolean si = FALSE;
+
+	for (guint i = 0; i < et->len && !si; i++)
+		si = !strcmp(g_ptr_array_index(et, i), etiqueta);
+	g_ptr_array_unref(et);
+	return si;
+}
+
+GList *
+main_buscar_notas_filtrar(GList *notas, const gchar *etiqueta,
+			  const gchar *libro, const gchar *modulo)
+{
+	GList *out = NULL;
+
+	for (GList *l = notas; l; l = l->next) {
+		const BN_NOTA *n = (const BN_NOTA *)l->data;
+
+		if (modulo && *modulo && g_strcmp0(n->modulo, modulo))
+			continue;
+		if (libro && *libro) {
+			gchar *suyo = main_notas_libro(n->osisref);
+			gboolean igual = !strcmp(suyo, libro);
+			g_free(suyo);
+			if (!igual)
+				continue;
+		}
+		if (etiqueta && *etiqueta && !lleva_etiqueta(n, etiqueta))
+			continue;
+		out = g_list_prepend(out, l->data);
+	}
 	return g_list_reverse(out);
 }

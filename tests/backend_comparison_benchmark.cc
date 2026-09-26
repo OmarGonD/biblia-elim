@@ -115,14 +115,20 @@ int main(int argc, char **argv)
 		return 4;
 	}
 
-	const std::string genesis = choice == "--backend=sword"
-		? "Genesis 1:1" : "Génesis 1:1";
-	const std::string psalms = choice == "--backend=sword"
-		? "Psalms 23:1" : "Salmos 23:1";
-	const std::string matthew = choice == "--backend=sword"
-		? "Matthew 5:1" : "San Mateo 5:1";
-	const std::string john = choice == "--backend=sword"
-		? "John 3:16" : "Juan 3:16";
+	/* A module imported from USFM names its books in Spanish; one
+	 * converted from a SWORD module (mod2osis + biblia-osis-import) keeps
+	 * the English names. Take whichever this module resolves. */
+	auto pick = [&](const char *spanish, const char *english) {
+		BibleKeyInfo info;
+		if (choice != "--backend=sword" &&
+		    backend->resolveKey(module, spanish, info))
+			return std::string(spanish);
+		return std::string(english);
+	};
+	const std::string genesis = pick("Génesis 1:1", "Genesis 1:1");
+	const std::string psalms = pick("Salmos 23:1", "Psalms 23:1");
+	const std::string matthew = pick("San Mateo 5:1", "Matthew 5:1");
+	const std::string john = pick("Juan 3:16", "John 3:16");
 	const std::vector<BibleReference> references = {
 		resolve(*backend, module, genesis), resolve(*backend, module, psalms),
 		resolve(*backend, module, matthew), resolve(*backend, module, john)};

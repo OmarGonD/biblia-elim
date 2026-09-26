@@ -4,7 +4,8 @@
 SQLite module format v1 used by `SqliteBibleBackend`. Parsing is offline with
 libxml2 `XML_PARSE_NONET`; external entities and network access are disabled.
 
-Supported initially: canonical 66-book Bible `<chapter>`/`<verse>` elements,
+Supported initially: Bible `<chapter>`/`<verse>` elements for the 66 books and
+the deuterocanonical Tob, Jdt, Wis, Sir, Bar, 1Macc and 2Macc (DEUTERO-101),
 `osisID` (and basic `sID` verse milestones), paragraph/title text, supplied
 word text, `lemma="strong:H.../G..."`, footnote/cross-reference notes and
 OSIS-style book/chapter/verse references. Morphology is parsed, persisted, and
@@ -27,7 +28,7 @@ final `std::string`.
 
 | Feature | Status |
 |---|---|
-| Bible OSIS / 66 books | supported subset |
+| Bible OSIS / 66 books + 7 deuterocanonical | supported subset |
 | verse `osisID` | supported |
 | verse/chapter `sID`/`eID` | supported for validated milestones |
 | Strong / multi-Strong | supported subset |
@@ -41,7 +42,9 @@ final `std::string`.
 | ignored attributes | counted as `element.attribute` |
 | structured cross-reference ranges | unsupported; display and audit preserved, no structured target |
 | external entities | not substituted; file and network regressions pass |
-| deuterocanonical books | unsupported (canonical 66-book map) |
+| deuterocanonical books | Tob, Jdt, Wis, Sir, Bar, 1Macc, 2Macc (ids 67-73); others (1Esd, 2Esd, PrMan, ...) rejected |
+| book order | the source's order (`position` = order of first appearance): Vulgate interleaved, NRSVA appendix |
+| book names | module language: Spanish (`es`) as SWORD's Spanish locale spells them, English otherwise; any spelling resolves |
 | commentaries/dictionaries | unsupported |
 
 The current parser uses libxml2's tree API (`xmlReadFile`), not
@@ -109,9 +112,9 @@ Backend sanity checks cover startup, a 10,000-row chapter,
 failed cleanly with neither final output nor `.tmp` residue.
 
 The repository contains a 6,682,045-byte, 30,218-verse local OSIS document,
-but it includes `Tob`, outside the importer's documented canonical 66-book
-subset. The unmodified real input was attempted and correctly rejected at
-`Tob.1.1`; it is therefore not reported as a successful real-data benchmark.
+and includes `Tob`. It was rejected at `Tob.1.1` while the deuterocanonical
+books were outside the supported subset, so it is not reported as a real-data
+benchmark here; DEUTERO-101 measured the reader's Catholic Bibles instead.
 
 ### Decision
 

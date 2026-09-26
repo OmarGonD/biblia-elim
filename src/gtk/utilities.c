@@ -660,11 +660,20 @@ drain_session_report(GHashTable *instances, guint iterations)
 
 void sync_windows()
 {
+	/* An event handled here can call sync_windows() again. Only the
+	 * outermost call profiles: the profile tables are globals, and a
+	 * nested call used to replace and free them under the outer one,
+	 * which then reported freed memory (SIGSEGV at startup with
+	 * BIBLIA_ELIM_UI_LOAD_DEBUG=1 under the SQLite backend). */
+	static guint depth = 0;
+
 	if (stop_window_sync == 0) {
 		guint iteration = 0;
 		guint profile_index;
 		char detail[48];
-		gboolean debug = panel_load_debug_enabled();
+		gboolean debug = panel_load_debug_enabled() && depth == 0;
+
+		depth++;
 		GPtrArray *snapshots = debug ?
 			g_ptr_array_new_with_free_func(drain_iteration_snapshot_free) : NULL;
 		if (debug)
@@ -689,7 +698,8 @@ void sync_windows()
 				drain_profile_active = TRUE;
 			}
 			gtk_main_iteration();
-			drain_profile_active = FALSE;
+			if (debug)
+				drain_profile_active = FALSE;
 			panel_load_debug("app", "GTK_EVENT_ITERATION_END", detail);
 			if (debug) {
 				DrainIterationSnapshot *snapshot =
@@ -712,10 +722,11 @@ void sync_windows()
 			drain_session_report(drain_session_instances, iteration);
 		if (snapshots)
 			g_ptr_array_free(snapshots, TRUE);
-		if (drain_session_instances) {
+		if (debug && drain_session_instances) {
 			g_hash_table_destroy(drain_session_instances);
 			drain_session_instances = NULL;
 		}
+		depth--;
 	}
 }
 

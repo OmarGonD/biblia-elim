@@ -37,6 +37,9 @@
 #include "xiphos_html/xiphos_html.h"
 
 #include "main/display.hh"
+#include "main/notes_store.h"
+#include "main/note_value.h"
+#include "main/notes_exchange.h"
 #include "main/reading_window.h"
 #include "main/intro_lookup.h"
 #include "main/settings.h"
@@ -81,11 +84,21 @@ typedef struct
 	gint pos;       // UTF-8 offset of `text` relative to verse start, in the
 			// rendered HTML; -1 if unknown (whole-verse entries, or
 			// phrase entries migrated from before this existed).
+	gint64 created, modified; // seconds since the epoch; 0 = unknown
+	gboolean foreign; // whole-verse note written in another Bible,
+			  // shown here at `osisref`, its counterpart in this
+			  // one's numbering (NOTES-V11N-101); `label` still
+			  // names the entry as written.
 } NoteElement;
 
 typedef std::map<int, GList *> NoteCache; // chapter_verse -> GList<NoteElement*>
 static NoteCache note_cache;
 static gchar *note_cache_modname = NULL, *note_cache_book = NULL;
+// NOTES-INDICATOR-101. The parallel view and the compare panel show other
+// Bibles than the main one: each (Bible, book) gets a cache of its own,
+// filled like the main one, and dropped whenever the notes change.
+static std::map<std::string, NoteCache> module_caches;
+static guint64 module_caches_generation = 0;
 
 int footnote, xref;
 
@@ -208,49 +221,21 @@ free_note_element(NoteElement *e)
 }
 
 static void
-free_note_cache(void)
+free_cache(NoteCache &cache)
 {
 	NoteCache::iterator it;
-	for (it = note_cache.begin(); it != note_cache.end(); ++it) {
+	for (it = cache.begin(); it != cache.end(); ++it) {
 		for (GList *n = (*it).second; n; n = n->next)
 			free_note_element((NoteElement *)n->data);
 		g_list_free((*it).second);
 	}
-	note_cache.clear();
+	cache.clear();
 }
 
-// "color|<uri-escaped text>|<uri-escaped note>|<pos or empty>" -- '|' is
-// always safe as a delimiter since g_uri_escape_string() percent-encodes
-// everything outside the RFC3986 unreserved set. text empty => whole-verse
-// entry. pos < 0 => not stored (whole-verse entries, or phrase entries
-// with no anchor yet).
-static gchar *
-encode_note_value(const gchar *color, const gchar *text, const gchar *note, gint pos)
+static void
+free_note_cache(void)
 {
-	gchar *etext = g_uri_escape_string(text ? text : "", NULL, TRUE);
-	gchar *enote = g_uri_escape_string(note ? note : "", NULL, TRUE);
-	gchar *value = (pos >= 0)
-			   ? g_strdup_printf("%s|%s|%s|%d", color ? color : "", etext, enote, pos)
-			   : g_strdup_printf("%s|%s|%s|", color ? color : "", etext, enote);
-	g_free(etext);
-	g_free(enote);
-	return value;
-}
-
-static gboolean
-decode_note_value(const gchar *value, gchar **color, gchar **text, gchar **note, gint *pos)
-{
-	gchar **parts = g_strsplit(value, "|", 4);
-	if (!parts[0] || !parts[1] || !parts[2]) {
-		g_strfreev(parts);
-		return FALSE;
-	}
-	*color = (*parts[0]) ? g_strdup(parts[0]) : NULL;
-	*text = g_uri_unescape_string(parts[1], NULL);
-	*note = g_uri_unescape_string(parts[2], NULL);
-	*pos = (parts[3] && *parts[3]) ? atoi(parts[3]) : -1;
-	g_strfreev(parts);
-	return TRUE;
+	free_cache(note_cache);
 }
 
 // Same HTML-escaping markedCacheFill() used to apply to whole-verse
@@ -338,6 +323,80 @@ migrate_legacy_notes_if_needed(void)
 	xml_save_settings_doc(settings.fnconfigure);
 }
 
+// NOTES-STORE-101: notes and their links live in their own file,
+// notas.xml next to settings.xml, written atomically with rotating
+// backups (notes_store.c). The first time the store is opened without a
+// notas.xml, the (already legacy-migrated) «osisrefnotes» and
+// «osisrefnotelinks» sections of settings.xml are copied into it; the
+// sections are left untouched in settings.xml as a recovery copy.
+static void
+import_settings_section(const char *section, NotesSection target)
+{
+	if (!xml_set_section_ptr(section) || !xml_get_label())
+		return;
+	do {
+		gchar *label = xml_get_label();
+		gchar *value = xml_get_list();
+		// When they were written is not known: no date, not today's.
+		if (label && value && strcmp(label, NOTES_MIGRATED_MARK))
+			notes_store_set_full(target, label, value, 0, 0);
+		g_free(label);
+		g_free(value);
+	} while (xml_next_item() && xml_get_label());
+}
+
+static void
+notes_open(void)
+{
+	if (notes_store_is_open())
+		return;
+	gchar *dir = g_path_get_dirname(settings.fnconfigure);
+	gchar *path = g_build_filename(dir, "notas.xml", NULL);
+	if (!notes_store_open(path)) {
+		migrate_legacy_notes_if_needed();
+		import_settings_section("osisrefnotes", NOTES_SECTION_NOTES);
+		import_settings_section("osisrefnotelinks", NOTES_SECTION_LINKS);
+		notes_store_save();
+	}
+	g_free(path);
+	g_free(dir);
+}
+
+static gchar *
+notes_get(NotesSection section, const gchar *label)
+{
+	notes_open();
+	return notes_store_get(section, label);
+}
+
+static void
+notes_put(NotesSection section, const gchar *label, const gchar *value)
+{
+	notes_open();
+	notes_store_set(section, label, value);
+}
+
+static void
+notes_del(NotesSection section, const gchar *label)
+{
+	notes_open();
+	notes_store_remove(section, label);
+}
+
+static GPtrArray *
+notes_entries(NotesSection section)
+{
+	notes_open();
+	return notes_store_entries(section);
+}
+
+static void
+notes_save(void)
+{
+	notes_open();
+	notes_store_save();
+}
+
 // "<mod> <osisref>" or "<mod> <osisref>#<gid>" -> "Book.C.V", for either
 // label shape.
 static gchar *
@@ -355,27 +414,84 @@ osis_from_note_label(const gchar *label)
 	return g_strdup(space + 1);
 }
 
+// "Book.C.V" -> 1000 * C + V, the cache's key.
+static int
+osis_chapter_verse(const gchar *osisref)
+{
+	const gchar *dot1 = strrchr(osisref, '.');
+	const gchar *dot2;
+	if (!dot1 || dot1 == osisref)
+		return 0;
+	for (dot2 = dot1 - 1; dot2 > osisref && *dot2 != '.'; dot2--)
+		;
+	if (*dot2 != '.')
+		return 0;
+	return (1000 * atoi(dot2 + 1)) + atoi(dot1 + 1);
+}
+
+// Whether "Book.C.V" is in `book`.
+static gboolean
+osis_in_book(const gchar *osisref, const gchar *book)
+{
+	gsize n = strlen(book);
+	return osisref && !strncmp(osisref, book, n) && osisref[n] == '.' &&
+	       strchr(osisref + n + 1, '.');
+}
+
+static void fill_note_cache(NoteCache &cache, const gchar *modname,
+			    const gchar *key_book);
+
 void
 notesCacheFill(const gchar *modname, gchar *key)
 {
-	migrate_legacy_notes_if_needed();
+	notes_open();
 	free_note_cache();
 
-	char *key_book = g_strdup(main_get_osisref_from_key((const char *)modname,
-							    (const char *)key));
-	gchar *s, *t;
-	*(s = strrchr(key_book, '.')) = '\0';
-	*(t = strrchr(key_book, '.')) = '\0';
+	char *osis_key = (char *)main_get_osisref_from_key((const char *)modname,
+							   (const char *)key);
+	char *key_book = g_strdup(osis_key ? osis_key : "");
+	free(osis_key);
+	// "Book.C.V" -> "Book". A key the backend cannot express as an OSIS
+	// verse (empty, or no chapter/verse) leaves the cache empty instead
+	// of writing through a NULL strrchr() result, which crashed under the
+	// SQLite backend (NOTES-STORE-101).
+	gchar *s = strrchr(key_book, '.');
+	gchar *t = NULL;
+	if (s) {
+		*s = '\0';
+		t = strrchr(key_book, '.');
+	}
+	if (!t) {
+		g_free(note_cache_modname);
+		g_free(note_cache_book);
+		note_cache_modname = g_strdup(modname);
+		note_cache_book = g_strdup("");
+		g_free(key_book);
+		return;
+	}
+	*t = '\0';
 
 	g_free(note_cache_modname);
 	g_free(note_cache_book);
 	note_cache_modname = g_strdup(modname);
 	note_cache_book = g_strdup(key_book);
+	fill_note_cache(note_cache, modname, key_book);
+	g_free(key_book);
+}
 
-	if (xml_set_section_ptr("osisrefnotes") && xml_get_label()) {
-		do {
-			gchar *full_label = xml_get_label(); // "<mod> <osisref>[#<gid>]"
-			gchar *value = xml_get_list();
+// Every entry of `modname`'s book `key_book` ("Ps") into `cache`: its own
+// notes and highlights, then the whole-verse notes written in other
+// Bibles at their counterpart here.
+static void
+fill_note_cache(NoteCache &cache, const gchar *modname, const gchar *key_book)
+{
+	GList *foreign = NULL;
+	{
+		GPtrArray *entries_ = notes_entries(NOTES_SECTION_NOTES);
+		for (guint k_ = 0; k_ < entries_->len; k_++) {
+			NotesEntry *ne_ = (NotesEntry *)g_ptr_array_index(entries_, k_);
+			gchar *full_label = g_strdup(ne_->label); // "<mod> <osisref>[#<gid>]"
+			gchar *value = g_strdup(ne_->value);
 
 			if (full_label && value && strcmp(full_label, NOTES_MIGRATED_MARK)) {
 				gchar *space = strchr(full_label, ' ');
@@ -397,23 +513,53 @@ notesCacheFill(const gchar *modname, gchar *key)
 							    (1000 * atoi(dot2 + 1)) + atoi(dot1 + 1);
 							*dot2 = '\0'; // bhold now just the book
 
-							if (!((*mod && strcasecmp(mod, modname) != 0) ||
-							      strcasecmp(bhold, key_book) != 0)) {
-								gchar *color = NULL, *text = NULL, *note = NULL;
-								gint pos = -1;
-								if (decode_note_value(value, &color, &text, &note, &pos)) {
-									if (!*text)
-										html_escape_note(&note);
+							gboolean native = !*mod || !strcasecmp(mod, modname);
+							gchar *color = NULL, *text = NULL, *note = NULL;
+							gint pos = -1;
+							if (native && strcasecmp(bhold, key_book) == 0 &&
+							    decode_note_value(value, &color, &text, &note, &pos)) {
+								if (!*text)
+									html_escape_note(&note);
+								NoteElement *ne = g_new0(NoteElement, 1);
+								ne->label = g_strdup(full_label);
+								ne->osisref = g_strdup(osisref);
+								ne->text = text;
+								ne->color = color;
+								ne->note = note;
+								ne->pos = pos;
+								ne->created = ne_->created;
+								ne->modified = ne_->modified;
+								cache[chapter_verse] =
+								    g_list_append(cache[chapter_verse], ne);
+							} else if (!native && !strcasecmp(bhold, key_book) &&
+								   decode_note_value(value, &color, &text, &note, &pos)) {
+								// A note on the whole verse belongs to the
+								// verse, whichever Bible it was written in:
+								// shown here at the verse's counterpart. A
+								// highlighted phrase is that edition's
+								// wording and stays there.
+								gchar *here = *text ? NULL
+									: main_note_verse_in_module(mod, osisref, modname);
+								if (here && osis_in_book(here, key_book)) {
+									html_escape_note(&note);
 									NoteElement *ne = g_new0(NoteElement, 1);
 									ne->label = g_strdup(full_label);
-									ne->osisref = g_strdup(osisref);
+									ne->osisref = here;
+									here = NULL;
 									ne->text = text;
 									ne->color = color;
 									ne->note = note;
-									ne->pos = pos;
-									note_cache[chapter_verse] =
-									    g_list_append(note_cache[chapter_verse], ne);
+									ne->pos = -1;
+									ne->foreign = TRUE;
+									ne->created = ne_->created;
+									ne->modified = ne_->modified;
+									foreign = g_list_append(foreign, ne);
+								} else {
+									g_free(text);
+									g_free(color);
+									g_free(note);
 								}
+								g_free(here);
 							}
 						}
 					}
@@ -424,9 +570,35 @@ notesCacheFill(const gchar *modname, gchar *key)
 			}
 			g_free(full_label);
 			g_free(value);
-		} while (xml_next_item() && xml_get_label());
+		}
+		g_ptr_array_unref(entries_);
 	}
-	g_free(key_book);
+	// After the verse's own entries, so a note written in this Bible
+	// keeps deciding the verse's color.
+	for (GList *l = foreign; l; l = l->next) {
+		NoteElement *ne = (NoteElement *)l->data;
+		int chapter_verse = osis_chapter_verse(ne->osisref);
+		cache[chapter_verse] =
+		    g_list_append(cache[chapter_verse], ne);
+	}
+	g_list_free(foreign);
+}
+
+// The note_key of a whole-verse entry: "MV:<osisref>", plus the
+// "#<suffix>" of a verse carrying several notes. A note written in
+// another Bible is keyed by its position here and its whole label,
+// "MV:<osisref here>#<mod> <osisref>[#<suffix>]", so it never collides
+// with this Bible's own notes and whole_note_label_from_key() finds the
+// entry it came from.
+static gchar *
+whole_verse_note_key(const NoteElement *h)
+{
+	const gchar *hash;
+	if (h->foreign)
+		return g_strdup_printf("MV:%s#%s", h->osisref, h->label);
+	hash = strrchr(h->label, '#');
+	return (hash && hash[1]) ? g_strdup_printf("MV:%s#%s", h->osisref, hash + 1)
+				 : g_strdup_printf("MV:%s", h->osisref);
 }
 
 // The (at most one) entry for this verse whose text is empty --
@@ -461,13 +633,16 @@ find_labels_by_group(const gchar *group_id)
 		return NULL;
 	suffix = g_strdup_printf("#%s", group_id);
 
-	if (xml_set_section_ptr("osisrefnotes") && xml_get_label()) {
-		do {
-			gchar *label = xml_get_label();
+	{
+		GPtrArray *entries_ = notes_entries(NOTES_SECTION_NOTES);
+		for (guint k_ = 0; k_ < entries_->len; k_++) {
+			NotesEntry *ne_ = (NotesEntry *)g_ptr_array_index(entries_, k_);
+			gchar *label = g_strdup(ne_->label);
 			if (label && g_str_has_suffix(label, suffix))
 				labels = g_list_append(labels, g_strdup(label));
 			g_free(label);
-		} while (xml_next_item() && xml_get_label());
+		}
+		g_ptr_array_unref(entries_);
 	}
 	g_free(suffix);
 	return labels;
@@ -518,7 +693,7 @@ highlight_find_overlapping(const gchar *module, const gchar *osisref, const gcha
 static void
 highlight_persist(gboolean rerender)
 {
-	xml_save_settings_doc(settings.fnconfigure);
+	notes_save();
 	notesCacheFill(settings.MainWindowModule, settings.currentverse);
 	if (rerender)
 		main_display_bible(NULL, settings.currentverse);
@@ -538,7 +713,7 @@ highlight_create_group(const gchar *module, GList *segments, const gchar *color)
 		HighlightSegment *seg = (HighlightSegment *)n->data;
 		gchar *label = g_strdup_printf("%s %s#%s", module, seg->osisref, group_id);
 		gchar *value = encode_note_value(c, seg->text, "", seg->pos);
-		xml_set_list_item("osisrefnotes", "note", label, value);
+		notes_put(NOTES_SECTION_NOTES, label, value);
 		g_free(value);
 		g_free(label);
 	}
@@ -553,13 +728,13 @@ highlight_set_color(const gchar *group_id, const gchar *color)
 	GList *labels = find_labels_by_group(group_id);
 	for (GList *n = labels; n; n = n->next) {
 		gchar *label = (gchar *)n->data;
-		gchar *value = xml_get_list_from_label("osisrefnotes", "note", label);
+		gchar *value = notes_get(NOTES_SECTION_NOTES, label);
 		if (value) {
 			gchar *old_color = NULL, *text = NULL, *note = NULL;
 			gint pos = -1;
 			if (decode_note_value(value, &old_color, &text, &note, &pos)) {
 				gchar *newval = encode_note_value(color, text, note, pos);
-				xml_set_list_item("osisrefnotes", "note", label, newval);
+				notes_put(NOTES_SECTION_NOTES, label, newval);
 				g_free(newval);
 				g_free(old_color);
 				g_free(text);
@@ -578,13 +753,13 @@ highlight_set_note(const gchar *group_id, const gchar *note)
 	GList *labels = find_labels_by_group(group_id);
 	for (GList *n = labels; n; n = n->next) {
 		gchar *label = (gchar *)n->data;
-		gchar *value = xml_get_list_from_label("osisrefnotes", "note", label);
+		gchar *value = notes_get(NOTES_SECTION_NOTES, label);
 		if (value) {
 			gchar *color = NULL, *text = NULL, *old_note = NULL;
 			gint pos = -1;
 			if (decode_note_value(value, &color, &text, &old_note, &pos)) {
 				gchar *newval = encode_note_value(color, text, note, pos);
-				xml_set_list_item("osisrefnotes", "note", label, newval);
+				notes_put(NOTES_SECTION_NOTES, label, newval);
 				g_free(newval);
 				g_free(color);
 				g_free(text);
@@ -602,7 +777,7 @@ highlight_remove(const gchar *group_id)
 {
 	GList *labels = find_labels_by_group(group_id);
 	for (GList *n = labels; n; n = n->next)
-		xml_remove_node("osisrefnotes", "note", (gchar *)n->data);
+		notes_del(NOTES_SECTION_NOTES, (gchar *)n->data);
 	g_list_free_full(labels, g_free);
 	highlight_persist(FALSE);
 }
@@ -617,8 +792,7 @@ highlight_get_color(const gchar *group_id)
 	GList *labels = find_labels_by_group(group_id);
 	gchar *result = NULL;
 	if (labels) {
-		gchar *value = xml_get_list_from_label("osisrefnotes", "note",
-						       (gchar *)labels->data);
+		gchar *value = notes_get(NOTES_SECTION_NOTES, (gchar *)labels->data);
 		if (value) {
 			gchar *text = NULL, *note = NULL;
 			gint pos = -1;
@@ -639,8 +813,7 @@ highlight_get_note(const gchar *group_id)
 	GList *labels = find_labels_by_group(group_id);
 	gchar *result = NULL;
 	if (labels) {
-		gchar *value = xml_get_list_from_label("osisrefnotes", "note",
-						       (gchar *)labels->data);
+		gchar *value = notes_get(NOTES_SECTION_NOTES, (gchar *)labels->data);
 		if (value) {
 			gchar *color = NULL, *text = NULL;
 			gint pos = -1;
@@ -675,6 +848,96 @@ osis_matches_prefix(const gchar *osis, const gchar *prefix)
 	return next == '\0' || next == '.';
 }
 
+// NOTES-EXPORT-101. The whole store, as a JSON copy.
+extern "C" char *
+highlight_notes_export_json(void)
+{
+	notes_open();
+	return notes_export_json();
+}
+
+extern "C" gboolean
+highlight_notes_import_json(const gchar *json, NotesImportResult *result,
+			    gchar **backup, GError **error)
+{
+	GDateTime *now = g_date_time_new_now_local();
+	gchar *stamp = g_date_time_format(now, "%Y%m%d-%H%M%S");
+	gchar *copy;
+	gboolean changed;
+
+	g_date_time_unref(now);
+	if (backup)
+		*backup = NULL;
+	notes_open();
+	// The file as it was, before anything changes: an import that turns
+	// out to be the wrong copy is undone by putting this one back.
+	copy = g_strdup_printf("%s.antes-de-importar-%s", notes_store_path(), stamp);
+	g_free(stamp);
+	if (!notes_store_copy_to(copy)) {
+		g_set_error(error, G_FILE_ERROR, G_FILE_ERROR_FAILED,
+			    _("No se pudo hacer una copia de tus notas antes de "
+			      "importar; no se ha importado nada."));
+		g_free(copy);
+		return FALSE;
+	}
+	if (!notes_import_json(json, result, error)) {
+		g_remove(copy);
+		g_free(copy);
+		return FALSE;
+	}
+	changed = result->added || result->extra || result->links_added;
+	if (!changed) {
+		g_remove(copy);
+		g_free(copy);
+		return TRUE;
+	}
+	if (!notes_store_save()) {
+		g_set_error(error, G_FILE_ERROR, G_FILE_ERROR_FAILED,
+			    _("No se pudieron guardar las notas importadas."));
+		g_free(copy);
+		return FALSE;
+	}
+	notesCacheFill(settings.MainWindowModule, settings.currentverse);
+	if (backup)
+		*backup = copy;
+	else
+		g_free(copy);
+	return TRUE;
+}
+
+// "25/09/2026" in the reader's locale, local time.
+static gchar *
+fecha_local(gint64 t)
+{
+	GDateTime *utc = g_date_time_new_from_unix_utc(t);
+	GDateTime *local = utc ? g_date_time_to_local(utc) : NULL;
+	gchar *out = local ? g_date_time_format(local, "%x") : NULL;
+	if (local)
+		g_date_time_unref(local);
+	if (utc)
+		g_date_time_unref(utc);
+	return out;
+}
+
+extern "C" char *
+highlight_note_dates_text(gint64 created, gint64 modified)
+{
+	gchar *c, *m, *out;
+	if (created <= 0 && modified <= 0)
+		return NULL; // written before notes carried dates
+	if (created <= 0)
+		created = modified;
+	c = fecha_local(created);
+	m = fecha_local(modified > 0 ? modified : created);
+	if (!c || !m || !strcmp(c, m))
+		out = g_strdup_printf(_("Escrita el %s"), c ? c : (m ? m : ""));
+	else
+		out = g_strdup_printf(_("Escrita el %s · modificada el %s"), c, m);
+	g_free(c);
+	g_free(m);
+	return out;
+}
+
 extern "C" void
 highlight_note_free(HighlightNote *n)
 {
@@ -707,8 +970,8 @@ highlight_note_key_osisref(const gchar *note_key)
 {
 	if (!note_key)
 		return NULL;
-	if (g_str_has_prefix(note_key, "MV:"))
-		return g_strdup(note_key + 3);
+	if (g_str_has_prefix(note_key, "MV:")) // "MV:<osisref>[#<id>]"
+		return g_strndup(note_key + 3, strcspn(note_key + 3, "#"));
 	if (g_str_has_prefix(note_key, "HL:")) {
 		GList *labels = find_labels_by_group(note_key + 3);
 		gchar *osis = NULL;
@@ -731,10 +994,10 @@ note_set_whole_verse(const gchar *module, const gchar *osisref,
 {
 	gchar *label = g_strdup_printf("%s %s", module, osisref);
 	gchar *value = encode_note_value(color, "", note, -1);
-	xml_set_list_item("osisrefnotes", "note", label, value);
+	notes_put(NOTES_SECTION_NOTES, label, value);
 	g_free(value);
 	g_free(label);
-	xml_save_settings_doc(settings.fnconfigure);
+	notes_save();
 	notesCacheFill(settings.MainWindowModule, settings.currentverse);
 }
 
@@ -742,9 +1005,9 @@ extern "C" void
 note_remove_whole_verse(const gchar *module, const gchar *osisref)
 {
 	gchar *label = g_strdup_printf("%s %s", module, osisref);
-	xml_remove_node("osisrefnotes", "note", label);
+	notes_del(NOTES_SECTION_NOTES, label);
 	g_free(label);
-	xml_save_settings_doc(settings.fnconfigure);
+	notes_save();
 	notesCacheFill(settings.MainWindowModule, settings.currentverse);
 }
 
@@ -752,7 +1015,7 @@ extern "C" char *
 note_get_whole_verse_color(const gchar *module, const gchar *osisref)
 {
 	gchar *label = g_strdup_printf("%s %s", module, osisref);
-	gchar *value = xml_get_list_from_label("osisrefnotes", "note", label);
+	gchar *value = notes_get(NOTES_SECTION_NOTES, label);
 	gchar *result = NULL;
 	g_free(label);
 	if (value) {
@@ -787,11 +1050,29 @@ highlight_add_verse_note(const gchar *module, const gchar *osisref,
 	label = g_strdup_printf("%s %s#MV%" G_GINT64_FORMAT, module, osisref,
 				       g_get_monotonic_time());
 	value = encode_note_value(NULL, "", note, -1);
-	xml_set_list_item("osisrefnotes", "note", label, value);
-	xml_save_settings_doc(settings.fnconfigure);
+	notes_put(NOTES_SECTION_NOTES, label, value);
+	notes_save();
 	notesCacheFill(settings.MainWindowModule, settings.currentverse);
 	g_free(value);
 	g_free(label);
+}
+
+static gchar *
+label_for_key_in(NoteCache &cache, const gchar *note_key)
+{
+	for (NoteCache::iterator it = cache.begin(); it != cache.end(); ++it) {
+		for (GList *l = (*it).second; l; l = l->next) {
+			NoteElement *h = (NoteElement *)l->data;
+			if (h->text && *h->text)
+				continue;
+			gchar *k = whole_verse_note_key(h);
+			gboolean same = !strcmp(k, note_key);
+			g_free(k);
+			if (same)
+				return g_strdup(h->label);
+		}
+	}
+	return NULL;
 }
 
 static gchar *whole_note_label_from_key(const gchar *note_key)
@@ -799,6 +1080,13 @@ static gchar *whole_note_label_from_key(const gchar *note_key)
 	const gchar *body;
 	if (!note_key || !g_str_has_prefix(note_key, "MV:"))
 		return NULL;
+	// A note on screen is found by the key it was listed with: that is
+	// the only way back to the entry of a note written in another Bible.
+	gchar *found = label_for_key_in(note_cache, note_key);
+	for (auto mc = module_caches.begin(); !found && mc != module_caches.end(); ++mc)
+		found = label_for_key_in(mc->second, note_key);
+	if (found)
+		return found;
 	body = note_key + 3;
 	return g_strdup_printf("%s %s", note_cache_modname ? note_cache_modname :
 				       settings.MainWindowModule, body);
@@ -813,17 +1101,17 @@ highlight_set_verse_note_by_key(const gchar *note_key, const gchar *note)
 	label = whole_note_label_from_key(note_key);
 	if (!label)
 		return;
-	value = xml_get_list_from_label("osisrefnotes", "note", label);
+	value = notes_get(NOTES_SECTION_NOTES, label);
 	if (value) {
 		gchar *color = NULL, *text = NULL, *old_note = NULL;
 		gint pos = -1;
 		if (decode_note_value(value, &color, &text, &old_note, &pos)) {
 			gchar *newval = encode_note_value(color, text, note, pos);
-			xml_set_list_item("osisrefnotes", "note", label, newval);
+			notes_put(NOTES_SECTION_NOTES, label, newval);
 			g_free(newval); g_free(color); g_free(text); g_free(old_note);
 		}
 		g_free(value);
-		xml_save_settings_doc(settings.fnconfigure);
+		notes_save();
 		notesCacheFill(settings.MainWindowModule, settings.currentverse);
 	}
 	g_free(label);
@@ -834,8 +1122,8 @@ highlight_remove_verse_note_by_key(const gchar *note_key)
 {
 	gchar *label = whole_note_label_from_key(note_key);
 	if (label) {
-		xml_remove_node("osisrefnotes", "note", label);
-		xml_save_settings_doc(settings.fnconfigure);
+		notes_del(NOTES_SECTION_NOTES, label);
+		notes_save();
 		notesCacheFill(settings.MainWindowModule, settings.currentverse);
 		g_free(label);
 	}
@@ -845,7 +1133,7 @@ extern "C" char *
 highlight_get_verse_note(const gchar *module, const gchar *osisref)
 {
 	gchar *label = g_strdup_printf("%s %s", module, osisref);
-	gchar *value = xml_get_list_from_label("osisrefnotes", "note", label);
+	gchar *value = notes_get(NOTES_SECTION_NOTES, label);
 	gchar *result = NULL;
 	g_free(label);
 	if (value) {
@@ -886,10 +1174,10 @@ highlight_link_notes(const gchar *key_a, const gchar *key_b)
 
 	gchar *id = g_strdup_printf("%" G_GINT64_FORMAT, g_get_monotonic_time());
 	gchar *value = g_strdup_printf("%s|%s", key_a, key_b);
-	xml_set_list_item("osisrefnotelinks", "notelink", id, value);
+	notes_put(NOTES_SECTION_LINKS, id, value);
 	g_free(value);
 	g_free(id);
-	xml_save_settings_doc(settings.fnconfigure);
+	notes_save();
 }
 
 extern "C" void
@@ -900,10 +1188,12 @@ highlight_unlink_notes(const gchar *key_a, const gchar *key_b)
 	if (!key_a || !key_b)
 		return;
 
-	if (xml_set_section_ptr("osisrefnotelinks") && xml_get_label()) {
-		do {
-			gchar *label = xml_get_label();
-			gchar *value = xml_get_list();
+	{
+		GPtrArray *entries_ = notes_entries(NOTES_SECTION_LINKS);
+		for (guint k_ = 0; k_ < entries_->len; k_++) {
+			NotesEntry *ne_ = (NotesEntry *)g_ptr_array_index(entries_, k_);
+			gchar *label = g_strdup(ne_->label);
+			gchar *value = g_strdup(ne_->value);
 			if (value) {
 				gchar **parts = g_strsplit(value, "|", 2);
 				if (parts[0] && parts[1] &&
@@ -914,13 +1204,14 @@ highlight_unlink_notes(const gchar *key_a, const gchar *key_b)
 			}
 			g_free(label);
 			g_free(value);
-		} while (xml_next_item() && xml_get_label());
+		}
+		g_ptr_array_unref(entries_);
 	}
 
 	for (GList *n = to_remove; n; n = n->next)
-		xml_remove_node("osisrefnotelinks", "notelink", (gchar *)n->data);
+		notes_del(NOTES_SECTION_LINKS, (gchar *)n->data);
 	if (to_remove)
-		xml_save_settings_doc(settings.fnconfigure);
+		notes_save();
 	g_list_free_full(to_remove, g_free);
 }
 
@@ -932,10 +1223,12 @@ highlight_list_linked_notes(const gchar *key)
 	if (!key)
 		return NULL;
 
-	if (xml_set_section_ptr("osisrefnotelinks") && xml_get_label()) {
-		do {
-			gchar *label = xml_get_label();
-			gchar *value = xml_get_list();
+	{
+		GPtrArray *entries_ = notes_entries(NOTES_SECTION_LINKS);
+		for (guint k_ = 0; k_ < entries_->len; k_++) {
+			NotesEntry *ne_ = (NotesEntry *)g_ptr_array_index(entries_, k_);
+			gchar *label = g_strdup(ne_->label);
+			gchar *value = g_strdup(ne_->value);
 			if (value) {
 				gchar **parts = g_strsplit(value, "|", 2);
 				if (parts[0] && parts[1]) {
@@ -948,17 +1241,18 @@ highlight_list_linked_notes(const gchar *key)
 			}
 			g_free(label);
 			g_free(value);
-		} while (xml_next_item() && xml_get_label());
+		}
+		g_ptr_array_unref(entries_);
 	}
 	return out;
 }
 
-extern "C" int
-highlight_count_notes_at(int chapter_verse)
+static int
+count_notes_at(NoteCache &cache, int chapter_verse)
 {
 	int n = 0;
-	NoteCache::iterator it = note_cache.find(chapter_verse);
-	if (it != note_cache.end()) {
+	NoteCache::iterator it = cache.find(chapter_verse);
+	if (it != cache.end()) {
 		for (GList *l = (*it).second; l; l = l->next) {
 			NoteElement *h = (NoteElement *)l->data;
 			if (h->note && *h->note)
@@ -968,14 +1262,20 @@ highlight_count_notes_at(int chapter_verse)
 	return n;
 }
 
-extern "C" GList *
-highlight_list_notes(const gchar *osis_prefix)
+extern "C" int
+highlight_count_notes_at(int chapter_verse)
+{
+	return count_notes_at(note_cache, chapter_verse);
+}
+
+static GList *
+list_notes_in(NoteCache &cache, const gchar *osis_prefix, const gchar *modname)
 {
 	GList *out = NULL;
 	GHashTable *seen = g_hash_table_new(g_str_hash, g_str_equal);
 	NoteCache::iterator it;
 
-	for (it = note_cache.begin(); it != note_cache.end(); ++it) {
+	for (it = cache.begin(); it != cache.end(); ++it) {
 		for (GList *l = (*it).second; l; l = l->next) {
 			NoteElement *h = (NoteElement *)l->data;
 			gboolean whole_verse = !h->text || !*h->text;
@@ -1001,27 +1301,79 @@ highlight_list_notes(const gchar *osis_prefix)
 
 				n->module = space
 					? g_strndup(h->label, space - h->label)
-					: g_strdup(note_cache_modname);
+					: g_strdup(modname);
 			}
 			n->osisref = g_strdup(h->osisref);
 			n->text = whole_verse ? NULL : g_strdup(h->text);
 			n->note = g_strdup(h->note);
 			n->color = h->color ? g_strdup(h->color) : NULL;
 			if (whole_verse) {
-				gchar *hash = strrchr(h->label, '#');
-				n->note_key = (hash && hash[1])
-					  ? g_strdup_printf("MV:%s#%s", h->osisref, hash + 1)
-					  : highlight_note_key_verse(h->osisref);
+				n->note_key = whole_verse_note_key(h);
 			} else {
 				n->note_key = highlight_note_key_group(gid);
 			}
 			n->chapter_verse = (*it).first;
+			n->created = h->created;
+			n->modified = h->modified;
 			out = g_list_append(out, n);
 		}
 	}
 
 	g_hash_table_destroy(seen);
 	return out;
+}
+
+extern "C" GList *
+highlight_list_notes(const gchar *osis_prefix)
+{
+	return list_notes_in(note_cache, osis_prefix, note_cache_modname);
+}
+
+// NOTES-INDICATOR-101: see module_caches.
+
+static NoteCache *
+module_cache_for(const gchar *module, const gchar *osisref)
+{
+	gchar *book;
+	const gchar *dot;
+	std::string k;
+
+	if (!module || !*module || !osisref || !(dot = strchr(osisref, '.')))
+		return NULL;
+	notes_open();
+	if (module_caches_generation != notes_store_generation()) {
+		for (auto &mc : module_caches)
+			free_cache(mc.second);
+		module_caches.clear();
+		module_caches_generation = notes_store_generation();
+	}
+	book = g_strndup(osisref, (gsize)(dot - osisref));
+	k = std::string(module) + "\t" + book;
+	auto it = module_caches.find(k);
+	if (it == module_caches.end()) {
+		it = module_caches.emplace(k, NoteCache()).first;
+		fill_note_cache(it->second, module, book);
+	}
+	g_free(book);
+	return &it->second;
+}
+
+extern "C" int
+highlight_count_notes_for(const gchar *module, const gchar *osisref)
+{
+	NoteCache *cache = module_cache_for(module, osisref);
+	return cache ? count_notes_at(*cache, osis_chapter_verse(osisref)) : 0;
+}
+
+extern "C" GList *
+highlight_list_notes_in(const gchar *module, const gchar *osis_prefix)
+{
+	NoteCache *cache;
+	if (!module || (note_cache_modname &&
+			!g_ascii_strcasecmp(module, note_cache_modname)))
+		return highlight_list_notes(osis_prefix);
+	cache = module_cache_for(module, osis_prefix);
+	return cache ? list_notes_in(*cache, osis_prefix, module) : NULL;
 }
 
 // Canonical position of an osisref, so notes from different books sort
@@ -1061,12 +1413,14 @@ highlight_all_notes(void)
 	GHashTable *seen = g_hash_table_new_full(g_str_hash, g_str_equal,
 						 g_free, NULL);
 
-	migrate_legacy_notes_if_needed();
+	notes_open();
 
-	if (xml_set_section_ptr("osisrefnotes") && xml_get_label()) {
-		do {
-			gchar *full_label = xml_get_label();
-			gchar *value = xml_get_list();
+	{
+		GPtrArray *entries_ = notes_entries(NOTES_SECTION_NOTES);
+		for (guint k_ = 0; k_ < entries_->len; k_++) {
+			NotesEntry *ne_ = (NotesEntry *)g_ptr_array_index(entries_, k_);
+			gchar *full_label = g_strdup(ne_->label);
+			gchar *value = g_strdup(ne_->value);
 			gchar *space = full_label ? strchr(full_label, ' ') : NULL;
 			gchar *hash = full_label ? strrchr(full_label, '#') : NULL;
 
@@ -1107,6 +1461,8 @@ highlight_all_notes(void)
 						    whole ? highlight_note_key_verse(osisref)
 							  : highlight_note_key_group(gid);
 						n->orden = osis_orden(osisref);
+						n->created = ne_->created;
+						n->modified = ne_->modified;
 						out = g_list_prepend(out, n);
 					}
 				}
@@ -1118,7 +1474,8 @@ highlight_all_notes(void)
 			}
 			g_free(full_label);
 			g_free(value);
-		} while (xml_next_item() && xml_get_label());
+		}
+		g_ptr_array_unref(entries_);
 	}
 
 	g_hash_table_destroy(seen);
@@ -1134,21 +1491,48 @@ highlight_count_notes(const gchar *osis_prefix)
 	return n;
 }
 
-static void
-append_verse_note_marker(SWBuf &swbuf, int chapter_verse,
-			 const char *module, const char *passage)
+// The "n"/"n2" marker that opens the verse's notes.
+static gchar *
+note_marker_html(int n, const char *module, const char *passage)
 {
-	int n = highlight_count_notes_at(chapter_verse);
-	gchar *lab;
+	gchar *lab, *out;
 	if (n <= 0)
-		return;
+		return NULL;
 	lab = (n == 1) ? g_strdup("n") : g_strdup_printf("n%d", n);
-	swbuf.appendFormatted("<sup class=\"hl-note-count\">"
+	out = g_strdup_printf("<sup class=\"hl-note-count\">"
 			      "<a href=\"passagestudy.jsp?action=showHlNotes&"
 			      "module=%s&passage=%s\">%s</a>"
 			      "</sup>&nbsp;",
 			      module, passage, lab);
 	g_free(lab);
+	return out;
+}
+
+static void
+append_verse_note_marker(SWBuf &swbuf, int chapter_verse,
+			 const char *module, const char *passage)
+{
+	gchar *html = note_marker_html(highlight_count_notes_at(chapter_verse),
+				       module, passage);
+	if (html)
+		swbuf.append(html);
+	g_free(html);
+}
+
+extern "C" char *
+highlight_note_marker_for(const gchar *module, const gchar *key)
+{
+	char *osis;
+	gchar *html;
+	if (!module || !key)
+		return NULL;
+	osis = (char *)main_get_osisref_from_key(module, key);
+	html = (osis && *osis)
+		   ? note_marker_html(highlight_count_notes_for(module, osis),
+				      module, osis)
+		   : NULL;
+	free(osis);
+	return html;
 }
 
 // Byte offset in `rework_str` of the `n`th plain (non-"<tag>") UTF-8

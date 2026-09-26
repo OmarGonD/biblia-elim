@@ -35,7 +35,7 @@ int main(int argc, char **argv)
 {
 	if (argc < 10) {
 		std::fprintf(stderr, "Usage: %s bible.xml --module-id ID --name NAME "
-			"--language LANG --versification kjv|custom --output FILE\n", argv[0]);
+			"--language LANG --versification kjv|vulg|nrsva|...|custom --output FILE\n", argv[0]);
 		return 2;
 	}
 	UsfmImportOptions options;

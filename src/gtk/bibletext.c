@@ -1021,6 +1021,7 @@ typedef struct
 typedef struct
 {
 	gchar *group_id; /* NULL for a whole-verse (Mark Verse) note */
+	gchar *module;   /* the Bible it was written in */
 	gchar *osisref;
 	gchar *note_key;
 	gchar *note_text;
@@ -1045,6 +1046,7 @@ free_note_row_ctx(gpointer data)
 	if (!r)
 		return;
 	g_free(r->group_id);
+	g_free(r->module);
 	g_free(r->osisref);
 	g_free(r->note_key);
 	g_free(r->note_text);
@@ -1076,7 +1078,12 @@ on_verse_note_edit_clicked(GtkButton *button, gpointer user_data)
 	}
 
 	if (run_note_edit_dialog(_("Editar nota del versículo"), r->note_text, &new_text)) {
-		highlight_set_verse_note(r->ctx->module, r->osisref, new_text);
+		/* a note written in another Bible is edited where it lives */
+		if (r->module && r->ctx->module &&
+		    g_ascii_strcasecmp(r->module, r->ctx->module))
+			highlight_set_verse_note_by_key(r->note_key, new_text);
+		else
+			highlight_set_verse_note(r->ctx->module, r->osisref, new_text);
 		main_display_bible(NULL, settings.currentverse);
 		rebuild_verse_notes_list(r->ctx);
 	}
@@ -1118,7 +1125,9 @@ rebuild_verse_notes_list(VerseNotesCtx *ctx)
 	gtk_container_foreach(GTK_CONTAINER(ctx->listbox),
 			      (GtkCallback)gtk_widget_destroy, NULL);
 
-	notes = highlight_list_notes(ctx->passage);
+	/* the verse may be in another Bible than the main one: a note
+	 * marker in the parallel view or the compare panel */
+	notes = highlight_list_notes_in(ctx->module, ctx->passage);
 	if (!notes) {
 		GtkWidget *lbl = gtk_label_new(_("Todavía no hay notas en este versículo."));
 		gtk_widget_set_halign(lbl, GTK_ALIGN_START);
@@ -1141,6 +1150,12 @@ rebuild_verse_notes_list(VerseNotesCtx *ctx)
 			excerpt_lbl = gtk_label_new(NULL);
 			gtk_label_set_markup(GTK_LABEL(excerpt_lbl), markup);
 			g_free(markup);
+		} else if (note->module && ctx->module &&
+			   g_ascii_strcasecmp(note->module, ctx->module)) {
+			gchar *lbl = g_strdup_printf(_("(versículo completo, escrita en %s)"),
+						     note->module);
+			excerpt_lbl = gtk_label_new(lbl);
+			g_free(lbl);
 		} else {
 			excerpt_lbl = gtk_label_new(_("(versículo completo)"));
 		}
@@ -1152,6 +1167,18 @@ rebuild_verse_notes_list(VerseNotesCtx *ctx)
 		gtk_label_set_line_wrap(GTK_LABEL(note_lbl), TRUE);
 		gtk_widget_set_halign(note_lbl, GTK_ALIGN_START);
 		gtk_box_pack_start(GTK_BOX(vbox), note_lbl, FALSE, FALSE, 0);
+		{
+			gchar *fechas = highlight_note_dates_text(note->created,
+								  note->modified);
+			if (fechas) {
+				GtkWidget *cuando = gtk_label_new(fechas);
+				gtk_style_context_add_class(
+				    gtk_widget_get_style_context(cuando), "dim-label");
+				gtk_widget_set_halign(cuando, GTK_ALIGN_START);
+				gtk_box_pack_start(GTK_BOX(vbox), cuando, FALSE, FALSE, 0);
+				g_free(fechas);
+			}
+		}
 
 		links = highlight_list_linked_notes(note->note_key);
 		if (links) {
@@ -1178,6 +1205,7 @@ rebuild_verse_notes_list(VerseNotesCtx *ctx)
 
 		r_edit = g_new0(NoteRowCtx, 1);
 		r_edit->group_id = g_strdup(note->group_id);
+		r_edit->module = g_strdup(note->module);
 		r_edit->osisref = g_strdup(note->osisref);
 		r_edit->note_key = g_strdup(note->note_key);
 		r_edit->note_text = g_strdup(note->note);
@@ -1187,6 +1215,7 @@ rebuild_verse_notes_list(VerseNotesCtx *ctx)
 
 		r_link = g_new0(NoteRowCtx, 1);
 		r_link->group_id = g_strdup(note->group_id);
+		r_link->module = g_strdup(note->module);
 		r_link->osisref = g_strdup(note->osisref);
 		r_link->note_key = g_strdup(note->note_key);
 		r_link->note_text = g_strdup(note->note);

@@ -23,6 +23,9 @@ add_library (main
   biblesync_glue.cc
   configs.cc
   display.cc
+  notes_store.c
+  note_value.c
+  notes_exchange.c
   diccionario.cc
   export_passage.cc
   global_ops.cc
@@ -50,6 +53,7 @@ add_library (main
   navigation_prefs_settings.c
   verse_navigation.cc
   nube_palabras.cc
+  nube_mayusculas.c
   planes_lectura.c
   pulpito.cc
   pulpito_pasos.c

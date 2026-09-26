@@ -6,6 +6,7 @@
 #include <string>
 
 #include "backend/bible_backend.h"
+#include "backend/versification_mapper.h"
 
 class SqliteBibleBackend final : public BibleBackend
 {
@@ -20,6 +21,14 @@ public:
 	std::string moduleDescription(const std::string &) const override;
 	std::string moduleLanguage(const std::string &) const override;
 	std::string versification(const std::string &) const override;
+	/* Maps references between modules of different versifications
+	 * (Vulgate <-> KJV Psalms). Without one only identical
+	 * versifications map; everything else is Unmapped. */
+	void setVersificationMapper(std::shared_ptr<const VersificationMapper> mapper);
+	BibleReferenceConversion convertReference(const std::string &,
+		const std::string &, const std::string &) override;
+	BibleReferenceConversion convertReferenceFromVersification(
+		const std::string &, const std::string &, const std::string &) override;
 	std::string osisRefFromKey(const std::string &, const std::string &) override;
 	bool resolveKey(const std::string &, const std::string &,
 			BibleKeyInfo &) override;
@@ -44,6 +53,9 @@ public:
 					const MorphologyTag &, std::size_t, std::size_t) override;
 
 private:
+	BibleReferenceConversion mapInto(const std::string &fromVersification,
+		const std::string &osisBook, int chapter, int verse,
+		const std::string &target);
 	struct Impl;
 	std::unique_ptr<Impl> impl_;
 };

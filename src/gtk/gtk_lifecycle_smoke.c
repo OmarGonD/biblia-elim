@@ -8,20 +8,25 @@
 #include <config.h>
 #endif
 
+#include <glib/gstdio.h>
 #include <gtk/gtk.h>
 #include <stdlib.h>
 #include <string.h>
 
 #include "gtk_lifecycle_smoke.h"
+#include "gui/buscar_notas.h"
 #include "gui/lectura_sync.h"
 #include "gui/main_menu.h"
 #include "gui/main_window.h"
 #include "gui/sidebar.h"
 #include "gui/widgets.h"
+#include "gui/nube_palabras.h"
+#include "main/display.hh"
 #include "main/navbar_versekey.h"
 #include "main/settings.h"
 #include "main/sword.h"
 #include "main/url.hh"
+#include "main/xml.h"
 #include "xiphos_html/xiphos_html.h"
 
 typedef struct
@@ -299,8 +304,14 @@ warning_dialogs(void)
 	guint n = 0;
 
 	for (l = tops; l; l = l->next)
-		if (GTK_IS_MESSAGE_DIALOG(l->data))
+		if (GTK_IS_MESSAGE_DIALOG(l->data)) {
+			gchar *text = NULL;
+			g_object_get(l->data, "text", &text, NULL);
+			g_printerr("GTK_LIFECYCLE_SMOKE_WARNING_DIALOG %s\n",
+				   text ? text : "");
+			g_free(text);
 			n++;
+		}
 	g_list_free(tops);
 	return n;
 }
@@ -326,6 +337,271 @@ check_bookmark_routes(void)
 	check(warning_dialogs() == 0,
 	      "module-less bookmark warned although KJV maps to KJV");
 	navigation_checks += 3;
+}
+
+/* NOTES-STORE-101 in the running app: a verse note goes to notas.xml,
+ * next to settings.xml, and never into settings.xml itself. */
+static void
+check_note_store(void)
+{
+	gchar *dir = g_path_get_dirname(settings.fnconfigure);
+	gchar *store = g_build_filename(dir, "notas.xml", NULL);
+	gchar *note, *cfg = NULL;
+
+	highlight_set_verse_note(settings.MainWindowModule, "John.3.16",
+				 "nota de humo");
+	note = highlight_get_verse_note(settings.MainWindowModule, "John.3.16");
+	check(note && !strcmp(note, "nota de humo"),
+	      "verse note did not round-trip through the notes store");
+	g_free(note);
+	check(g_file_test(store, G_FILE_TEST_EXISTS),
+	      "notes store file was not written next to settings.xml");
+	note_remove_whole_verse(settings.MainWindowModule, "John.3.16");
+	note = highlight_get_verse_note(settings.MainWindowModule, "John.3.16");
+	check(!note || !*note, "verse note was not removed");
+	g_free(note);
+	xml_save_settings_doc(settings.fnconfigure);
+	if (g_file_get_contents(settings.fnconfigure, &cfg, NULL, NULL))
+		check(!strstr(cfg, "nota de humo"),
+		      "a note was written into settings.xml");
+	g_free(cfg);
+	g_free(store);
+	g_free(dir);
+}
+
+/* NOTES-V11N-101: a note on the whole verse written in another Bible is
+ * listed at this Bible's counterpart, named after the Bible it came from,
+ * and edited or removed where it was written. A highlighted phrase is
+ * that edition's wording and stays there. */
+static GList *
+notes_at_john_3_16(void)
+{
+	notesCacheFill(settings.MainWindowModule, (gchar *)"John 3:16");
+	return highlight_list_notes("John.3.16");
+}
+
+static void
+check_foreign_verse_note(void)
+{
+	const gchar *other = "OtherBible";
+	HighlightSegment seg = { (gchar *)"John.3.16", (gchar *)"God", 4 };
+	GList *segs = g_list_append(NULL, &seg);
+	GList *notes;
+	HighlightNote *n;
+	gchar *gid, *key = NULL, *native;
+
+	if (!main_is_module((char *)other)) {
+		check(FALSE, "smoke fixture did not provide a second Bible");
+		g_list_free(segs);
+		return;
+	}
+	highlight_add_verse_note(other, "John.3.16", "nota ajena");
+	gid = highlight_create_group(other, segs, NULL);
+	highlight_set_note(gid, "subrayado ajeno");
+	g_list_free(segs);
+
+	notes = notes_at_john_3_16();
+	check(g_list_length(notes) == 1,
+	      "foreign whole-verse note not listed alone at its counterpart");
+	n = notes ? (HighlightNote *)notes->data : NULL;
+	check(n && !n->group_id && !g_strcmp0(n->module, other) &&
+	      !g_strcmp0(n->note, "nota ajena"),
+	      "foreign note lost its text or its Bible's name");
+	if (n)
+		key = g_strdup(n->note_key);
+	g_list_free_full(notes, (GDestroyNotify)highlight_note_free);
+
+	highlight_set_verse_note_by_key(key, "nota ajena editada");
+	notes = notes_at_john_3_16();
+	n = notes ? (HighlightNote *)notes->data : NULL;
+	check(g_list_length(notes) == 1 && n && !g_strcmp0(n->module, other) &&
+	      !g_strcmp0(n->note, "nota ajena editada"),
+	      "editing a foreign note did not update the note where it was written");
+	g_list_free_full(notes, (GDestroyNotify)highlight_note_free);
+	native = highlight_get_verse_note(settings.MainWindowModule, "John.3.16");
+	check(!native || !*native, "editing a foreign note created a native one");
+	g_free(native);
+
+	notesCacheFill(settings.MainWindowModule, (gchar *)"John 3:16");
+	highlight_remove_verse_note_by_key(key);
+	notes = notes_at_john_3_16();
+	check(notes == NULL, "removing a foreign note left it in place");
+	g_list_free_full(notes, (GDestroyNotify)highlight_note_free);
+	highlight_remove(gid);
+	g_free(gid);
+	g_free(key);
+}
+
+/* NOTES-DATES/EXPORT/TAGS/INDICATOR-101, in the running app. */
+static void
+check_notes_features(void)
+{
+	const gchar *other = "OtherBible";
+	gint64 before = g_get_real_time() / G_USEC_PER_SEC;
+	GList *notes, *toplevels, *l;
+	HighlightNote *n;
+	gchar *json, *marca, *copia = NULL, *key = NULL;
+	NotesImportResult r;
+	GError *error = NULL;
+
+	highlight_set_verse_note(settings.MainWindowModule, "John.3.16",
+				 "nota con #etiqueta");
+
+	/* Dates: stamped when written. */
+	notes = notes_at_john_3_16();
+	n = notes ? (HighlightNote *)notes->data : NULL;
+	check(n && n->created >= before && n->modified >= n->created,
+	      "a new note has no creation date");
+	g_list_free_full(notes, (GDestroyNotify)highlight_note_free);
+
+	/* Indicator in another Bible (parallel view, compare panel): the
+	 * note written in the main one is counted there, the marker opens
+	 * the notes of that Bible at that verse, and editing it from there
+	 * reaches the entry where it was written. */
+	check(highlight_count_notes_for(other, "John.3.16") == 1,
+	      "note not counted in another Bible");
+	check(highlight_count_notes_for(other, "John.3.15") == 0,
+	      "note counted at the wrong verse in another Bible");
+	marca = highlight_note_marker_for(other, "John 3:16");
+	check(marca && strstr(marca, "module=OtherBible&passage=John.3.16"),
+	      "note marker for another Bible is missing or points elsewhere");
+	g_free(marca);
+	notes = highlight_list_notes_in(other, "John.3.16");
+	n = notes ? (HighlightNote *)notes->data : NULL;
+	check(g_list_length(notes) == 1 && n &&
+	      !g_strcmp0(n->module, settings.MainWindowModule),
+	      "notes listed from another Bible lost their origin");
+	if (n)
+		key = g_strdup(n->note_key);
+	g_list_free_full(notes, (GDestroyNotify)highlight_note_free);
+	highlight_set_verse_note_by_key(key, "nota con #etiqueta editada");
+	g_free(key);
+	notes = highlight_list_notes_in(other, "John.3.16");
+	n = notes ? (HighlightNote *)notes->data : NULL;
+	check(n && !g_strcmp0(n->note, "nota con #etiqueta editada") &&
+	      !g_strcmp0(n->module, settings.MainWindowModule),
+	      "editing from another Bible did not reach the original note");
+	g_list_free_full(notes, (GDestroyNotify)highlight_note_free);
+
+	/* Export, lose it, import: it comes back, and the file before the
+	 * import is kept. */
+	json = highlight_notes_export_json();
+	check(json && strstr(json, "#etiqueta editada"),
+	      "JSON export does not carry the note");
+	note_remove_whole_verse(settings.MainWindowModule, "John.3.16");
+	check(highlight_notes_import_json(json, &r, &copia, &error) &&
+	      r.added == 1, "importing the JSON copy did not restore the note");
+	g_clear_error(&error);
+	check(copia && g_file_test(copia, G_FILE_TEST_EXISTS),
+	      "no copy of the notes was kept before importing");
+	notes = notes_at_john_3_16();
+	check(notes && !g_strcmp0(((HighlightNote *)notes->data)->note,
+				  "nota con #etiqueta editada"),
+	      "imported note not shown");
+	g_list_free_full(notes, (GDestroyNotify)highlight_note_free);
+	check(highlight_notes_import_json(json, &r, NULL, NULL) &&
+	      r.identical == 1 && r.added == 0,
+	      "importing the same copy twice added notes");
+	if (copia)
+		g_remove(copia);
+	g_free(copia);
+	g_free(json);
+
+	/* The notes dialog (tags, book and version filters, dates) opens
+	 * and closes cleanly with a tagged note in it. */
+	gui_buscar_notas_dialog(GTK_WINDOW(widgets.app));
+	{
+		GtkWidget *dialogo = NULL;
+		toplevels = gtk_window_list_toplevels();
+		for (l = toplevels; l && !dialogo; l = l->next)
+			if (!g_strcmp0(gtk_window_get_title(GTK_WINDOW(l->data)),
+				       "Buscar en mis notas"))
+				dialogo = GTK_WIDGET(l->data);
+		g_list_free(toplevels);
+		check(dialogo && gtk_widget_get_visible(dialogo),
+		      "notes dialog not shown");
+		if (dialogo)
+			gtk_widget_destroy(dialogo);
+	}
+
+	note_remove_whole_verse(settings.MainWindowModule, "John.3.16");
+}
+
+static void
+check_word_cloud(void)
+{
+	NUBE_PALABRA words[3] = {
+		{ .palabra = "dios", .cuenta = 124 },
+		{ .palabra = "jesús", .cuenta = 106 },
+		{ .palabra = "mano", .cuenta = 10 }
+	};
+	NUBE_CONTEO count = { .libro = "Lucas" };
+	count.palabras = g_ptr_array_new();
+	for (int i = 0; i < 3; ++i)
+		g_ptr_array_add(count.palabras, &words[i]);
+	gchar *html = gui_nube_palabras_html(&count, FALSE);
+	GtkWidget *surface = GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, VIEWER_TYPE));
+	g_object_ref_sink(surface);
+	XIPHOS_HTML_OPEN_STREAM(surface, "text/html");
+	XIPHOS_HTML_WRITE(surface, html, strlen(html));
+	XIPHOS_HTML_CLOSE(surface);
+	GtkTextBuffer *buffer = gtk_text_view_get_buffer(wk_html_get_view(WK_HTML(surface)));
+	gdouble scales[3] = { 0, 0, 0 };
+	for (int i = 0; i < 3; ++i) {
+		GtkTextIter start, match, end;
+		gtk_text_buffer_get_start_iter(buffer, &start);
+		gboolean found = gtk_text_iter_forward_search(&start, words[i].palabra,
+			GTK_TEXT_SEARCH_TEXT_ONLY, &match, &end, NULL);
+		check(found, "cloud word reaches native renderer");
+		if (found) {
+			GtkTextAttributes *attrs = gtk_text_attributes_new();
+			gtk_text_iter_get_attributes(&match, attrs);
+			scales[i] = attrs->font_scale;
+			check(attrs->justification == GTK_JUSTIFY_CENTER, "cloud centered");
+			gtk_text_attributes_unref(attrs);
+			check(gtk_text_iter_get_char(&end) == ' ', "cloud words separated");
+		}
+	}
+	check(scales[0] > scales[1] && scales[1] > scales[2], "cloud frequency scales decrease");
+	check(scales[0] >= 3.0 && scales[2] < 0.7, "cloud has visible size contrast");
+	g_print("WORD_CLOUD_RENDER scales=%.3f,%.3f,%.3f\n", scales[0], scales[1], scales[2]);
+	gtk_widget_destroy(surface);
+	g_object_unref(surface);
+	g_free(html);
+	g_ptr_array_free(count.palabras, TRUE);
+}
+
+/* MENU-TIDY-101: the menu bar is the one the reader was promised, and
+ * no Xiphos upstream link (mailing list, IRC chat, release notes) is
+ * left in it. */
+static void
+check_menu_bar(void)
+{
+	const char *expected[] = {"_Archivo", "_Buscar", "_Estudio",
+				  "_Lectura", "_Ver", "A_yuda"};
+	GtkWidget *menu = widgets.readaloud_item
+			      ? gtk_widget_get_parent(widgets.readaloud_item)
+			      : NULL;
+	GtkWidget *top = GTK_IS_MENU(menu)
+			     ? gtk_menu_get_attach_widget(GTK_MENU(menu))
+			     : NULL;
+	GtkWidget *bar = top ? gtk_widget_get_parent(top) : NULL;
+	GList *items, *l;
+	guint i = 0;
+
+	check(GTK_IS_MENU_BAR(bar), "main menu bar not found");
+	if (!GTK_IS_MENU_BAR(bar))
+		return;
+	items = gtk_container_get_children(GTK_CONTAINER(bar));
+	check(g_list_length(items) == G_N_ELEMENTS(expected),
+	      "main menu bar does not have its six menus");
+	for (l = items; l && i < G_N_ELEMENTS(expected); l = l->next, i++)
+		check(!g_strcmp0(gtk_menu_item_get_label(GTK_MENU_ITEM(l->data)),
+				 expected[i]),
+		      "main menu bar menus are out of order");
+	g_list_free(items);
+	check(!g_strcmp0(gtk_menu_item_get_label(GTK_MENU_ITEM(top)), "_Lectura"),
+	      "read aloud is not in the Lectura menu");
 }
 
 static gboolean
@@ -373,6 +649,11 @@ exercise_application(gpointer unused)
 		main_navbar_versekey_spin_chapter(navbar_versekey, 0);
 		navigation_checks += 5;
 		check_bookmark_routes();
+		check_note_store();
+		check_foreign_verse_note();
+		check_notes_features();
+		check_menu_bar();
+		check_word_cloud();
 	} else {
 		check(FALSE, "smoke fixture did not provide a Bible module");
 	}

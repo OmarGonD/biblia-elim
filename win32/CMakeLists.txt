@@ -167,6 +167,7 @@ if (WIN32)
     ${SYS_ROOT_BIN}/libpangowin32-1.0-0.dll
     ${SYS_ROOT_BIN}/libatk-1.0-0.dll
     ${SYS_ROOT_BIN}/libxml2-2.dll
+    ${SYS_ROOT_BIN}/libjson-glib-1.0-0.dll
     ${SYS_ROOT_BIN}/libbz2-1.dll
     ${SYS_ROOT_BIN}/libgthread-2.0-0.dll
     ${SYS_ROOT_BIN}/libgnurx-0.dll

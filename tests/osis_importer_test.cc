@@ -234,17 +234,128 @@ int main()
 	check(importFixture("real-world/torres-amat-1882-psalm-1.xml", torresOutput,
 		torresOptions, torresStats), "Torres Amat fixture imports");
 
+	/* A book outside the supported set (the Vulgate appendix's 3 Esdras)
+	 * is still rejected, never mapped into another book. */
 	UsfmImportStats unsupportedStats;
 	std::string unsupportedError;
 	const bool unsupportedAccepted = importOsis(std::string(SRCDIR) +
-		"/tests/fixtures/osis/real-world/unsupported-tobit-structure.xml",
+		"/tests/fixtures/osis/real-world/unsupported-esdras-structure.xml",
 		unsupportedOutput, torresOptions, unsupportedStats, unsupportedError);
 	check(!unsupportedAccepted &&
-		unsupportedError == "invalid OSIS verse osisID: Tob.1.1",
-		"unsupported Tobit is rejected explicitly");
+		unsupportedError == "invalid OSIS verse osisID: 1Esd.1.1",
+		"unsupported 1 Esdras is rejected explicitly");
 	check(!g_file_test(unsupportedOutput.c_str(), G_FILE_TEST_EXISTS) &&
 		!g_file_test((unsupportedOutput + ".tmp").c_str(), G_FILE_TEST_EXISTS),
-		"unsupported Tobit leaves no output artifacts");
+		"unsupported 1 Esdras leaves no output artifacts");
+
+	/* Deuterocanonical books (Catholic Bibles), in the module's own
+	 * (Vulgate) order, named in Spanish. */
+	const std::string deuteroDirectory = directory + "/deutero";
+	g_mkdir(deuteroDirectory.c_str(), 0700);
+	UsfmImportStats deuteroStats;
+	check(importFixture("deuterocanon-vulgate-order.xml",
+		deuteroDirectory + "/vulgata.sqlite",
+		options("vulgata", "Vulgata", "es", "Deuterocanon order", "fixture", "local"),
+		deuteroStats), "deuterocanonical fixture imports");
+	check(deuteroStats.books == 6 && deuteroStats.verses == 8,
+		"deuterocanonical fixture counts");
+	{
+		SqliteBibleBackend backend(deuteroDirectory);
+		const std::string m = "vulgata";
+		const std::vector<std::string> ot = backend.bookNames(m, 1);
+		const std::vector<std::string> nt = backend.bookNames(m, 2);
+		check(ot == std::vector<std::string>({"Nehemías", "Tobías", "Judit", "Ester"}),
+			"Old Testament in the module's order, in Spanish");
+		check(nt == std::vector<std::string>({"Mateo", "Lucas"}),
+			"New Testament in Spanish");
+		BibleKeyInfo tob;
+		check(backend.resolveKey(m, "Tobías 1:1", tob) && tob.key == "Tobías 1:1" &&
+			tob.osisBook == "Tob" && tob.reference.book == 67 &&
+			tob.bookIndex == 2 && tob.chapterCount == 2,
+			"Tobit resolves as itself, second in the list");
+		BibleKeyInfo alias;
+		check(backend.resolveKey(m, "Tobit 2:1", alias) && alias.key == "Tobías 2:1",
+			"English name resolves in a Spanish module");
+		check(backend.resolveKey(m, "Tob 1:1", alias) && alias.key == "Tobías 1:1",
+			"OSIS id resolves");
+		check(backend.resolveKey(m, "lucas 23:33", alias) &&
+			alias.key == "Lucas 23:33" && alias.bookIndex == 6,
+			"a saved Spanish reference resolves, any case");
+		check(backend.resolveKey(m, "Luke 23:33", alias) && alias.key == "Lucas 23:33",
+			"English reference resolves");
+		check(!backend.resolveKey(m, "Génesis 1:1", alias),
+			"a book the module lacks does not resolve");
+		check(backend.navigate(m, "Nehemías 1:2", 1) == "Tobías 1:1",
+			"next verse follows the module's order into Tobit");
+		check(backend.navigate(m, "Tobías 1:1", -1) == "Nehemías 1:2",
+			"previous verse goes back to Nehemiah");
+		check(backend.navigate(m, "Ester 1:1", 1) == "Mateo 1:1",
+			"next verse crosses into the New Testament");
+		check(backend.setBook(m, "Tobías 1:1", 1, 3) == "Judit 1:1",
+			"setBook: third Old Testament book");
+		check(backend.setBook(m, "Tobías 1:1", 2, 1) == "Mateo 1:1",
+			"setBook: first New Testament book, not book id 1");
+		check(backend.setBook(m, "Tobías 1:1", 2, 3).empty() &&
+			backend.setBook(m, "Tobías 1:1", 1, 0).empty(),
+			"setBook out of range");
+	}
+	/* What SWORD's mod2osis writes (SQLITE-REAL-101): pre-verse titles
+	 * and text, section and acrostic titles inside a verse, "Strong:"
+	 * lemmas, a space at the edge of <w>. */
+	{
+		const std::string exportDirectory = directory + "/export";
+		g_mkdir(exportDirectory.c_str(), 0700);
+		UsfmImportStats exportStats;
+		check(importFixture("mod2osis-structure.xml",
+			exportDirectory + "/export.sqlite",
+			options("export", "Export", "es", "mod2osis structures", "fixture", "local"),
+			exportStats), "mod2osis structure fixture imports");
+		SqliteBibleBackend backend(exportDirectory);
+		auto content = [&](const char *key) {
+			BibleKeyInfo info;
+			if (!backend.resolveKey("export", key, info)) return BibleVerseContent();
+			return backend.getVerseContent("export", info.reference);
+		};
+		auto headings = [](const BibleVerseContent &c) {
+			std::string out;
+			for (const BibleHeading &h : c.headings) out += (out.empty() ? "" : "|") + h.text;
+			return out;
+		};
+		const BibleVerseContent gen1 = content("Génesis 1:1");
+		check(gen1.plainText == "Al principio creó Dios.",
+			"pre-verse titles, note tail and paragraph are not verse text: " + gen1.plainText);
+		check(headings(gen1) == "I. PRIMERA PARTE|Sección uno.",
+			"pre-verse titles are headings: " + headings(gen1));
+		check(gen1.footnotes.size() == 1, "pre-verse note kept");
+		check(gen1.words.size() == 2 && gen1.words[0].strongs.size() == 1 &&
+			gen1.words[1].strongs.size() == 1,
+			"\"Strong:\" and \"strong:\" lemmas both import");
+		const BibleVerseContent gen2 = content("Génesis 1:2");
+		check(gen2.plainText == "Texto antes. Texto después." &&
+			headings(gen2) == "Título en medio",
+			"a section title inside a verse is a heading: " + gen2.plainText);
+		const BibleVerseContent gen3 = content("Génesis 1:3");
+		check(gen3.plainText == "y se humillarán delante de él.",
+			"a space at the edge of <w> separates words: " + gen3.plainText);
+		for (const BibleVerseContent *c : {&gen1, &gen3})
+			for (const BibleWordInfo &w : c->words)
+				check(w.start + w.length <= c->plainText.size() &&
+					c->plainText.substr(w.start, w.length) == w.text,
+					"word offsets exact: " + w.text);
+		const BibleVerseContent ps = content("Salmos 3:1");
+		check(ps.plainText == "Salmo de David. ¡Oh Señor!" && ps.headings.empty(),
+			"an untyped psalm title inside the verse stays text: " + ps.plainText);
+		const BibleVerseContent lam = content("Lamentaciones 1:1");
+		check(lam.plainText == "¡Cómo ha quedado solitaria!" && headings(lam) == "ALEF.",
+			"an acrostic letter is a heading: " + lam.plainText);
+	}
+	{
+		/* An English module still answers to Spanish names. */
+		SqliteBibleBackend backend(directory);
+		BibleKeyInfo john;
+		check(backend.resolveKey("osis", "Juan 3:16", john) &&
+			john.key == "John 3:16", "Spanish name resolves in an English module");
+	}
 
 	{
 		SqliteBibleBackend backend(directory);

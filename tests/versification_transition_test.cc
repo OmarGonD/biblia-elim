@@ -253,6 +253,37 @@ static void test_module_transitions(SwordBackend &backend)
 	}
 }
 
+/* NOTES-V11N-101: a whole-verse note shows in another Bible at its
+ * counterpart, converted, never reread with that Bible's numbering. */
+static void test_note_verse_projection(SwordBackend &backend)
+{
+	if (!have(backend, "SpaRV") || !have(backend, "TorresAmat"))
+		return;
+	g_assert_cmpstr(planNoteVerseProjection(backend, "SpaRV", "Ps.23.1",
+						"TorresAmat").c_str(), ==, "Ps.22.1");
+	g_assert_cmpstr(planNoteVerseProjection(backend, "TorresAmat", "Ps.22.1",
+						"SpaRV").c_str(), ==, "Ps.23.1");
+	g_assert_cmpstr(planNoteVerseProjection(backend, "SpaRV", "John.3.16",
+						"TorresAmat").c_str(), ==, "John.3.16");
+	g_assert_cmpstr(planNoteVerseProjection(backend, "SpaRV", "Ps.23.1",
+						"SpaRV").c_str(), ==, "Ps.23.1");
+	/* No counterpart: the note is not shown on some other verse. */
+	g_assert_true(planNoteVerseProjection(backend, "SpaRV", "Ps.13.6",
+					      "TorresAmat").empty());
+	/* Its Bible uninstalled, or not a verse: nothing to convert from. */
+	g_assert_true(planNoteVerseProjection(backend, "NoSuchModule", "Ps.23.1",
+					      "SpaRV").empty());
+	g_assert_true(planNoteVerseProjection(backend, "SpaRV", "Ps.23",
+					      "TorresAmat").empty());
+	g_assert_true(planNoteVerseProjection(backend, "SpaRV", "",
+					      "TorresAmat").empty());
+	if (have(backend, "SpaPlatense"))
+		g_assert_cmpstr(planNoteVerseProjection(backend, "SpaRV", "Ps.119.1",
+							"SpaPlatense").c_str(), ==,
+				"Ps.118.1");
+	std::printf("note verse projection ok\n");
+}
+
 /* The main Bible was uninstalled: only its versification name is left. */
 static void test_removed_module_transition(SwordBackend &backend)
 {
@@ -405,6 +436,7 @@ int main()
 	SwordBackend backend;
 	test_module_transitions(backend);
 	test_removed_module_transition(backend);
+	test_note_verse_projection(backend);
 	test_author_commentaries(backend);
 	test_legacy_bookmarks(backend);
 	std::printf("versification_transition=ok skipped_cases=%d\n", skipped);

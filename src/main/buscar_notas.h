@@ -40,6 +40,7 @@ typedef struct {
 	const gchar *note_key;
 	const gchar *frase;	/* la frase subrayada, o NULL */
 	const gchar *nota;
+	gint64 fecha;		/* última modificación, segundos Unix; 0 = no se sabe */
 } BN_NOTA;
 
 typedef struct {
@@ -55,6 +56,7 @@ typedef struct {
 	gchar *extracto;	/* el trozo de texto que se enseña */
 	gint ini, fin;		/* dónde cae lo hallado, en bytes del extracto */
 	gint cuantas;		/* veces que aparece en esa nota */
+	gint64 fecha;		/* la de la nota */
 } BN_RESULTADO;
 
 /* `notas` es una GList de BN_NOTA*. Devuelve una GList de BN_RESULTADO*
@@ -67,6 +69,24 @@ GList *main_buscar_notas(GList *notas, const gchar *consulta, BN_MODO modo,
 			 gboolean distinguir_mayusculas, GError **error);
 
 void main_buscar_notas_libre(GList *resultados);
+
+/* Etiquetas (NOTES-TAGS-101): «#oración», «#profecía», escritas dentro
+ * de la nota. Una etiqueta empieza por '#' a principio de texto o tras
+ * algo que no es letra ni número (así «C#» o «pagina#3» no lo son), sigue
+ * con letras, números, '_' o '-', y no es solo números («#1» es una
+ * enumeración). Se devuelven sin '#', en minúsculas, sin repetir y en el
+ * orden en que aparecen. g_ptr_array_unref() para liberar. */
+GPtrArray *main_notas_etiquetas(const gchar *texto);
+
+/* Las notas de `notas` (BN_NOTA*) que llevan la etiqueta `etiqueta` (sin
+ * '#', en minúsculas), son del libro `libro` (OSIS, «Ps») y de la versión
+ * `modulo`. NULL o "" = sin ese filtro. Devuelve una lista nueva con los
+ * mismos punteros: g_list_free() y nada más. */
+GList *main_buscar_notas_filtrar(GList *notas, const gchar *etiqueta,
+				 const gchar *libro, const gchar *modulo);
+
+/* El libro OSIS de «Ps.23.1» («Ps»), nuevo. */
+gchar *main_notas_libro(const gchar *osisref);
 
 #ifdef __cplusplus
 }

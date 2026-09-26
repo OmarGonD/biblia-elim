@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Synthetic (placeholder text): the structures SWORD's mod2osis writes. -->
+<osis xmlns="http://www.bibletechnologies.net/2003/OSIS/namespace">
+  <osisText osisIDWork="Export" osisRefWork="Bible.KJV" xml:lang="es">
+    <div type="book" osisID="Gen">
+      <chapter osisID="Gen.1">
+        <verse osisID="Gen.1.1"><div type="x-milestone" subType="x-preverse" sID="pv1"/><title type="x-ms">I. PRIMERA PARTE</title> <title type="x-s">Sección uno.</title> <div sID="p1" type="x-p"/> <note placement="foot">Nota previa.</note>. <div type="x-milestone" subType="x-preverse" eID="pv1"/><w lemma="Strong:H7225">Al principio</w> <w lemma="strong:H1254">creó</w> Dios.</verse>
+        <verse osisID="Gen.1.2">Texto antes. <title type="x-s">Título en medio</title> Texto después.</verse>
+        <verse osisID="Gen.1.3"><w lemma="Strong:H7812">y se humillarán </w><w lemma="Strong:H6440">delante</w> de él.</verse>
+      </chapter>
+    </div>
+    <div type="book" osisID="Ps">
+      <chapter osisID="Ps.3">
+        <verse osisID="Ps.3.1"><title><w lemma="Strong:H4210">Salmo</w> de David.</title> ¡Oh Señor!</verse>
+      </chapter>
+    </div>
+    <div type="book" osisID="Lam">
+      <chapter osisID="Lam.1">
+        <verse osisID="Lam.1.1"><title type="acrostic">ALEF.</title> ¡Cómo ha quedado solitaria!</verse>
+      </chapter>
+    </div>
+  </osisText>
+</osis>

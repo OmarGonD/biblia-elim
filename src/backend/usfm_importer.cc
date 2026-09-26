@@ -273,7 +273,7 @@ bool importUsfm(const std::vector<std::string> &inputs, const std::string &outpu
 	const UsfmImportOptions &options, UsfmImportStats &stats, std::string &error)
 {
 	if (options.moduleId.empty() || options.name.empty() || options.language.empty() ||
-		(options.versification != "kjv" && options.versification != "custom")) {
+		!versificationSystemName(options.versification)) {
 		error = "module-id, name, language and versification (kjv/custom) are required"; return false;
 	}
 	std::vector<std::string> files;
@@ -301,7 +301,7 @@ bool importUsfm(const std::vector<std::string> &inputs, const std::string &outpu
 	for (const Verse &verse : verses) if (!seen.insert({verse.book,verse.chapter,verse.verse}).second) { error = "duplicate verse reference"; return false; }
 	if (verses.empty()) { error = "no verses found"; return false; }
 	std::vector<SqliteImportBook> outBooks;
-	for (const auto &item : books) { const auto &b = *item.second.book; outBooks.push_back({b.bookId,b.testament,b.position,b.osis,item.second.title.empty()?b.name:item.second.title,b.shortName}); }
+	for (const auto &item : books) { const auto &b = *item.second.book; outBooks.push_back({b.bookId,b.testament,b.position,b.osis,item.second.title.empty()?bibleBookName(b,options.language):item.second.title,b.shortName}); }
 	std::vector<SqliteImportVerse> outVerses;
 	for (const Verse &v : verses) { SqliteImportVerse x; x.reference={v.book, v.book, v.chapter, v.verse}; x.text=v.text; x.paragraphBreak=v.paragraph; if(!v.heading.empty()) x.headings.push_back({v.heading}); x.spans=v.spans; x.words=v.words; x.footnotes=v.footnotes; x.crossReferences=v.crossReferences; outVerses.push_back(std::move(x)); }
 	SqliteModuleMetadata metadata{options.moduleId, options.name, options.language, options.versification, options.abbreviation, options.description, options.license, options.publisher, options.source, options.contentVersion, "usfm"};

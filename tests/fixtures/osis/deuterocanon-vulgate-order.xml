@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osis xmlns="http://www.bibletechnologies.net/2003/OSIS/namespace">
+  <osisText osisIDWork="Vulgata" osisRefWork="Bible.Vulg" xml:lang="es">
+    <div type="book" osisID="Neh">
+      <chapter osisID="Neh.1">
+        <verse osisID="Neh.1.1">Nehemías uno uno.</verse>
+        <verse osisID="Neh.1.2">Nehemías uno dos.</verse>
+      </chapter>
+    </div>
+    <div type="book" osisID="Tob">
+      <chapter osisID="Tob.1">
+        <verse osisID="Tob.1.1">Tobías uno uno.</verse>
+      </chapter>
+      <chapter osisID="Tob.2">
+        <verse osisID="Tob.2.1">Tobías dos uno.</verse>
+      </chapter>
+    </div>
+    <div type="book" osisID="Jdt">
+      <chapter osisID="Jdt.1">
+        <verse osisID="Jdt.1.1">Judit uno uno.</verse>
+      </chapter>
+    </div>
+    <div type="book" osisID="Esth">
+      <chapter osisID="Esth.1">
+        <verse osisID="Esth.1.1">Ester uno uno.</verse>
+      </chapter>
+    </div>
+    <div type="book" osisID="Matt">
+      <chapter osisID="Matt.1">
+        <verse osisID="Matt.1.1">Mateo uno uno.</verse>
+      </chapter>
+    </div>
+    <div type="book" osisID="Luke">
+      <chapter osisID="Luke.23">
+        <verse osisID="Luke.23.33">Lucas veintitrés treinta y tres.</verse>
+      </chapter>
+    </div>
+  </osisText>
+</osis>

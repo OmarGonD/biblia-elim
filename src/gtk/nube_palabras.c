@@ -32,6 +32,7 @@
 #include "xiphos_html/xiphos_html.h"
 
 #include "gui/debug_glib_null.h"
+#include "nube_canvas.h"
 
 enum {
 	COL_NOMBRE = 0,
@@ -65,6 +66,12 @@ struct _nube_ui {
 	GtkWidget *lbl_resumen;
 	GtkWidget *box_nube;
 	GtkWidget *html;
+	GtkWidget *canvas;
+	GtkWidget *canvas_b;
+	GtkWidget *panel_b;
+	GtkWidget *title_a;
+	GtkWidget *title_b;
+	GtkWidget *cloud_stack;
 	GtkWidget *tree;
 	GtkWidget *scroll_tabla;
 	GtkListStore *libros;
@@ -187,8 +194,8 @@ escribir_html(const gchar *html)
 	XIPHOS_HTML_CLOSE(ui->html);
 }
 
-static gchar *
-construir_nube_html(NUBE_CONTEO *c, gboolean comparar)
+gchar *
+gui_nube_palabras_html(NUBE_CONTEO *c, gboolean comparar)
 {
 	const char *bg = settings.bible_bg_color ? settings.bible_bg_color : "#ffffff";
 	const char *fg = settings.bible_text_color ? settings.bible_text_color : "#222222";
@@ -199,13 +206,18 @@ construir_nube_html(NUBE_CONTEO *c, gboolean comparar)
 	const char *color_eq = oscuro ? "#ced4da" : "#6c757d";
 
 	gint max_c = 1;
+	gint min_c = G_MAXINT;
 	guint n = c->palabras->len < NUBE_MAX_NUBE ? c->palabras->len : NUBE_MAX_NUBE;
 	for (guint i = 0; i < n; i++) {
 		NUBE_PALABRA *w = g_ptr_array_index(c->palabras, i);
 		gint m = comparar ? MAX(w->cuenta, w->cuenta_b) : w->cuenta;
 		if (m > max_c)
 			max_c = m;
+		if (m > 0 && m < min_c)
+			min_c = m;
 	}
+	if (min_c == G_MAXINT)
+		min_c = 1;
 
 	gchar *libro_esc = html_escape(c->libro);
 	gchar *libro_b_esc = html_escape(c->libro_b);
@@ -222,10 +234,10 @@ construir_nube_html(NUBE_CONTEO *c, gboolean comparar)
 			       ".leyenda{text-align:center;font-size:12px;margin-bottom:12px;}"
 			       ".dot{display:inline-block;width:.7em;height:.7em;border-radius:50%%;"
 			       "margin:0 .35em 0 .8em;vertical-align:middle;}"
-			       ".nube{display:flex;flex-wrap:wrap;justify-content:center;"
-			       "align-items:center;gap:6px 14px;min-height:220px;}"
-			       ".nube span{display:inline-block;line-height:1.05;font-weight:650;"
-			       "white-space:nowrap;}"
+			       ".nube{text-align:center;line-height:2.35;min-height:220px;}"
+			       ".nube span{display:inline-block;line-height:1.08;font-weight:650;"
+			       "white-space:nowrap;margin:4px 8px;padding:2px 4px;"
+			       "border-bottom:1px solid currentColor;border-radius:3px;}"
 			       "</style></head><body><div class=\"wrap\">",
 			       bg, fg);
 
@@ -249,15 +261,17 @@ construir_nube_html(NUBE_CONTEO *c, gboolean comparar)
 				       libro_esc);
 	}
 
-	g_string_append(s, "<div class=\"nube\">");
-	int giros[] = {-10, -6, 0, 0, 0, 4, 8, -3};
+	g_string_append(s, "<p style=\"text-align:center\">");
 	for (guint i = 0; i < n; i++) {
 		NUBE_PALABRA *w = g_ptr_array_index(c->palabras, i);
 		gint m = comparar ? MAX(w->cuenta, w->cuenta_b) : w->cuenta;
 		if (m < 1)
 			continue;
-		double ratio = log((double)m + 1.0) / log((double)max_c + 1.0);
-		int px = (int)(13.0 + ratio * 42.0);
+		/* The native GtkTextView renderer supports font size attributes,
+		 * not CSS font-size. Relative steps map to 0.67x through 3x. */
+		double ratio = (max_c == min_c) ? 1.0 :
+			(double)(m - min_c) / (double)(max_c - min_c);
+		int size = (int)round(-4.0 + pow(ratio, 0.72) * 28.0);
 		const char *color;
 		if (comparar) {
 			if (w->dif_pct > 0.08)
@@ -269,17 +283,16 @@ construir_nube_html(NUBE_CONTEO *c, gboolean comparar)
 		} else {
 			color = paleta[g_str_hash(w->palabra) % G_N_ELEMENTS(COLORES_CLARO)];
 		}
-		int rot = giros[g_str_hash(w->palabra) % G_N_ELEMENTS(giros)];
-		gchar *pw = html_escape(w->palabra);
+		gchar *etiqueta = cloud_label(w);
+		gchar *pw = html_escape(etiqueta);
+		g_free(etiqueta);
 		g_string_append_printf(s,
-				       "<span title=\"%s: %d\" style=\""
-				       "font-size:%dpx;color:%s;"
-				       "transform:rotate(%ddeg);\">%s</span>",
-				       pw, comparar ? m : w->cuenta,
-				       px, color, rot, pw);
+				       "<font size=\"%+d\" color=\"%s\" title=\"%s: %d\">"
+				       "%s</font> &#8194; ",
+				       size, color, pw, m, pw);
 		g_free(pw);
 	}
-	g_string_append(s, "</div></div></body></html>");
+	g_string_append(s, "</p></div></body></html>");
 	g_free(libro_esc);
 	g_free(libro_b_esc);
 	return g_string_free(s, FALSE);
@@ -288,6 +301,7 @@ construir_nube_html(NUBE_CONTEO *c, gboolean comparar)
 static void
 html_placeholder(const gchar *mensaje)
 {
+	gtk_stack_set_visible_child_name(GTK_STACK(ui->cloud_stack), "message");
 	const char *bg = settings.bible_bg_color ? settings.bible_bg_color : "#ffffff";
 	const char *fg = settings.bible_text_color ? settings.bible_text_color : "#222222";
 	gchar *esc = html_escape(mensaje);
@@ -330,9 +344,9 @@ dif_cell(GtkTreeViewColumn *col,
 	gchar *t = g_strdup_printf("%+d", v);
 	const char *fg = NULL;
 	if (v > 0)
-		fg = "#2d6a4f";
+		fg = "#82ffb0";
 	else if (v < 0)
-		fg = "#9b2226";
+		fg = "#ffc078";
 	g_object_set(cell, "text", t, "xalign", 1.0, "foreground", fg, NULL);
 	g_free(t);
 }
@@ -355,9 +369,9 @@ pct_cell(GtkTreeViewColumn *col,
 	const char *fg = NULL;
 	if (column == TCOL_DIF_PCT) {
 		if (v > 0.001)
-			fg = "#2d6a4f";
+			fg = "#82ffb0";
 		else if (v < -0.001)
-			fg = "#9b2226";
+			fg = "#ffc078";
 	}
 	g_object_set(cell, "text", t, "xalign", 1.0, "foreground", fg, NULL);
 	g_free(t);
@@ -384,6 +398,20 @@ add_col(GtkTreeView *view,
 static void
 setup_tree(void)
 {
+	gtk_widget_set_name(ui->tree, "cloud-statistics");
+	GtkCssProvider *css = gtk_css_provider_new();
+	gtk_css_provider_load_from_data(css,
+		"#cloud-statistics { background-color:#071610; color:#b4efc8;"
+		"font-family:monospace; font-size:14px; }"
+		"#cloud-statistics.view { background-color:#071610; color:#b4efc8; }"
+		"#cloud-statistics.view:selected { background-color:#164c36; color:#effff4; }"
+		"#cloud-statistics header button { background-image:none; background-color:#10291d;"
+		"color:#83f7ac; border:1px solid #28543d; border-radius:0; padding:10px 12px; }"
+		"#cloud-statistics header button label { color:#83f7ac; font-weight:bold; }",
+		-1, NULL);
+	gtk_style_context_add_provider_for_screen(gtk_widget_get_screen(ui->tree),
+		GTK_STYLE_PROVIDER(css), GTK_STYLE_PROVIDER_PRIORITY_APPLICATION + 1);
+	g_object_set_data_full(G_OBJECT(ui->tree), "matrix-css", css, g_object_unref);
 	ui->tabla = gtk_list_store_new(N_TABLA_COLS,
 				       G_TYPE_STRING,
 				       G_TYPE_INT,
@@ -396,7 +424,7 @@ setup_tree(void)
 
 	GtkCellRenderer *cell = gtk_cell_renderer_text_new();
 	GtkTreeViewColumn *col = gtk_tree_view_column_new_with_attributes(
-	    _("Palabra"), cell, "text", TCOL_PALABRA, NULL);
+	    _("מילה · Palabra"), cell, "text", TCOL_PALABRA, NULL);
 	gtk_tree_view_column_set_sort_column_id(col, TCOL_PALABRA);
 	gtk_tree_view_column_set_expand(col, TRUE);
 	gtk_tree_view_column_set_resizable(col, TRUE);
@@ -441,9 +469,10 @@ llenar_tabla(NUBE_CONTEO *c, gboolean comparar)
 	for (guint i = 0; i < c->palabras->len; i++) {
 		NUBE_PALABRA *w = g_ptr_array_index(c->palabras, i);
 		GtkTreeIter iter;
+		gchar *label = cloud_label(w);
 		gtk_list_store_append(ui->tabla, &iter);
 		gtk_list_store_set(ui->tabla, &iter,
-				   TCOL_PALABRA, w->palabra,
+				   TCOL_PALABRA, label,
 				   TCOL_CUENTA_A, w->cuenta,
 				   TCOL_CUENTA_B, w->cuenta_b,
 				   TCOL_DIF, w->diferencia,
@@ -451,6 +480,7 @@ llenar_tabla(NUBE_CONTEO *c, gboolean comparar)
 				   TCOL_PCT_B, w->pct_b,
 				   TCOL_DIF_PCT, w->dif_pct,
 				   -1);
+		g_free(label);
 	}
 }
 
@@ -535,9 +565,27 @@ on_mostrar(GtkButton *button, gpointer user_data)
 	gtk_label_set_text(GTK_LABEL(ui->lbl_resumen), resumen);
 	g_free(resumen);
 
-	gchar *html = construir_nube_html(c, comparar && c->libro_b);
-	escribir_html(html);
-	g_free(html);
+	const char *background = settings.bible_bg_color ? settings.bible_bg_color : "#ffffff";
+	CloudLayout *cloud, *cloud_b = NULL;
+	gboolean pair = comparar && c->libro_b;
+	if (pair)
+		cloud_build_pair(ui->canvas, ui->canvas_b, c, background, &cloud, &cloud_b);
+	else
+		cloud = cloud_build(ui->canvas, c, FALSE, background);
+	gchar *title = g_strdup_printf("א · %s — %d palabras", c->libro, c->total);
+	gtk_label_set_text(GTK_LABEL(ui->title_a), title);
+	g_free(title);
+	if (pair) {
+		title = g_strdup_printf("ב · %s — %d palabras", c->libro_b, c->total_b);
+		gtk_label_set_text(GTK_LABEL(ui->title_b), title);
+		g_free(title);
+	}
+	gtk_widget_set_visible(ui->panel_b, pair);
+	g_object_set_data_full(G_OBJECT(ui->canvas_b), "cloud", cloud_b, cloud_free);
+	g_object_set_data_full(G_OBJECT(ui->canvas), "cloud", cloud, cloud_free);
+	gtk_stack_set_visible_child_name(GTK_STACK(ui->cloud_stack), "cloud");
+	gtk_widget_queue_draw(ui->canvas);
+	gtk_widget_queue_draw(ui->canvas_b);
 	llenar_tabla(c, comparar && c->libro_b);
 
 	main_nube_conteo_free(c);
@@ -579,6 +627,10 @@ on_destroy(GtkWidget *widget, gpointer user_data)
 	(void)user_data;
 	if (!ui)
 		return;
+	GtkCssProvider *css = g_object_get_data(G_OBJECT(ui->tree), "matrix-css");
+	if (css)
+		gtk_style_context_remove_provider_for_screen(gtk_widget_get_screen(ui->tree),
+			GTK_STYLE_PROVIDER(css));
 	if (ui->libros)
 		g_object_unref(ui->libros);
 	if (ui->tabla)
@@ -613,6 +665,20 @@ crear_dialogo(void)
 
 	gui_prepare_floating_dialog(GTK_WINDOW(ui->dialog),
 				    widgets.app ? GTK_WINDOW(widgets.app) : NULL);
+	/* Wayland owns placement. Fit inside the already allocated parent,
+	 * whose height respects the compositor's bar and workspace gaps. */
+	GdkDisplay *display = gtk_widget_get_display(ui->dialog);
+	GdkWindow *parent_window = widgets.app ? gtk_widget_get_window(widgets.app) : NULL;
+	GdkMonitor *monitor = parent_window ? gdk_display_get_monitor_at_window(display, parent_window) :
+		gdk_display_get_monitor(display, 0);
+	GdkRectangle area = { 0, 0, 1024, 768 };
+	if (monitor) gdk_monitor_get_workarea(monitor, &area);
+	if (widgets.app && gtk_widget_get_allocated_height(widgets.app) > 1)
+		area.height = MIN(area.height, gtk_widget_get_allocated_height(widgets.app));
+	int dialog_height = MIN(720, (int)(area.height * 0.90));
+	gtk_window_set_default_size(GTK_WINDOW(ui->dialog), MIN(960, (int)(area.width * 0.90)), dialog_height);
+	gtk_window_set_resizable(GTK_WINDOW(ui->dialog), TRUE);
+	gtk_paned_set_position(GTK_PANED(UI_GET_ITEM(gxml, "paned")), MAX(160, dialog_height - 310));
 
 	ui->libros = gtk_list_store_new(N_LIBRO_COLS,
 					G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
@@ -656,8 +722,35 @@ crear_dialogo(void)
 
 	ui->html = GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, VIEWER_TYPE));
 	gtk_widget_show(ui->html);
+	ui->cloud_stack = gtk_stack_new();
+	gtk_widget_show(ui->cloud_stack);
+	gtk_box_pack_start(GTK_BOX(ui->box_nube), ui->cloud_stack, TRUE, TRUE, 0);
+	ui->canvas = gtk_drawing_area_new();
+	gtk_widget_set_size_request(ui->canvas, 240, 160);
+	gtk_widget_set_hexpand(ui->canvas, TRUE);
+	gtk_widget_set_vexpand(ui->canvas, TRUE);
+	g_signal_connect(ui->canvas, "draw", G_CALLBACK(cloud_draw), NULL);
+	gtk_widget_show(ui->canvas);
+	GtkWidget *panels = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 16);
+	gtk_box_set_homogeneous(GTK_BOX(panels), TRUE);
+	GtkWidget *panel_a = gtk_box_new(GTK_ORIENTATION_VERTICAL, 8);
+	ui->panel_b = gtk_box_new(GTK_ORIENTATION_VERTICAL, 8);
+	ui->title_a = gtk_label_new(NULL);
+	ui->title_b = gtk_label_new(NULL);
+	gtk_box_pack_start(GTK_BOX(panel_a), ui->title_a, FALSE, FALSE, 8);
+	gtk_box_pack_start(GTK_BOX(panel_a), ui->canvas, TRUE, TRUE, 0);
+	ui->canvas_b = gtk_drawing_area_new();
+	gtk_widget_set_size_request(ui->canvas_b, 240, 160);
+	g_signal_connect(ui->canvas_b, "draw", G_CALLBACK(cloud_draw), NULL);
+	gtk_box_pack_start(GTK_BOX(ui->panel_b), ui->title_b, FALSE, FALSE, 8);
+	gtk_box_pack_start(GTK_BOX(ui->panel_b), ui->canvas_b, TRUE, TRUE, 0);
+	gtk_box_pack_start(GTK_BOX(panels), panel_a, TRUE, TRUE, 0);
+	gtk_box_pack_start(GTK_BOX(panels), ui->panel_b, TRUE, TRUE, 0);
+	gtk_widget_show_all(panels);
+	gtk_widget_hide(ui->panel_b);
+	gtk_stack_add_named(GTK_STACK(ui->cloud_stack), panels, "cloud");
 #ifdef USE_WEBKIT2
-	gtk_box_pack_start(GTK_BOX(ui->box_nube), ui->html, TRUE, TRUE, 0);
+	gtk_stack_add_named(GTK_STACK(ui->cloud_stack), ui->html, "message");
 #else
 	GtkWidget *sw = gtk_scrolled_window_new(NULL, NULL);
 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(sw),
@@ -665,7 +758,7 @@ crear_dialogo(void)
 				       GTK_POLICY_AUTOMATIC);
 	gtk_widget_show(sw);
 	gtk_container_add(GTK_CONTAINER(sw), ui->html);
-	gtk_box_pack_start(GTK_BOX(ui->box_nube), sw, TRUE, TRUE, 0);
+	gtk_stack_add_named(GTK_STACK(ui->cloud_stack), sw, "message");
 #endif
 
 	setup_tree();

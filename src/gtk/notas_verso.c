@@ -193,6 +193,29 @@ static void notas_lista_reconstruir(void)
 		gtk_label_set_line_wrap(GTK_LABEL(text), TRUE);
 		gtk_widget_set_halign(text, GTK_ALIGN_START);
 		gtk_box_pack_start(GTK_BOX(row), text, FALSE, FALSE, 0);
+		if (note->module && notas_mod &&
+		    g_ascii_strcasecmp(note->module, notas_mod)) {
+			/* written in another Bible, shown at this verse */
+			gchar *de = g_strdup_printf(_("Escrita en %s"), note->module);
+			GtkWidget *origen = gtk_label_new(de);
+			gtk_style_context_add_class(
+			    gtk_widget_get_style_context(origen), "dim-label");
+			gtk_widget_set_halign(origen, GTK_ALIGN_START);
+			gtk_box_pack_start(GTK_BOX(row), origen, FALSE, FALSE, 0);
+			g_free(de);
+		}
+		{
+			gchar *fechas = highlight_note_dates_text(note->created,
+								  note->modified);
+			if (fechas) {
+				GtkWidget *cuando = gtk_label_new(fechas);
+				gtk_style_context_add_class(
+				    gtk_widget_get_style_context(cuando), "dim-label");
+				gtk_widget_set_halign(cuando, GTK_ALIGN_START);
+				gtk_box_pack_start(GTK_BOX(row), cuando, FALSE, FALSE, 0);
+				g_free(fechas);
+			}
+		}
 		gtk_box_pack_start(GTK_BOX(actions), edit, FALSE, FALSE, 0);
 		gtk_box_pack_start(GTK_BOX(actions), del, FALSE, FALSE, 0);
 		gtk_box_pack_start(GTK_BOX(row), actions, FALSE, FALSE, 0);

@@ -98,6 +98,7 @@ pkg_check_modules(Gnome REQUIRED IMPORTED_TARGET
   "minizip"
   "zlib"
   "libxml-2.0>=2.7.8"
+  "json-glib-1.0"
   )
 
 # Gtk dependencies

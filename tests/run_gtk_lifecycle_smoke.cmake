@@ -19,6 +19,20 @@ if(NOT fixture_status EQUAL 0)
   message(FATAL_ERROR "Could not create GTK smoke fixture: ${fixture_stderr}")
 endif()
 
+# A second Bible, so notes written in one can be checked from the other.
+file(READ "${FIXTURE}" other_fixture)
+string(REPLACE "'FakeBible'" "'OtherBible'" other_fixture "${other_fixture}")
+file(WRITE "${runtime_dir}/other-bible.sql" "${other_fixture}")
+execute_process(
+  COMMAND "${SQLITE3}" "${module_dir}/other.sqlite"
+  INPUT_FILE "${runtime_dir}/other-bible.sql"
+  RESULT_VARIABLE fixture_status
+  ERROR_VARIABLE fixture_stderr)
+if(NOT fixture_status EQUAL 0)
+  file(REMOVE_RECURSE "${runtime_dir}")
+  message(FATAL_ERROR "Could not create second GTK smoke fixture: ${fixture_stderr}")
+endif()
+
 execute_process(
   COMMAND "${XVFB_RUN}" -a -s "-screen 0 1280x800x24"
           "${CMAKE_COMMAND}" -E env

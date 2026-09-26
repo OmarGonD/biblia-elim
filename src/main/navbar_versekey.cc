@@ -97,9 +97,21 @@ void main_navbar_versekey_spin_book(NAVBAR_VERSEKEY navbar, int direction)
 	if (!navbar_backend().resolveKey(navbar.module_name->str,
 					 navbar.key->str, info))
 		return;
+	/* The next or previous book in the module's list, by its place
+	 * there (bookIndex), which both backends give the same meaning:
+	 * an id is not a place (a Vulgate Bible puts Tobit after Nehemiah),
+	 * and this also steps from Malachi to Matthew. */
+	const int old_testament = static_cast<int>(
+		navbar_backend().bookNames(navbar.module_name->str, 1).size());
+	const int total = old_testament + static_cast<int>(
+		navbar_backend().bookNames(navbar.module_name->str, 2).size());
+	const int target = info.bookIndex + (direction ? 1 : -1);
+	if (target < 1 || target > total)
+		return;
+	const int testament = target > old_testament ? 2 : 1;
 	tmpkey = g_strdup(navbar_backend().setBook(
-		navbar.module_name->str, info.key, info.reference.testament,
-		info.reference.book + (direction ? 1 : -1)).c_str());
+		navbar.module_name->str, info.key, testament,
+		testament == 2 ? target - old_testament : target).c_str());
 	gtk_entry_set_text(GTK_ENTRY(navbar.lookup_entry), tmpkey);
 	gtk_widget_activate(navbar.lookup_entry);
 	g_free(tmpkey);

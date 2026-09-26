@@ -1,4 +1,5 @@
 #include "backend/sqlite/sqlite_module_writer.h"
+#include "backend/bible_book_map.h"
 #include "backend/morphology.h"
 #include "backend/strong_id.h"
 #include <sqlite3.h>
@@ -35,7 +36,7 @@ bool SqliteModuleWriter::write(const SqliteModuleMetadata &m,
     const std::vector<SqliteImportBook> &books,
     const std::vector<SqliteImportVerse> &verses,
     const std::string &output, std::string &error) const {
-    if (m.moduleId.empty() || m.name.empty() || m.language.empty() || (m.versification != "kjv" && m.versification != "custom")) { error = "invalid module metadata"; return false; }
+    if (m.moduleId.empty() || m.name.empty() || m.language.empty() || !versificationSystemName(m.versification)) { error = "invalid module metadata"; return false; }
     if (books.empty() || verses.empty()) { error = "module has no books or verses"; return false; }
     for (const auto &v : verses) if (!valid(v, error)) return false;
     const std::string tmp = output + ".tmp"; std::remove(tmp.c_str());

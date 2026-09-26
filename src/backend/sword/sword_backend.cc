@@ -21,6 +21,7 @@
 #include <thmlxhtml.h>
 #include <utf8html.h>
 #include <versekey.h>
+#include <versificationmgr.h>
 
 #include "main/search_dialog.h"
 #include "main/search_sidebar.h"
@@ -416,6 +417,66 @@ static BibleReferenceConversion convertIntoModule(
 	result.target.chapterCount = target_key->getChapterMax();
 	result.target.verseCount = target_key->getVerseMax();
 	return result;
+}
+
+namespace {
+class SwordVersificationMapper final : public VersificationMapper
+{
+public:
+	bool map(const std::string &from, const std::string &osisBook,
+		 int chapter, int verse, const std::string &to,
+		 std::string &osisBookOut, int &chapterOut,
+		 int &verseOut) const override
+	{
+		sword::VerseKey source, target;
+		if (!place(source, from, osisBook, chapter, verse))
+			return false;
+		/* An unknown name silently leaves a key on KJV: check it took. */
+		target.setVersificationSystem(to.c_str());
+		const char *applied = target.getVersificationSystem();
+		if (!applied || to != applied)
+			return false;
+		if (swordMapVerseKey(source, target) != BibleReferenceMapping::Mapped)
+			return false;
+		osisBookOut = target.getOSISBookName();
+		chapterOut = target.getChapter();
+		verseOut = target.getVerse();
+		return true;
+	}
+
+private:
+	/* By numbers, not by parsing text: a key's parser reads book names
+	 * in the key's locale. */
+	static bool place(sword::VerseKey &key, const std::string &system,
+			  const std::string &osisBook, int chapter, int verse)
+	{
+		key.setVersificationSystem(system.c_str());
+		const char *applied = key.getVersificationSystem();
+		const sword::VersificationMgr::System *v11n =
+			sword::VersificationMgr::getSystemVersificationMgr()
+				->getVersificationSystem(system.c_str());
+		if (!applied || system != applied || !v11n || chapter < 1 || verse < 1)
+			return false;
+		/* 1-based across both testaments (Genesis 1, Psalms 21 in Vulg). */
+		const int book = v11n->getBookNumberByOSISName(osisBook.c_str());
+		const int oldTestament = v11n->getBMAX()[0];
+		if (book < 1 || book > v11n->getBookCount())
+			return false;
+		key.setIntros(true);
+		key.setAutoNormalize(0);
+		key.setTestament(book <= oldTestament ? 1 : 2);
+		key.setBook(book <= oldTestament ? book : book - oldTestament);
+		key.setChapter(chapter);
+		key.setVerse(verse);
+		return !key.popError() && osisBook == key.getOSISBookName() &&
+		       key.getChapter() == chapter && key.getVerse() == verse;
+	}
+};
+} // namespace
+
+std::shared_ptr<const VersificationMapper> makeSwordVersificationMapper()
+{
+	return std::make_shared<SwordVersificationMapper>();
 }
 
 BibleReferenceConversion BackEnd::convertReference(

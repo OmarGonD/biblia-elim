@@ -85,6 +85,7 @@ extern "C" {
 
 #include "backend/sword_main.hh"
 #include "backend/sword/sword_backend.h"
+#include "backend/sword/sword_locale.h"
 #include "backend/sqlite/sqlite_bible_backend.h"
 #include "backend/content_resolver.h"
 #include "backend/gs_stringmgr.h"
@@ -106,6 +107,12 @@ using namespace sword;
  * `backend` remains a non-owning alias for explicitly legacy SWORD paths. */
 static std::unique_ptr<BibleBackend> bible_backend_owner;
 BibleBackend *bible_backend = NULL;
+/* SQLITE-REAL-101. With SQLite reading the Bibles, SWORD still serves
+ * everything else the reader has installed -- commentaries, dictionaries,
+ * lexicons, general books -- and `backend` points at it. Which one answers
+ * is decided per module (sqlite_bible()), never by whether `backend` is
+ * NULL. */
+static std::unique_ptr<SwordBackend> library_owner;
 static bool sqlite_backend_selected = false;
 static bool sqlite_backend_explicitly_configured = false;
 static std::string sqlite_modules_directory;
@@ -170,6 +177,48 @@ static BibleBackend &main_bible_backend()
 	return *bible_backend;
 }
 
+/* A Bible SQLite reads: SQLite answers for it, SWORD for anything else. */
+static bool sqlite_bible(const char *name)
+{
+	return !main_backend_is_sword() && bible_backend && name &&
+	       bible_backend->hasModule(name);
+}
+
+/* The neutral backend that holds `name`: SQLite for the Bibles it reads,
+ * SWORD for everything else (and for all modules in SWORD mode). */
+static BibleBackend &backend_for(const char *name)
+{
+	if (!main_backend_is_sword() && library_owner && name &&
+	    !bible_backend->hasModule(name) && library_owner->hasModule(name))
+		return *library_owner;
+	return *bible_backend;
+}
+
+/* SWORD for the modules SQLite does not read, beside it. */
+static void install_sword_library(void)
+{
+	panel_load_debug("app", "SWORD_LIBRARY_BEGIN", NULL);
+	library_owner.reset(new SwordBackend());
+	panel_load_debug("app", "SWORD_LIBRARY_MANAGER", NULL);
+	backend = library_owner.get();
+	backend->init_SWORD(0);
+	if (panel_load_debug_enabled()) {
+		int counts[4] = {0, 0, 0, 0};
+		const char *types[4] = {TEXT_MODS, COMM_MODS, DICT_MODS, BOOK_MODS};
+		SWMgr *mgr = backend->get_mgr();
+		for (ModMap::iterator it = mgr->Modules.begin();
+		     it != mgr->Modules.end(); ++it)
+			for (int t = 0; t < 4; ++t)
+				if (!strcmp(it->second->getType(), types[t]))
+					counts[t]++;
+		gchar *detail = g_strdup_printf(
+		    "sword_bibles=%d commentaries=%d dictionaries=%d books=%d",
+		    counts[0], counts[1], counts[2], counts[3]);
+		panel_load_debug("app", "SWORD_LIBRARY_READY", detail);
+		g_free(detail);
+	}
+}
+
 static void install_bible_backend(std::unique_ptr<BibleBackend> implementation)
 {
 	backend = NULL;
@@ -187,12 +236,17 @@ void main_recreate_bible_backend(void)
 	backend = NULL;
 	bible_backend = NULL;
 	bible_backend_owner.reset();
+	library_owner.reset();
 	if (sqlite_backend_selected) {
-		std::unique_ptr<BibleBackend> candidate(new SqliteBibleBackend(
+		std::unique_ptr<SqliteBibleBackend> candidate(new SqliteBibleBackend(
 			sqlite_modules_directory));
+		/* SQLite modules store verses, not versification data: SWORD's
+		 * tables map a Vulgate Bible to a KJV one. */
+		candidate->setVersificationMapper(makeSwordVersificationMapper());
 		if (!candidate->listModules().empty()) {
 			install_bible_backend(std::move(candidate));
-			g_message("Bible backend: SQLite");
+			install_sword_library();
+			g_message("Bible backend: SQLite (commentaries and dictionaries: SWORD)");
 		} else {
 			g_warning("SQLite backend unavailable at '%s'; falling back to SWORD",
 				  sqlite_modules_directory.c_str());
@@ -741,13 +795,13 @@ char *main_get_active_pane_module(void)
 
 char *main_module_name_from_description(char *description)
 {
-	if (!backend) {
-		if (!description) return NULL;
+	if (!main_backend_is_sword() && bible_backend && description) {
 		for (const BibleModuleInfo &module : bible_backend->listModules())
 			if (module.description == description)
 				return g_strdup(module.id.c_str());
-		return NULL;
 	}
+	if (!backend)
+		return NULL;
 	return backend->module_name_from_description(description);
 }
 
@@ -769,7 +823,7 @@ char *main_module_name_from_description(char *description)
 
 const char *main_get_sword_version(void)
 {
-	if (!backend)
+	if (!main_backend_is_sword() || !backend)
 		return "SQLite backend";
 	return backend->get_sword_version();
 }
@@ -792,7 +846,7 @@ const char *main_get_sword_version(void)
 
 char *main_get_search_results_text(char *mod_name, char *key)
 {
-	if (!backend) {
+	if (!backend || sqlite_bible(mod_name)) {
 		std::string text = bible_backend->getText(
 			mod_name ? mod_name : "", key ? key : "", true);
 		return g_strdup(text.c_str());
@@ -818,7 +872,7 @@ char *main_get_search_results_text(char *mod_name, char *key)
 
 char *main_get_path_to_mods(void)
 {
-	if (!backend)
+	if (!main_backend_is_sword() || !backend)
 		return g_strdup(main_sqlite_modules_directory());
 	SWMgr *mgr = backend->get_mgr();
 	char *path = mgr->prefixPath;
@@ -1008,15 +1062,49 @@ char *set_sword_locale(const char *sys_locale)
  *   void
  */
 
+/* The reader's SWORD locale without loading SWORD's other 57 (see
+ * sword_locale.h); SWORD's full manager only if none matches. */
+/* SWORD built with ICU already has a UTF-8 StringMgr. Replacing it
+ * makes SWORD rebuild its whole LocaleMgr -- twice, 58 locales each,
+ * ~385 ms at startup -- so GLib's is installed only where SWORD has none
+ * of its own. */
+static void ensure_utf8_string_mgr(void)
+{
+	if (!StringMgr::hasUTF8Support())
+		StringMgr::setSystemStringMgr(new GS_StringMgr());
+}
+
+static char *reader_sword_locale(const char *lang)
+{
+	panel_load_debug("app", "SWORD_LOCALE_BEGIN", lang);
+	char *name = swordInstallReaderLocale(lang);
+	panel_load_debug("app", "SWORD_LOCALE_READER", name ? name : "fallback");
+	return name ? name : set_sword_locale(lang);
+}
+
+/* SWORD's strings and locale, once, before anything asks SWORD for
+ * anything: the first SWMgr (settings_init()'s early module list, before
+ * GTK) would otherwise make SWORD load all 58 locales on its own. */
+void main_init_sword_locale(void)
+{
+	static gboolean done = FALSE;
+	if (done)
+		return;
+	done = TRUE;
+	const char *lang = getenv("LANG");
+	ensure_utf8_string_mgr();
+	sword_locale = reader_sword_locale(lang ? lang : "C");
+}
+
 void main_init_backend(void)
 {
+	panel_load_debug("app", "BACKEND_INIT_BEGIN", NULL);
 	const char *lang = getenv("LANG");
 	if (!lang)
 		lang = "C";
 	std::string backend_language = lang;
+	main_init_sword_locale();
 	if (main_backend_is_sword()) {
-		StringMgr::setSystemStringMgr(new GS_StringMgr());
-		sword_locale = set_sword_locale(lang);
 		collator = ucol_open(sword_locale, &collator_status);
 		lang = LocaleMgr::getSystemLocaleMgr()->getDefaultLocaleName();
 		backend_language = lang;
@@ -1028,6 +1116,8 @@ void main_init_backend(void)
 		XI_print(("%s: %s\n", "path to sword", settings.path_to_mods));
 		XI_print(("%s %s\n", "SWORD locale is", lang));
 	} else {
+		/* SWORD still serves commentaries and dictionaries, in the
+		 * reader's language (main_init_sword_locale() above). */
 		main_recreate_bible_backend();
 		settings.path_to_mods = g_strdup(main_sqlite_modules_directory());
 		std::vector<BibleModuleInfo> modules = bible_backend->listModules();
@@ -1037,7 +1127,9 @@ void main_init_backend(void)
 		XI_print(("%s: %s\n", "SQLite module path", settings.path_to_mods));
 	}
 	settings.spell_language = strdup(backend_language.c_str());
+	panel_load_debug("app", "MODULE_LISTS_BEGIN", NULL);
 	main_init_lists();
+	panel_load_debug("app", "MODULE_LISTS_READY", NULL);
 
 	//
 	// BibleSync backend startup.  identify the user by name.
@@ -1076,6 +1168,7 @@ void main_shutdown_backend(void)
 	backend = NULL;
 	bible_backend = NULL;
 	bible_backend_owner.reset();
+	library_owner.reset();
 
 	XI_print(("%s\n", "SWORD is shutdown"));
 }
@@ -1309,7 +1402,7 @@ void main_display_book(const char *mod_name,
 static gchar *companion_key(const char *source, const char *key,
 			    const char *companion)
 {
-	switch (bible_backend->moduleType(companion)) {
+	switch (backend_for(companion).moduleType(companion)) {
 	case BibleModuleType::Bible:
 	case BibleModuleType::Commentary:
 	case BibleModuleType::PersonalCommentary: {
@@ -1336,10 +1429,10 @@ void main_display_commentary(const char *mod_name,
 				? g_strdup(cur_passage_tab->commentary_mod)
 				: xml_get_value("modules", "comm"));
 
-	if (!mod_name || !bible_backend->hasModule(mod_name))
+	if (!mod_name || !backend_for(mod_name).hasModule(mod_name))
 		return;
 
-	BibleModuleType modtype = bible_backend->moduleType(mod_name);
+	BibleModuleType modtype = backend_for(mod_name).moduleType(mod_name);
 	if ((modtype != BibleModuleType::Commentary) &&
 	    (modtype != BibleModuleType::PersonalCommentary))
 		return; // what are we doing here?
@@ -1372,7 +1465,7 @@ void main_display_commentary(const char *mod_name,
 		    (!companion_activity) &&
 		    name_set[0] &&
 		    *name_set[0] &&
-		    bible_backend->hasModule(name_set[0]) &&
+		    backend_for(name_set[0]).hasModule(name_set[0]) &&
 		    ((settings.MainWindowModule == NULL) ||
 		     strcmp(name_set[0], settings.MainWindowModule))) {
 			companion_activity = TRUE;
@@ -1388,7 +1481,7 @@ void main_display_commentary(const char *mod_name,
 						 : ""));
 
 			if (gui_yes_no_dialog(companion_question, NULL)) {
-				if (bible_backend->moduleType(name_set[0]) ==
+				if (backend_for(name_set[0]).moduleType(name_set[0]) ==
 				    BibleModuleType::Bible)
 					main_display_bible_from_module(
 					    mod_name, key, name_set[0]);
@@ -1493,11 +1586,11 @@ static gboolean author_commentary_has_text(const char *commentary,
 {
 	BibleKeyInfo info;
 
-	if (!bible_backend->resolveKey(commentary, key, info))
+	BibleBackend &holder = backend_for(commentary);
+	if (!holder.resolveKey(commentary, key, info))
 		return FALSE;
 	const std::string text =
-	    bible_backend->getVerseContent(commentary, info.reference, true)
-		.plainText;
+	    holder.getVerseContent(commentary, info.reference, true).plainText;
 	return text.find_first_not_of(" \t\r\n") != std::string::npos;
 }
 
@@ -1505,12 +1598,24 @@ static gboolean author_commentary_has_text(const char *commentary,
  * the pane should be rendered into at all. Returns FALSE only when the
  * author commentary could not be shown at all, so a caller with a
  * fallback (the clicked-marker path) knows to use it. */
+static void author_commentary_trace(const char *commentary, const char *key,
+				    const char *result)
+{
+	if (!panel_load_debug_enabled())
+		return;
+	gchar *detail = g_strdup_printf("module=%s key=%s result=%s",
+		commentary ? commentary : "-", key ? key : "-", result);
+	panel_load_debug("commentary", "AUTHOR_COMMENTARY", detail);
+	g_free(detail);
+}
+
 static gboolean author_commentary_render(const char *bible, const char *key)
 {
 	const char *commentary = author_commentary_for_bible(bible);
 	gchar *comment_key;
 
-	if (!commentary || !bible_backend->hasModule(commentary)) {
+	if (!commentary || !backend_for(commentary).hasModule(commentary)) {
+		author_commentary_trace(commentary, key, "not-installed");
 		HtmlOutput((char *)"<html><body><p><i>Esta edición no tiene comentarios del autor instalados.</i></p></body></html>",
 			   widgets.html_comm, NULL, NULL);
 		return FALSE;
@@ -1520,16 +1625,19 @@ static gboolean author_commentary_render(const char *bible, const char *key)
 	 * the notes on the right verse if that ever changes. */
 	comment_key = main_reference_for_module(bible, key, commentary);
 	if (!comment_key) {
+		author_commentary_trace(commentary, key, "unmapped");
 		HtmlOutput((char *)"<html><body><p><i>Este versículo no tiene equivalente en los comentarios del autor.</i></p></body></html>",
 			   widgets.html_comm, NULL, NULL);
 		return FALSE;
 	}
 	if (!author_commentary_has_text(commentary, comment_key)) {
+		author_commentary_trace(commentary, comment_key, "no-text");
 		HtmlOutput((char *)"<html><body><p><i>Este versículo no tiene comentario del autor.</i></p></body></html>",
 			   widgets.html_comm, NULL, NULL);
 		g_free(comment_key);
 		return TRUE;
 	}
+	author_commentary_trace(commentary, comment_key, "shown");
 	main_display_commentary(commentary, comment_key);
 	g_free(comment_key);
 	return TRUE;
@@ -1559,7 +1667,7 @@ gboolean main_show_author_commentary(const char *bible, const char *key)
 {
 	const char *commentary = author_commentary_for_bible(bible);
 
-	if (!commentary || !bible_backend->hasModule(commentary))
+	if (!commentary || !backend_for(commentary).hasModule(commentary))
 		return FALSE;
 	if (!widgets.notebook_comm_book)
 		return FALSE;
@@ -1774,6 +1882,13 @@ static bool main_display_neutral_bible(const char *module_name,
 		const std::string rendered = renderAnnotatedVerseText(
 			content, module_name, verse.key,
 			annotations_enabled && content.valid);
+		/* Section titles before the verse, as SWORD modules show them
+		 * (the importer keeps them out of the verse text). */
+		for (const BibleHeading &heading : content.headings) {
+			gchar *escaped = g_markup_escape_text(heading.text.c_str(), -1);
+			g_string_append_printf(fragment, "<h3>%s</h3>", escaped);
+			g_free(escaped);
+		}
 		g_string_append_printf(fragment,
 			"<a name=\"%d\"></a><font color=\"%s\">%d&nbsp;%s</font><br />",
 			verse.reference.verse, settings.bible_verse_num_color,
@@ -1850,12 +1965,29 @@ gchar *main_reference_for_module(const char *source_mod,
 {
 	if (!bible_backend || !source_mod || !source_key || !target_mod)
 		return NULL;
-	const BibleModuleTransitionPlan plan = planBibleModuleTransition(
-		*bible_backend, source_mod, source_key, target_mod);
+	BibleBackend &source = backend_for(source_mod);
+	BibleBackend &target = backend_for(target_mod);
+	/* A SQLite Bible and a SWORD commentary: the two backends share
+	 * only the versification's name, which carries the reference. */
+	const BibleModuleTransitionPlan plan = &source == &target
+		? planBibleModuleTransition(source, source_mod, source_key, target_mod)
+		: planBibleVersificationTransition(target,
+			source.versification(source_mod), source_key, target_mod);
 	if (plan.status != BibleModuleTransition::SameModule &&
 	    plan.status != BibleModuleTransition::Converted)
 		return NULL;
 	return g_strdup(plan.key.c_str());
+}
+
+gchar *main_note_verse_in_module(const char *source_mod,
+				 const char *source_osisref,
+				 const char *target_mod)
+{
+	if (!bible_backend || !source_mod || !source_osisref || !target_mod)
+		return NULL;
+	const std::string osis = planNoteVerseProjection(
+		*bible_backend, source_mod, source_osisref, target_mod);
+	return osis.empty() ? NULL : g_strdup(osis.c_str());
 }
 
 gchar *main_legacy_bookmark_key(const char *key, const char *target_mod)
@@ -2043,7 +2175,66 @@ void main_display_bible(const char *mod_name,
 	if (!settings.MainWindowModule)
 		settings.MainWindowModule = g_strdup((gchar *)mod_name);
 
-	if (!backend) {
+	/* Everything that follows the Bible pane once it shows `mod_name` at
+	 * settings.currentverse, whichever backend laid it out: tab state,
+	 * author commentary, parallel view, BibleSync, compare panel,
+	 * interlinear, notes panel, version combo, current-verse mark. */
+	auto follow_display = [&]() {
+		valid_scripture_key = TRUE; // leave nice for future use.
+
+		XI_message(("mod_name = %s", mod_name));
+		gui_update_tab_struct(mod_name,
+				      NULL,
+				      NULL,
+				      NULL,
+				      NULL,
+				      NULL,
+				      settings.comm_showing,
+				      settings.showtexts,
+				      settings.showpreview,
+				      settings.showcomms,
+				      settings.showdicts);
+		gui_set_tab_label(settings.currentverse, FALSE);
+		main_display_author_commentary(mod_name, settings.currentverse);
+
+		gui_change_window_title(settings.MainWindowModule);
+		// (called _after_ tab data updated so not overwritten with old tab)
+
+		/*
+		 * change parallel verses -- the parallel view still reads the
+		 * Bibles through SWORD only (SQLITE-PARALLEL-101), so under
+		 * SQLite it keeps not following, as before, instead of warning
+		 * "Unknown parallel module" on every step.
+		 */
+		if (main_backend_is_sword()) {
+			if (settings.dockedInt)
+				main_update_parallel_page();
+			else {
+				if (settings.showparatab)
+					gui_keep_parallel_tab_in_sync();
+				else
+					gui_keep_parallel_dialog_in_sync();
+			}
+		}
+
+		// multicast now, iff user has not asked for keyboard-only xmit.
+		if (!settings.bs_keyboard)
+			biblesync_prep_and_xmit(mod_name, bs_key);
+		g_free(bs_key);
+
+		main_lectura_sync_actualizar();
+		main_interlineal_actualizar();
+		gui_verse_notes_panel_actualizar();
+		/* incondicional (no solo dentro del bloque "el módulo cambió" de
+		 * arriba) para que también corrija el combo en el primerísimo
+		 * render, cuando settings.MainWindowModule ya viene seteado desde
+		 * el arranque y por lo tanto ese bloque nunca llega a ejecutarse. */
+		gui_navbar_version_combo_sync();
+		if (in_place || !settings.show_lectura_sync)
+			gui_bibletext_mark_current_verse();
+	};
+
+	if (!main_backend_is_sword()) {
 		xml_set_value("Xiphos", "modules", "bible", mod_name);
 		gui_reassign_strdup(&settings.MainWindowModule, (gchar *)mod_name);
 		xml_set_value("Xiphos", "keys", "verse", key);
@@ -2054,14 +2245,8 @@ void main_display_bible(const char *mod_name,
 			g_free(bs_key);
 			return;
 		}
-		gui_update_tab_struct(mod_name, NULL, NULL, NULL, NULL, NULL,
-				      settings.comm_showing, settings.showtexts,
-				      settings.showpreview, settings.showcomms,
-				      settings.showdicts);
-		gui_set_tab_label(settings.currentverse, FALSE);
-		gui_change_window_title(settings.MainWindowModule);
+		follow_display(); /* frees bs_key */
 		finish_display();
-		g_free(bs_key);
 		return;
 	}
 
@@ -2118,7 +2303,7 @@ void main_display_bible(const char *mod_name,
 		    (!companion_activity) &&
 		    name_set[0] &&
 		    *name_set[0] &&
-		    bible_backend->hasModule(name_set[0]) &&
+		    backend_for(name_set[0]).hasModule(name_set[0]) &&
 		    ((settings.CommWindowModule == NULL) ||
 		     strcmp(name_set[0], settings.CommWindowModule))) {
 			companion_activity = TRUE;
@@ -2214,53 +2399,7 @@ void main_display_bible(const char *mod_name,
 	bible_pane_last_verse = displayed_key;
 
 after_display:
-	valid_scripture_key = TRUE; // leave nice for future use.
-
-	XI_message(("mod_name = %s", mod_name));
-	gui_update_tab_struct(mod_name,
-			      NULL,
-			      NULL,
-			      NULL,
-			      NULL,
-			      NULL,
-			      settings.comm_showing,
-			      settings.showtexts,
-			      settings.showpreview,
-			      settings.showcomms,
-			      settings.showdicts);
-	gui_set_tab_label(settings.currentverse, FALSE);
-	main_display_author_commentary(mod_name, settings.currentverse);
-
-	gui_change_window_title(settings.MainWindowModule);
-	// (called _after_ tab data updated so not overwritten with old tab)
-
-	/*
-	 * change parallel verses
-	 */
-	if (settings.dockedInt)
-		main_update_parallel_page();
-	else {
-		if (settings.showparatab)
-			gui_keep_parallel_tab_in_sync();
-		else
-			gui_keep_parallel_dialog_in_sync();
-	}
-
-	// multicast now, iff user has not asked for keyboard-only xmit.
-	if (!settings.bs_keyboard)
-		biblesync_prep_and_xmit(mod_name, bs_key);
-	g_free(bs_key);
-
-	main_lectura_sync_actualizar();
-	main_interlineal_actualizar();
-	gui_verse_notes_panel_actualizar();
-	/* incondicional (no solo dentro del bloque "el módulo cambió" de
-	 * arriba) para que también corrija el combo en el primerísimo
-	 * render, cuando settings.MainWindowModule ya viene seteado desde
-	 * el arranque y por lo tanto ese bloque nunca llega a ejecutarse. */
-	gui_navbar_version_combo_sync();
-	if (in_place || !settings.show_lectura_sync)
-		gui_bibletext_mark_current_verse();
+	follow_display();
 	g_free(prev_verse);
 
 	finish_display();
@@ -2297,7 +2436,8 @@ gboolean main_bible_window_recenter(const char *key)
 	extern GtkAdjustment *adjustment;
 	static gchar no_jump[] = "";
 
-	if (!backend || !backend->display_mod || !widgets.html_text ||
+	if (!main_backend_is_sword() ||
+	    !backend || !backend->display_mod || !widgets.html_text ||
 	    !gtk_widget_get_realized(GTK_WIDGET(widgets.html_text)) ||
 	    !main_bible_window_needs_recenter(key))
 		return FALSE;
@@ -2450,7 +2590,7 @@ void main_setup_displays(void)
 
 const char *main_get_module_language(const char *module_name)
 {
-	if (!backend) {
+	if (!backend || sqlite_bible(module_name)) {
 		static std::string language;
 		language = bible_backend->moduleLanguage(module_name ? module_name : "");
 		return language.c_str();
@@ -2476,7 +2616,7 @@ const char *main_get_module_language(const char *module_name)
 
 gint main_check_for_option(const gchar *mod_name, const gchar *key, const gchar *option)
 {
-	if (!backend)
+	if (!backend || sqlite_bible(mod_name))
 		return 0;
 	return backend->has_option(mod_name, key, option);
 }
@@ -2499,7 +2639,7 @@ gint main_check_for_option(const gchar *mod_name, const gchar *key, const gchar 
 
 gint main_check_for_global_option(const gchar *mod_name, const gchar *option)
 {
-	if (!backend)
+	if (!backend || sqlite_bible(mod_name))
 		return 0;
 	return backend->has_global_option(mod_name, option);
 }
@@ -2523,8 +2663,9 @@ gint main_check_for_global_option(const gchar *mod_name, const gchar *option)
 int main_is_module(char *mod_name)
 {
 	const char *name = mod_name ? mod_name : "";
-	if (bible_backend)
-		return bible_backend->hasModule(name) ? 1 : 0;
+	if (bible_backend && bible_backend->hasModule(name))
+		return 1;
+	/* Under SQLite, SWORD's commentaries, dictionaries and books. */
 	/* During early SWORD list construction the neutral backend may not yet
 	 * be installed.  Preserve the legacy query when its alias is available,
 	 * but never dereference either backend pointer when startup is between
@@ -2550,7 +2691,7 @@ int main_is_module(char *mod_name)
 
 int main_has_search_framework(char *mod_name)
 {
-	if (!backend && bible_backend)
+	if ((!backend || sqlite_bible(mod_name)) && bible_backend)
 		return bible_backend->moduleCapabilities(
 			mod_name ? mod_name : "").search ? 1 : 0;
 	if (!backend)
@@ -2578,17 +2719,19 @@ int main_has_search_framework(char *mod_name)
 
 int main_optimal_search(char *mod_name)
 {
-	if (!backend)
+	if (!backend || sqlite_bible(mod_name))
 		return 0;
 	SWMgr *mgr = backend->get_mgr();
-	SWModule *mod = mgr->Modules.find(mod_name)->second;
-	return mod->isSearchOptimallySupported("God", -4, 0, 0);
+	ModMap::iterator it = mgr->Modules.find(mod_name ? mod_name : "");
+	if (it == mgr->Modules.end())
+		return 0;
+	return it->second->isSearchOptimallySupported("God", -4, 0, 0);
 }
 
 char *main_get_mod_config_entry(const char *module_name,
 				const char *entry)
 {
-	if (!backend) {
+	if (!backend || sqlite_bible(module_name)) {
 		if (entry && !strcmp(entry, "Lang"))
 			return g_strdup(bible_backend->moduleLanguage(
 				module_name ? module_name : "").c_str());
@@ -2634,7 +2777,7 @@ char *main_get_mod_config_file(const char *module_name,
 
 int main_is_mod_rtol(const char *module_name)
 {
-	if (!backend)
+	if (!backend || sqlite_bible(module_name))
 		return 0;
 	char *direction = backend->get_config_entry((char *)module_name, (char *)"Direction");
 	return (direction && !strcmp(direction, "RtoL"));
@@ -2658,7 +2801,7 @@ int main_is_mod_rtol(const char *module_name)
 
 int main_has_cipher_tag(char *mod_name)
 {
-	if (!backend)
+	if (!backend || sqlite_bible(mod_name))
 		return 0;
 	gchar *cipherkey = backend->get_config_entry(mod_name, (char *)"CipherKey");
 	int retval = (cipherkey != NULL);
@@ -2950,7 +3093,7 @@ void main_flush_widgets_content(void)
  */
 gboolean main_is_Bible_key(const gchar *name, const gchar *key)
 {
-	if (!backend) {
+	if (!backend || sqlite_bible(name)) {
 		BibleKeyInfo info;
 		return bible_backend->resolveKey(name ? name : "", key ? key : "", info)
 			? TRUE : FALSE;

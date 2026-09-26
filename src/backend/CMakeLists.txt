@@ -54,6 +54,7 @@ add_library (backend STATIC
   sqlite/sqlite_module_writer.h
   sword_main.cc
   sword/sword_backend.cc
+  sword/sword_locale.cc
   sword/sword_backend.h
   )
 
@@ -75,6 +76,7 @@ target_link_libraries (biblia-usfm-import PRIVATE PkgConfig::Sqlite3)
 add_executable (biblia-osis-import EXCLUDE_FROM_ALL
   osis_import_main.cc osis_importer.cc osis_importer.h
   bible_book_map.cc strong_id.cc morphology.cc
+  quoted_heading.cc source_quirks.cc
   sqlite/sqlite_module_writer.cc sqlite/sqlite_module_writer.h)
 target_include_directories (biblia-osis-import PRIVATE PkgConfig::Core PkgConfig::Sqlite3 PkgConfig::XML2)
 target_link_libraries (biblia-osis-import PRIVATE PkgConfig::Core PkgConfig::Sqlite3 PkgConfig::XML2)
@@ -118,3 +120,11 @@ if(WK_FOUND)
     PkgConfig::WK
     )
 endif()
+
+# SWORD's own locale directory (<prefix>/share/sword/locales.d), for the
+# reader-locale manager (sword/sword_locale.cc).
+pkg_get_variable (SWORD_INSTALL_PREFIX sword prefix)
+if (SWORD_INSTALL_PREFIX)
+  target_compile_definitions (backend PRIVATE
+    SWORD_INSTALL_PREFIX="${SWORD_INSTALL_PREFIX}")
+endif ()

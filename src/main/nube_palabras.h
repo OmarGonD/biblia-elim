@@ -28,7 +28,9 @@ struct _nube_libro {
 
 typedef struct _nube_palabra NUBE_PALABRA;
 struct _nube_palabra {
-	gchar *palabra;
+	gchar *palabra;		/* en minúsculas: la clave del conteo */
+	gchar *etiqueta;	/* como se enseña: «Noemí», «campo» (CLOUD-CASE-101);
+				 * NULL = igual que `palabra` */
 	gint cuenta;
 	gint cuenta_b;
 	gint diferencia;

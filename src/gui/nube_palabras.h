@@ -13,11 +13,14 @@
 #ifndef __GUI_NUBE_PALABRAS_H__
 #define __GUI_NUBE_PALABRAS_H__
 
+#include "main/nube_palabras.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 void gui_nube_palabras_dialog(void);
+gchar *gui_nube_palabras_html(NUBE_CONTEO *conteo, gboolean comparar);
 
 #ifdef __cplusplus
 }

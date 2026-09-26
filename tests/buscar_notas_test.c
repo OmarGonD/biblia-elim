@@ -248,6 +248,86 @@ prueba_consulta_vacia(void)
 	g_list_free(notas_l);
 }
 
+/* NOTES-TAGS-101: las etiquetas que uno escribe dentro de la nota. */
+static gchar *
+unidas(GPtrArray *et)
+{
+	GString *s = g_string_new(NULL);
+	for (guint i = 0; i < et->len; i++)
+		g_string_append_printf(s, "%s%s", i ? "," : "",
+				       (const gchar *)g_ptr_array_index(et, i));
+	g_ptr_array_unref(et);
+	return g_string_free(s, FALSE);
+}
+
+static void
+prueba_etiquetas(void)
+{
+	const struct {
+		const gchar *texto, *esperado;
+	} casos[] = {
+	    {"#oración por la iglesia", "oración"},
+	    {"Ver #Profecía y #profecía, #fe.", "profecía,fe"},
+	    {"(#gracia) #fe-", "gracia,fe"},
+	    {"Lista: #1 #2 y #12a", "12a"},
+	    {"C# y pagina#3 no son; ##titulo tampoco", ""},
+	    {"#salvación_por_fe\n#ÁNGELES", "salvación_por_fe,ángeles"},
+	    {"sin etiquetas", ""},
+	    {"#", ""},
+	    {"", ""},
+	};
+	for (guint i = 0; i < G_N_ELEMENTS(casos); ++i) {
+		gchar *e = unidas(main_notas_etiquetas(casos[i].texto));
+		g_assert_cmpstr(e, ==, casos[i].esperado);
+		g_free(e);
+	}
+	/* Escrita con tilde descompuesta (NFD) es la misma etiqueta. */
+	gchar *e = unidas(main_notas_etiquetas("#oracio\xcc\x81n #oración"));
+	g_assert_cmpstr(e, ==, "oración");
+	g_free(e);
+	g_ptr_array_unref(main_notas_etiquetas(NULL));
+}
+
+static void
+prueba_filtrar(void)
+{
+	BN_NOTA con[] = {
+	    {"SpaRV", "Ps.23.1", "MV:Ps.23.1", NULL, "#consuelo del pastor", 0},
+	    {"SpaRVG", "Ps.51.1", "MV:Ps.51.1", NULL, "#arrepentimiento", 0},
+	    {"SpaRV", "John.3.16", "MV:John.3.16", NULL, "#amor #consuelo", 0},
+	    {"SpaRV", "Ps.91.1", "HL:1", "El que habita", "refugio", 0},
+	};
+	GList *todas = NULL, *r;
+	for (guint i = 0; i < G_N_ELEMENTS(con); ++i)
+		todas = g_list_append(todas, &con[i]);
+
+	r = main_buscar_notas_filtrar(todas, NULL, NULL, NULL);
+	g_assert_cmpuint(g_list_length(r), ==, 4);
+	g_list_free(r);
+	r = main_buscar_notas_filtrar(todas, "consuelo", "", "");
+	g_assert_cmpuint(g_list_length(r), ==, 2);
+	g_assert_true(r->data == &con[0] && r->next->data == &con[2]);
+	g_list_free(r);
+	r = main_buscar_notas_filtrar(todas, NULL, "Ps", NULL);
+	g_assert_cmpuint(g_list_length(r), ==, 3);
+	g_list_free(r);
+	r = main_buscar_notas_filtrar(todas, "consuelo", "Ps", "SpaRV");
+	g_assert_cmpuint(g_list_length(r), ==, 1);
+	g_assert_true(r->data == &con[0]);
+	g_list_free(r);
+	/* «Ps» no es el prefijo de «Prov»: se compara el libro entero. */
+	r = main_buscar_notas_filtrar(todas, NULL, "P", NULL);
+	g_assert_null(r);
+	r = main_buscar_notas_filtrar(todas, NULL, NULL, "SpaRVG");
+	g_assert_cmpuint(g_list_length(r), ==, 1);
+	g_list_free(r);
+
+	gchar *libro = main_notas_libro("1John.3.16");
+	g_assert_cmpstr(libro, ==, "1John");
+	g_free(libro);
+	g_list_free(todas);
+}
+
 int
 main(int argc, char **argv)
 {
@@ -264,5 +344,7 @@ main(int argc, char **argv)
 	g_test_add_func("/notas/cuenta-repeticiones",
 			prueba_cuenta_repeticiones);
 	g_test_add_func("/notas/consulta-vacia", prueba_consulta_vacia);
+	g_test_add_func("/notas/etiquetas", prueba_etiquetas);
+	g_test_add_func("/notas/filtrar", prueba_filtrar);
 	return g_test_run();
 }

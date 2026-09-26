@@ -770,6 +770,10 @@ void main_update_parallel_page(void)
 				backend_p->set_module_key(mod_name, modkey);
 				get_heading(text, backend_p, modidx);
 				g_string_append(data, text.c_str());
+				gchar *marca = highlight_note_marker_for(mod_name, modkey);
+				if (marca)
+					g_string_append(data, marca);
+				g_free(marca);
 
 				gchar *utf8str = backend_p->get_render_text(mod_name, modkey);
 				if (utf8str) {
@@ -1019,6 +1023,12 @@ static void interpolate_parallel_display(SWModule *control,
 				g_free((gchar *)newurl);
 				g_free(num);
 				text += str;
+				if (modkey && verse_keyed) {
+					gchar *marca = highlight_note_marker_for(mod, modkey);
+					if (marca)
+						text += marca;
+					g_free(marca);
+				}
 
 				if (is_rtol[modidx])
 					text += "<br/><div align=right>";

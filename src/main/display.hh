@@ -24,6 +24,8 @@
 
 #include <stdint.h>
 
+#include "main/notes_exchange.h"
+
 #ifdef __cplusplus
 #include <gtk/gtk.h>
 #include <swmgr.h>
@@ -228,9 +230,31 @@ typedef struct {
 			  * de la nota, usada para enlazarla con otras. */
 	int chapter_verse;
 	guint32 orden;   /* posición canónica, para ordenar entre libros */
+	gint64 created;  /* segundos Unix; 0 = no se sabe (nota antigua) */
+	gint64 modified;
 } HighlightNote;
 
 void highlight_note_free(HighlightNote *n);
+/* «Escrita el 25/09/2026 · modificada el 26/09/2026», o NULL si la nota
+ * es de antes de que se guardaran fechas (NOTES-DATES-101). */
+char *highlight_note_dates_text(gint64 created, gint64 modified);
+/* NOTES-INDICATOR-101: las notas que se ven en `osisref` («Ps.22.1»,
+ * numeración de `module») de cualquier Biblia, no solo la principal: las
+ * suyas y las de versículo entero escritas en otras. Para la vista
+ * paralela y el panel de comparar. */
+int highlight_count_notes_for(const gchar *module, const gchar *osisref);
+GList *highlight_list_notes_in(const gchar *module, const gchar *osis_prefix);
+/* El indicador «n»/«n2» del versículo `key` (clave propia de `module`),
+ * que abre sus notas; NULL si no tiene. El llamador libera. */
+char *highlight_note_marker_for(const gchar *module, const gchar *key);
+/* NOTES-EXPORT-101: todas las notas como copia JSON (el llamador libera),
+ * e importar una copia: añade lo que falta, nunca sustituye ni borra.
+ * Antes, copia el archivo de notas tal como estaba; si algo cambió,
+ * `backup` dice dónde quedó esa copia. */
+char *highlight_notes_export_json(void);
+gboolean highlight_notes_import_json(const gchar *json,
+				     NotesImportResult *result,
+				     gchar **backup, GError **error);
 /* osis_prefix NULL = libro actual; "Book.C" = capítulo; "Book.C.V" = versículo. */
 GList *highlight_list_notes(const gchar *osis_prefix);
 

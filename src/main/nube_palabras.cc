@@ -25,6 +25,7 @@
 
 #include "backend/sword_main.hh"
 #include "main/nube_palabras.h"
+#include "main/nube_mayusculas.h"
 #include "main/sword.h"
 
 #include "gui/debug_glib_null.h"
@@ -431,6 +432,11 @@ agregar_palabra(GHashTable *ht, const gchar *word)
 {
 	gpointer orig, val;
 	if (g_hash_table_lookup_extended(ht, word, &orig, &val)) {
+		/* Keep the table-owned key alive while updating its count.  Inserting
+		 * orig directly would first run the key destroy notifier (g_free),
+		 * leaving the table with a dangling key and eventually double-freeing
+		 * a later tokenizer buffer that reuses that allocation. */
+		g_hash_table_steal(ht, orig);
 		g_hash_table_insert(ht, orig,
 				    GINT_TO_POINTER(GPOINTER_TO_INT(val) + 1));
 	} else {
@@ -438,44 +444,44 @@ agregar_palabra(GHashTable *ht, const gchar *word)
 	}
 }
 
-static void
-tokenizar(const char *texto, GHashTable *ht, gint *total)
-{
-	if (!texto)
-		return;
+typedef struct {
+	GHashTable *ht;
+	gint *total;
+	NubeMayusculas *mayusculas;
+} Recuento;
 
-	GString *cur = g_string_new(NULL);
-	for (const gchar *p = texto; *p; p = g_utf8_next_char(p)) {
-		gunichar c = g_utf8_get_char(p);
-		if (g_unichar_isalpha(c) || c == '\'' || c == 0x2019) {
-			g_string_append_unichar(cur, c);
-			continue;
-		}
-		if (cur->len > 0) {
-			gchar *down = g_utf8_strdown(cur->str, -1);
-			g_strdelimit(down, "'", '\0'); /* corta posesivos ingleses */
-			if (es_palabra_util(down)) {
-				agregar_palabra(ht, down);
-				(*total)++;
-			}
-			g_free(down);
-			g_string_assign(cur, "");
-		}
+static void
+contar_palabra(const gchar *palabra, gboolean abre_frase, gpointer datos)
+{
+	Recuento *r = (Recuento *)datos;
+	gchar *down = g_utf8_strdown(palabra, -1);
+	gchar *escrita = g_strdup(palabra);
+
+	/* corta posesivos ingleses */
+	g_strdelimit(down, "'", '\0');
+	g_strdelimit(escrita, "'", '\0');
+	if (es_palabra_util(down)) {
+		agregar_palabra(r->ht, down);
+		(*r->total)++;
+		nube_mayusculas_anotar(r->mayusculas, escrita, abre_frase);
 	}
-	if (cur->len > 0) {
-		gchar *down = g_utf8_strdown(cur->str, -1);
-		g_strdelimit(down, "'", '\0');
-		if (es_palabra_util(down)) {
-			agregar_palabra(ht, down);
-			(*total)++;
-		}
-		g_free(down);
-	}
-	g_string_free(cur, TRUE);
+	g_free(escrita);
+	g_free(down);
+}
+
+/* Cada versículo empieza como empieza una frase: su primera mayúscula
+ * no dice si la palabra es un nombre. */
+static void
+tokenizar(const char *texto, GHashTable *ht, gint *total,
+	  NubeMayusculas *mayusculas)
+{
+	Recuento r = {ht, total, mayusculas};
+	nube_recorrer_palabras(texto, contar_palabra, &r);
 }
 
 static GHashTable *
-contar_libro(SWModule *mod, const char *libro, gint *total_out)
+contar_libro(SWModule *mod, const char *libro, gint *total_out,
+	     NubeMayusculas *mayusculas)
 {
 	GHashTable *ht = g_hash_table_new_full(g_str_hash, g_str_equal,
 					       g_free, NULL);
@@ -498,7 +504,13 @@ contar_libro(SWModule *mod, const char *libro, gint *total_out)
 		VerseKey *cur = (VerseKey *)(SWKey *)(*mod);
 		if (cur->getBook() != book || cur->getTestament() != testament)
 			break;
-		tokenizar(mod->stripText(), ht, total_out);
+		BibleReference referencia;
+		referencia.testament = cur->getTestament();
+		referencia.book = cur->getBook();
+		referencia.chapter = cur->getChapter();
+		referencia.verse = cur->getVerse();
+		std::string texto = backend->getVerseBodyText(mod->getName(), referencia);
+		tokenizar(texto.c_str(), ht, total_out, mayusculas);
 		(*mod)++;
 	}
 
@@ -566,6 +578,7 @@ nube_palabra_free(gpointer p)
 {
 	NUBE_PALABRA *w = (NUBE_PALABRA *)p;
 	g_free(w->palabra);
+	g_free(w->etiqueta);
 	g_free(w);
 }
 
@@ -597,10 +610,11 @@ main_nube_contar(const char *module,
 		return NULL;
 
 	gint total_a = 0, total_b = 0;
-	GHashTable *ht_a = contar_libro(mod, libro_a, &total_a);
+	NubeMayusculas *mayusculas = nube_mayusculas_nueva();
+	GHashTable *ht_a = contar_libro(mod, libro_a, &total_a, mayusculas);
 	GHashTable *ht_b = NULL;
 	if (libro_b && *libro_b)
-		ht_b = contar_libro(mod, libro_b, &total_b);
+		ht_b = contar_libro(mod, libro_b, &total_b, mayusculas);
 
 	GHashTable *elegidas = g_hash_table_new(g_str_hash, g_str_equal);
 	GPtrArray *top_a = top_palabras(ht_a, limite);
@@ -632,6 +646,7 @@ main_nube_contar(const char *module,
 		gint cb = ht_b ? GPOINTER_TO_INT(g_hash_table_lookup(ht_b, palabra)) : 0;
 		NUBE_PALABRA *w = g_new0(NUBE_PALABRA, 1);
 		w->palabra = g_strdup(palabra);
+		w->etiqueta = nube_mayusculas_forma(mayusculas, palabra);
 		w->cuenta = ca;
 		w->cuenta_b = cb;
 		w->diferencia = ca - cb;
@@ -644,6 +659,7 @@ main_nube_contar(const char *module,
 	g_ptr_array_sort(c->palabras, cmp_nube_desc);
 
 	g_hash_table_destroy(elegidas);
+	nube_mayusculas_libre(mayusculas);
 	g_hash_table_destroy(ht_a);
 	if (ht_b)
 		g_hash_table_destroy(ht_b);

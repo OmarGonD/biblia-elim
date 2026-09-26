@@ -18,6 +18,30 @@
             <property name="visible">True</property>
             <property name="layout_style">end</property>
             <child>
+              <object class="GtkButton" id="btn_exportar">
+                <property name="label" translatable="yes">E_xportar…</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="use_underline">True</property>
+                <property name="tooltip_text" translatable="yes">Las notas mostradas en Markdown, para leer o imprimir; o una copia completa de todas en JSON</property>
+              </object>
+              <packing>
+                <property name="secondary">True</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_importar">
+                <property name="label" translatable="yes">_Importar copia…</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="use_underline">True</property>
+                <property name="tooltip_text" translatable="yes">Añade las notas de una copia JSON. No sustituye ni borra ninguna de las tuyas.</property>
+              </object>
+              <packing>
+                <property name="secondary">True</property>
+              </packing>
+            </child>
+            <child>
               <object class="GtkButton" id="btn_ir">
                 <property name="label" translatable="yes">Ir al versículo</property>
                 <property name="visible">True</property>
@@ -94,6 +118,61 @@
               </packing>
             </child>
             <child>
+              <object class="GtkBox" id="box_filtros">
+                <property name="visible">True</property>
+                <property name="spacing">6</property>
+                <child>
+                  <object class="GtkLabel" id="lbl_etiqueta">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">_Etiqueta:</property>
+                    <property name="use_underline">True</property>
+                    <property name="mnemonic_widget">cmb_etiqueta</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkComboBoxText" id="cmb_etiqueta">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">Las etiquetas se escriben dentro de la nota: #oración, #profecía</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lbl_libro">
+                    <property name="visible">True</property>
+                    <property name="margin_start">8</property>
+                    <property name="label" translatable="yes">_Libro:</property>
+                    <property name="use_underline">True</property>
+                    <property name="mnemonic_widget">cmb_libro</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkComboBoxText" id="cmb_libro">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lbl_version">
+                    <property name="visible">True</property>
+                    <property name="margin_start">8</property>
+                    <property name="label" translatable="yes">_Versión:</property>
+                    <property name="use_underline">True</property>
+                    <property name="mnemonic_widget">cmb_version</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkComboBoxText" id="cmb_version">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
               <object class="GtkLabel" id="lbl_estado">
                 <property name="visible">True</property>
                 <property name="xalign">0</property>
@@ -102,7 +181,7 @@
               </object>
               <packing>
                 <property name="expand">False</property>
-                <property name="position">1</property>
+                <property name="position">2</property>
               </packing>
             </child>
             <child>
@@ -122,7 +201,7 @@
               <packing>
                 <property name="expand">True</property>
                 <property name="fill">True</property>
-                <property name="position">2</property>
+                <property name="position">3</property>
               </packing>
             </child>
           </object>

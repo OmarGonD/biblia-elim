@@ -32,7 +32,7 @@ struct Module {
 	bool wordsIncludeMorphology = false;
 	Statement strongOccurrences;
 	Statement morphologyOccurrences;
-	Statement next, previous, firstInBook, firstInChapter;
+	Statement next, previous, firstInBook, firstInChapter, bookOrdinal;
 	Statement searchFts, searchText, searchTextCase;
 	/* close_v2 permits the statement members to finalize after this body; the
 	 * connection is then released automatically without leaking on errors. */
@@ -266,7 +266,7 @@ std::unique_ptr<Module> openModule(const std::string &path)
 	    language == values.end() || language->second.empty() ||
 	    type == values.end() || type->second != "bible" ||
 	    versification == values.end() ||
-	    (versification->second != "kjv" && versification->second != "custom"))
+	    !versificationSystemName(versification->second))
 		return nullptr;
 	if (hasInvalidReferences(module->db)) return nullptr;
 	module->info = { id->second,
@@ -319,9 +319,10 @@ std::unique_ptr<Module> openModule(const std::string &path)
 		prepare(module->db, "SELECT name,osis FROM books WHERE book_id=?", module->bookInfo) &&
 		prepare(module->db, "SELECT name FROM books WHERE testament=? ORDER BY position", module->books) &&
 		prepare(module->db, "SELECT max(chapter),max(CASE WHEN chapter=? THEN verse ELSE 0 END) FROM verses WHERE book_id=?", module->counts) &&
-		prepare(module->db, "SELECT v.book_id,v.chapter,v.verse,b.name FROM verses v JOIN books b USING(book_id) WHERE (b.position,v.chapter,v.verse)>(?,?,?) ORDER BY b.position,v.chapter,v.verse LIMIT 1", module->next) &&
-		prepare(module->db, "SELECT v.book_id,v.chapter,v.verse,b.name FROM verses v JOIN books b USING(book_id) WHERE (b.position,v.chapter,v.verse)<(?,?,?) ORDER BY b.position DESC,v.chapter DESC,v.verse DESC LIMIT 1", module->previous) &&
-		prepare(module->db, "SELECT v.chapter,v.verse,b.name FROM verses v JOIN books b USING(book_id) WHERE v.book_id=? ORDER BY v.chapter,v.verse LIMIT 1", module->firstInBook) &&
+		prepare(module->db, "SELECT v.book_id,v.chapter,v.verse,b.name FROM verses v JOIN books b USING(book_id) WHERE (b.position,v.chapter,v.verse)>((SELECT position FROM books WHERE book_id=?),?,?) ORDER BY b.position,v.chapter,v.verse LIMIT 1", module->next) &&
+		prepare(module->db, "SELECT v.book_id,v.chapter,v.verse,b.name FROM verses v JOIN books b USING(book_id) WHERE (b.position,v.chapter,v.verse)<((SELECT position FROM books WHERE book_id=?),?,?) ORDER BY b.position DESC,v.chapter DESC,v.verse DESC LIMIT 1", module->previous) &&
+		prepare(module->db, "SELECT v.chapter,v.verse,b.name FROM verses v JOIN books b USING(book_id) WHERE v.book_id=(SELECT book_id FROM books WHERE testament=? ORDER BY position LIMIT 1 OFFSET ?) ORDER BY v.chapter,v.verse LIMIT 1", module->firstInBook) &&
+		prepare(module->db, "SELECT count(*) FROM books o, books b WHERE b.book_id=? AND (o.testament,o.position)<=(b.testament,b.position)", module->bookOrdinal) &&
 		prepare(module->db, "SELECT v.verse,b.name FROM verses v JOIN books b USING(book_id) WHERE v.book_id=? AND v.chapter=? ORDER BY v.verse LIMIT 1", module->firstInChapter) &&
 		prepare(module->db, "SELECT b.testament,v.book_id,v.chapter,v.verse,v.text,b.name,b.osis FROM verses v JOIN books b USING(book_id) WHERE instr(lower(v.text),lower(?))>0 ORDER BY b.position,v.chapter,v.verse LIMIT ? OFFSET ?", module->searchText) &&
 		prepare(module->db, "SELECT b.testament,v.book_id,v.chapter,v.verse,v.text,b.name,b.osis FROM verses v JOIN books b USING(book_id) WHERE instr(v.text,?)>0 ORDER BY b.position,v.chapter,v.verse LIMIT ? OFFSET ?", module->searchTextCase);
@@ -389,6 +390,7 @@ std::unique_ptr<Module> openModule(const std::string &path)
 
 struct SqliteBibleBackend::Impl {
 	std::map<std::string, std::unique_ptr<Module>> modules;
+	std::shared_ptr<const VersificationMapper> mapper;
 	std::thread::id owner = std::this_thread::get_id();
 	bool sameThread() const { return owner == std::this_thread::get_id(); }
 	Module *find(const std::string &id) const
@@ -453,15 +455,79 @@ std::string SqliteBibleBackend::moduleLanguage(const std::string &id) const
 std::string SqliteBibleBackend::versification(const std::string &id) const
 {
 	Module *module = impl_->find(id);
-	if (!module || module->versification.empty() ||
-	    module->versification == "kjv" ||
-	    module->versification == "custom")
-		return "KJV";
-	if (module->versification == "nrsva")
-		return "NRSVA";
-	if (module->versification == "vulg")
-		return "Vulg";
-	return "KJV";
+	const char *system = module ? versificationSystemName(module->versification)
+				    : nullptr;
+	return system ? system : "KJV";
+}
+
+void SqliteBibleBackend::setVersificationMapper(
+	std::shared_ptr<const VersificationMapper> mapper)
+{
+	impl_->mapper = std::move(mapper);
+}
+
+BibleReferenceConversion SqliteBibleBackend::mapInto(
+	const std::string &fromVersification, const std::string &osisBook,
+	int chapter, int verse, const std::string &target)
+{
+	BibleReferenceConversion result;
+	if (!hasModule(target)) {
+		result.status = BibleReferenceMapping::InvalidTarget;
+		return result;
+	}
+	const std::string toVersification = versification(target);
+	std::string book = osisBook;
+	int c = chapter, v = verse;
+	const bool same = fromVersification == toVersification;
+	if (!same && (!impl_->mapper ||
+		      !impl_->mapper->map(fromVersification, osisBook, chapter, verse,
+					  toVersification, book, c, v))) {
+		result.status = BibleReferenceMapping::Unmapped;
+		return result;
+	}
+	if (!resolveKey(target, book + " " + std::to_string(c) + ":" +
+			std::to_string(v), result.target)) {
+		/* The target numbers the verse but does not carry it (a Bible
+		 * without Tobit): no counterpart there. */
+		result.status = same ? BibleReferenceMapping::InvalidTarget
+				     : BibleReferenceMapping::Unmapped;
+		return result;
+	}
+	result.status = BibleReferenceMapping::Mapped;
+	return result;
+}
+
+BibleReferenceConversion SqliteBibleBackend::convertReference(
+	const std::string &source_module, const std::string &source_key,
+	const std::string &target_module)
+{
+	BibleKeyInfo source;
+	if (!resolveKey(source_module, source_key, source))
+		return BibleReferenceConversion();
+	return mapInto(versification(source_module), source.osisBook,
+		source.reference.chapter, source.reference.verse, target_module);
+}
+
+BibleReferenceConversion SqliteBibleBackend::convertReferenceFromVersification(
+	const std::string &source_versification, const std::string &source_key,
+	const std::string &target_module)
+{
+	if (source_versification.empty() || source_key.empty())
+		return BibleReferenceConversion();
+	if (hasModule(target_module) &&
+	    versification(target_module) == source_versification)
+		/* Same numbering: the key is read as it is, as before. */
+		return BibleBackend::convertReferenceFromVersification(
+			source_versification, source_key, target_module);
+	std::string bookName;
+	int chapter = 0, verse = 0;
+	if (!splitReference(source_key, bookName, chapter, verse))
+		return BibleReferenceConversion();
+	const BibleBookDefinition *book = findBibleBookByAnyName(bookName);
+	if (!book)
+		return BibleReferenceConversion();
+	return mapInto(source_versification, book->osis, chapter, verse,
+		target_module);
 }
 
 bool SqliteBibleBackend::resolveKey(const std::string &id, const std::string &key,
@@ -474,7 +540,17 @@ bool SqliteBibleBackend::resolveKey(const std::string &id, const std::string &ke
 	reset(module->bookByName);
 	sqlite3_bind_text(module->bookByName.value, 1, bookName.c_str(), -1, SQLITE_TRANSIENT);
 	sqlite3_bind_text(module->bookByName.value, 2, bookName.c_str(), -1, SQLITE_TRANSIENT);
-	if (sqlite3_step(module->bookByName.value) != SQLITE_ROW) return false;
+	if (sqlite3_step(module->bookByName.value) != SQLITE_ROW) {
+		/* Another spelling of a book the module has: «Luke» in a module
+		 * that names it «Lucas», or the other way round, as references
+		 * saved with another Bible or backend come. */
+		const BibleBookDefinition *alias = findBibleBookByAnyName(bookName);
+		if (!alias) return false;
+		reset(module->bookByName);
+		sqlite3_bind_text(module->bookByName.value, 1, alias->osis, -1, SQLITE_TRANSIENT);
+		sqlite3_bind_text(module->bookByName.value, 2, alias->osis, -1, SQLITE_TRANSIENT);
+		if (sqlite3_step(module->bookByName.value) != SQLITE_ROW) return false;
+	}
 	const int bookId = sqlite3_column_int(module->bookByName.value, 0);
 	const std::string canonical = text(module->bookByName.value, 1);
 	const int testament = sqlite3_column_int(module->bookByName.value, 3);
@@ -487,7 +563,13 @@ bool SqliteBibleBackend::resolveKey(const std::string &id, const std::string &ke
 	result.reference = { testament, bookId, chapter, verse };
 	result.key = keyFor(canonical, chapter, verse);
 	result.bookName = canonical;
-	result.bookIndex = bookId;
+	/* The book's place in the module's list (Old Testament, then New),
+	 * as the navbar shows it; not its id: in a Vulgate Bible Tobit is
+	 * the 17th book. */
+	reset(module->bookOrdinal);
+	sqlite3_bind_int(module->bookOrdinal.value, 1, bookId);
+	result.bookIndex = sqlite3_step(module->bookOrdinal.value) == SQLITE_ROW
+		? sqlite3_column_int(module->bookOrdinal.value, 0) : bookId;
 	reset(module->bookInfo);
 	sqlite3_bind_int(module->bookInfo.value, 1, bookId);
 	if (sqlite3_step(module->bookInfo.value) == SQLITE_ROW)
@@ -648,8 +730,12 @@ std::string SqliteBibleBackend::setBook(const std::string &id,
 {
 	Module *module = impl_->find(id);
 	if (!module) return {};
+	/* BibleBackend's contract, as in SWORD: `book` is the n-th book of
+	 * `testament` (the navbar's book menus and arrows), not an id. */
+	if (book <= 0) return {};
 	reset(module->firstInBook);
-	sqlite3_bind_int(module->firstInBook.value, 1, book);
+	sqlite3_bind_int(module->firstInBook.value, 1, testament);
+	sqlite3_bind_int(module->firstInBook.value, 2, book - 1);
 	if (sqlite3_step(module->firstInBook.value) != SQLITE_ROW) return {};
 	return keyFor(text(module->firstInBook.value, 2),
 		sqlite3_column_int(module->firstInBook.value, 0),

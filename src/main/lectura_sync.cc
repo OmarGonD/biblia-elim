@@ -19,6 +19,7 @@
 #include "gui/lectura_sync.h"
 #include "gui/utilities.h"
 #include "gui/widgets.h"
+#include "main/display.hh"
 #include "main/lectura_sync.h"
 #include "main/lists.h"
 #include "main/settings.h"
@@ -138,7 +139,7 @@ append_un_versiculo(GString *html, const char *source_mod,
 		    const char *mod_name, const char *key_text,
 		    int slot, int nslots)
 {
-	gchar *esc, *de, *target_key, *num;
+	gchar *esc, *de, *target_key, *num, *marca = NULL;
 	gboolean other_chapter;
 	BibleKeyInfo source_info, target_info;
 	std::string body;
@@ -150,7 +151,7 @@ append_un_versiculo(GString *html, const char *source_mod,
 		slot = 3;
 	b = settings.darktheme ? &bandas_oscuro[slot] : &bandas_claro[slot];
 
-	if (!mod_name || !*mod_name || !backend->is_module(mod_name)) {
+	if (!mod_name || !*mod_name || !bible_backend->hasModule(mod_name)) {
 		g_string_append_printf(html,
 				       "<p class=\"miss\">%s</p>",
 				       _("Módulo no disponible."));
@@ -198,6 +199,8 @@ append_un_versiculo(GString *html, const char *source_mod,
 		  ? g_strdup_printf("%d:%d", target_info.reference.chapter,
 				    target_info.reference.verse)
 		  : g_strdup_printf("%d", target_info.reference.verse);
+	/* The verse's notes, whichever Bible they were written in. */
+	marca = highlight_note_marker_for(mod_name, target_key);
 	g_free(target_key);
 
 	/* Comparing versions compares scripture, not the editorial
@@ -214,8 +217,8 @@ append_un_versiculo(GString *html, const char *source_mod,
 		esc = esc_con_saltos(body.c_str());
 		g_string_append_printf(html,
 				       "<p class=\"cur\" style=\"background-color:%s;color:%s\">"
-				       "<span class=\"v\">%s</span> %s</p>",
-				       b->row_bg, b->row_fg, num, esc);
+				       "<span class=\"v\">%s</span>%s %s</p>",
+				       b->row_bg, b->row_fg, num, marca ? marca : "", esc);
 		g_free(esc);
 	} else {
 		g_string_append_printf(html,
@@ -224,6 +227,7 @@ append_un_versiculo(GString *html, const char *source_mod,
 				       _("Este versículo no está en esta versión."));
 	}
 	g_free(num);
+	g_free(marca);
 }
 
 /* Renders the focused verse in every Comparar version (up to 4). */
@@ -239,7 +243,7 @@ lectura_sync_render_for(const char *key_text)
 		return;
 	if (gui_lectura_sync_ficha_activa())
 		return;
-	if (!backend)
+	if (!bible_backend)
 		return;
 	if (!widgets.html_lectura_sync ||
 	    !gtk_widget_get_realized(widgets.html_lectura_sync))

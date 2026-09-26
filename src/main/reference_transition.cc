@@ -231,6 +231,37 @@ BibleModuleTransitionPlan planLegacyBookmarkKeyList(
  * two OCR editions publish their notes as separate zCom modules. Each
  * declares the same versification as its edition in its .conf; callers
  * still convert, so a mismatch would be mapped rather than misread. */
+std::string planNoteVerseProjection(BibleBackend &backend,
+				    const std::string &source_module,
+				    const std::string &source_osisref,
+				    const std::string &target_module)
+{
+	if (source_module.empty() || target_module.empty() ||
+	    !backend.hasModule(source_module) ||
+	    !backend.hasModule(target_module))
+		return std::string();
+	/* "Book.C.V" -> "Book C:V", the key form every backend parses. */
+	const std::string::size_type verse_dot = source_osisref.rfind('.');
+	if (verse_dot == std::string::npos || verse_dot == 0)
+		return std::string();
+	const std::string::size_type chapter_dot =
+		source_osisref.rfind('.', verse_dot - 1);
+	if (chapter_dot == std::string::npos || chapter_dot == 0)
+		return std::string();
+	const std::string key =
+		source_osisref.substr(0, chapter_dot) + " " +
+		source_osisref.substr(chapter_dot + 1,
+				      verse_dot - chapter_dot - 1) +
+		":" + source_osisref.substr(verse_dot + 1);
+	const BibleModuleTransitionPlan plan = planBibleModuleTransition(
+		backend, source_module, key, target_module);
+	if (plan.status == BibleModuleTransition::SameModule)
+		return source_osisref;
+	if (plan.status != BibleModuleTransition::Converted)
+		return std::string();
+	return backend.osisRefFromKey(target_module, plan.key);
+}
+
 const char *authorCommentaryForBible(const char *bible)
 {
 	if (!bible)

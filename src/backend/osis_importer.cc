@@ -194,8 +194,9 @@ bool parseReference(const std::string &source, BibleReference &reference)
 }
 
 struct State {
-	explicit State(UsfmImportStats &importStats, std::string id)
-		: stats(importStats), moduleId(std::move(id)) {}
+	State(UsfmImportStats &importStats, std::string id, std::string lang)
+		: stats(importStats), moduleId(std::move(id)),
+		  language(std::move(lang)) {}
 
 	std::vector<SqliteImportBook> books;
 	std::vector<SqliteImportVerse> verses;
@@ -204,11 +205,15 @@ struct State {
 	bool pendingParagraph = false;
 	bool verseActive = false;
 	bool milestoneVerse = false;
+	/* Inside SWORD's pre-verse region (<div subType="x-preverse" sID/eID>
+	 * milestones): what it holds comes before the verse, not in it. */
+	bool inPreverse = false;
 	std::string activeVerseId;
 	SqliteImportVerse verse;
 	std::unique_ptr<VisibleVerseText> visible;
 	UsfmImportStats &stats;
 	std::string moduleId;
+	std::string language;
 	std::string error;
 };
 
@@ -220,8 +225,12 @@ void registerBook(State &state, const std::string &chapterId)
 	if (dot == std::string::npos) return;
 	const BibleBookDefinition *book = findBook(chapterId.substr(0, dot));
 	if (!book || state.seenBooks[book->bookId]) return;
-	state.books.push_back({ book->bookId, book->testament, book->position,
-		book->osis, book->name, book->shortName });
+	/* The module's own order: a Vulgate Bible has Tobit after Nehemiah,
+	 * an NRSVA one after Malachi. Named in the module's language, as a
+	 * reader of that Bible writes a reference. */
+	const int position = static_cast<int>(state.books.size()) + 1;
+	state.books.push_back({ book->bookId, book->testament, position,
+		book->osis, bibleBookName(*book, state.language), book->shortName });
 	state.seenBooks[book->bookId] = true;
 }
 
@@ -262,6 +271,7 @@ void finishVerse(State &state, bool milestone)
 	state.visible.reset();
 	state.verseActive = false;
 	state.milestoneVerse = false;
+	state.inPreverse = false;
 	state.activeVerseId.clear();
 	if (milestone) ++state.stats.milestoneVerses;
 	else ++state.stats.containerVerses;
@@ -269,8 +279,20 @@ void finishVerse(State &state, bool milestone)
 
 void addStrongWord(State &state, xmlNode *node)
 {
-	const std::string wordText = normalizedStandaloneText(descendantText(node->children));
+	const std::string rawText = descendantText(node->children);
+	const std::string wordText = normalizedStandaloneText(rawText);
+	/* The word itself is trimmed, but a space at its edge still separates
+	 * it from its neighbour: <w>se humillarán </w><w>delante</w> is two
+	 * words, not «humillarándelante». Outside the word's range, so its
+	 * offsets stay exact. */
+	const auto edgeSpace = [](char c) {
+		return c == ' ' || c == '\t' || c == '\n' || c == '\r';
+	};
+	if (!rawText.empty() && edgeSpace(rawText.front()))
+		state.visible->append(" ");
 	const auto range = state.visible->append(wordText);
+	if (!rawText.empty() && edgeSpace(rawText.back()))
+		state.visible->append(" ");
 	if (range.second == 0) return;
 
 	BibleWordInfo word;
@@ -298,7 +320,8 @@ void addStrongWord(State &state, xmlNode *node)
 		}
 	}
 	for (const std::string &lemma : tokens(property(node, "lemma"))) {
-		if (lemma.compare(0, 7, "strong:") == 0) {
+		/* "strong:" per OSIS; SWORD's mod2osis writes "Strong:". */
+		if (g_ascii_strncasecmp(lemma.c_str(), "strong:", 7) == 0) {
 			StrongId strong;
 			if (parseStrongId(lemma.substr(7), strong))
 				word.strongs.push_back(strong);
@@ -362,6 +385,16 @@ void addNote(State &state, xmlNode *node)
 	}
 }
 
+/* Titles that are not verse text wherever they fall: editorial section
+ * titles (OSIS names and SWORD's x- forms) and acrostic letters («ALEF.»,
+ * Lamentations, Psalm 119). */
+bool isSectionTitle(const std::string &type)
+{
+	return type == "section" || type == "majorSection" ||
+	       type == "subSection" || type == "x-s" || type == "x-ms" ||
+	       type == "x-ss" || type == "acrostic";
+}
+
 void processElement(State &state, xmlNode *node)
 {
 	const std::string name = reinterpret_cast<const char *>(node->name);
@@ -369,6 +402,29 @@ void processElement(State &state, xmlNode *node)
 	/* Work metadata is not canonical content. In particular, its <title>
 	 * must never become a heading on the first imported verse. */
 	if (name == "header" && !state.verseActive) return;
+	if (name == "div" && state.verseActive &&
+	    property(node, "subType") == "x-preverse") {
+		if (!property(node, "sID").empty())
+			state.inPreverse = true;
+		else if (!property(node, "eID").empty())
+			state.inPreverse = false;
+		return;
+	}
+	if (name == "title" && state.verseActive &&
+	    (state.inPreverse || isSectionTitle(property(node, "type")))) {
+		/* A title SWORD keeps before the verse, or an editorial section
+		 * title that falls inside it («… lo que supo Israel. <title
+		 * type="x-s">Los doce hijos de Jacob</title> Los hijos …»): a
+		 * heading of this verse, never part of its text. A canonical or
+		 * untyped title inside the verse (a psalm superscription) stays
+		 * text, as SWORD reads it. */
+		const std::string title = normalizedStandaloneText(descendantText(node->children));
+		if (!title.empty()) {
+			state.verse.headings.push_back({ title });
+			++state.stats.headingsImported;
+		}
+		return;
+	}
 	if (name == "w" && state.verseActive) {
 		addStrongWord(state, node);
 		return;
@@ -453,8 +509,10 @@ void processElement(State &state, xmlNode *node)
 void processChildren(State &state, xmlNode *node)
 {
 	for (; node && state.error.empty(); node = node->next) {
+		/* Text in SWORD's pre-verse region is not verse text (a stray
+		 * «.» after a note there opened four Platense verses). */
 		if ((node->type == XML_TEXT_NODE || node->type == XML_CDATA_SECTION_NODE) &&
-		    state.verseActive)
+		    state.verseActive && !state.inPreverse)
 			state.visible->append(reinterpret_cast<char *>(node->content));
 		else if (node->type == XML_ELEMENT_NODE)
 			processElement(state, node);
@@ -471,7 +529,7 @@ bool importOsis(const std::string &input, const std::string &output,
 		error = "invalid OSIS XML";
 		return false;
 	}
-	State state(stats, options.moduleId);
+	State state(stats, options.moduleId, options.language);
 	processChildren(state, xmlDocGetRootElement(document));
 	xmlFreeDoc(document);
 	if (state.error.empty() && state.verseActive)

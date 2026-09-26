@@ -85,6 +85,18 @@ BibleModuleTransitionPlan planLegacyBookmarkKeyList(
 	BibleBackend &backend, const std::string &key,
 	const std::string &target_module);
 
+/*
+ * Where a whole-verse note written in source_module at source_osisref
+ * ("Ps.23.1") shows in target_module: the target's own OSIS reference
+ * ("Ps.22.1"), or empty when the verse has no counterpart there, the
+ * source module is not installed or the reference is not a verse. The
+ * note is converted like any other reference, never reread with the
+ * target's numbering (NOTES-V11N-101).
+ */
+std::string planNoteVerseProjection(BibleBackend &backend,
+				    const std::string &source_module,
+				    const std::string &source_osisref,
+				    const std::string &target_module);
 /* The commentary module that carries an edition's own notes, or NULL. */
 const char *authorCommentaryForBible(const char *bible);
 

@@ -38,8 +38,36 @@ const BibleBookDefinition books[] = {
  {59,"JAS","Jas","James","Jas",2,59},{60,"1PE","1Pet","1 Peter","1Pet",2,60},
  {61,"2PE","2Pet","2 Peter","2Pet",2,61},{62,"1JN","1John","1 John","1John",2,62},
  {63,"2JN","2John","2 John","2John",2,63},{64,"3JN","3John","3 John","3John",2,64},
- {65,"JUD","Jude","Jude","Jude",2,65},{66,"REV","Rev","Revelation","Rev",2,66}
+ {65,"JUD","Jude","Jude","Jude",2,65},{66,"REV","Rev","Revelation","Rev",2,66},
+ /* Deuterocanonical books (Catholic Bibles: Vulgate, NRSVA). Their ids
+  * follow the 66 so an id still indexes this table; where they sit in a
+  * module is its own business (the importer keeps the source order). The
+  * Greek parts of Esther and Daniel are chapters of those books. */
+ {67,"TOB","Tob","Tobit","Tob",1,67},{68,"JDT","Jdt","Judith","Jdt",1,68},
+ {69,"WIS","Wis","Wisdom","Wis",1,69},{70,"SIR","Sir","Sirach","Sir",1,70},
+ {71,"BAR","Bar","Baruch","Bar",1,71},{72,"1MA","1Macc","1 Maccabees","1Macc",1,72},
+ {73,"2MA","2Macc","2 Maccabees","2Macc",1,73}
 };
+
+/* Spanish names, by book id: the same spelling SWORD's Spanish locale
+ * gives, so a reference saved while reading a SWORD module («Lucas
+ * 23:33») still resolves in the same Bible imported to SQLite. SWORD has
+ * no Spanish names for the deuterocanonical books; the usual ones are
+ * used. */
+const char *const spanishNames[] = {
+ "Génesis","Éxodo","Levítico","Números","Deuteronomio","Josué","Jueces","Rut",
+ "1 Samuel","2 Samuel","1 Reyes","2 Reyes","1 Crónicas","2 Crónicas","Esdras",
+ "Nehemías","Ester","Job","Salmos","Proverbios","Eclesiastés","Cantares",
+ "Isaías","Jeremías","Lamentaciones","Ezequiel","Daniel","Oseas","Joel","Amós",
+ "Abdías","Jonás","Miqueas","Nahum","Habacuc","Sofonías","Hageo","Zacarías",
+ "Malaquías","Mateo","Marcos","Lucas","Juan","Hechos","Romanos","1 Corintios",
+ "2 Corintios","Gálatas","Efesios","Filipenses","Colosenses","1 Tesalonicenses",
+ "2 Tesalonicenses","1 Timoteo","2 Timoteo","Tito","Filemón","Hebreos",
+ "Santiago","1 Pedro","2 Pedro","1 Juan","2 Juan","3 Juan","Judas","Apocalipsis",
+ "Tobías","Judit","Sabiduría","Eclesiástico","Baruc","1 Macabeos","2 Macabeos"
+};
+static_assert(sizeof(spanishNames) / sizeof(spanishNames[0]) ==
+	      sizeof(books) / sizeof(books[0]), "one Spanish name per book");
 }
 
 const BibleBookDefinition *findBibleBookByUsfm(const std::string &code)
@@ -54,4 +82,65 @@ const std::vector<BibleBookDefinition> &canonicalBibleBooks()
 {
 	static const std::vector<BibleBookDefinition> result(std::begin(books), std::end(books));
 	return result;
+}
+
+const char *bibleBookName(const BibleBookDefinition &book,
+			  const std::string &language)
+{
+	const std::string primary = language.substr(0, language.find_first_of("-_"));
+	if ((primary == "es" || primary == "spa") && book.bookId >= 1 &&
+	    book.bookId <= static_cast<int>(sizeof(spanishNames) / sizeof(spanishNames[0])))
+		return spanishNames[book.bookId - 1];
+	return book.name;
+}
+
+/* Lowercase for comparing book names: ASCII, and the Latin-1 capitals
+ * Spanish names use (Á É Í Ó Ú Ñ Ü, U+00C0-U+00DE), which are two UTF-8
+ * bytes whose second byte moves by 0x20. Enough for these names, with no
+ * dependency for the importers that build this file. */
+static std::string foldBookName(const std::string &name)
+{
+	std::string out = name;
+	for (std::size_t i = 0; i < out.size(); ++i) {
+		const unsigned char c = static_cast<unsigned char>(out[i]);
+		if (c < 0x80) {
+			out[i] = static_cast<char>(std::tolower(c));
+		} else if (c == 0xC3 && i + 1 < out.size()) {
+			const unsigned char d = static_cast<unsigned char>(out[i + 1]);
+			if (d >= 0x80 && d <= 0x9E && d != 0x97)
+				out[i + 1] = static_cast<char>(d + 0x20);
+			++i;
+		}
+	}
+	return out;
+}
+
+const BibleBookDefinition *findBibleBookByAnyName(const std::string &name)
+{
+	const std::string wanted = foldBookName(name);
+	for (const auto &book : books)
+		if (wanted == foldBookName(book.osis) ||
+		    wanted == foldBookName(book.name) ||
+		    wanted == foldBookName(book.shortName) ||
+		    wanted == foldBookName(spanishNames[book.bookId - 1]))
+			return &book;
+	return nullptr;
+}
+
+const char *versificationSystemName(const std::string &stored)
+{
+	static const struct { const char *stored, *system; } systems[] = {
+		{"kjv", "KJV"}, {"custom", "KJV"}, {"kjva", "KJVA"},
+		{"nrsv", "NRSV"}, {"nrsva", "NRSVA"}, {"vulg", "Vulg"},
+		{"lxx", "LXX"}, {"mt", "MT"}, {"leningrad", "Leningrad"},
+		{"synodal", "Synodal"}, {"synodalprot", "SynodalProt"},
+		{"german", "German"}, {"luther", "Luther"},
+		{"orthodox", "Orthodox"}, {"catholic", "Catholic"},
+		{"catholic2", "Catholic2"}, {"segond", "Segond"},
+		{"darbyfr", "DarbyFr"}, {"calvin", "Calvin"},
+	};
+	for (const auto &system : systems)
+		if (stored == system.stored)
+			return system.system;
+	return nullptr;
 }

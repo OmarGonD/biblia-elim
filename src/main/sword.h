@@ -92,6 +92,9 @@ gchar *main_update_nav_controls(const char *module_name,
 char *main_get_active_pane_key(void);
 char *main_get_active_pane_module(void);
 char *set_sword_locale(const char *sys_locale);
+/* SWORD's string manager and the reader's locale; idempotent. Before
+ * settings_init(), whose early module list is SWORD's first use. */
+void main_init_sword_locale(void);
 void main_init_backend(void);
 void main_recreate_bible_backend(void);
 void main_select_bible_backend(const char *name, const char *modules_directory,
@@ -125,6 +128,12 @@ gboolean main_bible_window_recenter(const char *key);
  * verse does not exist in target_mod (never the same text reread). */
 gchar *main_reference_for_module(const char *source_mod,
 				 const char *source_key,
+				 const char *target_mod);
+/* Where a whole-verse note written in source_mod at source_osisref
+ * ("Ps.23.1") falls in target_mod: its OSIS reference there, newly
+ * allocated, or NULL when the verse has no counterpart. */
+gchar *main_note_verse_in_module(const char *source_mod,
+				 const char *source_osisref,
 				 const char *target_mod);
 /* The main Bible's own key for source_key, which is native to
  * source_mod: what a module-less "sword:///KEY" URI has to carry, since
