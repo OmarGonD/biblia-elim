@@ -1206,7 +1206,7 @@ static void set_up_dialog_search(GList *modlist)
 		while (modlist) {
 			if (name_for_range == NULL)
 				name_for_range = (char *)modlist->data;
-			int mod_type = backend->module_type((char *)modlist->data);
+			int mod_type = main_get_mod_type((char *)modlist->data);
 			if ((mod_type != TEXT_TYPE) &&
 			    (mod_type != COMMENTARY_TYPE)) {
 				range_ok = FALSE;

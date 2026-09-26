@@ -9,6 +9,7 @@
 #include <string.h>
 #include <sys/stat.h>
 
+#include "gui/sqlite_module_manager_dialog.h"
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 #include <glib/gstdio.h>
@@ -1107,6 +1108,7 @@ finish_local_install(const char *ok_msg, const char *fail_msg)
 	refresh_after_local_install();
 	set_status(fail_msg ? fail_msg : ok_msg);
 	set_progress_text(fail_msg ? fail_msg : ok_msg);
+	if (!fail_msg) gui_convert_pending_sword_bibles();
 }
 
 static void
@@ -1536,6 +1538,7 @@ on_ib_install_clicked(GtkButton *b, gpointer data)
 
 	g_ptr_array_free(todo, TRUE);
 	set_busy(FALSE);
+	if (ok) gui_convert_pending_sword_bibles();
 	update_install_sensitive();
 
 	if (fail && ok)
@@ -1816,6 +1819,9 @@ build_dialog(void)
 	gtk_box_pack_start(GTK_BOX(outer), status_lbl, FALSE, FALSE, 0);
 
 	bbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 8);
+    GtkWidget *sqlite_button = gtk_button_new_with_label("Módulos SQLite…");
+    gtk_box_pack_start(GTK_BOX(bbox), sqlite_button, FALSE, FALSE, 0);
+    g_signal_connect(sqlite_button, "clicked", G_CALLBACK(gui_open_sqlite_module_manager), NULL);
 	btn_advanced = gtk_button_new_with_label(_("Avanzado…"));
 	gtk_widget_set_tooltip_text(btn_advanced,
 				    _("Gestor completo de módulos (comentaristas, diccionarios, fuentes locales)"));

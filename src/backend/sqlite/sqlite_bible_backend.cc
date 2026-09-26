@@ -6,13 +6,116 @@
 #include <sqlite3.h>
 
 #include <cctype>
+#include <cstdio>
 #include <dirent.h>
+#include <fstream>
 #include <limits>
 #include <map>
+#include <sstream>
+#include <sys/stat.h>
 #include <thread>
+#include <unistd.h>
 #include <utility>
 
 namespace {
+
+/* Verdicts of the whole-module data checks (references, Strong,
+ * morphology), remembered per file in <directory>/.validation-cache. Each
+ * check reads every row -- up to a quarter of a second on an annotated
+ * Bible -- and its verdict can only change with the file, so a file is
+ * identified by name, size, modification time (ns) and inode: a module
+ * reinstalled or replaced (atomic rename) is checked again. The cache is
+ * only an optimisation: missing, unreadable or unwritable, every check
+ * simply runs. */
+class ValidationCache {
+public:
+	enum Check { References, Strong, Morphology, CheckCount };
+
+	void load(const std::string &directory)
+	{
+		path_ = directory;
+		if (!path_.empty() && path_.back() != '/') path_ += '/';
+		path_ += ".validation-cache";
+		std::ifstream in(path_);
+		for (std::string line; std::getline(in, line);) {
+			const std::size_t tab = line.rfind('\t');
+			if (tab == std::string::npos || line.size() - tab - 1 != CheckCount) continue;
+			entries_[line.substr(0, tab)] = line.substr(tab + 1);
+		}
+	}
+
+	/* The identity of `file`, or "" when it cannot be read. */
+	static std::string identity(const std::string &file)
+	{
+		struct stat st;
+		if (stat(file.c_str(), &st) != 0) return std::string();
+		const std::size_t slash = file.rfind('/');
+		std::ostringstream key;
+		key << (slash == std::string::npos ? file : file.substr(slash + 1)) << '|'
+		    << st.st_size << '|' << st.st_mtim.tv_sec << '.' << st.st_mtim.tv_nsec
+		    << '|' << st.st_ctim.tv_sec << '.' << st.st_ctim.tv_nsec
+		    << '|' << st.st_ino;
+		/* SQLite's own change counters (header bytes 24 and 92): a file
+		 * rewritten within the clock's granularity still differs. */
+		unsigned char header[100] = {};
+		std::ifstream in(file, std::ios::binary);
+		if (!in.read(reinterpret_cast<char *>(header), sizeof(header))) return std::string();
+		auto word = [&](int at) {
+			return (unsigned long)header[at] << 24 | (unsigned long)header[at + 1] << 16 |
+			       (unsigned long)header[at + 2] << 8 | header[at + 3];
+		};
+		key << '|' << word(24) << '.' << word(92);
+		return key.str();
+	}
+
+	/* -1 unknown, 0 false, 1 true. */
+	int get(const std::string &id, Check check) const
+	{
+		if (id.empty()) return -1;
+		auto found = entries_.find(id);
+		if (found == entries_.end()) return -1;
+		const char value = found->second[check];
+		return value == '1' ? 1 : value == '0' ? 0 : -1;
+	}
+
+	void put(const std::string &id, Check check, bool value)
+	{
+		if (id.empty() || path_.empty()) return;
+		std::string &verdicts = entries_[id];
+		if (verdicts.size() != CheckCount) verdicts.assign(CheckCount, '?');
+		verdicts[check] = value ? '1' : '0';
+		save();
+	}
+
+private:
+	void save()
+	{
+		const std::string temporary = path_ + ".tmp";
+		{
+			std::ofstream out(temporary, std::ios::trunc);
+			for (const auto &entry : entries_)
+				out << entry.first << '\t' << entry.second << '\n';
+			if (!out) { std::remove(temporary.c_str()); return; }
+		}
+		if (std::rename(temporary.c_str(), path_.c_str()) != 0)
+			std::remove(temporary.c_str());
+	}
+
+	std::string path_;
+	std::map<std::string, std::string> entries_;
+};
+
+/* A check's verdict from the cache, or computed and remembered. */
+template <typename Compute>
+bool cachedVerdict(ValidationCache *cache, const std::string &id,
+	ValidationCache::Check check, Compute compute)
+{
+	const int known = cache ? cache->get(id, check) : -1;
+	if (known >= 0) return known == 1;
+	const bool value = compute();
+	if (cache) cache->put(id, check, value);
+	return value;
+}
 
 struct Statement {
 	sqlite3_stmt *value = nullptr;
@@ -30,6 +133,14 @@ struct Module {
 	Statement annotation, headings, spans, footnotes, crossReferences, crossReferenceTargets;
 	Statement words;
 	bool wordsIncludeMorphology = false;
+	/* Strong and morphology are validated against the whole module (every
+	 * row), which costs hundreds of milliseconds on an annotated Bible. It
+	 * is done once, the first time a module's annotations are needed, not
+	 * when the module is opened: startup opens every installed module. */
+	bool annotationsPrepared = false;
+	bool declaredStrong = false, declaredMorphology = false;
+	ValidationCache *cache = nullptr;
+	std::string fileIdentity;
 	Statement strongOccurrences;
 	Statement morphologyOccurrences;
 	Statement next, previous, firstInBook, firstInChapter, bookOrdinal;
@@ -243,9 +354,12 @@ std::string ftsPhrase(const std::string &source)
 	return result + "\"";
 }
 
-std::unique_ptr<Module> openModule(const std::string &path)
+std::unique_ptr<Module> openModule(const std::string &path,
+	ValidationCache *cache = nullptr)
 {
 	std::unique_ptr<Module> module(new Module());
+	module->cache = cache;
+	module->fileIdentity = ValidationCache::identity(path);
 	if (sqlite3_open_v2(path.c_str(), &module->db,
 		SQLITE_OPEN_READONLY | SQLITE_OPEN_NOMUTEX, nullptr) != SQLITE_OK)
 		return nullptr;
@@ -268,7 +382,9 @@ std::unique_ptr<Module> openModule(const std::string &path)
 	    versification == values.end() ||
 	    !versificationSystemName(versification->second))
 		return nullptr;
-	if (hasInvalidReferences(module->db)) return nullptr;
+	if (!cachedVerdict(module->cache, module->fileIdentity,
+		ValidationCache::References,
+		[&] { return !hasInvalidReferences(module->db); })) return nullptr;
 	module->info = { id->second,
 		values.count("description") ? values.at("description") : std::string(),
 		language->second,
@@ -300,15 +416,9 @@ std::unique_ptr<Module> openModule(const std::string &path)
 	const bool hasSpans = tableExists(module->db, "verse_spans");
 	const bool hasFootnotes = tableExists(module->db, "footnotes");
 	const bool hasCrossrefs = tableExists(module->db, "cross_references");
-	const bool hasWords = tableExists(module->db, "verse_words");
-	const bool hasStrongIndex = tableExists(module->db, "verse_word_strongs");
-	const bool hasMorphology = tableExists(module->db, "verse_word_morphology");
-	const bool hasCanonicalStrongIndex = indexExists(module->db,
-		"verse_word_strongs_canonical");
-	const bool hasMorphologyLookupIndex = indexExists(module->db,
-		"verse_word_morphology_lookup");
-	const bool declaredStrong = module->capabilities.strongs;
-	const bool declaredMorphology = module->capabilities.morphology;
+	module->declaredStrong = module->capabilities.strongs;
+	module->declaredMorphology = module->capabilities.morphology;
+	/* Declared only; confirmed by prepareAnnotations() on first use. */
 	module->capabilities.strongs = false;
 	module->capabilities.morphology = false;
 
@@ -338,8 +448,28 @@ std::unique_ptr<Module> openModule(const std::string &path)
 	if (hasCrossrefs && tableExists(module->db, "cross_reference_targets")) prepare(module->db, "SELECT sequence,target_sequence,target_book_id,target_chapter,target_verse FROM cross_reference_targets WHERE book_id=? AND chapter=? AND verse=? ORDER BY sequence,target_sequence", module->crossReferenceTargets);
 	module->capabilities.footnotes = module->capabilities.footnotes && hasFootnotes && module->footnotes.value;
 	module->capabilities.crossrefs = module->capabilities.crossrefs && hasCrossrefs && module->crossReferences.value;
+	return module;
+}
+/* Words, Strong and morphology of an opened module: prepared and validated
+ * (see Module::annotationsPrepared) the first time they are needed. The
+ * result is what opening used to compute. */
+void prepareAnnotations(Module *module)
+{
+	if (!module || module->annotationsPrepared) return;
+	module->annotationsPrepared = true;
+	const bool hasWords = tableExists(module->db, "verse_words");
+	const bool hasStrongIndex = tableExists(module->db, "verse_word_strongs");
+	const bool hasMorphology = tableExists(module->db, "verse_word_morphology");
+	const bool hasCanonicalStrongIndex = indexExists(module->db,
+		"verse_word_strongs_canonical");
+	const bool hasMorphologyLookupIndex = indexExists(module->db,
+		"verse_word_morphology_lookup");
+	const bool declaredStrong = module->declaredStrong;
+	const bool declaredMorphology = module->declaredMorphology;
 	if (hasWords && declaredMorphology && hasMorphology &&
-	    hasValidMorphologyData(module->db)) {
+	    cachedVerdict(module->cache, module->fileIdentity,
+		ValidationCache::Morphology,
+		[&] { return hasValidMorphologyData(module->db); })) {
 		module->wordsIncludeMorphology = prepare(module->db,
 			"SELECT vw.sequence,vw.start,vw.length,vw.text,vw.strong,"
 			"m.morphology_sequence,m.scheme,m.code FROM verse_words vw "
@@ -382,13 +512,22 @@ std::unique_ptr<Module> openModule(const std::string &path)
 		prepare(module->db, "SELECT b.testament,v.book_id,v.chapter,v.verse,v.text,vw.text,b.name FROM verse_word_strongs s JOIN verses v USING(book_id,chapter,verse) JOIN verse_words vw USING(book_id,chapter,verse,sequence) JOIN books b USING(book_id) WHERE s.strong=? ORDER BY b.position,v.chapter,v.verse,vw.sequence LIMIT ? OFFSET ?", module->strongOccurrences);
 	module->capabilities.strongs = declaredStrong && hasWords && hasStrongIndex &&
 		module->words.value && module->strongOccurrences.value &&
-		hasValidStrongData(module->db);
+		cachedVerdict(module->cache, module->fileIdentity,
+			ValidationCache::Strong,
+			[&] { return hasValidStrongData(module->db); });
+}
+
+Module *withAnnotations(Module *module)
+{
+	prepareAnnotations(module);
 	return module;
 }
+
 
 } // namespace
 
 struct SqliteBibleBackend::Impl {
+	ValidationCache cache; /* before modules: they point into it */
 	std::map<std::string, std::unique_ptr<Module>> modules;
 	std::shared_ptr<const VersificationMapper> mapper;
 	std::thread::id owner = std::this_thread::get_id();
@@ -406,12 +545,13 @@ SqliteBibleBackend::SqliteBibleBackend(const std::string &directory)
 {
 	DIR *dir = opendir(directory.c_str());
 	if (!dir) return;
+	impl_->cache.load(directory);
 	while (dirent *entry = readdir(dir)) {
 		const std::string filename = entry->d_name;
 		if (!hasSuffix(filename, ".sqlite")) continue;
 		std::string path = directory;
 		if (!path.empty() && path.back() != '/') path += '/';
-		std::unique_ptr<Module> module = openModule(path + filename);
+		std::unique_ptr<Module> module = openModule(path + filename, &impl_->cache);
 		if (module && impl_->modules.find(module->info.id) == impl_->modules.end())
 			impl_->modules[module->info.id] = std::move(module);
 	}
@@ -437,7 +577,7 @@ BibleModuleType SqliteBibleBackend::moduleType(const std::string &id) const
 BibleModuleCapabilities SqliteBibleBackend::moduleCapabilities(const std::string &id) const
 {
 	BibleModuleCapabilities result;
-	Module *module = impl_->find(id);
+	Module *module = withAnnotations(impl_->find(id));
 	if (module) result = module->capabilities;
 	return result;
 }
@@ -601,7 +741,7 @@ BibleVerseContent SqliteBibleBackend::getVerseContent(
 	const std::string &id, const BibleReference &reference, bool)
 {
 	BibleVerseContent result;
-	Module *module = impl_->find(id);
+	Module *module = withAnnotations(impl_->find(id));
 	if (!module) return result;
 	reset(module->verse);
 	sqlite3_bind_int(module->verse.value, 1, reference.book);
@@ -636,7 +776,15 @@ BibleVerseContent SqliteBibleBackend::getVerseContent(
 			BibleTextSpan span;
 			span.start = sqlite3_column_int(module->spans.value, 0);
 			span.length = sqlite3_column_int(module->spans.value, 1);
-			if (text(module->spans.value, 2) == "added") result.spans.push_back(span);
+			/* Unknown styles (from a newer writer) are ignored. */
+			const std::string style = text(module->spans.value, 2);
+			if (style == "added") span.style = BibleTextStyle::Added;
+			else if (style == "words_of_christ") span.style = BibleTextStyle::WordsOfChrist;
+			else if (style == "divine_name") span.style = BibleTextStyle::DivineName;
+			else if (style == "italic") span.style = BibleTextStyle::Italic;
+			else if (style == "bold") span.style = BibleTextStyle::Bold;
+			else continue;
+			result.spans.push_back(span);
 		}
 	}
 	if (module->words.value) {
@@ -834,7 +982,7 @@ StrongOccurrencePage SqliteBibleBackend::findStrongOccurrencePage(
 	const std::string &id, const StrongId &strong, std::size_t limit, std::size_t offset)
 {
 	StrongOccurrencePage result;
-	Module *module = impl_->find(id);
+	Module *module = withAnnotations(impl_->find(id));
 	if (!module || !module->strongOccurrences.value) return result;
 	const std::string value = formatStrongId(strong);
 	const std::size_t fetchLimit = limit == std::numeric_limits<std::size_t>::max()
@@ -865,7 +1013,7 @@ MorphologyOccurrencePage SqliteBibleBackend::findMorphologyOccurrencePage(
 	std::size_t offset)
 {
 	MorphologyOccurrencePage result;
-	Module *module = impl_->find(id);
+	Module *module = withAnnotations(impl_->find(id));
 	if (!module || !module->morphologyOccurrences.value ||
 	    !isValidMorphologyTag(morphology)) return result;
 	const std::size_t fetchLimit = limit == std::numeric_limits<std::size_t>::max()

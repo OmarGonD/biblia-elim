@@ -25,8 +25,20 @@ AnnotatedWordResolution resolveAnnotatedWordInteraction(BibleBackend &backend,
 /* Render only the verse text. Annotations intentionally never enter the HTML:
  * each actionable span carries the authoritative UTF-8 byte offset emitted by
  * the backend. */
+/* How styled spans are shown: words the translators added and the
+ * edition's italics in italics, its bold in bold, the divine name in small
+ * capitals, words of Christ in red when the module's "Words of Christ in
+ * Red" option (on by default) says so. */
+struct VerseTextStyle {
+	bool wordsOfChristInRed = true;
+	/* The Bible pane marks notes as SWORD does, a raised "*n"/"*x" that
+	 * the pane numbers through the chapter (or the note's own label);
+	 * elsewhere the label itself is shown. */
+	bool paneNoteMarkers = false;
+};
 std::string renderAnnotatedVerseText(const BibleVerseContent &content,
-	const std::string &module, const std::string &key, bool annotationsEnabled);
+	const std::string &module, const std::string &key, bool annotationsEnabled,
+	const VerseTextStyle &style = VerseTextStyle());
 
 struct StrongDetailState {
 	StrongId selected;

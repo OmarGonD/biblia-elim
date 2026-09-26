@@ -40,6 +40,7 @@
 #include <url.h>
 
 #include "backend/sword_main.hh"
+#include "backend/bible_book_map.h"
 
 #include "main/busqueda_tildes.h"
 #include "main/mod_mgr.h"
@@ -139,6 +140,12 @@ std::string BackEnd::moduleDescription(const std::string &module_id) const
 	const char *description =
 		const_cast<BackEnd *>(this)->module_description(module_id.c_str());
 	return description ? std::string(description) : std::string();
+}
+
+std::string BackEnd::moduleRenderHeader(const std::string &module_id) const
+{
+    SWModule *module = const_cast<BackEnd *>(this)->get_SWModule(module_id.c_str());
+    return module ? module->getRenderHeader() : "";
 }
 
 std::string BackEnd::moduleLanguage(const std::string &module_id) const
@@ -1000,11 +1007,16 @@ char *BackEnd::navigate_module(int direction)
 
 GList *BackEnd::parse_verse_list(const char *module_name, const char *list, char *current_key)
 {
-	SWModule *mod = get_SWModule(module_name);
-	if (!mod)
-		return NULL;
+    SWModule *mod = get_SWModule(module_name);
+    if (!mod) return nullptr;
+    auto *key = dynamic_cast<VerseKey *>(mod->getKey());
+    return key ? parse_reference_list(key->getVersificationSystem(), list, current_key) : nullptr;
+}
 
-	VerseKey *key = (VerseKey *)(SWKey *)(*mod);
+GList *BackEnd::parse_reference_list(const char *versification, const char *list, const char *current_key)
+{
+    VerseKey owned(nullptr, nullptr, versificationSystemName(versification ? versification : "kjv"));
+    VerseKey *key = &owned;
 	GList *retlist = NULL;
 	ListKey vs;
 

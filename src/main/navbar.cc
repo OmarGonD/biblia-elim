@@ -33,6 +33,7 @@
 #include "gui/bibletext_dialog.h"
 
 #include "backend/bible_backend.h"
+#include "main/backend_access.h"
 
 #include "gui/debug_glib_null.h"
 
@@ -52,7 +53,7 @@ void main_navbar_set(NAVBAR navbar, const char *key)
 		return;
 
 	BibleKeyInfo key_info;
-	if (!bible_backend->resolveKey(navbar.module_name, key ? key : "", key_info))
+	if (!main_backend_for(navbar.module_name).resolveKey(navbar.module_name, key ? key : "", key_info))
 		return;
 
 	navbar.key = g_strdup(key_info.key.c_str());

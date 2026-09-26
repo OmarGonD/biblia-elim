@@ -814,14 +814,16 @@ void gui_set_progressbar_text(GtkWidget *pb, gchar *text)
 void gui_set_statusbar(const gchar *message)
 {
 	static guint context_id = 0;
+	gchar *backend_status = main_backend_status();
+	gchar *combined = g_strdup_printf("%s · %s", backend_status, message ? message : "");
 	gtk_statusbar_pop(GTK_STATUSBAR(widgets.appbar), context_id);
 	context_id =
 	    gtk_statusbar_get_context_id(GTK_STATUSBAR(widgets.appbar),
-					 message);
+					 "reader-status");
 
-	context_id =
-	    gtk_statusbar_push(GTK_STATUSBAR(widgets.appbar),
-			       context_id, message);
+	gtk_statusbar_push(GTK_STATUSBAR(widgets.appbar), context_id, combined);
+	g_free(combined);
+	g_free(backend_status);
 	XI_message(("context_id: %d\nmessage: %s", context_id, message));
 }
 

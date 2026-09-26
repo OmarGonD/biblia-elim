@@ -87,6 +87,7 @@ class BackEnd : public BibleBackend
 	BibleModuleCapabilities moduleCapabilities(
 		const std::string &module_id) const override;
 	std::string moduleDescription(const std::string &module_id) const override;
+	std::string moduleRenderHeader(const std::string &module_id) const override;
 	std::string moduleLanguage(const std::string &module_id) const override;
 	std::string versification(const std::string &module_id) const override;
 	std::string osisRefFromKey(const std::string &module_id,
@@ -204,6 +205,7 @@ class BackEnd : public BibleBackend
 	unsigned long treekey_set_key(char *key);
 	int treekey_prev_sibling(unsigned long offset);
 	int treekey_next_sibling(unsigned long offset);
+	static GList *parse_reference_list(const char *versification, const char *list, const char *current_key);
 	GList *parse_verse_list(const char *module_name, const char *list, char *current_key);
 	GList *parse_range_list(const char *module_name, const char *list);
 	void set_listkey_position(char pos);

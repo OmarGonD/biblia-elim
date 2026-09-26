@@ -41,6 +41,7 @@
 #include "gui/elim_tema.h"
 #include "gui/navbar_versekey.h"
 #include "gui/panel_load_state.h"
+#include "gui/sqlite_module_manager_dialog.h"
 #include "gtk/gtk_lifecycle_smoke.h"
 #include "gtk/author_commentary_probe.h"
 
@@ -65,6 +66,13 @@ static gboolean startup_ui_heartbeat(gpointer unused)
 	(void)unused;
 	panel_load_debug("app", "UI_HEARTBEAT", NULL);
 	return TRUE;
+}
+
+static gboolean convert_pending_sword_bibles(gpointer unused)
+{
+	(void)unused;
+	gui_convert_pending_sword_bibles();
+	return G_SOURCE_REMOVE;
 }
 
 #ifdef WIN32
@@ -172,6 +180,11 @@ int main(int argc, char *argv[])
 		return main_recordatorio_una_vez();
 	}
 #endif
+
+	/* Hijo de la conversión en segundo plano de una Biblia SWORD a SQLite
+	 * (ver gui_convert_pending_sword_bibles): sin GTK ni ventana. */
+	if (argc == 4 && !strcmp(argv[1], "--convert-sword"))
+		return sword_conversion_child_main(argv[2], argv[3]);
 
 	/* Development backend selector. Remove it before GTK parses argv. The
 	 * optional module directory normally comes from BIBLIA_ELIM_SQLITE_MODULES. */
@@ -411,10 +424,9 @@ int main(int argc, char *argv[])
 
 	gui_init(argc, argv);
 	panel_load_debug("app", "GTK_INITIALIZED", NULL);
-
-	g_object_set(gtk_settings_get_default(),
-		     "gtk-application-prefer-dark-theme",
-		     settings.darktheme, NULL);
+	/* The dark/light preference is applied once, with the theme variant,
+	 * by gui_elim_tema_init() below: every change to GtkSettings' theme
+	 * properties reloads the whole GTK theme. */
 
 	gui_splash_init();
 
@@ -488,12 +500,19 @@ int main(int argc, char *argv[])
 #endif
 	g_idle_add((GSourceFunc)gui_splash_done, NULL);
 
-	gui_recompute_shows(FALSE);
+	gui_recompute_shows_at_startup();
 
 	initialized = TRUE;
 
 	if (pulpito_de && *pulpito_de)
 		gui_pulpito_abrir(pulpito_de);
+
+	/* SQLite is the default reader: once the window is up, SWORD Bibles
+	 * without an SQLite copy (first run, or installed outside the app)
+	 * are converted. Test harnesses keep the modules they were given. */
+	if (!g_getenv("BIBLIA_ELIM_GTK_LIFECYCLE_SMOKE") &&
+	    !g_getenv("BIBLIA_ELIM_AC_PROBE"))
+		g_timeout_add(500, convert_pending_sword_bibles, NULL);
 
 	panel_load_debug("app", "GTK_MAIN_ENTER", NULL);
 	gtk_lifecycle_smoke_schedule();

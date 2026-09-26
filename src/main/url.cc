@@ -57,6 +57,7 @@
 #include "gui/lectura_sync.h"
 //#include "gui/toolbar_nav.h"
 
+#include "main/backend_access.h"
 #include "main/url.hh"
 #include "main/lists.h"
 #include "main/previewer.h"
@@ -309,7 +310,9 @@ static gint show_morph(const char *module_name,
 	    strstr(stype, "robinson") ||
 	    strstr(stype, "packard") ||
 	    strstr(stype, "Robinson")) {
-		int testament = backend->get_key_testament(module_name, settings.currentverse);
+		BibleKeyInfo info;
+        main_backend_for(module_name).resolveKey(module_name, settings.currentverse, info);
+        int testament = info.reference.testament;
 		if (testament == 2) {
             modbuf = settings.morph_greek_lex_nt; // Utilise votre variable NT
         } else {
@@ -416,6 +419,21 @@ static gint show_strongs(const gchar *stype, const gchar *svalue,
  *   gint
  */
 
+
+/* An editorial note marker the user actually clicked opens the author
+ * commentary on that verse, whichever backend reads the Bible and however
+ * the pane linked the note (SWORD's showNote, a neutral module's
+ * showNeutralFootnote). The whole verse is what gets opened -- see the note
+ * in the SWORD dispatch below on why there is no per-note anchor to
+ * honour. FALSE when the edition has no author commentary: the caller
+ * shows the note itself. */
+static gboolean open_author_commentary(const char *stype, int clicked,
+				       const char *module, const char *passage)
+{
+	return main_note_action_for(stype, clicked) == NOTE_ACTION_AUTHOR_COMMENTARY &&
+	       main_show_author_commentary(module, passage);
+}
+
 static gint show_note(const gchar *module, const gchar *passage,
 		      const gchar *stype, const gchar *svalue, gboolean clicked)
 {
@@ -427,11 +445,48 @@ static gint show_note(const gchar *module, const gchar *passage,
 	if (!in_url || !svalue || !*svalue)
 		return 1;
 
-	if (!backend->is_module((gchar *)module))
+	if (!main_is_module((gchar *)module))
 		module = settings.MainWindowModule;
 
 	if (strlen(passage) < 5)
 		passage = settings.currentverse;
+
+	if (open_author_commentary(stype, clicked, module, passage)) {
+		g_string_free(str, TRUE);
+		return 1;
+	}
+
+	if (!dynamic_cast<BackEnd *>(&main_backend_for(module))) {
+		BibleKeyInfo info;
+		auto &reader = main_backend_for(module);
+		if (reader.resolveKey(module, passage, info)) {
+			const auto content = reader.getVerseContent(module, info.reference, true);
+			for (std::size_t i = 0; i < content.footnotes.size(); ++i) {
+				const auto &note = content.footnotes[i];
+				if (note.id != svalue && note.label != svalue) continue;
+				if (clicked) main_show_neutral_footnote(module, passage, i);
+				else {
+					gchar *escaped = g_markup_escape_text(note.body.c_str(), -1);
+					main_information_viewer(module, escaped, svalue, "showNote", stype, NULL, NULL);
+					g_free(escaped);
+				}
+				break;
+			}
+			for (std::size_t i = 0; i < content.crossReferences.size(); ++i) {
+				const auto &ref = content.crossReferences[i];
+				if (ref.label != svalue) continue;
+				if (clicked) main_show_neutral_crossref(module, passage, i);
+				else {
+					gchar *escaped = g_markup_escape_text(ref.displayText.c_str(), -1);
+					main_information_viewer(module, escaped, svalue, "showNote", stype, NULL, NULL);
+					g_free(escaped);
+				}
+				break;
+			}
+		}
+		g_string_free(str, TRUE);
+		return 1;
+	}
 
 	//
 	// if we are asking for a note/xref in n:0,
@@ -464,29 +519,22 @@ static gint show_note(const gchar *module, const gchar *passage,
 		break;
 	}
 	case NOTE_ACTION_AUTHOR_COMMENTARY: {
-		/* An editorial note marker the user actually clicked: open
-		 * the author commentary on that verse. The whole verse is
-		 * what gets opened -- see the note below on why there is no
-		 * per-note anchor to honour.
-		 *
-		 * Editions with no author commentary module fall back to the
-		 * previewer, i.e. to what hovering the same marker already
-		 * shows. Doing nothing (the previous behaviour) is what left
-		 * a click looking broken and invited the second click that
-		 * GTK then delivered as a double click. */
-		if (!main_show_author_commentary(module, passage)) {
-			BibleFootnote footnote;
-			if (backend->getCurrentEntryFootnote(module, svalue,
-							     footnote) &&
-			    !footnote.body.empty()) {
-				main_information_viewer((gchar *)module,
-							(gchar *)footnote.body.c_str(),
-							(gchar *)svalue,
-							"showNote",
-							(gchar *)stype,
-							NULL,
-							NULL);
-			}
+		/* No author commentary opened above (the edition has none):
+		 * fall back to the previewer, i.e. to what hovering the same
+		 * marker already shows. Doing nothing (the previous
+		 * behaviour) is what left a click looking broken and invited
+		 * the second click that GTK then delivered as a double
+		 * click. */
+		BibleFootnote footnote;
+		if (backend->getCurrentEntryFootnote(module, svalue, footnote) &&
+		    !footnote.body.empty()) {
+			main_information_viewer((gchar *)module,
+						(gchar *)footnote.body.c_str(),
+						(gchar *)svalue,
+						"showNote",
+						(gchar *)stype,
+						NULL,
+						NULL);
 		}
 		break;
 	}
@@ -579,7 +627,7 @@ static gint show_ref(const gchar *module, const gchar *list, gboolean clicked)
 	if (!clicked)
 		return 1;
 
-	if (!backend->is_module(module))
+	if (!main_is_module((char *)module))
 		module = settings.MainWindowModule;
 	main_display_verse_list_in_sidebar(settings.currentverse,
 					   (gchar *)module,
@@ -1106,9 +1154,33 @@ gint main_url_handler(const gchar *url, gboolean clicked)
 		} else if (!strcmp(action, "showNeutralFootnote") || !strcmp(action, "showNeutralCrossref")) {
 			if (HAS_URL_PARAM(module) && HAS_URL_PARAM(passage) && HAS_URL_PARAM(svalue)) {
 				gchar *end = NULL; guint64 sequence = g_ascii_strtoull(svalue, &end, 10);
+				const bool footnote = !strcmp(action, "showNeutralFootnote");
 				if (end && !*end && sequence <= G_MAXSIZE && clicked) {
-					if (!strcmp(action, "showNeutralFootnote")) main_show_neutral_footnote(module, passage, (size_t)sequence);
+					/* As a SWORD note: a clicked editorial note opens
+					 * the author commentary when the edition has one. */
+					if (footnote && open_author_commentary("n", clicked, module, passage))
+						;
+					else if (footnote) main_show_neutral_footnote(module, passage, (size_t)sequence);
 					else main_show_neutral_crossref(module, passage, (size_t)sequence);
+					retval = 1;
+				} else if (end && !*end && sequence <= G_MAXSIZE) {
+					/* Hovered: the note in the previewer, as SWORD's. */
+					BibleKeyInfo info;
+					auto &reader = main_backend_for(module);
+					if (reader.resolveKey(module, passage, info)) {
+						const auto content = reader.getVerseContent(module, info.reference, true);
+						std::string body;
+						if (footnote && sequence < content.footnotes.size())
+							body = content.footnotes[sequence].body;
+						else if (!footnote && sequence < content.crossReferences.size())
+							body = content.crossReferences[sequence].displayText;
+						if (!body.empty()) {
+							gchar *escaped = g_markup_escape_text(body.c_str(), -1);
+							main_information_viewer(module, escaped, svalue, "showNote",
+									      footnote ? "n" : "x", NULL, NULL);
+							g_free(escaped);
+						}
+					}
 					retval = 1;
 				}
 			}
@@ -1175,15 +1247,12 @@ gint main_url_handler(const gchar *url, gboolean clicked)
 		else if (!strcmp(action, "showUserNote")) {
 			if (HAS_URL_PARAM(passage) && HAS_URL_PARAM(svalue)) {
 				// need localized key, not the osisref that we've got.
-				ModMap::iterator it = backend->get_mgr()->Modules.find(module);
-				if (it != backend->get_mgr()->Modules.end()) {
-					SWModule *m = (*it).second;
-					VerseKey *vk = (VerseKey *)m->getKey();
-					*vk = passage;
+                BibleKeyInfo note_key;
+                if (module && main_backend_for(module).resolveKey(module, passage, note_key)) {
 
 					main_information_viewer(module,
 								(gchar *)svalue,
-								(gchar *)m->getKeyText(),
+								(gchar *)note_key.key.c_str(),
 								"showUserNote",
 								(gchar *)"u",
 								NULL,
@@ -1196,15 +1265,12 @@ gint main_url_handler(const gchar *url, gboolean clicked)
 		else if (!strcmp(action, "showBookmarkSource")) {
 			if (HAS_URL_PARAM(passage) && HAS_URL_PARAM(svalue)) {
 				// need localized key, not the osisref that we've got.
-				ModMap::iterator it = backend->get_mgr()->Modules.find(module);
-				if (it != backend->get_mgr()->Modules.end()) {
-					SWModule *m = (*it).second;
-					VerseKey *vk = (VerseKey *)m->getKey();
-					*vk = passage;
+                BibleKeyInfo note_key;
+                if (module && main_backend_for(module).resolveKey(module, passage, note_key)) {
 
 					main_information_viewer(module,
 								(gchar *)svalue,
-								(gchar *)m->getKeyText(),
+								(gchar *)note_key.key.c_str(),
 								"showBookmark",
 								(gchar *)"b",
 								NULL,

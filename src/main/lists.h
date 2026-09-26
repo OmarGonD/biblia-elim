@@ -63,6 +63,7 @@ struct _module_lists
 
 GList *get_list(gint type);
 void main_init_lists(void);
+gboolean main_sword_has_commentary(void);
 void main_shutdown_list(void);
 
 #ifdef __cplusplus

@@ -25,6 +25,8 @@
 #include "main/navbar_versekey.h"
 #include "main/settings.h"
 #include "main/sword.h"
+#include "main/parallel_view.h"
+#include "main/module_dialogs.h"
 #include "main/url.hh"
 #include "main/xml.h"
 #include "xiphos_html/xiphos_html.h"
@@ -330,10 +332,19 @@ check_bookmark_routes(void)
 	check(current_verse_is("3:16"),
 	      "module-qualified bookmark did not navigate");
 
+	/* A verse the fixture Bible has: this checks the module-less route,
+	 * not what happens to a missing verse (below). */
 	main_url_handler("passagestudy.jsp?action=showBookmark&type=currentTab&"
-			 "value=John%203:15&module=", TRUE);
-	check(current_verse_is("3:15"),
+			 "value=John%203:17&module=", TRUE);
+	check(current_verse_is("3:17"),
 	      "module-less bookmark did not navigate in a KJV Bible");
+
+	/* The fixture Bible has no John 3:15: navigation stays in the
+	 * chapter, on the nearest verse it has, never the start of the
+	 * Bible. */
+	main_display_bible(settings.MainWindowModule, "John 3:15");
+	check(current_verse_is("3:16"),
+	      "a missing verse did not land on the nearest verse of its chapter");
 	check(warning_dialogs() == 0,
 	      "module-less bookmark warned although KJV maps to KJV");
 	navigation_checks += 3;
@@ -604,6 +615,30 @@ check_menu_bar(void)
 	      "read aloud is not in the Lectura menu");
 }
 
+static void
+check_sqlite_parallel(void)
+{
+    gchar **saved = settings.parallel_list;
+    gboolean docked = settings.dockedInt;
+    gchar *list[] = { "FakeBible", "OtherBible", NULL };
+    settings.parallel_list = list;
+    settings.dockedInt = TRUE;
+    main_display_bible(settings.MainWindowModule, "John 3:16");
+    check(!g_strcmp0(settings.cvparallel, settings.currentverse),
+          "SQLite parallel follows current passage");
+    gchar *html = main_parallel_html();
+    check(html != NULL, "SQLite parallel chapter generated");
+    if (html) {
+        check(strstr(html, "OtherBible") != NULL, "SQLite-only second column");
+        check(strstr(html, "For God so loved the world.") != NULL, "parallel verse body");
+        check(strstr(html, "God sent his Son to save the world.") != NULL, "parallel chapter verse count");
+        check(strstr(html, "SQLite parallel heading") != NULL, "parallel neutral heading");
+    }
+    g_free(html);
+    settings.parallel_list = saved;
+    settings.dockedInt = docked;
+}
+
 static gboolean
 exercise_application(gpointer unused)
 {
@@ -652,8 +687,35 @@ exercise_application(gpointer unused)
 		check_note_store();
 		check_foreign_verse_note();
 		check_notes_features();
+        gchar *status = main_backend_status();
+        check(strstr(status, "SQLite") != NULL && strstr(status, "SWORD") != NULL,
+              "mixed backend status missing");
+        g_free(status);
 		check_menu_bar();
 		check_word_cloud();
+        check_sqlite_parallel();
+		/* Keys of a Bible only SQLite holds resolve through SQLite, even
+		 * with SWORD running beside it for commentaries. */
+		{
+			gchar *valid = main_get_valid_key("OtherBible", "John 3:17");
+			check(valid && strstr(valid, "3:17"), "SQLite-only key resolves through SQLite");
+			g_free(valid);
+			check(main_is_Bible_key("OtherBible", "John 3:17"),
+			      "SQLite-only Bible key recognised");
+		}
+		GList *references = main_parse_verse_list("FakeBible", "John 3:16-17", "John 3:16");
+		check(g_list_length(references) == 2, "SQLite sidebar range resolves every verse");
+		g_list_free_full(references, g_free);
+		DIALOG_DATA *dialog = main_dialogs_open("OtherBible", "John 3:16", FALSE);
+		check(dialog != NULL, "SQLite-only Bible opens in a separate window");
+		if (dialog) {
+			gchar url[] = "sword://OtherBible/John 3:17";
+			main_dialogs_url_handler(dialog, url, TRUE);
+			const gchar *osis = main_get_osisref_from_key("OtherBible", dialog->key);
+			check(!g_strcmp0(osis, "John.3.17"), "SQLite dialog navigation follows its own module");
+			g_free((gpointer)osis);
+			gtk_widget_destroy(dialog->dialog);
+		}
 	} else {
 		check(FALSE, "smoke fixture did not provide a Bible module");
 	}

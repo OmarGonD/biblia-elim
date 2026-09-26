@@ -58,5 +58,49 @@ permite instalar archivos `.sqlite`, importar directorios USFM y eliminar
 módulos administrados; las copias se validan y se instalan atómicamente.
 También se puede seleccionar un directorio explícito con
 `--backend=sqlite:/ruta` o forzar compatibilidad SWORD con `--backend=sword`.
-Si no hay módulos SQLite válidos, el arranque utiliza SWORD como fallback.
+La ruta antigua `biblia_elim/modules` se migra al iniciar con la ruta predeterminada:
+solo se trasladan módulos válidos y nunca se reemplaza un ID ya instalado. Los
+archivos inválidos o en conflicto permanecen en la ruta antigua y se muestra un aviso.
+El gestor también respeta `--backend=sqlite:/ruta` y `BIBLIA_ELIM_SQLITE_MODULES`.
+Si no hay módulos SQLite válidos, el arranque utiliza SWORD como respaldo,
+con un aviso no bloqueante en la barra de estado. La barra y **Ayuda > Acerca de**
+indican el backend activo.
 El ejecutable `biblia-usfm-import` y la interfaz comparten el mismo importer.
+
+**Módulos SQLite > Convertir Biblia SWORD…** convierte Biblias OSIS instaladas
+sin `mod2osis`: lee el OSIS con libsword y utiliza el importador neutral y el
+escritor SQLite v1. Conserva el ID exacto del módulo, `Lang` y `Versification`
+(KJV cuando falta esa clave, como SWORD), sin reemplazar una copia SQLite ya
+instalada. La conversión es automática: al instalar Biblias SWORD (instalador
+de Biblias o gestor avanzado) y al iniciar la aplicación (primer arranque o
+Biblias instaladas por fuera), toda Biblia SWORD convertible sin copia SQLite se
+convierte y el lector pasa a SQLite en la misma sesión, sin reiniciar. La
+conversión corre en segundo plano, en un proceso hijo por Biblia
+(`biblia-elim --convert-sword ID DIR`, porque SWORD no es seguro entre hilos),
+con una barra de progreso en la barra de estado; mientras tanto se sigue leyendo
+con SWORD. Al salir se espera a que termine la Biblia en curso y las demás se
+convierten en el siguiente inicio. Con
+`--backend=sword` no se convierte nada. Las entradas SWORD dañadas solo al
+final (carácter UTF-8 o etiqueta cortados, elementos sin cerrar, como en SpaRVG
+Mt 9:6 o Tisch Jn 8:53) se reparan sin inventar texto y se anotan en el
+registro; cualquier otro daño hace fallar la conversión. Una conversión fallida
+se anota en `.sword-conversion-failed` dentro del directorio de módulos y no se
+reintenta sola (sí cuando mejora el conversor); puede repetirse desde
+**Convertir Biblia SWORD…**. La conversión
+mantiene el original SWORD y no modifica notas, marcadores ni sesiones.
+Las Biblias con otros formatos internos o sin desbloquear siguen en SWORD y
+siguen apareciendo en la lista de Biblias también en modo SQLite.
+Las copias siguen a su módulo SWORD: si cambia su versión (o mejora el
+conversor) se vuelven a convertir y se reemplazan atómicamente, y al
+desinstalar la Biblia SWORD se borra su copia. Los módulos importados o
+instalados por otra vía nunca se tocan. La conversión conserva las palabras de
+Cristo (en rojo según la opción del módulo), las palabras añadidas (cursiva),
+el nombre divino (versalitas), las cursivas y negritas de la edición, los
+párrafos (¶) y la lectura principal de las variantes textuales, sin cambiar el
+esquema SQLite v1.
+
+Las Biblias SQLite se muestran con el mismo panel que las SWORD (herramientas de
+versículo, notas, marcadores, resaltados, interlineal, ventana de capítulos).
+Las comprobaciones completas de cada módulo (referencias, Strong, morfología) se
+recuerdan en `.validation-cache` dentro del directorio de módulos, por archivo;
+un módulo reemplazado se vuelve a comprobar.

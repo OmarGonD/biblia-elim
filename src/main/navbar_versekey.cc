@@ -44,6 +44,7 @@
 #endif
 
 #include "backend/bible_backend.h"
+#include "main/backend_access.h"
 
 #include "gui/debug_glib_null.h"
 
@@ -54,10 +55,6 @@ static DIALOG_DATA *c_dialog;
 static EDITOR *c_editor;
 static gint c_type;
 
-static BibleBackend &navbar_backend()
-{
-	return *bible_backend;
-}
 
 /******************************************************************************
  * Name
@@ -94,7 +91,7 @@ void main_navbar_versekey_spin_book(NAVBAR_VERSEKEY navbar, int direction)
 		return;
 
 	BibleKeyInfo info;
-	if (!navbar_backend().resolveKey(navbar.module_name->str,
+	if (!main_backend_for(navbar.module_name->str).resolveKey(navbar.module_name->str,
 					 navbar.key->str, info))
 		return;
 	/* The next or previous book in the module's list, by its place
@@ -102,14 +99,14 @@ void main_navbar_versekey_spin_book(NAVBAR_VERSEKEY navbar, int direction)
 	 * an id is not a place (a Vulgate Bible puts Tobit after Nehemiah),
 	 * and this also steps from Malachi to Matthew. */
 	const int old_testament = static_cast<int>(
-		navbar_backend().bookNames(navbar.module_name->str, 1).size());
+		main_backend_for(navbar.module_name->str).bookNames(navbar.module_name->str, 1).size());
 	const int total = old_testament + static_cast<int>(
-		navbar_backend().bookNames(navbar.module_name->str, 2).size());
+		main_backend_for(navbar.module_name->str).bookNames(navbar.module_name->str, 2).size());
 	const int target = info.bookIndex + (direction ? 1 : -1);
 	if (target < 1 || target > total)
 		return;
 	const int testament = target > old_testament ? 2 : 1;
-	tmpkey = g_strdup(navbar_backend().setBook(
+	tmpkey = g_strdup(main_backend_for(navbar.module_name->str).setBook(
 		navbar.module_name->str, info.key, testament,
 		testament == 2 ? target - old_testament : target).c_str());
 	gtk_entry_set_text(GTK_ENTRY(navbar.lookup_entry), tmpkey);
@@ -145,11 +142,11 @@ void main_navbar_versekey_spin_chapter(NAVBAR_VERSEKEY navbar, int direction)
 		return;
 
 	BibleKeyInfo info;
-	if (!navbar_backend().resolveKey(navbar.module_name->str,
+	if (!main_backend_for(navbar.module_name->str).resolveKey(navbar.module_name->str,
 					 navbar.key->str, info))
 		return;
 	chapter = info.reference.chapter + (direction ? 1 : -1);
-	tmpkey = g_strdup(navbar_backend().setChapter(
+	tmpkey = g_strdup(main_backend_for(navbar.module_name->str).setChapter(
 		navbar.module_name->str, info.key, chapter).c_str());
 	gtk_entry_set_text(GTK_ENTRY(navbar.lookup_entry), tmpkey);
 	gtk_widget_activate(navbar.lookup_entry);
@@ -266,7 +263,7 @@ static void on_nt_book_menu_select(GtkMenuItem *menuitem, gpointer user_data)
 		return;
 
 	if (entry) {
-		std::string selected = navbar_backend().setBook(
+		std::string selected = main_backend_for(name).setBook(
 			name, key, 2, book + 1);
 		if (!selected.empty()) {
 			gtk_entry_set_text(GTK_ENTRY(entry), selected.c_str());
@@ -331,7 +328,7 @@ static void on_ot_book_menu_select(GtkMenuItem *menuitem, gpointer user_data)
 		return;
 
 	if (entry) {
-		std::string selected = navbar_backend().setBook(
+		std::string selected = main_backend_for(name).setBook(
 			name, key, 1, book + 1);
 		if (!selected.empty()) {
 			gtk_entry_set_text(GTK_ENTRY(entry), selected.c_str());
@@ -395,7 +392,7 @@ static void on_chapter_menu_select(GtkMenuItem *menuitem, gpointer user_data)
 	if (c_type == NB_MAIN && main_interlineal_bloquea_navegacion())
 		return;
 	if (entry) {
-		std::string selected = navbar_backend().setChapter(name, key, chapter);
+		std::string selected = main_backend_for(name).setChapter(name, key, chapter);
 		if (!selected.empty()) {
 			gtk_entry_set_text(GTK_ENTRY(entry), selected.c_str());
 			gtk_widget_activate(entry);
@@ -458,7 +455,7 @@ static void on_verse_menu_select(GtkMenuItem *menuitem, gpointer user_data)
 	if (c_type == NB_MAIN && main_interlineal_bloquea_navegacion())
 		return;
 	if (entry) {
-		std::string selected = navbar_backend().setVerse(name, key, verse);
+		std::string selected = main_backend_for(name).setVerse(name, key, verse);
 		if (!selected.empty()) {
 			gtk_entry_set_text(GTK_ENTRY(entry), selected.c_str());
 			gtk_widget_activate(entry);
@@ -494,7 +491,7 @@ void main_navbar_versekey_set(NAVBAR_VERSEKEY navbar, const char *key)
 	// kept a record of whether that key made sense.
 	if (navbar.valid_key) {
 		BibleKeyInfo info;
-		if (!navbar_backend().resolveKey(navbar.module_name->str, key, info))
+		if (!main_backend_for(navbar.module_name->str).resolveKey(navbar.module_name->str, key, info))
 			return;
 
 		tmpbuf = g_strdup_printf("<b>%s</b>", info.bookName.c_str());
@@ -1030,7 +1027,7 @@ static void numpicker_popup(NAVBAR_VERSEKEY navbar, gint nb_type,
 		return;
 
 	BibleKeyInfo info;
-	if (!navbar_backend().resolveKey(navbar.module_name->str,
+	if (!main_backend_for(navbar.module_name->str).resolveKey(navbar.module_name->str,
 					 navbar.key->str, info))
 		return;
 	max = verse ? info.verseCount : info.chapterCount;
@@ -1444,23 +1441,23 @@ void main_versekey_popup_book(NAVBAR_VERSEKEY navbar, gint nb_type,
 		return;
 
 	BibleKeyInfo current_info;
-	if (!navbar_backend().resolveKey(navbar.module_name->str,
+	if (!main_backend_for(navbar.module_name->str).resolveKey(navbar.module_name->str,
 					 navbar.key->str, current_info))
 		return;
 	current_book = g_strdup(current_info.bookName.c_str());
 
 	p = bookpicker_new(anchor);
 
-	if (!navbar_backend().bookNames(navbar.module_name->str, 1).empty()) {
-		std::vector<std::string> books = navbar_backend().bookNames(
+	if (!main_backend_for(navbar.module_name->str).bookNames(navbar.module_name->str, 1).empty()) {
+		std::vector<std::string> books = main_backend_for(navbar.module_name->str).bookNames(
 			navbar.module_name->str, 1);
 		for (i = 0; i < (int)books.size(); i++) {
 			bookpicker_add(p, books[i].c_str(), 1, i,
 				       !strcmp(books[i].c_str(), current_book));
 		}
 	}
-	if (!navbar_backend().bookNames(navbar.module_name->str, 2).empty()) {
-		std::vector<std::string> books = navbar_backend().bookNames(
+	if (!main_backend_for(navbar.module_name->str).bookNames(navbar.module_name->str, 2).empty()) {
+		std::vector<std::string> books = main_backend_for(navbar.module_name->str).bookNames(
 			navbar.module_name->str, 2);
 		for (i = 0; i < (int)books.size(); i++) {
 			bookpicker_add(p, books[i].c_str(), 2, i,

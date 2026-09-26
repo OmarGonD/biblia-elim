@@ -8923,6 +8923,431 @@
       sword_locale); versification_transition ok (0 skipped),
       verse_navigation_sword 0 failures, sword_backend_key_lifecycle PASS.
 
+- [x] SQLITE-PATH-101 Unify SQLite module paths and expose the active backend
+  - Status: DONE
+  - Description:
+    Use one path in code and README; migrate the legacy path without losing modules. Show the active backend and a nonblocking SWORD fallback notice.
+  - Validation:
+    Regression evidence required. For shared-layer changes run osis_importer_test,
+    osis_semantic_equivalence_test, osis_property_test, osis_operational_test,
+    usfm_importer_test, sqlite_bible_backend_test, bible_backend_contract_test
+    (compare counters to a pre-change baseline), versification_transition_test,
+    sqlite_versification_test, sword_locale_test and full CTest.
+
+  - Evidence (2026-09-26):
+    - Startup and manager use biblia-elim/modules; explicit paths are shared.
+      Legacy migration validates modules, preserves collisions/invalid files,
+      installs atomically without replacement and removes only migrated files.
+      Regression sqlite_module_manager_test PASS (now self-contained).
+    - Status bar and About expose mixed/SWORD mode and persistent fallback notice;
+      fallback logs use g_message instead of a blocking warning dialog.
+    - Build PASS; sword_locale_test and sqlite_versification_test PASS.
+      Baseline neutral logs: build/sqlite-transition-evidence/baseline-*test.log;
+      semantic offset_rows_checked=54, property offset_rows_checked=72.
+  - Blocked validation:
+    - CTest gtk_lifecycle_smoke reports skipped=no-usable-xvfb in the sandbox.
+      The escalation request for CTest/Xvfb was interrupted by the requester,
+      who subsequently requested no further permission prompts. The actual
+      graphical regression is unverified; do not count the skip as PASS.
+    - Requires an execution environment able to start Xvfb (or an authorized
+      graphical test run). Full path suite: 65 PASS, 2 skipped (smoke/author commentary),
+      1 failure (nube_canvas_test: cannot open display :99), 68 total;
+      /tmp/biblia-sqlite-transition/path-full.log.
+  - Evidence (2026-09-26, graphical validation now available):
+    - The display is usable here: gtk_lifecycle_smoke runs (not skipped) and
+      PASSES, gtk_lifecycle_smoke_failures=0 checks=348, including the SQLite
+      assertions this task added; author_commentary_probe PASS.
+    - Full CTest 71/71 PASS (after SQLITE-AUDIT-101 fixed the two failures
+      introduced by its url.cc/pulpito.cc edits).
+
+- [x] SQLITE-CONVERT-101 Convert installed SWORD Bibles from the application
+  - Status: DONE
+  - Description:
+    Preserve module IDs, Lang and Versification from SWORD configuration. Prefer libsword OSIS extraction; import through the neutral writer and install atomically. Offer conversion after SWORD installation. Compare every verse of SpaPlatense, TorresAmat, NacarColunga and SpaRV1909 with SWORD, classifying identical, note/space-only, headings and individually explained other differences.
+  - Validation:
+    Regression evidence required. For shared-layer changes run osis_importer_test,
+    osis_semantic_equivalence_test, osis_property_test, osis_operational_test,
+    usfm_importer_test, sqlite_bible_backend_test, bible_backend_contract_test
+    (compare counters to a pre-change baseline), versification_transition_test,
+    sqlite_versification_test, sword_locale_test and full CTest.
+
+  - Evidence (2026-09-26):
+    - Independent libsword manager exports original OSIS verse entries, including
+      linked slots, to importOsis -> neutral writer -> atomic module installation.
+      Exact IDs, Lang and Versification retained; no external mod2osis.
+      Existing SQLite IDs are rejected without replacement; failed temporary
+      exports/imports are cleaned. Original SWORD modules remain untouched.
+    - Converted into /tmp/biblia-sqlite-transition/mods using the application API:
+      SpaPlatense 73 books/35792 verses, TorresAmat 73/34122,
+      NacarColunga 73/31102, SpaRV1909 66/31084; RV1909 390759 Strong words.
+    - Exhaustive sword_bible_conversion_test, every nonempty SWORD entry:
+      module | identical | note/space only | title -> heading | other | missing
+      SpaPlatense | 19636 | 16156 | 0 | 0 | 0
+      TorresAmat | 32653 | 1469 | 0 | 0 | 0
+      NacarColunga | 29603 | 1436 | 63 | 0 | 0
+      SpaRV1909 | 29770 | 1314 | 0 | 0 | 0
+      Here identical means byte-identical (before whitespace normalization);
+      note/space removes only Unicode whitespace and SWORD '*' note markers.
+      Words' exact substrings/bounds, spans and note/crossref offsets checked.
+    - Conversion chooser added to SQLite manager; SWORD installer exposes that
+      manager and offers conversion after successful installation. Work runs
+      on a separate task while its modal progress dialog processes GTK events.
+    - Build and all ten requested direct regressions PASS; neutral counters
+      match baseline (semantic offsets 54, property offsets 72); logs under
+      build/sqlite-transition-evidence/audit-* and conversion-and-comparison.log.
+  - Blocked validation:
+    - The conversion UI and post-install offer require GTK/Xvfb, unavailable in
+      the sandbox as recorded in SQLITE-PATH-101. No graphical PASS is claimed.
+      Requires an environment capable of running the smoke. Full CTest pending.
+  - Evidence (2026-09-26, graphical validation now available):
+    - The display is usable here: gtk_lifecycle_smoke runs (not skipped) and
+      PASSES, gtk_lifecycle_smoke_failures=0 checks=348, including the SQLite
+      assertions this task added; author_commentary_probe PASS.
+    - Full CTest 71/71 PASS (after SQLITE-AUDIT-101 fixed the two failures
+      introduced by its url.cc/pulpito.cc edits).
+    - Conversion and post-install conversion exercised in the real app (see
+      SQLITE-DEFAULT-101): 14 SWORD Bibles converted, background progress bar,
+      live switch to SQLite; exhaustive comparison of all 14 in
+      SQLITE-RENDER-101.
+
+- [x] SQLITE-PARALLEL-101 Read and synchronize parallel Bibles through the neutral backend
+  - Status: DONE
+  - Description:
+    Use the neutral backend for control module, verse counts, cell reference conversion and text with headings. Synchronize follow_display in SQLite mode and cover it in smoke.
+  - Validation:
+    Regression evidence required. For shared-layer changes run osis_importer_test,
+    osis_semantic_equivalence_test, osis_property_test, osis_operational_test,
+    usfm_importer_test, sqlite_bible_backend_test, bible_backend_contract_test
+    (compare counters to a pre-change baseline), versification_transition_test,
+    sqlite_versification_test, sword_locale_test and full CTest.
+
+  - Evidence (2026-09-26):
+    - Parallel control module, chapter limits, verse existence, cell keys and
+      headings now use BibleBackend; SWORD keeps its separate render options.
+      Cross-backend routing is exposed in main/backend_access.h. Render headers
+      have a neutral optional accessor, preserving SWORD stylesheet behavior.
+      follow_display now synchronizes parallel panes also in SQLite mode.
+    - Added SQLite-only two-module smoke assertions for current-verse following,
+      chapter body, second column and heading. Build PASS; all ten requested
+      direct regression binaries PASS and counters equal baseline.
+  - Blocked validation:
+    - Smoke cannot execute without Xvfb, as in SQLITE-PATH-101. Requires a working
+      graphical test environment. Full CTest results pending below; no graphical PASS claimed.
+  - Evidence (2026-09-26, graphical validation now available):
+    - The display is usable here: gtk_lifecycle_smoke runs (not skipped) and
+      PASSES, gtk_lifecycle_smoke_failures=0 checks=348, including the SQLite
+      assertions this task added; author_commentary_probe PASS.
+    - Full CTest 71/71 PASS (after SQLITE-AUDIT-101 fixed the two failures
+      introduced by its url.cc/pulpito.cc edits).
+    - check_sqlite_parallel (two SQLite-only modules: following, chapter body,
+      second column, heading) is among the 348 passing smoke checks.
+
+- [x] SQLITE-AUDIT-101 Audit every Bible read through legacy backend pointers
+  - Status: DONE
+  - Description:
+    Audit backend-> and backend_p-> Bible reads including cloud, export, interlinear, sidebar, book navbar, URLs, Strong and reading synchronization. Route them through neutral/per-module APIs with SQLite smoke or regression coverage for each.
+  - Validation:
+    Regression evidence required. For shared-layer changes run osis_importer_test,
+    osis_semantic_equivalence_test, osis_property_test, osis_operational_test,
+    usfm_importer_test, sqlite_bible_backend_test, bible_backend_contract_test
+    (compare counters to a pre-change baseline), versification_transition_test,
+    sqlite_versification_test, sword_locale_test and full CTest.
+
+  - Evidence (2026-09-26, continued):
+    - Per-module neutral routing now covers word-cloud reads, passage export,
+      Compare, Strong detail, interlinear words/occurrences, sidebar references,
+      verse-key navigation, pulpit text, URL previews and separate Bible windows.
+      Text/type/description helpers also route compatibility dictionaries and
+      commentaries to SWORD instead of querying only the SQLite library.
+    - sqlite_reader_tools_test PASS: SQLite-only fixture, cloud count 2,
+      twenty export combinations plus a one-verse range regression.
+    - sqlite_interlinear_test PASS with legacy backend=NULL: Greek token and
+      Strong, two occurrences, pulpit range and Vulgate reference parsing.
+    - Application build and author_commentary_header_test PASS. All ten required
+      direct regression binaries PASS; audit-counter-comparison.txt records
+      unchanged baseline counters, including semantic 54, property 72,
+      backend cases 12, contract cases 2, v11n skipped cases 0.
+    - Extended SQLite smoke covers parallel content/following, reference ranges
+      and a SQLite-only separate window/navigation. Smoke still SKIPPED because
+      no usable Xvfb is available; none of these assertions is claimed as PASS.
+    - Persistent evidence: build/sqlite-transition-evidence/ (ignored build
+      artifacts). Baseline was recreated from git archive HEAD after temporary
+      files disappeared, without touching working-tree edits. The four real
+      conversions were regenerated outside the repository; their exhaustive
+      counts still match the conversion table above (other=0, missing=0).
+  - Remaining:
+    - Finish the legacy-read audit (including book/chapter introductions and
+      bookmark rendering), complete per-consumer regression coverage and run
+      the graphical checks. Full CTest execution is still in progress.
+    - This task is not DONE. Rendering parity and changing the default remain
+      pending; SQLite has not been made the default.
+  - Evidence (2026-09-26, completion):
+    - Two regressions of this task fixed. sqlite_interlinear_test: pulpit and
+      verse-list parsing read Vulgate Bibles with KJV numbering because
+      BibleBackend::versification() returns SWORD's name ("Vulg") and
+      versificationSystemName() only knew the stored form ("vulg"); it now
+      accepts both, case-insensitively, and pulpito's key uses copyFrom()
+      (VerseKey::operator= copies only the position). New assertion with
+      "Vulg". author_commentary_panel_test: the SQLite branch of url.cc had
+      a second main_show_author_commentary() call; one dispatch point now
+      precedes the backend split, the switch keeps only the preview fallback.
+    - Remaining SQLite-only lookups made per module: main_display_bible's
+      guard (a SWORD-only Bible listed in SQLite mode can be opened),
+      main_getText/main_getShortText/main_update_nav_controls (their
+      `!backend` branches were dead since SWORD always runs beside SQLite),
+      main_get_valid_key, BibleSync module lookup, the reading-window
+      recentre, remember_displayed_bible, module_dialogs show_ref.
+    - Remaining backend->/backend_p-> uses are SWORD-only by design: general
+      books (navbar_book, sword_treekey, sidebar tree), dictionaries and
+      lexicons (url.cc Strong/morph modules), render options, module
+      management, and url.cc's SWORD path after the neutral branch returns.
+    - New smoke checks (SQLite-only OtherBible with SWORD running): key
+      resolves through SQLite, main_is_Bible_key. Smoke 348 checks, 0 failed.
+    - Full CTest 71/71 PASS; neutral regressions identical to the baseline.
+
+- [x] SQLITE-RENDER-101 Verify SQLite rendering against the installed SWORD Bibles
+  - Status: DONE
+  - Description:
+    Compare red letters, footnotes, cross-references, Strong/morphology, psalm titles and paragraphs. Fix neutral deficiencies without source-specific workarounds or changing schema v1.
+  - Validation:
+    Regression evidence required. For shared-layer changes run osis_importer_test,
+    osis_semantic_equivalence_test, osis_property_test, osis_operational_test,
+    usfm_importer_test, sqlite_bible_backend_test, bible_backend_contract_test
+    (compare counters to a pre-change baseline), versification_transition_test,
+    sqlite_versification_test, sword_locale_test and full CTest.
+
+  - Evidence (2026-09-26):
+    - Method: sword_bible_conversion_test <dir> converts and compares every
+      nonempty entry of the reader's 14 SWORD Bibles (list overridable with
+      BIBLIA_ELIM_CONVERSION_IDS); new PARITY line counts, per feature, what
+      SWORD's OSIS carries and what the SQLite copy keeps.
+    - Deficiencies found and fixed in the neutral path (schema v1 unchanged:
+      verse_spans.style is text; readers ignore unknown styles):
+      words of Christ were lost (KJV 2026, SpaRVG 2033, SpaTDP 1972 verses);
+      added words not italic; divine name not small caps; TR joined both
+      readings of 208 variants; KJV's 2970 paragraph marks lost; Vulgate
+      speaker titles («Sponsus») merged into verse text; ranges shifted
+      wrongly after SpaRVG's superscription promotion (conversion failed).
+      OSIS importer: <q who="Jesus"> (container and sID/eID milestones across
+      verses), <transChange type="added">, <divineName> (also inside <w>),
+      <seg type="x-variant"> primary reading only, <milestone type="x-p">,
+      <title subType="x-speaker"> as heading. New BibleTextStyle values
+      WordsOfChrist/DivineName, persisted as words_of_christ/divine_name.
+      Renderer: <i>, <font color="red"> (module option "Words of Christ in
+      Red"; parallel view uses its own), L<small>ORD</small>; no spans gives
+      byte-identical output. Chapter view shows a pilcrow on paragraph verses
+      as SWORD does.
+    - Result, all 14: other=0, missing=0.
+      module | identical | note/space | title->heading | qere | divine | cantillation
+      SpaPlatense 19636|16156|0|0|0|0; TorresAmat 32653|1469|0|0|0|0;
+      NacarColunga 29603|1436|63|0|0|0; SpaRV1909 29770|1314|0|0|0|0;
+      SpaRVG 30960|18|124|0|0|0 (8 repaired); Tisch 6952|937|0|6|0|0 (1 rep.);
+      KJV 22257|3023|0|0|5822|0; OSHB 0|0|0|0|0|23213; Peshitta 7696|260;
+      SpaRV 29918|1178; SpaTDP 1844|3373; TR 7446|511; VulgClementine
+      8733|27076; WLC 0|0|0|0|0|23213.
+      Parity (sqlite/sword): words of Christ KJV 2026/2026, SpaRVG 2033/2033,
+      SpaTDP 1972/1972; paragraphs KJV 2970/2970; footnotes equal in all
+      (SpaPlatense 13085, KJV 6959, OSHB 4499, SpaTDP 1487); morphology Tisch,
+      OSHB, TR equal; Strong equal except words with no text (<w lemma/>:
+      KJV 6331, SpaTDP 4358, untranslated particles) and TR's 376 secondary-
+      reading words; titles equal except those kept as text as SWORD reads
+      them (SpaRV1909 124) and SpaRVG's quoted ones promoted (124).
+      Explained categories: divine = SWORD's plain text upper-cases LORD;
+      cantillation = SWORD hides Hebrew accents by default (and shows WLC Ps
+      27:13's upper dots as lower ones); qere = SWORD prints variant.Qere as
+      "<Gform>". Cross-references: none in these modules (fixtures cover).
+    - Real app (Xvfb): KJV John 3 red letters, italic added words, pilcrows at
+      14, 16, 18 as in SWORD; pixel check of italic "of" = (255,0,0).
+    - Tests: osis_importer_test (styled-text.xml: container and cross-verse
+      milestones, added, divine name in <w>, variants, paragraph mark, speaker
+      title; superscription ranges), strong_interaction_test styled-spans;
+      neutral regressions identical to the baseline; full CTest 71/71.
+    - Converter revision 3 stored as conversion_revision; older copies are
+      converted again automatically (verified: 14 copies regenerated in the
+      background in ~110 s).
+  - Not covered: Hebrew cantillation/vowel options do not apply to SQLite
+    text (it keeps all marks); Strong numbers of words with no visible text.
+
+- [x] SQLITE-DEFAULT-101 Make SQLite the verified default reader
+  - Status: DONE
+  - Description:
+    Only after SQLITE-PATH/CONVERT/PARALLEL/AUDIT/RENDER-101 are DONE: guided first-run conversion and SWORD fallback. Measure five startups per mode and medians; verify notes, bookmarks, author commentary, dictionaries, search, Compare and parallel view.
+  - Validation:
+    Regression evidence required. For shared-layer changes run osis_importer_test,
+    osis_semantic_equivalence_test, osis_property_test, osis_operational_test,
+    usfm_importer_test, sqlite_bible_backend_test, bible_backend_contract_test
+    (compare counters to a pre-change baseline), versification_transition_test,
+    sqlite_versification_test, sword_locale_test and full CTest.
+
+  - Evidence (2026-09-26, requested by the reader ahead of order):
+    - SQLite stays the preferred backend through a SWORD fallback; only
+      `--backend=sword` disables it. `main_recreate_bible_backend()` retries
+      SQLite, so a session switches live once a Bible has been converted.
+    - Automatic conversion (`gui_convert_pending_sword_bibles`): after
+      installing SWORD Bibles (installer and advanced manager) and 500 ms after
+      startup (skipped under smoke/probe), every convertible SWORD Bible without
+      an SQLite copy is converted behind one progress dialog. Failures are
+      recorded in `<modules>/.sword-conversion-failed` and not retried
+      automatically; manual conversion remains available.
+    - In SQLite mode, SWORD Bibles without an SQLite copy stay listed
+      (main_backend_for already routes them to SWORD).
+    - sword_bible_conversion_test: new pending/failed-record checks PASS; with
+      the real modules: SpaPlatense, TorresAmat, NacarColunga, SpaRV1909
+      other=0 missing=0 (same table as SQLITE-CONVERT-101).
+    - Real app, isolated HOME with the reader's ~/.sword and an empty SQLite
+      directory: fallback SWORD at start, 12 Bibles converted in ~67 s, SpaRVG
+      (invalid OSIS XML) and Tisch (non UTF-8 John 8:53) recorded as failed,
+      live switch to "Bible backend: SQLite"; relaunch starts in SQLite with no
+      reconversion; no GTK CRITICAL/WARNING.
+    - Full CTest 69/71: gtk_lifecycle_smoke and author_commentary_probe PASS
+      (display available). FAIL author_commentary_panel_test (url.cc has two
+      main_show_author_commentary calls) and sqlite_interlinear_test
+      (main_pulpito_texto returns NULL): both passed in audit-ctest.log and
+      broke with url.cc/pulpito.cc edits of SQLITE-AUDIT-101, not these files.
+  - Evidence (2026-09-26, SpaRVG and Tisch conversion):
+    - Causes, measured: SpaRVG has 8 entries (Matt 9:6, 21:31, Luke 5:24,
+      8:8, John 21:15-17, Rev 21:5) ending in "casa.>" -- "</q" lost, <q> left
+      open; Tisch John 8:53 holds 40507 bytes (John 7:53-8:21, 8:1-8:52 empty)
+      cut inside a start tag and a UTF-8 sequence. No other entry of either
+      module is malformed (libxml check of every entry).
+    - repairSwordOsisEntry(): intact entries byte-identical; only a truncated
+      tail is repaired (incomplete final UTF-8, unterminated final tag, open
+      elements closed; a final text '>' becomes the lost end tag). Anything
+      else fails with the verse reference. No visible text is invented.
+    - OSIS importer: SpaRVG's quoted-superscription quirk stored "<h3>..</h3>"
+      (export escaped it as &lt;h3&gt;); promoted headings are now stored as
+      plain text like every other imported heading. New fixture
+      quoted-superscription.xml in osis_importer_test.
+    - Failure records carry a converter revision; older records are retried.
+    - sword_bible_conversion_test (8 repair cases, retry) PASS; exhaustive:
+      module | repaired | identical | note/space | title->heading | qere | other | missing
+      SpaRVG | 8 | 30960 | 18 | 124 | 0 | 0 | 0
+      Tisch  | 1 | 6952 | 937 | 0 | 6 | 0 | 0
+      (qere: SWORD's plain output prints variant.Qere as "<Gform>"; repaired
+      entries are compared with SWORD's stripText of the repaired entry.)
+      SpaPlatense, TorresAmat, NacarColunga, SpaRV1909 unchanged.
+    - Neutral regressions vs a baseline taken before the importer change:
+      osis_importer, osis_semantic_equivalence, osis_property,
+      osis_operational, usfm_importer, sqlite_bible_backend,
+      bible_backend_contract, versification_transition, sqlite_versification,
+      sword_locale, content_resolver: identical output except timings/seeds.
+    - Real app with the previous failure record: SpaRVG and Tisch retried and
+      converted; all 14 SWORD Bibles in SQLite; no GTK CRITICAL/WARNING.
+    - Full CTest: same two failures as above, nothing new.
+  - Evidence (2026-09-26, background conversion with progress bar):
+    - The modal dialog is replaced by a GtkProgressBar in the status bar
+      ("Pasando a SQLite: ID (n de N)"); reading continues meanwhile. Each
+      Bible converts in a child process (`biblia-elim --convert-sword ID DIR`,
+      GSubprocess, sequential) because SWORD's managers share non-thread-safe
+      globals (FileMgr); results are handled on the main thread. Quit waits
+      for the Bible in progress; manual conversion is refused during a batch.
+    - Child mode: success exit 0 with "REPAIRED ref" lines; duplicate and
+      missing module exit 1 with "ERROR ...".
+    - Real app, fresh isolated profile: bar visible, KJV text readable during
+      conversion; 14 Bibles converted in ~90 s; status "Biblias: SQLite ...
+      14 Biblias convertidas a SQLite."; bar removed.
+    - Quit mid-conversion (Xvfb, WM_DELETE_WINDOW while OSHB converted): exit 0
+      after 1.4 s, no child left, no temporary files, only complete modules
+      (KJV, NacarColunga, OSHB).
+    - Full CTest: same two failures as above, nothing new.
+  - Evidence (2026-09-26, sync and small details):
+    - Copies follow SWORD: a copy converted ("SWORD:<id>") from another SWORD
+      Version or an older converter revision is converted again and replaced
+      atomically (replaceSqliteModule: copy beside, rename over); uninstalling
+      a SWORD Bible in the manager removes its converted copy; imported or
+      installed modules are never touched. Tests: synthetic cases and a real
+      TorresAmat replacement (no temporaries left).
+    - Default commentary also offered in SQLite mode (asks SWORD directly,
+      once per profile, main_sword_has_commentary()).
+    - Prerequisites PATH/CONVERT/PARALLEL/AUDIT/RENDER-101 now DONE.
+  - Evidence (2026-09-26, startup and hands-on verification):
+    - First measurement found SQLite 5x slower than SWORD (first chapter 4.45 s
+      vs 0.87 s): opening every module ran whole-module Strong/morphology/
+      reference checks (OSHB 335 ms, KJV 235, TR 152, Tisch 150), three times
+      per startup. Fixes, same verdicts: Strong/morphology checks deferred to
+      first use of a module's annotations (prepareAnnotations); verdicts of
+      all three checks remembered in <modules>/.validation-cache keyed by
+      name, size, mtime/ctime (ns), inode and SQLite's header change
+      counters; the backend opened to validate the startup selection serves
+      the startup lists and becomes the reader's backend. Opening all 14
+      modules: 989 ms -> 134 ms uncached; test validation-verdicts (same file
+      from cache, file replaced or rewritten in place with invalid data is
+      checked again).
+    - Hands-on check (Xvfb, XTEST clicks, reader-like profile: SpaPlatense
+      Luke 23:36) found that SQLite Bibles used a minimal one-chapter pane:
+      no verse tools (notes), no note/bookmark/highlight decorations, no
+      current-verse focus or scroll (anchors verse vs chapter*1000+verse),
+      text in the verse-number colour, notes as plain labels. Fixed without
+      duplicating display code: GTKChapDisp now lays out neutral Bibles
+      too (displayNeutral: VerseKey in the module's versification, content
+      from the neutral backend, canonical book ids for SQLite references,
+      SWORD-only intros/edge previews/render header skipped), and
+      main_display_bible takes one path for every Bible. The pane renders
+      neutral verse text with styles and SWORD-style "*n" markers numbered
+      by the pane. Further gaps found and fixed: neutral note click did not
+      open the author commentary (single open_author_commentary dispatch now
+      shared), hover showed nothing; a SWORD-only Bible in SQLite mode was
+      resolved against SQLite (SpaVNT jumped to Genesis 1:1); a verse a
+      module lacks jumped to the start of the Bible (now the nearest verse of
+      its chapter); <hi type="italic|bold"> lost (SpaPlatense 1912 verse
+      italics, SpaTDP): new Italic/Bold styles, converter revision 4.
+    - Verified in the running app, SQLite mode: chapter matches the SWORD
+      screenshot (headings, *n35/*n36, verse tools, focus band); note click
+      opens "Comentarios del autor" (Lc 23:40); author_commentary_probe PASS
+      on SQLite SpaPlatense; verse tools menu; note created (Lc 23:36) and
+      marked in the pane and parallel view; bookmark added (bookmarks.xml
+      KJV Luke 23:36); search "vinagre" 9 results = direct count; Compare
+      pane (NacarColunga lacks Luke 23:36 in SWORD too); parallel view (KJV
+      from SQLite); dictionary lookup (Adonai) with per-verse studies; KJV
+      Strong G2424 detail and concordance; red letters, italics; SpaVNT
+      (SWORD-only) opens at Lucas 23:36; no GTK CRITICAL/WARNING.
+    - Startup, 5 runs per mode after a warm-up, medians (ms):
+      mode   | GTK ready | first chapter | main loop
+      SQLite | 170       | 816           | 1476
+      SWORD  | 168       | 873           | 1503
+      (first startup ever, filling the validation cache: 1226 first chapter)
+    - Tests: all 14 Bibles reconverted, other=0 missing=0, parity italics
+      SpaPlatense 1912/1912, words of Christ as before; neutral counters as
+      recorded (offsets 54/72, skipped 0); smoke 349 checks 0 failed (new:
+      missing verse -> nearest; module-less bookmark to an existing verse);
+      full CTest 71/71 PASS.
+  - Not covered: italics inside note bodies (bodies are plain text); Strong
+    numbers of words with no text; Hebrew cantillation option.
+
+- [x] STARTUP-PERF-101 Show the first chapter sooner
+  - Status: DONE
+  - Evidence (2026-09-26):
+    - Measured what the reader sees: new debug marker FIRST_CHAPTER_PAINTED
+      (first draw of the Bible pane with a chapter). Before: painted ~1045
+      ms, main loop ~1400-1476 ms (Xvfb, reader-like profile, SQLite).
+    - Causes found (perf, UI-LOAD timeline) and fixed:
+      1. The GTK theme was reloaded three times (gtk_init, main.c's early
+         prefer-dark, alinear_tema_gtk): main.c's set removed,
+         alinear_tema_gtk changes a setting only when it differs.
+      2. The hidden Bible pane (placeholder shown) was laid out at a
+         default 200px width by GTK's validation idle before the reveal
+         idle ran, then again at its real width: the reveal now runs at
+         G_PRIORITY_HIGH_IDLE, ahead of text validation.
+      3. The reading reserve used the view's bottom margin, and every change
+         of it made GTK lay out the whole chapter window again (~220 ms):
+         it is now pixels-below-lines of a tag on the last paragraph (same
+         scrolling, only that line relaid; spacing, not text).
+      4. The startup gui_recompute_shows() drained every pending event,
+         waiting for GTK's background layout of the whole window before the
+         main loop: gui_recompute_shows_at_startup() applies the same
+         showings without the drain; other callers unchanged.
+      5. Prayer-list popup menus built on first use, not at startup.
+    - Result, 5 runs per mode after a warm-up, medians (ms):
+      mode   | GTK ready | chapter handed | chapter painted | main loop
+      SQLite | 168       | 774            | 939             | 779
+      SWORD  | 172       | 867            | 1039            | 871
+    - Checked in the app (Xvfb): chapter, focus, reserve at the end of the
+      window (Luke 24:53 reaches the reading line, space below).
+    - Full CTest 71/71 PASS; smoke 349 checks, 0 failed.
+  - Not changed: GTK's own cost (gtk_init, building/styling the widget tree
+    ~200 ms, icon loading through glycin); on X11 gtk_init also probes GLX
+    (~90 ms under Xvfb), which Wayland does not do at startup.
+
 - [ ] TORRES-NOISE-101 Remove engraving/apparatus OCR noise inside Torres Amat 1882 verses
   - Status: BLOCKED
   - Description:

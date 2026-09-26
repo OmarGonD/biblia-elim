@@ -35,6 +35,17 @@
 
 SETTINGS settings = {};
 char *sword_locale = nullptr;
+BibleBackend *bible_backend = nullptr;
+BibleBackend &main_backend_for(const char *) { return *bible_backend; }
+extern "C" gchar *main_reference_for_module(const char *source,
+                                           const char *key,
+                                           const char *target)
+{
+	if (!source || !key || !target || !bible_backend) return nullptr;
+	auto mapped = bible_backend->convertReference(source, key, target);
+	return mapped.status == BibleReferenceMapping::Mapped
+		? g_strdup(mapped.target.key.c_str()) : nullptr;
+}
 
 extern "C" void main_dialog_search_percent_update(char, void *) {}
 extern "C" void main_sidebar_search_percent_update(char, void *) {}
@@ -137,6 +148,7 @@ int
 main()
 {
 	SwordBackend backend;
+	bible_backend = &backend;
 
 	if (!backend.hasModule("SpaPlatense") ||
 	    !backend.hasModule("SpaPlatenseComentarios")) {

@@ -101,6 +101,9 @@ void main_select_bible_backend(const char *name, const char *modules_directory,
 			       gboolean explicitly_selected);
 void main_validate_bible_backend_selection(void);
 gboolean main_backend_is_sword(void);
+gchar *main_backend_status(void); /* caller frees; includes nonblocking fallback notice */
+/* FALSE only when SWORD was chosen explicitly (--backend=sword). */
+gboolean main_sqlite_backend_preferred(void);
 const char *main_sqlite_modules_directory(void);
 int main_is_mod_rtol(const char *module_name);
 char *main_module_name_from_description(char *description);
@@ -118,6 +121,8 @@ void main_display_dictionary(const char *mod_name,
 			     const char *key);
 /* key must be native to mod_name. To carry the reader's place from
  * another module use main_display_bible_from_module(). */
+/* The nearest verse of key's chapter that a module has; NULL if none. */
+gchar *main_nearest_existing_key(const char *module, const char *key);
 void main_display_bible(const char *mod_name, const char *key);
 /* The pane's window of chapters (reading_window.h): whether it has to
  * move for the reader to be at `key`, and moving it without navigating. */
@@ -126,6 +131,8 @@ gboolean main_bible_window_recenter(const char *key);
 /* Converts source_key (native to source_mod) to target_mod's
  * versification. Returns a newly allocated native key, or NULL when the
  * verse does not exist in target_mod (never the same text reread). */
+/* Allocated chapter fragment for neutral Bible readers; NULL for invalid keys. */
+gchar *main_neutral_chapter_html(const char *module_name, const char *key);
 gchar *main_reference_for_module(const char *source_mod,
 				 const char *source_key,
 				 const char *target_mod);

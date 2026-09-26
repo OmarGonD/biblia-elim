@@ -21,6 +21,8 @@
 #include <treekeyidx.h>
 #include <versekey.h>
 
+#include "main/backend_access.h"
+#include "backend/bible_book_map.h"
 #include "main/pulpito.h"
 #include "main/lists.h"
 #include "main/settings.h"
@@ -43,29 +45,17 @@ using namespace sword;
  * Las referencias
  * ------------------------------------------------------------------ */
 
-static SWModule *
-biblia(const char *version)
-{
-	if (!version || !*version || !backend)
-		return NULL;
-	return backend->get_SWModule(version);
-}
-
-/* La clave del módulo, para copiarla: trae la versificación y los
- * nombres de libro del idioma en que se está trabajando. */
 static gboolean
 clave_de(const char *version, VerseKey *destino)
 {
-	SWModule *mod = biblia(version);
-	VerseKey *clave;
-
-	if (!mod)
-		return FALSE;
-	clave = dynamic_cast<VerseKey *>((SWKey *)(*mod));
-	if (!clave)
-		return FALSE;	/* no es una Biblia: no hay versículos */
-	*destino = *clave;
-	return TRUE;
+    if (!version || !*version || !bible_backend) return FALSE;
+    auto &reader = main_backend_for(version);
+    if (!reader.hasModule(version) || reader.moduleType(version) != BibleModuleType::Bible) return FALSE;
+    VerseKey key(nullptr, nullptr, versificationSystemName(reader.versification(version)));
+    /* operator= only copies the position; copyFrom() also carries the
+     * versification, so Ps 118:176 stays Vulgate numbering. */
+    destino->copyFrom(key);
+    return TRUE;
 }
 
 /* Los números de versículo, en volado, cuando la cita es un rango. */
@@ -166,7 +156,8 @@ referencia_sola(const char *linea, const char *version)
 gchar *
 main_pulpito_texto(const char *version, const char *ref)
 {
-	SWModule *mod = biblia(version);
+    if (!version || !bible_backend) return NULL;
+    auto &reader = main_backend_for(version);
 	VerseKey base, donde_estaba;
 	ListKey lista;
 	GPtrArray *trozos;
@@ -174,7 +165,7 @@ main_pulpito_texto(const char *version, const char *ref)
 	GString *out;
 	guint i;
 
-	if (!mod || !ref || !*ref)
+	if (!reader.hasModule(version) || !ref || !*ref)
 		return NULL;
 	if (!clave_de(version, &base))
 		return NULL;
@@ -196,17 +187,15 @@ main_pulpito_texto(const char *version, const char *ref)
 
 		if (trozos->len >= PU_MAX_VERSOS)
 			break;
-		mod->setKey(lista);
-		trozo = mod->stripText();
-		if (!trozo || !*trozo)
-			continue;
-		aqui = dynamic_cast<VerseKey *>((SWKey *)(*mod));
-		numero = aqui ? aqui->getVerse() : 0;
-		g_ptr_array_add(trozos, g_strstrip(g_strdup(trozo)));
+        BibleKeyInfo info;
+        if (!reader.resolveKey(version, lista.getText(), info)) continue;
+        const auto body = reader.getVerseBodyText(version, info.reference);
+        if (body.empty()) continue;
+        numero = info.reference.verse;
+        g_ptr_array_add(trozos, g_strstrip(g_strdup(body.c_str())));
 		g_array_append_val(numeros, numero);
 	}
 
-	mod->setKey(donde_estaba);
 
 	if (!trozos->len) {
 		g_ptr_array_free(trozos, TRUE);

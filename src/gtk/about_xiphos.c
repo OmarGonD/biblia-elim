@@ -26,6 +26,7 @@
 #include <glib/gi18n.h>
 
 #include "gui/about_xiphos.h"
+#include "main/sword.h"
 #include "gui/utilities.h"
 #include "main/settings.h"
 
@@ -125,8 +126,9 @@ GtkWidget *gui_create_about_xiphos(void)
 	gtk_about_dialog_set_version(GTK_ABOUT_DIALOG(about1), versionbuild);
 	gtk_about_dialog_set_copyright(GTK_ABOUT_DIALOG(about1),
 				       _("Copyright © 2000-2026 Xiphos Development Team"));
-	gtk_about_dialog_set_comments(GTK_ABOUT_DIALOG(about1),
-				      _("\nPowered by The SWORD Project.\nWe would like to thank Troy Griffitts and all the other folks who have given us The SWORD Project."));
+	gchar *backend_status = main_backend_status();
+	gtk_about_dialog_set_comments(GTK_ABOUT_DIALOG(about1), backend_status);
+	g_free(backend_status);
 	gtk_about_dialog_set_website(GTK_ABOUT_DIALOG(about1),
 				     "http://xiphos.org/");
 	gtk_about_dialog_set_authors(GTK_ABOUT_DIALOG(about1), authors);

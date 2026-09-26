@@ -298,6 +298,7 @@ extern "C" {
 int ConstructFlags(GLOBAL_OPS *ops);
 
 // access from plain C to eliminate a module's entire cache (mod_mgr.c).
+void ModuleCacheClear(void);
 void ModuleCacheErase(const char *modname);
 void BookModuleCacheErase(const char *modname);
 

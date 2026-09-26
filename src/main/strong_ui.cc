@@ -1,3 +1,4 @@
+#include "main/backend_access.h"
 #include "main/strong_ui.h"
 
 #include <chrono>
@@ -181,7 +182,7 @@ StrongDialog *createDialog(const std::string &module,
 	view->module = module;
 	view->resources.bible = bible_backend;
 	view->resources.strongLexicon = boundLexicon;
-	view->session.reset(new StrongDetailSession(*bible_backend,
+	view->session.reset(new StrongDetailSession(main_backend_for(module),
 		view->resources, module, std::move(context), kPageSize));
 	const bool hasStrongs = !view->session->word().strongs.empty();
 	view->dialog = gtk_dialog_new_with_buttons(hasStrongs ? _("Strong") :
@@ -252,9 +253,9 @@ extern "C" void main_show_neutral_word(const char *module,
 {
 	if (!bible_backend || !module || !passage) return;
 	BibleKeyInfo key;
-	if (!bible_backend->resolveKey(module, passage, key)) return;
+	if (!main_backend_for(module).resolveKey(module, passage, key)) return;
 	const auto started = std::chrono::steady_clock::now();
-	AnnotatedWordResolution resolution = resolveAnnotatedWordInteraction(*bible_backend,
+	AnnotatedWordResolution resolution = resolveAnnotatedWordInteraction(main_backend_for(module),
 		module, key.reference, byteOffset);
 	const auto resolveUs = std::chrono::duration_cast<std::chrono::microseconds>(
 		std::chrono::steady_clock::now() - started).count();
@@ -279,8 +280,8 @@ extern "C" void main_show_neutral_footnote(const char *module, const char *passa
 	std::size_t sequence)
 {
 	if (!bible_backend || !module || !passage) return; BibleKeyInfo key;
-	if (!bible_backend->resolveKey(module, passage, key)) return;
-	BibleVerseContent c=bible_backend->getVerseContent(module,key.reference);
+	if (!main_backend_for(module).resolveKey(module, passage, key)) return;
+	BibleVerseContent c=main_backend_for(module).getVerseContent(module,key.reference);
 	if (sequence>=c.footnotes.size()) return; const BibleFootnote &n=c.footnotes[sequence];
 	GtkWidget *d=gtk_message_dialog_new(widgets.app?GTK_WINDOW(widgets.app):nullptr,GTK_DIALOG_DESTROY_WITH_PARENT,GTK_MESSAGE_INFO,GTK_BUTTONS_CLOSE,"%s\n\n%s",n.label.empty()?"Nota":n.label.c_str(),n.body.c_str());
 	gtk_widget_show_all(d); gtk_dialog_run(GTK_DIALOG(d)); gtk_widget_destroy(d);
@@ -290,8 +291,8 @@ extern "C" void main_show_neutral_crossref(const char *module, const char *passa
 	std::size_t sequence)
 {
 	if (!bible_backend || !module || !passage) return; BibleKeyInfo key;
-	if (!bible_backend->resolveKey(module, passage, key)) return;
-	BibleVerseContent c=bible_backend->getVerseContent(module,key.reference);
+	if (!main_backend_for(module).resolveKey(module, passage, key)) return;
+	BibleVerseContent c=main_backend_for(module).getVerseContent(module,key.reference);
 	if (sequence>=c.crossReferences.size()) return; const auto &x=c.crossReferences[sequence];
 	GtkWidget *d=gtk_dialog_new_with_buttons("Referencias",widgets.app?GTK_WINDOW(widgets.app):nullptr,GTK_DIALOG_DESTROY_WITH_PARENT,"Cerrar",GTK_RESPONSE_CLOSE,nullptr);
 	GtkWidget *box=gtk_dialog_get_content_area(GTK_DIALOG(d)); gtk_container_set_border_width(GTK_CONTAINER(box),10); GtkWidget *label=gtk_label_new(x.displayText.c_str()); gtk_label_set_selectable(GTK_LABEL(label),TRUE); gtk_label_set_xalign(GTK_LABEL(label),0); gtk_box_pack_start(GTK_BOX(box),label,FALSE,FALSE,4);

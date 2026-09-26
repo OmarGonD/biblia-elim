@@ -1,3 +1,4 @@
+#include <cstring>
 #include <glib.h>
 
 #include "fake_bible_backend.h"
@@ -143,10 +144,56 @@ void testDetailAndPagination()
 }
 }
 
+/* Styled spans: added words in italics, words of Christ in red (unless the
+ * module's option turns it off), the divine name in small capitals; tags
+ * nest correctly inside annotated-word links; no spans, no change. */
+static void testStyledSpans()
+{
+	BibleVerseContent content;
+	content.valid = true;
+	content.plainText = "Blessed are the poor; the Lord said.";
+	const std::size_t are = content.plainText.find("are");
+	const std::size_t lord = content.plainText.find("Lord");
+	content.spans.push_back({ 0, content.plainText.find(';'), BibleTextStyle::WordsOfChrist });
+	content.spans.push_back({ are, 3, BibleTextStyle::Added });
+	content.spans.push_back({ lord, 4, BibleTextStyle::DivineName });
+	const std::string html = renderAnnotatedVerseText(content, "KJV", "Matt 5:3", false);
+	g_assert_cmpstr(html.c_str(), ==,
+		"<font color=\"red\">Blessed </font><i><font color=\"red\">are</font></i>"
+		"<font color=\"red\"> the poor</font>; the L<small>ORD</small> said.");
+	VerseTextStyle noRed;
+	noRed.wordsOfChristInRed = false;
+	const std::string plain = renderAnnotatedVerseText(content, "KJV", "Matt 5:3", false, noRed);
+	g_assert_cmpstr(plain.c_str(), ==, "Blessed <i>are</i> the poor; the L<small>ORD</small> said.");
+
+	/* Inside an annotated word the style opens and closes within the link. */
+	BibleWordInfo word;
+	word.start = lord; word.length = 4; word.text = "Lord";
+	word.strongs.push_back({ StrongLanguage::Hebrew, 3068 });
+	content.words.push_back(word);
+	const std::string annotated = renderAnnotatedVerseText(content, "KJV", "Gen 2:4", true);
+	g_assert_nonnull(strstr(annotated.c_str(), "\">L<small>ORD</small></a>"));
+
+	BibleVerseContent emphasis;
+	emphasis.valid = true;
+	emphasis.plainText = "a José vio";
+	emphasis.spans.push_back({ 0, 7, BibleTextStyle::Italic });
+	emphasis.spans.push_back({ 8, 3, BibleTextStyle::Bold });
+	const std::string emphasised = renderAnnotatedVerseText(emphasis, "SpaPlatense", "Luke 23:55", false);
+	g_assert_cmpstr(emphasised.c_str(), ==, "<i>a José</i> <b>vio</b>");
+
+	BibleVerseContent none;
+	none.valid = true;
+	none.plainText = "a < b & c";
+	const std::string unstyled = renderAnnotatedVerseText(none, "KJV", "Gen 1:1", false);
+	g_assert_cmpstr(unstyled.c_str(), ==, "a &lt; b &amp; c");
+}
+
 int main(int argc, char **argv)
 {
 	g_test_init(&argc, &argv, NULL);
 	g_test_add_func("/strong-ui/resolution", testResolution);
+	g_test_add_func("/strong-ui/styled-spans", testStyledSpans);
 	g_test_add_func("/strong-ui/utf8-markup", testMarkupKeepsUtf8ByteOffsets);
 	g_test_add_func("/strong-ui/detail-pagination", testDetailAndPagination);
 	return g_test_run();

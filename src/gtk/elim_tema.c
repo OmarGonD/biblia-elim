@@ -298,7 +298,15 @@ alinear_tema_gtk(gboolean dark)
 
 	if (!gs)
 		return;
-	g_object_set(gs, "gtk-application-prefer-dark-theme", dark, NULL);
+	/* Each change to these settings reloads the whole GTK theme (its CSS
+	 * and every widget's style): change only what differs. */
+	{
+		gboolean preferido = FALSE;
+
+		g_object_get(gs, "gtk-application-prefer-dark-theme", &preferido, NULL);
+		if (!preferido != !dark)
+			g_object_set(gs, "gtk-application-prefer-dark-theme", dark, NULL);
+	}
 	g_object_get(gs, "gtk-theme-name", &actual, NULL);
 	if (!actual)
 		return;

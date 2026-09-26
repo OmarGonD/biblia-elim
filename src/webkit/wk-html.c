@@ -3457,8 +3457,13 @@ schedule_content_reveal(WkHtml *html)
 {
 	cancel_content_reveal(html);
 	html->priv->reveal_token = html->priv->load_token;
+	/* Ahead of GtkTextView's layout validation (GDK_PRIORITY_REDRAW + 5):
+	 * while the content is hidden it has no allocation, and validating
+	 * first laid the whole text out at a default 200px width -- only to
+	 * lay it all out again once revealed. Revealed first, the view gets its
+	 * real width in the next layout pass and the text is laid out once. */
 	html->priv->reveal_idle =
-	    g_idle_add(reveal_content_idle, html);
+	    g_idle_add_full(G_PRIORITY_HIGH_IDLE, reveal_content_idle, html, NULL);
 }
 
 void

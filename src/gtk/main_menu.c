@@ -47,6 +47,7 @@
 #include "gui/parallel_tab.h"
 #include "gui/sidebar.h"
 #include "gui/sidebar_dialog.h"
+#include "gui/sqlite_module_manager_dialog.h"
 #include "gui/search_dialog.h"
 #include "gui/nube_palabras.h"
 #include "gui/planes_lectura.h"
@@ -548,6 +549,8 @@ on_quit_activate(GtkMenuItem *menuitem, gpointer user_data)
 	gui_verse_notes_guardar_pendiente();
 	/* y la reflexión del día, por lo mismo */
 	gui_versiculo_dia_guardar_pendiente();
+	/* y la Biblia que se esté pasando a SQLite, para no dejarla a medias */
+	gui_stop_sword_conversion();
 
 	shutdown_frontend();
 	/* shutdown the sword stuff */

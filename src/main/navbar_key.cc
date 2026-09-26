@@ -17,12 +17,14 @@
 #include <gtk/gtk.h>
 
 #include "backend/bible_backend.h"
+#include "main/backend_access.h"
 #include "main/navbar_versekey.h"
 
 gchar *main_get_valid_key(const char *module_name, const char *key)
 {
 	BibleKeyInfo info;
-	if (!bible_backend->resolveKey(module_name ? module_name : "",
+	if (!bible_backend ||
+	    !main_backend_for(module_name ? module_name : "").resolveKey(module_name ? module_name : "",
 				       key ? key : "", info))
 		return NULL;
 	return g_strdup(info.key.c_str());

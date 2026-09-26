@@ -19,6 +19,7 @@
 #include "gui/lectura_sync.h"
 #include "gui/utilities.h"
 #include "gui/widgets.h"
+#include "main/backend_access.h"
 #include "main/display.hh"
 #include "main/lectura_sync.h"
 #include "main/lists.h"
@@ -151,14 +152,14 @@ append_un_versiculo(GString *html, const char *source_mod,
 		slot = 3;
 	b = settings.darktheme ? &bandas_oscuro[slot] : &bandas_claro[slot];
 
-	if (!mod_name || !*mod_name || !bible_backend->hasModule(mod_name)) {
+	if (!mod_name || !*mod_name || !main_backend_for(mod_name).hasModule(mod_name)) {
 		g_string_append_printf(html,
 				       "<p class=\"miss\">%s</p>",
 				       _("Módulo no disponible."));
 		return;
 	}
 	target_key = main_reference_for_module(source_mod, key_text, mod_name);
-	if (target_key && !bible_backend->resolveKey(mod_name, target_key,
+	if (target_key && !main_backend_for(mod_name).resolveKey(mod_name, target_key,
 						     target_info)) {
 		g_free(target_key);
 		target_key = NULL;
@@ -190,7 +191,7 @@ append_un_versiculo(GString *html, const char *source_mod,
 		return;
 	}
 
-	other_chapter = bible_backend->resolveKey(source_mod, key_text,
+	other_chapter = main_backend_for(source_mod).resolveKey(source_mod, key_text,
 						  source_info) &&
 			(source_info.reference.chapter !=
 				 target_info.reference.chapter ||
@@ -212,7 +213,7 @@ append_un_versiculo(GString *html, const char *source_mod,
 	 * the note followed by the verse. Ask the backend for the verse
 	 * body instead; annotations stay in the module, and in the main
 	 * view, untouched. */
-	body = bible_backend->getVerseBodyText(mod_name, target_info.reference);
+	body = main_backend_for(mod_name).getVerseBodyText(mod_name, target_info.reference);
 	if (!body.empty()) {
 		esc = esc_con_saltos(body.c_str());
 		g_string_append_printf(html,

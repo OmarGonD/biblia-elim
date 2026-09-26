@@ -15,22 +15,15 @@
 #endif
 
 #include <string.h>
-#include <swmgr.h>
-#include <swmodule.h>
-#include <versekey.h>
-#include <swbuf.h>
 
 #include <glib.h>
 #include <glib/gi18n.h>
 
-#include "backend/sword_main.hh"
+#include "main/backend_access.h"
 #include "main/nube_palabras.h"
 #include "main/nube_mayusculas.h"
-#include "main/sword.h"
 
-#include "gui/debug_glib_null.h"
 
-using namespace sword;
 
 /* Palabras vacías ES + EN (incl. formas clásicas de Reina-Valera y KJV). */
 static const char *const STOPWORDS[] = {
@@ -243,71 +236,34 @@ main_nube_lista_libros_free(GList *lista)
 	g_list_free_full(lista, (GDestroyNotify)main_nube_libro_free);
 }
 
-static char *
-osis_from_ref(const char *osisref)
-{
-	if (!osisref || !*osisref)
-		return g_strdup("");
-	const char *dot = strchr(osisref, '.');
-	if (dot)
-		return g_strndup(osisref, dot - osisref);
-	return g_strdup(osisref);
-}
-
-static GList *
-append_testament_books(GList *lista, SWModule *mod, VerseKey *key, int testament)
-{
-	if (!backend->module_has_testament(mod->getName(), testament))
-		return lista;
-
-	int max = key->BMAX[testament - 1];
-	for (int i = 0; i < max; i++) {
-		key->setTestament(testament);
-		key->setBook(i + 1);
-		key->setChapter(1);
-		key->setVerse(1);
-		NUBE_LIBRO *libro = g_new0(NUBE_LIBRO, 1);
-		libro->nombre = g_strdup(key->getBookName());
-		libro->abrev = g_strdup(key->getBookAbbrev());
-		libro->osis = osis_from_ref(key->getOSISRef());
-		lista = g_list_append(lista, libro);
-	}
-	return lista;
-}
-
 GList *
 main_nube_lista_libros(const char *module)
 {
-	GList *lista = NULL;
-	if (!module || !*module)
-		return NULL;
-
-	SWModule *mod = backend->get_SWModule(module);
-	if (!mod)
-		return NULL;
-
-	VerseKey *key = (VerseKey *)mod->createKey();
-	key->setAutoNormalize(1);
-	lista = append_testament_books(lista, mod, key, 1);
-	lista = append_testament_books(lista, mod, key, 2);
-	delete key;
-	return lista;
+    if (!module || !*module || !bible_backend) return nullptr;
+    auto &reader = main_backend_for(module);
+    GList *list = nullptr;
+    for (int testament = 1; testament <= 2; ++testament) {
+        const auto names = reader.bookNames(module, testament);
+        for (std::size_t index = 0; index < names.size(); ++index) {
+            const auto first = reader.setBook(module, "", testament, index + 1);
+            BibleKeyInfo info;
+            if (!reader.resolveKey(module, first, info)) continue;
+            NUBE_LIBRO *book = g_new0(NUBE_LIBRO, 1);
+            book->nombre = g_strdup(info.bookName.c_str());
+            book->abrev = g_strdup(info.osisBook.c_str());
+            book->osis = g_strdup(info.osisBook.c_str());
+            list = g_list_append(list, book);
+        }
+    }
+    return list;
 }
 
 char *
 main_nube_libro_de_clave(const char *module, const char *key)
 {
-	if (!module || !key)
-		return NULL;
-	SWModule *mod = backend->get_SWModule(module);
-	if (!mod)
-		return NULL;
-	VerseKey *vk = (VerseKey *)mod->createKey();
-	vk->setAutoNormalize(1);
-	vk->setText(key);
-	char *s = g_strdup(vk->getBookName());
-	delete vk;
-	return s;
+    BibleKeyInfo info;
+    return module && key && bible_backend && main_backend_for(module).resolveKey(module, key, info)
+        ? g_strdup(info.bookName.c_str()) : nullptr;
 }
 
 static gint
@@ -480,43 +436,30 @@ tokenizar(const char *texto, GHashTable *ht, gint *total,
 }
 
 static GHashTable *
-contar_libro(SWModule *mod, const char *libro, gint *total_out,
-	     NubeMayusculas *mayusculas)
+contar_libro(const char *module, const char *book, gint *total_out,
+             NubeMayusculas *capitals)
 {
-	GHashTable *ht = g_hash_table_new_full(g_str_hash, g_str_equal,
-					       g_free, NULL);
-	*total_out = 0;
-
-	SWBuf original = mod->getKey()->getText();
-
-	VerseKey *vk = (VerseKey *)mod->createKey();
-	vk->setAutoNormalize(1);
-	SWBuf start;
-	start.append(libro);
-	start.append(" 1:1");
-	vk->setText(start.c_str());
-
-	int book = vk->getBook();
-	int testament = vk->getTestament();
-	mod->setKey(*vk);
-
-	while (!mod->popError()) {
-		VerseKey *cur = (VerseKey *)(SWKey *)(*mod);
-		if (cur->getBook() != book || cur->getTestament() != testament)
-			break;
-		BibleReference referencia;
-		referencia.testament = cur->getTestament();
-		referencia.book = cur->getBook();
-		referencia.chapter = cur->getChapter();
-		referencia.verse = cur->getVerse();
-		std::string texto = backend->getVerseBodyText(mod->getName(), referencia);
-		tokenizar(texto.c_str(), ht, total_out, mayusculas);
-		(*mod)++;
-	}
-
-	delete vk;
-	mod->setKeyText(original.c_str());
-	return ht;
+    GHashTable *counts = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, nullptr);
+    *total_out = 0;
+    auto &reader = main_backend_for(module);
+    for (int testament = 1; testament <= 2; ++testament) {
+        const auto names = reader.bookNames(module, testament);
+        for (std::size_t index = 0; index < names.size(); ++index) {
+            BibleKeyInfo info;
+            const auto first = reader.setBook(module, "", testament, index + 1);
+            if (!reader.resolveKey(module, first, info) ||
+                (info.bookName != book && info.osisBook != book)) continue;
+            for (int chapter = 1; chapter <= info.chapterCount; ++chapter) {
+                BibleReference ref = info.reference; ref.chapter = chapter;
+                for (const auto &verse : reader.getChapter(module, ref, false)) {
+                    const auto text = reader.getVerseBodyText(module, verse.reference);
+                    tokenizar(text.c_str(), counts, total_out, capitals);
+                }
+            }
+            return counts;
+        }
+    }
+    return counts;
 }
 
 typedef struct {
@@ -605,16 +548,14 @@ main_nube_contar(const char *module,
 	if (limite < 10)
 		limite = 80;
 
-	SWModule *mod = backend->get_SWModule(module);
-	if (!mod)
-		return NULL;
+    if (!bible_backend || !main_backend_for(module).hasModule(module)) return NULL;
 
 	gint total_a = 0, total_b = 0;
 	NubeMayusculas *mayusculas = nube_mayusculas_nueva();
-	GHashTable *ht_a = contar_libro(mod, libro_a, &total_a, mayusculas);
+	GHashTable *ht_a = contar_libro(module, libro_a, &total_a, mayusculas);
 	GHashTable *ht_b = NULL;
 	if (libro_b && *libro_b)
-		ht_b = contar_libro(mod, libro_b, &total_b, mayusculas);
+		ht_b = contar_libro(module, libro_b, &total_b, mayusculas);
 
 	GHashTable *elegidas = g_hash_table_new(g_str_hash, g_str_equal);
 	GPtrArray *top_a = top_palabras(ht_a, limite);

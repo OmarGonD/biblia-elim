@@ -42,6 +42,8 @@
 #include "main/notes_exchange.h"
 #include "main/reading_window.h"
 #include "main/intro_lookup.h"
+#include "main/strong_interaction.h"
+#include "backend/bible_book_map.h"
 #include "main/settings.h"
 #include "main/global_ops.hh"
 #include "main/sword.h"
@@ -3195,7 +3197,7 @@ static void build_tag_color_map(VerseKey *vk)
 			 * Bible (reported: stray highlights in Genesis 1). */
 			gboolean is_scripture_key = TRUE;
 			if (node_module && *node_module) {
-				int mtype = backend->module_type(node_module);
+				int mtype = main_get_mod_type(node_module);
 				if ((mtype != TEXT_TYPE) && (mtype != COMMENTARY_TYPE))
 					is_scripture_key = FALSE;
 			}
@@ -3211,11 +3213,12 @@ static void build_tag_color_map(VerseKey *vk)
 					}
 				}
 
-				GList *verses = backend->parse_verse_list(
+				GList *verses = main_parse_verse_list(
 					settings.MainWindowModule, node_key,
 					(char *)settings.currentverse);
 				for (GList *l = verses; l; l = l->next) {
 					VerseKey vk2;
+					vk2.setVersificationSystem(vk->getVersificationSystem());
 					vk2.setLocale(vk->getLocale());
 					vk2.setText((const char *)l->data);
 					gchar *ref2 = g_strdup_printf("%s.%d.%d",
@@ -3299,13 +3302,12 @@ int main_rendered_first_chapter = 0, main_rendered_last_chapter = 0;
 const gchar *para_endings[] = { "<p/>", "<p />" };
 
 void
-GTKChapDisp::RenderOneChapter(SWModule &imodule,
-			      int thisChapter)
+GTKChapDisp::RenderOneChapter(int thisChapter)
 {
 	char *num;
 	GString *rework;				// for image size analysis rework.
 	GString *intro;
-	const char *ModuleName = imodule.getName();
+	const char *ModuleName = moduleName.c_str();
 
 	/* Issue #921: this anchor must stay self-closed and must NOT wrap
 	 * the chapter title / intro material below, since that content
@@ -3325,8 +3327,10 @@ GTKChapDisp::RenderOneChapter(SWModule &imodule,
 		g_free(num);
 	}
 
-	if (ops->headings) {
-		intro = GTKChapDisp::introMaterial(imodule, thisChapter);
+	/* Chapter introductions are SWORD entries (chapter 0, verse 0);
+	 * a neutral module has none. */
+	if (ops->headings && swmodule) {
+		intro = GTKChapDisp::introMaterial(*swmodule, thisChapter);
 		swbuf.append(intro->str);
 		g_string_free(intro, TRUE);
 	}
@@ -3366,6 +3370,14 @@ GTKChapDisp::RenderOneChapter(SWModule &imodule,
 	bool have_resolved_chapter = false;
 	FallbackBlockState fallback_block = {};
 	const int verse_max = key->getVerseMax();
+	/* A reference's book is the backend's own: SWORD's n-th book of the
+	 * testament, a neutral module's canonical book id. */
+	int content_book = curBook;
+	if (!swmodule) {
+		const BibleBookDefinition *book =
+			findBibleBookByAnyName(key->getOSISBookName());
+		content_book = book ? book->bookId : 0;
+	}
 
 	for (int k = 1 ; k <= verse_max ; ++k) {
 
@@ -3392,7 +3404,7 @@ GTKChapDisp::RenderOneChapter(SWModule &imodule,
 			if (!have_resolved_chapter) {
 				BibleReference chapter_ref;
 				chapter_ref.testament = curTest;
-				chapter_ref.book = curBook;
+				chapter_ref.book = content_book;
 				chapter_ref.chapter = thisChapter;
 				chapter_ref.verse = 1;
 				resolved_chapter = resolveChapterContent(
@@ -3405,7 +3417,7 @@ GTKChapDisp::RenderOneChapter(SWModule &imodule,
 			else {
 				BibleReference reference;
 				reference.testament = curTest;
-				reference.book = curBook;
+				reference.book = content_book;
 				reference.chapter = thisChapter;
 				reference.verse = k;
 				content = resolveVerseContent(*be, ModuleName,
@@ -3413,9 +3425,35 @@ GTKChapDisp::RenderOneChapter(SWModule &imodule,
 			}
 		}
 		pin_display_verse(key, curTest, curBook, thisChapter, k);
+		/* A neutral module's headings are plain text; SWORD hands the
+		 * pane <h3> markup. */
+		if (!swmodule)
+			for (BibleHeading &heading : content.headings) {
+				gchar *escaped = g_markup_escape_text(heading.text.c_str(), -1);
+				heading.text = std::string("<h3>") + escaped + "</h3>";
+				g_free(escaped);
+			}
+		if (needs_text && !swmodule && content.valid) {
+			/* A neutral module's text is plain with ranges: render
+			 * its words, styles and notes here, as the SWORD
+			 * filters do for a SWORD module, honouring the same
+			 * module options. */
+			if (!ops->footnotes)
+				content.footnotes.clear();
+			if (!ops->scripturerefs)
+				content.crossReferences.clear();
+			const BibleModuleCapabilities capabilities =
+				be->moduleCapabilities(ModuleName);
+			VerseTextStyle style;
+			style.wordsOfChristInRed = ops->words_in_red;
+			style.paneNoteMarkers = true;
+			content.renderedText = renderAnnotatedVerseText(content,
+				ModuleName, key->getText(),
+				capabilities.strongs || capabilities.morphology, style);
+		}
 		if (needs_text) {
 			rework = prepare_display_content(content, ops, ModuleName,
-						 strongs_or_morph);
+						 strongs_or_morph && swmodule);
 			cVerse.SetText(rework->str, cache_flags);
 		} else
 			rework = g_string_new(cVerse.GetText());
@@ -3603,9 +3641,10 @@ GTKChapDisp::RenderOneChapter(SWModule &imodule,
  * (getVerseBefore/After). Anchors are chapter * 1000 + verse, unique only
  * within a book, so another book's text is never laid out as verses. */
 void
-GTKChapDisp::RenderWholeBook(SWModule &imodule, int radius,
-			     bool book_edge_previews)
+GTKChapDisp::RenderWholeBook(int radius, bool book_edge_previews)
 {
+	const std::string description = swmodule ? swmodule->getDescription()
+		: be->moduleDescription(moduleName);
 	int thisChapter, first_chapter, last_chapter;
 	const int chapter_count = key->getChapterMax();
 
@@ -3613,19 +3652,19 @@ GTKChapDisp::RenderWholeBook(SWModule &imodule, int radius,
 			      &first_chapter, &last_chapter);
 
 	if (book_edge_previews) {
-		if (first_chapter == 1) {
+		if (first_chapter == 1 && swmodule) {
 			/* getVerseBefore() steps back from verse 1 of the
 			 * chapter the key is on: the previous book's last
 			 * verse, or the module's title before Genesis. */
 			key->setChapter(1);
-			getVerseBefore(imodule);
+			getVerseBefore(*swmodule);
 		}
 	} else if (curBook == 1 && first_chapter == 1) {
 		// pre-Genesis, name the Bible.
 		swbuf.appendFormatted("<a name=\"TOP\"></a><div style=\"text-align: center\">"
 				      "<p><b><font size=\"%+d\">%s</font></b></p></div>",
 				      1 + mf->old_font_size_value,
-				      imodule.getDescription());
+				      description.c_str());
 	}
 
 	/* what the pane will actually hold, for main_display_bible()'s
@@ -3634,7 +3673,7 @@ GTKChapDisp::RenderWholeBook(SWModule &imodule, int radius,
 	main_rendered_last_chapter = last_chapter;
 
 	for (thisChapter = first_chapter; thisChapter <= last_chapter; ++thisChapter) {
-		RenderOneChapter(imodule, thisChapter);
+		RenderOneChapter(thisChapter);
 		if (thisChapter < last_chapter || !book_edge_previews)
 			swbuf.appendFormatted("%s%s",
 					      // extra break when excess strongs/morph space.
@@ -3643,13 +3682,13 @@ GTKChapDisp::RenderWholeBook(SWModule &imodule, int radius,
 	}
 
 	if (book_edge_previews) {
-		if (last_chapter == chapter_count) {
+		if (last_chapter == chapter_count && swmodule) {
 			/* the key is on the last verse laid out: the next
 			 * book's first verse, or the module's name after
 			 * Revelation */
 			key->setChapter(last_chapter);
 			key->setVerse(key->getVerseMax());
-			getVerseAfter(imodule);
+			getVerseAfter(*swmodule);
 		} else {
 			/* bounds the last verse's reading-focus band, as
 			 * getVerseAfter() does */
@@ -3660,7 +3699,7 @@ GTKChapDisp::RenderWholeBook(SWModule &imodule, int radius,
 		swbuf.appendFormatted("%s<hr/><div style=\"text-align: center\"><p><b>%s</b></p></div>",
 				      // extra break when excess strongs/morph space.
 				      (strongs_or_morph ? "<br/><br/>" : ""),
-				      imodule.getDescription());
+				      description.c_str());
 	}
 }
 
@@ -3674,7 +3713,53 @@ GTKChapDisp::display(SWModule &imodule)
 	// it does not solve the problem of marking groups of verses (1-4), etc
 	imodule.setSkipConsecutiveLinks(true);
 
-	const char *ModuleName = imodule.getName();
+	swmodule = &imodule;
+	moduleName = imodule.getName();
+	key = (VerseKey *)(SWKey *) imodule;
+	return displayCommon();
+}
+
+gboolean
+GTKChapDisp::displayNeutral(const char *module, const char *keytext)
+{
+	if (!gtk_widget_get_realized(GTK_WIDGET(gtkText)) || !module)
+		return FALSE;
+	const std::string osis = be->osisRefFromKey(module, keytext ? keytext : "");
+	if (osis.empty())
+		return FALSE;
+	/* "Luke.23.36" in the module's own versification. The OSIS book
+	 * name is parsed as English, whatever the reader's locale. */
+	gchar *reference = g_strdup(osis.c_str());
+	gchar *dot = strchr(reference, '.');
+	if (dot) {
+		*dot = ' ';
+		if ((dot = strchr(dot, '.')))
+			*dot = ':';
+	}
+	neutralKey.setVersificationSystem(be->versification(module).c_str());
+	neutralKey.setAutoNormalize(1);
+	neutralKey.setIntros(false);
+	const char *locale = neutralKey.getLocale();
+	const std::string reader_locale = locale ? locale : "";
+	neutralKey.setLocale("en");
+	neutralKey.setText(reference);
+	const bool parsed = !neutralKey.popError();
+	if (!reader_locale.empty())
+		neutralKey.setLocale(reader_locale.c_str());
+	g_free(reference);
+	if (!parsed)
+		return FALSE;
+	swmodule = NULL;
+	moduleName = module;
+	key = &neutralKey;
+	displayCommon();
+	return TRUE;
+}
+
+char
+GTKChapDisp::displayCommon()
+{
+	const char *ModuleName = moduleName.c_str();
 
 	ops         = main_new_globals(ModuleName);
 	/* Strong's superscripts belong only to the α interlinear toggle,
@@ -3683,7 +3768,6 @@ GTKChapDisp::display(SWModule &imodule)
 		ops->strongs = 0;
 	cache_flags = ConstructFlags(ops);
 
-	key        = (VerseKey *)(SWKey *) imodule;
 	curTest    = key->getTestament();
 	curBook    = key->getBook();
 	curChapter = key->getChapter();
@@ -3699,7 +3783,7 @@ GTKChapDisp::display(SWModule &imodule)
 			     ops->morphs);
 	strongs_or_morph  = ((ops->strongs || ops->lemmas) ||
 			     ops->morphs);
-	configure_rendering(be, imodule.getName(), ops, strongs_and_morph);
+	configure_rendering(be, ModuleName, ops, strongs_and_morph);
 
 	settings.versestyle = ops->verse_per_line;
 
@@ -3732,10 +3816,10 @@ GTKChapDisp::display(SWModule &imodule)
 					  : (ops->doublespace // neither
 						 ? DOUBLE_SPACE
 						 : ""))),
-			      imodule.getRenderHeader(),
+			      (swmodule ? swmodule->getRenderHeader() : ""),
 			      ITALIC_SELECT,
 			      (mod_column_count ? mod_column_count : ""),
-				get_css_references(imodule.getName()),
+				get_css_references(ModuleName),
 			      ((mf->old_font) ? mf->old_font : ""),
 			      mf->old_font_size_value);
 
@@ -3784,9 +3868,9 @@ GTKChapDisp::display(SWModule &imodule)
 	if (settings.render_whole_books ||
 	    (settings.reading_mode && settings.reading_mode_whole_book &&
 	     !settings.reading_compare))
-		RenderWholeBook(imodule, settings.reading_mode_window, false);
+		RenderWholeBook(settings.reading_mode_window, false);
 	else
-		RenderWholeBook(imodule, READING_WINDOW_RADIUS, true);
+		RenderWholeBook(READING_WINDOW_RADIUS, true);
 
 	// Reset the Bible location before GTK gets access:
 	// Mouse activity destroys this key, so we must be finished with it.

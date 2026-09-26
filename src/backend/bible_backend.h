@@ -37,6 +37,7 @@ public:
 	virtual BibleModuleCapabilities moduleCapabilities(
 		const std::string &module_id) const = 0;
 	virtual std::string moduleDescription(const std::string &module_id) const = 0;
+	virtual std::string moduleRenderHeader(const std::string &) const { return {}; }
 	virtual std::string moduleLanguage(const std::string &module_id) const = 0;
 	/* SWORD versification system name (KJV, NRSVA, Vulg, ...). Used
 	 * only by the missing-content resolver to map citations before

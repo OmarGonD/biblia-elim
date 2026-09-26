@@ -33,6 +33,16 @@ if(NOT fixture_status EQUAL 0)
   message(FATAL_ERROR "Could not create second GTK smoke fixture: ${fixture_stderr}")
 endif()
 
+# Parallel headings must come from the SQLite content model.
+foreach(smoke_module smoke other)
+  execute_process(COMMAND "${SQLITE3}" "${module_dir}/${smoke_module}.sqlite"
+    "CREATE TABLE headings(book_id INTEGER, chapter INTEGER, verse INTEGER, sequence INTEGER, text TEXT); INSERT INTO headings VALUES(40,3,16,0,'SQLite parallel heading'); UPDATE metadata SET value='true' WHERE key='feature.headings';"
+    RESULT_VARIABLE heading_status)
+  if(NOT heading_status EQUAL 0)
+    message(FATAL_ERROR "Could not add SQLite heading fixture")
+  endif()
+endforeach()
+
 execute_process(
   COMMAND "${XVFB_RUN}" -a -s "-screen 0 1280x800x24"
           "${CMAKE_COMMAND}" -E env

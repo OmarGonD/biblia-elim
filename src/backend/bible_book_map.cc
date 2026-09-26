@@ -139,8 +139,15 @@ const char *versificationSystemName(const std::string &stored)
 		{"catholic2", "Catholic2"}, {"segond", "Segond"},
 		{"darbyfr", "DarbyFr"}, {"calvin", "Calvin"},
 	};
+	/* Accepts the stored form ("vulg") and SWORD's own name ("Vulg"), which
+	 * is what BibleBackend::versification() and VerseKey report. */
 	for (const auto &system : systems)
-		if (stored == system.stored)
+		if (std::equal(stored.begin(), stored.end(), system.stored,
+			       system.stored + std::char_traits<char>::length(system.stored),
+			       [](char a, char b) {
+				       return std::tolower(static_cast<unsigned char>(a)) ==
+					      std::tolower(static_cast<unsigned char>(b));
+			       }))
 			return system.system;
 	return nullptr;
 }

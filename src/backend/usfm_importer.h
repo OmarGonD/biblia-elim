@@ -20,6 +20,8 @@ struct UsfmImportStats {
 	std::size_t footnotesSkipped = 0, crossReferencesSkipped = 0;
 	std::size_t unsupportedMarkers = 0;
 	std::size_t paragraphMarkers = 0, headingsImported = 0, addedSpans = 0;
+	std::size_t wordsOfChristSpans = 0, divineNameSpans = 0, emphasisSpans = 0;
+	std::size_t secondaryVariantsSkipped = 0;
 	std::size_t wordsImported = 0, wordsWithStrong = 0;
 	std::size_t strongIdsImported = 0;
 	std::size_t morphologyBearingTokens = 0, morphologyTagsParsed = 0;

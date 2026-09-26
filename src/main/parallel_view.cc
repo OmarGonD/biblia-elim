@@ -32,6 +32,8 @@
 #include <versekey.h>
 
 #include "backend/sword_main.hh"
+#include "main/backend_access.h"
+#include "main/strong_interaction.h"
 #include "main/gtk_compat.h"
 
 #include "gui/parallel_view.h"
@@ -585,29 +587,35 @@ void main_check_parallel_modules(void)
 	return;
 }
 
-void get_heading(SWBuf &text, BackEnd *p, gint modidx)
+static BibleBackend &parallel_backend(const char *module)
 {
-	const gchar *preverse;
-	gchar heading[8];
+    // Retain the separate SWORD rendering options in compatibility mode.
+    if (main_backend_is_sword()) return *backend_p;
+    return main_backend_for(module);
+}
 
-	int x = 0;
-	sprintf(heading, "%d", x);
-	while ((preverse = p->get_entry_attribute("Heading", "Preverse",
-						  heading)) != NULL) {
-		const gchar *preverse2, *buf;
-
-		preverse2 = p->render_this_text(settings.parallel_list[modidx], preverse);
-		buf = g_strdup_printf("<br/><b>%s</b><br/><br/>",
-				      (preverse2 ? preverse2 : ""));
-
-		text += buf;
-
-		g_free((gchar *)preverse2);
-		g_free((gchar *)preverse);
-		g_free((gchar *)buf);
-		++x;
-		sprintf(heading, "%d", x);
-	}
+static std::string parallel_content(const char *module, const char *key)
+{
+    BibleBackend &reader = parallel_backend(module);
+    BibleKeyInfo info;
+    if (!reader.resolveKey(module, key, info)) return no_content;
+    auto content = reader.getVerseContent(module, info.reference, true);
+    if (!content.valid) return no_content;
+    std::string html;
+    for (const auto &heading : content.headings) {
+        gchar *safe = g_markup_escape_text(heading.text.c_str(), -1);
+        html += "<h3>" + std::string(safe) + "</h3>";
+        g_free(safe);
+    }
+    if (content.paragraphBreak) html += "<br/>";
+    // Parallel cells have always kept editorial notes in the commentary pane.
+    content.footnotes.clear();
+    content.crossReferences.clear();
+    html += !main_backend_is_sword() && &reader == bible_backend
+        ? renderAnnotatedVerseText(content, module, key, settings.parallel_strongs,
+                                   VerseTextStyle{settings.parallel_red_words != 0})
+        : content.renderedText;
+    return html;
 }
 
 /******************************************************************************
@@ -687,7 +695,7 @@ void main_update_parallel_page(void)
 			// if a module was deleted, but still in parallels list,
 			// we will segfault when looking for content for the
 			// nonexistent module.  avoid this.
-			if (!backend_p->is_module(mod_name)) {
+			if (!parallel_backend(mod_name).hasModule(mod_name)) {
 				gui_generic_warning((unknown_parallel +
 						     (SWBuf)mod_name).c_str());
 				continue;
@@ -763,19 +771,15 @@ void main_update_parallel_page(void)
 			    mod_name);
 			// does this verse exist for this module?
 			if (!modkey ||
-			    !backend_p->is_Bible_key(mod_name, modkey, modkey)) {
+			    !main_is_Bible_key(mod_name, modkey)) {
 				g_string_append(data, no_content);
 			} else {
-				SWBuf text("");
-				backend_p->set_module_key(mod_name, modkey);
-				get_heading(text, backend_p, modidx);
-				g_string_append(data, text.c_str());
 				gchar *marca = highlight_note_marker_for(mod_name, modkey);
 				if (marca)
 					g_string_append(data, marca);
 				g_free(marca);
 
-				gchar *utf8str = backend_p->get_render_text(mod_name, modkey);
+				gchar *utf8str = g_strdup(parallel_content(mod_name, modkey).c_str());
 				if (utf8str) {
 					char fontcolor[32];
 
@@ -838,8 +842,7 @@ void main_update_parallel_page(void)
 /* how often the column names are repeated down a long chapter */
 #define PARALLEL_LABEL_EVERY 12
 
-static void interpolate_parallel_display(SWModule *control,
-					 char     *control_name,
+static void interpolate_parallel_display(char *control_name,
 					 SWBuf    &text,
 					 gchar    *key,
 					 gint     parallel_count,
@@ -861,13 +864,9 @@ static void interpolate_parallel_display(SWModule *control,
 
 	// need #verses to process in this chapter.
 
-	VerseKey *vkey = (VerseKey *)control->createKey();
-	int xverses;
-
-	vkey->setAutoNormalize(1);
-	vkey->setText(key);
-	xverses = (vkey->getVerseMax());
-	delete vkey;
+    BibleKeyInfo control_info;
+    if (!parallel_backend(control_name).resolveKey(control_name, key, control_info)) return;
+    const int xverses = control_info.verseCount;
 
 	is_module = g_new(gboolean, parallel_count);
 	is_rtol = g_new(gboolean, parallel_count);
@@ -883,7 +882,7 @@ static void interpolate_parallel_display(SWModule *control,
 			mod = (gchar *)real_mod;
 
 		// determine module presence once each.
-		is_module[modidx] = backend->is_module(mod);
+		is_module[modidx] = parallel_backend(mod).hasModule(mod);
 
 		if (is_module[modidx]) {
 			is_rtol[modidx] = main_is_mod_rtol(mod);
@@ -902,11 +901,10 @@ static void interpolate_parallel_display(SWModule *control,
 	// but we must validate a key in some vaguely consistent manner.
 	// arbitrarily, we have picked the 1st.
 	// it's consistent, but very possibly wrong for all but the 1st.
-	tmpkey = backend_p->get_valid_key(control_name, key);
-
-	cur_book = backend_p->key_get_book(control_name, tmpkey);
-	cur_chapter = backend_p->key_get_chapter(control_name, tmpkey);
-	cur_verse = backend_p->key_get_verse(control_name, tmpkey);
+    tmpkey = g_strdup(control_info.key.c_str());
+    cur_book = g_strdup(control_info.osisBook.c_str());
+    cur_chapter = control_info.reference.chapter;
+    cur_verse = control_info.reference.verse;
 	settings.intCurVerse = cur_verse;
 
 	/* Alternating verse rows. 0.10 was almost invisible on a dark
@@ -918,7 +916,7 @@ static void interpolate_parallel_display(SWModule *control,
 	for (verse = 1; verse <= xverses; ++verse) {
 		snprintf(tmpbuf, 255, "%s %d:%d", cur_book, cur_chapter, verse);
 		free(tmpkey);
-		tmpkey = backend_p->get_valid_key(control_name, tmpbuf);
+		tmpkey = g_strdup(tmpbuf);
 
 		/* The <thead> naming the columns scrolls away with
 		 * everything else -- this is a GtkGrid inside a text
@@ -948,7 +946,7 @@ static void interpolate_parallel_display(SWModule *control,
 
 		BibleKeyInfo row_info;
 		const bool have_row = bible_backend &&
-			bible_backend->resolveKey(control_name, tmpkey, row_info);
+			parallel_backend(control_name).resolveKey(control_name, tmpkey, row_info);
 
 		text += "<tr valign=\"top\">";
 
@@ -978,9 +976,8 @@ static void interpolate_parallel_display(SWModule *control,
 				 * (Vulg) by reusing the string put Psalm 121
 				 * beside Psalm 120. Modules without verse keys
 				 * have no versification to map through. */
-				SWModule *target = backend_p->get_SWModule(mod);
-				const bool verse_keyed = target &&
-					dynamic_cast<VerseKey *>(target->getKey());
+                const auto type = parallel_backend(mod).moduleType(mod);
+                const bool verse_keyed = type == BibleModuleType::Bible || type == BibleModuleType::Commentary;
 				gchar *modkey = verse_keyed
 					? main_reference_for_module(control_name, tmpkey, mod)
 					: g_strdup(tmpkey);
@@ -990,14 +987,14 @@ static void interpolate_parallel_display(SWModule *control,
 				BibleKeyInfo cell_info;
 				gchar *num;
 				if (modkey && verse_keyed && have_row &&
-				    bible_backend->resolveKey(mod, modkey, cell_info) &&
+				    parallel_backend(mod).resolveKey(mod, modkey, cell_info) &&
 				    (cell_info.reference.chapter != row_info.reference.chapter ||
 				     cell_info.osisBook != row_info.osisBook))
 					num = g_strdup_printf("%d:%d",
 							      cell_info.reference.chapter,
 							      cell_info.reference.verse);
 				else if (modkey && verse_keyed && have_row &&
-					 bible_backend->resolveKey(mod, modkey, cell_info))
+					 parallel_backend(mod).resolveKey(mod, modkey, cell_info))
 					num = main_format_number(cell_info.reference.verse);
 				else
 					num = main_format_number(verse);
@@ -1042,10 +1039,7 @@ static void interpolate_parallel_display(SWModule *control,
 				 * (aliasing that produced Revelation 1:1 in
 				 * every row). */
 				if (modkey) {
-					backend_p->set_module_key(mod, modkey);
-					get_heading(text, backend_p, modidx);
-
-					utf8str = backend_p->get_render_text(mod, modkey);
+                    utf8str = g_strdup(parallel_content(mod, modkey).c_str());
 					if (utf8str) {
 						text += utf8str;
 						g_free(utf8str);
@@ -1106,12 +1100,8 @@ static void interpolate_parallel_display(SWModule *control,
 static gboolean
 parallel_build_html(SWBuf &text, gint *parallel_count_out)
 {
-	/* Parallel comparison is a SWORD-only renderer for now.  SQLite has no
-	 * legacy backend_p, so fail closed instead of dereferencing it when a
-	 * saved parallel/read-comparison setting is active. */
-	if (!backend_p)
-		return FALSE;
-	backend_p->get_mgr()->setGlobalOption("Footnotes", "Off");
+    if (!bible_backend || !backend_p) return FALSE;
+    backend_p->get_mgr()->setGlobalOption("Footnotes", "Off");
 	gchar buf[5000];
 	gint modidx, parallel_count, fraction;
 
@@ -1136,8 +1126,8 @@ parallel_build_html(SWBuf &text, gint *parallel_count_out)
 	if (real_mod)
 		control_name = (gchar *)real_mod;
 
-	SWModule *control = backend->get_SWModule(control_name);
-	if (!control)
+	BibleBackend &control = parallel_backend(control_name);
+	if (!control.hasModule(control_name))
 	{
 		gui_generic_warning(_("Failed to find 1st parallel module for display control."));
 		return FALSE;
@@ -1158,7 +1148,7 @@ parallel_build_html(SWBuf &text, gint *parallel_count_out)
 		 "      <thead>"
 		 "        <tr>",
 		 (settings.parallel_italic_headings ? "italic" : "bold"),
-		 control->getRenderHeader(),
+		 control.moduleRenderHeader(control_name).c_str(),
 		 STICKY_MODNAMES,
 		 (settings.justify_margins ? "<style> td { text-align: justify; padding: 5px; } </style>" : ""),
 		 settings.bible_bg_color, settings.bible_text_color,
@@ -1190,13 +1180,19 @@ parallel_build_html(SWBuf &text, gint *parallel_count_out)
 	}
 
 	text += "</tr> </thead> <tbody>";
-	interpolate_parallel_display(control, control_name, text, control_key, parallel_count, fraction);
+	interpolate_parallel_display(control_name, text, control_key, parallel_count, fraction);
 	g_free(control_key);
 	text += "</tbody> </table> </div> </body> </html>";
 
 	if (parallel_count_out)
 		*parallel_count_out = parallel_count;
 	return TRUE;
+}
+
+gchar *main_parallel_html(void)
+{
+    SWBuf html;
+    return parallel_build_html(html, nullptr) ? g_strdup(html.c_str()) : nullptr;
 }
 
 void main_update_parallel_page_detached(void)

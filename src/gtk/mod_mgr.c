@@ -30,6 +30,7 @@
 #include <errno.h>
 #include <time.h>
 
+#include "gui/sqlite_module_manager_dialog.h"
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 
@@ -942,6 +943,10 @@ static void remove_install_modules(GList *modules, int activity)
 			}
 			// annihilate cache of removed module.
 			ModuleCacheErase((const char *)module_name);
+			/* and the SQLite copy converted from it; a reinstall
+			 * converts it again afterwards. */
+			if (result != -1)
+				gui_forget_converted_sword_bible(module_name);
 		}
 
 		if (activity == INSTALL) {
@@ -999,6 +1004,9 @@ static void remove_install_modules(GList *modules, int activity)
 	if (!first_time_user) {
 		main_update_module_lists();
 		main_load_module_tree(sidebar.module_list);
+		/* New SWORD Bibles are read from their SQLite copy. */
+		if (activity == INSTALL)
+			gui_convert_pending_sword_bibles();
 	}
 	g_list_free(modules);
 

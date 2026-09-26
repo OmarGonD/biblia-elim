@@ -114,7 +114,7 @@ static gchar *true_false2yes_no(int true_false)
  * Return value
  *   void
  */
-void gui_recompute_shows(gboolean flush)
+static void recompute_shows(gboolean flush, gboolean settle)
 {
 	if (stop_refresh)
 		return;
@@ -133,9 +133,25 @@ void gui_recompute_shows(gboolean flush)
 	gui_show_hide_comms(settings.showcomms);
 	gui_set_bible_comm_layout();
 
-	sync_windows();
+	if (settle)
+		sync_windows();
 
 	stop_refresh = FALSE;
+}
+
+void gui_recompute_shows(gboolean flush)
+{
+	recompute_shows(flush, TRUE);
+}
+
+/* At startup, just before the main loop: the same showings, without
+ * draining every pending event first. The drain waited for GTK to lay out
+ * the whole chapter window in the background (hundreds of milliseconds
+ * after the chapter was already painted); the main loop does that
+ * incrementally while the reader can already scroll. */
+void gui_recompute_shows_at_startup(void)
+{
+	recompute_shows(FALSE, FALSE);
 }
 
 /******************************************************************************

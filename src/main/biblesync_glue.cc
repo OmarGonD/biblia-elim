@@ -40,6 +40,7 @@
 #include "main/settings.h"
 #include "main/sidebar.h"
 #include "main/sword.h"
+#include "main/backend_access.h"
 #include "main/url.hh"
 
 #include "biblesync/biblesync.hh"
@@ -137,14 +138,14 @@ biblesync_navigate(char cmd, string speaker_uuid,
 			gui_generic_warning((char *)message.c_str());
 		}
 
-		is_module = bible_backend->hasModule(bible);
+		is_module = main_backend_for(bible.c_str()).hasModule(bible);
 		real_name = main_abbrev_to_name(bible.c_str());
 
 		// if the offered name isn't known,
 		// maybe it's an abbreviation for something we do know.
 		if (!is_module && real_name) {
 			bible = real_name;
-			is_module = bible_backend->hasModule(bible);
+			is_module = main_backend_for(bible.c_str()).hasModule(bible);
 		}
 
 		// direct navigation, or via verse list?

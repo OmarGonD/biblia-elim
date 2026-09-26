@@ -46,6 +46,8 @@ add_library (backend STATIC
   content_availability.h
   content_resolver.cc
   content_resolver.h
+  sword_bible_conversion.cc
+  sword_bible_conversion.h
   sqlite_module_manager.cc
   sqlite_module_manager.h
   sqlite/sqlite_bible_backend.cc

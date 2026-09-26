@@ -27,7 +27,8 @@ const char *bibleBookName(const BibleBookDefinition &book,
 const BibleBookDefinition *findBibleBookByAnyName(const std::string &name);
 /* The versification a module declares, as stored in its metadata
  * (lowercase: "kjv", "vulg", "nrsva", ...), by its SWORD name ("KJV",
- * "Vulg", "NRSVA"). "custom" is read as KJV, as before. nullptr for a
+ * "Vulg", "NRSVA"). SWORD's own names ("Vulg") are accepted as well,
+ * case-insensitively. "custom" is read as KJV, as before. nullptr for a
  * value no versification is known by. */
 const char *versificationSystemName(const std::string &stored);
 

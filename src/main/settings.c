@@ -241,6 +241,11 @@ static void main_ensure_default_commentary(void)
 		return;
 	}
 	g_free(intentado);
+	/* En modo SQLite las listas aún no ven los comentarios de SWORD. */
+	if (!main_backend_is_sword() && main_sword_has_commentary()) {
+		xml_set_or_create_value("misc", "comentario-sembrado", "1");
+		return;
+	}
 	xml_set_or_create_value("misc", "comentario-sembrado", "1");
 
 	/* Igual que en el arranque en frío: el destino se pasa siempre
@@ -456,9 +461,10 @@ int settings_init(int argc, char **argv, int new_configs,
 		exit(1);
 	}
 
-	/* Y un comentario clásico con el que trabajar, si no hay ninguno. */
-	if (main_backend_is_sword())
-		main_ensure_default_commentary();
+	/* Y un comentario clásico con el que trabajar, si no hay ninguno.
+	 * Los comentarios siguen en SWORD también cuando las Biblias se leen
+	 * con SQLite. */
+	main_ensure_default_commentary();
 
 	/* check for template.pad file for studypad */
 	tmp = g_strdup_printf("%s/%s", settings.gSwordDir, "template.pad");

@@ -72,6 +72,15 @@ ConstructFlags(GLOBAL_OPS *ops)
 }
 
 // when de-installing, destroy module's cache.
+/* Every module's cached text: the backend that reads a Bible changed
+ * (SQLite took over from SWORD, or back), and a SQLite copy shares its
+ * SWORD original's name. */
+void
+ModuleCacheClear(void)
+{
+	ModuleMap.clear();
+}
+
 void
 ModuleCacheErase(const char *modname)
 {

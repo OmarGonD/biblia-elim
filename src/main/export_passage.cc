@@ -22,10 +22,12 @@
 #include <config.h>
 #endif
 
+#include <gtk/gtk.h>
 #include <swmgr.h>
 #include <swmodule.h>
 
-#include "backend/sword_main.hh"
+#include "main/backend_access.h"
+#include "main/strong_interaction.h"
 
 #include "gui/export_dialog.h"
 
@@ -85,28 +87,16 @@ static void clipboardreq_get(GtkClipboard *clipboard,
 
 int main_get_max_verses(const char *name)
 {
-	SWModule *mod = backend->get_SWModule(name);
-	if (!mod)
-		return 1;
-
-	VerseKey *key = (VerseKey *)mod->createKey();
-	key->setText(settings.currentverse);
-	int max = key->getVerseMax();
-	delete key;
-	return max;
+    BibleKeyInfo info;
+    return name && main_backend_for(name).resolveKey(name, settings.currentverse, info)
+        ? info.verseCount : 1;
 }
 
 int main_get_current_verse(const char *name)
 {
-	SWModule *mod = backend->get_SWModule(name);
-	if (!mod)
-		return 1;
-
-	VerseKey *key = (VerseKey *)mod->createKey();
-	key->setText(settings.currentverse);
-	int v = key->getVerse();
-	delete key;
-	return v;
+    BibleKeyInfo info;
+    return name && main_backend_for(name).resolveKey(name, settings.currentverse, info)
+        ? info.reference.verse : 1;
 }
 
 /**
@@ -168,363 +158,108 @@ static void _save(EXPORT_DATA data, char *text, int len)
 		g_free(data.verse_range_verse);
 }
 
-static void _export_book(EXPORT_DATA data, int type)
+static std::string export_text(BibleBackend &reader, const char *module,
+                               const BibleVerse &verse, bool html)
 {
-	GString *str = g_string_new(NULL);
-	SWMgr *mgr = backend->get_mgr();
-	SWModule *mod = mgr->Modules[settings.MainWindowModule];
-	mod->setKey(settings.currentverse);
-	VerseKey *key = (VerseKey *)(SWKey *)(*mod);
-	int curChapter = 1;
-	int curBook = key->getBook();
-	int mychapter = 1;
-	int myverse = 1;
-
-	key->setChapter(1);
-	key->setVerse(1);
-
-	if (type == HTML)
-		g_string_append_printf(str,
-				       data.bookheader,
-				       HTML_START,
-				       (data.version ? mod->getDescription() : ""),
-				       1);
-	else
-		g_string_append_printf(str, data.plain_bookheader,
-				       mod->getDescription(),
-				       1);
-	while (key->getBook() == curBook && !mod->popError()) {
-		if (key->getChapter() != curChapter) {
-			++mychapter;
-			myverse = 1;
-			curChapter = key->getChapter();
-			if (type == HTML)
-				g_string_append_printf(str, data.chapterheader_book, curChapter);
-			else
-				g_string_append_printf(str, data.plain_chapterheader_book, curChapter);
-		}
-
-		if (data.verse_num)
-			g_string_append_printf(str,
-					       ((type == HTML)
-						    ? data.versenumber
-						    : data.plain_versenumber),
-					       myverse);
-
-		if (type == HTML)
-			g_string_append_printf(str, " %s%s",
-					       mod->renderText().c_str(),
-					       (settings.versestyle ? "<br>" : ""));
-		else
-			g_string_append_printf(str, " %s%s",
-					       mod->stripText(),
-					       (settings.versestyle ? "\n" : ""));
-
-		++myverse;
-		(*mod)++;
-	}
-	if (type == HTML)
-		g_string_append_printf(str, "%s", "</body></html>");
-	if (data.filename)
-		_save(data, str->str, str->len);
-	else
-		_copy_to_clipboard(data, str->str, str->len);
-	g_string_free(str, TRUE);
-}
-
-/* Export the complete module, preserving book and chapter boundaries. */
-static void _export_bible(EXPORT_DATA data, int type)
-{
-	GString *str = g_string_new(NULL);
-	SWMgr *mgr = backend->get_mgr();
-	SWModule *mod = mgr->Modules[settings.MainWindowModule];
-	if (!mod) {
-		g_string_free(str, TRUE);
-		return;
-	}
-	mod->setKey(settings.currentverse);
-	VerseKey *key = (VerseKey *)(SWKey *)(*mod);
-	key->setTestament(1);
-	key->setBook(1);
-	key->setChapter(1);
-	key->setVerse(1);
-
-	if (type == HTML)
-		g_string_append_printf(str, "%s<h1>%s</h1>", HTML_START,
-				       (data.version ? mod->getDescription() : ""));
-	else
-		g_string_append_printf(str, "%s\n\n", (data.version ? mod->getDescription() : ""));
-
-	int curBook = 0;
-	int curChapter = 0;
-	int myVerse = 1;
-	while (!mod->popError()) {
-		if (key->getBook() != curBook) {
-			curBook = key->getBook();
-			curChapter = 0;
-			myVerse = 1;
-			char *book = backend->key_get_book(settings.MainWindowModule, key->getText());
-			if (type == HTML)
-				g_string_append_printf(str, "<h2>%s</h2>", book ? book : "");
-			else
-				g_string_append_printf(str, "\n%s\n", book ? book : "");
-			if (book)
-				g_free(book);
-		}
-		if (key->getChapter() != curChapter) {
-			curChapter = key->getChapter();
-			myVerse = 1;
-			if (type == HTML)
-				g_string_append_printf(str, data.chapterheader_book, curChapter);
-			else
-				g_string_append_printf(str, data.plain_chapterheader_book, curChapter);
-		}
-		if (data.verse_num)
-			g_string_append_printf(str, type == HTML ? data.versenumber : data.plain_versenumber, myVerse);
-		if (type == HTML)
-			g_string_append_printf(str, " %s%s", mod->renderText().c_str(), settings.versestyle ? "<br>" : "");
-		else
-			g_string_append_printf(str, " %s%s", mod->stripText(), settings.versestyle ? "\n" : "");
-		++myVerse;
-		(*mod)++;
-	}
-	if (type == HTML)
-		g_string_append(str, "</body></html>");
-	if (data.filename)
-		_save(data, str->str, str->len);
-	else
-		_copy_to_clipboard(data, str->str, str->len);
-	g_string_free(str, TRUE);
-}
-
-static void _export_chapter(EXPORT_DATA data, int type)
-{
-	GString *str = g_string_new(NULL);
-	char *book;
-	SWMgr *mgr = backend->get_mgr();
-	SWModule *mod = mgr->Modules[settings.MainWindowModule];
-	mod->setKey(settings.currentverse);
-	VerseKey *key = (VerseKey *)(SWKey *)(*mod);
-	int curChapter = key->getChapter();
-	int curBook = key->getBook();
-	int myverse = 1;
-
-	book = backend->key_get_book(settings.MainWindowModule, settings.currentverse);
-	if (type == HTML)
-		g_string_append_printf(str,
-				       data.chapterheader_chapter,
-				       HTML_START,
-				       (data.version ? mod->getDescription() : ""),
-				       book,
-				       key->getChapter());
-	else
-		g_string_append_printf(str,
-				       data.plain_chapterheader_chapter,
-				       mod->getDescription(),
-				       book,
-				       key->getChapter());
-
-	for (key->setVerse(1);
-	     (key->getBook() == curBook) && (key->getChapter() == curChapter) && !mod->popError();
-	     (*mod)++) {
-		myverse = key->getVerse();
-
-		if (data.verse_num)
-			g_string_append_printf(str,
-					       ((type == HTML)
-						    ? data.versenumber
-						    : data.plain_versenumber),
-					       myverse);
-
-		if (type == HTML)
-			g_string_append_printf(str, " %s%s",
-					       mod->renderText().c_str(),
-					       (settings.versestyle ? "<br>" : ""));
-		else
-			g_string_append_printf(str, " %s%s",
-					       mod->stripText(),
-					       (settings.versestyle ? "\n" : ""));
-	}
-	if (type == HTML)
-		g_string_append_printf(str, "%s", "</body></html>");
-	if (data.filename)
-		_save(data, str->str, str->len);
-	else
-		_copy_to_clipboard(data, str->str, str->len);
-	g_string_free(str, TRUE);
-	if (book)
-		g_free(book);
-}
-
-static void _export_verse(EXPORT_DATA data, int type)
-{
-	GString *str = g_string_new(NULL);
-	char *book;
-	char *modstr = g_strdup_printf(" [%s]", settings.MainWindowModule);
-	SWMgr *mgr = backend->get_mgr();
-	SWModule *mod = mgr->Modules[settings.MainWindowModule];
-	mod->setKey(settings.currentverse);
-	VerseKey *key = (VerseKey *)(SWKey *)(*mod);
-
-	book = backend->key_get_book(settings.MainWindowModule, settings.currentverse);
-	if (type == HTML)
-		if (data.reference_last)
-			g_string_append_printf(str,
-					       data.verselayout_single_verse_ref_last,
-					       HTML_START,
-					       mod->renderText().c_str(),
-					       book,
-					       key->getChapter(),
-					       key->getVerse(),
-					       (data.version ? modstr : ""));
-		else
-			g_string_append_printf(str,
-					       data.verselayout_single_verse_ref_first,
-					       HTML_START,
-					       book,
-					       key->getChapter(),
-					       key->getVerse(),
-					       (data.version ? modstr : ""),
-					       mod->renderText().c_str());
-	else if (data.reference_last)
-		g_string_append_printf(str,
-				       data.plain_verselayout_single_verse_ref_last,
-				       mod->stripText(),
-				       book,
-				       key->getChapter(),
-				       key->getVerse(),
-				       (data.version ? modstr : ""));
-	else
-		g_string_append_printf(str,
-				       data.plain_verselayout_single_verse_ref_first,
-				       book,
-				       key->getChapter(),
-				       key->getVerse(),
-				       (data.version ? modstr : ""),
-				       mod->stripText());
-
-	if (data.filename)
-		_save(data, str->str, str->len);
-	else
-		_copy_to_clipboard(data, str->str, str->len);
-
-	g_string_free(str, TRUE);
-
-	if (book)
-		g_free(book);
-	if (modstr)
-		g_free(modstr);
-}
-
-static void _export_verse_range(EXPORT_DATA data, int type)
-{
-	GString *str = g_string_new(NULL);
-	char *book;
-	SWMgr *mgr = backend->get_mgr();
-	SWModule *mod = mgr->Modules[settings.MainWindowModule];
-	mod->setKey(settings.currentverse);
-	VerseKey *key = (VerseKey *)(SWKey *)(*mod);
-	int curChapter = key->getChapter();
-	int curBook = key->getBook();
-	char *modstr = g_strdup_printf(" [%s]", settings.MainWindowModule);
-
-	// special case: one verse range => single verse export.
-	if (data.start_verse == data.end_verse) {
-		_export_verse(data, type);
-		return;
-	}
-
-	book = backend->key_get_book(settings.MainWindowModule, settings.currentverse);
-
-	if (type == HTML)
-		g_string_append_printf(str, "%s", HTML_START);
-
-	if (!data.reference_last)
-		g_string_append_printf(str,
-				       ((type == HTML)
-					    ? data.verse_range_ref_first
-					    : data.plain_verse_range_ref_first),
-				       book,
-				       key->getChapter(),
-				       data.start_verse,
-				       data.end_verse,
-				       (data.version ? modstr : ""));
-
-	for (key->setVerse(data.start_verse);
-	     (key->getVerse() <= data.end_verse) &&
-		 (key->getBook() == curBook) &&
-		 (key->getChapter() == curChapter) &&
-		 !mod->popError();
-	     (*mod)++) {
-
-		if (data.verse_num)
-			g_string_append_printf(str,
-					       ((type == HTML)
-						    ? data.versenumber
-						    : data.plain_versenumber),
-					       key->getVerse());
-
-		if (type == HTML)
-			g_string_append_printf(str, data.verse_range_verse,
-					       mod->renderText().c_str(),
-					       (settings.versestyle ? "<br>" : " "));
-		else
-			g_string_append_printf(str, data.verse_range_verse,
-					       mod->stripText(),
-					       (settings.versestyle ? "\n" : " "));
-	}
-	// back up one verse.
-	// if we have dumped the last verse of a chapter, then we will have stepped
-	// into next chapter in order to end loop above.  this reverts us correctly.
-	(*mod)--;
-
-	if (data.reference_last)
-		g_string_append_printf(str,
-				       ((type == HTML) ? data.verse_range_ref_last
-						       : data.plain_verse_range_ref_last),
-				       ((type == HTML) ? "<br>" : "\n"),
-				       book,
-				       key->getChapter(),
-				       data.start_verse,
-				       data.end_verse,
-				       (data.version ? modstr : ""));
-
-	if (type == HTML)
-		g_string_append_printf(str, "</body></html> ");
-	if (data.filename)
-		_save(data, str->str, str->len);
-	else
-		_copy_to_clipboard(data, str->str, str->len);
-	g_string_free(str, TRUE);
-	if (book)
-		g_free(book);
-	if (modstr)
-		g_free(modstr);
+    auto content = reader.getVerseContent(module, verse.reference, true);
+    if (!html) return content.plainText;
+    if (content.renderedText != content.plainText) return content.renderedText;
+    content.footnotes.clear(); content.crossReferences.clear();
+    std::string result;
+    for (const auto &heading : content.headings) {
+        gchar *safe = g_markup_escape_text(heading.text.c_str(), -1);
+        result += "<h3>" + std::string(safe) + "</h3>"; g_free(safe);
+    }
+    return result + renderAnnotatedVerseText(content, module, verse.key, false);
 }
 
 void main_export_content(EXPORT_DATA data, gint format)
 {
-	int style = (format ? HTML : PLAIN);
-
-	// no markers are left in exported text.
-	_set_global_textual("Cross-references", "Off");
-	_set_global_textual("Footnotes", "Off");
-
-	switch (data.passage_type) {
-	case BIBLE:
-		_export_bible(data, style);
-		break;
-	case BOOK:
-		_export_book(data, style);
-		break;
-	case CHAPTER:
-		_export_chapter(data, style);
-		break;
-	case VERSE:
-		_export_verse(data, style);
-		break;
-	case VERSE_RANGE:
-		_export_verse_range(data, style);
-		break;
-	}
+    const bool html = format != 0;
+    const char *module = settings.MainWindowModule;
+    if (!module || !settings.currentverse) return;
+    BibleBackend &reader = main_backend_for(module);
+    BibleKeyInfo current;
+    if (!reader.resolveKey(module, settings.currentverse, current)) return;
+    // Keep export marker policy; neutral annotations are removed explicitly.
+    _set_global_textual("Cross-references", "Off");
+    _set_global_textual("Footnotes", "Off");
+    const std::string description = reader.moduleDescription(module);
+    const std::string version = data.version ? " [" + std::string(module) + "]" : "";
+    GString *out = g_string_new(nullptr);
+    const int passage = data.passage_type;
+    std::vector<BibleKeyInfo> books;
+    if (passage == BIBLE) {
+        if (html) g_string_append_printf(out, "%s<h1>%s</h1>", HTML_START,
+                                        data.version ? description.c_str() : "");
+        else g_string_append_printf(out, "%s\n\n", data.version ? description.c_str() : "");
+        for (int testament = 1; testament <= 2; ++testament) {
+            const auto names = reader.bookNames(module, testament);
+            for (std::size_t n = 0; n < names.size(); ++n) {
+                BibleKeyInfo book;
+                if (reader.resolveKey(module, reader.setBook(module, "", testament, n + 1), book)) books.push_back(book);
+            }
+        }
+    } else books.push_back(current);
+    for (const auto &book : books) {
+        if (passage == BIBLE)
+            g_string_append_printf(out, html ? "<h2>%s</h2>" : "\n%s\n", book.bookName.c_str());
+        if (passage == BOOK) {
+            if (html) g_string_append_printf(out, data.bookheader, HTML_START, data.version ? description.c_str() : "", 1);
+            else g_string_append_printf(out, data.plain_bookheader, description.c_str(), 1);
+        }
+        if (passage == CHAPTER) {
+            if (html) g_string_append_printf(out, data.chapterheader_chapter, HTML_START,
+                data.version ? description.c_str() : "", book.bookName.c_str(), current.reference.chapter);
+            else g_string_append_printf(out, data.plain_chapterheader_chapter, description.c_str(),
+                book.bookName.c_str(), current.reference.chapter);
+        }
+        if (passage == VERSE_RANGE) {
+            if (html) g_string_append(out, HTML_START);
+            if (!data.reference_last)
+                g_string_append_printf(out, html ? data.verse_range_ref_first : data.plain_verse_range_ref_first,
+                    book.bookName.c_str(), current.reference.chapter, data.start_verse, data.end_verse, version.c_str());
+        }
+        int first = (passage == BIBLE || passage == BOOK) ? 1 : current.reference.chapter;
+        int last = (passage == BIBLE || passage == BOOK) ? book.chapterCount : first;
+        for (int chapter = first; chapter <= last; ++chapter) {
+            if (passage == BIBLE || (passage == BOOK && chapter > 1))
+                g_string_append_printf(out, html ? data.chapterheader_book : data.plain_chapterheader_book, chapter);
+            BibleReference ref = book.reference; ref.chapter = chapter;
+            for (const auto &verse : reader.getChapter(module, ref, false)) {
+                const int number = verse.reference.verse;
+                if (passage == VERSE && number != current.reference.verse) continue;
+                if (passage == VERSE_RANGE && (number < data.start_verse || number > data.end_verse)) continue;
+                const std::string text = export_text(reader, module, verse, html);
+                if (passage == VERSE) {
+                    if (html && data.reference_last)
+                        g_string_append_printf(out, data.verselayout_single_verse_ref_last, HTML_START,
+                            text.c_str(), book.bookName.c_str(), chapter, number, version.c_str());
+                    else if (html)
+                        g_string_append_printf(out, data.verselayout_single_verse_ref_first, HTML_START,
+                            book.bookName.c_str(), chapter, number, version.c_str(), text.c_str());
+                    else if (data.reference_last)
+                        g_string_append_printf(out, data.plain_verselayout_single_verse_ref_last,
+                            text.c_str(), book.bookName.c_str(), chapter, number, version.c_str());
+                    else
+                        g_string_append_printf(out, data.plain_verselayout_single_verse_ref_first,
+                            book.bookName.c_str(), chapter, number, version.c_str(), text.c_str());
+                } else {
+                    if (data.verse_num)
+                        g_string_append_printf(out, html ? data.versenumber : data.plain_versenumber, number);
+                    const char *separator = settings.versestyle ? (html ? "<br>" : "\n") : " ";
+                    g_string_append_printf(out, passage == VERSE_RANGE ? data.verse_range_verse : " %s%s",
+                                          text.c_str(), separator);
+                }
+            }
+        }
+        if (passage == VERSE_RANGE && data.reference_last)
+            g_string_append_printf(out, html ? data.verse_range_ref_last : data.plain_verse_range_ref_last,
+                html ? "<br>" : "\n", book.bookName.c_str(), current.reference.chapter,
+                data.start_verse, data.end_verse, version.c_str());
+    }
+    if (html && passage != VERSE) g_string_append(out, "</body></html>");
+    if (data.filename) _save(data, out->str, out->len);
+    else _copy_to_clipboard(data, out->str, out->len);
+    g_string_free(out, TRUE);
 }

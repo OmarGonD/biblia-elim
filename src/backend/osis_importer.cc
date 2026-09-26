@@ -208,6 +208,11 @@ struct State {
 	/* Inside SWORD's pre-verse region (<div subType="x-preverse" sID/eID>
 	 * milestones): what it holds comes before the verse, not in it. */
 	bool inPreverse = false;
+	/* Words of Christ given as <q who="Jesus" sID/> ... <q eID/>
+	 * milestones, which may run across verses. */
+	bool christMilestoneOpen = false;
+	std::string christMilestoneId;
+	std::size_t christMilestoneStart = 0;
 	std::string activeVerseId;
 	SqliteImportVerse verse;
 	std::unique_ptr<VisibleVerseText> visible;
@@ -234,6 +239,63 @@ void registerBook(State &state, const std::string &chapterId)
 	state.seenBooks[book->bookId] = true;
 }
 
+/* A styled range of visible verse text. The leading space a pending
+ * separator may have put at `start` is not part of the style. The writer
+ * keys spans by (start, style), so a nested range of the same style at the
+ * same start (<q><q>…</q></q>) keeps only the longer one. */
+void addSpan(State &state, std::size_t start, std::size_t end, BibleTextStyle style)
+{
+	const std::string &text = state.verse.text;
+	end = std::min(end, text.size());
+	while (start < end && text[start] == ' ') ++start;
+	if (start >= end) return;
+	for (BibleTextSpan &existing : state.verse.spans)
+		if (existing.start == start && existing.style == style) {
+			existing.length = std::max(existing.length, end - start);
+			return;
+		}
+	state.verse.spans.push_back({ start, end - start, style });
+	if (style == BibleTextStyle::Added) ++state.stats.addedSpans;
+	else if (style == BibleTextStyle::WordsOfChrist) ++state.stats.wordsOfChristSpans;
+	else if (style == BibleTextStyle::DivineName) ++state.stats.divineNameSpans;
+	else ++state.stats.emphasisSpans;
+}
+
+/* The style an inline element gives its text, if any. */
+bool textStyleOf(xmlNode *node, BibleTextStyle &style)
+{
+	const std::string name = reinterpret_cast<const char *>(node->name);
+	if (name == "q" && property(node, "who") == "Jesus") style = BibleTextStyle::WordsOfChrist;
+	else if (name == "transChange" && property(node, "type") == "added") style = BibleTextStyle::Added;
+	else if (name == "divineName") style = BibleTextStyle::DivineName;
+	else if (name == "hi" && property(node, "type") == "italic") style = BibleTextStyle::Italic;
+	else if (name == "hi" && property(node, "type") == "bold") style = BibleTextStyle::Bold;
+	else return false;
+	return true;
+}
+
+/* Styled parts inside a word (<w>that the <divineName>Lord</divineName></w>):
+ * the word is read as one piece of text, so each part is found in order
+ * within the word's range. */
+void addWordSpans(State &state, xmlNode *node, std::size_t &from, std::size_t end)
+{
+	for (; node; node = node->next) {
+		if (node->type != XML_ELEMENT_NODE) continue;
+		BibleTextStyle style;
+		if (textStyleOf(node, style)) {
+			const std::string part = normalizedStandaloneText(descendantText(node->children));
+			const std::size_t at = part.empty() ? std::string::npos :
+				state.verse.text.find(part, from);
+			if (at != std::string::npos && at + part.size() <= end) {
+				addSpan(state, at, at + part.size(), style);
+				from = at + part.size();
+			}
+			continue;
+		}
+		addWordSpans(state, node->children, from, end);
+	}
+}
+
 void beginVerse(State &state, const BibleReference &reference)
 {
 	if (state.verseActive) {
@@ -249,10 +311,15 @@ void beginVerse(State &state, const BibleReference &reference)
 	state.pendingParagraph = false;
 	state.verseActive = true;
 	state.visible.reset(new VisibleVerseText(state.verse.text));
+	state.christMilestoneStart = 0;
 }
 
 void finishVerse(State &state, bool milestone)
 {
+	/* Words of Christ still open continue in the next verse. */
+	if (state.christMilestoneOpen)
+		addSpan(state, state.christMilestoneStart, state.verse.text.size(),
+			BibleTextStyle::WordsOfChrist);
 	if (sourceQuirksForModule(state.moduleId) &
 	    SOURCE_QUIRK_LEADING_QUOTED_SUPERSCRIPTION) {
 		BibleVerseContent normalized;
@@ -261,11 +328,43 @@ void finishVerse(State &state, bool milestone)
 		normalized.headings = state.verse.headings;
 		const std::size_t before = normalized.headings.size();
 		promoteLeadingQuotedHeading(normalized);
+		/* The superscription left the front of the text: every range
+		 * recorded against the old text moves back by what was removed.
+		 * Whatever lay inside the removed part goes with it. */
+		const std::string &old = state.verse.text, &now = normalized.renderedText;
+		if (now.size() < old.size() &&
+		    !old.compare(old.size() - now.size(), now.size(), now)) {
+			const std::size_t cut = old.size() - now.size();
+			auto &spans = state.verse.spans;
+			for (auto it = spans.begin(); it != spans.end();) {
+				const std::size_t end = it->start + it->length;
+				if (end <= cut) { it = spans.erase(it); continue; }
+				it->start = it->start > cut ? it->start - cut : 0;
+				it->length = end - cut - it->start;
+				++it;
+			}
+			auto &words = state.verse.words;
+			words.erase(std::remove_if(words.begin(), words.end(),
+				[&](const BibleWordInfo &w) { return w.start < cut; }), words.end());
+			for (auto &w : words) w.start -= cut;
+			for (auto &n : state.verse.footnotes) n.offset = n.offset > cut ? n.offset - cut : 0;
+			for (auto &x : state.verse.crossReferences) x.offset = x.offset > cut ? x.offset - cut : 0;
+		}
 		state.verse.text = normalized.renderedText;
 		state.verse.headings = std::move(normalized.headings);
-		if (state.verse.headings.size() > before)
-			state.stats.headingsImported +=
-			    state.verse.headings.size() - before;
+		const std::size_t promoted = state.verse.headings.size() - before;
+		/* The promoted heading comes first, wrapped in the display path's
+		 * <h3>; imported headings are stored as plain text. */
+		static const std::string open = "<h3>", close = "</h3>";
+		for (std::size_t i = 0; i < promoted; ++i) {
+			std::string &text = state.verse.headings[i].text;
+			if (text.size() >= open.size() + close.size() &&
+			    !text.compare(0, open.size(), open) &&
+			    !text.compare(text.size() - close.size(), close.size(), close))
+				text = text.substr(open.size(),
+					text.size() - open.size() - close.size());
+		}
+		state.stats.headingsImported += promoted;
 	}
 	state.verses.push_back(std::move(state.verse));
 	state.visible.reset();
@@ -294,6 +393,8 @@ void addStrongWord(State &state, xmlNode *node)
 	if (!rawText.empty() && edgeSpace(rawText.back()))
 		state.visible->append(" ");
 	if (range.second == 0) return;
+	std::size_t styledFrom = range.first;
+	addWordSpans(state, node->children, styledFrom, range.first + range.second);
 
 	BibleWordInfo word;
 	word.start = range.first;
@@ -411,7 +512,10 @@ void processElement(State &state, xmlNode *node)
 		return;
 	}
 	if (name == "title" && state.verseActive &&
-	    (state.inPreverse || isSectionTitle(property(node, "type")))) {
+	    (state.inPreverse || isSectionTitle(property(node, "type")) ||
+	     /* who speaks (Song of Songs: «Sponsus», «Sponsa»): an editorial
+	      * label, not verse text */
+	     property(node, "subType") == "x-speaker")) {
 		/* A title SWORD keeps before the verse, or an editorial section
 		 * title that falls inside it («… lo que supo Israel. <title
 		 * type="x-s">Los doce hijos de Jacob</title> Los hijos …»): a
@@ -427,6 +531,67 @@ void processElement(State &state, xmlNode *node)
 	}
 	if (name == "w" && state.verseActive) {
 		addStrongWord(state, node);
+		return;
+	}
+	/* Styled verse text: words of Christ, words the translators added,
+	 * the divine name. The text is read as any other; only its range is
+	 * recorded. */
+	BibleTextStyle style;
+	if (state.verseActive && textStyleOf(node, style)) {
+		const std::string startId = property(node, "sID");
+		const std::string endId = property(node, "eID");
+		if (name == "q" && !startId.empty()) {
+			state.christMilestoneOpen = true;
+			state.christMilestoneId = startId;
+			state.christMilestoneStart = state.visible->offset();
+			return;
+		}
+		if (name == "q" && !endId.empty()) {
+			if (state.christMilestoneOpen && endId == state.christMilestoneId) {
+				addSpan(state, state.christMilestoneStart, state.visible->offset(), style);
+				state.christMilestoneOpen = false;
+			}
+			return;
+		}
+		const std::size_t start = state.visible->offset();
+		processChildren(state, node->children);
+		addSpan(state, start, state.visible->offset(), style);
+		return;
+	}
+	/* The same milestones between verses: they open or close the words of
+	 * Christ for the verses that follow. */
+	if (name == "q" && !state.verseActive) {
+		if (property(node, "who") == "Jesus" && !property(node, "sID").empty()) {
+			state.christMilestoneOpen = true;
+			state.christMilestoneId = property(node, "sID");
+			return;
+		}
+		if (state.christMilestoneOpen && property(node, "eID") == state.christMilestoneId) {
+			state.christMilestoneOpen = false;
+			return;
+		}
+	}
+	/* A <q eID/> closing words of Christ: its sID carried who="Jesus". */
+	if (name == "q" && state.verseActive && state.christMilestoneOpen &&
+	    property(node, "eID") == state.christMilestoneId) {
+		addSpan(state, state.christMilestoneStart, state.visible->offset(),
+			BibleTextStyle::WordsOfChrist);
+		state.christMilestoneOpen = false;
+		return;
+	}
+	/* Textual variants: the primary reading is the verse text, as SWORD
+	 * shows it by default; secondary readings are not appended to it. */
+	if (name == "seg" && state.verseActive && property(node, "type") == "x-variant" &&
+	    !property(node, "subType").empty() && property(node, "subType") != "x-1") {
+		++state.stats.secondaryVariantsSkipped;
+		return;
+	}
+	/* A paragraph mark (<milestone type="x-p"/>, SWORD's ¶) before any text
+	 * of the verse starts a paragraph there. */
+	if (name == "milestone" && property(node, "type") == "x-p") {
+		++state.stats.paragraphMarkers;
+		if (!state.verseActive) state.pendingParagraph = true;
+		else if (state.visible->offset() == 0) state.verse.paragraphBreak = true;
 		return;
 	}
 	if (name == "note" && state.verseActive) {

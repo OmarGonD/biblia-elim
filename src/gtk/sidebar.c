@@ -534,6 +534,8 @@ static void on_search_results_activate(GtkToggleButton *button,
 	}
 }
 
+static GtkWidget *prayerlist_menu(gboolean for_module);
+
 /******************************************************************************
  * Name
  *   on_modules_list_button_release
@@ -667,9 +669,9 @@ gint depth = gtk_tree_path_get_depth(path);
 		if (mod && (main_get_mod_type(mod) == PRAYERLIST_TYPE)) {
 			buf_module = mod;
 #if GTK_CHECK_VERSION(3, 22, 0)
-			gtk_menu_popup_at_pointer(GTK_MENU(sidebar.menu_prayerlist_mod), (GdkEvent *)event);
+			gtk_menu_popup_at_pointer(GTK_MENU(prayerlist_menu(TRUE)), (GdkEvent *)event);
 #else
-			gtk_menu_popup(GTK_MENU(sidebar.menu_prayerlist_mod), NULL,
+			gtk_menu_popup(GTK_MENU(prayerlist_menu(TRUE)), NULL,
 				       NULL, NULL, NULL, 0,
 				       gtk_get_current_event_time());
 #endif
@@ -1292,17 +1294,30 @@ GtkWidget *create_menu_prayerlist_mod(void)
 	return menu;
 }
 
+/* The prayer-list menus, built on first use. */
+static GtkWidget *prayerlist_menu(gboolean for_module)
+{
+	if (for_module) {
+		if (!sidebar.menu_prayerlist_mod)
+			sidebar.menu_prayerlist_mod = create_menu_prayerlist_mod();
+		return sidebar.menu_prayerlist_mod;
+	}
+	if (!sidebar.menu_prayerlist)
+		sidebar.menu_prayerlist = create_menu_prayerlist();
+	return sidebar.menu_prayerlist;
+}
+
 G_MODULE_EXPORT void gui_menu_prayerlist_popup(GtkMenuItem *menuitem,
 					       gpointer user_data)
 {
 #if GTK_CHECK_VERSION(3, 22, 0)
-	gtk_menu_popup_at_widget(GTK_MENU(sidebar.menu_prayerlist),
+	gtk_menu_popup_at_widget(GTK_MENU(prayerlist_menu(FALSE)),
 				 GTK_WIDGET(menuitem),
 				 GDK_GRAVITY_SOUTH_WEST,
 				 GDK_GRAVITY_NORTH_WEST,
 				 NULL);
 #else
-	gtk_menu_popup(GTK_MENU(sidebar.menu_prayerlist),
+	gtk_menu_popup(GTK_MENU(prayerlist_menu(FALSE)),
 		       NULL, NULL, NULL, NULL,
 		       0, gtk_get_current_event_time());
 #endif
@@ -1774,8 +1789,10 @@ GtkWidget *gui_create_sidebar(GtkWidget *paned)
 			       "button_release_event",
 			       G_CALLBACK(on_modules_list_button_release), NULL);
 
-	sidebar.menu_prayerlist = create_menu_prayerlist();
-	sidebar.menu_prayerlist_mod = create_menu_prayerlist_mod();
+	/* The prayer-list menus are built the first time they pop up
+	 * (prayerlist_menu()): parsing them here only delayed startup. */
+	sidebar.menu_prayerlist = NULL;
+	sidebar.menu_prayerlist_mod = NULL;
 
 	g_signal_connect((gpointer)button_bookmarks, "toggled",
 			 G_CALLBACK(on_bookmarks_activate), NULL);

@@ -31,6 +31,8 @@
 #include "gui/utilities.h"
 #include "gui/widgets.h"
 #include "gui/dialog.h"
+#include "main/backend_access.h"
+#include "backend/strong_id.h"
 #include "main/interlineal.h"
 #include "main/morfologia.h"
 #include "main/diccionario.h"
@@ -438,24 +440,85 @@ parse_w_tags(const char *raw)
 static gboolean
 mod_ok(const char *name)
 {
-	return name && backend && backend->is_module(name);
+	return name && bible_backend && main_backend_for(name).hasModule(name);
+}
+
+static bool interlinear_content(const char *module, const char *key, BibleVerseContent &content)
+{
+    if (!mod_ok(module) || !key) return false;
+    gchar *mapped = main_reference_for_module(settings.MainWindowModule, key, module);
+    if (!mapped) return false;
+    BibleKeyInfo info;
+    auto &reader = main_backend_for(module);
+    bool ok = reader.resolveKey(module, mapped, info);
+    g_free(mapped);
+    if (!ok) return false;
+    content = reader.getVerseContent(module, info.reference, true);
+    return content.valid;
+}
+
+static GList *tokens_from_module(const char *module, const char *key)
+{
+    if (!mod_ok(module)) return nullptr;
+    // Preserve SWORD-only lexical fields (savlm/root/transliteration); SQLite
+    // words already carry neutral Strong/morphology data and need no XML parser.
+    if (auto *legacy = dynamic_cast<BackEnd *>(&main_backend_for(module))) {
+        gchar *mapped = main_reference_for_module(settings.MainWindowModule, key, module);
+        if (!mapped) return nullptr;
+        gchar *raw = legacy->get_raw_text(module, mapped);
+        GList *tokens = parse_w_tags(raw);
+        g_free(mapped); g_free(raw);
+        return tokens;
+    }
+    BibleVerseContent content;
+    if (!interlinear_content(module, key, content)) return nullptr;
+    GList *result = nullptr;
+    for (const auto &word : content.words) {
+        InterlTok *token = g_new0(InterlTok, 1);
+        token->forma = g_strdup(word.text.c_str());
+        std::string strongs;
+        for (const auto &strong : word.strongs) {
+            if (!strongs.empty()) strongs += " ";
+            strongs += formatStrongId(strong);
+        }
+        token->strongs = g_strdup(strongs.c_str());
+        token->strong = word.strongs.empty() ? nullptr : g_strdup(formatStrongId(word.strongs.front()).c_str());
+        std::string morphology;
+        for (const auto &tag : word.morphologyTags) {
+            if (!morphology.empty()) morphology += " ";
+            morphology += tag.scheme.empty() ? tag.code : tag.scheme + ":" + tag.code;
+        }
+        token->morph = morphology.empty() ? nullptr : g_strdup(morphology.c_str());
+        const auto *info = token->strong ? main_interlineal_strong(token->strong) : nullptr;
+        if (info) {
+            token->raiz = g_strdup(info->lema);
+            token->translit = g_strdup(info->translit);
+            token->glosa = g_strdup(info->glosa ? info->glosa : info->lema);
+        }
+        if (!token->glosa) token->glosa = g_strdup("");
+        result = g_list_append(result, token);
+    }
+    return result;
+}
+
+static gchar *interlinear_plain(const char *module, const char *key)
+{
+    BibleVerseContent content;
+    return interlinear_content(module, key, content) ? g_strdup(content.plainText.c_str()) : nullptr;
+}
+
+static int interlinear_testament(const char *key)
+{
+    BibleKeyInfo info;
+    return settings.MainWindowModule && main_backend_for(settings.MainWindowModule).resolveKey(
+        settings.MainWindowModule, key, info) ? info.reference.testament : 2;
 }
 
 static GList *
 tokens_nt(const char *key)
 {
-	char *raw = NULL;
-	GList *toks;
-
-	if (mod_ok("Tisch"))
-		raw = backend->get_raw_text("Tisch", key);
-	if ((!raw || !strstr(raw, "strong:")) && mod_ok("KJV")) {
-		g_free(raw);
-		raw = backend->get_raw_text("KJV", key);
-	}
-	toks = parse_w_tags(raw);
-	g_free(raw);
-	return toks;
+    GList *tokens = tokens_from_module("Tisch", key);
+    return tokens ? tokens : tokens_from_module("KJV", key);
 }
 
 static GList *
@@ -472,10 +535,7 @@ tokens_ot(const char *key)
 	 * inglés con el WLC contando palabras -- es de cuando no estaba
 	 * instalado, y sigue ahí para quien no lo tenga. */
 	if (mod_ok("OSHB")) {
-		char *oshb = backend->get_raw_text("OSHB", key);
-		GList *toks = parse_w_tags(oshb);
-
-		g_free(oshb);
+        GList *toks = tokens_from_module("OSHB", key);
 		if (toks) {
 			for (GList *l = toks; l; l = l->next) {
 				InterlTok *t = (InterlTok *)l->data;
@@ -497,13 +557,10 @@ tokens_ot(const char *key)
 		}
 	}
 
-	if (mod_ok("KJV"))
-		raw = backend->get_raw_text("KJV", key);
-	kjv = parse_w_tags(raw);
-	g_free(raw);
+    kjv = tokens_from_module("KJV", key);
 
 	if (mod_ok("WLC"))
-		heb = backend->get_strip_text("WLC", key);
+		heb = interlinear_plain("WLC", key);
 
 	if (heb && *heb && kjv) {
 		gchar **parts = g_strsplit_set(heb, " \t\n\r", -1);
@@ -572,13 +629,10 @@ main_interlineal_versiculo(const char *key)
 {
 	int test = 2;
 
-	if (!backend || !key)
+	if (!bible_backend || !key)
 		return NULL;
 	load_strongs();
-	if (mod_ok("KJV"))
-		test = backend->get_key_testament("KJV", key);
-	else if (settings.MainWindowModule)
-		test = backend->get_key_testament(settings.MainWindowModule, key);
+    test = interlinear_testament(key);
 	if (test == 1)
 		return tokens_ot(key);
 	return tokens_nt(key);
@@ -719,7 +773,9 @@ occ_get_index(const char *modname, int testament)
 		return ht;
 	}
 
-	mod = backend->get_SWModule(modname);
+    auto *legacy = dynamic_cast<BackEnd *>(&main_backend_for(modname));
+    if (!legacy) { g_free(cachekey); return nullptr; }
+    mod = legacy->get_SWModule(modname);
 	if (!mod) {
 		g_free(cachekey);
 		return NULL;
@@ -738,11 +794,9 @@ main_interlineal_empezar_indice(void)
 	VerseKey here;
 	int testament;
 
-	if (!backend)
+	if (!bible_backend)
 		return;
-	here.setAutoNormalize(1);
-	here.setText(settings.currentverse ? settings.currentverse : "Gen.1.1");
-	testament = here.getTestament();
+	testament = interlinear_testament(settings.currentverse ? settings.currentverse : "Gen.1.1");
 	occ_get_index(occ_pick_module(testament == 1 ? 'H' : 'G'), testament);
 }
 
@@ -762,7 +816,7 @@ main_interlineal_ocurrencias_modulo(const char *strong)
 	gchar *norm;
 	const char *modname;
 
-	if (!strong || !backend)
+	if (!strong || !bible_backend)
 		return NULL;
 	norm = main_interlineal_norm_strong(strong);
 	if (!norm || !norm[0]) {
@@ -786,7 +840,7 @@ main_interlineal_ocurrencias(const char *strong, int max)
 	char letter;
 	int testament, book, i, n = 0;
 
-	if (!strong || max <= 0 || !backend)
+	if (!strong || max <= 0 || !bible_backend)
 		return NULL;
 	norm = main_interlineal_norm_strong(strong);
 	if (!norm || !norm[0]) {
@@ -797,6 +851,16 @@ main_interlineal_ocurrencias(const char *strong, int max)
 	letter = norm[0];
 	testament = (letter == 'H') ? 1 : 2;
 	modname = occ_pick_module(letter);
+    if (modname && !dynamic_cast<BackEnd *>(&main_backend_for(modname))) {
+        StrongId id;
+        if (parseStrongId(norm, id)) {
+            auto &reader = main_backend_for(modname);
+            for (const auto &hit : reader.findStrongOccurrences(modname, id, max, 0))
+                out = g_list_append(out, g_strdup(hit.key.c_str()));
+        }
+        g_free(norm);
+        return out;
+    }
 	ht = occ_get_index(modname, testament);
 	if (!ht) {
 		g_free(norm);
@@ -954,7 +1018,7 @@ spanish_line(const char *key)
 	char *t, *plain;
 
 	if (mod_ok(mod)) {
-		t = backend->get_strip_text(mod, key);
+		t = interlinear_plain(mod, key);
 		if (t && *t) {
 			plain = html_to_plain(t);
 			g_free(t);
@@ -963,13 +1027,13 @@ spanish_line(const char *key)
 		g_free(t);
 	}
 	if (mod_ok("SpaRV")) {
-		t = backend->get_strip_text("SpaRV", key);
+		t = interlinear_plain("SpaRV", key);
 		plain = html_to_plain(t);
 		g_free(t);
 		return plain;
 	}
 	if (mod_ok("SpaRVG")) {
-		t = backend->get_strip_text("SpaRVG", key);
+		t = interlinear_plain("SpaRVG", key);
 		plain = html_to_plain(t);
 		g_free(t);
 		return plain;
@@ -1719,28 +1783,11 @@ set_pie_es(const char *s)
 	il_pie_es = (s && *s) ? g_strdup(s) : NULL;
 }
 
-static gboolean
-raw_tiene_strongs(const char *raw)
-{
-	return raw && (strstr(raw, "strong:") || strstr(raw, "Strong:"));
-}
-
 static GList *
 tokens_es_from_mod(const char *mod, const char *key)
 {
-	char *raw;
-	GList *toks;
-
-	if (!mod_ok(mod) || !key)
-		return NULL;
-	raw = backend->get_raw_text(mod, key);
-	if (!raw_tiene_strongs(raw)) {
-		g_free(raw);
-		return NULL;
-	}
-	toks = parse_w_tags(raw);
-	g_free(raw);
-	return toks;
+    if (!mod_ok(mod) || !main_backend_for(mod).moduleCapabilities(mod).strongs) return nullptr;
+    return tokens_from_module(mod, key);
 }
 
 /* Pospositivas griegas: partículas que en griego no abren nunca la
@@ -2040,10 +2087,7 @@ main_interlineal_html_original(const char *key)
 		return NULL;
 
 	load_strongs();
-	if (mod_ok("KJV"))
-		test = backend->get_key_testament("KJV", key);
-	else if (settings.MainWindowModule)
-		test = backend->get_key_testament(settings.MainWindowModule, key);
+    test = interlinear_testament(key);
 	rtl = (test == 1);
 	toks = main_interlineal_versiculo(key);
 
@@ -2100,7 +2144,7 @@ main_interlineal_html_original(const char *key)
 		const char *mod = rtl ? "WLC" : "Tisch";
 		char *plain = NULL;
 		if (mod_ok(mod))
-			plain = backend->get_strip_text(mod, key);
+			plain = interlinear_plain(mod, key);
 		if (plain && *plain) {
 			gchar *esc = g_markup_escape_text(plain, -1);
 			g_string_append(out, esc);
@@ -2137,15 +2181,16 @@ main_verse_tools_xrefs(const char *key)
 	gchar *mod;
 	GString *refs;
 
-	if (!key || !*key || !backend)
+	if (!key || !*key || !bible_backend)
 		return;
 	mod = settings.MainWindowModule;
 	if (!mod || !*mod)
 		return;
-	backend->set_module_key(mod, (gchar *)key);
-	refs = g_string_new(NULL);
-	std::vector<std::string> cross_references =
-		backend->getCurrentEntryCrossReferences(mod);
+    BibleVerseContent content;
+    if (!interlinear_content(mod, key, content)) return;
+    refs = g_string_new(NULL);
+    std::vector<std::string> cross_references;
+    for (const auto &ref : content.crossReferences) cross_references.push_back(ref.displayText);
 	for (std::vector<std::string>::const_iterator list =
 		     cross_references.begin();
 	     list != cross_references.end(); ++list) {

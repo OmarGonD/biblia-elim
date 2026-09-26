@@ -1,5 +1,7 @@
 #include "main/strong_interaction.h"
 
+#include <glib.h>
+
 #include <algorithm>
 #include <cctype>
 #include <chrono>
@@ -40,6 +42,73 @@ std::string queryEscape(const std::string &value)
 	return result;
 }
 
+/* Small capitals as the Bible pane can draw them: upper case, and every
+ * letter after a word's first one in <small> ("L<small>ORD</small>"). */
+std::string smallCaps(const std::string &text, std::size_t start, std::size_t end)
+{
+	std::string result;
+	bool small = false;
+	const char *base = text.c_str();
+	for (const char *p = base + start; p < base + end; p = g_utf8_next_char(p)) {
+		const gunichar c = g_utf8_get_char(p);
+		const bool afterLetter = p > base &&
+			g_unichar_isalpha(g_utf8_get_char(g_utf8_prev_char(p)));
+		const bool wantSmall = g_unichar_isalpha(c) && afterLetter;
+		if (wantSmall != small) {
+			result += wantSmall ? "<small>" : "</small>";
+			small = wantSmall;
+		}
+		gchar *upper = g_utf8_strup(p, g_utf8_next_char(p) - p);
+		result += htmlEscape(upper);
+		g_free(upper);
+	}
+	if (small) result += "</small>";
+	return result;
+}
+
+/* The verse text in [from, to) with its styled spans. Tags open and close
+ * inside the range, so it nests in whatever the caller wraps around it
+ * (an annotated word's link, a footnote marker's neighbours). With no spans
+ * this is exactly htmlEscape(). */
+std::string styledText(const BibleVerseContent &content, std::size_t from,
+	std::size_t to, const VerseTextStyle &style)
+{
+	const std::string &text = content.plainText;
+	to = std::min(to, text.size());
+	if (from >= to) return std::string();
+	std::vector<std::size_t> cuts = { from, to };
+	for (const BibleTextSpan &span : content.spans) {
+		if (span.start > text.size() || span.length > text.size() - span.start) continue;
+		if (span.start > from && span.start < to) cuts.push_back(span.start);
+		const std::size_t end = span.start + span.length;
+		if (end > from && end < to) cuts.push_back(end);
+	}
+	std::sort(cuts.begin(), cuts.end());
+	cuts.erase(std::unique(cuts.begin(), cuts.end()), cuts.end());
+	std::string result;
+	for (std::size_t i = 0; i + 1 < cuts.size(); ++i) {
+		const std::size_t a = cuts[i], b = cuts[i + 1];
+		bool added = false, christ = false, divine = false, bold = false;
+		for (const BibleTextSpan &span : content.spans) {
+			if (span.start > text.size() || span.length > text.size() - span.start ||
+			    span.start > a || span.start + span.length < b) continue;
+			added |= span.style == BibleTextStyle::Added || span.style == BibleTextStyle::Italic;
+			bold |= span.style == BibleTextStyle::Bold;
+			christ |= span.style == BibleTextStyle::WordsOfChrist;
+			divine |= span.style == BibleTextStyle::DivineName;
+		}
+		christ = christ && style.wordsOfChristInRed;
+		if (bold) result += "<b>";
+		if (added) result += "<i>";
+		if (christ) result += "<font color=\"red\">";
+		result += divine ? smallCaps(text, a, b) : htmlEscape(text.substr(a, b - a));
+		if (christ) result += "</font>";
+		if (added) result += "</i>";
+		if (bold) result += "</b>";
+	}
+	return result;
+}
+
 bool containsStrong(const BibleAnnotatedWord &context, const StrongId &strong)
 {
 	return std::find(context.strongs.begin(), context.strongs.end(), strong) !=
@@ -67,19 +136,38 @@ AnnotatedWordResolution resolveAnnotatedWordInteraction(BibleBackend &backend,
 }
 
 std::string renderAnnotatedVerseText(const BibleVerseContent &content,
-	const std::string &module, const std::string &key, bool annotationsEnabled)
+	const std::string &module, const std::string &key, bool annotationsEnabled,
+	const VerseTextStyle &style)
 {
+	auto text = [&](std::size_t from, std::size_t length) {
+		return styledText(content, from,
+			length == std::string::npos ? content.plainText.size() : from + length, style);
+	};
+	/* A note's marker: its label (or its number in the verse), or in the
+	 * pane SWORD's raised "*n", followed by the label when the module
+	 * numbers its notes, otherwise numbered by the pane. */
+	auto noteLabel = [&](std::size_t i) {
+		std::string label = content.footnotes[i].label;
+		const bool numbered = !(label.empty() || label == "+" || label == "-");
+		if (style.paneNoteMarkers)
+			return "<small><sup>*n" + (numbered && content.footnotesHaveNumbers
+				? htmlEscape(label) : std::string()) + "</sup></small>";
+		return htmlEscape(numbered ? label : std::to_string(i + 1));
+	};
+	auto crossLabel = [&]() {
+		return std::string(style.paneNoteMarkers ? "<small><sup>*x</sup></small>" : "↗");
+	};
 	const bool anyAnnotations = std::any_of(content.words.begin(),
 		content.words.end(), [](const BibleWordInfo &word) {
 			return !word.strongs.empty() || !word.morphologyTags.empty();
 		});
 	if ((!annotationsEnabled || !anyAnnotations) && content.footnotes.empty() && content.crossReferences.empty())
-		return htmlEscape(content.plainText);
+		return text(0, std::string::npos);
 	if (!annotationsEnabled || !anyAnnotations) {
 		std::ostringstream plain; std::size_t cursor=0;
-		for (std::size_t i=0;i<content.footnotes.size();++i) { const auto &n=content.footnotes[i]; if(n.offset>cursor) plain<<htmlEscape(content.plainText.substr(cursor,n.offset-cursor)); std::string l=n.label; if(l.empty()||l=="+"||l=="-") l=std::to_string(i+1); plain<<"<a class=\"bible-footnote\" href=\"passagestudy.jsp?action=showNeutralFootnote&amp;module="<<queryEscape(module)<<"&amp;passage="<<queryEscape(key)<<"&amp;value="<<i<<"\">"<<htmlEscape(l)<<"</a>"; cursor=n.offset; }
-		for (std::size_t i=0;i<content.crossReferences.size();++i) { const auto &x=content.crossReferences[i]; if(x.offset>cursor) plain<<htmlEscape(content.plainText.substr(cursor,x.offset-cursor)); plain<<"<a class=\"bible-crossref\" href=\"passagestudy.jsp?action=showNeutralCrossref&amp;module="<<queryEscape(module)<<"&amp;passage="<<queryEscape(key)<<"&amp;value="<<i<<"\">↗</a>"; cursor=x.offset; }
-		plain<<htmlEscape(content.plainText.substr(cursor)); return plain.str();
+		for (std::size_t i=0;i<content.footnotes.size();++i) { const auto &n=content.footnotes[i]; if(n.offset>cursor) plain<<text(cursor, n.offset-cursor); plain<<"<a class=\"bible-footnote\" href=\"passagestudy.jsp?action=showNeutralFootnote&amp;module="<<queryEscape(module)<<"&amp;passage="<<queryEscape(key)<<"&amp;value="<<i<<"\">"<<noteLabel(i)<<"</a>"; cursor=n.offset; }
+		for (std::size_t i=0;i<content.crossReferences.size();++i) { const auto &x=content.crossReferences[i]; if(x.offset>cursor) plain<<text(cursor, x.offset-cursor); plain<<"<a class=\"bible-crossref\" href=\"passagestudy.jsp?action=showNeutralCrossref&amp;module="<<queryEscape(module)<<"&amp;passage="<<queryEscape(key)<<"&amp;value="<<i<<"\">"<<crossLabel()<<"</a>"; cursor=x.offset; }
+		plain<<text(cursor, std::string::npos); return plain.str();
 	}
 
 	std::ostringstream result;
@@ -87,12 +175,10 @@ std::string renderAnnotatedVerseText(const BibleVerseContent &content,
 	std::size_t noteIndex = 0, crossIndex = 0;
 	auto markers = [&](std::size_t limit) {
 		while (noteIndex < content.footnotes.size() && content.footnotes[noteIndex].offset <= limit) {
-			const auto &n=content.footnotes[noteIndex]; std::string label=n.label;
-			if (label.empty() || label=="+" || label=="-") label=std::to_string(noteIndex+1);
-			result << "<a class=\"bible-footnote\" data-sequence=\"" << noteIndex << "\" href=\"passagestudy.jsp?action=showNeutralFootnote&amp;module=" << queryEscape(module) << "&amp;passage=" << queryEscape(key) << "&amp;value=" << noteIndex << "\">" << htmlEscape(label) << "</a>"; ++noteIndex;
+			result << "<a class=\"bible-footnote\" data-sequence=\"" << noteIndex << "\" href=\"passagestudy.jsp?action=showNeutralFootnote&amp;module=" << queryEscape(module) << "&amp;passage=" << queryEscape(key) << "&amp;value=" << noteIndex << "\">" << noteLabel(noteIndex) << "</a>"; ++noteIndex;
 		}
 		while (crossIndex < content.crossReferences.size() && content.crossReferences[crossIndex].offset <= limit) {
-			result << "<a class=\"bible-crossref\" data-sequence=\"" << crossIndex << "\" href=\"passagestudy.jsp?action=showNeutralCrossref&amp;module=" << queryEscape(module) << "&amp;passage=" << queryEscape(key) << "&amp;value=" << crossIndex << "\">↗</a>"; ++crossIndex;
+			result << "<a class=\"bible-crossref\" data-sequence=\"" << crossIndex << "\" href=\"passagestudy.jsp?action=showNeutralCrossref&amp;module=" << queryEscape(module) << "&amp;passage=" << queryEscape(key) << "&amp;value=" << crossIndex << "\">" << crossLabel() << "</a>"; ++crossIndex;
 		}
 	};
 	for (const BibleWordInfo &word : content.words) {
@@ -101,16 +187,16 @@ std::string renderAnnotatedVerseText(const BibleVerseContent &content,
 		    word.start > content.plainText.size() ||
 		    word.length > content.plainText.size() - word.start)
 			continue;
-		result << htmlEscape(content.plainText.substr(cursor, word.start - cursor)); markers(word.start);
+		result << text(cursor, word.start - cursor); markers(word.start);
 		result << "<a class=\"annotated-word\" data-offset=\"" << word.start
 		       << "\" href=\"passagestudy.jsp?action=showNeutralWord&amp;module="
 		       << queryEscape(module) << "&amp;passage=" << queryEscape(key)
 		       << "&amp;value=" << word.start << "\">"
-		       << htmlEscape(content.plainText.substr(word.start, word.length))
+		       << text(word.start, word.length)
 		       << "</a>";
 		cursor = word.start + word.length;
 	}
-	result << htmlEscape(content.plainText.substr(cursor)); markers(content.plainText.size());
+	result << text(cursor, std::string::npos); markers(content.plainText.size());
 	return result.str();
 }
 

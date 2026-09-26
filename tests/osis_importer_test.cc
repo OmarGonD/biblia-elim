@@ -248,6 +248,99 @@ int main()
 		!g_file_test((unsupportedOutput + ".tmp").c_str(), G_FILE_TEST_EXISTS),
 		"unsupported 1 Esdras leaves no output artifacts");
 
+	/* Styled verse text: words of Christ (container and milestones across
+	 * verses), words the translators added, the divine name; the primary
+	 * reading of a textual variant; a paragraph mark. Ranges are exact
+	 * substrings of the plain text and survive the SQLite round trip. */
+	const std::string styledDirectory = directory + "/styled";
+	g_mkdir(styledDirectory.c_str(), 0700);
+	UsfmImportStats styledStats;
+	check(importFixture("styled-text.xml", styledDirectory + "/styled.sqlite",
+		options("styled", "Styled", "en", "Styled text", "fixture", "local"),
+		styledStats), "styled fixture imports");
+	check(styledStats.wordsOfChristSpans == 3 && styledStats.addedSpans == 2 &&
+		styledStats.divineNameSpans == 1 && styledStats.emphasisSpans == 2 &&
+		styledStats.secondaryVariantsSkipped == 1,
+		"styled fixture counters");
+	{
+		SqliteBibleBackend backend(styledDirectory);
+		auto verse = [&](const char *key) {
+			BibleKeyInfo info;
+			backend.resolveKey("styled", key, info);
+			return backend.getVerseContent("styled", info.reference, true);
+		};
+		auto spanText = [](const BibleVerseContent &c, BibleTextStyle style) {
+			std::string out;
+			for (const BibleTextSpan &s : c.spans)
+				if (s.style == style) {
+					check(s.start + s.length <= c.plainText.size(), "span within text");
+					out += (out.empty() ? "" : "|") + c.plainText.substr(s.start, s.length);
+				}
+			return out;
+		};
+		const BibleVerseContent v2 = verse("Matthew 5:2");
+		check(v2.paragraphBreak && v2.plainText == "And he opened his mouth, and taught them, saying,",
+			"paragraph mark starts a paragraph, adds no text");
+		const BibleVerseContent v3 = verse("Matthew 5:3");
+		check(spanText(v3, BibleTextStyle::WordsOfChrist) ==
+			"Blessed are the poor in spirit: for theirs is the kingdom of heaven.",
+			"words of Christ container");
+		check(spanText(v3, BibleTextStyle::Added) == "are", "added words");
+		const BibleVerseContent v4 = verse("Matthew 5:4");
+		check(spanText(v4, BibleTextStyle::WordsOfChrist) == "Blessed are they that mourn:",
+			"words of Christ milestone opens mid-verse");
+		const BibleVerseContent v5 = verse("Matthew 5:5");
+		check(spanText(v5, BibleTextStyle::WordsOfChrist) == "for they shall be comforted.",
+			"words of Christ milestone continues into the next verse");
+		check(v5.plainText == "for they shall be comforted. And more.", "milestone adds no text");
+		const BibleVerseContent v6 = verse("Matthew 5:6");
+		check(v6.plainText == "that the Lord God made ευρον it.",
+			"primary reading only, divine name text kept as written");
+		check(spanText(v6, BibleTextStyle::DivineName) == "Lord", "divine name");
+		check(v6.words.size() == 2 && v6.words[1].text == "ευρον",
+			"secondary reading's word is not imported");
+		const BibleVerseContent v8 = verse("Matthew 5:8");
+		check(v8.plainText == "acompañaron a José y vieron todo." &&
+			spanText(v8, BibleTextStyle::Italic) == "a José" &&
+			spanText(v8, BibleTextStyle::Bold) == "vieron",
+			"edition italics and bold; other <hi> types keep only their text");
+		const BibleVerseContent v7 = verse("Matthew 5:7");
+		check(v7.plainText == "En dilectus meus loquitur mihi. Surge, propera." &&
+			v7.headings.size() == 1 && v7.headings[0].text == "Sponsus",
+			"speaker title is a heading, not verse text");
+	}
+
+	/* SpaRVG writes psalm superscriptions as «…» verse text; its source
+	 * quirk promotes them to headings, stored as plain text like every other
+	 * imported heading (not as the <h3> markup of the SWORD display path). */
+	const std::string quotedDirectory = directory + "/quoted";
+	g_mkdir(quotedDirectory.c_str(), 0700);
+	UsfmImportStats quotedStats;
+	check(importFixture("quoted-superscription.xml",
+		quotedDirectory + "/SpaRVG.sqlite",
+		options("SpaRVG", "Reina Valera Gómez", "es", "Quoted superscription", "fixture", "local"),
+		quotedStats), "quoted superscription fixture imports");
+	check(quotedStats.headingsImported == 1, "quoted superscription counted once");
+	{
+		SqliteBibleBackend backend(quotedDirectory);
+		BibleKeyInfo key;
+		check(backend.resolveKey("SpaRVG", "Psalms 1:1", key), "SpaRVG Psalm 1:1 resolves");
+		const BibleVerseContent verse = backend.getVerseContent("SpaRVG", key.reference, true);
+		check(verse.valid && verse.headings.size() == 1 &&
+			verse.headings[0].text == "El piadoso será prosperado, el impío perecerá",
+			"quoted superscription stored as a plain heading");
+		check(verse.plainText == "Bienaventurado el varón que no anduvo en consejo de malos;",
+			"quoted superscription removed from the verse text");
+		/* Ranges follow the text once the superscription leaves it: the
+		 * added word inside the title goes with it, the one after moves. */
+		check(verse.spans.size() == 1 && verse.spans[0].start + verse.spans[0].length <= verse.plainText.size() &&
+			verse.plainText.substr(verse.spans[0].start, verse.spans[0].length) == "anduvo",
+			"span offsets follow the promoted superscription");
+		check(backend.resolveKey("SpaRVG", "Psalms 1:2", key) &&
+			backend.getVerseContent("SpaRVG", key.reference, true).headings.empty(),
+			"unquoted verse keeps no heading");
+	}
+
 	/* Deuterocanonical books (Catholic Bibles), in the module's own
 	 * (Vulgate) order, named in Spanish. */
 	const std::string deuteroDirectory = directory + "/deutero";

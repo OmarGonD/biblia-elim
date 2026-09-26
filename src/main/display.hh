@@ -28,6 +28,7 @@
 
 #ifdef __cplusplus
 #include <gtk/gtk.h>
+#include <string>
 #include <swmgr.h>
 #include <swdisp.h>
 #include <versekey.h>
@@ -86,16 +87,26 @@ class GTKChapDisp : public GTKEntryDisp
 	{
 	}
 	virtual char display(SWModule &imodule);
+	/* The same pane for a Bible read through the neutral backend alone
+	 * (SQLite): the key is built in the module's versification, and
+	 * what only a SWORD module has (chapter introductions, the
+	 * neighbouring book's verse at a book's edge, its render header) is
+	 * left out. Returns FALSE when `keytext` does not resolve. */
+	gboolean displayNeutral(const char *module, const char *keytext);
 	virtual GString *introMaterial(SWModule &imodule, int chapter);
 	virtual void getVerseBefore(SWModule &imodule);
 	virtual void getVerseAfter(SWModule &imodule);
-	virtual void RenderOneChapter(SWModule &imodule, int chapter);
-	virtual void RenderWholeBook(SWModule &imodule, int radius,
-			     bool book_edge_previews);
+	virtual void RenderOneChapter(int chapter);
+	virtual void RenderWholeBook(int radius, bool book_edge_previews);
 
       private:
+	char displayCommon();
 	int curTest, curBook, curChapter, curVerse;
 	VerseKey *key;
+	/* The SWORD module being shown, or NULL for a neutral Bible. */
+	SWModule *swmodule = NULL;
+	std::string moduleName;
+	VerseKey neutralKey;
 };
 
 class DialogEntryDisp : public SWDisplay

@@ -133,7 +133,15 @@ struct BibleHeading {
 };
 
 enum class BibleTextStyle {
-	Added
+	Added,
+	/* Words of Christ (OSIS <q who="Jesus">), shown in red. */
+	WordsOfChrist,
+	/* The divine name (OSIS <divineName>: LORD), shown in small capitals. */
+	DivineName,
+	/* Typographic emphasis the edition prints (OSIS <hi type="italic">,
+	 * <hi type="bold">). */
+	Italic,
+	Bold
 };
 
 struct BibleTextSpan {

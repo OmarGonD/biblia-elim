@@ -38,6 +38,7 @@
 #include "gui/utilities.h"
 #include "gui/dialog.h"
 
+#include "main/backend_access.h"
 #include "main/sidebar.h"
 #include "main/configs.h"
 #include "main/lists.h"
@@ -83,7 +84,7 @@ TreePixbufs *pixbufs;
 
 void main_open_bookmark_in_new_tab(gchar *mod_name, gchar *key)
 {
-	gint module_type = backend->module_type(mod_name);
+	gint module_type = main_get_mod_type(mod_name);
 
 	switch (module_type) {
 	case -1:
@@ -179,7 +180,7 @@ void main_display_verse_list_in_sidebar(gchar *key,
 		verse_list += 4;
 
 	if ((*verse_list != '/') &&
-	    ((tmp = backend->parse_verse_list(module_name, verse_list, key)) != NULL)) {
+	    ((tmp = main_parse_verse_list(module_name, verse_list, key)) != NULL)) {
 		// normal verse list.
 		while (tmp != NULL) {
 			gtk_list_store_append(list_store, &iter);
@@ -395,14 +396,15 @@ static void add_verses_to_chapter(GtkTreeModel *model,
 	}
 	gtk_tree_store_set(GTK_TREE_STORE(model), &iter,
 			   COL_OPEN_PIXBUF, pixbufs->pixbuf_opened, -1);
-	verses = backend->key_verse_count(settings.MainWindowModule, work_buf[3]);
+	BibleKeyInfo info;
+    main_backend_for(work_buf[2]).resolveKey(work_buf[2], work_buf[3], info);
+    verses = info.verseCount;
 
 	for (i = 1; i < (verses + 1); i++) {
 		gchar *num = main_format_number(i);
 		gchar *buf = g_strdup_printf("%s %s", _("verse"), num);
 		g_free(num);
-		gchar *ref = backend->key_get_verse_ref(settings.MainWindowModule,
-							work_buf[3], i);
+		gchar *ref = g_strdup(main_backend_for(work_buf[2]).setVerse(work_buf[2], work_buf[3], i).c_str());
 		gchar *key = g_strdup_printf("sword://%s/%s",
 					     work_buf[2],
 					     ref);
@@ -454,14 +456,15 @@ static void add_chapters_to_book(GtkTreeModel *model, GtkTreeIter iter,
 	}
 	gtk_tree_store_set(GTK_TREE_STORE(model), &iter,
 			   COL_OPEN_PIXBUF, pixbufs->pixbuf_opened, -1);
-	chapters = backend->key_chapter_count(settings.MainWindowModule, work_buf[3]);
+	BibleKeyInfo info;
+    main_backend_for(work_buf[2]).resolveKey(work_buf[2], work_buf[3], info);
+    chapters = info.chapterCount;
 
 	for (i = 1; i < (chapters + 1); i++) {
 		gchar *num = main_format_number(i);
 		gchar *buf = g_strdup_printf("%s %s", _("chapter"), num);
 		g_free(num);
-		gchar *ref = backend->key_get_chapter_ref(settings.MainWindowModule,
-							  work_buf[3], i);
+		gchar *ref = g_strdup(main_backend_for(work_buf[2]).setChapter(work_buf[2], work_buf[3], i).c_str());
 		gchar *key = g_strdup_printf("chapter://%s/%s",
 					     work_buf[2],
 					     ref);
@@ -498,64 +501,23 @@ static void add_chapters_to_book(GtkTreeModel *model, GtkTreeIter iter,
  *   void
  */
 
-static void add_books_to_bible(GtkTreeModel *model, GtkTreeIter iter,
-			       const gchar *mod_name)
+static void add_books_to_bible(GtkTreeModel *model, GtkTreeIter iter, const gchar *module)
 {
-	SWModule *mod = backend->get_SWModule(mod_name);
-	if (!mod)
-		return;
-
-	VerseKey *vkey = (VerseKey *)mod->createKey();
-	gint j = 0;
-	GtkTreeIter child_iter;
-	gchar *buf = NULL;
-
-	gtk_tree_store_set(GTK_TREE_STORE(model), &iter,
-			   COL_OPEN_PIXBUF, pixbufs->pixbuf_opened, -1);
-	if (backend->module_has_testament(mod_name, 1)) {
-		while (j < vkey->BMAX[0]) {
-			vkey->setTestament(1);
-			vkey->setBook(j + 1);
-			buf = strdup((gchar *)vkey->getBookName());
-			gchar *key = g_strdup_printf("book://%s/%s 1:1",
-						     mod_name, buf);
-			gtk_tree_store_append(GTK_TREE_STORE(model),
-					      &child_iter, &iter);
-			gtk_tree_store_set(GTK_TREE_STORE(model), &child_iter,
-					   COL_OPEN_PIXBUF, pixbufs->pixbuf_closed,
-					   COL_CLOSED_PIXBUF, pixbufs->pixbuf_closed,
-					   COL_CAPTION, (gchar *)buf,
-					   COL_MODULE, (gchar *)mod_name,
-					   COL_OFFSET, (gchar *)key,
-					   -1);
-			g_free(key);
-			g_free(buf);
-			++j;
-		}
-	}
-	j = 0;
-	if (backend->module_has_testament(mod_name, 2)) {
-		while (j < vkey->BMAX[1]) {
-			vkey->setTestament(2);
-			vkey->setBook(j + 1);
-			buf = strdup((gchar *)vkey->getBookName());
-			gchar *key = g_strdup_printf("book://%s/%s 1:1",
-						     mod_name, buf);
-			gtk_tree_store_append(GTK_TREE_STORE(model),
-					      &child_iter, &iter);
-			gtk_tree_store_set(GTK_TREE_STORE(model), &child_iter,
-					   COL_OPEN_PIXBUF, pixbufs->pixbuf_closed,
-					   COL_CLOSED_PIXBUF, pixbufs->pixbuf_closed,
-					   COL_CAPTION, (gchar *)buf,
-					   COL_MODULE, (gchar *)mod_name,
-					   COL_OFFSET, (gchar *)key,
-					   -1);
-			g_free(key);
-			g_free(buf);
-			++j;
-		}
-	}
-	delete vkey;
+    auto &reader = main_backend_for(module);
+    gtk_tree_store_set(GTK_TREE_STORE(model), &iter, COL_OPEN_PIXBUF, pixbufs->pixbuf_opened, -1);
+    for (int testament = 1; testament <= 2; ++testament) {
+        const auto names = reader.bookNames(module, testament);
+        for (std::size_t index = 0; index < names.size(); ++index) {
+            const auto first = reader.setBook(module, "", testament, index + 1);
+            gchar *key = g_strdup_printf("book://%s/%s", module, first.c_str());
+            GtkTreeIter child;
+            gtk_tree_store_append(GTK_TREE_STORE(model), &child, &iter);
+            gtk_tree_store_set(GTK_TREE_STORE(model), &child,
+                COL_OPEN_PIXBUF, pixbufs->pixbuf_closed, COL_CLOSED_PIXBUF, pixbufs->pixbuf_closed,
+                COL_CAPTION, names[index].c_str(), COL_MODULE, module, COL_OFFSET, key, -1);
+            g_free(key);
+        }
+    }
 }
 #endif /* ALLOW_BIBLE_NAVIGATION_FROM_SIDEBAR_TREE */
 
@@ -667,7 +629,7 @@ void main_mod_treeview_button_one(GtkTreeModel *model,
 	if (!mod)
 		return;
 
-	sbtype = backend->module_type(mod);
+	sbtype = main_get_mod_type(mod);
 	switch (sbtype) {
 	case TEXT_TYPE:
 		gtk_notebook_set_current_page(GTK_NOTEBOOK(widgets.notebook_bible_parallel),

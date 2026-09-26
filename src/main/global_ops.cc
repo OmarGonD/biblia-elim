@@ -271,7 +271,7 @@ GLOBAL_OPS *main_new_globals(const gchar *mod_name)
 
 	// special case, xiphos-specific feature: commentary whole chapter.
 	ops->commentary_by_chapter =
-	    ((backend->module_type(mod_name) == COMMENTARY_TYPE) &&
+	    ((main_get_mod_type(mod_name) == COMMENTARY_TYPE) &&
 	     (module_options[mod_name]["Commentary by Chapter"] != "Off") &&
 	     !main_is_author_commentary_module(mod_name));
 

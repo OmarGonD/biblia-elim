@@ -120,3 +120,5 @@ int main(int argc, char **argv)
 	gtk_widget_destroy(widgets.app);
 	return result;
 }
+
+BibleBackend &main_backend_for(const char *) { return *bible_backend; }

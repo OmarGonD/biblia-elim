@@ -27,10 +27,12 @@
 #include <memory>
 
 #include "main/lists.h"
+#include "main/backend_access.h"
 #include "main/sword.h"
 #include "main/settings.h"
 #include "main/xml.h"
 #include "backend/sword_main.hh"
+#include <swmodule.h>
 #include "backend/sword/sword_backend.h"
 #include "backend/sqlite/sqlite_bible_backend.h"
 
@@ -89,6 +91,24 @@ GList *get_list(gint type)
 	return NULL;
 }
 
+/* Whether SWORD has any commentary installed. In SQLite mode the lists are
+ * built before SWORD starts beside SQLite, so settings.havecomm cannot tell
+ * yet; this asks SWORD directly (only once per profile, see settings.c). */
+gboolean main_sword_has_commentary(void)
+{
+	std::unique_ptr<SwordBackend> temporary;
+	BackEnd *sword = backend;
+	if (!sword) {
+		temporary.reset(new SwordBackend());
+		sword = temporary.get();
+	}
+	for (sword::ModMap::iterator it = sword->get_mgr()->Modules.begin();
+	     it != sword->get_mgr()->Modules.end(); ++it)
+		if (!strcmp(it->second->getType(), COMM_MODS))
+			return TRUE;
+	return FALSE;
+}
+
 void main_init_lists(void)
 {
 	gboolean start_backend = FALSE;
@@ -121,16 +141,19 @@ void main_init_lists(void)
 		/* SQLITE-REAL-101: SWORD, beside SQLite, lists the reader's
 		 * commentaries, dictionaries, books, devotionals; the Bibles
 		 * listed are the ones SQLite reads. */
+		GList *sword_bibles = NULL, *sword_descriptions = NULL;
 		if (backend) {
 			mods.options = backend->get_module_options();
 			backend->init_lists(mod_lists);
-			g_list_free_full(mods.biblemods, free);
-			g_list_free_full(mods.text_descriptions, free);
+			sword_bibles = mods.biblemods;
+			sword_descriptions = mods.text_descriptions;
 			mods.biblemods = NULL;
 			mods.text_descriptions = NULL;
 		}
 		std::unique_ptr<BibleBackend> temporary;
 		BibleBackend *list_backend = bible_backend;
+		if (!list_backend)
+			list_backend = main_startup_sqlite_backend();
 		if (!list_backend) {
 			temporary.reset(new SqliteBibleBackend(
 				main_sqlite_modules_directory()));
@@ -145,6 +168,23 @@ void main_init_lists(void)
 				mods.text_descriptions,
 				g_strdup(module.description.c_str()));
 		}
+		/* A SWORD Bible without an SQLite copy (not convertible, or not
+		 * converted yet) stays listed; SWORD keeps answering for it. */
+		for (GList *id = sword_bibles, *description = sword_descriptions;
+		     id; id = id->next,
+		     description = description ? description->next : NULL) {
+			if (list_backend->hasModule((const char *)id->data))
+				continue;
+			mods.biblemods = g_list_append(
+				mods.biblemods, g_strdup((const char *)id->data));
+			mods.text_descriptions = g_list_append(
+				mods.text_descriptions,
+				g_strdup(description && description->data
+					? (const char *)description->data
+					: (const char *)id->data));
+		}
+		g_list_free_full(sword_bibles, free);
+		g_list_free_full(sword_descriptions, free);
 	} else {
 		BackEnd *list_backend = backend;
 		if (list_backend) {

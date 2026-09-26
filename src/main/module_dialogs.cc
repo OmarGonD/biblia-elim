@@ -54,6 +54,8 @@
 #include "main/display.hh"
 #include "main/global_ops.hh"
 #include "main/url.hh"
+#include "main/backend_access.h"
+#include "main/previewer.h"
 
 #include "backend/sword_main.hh"
 #include "backend/sword/sword_backend.h"
@@ -102,6 +104,24 @@ extern gboolean do_display;
 
 extern gboolean valid_scripture_key;
 
+static bool neutral_bible_dialog(const DIALOG_DATA *dialog)
+{
+	return dialog && dialog->mod_type == TEXT_TYPE &&
+		!dynamic_cast<BackEnd *>(&main_backend_for(dialog->mod_name));
+}
+
+static void display_neutral_dialog(DIALOG_DATA *dialog)
+{
+	gchar *fragment = main_neutral_chapter_html(dialog->mod_name, dialog->key);
+	if (!fragment) return;
+	main_entry_display(dialog->html, dialog->mod_name, fragment, dialog->key, FALSE);
+	g_free(fragment);
+	if (dialog->navbar.module_name) {
+		g_string_assign(dialog->navbar.module_name, dialog->mod_name);
+		main_navbar_versekey_set(dialog->navbar, dialog->key);
+	}
+}
+
 /******************************************************************************
  * Name
  *   main_dialogs_book_heading
@@ -120,6 +140,7 @@ extern gboolean valid_scripture_key;
 
 void main_dialogs_book_heading(DIALOG_DATA *d)
 {
+	if (neutral_bible_dialog(d)) { display_neutral_dialog(d); return; }
 	BackEnd *be = (BackEnd *)d->backend;
 	SWMgr *mgr = be->get_mgr();
 
@@ -151,11 +172,12 @@ void main_dialogs_book_heading(DIALOG_DATA *d)
 
 void main_dialogs_chapter_heading(DIALOG_DATA *d)
 {
+	if (neutral_bible_dialog(d)) { display_neutral_dialog(d); return; }
 	BackEnd *be = (BackEnd *)d->backend;
 	SWMgr *mgr = be->get_mgr();
 
 	be->display_mod = mgr->Modules[d->mod_name];
-	backend->display_mod->setKey(d->key);
+	be->display_mod->setKey(d->key);
 	VerseKey *vkey = (VerseKey *)(SWKey *)(*be->display_mod);
 	vkey->setIntros(1);
 	vkey->setAutoNormalize(0);
@@ -730,6 +752,13 @@ void main_dialog_goto_bookmark(const gchar *module, const gchar *key)
 	while (tmp != NULL) {
 		t = (DIALOG_DATA *)tmp->data;
 		if (!strcmp(t->mod_name, module)) {
+			if (neutral_bible_dialog(t)) {
+				g_free(t->key);
+				t->key = g_strdup(key);
+				display_neutral_dialog(t);
+				gtk_window_present(GTK_WINDOW(t->dialog));
+				return;
+			}
 			BackEnd *be = (BackEnd *)t->backend;
 			if (t->mod_type == BOOK_TYPE) {
 				t->offset = atoi(key);
@@ -749,6 +778,7 @@ void main_dialog_goto_bookmark(const gchar *module, const gchar *key)
 	}
 
 	t = main_dialogs_open((gchar *)module, key, FALSE);
+	if (!t || neutral_bible_dialog(t)) return;
 	BackEnd *be = (BackEnd *)t->backend;
 	if (t->mod_type == BOOK_TYPE) {
 		t->offset = atoi(key);
@@ -1165,7 +1195,7 @@ static gint sword_uri(DIALOG_DATA *t, const gchar *url, gboolean clicked)
 		return 0;
 
 	work_buf = g_strsplit(url, "/", 4);
-	if (!work_buf[MODULE] && !work_buf[KEY]) {
+	if (g_strv_length(work_buf) <= KEY) {
 		g_strfreev(work_buf);
 		return 0;
 	}
@@ -1179,6 +1209,22 @@ static gint sword_uri(DIALOG_DATA *t, const gchar *url, gboolean clicked)
 		key = g_strdup(t->key);
 	else
 		key = g_strdup(work_buf[KEY]);
+
+	if (main_get_mod_type(module) == TEXT_TYPE &&
+	    !dynamic_cast<BackEnd *>(&main_backend_for(module))) {
+		BibleKeyInfo info;
+		if (main_backend_for(module).resolveKey(module, key, info)) {
+			g_free(t->mod_name);
+			t->mod_name = g_strdup(module);
+			g_free(t->key);
+			t->key = g_strdup(info.key.c_str());
+			display_neutral_dialog(t);
+		}
+		g_free(module);
+		g_free(key);
+		g_strfreev(work_buf);
+		return 1;
+	}
 
 	if (t->key)
 		g_free(t->key);
@@ -1315,7 +1361,8 @@ static gint show_ref(const gchar *module, const gchar *list, gboolean clicked)
 	if (!clicked)
 		return 1;
 
-	if (!backend->is_module(module))
+	/* Any module the reader has, SQLite Bibles included. */
+	if (!main_is_module((char *)module))
 		module = settings.MainWindowModule;
 	main_display_verse_list_in_sidebar(settings.currentverse,
 					   (gchar *)module,
@@ -1325,6 +1372,9 @@ static gint show_ref(const gchar *module, const gchar *list, gboolean clicked)
 
 static gint new_url_handler(DIALOG_DATA *t, const gchar *url, gboolean clicked)
 {
+	/* Neutral links carry their module and passage, independent of the pane. */
+	if (strstr(url, "action=showNeutral"))
+		return main_url_handler(url, clicked);
 
 	gchar *action = NULL;
 	gchar *type = NULL;
@@ -1466,9 +1516,9 @@ DIALOG_DATA *main_dialogs_open(const gchar *mod_name,
 	gchar *direction = NULL;
 
 	do_display = TRUE;
-	if (!backend->is_module(mod_name))
+	if (!main_backend_for(mod_name).hasModule(mod_name))
 		return NULL;
-	type = backend->module_type(mod_name);
+	type = main_get_mod_type(mod_name);
 
 	t = g_new0(DIALOG_DATA, 1);
 	t->backend = (BackEnd *)new SwordBackend();
@@ -1575,6 +1625,11 @@ DIALOG_DATA *main_dialogs_open(const gchar *mod_name,
 	sync_windows();
 
 	list_dialogs = g_list_append(list_dialogs, (DIALOG_DATA *)t);
+	if (neutral_bible_dialog(t)) {
+		display_neutral_dialog(t);
+		main_dialogs_clear_viewer(t);
+		return t;
+	}
 	be->set_module(t->mod_name);
 	if (type == BOOK_TYPE) {
 		main_dialogs_add_book_to_tree(t->tree, t->mod_name,

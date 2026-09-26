@@ -1342,6 +1342,9 @@ static gint64 window_restore_started = 0;
 static void schedule_window_recenter(void);
 /* bottom margin wk-html gives the view, before any reading reserve */
 static gint reading_reserve_base = -1;
+/* the reserve now applied below the last paragraph (see
+ * apply_reading_reserve()) */
+static gint reading_reserve_current = 0;
 static guint reading_reserve_idle_id = 0;
 
 /* Dónde se quedó leyendo, para la pestaña en el próximo arranque: el
@@ -1792,10 +1795,7 @@ reading_focus_update(void)
 		    prev_line_y, current, step.candidate, step.picked,
 		    step.crossed, step.direction, pushing ? push : 0, n_blocks,
 		    fb.last_visible, at_top, at_bottom,
-		    reading_reserve_base >= 0
-			? gtk_text_view_get_bottom_margin(view) -
-			      reading_reserve_base
-			: 0,
+		    reading_reserve_current,
 		    offset, g_get_monotonic_time() - started);
 		panel_load_debug("focus", "FOCUS_CANDIDATE", detail);
 		g_free(detail);
@@ -1931,15 +1931,38 @@ find_last_verse(const gchar *name, gint top, gint bottom, gpointer data)
 	return FALSE;
 }
 
+/* The reserve is spacing below the buffer's last paragraph
+ * (pixels-below-lines of a tag on it), not the view's bottom margin: the
+ * two scroll the same, but GTK lays out the whole buffer again whenever
+ * the bottom margin changes -- the chapter window, several hundred
+ * milliseconds -- while a tag's spacing relays out only the lines it is
+ * on. Spacing, not text: no anchor, nothing to select, copy or find. */
+#define READING_RESERVE_TAG "elim-reading-reserve"
+
+static GtkTextTag *
+reading_reserve_tag(GtkTextBuffer *buffer)
+{
+	GtkTextTagTable *table = gtk_text_buffer_get_tag_table(buffer);
+	GtkTextTag *tag = gtk_text_tag_table_lookup(table, READING_RESERVE_TAG);
+
+	if (!tag)
+		tag = gtk_text_buffer_create_tag(buffer, READING_RESERVE_TAG,
+						 "pixels-below-lines", 0, NULL);
+	return tag;
+}
+
 static gboolean
 apply_reading_reserve(gpointer data)
 {
 	GtkTextView *view = bible_view();
+	GtkTextBuffer *buffer;
+	GtkTextTag *tag;
 	GdkRectangle vis;
-	GtkTextIter end;
+	GtkTextIter start, end, last;
 	LastVerse lv = { FALSE, 0 };
-	gint margin, wanted, line_y = 0, line_height = 0, content_bottom = 0;
+	gint applied = 0, line_y = 0, line_height = 0, content_bottom = 0;
 	gint reserve = 0;
+	gboolean on_last;
 
 	(void)data;
 	reading_reserve_idle_id = 0;
@@ -1949,34 +1972,50 @@ apply_reading_reserve(gpointer data)
 	gtk_text_view_get_visible_rect(view, &vis);
 	if (vis.height <= 1)
 		return G_SOURCE_REMOVE;
-	margin = gtk_text_view_get_bottom_margin(view);
 	if (reading_reserve_base < 0)
-		reading_reserve_base = margin;
+		reading_reserve_base = gtk_text_view_get_bottom_margin(view);
+
+	buffer = gtk_text_view_get_buffer(view);
+	tag = reading_reserve_tag(buffer);
+	g_object_get(tag, "pixels-below-lines", &applied, NULL);
+	gtk_text_buffer_get_bounds(buffer, &start, &end);
+	/* the last paragraph with text: its line carries the reserve */
+	last = end;
+	while (gtk_text_iter_backward_char(&last) &&
+	       gtk_text_iter_ends_line(&last))
+		;
+	gtk_text_iter_set_line_offset(&last, 0);
+	on_last = gtk_text_iter_has_tag(&last, tag);
 
 	wk_html_foreach_anchor_block_reverse(WK_HTML(widgets.html_text),
 					     find_last_verse, &lv);
 	if (lv.found) {
-		gtk_text_buffer_get_end_iter(gtk_text_view_get_buffer(view), &end);
 		gtk_text_view_get_line_yrange(view, &end, &line_y, &line_height);
 		/* where scrolling ends without the reserve, in the buffer
 		 * coordinates of the anchors */
 		content_bottom = line_y + line_height + reading_reserve_base;
+		if (on_last)
+			content_bottom -= applied;
 		reserve = reading_focus_bottom_reserve(vis.height, content_bottom,
 						       lv.top);
 	}
-	wanted = reading_reserve_base + reserve;
-	if (wanted == margin)
+	if (reserve == (on_last ? applied : 0))
 		return G_SOURCE_REMOVE;
 	if (panel_load_debug_enabled()) {
 		gchar *detail = g_strdup_printf(
 		    "reserve=%d previous=%d viewportHeight=%d contentBottom=%d "
 		    "lastVerseTop=%d found=%d",
-		    reserve, margin - reading_reserve_base, vis.height,
+		    reserve, on_last ? applied : 0, vis.height,
 		    content_bottom, lv.top, lv.found);
 		panel_load_debug("focus", "READING_RESERVE", detail);
 		g_free(detail);
 	}
-	gtk_text_view_set_bottom_margin(view, wanted);
+	g_object_set(tag, "pixels-below-lines", reserve, NULL);
+	reading_reserve_current = reserve;
+	if (!on_last) {
+		gtk_text_buffer_remove_tag(buffer, tag, &start, &end);
+		gtk_text_buffer_apply_tag(buffer, tag, &last, &end);
+	}
 	return G_SOURCE_REMOVE;
 }
 
@@ -2517,6 +2556,28 @@ on_bible_key_press(GtkWidget *widget, GdkEventKey *event, gpointer user_data)
 	return FALSE;
 }
 
+
+/* Startup timing (BIBLIA_ELIM_UI_LOAD_DEBUG=1): the first time the Bible
+ * pane is drawn with a chapter in it -- what the reader sees, unlike the
+ * moment the text was handed to the widget. */
+static gboolean
+on_first_chapter_draw(GtkWidget *view, cairo_t *cr, gpointer data)
+{
+	GtkTextBuffer *buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(view));
+
+	(void)cr;
+	(void)data;
+	if (buffer && gtk_text_buffer_get_char_count(buffer) > 200) {
+		gchar *detail = g_strdup_printf("width=%d",
+						gtk_widget_get_allocated_width(view));
+		panel_load_debug("app", "FIRST_CHAPTER_PAINTED", detail);
+		g_free(detail);
+		g_signal_handlers_disconnect_by_func(view,
+			G_CALLBACK(on_first_chapter_draw), NULL);
+	}
+	return FALSE;
+}
+
 static void
 gui_setup_text_selection_bridge(void)
 {
@@ -2550,6 +2611,10 @@ gui_setup_text_selection_bridge(void)
 						 NULL);
 		}
 	}
+
+	if (panel_load_debug_enabled())
+		g_signal_connect_after(view, "draw",
+				       G_CALLBACK(on_first_chapter_draw), NULL);
 
 	vadj = gtk_scrollable_get_vadjustment(GTK_SCROLLABLE(view));
 	if (vadj) {

@@ -988,7 +988,7 @@ target_include_directories(morphology_integration_benchmark PRIVATE
 target_link_libraries(morphology_integration_benchmark PRIVATE
   PkgConfig::Core PkgConfig::Sqlite3 PkgConfig::XML2)
 
-add_executable (sqlite_module_manager_test EXCLUDE_FROM_ALL
+add_executable (sqlite_module_manager_test
   sqlite_module_manager_test.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sqlite_module_manager.cc
   ${PROJECT_SOURCE_DIR}/src/backend/usfm_importer.cc
@@ -1001,6 +1001,9 @@ target_include_directories (sqlite_module_manager_test PRIVATE PkgConfig::Core P
 target_compile_definitions (sqlite_module_manager_test PRIVATE SRCDIR="${PROJECT_SOURCE_DIR}")
 target_link_libraries (sqlite_module_manager_test PRIVATE PkgConfig::Core PkgConfig::Gnome PkgConfig::Sqlite3)
 target_sources(sqlite_module_manager_test PRIVATE ${PROJECT_SOURCE_DIR}/src/backend/morphology.cc)
+if (BUILD_TESTING)
+  add_test(NAME sqlite_module_manager_test COMMAND sqlite_module_manager_test)
+endif ()
 
 add_executable (sqlite_backend_full_probe
   EXCLUDE_FROM_ALL
@@ -1810,3 +1813,74 @@ target_link_libraries (sword_backend_key_lifecycle_test PRIVATE
   PkgConfig::Sword)
 # OSIS importer tests use the project's existing libxml2 dependency.
 pkg_check_modules(XML2 REQUIRED IMPORTED_TARGET libxml-2.0)
+
+add_executable(sword_bible_conversion_test
+  sword_bible_conversion_test.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sword_bible_conversion.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sqlite_module_manager.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/osis_importer.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/usfm_importer.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_module_writer.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_bible_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/morphology.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/quoted_heading.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/source_quirks.cc)
+target_include_directories(sword_bible_conversion_test PRIVATE ${PROJECT_SOURCE_DIR}/src)
+target_link_libraries(sword_bible_conversion_test PRIVATE PkgConfig::Core PkgConfig::Gnome PkgConfig::Sword PkgConfig::Sqlite3 PkgConfig::XML2)
+
+if(BUILD_TESTING)
+  add_test(NAME sword_bible_conversion_test COMMAND sword_bible_conversion_test)
+endif()
+
+add_executable(sqlite_reader_tools_test
+  sqlite_reader_tools_test.cc
+  ${PROJECT_SOURCE_DIR}/src/main/nube_palabras.cc
+  ${PROJECT_SOURCE_DIR}/src/main/nube_mayusculas.c
+  ${PROJECT_SOURCE_DIR}/src/main/export_passage.cc
+  ${PROJECT_SOURCE_DIR}/src/main/strong_interaction.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_bible_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_module_writer.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/morphology.cc)
+target_include_directories(sqlite_reader_tools_test PRIVATE ${PROJECT_SOURCE_DIR}/src)
+target_link_libraries(sqlite_reader_tools_test PRIVATE PkgConfig::Core PkgConfig::Gtk PkgConfig::Sword PkgConfig::Sqlite3)
+if(BUILD_TESTING)
+  add_test(NAME sqlite_reader_tools_test COMMAND sqlite_reader_tools_test)
+endif()
+
+add_executable (sqlite_interlinear_test
+  sqlite_interlinear_test.cc
+  ${PROJECT_SOURCE_DIR}/src/main/pulpito.cc
+  ${PROJECT_SOURCE_DIR}/src/main/pulpito_pasos.c
+  ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_bible_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_module_writer.cc
+  ${PROJECT_SOURCE_DIR}/src/main/interlineal.cc
+  ${PROJECT_SOURCE_DIR}/src/main/reference_transition.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sword_main.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sword/sword_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/quoted_heading.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/source_quirks.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/morphology.cc
+  ${PROJECT_SOURCE_DIR}/src/main/busqueda_tildes.c)
+target_compile_options (sqlite_interlinear_test PRIVATE
+  -ffunction-sections -fdata-sections)
+target_link_options (sqlite_interlinear_test PRIVATE
+  -Wl,--gc-sections)
+target_include_directories (sqlite_interlinear_test PRIVATE
+  PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome PkgConfig::Soup
+  PkgConfig::Sword PkgConfig::Sqlite3)
+target_link_libraries (sqlite_interlinear_test PRIVATE
+  PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome PkgConfig::Soup
+  PkgConfig::Sword PkgConfig::Sqlite3)
+
+if (BUILD_TESTING AND UNIX)
+  add_test (
+    NAME sqlite_interlinear_test
+    COMMAND $<TARGET_FILE:sqlite_interlinear_test>
+    )
+endif ()
