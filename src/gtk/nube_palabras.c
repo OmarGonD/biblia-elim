@@ -88,6 +88,11 @@ struct _nube_ui {
 	gchar *titulo_b;
 	gint reintentos;	/* random picks left if a random book is empty */
 	gboolean poniendo;	/* the dialog, not the reader, sets a book */
+	GHashTable *cache;	/* "module\nA[\nB]" -> NUBE_CONTEO */
+	NUBE_CONTEO *conteo;	/* shown now; owned by cache */
+	gboolean par;		/* shown as two clouds */
+	double aspecto;		/* panel shape the clouds were laid out for */
+	guint espera_tam;	/* debounce after a resize */
 };
 
 static NUBE_UI *ui = NULL;
@@ -565,6 +570,45 @@ poner_al_azar(GtkWidget *combo, const gchar *exclude, gboolean ultimo_actual)
 	g_free(libro);
 }
 
+/* The shape of one cloud panel (width / height), from the cloud area:
+ * one or two panels 16 px apart under a title line. 0 when unknown. */
+static double
+aspecto_panel(gboolean pair)
+{
+	int area_w = gtk_widget_get_allocated_width(ui->cloud_stack);
+	int area_h = gtk_widget_get_allocated_height(ui->cloud_stack) - 44;
+	if (area_w <= 1 || area_h <= 1)
+		return 0;
+	return (pair ? (area_w - 16) / 2.0 : area_w) / (double)area_h;
+}
+
+/* Lay out and show the clouds of the current count for the panels' shape
+ * (the canvases may not be allocated yet, so the shape comes from the
+ * cloud area). */
+static void
+dibujar_nubes(void)
+{
+	NUBE_CONTEO *c = ui->conteo;
+	const char *background = settings.bible_bg_color ? settings.bible_bg_color : "#ffffff";
+	CloudLayout *cloud, *cloud_b = NULL;
+	ui->aspecto = aspecto_panel(ui->par);
+	if (ui->par)
+		cloud_build_pair(ui->canvas, ui->canvas_b, c, background, ui->aspecto,
+				 &cloud, &cloud_b);
+	else
+		cloud = cloud_build(ui->canvas, c, FALSE, background, ui->aspecto);
+	g_free(ui->titulo_a);
+	g_free(ui->titulo_b);
+	ui->titulo_a = poner_titulo(ui->title_a, "א", c->libro, c->total);
+	ui->titulo_b = ui->par ? poner_titulo(ui->title_b, "ב", c->libro_b, c->total_b) : NULL;
+	gtk_widget_set_visible(ui->panel_b, ui->par);
+	g_object_set_data_full(G_OBJECT(ui->canvas_b), "cloud", cloud_b, cloud_free);
+	g_object_set_data_full(G_OBJECT(ui->canvas), "cloud", cloud, cloud_free);
+	gtk_stack_set_visible_child_name(GTK_STACK(ui->cloud_stack), "cloud");
+	gtk_widget_queue_draw(ui->canvas);
+	gtk_widget_queue_draw(ui->canvas_b);
+}
+
 /* Count and show the cloud(s) for the books in the dialog. Nothing is
  * recounted when the same books are already shown. */
 static void
@@ -616,21 +660,30 @@ actualizar(gboolean avisar)
 		return;
 	}
 
-	ui->ocupado = TRUE;
-	gtk_label_set_text(GTK_LABEL(ui->lbl_resumen),
-			   _("Contando palabras…"));
-	while (gtk_events_pending())
-		gtk_main_iteration();
-	if (!ui) {	/* closed while counting */
-		g_free(clave);
-		g_free(libro_a);
-		g_free(libro_b);
-		return;
+	/* Counts are kept per module and books: going back to a pair, or
+	 * unticking «Comparar», shows again without recounting. */
+	gchar *clave_cache = g_strconcat(settings.MainWindowModule, "\n", clave, NULL);
+	NUBE_CONTEO *c = g_hash_table_lookup(ui->cache, clave_cache);
+	if (c) {
+		g_free(clave_cache);
+		clave_cache = NULL;
+	} else {
+		ui->ocupado = TRUE;
+		gtk_label_set_text(GTK_LABEL(ui->lbl_resumen),
+				   _("Contando palabras…"));
+		while (gtk_events_pending())
+			gtk_main_iteration();
+		if (!ui) {	/* closed while counting */
+			g_free(clave_cache);
+			g_free(clave);
+			g_free(libro_a);
+			g_free(libro_b);
+			return;
+		}
+		c = main_nube_contar(settings.MainWindowModule,
+				     libro_a, libro_b, NUBE_LIMITE);
+		ui->ocupado = FALSE;
 	}
-
-	NUBE_CONTEO *c = main_nube_contar(settings.MainWindowModule,
-					  libro_a, libro_b, NUBE_LIMITE);
-	ui->ocupado = FALSE;
 	gboolean vacio_a = !c || c->total == 0;
 	gboolean vacio_b = c && comparar && c->total_b == 0;
 	if ((vacio_a || vacio_b) && ui->reintentos > 0) {
@@ -642,7 +695,9 @@ actualizar(gboolean avisar)
 			poner_al_azar(ui->combo_libro_b, libro_a, FALSE);
 		ui->pendiente = TRUE;
 		g_idle_add(on_pendiente, NULL);
-		main_nube_conteo_free(c);
+		if (clave_cache)
+			main_nube_conteo_free(c);
+		g_free(clave_cache);
 		g_free(clave);
 		g_free(libro_a);
 		g_free(libro_b);
@@ -657,7 +712,10 @@ actualizar(gboolean avisar)
 		gtk_widget_set_sensitive(ui->btn_descargar, FALSE);
 		g_free(ui->mostrado);
 		ui->mostrado = NULL;
-		main_nube_conteo_free(c);
+		ui->conteo = NULL;
+		if (clave_cache)
+			main_nube_conteo_free(c);
+		g_free(clave_cache);
 		g_free(clave);
 		g_free(libro_a);
 		g_free(libro_b);
@@ -677,37 +735,19 @@ actualizar(gboolean avisar)
 	gtk_label_set_text(GTK_LABEL(ui->lbl_resumen), resumen);
 	g_free(resumen);
 
-	const char *background = settings.bible_bg_color ? settings.bible_bg_color : "#ffffff";
-	CloudLayout *cloud, *cloud_b = NULL;
-	gboolean pair = comparar && c->libro_b;
-	/* The canvases may not be allocated yet; their shape follows from the
-	 * cloud area: one or two panels (16 px apart) under a title line. */
-	double aspect = 0;
-	int area_w = gtk_widget_get_allocated_width(ui->cloud_stack);
-	int area_h = gtk_widget_get_allocated_height(ui->cloud_stack) - 44;
-	if (area_w > 1 && area_h > 1)
-		aspect = (pair ? (area_w - 16) / 2.0 : area_w) / (double)area_h;
-	if (pair)
-		cloud_build_pair(ui->canvas, ui->canvas_b, c, background, aspect,
-				 &cloud, &cloud_b);
-	else
-		cloud = cloud_build(ui->canvas, c, FALSE, background, aspect);
-	g_free(ui->titulo_a);
-	g_free(ui->titulo_b);
-	ui->titulo_a = poner_titulo(ui->title_a, "א", c->libro, c->total);
-	ui->titulo_b = pair ? poner_titulo(ui->title_b, "ב", c->libro_b, c->total_b) : NULL;
-	gtk_widget_set_visible(ui->panel_b, pair);
-	g_object_set_data_full(G_OBJECT(ui->canvas_b), "cloud", cloud_b, cloud_free);
-	g_object_set_data_full(G_OBJECT(ui->canvas), "cloud", cloud, cloud_free);
-	gtk_stack_set_visible_child_name(GTK_STACK(ui->cloud_stack), "cloud");
-	gtk_widget_queue_draw(ui->canvas);
-	gtk_widget_queue_draw(ui->canvas_b);
-	llenar_tabla(c, pair);
+	if (clave_cache) {
+		if (g_hash_table_size(ui->cache) >= 16)
+			g_hash_table_remove_all(ui->cache);
+		g_hash_table_insert(ui->cache, clave_cache, c);
+	}
+	ui->conteo = c;
+	ui->par = comparar && c->libro_b;
+	dibujar_nubes();
+	llenar_tabla(c, ui->par);
 	gtk_widget_set_sensitive(ui->btn_descargar, TRUE);
 	g_free(ui->mostrado);
 	ui->mostrado = clave;
 
-	main_nube_conteo_free(c);
 	g_free(libro_a);
 	g_free(libro_b);
 }
@@ -802,14 +842,39 @@ on_pendiente(gpointer user_data)
 	return G_SOURCE_REMOVE;
 }
 
-/* The first cloud waits for the dialog to give the cloud area a size. */
+static gboolean
+on_espera_tam(gpointer user_data)
+{
+	(void)user_data;
+	if (!ui)
+		return G_SOURCE_REMOVE;
+	ui->espera_tam = 0;
+	if (ui->conteo && !ui->ocupado)
+		dibujar_nubes();
+	return G_SOURCE_REMOVE;
+}
+
+/* The first cloud waits for the dialog to give the cloud area a size.
+ * Later, a clearly different panel shape lays the clouds out again (from
+ * the kept count) instead of only scaling them. */
 static void
 on_area_allocate(GtkWidget *widget, GdkRectangle *allocation, gpointer user_data)
 {
 	(void)widget;
 	(void)user_data;
-	if (ui && ui->pendiente && allocation->width > 1)
+	if (!ui || allocation->width <= 1)
+		return;
+	if (ui->pendiente) {
 		g_idle_add(on_pendiente, NULL);
+		return;
+	}
+	double aspecto = aspecto_panel(ui->par);
+	if (ui->conteo && ui->aspecto > 0 && aspecto > 0 &&
+	    fabs(aspecto / ui->aspecto - 1) > 0.12) {
+		if (ui->espera_tam)
+			g_source_remove(ui->espera_tam);
+		ui->espera_tam = g_timeout_add(250, on_espera_tam, NULL);
+	}
 }
 
 /* A file name without characters file systems reject. */
@@ -906,6 +971,9 @@ on_destroy(GtkWidget *widget, gpointer user_data)
 		return;
 	if (ui->espera)
 		g_source_remove(ui->espera);
+	if (ui->espera_tam)
+		g_source_remove(ui->espera_tam);
+	g_hash_table_destroy(ui->cache);
 	g_free(ui->mostrado);
 	g_free(ui->titulo_a);
 	g_free(ui->titulo_b);
@@ -934,6 +1002,8 @@ crear_dialogo(void)
 	}
 
 	ui = g_new0(NUBE_UI, 1);
+	ui->cache = g_hash_table_new_full(g_str_hash, g_str_equal, g_free,
+					  (GDestroyNotify)main_nube_conteo_free);
 	ui->dialog = UI_GET_ITEM(gxml, "dialog_nube_palabras");
 	ui->combo_libro = UI_GET_ITEM(gxml, "combo_libro");
 	ui->combo_libro_b = UI_GET_ITEM(gxml, "combo_libro_b");

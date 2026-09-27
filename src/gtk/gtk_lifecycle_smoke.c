@@ -767,6 +767,17 @@ exercise_application(gpointer unused)
 	check(g_object_get_data(G_OBJECT(sidebar.module_list), "elim-module-tree-pending") != NULL,
 	      "hidden module tree populated at startup");
 	gui_sidebar_showhide();
+	/* Mapping is asynchronous in X11: a cold start may not have mapped the
+	 * window yet, so wait for the real map before judging the lazy load. */
+	{
+		gint64 end = g_get_monotonic_time() + 5 * G_USEC_PER_SEC;
+		while (!gtk_widget_get_mapped(sidebar.module_list) &&
+		       g_get_monotonic_time() < end)
+			if (!g_main_context_iteration(NULL, FALSE))
+				g_usleep(5000);
+	}
+	check(gtk_widget_get_mapped(sidebar.module_list),
+	      "module tree not mapped after showing the sidebar");
 	check(!g_object_get_data(G_OBJECT(sidebar.module_list), "elim-module-tree-pending"),
 	      "module tree not populated on first map");
 	modules = gtk_tree_view_get_model(GTK_TREE_VIEW(sidebar.module_list));

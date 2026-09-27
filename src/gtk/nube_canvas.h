@@ -49,6 +49,25 @@ static gboolean cloud_overlaps(const CloudWord *a, const CloudWord *b)
 	       a->y < b->y + b->h + 5 && a->y + a->h + 5 > b->y;
 }
 
+/* The placement spiral, computed once: step s sits at angle 0.075 s and
+ * radius 0.042 s; x is stretched per panel. */
+#define CLOUD_SPIRAL_STEPS 14000
+typedef struct { double x[CLOUD_SPIRAL_STEPS], y[CLOUD_SPIRAL_STEPS]; } CloudSpiral;
+
+static const CloudSpiral *cloud_spiral(void)
+{
+	static CloudSpiral *spiral = NULL;
+	if (!spiral) {
+		spiral = g_new(CloudSpiral, 1);
+		for (int step = 0; step < CLOUD_SPIRAL_STEPS; ++step) {
+			double angle = step * 0.075, radius = 0.042 * step;
+			spiral->x[step] = cos(angle) * radius;
+			spiral->y[step] = sin(angle) * radius;
+		}
+	}
+	return spiral;
+}
+
 static void cloud_fit_view(CloudLayout *cloud)
 {
 	if (!cloud->words->len) {
@@ -101,7 +120,7 @@ static CloudLayout *cloud_build_scaled(GtkWidget *widget, NUBE_CONTEO *count,
 	/* Spread the spiral like the panel it will fill (width / height): a
 	 * wide panel gets a wide cloud. 0 keeps the classic 1.5 ellipse. */
 	double spread = aspect > 0 ?
-		CLAMP(1.5 * aspect / (1100.0 / 650.0), 1.0, 2.6) : 1.5;
+		CLAMP(1.5 * aspect / (1100.0 / 650.0), 0.55, 2.6) : 1.5;
 	/* Retry the whole layout at a smaller common scale if it does not fit.
 	 * This preserves frequency order instead of shrinking individual words. */
 	for (double factor = initial; factor > 0.12; factor *= 0.85) {
@@ -136,15 +155,22 @@ static CloudLayout *cloud_build_scaled(GtkWidget *widget, NUBE_CONTEO *count,
 			/* Rare words recede so the frequent ones lead. */
 			w.color.alpha = 0.62 + 0.38 * sqrt((double)frequency / maximum);
 			gboolean placed = FALSE;
-			for (int step = 0; step < 14000; ++step) {
-				double angle = step * 0.075, radius = 0.042 * step;
-				w.x = 550 + cos(angle) * radius * spread - w.w / 2;
-				w.y = 325 + sin(angle) * radius - w.h / 2;
+			const CloudSpiral *spiral = cloud_spiral();
+			/* The word hit last is likely to be hit again one step
+			 * further along the spiral: test it first. */
+			guint last_hit = G_MAXUINT;
+			for (int step = 0; step < CLOUD_SPIRAL_STEPS; ++step) {
+				w.x = 550 + spiral->x[step] * spread - w.w / 2;
+				w.y = 325 + spiral->y[step] - w.h / 2;
 				if (w.x < 12 || w.y < 12 || w.x + w.w > 1088 || w.y + w.h > 638)
 					continue;
-				gboolean hit = FALSE;
+				gboolean hit = last_hit < cloud->words->len &&
+					cloud_overlaps(&w, &g_array_index(cloud->words, CloudWord, last_hit));
 				for (guint j = 0; j < cloud->words->len && !hit; ++j)
-					hit = cloud_overlaps(&w, &g_array_index(cloud->words, CloudWord, j));
+					if (cloud_overlaps(&w, &g_array_index(cloud->words, CloudWord, j))) {
+						hit = TRUE;
+						last_hit = j;
+					}
 				if (!hit) { placed = TRUE; break; }
 			}
 			if (!placed) {
@@ -182,6 +208,10 @@ static void cloud_build_pair(GtkWidget *a, GtkWidget *b, NUBE_CONTEO *source,
 	int maximum = 1;
 	for (int side = 0; side < 2; ++side) {
 		books[side].palabras = g_ptr_array_new_with_free_func(g_free);
+		/* Books of very different length compare by share, not by count:
+		 * sizes follow parts per million of each book's words, so 3 % of
+		 * a short epistle looks like 3 % of Numbers. */
+		int total = side ? source->total_b : source->total;
 		for (guint i = 0; i < source->palabras->len; ++i) {
 			NUBE_PALABRA *word = g_ptr_array_index(source->palabras, i);
 			int frequency = side ? word->cuenta_b : word->cuenta;
@@ -189,7 +219,8 @@ static void cloud_build_pair(GtkWidget *a, GtkWidget *b, NUBE_CONTEO *source,
 			NUBE_PALABRA *copy = g_new0(NUBE_PALABRA, 1);
 			copy->palabra = word->palabra;
 			copy->etiqueta = word->etiqueta;
-			copy->cuenta = frequency;
+			copy->cuenta = total > 0 ?
+				MAX(1, (int)lround(1e6 * frequency / total)) : frequency;
 			maximum = MAX(maximum, frequency);
 			g_ptr_array_add(books[side].palabras, copy);
 		}

@@ -9459,6 +9459,38 @@
       «Descargar…» saved «Nube de palabras - Rut y 1 Samuel.png»
       (3792×1801, both clouds and titles); unticking showed Rut alone.
 
+- [x] CLOUD-PERF-103 Comparable scales, faster layout, count cache, relayout on resize
+  - Status: DONE
+  - Changes:
+    - Paired clouds size words by each book's share (parts per million of
+      its words), not by raw count: 2 Thessalonians (415 words) was drawn
+      tiny next to Numbers (13 176).
+    - Layout: the placement spiral is precomputed and the word hit last is
+      tested first. Positions are unchanged (byte-identical dump of 267
+      placed words before/after).
+    - Counts are cached per module and books (16 entries): unticking or
+      returning to a pair shows without recounting.
+    - A clearly different panel shape (>12 %) after a resize lays the
+      clouds out again from the kept count (250 ms debounce); tall panels
+      get tall clouds (spread 0.55–2.6).
+    - Smoke flake fixed: the module-tree check waited on a synchronous map;
+      it now waits (≤5 s) for the real X11 map and checks it.
+  - Measured (Debug app, SpaPlatense): counting 14–156 ms, layout 115–294
+    ms before. Layout micro-benchmark (-O0, 80 words): single 92.5→55.8 ms,
+    single wide 45.2→16.2 ms, pair 94.4→52.3 ms, pair tall 74.4→26.2 ms.
+    Counting stays on the UI thread: it is short, and the backends are not
+    safe to read from another thread.
+  - Evidence:
+    - `nube_canvas_test` PASS with a new regression: Numbers-sized and
+      2 Thessalonians-sized books with equal shares get equal font sizes
+      (failed with raw counts: 12 vs 396).
+    - Full CTest 71/71 PASS.
+    - `gtk_lifecycle_smoke` PASS 6/6 consecutive runs, including the first
+      after a build (previously failing 1 in 2 there).
+    - XTEST: Números vs 2 Tesalonicenses and Eclesiástico vs 3 Juan at
+      comparable scales; typing «2 Tesalonicenses» redrew; resizing the
+      dialog to 760×980 relaid both clouds as tall clouds.
+
 - [ ] TORRES-NOISE-101 Remove engraving/apparatus OCR noise inside Torres Amat 1882 verses
   - Status: BLOCKED
   - Description:

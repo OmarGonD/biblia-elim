@@ -142,6 +142,27 @@ int main(int argc, char **argv)
 	/* Both panels draw with the same view size, hence the same scale. */
 	g_assert_cmpfloat(a->vw, ==, b->vw);
 	g_assert_cmpfloat(a->vh, ==, b->vh);
+	/* Books of very different length share a scale by proportion: the
+	 * same share of each book gets the same size (Numbers vs 2 Thess). */
+	NUBE_PALABRA share_words[] = {
+		{ .palabra = "jehová", .etiqueta = "Jehová", .cuenta = 396, .cuenta_b = 0 },
+		{ .palabra = "dios", .etiqueta = "Dios", .cuenta = 132, .cuenta_b = 0 },
+		{ .palabra = "señor", .etiqueta = "Señor", .cuenta = 0, .cuenta_b = 12 },
+		{ .palabra = "fe", .etiqueta = "fe", .cuenta = 0, .cuenta_b = 4 }
+	};
+	NUBE_CONTEO share = { .total = 13200, .total_b = 400 };
+	share.palabras = g_ptr_array_new();
+	for (int i = 0; i < 4; ++i) g_ptr_array_add(share.palabras, &share_words[i]);
+	CloudLayout *big, *small;
+	cloud_build_pair(canvas, canvas, &share, "#faf8f3", 0, &big, &small);
+	for (guint i = 0; i < 2; ++i)
+		g_assert_cmpint(pango_font_description_get_size(pango_layout_get_font_description(
+				g_array_index(big->words, CloudWord, i).layout)), ==,
+			pango_font_description_get_size(pango_layout_get_font_description(
+				g_array_index(small->words, CloudWord, i).layout)));
+	cloud_free(big);
+	cloud_free(small);
+	g_ptr_array_free(share.palabras, TRUE);
 	/* Downloads: one cloud, or both side by side, as PNG (2x) or SVG. */
 	gchar *dir = g_dir_make_tmp("nube-export-XXXXXX", NULL);
 	g_assert_nonnull(dir);
