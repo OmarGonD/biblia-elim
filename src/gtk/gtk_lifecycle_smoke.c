@@ -613,6 +613,90 @@ check_word_cloud(void)
 	g_ptr_array_free(count.palabras, TRUE);
 }
 
+/* The first widget of TYPE under WIDGET, depth first. */
+static GtkWidget *
+find_widget_of_type(GtkWidget *widget, GType type)
+{
+	if (G_TYPE_CHECK_INSTANCE_TYPE(widget, type))
+		return widget;
+	if (!GTK_IS_CONTAINER(widget))
+		return NULL;
+	GList *children = gtk_container_get_children(GTK_CONTAINER(widget));
+	GtkWidget *found = NULL;
+	for (GList *l = children; l && !found; l = l->next)
+		found = find_widget_of_type(l->data, type);
+	g_list_free(children);
+	return found;
+}
+
+static gboolean
+cloud_shown(GtkWidget *stack)
+{
+	return !g_strcmp0(gtk_stack_get_visible_child_name(GTK_STACK(stack)), "cloud");
+}
+
+static void
+pump_until(gboolean (*done)(GtkWidget *), GtkWidget *widget, gint64 limit_us)
+{
+	gint64 end = g_get_monotonic_time() + limit_us;
+	while (!done(widget) && g_get_monotonic_time() < end) {
+		if (!g_main_context_iteration(NULL, FALSE))
+			g_usleep(5000);
+	}
+}
+
+static gboolean
+panel_b_visible(GtkWidget *stack)
+{
+	GtkWidget *panels = gtk_stack_get_child_by_name(GTK_STACK(stack), "cloud");
+	GList *children = gtk_container_get_children(GTK_CONTAINER(panels));
+	gboolean visible = g_list_length(children) == 2 &&
+		gtk_widget_get_visible(g_list_nth_data(children, 1));
+	g_list_free(children);
+	return visible;
+}
+
+/* CLOUD-LOOK-102: the word cloud opens already drawn for a book, and
+ * ticking «Comparar con» draws the comparison with another book. */
+static void
+check_word_cloud_dialog(void)
+{
+	gui_nube_palabras_dialog();
+	GtkWidget *dialog = NULL;
+	GList *toplevels = gtk_window_list_toplevels();
+	for (GList *l = toplevels; l && !dialog; l = l->next)
+		if (!g_strcmp0(gtk_window_get_title(GTK_WINDOW(l->data)), "Nube de palabras"))
+			dialog = l->data;
+	g_list_free(toplevels);
+	check(dialog && gtk_widget_get_visible(dialog), "word cloud dialog not shown");
+	if (!dialog)
+		return;
+	GtkWidget *stack = find_widget_of_type(dialog, GTK_TYPE_STACK);
+	GtkWidget *compare = find_widget_of_type(dialog, GTK_TYPE_CHECK_BUTTON);
+	GtkWidget *grid = find_widget_of_type(dialog, GTK_TYPE_GRID);
+	check(stack && compare && grid, "word cloud widgets missing");
+	if (stack && compare && grid) {
+		pump_until(cloud_shown, stack, 15 * G_USEC_PER_SEC);
+		check(cloud_shown(stack), "word cloud not drawn on opening");
+		GtkWidget *combo_a = gtk_grid_get_child_at(GTK_GRID(grid), 1, 0);
+		GtkWidget *combo_b = gtk_grid_get_child_at(GTK_GRID(grid), 1, 1);
+		const gchar *book_a = gtk_entry_get_text(GTK_ENTRY(gtk_bin_get_child(GTK_BIN(combo_a))));
+		check(book_a && *book_a, "word cloud opened without a book");
+		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(compare), TRUE);
+		const gchar *book_b = gtk_entry_get_text(GTK_ENTRY(gtk_bin_get_child(GTK_BIN(combo_b))));
+		check(book_b && *book_b && g_strcmp0(book_a, book_b) != 0,
+		      "comparing did not choose another book");
+		GtkWidget *download = gtk_grid_get_child_at(GTK_GRID(grid), 2, 0);
+		check(GTK_IS_BUTTON(download) && gtk_widget_get_sensitive(download),
+		      "word cloud download not available");
+		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(compare), FALSE);
+		pump_until(cloud_shown, stack, 5 * G_USEC_PER_SEC);
+		check(cloud_shown(stack) && !panel_b_visible(stack),
+		      "unticking comparison did not return to one cloud");
+	}
+	gtk_widget_destroy(dialog);
+}
+
 /* MENU-TIDY-101: the menu bar is the one the reader was promised, and
  * no Xiphos upstream link (mailing list, IRC chat, release notes) is
  * left in it. */
@@ -764,6 +848,7 @@ exercise_application(gpointer unused)
         g_free(status);
 		check_menu_bar();
 		check_word_cloud();
+		check_word_cloud_dialog();
         check_sqlite_parallel();
 		/* Keys of a Bible only SQLite holds resolve through SQLite, even
 		 * with SWORD running beside it for commentaries. */

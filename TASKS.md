@@ -9403,6 +9403,62 @@
     - A reading-window radius-0 experiment was invalid (0 means the whole
       book) and was reverted.
 
+- [x] CLOUD-LOOK-101 Word-cloud look and feel; random book when comparing
+  - Status: DONE
+  - Changes:
+    - The cloud is drawn on a rounded card in the reading colours and fits
+      the box its words occupy (paired panels share one view size, so the
+      shared scale holds). The spiral takes the panel's shape, computed
+      from the cloud area because the canvases may not be allocated yet.
+      Rare words are lighter than frequent ones.
+    - Titles: badge, bold book, dimmed word count (LRM keeps them LTR).
+    - The statistics table follows the reading colours instead of the
+      green terminal style; comparison columns stay hidden until a
+      comparison; the blue/orange differences match the clouds and use
+      darker tones on light backgrounds.
+    - The duplicated start message is gone: a dim centred label replaces
+      the HTML placeholder; «Mostrar» is the suggested action.
+    - Ticking «Comparar con» fills book B with a random book other than
+      book A when B is empty or equal to A (`cloud_random_book`).
+  - Evidence:
+    - `nube_canvas_test` PASS with new checks: every word inside the view
+      box, a wide aspect gives a wider collision-free cloud, paired views
+      are equal, and 200 random picks never return book A, reach every
+      other book, and return NULL when no other book exists.
+    - `gtk_lifecycle_smoke`, `nube_mayusculas_test`,
+      `author_commentary_probe` PASS; full build PASS.
+    - XTEST on Xvfb (SpaPlatense): Lucas cloud fills the panel; ticking
+      «Comparar con» chose «Salmos»; Lucas/Salmos comparison shows both
+      panels and the comparison columns.
+
+- [x] CLOUD-LOOK-102 Word cloud updates by itself; download as image
+  - Status: DONE
+  - Changes:
+    - The dialog opens on a random book, already drawn: the first count
+      waits for the cloud area's first allocation (`on_area_allocate`).
+    - Ticking «Comparar con» picks a random book B and draws the
+      comparison at once; unticking returns to one cloud.
+    - Choosing a book (list, completion or its full name typed) redraws
+      after a 350 ms pause; partial typing does not. Enter still resolves
+      abbreviations and warns. The same books are never recounted.
+    - A random book without text in the module (the list follows the
+      versification) is replaced up to 8 times; the last try for book A
+      is the book being read. A book the reader chose is never replaced.
+    - «Mostrar» became «Descargar…»: PNG (2x) or SVG of the cloud, or of
+      both clouds side by side, with their titles (`cloud_export`),
+      default folder Pictures, name «Nube de palabras - A y B».
+    - Title LRMs keep «א 1 Reyes» in order.
+  - Evidence:
+    - `nube_canvas_test` PASS: single and paired PNG sizes, SVG content,
+      and a write error reported through GError.
+    - `gtk_lifecycle_smoke` PASS, 372 checks, 0 failed: the dialog opens
+      drawn with a book, ticking picks another book and keeps download
+      available, unticking returns to one cloud.
+    - XTEST on Xvfb (SpaPlatense): opened drawn on «1 Reyes»; choosing Rut
+      redrew it; ticking drew Rut/Romanos; choosing 1 Samuel for B redrew;
+      «Descargar…» saved «Nube de palabras - Rut y 1 Samuel.png»
+      (3792×1801, both clouds and titles); unticking showed Rut alone.
+
 - [ ] TORRES-NOISE-101 Remove engraving/apparatus OCR noise inside Torres Amat 1882 verses
   - Status: BLOCKED
   - Description:

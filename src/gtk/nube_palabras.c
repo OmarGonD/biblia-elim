@@ -29,8 +29,6 @@
 #include "main/settings.h"
 #include "main/sword.h"
 
-#include "xiphos_html/xiphos_html.h"
-
 #include "gui/debug_glib_null.h"
 #include "nube_canvas.h"
 
@@ -61,11 +59,11 @@ struct _nube_ui {
 	GtkWidget *combo_libro;
 	GtkWidget *combo_libro_b;
 	GtkWidget *chk_comparar;
-	GtkWidget *btn_mostrar;
+	GtkWidget *btn_descargar;
 	GtkWidget *btn_cerrar;
 	GtkWidget *lbl_resumen;
 	GtkWidget *box_nube;
-	GtkWidget *html;
+	GtkWidget *mensaje;
 	GtkWidget *canvas;
 	GtkWidget *canvas_b;
 	GtkWidget *panel_b;
@@ -82,6 +80,14 @@ struct _nube_ui {
 	GtkTreeViewColumn *col_pct_a;
 	GtkTreeViewColumn *col_pct_b;
 	GtkTreeViewColumn *col_dif_pct;
+	guint espera;		/* debounce after typing a book name */
+	gboolean ocupado;	/* counting; the loop below may re-enter */
+	gboolean pendiente;	/* update once the cloud area has a size */
+	gchar *mostrado;	/* what is shown: "A\nB" or "A" */
+	gchar *titulo_a;	/* title markup, reused for downloads */
+	gchar *titulo_b;
+	gint reintentos;	/* random picks left if a random book is empty */
+	gboolean poniendo;	/* the dialog, not the reader, sets a book */
 };
 
 static NUBE_UI *ui = NULL;
@@ -184,14 +190,6 @@ static gchar *
 html_escape(const gchar *s)
 {
 	return g_markup_escape_text(s ? s : "", -1);
-}
-
-static void
-escribir_html(const gchar *html)
-{
-	XIPHOS_HTML_OPEN_STREAM(ui->html, "text/html");
-	XIPHOS_HTML_WRITE(ui->html, html, strlen(html));
-	XIPHOS_HTML_CLOSE(ui->html);
 }
 
 gchar *
@@ -299,22 +297,44 @@ gui_nube_palabras_html(NUBE_CONTEO *c, gboolean comparar)
 }
 
 static void
-html_placeholder(const gchar *mensaje)
+mostrar_mensaje(const gchar *mensaje)
 {
+	gtk_label_set_text(GTK_LABEL(ui->mensaje), mensaje);
 	gtk_stack_set_visible_child_name(GTK_STACK(ui->cloud_stack), "message");
-	const char *bg = settings.bible_bg_color ? settings.bible_bg_color : "#ffffff";
-	const char *fg = settings.bible_text_color ? settings.bible_text_color : "#222222";
-	gchar *esc = html_escape(mensaje);
-	gchar *html = g_strdup_printf(
-	    "<html><head><meta charset=\"utf-8\"/><style>"
-	    "body{margin:0;padding:48px 24px;background:%s;color:%s;"
-	    "font-family:'Noto Sans','DejaVu Sans',sans-serif;"
-	    "text-align:center;opacity:.7;font-size:15px;}"
-	    "</style></head><body>%s</body></html>",
-	    bg, fg, esc);
-	escribir_html(html);
-	g_free(html);
-	g_free(esc);
+}
+
+/* The title over a cloud: badge, book in bold, word count dimmed. The
+ * markup is returned (owned by the caller) for downloads. */
+static gchar *
+poner_titulo(GtkWidget *label, const char *badge, const char *libro, gint total)
+{
+	/* LRMs around the Hebrew badge keep the line LTR and «1 Reyes» whole. */
+	gchar *markup = g_markup_printf_escaped(
+	    "\u200E<span weight=\"bold\" size=\"large\">%s</span>\u200E  "
+	    "<span weight=\"bold\" size=\"large\">%s</span>  "
+	    "<span alpha=\"60%%\">%d %s</span>",
+	    badge, libro, total, _("palabras"));
+	gtk_label_set_markup(GTK_LABEL(label), markup);
+	return markup;
+}
+
+static gboolean
+lectura_oscura(void)
+{
+	return color_es_oscuro(settings.bible_bg_color ? settings.bible_bg_color : "#ffffff");
+}
+
+/* The same blue/orange the paired clouds and the legend use. */
+static const char *
+color_mas_a(void)
+{
+	return lectura_oscura() ? "#9fcaff" : "#315c91";
+}
+
+static const char *
+color_mas_b(void)
+{
+	return lectura_oscura() ? "#ffb47e" : "#b34412";
 }
 
 static void
@@ -344,9 +364,9 @@ dif_cell(GtkTreeViewColumn *col,
 	gchar *t = g_strdup_printf("%+d", v);
 	const char *fg = NULL;
 	if (v > 0)
-		fg = "#82ffb0";
+		fg = color_mas_a();
 	else if (v < 0)
-		fg = "#ffc078";
+		fg = color_mas_b();
 	g_object_set(cell, "text", t, "xalign", 1.0, "foreground", fg, NULL);
 	g_free(t);
 }
@@ -369,9 +389,9 @@ pct_cell(GtkTreeViewColumn *col,
 	const char *fg = NULL;
 	if (column == TCOL_DIF_PCT) {
 		if (v > 0.001)
-			fg = "#82ffb0";
+			fg = color_mas_a();
 		else if (v < -0.001)
-			fg = "#ffc078";
+			fg = color_mas_b();
 	}
 	g_object_set(cell, "text", t, "xalign", 1.0, "foreground", fg, NULL);
 	g_free(t);
@@ -399,16 +419,26 @@ static void
 setup_tree(void)
 {
 	gtk_widget_set_name(ui->tree, "cloud-statistics");
+	/* The table wears the reading colours, like the clouds above it. */
+	const char *bg = settings.bible_bg_color ? settings.bible_bg_color : "#ffffff";
+	const char *fg = settings.bible_text_color ? settings.bible_text_color : "#222222";
+	gboolean oscuro = lectura_oscura();
+	const char *linea = oscuro ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)";
+	const char *cabecera = oscuro ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.035)";
+	const char *seleccion = oscuro ? "#2d4a6b" : "#dbe6f3";
+	gchar *reglas = g_strdup_printf(
+		"#cloud-statistics, #cloud-statistics.view { background-color:%s; color:%s;"
+		"font-feature-settings:'tnum'; }"
+		"#cloud-statistics.view:selected { background-color:%s; color:%s; }"
+		"#cloud-statistics header button { background-image:none; background-color:%s;"
+		"box-shadow:none; border:none; border-bottom:1px solid %s;"
+		"border-radius:0; padding:6px 10px; }"
+		"#cloud-statistics header button label { color:%s; font-weight:bold; }"
+		"#cloud-message { font-size:15px; }",
+		bg, fg, seleccion, fg, cabecera, linea, fg);
 	GtkCssProvider *css = gtk_css_provider_new();
-	gtk_css_provider_load_from_data(css,
-		"#cloud-statistics { background-color:#071610; color:#b4efc8;"
-		"font-family:monospace; font-size:14px; }"
-		"#cloud-statistics.view { background-color:#071610; color:#b4efc8; }"
-		"#cloud-statistics.view:selected { background-color:#164c36; color:#effff4; }"
-		"#cloud-statistics header button { background-image:none; background-color:#10291d;"
-		"color:#83f7ac; border:1px solid #28543d; border-radius:0; padding:10px 12px; }"
-		"#cloud-statistics header button label { color:#83f7ac; font-weight:bold; }",
-		-1, NULL);
+	gtk_css_provider_load_from_data(css, reglas, -1, NULL);
+	g_free(reglas);
 	gtk_style_context_add_provider_for_screen(gtk_widget_get_screen(ui->tree),
 		GTK_STYLE_PROVIDER(css), GTK_STYLE_PROVIDER_PRIORITY_APPLICATION + 1);
 	g_object_set_data_full(G_OBJECT(ui->tree), "matrix-css", css, g_object_unref);
@@ -442,6 +472,11 @@ setup_tree(void)
 				TCOL_PCT_B, pct_cell, GINT_TO_POINTER(TCOL_PCT_B));
 	ui->col_dif_pct = add_col(GTK_TREE_VIEW(ui->tree), _("Dif. %"),
 				  TCOL_DIF_PCT, pct_cell, GINT_TO_POINTER(TCOL_DIF_PCT));
+	/* Comparison columns appear only with a comparison. */
+	gtk_tree_view_column_set_visible(ui->col_b, FALSE);
+	gtk_tree_view_column_set_visible(ui->col_dif, FALSE);
+	gtk_tree_view_column_set_visible(ui->col_pct_b, FALSE);
+	gtk_tree_view_column_set_visible(ui->col_dif_pct, FALSE);
 }
 
 static void
@@ -484,69 +519,146 @@ llenar_tabla(NUBE_CONTEO *c, gboolean comparar)
 	}
 }
 
+/* The canonical name of COMBO's book, or NULL. AVISAR warns about an empty
+ * or unknown book; automatic updates stay silent. */
 static gchar *
-resolver_o_avisar(GtkWidget *combo)
+resolver_libro(GtkWidget *combo, gboolean avisar)
 {
 	const gchar *texto = combo_texto(combo);
 	if (!texto || !*texto) {
-		gui_generic_warning(_("Escribe o elige un libro de la Biblia."));
+		if (avisar)
+			gui_generic_warning(_("Escribe o elige un libro de la Biblia."));
 		return NULL;
 	}
 	char *nombre = main_nube_resolver_libro(settings.MainWindowModule, texto);
 	if (!nombre) {
-		gui_generic_warning(_("No se encontró ese libro de la Biblia."));
+		if (avisar)
+			gui_generic_warning(_("No se encontró ese libro de la Biblia."));
 		return NULL;
 	}
-	combo_set_texto(combo, nombre);
+	if (g_strcmp0(texto, nombre) != 0)
+		combo_set_texto(combo, nombre);
 	return nombre;
 }
 
-static void
-on_mostrar(GtkButton *button, gpointer user_data)
-{
-	(void)button;
-	(void)user_data;
+static gboolean on_pendiente(gpointer user_data);
 
+/* Put a random book other than EXCLUDE in COMBO. The versification lists
+ * books a module may lack, so an empty random book is replaced a few
+ * times; the last try is the book being read. */
+static void
+poner_al_azar(GtkWidget *combo, const gchar *exclude, gboolean ultimo_actual)
+{
+	gchar *libro = NULL;
+	if (ultimo_actual && settings.MainWindowModule && settings.currentverse)
+		libro = main_nube_libro_de_clave(settings.MainWindowModule,
+						 settings.currentverse);
+	if (!libro || (exclude && g_utf8_collate(libro, exclude) == 0)) {
+		g_free(libro);
+		libro = cloud_random_book(GTK_TREE_MODEL(ui->libros), COL_NOMBRE, exclude);
+	}
+	if (libro) {
+		ui->poniendo = TRUE;
+		combo_set_texto(combo, libro);
+		ui->poniendo = FALSE;
+	}
+	g_free(libro);
+}
+
+/* Count and show the cloud(s) for the books in the dialog. Nothing is
+ * recounted when the same books are already shown. */
+static void
+actualizar(gboolean avisar)
+{
+	if (!ui || ui->ocupado)
+		return;
 	if (!settings.MainWindowModule || !settings.havebible) {
-		gui_generic_warning(_("Abre un texto bíblico para usar la nube de palabras."));
+		if (avisar)
+			gui_generic_warning(_("Abre un texto bíblico para usar la nube de palabras."));
 		return;
 	}
+	/* The layout takes the shape of the cloud area: wait for its size. */
+	if (gtk_widget_get_allocated_width(ui->cloud_stack) <= 1) {
+		ui->pendiente = TRUE;
+		return;
+	}
+	ui->pendiente = FALSE;
 
 	gboolean comparar = gtk_toggle_button_get_active(
 	    GTK_TOGGLE_BUTTON(ui->chk_comparar));
 
-	gchar *libro_a = resolver_o_avisar(ui->combo_libro);
+	gchar *libro_a = resolver_libro(ui->combo_libro, avisar);
 	if (!libro_a)
 		return;
 
 	gchar *libro_b = NULL;
 	if (comparar) {
-		libro_b = resolver_o_avisar(ui->combo_libro_b);
+		libro_b = resolver_libro(ui->combo_libro_b, avisar);
 		if (!libro_b) {
 			g_free(libro_a);
 			return;
 		}
 		if (g_utf8_collate(libro_a, libro_b) == 0) {
-			gui_generic_warning(_("Elige dos libros distintos para comparar."));
+			if (avisar)
+				gui_generic_warning(_("Elige dos libros distintos para comparar."));
 			g_free(libro_a);
 			g_free(libro_b);
 			return;
 		}
 	}
 
+	gchar *clave = libro_b ? g_strdup_printf("%s\n%s", libro_a, libro_b) :
+				 g_strdup(libro_a);
+	if (g_strcmp0(clave, ui->mostrado) == 0) {
+		g_free(clave);
+		g_free(libro_a);
+		g_free(libro_b);
+		return;
+	}
+
+	ui->ocupado = TRUE;
 	gtk_label_set_text(GTK_LABEL(ui->lbl_resumen),
 			   _("Contando palabras…"));
 	while (gtk_events_pending())
 		gtk_main_iteration();
+	if (!ui) {	/* closed while counting */
+		g_free(clave);
+		g_free(libro_a);
+		g_free(libro_b);
+		return;
+	}
 
 	NUBE_CONTEO *c = main_nube_contar(settings.MainWindowModule,
 					  libro_a, libro_b, NUBE_LIMITE);
-	if (!c || c->total == 0) {
-		gui_generic_warning(_("No se pudo leer el texto de ese libro."));
-		html_placeholder(_("No hay palabras para mostrar."));
+	ui->ocupado = FALSE;
+	gboolean vacio_a = !c || c->total == 0;
+	gboolean vacio_b = c && comparar && c->total_b == 0;
+	if ((vacio_a || vacio_b) && ui->reintentos > 0) {
+		/* A random book without text here: draw another one. */
+		ui->reintentos--;
+		if (vacio_a)
+			poner_al_azar(ui->combo_libro, libro_b, ui->reintentos == 0);
+		else
+			poner_al_azar(ui->combo_libro_b, libro_a, FALSE);
+		ui->pendiente = TRUE;
+		g_idle_add(on_pendiente, NULL);
+		main_nube_conteo_free(c);
+		g_free(clave);
+		g_free(libro_a);
+		g_free(libro_b);
+		return;
+	}
+	if (vacio_a || vacio_b) {
+		if (avisar)
+			gui_generic_warning(_("No se pudo leer el texto de ese libro."));
+		mostrar_mensaje(_("No hay palabras para mostrar."));
 		gtk_list_store_clear(ui->tabla);
 		gtk_label_set_text(GTK_LABEL(ui->lbl_resumen), "");
+		gtk_widget_set_sensitive(ui->btn_descargar, FALSE);
+		g_free(ui->mostrado);
+		ui->mostrado = NULL;
 		main_nube_conteo_free(c);
+		g_free(clave);
 		g_free(libro_a);
 		g_free(libro_b);
 		return;
@@ -568,29 +680,90 @@ on_mostrar(GtkButton *button, gpointer user_data)
 	const char *background = settings.bible_bg_color ? settings.bible_bg_color : "#ffffff";
 	CloudLayout *cloud, *cloud_b = NULL;
 	gboolean pair = comparar && c->libro_b;
+	/* The canvases may not be allocated yet; their shape follows from the
+	 * cloud area: one or two panels (16 px apart) under a title line. */
+	double aspect = 0;
+	int area_w = gtk_widget_get_allocated_width(ui->cloud_stack);
+	int area_h = gtk_widget_get_allocated_height(ui->cloud_stack) - 44;
+	if (area_w > 1 && area_h > 1)
+		aspect = (pair ? (area_w - 16) / 2.0 : area_w) / (double)area_h;
 	if (pair)
-		cloud_build_pair(ui->canvas, ui->canvas_b, c, background, &cloud, &cloud_b);
+		cloud_build_pair(ui->canvas, ui->canvas_b, c, background, aspect,
+				 &cloud, &cloud_b);
 	else
-		cloud = cloud_build(ui->canvas, c, FALSE, background);
-	gchar *title = g_strdup_printf("א · %s — %d palabras", c->libro, c->total);
-	gtk_label_set_text(GTK_LABEL(ui->title_a), title);
-	g_free(title);
-	if (pair) {
-		title = g_strdup_printf("ב · %s — %d palabras", c->libro_b, c->total_b);
-		gtk_label_set_text(GTK_LABEL(ui->title_b), title);
-		g_free(title);
-	}
+		cloud = cloud_build(ui->canvas, c, FALSE, background, aspect);
+	g_free(ui->titulo_a);
+	g_free(ui->titulo_b);
+	ui->titulo_a = poner_titulo(ui->title_a, "א", c->libro, c->total);
+	ui->titulo_b = pair ? poner_titulo(ui->title_b, "ב", c->libro_b, c->total_b) : NULL;
 	gtk_widget_set_visible(ui->panel_b, pair);
 	g_object_set_data_full(G_OBJECT(ui->canvas_b), "cloud", cloud_b, cloud_free);
 	g_object_set_data_full(G_OBJECT(ui->canvas), "cloud", cloud, cloud_free);
 	gtk_stack_set_visible_child_name(GTK_STACK(ui->cloud_stack), "cloud");
 	gtk_widget_queue_draw(ui->canvas);
 	gtk_widget_queue_draw(ui->canvas_b);
-	llenar_tabla(c, comparar && c->libro_b);
+	llenar_tabla(c, pair);
+	gtk_widget_set_sensitive(ui->btn_descargar, TRUE);
+	g_free(ui->mostrado);
+	ui->mostrado = clave;
 
 	main_nube_conteo_free(c);
 	g_free(libro_a);
 	g_free(libro_b);
+}
+
+/* TEXT names a book of the list exactly (ignoring case). */
+static gboolean
+es_libro(const gchar *texto)
+{
+	if (!texto || !*texto)
+		return FALSE;
+	gchar *buscado = g_utf8_casefold(texto, -1);
+	gboolean hallado = FALSE;
+	GtkTreeModel *model = GTK_TREE_MODEL(ui->libros);
+	GtkTreeIter iter;
+	for (gboolean ok = gtk_tree_model_get_iter_first(model, &iter); ok && !hallado;
+	     ok = gtk_tree_model_iter_next(model, &iter)) {
+		gchar *nombre = NULL;
+		gtk_tree_model_get(model, &iter, COL_NOMBRE, &nombre, -1);
+		gchar *plegado = nombre ? g_utf8_casefold(nombre, -1) : NULL;
+		hallado = plegado && g_utf8_collate(plegado, buscado) == 0;
+		g_free(plegado);
+		g_free(nombre);
+	}
+	g_free(buscado);
+	return hallado;
+}
+
+static gboolean
+on_espera(gpointer user_data)
+{
+	(void)user_data;
+	if (!ui)
+		return G_SOURCE_REMOVE;
+	if (ui->ocupado)
+		return G_SOURCE_CONTINUE;
+	ui->espera = 0;
+	gboolean comparar = gtk_toggle_button_get_active(
+	    GTK_TOGGLE_BUTTON(ui->chk_comparar));
+	if (es_libro(combo_texto(ui->combo_libro)) &&
+	    (!comparar || es_libro(combo_texto(ui->combo_libro_b))))
+		actualizar(FALSE);
+	return G_SOURCE_REMOVE;
+}
+
+/* A book chosen from the list, completed or typed in full updates the
+ * cloud shortly after; partial typing does not. */
+static void
+on_entry_changed(GtkEditable *editable, gpointer user_data)
+{
+	(void)editable;
+	(void)user_data;
+	if (!ui->poniendo)
+		ui->reintentos = 0;	/* the reader's own choice stands */
+	if (ui->espera)
+		g_source_remove(ui->espera);
+	ui->espera = g_timeout_add(350, on_espera, NULL);
 }
 
 static void
@@ -599,8 +772,17 @@ on_comparar_toggled(GtkToggleButton *btn, gpointer user_data)
 	(void)user_data;
 	gboolean on = gtk_toggle_button_get_active(btn);
 	gtk_widget_set_sensitive(ui->combo_libro_b, on);
-	if (on)
-		gtk_widget_grab_focus(combo_entry(ui->combo_libro_b));
+	if (on) {
+		/* Start from a random book other than book A; the reader can
+		 * still type or pick another one. */
+		const gchar *actual = combo_texto(ui->combo_libro_b);
+		const gchar *libro_a = combo_texto(ui->combo_libro);
+		if (!actual || !*actual || g_utf8_collate(actual, libro_a) == 0) {
+			poner_al_azar(ui->combo_libro_b, libro_a, FALSE);
+			ui->reintentos = 8;
+		}
+	}
+	actualizar(FALSE);
 }
 
 static void
@@ -608,7 +790,102 @@ on_entry_activate(GtkEntry *entry, gpointer user_data)
 {
 	(void)entry;
 	(void)user_data;
-	on_mostrar(NULL, NULL);
+	actualizar(TRUE);
+}
+
+static gboolean
+on_pendiente(gpointer user_data)
+{
+	(void)user_data;
+	if (ui && ui->pendiente)
+		actualizar(FALSE);
+	return G_SOURCE_REMOVE;
+}
+
+/* The first cloud waits for the dialog to give the cloud area a size. */
+static void
+on_area_allocate(GtkWidget *widget, GdkRectangle *allocation, gpointer user_data)
+{
+	(void)widget;
+	(void)user_data;
+	if (ui && ui->pendiente && allocation->width > 1)
+		g_idle_add(on_pendiente, NULL);
+}
+
+/* A file name without characters file systems reject. */
+static gchar *
+nombre_archivo(const gchar *base, const gchar *extension)
+{
+	gchar *limpio = g_strdup(base);
+	g_strdelimit(limpio, "/\\:*?\"<>|", '-');
+	gchar *nombre = g_strconcat(limpio, extension, NULL);
+	g_free(limpio);
+	return nombre;
+}
+
+static void
+on_descargar(GtkButton *button, gpointer user_data)
+{
+	(void)button;
+	(void)user_data;
+	CloudLayout *a = g_object_get_data(G_OBJECT(ui->canvas), "cloud");
+	CloudLayout *b = gtk_widget_get_visible(ui->panel_b) ?
+		g_object_get_data(G_OBJECT(ui->canvas_b), "cloud") : NULL;
+	if (!a || !ui->mostrado)
+		return;
+
+	GtkWidget *chooser = gtk_file_chooser_dialog_new(
+	    _("Descargar nube de palabras"), GTK_WINDOW(ui->dialog),
+	    GTK_FILE_CHOOSER_ACTION_SAVE,
+	    _("_Cancelar"), GTK_RESPONSE_CANCEL,
+	    _("_Guardar"), GTK_RESPONSE_ACCEPT, NULL);
+	GtkFileChooser *fc = GTK_FILE_CHOOSER(chooser);
+	gtk_file_chooser_set_do_overwrite_confirmation(fc, TRUE);
+	const gchar *imagenes = g_get_user_special_dir(G_USER_DIRECTORY_PICTURES);
+	gtk_file_chooser_set_current_folder(fc, imagenes ? imagenes : g_get_home_dir());
+	GtkFileFilter *png = gtk_file_filter_new();
+	gtk_file_filter_set_name(png, _("Imagen PNG"));
+	gtk_file_filter_add_pattern(png, "*.png");
+	gtk_file_chooser_add_filter(fc, png);
+	GtkFileFilter *svg = gtk_file_filter_new();
+	gtk_file_filter_set_name(svg, _("Imagen vectorial SVG"));
+	gtk_file_filter_add_pattern(svg, "*.svg");
+	gtk_file_chooser_add_filter(fc, svg);
+
+	gchar **libros = g_strsplit(ui->mostrado, "\n", 2);
+	gchar *base = libros[1] ?
+		g_strdup_printf(_("Nube de palabras - %s y %s"), libros[0], libros[1]) :
+		g_strdup_printf(_("Nube de palabras - %s"), libros[0]);
+	g_strfreev(libros);
+	gchar *sugerido = nombre_archivo(base, ".png");
+	gtk_file_chooser_set_current_name(fc, sugerido);
+	g_free(sugerido);
+	g_free(base);
+
+	if (gtk_dialog_run(GTK_DIALOG(chooser)) == GTK_RESPONSE_ACCEPT) {
+		gchar *ruta = gtk_file_chooser_get_filename(fc);
+		gboolean es_svg = gtk_file_chooser_get_filter(fc) == svg;
+		gchar *lower = g_ascii_strdown(ruta, -1);
+		if (!g_str_has_suffix(lower, ".png") && !g_str_has_suffix(lower, ".svg")) {
+			gchar *con = g_strconcat(ruta, es_svg ? ".svg" : ".png", NULL);
+			g_free(ruta);
+			ruta = con;
+		}
+		g_free(lower);
+		GError *error = NULL;
+		const char *texto = settings.bible_text_color ?
+			settings.bible_text_color : "#222222";
+		if (!cloud_export(ruta, a, ui->titulo_a, b, b ? ui->titulo_b : NULL,
+				  texto, &error)) {
+			gchar *msg = g_strdup_printf(_("No se pudo guardar la imagen: %s"),
+						     error ? error->message : "");
+			gui_generic_warning(msg);
+			g_free(msg);
+			g_clear_error(&error);
+		}
+		g_free(ruta);
+	}
+	gtk_widget_destroy(chooser);
 }
 
 static void
@@ -627,6 +904,11 @@ on_destroy(GtkWidget *widget, gpointer user_data)
 	(void)user_data;
 	if (!ui)
 		return;
+	if (ui->espera)
+		g_source_remove(ui->espera);
+	g_free(ui->mostrado);
+	g_free(ui->titulo_a);
+	g_free(ui->titulo_b);
 	GtkCssProvider *css = g_object_get_data(G_OBJECT(ui->tree), "matrix-css");
 	if (css)
 		gtk_style_context_remove_provider_for_screen(gtk_widget_get_screen(ui->tree),
@@ -656,7 +938,7 @@ crear_dialogo(void)
 	ui->combo_libro = UI_GET_ITEM(gxml, "combo_libro");
 	ui->combo_libro_b = UI_GET_ITEM(gxml, "combo_libro_b");
 	ui->chk_comparar = UI_GET_ITEM(gxml, "chk_comparar");
-	ui->btn_mostrar = UI_GET_ITEM(gxml, "btn_mostrar");
+	ui->btn_descargar = UI_GET_ITEM(gxml, "btn_descargar");
 	ui->btn_cerrar = UI_GET_ITEM(gxml, "btn_cerrar");
 	ui->lbl_resumen = UI_GET_ITEM(gxml, "lbl_resumen");
 	ui->box_nube = UI_GET_ITEM(gxml, "box_nube");
@@ -711,17 +993,11 @@ crear_dialogo(void)
 	gtk_entry_set_placeholder_text(GTK_ENTRY(combo_entry(ui->combo_libro_b)),
 				       _("Libro para comparar"));
 
-	if (settings.MainWindowModule && settings.currentverse) {
-		char *actual = main_nube_libro_de_clave(settings.MainWindowModule,
-							settings.currentverse);
-		if (actual) {
-			combo_set_texto(ui->combo_libro, actual);
-			g_free(actual);
-		}
-	}
+	/* Open on a random book, already drawn (see on_area_allocate). */
+	poner_al_azar(ui->combo_libro, NULL, FALSE);
+	ui->reintentos = 8;
+	ui->pendiente = TRUE;
 
-	ui->html = GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, VIEWER_TYPE));
-	gtk_widget_show(ui->html);
 	ui->cloud_stack = gtk_stack_new();
 	gtk_widget_show(ui->cloud_stack);
 	gtk_box_pack_start(GTK_BOX(ui->box_nube), ui->cloud_stack, TRUE, TRUE, 0);
@@ -749,22 +1025,26 @@ crear_dialogo(void)
 	gtk_widget_show_all(panels);
 	gtk_widget_hide(ui->panel_b);
 	gtk_stack_add_named(GTK_STACK(ui->cloud_stack), panels, "cloud");
-#ifdef USE_WEBKIT2
-	gtk_stack_add_named(GTK_STACK(ui->cloud_stack), ui->html, "message");
-#else
-	GtkWidget *sw = gtk_scrolled_window_new(NULL, NULL);
-	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(sw),
-				       GTK_POLICY_AUTOMATIC,
-				       GTK_POLICY_AUTOMATIC);
-	gtk_widget_show(sw);
-	gtk_container_add(GTK_CONTAINER(sw), ui->html);
-	gtk_stack_add_named(GTK_STACK(ui->cloud_stack), sw, "message");
-#endif
+	ui->mensaje = gtk_label_new(NULL);
+	gtk_widget_set_name(ui->mensaje, "cloud-message");
+	gtk_label_set_line_wrap(GTK_LABEL(ui->mensaje), TRUE);
+	gtk_label_set_justify(GTK_LABEL(ui->mensaje), GTK_JUSTIFY_CENTER);
+	gtk_style_context_add_class(gtk_widget_get_style_context(ui->mensaje), "dim-label");
+	gtk_widget_show(ui->mensaje);
+	gtk_stack_add_named(GTK_STACK(ui->cloud_stack), ui->mensaje, "message");
 
 	setup_tree();
-	html_placeholder(_("Escribe o elige un libro de la Biblia para ver sus palabras más usadas."));
+	mostrar_mensaje(_("Elige un libro de la Biblia para ver sus palabras más usadas."));
+	gtk_label_set_text(GTK_LABEL(ui->lbl_resumen), "");
+	gtk_style_context_add_class(gtk_widget_get_style_context(ui->lbl_resumen), "dim-label");
+	gtk_widget_set_sensitive(ui->btn_descargar, FALSE);
 
-	g_signal_connect(ui->btn_mostrar, "clicked", G_CALLBACK(on_mostrar), NULL);
+	g_signal_connect(ui->btn_descargar, "clicked", G_CALLBACK(on_descargar), NULL);
+	g_signal_connect(ui->cloud_stack, "size-allocate", G_CALLBACK(on_area_allocate), NULL);
+	g_signal_connect(combo_entry(ui->combo_libro), "changed",
+			 G_CALLBACK(on_entry_changed), NULL);
+	g_signal_connect(combo_entry(ui->combo_libro_b), "changed",
+			 G_CALLBACK(on_entry_changed), NULL);
 	g_signal_connect(ui->btn_cerrar, "clicked", G_CALLBACK(on_cerrar), NULL);
 	g_signal_connect(ui->chk_comparar, "toggled", G_CALLBACK(on_comparar_toggled), NULL);
 	g_signal_connect(combo_entry(ui->combo_libro), "activate",
@@ -772,9 +1052,6 @@ crear_dialogo(void)
 	g_signal_connect(combo_entry(ui->combo_libro_b), "activate",
 			 G_CALLBACK(on_entry_activate), NULL);
 	g_signal_connect(ui->dialog, "destroy", G_CALLBACK(on_destroy), NULL);
-
-	gtk_widget_set_can_default(ui->btn_mostrar, TRUE);
-	gtk_widget_grab_default(ui->btn_mostrar);
 }
 
 void
