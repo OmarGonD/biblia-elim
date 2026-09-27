@@ -81,46 +81,6 @@ static void menu_deactivate_callback(GtkWidget *widget,
 
 /******************************************************************************
  * Name
- *   menu_position_under
- *
- * Synopsis
- *   #include "gui/navbar_versekey.h"
- *
- *   void menu_position_under(GtkMenu * menu, int * x, int * y,
- *				gboolean * push_in, gpointer user_data)
- *
- * Description
- *   position drop down menu under toogle button
- *
- *
- * Return value
- *   void
- */
-
-static void menu_position_under(GtkMenu *menu, int *x, int *y,
-				gboolean *push_in, gpointer user_data)
-{
-	GtkWidget *widget;
-	GtkAllocation allocation;
-
-	g_return_if_fail(GTK_IS_BUTTON(user_data));
-#if GTK_CHECK_VERSION(2, 20, 0)
-	g_return_if_fail(gtk_widget_get_window(user_data));
-#else
-	g_return_if_fail(GTK_WIDGET_NO_WINDOW(user_data));
-#endif
-	widget = GTK_WIDGET(user_data);
-
-	gdk_window_get_origin(gtk_widget_get_window(widget), x, y);
-	gtk_widget_get_allocation(widget, &allocation);
-	*x += allocation.x;
-	*y += allocation.y + allocation.height;
-
-	*push_in = FALSE;
-}
-
-/******************************************************************************
- * Name
  *   select_button_press_callback
  *
  * Synopsis
@@ -748,10 +708,9 @@ static const struct {
  * construirse. */
 static gboolean sword_disponible = FALSE;
 static GtkWidget *version_etiqueta = NULL;
-static GtkWidget *version_menu = NULL;
-/* Marcar el elemento del módulo actual dispara "toggled" igual que
- * pulsarlo; esto distingue una cosa de la otra. */
-static gboolean version_sincronizando = FALSE;
+static GMenu *version_menu = NULL;
+static GSimpleAction *version_action = NULL;
+static GHashTable *version_labels = NULL;
 
 static void gui_navbar_fill_version_combo(void);
 
@@ -854,13 +813,12 @@ version_liberar(gpointer datos)
 }
 
 static void
-on_version_elegida(GtkCheckMenuItem *item, gpointer datos)
+on_version_elegida(GSimpleAction *action, GVariant *state, gpointer datos)
 {
-	const char *mod = g_object_get_data(G_OBJECT(item), "modulo");
+	const char *mod = g_variant_get_string(state, NULL);
 
 	(void)datos;
-	if (version_sincronizando || !gtk_check_menu_item_get_active(item))
-		return;
+	g_simple_action_set_state(action, state);
 	if (!mod || (settings.MainWindowModule &&
 		     !strcmp(mod, settings.MainWindowModule)))
 		return;
@@ -873,21 +831,11 @@ on_version_elegida(GtkCheckMenuItem *item, gpointer datos)
 static void
 version_actualizar_boton(void)
 {
-	GList *hijos, *n;
-	const gchar *texto = NULL;
+	const gchar *texto;
 
-	if (!version_etiqueta || !version_menu || !settings.MainWindowModule)
+	if (!version_etiqueta || !version_labels || !settings.MainWindowModule)
 		return;
-	hijos = gtk_container_get_children(GTK_CONTAINER(version_menu));
-	for (n = hijos; n; n = n->next) {
-		const char *mod = g_object_get_data(G_OBJECT(n->data), "modulo");
-
-		if (mod && !strcmp(mod, settings.MainWindowModule)) {
-			texto = gtk_menu_item_get_label(GTK_MENU_ITEM(n->data));
-			break;
-		}
-	}
-	g_list_free(hijos);
+	texto = g_hash_table_lookup(version_labels, settings.MainWindowModule);
 	if (!texto)
 		texto = settings.MainWindowModule;
 	gtk_label_set_text(GTK_LABEL(version_etiqueta), texto);
@@ -904,11 +852,10 @@ gui_navbar_version_combo_refill(void)
 static void
 gui_navbar_fill_version_combo(void)
 {
-	GtkWidget *menu;
-	GSList *grupo = NULL;
 	GList *l, *d, *entradas = NULL, *n;
 	gchar *idioma_actual = NULL;
-	GtkWidget *primera = NULL, *elegida = NULL;
+	const gchar *primera = NULL;
+	GMenu *grupo = NULL;
 
 	if (!widgets.combo_bible_version || !sword_disponible)
 		return;
@@ -929,76 +876,70 @@ gui_navbar_fill_version_combo(void)
 	}
 	entradas = g_list_sort(entradas, version_comparar);
 
-	menu = gtk_menu_new();
-	version_sincronizando = TRUE;
+	if (version_menu)
+		g_object_unref(version_menu);
+	version_menu = g_menu_new();
+	if (version_labels)
+		g_hash_table_destroy(version_labels);
+	version_labels = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
 	for (n = entradas; n; n = n->next) {
 		EntradaVersion *e = n->data;
-		GtkWidget *item;
 
 		if (g_strcmp0(idioma_actual, e->idioma)) {
-			item = gtk_menu_item_new_with_label(e->idioma);
-			gtk_widget_set_sensitive(item, FALSE);
-			gtk_style_context_add_class(
-			    gtk_widget_get_style_context(item),
-			    "elim-menu-titulo");
-			gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
+			if (grupo) {
+				g_menu_append_section(version_menu, idioma_actual,
+						      G_MENU_MODEL(grupo));
+				g_object_unref(grupo);
+			}
 			g_free(idioma_actual);
 			idioma_actual = g_strdup(e->idioma);
+			grupo = g_menu_new();
 		}
-		item = gtk_radio_menu_item_new_with_label(grupo, e->desc);
-		grupo = gtk_radio_menu_item_get_group(GTK_RADIO_MENU_ITEM(item));
-		g_object_set_data_full(G_OBJECT(item), "modulo",
-				       g_strdup(e->id), g_free);
+		GMenuItem *item = g_menu_item_new(e->desc, NULL);
+		g_menu_item_set_action_and_target(item, "version.elegir", "s", e->id);
+		g_menu_append_item(grupo, item);
+		g_object_unref(item);
+		g_hash_table_insert(version_labels, g_strdup(e->id), g_strdup(e->desc));
 		if (!primera)
-			primera = item;
-		if (settings.MainWindowModule &&
-		    !strcmp(e->id, settings.MainWindowModule))
-			elegida = item;
-		g_signal_connect(item, "toggled",
-				 G_CALLBACK(on_version_elegida), NULL);
-		gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
+			primera = e->id;
+	}
+	if (grupo) {
+		g_menu_append_section(version_menu, idioma_actual, G_MENU_MODEL(grupo));
+		g_object_unref(grupo);
 	}
 	/* Si el módulo guardado ya no está instalado, se marca el primero
 	 * para no dejar el menú sin señalar. No se cambia de módulo desde
 	 * aquí: esto corre al arrancar, antes de que la ventana esté lista,
 	 * y de un módulo que falta ya se ocupa settings.c. */
-	if (!elegida)
-		elegida = primera;
-	if (elegida)
-		gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(elegida),
-					       TRUE);
-	version_sincronizando = FALSE;
+	const gchar *elegida = settings.MainWindowModule &&
+		g_hash_table_contains(version_labels, settings.MainWindowModule)
+				 ? settings.MainWindowModule : primera;
+	GSimpleActionGroup *actions = g_simple_action_group_new();
+	version_action = g_simple_action_new_stateful(
+	    "elegir", G_VARIANT_TYPE_STRING,
+	    g_variant_new_string(elegida ? elegida : ""));
+	g_signal_connect(version_action, "change-state",
+			 G_CALLBACK(on_version_elegida), NULL);
+	g_action_map_add_action(G_ACTION_MAP(actions), G_ACTION(version_action));
+	gtk_widget_insert_action_group(widgets.combo_bible_version, "version",
+				       G_ACTION_GROUP(actions));
+	g_object_unref(actions);
 
 	g_free(idioma_actual);
 	g_list_free_full(entradas, version_liberar);
 
-	gtk_widget_show_all(menu);
-	gtk_menu_button_set_popup(GTK_MENU_BUTTON(widgets.combo_bible_version),
-				  menu);
-	version_menu = menu;
+	gtk_menu_button_set_menu_model(GTK_MENU_BUTTON(widgets.combo_bible_version),
+				       G_MENU_MODEL(version_menu));
 	version_actualizar_boton();
 }
 
 void
 gui_navbar_version_combo_sync(void)
 {
-	GList *hijos, *n;
-
-	if (!version_menu || !settings.MainWindowModule)
+	if (!version_action || !settings.MainWindowModule)
 		return;
-	version_sincronizando = TRUE;
-	hijos = gtk_container_get_children(GTK_CONTAINER(version_menu));
-	for (n = hijos; n; n = n->next) {
-		const char *mod = g_object_get_data(G_OBJECT(n->data), "modulo");
-
-		if (mod && !strcmp(mod, settings.MainWindowModule)) {
-			gtk_check_menu_item_set_active(
-			    GTK_CHECK_MENU_ITEM(n->data), TRUE);
-			break;
-		}
-	}
-	g_list_free(hijos);
-	version_sincronizando = FALSE;
+	g_simple_action_set_state(version_action,
+				  g_variant_new_string(settings.MainWindowModule));
 	version_actualizar_boton();
 }
 

@@ -994,6 +994,26 @@ exercise_application(gpointer unused)
 			      g_action_group_has_action(actions, "a-lista"),
 			      "history actions missing");
 		}
+		/* The Bible-version picker is a sectioned GMenu whose string-state
+		 * radio action follows the module currently shown. */
+		GMenuModel *versions = gtk_menu_button_get_menu_model(
+		    GTK_MENU_BUTTON(widgets.combo_bible_version));
+		check(versions && g_menu_model_get_n_items(versions) > 0,
+		      "Bible-version menu has no language sections");
+		GActionGroup *version_actions = gtk_widget_get_action_group(
+		    widgets.combo_bible_version, "version");
+		check(version_actions &&
+		      g_action_group_has_action(version_actions, "elegir"),
+		      "Bible-version action missing");
+		GVariant *version_state = version_actions
+					      ? g_action_group_get_action_state(
+						    version_actions, "elegir")
+					      : NULL;
+		check(version_state &&
+		      !g_strcmp0(g_variant_get_string(version_state, NULL),
+				 settings.MainWindowModule),
+		      "Bible-version state lost the current module");
+		g_clear_pointer(&version_state, g_variant_unref);
 		main_navbar_versekey_spin_verse(navbar_versekey, 1);
 		main_navbar_versekey_spin_verse(navbar_versekey, 0);
 		main_navbar_versekey_spin_chapter(navbar_versekey, 1);

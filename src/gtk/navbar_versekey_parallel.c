@@ -44,47 +44,6 @@ gboolean sync_on;
 
 /******************************************************************************
  * Name
- *   menu_position_under
- *
- * Synopsis
- *   #include "gui/navbar_versekey.h"
- *
- *   void menu_position_under(GtkMenu * menu, int * x, int * y,
- *				gboolean * push_in, gpointer user_data)
- *
- * Description
- *   position drop down menu under toogle button
- *
- *
- * Return value
- *   void
- */
-
-static void menu_position_under(GtkMenu *menu, int *x, int *y,
-				gboolean *push_in, gpointer user_data)
-{
-	GtkWidget *widget;
-	GtkAllocation allocation;
-
-	g_return_if_fail(GTK_IS_BUTTON(user_data));
-#if GTK_CHECK_VERSION(2, 20, 0)
-	g_return_if_fail(gtk_widget_get_window(user_data));
-#else
-	g_return_if_fail(GTK_WIDGET_NO_WINDOW(user_data));
-#endif
-
-	widget = GTK_WIDGET(user_data);
-
-	gdk_window_get_origin(gtk_widget_get_window(widget), x, y);
-	gtk_widget_get_allocation(widget, &allocation);
-	*x += allocation.x;
-	*y += allocation.y + allocation.height;
-
-	*push_in = FALSE;
-}
-
-/******************************************************************************
- * Name
  *   select_button_press_callback
  *
  * Synopsis
@@ -695,16 +654,17 @@ static void _connect_signals(NAVBAR_VERSEKEY navbar)
 #endif
 }
 
-static void on_parallel_set_activate(GtkMenuItem *item, gpointer user_data)
+static void on_parallel_set_activate(GSimpleAction *action, GVariant *state,
+				     gpointer user_data)
 {
-	gchar *name = (gchar *)user_data;
+	const gchar *name = g_variant_get_string(state, NULL);
 	gchar **modules;
+	(void)user_data;
 
 	modules = get_parallel_set(name);
-	if (!modules) {
-		g_free(name);
+	if (!modules)
 		return;
-	}
+	g_simple_action_set_state(action, state);
 
 	g_strfreev(settings.parallel_list);
 	settings.parallel_list = modules;
@@ -727,12 +687,15 @@ static void on_parallel_set_activate(GtkMenuItem *item, gpointer user_data)
 		main_update_parallel_page_detached();
 	}
 
-	g_free(name);
 }
 
-static void on_parallel_sets_manage_clicked(GtkMenuItem *item,
+static void on_parallel_sets_manage_clicked(GSimpleAction *action,
+					    GVariant *parameter,
 					    gpointer user_data)
 {
+	(void)action;
+	(void)parameter;
+	(void)user_data;
 	gui_setup_preferences_dialog();
 	gui_prefs_goto_parallel_page();
 }
@@ -747,48 +710,52 @@ static void on_parallel_sets_manage_clicked(GtkMenuItem *item,
  * Return value
  *   void
  */
-static void on_parallel_sets_button_clicked(GtkWidget *widget,
-					    gpointer user_data)
+static void parallel_sets_menu_setup(GtkWidget *widget)
 {
-	GtkWidget *menu, *item;
 	gchar **names;
 
 	if (!settings.parallel_set_names || !*settings.parallel_set_names)
 		return;
 
-	menu = gtk_menu_new();
+	GMenu *menu = g_menu_new();
+	GMenu *sets = g_menu_new();
 	names = g_strsplit(settings.parallel_set_names, ",", -1);
 
 	for (gint i = 0; names[i]; ++i) {
 		gchar *display = key_to_name(names[i]);
-		item = gtk_menu_item_new_with_label(display);
+		GMenuItem *item = g_menu_item_new(display, NULL);
+		g_menu_item_set_action_and_target(item, "conjuntos.elegir", "s",
+					      names[i]);
+		g_menu_append_item(sets, item);
+		g_object_unref(item);
 		g_free(display);
-		g_signal_connect(G_OBJECT(item), "activate",
-				 G_CALLBACK(on_parallel_set_activate),
-				 g_strdup(names[i]));
-		gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
-		gtk_widget_show(item);
 	}
 	g_strfreev(names);
+	g_menu_append_section(menu, NULL, G_MENU_MODEL(sets));
+	g_object_unref(sets);
+	GMenu *manage = g_menu_new();
+	g_menu_append(manage, _("Manage..."), "conjuntos.administrar");
+	g_menu_append_section(menu, NULL, G_MENU_MODEL(manage));
+	g_object_unref(manage);
 
-	/* separator + Manage */
-	gtk_menu_shell_append(GTK_MENU_SHELL(menu),
-			      gtk_separator_menu_item_new());
-	item = gtk_menu_item_new_with_label(_("Manage..."));
-	g_signal_connect(G_OBJECT(item), "activate",
+	GSimpleActionGroup *actions = g_simple_action_group_new();
+	GSimpleAction *choose = g_simple_action_new_stateful(
+	    "elegir", G_VARIANT_TYPE_STRING,
+	    g_variant_new_string(settings.parallel_set_current
+				     ? settings.parallel_set_current : ""));
+	g_signal_connect(choose, "change-state",
+			 G_CALLBACK(on_parallel_set_activate), NULL);
+	g_action_map_add_action(G_ACTION_MAP(actions), G_ACTION(choose));
+	g_object_unref(choose);
+	GSimpleAction *manage_action = g_simple_action_new("administrar", NULL);
+	g_signal_connect(manage_action, "activate",
 			 G_CALLBACK(on_parallel_sets_manage_clicked), NULL);
-	gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
-	gtk_widget_show_all(menu);
-
-	#if GTK_CHECK_VERSION(3, 22, 0)
-	gtk_menu_popup_at_widget(GTK_MENU(menu), widget,
-				 GDK_GRAVITY_SOUTH_WEST,
-				 GDK_GRAVITY_NORTH_WEST, NULL);
-	#else
-		gtk_menu_popup(GTK_MENU(menu), NULL, NULL,
-					menu_position_under, widget, 0,
-					gtk_get_current_event_time());
-	#endif
+	g_action_map_add_action(G_ACTION_MAP(actions), G_ACTION(manage_action));
+	g_object_unref(manage_action);
+	gtk_widget_insert_action_group(widget, "conjuntos", G_ACTION_GROUP(actions));
+	g_object_unref(actions);
+	gtk_menu_button_set_menu_model(GTK_MENU_BUTTON(widget), G_MENU_MODEL(menu));
+	g_object_unref(menu);
 }
 
 /******************************************************************************
@@ -907,12 +874,12 @@ GtkWidget *gui_navbar_versekey_parallel_new(void)
 		gtk_widget_destroy(navbar_parallel.button_sets);
 		navbar_parallel.button_sets = NULL;
 	}
-	GtkWidget *button_sets = gtk_button_new_with_label(sets_label);
+	GtkWidget *button_sets = gtk_menu_button_new();
+	gtk_button_set_label(GTK_BUTTON(button_sets), sets_label);
 	gtk_widget_set_tooltip_text(button_sets, _("Switch parallel module set"));
 	gtk_widget_show(button_sets);
 	navbar_parallel.button_sets = button_sets;
-	g_signal_connect(G_OBJECT(button_sets), "clicked",
-			 G_CALLBACK(on_parallel_sets_button_clicked), NULL);
+	parallel_sets_menu_setup(button_sets);
 	gtk_box_pack_end(GTK_BOX(navbar_parallel.navbar), button_sets,
 			 FALSE, FALSE, 2);
 	g_free(sets_label);

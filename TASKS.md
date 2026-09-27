@@ -9674,8 +9674,25 @@
       actions present, selection actions disabled without a selection,
       Strong state follows `settings.show_interlineal`); full
       `gtk_lifecycle_smoke|nube` suite PASS.
+    - 9/…: navbar residual menus (navbar_versekey.c,
+      navbar_versekey_parallel.c): the Bible-version selector is now a
+      language-sectioned GMenu over the string-state radio action
+      `version.elegir`; its state and button label follow
+      `settings.MainWindowModule`. Saved parallel sets use a two-section
+      GMenu over `conjuntos.elegir` (string-state radio) and
+      `conjuntos.administrar`, under a GtkMenuButton. The book, chapter and
+      verse selectors had already ceased to be GtkMenu: they remain their
+      searchable GtkPopover pickers, preserving that behavior. Obsolete
+      GtkMenu positioning helpers are gone.
+      Evidence: XTEST — the version button showed language sections and the
+      selected SpaPlatense radio (`/tmp/navbar-version-menu.png`); choosing
+      TorresAmat updated the radio, button, tab and text while keeping Lucas
+      23:36 (`/tmp/navbar-version-action.png`), then the isolated profile was
+      restored. Build PASS; `gtk_lifecycle_smoke` 403 checks, 0 failed (new:
+      version model present, action present, state matches the current
+      module); full `gtk_lifecycle_smoke|nube` suite PASS.
     - Remaining by size: sidebar.c 57 legacy menu identifiers/calls,
-      main_menu.c 89, navbar_versekey*.c 25, and
+      main_menu.c 89, and
       the builder menus xi-menus.gtkbuilder / xi-menus-popup.gtkbuilder
       (menu bar → `gtk_menu_bar_new_from_model`, GTK 4
       GtkPopoverMenuBar).
