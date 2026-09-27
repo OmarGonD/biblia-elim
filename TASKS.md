@@ -9656,8 +9656,26 @@
       (new: section/item shape, all actions, initial disabled state, model
       reuse and returned popover). Full `gtk_lifecycle_smoke|nube` suite
       PASS.
-    - Remaining by size: menu_popup.c 60, main_menu.c 50,
-      navbar_versekey*.c 23, and
+    - 8/…: reader/dialog context popup (menu_popup.c): the builder
+      `menu_popup` is gone; the model is rebuilt on every opening as four
+      sections over `contexto` actions, with Archivo/Editar/module-options/
+      selection submenus. Module checks are boolean state actions, textual
+      variants are a string-state radio action, selection-dependent actions
+      start disabled, and unavailable dynamic items are omitted. Existing
+      handlers are reached through thin action wrappers; `gui_menu_popup()`
+      returns the popover so tests can close it. GTK 3 GMenu items no longer
+      expose the old tooltips.
+      Evidence: XTEST — right-clicking the Bible pane showed the four-section
+      popover (`/tmp/menu-popup-open2.png`); activating «Marcador» opened the
+      bookmark dialog for Lucas 23:36 / SpaPlatense
+      (`/tmp/menu-popup-action.png`), then it was cancelled and the isolated
+      profile restored. Builder XML valid; build PASS;
+      `gtk_lifecycle_smoke` 400 checks, 0 failed (new: section/submenu shape,
+      actions present, selection actions disabled without a selection,
+      Strong state follows `settings.show_interlineal`); full
+      `gtk_lifecycle_smoke|nube` suite PASS.
+    - Remaining by size: sidebar.c 57 legacy menu identifiers/calls,
+      main_menu.c 89, navbar_versekey*.c 25, and
       the builder menus xi-menus.gtkbuilder / xi-menus-popup.gtkbuilder
       (menu bar → `gtk_menu_bar_new_from_model`, GTK 4
       GtkPopoverMenuBar).

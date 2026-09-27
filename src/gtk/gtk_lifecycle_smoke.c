@@ -17,6 +17,7 @@
 #include "gui/buscar_notas.h"
 #include "gui/lectura_sync.h"
 #include "gui/main_menu.h"
+#include "gui/menu_popup.h"
 #include "gui/main_window.h"
 #include "gui/sidebar.h"
 #include "gui/bookmarks_menu.h"
@@ -878,6 +879,47 @@ exercise_application(gpointer unused)
 	      "results popup popover was not shown");
 	if (GTK_IS_POPOVER(results_popover))
 		gtk_popover_popdown(GTK_POPOVER(results_popover));
+	/* GTK4-PORT-101 step 2: the reader context menu is rebuilt from a
+	 * GMenu so its module options and selection sensitivity are current. */
+	GtkWidget *context_popover = gui_menu_popup(
+	    (XiphosHtml *)widgets.html_text, settings.MainWindowModule, NULL);
+	check(GTK_IS_POPOVER(context_popover) &&
+	      gtk_widget_get_visible(context_popover),
+	      "reader context popover was not shown");
+	GMenuModel *context_model = context_popover ? g_object_get_data(
+	    G_OBJECT(context_popover), "elim-menu-model") : NULL;
+	check(context_model && g_menu_model_get_n_items(context_model) == 4,
+	      "reader context menu does not have its four sections");
+	GMenuModel *context_menus = context_model ? g_menu_model_get_item_link(
+	    context_model, 2, G_MENU_LINK_SECTION) : NULL;
+	check(context_menus && g_menu_model_get_n_items(context_menus) == 4,
+	      "reader context menu lacks its four submenus");
+	if (context_menus)
+		g_object_unref(context_menus);
+	GActionGroup *context_actions = gtk_widget_get_action_group(
+	    widgets.html_text, "contexto");
+	check(context_actions &&
+	      g_action_group_has_action(context_actions, "acerca") &&
+	      g_action_group_has_action(context_actions, "copiar") &&
+	      g_action_group_has_action(context_actions, "seleccion") &&
+	      g_action_group_has_action(context_actions, "leer"),
+	      "reader context actions missing");
+	check(context_actions &&
+	      !g_action_group_get_action_enabled(context_actions, "seleccion") &&
+	      !g_action_group_get_action_enabled(context_actions, "leer"),
+	      "selection actions enabled without a selection");
+	check(context_actions &&
+	      g_action_group_has_action(context_actions, "strong"),
+	      "reader context Strong action missing for capable module");
+	GVariant *strong_state = context_actions ? g_action_group_get_action_state(
+	    context_actions, "strong") : NULL;
+	check(strong_state &&
+	      g_variant_get_boolean(strong_state) == (settings.show_interlineal != 0),
+	      "reader context Strong state lost the setting");
+	if (strong_state)
+		g_variant_unref(strong_state);
+	if (GTK_IS_POPOVER(context_popover))
+		gtk_popover_popdown(GTK_POPOVER(context_popover));
 	/* GTK4-PORT-101 step 2: the bookmark popup is «marcadores» actions. */
 	gui_create_bookmark_menu();
 	GSimpleActionGroup *bookmark_actions = menu.actions;
