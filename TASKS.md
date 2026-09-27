@@ -9566,9 +9566,22 @@
       Evidence: XTEST popover shows both items and «Markdown» opens its
       save dialog; `gtk_lifecycle_smoke` 377 checks, 0 failed (new: menu
       model has 2 items, both actions exist).
+    - 2/…: history drop-down (tab_history.c, navbar_versekey.c): a GMenu
+      with a commands section and an entries section, shown with
+      `gtk_popover_new_from_model()` under the history toggle; actions
+      `historial.limpiar`, `historial.a-lista`, `historial.ir(i)` and a
+      disabled `historial.actual` for the passage shown (greyed out as
+      before). The GtkMenuItem callbacks are gone from tab_history.h.
+      The toggle's button-press handler stays for step 4 (events); GTK 4
+      uses `gtk_popover_menu_new_from_model()` + `gtk_widget_set_parent()`.
+      Evidence: XTEST — popover lists commands and entries with the
+      current one greyed; «Limpiar historial» empties it and disables
+      «back»; choosing «Lucas 22:1» navigates there and releases the
+      toggle; `gtk_lifecycle_smoke` 380 checks, 0 failed (new: two
+      sections, two commands, three actions).
     - Remaining by size: menu_popup.c 60, sidebar.c 56, main_menu.c 50,
       bookmarks_menu.c 31, interlineal.c 21, parallel_view.c 12,
-      navbar_versekey*.c 23, tab_history.c 10, treekey-editor.c 10, and
+      navbar_versekey*.c 23, treekey-editor.c 10, and
       the builder menus xi-menus.gtkbuilder / xi-menus-popup.gtkbuilder
       (menu bar → `gtk_menu_bar_new_from_model`, GTK 4
       GtkPopoverMenuBar).

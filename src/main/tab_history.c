@@ -46,29 +46,6 @@
 
 /******************************************************************************
  * Name
- *  on_menu_historyitem_activate
- *
- * Synopsis
- *   #include "main/tab_history.h"
- *
- *   void on_menu_historyitem_activate(GtkMenuItem * menuitem,
- *						gpointer user_data)
- *
- * Description
- *   change text module to chosen histor item
- *
- * Return value
- *   void
- */
-
-void
-on_menu_historyitem_activate(GtkMenuItem *menuitem, gpointer user_data)
-{
-	main_change_verse_tab_history(GPOINTER_TO_INT(user_data));
-}
-
-/******************************************************************************
- * Name
  *   main_clear_tab_history
  *
  * Synopsis
@@ -225,103 +202,82 @@ void main_fake_tab_history_item(char *reference)
 	main_update_tab_history_menu(tab);
 }
 
-/******************************************************************************
- * Name
- *  on_clear_activate
- *
- * Synopsis
- *   #include ".h"
- *
- *   void on_clear_activate(GtkMenuItem * menuitem,
- *			    gpointer user_data)
- *
- * Description
- *   remove all items from history list by calling
- *   gui_clear_history();
- *
- * Return value
- *   void
- */
-
-void on_clear_activate(GtkMenuItem *menuitem, gpointer user_data)
+static void
+history_clear(GSimpleAction *action, GVariant *parameter, gpointer data)
 {
+	(void)action;
+	(void)parameter;
+	(void)data;
 	main_clear_tab_history();
 }
 
-/******************************************************************************
- * Name
- *  on_history_to_verse_list_activate
- *
- * Synopsis
- *   #include ".h"
- *
- *   void on_history_to_verse_list_activate(GtkMenuItem * menuitem,
- *					    gpointer user_data)
- *
- * Description
- *   ship the history content to the verse list.
- *
- * Return value
- *   void
- */
-
-void on_history_to_verse_list_activate(GtkMenuItem *menuitem,
-				       gpointer user_data)
+/* Ship the history content to the verse list. */
+static void
+history_to_verse_list(GSimpleAction *action, GVariant *parameter, gpointer data)
 {
-	int i;
-	gboolean first = TRUE;
+	(void)action;
+	(void)parameter;
+	(void)data;
 	GString *list = g_string_new("");
-
-	for (i = 0; i < cur_passage_tab->history_items; ++i) {
-		if (!first)
+	for (int i = 0; i < cur_passage_tab->history_items; ++i) {
+		if (i)
 			g_string_append_c(list, ';');
-		g_string_append(list,
-				cur_passage_tab->history_list[i].verseref);
-		first = FALSE;
+		g_string_append(list, cur_passage_tab->history_list[i].verseref);
 	}
-
-	main_display_verse_list_in_sidebar(settings.currentverse, settings.MainWindowModule, list->str);
-
+	main_display_verse_list_in_sidebar(settings.currentverse,
+					   settings.MainWindowModule, list->str);
 	g_string_free(list, TRUE);
-	return;
 }
 
-GtkWidget *main_versekey_drop_down_new(gpointer data)
+static void
+history_go(GSimpleAction *action, GVariant *parameter, gpointer data)
 {
-	gint i;
-	GtkWidget *menu;
-	GtkWidget *item;
-	PASSAGE_TAB_INFO *tab = NULL;
+	(void)action;
+	(void)data;
+	main_change_verse_tab_history(g_variant_get_int32(parameter));
+}
 
-	tab = (PASSAGE_TAB_INFO *)data;
-	menu = gtk_menu_new();
+void main_tab_history_install_actions(GtkWidget *widget)
+{
+	static const GActionEntry actions[] = {
+		{ "limpiar", history_clear, NULL, NULL, NULL, { 0 } },
+		{ "a-lista", history_to_verse_list, NULL, NULL, NULL, { 0 } },
+		{ "ir", history_go, "i", NULL, NULL, { 0 } },
+		/* The passage shown now: listed, but not selectable. */
+		{ "actual", NULL, NULL, NULL, NULL, { 0 } },
+	};
+	GSimpleActionGroup *group = g_simple_action_group_new();
+	g_action_map_add_action_entries(G_ACTION_MAP(group), actions,
+					G_N_ELEMENTS(actions), NULL);
+	g_simple_action_set_enabled(G_SIMPLE_ACTION(
+	    g_action_map_lookup_action(G_ACTION_MAP(group), "actual")), FALSE);
+	gtk_widget_insert_action_group(widget, "historial", G_ACTION_GROUP(group));
+	g_object_unref(group);
+}
 
-	item = gtk_menu_item_new_with_label(_("Clear History"));
-	gtk_widget_show(item);
-	g_signal_connect(G_OBJECT(item), "activate",
-			 G_CALLBACK(on_clear_activate), NULL);
-	gtk_container_add(GTK_CONTAINER(menu), item);
-
-	item = gtk_menu_item_new_with_label(_("History ➛ Verse List"));
-	gtk_widget_show(item);
-	g_signal_connect(G_OBJECT(item), "activate",
-			 G_CALLBACK(on_history_to_verse_list_activate),
-			 NULL);
-	gtk_container_add(GTK_CONTAINER(menu), item);
-
-	for (i = 0; i < tab->history_items; ++i) {
-		item =
-		    gtk_menu_item_new_with_label(tab->history_list[i].verseref);
-		gtk_widget_show(item);
-		gtk_container_add(GTK_CONTAINER(menu), item);
-		g_signal_connect(G_OBJECT(item), "activate",
-				 G_CALLBACK(on_menu_historyitem_activate),
-				 GINT_TO_POINTER(i));
-		if (!strcmp(tab->history_list[i].verseref,
-			    tab->text_commentary_key))
-			gtk_widget_set_sensitive(item, FALSE);
+GMenuModel *main_tab_history_menu_model(gpointer data)
+{
+	PASSAGE_TAB_INFO *tab = (PASSAGE_TAB_INFO *)data;
+	GMenu *menu = g_menu_new();
+	GMenu *commands = g_menu_new();
+	g_menu_append(commands, _("Clear History"), "historial.limpiar");
+	g_menu_append(commands, _("History ➛ Verse List"), "historial.a-lista");
+	g_menu_append_section(menu, NULL, G_MENU_MODEL(commands));
+	g_object_unref(commands);
+	GMenu *entries = g_menu_new();
+	for (int i = 0; tab && i < tab->history_items; ++i) {
+		const char *ref = tab->history_list[i].verseref;
+		GMenuItem *item = g_menu_item_new(ref, NULL);
+		if (!strcmp(ref, tab->text_commentary_key))
+			g_menu_item_set_detailed_action(item, "historial.actual");
+		else
+			g_menu_item_set_action_and_target(item, "historial.ir", "i", i);
+		g_menu_append_item(entries, item);
+		g_object_unref(item);
 	}
-	return menu;
+	g_menu_append_section(menu, NULL, G_MENU_MODEL(entries));
+	g_object_unref(entries);
+	return G_MENU_MODEL(menu);
 }
 
 /******************************************************************************

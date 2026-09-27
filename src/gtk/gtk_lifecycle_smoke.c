@@ -26,6 +26,8 @@
 #include "gui/utilities.h"
 #include "main/display.hh"
 #include "main/navbar_versekey.h"
+#include "main/tab_history.h"
+#include "gui/tabbed_browser.h"
 #include "main/settings.h"
 #include "main/sword.h"
 #include "main/parallel_view.h"
@@ -883,6 +885,25 @@ exercise_application(gpointer unused)
 		if (reference) {
 			main_display_bible(settings.MainWindowModule, reference);
 			g_free(reference);
+		}
+		/* GTK4-PORT-101 step 2: the history drop-down is a GMenu
+		 * (commands and entries sections) over «historial» actions. */
+		{
+			GMenuModel *history = main_tab_history_menu_model(cur_passage_tab);
+			check(g_menu_model_get_n_items(history) == 2,
+			      "history menu lacks its two sections");
+			GMenuModel *commands = g_menu_model_get_item_link(history, 0,
+									 G_MENU_LINK_SECTION);
+			check(commands && g_menu_model_get_n_items(commands) == 2,
+			      "history menu commands missing");
+			g_clear_object(&commands);
+			g_object_unref(history);
+			GActionGroup *actions = gtk_widget_get_action_group(
+			    navbar_versekey.button_history_menu, "historial");
+			check(actions && g_action_group_has_action(actions, "ir") &&
+			      g_action_group_has_action(actions, "limpiar") &&
+			      g_action_group_has_action(actions, "a-lista"),
+			      "history actions missing");
 		}
 		main_navbar_versekey_spin_verse(navbar_versekey, 1);
 		main_navbar_versekey_spin_verse(navbar_versekey, 0);

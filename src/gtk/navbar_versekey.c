@@ -138,31 +138,38 @@ static void menu_position_under(GtkMenu *menu, int *x, int *y,
  *   gboolean
  */
 
+static gboolean destroy_popover_idle(gpointer popover)
+{
+	gtk_widget_destroy(GTK_WIDGET(popover));
+	return G_SOURCE_REMOVE;
+}
+
+/* After the chosen item's action has run. */
+static void destroy_popover_later(GtkPopover *popover, gpointer unused)
+{
+	(void)unused;
+	g_idle_add(destroy_popover_idle, popover);
+}
+
 static gboolean select_button_press_callback(GtkWidget *widget,
 					     GdkEventButton *event,
 					     gpointer user_data)
 {
-	GtkWidget *menu;
-
-	menu = main_versekey_drop_down_new(cur_passage_tab);
-	if (!menu)
-		return 0;
-	g_signal_connect(menu, "deactivate",
+	if (event->type != GDK_BUTTON_PRESS || event->button != 1)
+		return FALSE;
+	/* GTK4-PORT-101 step 2: a popover from the history GMenu; the
+	 * «historial» actions live on the button (see navbar creation). */
+	GMenuModel *model = main_tab_history_menu_model(cur_passage_tab);
+	GtkWidget *popover = gtk_popover_new_from_model(widget, model);
+	g_object_unref(model);
+	gtk_popover_set_position(GTK_POPOVER(popover), GTK_POS_BOTTOM);
+	g_signal_connect(popover, "closed",
 			 G_CALLBACK(menu_deactivate_callback), widget);
-	if ((event->type == GDK_BUTTON_PRESS) && event->button == 1) {
-		gtk_widget_grab_focus(widget);
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget),
-					     TRUE);
-#if GTK_CHECK_VERSION(3, 22, 0)
-		gtk_menu_popup_at_widget(GTK_MENU(menu), widget, GDK_GRAVITY_SOUTH_WEST, GDK_GRAVITY_NORTH_WEST, NULL);
-#else
-		gtk_menu_popup(GTK_MENU(menu), NULL, NULL,
-			       menu_position_under, widget, event->button,
-			       event->time);
-#endif
-		return TRUE;
-	}
-	return FALSE;
+	g_signal_connect(popover, "closed", G_CALLBACK(destroy_popover_later), NULL);
+	gtk_widget_grab_focus(widget);
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
+	gtk_popover_popup(GTK_POPOVER(popover));
+	return TRUE;
 }
 
 /******************************************************************************
@@ -655,6 +662,7 @@ static void _connect_signals(NAVBAR_VERSEKEY navbar)
 			 G_CALLBACK(on_button_history_back_clicked), NULL);
 	g_signal_connect((gpointer)navbar.button_history_next, "clicked",
 			 G_CALLBACK(on_button_history_next_clicked), NULL);
+	main_tab_history_install_actions(navbar.button_history_menu);
 	g_signal_connect((gpointer)navbar.button_history_menu,
 			 "button_press_event",
 			 G_CALLBACK(select_button_press_callback), NULL);
