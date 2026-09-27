@@ -124,6 +124,11 @@ void gui_prepare_floating_dialog(GtkWindow *win, GtkWindow *parent);
  * restores its last size, which can exceed a small or scaled Wayland
  * output (Hyprland) and hide its name field and buttons. */
 void gui_fit_dialog_to_screen(GtkWindow *win);
+/* GTK4-PORT-101 step 2: show MODEL as a popover pointing at the mouse
+ * pointer over RELATIVE (NULL: the main window's content). The actions
+ * the model names must be reachable from RELATIVE; the popover is
+ * destroyed once closed. Returns the popover. */
+GtkWidget *gui_popup_menu_model_at_pointer(GMenuModel *model, GtkWidget *relative);
 gboolean xiphos_open_default(const gchar *file);
 
 gboolean xiphos_create_archive (gchar *conf_name, gchar *datapath,

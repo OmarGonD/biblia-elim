@@ -429,8 +429,9 @@ gui_interlineal_ficha_morf(const char *strong, const char *morph)
 }
 
 static void
-on_tools_interlineal(GtkMenuItem *item, gpointer data)
+on_tools_interlineal(GSimpleAction *item, GVariant *parameter, gpointer data)
 {
+	(void)parameter;
 	(void)item;
 	(void)data;
 	main_interlineal_abrir_verso(tools_key);
@@ -439,8 +440,9 @@ on_tools_interlineal(GtkMenuItem *item, gpointer data)
 }
 
 static void
-on_tools_comparar(GtkMenuItem *item, gpointer data)
+on_tools_comparar(GSimpleAction *item, GVariant *parameter, gpointer data)
 {
+	(void)parameter;
 	(void)item;
 	(void)data;
 	verse_tools_goto(tools_key);
@@ -448,8 +450,9 @@ on_tools_comparar(GtkMenuItem *item, gpointer data)
 }
 
 static void
-on_tools_comentario(GtkMenuItem *item, gpointer data)
+on_tools_comentario(GSimpleAction *item, GVariant *parameter, gpointer data)
 {
+	(void)parameter;
 	(void)item;
 	(void)data;
 	verse_tools_goto(tools_key);
@@ -458,16 +461,18 @@ on_tools_comentario(GtkMenuItem *item, gpointer data)
 }
 
 static void
-on_tools_diccionario(GtkMenuItem *item, gpointer data)
+on_tools_diccionario(GSimpleAction *item, GVariant *parameter, gpointer data)
 {
+	(void)parameter;
 	(void)item;
 	(void)data;
 	gui_diccionario_dialog();
 }
 
 static void
-on_tools_xrefs(GtkMenuItem *item, gpointer data)
+on_tools_xrefs(GSimpleAction *item, GVariant *parameter, gpointer data)
 {
+	(void)parameter;
 	(void)item;
 	(void)data;
 	verse_tools_goto(tools_key);
@@ -475,8 +480,9 @@ on_tools_xrefs(GtkMenuItem *item, gpointer data)
 }
 
 static void
-on_tools_nota(GtkMenuItem *item, gpointer data)
+on_tools_nota(GSimpleAction *item, GVariant *parameter, gpointer data)
 {
+	(void)parameter;
 	const char *mod;
 	gchar *osis, *cita;
 
@@ -496,56 +502,53 @@ on_tools_nota(GtkMenuItem *item, gpointer data)
 	g_free(cita);
 }
 
-void
+/* GTK4-PORT-101 step 2: a GMenu over «versiculo» actions, shown as a
+ * popover at the pointer over the main window. */
+GtkWidget *
 gui_verse_tools_popup(const char *key)
 {
-	GtkWidget *menu, *item;
+	static const GActionEntry acciones[] = {
+		{ "interlineal", on_tools_interlineal, NULL, NULL, NULL, { 0 } },
+		{ "comparar", on_tools_comparar, NULL, NULL, NULL, { 0 } },
+		{ "nota", on_tools_nota, NULL, NULL, NULL, { 0 } },
+		{ "comentario", on_tools_comentario, NULL, NULL, NULL, { 0 } },
+		{ "diccionario", on_tools_diccionario, NULL, NULL, NULL, { 0 } },
+		{ "xrefs", on_tools_xrefs, NULL, NULL, NULL, { 0 } },
+	};
+	GtkWidget *relative;
+	GSimpleActionGroup *grupo;
+	GMenu *menu, *estudio, *consulta;
 
-	if (!key || !*key)
-		return;
+	if (!key || !*key || !widgets.app)
+		return NULL;
 	g_free(tools_key);
 	tools_key = g_strdup(key);
 	g_free(tools_mod);
 	tools_mod = g_strdup(settings.MainWindowModule);
 
-	menu = gtk_menu_new();
+	relative = gtk_bin_get_child(GTK_BIN(widgets.app));
+	grupo = g_simple_action_group_new();
+	g_action_map_add_action_entries(G_ACTION_MAP(grupo), acciones,
+					G_N_ELEMENTS(acciones), NULL);
+	gtk_widget_insert_action_group(relative, "versiculo", G_ACTION_GROUP(grupo));
+	g_object_unref(grupo);
 
-	item = gtk_menu_item_new_with_label(_("α   Interlineal"));
-	gtk_widget_set_tooltip_text(item,
-				    _("Muestra el griego o hebreo de este versículo"));
-	g_signal_connect(item, "activate", G_CALLBACK(on_tools_interlineal), NULL);
-	gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
-
-	item = gtk_menu_item_new_with_label(_("Comparar"));
-	gtk_widget_set_tooltip_text(item, _("Compara este versículo con otra versión"));
-	g_signal_connect(item, "activate", G_CALLBACK(on_tools_comparar), NULL);
-	gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
-
-	item = gtk_menu_item_new_with_label(_("Nota"));
-	gtk_widget_set_tooltip_text(item,
-				    _("Escribe una nota de este versículo"));
-	g_signal_connect(item, "activate", G_CALLBACK(on_tools_nota), NULL);
-	gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
-
-	item = gtk_separator_menu_item_new();
-	gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
-
-	item = gtk_menu_item_new_with_label(_("Comentarios"));
-	g_signal_connect(item, "activate", G_CALLBACK(on_tools_comentario), NULL);
-	gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
-
-	item = gtk_menu_item_new_with_label(_("Diccionario"));
-	g_signal_connect(item, "activate", G_CALLBACK(on_tools_diccionario), NULL);
-	gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
-
-	item = gtk_menu_item_new_with_label(_("Referencias cruzadas"));
-	g_signal_connect(item, "activate", G_CALLBACK(on_tools_xrefs), NULL);
-	gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
-
-	gtk_widget_show_all(menu);
-	g_signal_connect_swapped(menu, "selection-done",
-				 G_CALLBACK(gtk_widget_destroy), menu);
-	gtk_menu_popup_at_pointer(GTK_MENU(menu), NULL);
+	menu = g_menu_new();
+	estudio = g_menu_new();
+	g_menu_append(estudio, _("α   Interlineal"), "versiculo.interlineal");
+	g_menu_append(estudio, _("Comparar"), "versiculo.comparar");
+	g_menu_append(estudio, _("Nota"), "versiculo.nota");
+	g_menu_append_section(menu, NULL, G_MENU_MODEL(estudio));
+	g_object_unref(estudio);
+	consulta = g_menu_new();
+	g_menu_append(consulta, _("Comentarios"), "versiculo.comentario");
+	g_menu_append(consulta, _("Diccionario"), "versiculo.diccionario");
+	g_menu_append(consulta, _("Referencias cruzadas"), "versiculo.xrefs");
+	g_menu_append_section(menu, NULL, G_MENU_MODEL(consulta));
+	g_object_unref(consulta);
+	GtkWidget *popover = gui_popup_menu_model_at_pointer(G_MENU_MODEL(menu), relative);
+	g_object_unref(menu);
+	return popover;
 }
 
 static void

@@ -2243,6 +2243,48 @@ gui_prepare_floating_dialog(GtkWindow *win, GtkWindow *parent)
 	set_window_icon(win);
 }
 
+static gboolean
+destroy_popover_idle(gpointer popover)
+{
+	gtk_widget_destroy(GTK_WIDGET(popover));
+	return G_SOURCE_REMOVE;
+}
+
+/* After the chosen item's action has run. */
+static void
+destroy_popover_later(GtkPopover *popover, gpointer unused)
+{
+	(void)unused;
+	g_idle_add(destroy_popover_idle, popover);
+}
+
+GtkWidget *
+gui_popup_menu_model_at_pointer(GMenuModel *model, GtkWidget *relative)
+{
+	if (!relative && widgets.app)
+		relative = gtk_bin_get_child(GTK_BIN(widgets.app));
+	if (!relative || !model)
+		return NULL;
+	GtkWidget *popover = gtk_popover_new_from_model(relative, model);
+	GdkRectangle at = { 0, 0, 1, 1 };
+	GdkWindow *window = gtk_widget_get_window(relative);
+	GdkSeat *seat = gdk_display_get_default_seat(gtk_widget_get_display(relative));
+	if (window && seat) {
+		int wx, wy;
+		gdk_window_get_device_position(window, gdk_seat_get_pointer(seat),
+					       &wx, &wy, NULL);
+		GtkAllocation alloc;
+		gtk_widget_get_allocation(relative, &alloc);
+		/* A no-window widget reports its parent window's coordinates. */
+		at.x = gtk_widget_get_has_window(relative) ? wx : wx - alloc.x;
+		at.y = gtk_widget_get_has_window(relative) ? wy : wy - alloc.y;
+	}
+	gtk_popover_set_pointing_to(GTK_POPOVER(popover), &at);
+	g_signal_connect(popover, "closed", G_CALLBACK(destroy_popover_later), NULL);
+	gtk_popover_popup(GTK_POPOVER(popover));
+	return popover;
+}
+
 void
 gui_fit_dialog_to_screen(GtkWindow *win)
 {

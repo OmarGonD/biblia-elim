@@ -9608,8 +9608,23 @@
       «Variantes textuales» shows the radio on «Lectura primaria»;
       `gtk_lifecycle_smoke` 384 checks, 0 failed (new: ≥15 options,
       option state follows settings, variants action is a string state).
+    - Shared helper: `gui_popup_menu_model_at_pointer(model, relative)`
+      (gui/utilities.h) shows a GMenu as a popover at the pointer over
+      RELATIVE (default: the main window's content) and destroys it after
+      it closes.
+    - 5/…: verse tools menu (interlineal.c, the ≡ verse chip): a GMenu in
+      two sections over «versiculo» actions (interlineal, comparar, nota,
+      comentario, diccionario, xrefs) on the main window's content;
+      `gui_verse_tools_popup()` returns the popover. The three item
+      tooltips are gone: GTK 3 GMenu items carry no tooltip.
+      Evidence: XTEST — the popover points at the verse 40 chip; «Comparar»
+      moves to Luke 23:40 and opens the compare panel;
+      `gtk_lifecycle_smoke` 386 checks, 0 failed (new: popover shown,
+      actions present). interlineal.c still toggles the menu bar's
+      «Biblia interlineal» GtkCheckMenuItem (lines ~86–109, 893): it moves
+      with the menu bar.
     - Remaining by size: menu_popup.c 60, sidebar.c 56, main_menu.c 50,
-      bookmarks_menu.c 31, interlineal.c 21, navbar_versekey*.c 23, and
+      bookmarks_menu.c 31, navbar_versekey*.c 23, and
       the builder menus xi-menus.gtkbuilder / xi-menus-popup.gtkbuilder
       (menu bar → `gtk_menu_bar_new_from_model`, GTK 4
       GtkPopoverMenuBar).

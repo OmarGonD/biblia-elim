@@ -24,6 +24,7 @@
 #include "gui/widgets.h"
 #include "gui/nube_palabras.h"
 #include "gui/utilities.h"
+#include "gui/interlineal.h"
 #ifdef USE_WEBKIT_EDITOR
 #include "editor/webkit_editor.h"
 #else
@@ -928,6 +929,20 @@ exercise_application(gpointer unused)
 		check_word_cloud();
 		check_word_cloud_dialog();
 		check_file_chooser_fits();
+		/* GTK4-PORT-101 step 2: verse tools are a GMenu popover over
+		 * «versiculo» actions. */
+		{
+			GtkWidget *tools = gui_verse_tools_popup("John 3:16");
+			check(GTK_IS_POPOVER(tools), "verse tools popover not shown");
+			GActionGroup *versiculo = gtk_widget_get_action_group(
+			    gtk_bin_get_child(GTK_BIN(widgets.app)), "versiculo");
+			check(versiculo && g_action_group_has_action(versiculo, "interlineal") &&
+			      g_action_group_has_action(versiculo, "comparar") &&
+			      g_action_group_has_action(versiculo, "xrefs"),
+			      "verse tools actions missing");
+			if (tools)
+				gtk_popover_popdown(GTK_POPOVER(tools));
+		}
 		/* GTK4-PORT-101 step 2: parallel module options are a GMenu
 		 * over stateful «paralelo» actions that mirror the settings. */
 		{
