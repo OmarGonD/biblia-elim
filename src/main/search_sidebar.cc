@@ -109,7 +109,7 @@ static void fill_search_results_list(int finds)
 		list_of_verses = NULL;
 	}
 
-	gtk_widget_set_sensitive(gui_sidebar_results_menu(), FALSE);
+	gui_sidebar_results_menu_set_enabled(FALSE);
 	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(sidebar.results_list));
 	list_store = gtk_list_store_new(1, G_TYPE_STRING);
 
@@ -141,7 +141,7 @@ static void fill_search_results_list(int finds)
 	if (!gtk_tree_model_get_iter_first(model, &iter))
 		return;
 
-	gtk_widget_set_sensitive(gui_sidebar_results_menu(), TRUE);
+	gui_sidebar_results_menu_set_enabled(TRUE);
 	path = gtk_tree_model_get_path(model, &iter);
 	gtk_tree_selection_select_path(selection,
 				       path);
@@ -188,7 +188,7 @@ void main_do_sidebar_search(gpointer user_data)
 	if (!backendSearch)
 		main_init_sidebar_search_backend();
 
-	gtk_widget_set_sensitive(gui_sidebar_results_menu(), FALSE);
+	gui_sidebar_results_menu_set_enabled(FALSE);
 	search_dialog = FALSE;
 	search_string = gtk_entry_get_text(GTK_ENTRY(ss.entrySearch));
 

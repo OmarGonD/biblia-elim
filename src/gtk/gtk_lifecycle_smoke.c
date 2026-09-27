@@ -845,11 +845,39 @@ exercise_application(gpointer unused)
 	      "hidden module reload empty");
 
 	/* Hidden sidebar menus must stay unbuilt until first use. */
-	check(sidebar.menu_item_save_search == NULL, "results popup built at startup");
+	check(sidebar.results_actions == NULL, "results popup built at startup");
 	check(menu.actions == NULL, "bookmark popup built at startup");
-	GtkWidget *results_menu = gui_sidebar_results_menu();
-	check(GTK_IS_MENU(results_menu), "lazy results popup missing");
+	/* GTK4-PORT-101 step 2: verse lists and search results share a
+	 * three-section GMenu over the «lista» action group. */
+	GMenuModel *results_menu = gui_sidebar_results_menu();
+	check(results_menu && g_menu_model_get_n_items(results_menu) == 3,
+	      "results popup does not have its three sections");
+	for (gint section = 0; section < 3; ++section) {
+		GMenuModel *items = g_menu_model_get_item_link(
+		    results_menu, section, G_MENU_LINK_SECTION);
+		check(items && g_menu_model_get_n_items(items) == 2,
+		      "results popup section does not have two items");
+		if (items)
+			g_object_unref(items);
+	}
+	GActionGroup *results_actions = gui_sidebar_results_actions();
+	check(results_actions &&
+	      g_action_group_has_action(results_actions, "guardar-uno") &&
+	      g_action_group_has_action(results_actions, "guardar-varios") &&
+	      g_action_group_has_action(results_actions, "rellenar") &&
+	      g_action_group_has_action(results_actions, "historial") &&
+	      g_action_group_has_action(results_actions, "biblesync") &&
+	      g_action_group_has_action(results_actions, "exportar"),
+	      "results popup actions missing");
+	check(!g_action_group_get_action_enabled(results_actions, "guardar-uno") &&
+	      !g_action_group_get_action_enabled(results_actions, "exportar"),
+	      "results actions enabled without a verse list");
 	check(results_menu == gui_sidebar_results_menu(), "results popup rebuilt");
+	GtkWidget *results_popover = gui_sidebar_results_popup(sidebar.results_list);
+	check(GTK_IS_POPOVER(results_popover) && gtk_widget_get_visible(results_popover),
+	      "results popup popover was not shown");
+	if (GTK_IS_POPOVER(results_popover))
+		gtk_popover_popdown(GTK_POPOVER(results_popover));
 	/* GTK4-PORT-101 step 2: the bookmark popup is «marcadores» actions. */
 	gui_create_bookmark_menu();
 	GSimpleActionGroup *bookmark_actions = menu.actions;

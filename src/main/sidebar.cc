@@ -210,7 +210,7 @@ void main_display_verse_list_in_sidebar(gchar *key,
 	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(sidebar.results_list));
 	if (!gtk_tree_model_get_iter_first(model, &iter))
 		return;
-	gtk_widget_set_sensitive(gui_sidebar_results_menu(), TRUE);
+	gui_sidebar_results_menu_set_enabled(TRUE);
 	path = gtk_tree_model_get_path(model, &iter);
 	gtk_tree_selection_select_path(selection, path);
 

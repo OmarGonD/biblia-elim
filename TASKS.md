@@ -9639,8 +9639,25 @@
       387 checks, 0 failed (bookmark checks rewritten for actions: lazy
       creation, row actions disabled without a selection, check states
       follow settings, not rebuilt).
-    - Remaining by size: menu_popup.c 60, sidebar.c 56 (includes the verse
-      list popup), main_menu.c 50, navbar_versekey*.c 23, and
+    - 7/…: sidebar verse-list/search-results popup (sidebar.c,
+      main/sidebar.cc, main/search_sidebar.cc): the shared builder
+      `menu_verselist` is now a three-section GMenu over six `lista`
+      actions (save as one/many bookmarks, populate, history, BibleSync,
+      export). The action group is still lazy; all actions start disabled
+      without results and are enabled together when a verse list or search
+      result exists. `gui_sidebar_results_popup()` returns its popover so
+      the smoke can close it. The old item tooltips are gone because GTK 3
+      GMenu items do not expose them.
+      Evidence: XTEST — Ver → Paneles → «Mostrar u ocultar panel lateral»,
+      a sidebar search filled the verse list; right-clicking Génesis 1:1
+      showed all six items in three sections, and «Enviar lista por
+      BibleSync» ran its action and displayed the inactive-transmit warning
+      (capture `/tmp/x.png`); `gtk_lifecycle_smoke` 393 checks, 0 failed
+      (new: section/item shape, all actions, initial disabled state, model
+      reuse and returned popover). Full `gtk_lifecycle_smoke|nube` suite
+      PASS.
+    - Remaining by size: menu_popup.c 60, main_menu.c 50,
+      navbar_versekey*.c 23, and
       the builder menus xi-menus.gtkbuilder / xi-menus-popup.gtkbuilder
       (menu bar → `gtk_menu_bar_new_from_model`, GTK 4
       GtkPopoverMenuBar).

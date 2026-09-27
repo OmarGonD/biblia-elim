@@ -80,8 +80,8 @@ extern gboolean initialized;
 
 static GtkWidget *create_menu_modules(void);
 static GtkWidget *create_menu_percomm_mod(void);
-void on_export_verselist_activate(GtkMenuItem *menuitem,
-				  gpointer user_data);
+static void on_export_verselist_activate(GSimpleAction *action,
+					 GVariant *parameter, gpointer user_data);
 
 #ifdef USE_TREEVIEW_PATH
 /******************************************************************************
@@ -864,13 +864,7 @@ static gboolean on_treeview_button_press_event(GtkWidget *widget,
 	}
 	switch (event->button) {
 	case 3:
-#if GTK_CHECK_VERSION(3, 22, 0)
-		gtk_menu_popup_at_pointer((GtkMenu *)gui_sidebar_results_menu(), NULL);
-#else
-		gtk_menu_popup((GtkMenu *)gui_sidebar_results_menu(),
-			       NULL, NULL, NULL, NULL, 2,
-			       gtk_get_current_event_time());
-#endif
+		gui_sidebar_results_popup(sidebar.results_list);
 		return TRUE;
 
 	default:
@@ -1020,22 +1014,34 @@ on_hide_module_activate(GtkMenuItem *menuitem, gpointer user_data)
 }
 
 G_MODULE_EXPORT void
-on_save_list_as_a_single_bookmark_activate(GtkMenuItem *menuitem,
+on_save_list_as_a_single_bookmark_activate(GSimpleAction *action,
+					   GVariant *parameter,
 					   gpointer user_data)
 {
+	(void)action;
+	(void)parameter;
+	(void)user_data;
 	gui_verselist_to_bookmarks(list_of_verses, TRUE);
 }
 
 G_MODULE_EXPORT void
-on_save_list_as_a_series_of_bookmarks_activate(GtkMenuItem *menuitem,
+on_save_list_as_a_series_of_bookmarks_activate(GSimpleAction *action,
+					       GVariant *parameter,
 					       gpointer user_data)
 {
+	(void)action;
+	(void)parameter;
+	(void)user_data;
 	gui_verselist_to_bookmarks(list_of_verses, FALSE);
 }
 
 G_MODULE_EXPORT void
-on_populate_verse_list_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_populate_verse_list_activate(GSimpleAction *action, GVariant *parameter,
+				gpointer user_data)
 {
+	(void)action;
+	(void)parameter;
+	(void)user_data;
 	GS_DIALOG *info = gui_new_dialog();
 
 #if GTK_CHECK_VERSION(3, 10, 0)
@@ -1060,9 +1066,12 @@ on_populate_verse_list_activate(GtkMenuItem *menuitem, gpointer user_data)
 }
 
 G_MODULE_EXPORT void
-on_send_list_via_biblesync_activate(GtkMenuItem *menuitem,
-				    gpointer user_data)
+on_send_list_via_biblesync_activate(GSimpleAction *action,
+				    GVariant *parameter, gpointer user_data)
 {
+	(void)action;
+	(void)parameter;
+	(void)user_data;
 	if (biblesync_active_xmit_allowed()) {
 		GList *verse;
 		GString *vlist = g_string_new("");
@@ -1088,9 +1097,13 @@ on_send_list_via_biblesync_activate(GtkMenuItem *menuitem,
 }
 
 G_MODULE_EXPORT void
-on_preload_history_from_verse_list_activate(GtkMenuItem *menuitem,
+on_preload_history_from_verse_list_activate(GSimpleAction *action,
+					    GVariant *parameter,
 					    gpointer user_data)
 {
+	(void)action;
+	(void)parameter;
+	(void)user_data;
 	GList *verse;
 
 	for (verse = list_of_verses; verse; verse = g_list_next(verse)) {
@@ -1100,9 +1113,13 @@ on_preload_history_from_verse_list_activate(GtkMenuItem *menuitem,
 	}
 }
 
-G_MODULE_EXPORT void
-on_export_verselist_activate(GtkMenuItem *menuitem, gpointer user_data)
+static void
+on_export_verselist_activate(GSimpleAction *action, GVariant *parameter,
+			     gpointer user_data)
 {
+	(void)action;
+	(void)parameter;
+	(void)user_data;
 	gui_export_bookmarks_dialog((is_search_result
 					 ? SEARCH_RESULTS_EXPORT
 					 : VERSE_LIST_EXPORT),
@@ -1125,20 +1142,53 @@ on_export_verselist_activate(GtkMenuItem *menuitem, gpointer user_data)
  *   GtkWidget*
  */
 
-GtkWidget *create_results_menu(void)
+static void create_results_menu(void)
 {
-	GtkWidget *menu;
-	GtkBuilder *gxml = elim_gtk_builder_new();
-	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/xi-menus-popup.gtkbuilder", NULL);
-	g_return_val_if_fail((gxml != NULL), NULL);
+	if (sidebar.results_actions)
+		return;
 
-	menu = UI_GET_ITEM(gxml, "menu_verselist");
-	/* connect signals and data */
-	gtk_builder_connect_signals(gxml, NULL);
-/*gtk_builder_connect_signals_full
-	   (gxml, (GtkBuilderConnectFunc)gui_glade_signal_connect_func, NULL); */
+	const GActionEntry entries[] = {
+		{ "guardar-uno", on_save_list_as_a_single_bookmark_activate,
+		  NULL, NULL, NULL, { 0 } },
+		{ "guardar-varios", on_save_list_as_a_series_of_bookmarks_activate,
+		  NULL, NULL, NULL, { 0 } },
+		{ "rellenar", on_populate_verse_list_activate,
+		  NULL, NULL, NULL, { 0 } },
+		{ "historial", on_preload_history_from_verse_list_activate,
+		  NULL, NULL, NULL, { 0 } },
+		{ "biblesync", on_send_list_via_biblesync_activate,
+		  NULL, NULL, NULL, { 0 } },
+		{ "exportar", on_export_verselist_activate,
+		  NULL, NULL, NULL, { 0 } },
+	};
+	sidebar.results_actions = g_simple_action_group_new();
+	g_action_map_add_action_entries(G_ACTION_MAP(sidebar.results_actions),
+					entries, G_N_ELEMENTS(entries), NULL);
+	gui_sidebar_results_menu_set_enabled(FALSE);
 
-	return menu;
+	sidebar.results_menu = g_menu_new();
+	GMenu *bookmarks = g_menu_new();
+	g_menu_append(bookmarks, _("Guardar la lista como un marcador"),
+		      "lista.guardar-uno");
+	g_menu_append(bookmarks, _("Guardar la lista como varios marcadores"),
+		      "lista.guardar-varios");
+	g_menu_append_section(sidebar.results_menu, NULL, G_MENU_MODEL(bookmarks));
+	g_object_unref(bookmarks);
+
+	GMenu *list = g_menu_new();
+	g_menu_append(list, _("Rellenar lista de versículos"), "lista.rellenar");
+	g_menu_append(list, _("Cargar historial desde la lista"), "lista.historial");
+	g_menu_append_section(sidebar.results_menu, NULL, G_MENU_MODEL(list));
+	g_object_unref(list);
+
+	GMenu *sharing = g_menu_new();
+	g_menu_append(sharing, _("Enviar lista por BibleSync"), "lista.biblesync");
+	g_menu_append(sharing, _("Exportar lista"), "lista.exportar");
+	g_menu_append_section(sidebar.results_menu, NULL, G_MENU_MODEL(sharing));
+	g_object_unref(sharing);
+
+	gtk_widget_insert_action_group(sidebar.results_list, "lista",
+				       G_ACTION_GROUP(sidebar.results_actions));
 }
 
 /******************************************************************************
@@ -1405,11 +1455,37 @@ static gboolean tree_key_press_cb(GtkWidget *widget,
  *   void
  */
 
-GtkWidget *gui_sidebar_results_menu(void)
+GMenuModel *gui_sidebar_results_menu(void)
 {
-	if (!sidebar.menu_item_save_search)
-		sidebar.menu_item_save_search = create_results_menu();
-	return sidebar.menu_item_save_search;
+	create_results_menu();
+	return G_MENU_MODEL(sidebar.results_menu);
+}
+
+GActionGroup *gui_sidebar_results_actions(void)
+{
+	create_results_menu();
+	return G_ACTION_GROUP(sidebar.results_actions);
+}
+
+void gui_sidebar_results_menu_set_enabled(gboolean enabled)
+{
+	static const char *const actions[] = {
+		"guardar-uno", "guardar-varios", "rellenar",
+		"historial", "biblesync", "exportar"
+	};
+
+	if (!sidebar.results_actions)
+		create_results_menu();
+	for (guint i = 0; i < G_N_ELEMENTS(actions); ++i) {
+		GAction *action = g_action_map_lookup_action(
+		    G_ACTION_MAP(sidebar.results_actions), actions[i]);
+		g_simple_action_set_enabled(G_SIMPLE_ACTION(action), enabled);
+	}
+}
+
+GtkWidget *gui_sidebar_results_popup(GtkWidget *relative)
+{
+	return gui_popup_menu_model_at_pointer(gui_sidebar_results_menu(), relative);
 }
 
 static void create_search_results_page(GtkWidget *notebook)

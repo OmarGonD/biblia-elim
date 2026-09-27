@@ -45,7 +45,8 @@ struct _sidebar
 	GtkWidget *html_viewer_eventbox;
 	GtkWidget *html_viewer_widget;
 	GtkWidget *optionmenu1;
-	GtkWidget *menu_item_save_search;
+	GMenu *results_menu;
+	GSimpleActionGroup *results_actions;
 	gchar mod_name[80];
 };
 extern SIDEBAR sidebar;
@@ -81,24 +82,10 @@ gboolean vpaned_srch_rslt_button_release_event(GtkWidget *widget,
 					       gpointer user_data);
 void gui_show_previewer_in_sidebar(gint choice);
 void gui_sync_module_treeview(gint direction);
-void on_save_list_as_a_single_bookmark_activate(GtkMenuItem *
-						    menuitem,
-						gpointer
-						    user_data);
-void on_save_list_as_a_series_of_bookmarks_activate(GtkMenuItem *
-							menuitem,
-						    gpointer
-							user_data);
-void on_populate_verse_list_activate(GtkMenuItem *menuitem,
-				     gpointer user_data);
-void on_preload_history_from_verse_list_activate(GtkMenuItem *
-						     menuitem,
-						 gpointer
-						     user_data);
-void on_send_list_via_biblesync_activate(GtkMenuItem *menuitem,
-					 gpointer user_data);
-GtkWidget *create_results_menu(void);
-GtkWidget *gui_sidebar_results_menu(void);
+GMenuModel *gui_sidebar_results_menu(void);
+GActionGroup *gui_sidebar_results_actions(void);
+void gui_sidebar_results_menu_set_enabled(gboolean enabled);
+GtkWidget *gui_sidebar_results_popup(GtkWidget *relative);
 void on_open_in_dialog_activate(GtkMenuItem *menuitem,
 				gpointer user_data);
 void on_open_in_tab_activate2(GtkMenuItem *menuitem,
