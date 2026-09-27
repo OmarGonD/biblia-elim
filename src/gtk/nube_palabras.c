@@ -927,6 +927,7 @@ on_descargar(GtkButton *button, gpointer user_data)
 	g_free(sugerido);
 	g_free(base);
 
+	gui_fit_dialog_to_screen(GTK_WINDOW(chooser));
 	if (gtk_dialog_run(GTK_DIALOG(chooser)) == GTK_RESPONSE_ACCEPT) {
 		gchar *ruta = gtk_file_chooser_get_filename(fc);
 		gboolean es_svg = gtk_file_chooser_get_filter(fc) == svg;

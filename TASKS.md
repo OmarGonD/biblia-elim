@@ -9491,6 +9491,51 @@
       comparable scales; typing «2 Tesalonicenses» redrew; resizing the
       dialog to 760×980 relaid both clouds as tall clouds.
 
+- [x] CLOUD-FIT-104 File choosers fit small Wayland screens (Hyprland)
+  - Status: DONE
+  - Cause: GtkFileChooserDialog resizes itself after mapping to its saved
+    size (`org.gtk.Settings.FileChooser window-size`, here 1203×902),
+    taller than a 3440×1440 output at scale 2 (1720×720 logical, 26 px
+    bar): the name field and the Save button fell off screen.
+  - Change: `gui_fit_dialog_to_screen()` sets a maximum-size geometry
+    hint from the main window's allocation (which already excludes the
+    bar), so GTK clamps every resize and tells the compositor. Used by the
+    word-cloud download and the other seven file choosers (bookmarks
+    import ×2, export, install from file, open/save session, local
+    source). GTK then saves the clamped size, healing the setting.
+  - Evidence:
+    - Reproduced on Xvfb 1720×720 with window-size (1203, 902): chooser
+      overflowed; with the fix it fits, «Guardar» saved
+      «Nube de palabras - Éxodo.png», and the saved size became
+      (1203, 597).
+    - `gtk_lifecycle_smoke` PASS, 375 checks: a chooser resized to
+      5000×5000 stays within the main window; without the helper the
+      check fails («file chooser larger than the main window»).
+    - `nube_canvas_test`, `nube_mayusculas_test` PASS.
+
+- [ ] GTK4-PORT-101 Plan the move from GTK 3.24 to GTK 4
+  - Status: PENDING (needs a decision and a dedicated branch)
+  - Measured 2026-09-27 (src/, grep counts):
+    - GTK 3 deprecations are nearly gone: a syntax pass of the 70
+      `src/gtk/*.c` files reports only 3 deprecated calls
+      (`gtk_dialog_get_action_area`: dialog.c ×2, mod_mgr.c ×1), plus
+      the `GtkAction` parameter type in the editor print/quit callbacks
+      (src/editor), which is hidden under `GTK_DISABLE_DEPRECATED`.
+    - APIs removed in GTK 4 (call sites): GtkMenu/MenuItem 458,
+      GtkTextView renderer 502, gtk_box_pack_* 416, gtk_container_* 257,
+      GdkEvent handlers 133, gtk_widget_destroy 132, gtk_widget_show_all
+      57, gtk_dialog_run 53, gdk_window_* 41, key/button event signals
+      26, "draw" handlers 9; 24 GtkBuilder files (12 456 lines); about
+      61 500 lines of GTK code.
+  - Why not incremental on master: GTK 3 and GTK 4 cannot be linked into
+    one binary, so the port does not build until every file is ported.
+  - Suggested order on a branch: (1) replace the 3 deprecated calls and
+    GtkAction; (2) GtkMenu → GMenu/GtkPopoverMenu and actions;
+    (3) gtk_dialog_run → async responses; (4) event handlers →
+    GtkEventController*; (5) containers/pack/show_all → GTK 4 child
+    APIs; (6) builder XML (gtk4-builder-tool simplify --3to4);
+    (7) wk-html renderer on GTK 4 GtkTextView and snapshot drawing.
+
 - [ ] TORRES-NOISE-101 Remove engraving/apparatus OCR noise inside Torres Amat 1882 verses
   - Status: BLOCKED
   - Description:

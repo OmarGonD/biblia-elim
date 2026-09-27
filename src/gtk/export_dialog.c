@@ -165,6 +165,7 @@ void _get_export_filename(void)
 					      GTK_RESPONSE_ACCEPT,
 #endif
 					      NULL);
+	gui_fit_dialog_to_screen(GTK_WINDOW(fdialog));
 	g_signal_connect(fdialog,
 			 "response",
 			 G_CALLBACK(on_filechooserdialog_response),

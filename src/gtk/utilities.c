@@ -2243,6 +2243,39 @@ gui_prepare_floating_dialog(GtkWindow *win, GtkWindow *parent)
 	set_window_icon(win);
 }
 
+void
+gui_fit_dialog_to_screen(GtkWindow *win)
+{
+	if (!win)
+		return;
+	GdkDisplay *display = gtk_widget_get_display(GTK_WIDGET(win));
+	GdkWindow *parent = widgets.app ? gtk_widget_get_window(widgets.app) : NULL;
+	GdkMonitor *monitor = parent ? gdk_display_get_monitor_at_window(display, parent) :
+		gdk_display_get_monitor(display, 0);
+	GdkRectangle area = { 0, 0, 1024, 768 };
+	if (monitor)
+		gdk_monitor_get_workarea(monitor, &area);
+	/* Wayland reports the whole output; the main window's allocation
+	 * already leaves out the bar and the workspace gaps. */
+	if (widgets.app && gtk_widget_get_allocated_height(widgets.app) > 1) {
+		area.width = MIN(area.width, gtk_widget_get_allocated_width(widgets.app));
+		area.height = MIN(area.height, gtk_widget_get_allocated_height(widgets.app));
+	}
+	int max_w = MAX(320, (int)(area.width * 0.92));
+	int max_h = MAX(240, (int)(area.height * 0.90));
+	/* A maximum size, not a default: GtkFileChooserDialog resizes itself
+	 * to its saved size after mapping, and GTK clamps every resize (and
+	 * tells the Wayland compositor) to these hints. */
+	GdkGeometry hints = { 0 };
+	hints.max_width = max_w;
+	hints.max_height = max_h;
+	gtk_window_set_geometry_hints(win, NULL, &hints, GDK_HINT_MAX_SIZE);
+	int w, h;
+	gtk_window_get_default_size(win, &w, &h);
+	if (w > max_w || h > max_h)
+		gtk_window_set_default_size(win, MIN(w, max_w), MIN(h, max_h));
+}
+
 /**************************************************************************
  * Name
  *  xiphos_open_default

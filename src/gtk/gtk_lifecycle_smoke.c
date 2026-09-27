@@ -23,6 +23,7 @@
 #include "main/sidebar.h"
 #include "gui/widgets.h"
 #include "gui/nube_palabras.h"
+#include "gui/utilities.h"
 #include "main/display.hh"
 #include "main/navbar_versekey.h"
 #include "main/settings.h"
@@ -656,6 +657,32 @@ panel_b_visible(GtkWidget *stack)
 	return visible;
 }
 
+static gboolean
+widget_mapped(GtkWidget *widget)
+{
+	return gtk_widget_get_mapped(widget);
+}
+
+/* CLOUD-FIT-104: a file chooser that restores a size larger than the
+ * screen (Hyprland at scale 2: 1720x720) stays inside the main window. */
+static void
+check_file_chooser_fits(void)
+{
+	GtkWidget *chooser = gtk_file_chooser_dialog_new("fit", GTK_WINDOW(widgets.app),
+		GTK_FILE_CHOOSER_ACTION_SAVE, "_Cancel", GTK_RESPONSE_CANCEL, NULL);
+	gui_fit_dialog_to_screen(GTK_WINDOW(chooser));
+	gtk_window_resize(GTK_WINDOW(chooser), 5000, 5000);
+	gtk_widget_show(chooser);
+	pump_until(widget_mapped, chooser, 3 * G_USEC_PER_SEC);
+	int width, height;
+	gtk_window_get_size(GTK_WINDOW(chooser), &width, &height);
+	check(gtk_widget_get_mapped(chooser), "file chooser not shown");
+	check(width <= gtk_widget_get_allocated_width(widgets.app) &&
+	      height <= gtk_widget_get_allocated_height(widgets.app),
+	      "file chooser larger than the main window");
+	gtk_widget_destroy(chooser);
+}
+
 /* CLOUD-LOOK-102: the word cloud opens already drawn for a book, and
  * ticking «Comparar con» draws the comparison with another book. */
 static void
@@ -860,6 +887,7 @@ exercise_application(gpointer unused)
 		check_menu_bar();
 		check_word_cloud();
 		check_word_cloud_dialog();
+		check_file_chooser_fits();
         check_sqlite_parallel();
 		/* Keys of a Bible only SQLite holds resolve through SQLite, even
 		 * with SWORD running beside it for commentaries. */

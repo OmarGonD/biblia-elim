@@ -2500,6 +2500,7 @@ static void create_fileselection_local_source(void)
 					GTK_RESPONSE_ACCEPT,
 #endif
 					NULL);
+	gui_fit_dialog_to_screen(GTK_WINDOW(dialog));
 
 	if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
 		gchar *filename =

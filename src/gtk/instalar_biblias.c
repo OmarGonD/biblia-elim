@@ -1372,6 +1372,7 @@ on_ib_install_local_clicked(GtkButton *b, gpointer data)
 					      _("_Cancelar"), GTK_RESPONSE_CANCEL,
 					      _("_Abrir"), GTK_RESPONSE_ACCEPT,
 					      NULL);
+	gui_fit_dialog_to_screen(GTK_WINDOW(chooser));
 
 	filter_all = gtk_file_filter_new();
 	gtk_file_filter_set_name(filter_all, _("Todos los formatos admitidos"));

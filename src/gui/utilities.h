@@ -120,6 +120,10 @@ void set_window_icon(GtkWindow *window);
 gboolean gui_display_is_wayland(void);
 void gui_default_window_size(int *width, int *height);
 void gui_prepare_floating_dialog(GtkWindow *win, GtkWindow *parent);
+/* Keep WIN inside the screen the main window is on: a file chooser
+ * restores its last size, which can exceed a small or scaled Wayland
+ * output (Hyprland) and hide its name field and buttons. */
+void gui_fit_dialog_to_screen(GtkWindow *win);
 gboolean xiphos_open_default(const gchar *file);
 
 gboolean xiphos_create_archive (gchar *conf_name, gchar *datapath,

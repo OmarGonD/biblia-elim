@@ -629,6 +629,7 @@ on_save_session_activate(GtkMenuItem *menuitem, gpointer user_data)
 					     GTK_RESPONSE_ACCEPT,
 #endif
 					     NULL);
+	gui_fit_dialog_to_screen(GTK_WINDOW(dialog));
 
 	gtk_file_chooser_set_current_folder((GtkFileChooser *)dialog,
 					    tabs_dir);
@@ -749,6 +750,7 @@ on_open_session_activate(GtkMenuItem *menuitem, gpointer user_data)
 					     GTK_RESPONSE_ACCEPT,
 #endif
 					     NULL);
+	gui_fit_dialog_to_screen(GTK_WINDOW(dialog));
 
 	gtk_file_chooser_set_current_folder((GtkFileChooser *)dialog,
 					    tabs_dir);

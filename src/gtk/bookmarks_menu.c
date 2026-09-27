@@ -226,6 +226,7 @@ G_MODULE_EXPORT void bibletime_bookmarks_activate(GtkMenuItem *menuitem,
 					     GTK_RESPONSE_ACCEPT,
 #endif
 					     NULL);
+	gui_fit_dialog_to_screen(GTK_WINDOW(dialog));
 	fname =
 	    g_strdup_printf("%s/%s", settings.homedir,
 			    ".bibletime/bookmarks.xml");
@@ -363,6 +364,7 @@ G_MODULE_EXPORT void andbible_bookmarks_activate(GtkMenuItem *menuitem,
 	    GTK_RESPONSE_ACCEPT,
 #endif
 	    NULL);
+	gui_fit_dialog_to_screen(GTK_WINDOW(dialog));
 
 	filter = gtk_file_filter_new();
 	gtk_file_filter_set_name(filter, _("AndBible backup (*.sqlite3)"));
