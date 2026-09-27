@@ -210,7 +210,7 @@ void main_display_verse_list_in_sidebar(gchar *key,
 	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(sidebar.results_list));
 	if (!gtk_tree_model_get_iter_first(model, &iter))
 		return;
-	gtk_widget_set_sensitive(sidebar.menu_item_save_search, TRUE);
+	gtk_widget_set_sensitive(gui_sidebar_results_menu(), TRUE);
 	path = gtk_tree_model_get_path(model, &iter);
 	gtk_tree_selection_select_path(selection, path);
 
@@ -328,6 +328,8 @@ static void add_children_to_tree(GtkTreeModel *model, GtkTreeIter iter,
 
 void main_create_pixbufs(void)
 {
+	if (pixbufs)
+		return;
 	GtkTextDirection dir = gtk_widget_get_direction(GTK_WIDGET(widgets.app));
 
 	pixbufs = g_new0(TreePixbufs, 1);
@@ -1012,10 +1014,11 @@ static int module_lang_cmpstringp(gconstpointer p1, gconstpointer p2)
 
 void main_load_module_tree_flat(GtkWidget *tree)
 {
+	main_create_pixbufs();
 	GtkTreeStore *store = gtk_tree_store_new(N_COLUMNS,
 						 GDK_TYPE_PIXBUF, GDK_TYPE_PIXBUF,
 						 G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
-	GList *tmp = mod_mgr_list_local_modules(settings.path_to_mods, TRUE);
+	GList *tmp = mod_mgr_list_reader_modules();
 	GList *tmp2;
 	GHashTable *cat_iters = g_hash_table_new_full(g_str_hash, g_str_equal, NULL, g_free);
 	GtkTreeIter favorites;
@@ -1072,10 +1075,11 @@ void main_load_module_tree_flat(GtkWidget *tree)
 
 void main_load_module_tree_by_language(GtkWidget *tree)
 {
+	main_create_pixbufs();
 	GtkTreeStore *store = gtk_tree_store_new(N_COLUMNS,
 						 GDK_TYPE_PIXBUF, GDK_TYPE_PIXBUF,
 						 G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
-	GList *tmp = mod_mgr_list_local_modules(settings.path_to_mods, TRUE);
+	GList *tmp = mod_mgr_list_reader_modules();
 	GList *tmp2, *languages = NULL;
 	GHashTable *lang_iters = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
 	GtkTreeIter favorites;
@@ -1163,8 +1167,33 @@ void main_load_module_tree_by_language(GtkWidget *tree)
  *   void
  */
 
+static void module_tree_mapped(GtkWidget *tree, gpointer unused)
+{
+	(void)unused;
+	if (g_object_get_data(G_OBJECT(tree), "elim-module-tree-pending"))
+		main_load_module_tree(tree);
+}
+
+void main_init_module_tree(GtkWidget *tree)
+{
+	/* Stable model and columns for early readers; SVGs and module rows are
+	 * only needed when the sidebar maps. Explicit reloads still work before
+	 * that (installation, preferences, prayer lists). */
+	GtkTreeStore *store = gtk_tree_store_new(N_COLUMNS,
+		GDK_TYPE_PIXBUF, GDK_TYPE_PIXBUF,
+		G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
+	gtk_tree_view_set_model(GTK_TREE_VIEW(tree), GTK_TREE_MODEL(store));
+	g_object_unref(store);
+	g_object_set_data(G_OBJECT(tree), "elim-module-tree-pending", GINT_TO_POINTER(1));
+	g_signal_connect(tree, "map", G_CALLBACK(module_tree_mapped), NULL);
+	if (gtk_widget_get_mapped(tree))
+		module_tree_mapped(tree, NULL);
+}
+
 void main_load_module_tree(GtkWidget *tree)
 {
+	g_object_set_data(G_OBJECT(tree), "elim-module-tree-pending", NULL);
+	main_create_pixbufs();
 	switch (settings.module_tree_grouping) {
 	case 1:
 		main_load_module_tree_flat(tree);
@@ -1205,7 +1234,7 @@ void main_load_module_tree(GtkWidget *tree)
 	GList *tmp = NULL;
 	GList *tmp2 = NULL;
 
-	tmp = mod_mgr_list_local_modules(settings.path_to_mods, TRUE);
+	tmp = mod_mgr_list_reader_modules();
 
 	// find which folders are needed.
 	tmp2 = tmp;

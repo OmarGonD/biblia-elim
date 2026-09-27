@@ -928,7 +928,11 @@ char *main_get_search_results_text(char *mod_name, char *key)
 
 char *main_get_path_to_mods(void)
 {
-	if (!main_backend_is_sword() || !backend)
+	/* SWORD's module path, also while SQLite reads the Bibles: SWORD
+	 * still runs beside it (commentaries, dictionaries, and the source
+	 * of converted Bibles), and the module manager installs and removes
+	 * there. SQLite's own directory is main_sqlite_modules_directory(). */
+	if (!backend)
 		return g_strdup(main_sqlite_modules_directory());
 	SWMgr *mgr = backend->get_mgr();
 	char *path = mgr->prefixPath;
@@ -1175,7 +1179,7 @@ void main_init_backend(void)
 		/* SWORD still serves commentaries and dictionaries, in the
 		 * reader's language (main_init_sword_locale() above). */
 		main_recreate_bible_backend();
-		settings.path_to_mods = g_strdup(main_sqlite_modules_directory());
+		settings.path_to_mods = main_get_path_to_mods();
 		std::vector<BibleModuleInfo> modules = bible_backend->listModules();
 		if (!modules.empty() && !modules[0].language.empty())
 			backend_language = modules[0].language;

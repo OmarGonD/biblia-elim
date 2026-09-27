@@ -47,6 +47,7 @@ void main_display_verse_list_in_sidebar(gchar *key,
 					gchar *verse_list);
 void main_create_pixbufs(void);
 void main_load_module_tree(GtkWidget *tree);
+void main_init_module_tree(GtkWidget *tree);
 void main_load_module_tree_flat(GtkWidget *tree);
 void main_load_module_tree_by_language(GtkWidget *tree);
 gboolean module_is_favorite(const gchar *name);

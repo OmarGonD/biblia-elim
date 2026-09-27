@@ -1179,6 +1179,8 @@ G_MODULE_EXPORT void on_set_tag_color_activate(GtkMenuItem *menuitem,
 
 void gui_create_bookmark_menu(void)
 {
+	if (menu.menu)
+		return;
 	GtkBuilder *gxml = elim_gtk_builder_new();
 	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/xi-menus-popup.gtkbuilder", NULL);
 	g_return_if_fail((gxml != NULL));

@@ -39,6 +39,7 @@
 
 #include "backend/module_manager.hh"
 #include "backend/sword_main.hh"
+#include "backend/bible_backend.h"
 
 int main_module_mgr_index_mod(char *module_name)
 {
@@ -290,6 +291,33 @@ GList *mod_mgr_list_local_modules(const char *dir,
 		} else {
 			list = g_list_append(list, (MOD_MGR *)mod_info);
 		}
+	}
+	return list;
+}
+
+GList *mod_mgr_list_reader_modules(void)
+{
+	GList *list = mod_mgr_list_local_modules(settings.path_to_mods, TRUE);
+
+	if (main_backend_is_sword() || !bible_backend)
+		return list;
+	for (const BibleModuleInfo &module : bible_backend->listModules()) {
+		if (module.type != BibleModuleType::Bible)
+			continue;
+		gboolean listed = FALSE;
+		for (GList *item = list; item && !listed; item = item->next)
+			listed = !g_strcmp0(((MOD_MGR *)item->data)->name,
+					    module.id.c_str());
+		if (listed)
+			continue;
+		/* A Bible only SQLite has (imported, not converted). */
+		MOD_MGR *info = g_new0(MOD_MGR, 1);
+		info->name = g_strdup(module.id.c_str());
+		info->type = g_strdup("Biblical Texts");
+		info->language = g_intern_string(module.language.c_str());
+		info->description = g_strdup(module.description.c_str());
+		info->installed = 1;
+		list = g_list_append(list, info);
 	}
 	return list;
 }

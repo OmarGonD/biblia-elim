@@ -9348,6 +9348,61 @@
     ~200 ms, icon loading through glycin); on X11 gtk_init also probes GLX
     (~90 ms under Xvfb), which Wayland does not do at startup.
 
+- [x] STARTUP-PERF-102 Reduce time to the first painted chapter
+  - Status: DONE
+  - Description:
+    Reproducible isolated Xvfb benchmark; evaluate startup work one change at
+    a time. Preserve visible behavior, SQLite v1, verse anchors, reading
+    reserve, validation cache and the single author-commentary dispatch.
+  - Acceptance:
+    Measured before/after medians (5 runs after warm-up, SQLite and SWORD),
+    full CTest 71/71, lifecycle smoke and author commentary probe; XTEST
+    inspection of reading, notes, search, Compare, parallel, dictionary,
+    Strong and end-of-chapter reserve. Compare a separate RelWithDebInfo build.
+  - Changes kept:
+    - Lazy startup work: the sidebar results menu, bookmark menus and the
+      module tree (`main_init_module_tree`, loaded when the tree is first
+      mapped or expanded) are no longer built before the first paint;
+      `main_create_pixbufs` and `gui_create_bookmark_menu` are idempotent.
+    - `create_mainwindow` no longer drains events with `sync_windows()`;
+      `on_configure_event` ignores configure events until a
+      `G_PRIORITY_LOW` idle marks them settled, so startup allocations do
+      not rewrite the saved geometry.
+    - Fixed a pre-existing SQLite-mode bug found while verifying: the module
+      tree was empty and `settings.path_to_mods` pointed at the SQLite
+      directory (where the SWORD manager would install/uninstall).
+      `main_get_path_to_mods` now returns SWORD's prefix path whenever SWORD
+      runs, and `mod_mgr_list_reader_modules()` adds the Bibles only SQLite
+      holds. The lifecycle smoke checks the tree lists a SQLite-only Bible.
+    - `navbar_valid_key_ownership_test` provides `main_backend_for`.
+    - Benchmark tool `tools/bench-startup.sh` / `tools/bench_startup.py`
+      (isolated profile, SpaPlatense Luke 23:36, medians) with
+      `tests/bench_startup_test.py`.
+  - Evidence:
+    - Medians, 5 runs after warm-up, Xvfb X11, painted / main-loop ms:
+      - HEAD a47f8622 Debug: SQLite 834.9 / 702.1; SWORD 881.8 / 746.5.
+      - Lazy menus/tree + fixes: SQLite 817.2 / 680.7.
+      - Final (plus configure guard): SQLite 792.7 / 659.4;
+        SWORD 795.7 / 663.9 (−42 ms / −86 ms painted).
+      - Separate RelWithDebInfo build of the final tree: SQLite
+        773.1 / 640.2; SWORD 789.8 / 657.4 (Debug costs only ~20 ms).
+    - Xvfb X11 includes a ~90 ms GLX probe not present on Wayland.
+    - Full CTest 71/71 PASS, including `gtk_lifecycle_smoke` (365 checks,
+      0 failed) and `author_commentary_probe`.
+    - XTEST on Xvfb with the benchmark profile: reading, notes, search,
+      Compare, parallel view, module tree (Bibles, commentaries,
+      dictionaries open), dictionary lookup («Adonai»), KJV Strong dialog
+      (Luke 23:43 «Jesus» → G2424 concordance loads), Ctrl+End to Luke
+      24:53 keeps the reading reserve below; saved window geometry survives
+      resize/close/reopen.
+    - `git diff --check` PASS.
+  - Rejected / deferred:
+    - Painting only the current chapter before the reading window
+      (bounded to ~130 ms, touches anchors and the reserve): next step if
+      more is needed.
+    - A reading-window radius-0 experiment was invalid (0 means the whole
+      book) and was reverted.
+
 - [ ] TORRES-NOISE-101 Remove engraving/apparatus OCR noise inside Torres Amat 1882 verses
   - Status: BLOCKED
   - Description:

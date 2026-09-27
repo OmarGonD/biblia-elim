@@ -10,6 +10,8 @@ import unittest
 from pathlib import Path
 from unittest import mock
 
+from bench_startup_test import MilestonesTest
+
 
 SCRIPT = Path(__file__).parents[1] / "scripts" / "startup_performance_baseline.py"
 SPEC = importlib.util.spec_from_file_location("startup_baseline", SCRIPT)

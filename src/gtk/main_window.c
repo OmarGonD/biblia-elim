@@ -1833,6 +1833,18 @@ void final_pane_sizes()
  *   gboolean
  */
 
+/* FALSE until the configure events that creating and mapping the window
+ * queued have been handled: those describe a window being set up, not
+ * geometry the reader chose, and saving them wiped the saved layout. */
+static gboolean configure_events_settled = FALSE;
+
+static gboolean settle_configure_events(gpointer unused)
+{
+	(void)unused;
+	configure_events_settled = TRUE;
+	return G_SOURCE_REMOVE;
+}
+
 static gboolean on_configure_event(GtkWidget *widget,
 				   GdkEventConfigure *event,
 				   gpointer user_data)
@@ -1840,6 +1852,9 @@ static gboolean on_configure_event(GtkWidget *widget,
 	gchar layout[80];
 	gint x;
 	gint y;
+
+	if (!configure_events_settled)
+		return FALSE;
 
 	settings.gs_width = event->width;
 	settings.gs_height = event->height;
@@ -3164,12 +3179,13 @@ box_devot = gui_create_devotional_pane();
 	panel_load_debug("app", "WINDOW_VISIBILITY_SYNCED", NULL);
 	panel_load_debug("app", "WINDOW_TREE_SHOWN", NULL);
 
-	/* must connect signals *after* instantiating window above, */
-	/* immediately above, otherwise window creation induces */
-	/* configure_event, wiping out user's saved geometry specs. */
-	/* *important*: drain gtk event queue first (i.e. sync). */
-
-	sync_windows();
+	/* Window creation induces configure events that must not overwrite
+	 * the reader's saved geometry. They used to be drained here, before
+	 * connecting on_configure_event -- a full event drain in the middle of
+	 * startup. Now the handler ignores them until a low-priority idle
+	 * runs, which GLib dispatches only after the window events already
+	 * queued. */
+	g_idle_add_full(G_PRIORITY_LOW, settle_configure_events, NULL, NULL);
 	panel_load_debug("app", "WINDOW_EVENTS_DRAINED", NULL);
 	g_signal_connect((gpointer)vbox_gs, "key_press_event", G_CALLBACK(on_vbox1_key_press_event), NULL);
 	g_signal_connect((gpointer)vbox_gs, "key_release_event", G_CALLBACK(on_vbox1_key_release_event), NULL);

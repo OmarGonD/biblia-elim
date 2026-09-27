@@ -19,6 +19,8 @@
 #include "gui/main_menu.h"
 #include "gui/main_window.h"
 #include "gui/sidebar.h"
+#include "gui/bookmarks_menu.h"
+#include "main/sidebar.h"
 #include "gui/widgets.h"
 #include "gui/nube_palabras.h"
 #include "main/display.hh"
@@ -316,6 +318,35 @@ warning_dialogs(void)
 		}
 	g_list_free(tops);
 	return n;
+}
+
+/* Module id column of the sidebar module tree (main/sidebar.cc). */
+#define MODULE_TREE_COL_MODULE 3
+
+static gboolean
+module_tree_row_is(GtkTreeModel *model, GtkTreePath *path, GtkTreeIter *iter,
+		   gpointer data)
+{
+	gchar *name = NULL;
+	gboolean *found = data;
+
+	(void)path;
+	gtk_tree_model_get(model, iter, MODULE_TREE_COL_MODULE, &name, -1);
+	if (name && !strcmp(name, g_object_get_data(G_OBJECT(model), "smoke-wanted")))
+		*found = TRUE;
+	g_free(name);
+	return *found;
+}
+
+static gboolean
+module_tree_has(GtkTreeModel *model, const char *module)
+{
+	gboolean found = FALSE;
+
+	g_object_set_data(G_OBJECT(model), "smoke-wanted", (gpointer)module);
+	gtk_tree_model_foreach(model, module_tree_row_is, &found);
+	g_object_set_data(G_OBJECT(model), "smoke-wanted", NULL);
+	return found;
 }
 
 static void
@@ -646,6 +677,46 @@ exercise_application(gpointer unused)
 	guint i;
 
 	(void)unused;
+
+	GtkTreeModel *modules = gtk_tree_view_get_model(GTK_TREE_VIEW(sidebar.module_list));
+	check(GTK_IS_TREE_MODEL(modules), "hidden module tree has no model");
+	check(g_object_get_data(G_OBJECT(sidebar.module_list), "elim-module-tree-pending") != NULL,
+	      "hidden module tree populated at startup");
+	gui_sidebar_showhide();
+	check(!g_object_get_data(G_OBJECT(sidebar.module_list), "elim-module-tree-pending"),
+	      "module tree not populated on first map");
+	modules = gtk_tree_view_get_model(GTK_TREE_VIEW(sidebar.module_list));
+	check(gtk_tree_model_iter_n_children(modules, NULL) > 0, "mapped module tree empty");
+	/* SQLite mode lists SWORD's modules plus the Bibles only SQLite has:
+	 * the fixture Bibles exist in SQLite alone. */
+	check(module_tree_has(modules, "FakeBible"),
+	      "module tree lacks a Bible only SQLite has");
+	gui_sidebar_showhide();
+	gui_sidebar_showhide();
+	check(modules == gtk_tree_view_get_model(GTK_TREE_VIEW(sidebar.module_list)),
+	      "module tree rebuilt on second map");
+	gui_sidebar_showhide();
+	main_load_module_tree(sidebar.module_list);
+	check(gtk_tree_model_iter_n_children(gtk_tree_view_get_model(GTK_TREE_VIEW(sidebar.module_list)), NULL) > 0,
+	      "hidden module reload empty");
+
+	/* Hidden sidebar menus must stay unbuilt until first use. */
+	check(sidebar.menu_item_save_search == NULL, "results popup built at startup");
+	check(menu.menu == NULL, "bookmark popup built at startup");
+	GtkWidget *results_menu = gui_sidebar_results_menu();
+	check(GTK_IS_MENU(results_menu), "lazy results popup missing");
+	check(results_menu == gui_sidebar_results_menu(), "results popup rebuilt");
+	gui_create_bookmark_menu();
+	GtkWidget *bookmark_menu = menu.menu;
+	check(GTK_IS_MENU(bookmark_menu), "lazy bookmark popup missing");
+	check(GTK_IS_MENU_ITEM(menu.insert) && GTK_IS_MENU_ITEM(menu.in_tab),
+	      "lazy bookmark popup fields missing");
+	check(gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(menu.crossref_popup)) ==
+	      settings.crossref_popup, "lazy bookmark popup lost cross-reference setting");
+	check(gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(menu.tag_colorize)) ==
+	      settings.tag_colorize, "lazy bookmark popup lost colour setting");
+	gui_create_bookmark_menu();
+	check(bookmark_menu == menu.menu, "bookmark popup rebuilt");
 	check(GTK_IS_WINDOW(widgets.app), "main window was not created");
 	check(gtk_widget_get_visible(widgets.app), "main window was not shown");
 	check(gtk_widget_get_realized(widgets.app), "main window was not realized");

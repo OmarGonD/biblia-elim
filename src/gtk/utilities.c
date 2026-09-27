@@ -1268,7 +1268,7 @@ void gui_load_module_tree(GtkWidget *tree, gboolean limited)
 		}
 	}
 
-	tmp = mod_mgr_list_local_modules(settings.path_to_mods, TRUE);
+	tmp = mod_mgr_list_reader_modules();
 
 	language_make_list(tmp, store,
 			   text, commentary, map, image,

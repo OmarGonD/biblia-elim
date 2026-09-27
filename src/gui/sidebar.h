@@ -98,6 +98,7 @@ void on_preload_history_from_verse_list_activate(GtkMenuItem *
 void on_send_list_via_biblesync_activate(GtkMenuItem *menuitem,
 					 gpointer user_data);
 GtkWidget *create_results_menu(void);
+GtkWidget *gui_sidebar_results_menu(void);
 void on_open_in_dialog_activate(GtkMenuItem *menuitem,
 				gpointer user_data);
 void on_open_in_tab_activate2(GtkMenuItem *menuitem,

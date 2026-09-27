@@ -785,6 +785,8 @@ static gboolean button_release_event(GtkWidget *widget,
 	gchar *description = NULL;
 	button_one = FALSE;
 
+	/* Every menu field below is initialized before selection or popup use. */
+	gui_create_bookmark_menu();
 	selection = gtk_tree_view_get_selection(bookmark_tree);
 	current_selection = selection;
 	if (gtk_tree_selection_get_selected(selection, NULL, &selected)) {
@@ -1159,7 +1161,6 @@ GtkWidget *gui_create_bookmark_tree(void)
 	GtkWidget *tree;
 	GtkTreeIter iter;
 
-	gui_create_bookmark_menu();
 	create_pixbufs();
 	tree_model = create_model();
 	tree = gtk_tree_view_new_with_model(tree_model);

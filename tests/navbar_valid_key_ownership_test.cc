@@ -8,6 +8,9 @@
 #include <iostream>
 
 BibleBackend *bible_backend;
+/* navbar_key.cc resolves through the backend that holds the module; the
+ * fake backend holds them all here. */
+BibleBackend &main_backend_for(const char *) { return *bible_backend; }
 
 namespace {
 int failures;

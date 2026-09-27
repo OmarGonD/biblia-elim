@@ -197,6 +197,8 @@ gboolean gui_expand_treeview_to_path(GtkTreeView *tree,
 	work_buf = g_strsplit(path_string, ":", -1);
 	XI_message(("\n\nbuf[0]: %s\nbuf[1]: %s\nbuf[2]: %s\n\n",
 		    work_buf[0], work_buf[1], work_buf[2]));
+	if (g_object_get_data(G_OBJECT(tree), "elim-module-tree-pending"))
+		main_load_module_tree(GTK_WIDGET(tree));
 	model = gtk_tree_view_get_model(tree);
 
 	tmp_path_string = g_strdup_printf("%s:%s:%s",
@@ -863,9 +865,9 @@ static gboolean on_treeview_button_press_event(GtkWidget *widget,
 	switch (event->button) {
 	case 3:
 #if GTK_CHECK_VERSION(3, 22, 0)
-		gtk_menu_popup_at_pointer((GtkMenu *)sidebar.menu_item_save_search, NULL);
+		gtk_menu_popup_at_pointer((GtkMenu *)gui_sidebar_results_menu(), NULL);
 #else
-		gtk_menu_popup((GtkMenu *)sidebar.menu_item_save_search,
+		gtk_menu_popup((GtkMenu *)gui_sidebar_results_menu(),
 			       NULL, NULL, NULL, NULL, 2,
 			       gtk_get_current_event_time());
 #endif
@@ -1403,12 +1405,18 @@ static gboolean tree_key_press_cb(GtkWidget *widget,
  *   void
  */
 
+GtkWidget *gui_sidebar_results_menu(void)
+{
+	if (!sidebar.menu_item_save_search)
+		sidebar.menu_item_save_search = create_results_menu();
+	return sidebar.menu_item_save_search;
+}
+
 static void create_search_results_page(GtkWidget *notebook)
 {
 	GtkWidget *scrolledwindow3;
 	GtkTreeSelection *selection;
-	sidebar.menu_item_save_search = create_results_menu();
-
+	/* The popup is built on first use, like the prayer-list menus. */
 	scrolledwindow3 = gtk_scrolled_window_new(NULL, NULL);
 	gtk_widget_show(scrolledwindow3);
 	gtk_container_add(GTK_CONTAINER(notebook), scrolledwindow3);
@@ -1566,7 +1574,9 @@ GtkWidget *gui_create_sidebar(GtkWidget *paned)
 	widgets.paned_sidebar = UI_VPANE();
 	gtk_paned_pack1(GTK_PANED(paned), widgets.paned_sidebar, FALSE,
 			TRUE);
-	gtk_widget_show(widgets.paned_sidebar);
+	/* Do not map a hidden sidebar transiently while it is constructed. */
+	if (settings.showshortcutbar)
+		gtk_widget_show(widgets.paned_sidebar);
 	gtk_paned_pack1(GTK_PANED(widgets.paned_sidebar), vbox1, FALSE,
 			TRUE);
 	UI_VBOX(widgets.box_side_preview, FALSE, 0);
@@ -1760,7 +1770,6 @@ GtkWidget *gui_create_sidebar(GtkWidget *paned)
 	gtk_container_add(GTK_CONTAINER(scrolledwindow4),
 			  sidebar.module_list);
 	gtk_tree_view_set_headers_visible(GTK_TREE_VIEW(sidebar.module_list), FALSE);
-	main_create_pixbufs();
 	main_add_mod_tree_columns(GTK_TREE_VIEW(sidebar.module_list));
 
 	scrolledwindow_bm = gtk_scrolled_window_new(NULL, NULL);
@@ -1783,7 +1792,7 @@ GtkWidget *gui_create_sidebar(GtkWidget *paned)
 
 	create_search_results_page(widgets.notebook_sidebar);
 
-	main_load_module_tree(sidebar.module_list);
+	main_init_module_tree(sidebar.module_list);
 
 	g_signal_connect_after((gpointer)sidebar.module_list,
 			       "button_release_event",

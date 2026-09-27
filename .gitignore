@@ -51,3 +51,6 @@ scripts/platense/platense-comentarios.imp
 
 # CTest runtime artifacts
 Testing/
+
+# Python bytecode
+__pycache__/

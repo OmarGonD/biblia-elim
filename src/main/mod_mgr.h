@@ -70,6 +70,10 @@ int main_module_mgr_delete_index_mod(char *module_name);
 void main_index_percent_update(char percent, void *userData);
 void main_update_module_lists(void);
 MOD_MGR *mod_mgr_get_next_module(void);
+/* The reader's modules for the module trees: SWORD's installed modules plus
+ * the Bibles SQLite reads that SWORD does not have. Freed like
+ * mod_mgr_list_local_modules()'s list. */
+GList *mod_mgr_list_reader_modules(void);
 void update_install_status(long total,
 			   long done, const char *message);
 void update_install_progress(double fraction);
