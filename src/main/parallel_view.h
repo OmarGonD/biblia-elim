@@ -27,7 +27,9 @@ extern "C" {
 
 gchar *main_parallel_change_verse(void);
 gchar *main_parallel_html(void); /* caller frees */
-void main_load_g_ops_parallel(GtkWidget *menu);
+/* GTK4-PORT-101 step 2: appends the module options to MENU; their
+ * «paralelo» actions go into ACTIONS. */
+void main_parallel_options_menu(GMenu *menu, GActionMap *actions);
 void main_set_parallel_options_at_start(void);
 void main_load_menu_form_mod_list(GtkWidget *pmInt, gchar *label,
 				  GCallback mycallback);

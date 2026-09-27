@@ -9589,9 +9589,27 @@
       `gtk_lifecycle_smoke` 381 checks, 0 failed (new: a book editor tree
       carries the four actions). Not exercised by hand: no writable
       book (prayer list / journal) is installed in the test profile.
+    - 4/…: parallel view context menu (gtk/parallel_view.c,
+      main/parallel_view.cc): a GMenu popover at the pointer over the
+      parallel HTML view; «Detach/Attach» is `paralelo.separar`; the 15
+      module options are stateful boolean actions `paralelo.opN` and
+      «Textual Variants» a string-state radio action
+      `paralelo.variantes`. Actions are rebuilt at every opening so their
+      states follow the settings; the per-option logic
+      (`apply_parallel_option`, formerly taking a GtkCheckMenuItem) is
+      unchanged. The duplicated «Morpheme Segmentation» item is gone;
+      «Italic Headings» still appears only with headings on.
+      `gui_popup_menu_parallel()` now takes the widget to open over;
+      `on_undockInt_activate()` / `on_paratab_activate()` no longer take
+      a GtkMenuItem.
+      Evidence: XTEST — right-click opens the popover at the pointer;
+      «Opciones de módulo» shows the checks matching the settings;
+      ticking «Números de Strong» persists on reopening (then untoggled);
+      «Variantes textuales» shows the radio on «Lectura primaria»;
+      `gtk_lifecycle_smoke` 384 checks, 0 failed (new: ≥15 options,
+      option state follows settings, variants action is a string state).
     - Remaining by size: menu_popup.c 60, sidebar.c 56, main_menu.c 50,
-      bookmarks_menu.c 31, interlineal.c 21, parallel_view.c 12,
-      navbar_versekey*.c 23, and
+      bookmarks_menu.c 31, interlineal.c 21, navbar_versekey*.c 23, and
       the builder menus xi-menus.gtkbuilder / xi-menus-popup.gtkbuilder
       (menu bar → `gtk_menu_bar_new_from_model`, GTK 4
       GtkPopoverMenuBar).

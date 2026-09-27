@@ -928,6 +928,28 @@ exercise_application(gpointer unused)
 		check_word_cloud();
 		check_word_cloud_dialog();
 		check_file_chooser_fits();
+		/* GTK4-PORT-101 step 2: parallel module options are a GMenu
+		 * over stateful «paralelo» actions that mirror the settings. */
+		{
+			GMenu *options = g_menu_new();
+			GSimpleActionGroup *actions = g_simple_action_group_new();
+			main_parallel_options_menu(options, G_ACTION_MAP(actions));
+			check(g_menu_model_get_n_items(G_MENU_MODEL(options)) >= 15,
+			      "parallel options menu incomplete");
+			GVariant *strongs = g_action_group_get_action_state(
+			    G_ACTION_GROUP(actions), "op0");
+			check(strongs && g_variant_get_boolean(strongs) ==
+					     (settings.parallel_strongs != 0),
+			      "parallel option state does not follow settings");
+			GVariant *variants = g_action_group_get_action_state(
+			    G_ACTION_GROUP(actions), "variantes");
+			check(variants && g_variant_is_of_type(variants, G_VARIANT_TYPE_STRING),
+			      "parallel textual variants action missing");
+			if (strongs) g_variant_unref(strongs);
+			if (variants) g_variant_unref(variants);
+			g_object_unref(actions);
+			g_object_unref(options);
+		}
 		/* GTK4-PORT-101 step 2: the book editor's tree menu is a GMenu
 		 * over «arbol» actions (a missing book just leaves it empty). */
 		{

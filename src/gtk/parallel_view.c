@@ -53,7 +53,7 @@ extern gboolean shift_key_pressed;
  * Synopsis
  *   #include "gui/parallel.h
  *
- *   void on_undockInt_activate(GtkMenuItem *menuitem)
+ *   void on_undockInt_activate(gpointer unused)
  *
  * Description
  *   undock/dock parallel page
@@ -62,7 +62,7 @@ extern gboolean shift_key_pressed;
  *   void
  */
 
-void on_undockInt_activate(GtkMenuItem *menuitem)
+void on_undockInt_activate(gpointer unused)
 {
 	if (settings.dockedInt) {
 		settings.dockedInt = FALSE;
@@ -81,7 +81,7 @@ void on_undockInt_activate(GtkMenuItem *menuitem)
  * Synopsis
  *   #include "gui/parallel_view.h
  *
- *   void on_paratab_activate(GtkMenuItem *menuitem)
+ *   void on_paratab_activate(gpointer unused)
  *
  * Description
  *   open parallel view in a tab
@@ -90,59 +90,70 @@ void on_undockInt_activate(GtkMenuItem *menuitem)
  *   void
  */
 
-void on_paratab_activate(GtkMenuItem *menuitem)
+void on_paratab_activate(gpointer unused)
 {
 	gui_open_parallel_view_in_new_tab();
 }
 
-void gui_popup_menu_parallel(void)
+static void on_detach(GSimpleAction *action, GVariant *parameter, gpointer data)
 {
-	GtkWidget *menu;
-	GtkWidget *undockInt = NULL;
-	GtkWidget *module_options;
-	GtkWidget *separator;
-	GtkWidget *module_options_menu;
+	(void)action;
+	(void)parameter;
+	(void)data;
+	on_undockInt_activate(NULL);
+}
 
-	menu = gtk_menu_new();
-	g_object_set_data(G_OBJECT(menu), "pmInt", menu);
+static gboolean destroy_popover_idle(gpointer popover)
+{
+	gtk_widget_destroy(GTK_WIDGET(popover));
+	return G_SOURCE_REMOVE;
+}
 
+/* After the chosen item's action has run. */
+static void destroy_popover_later(GtkPopover *popover, gpointer unused)
+{
+	(void)unused;
+	g_idle_add(destroy_popover_idle, popover);
+}
+
+/* GTK4-PORT-101 step 2: a GMenu popover at the pointer over RELATIVE,
+ * with fresh «paralelo» actions (their states follow the settings). */
+void gui_popup_menu_parallel(GtkWidget *relative)
+{
+	GSimpleActionGroup *actions = g_simple_action_group_new();
+	GMenu *menu = g_menu_new();
 	if (!settings.showparatab) {
-		undockInt =
-		    gtk_menu_item_new_with_label(_("Detach/Attach"));
-		gtk_widget_show(undockInt);
-		gtk_container_add(GTK_CONTAINER(menu), undockInt);
+		static const GActionEntry detach[] = {
+			{ "separar", on_detach, NULL, NULL, NULL, { 0 } },
+		};
+		g_action_map_add_action_entries(G_ACTION_MAP(actions), detach, 1, NULL);
+		g_menu_append(menu, _("Detach/Attach"), "paralelo.separar");
 	}
+	GMenu *options = g_menu_new();
+	main_parallel_options_menu(options, G_ACTION_MAP(actions));
+	g_menu_append_submenu(menu, _("Module Options"), G_MENU_MODEL(options));
+	g_object_unref(options);
+	gtk_widget_insert_action_group(relative, "paralelo", G_ACTION_GROUP(actions));
+	g_object_unref(actions);
 
-	module_options = gtk_menu_item_new_with_label(_("Module Options"));
-	gtk_widget_show(module_options);
-	gtk_container_add(GTK_CONTAINER(menu), module_options);
-
-	module_options_menu = gtk_menu_new();
-	gtk_menu_item_set_submenu(GTK_MENU_ITEM(module_options),
-				  module_options_menu);
-
-	main_load_g_ops_parallel(module_options_menu);
-
-	separator = gtk_menu_item_new();
-	gtk_widget_show(separator);
-	gtk_container_add(GTK_CONTAINER(menu), separator);
-	gtk_widget_set_sensitive(separator, FALSE);
-
-	if (!settings.showparatab) {
-		if (undockInt) {
-			g_signal_connect(G_OBJECT(undockInt), "activate",
-					 G_CALLBACK(on_undockInt_activate),
-					 &settings);
-		} else {
-			XI_warning(("undockInt is NULL?"));
-		}
+	GtkWidget *popover = gtk_popover_new_from_model(relative, G_MENU_MODEL(menu));
+	g_object_unref(menu);
+	GdkRectangle at = { 0, 0, 1, 1 };
+	GdkWindow *window = gtk_widget_get_window(relative);
+	GdkSeat *seat = gdk_display_get_default_seat(gtk_widget_get_display(relative));
+	if (window && seat) {
+		int wx, wy;
+		gdk_window_get_device_position(window, gdk_seat_get_pointer(seat),
+					       &wx, &wy, NULL);
+		GtkAllocation alloc;
+		gtk_widget_get_allocation(relative, &alloc);
+		/* A no-window widget reports window coordinates. */
+		at.x = gtk_widget_get_has_window(relative) ? wx : wx - alloc.x;
+		at.y = gtk_widget_get_has_window(relative) ? wy : wy - alloc.y;
 	}
-#if GTK_CHECK_VERSION(3, 22, 0)
-	gtk_menu_popup_at_pointer((GtkMenu *)menu, NULL);
-#else
-	gtk_menu_popup((GtkMenu *)menu, NULL, NULL, NULL, NULL, 0,
-                      gtk_get_current_event_time());
-#endif	   
+	gtk_popover_set_pointing_to(GTK_POPOVER(popover), &at);
+	g_signal_connect(popover, "closed", G_CALLBACK(destroy_popover_later), NULL);
+	gtk_popover_popup(GTK_POPOVER(popover));
 }
 
 static gboolean
@@ -157,7 +168,7 @@ on_enter_notify_event(GtkWidget *widget,
 static void
 _popupmenu_requested_cb(XiphosHtml *html, gchar *uri, gpointer user_data)
 {
-	gui_popup_menu_parallel();
+	gui_popup_menu_parallel(GTK_WIDGET(html));
 }
 
 /******************************************************************************

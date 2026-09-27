@@ -205,11 +205,9 @@ static void set_global_textual_reading(const char *option, int choice)
  *   void
  */
 
-void main_set_parallel_module_global_options(GtkCheckMenuItem *menuitem,
-					     gpointer user_data)
+static void apply_parallel_option(const gchar *name, gboolean choice)
 {
-	gchar *option = (gchar *)user_data;
-	gboolean choice = gtk_check_menu_item_get_active(menuitem);
+	gchar *option = (gchar *)name; /* the setters predate const */
 
 	if (!strcmp(option, "Strong's Numbers")) {
 		settings.parallel_strongs = choice;
@@ -360,207 +358,106 @@ void main_set_parallel_options_at_start(void)
 	}
 }
 
-/******************************************************************************
- * Name
- *   main_load_g_ops_parallel
- *
- * Synopsis
- *   #include "main/parallel_view.h"
- *
- *   void main_load_g_ops_parallel(GtkWidget *menu)
- *
- * Description
- *    create global options menu and set check marks
- *
- * Return value
- *   void
- */
+/* GTK4-PORT-101 step 2: the module options are a GMenu over stateful
+ * «paralelo» actions, built when the menu opens so their states follow
+ * the settings. Each check item is a boolean action on one option. */
+struct ParallelOption {
+	const char *option;	/* SWORD option name, also the label */
+	int *setting;
+};
 
-void main_load_g_ops_parallel(GtkWidget *menu)
+static const ParallelOption *parallel_options(guint *n)
 {
-	GtkWidget *item;
-	GtkWidget *variants_menu;
-	GSList *group = NULL;
+	static const ParallelOption options[] = {
+		{ "Strong's Numbers", &settings.parallel_strongs },
+		{ "Morphological Tags", &settings.parallel_morphs },
+		{ "Hebrew Vowel Points", &settings.parallel_hebrewpoints },
+		{ "Hebrew Cantillation", &settings.parallel_cantillationmarks },
+		{ "Greek Accents", &settings.parallel_greekaccents },
+		{ "Cross-references", &settings.parallel_crossref },
+		{ "Lemmas", &settings.parallel_lemmas },
+		{ "Headings", &settings.parallel_headings },
+		{ "Italic Headings", &settings.parallel_italic_headings },
+		{ "Morpheme Segmentation", &settings.parallel_segmentation },
+		{ "Words of Christ in Red", &settings.parallel_red_words },
+		{ "Transliteration", &settings.parallel_transliteration },
+		{ "Transliterated Forms", &settings.parallel_xlit },
+		{ "Enumerations", &settings.parallel_enumerated },
+		{ "Glosses", &settings.parallel_glosses },
+	};
+	*n = G_N_ELEMENTS(options);
+	return options;
+}
 
-	item = gtk_check_menu_item_new_with_label(_("Strong's Numbers"));
-	gtk_widget_show(item);
-	gtk_container_add(GTK_CONTAINER(menu), item);
+static void on_option_state(GSimpleAction *action, GVariant *state, gpointer data)
+{
+	g_simple_action_set_state(action, state);
+	apply_parallel_option((const char *)data, g_variant_get_boolean(state));
+}
 
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), settings.parallel_strongs);
-	g_signal_connect(G_OBJECT(item), "activate",
-			 G_CALLBACK(main_set_parallel_module_global_options),
-			 (char *)"Strong's Numbers");
+static const char *const variant_readings[] = {
+	"Primary Reading", "Secondary Reading", "All Readings"
+};
 
-	item = gtk_check_menu_item_new_with_label(_("Morphological Tags"));
-	gtk_widget_show(item);
-	gtk_container_add(GTK_CONTAINER(menu), item);
+static void on_variants_state(GSimpleAction *action, GVariant *state, gpointer data)
+{
+	(void)data;
+	const char *chosen = g_variant_get_string(state, NULL);
+	g_simple_action_set_state(action, state);
+	settings.parallel_variants_primary = !strcmp(chosen, variant_readings[0]);
+	settings.parallel_variants_secondary = !strcmp(chosen, variant_readings[1]);
+	settings.parallel_variants_all = !strcmp(chosen, variant_readings[2]);
+	/* The readings not chosen are saved off first; the chosen one last,
+	 * so it is the global option left set. */
+	for (guint i = 0; i < G_N_ELEMENTS(variant_readings); ++i)
+		if (strcmp(chosen, variant_readings[i]))
+			apply_parallel_option(variant_readings[i], FALSE);
+	apply_parallel_option(chosen, TRUE);
+}
 
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), settings.parallel_morphs);
-	g_signal_connect(G_OBJECT(item), "activate",
-			 G_CALLBACK(main_set_parallel_module_global_options),
-			 (char *)"Morphological Tags");
-
-	item = gtk_check_menu_item_new_with_label(_("Hebrew Vowel Points"));
-	gtk_widget_show(item);
-	gtk_container_add(GTK_CONTAINER(menu), item);
-
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), settings.parallel_hebrewpoints);
-	g_signal_connect(G_OBJECT(item), "activate",
-			 G_CALLBACK(main_set_parallel_module_global_options),
-			 (char *)"Hebrew Vowel Points");
-
-	item = gtk_check_menu_item_new_with_label(_("Hebrew Cantillation"));
-	gtk_widget_show(item);
-	gtk_container_add(GTK_CONTAINER(menu), item);
-
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), settings.parallel_cantillationmarks);
-	g_signal_connect(G_OBJECT(item), "activate",
-			 G_CALLBACK(main_set_parallel_module_global_options),
-			 (char *)"Hebrew Cantillation");
-
-	item = gtk_check_menu_item_new_with_label(_("Greek Accents"));
-	gtk_widget_show(item);
-	gtk_container_add(GTK_CONTAINER(menu), item);
-
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), settings.parallel_greekaccents);
-	g_signal_connect(G_OBJECT(item), "activate",
-			 G_CALLBACK(main_set_parallel_module_global_options),
-			 (char *)"Greek Accents");
-
-	item = gtk_check_menu_item_new_with_label(_("Cross-references"));
-	gtk_widget_show(item);
-	gtk_container_add(GTK_CONTAINER(menu), item);
-
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), settings.parallel_crossref);
-	g_signal_connect(G_OBJECT(item), "activate",
-			 G_CALLBACK(main_set_parallel_module_global_options),
-			 (char *)"Cross-references");
-
-	item = gtk_check_menu_item_new_with_label(_("Lemmas"));
-	gtk_widget_show(item);
-	gtk_container_add(GTK_CONTAINER(menu), item);
-
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), settings.parallel_lemmas);
-	g_signal_connect(G_OBJECT(item), "activate",
-			 G_CALLBACK(main_set_parallel_module_global_options),
-			 (char *)"Lemmas");
-
-	item = gtk_check_menu_item_new_with_label(_("Headings"));
-	gtk_widget_show(item);
-	gtk_container_add(GTK_CONTAINER(menu), item);
-
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), settings.parallel_headings);
-	g_signal_connect(G_OBJECT(item), "activate",
-			 G_CALLBACK(main_set_parallel_module_global_options),
-			 (char *)"Headings");
-
-	if (settings.parallel_headings) {
-		item = gtk_check_menu_item_new_with_label(_("Italic Headings"));
-		gtk_widget_show(item);
-		gtk_container_add(GTK_CONTAINER(menu), item);
-
-		gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), settings.parallel_italic_headings);
-		g_signal_connect(G_OBJECT(item), "activate",
-				 G_CALLBACK(main_set_parallel_module_global_options),
-				 (char *)"Italic Headings");
+void main_parallel_options_menu(GMenu *menu, GActionMap *actions)
+{
+	guint n;
+	const ParallelOption *options = parallel_options(&n);
+	for (guint i = 0; i < n; ++i) {
+		/* Italic headings only matter with headings shown. */
+		if (options[i].setting == &settings.parallel_italic_headings &&
+		    !settings.parallel_headings)
+			continue;
+		gchar *name = g_strdup_printf("op%u", i);
+		GSimpleAction *action = g_simple_action_new_stateful(
+		    name, NULL, g_variant_new_boolean(*options[i].setting != 0));
+		g_signal_connect(action, "change-state", G_CALLBACK(on_option_state),
+				 (gpointer)options[i].option);
+		g_action_map_add_action(actions, G_ACTION(action));
+		g_object_unref(action);
+		gchar *detailed = g_strconcat("paralelo.", name, NULL);
+		g_menu_append(menu, _(options[i].option), detailed);
+		g_free(detailed);
+		g_free(name);
+		/* Textual variants sit after transliteration, as before. */
+		if (options[i].setting == &settings.parallel_transliteration) {
+			const char *current = settings.parallel_variants_primary ? variant_readings[0] :
+				settings.parallel_variants_secondary ? variant_readings[1] :
+				variant_readings[2];
+			GSimpleAction *variants = g_simple_action_new_stateful(
+			    "variantes", G_VARIANT_TYPE_STRING, g_variant_new_string(current));
+			g_signal_connect(variants, "change-state",
+					 G_CALLBACK(on_variants_state), NULL);
+			g_action_map_add_action(actions, G_ACTION(variants));
+			g_object_unref(variants);
+			GMenu *readings = g_menu_new();
+			for (guint r = 0; r < G_N_ELEMENTS(variant_readings); ++r) {
+				GMenuItem *item = g_menu_item_new(_(variant_readings[r]), NULL);
+				g_menu_item_set_action_and_target(item, "paralelo.variantes", "s",
+								  variant_readings[r]);
+				g_menu_append_item(readings, item);
+				g_object_unref(item);
+			}
+			g_menu_append_submenu(menu, _("Textual Variants"), G_MENU_MODEL(readings));
+			g_object_unref(readings);
+		}
 	}
-
-	item = gtk_check_menu_item_new_with_label(_("Morpheme Segmentation"));
-	gtk_widget_hide(item);
-	gtk_container_add(GTK_CONTAINER(menu), item);
-
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), settings.parallel_segmentation);
-	g_signal_connect(G_OBJECT(item), "activate",
-			 G_CALLBACK(main_set_parallel_module_global_options),
-			 (char *)"Morpheme Segmentation");
-
-	item = gtk_check_menu_item_new_with_label(_("Words of Christ in Red"));
-	gtk_widget_show(item);
-	gtk_container_add(GTK_CONTAINER(menu), item);
-
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), settings.parallel_red_words);
-	g_signal_connect(G_OBJECT(item), "activate",
-			 G_CALLBACK(main_set_parallel_module_global_options),
-			 (char *)"Words of Christ in Red");
-
-	item = gtk_check_menu_item_new_with_label(_("Transliteration"));
-	gtk_widget_show(item);
-	gtk_container_add(GTK_CONTAINER(menu), item);
-
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), settings.parallel_transliteration);
-	g_signal_connect(G_OBJECT(item), "activate",
-			 G_CALLBACK(main_set_parallel_module_global_options),
-			 (char *)"Transliteration");
-
-	item = gtk_menu_item_new_with_label(_("Textual Variants"));
-	gtk_widget_show(item);
-	gtk_container_add(GTK_CONTAINER(menu), item);
-
-	variants_menu = gtk_menu_new();
-	gtk_menu_item_set_submenu(GTK_MENU_ITEM(item),
-				  variants_menu);
-
-	item = gtk_radio_menu_item_new_with_mnemonic(group, _("Primary Reading"));
-	group = gtk_radio_menu_item_get_group(GTK_RADIO_MENU_ITEM(item));
-	gtk_widget_show(item);
-	gtk_container_add(GTK_CONTAINER(variants_menu), item);
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), settings.parallel_variants_primary);
-	g_signal_connect(G_OBJECT(item), "activate",
-			 G_CALLBACK(main_set_parallel_module_global_options),
-			 (char *)"Primary Reading");
-
-	item = gtk_radio_menu_item_new_with_mnemonic(group, _("Secondary Reading"));
-	group = gtk_radio_menu_item_get_group(GTK_RADIO_MENU_ITEM(item));
-	gtk_widget_show(item);
-	gtk_container_add(GTK_CONTAINER(variants_menu), item);
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), settings.parallel_variants_secondary);
-	g_signal_connect(G_OBJECT(item), "activate",
-			 G_CALLBACK(main_set_parallel_module_global_options),
-			 (char *)"Secondary Reading");
-
-	item = gtk_radio_menu_item_new_with_mnemonic(group, _("All Readings"));
-	gtk_widget_show(item);
-	gtk_container_add(GTK_CONTAINER(variants_menu), item);
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), settings.parallel_variants_all);
-	g_signal_connect(G_OBJECT(item), "activate",
-			 G_CALLBACK(main_set_parallel_module_global_options),
-			 (char *)"All Readings");
-
-	item = gtk_check_menu_item_new_with_label(_("Transliterated Forms"));
-	gtk_widget_show(item);
-	gtk_container_add(GTK_CONTAINER(menu), item);
-
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), settings.parallel_xlit);
-	g_signal_connect(G_OBJECT(item), "activate",
-			 G_CALLBACK(main_set_parallel_module_global_options),
-			 (char *)"Transliterated Forms");
-
-	item = gtk_check_menu_item_new_with_label(_("Enumerations"));
-	gtk_widget_show(item);
-	gtk_container_add(GTK_CONTAINER(menu), item);
-
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), settings.parallel_enumerated);
-	g_signal_connect(G_OBJECT(item), "activate",
-			 G_CALLBACK(main_set_parallel_module_global_options),
-			 (char *)"Enumerations");
-
-	item = gtk_check_menu_item_new_with_label(_("Glosses"));
-	gtk_widget_show(item);
-	gtk_container_add(GTK_CONTAINER(menu), item);
-
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), settings.parallel_glosses);
-	g_signal_connect(G_OBJECT(item), "activate",
-			 G_CALLBACK(main_set_parallel_module_global_options),
-			 (char *)"Glosses");
-
-	item = gtk_check_menu_item_new_with_label(_("Morpheme Segmentation"));
-	gtk_widget_show(item);
-	gtk_container_add(GTK_CONTAINER(menu), item);
-
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), settings.parallel_segmentation);
-	g_signal_connect(G_OBJECT(item), "activate",
-			 G_CALLBACK(main_set_parallel_module_global_options),
-			 (char *)"Morpheme Segmentation");
 }
 
 /******************************************************************************

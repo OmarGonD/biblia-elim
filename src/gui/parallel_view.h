@@ -27,9 +27,9 @@ extern "C" {
 
 void gui_create_parallel_page(void);
 void gui_create_parallel_popup(void);
-void gui_popup_menu_parallel(void);
-void on_undockInt_activate(GtkMenuItem *menuitem);
-void on_paratab_activate(GtkMenuItem *menuitem);
+void gui_popup_menu_parallel(GtkWidget *relative);
+void on_undockInt_activate(gpointer unused);
+void on_paratab_activate(gpointer unused);
 
 #ifdef __cplusplus
 }

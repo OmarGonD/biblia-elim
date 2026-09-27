@@ -66,7 +66,7 @@ static void sync_with_main(void);
 static void
 _popupmenu_requested_cb(XiphosHtml *html, gchar *uri, gpointer user_data)
 {
-	gui_popup_menu_parallel();
+	gui_popup_menu_parallel(GTK_WIDGET(html));
 }
 
 /******************************************************************************
