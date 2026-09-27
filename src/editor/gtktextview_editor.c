@@ -863,7 +863,7 @@ action_quit_activate_cb(GtkWidget *widget, EDITOR *e)
 }
 
 G_MODULE_EXPORT void
-action_print_cb(GtkAction *action, EDITOR *e)
+action_print_cb(GtkWidget *widget, EDITOR *e)
 {
 	/* TODO: implement printing via GtkPrintOperation */
 	XI_message(("%s", "print: not yet implemented"));
@@ -1684,7 +1684,7 @@ action_justify_full_activate_cb(GtkWidget *widget, EDITOR *e)
 }
 
 G_MODULE_EXPORT void
-action_print_preview_cb(GtkAction *action, EDITOR *e) {}
+action_print_preview_cb(GtkWidget *widget, EDITOR *e) {}
 
 G_MODULE_EXPORT void
 action_font_activate_cb(GtkWidget *widget, EDITOR *e) {}

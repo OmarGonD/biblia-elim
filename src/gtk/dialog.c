@@ -166,7 +166,6 @@ static GtkWidget *create_dialog_alert(GS_DIALOG *info)
 	GtkWidget *hbox3;
 	GtkWidget *vbox2;
 	GtkWidget *label7;
-	GtkWidget *dialog_action_area2;
 
 	dialog_alert = gtk_dialog_new();
 	gtk_container_set_border_width(GTK_CONTAINER(dialog_alert), 5);
@@ -240,10 +239,6 @@ static GtkWidget *create_dialog_alert(GS_DIALOG *info)
 #endif
 	}
 
-	dialog_action_area2 = gtk_dialog_get_action_area(GTK_DIALOG(dialog_alert));
-	gtk_widget_show(dialog_action_area2);
-	gtk_button_box_set_layout(GTK_BUTTON_BOX(dialog_action_area2),
-				  GTK_BUTTONBOX_END);
 #if GTK_CHECK_VERSION(3, 10, 0)
 	if (info->ok)
 		gtk_dialog_add_button(GTK_DIALOG(dialog_alert),
@@ -318,7 +313,6 @@ static GtkWidget *create_dialog_request(GS_DIALOG *info)
 	GtkWidget *label12 = NULL;
 	GtkWidget *label13 = NULL;
 	GtkWidget *label14 = NULL;
-	GtkWidget *dialog_action_area3 = NULL;
 #if GTK_CHECK_VERSION(3, 4, 0)
 	gint nextrow = 0;
 #endif
@@ -609,10 +603,6 @@ static GtkWidget *create_dialog_request(GS_DIALOG *info)
 				 (GtkAttachOptions)(0), 0, 0);
 	}
 #endif
-	dialog_action_area3 = gtk_dialog_get_action_area(GTK_DIALOG(dialog_request));
-	gtk_widget_show(dialog_action_area3);
-	gtk_button_box_set_layout(GTK_BUTTON_BOX(dialog_action_area3),
-				  GTK_BUTTONBOX_END);
 #if GTK_CHECK_VERSION(3, 10, 0)
 	if (info->no)
 		gtk_dialog_add_button(GTK_DIALOG(dialog_request),

@@ -176,8 +176,8 @@ int delete_event(GtkWidget *widget, GdkEvent *event, EDITOR *e);
 void action_quit_activate_cb(GtkWidget *widget, EDITOR *e);
 void action_new_activate_cb(GtkWidget *widget, EDITOR *e);
 void action_open_activate_cb(GtkWidget *widget, EDITOR *e);
-void action_print_cb(GtkAction *action, EDITOR *e);
-void action_print_preview_cb(GtkAction *action, EDITOR *e);
+void action_print_cb(GtkWidget *widget, EDITOR *e);
+void action_print_preview_cb(GtkWidget *widget, EDITOR *e);
 void action_save_activate_cb(GtkWidget *widget, EDITOR *e);
 void action_save_as_activate_cb(GtkWidget *widget, EDITOR *e);
 

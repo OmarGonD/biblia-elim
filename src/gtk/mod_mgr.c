@@ -3382,12 +3382,9 @@ static void set_combobox(GtkComboBox *combo)
 
 static void setup_dialog_action_area(GtkDialog *dialog)
 {
-	GtkWidget *dialog_action_area1 =
-	    gtk_dialog_get_action_area(GTK_DIALOG(dialog));
-
-	gtk_widget_show(dialog_action_area1);
-	gtk_button_box_set_layout(GTK_BUTTON_BOX(dialog_action_area1),
-				  GTK_BUTTONBOX_END);
+	/* The builder file shows the action area and lays it out at the
+	 * end; gtk_dialog_get_action_area() is deprecated (GTK4-PORT-101). */
+	(void)dialog;
 
 	/*
 	 * response buttons

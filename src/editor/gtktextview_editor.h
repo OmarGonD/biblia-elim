@@ -77,7 +77,7 @@ void action_open_activate_cb(GtkWidget *widget, EDITOR *e);
 void action_save_activate_cb(GtkWidget *widget, EDITOR *e);
 void action_save_as_activate_cb(GtkWidget *widget, EDITOR *e);
 void action_quit_activate_cb(GtkWidget *widget, EDITOR *e);
-void action_print_cb(GtkAction *action, EDITOR *e);
+void action_print_cb(GtkWidget *widget, EDITOR *e);
 void action_insert_sword_link_activate_cb(GtkWidget *widget, gpointer data);
 void action_insert_link_activate_cb(GtkWidget *widget, EDITOR *e);
 void colorbutton1_color_set_cb(GtkColorButton *widget, EDITOR *e);

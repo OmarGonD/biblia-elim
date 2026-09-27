@@ -9535,6 +9535,23 @@
     GtkEventController*; (5) containers/pack/show_all → GTK 4 child
     APIs; (6) builder XML (gtk4-builder-tool simplify --3to4);
     (7) wk-html renderer on GTK 4 GtkTextView and snapshot drawing.
+  - Step 1 (branch `gtk4-port`, 2026-09-27): DONE.
+    - dialog.c: the alert and request dialogs no longer fetch the action
+      area (gtk_dialog_new already shows it, laid out at the end).
+    - mod_mgr.c: the builder file already shows and lays out the action
+      area; the call is gone.
+    - Editor print callbacks (webkit_editor, gtktextview_editor) take the
+      menu item's GtkWidget instead of GtkAction (they are connected to
+      GtkMenuItem «activate» in gtk_webedit.ui).
+    - Evidence: full build PASS; the deprecation syntax pass over
+      `src/gtk/*.c` now reports 0 deprecated calls;
+      `gtk_lifecycle_smoke` (375 checks, 0 failed) and the word-cloud
+      tests PASS.
+    - Left for later steps: dead `#if !GTK_CHECK_VERSION(3, 12, 0)`
+      branches still name gtk_dialog_get_action_area (about_modules,
+      about_trans, font_dialog, display_info, parallel_dialog,
+      find_dialog); slib-editor.c (GtkHTML editor, built only with
+      -DGTKHTML=ON) is built on GtkActionEntry and has no GTK 4 path.
 
 - [ ] TORRES-NOISE-101 Remove engraving/apparatus OCR noise inside Torres Amat 1882 verses
   - Status: BLOCKED

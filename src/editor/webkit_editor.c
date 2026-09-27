@@ -649,13 +649,13 @@ static gint open_dialog(EDITOR *e)
 	return response;
 }
 
-G_MODULE_EXPORT void action_print_cb(GtkAction *action, EDITOR *e)
+G_MODULE_EXPORT void action_print_cb(GtkWidget *widget, EDITOR *e)
 {
 	print(WEBKIT_WEB_VIEW(e->html_widget),
 	      GTK_PRINT_OPERATION_ACTION_PRINT_DIALOG);
 }
 
-G_MODULE_EXPORT void action_print_preview_cb(GtkAction *action, EDITOR *e)
+G_MODULE_EXPORT void action_print_preview_cb(GtkWidget *widget, EDITOR *e)
 {
 	print(WEBKIT_WEB_VIEW(e->html_widget),
 	      GTK_PRINT_OPERATION_ACTION_PREVIEW);
