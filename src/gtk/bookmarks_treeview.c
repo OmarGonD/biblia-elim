@@ -797,11 +797,10 @@ static gboolean button_release_event(GtkWidget *widget,
 				   5, &mod_desc, 6, &description, -1);
 		if (!gtk_tree_model_iter_has_child(GTK_TREE_MODEL(model), &selected) && key != NULL) {
 			gboolean multi = (strpbrk(key, "-;,") != NULL);
-			gtk_widget_set_sensitive(menu.in_tab, !multi);
-			gtk_widget_set_sensitive(menu.in_dialog, !multi);
-			gtk_widget_set_sensitive(menu.new, FALSE);
-			gtk_widget_set_sensitive(menu.insert, FALSE);
-			gtk_widget_set_sensitive(menu.remove, FALSE);
+			gui_bookmark_menu_enable("en-pestana", !multi);
+			gui_bookmark_menu_enable("en-dialogo", !multi);
+			gui_bookmark_menu_enable("carpeta", FALSE);
+			gui_bookmark_menu_enable("insertar", FALSE);
 		} else {
 			/* click on treeview folder to expand or collapse it */
 			GtkTreePath *path =
@@ -815,16 +814,15 @@ static gboolean button_release_event(GtkWidget *widget,
 							 path, FALSE);
 			gtk_tree_path_free(path);
 
-			gtk_widget_set_sensitive(menu.in_tab, FALSE);
-			gtk_widget_set_sensitive(menu.in_dialog, FALSE);
-			gtk_widget_set_sensitive(menu.new, TRUE);
-			gtk_widget_set_sensitive(menu.insert, TRUE);
-			gtk_widget_set_sensitive(menu.remove, TRUE);
+			gui_bookmark_menu_enable("en-pestana", FALSE);
+			gui_bookmark_menu_enable("en-dialogo", FALSE);
+			gui_bookmark_menu_enable("carpeta", TRUE);
+			gui_bookmark_menu_enable("insertar", TRUE);
 		}
 
-		gtk_widget_set_sensitive(menu.bibletime, TRUE);
-		gtk_widget_set_sensitive(menu.edit, TRUE);
-		gtk_widget_set_sensitive(menu.delete, TRUE);
+		gui_bookmark_menu_enable("importar", TRUE);
+		gui_bookmark_menu_enable("editar", TRUE);
+		gui_bookmark_menu_enable("eliminar", TRUE);
 		is_selected = TRUE;
 	}
 
@@ -860,31 +858,20 @@ static gboolean button_release_event(GtkWidget *widget,
 		g_free(caption);
 		g_free(key);
 		g_free(module);
-#if GTK_CHECK_VERSION(3, 22, 0)
-		gtk_menu_popup_at_pointer(GTK_MENU(menu.menu), NULL);
-#else
-		gtk_menu_popup(GTK_MENU(menu.menu),
-			       NULL, NULL, NULL, NULL,
-			       event->button, event->time);
-#endif
-
-		if (!settings.browsing)
-			gtk_widget_hide(menu.in_tab);
-
-		if (gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(menu.reorder))) {
-			gtk_widget_set_sensitive(menu.in_tab, FALSE);
-			gtk_widget_set_sensitive(menu.in_dialog, FALSE);
-			gtk_widget_set_sensitive(menu.new, FALSE);
-			gtk_widget_set_sensitive(menu.insert, FALSE);
-			gtk_widget_set_sensitive(menu.edit, FALSE);
-			gtk_widget_set_sensitive(menu.delete, FALSE);
-			gtk_widget_set_sensitive(menu.bibletime, TRUE);
-			gtk_widget_set_sensitive(menu.remove, FALSE);
-			return TRUE;
-		} else {
-			gtk_widget_set_sensitive(menu.bibletime, TRUE);
-			return FALSE;
+		/* GTK4-PORT-101 step 2: a GMenu popover; «open in tab» is
+		 * left out of the model when tabs are off. */
+		gboolean reordering = gui_bookmark_menu_reordering();
+		if (reordering) {
+			gui_bookmark_menu_enable("en-pestana", FALSE);
+			gui_bookmark_menu_enable("en-dialogo", FALSE);
+			gui_bookmark_menu_enable("carpeta", FALSE);
+			gui_bookmark_menu_enable("insertar", FALSE);
+			gui_bookmark_menu_enable("editar", FALSE);
+			gui_bookmark_menu_enable("eliminar", FALSE);
 		}
+		gui_bookmark_menu_enable("importar", TRUE);
+		gui_bookmark_menu_popup(GTK_WIDGET(bookmark_tree));
+		return reordering;
 		break;
 	}
 	if (is_selected) {

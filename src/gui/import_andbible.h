@@ -74,7 +74,7 @@ gboolean andbible_import_to_temp_xml(const gchar *sqlite_path,
  * file, converts it, and merges the result into the bookmarks tree - see
  * bibletime_bookmarks_activate() in bookmarks_menu.c for the analogous,
  * existing BibleTime import. */
-G_MODULE_EXPORT void andbible_bookmarks_activate(GtkMenuItem *menuitem,
+G_MODULE_EXPORT void andbible_bookmarks_activate(gpointer menuitem,
 						  gpointer user_data);
 
 #ifdef __cplusplus

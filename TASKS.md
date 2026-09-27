@@ -9623,8 +9623,24 @@
       actions present). interlineal.c still toggles the menu bar's
       «Biblia interlineal» GtkCheckMenuItem (lines ~86–109, 893): it moves
       with the menu bar.
-    - Remaining by size: menu_popup.c 60, sidebar.c 56, main_menu.c 50,
-      bookmarks_menu.c 31, navbar_versekey*.c 23, and
+    - 6/…: bookmark popup (bookmarks_menu.c, bookmarks_treeview.c): the
+      builder GtkMenu `menu_bookmark` is gone; BOOKMARK_MENU now holds a
+      «marcadores» GSimpleActionGroup (lazy, as before). The existing
+      handlers run through thin action wrappers; the three check items
+      are boolean state actions (reordenar, referencias, colorear). The
+      tree enables/disables actions (`gui_bookmark_menu_enable`) where it
+      used to set widget sensitivity; «open in tab» is left out of the
+      model when tabs are off; the never-shown «Exportar carpeta» item is
+      not in the model. Handler parameters are `gpointer` instead of
+      GtkMenuItem (import_andbible.h too).
+      Evidence: XTEST — right-click on a folder shows the popover with
+      «Abrir…» disabled, folder items enabled and the checks matching the
+      settings; «Expandir todo» expands the tree; `gtk_lifecycle_smoke`
+      387 checks, 0 failed (bookmark checks rewritten for actions: lazy
+      creation, row actions disabled without a selection, check states
+      follow settings, not rebuilt).
+    - Remaining by size: menu_popup.c 60, sidebar.c 56 (includes the verse
+      list popup), main_menu.c 50, navbar_versekey*.c 23, and
       the builder menus xi-menus.gtkbuilder / xi-menus-popup.gtkbuilder
       (menu bar → `gtk_menu_bar_new_from_model`, GTK 4
       GtkPopoverMenuBar).

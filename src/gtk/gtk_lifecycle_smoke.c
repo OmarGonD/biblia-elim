@@ -846,21 +846,33 @@ exercise_application(gpointer unused)
 
 	/* Hidden sidebar menus must stay unbuilt until first use. */
 	check(sidebar.menu_item_save_search == NULL, "results popup built at startup");
-	check(menu.menu == NULL, "bookmark popup built at startup");
+	check(menu.actions == NULL, "bookmark popup built at startup");
 	GtkWidget *results_menu = gui_sidebar_results_menu();
 	check(GTK_IS_MENU(results_menu), "lazy results popup missing");
 	check(results_menu == gui_sidebar_results_menu(), "results popup rebuilt");
+	/* GTK4-PORT-101 step 2: the bookmark popup is «marcadores» actions. */
 	gui_create_bookmark_menu();
-	GtkWidget *bookmark_menu = menu.menu;
-	check(GTK_IS_MENU(bookmark_menu), "lazy bookmark popup missing");
-	check(GTK_IS_MENU_ITEM(menu.insert) && GTK_IS_MENU_ITEM(menu.in_tab),
+	GSimpleActionGroup *bookmark_actions = menu.actions;
+	check(G_IS_SIMPLE_ACTION_GROUP(bookmark_actions), "lazy bookmark popup missing");
+	check(bookmark_actions &&
+	      g_action_group_has_action(G_ACTION_GROUP(bookmark_actions), "insertar") &&
+	      g_action_group_has_action(G_ACTION_GROUP(bookmark_actions), "en-pestana"),
 	      "lazy bookmark popup fields missing");
-	check(gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(menu.crossref_popup)) ==
-	      settings.crossref_popup, "lazy bookmark popup lost cross-reference setting");
-	check(gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(menu.tag_colorize)) ==
-	      settings.tag_colorize, "lazy bookmark popup lost colour setting");
+	check(bookmark_actions &&
+	      !g_action_group_get_action_enabled(G_ACTION_GROUP(bookmark_actions), "editar"),
+	      "bookmark row actions enabled without a selection");
+	GVariant *crossref = bookmark_actions ? g_action_group_get_action_state(
+	    G_ACTION_GROUP(bookmark_actions), "referencias") : NULL;
+	check(crossref && g_variant_get_boolean(crossref) == (settings.crossref_popup != 0),
+	      "lazy bookmark popup lost cross-reference setting");
+	GVariant *colorize = bookmark_actions ? g_action_group_get_action_state(
+	    G_ACTION_GROUP(bookmark_actions), "colorear") : NULL;
+	check(colorize && g_variant_get_boolean(colorize) == (settings.tag_colorize != 0),
+	      "lazy bookmark popup lost colour setting");
+	if (crossref) g_variant_unref(crossref);
+	if (colorize) g_variant_unref(colorize);
 	gui_create_bookmark_menu();
-	check(bookmark_menu == menu.menu, "bookmark popup rebuilt");
+	check(bookmark_actions == menu.actions, "bookmark popup rebuilt");
 	check(GTK_IS_WINDOW(widgets.app), "main window was not created");
 	check(gtk_widget_get_visible(widgets.app), "main window was not shown");
 	check(gtk_widget_get_realized(widgets.app), "main window was not realized");

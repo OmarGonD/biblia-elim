@@ -201,7 +201,7 @@ static void add_item_to_tree(GtkTreeIter *iter, GtkTreeIter *parent,
  *   void
  */
 
-G_MODULE_EXPORT void bibletime_bookmarks_activate(GtkMenuItem *menuitem,
+G_MODULE_EXPORT void bibletime_bookmarks_activate(gpointer menuitem,
 						  gpointer user_data)
 {
 	GtkTreeIter iter;
@@ -343,7 +343,7 @@ static void remove_existing_andbible_folder(GtkTreeIter *parent)
  *   void
  */
 
-G_MODULE_EXPORT void andbible_bookmarks_activate(GtkMenuItem *menuitem,
+G_MODULE_EXPORT void andbible_bookmarks_activate(gpointer menuitem,
 						  gpointer user_data)
 {
 	GtkTreeIter iter;
@@ -460,61 +460,30 @@ G_MODULE_EXPORT void andbible_bookmarks_activate(GtkMenuItem *menuitem,
  *   void
  */
 
-G_MODULE_EXPORT void on_allow_reordering_activate(GtkMenuItem *menuitem,
-						  gpointer user_data)
+static void on_reorder_state(GSimpleAction *action, GVariant *state, gpointer data)
 {
-	gtk_tree_view_set_reorderable(bookmark_tree,
-				      gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(menuitem)));
+	(void)data;
+	g_simple_action_set_state(action, state);
+	gtk_tree_view_set_reorderable(bookmark_tree, g_variant_get_boolean(state));
 }
 
-/******************************************************************************
- * Name
- *   on_crossref_popup_activate
- *
- * Synopsis
- *   #include "gui/bookmarks_menu.h"
- *
- *   void on_crossref_popup_activate(GtkMenuItem *menuitem,
- *                                   gpointer user_data)
- *
- * Description
- *   toggle popup menu for cross-references
- *
- * Return value
- *   void
- */
-G_MODULE_EXPORT void on_crossref_popup_activate(GtkMenuItem *menuitem,
-                                                gpointer user_data)
+static void on_crossref_popup_state(GSimpleAction *action, GVariant *state, gpointer data)
 {
-    settings.crossref_popup =
-        gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(menuitem));
-    xml_set_value("Xiphos", "misc", "crossref_popup",
-                  settings.crossref_popup ? "1" : "0");
+	(void)data;
+	g_simple_action_set_state(action, state);
+	settings.crossref_popup = g_variant_get_boolean(state);
+	xml_set_value("Xiphos", "misc", "crossref_popup",
+		      settings.crossref_popup ? "1" : "0");
 }
-/******************************************************************************
- * Name
- *   on_tag_colorize_activate
- *
- * Synopsis
- *   #include "gui/bookmarks_menu.h"
- *
- *   void on_tag_colorize_activate(GtkMenuItem *menuitem,
- *                                 gpointer user_data)
- *
- * Description
- *   toggle verse colorization by bookmark folder color
- *
- * Return value
- *   void
- */
-G_MODULE_EXPORT void on_tag_colorize_activate(GtkMenuItem *menuitem,
-                                              gpointer user_data)
+
+static void on_tag_colorize_state(GSimpleAction *action, GVariant *state, gpointer data)
 {
-    settings.tag_colorize =
-        gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(menuitem));
-    xml_set_value("Xiphos", "misc", "tag_colorize",
-                  settings.tag_colorize ? "1" : "0");
-    main_display_bible(NULL, settings.currentverse);
+	(void)data;
+	g_simple_action_set_state(action, state);
+	settings.tag_colorize = g_variant_get_boolean(state);
+	xml_set_value("Xiphos", "misc", "tag_colorize",
+		      settings.tag_colorize ? "1" : "0");
+	main_display_bible(NULL, settings.currentverse);
 }
 
 /******************************************************************************
@@ -534,7 +503,7 @@ G_MODULE_EXPORT void on_tag_colorize_activate(GtkMenuItem *menuitem,
  *   void
  */
 
-G_MODULE_EXPORT void on_dialog_activate(GtkMenuItem *menuitem,
+G_MODULE_EXPORT void on_dialog_activate(gpointer menuitem,
 					gpointer user_data)
 {
 	GtkTreeIter selected;
@@ -582,7 +551,7 @@ G_MODULE_EXPORT void on_dialog_activate(GtkMenuItem *menuitem,
  *   void
  */
 
-G_MODULE_EXPORT void on_edit_item_activate(GtkMenuItem *menuitem,
+G_MODULE_EXPORT void on_edit_item_activate(gpointer menuitem,
 					   gpointer user_data)
 {
 	GtkTreeSelection *selection;
@@ -735,7 +704,7 @@ cleanup:
  *   void
  */
 
-G_MODULE_EXPORT void on_export_folder_activate(GtkMenuItem *menuitem,
+G_MODULE_EXPORT void on_export_folder_activate(gpointer menuitem,
 					       gpointer user_data)
 {
 	gui_export_bookmarks_dialog(BOOKMARKS_EXPORT, NULL);
@@ -757,7 +726,7 @@ G_MODULE_EXPORT void on_export_folder_activate(GtkMenuItem *menuitem,
  *   void
  */
 
-G_MODULE_EXPORT void on_delete_item_activate(GtkMenuItem *menuitem,
+G_MODULE_EXPORT void on_delete_item_activate(gpointer menuitem,
 					     gpointer user_data)
 {
 	gchar *name_string;
@@ -814,7 +783,7 @@ G_MODULE_EXPORT void on_delete_item_activate(GtkMenuItem *menuitem,
  *   void
  */
 
-void gui_save_bookmarks(GtkMenuItem *menuitem, gpointer user_data)
+void gui_save_bookmarks(gpointer menuitem, gpointer user_data)
 {
 
 	GtkTreeIter root;
@@ -867,7 +836,7 @@ void gui_save_bookmarks_treeview(void)
  *   void
  */
 
-G_MODULE_EXPORT void on_expand_activate(GtkMenuItem *menuitem,
+G_MODULE_EXPORT void on_expand_activate(gpointer menuitem,
 					gpointer user_data)
 {
 	gtk_tree_view_expand_all(bookmark_tree);
@@ -890,7 +859,7 @@ G_MODULE_EXPORT void on_expand_activate(GtkMenuItem *menuitem,
  *   void
  */
 
-G_MODULE_EXPORT void on_collapse_activate(GtkMenuItem *menuitem,
+G_MODULE_EXPORT void on_collapse_activate(gpointer menuitem,
 					  gpointer user_data)
 {
 	gtk_tree_view_collapse_all(bookmark_tree);
@@ -914,7 +883,7 @@ G_MODULE_EXPORT void on_collapse_activate(GtkMenuItem *menuitem,
  *   void
  */
 
-void on_add_bookmark_activate(GtkMenuItem *menuitem, gpointer user_data)
+void on_add_bookmark_activate(gpointer menuitem, gpointer user_data)
 {
 	GtkTreeIter selected;
 	GtkTreeIter iter;
@@ -985,7 +954,7 @@ void on_add_bookmark_activate(GtkMenuItem *menuitem, gpointer user_data)
  *   void
  */
 
-G_MODULE_EXPORT void on_insert_bookmark_activate(GtkMenuItem *menuitem,
+G_MODULE_EXPORT void on_insert_bookmark_activate(gpointer menuitem,
 						 gpointer user_data)
 {
 	on_add_bookmark_activate(menuitem, NULL);
@@ -1008,7 +977,7 @@ G_MODULE_EXPORT void on_insert_bookmark_activate(GtkMenuItem *menuitem,
  *   void
  */
 
-G_MODULE_EXPORT void on_new_folder_activate(GtkMenuItem *menuitem,
+G_MODULE_EXPORT void on_new_folder_activate(gpointer menuitem,
 					    gpointer user_data)
 {
 	GtkTreeIter selected;
@@ -1095,7 +1064,7 @@ G_MODULE_EXPORT void on_new_folder_activate(GtkMenuItem *menuitem,
  *   void
  */
 
-G_MODULE_EXPORT void on_open_in_tab_activate(GtkMenuItem *menuitem,
+G_MODULE_EXPORT void on_open_in_tab_activate(gpointer menuitem,
 					     gpointer user_data)
 {
 	GtkTreeSelection *selection;
@@ -1135,7 +1104,7 @@ G_MODULE_EXPORT void on_open_in_tab_activate(GtkMenuItem *menuitem,
  */
 
 #if GTK_CHECK_VERSION(3, 4, 0)
-G_MODULE_EXPORT void on_set_tag_color_activate(GtkMenuItem *menuitem,
+G_MODULE_EXPORT void on_set_tag_color_activate(gpointer menuitem,
 											   gpointer user_data)
 {
 	GtkTreeIter selected;
@@ -1179,48 +1148,104 @@ G_MODULE_EXPORT void on_set_tag_color_activate(GtkMenuItem *menuitem,
 }
 #endif
 
+/* Each item's action runs the handler it always ran. */
+#define BOOKMARK_ACTION(fn) \
+	static void fn##_action(GSimpleAction *a, GVariant *p, gpointer d) \
+	{ (void)a; (void)p; (void)d; fn(NULL, NULL); }
+BOOKMARK_ACTION(on_open_in_tab_activate)
+BOOKMARK_ACTION(on_dialog_activate)
+BOOKMARK_ACTION(on_new_folder_activate)
+BOOKMARK_ACTION(on_insert_bookmark_activate)
+BOOKMARK_ACTION(on_edit_item_activate)
+BOOKMARK_ACTION(on_delete_item_activate)
+BOOKMARK_ACTION(on_expand_activate)
+BOOKMARK_ACTION(on_collapse_activate)
+BOOKMARK_ACTION(bibletime_bookmarks_activate)
+BOOKMARK_ACTION(andbible_bookmarks_activate)
+
 void gui_create_bookmark_menu(void)
 {
-	if (menu.menu)
+	if (menu.actions)
 		return;
-	GtkBuilder *gxml = elim_gtk_builder_new();
-	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/xi-menus-popup.gtkbuilder", NULL);
-	g_return_if_fail((gxml != NULL));
+	const GActionEntry entries[] = {
+		{ "en-pestana", on_open_in_tab_activate_action, NULL, NULL, NULL, { 0 } },
+		{ "en-dialogo", on_dialog_activate_action, NULL, NULL, NULL, { 0 } },
+		{ "carpeta", on_new_folder_activate_action, NULL, NULL, NULL, { 0 } },
+		{ "insertar", on_insert_bookmark_activate_action, NULL, NULL, NULL, { 0 } },
+		{ "editar", on_edit_item_activate_action, NULL, NULL, NULL, { 0 } },
+		{ "eliminar", on_delete_item_activate_action, NULL, NULL, NULL, { 0 } },
+		{ "expandir", on_expand_activate_action, NULL, NULL, NULL, { 0 } },
+		{ "contraer", on_collapse_activate_action, NULL, NULL, NULL, { 0 } },
+		{ "importar", bibletime_bookmarks_activate_action, NULL, NULL, NULL, { 0 } },
+		{ "importar-andbible", andbible_bookmarks_activate_action, NULL, NULL, NULL, { 0 } },
+		{ "reordenar", NULL, NULL, "false", on_reorder_state, { 0 } },
+		{ "referencias", NULL, NULL, settings.crossref_popup ? "true" : "false",
+		  on_crossref_popup_state, { 0 } },
+		{ "colorear", NULL, NULL, settings.tag_colorize ? "true" : "false",
+		  on_tag_colorize_state, { 0 } },
+	};
+	menu.actions = g_simple_action_group_new();
+	g_action_map_add_action_entries(G_ACTION_MAP(menu.actions), entries,
+					G_N_ELEMENTS(entries), NULL);
+	/* Row actions wait for a selection. */
+	static const char *const row_actions[] = {
+		"en-pestana", "en-dialogo", "carpeta", "insertar", "editar", "eliminar"
+	};
+	for (guint i = 0; i < G_N_ELEMENTS(row_actions); ++i)
+		gui_bookmark_menu_enable(row_actions[i], FALSE);
+}
 
-	menu.menu = UI_GET_ITEM(gxml, "menu_bookmark");
-	menu.in_tab = UI_GET_ITEM(gxml, "open_in_new_tab");
-	menu.in_dialog = UI_GET_ITEM(gxml, "open_in_a_dialog");
-	menu.new = UI_GET_ITEM(gxml, "new_folder");
-	menu.insert = UI_GET_ITEM(gxml, "insert_bookmark");
-	menu.edit = UI_GET_ITEM(gxml, "edit_item");
-	menu.delete = UI_GET_ITEM(gxml, "delete_item");
-	menu.reorder = UI_GET_ITEM(gxml, "allow_reordering");
-	menu.bibletime = UI_GET_ITEM(gxml, "import_bibletime_bookmarks1");
-	menu.andbible = UI_GET_ITEM(gxml, "import_andbible_bookmarks1");
-	menu.remove = UI_GET_ITEM(gxml, "remove_folder");
-	menu.set_color   = UI_GET_ITEM(gxml, "set_tag_color");
-	menu.crossref_popup = UI_GET_ITEM(gxml, "crossref_popup");
-	gtk_check_menu_item_set_active(
-	GTK_CHECK_MENU_ITEM(menu.crossref_popup),
-	settings.crossref_popup);
-	menu.tag_colorize = UI_GET_ITEM(gxml, "tag_colorize");
-	gtk_check_menu_item_set_active(
-	GTK_CHECK_MENU_ITEM(menu.tag_colorize),
-	settings.tag_colorize);
+void gui_bookmark_menu_enable(const char *action, gboolean enabled)
+{
+	gui_create_bookmark_menu();
+	GAction *found = g_action_map_lookup_action(G_ACTION_MAP(menu.actions), action);
+	if (found)
+		g_simple_action_set_enabled(G_SIMPLE_ACTION(found), enabled);
+}
 
-	gtk_widget_set_sensitive(menu.in_tab, FALSE);
-	gtk_widget_set_sensitive(menu.in_dialog, FALSE);
-	gtk_widget_set_sensitive(menu.new, FALSE);
-	gtk_widget_set_sensitive(menu.insert, FALSE);
-	gtk_widget_set_sensitive(menu.edit, FALSE);
-	gtk_widget_set_sensitive(menu.delete, FALSE);
-	gtk_widget_set_sensitive(menu.bibletime, TRUE);
-	gtk_widget_set_sensitive(menu.andbible, TRUE);
+gboolean gui_bookmark_menu_reordering(void)
+{
+	gui_create_bookmark_menu();
+	GVariant *state = g_action_group_get_action_state(G_ACTION_GROUP(menu.actions),
+							  "reordenar");
+	gboolean on = state && g_variant_get_boolean(state);
+	if (state)
+		g_variant_unref(state);
+	return on;
+}
 
-	gtk_widget_set_sensitive(menu.remove, TRUE);
-	gtk_widget_hide(menu.remove);
-/* connect signals and data */
-	gtk_builder_connect_signals(gxml, NULL);
-/*gtk_builder_connect_signals_full
-	   (gxml, (GtkBuilderConnectFunc)gui_glade_signal_connect_func, NULL); */
+GtkWidget *gui_bookmark_menu_popup(GtkWidget *tree)
+{
+	gui_create_bookmark_menu();
+	gtk_widget_insert_action_group(tree, "marcadores", G_ACTION_GROUP(menu.actions));
+	GMenu *model = g_menu_new();
+	GMenu *items = g_menu_new();
+	if (settings.browsing)
+		g_menu_append(items, _("Abrir en pestaña nueva"), "marcadores.en-pestana");
+	g_menu_append(items, _("Abrir en un diálogo"), "marcadores.en-dialogo");
+	g_menu_append(items, _("Carpeta nueva"), "marcadores.carpeta");
+	g_menu_append(items, _("Insertar marcador"), "marcadores.insertar");
+	g_menu_append(items, _("_Editar elemento"), "marcadores.editar");
+	g_menu_append(items, _("Eliminar elemento"), "marcadores.eliminar");
+	g_menu_append_section(model, NULL, G_MENU_MODEL(items));
+	g_object_unref(items);
+	GMenu *tree_items = g_menu_new();
+	g_menu_append(tree_items, _("Expandir todo"), "marcadores.expandir");
+	g_menu_append(tree_items, _("Contraer todo"), "marcadores.contraer");
+	g_menu_append_section(model, NULL, G_MENU_MODEL(tree_items));
+	g_object_unref(tree_items);
+	GMenu *toggles = g_menu_new();
+	g_menu_append(toggles, _("Permitir reordenar"), "marcadores.reordenar");
+	g_menu_append(toggles, _("Menú de referencias cruzadas"), "marcadores.referencias");
+	g_menu_append(toggles, _("Colorear versículos por carpeta"), "marcadores.colorear");
+	g_menu_append_section(model, NULL, G_MENU_MODEL(toggles));
+	g_object_unref(toggles);
+	GMenu *imports = g_menu_new();
+	g_menu_append(imports, _("Importar marcadores"), "marcadores.importar");
+	g_menu_append(imports, _("Importar marcadores de AndBible"), "marcadores.importar-andbible");
+	g_menu_append_section(model, NULL, G_MENU_MODEL(imports));
+	g_object_unref(imports);
+	GtkWidget *popover = gui_popup_menu_model_at_pointer(G_MENU_MODEL(model), tree);
+	g_object_unref(model);
+	return popover;
 }
