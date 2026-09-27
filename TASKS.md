@@ -9579,9 +9579,19 @@
       «back»; choosing «Lucas 22:1» navigates there and releases the
       toggle; `gtk_lifecycle_smoke` 380 checks, 0 failed (new: two
       sections, two commands, three actions).
+    - 3/…: book editor tree context menu (treekey-editor.c): the builder
+      GtkMenu `menu_edit_tree` (and its static global) is gone from
+      xi-menus-popup.gtkbuilder; a GMenu over «arbol» actions (hijo,
+      hermano, quitar, editar; the EDITOR is the actions' data) opens as
+      a popover pointing at the right-click. `create_edit_tree_menu()`
+      leaves treekey-editor.h.
+      Evidence: build without warnings; builder XML valid (xmllint);
+      `gtk_lifecycle_smoke` 381 checks, 0 failed (new: a book editor tree
+      carries the four actions). Not exercised by hand: no writable
+      book (prayer list / journal) is installed in the test profile.
     - Remaining by size: menu_popup.c 60, sidebar.c 56, main_menu.c 50,
       bookmarks_menu.c 31, interlineal.c 21, parallel_view.c 12,
-      navbar_versekey*.c 23, treekey-editor.c 10, and
+      navbar_versekey*.c 23, and
       the builder menus xi-menus.gtkbuilder / xi-menus-popup.gtkbuilder
       (menu bar → `gtk_menu_bar_new_from_model`, GTK 4
       GtkPopoverMenuBar).

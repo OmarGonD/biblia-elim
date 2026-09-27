@@ -24,6 +24,12 @@
 #include "gui/widgets.h"
 #include "gui/nube_palabras.h"
 #include "gui/utilities.h"
+#ifdef USE_WEBKIT_EDITOR
+#include "editor/webkit_editor.h"
+#else
+#include "editor/slib-editor.h"
+#endif
+#include "gui/treekey-editor.h"
 #include "main/display.hh"
 #include "main/navbar_versekey.h"
 #include "main/tab_history.h"
@@ -922,6 +928,22 @@ exercise_application(gpointer unused)
 		check_word_cloud();
 		check_word_cloud_dialog();
 		check_file_chooser_fits();
+		/* GTK4-PORT-101 step 2: the book editor's tree menu is a GMenu
+		 * over «arbol» actions (a missing book just leaves it empty). */
+		{
+			EDITOR editor = { 0 };
+			editor.module = (gchar *)"NoSuchBook";
+			GtkWidget *tree = gui_create_editor_tree(&editor);
+			g_object_ref_sink(tree);
+			GActionGroup *arbol = gtk_widget_get_action_group(tree, "arbol");
+			check(arbol && g_action_group_has_action(arbol, "hijo") &&
+			      g_action_group_has_action(arbol, "hermano") &&
+			      g_action_group_has_action(arbol, "quitar") &&
+			      g_action_group_has_action(arbol, "editar"),
+			      "book editor tree actions missing");
+			gtk_widget_destroy(tree);
+			g_object_unref(tree);
+		}
         check_sqlite_parallel();
 		/* Keys of a Bible only SQLite holds resolve through SQLite, even
 		 * with SWORD running beside it for commentaries. */

@@ -39,10 +39,6 @@
 
 #include "gui/debug_glib_null.h"
 
-void on_add_sibling_activate(GtkMenuItem *menuitem, gpointer user_data);
-void on_add_child_activate(GtkMenuItem *menuitem, gpointer user_data);
-void on_remove_activate(GtkMenuItem *menuitem, gpointer user_data);
-void on_edit_activate2(GtkMenuItem *menuitem, gpointer user_data);
 
 typedef struct _item_info INFO;
 struct _item_info
@@ -66,7 +62,6 @@ enum {
 	N_COLUMNS
 };
 
-static GtkWidget *menu;
 
 INFO *_get_info(GtkWidget *tree)
 {
@@ -111,8 +106,8 @@ static void _button_one(EDITOR *e)
 	g_free(info);
 }
 
-G_MODULE_EXPORT void
-on_add_sibling_activate(GtkMenuItem *menuitem, gpointer user_data)
+static void
+on_add_sibling_activate(GSimpleAction *action, GVariant *parameter, gpointer user_data)
 {
 	INFO *info;
 	EDITOR *e = (EDITOR *)user_data;
@@ -168,8 +163,8 @@ on_add_sibling_activate(GtkMenuItem *menuitem, gpointer user_data)
 	g_free(d);
 }
 
-G_MODULE_EXPORT void
-on_add_child_activate(GtkMenuItem *menuitem, gpointer user_data)
+static void
+on_add_child_activate(GSimpleAction *action, GVariant *parameter, gpointer user_data)
 {
 	INFO *info;
 	EDITOR *e = (EDITOR *)user_data;
@@ -234,8 +229,8 @@ on_add_child_activate(GtkMenuItem *menuitem, gpointer user_data)
 	g_free(d);
 }
 
-G_MODULE_EXPORT void
-on_remove_activate(GtkMenuItem *menuitem, gpointer user_data)
+static void
+on_remove_activate(GSimpleAction *action, GVariant *parameter, gpointer user_data)
 {
 	INFO *info;
 	EDITOR *editor = (EDITOR *)user_data;
@@ -267,8 +262,8 @@ on_remove_activate(GtkMenuItem *menuitem, gpointer user_data)
 	g_free(icon_name);
 }
 
-G_MODULE_EXPORT void
-on_edit_activate2(GtkMenuItem *menuitem, gpointer user_data)
+static void
+on_edit_activate2(GSimpleAction *action, GVariant *parameter, gpointer user_data)
 {
 	INFO *info;
 	EDITOR *editor = (EDITOR *)user_data;
@@ -308,18 +303,58 @@ on_edit_activate2(GtkMenuItem *menuitem, gpointer user_data)
 	g_free(d);
 }
 
-GtkWidget *create_edit_tree_menu(EDITOR *editor)
+/* GTK4-PORT-101 step 2: the tree's context menu is a GMenu over «arbol»
+ * actions installed on the tree view, with the editor as their data. */
+static void install_tree_actions(GtkWidget *treeview, EDITOR *editor)
 {
-	GtkWidget *menu;
-	GtkBuilder *gxml = elim_gtk_builder_new();
-	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/xi-menus-popup.gtkbuilder", NULL);
-	g_return_val_if_fail((gxml != NULL), NULL);
+	const GActionEntry actions[] = {
+		{ "hijo", on_add_child_activate, NULL, NULL, NULL, { 0 } },
+		{ "hermano", on_add_sibling_activate, NULL, NULL, NULL, { 0 } },
+		{ "quitar", on_remove_activate, NULL, NULL, NULL, { 0 } },
+		{ "editar", on_edit_activate2, NULL, NULL, NULL, { 0 } },
+	};
+	GSimpleActionGroup *group = g_simple_action_group_new();
+	g_action_map_add_action_entries(G_ACTION_MAP(group), actions,
+					G_N_ELEMENTS(actions), editor);
+	gtk_widget_insert_action_group(treeview, "arbol", G_ACTION_GROUP(group));
+	g_object_unref(group);
+}
 
-	menu = UI_GET_ITEM(gxml, "menu_edit_tree");
-	gtk_builder_connect_signals(gxml, editor);
-/* gtk_builder_connect_signals_full
-	   (gxml, (GtkBuilderConnectFunc)gui_glade_signal_connect_func, editor); */
-	return menu;
+static GMenuModel *tree_menu_model(void)
+{
+	GMenu *menu = g_menu_new();
+	g_menu_append(menu, _("Añadir subelemento"), "arbol.hijo");
+	g_menu_append(menu, _("Añadir elemento"), "arbol.hermano");
+	g_menu_append(menu, _("Quitar"), "arbol.quitar");
+	g_menu_append(menu, _("Editar"), "arbol.editar");
+	return G_MENU_MODEL(menu);
+}
+
+static gboolean destroy_popover_idle(gpointer popover)
+{
+	gtk_widget_destroy(GTK_WIDGET(popover));
+	return G_SOURCE_REMOVE;
+}
+
+/* After the chosen item's action has run. */
+static void destroy_popover_later(GtkPopover *popover, gpointer unused)
+{
+	(void)unused;
+	g_idle_add(destroy_popover_idle, popover);
+}
+
+static void popup_tree_menu(GtkWidget *treeview, GdkEventButton *event)
+{
+	GMenuModel *model = tree_menu_model();
+	GtkWidget *popover = gtk_popover_new_from_model(treeview, model);
+	g_object_unref(model);
+	int x, y;
+	gtk_tree_view_convert_bin_window_to_widget_coords(
+	    GTK_TREE_VIEW(treeview), (int)event->x, (int)event->y, &x, &y);
+	GdkRectangle at = { x, y, 1, 1 };
+	gtk_popover_set_pointing_to(GTK_POPOVER(popover), &at);
+	g_signal_connect(popover, "closed", G_CALLBACK(destroy_popover_later), NULL);
+	gtk_popover_popup(GTK_POPOVER(popover));
 }
 
 static gboolean on_button_release(GtkWidget *widget,
@@ -348,15 +383,8 @@ static gboolean on_button_release(GtkWidget *widget,
 		path = gtk_tree_model_get_path(model, &selected);
 		depth = gtk_tree_path_get_depth(path);
 
-		if (depth > 1) {
-#if GTK_CHECK_VERSION(3, 22, 0)
-			gtk_menu_popup_at_widget(GTK_MENU(menu), widget, 0, 0, NULL);
-#else
-			gtk_menu_popup(GTK_MENU(menu),
-				       NULL, NULL, NULL, NULL,
-				       0, gtk_get_current_event_time());
-#endif
-		}
+		if (depth > 1)
+			popup_tree_menu(widget, event);
 
 		gtk_tree_path_free(path);
 		return FALSE;
@@ -375,7 +403,7 @@ GtkWidget *gui_create_editor_tree(EDITOR *editor)
 		    editor->module));
 	main_load_book_tree_in_editor(GTK_TREE_VIEW(treeview),
 				      editor->module);
-	menu = create_edit_tree_menu(editor);
+	install_tree_actions(treeview, editor);
 
 	g_signal_connect_after((gpointer)treeview,
 			       "button_release_event",

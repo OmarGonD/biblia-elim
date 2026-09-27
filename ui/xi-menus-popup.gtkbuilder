@@ -186,57 +186,6 @@
       </object>
     </child>
   </object>
-  <object class="GtkMenu" id="menu_edit_tree">
-    <property name="can_focus">False</property>
-    <child>
-      <object class="GtkImageMenuItem" id="add_child">
-        <property name="label" translatable="yes">Añadir subelemento</property>
-        <property name="use_action_appearance">False</property>
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="tooltip_text" translatable="yes">Añadir un subelemento</property>
-        <property name="use_underline">True</property>
-        <property name="use_stock">True</property>
-        <signal name="activate" handler="on_add_child_activate" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkImageMenuItem" id="add_sibling">
-        <property name="label" translatable="yes">Añadir elemento</property>
-        <property name="use_action_appearance">False</property>
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="tooltip_text" translatable="yes">Añadir un elemento</property>
-        <property name="use_underline">True</property>
-        <property name="use_stock">True</property>
-        <signal name="activate" handler="on_add_sibling_activate" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkImageMenuItem" id="remove">
-        <property name="label" translatable="yes">Quitar</property>
-        <property name="use_action_appearance">False</property>
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="tooltip_text" translatable="yes">Quitar este elemento</property>
-        <property name="use_underline">True</property>
-        <property name="use_stock">True</property>
-        <signal name="activate" handler="on_remove_activate" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkImageMenuItem" id="edit">
-        <property name="label" translatable="yes">Editar</property>
-        <property name="use_action_appearance">False</property>
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="tooltip_text" translatable="yes">Editar este elemento</property>
-        <property name="use_underline">True</property>
-        <property name="use_stock">True</property>
-        <signal name="activate" handler="on_edit_activate2" swapped="no"/>
-      </object>
-    </child>
-  </object>
   <object class="GtkMenu" id="menu_modules">
     <property name="can_focus">False</property>
     <child>
