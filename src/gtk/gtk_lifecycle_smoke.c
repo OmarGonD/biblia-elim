@@ -91,6 +91,8 @@ check(gboolean condition, const char *what)
 	g_printerr("GTK_LIFECYCLE_SMOKE_CHECK_FAILED %s\n", what);
 }
 
+static GtkWidget *find_widget_of_type(GtkWidget *widget, GType type);
+
 static void
 check_allocation(GtkWidget *widget, gpointer unused)
 {
@@ -563,8 +565,19 @@ check_notes_features(void)
 		g_list_free(toplevels);
 		check(dialogo && gtk_widget_get_visible(dialogo),
 		      "notes dialog not shown");
-		if (dialogo)
+		if (dialogo) {
+			/* GTK4-PORT-101 step 2: «Exportar…» is a GMenu with actions. */
+			GtkWidget *exportar = find_widget_of_type(dialogo, GTK_TYPE_MENU_BUTTON);
+			GMenuModel *modelo = exportar ?
+				gtk_menu_button_get_menu_model(GTK_MENU_BUTTON(exportar)) : NULL;
+			check(modelo && g_menu_model_get_n_items(modelo) == 2,
+			      "notes export menu model missing");
+			GActionGroup *grupo = gtk_widget_get_action_group(dialogo, "notas");
+			check(grupo && g_action_group_has_action(grupo, "exportar-md") &&
+			      g_action_group_has_action(grupo, "exportar-json"),
+			      "notes export actions missing");
 			gtk_widget_destroy(dialogo);
+		}
 	}
 
 	note_remove_whole_verse(settings.MainWindowModule, "John.3.16");

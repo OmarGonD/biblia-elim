@@ -87,6 +87,7 @@ typedef struct {
 	GList *mostradas; /* BN_NOTA* en la lista ahora mismo, en su orden */
 	gboolean llenando; /* rellenando los filtros: sus «changed» no cuentan */
 	guint tecleo;
+	GSimpleAction *accion_md; /* «notas.exportar-md»: solo con notas mostradas */
 } BNUI;
 
 static BNUI *ui = NULL;
@@ -665,58 +666,59 @@ exportar_json(void)
 	g_free(ruta);
 }
 
+/* GTK4-PORT-101 step 2: a GMenu with actions instead of a GtkMenu; the
+ * same GtkMenuButton, GMenu and GActionGroup calls exist in GTK 4. */
 static void
-on_exportar_md(GtkMenuItem *item, gpointer datos)
+on_exportar_md(GSimpleAction *accion, GVariant *parametro, gpointer datos)
 {
-	(void)item;
+	(void)accion;
+	(void)parametro;
 	(void)datos;
 	exportar_markdown();
 }
 
 static void
-on_exportar_json(GtkMenuItem *item, gpointer datos)
+on_exportar_json(GSimpleAction *accion, GVariant *parametro, gpointer datos)
 {
-	(void)item;
+	(void)accion;
+	(void)parametro;
 	(void)datos;
 	exportar_json();
 }
 
-static gboolean
-destruir_menu(gpointer menu)
+/* Markdown exporta lo que se ve: sin notas mostradas no hay qué exportar. */
+static void
+on_exportar_abierto(GObject *boton, GParamSpec *pspec, gpointer datos)
 {
-	gtk_widget_destroy(GTK_WIDGET(menu));
-	return G_SOURCE_REMOVE;
+	(void)boton;
+	(void)pspec;
+	(void)datos;
+	g_simple_action_set_enabled(ui->accion_md, ui->mostradas != NULL);
 }
 
 static void
-on_menu_cerrado(GtkMenuShell *menu, gpointer datos)
+preparar_exportar(GtkWidget *boton)
 {
-	(void)datos;
-	g_idle_add(destruir_menu, menu);
-}
+	static const GActionEntry acciones[] = {
+		{ "exportar-md", on_exportar_md, NULL, NULL, NULL, { 0 } },
+		{ "exportar-json", on_exportar_json, NULL, NULL, NULL, { 0 } },
+	};
+	GSimpleActionGroup *grupo = g_simple_action_group_new();
+	g_action_map_add_action_entries(G_ACTION_MAP(grupo), acciones,
+					G_N_ELEMENTS(acciones), NULL);
+	ui->accion_md = G_SIMPLE_ACTION(
+	    g_action_map_lookup_action(G_ACTION_MAP(grupo), "exportar-md"));
+	gtk_widget_insert_action_group(ui->dialog, "notas", G_ACTION_GROUP(grupo));
+	g_object_unref(grupo);
 
-static void
-on_exportar(GtkButton *b, gpointer datos)
-{
-	GtkWidget *menu = gtk_menu_new();
-	GtkWidget *md = gtk_menu_item_new_with_label(
-	    _("Las notas mostradas, en Markdown (para leer o imprimir)…"));
-	GtkWidget *js = gtk_menu_item_new_with_label(
-	    _("Copia completa de todas las notas (JSON)…"));
-
-	(void)datos;
-	gtk_widget_set_sensitive(md, ui->mostradas != NULL);
-	g_signal_connect(md, "activate", G_CALLBACK(on_exportar_md), NULL);
-	g_signal_connect(js, "activate", G_CALLBACK(on_exportar_json), NULL);
-	gtk_menu_shell_append(GTK_MENU_SHELL(menu), md);
-	gtk_menu_shell_append(GTK_MENU_SHELL(menu), js);
-	gtk_widget_show_all(menu);
-	gtk_menu_attach_to_widget(GTK_MENU(menu), GTK_WIDGET(b), NULL);
-	/* Después de que el elemento elegido haya hecho lo suyo. */
-	g_signal_connect(menu, "deactivate", G_CALLBACK(on_menu_cerrado), NULL);
-	gtk_menu_popup_at_widget(GTK_MENU(menu), GTK_WIDGET(b),
-				 GDK_GRAVITY_NORTH_WEST, GDK_GRAVITY_SOUTH_WEST,
-				 NULL);
+	GMenu *menu = g_menu_new();
+	g_menu_append(menu, _("Las notas mostradas, en Markdown (para leer o imprimir)…"),
+		      "notas.exportar-md");
+	g_menu_append(menu, _("Copia completa de todas las notas (JSON)…"),
+		      "notas.exportar-json");
+	gtk_menu_button_set_menu_model(GTK_MENU_BUTTON(boton), G_MENU_MODEL(menu));
+	g_object_unref(menu);
+	g_signal_connect(boton, "notify::active", G_CALLBACK(on_exportar_abierto), NULL);
 }
 
 static void
@@ -1021,7 +1023,7 @@ gui_buscar_notas_dialog(GtkWindow *padre)
 			 G_CALLBACK(on_fila_activada), NULL);
 	g_signal_connect(ui->btn_ir, "clicked", G_CALLBACK(on_ir), NULL);
 	g_signal_connect(btn_cerrar, "clicked", G_CALLBACK(on_cerrar), NULL);
-	g_signal_connect(btn_exportar, "clicked", G_CALLBACK(on_exportar), NULL);
+	preparar_exportar(btn_exportar);
 	g_signal_connect(btn_importar, "clicked", G_CALLBACK(on_importar), NULL);
 	g_signal_connect(ui->cmb_etiqueta, "changed", G_CALLBACK(on_filtro), NULL);
 	g_signal_connect(ui->cmb_libro, "changed", G_CALLBACK(on_filtro), NULL);

@@ -9552,6 +9552,26 @@
       about_trans, font_dialog, display_info, parallel_dialog,
       find_dialog); slib-editor.c (GtkHTML editor, built only with
       -DGTKHTML=ON) is built on GtkActionEntry and has no GTK 4 path.
+  - Step 2 (GtkMenu → GMenu + actions), IN PROGRESS, one menu at a time
+    (works on GTK 3 too, so master-quality at every commit):
+    - Pattern: GtkMenuButton + `gtk_menu_button_set_menu_model()` for
+      button menus; a GSimpleActionGroup inserted with
+      `gtk_widget_insert_action_group()` (no GtkApplication needed);
+      action callbacks `(GSimpleAction *, GVariant *, gpointer)`; enabled
+      state via `g_simple_action_set_enabled()`. All exist in GTK 4.
+    - 1/…: notes dialog «Exportar…» (buscar_notas.c,
+      buscar-notas.gtkbuilder): GtkButton+GtkMenu → GtkMenuButton+GMenu,
+      actions `notas.exportar-md` / `notas.exportar-json`; Markdown is
+      disabled when no note is shown.
+      Evidence: XTEST popover shows both items and «Markdown» opens its
+      save dialog; `gtk_lifecycle_smoke` 377 checks, 0 failed (new: menu
+      model has 2 items, both actions exist).
+    - Remaining by size: menu_popup.c 60, sidebar.c 56, main_menu.c 50,
+      bookmarks_menu.c 31, interlineal.c 21, parallel_view.c 12,
+      navbar_versekey*.c 23, tab_history.c 10, treekey-editor.c 10, and
+      the builder menus xi-menus.gtkbuilder / xi-menus-popup.gtkbuilder
+      (menu bar → `gtk_menu_bar_new_from_model`, GTK 4
+      GtkPopoverMenuBar).
 
 - [ ] TORRES-NOISE-101 Remove engraving/apparatus OCR noise inside Torres Amat 1882 verses
   - Status: BLOCKED

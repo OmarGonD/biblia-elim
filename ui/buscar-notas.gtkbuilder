@@ -18,7 +18,7 @@
             <property name="visible">True</property>
             <property name="layout_style">end</property>
             <child>
-              <object class="GtkButton" id="btn_exportar">
+              <object class="GtkMenuButton" id="btn_exportar">
                 <property name="label" translatable="yes">E_xportar…</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
