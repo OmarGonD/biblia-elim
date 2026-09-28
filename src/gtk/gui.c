@@ -54,6 +54,13 @@ void gui_init(int argc, char *argv[])
 	/* Prefer native Wayland on Hyprland/Omarchy; fall back to X11. */
 	if (!g_getenv("GDK_BACKEND"))
 		gdk_set_allowed_backends("wayland,x11");
+	/* GTK 4.22 picks Vulkan when it can. A reader that shows text scrolls
+	 * as smoothly with ngl, and creating the Vulkan renderer costs about
+	 * 200 ms more when the window is realized (TASKS.md GTK4-PERF-101).
+	 * A GSK_RENDERER set by the user wins. GTK 4.22 renamed "ngl" to "gl"
+	 * and warns about the old name at every start. */
+	g_setenv("GSK_RENDERER", gtk_get_minor_version() >= 22 ? "gl" : "ngl",
+		 FALSE);
 
 #ifdef ENABLE_NLS
 #ifndef WIN32

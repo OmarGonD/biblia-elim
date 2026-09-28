@@ -10469,6 +10469,58 @@
     selection and sorting semantics change), or delete the tree view before
     its consumers (drag and drop, tooltips, key handlers) have an equivalent.
 
+- [x] GTK4-PERF-101 Measure GTK 4 startup and scrolling; choose the GSK renderer
+  - Status: DONE (2026-09-28)
+  - Measured (isolated copy of the real profile: two tabs, preview, comments;
+    native Wayland, 3440x1440 at 60 Hz, scale 2; median of 3-5 runs after one
+    discarded warm-up; nothing under `src/` was modified to measure, the
+    harness lived in `/tmp`):
+    - Startup is about 0.8 s to the first painted chapter. Our own code is
+      under 1 % of the CPU samples (`perf`); the time is GTK/GLib, fonts
+      (fontconfig, freetype, harfbuzz, pango), the dynamic linker, SQLite and
+      the graphics drivers.
+    - The build directory is a Debug build (`-O0`), and `~/.local/bin/biblia-elim`
+      links to it. A `RelWithDebInfo` build gained only ~5 % (707 ms against
+      748 ms to `GTK_MAIN_ENTER`): not the bottleneck.
+    - The largest block is `WINDOW_REALIZE`, about 300 ms with the renderer
+      GTK 4.22 picks by default here (`GskVulkanRenderer`).
+  - Renderer comparison, same binary and profile:
+
+    | `GSK_RENDERER` | realize | `GTK_MAIN_ENTER` | first chapter painted |
+    |---|---|---|---|
+    | vulkan (default) | 512 ms | 728 ms | 847 ms |
+    | gl (was ngl) | 316 ms | 621 ms | 740 ms |
+    | cairo | 206 ms | 474 ms | 575 ms |
+
+  - Scrolling, 8 s at 900 px/s over the reading pane (3 187 px), 4 runs each:
+    all three renderers held 60 fps with no frame over 33 ms (480 frames, none
+    late). CPU work per frame: vulkan 1.1 ms, gl 1.1 ms, cairo 5.9 ms; CPU
+    while scrolling: about 8.8 %, 8.7 %, 37 % of one core.
+  - Decision: `gui_init()` (`src/gtk/gui.c`) sets `GSK_RENDERER` to the OpenGL
+    renderer unless the environment already defines it: `gl` on GTK >= 4.22,
+    `ngl` before (4.22 renamed it and warns about the old name at every start).
+    Vulkan gave no smoother scrolling for a text reader and costs about
+    200 ms at startup. cairo starts faster still but spends four times the CPU
+    and would run out of frame budget on a 120 Hz or faster monitor (the
+    monitor offers such modes); it stays available with `GSK_RENDERER=cairo`.
+  - Test: `gtk_lifecycle_smoke` (`check_gsk_renderer()`) requires a default,
+    forbids the renamed name on GTK >= 4.22 and forbids the Vulkan renderer when
+    the default is in effect. Forcing `"ngl"` on this GTK made it fail
+    (`GSK_RENDERER default is not a renamed renderer name`), the committed code
+    passes.
+  - Evidence: build PASS; startup with the default environment on the real
+    Wayland session: `Using renderer 'GskGLRenderer'`, 0 Gsk/Gtk/Gdk warnings,
+    `GTK_MAIN_ENTER` 618 ms and first chapter 740 ms (748 / 837 ms before, same
+    Debug binary); `GSK_RENDERER=vulkan` is still honoured; with
+    `GDK_DISABLE=gl,vulkan` the app starts on cairo. Full CTest 75/75 (597 s).
+  - Not measured: window resize, mouse selection, GPU load, the first launch
+    after boot (cold disk cache needs root to drop) and launches with empty
+    font/shader caches (about 1.4 s in the isolated profile, 0.82 s with the
+    real caches).
+  - Not done, left as options: build daily with `-DCMAKE_BUILD_TYPE=RelWithDebInfo`
+    (~40 ms); a fresh build directory fails copying the `.gmo` files
+    (`process-pot-file` stages them before they exist), unrelated to speed.
+
 # Future / not scheduled
 
 - Human-readable grammatical decoding of morphology codes.

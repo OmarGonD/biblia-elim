@@ -206,6 +206,29 @@ give_previews_room(void)
 	}
 }
 
+/* gui_init() defaults GSK_RENDERER to the OpenGL renderer (GTK4-PERF-101): the
+ * window must not end up on the Vulkan renderer unless the environment asked
+ * for it. GTK 4.22 renamed "ngl" to "gl" and warns about the old name at every
+ * start (through structured logging, which a log handler cannot see), so the
+ * name is checked against the running GTK. */
+static void
+check_gsk_renderer(void)
+{
+	const char *requested = g_getenv("GSK_RENDERER");
+	GskRenderer *renderer;
+
+	check(requested != NULL, "GSK_RENDERER has a default");
+	if (requested && gtk_get_minor_version() >= 22)
+		check(strcmp(requested, "ngl") != 0,
+		      "GSK_RENDERER default is not a renamed renderer name");
+	renderer = gtk_native_get_renderer(GTK_NATIVE(widgets.app));
+	check(renderer != NULL, "the main window has a renderer");
+	if (renderer && requested &&
+	    (strcmp(requested, "gl") == 0 || strcmp(requested, "ngl") == 0))
+		check(strcmp(G_OBJECT_TYPE_NAME(renderer), "GskVulkanRenderer") != 0,
+		      "the default renderer is not Vulkan");
+}
+
 static gboolean
 finish_smoke(gpointer unused)
 {
@@ -234,6 +257,7 @@ finish_smoke(gpointer unused)
 		      "renderer did not realize through its parent");
 	}
 	check_allocation(widgets.app, NULL);
+	check_gsk_renderer();
 
 	g_print("gtk_lifecycle_smoke_failures=%d checks=%u navigation=%u "
 		"renderers=%u panels=%u\n",
