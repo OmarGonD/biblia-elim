@@ -67,6 +67,21 @@ typedef struct {
 	gint column_width;
 } StudyReadingColumn;
 
+/* What a bare Escape in the main window does. The reading-sync card
+ * closes first (it is the innermost thing open); only then does Escape
+ * leave reading mode. While an editable has the focus Escape belongs to
+ * it (closing the lookup suggestions, cancelling an edit), so the main
+ * window leaves it alone. */
+typedef enum {
+	MAIN_ESCAPE_NONE,
+	MAIN_ESCAPE_CLOSE_FICHA,
+	MAIN_ESCAPE_EXIT_READING_MODE,
+} MainEscapeAction;
+
+MainEscapeAction main_escape_action(gboolean ficha_active,
+				    gboolean reading_mode,
+				    gboolean focus_is_editable);
+
 StudyReadingColumn main_study_reading_column(gint available_width,
 					     gint max_width,
 					     gint min_pad);

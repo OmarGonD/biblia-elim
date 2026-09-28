@@ -396,7 +396,8 @@ void gui_show_hide_dicts(gboolean choice)
  *   restores whatever the user had before, rather than forcing
  *   everything back on. Keeps the View-menu checkbox and the
  *   header-bar reading-mode button in sync no matter which of the
- *   three entry points (menu, button, Ctrl+Shift+F) triggered it.
+ *   entry points (menu, button, Ctrl+Shift+F, Escape to leave)
+ *   triggered it.
  *
  * Return value
  *   void
@@ -1105,7 +1106,7 @@ reading_strip_build(void)
 	gui_button_set_icon_and_label(GTK_BUTTON(reading_exit_button), "view-restore-symbolic");
 	gtk_button_set_has_frame(GTK_BUTTON(reading_exit_button), FALSE);
 	gtk_widget_set_tooltip_text(reading_exit_button,
-				    _("Salir del modo lectura (Ctrl+Shift+F)"));
+				    _("Salir del modo lectura (Esc o Ctrl+Shift+F)"));
 	gtk_widget_set_can_focus(reading_exit_button, FALSE);
 	g_signal_connect(reading_exit_button, "toggled",
 			 G_CALLBACK(on_reading_mode_button_toggled), NULL);
@@ -2060,6 +2061,23 @@ static void kbd_toggle_option(gboolean cond, gchar *option)
 	}
 }
 
+/* TRUE when the widget with the keyboard focus takes typed input (an
+ * entry, or a text view that is not the read-only Bible text), so keys
+ * such as Escape are its to handle. */
+static gboolean
+main_focus_is_editable(GtkWidget *widget)
+{
+	GtkRoot *root = gtk_widget_get_root(widget);
+	GtkWidget *focus = root ? gtk_root_get_focus(root) : NULL;
+
+	if (!focus)
+		return FALSE;
+	if (GTK_IS_EDITABLE(focus))
+		return TRUE;
+	return GTK_IS_TEXT_VIEW(focus) &&
+	       gtk_text_view_get_editable(GTK_TEXT_VIEW(focus));
+}
+
 static gboolean on_vbox1_key_press_event(GtkWidget *widget, GuiKeyEvent *event,
 					 gpointer user_data)
 {
@@ -2070,9 +2088,19 @@ static gboolean on_vbox1_key_press_event(GtkWidget *widget, GuiKeyEvent *event,
 	
 	switch (event->keyval) {
 	case XK_Escape:
-		if (state == 0 && gui_lectura_sync_ficha_activa()) {
+		if (state != 0)
+			break;
+		switch (main_escape_action(gui_lectura_sync_ficha_activa(),
+					   settings.reading_mode,
+					   main_focus_is_editable(widget))) {
+		case MAIN_ESCAPE_CLOSE_FICHA:
 			gui_lectura_sync_ficha_clear();
 			return TRUE;
+		case MAIN_ESCAPE_EXIT_READING_MODE:
+			gui_toggle_reading_mode(FALSE);
+			return TRUE;
+		case MAIN_ESCAPE_NONE:
+			break;
 		}
 		break;
 

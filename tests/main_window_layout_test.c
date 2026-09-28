@@ -171,6 +171,24 @@ expect_hpaned_position(void)
 		     main_study_hpaned_position(FALSE, FALSE, 420, 800), 800);
 }
 
+static void
+expect_escape_action(void)
+{
+	EXPECT_FIELD("escape outside reading mode",
+		     main_escape_action(FALSE, FALSE, FALSE), MAIN_ESCAPE_NONE);
+	EXPECT_FIELD("escape leaves reading mode",
+		     main_escape_action(FALSE, TRUE, FALSE),
+		     MAIN_ESCAPE_EXIT_READING_MODE);
+	EXPECT_FIELD("escape closes ficha before reading mode",
+		     main_escape_action(TRUE, TRUE, FALSE),
+		     MAIN_ESCAPE_CLOSE_FICHA);
+	EXPECT_FIELD("escape closes ficha in normal view",
+		     main_escape_action(TRUE, FALSE, FALSE),
+		     MAIN_ESCAPE_CLOSE_FICHA);
+	EXPECT_FIELD("escape in an entry stays with the entry",
+		     main_escape_action(FALSE, TRUE, TRUE), MAIN_ESCAPE_NONE);
+}
+
 int
 main(void)
 {
@@ -183,6 +201,7 @@ main(void)
 	expect_reading_startup();
 	expect_hpaned_position();
 	expect_reading_column();
+	expect_escape_action();
 
 	printf("main_window_layout_failures=%d\n", failures);
 	return failures ? 1 : 0;

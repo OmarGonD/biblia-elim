@@ -112,3 +112,14 @@ main_study_reading_column(gint available_width, gint max_width, gint min_pad)
 	col.right_margin = leftover - col.left_margin;
 	return col;
 }
+
+MainEscapeAction
+main_escape_action(gboolean ficha_active, gboolean reading_mode,
+		   gboolean focus_is_editable)
+{
+	if (ficha_active)
+		return MAIN_ESCAPE_CLOSE_FICHA;
+	if (reading_mode && !focus_is_editable)
+		return MAIN_ESCAPE_EXIT_READING_MODE;
+	return MAIN_ESCAPE_NONE;
+}
