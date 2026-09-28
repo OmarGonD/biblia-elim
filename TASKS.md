@@ -10296,27 +10296,6 @@
     content/versification gap in that module snapshot, not a layout issue;
     not investigated further as out of scope for this task.
 
-- [ ] TORRES-NOISE-101 Remove engraving/apparatus OCR noise inside Torres Amat 1882 verses
-  - Status: BLOCKED
-  - Description:
-    About 85 verses carry runs such as «AR Ú 5 AA A», plate captions
-    («ELTAS ALIM POR UN ÁNG EL») and letters misread inside words
-    («ceneral»).
-  - Attempted:
-    - Token-shape rule (short all-caps / single letters / symbols, runs of
-      ≥4, extended over rare neighbours): it would delete real small-caps
-      text (Exod 3:14 «YO SOY EL QUE») and leaves mixed residue.
-    - OCR confidence from the Archive `djvu.xml`: the noise runs are not in
-      it (they come from the tesseract re-OCR of `rehacer.sh`, not kept in
-      the repo), and plate captions score as high as real small caps
-      (90-96).
-  - Needed (human decision / data): either the re-OCR hOCR with word
-    geometry for those pages (to drop words inside plate regions), or a
-    verse-by-verse facsimile review of the ~85 verses through the patch
-    mechanism. No automatic rule is safe with the data in the repo.
-  - Do not:
-    - Remove text by token shape alone.
-
 - [x] GTK4-CLEAN-101 Remove dead GTK 3 code and make the GTK 4 startup free of layout warnings
   - Status: DONE (2026-09-27)
   - Removed (none of it was in any CMake target): `src/editor/editor.c`,
