@@ -30,6 +30,7 @@
 #include <glib/gi18n.h>
 #include <gio/gio.h>
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 
 #include "editor/gtktextview_editor.h"
 #include "editor/link_dialog.h"
@@ -66,7 +67,44 @@ static void do_exit(EDITOR *e);
 static void change_window_title(GtkWidget *window, const gchar *title);
 GtkWidget *editor_new(const gchar *title, EDITOR *e);
 static void _setup_text_tags(GtkTextBuffer *buffer);
-static gboolean _on_key_press(GtkWidget *widget, GdkEventKey *event, EDITOR *e);
+static gboolean _on_key_press(GtkWidget *widget, GuiKeyEvent *event, EDITOR *e);
+void action_insert_image_activate_cb(GtkWidget *widget, EDITOR *e);
+
+static gboolean
+editor_close_request_cb(GtkWindow *window, EDITOR *e)
+{
+	return delete_event(GTK_WIDGET(window), NULL, e);
+}
+
+static void
+text_view_link_pressed(GtkGestureClick *gesture, gint n_press,
+			       gdouble x, gdouble y, EDITOR *e)
+{
+	GtkWidget *widget = gtk_event_controller_get_widget(
+		GTK_EVENT_CONTROLLER(gesture));
+	GtkTextIter iter;
+	GSList *tags;
+
+	if (n_press != 1 || !gtk_text_view_get_iter_at_location(
+		GTK_TEXT_VIEW(widget), &iter, (gint)x, (gint)y))
+		return;
+
+	tags = gtk_text_iter_get_tags(&iter);
+	for (GSList *node = tags; node; node = node->next) {
+		GtkTextTag *tag = node->data;
+		gchar *name = NULL;
+		g_object_get(tag, "name", &name, NULL);
+		if (name && g_str_has_prefix(name, "sword_link_")) {
+			const gchar *uri = g_object_get_data(G_OBJECT(tag), "uri");
+			if (uri)
+				main_url_handler(uri, TRUE);
+			g_free(name);
+			break;
+		}
+		g_free(name);
+	}
+	g_slist_free(tags);
+}
 
 /* ============================================================
  * TextTag names - used throughout for formatting
@@ -297,28 +335,32 @@ _serialize_buffer(EDITOR *e)
         }
         g_slist_free(tags);
 
-        /* caractère courant */
-        if (gtk_text_iter_get_pixbuf(&iter)) {
-            /* image — on ne peut pas sérialiser le pixbuf facilement,
-             * on insère un placeholder pour l'instant */
-            g_string_append(html, "<img src=\"placeholder\"/>");
-        } else {
-            gunichar c = gtk_text_iter_get_char(&iter);
-            if (c == '<')
-                g_string_append(html, "&lt;");
-            else if (c == '>')
-                g_string_append(html, "&gt;");
-            else if (c == '&')
-                g_string_append(html, "&amp;");
-            else if (c == '\n')
-                g_string_append(html, "<br/>");
-            else {
-                gchar buf[7];
-                gint len = g_unichar_to_utf8(c, buf);
-                buf[len] = '\0';
-                g_string_append(html, buf);
-            }
-        }
+		GdkPaintable *paintable = gtk_text_iter_get_paintable(&iter);
+		if (paintable) {
+			const gchar *path = g_object_get_data(G_OBJECT(paintable),
+							     "image-path");
+			gchar *escaped = g_markup_escape_text(path ? path : "", -1);
+			g_string_append_printf(html, "<img src=\"%s\"/>", escaped);
+			g_free(escaped);
+			gtk_text_iter_forward_char(&iter);
+			continue;
+		}
+
+		gunichar c = gtk_text_iter_get_char(&iter);
+		if (c == '<')
+			g_string_append(html, "&lt;");
+		else if (c == '>')
+			g_string_append(html, "&gt;");
+		else if (c == '&')
+			g_string_append(html, "&amp;");
+		else if (c == '\n')
+			g_string_append(html, "<br/>");
+		else {
+			gchar buf[7];
+			gint len = g_unichar_to_utf8(c, buf);
+			buf[len] = '\0';
+			g_string_append(html, buf);
+		}
 
         gtk_text_iter_forward_char(&iter);
     }
@@ -409,8 +451,6 @@ _parse_html_node(GtkTextBuffer *buffer, GtkTextIter *iter,
 						g_object_set_data_full(G_OBJECT(atag), "uri",
 								       g_strdup((gchar *)href),
 								       g_free);
-						g_signal_connect(atag, "event",
-								 G_CALLBACK(_on_event), e);
 					}
 					gtk_text_buffer_apply_tag_by_name(buffer, tag_name,
 									  &start, iter);
@@ -498,12 +538,8 @@ if (body)
 static void
 _load_file(EDITOR *e, const gchar *filename)
 {
-	GtkRecentManager *rm = NULL;
 	gchar *text = NULL;
 	GError *error = NULL;
-
-	rm = gtk_recent_manager_get_default();
-	gtk_recent_manager_add_item(rm, filename);
 
 	if (e->filename)
 		g_free(e->filename);
@@ -530,7 +566,6 @@ _load_file(EDITOR *e, const gchar *filename)
 static void
 _save_file(EDITOR *e)
 {
-	GtkRecentManager *rm = NULL;
 	gchar *text = _serialize_buffer(e);
 
 	if (!e->filename ||
@@ -543,14 +578,12 @@ _save_file(EDITOR *e)
 						"_Cancel", GTK_RESPONSE_CANCEL,
 						"_OK", GTK_RESPONSE_OK,
 						NULL);
-		gtk_file_chooser_set_do_overwrite_confirmation(
-		    GTK_FILE_CHOOSER(dialog), TRUE);
-		gtk_file_chooser_set_current_folder(GTK_FILE_CHOOSER(dialog),
+		gui_file_chooser_set_current_folder(GTK_FILE_CHOOSER(dialog),
 						    settings.studypaddir);
 
-		if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_OK) {
+		if (gui_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_OK) {
 			gchar *filename =
-			    gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
+			    gui_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
 			if (e->filename)
 				g_free(e->filename);
 			e->filename = g_strdup(filename);
@@ -563,7 +596,7 @@ _save_file(EDITOR *e)
 			g_object_unref(gfile);
 		}
 		change_window_title(e->window, e->filename);
-		gtk_widget_destroy(dialog);
+		gui_widget_destroy(dialog);
 
 	} else {
 		GFile *gfile = g_file_parse_name(e->filename);
@@ -573,9 +606,6 @@ _save_file(EDITOR *e)
 					NULL, NULL, NULL);
 		g_object_unref(gfile);
 	}
-
-	rm = gtk_recent_manager_get_default();
-	gtk_recent_manager_add_item(rm, e->filename);
 
 	e->is_changed = FALSE;
 	g_free(text);
@@ -614,7 +644,7 @@ do_exit(EDITOR *e)
 	if (e->key)
 		g_free(e->key);
 	if (e->window)
-		gtk_widget_destroy(e->window);
+		gui_widget_destroy(e->window);
 	g_free(e);
 }
 
@@ -743,21 +773,21 @@ action_redo_activate_cb(GtkWidget *widget, EDITOR *e)
 G_MODULE_EXPORT void
 action_cut_activate_cb(GtkWidget *widget, EDITOR *e)
 {
-	GtkClipboard *clipboard = gtk_clipboard_get(GDK_SELECTION_CLIPBOARD);
+	GdkClipboard *clipboard = gtk_widget_get_clipboard(e->text_widget);
 	gtk_text_buffer_cut_clipboard(_get_buffer(e), clipboard, TRUE);
 }
 
 G_MODULE_EXPORT void
 action_copy_activate_cb(GtkWidget *widget, EDITOR *e)
 {
-	GtkClipboard *clipboard = gtk_clipboard_get(GDK_SELECTION_CLIPBOARD);
+	GdkClipboard *clipboard = gtk_widget_get_clipboard(e->text_widget);
 	gtk_text_buffer_copy_clipboard(_get_buffer(e), clipboard);
 }
 
 G_MODULE_EXPORT void
 action_paste_activate_cb(GtkWidget *widget, EDITOR *e)
 {
-	GtkClipboard *clipboard = gtk_clipboard_get(GDK_SELECTION_CLIPBOARD);
+	GdkClipboard *clipboard = gtk_widget_get_clipboard(e->text_widget);
 	gtk_text_buffer_paste_clipboard(_get_buffer(e), clipboard, NULL, TRUE);
 }
 
@@ -816,16 +846,16 @@ action_open_activate_cb(GtkWidget *widget, EDITOR *e)
 					"_Cancel", GTK_RESPONSE_CANCEL,
 					"_Open", GTK_RESPONSE_ACCEPT,
 					NULL);
-	gtk_file_chooser_set_current_folder(GTK_FILE_CHOOSER(dialog),
+	gui_file_chooser_set_current_folder(GTK_FILE_CHOOSER(dialog),
 					    settings.studypaddir);
 
-	if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
+	if (gui_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
 		gchar *filename =
-		    gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
+		    gui_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
 		_load_file(e, filename);
 		g_free(filename);
 	}
-	gtk_widget_destroy(dialog);
+	gui_widget_destroy(dialog);
 }
 
 G_MODULE_EXPORT void
@@ -882,7 +912,7 @@ action_insert_link_activate_cb(GtkWidget *widget, EDITOR *e)
 }
 
 G_MODULE_EXPORT void
-colorbutton1_color_set_cb(GtkColorButton *widget, EDITOR *e)
+colorbutton1_color_set_cb(GtkWidget *widget, GParamSpec *pspec, EDITOR *e)
 {
 	GtkTextBuffer *buffer = _get_buffer(e);
 	GtkTextIter start, end;
@@ -908,7 +938,8 @@ colorbutton1_color_set_cb(GtkColorButton *widget, EDITOR *e)
 }
 
 G_MODULE_EXPORT void
-colorbutton_highlight_color_set_cb(GtkColorButton *widget, EDITOR *e)
+colorbutton_highlight_color_set_cb(GtkWidget *widget, GParamSpec *pspec,
+				   EDITOR *e)
 {
     GtkTextBuffer *buffer = _get_buffer(e);
     GtkTextIter start, end;
@@ -933,7 +964,7 @@ colorbutton_highlight_color_set_cb(GtkColorButton *widget, EDITOR *e)
 }
 
 G_MODULE_EXPORT void
-combo_box_changed_cb(GtkComboBox *widget, EDITOR *e)
+combo_box_changed_cb(GObject *object, GParamSpec *pspec, EDITOR *e)
 {
 	if (buttons_state.nochange)
 		return;
@@ -949,7 +980,7 @@ if (!gtk_text_buffer_get_selection_bounds(buffer, &start, &end)) {
 		gtk_text_iter_set_line_offset(&start, 0);
 		gtk_text_iter_forward_to_line_end(&end);
 	}
-	gint choice = gtk_combo_box_get_active(widget);
+	gint choice = (gint)gtk_drop_down_get_selected(GTK_DROP_DOWN(object));
 
 	/* detect previous list tag BEFORE removing tags */
 	const gchar *prev_tags[] = {
@@ -1039,7 +1070,7 @@ find_replace_response_cb(GtkDialog *dialog, gint response_id, EDITOR *e)
 		gtk_widget_hide(find_dialog.window);
 		break;
 	case 1: /* Find */
-		needle = gtk_entry_get_text(GTK_ENTRY(find_dialog.find_entry));
+		needle = gtk_editable_get_text(GTK_EDITABLE(find_dialog.find_entry));
 		gtk_text_buffer_get_start_iter(buffer, &start);
 		found = gtk_text_iter_forward_search(&start, needle,
 						     GTK_TEXT_SEARCH_CASE_INSENSITIVE,
@@ -1054,9 +1085,9 @@ find_replace_response_cb(GtkDialog *dialog, gint response_id, EDITOR *e)
 		}
 		break;
 	case 2: /* Replace */
-		needle = gtk_entry_get_text(GTK_ENTRY(find_dialog.find_entry));
+		needle = gtk_editable_get_text(GTK_EDITABLE(find_dialog.find_entry));
 		const gchar *replacement =
-		    gtk_entry_get_text(GTK_ENTRY(find_dialog.replace_entry));
+		    gtk_editable_get_text(GTK_EDITABLE(find_dialog.replace_entry));
 		if (gtk_text_buffer_get_selection_bounds(buffer, &start, &end)) {
 			gtk_text_buffer_delete(buffer, &start, &end);
 			gtk_text_buffer_insert(buffer, &start,
@@ -1088,11 +1119,11 @@ action_replace_activate_cb(GtkWidget *widget, EDITOR *e)
 void
 set_button_state(BUTTONS_STATE state, EDITOR *e)
 {
-	gtk_toggle_tool_button_set_active(e->toolitems.bold, state.bold);
-	gtk_toggle_tool_button_set_active(e->toolitems.italic, state.italic);
-	gtk_toggle_tool_button_set_active(e->toolitems.underline, state.underline);
-	gtk_toggle_tool_button_set_active(e->toolitems.strike, state.strike);
-	gtk_combo_box_set_active((GtkComboBox *)e->toolitems.cb, state.style);
+	gui_toggle_set_active(e->toolitems.bold, state.bold);
+	gui_toggle_set_active(e->toolitems.italic, state.italic);
+	gui_toggle_set_active(e->toolitems.underline, state.underline);
+	gui_toggle_set_active(e->toolitems.strike, state.strike);
+	gtk_drop_down_set_selected(GTK_DROP_DOWN(e->toolitems.cb), state.style);
 }
 
 /* ============================================================
@@ -1100,7 +1131,7 @@ set_button_state(BUTTONS_STATE state, EDITOR *e)
  * ============================================================ */
 
 G_MODULE_EXPORT int
-delete_event(GtkWidget *widget, GdkEvent *event, EDITOR *e)
+delete_event(GtkWidget *widget, gpointer event, EDITOR *e)
 {
 	if (e->is_changed) {
 		switch (ask_about_saving(e)) {
@@ -1126,37 +1157,12 @@ _on_buffer_changed(GtkTextBuffer *buffer, EDITOR *e)
 	e->is_changed = TRUE;
 }
 
-/* handle sword:// link clicks */
-gboolean
-_on_event(GtkTextTag *tag, GObject *event_object,
-	  GdkEvent *event, const GtkTextIter *iter,
-	  EDITOR *e)
-{
-	if (event->type == GDK_BUTTON_PRESS) {
-		GtkTextBuffer *buffer = _get_buffer(e);
-		GtkTextIter start = *iter, end = *iter;
-
-		gtk_text_iter_backward_to_tag_toggle(&start, tag);
-		gtk_text_iter_forward_to_tag_toggle(&end, tag);
-
-		gchar *uri = g_object_get_data(G_OBJECT(tag), "uri");
-		if (uri) {
-			XI_message(("sword link clicked: %s", uri));
-			main_url_handler(uri, TRUE);
-		}
-
-		return TRUE;
-	}
-	return FALSE;
-}
-
-
 /* ============================================================
  * Create on_key_press
  * ============================================================ */
  
  static gboolean
-_on_key_press(GtkWidget *widget, GdkEventKey *event, EDITOR *e)
+_on_key_press(GtkWidget *widget, GuiKeyEvent *event, EDITOR *e)
 
 {
 	if (event->keyval != GDK_KEY_Return)
@@ -1238,20 +1244,20 @@ create_editor_window(GtkWidget *scrollwindow, EDITOR *e)
 	_setup_text_tags(buffer);
 
 	/* wire sword link click handler */
-	GtkTextTagTable *table = gtk_text_buffer_get_tag_table(buffer);
-	GtkTextTag *link_tag = gtk_text_tag_table_lookup(table, TAG_SWORD_LINK);
-	g_signal_connect(link_tag, "event",
-			 G_CALLBACK(_on_event), e);
-
 	/* track modifications */
 	g_signal_connect(buffer, "changed",
 			 G_CALLBACK(_on_buffer_changed), e);
 
-	gtk_container_add(GTK_CONTAINER(scrollwindow), textview);
+	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(scrollwindow), textview);
 	e->is_changed = FALSE;
 	buttons_state.nochange = 0;
-	g_signal_connect(textview, "key-press-event",
-			 G_CALLBACK(_on_key_press), e);
+	GtkGesture *link_gesture = gtk_gesture_click_new();
+	gtk_gesture_single_set_button(GTK_GESTURE_SINGLE(link_gesture),
+				      GDK_BUTTON_PRIMARY);
+	g_signal_connect(link_gesture, "pressed",
+			 G_CALLBACK(text_view_link_pressed), e);
+	gtk_widget_add_controller(textview, GTK_EVENT_CONTROLLER(link_gesture));
+	gui_widget_on_key_phase(GTK_WIDGET(textview), GTK_PHASE_CAPTURE, (GuiKeyFunc)_on_key_press, NULL, e);
 }
 
 /* ============================================================
@@ -1265,17 +1271,16 @@ editor_new(const gchar *title, EDITOR *e)
 	GtkWidget *scrollwindow;
 	GtkBuilder *builder;
 	GError *error = NULL;
-	GtkMenuItem *item;
+	gpointer item;
 	GtkWidget *recent_item;
 
 	buttons_state.nochange = 1;
 
-	/* reuse the existing webkit editor .ui file for now;
-	 * html_widget references will need renaming once a dedicated
-	 * gtk_tvedit.ui is created */
 	builder = elim_gtk_builder_new();
 
-	if (!gtk_builder_add_from_resource(builder, "/org/xiphos/ui/gtk_webedit.ui", &error)) {
+	if (!gtk_builder_add_from_resource(builder,
+					    "/org/xiphos/ui/gtk_tvedit.gtkbuilder",
+					    &error)) {
 		g_warning("Couldn't load builder file: %s", error->message);
 		g_error_free(error);
 	}
@@ -1284,34 +1289,35 @@ editor_new(const gchar *title, EDITOR *e)
 	e->window = window;
 	gtk_window_set_title(GTK_WINDOW(window), title);
 
-	e->toolitems.bold = GTK_TOGGLE_TOOL_BUTTON(
+	e->toolitems.bold = GTK_TOGGLE_BUTTON(
 	    gtk_builder_get_object(builder, "toolbutton_bold"));
-	e->toolitems.italic = GTK_TOGGLE_TOOL_BUTTON(
+	e->toolitems.italic = GTK_TOGGLE_BUTTON(
 	    gtk_builder_get_object(builder, "toolbutton_italic"));
-	e->toolitems.underline = GTK_TOGGLE_TOOL_BUTTON(
+	e->toolitems.underline = GTK_TOGGLE_BUTTON(
 	    gtk_builder_get_object(builder, "toolbuttonunderline"));
-	e->toolitems.strike = GTK_TOGGLE_TOOL_BUTTON(
+	e->toolitems.strike = GTK_TOGGLE_BUTTON(
 	    gtk_builder_get_object(builder, "toolbutton_strikethrough"));
-	e->toolitems.open = GTK_TOOL_BUTTON(
+	e->toolitems.open = GTK_BUTTON(
 	    gtk_builder_get_object(builder, "toolbutton_open"));
-	e->toolitems.newdoc = GTK_TOOL_BUTTON(
+	e->toolitems.newdoc = GTK_BUTTON(
 	    gtk_builder_get_object(builder, "toolbutton_new"));
-	e->toolitems.deletedoc = GTK_TOOL_BUTTON(
+	e->toolitems.deletedoc = GTK_BUTTON(
 	    gtk_builder_get_object(builder, "toolbutton_delete"));
-	e->toolitems.color = GTK_COLOR_BUTTON(
+	e->toolitems.color = GTK_WIDGET(
 	    gtk_builder_get_object(builder, "colorbutton1"));
-	e->toolitems.cb = GTK_COMBO_BOX_TEXT(
+	e->toolitems.cb = GTK_WIDGET(
 	    gtk_builder_get_object(builder, "comboboxtext1"));
 
-	gtk_combo_box_set_active((GtkComboBox *)e->toolitems.cb, 0);
+	gtk_drop_down_set_selected(GTK_DROP_DOWN(e->toolitems.cb), 0);
 
-	item = GTK_MENU_ITEM(gtk_builder_get_object(builder, "menuitem_recent"));
+	item = gtk_builder_get_object(builder, "menuitem_recent");
 
 	switch (e->type) {
 	case STUDYPAD_EDITOR:
 		gtk_widget_hide(GTK_WIDGET(e->toolitems.deletedoc));
-		recent_item = gtk_recent_chooser_menu_new();
-		gtk_menu_item_set_submenu(item, recent_item);
+		/* GTK4 has no GtkRecentChooserMenu.  Recent files will be
+		 * exposed through a GMenu action in a later editor pass. */
+		recent_item = NULL;
 		break;
 	case NOTE_EDITOR:
 		if (e->toolitems.open)
@@ -1339,7 +1345,40 @@ editor_new(const gchar *title, EDITOR *e)
 	create_editor_window(scrollwindow, e);
 	e->is_changed = FALSE;
 
-	gtk_builder_connect_signals(builder, (EDITOR *)e);
+	/* GTK4 removed gtk_builder_connect_signals(); connect the editor
+	 * controls explicitly so Builder remains declarative and type-safe. */
+	g_signal_connect(e->window, "close-request",
+			 G_CALLBACK(editor_close_request_cb), e);
+	g_signal_connect(e->toolitems.bold, "toggled",
+			 G_CALLBACK(action_bold_activate_cb), e);
+	g_signal_connect(e->toolitems.italic, "toggled",
+			 G_CALLBACK(action_italic_activate_cb), e);
+	g_signal_connect(e->toolitems.underline, "toggled",
+			 G_CALLBACK(action_underline_activate_cb), e);
+	g_signal_connect(e->toolitems.strike, "toggled",
+			 G_CALLBACK(action_strikethrough_activate_cb), e);
+	g_signal_connect(e->toolitems.newdoc, "clicked",
+			 G_CALLBACK(action_new_activate_cb), e);
+	g_signal_connect(e->toolitems.open, "clicked",
+			 G_CALLBACK(action_open_activate_cb), e);
+	g_signal_connect(gtk_builder_get_object(builder, "toolbutton_save"),
+			 "clicked", G_CALLBACK(action_save_activate_cb), e);
+	g_signal_connect(e->toolitems.deletedoc, "clicked",
+			 G_CALLBACK(action_delete_item_activate_cb), e);
+	g_signal_connect(gtk_builder_get_object(builder, "toolbutton_find"),
+			 "clicked", G_CALLBACK(action_find_activate_cb), e);
+	g_signal_connect(gtk_builder_get_object(builder, "toolbutton_replace"),
+			 "clicked", G_CALLBACK(action_replace_activate_cb), e);
+	g_signal_connect(gtk_builder_get_object(builder, "toolbutton_image"),
+			 "clicked", G_CALLBACK(action_insert_image_activate_cb), e);
+	g_signal_connect(gtk_builder_get_object(builder, "toolbutton_sword_link"),
+			 "clicked", G_CALLBACK(action_insert_sword_link_activate_cb), e);
+	g_signal_connect(e->toolitems.color, "notify::rgba",
+			 G_CALLBACK(colorbutton1_color_set_cb), e);
+	g_signal_connect(gtk_builder_get_object(builder, "colorbutton_highlight"),
+			 "notify::rgba", G_CALLBACK(colorbutton_highlight_color_set_cb), e);
+	g_signal_connect(e->toolitems.cb, "notify::selected",
+			 G_CALLBACK(combo_box_changed_cb), e);
 
 	find_dialog.window = GTK_WIDGET(
 	    gtk_builder_get_object(builder, "dialog_find_replace"));
@@ -1488,8 +1527,7 @@ _create_new(const gchar *filename, const gchar *key, gint editor_type)
 
 		toolbar_nav = gui_navbar_versekey_editor_new(editor);
 		gtk_widget_show(toolbar_nav);
-		gtk_box_pack_start(GTK_BOX(editor->navbar_box),
-				   GTK_WIDGET(toolbar_nav), FALSE, TRUE, 0);
+		gtk_box_append(GTK_BOX(editor->navbar_box), GTK_WIDGET(toolbar_nav));
 
 		editor_load_note(editor, NULL, NULL);
 		break;
@@ -1508,26 +1546,29 @@ _create_new(const gchar *filename, const gchar *key, gint editor_type)
 		gtk_widget_show(box);
 		GtkWidget *hpaned1 = UI_HPANE();
 		gtk_widget_show(hpaned1);
-		gtk_paned_pack2(GTK_PANED(hpaned1), box, TRUE, TRUE);
+		gtk_paned_set_end_child(GTK_PANED(hpaned1), box);
+	gtk_paned_set_resize_end_child(GTK_PANED(hpaned1), TRUE);
+	gtk_paned_set_shrink_end_child(GTK_PANED(hpaned1), TRUE);
 
-		GtkWidget *scrollbar = gtk_scrolled_window_new(NULL, NULL);
+		GtkWidget *scrollbar = gtk_scrolled_window_new();
 		gtk_widget_show(scrollbar);
-		gtk_paned_pack1(GTK_PANED(hpaned1), GTK_WIDGET(scrollbar),
-				TRUE, TRUE);
+		gtk_paned_set_start_child(GTK_PANED(hpaned1), GTK_WIDGET(scrollbar));
+	gtk_paned_set_resize_start_child(GTK_PANED(hpaned1), TRUE);
+	gtk_paned_set_shrink_start_child(GTK_PANED(hpaned1), TRUE);
 		gtk_scrolled_window_set_policy(
 		    GTK_SCROLLED_WINDOW(scrollbar),
 		    GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-		gtk_scrolled_window_set_shadow_type(
-		    (GtkScrolledWindow *)scrollbar, settings.shadow_type);
+		gtk_scrolled_window_set_has_frame(GTK_SCROLLED_WINDOW((GtkScrolledWindow *)scrollbar), TRUE);
 
 		editor->treeview = gui_create_editor_tree(editor);
 		gtk_widget_show(editor->treeview);
-		gtk_container_add(GTK_CONTAINER(scrollbar), editor->treeview);
+		gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(scrollbar), editor->treeview);
 		gtk_paned_set_position(GTK_PANED(hpaned1), 125);
 		gtk_tree_view_expand_all((GtkTreeView *)editor->treeview);
 
-		gtk_widget_reparent(editor->box, box);
-		gtk_container_add(GTK_CONTAINER(editor->window), hpaned1);
+		gtk_widget_unparent(editor->box);
+		gtk_box_append(GTK_BOX(box), editor->box);
+		gtk_window_set_child(GTK_WINDOW(editor->window), hpaned1);
 
 		editor_load_book(editor);
 		break;
@@ -1555,9 +1596,7 @@ editor_create_new(const gchar *filename, const gchar *key,
 					g_free(e->filename);
 				e->filename = g_strdup(filename);
 				gtk_widget_show(e->window);
-				gdk_window_raise(
-				    gtk_widget_get_parent_window(
-					GTK_WIDGET(e->window)));
+				gtk_window_present(GTK_WINDOW(e->window));
 				_load_file(e, filename);
 				return 1;
 			}
@@ -1574,8 +1613,7 @@ editor_create_new(const gchar *filename, const gchar *key,
 				g_free(e->key);
 			e->key = g_strdup(key);
 			gtk_widget_show(e->window);
-			gdk_window_raise(
-			    gtk_widget_get_parent_window(GTK_WIDGET(e->window)));
+			gtk_window_present(GTK_WINDOW(e->window));
 			editor_load_note(e, NULL, NULL);
 			return 1;
 		case BOOK_EDITOR:
@@ -1590,8 +1628,7 @@ editor_create_new(const gchar *filename, const gchar *key,
 				g_free(e->key);
 			e->key = g_strdup(key);
 			gtk_widget_show(e->window);
-			gdk_window_raise(
-			    gtk_widget_get_parent_window(GTK_WIDGET(e->window)));
+			gtk_window_present(GTK_WINDOW(e->window));
 			main_load_book_tree_in_editor(
 			    GTK_TREE_VIEW(e->treeview), e->module);
 			editor_load_book(e);
@@ -1634,22 +1671,30 @@ action_insert_image_activate_cb(GtkWidget *widget, EDITOR *e)
         "_OK", GTK_RESPONSE_ACCEPT,
         NULL);
 
-    if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
-        gchar *filename = gtk_file_chooser_get_filename(
+    if (gui_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
+        gchar *filename = gui_file_chooser_get_filename(
             GTK_FILE_CHOOSER(dialog));
         GtkTextBuffer *buffer = _get_buffer(e);
         GtkTextIter cursor;
         gtk_text_buffer_get_iter_at_mark(buffer, &cursor,
             gtk_text_buffer_get_insert(buffer));
-        GdkPixbuf *pixbuf = gdk_pixbuf_new_from_file(filename, NULL);
-        if (pixbuf) {
-            gtk_text_buffer_insert_pixbuf(buffer, &cursor, pixbuf);
-            g_object_unref(pixbuf);
-            e->is_changed = TRUE;
-        }
+		GError *error = NULL;
+		GdkTexture *texture = gdk_texture_new_from_filename(filename, &error);
+		if (texture) {
+			g_object_set_data_full(G_OBJECT(texture), "image-path",
+					       g_strdup(filename), g_free);
+			gtk_text_buffer_insert_paintable(buffer, &cursor,
+							GDK_PAINTABLE(texture));
+			g_object_unref(texture);
+			e->is_changed = TRUE;
+		} else {
+			g_warning("Could not load image '%s': %s", filename,
+				  error ? error->message : "unknown error");
+			g_clear_error(&error);
+		}
         g_free(filename);
     }
-    gtk_widget_destroy(dialog);
+    gui_widget_destroy(dialog);
 }
 
 G_MODULE_EXPORT void

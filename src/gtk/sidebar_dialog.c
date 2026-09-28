@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <glib/gi18n.h>
 
 #include "gui/sidebar.h"
@@ -68,27 +69,25 @@ void gui_attach_detach_sidebar(void)
 		settings.docked = FALSE;
 		biblepanesize = settings.gs_width / 2;
 		widgets.dock_sb = create_sidebar_dialog();
-#if GTK_CHECK_VERSION(3, 10, 0)
-		gtk_container_add(GTK_CONTAINER(vbox_dock),
-				  widgets.shortcutbar);
-#else
-		gtk_widget_reparent(widgets.shortcutbar, vbox_dock);
-#endif
+		g_object_ref(widgets.shortcutbar);
+		gui_widget_remove(widgets.shortcutbar);
+		gtk_box_append(GTK_BOX(vbox_dock), widgets.shortcutbar);
+		g_object_unref(widgets.shortcutbar);
 		settings.showshortcutbar = TRUE;
 		gtk_paned_set_position(GTK_PANED(widgets.epaned), 0);
 		/*gtk_paned_set_position(GTK_PANED(widgets.hpaned),
 		   biblepanesize); */
 
 		/* ugly fix until someone can make mozembed work with 'gtk_widget_reparent()' */
-		gtk_widget_destroy(sidebar.html_viewer_widget);
+		gui_widget_destroy(sidebar.html_viewer_widget);
 		sidebar.html_viewer_widget =
 		    GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, SB_VIEWER_TYPE));
 		XIPHOS_HTML_SET_SURFACE_NAME(sidebar.html_viewer_widget,
 					     "sidebar-previewer");
-		gtk_container_add(GTK_CONTAINER(sidebar.html_viewer_eventbox),
-				  sidebar.html_viewer_widget);
+		gui_box_pack(GTK_BOX(widgets.box_side_preview),
+			     sidebar.html_viewer_widget, TRUE, TRUE, 0);
 
-		gtk_widget_show_all(widgets.dock_sb);
+		gtk_widget_show(widgets.dock_sb);
 		gtk_widget_show(sidebar.html_viewer_widget);
 
 		xml_set_value("Xiphos", "misc", "sidebar_docked", "0");
@@ -100,24 +99,23 @@ void gui_attach_detach_sidebar(void)
 				       settings.sidebar_width);
 		gtk_paned_set_position(GTK_PANED(widgets.hpaned),
 				       biblepanesize);
-#if GTK_CHECK_VERSION(3, 10, 0)
-		gtk_container_add(GTK_CONTAINER(widgets.epaned),
-				  widgets.shortcutbar);
-#else
-		gtk_widget_reparent(widgets.shortcutbar, widgets.epaned);
-#endif
+		g_object_ref(widgets.shortcutbar);
+		gui_widget_remove(widgets.shortcutbar);
+		gtk_paned_set_start_child(GTK_PANED(widgets.epaned),
+					  widgets.shortcutbar);
+		g_object_unref(widgets.shortcutbar);
 
 		/* ugly fix until someone can make mozembed work with 'gtk_widget_reparent()' */
-		gtk_widget_destroy(sidebar.html_viewer_widget);
+		gui_widget_destroy(sidebar.html_viewer_widget);
 		sidebar.html_viewer_widget =
 		    GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, SB_VIEWER_TYPE));
 		XIPHOS_HTML_SET_SURFACE_NAME(sidebar.html_viewer_widget,
 					     "sidebar-previewer");
-		gtk_container_add(GTK_CONTAINER(sidebar.html_viewer_eventbox),
-				  sidebar.html_viewer_widget);
+		gui_box_pack(GTK_BOX(widgets.box_side_preview),
+			     sidebar.html_viewer_widget, TRUE, TRUE, 0);
 
 		gtk_widget_show(sidebar.html_viewer_widget);
-		gtk_widget_destroy(widgets.dock_sb);
+		gui_widget_destroy(widgets.dock_sb);
 
 		xml_set_value("Xiphos", "misc", "sidebar_docked", "1");
 	}
@@ -172,7 +170,7 @@ GtkWidget *create_sidebar_dialog(void)
 	GtkWidget *dlgDock;
 	gchar *title;
 
-	dlgDock = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+	dlgDock = gtk_window_new();
 	g_object_set_data(G_OBJECT(dlgDock), "dlgDock", dlgDock);
 	gtk_window_set_title(GTK_WINDOW(dlgDock), _("Sidebar"));
 	gtk_window_set_resizable(GTK_WINDOW(dlgDock), TRUE);
@@ -181,7 +179,7 @@ GtkWidget *create_sidebar_dialog(void)
 
 	UI_VBOX(vbox_dock, FALSE, 0);
 	gtk_widget_show(vbox_dock);
-	gtk_container_add(GTK_CONTAINER(dlgDock), vbox_dock);
+	gtk_window_set_child(GTK_WINDOW(dlgDock), vbox_dock);
 
 	title =
 	    g_strdup_printf("%s - %s", _("Sidebar"),

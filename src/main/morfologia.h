@@ -43,6 +43,18 @@ gchar *main_morf_corto(const char *attr);
 /* El código sin el nombre del esquema: "V-PAI-3S". */
 gchar *main_morf_codigo(const char *attr);
 
+/* MORPH-110: TRUE si a este código concreto (un solo "esquema:código", o
+ * un código legado sin esquema -- nunca una lista con "+" o espacios)
+ * main_morf_es()/main_morf_corto() le encuentran una gramática de
+ * fundamento -- Robinson explícito o heredado, OSHM, o el verbo hebreo
+ * "TH..." de la tabla de Strong -- y no simplemente lo devuelven en
+ * crudo por no reconocer el esquema declarado (ver MORPH-108).
+ *
+ * strong_ui.cc lo usa para decidir si añade, además del "esquema:código"
+ * de siempre, una traducción gramatical: solo cuando esto da TRUE. Así
+ * no hay que repetir aquí la tabla de qué esquemas se entienden. */
+gboolean main_morf_reconocido(const char *codigo);
+
 #ifdef __cplusplus
 }
 #endif

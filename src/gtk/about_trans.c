@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 
 #include "gui/about_trans.h"
 #include "gui/utilities.h"
@@ -44,8 +45,8 @@ static void about_trans_ok(GtkButton *button, gpointer user_data)
 {
 	GtkWidget *dlg;
 
-	dlg = gtk_widget_get_toplevel(GTK_WIDGET(button));
-	gtk_widget_destroy(dlg);
+	dlg = gui_widget_get_toplevel(GTK_WIDGET(button));
+	gui_widget_destroy(dlg);
 }
 
 /******************************************************************************
@@ -104,27 +105,25 @@ GtkWidget *gui_create_about_trans(void)
 
 	UI_VBOX(vbox, FALSE, 0);
 	gtk_widget_show(vbox);
-	gtk_box_pack_start(GTK_BOX(dialog_vbox), vbox, TRUE, TRUE, 0);
+	gui_box_pack(GTK_BOX(dialog_vbox), vbox, TRUE, TRUE, 0);
 
 	pixmap = pixmap_finder("logo.png");
 	gtk_widget_show(pixmap);
-	gtk_box_pack_start(GTK_BOX(vbox), pixmap, FALSE, FALSE, 4);
+	gui_box_pack(GTK_BOX(vbox), pixmap, FALSE, FALSE, 4);
 
-	scrolledwindow = gtk_scrolled_window_new(NULL, NULL);
+	scrolledwindow = gtk_scrolled_window_new();
 	gtk_widget_show(scrolledwindow);
-	gtk_box_pack_start(GTK_BOX(vbox), scrolledwindow, TRUE, TRUE, 4);
+	gui_box_pack(GTK_BOX(vbox), scrolledwindow, TRUE, TRUE, 4);
 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolledwindow),
 				       GTK_POLICY_NEVER,
 				       GTK_POLICY_AUTOMATIC);
 	gtk_widget_set_size_request(scrolledwindow, 400, 150);
-	gtk_container_set_border_width(GTK_CONTAINER(scrolledwindow), 4);
-	gtk_scrolled_window_set_shadow_type((GtkScrolledWindow *)
-					    scrolledwindow,
-					    settings.shadow_type);
+	gui_widget_set_margins(scrolledwindow, 4);
+	gtk_scrolled_window_set_has_frame(GTK_SCROLLED_WINDOW((GtkScrolledWindow *) scrolledwindow), TRUE);
 
 	textview = gtk_text_view_new();
 	gtk_widget_show(textview);
-	gtk_container_add(GTK_CONTAINER(scrolledwindow), textview);
+	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(scrolledwindow), textview);
 	gtk_text_view_set_wrap_mode(GTK_TEXT_VIEW(textview),
 				    GTK_WRAP_WORD);
 	gtk_text_view_set_editable(GTK_TEXT_VIEW(textview), FALSE);
@@ -133,50 +132,29 @@ GtkWidget *gui_create_about_trans(void)
 
 	label = gtk_label_new(_("See TRANSLATION-HOWTO in Xiphos source"));
 	gtk_widget_show(label);
-	gtk_box_pack_start(GTK_BOX(vbox), label, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(vbox), label);
 	gtk_widget_set_size_request(label, -2, 24);
 
 	href =
 	    gtk_link_button_new_with_label("http://xiphos.org/development/", _("Xiphos development"));
 	gtk_widget_show(href);
-	gtk_box_pack_start(GTK_BOX(vbox), href, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(vbox), href);
 
 	dialog_action_area =
-#if GTK_CHECK_VERSION(3, 12, 0)
 	    gtk_dialog_get_content_area(GTK_DIALOG(dialog_about_trans));
-#else
-	    gtk_dialog_get_action_area(GTK_DIALOG(dialog_about_trans));
-#endif
 	g_object_set_data(G_OBJECT(dialog_about_trans),
 			  "dialog_action_area", dialog_action_area);
 	gtk_widget_show(dialog_action_area);
-	gtk_container_set_border_width(GTK_CONTAINER(dialog_action_area), 10);
+	gui_widget_set_margins(dialog_action_area, 10);
 
-#ifdef USE_GTK_3
-	hbuttonbox = gtk_button_box_new(GTK_ORIENTATION_HORIZONTAL);
-#else
-	hbuttonbox = gtk_hbutton_box_new();
-#endif
+	hbuttonbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 6);
 	gtk_widget_show(hbuttonbox);
-	gtk_box_pack_start(GTK_BOX(dialog_action_area), hbuttonbox,
-			   TRUE, TRUE, 0);
-	gtk_button_box_set_layout(GTK_BUTTON_BOX(hbuttonbox),
-				  GTK_BUTTONBOX_END);
+	gui_box_pack(GTK_BOX(dialog_action_area), hbuttonbox, TRUE, TRUE, 0);
+	gtk_widget_set_halign(hbuttonbox, GTK_ALIGN_END);
 	button =
-#if GTK_CHECK_VERSION(3, 10, 0)
 	    gtk_button_new_with_mnemonic(_("Close"));
-#else
-	    gtk_button_new_from_stock(GTK_STOCK_CLOSE);
-#endif
 	gtk_widget_show(button);
-	gtk_container_add(GTK_CONTAINER(hbuttonbox), button);
-#if GTK_CHECK_VERSION(2, 18, 0)
-	gtk_widget_set_can_default(button, TRUE);
-#elif defined(USE_GTK_3)
-	gtk_widget_set_can_default(button, 1);
-#else
-	GTK_WIDGET_SET_FLAGS(button, GTK_CAN_DEFAULT);
-#endif
+	gtk_box_append(GTK_BOX(hbuttonbox), button);
 	g_signal_connect(G_OBJECT(button), "clicked",
 			 G_CALLBACK(about_trans_ok), NULL);
 	return dialog_about_trans;

@@ -33,7 +33,6 @@ main(void)
 	gchar *reading_end;
 	gint i;
 	GtkCssProvider *provider;
-	GError *css_error = NULL;
 
 	zoom_state_init(&state);
 	CHECK(zoom_state_get(&state, ZOOM_SURFACE_BIBLE_MAIN) == 100);
@@ -93,12 +92,9 @@ main(void)
 	CHECK(zoom_surface_from_name("future") == ZOOM_SURFACE_INVALID);
 	CHECK(zoom_state_set(&restored, ZOOM_SURFACE_INVALID, 200) == 100);
 	provider = gtk_css_provider_new();
-	gtk_css_provider_load_from_data(
+	gtk_css_provider_load_from_string(
 	    provider,
-	    "textview { font-size: 125%; } textview text { color: #111111; }",
-	    -1, &css_error);
-	CHECK(css_error == NULL);
-	g_clear_error(&css_error);
+	    "textview { font-size: 125%; } textview text { color: #111111; }");
 	g_object_unref(provider);
 
 	/* Headless integration contract: renderer reloads recompute CSS from the
@@ -118,7 +114,7 @@ main(void)
 				  NULL, NULL));
 	CHECK(g_file_get_contents(SRCDIR "/src/gtk/search_dialog.c", &search,
 				  NULL, NULL));
-	CHECK(renderer && strstr(renderer, "focus-in-event") != NULL);
+	CHECK(renderer && strstr(renderer, "gtk_event_controller_focus_new") != NULL);
 	CHECK(renderer && strstr(renderer, "on_zoom_surface_focus") != NULL);
 	CHECK(renderer && strstr(renderer, "apply_body_colors(html") != NULL);
 	CHECK(renderer && strstr(renderer, "apply_surface_style(html)") != NULL);

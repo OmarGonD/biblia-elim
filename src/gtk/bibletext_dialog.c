@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 
 #include "xiphos_html/xiphos_html.h"
 
@@ -80,12 +81,14 @@ static void dialog_destroy(GObject *object, DIALOG_DATA *vt)
 	bible_freed = FALSE;
 }
 
-static gboolean on_dialog_motion_notify_event(GtkWidget *widget,
-					      GdkEventMotion *event,
-					      DIALOG_DATA *vt)
+static void on_dialog_motion_notify_event(GtkEventControllerMotion *motion,
+					  gdouble x, gdouble y,
+					  DIALOG_DATA *vt)
 {
+	(void)motion;
+	(void)x;
+	(void)y;
 	cur_vt = vt;
-	return FALSE;
 }
 
 /******************************************************************************
@@ -132,7 +135,7 @@ void gui_bible_dialog_sync_toggled(GtkToggleButton *button,
 {
 	if (c == NULL)
 		c = cur_vt;
-	if (gtk_toggle_button_get_active(button)) {
+	if (gui_toggle_get_active(button)) {
 		sync_with_main(c);
 		c->sync = TRUE;
 	} else
@@ -190,7 +193,7 @@ void gui_create_bibletext_dialog(DIALOG_DATA *vt)
 	GtkWidget *paned;
 	GtkWidget *swVText;
 
-	vt->dialog = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+	vt->dialog = gtk_window_new();
 
 	g_object_set_data(G_OBJECT(vt->dialog), "dlg->dialog", vt->dialog);
 	gtk_window_set_title(GTK_WINDOW(vt->dialog),
@@ -200,59 +203,59 @@ void gui_create_bibletext_dialog(DIALOG_DATA *vt)
 
 	UI_VBOX(vbox33, FALSE, 0);
 	gtk_widget_show(vbox33);
-	gtk_container_add(GTK_CONTAINER(vt->dialog), vbox33);
+	gtk_window_set_child(GTK_WINDOW(vt->dialog), vbox33);
 
 	vt->toolbar_nav = create_nav_toolbar(vt);
 	gtk_widget_show(vt->toolbar_nav);
-	gtk_box_pack_start(GTK_BOX(vbox33), vt->toolbar_nav, FALSE, FALSE,
-			   0);
+	gtk_box_append(GTK_BOX(vbox33), vt->toolbar_nav);
 
 	paned = UI_VPANE();
-	gtk_box_pack_start(GTK_BOX(vbox33), paned, TRUE, TRUE, 0);
+	gui_box_pack(GTK_BOX(vbox33), paned, TRUE, TRUE, 0);
 	gtk_widget_show(paned);
 
-	swVText = gtk_scrolled_window_new(NULL, NULL);
+	swVText = gtk_scrolled_window_new();
 	gtk_widget_show(swVText);
 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(swVText),
 				       GTK_POLICY_NEVER,
 				       GTK_POLICY_ALWAYS);
-	gtk_scrolled_window_set_shadow_type((GtkScrolledWindow *)swVText,
-					    settings.shadow_type);
-	gtk_paned_add1((GtkPaned *)paned, swVText);
+	gtk_scrolled_window_set_has_frame(GTK_SCROLLED_WINDOW((GtkScrolledWindow *)swVText), TRUE);
+	gtk_paned_set_start_child(GTK_PANED((GtkPaned *)paned), swVText);
 
 	vt->html = GTK_WIDGET(XIPHOS_HTML_NEW(vt, TRUE, DIALOG_TEXT_TYPE));
 	gtk_widget_show(vt->html);
-	gtk_container_add(GTK_CONTAINER(swVText), vt->html);
+	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(swVText), vt->html);
 	g_signal_connect((gpointer)vt->html,
 			 "popupmenu_requested",
 			 G_CALLBACK(_popupmenu_requested_cb), vt);
 
-	swVText = gtk_scrolled_window_new(NULL, NULL);
+	swVText = gtk_scrolled_window_new();
 	gtk_widget_show(swVText);
 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(swVText),
 				       GTK_POLICY_NEVER,
 				       GTK_POLICY_ALWAYS);
-	gtk_scrolled_window_set_shadow_type((GtkScrolledWindow *)swVText,
-					    settings.shadow_type);
+	gtk_scrolled_window_set_has_frame(GTK_SCROLLED_WINDOW((GtkScrolledWindow *)swVText), TRUE);
 
-	gtk_paned_add2((GtkPaned *)paned, swVText);
+	gtk_paned_set_end_child(GTK_PANED((GtkPaned *)paned), swVText);
 
 	vt->previewer = GTK_WIDGET(XIPHOS_HTML_NEW(vt, TRUE, VIEWER_TYPE));
 	gtk_widget_show(vt->previewer);
-	gtk_container_add(GTK_CONTAINER(swVText), vt->previewer);
+	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(swVText), vt->previewer);
 
 	gtk_paned_set_position(GTK_PANED(paned), 250);
 	vt->statusbar = gtk_statusbar_new();
 	gtk_widget_show(vt->statusbar);
-	gtk_box_pack_start(GTK_BOX(vbox33), vt->statusbar, FALSE, FALSE,
-			   0);
+	gtk_box_append(GTK_BOX(vbox33), vt->statusbar);
 
 	g_signal_connect(G_OBJECT(vt->dialog),
 			 "destroy", G_CALLBACK(dialog_destroy), vt);
 
-	g_signal_connect(G_OBJECT(vt->dialog),
-			 "motion_notify_event",
-			 G_CALLBACK(on_dialog_motion_notify_event), vt);
+	{
+		GtkEventController *motion = gtk_event_controller_motion_new();
+
+		g_signal_connect(motion, "motion",
+				 G_CALLBACK(on_dialog_motion_notify_event), vt);
+		gtk_widget_add_controller(vt->dialog, motion);
+	}
 }
 
 /******   end of file   ******/

@@ -18,11 +18,13 @@
 #include <strings.h>
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <glib/gi18n.h>
 
 #include "gui/bibletext.h"
 #include "gui/lectura_sync.h"
 #include "gui/main_window.h"
+#include "gui/main_menu.h"
 #include "gui/instalar_biblias.h"
 #include "gui/mod_mgr.h"
 #include "gui/utilities.h"
@@ -41,7 +43,6 @@
 
 #define LSYNC_MAX 4
 
-#define LSYNC_DND_TARGET "application/x-biblia-elim-lsync-slot"
 
 static gulong combo_changed_id[LSYNC_MAX];
 static GtkWidget *combo_slot[LSYNC_MAX];
@@ -73,16 +74,10 @@ icon_btn(const char *icon, const char *tip)
 {
 	GtkWidget *b;
 
-#if GTK_CHECK_VERSION(3, 10, 0)
-	b = gtk_button_new_from_icon_name(icon, GTK_ICON_SIZE_MENU);
-#else
-	b = gtk_button_new();
-#endif
-	gtk_button_set_relief(GTK_BUTTON(b), GTK_RELIEF_NONE);
+	b = gtk_button_new_from_icon_name(icon);
+	gtk_button_set_has_frame(GTK_BUTTON(b), FALSE);
 	gtk_widget_set_tooltip_text(b, tip);
-#if GTK_CHECK_VERSION(3, 20, 0)
 	gtk_widget_set_focus_on_click(b, FALSE);
-#endif
 	gtk_widget_show(b);
 	return b;
 }
@@ -327,86 +322,55 @@ on_intercambiar(GtkButton *button, gpointer user_data)
 	lsync_swap_slots(i, i + 1);
 }
 
-static const GtkTargetEntry lsync_dnd_targets[] = {
-	{ (gchar *)LSYNC_DND_TARGET, GTK_TARGET_SAME_APP, 0 }
-};
-
-static void
-on_handle_realize(GtkWidget *w, gpointer data)
+/* Dragging a slot's handle onto another slot swaps the two; the slot
+ * number travels as an int, which only this app understands. */
+static GdkContentProvider *
+on_slot_drag_prepare(GtkDragSource *source, gdouble x, gdouble y,
+		     gpointer user_data)
 {
-	GdkWindow *win = gtk_widget_get_window(w);
-	GdkCursor *c;
-
-	(void)data;
-	if (!win)
-		return;
-	c = gdk_cursor_new_from_name(gtk_widget_get_display(w), "grab");
-	if (c) {
-		gdk_window_set_cursor(win, c);
-		g_object_unref(c);
-	}
-}
-
-static void
-on_slot_drag_begin(GtkWidget *widget, GdkDragContext *context,
-		   gpointer user_data)
-{
-	(void)widget;
-	(void)user_data;
-	gtk_drag_set_icon_name(context, "view-list-symbolic", 8, 8);
-}
-
-static void
-on_slot_drag_data_get(GtkWidget *widget, GdkDragContext *context,
-		      GtkSelectionData *data, guint info, guint time,
-		      gpointer user_data)
-{
-	gchar buf[8];
-
-	(void)widget;
-	(void)context;
-	(void)info;
-	(void)time;
-	g_snprintf(buf, sizeof(buf), "%d", GPOINTER_TO_INT(user_data));
-	gtk_selection_data_set(data, gtk_selection_data_get_target(data),
-			       8, (const guchar *)buf, (gint)strlen(buf));
-}
-
-static void
-on_slot_drag_data_received(GtkWidget *widget, GdkDragContext *context,
-			   gint x, gint y, GtkSelectionData *data,
-			   guint info, guint time, gpointer user_data)
-{
-	const guchar *raw;
-	gint len = 0;
-	gchar *s;
-	int from, to;
-
-	(void)widget;
-	(void)context;
+	(void)source;
 	(void)x;
 	(void)y;
-	(void)info;
-	(void)time;
-	to = GPOINTER_TO_INT(user_data);
-	raw = gtk_selection_data_get_data_with_length(data, &len);
-	if (!raw || len <= 0)
-		return;
-	s = g_strndup((const gchar *)raw, len);
-	from = (int)g_ascii_strtoll(s, NULL, 10);
-	g_free(s);
-	lsync_swap_slots(from, to);
+	return gdk_content_provider_new_typed(G_TYPE_INT,
+					      GPOINTER_TO_INT(user_data));
+}
+
+static void
+on_slot_drag_begin(GtkDragSource *source, GdkDrag *drag, gpointer user_data)
+{
+	GtkIconTheme *theme = gtk_icon_theme_get_for_display(
+	    gtk_widget_get_display(gtk_event_controller_get_widget(
+		GTK_EVENT_CONTROLLER(source))));
+	GtkIconPaintable *icon = gtk_icon_theme_lookup_icon(
+	    theme, "view-list-symbolic", NULL, 16, 1, GTK_TEXT_DIR_NONE, 0);
+
+	(void)drag;
+	(void)user_data;
+	gtk_drag_source_set_icon(source, GDK_PAINTABLE(icon), 8, 8);
+	g_object_unref(icon);
+}
+
+static gboolean
+on_slot_drop(GtkDropTarget *target, const GValue *value, gdouble x, gdouble y,
+	     gpointer user_data)
+{
+	(void)target;
+	(void)x;
+	(void)y;
+	if (!G_VALUE_HOLDS_INT(value))
+		return FALSE;
+	lsync_swap_slots(g_value_get_int(value), GPOINTER_TO_INT(user_data));
+	return TRUE;
 }
 
 static void
 lsync_dnd_setup(GtkWidget *w, int slot)
 {
-	gtk_drag_dest_set(w, GTK_DEST_DEFAULT_ALL,
-			  lsync_dnd_targets, G_N_ELEMENTS(lsync_dnd_targets),
-			  GDK_ACTION_MOVE);
-	g_signal_connect(w, "drag-data-received",
-			 G_CALLBACK(on_slot_drag_data_received),
+	GtkDropTarget *target = gtk_drop_target_new(G_TYPE_INT, GDK_ACTION_MOVE);
+
+	g_signal_connect(target, "drop", G_CALLBACK(on_slot_drop),
 			 GINT_TO_POINTER(slot));
+	gtk_widget_add_controller(w, GTK_EVENT_CONTROLLER(target));
 }
 
 void
@@ -594,8 +558,7 @@ rellenar_notas_subrayado(const char *osis)
 
 	if (!nota_hl)
 		return;
-	gtk_container_foreach(GTK_CONTAINER(nota_hl),
-			      (GtkCallback)gtk_widget_destroy, NULL);
+	gui_box_remove_all(nota_hl);
 	if (!osis)
 		return;
 	notes = highlight_list_notes(osis);
@@ -611,13 +574,13 @@ rellenar_notas_subrayado(const char *osis)
 		else
 			lab = g_strdup(_("Nota de un subrayado"));
 		b = gtk_button_new_with_label(lab);
-		gtk_button_set_relief(GTK_BUTTON(b), GTK_RELIEF_NONE);
+		gtk_button_set_has_frame(GTK_BUTTON(b), FALSE);
 		gtk_widget_set_halign(b, GTK_ALIGN_START);
 		g_object_set_data_full(G_OBJECT(b), "hl-id",
 				       g_strdup(note->group_id), g_free);
 		g_signal_connect(b, "clicked", G_CALLBACK(on_hl_note_clicked), NULL);
 		gtk_widget_show(b);
-		gtk_box_pack_start(GTK_BOX(nota_hl), b, FALSE, FALSE, 0);
+		gtk_box_append(GTK_BOX(nota_hl), b);
 		g_free(lab);
 		count++;
 	}
@@ -732,104 +695,95 @@ gui_lectura_sync_wrap(GtkWidget *html_master)
 	GtkWidget *hbox;
 	GtkWidget *label;
 	GtkWidget *btn_close;
-#ifndef USE_WEBKIT2
-	GtkWidget *scrolled;
-#endif
 
 	g_return_val_if_fail(html_master != NULL, html_master);
 
 	paned = UI_VPANE();
 	widgets.paned_lectura_sync = paned;
 	gtk_widget_show(paned);
-#if GTK_CHECK_VERSION(3, 16, 0)
 	gtk_paned_set_wide_handle(GTK_PANED(paned), TRUE);
-#endif
 
-	gtk_paned_pack1(GTK_PANED(paned), html_master, TRUE, TRUE);
+	gtk_paned_set_start_child(GTK_PANED(paned), html_master);
+	gtk_paned_set_resize_start_child(GTK_PANED(paned), TRUE);
+	gtk_paned_set_shrink_start_child(GTK_PANED(paned), TRUE);
 
 	UI_VBOX(widgets.box_lectura_sync, FALSE, 0);
 
 	UI_HBOX(hbox, FALSE, 6);
 	bar_comparar = hbox;
-	gtk_style_context_add_class(gtk_widget_get_style_context(hbox),
-				    "elim-toolbar-strip");
+	gtk_widget_add_css_class(hbox, "elim-toolbar-strip");
 	gtk_widget_show(hbox);
 	gtk_widget_set_margin_start(hbox, 8);
 	gtk_widget_set_margin_end(hbox, 4);
 	gtk_widget_set_margin_top(hbox, 4);
 	gtk_widget_set_margin_bottom(hbox, 2);
-	gtk_box_pack_start(GTK_BOX(widgets.box_lectura_sync), hbox, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(widgets.box_lectura_sync), hbox);
 
 	label = gtk_label_new(_("Comparar:"));
 	gtk_widget_show(label);
 	gtk_widget_set_valign(label, GTK_ALIGN_CENTER);
-	gtk_box_pack_start(GTK_BOX(hbox), label, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(hbox), label);
 
 	{
 		int i;
 		for (i = 0; i < LSYNC_MAX; i++) {
 			GtkWidget *rm, *grip;
 			slot_box[i] = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 2);
-			drag_handle[i] = gtk_event_box_new();
-			grip = gtk_image_new_from_icon_name("open-menu-symbolic",
-							    GTK_ICON_SIZE_MENU);
-			gtk_container_add(GTK_CONTAINER(drag_handle[i]), grip);
+			drag_handle[i] = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+			grip = gtk_image_new_from_icon_name("open-menu-symbolic");
+			gtk_box_append(GTK_BOX(drag_handle[i]), grip);
 			gtk_widget_set_tooltip_text(drag_handle[i],
 						    _("Arrastra sobre otra versión para intercambiar el orden"));
 			gtk_widget_set_valign(drag_handle[i], GTK_ALIGN_CENTER);
-			gtk_style_context_add_class(gtk_widget_get_style_context(drag_handle[i]),
-						    "elim-drag-handle");
-			gtk_drag_source_set(drag_handle[i], GDK_BUTTON1_MASK,
-					    lsync_dnd_targets,
-					    G_N_ELEMENTS(lsync_dnd_targets),
-					    GDK_ACTION_MOVE);
-			g_signal_connect(drag_handle[i], "drag-data-get",
-					 G_CALLBACK(on_slot_drag_data_get),
-					 GINT_TO_POINTER(i));
-			g_signal_connect(drag_handle[i], "drag-begin",
-					 G_CALLBACK(on_slot_drag_begin),
-					 GINT_TO_POINTER(i));
-			g_signal_connect(drag_handle[i], "realize",
-					 G_CALLBACK(on_handle_realize), NULL);
-			gtk_box_pack_start(GTK_BOX(slot_box[i]), drag_handle[i],
-					   FALSE, FALSE, 0);
+			gtk_widget_add_css_class(drag_handle[i], "elim-drag-handle");
+			{
+				GtkDragSource *source = gtk_drag_source_new();
+
+				gtk_drag_source_set_actions(source, GDK_ACTION_MOVE);
+				g_signal_connect(source, "prepare",
+						 G_CALLBACK(on_slot_drag_prepare),
+						 GINT_TO_POINTER(i));
+				g_signal_connect(source, "drag-begin",
+						 G_CALLBACK(on_slot_drag_begin),
+						 GINT_TO_POINTER(i));
+				gtk_widget_add_controller(drag_handle[i],
+							  GTK_EVENT_CONTROLLER(source));
+			}
+			gtk_widget_set_cursor_from_name(drag_handle[i], "grab");
+			gtk_box_append(GTK_BOX(slot_box[i]), drag_handle[i]);
 
 			combo_slot[i] = gtk_combo_box_text_new();
 			gtk_widget_set_valign(combo_slot[i], GTK_ALIGN_CENTER);
 			gtk_widget_set_hexpand(combo_slot[i], i == 0);
-			gtk_box_pack_start(GTK_BOX(slot_box[i]), combo_slot[i], TRUE, TRUE, 0);
+			gui_box_pack(GTK_BOX(slot_box[i]), combo_slot[i], TRUE, TRUE, 0);
 			if (i > 0) {
 				rm = icon_btn("window-close-symbolic",
 					      _("Quitar esta versión"));
 				g_signal_connect(rm, "clicked",
 						 G_CALLBACK(on_remove_slot),
 						 GINT_TO_POINTER(i));
-				gtk_box_pack_start(GTK_BOX(slot_box[i]), rm, FALSE, FALSE, 0);
+				gtk_box_append(GTK_BOX(slot_box[i]), rm);
 			}
 			lsync_dnd_setup(drag_handle[i], i);
 			lsync_dnd_setup(slot_box[i], i);
 			lsync_dnd_setup(combo_slot[i], i);
-			gtk_widget_show_all(slot_box[i]);
+			gtk_widget_show(slot_box[i]);
 			if (i > 0)
 				gtk_widget_hide(slot_box[i]);
 			gtk_widget_hide(drag_handle[i]);
-			gtk_box_pack_start(GTK_BOX(hbox), slot_box[i], TRUE, TRUE, 0);
+			gui_box_pack(GTK_BOX(hbox), slot_box[i], TRUE, TRUE, 0);
 
 			if (i < LSYNC_MAX - 1) {
 				btn_ord[i] = gtk_button_new_with_label("⇄");
-				gtk_button_set_relief(GTK_BUTTON(btn_ord[i]), GTK_RELIEF_NONE);
+				gtk_button_set_has_frame(GTK_BUTTON(btn_ord[i]), FALSE);
 				gtk_widget_set_tooltip_text(btn_ord[i],
 							    _("Intercambiar el orden de estas dos versiones"));
-#if GTK_CHECK_VERSION(3, 20, 0)
 				gtk_widget_set_focus_on_click(btn_ord[i], FALSE);
-#endif
-				gtk_style_context_add_class(gtk_widget_get_style_context(btn_ord[i]),
-							    "elim-swap-ord");
+				gtk_widget_add_css_class(btn_ord[i], "elim-swap-ord");
 				g_signal_connect(btn_ord[i], "clicked",
 						 G_CALLBACK(on_intercambiar),
 						 GINT_TO_POINTER(i));
-				gtk_box_pack_start(GTK_BOX(hbox), btn_ord[i],
-						   FALSE, FALSE, 0);
+				gtk_box_append(GTK_BOX(hbox), btn_ord[i]);
 			}
 		}
 		widgets.combo_lectura_sync = combo_slot[0];
@@ -837,15 +791,15 @@ gui_lectura_sync_wrap(GtkWidget *html_master)
 
 	btn_add = icon_btn("list-add-symbolic",
 			   _("Añadir otra Biblia (hasta 4) para este versículo"));
-	gtk_box_pack_start(GTK_BOX(hbox), btn_add, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(hbox), btn_add);
 	g_signal_connect(btn_add, "clicked", G_CALLBACK(on_add_version), NULL);
 
 	btn_install = gtk_button_new_with_label(_("Instalar Biblias"));
-	gtk_button_set_relief(GTK_BUTTON(btn_install), GTK_RELIEF_NONE);
+	gtk_button_set_has_frame(GTK_BUTTON(btn_install), FALSE);
 	gtk_widget_set_tooltip_text(btn_install,
 				    _("Descargar e instalar Biblias de CrossWire, eBible y otras fuentes"));
 	gtk_widget_show(btn_install);
-	gtk_box_pack_start(GTK_BOX(hbox), btn_install, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(hbox), btn_install);
 	g_signal_connect(btn_install, "clicked", G_CALLBACK(on_install_bibles), NULL);
 
 	label_ref = gtk_label_new("");
@@ -853,27 +807,25 @@ gui_lectura_sync_wrap(GtkWidget *html_master)
 	gtk_label_set_ellipsize(GTK_LABEL(label_ref), PANGO_ELLIPSIZE_END);
 	gtk_widget_set_valign(label_ref, GTK_ALIGN_CENTER);
 	gtk_widget_set_opacity(label_ref, 0.7);
-	gtk_box_pack_start(GTK_BOX(hbox), label_ref, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(hbox), label_ref);
 
 	btn_swap = icon_btn("go-up-symbolic",
 			    _("Poner esta versión arriba. La de arriba pasa aquí."));
-	gtk_box_pack_start(GTK_BOX(hbox), btn_swap, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(hbox), btn_swap);
 	g_signal_connect(btn_swap, "clicked", G_CALLBACK(on_swap_clicked), NULL);
 
 	btn_close = icon_btn("window-close-symbolic",
 			     _("Cerrar pantalla dividida"));
-	gtk_box_pack_start(GTK_BOX(hbox), btn_close, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(hbox), btn_close);
 	g_signal_connect(btn_close, "clicked", G_CALLBACK(on_close_clicked), NULL);
 
 	UI_HBOX(bar_ficha, FALSE, 6);
-	gtk_style_context_add_class(gtk_widget_get_style_context(bar_ficha),
-				    "elim-toolbar-strip");
+	gtk_widget_add_css_class(bar_ficha, "elim-toolbar-strip");
 	gtk_widget_set_margin_start(bar_ficha, 8);
 	gtk_widget_set_margin_end(bar_ficha, 4);
 	gtk_widget_set_margin_top(bar_ficha, 4);
 	gtk_widget_set_margin_bottom(bar_ficha, 2);
-	gtk_box_pack_start(GTK_BOX(widgets.box_lectura_sync), bar_ficha,
-			   FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(widgets.box_lectura_sync), bar_ficha);
 	{
 		GtkWidget *btn_f;
 		ficha_lab = gtk_label_new(_("Término original"));
@@ -882,10 +834,11 @@ gui_lectura_sync_wrap(GtkWidget *html_master)
 		gtk_widget_set_hexpand(ficha_lab, TRUE);
 		gtk_label_set_xalign(GTK_LABEL(ficha_lab), 0.0);
 		gtk_label_set_ellipsize(GTK_LABEL(ficha_lab), PANGO_ELLIPSIZE_END);
-		gtk_box_pack_start(GTK_BOX(bar_ficha), ficha_lab, TRUE, TRUE, 0);
+		gui_box_pack(GTK_BOX(bar_ficha), ficha_lab, TRUE, TRUE, 0);
 		btn_f = icon_btn("window-close-symbolic",
 				 _("Cerrar (Esc)"));
-		gtk_box_pack_end(GTK_BOX(bar_ficha), btn_f, FALSE, FALSE, 0);
+		/* after the label, which takes the rest of the row */
+		gtk_box_append(GTK_BOX(bar_ficha), btn_f);
 		g_signal_connect(btn_f, "clicked",
 				 G_CALLBACK(on_ficha_close_clicked), NULL);
 	}
@@ -894,31 +847,22 @@ gui_lectura_sync_wrap(GtkWidget *html_master)
 	    GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, VIEWER_TYPE));
 	XIPHOS_HTML_SET_SURFACE_NAME(widgets.html_lectura_sync, "bible-compare");
 	gtk_widget_show(widgets.html_lectura_sync);
-#ifdef USE_WEBKIT2
 	html_holder = widgets.html_lectura_sync;
-	gtk_box_pack_start(GTK_BOX(widgets.box_lectura_sync),
-			   widgets.html_lectura_sync, TRUE, TRUE, 0);
-#else
-	scrolled = gtk_scrolled_window_new(NULL, NULL);
-	gtk_widget_show(scrolled);
-	gtk_container_add(GTK_CONTAINER(scrolled), widgets.html_lectura_sync);
-	html_holder = scrolled;
-	gtk_box_pack_start(GTK_BOX(widgets.box_lectura_sync), scrolled, TRUE, TRUE, 0);
-#endif
+	gui_box_pack(GTK_BOX(widgets.box_lectura_sync), widgets.html_lectura_sync, TRUE, TRUE, 0);
 
 	nota_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 6);
 	gtk_widget_set_margin_start(nota_box, 10);
 	gtk_widget_set_margin_end(nota_box, 10);
 	gtk_widget_set_margin_bottom(nota_box, 8);
-	gtk_box_pack_start(GTK_BOX(widgets.box_lectura_sync), nota_box, TRUE, TRUE, 0);
+	gui_box_pack(GTK_BOX(widgets.box_lectura_sync), nota_box, TRUE, TRUE, 0);
 	{
 		GtkWidget *scroll, *btn_save, *bar;
 		GtkTextBuffer *buf;
 
 		nota_hl = gtk_box_new(GTK_ORIENTATION_VERTICAL, 2);
-		gtk_box_pack_start(GTK_BOX(nota_box), nota_hl, FALSE, FALSE, 0);
+		gtk_box_append(GTK_BOX(nota_box), nota_hl);
 
-		scroll = gtk_scrolled_window_new(NULL, NULL);
+		scroll = gtk_scrolled_window_new();
 		gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scroll),
 					       GTK_POLICY_AUTOMATIC,
 					       GTK_POLICY_AUTOMATIC);
@@ -931,20 +875,24 @@ gui_lectura_sync_wrap(GtkWidget *html_master)
 		gtk_text_view_set_bottom_margin(nota_view, 8);
 		buf = gtk_text_view_get_buffer(nota_view);
 		gtk_text_buffer_set_text(buf, "", 0);
-		gtk_container_add(GTK_CONTAINER(scroll), GTK_WIDGET(nota_view));
-		gtk_box_pack_start(GTK_BOX(nota_box), scroll, TRUE, TRUE, 0);
+		gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(scroll), GTK_WIDGET(nota_view));
+		gui_box_pack(GTK_BOX(nota_box), scroll, TRUE, TRUE, 0);
 
 		bar = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 8);
 		btn_save = gtk_button_new_with_label(_("Guardar"));
 		gtk_widget_set_halign(btn_save, GTK_ALIGN_END);
 		g_signal_connect(btn_save, "clicked", G_CALLBACK(on_nota_guardar), NULL);
-		gtk_box_pack_end(GTK_BOX(bar), btn_save, FALSE, FALSE, 0);
-		gtk_box_pack_start(GTK_BOX(nota_box), bar, FALSE, FALSE, 0);
-		gtk_widget_show_all(nota_box);
+		/* at the far end of the bar */
+		gtk_widget_set_hexpand(btn_save, TRUE);
+		gtk_box_append(GTK_BOX(bar), btn_save);
+		gtk_box_append(GTK_BOX(nota_box), bar);
+		gtk_widget_show(nota_box);
 		gtk_widget_hide(nota_box);
 	}
 
-	gtk_paned_pack2(GTK_PANED(paned), widgets.box_lectura_sync, TRUE, TRUE);
+	gtk_paned_set_end_child(GTK_PANED(paned), widgets.box_lectura_sync);
+	gtk_paned_set_resize_end_child(GTK_PANED(paned), TRUE);
+	gtk_paned_set_shrink_end_child(GTK_PANED(paned), TRUE);
 
 	{
 		int i;
@@ -954,8 +902,7 @@ gui_lectura_sync_wrap(GtkWidget *html_master)
 					     G_CALLBACK(on_combo_lectura_sync_changed),
 					     NULL);
 	}
-	g_signal_connect(G_OBJECT(paned), "size-allocate",
-			 G_CALLBACK(on_paned_lectura_sync_size_allocate), NULL);
+	gui_widget_watch_size(paned, on_paned_lectura_sync_size_allocate, NULL);
 	g_signal_connect(G_OBJECT(paned), "notify::position",
 			 G_CALLBACK(on_paned_position), NULL);
 
@@ -1028,7 +975,7 @@ gui_lectura_sync_ficha_nota(const char *mod, const char *osis, const char *cita)
 	if (html_holder)
 		gtk_widget_hide(html_holder);
 	if (nota_box)
-		gtk_widget_show_all(nota_box);
+		gtk_widget_show(nota_box);
 
 	buf = nota_view ? gtk_text_view_get_buffer(nota_view) : NULL;
 	existente = highlight_get_verse_note(mod, osis);
@@ -1104,7 +1051,7 @@ gui_lectura_sync_set_visible(gboolean visible)
 		gtk_widget_set_visible(html_holder, visible);
 	if (visible) {
 		if (widgets.html_lectura_sync &&
-		    gtk_widget_get_window(gtk_widget_get_toplevel(widgets.html_lectura_sync)) &&
+		    gtk_widget_get_realized(gui_widget_get_toplevel(widgets.html_lectura_sync)) &&
 		    !gtk_widget_get_realized(widgets.html_lectura_sync))
 			gtk_widget_realize(widgets.html_lectura_sync);
 		paned_positioned = FALSE;
@@ -1125,12 +1072,10 @@ gui_lectura_sync_set_visible(gboolean visible)
 
 	/* keep every entry point (menu checkbox, "Comparar" button, the
 	 * panel's own close button) showing the same state. */
-	if (widgets.lectura_sync_item &&
-	    gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(widgets.lectura_sync_item)) != visible)
-		gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.lectura_sync_item), visible);
+	gui_main_menu_set_state("split", visible);
 	if (widgets.lectura_sync_button &&
-	    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widgets.lectura_sync_button)) != visible)
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widgets.lectura_sync_button), visible);
+	    gui_toggle_get_active(GTK_WIDGET(widgets.lectura_sync_button)) != visible)
+		gui_toggle_set_active(GTK_WIDGET(widgets.lectura_sync_button), visible);
 
 	in_progress = FALSE;
 }
@@ -1142,8 +1087,8 @@ gui_lectura_sync_actualizar(void)
 }
 
 G_MODULE_EXPORT void
-on_lectura_sync_activate(GtkCheckMenuItem *menuitem, gpointer user_data)
+on_lectura_sync_activate(gpointer menuitem, gpointer user_data)
 {
-	(void)user_data;
-	gui_lectura_sync_set_visible(gtk_check_menu_item_get_active(menuitem));
+	(void)menuitem;
+	gui_lectura_sync_set_visible(GPOINTER_TO_INT(user_data) != 0);
 }

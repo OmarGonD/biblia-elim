@@ -50,6 +50,18 @@ struct StrongDetailState {
 	long long pageMicroseconds = 0;
 };
 
+/* MORPH-111: the same bounded, paged shape as StrongDetailState, over
+ * findMorphologyOccurrencePage() (MORPH-107) instead of the Strong
+ * concordance query. No lexicon: a morphology tag isn't a dictionary
+ * entry. */
+struct MorphologyDetailState {
+	MorphologyTag selected;
+	std::vector<MorphologyOccurrence> occurrences;
+	bool hasMore = false;
+	bool selectedValid = false;
+	long long pageMicroseconds = 0;
+};
+
 class StrongDetailSession
 {
 public:
@@ -59,8 +71,13 @@ public:
 
 	bool selectStrong(const StrongId &strong);
 	bool loadMore();
+	/* MORPH-111: same contract as selectStrong()/loadMore() above, over
+	 * the word's morphology tags instead of its Strong numbers. */
+	bool selectMorphology(const MorphologyTag &morphology);
+	bool loadMoreMorphology();
 	const BibleAnnotatedWord &word() const { return context_; }
 	const StrongDetailState &state() const { return state_; }
+	const MorphologyDetailState &morphologyState() const { return morphologyState_; }
 
 private:
 	BibleBackend &backend_;
@@ -69,6 +86,7 @@ private:
 	BibleAnnotatedWord context_;
 	std::size_t pageSize_;
 	StrongDetailState state_;
+	MorphologyDetailState morphologyState_;
 };
 
 #endif /* XIPHOS_STRONG_INTERACTION_H */

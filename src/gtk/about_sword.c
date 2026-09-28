@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <glib/gi18n.h>
 
 #include "gui/about_sword.h"
@@ -53,7 +54,7 @@ static void
 on_dialog_response(GtkDialog *dialog, gint response_id,
 		   gpointer user_data)
 {
-	gtk_widget_destroy(GTK_WIDGET(dialog));
+	gui_widget_destroy(GTK_WIDGET(dialog));
 }
 
 /******************************************************************************
@@ -98,7 +99,12 @@ Books can be downloaded from the SWORD Project.");
 	gtk_about_dialog_set_website(GTK_ABOUT_DIALOG(about1), "http://www.crosswire.org/");
 	gtk_about_dialog_set_website_label(GTK_ABOUT_DIALOG(about1), _("The SWORD Project"));
 
-	gtk_about_dialog_set_logo(GTK_ABOUT_DIALOG(about1), about1_logo_pixbuf);
+	if (about1_logo_pixbuf) {
+		GdkTexture *logo = gdk_texture_new_for_pixbuf(about1_logo_pixbuf);
+		gtk_about_dialog_set_logo(GTK_ABOUT_DIALOG(about1),
+					  GDK_PAINTABLE(logo));
+		g_object_unref(logo);
+	}
 
 	set_window_icon(GTK_WINDOW(about1));
 
@@ -155,7 +161,12 @@ See the manual for details.\n\
 	gtk_about_dialog_set_website_label(GTK_ABOUT_DIALOG(about1),
 					   _("BibleSync technical details"));
 
-	gtk_about_dialog_set_logo(GTK_ABOUT_DIALOG(about1), about1_logo_pixbuf);
+	if (about1_logo_pixbuf) {
+		GdkTexture *logo = gdk_texture_new_for_pixbuf(about1_logo_pixbuf);
+		gtk_about_dialog_set_logo(GTK_ABOUT_DIALOG(about1),
+					  GDK_PAINTABLE(logo));
+		g_object_unref(logo);
+	}
 
 	set_window_icon(GTK_WINDOW(about1));
 

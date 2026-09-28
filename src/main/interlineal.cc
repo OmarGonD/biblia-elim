@@ -1744,6 +1744,65 @@ fila_add_strong_disp(InterlFila *f, const char *num)
 	g_free(n);
 }
 
+gboolean
+main_interlineal_es_hebreo(const char *texto)
+{
+	if (!texto || !g_utf8_validate(texto, -1, NULL))
+		return FALSE;
+	for (const char *p = texto; *p; p = g_utf8_next_char(p)) {
+		gunichar c = g_utf8_get_char(p);
+		if (g_unichar_get_script(c) == G_UNICODE_SCRIPT_HEBREW && g_unichar_isalpha(c))
+			return TRUE;
+	}
+	return FALSE;
+}
+
+gchar *
+main_interlineal_sin_signos_hebreos(const char *texto)
+{
+	if (!texto || !g_utf8_validate(texto, -1, NULL))
+		return g_strdup(texto ? texto : "");
+	GString *out = g_string_new("");
+	for (const char *p = texto; *p; p = g_utf8_next_char(p)) {
+		gunichar c = g_utf8_get_char(p);
+		if (g_unichar_get_script(c) == G_UNICODE_SCRIPT_HEBREW &&
+		    g_unichar_type(c) == G_UNICODE_NON_SPACING_MARK)
+			continue;
+		g_string_append_len(out, p, g_utf8_next_char(p) - p);
+	}
+	return g_string_free(out, FALSE);
+}
+
+gchar *
+main_interlineal_ficha_texto(const InterlFila *fila, const char *cita)
+{
+	GString *out = g_string_new("");
+	if (!fila)
+		return g_string_free(out, FALSE);
+	const auto campo = [out](const char *nombre, const char *valor) {
+		if (!valor || !*valor)
+			return;
+		if (out->len)
+			g_string_append_c(out, '\n');
+		g_string_append_printf(out, "%s: %s", nombre, valor);
+	};
+	campo(_("Pasaje"), cita);
+	campo(_("Forma en el versículo"), fila->forma);
+	if (main_interlineal_es_hebreo(fila->forma)) {
+		gchar *sin_signos = main_interlineal_sin_signos_hebreos(fila->forma);
+		if (strcmp(sin_signos, fila->forma))
+			campo(_("Hebreo sin signos"), sin_signos);
+		g_free(sin_signos);
+	}
+	campo(_("Lema"), fila->raiz);
+	campo(_("Transliteración"), fila->translit);
+	campo(_("Español / glosa"), fila->es);
+	campo(_("Strong"), fila->strongs && *fila->strongs ? fila->strongs : fila->strong);
+	campo(_("Análisis gramatical"), fila->morph_es);
+	campo(_("Código morfológico"), fila->morph);
+	return g_string_free(out, FALSE);
+}
+
 static void
 fila_free(gpointer p)
 {

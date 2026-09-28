@@ -30,10 +30,7 @@ install (FILES
   search-dialog.gtkbuilder
   selector-prefs.gtkbuilder
   xi-export-bookmarks.gtkbuilder
-  xi-menus.gtkbuilder
-  xi-menus-popup.gtkbuilder
-  xi-splash.gtkbuilder
-  gtk_webedit.ui
+  gtk_tvedit.gtkbuilder
   DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}
   COMPONENT data
   )

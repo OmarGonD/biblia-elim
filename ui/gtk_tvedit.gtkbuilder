@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <object class="GtkWindow" id="window">
+    <property name="default-width">900</property>
+    <property name="default-height">650</property>
+    <child>
+      <object class="GtkBox" id="vbox1">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkBox" id="box_navbar">
+            <property name="orientation">vertical</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox" id="toolbar1">
+            <property name="spacing">4</property>
+            <property name="margin-start">6</property>
+            <property name="margin-end">6</property>
+            <property name="margin-top">6</property>
+            <property name="margin-bottom">3</property>
+            <child><object class="GtkButton" id="toolbutton_new"><property name="label">Nuevo</property></object></child>
+            <child><object class="GtkButton" id="toolbutton_open"><property name="label">Abrir</property></object></child>
+            <child><object class="GtkButton" id="toolbutton_save"><property name="label">Guardar</property></object></child>
+            <child><object class="GtkButton" id="toolbutton_delete"><property name="label">Eliminar</property></object></child>
+            <child><object class="GtkButton" id="toolbutton_find"><property name="label">Buscar</property></object></child>
+            <child><object class="GtkButton" id="toolbutton_replace"><property name="label">Reemplazar</property></object></child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox" id="toolbar2">
+            <property name="spacing">4</property>
+            <property name="margin-start">6</property>
+            <property name="margin-end">6</property>
+            <property name="margin-bottom">6</property>
+            <child><object class="GtkToggleButton" id="toolbutton_bold"><property name="label">Negrita</property></object></child>
+            <child><object class="GtkToggleButton" id="toolbutton_italic"><property name="label">Cursiva</property></object></child>
+            <child><object class="GtkToggleButton" id="toolbuttonunderline"><property name="label">Subrayado</property></object></child>
+            <child><object class="GtkToggleButton" id="toolbutton_strikethrough"><property name="label">Tachado</property></object></child>
+            <child>
+              <object class="GtkDropDown" id="comboboxtext1">
+                <property name="model">
+                  <object class="GtkStringList">
+                    <items>
+                  <item>Normal</item>
+                  <item>Encabezado 1</item>
+                  <item>Encabezado 2</item>
+                  <item>Encabezado 3</item>
+                  <item>Encabezado 4</item>
+                  <item>Encabezado 5</item>
+                  <item>Encabezado 6</item>
+                  <item>Dirección</item>
+                  <item>Preformateado</item>
+                  <item>Lista con viñetas</item>
+                  <item>Lista romana</item>
+                  <item>Lista numerada</item>
+                  <item>Lista alfabética</item>
+                </items>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child><object class="GtkColorDialogButton" id="colorbutton1"/></child>
+            <child><object class="GtkColorDialogButton" id="colorbutton_highlight"/></child>
+            <child><object class="GtkButton" id="toolbutton_image"><property name="label">Imagen</property></object></child>
+            <child><object class="GtkButton" id="toolbutton_sword_link"><property name="label">Enlace Xiphos</property></object></child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkScrolledWindow" id="scrolledwindow1">
+            <property name="vexpand">True</property>
+            <property name="hexpand">True</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkDialog" id="dialog_find_replace">
+    <child>
+      <object class="GtkBox" id="box4">
+        <property name="orientation">vertical</property>
+        <child><object class="GtkEntry" id="entry1"/></child>
+        <child><object class="GtkEntry" id="entry2"/></child>
+        <child><object class="GtkButton" id="button_replace"><property name="label">Reemplazar</property></object></child>
+      </object>
+    </child>
+  </object>
+</interface>

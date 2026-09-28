@@ -23,8 +23,13 @@
 #endif
 
 
+#if defined(USE_WEBKIT_EDITOR) || defined(USE_GTKTVeditor)
+#include "gui/widget_helpers.h"
 #ifdef USE_WEBKIT_EDITOR
 #include "editor/webkit_editor.h"
+#else
+#include "editor/slib-editor.h"
+#endif
 #else
 #include "editor/slib-editor.h"
 #endif
@@ -119,11 +124,7 @@ on_add_sibling_activate(GSimpleAction *action, GVariant *parameter, gpointer use
 	info = _get_info(tree);
 
 	d = gui_new_dialog();
-#if GTK_CHECK_VERSION(3, 10, 0)
 	d->stock_icon = "dialog-question";
-#else
-	d->stock_icon = GTK_STOCK_DIALOG_QUESTION;
-#endif
 	d->title = _("Prayer List/Journal Item");
 	d->label_top = _("New name");
 	d->label1 = _("Name: ");
@@ -144,7 +145,7 @@ on_add_sibling_activate(GSimpleAction *action, GVariant *parameter, gpointer use
 			gtk_tree_store_set(GTK_TREE_STORE(info->model),
 					   &sibling, COL_OPEN_PIXBUF,
 					   pixbufs->pixbuf_helpdoc,
-					   COL_CLOSED_PIXBUF, NULL,
+					   COL_CLOSED_PIXBUF, pixbufs->pixbuf_helpdoc,
 					   COL_CAPTION, d->text1,
 					   COL_MODULE, info->book,
 					   COL_OFFSET, buf, -1);
@@ -176,11 +177,7 @@ on_add_child_activate(GSimpleAction *action, GVariant *parameter, gpointer user_
 	info = _get_info(tree);
 
 	d = gui_new_dialog();
-#if GTK_CHECK_VERSION(3, 10, 0)
 	d->stock_icon = "dialog-question";
-#else
-	d->stock_icon = GTK_STOCK_DIALOG_QUESTION;
-#endif
 	d->title = _("Prayer List/Journal Item");
 	d->label_top = _("New name");
 	d->label1 = _("Name: ");
@@ -209,7 +206,7 @@ on_add_child_activate(GSimpleAction *action, GVariant *parameter, gpointer user_
 					   &child,
 					   COL_OPEN_PIXBUF,
 					   pixbufs->pixbuf_helpdoc,
-					   COL_CLOSED_PIXBUF, NULL,
+					   COL_CLOSED_PIXBUF, pixbufs->pixbuf_helpdoc,
 					   COL_CAPTION, d->text1,
 					   COL_MODULE, info->book,
 					   COL_OFFSET, buf, -1);
@@ -242,11 +239,7 @@ on_remove_activate(GSimpleAction *action, GVariant *parameter, gpointer user_dat
 	str = g_strdup_printf("<span weight=\"bold\">%s</span>\n\n%s/%s",
 			      _("Remove the selected item"),
 			      info->book, info->local_name);
-#if GTK_CHECK_VERSION(3, 10, 0)
 	icon_name = g_strdup("dialog-warning");
-#else
-	icon_name = g_strdup(GTK_STOCK_DIALOG_WARNING);
-#endif
 	if (gui_yes_no_dialog(str, icon_name)) {
 		gtk_tree_store_remove(GTK_TREE_STORE(info->model),
 				      &info->iter);
@@ -274,11 +267,7 @@ on_edit_activate2(GSimpleAction *action, GVariant *parameter, gpointer user_data
 	info = _get_info(tree);
 
 	d = gui_new_dialog();
-#if GTK_CHECK_VERSION(3, 10, 0)
 	d->stock_icon = "dialog-question";
-#else
-	d->stock_icon = GTK_STOCK_DIALOG_QUESTION;
-#endif
 	d->title = _("Prayer List/Journal Item");
 	d->label_top = _("New name");
 	d->label1 = _("Name: ");
@@ -316,7 +305,7 @@ static void install_tree_actions(GtkWidget *treeview, EDITOR *editor)
 	GSimpleActionGroup *group = g_simple_action_group_new();
 	g_action_map_add_action_entries(G_ACTION_MAP(group), actions,
 					G_N_ELEMENTS(actions), editor);
-	gtk_widget_insert_action_group(treeview, "arbol", G_ACTION_GROUP(group));
+	gui_widget_insert_action_group(treeview, "arbol", G_ACTION_GROUP(group));
 	g_object_unref(group);
 }
 
@@ -330,35 +319,21 @@ static GMenuModel *tree_menu_model(void)
 	return G_MENU_MODEL(menu);
 }
 
-static gboolean destroy_popover_idle(gpointer popover)
-{
-	gtk_widget_destroy(GTK_WIDGET(popover));
-	return G_SOURCE_REMOVE;
-}
-
-/* After the chosen item's action has run. */
-static void destroy_popover_later(GtkPopover *popover, gpointer unused)
-{
-	(void)unused;
-	g_idle_add(destroy_popover_idle, popover);
-}
-
-static void popup_tree_menu(GtkWidget *treeview, GdkEventButton *event)
+static void popup_tree_menu(GtkWidget *treeview, GuiButtonEvent *event)
 {
 	GMenuModel *model = tree_menu_model();
-	GtkWidget *popover = gtk_popover_new_from_model(treeview, model);
+	GtkWidget *popover = gtk_popover_menu_new_from_model(model);
+	gtk_widget_set_parent(popover, treeview);
 	g_object_unref(model);
-	int x, y;
-	gtk_tree_view_convert_bin_window_to_widget_coords(
-	    GTK_TREE_VIEW(treeview), (int)event->x, (int)event->y, &x, &y);
-	GdkRectangle at = { x, y, 1, 1 };
+	/* the event is in the tree view's own coordinates */
+	GdkRectangle at = { (int)event->x, (int)event->y, 1, 1 };
 	gtk_popover_set_pointing_to(GTK_POPOVER(popover), &at);
-	g_signal_connect(popover, "closed", G_CALLBACK(destroy_popover_later), NULL);
+	gui_popover_destroy_on_close(popover);
 	gtk_popover_popup(GTK_POPOVER(popover));
 }
 
 static gboolean on_button_release(GtkWidget *widget,
-				  GdkEventButton *event, EDITOR *editor)
+				  GuiButtonEvent *event, EDITOR *editor)
 {
 	GtkTreeSelection *selection;
 	GtkTreeIter selected;
@@ -405,8 +380,6 @@ GtkWidget *gui_create_editor_tree(EDITOR *editor)
 				      editor->module);
 	install_tree_actions(treeview, editor);
 
-	g_signal_connect_after((gpointer)treeview,
-			       "button_release_event",
-			       G_CALLBACK(on_button_release), editor);
+	gui_widget_on_button(GTK_WIDGET(treeview), GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)on_button_release, editor);
 	return treeview;
 }

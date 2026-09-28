@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <unistd.h>
 
 #ifdef USE_WEBKIT_EDITOR
@@ -33,6 +34,7 @@
 #endif
 
 #include "gui/about_xiphos.h"
+#include "gui/gui.h"
 #include "gui/about_sword.h"
 #include "gui/about_modules.h"
 #include "gui/about_trans.h"
@@ -58,6 +60,8 @@
 #include "gui/buscar_notas.h"
 #include "gui/pulpito.h"
 #include "gui/diccionario.h"
+#include "gui/interlineal.h"
+#include "gui/lectura_sync.h"
 #include "gui/tabbed_browser.h"
 #include "gui/utilities.h"
 
@@ -93,7 +97,7 @@ link_uri_hook(GtkLinkButton *button,
  * Synopsis
  *   #include "gui/main_menu.h"
  *
- *   void on_help_contents_activate(GtkMenuItem * menuitem,
+ *   void on_help_contents_activate(gpointer menuitem,
  *						gpointer user_data)
  *
  * Description
@@ -103,7 +107,7 @@ link_uri_hook(GtkLinkButton *button,
  *   void
  */
 G_MODULE_EXPORT void
-on_help_contents_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_help_contents_activate(gpointer menuitem, gpointer user_data)
 {
 #ifdef WIN32
 	const char *lang = g_getenv("LANG");
@@ -129,19 +133,7 @@ on_help_contents_activate(GtkMenuItem *menuitem, gpointer user_data)
 	xiphos_open_default(help_file);
 	g_free(help_file);
 #else
-	GError *error = NULL;
-#if GTK_CHECK_VERSION(3, 22, 0)
-	gtk_show_uri_on_window(NULL, "help:xiphos", gtk_get_current_event_time(),
-			       &error);
-#else
-	gtk_show_uri(NULL, "help:xiphos", gtk_get_current_event_time(),
-		     &error);
-
-#endif /* GTK_CHECK_VERSION */
-	if (error != NULL) {
-		XI_warning(("%s", error->message));
-		g_error_free(error);
-	}
+	xiphos_open_default("help:xiphos");
 #endif /* WIN32 */
 }
 
@@ -152,7 +144,7 @@ on_help_contents_activate(GtkMenuItem *menuitem, gpointer user_data)
  * Synopsis
  *   #include "gui/main_menu.h"
  *
- *   void on_report_bug_activate(GtkMenuItem * menuitem,
+ *   void on_report_bug_activate(gpointer menuitem,
  *						gpointer user_data)
  *
  * Description
@@ -162,7 +154,7 @@ on_help_contents_activate(GtkMenuItem *menuitem, gpointer user_data)
  *   void
  */
 G_MODULE_EXPORT void
-on_report_bug_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_report_bug_activate(gpointer menuitem, gpointer user_data)
 {
 	xiphos_open_default(PACKAGE_BUGREPORT);
 }
@@ -174,7 +166,7 @@ on_report_bug_activate(GtkMenuItem *menuitem, gpointer user_data)
  * Synopsis
  *   #include "gui/main_menu.h"
  *
- *   void on_about_the_sword_project1_activate(GtkMenuItem * menuitem,
+ *   void on_about_the_sword_project1_activate(gpointer menuitem,
  *						gpointer user_data)
  *
  * Description
@@ -184,7 +176,7 @@ on_report_bug_activate(GtkMenuItem *menuitem, gpointer user_data)
  *   void
  */
 G_MODULE_EXPORT void
-on_about_the_sword_project_activate(GtkMenuItem *menuitem,
+on_about_the_sword_project_activate(gpointer menuitem,
 				    gpointer user_data)
 {
 	GtkWidget *dlg;
@@ -200,7 +192,7 @@ on_about_the_sword_project_activate(GtkMenuItem *menuitem,
  * Synopsis
  *   #include "gui/main_menu.h"
  *
- *   void on_about_bibelsync_activate(GtkMenuItem * menuitem,
+ *   void on_about_bibelsync_activate(gpointer menuitem,
  *				      gpointer user_data)
  *
  * Description
@@ -210,7 +202,7 @@ on_about_the_sword_project_activate(GtkMenuItem *menuitem,
  *   void
  */
 G_MODULE_EXPORT void
-on_about_biblesync_activate(GtkMenuItem *menuitem,
+on_about_biblesync_activate(gpointer menuitem,
 			    gpointer user_data)
 {
 	GtkWidget *dlg;
@@ -226,7 +218,7 @@ on_about_biblesync_activate(GtkMenuItem *menuitem,
  * Synopsis
  *   #include "gui/main_menu.h"
  *
- *   void on_about_translation_activate(GtkMenuItem * menuitem,
+ *   void on_about_translation_activate(gpointer menuitem,
  *					gpointer user_data)
  *
  * Description
@@ -236,7 +228,7 @@ on_about_biblesync_activate(GtkMenuItem *menuitem,
  *   void
  */
 G_MODULE_EXPORT void
-on_about_translation_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_about_translation_activate(gpointer menuitem, gpointer user_data)
 {
 	GtkWidget *dlg;
 
@@ -251,7 +243,7 @@ on_about_translation_activate(GtkMenuItem *menuitem, gpointer user_data)
  * Synopsis
  *   #include "gui/main_menu.h"
  *
- *   void on_daily_devotion_activate(GtkMenuItem *menuitem,
+ *   void on_daily_devotion_activate(gpointer menuitem,
  *						gpointer user_data)
  *
  * Description
@@ -261,7 +253,7 @@ on_about_translation_activate(GtkMenuItem *menuitem, gpointer user_data)
  *   void
  */
 G_MODULE_EXPORT void
-on_daily_devotion_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_daily_devotion_activate(gpointer menuitem, gpointer user_data)
 {
 	gtk_notebook_set_current_page(GTK_NOTEBOOK(widgets.notebook_dict_devot), 1);
 	main_display_devotional(widgets.html_devotional);
@@ -274,7 +266,7 @@ on_daily_devotion_activate(GtkMenuItem *menuitem, gpointer user_data)
  * Synopsis
  *   #include "gui/main_menu.h"
  *
- *   void on_preferences_activate(GtkMenuItem *menuitem, gpointer user_data)
+ *   void on_preferences_activate(gpointer menuitem, gpointer user_data)
  *
  * Description
  *   open preferences dialog
@@ -283,14 +275,14 @@ on_daily_devotion_activate(GtkMenuItem *menuitem, gpointer user_data)
  *   void
  */
 G_MODULE_EXPORT void
-on_preferences_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_preferences_activate(gpointer menuitem, gpointer user_data)
 {
 	gui_setup_preferences_dialog();
 }
 
 /* Ver > Navegación y rueda: wheel distance and verse-following */
 G_MODULE_EXPORT void
-on_navigation_prefs_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_navigation_prefs_activate(gpointer menuitem, gpointer user_data)
 {
 	(void)menuitem;
 	(void)user_data;
@@ -298,7 +290,7 @@ on_navigation_prefs_activate(GtkMenuItem *menuitem, gpointer user_data)
 }
 
 G_MODULE_EXPORT void
-on_export_bible_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_export_bible_activate(gpointer menuitem, gpointer user_data)
 {
 	(void)menuitem;
 	(void)user_data;
@@ -312,7 +304,7 @@ on_export_bible_activate(GtkMenuItem *menuitem, gpointer user_data)
  * Synopsis
  *   #include "gui/main_menu.h"
  *
- *   void on_search_activate(GtkMenuItem * menuitem, gpointer user_data)
+ *   void on_search_activate(gpointer menuitem, gpointer user_data)
  *
  * Description
  *   display search group in shortcut bar
@@ -320,7 +312,7 @@ on_export_bible_activate(GtkMenuItem *menuitem, gpointer user_data)
  * Return value
  *   void
  */
-G_MODULE_EXPORT void on_search_activate(GtkMenuItem *menuitem,
+G_MODULE_EXPORT void on_search_activate(gpointer menuitem,
 					gpointer user_data)
 {
 	if (!settings.showshortcutbar)
@@ -335,7 +327,7 @@ G_MODULE_EXPORT void on_search_activate(GtkMenuItem *menuitem,
  * Synopsis
  *   #include "gui/main_menu.h"
  *
- *   void on_linked_tabs_activate(GtkMenuItem *menuitem, gpointer user_data)
+ *   void on_linked_tabs_activate(gpointer menuitem, gpointer user_data)
  *
  * Description
  *   toggle linking tabs together.
@@ -344,9 +336,9 @@ G_MODULE_EXPORT void on_search_activate(GtkMenuItem *menuitem,
  *   void
  */
 G_MODULE_EXPORT void
-on_linked_tabs_activate(GtkCheckMenuItem *menuitem, gpointer user_data)
+on_linked_tabs_activate(gpointer menuitem, gpointer user_data)
 {
-	settings.linkedtabs = gtk_check_menu_item_get_active(menuitem);
+	settings.linkedtabs = (GPOINTER_TO_INT(user_data) != 0);
 	xml_set_value("Xiphos", "misc", "pinnedtabs",
 		      (settings.linkedtabs ? "1" : "0"));
 	if (settings.showparatab)
@@ -360,7 +352,7 @@ on_linked_tabs_activate(GtkCheckMenuItem *menuitem, gpointer user_data)
  * Synopsis
  *   #include "gui/main_menu.h"
  *
- *   void on_read_aloud_activate(GtkMenuItem *menuitem, gpointer user_data)
+ *   void on_read_aloud_activate(gpointer menuitem, gpointer user_data)
  *
  * Description
  *   toggle reading scripture out loud.
@@ -369,9 +361,9 @@ on_linked_tabs_activate(GtkCheckMenuItem *menuitem, gpointer user_data)
  *   void
  */
 G_MODULE_EXPORT void
-on_read_aloud_activate(GtkCheckMenuItem *menuitem, gpointer user_data)
+on_read_aloud_activate(gpointer menuitem, gpointer user_data)
 {
-	settings.readaloud = gtk_check_menu_item_get_active(menuitem);
+	settings.readaloud = (GPOINTER_TO_INT(user_data) != 0);
 	xml_set_value("Xiphos", "misc", "readaloud",
 		      (settings.readaloud ? "1" : "0"));
 	if (settings.readaloud)
@@ -385,7 +377,7 @@ on_read_aloud_activate(GtkCheckMenuItem *menuitem, gpointer user_data)
  * Synopsis
  *   #include "gui/main_menu.h"
  *
- *   void on_show_verse_numbers_activate(GtkMenuItem *menuitem, gpointer user_data)
+ *   void on_show_verse_numbers_activate(gpointer menuitem, gpointer user_data)
  *
  * Description
  *   toggle showing verse numbers together.
@@ -394,10 +386,10 @@ on_read_aloud_activate(GtkCheckMenuItem *menuitem, gpointer user_data)
  *   void
  */
 G_MODULE_EXPORT void
-on_show_verse_numbers_activate(GtkCheckMenuItem *menuitem,
+on_show_verse_numbers_activate(gpointer menuitem,
 			       gpointer user_data)
 {
-	settings.showversenum = gtk_check_menu_item_get_active(menuitem);
+	settings.showversenum = (GPOINTER_TO_INT(user_data) != 0);
 	xml_set_value("Xiphos", "misc", "showversenum",
 		      (settings.showversenum ? "1" : "0"));
 	main_display_commentary(NULL, settings.currentverse);
@@ -411,7 +403,7 @@ on_show_verse_numbers_activate(GtkCheckMenuItem *menuitem,
  * Synopsis
  *   #include "gui/main_menu.h"
  *
- *   void on_versehighlight_activate(GtkMenuItem *menuitem, gpointer user_data)
+ *   void on_versehighlight_activate(gpointer menuitem, gpointer user_data)
  *
  * Description
  *   toggle special current verse highlight.
@@ -420,9 +412,9 @@ on_show_verse_numbers_activate(GtkCheckMenuItem *menuitem,
  *   void
  */
 G_MODULE_EXPORT void
-on_versehighlight_activate(GtkCheckMenuItem *menuitem, gpointer user_data)
+on_versehighlight_activate(gpointer menuitem, gpointer user_data)
 {
-	settings.versehighlight = gtk_check_menu_item_get_active(menuitem);
+	settings.versehighlight = (GPOINTER_TO_INT(user_data) != 0);
 	xml_set_value("Xiphos", "misc", "versehighlight",
 		      (settings.versehighlight ? "1" : "0"));
 	main_display_bible(NULL, settings.currentverse);
@@ -435,7 +427,7 @@ on_versehighlight_activate(GtkCheckMenuItem *menuitem, gpointer user_data)
  * Synopsis
  *   #include "gui/main_menu.h"
  *
- *   void on_annotate_highlight_activate(GtkMenuItem *menuitem, gpointer user_data)
+ *   void on_annotate_highlight_activate(gpointer menuitem, gpointer user_data)
  *
  * Description
  *   toggle annotated verse highlight.
@@ -444,9 +436,9 @@ on_versehighlight_activate(GtkCheckMenuItem *menuitem, gpointer user_data)
  *   void
  */
 G_MODULE_EXPORT void
-on_annotate_highlight_activate(GtkCheckMenuItem *menuitem, gpointer user_data)
+on_annotate_highlight_activate(gpointer menuitem, gpointer user_data)
 {
-	settings.annotate_highlight = gtk_check_menu_item_get_active(menuitem);
+	settings.annotate_highlight = (GPOINTER_TO_INT(user_data) != 0);
 	xml_set_value("Xiphos", "misc", "annotatehighlight",
 		      (settings.annotate_highlight ? "1" : "0"));
 	main_display_bible(NULL, settings.currentverse);
@@ -459,7 +451,7 @@ on_annotate_highlight_activate(GtkCheckMenuItem *menuitem, gpointer user_data)
  * Synopsis
  *   #include "gui/main_menu.h"
  *
- *   void gui_parallel_tab_activate(GtkMenuItem *menuitem, gpointer user_data)
+ *   void gui_parallel_tab_activate(gpointer menuitem, gpointer user_data)
  *
  * Description
  *   open tab for full parallel view
@@ -468,16 +460,16 @@ on_annotate_highlight_activate(GtkCheckMenuItem *menuitem, gpointer user_data)
  *   void
  */
 G_MODULE_EXPORT void
-gui_parallel_tab_activate(GtkCheckMenuItem *menuitem, gpointer user_data)
+gui_parallel_tab_activate(gpointer menuitem, gpointer user_data)
 {
 	if (!settings.browsing)
 		return;
-	if (!settings.showparatab && !gtk_check_menu_item_get_active(menuitem)) {
+	if (!settings.showparatab && !(GPOINTER_TO_INT(user_data) != 0)) {
 		xml_set_value("Xiphos", "misc", "showparatab", "0");
 		return;
 	}
 
-	settings.showparatab = gtk_check_menu_item_get_active(menuitem);
+	settings.showparatab = (GPOINTER_TO_INT(user_data) != 0);
 	xml_set_value("Xiphos", "misc", "showparatab",
 		      (settings.showparatab ? "1" : "0"));
 	if (settings.showparatab) {
@@ -495,7 +487,7 @@ gui_parallel_tab_activate(GtkCheckMenuItem *menuitem, gpointer user_data)
  * Synopsis
  *   #include "gui/main_menu.h"
  *
- *   void on_side_preview_activate(GtkMenuItem *menuitem, gpointer user_data)
+ *   void on_side_preview_activate(gpointer menuitem, gpointer user_data)
  *
  * Description
  *   toggle special previewer in sidebar.
@@ -504,10 +496,10 @@ gui_parallel_tab_activate(GtkCheckMenuItem *menuitem, gpointer user_data)
  *   void
  */
 G_MODULE_EXPORT void
-on_side_preview_activate(GtkCheckMenuItem *menuitem, gpointer user_data)
+on_side_preview_activate(gpointer menuitem, gpointer user_data)
 {
 	settings.show_previewer_in_sidebar =
-	    gtk_check_menu_item_get_active(menuitem);
+	    (GPOINTER_TO_INT(user_data) != 0);
 	xml_set_value("Xiphos", "misc", "show_side_preview",
 		      (settings.show_previewer_in_sidebar ? "1" : "0"));
 	gui_show_previewer_in_sidebar(settings.show_previewer_in_sidebar);
@@ -520,18 +512,18 @@ on_side_preview_activate(GtkCheckMenuItem *menuitem, gpointer user_data)
  * Synopsis
  *   #include "gui/main_menu.h"
  *
- *   void on_quit_activate(GtkMenuItem * menuitem, gpointer user_data)
+ *   void on_quit_activate(gpointer menuitem, gpointer user_data)
  *
  * Description
  *   do a nice orderly shut down and exit xiphos
- *   by calling gtk_widget_destroy() which will call
+ *   by calling gui_widget_destroy() which will call
  *   on_mainwindow_destroy()
  *
  * Return value
  *   void
  */
 G_MODULE_EXPORT void
-on_quit_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_quit_activate(gpointer menuitem, gpointer user_data)
 {
 	/* discover main window internal geometry before we go. */
 	final_pane_sizes();
@@ -555,8 +547,7 @@ on_quit_activate(GtkMenuItem *menuitem, gpointer user_data)
 	shutdown_frontend();
 	/* shutdown the sword stuff */
 	main_shutdown_backend();
-	if (gtk_main_level() > 0)
-		gtk_main_quit();
+	gui_main_quit();
 	exit(0);
 }
 
@@ -567,7 +558,7 @@ on_quit_activate(GtkMenuItem *menuitem, gpointer user_data)
  * Synopsis
  *   #include "gui/main_menu.h"
  *
- *   void on_about_xiphos_activate(GtkMenuItem * menuitem,
+ *   void on_about_xiphos_activate(gpointer menuitem,
  *					gpointer user_data)
  *
  * Description
@@ -577,7 +568,7 @@ on_quit_activate(GtkMenuItem *menuitem, gpointer user_data)
  *   void
  */
 G_MODULE_EXPORT void
-on_about_xiphos_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_about_xiphos_activate(gpointer menuitem, gpointer user_data)
 {
 	GtkWidget *AboutBox;
 
@@ -592,7 +583,7 @@ on_about_xiphos_activate(GtkMenuItem *menuitem, gpointer user_data)
  * Synopsis
  *   #include "gui/main_menu.h"
  *
- *   void on_save_session_activate(GtkMenuItem * menuitem, gpointer user_data)
+ *   void on_save_session_activate(gpointer menuitem, gpointer user_data)
  *
  * Description
  *   ask for a file name (with file-chooser) and save the current tabs to that file
@@ -601,7 +592,7 @@ on_about_xiphos_activate(GtkMenuItem *menuitem, gpointer user_data)
  *   void
  */
 G_MODULE_EXPORT void
-on_save_session_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_save_session_activate(gpointer menuitem, gpointer user_data)
 {
 	GtkWidget *dialog;
 	gchar *tabs_dir;
@@ -618,32 +609,25 @@ on_save_session_activate(GtkMenuItem *menuitem, gpointer user_data)
 	dialog = gtk_file_chooser_dialog_new(_("Save Session"),
 					     NULL,
 					     GTK_FILE_CHOOSER_ACTION_SAVE,
-#if GTK_CHECK_VERSION(3, 10, 0)
 					     "_Cancel",
 					     GTK_RESPONSE_CANCEL, "_Save",
 					     GTK_RESPONSE_ACCEPT,
-#else
-					     GTK_STOCK_CANCEL,
-					     GTK_RESPONSE_CANCEL,
-					     GTK_STOCK_SAVE,
-					     GTK_RESPONSE_ACCEPT,
-#endif
 					     NULL);
 	gui_fit_dialog_to_screen(GTK_WINDOW(dialog));
 
-	gtk_file_chooser_set_current_folder((GtkFileChooser *)dialog,
+	gui_file_chooser_set_current_folder((GtkFileChooser *)dialog,
 					    tabs_dir);
-	if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
+	if (gui_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
 		char *filename;
 
 		filename =
-		    gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
+		    gui_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
 		filename = g_path_get_basename(filename);
 		gui_save_tabs(filename);
 		g_free(filename);
 	}
 
-	gtk_widget_destroy(dialog);
+	gui_widget_destroy(dialog);
 }
 
 /******************************************************************************
@@ -713,7 +697,7 @@ void redisplay_to_realign()
  * Synopsis
  *   #include "gui/main_menu.h"
  *
- *   void on_open_session_activate(GtkMenuItem * menuitem, gpointer user_data)
+ *   void on_open_session_activate(gpointer menuitem, gpointer user_data)
  *
  * Description
  *   ask for file name (with file-chooser) and load tabs from that file
@@ -722,7 +706,7 @@ void redisplay_to_realign()
  *   void
  */
 G_MODULE_EXPORT void
-on_open_session_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_open_session_activate(gpointer menuitem, gpointer user_data)
 {
 	GtkWidget *dialog;
 	gchar *tabs_dir;
@@ -739,26 +723,19 @@ on_open_session_activate(GtkMenuItem *menuitem, gpointer user_data)
 	dialog = gtk_file_chooser_dialog_new(_("Open Session"),
 					     NULL,
 					     GTK_FILE_CHOOSER_ACTION_OPEN,
-#if GTK_CHECK_VERSION(3, 10, 0)
 					     _("_Cancel"),
 					     GTK_RESPONSE_CANCEL, _("_Open"),
 					     GTK_RESPONSE_ACCEPT,
-#else
-					     GTK_STOCK_CANCEL,
-					     GTK_RESPONSE_CANCEL,
-					     GTK_STOCK_OPEN,
-					     GTK_RESPONSE_ACCEPT,
-#endif
 					     NULL);
 	gui_fit_dialog_to_screen(GTK_WINDOW(dialog));
 
-	gtk_file_chooser_set_current_folder((GtkFileChooser *)dialog,
+	gui_file_chooser_set_current_folder((GtkFileChooser *)dialog,
 					    tabs_dir);
-	if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
+	if (gui_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
 		char *filename;
 
 		filename =
-		    gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
+		    gui_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
 		filename = g_path_get_basename(filename);
 		gui_close_all_tabs();
 		gui_load_tabs(filename);
@@ -766,7 +743,7 @@ on_open_session_activate(GtkMenuItem *menuitem, gpointer user_data)
 		g_free(filename);
 	}
 
-	gtk_widget_destroy(dialog);
+	gui_widget_destroy(dialog);
 }
 
 /******************************************************************************
@@ -776,7 +753,7 @@ on_open_session_activate(GtkMenuItem *menuitem, gpointer user_data)
  * Synopsis
  *   #include "gui/main_menu.h"
  *
- *   void on_show_bible_text_activate(GtkMenuItem * menuitem, gpointer user_data)
+ *   void on_show_bible_text_activate(gpointer menuitem, gpointer user_data)
  *
  * Description
  *    toggle Bibletext window
@@ -785,24 +762,24 @@ on_open_session_activate(GtkMenuItem *menuitem, gpointer user_data)
  *   void
  */
 G_MODULE_EXPORT void
-on_show_bible_text_activate(GtkCheckMenuItem *menuitem,
+on_show_bible_text_activate(gpointer menuitem,
 			    gpointer user_data)
 {
-	gui_show_hide_texts(gtk_check_menu_item_get_active(menuitem));
+	gui_show_hide_texts((GPOINTER_TO_INT(user_data) != 0));
 	redisplay_to_realign();
 }
 
 G_MODULE_EXPORT void
-on_preview_activate(GtkCheckMenuItem *menuitem, gpointer user_data)
+on_preview_activate(gpointer menuitem, gpointer user_data)
 {
-	gui_show_hide_preview(gtk_check_menu_item_get_active(menuitem));
+	gui_show_hide_preview((GPOINTER_TO_INT(user_data) != 0));
 	redisplay_to_realign();
 }
 
 G_MODULE_EXPORT void
-on_reading_mode_activate(GtkCheckMenuItem *menuitem, gpointer user_data)
+on_reading_mode_activate(gpointer menuitem, gpointer user_data)
 {
-	gui_toggle_reading_mode(gtk_check_menu_item_get_active(menuitem));
+	gui_toggle_reading_mode((GPOINTER_TO_INT(user_data) != 0));
 }
 
 /******************************************************************************
@@ -812,7 +789,7 @@ on_reading_mode_activate(GtkCheckMenuItem *menuitem, gpointer user_data)
  * Synopsis
  *   #include "gui/main_menu.h"
  *
- *   void on_show_commentary_activate(GtkMenuItem * menuitem, gpointer user_data)
+ *   void on_show_commentary_activate(gpointer menuitem, gpointer user_data)
  *
  * Description
  *    toggle commentary window *** we need to change the name of this
@@ -822,10 +799,10 @@ on_reading_mode_activate(GtkCheckMenuItem *menuitem, gpointer user_data)
  *   void
  */
 G_MODULE_EXPORT void
-on_show_commentary_activate(GtkCheckMenuItem *menuitem,
+on_show_commentary_activate(gpointer menuitem,
 			    gpointer user_data)
 {
-	gboolean show = gtk_check_menu_item_get_active(menuitem);
+	gboolean show = (GPOINTER_TO_INT(user_data) != 0);
 
 	/* Esta opción representa específicamente los comentarios propios de
 	 * la edición, no la pestaña Libro ni las notas personales. */
@@ -851,7 +828,7 @@ on_show_commentary_activate(GtkCheckMenuItem *menuitem,
  * Synopsis
  *   #include "gui/main_menu.h"
  *
- *   void on_show_dictionary_lexicon_activate(GtkMenuItem * menuitem, gpointer user_data)
+ *   void on_show_dictionary_lexicon_activate(gpointer menuitem, gpointer user_data)
  *
  * Description
  *    toggle lower_workbook view (on or off)
@@ -860,10 +837,10 @@ on_show_commentary_activate(GtkCheckMenuItem *menuitem,
  *   void
  */
 G_MODULE_EXPORT void
-on_show_dictionary_lexicon_activate(GtkCheckMenuItem *menuitem,
+on_show_dictionary_lexicon_activate(gpointer menuitem,
 				    gpointer user_data)
 {
-	gui_show_hide_dicts(gtk_check_menu_item_get_active(menuitem));
+	gui_show_hide_dicts((GPOINTER_TO_INT(user_data) != 0));
 	redisplay_to_realign();
 }
 
@@ -874,7 +851,7 @@ on_show_dictionary_lexicon_activate(GtkCheckMenuItem *menuitem,
  * Synopsis
  *   #include "gui/main_menu.h"
  *
- *   void on_module_manager_activate(GtkMenuItem * menuitem, gpointer user_data)
+ *   void on_module_manager_activate(gpointer menuitem, gpointer user_data)
  *
  * Description
  *
@@ -883,7 +860,7 @@ on_show_dictionary_lexicon_activate(GtkCheckMenuItem *menuitem,
  *   void
  */
 G_MODULE_EXPORT void
-on_module_manager_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_module_manager_activate(gpointer menuitem, gpointer user_data)
 {
 	if (!main_backend_is_sword())
 		gui_open_sqlite_module_manager();
@@ -892,175 +869,375 @@ on_module_manager_activate(GtkMenuItem *menuitem, gpointer user_data)
 }
 
 G_MODULE_EXPORT void
-on_advanced_search_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_advanced_search_activate(gpointer menuitem, gpointer user_data)
 {
 	main_open_search_dialog();
 }
 
 G_MODULE_EXPORT void
-on_nube_palabras_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_nube_palabras_activate(gpointer menuitem, gpointer user_data)
 {
 	gui_nube_palabras_dialog();
 }
 
 G_MODULE_EXPORT void
-on_planes_lectura_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_planes_lectura_activate(gpointer menuitem, gpointer user_data)
 {
 	gui_planes_lectura_dialog();
 }
 
 G_MODULE_EXPORT void
-on_progreso_lectura_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_progreso_lectura_activate(gpointer menuitem, gpointer user_data)
 {
 	gui_progreso_lectura_dialog(widgets.app ? GTK_WINDOW(widgets.app)
 						: NULL);
 }
 
 G_MODULE_EXPORT void
-on_versiculo_dia_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_versiculo_dia_activate(gpointer menuitem, gpointer user_data)
 {
 	gui_versiculo_dia_dialog(widgets.app ? GTK_WINDOW(widgets.app)
 					     : NULL);
 }
 
 G_MODULE_EXPORT void
-on_memorizacion_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_memorizacion_activate(gpointer menuitem, gpointer user_data)
 {
 	gui_memorizacion_dialog(widgets.app ? GTK_WINDOW(widgets.app) : NULL);
 }
 
 G_MODULE_EXPORT void
-on_pulpito_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_pulpito_activate(gpointer menuitem, gpointer user_data)
 {
 	gui_pulpito_elegir(widgets.app ? GTK_WINDOW(widgets.app) : NULL);
 }
 
 G_MODULE_EXPORT void
-on_diccionario_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_diccionario_activate(gpointer menuitem, gpointer user_data)
 {
 	gui_diccionario_dialog();
 }
 
 G_MODULE_EXPORT void
-on_buscar_notas_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_buscar_notas_activate(gpointer menuitem, gpointer user_data)
 {
 	gui_buscar_notas_dialog(widgets.app ? GTK_WINDOW(widgets.app) : NULL);
 }
 
 G_MODULE_EXPORT void
-on_testimonios_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_testimonios_activate(gpointer menuitem, gpointer user_data)
 {
 	gui_testimonios_dialog(widgets.app ? GTK_WINDOW(widgets.app) : NULL);
 }
 
 G_MODULE_EXPORT void
-on_attach_detach_sidebar_activate(GtkMenuItem *menuitem,
+on_attach_detach_sidebar_activate(gpointer menuitem,
 				  gpointer user_data)
 {
 	gui_attach_detach_sidebar();
 }
 
 G_MODULE_EXPORT void
-on_sidebar_showhide_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_sidebar_showhide_activate(gpointer menuitem, gpointer user_data)
 {
 	gui_sidebar_showhide();
 }
 
-/* The shortcut beside the entry, right-aligned as in any GTK menu. Only
- * shown: the key itself is handled by the main window's key handler, so
- * no accelerator is installed and nothing fires twice. */
-static void
-mostrar_atajo(GtkBuilder *gxml, const char *id, guint key,
-	      GdkModifierType mods)
-{
-	GtkWidget *item = UI_GET_ITEM(gxml, id);
-	GtkWidget *child = item ? gtk_bin_get_child(GTK_BIN(item)) : NULL;
+static GSimpleActionGroup *main_menu_actions;
+static GMenu *main_menu_model;
 
-	if (child && GTK_IS_ACCEL_LABEL(child))
-		gtk_accel_label_set_accel(GTK_ACCEL_LABEL(child), key, mods);
+#define MENU_ACTION(name, handler) \
+static void name(GSimpleAction *action, GVariant *parameter, gpointer data) \
+{ (void)action; (void)parameter; handler(NULL, data); }
+
+MENU_ACTION(export_action, on_export_bible_activate)
+MENU_ACTION(install_action, on_module_manager_activate)
+MENU_ACTION(preferences_action, on_preferences_activate)
+MENU_ACTION(navigation_action, on_navigation_prefs_activate)
+MENU_ACTION(quit_action, on_quit_activate)
+MENU_ACTION(search_action, on_search_activate)
+MENU_ACTION(advanced_search_action, on_advanced_search_activate)
+MENU_ACTION(notes_search_action, on_buscar_notas_activate)
+MENU_ACTION(dictionary_dialog_action, on_diccionario_activate)
+MENU_ACTION(cloud_action, on_nube_palabras_activate)
+MENU_ACTION(testimonies_action, on_testimonios_activate)
+MENU_ACTION(plans_action, on_planes_lectura_activate)
+MENU_ACTION(progress_action, on_progreso_lectura_activate)
+MENU_ACTION(daily_verse_action, on_versiculo_dia_activate)
+MENU_ACTION(memorize_action, on_memorizacion_activate)
+MENU_ACTION(pulpit_action, on_pulpito_activate)
+MENU_ACTION(devotion_action, on_daily_devotion_activate)
+MENU_ACTION(sidebar_action, on_sidebar_showhide_activate)
+MENU_ACTION(open_session_action, on_open_session_activate)
+MENU_ACTION(save_session_action, on_save_session_activate)
+MENU_ACTION(help_action, on_help_contents_activate)
+MENU_ACTION(report_action, on_report_bug_activate)
+MENU_ACTION(about_action, on_about_xiphos_activate)
+MENU_ACTION(sword_action, on_about_the_sword_project_activate)
+MENU_ACTION(biblesync_action, on_about_biblesync_activate)
+MENU_ACTION(translation_action, on_about_translation_activate)
+
+static void state_changed(GSimpleAction *action, GVariant *state, gpointer data)
+{
+	const gchar *name = g_action_get_name(G_ACTION(action));
+	gboolean active = g_variant_get_boolean(state);
+	g_simple_action_set_state(action, state);
+	gpointer value = GINT_TO_POINTER(active);
+	if (!g_strcmp0(name, "linked-tabs")) on_linked_tabs_activate(NULL, value);
+	else if (!g_strcmp0(name, "read-aloud")) on_read_aloud_activate(NULL, value);
+	else if (!g_strcmp0(name, "verse-numbers")) on_show_verse_numbers_activate(NULL, value);
+	else if (!g_strcmp0(name, "current-highlight")) on_versehighlight_activate(NULL, value);
+	else if (!g_strcmp0(name, "annotated-highlight")) on_annotate_highlight_activate(NULL, value);
+	else if (!g_strcmp0(name, "parallel-tab")) gui_parallel_tab_activate(NULL, value);
+	else if (!g_strcmp0(name, "side-preview")) on_side_preview_activate(NULL, value);
+	else if (!g_strcmp0(name, "bible")) on_show_bible_text_activate(NULL, value);
+	else if (!g_strcmp0(name, "preview")) on_preview_activate(NULL, value);
+	else if (!g_strcmp0(name, "reading-mode")) on_reading_mode_activate(NULL, value);
+	else if (!g_strcmp0(name, "commentary")) on_show_commentary_activate(NULL, value);
+	else if (!g_strcmp0(name, "dictionary")) on_show_dictionary_lexicon_activate(NULL, value);
+	else if (!g_strcmp0(name, "split")) gui_lectura_sync_set_visible(active);
+	else if (!g_strcmp0(name, "interlinear")) gui_interlineal_set_active(active);
+}
+
+static void theme_changed(GSimpleAction *action, GVariant *state, gpointer data)
+{
+	(void)data;
+	g_simple_action_set_state(action, state);
+	gui_elim_tema_set(g_variant_get_string(state, NULL));
+}
+
+static void add_state(const gchar *name, gboolean state)
+{
+	GSimpleAction *action = g_simple_action_new_stateful(name, NULL,
+						     g_variant_new_boolean(state));
+	g_signal_connect(action, "change-state", G_CALLBACK(state_changed), NULL);
+	g_action_map_add_action(G_ACTION_MAP(main_menu_actions), G_ACTION(action));
+	g_object_unref(action);
+}
+
+void gui_main_menu_set_state(const gchar *name, gboolean state)
+{
+	GAction *action = main_menu_actions ? g_action_map_lookup_action(
+	    G_ACTION_MAP(main_menu_actions), name) : NULL;
+	if (action)
+		g_simple_action_set_state(G_SIMPLE_ACTION(action), g_variant_new_boolean(state));
+}
+
+void gui_main_menu_set_theme(const gchar *mode)
+{
+	GAction *action = main_menu_actions ? g_action_map_lookup_action(
+	    G_ACTION_MAP(main_menu_actions), "theme") : NULL;
+	if (action && mode)
+		g_simple_action_set_state(G_SIMPLE_ACTION(action), g_variant_new_string(mode));
+}
+
+void gui_main_menu_change_state(const gchar *name, gboolean state)
+{
+	if (main_menu_actions)
+		g_action_group_change_action_state(G_ACTION_GROUP(main_menu_actions), name,
+						   g_variant_new_boolean(state));
+}
+
+gboolean gui_main_menu_get_state(const gchar *name)
+{
+	GVariant *state = main_menu_actions ? g_action_group_get_action_state(
+	    G_ACTION_GROUP(main_menu_actions), name) : NULL;
+	gboolean value = state ? g_variant_get_boolean(state) : FALSE;
+	g_clear_pointer(&state, g_variant_unref);
+	return value;
+}
+
+GActionGroup *gui_main_menu_actions(void)
+{
+	return main_menu_actions ? G_ACTION_GROUP(main_menu_actions) : NULL;
+}
+
+GMenuModel *gui_main_menu_model(void)
+{
+	return main_menu_model ? G_MENU_MODEL(main_menu_model) : NULL;
+}
+
+static GMenu *section(void) { return g_menu_new(); }
+
+static void add_section(GMenu *menu, GMenu *items)
+{
+	g_menu_append_section(menu, NULL, G_MENU_MODEL(items));
+	g_object_unref(items);
+}
+
+static void add_submenu(GMenu *menu, const gchar *label, GMenu *submenu)
+{
+	g_menu_append_submenu(menu, label, G_MENU_MODEL(submenu));
+	g_object_unref(submenu);
+}
+
+/* ACCEL only labels the entry, right-aligned as in any GTK menu: the key
+ * itself is handled by the main window's key handler, so nothing fires
+ * twice. */
+static void append(GMenu *menu, const gchar *label, const gchar *action,
+		   const gchar *accel)
+{
+	GMenuItem *item = g_menu_item_new(label, action);
+	if (accel)
+		g_menu_item_set_attribute(item, "accel", "s", accel);
+	g_menu_append_item(menu, item);
+	g_object_unref(item);
+}
+
+static void append_target(GMenu *menu, const gchar *label, const gchar *action,
+			  const gchar *target)
+{
+	GMenuItem *item = g_menu_item_new(label, NULL);
+	g_menu_item_set_action_and_target(item, action, "s", target);
+	g_menu_append_item(menu, item);
+	g_object_unref(item);
 }
 
 GtkWidget *gui_create_main_menu(void)
 {
-	GtkBuilder *gxml = elim_gtk_builder_new();
-	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/xi-menus.gtkbuilder", NULL);
-	g_return_val_if_fail(gxml != NULL, NULL);
+	main_menu_actions = g_simple_action_group_new();
+	const GActionEntry entries[] = {
+		{"export", export_action}, {"install", install_action},
+		{"preferences", preferences_action}, {"navigation", navigation_action},
+		{"quit", quit_action}, {"search", search_action},
+		{"advanced-search", advanced_search_action}, {"notes-search", notes_search_action},
+		{"dictionary-dialog", dictionary_dialog_action}, {"cloud", cloud_action},
+		{"testimonies", testimonies_action}, {"plans", plans_action},
+		{"progress", progress_action}, {"daily-verse", daily_verse_action},
+		{"memorize", memorize_action}, {"pulpit", pulpit_action},
+		{"devotion", devotion_action}, {"sidebar", sidebar_action},
+		{"open-session", open_session_action}, {"save-session", save_session_action},
+		{"help", help_action}, {"report", report_action}, {"about", about_action},
+		{"sword", sword_action}, {"biblesync", biblesync_action},
+		{"translation", translation_action}
+	};
+	g_action_map_add_action_entries(G_ACTION_MAP(main_menu_actions), entries,
+					G_N_ELEMENTS(entries), NULL);
+	add_state("linked-tabs", settings.linkedtabs);
+	add_state("read-aloud", settings.readaloud);
+	add_state("verse-numbers", settings.showversenum);
+	add_state("current-highlight", settings.versehighlight);
+	add_state("annotated-highlight", settings.annotate_highlight);
+	add_state("parallel-tab", settings.showparatab);
+	add_state("side-preview", settings.show_previewer_in_sidebar);
+	add_state("bible", settings.showtexts);
+	add_state("preview", settings.showpreview);
+	add_state("reading-mode", settings.reading_mode);
+	add_state("commentary", settings.showcomms);
+	add_state("dictionary", settings.showdicts);
+	add_state("split", settings.show_lectura_sync);
+	add_state("interlinear", settings.show_interlineal);
+	GSimpleAction *theme = g_simple_action_new_stateful("theme", G_VARIANT_TYPE_STRING,
+		g_variant_new_string(settings.ui_mode ? settings.ui_mode : "omarchy"));
+	g_signal_connect(theme, "change-state", G_CALLBACK(theme_changed), NULL);
+	g_action_map_add_action(G_ACTION_MAP(main_menu_actions), G_ACTION(theme));
+	g_object_unref(theme);
 
-	GtkWidget *menu = UI_GET_ITEM(gxml, "menu_main");
+	GMenu *bar = g_menu_new(), *m, *s, *sub;
+	main_menu_model = bar;
 
-	widgets.viewtexts_item = UI_GET_ITEM(gxml, "show_bible_text");
-	widgets.viewpreview_item = UI_GET_ITEM(gxml, "preview");
-	widgets.viewcomms_item = UI_GET_ITEM(gxml, "commentary");
-	widgets.viewdicts_item =
-	    UI_GET_ITEM(gxml, "show_dictionary_lexicon");
-	widgets.linkedtabs_item = UI_GET_ITEM(gxml, "link_tabs");
-	widgets.readaloud_item = UI_GET_ITEM(gxml, "read_aloud");
-	widgets.showversenum_item =
-	    UI_GET_ITEM(gxml, "show_verse_numbers");
-	widgets.versehighlight_item =
-	    UI_GET_ITEM(gxml, "highlight_current_verse");
-	widgets.annotate_highlight_item =
-	    UI_GET_ITEM(gxml, "highlight_annotated_verses");
-	widgets.parallel_tab_item =
-	    UI_GET_ITEM(gxml, "show_parallel_view_in_a_tab");
-	widgets.side_preview_item =
-	    UI_GET_ITEM(gxml, "show_previewer_in_sidebar");
-	widgets.reading_mode_item = UI_GET_ITEM(gxml, "reading_mode");
-	widgets.lectura_sync_item = UI_GET_ITEM(gxml, "lectura_sync");
-	widgets.interlineal_item = UI_GET_ITEM(gxml, "interlineal");
+	m = section();
+	s = section();
+	append(s, _("_Exportar pasaje…"), "menu.export", NULL);
+	add_section(m, s);
+	s = section();
+	append(s, _("_Instalar Biblias…"), "menu.install", "F4");
+	append(s, _("_Preferencias…"), "menu.preferences", "F2");
+	append(s, _("Nave_gación y rueda…"), "menu.navigation", NULL);
+	add_section(m, s);
+	s = section();
+	append(s, _("_Salir"), "menu.quit", "<Control>q");
+	add_section(m, s);
+	add_submenu(bar, _("_Archivo"), m);
 
-	/* map tab's show state into view menu. */
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.viewtexts_item),
-				       settings.showtexts);
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.viewcomms_item),
-				       settings.showcomms);
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.viewdicts_item),
-				       settings.showdicts);
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.viewpreview_item),
-				       settings.showpreview);
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.parallel_tab_item),
-				       settings.showparatab);
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.side_preview_item),
-				       settings.show_previewer_in_sidebar);
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.reading_mode_item),
-				       settings.reading_mode);
-	if (widgets.lectura_sync_item)
-		gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.lectura_sync_item),
-					       settings.show_lectura_sync);
-	if (widgets.interlineal_item)
-		gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.interlineal_item),
-					       settings.show_interlineal);
+	m = section();
+	append(m, _("_Buscar en la Biblia"), "menu.search", NULL);
+	append(m, _("Búsqueda a_vanzada…"), "menu.advanced-search", "F3");
+	append(m, _("Buscar en mis _notas…"), "menu.notes-search", NULL);
+	add_submenu(bar, _("_Buscar"), m);
 
-	gui_elim_tema_bind_menu(gxml);
+	m = section();
+	append(m, _("Biblia _interlineal"), "menu.interlinear", NULL);
+	append(m, _("Di_ccionario…"), "menu.dictionary-dialog", NULL);
+	append(m, _("_Nube de palabras…"), "menu.cloud", NULL);
+	append(m, _("_Jesús en la historia…"), "menu.testimonies", NULL);
+	add_submenu(bar, _("_Estudio"), m);
 
-	mostrar_atajo(gxml, "read_aloud", GDK_KEY_r, GDK_CONTROL_MASK);
-	mostrar_atajo(gxml, "reading_mode", GDK_KEY_f,
-		      GDK_CONTROL_MASK | GDK_SHIFT_MASK);
-	mostrar_atajo(gxml, "show_hide_sidebar", GDK_KEY_s, GDK_CONTROL_MASK);
-	mostrar_atajo(gxml, "quit", GDK_KEY_q, GDK_CONTROL_MASK);
-	mostrar_atajo(gxml, "contents", GDK_KEY_F1, 0);
-	mostrar_atajo(gxml, "preferences", GDK_KEY_F2, 0);
-	mostrar_atajo(gxml, "advanced_search", GDK_KEY_F3, 0);
-	mostrar_atajo(gxml, "module_manager", GDK_KEY_F4, 0);
+	m = section();
+	s = section();
+	append(s, _("_Planes de lectura…"), "menu.plans", NULL);
+	append(s, _("_Mi progreso…"), "menu.progress", NULL);
+	append(s, _("_Versículo del día…"), "menu.daily-verse", NULL);
+	append(s, _("Me_morización…"), "menu.memorize", NULL);
+	add_section(m, s);
+	s = section();
+	append(s, _("_Leer en voz alta"), "menu.read-aloud", "<Control>r");
+	append(s, _("Abrir en p_úlpito…"), "menu.pulpit", NULL);
+	/* «Vista previa de la devoción diaria» and «Paneles › Diccionario»
+	 * stay out of the menu, as they were hidden before: their actions
+	 * remain for the code that sets their state. */
+	add_section(m, s);
+	add_submenu(bar, _("_Lectura"), m);
 
-	/* update other status toys */
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.linkedtabs_item),
-				       settings.linkedtabs);
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.readaloud_item),
-				       settings.readaloud);
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.showversenum_item),
-				       settings.showversenum);
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.versehighlight_item),
-				       settings.versehighlight);
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.annotate_highlight_item),
-				       settings.annotate_highlight);
+	m = section();
+	sub = section();
+	append_target(sub, _("_Omarchy"), "menu.theme", "omarchy");
+	append_target(sub, _("_Claro"), "menu.theme", "claro");
+	append_target(sub, _("Osc_uro"), "menu.theme", "oscuro");
+	append_target(sub, _("Claro _luna"), "menu.theme", "claroluna");
+	append_target(sub, _("_Pergamino"), "menu.theme", "pergamino");
+	add_submenu(m, _("_Apariencia"), sub);
+	s = section();
+	append(s, _("_Modo lectura"), "menu.reading-mode", "<Control><Shift>f");
+	append(s, _("Pantalla _dividida"), "menu.split", NULL);
+	add_section(m, s);
+	sub = section();
+	s = section();
+	append(s, _("_Biblia"), "menu.bible", NULL);
+	append(s, _("_Vista previa"), "menu.preview", NULL);
+	append(s, _("_Comentarios del autor"), "menu.commentary", NULL);
+	add_section(sub, s);
+	s = section();
+	append(s, _("Mostrar u ocultar panel _lateral"), "menu.sidebar", "<Control>s");
+	append(s, _("Vista previa _en el lateral"), "menu.side-preview", NULL);
+	add_section(sub, s);
+	add_submenu(m, _("_Paneles"), sub);
+	sub = section();
+	append(sub, _("_Números de versículo"), "menu.verse-numbers", NULL);
+	append(sub, _("Resaltar versículo _actual"), "menu.current-highlight", NULL);
+	append(sub, _("Resaltar versículos _anotados"), "menu.annotated-highlight", NULL);
+	add_submenu(m, _("_Texto"), sub);
+	sub = section();
+	s = section();
+	append(s, _("_Vincular pestañas"), "menu.linked-tabs", NULL);
+	append(s, _("Vista _paralela en pestaña"), "menu.parallel-tab", NULL);
+	add_section(sub, s);
+	s = section();
+	append(s, _("_Abrir sesión…"), "menu.open-session", NULL);
+	append(s, _("_Guardar sesión…"), "menu.save-session", NULL);
+	add_section(sub, s);
+	add_submenu(m, _("Pe_stañas"), sub);
+	add_submenu(bar, _("_Ver"), m);
 
-/* connect signals and data */
-	gtk_builder_connect_signals(gxml, NULL);
-/*gtk_builder_connect_signals_full
-	   (gxml, (GtkBuilderConnectFunc)gui_glade_signal_connect_func, NULL); */
-	//set up global function to handle all link buttons
+	m = section();
+	s = section();
+	append(s, _("_Contenido"), "menu.help", "F1");
+	append(s, _("Informar de un _error"), "menu.report", NULL);
+	add_section(m, s);
+	s = section();
+	append(s, _("Acerca de _Biblia Elim"), "menu.about", NULL);
+	sub = section();
+	append(sub, _("_SWORD"), "menu.sword", NULL);
+	append(sub, _("Bible_Sync"), "menu.biblesync", NULL);
+	append(sub, _("_Traducción"), "menu.translation", NULL);
+	add_submenu(s, _("_Créditos"), sub);
+	add_section(m, s);
+	add_submenu(bar, _("A_yuda"), m);
 
+	GtkWidget *menu = gtk_popover_menu_bar_new_from_model(G_MENU_MODEL(bar));
+	gtk_widget_insert_action_group(menu, "menu", G_ACTION_GROUP(main_menu_actions));
+	g_object_set_data_full(G_OBJECT(menu), "elim-menu-actions",
+			       g_object_ref(main_menu_actions), g_object_unref);
 	gtk_widget_show(menu);
 	return menu;
 }

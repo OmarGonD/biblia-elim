@@ -24,6 +24,7 @@
 
 #include <glib.h>
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <libxml/parser.h>
 
 #include <math.h>
@@ -129,11 +130,7 @@ void gui_verselist_to_bookmarks(GList *verses, gint save_as_single)
 
 	gtk_tree_model_get_iter_first(GTK_TREE_MODEL(model), &iter);
 	info = gui_new_dialog();
-#if GTK_CHECK_VERSION(3, 10, 0)
 	info->stock_icon = "document-open";
-#else
-	info->stock_icon = GTK_STOCK_OPEN;
-#endif
 
 	info->title = _("Bookmark");
 	info->label_top = _("Enter Folder Name");
@@ -556,7 +553,6 @@ static void create_pixbufs(void)
  */
 
 /* Creates a round color swatch pixbuf using Cairo (14x14 px) */
-#ifdef USE_GTK_3
 static GdkPixbuf *make_color_dot(const gchar *hex_color)
 {
 	const gint SIZE = 14;
@@ -608,40 +604,7 @@ static void color_dot_cell_func(GtkTreeViewColumn *col,
 	if (dot) g_object_unref(dot);
 	g_free(color);
 }
-#endif
 
-#ifndef USE_GTK_3
-static void color_dot_cell_func_gtk2(GtkTreeViewColumn *tree_column,
-									 GtkCellRenderer *cell,
-									 GtkTreeModel *tree_model,
-									 GtkTreeIter *iter,
-									 gpointer data)
-{
-		gchar *color_str = NULL;
-		gtk_tree_model_get(tree_model, iter, COL_COLOR, &color_str, -1);
-		if (color_str && *color_str) {
-				GdkColor color;
-				if (gdk_color_parse(color_str, &color)) {
-						/* Crée un petit carré de couleur de 12x12 pixels */
-						GdkPixbuf *pixbuf = gdk_pixbuf_new(GDK_COLORSPACE_RGB, FALSE, 8, 12, 12);
-						if (pixbuf) {
-								guint32 r = color.red >> 8;
-								guint32 g = color.green >> 8;
-								guint32 b = color.blue >> 8;
-								guint32 pixel = (r << 24) | (g << 16) | (b << 8) | 0xFF;
-								gdk_pixbuf_fill(pixbuf, pixel);
-								g_object_set(cell, "pixbuf", pixbuf, NULL);
-								g_object_unref(pixbuf);
-						}
-				} else {
-						g_object_set(cell, "pixbuf", NULL, NULL);
-				}
-		} else {
-				g_object_set(cell, "pixbuf", NULL, NULL);
-		}
-		g_free(color_str);
-}
-#endif
 
 void gui_add_columns(GtkTreeView *tree)
 {
@@ -650,28 +613,23 @@ void gui_add_columns(GtkTreeView *tree)
 
 	column = gtk_tree_view_column_new();
 
+	/* Only "pixbuf" (never the expander-open/expander-closed pair): GTK4's
+	 * deprecated GtkCellRendererPixbuf hands that pair a null GValue for
+	 * an expander row even though the model's own column data is valid,
+	 * aborting via gdk_texture_new_for_pixbuf's GDK_IS_PIXBUF assertion
+	 * (see main_add_mod_tree_columns() in main/sidebar.cc for how this
+	 * was diagnosed). A single attribute sidesteps that path. */
 	renderer = GTK_CELL_RENDERER(gtk_cell_renderer_pixbuf_new());
 	gtk_tree_view_column_pack_start(column, renderer, FALSE);
 	gtk_tree_view_column_set_attributes(column, renderer,
-				    "pixbuf", COL_OPEN_PIXBUF,
-				    "pixbuf-expander-open", COL_OPEN_PIXBUF,
-				    "pixbuf-expander-closed", COL_CLOSED_PIXBUF, NULL);
+				    "pixbuf", COL_OPEN_PIXBUF, NULL);
 
-#ifdef USE_GTK_3
 		/* Color dot renderer — round swatch drawn with Cairo */
 		renderer = GTK_CELL_RENDERER(gtk_cell_renderer_pixbuf_new());
 		gtk_tree_view_column_pack_start(column, renderer, FALSE);
 		gtk_tree_view_column_set_cell_data_func(column, renderer,
 												color_dot_cell_func,
 												NULL, NULL);
-#else
-		/* GTK2 Windows — colored square drawn via pixbuf */
-		renderer = GTK_CELL_RENDERER(gtk_cell_renderer_pixbuf_new());
-		gtk_tree_view_column_pack_start(column, renderer, FALSE);
-		gtk_tree_view_column_set_cell_data_func(column, renderer,
-												color_dot_cell_func_gtk2,
-												NULL, NULL);
-#endif
 
 	/* Caption renderer */
 	renderer = GTK_CELL_RENDERER(gtk_cell_renderer_text_new());
@@ -754,7 +712,7 @@ static GtkTreeModel *create_model(void)
  *   #include "gui/bookmarks_treeview.h"
  *
  *   gboolean button_release_event(GtkWidget * widget,
-			    GdkEventButton * event, gpointer user_data)
+			    GuiButtonEvent * event, gpointer user_data)
  *
  * Description
  *   catch button 3 and select the row the pointer is over
@@ -764,15 +722,16 @@ static GtkTreeModel *create_model(void)
  *   void
  */
 
-static void lambda_open_url(GtkMenuItem *item, gpointer data)
+static void lambda_open_url(GSimpleAction *action, GVariant *url,
+			    gpointer data)
 {
-	const gchar *url = (const gchar *)g_object_get_data(G_OBJECT(item), "url");
-	if (url)
-		main_url_handler(url, TRUE);
+	(void)action;
+	(void)data;
+	main_url_handler(g_variant_get_string(url, NULL), TRUE);
 }
 
 static gboolean button_release_event(GtkWidget *widget,
-				     GdkEventButton *event, gpointer data)
+				     GuiButtonEvent *event, gpointer data)
 {
 	GtkTreeSelection *selection = NULL;
 	GtkTreeIter selected;
@@ -912,29 +871,31 @@ static gboolean button_release_event(GtkWidget *widget,
 			} else if (multi && button_one && settings.crossref_popup) {
 				GList *refs = main_parse_verse_list(module, key,
 								    settings.currentverse);
-				GtkWidget *popup = gtk_menu_new();
+				GMenu *popup = g_menu_new();
 				for (GList *l = refs; l; l = l->next) {
 					const gchar *ref = (const gchar *)l->data;
-					GtkWidget *item = gtk_menu_item_new_with_label(ref);
+					GMenuItem *item = g_menu_item_new(ref, NULL);
 					gchar *url = g_strdup_printf(
 						"passagestudy.jsp?action=showBookmark&"
 						"type=%s&value=%s&module=%s",
 						"currentTab",
 						main_url_encode(ref),
 						main_url_encode((real_mod ? real_mod : module)));
-					g_object_set_data_full(G_OBJECT(item), "url", url, g_free);
-					g_signal_connect(item, "activate",
-						G_CALLBACK(lambda_open_url), NULL);
-					gtk_menu_shell_append(GTK_MENU_SHELL(popup), item);
+					g_menu_item_set_action_and_target_value(
+					    item, "referencias.ir",
+					    g_variant_new_string(url));
+					g_menu_append_item(popup, item);
+					g_object_unref(item);
+					g_free(url);
 				}
 				g_list_free_full(refs, g_free);
-				gtk_widget_show_all(popup);
-#if GTK_CHECK_VERSION(3, 22, 0)
-				gtk_menu_popup_at_pointer(GTK_MENU(popup), NULL);
-#else
-				gtk_menu_popup(GTK_MENU(popup), NULL, NULL, NULL, NULL, 1,
-					      gtk_get_current_event_time());
-#endif
+				gui_insert_single_action(widget, "referencias", "ir",
+							 G_VARIANT_TYPE_STRING,
+							 G_CALLBACK(lambda_open_url),
+							 NULL);
+				gui_popup_menu_model_at_pointer(G_MENU_MODEL(popup),
+								widget);
+				g_object_unref(popup);
 			} else if (multi && button_one && !settings.crossref_popup) {
 				gchar *url = g_strdup_printf(
 					"passagestudy.jsp?action=showBookmark&"
@@ -1163,10 +1124,7 @@ GtkWidget *gui_create_bookmark_tree(void)
 
 	load_xml_bookmarks(GTK_TREE_VIEW(tree), &iter);
 
-	g_signal_connect_after(G_OBJECT(tree),
-			       "button_release_event",
-			       G_CALLBACK(button_release_event),
-			       GINT_TO_POINTER(0));
+	gui_widget_on_button(GTK_WIDGET(tree), GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)button_release_event, GINT_TO_POINTER(0));
 	use_dialog = FALSE;
 	bookmark_tree = GTK_TREE_VIEW(tree);
 	gtk_tree_view_set_reorderable(bookmark_tree, TRUE);

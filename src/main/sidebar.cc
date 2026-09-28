@@ -274,7 +274,7 @@ static void add_children_to_tree(GtkTreeModel *model, GtkTreeIter iter,
 		} else {
 			gtk_tree_store_set(GTK_TREE_STORE(model), &child_iter,
 					   COL_OPEN_PIXBUF, pixbufs->pixbuf_helpdoc,
-					   COL_CLOSED_PIXBUF, NULL,
+					   COL_CLOSED_PIXBUF, pixbufs->pixbuf_helpdoc,
 					   COL_CAPTION, (gchar *)tmpbuf,
 					   COL_MODULE, (gchar *)mod_name,
 					   COL_OFFSET, (gchar *)buf,
@@ -300,7 +300,7 @@ static void add_children_to_tree(GtkTreeModel *model, GtkTreeIter iter,
 		} else {
 			gtk_tree_store_set(GTK_TREE_STORE(model), &child_iter,
 					   COL_OPEN_PIXBUF, pixbufs->pixbuf_helpdoc,
-					   COL_CLOSED_PIXBUF, NULL,
+					   COL_CLOSED_PIXBUF, pixbufs->pixbuf_helpdoc,
 					   COL_CAPTION, (gchar *)tmpbuf,
 					   COL_MODULE, (gchar *)mod_name,
 					   COL_OFFSET, (gchar *)buf,
@@ -345,24 +345,11 @@ void main_create_pixbufs(void)
 	pixbufs->pixbuf_opened =
 	    symbolic_pixbuf("folder-open-symbolic", 16, GTK_WIDGET(widgets.app));
 
-#if GTK_CHECK_VERSION(3, 0, 0)
-#if GTK_CHECK_VERSION(3, 10, 0)
-	GtkIconTheme *icon_theme = gtk_icon_theme_get_default();
+	GtkIconTheme *icon_theme = gtk_icon_theme_get_for_display(gdk_display_get_default());
 	/* Leaf entries: "gtk-dnd" rendered as a two-pixel speck. */
 	(void)icon_theme;
 	pixbufs->pixbuf_helpdoc =
 	    symbolic_pixbuf("text-x-generic-symbolic", 16, GTK_WIDGET(widgets.app));
-#else
-	pixbufs->pixbuf_helpdoc =
-	    gtk_widget_render_icon_pixbuf(widgets.app,
-					  GTK_STOCK_DND,
-					  GTK_ICON_SIZE_MENU);
-#endif
-#else
-	gtk_widget_render_icon(widgets.app,
-			       GTK_STOCK_DND,
-			       GTK_ICON_SIZE_MENU, NULL);
-#endif
 }
 
 #ifdef ALLOW_BIBLE_NAVIGATION_FROM_SIDEBAR_TREE
@@ -414,7 +401,7 @@ static void add_verses_to_chapter(GtkTreeModel *model,
 				      &child_iter, &iter);
 		gtk_tree_store_set(GTK_TREE_STORE(model), &child_iter,
 				   COL_OPEN_PIXBUF, pixbufs->pixbuf_helpdoc,
-				   COL_CLOSED_PIXBUF, NULL,
+				   COL_CLOSED_PIXBUF, pixbufs->pixbuf_helpdoc,
 				   COL_CAPTION, (gchar *)buf,
 				   COL_MODULE, (gchar *)work_buf[2],
 				   COL_OFFSET, (gchar *)key,
@@ -647,10 +634,8 @@ void main_mod_treeview_button_one(GtkTreeModel *model,
 			add_verses_to_chapter(model, selected, key);
 #endif
 
-		if (!gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(widgets.viewtexts_item))) {
-			gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.viewtexts_item), 1);
-			on_show_bible_text_activate(GTK_CHECK_MENU_ITEM(widgets.viewtexts_item), NULL);
-		}
+		if (!gui_main_menu_get_state("bible"))
+			gui_main_menu_change_state("bible", TRUE);
 
 		if (key)
 			main_url_handler(key, TRUE);
@@ -664,19 +649,16 @@ void main_mod_treeview_button_one(GtkTreeModel *model,
 		gtk_notebook_set_current_page(GTK_NOTEBOOK(widgets.notebook_comm_book), 0);
 		settings.comm_showing = TRUE;
 
-		if ((!gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(widgets.viewcomms_item))) ||
+		if ((!gui_main_menu_get_state("commentary")) ||
 		    (!settings.comm_showing)) {
-			gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.viewcomms_item), 1);
-			on_show_commentary_activate(GTK_CHECK_MENU_ITEM(widgets.viewcomms_item), NULL);
+			gui_main_menu_change_state("commentary", TRUE);
 		}
 		main_display_commentary(mod, settings.currentverse);
 		break;
 
 	case DICTIONARY_TYPE:
-		if (!gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(widgets.viewdicts_item))) {
-			gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.viewdicts_item), 1);
-			on_show_dictionary_lexicon_activate(GTK_CHECK_MENU_ITEM(widgets.viewcomms_item), NULL);
-		}
+		if (!gui_main_menu_get_state("dictionary"))
+			gui_main_menu_change_state("dictionary", TRUE);
 		main_display_dictionary(mod, settings.dictkey);
 		break;
 
@@ -706,10 +688,9 @@ void main_mod_treeview_button_one(GtkTreeModel *model,
 					 FALSE);
 		gtk_tree_path_free(path);
 
-		if ((!gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(widgets.viewcomms_item))) ||
+		if ((!gui_main_menu_get_state("commentary")) ||
 		    (!settings.comm_showing)) {
-			gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.viewcomms_item), 1);
-			on_show_commentary_activate(GTK_CHECK_MENU_ITEM(widgets.viewcomms_item), NULL);
+			gui_main_menu_change_state("commentary", TRUE);
 		}
 
 		main_display_book(mod, (key ? key : (gchar *)"0"));
@@ -1174,6 +1155,13 @@ static void module_tree_mapped(GtkWidget *tree, gpointer unused)
 		main_load_module_tree(tree);
 }
 
+static gboolean module_tree_settled(gpointer tree)
+{
+	if (gtk_widget_get_mapped(GTK_WIDGET(tree)))
+		module_tree_mapped(GTK_WIDGET(tree), NULL);
+	return G_SOURCE_REMOVE;
+}
+
 void main_init_module_tree(GtkWidget *tree)
 {
 	/* Stable model and columns for early readers; SVGs and module rows are
@@ -1186,8 +1174,12 @@ void main_init_module_tree(GtkWidget *tree)
 	g_object_unref(store);
 	g_object_set_data(G_OBJECT(tree), "elim-module-tree-pending", GINT_TO_POINTER(1));
 	g_signal_connect(tree, "map", G_CALLBACK(module_tree_mapped), NULL);
+	/* GTK 4 maps synchronously: a sidebar still visible while the window
+	 * is being built would load the tree at once, and the startup code
+	 * hides it right after. Judge once startup has settled. */
 	if (gtk_widget_get_mapped(tree))
-		module_tree_mapped(tree, NULL);
+		g_idle_add_full(G_PRIORITY_DEFAULT_IDLE, module_tree_settled,
+				g_object_ref(tree), g_object_unref);
 }
 
 void main_load_module_tree(GtkWidget *tree)
@@ -1286,7 +1278,7 @@ void main_load_module_tree(GtkWidget *tree)
 	gtk_tree_store_append(store, &child_iter, &text);
 	gtk_tree_store_set(store, &child_iter,
 			   COL_OPEN_PIXBUF, pixbufs->pixbuf_helpdoc,
-			   COL_CLOSED_PIXBUF, NULL,
+			   COL_CLOSED_PIXBUF, pixbufs->pixbuf_helpdoc,
 			   COL_CAPTION, _("Parallel View"),
 			   COL_MODULE, _("Parallel View"),
 			   COL_OFFSET, _("Parallel View"), -1);
@@ -1294,7 +1286,7 @@ void main_load_module_tree(GtkWidget *tree)
 	gtk_tree_store_append(store, &child_iter, &text);
 	gtk_tree_store_set(store, &child_iter,
 			   COL_OPEN_PIXBUF, pixbufs->pixbuf_helpdoc,
-			   COL_CLOSED_PIXBUF, NULL,
+			   COL_CLOSED_PIXBUF, pixbufs->pixbuf_helpdoc,
 			   COL_CAPTION, _("Standard View"),
 			   COL_MODULE, _("Standard View"),
 			   COL_OFFSET, _("Standard View"), -1);
@@ -1522,12 +1514,17 @@ void main_add_mod_tree_columns(GtkTreeView *tree)
 
 	column = gtk_tree_view_column_new();
 
+	/* Only "pixbuf" (never the expander-open/expander-closed pair): GTK4's
+	 * deprecated GtkCellRendererPixbuf hands that pair a null GValue for
+	 * an expander row even though the model's own column data is valid
+	 * (verified with a debugger against real GTK4 sources), aborting via
+	 * gdk_texture_new_for_pixbuf's GDK_IS_PIXBUF assertion. A single
+	 * attribute sidesteps that path; rows just keep one icon whether
+	 * expanded or collapsed. */
 	renderer = GTK_CELL_RENDERER(gtk_cell_renderer_pixbuf_new());
 	gtk_tree_view_column_pack_start(column, renderer, FALSE);
 	gtk_tree_view_column_set_attributes(column, renderer, "pixbuf",
-					    COL_OPEN_PIXBUF, "pixbuf-expander-open",
-					    COL_OPEN_PIXBUF, "pixbuf-expander-closed",
-					    COL_CLOSED_PIXBUF, NULL);
+					    COL_OPEN_PIXBUF, NULL);
 
 	renderer = GTK_CELL_RENDERER(gtk_cell_renderer_text_new());
 	gtk_tree_view_column_pack_start(column, renderer, TRUE);

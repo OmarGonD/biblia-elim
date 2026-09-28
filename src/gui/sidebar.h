@@ -29,20 +29,18 @@ extern "C" {
 #include <config.h>
 #endif
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 typedef struct _sidebar SIDEBAR;
 struct _sidebar
 {
 	GtkWidget *module_list;
 	GtkWidget *menu_modules;
-	GtkWidget *menu_prayerlist;
-	GtkWidget *menu_prayerlist_mod;
 	GtkWidget *results_list;
 	GtkWidget *notebook;
 	GtkWidget *tbtn_view_main;
 	GtkWidget *btn_save;
 	GtkWidget *htmlshow;
 	GtkWidget *html_widget;
-	GtkWidget *html_viewer_eventbox;
 	GtkWidget *html_viewer_widget;
 	GtkWidget *optionmenu1;
 	GMenu *results_menu;
@@ -74,11 +72,10 @@ void gui_set_sidebar_program_start(void);
 void gui_sidebar_showhide(void);
 GtkWidget *gui_create_sidebar(GtkWidget *paned);
 gboolean gui_verselist_button_release_event(GtkWidget *widget,
-					    GdkEventButton *event,
+					    GuiButtonEvent *event,
 					    gpointer user_data);
 gboolean vpaned_srch_rslt_button_release_event(GtkWidget *widget,
-					       GdkEventButton *
-						   event,
+					       GuiButtonEvent *event,
 					       gpointer user_data);
 void gui_show_previewer_in_sidebar(gint choice);
 void gui_sync_module_treeview(gint direction);
@@ -86,30 +83,28 @@ GMenuModel *gui_sidebar_results_menu(void);
 GActionGroup *gui_sidebar_results_actions(void);
 void gui_sidebar_results_menu_set_enabled(gboolean enabled);
 GtkWidget *gui_sidebar_results_popup(GtkWidget *relative);
-void on_open_in_dialog_activate(GtkMenuItem *menuitem,
+void on_open_in_dialog_activate(gpointer menuitem,
 				gpointer user_data);
-void on_open_in_tab_activate2(GtkMenuItem *menuitem,
+void on_open_in_tab_activate2(gpointer menuitem,
 			      gpointer user_data);
-void on_about2_activate(GtkMenuItem *menuitem,
+void on_about2_activate(gpointer menuitem,
 			gpointer user_data);
-void on_toggle_favorite_activate(GtkMenuItem *menuitem,
+void on_toggle_favorite_activate(gpointer menuitem,
 				 gpointer user_data);
-void on_hide_module_activate(GtkMenuItem *menuitem,
+void on_hide_module_activate(gpointer menuitem,
 			     gpointer user_data);
-void on_simple_activate(GtkMenuItem *menuitem,
+void on_simple_activate(gpointer menuitem,
 			gpointer user_data);
-void on_subject_activate(GtkMenuItem *menuitem,
+void on_subject_activate(gpointer menuitem,
 			 gpointer user_data);
-void on_monthly_activate(GtkMenuItem *menuitem,
+void on_monthly_activate(gpointer menuitem,
 			 gpointer user_data);
-void on_journal_activate(GtkMenuItem *menuitem,
+void on_journal_activate(gpointer menuitem,
 			 gpointer user_data);
-void on_outlined_topic_activate(GtkMenuItem *menuitem,
+void on_outlined_topic_activate(gpointer menuitem,
 				gpointer user_data);
-GtkWidget *create_menu_prayerlist(void);
-void on_edit_activate(GtkMenuItem *menuitem, gpointer user_data);
-GtkWidget *create_menu_prayerlist_mod(void);
-void gui_menu_prayerlist_popup(GtkMenuItem *menuitem,
+void on_edit_activate(gpointer menuitem, gpointer user_data);
+void gui_menu_prayerlist_popup(gpointer menuitem,
 			       gpointer user_data);
 
 #ifdef __cplusplus

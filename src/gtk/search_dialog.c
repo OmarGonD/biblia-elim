@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 
 #include "xiphos_html/xiphos_html.h"
 
@@ -87,41 +88,33 @@ GtkWidget *remember_search; /* needed to change button in search stop */
  *   gboolean
  */
 
-static gboolean on_advsearch_configure_event(GtkWidget *widget,
-					     GdkEventConfigure *event,
-					     gpointer user_data)
+static void on_advsearch_configure_event(GObject *window, GParamSpec *pspec,
+					 gpointer user_data)
 {
 	gchar layout[10];
-	gint x;
-	gint y;
+	gint width, height;
 
-	gdk_window_get_root_origin(GDK_WINDOW(gtk_widget_get_window(search1.dialog)),
-				   &x, &y);
-
-	settings.advsearch_width = event->width;
-	settings.advsearch_height = event->height;
-	settings.advsearch_x = x;
-	settings.advsearch_y = y;
+	(void)pspec;
+	(void)user_data;
+	/* GTK 4 keeps the window's size as its default size; the position
+	 * belongs to the compositor */
+	gtk_window_get_default_size(GTK_WINDOW(window), &width, &height);
+	if (width <= 0 || height <= 0)
+		return;
+	settings.advsearch_width = width;
+	settings.advsearch_height = height;
 
 	sprintf(layout, "%d", settings.advsearch_width);
 	xml_set_value("Xiphos", "layout", "advsearch_width", layout);
 
 	sprintf(layout, "%d", settings.advsearch_height);
 	xml_set_value("Xiphos", "layout", "advsearch_height", layout);
-
-	sprintf(layout, "%d", settings.advsearch_x);
-	xml_set_value("Xiphos", "layout", "advsearch_x", layout);
-
-	sprintf(layout, "%d", settings.advsearch_y);
-	xml_set_value("Xiphos", "layout", "advsearch_y", layout);
 	xml_save_settings_doc(settings.fnconfigure);
-
-	return FALSE;
 }
 
 /* click on treeview folder to expand or collapse it */
 static gboolean button_release_event(GtkWidget *widget,
-				     GdkEventButton *event, gpointer data)
+				     GuiButtonEvent *event, gpointer data)
 {
 	GtkTreeSelection *selection = NULL;
 	GtkTreeIter selected;
@@ -299,41 +292,15 @@ void on_button_begin_search(GtkButton *button, gpointer user_data)
 {
 	if (search_active) {
 		terminate_search = TRUE;
-#if GTK_CHECK_VERSION(3, 10, 0)
-		gtk_button_set_image((GtkButton *)remember_search,
-				     gtk_image_new_from_icon_name("edit-find", GTK_ICON_SIZE_BUTTON));
-#else
-		gtk_button_set_label((GtkButton *)remember_search,
-				     "gtk-find");
-		gtk_button_set_use_stock((GtkButton *)remember_search,
-					 TRUE);
-
-#endif
+		gtk_button_set_icon_name(GTK_BUTTON(remember_search), "edit-find");
 		sync_windows();
 	} else {
-#if GTK_CHECK_VERSION(3, 10, 0)
-		gtk_button_set_image((GtkButton *)remember_search,
-				     gtk_image_new_from_icon_name("process-stop",
-								  GTK_ICON_SIZE_BUTTON));
-#else
-		gtk_button_set_label((GtkButton *)remember_search,
-				     "gtk-stop");
-		gtk_button_set_use_stock((GtkButton *)remember_search,
-					 TRUE);
-#endif
+		gtk_button_set_icon_name(GTK_BUTTON(remember_search), "process-stop");
 
 		// do the search
 		main_do_dialog_search();
 
-#if GTK_CHECK_VERSION(3, 10, 0)
-		gtk_button_set_image((GtkButton *)remember_search,
-				     gtk_image_new_from_icon_name("edit-find", GTK_ICON_SIZE_BUTTON));
-#else
-		gtk_button_set_label((GtkButton *)remember_search,
-				     "gtk-find");
-		gtk_button_set_use_stock((GtkButton *)remember_search,
-					 TRUE);
-#endif
+		gtk_button_set_icon_name(GTK_BUTTON(remember_search), "edit-find");
 	}
 }
 
@@ -371,7 +338,7 @@ void list_name_changed(GtkEditable *editable, gpointer user_data)
 	if (!gtk_tree_selection_get_selected(selection, NULL, &selected))
 		return;
 
-	text = gtk_entry_get_text(GTK_ENTRY(editable));
+	text = gtk_editable_get_text(GTK_EDITABLE(editable));
 	gtk_list_store_set(list_store, &selected, 0, text, -1);
 }
 
@@ -409,7 +376,7 @@ void range_name_changed(GtkEditable *editable, gpointer user_data)
 	if (!gtk_tree_selection_get_selected(selection, NULL, &selected))
 		return;
 
-	text = gtk_entry_get_text(GTK_ENTRY(editable));
+	text = gtk_editable_get_text(GTK_EDITABLE(editable));
 	gtk_list_store_set(list_store, &selected, 0, text, -1);
 }
 
@@ -487,7 +454,7 @@ void new_modlist(GtkButton *button, gpointer user_data)
 	gtk_list_store_set(list_store2, &iter, 0, buf, -1);
 	path = gtk_tree_model_get_path(model2, &iter);
 	gtk_tree_selection_select_path(selection, path);
-	gtk_entry_set_text(GTK_ENTRY(search1.entry_list_name), buf);
+	gtk_editable_set_text(GTK_EDITABLE(search1.entry_list_name), buf);
 	gtk_tree_path_free(path);
 }
 
@@ -515,11 +482,7 @@ void clear_modules(GtkButton *button, gpointer user_data)
 			      _("Clear List?"),
 			      _("Are you sure you want to clear the module list?"));
 
-#if GTK_CHECK_VERSION(3, 10, 0)
 	if (gui_yes_no_dialog(str, "dialog-warning")) {
-#else
-	if (gui_yes_no_dialog(str, GTK_STOCK_DIALOG_WARNING)) {
-#endif
 		GtkTreeIter selected;
 		GtkTreeModel *model =
 		    gtk_tree_view_get_model(GTK_TREE_VIEW(search1.listview_modules));
@@ -619,8 +582,8 @@ void new_range(GtkButton *button, gpointer user_data)
 	gtk_tree_selection_select_path(selection, path);
 	gtk_tree_path_free(path);
 
-	gtk_entry_set_text(GTK_ENTRY(search1.entry_range_name), text[0]);
-	gtk_entry_set_text(GTK_ENTRY(search1.entry_range_text), "");
+	gtk_editable_set_text(GTK_EDITABLE(search1.entry_range_name), text[0]);
+	gtk_editable_set_text(GTK_EDITABLE(search1.entry_range_text), "");
 }
 
 /******************************************************************************
@@ -704,19 +667,11 @@ void delete_list(GtkButton *button, gpointer user_data)
 			      _("Are you sure you want to delete:"),
 			      name_string);
 
-#if GTK_CHECK_VERSION(3, 10, 0)
 	if (!gui_yes_no_dialog(str, "dialog-warning")) {
 		g_free(name_string);
 		g_free(str);
 		return;
 	}
-#else
-	if (!gui_yes_no_dialog(str, GTK_STOCK_DIALOG_WARNING)) {
-		g_free(name_string);
-		g_free(str);
-		return;
-	}
-#endif
 
 	gtk_list_store_remove(list_store, &selected);
 	xml_remove_node("modlists", "modlist", name_string);
@@ -748,7 +703,7 @@ void delete_list(GtkButton *button, gpointer user_data)
 void scope_toggled(GtkToggleButton *togglebutton, gpointer user_data)
 {
 	search1.which_scope = togglebutton;
-	if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.rb_custom_range)))
+	if (gui_toggle_get_active(GTK_WIDGET(search1.rb_custom_range)))
 		gtk_widget_set_sensitive(search1.combo_range, TRUE);
 	else
 		gtk_widget_set_sensitive(search1.combo_range, FALSE);
@@ -773,12 +728,12 @@ void scope_toggled(GtkToggleButton *togglebutton, gpointer user_data)
 
 void mod_list_toggled(GtkToggleButton *togglebutton, gpointer user_data)
 {
-	if (gtk_toggle_button_get_active(togglebutton)) {
+	if (gui_toggle_get_active(togglebutton)) {
 		main_comboboxentry2_changed((GtkComboBox *)
 					    search1.combo_list,
 					    user_data);
 	}
-	if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.rb_custom_list)))
+	if (gui_toggle_get_active(GTK_WIDGET(search1.rb_custom_list)))
 		gtk_widget_set_sensitive(search1.combo_list, TRUE);
 	else
 		gtk_widget_set_sensitive(search1.combo_list, FALSE);
@@ -803,7 +758,7 @@ void mod_list_toggled(GtkToggleButton *togglebutton, gpointer user_data)
 
 void optimized_toggled(GtkToggleButton *togglebutton, gpointer user_data)
 {
-	if (gtk_toggle_button_get_active(togglebutton)) {
+	if (gui_toggle_get_active(togglebutton)) {
 		gtk_widget_show(search1.button_intro_lucene);
 		gtk_widget_set_sensitive(search1.cb_case_sensitive, FALSE);
 	} else {
@@ -841,7 +796,7 @@ void on_lucene_intro_clicked(GtkButton *button, gpointer user_data)
 						    GTK_BUTTONS_OK,
 						    LUCENE_INTRO);
 	g_signal_connect_swapped(dialog, "response",
-				 G_CALLBACK(gtk_widget_destroy), dialog);
+				 G_CALLBACK(gui_widget_destroy), dialog);
 	gtk_widget_show(dialog);
 }
 
@@ -864,7 +819,7 @@ void on_lucene_intro_clicked(GtkButton *button, gpointer user_data)
 
 void attributes_toggled(GtkToggleButton *togglebutton, gpointer user_data)
 {
-	if (gtk_toggle_button_get_active(togglebutton))
+	if (gui_toggle_get_active(togglebutton))
 		gtk_widget_show(search1.button_intro_attributes);
 	else
 		gtk_widget_hide(search1.button_intro_attributes);
@@ -899,7 +854,7 @@ void on_attributes_intro_clicked(GtkButton *button, gpointer user_data)
 						    GTK_BUTTONS_OK,
 						    ATTRIBUTES_INTRO);
 	g_signal_connect_swapped(dialog, "response",
-				 G_CALLBACK(gtk_widget_destroy), dialog);
+				 G_CALLBACK(gui_widget_destroy), dialog);
 	gtk_widget_show(dialog);
 }
 
@@ -925,13 +880,13 @@ void on_attributes_intro_clicked(GtkButton *button, gpointer user_data)
 void current_module_toggled(GtkToggleButton *togglebutton,
 			    gpointer user_data)
 {
-	if (gtk_toggle_button_get_active(togglebutton)) {
+	if (gui_toggle_get_active(togglebutton)) {
 		main_change_mods_select_label(search1.search_mod);
 		gtk_widget_set_sensitive(search1.rb_last, TRUE);
 		gtk_widget_set_sensitive(search1.combo_list, FALSE);
 	} else {
 		gtk_widget_set_sensitive(search1.rb_last, FALSE);
-		gtk_toggle_button_set_active(search1.which_scope, TRUE);
+		gui_toggle_set_active(search1.which_scope, TRUE);
 	}
 }
 
@@ -1065,7 +1020,7 @@ static void _modules_lists_changed(GtkTreeSelection *
  */
 
 static void _finds_verselist_selection_changed(GtkWidget *widget,
-					       GdkEventButton *event,
+					       GuiButtonEvent *event,
 					       gpointer data)
 {
 	GtkTreeSelection *selection;
@@ -1084,8 +1039,7 @@ static void _finds_verselist_selection_changed(GtkWidget *widget,
 	gtk_tree_model_get(GTK_TREE_MODEL(model), &selected, 0, &key, -1);
 
 	main_finds_verselist_selection_changed(selection, model,
-					       event->type ==
-						   GDK_2BUTTON_PRESS);
+					       event->n_press == 2);
 }
 
 /******************************************************************************
@@ -1095,7 +1049,7 @@ static void _finds_verselist_selection_changed(GtkWidget *widget,
  * Synopsis
  *   #include "gui/search_dialog.h"
  *   gboolean on_treeview_button_advsearch_press_event(GtkWidget * widget,
- *						       GdkEventButton * event,
+ *						       GuiButtonEvent * event,
  *						       gpointer data)
  *
  * Description
@@ -1107,19 +1061,14 @@ static void _finds_verselist_selection_changed(GtkWidget *widget,
 
 static gboolean on_treeview_button_press_event_advsearch(GtkWidget *
 							     widget,
-							 GdkEventButton *
+							 GuiButtonEvent *
 							     event,
 							 gpointer
 							     user_data)
 {
 	if (event->button == 3) {
-#if GTK_CHECK_VERSION(3, 22, 0)
-		gtk_menu_popup_at_pointer((GtkMenu *)search1.menu_item_send_search, NULL);
-#else
-		gtk_menu_popup((GtkMenu *)search1.menu_item_send_search,
-			       NULL, NULL, NULL, NULL, 2,
-			       gtk_get_current_event_time());
-#endif
+		gui_popup_menu_model_at_pointer(search1.menu_item_send_search,
+						widget);
 		return TRUE;
 	} else {
 		return FALSE;
@@ -1142,7 +1091,7 @@ static gboolean on_treeview_button_press_event_advsearch(GtkWidget *
  */
 
 G_MODULE_EXPORT void
-on_send_list_via_biblesync_advsearch_activate(GtkMenuItem *menuitem,
+on_send_list_via_biblesync_advsearch_activate(gpointer menuitem,
 					      gpointer user_data)
 {
 	if (biblesync_active_xmit_allowed()) {
@@ -1224,20 +1173,22 @@ on_send_list_via_biblesync_advsearch_activate(GtkMenuItem *menuitem,
  *   GtkWidget*
  */
 
-GtkWidget *create_results_menu_advsearch(void)
+static void send_list_action(GSimpleAction *action, GVariant *parameter,
+			     gpointer data)
 {
-	GtkWidget *menu;
-	GtkBuilder *gxml = elim_gtk_builder_new();
-	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/xi-menus-popup.gtkbuilder", NULL);
-	g_return_val_if_fail((gxml != NULL), NULL);
+	(void)action;
+	(void)parameter;
+	on_send_list_via_biblesync_advsearch_activate(NULL, data);
+}
 
-	menu = UI_GET_ITEM(gxml, "menu_verselist_advsearch");
-	/* connect signals and data */
-	gtk_builder_connect_signals(gxml, NULL);
-/*gtk_builder_connect_signals_full
-	   (gxml, (GtkBuilderConnectFunc)gui_glade_signal_connect_func, NULL); */
+/* The results list's menu: its action lives on the list (see below). */
+GMenuModel *create_results_menu_advsearch(void)
+{
+	GMenu *menu = g_menu_new();
 
-	return menu;
+	g_menu_append(menu, _("Enviar lista por BibleSync"),
+		      "busqueda.enviar-biblesync");
+	return G_MENU_MODEL(menu);
 }
 
 /******************************************************************************
@@ -1272,8 +1223,8 @@ static void selection_range_lists_changed(GtkTreeSelection *selection,
 	    gtk_tree_view_get_model(GTK_TREE_VIEW(search1.list_range_name));
 	gtk_tree_model_get(model, &selected, 0, &name, 1, &range, -1);
 
-	gtk_entry_set_text(GTK_ENTRY(search1.entry_range_name), name);
-	gtk_entry_set_text(GTK_ENTRY(search1.entry_range_text), range);
+	gtk_editable_set_text(GTK_EDITABLE(search1.entry_range_name), name);
+	gtk_editable_set_text(GTK_EDITABLE(search1.entry_range_text), range);
 	g_free(name);
 	g_free(range);
 }
@@ -1374,11 +1325,7 @@ static void _setup_combobox(GtkComboBox *combo)
 
 	store = gtk_list_store_new(1, G_TYPE_STRING);
 	gtk_combo_box_set_model(combo, GTK_TREE_MODEL(store));
-#ifdef USE_GTK_3
 	gtk_combo_box_set_entry_text_column(GTK_COMBO_BOX(combo), 0);
-#else
-	gtk_combo_box_entry_set_text_column(GTK_COMBO_BOX_ENTRY(combo), 0);
-#endif
 }
 
 /******************************************************************************
@@ -1424,11 +1371,8 @@ static void _setup_listviews2(GtkWidget *listview, GCallback callback)
 	_add_two_text_columns(GTK_TREE_VIEW(listview));
 	if (!callback)
 		return;
-	g_signal_connect((gpointer)listview,
-			 "button_press_event", G_CALLBACK(callback), NULL);
-	g_signal_connect((gpointer)listview,
-			 "button_release_event",
-			 G_CALLBACK(callback), NULL);
+	gui_widget_on_button(GTK_WIDGET(listview), GTK_PHASE_CAPTURE, (GuiButtonFunc)callback, NULL, NULL);
+	gui_widget_on_button(GTK_WIDGET(listview), GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)callback, NULL);
 	selection =
 	    G_OBJECT(gtk_tree_view_get_selection(GTK_TREE_VIEW(listview)));
 	g_signal_connect(selection, "changed",
@@ -1470,10 +1414,7 @@ static void _setup_treeview(GtkWidget *treeview)
 	g_signal_connect(selection, "changed",
 			 G_CALLBACK(mod_selection_changed), treeview);
 
-	g_signal_connect_after(G_OBJECT(treeview),
-			       "button_release_event",
-			       G_CALLBACK(button_release_event),
-			       GINT_TO_POINTER(0));
+	gui_widget_on_button(GTK_WIDGET(treeview), GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)button_release_event, GINT_TO_POINTER(0));
 }
 
 static void _setup_treeview2(GtkWidget *treeview)
@@ -1565,7 +1506,7 @@ void _on_dialog2_response(GtkDialog *dialog, gint response_id,
  */
 
 void
-on_toolbutton12_clicked(GtkToolButton *toolbutton, gpointer user_data)
+on_toolbutton12_clicked(GtkButton *toolbutton, gpointer user_data)
 {
 	gtk_widget_show(search1.mod_sel_dialog);
 }
@@ -1589,30 +1530,12 @@ on_toolbutton12_clicked(GtkToolButton *toolbutton, gpointer user_data)
 /* add html widgets */
 static void _add_html_widget(GtkWidget *vbox)
 {
-#ifndef USE_WEBKIT2
-	GtkWidget *scrolledwindow = gtk_scrolled_window_new(NULL, NULL);
-	gtk_widget_show(scrolledwindow);
-	gtk_box_pack_start(GTK_BOX(vbox), scrolledwindow, TRUE, TRUE, 0);
-	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolledwindow),
-				       GTK_POLICY_NEVER,
-				       GTK_POLICY_AUTOMATIC);
-	gtk_scrolled_window_set_shadow_type((GtkScrolledWindow *)
-					    scrolledwindow,
-					    settings.shadow_type);
-#endif
 
 	search1.preview_html =
 	    GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, DIALOG_SEARCH_PREVIEW_TYPE));
 	XIPHOS_HTML_SET_SURFACE_NAME(search1.preview_html, "search-previewer");
 	gtk_widget_show(search1.preview_html);
-#ifdef USE_WEBKIT2
-	gtk_box_pack_start(GTK_BOX(vbox), search1.preview_html, TRUE, TRUE, 0);
-#else
-	gtk_container_add(GTK_CONTAINER(scrolledwindow),
-			  search1.preview_html);
-	gtk_box_pack_start(GTK_BOX(scrolledwindow), search1.preview_html,
-			   TRUE, TRUE, 0);
-#endif
+	gui_box_pack(GTK_BOX(vbox), search1.preview_html, TRUE, TRUE, 0);
 }
 
 /******************************************************************************
@@ -1637,10 +1560,10 @@ void _on_dialog_response(GtkDialog *dialog, gint response_id,
 	switch (response_id) {
 	case GTK_RESPONSE_CLOSE:
 		if (search1.mod_sel_dialog) {
-			gtk_widget_destroy(GTK_WIDGET(search1.mod_sel_dialog));
+			gui_widget_destroy(GTK_WIDGET(search1.mod_sel_dialog));
 			search1.mod_sel_dialog = NULL;
 		}
-		gtk_widget_destroy(GTK_WIDGET(dialog));
+		gui_widget_destroy(GTK_WIDGET(dialog));
 		break;
 	}
 }
@@ -1695,9 +1618,7 @@ static void _create_search_dialog(void)
 		gtk_window_set_transient_for(GTK_WINDOW(search1.dialog),
 					     GTK_WINDOW(widgets.app));
 	gtk_window_set_destroy_with_parent(GTK_WINDOW(search1.dialog), TRUE);
-	gtk_window_resize(GTK_WINDOW(search1.dialog),
-			  settings.advsearch_width,
-			  settings.advsearch_height);
+	gtk_window_set_default_size(GTK_WINDOW(search1.dialog), settings.advsearch_width, settings.advsearch_height);
 
 	g_signal_connect(search1.dialog, "response",
 			 G_CALLBACK(_on_dialog_response), NULL);
@@ -1737,7 +1658,7 @@ static void _create_search_dialog(void)
 			 G_CALLBACK(scope_toggled), NULL);
 
 	search1.rb_last = UI_GET_ITEM(gxml, "radiobutton2");
-	search1.which_scope = GTK_TOGGLE_BUTTON(search1.rb_no_scope);
+	search1.which_scope = (GtkToggleButton *)(search1.rb_no_scope);
 	search1.rb_custom_range = UI_GET_ITEM(gxml, "radiobutton3");
 	g_signal_connect(search1.rb_custom_range, "toggled",
 			 G_CALLBACK(scope_toggled), NULL);
@@ -1874,16 +1795,18 @@ static void _create_search_dialog(void)
 			 (GCallback)_selection_finds_list_changed);
 	search1.listview_verses = UI_GET_ITEM(gxml, "treeview10");
 	search1.menu_item_send_search = create_results_menu_advsearch();
+	gui_insert_single_action(search1.listview_verses, "busqueda",
+				 "enviar-biblesync", NULL,
+				 G_CALLBACK(send_list_action), NULL);
 	_setup_listviews2(search1.listview_verses,
 			  (GCallback)_finds_verselist_selection_changed);
-	g_signal_connect((gpointer)search1.listview_verses,
-			 "button_press_event",
-			 G_CALLBACK(on_treeview_button_press_event_advsearch), NULL);
+	gui_widget_on_button(GTK_WIDGET(search1.listview_verses), GTK_PHASE_CAPTURE, (GuiButtonFunc)on_treeview_button_press_event_advsearch, NULL, NULL);
 
 	_add_html_widget(GTK_WIDGET(gtk_builder_get_object(gxml, "vbox12")));
 
-	g_signal_connect((gpointer)search1.dialog,
-			 "configure_event",
+	g_signal_connect(search1.dialog, "notify::default-width",
+			 G_CALLBACK(on_advsearch_configure_event), NULL);
+	g_signal_connect(search1.dialog, "notify::default-height",
 			 G_CALLBACK(on_advsearch_configure_event), NULL);
 
 	settings.display_advsearch = 1;
@@ -1892,21 +1815,6 @@ static void _create_search_dialog(void)
 	/* disable match case initially */
 	gtk_widget_set_sensitive(search1.cb_case_sensitive, FALSE);
 
-	/*
-	 * (from xiphos.c)
-	 * a little paranoia:
-	 * clamp geometry values to a reasonable bound.
-	 * sometimes xiphos gets insane reconfig events as it dies,
-	 * especially if it's due to just shutting linux down.
-	 */
-	if ((settings.advsearch_x < 0) || (settings.advsearch_x > 2000))
-		settings.advsearch_x = 40;
-	if ((settings.advsearch_y < 0) || (settings.advsearch_y > 2000))
-		settings.advsearch_y = 40;
-
-	if (!gui_display_is_wayland())
-		gtk_window_move(GTK_WINDOW(search1.dialog), settings.advsearch_x,
-				settings.advsearch_y);
 }
 
 /******************************************************************************

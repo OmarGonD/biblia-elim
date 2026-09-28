@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 
 #include "gui/navbar_book.h"
 #include "gui/utilities.h"
@@ -57,52 +58,12 @@ static void menu_deactivate_callback(GtkWidget *widget,
 
 	menu_button = GTK_WIDGET(user_data);
 
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(menu_button),
+	gui_toggle_set_active(GTK_WIDGET(menu_button),
 				     FALSE);
 }
 
-/******************************************************************************
- * Name
- *   menu_position_under
- *
- * Synopsis
- *   #include "gui/navbar_book.h"
- *
- *   void menu_position_under(GtkMenu * menu, int * x, int * y,
- *				gboolean * push_in, gpointer user_data)
- *
- * Description
- *   position drop down menu under toogle button
- *
- *
- * Return value
- *   void
- */
-
-static void menu_position_under(GtkMenu *menu, int *x, int *y,
-				gboolean *push_in, gpointer user_data)
-{
-	GtkWidget *widget;
-	GtkAllocation allocation;
-	g_return_if_fail(GTK_IS_BUTTON(user_data));
-#if GTK_CHECK_VERSION(2, 20, 0)
-	g_return_if_fail(gtk_widget_get_window(user_data));
-#else
-	g_return_if_fail(GTK_WIDGET_NO_WINDOW(user_data));
-#endif
-
-	widget = GTK_WIDGET(user_data);
-
-	gdk_window_get_origin(gtk_widget_get_window(widget), x, y);
-	gtk_widget_get_allocation(widget, &allocation);
-	*x += allocation.x;
-	*y += allocation.y + allocation.height;
-
-	*push_in = FALSE;
-}
-
 static gboolean lookup_entry_press_callback(GtkWidget *widget,
-					    GdkEventKey *event,
+					    GuiKeyEvent *event,
 					    gpointer user_data)
 {
 	if (!settings.havebook)
@@ -120,7 +81,7 @@ static gboolean lookup_entry_press_callback(GtkWidget *widget,
  *   #include "gui/navbar_book.h"
  *
  *   gboolean select_button_press_callback (GtkWidget *widget,
- *			      GdkEventButton *event,
+ *			      GuiButtonEvent *event,
  *			      gpointer user_data)
  *
  * Description
@@ -132,30 +93,25 @@ static gboolean lookup_entry_press_callback(GtkWidget *widget,
  */
 
 static gboolean select_button_press_callback(GtkWidget *widget,
-					     GdkEventButton *event,
+					     GuiButtonEvent *event,
 					     gpointer user_data)
 {
-	GtkWidget *menu;
+	GMenuModel *model;
+	GtkWidget *popover;
 
 	if (!settings.havebook)
 		return FALSE;
-	menu = main_book_drop_down_new();
-	g_signal_connect(menu, "deactivate",
-			 G_CALLBACK(menu_deactivate_callback), widget);
-	if ((event->type == GDK_BUTTON_PRESS) && event->button == 1) {
-		gtk_widget_grab_focus(widget);
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget),
-					     TRUE);
-#if GTK_CHECK_VERSION(3, 22, 0)
-		gtk_menu_popup_at_widget(GTK_MENU(menu), widget, GDK_GRAVITY_SOUTH_WEST, GDK_GRAVITY_NORTH_WEST, NULL);
-#else
-		gtk_menu_popup(GTK_MENU(menu), NULL, NULL,
-			       menu_position_under, widget, event->button,
-			       event->time);
-#endif
-		return TRUE;
-	}
-	return FALSE;
+	if ((event->type != GDK_BUTTON_PRESS) || event->button != 1)
+		return FALSE;
+	model = main_book_drop_down_new(widget);
+	gtk_widget_grab_focus(widget);
+	gui_toggle_set_active(GTK_WIDGET(widget), TRUE);
+	popover = gui_popup_menu_model_at_widget(model, widget);
+	g_object_unref(model);
+	if (popover)
+		g_signal_connect(popover, "closed",
+				 G_CALLBACK(menu_deactivate_callback), widget);
+	return TRUE;
 }
 
 /******************************************************************************
@@ -271,7 +227,7 @@ void on_entry_activate(GtkEntry *entry, gpointer user_data)
 {
 	const gchar *entry_buf = NULL;
 
-	entry_buf = gtk_entry_get_text(entry);
+	entry_buf = gtk_editable_get_text(GTK_EDITABLE(entry));
 	main_navbar_book_entry_activate(entry_buf);
 }
 
@@ -304,12 +260,11 @@ GtkWidget *gui_navbar_book_new(void)
 
 	UI_HBOX(hbox1, FALSE, 0);
 	gtk_widget_show(hbox1);
-	gtk_box_pack_start(GTK_BOX(vbox1), hbox1, FALSE, TRUE, 0);
+	gtk_box_append(GTK_BOX(vbox1), hbox1);
 
 	navbar_book.lookup_entry = gtk_entry_new();
 	gtk_widget_show(navbar_book.lookup_entry);
-	gtk_box_pack_start(GTK_BOX(hbox1), navbar_book.lookup_entry, TRUE,
-			   TRUE, 0);
+	gui_box_pack(GTK_BOX(hbox1), navbar_book.lookup_entry, TRUE, TRUE, 0);
 	gtk_editable_set_editable(GTK_EDITABLE(navbar_book.lookup_entry),
 				  TRUE);
 	gtk_entry_set_invisible_char(GTK_ENTRY(navbar_book.lookup_entry),
@@ -317,113 +272,67 @@ GtkWidget *gui_navbar_book_new(void)
 
 	navbar_book.button_list = gtk_toggle_button_new();
 	gtk_widget_show(navbar_book.button_list);
-	gtk_box_pack_start(GTK_BOX(hbox1), navbar_book.button_list, FALSE,
-			   FALSE, 0);
+	gtk_box_append(GTK_BOX(hbox1), navbar_book.button_list);
 
-#if GTK_CHECK_VERSION(3, 14, 0)
 	arrow1 =
-	    gtk_image_new_from_icon_name("open-menu-symbolic",
-					 GTK_ICON_SIZE_BUTTON);
-#else
-	arrow1 = gtk_arrow_new(GTK_ARROW_DOWN, GTK_SHADOW_OUT);
-#endif
+	    gtk_image_new_from_icon_name("open-menu-symbolic");
 	gtk_widget_show(arrow1);
-	gtk_container_add(GTK_CONTAINER(navbar_book.button_list), arrow1);
+	gtk_button_set_child(GTK_BUTTON(navbar_book.button_list), arrow1);
 
 	navbar_book.button_left = gtk_button_new();
 	gtk_widget_show(navbar_book.button_left);
-	gtk_box_pack_start(GTK_BOX(hbox1), navbar_book.button_left, FALSE,
-			   FALSE, 0);
+	gtk_box_append(GTK_BOX(hbox1), navbar_book.button_left);
 	gtk_widget_set_tooltip_text(navbar_book.button_left,
 				    _("Go outward, to the section containing this one"));
 
-	gtk_button_set_relief(GTK_BUTTON(navbar_book.button_left),
-			      GTK_RELIEF_NONE);
-#if GTK_CHECK_VERSION(3, 20, 0)
+	gtk_button_set_has_frame(GTK_BUTTON(navbar_book.button_left), FALSE);
 	gtk_widget_set_focus_on_click(GTK_WIDGET(navbar_book.button_left), FALSE);
-#else
-	gtk_button_set_focus_on_click(GTK_BUTTON(navbar_book.button_left), FALSE);
-#endif
 
 	image1 =
-#if GTK_CHECK_VERSION(3, 10, 0)
-	    gtk_image_new_from_icon_name("go-previous-symbolic", GTK_ICON_SIZE_BUTTON);
-#else
-	    gtk_image_new_from_stock(GTK_STOCK_GO_BACK, GTK_ICON_SIZE_BUTTON);
-#endif
+	    gtk_image_new_from_icon_name("go-previous-symbolic");
 	gtk_widget_show(image1);
-	gtk_container_add(GTK_CONTAINER(navbar_book.button_left), image1);
+	gtk_button_set_child(GTK_BUTTON(navbar_book.button_left), image1);
 
 	navbar_book.button_up = gtk_button_new();
 	gtk_widget_show(navbar_book.button_up);
-	gtk_box_pack_start(GTK_BOX(hbox1), navbar_book.button_up, FALSE,
-			   FALSE, 0);
+	gtk_box_append(GTK_BOX(hbox1), navbar_book.button_up);
 	gtk_widget_set_tooltip_text(navbar_book.button_up,
 				    _("Go to previous item"));
-	gtk_button_set_relief(GTK_BUTTON(navbar_book.button_up),
-			      GTK_RELIEF_NONE);
-#if GTK_CHECK_VERSION(3, 20, 0)
+	gtk_button_set_has_frame(GTK_BUTTON(navbar_book.button_up), FALSE);
 	gtk_widget_set_focus_on_click(GTK_WIDGET(navbar_book.button_up), FALSE);
-#else
-	gtk_button_set_focus_on_click(GTK_BUTTON(navbar_book.button_up), FALSE);
-#endif
 
 	image1 =
-#if GTK_CHECK_VERSION(3, 10, 0)
-	    gtk_image_new_from_icon_name("go-up-symbolic", GTK_ICON_SIZE_BUTTON);
-#else
-	    gtk_image_new_from_stock(GTK_STOCK_GO_UP, GTK_ICON_SIZE_BUTTON);
-#endif
+	    gtk_image_new_from_icon_name("go-up-symbolic");
 	gtk_widget_show(image1);
-	gtk_container_add(GTK_CONTAINER(navbar_book.button_up), image1);
+	gtk_button_set_child(GTK_BUTTON(navbar_book.button_up), image1);
 
 	navbar_book.button_down = gtk_button_new();
 	gtk_widget_show(navbar_book.button_down);
-	gtk_box_pack_start(GTK_BOX(hbox1), navbar_book.button_down, FALSE,
-			   FALSE, 0);
+	gtk_box_append(GTK_BOX(hbox1), navbar_book.button_down);
 	gtk_widget_set_tooltip_text(navbar_book.button_down,
 				    _("Go to next item"));
-	gtk_button_set_relief(GTK_BUTTON(navbar_book.button_down),
-			      GTK_RELIEF_NONE);
-#if GTK_CHECK_VERSION(3, 20, 0)
+	gtk_button_set_has_frame(GTK_BUTTON(navbar_book.button_down), FALSE);
 	gtk_widget_set_focus_on_click(GTK_WIDGET(navbar_book.button_down), FALSE);
-#else
-	gtk_button_set_focus_on_click(GTK_BUTTON(navbar_book.button_down), FALSE);
-#endif
 
 	image2 =
-#if GTK_CHECK_VERSION(3, 10, 0)
-	    gtk_image_new_from_icon_name("go-down-symbolic", GTK_ICON_SIZE_BUTTON);
-#else
-	    gtk_image_new_from_stock(GTK_STOCK_GO_DOWN, GTK_ICON_SIZE_BUTTON);
-#endif
+	    gtk_image_new_from_icon_name("go-down-symbolic");
 
 	gtk_widget_show(image2);
-	gtk_container_add(GTK_CONTAINER(navbar_book.button_down), image2);
+	gtk_button_set_child(GTK_BUTTON(navbar_book.button_down), image2);
 
 	navbar_book.button_right = gtk_button_new();
 	gtk_widget_show(navbar_book.button_right);
-	gtk_box_pack_start(GTK_BOX(hbox1), navbar_book.button_right, FALSE,
-			   FALSE, 0);
+	gtk_box_append(GTK_BOX(hbox1), navbar_book.button_right);
 	gtk_widget_set_tooltip_text(navbar_book.button_right,
 				    _("Go inward, to the first subsection"));
 
-	gtk_button_set_relief(GTK_BUTTON(navbar_book.button_right),
-			      GTK_RELIEF_NONE);
-#if GTK_CHECK_VERSION(3, 20, 0)
+	gtk_button_set_has_frame(GTK_BUTTON(navbar_book.button_right), FALSE);
 	gtk_widget_set_focus_on_click(GTK_WIDGET(navbar_book.button_right), FALSE);
-#else
-	gtk_button_set_focus_on_click(GTK_BUTTON(navbar_book.button_right), FALSE);
-#endif
 
 	image1 =
-#if GTK_CHECK_VERSION(3, 10, 0)
-	    gtk_image_new_from_icon_name("go-next-symbolic", GTK_ICON_SIZE_BUTTON);
-#else
-	    gtk_image_new_from_stock(GTK_STOCK_GO_FORWARD, GTK_ICON_SIZE_BUTTON);
-#endif
+	    gtk_image_new_from_icon_name("go-next-symbolic");
 	gtk_widget_show(image1);
-	gtk_container_add(GTK_CONTAINER(navbar_book.button_right), image1);
+	gtk_button_set_child(GTK_BUTTON(navbar_book.button_right), image1);
 
 	g_signal_connect((gpointer)navbar_book.lookup_entry,
 			 "activate", G_CALLBACK(on_entry_activate), NULL);
@@ -435,11 +344,7 @@ GtkWidget *gui_navbar_book_new(void)
 			 G_CALLBACK(on_button_parent_clicked), NULL);
 	g_signal_connect((gpointer)navbar_book.button_right, "clicked",
 			 G_CALLBACK(on_button_child_clicked), NULL);
-	g_signal_connect((gpointer)navbar_book.button_list,
-			 "button_press_event",
-			 G_CALLBACK(select_button_press_callback), NULL);
-	g_signal_connect((gpointer)navbar_book.lookup_entry,
-			 "key_press_event",
-			 G_CALLBACK(lookup_entry_press_callback), NULL);
+	gui_widget_on_button(GTK_WIDGET(navbar_book.button_list), GTK_PHASE_CAPTURE, (GuiButtonFunc)select_button_press_callback, NULL, NULL);
+	gui_widget_on_key_phase(GTK_WIDGET(navbar_book.lookup_entry), GTK_PHASE_CAPTURE, (GuiKeyFunc)lookup_entry_press_callback, NULL, NULL);
 	return vbox1;
 }

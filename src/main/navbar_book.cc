@@ -22,6 +22,7 @@
 #include <config.h>
 #endif
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <versekey.h>
 
 #include "main/navbar_book.h"
@@ -151,7 +152,7 @@ void main_navbar_book_parent(void)
 		unsigned long offset = backend->get_treekey_offset();
 		char *tmpbuf = backend->treekey_get_local_name(offset);
 
-		gtk_entry_set_text(GTK_ENTRY(navbar_book.lookup_entry), tmpbuf);
+		gtk_editable_set_text(GTK_EDITABLE(navbar_book.lookup_entry), tmpbuf);
 		g_free(tmpbuf);
 		tmpbuf = g_strdup_printf("%ld", offset);
 		main_display_book(settings.book_mod, tmpbuf);
@@ -183,7 +184,7 @@ void main_navbar_book_first_child(void)
 		unsigned long offset = backend->get_treekey_offset();
 		char *tmpbuf = backend->treekey_get_local_name(offset);
 
-		gtk_entry_set_text(GTK_ENTRY(navbar_book.lookup_entry), tmpbuf);
+		gtk_editable_set_text(GTK_EDITABLE(navbar_book.lookup_entry), tmpbuf);
 		g_free(tmpbuf);
 		tmpbuf = g_strdup_printf("%ld", offset);
 		main_display_book(settings.book_mod, tmpbuf);
@@ -215,7 +216,7 @@ void main_navbar_book_prev(void)
 		unsigned long offset = backend->get_treekey_offset();
 		char *tmpbuf = backend->treekey_get_local_name(offset);
 
-		gtk_entry_set_text(GTK_ENTRY(navbar_book.lookup_entry), tmpbuf);
+		gtk_editable_set_text(GTK_EDITABLE(navbar_book.lookup_entry), tmpbuf);
 		g_free(tmpbuf);
 		tmpbuf = g_strdup_printf("%ld", offset);
 		main_display_book(settings.book_mod, tmpbuf);
@@ -247,7 +248,7 @@ void main_navbar_book_next(void)
 		unsigned long offset = backend->get_treekey_offset();
 		char *tmpbuf = backend->treekey_get_local_name(offset);
 
-		gtk_entry_set_text(GTK_ENTRY(navbar_book.lookup_entry), tmpbuf);
+		gtk_editable_set_text(GTK_EDITABLE(navbar_book.lookup_entry), tmpbuf);
 		g_free(tmpbuf);
 		tmpbuf = g_strdup_printf("%ld", offset);
 		main_display_book(settings.book_mod, tmpbuf);
@@ -283,7 +284,7 @@ void main_navbar_book_entry_activate(const gchar *entry_text)
  * Synopsis
  *   #include "main/navbar_book.h"
  *
- *   void on_menu_select(GtkMenuItem * menuitem, gpointer user_data)
+ *   void on_menu_select(gpointer menuitem, gpointer user_data)
  *
  * Description
  *   user clicked on an item in the drop down list - send the book offset
@@ -293,12 +294,16 @@ void main_navbar_book_entry_activate(const gchar *entry_text)
  *   void
  */
 
-static void on_menu_select(GtkMenuItem *menuitem, gpointer user_data)
+static void on_menu_select(GSimpleAction *action, GVariant *offset,
+			   gpointer user_data)
 {
-	char *tmpbuf = NULL;
+	gchar *tmpbuf =
+	    g_strdup_printf("%lu", (unsigned long)g_variant_get_uint64(offset));
 
-	tmpbuf = g_strdup_printf("%d", GPOINTER_TO_INT(user_data));
+	(void)action;
+	(void)user_data;
 	main_display_book(settings.book_mod, tmpbuf);
+	g_free(tmpbuf);
 }
 
 /******************************************************************************
@@ -318,44 +323,38 @@ static void on_menu_select(GtkMenuItem *menuitem, gpointer user_data)
  *   GtkWidget * (menu)
  */
 
-GtkWidget *main_book_drop_down_new(void)
+GMenuModel *main_book_drop_down_new(GtkWidget *anchor)
 {
 	gchar *tmpbuf = NULL;
-	GtkWidget *menu;
-	GtkWidget *item;
+	GMenu *menu = g_menu_new();
 	unsigned long offset;
 
 	backend->set_module(settings.book_mod);
 	backend->set_treekey(settings.book_offset);
-	menu = gtk_menu_new();
 	offset = settings.book_offset;
 	/* take us to the first sibling */
 	while (backend->treekey_prev_sibling(offset)) {
 		offset = backend->get_treekey_offset();
 	}
-	/* add menu item for first sibling*/
-	tmpbuf = backend->treekey_get_local_name(offset);
-	item = gtk_menu_item_new_with_label((gchar *)tmpbuf);
-	gtk_widget_show(item);
-	g_signal_connect(G_OBJECT(item), "activate",
-			 G_CALLBACK(on_menu_select),
-			 GINT_TO_POINTER(offset));
-	gtk_container_add(GTK_CONTAINER(menu), item);
-	g_free(tmpbuf);
+	/* one entry per sibling, the first one included */
+	do {
+		GMenuItem *item;
 
-	while (backend->treekey_next_sibling(offset)) {
-		offset = backend->get_treekey_offset();
-		/* add menu item */
 		tmpbuf = backend->treekey_get_local_name(offset);
-		item = gtk_menu_item_new_with_label((gchar *)tmpbuf);
-		gtk_widget_show(item);
-		g_signal_connect(G_OBJECT(item), "activate",
-				 G_CALLBACK(on_menu_select),
-				 GINT_TO_POINTER(offset));
-		gtk_container_add(GTK_CONTAINER(menu), item);
+		item = g_menu_item_new((gchar *)tmpbuf, NULL);
+		g_menu_item_set_action_and_target_value(
+		    item, "libro.ir", g_variant_new_uint64(offset));
+		g_menu_append_item(menu, item);
+		g_object_unref(item);
 		g_free(tmpbuf);
-	}
-	return menu;
+		if (!backend->treekey_next_sibling(offset))
+			break;
+		offset = backend->get_treekey_offset();
+	} while (TRUE);
+
+	gui_insert_single_action(anchor, "libro", "ir", G_VARIANT_TYPE_UINT64,
+				 G_CALLBACK(on_menu_select), NULL);
+	return G_MENU_MODEL(menu);
 }
 
 /******************************************************************************
@@ -383,7 +382,7 @@ void main_setup_navbar_book(gchar *book_name, unsigned long offset)
 	backend->set_treekey(offset);
 
 	tmpbuf = backend->get_key_from_offset(offset);
-	gtk_entry_set_text(GTK_ENTRY(navbar_book.lookup_entry), tmpbuf);
+	gtk_editable_set_text(GTK_EDITABLE(navbar_book.lookup_entry), tmpbuf);
 	gtk_widget_set_tooltip_text(navbar_book.lookup_entry, tmpbuf);
 
 	if ((settings.book_mod == NULL) ||

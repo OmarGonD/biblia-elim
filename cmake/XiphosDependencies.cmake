@@ -88,9 +88,7 @@ endif()
 
 # Gnome dependencies
 pkg_check_modules(Gnome REQUIRED IMPORTED_TARGET
-  "atk"
   "cairo"
-  "gdk-3.0"
   "gdk-pixbuf-2.0"
   "gio-2.0"
   "gobject-2.0"
@@ -102,49 +100,13 @@ pkg_check_modules(Gnome REQUIRED IMPORTED_TARGET
   )
 
 # Gtk dependencies
-if (WEBKIT1 AND GTKHTML)
-  # Gtk+-3.0 + Webkit1 + GtkHtml-editor
-  pkg_check_modules(Gtk REQUIRED IMPORTED_TARGET
-    "gtk+-3.0"
-    "webkitgtk-3.0"
-    "gtkhtml-editor-4.0"
-    "libgtkhtml-4.0"
-    )
+if (WEBKIT1 OR GTKHTML)
+  # webkitgtk-3.0 and gtkhtml are GTK 3 libraries: they cannot be linked
+  # into the GTK 4 binary.
+  message(FATAL_ERROR "WEBKIT1 and GTKHTML need GTK 3; this tree is built with GTK 4")
 endif()
-if (WEBKIT1 AND NOT GTKHTML)
-  # Gtk+-3.0 + Webkit1 + Webkit-editor
-  pkg_check_modules(Gtk REQUIRED IMPORTED_TARGET
-    "gtk+-3.0"
-    "webkitgtk-3.0"
-    )
-endif()
-if (NOT WEBKIT1 AND GTKHTML)
-  # Gtk+-3.0 + Webkit2 + GtkHtml-editor
-  pkg_check_modules(Gtk REQUIRED IMPORTED_TARGET
-    "gtk+-3.0"
-    "gtkhtml-editor-4.0"
-    "libgtkhtml-4.0"
-    )
-  pkg_check_modules(WK IMPORTED_TARGET "webkit2gtk-4.1")
-  if(NOT WK_FOUND)
-    pkg_check_modules(WK REQUIRED IMPORTED_TARGET "webkit2gtk-4.0")
-  endif()
-endif()
-if (NOT WEBKIT1 AND NOT GTKHTML)
-  # Gtk+-3.0 + WebKit2, no GtkHtml-editor or Webkit-editor features enabled
 
-  # Note: Without WEBKIT1, GTKHTML, or GTKTVEDITOR, Xiphos builds as a
-  # pure WebKit2 app — functional, but without the notes/journal editor.
-  if (NOT WEBKIT1 AND NOT GTKHTML AND NOT GTKTVEDITOR)
-      message(WARNING "No editor flag set (WEBKIT1, GTKHTML, GTKTVEDITOR) — notes/journal editor will be unavailable")
-  endif()
-  
-  pkg_check_modules(Gtk REQUIRED IMPORTED_TARGET "gtk+-3.0")
-  pkg_check_modules(WK IMPORTED_TARGET "webkit2gtk-4.1")
-  if(NOT WK_FOUND)
-    pkg_check_modules(WK REQUIRED IMPORTED_TARGET "webkit2gtk-4.0")
-  endif()
-endif()
+pkg_check_modules(Gtk REQUIRED IMPORTED_TARGET "gtk4>=4.22")
 
 
 # find threads

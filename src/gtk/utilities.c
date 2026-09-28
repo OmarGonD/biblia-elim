@@ -37,6 +37,7 @@
 #include <gdk-pixbuf/gdk-pixbuf.h>
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <zlib.h>
 #include <minizip/zip.h>
 
@@ -46,6 +47,7 @@
 #include "gui/xiphos.h"
 #include "gui/mod_mgr.h"
 #include "gui/widgets.h"
+#include "gui/main_menu.h"
 #include "gtk/author_commentary_probe.h"
 #include "gui/dialog.h"
 
@@ -217,7 +219,7 @@ drain_widget_label(GtkWidget *widget)
 	const gchar *name = gtk_widget_get_name(widget);
 
 	if (GTK_IS_BUILDABLE(widget)) {
-		const gchar *buildable_name = gtk_buildable_get_name(GTK_BUILDABLE(widget));
+		const gchar *buildable_name = gtk_buildable_get_buildable_id(GTK_BUILDABLE(widget));
 		if (buildable_name && *buildable_name)
 			name = buildable_name;
 	}
@@ -343,120 +345,6 @@ drain_profile_map(GtkWidget *widget, gpointer data)
 }
 
 static void
-drain_profile_style(GtkWidget *widget, gpointer data)
-{
-	DrainWidgetProfile *profile = data;
-	DrainWidgetInstanceProfile *instance;
-
-	if (drain_profile_active) {
-		drain_iteration_profile.style[profile->category]++;
-		instance = drain_instance_profile(widget);
-		drain_type_profile_record(drain_profile_style_types, instance->type,
-					  instance->style_count > 0);
-		instance->style_count++;
-		if (drain_session_instances) {
-			DrainSessionWidgetProfile *session = drain_session_profile(widget);
-			session->style_count++;
-			if (!session->style_iterations ||
-			    session->style_last_iteration != drain_profile_iteration) {
-				if (!session->style_iterations)
-					session->style_first_iteration = drain_profile_iteration;
-				session->style_last_iteration = drain_profile_iteration;
-				session->style_iterations++;
-			}
-		}
-	}
-}
-
-static void
-drain_profile_allocate(GtkWidget *widget, GtkAllocation *allocation,
-		       gpointer data)
-{
-	DrainWidgetProfile *profile = data;
-	DrainWidgetInstanceProfile *instance;
-	gboolean repeated;
-
-	if (drain_profile_active) {
-		drain_iteration_profile.allocate[profile->category]++;
-		instance = drain_instance_profile(widget);
-		repeated = instance->allocate_count > 0;
-		drain_type_profile_record(drain_profile_allocate_types, instance->type,
-					  repeated);
-		if (repeated) {
-			if (instance->last_allocation.x == allocation->x &&
-			    instance->last_allocation.y == allocation->y &&
-			    instance->last_allocation.width == allocation->width &&
-			    instance->last_allocation.height == allocation->height)
-				instance->identical_geometry_repeats++;
-			else
-				instance->changed_geometry_repeats++;
-		}
-		instance->last_allocation = *allocation;
-		instance->allocate_count++;
-		if (drain_session_instances) {
-			DrainSessionWidgetProfile *session = drain_session_profile(widget);
-			session->allocate_count++;
-			if (!session->allocate_iterations ||
-			    session->allocate_last_iteration != drain_profile_iteration) {
-				if (!session->allocate_iterations)
-					session->allocate_first_iteration = drain_profile_iteration;
-				else if (session->last_allocation.x == allocation->x &&
-					 session->last_allocation.y == allocation->y &&
-					 session->last_allocation.width == allocation->width &&
-					 session->last_allocation.height == allocation->height)
-					session->identical_geometry_repeats++;
-				else
-					session->changed_geometry_repeats++;
-				session->allocate_last_iteration = drain_profile_iteration;
-				session->allocate_iterations++;
-				if (session->geometry_sequence->len)
-					g_string_append_c(session->geometry_sequence, ';');
-				g_string_append_printf(session->geometry_sequence,
-						       "%u:%d,%d,%d,%d", drain_profile_iteration,
-						       allocation->x, allocation->y,
-						       allocation->width, allocation->height);
-			}
-			session->last_allocation = *allocation;
-		}
-	}
-}
-
-static gboolean
-drain_profile_draw_begin(GtkWidget *widget, cairo_t *cr, gpointer data)
-{
-	DrainWidgetProfile *profile = data;
-	(void)widget;
-	(void)cr;
-	if (drain_profile_active) {
-		profile->draw_begin_us = g_get_monotonic_time();
-		profile->draw_iteration = drain_profile_iteration;
-	}
-	return FALSE;
-}
-
-static gboolean
-drain_profile_draw_end(GtkWidget *widget, cairo_t *cr, gpointer data)
-{
-	DrainWidgetProfile *profile = data;
-	gint64 elapsed;
-	(void)widget;
-	(void)cr;
-	if (!drain_profile_active || !profile->draw_begin_us ||
-	    profile->draw_iteration != drain_profile_iteration)
-		return FALSE;
-	elapsed = g_get_monotonic_time() - profile->draw_begin_us;
-	profile->draw_begin_us = 0;
-	if (profile->root) {
-		drain_iteration_profile.root_draws++;
-		drain_iteration_profile.root_draw_us += elapsed;
-	} else {
-		drain_iteration_profile.renderer_draws++;
-		drain_iteration_profile.renderer_draw_us += elapsed;
-	}
-	return FALSE;
-}
-
-static void
 startup_event_drain_profile_attach_one(GtkWidget *widget, gpointer root)
 {
 	DrainWidgetProfile *profile;
@@ -468,20 +356,13 @@ startup_event_drain_profile_attach_one(GtkWidget *widget, gpointer root)
 	profile->root = widget == GTK_WIDGET(root);
 	g_object_set_data_full(G_OBJECT(widget), "biblia-elim-drain-profile",
 			       profile, g_free);
+	/* GTK 4 has no per-widget style, allocation or draw signals: the
+	 * profile counts realizations and maps. */
 	g_signal_connect(widget, "realize", G_CALLBACK(drain_profile_realize), profile);
 	g_signal_connect(widget, "map", G_CALLBACK(drain_profile_map), profile);
-	g_signal_connect(widget, "style-updated", G_CALLBACK(drain_profile_style), profile);
-	g_signal_connect(widget, "size-allocate", G_CALLBACK(drain_profile_allocate), profile);
-	/* A top-level draw covers the whole frame. Renderer draws are reported
-	 * separately and deliberately not summed with it because they are nested. */
-	if (profile->root || (profile->category == DRAIN_WIDGET_RENDERER &&
-			      GTK_IS_TEXT_VIEW(widget))) {
-		g_signal_connect(widget, "draw", G_CALLBACK(drain_profile_draw_begin), profile);
-		g_signal_connect_after(widget, "draw", G_CALLBACK(drain_profile_draw_end), profile);
-	}
-	if (GTK_IS_CONTAINER(widget))
-		gtk_container_foreach(GTK_CONTAINER(widget),
-				      startup_event_drain_profile_attach_one, root);
+	for (GtkWidget *child = gtk_widget_get_first_child(widget); child;
+	     child = gtk_widget_get_next_sibling(child))
+		startup_event_drain_profile_attach_one(child, root);
 }
 
 void
@@ -682,7 +563,7 @@ void sync_windows()
 				drain_session_widget_profile_free);
 
 		panel_load_debug("app", "GTK_EVENT_DRAIN_BEGIN", NULL);
-		while (gtk_events_pending()) {
+		while (g_main_context_pending(NULL)) {
 			g_snprintf(detail, sizeof(detail), "iteration=%u", iteration);
 			panel_load_debug("app", "GTK_EVENT_ITERATION_BEGIN", detail);
 			if (debug) {
@@ -697,7 +578,7 @@ void sync_windows()
 				drain_profile_iteration = iteration;
 				drain_profile_active = TRUE;
 			}
-			gtk_main_iteration();
+			g_main_context_iteration(NULL, FALSE);
 			if (debug)
 				drain_profile_active = FALSE;
 			panel_load_debug("app", "GTK_EVENT_ITERATION_END", detail);
@@ -855,57 +736,6 @@ void gui_add_item_to_combo(GtkWidget *combo, gchar *item)
 			   -1);
 }
 
-/*
- * taken from galeon
- * glade_signal_connect_func: used by glade_xml_signal_autoconnect_full
- */
-void gui_glade_signal_connect_func(const gchar *cb_name, GObject *obj,
-				   const gchar *signal_name,
-				   const gchar *signal_data,
-				   GObject *conn_obj, gboolean conn_after,
-				   gpointer user_data)
-{
-	/** Module with all the symbols of the program */
-	static GModule *mod_self = NULL;
-	gpointer handler_func;
-
-	/* initialize gmodule */
-	if (mod_self == NULL) {
-		mod_self = g_module_open(NULL, 0);
-		g_assert(mod_self != NULL);
-	}
-
-	/*g_print( "glade_signal_connect_func: cb_name = '%s', signal_name = '%s', signal_data = '%s'\n",
-	   cb_name, signal_name, signal_data ); */
-
-	if (g_module_symbol(mod_self, cb_name, &handler_func)) {
-		/* found callback */
-		if (conn_obj) {
-			if (conn_after) {
-				g_signal_connect_object(obj, signal_name,
-							handler_func, conn_obj,
-							G_CONNECT_AFTER);
-			} else {
-				g_signal_connect_object(obj, signal_name,
-							handler_func, conn_obj,
-							G_CONNECT_SWAPPED);
-			}
-		} else {
-			/* no conn_obj; use standard connect */
-			gpointer data = NULL;
-
-			data = user_data;
-
-			if (conn_after) {
-				g_signal_connect_after(obj, signal_name, handler_func, data);
-			} else {
-				g_signal_connect(obj, signal_name, handler_func, data);
-			}
-		}
-	} else {
-		XI_warning(("callback function not found: %s", cb_name));
-	}
-}
 
 /**
  * taken form galeon-1.3.21
@@ -1608,49 +1438,13 @@ apply_bible_body_font(MOD_FONT *mf)
 			   mf->old_font_size_value);
 }
 
-/******************************************************************************
- * Name
- *  add_mods_2_gtk_menu
- *
- * Synopsis
- *   #include "gui/utilities.h"
- *
- *   void add_mods_2_gtk_menu(gchar * mod_type, GtkMenu * menu,
-				GCallback callback)
- *
- * Description
- *
- *
- * Return value
- *   void
- */
-
-void gui_add_mods_2_gtk_menu(gint mod_type, GtkWidget *menu,
-			     GCallback callback)
-{
-	GList *tmp = NULL;
-
-	if (mod_type == -1)
-		return;
-
-	tmp = get_list(mod_type);
-	while (tmp != NULL) {
-		GtkWidget *item = gtk_menu_item_new_with_label((gchar *)tmp->data);
-		gtk_widget_show(item);
-		g_signal_connect(G_OBJECT(item), "activate",
-				 G_CALLBACK(callback), (gchar *)tmp->data);
-		gtk_container_add(GTK_CONTAINER(menu), item);
-		tmp = g_list_next(tmp);
-	}
-}
-
 //
 // for choosing variants, primary/secondary/all.
 //
 void reading_selector(char *modname,
 		      char *key,
 		      DIALOG_DATA *dialog,
-		      GtkMenuItem *menuitem, gpointer user_data)
+		      gpointer menuitem, gpointer user_data)
 {
 	gchar *url;
 	gboolean primary = 0, secondary = 0, all = 0;
@@ -2034,6 +1828,24 @@ GtkWidget *pixmap_finder(char *image)
 	return w;
 }
 
+/* A fully transparent SIZE x SIZE pixbuf. GtkCellRendererPixbuf converts
+ * its "pixbuf"/"pixbuf-expander-*" properties to a GdkTexture eagerly, and
+ * gdk_texture_new_for_pixbuf() asserts on NULL (GTK3's cell renderer just
+ * skipped drawing), so an icon lookup that finds nothing must still hand
+ * back a real, empty pixbuf rather than NULL. */
+static GdkPixbuf *
+blank_pixbuf(int size)
+{
+	GdkPixbuf *pb;
+
+	if (size <= 0)
+		size = 16;
+	pb = gdk_pixbuf_new(GDK_COLORSPACE_RGB, TRUE, 8, size, size);
+	if (pb)
+		gdk_pixbuf_fill(pb, 0x00000000);
+	return pb;
+}
+
 /*
  * get a pixbuf from specified file.
  */
@@ -2052,30 +1864,76 @@ GtkWidget *pixmap_finder(char *image)
  * empty cell rather than a crash. */
 GdkPixbuf *symbolic_pixbuf(const char *icon_name, int size, GtkWidget *ctx)
 {
-	GtkIconTheme *theme = gtk_icon_theme_get_default();
-	GtkIconInfo *info;
+	GtkIconTheme *theme = gtk_icon_theme_get_for_display(gdk_display_get_default());
+	GtkIconPaintable *icon;
+	GFile *file;
+	gchar *path;
 	GdkPixbuf *pb = NULL;
 
 	if (!icon_name || !*icon_name)
-		return NULL;
+		return blank_pixbuf(size);
 	if (size <= 0)
 		size = 16;
 
-	info = gtk_icon_theme_lookup_icon(theme, icon_name, size,
-					  (GtkIconLookupFlags)(GTK_ICON_LOOKUP_FORCE_SYMBOLIC |
-							       GTK_ICON_LOOKUP_FORCE_SIZE));
-	if (info) {
-		if (ctx)
-			pb = gtk_icon_info_load_symbolic_for_context(
-			    info, gtk_widget_get_style_context(ctx), NULL, NULL);
-		if (!pb)
-			pb = gtk_icon_info_load_icon(info, NULL);
-		g_object_unref(info);
+	icon = gtk_icon_theme_lookup_icon(theme, icon_name, NULL, size, 1,
+					  GTK_TEXT_DIR_NONE,
+					  GTK_ICON_LOOKUP_FORCE_SYMBOLIC);
+	file = icon ? gtk_icon_paintable_get_file(icon) : NULL;
+	path = file ? g_file_get_path(file) : NULL;
+	if (path)
+		pb = gdk_pixbuf_new_from_file_at_size(path, size, size, NULL);
+	/* A symbolic icon is one colour plus alpha: paint it in the text
+	 * colour of `ctx`, as the toolkit does for its own symbolic icons. */
+	if (pb && ctx && icon && gtk_icon_paintable_is_symbolic(icon)) {
+		GdkRGBA fg;
+		GdkPixbuf *rgba = gdk_pixbuf_add_alpha(pb, FALSE, 0, 0, 0);
+		guchar *pixels = gdk_pixbuf_get_pixels(rgba);
+		gint stride = gdk_pixbuf_get_rowstride(rgba);
+		gint w = gdk_pixbuf_get_width(rgba);
+		gint h = gdk_pixbuf_get_height(rgba);
+
+		gtk_widget_get_color(ctx, &fg);
+		for (gint y = 0; y < h; y++) {
+			guchar *p = pixels + y * stride;
+			for (gint x = 0; x < w; x++, p += 4) {
+				p[0] = (guchar)(fg.red * 255 + 0.5);
+				p[1] = (guchar)(fg.green * 255 + 0.5);
+				p[2] = (guchar)(fg.blue * 255 + 0.5);
+				p[3] = (guchar)(p[3] * fg.alpha + 0.5);
+			}
+		}
+		g_object_unref(pb);
+		pb = rgba;
 	}
-	if (!pb)
-		pb = gtk_icon_theme_load_icon(theme, icon_name, size,
-					      GTK_ICON_LOOKUP_FORCE_SIZE, NULL);
-	return pb;
+	g_free(path);
+	g_clear_object(&file);
+	g_clear_object(&icon);
+	return pb ? pb : blank_pixbuf(size);
+}
+
+/* A themed icon as a SIZE x SIZE pixbuf, for tree view cells; a blank
+ * (fully transparent) pixbuf when the theme lacks it -- see blank_pixbuf()
+ * for why this can never be NULL. */
+GdkPixbuf *theme_icon_pixbuf(const char *icon_name, int size)
+{
+	GtkIconTheme *theme = gtk_icon_theme_get_for_display(gdk_display_get_default());
+	GtkIconPaintable *icon;
+	GFile *file;
+	gchar *path;
+	GdkPixbuf *pb = NULL;
+
+	if (!icon_name || !*icon_name || !gtk_icon_theme_has_icon(theme, icon_name))
+		return blank_pixbuf(size);
+	icon = gtk_icon_theme_lookup_icon(theme, icon_name, NULL, size, 1,
+					  GTK_TEXT_DIR_NONE, 0);
+	file = gtk_icon_paintable_get_file(icon);
+	path = file ? g_file_get_path(file) : NULL;
+	if (path)
+		pb = gdk_pixbuf_new_from_file_at_size(path, size, size, NULL);
+	g_free(path);
+	g_clear_object(&file);
+	g_object_unref(icon);
+	return pb ? pb : blank_pixbuf(size);
 }
 
 GdkPixbuf *pixbuf_finder(const char *image, int size, GError **error)
@@ -2153,25 +2011,11 @@ HtmlOutput(char *text, GtkWidget *gtkText, MOD_FONT *mf, char *anchor)
 	settings.special_anchor = NULL;
 }
 
+/* GTK 4 windows take their icon from the icon theme only. */
 void set_window_icon(GtkWindow *window)
 {
-	gchar *imagename;
-	GdkPixbuf *pixbuf;
-
-	if (!window)
-		return;
-	gtk_window_set_icon_name(window, "biblia-elim");
-	imagename = image_locator("biblia-elim.png");
-	if (!imagename || !g_file_test(imagename, G_FILE_TEST_IS_REGULAR)) {
-		g_free(imagename);
-		imagename = image_locator("xiphos-x-16.png");
-	}
-	pixbuf = gdk_pixbuf_new_from_file(imagename, NULL);
-	g_free(imagename);
-	if (pixbuf) {
-		gtk_window_set_icon(window, pixbuf);
-		g_object_unref(pixbuf);
-	}
+	if (window)
+		gtk_window_set_icon_name(window, "biblia-elim");
 }
 
 gboolean
@@ -2197,22 +2041,19 @@ gui_default_window_size(int *width, int *height)
 	GdkRectangle geo = { 0, 0, 1280, 800 };
 	int w, h;
 
+	/* GTK 4 knows no pointer position outside its windows, no primary
+	 * monitor and no work area: the first monitor, whole. The margins
+	 * below leave room for panels. */
 	d = gdk_display_get_default();
 	if (d) {
-		GdkSeat *seat = gdk_display_get_default_seat(d);
-		GdkDevice *ptr = seat ? gdk_seat_get_pointer(seat) : NULL;
-		if (ptr) {
-			gint px = 0, py = 0;
-			gdk_device_get_position(ptr, NULL, &px, &py);
-			mon = gdk_display_get_monitor_at_point(d, px, py);
-		}
-		if (!mon)
-			mon = gdk_display_get_primary_monitor(d);
-		if (!mon && gdk_display_get_n_monitors(d) > 0)
-			mon = gdk_display_get_monitor(d, 0);
+		GListModel *monitors = gdk_display_get_monitors(d);
+		if (g_list_model_get_n_items(monitors) > 0)
+			mon = g_list_model_get_item(monitors, 0);
 	}
-	if (mon)
-		gdk_monitor_get_workarea(mon, &geo);
+	if (mon) {
+		gdk_monitor_get_geometry(mon, &geo);
+		g_object_unref(mon);
+	}
 
 	w = geo.width * 7 / 10;
 	h = geo.height * 85 / 100;
@@ -2237,52 +2078,112 @@ gui_prepare_floating_dialog(GtkWindow *win, GtkWindow *parent)
 		return;
 	if (parent)
 		gtk_window_set_transient_for(win, parent);
-	gtk_window_set_type_hint(win, GDK_WINDOW_TYPE_HINT_DIALOG);
-	gtk_window_set_skip_taskbar_hint(win, TRUE);
 	gtk_window_set_destroy_with_parent(win, TRUE);
 	set_window_icon(win);
 }
 
+/* Where the pointer is, in RELATIVE's coordinates. */
 static gboolean
-destroy_popover_idle(gpointer popover)
+pointer_position(GtkWidget *relative, gdouble *x, gdouble *y)
 {
-	gtk_widget_destroy(GTK_WIDGET(popover));
-	return G_SOURCE_REMOVE;
+	GtkNative *native = gtk_widget_get_native(relative);
+	GdkSurface *surface = native ? gtk_native_get_surface(native) : NULL;
+	GdkSeat *seat = gdk_display_get_default_seat(gtk_widget_get_display(relative));
+	GdkDevice *pointer = seat ? gdk_seat_get_pointer(seat) : NULL;
+	double sx, sy, nx = 0, ny = 0;
+	graphene_point_t in, out;
+
+	if (!surface || !pointer ||
+	    !gdk_surface_get_device_position(surface, pointer, &sx, &sy, NULL))
+		return FALSE;
+	gtk_native_get_surface_transform(native, &nx, &ny);
+	graphene_point_init(&in, (float)(sx - nx), (float)(sy - ny));
+	if (!gtk_widget_compute_point(GTK_WIDGET(native), relative, &in, &out))
+		return FALSE;
+	*x = out.x;
+	*y = out.y;
+	return TRUE;
 }
 
-/* After the chosen item's action has run. */
-static void
-destroy_popover_later(GtkPopover *popover, gpointer unused)
+/* Widgets such as GtkTreeView and GtkTextView manage their own internal
+ * CSS-node children and abort (gtk_css_node_insert_after) if a foreign
+ * widget is parented onto them directly with gtk_widget_set_parent().
+ * A popover anchored "at" one of these needs an ordinary container as its
+ * real GTK parent instead; the app's root child (a GtkBox) always is one. */
+static GtkWidget *
+popover_safe_parent(GtkWidget *relative)
 {
-	(void)unused;
-	g_idle_add(destroy_popover_idle, popover);
+	GtkWidget *root_child = widgets.app ? gtk_window_get_child(GTK_WINDOW(widgets.app)) : NULL;
+
+	return root_child ? root_child : relative;
+}
+
+static GtkWidget *
+menu_popover_new(GMenuModel *model, GtkWidget *relative)
+{
+	GtkWidget *popover = gtk_popover_menu_new_from_model(model);
+
+	gtk_widget_set_parent(popover, popover_safe_parent(relative));
+	gui_popover_destroy_on_close(popover);
+	return popover;
 }
 
 GtkWidget *
 gui_popup_menu_model_at_pointer(GMenuModel *model, GtkWidget *relative)
 {
+	GdkRectangle at = { 0, 0, 1, 1 };
+	gdouble x, y;
+	GtkWidget *popover;
+
 	if (!relative && widgets.app)
-		relative = gtk_bin_get_child(GTK_BIN(widgets.app));
+		relative = gtk_window_get_child(GTK_WINDOW(widgets.app));
 	if (!relative || !model)
 		return NULL;
-	GtkWidget *popover = gtk_popover_new_from_model(relative, model);
-	GdkRectangle at = { 0, 0, 1, 1 };
-	GdkWindow *window = gtk_widget_get_window(relative);
-	GdkSeat *seat = gdk_display_get_default_seat(gtk_widget_get_display(relative));
-	if (window && seat) {
-		int wx, wy;
-		gdk_window_get_device_position(window, gdk_seat_get_pointer(seat),
-					       &wx, &wy, NULL);
-		GtkAllocation alloc;
-		gtk_widget_get_allocation(relative, &alloc);
-		/* A no-window widget reports its parent window's coordinates. */
-		at.x = gtk_widget_get_has_window(relative) ? wx : wx - alloc.x;
-		at.y = gtk_widget_get_has_window(relative) ? wy : wy - alloc.y;
+	popover = menu_popover_new(model, relative);
+	/* The pointing-to rectangle is read in the popover's real GTK parent's
+	 * coordinate space, which is popover_safe_parent(relative), not
+	 * necessarily relative itself. */
+	if (pointer_position(popover_safe_parent(relative), &x, &y)) {
+		at.x = (int)x;
+		at.y = (int)y;
+		gtk_popover_set_pointing_to(GTK_POPOVER(popover), &at);
 	}
-	gtk_popover_set_pointing_to(GTK_POPOVER(popover), &at);
-	g_signal_connect(popover, "closed", G_CALLBACK(destroy_popover_later), NULL);
 	gtk_popover_popup(GTK_POPOVER(popover));
 	return popover;
+}
+
+GtkWidget *
+gui_popup_menu_model_at_widget(GMenuModel *model, GtkWidget *widget)
+{
+	GtkWidget *popover;
+
+	if (!widget || !model)
+		return NULL;
+	popover = menu_popover_new(model, widget);
+	gtk_popover_set_position(GTK_POPOVER(popover), GTK_POS_BOTTOM);
+	gtk_popover_popup(GTK_POPOVER(popover));
+	return popover;
+}
+
+static void
+clamp_dialog_size(GtkWindow *win)
+{
+	gint max_w = GPOINTER_TO_INT(g_object_get_data(G_OBJECT(win), "elim-max-width"));
+	gint max_h = GPOINTER_TO_INT(g_object_get_data(G_OBJECT(win), "elim-max-height"));
+	gint w, h;
+
+	gtk_window_get_default_size(win, &w, &h);
+	if ((max_w && w > max_w) || (max_h && h > max_h))
+		gtk_window_set_default_size(win, max_w ? MIN(w, max_w) : w,
+					    max_h ? MIN(h, max_h) : h);
+}
+
+static void
+on_dialog_default_size(GObject *win, GParamSpec *pspec, gpointer data)
+{
+	(void)pspec;
+	(void)data;
+	clamp_dialog_size(GTK_WINDOW(win));
 }
 
 void
@@ -2291,31 +2192,35 @@ gui_fit_dialog_to_screen(GtkWindow *win)
 	if (!win)
 		return;
 	GdkDisplay *display = gtk_widget_get_display(GTK_WIDGET(win));
-	GdkWindow *parent = widgets.app ? gtk_widget_get_window(widgets.app) : NULL;
-	GdkMonitor *monitor = parent ? gdk_display_get_monitor_at_window(display, parent) :
-		gdk_display_get_monitor(display, 0);
+	GdkSurface *parent = widgets.app && gtk_widget_get_realized(widgets.app)
+				 ? gtk_native_get_surface(GTK_NATIVE(widgets.app))
+				 : NULL;
+	GdkMonitor *monitor = parent ? gdk_display_get_monitor_at_surface(display, parent)
+				     : NULL;
 	GdkRectangle area = { 0, 0, 1024, 768 };
 	if (monitor)
-		gdk_monitor_get_workarea(monitor, &area);
-	/* Wayland reports the whole output; the main window's allocation
-	 * already leaves out the bar and the workspace gaps. */
-	if (widgets.app && gtk_widget_get_allocated_height(widgets.app) > 1) {
-		area.width = MIN(area.width, gtk_widget_get_allocated_width(widgets.app));
-		area.height = MIN(area.height, gtk_widget_get_allocated_height(widgets.app));
+		gdk_monitor_get_geometry(monitor, &area);
+	/* The monitor is the whole output; the main window's size already
+	 * leaves out the bar and the workspace gaps. */
+	if (widgets.app && gtk_widget_get_height(widgets.app) > 1) {
+		area.width = MIN(area.width, gtk_widget_get_width(widgets.app));
+		area.height = MIN(area.height, gtk_widget_get_height(widgets.app));
 	}
 	int max_w = MAX(320, (int)(area.width * 0.92));
 	int max_h = MAX(240, (int)(area.height * 0.90));
-	/* A maximum size, not a default: GtkFileChooserDialog resizes itself
-	 * to its saved size after mapping, and GTK clamps every resize (and
-	 * tells the Wayland compositor) to these hints. */
-	GdkGeometry hints = { 0 };
-	hints.max_width = max_w;
-	hints.max_height = max_h;
-	gtk_window_set_geometry_hints(win, NULL, &hints, GDK_HINT_MAX_SIZE);
-	int w, h;
-	gtk_window_get_default_size(win, &w, &h);
-	if (w > max_w || h > max_h)
-		gtk_window_set_default_size(win, MIN(w, max_w), MIN(h, max_h));
+	/* GTK 4 has no maximum-size hints. GtkFileChooserDialog puts back its
+	 * saved size as its default size: clamp it whenever that changes, so
+	 * the saved size heals too. */
+	g_object_set_data(G_OBJECT(win), "elim-max-width", GINT_TO_POINTER(max_w));
+	g_object_set_data(G_OBJECT(win), "elim-max-height", GINT_TO_POINTER(max_h));
+	if (!g_object_get_data(G_OBJECT(win), "elim-fit-watch")) {
+		g_object_set_data(G_OBJECT(win), "elim-fit-watch", GINT_TO_POINTER(1));
+		g_signal_connect(win, "notify::default-width",
+				 G_CALLBACK(on_dialog_default_size), NULL);
+		g_signal_connect(win, "notify::default-height",
+				 G_CALLBACK(on_dialog_default_size), NULL);
+	}
+	clamp_dialog_size(win);
 }
 
 /**************************************************************************
@@ -2340,6 +2245,21 @@ gui_fit_dialog_to_screen(GtkWindow *win)
  * Return value
  *   void
  */
+#ifndef WIN32
+static void
+open_default_done(GObject *launcher, GAsyncResult *result, gpointer data)
+{
+	GError *error = NULL;
+
+	(void)data;
+	if (!gtk_uri_launcher_launch_finish(GTK_URI_LAUNCHER(launcher), result,
+					    &error)) {
+		XI_warning(("%s", error->message));
+		g_error_free(error);
+	}
+}
+#endif
+
 gboolean xiphos_open_default(const gchar *file)
 {
 #ifdef WIN32
@@ -2352,18 +2272,14 @@ gboolean xiphos_open_default(const gchar *file)
 	return rt > 32;
 
 #else
-	GError *error = NULL;
-#if GTK_CHECK_VERSION(3, 22, 0)
-	gtk_show_uri_on_window(NULL, file, gtk_get_current_event_time(), &error);
-#else
-	gtk_show_uri(NULL, file, gtk_get_current_event_time(), &error);
-#endif
-	if (error != NULL) {
-		XI_warning(("%s", error->message));
-		g_error_free(error);
-		return FALSE;
-	} else
-		return TRUE;
+	GtkUriLauncher *launcher = gtk_uri_launcher_new(file);
+
+	/* the answer comes later: a failure is only reported */
+	gtk_uri_launcher_launch(launcher,
+				widgets.app ? GTK_WINDOW(widgets.app) : NULL,
+				NULL, open_default_done, NULL);
+	g_object_unref(launcher);
+	return TRUE;
 #endif
 }
 
@@ -2826,8 +2742,7 @@ void ReadAloud(unsigned int verse, const char *suppliedtext)
 				"TTS disappeared?\nTTS write failed: %s",
 				strerror(errno));
 			settings.readaloud = 0;
-			gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.readaloud_item),
-						       settings.readaloud);
+			gui_main_menu_set_state("read-aloud", settings.readaloud);
 			gui_generic_warning(msg);
 		}
 
@@ -2885,7 +2800,7 @@ int ImageDimensions(const char *path, int *x, int *y)
 const char *strcasestr(const char *haystack, const char *needle);
 #endif
 
-const char *AnalyzeForImageSize(const char *origtext, int columns, GdkWindow *window)
+const char *AnalyzeForImageSize(const char *origtext, int columns, GtkWidget *widget)
 {
 	static GString *resized;
 	static gint resized_init = FALSE;
@@ -2916,13 +2831,8 @@ const char *AnalyzeForImageSize(const char *origtext, int columns, GdkWindow *wi
 		if (window_y == -999) {
 /* we have images, but we don't know bounds yet */
 
-#ifdef USE_GTK_3
-			window_x = gdk_window_get_width(window);
-			window_y = gdk_window_get_height(window);
-#else
-			gdk_drawable_get_size(window, &window_x,
-					      &window_y);
-#endif
+			window_x = gtk_widget_get_width(widget);
+			window_y = gtk_widget_get_height(widget);
 
 			/* in a world of multi-column output, */
 			/* we must constrain by column width. */

@@ -14,6 +14,17 @@
 #include "webkit/wk-html-zoom-anchor.h"
 
 G_BEGIN_DECLS
+
+/* The GtkTextView the pane renders into. GTK 4 dropped the widget signals
+ * the pane and its callers hung their layout on, so this view gives them
+ * back:
+ *   "size-allocated" (GdkRectangle *allocation): after every allocation,
+ *	with the text already laid out for the new width;
+ *   "after-paint": after each frame the view is part of has been drawn,
+ *	i.e. with the geometry the reader is looking at. */
+#define WK_TYPE_TEXT_VIEW (wk_text_view_get_type())
+G_DECLARE_FINAL_TYPE(WkTextView, wk_text_view, WK, TEXT_VIEW, GtkTextView)
+
 #define WK_TYPE_HTML (wk_html_get_type())
 #define WK_HTML(o) (G_TYPE_CHECK_INSTANCE_CAST((o), WK_TYPE_HTML, WkHtml))
 #define WK_HTML_CLASS(k) (G_TYPE_CHECK_CLASS_CAST((k), WK_TYPE_HTML, WkHtmlClass))
@@ -49,6 +60,8 @@ struct _WkHtmlPriv
 	GtkTextBuffer *buffer;
 	GtkWidget *scroll;
 	GtkWidget *stack;
+	GtkWidget *overlay;
+	GtkWidget *frozen;	/* the still frame while frozen, or NULL */
 	GtkWidget *loading_surface;
 	GtkCssProvider *css;
 	PanelLoadModel load_model;
@@ -144,6 +157,14 @@ void wk_html_copy_selection(WkHtml *html);
  * buffer y no en el portapapeles primario, que es global y podría traer
  * una selección hecha en otra aplicación. */
 gboolean wk_html_has_selection(WkHtml *html);
+/* Shows what the pane has on screen now, unchanging, over the pane until
+ * wk_html_thaw(): the text underneath can be relaid out and scrolled
+ * without the reader seeing the frames in between (GTK 4 cannot freeze a
+ * window's painting). */
+void wk_html_freeze(WkHtml *html);
+void wk_html_thaw(WkHtml *html);
+/* What is selected in this panel, or NULL; g_free() it. */
+gchar *wk_html_selection_text(WkHtml *html);
 void wk_html_enable_caret_browsing(WkHtml *html);
 
 void wk_html_select_all(WkHtml *html);

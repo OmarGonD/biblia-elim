@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.22.1 -->
 <interface>
-  <requires lib="gtk+" version="3.18"/>
+  <requires lib="gtk" version="4.0"/>
   <object class="GtkBox" id="navbar">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="valign">center</property>
+    <!-- Only the reading surface receives spare vertical space. GTK4
+         otherwise inherits expansion from descendants of this bar. -->
+    <property name="vexpand">False</property>
+    <property name="valign">start</property>
+    <!-- The background spans the row; the controls keep natural widths. -->
+    <property name="hexpand">True</property>
+    <property name="halign">fill</property>
     <property name="margin_top">3</property>
     <property name="margin_bottom">3</property>
     <child>
       <object class="GtkToggleButton" id="togglebutton_sync">
         <property name="can_focus">True</property>
         <property name="receives_default">False</property>
-        <property name="relief">none</property>
         <child>
           <object class="GtkImage" id="image3">
             <property name="visible">True</property>
@@ -21,18 +26,12 @@
           </object>
         </child>
       </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">False</property>
-        <property name="position">0</property>
-      </packing>
     </child>
     <child>
       <object class="GtkButton" id="button_history_back">
         <property name="visible">True</property>
         <property name="can_focus">True</property>
         <property name="receives_default">False</property>
-        <property name="relief">none</property>
         <child>
           <object class="GtkImage" id="image2">
             <property name="visible">True</property>
@@ -41,11 +40,6 @@
           </object>
         </child>
       </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">False</property>
-        <property name="position">1</property>
-      </packing>
     </child>
     <child>
       <object class="GtkBox" id="vbox5">
@@ -60,7 +54,6 @@
             <property name="can_focus">True</property>
             <property name="receives_default">False</property>
             <property name="tooltip_text" translatable="yes">Drop down history list</property>
-            <property name="relief">none</property>
             <child>
               <object class="GtkImage" id="image17">
                 <property name="visible">True</property>
@@ -69,25 +62,14 @@
               </object>
             </child>
           </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
-            <property name="position">0</property>
-          </packing>
         </child>
       </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">True</property>
-        <property name="position">2</property>
-      </packing>
     </child>
     <child>
       <object class="GtkButton" id="button_history_foward">
         <property name="visible">True</property>
         <property name="can_focus">True</property>
         <property name="receives_default">False</property>
-        <property name="relief">none</property>
         <child>
           <object class="GtkImage" id="image1">
             <property name="visible">True</property>
@@ -96,18 +78,13 @@
           </object>
         </child>
       </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">False</property>
-        <property name="position">3</property>
-      </packing>
     </child>
     <child>
       <object class="GtkBox" id="hbox2">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <child>
-          <object class="GtkEventBox" id="eventbox_book">
+          <object class="GtkBox" id="eventbox_book">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
@@ -129,27 +106,15 @@
                         <property name="use_markup">True</property>
                         <property name="xalign">0.029999999329447746</property>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">False</property>
-                        <property name="position">0</property>
-                      </packing>
                     </child>
                   </object>
                 </child>
-                <child internal-child="accessible">
-                  <object class="AtkObject" id="togglebutton_book-atkobject">
-                    <property name="AtkObject::accessible-name" translatable="yes">Book Selector Button</property>
-                  </object>
-                </child>
+                <accessibility>
+                  <property name="label" translatable="yes">Book Selector Button</property>
+                </accessibility>
               </object>
             </child>
           </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
-            <property name="position">0</property>
-          </packing>
         </child>
         <child>
           <object class="GtkBox" id="vbox7">
@@ -157,10 +122,9 @@
             <property name="can_focus">False</property>
             <property name="orientation">vertical</property>
             <child>
-              <object class="GtkEventBox" id="eventbox9">
+              <object class="GtkBox" id="eventbox9">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="above_child">True</property>
                 <child>
                   <object class="GtkImage" id="image12">
                     <property name="visible">True</property>
@@ -169,17 +133,11 @@
                   </object>
                 </child>
               </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="position">0</property>
-              </packing>
             </child>
             <child>
-              <object class="GtkEventBox" id="eventbox6">
+              <object class="GtkBox" id="eventbox6">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="above_child">True</property>
                 <child>
                   <object class="GtkImage" id="image14">
                     <property name="visible">True</property>
@@ -188,33 +146,19 @@
                   </object>
                 </child>
               </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="position">1</property>
-              </packing>
             </child>
+          <property name="margin-start">1</property>
+          <property name="margin-end">1</property>
           </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="padding">1</property>
-            <property name="position">1</property>
-          </packing>
         </child>
       </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">True</property>
-        <property name="position">4</property>
-      </packing>
     </child>
     <child>
       <object class="GtkBox" id="hbox3">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <child>
-          <object class="GtkEventBox" id="eventbox_chapter">
+          <object class="GtkBox" id="eventbox_chapter">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
@@ -233,28 +177,18 @@
                         <property name="label" translatable="yes">1</property>
                         <property name="use_markup">True</property>
                         <property name="justify">right</property>
+                      <property name="hexpand">False</property>
+                      <property name="width-chars">3</property>
                       </object>
-                      <packing>
-                        <property name="expand">True</property>
-                        <property name="fill">True</property>
-                        <property name="position">0</property>
-                      </packing>
                     </child>
                   </object>
                 </child>
-                <child internal-child="accessible">
-                  <object class="AtkObject" id="togglebutton_chapter-atkobject">
-                    <property name="AtkObject::accessible-name" translatable="yes">Toggle Chapter Button</property>
-                  </object>
-                </child>
+                <accessibility>
+                  <property name="label" translatable="yes">Toggle Chapter Button</property>
+                </accessibility>
               </object>
             </child>
           </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
-            <property name="position">0</property>
-          </packing>
         </child>
         <child>
           <object class="GtkBox" id="vbox6">
@@ -262,10 +196,9 @@
             <property name="can_focus">False</property>
             <property name="orientation">vertical</property>
             <child>
-              <object class="GtkEventBox" id="eventbox8">
+              <object class="GtkBox" id="eventbox8">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="above_child">True</property>
                 <child>
                   <object class="GtkImage" id="image8">
                     <property name="visible">True</property>
@@ -274,17 +207,11 @@
                   </object>
                 </child>
               </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="position">0</property>
-              </packing>
             </child>
             <child>
-              <object class="GtkEventBox" id="eventbox4">
+              <object class="GtkBox" id="eventbox4">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="above_child">True</property>
                 <child>
                   <object class="GtkImage" id="image10">
                     <property name="visible">True</property>
@@ -293,33 +220,19 @@
                   </object>
                 </child>
               </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="position">1</property>
-              </packing>
             </child>
+          <property name="margin-top">1</property>
+          <property name="margin-bottom">1</property>
           </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="padding">1</property>
-            <property name="position">1</property>
-          </packing>
         </child>
       </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">True</property>
-        <property name="position">5</property>
-      </packing>
     </child>
     <child>
       <object class="GtkBox" id="hbox4">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <child>
-          <object class="GtkEventBox" id="eventbox_verse">
+          <object class="GtkBox" id="eventbox_verse">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
@@ -331,7 +244,7 @@
                   <object class="GtkBox" id="hbox7">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="orientation">vertical</property>
+                    <property name="orientation">horizontal</property>
                     <child>
                       <object class="GtkLabel" id="label_verse">
                         <property name="visible">True</property>
@@ -339,28 +252,18 @@
                         <property name="label" translatable="yes">1</property>
                         <property name="use_markup">True</property>
                         <property name="justify">right</property>
+                      <property name="hexpand">False</property>
+                      <property name="width-chars">3</property>
                       </object>
-                      <packing>
-                        <property name="expand">True</property>
-                        <property name="fill">True</property>
-                        <property name="position">0</property>
-                      </packing>
                     </child>
                   </object>
                 </child>
-                <child internal-child="accessible">
-                  <object class="AtkObject" id="togglebutton_verse-atkobject">
-                    <property name="AtkObject::accessible-name" translatable="yes">Toggle Verse Button</property>
-                  </object>
-                </child>
+                <accessibility>
+                  <property name="label" translatable="yes">Toggle Verse Button</property>
+                </accessibility>
               </object>
             </child>
           </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
-            <property name="position">0</property>
-          </packing>
         </child>
         <child>
           <object class="GtkBox" id="vbox4">
@@ -368,7 +271,7 @@
             <property name="can_focus">False</property>
             <property name="orientation">vertical</property>
             <child>
-              <object class="GtkEventBox" id="eventbox7">
+              <object class="GtkBox" id="eventbox7">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <child>
@@ -379,17 +282,11 @@
                   </object>
                 </child>
               </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="position">0</property>
-              </packing>
             </child>
             <child>
-              <object class="GtkEventBox" id="eventbox1">
+              <object class="GtkBox" id="eventbox1">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="above_child">True</property>
                 <child>
                   <object class="GtkImage" id="image5">
                     <property name="visible">True</property>
@@ -398,26 +295,12 @@
                   </object>
                 </child>
               </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="position">1</property>
-              </packing>
             </child>
+          <property name="margin-top">1</property>
+          <property name="margin-bottom">1</property>
           </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="padding">1</property>
-            <property name="position">1</property>
-          </packing>
         </child>
       </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">True</property>
-        <property name="position">6</property>
-      </packing>
     </child>
     <child>
       <object class="GtkEntry" id="entry_lookup">
@@ -427,18 +310,16 @@
         <property name="invisible_char">●</property>
         <property name="primary_icon_activatable">False</property>
         <property name="secondary_icon_activatable">False</property>
-        <child internal-child="accessible">
-          <object class="AtkObject" id="entry_lookup-atkobject">
-            <property name="AtkObject::accessible-name" translatable="yes">Reference Entry</property>
-          </object>
-        </child>
+        <accessibility>
+          <property name="label" translatable="yes">Reference Entry</property>
+        </accessibility>
+      <property name="hexpand">False</property>
+      <property name="width-chars">20</property>
+      <property name="max-width-chars">20</property>
+      <property name="vexpand">False</property>
+      <property name="margin-top">2</property>
+      <property name="margin-bottom">2</property>
       </object>
-      <packing>
-        <property name="expand">True</property>
-        <property name="fill">True</property>
-        <property name="padding">2</property>
-        <property name="position">7</property>
-      </packing>
     </child>
   </object>
 </interface>

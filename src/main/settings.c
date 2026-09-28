@@ -1400,7 +1400,7 @@ if (!settings.morph_heb_lex || strlen(settings.morph_heb_lex) == 0) {
 	 * versículo mostrado ya tenga nota. */
 	settings.showcomms = 0;
 	/* El panel Diccionario/Devocional ya no tiene forma de abrirse
-	 * desde la interfaz (menú oculto en ui/xi-menus.gtkbuilder);
+	 * desde la interfaz (fuera del menú, ver gui_create_main_menu());
 	 * forzarlo apagado evita que un valor "1" heredado de
 	 * settings.xml lo reaparezca. */
 	settings.showdicts = 0;

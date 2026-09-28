@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <libxml/parser.h>
 
 #include "gui/export_bookmarks.h"
@@ -49,17 +50,17 @@ enum {
 void dialog_export_bookmarks_response_cb(GtkDialog *dialog,
 					 gint response_id,
 					 BK_EXPORT *data);
-void checkbutton_include_text_toggled_cb(GtkToggleButton *togglebutton,
+void checkbutton_include_text_toggled_cb(GtkCheckButton *togglebutton,
 					 BK_EXPORT *data);
-void radiobutton_plain_text_toggled_cb(GtkToggleButton *togglebutton,
+void radiobutton_plain_text_toggled_cb(GtkCheckButton *togglebutton,
 				       BK_EXPORT *data);
-void radiobutton_xiphos_bookmarks_toggled_cb(GtkToggleButton *
+void radiobutton_xiphos_bookmarks_toggled_cb(GtkCheckButton *
 						 togglebutton,
 					     BK_EXPORT *data);
-void radiobutton_html_toggled_cb(GtkToggleButton *togglebutton,
+void radiobutton_html_toggled_cb(GtkCheckButton *togglebutton,
 				 BK_EXPORT *data);
 gboolean dialog_vbox1_key_press_event_cb(GtkWidget *widget,
-					 GdkEventKey *event,
+					 GuiKeyEvent *event,
 					 gpointer user_data);
 
 static gchar *get_module(const gchar *key)
@@ -587,37 +588,37 @@ static void setup_filechooserwidget(GtkFileChooser *chooser)
 }
 
 G_MODULE_EXPORT void
-checkbutton_include_text_toggled_cb(GtkToggleButton *togglebutton,
+checkbutton_include_text_toggled_cb(GtkCheckButton *togglebutton,
 				    BK_EXPORT *data)
 {
-	data->with_scripture = gtk_toggle_button_get_active(togglebutton);
+	data->with_scripture = gtk_check_button_get_active(togglebutton);
 }
 
 G_MODULE_EXPORT void
-radiobutton_xiphos_bookmarks_toggled_cb(GtkToggleButton *togglebutton,
+radiobutton_xiphos_bookmarks_toggled_cb(GtkCheckButton *togglebutton,
 					BK_EXPORT *data)
 {
-	if (gtk_toggle_button_get_active(togglebutton)) {
+	if (gtk_check_button_get_active(togglebutton)) {
 		data->type = BOOKMARKS;
 		gtk_widget_set_sensitive(data->cb_scripture, FALSE);
 	}
 }
 
 G_MODULE_EXPORT void
-radiobutton_html_toggled_cb(GtkToggleButton *togglebutton,
+radiobutton_html_toggled_cb(GtkCheckButton *togglebutton,
 			    BK_EXPORT *data)
 {
-	if (gtk_toggle_button_get_active(togglebutton)) {
+	if (gtk_check_button_get_active(togglebutton)) {
 		data->type = HTML;
 		gtk_widget_set_sensitive(data->cb_scripture, TRUE);
 	}
 }
 
 G_MODULE_EXPORT void
-radiobutton_plain_text_toggled_cb(GtkToggleButton *togglebutton,
+radiobutton_plain_text_toggled_cb(GtkCheckButton *togglebutton,
 				  BK_EXPORT *data)
 {
-	if (gtk_toggle_button_get_active(togglebutton)) {
+	if (gtk_check_button_get_active(togglebutton)) {
 		data->type = PLAIN;
 		gtk_widget_set_sensitive(data->cb_scripture, TRUE);
 	}
@@ -633,7 +634,7 @@ void dialog_export_bookmarks_response_cb(GtkDialog *dialog,
 		break;
 	case GTK_RESPONSE_OK:
 		data->filename =
-		    gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(data->filechooserwidget));
+		    gui_file_chooser_get_filename(GTK_FILE_CHOOSER(data->filechooserwidget));
 		if (data->verselist)
 			_export_verselist(data);
 		else
@@ -643,12 +644,12 @@ void dialog_export_bookmarks_response_cb(GtkDialog *dialog,
 	if (data->filename)
 		g_free(data->filename);
 	g_free(data);
-	gtk_widget_destroy(GTK_WIDGET(dialog));
+	gui_widget_destroy(GTK_WIDGET(dialog));
 }
 
 G_MODULE_EXPORT
 gboolean dialog_vbox1_key_press_event_cb(GtkWidget *widget,
-					 GdkEventKey *event,
+					 GuiKeyEvent *event,
 					 gpointer user_data)
 {
 
@@ -703,20 +704,32 @@ void gui_export_bookmarks_dialog(gint export_type, GList *verses)
 
 	gtk_widget_set_sensitive(ex_data->cb_scripture, FALSE);
 
-	gtk_builder_connect_signals(builder, ex_data);
+	/* the handlers take ex_data, which GtkBuilder cannot pass */
+	g_signal_connect(dialog, "response",
+			 G_CALLBACK(dialog_export_bookmarks_response_cb), ex_data);
+	gui_widget_on_key_phase(gtk_dialog_get_content_area(GTK_DIALOG(dialog)),
+				GTK_PHASE_BUBBLE, dialog_vbox1_key_press_event_cb,
+				NULL, ex_data);
+	g_signal_connect(ex_data->rb_bookmarks, "toggled",
+			 G_CALLBACK(radiobutton_xiphos_bookmarks_toggled_cb),
+			 ex_data);
+	g_signal_connect(ex_data->rb_html, "toggled",
+			 G_CALLBACK(radiobutton_html_toggled_cb), ex_data);
+	g_signal_connect(ex_data->rb_plain, "toggled",
+			 G_CALLBACK(radiobutton_plain_text_toggled_cb), ex_data);
+	g_signal_connect(ex_data->cb_scripture, "toggled",
+			 G_CALLBACK(checkbutton_include_text_toggled_cb), ex_data);
 
 	if (ex_data->verselist == ADV_SEARCH_RESULTS_EXPORT) {
 		gtk_widget_set_sensitive(ex_data->rb_bookmarks, FALSE);
-		gtk_toggle_button_set_active((GtkToggleButton *)
-					     ex_data->rb_html,
-					     TRUE);
+		gtk_check_button_set_active(GTK_CHECK_BUTTON(ex_data->rb_html),
+					    TRUE);
 	}
 
 	if (ex_data->verselist == ADV_SEARCH_RESULTS_EXPORT) {
 		gtk_widget_set_sensitive(ex_data->rb_bookmarks, FALSE);
-		gtk_toggle_button_set_active((GtkToggleButton *)
-					     ex_data->rb_html,
-					     TRUE);
+		gtk_check_button_set_active(GTK_CHECK_BUTTON(ex_data->rb_html),
+					    TRUE);
 	}
 
 	g_object_unref(G_OBJECT(builder));

@@ -1,137 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.18.3 -->
 <interface>
-  <requires lib="gtk+" version="3.14"/>
+  <requires lib="gtk" version="4.0"/>
   <object class="GtkDialog" id="dialog">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">Mark/Unmark Verse</property>
     <property name="default_width">300</property>
     <property name="default_height">350</property>
-    <property name="icon">xiphos-x-16.png</property>
-    <property name="type_hint">dialog</property>
-    <child internal-child="vbox">
+    <child>
       <object class="GtkBox" id="dialog-vbox1">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <child internal-child="action_area">
-          <object class="GtkButtonBox" id="dialog-action_area1">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="layout_style">end</property>
-            <child>
-              <object class="GtkButton" id="button1">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="can_default">True</property>
-                <property name="receives_default">False</property>
-                <property name="tooltip_text" translatable="yes">Add annotation. The verse will display with highlight colors and a *u marker to show content.</property>
-                <child>
-                  <object class="GtkAlignment" id="alignment1">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="xscale">0</property>
-                    <property name="yscale">0</property>
-                    <child>
-                      <object class="GtkBox" id="hbox1">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="spacing">2</property>
-                        <child>
-                          <object class="GtkImage" id="image1">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="icon_name">document-new-symbolic</property>
-                          </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                            <property name="position">0</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkLabel" id="label1">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">Mark</property>
-                            <property name="use_underline">True</property>
-                          </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                            <property name="position">1</property>
-                          </packing>
-                        </child>
-                      </object>
-                    </child>
-                  </object>
-                </child>
-                <child internal-child="accessible">
-                  <object class="AtkObject" id="button1-atkobject">
-                    <property name="AtkObject::accessible-name" translatable="yes">New Annotation</property>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="button3">
-                <property name="label" translatable="yes">Unmark</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="can_default">True</property>
-                <property name="receives_default">False</property>
-                <property name="use_stock">True</property>
-                <property name="tooltip_text" translatable="yes">Remove annotation.</property>
-                <child internal-child="accessible">
-                  <object class="AtkObject" id="button3-atkobject">
-                    <property name="AtkObject::accessible-name" translatable="yes">Unmark</property>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="button2">
-                <property name="label" translatable="yes">_Cancel</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="can_default">True</property>
-                <property name="receives_default">False</property>
-                <property name="use_stock">True</property>
-                <child internal-child="accessible">
-                  <object class="AtkObject" id="button2-atkobject">
-                    <property name="AtkObject::accessible-name" translatable="yes">Cancel Annotation</property>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="position">2</property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
-            <property name="pack_type">end</property>
-            <property name="position">0</property>
-          </packing>
-        </child>
         <child>
           <object class="GtkBox" id="vbox1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="border_width">6</property>
             <property name="orientation">vertical</property>
             <property name="spacing">10</property>
             <child>
@@ -146,35 +30,19 @@
                     <property name="xalign">0</property>
                     <property name="label" translatable="yes">Verse:</property>
                   </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">False</property>
-                    <property name="position">0</property>
-                  </packing>
                 </child>
                 <child>
                   <object class="GtkEntry" id="entry2">
                     <property name="width_request">180</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <child internal-child="accessible">
-                      <object class="AtkObject" id="entry2-atkobject">
-                        <property name="AtkObject::accessible-name" translatable="yes">Verse Entry</property>
-                      </object>
-                    </child>
+                    <accessibility>
+                      <property name="label" translatable="yes">Verse Entry</property>
+                    </accessibility>
+                  <property name="vexpand">True</property>
                   </object>
-                  <packing>
-                    <property name="expand">True</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
-                  </packing>
                 </child>
               </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
             </child>
             <child>
               <object class="GtkBox" id="hbox4">
@@ -188,53 +56,32 @@
                     <property name="xalign">0</property>
                     <property name="label" translatable="yes">Module:</property>
                   </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">False</property>
-                    <property name="position">0</property>
-                  </packing>
                 </child>
                 <child>
                   <object class="GtkEntry" id="entry3">
                     <property name="width_request">180</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <child internal-child="accessible">
-                      <object class="AtkObject" id="entry3-atkobject">
-                        <property name="AtkObject::accessible-name" translatable="yes">Module Entry</property>
-                      </object>
-                    </child>
+                    <accessibility>
+                      <property name="label" translatable="yes">Module Entry</property>
+                    </accessibility>
+                  <property name="hexpand">True</property>
                   </object>
-                  <packing>
-                    <property name="expand">True</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
-                  </packing>
                 </child>
               </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">1</property>
-              </packing>
             </child>
             <child>
               <object class="GtkScrolledWindow" id="scrolledwindow1">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="shadow_type">in</property>
                 <child>
                   <object class="GtkTextView" id="textview">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                   </object>
                 </child>
+              <property name="vexpand">True</property>
               </object>
-              <packing>
-                <property name="expand">True</property>
-                <property name="fill">True</property>
-                <property name="position">2</property>
-              </packing>
             </child>
             <child>
               <object class="GtkBox" id="hbox_highlight_color">
@@ -249,45 +96,96 @@
                     <property name="receives_default">True</property>
                     <property name="tooltip_text" translatable="yes">Elige un color de resaltado para este versículo, en lugar del predeterminado</property>
                   </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">False</property>
-                    <property name="position">0</property>
-                  </packing>
                 </child>
                 <child>
-                  <object class="GtkColorButton" id="colorbutton_highlight">
+                  <object class="GtkColorDialogButton" id="colorbutton_highlight">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
                     <property name="sensitive">False</property>
                     <property name="rgba">rgb(255,224,102)</property>
                   </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">False</property>
-                    <property name="position">1</property>
-                  </packing>
                 </child>
               </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="position">3</property>
-              </packing>
+            </child>
+          <property name="vexpand">True</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox" id="dialog-action_area1">
+            <property name="halign">end</property>
+            <property name="margin_start">12</property>
+            <property name="margin_end">12</property>
+            <property name="margin_top">4</property>
+            <property name="margin_bottom">12</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkButton" id="button1">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="tooltip_text" translatable="yes">Add annotation. The verse will display with highlight colors and a *u marker to show content.</property>
+                <child>
+                  <object class="GtkBox" id="alignment1">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <object class="GtkBox" id="hbox1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="spacing">2</property>
+                        <child>
+                          <object class="GtkImage" id="image1">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="icon_name">document-new-symbolic</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="label1">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">Mark</property>
+                            <property name="use_underline">True</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <accessibility>
+                  <property name="label" translatable="yes">New Annotation</property>
+                </accessibility>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="button3">
+                <property name="label" translatable="yes">Unmark</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="tooltip_text" translatable="yes">Remove annotation.</property>
+                <accessibility>
+                  <property name="label" translatable="yes">Unmark</property>
+                </accessibility>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="button2">
+                <property name="label" translatable="yes">_Cancel</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <accessibility>
+                  <property name="label" translatable="yes">Cancel Annotation</property>
+                </accessibility>
+              </object>
             </child>
           </object>
-          <packing>
-            <property name="expand">True</property>
-            <property name="fill">True</property>
-            <property name="position">2</property>
-          </packing>
         </child>
-        <child internal-child="accessible">
-          <object class="AtkObject" id="dialog-vbox1-atkobject">
-            <property name="AtkObject::accessible-name" translatable="yes">Annotation Dialog</property>
-          </object>
-        </child>
+        <accessibility>
+          <property name="label" translatable="yes">Annotation Dialog</property>
+        </accessibility>
       </object>
     </child>
     <action-widgets>

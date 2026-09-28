@@ -45,6 +45,15 @@ typedef struct _interl_fila {
 	gboolean hebrew;
 } InterlFila;
 
+/* Ficha en texto plano; conserva UTF-8 y omite datos ausentes.
+ * El llamador libera el resultado con g_free. */
+gchar *main_interlineal_ficha_texto(const InterlFila *fila, const char *cita);
+/* Escritura hebrea, independientemente de las etiquetas Strong. */
+gboolean main_interlineal_es_hebreo(const char *texto);
+/* Copia sin marcas combinantes hebreas; conserva letras y puntuación.
+ * No modifica el original. Liberar con g_free. */
+gchar *main_interlineal_sin_signos_hebreos(const char *texto);
+
 void main_interlineal_init(void);
 void main_interlineal_shutdown(void);
 

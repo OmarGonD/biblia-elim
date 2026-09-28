@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 
 #include "xiphos_html/xiphos_html.h"
 
@@ -108,7 +109,7 @@ static void on_dlgInformation_destroy(GObject *object, gpointer user_data)
 
 static void button_close_clicked(GtkButton *button, gpointer user_data)
 {
-	gtk_widget_hide(gtk_widget_get_toplevel(GTK_WIDGET(button)));
+	gtk_widget_hide(gui_widget_get_toplevel(GTK_WIDGET(button)));
 }
 
 /******************************************************************************
@@ -138,18 +139,13 @@ GtkWidget *gui_create_display_informtion_dialog(void)
 	GtkWidget *image;
 
 	dialog_display_info = gtk_dialog_new();
-	gtk_container_set_border_width(GTK_CONTAINER(dialog_display_info),
-				       6);
+	gui_widget_set_margins(dialog_display_info, 6);
 	g_object_set_data(G_OBJECT(dialog_display_info),
 			  "dialog_display_info", dialog_display_info);
 	gtk_window_set_title(GTK_WINDOW(dialog_display_info), " ");
 	gtk_window_set_default_size(GTK_WINDOW(dialog_display_info), 350, 200);
 	gtk_window_set_resizable(GTK_WINDOW(dialog_display_info), TRUE);
 
-#ifndef USE_GTK_3
-	gtk_dialog_set_has_separator(GTK_DIALOG(dialog_display_info),
-				     FALSE);
-#endif
 
 	dialog_vbox23 = gtk_dialog_get_content_area(GTK_DIALOG(dialog_display_info)); //GTK_DIALOG(dialog_display_info)->vbox;
 	g_object_set_data(G_OBJECT(dialog_display_info),
@@ -158,59 +154,33 @@ GtkWidget *gui_create_display_informtion_dialog(void)
 
 	UI_HBOX(hbox, FALSE, 12);
 	gtk_widget_show(hbox);
-	gtk_box_pack_start(GTK_BOX(dialog_vbox23), hbox, TRUE, TRUE, 0);
-	gtk_container_set_border_width(GTK_CONTAINER(hbox), 6);
+	gui_box_pack(GTK_BOX(dialog_vbox23), hbox, TRUE, TRUE, 0);
+	gui_widget_set_margins(hbox, 6);
 
 	image =
-#if GTK_CHECK_VERSION(3, 10, 0)
-	    gtk_image_new_from_icon_name("dialog-information",
-					 GTK_ICON_SIZE_DIALOG);
-#else
-	    gtk_image_new_from_stock(GTK_STOCK_DIALOG_INFO,
-				     GTK_ICON_SIZE_DIALOG);
-#endif
+	    gtk_image_new_from_icon_name("dialog-information");
 	gtk_widget_show(image);
-	gtk_box_pack_start(GTK_BOX(hbox), image, FALSE, TRUE, 0);
-#if !GTK_CHECK_VERSION(3, 10, 0)
-	gtk_misc_set_alignment(GTK_MISC(image), 0.5, 0);
-#endif
+	gtk_box_append(GTK_BOX(hbox), image);
 	html_widget = GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, 30)); //gtk_html_new();
 	gtk_widget_show(html_widget);
-	gtk_box_pack_start(GTK_BOX(hbox), html_widget, TRUE, TRUE, 0);
+	gui_box_pack(GTK_BOX(hbox), html_widget, TRUE, TRUE, 0);
 
 	dialog_action_area23 =
-#if GTK_CHECK_VERSION(3, 12, 0)
 	    gtk_dialog_get_content_area(GTK_DIALOG(dialog_display_info));
-#else
-	    gtk_dialog_get_action_area(GTK_DIALOG(dialog_display_info));
-#endif
 	g_object_set_data(G_OBJECT(dialog_display_info),
 			  "dialog_action_area23", dialog_action_area23);
 	gtk_widget_show(dialog_action_area23);
-	gtk_container_set_border_width(GTK_CONTAINER(dialog_action_area23), 10);
+	gui_widget_set_margins(dialog_action_area23, 10);
 
-#ifdef USE_GTK_3
-	hbuttonbox2 = gtk_button_box_new(GTK_ORIENTATION_HORIZONTAL);
-#else
-	hbuttonbox2 = gtk_hbutton_box_new();
-#endif
+	hbuttonbox2 = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 6);
 	gtk_widget_show(hbuttonbox2);
-	gtk_box_pack_start(GTK_BOX(dialog_action_area23), hbuttonbox2,
-			   TRUE, TRUE, 0);
-	gtk_button_box_set_layout(GTK_BUTTON_BOX(hbuttonbox2),
-				  GTK_BUTTONBOX_END);
+	gui_box_pack(GTK_BOX(dialog_action_area23), hbuttonbox2, TRUE, TRUE, 0);
+	gtk_widget_set_halign(hbuttonbox2, GTK_ALIGN_END);
 
-	button_close =
-#if GTK_CHECK_VERSION(3, 10, 0)
-	    gtk_button_new_from_icon_name("window-close",
-					  GTK_ICON_SIZE_BUTTON);
-#else
-	    gtk_button_new_from_stock(GTK_STOCK_CLOSE);
-#endif
+	button_close = gtk_button_new_with_label(_("Cerrar"));
 
 	gtk_widget_show(button_close);
-	gtk_container_add(GTK_CONTAINER(hbuttonbox2), button_close);
-	gtk_widget_set_can_default(button_close, 1);
+	gtk_box_append(GTK_BOX(hbuttonbox2), button_close);
 
 	g_signal_connect(G_OBJECT(button_close), "clicked",
 			 G_CALLBACK(button_close_clicked), NULL);

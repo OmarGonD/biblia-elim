@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <glib/gstdio.h>
 
 #include "gui/export_dialog.h"
@@ -102,8 +103,7 @@ static void on_filechooserdialog_response(GtkDialog *fdialog,
 
 	switch (response_id) {
 	case GTK_RESPONSE_ACCEPT:
-		edata.filename =
-		    g_strdup(gtk_file_chooser_get_filename(filesel));
+		edata.filename = gui_file_chooser_get_filename(filesel);
 		/* Word abre directamente HTML UTF-8 cuando lleva extensión .doc.
 		 * No cambiar una extensión que el usuario haya escrito de forma
 		 * explícita; solo añadimos .doc a un nombre sin extensión. */
@@ -126,7 +126,7 @@ static void on_filechooserdialog_response(GtkDialog *fdialog,
 	case GTK_RESPONSE_CANCEL:
 		break;
 	}
-	gtk_widget_destroy(GTK_WIDGET(fdialog));
+	gui_widget_destroy(GTK_WIDGET(fdialog));
 }
 
 /******************************************************************************
@@ -154,16 +154,9 @@ void _get_export_filename(void)
 	fdialog = gtk_file_chooser_dialog_new("Save Export File",
 					      NULL,
 					      GTK_FILE_CHOOSER_ACTION_SAVE,
-#if GTK_CHECK_VERSION(3, 10, 0)
 					      "_Cancel",
 					      GTK_RESPONSE_CANCEL, "_Save",
 					      GTK_RESPONSE_ACCEPT,
-#else
-					      GTK_STOCK_CANCEL,
-					      GTK_RESPONSE_CANCEL,
-					      GTK_STOCK_SAVE,
-					      GTK_RESPONSE_ACCEPT,
-#endif
 					      NULL);
 	gui_fit_dialog_to_screen(GTK_WINDOW(fdialog));
 	g_signal_connect(fdialog,
@@ -171,7 +164,7 @@ void _get_export_filename(void)
 			 G_CALLBACK(on_filechooserdialog_response),
 			 (GtkFileChooser *)fdialog);
 
-	gtk_dialog_run(GTK_DIALOG(fdialog));
+	gui_dialog_run(GTK_DIALOG(fdialog));
 }
 
 static void _save_state_buttons(void)
@@ -182,19 +175,19 @@ static void _save_state_buttons(void)
 
 	if (xml_load_copy_export_file((const xmlChar *)file)) {
 		sprintf(value, "%d",
-			gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(d.rb_plain)));
+			gui_toggle_get_active(GTK_WIDGET(d.rb_plain)));
 		xml_export_set_value("Copy_Export", "dialog", "plaintext",
 				     value);
 		sprintf(value, "%d",
-			gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(d.cb_versenum)));
+			gui_toggle_get_active(GTK_WIDGET(d.cb_versenum)));
 		xml_export_set_value("Copy_Export", "dialog",
 				     "verse_numbers", value);
 		sprintf(value, "%d",
-			gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(d.cb_reference_last)));
+			gui_toggle_get_active(GTK_WIDGET(d.cb_reference_last)));
 		xml_export_set_value("Copy_Export", "dialog",
 				     "reference_last", value);
 		sprintf(value, "%d",
-			gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(d.cb_version)));
+			gui_toggle_get_active(GTK_WIDGET(d.cb_version)));
 		xml_export_set_value("Copy_Export", "dialog", "version",
 				     value);
 		xml_save_export_doc(file);
@@ -228,24 +221,24 @@ void on_dialog_export_passage_response(GtkDialog *dialog,
 {
 	switch (response_id) {
 	case GTK_RESPONSE_CANCEL:
-		gtk_widget_destroy(GTK_WIDGET(dialog));
+		gui_widget_destroy(GTK_WIDGET(dialog));
 		break;
 	case GTK_RESPONSE_OK:
-		if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(d.rb_word)))
+		if (gui_toggle_get_active(GTK_WIDGET(d.rb_word)))
 			d.format = 2; /* HTML UTF-8 con extensión compatible con Word */
-		else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(d.rb_html)))
+		else if (gui_toggle_get_active(GTK_WIDGET(d.rb_html)))
 			d.format = 1;
 		else
 			d.format = 0;
 
 		edata.passage_type =
-		    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(d.rb_bible)) ? BIBLE : gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(d.rb_book)) ? BOOK : gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(d.rb_chapter)) ? CHAPTER
-																		      : gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(d.rb_verse)) ? VERSE : VERSE_RANGE;
+		    gui_toggle_get_active(GTK_WIDGET(d.rb_bible)) ? BIBLE : gui_toggle_get_active(GTK_WIDGET(d.rb_book)) ? BOOK : gui_toggle_get_active(GTK_WIDGET(d.rb_chapter)) ? CHAPTER
+																		      : gui_toggle_get_active(GTK_WIDGET(d.rb_verse)) ? VERSE : VERSE_RANGE;
 
 		edata.verse_num =
-		    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(d.cb_versenum));
+		    gui_toggle_get_active(GTK_WIDGET(d.cb_versenum));
 		edata.reference_last =
-		    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(d.cb_reference_last));
+		    gui_toggle_get_active(GTK_WIDGET(d.cb_reference_last));
 
 		if (edata.passage_type == VERSE_RANGE) {
 			edata.start_verse =
@@ -263,13 +256,13 @@ void on_dialog_export_passage_response(GtkDialog *dialog,
 			edata.end_verse = 0;
 		}
 		_save_state_buttons();
-		if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(d.rb_export)))
+		if (gui_toggle_get_active(GTK_WIDGET(d.rb_export)))
 			_get_export_filename();
 		else {
 			edata.filename = NULL;
 			main_export_content(edata, d.format);
 		}
-		gtk_widget_destroy(GTK_WIDGET(dialog));
+		gui_widget_destroy(GTK_WIDGET(dialog));
 		break;
 	}
 }
@@ -331,7 +324,7 @@ gint _check_for_distribution_license(gchar *mod_name)
 static void on_rb_multi_verse_toggled(GtkToggleButton *togglebutton,
 				      gpointer user_data)
 {
-	gint state = gtk_toggle_button_get_active(togglebutton);
+	gint state = gui_toggle_get_active(togglebutton);
 	gtk_widget_set_sensitive(d.sb_start_verse, state);
 	gtk_widget_set_sensitive(d.sb_end_verse, state);
 }
@@ -339,7 +332,7 @@ static void on_rb_multi_verse_toggled(GtkToggleButton *togglebutton,
 static void on_cb_version_toggled(GtkToggleButton *togglebutton,
 				  gpointer user_data)
 {
-	if (gtk_toggle_button_get_active(togglebutton))
+	if (gui_toggle_get_active(togglebutton))
 		edata.version = TRUE;
 	else
 		edata.version = FALSE;
@@ -348,7 +341,7 @@ static void on_cb_version_toggled(GtkToggleButton *togglebutton,
 static void on_reference_last_toggled(GtkToggleButton *togglebutton,
 				      gpointer user_data)
 {
-	if (gtk_toggle_button_get_active(togglebutton))
+	if (gui_toggle_get_active(togglebutton))
 		edata.reference_last = TRUE;
 	else
 		edata.reference_last = FALSE;
@@ -431,43 +424,43 @@ static void _load_data(gchar *filename)
 
 		if ((buf =
 			 xml_get_copy_export_value("dialog", "plaintext"))) {
-			gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(d.rb_plain),
+			gui_toggle_set_active(GTK_WIDGET(d.rb_plain),
 						     atoi(buf));
 			g_free(buf);
 		} else {
-			gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(d.rb_plain), TRUE);
+			gui_toggle_set_active(GTK_WIDGET(d.rb_plain), TRUE);
 		}
 
 		if ((buf =
 			 xml_get_copy_export_value("dialog",
 						   "verse_numbers"))) {
-			gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(d.cb_versenum),
+			gui_toggle_set_active(GTK_WIDGET(d.cb_versenum),
 						     atoi(buf));
 			g_free(buf);
 		} else {
-			gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(d.cb_versenum),
+			gui_toggle_set_active(GTK_WIDGET(d.cb_versenum),
 						     TRUE);
 		}
 
 		if ((buf =
 			 xml_get_copy_export_value("dialog",
 						   "reference_last"))) {
-			gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(d.cb_reference_last),
+			gui_toggle_set_active(GTK_WIDGET(d.cb_reference_last),
 						     atoi(buf));
 			g_free(buf);
 		} else {
-			gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(d.cb_reference_last),
+			gui_toggle_set_active(GTK_WIDGET(d.cb_reference_last),
 						     TRUE);
 		}
 
 		if ((buf = xml_get_copy_export_value("dialog", "version"))) {
 			edata.version = atoi(buf);
-			gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(d.cb_version),
+			gui_toggle_set_active(GTK_WIDGET(d.cb_version),
 						     edata.version);
 			g_free(buf);
 		} else {
 			edata.version = 0;
-			gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(d.cb_version), TRUE);
+			gui_toggle_set_active(GTK_WIDGET(d.cb_version), TRUE);
 		}
 
 		xml_free_export_doc();
@@ -531,22 +524,18 @@ void gui_export_dialog(void)
 	datafile =
 	    g_strdup_printf("%s/export-copy.xml", settings.gSwordDir);
 /* check for datafile */
-#if GTK_CHECK_VERSION(2, 24, 0)
 	if (g_access(datafile, F_OK) == -1) {
-#else
-	if (g_access(datafile, 0) == -1) {
-#endif
 		xml_create_copy_export_file(datafile);
 	}
 	_load_data(datafile);
 	if (datafile)
 		g_free(datafile);
 
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(d.rb_copy), TRUE);
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(d.rb_multi_verse),
+	gui_toggle_set_active(GTK_WIDGET(d.rb_copy), TRUE);
+	gui_toggle_set_active(GTK_WIDGET(d.rb_multi_verse),
 				     TRUE);
 	if (export_whole_book_default) {
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(d.rb_bible), TRUE);
+		gui_toggle_set_active(GTK_WIDGET(d.rb_bible), TRUE);
 		export_whole_book_default = FALSE;
 	}
 

@@ -18,6 +18,7 @@
 #include <stdlib.h>
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <glib/gi18n.h>
 
 #include "gui/planes_lectura.h"
@@ -760,8 +761,8 @@ on_al_dia(GtkButton *boton, gpointer datos)
 	gtk_dialog_add_button(GTK_DIALOG(dlg), _("Correr el calendario"), 2);
 	gtk_dialog_add_button(GTK_DIALOG(dlg), _("Darlos por leídos"), 1);
 	gtk_dialog_set_default_response(GTK_DIALOG(dlg), 2);
-	respuesta = gtk_dialog_run(GTK_DIALOG(dlg));
-	gtk_widget_destroy(dlg);
+	respuesta = gui_dialog_run(GTK_DIALOG(dlg));
+	gui_widget_destroy(dlg);
 	g_free(pregunta);
 
 	if (respuesta == 1)
@@ -800,7 +801,7 @@ on_dos_cifras(GtkSpinButton *spin, gpointer datos)
 	(void)datos;
 	texto = g_strdup_printf("%02d",
 				gtk_spin_button_get_value_as_int(spin));
-	gtk_entry_set_text(GTK_ENTRY(spin), texto);
+	gtk_editable_set_text(GTK_EDITABLE(spin), texto);
 	g_free(texto);
 	return TRUE;
 }
@@ -808,8 +809,8 @@ on_dos_cifras(GtkSpinButton *spin, gpointer datos)
 static void
 refrescar_recordatorio(void)
 {
-	gboolean activo = gtk_toggle_button_get_active(
-	    GTK_TOGGLE_BUTTON(ui->chk_recordatorio));
+	gboolean activo = gui_toggle_get_active(
+	    GTK_WIDGET(ui->chk_recordatorio));
 	gchar *texto;
 
 	gtk_widget_set_sensitive(ui->spin_hora, activo);
@@ -834,7 +835,7 @@ guardar_recordatorio(void)
 	if (ui->poniendo_hora)
 		return;
 	main_planes_recordatorio_poner(
-	    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ui->chk_recordatorio)),
+	    gui_toggle_get_active(GTK_WIDGET(ui->chk_recordatorio)),
 	    gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(ui->spin_hora)),
 	    gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(ui->spin_minuto)));
 	guardar_ya();
@@ -867,7 +868,7 @@ on_cerrar(GtkButton *boton, gpointer datos)
 	(void)boton;
 	(void)datos;
 	if (ui && ui->dialog)
-		gtk_widget_destroy(ui->dialog);
+		gui_widget_destroy(ui->dialog);
 }
 
 static void
@@ -1000,8 +1001,8 @@ crear_dialogo(void)
 		gboolean activo = main_planes_recordatorio(&hora, &minuto);
 
 		ui->poniendo_hora = TRUE;
-		gtk_toggle_button_set_active(
-		    GTK_TOGGLE_BUTTON(ui->chk_recordatorio), activo);
+		gui_toggle_set_active(
+		    GTK_WIDGET(ui->chk_recordatorio), activo);
 		gtk_spin_button_set_value(GTK_SPIN_BUTTON(ui->spin_hora), hora);
 		gtk_spin_button_set_value(GTK_SPIN_BUTTON(ui->spin_minuto),
 					  minuto);

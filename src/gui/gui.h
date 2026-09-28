@@ -3,6 +3,7 @@
 
 void gui_init(int argc, char *argv[]);
 void gui_main(void);
+void gui_main_quit(void);
 
 #ifdef DEBUG
 

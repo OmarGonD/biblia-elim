@@ -17,6 +17,7 @@
 #include <string.h>
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <glib/gi18n.h>
 
 #include "gui/plan_personal.h"
@@ -193,7 +194,7 @@ sugerir_nombre(PERSONAL_UI *u)
 		return;
 	nombre = nombre_sugerido(u);
 	u->poniendo_nombre = TRUE;
-	gtk_entry_set_text(GTK_ENTRY(u->ent_nombre), nombre ? nombre : "");
+	gtk_editable_set_text(GTK_EDITABLE(u->ent_nombre), nombre ? nombre : "");
 	u->poniendo_nombre = FALSE;
 	g_free(nombre);
 }
@@ -515,7 +516,7 @@ gui_plan_personal_dialog(GtkWindow *padre, const PL_PLAN *plan)
 		main_planes_personal_libros(plan, u.marcados);
 		u.nombre_propio = TRUE;
 		u.poniendo_nombre = TRUE;
-		gtk_entry_set_text(GTK_ENTRY(u.ent_nombre), _(plan->nombre));
+		gtk_editable_set_text(GTK_EDITABLE(u.ent_nombre), _(plan->nombre));
 		u.poniendo_nombre = FALSE;
 		gtk_spin_button_set_range(GTK_SPIN_BUTTON(u.spin_dias), 1,
 					  plan->dias);
@@ -572,10 +573,10 @@ gui_plan_personal_dialog(GtkWindow *padre, const PL_PLAN *plan)
 	gtk_dialog_set_default_response(GTK_DIALOG(u.dialog),
 					GTK_RESPONSE_OK);
 
-	respuesta = gtk_dialog_run(GTK_DIALOG(u.dialog));
+	respuesta = gui_dialog_run(GTK_DIALOG(u.dialog));
 	if (respuesta == GTK_RESPONSE_OK) {
 		const gchar *nombre =
-		    gtk_entry_get_text(GTK_ENTRY(u.ent_nombre));
+		    gtk_editable_get_text(GTK_EDITABLE(u.ent_nombre));
 		gchar *limpio = g_strdup(nombre ? nombre : "");
 		int dias = gtk_spin_button_get_value_as_int(
 		    GTK_SPIN_BUTTON(u.spin_dias));
@@ -599,7 +600,7 @@ gui_plan_personal_dialog(GtkWindow *padre, const PL_PLAN *plan)
 		g_free(limpio);
 	}
 
-	gtk_widget_destroy(u.dialog);
+	gui_widget_destroy(u.dialog);
 	g_object_unref(u.modelo);
 	g_object_unref(gxml);
 	g_free(u.marcados);

@@ -74,7 +74,7 @@ struct _search_dialog1
 	GtkWidget *cb_include_footnotes;
 	GtkWidget *listview_results;
 	GtkWidget *listview_verses;
-	GtkWidget *menu_item_send_search;
+	GMenuModel *menu_item_send_search;
 	GSList *_201_group;
 
 	gint text_group;
@@ -140,13 +140,13 @@ void on_closebutton2_clicked(GtkButton *button,
 			     gpointer user_data);
 void _on_dialog2_response(GtkDialog *dialog, gint response_id,
 			  gpointer user_data);
-void on_toolbutton12_clicked(GtkToolButton *toolbutton,
+void on_toolbutton12_clicked(GtkButton *toolbutton,
 			     gpointer user_data);
 void _on_dialog_response(GtkDialog *dialog, gint response_id,
 			 gpointer user_data);
 
-GtkWidget *create_results_menu_advsearch(void);
-void on_send_list_via_biblesync_advsearch_activate(GtkMenuItem *
+GMenuModel *create_results_menu_advsearch(void);
+void on_send_list_via_biblesync_advsearch_activate(gpointer
 						       menuitem,
 						   gpointer
 						       user_data);

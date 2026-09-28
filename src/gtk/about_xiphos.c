@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <glib/gi18n.h>
 
 #include "gui/about_xiphos.h"
@@ -84,7 +85,7 @@ static void
 on_dialog_response(GtkDialog *dialog, gint response_id,
 		   gpointer user_data)
 {
-	gtk_widget_destroy(GTK_WIDGET(dialog));
+	gui_widget_destroy(GTK_WIDGET(dialog));
 }
 
 /******************************************************************************
@@ -103,11 +104,7 @@ on_dialog_response(GtkDialog *dialog, gint response_id,
  *   GtkWidget *
  */
 
-#ifdef USE_GTK_3
-#  define	BUILD_TYPE	"gtk3 native"
-#else
-#  define	BUILD_TYPE	"gtk2 native"
-#endif
+#  define	BUILD_TYPE	"gtk4 native"
 
 GtkWidget *gui_create_about_xiphos(void)
 {
@@ -134,7 +131,12 @@ GtkWidget *gui_create_about_xiphos(void)
 	gtk_about_dialog_set_authors(GTK_ABOUT_DIALOG(about1), authors);
 	gtk_about_dialog_set_documenters(GTK_ABOUT_DIALOG(about1), documenters);
 	gtk_about_dialog_set_translator_credits(GTK_ABOUT_DIALOG(about1), translators);
-	gtk_about_dialog_set_logo(GTK_ABOUT_DIALOG(about1), about1_logo_pixbuf);
+	if (about1_logo_pixbuf) {
+		GdkTexture *logo = gdk_texture_new_for_pixbuf(about1_logo_pixbuf);
+		gtk_about_dialog_set_logo(GTK_ABOUT_DIALOG(about1),
+					  GDK_PAINTABLE(logo));
+		g_object_unref(logo);
+	}
 
 	set_window_icon(GTK_WINDOW(about1));
 

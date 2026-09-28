@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include "xiphos_html/xiphos_html.h"
 
 #include "gui/parallel_tab.h"
@@ -148,7 +149,7 @@ static void sync_with_main(const gchar *key)
 
 void gui_keep_parallel_tab_in_sync(void)
 {
-	if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(navbar_parallel.button_sync)))
+	if (gui_toggle_get_active(GTK_WIDGET(navbar_parallel.button_sync)))
 		sync_with_main(NULL);
 }
 
@@ -159,7 +160,7 @@ void gui_parallel_tab_sync(const gchar *key)
 
 void gui_force_parallel_tab_sync(void)
 {
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(navbar_parallel.button_sync),
+	gui_toggle_set_active(GTK_WIDGET(navbar_parallel.button_sync),
 				     settings.linkedtabs);
 	sync_on = settings.linkedtabs;
 	/* tell somebody that this button has been hacked */
@@ -207,9 +208,6 @@ GtkWidget *_create_parallel_tab(void)
 {
 	GtkWidget *toolbar29;
 	GtkWidget *box_parallel_labels;
-#ifndef USE_WEBKIT2
-	GtkWidget *scrolled_window;
-#endif
 
 	gtk_notebook_set_show_tabs(GTK_NOTEBOOK(widgets.notebook_bible_parallel),
 				   FALSE);
@@ -226,40 +224,20 @@ GtkWidget *_create_parallel_tab(void)
 	 * to avoid "widget already has a parent" GTK errors when switching tabs */
 	toolbar29 = create_nav_toolbar();
 	gtk_widget_show(toolbar29);
-	gtk_box_pack_start(GTK_BOX(parallel_vbox), toolbar29, FALSE, FALSE,
-			   0);
+	gtk_box_append(GTK_BOX(parallel_vbox), toolbar29);
 
 	UI_HBOX(box_parallel_labels, TRUE, 2);
 	gtk_widget_show(box_parallel_labels);
-	gtk_box_pack_start(GTK_BOX(parallel_vbox), box_parallel_labels,
-			   FALSE, TRUE, 0);
-	gtk_container_set_border_width(GTK_CONTAINER(box_parallel_labels),
-				       2);
+	gtk_box_append(GTK_BOX(parallel_vbox), box_parallel_labels);
+	gui_widget_set_margins(box_parallel_labels, 2);
 
-#ifndef USE_WEBKIT2
-	scrolled_window = gtk_scrolled_window_new(NULL, NULL);
-	gtk_widget_show(scrolled_window);
-	gtk_box_pack_start(GTK_BOX(parallel_vbox), scrolled_window, TRUE,
-			   TRUE, 0);
-	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
-				       GTK_POLICY_AUTOMATIC,
-				       GTK_POLICY_ALWAYS);
-	gtk_scrolled_window_set_shadow_type((GtkScrolledWindow *)
-					    scrolled_window,
-					    settings.shadow_type);
-#endif
 
 	widgets.html_parallel_dialog =
 	    GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, PARALLEL_TYPE));
 	XIPHOS_HTML_SET_SURFACE_NAME(widgets.html_parallel_dialog,
 				     "bible-parallel");
 	gtk_widget_show(widgets.html_parallel_dialog);
-#ifdef USE_WEBKIT2
-	gtk_box_pack_start(GTK_BOX(parallel_vbox), widgets.html_parallel_dialog, TRUE, TRUE, 0);
-#else
-	gtk_container_add(GTK_CONTAINER(scrolled_window),
-			  widgets.html_parallel_dialog);
-#endif
+	gui_box_pack(GTK_BOX(parallel_vbox), widgets.html_parallel_dialog, TRUE, TRUE, 0);
 
 	g_signal_connect((gpointer)widgets.html_parallel_dialog,
 			 "popupmenu_requested",
@@ -278,7 +256,7 @@ void gui_destroy_parallel_tab(void)
 {
 	settings.dockedInt = TRUE;
 	sync_on = FALSE;
-	gtk_widget_destroy(parallel_vbox);
+	gui_widget_destroy(parallel_vbox);
 	gtk_widget_show(widgets.hpaned);
 	widgets.html_parallel_dialog = NULL;
 }

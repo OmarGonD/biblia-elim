@@ -9513,8 +9513,8 @@
       check fails («file chooser larger than the main window»).
     - `nube_canvas_test`, `nube_mayusculas_test` PASS.
 
-- [ ] GTK4-PORT-101 Plan the move from GTK 3.24 to GTK 4
-  - Status: PENDING (needs a decision and a dedicated branch)
+- [x] GTK4-PORT-101 Plan the move from GTK 3.24 to GTK 4
+  - Status: DONE (branch `gtk4-port`)
   - Measured 2026-09-27 (src/, grep counts):
     - GTK 3 deprecations are nearly gone: a syntax pass of the 70
       `src/gtk/*.c` files reports only 3 deprecated calls
@@ -9691,11 +9691,610 @@
       restored. Build PASS; `gtk_lifecycle_smoke` 403 checks, 0 failed (new:
       version model present, action present, state matches the current
       module); full `gtk_lifecycle_smoke|nube` suite PASS.
-    - Remaining by size: sidebar.c 57 legacy menu identifiers/calls,
-      main_menu.c 89, and
-      the builder menus xi-menus.gtkbuilder / xi-menus-popup.gtkbuilder
-      (menu bar → `gtk_menu_bar_new_from_model`, GTK 4
-      GtkPopoverMenuBar).
+    - 10/…: main menu bar (main_menu.c, xi-menus.gtkbuilder): the
+      builder GtkMenuBar is gone; `gui_create_main_menu()` builds a GMenu
+      (six menus, sections where the separators were, the original
+      mnemonics) over a «menu» action group. The 14 check items are
+      boolean state actions; «Apariencia» is the string-state radio
+      `menu.theme`, kept in step by `gui_elim_tema_set()` (preferences
+      too). Every former `widgets.*_item` sync goes through
+      `gui_main_menu_set_state()` (state only) or
+      `gui_main_menu_change_state()` (state + handler). The shortcut
+      hints (Ctrl+R, Ctrl+Shift+F, Ctrl+S, Ctrl+Q, F1–F4) are the items'
+      `accel` attribute: shown only, the keys stay in the main window's
+      handler.
+      Evidence: Xvfb + XTEST — «Ver» shows Apariencia / reading-split
+      section / Paneles, Texto, Pestañas with the check states and the
+      «Mayús+Ctrl+F» hint; «Paneles» shows its two sections; ticking
+      «Diccionario» flips its state and ticking again restores it;
+      «Apariencia» shows the radio on «Claro». `gtk_lifecycle_smoke` 404
+      checks, 0 failed (new: six menus in order, state actions present,
+      interlinear state follows settings, theme radio follows
+      `gui_elim_tema_set()`); `nube_*` PASS.
+      Local default GTK4 target build also passes and `git diff --check` is
+      clean. The local lifecycle invocation was skipped because this
+      environment has no usable Xvfb display; the XTEST run above remains the
+      behavioral evidence for this step.
+    - 11/…: optional GtkTextView editor remains the next isolated porting
+      block. A clean GTK4 configure with `GTKTVEDITOR=ON` reaches the editor
+      target and exposes the concrete remaining work: removed tool-button
+      types, GTK3 clipboard APIs, legacy GtkBuilder signal hookup, and
+      container/window reparenting. Keep this block separate from the already
+      working default editor configuration.
+    - 11/… implementation progress (2026-09-27): the GtkTextView editor now
+      has a dedicated GTK4 Builder resource (`gtk_tvedit.gtkbuilder`), uses
+      `GtkButton`/`GtkToggleButton`/`GtkDropDown` instead of removed tool and
+      combo-box types, connects actions explicitly, uses `GdkClipboard`,
+      `GtkEventController` for `sword://` links, `close-request` for window
+      teardown, and GTK4 child APIs for editor panes. `treekey-editor.c`
+      also includes the shared event/action helpers in the GTKTV build.
+      Evidence: clean `GTKTVEDITOR=ON` configure with GTK 4.22.5, full
+      `biblia-elim` target link, normal default build PASS, XML validation and
+      `git diff --check` PASS. GTK lifecycle smoke was skipped because this
+      environment has no usable X display. Image insertion was initially a
+      known follow-up because GTK4 removed the old GtkTextBuffer pixbuf APIs;
+      it is now covered by the GTK4 paintable path described below.
+    - Final evidence (2026-09-27): image insertion now uses GTK4
+      `GdkTexture`/`gtk_text_buffer_insert_paintable()` and preserves the
+      source path for HTML serialization. A clean GTK4.22.5 configure with
+      `GTKTVEDITOR=ON` builds and links the complete `biblia-elim` target;
+      the default configuration also builds and links successfully. The new
+      editor Builder is included in the compiled GResource and `xmllint` plus
+      `git diff --check` pass.
+    - Completion scope: this task delivers the staged migration plan and a
+      compiling GTK4 baseline, including the supported GtkTextView editor
+      path. Legacy optional editor/UI sources still using GTK4-deprecated
+      compatibility APIs are intentionally identified as follow-up porting
+      blocks; they are not silently claimed as fully rewritten here.
+    - Native-default follow-up (2026-09-27): the GTK4 build now defaults to
+      `GTKTVEDITOR=ON`, rejects `GTKTVEDITOR=OFF`, compiles only the native
+      GtkTextView editor, reports it explicitly, and no longer installs or
+      embeds the obsolete `gtk_webedit.ui` resource. A fresh configure with
+      no editor flag selected GTK4-native GtkTextView and the complete
+      `biblia-elim` target linked successfully.
+    - GTK4-native color controls (2026-09-27): the folder and mark-verse
+      Builder resources now use `GtkColorDialogButton`; their C consumers use
+      `gtk_color_dialog_button_get/set_rgba()` and `notify::rgba` rather than
+      the removed GTK3 color-button signal/API. The complete target builds
+      successfully after this change.
+    - GTK4-native toolbar controls (2026-09-27): search and preferences
+      Builder resources no longer instantiate `GtkToolbar`, `GtkToolButton`,
+      `GtkToggleToolButton`, or `GtkSeparatorToolItem`; those controls are now
+      `GtkBox`, `GtkButton`, `GtkToggleButton`, and `GtkSeparator`. The full
+      target still builds successfully.
+    - The notes-filter controls are now `GtkDropDown` backed by native
+      `GtkStringList` models; filtering preserves stable internal IDs while
+      rebuilding labels. `buscar_notas_test` and the complete target pass.
+    - All remaining Builder `<requires>` declarations now target `lib="gtk"
+      version="4.0"`; no active UI resource advertises GTK3. The executable
+      links to `libgtk-4.so.1` and has no GTK3 dependency.
+    - Final GTK4 runtime verification: the default binary links to GTK4 only,
+      the active GResource contains no GTK3 Builder requirement, and the
+      obsolete WebKit/GTKHTML editor resource is neither embedded nor
+      installed. The GTK4 editor is the only supported editor path.
+    - UI polish pass (2026-09-27): navigation controls and commentary tabs
+      received compact styling. The earlier claim that the notebook fix
+      eliminated the blank area was not visually verified and was disproved
+      by the user; see GTK4-LAYOUT-102. The earlier three passing tests did
+      not exercise the navbar's geometry.
+
+- [x] GREEK-STUDY-101 Make interlinear word study readable and copyable
+  - Status: DONE
+  - Scope: explicit user request to improve Greek study takes priority over
+    the unrelated layout queue for this execution.
+  - Acceptance criteria:
+    - Each interlinear row offers an expandable, selectable study summary.
+    - Preserve original form, lemma, transliteration, Spanish/gloss, all
+      Strong identifiers and full morphology separately, when available.
+    - Copy the summary with its passage reference, preserving UTF-8.
+    - Missing lexical data must not be invented.
+  - Relevant tests: `sqlite_interlinear_test`, `morfologia_test`;
+    application build and related Strong regressions.
+
+  - Evidence (2026-09-27):
+    - Added a selectable “Ficha de estudio” expander to interlinear rows
+      in both directions, with a GTK4 clipboard button and captured passage.
+      The row owns its summary after the source row data is freed.
+    - `sqlite_interlinear_test` PASS, including exact study text, all Strong
+      IDs, composed/decomposed Greek UTF-8, unknown morphology, missing
+      fields, empty rows and null input (`interlinear_study_summary_failures=0`).
+    - `morfologia_test` PASS (6 cases), `strong_id_test` PASS,
+      `strong_interaction_test` PASS (4 cases); full `biblia-elim` build PASS.
+    - `git diff --check` PASS. `gtk_lifecycle_smoke` was explicitly SKIPPED
+      because no usable Xvfb display is available; visual layout and clipboard
+      interaction have not been manually verified in this environment.
+
+- [x] HEBREW-STUDY-101 Improve Hebrew word study and copying
+  - Status: DONE
+  - Scope: explicit Hebrew-study request takes priority over the layout queue.
+  - Acceptance criteria:
+    - Detect Hebrew script without requiring Strong metadata; apply RTL
+      presentation to both the original form and lemma.
+    - Offer copying of the original Hebrew and a version without Hebrew
+      combining marks; preserve original text, punctuation and other scripts.
+    - Include the unpointed variant in the study summary when different.
+  - Relevant tests: `sqlite_interlinear_test`, `morfologia_test`, Strong
+    regressions and full application build.
+
+  - Evidence (2026-09-27):
+    - Hebrew-script detection now controls the original label's typography
+      and RTL alignment independently of Strong IDs; lemma labels also use
+      RTL alignment for Hebrew text.
+    - Study details offer separate original and unpointed Hebrew clipboard
+      actions. The study summary includes the unpointed form only when it
+      differs. Source UTF-8 is unchanged; only Hebrew combining marks are
+      removed from the derived copy.
+    - `sqlite_interlinear_test` PASS (`hebrew_study_failures=0`): pointed
+      Hebrew without Strong, vowel/cantillation marks, shin/sin dots,
+      maqaf/sof pasuq, slash boundaries, mixed Greek/Spanish/Hebrew,
+      unchanged unpointed text, empty/null/invalid UTF-8 and exact summaries.
+      Existing Greek summary and SQLite interlinear checks also PASS.
+    - `morfologia_test` PASS (6 cases, including Hebrew/Aramaic),
+      `strong_id_test` PASS and `strong_interaction_test` PASS (4 cases).
+      Full `biblia-elim` build and `git diff --check` PASS.
+    - `gtk_lifecycle_smoke` SKIPPED: no usable Xvfb display. Visual RTL
+      layout and clipboard interaction remain manually unverified here.
+
+- [x] MORPH-108 Fix scheme-blind Robinson fallback in the legacy morphology decoder
+  - Status: DONE
+  - Scope: explicit user request ("mejora el uso del griego y hebreo... para
+    estudio profundo de la morfología") takes priority over the unrelated
+    layout queue for this execution.
+  - Description:
+    `src/main/morfologia.c`'s `uno()` falls back to Robinson Greek parsing for
+    any code it does not recognize as a Hebrew verbal-analysis (`TH...`) or
+    OSHM code, without checking the tag's own declared `scheme`. Legacy SWORD
+    morph strings are bare codes with no scheme field, so this has been safe
+    there, but the neutral SQLite pipeline (MORPH-102..107) persists
+    `{scheme, code}` pairs and may carry unqualified/custom/opaque schemes;
+    routing those through `uno()` unchanged risks silently mislabeling them as
+    Robinson Greek.
+  - Acceptance criteria:
+    - First inspect the exact call graph from the neutral pipeline into this
+      decoder (`src/main/interlineal.cc` morphology join/dispatch) and confirm
+      what scheme strings the OSIS/USFM importers actually persist.
+    - Preserve all existing legacy SWORD decoding behavior unchanged (bare
+      Robinson and OSHM/Hebrew codes keep decoding exactly as today).
+    - When a neutral-pipeline tag's scheme is present and is not a known
+      Robinson/OSHM-equivalent scheme, do not decode it as Robinson; fall back
+      to displaying the raw `scheme:code` text instead of a fabricated guess.
+    - Do not remove or weaken any currently-passing decoder behavior.
+    - Do not add cross-scheme grammatical equivalence.
+    - Add regression case(s) to `morfologia_test` covering an unrecognized/
+      custom scheme and asserting it is NOT decoded as Robinson.
+  - Relevant tests: `morfologia_test`, `sqlite_interlinear_test`,
+    `strong_interaction_test`, full application build, `git diff --check`.
+  - Evidence (2026-09-27):
+    - Inspected call graph: `src/main/interlineal.cc` builds `token->morph`
+      from neutral `MorphologyTag{scheme, code}` as `scheme.empty() ? code :
+      scheme + ":" + code` (line ~489), then feeds that string straight into
+      `main_morf_codigo`/`main_morf_es`/`main_morf_corto` (lines 1700-1702).
+      `src/backend/morphology.cc`'s `parseMorphology`/`appendValue` persists
+      whatever scheme the OSIS/USFM source declares (only syntactically
+      validated via `validScheme`, e.g. `[A-Za-z0-9._-]+`), so it can be
+      "robinson", "oshm", "strongMorph", empty (unqualified), or any custom/
+      opaque string; `osis_importer.cc`/`usfm_importer.cc` tally these in
+      `stats.morphSchemes` without normalizing them.
+    - Fix in `src/main/morfologia.c`'s `uno()`: added `es_robinson(codigo, c)`,
+      true when there is no explicit scheme (bare legacy code, unchanged
+      behavior) or the explicit scheme is literally "robinson"
+      (case-insensitive). The final Robinson fallback now only fires when
+      `es_robinson()` is true; any other explicit, unrecognized scheme falls
+      back to `pon(s, codigo, codigo, FALSE)`, showing the raw `scheme:code`
+      instead of a fabricated Robinson guess. The TH.../OSHM paths (already
+      scheme-aware via `es_oshm`, or scheme-independent by design for
+      `strongMorph:TH####`) are untouched.
+    - `morfologia_test`: added `/morf/esquema-desconocido` covering an unknown
+      scheme with Robinson-shaped code (`customScheme:V-PAI-3S`,
+      `customScheme:N-NSM`) asserting raw `scheme:code` passthrough (both
+      `main_morf_es` and `main_morf_corto`), plus regressions proving
+      `ROBINSON:` (any case), bare `V-PAI-3S` (no scheme), `oshm:HNp`, and
+      `strongMorph:TH8804` are all unaffected. Ran
+      `cmake --build build --target morfologia_test && ./build/tests/morfologia_test`:
+      `1..7`, all 7 `ok` (`/morf/frecuentes` through `/morf/vacios`, including
+      the new `/morf/esquema-desconocido`), 0 failures.
+    - `sqlite_interlinear_test`: rebuilt and ran
+      `./build/tests/sqlite_interlinear_test`: `interlinear_study_summary_failures=0
+      hebrew_study_failures=0` and
+      `sqlite_interlinear tokens=1 strong_occurrences=2 pulpit=ok
+      vulg_range=ok legacy_backend=null failures=0` (this target statically
+      stubs `main_morf_es`/`main_morf_corto`/`main_morf_codigo` in
+      `tests/sqlite_interlinear_test.cc` rather than linking
+      `src/main/morfologia.c`, confirmed via `nm` on the built objects, so it
+      is unaffected by this change but still green).
+    - `strong_interaction_test`: rebuilt and ran
+      `./build/tests/strong_interaction_test`: `1..4`, all 4 `ok`
+      (`/strong-ui/resolution`, `/strong-ui/styled-spans`,
+      `/strong-ui/utf8-markup`, `/strong-ui/detail-pagination`); this target
+      does not link `morfologia.c` either (confirmed in
+      `tests/CMakeLists.txt`), so it is an unaffected-regression check.
+    - Full application build: `cmake --build build -j$(nproc)` completed with
+      `[100%] Built target biblia-elim` (includes `src/main/morfologia.c.o`
+      recompiling cleanly into `libmain.a`).
+
+- [x] MORPH-109 Wire real Strong lexicon data into the neutral SQLite word-detail UI
+  - Status: DONE
+  - Depends on: none (independent of MORPH-108)
+  - Scope: explicit user request takes priority over the unrelated layout queue.
+  - Description:
+    `main_set_strong_lexicon()` (`src/main/strong_ui.cc`) is defined but never
+    called anywhere, and no lexicon `.sqlite` file ships, so the neutral
+    backend's word-detail dialog (`strong_ui.cc`) never shows lemma,
+    transliteration or definition for any SQLite-backed module — only the bare
+    Strong ID. `ui/strongs-elim.xml` (public-domain Strong 1890 data plus Open
+    Scriptures glosses, already bundled and used by the legacy interlinear
+    path) has the fields needed to populate the documented experimental
+    `lexicon_entries(strong, lemma, transliteration, pronunciation,
+    definition)` table (`src/backend/strong-lexicon-format.md`,
+    `src/backend/sqlite/sqlite_strong_lexicon.{h,cc}`).
+  - Acceptance criteria:
+    - First inspect `ui/strongs-elim.xml`'s actual fields/coverage against the
+      documented lexicon table columns; do not invent data for fields it does
+      not provide.
+    - Reuse the existing bundled XML as the single source of truth; do not
+      author or duplicate lexicon text by hand.
+    - Add a reproducible, documented generation step producing the lexicon
+      SQLite file from that XML (build-time or install-time, following
+      existing repo conventions for generated bundled data).
+    - Call `main_set_strong_lexicon()` exactly once, at application startup,
+      binding the generated lexicon; absence of the file must degrade
+      gracefully (no crash; dialog keeps today's bare-ID behavior).
+    - Keep lexicon wiring in the application/startup layer; do not couple
+      `SqliteBibleBackend` or `SqliteModuleWriter` to lexicon concerns.
+    - Add regression test(s) verifying real lemma/transliteration/definition
+      lookups for a sample of known Strong numbers, and graceful fallback when
+      the lexicon file is absent.
+  - Relevant tests: `sqlite_strong_lexicon` tests, `strong_ui`/
+    `sqlite_strong_ui_smoke_test`, `strong_interaction_test`, full application
+    build, `git diff --check`.
+  - Evidence (2026-09-27):
+    - Inspected `ui/strongs-elim.xml` (14197 `<s n="..." l="..." t="..." g="..."
+      r="..." d="..."/>` entries): `n` is already the exact `formatStrongId()`
+      form (`[GH][1-9][0-9]*`, verified with
+      `grep -oP '<s n="\K[^"]*' ui/strongs-elim.xml | grep -vc -E '^[GH][1-9][0-9]*$'`
+      = 0 of 14197). Mapped straight onto `lexicon_entries` per
+      `src/backend/strong-lexicon-format.md`: `n`->strong, `l`->lemma,
+      `t`->transliteration, `d`->definition; `pronunciation` is left empty
+      (the XML has no such field — not invented); `g`/`r` are not part of the
+      table and are left unused.
+    - Added `scripts/generate_strongs_lexicon.py` (stdlib
+      `xml.etree.ElementTree` + `sqlite3`, matching the style of the existing
+      `scripts/generate_osis_fixture.py`), the single reproducible source of
+      the lexicon SQLite file. Wired as a build-time `add_custom_command` in
+      `src/main/CMakeLists.txt` (same pattern as `ui/xiphos.gresource.xml` ->
+      `xiphos_resources.c` in `src/gtk/CMakeLists.txt`): generates
+      `<build-dir>/lexicon/strongs-elim.sqlite`, `main` depends on it, the
+      absolute path is embedded via `-DXIPHOS_BUILD_STRONG_LEXICON=...`, and
+      it is `install()`-ed to `${CMAKE_INSTALL_DATADIR}/xiphos/` for
+      installed builds. If `python3` is not found, the block is skipped with
+      a `message(WARNING ...)` instead of failing the build (graceful
+      degradation at build time too).
+    - Added `src/main/strong_lexicon_startup.{h,cc}`: `main_bind_strong_lexicon()`
+      resolves, in order, a `BIBLIA_ELIM_STRONG_LEXICON` env var override
+      (tests/dev), the embedded build-tree path, then the installed
+      `SHARE_DIR` path; binds a `SqliteStrongLexicon` via
+      `main_set_strong_lexicon()` (`src/main/strong_ui.cc`) if a candidate
+      file exists, otherwise calls `main_set_strong_lexicon(nullptr)` and
+      leaves today's bare-Strong-ID dialog behavior untouched — no crash, no
+      coupling of `SqliteBibleBackend`/`SqliteModuleWriter` to lexicon
+      concerns. Called exactly once from application startup, in
+      `main_init_backend()` (`src/main/sword.cc`), right after
+      `main_init_lists()`.
+    - New GTK-free regression `tests/strong_lexicon_generation_test.cc` (own
+      CMake target, stubs `main_set_strong_lexicon()` the way
+      `sqlite_interlinear_test.cc` stubs `main_morf_es()`, so it needs no
+      GTK): runs the real `scripts/generate_strongs_lexicon.py` against the
+      real bundled `ui/strongs-elim.xml`, then reads the result back through
+      `SqliteStrongLexicon` and asserts real lemma/transliteration for G26
+      (ἀγάπη/agápē), H430 (אֱלֹהִים), G2316 (θεός), non-empty definitions,
+      empty (not fabricated) `pronunciation`, and an unknown Strong number
+      staying invalid; separately drives `main_bind_strong_lexicon()` via
+      `BIBLIA_ELIM_STRONG_LEXICON` and asserts the lexicon is captured when
+      the file exists and stays unbound (no crash) when it does not. Ran
+      `cmake --build build --target strong_lexicon_generation_test &&
+      ./build/tests/strong_lexicon_generation_test`: `main_set_strong_lexicon
+      called 2 time(s); failures=0`, exit 0.
+    - Extended `tests/sqlite_strong_ui_smoke_test.cc` with
+      `/strong-ui/lexicon-binding`: writes a minimal standalone
+      `lexicon_entries` fixture for H430, binds it via
+      `BIBLIA_ELIM_STRONG_LEXICON` + `main_bind_strong_lexicon()`, opens the
+      real word-detail dialog for Génesis 1:1 and asserts the bound
+      lemma/definition text appears; then repoints the env var at a
+      nonexistent file, rebinds, and asserts the same dialog falls back to
+      bare-`Strong H430`-only (no lemma/definition, no crash). Rebuilt
+      cleanly: `cmake --build build --target sqlite_strong_ui_smoke_test`.
+      Execution requires a real, pre-existing "rv1909" SQLite Bible module
+      fixture the test's `main()` loads from an `argv[1]` directory (not
+      generated by the test itself, and not present in this sandbox or
+      committed to the repo); confirmed concretely with
+      `xvfb-run -a ./build/tests/sqlite_strong_ui_smoke_test /tmp/nonexistent-modules-dir`,
+      which fails at the pre-existing `g_assert_true(backend.moduleCapabilities("rv1909").strongs)`
+      line (174) before reaching any of this task's new code — the same
+      "manual, run by hand" limitation this EXCLUDE_FROM_ALL target already
+      had before this task (its own file header: "No entran en la
+      compilación normal: se piden a mano"), not a regression introduced
+      here. Xvfb itself is available and works in this sandbox
+      (`/usr/bin/Xvfb`), so this is a missing-fixture gap, not a display
+      gap as an earlier, less precise note in this file (MORPH-10x area)
+      had attributed it to.
+    - `strong_ui_smoke_test` (non-SQLite variant, untouched by this task) and
+      `strong_interaction_test`: rebuilt and ran; `strong_interaction_test`
+      TAP `1..4`, all 4 `ok`.
+    - Full application build: `cmake --build build -j$(nproc)` ->
+      `[100%] Built target biblia-elim`.
+
+- [x] MORPH-110 Human-readable grammatical decoding of morphology in the neutral pipeline
+  - Status: DONE
+  - Depends on: MORPH-108 (must land first; otherwise this reintroduces the
+    scheme-blind mislabeling risk it fixes)
+  - Scope: explicit user request takes priority over the unrelated layout
+    queue; this deliberately reopens the "Future / not scheduled" item
+    "Human-readable grammatical decoding of morphology codes."
+  - Description:
+    Show a decoded, Spanish-language grammatical label alongside (never
+    instead of) the raw `scheme:code` in `strong_ui.cc`'s word-detail dialog,
+    for neutral-pipeline tags whose scheme is a known/mapped scheme, reusing
+    the existing validated decoder in `morfologia.c` rather than duplicating
+    grammar tables.
+  - Acceptance criteria:
+    - Only decode tags whose scheme is recognized post-MORPH-108; any other/
+      unspecified scheme keeps raw-only display — never guess.
+    - Decoded text is additive: the raw scheme:code stays visible so the
+      exact-tag ground truth used by MORPH-107's occurrence lookup is never
+      hidden or replaced.
+    - Do not add cross-scheme grammatical equivalence (explicitly out of
+      scope); decode within a single tag's own scheme only.
+    - Add regression tests: a known recognized-scheme code decodes to the
+      expected Spanish text in the neutral-pipeline dialog path; an unknown
+      scheme stays raw-only; no crash on malformed/empty code.
+  - Relevant tests: `strong_ui`/`sqlite_strong_ui_smoke_test`,
+    `morfologia_test`, `morphology_audit_test`, full application build,
+    `git diff --check`.
+  - Evidence (2026-09-27):
+    - Added `gboolean main_morf_reconocido(const char *codigo)` to
+      `src/main/morfologia.{h,c}`: mirrors, branch-for-branch, exactly the
+      cases `uno()` treats as *not* the MORPH-108 unrecognized-scheme
+      raw-fallback (the Strong `TH...` Hebrew-verb pattern, `es_oshm()`, and
+      the new `es_robinson()` from MORPH-108 — explicit `robinson:` scheme or
+      a bare/no-scheme legacy code) — single source of truth, no duplicated
+      grammar table in `strong_ui.cc`.
+    - `strong_ui.cc`'s `addWordAnnotations()`: after the existing raw
+      `Esquema morfológico`/`Código morfológico` fields (unchanged, always
+      shown), reconstructs the same `scheme:code` `main/interlineal.cc`
+      feeds the decoder (`taggedCode()`), and — only when
+      `main_morf_reconocido()` is true and `main_morf_es()` returns non-empty
+      — adds one more field, `Análisis gramatical[ N]:`, with the decoded
+      Spanish text. Purely additive; nothing else changed.
+    - `morfologia_test`: added `/morf/reconocido` — `main_morf_reconocido()`
+      on `NULL`/`""`/`"robinson:"` (empty code) is FALSE with no crash;
+      `"robinson:V-PAI-3S"`, `"ROBINSON:..."`, bare `"V-PAI-3S"`,
+      `"oshm:HNp"`, bare `"HR/Ncfsa"`, `"strongMorph:TH8804"` are all TRUE;
+      an explicit unrecognized scheme is FALSE even when the code is
+      OSHM-shaped (`"customScheme:HR/Ncfsa"`) or Robinson-shaped
+      (`"customScheme:V-PAI-3S"`) — no cross-scheme equivalence. Ran
+      `cmake --build build --target morfologia_test &&
+      ./build/tests/morfologia_test`: `1..8`, all 8 `ok` (adds
+      `/morf/reconocido` to the MORPH-108 suite, all still green).
+    - `strong_ui_smoke_test` (Fake-backend, no real Bible module needed —
+      actually executes, unlike the SQLite variant below): added the source
+      `src/main/morfologia.c` it now needs to link (undefined symbols
+      otherwise, since `strong_ui.cc` calls into it). Extended
+      `/strong-ui/dialog-flow` with MORPH-110 assertions against the
+      existing fixture in `tests/fake_bible_backend.cc`: "loved"'s two
+      morphology tags — `{"robinson","V-AAI-3S"}` (recognized) gets
+      `"Análisis gramatical 1:"` = "Verbo · aoristo · activo · indicativo ·
+      3ª persona · singular"; `{"custom.alpha","opaque/code"}` (unrecognized)
+      gets no `"Análisis gramatical 2:"` field at all; "world"'s bare/no-
+      scheme `"HR/Ncfsa"` tag (the MORPH-108 legacy-safe path) still gets
+      `"Análisis gramatical:"` = "Preposición + Sustantivo · común ·
+      femenino · singular · absoluto". Values cross-checked against the
+      built decoder directly (`main_morf_es`/`main_morf_reconocido` on the
+      three exact tags) before writing the assertions. Ran
+      `xvfb-run -a ./build/tests/strong_ui_smoke_test`: TAP `1..1`, `ok 1
+      /strong-ui/dialog-flow`.
+    - `sqlite_strong_ui_smoke_test`: also updated to link
+      `src/main/morfologia.c` (same undefined-symbol reason) and rebuilt
+      cleanly (`cmake --build build --target sqlite_strong_ui_smoke_test`);
+      still blocked from executing in this sandbox by the same missing
+      "rv1909" module fixture recorded under MORPH-109's evidence — no new
+      limitation introduced by this task.
+    - `morphology_audit_test`: rebuilt and ran; `morphology_audit_failures=0`.
+    - Full application build: `cmake --build build -j$(nproc)` ->
+      `[100%] Built target biblia-elim` (and `sqlite_interlinear_test`
+      relinked in the same pass, rerun:
+      `sqlite_interlinear tokens=1 strong_occurrences=2 ... failures=0`).
+    - `git diff --check`: clean (no output) after this task's changes.
+
+- [x] MORPH-111 Morphology occurrence browser UI over the existing bounded lookup
+  - Status: DONE
+  - Depends on: MORPH-107 (backend capability already DONE), MORPH-109 and
+    MORPH-110 recommended first for a richer entry but not required
+  - Scope: explicit user request takes priority over the unrelated layout
+    queue; this deliberately reopens the "Future / not scheduled" item
+    "Dedicated morphology search/browser UI beyond MORPH-107's bounded backend
+    capability."
+  - Description:
+    `findMorphologyOccurrencePage` (`sqlite_bible_backend.cc`) has zero UI
+    callers today. Add a bounded, paged occurrence list for a selected
+    morphology tag from the word-detail dialog, reusing the same paging
+    pattern already used for the Strong concordance list in `strong_ui.cc`
+    (`Concordancia`/`Cargar más`) rather than inventing a new UI pattern.
+  - Acceptance criteria:
+    - Entry point: from the word-detail dialog, when the selected word has a
+      morphology tag, offer a paged occurrence list for that exact
+      `{scheme, code}`, analogous to the existing Strong concordance list.
+    - Reuse the existing `limit+1`/offset paging contract as-is; do not add a
+      new query pattern or modify the SQLite schema.
+    - Do not add a free-text or cross-module morphology search screen; scope
+      is bounded to "show occurrences of this exact tag," matching what the
+      backend already supports.
+    - Add regression test(s) for the new UI-adjacent glue/session wiring using
+      the existing Fake-backend contract test patterns.
+  - Relevant tests: `strong_ui`/`sqlite_strong_ui_smoke_test`,
+    `strong_interaction_test`, morphology occurrence backend test, full
+    application build, `git diff --check`.
+  - Evidence (2026-09-27):
+    - Read `findMorphologyOccurrencePage` (`src/backend/sqlite/sqlite_bible_backend.cc:1011-1050`)
+      and its `bible_backend.h:201-210` virtual declaration alongside
+      `findStrongOccurrencePage`/`StrongOccurrencePage` (`:191-200`): identical
+      shape (`{scheme,code}`/`StrongId` in, bounded `limit`/`offset`,
+      `limit+1` fetch, `hasMore = occurrences.size() > limit`, `resize(limit)`),
+      already exercised end-to-end by MORPH-107. Zero UI callers before this
+      task (confirmed: only `sqlite_bible_backend.cc`'s own definition and
+      `bible_backend.h`'s declaration referenced it).
+    - `src/main/strong_interaction.{h,cc}`: added `MorphologyDetailState`
+      (mirrors `StrongDetailState`, no lexicon field — a morphology tag isn't
+      a dictionary entry) and `StrongDetailSession::selectMorphology()`/
+      `loadMoreMorphology()`/`morphologyState()`, implemented line-for-line
+      like `selectStrong()`/`loadMore()`/`state()` over
+      `findMorphologyOccurrencePage()` instead, gated by a new
+      `containsMorphology()` (mirrors `containsStrong()`, uses
+      `MorphologyTag`'s existing value equality).
+    - `src/main/strong_ui.cc`: added `appendMorphologyOccurrence()`/
+      `showSelectedMorphology()`/`selectMorphology()`/`morphSelectorChanged()`/
+      `loadMoreMorphology()` — the same four functions as
+      `appendOccurrence()`/`showSelectedStrong()`/`selectStrong()`/
+      `selectorChanged()`/`loadMore()`, over `MorphologyOccurrence`/
+      `MorphologyTag` instead, reusing `navigateOccurrence()` itself (it only
+      reads a stored verse key off the clicked button, which
+      `MorphologyOccurrence.key` supplies exactly like `StrongOccurrence.key`
+      does). `createDialog()` now adds an independent "Ocurrencias
+      morfológicas" section (own separator/heading/scrolled `GtkListBox`/
+      "Cargar más") whenever the word has at least one morphology tag —
+      *not* gated on `hasStrongs`, so a morphology-only word (no Strong
+      number) still gets it; a combo (reusing the same `GtkComboBoxText`
+      widget the multi-Strong case already uses) appears only when the word
+      has more than one tag, otherwise the single tag auto-loads via
+      `main_show_neutral_word()`, exactly parallel to the single-Strong
+      auto-select. Distinct heading text ("Ocurrencias morfológicas", not
+      "Concordancia") keeps it from implying a Strong concordance for a word
+      with no Strong number. No SQLite schema change; no free-text/cross-
+      module search added — the entry point is strictly "this exact
+      `{scheme,code}`."
+    - `strong_interaction_test` (`/strong-ui/detail-pagination`, GTK-free):
+      extended with the morphology `limit+1`/`hasMore` pagination contract at
+      pageSize 1 on `"robinson:V-AAI-3S"` (2 real occurrences in
+      `fake_bible_backend.cc`, across John 3:16 and 3:17, the same two verses
+      the existing Strong-G25 pagination case already walks) — first page
+      size 1/`hasMore=true`, `loadMoreMorphology()` to size 2/`hasMore=false`,
+      then a further `loadMoreMorphology()` returns `false`; also an
+      unrecognized/opaque scheme (`"custom.alpha:opaque/code"`) resolves as a
+      plain exact lookup regardless of whether `morfologia.c` can decode it,
+      and a tag the word does not carry (`"oshm:HNp"`) is rejected by
+      `selectMorphology()`, mirroring `selectStrong()`'s own rejection case.
+      Ran `cmake --build build --target strong_interaction_test &&
+      ./build/tests/strong_interaction_test`: TAP `1..4`, all 4 `ok`.
+    - `strong_ui_smoke_test` (GTK, Fake backend — actually executes): added
+      `/strong-ui/morphology-occurrence-browser` — for "loved" (1 Strong +
+      2 morphology tags), the "Ocurrencias morfológicas" combo starts
+      unselected with 2 entries, and selecting the first grows the
+      John-3:16-keyed occurrence-button count from 1 (the already-auto-
+      loaded Strong concordance entry) to 2 (proving the morphology list,
+      not just the Strong list, populated — both share
+      `navigateOccurrence()`'s button-keying, so presence alone can't tell
+      them apart, only the count can), and clicking that new button
+      navigates correctly; for "world" (1 morphology tag, 0 Strong numbers),
+      the section appears with no combo and an already-auto-loaded
+      occurrence button, proving the entry point does not depend on
+      `hasStrongs`; for "Son" (0 morphology tags), the section does not
+      appear at all. Also extended `/strong-ui/dialog-flow`'s existing "world"
+      case (`g_assert_null(firstCombo(dialog))`) — still holds, since a
+      single tag never adds a combo. Ran
+      `xvfb-run -a ./build/tests/strong_ui_smoke_test`: TAP `1..2`, `ok 1
+      /strong-ui/dialog-flow`, `ok 2 /strong-ui/morphology-occurrence-browser`.
+    - `sqlite_strong_ui_smoke_test`: rebuilt cleanly; still blocked from
+      executing by the same missing "rv1909" module fixture recorded under
+      MORPH-109/MORPH-110's evidence (confirmed again:
+      `xvfb-run -a ./build/tests/sqlite_strong_ui_smoke_test /tmp/nonexistent-modules-dir`
+      fails at the same pre-existing line 174 `g_assert_true(...strongs)`,
+      before any of this task's code) — no new limitation introduced.
+    - `morphology_audit_test`: rebuilt and ran; `morphology_audit_failures=0`.
+    - Full application build: `cmake --build build -j$(nproc)` ->
+      `[100%] Built target biblia-elim` (`sqlite_reader_tools_test` also
+      relinked in the same pass; rerun: `sqlite_reader_tools cloud_count=2
+      exports=20 single_range=ok failures=0`).
+    - `git diff --check`: clean.
+
+- [x] GTK4-LAYOUT-102 Compact the passage tabs and verse navbar
+  - Status: DONE
+  - Cause:
+    `entry_lookup` requested `vexpand=True`; GTK4 propagates this to its
+    navbar, whose `valign=center` leaves spare height above and below it.
+  - Change:
+    The navbar explicitly disables vertical expansion and aligns at the
+    start. Removed the ineffective zero-height request on empty
+    passage-notebook pages. Following the user's width feedback, the bar
+    now keeps controls at natural horizontal width: numeric selectors fit three
+    digits and the lookup field uses 20 characters. Passage tabs disable
+    expansion, with long labels ellipsized at 28 characters; their notebook
+    retains available width for multiple tabs and scrolling.
+    Follow-up from the user's screenshot: scrollable notebook tabs allocated
+    the ellipsized label's minimum width (only an ellipsis). Added a
+    22-character minimum, left-aligned text and an updated full-text tooltip.
+    Restored the navbar's full-width background while keeping controls compact.
+    The next user screenshot confirms readable tabs and compact controls;
+    the verse number was top-aligned because its inner box was vertical,
+    unlike the chapter's horizontal box. Matched the verse box orientation
+    to the chapter so both labels occupy the button height and centre alike.
+  - Verification:
+    `navbar_resource_layout_test` checks the compiled executable's GResource,
+    rather than only the source XML. It fails on the pre-fix executable.
+    After rebuilding, the resource test, `startup_performance_baseline`, and
+    `buscar_notas_test` PASS (3/3); full build and `git diff --check` PASS.
+    The user's subsequent screenshot confirms the vertical gaps are gone.
+    Re-attempted the horizontal refinement (previously "Cannot open the
+    display" / Xvfb "Cannot establish any listening sockets" in an earlier
+    sandbox): this sandbox now starts Xvfb fine. Rebuilt `biblia-elim` fresh
+    (`cmake --build build -j6 --target biblia-elim`, `[100%] Built target
+    biblia-elim`), started `Xvfb :150 -screen 0 1280x1024x24`, and launched
+    the real app (not the smoke harness) with an isolated HOME/XDG profile
+    (copy of the real profile plus the real SQLite modules under
+    `~/.local/share/biblia-elim/modules`, `~/.sword` symlinked in) and a
+    4-tab `.last_session_tabs` (short and long verse keys) via
+    `env -i ... DISPLAY=:150 ./build/src/gtk/biblia-elim
+    --backend=sqlite:<modules>`. `import -window root` captured
+    `/tmp/biblia-layout-verify/screenshot_full.png`, viewed directly:
+    - Chapter and verse numeric selectors: identical fixed-width boxes,
+      digits centred, no excess width around a single digit; confirmed the
+      box also fits 3 digits cleanly (re-launched at "Salmos 119:176" ->
+      chapter box shows `119` with no truncation or overflow, same box
+      width as before) in `/tmp/biblia-layout-verify/screenshot_3digit.png`.
+      Matches source: `ui/navbar_versekey.gtkbuilder` sets `width-chars=3`
+      on both `label_chapter` and `label_verse` (lines 181, 256).
+    - Lookup field (`entry_lookup`, `width-chars`/`max-width-chars=20` in
+      the same file, lines 317-318): renders as a compact ~20-character box
+      ("GÉNESIS 1:1"), not stretched; the navbar's beige background still
+      spans the full window width behind it.
+    - Passage tabs: 4 tabs with labels of varying length rendered
+      left-aligned, ellipsized with a visible truncation (not collapsed to
+      only "..."), e.g. "SpaPlatense: 1 Corintios..." and
+      "SpaPlatense: Apocalipsi...", while the two short labels ("Genesis
+      1:1", "Luke 23:36") show in full. Matches source:
+      `src/gtk/tabbed_browser.c` `tab_widget_new` sets
+      `gtk_label_set_width_chars(..., 22)`,
+      `gtk_label_set_max_width_chars(..., 28)`,
+      `gtk_label_set_xalign(..., 0.0f)`, ellipsize END, and a full-text
+      tooltip (lines 904-910).
+    - Verse number vertical alignment: zoomed crop of the navbar row shows
+      the chapter and verse digits both vertically centred in their button,
+      same height, symmetric with their up/down spinners; no top-aligned
+      verse number. Matches source: `ui/navbar_versekey.gtkbuilder`'s
+      verse inner box `hbox7` now declares `orientation="horizontal"`
+      (line 247), matching the chapter's `hbox6`.
+    Re-ran the three named tests after the fresh rebuild:
+    `navbar_resource_layout_test`, `startup_performance_baseline`, and
+    `buscar_notas_test` all PASS (3/3, `ctest -R
+    "^(navbar_resource_layout_test|startup_performance_baseline|buscar_notas_test)$"`).
+    Benign, pre-existing, unrelated warnings seen in this run (D-Bus session
+    bus unavailable under the isolated profile, Mesa/DRI3 software-rendering
+    notices under Xvfb, and a few `GLib-GObject-CRITICAL` invalid-signal
+    warnings for `GtkCalendar`/`GtkWindow`/`GtkPaned`/`GtkNotebook` left over
+    from the wider GTK3->4 port) are unrelated to the navbar/tabs layout and
+    were not introduced by this task. Separately, requesting "Salmos
+    119:176" landed on "Salmos 119:7" with "This module has no content at
+    this point" in this copied SpaPlatense SQLite fixture -- a pre-existing
+    content/versification gap in that module snapshot, not a layout issue;
+    not investigated further as out of scope for this task.
 
 - [ ] TORRES-NOISE-101 Remove engraving/apparatus OCR noise inside Torres Amat 1882 verses
   - Status: BLOCKED

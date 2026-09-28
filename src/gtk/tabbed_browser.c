@@ -24,6 +24,7 @@
 
 #include <unistd.h>
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <glib.h>
 #include <glib/gstdio.h>
 #include <libxml/tree.h>
@@ -60,7 +61,7 @@
 #include "gui/debug_glib_null.h"
 
 #include <stdbool.h>
-void gui_parallel_tab_activate(GtkCheckMenuItem *menuitem, gpointer user_data);
+void gui_parallel_tab_activate(gpointer menuitem, gpointer user_data);
 
 static GtkWidget *tab_widget_new(PASSAGE_TAB_INFO *tbinf,
 				 const gchar *label_text);
@@ -175,14 +176,10 @@ void gui_recompute_view_menu_choices(void)
 {
 	change_tabs_no_redisplay = TRUE;
 
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.viewtexts_item),
-				       settings.showtexts);
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.viewcomms_item),
-				       settings.showcomms);
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.viewdicts_item),
-				       settings.showdicts);
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.viewpreview_item),
-				       settings.showpreview);
+	gui_main_menu_set_state("bible", settings.showtexts);
+	gui_main_menu_set_state("commentary", settings.showcomms);
+	gui_main_menu_set_state("dictionary", settings.showdicts);
+	gui_main_menu_set_state("preview", settings.showpreview);
 
 	change_tabs_no_redisplay = FALSE;
 }
@@ -310,6 +307,10 @@ void notebook_main_add_page(PASSAGE_TAB_INFO *tbinf)
 	   tbinf->showparallel ? 1 : -1); */
 	gtk_notebook_append_page(GTK_NOTEBOOK(widgets.notebook_main),
 				 tbinf->page_widget, tab_widget);
+	/* The strip may span the window, but each tab keeps its natural width. */
+	g_object_set(gtk_notebook_get_page(GTK_NOTEBOOK(widgets.notebook_main),
+					 tbinf->page_widget),
+		     "tab-expand", FALSE, "tab-fill", TRUE, NULL);
 
 	gtk_notebook_set_tab_reorderable(GTK_NOTEBOOK(widgets.notebook_main),
 					 tbinf->page_widget, TRUE);
@@ -668,11 +669,7 @@ void gui_load_tabs(const gchar *filename)
 								settings.showparatab = TRUE;
 								pt->paratab =
 								    gui_create_parallel_tab();
-								gtk_box_pack_start(GTK_BOX(widgets.page),
-										   pt->paratab,
-										   TRUE,
-										   TRUE,
-										   0);
+								gui_box_pack(GTK_BOX(widgets.page), pt->paratab, TRUE, TRUE, 0);
 								gtk_widget_hide(pt->paratab);
 								gui_parallel_tab_sync((gchar *)
 										      settings.currentverse);
@@ -808,7 +805,7 @@ void gui_load_tabs(const gchar *filename)
  *   #include "tabbed_browser.h"
  *
  *   void on_notebook_main_tab_clicked(GtkWidget *self,
- *				       GdkEventButton *event,
+ *				       GuiButtonEvent *event,
  *				       gpointer user_data)
  *
  * Description
@@ -818,7 +815,7 @@ void gui_load_tabs(const gchar *filename)
  *   void
  */
 static gboolean on_notebook_main_tab_clicked(GtkWidget *self,
-					     GdkEventButton *event,
+					     GuiButtonEvent *event,
 					     gpointer user_data)
 {
 	GtkWidget *notebook = widgets.notebook_main;
@@ -889,91 +886,46 @@ static GtkWidget *tab_widget_new(PASSAGE_TAB_INFO *tbinf,
 				 const gchar *label_text)
 {
 	GtkWidget *box;
-#ifdef USE_GTK_3
-#else
-	GdkColor color;
-#endif
 
 	g_return_val_if_fail(label_text != NULL, NULL);
-#if GTK_CHECK_VERSION(3, 10, 0)
-	tbinf->button_close = gtk_button_new_from_icon_name("window-close-symbolic", GTK_ICON_SIZE_MENU);
-#if GTK_CHECK_VERSION(3, 20, 0)
-	gtk_button_set_relief(GTK_BUTTON(tbinf->button_close), GTK_RELIEF_NONE);
-#else
-#endif
-#else
-	GtkWidget *tmp_toolbar_icon = gtk_image_new_from_stock(GTK_STOCK_CLOSE, GTK_ICON_SIZE_MENU);
-	tbinf->button_close = gtk_button_new();
-	gtk_button_set_image(GTK_BUTTON(tbinf->button_close), tmp_toolbar_icon);
-	gtk_button_set_relief(GTK_BUTTON(tbinf->button_close), GTK_RELIEF_NONE);
-#endif
+	tbinf->button_close = gtk_button_new_from_icon_name("window-close-symbolic");
+	gtk_button_set_has_frame(GTK_BUTTON(tbinf->button_close), FALSE);
 
-#ifndef USE_GTK_3
-	gtk_rc_parse_string("style \"tab-button-style\"\n"
-			    "{\n"
-			    "    GtkWidget::focus-padding = 0\n"
-			    "    GtkWidget::focus-line-width = 0\n"
-			    "    xthickness = 0\n"
-			    "    ythickness = 0\n"
-			    "    GtkButton::internal-border = {0, 0, 0, 0}\n"
-			    "    GtkButton::default-border = {0, 0, 0, 0}\n"
-			    "    GtkButton::default-outside-border = {0, 0, 0, 0}\n"
-			    "}\n"
-			    "widget \"*.button-close\" style \"tab-button-style\"");
-	gtk_widget_set_name(GTK_WIDGET(tbinf->button_close),
-			    "button-close");
-#else
 	gtk_widget_set_size_request(tbinf->button_close, 18, 16);
-#endif
 
-#ifndef USE_GTK_3
-	GtkRequisition r;
-	gtk_widget_size_request(tbinf->button_close, &r);
-#endif
 
 	gtk_widget_show(tbinf->button_close);
 
-	tbinf->tab_label_eventbox = GTK_EVENT_BOX(gtk_event_box_new());
+	/* GTK 4 widgets take the clicks themselves: a plain box */
+	tbinf->tab_label_eventbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
 	gtk_widget_show(GTK_WIDGET(tbinf->tab_label_eventbox));
 
 	tbinf->tab_label = GTK_LABEL(gtk_label_new(label_text));
+	gtk_label_set_ellipsize(tbinf->tab_label, PANGO_ELLIPSIZE_END);
+	/* Scrollable notebooks allocate tabs from their minimum width. An
+	 * ellipsized label without width-chars has only an ellipsis as minimum. */
+	gtk_label_set_width_chars(tbinf->tab_label, 22);
+	gtk_label_set_max_width_chars(tbinf->tab_label, 28);
+	gtk_label_set_xalign(tbinf->tab_label, 0.0f);
+	gtk_widget_set_tooltip_text(GTK_WIDGET(tbinf->tab_label), label_text);
 	gtk_widget_show(GTK_WIDGET(tbinf->tab_label));
 
-#ifdef USE_GTK_3
-#else
-	color.red = 0;
-	color.green = 0;
-	color.blue = 0;
-
-	gtk_widget_modify_fg(tbinf->button_close, GTK_STATE_NORMAL,
-			     &color);
-	gtk_widget_modify_fg(tbinf->button_close, GTK_STATE_INSENSITIVE,
-			     &color);
-	gtk_widget_modify_fg(tbinf->button_close, GTK_STATE_ACTIVE,
-			     &color);
-	gtk_widget_modify_fg(tbinf->button_close, GTK_STATE_PRELIGHT,
-			     &color);
-	gtk_widget_modify_fg(tbinf->button_close, GTK_STATE_SELECTED,
-			     &color);
-#endif
 
 	UI_HBOX(box, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(box), GTK_WIDGET(tbinf->tab_label_eventbox),
-			   TRUE, TRUE, 0);
-	gtk_box_pack_start(GTK_BOX(box), tbinf->button_close, FALSE, FALSE,
-			   0);
+	/* Descendant hexpand also affects GTK4 notebook tab allocation. */
+	gtk_widget_set_hexpand(box, FALSE);
+	gtk_box_append(GTK_BOX(box), GTK_WIDGET(tbinf->tab_label_eventbox));
+	gtk_box_append(GTK_BOX(box), tbinf->button_close);
 
-	gtk_container_add(GTK_CONTAINER(tbinf->tab_label_eventbox),
-			  GTK_WIDGET(tbinf->tab_label));
-	gtk_widget_set_events(GTK_WIDGET(tbinf->tab_label_eventbox), GDK_BUTTON_PRESS_MASK);
+	gtk_box_append(GTK_BOX(tbinf->tab_label_eventbox),
+		       GTK_WIDGET(tbinf->tab_label));
 
 	gtk_widget_show(box);
 
 	g_signal_connect(G_OBJECT(tbinf->button_close), "clicked",
 			 G_CALLBACK(on_notebook_main_close_page), tbinf);
 
-	g_signal_connect(G_OBJECT(tbinf->tab_label_eventbox), "button-press-event",
-			 G_CALLBACK(on_notebook_main_tab_clicked), tbinf);
+	gui_widget_on_button(GTK_WIDGET(tbinf->tab_label_eventbox), GTK_PHASE_BUBBLE, (GuiButtonFunc)on_notebook_main_tab_clicked, NULL, tbinf);
 
 	return box;
 }
@@ -1080,15 +1032,9 @@ persist further tab rearrangements.\n");
  * Return value
  *   void
  */
-#ifdef USE_GTK_3
 void gui_notebook_main_switch_page(GtkNotebook *notebook,
 				   gpointer arg,
 				   gint page_num, GList **tl)
-#else
-void gui_notebook_main_switch_page(GtkNotebook *notebook,
-				   GtkNotebookPage *page,
-				   gint page_num, GList **tl)
-#endif
 {
 	gboolean comm_showing;
 	gint number_of_pages = gtk_notebook_get_n_pages(notebook);
@@ -1280,6 +1226,7 @@ void gui_set_named_tab_label(const gchar *key, PASSAGE_TAB_INFO *pt,
 	str = pick_tab_label(pt);
 
 	gtk_label_set_text(pt->tab_label, str->str);
+	gtk_widget_set_tooltip_text(GTK_WIDGET(pt->tab_label), str->str);
 	gtk_notebook_set_menu_label_text(GTK_NOTEBOOK(widgets.notebook_main),
 					 pt->page_widget, str->str);
 	if (update)
@@ -1489,18 +1436,13 @@ void gui_open_parallel_view_in_new_tab(void)
 	gui_recompute_view_menu_choices();
 	notebook_main_add_page(pt);
 	pt->paratab = gui_create_parallel_tab();
-	gtk_box_pack_start(GTK_BOX(widgets.page), pt->paratab, TRUE, TRUE,
-			   0);
+	gui_box_pack(GTK_BOX(widgets.page), pt->paratab, TRUE, TRUE, 0);
 	gtk_notebook_set_current_page(GTK_NOTEBOOK(widgets.notebook_main),
 				      gtk_notebook_page_num(GTK_NOTEBOOK(widgets.notebook_main),
 							    pt->page_widget));
 	gui_parallel_tab_sync((gchar *)settings.currentverse);
 	settings.showparatab = TRUE;
-	if (widgets.parallel_tab_item) {
-		g_signal_handlers_block_by_func(widgets.parallel_tab_item, (gpointer)gui_parallel_tab_activate, NULL);
-		gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.parallel_tab_item), TRUE);
-		g_signal_handlers_unblock_by_func(widgets.parallel_tab_item, (gpointer)gui_parallel_tab_activate, NULL);
-	}
+	gui_main_menu_set_state("parallel-tab", TRUE);
 }
 
 /******************************************************************************
@@ -1709,8 +1651,7 @@ void gui_close_passage_tab(gint pagenum)
 		gtk_widget_hide(pt->paratab);
 		gui_destroy_parallel_tab();
 		settings.showparatab = FALSE;
-		gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.parallel_tab_item),
-					       settings.showparatab);
+		gui_main_menu_set_state("parallel-tab", settings.showparatab);
 	}
 	g_free(pt);
 	removed_page = pagenum;

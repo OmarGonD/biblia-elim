@@ -114,6 +114,16 @@ bool containsStrong(const BibleAnnotatedWord &context, const StrongId &strong)
 	return std::find(context.strongs.begin(), context.strongs.end(), strong) !=
 		context.strongs.end();
 }
+
+/* MorphologyTag has value equality (backend/bible_types.h): scheme and
+ * code both match, exactly what MORPH-107's occurrence lookup keys on. */
+bool containsMorphology(const BibleAnnotatedWord &context,
+	const MorphologyTag &morphology)
+{
+	return std::find(context.morphologyTags.begin(),
+		context.morphologyTags.end(), morphology) !=
+		context.morphologyTags.end();
+}
 }
 
 AnnotatedWordResolution resolveAnnotatedWordInteraction(BibleBackend &backend,
@@ -237,5 +247,34 @@ bool StrongDetailSession::loadMore()
 		std::make_move_iterator(page.occurrences.begin()),
 		std::make_move_iterator(page.occurrences.end()));
 	state_.hasMore = page.hasMore;
+	return true;
+}
+
+bool StrongDetailSession::selectMorphology(const MorphologyTag &morphology)
+{
+	if (!containsMorphology(context_, morphology)) return false;
+	morphologyState_ = {};
+	morphologyState_.selected = morphology;
+	morphologyState_.selectedValid = true;
+	const auto pageStart = std::chrono::steady_clock::now();
+	MorphologyOccurrencePage page = backend_.findMorphologyOccurrencePage(
+		module_, morphology, pageSize_, 0);
+	morphologyState_.pageMicroseconds = std::chrono::duration_cast<std::chrono::microseconds>(
+		std::chrono::steady_clock::now() - pageStart).count();
+	morphologyState_.occurrences = std::move(page.occurrences);
+	morphologyState_.hasMore = page.hasMore;
+	return true;
+}
+
+bool StrongDetailSession::loadMoreMorphology()
+{
+	if (!morphologyState_.selectedValid || !morphologyState_.hasMore) return false;
+	MorphologyOccurrencePage page = backend_.findMorphologyOccurrencePage(
+		module_, morphologyState_.selected, pageSize_,
+		morphologyState_.occurrences.size());
+	morphologyState_.occurrences.insert(morphologyState_.occurrences.end(),
+		std::make_move_iterator(page.occurrences.begin()),
+		std::make_move_iterator(page.occurrences.end()));
+	morphologyState_.hasMore = page.hasMore;
 	return true;
 }

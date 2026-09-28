@@ -101,11 +101,7 @@ static void alert_url_not_found(const gchar *url)
 
 	dialog = gui_new_dialog();
 	dialog->stock_icon =
-#if GTK_CHECK_VERSION(3, 10, 0)
 	    (gchar *)"dialog-information";
-#else
-	    (gchar *)GTK_STOCK_DIALOG_INFO;
-#endif
 	g_string_printf(dialog_text,
 			"<span weight=\"bold\">%s</span>\n\n%s",
 			_("URL not found:"),
@@ -272,7 +268,7 @@ static gint show_parallel(const gchar *svalue, const gchar *stype,
 	}
 	if (!strcmp(stype, "verse")) {
 		if (clicked) {
-			gtk_entry_set_text(GTK_ENTRY(navbar_parallel.lookup_entry), svalue);
+			gtk_editable_set_text(GTK_EDITABLE(navbar_parallel.lookup_entry), svalue);
 			gtk_widget_activate(navbar_parallel.lookup_entry);
 		}
 	}

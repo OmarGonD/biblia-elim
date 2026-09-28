@@ -39,7 +39,7 @@ struct _navbar_book
 };
 extern NAVBAR_BOOK navbar_book;
 
-GtkWidget *main_book_drop_down_new(void);
+GMenuModel *main_book_drop_down_new(GtkWidget *anchor);
 void main_navbar_book_parent(void);
 void main_navbar_book_first_child(void);
 void main_navbar_book_prev(void);

@@ -19,6 +19,7 @@
 #include <string.h>
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <gdk/gdkkeysyms.h>
 #include <glib/gi18n.h>
 
@@ -109,22 +110,21 @@ static gboolean notas_dialogo_texto(const gchar *titulo, const gchar *inicial,
 	dialog = gtk_dialog_new_with_buttons(titulo, NULL, GTK_DIALOG_MODAL,
 					     _("Cancelar"), GTK_RESPONSE_CANCEL,
 					     _("Guardar"), GTK_RESPONSE_OK, NULL);
-	scroll = gtk_scrolled_window_new(NULL, NULL);
+	scroll = gtk_scrolled_window_new();
 	gtk_widget_set_size_request(scroll, 420, 180);
 	view = gtk_text_view_new();
 	gtk_text_view_set_wrap_mode(GTK_TEXT_VIEW(view), GTK_WRAP_WORD_CHAR);
 	buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(view));
 	gtk_text_buffer_set_text(buffer, inicial ? inicial : "", -1);
-	gtk_container_add(GTK_CONTAINER(scroll), view);
-	gtk_box_pack_start(GTK_BOX(gtk_dialog_get_content_area(GTK_DIALOG(dialog))),
-			   scroll, TRUE, TRUE, 8);
-	gtk_widget_show_all(dialog);
-	response = gtk_dialog_run(GTK_DIALOG(dialog));
+	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(scroll), view);
+	gui_box_pack(GTK_BOX(gtk_dialog_get_content_area(GTK_DIALOG(dialog))), scroll, TRUE, TRUE, 8);
+	gtk_widget_show(dialog);
+	response = gui_dialog_run(GTK_DIALOG(dialog));
 	if (response == GTK_RESPONSE_OK) {
 		gtk_text_buffer_get_bounds(buffer, &start, &end);
 		*salida = gtk_text_buffer_get_text(buffer, &start, &end, FALSE);
 	}
-	gtk_widget_destroy(dialog);
+	gui_widget_destroy(dialog);
 	return response == GTK_RESPONSE_OK;
 }
 
@@ -177,8 +177,7 @@ static void notas_lista_reconstruir(void)
 	GList *items, *it;
 	if (!notas_lista || !notas_osis)
 		return;
-	gtk_container_foreach(GTK_CONTAINER(notas_lista),
-				      (GtkCallback)gtk_widget_destroy, NULL);
+	gui_box_remove_all(notas_lista);
 	items = highlight_list_notes(notas_osis);
 	for (it = items; it; it = it->next) {
 		HighlightNote *note = it->data;
@@ -190,18 +189,17 @@ static void notas_lista_reconstruir(void)
 		NotaFila *fila = g_new0(NotaFila, 1);
 		fila->key = g_strdup(note->note_key);
 		fila->text = g_strdup(note->note);
-		gtk_label_set_line_wrap(GTK_LABEL(text), TRUE);
+		gtk_label_set_wrap(GTK_LABEL(text), TRUE);
 		gtk_widget_set_halign(text, GTK_ALIGN_START);
-		gtk_box_pack_start(GTK_BOX(row), text, FALSE, FALSE, 0);
+		gtk_box_append(GTK_BOX(row), text);
 		if (note->module && notas_mod &&
 		    g_ascii_strcasecmp(note->module, notas_mod)) {
 			/* written in another Bible, shown at this verse */
 			gchar *de = g_strdup_printf(_("Escrita en %s"), note->module);
 			GtkWidget *origen = gtk_label_new(de);
-			gtk_style_context_add_class(
-			    gtk_widget_get_style_context(origen), "dim-label");
+			gtk_widget_add_css_class(origen, "dim-label");
 			gtk_widget_set_halign(origen, GTK_ALIGN_START);
-			gtk_box_pack_start(GTK_BOX(row), origen, FALSE, FALSE, 0);
+			gtk_box_append(GTK_BOX(row), origen);
 			g_free(de);
 		}
 		{
@@ -209,25 +207,24 @@ static void notas_lista_reconstruir(void)
 								  note->modified);
 			if (fechas) {
 				GtkWidget *cuando = gtk_label_new(fechas);
-				gtk_style_context_add_class(
-				    gtk_widget_get_style_context(cuando), "dim-label");
+				gtk_widget_add_css_class(cuando, "dim-label");
 				gtk_widget_set_halign(cuando, GTK_ALIGN_START);
-				gtk_box_pack_start(GTK_BOX(row), cuando, FALSE, FALSE, 0);
+				gtk_box_append(GTK_BOX(row), cuando);
 				g_free(fechas);
 			}
 		}
-		gtk_box_pack_start(GTK_BOX(actions), edit, FALSE, FALSE, 0);
-		gtk_box_pack_start(GTK_BOX(actions), del, FALSE, FALSE, 0);
-		gtk_box_pack_start(GTK_BOX(row), actions, FALSE, FALSE, 0);
+		gtk_box_append(GTK_BOX(actions), edit);
+		gtk_box_append(GTK_BOX(actions), del);
+		gtk_box_append(GTK_BOX(row), actions);
 		g_object_set_data_full(G_OBJECT(edit), "nota-fila", fila,
 				       nota_fila_free);
 		g_object_set_data(G_OBJECT(del), "nota-fila", fila);
 		g_signal_connect(edit, "clicked", G_CALLBACK(on_nota_fila_editar), NULL);
 		g_signal_connect(del, "clicked", G_CALLBACK(on_nota_fila_borrar), NULL);
-		gtk_box_pack_start(GTK_BOX(notas_lista), row, FALSE, FALSE, 6);
+		gui_box_pack(GTK_BOX(notas_lista), row, FALSE, FALSE, 6);
 	}
 	g_list_free_full(items, (GDestroyNotify)highlight_note_free);
-	gtk_widget_show_all(notas_lista);
+	gtk_widget_show(notas_lista);
 }
 
 static gchar *
@@ -341,18 +338,16 @@ on_notas_buffer_changed(GtkTextBuffer *buf, gpointer datos)
 					   NULL);
 }
 
-static gboolean
-on_notas_foco_fuera(GtkWidget *w, GdkEvent *ev, gpointer datos)
+static void
+on_notas_foco_fuera(GtkEventControllerFocus *foco, gpointer datos)
 {
-	(void)w;
-	(void)ev;
+	(void)foco;
 	(void)datos;
 	notas_guardar();
-	return FALSE;
 }
 
 static gboolean
-on_notas_tecla(GtkWidget *w, GdkEventKey *ev, gpointer datos)
+on_notas_tecla(GtkWidget *w, GuiKeyEvent *ev, gpointer datos)
 {
 	(void)w;
 	(void)datos;
@@ -408,35 +403,36 @@ gui_create_notes_pane(void)
 	gtk_widget_set_halign(notas_label, GTK_ALIGN_START);
 	gtk_label_set_ellipsize(GTK_LABEL(notas_label), PANGO_ELLIPSIZE_END);
 	gtk_widget_show(notas_label);
-	gtk_box_pack_start(GTK_BOX(header), notas_label, TRUE, TRUE, 0);
+	gui_box_pack(GTK_BOX(header), notas_label, TRUE, TRUE, 0);
 	notas_nueva = gtk_button_new_with_label(_("+ Nueva nota"));
-	gtk_button_set_relief(GTK_BUTTON(notas_nueva), GTK_RELIEF_NONE);
+	gtk_button_set_has_frame(GTK_BUTTON(notas_nueva), FALSE);
 	gtk_widget_set_tooltip_text(notas_nueva,
 				    _("Añadir otra nota a este versículo"));
 	gtk_widget_show(notas_nueva);
 	g_signal_connect(notas_nueva, "clicked", G_CALLBACK(on_nota_nueva), NULL);
-	gtk_box_pack_end(GTK_BOX(header), notas_nueva, FALSE, FALSE, 4);
 
-	cerrar = gtk_button_new_from_icon_name("window-close-symbolic",
-					       GTK_ICON_SIZE_SMALL_TOOLBAR);
-	gtk_button_set_relief(GTK_BUTTON(cerrar), GTK_RELIEF_NONE);
+	cerrar = gtk_button_new_from_icon_name("window-close-symbolic");
+	gtk_button_set_has_frame(GTK_BUTTON(cerrar), FALSE);
 	gtk_widget_set_tooltip_text(cerrar, _("Cerrar panel de notas"));
 	gtk_widget_set_focus_on_click(cerrar, FALSE);
 	gtk_widget_show(cerrar);
 	g_signal_connect(cerrar, "clicked",
 			 G_CALLBACK(on_notas_cerrar_clicked), NULL);
-	gtk_box_pack_end(GTK_BOX(header), cerrar, FALSE, FALSE, 0);
+	/* after the title, which takes the rest of the row: the close
+	 * button, then the new note one at the far end */
+	gtk_box_append(GTK_BOX(header), cerrar);
+	gui_box_pack(GTK_BOX(header), notas_nueva, FALSE, FALSE, 4);
 
-	gtk_box_pack_start(GTK_BOX(box), header, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(box), header);
 
 	notas_lista = gtk_box_new(GTK_ORIENTATION_VERTICAL, 8);
 	gtk_widget_set_margin_start(notas_lista, 4);
 	gtk_widget_set_margin_end(notas_lista, 4);
 	gtk_widget_show(notas_lista);
-	gtk_box_pack_start(GTK_BOX(box), notas_lista, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(box), notas_lista);
 
 
-	scroll = gtk_scrolled_window_new(NULL, NULL);
+	scroll = gtk_scrolled_window_new();
 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scroll),
 				       GTK_POLICY_AUTOMATIC,
 				       GTK_POLICY_AUTOMATIC);
@@ -454,22 +450,20 @@ gui_create_notes_pane(void)
 			 NULL);
 	/* Salir del cuadro guarda: el caso que más notas se llevaba por
 	 * delante era escribir y pulsar en otro sitio. */
-	g_signal_connect(notas_view, "focus-out-event",
-			 G_CALLBACK(on_notas_foco_fuera), NULL);
-	g_signal_connect(notas_view, "key-press-event",
-			 G_CALLBACK(on_notas_tecla), NULL);
+	gui_widget_on_focus(GTK_WIDGET(notas_view), NULL,
+			    G_CALLBACK(on_notas_foco_fuera), NULL);
+	gui_widget_on_key_phase(GTK_WIDGET(notas_view), GTK_PHASE_CAPTURE, (GuiKeyFunc)on_notas_tecla, NULL, NULL);
 	gtk_widget_show(GTK_WIDGET(notas_view));
-	gtk_container_add(GTK_CONTAINER(scroll), GTK_WIDGET(notas_view));
-	gtk_box_pack_start(GTK_BOX(box), scroll, TRUE, TRUE, 0);
+	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(scroll), GTK_WIDGET(notas_view));
+	gui_box_pack(GTK_BOX(box), scroll, TRUE, TRUE, 0);
 
 	bar = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 8);
 	gtk_widget_show(bar);
 	notas_estado = gtk_label_new("");
 	gtk_widget_set_halign(notas_estado, GTK_ALIGN_START);
-	gtk_style_context_add_class(gtk_widget_get_style_context(notas_estado),
-				    GTK_STYLE_CLASS_DIM_LABEL);
+	gtk_widget_add_css_class(notas_estado, "dim-label");
 	gtk_widget_show(notas_estado);
-	gtk_box_pack_start(GTK_BOX(bar), notas_estado, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(bar), notas_estado);
 
 	notas_boton = gtk_button_new_with_label(_("Guardar"));
 	gtk_widget_set_halign(notas_boton, GTK_ALIGN_END);
@@ -481,8 +475,10 @@ gui_create_notes_pane(void)
 	gtk_widget_show(notas_boton);
 	g_signal_connect(notas_boton, "clicked",
 			 G_CALLBACK(on_notas_guardar_clicked), NULL);
-	gtk_box_pack_end(GTK_BOX(bar), notas_boton, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(box), bar, FALSE, FALSE, 0);
+	/* at the far end of the bar */
+	gtk_widget_set_hexpand(notas_boton, TRUE);
+	gtk_box_append(GTK_BOX(bar), notas_boton);
+	gtk_box_append(GTK_BOX(box), bar);
 
 	return box;
 }

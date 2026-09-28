@@ -1,5 +1,7 @@
 #include <glib.h>
+#include <glib/gstdio.h>
 #include <gtk/gtk.h>
+#include <sqlite3.h>
 
 #include <cstring>
 #include <memory>
@@ -10,6 +12,7 @@
 #include "backend/sqlite/sqlite_bible_backend.h"
 #include "gui/widgets.h"
 #include "main/strong_interaction.h"
+#include "main/strong_lexicon_startup.h"
 #include "main/strong_ui.h"
 
 WIDGETS widgets = {};
@@ -35,11 +38,9 @@ GtkWidget *dialog()
 void walk(GtkWidget *widget, std::vector<GtkWidget *> &all)
 {
 	all.push_back(widget);
-	if (!GTK_IS_CONTAINER(widget)) return;
-	GList *children = gtk_container_get_children(GTK_CONTAINER(widget));
-	for (GList *item = children; item; item = item->next)
-		walk(GTK_WIDGET(item->data), all);
-	g_list_free(children);
+	for (GtkWidget *child = gtk_widget_get_first_child(widget); child;
+		child = gtk_widget_get_next_sibling(child))
+		walk(child, all);
 }
 
 bool hasLabel(GtkWidget *root, const std::string &text)
@@ -63,7 +64,7 @@ GtkWidget *combo(GtkWidget *root)
 void close(GtkWidget *widget)
 {
 	gtk_dialog_response(GTK_DIALOG(widget), GTK_RESPONSE_CLOSE);
-	while (gtk_events_pending()) gtk_main_iteration();
+	while (g_main_context_pending(nullptr)) g_main_context_iteration(nullptr, FALSE);
 }
 
 void verifySingle(const char *key, std::size_t offset, const char *strong,
@@ -75,6 +76,63 @@ void verifySingle(const char *key, std::size_t offset, const char *strong,
 	g_assert_true(hasLabel(view, std::string("Strong ") + strong));
 	g_assert_true(hasLabel(view, word));
 	close(view);
+}
+
+/* MORPH-109: writes a minimal, standalone lexicon_entries fixture (see
+ * src/backend/strong-lexicon-format.md) with a single, unmistakable
+ * entry for H430 -- the Strong number San Mateo... no, Génesis 1:1's
+ * "Dios" already resolves to in testRvFlow() above. */
+void writeLexiconFixture(const std::string &path)
+{
+	g_remove(path.c_str());
+	sqlite3 *db = nullptr;
+	g_assert_cmpint(sqlite3_open(path.c_str(), &db), ==, SQLITE_OK);
+	g_assert_cmpint(sqlite3_exec(db,
+		"CREATE TABLE lexicon_entries("
+		"strong TEXT PRIMARY KEY, lemma TEXT, transliteration TEXT,"
+		"pronunciation TEXT, definition TEXT);"
+		"INSERT INTO lexicon_entries VALUES("
+		"'H430','PRUEBA-LEMA-H430','prueba-translit','',"
+		"'prueba-definicion');",
+		nullptr, nullptr, nullptr), ==, SQLITE_OK);
+	sqlite3_close(db);
+}
+
+/* main_set_strong_lexicon() has a real caller now
+ * (main_bind_strong_lexicon(), src/main/strong_lexicon_startup.cc): a
+ * bound lexicon shows lemma/transliteration/definition alongside the
+ * bare Strong ID, and an absent lexicon file falls back to exactly
+ * today's bare-ID dialog -- no crash, nothing invented. */
+void testLexiconBinding()
+{
+	const std::string fixture = std::string(g_get_tmp_dir()) +
+		"/xiphos-strong-ui-lexicon-fixture.sqlite";
+	writeLexiconFixture(fixture);
+
+	g_setenv("BIBLIA_ELIM_STRONG_LEXICON", fixture.c_str(), TRUE);
+	main_bind_strong_lexicon();
+	main_show_neutral_strong("rv1909", "Génesis 1:1", 24);
+	GtkWidget *bound = dialog();
+	g_assert_nonnull(bound);
+	g_assert_true(hasLabel(bound, "Strong H430"));
+	g_assert_true(hasLabel(bound, "PRUEBA-LEMA-H430"));
+	g_assert_true(hasLabel(bound, "prueba-definicion"));
+	close(bound);
+
+	const std::string missing = std::string(g_get_tmp_dir()) +
+		"/xiphos-strong-ui-lexicon-does-not-exist.sqlite";
+	g_remove(missing.c_str());
+	g_setenv("BIBLIA_ELIM_STRONG_LEXICON", missing.c_str(), TRUE);
+	main_bind_strong_lexicon();
+	main_show_neutral_strong("rv1909", "Génesis 1:1", 24);
+	GtkWidget *fallback = dialog();
+	g_assert_nonnull(fallback);
+	g_assert_true(hasLabel(fallback, "Strong H430"));
+	g_assert_false(hasLabel(fallback, "PRUEBA-LEMA-H430"));
+	close(fallback);
+
+	g_unsetenv("BIBLIA_ELIM_STRONG_LEXICON");
+	g_remove(fixture.c_str());
 }
 
 void testRvFlow()
@@ -114,10 +172,11 @@ int main(int argc, char **argv)
 	SqliteBibleBackend backend(directory);
 	bible_backend = &backend;
 	g_assert_true(backend.moduleCapabilities("rv1909").strongs);
-	widgets.app = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+	g_test_add_func("/strong-ui/lexicon-binding", testLexiconBinding);
+	widgets.app = gtk_window_new();
 	g_test_add_func("/strong-ui/rv1909", testRvFlow);
 	const int result = g_test_run();
-	gtk_widget_destroy(widgets.app);
+	gtk_window_destroy(GTK_WINDOW(widgets.app));
 	return result;
 }
 

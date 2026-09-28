@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 
 #include "xiphos_html/xiphos_html.h"
 
@@ -124,12 +125,16 @@ static void add_columns(GtkTreeView *tree)
 
 	column = gtk_tree_view_column_new();
 
+	/* Only "pixbuf" (never the expander-open/expander-closed pair): GTK4's
+	 * deprecated GtkCellRendererPixbuf hands that pair a null GValue for
+	 * an expander row even though the model's own column data is valid,
+	 * aborting via gdk_texture_new_for_pixbuf's GDK_IS_PIXBUF assertion
+	 * (see main_add_mod_tree_columns() in main/sidebar.cc for how this
+	 * was diagnosed). A single attribute sidesteps that path. */
 	renderer = GTK_CELL_RENDERER(gtk_cell_renderer_pixbuf_new());
 	gtk_tree_view_column_pack_start(column, renderer, FALSE);
 	gtk_tree_view_column_set_attributes(column, renderer,
-					    "pixbuf", COL_OPEN_PIXBUF,
-					    "pixbuf-expander-open", COL_OPEN_PIXBUF,
-					    "pixbuf-expander-closed", COL_CLOSED_PIXBUF, NULL);
+					    "pixbuf", COL_OPEN_PIXBUF, NULL);
 
 	renderer = GTK_CELL_RENDERER(gtk_cell_renderer_text_new());
 	gtk_tree_view_column_pack_start(column, renderer, TRUE);
@@ -182,12 +187,9 @@ void gui_create_gbs_dialog(DIALOG_DATA *dlg)
 	GtkWidget *navbar;
 	GtkWidget *hpaned;
 	GtkWidget *scrolledwindow_ctree;
-#ifndef USE_WEBKIT2
-	GtkWidget *scrolledwindow_html;
-#endif
 	GObject *selection;
 
-	dlg->dialog = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+	dlg->dialog = gtk_window_new();
 	g_object_set_data(G_OBJECT(dlg->dialog), "dlg->dialog",
 			  dlg->dialog);
 	gtk_window_set_title(GTK_WINDOW(dlg->dialog),
@@ -197,56 +199,41 @@ void gui_create_gbs_dialog(DIALOG_DATA *dlg)
 
 	UI_VBOX(vbox_dialog, FALSE, 0);
 	gtk_widget_show(vbox_dialog);
-	gtk_container_add(GTK_CONTAINER(dlg->dialog), vbox_dialog);
+	gtk_window_set_child(GTK_WINDOW(dlg->dialog), vbox_dialog);
 
 	navbar = gui_navbar_book_dialog_new(dlg);
-	gtk_box_pack_start(GTK_BOX(vbox_dialog), navbar, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(vbox_dialog), navbar);
 
 	hpaned = UI_HPANE();
 	gtk_widget_show(hpaned);
-	gtk_box_pack_start(GTK_BOX(vbox_dialog), hpaned, TRUE, TRUE, 0);
+	gui_box_pack(GTK_BOX(vbox_dialog), hpaned, TRUE, TRUE, 0);
 
-	scrolledwindow_ctree = gtk_scrolled_window_new(NULL, NULL);
-	gtk_paned_pack1(GTK_PANED(hpaned), scrolledwindow_ctree, FALSE,
-			TRUE);
+	scrolledwindow_ctree = gtk_scrolled_window_new();
+	gtk_paned_set_start_child(GTK_PANED(hpaned), scrolledwindow_ctree);
+	gtk_paned_set_resize_start_child(GTK_PANED(hpaned), FALSE);
+	gtk_paned_set_shrink_start_child(GTK_PANED(hpaned), TRUE);
 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolledwindow_ctree),
 				       GTK_POLICY_AUTOMATIC,
 				       GTK_POLICY_AUTOMATIC);
-	gtk_scrolled_window_set_shadow_type((GtkScrolledWindow *)
-					    scrolledwindow_ctree,
-					    settings.shadow_type);
+	gtk_scrolled_window_set_has_frame(GTK_SCROLLED_WINDOW((GtkScrolledWindow *) scrolledwindow_ctree), TRUE);
 
 	model = create_model();
 	dlg->tree = gtk_tree_view_new_with_model(model);
 	gtk_tree_view_set_headers_visible(GTK_TREE_VIEW(dlg->tree), FALSE);
 	gtk_widget_show(dlg->tree);
-	gtk_container_add(GTK_CONTAINER(scrolledwindow_ctree), dlg->tree);
+	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(scrolledwindow_ctree), dlg->tree);
 	add_columns(GTK_TREE_VIEW(dlg->tree));
 
 	selection =
 	    G_OBJECT(gtk_tree_view_get_selection(GTK_TREE_VIEW(dlg->tree)));
 
-#ifndef USE_WEBKIT2
-	scrolledwindow_html = gtk_scrolled_window_new(NULL, NULL);
-	gtk_widget_show(scrolledwindow_html);
-	gtk_paned_pack2(GTK_PANED(hpaned), scrolledwindow_html, FALSE,
-			TRUE);
-	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolledwindow_html),
-				       GTK_POLICY_AUTOMATIC,
-				       GTK_POLICY_AUTOMATIC);
-	gtk_scrolled_window_set_shadow_type((GtkScrolledWindow *)
-					    scrolledwindow_html,
-					    settings.shadow_type);
-#endif
 
 	dlg->html =
 	    GTK_WIDGET(XIPHOS_HTML_NEW(((DIALOG_DATA *)dlg), TRUE, DIALOG_BOOK_TYPE));
 	gtk_widget_show(dlg->html);
-#ifdef USE_WEBKIT2
-	gtk_paned_pack2(GTK_PANED(hpaned), dlg->html, FALSE, TRUE);
-#else
-	gtk_container_add(GTK_CONTAINER(scrolledwindow_html), dlg->html);
-#endif
+	gtk_paned_set_end_child(GTK_PANED(hpaned), dlg->html);
+	gtk_paned_set_resize_end_child(GTK_PANED(hpaned), FALSE);
+	gtk_paned_set_shrink_end_child(GTK_PANED(hpaned), TRUE);
 	g_signal_connect((gpointer)dlg->html,
 			 "popupmenu_requested",
 			 G_CALLBACK(_popupmenu_requested_cb),
@@ -257,8 +244,7 @@ void gui_create_gbs_dialog(DIALOG_DATA *dlg)
 			 (DIALOG_DATA *)dlg);
 	dlg->statusbar = gtk_statusbar_new();
 	gtk_widget_show(dlg->statusbar);
-	gtk_box_pack_start(GTK_BOX(vbox_dialog), dlg->statusbar, FALSE,
-			   FALSE, 0);
+	gtk_box_append(GTK_BOX(vbox_dialog), dlg->statusbar);
 
 	g_signal_connect(G_OBJECT(dlg->dialog), "destroy",
 			 G_CALLBACK(dialog_destroy), (DIALOG_DATA *)dlg);

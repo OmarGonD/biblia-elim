@@ -18,6 +18,7 @@
 #include <string.h>
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <gdk/gdkkeysyms.h>
 #include <glib/gi18n.h>
 
@@ -257,7 +258,7 @@ capa_abrir(int tipo, const char *titulo, const char *cuerpo)
 	fuente(pu->lbl_capa_titulo, PU_PX_CHROME + 3, TRUE, 0.75);
 	fuente(pu->lbl_capa,
 	       (tipo == CAPA_VERSO) ? PU_PX_VERSO : PU_PX_VINETA, FALSE, 1.0);
-	gtk_widget_show_all(pu->capa);
+	gtk_widget_show(pu->capa);
 
 	ajuste = gtk_scrolled_window_get_vadjustment(
 	    GTK_SCROLLED_WINDOW(pu->capa_scroll));
@@ -377,11 +378,11 @@ capa_atajos(void)
 static void
 limpiar_escena(void)
 {
-	GList *hijos = gtk_container_get_children(GTK_CONTAINER(pu->caja_escena));
+	GList *hijos = gui_widget_get_children(pu->caja_escena);
 	GList *l;
 
 	for (l = hijos; l; l = l->next)
-		gtk_widget_destroy(GTK_WIDGET(l->data));
+		gui_widget_destroy(GTK_WIDGET(l->data));
 	g_list_free(hijos);
 }
 
@@ -390,12 +391,12 @@ renglon(const char *texto, int px, gboolean negrita, double alpha)
 {
 	GtkWidget *lbl = gtk_label_new(texto ? texto : "");
 
-	gtk_label_set_line_wrap(GTK_LABEL(lbl), TRUE);
-	gtk_label_set_line_wrap_mode(GTK_LABEL(lbl), PANGO_WRAP_WORD_CHAR);
+	gtk_label_set_wrap(GTK_LABEL(lbl), TRUE);
+	gtk_label_set_wrap_mode(GTK_LABEL(lbl), PANGO_WRAP_WORD_CHAR);
 	gtk_label_set_max_width_chars(GTK_LABEL(lbl), PU_MEDIDA);
 	gtk_label_set_xalign(GTK_LABEL(lbl), 0.0);
 	gtk_label_set_selectable(GTK_LABEL(lbl), FALSE);
-	gtk_box_pack_start(GTK_BOX(pu->caja_escena), lbl, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(pu->caja_escena), lbl);
 	gtk_widget_show(lbl);
 	fuente(lbl, px, negrita, alpha);
 	return lbl;
@@ -540,22 +541,49 @@ pintar_pie(void)
 
 /* En qué monitor está una ventana, por número; -1 si todavía no se sabe
  * (una ventana que no se ha mapeado no está en ninguno). */
+/* GTK 4 lists monitors as a GListModel instead of by index; these two
+ * wrap it so the rest of this file can keep using plain indices. */
+static guint
+n_monitores(GdkDisplay *dpy)
+{
+	GListModel *m = dpy ? gdk_display_get_monitors(dpy) : NULL;
+	return m ? g_list_model_get_n_items(m) : 0;
+}
+
+/* The monitor at INDICE, or NULL; unref it (g_object_unref) when done --
+ * GListModel hands out owned references, unlike the old borrowed-pointer
+ * API. */
+static GdkMonitor *
+monitor_indice(GdkDisplay *dpy, guint indice)
+{
+	GListModel *m = dpy ? gdk_display_get_monitors(dpy) : NULL;
+
+	if (!m || indice >= g_list_model_get_n_items(m))
+		return NULL;
+	return GDK_MONITOR(g_list_model_get_item(m, indice));
+}
+
 static int
 monitor_de(GtkWidget *w)
 {
 	GdkDisplay *dpy = gtk_widget_get_display(w);
-	GdkWindow *gw = gtk_widget_get_window(w);
-	GdkMonitor *m = NULL;
-	int n, i;
+	GtkNative *native = gtk_widget_get_native(w);
+	GdkSurface *surface = native ? gtk_native_get_surface(native) : NULL;
+	GdkMonitor *m = surface ? gdk_display_get_monitor_at_surface(dpy, surface)
+				: NULL;
+	guint n, i;
 
-	if (gw)
-		m = gdk_display_get_monitor_at_window(dpy, gw);
 	if (!m)
 		return -1;
-	n = gdk_display_get_n_monitors(dpy);
-	for (i = 0; i < n; ++i)
-		if (gdk_display_get_monitor(dpy, i) == m)
-			return i;
+	n = n_monitores(dpy);
+	for (i = 0; i < n; ++i) {
+		GdkMonitor *candidato = monitor_indice(dpy, i);
+		gboolean es = candidato == m;
+
+		g_clear_object(&candidato);
+		if (es)
+			return (int)i;
+	}
 	return -1;
 }
 
@@ -565,20 +593,15 @@ static int
 monitor_del_atril(void)
 {
 	GdkDisplay *dpy = gdk_display_get_default();
-	GdkMonitor *primero;
-	int atril = -1, n, i;
+	int atril = -1;
 
 	if (widgets.app)
 		atril = monitor_de(widgets.app);
 	if (atril >= 0)
 		return atril;
-	/* Sin ventana principal a la que mirar, el monitor principal. */
-	primero = dpy ? gdk_display_get_primary_monitor(dpy) : NULL;
-	n = dpy ? gdk_display_get_n_monitors(dpy) : 0;
-	for (i = 0; i < n; ++i)
-		if (gdk_display_get_monitor(dpy, i) == primero)
-			return i;
-	return (n > 0) ? 0 : -1;
+	/* Sin ventana principal a la que mirar: el primero de la lista --
+	 * GTK 4 no distingue un monitor "principal". */
+	return (dpy && n_monitores(dpy) > 0) ? 0 : -1;
 }
 
 /* El monitor que no es el del atril, o -1 si solo hay uno. */
@@ -592,12 +615,12 @@ segunda_monitor(GdkDisplay **dpy_out)
 
 	if (dpy_out)
 		*dpy_out = dpy;
-	n = gdk_display_get_n_monitors(dpy);
+	n = n_monitores(dpy);
 	if (n < 2)
 		return -1;
 	for (i = 0; i < n; ++i)
-		if (i != atril)
-			return i;
+		if ((int)i != atril)
+			return (int)i;
 	return -1;
 }
 
@@ -606,7 +629,7 @@ segunda_cerrar(void)
 {
 	if (!pu->win2)
 		return;
-	gtk_widget_destroy(pu->win2);
+	gui_widget_destroy(pu->win2);
 	pu->win2 = NULL;
 	pu->tapa2 = NULL;
 	pu->lbl2_punto = pu->lbl2_verso = pu->lbl2_cita = NULL;
@@ -617,13 +640,12 @@ renglon2(GtkWidget *caja, gdouble xalign)
 {
 	GtkWidget *lbl = gtk_label_new("");
 
-	gtk_label_set_line_wrap(GTK_LABEL(lbl), TRUE);
-	gtk_label_set_line_wrap_mode(GTK_LABEL(lbl), PANGO_WRAP_WORD_CHAR);
+	gtk_label_set_wrap(GTK_LABEL(lbl), TRUE);
+	gtk_label_set_wrap_mode(GTK_LABEL(lbl), PANGO_WRAP_WORD_CHAR);
 	gtk_label_set_xalign(GTK_LABEL(lbl), xalign);
 	gtk_label_set_justify(GTK_LABEL(lbl), GTK_JUSTIFY_LEFT);
 	/* La visibilidad la lleva segunda_pintar(), no el show_all. */
-	gtk_widget_set_no_show_all(lbl, TRUE);
-	gtk_box_pack_start(GTK_BOX(caja), lbl, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(caja), lbl);
 	return lbl;
 }
 
@@ -646,31 +668,34 @@ segunda_abrir(void)
 	 * proyector de 1024 que un televisor. Y el ancho de la columna hay
 	 * que decirlo a mano: GTK reparte el de una etiqueta que envuelve
 	 * con la letra del tema, no con la que se le pone después. */
-	gdk_monitor_get_geometry(gdk_display_get_monitor(dpy, idx), &geo);
+	{
+		GdkMonitor *mon = monitor_indice(dpy, idx);
+		gdk_monitor_get_geometry(mon, &geo);
+		g_clear_object(&mon);
+	}
 	pu->px2_verso = CLAMP((int)(geo.height / PU_ALTO2_VERSO), 20, 96);
 	pu->px2_punto = (pu->px2_verso * 3) / 4;
 	pu->px2_cita = MAX(pu->px2_verso / 2, 14);
 	ancho2 = (int)(geo.width * PU_ANCHO2);
 
-	pu->win2 = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+	pu->win2 = gtk_window_new();
 	gtk_window_set_title(GTK_WINDOW(pu->win2), _("Púlpito · pantalla"));
 	gtk_window_set_decorated(GTK_WINDOW(pu->win2), FALSE);
 	/* Ni roba el teclado ni se pone delante de nada: el que predica
-	 * sigue escribiendo en la suya. */
-	gtk_window_set_accept_focus(GTK_WINDOW(pu->win2), FALSE);
-	gtk_window_set_focus_on_map(GTK_WINDOW(pu->win2), FALSE);
-	gtk_style_context_add_class(gtk_widget_get_style_context(pu->win2),
-				    "pulpito");
+	 * sigue escribiendo en la suya. GTK 4 no ofrece un accept-focus
+	 * de ventana normal para pedirlo explícitamente; queda a lo que
+	 * el gestor de ventanas haga con una ventana sin decorar. */
+	gtk_widget_add_css_class(pu->win2, "pulpito");
 
 	/* Todo va dentro de un overlay para poder echarle la tapa negra
 	 * encima. El fondo de una ventana se fija al realizarla, así que
 	 * ponerle una clase después no la repinta: por eso el negro es un
 	 * widget que se enseña y se esconde, y no un color que se cambia. */
 	envoltura = gtk_overlay_new();
-	gtk_container_add(GTK_CONTAINER(pu->win2), envoltura);
+	gtk_window_set_child(GTK_WINDOW(pu->win2), envoltura);
 
 	fila = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
-	gtk_container_add(GTK_CONTAINER(envoltura), fila);
+	gtk_overlay_set_child(GTK_OVERLAY(envoltura), fila);
 	col = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
 	/* La columna se estira a lo ancho de la pantalla y se estrecha con
 	 * los márgenes. Centrarla en su ancho natural no vale: una etiqueta
@@ -680,7 +705,7 @@ segunda_abrir(void)
 	gtk_widget_set_valign(col, GTK_ALIGN_CENTER);
 	gtk_widget_set_margin_start(col, (geo.width - ancho2) / 2);
 	gtk_widget_set_margin_end(col, (geo.width - ancho2) / 2);
-	gtk_box_pack_start(GTK_BOX(fila), col, TRUE, TRUE, 0);
+	gui_box_pack(GTK_BOX(fila), col, TRUE, TRUE, 0);
 
 	pu->lbl2_punto = renglon2(col, 0.0);
 	pu->lbl2_verso = renglon2(col, 0.0);
@@ -688,19 +713,17 @@ segunda_abrir(void)
 	gtk_widget_set_margin_bottom(pu->lbl2_punto, 28);
 	gtk_widget_set_margin_top(pu->lbl2_cita, 24);
 
-	pu->tapa2 = gtk_event_box_new();
-	gtk_style_context_add_class(gtk_widget_get_style_context(pu->tapa2),
-				    "pulpito-negro");
+	pu->tapa2 = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+	gtk_widget_add_css_class(pu->tapa2, "pulpito-negro");
 	gtk_widget_set_halign(pu->tapa2, GTK_ALIGN_FILL);
 	gtk_widget_set_valign(pu->tapa2, GTK_ALIGN_FILL);
 	/* La enseña segunda_pintar(), no el show_all. */
-	gtk_widget_set_no_show_all(pu->tapa2, TRUE);
 	gtk_overlay_add_overlay(GTK_OVERLAY(envoltura), pu->tapa2);
 
 	/* El monitor se pide antes de enseñarla: después, el compositor ya
 	 * la ha colocado y la petición llega tarde. */
 	completa_en(pu->win2, idx);
-	gtk_widget_show_all(pu->win2);
+	gtk_widget_show(pu->win2);
 	/* Y el teclado se queda donde estaba. */
 	gtk_window_present(GTK_WINDOW(pu->win));
 }
@@ -1173,7 +1196,7 @@ salir(int a_donde)
 	guardar_estado();
 	preguntar_predicado();
 
-	gtk_widget_destroy(pu->win);	/* on_destroy limpia pu */
+	gui_widget_destroy(pu->win);	/* on_destroy limpia pu */
 
 	switch (a_donde) {
 	case 'E':
@@ -1209,7 +1232,7 @@ salir(int a_donde)
  * ------------------------------------------------------------------ */
 
 static gboolean
-on_tecla(GtkWidget *widget, GdkEventKey *ev, gpointer datos)
+on_tecla(GtkWidget *widget, GuiKeyEvent *ev, gpointer datos)
 {
 	guint k = ev->keyval;
 
@@ -1333,7 +1356,7 @@ on_tecla(GtkWidget *widget, GdkEventKey *ev, gpointer datos)
 
 /* Ratón, como apoyo: abajo avanza, arriba retrocede. */
 static gboolean
-on_click(GtkWidget *widget, GdkEventButton *ev, gpointer datos)
+on_click(GtkWidget *widget, GuiButtonEvent *ev, gpointer datos)
 {
 	int alto = gtk_widget_get_allocated_height(widget);
 
@@ -1402,9 +1425,9 @@ poner_estilo(GtkWidget *win)
 	if (puesto)
 		return;
 	prov = gtk_css_provider_new();
-	gtk_css_provider_load_from_data(prov, css, -1, NULL);
-	gtk_style_context_add_provider_for_screen(
-	    gtk_widget_get_screen(win), GTK_STYLE_PROVIDER(prov),
+	gtk_css_provider_load_from_string(prov, css);
+	gtk_style_context_add_provider_for_display(
+	    gtk_widget_get_display(win), GTK_STYLE_PROVIDER(prov),
 	    GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 	g_object_unref(prov);
 	puesto = TRUE;
@@ -1420,12 +1443,10 @@ static gboolean
 asegurar_completa(gpointer datos)
 {
 	GtkWidget *win = GTK_WIDGET(datos);
-	GdkWindow *gw;
 
 	if (!GTK_IS_WINDOW(win))
 		return G_SOURCE_REMOVE;
-	gw = gtk_widget_get_window(win);
-	if (gw && !(gdk_window_get_state(gw) & GDK_WINDOW_STATE_FULLSCREEN))
+	if (!gtk_window_is_fullscreen(GTK_WINDOW(win)))
 		gtk_window_fullscreen(GTK_WINDOW(win));
 	return G_SOURCE_REMOVE;
 }
@@ -1433,13 +1454,15 @@ asegurar_completa(gpointer datos)
 static void
 completa_en(GtkWidget *win, int monitor)
 {
-	if (monitor >= 0)
-		gtk_window_fullscreen_on_monitor(
-		    GTK_WINDOW(win),
-		    gdk_display_get_default_screen(
-			gtk_widget_get_display(win)),
-		    monitor);
-	else
+	GdkMonitor *mon = (monitor >= 0)
+			      ? monitor_indice(gtk_widget_get_display(win),
+					      (guint)monitor)
+			      : NULL;
+
+	if (mon) {
+		gtk_window_fullscreen_on_monitor(GTK_WINDOW(win), mon);
+		g_object_unref(mon);
+	} else
 		gtk_window_fullscreen(GTK_WINDOW(win));
 	g_timeout_add(600, asegurar_completa, win);
 }
@@ -1454,7 +1477,7 @@ columna(GtkWidget *dentro, GtkSizeGroup *anchos)
 	gtk_widget_set_hexpand(col, FALSE);
 	if (anchos)
 		gtk_size_group_add_widget(anchos, col);
-	gtk_box_pack_start(GTK_BOX(dentro), col, TRUE, TRUE, 0);
+	gui_box_pack(GTK_BOX(dentro), col, TRUE, TRUE, 0);
 	return col;
 }
 
@@ -1473,8 +1496,8 @@ preguntar(GtkWindow *padre, const char *texto, const char *si, const char *no)
 	gtk_dialog_add_buttons(GTK_DIALOG(dlg), no, GTK_RESPONSE_NO, si,
 			       GTK_RESPONSE_YES, NULL);
 	gtk_dialog_set_default_response(GTK_DIALOG(dlg), GTK_RESPONSE_YES);
-	resp = gtk_dialog_run(GTK_DIALOG(dlg));
-	gtk_widget_destroy(dlg);
+	resp = gui_dialog_run(GTK_DIALOG(dlg));
+	gui_widget_destroy(dlg);
 	return (resp == GTK_RESPONSE_YES);
 }
 
@@ -1537,23 +1560,21 @@ gui_pulpito_abrir(const char *modulo)
 		g_free(texto);
 	}
 
-	pu->win = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+	pu->win = gtk_window_new();
 	gtk_window_set_title(GTK_WINDOW(pu->win), sermon->titulo);
-	gtk_style_context_add_class(gtk_widget_get_style_context(pu->win),
-				    "pulpito");
+	gtk_widget_add_css_class(pu->win, "pulpito");
 	poner_estilo(pu->win);
 	if (widgets.app)
 		gtk_window_set_transient_for(GTK_WINDOW(pu->win),
 					     GTK_WINDOW(widgets.app));
-	gtk_widget_add_events(pu->win, GDK_BUTTON_PRESS_MASK);
 
 	anchos = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
 
 	overlay = gtk_overlay_new();
-	gtk_container_add(GTK_CONTAINER(pu->win), overlay);
+	gtk_window_set_child(GTK_WINDOW(pu->win), overlay);
 
 	raiz = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
-	gtk_container_add(GTK_CONTAINER(overlay), raiz);
+	gtk_overlay_set_child(GTK_OVERLAY(overlay), raiz);
 
 	/* --- cabecera mínima --- */
 	{
@@ -1573,9 +1594,8 @@ gui_pulpito_abrir(const char *modulo)
 					      PU_MEDIDA);
 		pu->lbl_ref = gtk_label_new("");
 		gtk_label_set_xalign(GTK_LABEL(pu->lbl_ref), 0.0);
-		gtk_box_pack_start(GTK_BOX(izq), pu->lbl_cabecera, FALSE,
-				   FALSE, 0);
-		gtk_box_pack_start(GTK_BOX(izq), pu->lbl_ref, FALSE, FALSE, 0);
+		gtk_box_append(GTK_BOX(izq), pu->lbl_cabecera);
+		gtk_box_append(GTK_BOX(izq), pu->lbl_ref);
 
 		/* A la derecha, en columna: lo que se lleva predicado
 		 * arriba y la hora debajo, en pequeño. El número grande es
@@ -1588,35 +1608,33 @@ gui_pulpito_abrir(const char *modulo)
 			gtk_label_set_xalign(GTK_LABEL(pu->lbl_tiempo), 1.0);
 			pu->lbl_reloj = gtk_label_new("");
 			gtk_label_set_xalign(GTK_LABEL(pu->lbl_reloj), 1.0);
-			gtk_box_pack_start(GTK_BOX(der), pu->lbl_tiempo, FALSE,
-					   FALSE, 0);
-			gtk_box_pack_start(GTK_BOX(der), pu->lbl_reloj, FALSE,
-					   FALSE, 0);
+			gtk_box_append(GTK_BOX(der), pu->lbl_tiempo);
+			gtk_box_append(GTK_BOX(der), pu->lbl_reloj);
 			gtk_widget_set_valign(der, GTK_ALIGN_START);
 
 			pu->lbl_negro = gtk_label_new("");
 			gtk_widget_set_valign(pu->lbl_negro, GTK_ALIGN_START);
 			gtk_widget_set_margin_end(pu->lbl_negro, 18);
 			/* La lleva pintar_estado_negro(), no el show_all. */
-			gtk_widget_set_no_show_all(pu->lbl_negro, TRUE);
 
-			gtk_box_pack_start(GTK_BOX(fila), izq, TRUE, TRUE, 0);
-			gtk_box_pack_end(GTK_BOX(fila), der, FALSE, FALSE, 0);
-			gtk_box_pack_end(GTK_BOX(fila), pu->lbl_negro, FALSE,
-					 FALSE, 0);
+			gui_box_pack(GTK_BOX(fila), izq, TRUE, TRUE, 0);
+			/* the same visual order gtk_box_pack_end() gave: der
+			 * at the far end, lbl_negro just before it */
+			gtk_box_append(GTK_BOX(fila), pu->lbl_negro);
+			gtk_box_append(GTK_BOX(fila), der);
 		}
-		gtk_box_pack_start(GTK_BOX(cabecera), fila, FALSE, FALSE, 0);
-		gtk_box_pack_start(GTK_BOX(raiz), caja, FALSE, FALSE, 0);
+		gtk_box_append(GTK_BOX(cabecera), fila);
+		gtk_box_append(GTK_BOX(raiz), caja);
 	}
 
 	/* --- el escenario --- */
 	cuerpo = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
-	gtk_box_pack_start(GTK_BOX(raiz), cuerpo, TRUE, TRUE, 0);
+	gui_box_pack(GTK_BOX(raiz), cuerpo, TRUE, TRUE, 0);
 	col = columna(cuerpo, anchos);
 	pu->caja_escena = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
 	gtk_widget_set_valign(pu->caja_escena, GTK_ALIGN_CENTER);
 	gtk_widget_set_vexpand(pu->caja_escena, TRUE);
-	gtk_box_pack_start(GTK_BOX(col), pu->caja_escena, TRUE, TRUE, 0);
+	gui_box_pack(GTK_BOX(col), pu->caja_escena, TRUE, TRUE, 0);
 
 	/* --- el pie de camino --- */
 	{
@@ -1630,9 +1648,9 @@ gui_pulpito_abrir(const char *modulo)
 					PANGO_ELLIPSIZE_END);
 		gtk_label_set_max_width_chars(GTK_LABEL(pu->lbl_siguiente),
 					      PU_MEDIDA);
-		gtk_box_pack_start(GTK_BOX(pie), pu->lbl_siguiente, FALSE,
-				   FALSE, 0);
-		gtk_box_pack_end(GTK_BOX(raiz), caja, FALSE, FALSE, 0);
+		gtk_box_append(GTK_BOX(pie), pu->lbl_siguiente);
+		/* the last child raiz gets: at the bottom, as pack_end left it */
+		gtk_box_append(GTK_BOX(raiz), caja);
 	}
 
 	/* --- la capa de los overlays --- */
@@ -1642,46 +1660,41 @@ gui_pulpito_abrir(const char *modulo)
 		GtkWidget *ccol;
 
 		pu->capa = caja;
-		pu->capa_scroll = gtk_scrolled_window_new(NULL, NULL);
-		gtk_style_context_add_class(gtk_widget_get_style_context(caja),
-					    "pulpito-capa");
-		gtk_box_pack_start(GTK_BOX(caja), fila, TRUE, TRUE, 0);
+		pu->capa_scroll = gtk_scrolled_window_new();
+		gtk_widget_add_css_class(caja, "pulpito-capa");
+		gui_box_pack(GTK_BOX(caja), fila, TRUE, TRUE, 0);
 		ccol = columna(fila, anchos);
 		gtk_widget_set_margin_top(ccol, 30);
 		gtk_widget_set_margin_bottom(ccol, 30);
 
 		pu->lbl_capa_titulo = gtk_label_new("");
 		gtk_label_set_xalign(GTK_LABEL(pu->lbl_capa_titulo), 0.0);
-		gtk_box_pack_start(GTK_BOX(ccol), pu->lbl_capa_titulo, FALSE,
-				   FALSE, 0);
+		gtk_box_append(GTK_BOX(ccol), pu->lbl_capa_titulo);
 
 		pu->lbl_capa = gtk_label_new("");
 		gtk_label_set_xalign(GTK_LABEL(pu->lbl_capa), 0.0);
 		gtk_label_set_yalign(GTK_LABEL(pu->lbl_capa), 0.0);
-		gtk_label_set_line_wrap(GTK_LABEL(pu->lbl_capa), TRUE);
-		gtk_label_set_line_wrap_mode(GTK_LABEL(pu->lbl_capa),
+		gtk_label_set_wrap(GTK_LABEL(pu->lbl_capa), TRUE);
+		gtk_label_set_wrap_mode(GTK_LABEL(pu->lbl_capa),
 					     PANGO_WRAP_WORD_CHAR);
 		gtk_label_set_max_width_chars(GTK_LABEL(pu->lbl_capa),
 					      PU_MEDIDA);
-		gtk_container_add(GTK_CONTAINER(pu->capa_scroll), pu->lbl_capa);
+		gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(pu->capa_scroll), pu->lbl_capa);
 		gtk_scrolled_window_set_policy(
 		    GTK_SCROLLED_WINDOW(pu->capa_scroll), GTK_POLICY_NEVER,
 		    GTK_POLICY_AUTOMATIC);
-		gtk_box_pack_start(GTK_BOX(ccol), pu->capa_scroll, TRUE, TRUE,
-				   0);
+		gui_box_pack(GTK_BOX(ccol), pu->capa_scroll, TRUE, TRUE, 0);
 
 		gtk_overlay_add_overlay(GTK_OVERLAY(overlay), caja);
 	}
 
-	g_signal_connect(pu->win, "key-press-event", G_CALLBACK(on_tecla),
-			 NULL);
-	g_signal_connect(pu->win, "button-press-event", G_CALLBACK(on_click),
-			 NULL);
+	gui_widget_on_key_phase(GTK_WIDGET(pu->win), GTK_PHASE_CAPTURE, (GuiKeyFunc)on_tecla, NULL, NULL);
+	gui_widget_on_button(GTK_WIDGET(pu->win), GTK_PHASE_CAPTURE, (GuiButtonFunc)on_click, NULL, NULL);
 	g_signal_connect(pu->win, "destroy", G_CALLBACK(on_destroy), NULL);
 
 	pu->monitor = monitor_del_atril();
 	completa_en(pu->win, pu->monitor);
-	gtk_widget_show_all(pu->win);
+	gtk_widget_show(pu->win);
 	gtk_widget_hide(pu->capa);	/* la capa empieza cerrada */
 
 	g_object_unref(anchos);
@@ -1753,7 +1766,7 @@ gui_pulpito_elegir(GtkWindow *padre)
 	gtk_widget_set_margin_end(combo, 12);
 	gtk_widget_set_margin_top(combo, 12);
 	gtk_widget_set_margin_bottom(combo, 12);
-	gtk_box_pack_start(GTK_BOX(caja), combo, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(caja), combo);
 
 	/* La duración prevista, para el aviso del reloj del atril. En cero
 	 * no avisa de nada, que es como viene: el que no quiere que le
@@ -1766,20 +1779,18 @@ gui_pulpito_elegir(GtkWindow *padre)
 		gtk_spin_button_set_value(GTK_SPIN_BUTTON(reloj),
 					  main_pulpito_objetivo());
 		gtk_label_set_xalign(GTK_LABEL(etq), 0.0);
-		gtk_box_pack_start(GTK_BOX(filat), etq, FALSE, FALSE, 0);
-		gtk_box_pack_start(GTK_BOX(filat), reloj, FALSE, FALSE, 0);
-		gtk_box_pack_start(GTK_BOX(filat),
-				   gtk_label_new(_("minutos · 0 = sin aviso")),
-				   FALSE, FALSE, 0);
+		gtk_box_append(GTK_BOX(filat), etq);
+		gtk_box_append(GTK_BOX(filat), reloj);
+		gtk_box_append(GTK_BOX(filat), gtk_label_new(_("minutos · 0 = sin aviso")));
 		gtk_widget_set_margin_start(filat, 12);
 		gtk_widget_set_margin_end(filat, 12);
 		gtk_widget_set_margin_bottom(filat, 6);
-		gtk_box_pack_start(GTK_BOX(caja), filat, FALSE, FALSE, 0);
+		gtk_box_append(GTK_BOX(caja), filat);
 	}
 
 	/* Lo de la segunda pantalla solo se pregunta si la hay: en un
 	 * portátil solo, la pregunta sobra. */
-	if (dpy && gdk_display_get_n_monitors(dpy) > 1) {
+	if (dpy && n_monitores(dpy) > 1) {
 		static const char *que[] = {N_("nada"), N_("el versículo"),
 					    N_("el punto"),
 					    N_("el versículo y el punto")};
@@ -1798,13 +1809,13 @@ gui_pulpito_elegir(GtkWindow *padre)
 		gtk_widget_set_margin_start(combo2, 12);
 		gtk_widget_set_margin_end(combo2, 12);
 		gtk_widget_set_margin_bottom(combo2, 12);
-		gtk_box_pack_start(GTK_BOX(caja), etq, FALSE, FALSE, 0);
-		gtk_box_pack_start(GTK_BOX(caja), combo2, FALSE, FALSE, 0);
+		gtk_box_append(GTK_BOX(caja), etq);
+		gtk_box_append(GTK_BOX(caja), combo2);
 	}
 
-	gtk_widget_show_all(dlg);
+	gtk_widget_show(dlg);
 
-	resp = gtk_dialog_run(GTK_DIALOG(dlg));
+	resp = gui_dialog_run(GTK_DIALOG(dlg));
 	if (resp == GTK_RESPONSE_OK) {
 		const gchar *id =
 		    gtk_combo_box_get_active_id(GTK_COMBO_BOX(combo));
@@ -1815,12 +1826,12 @@ gui_pulpito_elegir(GtkWindow *padre)
 		if (combo2)
 			main_pulpito_segunda_poner((PU_SEGUNDA)
 			    gtk_combo_box_get_active(GTK_COMBO_BOX(combo2)));
-		gtk_widget_destroy(dlg);
+		gui_widget_destroy(dlg);
 		if (*elegido)
 			gui_pulpito_abrir(elegido);
 		g_free(elegido);
 	} else
-		gtk_widget_destroy(dlg);
+		gui_widget_destroy(dlg);
 
 	g_list_free_full(sermones, g_free);
 }

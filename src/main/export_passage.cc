@@ -38,53 +38,6 @@
 
 #define HTML_START "<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" /><style type=\"text/css\"><!-- A { text-decoration:none } *[dir=rtl] { text-align: right; } .transChangeSupplied { font-style: italic; } --></style></head><body>"
 
-enum {
-	TARGET_HTML,
-	TARGET_UTF8_STRING,
-	TARGET_COMPOUND_TEXT,
-	TARGET_STRING,
-	TARGET_TEXT
-};
-
-/* these targets allow fallback to plain text if the target doesn't
-   want html */
-
-GtkTargetEntry selection_targets[] = {
-    {(gchar *)"text/html", 0, TARGET_HTML},
-    {(gchar *)"UTF8_STRING", 0, TARGET_UTF8_STRING},
-    {(gchar *)"COMPOUND_TEXT", 0, TARGET_COMPOUND_TEXT},
-    {(gchar *)"STRING", 0, TARGET_STRING},
-    {(gchar *)"TEXT", 0, TARGET_TEXT}};
-
-/* there is probably a better way to do this */
-static gchar *copy_text;
-
-/**
- * clipboardreq_get:
- * @clipboard:
- * @selection_data:
- * @info:
- * @user_data:
- *
- * This function is called every time a user pastes in another application
- **/
-static void clipboardreq_get(GtkClipboard *clipboard,
-			     GtkSelectionData *selection_data,
-			     guint info, gpointer user_data)
-{
-	gchar *text = g_strdup(copy_text);
-	if (info == TARGET_HTML) {
-		gtk_selection_data_set(selection_data, gdk_atom_intern("text/html", FALSE),
-				       16, (const guchar *)text, strlen(text));
-	} else {
-		gtk_selection_data_set_text(selection_data, text, strlen(text));
-	}
-
-	g_free(text);
-
-	return;
-}
-
 int main_get_max_verses(const char *name)
 {
     BibleKeyInfo info;
@@ -110,16 +63,20 @@ int main_get_current_verse(const char *name)
  **/
 static void _copy_to_clipboard(EXPORT_DATA data, char *text, int len)
 {
-	GtkClipboard *clipboard = gtk_clipboard_get(GDK_SELECTION_CLIPBOARD);
+	/* HTML where the other side takes it, the same text otherwise */
+	GdkClipboard *clipboard =
+	    gdk_display_get_clipboard(gdk_display_get_default());
+	GBytes *html = g_bytes_new(text, strlen(text));
+	GdkContentProvider *providers[] = {
+		gdk_content_provider_new_for_bytes("text/html", html),
+		gdk_content_provider_new_typed(G_TYPE_STRING, text),
+	};
+	GdkContentProvider *provider =
+	    gdk_content_provider_new_union(providers, G_N_ELEMENTS(providers));
 
-	if (copy_text)
-		g_free(copy_text);
-	copy_text = g_strdup(text);
-	gtk_clipboard_set_with_data(clipboard, selection_targets,
-				    G_N_ELEMENTS(selection_targets),
-				    (GtkClipboardGetFunc)clipboardreq_get,
-				    NULL,
-				    NULL);
+	gdk_clipboard_set_content(clipboard, provider);
+	g_object_unref(provider);
+	g_bytes_unref(html);
 	if (data.bookheader)
 		g_free(data.bookheader);
 	if (data.chapterheader_book)

@@ -28,21 +28,9 @@ message(STATUS "  Build type                   ${CMAKE_BUILD_TYPE}")
 message(STATUS "  Install prefix               ${CMAKE_INSTALL_PREFIX}")
 
 # Options
-message(STATUS "  Gtk version                  Gtk+-3.0")
+message(STATUS "  Gtk version                  GTK ${Gtk_VERSION}")
 
-if (WEBKIT1)
-  message(STATUS "  WebKitGTK                    WebKit1")
-else ()
-  message(STATUS "  WebKitGTK                    WebKit2")
-endif ()
-
-if (GTKTVEDITOR)
-  message(STATUS "  Editor                       GtkTextView")
-elseif (GTKHTML)
-  message(STATUS "  Editor                       Gtkhtml")
-else ()
-  message(STATUS "  Editor                       WebKit-editor")
-endif ()
+message(STATUS "  Editor                       GtkTextView (GTK4 native)")
 message(STATUS "  D-Bus                        ${DBUS}")
 
 if (CMAKE_BUILD_TYPE MATCHES Debug)

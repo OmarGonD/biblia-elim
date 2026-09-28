@@ -26,6 +26,7 @@ extern "C" {
 #endif
 #include "main/mod_mgr.h"
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 
 void gui_update_install_status(glong total, glong done,
 			       const gchar *message);
@@ -36,17 +37,10 @@ void gui_open_mod_mgr(void);
 void gui_open_mod_mgr_initial_run(void);
 void clear_and_hide_progress_bar(void);
 
-#ifdef USE_GTK_3
 void
 on_notebook1_switch_page(GtkNotebook *notebook,
 			 gpointer arg,
 			 guint page_num, gpointer user_data);
-#else
-void
-on_notebook1_switch_page(GtkNotebook *notebook,
-			 GtkNotebookPage *page,
-			 guint page_num, gpointer user_data);
-#endif
 
 void on_radiobutton2_toggled(GtkToggleButton *togglebutton,
 			     gpointer user_data);
@@ -78,7 +72,7 @@ void on_button_add_remote_clicked(GtkButton *button,
 void on_button_remove_remote_clicked(GtkButton *button,
 				     gpointer user_data);
 gboolean on_treeview1_button_release_event(GtkWidget *widget,
-					   GdkEventButton *event,
+					   GuiButtonEvent *event,
 					   gpointer user_data);
 
 #ifdef __cplusplus

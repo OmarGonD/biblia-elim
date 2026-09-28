@@ -110,9 +110,12 @@ void gui_init(int argc, char *argv[])
 	textdomain(GETTEXT_PACKAGE);
 	g_free(locale_dir);
 #endif
-	if (!gtk_init_with_args(&argc, &argv, NULL, NULL, NULL, NULL)) {
+	(void)argc;
+	(void)argv;
+	if (!gtk_init_check()) {
+		g_printerr("%s\n", _("Cannot open the display"));
 		exit(1);
-	};
+	}
 
 	g_object_set(gtk_settings_get_default(),
 		     "gtk-overlay-scrolling", TRUE,
@@ -123,8 +126,7 @@ void gui_init(int argc, char *argv[])
 		GtkCssProvider *css_provider = gtk_css_provider_new();
 		gtk_css_provider_load_from_resource(css_provider,
 						    "/org/xiphos/ui/xiphos-style.css");
-		gtk_style_context_add_provider_for_screen(
-		    gdk_screen_get_default(),
+		gtk_style_context_add_provider_for_display(gdk_display_get_default(),
 		    GTK_STYLE_PROVIDER(css_provider),
 		    GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 		g_object_unref(css_provider);
@@ -134,9 +136,21 @@ void gui_init(int argc, char *argv[])
 #endif
 }
 
+static GMainLoop *main_loop;
+
+/* GTK 4 has no gtk_main(): the application runs this loop until
+ * gui_main_quit(). */
 void gui_main(void)
 {
-	gtk_main();
+	main_loop = g_main_loop_new(NULL, FALSE);
+	g_main_loop_run(main_loop);
+	g_clear_pointer(&main_loop, g_main_loop_unref);
+}
+
+void gui_main_quit(void)
+{
+	if (main_loop && g_main_loop_is_running(main_loop))
+		g_main_loop_quit(main_loop);
 }
 
 #ifdef DEBUG

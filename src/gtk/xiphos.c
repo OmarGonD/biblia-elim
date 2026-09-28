@@ -156,58 +156,21 @@ void frontend_init(void)
 
 void frontend_display(const char *tabs)
 {
-	GdkDisplay *display = gdk_display_get_default();
-	/* Wayland compositors generally have no notion of a "primary"
-	 * monitor, so gdk_display_get_primary_monitor() can legitimately
-	 * return NULL there; fall back to the first available monitor. */
-	GdkMonitor *monitor = gdk_display_get_primary_monitor(display);
-	if (!monitor)
-		monitor = gdk_display_get_monitor(display, 0);
-	GdkRectangle monitor_geometry;
-	gdk_monitor_get_geometry(monitor, &monitor_geometry);
-	gint screen_width = monitor_geometry.width;
-	gint screen_height = monitor_geometry.height;
-
 	XI_print(("%s\n", "Displaying Xiphos"));
 	gui_show_main_window();
 	panel_load_debug("app", "WINDOW_SHOW", NULL);
 
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.viewtexts_item),
-				       settings.showtexts);
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.viewcomms_item),
-				       settings.showcomms);
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.viewdicts_item),
-				       settings.showdicts);
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.viewpreview_item),
-				       settings.showpreview);
 	gui_show_hide_preview(settings.showpreview);
 	gui_show_hide_texts(settings.showtexts);
 	gui_show_hide_dicts(settings.showdicts);
 	gui_show_hide_comms(settings.showcomms);
 	gui_toggle_reading_mode(settings.reading_mode);
 
-	/*
-	 * a little paranoia:
-	 * clamp geometry values to a reasonable bound.
-	 * sometimes xiphos gets insane reconfig events as it dies,
-	 * especially if it's due to just shutting linux down.
-	 */
-	/* Wayland compositors (Hyprland) own placement and ignore
-	 * gtk_window_move; Omarchy also suppresses maximize events. */
-	if (!gui_display_is_wayland()) {
-		if (settings.app_x < 0)
-			settings.app_x = 0;
-		if (settings.app_x > (screen_width - 100))
-			settings.app_x = screen_width - 100;
-		if (settings.app_y < 0)
-			settings.app_y = 0;
-		if (settings.app_y > (screen_height - 100))
-			settings.app_y = screen_height - 100;
-		if (settings.maximized)
-			gtk_window_maximize(GTK_WINDOW(widgets.app));
-		gtk_window_move(GTK_WINDOW(widgets.app), settings.app_x,
-				settings.app_y);
-	}
+	/* GTK 4 leaves the window's position to the compositor. Wayland
+	 * compositors (Hyprland) also own maximizing; Omarchy suppresses
+	 * maximize events. */
+	if (!gui_display_is_wayland() && settings.maximized)
+		gtk_window_maximize(GTK_WINDOW(widgets.app));
 
 	/* gecko  needs the widgets to be visible before writing */
 	sync_windows();
@@ -216,11 +179,6 @@ void frontend_display(const char *tabs)
 	gui_notebook_main_setup(settings.browsing, tabs);
 	/* must be set after tab stuff is done */
 
-	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.parallel_tab_item),
-				       settings.showparatab);
-	g_signal_connect(G_OBJECT(widgets.parallel_tab_item),
-			 "toggled",
-			 G_CALLBACK(gui_parallel_tab_activate), NULL);
 	gui_show_previewer_in_sidebar(settings.show_previewer_in_sidebar);
 
 	/* open saved windows as needed */

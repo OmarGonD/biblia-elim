@@ -80,6 +80,7 @@ add_library (main
   font_size.c
   sidebar.cc
 	strong_interaction.cc
+	strong_lexicon_startup.cc
 	strong_ui.cc
   sword.cc
   sword_treekey.cc
@@ -136,3 +137,44 @@ if(WK_FOUND)
     PkgConfig::WK
     )
 endif()
+
+# MORPH-109: generate the neutral Strong lexicon SQLite file from the
+# bundled ui/strongs-elim.xml (Strong 1890 PD + Open Scriptures glosses,
+# already used at runtime by the legacy interlinear path). Reproducible,
+# build-time step -- mirrors how src/gtk/CMakeLists.txt turns
+# ui/xiphos.gresource.xml into xiphos_resources.c: a generated artifact
+# under the build directory, never committed to the source tree.
+# main_bind_strong_lexicon() (strong_lexicon_startup.cc) looks for the
+# result next to the running binary at startup, and degrades gracefully
+# (no lexicon bound, today's bare-Strong-ID dialog behavior) if it is
+# not there -- e.g. a build with Python unavailable.
+find_program (PYTHON3_EXECUTABLE NAMES python3)
+if (PYTHON3_EXECUTABLE)
+  set (xiphos_strongs_xml ${PROJECT_SOURCE_DIR}/ui/strongs-elim.xml)
+  set (xiphos_strongs_lexicon ${CMAKE_BINARY_DIR}/lexicon/strongs-elim.sqlite)
+  add_custom_command (
+    OUTPUT ${xiphos_strongs_lexicon}
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/scripts/generate_strongs_lexicon.py
+            --xml ${xiphos_strongs_xml}
+            --output ${xiphos_strongs_lexicon}
+    DEPENDS ${xiphos_strongs_xml}
+            ${PROJECT_SOURCE_DIR}/scripts/generate_strongs_lexicon.py
+    COMMENT "Generating strongs-elim.sqlite lexicon from strongs-elim.xml"
+    VERBATIM
+    )
+  add_custom_target (strongs_lexicon DEPENDS ${xiphos_strongs_lexicon})
+  add_dependencies (main strongs_lexicon)
+  target_compile_definitions (main PRIVATE
+    XIPHOS_BUILD_STRONG_LEXICON="${xiphos_strongs_lexicon}")
+
+  # Installed builds: alongside the other bundled data under SHARE_DIR
+  # (see cmake/XiphosConfig_h.cmake), read back by the same startup
+  # probe as a fallback when no build-tree copy is found.
+  install (FILES ${xiphos_strongs_lexicon}
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/${PROJECT_NAME})
+else ()
+  message (WARNING
+    "python3 not found: Strong lexicon (MORPH-109) will not be generated; "
+    "the word-detail dialog falls back to bare Strong IDs")
+endif ()

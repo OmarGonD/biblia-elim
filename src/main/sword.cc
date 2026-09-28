@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <glib.h>
 #include <glib/gstdio.h>
 
@@ -73,6 +74,7 @@ extern "C" {
 #include "main/settings.h"
 #include "main/sidebar.h"
 #include "main/strong_interaction.h"
+#include "main/strong_lexicon_startup.h"
 #include "main/startup_diagnostics.h"
 #include "main/lectura_sync.h"
 #include "main/interlineal.h"
@@ -1191,6 +1193,12 @@ void main_init_backend(void)
 	main_init_lists();
 	panel_load_debug("app", "MODULE_LISTS_READY", NULL);
 
+	/* MORPH-109: bind the neutral Strong lexicon (lemma/transliteration/
+	 * definition) into the SQLite word-detail dialog, once, here at
+	 * startup; a no-op, not an error, if the generated file is missing
+	 * (see main_bind_strong_lexicon(), strong_lexicon_startup.cc). */
+	main_bind_strong_lexicon();
+
 	//
 	// BibleSync backend startup.  identify the user by name.
 	//
@@ -1260,7 +1268,7 @@ void main_dictionary_entry_changed(char *mod_name)
 		settings.DictWindowModule = xml_get_value("modules", "dict");
 	}
 
-	key = g_strdup((gchar *)gtk_entry_get_text(GTK_ENTRY(widgets.entry_dict)));
+	key = g_strdup((gchar *)gtk_editable_get_text(GTK_EDITABLE(widgets.entry_dict)));
 
 	backend->set_module_key(mod_name, key);
 	g_free(key);
@@ -1274,13 +1282,17 @@ void main_dictionary_entry_changed(char *mod_name)
 	backend->set_module_key(mod_name, key);
 	backend->display_mod->display();
 
-	gtk_entry_set_text(GTK_ENTRY(widgets.entry_dict), key);
+	gtk_editable_set_text(GTK_EDITABLE(widgets.entry_dict), key);
 	g_free(key);
 }
 
-static void dict_key_list_select(GtkMenuItem *menuitem, gpointer user_data)
+static void dict_key_list_select(GSimpleAction *action, GVariant *key,
+				 gpointer user_data)
 {
-	gtk_entry_set_text(GTK_ENTRY(widgets.entry_dict), (gchar *)user_data);
+	(void)action;
+	(void)user_data;
+	gtk_editable_set_text(GTK_EDITABLE(widgets.entry_dict),
+			      g_variant_get_string(key, NULL));
 	gtk_widget_activate(widgets.entry_dict);
 }
 
@@ -1300,24 +1312,24 @@ static void dict_key_list_select(GtkMenuItem *menuitem, gpointer user_data)
  *   void
  */
 
-GtkWidget *main_dictionary_drop_down_new(char *mod_name, char *old_key)
+GMenuModel *main_dictionary_drop_down_new(char *mod_name, char *old_key,
+					  GtkWidget *anchor)
 {
 	gint count = 9, i;
 	gchar *new_key;
 	gchar *key = NULL;
-	GtkWidget *menu;
-
-	menu = gtk_menu_new();
+	GMenu *menu;
 
 	if (!settings.havedict || !mod_name)
 		return NULL;
+	menu = g_menu_new();
 	if (strcmp(settings.DictWindowModule, mod_name)) {
 		xml_set_value("Xiphos", "modules", "dict",
 			      mod_name);
 		settings.DictWindowModule = xml_get_value(
 		    "modules", "dict");
 	}
-	key = g_strdup((gchar *)gtk_entry_get_text(GTK_ENTRY(widgets.entry_dict)));
+	key = g_strdup((gchar *)gtk_editable_get_text(GTK_EDITABLE(widgets.entry_dict)));
 
 	XI_message(("\nold_key: %s\nkey: %s", old_key, key));
 	backend->set_module_key(mod_name, key);
@@ -1343,18 +1355,19 @@ GtkWidget *main_dictionary_drop_down_new(char *mod_name, char *old_key)
 		(*backend->display_mod)++;
 		new_key = g_strdup((char *)backend->display_mod->getKeyText());
 		/* add menu item */
-		GtkWidget *item =
-		    gtk_menu_item_new_with_label((gchar *)new_key);
-		gtk_widget_show(item);
-		g_signal_connect(G_OBJECT(item), "activate",
-				 G_CALLBACK(dict_key_list_select),
-				 g_strdup(new_key));
-		gtk_container_add(GTK_CONTAINER(menu), item);
+		GMenuItem *item = g_menu_item_new((gchar *)new_key, NULL);
+		g_menu_item_set_action_and_target_value(
+		    item, "diccionario.clave", g_variant_new_string(new_key));
+		g_menu_append_item(menu, item);
+		g_object_unref(item);
 	}
 
 	free(new_key);
 	g_free(key);
-	return menu;
+	gui_insert_single_action(anchor, "diccionario", "clave",
+				 G_VARIANT_TYPE_STRING,
+				 G_CALLBACK(dict_key_list_select), NULL);
+	return G_MENU_MODEL(menu);
 }
 
 /******************************************************************************
@@ -1391,7 +1404,7 @@ void main_dictionary_button_clicked(gint direction)
 	else
 		(*backend->display_mod)++;
 	key = g_strdup((char *)backend->display_mod->getKeyText());
-	gtk_entry_set_text(GTK_ENTRY(widgets.entry_dict), key);
+	gtk_editable_set_text(GTK_EDITABLE(widgets.entry_dict), key);
 	gtk_widget_activate(widgets.entry_dict);
 	g_free(key);
 }
@@ -1799,7 +1812,7 @@ void main_display_dictionary(const char *mod_name,
 			gui_reassign_strdup(&settings.devotionalmod, (gchar *)mod_name);
 			xml_set_value("Xiphos", "modules", "devotional", mod_name);
 			if (widgets.entry_devotional)
-				gtk_entry_set_text(GTK_ENTRY(widgets.entry_devotional), key);
+				gtk_editable_set_text(GTK_EDITABLE(widgets.entry_devotional), key);
 			gtk_notebook_set_current_page(
 				GTK_NOTEBOOK(widgets.notebook_dict_devot), 1);
 			main_display_devotional(widgets.html_devotional);
@@ -1813,11 +1826,11 @@ void main_display_dictionary(const char *mod_name,
 
 	// old_key is uppercase
 	key = g_utf8_strup(key, -1);
-	old_key = gtk_entry_get_text(GTK_ENTRY(widgets.entry_dict));
+	old_key = gtk_editable_get_text(GTK_EDITABLE(widgets.entry_dict));
 	if (!strcmp(old_key, key))
 		main_dictionary_entry_changed(settings.DictWindowModule);
 	else {
-		gtk_entry_set_text(GTK_ENTRY(widgets.entry_dict), key);
+		gtk_editable_set_text(GTK_EDITABLE(widgets.entry_dict), key);
 		gtk_widget_activate(widgets.entry_dict);
 	}
 	main_dict_history_add(mod_name, key);
@@ -2633,9 +2646,9 @@ void main_display_devotional(GtkWidget *target_widget)
 	strftime(buf, 10, "%m.%d", loctime);   /* date par défaut = aujourd'hui */
 
 	if (widgets.entry_devotional &&
-		strlen(gtk_entry_get_text(GTK_ENTRY(widgets.entry_devotional))) == 5) {
+		strlen(gtk_editable_get_text(GTK_EDITABLE(widgets.entry_devotional))) == 5) {
 		/* utiliser la date saisie/sélectionnée */
-		strncpy(buf, gtk_entry_get_text(GTK_ENTRY(widgets.entry_devotional)), 10);
+		strncpy(buf, gtk_editable_get_text(GTK_EDITABLE(widgets.entry_devotional)), 10);
 		int month = atoi(buf);
 		int day   = atoi(buf+3);
 		prettybuf = g_strdup_printf("<b>%s %d</b>",
@@ -2664,7 +2677,7 @@ void main_display_devotional(GtkWidget *target_widget)
 		}
 		g_free(text);
 		if (widgets.entry_devotional)
-			gtk_entry_set_text(GTK_ENTRY(widgets.entry_devotional), buf);
+			gtk_editable_set_text(GTK_EDITABLE(widgets.entry_devotional), buf);
 		if (widgets.button_devotional_date) {
 		gchar *local = format_devot_date_local(buf);
 		gtk_button_set_label(GTK_BUTTON(widgets.button_devotional_date), local);
@@ -2940,7 +2953,7 @@ void main_check_unlock(const char *mod_name, gboolean conditional)
 								    GTK_BUTTONS_OK,
 								    CIPHER_INTRO);
 			g_signal_connect_swapped(dialog, "response",
-						 G_CALLBACK(gtk_widget_destroy),
+						 G_CALLBACK(gui_widget_destroy),
 						 dialog);
 			gtk_widget_show(dialog);
 		}
@@ -3232,14 +3245,14 @@ void main_devotional_button_clicked(gint direction)
     if (!widgets.entry_devotional) return;
 
     backend->set_module_key(settings.devotionalmod,
-                            gtk_entry_get_text(GTK_ENTRY(widgets.entry_devotional)));
+                            gtk_editable_get_text(GTK_EDITABLE(widgets.entry_devotional)));
     if (direction == 0)
         (*backend->display_mod)--;
     else
         (*backend->display_mod)++;
 
     key = g_strdup((char *)backend->display_mod->getKeyText());
-    gtk_entry_set_text(GTK_ENTRY(widgets.entry_devotional), key);
+    gtk_editable_set_text(GTK_EDITABLE(widgets.entry_devotional), key);
     if (widgets.button_devotional_date) {
 		gchar *local = format_devot_date_local(key);
 		gtk_button_set_label(GTK_BUTTON(widgets.button_devotional_date), local);

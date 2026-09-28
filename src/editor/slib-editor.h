@@ -35,6 +35,19 @@ extern "C" {
 
 struct _tool_items
 {
+#ifdef USE_GTKTVeditor
+	/* GTK4 has no GtkToolButton hierarchy.  The GtkTextView editor
+	 * stores the controls as their GTK4 base types. */
+	GtkToggleButton *bold;
+	GtkToggleButton *italic;
+	GtkToggleButton *underline;
+	GtkToggleButton *strike;
+	GtkWidget *color;
+	GtkButton *newdoc;
+	GtkButton *open;
+	GtkButton *deletedoc;
+	GtkWidget *cb;
+#else
 	GtkToggleToolButton *bold;
 	GtkToggleToolButton *italic;
 	GtkToggleToolButton *underline;
@@ -44,6 +57,7 @@ struct _tool_items
 	GtkToolButton *open;
 	GtkToolButton *deletedoc;
 	GtkComboBoxText *cb;
+#endif
 };
 typedef struct _tool_items TOOL_ITEMS;
 

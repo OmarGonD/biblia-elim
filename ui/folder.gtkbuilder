@@ -1,59 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk+" version="3.14"/>
+  <requires lib="gtk" version="4.0"/>
   <object class="GtkDialog" id="dialog_folder">
     <property name="visible">False</property>
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">Carpeta</property>
     <property name="default_width">320</property>
     <property name="default_height">150</property>
-    <property name="type_hint">dialog</property>
-    <child internal-child="vbox">
+    <child>
       <object class="GtkBox" id="folder_vbox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
         <property name="spacing">8</property>
-        <property name="border_width">10</property>
-        <child internal-child="action_area">
-          <object class="GtkButtonBox" id="folder_action_area">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="layout_style">end</property>
-            <child>
-              <object class="GtkButton" id="folder_cancel">
-                <property name="label">gtk-cancel</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="use_stock">True</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="folder_ok">
-                <property name="label">gtk-ok</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="use_stock">True</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="pack_type">end</property>
-            <property name="position">0</property>
-          </packing>
-        </child>
         <child>
           <object class="GtkBox" id="folder_hbox_name">
             <property name="visible">True</property>
@@ -66,11 +25,6 @@
                 <property name="label" translatable="yes">Nombre:</property>
                 <property name="xalign">0</property>
               </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="position">0</property>
-              </packing>
             </child>
             <child>
               <object class="GtkEntry" id="folder_entry_name">
@@ -78,18 +32,8 @@
                 <property name="can_focus">True</property>
                 <property name="hexpand">True</property>
               </object>
-              <packing>
-                <property name="expand">True</property>
-                <property name="fill">True</property>
-                <property name="position">1</property>
-              </packing>
             </child>
           </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">1</property>
-          </packing>
         </child>
         <child>
           <object class="GtkBox" id="folder_hbox_color">
@@ -103,24 +47,13 @@
                 <property name="label" translatable="yes">Color de etiqueta:</property>
                 <property name="xalign">0</property>
               </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="position">0</property>
-              </packing>
             </child>
             <child>
-              <object class="GtkColorButton" id="folder_color_button">
+              <object class="GtkColorDialogButton" id="folder_color_button">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="tooltip_text" translatable="yes">Elige un color de resaltado para este grupo</property>
-                <property name="use_alpha">False</property>
               </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="position">1</property>
-              </packing>
             </child>
             <child>
               <object class="GtkButton" id="folder_clear_color">
@@ -129,18 +62,33 @@
                 <property name="can_focus">True</property>
                 <property name="tooltip_text" translatable="yes">Quitar el color de esta carpeta</property>
               </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="position">2</property>
-              </packing>
             </child>
           </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">2</property>
-          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="folder_action_area">
+            <property name="halign">end</property>
+            <property name="margin_start">12</property>
+            <property name="margin_end">12</property>
+            <property name="margin_top">4</property>
+            <property name="margin_bottom">12</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkButton" id="folder_cancel">
+                <property name="label" translatable="yes">Cancelar</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="folder_ok">
+                <property name="label" translatable="yes">Aceptar</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+            </child>
+          </object>
         </child>
       </object>
     </child>

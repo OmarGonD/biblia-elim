@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 
 #include "xiphos_html/xiphos_html.h"
 
@@ -58,43 +59,29 @@ static void about_modules_ok(GtkButton *button, gpointer user_data)
 {
 	GtkWidget *dlg;
 
-	dlg = gtk_widget_get_toplevel(GTK_WIDGET(button));
-	gtk_widget_destroy(dlg);
+	dlg = gui_widget_get_toplevel(GTK_WIDGET(button));
+	gui_widget_destroy(dlg);
 }
 
-static void on_copy_activate(GtkMenuItem *menuitem, gpointer data)
+static void on_copy_activate(GSimpleAction *action, GVariant *parameter,
+			     gpointer data)
 {
+	(void)action;
+	(void)parameter;
+	(void)data;
 	XI_message(("on_copy_activate"));
 	XIPHOS_HTML_COPY_SELECTION(text_html);
 }
 
 static void create_menu1(void)
 {
-	GtkWidget *menu;
-	GtkWidget *item;
-	GtkAccelGroup *accel_group;
+	GMenu *menu = g_menu_new();
 
-	accel_group = gtk_accel_group_new();
-
-	menu = gtk_menu_new();
-	item =
-#if GTK_CHECK_VERSION(3, 10, 0)
-	    gtk_menu_item_new_with_mnemonic("_Copy");
-#else
-	    gtk_image_menu_item_new_from_stock("gtk-copy", accel_group);
-#endif
-	gtk_widget_show(item);
-	g_signal_connect(G_OBJECT(item), "activate",
-			 G_CALLBACK(on_copy_activate), NULL);
-	gtk_container_add(GTK_CONTAINER(menu), item);
-
-	gtk_menu_set_accel_group(GTK_MENU(menu), accel_group);
-#if GTK_CHECK_VERSION(3, 22, 0)
-	gtk_menu_popup_at_pointer((GtkMenu *)menu, NULL);
-#else
-	gtk_menu_popup((GtkMenu *)menu, NULL, NULL, NULL, NULL, 2,
-		gtk_get_current_event_time()); 
-#endif
+	g_menu_append(menu, _("_Copy"), "acerca.copiar");
+	gui_insert_single_action(text_html, "acerca", "copiar", NULL,
+				 G_CALLBACK(on_copy_activate), NULL);
+	gui_popup_menu_model_at_pointer(G_MENU_MODEL(menu), text_html);
+	g_object_unref(menu);
 }
 
 static void
@@ -127,9 +114,6 @@ static GtkWidget *gui_create_about_modules(void)
 	GtkWidget *hbox21;
 	GtkWidget *pixmap;
 	GtkWidget *frame73;
-#ifndef USE_WEBKIT2
-	GtkWidget *scrolledwindow30;
-#endif
 	GtkWidget *dialog_action_area28;
 	GtkWidget *hbuttonbox7;
 	GtkWidget *button;
@@ -151,32 +135,20 @@ static GtkWidget *gui_create_about_modules(void)
 
 	UI_VBOX(vbox25, FALSE, 0);
 	gtk_widget_show(vbox25);
-	gtk_box_pack_start(GTK_BOX(dialog_vbox28), vbox25, TRUE, TRUE, 0);
+	gui_box_pack(GTK_BOX(dialog_vbox28), vbox25, TRUE, TRUE, 0);
 
 	UI_HBOX(hbox21, FALSE, 0);
 	gtk_widget_show(hbox21);
-	gtk_box_pack_start(GTK_BOX(vbox25), hbox21, FALSE, TRUE, 0);
+	gtk_box_append(GTK_BOX(vbox25), hbox21);
 
 	pixmap = pixmap_finder("sword.png");
 	gtk_widget_show(pixmap);
-	gtk_box_pack_start(GTK_BOX(hbox21), pixmap, TRUE, TRUE, 0);
+	gui_box_pack(GTK_BOX(hbox21), pixmap, TRUE, TRUE, 0);
 
 	frame73 = gtk_frame_new(NULL);
 	gtk_widget_show(frame73);
-	gtk_box_pack_start(GTK_BOX(vbox25), frame73, TRUE, TRUE, 0);
+	gui_box_pack(GTK_BOX(vbox25), frame73, TRUE, TRUE, 0);
 
-#ifndef USE_WEBKIT2
-	scrolledwindow30 = gtk_scrolled_window_new(NULL, NULL);
-	gtk_widget_show(scrolledwindow30);
-	gtk_container_add(GTK_CONTAINER(frame73), scrolledwindow30);
-	gtk_widget_set_size_request(scrolledwindow30, 304, 183);
-	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolledwindow30),
-				       GTK_POLICY_NEVER,
-				       GTK_POLICY_ALWAYS);
-	gtk_scrolled_window_set_shadow_type((GtkScrolledWindow *)
-					    scrolledwindow30,
-					    settings.shadow_type);
-#endif
 
 	text_html = GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, 12));
 	gtk_widget_show(text_html);
@@ -184,56 +156,23 @@ static GtkWidget *gui_create_about_modules(void)
 			 "popupmenu_requested",
 			 G_CALLBACK(_popupmenu_requested_cb), NULL);
 
-#ifdef USE_WEBKIT2
-	gtk_container_add(GTK_CONTAINER(frame73), text_html);
-#else
-	gtk_container_add(GTK_CONTAINER(scrolledwindow30), text_html);
-#endif
+	gtk_frame_set_child(GTK_FRAME(frame73), text_html);
 	dialog_action_area28 =
-#if GTK_CHECK_VERSION(3, 12, 0)
 	    gtk_dialog_get_content_area(GTK_DIALOG(dialog_about_mods));
-#else
-	    gtk_dialog_get_action_area(GTK_DIALOG(dialog_about_mods));
-#endif
 	g_object_set_data(G_OBJECT(dialog_about_mods),
 			  "dialog_action_area28", dialog_action_area28);
 	gtk_widget_show(dialog_action_area28);
-	gtk_container_set_border_width(GTK_CONTAINER(dialog_action_area28),
-				       10);
+	gui_widget_set_margins(dialog_action_area28, 10);
 
-#ifdef USE_GTK_3
-	hbuttonbox7 = gtk_button_box_new(GTK_ORIENTATION_HORIZONTAL);
-#else
-	hbuttonbox7 = gtk_hbutton_box_new();
-#endif
+	hbuttonbox7 = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 6);
 	gtk_widget_show(hbuttonbox7);
-#if GTK_CHECK_VERSION(3, 12, 0)
-	gtk_box_pack_start(GTK_BOX(dialog_action_area28), hbuttonbox7,
-			   FALSE, TRUE, 3);
-#else
-	gtk_box_pack_start(GTK_BOX(dialog_action_area28), hbuttonbox7,
-			   TRUE, TRUE, 0);
-#endif
-	gtk_button_box_set_layout(GTK_BUTTON_BOX(hbuttonbox7),
-				  GTK_BUTTONBOX_END);
+	gui_box_pack(GTK_BOX(dialog_action_area28), hbuttonbox7, FALSE, TRUE, 3);
+	gtk_widget_set_halign(hbuttonbox7, GTK_ALIGN_END);
 
 	button =
-#if GTK_CHECK_VERSION(3, 10, 0)
 	    gtk_button_new_with_mnemonic(_("Close"));
-#else
-	    gtk_button_new_from_stock(GTK_STOCK_CLOSE);
-#endif
 	gtk_widget_show(button);
-	gtk_container_add(GTK_CONTAINER(hbuttonbox7), button);
-#if GTK_CHECK_VERSION(2, 18, 0)
-	gtk_widget_set_can_default(button, TRUE);
-#else
-#ifdef USE_GTK_3
-	gtk_widget_set_can_default(button, 1);
-#else
-	GTK_WIDGET_SET_FLAGS(button, GTK_CAN_DEFAULT);
-#endif
-#endif
+	gtk_box_append(GTK_BOX(hbuttonbox7), button);
 	g_signal_connect(G_OBJECT(button), "clicked",
 			 G_CALLBACK(about_modules_ok), NULL);
 	return dialog_about_mods;

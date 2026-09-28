@@ -22,13 +22,7 @@ add_library (editor STATIC link_dialog.c)
 # Add alias
 add_library(Xiphos::Editor ALIAS editor)
 
-if (USE_WEBKIT_EDITOR)
-  target_sources(editor
-    PRIVATE
-    editor.c
-    webkit_editor.c
-    )
-elseif (USE_GTKTVeditor)
+if (USE_GTKTVeditor)
   target_sources(editor
     PRIVATE
     gtktextview_editor.c
@@ -38,11 +32,7 @@ elseif (USE_GTKTVeditor)
     USE_GTKTVeditor
     )
 else ()
-  target_sources(editor
-    PRIVATE
-    slib-editor.c
-    link_dialog.c
-    )
+  message(FATAL_ERROR "A GTK4 build requires USE_GTKTVeditor")
 endif ()
 
 

@@ -9,12 +9,14 @@
 #include <string.h>
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <glib/gi18n.h>
 
 #include "gui/interlineal.h"
 #include "gui/diccionario.h"
 #include "gui/lectura_sync.h"
 #include "gui/main_window.h"
+#include "gui/main_menu.h"
 #include "gui/utilities.h"
 #include "gui/widgets.h"
 
@@ -77,18 +79,12 @@ gui_interlineal_rellenar(void)
 	gboolean on = settings.show_interlineal != 0;
 
 	if (btn_interlineal &&
-	    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(btn_interlineal)) != on) {
+	    gui_toggle_get_active(GTK_WIDGET(btn_interlineal)) != on) {
 		syncing = TRUE;
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(btn_interlineal), on);
+		gui_toggle_set_active(GTK_WIDGET(btn_interlineal), on);
 		syncing = FALSE;
 	}
-	if (widgets.interlineal_item &&
-	    gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(widgets.interlineal_item)) != on) {
-		syncing = TRUE;
-		gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.interlineal_item),
-					       on);
-		syncing = FALSE;
-	}
+	gui_main_menu_set_state("interlinear", on);
 	gui_reading_interlinear_sync();
 }
 
@@ -102,12 +98,9 @@ gui_interlineal_set_active(gboolean active)
 		return;
 	syncing = TRUE;
 	if (btn_interlineal &&
-	    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(btn_interlineal)) != active)
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(btn_interlineal), active);
-	if (widgets.interlineal_item &&
-	    gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(widgets.interlineal_item)) != active)
-		gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(widgets.interlineal_item),
-					       active);
+	    gui_toggle_get_active(GTK_WIDGET(btn_interlineal)) != active)
+		gui_toggle_set_active(GTK_WIDGET(btn_interlineal), active);
+	gui_main_menu_set_state("interlinear", active);
 	syncing = FALSE;
 	gui_reading_interlinear_sync();
 	if (active) {
@@ -134,14 +127,14 @@ on_toggle_interlineal(GtkToggleButton *button, gpointer user_data)
 	(void)user_data;
 	if (syncing)
 		return;
-	gui_interlineal_set_active(gtk_toggle_button_get_active(button));
+	gui_interlineal_set_active(gui_toggle_get_active(button));
 }
 
 static void
 on_toggle_comparar(GtkToggleButton *button, gpointer user_data)
 {
 	(void)user_data;
-	gui_lectura_sync_set_visible(gtk_toggle_button_get_active(button));
+	gui_lectura_sync_set_visible(gui_toggle_get_active(button));
 }
 
 GtkWidget *
@@ -156,8 +149,7 @@ gui_interlineal_wrap(GtkWidget *html_master)
 	/* La cinta lleva margen, y por ese margen asomaba el blanco del
 	 * contenedor: un marco claro alrededor del interlineal en cuanto el
 	 * tema dejaba de ser oscuro. El envoltorio toma el color del papel. */
-	gtk_style_context_add_class(gtk_widget_get_style_context(vbox),
-				    "elim-lienzo");
+	gtk_widget_add_css_class(vbox, "elim-lienzo");
 
 	UI_HBOX(bar, FALSE, 8);
 	widgets.bar_interlineal = bar;
@@ -166,24 +158,29 @@ gui_interlineal_wrap(GtkWidget *html_master)
 	gtk_widget_set_margin_end(bar, 8);
 	gtk_widget_set_margin_top(bar, 4);
 	gtk_widget_set_margin_bottom(bar, 2);
-	gtk_box_pack_start(GTK_BOX(vbox), bar, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(vbox), bar);
 
 	btn_interlineal = gtk_toggle_button_new();
 	{
+		/* Una α suelta no dice qué hace el botón: lleva su nombre. */
+		GtkWidget *content = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 6);
 		GtkWidget *alpha = gtk_label_new("α");
+		GtkWidget *name = gtk_label_new(_("Interlineal"));
+
+		gtk_widget_add_css_class(alpha, "elim-greek-glyph");
+		gtk_box_append(GTK_BOX(content), alpha);
+		gtk_box_append(GTK_BOX(content), name);
 		gtk_widget_show(alpha);
-		gtk_container_add(GTK_CONTAINER(btn_interlineal), alpha);
+		gtk_widget_show(name);
+		gtk_widget_show(content);
+		gtk_button_set_child(GTK_BUTTON(btn_interlineal), content);
 	}
-	gtk_style_context_add_class(gtk_widget_get_style_context(btn_interlineal),
-				    "elim-pill");
-	gtk_style_context_add_class(gtk_widget_get_style_context(btn_interlineal),
-				    "elim-greek");
-	gtk_style_context_add_class(gtk_widget_get_style_context(bar),
-				    "elim-toolbar-strip");
+	gtk_widget_add_css_class(btn_interlineal, "elim-pill");
+	gtk_widget_add_css_class(bar, "elim-toolbar-strip");
 	gtk_widget_show(btn_interlineal);
 	gtk_widget_set_tooltip_text(btn_interlineal,
 				    _("Interlineal: griego o hebreo de este versículo, palabra por palabra (Forward / Reverse)"));
-	gtk_box_pack_start(GTK_BOX(bar), btn_interlineal, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(bar), btn_interlineal);
 	g_signal_connect(btn_interlineal, "toggled",
 			 G_CALLBACK(on_toggle_interlineal), NULL);
 
@@ -191,21 +188,20 @@ gui_interlineal_wrap(GtkWidget *html_master)
 	 * hidden by default, only appears on demand from this button (or
 	 * the matching View-menu item / its own close button). */
 	widgets.lectura_sync_button = gtk_toggle_button_new_with_label(_("Comparar"));
-	gtk_style_context_add_class(gtk_widget_get_style_context(widgets.lectura_sync_button),
-				    "elim-pill");
+	gtk_widget_add_css_class(widgets.lectura_sync_button, "elim-pill");
 	gtk_widget_show(widgets.lectura_sync_button);
 	gtk_widget_set_tooltip_text(widgets.lectura_sync_button,
 				    _("Muestra un panel para comparar esta versión con otra, "
 				      "sincronizado al mismo versículo."));
-	gtk_box_pack_start(GTK_BOX(bar), widgets.lectura_sync_button, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(bar), widgets.lectura_sync_button);
 	g_signal_connect(widgets.lectura_sync_button, "toggled",
 			 G_CALLBACK(on_toggle_comparar), NULL);
 
-	gtk_box_pack_start(GTK_BOX(vbox), html_master, TRUE, TRUE, 0);
+	gui_box_pack(GTK_BOX(vbox), html_master, TRUE, TRUE, 0);
 
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(btn_interlineal),
+	gui_toggle_set_active(GTK_WIDGET(btn_interlineal),
 				     settings.show_interlineal != 0);
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widgets.lectura_sync_button),
+	gui_toggle_set_active(GTK_WIDGET(widgets.lectura_sync_button),
 				     settings.show_lectura_sync != 0);
 	return vbox;
 }
@@ -411,11 +407,11 @@ gui_interlineal_ficha_morf(const char *strong, const char *morph)
 			box = gtk_dialog_get_content_area(GTK_DIALOG(ficha));
 			ficha_html = GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, VIEWER_TYPE));
 			gtk_widget_set_vexpand(ficha_html, TRUE);
-			gtk_box_pack_start(GTK_BOX(box), ficha_html, TRUE, TRUE, 0);
+			gui_box_pack(GTK_BOX(box), ficha_html, TRUE, TRUE, 0);
 			btn = gtk_dialog_add_button(GTK_DIALOG(ficha), _("Cerrar"), GTK_RESPONSE_CLOSE);
 			g_signal_connect(ficha, "destroy", G_CALLBACK(on_ficha_destroy), NULL);
-			g_signal_connect(ficha, "response", G_CALLBACK(gtk_widget_destroy), NULL);
-			gtk_widget_show_all(ficha);
+			g_signal_connect(ficha, "response", G_CALLBACK(gui_widget_destroy), NULL);
+			gtk_widget_show(ficha);
 			(void)btn;
 		}
 		escribir(html);
@@ -526,11 +522,11 @@ gui_verse_tools_popup(const char *key)
 	g_free(tools_mod);
 	tools_mod = g_strdup(settings.MainWindowModule);
 
-	relative = gtk_bin_get_child(GTK_BIN(widgets.app));
+	relative = gtk_window_get_child(GTK_WINDOW(widgets.app));
 	grupo = g_simple_action_group_new();
 	g_action_map_add_action_entries(G_ACTION_MAP(grupo), acciones,
 					G_N_ELEMENTS(acciones), NULL);
-	gtk_widget_insert_action_group(relative, "versiculo", G_ACTION_GROUP(grupo));
+	gui_widget_insert_action_group(relative, "versiculo", G_ACTION_GROUP(grupo));
 	g_object_unref(grupo);
 
 	menu = g_menu_new();
@@ -567,50 +563,102 @@ il_label(const char *text, const char *klass, gboolean wrap)
 {
 	GtkWidget *l = gtk_label_new(text ? text : "");
 	gtk_label_set_xalign(GTK_LABEL(l), 0.0);
-	gtk_label_set_line_wrap(GTK_LABEL(l), wrap);
-	gtk_label_set_line_wrap_mode(GTK_LABEL(l), PANGO_WRAP_WORD_CHAR);
+	gtk_label_set_wrap(GTK_LABEL(l), wrap);
+	gtk_label_set_wrap_mode(GTK_LABEL(l), PANGO_WRAP_WORD_CHAR);
 	if (klass)
-		gtk_style_context_add_class(gtk_widget_get_style_context(l), klass);
+		gtk_widget_add_css_class(l, klass);
 	gtk_widget_show(l);
 	return l;
 }
 
 static GtkWidget *
-il_row_widget(InterlFila *f, gboolean reverse)
+il_original_label(const char *text, const char *klass)
+{
+	GtkWidget *label = il_label(text, klass, TRUE);
+	if (main_interlineal_es_hebreo(text)) {
+		gtk_widget_set_direction(label, GTK_TEXT_DIR_RTL);
+		gtk_label_set_xalign(GTK_LABEL(label), 1.0);
+		gtk_label_set_justify(GTK_LABEL(label), GTK_JUSTIFY_RIGHT);
+	}
+	return label;
+}
+
+static void
+on_il_copy_study(GtkButton *button, gpointer data)
+{
+	const char *text = g_object_get_data(G_OBJECT(button), "study-text");
+	(void)data;
+	if (!text)
+		return;
+	gdk_clipboard_set_text(gtk_widget_get_clipboard(GTK_WIDGET(button)), text);
+	gtk_button_set_label(button, _("Copiado"));
+}
+
+static GtkWidget *
+il_copy_button(const char *title, const char *text)
+{
+	GtkWidget *button = gtk_button_new_with_label(title);
+	gtk_widget_set_halign(button, GTK_ALIGN_START);
+	g_object_set_data_full(G_OBJECT(button), "study-text", g_strdup(text), g_free);
+	g_signal_connect(button, "clicked", G_CALLBACK(on_il_copy_study), NULL);
+	return button;
+}
+
+/* Ancho de las dos columnas fijas. Cabecera y filas las comparten: si
+ * cada una repartiera el espacio por su cuenta, los títulos no caerían
+ * encima de sus datos. */
+#define IL_COL_STRONG 108
+#define IL_COL_MORPH 96
+
+/* Las dos columnas de texto (original y español), a partes iguales. Es la
+ * misma estructura en la cabecera y en cada fila. */
+static GtkWidget *
+il_text_cols(GtkWidget *first, GtkWidget *second)
+{
+	GtkWidget *cols = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 10);
+
+	gtk_box_set_homogeneous(GTK_BOX(cols), TRUE);
+	gtk_widget_set_hexpand(cols, TRUE);
+	gtk_widget_set_hexpand(first, TRUE);
+	gtk_widget_set_hexpand(second, TRUE);
+	gtk_box_append(GTK_BOX(cols), first);
+	gtk_box_append(GTK_BOX(cols), second);
+	gtk_widget_show(cols);
+	return cols;
+}
+
+static GtkWidget *
+il_row_widget(InterlFila *f, gboolean reverse, const char *key)
 {
 	GtkWidget *row, *esbox, *orig, *morphbox, *btn, *badge;
 	gchar *tip;
 
 	row = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 10);
-	gtk_style_context_add_class(gtk_widget_get_style_context(row), "il-row");
 	gtk_widget_set_hexpand(row, TRUE);
 
 	esbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 2);
 	gtk_widget_set_hexpand(esbox, TRUE);
 	gtk_widget_set_valign(esbox, GTK_ALIGN_START);
-	gtk_box_pack_start(GTK_BOX(esbox), il_label(f->es, "il-es", TRUE),
-			   FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(esbox), il_label(f->es, "il-es", TRUE));
 	if (f->phrase) {
 		badge = gtk_label_new(_("FRASE"));
-		gtk_style_context_add_class(gtk_widget_get_style_context(badge),
-					    "il-phrase");
+		gtk_widget_add_css_class(badge, "il-phrase");
 		gtk_widget_set_halign(badge, GTK_ALIGN_START);
 		gtk_widget_show(badge);
-		gtk_box_pack_start(GTK_BOX(esbox), badge, FALSE, FALSE, 0);
+		gtk_box_append(GTK_BOX(esbox), badge);
 	}
 	btn = gtk_button_new_with_label(f->strongs && *f->strongs ? f->strongs
 								  : (f->strong ? f->strong : ""));
-	gtk_button_set_relief(GTK_BUTTON(btn), GTK_RELIEF_NONE);
+	gtk_button_set_has_frame(GTK_BUTTON(btn), FALSE);
 	gtk_widget_set_can_focus(btn, FALSE);
 	gtk_widget_set_valign(btn, GTK_ALIGN_START);
-	gtk_style_context_add_class(gtk_widget_get_style_context(btn), "il-strong");
+	gtk_widget_add_css_class(btn, "il-strong");
 	{
-		GtkWidget *lab = gtk_bin_get_child(GTK_BIN(btn));
+		GtkWidget *lab = gtk_button_get_child(GTK_BUTTON(btn));
 		if (GTK_IS_LABEL(lab)) {
 			gtk_label_set_ellipsize(GTK_LABEL(lab), PANGO_ELLIPSIZE_NONE);
 			gtk_label_set_xalign(GTK_LABEL(lab), 0.0);
-			gtk_style_context_add_class(gtk_widget_get_style_context(lab),
-						    "il-strong");
+			gtk_widget_add_css_class(lab, "il-strong");
 		}
 	}
 	if (f->strong && *f->strong) {
@@ -624,23 +672,19 @@ il_row_widget(InterlFila *f, gboolean reverse)
 					       g_strdup(f->morph), g_free);
 	}
 	g_signal_connect(btn, "clicked", G_CALLBACK(on_il_strong), NULL);
-	gtk_widget_set_size_request(btn, 108, -1);
+	gtk_widget_set_size_request(btn, IL_COL_STRONG, -1);
 	orig = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
 	gtk_widget_set_hexpand(orig, TRUE);
 	gtk_widget_set_valign(orig, GTK_ALIGN_START);
 	if (f->forma && *f->forma) {
-		GtkWidget *fl = il_label(f->forma,
-					 f->hebrew ? "il-forma-he" : "il-forma",
-					 TRUE);
-		if (f->hebrew)
-			gtk_widget_set_direction(fl, GTK_TEXT_DIR_RTL);
+		GtkWidget *fl = il_original_label(f->forma,
+			main_interlineal_es_hebreo(f->forma) ? "il-forma-he" : "il-forma");
 		if (f->strong && *f->strong) {
 			GtkWidget *fb = gtk_button_new();
-			gtk_button_set_relief(GTK_BUTTON(fb), GTK_RELIEF_NONE);
+			gtk_button_set_has_frame(GTK_BUTTON(fb), FALSE);
 			gtk_widget_set_can_focus(fb, FALSE);
-			gtk_container_add(GTK_CONTAINER(fb), fl);
-			gtk_style_context_add_class(gtk_widget_get_style_context(fb),
-						    "il-origbtn");
+			gtk_button_set_child(GTK_BUTTON(fb), fl);
+			gtk_widget_add_css_class(fb, "il-origbtn");
 			g_object_set_data_full(G_OBJECT(fb), "strong",
 					       g_strdup(f->strong), g_free);
 			if (f->morph && *f->morph)
@@ -649,39 +693,30 @@ il_row_widget(InterlFila *f, gboolean reverse)
 						       g_free);
 			g_signal_connect(fb, "clicked", G_CALLBACK(on_il_strong), NULL);
 			gtk_widget_show(fb);
-			gtk_box_pack_start(GTK_BOX(orig), fb, FALSE, FALSE, 0);
+			gtk_box_append(GTK_BOX(orig), fb);
 		} else {
-			gtk_box_pack_start(GTK_BOX(orig), fl, FALSE, FALSE, 0);
+			gtk_box_append(GTK_BOX(orig), fl);
 		}
 	}
 	if (f->raiz && *f->raiz &&
 	    (!f->forma || strcmp(f->raiz, f->forma)))
-		gtk_box_pack_start(GTK_BOX(orig),
-				   il_label(f->raiz, "il-raiz", TRUE),
-				   FALSE, FALSE, 0);
+		gtk_box_append(GTK_BOX(orig), il_original_label(f->raiz, "il-raiz"));
 	if (f->translit && *f->translit)
-		gtk_box_pack_start(GTK_BOX(orig),
-				   il_label(f->translit, "il-trans", TRUE),
-				   FALSE, FALSE, 0);
+		gtk_box_append(GTK_BOX(orig), il_label(f->translit, "il-trans", TRUE));
 	/* La dirección seleccionada debe verse también en las columnas: en
 	 * «Griego/hebreo → Español» la forma original va primero; en la
 	 * inversa, el español. Antes ambas pestañas empezaban por español. */
 	gtk_widget_show(esbox);
 	gtk_widget_show(orig);
 	gtk_widget_show(btn);
-	if (reverse) {
-		gtk_box_pack_start(GTK_BOX(row), esbox, TRUE, TRUE, 0);
-		gtk_box_pack_start(GTK_BOX(row), orig, TRUE, TRUE, 0);
-	} else {
-		gtk_box_pack_start(GTK_BOX(row), orig, TRUE, TRUE, 0);
-		gtk_box_pack_start(GTK_BOX(row), esbox, TRUE, TRUE, 0);
-	}
-	gtk_box_pack_start(GTK_BOX(row), btn, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(row), reverse ? il_text_cols(esbox, orig)
+					     : il_text_cols(orig, esbox));
+	gtk_box_append(GTK_BOX(row), btn);
 
 	morphbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 2);
 	gtk_widget_set_valign(morphbox, GTK_ALIGN_START);
 	gtk_widget_set_halign(morphbox, GTK_ALIGN_END);
-	gtk_widget_set_size_request(morphbox, 96, -1);
+	gtk_widget_set_size_request(morphbox, IL_COL_MORPH, -1);
 	/* En la etiqueta va el español, no el código: "V-PAI-3S" no le dice
 	 * nada a quien no estudió griego, y es justo para ese lector para
 	 * quien se hizo el interlineal. El código sigue estando, en el
@@ -693,14 +728,19 @@ il_row_widget(InterlFila *f, gboolean reverse)
 		GtkWidget *pill = gtk_label_new(visible);
 		gchar *tip_m;
 
-		gtk_style_context_add_class(gtk_widget_get_style_context(pill),
-					    "il-morph");
+		gtk_widget_add_css_class(pill, "il-morph");
 		gtk_widget_set_halign(pill, GTK_ALIGN_END);
-		gtk_label_set_line_wrap(GTK_LABEL(pill), TRUE);
-		gtk_label_set_line_wrap_mode(GTK_LABEL(pill),
-					     PANGO_WRAP_WORD_CHAR);
-		gtk_label_set_justify(GTK_LABEL(pill), GTK_JUSTIFY_RIGHT);
-		gtk_label_set_max_width_chars(GTK_LABEL(pill), 14);
+		/* Una etiqueta corta cabe en una línea; con el ajuste activo
+		 * GTK la medía a una anchura y la asignaba a otra, y la
+		 * píldora mostraba «conj» con el punto cortado debajo. */
+		if (g_utf8_strlen(visible, -1) > 14) {
+			gtk_label_set_wrap(GTK_LABEL(pill), TRUE);
+			gtk_label_set_wrap_mode(GTK_LABEL(pill),
+						PANGO_WRAP_WORD_CHAR);
+			gtk_label_set_justify(GTK_LABEL(pill),
+					      GTK_JUSTIFY_RIGHT);
+			gtk_label_set_max_width_chars(GTK_LABEL(pill), 14);
+		}
 		tip_m = g_strdup_printf("%s\n%s",
 					(f->morph_es && *f->morph_es)
 					    ? f->morph_es
@@ -709,10 +749,10 @@ il_row_widget(InterlFila *f, gboolean reverse)
 		gtk_widget_set_tooltip_text(pill, tip_m);
 		g_free(tip_m);
 		gtk_widget_show(pill);
-		gtk_box_pack_start(GTK_BOX(morphbox), pill, FALSE, FALSE, 0);
+		gtk_box_append(GTK_BOX(morphbox), pill);
 	}
 	gtk_widget_show(morphbox);
-	gtk_box_pack_start(GTK_BOX(row), morphbox, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(row), morphbox);
 
 	tip = g_strdup_printf("%s%s%s",
 			      f->es ? f->es : "",
@@ -721,7 +761,37 @@ il_row_widget(InterlFila *f, gboolean reverse)
 	gtk_widget_set_tooltip_text(row, tip);
 	g_free(tip);
 	gtk_widget_show(row);
-	return row;
+	/* El detalle se puede leer con teclado y copiar sin depender del
+	 * tooltip. Conservamos el texto: las filas se liberan al llenar la tabla. */
+	GtkWidget *item = gtk_box_new(GTK_ORIENTATION_VERTICAL, 4);
+	gtk_widget_add_css_class(item, "il-row");
+	GtkWidget *detail = gtk_expander_new(_("Ficha de estudio"));
+	GtkWidget *content = gtk_box_new(GTK_ORIENTATION_VERTICAL, 6);
+	gchar *cita = main_interlineal_cita_es(key);
+	gchar *text = main_interlineal_ficha_texto(f, cita);
+	GtkWidget *label = gtk_label_new(text);
+	GtkWidget *copy = il_copy_button(_("Copiar ficha"), text);
+	g_free(cita);
+	g_free(text);
+	gtk_label_set_selectable(GTK_LABEL(label), TRUE);
+	gtk_label_set_wrap(GTK_LABEL(label), TRUE);
+	gtk_label_set_wrap_mode(GTK_LABEL(label), PANGO_WRAP_WORD_CHAR);
+	gtk_label_set_xalign(GTK_LABEL(label), 0.0);
+	gtk_box_append(GTK_BOX(content), label);
+	gtk_box_append(GTK_BOX(content), copy);
+	if (main_interlineal_es_hebreo(f->forma)) {
+		gchar *sin_signos = main_interlineal_sin_signos_hebreos(f->forma);
+		gtk_box_append(GTK_BOX(content),
+			il_copy_button(_("Copiar hebreo original"), f->forma));
+		if (strcmp(sin_signos, f->forma))
+			gtk_box_append(GTK_BOX(content),
+				il_copy_button(_("Copiar hebreo sin signos"), sin_signos));
+		g_free(sin_signos);
+	}
+	gtk_expander_set_child(GTK_EXPANDER(detail), content);
+	gtk_box_append(GTK_BOX(item), row);
+	gtk_box_append(GTK_BOX(item), detail);
+	return item;
 }
 
 static GtkWidget *
@@ -730,22 +800,20 @@ il_header_row(gboolean reverse)
 	GtkWidget *row, *a, *b, *c, *d;
 
 	row = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 10);
-	gtk_style_context_add_class(gtk_widget_get_style_context(row), "il-hdr");
+	gtk_widget_add_css_class(row, "il-hdr");
 	a = il_label(reverse ? _("Español") : _("Griego / hebreo"),
 		     "il-hdr-cell", FALSE);
 	c = il_label(reverse ? _("Griego / hebreo") : _("Español"),
 		     "il-hdr-cell", FALSE);
-	gtk_widget_set_hexpand(a, TRUE);
-	gtk_widget_set_hexpand(c, TRUE);
-	gtk_box_pack_start(GTK_BOX(row), a, TRUE, TRUE, 0);
-	gtk_box_pack_start(GTK_BOX(row), c, TRUE, TRUE, 0);
+	gtk_box_append(GTK_BOX(row), il_text_cols(a, c));
 	b = il_label(_("Strong's"), "il-hdr-cell", FALSE);
-	gtk_widget_set_size_request(b, 108, -1);
-	gtk_box_pack_start(GTK_BOX(row), b, FALSE, FALSE, 0);
+	gtk_widget_set_size_request(b, IL_COL_STRONG, -1);
+	gtk_box_append(GTK_BOX(row), b);
 	d = il_label(_("Análisis"), "il-hdr-cell", FALSE);
 	gtk_widget_set_halign(d, GTK_ALIGN_END);
-	gtk_widget_set_size_request(d, 96, -1);
-	gtk_box_pack_start(GTK_BOX(row), d, FALSE, FALSE, 0);
+	gtk_label_set_xalign(GTK_LABEL(d), 1.0);
+	gtk_widget_set_size_request(d, IL_COL_MORPH, -1);
+	gtk_box_append(GTK_BOX(row), d);
 	gtk_widget_show(row);
 	return row;
 }
@@ -759,22 +827,21 @@ il_fill_rows(GtkWidget *box, const char *key, gboolean reverse)
 
 	rows = g_object_get_data(G_OBJECT(box), "il-rows");
 	if (rows)
-		gtk_widget_destroy(rows);
+		gui_widget_destroy(rows);
 	rows = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
-	gtk_style_context_add_class(gtk_widget_get_style_context(rows), "il-rows");
-	gtk_box_pack_start(GTK_BOX(rows), il_header_row(reverse), FALSE, FALSE, 0);
+	gtk_widget_add_css_class(rows, "il-rows");
+	gtk_box_append(GTK_BOX(rows), il_header_row(reverse));
 
 	filas = main_interlineal_filas(key, reverse);
 	for (l = filas, i = 0; l; l = l->next, i++) {
-		GtkWidget *r = il_row_widget((InterlFila *)l->data, reverse);
+		GtkWidget *r = il_row_widget((InterlFila *)l->data, reverse, key);
 		if (i % 2)
-			gtk_style_context_add_class(gtk_widget_get_style_context(r),
-						    "il-row-alt");
-		gtk_box_pack_start(GTK_BOX(rows), r, FALSE, FALSE, 0);
+			gtk_widget_add_css_class(r, "il-row-alt");
+		gtk_box_append(GTK_BOX(rows), r);
 	}
 	main_interlineal_filas_free(filas);
 	gtk_widget_show(rows);
-	gtk_box_pack_start(GTK_BOX(box), rows, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(box), rows);
 	g_object_set_data(G_OBJECT(box), "il-rows", rows);
 	{
 		GtkWidget *pie = g_object_get_data(G_OBJECT(box), "il-pie");
@@ -829,29 +896,27 @@ gui_interlineal_tabla_widget(const char *key)
 		return NULL;
 	reverse = main_interlineal_modo_reverse();
 	box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
-	gtk_style_context_add_class(gtk_widget_get_style_context(box), "il-table");
-	gtk_style_context_add_class(gtk_widget_get_style_context(box),
-				    settings.darktheme ? "il-dark" : "il-light");
+	gtk_widget_add_css_class(box, "il-table");
+	gtk_widget_add_css_class(box, settings.darktheme ? "il-dark" : "il-light");
 	/* En modo lectura el interlineal vive dentro de la columna de
 	 * lectura, no en su propia franja: se estiliza como parte de la
 	 * página (borde suave, sin caja dura) y se enmarca en el ancho de
 	 * lectura que il_table_fit() le da. */
 	if (settings.reading_mode)
-		gtk_style_context_add_class(gtk_widget_get_style_context(box),
-					    "il-reading");
+		gtk_widget_add_css_class(box, "il-reading");
 	g_object_set_data_full(G_OBJECT(box), "il-key", g_strdup(key), g_free);
 	gtk_widget_set_hexpand(box, TRUE);
 
 	tabs = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
-	gtk_style_context_add_class(gtk_widget_get_style_context(tabs), "il-tabs");
+	gtk_widget_add_css_class(tabs, "il-tabs");
 	fwd = gtk_button_new_with_label(_("Griego/hebreo → Español"));
 	rev = gtk_button_new_with_label(_("Español → griego/hebreo"));
-	gtk_button_set_relief(GTK_BUTTON(fwd), GTK_RELIEF_NONE);
-	gtk_button_set_relief(GTK_BUTTON(rev), GTK_RELIEF_NONE);
+	gtk_button_set_has_frame(GTK_BUTTON(fwd), FALSE);
+	gtk_button_set_has_frame(GTK_BUTTON(rev), FALSE);
 	gtk_widget_set_can_focus(fwd, FALSE);
 	gtk_widget_set_can_focus(rev, FALSE);
-	gtk_style_context_add_class(gtk_widget_get_style_context(fwd), "il-tab");
-	gtk_style_context_add_class(gtk_widget_get_style_context(rev), "il-tab");
+	gtk_widget_add_css_class(fwd, "il-tab");
+	gtk_widget_add_css_class(rev, "il-tab");
 	gtk_widget_set_tooltip_text(fwd,
 				    _("Orden del original: cada palabra griega o hebrea y su equivalente en español"));
 	gtk_widget_set_tooltip_text(rev,
@@ -863,22 +928,21 @@ gui_interlineal_tabla_widget(const char *key)
 	il_mark_tab(reverse ? rev : fwd, reverse ? fwd : rev);
 	g_signal_connect(fwd, "clicked", G_CALLBACK(on_il_tab), box);
 	g_signal_connect(rev, "clicked", G_CALLBACK(on_il_tab), box);
-	gtk_box_pack_start(GTK_BOX(tabs), fwd, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(tabs), rev, FALSE, FALSE, 0);
-	gtk_widget_show_all(tabs);
-	gtk_box_pack_start(GTK_BOX(box), tabs, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(tabs), fwd);
+	gtk_box_append(GTK_BOX(tabs), rev);
+	gtk_widget_show(tabs);
+	gtk_box_append(GTK_BOX(box), tabs);
 
 	{
 		GtkWidget *pie = gtk_label_new("");
-		gtk_style_context_add_class(gtk_widget_get_style_context(pie),
-					    "il-pie");
+		gtk_widget_add_css_class(pie, "il-pie");
 		gtk_label_set_xalign(GTK_LABEL(pie), 0.0);
-		gtk_label_set_line_wrap(GTK_LABEL(pie), TRUE);
+		gtk_label_set_wrap(GTK_LABEL(pie), TRUE);
 		gtk_widget_set_margin_start(pie, 12);
 		gtk_widget_set_margin_end(pie, 12);
 		gtk_widget_set_margin_top(pie, 4);
 		gtk_widget_set_margin_bottom(pie, 2);
-		gtk_box_pack_start(GTK_BOX(box), pie, FALSE, FALSE, 0);
+		gtk_box_append(GTK_BOX(box), pie);
 		g_object_set_data(G_OBJECT(box), "il-pie", pie);
 	}
 
@@ -888,10 +952,10 @@ gui_interlineal_tabla_widget(const char *key)
 }
 
 G_MODULE_EXPORT void
-on_interlineal_activate(GtkCheckMenuItem *menuitem, gpointer user_data)
+on_interlineal_activate(gpointer menuitem, gpointer user_data)
 {
 	(void)user_data;
 	if (syncing)
 		return;
-	gui_interlineal_set_active(gtk_check_menu_item_get_active(menuitem));
+	gui_interlineal_set_active(GPOINTER_TO_INT(user_data) != 0);
 }

@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 
 
 #include <glib.h>
@@ -1271,10 +1272,17 @@ G_MODULE_EXPORT void on_use_current_dictionary_activate(gpointer
 							    menuitem,
 							gpointer user_data)
 {
-	XIPHOS_HTML_COPY_SELECTION(_get_html());
-	gtk_editable_select_region((GtkEditable *)widgets.entry_dict, 0,
-				   -1);
-	gtk_editable_paste_clipboard((GtkEditable *)widgets.entry_dict);
+	GtkWidget *html_widget = _get_html();
+	gchar *text;
+
+	XIPHOS_HTML_COPY_SELECTION(html_widget);
+	/* the selection goes straight into the entry: GTK 4 pastes
+	 * asynchronously */
+	text = html_widget ? wk_html_selection_text(WK_HTML(html_widget)) : NULL;
+	if (text) {
+		gtk_editable_set_text(GTK_EDITABLE(widgets.entry_dict), text);
+		g_free(text);
+	}
 	gtk_widget_activate(widgets.entry_dict);
 }
 
@@ -1296,12 +1304,8 @@ G_MODULE_EXPORT void on_lookup_biblemap_activate(gpointer menuitem,
 						 gpointer user_data)
 {
 	GtkWidget *html_widget = _get_html();
-	GdkDisplay *display = gtk_widget_get_display(html_widget);
-
-	GtkClipboard *clipboard =
-		gtk_clipboard_get_for_display(display, GDK_SELECTION_PRIMARY);
-
-	gchar *text = gtk_clipboard_wait_for_text(clipboard);
+	/* what the mouse swept over in this panel */
+	gchar *text = html_widget ? wk_html_selection_text(WK_HTML(html_widget)) : NULL;
 	int len = (text ? strlen(text) : 0);
 
 	if (text && len && *text) {
@@ -1336,12 +1340,8 @@ G_MODULE_EXPORT void on_translate_activate(gpointer menuitem,
 					   gpointer user_data)
 {
 	GtkWidget *html_widget = _get_html();
-	GdkDisplay *display = gtk_widget_get_display(html_widget);
-
-	GtkClipboard *clipboard =
-		gtk_clipboard_get_for_display(display, GDK_SELECTION_PRIMARY);
-
-	gchar *text = gtk_clipboard_wait_for_text(clipboard);
+	/* what the mouse swept over in this panel */
+	gchar *text = html_widget ? wk_html_selection_text(WK_HTML(html_widget)) : NULL;
 	int len = (text ? strlen(text) : 0);
 
 	if (text && len && *text) {
@@ -1597,12 +1597,8 @@ G_MODULE_EXPORT void on_read_selection_aloud_activate(gpointer
 {
 	GtkWidget *html_widget = _get_html();
 
-	GdkDisplay *display = gtk_widget_get_display(html_widget);
-
-	GtkClipboard *clipboard =
-		gtk_clipboard_get_for_display(display, GDK_SELECTION_PRIMARY);
-
-	gchar *text = gtk_clipboard_wait_for_text(clipboard);
+	/* what the mouse swept over in this panel */
+	gchar *text = html_widget ? wk_html_selection_text(WK_HTML(html_widget)) : NULL;
 	int len = (text ? strlen(text) : 0);
 
 	if (text && len && *text) {
@@ -1704,9 +1700,14 @@ static void _lookup_selection(gpointer menuitem,
 		return;
 	mod_name = main_module_name_from_description(dict_mod_description);
 	XIPHOS_HTML_COPY_SELECTION(html);
-	gtk_editable_select_region((GtkEditable *)widgets.entry_dict, 0,
-				   -1);
-	gtk_editable_paste_clipboard((GtkEditable *)widgets.entry_dict);
+	{
+		/* straight into the entry: GTK 4 pastes asynchronously */
+		gchar *text = wk_html_selection_text(WK_HTML(html));
+		if (text) {
+			gtk_editable_set_text(GTK_EDITABLE(widgets.entry_dict), text);
+			g_free(text);
+		}
+	}
 	gtk_widget_activate(widgets.entry_dict);
 	dict_key =
 	    g_strdup(gtk_editable_get_chars((GtkEditable *)widgets.entry_dict, 0, -1));
@@ -2170,7 +2171,7 @@ GtkWidget *gui_menu_popup(XiphosHtml *html, const gchar *mod_name,
 	gboolean has_selection = html && XIPHOS_HTML_HAS_SELECTION(html);
 	GSimpleActionGroup *actions = create_popup_actions(html, has_selection);
 	GMenu *model = create_popup_model(module, actions, has_selection);
-	gtk_widget_insert_action_group(GTK_WIDGET(html), "contexto",
+	gui_widget_insert_action_group(GTK_WIDGET(html), "contexto",
 				       G_ACTION_GROUP(actions));
 	g_object_unref(actions);
 	GtkWidget *popover = gui_popup_menu_model_at_pointer(

@@ -10,7 +10,7 @@ static void anotar(const gchar *palabra, gboolean abre_frase, gpointer m)
 
 int main(int argc, char **argv)
 {
-	gtk_init(&argc, &argv);
+	gtk_init();
 	/* Spellings are learned from the counted text (CLOUD-CASE-101). */
 	NubeMayusculas *learned = nube_mayusculas_nueva();
 	nube_recorrer_palabras("y dijo Noemí a su suegra en el campo de Booz, en "
@@ -33,10 +33,17 @@ int main(int argc, char **argv)
 		g_free(label);
 		g_free(w.etiqueta);
 	}
-	GtkWidget *window = gtk_offscreen_window_new();
+	/* Never shown: gtk_widget_create_pango_layout() below only needs
+	 * canvas parented into a widget tree that reaches a display, not a
+	 * mapped one. GTK 4 dropped GtkOffscreenWindow along with the
+	 * generic "rasterize any widget" API it offered; the one place this
+	 * file used to capture a picture of the cloud now goes through
+	 * cloud_paint() directly, the same routine cloud_export() (and the
+	 * production draw func) already exercise below. */
+	GtkWidget *window = gtk_window_new();
 	GtkWidget *canvas = gtk_drawing_area_new();
 	gtk_widget_set_size_request(canvas, 1100, 650);
-	gtk_container_add(GTK_CONTAINER(window), canvas);
+	gtk_window_set_child(GTK_WINDOW(window), canvas);
 	NUBE_CONTEO count = { 0 };
 	NUBE_PALABRA words[80] = { 0 };
 	const char *labels[] = { "dios", "jesús", "señor", "hombre", "hijo", "casa",
@@ -109,14 +116,16 @@ int main(int argc, char **argv)
 	g_assert_cmpstr(pango_layout_get_text(g_array_index(cloud->words, CloudWord, 1).layout), ==, "Jesús");
 	g_assert_cmpstr(pango_layout_get_text(g_array_index(cloud->words, CloudWord, 13).layout), ==, "Jerusalén");
 	g_object_set_data_full(G_OBJECT(canvas), "cloud", cloud, cloud_free);
-	g_signal_connect(canvas, "draw", G_CALLBACK(cloud_draw), NULL);
-	gtk_widget_show_all(window);
-	while (gtk_events_pending()) gtk_main_iteration();
+	gtk_drawing_area_set_draw_func(GTK_DRAWING_AREA(canvas), cloud_draw, NULL, NULL);
 	if (argc > 1) {
-		GdkPixbuf *image = gtk_offscreen_window_get_pixbuf(GTK_OFFSCREEN_WINDOW(window));
-		g_assert_nonnull(image);
-		g_assert_true(gdk_pixbuf_save(image, argv[1], "png", NULL, NULL));
-		g_object_unref(image);
+		cairo_surface_t *surface =
+			cairo_image_surface_create(CAIRO_FORMAT_ARGB32, 1100, 650);
+		cairo_t *cr = cairo_create(surface);
+		cloud_paint(cr, cloud, 1100, 650);
+		cairo_destroy(cr);
+		g_assert_cmpint(cairo_surface_write_to_png(surface, argv[1]), ==,
+			CAIRO_STATUS_SUCCESS);
+		cairo_surface_destroy(surface);
 	}
 	/* Book-exclusive words stay in their own panel; shared frequencies have
 	 * identical physical font sizes, even when the books have different maxima. */
@@ -198,7 +207,7 @@ int main(int argc, char **argv)
 	cloud_free(a);
 	cloud_free(b);
 	g_ptr_array_free(pair.palabras, TRUE);
-	gtk_widget_destroy(window);
+	gtk_window_destroy(GTK_WINDOW(window));
 	g_ptr_array_free(count.palabras, TRUE);
 	for (int i = 0; i < 80; ++i)
 		g_free(words[i].etiqueta);

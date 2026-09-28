@@ -2528,7 +2528,7 @@ GTKEntryDisp::displayByChapter(SWModule &imodule, int columns)
 		if (cache_flags & ModuleCache::Headings) {
 			swbuf.append(settings.imageresize
 					 ? AnalyzeForImageSize(cVerse.GetHeader(), CURRENT_COLUMNS,
-							       GDK_WINDOW(gtk_widget_get_window(gtkText)))
+							       gtkText)
 					 : cVerse.GetHeader() /* left as-is */);
 		} else
 			cVerse.InvalidateHeader();
@@ -2573,7 +2573,7 @@ GTKEntryDisp::displayByChapter(SWModule &imodule, int columns)
 		}
 		swbuf.append(settings.imageresize
 				 ? AnalyzeForImageSize(rework->str, columns,
-						       GDK_WINDOW(gtk_widget_get_window(gtkText)))
+						       gtkText)
 				 : rework->str /* left as-is */);
 		if (settings.showversenum)
 			swbuf.append("</font></td>");
@@ -2856,7 +2856,7 @@ GTKEntryDisp::display(SWModule &imodule)
 	else
 		swbuf.append(settings.imageresize
 				 ? AnalyzeForImageSize(rework->str, CURRENT_COLUMNS,
-						       GDK_WINDOW(gtk_widget_get_window(gtkText)))
+						       gtkText)
 				 : rework->str /* left as-is */);
 
 	swbuf.append("</div></font></body></html>");
@@ -2943,7 +2943,7 @@ GTKChapDisp::introMaterial(SWModule &imodule, int thisChapter)
 			g_string_append(intro,
 					(settings.imageresize
 					 ? AnalyzeForImageSize(buf, CURRENT_COLUMNS,
-							       GDK_WINDOW(gtk_widget_get_window(gtkText)))
+							       gtkText)
 					 : buf));
 			g_string_append(intro, "<br />");
 		}
@@ -3464,7 +3464,7 @@ GTKChapDisp::RenderOneChapter(int thisChapter)
 		if (cache_flags & ModuleCache::Headings) {
 			swbuf.append(settings.imageresize
 					 ? AnalyzeForImageSize(cVerse.GetHeader(), CURRENT_COLUMNS,
-							       GDK_WINDOW(gtk_widget_get_window(gtkText)))
+							       gtkText)
 					 : cVerse.GetHeader() /* left as-is */);
 		} else
 			cVerse.InvalidateHeader();
@@ -3593,7 +3593,7 @@ GTKChapDisp::RenderOneChapter(int thisChapter)
 
 		swbuf.append(settings.imageresize
 				 ? AnalyzeForImageSize(rework->str, CURRENT_COLUMNS,
-						       GDK_WINDOW(gtk_widget_get_window(gtkText)))
+						       gtkText)
 				 : rework->str /* left as-is */);
 
 		if (color_choices != COLOR_NONE) {
@@ -3955,7 +3955,7 @@ DialogEntryDisp::displayByChapter(SWModule &imodule, int columns)
 				      key->getVerse());
 		swbuf.append(settings.imageresize
 				 ? AnalyzeForImageSize(rework->str, CURRENT_COLUMNS,
-						       GDK_WINDOW(gtk_widget_get_window(gtkText)))
+						       gtkText)
 				 : rework->str /* left as-is */);
 	}
 
@@ -4069,7 +4069,7 @@ DialogEntryDisp::display(SWModule &imodule)
 
 	swbuf.append(settings.imageresize
 			 ? AnalyzeForImageSize(rework->str, CURRENT_COLUMNS,
-					       GDK_WINDOW(gtk_widget_get_window(gtkText)))
+					       gtkText)
 			 : rework->str /* left as-is */);
 
 	swbuf.append("</font></body></html>");
@@ -4221,7 +4221,7 @@ DialogChapDisp::display(SWModule &imodule)
 		if (cache_flags & ModuleCache::Headings)
 			swbuf.append(settings.imageresize
 					 ? AnalyzeForImageSize(cVerse.GetHeader(), CURRENT_COLUMNS,
-							       GDK_WINDOW(gtk_widget_get_window(gtkText)))
+							       gtkText)
 					 : cVerse.GetHeader() /* left as-is */);
 		else
 			cVerse.InvalidateHeader();
@@ -4295,7 +4295,7 @@ DialogChapDisp::display(SWModule &imodule)
 
 		swbuf.append(settings.imageresize
 				 ? AnalyzeForImageSize(rework->str, CURRENT_COLUMNS,
-						       GDK_WINDOW(gtk_widget_get_window(gtkText)))
+						       gtkText)
 				 : rework->str /* left as-is */);
 
 		if (color_choices != COLOR_NONE) {

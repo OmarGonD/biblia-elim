@@ -30,6 +30,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <glib/gi18n.h>
 
 #include "gui/navigation_prefs_dialog.h"
@@ -61,9 +62,9 @@ dialog_prefs(PrefsDialog *d)
 
 	prefs.wheel_percent =
 	    navigation_prefs_snap_percent(gtk_range_get_value(GTK_RANGE(d->scale)));
-	if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(d->immediate)))
+	if (gtk_check_button_get_active(GTK_CHECK_BUTTON(d->immediate)))
 		prefs.focus_mode = READING_FOCUS_IMMEDIATE;
-	else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(d->stable)))
+	else if (gtk_check_button_get_active(GTK_CHECK_BUTTON(d->stable)))
 		prefs.focus_mode = READING_FOCUS_STABLE;
 	else
 		prefs.focus_mode = READING_FOCUS_BALANCED;
@@ -115,7 +116,7 @@ on_scale_changed(GtkRange *range, gpointer data)
 
 /* the slider let go: write once, not on every step of the drag */
 static gboolean
-on_scale_released(GtkWidget *widget, GdkEvent *event, gpointer data)
+on_scale_released(GtkWidget *widget, GuiButtonEvent *event, gpointer data)
 {
 	PrefsDialog *d = data;
 
@@ -127,12 +128,12 @@ on_scale_released(GtkWidget *widget, GdkEvent *event, gpointer data)
 }
 
 static void
-on_mode_toggled(GtkToggleButton *button, gpointer data)
+on_mode_toggled(GtkCheckButton *button, gpointer data)
 {
 	PrefsDialog *d = data;
 	NavigationPrefs prefs;
 
-	if (d->syncing || !gtk_toggle_button_get_active(button))
+	if (d->syncing || !gtk_check_button_get_active(button))
 		return;
 	prefs = navigation_prefs_current();
 	prefs.focus_mode = dialog_prefs(d).focus_mode;
@@ -146,12 +147,12 @@ set_widgets(PrefsDialog *d, const NavigationPrefs *prefs)
 	d->syncing = TRUE;
 	gtk_range_set_value(GTK_RANGE(d->scale), prefs->wheel_percent);
 	show_percent(d, prefs->wheel_percent);
-	gtk_toggle_button_set_active(
-	    GTK_TOGGLE_BUTTON(prefs->focus_mode == READING_FOCUS_IMMEDIATE
-				  ? d->immediate
-				  : prefs->focus_mode == READING_FOCUS_STABLE
-					? d->stable
-					: d->balanced),
+	gtk_check_button_set_active(
+	    GTK_CHECK_BUTTON(prefs->focus_mode == READING_FOCUS_IMMEDIATE
+				 ? d->immediate
+				 : prefs->focus_mode == READING_FOCUS_STABLE
+				       ? d->stable
+				       : d->balanced),
 	    TRUE);
 	d->syncing = FALSE;
 }
@@ -172,7 +173,7 @@ on_response(GtkDialog *dialog, gint response, gpointer data)
 	/* Cerrar, Escape, the window's close button */
 	if (d->unsaved)
 		save(d);
-	gtk_widget_destroy(GTK_WIDGET(dialog));
+	gui_widget_destroy(GTK_WIDGET(dialog));
 }
 
 static void
@@ -204,11 +205,10 @@ caption(const char *text, gboolean dim)
 	GtkWidget *label = gtk_label_new(text);
 
 	gtk_label_set_xalign(GTK_LABEL(label), 0.0);
-	gtk_label_set_line_wrap(GTK_LABEL(label), TRUE);
+	gtk_label_set_wrap(GTK_LABEL(label), TRUE);
 	gtk_label_set_max_width_chars(GTK_LABEL(label), 52);
 	if (dim)
-		gtk_style_context_add_class(gtk_widget_get_style_context(label),
-					    GTK_STYLE_CLASS_DIM_LABEL);
+		gtk_widget_add_css_class(label, "dim-label");
 	return label;
 }
 
@@ -244,14 +244,12 @@ gui_navigation_prefs_dialog_show(void)
 
 	content = gtk_dialog_get_content_area(GTK_DIALOG(d->dialog));
 	box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 8);
-	gtk_container_set_border_width(GTK_CONTAINER(box), 18);
-	gtk_box_pack_start(GTK_BOX(content), box, TRUE, TRUE, 0);
+	gui_widget_set_margins(box, 18);
+	gui_box_pack(GTK_BOX(content), box, TRUE, TRUE, 0);
 
 	/* ---- Rueda del mouse ---- */
-	gtk_box_pack_start(GTK_BOX(box), heading(_("Rueda del mouse")), FALSE,
-			   FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(box), caption(_("Desplazamiento por muesca"), FALSE),
-			   FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(box), heading(_("Rueda del mouse")));
+	gtk_box_append(GTK_BOX(box), caption(_("Desplazamiento por muesca"), FALSE));
 
 	row = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 8);
 	less = gtk_label_new(_("Menos"));
@@ -272,36 +270,30 @@ gui_navigation_prefs_dialog_show(void)
 	gtk_widget_set_can_focus(d->scale, TRUE);
 	gtk_widget_set_tooltip_text(
 	    d->scale, _("Controla cuánto avanza la página con cada giro de la rueda."));
-	atk_object_set_name(gtk_widget_get_accessible(d->scale),
-			    _("Desplazamiento por muesca"));
-	gtk_box_pack_start(GTK_BOX(row), less, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(row), d->scale, TRUE, TRUE, 0);
-	gtk_box_pack_start(GTK_BOX(row), more, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(box), row, FALSE, FALSE, 0);
+	gtk_accessible_update_property(GTK_ACCESSIBLE(d->scale),
+				       GTK_ACCESSIBLE_PROPERTY_LABEL,
+				       _("Desplazamiento por muesca"), -1);
+	gtk_box_append(GTK_BOX(row), less);
+	gui_box_pack(GTK_BOX(row), d->scale, TRUE, TRUE, 0);
+	gtk_box_append(GTK_BOX(row), more);
+	gtk_box_append(GTK_BOX(box), row);
 
 	d->percent = gtk_label_new(NULL);
-	gtk_box_pack_start(GTK_BOX(box), d->percent, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(box),
-			   caption(_("Menos desplazamiento requiere girar más la "
-				     "rueda para avanzar por el texto."),
-				   TRUE),
-			   FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(box), d->percent);
+	gtk_box_append(GTK_BOX(box), caption(_("Menos desplazamiento requiere girar más la " "rueda para avanzar por el texto."), TRUE));
 
-	gtk_box_pack_start(GTK_BOX(box),
-			   gtk_separator_new(GTK_ORIENTATION_HORIZONTAL), FALSE,
-			   FALSE, 8);
+	gui_box_pack(GTK_BOX(box), gtk_separator_new(GTK_ORIENTATION_HORIZONTAL), FALSE, FALSE, 8);
 
 	/* ---- Seguimiento del versículo ---- */
-	gtk_box_pack_start(GTK_BOX(box), heading(_("Seguimiento del versículo")),
-			   FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(box),
-			   caption(_("Cambio de versículo enfocado"), FALSE), FALSE,
-			   FALSE, 0);
-	d->immediate = gtk_radio_button_new_with_mnemonic(NULL, _("_Inmediato"));
-	d->balanced = gtk_radio_button_new_with_mnemonic_from_widget(
-	    GTK_RADIO_BUTTON(d->immediate), _("_Equilibrado"));
-	d->stable = gtk_radio_button_new_with_mnemonic_from_widget(
-	    GTK_RADIO_BUTTON(d->immediate), _("E_stable"));
+	gtk_box_append(GTK_BOX(box), heading(_("Seguimiento del versículo")));
+	gtk_box_append(GTK_BOX(box), caption(_("Cambio de versículo enfocado"), FALSE));
+	d->immediate = gtk_check_button_new_with_mnemonic(_("_Inmediato"));
+	d->balanced = gtk_check_button_new_with_mnemonic(_("_Equilibrado"));
+	d->stable = gtk_check_button_new_with_mnemonic(_("E_stable"));
+	gtk_check_button_set_group(GTK_CHECK_BUTTON(d->balanced),
+				   GTK_CHECK_BUTTON(d->immediate));
+	gtk_check_button_set_group(GTK_CHECK_BUTTON(d->stable),
+				   GTK_CHECK_BUTTON(d->immediate));
 	gtk_widget_set_tooltip_text(
 	    d->immediate,
 	    _("El versículo resaltado cambia en cuanto el siguiente llega a la "
@@ -311,22 +303,21 @@ gui_navigation_prefs_dialog_show(void)
 	gtk_widget_set_tooltip_text(
 	    d->stable, _("Requiere desplazar un poco más antes de cambiar el "
 			 "versículo resaltado."));
-	gtk_box_pack_start(GTK_BOX(box), d->immediate, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(box), d->balanced, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(box), d->stable, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(box), d->immediate);
+	gtk_box_append(GTK_BOX(box), d->balanced);
+	gtk_box_append(GTK_BOX(box), d->stable);
 
 	prefs = navigation_prefs_current();
 	set_widgets(d, &prefs);
 
 	g_signal_connect(d->scale, "value-changed", G_CALLBACK(on_scale_changed), d);
-	g_signal_connect(d->scale, "button-release-event",
-			 G_CALLBACK(on_scale_released), d);
+	gui_widget_on_button(GTK_WIDGET(d->scale), GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)on_scale_released, d);
 	g_signal_connect(d->immediate, "toggled", G_CALLBACK(on_mode_toggled), d);
 	g_signal_connect(d->balanced, "toggled", G_CALLBACK(on_mode_toggled), d);
 	g_signal_connect(d->stable, "toggled", G_CALLBACK(on_mode_toggled), d);
 	g_signal_connect(d->dialog, "response", G_CALLBACK(on_response), d);
 	g_signal_connect(d->dialog, "destroy", G_CALLBACK(on_destroy), d);
 
-	gtk_widget_show_all(d->dialog);
+	gtk_widget_show(d->dialog);
 	gtk_widget_grab_focus(d->scale);
 }

@@ -11,6 +11,7 @@
 #include <stdlib.h>
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <glib/gi18n.h>
 #include <pango/pangocairo.h>
 #include <libxml/HTMLparser.h>
@@ -29,6 +30,7 @@
 #include "marshal.h"
 
 #include "gui/dictlex.h"
+#include "gui/gui.h"
 #include "gui/interlineal.h"
 
 extern gboolean shift_key_pressed;
@@ -48,6 +50,90 @@ enum {
 
 static guint signals[LAST_SIGNAL] = {0};
 static GObjectClass *parent_class = NULL;
+
+struct _WkTextView
+{
+	GtkTextView parent;
+	GdkFrameClock *clock;
+	gulong after_paint;
+};
+
+enum {
+	VIEW_SIZE_ALLOCATED,
+	VIEW_AFTER_PAINT,
+	VIEW_LAST_SIGNAL
+};
+
+static guint view_signals[VIEW_LAST_SIGNAL] = {0};
+
+G_DEFINE_FINAL_TYPE(WkTextView, wk_text_view, GTK_TYPE_TEXT_VIEW)
+
+static void
+wk_text_view_size_allocate(GtkWidget *widget, int width, int height,
+			   int baseline)
+{
+	GdkRectangle allocation = {0, 0, width, height};
+
+	GTK_WIDGET_CLASS(wk_text_view_parent_class)
+	    ->size_allocate(widget, width, height, baseline);
+	g_signal_emit(widget, view_signals[VIEW_SIZE_ALLOCATED], 0, &allocation);
+}
+
+static void
+wk_text_view_frame_painted(GdkFrameClock *clock, gpointer data)
+{
+	(void)clock;
+	g_signal_emit(data, view_signals[VIEW_AFTER_PAINT], 0);
+}
+
+static void
+wk_text_view_realize(GtkWidget *widget)
+{
+	WkTextView *view = WK_TEXT_VIEW(widget);
+
+	GTK_WIDGET_CLASS(wk_text_view_parent_class)->realize(widget);
+	view->clock = g_object_ref(gtk_widget_get_frame_clock(widget));
+	view->after_paint =
+	    g_signal_connect(view->clock, "after-paint",
+			     G_CALLBACK(wk_text_view_frame_painted), view);
+}
+
+static void
+wk_text_view_unrealize(GtkWidget *widget)
+{
+	WkTextView *view = WK_TEXT_VIEW(widget);
+
+	if (view->clock) {
+		g_signal_handler_disconnect(view->clock, view->after_paint);
+		g_clear_object(&view->clock);
+	}
+	GTK_WIDGET_CLASS(wk_text_view_parent_class)->unrealize(widget);
+}
+
+static void
+wk_text_view_class_init(WkTextViewClass *klass)
+{
+	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS(klass);
+
+	widget_class->size_allocate = wk_text_view_size_allocate;
+	widget_class->realize = wk_text_view_realize;
+	widget_class->unrealize = wk_text_view_unrealize;
+	view_signals[VIEW_SIZE_ALLOCATED] =
+	    g_signal_new("size-allocated", G_TYPE_FROM_CLASS(klass),
+			 G_SIGNAL_RUN_LAST, 0, NULL, NULL,
+			 g_cclosure_marshal_VOID__POINTER, G_TYPE_NONE, 1,
+			 G_TYPE_POINTER);
+	view_signals[VIEW_AFTER_PAINT] =
+	    g_signal_new("after-paint", G_TYPE_FROM_CLASS(klass),
+			 G_SIGNAL_RUN_LAST, 0, NULL, NULL,
+			 g_cclosure_marshal_VOID__VOID, G_TYPE_NONE, 0);
+}
+
+static void
+wk_text_view_init(WkTextView *view)
+{
+	(void)view;
+}
 static WkHtml *active_zoom_surface = NULL;
 static WkHtmlZoomObserver zoom_observer = NULL;
 static gpointer zoom_observer_data = NULL;
@@ -90,17 +176,21 @@ ui_load_trace(WkHtml *html, const gchar *event)
 	panel_load_debug(html->priv->surface_name, event, NULL);
 }
 
+/* GTK 4 widgets start visible, so "show" only fires for a surface that was
+ * hidden first. A surface that is mapped without ever being hidden is
+ * traced as shown too, once, right before its MAP. */
 static void
 on_surface_show(GtkWidget *widget, gpointer data)
 {
-	(void)widget;
+	g_object_set_data(G_OBJECT(widget), "ui-load-show-traced", GINT_TO_POINTER(1));
 	ui_load_trace(WK_HTML(data), "SHOW");
 }
 
 static void
 on_surface_map(GtkWidget *widget, gpointer data)
 {
-	(void)widget;
+	if (!g_object_get_data(G_OBJECT(widget), "ui-load-show-traced"))
+		on_surface_show(widget, data);
 	ui_load_trace(WK_HTML(data), "MAP");
 }
 
@@ -300,12 +390,12 @@ capture_zoom_anchor(WkHtml *html)
 				    location.y - visible.y);
 }
 
-/* GtkTextView's draw follows style invalidation and Pango reflow. Restoring
+/* A painted frame follows style invalidation and Pango reflow. Restoring
  * here uses actual post-reflow geometry and requires neither a guessed delay
  * nor a nested main-loop iteration. Clearing first makes the adjustment
  * update/repaint reentrancy-safe. */
-static gboolean
-restore_zoom_anchor_after_draw(GtkWidget *widget, cairo_t *cr, gpointer data)
+static void
+restore_zoom_anchor_after_draw(GtkWidget *widget, gpointer data)
 {
 	WkHtml *html = WK_HTML(data);
 	WkHtmlPrivate *priv = html->priv;
@@ -316,13 +406,12 @@ restore_zoom_anchor_after_draw(GtkWidget *widget, cairo_t *cr, gpointer data)
 	gdouble value;
 
 	(void)widget;
-	(void)cr;
 	if (!wk_html_zoom_anchor_is_set(&priv->zoom_anchor))
-		return FALSE;
+		return;
 	anchor = g_hash_table_lookup(priv->anchor_ht, priv->zoom_anchor.name);
 	if (!anchor || !anchor->mark || gtk_text_mark_get_deleted(anchor->mark)) {
 		wk_html_zoom_anchor_clear(&priv->zoom_anchor);
-		return FALSE;
+		return;
 	}
 	gtk_text_buffer_get_iter_at_mark(priv->buffer, &iter, anchor->mark);
 	gtk_text_view_get_iter_location(priv->view, &iter, &location);
@@ -334,7 +423,6 @@ restore_zoom_anchor_after_draw(GtkWidget *widget, cairo_t *cr, gpointer data)
 	    gtk_adjustment_get_page_size(adjustment));
 	wk_html_zoom_anchor_clear(&priv->zoom_anchor);
 	gtk_adjustment_set_value(adjustment, value);
-	return FALSE;
 }
 
 G_DEFINE_TYPE_WITH_PRIVATE(WkHtml, wk_html, GTK_TYPE_BOX)
@@ -811,7 +899,7 @@ font_debug_probe_idle(gpointer data)
 	WkHtmlPrivate *priv;
 	Anchor *a;
 	GtkTextIter iter, end;
-	GtkTextAttributes *attrs;
+	gdouble font_scale;
 	PangoFontDescription *desc;
 	GSList *tags, *l;
 	gchar *snippet;
@@ -900,30 +988,40 @@ font_debug_probe_idle(gpointer data)
 	}
 	g_slist_free(tags);
 
-	attrs = gtk_text_view_get_default_attributes(priv->view);
-	if (gtk_text_iter_get_attributes(&iter, attrs)) {
-		desc = attrs->font;
-		if (desc) {
-			const char *fam = pango_font_description_get_family(desc);
-			gint psz = pango_font_description_get_size(desc);
-			gboolean absolute =
-			    pango_font_description_get_size_is_absolute(desc);
-			gdouble base = psz / (gdouble)PANGO_SCALE;
-			gdouble effective = base * attrs->font_scale;
-			g_printerr(
-			    "effective_pango family=%s size_pango=%d absolute=%d "
-			    "base_size=%.3f font_scale=%.3f effective_size=%.3f "
-			    "(%s)\n",
-			    fam ? fam : "(null)", psz, absolute, base,
-			    attrs->font_scale, effective,
-			    absolute ? "px" : "pt");
-		} else {
-			g_printerr(
-			    "effective_pango: no font description font_scale=%.3f\n",
-			    attrs->font_scale);
-		}
+	/* GTK 4 keeps the text attributes to itself: the effective font is
+	 * the view's font scaled by the scale tags on the character. */
+	desc = pango_font_description_copy(pango_context_get_font_description(
+	    gtk_widget_get_pango_context(GTK_WIDGET(priv->view))));
+	font_scale = 1.0;
+	tags = gtk_text_iter_get_tags(&iter);
+	for (l = tags; l; l = l->next) {
+		gboolean scale_set = FALSE;
+		gdouble scale = 1.0;
+
+		g_object_get(l->data, "scale-set", &scale_set, "scale", &scale,
+			     NULL);
+		if (scale_set)
+			font_scale *= scale;
+	}
+	g_slist_free(tags);
+	if (desc) {
+		const char *fam = pango_font_description_get_family(desc);
+		gint psz = pango_font_description_get_size(desc);
+		gboolean absolute =
+		    pango_font_description_get_size_is_absolute(desc);
+		gdouble base = psz / (gdouble)PANGO_SCALE;
+		gdouble effective = base * font_scale;
+		g_printerr(
+		    "effective_pango family=%s size_pango=%d absolute=%d "
+		    "base_size=%.3f font_scale=%.3f effective_size=%.3f "
+		    "(%s)\n",
+		    fam ? fam : "(null)", psz, absolute, base,
+		    font_scale, effective,
+		    absolute ? "px" : "pt");
 	} else {
-		g_printerr("effective_pango: gtk_text_iter_get_attributes failed\n");
+		g_printerr(
+		    "effective_pango: no font description font_scale=%.3f\n",
+		    font_scale);
 	}
 
 	/* Pixel ink height of a short body run — the number that should
@@ -939,14 +1037,13 @@ font_debug_probe_idle(gpointer data)
 		run = gtk_text_iter_get_text(&iter, &run_end);
 		pctx = gtk_widget_get_pango_context(GTK_WIDGET(priv->view));
 		layout = pango_layout_new(pctx);
-		if (attrs && attrs->font) {
-			PangoFontDescription *fd =
-			    pango_font_description_copy(attrs->font);
-			if (attrs->font_scale != 1.0 &&
+		if (desc) {
+			PangoFontDescription *fd = pango_font_description_copy(desc);
+			if (font_scale != 1.0 &&
 			    pango_font_description_get_size(fd) > 0) {
 				gint sz = pango_font_description_get_size(fd);
 				pango_font_description_set_size(
-				    fd, (gint)(sz * attrs->font_scale + 0.5));
+				    fd, (gint)(sz * font_scale + 0.5));
 			}
 			pango_layout_set_font_description(layout, fd);
 			pango_font_description_free(fd);
@@ -960,7 +1057,8 @@ font_debug_probe_idle(gpointer data)
 		g_object_unref(layout);
 		g_free(run);
 	}
-	gtk_text_attributes_unref(attrs);
+	if (desc)
+		pango_font_description_free(desc);
 
 	/* Also report view CSS zoom factor from surface style. */
 	g_printerr("zoom_surface=%d css_zoom_percent=%d\n",
@@ -970,7 +1068,7 @@ font_debug_probe_idle(gpointer data)
 
 	if (g_getenv("BIBLIA_ELIM_FONT_DEBUG_QUIT") &&
 	    !g_strcmp0(g_getenv("BIBLIA_ELIM_FONT_DEBUG_QUIT"), "1"))
-		gtk_main_quit();
+		gui_main_quit();
 	return G_SOURCE_REMOVE;
 }
 
@@ -1268,7 +1366,7 @@ il_table_fit(GtkWidget *view, GdkRectangle *alloc, GtkWidget *box)
 	 * the screen. A word-by-word interlinear reads better capped to a
 	 * comfortable width and centred, same idea as the text measure,
 	 * instead of a row of columns stretched across the whole pane. */
-	if (settings.reading_mode && w > IL_TABLE_MAX_WIDTH)
+	if (w > IL_TABLE_MAX_WIDTH)
 		w = IL_TABLE_MAX_WIDTH;
 	if (w < 300)
 		w = 300;
@@ -1292,12 +1390,12 @@ insert_il_table(ParseCtx *ctx, const char *key)
 	if (!box)
 		return;
 	place_child(ctx, box);
-	g_signal_connect_object(GTK_WIDGET(ctx->html->priv->view), "size-allocate",
+	g_signal_connect_object(GTK_WIDGET(ctx->html->priv->view), "size-allocated",
 				G_CALLBACK(il_table_fit), box, 0);
 	gtk_widget_get_allocation(GTK_WIDGET(ctx->html->priv->view), &alloc);
 	if (alloc.width > 80)
 		il_table_fit(GTK_WIDGET(ctx->html->priv->view), &alloc, box);
-	gtk_widget_show_all(box);
+	gtk_widget_show(box);
 	ctx->at_line_start = FALSE;
 	insert_break(ctx, TRUE);
 }
@@ -1330,7 +1428,7 @@ style_hr_separator(GtkWidget *sep, const char *color)
 		gchar *rule = g_strdup_printf(
 		    "separator { background-color: %s; min-height: 1px; }",
 		    color);
-		gtk_css_provider_load_from_data(css, rule, -1, NULL);
+		gtk_css_provider_load_from_string(css, rule);
 		gtk_style_context_add_provider(
 		    gtk_widget_get_style_context(sep),
 		    GTK_STYLE_PROVIDER(css),
@@ -1370,7 +1468,7 @@ insert_hr(ParseCtx *ctx, const char *color_attr)
 	gtk_widget_set_margin_top(sep, 0);
 	gtk_widget_set_margin_bottom(sep, 0);
 	place_child(ctx, sep);
-	g_signal_connect_object(GTK_WIDGET(ctx->html->priv->view), "size-allocate",
+	g_signal_connect_object(GTK_WIDGET(ctx->html->priv->view), "size-allocated",
 				G_CALLBACK(hr_fit), sep, 0);
 	gtk_widget_get_allocation(GTK_WIDGET(ctx->html->priv->view), &alloc);
 	if (alloc.width > 28)
@@ -1388,35 +1486,7 @@ fallback_badge_css_provider(void)
 	if (provider)
 		return provider;
 	provider = gtk_css_provider_new();
-	gtk_css_provider_load_from_data(provider,
-	    ".fallback-badge {"
-	    "  border-radius: 999px;"
-	    "  padding: 5px 14px;"
-	    "  font-size: 13px;"
-	    "  font-weight: 500;"
-	    "  letter-spacing: 0.015em;"
-	    "}"
-	    ".fallback-badge.dark {"
-	    "  color: #F4F0E6;"
-	    "  border: 1px solid rgba(226, 208, 160, 0.40);"
-	    "  background-image: linear-gradient(118deg,"
-	    "    #3C4A62 0%,"
-	    "    #524760 30%,"
-	    "    #3E5856 52%,"
-	    "    #4A5344 76%,"
-	    "    #3C4A62 100%);"
-	    "}"
-	    ".fallback-badge.light {"
-	    "  color: #2A2832;"
-	    "  border: 1px solid rgba(92, 82, 112, 0.26);"
-	    "  background-image: linear-gradient(118deg,"
-	    "    #E3E9F3 0%,"
-	    "    #EDE5EE 30%,"
-	    "    #E1EBE6 52%,"
-	    "    #E8EBDA 76%,"
-	    "    #E3E9F3 100%);"
-	    "}",
-	    -1, NULL);
+	gtk_css_provider_load_from_string(provider, ".fallback-badge {" " border-radius: 999px;" " padding: 5px 14px;" " font-size: 13px;" " font-weight: 500;" " letter-spacing: 0.015em;" "}" ".fallback-badge.dark {" " color: #F4F0E6;" " border: 1px solid rgba(226, 208, 160, 0.40);" " background-image: linear-gradient(118deg," " #3C4A62 0%," " #524760 30%," " #3E5856 52%," " #4A5344 76%," " #3C4A62 100%);" "}" ".fallback-badge.light {" " color: #2A2832;" " border: 1px solid rgba(92, 82, 112, 0.26);" " background-image: linear-gradient(118deg," " #E3E9F3 0%," " #EDE5EE 30%," " #E1EBE6 52%," " #E8EBDA 76%," " #E3E9F3 100%);" "}");
 	return provider;
 }
 
@@ -1487,9 +1557,9 @@ insert_fallback_badge(ParseCtx *ctx, xmlNode *node)
 	gtk_widget_set_hexpand(right, TRUE);
 
 	row = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
-	gtk_box_pack_start(GTK_BOX(row), left, TRUE, TRUE, 0);
-	gtk_box_pack_start(GTK_BOX(row), label, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(row), right, TRUE, TRUE, 0);
+	gui_box_pack(GTK_BOX(row), left, TRUE, TRUE, 0);
+	gtk_box_append(GTK_BOX(row), label);
+	gui_box_pack(GTK_BOX(row), right, TRUE, TRUE, 0);
 	/* The breathing room goes on the label, not on row: row is the
 	 * GtkTextView inline child, and GTK 3's adjust_allocation() on
 	 * scroll re-subtracts an anchored child's margins every step,
@@ -1501,12 +1571,12 @@ insert_fallback_badge(ParseCtx *ctx, xmlNode *node)
 
 	place_child(ctx, row);
 	g_signal_connect_object(GTK_WIDGET(ctx->html->priv->view),
-				"size-allocate", G_CALLBACK(badge_row_fit),
+				"size-allocated", G_CALLBACK(badge_row_fit),
 				row, 0);
 	gtk_widget_get_allocation(GTK_WIDGET(ctx->html->priv->view), &alloc);
 	if (alloc.width > 80)
 		badge_row_fit(GTK_WIDGET(ctx->html->priv->view), &alloc, row);
-	gtk_widget_show_all(row);
+	gtk_widget_show(row);
 	ctx->at_line_start = FALSE;
 	g_string_free(text, TRUE);
 }
@@ -1586,10 +1656,9 @@ new_cell_html(void)
 	GtkWidget *view = GTK_WIDGET(html->priv->view);
 
 	/* sin ventana de desplazamiento: la celda crece con su contenido */
-	gtk_box_pack_start(GTK_BOX(html), view, TRUE, TRUE, 0);
+	gui_box_pack(GTK_BOX(html), view, TRUE, TRUE, 0);
 	gtk_widget_set_vexpand(view, FALSE);
-	gtk_style_context_add_class(gtk_widget_get_style_context(GTK_WIDGET(html)),
-				    "elim-table-cell");
+	gtk_widget_add_css_class(GTK_WIDGET(html), "elim-table-cell");
 	return html;
 }
 
@@ -1755,7 +1824,7 @@ table_fit(GtkWidget *view, GdkRectangle *alloc, GtkWidget *grid)
 		run = next;
 	}
 
-	children = gtk_container_get_children(GTK_CONTAINER(grid));
+	children = gui_widget_get_children(grid);
 	for (l = children; l; l = l->next) {
 		GtkWidget *cell = GTK_WIDGET(l->data);
 		gint cur = -1;
@@ -1855,12 +1924,12 @@ insert_table(ParseCtx *ctx, xmlNode *table_node)
 	g_ptr_array_free(rows, TRUE);
 
 	place_child(ctx, grid);
-	g_signal_connect_object(GTK_WIDGET(ctx->html->priv->view), "size-allocate",
+	g_signal_connect_object(GTK_WIDGET(ctx->html->priv->view), "size-allocated",
 				G_CALLBACK(table_fit), grid, 0);
 	gtk_widget_get_allocation(GTK_WIDGET(ctx->html->priv->view), &alloc);
 	if (alloc.width > 80)
 		table_fit(GTK_WIDGET(ctx->html->priv->view), &alloc, grid);
-	gtk_widget_show_all(grid);
+	gtk_widget_show(grid);
 	ctx->at_line_start = FALSE;
 	insert_break(ctx, TRUE);
 }
@@ -2148,7 +2217,7 @@ apply_surface_style(WkHtml *html)
 	    zoom,
 	    (priv->body_bg && *priv->body_bg) ? priv->body_bg : "@theme_base_color",
 	    (priv->body_fg && *priv->body_fg) ? priv->body_fg : "@theme_text_color");
-	gtk_css_provider_load_from_data(priv->css, css, -1, NULL);
+	gtk_css_provider_load_from_string(priv->css, css);
 	g_free(css);
 }
 
@@ -2357,26 +2426,29 @@ iter_href(WkHtml *html, const GtkTextIter *iter)
 }
 
 static gboolean
-iter_at_xy(GtkTextView *view, GdkEventButton *event, GtkTextIter *iter)
+iter_at_xy(GtkTextView *view, GuiButtonEvent *event, GtkTextIter *iter)
 {
 	gint x, y;
-	gtk_text_view_window_to_buffer_coords(view, GTK_TEXT_WINDOW_TEXT,
+	gtk_text_view_window_to_buffer_coords(view, GTK_TEXT_WINDOW_WIDGET,
 					      (gint)event->x, (gint)event->y, &x, &y);
 	gtk_text_view_get_iter_at_location(view, iter, x, y);
 	return TRUE;
 }
 
-static gboolean
-on_motion(GtkWidget *widget, GdkEventMotion *event, gpointer data)
+static void
+on_motion(GtkEventControllerMotion *motion, gdouble mx, gdouble my,
+	  gpointer data)
 {
 	WkHtml *html = WK_HTML(data);
+	GtkWidget *widget =
+	    gtk_event_controller_get_widget(GTK_EVENT_CONTROLLER(motion));
 	GtkTextIter iter;
 	gchar *href;
 	gint x, y;
 
 	gtk_text_view_window_to_buffer_coords(GTK_TEXT_VIEW(widget),
-					      GTK_TEXT_WINDOW_TEXT,
-					      (gint)event->x, (gint)event->y, &x, &y);
+					      GTK_TEXT_WINDOW_WIDGET,
+					      (gint)mx, (gint)my, &x, &y);
 	gtk_text_view_get_iter_at_location(GTK_TEXT_VIEW(widget), &iter, x, y);
 	href = iter_href(html, &iter);
 	if (g_strcmp0(html->priv->hover_uri, href) != 0) {
@@ -2387,15 +2459,9 @@ on_motion(GtkWidget *widget, GdkEventMotion *event, gpointer data)
 		x_uri = g_strdup(html->priv->hover_uri);
 		in_url = html->priv->hover_uri != NULL;
 		g_signal_emit(html, signals[URI_SELECTED], 0, html->priv->hover_uri, FALSE);
-		{
-			GdkWindow *win = gtk_text_view_get_window(GTK_TEXT_VIEW(widget),
-								  GTK_TEXT_WINDOW_TEXT);
-			GdkCursor *c = gdk_cursor_new_from_name(gdk_window_get_display(win),
-								html->priv->hover_uri ? "pointer" : "text");
-			gdk_window_set_cursor(win, c);
-			if (c)
-				g_object_unref(c);
-		}
+		gtk_widget_set_cursor_from_name(widget, html->priv->hover_uri
+							    ? "pointer"
+							    : "text");
 		if (html->priv->hover_uri) {
 			if (html->priv->is_dialog)
 				main_dialogs_url_handler(html->priv->dialog,
@@ -2405,7 +2471,6 @@ on_motion(GtkWidget *widget, GdkEventMotion *event, gpointer data)
 		}
 	}
 	g_free(href);
-	return FALSE;
 }
 
 /* Clicking the dead space of a line that is an anchored widget.
@@ -2434,7 +2499,7 @@ on_motion(GtkWidget *widget, GdkEventMotion *event, gpointer data)
  * alone even if a widget happens to be anchored in it as well. Only
  * button 1 gets this far; the right-click menu is handled above. */
 static gboolean
-press_on_anchor_line(GtkTextView *view, GdkEventButton *event)
+press_on_anchor_line(GtkTextView *view, GuiButtonEvent *event)
 {
 	GtkTextIter iter, end;
 	gboolean anchored = FALSE;
@@ -2479,13 +2544,13 @@ cancel_pending_word(WkHtml *html)
 }
 
 static gboolean
-on_button_press(GtkWidget *widget, GdkEventButton *event, gpointer data)
+on_button_press(GtkWidget *widget, GuiButtonEvent *event, gpointer data)
 {
 	WkHtml *html = WK_HTML(data);
 	GtkTextIter iter;
 	gchar *href;
 
-	if (event->type == GDK_2BUTTON_PRESS) {
+	if (event->n_press == 2) {
 		cancel_pending_word(html);
 		db_click = TRUE;
 		return FALSE;
@@ -2529,7 +2594,7 @@ on_button_press(GtkWidget *widget, GdkEventButton *event, gpointer data)
 }
 
 static gboolean
-on_button_release(GtkWidget *widget, GdkEventButton *event, gpointer data)
+on_button_release(GtkWidget *widget, GuiButtonEvent *event, gpointer data)
 {
 	WkHtml *html = WK_HTML(data);
 	if (event->type == GDK_BUTTON_RELEASE && event->button == 1 &&
@@ -2557,9 +2622,10 @@ on_button_release(GtkWidget *widget, GdkEventButton *event, gpointer data)
 		g_clear_pointer(&html->priv->pending_word_uri, g_free);
 	}
 	if (event->type == GDK_BUTTON_RELEASE && db_click) {
-		GtkClipboard *clipboard =
-		    gtk_widget_get_clipboard(widget, GDK_SELECTION_PRIMARY);
-		gtk_clipboard_request_text(clipboard, gui_get_clipboard_text_for_lookup, NULL);
+		GdkClipboard *clipboard = gtk_widget_get_primary_clipboard(widget);
+		gdk_clipboard_read_text_async(clipboard, NULL,
+					      gui_get_clipboard_text_for_lookup,
+					      NULL);
 	}
 	return FALSE;
 }
@@ -2640,20 +2706,18 @@ wk_html_set_zoom_observer(WkHtmlZoomObserver observer, gpointer user_data)
 	notify_zoom_observer();
 }
 
-static gboolean
-on_zoom_surface_focus(GtkWidget *widget, GdkEventFocus *event, gpointer data)
+static void
+on_zoom_surface_focus(GtkEventControllerFocus *focus, gpointer data)
 {
 	WkHtml *html = WK_HTML(data);
 
-	(void)widget;
-	(void)event;
+	(void)focus;
 	if (html->priv->zoom_surface != ZOOM_SURFACE_INVALID) {
 		active_zoom_surface = html;
 		zoom_state_set_active(&settings.zoom_state,
 				      html->priv->zoom_surface);
 		notify_zoom_observer();
 	}
-	return FALSE;
 }
 
 void
@@ -3261,7 +3325,7 @@ wk_html_init(WkHtml *html)
 	gtk_widget_set_vexpand(GTK_WIDGET(html), TRUE);
 	wk_html_surface_prepare(GTK_WIDGET(html));
 
-	priv->view = GTK_TEXT_VIEW(gtk_text_view_new());
+	priv->view = GTK_TEXT_VIEW(g_object_new(WK_TYPE_TEXT_VIEW, NULL));
 	wk_html_surface_prepare(GTK_WIDGET(priv->view));
 	priv->buffer = gtk_text_view_get_buffer(priv->view);
 	gtk_text_view_set_wrap_mode(priv->view, GTK_WRAP_WORD_CHAR);
@@ -3274,8 +3338,7 @@ wk_html_init(WkHtml *html)
 	gtk_text_view_set_pixels_above_lines(priv->view, 1);
 	gtk_text_view_set_pixels_below_lines(priv->view, 1);
 	gtk_widget_set_name(GTK_WIDGET(priv->view), "elim-html");
-	gtk_style_context_add_class(gtk_widget_get_style_context(GTK_WIDGET(priv->view)),
-				    "elim-html");
+	gtk_widget_add_css_class(GTK_WIDGET(priv->view), "elim-html");
 
 	priv->css = gtk_css_provider_new();
 	ctx = gtk_widget_get_style_context(GTK_WIDGET(priv->view));
@@ -3283,20 +3346,22 @@ wk_html_init(WkHtml *html)
 				       GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 	wk_html_add_reading_font(ctx);
 
-	gtk_widget_add_events(GTK_WIDGET(priv->view),
-			      GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK |
-				  GDK_POINTER_MOTION_MASK | GDK_SCROLL_MASK);
-	g_signal_connect(priv->view, "button-press-event",
-			 G_CALLBACK(on_button_press), html);
-	g_signal_connect(priv->view, "button-release-event",
-			 G_CALLBACK(on_button_release), html);
-	g_signal_connect(priv->view, "motion-notify-event",
-			 G_CALLBACK(on_motion), html);
+	/* before GtkTextView's own click and drag gestures, as the handlers
+	 * connected to the view used to run */
+	gui_widget_on_button(GTK_WIDGET(priv->view), GTK_PHASE_CAPTURE, (GuiButtonFunc)on_button_press, (GuiButtonFunc)on_button_release, html);
+	{
+		GtkEventController *motion = gtk_event_controller_motion_new();
+		GtkEventController *focus = gtk_event_controller_focus_new();
+
+		g_signal_connect(motion, "motion", G_CALLBACK(on_motion), html);
+		gtk_widget_add_controller(GTK_WIDGET(priv->view), motion);
+		g_signal_connect(focus, "enter",
+				 G_CALLBACK(on_zoom_surface_focus), html);
+		gtk_widget_add_controller(GTK_WIDGET(priv->view), focus);
+	}
 	g_signal_connect(priv->view, "map", G_CALLBACK(on_renderer_map), html);
-	g_signal_connect_after(priv->view, "draw",
-			       G_CALLBACK(restore_zoom_anchor_after_draw), html);
-	g_signal_connect(priv->view, "focus-in-event",
-			 G_CALLBACK(on_zoom_surface_focus), html);
+	g_signal_connect(priv->view, "after-paint",
+			 G_CALLBACK(restore_zoom_anchor_after_draw), html);
 
 	gtk_widget_show(GTK_WIDGET(priv->view));
 }
@@ -3329,13 +3394,12 @@ wk_html_add_reading_font(GtkStyleContext *ctx)
 
 	if (!font_css) {
 		font_css = gtk_css_provider_new();
-		gtk_css_provider_load_from_data(
+		gtk_css_provider_load_from_string(
 		    font_css,
 		    "textview.elim-html, textview.elim-html text {\n"
 		    "  font-family: \"" ELIM_FONT_READING "\","
 		    " \"Source Serif 4\", \"Noto Serif\", serif;\n"
-		    "}\n",
-		    -1, NULL);
+		    "}\n");
 	}
 	gtk_style_context_add_provider(ctx, GTK_STYLE_PROVIDER(font_css),
 				       GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
@@ -3346,27 +3410,31 @@ wk_html_add_scroll(WkHtml *html)
 {
 	WkHtmlPrivate *priv = html->priv;
 
-	priv->scroll = gtk_scrolled_window_new(NULL, NULL);
+	priv->scroll = gtk_scrolled_window_new();
 	wk_html_surface_prepare(priv->scroll);
 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(priv->scroll),
 				       GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-	gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(priv->scroll),
-					    GTK_SHADOW_NONE);
+	gtk_scrolled_window_set_has_frame(GTK_SCROLLED_WINDOW(priv->scroll),
+					  FALSE);
 	gtk_widget_set_hexpand(priv->scroll, TRUE);
 	gtk_widget_set_vexpand(priv->scroll, TRUE);
-	gtk_container_add(GTK_CONTAINER(priv->scroll), GTK_WIDGET(priv->view));
+	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(priv->scroll),
+				      GTK_WIDGET(priv->view));
 
 	/* The stack keeps an intentional, theme-painted surface in the panel
 	 * until the first real document has been attached.  Later synchronous
 	 * reloads leave the previous ready document visible, avoiding flicker. */
 	priv->stack = wk_html_surface_create_panel(priv->scroll, _("Loading…"),
 						   &priv->loading_surface);
-	gtk_box_pack_start(GTK_BOX(html), priv->stack, TRUE, TRUE, 0);
+	/* the overlay holds the still frame of wk_html_freeze() */
+	priv->overlay = gtk_overlay_new();
+	gtk_overlay_set_child(GTK_OVERLAY(priv->overlay), priv->stack);
+	gui_box_pack(GTK_BOX(html), priv->overlay, TRUE, TRUE, 0);
 	g_signal_connect(html, "show", G_CALLBACK(on_surface_show), html);
 	g_signal_connect(html, "map", G_CALLBACK(on_surface_map), html);
 	g_signal_connect(priv->loading_surface, "map",
 			 G_CALLBACK(on_placeholder_map), html);
-	gtk_widget_show_all(priv->stack);
+	gtk_widget_show(priv->stack);
 }
 
 static void
@@ -3927,7 +3995,7 @@ wk_html_jump_to_anchor(WkHtml *html, gchar *anchor)
 void
 wk_html_copy_selection(WkHtml *html)
 {
-	GtkClipboard *cb = gtk_widget_get_clipboard(GTK_WIDGET(html), GDK_SELECTION_CLIPBOARD);
+	GdkClipboard *cb = gtk_widget_get_clipboard(GTK_WIDGET(html));
 	gtk_text_buffer_copy_clipboard(html->priv->buffer, cb);
 }
 
@@ -3937,6 +4005,51 @@ wk_html_has_selection(WkHtml *html)
 	if (!html || !html->priv || !html->priv->buffer)
 		return FALSE;
 	return gtk_text_buffer_get_has_selection(html->priv->buffer);
+}
+
+void
+wk_html_freeze(WkHtml *html)
+{
+	WkHtmlPrivate *priv;
+	GdkPaintable *live, *still;
+
+	g_return_if_fail(WK_HTML_IS_HTML(html));
+	priv = html->priv;
+	if (priv->frozen || !priv->overlay ||
+	    !gtk_widget_get_mapped(priv->stack))
+		return;
+	live = gtk_widget_paintable_new(priv->stack);
+	still = gdk_paintable_get_current_image(live);
+	priv->frozen = gtk_picture_new_for_paintable(still);
+	gtk_picture_set_content_fit(GTK_PICTURE(priv->frozen),
+				    GTK_CONTENT_FIT_FILL);
+	gtk_widget_set_can_target(priv->frozen, FALSE);
+	gtk_overlay_add_overlay(GTK_OVERLAY(priv->overlay), priv->frozen);
+	g_object_unref(still);
+	g_object_unref(live);
+}
+
+void
+wk_html_thaw(WkHtml *html)
+{
+	g_return_if_fail(WK_HTML_IS_HTML(html));
+	if (!html->priv->frozen)
+		return;
+	gtk_overlay_remove_overlay(GTK_OVERLAY(html->priv->overlay),
+				   html->priv->frozen);
+	html->priv->frozen = NULL;
+}
+
+gchar *
+wk_html_selection_text(WkHtml *html)
+{
+	GtkTextIter start, end;
+
+	if (!html || !html->priv || !html->priv->buffer ||
+	    !gtk_text_buffer_get_selection_bounds(html->priv->buffer, &start,
+						  &end))
+		return NULL;
+	return gtk_text_buffer_get_text(html->priv->buffer, &start, &end, FALSE);
 }
 
 void

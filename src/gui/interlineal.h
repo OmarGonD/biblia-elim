@@ -17,7 +17,7 @@ void gui_interlineal_ficha_morf(const char *strong, const char *morph);
 GtkWidget *gui_interlineal_tabla_widget(const char *key);
 /* Returns the popover (for tests); NULL without a key. */
 GtkWidget *gui_verse_tools_popup(const char *key);
-void on_interlineal_activate(GtkCheckMenuItem *menuitem, gpointer user_data);
+void on_interlineal_activate(gpointer menuitem, gpointer user_data);
 
 #ifdef __cplusplus
 }

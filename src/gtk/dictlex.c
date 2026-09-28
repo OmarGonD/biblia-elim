@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 
 #include "xiphos_html/xiphos_html.h"
 
@@ -69,7 +70,7 @@ extern gboolean isrunningSD; /* is the view dictionary dialog runing */
  * Synopsis
  *   #include "gui/dictlex.h"
  *
- *   void gui_get_clipboard_text_for_lookup (GtkClipboard *clipboard,
+ *   void gui_get_clipboard_text_for_lookup (GObject *clipboard,
  *						 const gchar *text,
  *						 gpointer data)
  *
@@ -84,12 +85,14 @@ extern gboolean isrunningSD; /* is the view dictionary dialog runing */
  *   void
  */
 
-void gui_get_clipboard_text_for_lookup(GtkClipboard *clipboard,
-					   const gchar *text, gpointer data)
+void gui_get_clipboard_text_for_lookup(GObject *clipboard,
+				       GAsyncResult *result, gpointer data)
 {
 	char *key = NULL;
 	gchar *dict = NULL;
 	int len = 0;
+	gchar *text = gdk_clipboard_read_text_finish(GDK_CLIPBOARD(clipboard),
+						     result, NULL);
 
 	if (text == NULL)
 		return;
@@ -116,6 +119,7 @@ void gui_get_clipboard_text_for_lookup(GtkClipboard *clipboard,
 
 	if (dict)
 		g_free(dict);
+	g_free(text);
 }
 
 /******************************************************************************
@@ -144,7 +148,7 @@ void dict_key_entry_changed(GtkEntry *entry, gpointer data)
 {
 	gchar *buf = NULL;
 
-	buf = (gchar *)gtk_entry_get_text(entry);
+	buf = (gchar *)gtk_editable_get_text(GTK_EDITABLE(entry));
 	XI_message(("dict_key_entry_changed: %s", buf));
 	if (strlen(buf) < 2)
 		return;
@@ -197,7 +201,7 @@ void dict_find_all_strongs(GtkButton *button,
 		return;
 
 	/* get current dict key at its useful beginning. */
-	key = gtk_entry_get_text(GTK_ENTRY(widgets.entry_dict));
+	key = gtk_editable_get_text(GTK_EDITABLE(widgets.entry_dict));
 	for (start = key; start && (*start == '0'); ++start)
 		/* nothing */ ;
 
@@ -206,7 +210,7 @@ void dict_find_all_strongs(GtkButton *button,
 		--start;
 
 	lemma = g_strdup_printf("lemma:%c%s", (hebrew ? 'H' : 'G'), start);
-	gtk_entry_set_text(GTK_ENTRY(ss.entrySearch), lemma);
+	gtk_editable_set_text(GTK_EDITABLE(ss.entrySearch), lemma);
 	g_free((gpointer)lemma);
 
 	/* artificial: no button or userdata context. */
@@ -236,7 +240,7 @@ static void menu_deactivate_callback(GtkWidget *widget,
 
 	menu_button = GTK_WIDGET(user_data);
 
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(menu_button),
+	gui_toggle_set_active(GTK_WIDGET(menu_button),
 				     FALSE);
 }
 
@@ -256,30 +260,6 @@ static void menu_deactivate_callback(GtkWidget *widget,
  *
  */
 
-static void menu_position_under(GtkMenu *menu,
-				int *x,
-				int *y,
-				gboolean *push_in, gpointer user_data)
-{
-	GtkWidget *widget;
-	GtkAllocation allocation;
-
-	g_return_if_fail(GTK_IS_BUTTON(user_data));
-#if GTK_CHECK_VERSION(2, 20, 0)
-	g_return_if_fail(gtk_widget_get_window(user_data));
-#else
-	g_return_if_fail(GTK_WIDGET_NO_WINDOW(user_data));
-#endif
-	widget = GTK_WIDGET(user_data);
-
-	gdk_window_get_origin(gtk_widget_get_window(widget), x, y);
-	gtk_widget_get_allocation(widget, &allocation);
-	*x += allocation.x;
-	*y += allocation.y + allocation.height;
-
-	*push_in = FALSE;
-}
-
 /******************************************************************************
  * Name
  *   select_button_press_callback
@@ -288,7 +268,7 @@ static void menu_position_under(GtkMenu *menu,
  *   #include "gui/.h"
  *
  *   gboolean select_button_press_callback (GtkWidget *widget,
- *			      GdkEventButton *event,
+ *			      GuiButtonEvent *event,
  *			      gpointer user_data)
  *
  * Description
@@ -300,35 +280,31 @@ static void menu_position_under(GtkMenu *menu,
  */
 
 static gboolean select_button_press_callback(GtkWidget *widget,
-					     GdkEventButton *event,
+					     GuiButtonEvent *event,
 					     gpointer user_data)
 {
 	if (!settings.DictWindowModule ||
 	    (*settings.DictWindowModule == '\0'))
 		return 0;
 
-	GtkWidget *menu =
+	if ((event->type != GDK_BUTTON_PRESS) || event->button != 1)
+		return FALSE;
+
+	GMenuModel *menu =
 	    main_dictionary_drop_down_new(settings.DictWindowModule,
-					  settings.dictkey);
+					  settings.dictkey, widget);
+	GtkWidget *popover;
 
-	g_signal_connect(menu, "deactivate",
-			 G_CALLBACK(menu_deactivate_callback), widget);
-	if ((event->type == GDK_BUTTON_PRESS) && event->button == 1) {
-		gtk_widget_grab_focus(widget);
-
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget),
-					     TRUE);
-#if GTK_CHECK_VERSION(3, 22, 0)
-		gtk_menu_popup_at_widget(GTK_MENU(menu), widget, GDK_GRAVITY_SOUTH_WEST, GDK_GRAVITY_NORTH_WEST, NULL);
-#else
-		gtk_menu_popup(GTK_MENU(menu), NULL, NULL,
-			       menu_position_under, widget, event->button,
-			       event->time);
-#endif
-
-		return TRUE;
-	}
-	return FALSE;
+	if (!menu)
+		return FALSE;
+	gtk_widget_grab_focus(widget);
+	gui_toggle_set_active(GTK_WIDGET(widget), TRUE);
+	popover = gui_popup_menu_model_at_widget(menu, widget);
+	g_object_unref(menu);
+	if (popover)
+		g_signal_connect(popover, "closed",
+				 G_CALLBACK(menu_deactivate_callback), widget);
+	return TRUE;
 }
 
 static void
@@ -350,142 +326,91 @@ GtkWidget *gui_create_dictionary_pane(void)
 	GtkWidget *img_back;
 	GtkWidget *img_forward;
 	
-#ifndef USE_WEBKIT2
-	GtkWidget *scrolledwindow;
-#endif
 
 	UI_VBOX(box_dict, FALSE, 0);
 	gtk_widget_show(box_dict);
 
-	gtk_container_set_border_width(GTK_CONTAINER(box_dict), 1);
+	gui_widget_set_margins(box_dict, 1);
 
 	UI_HBOX(hbox2, FALSE, 0);
 	gtk_widget_show(hbox2);
-	gtk_box_pack_start(GTK_BOX(box_dict), hbox2, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(box_dict), hbox2);
 
 	widgets.entry_dict = gtk_entry_new();
 	gtk_widget_show(widgets.entry_dict);
-	gtk_box_pack_start(GTK_BOX(hbox2), widgets.entry_dict, TRUE, TRUE,
-			   0);
+	gui_box_pack(GTK_BOX(hbox2), widgets.entry_dict, TRUE, TRUE, 0);
 
 	/* button to induce search for all occurrences of this word */
 	/* initially hidden -- shown iff display is a strong's dict */
-#if GTK_CHECK_VERSION(3, 10, 0)
-	widgets.all_strongs = gtk_button_new_from_icon_name("edit-find",
-							    GTK_ICON_SIZE_BUTTON);
-#else
-	widgets.all_strongs = gtk_button_new_from_stock(GTK_STOCK_FIND);
-#endif
+	widgets.all_strongs = gtk_button_new_from_icon_name("edit-find");
 	gtk_widget_set_tooltip_text(GTK_WIDGET(widgets.all_strongs),
 				    _("Do sidebar search for this Strong's number"));
 	gtk_widget_hide(widgets.all_strongs);
-	gtk_box_pack_start(GTK_BOX(hbox2), widgets.all_strongs, FALSE, TRUE, 0);
+	gtk_box_append(GTK_BOX(hbox2), widgets.all_strongs);
 
 	dict_drop_down = gtk_toggle_button_new();
 	gtk_widget_show(dict_drop_down);
-	gtk_box_pack_start(GTK_BOX(hbox2), dict_drop_down, FALSE, TRUE, 0);
+	gtk_box_append(GTK_BOX(hbox2), dict_drop_down);
 
-#if GTK_CHECK_VERSION(3, 14, 0)
 	arrow1 =
-	    gtk_image_new_from_icon_name("open-menu-symbolic",
-					 GTK_ICON_SIZE_BUTTON);
-#else
-	arrow1 = gtk_arrow_new(GTK_ARROW_DOWN, GTK_SHADOW_OUT);
-#endif
+	    gtk_image_new_from_icon_name("open-menu-symbolic");
 	gtk_widget_show(arrow1);
-	gtk_container_add(GTK_CONTAINER(dict_drop_down), arrow1);
+	gtk_button_set_child(GTK_BUTTON(dict_drop_down), arrow1);
 
 	/* history button back/forward */
 	widgets.button_dict_back = gtk_button_new();
 	gtk_widget_show(widgets.button_dict_back);
-	gtk_box_pack_start(GTK_BOX(hbox2), widgets.button_dict_back, FALSE, FALSE, 0);
-	gtk_button_set_relief(GTK_BUTTON(widgets.button_dict_back), GTK_RELIEF_NONE);
+	gtk_box_append(GTK_BOX(hbox2), widgets.button_dict_back);
+	gtk_button_set_has_frame(GTK_BUTTON(widgets.button_dict_back), FALSE);
 	gtk_widget_set_sensitive(widgets.button_dict_back, FALSE);
 	gtk_widget_set_tooltip_text(widgets.button_dict_back, _("Go back in history"));
 	img_back =
-#if GTK_CHECK_VERSION(3, 10, 0)
-	    gtk_image_new_from_icon_name("go-previous-symbolic", GTK_ICON_SIZE_BUTTON);
-#else
-	    gtk_image_new_from_stock(GTK_STOCK_GO_BACK, GTK_ICON_SIZE_BUTTON);
-#endif
+	    gtk_image_new_from_icon_name("go-previous-symbolic");
 	gtk_widget_show(img_back);
-	gtk_container_add(GTK_CONTAINER(widgets.button_dict_back), img_back);
+	gtk_button_set_child(GTK_BUTTON(widgets.button_dict_back), img_back);
 
 	widgets.button_dict_forward = gtk_button_new();
 	gtk_widget_show(widgets.button_dict_forward);
-	gtk_box_pack_start(GTK_BOX(hbox2), widgets.button_dict_forward, FALSE, FALSE, 0);
-	gtk_button_set_relief(GTK_BUTTON(widgets.button_dict_forward), GTK_RELIEF_NONE);
+	gtk_box_append(GTK_BOX(hbox2), widgets.button_dict_forward);
+	gtk_button_set_has_frame(GTK_BUTTON(widgets.button_dict_forward), FALSE);
 	gtk_widget_set_sensitive(widgets.button_dict_forward, FALSE);
 	gtk_widget_set_tooltip_text(widgets.button_dict_forward, _("Go forward in history"));
 	img_forward =
-#if GTK_CHECK_VERSION(3, 10, 0)
-	    gtk_image_new_from_icon_name("go-next-symbolic", GTK_ICON_SIZE_BUTTON);
-#else
-	    gtk_image_new_from_stock(GTK_STOCK_GO_FORWARD, GTK_ICON_SIZE_BUTTON);
-#endif
+	    gtk_image_new_from_icon_name("go-next-symbolic");
 	gtk_widget_show(img_forward);
-	gtk_container_add(GTK_CONTAINER(widgets.button_dict_forward), img_forward);
+	gtk_button_set_child(GTK_BUTTON(widgets.button_dict_forward), img_forward);
 
 	button10 = gtk_button_new();
 	gtk_widget_show(button10);
-	gtk_box_pack_start(GTK_BOX(hbox2), button10, FALSE, FALSE, 0);
-	gtk_button_set_relief(GTK_BUTTON(button10), GTK_RELIEF_NONE);
+	gtk_box_append(GTK_BOX(hbox2), button10);
+	gtk_button_set_has_frame(GTK_BUTTON(button10), FALSE);
 
 	image1 =
-#if GTK_CHECK_VERSION(3, 10, 0)
-	    gtk_image_new_from_icon_name("go-up-symbolic",
-					 GTK_ICON_SIZE_BUTTON);
-#else
-	    gtk_image_new_from_stock(GTK_STOCK_GO_UP,
-				     GTK_ICON_SIZE_BUTTON);
-#endif
+	    gtk_image_new_from_icon_name("go-up-symbolic");
 	gtk_widget_show(image1);
-	gtk_container_add(GTK_CONTAINER(button10), image1);
+	gtk_button_set_child(GTK_BUTTON(button10), image1);
 
 	button11 = gtk_button_new();
 	gtk_widget_show(button11);
-	gtk_box_pack_start(GTK_BOX(hbox2), button11, FALSE, FALSE, 0);
-	gtk_button_set_relief(GTK_BUTTON(button11), GTK_RELIEF_NONE);
+	gtk_box_append(GTK_BOX(hbox2), button11);
+	gtk_button_set_has_frame(GTK_BUTTON(button11), FALSE);
 
 	image2 =
-#if GTK_CHECK_VERSION(3, 10, 0)
-	    gtk_image_new_from_icon_name("go-down-symbolic",
-					 GTK_ICON_SIZE_BUTTON);
-#else
-	    gtk_image_new_from_stock(GTK_STOCK_GO_DOWN,
-				     GTK_ICON_SIZE_BUTTON);
-#endif
+	    gtk_image_new_from_icon_name("go-down-symbolic");
 	gtk_widget_show(image2);
-	gtk_container_add(GTK_CONTAINER(button11), image2);
+	gtk_button_set_child(GTK_BUTTON(button11), image2);
 
-#ifndef USE_WEBKIT2
-	scrolledwindow = gtk_scrolled_window_new(NULL, NULL);
-	gtk_widget_show(scrolledwindow);
-	gtk_box_pack_start(GTK_BOX(box_dict), scrolledwindow, TRUE, TRUE,
-			   0);
-
-	gtk_scrolled_window_set_shadow_type((GtkScrolledWindow *)
-					    scrolledwindow,
-					    settings.shadow_type);
-#endif
 
 	widgets.html_dict =
 	    GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, DICTIONARY_TYPE));
 	XIPHOS_HTML_SET_SURFACE_NAME(widgets.html_dict, "dictionary");
 	gtk_widget_show(widgets.html_dict);
-#ifdef USE_WEBKIT2
-	gtk_box_pack_start(GTK_BOX(box_dict), widgets.html_dict, TRUE, TRUE, 0);
-#else
-	gtk_container_add(GTK_CONTAINER(scrolledwindow),
-			  widgets.html_dict);
-#endif
+	gui_box_pack(GTK_BOX(box_dict), widgets.html_dict, TRUE, TRUE, 0);
 	g_signal_connect((gpointer)widgets.html_dict,
 			 "popupmenu_requested",
 			 G_CALLBACK(_popupmenu_requested_cb), NULL);
 
-	g_signal_connect(dict_drop_down,
-			 "button_press_event",
-			 G_CALLBACK(select_button_press_callback), NULL);
+	gui_widget_on_button(GTK_WIDGET(dict_drop_down), GTK_PHASE_CAPTURE, (GuiButtonFunc)select_button_press_callback, NULL, NULL);
 	g_signal_connect(G_OBJECT(widgets.entry_dict), "activate",
 			 G_CALLBACK(dict_key_entry_changed), NULL);
 
@@ -518,7 +443,7 @@ void button_dict_forward_clicked(GtkButton *button, gpointer user_data)
 /*callbacks for devotional nav */
 void devot_key_entry_changed(GtkEntry *entry, gpointer data)
 {
-    gchar *buf = (gchar *)gtk_entry_get_text(entry);
+    gchar *buf = (gchar *)gtk_editable_get_text(GTK_EDITABLE(entry));
     if (strlen(buf) < 4)   /* MM.DD = 5 chars minimum */
         return;
     main_display_devotional(widgets.html_devotional);
@@ -560,15 +485,17 @@ static gchar *devot_date_to_local(const gchar *mmdd)
 /* Callback */
 static void on_calendar_day_selected(GtkCalendar *calendar, gpointer user_data)
 {
-	guint year, month, day;
-	gtk_calendar_get_date(calendar, &year, &month, &day);
-	month += 1; /* GtkCalendar : 0-11 */
+	GDateTime *date = gtk_calendar_get_date(calendar);
+	gint month = g_date_time_get_month(date); /* 1-12 */
+	gint day = g_date_time_get_day_of_month(date);
+
+	g_date_time_unref(date);
 
 	gchar mmdd[6];
 	g_snprintf(mmdd, sizeof(mmdd), "%02d.%02d", month, day);
 
 	if (widgets.entry_devotional)
-		gtk_entry_set_text(GTK_ENTRY(widgets.entry_devotional), mmdd);
+		gtk_editable_set_text(GTK_EDITABLE(widgets.entry_devotional), mmdd);
 
 	/* update button label */
 	gchar *local = devot_date_to_local(mmdd);
@@ -576,31 +503,41 @@ static void on_calendar_day_selected(GtkCalendar *calendar, gpointer user_data)
 	g_free(local);
 
 	/* close the popover */
-#if GTK_CHECK_VERSION(3, 12, 0)
 	gtk_popover_popdown(GTK_POPOVER(widgets.popover_devotional));
-#endif
 
 	/* display devotional */
 	main_display_devotional(widgets.html_devotional);
+}
+
+/* A double press on a day picks it (GTK 3's "day-selected-double-click"). */
+static void on_calendar_double_press(GtkGestureClick *gesture, gint n_press,
+				     gdouble x, gdouble y, gpointer user_data)
+{
+	GtkWidget *calendar = gtk_event_controller_get_widget(GTK_EVENT_CONTROLLER(gesture));
+
+	if (n_press == 2)
+		on_calendar_day_selected(GTK_CALENDAR(calendar), user_data);
 }
 
 /* Callback : click on date button → open/close the popover */
 static void on_button_devotional_date_clicked(GtkButton *button, gpointer user_data)
 {
 	/* sync calendar with current date */
-	const gchar *mmdd = gtk_entry_get_text(GTK_ENTRY(widgets.entry_devotional));
+	const gchar *mmdd = gtk_editable_get_text(GTK_EDITABLE(widgets.entry_devotional));
 	if (mmdd && strlen(mmdd) == 5) {
-		int month = atoi(mmdd) - 1;  /* GtkCalendar : 0-11 */
+		int month = atoi(mmdd);
 		int day   = atoi(mmdd + 3);
 		GDateTime *now = g_date_time_new_now_local();
-		gtk_calendar_select_month(GTK_CALENDAR(widgets.calendar_devotional),
-								  month, g_date_time_get_year(now));
-		gtk_calendar_select_day(GTK_CALENDAR(widgets.calendar_devotional), day);
+		GDateTime *date = g_date_time_new_local(g_date_time_get_year(now),
+							month, day, 0, 0, 0);
+		if (date) {
+			gtk_calendar_select_day(GTK_CALENDAR(widgets.calendar_devotional),
+						date);
+			g_date_time_unref(date);
+		}
 		g_date_time_unref(now);
 	}
-#if GTK_CHECK_VERSION(3, 12, 0)
 	gtk_popover_popup(GTK_POPOVER(widgets.popover_devotional));
-#endif
 }
 
 GtkWidget *gui_create_devotional_pane(void)
@@ -609,17 +546,14 @@ GtkWidget *gui_create_devotional_pane(void)
 	GtkWidget *hbox;
 	GtkWidget *button_prev, *button_next;
 	GtkWidget *image_prev, *image_next;
-#ifndef USE_WEBKIT2
-	GtkWidget *scrolledwindow;
-#endif
 
 	UI_VBOX(box_devot, FALSE, 0);
 	gtk_widget_show(box_devot);
-	gtk_container_set_border_width(GTK_CONTAINER(box_devot), 1);
+	gui_widget_set_margins(box_devot, 1);
 
 	UI_HBOX(hbox, FALSE, 0);
 	gtk_widget_show(hbox);
-	gtk_box_pack_start(GTK_BOX(box_devot), hbox, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(box_devot), hbox);
 
 	widgets.entry_devotional = gtk_entry_new();
 	gtk_entry_set_max_length(GTK_ENTRY(widgets.entry_devotional), 5);
@@ -627,73 +561,57 @@ GtkWidget *gui_create_devotional_pane(void)
 	gtk_widget_show(widgets.button_devotional_date);
 	gtk_widget_set_tooltip_text(widgets.button_devotional_date,
 								_("Click to choose a date"));
-	gtk_box_pack_start(GTK_BOX(hbox), widgets.button_devotional_date,
-					   FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(hbox), widgets.button_devotional_date);
 	/* GtkPopover stick to the button */
-#if GTK_CHECK_VERSION(3, 12, 0)
-	widgets.popover_devotional = gtk_popover_new(widgets.button_devotional_date);
+	widgets.popover_devotional = gui_popover_new(widgets.button_devotional_date);
 	gtk_popover_set_position(GTK_POPOVER(widgets.popover_devotional),
                              GTK_POS_BOTTOM);
-#endif
 	/* GtkCalendar in the popover */
 	widgets.calendar_devotional = gtk_calendar_new();
 	gtk_widget_show(widgets.calendar_devotional);
-#if GTK_CHECK_VERSION(3, 12, 0)
-	gtk_container_add(GTK_CONTAINER(widgets.popover_devotional),
-                      widgets.calendar_devotional);
-#endif
+	gtk_popover_set_child(GTK_POPOVER(widgets.popover_devotional), widgets.calendar_devotional);
 
 	/* prev button */
 	button_prev = gtk_button_new();
 	gtk_widget_show(button_prev);
-	gtk_box_pack_start(GTK_BOX(hbox), button_prev, FALSE, FALSE, 0);
-	gtk_button_set_relief(GTK_BUTTON(button_prev), GTK_RELIEF_NONE);
+	gtk_box_append(GTK_BOX(hbox), button_prev);
+	gtk_button_set_has_frame(GTK_BUTTON(button_prev), FALSE);
 	image_prev =
-#if GTK_CHECK_VERSION(3, 10, 0)
-		gtk_image_new_from_icon_name("go-up-symbolic", GTK_ICON_SIZE_BUTTON);
-#else
-		gtk_image_new_from_stock(GTK_STOCK_GO_UP, GTK_ICON_SIZE_BUTTON);
-#endif
+		gtk_image_new_from_icon_name("go-up-symbolic");
 	gtk_widget_show(image_prev);
-	gtk_container_add(GTK_CONTAINER(button_prev), image_prev);
+	gtk_button_set_child(GTK_BUTTON(button_prev), image_prev);
 
 	/* next button */
 	button_next = gtk_button_new();
 	gtk_widget_show(button_next);
-	gtk_box_pack_start(GTK_BOX(hbox), button_next, FALSE, FALSE, 0);
-	gtk_button_set_relief(GTK_BUTTON(button_next), GTK_RELIEF_NONE);
+	gtk_box_append(GTK_BOX(hbox), button_next);
+	gtk_button_set_has_frame(GTK_BUTTON(button_next), FALSE);
 	image_next =
-#if GTK_CHECK_VERSION(3, 10, 0)
-		gtk_image_new_from_icon_name("go-down-symbolic", GTK_ICON_SIZE_BUTTON);
-#else
-		gtk_image_new_from_stock(GTK_STOCK_GO_DOWN, GTK_ICON_SIZE_BUTTON);
-#endif
+		gtk_image_new_from_icon_name("go-down-symbolic");
 	gtk_widget_show(image_next);
-	gtk_container_add(GTK_CONTAINER(button_next), image_next);
+	gtk_button_set_child(GTK_BUTTON(button_next), image_next);
 
-#ifndef USE_WEBKIT2
-	scrolledwindow = gtk_scrolled_window_new(NULL, NULL);
-	gtk_widget_show(scrolledwindow);
-	gtk_box_pack_start(GTK_BOX(box_devot), scrolledwindow, TRUE, TRUE, 0);
-	gtk_scrolled_window_set_shadow_type((GtkScrolledWindow *)scrolledwindow,
-										settings.shadow_type);
-#endif
 
 	widgets.html_devotional =
 		GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, VIEWER_TYPE));
 	XIPHOS_HTML_SET_SURFACE_NAME(widgets.html_devotional, "devotional");
 	gtk_widget_show(widgets.html_devotional);
-#ifdef USE_WEBKIT2
-	gtk_box_pack_start(GTK_BOX(box_devot), widgets.html_devotional, TRUE, TRUE, 0);
-#else
-	gtk_container_add(GTK_CONTAINER(scrolledwindow), widgets.html_devotional);
-#endif
+	gui_box_pack(GTK_BOX(box_devot), widgets.html_devotional, TRUE, TRUE, 0);
 
 	/* signaux */
 	g_signal_connect(G_OBJECT(widgets.button_devotional_date), "clicked",
 					 G_CALLBACK(on_button_devotional_date_clicked), NULL);
-	g_signal_connect(G_OBJECT(widgets.calendar_devotional), "day-selected-double-click",
-					 G_CALLBACK(on_calendar_day_selected), NULL);
+	/* GTK 4 has no "day-selected-double-click": watch the presses. */
+	{
+		GtkGesture *doble = gtk_gesture_click_new();
+
+		gtk_event_controller_set_propagation_phase(GTK_EVENT_CONTROLLER(doble),
+							   GTK_PHASE_CAPTURE);
+		g_signal_connect(doble, "pressed",
+				 G_CALLBACK(on_calendar_double_press), NULL);
+		gtk_widget_add_controller(widgets.calendar_devotional,
+					  GTK_EVENT_CONTROLLER(doble));
+	}
 	g_signal_connect(G_OBJECT(widgets.entry_devotional), "activate",
 					 G_CALLBACK(devot_key_entry_changed), NULL);
 	g_signal_connect((gpointer)button_prev, "clicked",

@@ -21,6 +21,7 @@
 #include <config.h>
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -56,8 +57,8 @@ G_MODULE_EXPORT void entry_verse_changed_cb(GObject *object, EDITOR *e)
 {
 	const gchar *verse_str = NULL;
 
-	verse_str = gtk_entry_get_text(GTK_ENTRY(object));
-	gtk_entry_set_text(GTK_ENTRY(entry_text), verse_str);
+	verse_str = gtk_editable_get_text(GTK_EDITABLE(object));
+	gtk_editable_set_text(GTK_EDITABLE(entry_text), verse_str);
 }
 
 G_MODULE_EXPORT void button_ok_clicked_cb(GObject *object, EDITOR *e)
@@ -70,9 +71,9 @@ G_MODULE_EXPORT void button_ok_clicked_cb(GObject *object, EDITOR *e)
 	GString *str = g_string_new(NULL);
 	gint type = 0;
 
-	mod_str = gtk_entry_get_text(GTK_ENTRY(entry_module));
-	verse_str = gtk_entry_get_text(GTK_ENTRY(entry_verse));
-	text_str = gtk_entry_get_text(GTK_ENTRY(entry_text));
+	mod_str = gtk_editable_get_text(GTK_EDITABLE(entry_module));
+	verse_str = gtk_editable_get_text(GTK_EDITABLE(entry_verse));
+	text_str = gtk_editable_get_text(GTK_EDITABLE(entry_text));
 
 	type = main_get_mod_type((gchar *)mod_str);
 
@@ -82,7 +83,7 @@ G_MODULE_EXPORT void button_ok_clicked_cb(GObject *object, EDITOR *e)
 		encoded_verse = main_url_encode(verse_str);
 
 	g_string_printf(str,
-			(((gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(linkage_verse_list))) && ((type == -1) || (type == TEXT_TYPE) || (type == COMMENTARY_TYPE)))
+			(((gui_toggle_get_active(GTK_WIDGET(linkage_verse_list))) && ((type == -1) || (type == TEXT_TYPE) || (type == COMMENTARY_TYPE)))
 			     ? "<a href=\"passagestudy.jsp?action=showRef&type=scripRef&module=%s&value=%s\">%s</a>"
 			     : "<a href=\"sword://%s/%s\">%s</a>"),
 			(encoded_mod ? encoded_mod : ""),
@@ -103,7 +104,7 @@ G_MODULE_EXPORT void button_ok_clicked_cb(GObject *object, EDITOR *e)
 
 	/* construire l'URI directement depuis les champs */
 	gchar *uri = NULL;
-	if ((gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(linkage_verse_list))) &&
+	if ((gui_toggle_get_active(GTK_WIDGET(linkage_verse_list))) &&
 	    ((type == -1) || (type == TEXT_TYPE) || (type == COMMENTARY_TYPE)))
 		uri = g_strdup_printf("passagestudy.jsp?action=showRef&type=scripRef&module=%s&value=%s",
 				      encoded_mod ? encoded_mod : "",
@@ -123,8 +124,6 @@ G_MODULE_EXPORT void button_ok_clicked_cb(GObject *object, EDITOR *e)
 						 NULL);
 		g_object_set_data_full(G_OBJECT(tag), "uri",
 				       g_strdup(uri), g_free);
-		g_signal_connect(tag, "event",
-				 G_CALLBACK(_on_event), e);
 	}
 	gtk_text_buffer_insert_with_tags(buffer, &cursor,
 					 text_str ? text_str : uri, -1, tag, NULL);
@@ -140,7 +139,7 @@ G_MODULE_EXPORT void button_ok_clicked_cb(GObject *object, EDITOR *e)
 	g_free((gchar *)encoded_mod);
 	g_free((gchar *)encoded_verse);
 
-	gtk_widget_destroy(GTK_WIDGET(window));
+	gui_widget_destroy(GTK_WIDGET(window));
 }
 
 G_MODULE_EXPORT
@@ -152,8 +151,8 @@ void button_test_clicked_cb(GObject *object, gpointer user_data)
 	const gchar *encoded_verse = NULL;
 	GString *str = g_string_new(NULL);
 
-	mod_str = gtk_entry_get_text(GTK_ENTRY(entry_module));
-	verse_str = gtk_entry_get_text(GTK_ENTRY(entry_verse));
+	mod_str = gtk_editable_get_text(GTK_EDITABLE(entry_module));
+	verse_str = gtk_editable_get_text(GTK_EDITABLE(entry_verse));
 
 	if (mod_str)
 		encoded_mod = main_url_encode(mod_str);
@@ -174,7 +173,7 @@ void button_test_clicked_cb(GObject *object, gpointer user_data)
 G_MODULE_EXPORT
 void button_cancel_clicked_cb(GObject *object, gpointer user_data)
 {
-	gtk_widget_destroy(GTK_WIDGET(window));
+	gui_widget_destroy(GTK_WIDGET(window));
 }
 
 void editor_link_dialog(EDITOR *e)
@@ -196,7 +195,15 @@ void editor_link_dialog(EDITOR *e)
 
 	window = GTK_WIDGET(gtk_builder_get_object(builder, "dialog1"));
 	set_window_icon(GTK_WINDOW(window));
-	gtk_builder_connect_signals(builder, (EDITOR *)e);
+	/* the handlers take the editor, which GtkBuilder cannot pass */
+	g_signal_connect(gtk_builder_get_object(builder, "button_cancel"),
+			 "clicked", G_CALLBACK(button_cancel_clicked_cb), e);
+	g_signal_connect(gtk_builder_get_object(builder, "button_test"),
+			 "clicked", G_CALLBACK(button_test_clicked_cb), e);
+	g_signal_connect(gtk_builder_get_object(builder, "button_ok"),
+			 "clicked", G_CALLBACK(button_ok_clicked_cb), e);
+	g_signal_connect(gtk_builder_get_object(builder, "entry_verse"),
+			 "changed", G_CALLBACK(entry_verse_changed_cb), e);
 
 	entry_module =
 	    GTK_WIDGET(gtk_builder_get_object(builder, "entry_module"));

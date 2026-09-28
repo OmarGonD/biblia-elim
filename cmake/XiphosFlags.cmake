@@ -27,6 +27,12 @@ include_directories(${CMAKE_BINARY_DIR})
 # include source dir
 include_directories(${PROJECT_SOURCE_DIR}/src)
 
+# GTK 4: GtkTreeView, GtkDialog, GtkComboBox, GtkFileChooserDialog and the
+# other widgets deprecated in 4.10 are still used; moving them to the list
+# models is later work. Declaring 4.8 as the API level silences only those
+# deprecations (the build still requires gtk4 >= 4.22).
+add_definitions(-DGDK_VERSION_MIN_REQUIRED=GDK_VERSION_4_8)
+
 
 # set a default build type if none was specified
 set(default_build_type "Release")

@@ -11,6 +11,7 @@
 #include <glib/gi18n.h>
 
 #include "gui/elim_tema.h"
+#include "gui/main_menu.h"
 #include "gui/widgets.h"
 #include "gui/interlineal.h"
 #include "main/settings.h"
@@ -64,9 +65,6 @@ static GFileMonitor *omarchy_mon = NULL;
 static gchar *omarchy_name = NULL;
 static gchar *live_bg = NULL;
 static gchar *live_fg = NULL;
-static GtkWidget *radio_items[8];
-static int radio_n = 0;
-static gboolean applying = FALSE;
 static gboolean sword_listo = FALSE;
 
 static gchar *
@@ -156,20 +154,18 @@ css_escape_hash(const char *c)
 static void
 clear_app_classes(void)
 {
-	GtkStyleContext *ctx;
 	if (!widgets.app)
 		return;
-	ctx = gtk_widget_get_style_context(widgets.app);
-	gtk_style_context_remove_class(ctx, "elim-claro");
-	gtk_style_context_remove_class(ctx, "elim-dark");
-	gtk_style_context_remove_class(ctx, "elim-luna");
-	gtk_style_context_remove_class(ctx, "elim-pergamino");
-	gtk_style_context_remove_class(ctx, "elim-omarchy");
+	gtk_widget_remove_css_class(widgets.app, "elim-claro");
+	gtk_widget_remove_css_class(widgets.app, "elim-dark");
+	gtk_widget_remove_css_class(widgets.app, "elim-luna");
+	gtk_widget_remove_css_class(widgets.app, "elim-pergamino");
+	gtk_widget_remove_css_class(widgets.app, "elim-omarchy");
 	/* elim-app la lleva siempre: es la que engancha el color del cromo,
 	 * y va en la ventana y no en "window" a secas porque los menus son
 	 * ventanas aparte y se pintarian con el mismo fondo opaco, sin
 	 * esquinas ni sombra. */
-	gtk_style_context_add_class(ctx, "elim-app");
+	gtk_widget_add_css_class(widgets.app, "elim-app");
 }
 
 static void
@@ -184,16 +180,16 @@ set_live_colors(const char *bg, const char *fg)
 static void
 push_css(const char *css)
 {
-	GdkScreen *scr;
+	GdkDisplay *display;
 
 	if (!tema_css)
 		tema_css = gtk_css_provider_new();
-	gtk_css_provider_load_from_data(tema_css, css, -1, NULL);
+	gtk_css_provider_load_from_string(tema_css, css);
 	if (!g_object_get_data(G_OBJECT(tema_css), "attached")) {
-		scr = gdk_screen_get_default();
-		if (scr)
-			gtk_style_context_add_provider_for_screen(
-			    scr, GTK_STYLE_PROVIDER(tema_css),
+		display = gdk_display_get_default();
+		if (display)
+			gtk_style_context_add_provider_for_display(
+			    display, GTK_STYLE_PROVIDER(tema_css),
 			    GTK_STYLE_PROVIDER_PRIORITY_USER);
 		g_object_set_data(G_OBJECT(tema_css), "attached",
 				  GINT_TO_POINTER(1));
@@ -213,37 +209,34 @@ push_css(const char *css)
  * se crean después de haber cambiado de tema.
  *
  * Las emergentes quedan fuera a propósito: los menús y los mensajes
- * flotantes son GTK_WINDOW_POPUP y llevan sus propios colores, que se
- * definen sin selector de tema porque es lo único que les llega.
+ * flotantes son popovers, no ventanas, y llevan sus propios colores, que
+ * se definen sin selector de tema porque es lo único que les llega.
  */
 static void
 vestir_ventana(GtkWidget *w)
 {
-	GtkStyleContext *ctx;
 	const char *mode;
 
-	if (!GTK_IS_WINDOW(w) ||
-	    gtk_window_get_window_type(GTK_WINDOW(w)) != GTK_WINDOW_TOPLEVEL)
+	if (!GTK_IS_WINDOW(w))
 		return;
-	ctx = gtk_widget_get_style_context(w);
-	gtk_style_context_add_class(ctx, "elim-app");
+	gtk_widget_add_css_class(w, "elim-app");
 
 	/* gui_elim_tema_init() deliberately runs before the main window is
 	 * constructed.  Apply its already-selected class from the pre-map hook so
 	 * the first frame has the same palette as every later frame. */
 	mode = settings.ui_mode ? settings.ui_mode : "omarchy";
 	if (!g_strcmp0(mode, "oscuro")) {
-		gtk_style_context_add_class(ctx, "elim-dark");
+		gtk_widget_add_css_class(w, "elim-dark");
 	} else if (!g_strcmp0(mode, "claroluna")) {
-		gtk_style_context_add_class(ctx, "elim-luna");
+		gtk_widget_add_css_class(w, "elim-luna");
 	} else if (!g_strcmp0(mode, "pergamino")) {
-		gtk_style_context_add_class(ctx, "elim-pergamino");
+		gtk_widget_add_css_class(w, "elim-pergamino");
 	} else if (!g_strcmp0(mode, "claro")) {
-		gtk_style_context_add_class(ctx, "elim-claro");
+		gtk_widget_add_css_class(w, "elim-claro");
 	} else {
-		gtk_style_context_add_class(ctx, "elim-omarchy");
+		gtk_widget_add_css_class(w, "elim-omarchy");
 		if (settings.darktheme)
-			gtk_style_context_add_class(ctx, "elim-dark");
+			gtk_widget_add_css_class(w, "elim-dark");
 	}
 }
 
@@ -267,6 +260,8 @@ vestir_ventanas(void)
 	if (puesto)
 		return;
 	puesto = TRUE;
+	/* The signal only exists once GtkWidget's class is initialised. */
+	g_type_class_ref(GTK_TYPE_WIDGET);
 	g_signal_add_emission_hook(g_signal_lookup("map", GTK_TYPE_WIDGET), 0,
 				   vestir_al_mapear, NULL, NULL);
 	/* Las que ya estuvieran abiertas cuando esto arranca. */
@@ -404,8 +399,7 @@ apply_fijo(const TemaFijo *t)
 	settings.darktheme = t->dark ? 1 : 0;
 	clear_app_classes();
 	if (widgets.app && t->klass)
-		gtk_style_context_add_class(gtk_widget_get_style_context(widgets.app),
-					    t->klass);
+		gtk_widget_add_css_class(widgets.app, t->klass);
 }
 
 static gboolean
@@ -452,10 +446,9 @@ apply_omarchy(void)
 	settings.darktheme = dark ? 1 : 0;
 	clear_app_classes();
 	if (widgets.app) {
-		GtkStyleContext *ctx = gtk_widget_get_style_context(widgets.app);
-		gtk_style_context_add_class(ctx, "elim-omarchy");
+		gtk_widget_add_css_class(widgets.app, "elim-omarchy");
 		if (dark)
-			gtk_style_context_add_class(ctx, "elim-dark");
+			gtk_widget_add_css_class(widgets.app, "elim-dark");
 	}
 	g_free(path);
 	g_free(txt);
@@ -483,21 +476,6 @@ redisplay_text(void)
 	if (!sword_listo || !widgets.html_text || !settings.currentverse)
 		return;
 	main_display_bible(NULL, settings.currentverse);
-}
-
-static void
-sync_radios(void)
-{
-	int i;
-	const char *mode = settings.ui_mode ? settings.ui_mode : "omarchy";
-
-	applying = TRUE;
-	for (i = 0; i < radio_n; i++) {
-		const char *id = g_object_get_data(G_OBJECT(radio_items[i]), "tema-id");
-		gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(radio_items[i]),
-					       !g_strcmp0(id, mode));
-	}
-	applying = FALSE;
 }
 
 static void
@@ -571,7 +549,7 @@ gui_elim_tema_set(const char *mode)
 	settings.ui_mode = g_strdup(mode);
 	xml_set_or_create_value("misc", "ui_mode", settings.ui_mode);
 	gui_elim_tema_aplicar();
-	sync_radios();
+	gui_main_menu_set_theme(settings.ui_mode);
 }
 
 const char *
@@ -590,41 +568,6 @@ gui_elim_tema_fg(void)
 	return settings.bible_text_color ? settings.bible_text_color : "#1C1917";
 }
 
-static void
-on_tema_activate(GtkCheckMenuItem *item, gpointer data)
-{
-	const char *id = data;
-	if (applying)
-		return;
-	if (!gtk_check_menu_item_get_active(item))
-		return;
-	gui_elim_tema_set(id);
-}
-
-void
-gui_elim_tema_bind_menu(GtkBuilder *gxml)
-{
-	static const char *ids[] = {
-		"tema_omarchy", "tema_claro", "tema_oscuro",
-		"tema_claroluna", "tema_pergamino", NULL
-	};
-	static const char *modes[] = {
-		"omarchy", "claro", "oscuro", "claroluna", "pergamino"
-	};
-	int i;
-
-	radio_n = 0;
-	for (i = 0; ids[i]; i++) {
-		GtkWidget *w = GTK_WIDGET(gtk_builder_get_object(gxml, ids[i]));
-		if (!w)
-			continue;
-		g_object_set_data(G_OBJECT(w), "tema-id", (gpointer)modes[i]);
-		g_signal_connect(w, "toggled", G_CALLBACK(on_tema_activate),
-				 (gpointer)modes[i]);
-		radio_items[radio_n++] = w;
-	}
-	sync_radios();
-}
 
 /* La fuente de la interfaz: menús, pestañas, paneles y diálogos.
  *

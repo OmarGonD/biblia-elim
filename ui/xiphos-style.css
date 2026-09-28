@@ -323,7 +323,8 @@ button.elim-greek {
 	min-height: 28px;
 	padding: 0 8px;
 }
-button.elim-greek label {
+button.elim-greek label,
+label.elim-greek-glyph {
 	font-family: "Palatino Linotype", Palatino, "Noto Serif",
 		"Liberation Serif", serif;
 	font-size: 16pt;
@@ -643,7 +644,8 @@ treeview.view:selected:focus {
 .elim-navbar {
 	background-color: @elim_chrome;
 	border-bottom: 1px solid @elim_line;
-	padding: 6px 12px;
+	padding: 3px 10px;
+	min-height: 36px;
 }
 /* Reading mode: floats over the text instead of taking a layout row,
  * appearing only when the pointer hovers near the top of the window --
@@ -694,17 +696,34 @@ treeview.view:selected:focus {
 .elim-navbar button {
 	border-radius: 8px;
 	min-width: 28px;
+	min-height: 30px;
+	padding: 2px 7px;
 }
 .elim-navbar entry {
 	font-variant: small-caps;
 	letter-spacing: 0.03em;
 	font-weight: 500;
+	min-height: 30px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.elim-navbar spinbutton,
+.elim-navbar dropdown,
+.elim-navbar menubutton {
+	min-height: 30px;
 }
 
 /* ——— Tabs ——— */
 .elim-tabs,
 notebook {
 	background: transparent;
+}
+.elim-tabs {
+	min-height: 38px;
+}
+.elim-tabs > stack {
+	min-height: 0;
+	margin: 0;
 }
 notebook > header {
 	background: transparent;
@@ -733,9 +752,37 @@ notebook > header.bottom tab {
 	font-weight: 600;
 }
 
+/* Secondary panes read like quiet cards, not like a second application
+ * window.  Keep their title row compact and make the active tab obvious
+ * without adding another heavy border around the commentary surface. */
+.elim-side-notebook > header.bottom {
+	padding: 3px 8px 5px 8px;
+	background-color: alpha(@elim_panel, 0.72);
+	border-top: 1px solid @elim_line;
+}
+.elim-side-notebook > header.bottom tab {
+	min-height: 24px;
+	padding: 5px 12px;
+	margin: 0 2px;
+	font-size: 9pt;
+}
+.elim-side-notebook > header.bottom tab:checked {
+	background-color: alpha(@elim_navy, 0.14);
+	color: @elim_navy;
+}
+.elim-dark .elim-side-notebook > header.bottom {
+	background-color: alpha(#1A1610, 0.72);
+	border-color: alpha(white, 0.08);
+}
+.elim-dark .elim-side-notebook > header.bottom tab:checked {
+	color: #E6C989;
+	background-color: alpha(#E6C989, 0.16);
+}
+
 /* Passage tabs strip */
 .elim-tabstrip {
-	padding: 2px 6px 0 6px;
+	padding: 1px 6px 0 6px;
+	min-height: 38px;
 	border-bottom: 1px solid @elim_line;
 	background-color: @elim_chrome;
 }

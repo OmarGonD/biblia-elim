@@ -25,6 +25,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 
 #include "xiphos_html/xiphos_html.h"
 
@@ -73,7 +74,7 @@ GtkAdjustment *adjustment;
  * entirely missing. Plain scroll (no Ctrl) is left alone so normal page
  * scrolling still works. */
 static gboolean
-_scroll_zoom_cb(GtkWidget *widget, GdkEventScroll *event, gpointer user_data)
+_scroll_zoom_cb(GtkWidget *widget, GuiScrollEvent *event, gpointer user_data)
 {
 	if (!(event->state & GDK_CONTROL_MASK))
 		return FALSE;
@@ -153,13 +154,12 @@ bible_view(void)
 	return wk_html_get_view(WK_HTML(widgets.html_text));
 }
 
-static gboolean
-on_circle_draw(GtkWidget *widget, cairo_t *cr, gpointer user_data)
+static void
+on_circle_draw(GtkDrawingArea *area, cairo_t *cr, int w, int h,
+	       gpointer user_data)
 {
-	const gchar *color = g_object_get_data(G_OBJECT(widget), "swatch-color");
+	const gchar *color = g_object_get_data(G_OBJECT(area), "swatch-color");
 	GdkRGBA rgba;
-	gint w = gtk_widget_get_allocated_width(widget);
-	gint h = gtk_widget_get_allocated_height(widget);
 	double side = MIN(w, h);
 	double radius = MAX((side / 2.0) - 0.5, 1.0);
 
@@ -176,7 +176,7 @@ on_circle_draw(GtkWidget *widget, cairo_t *cr, gpointer user_data)
 	cairo_set_source_rgba(cr, 0, 0, 0, 0.28);
 	cairo_set_line_width(cr, 1.0);
 	cairo_stroke(cr);
-	return TRUE;
+
 }
 
 static void
@@ -202,18 +202,18 @@ make_circle_swatch(const gchar *color, int diameter, GtkWidget **da_out)
 	gtk_widget_set_halign(da, GTK_ALIGN_CENTER);
 	gtk_widget_set_valign(da, GTK_ALIGN_CENTER);
 	set_circle_color(da, color);
-	g_signal_connect(da, "draw", G_CALLBACK(on_circle_draw), NULL);
+	gtk_drawing_area_set_draw_func(GTK_DRAWING_AREA(da), on_circle_draw, NULL,
+				       NULL);
 
-	gtk_button_set_relief(GTK_BUTTON(btn), GTK_RELIEF_NONE);
+	gtk_button_set_has_frame(GTK_BUTTON(btn), FALSE);
 	gtk_widget_set_can_focus(btn, FALSE);
 	gtk_widget_set_hexpand(btn, FALSE);
 	gtk_widget_set_vexpand(btn, FALSE);
 	gtk_widget_set_halign(btn, GTK_ALIGN_CENTER);
 	gtk_widget_set_valign(btn, GTK_ALIGN_CENTER);
 	gtk_widget_set_size_request(btn, diameter + 4, diameter + 4);
-	gtk_style_context_add_class(gtk_widget_get_style_context(btn),
-				    "highlight-swatch");
-	gtk_container_add(GTK_CONTAINER(btn), da);
+	gtk_widget_add_css_class(btn, "highlight-swatch");
+	gtk_button_set_child(GTK_BUTTON(btn), da);
 	gtk_widget_show(da);
 	if (da_out)
 		*da_out = da;
@@ -328,9 +328,9 @@ on_highlight_underline_clicked(GtkButton *button, gpointer user_data)
 	}
 
 	if (!highlight_color_popover) {
-		highlight_color_popover = gtk_popover_new(highlight_toolbar_popover);
+		highlight_color_popover = gui_popover_new(GTK_WIDGET(button));
 		GtkWidget *box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 4);
-		gtk_container_set_border_width(GTK_CONTAINER(box), 6);
+		gui_widget_set_margins(box, 6);
 		guint i;
 		for (i = 0; i < HIGHLIGHT_PALETTE_N; ++i) {
 			GtkWidget *swatch = make_circle_swatch(highlight_palette[i], 22, NULL);
@@ -338,12 +338,11 @@ on_highlight_underline_clicked(GtkButton *button, gpointer user_data)
 					 G_CALLBACK(on_highlight_color_swatch_clicked),
 					 (gpointer)highlight_palette[i]);
 			gtk_widget_show(swatch);
-			gtk_box_pack_start(GTK_BOX(box), swatch, FALSE, FALSE, 0);
+			gtk_box_append(GTK_BOX(box), swatch);
 		}
 		gtk_widget_show(box);
-		gtk_container_add(GTK_CONTAINER(highlight_color_popover), box);
+		gtk_popover_set_child(GTK_POPOVER(highlight_color_popover), box);
 	}
-	gtk_popover_set_relative_to(GTK_POPOVER(highlight_color_popover), GTK_WIDGET(button));
 	gtk_popover_popup(GTK_POPOVER(highlight_color_popover));
 }
 
@@ -360,7 +359,7 @@ run_note_edit_dialog(const gchar *title, const gchar *initial_text, gchar **out_
 	gint response;
 
 	dialog = gtk_dialog_new_with_buttons(
-	    title, GTK_WINDOW(gtk_widget_get_toplevel(GTK_WIDGET(widgets.html_text))),
+	    title, GTK_WINDOW(gui_widget_get_toplevel(GTK_WIDGET(widgets.html_text))),
 	    GTK_DIALOG_MODAL,
 	    _("_Cancelar"), GTK_RESPONSE_CANCEL,
 	    _("_Guardar"), GTK_RESPONSE_OK,
@@ -368,25 +367,25 @@ run_note_edit_dialog(const gchar *title, const gchar *initial_text, gchar **out_
 	gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_OK);
 
 	content = gtk_dialog_get_content_area(GTK_DIALOG(dialog));
-	gtk_container_set_border_width(GTK_CONTAINER(content), 8);
+	gui_widget_set_margins(content, 8);
 
-	scroll = gtk_scrolled_window_new(NULL, NULL);
+	scroll = gtk_scrolled_window_new();
 	gtk_widget_set_size_request(scroll, 320, 160);
 	tv = gtk_text_view_new();
 	gtk_text_view_set_wrap_mode(GTK_TEXT_VIEW(tv), GTK_WRAP_WORD);
 	buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(tv));
 	gtk_text_buffer_set_text(buffer, initial_text ? initial_text : "", -1);
-	gtk_container_add(GTK_CONTAINER(scroll), tv);
-	gtk_box_pack_start(GTK_BOX(content), scroll, TRUE, TRUE, 4);
+	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(scroll), tv);
+	gui_box_pack(GTK_BOX(content), scroll, TRUE, TRUE, 4);
 
-	gtk_widget_show_all(dialog);
-	response = gtk_dialog_run(GTK_DIALOG(dialog));
+	gtk_widget_show(dialog);
+	response = gui_dialog_run(GTK_DIALOG(dialog));
 	if (response == GTK_RESPONSE_OK) {
 		gtk_text_buffer_get_start_iter(buffer, &start);
 		gtk_text_buffer_get_end_iter(buffer, &end);
 		*out_text = gtk_text_buffer_get_text(buffer, &start, &end, FALSE);
 	}
-	gtk_widget_destroy(dialog);
+	gui_widget_destroy(dialog);
 	return response == GTK_RESPONSE_OK;
 }
 
@@ -399,7 +398,7 @@ run_reference_entry_dialog(const gchar *title, gchar **out_text)
 	gint response;
 
 	dialog = gtk_dialog_new_with_buttons(
-	    title, GTK_WINDOW(gtk_widget_get_toplevel(GTK_WIDGET(widgets.html_text))),
+	    title, GTK_WINDOW(gui_widget_get_toplevel(GTK_WIDGET(widgets.html_text))),
 	    GTK_DIALOG_MODAL,
 	    _("_Cancelar"), GTK_RESPONSE_CANCEL,
 	    _("_Enlazar"), GTK_RESPONSE_OK,
@@ -407,22 +406,22 @@ run_reference_entry_dialog(const gchar *title, gchar **out_text)
 	gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_OK);
 
 	content = gtk_dialog_get_content_area(GTK_DIALOG(dialog));
-	gtk_container_set_border_width(GTK_CONTAINER(content), 8);
+	gui_widget_set_margins(content, 8);
 
 	label = gtk_label_new(_("Referencia del versículo (p. ej. Juan 3:16):"));
 	gtk_widget_set_halign(label, GTK_ALIGN_START);
-	gtk_box_pack_start(GTK_BOX(content), label, FALSE, FALSE, 4);
+	gui_box_pack(GTK_BOX(content), label, FALSE, FALSE, 4);
 
 	entry = gtk_entry_new();
 	gtk_entry_set_activates_default(GTK_ENTRY(entry), TRUE);
-	gtk_box_pack_start(GTK_BOX(content), entry, FALSE, FALSE, 4);
+	gui_box_pack(GTK_BOX(content), entry, FALSE, FALSE, 4);
 
-	gtk_widget_show_all(dialog);
-	response = gtk_dialog_run(GTK_DIALOG(dialog));
+	gtk_widget_show(dialog);
+	response = gui_dialog_run(GTK_DIALOG(dialog));
 	*out_text = (response == GTK_RESPONSE_OK)
-			? g_strdup(gtk_entry_get_text(GTK_ENTRY(entry)))
+			? g_strdup(gtk_editable_get_text(GTK_EDITABLE(entry)))
 			: NULL;
-	gtk_widget_destroy(dialog);
+	gui_widget_destroy(dialog);
 	return response == GTK_RESPONSE_OK;
 }
 
@@ -463,8 +462,7 @@ rebuild_linked_notes_box(const gchar *note_key)
 	if (!highlight_note_link_box)
 		return;
 
-	gtk_container_foreach(GTK_CONTAINER(highlight_note_link_box),
-			      (GtkCallback)gtk_widget_destroy, NULL);
+	gui_box_remove_all(highlight_note_link_box);
 	if (!note_key)
 		return;
 
@@ -474,21 +472,21 @@ rebuild_linked_notes_box(const gchar *note_key)
 
 	GtkWidget *hdr = gtk_label_new(_("Notas enlazadas:"));
 	gtk_widget_set_halign(hdr, GTK_ALIGN_START);
-	gtk_box_pack_start(GTK_BOX(highlight_note_link_box), hdr, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(highlight_note_link_box), hdr);
 
 	for (n = links; n; n = n->next) {
 		gchar *key = (gchar *)n->data;
 		gchar *osis = highlight_note_key_osisref(key);
 		GtkWidget *btn = gtk_button_new_with_label(osis ? osis : key);
-		gtk_button_set_relief(GTK_BUTTON(btn), GTK_RELIEF_NONE);
+		gtk_button_set_has_frame(GTK_BUTTON(btn), FALSE);
 		gtk_widget_set_halign(btn, GTK_ALIGN_START);
 		g_object_set_data_full(G_OBJECT(btn), "note-key", g_strdup(key), g_free);
 		g_signal_connect(btn, "clicked", G_CALLBACK(on_linked_note_clicked), NULL);
-		gtk_box_pack_start(GTK_BOX(highlight_note_link_box), btn, FALSE, FALSE, 0);
+		gtk_box_append(GTK_BOX(highlight_note_link_box), btn);
 		g_free(osis);
 	}
 	g_list_free_full(links, g_free);
-	gtk_widget_show_all(highlight_note_link_box);
+	gtk_widget_show(highlight_note_link_box);
 }
 
 /* Prompt for a reference and link `source_key` (a note_key) to the
@@ -562,16 +560,16 @@ on_highlight_note_clicked(GtkButton *button, gpointer user_data)
 		commit_pending_highlight(pending_color);
 
 	if (!highlight_note_popover) {
-		highlight_note_popover = gtk_popover_new(highlight_toolbar_popover);
+		highlight_note_popover = gui_popover_new(GTK_WIDGET(button));
 		GtkWidget *box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 6);
-		gtk_container_set_border_width(GTK_CONTAINER(box), 6);
+		gui_widget_set_margins(box, 6);
 
-		GtkWidget *scroll = gtk_scrolled_window_new(NULL, NULL);
+		GtkWidget *scroll = gtk_scrolled_window_new();
 		gtk_widget_set_size_request(scroll, 240, 100);
 		GtkWidget *tv = gtk_text_view_new();
 		highlight_note_textview = GTK_TEXT_VIEW(tv);
 		gtk_text_view_set_wrap_mode(GTK_TEXT_VIEW(tv), GTK_WRAP_WORD);
-		gtk_container_add(GTK_CONTAINER(scroll), tv);
+		gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(scroll), tv);
 
 		GtkWidget *save = gtk_button_new_with_label(_("Guardar nota"));
 		g_signal_connect(save, "clicked",
@@ -583,12 +581,12 @@ on_highlight_note_clicked(GtkButton *button, gpointer user_data)
 
 		highlight_note_link_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 2);
 
-		gtk_box_pack_start(GTK_BOX(box), scroll, TRUE, TRUE, 0);
-		gtk_box_pack_start(GTK_BOX(box), save, FALSE, FALSE, 0);
-		gtk_box_pack_start(GTK_BOX(box), link_btn, FALSE, FALSE, 0);
-		gtk_box_pack_start(GTK_BOX(box), highlight_note_link_box, FALSE, FALSE, 0);
-		gtk_widget_show_all(box);
-		gtk_container_add(GTK_CONTAINER(highlight_note_popover), box);
+		gui_box_pack(GTK_BOX(box), scroll, TRUE, TRUE, 0);
+		gtk_box_append(GTK_BOX(box), save);
+		gtk_box_append(GTK_BOX(box), link_btn);
+		gtk_box_append(GTK_BOX(box), highlight_note_link_box);
+		gtk_widget_show(box);
+		gtk_popover_set_child(GTK_POPOVER(highlight_note_popover), box);
 	}
 
 	/* pre-fill with the highlight's existing note (if any) -- editing an
@@ -602,7 +600,6 @@ on_highlight_note_clicked(GtkButton *button, gpointer user_data)
 	rebuild_linked_notes_box(note_key);
 	g_free(note_key);
 
-	gtk_popover_set_relative_to(GTK_POPOVER(highlight_note_popover), GTK_WIDGET(button));
 	gtk_popover_popup(GTK_POPOVER(highlight_note_popover));
 }
 
@@ -610,9 +607,9 @@ static void
 on_highlight_copy_clicked(GtkButton *button, gpointer user_data)
 {
 	if (current_highlight_text) {
-		GtkClipboard *clipboard =
-		    gtk_widget_get_clipboard(GTK_WIDGET(widgets.html_text), GDK_SELECTION_CLIPBOARD);
-		gtk_clipboard_set_text(clipboard, current_highlight_text, -1);
+		GdkClipboard *clipboard =
+		    gtk_widget_get_clipboard(GTK_WIDGET(widgets.html_text));
+		gdk_clipboard_set_text(clipboard, current_highlight_text);
 	}
 }
 
@@ -624,24 +621,44 @@ on_highlight_search_clicked(GtkButton *button, gpointer user_data)
 	gui_diccionario_mostrar(current_highlight_text);
 }
 
+/* RECT is in the text view's coordinates; the toolbar hangs from the
+ * pane around it. */
+static void
+point_toolbar_at(const GdkRectangle *rect)
+{
+	GdkRectangle at = *rect;
+	graphene_point_t in, out;
+	GtkTextView *view = bible_view();
+
+	graphene_point_init(&in, rect->x, rect->y);
+	if (view && gtk_widget_compute_point(GTK_WIDGET(view), widgets.html_text,
+					     &in, &out)) {
+		at.x = (int)out.x;
+		at.y = (int)out.y;
+	}
+	gtk_popover_set_pointing_to(GTK_POPOVER(highlight_toolbar_popover), &at);
+}
+
 static void
 ensure_highlight_toolbar(void)
 {
 	if (highlight_toolbar_popover)
 		return;
 
-	highlight_toolbar_popover = gtk_popover_new(GTK_WIDGET(bible_view()));
+	/* on the pane, not on the text view: GtkTextView positions only its
+	 * own popovers */
+	highlight_toolbar_popover = gui_popover_new(widgets.html_text);
 	gtk_popover_set_position(GTK_POPOVER(highlight_toolbar_popover), GTK_POS_TOP);
 
 	GtkWidget *box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 2);
-	gtk_container_set_border_width(GTK_CONTAINER(box), 4);
+	gui_widget_set_margins(box, 4);
 
-	GtkWidget *del_btn = gtk_button_new_from_icon_name("edit-delete-symbolic", GTK_ICON_SIZE_BUTTON);
+	GtkWidget *del_btn = gtk_button_new_from_icon_name("edit-delete-symbolic");
 	gtk_widget_set_tooltip_text(del_btn, _("Eliminar"));
-	gtk_button_set_relief(GTK_BUTTON(del_btn), GTK_RELIEF_NONE);
+	gtk_button_set_has_frame(GTK_BUTTON(del_btn), FALSE);
 	g_signal_connect(del_btn, "clicked", G_CALLBACK(on_highlight_delete_clicked), NULL);
 	gtk_widget_show(del_btn);
-	gtk_box_pack_start(GTK_BOX(box), del_btn, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(box), del_btn);
 
 	/* Colored circle: click to underline (or to change color later). */
 	highlight_color_button = make_circle_swatch(DEFAULT_HIGHLIGHT_COLOR, 20,
@@ -652,35 +669,34 @@ ensure_highlight_toolbar(void)
 	gtk_widget_show(highlight_color_button);
 	gtk_widget_set_margin_start(highlight_color_button, 4);
 	gtk_widget_set_margin_end(highlight_color_button, 4);
-	gtk_box_pack_start(GTK_BOX(box), highlight_color_button, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(box), highlight_color_button);
 
-	GtkWidget *note_btn = gtk_button_new_from_icon_name("document-edit-symbolic", GTK_ICON_SIZE_BUTTON);
+	GtkWidget *note_btn = gtk_button_new_from_icon_name("document-edit-symbolic");
 	gtk_widget_set_tooltip_text(note_btn, _("Nota"));
-	gtk_button_set_relief(GTK_BUTTON(note_btn), GTK_RELIEF_NONE);
+	gtk_button_set_has_frame(GTK_BUTTON(note_btn), FALSE);
 	g_signal_connect(note_btn, "clicked", G_CALLBACK(on_highlight_note_clicked), NULL);
 	gtk_widget_show(note_btn);
-	gtk_box_pack_start(GTK_BOX(box), note_btn, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(box), note_btn);
 	highlight_note_button = note_btn;
 
-	GtkWidget *copy_btn = gtk_button_new_from_icon_name("edit-copy-symbolic", GTK_ICON_SIZE_BUTTON);
+	GtkWidget *copy_btn = gtk_button_new_from_icon_name("edit-copy-symbolic");
 	gtk_widget_set_tooltip_text(copy_btn, _("Copiar"));
-	gtk_button_set_relief(GTK_BUTTON(copy_btn), GTK_RELIEF_NONE);
+	gtk_button_set_has_frame(GTK_BUTTON(copy_btn), FALSE);
 	g_signal_connect(copy_btn, "clicked", G_CALLBACK(on_highlight_copy_clicked), NULL);
 	gtk_widget_show(copy_btn);
-	gtk_box_pack_start(GTK_BOX(box), copy_btn, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(box), copy_btn);
 
-	GtkWidget *search_btn = gtk_button_new_from_icon_name("accessories-dictionary-symbolic", GTK_ICON_SIZE_BUTTON);
+	GtkWidget *search_btn = gtk_button_new_from_icon_name("accessories-dictionary-symbolic");
 	gtk_widget_set_tooltip_text(search_btn, _("Diccionario"));
-	gtk_button_set_relief(GTK_BUTTON(search_btn), GTK_RELIEF_NONE);
+	gtk_button_set_has_frame(GTK_BUTTON(search_btn), FALSE);
 	g_signal_connect(search_btn, "clicked", G_CALLBACK(on_highlight_search_clicked), NULL);
 	gtk_widget_show(search_btn);
-	gtk_box_pack_start(GTK_BOX(box), search_btn, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(box), search_btn);
 
 	gtk_widget_show(box);
-	gtk_container_add(GTK_CONTAINER(highlight_toolbar_popover), box);
+	gtk_popover_set_child(GTK_POPOVER(highlight_toolbar_popover), box);
 
-	gtk_style_context_add_class(gtk_widget_get_style_context(highlight_toolbar_popover),
-				    "highlight-toolbar");
+	gtk_widget_add_css_class(highlight_toolbar_popover, "highlight-toolbar");
 }
 
 static void
@@ -729,7 +745,7 @@ gui_handle_text_selection(const gchar *full_text, GList *segments,
 	rect.y = (gint)y;
 	rect.width = (gint)(w > 1 ? w : 1);
 	rect.height = (gint)(h > 1 ? h : 1);
-	gtk_popover_set_pointing_to(GTK_POPOVER(highlight_toolbar_popover), &rect);
+	point_toolbar_at(&rect);
 	gtk_popover_popup(GTK_POPOVER(highlight_toolbar_popover));
 }
 
@@ -811,8 +827,6 @@ show_hl_toolbar(const gchar *id, const gchar *text, GdkRectangle *rect)
 	current_highlight_label = g_strdup(id);
 	current_highlight_text = g_strdup(text);
 	ensure_highlight_toolbar();
-	gtk_popover_set_relative_to(GTK_POPOVER(highlight_toolbar_popover),
-				    GTK_WIDGET(bible_view()));
 	if (current_highlight_label) {
 		clear_pending_selection();
 		color = highlight_get_color(current_highlight_label);
@@ -827,7 +841,7 @@ show_hl_toolbar(const gchar *id, const gchar *text, GdkRectangle *rect)
 				    current_highlight_label
 					? _("Color de subrayado")
 					: _("Subrayar"));
-	gtk_popover_set_pointing_to(GTK_POPOVER(highlight_toolbar_popover), rect);
+	point_toolbar_at(rect);
 	gtk_popover_popup(GTK_POPOVER(highlight_toolbar_popover));
 }
 
@@ -944,21 +958,29 @@ offer_highlight_for_selection(GtkTextView *view, GtkTextIter *start, GtkTextIter
 	g_free(text);
 }
 
+/* After a pointer or Shift+arrow selection ends: offer the highlight
+ * toolbar for the selection, or for the highlight clicked on. From an
+ * idle, so the text view has already finished with the release. */
+typedef struct {
+	gboolean click;	/* a button release at (x, y), view coordinates */
+	gdouble x, y;
+} SelectDone;
+
 static gboolean
-on_native_select_done(GtkWidget *widget, GdkEvent *event, gpointer user_data)
+native_select_done(gpointer data)
 {
-	GtkTextView *view = GTK_TEXT_VIEW(widget);
-	GtkTextBuffer *buf = gtk_text_view_get_buffer(view);
+	SelectDone *done = data;
+	GtkTextView *view = bible_view();
+	GtkTextBuffer *buf;
 	GtkTextIter start, end, click;
 	gchar *hid;
 	GdkRectangle rect;
 
-	(void)user_data;
-	if (event->type == GDK_KEY_RELEASE) {
-		if (!(event->key.state & GDK_SHIFT_MASK))
-			return FALSE;
+	if (!view) {
+		g_free(done);
+		return G_SOURCE_REMOVE;
 	}
-
+	buf = gtk_text_view_get_buffer(view);
 	if (gtk_text_buffer_get_selection_bounds(buf, &start, &end)) {
 		hid = wk_html_highlight_id_at(&start);
 		if (hid) {
@@ -970,17 +992,19 @@ on_native_select_done(GtkWidget *widget, GdkEvent *event, gpointer user_data)
 			show_hl_toolbar(hid, t, &rect);
 			g_free(t);
 			g_free(hid);
-			return FALSE;
+			g_free(done);
+			return G_SOURCE_REMOVE;
 		}
 		offer_highlight_for_selection(view, &start, &end);
-		return FALSE;
+		g_free(done);
+		return G_SOURCE_REMOVE;
 	}
 
-	if (event->type == GDK_BUTTON_RELEASE) {
+	if (done->click) {
 		gint x, y;
-		gtk_text_view_window_to_buffer_coords(view, GTK_TEXT_WINDOW_TEXT,
-						      (gint)event->button.x,
-						      (gint)event->button.y, &x, &y);
+		gtk_text_view_window_to_buffer_coords(view, GTK_TEXT_WINDOW_WIDGET,
+						      (gint)done->x, (gint)done->y,
+						      &x, &y);
 		gtk_text_view_get_iter_at_location(view, &click, x, y);
 		hid = wk_html_highlight_id_at(&click);
 		if (hid) {
@@ -992,10 +1016,40 @@ on_native_select_done(GtkWidget *widget, GdkEvent *event, gpointer user_data)
 			show_hl_toolbar(hid, t, &rect);
 			g_free(t);
 			g_free(hid);
-			return FALSE;
+			g_free(done);
+			return G_SOURCE_REMOVE;
 		}
 	}
 	gui_hide_highlight_toolbar();
+	g_free(done);
+	return G_SOURCE_REMOVE;
+}
+
+static gboolean
+on_native_select_click_done(GtkWidget *widget, GuiButtonEvent *event,
+			    gpointer user_data)
+{
+	SelectDone *done = g_new0(SelectDone, 1);
+
+	(void)widget;
+	(void)user_data;
+	done->click = TRUE;
+	done->x = event->x;
+	done->y = event->y;
+	g_idle_add(native_select_done, done);
+	return FALSE;
+}
+
+static gboolean
+on_native_select_key_done(GtkWidget *widget, GuiKeyEvent *event,
+			  gpointer user_data)
+{
+	(void)widget;
+	(void)user_data;
+	/* a keyboard selection is made with Shift held */
+	if (!(event->state & GDK_SHIFT_MASK))
+		return FALSE;
+	g_idle_add(native_select_done, g_new0(SelectDone, 1));
 	return FALSE;
 }
 
@@ -1071,7 +1125,7 @@ on_verse_note_edit_clicked(GtkButton *button, gpointer user_data)
 		 * available. Copy the id first -- destroying the dialog
 		 * frees `r` (and r->group_id) via free_note_row_ctx. */
 		gchar *gid = g_strdup(r->group_id);
-		gtk_widget_destroy(r->ctx->dialog);
+		gui_widget_destroy(r->ctx->dialog);
 		gui_open_highlight_note_by_id(gid);
 		g_free(gid);
 		return;
@@ -1122,8 +1176,7 @@ rebuild_verse_notes_list(VerseNotesCtx *ctx)
 {
 	GList *notes, *n;
 
-	gtk_container_foreach(GTK_CONTAINER(ctx->listbox),
-			      (GtkCallback)gtk_widget_destroy, NULL);
+	gui_box_remove_all(ctx->listbox);
 
 	/* the verse may be in another Bible than the main one: a note
 	 * marker in the parallel view or the compare panel */
@@ -1131,7 +1184,7 @@ rebuild_verse_notes_list(VerseNotesCtx *ctx)
 	if (!notes) {
 		GtkWidget *lbl = gtk_label_new(_("Todavía no hay notas en este versículo."));
 		gtk_widget_set_halign(lbl, GTK_ALIGN_START);
-		gtk_box_pack_start(GTK_BOX(ctx->listbox), lbl, FALSE, FALSE, 0);
+		gtk_box_append(GTK_BOX(ctx->listbox), lbl);
 	}
 
 	for (n = notes; n; n = n->next) {
@@ -1142,8 +1195,8 @@ rebuild_verse_notes_list(VerseNotesCtx *ctx)
 		GList *links, *ln;
 		NoteRowCtx *r_edit, *r_link;
 
-		gtk_container_set_border_width(GTK_CONTAINER(vbox), 6);
-		gtk_container_add(GTK_CONTAINER(frame), vbox);
+		gui_widget_set_margins(vbox, 6);
+		gtk_frame_set_child(GTK_FRAME(frame), vbox);
 
 		if (note->text && *note->text) {
 			gchar *markup = g_markup_printf_escaped("<i>“%s”</i>", note->text);
@@ -1159,23 +1212,22 @@ rebuild_verse_notes_list(VerseNotesCtx *ctx)
 		} else {
 			excerpt_lbl = gtk_label_new(_("(versículo completo)"));
 		}
-		gtk_label_set_line_wrap(GTK_LABEL(excerpt_lbl), TRUE);
+		gtk_label_set_wrap(GTK_LABEL(excerpt_lbl), TRUE);
 		gtk_widget_set_halign(excerpt_lbl, GTK_ALIGN_START);
-		gtk_box_pack_start(GTK_BOX(vbox), excerpt_lbl, FALSE, FALSE, 0);
+		gtk_box_append(GTK_BOX(vbox), excerpt_lbl);
 
 		note_lbl = gtk_label_new(note->note ? note->note : "");
-		gtk_label_set_line_wrap(GTK_LABEL(note_lbl), TRUE);
+		gtk_label_set_wrap(GTK_LABEL(note_lbl), TRUE);
 		gtk_widget_set_halign(note_lbl, GTK_ALIGN_START);
-		gtk_box_pack_start(GTK_BOX(vbox), note_lbl, FALSE, FALSE, 0);
+		gtk_box_append(GTK_BOX(vbox), note_lbl);
 		{
 			gchar *fechas = highlight_note_dates_text(note->created,
 								  note->modified);
 			if (fechas) {
 				GtkWidget *cuando = gtk_label_new(fechas);
-				gtk_style_context_add_class(
-				    gtk_widget_get_style_context(cuando), "dim-label");
+				gtk_widget_add_css_class(cuando, "dim-label");
 				gtk_widget_set_halign(cuando, GTK_ALIGN_START);
-				gtk_box_pack_start(GTK_BOX(vbox), cuando, FALSE, FALSE, 0);
+				gtk_box_append(GTK_BOX(vbox), cuando);
 				g_free(fechas);
 			}
 		}
@@ -1184,16 +1236,16 @@ rebuild_verse_notes_list(VerseNotesCtx *ctx)
 		if (links) {
 			GtkWidget *link_hdr = gtk_label_new(_("Enlazada con:"));
 			gtk_widget_set_halign(link_hdr, GTK_ALIGN_START);
-			gtk_box_pack_start(GTK_BOX(vbox), link_hdr, FALSE, FALSE, 0);
+			gtk_box_append(GTK_BOX(vbox), link_hdr);
 			for (ln = links; ln; ln = ln->next) {
 				gchar *key = (gchar *)ln->data;
 				gchar *osis = highlight_note_key_osisref(key);
 				GtkWidget *lb = gtk_button_new_with_label(osis ? osis : key);
-				gtk_button_set_relief(GTK_BUTTON(lb), GTK_RELIEF_NONE);
+				gtk_button_set_has_frame(GTK_BUTTON(lb), FALSE);
 				gtk_widget_set_halign(lb, GTK_ALIGN_START);
 				g_object_set_data_full(G_OBJECT(lb), "note-key", g_strdup(key), g_free);
 				g_signal_connect(lb, "clicked", G_CALLBACK(on_linked_note_clicked), NULL);
-				gtk_box_pack_start(GTK_BOX(vbox), lb, FALSE, FALSE, 0);
+				gtk_box_append(GTK_BOX(vbox), lb);
 				g_free(osis);
 			}
 			g_list_free_full(links, g_free);
@@ -1223,15 +1275,15 @@ rebuild_verse_notes_list(VerseNotesCtx *ctx)
 		g_object_set_data_full(G_OBJECT(link_btn), "row-ctx", r_link, free_note_row_ctx);
 		g_signal_connect(link_btn, "clicked", G_CALLBACK(on_verse_note_link_clicked), NULL);
 
-		gtk_box_pack_start(GTK_BOX(hbox), edit_btn, FALSE, FALSE, 0);
-		gtk_box_pack_start(GTK_BOX(hbox), link_btn, FALSE, FALSE, 0);
-		gtk_box_pack_start(GTK_BOX(vbox), hbox, FALSE, FALSE, 0);
+		gtk_box_append(GTK_BOX(hbox), edit_btn);
+		gtk_box_append(GTK_BOX(hbox), link_btn);
+		gtk_box_append(GTK_BOX(vbox), hbox);
 
-		gtk_box_pack_start(GTK_BOX(ctx->listbox), frame, FALSE, FALSE, 0);
+		gtk_box_append(GTK_BOX(ctx->listbox), frame);
 	}
 	g_list_free_full(notes, (GDestroyNotify)highlight_note_free);
 
-	gtk_widget_show_all(ctx->listbox);
+	gtk_widget_show(ctx->listbox);
 }
 
 void
@@ -1337,7 +1389,7 @@ static gdouble window_restore_y = 0.0;
 static gint window_restore_frames = 0;
 static gdouble window_restore_last_target = -1.0;
 static gdouble window_restore_last_upper = -1.0;
-static GdkWindow *window_restore_frozen = NULL;
+static gboolean window_restore_frozen = FALSE;
 static gint64 window_restore_started = 0;
 static void schedule_window_recenter(void);
 /* bottom margin wk-html gives the view, before any reading reserve */
@@ -2044,28 +2096,17 @@ on_reading_adjustment_changed(GtkAdjustment *adj, gpointer data)
 }
 
 static gint
-scroll_event_direction(GdkEventScroll *event, gdouble *dx, gdouble *dy,
+scroll_event_direction(GuiScrollEvent *event, gdouble *dx, gdouble *dy,
 		       gdouble *amount)
 {
-	*dx = 0;
-	*dy = 0;
-	*amount = 1.0;
-	switch (event->direction) {
-	case GDK_SCROLL_DOWN:
-		*dy = 1;
-		return 1;
-	case GDK_SCROLL_UP:
-		*dy = -1;
-		return -1;
-	case GDK_SCROLL_SMOOTH:
-		if (!gdk_event_get_scroll_deltas((GdkEvent *)event, dx, dy) ||
-		    *dy == 0)
-			return 0;
-		*amount = ABS(*dy);
-		return *dy > 0 ? 1 : -1;
-	default:
+	/* a wheel notch is 1.0 (less on high-resolution wheels), a
+	 * touchpad a fraction of that per event */
+	*dx = event->delta_x;
+	*dy = event->delta_y;
+	*amount = ABS(*dy);
+	if (*dy == 0)
 		return 0;
-	}
+	return *dy > 0 ? 1 : -1;
 }
 
 static const gchar *
@@ -2081,8 +2122,6 @@ input_source_name(GdkInputSource source)
 	case GDK_SOURCE_TOUCHSCREEN:
 		return "touchscreen";
 	case GDK_SOURCE_PEN:
-	case GDK_SOURCE_ERASER:
-	case GDK_SOURCE_CURSOR:
 	case GDK_SOURCE_TABLET_PAD:
 		return "tablet";
 	case GDK_SOURCE_KEYBOARD:
@@ -2162,9 +2201,9 @@ finish_window_restore(GtkTextView *view, gboolean converged)
 	gchar *focus_anchor;
 
 	if (window_restore_frozen) {
-		gdk_window_thaw_updates(window_restore_frozen);
-		g_object_unref(window_restore_frozen);
-		window_restore_frozen = NULL;
+		if (widgets.html_text)
+			wk_html_thaw(WK_HTML(widgets.html_text));
+		window_restore_frozen = FALSE;
 	}
 	window_restore_pending = FALSE;
 
@@ -2216,7 +2255,6 @@ recenter_reading_window(void)
 	GtkAdjustment *vadj;
 	GtkTextIter at, s, e;
 	GdkRectangle vis, rect;
-	GdkWindow *toplevel;
 
 	if (!view || !widgets.html_text || !settings.currentverse)
 		return;
@@ -2238,11 +2276,9 @@ recenter_reading_window(void)
 		? wheel_scroll.target - gtk_adjustment_get_value(vadj) : 0.0;
 	cancel_wheel_scroll();
 
-	toplevel = gtk_widget_get_window(gtk_widget_get_toplevel(GTK_WIDGET(view)));
-	if (toplevel) {
-		window_restore_frozen = g_object_ref(toplevel);
-		gdk_window_freeze_updates(window_restore_frozen);
-	}
+	/* the reader keeps seeing the old frame meanwhile */
+	wk_html_freeze(WK_HTML(widgets.html_text));
+	window_restore_frozen = TRUE;
 	window_restore_started = g_get_monotonic_time();
 
 	if (!main_bible_window_recenter(settings.currentverse)) {
@@ -2376,7 +2412,7 @@ schedule_window_recenter(void)
  * Against an edge the view cannot move; that step is counted as a push
  * for the reading focus (reading_focus_track). */
 static gboolean
-on_bible_user_scroll_event(GtkWidget *widget, GdkEventScroll *event,
+on_bible_user_scroll_event(GtkWidget *widget, GuiScrollEvent *event,
 			   gpointer data)
 {
 	GtkTextView *view = bible_view();
@@ -2392,15 +2428,16 @@ on_bible_user_scroll_event(GtkWidget *widget, GdkEventScroll *event,
 	if (event->state & GDK_CONTROL_MASK)
 		return FALSE;
 	begin_user_scroll();
-	duplicate = (gpointer)event == last_scroll_event &&
+	/* the same event reaches the view and its scrolled window */
+	duplicate = (gpointer)event->event == last_scroll_event &&
 		    event->time == last_scroll_event_time;
 	if (!duplicate) {
-		last_scroll_event = event;
+		last_scroll_event = event->event;
 		last_scroll_event_time = event->time;
 		scroll_event_seq++;
 	}
-	emulated = gdk_event_get_pointer_emulated((GdkEvent *)event);
-	source_device = gdk_event_get_source_device((GdkEvent *)event);
+	emulated = event->event && gdk_event_get_pointer_emulated(event->event);
+	source_device = event->event ? gdk_event_get_device(event->event) : NULL;
 	if (source_device)
 		source = gdk_device_get_source(source_device);
 	wheel = source_device && source == GDK_SOURCE_MOUSE;
@@ -2488,7 +2525,7 @@ on_bible_user_scroll_event(GtkWidget *widget, GdkEventScroll *event,
 }
 
 static gboolean
-on_bible_scrollbar_press(GtkWidget *widget, GdkEventButton *event,
+on_bible_scrollbar_press(GtkWidget *widget, GuiButtonEvent *event,
 			 gpointer data)
 {
 	(void)widget;
@@ -2518,10 +2555,10 @@ on_bible_scrollbar_press(GtkWidget *widget, GdkEventButton *event,
  * Page Up/Down, Home and End move the viewport, not the verse: they are
  * the reader scrolling, like the wheel. */
 static gboolean
-on_bible_key_press(GtkWidget *widget, GdkEventKey *event, gpointer user_data)
+on_bible_key_press(GtkWidget *widget, GuiKeyEvent *event, gpointer user_data)
 {
 	guint state = event->state & (GDK_SHIFT_MASK | GDK_CONTROL_MASK |
-				      GDK_MOD1_MASK);
+				      GDK_ALT_MASK);
 
 	(void)widget;
 	(void)user_data;
@@ -2560,22 +2597,20 @@ on_bible_key_press(GtkWidget *widget, GdkEventKey *event, gpointer user_data)
 /* Startup timing (BIBLIA_ELIM_UI_LOAD_DEBUG=1): the first time the Bible
  * pane is drawn with a chapter in it -- what the reader sees, unlike the
  * moment the text was handed to the widget. */
-static gboolean
-on_first_chapter_draw(GtkWidget *view, cairo_t *cr, gpointer data)
+static void
+on_first_chapter_draw(GtkWidget *view, gpointer data)
 {
 	GtkTextBuffer *buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(view));
 
-	(void)cr;
 	(void)data;
 	if (buffer && gtk_text_buffer_get_char_count(buffer) > 200) {
 		gchar *detail = g_strdup_printf("width=%d",
-						gtk_widget_get_allocated_width(view));
+						gtk_widget_get_width(view));
 		panel_load_debug("app", "FIRST_CHAPTER_PAINTED", detail);
 		g_free(detail);
 		g_signal_handlers_disconnect_by_func(view,
 			G_CALLBACK(on_first_chapter_draw), NULL);
 	}
-	return FALSE;
 }
 
 static void
@@ -2585,36 +2620,29 @@ gui_setup_text_selection_bridge(void)
 	GtkAdjustment *vadj;
 	if (!view)
 		return;
-	g_signal_connect(view, "key-press-event",
-			 G_CALLBACK(on_bible_key_press), NULL);
-	g_signal_connect(view, "button-release-event",
-			 G_CALLBACK(on_native_select_done), NULL);
-	g_signal_connect(view, "key-release-event",
-			 G_CALLBACK(on_native_select_done), NULL);
-	g_signal_connect(view, "scroll-event",
-			 G_CALLBACK(on_bible_user_scroll_event), NULL);
-	g_signal_connect(view, "scroll-event",
-			 G_CALLBACK(_scroll_zoom_cb), NULL);
+	gui_widget_on_key_phase(GTK_WIDGET(view), GTK_PHASE_CAPTURE, (GuiKeyFunc)on_bible_key_press, NULL, NULL);
+	gui_widget_on_button(GTK_WIDGET(view), GTK_PHASE_CAPTURE, NULL,
+			     on_native_select_click_done, NULL);
+	gui_widget_on_key_phase(GTK_WIDGET(view), GTK_PHASE_CAPTURE, NULL,
+				on_native_select_key_done, NULL);
+	gui_widget_on_scroll(GTK_WIDGET(view), (GuiScrollFunc)on_bible_user_scroll_event, NULL);
+	gui_widget_on_scroll(GTK_WIDGET(view), (GuiScrollFunc)_scroll_zoom_cb, NULL);
 	{
 		GtkWidget *sw = gtk_widget_get_ancestor(GTK_WIDGET(view),
 							GTK_TYPE_SCROLLED_WINDOW);
 		if (sw) {
 			GtkWidget *bar = gtk_scrolled_window_get_vscrollbar(
 			    GTK_SCROLLED_WINDOW(sw));
-			g_signal_connect(sw, "scroll-event",
-					 G_CALLBACK(on_bible_user_scroll_event), NULL);
-			g_signal_connect(sw, "scroll-event",
-					 G_CALLBACK(_scroll_zoom_cb), NULL);
+			gui_widget_on_scroll(GTK_WIDGET(sw), (GuiScrollFunc)on_bible_user_scroll_event, NULL);
+			gui_widget_on_scroll(GTK_WIDGET(sw), (GuiScrollFunc)_scroll_zoom_cb, NULL);
 			if (bar)
-				g_signal_connect(bar, "button-press-event",
-						 G_CALLBACK(on_bible_scrollbar_press),
-						 NULL);
+				gui_widget_on_button(GTK_WIDGET(bar), GTK_PHASE_CAPTURE, (GuiButtonFunc)on_bible_scrollbar_press, NULL, NULL);
 		}
 	}
 
 	if (panel_load_debug_enabled())
-		g_signal_connect_after(view, "draw",
-				       G_CALLBACK(on_first_chapter_draw), NULL);
+		g_signal_connect(view, "after-paint",
+				 G_CALLBACK(on_first_chapter_draw), NULL);
 
 	vadj = gtk_scrollable_get_vadjustment(GTK_SCROLLABLE(view));
 	if (vadj) {
@@ -2640,7 +2668,7 @@ GtkWidget *gui_create_bible_pane(void)
 	gtk_widget_show(widgets.html_text);
 	with_il = gui_interlineal_wrap(widgets.html_text);
 	split = gui_lectura_sync_wrap(with_il);
-	gtk_box_pack_start(GTK_BOX(vbox), split, TRUE, TRUE, 0);
+	gui_box_pack(GTK_BOX(vbox), split, TRUE, TRUE, 0);
 
 	g_signal_connect((gpointer)widgets.html_text,
 			 "popupmenu_requested",

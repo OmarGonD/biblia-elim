@@ -7,6 +7,15 @@
 if (BUILD_TESTING AND UNIX)
   find_program (PYTHON3_EXECUTABLE NAMES python3)
   if (PYTHON3_EXECUTABLE)
+    find_program (GRESOURCE_EXECUTABLE NAMES gresource)
+    if (GRESOURCE_EXECUTABLE)
+      add_test (
+        NAME navbar_resource_layout_test
+        COMMAND ${PYTHON3_EXECUTABLE}
+                ${CMAKE_CURRENT_SOURCE_DIR}/navbar_resource_layout_test.py
+                ${GRESOURCE_EXECUTABLE} $<TARGET_FILE:biblia-elim>
+        )
+    endif ()
     add_test (
       NAME startup_performance_baseline
       COMMAND ${PYTHON3_EXECUTABLE}
@@ -751,6 +760,26 @@ add_executable (strong_id_test EXCLUDE_FROM_ALL
 target_include_directories (strong_id_test PRIVATE PkgConfig::Core PkgConfig::Sqlite3)
 target_link_libraries (strong_id_test PRIVATE PkgConfig::Core PkgConfig::Sqlite3)
 
+# MORPH-109: scripts/generate_strongs_lexicon.py against the real bundled
+# ui/strongs-elim.xml, read back through SqliteStrongLexicon, plus the
+# main_bind_strong_lexicon() startup glue (src/main/strong_lexicon_startup.cc)
+# and its graceful missing-file fallback. GTK-free: stubs
+# main_set_strong_lexicon() itself instead of linking strong_ui.cc.
+add_executable (strong_lexicon_generation_test EXCLUDE_FROM_ALL
+  strong_lexicon_generation_test.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_strong_lexicon.cc
+  ${PROJECT_SOURCE_DIR}/src/main/strong_lexicon_startup.cc)
+target_include_directories (strong_lexicon_generation_test PRIVATE
+  ${PROJECT_SOURCE_DIR}/src PkgConfig::Core PkgConfig::Sqlite3)
+target_link_libraries (strong_lexicon_generation_test PRIVATE
+  PkgConfig::Core PkgConfig::Sqlite3)
+target_compile_definitions (strong_lexicon_generation_test PRIVATE
+  SRCDIR="${PROJECT_SOURCE_DIR}")
+if (BUILD_TESTING)
+  add_test (NAME strong_lexicon_generation_test COMMAND strong_lexicon_generation_test)
+endif ()
+
 add_executable (strong_interaction_test EXCLUDE_FROM_ALL
   strong_interaction_test.cc
   fake_bible_backend.cc
@@ -765,6 +794,7 @@ add_executable (strong_ui_smoke_test EXCLUDE_FROM_ALL
   fake_bible_backend.cc
   ${PROJECT_SOURCE_DIR}/src/main/strong_interaction.cc
   ${PROJECT_SOURCE_DIR}/src/main/strong_ui.cc
+  ${PROJECT_SOURCE_DIR}/src/main/morfologia.c
   ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
   ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
   )
@@ -775,8 +805,11 @@ add_executable (sqlite_strong_ui_smoke_test EXCLUDE_FROM_ALL
   sqlite_strong_ui_smoke_test.cc
   ${PROJECT_SOURCE_DIR}/src/main/strong_interaction.cc
   ${PROJECT_SOURCE_DIR}/src/main/strong_ui.cc
+  ${PROJECT_SOURCE_DIR}/src/main/strong_lexicon_startup.cc
+  ${PROJECT_SOURCE_DIR}/src/main/morfologia.c
   ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_bible_backend.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_module_writer.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_strong_lexicon.cc
   ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
   ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
   )
@@ -786,6 +819,8 @@ target_link_libraries (sqlite_strong_ui_smoke_test PRIVATE
   PkgConfig::Core PkgConfig::Gtk PkgConfig::Sqlite3)
 target_sources(sqlite_strong_ui_smoke_test PRIVATE
   ${PROJECT_SOURCE_DIR}/src/backend/morphology.cc)
+target_compile_definitions (sqlite_strong_ui_smoke_test PRIVATE
+  SRCDIR="${PROJECT_SOURCE_DIR}")
 
 add_executable (sqlite_bible_backend_test
   EXCLUDE_FROM_ALL

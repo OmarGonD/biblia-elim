@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <swmgr.h>
 #include <swmodule.h>
 #include <url.h>
@@ -659,13 +660,7 @@ void main_dialogs_dictionary_entry_changed(DIALOG_DATA *d)
 	list_store = GTK_LIST_STORE(model);
 
 	if (!firsttime) {
-#ifdef USE_GTK_3
-		height = gdk_window_get_height(GDK_WINDOW(d->listview));
-#else
-		gdk_drawable_get_size((GdkDrawable *)d->listview->window,
-				      NULL,
-				      &height);
-#endif
+		height = gtk_widget_get_height(d->listview);
 		count = height / settings.cell_height;
 	}
 
@@ -771,7 +766,7 @@ void main_dialog_goto_bookmark(const gchar *module, const gchar *key)
 			}
 			if (t->mod_type == TEXT_TYPE || t->mod_type == COMMENTARY_TYPE)
 				be->display_mod->display();
-			gdk_window_raise(GDK_WINDOW(t->dialog));
+			gtk_window_present(GTK_WINDOW(t->dialog));
 			return;
 		}
 		tmp = g_list_next(tmp);
@@ -888,7 +883,7 @@ void main_dialogs_shutdown(void)
 		 *  destroy any dialogs created
 		 */
 		if (t->dialog)
-			gtk_widget_destroy(t->dialog);
+			gui_widget_destroy(t->dialog);
 		/*
 		 * free each DIALOG_DATA item created
 		 */
@@ -1621,7 +1616,7 @@ DIALOG_DATA *main_dialogs_open(const gchar *mod_name,
 	// F11-invoked "open maximally."
 	// absurd dimensions are deliberate: just make it huge.
 	if (maximize)
-		gtk_window_resize(GTK_WINDOW(t->dialog), 10000, 10000);
+		gtk_window_set_default_size(GTK_WINDOW(t->dialog), 10000, 10000);
 	sync_windows();
 
 	list_dialogs = g_list_append(list_dialogs, (DIALOG_DATA *)t);
@@ -1665,7 +1660,7 @@ DIALOG_DATA *main_dialogs_open(const gchar *mod_name,
 		main_navbar_versekey_set(t->navbar, (char *)t->key);
 
 	if (type == DICTIONARY_TYPE)
-		gtk_entry_set_text(GTK_ENTRY(t->entry), t->key);
+		gtk_editable_set_text(GTK_EDITABLE(t->entry), t->key);
 	return t;
 }
 

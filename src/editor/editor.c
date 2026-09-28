@@ -690,7 +690,7 @@ static gboolean key_handler(GtkWidget *widget, GdkEventKey *event, EDITOR *e)
 	/* these are the mods we actually use for global keys, we always only check for these set */
 	guint state =
 	    event->state & (GDK_SHIFT_MASK | GDK_CONTROL_MASK |
-			    GDK_MOD1_MASK | GDK_MOD4_MASK);
+			    GDK_MOD1_MASK | GDK_SUPER_MASK);
 
 	switch (event->keyval) {
 	case XK_s: // Ctrl-L  verse entry

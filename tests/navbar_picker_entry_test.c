@@ -18,8 +18,9 @@
  * Limits: this is X11. Wayland's text-input/fcitx path is not exercised.
  */
 #include "main/picker_entry.h"
+#include "gui/widget_helpers.h"
 
-#include <gdk/gdkx.h>
+#include <gdk/x11/gdkx.h>
 #include <X11/Xlib.h>
 #include <X11/extensions/XTest.h>
 #include <X11/keysym.h>
@@ -87,7 +88,7 @@ run_until(gboolean (*done)(gpointer), gpointer data, guint seconds)
 	waited_too_long = FALSE;
 	guard = g_timeout_add_seconds(seconds, give_up_waiting, NULL);
 	while (!done(data) && !waited_too_long)
-		gtk_main_iteration_do(TRUE);
+		g_main_context_iteration(NULL, TRUE);
 	if (!waited_too_long)
 		g_source_remove(guard);
 	return done(data);
@@ -96,8 +97,8 @@ run_until(gboolean (*done)(gpointer), gpointer data, guint seconds)
 static void
 flush(void)
 {
-	while (gtk_events_pending())
-		gtk_main_iteration_do(FALSE);
+	while (g_main_context_pending(NULL))
+		g_main_context_iteration(NULL, FALSE);
 }
 
 static gboolean
@@ -145,8 +146,8 @@ destroy_idle(gpointer popover)
 {
 	/* as picker_destroy_idle(); the control keeps GTK's default */
 	if (!control_run)
-		gtk_popover_set_modal(GTK_POPOVER(popover), FALSE);
-	gtk_widget_destroy(GTK_WIDGET(popover));
+		gtk_popover_set_autohide(GTK_POPOVER(popover), FALSE);
+	gui_widget_destroy(GTK_WIDGET(popover));
 	return G_SOURCE_REMOVE;
 }
 
@@ -167,21 +168,19 @@ on_activate(GtkEntry *entry, gpointer data)
 	Picker *p = data;
 
 	(void)entry;
-	if (strcmp(gtk_entry_get_text(GTK_ENTRY(p->entry)), "12") == 0) {
+	if (strcmp(gtk_editable_get_text(GTK_EDITABLE(p->entry)), "12") == 0) {
 		p->picked = TRUE;
 		gtk_popover_popdown(GTK_POPOVER(p->popover));
 	}
 }
 
-static gboolean
-on_focus_in(GtkWidget *entry, GdkEventFocus *event, gpointer data)
+static void
+on_focus_in(GtkEventControllerFocus *focus, gpointer data)
 {
 	Picker *p = data;
 
-	(void)entry;
-	(void)event;
+	(void)focus;
 	p->focused_in = TRUE;
-	return FALSE;
 }
 
 static void
@@ -191,23 +190,22 @@ open_picker(Picker *p, gboolean settle)
 	gint i;
 
 	memset(p, 0, sizeof(*p));
-	p->popover = gtk_popover_new(anchor);
+	p->popover = gui_popover_new(anchor);
 	g_object_ref_sink(p->popover);
 	alive_popovers++;
 	g_object_weak_ref(G_OBJECT(p->popover), popover_finalized, NULL);
 
 	p->entry = gtk_entry_new();
 	gtk_entry_set_input_purpose(GTK_ENTRY(p->entry), GTK_INPUT_PURPOSE_DIGITS);
-	gtk_box_pack_start(GTK_BOX(box), p->entry, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(box), p->entry);
 	for (i = 1; i <= 5; i++) {
 		gchar *label = g_strdup_printf("%d", i);
-		gtk_box_pack_start(GTK_BOX(box), gtk_button_new_with_label(label),
-				   FALSE, FALSE, 0);
+		gtk_box_append(GTK_BOX(box), gtk_button_new_with_label(label));
 		g_free(label);
 	}
-	gtk_container_add(GTK_CONTAINER(p->popover), box);
-	gtk_widget_show_all(box);
-	g_signal_connect(p->entry, "focus-in-event", G_CALLBACK(on_focus_in), p);
+	gtk_popover_set_child(GTK_POPOVER(p->popover), box);
+	gtk_widget_show(box);
+	gui_widget_on_focus(p->entry, G_CALLBACK(on_focus_in), NULL, p);
 	g_signal_connect(p->entry, "activate", G_CALLBACK(on_activate), p);
 	g_signal_connect(p->popover, "closed", G_CALLBACK(on_closed), p);
 
@@ -238,7 +236,7 @@ static gboolean
 text_is_12(gpointer data)
 {
 	Picker *p = data;
-	return strcmp(gtk_entry_get_text(GTK_ENTRY(p->entry)), "12") == 0;
+	return strcmp(gtk_editable_get_text(GTK_EDITABLE(p->entry)), "12") == 0;
 }
 
 /* opens a picker, checks it has the keyboard, then closes it with Escape
@@ -276,7 +274,7 @@ picker_round_full(gboolean settle, gboolean type_and_enter,
 		if (!run_until(text_is_12, &p, 3)) {
 			if (verbose)
 				printf("  typed 12, entry reads '%s'\n",
-				       gtk_entry_get_text(GTK_ENTRY(p.entry)));
+				       gtk_editable_get_text(GTK_EDITABLE(p.entry)));
 			ok = FALSE;
 		}
 		x_key(XK_Return);
@@ -324,27 +322,30 @@ reset_to_startup_focus(void)
 static GtkWidget *
 make_window(void)
 {
-	GtkWidget *w = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+	GtkWidget *w = gtk_window_new();
 	GtkWidget *box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 4);
 
 	gtk_window_set_default_size(GTK_WINDOW(w), 400, 300);
 	/* as the app's main window (main_window.c): the window itself can
 	 * take the focus, which is what GtkPopover falls back to */
-	gtk_widget_set_can_focus(w, TRUE);
+	gtk_widget_set_focusable(w, TRUE);
 	anchor = gtk_toggle_button_new_with_label("18");
 	gtk_widget_set_focus_on_click(anchor, FALSE);
 	bible = gtk_text_view_new();
-	gtk_box_pack_start(GTK_BOX(box), anchor, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(box), bible, TRUE, TRUE, 0);
-	gtk_container_add(GTK_CONTAINER(w), box);
-	gtk_widget_show_all(w);
+	gtk_box_append(GTK_BOX(box), anchor);
+	gtk_widget_set_vexpand(bible, TRUE);
+	gtk_box_append(GTK_BOX(box), bible);
+	gtk_window_set_child(GTK_WINDOW(w), box);
+	gtk_widget_show(w);
 	return w;
 }
 
 static gboolean
 take_x_focus(void)
 {
-	gdk_window_focus(gtk_widget_get_window(window), GDK_CURRENT_TIME);
+	GdkSurface *surface = gtk_native_get_surface(GTK_NATIVE(window));
+
+	gdk_toplevel_focus(GDK_TOPLEVEL(surface), GDK_CURRENT_TIME);
 	return run_until(window_active, NULL, 5);
 }
 
@@ -354,10 +355,12 @@ main(int argc, char **argv)
 	gint round, bad_rounds = 0, control_criticals;
 	gboolean control_ok;
 
+	(void)argc;
+	(void)argv;
 	g_log_set_writer_func(count_criticals, NULL, NULL);
 	/* XTest needs X11, even when the session also offers Wayland */
 	gdk_set_allowed_backends("x11");
-	if (!gtk_init_check(&argc, &argv) ||
+	if (!gtk_init_check() ||
 	    !GDK_IS_X11_DISPLAY(gdk_display_get_default())) {
 		printf("navbar_picker_entry_skipped=no-x11-display\n");
 		return 77;
@@ -381,7 +384,7 @@ main(int argc, char **argv)
 	/* if GTK ever stops doing this, the fix is moot, not wrong */
 	if (control_ok && control_criticals == 0)
 		printf("control: this GTK no longer breaks without the fix\n");
-	gtk_widget_destroy(window);
+	gui_widget_destroy(window);
 	flush();
 
 	/* control: the pane re-renders behind a bare picker */
@@ -393,7 +396,7 @@ main(int argc, char **argv)
 	       "is its own focus after close=%d\n",
 	       gtk_window_get_focus(GTK_WINDOW(window)) == window);
 	control_run = FALSE;
-	gtk_widget_destroy(window);
+	gui_widget_destroy(window);
 	flush();
 
 	/* the fix: same start, 100 rounds */
@@ -425,7 +428,7 @@ main(int argc, char **argv)
 	CHECK(criticals == 0);
 	CHECK(alive_popovers == 0);
 
-	gtk_widget_destroy(window);
+	gui_widget_destroy(window);
 	flush();
 	printf("navbar_picker_entry_failures=%d\n", failures);
 	return failures ? 1 : 0;

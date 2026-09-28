@@ -25,6 +25,7 @@
 #include <string.h>
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <glib/gi18n.h>
 
 #include "editor/slib-editor.h"
@@ -75,7 +76,7 @@ static void menu_deactivate_callback(GtkWidget *widget,
 
 	menu_button = GTK_WIDGET(user_data);
 
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(menu_button),
+	gui_toggle_set_active(GTK_WIDGET(menu_button),
 				     FALSE);
 }
 
@@ -87,7 +88,7 @@ static void menu_deactivate_callback(GtkWidget *widget,
  *   #include "gui/navbar_versekey.h"
  *
  *   gboolean select_button_press_callback (GtkWidget *widget,
- *			      GdkEventButton *event,
+ *			      GuiButtonEvent *event,
  *			      gpointer user_data)
  *
  * Description
@@ -98,21 +99,8 @@ static void menu_deactivate_callback(GtkWidget *widget,
  *   gboolean
  */
 
-static gboolean destroy_popover_idle(gpointer popover)
-{
-	gtk_widget_destroy(GTK_WIDGET(popover));
-	return G_SOURCE_REMOVE;
-}
-
-/* After the chosen item's action has run. */
-static void destroy_popover_later(GtkPopover *popover, gpointer unused)
-{
-	(void)unused;
-	g_idle_add(destroy_popover_idle, popover);
-}
-
 static gboolean select_button_press_callback(GtkWidget *widget,
-					     GdkEventButton *event,
+					     GuiButtonEvent *event,
 					     gpointer user_data)
 {
 	if (event->type != GDK_BUTTON_PRESS || event->button != 1)
@@ -120,14 +108,15 @@ static gboolean select_button_press_callback(GtkWidget *widget,
 	/* GTK4-PORT-101 step 2: a popover from the history GMenu; the
 	 * «historial» actions live on the button (see navbar creation). */
 	GMenuModel *model = main_tab_history_menu_model(cur_passage_tab);
-	GtkWidget *popover = gtk_popover_new_from_model(widget, model);
+	GtkWidget *popover = gtk_popover_menu_new_from_model(model);
+	gtk_widget_set_parent(popover, widget);
 	g_object_unref(model);
 	gtk_popover_set_position(GTK_POPOVER(popover), GTK_POS_BOTTOM);
 	g_signal_connect(popover, "closed",
 			 G_CALLBACK(menu_deactivate_callback), widget);
-	g_signal_connect(popover, "closed", G_CALLBACK(destroy_popover_later), NULL);
+	gui_popover_destroy_on_close(popover);
 	gtk_widget_grab_focus(widget);
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
+	gui_toggle_set_active(GTK_WIDGET(widget), TRUE);
 	gtk_popover_popup(GTK_POPOVER(popover));
 	return TRUE;
 }
@@ -140,7 +129,7 @@ static gboolean select_button_press_callback(GtkWidget *widget,
  *   #include "gui/navbar_versekey.h"
  *
  *   gboolean select_button_press_callback (GtkWidget *widget,
- *			      GdkEventButton *event,
+ *			      GuiButtonEvent *event,
  *			      gpointer user_data)
  *
  * Description
@@ -152,13 +141,13 @@ static gboolean select_button_press_callback(GtkWidget *widget,
  */
 
 static gboolean select_book_button_press_callback(GtkWidget *widget,
-						  GdkEventButton *event,
+						  GuiButtonEvent *event,
 						  gpointer user_data)
 {
 	if ((event->type != GDK_BUTTON_PRESS) || (event->button != 1))
 		return FALSE;
 
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
+	gui_toggle_set_active(GTK_WIDGET(widget), TRUE);
 	main_versekey_popup_book(navbar_versekey, NB_MAIN,
 				 NULL, NULL, widget);
 	return TRUE;
@@ -172,7 +161,7 @@ static gboolean select_book_button_press_callback(GtkWidget *widget,
  *   #include "gui/navbar_versekey.h"
  *
  *   gboolean select_button_press_callback (GtkWidget *widget,
- *			      GdkEventButton *event,
+ *			      GuiButtonEvent *event,
  *			      gpointer user_data)
  *
  * Description
@@ -184,14 +173,14 @@ static gboolean select_book_button_press_callback(GtkWidget *widget,
  */
 
 static gboolean select_chapter_button_press_callback(GtkWidget *widget,
-						     GdkEventButton *
+						     GuiButtonEvent *
 							 event,
 						     gpointer user_data)
 {
 	if ((event->type != GDK_BUTTON_PRESS) || (event->button != 1))
 		return FALSE;
 
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
+	gui_toggle_set_active(GTK_WIDGET(widget), TRUE);
 	main_versekey_popup_chapter(navbar_versekey, NB_MAIN,
 				    NULL, NULL, widget);
 	return TRUE;
@@ -205,7 +194,7 @@ static gboolean select_chapter_button_press_callback(GtkWidget *widget,
  *   #include "gui/navbar_versekey.h"
  *
  *   gboolean select_button_press_callback (GtkWidget *widget,
- *			      GdkEventButton *event,
+ *			      GuiButtonEvent *event,
  *			      gpointer user_data)
  *
  * Description
@@ -217,13 +206,13 @@ static gboolean select_chapter_button_press_callback(GtkWidget *widget,
  */
 
 static gboolean select_verse_button_press_callback(GtkWidget *widget,
-						   GdkEventButton *event,
+						   GuiButtonEvent *event,
 						   gpointer user_data)
 {
 	if ((event->type != GDK_BUTTON_PRESS) || (event->button != 1))
 		return FALSE;
 
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
+	gui_toggle_set_active(GTK_WIDGET(widget), TRUE);
 	main_versekey_popup_verse(navbar_versekey, NB_MAIN,
 				    NULL, NULL, widget);
 	return TRUE;
@@ -321,7 +310,7 @@ static void on_entry_activate(GtkEntry *entry, gpointer user_data)
 {
 	gchar *rawtext;
 	gchar *gkey;
-	const gchar *buf = gtk_entry_get_text(entry);
+	const gchar *buf = gtk_editable_get_text(GTK_EDITABLE(entry));
 	NavbarEntryReference reference;
 
 	if (buf == NULL)
@@ -334,7 +323,7 @@ static void on_entry_activate(GtkEntry *entry, gpointer user_data)
 			      reference.key);
 
 	if (!rawtext || (rawtext && (strlen(rawtext) < 2))) {
-		gtk_entry_set_text(entry, navbar_versekey.key->str);
+		gtk_editable_set_text(GTK_EDITABLE(entry), navbar_versekey.key->str);
 		g_free(rawtext);
 		settings.special_anchor = NULL;
 		navbar_entry_reference_clear(&reference);
@@ -342,7 +331,7 @@ static void on_entry_activate(GtkEntry *entry, gpointer user_data)
 	}
 	g_free(rawtext);
 	if (!navbar_versekey_go_to(reference.key, reference.anchor))
-		gtk_entry_set_text(entry, navbar_versekey.key->str);
+		gtk_editable_set_text(GTK_EDITABLE(entry), navbar_versekey.key->str);
 	settings.special_anchor = NULL;
 	navbar_entry_reference_clear(&reference);
 }
@@ -353,84 +342,28 @@ void gui_navbar_versekey_go_to(const gchar *key)
 	navbar_versekey_go_to(key, NULL);
 }
 
-/******************************************************************************
- * Name
- *  on_button_verse_menu_verse_scroll_event
- *
- * Synopsis
- *   #include "gui/navbar_versekey.h"
- *
- *  gboolean on_button_verse_menu_verse_scroll_event(GtkWidget * widget,
- *                                           GdkEvent * event,
- *                                           gpointer user_data)
- *
- * Description
- *
- *
- * Return value
- *   gboolean
- */
-
+/* A wheel step on the book, chapter or verse selector moves it by one. */
 static gboolean on_button_verse_menu_verse_scroll_event(GtkWidget *widget,
-							GdkEvent *event,
+							GuiScrollEvent *event,
 							gpointer user_data)
 {
-	main_navbar_versekey_spin_verse(navbar_versekey,
-					event->scroll.direction);
+	main_navbar_versekey_spin_verse(navbar_versekey, event->direction);
 	return FALSE;
 }
-
-/******************************************************************************
- * Name
- *  on_button_verse_menu_chapter_scroll_event
- *
- * Synopsis
- *   #include "gui/navbar_versekey.h"
- *
- *  gboolean on_button_verse_menu_chapter_scroll_event(GtkWidget * widget,
- *                                           GdkEvent * event,
- *                                           gpointer user_data)
- *
- * Description
- *
- *
- * Return value
- *   gboolean
- */
 
 static gboolean on_button_verse_menu_chapter_scroll_event(GtkWidget *widget,
-							  GdkEvent *event,
+							  GuiScrollEvent *event,
 							  gpointer user_data)
 {
-	main_navbar_versekey_spin_chapter(navbar_versekey,
-					  event->scroll.direction);
+	main_navbar_versekey_spin_chapter(navbar_versekey, event->direction);
 	return FALSE;
 }
 
-/******************************************************************************
- * Name
- *  on_button_verse_menu_book_scroll_event
- *
- * Synopsis
- *   #include "gui/navbar_versekey.h"
- *
- *  gboolean on_button_verse_menu_book_scroll_event(GtkWidget * widget,
- *                                           GdkEvent * event,
- *                                           gpointer user_data)
- *
- * Description
- *
- *
- * Return value
- *   gboolean
- */
-
 static gboolean on_button_verse_menu_book_scroll_event(GtkWidget *widget,
-						       GdkEvent *event,
+						       GuiScrollEvent *event,
 						       gpointer user_data)
 {
-	main_navbar_versekey_spin_book(navbar_versekey,
-				       event->scroll.direction);
+	main_navbar_versekey_spin_book(navbar_versekey, event->direction);
 	return FALSE;
 }
 
@@ -442,7 +375,7 @@ static gboolean on_button_verse_menu_book_scroll_event(GtkWidget *widget,
  *   #include "gui/navbar_versekey.h"
  *
  *   gboolean on_up_eventbox_button_release_event (GtkWidget * widget,
- *                                       	GdkEventButton * event,
+ *                                       	GuiButtonEvent * event,
  *                                       	gpointer user_data)
  *
  * Description
@@ -453,7 +386,7 @@ static gboolean on_button_verse_menu_book_scroll_event(GtkWidget *widget,
  */
 
 static gboolean on_up_eventbox_button_release_event(GtkWidget *widget,
-						    GdkEventButton *event,
+						    GuiButtonEvent *event,
 						    gpointer user_data)
 {
 	switch (GPOINTER_TO_INT(user_data)) {
@@ -479,7 +412,7 @@ static gboolean on_up_eventbox_button_release_event(GtkWidget *widget,
  *   #include "gui/navbar_versekey.h"
  *
  *   gboolean on_down_eventbox_button_release_event(GtkWidget * widget,
- *                                      	GdkEventButton * event,
+ *                                      	GuiButtonEvent * event,
  *                                      	gpointer user_data)
  *
  * Description
@@ -490,7 +423,7 @@ static gboolean on_up_eventbox_button_release_event(GtkWidget *widget,
  */
 
 static gboolean on_down_eventbox_button_release_event(GtkWidget *widget,
-						      GdkEventButton *event,
+						      GuiButtonEvent *event,
 						      gpointer user_data)
 {
 	switch (GPOINTER_TO_INT(user_data)) {
@@ -558,20 +491,20 @@ gboolean access_on_down_eventbox_button_release_event(gint element)
  * the entry still shows the current reference, the arrows move that
  * verse instead. A reference the reader has started to type is left
  * alone. */
-static gboolean on_lookup_entry_key_press(GtkWidget *widget, GdkEventKey *event,
+static gboolean on_lookup_entry_key_press(GtkWidget *widget, GuiKeyEvent *event,
 					  gpointer user_data)
 {
 	const gchar *text, *key;
 
 	(void)user_data;
-	if (event->state & (GDK_SHIFT_MASK | GDK_CONTROL_MASK | GDK_MOD1_MASK))
+	if (event->state & (GDK_SHIFT_MASK | GDK_CONTROL_MASK | GDK_ALT_MASK))
 		return FALSE;
 	if (event->keyval != GDK_KEY_Up && event->keyval != GDK_KEY_KP_Up &&
 	    event->keyval != GDK_KEY_Down && event->keyval != GDK_KEY_KP_Down)
 		return FALSE;
 	if (widget != navbar_versekey.lookup_entry)
 		return FALSE;
-	text = gtk_entry_get_text(GTK_ENTRY(widget));
+	text = gtk_editable_get_text(GTK_EDITABLE(widget));
 	key = navbar_versekey.key ? navbar_versekey.key->str : NULL;
 	if (!text || !key || !*key || strcmp(text, key) != 0)
 		return FALSE;
@@ -587,35 +520,15 @@ static gboolean on_lookup_entry_key_press(GtkWidget *widget, GdkEventKey *event,
 static void _connect_signals(NAVBAR_VERSEKEY navbar)
 {
 
-	g_signal_connect((gpointer)navbar.lookup_entry,
-			 "key-press-event",
-			 G_CALLBACK(on_lookup_entry_key_press), NULL);
+	gui_widget_on_key(navbar.lookup_entry, (GuiKeyFunc)on_lookup_entry_key_press, NULL, NULL);
 	g_signal_connect((gpointer)navbar.lookup_entry,
 			 "activate", G_CALLBACK(on_entry_activate), NULL);
-	g_signal_connect((gpointer)navbar.button_book_up,
-			 "button_release_event",
-			 G_CALLBACK(on_up_eventbox_button_release_event),
-			 GINT_TO_POINTER(BOOK_BUTTON));
-	g_signal_connect((gpointer)navbar.button_book_down,
-			 "button_release_event",
-			 G_CALLBACK(on_down_eventbox_button_release_event),
-			 GINT_TO_POINTER(BOOK_BUTTON));
-	g_signal_connect((gpointer)navbar.button_chapter_up,
-			 "button_release_event",
-			 G_CALLBACK(on_up_eventbox_button_release_event),
-			 GINT_TO_POINTER(CHAPTER_BUTTON));
-	g_signal_connect((gpointer)navbar.button_chapter_down,
-			 "button_release_event",
-			 G_CALLBACK(on_down_eventbox_button_release_event),
-			 GINT_TO_POINTER(CHAPTER_BUTTON));
-	g_signal_connect((gpointer)navbar.button_verse_up,
-			 "button_release_event",
-			 G_CALLBACK(on_up_eventbox_button_release_event),
-			 GINT_TO_POINTER(VERSE_BUTTON));
-	g_signal_connect((gpointer)navbar.button_verse_down,
-			 "button_release_event",
-			 G_CALLBACK(on_down_eventbox_button_release_event),
-			 GINT_TO_POINTER(VERSE_BUTTON));
+	gui_widget_on_button(navbar.button_book_up, GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)on_up_eventbox_button_release_event, GINT_TO_POINTER(BOOK_BUTTON));
+	gui_widget_on_button(navbar.button_book_down, GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)on_down_eventbox_button_release_event, GINT_TO_POINTER(BOOK_BUTTON));
+	gui_widget_on_button(navbar.button_chapter_up, GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)on_up_eventbox_button_release_event, GINT_TO_POINTER(CHAPTER_BUTTON));
+	gui_widget_on_button(navbar.button_chapter_down, GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)on_down_eventbox_button_release_event, GINT_TO_POINTER(CHAPTER_BUTTON));
+	gui_widget_on_button(navbar.button_verse_up, GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)on_up_eventbox_button_release_event, GINT_TO_POINTER(VERSE_BUTTON));
+	gui_widget_on_button(navbar.button_verse_down, GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)on_down_eventbox_button_release_event, GINT_TO_POINTER(VERSE_BUTTON));
 
 	g_signal_connect((gpointer)navbar.button_history_back,
 			 "clicked",
@@ -623,33 +536,11 @@ static void _connect_signals(NAVBAR_VERSEKEY navbar)
 	g_signal_connect((gpointer)navbar.button_history_next, "clicked",
 			 G_CALLBACK(on_button_history_next_clicked), NULL);
 	main_tab_history_install_actions(navbar.button_history_menu);
-	g_signal_connect((gpointer)navbar.button_history_menu,
-			 "button_press_event",
-			 G_CALLBACK(select_button_press_callback), NULL);
-	g_signal_connect((gpointer)navbar.button_book_menu,
-			 "button_press_event",
-			 G_CALLBACK(select_book_button_press_callback),
-			 NULL);
-	g_signal_connect((gpointer)navbar.button_chapter_menu,
-			 "button_press_event",
-			 G_CALLBACK(select_chapter_button_press_callback),
-			 NULL);
-	g_signal_connect((gpointer)navbar.button_verse_menu,
-			 "button_press_event",
-			 G_CALLBACK(select_verse_button_press_callback),
-			 NULL);
-#if !GTK_CHECK_VERSION(3, 4, 0)
-	g_signal_connect((gpointer)navbar.button_verse_menu,
-			 "scroll_event",
-			 G_CALLBACK(on_button_verse_menu_verse_scroll_event), NULL);
-	g_signal_connect((gpointer)navbar.button_chapter_menu,
-			 "scroll_event",
-			 G_CALLBACK(on_button_verse_menu_chapter_scroll_event),
-			 NULL);
-	g_signal_connect((gpointer)navbar.button_book_menu,
-			 "scroll_event",
-			 G_CALLBACK(on_button_verse_menu_book_scroll_event), NULL);
-#endif
+	/* before the toggle button's own click */
+	gui_widget_on_button(navbar.button_history_menu, GTK_PHASE_CAPTURE, (GuiButtonFunc)select_button_press_callback, NULL, NULL);
+	gui_widget_on_button(navbar.button_book_menu, GTK_PHASE_CAPTURE, (GuiButtonFunc)select_book_button_press_callback, NULL, NULL);
+	gui_widget_on_button(navbar.button_chapter_menu, GTK_PHASE_CAPTURE, (GuiButtonFunc)select_chapter_button_press_callback, NULL, NULL);
+	gui_widget_on_button(navbar.button_verse_menu, GTK_PHASE_CAPTURE, (GuiButtonFunc)select_verse_button_press_callback, NULL, NULL);
 }
 
 /* Picker de versión bíblica en la barra de navegación: cambia el
@@ -921,7 +812,7 @@ gui_navbar_fill_version_combo(void)
 	g_signal_connect(version_action, "change-state",
 			 G_CALLBACK(on_version_elegida), NULL);
 	g_action_map_add_action(G_ACTION_MAP(actions), G_ACTION(version_action));
-	gtk_widget_insert_action_group(widgets.combo_bible_version, "version",
+	gui_widget_insert_action_group(widgets.combo_bible_version, "version",
 				       G_ACTION_GROUP(actions));
 	g_object_unref(actions);
 
@@ -964,9 +855,7 @@ GtkWidget *gui_navbar_versekey_new(void)
 {
 
 	GtkBuilder *gxml;
-#if GTK_CHECK_VERSION(3, 4, 0)
 	GtkWidget *eventbox;
-#endif
 
 /* build the widget */
 	gxml = elim_gtk_builder_new();
@@ -1012,28 +901,33 @@ GtkWidget *gui_navbar_versekey_new(void)
 	    UI_GET_ITEM(gxml, "label_chapter");
 	navbar_versekey.label_verse_menu =
 	    UI_GET_ITEM(gxml, "label_verse");
-#if GTK_CHECK_VERSION(3, 4, 0)
+	fprintf(stderr, "CKPT navbar=%p hist_back=%p hist_next=%p hist_menu=%p\n",
+		(void*)navbar_versekey.navbar, (void*)navbar_versekey.button_history_back,
+		(void*)navbar_versekey.button_history_next, (void*)navbar_versekey.button_history_menu);
+	fflush(stderr);
+	fprintf(stderr, "CKPT book_up=%p book_down=%p chap_up=%p chap_down=%p verse_up=%p verse_down=%p\n",
+		(void*)navbar_versekey.button_book_up, (void*)navbar_versekey.button_book_down,
+		(void*)navbar_versekey.button_chapter_up, (void*)navbar_versekey.button_chapter_down,
+		(void*)navbar_versekey.button_verse_up, (void*)navbar_versekey.button_verse_down);
+	fflush(stderr);
+	fprintf(stderr, "CKPT book_menu=%p chap_menu=%p verse_menu=%p lookup=%p\n",
+		(void*)navbar_versekey.button_book_menu, (void*)navbar_versekey.button_chapter_menu,
+		(void*)navbar_versekey.button_verse_menu, (void*)navbar_versekey.lookup_entry);
+	fflush(stderr);
 	eventbox = UI_GET_ITEM(gxml, "eventbox_book");
-	g_signal_connect((gpointer)eventbox, "scroll_event",
-			 G_CALLBACK(on_button_verse_menu_book_scroll_event), NULL);
-
+	fprintf(stderr, "CKPT eventbox_book=%p\n", (void*)eventbox); fflush(stderr);
+	gui_widget_on_scroll(eventbox, (GuiScrollFunc)on_button_verse_menu_book_scroll_event, NULL);
 	eventbox = UI_GET_ITEM(gxml, "eventbox_chapter");
-	g_signal_connect((gpointer)eventbox, "scroll_event",
-			 G_CALLBACK(on_button_verse_menu_chapter_scroll_event),
-			 NULL);
-
+	fprintf(stderr, "CKPT eventbox_chapter=%p\n", (void*)eventbox); fflush(stderr);
+	gui_widget_on_scroll(eventbox, (GuiScrollFunc)on_button_verse_menu_chapter_scroll_event, NULL);
 	eventbox = UI_GET_ITEM(gxml, "eventbox_verse");
-	g_signal_connect((gpointer)eventbox, "scroll_event",
-			 G_CALLBACK(on_button_verse_menu_verse_scroll_event), NULL);
-#endif
+	fprintf(stderr, "CKPT eventbox_verse=%p\n", (void*)eventbox); fflush(stderr);
+	gui_widget_on_scroll(eventbox, (GuiScrollFunc)on_button_verse_menu_verse_scroll_event, NULL);
 	{
 		GtkWidget *caja;
 		GtkWidget *flecha;
 
 		widgets.combo_bible_version = gtk_menu_button_new();
-		gtk_container_remove(
-		    GTK_CONTAINER(widgets.combo_bible_version),
-		    gtk_bin_get_child(GTK_BIN(widgets.combo_bible_version)));
 
 		UI_HBOX(caja, FALSE, 6);
 		version_etiqueta = gtk_label_new("");
@@ -1044,14 +938,11 @@ GtkWidget *gui_navbar_versekey_new(void)
 		gtk_label_set_ellipsize(GTK_LABEL(version_etiqueta),
 					PANGO_ELLIPSIZE_END);
 		gtk_label_set_max_width_chars(GTK_LABEL(version_etiqueta), 16);
-		flecha = gtk_image_new_from_icon_name("pan-down-symbolic",
-						      GTK_ICON_SIZE_BUTTON);
-		gtk_box_pack_start(GTK_BOX(caja), version_etiqueta, TRUE, TRUE,
-				   0);
-		gtk_box_pack_start(GTK_BOX(caja), flecha, FALSE, FALSE, 0);
-		gtk_container_add(GTK_CONTAINER(widgets.combo_bible_version),
-				  caja);
-		gtk_widget_show_all(caja);
+		flecha = gtk_image_new_from_icon_name("pan-down-symbolic");
+		gui_box_pack(GTK_BOX(caja), version_etiqueta, TRUE, TRUE, 0);
+		gtk_box_append(GTK_BOX(caja), flecha);
+		gtk_menu_button_set_child(GTK_MENU_BUTTON(widgets.combo_bible_version),
+					  caja);
 	}
 	gtk_widget_set_tooltip_text(widgets.combo_bible_version,
 				    _("Cambiar de versión (mantiene el versículo enfocado)"));
@@ -1060,13 +951,12 @@ GtkWidget *gui_navbar_versekey_new(void)
 	if (sword_disponible)
 		gui_navbar_fill_version_combo();
 	gtk_widget_show(widgets.combo_bible_version);
-	gtk_box_pack_start(GTK_BOX(navbar_versekey.navbar),
-			   widgets.combo_bible_version, FALSE, FALSE, 4);
+	gui_box_pack(GTK_BOX(navbar_versekey.navbar), widgets.combo_bible_version, FALSE, FALSE, 4);
 	/* al frente del todo, antes que los íconos de historial, para que
 	 * sea lo primero visible de la barra en vez de quedar al final
 	 * (donde se lo pidieron mover porque ahí pasaba desapercibido). */
-	gtk_box_reorder_child(GTK_BOX(navbar_versekey.navbar),
-			      widgets.combo_bible_version, 0);
+	gtk_box_reorder_child_after(GTK_BOX(navbar_versekey.navbar),
+				    widgets.combo_bible_version, NULL);
 
 	_connect_signals(navbar_versekey);
 

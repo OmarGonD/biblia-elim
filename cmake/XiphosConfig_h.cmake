@@ -32,21 +32,16 @@ set (SHARE_DIR "${CMAKE_INSTALL_FULL_DATADIR}/${PROJECT_NAME}")
 # textdomain
 set (GETTEXT_PACKAGE "${PROJECT_NAME}")
 
-# editor selection:
-# GTKTVEDITOR overrides everything else
-# otherwise fall back to original logic (webkit unless GTKHTML forced)
-if (GTKTVEDITOR)
-  set (USE_GTKTVeditor ON)
-  message (STATUS "Editor: GtkTextView")
-elseif (NOT GTKHTML)
-  set (USE_WEBKIT_EDITOR ON)
-  message (STATUS "Editor: WebKit")
-else ()
-  message (STATUS "Editor: gtkhtml")
+# GTK4 has one native editor path.  The old WebKit/GTKHTML editors use
+# removed GTK3 widgets and must not be selectable in a GTK4 build.
+if (NOT GTKTVEDITOR)
+  message (FATAL_ERROR
+    "GTKTVEDITOR=OFF is not supported by the GTK4 build; use the native GtkTextView editor")
 endif ()
+set (USE_GTKTVeditor ON)
+message (STATUS "Editor: GtkTextView (GTK4 native)")
 
 # Gtk
-set (USE_GTK_3 ON)
 set (USE_GTKBUILDER ON)
 
 # select WebkitGtk

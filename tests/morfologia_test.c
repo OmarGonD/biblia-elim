@@ -141,6 +141,75 @@ prueba_hebreo(void)
 	g_assert_cmpstr(main_morf_codigo("strongMorph:TH8804"), ==, "TH8804");
 }
 
+/* MORPH-108: un esquema declarado que no es "robinson" ni "oshm" no se
+ * decodifica como si lo fuera -- se enseña el "esquema:código" tal cual,
+ * en vez de una gramática inventada. Esto es lo que puede llegar por la
+ * canalización neutral (OSIS/USFM -> SqliteModuleWriter), que persiste
+ * el esquema tal como lo declara la fuente, sin garantía de que sea uno
+ * de los conocidos. */
+static void
+prueba_esquema_desconocido(void)
+{
+	/* Un código con la misma pinta que un Robinson válido, pero bajo un
+	 * esquema propio/opaco: no hay que adivinar. */
+	igual("customScheme:V-PAI-3S", "customScheme:V-PAI-3S");
+	igual("customScheme:N-NSM", "customScheme:N-NSM");
+	g_assert_cmpstr(main_morf_corto("customScheme:V-PAI-3S"), ==,
+			"customScheme:V-PAI-3S");
+
+	/* "robinson" en cualquier caja sigue siendo Robinson. */
+	igual("ROBINSON:V-PAI-3S",
+	      "Verbo · presente · activo · indicativo · 3ª persona · "
+	      "singular");
+
+	/* Un código legado, sin ningún esquema delante, sigue tratándose
+	 * como Robinson: eso es lo que siempre ha traído SWORD y no debe
+	 * cambiar. */
+	igual("V-PAI-3S",
+	      "Verbo · presente · activo · indicativo · 3ª persona · "
+	      "singular");
+
+	/* "oshm" y "strongMorph" (este último solo para los TH...) siguen
+	 * reconocidos y no caen en el aviso de esquema desconocido. */
+	igual("oshm:HNp", "Sustantivo · nombre propio");
+	igual("strongMorph:TH8804", "Verbo hebreo");
+}
+
+/* MORPH-110: main_morf_reconocido() is the boolean strong_ui.cc's
+ * word-detail dialog uses to decide whether to add a decoded Spanish
+ * label alongside the raw scheme:code -- it must agree exactly with
+ * which branch uno() actually takes above, and never crash on
+ * malformed/empty input. */
+static void
+prueba_reconocido(void)
+{
+	g_assert_false(main_morf_reconocido(NULL));
+	g_assert_false(main_morf_reconocido(""));
+	g_assert_false(main_morf_reconocido("robinson:")); /* scheme, sin código */
+
+	g_assert_true(main_morf_reconocido("robinson:V-PAI-3S"));
+	g_assert_true(main_morf_reconocido("ROBINSON:V-PAI-3S")); /* mayúsculas aparte */
+	g_assert_true(main_morf_reconocido("V-PAI-3S")); /* legado, sin esquema */
+	g_assert_true(main_morf_reconocido("oshm:HNp"));
+	g_assert_true(main_morf_reconocido("HR/Ncfsa")); /* OSHM legado, sin esquema */
+	g_assert_true(main_morf_reconocido("strongMorph:TH8804"));
+
+	/* Un esquema explícito que no es ninguno de los de arriba: nunca
+	 * se decodifica, ni siquiera si el código tiene la misma forma que
+	 * uno de OSHM o de Robinson -- no hay equivalencia entre esquemas. */
+	g_assert_false(main_morf_reconocido("customScheme:V-PAI-3S"));
+	g_assert_false(main_morf_reconocido("customScheme:HR/Ncfsa"));
+
+	/* Coherencia con uno(): main_morf_es() no debe decir nada nuevo
+	 * cuando main_morf_reconocido() da FALSE (el "esquema:código" en
+	 * crudo no cuenta como decodificación). */
+	{
+		gchar *es = main_morf_es("customScheme:V-PAI-3S");
+		g_assert_cmpstr(es, ==, "customScheme:V-PAI-3S");
+		g_free(es);
+	}
+}
+
 static void
 prueba_corto(void)
 {
@@ -212,6 +281,8 @@ main(int argc, char *argv[])
 	g_test_add_func("/morf/lo-que-estaba-roto", prueba_lo_que_estaba_roto);
 	g_test_add_func("/morf/clases-nuevas", prueba_clases_nuevas);
 	g_test_add_func("/morf/hebreo", prueba_hebreo);
+	g_test_add_func("/morf/esquema-desconocido", prueba_esquema_desconocido);
+	g_test_add_func("/morf/reconocido", prueba_reconocido);
 	g_test_add_func("/morf/corto", prueba_corto);
 	g_test_add_func("/morf/vacios", prueba_vacios);
 	return g_test_run();

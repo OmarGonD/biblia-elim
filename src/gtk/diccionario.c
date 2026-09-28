@@ -9,6 +9,7 @@
 #include <string.h>
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <glib/gi18n.h>
 
 #include "gui/diccionario.h"
@@ -190,7 +191,7 @@ on_buscar(GtkButton *button, gpointer user_data)
 {
 	(void)button;
 	(void)user_data;
-	const gchar *q = gtk_entry_get_text(GTK_ENTRY(ui->entry));
+	const gchar *q = gtk_editable_get_text(GTK_EDITABLE(ui->entry));
 	if (!q || !*q) {
 		gui_generic_warning(_("Escribe una palabra para buscar, por ejemplo Adonai."));
 		return;
@@ -269,7 +270,7 @@ on_cerrar(GtkButton *button, gpointer user_data)
 	(void)button;
 	(void)user_data;
 	if (ui && ui->dialog)
-		gtk_widget_destroy(ui->dialog);
+		gui_widget_destroy(ui->dialog);
 }
 
 static void
@@ -324,14 +325,7 @@ crear_dialogo(void)
 
 	ui->html = GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, VIEWER_TYPE));
 	gtk_widget_show(ui->html);
-#ifdef USE_WEBKIT2
-	gtk_box_pack_start(GTK_BOX(ui->box_html), ui->html, TRUE, TRUE, 0);
-#else
-	GtkWidget *sw = gtk_scrolled_window_new(NULL, NULL);
-	gtk_widget_show(sw);
-	gtk_container_add(GTK_CONTAINER(sw), ui->html);
-	gtk_box_pack_start(GTK_BOX(ui->box_html), sw, TRUE, TRUE, 0);
-#endif
+	gui_box_pack(GTK_BOX(ui->box_html), ui->html, TRUE, TRUE, 0);
 
 	ui->completar = gtk_list_store_new(1, G_TYPE_STRING);
 	poblar_completion();
@@ -365,8 +359,7 @@ crear_dialogo(void)
 	g_signal_connect(ui->entry, "activate", G_CALLBACK(on_entry_activate), NULL);
 	g_signal_connect(ui->tree, "row-activated", G_CALLBACK(on_comentario_activado), NULL);
 	g_signal_connect(ui->dialog, "destroy", G_CALLBACK(on_destroy), NULL);
-	gtk_widget_set_can_default(ui->btn_buscar, TRUE);
-	gtk_widget_grab_default(ui->btn_buscar);
+	gtk_window_set_default_widget(GTK_WINDOW(ui->dialog), ui->btn_buscar);
 	gtk_widget_grab_focus(ui->entry);
 }
 
@@ -389,7 +382,7 @@ gui_diccionario_mostrar(const char *palabra)
 	if (!ui)
 		return;
 	if (palabra && *palabra)
-		gtk_entry_set_text(GTK_ENTRY(ui->entry), palabra);
+		gtk_editable_set_text(GTK_EDITABLE(ui->entry), palabra);
 	if (palabra && *palabra)
 		mostrar_entrada(main_diccionario_buscar(palabra), palabra);
 }

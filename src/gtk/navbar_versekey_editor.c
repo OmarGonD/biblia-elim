@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 
 #ifdef USE_WEBKIT_EDITOR
 #include "editor/webkit_editor.h"
@@ -60,7 +61,7 @@
  */
 
 static gboolean on_verse_up_button_release_event(GtkWidget *widget,
-						 GdkEventButton *event,
+						 GuiButtonEvent *event,
 						 EDITOR *editor)
 {
 	main_navbar_versekey_spin_verse(editor->navbar, 0);
@@ -84,7 +85,7 @@ static gboolean on_verse_up_button_release_event(GtkWidget *widget,
  */
 
 static gboolean on_verse_down_button_release_event(GtkWidget *widget,
-						   GdkEventButton *event,
+						   GuiButtonEvent *event,
 						   EDITOR *editor)
 {
 	main_navbar_versekey_spin_verse(editor->navbar, 1);
@@ -108,7 +109,7 @@ static gboolean on_verse_down_button_release_event(GtkWidget *widget,
  */
 
 static gboolean on_chapter_up_button_release_event(GtkWidget *widget,
-						   GdkEventButton *event,
+						   GuiButtonEvent *event,
 						   EDITOR *editor)
 {
 	main_navbar_versekey_spin_chapter(editor->navbar, 0);
@@ -132,7 +133,7 @@ static gboolean on_chapter_up_button_release_event(GtkWidget *widget,
  */
 
 static gboolean on_chapter_down_button_release_event(GtkWidget *widget,
-						     GdkEventButton *event,
+						     GuiButtonEvent *event,
 						     EDITOR *editor)
 {
 	main_navbar_versekey_spin_chapter(editor->navbar, 1);
@@ -156,7 +157,7 @@ static gboolean on_chapter_down_button_release_event(GtkWidget *widget,
  */
 
 static gboolean on_book_up_button_release_event(GtkWidget *widget,
-						GdkEventButton *event,
+						GuiButtonEvent *event,
 						EDITOR *editor)
 {
 	main_navbar_versekey_spin_book(editor->navbar, 0);
@@ -180,7 +181,7 @@ static gboolean on_book_up_button_release_event(GtkWidget *widget,
  */
 
 static gboolean on_book_down_button_release_event(GtkWidget *widget,
-						  GdkEventButton *event,
+						  GuiButtonEvent *event,
 						  EDITOR *editor)
 {
 	main_navbar_versekey_spin_book(editor->navbar, 1);
@@ -197,7 +198,7 @@ static gboolean on_book_down_button_release_event(GtkWidget *widget,
  *   #include "gui/navbar_versekey.h"
  *
  *   gboolean select_button_press_callback (GtkWidget *widget,
- *			      GdkEventButton *event,
+ *			      GuiButtonEvent *event,
  *			      gpointer user_data)
  *
  * Description
@@ -209,13 +210,13 @@ static gboolean on_book_down_button_release_event(GtkWidget *widget,
  */
 
 static gboolean select_book_button_press_callback(GtkWidget *widget,
-						  GdkEventButton *event,
+						  GuiButtonEvent *event,
 						  EDITOR *editor)
 {
 	if ((event->type != GDK_BUTTON_PRESS) || (event->button != 1))
 		return FALSE;
 
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
+	gui_toggle_set_active(GTK_WIDGET(widget), TRUE);
 	main_versekey_popup_book(editor->navbar, NB_EDITOR,
 				 NULL, editor, widget);
 	return TRUE;
@@ -229,7 +230,7 @@ static gboolean select_book_button_press_callback(GtkWidget *widget,
  *   #include "gui/navbar_versekey.h"
  *
  *   gboolean select_button_press_callback (GtkWidget *widget,
- *			      GdkEventButton *event,
+ *			      GuiButtonEvent *event,
  *			      gpointer user_data)
  *
  * Description
@@ -241,13 +242,13 @@ static gboolean select_book_button_press_callback(GtkWidget *widget,
  */
 
 static gboolean select_chapter_button_press_callback(GtkWidget *widget,
-						     GdkEventButton *event,
+						     GuiButtonEvent *event,
 						     EDITOR *editor)
 {
 	if ((event->type != GDK_BUTTON_PRESS) || (event->button != 1))
 		return FALSE;
 
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
+	gui_toggle_set_active(GTK_WIDGET(widget), TRUE);
 	main_versekey_popup_chapter(editor->navbar, NB_EDITOR,
 				    NULL, editor, widget);
 	return TRUE;
@@ -261,7 +262,7 @@ static gboolean select_chapter_button_press_callback(GtkWidget *widget,
  *   #include "gui/navbar_versekey.h"
  *
  *   gboolean select_button_press_callback (GtkWidget *widget,
- *			      GdkEventButton *event,
+ *			      GuiButtonEvent *event,
  *			      gpointer user_data)
  *
  * Description
@@ -273,13 +274,13 @@ static gboolean select_chapter_button_press_callback(GtkWidget *widget,
  */
 
 static gboolean select_verse_button_press_callback(GtkWidget *widget,
-						   GdkEventButton *event,
+						   GuiButtonEvent *event,
 						   EDITOR *editor)
 {
 	if ((event->type != GDK_BUTTON_PRESS) || (event->button != 1))
 		return FALSE;
 
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
+	gui_toggle_set_active(GTK_WIDGET(widget), TRUE);
 	main_versekey_popup_verse(editor->navbar, NB_EDITOR,
 				    NULL, editor, widget);
 	return TRUE;
@@ -303,7 +304,7 @@ static gboolean select_verse_button_press_callback(GtkWidget *widget,
 
 static void on_entry_activate(GtkEntry *entry, EDITOR *editor)
 {
-	const gchar *buf = gtk_entry_get_text(entry);
+	const gchar *buf = gtk_editable_get_text(GTK_EDITABLE(entry));
 	NavbarEntryReference reference;
 	if (buf == NULL)
 		return;
@@ -357,12 +358,12 @@ static void on_entry_activate(GtkEntry *entry, EDITOR *editor)
  */
 
 static gboolean on_button_verse_menu_verse_scroll_event(GtkWidget *widget,
-							GdkEvent *event,
+							GuiScrollEvent *event,
 							EDITOR *editor)
 {
 	XI_message(("%s", "on_button_verse_menu_verse_scroll_event"));
 	main_navbar_versekey_spin_verse(editor->navbar,
-					event->scroll.direction);
+					event->direction);
 	return FALSE;
 }
 
@@ -385,11 +386,11 @@ static gboolean on_button_verse_menu_verse_scroll_event(GtkWidget *widget,
  */
 
 static gboolean on_button_verse_menu_chapter_scroll_event(GtkWidget *widget,
-							  GdkEvent *event,
+							  GuiScrollEvent *event,
 							  EDITOR *editor)
 {
 	main_navbar_versekey_spin_chapter(editor->navbar,
-					  event->scroll.direction);
+					  event->direction);
 	return FALSE;
 }
 
@@ -412,11 +413,11 @@ static gboolean on_button_verse_menu_chapter_scroll_event(GtkWidget *widget,
  */
 
 static gboolean on_button_verse_menu_book_scroll_event(GtkWidget *widget,
-						       GdkEvent *event,
+						       GuiScrollEvent *event,
 						       EDITOR *editor)
 {
 	main_navbar_versekey_spin_book(editor->navbar,
-				       event->scroll.direction);
+				       event->direction);
 	return FALSE;
 }
 
@@ -427,7 +428,7 @@ static gboolean on_button_verse_menu_book_scroll_event(GtkWidget *widget,
  * Synopsis
  *   #include "gui/navbar_versekey.h"
  *
- *   gboolean on_up_leave_notify_event(GtkWidget * widget, GdkEventCrossing * event,
+ *   gboolean on_up_leave_notify_event(GtkWidget * widget, GuiCrossingEvent * event,
                                         gpointer user_data)
  *
  * Description
@@ -439,7 +440,7 @@ static gboolean on_button_verse_menu_book_scroll_event(GtkWidget *widget,
  */
 
 static gboolean on_book_up_leave_notify_event(GtkWidget *widget,
-					      GdkEventCrossing *event,
+					      GuiCrossingEvent *event,
 					      EDITOR *editor)
 {
 	gtk_widget_hide(editor->navbar.arrow_book_up_box);
@@ -448,7 +449,7 @@ static gboolean on_book_up_leave_notify_event(GtkWidget *widget,
 }
 
 static gboolean on_chapter_up_leave_notify_event(GtkWidget *widget,
-						 GdkEventCrossing *event,
+						 GuiCrossingEvent *event,
 						 EDITOR *editor)
 {
 	gtk_widget_hide(editor->navbar.arrow_chapter_up_box);
@@ -457,7 +458,7 @@ static gboolean on_chapter_up_leave_notify_event(GtkWidget *widget,
 }
 
 static gboolean on_verse_up_leave_notify_event(GtkWidget *widget,
-					       GdkEventCrossing *event,
+					       GuiCrossingEvent *event,
 					       EDITOR *editor)
 {
 	gtk_widget_hide(editor->navbar.arrow_verse_up_box);
@@ -472,7 +473,7 @@ static gboolean on_verse_up_leave_notify_event(GtkWidget *widget,
  * Synopsis
  *   #include "gui/navbar_versekey.h"
  *
- *   gboolean on_down_leave_notify_event(GtkWidget * widget, GdkEventCrossing * event,
+ *   gboolean on_down_leave_notify_event(GtkWidget * widget, GuiCrossingEvent * event,
                                         gpointer user_data)
  *
  * Description
@@ -484,7 +485,7 @@ static gboolean on_verse_up_leave_notify_event(GtkWidget *widget,
  */
 
 static gboolean on_book_down_leave_notify_event(GtkWidget *widget,
-						GdkEventCrossing *event,
+						GuiCrossingEvent *event,
 						EDITOR *editor)
 {
 
@@ -494,7 +495,7 @@ static gboolean on_book_down_leave_notify_event(GtkWidget *widget,
 }
 
 static gboolean on_chapter_down_leave_notify_event(GtkWidget *widget,
-						   GdkEventCrossing *event,
+						   GuiCrossingEvent *event,
 						   EDITOR *editor)
 {
 	gtk_widget_hide(editor->navbar.arrow_chapter_down_box);
@@ -503,7 +504,7 @@ static gboolean on_chapter_down_leave_notify_event(GtkWidget *widget,
 }
 
 static gboolean on_verse_down_leave_notify_event(GtkWidget *widget,
-						 GdkEventCrossing *event,
+						 GuiCrossingEvent *event,
 						 EDITOR *editor)
 {
 	gtk_widget_hide(editor->navbar.arrow_verse_down_box);
@@ -518,7 +519,7 @@ static gboolean on_verse_down_leave_notify_event(GtkWidget *widget,
  * Synopsis
  *   #include "gui/navbar_versekey.h"
  *
- *   gboolean on_up_enter_notify_event(GtkWidget * widget, GdkEventCrossing * event,
+ *   gboolean on_up_enter_notify_event(GtkWidget * widget, GuiCrossingEvent * event,
  *                                       gpointer  user_data)
  *
  * Description
@@ -530,7 +531,7 @@ static gboolean on_verse_down_leave_notify_event(GtkWidget *widget,
  */
 
 static gboolean on_book_up_enter_notify_event(GtkWidget *widget,
-					      GdkEventCrossing *event,
+					      GuiCrossingEvent *event,
 					      EDITOR *editor)
 {
 	gtk_widget_hide(editor->navbar.arrow_book_up);
@@ -539,7 +540,7 @@ static gboolean on_book_up_enter_notify_event(GtkWidget *widget,
 }
 
 static gboolean on_chapter_up_enter_notify_event(GtkWidget *widget,
-						 GdkEventCrossing *event,
+						 GuiCrossingEvent *event,
 						 EDITOR *editor)
 {
 	gtk_widget_hide(editor->navbar.arrow_chapter_up);
@@ -548,7 +549,7 @@ static gboolean on_chapter_up_enter_notify_event(GtkWidget *widget,
 }
 
 static gboolean on_verse_up_enter_notify_event(GtkWidget *widget,
-					       GdkEventCrossing *event,
+					       GuiCrossingEvent *event,
 					       EDITOR *editor)
 {
 	gtk_widget_hide(editor->navbar.arrow_verse_up);
@@ -563,7 +564,7 @@ static gboolean on_verse_up_enter_notify_event(GtkWidget *widget,
  * Synopsis
  *   #include "gui/navbar_versekey.h"
  *
- *   gboolean on_down_enter_notify_event(GtkWidget * widget, GdkEventCrossing * event,
+ *   gboolean on_down_enter_notify_event(GtkWidget * widget, GuiCrossingEvent * event,
                                         gpointer user_data)
  *
  * Description
@@ -575,7 +576,7 @@ static gboolean on_verse_up_enter_notify_event(GtkWidget *widget,
  */
 
 static gboolean on_book_down_enter_notify_event(GtkWidget *widget,
-						GdkEventCrossing *event,
+						GuiCrossingEvent *event,
 						EDITOR *editor)
 {
 	gtk_widget_hide(editor->navbar.arrow_book_down);
@@ -584,7 +585,7 @@ static gboolean on_book_down_enter_notify_event(GtkWidget *widget,
 }
 
 static gboolean on_chapter_down_enter_notify_event(GtkWidget *widget,
-						   GdkEventCrossing *event,
+						   GuiCrossingEvent *event,
 						   EDITOR *editor)
 {
 	gtk_widget_hide(editor->navbar.arrow_chapter_down);
@@ -593,7 +594,7 @@ static gboolean on_chapter_down_enter_notify_event(GtkWidget *widget,
 }
 
 static gboolean on_verse_down_enter_notify_event(GtkWidget *widget,
-						 GdkEventCrossing *event,
+						 GuiCrossingEvent *event,
 						 EDITOR *editor)
 {
 	gtk_widget_hide(editor->navbar.arrow_verse_down);
@@ -619,7 +620,7 @@ static gboolean on_verse_down_enter_notify_event(GtkWidget *widget,
 
 static void _sync_toggled(GtkToggleButton *button, EDITOR *e)
 {
-	if (gtk_toggle_button_get_active(button)) {
+	if (gui_toggle_get_active(button)) {
 		e->sync = TRUE;
 		editor_sync_with_main(); //sync_with_main(c);
 	} else
@@ -633,113 +634,37 @@ static void _connect_signals(NAVBAR_VERSEKEY navbar, EDITOR *editor)
 			 editor);
 	g_signal_connect((gpointer)editor->navbar.button_sync,
 			 "clicked", G_CALLBACK(_sync_toggled), editor);
-	g_signal_connect((gpointer)navbar.button_book_up,
-			 "button_release_event",
-			 G_CALLBACK(on_book_up_button_release_event),
-			 editor);
-	g_signal_connect((gpointer)navbar.button_book_down,
-			 "button_release_event",
-			 G_CALLBACK(on_book_down_button_release_event),
-			 editor);
-	g_signal_connect((gpointer)navbar.button_chapter_up,
-			 "button_release_event",
-			 G_CALLBACK(on_chapter_up_button_release_event),
-			 editor);
-	g_signal_connect((gpointer)navbar.button_chapter_down,
-			 "button_release_event",
-			 G_CALLBACK(on_chapter_down_button_release_event),
-			 editor);
-	g_signal_connect((gpointer)navbar.button_verse_up,
-			 "button_release_event",
-			 G_CALLBACK(on_verse_up_button_release_event),
-			 editor);
-	g_signal_connect((gpointer)navbar.button_verse_down,
-			 "button_release_event",
-			 G_CALLBACK(on_verse_down_button_release_event),
-			 editor);
+	gui_widget_on_button(GTK_WIDGET(navbar.button_book_up), GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)on_book_up_button_release_event, editor);
+	gui_widget_on_button(GTK_WIDGET(navbar.button_book_down), GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)on_book_down_button_release_event, editor);
+	gui_widget_on_button(GTK_WIDGET(navbar.button_chapter_up), GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)on_chapter_up_button_release_event, editor);
+	gui_widget_on_button(GTK_WIDGET(navbar.button_chapter_down), GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)on_chapter_down_button_release_event, editor);
+	gui_widget_on_button(GTK_WIDGET(navbar.button_verse_up), GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)on_verse_up_button_release_event, editor);
+	gui_widget_on_button(GTK_WIDGET(navbar.button_verse_down), GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)on_verse_down_button_release_event, editor);
 
 	/*     */
-	g_signal_connect((gpointer)navbar.button_book_up,
-			 "enter_notify_event",
-			 G_CALLBACK(on_book_up_enter_notify_event),
-			 editor);
-	g_signal_connect((gpointer)navbar.button_book_up,
-			 "leave_notify_event",
-			 G_CALLBACK(on_book_up_leave_notify_event),
-			 editor);
+	gui_widget_on_crossing(GTK_WIDGET(navbar.button_book_up), (GuiCrossingFunc)on_book_up_enter_notify_event, NULL, editor);
+	gui_widget_on_crossing(GTK_WIDGET(navbar.button_book_up), NULL, (GuiCrossingFunc)on_book_up_leave_notify_event, editor);
 
-	g_signal_connect((gpointer)navbar.button_book_down,
-			 "enter_notify_event",
-			 G_CALLBACK(on_book_down_enter_notify_event),
-			 editor);
-	g_signal_connect((gpointer)navbar.button_book_down,
-			 "leave_notify_event",
-			 G_CALLBACK(on_book_down_leave_notify_event),
-			 editor);
+	gui_widget_on_crossing(GTK_WIDGET(navbar.button_book_down), (GuiCrossingFunc)on_book_down_enter_notify_event, NULL, editor);
+	gui_widget_on_crossing(GTK_WIDGET(navbar.button_book_down), NULL, (GuiCrossingFunc)on_book_down_leave_notify_event, editor);
 
 	/*    */
-	g_signal_connect((gpointer)navbar.button_chapter_up,
-			 "enter_notify_event",
-			 G_CALLBACK(on_chapter_up_enter_notify_event),
-			 editor);
-	g_signal_connect((gpointer)navbar.button_chapter_up,
-			 "leave_notify_event",
-			 G_CALLBACK(on_chapter_up_leave_notify_event),
-			 editor);
+	gui_widget_on_crossing(GTK_WIDGET(navbar.button_chapter_up), (GuiCrossingFunc)on_chapter_up_enter_notify_event, NULL, editor);
+	gui_widget_on_crossing(GTK_WIDGET(navbar.button_chapter_up), NULL, (GuiCrossingFunc)on_chapter_up_leave_notify_event, editor);
 
-	g_signal_connect((gpointer)navbar.button_chapter_down,
-			 "enter_notify_event",
-			 G_CALLBACK(on_chapter_down_enter_notify_event),
-			 editor);
-	g_signal_connect((gpointer)navbar.button_chapter_down,
-			 "leave_notify_event",
-			 G_CALLBACK(on_chapter_down_leave_notify_event),
-			 editor);
+	gui_widget_on_crossing(GTK_WIDGET(navbar.button_chapter_down), (GuiCrossingFunc)on_chapter_down_enter_notify_event, NULL, editor);
+	gui_widget_on_crossing(GTK_WIDGET(navbar.button_chapter_down), NULL, (GuiCrossingFunc)on_chapter_down_leave_notify_event, editor);
 
 	/*    */
-	g_signal_connect((gpointer)navbar.button_verse_up,
-			 "enter_notify_event",
-			 G_CALLBACK(on_verse_up_enter_notify_event),
-			 editor);
-	g_signal_connect((gpointer)navbar.button_verse_up,
-			 "leave_notify_event",
-			 G_CALLBACK(on_verse_up_leave_notify_event),
-			 editor);
+	gui_widget_on_crossing(GTK_WIDGET(navbar.button_verse_up), (GuiCrossingFunc)on_verse_up_enter_notify_event, NULL, editor);
+	gui_widget_on_crossing(GTK_WIDGET(navbar.button_verse_up), NULL, (GuiCrossingFunc)on_verse_up_leave_notify_event, editor);
 
-	g_signal_connect((gpointer)navbar.button_verse_down,
-			 "enter_notify_event",
-			 G_CALLBACK(on_verse_down_enter_notify_event),
-			 editor);
-	g_signal_connect((gpointer)navbar.button_verse_down,
-			 "leave_notify_event",
-			 G_CALLBACK(on_verse_down_leave_notify_event),
-			 editor);
+	gui_widget_on_crossing(GTK_WIDGET(navbar.button_verse_down), (GuiCrossingFunc)on_verse_down_enter_notify_event, NULL, editor);
+	gui_widget_on_crossing(GTK_WIDGET(navbar.button_verse_down), NULL, (GuiCrossingFunc)on_verse_down_leave_notify_event, editor);
 
-	g_signal_connect((gpointer)navbar.button_book_menu,
-			 "button_press_event",
-			 G_CALLBACK(select_book_button_press_callback),
-			 editor);
-	g_signal_connect((gpointer)navbar.button_chapter_menu,
-			 "button_press_event",
-			 G_CALLBACK(select_chapter_button_press_callback),
-			 editor);
-	g_signal_connect((gpointer)navbar.button_verse_menu,
-			 "button_press_event",
-			 G_CALLBACK(select_verse_button_press_callback),
-			 editor);
-#if !GTK_CHECK_VERSION(3, 4, 0)
-	g_signal_connect((gpointer)navbar.button_verse_menu,
-			 "scroll_event",
-			 G_CALLBACK(on_button_verse_menu_verse_scroll_event),
-			 editor);
-	g_signal_connect((gpointer)navbar.button_chapter_menu,
-			 "scroll_event",
-			 G_CALLBACK(on_button_verse_menu_chapter_scroll_event),
-			 editor);
-	g_signal_connect((gpointer)navbar.button_book_menu,
-			 "scroll_event",
-			 G_CALLBACK(on_button_verse_menu_book_scroll_event), editor);
-#endif
+	gui_widget_on_button(GTK_WIDGET(navbar.button_book_menu), GTK_PHASE_CAPTURE, (GuiButtonFunc)select_book_button_press_callback, NULL, editor);
+	gui_widget_on_button(GTK_WIDGET(navbar.button_chapter_menu), GTK_PHASE_CAPTURE, (GuiButtonFunc)select_chapter_button_press_callback, NULL, editor);
+	gui_widget_on_button(GTK_WIDGET(navbar.button_verse_menu), GTK_PHASE_CAPTURE, (GuiButtonFunc)select_verse_button_press_callback, NULL, editor);
 }
 
 /******************************************************************************
@@ -761,9 +686,7 @@ static void _connect_signals(NAVBAR_VERSEKEY navbar, EDITOR *editor)
 GtkWidget *gui_navbar_versekey_editor_new(EDITOR *editor)
 {
 	GtkBuilder *gxml;
-#if GTK_CHECK_VERSION(3, 4, 0)
 	GtkWidget *eventbox;
-#endif
 
 /* build the widget */
 	gxml = elim_gtk_builder_new();
@@ -820,21 +743,14 @@ GtkWidget *gui_navbar_versekey_editor_new(EDITOR *editor)
 	    UI_GET_ITEM(gxml, "label_chapter");
 	editor->navbar.label_verse_menu = UI_GET_ITEM(gxml, "label_verse");
 
-#if GTK_CHECK_VERSION(3, 4, 0)
 	eventbox = UI_GET_ITEM(gxml, "eventbox_book");
-	g_signal_connect((gpointer)eventbox, "scroll_event",
-			 G_CALLBACK(on_button_verse_menu_book_scroll_event), editor);
+	gui_widget_on_scroll(GTK_WIDGET(eventbox), (GuiScrollFunc)on_button_verse_menu_book_scroll_event, editor);
 
 	eventbox = UI_GET_ITEM(gxml, "eventbox_chapter");
-	g_signal_connect((gpointer)eventbox, "scroll_event",
-			 G_CALLBACK(on_button_verse_menu_chapter_scroll_event),
-			 editor);
+	gui_widget_on_scroll(GTK_WIDGET(eventbox), (GuiScrollFunc)on_button_verse_menu_chapter_scroll_event, editor);
 
 	eventbox = UI_GET_ITEM(gxml, "eventbox_verse");
-	g_signal_connect((gpointer)eventbox, "scroll_event",
-			 G_CALLBACK(on_button_verse_menu_verse_scroll_event),
-			 editor);
-#endif
+	gui_widget_on_scroll(GTK_WIDGET(eventbox), (GuiScrollFunc)on_button_verse_menu_verse_scroll_event, editor);
 	_connect_signals(editor->navbar, editor);
 
 	return editor->navbar.navbar;

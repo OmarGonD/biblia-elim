@@ -24,6 +24,7 @@
 
 
 #ifdef USE_WEBKIT_EDITOR
+#include "gui/widget_helpers.h"
 #include "editor/webkit_editor.h"
 #else
 #include "editor/slib-editor.h"
@@ -63,7 +64,7 @@
 #include "gui/parallel_dialog.h"
 
 #include "gui/debug_glib_null.h"
-void gui_parallel_tab_activate(GtkCheckMenuItem *menuitem, gpointer user_data);
+void gui_parallel_tab_activate(gpointer menuitem, gpointer user_data);
 
 SIDEBAR sidebar;
 static GtkWidget *button_bookmarks;
@@ -78,8 +79,10 @@ gboolean is_search_result;
 extern gboolean shift_key_pressed;
 extern gboolean initialized;
 
-static GtkWidget *create_menu_modules(void);
-static GtkWidget *create_menu_percomm_mod(void);
+static void create_menu_modules(void);
+static void create_menu_percomm_mod(void);
+static void module_menu_popup(GMenu *menu);
+static void prayerlist_menu_popup(gboolean for_module);
 static void on_export_verselist_activate(GSimpleAction *action,
 					 GVariant *parameter, gpointer user_data);
 
@@ -275,43 +278,37 @@ gboolean gui_expand_treeview_to_path(GtkTreeView *tree,
  * Return value
  *   void
  */
-#ifdef USE_GTK_3
 static void on_notebook_switch_page(GtkNotebook *notebook,
 				    gpointer arg,
 				    guint page_num, gpointer user_data)
-#else
-static void on_notebook_switch_page(GtkNotebook *notebook,
-				    GtkNotebookPage *page,
-				    guint page_num, gpointer user_data)
-#endif
 {
 	switch (page_num) {
 	case 0:
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button_v_lists), FALSE);
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button_bookmarks), FALSE);
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button_search), FALSE);
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button_modules), TRUE);
+		gui_toggle_set_active(GTK_WIDGET(button_v_lists), FALSE);
+		gui_toggle_set_active(GTK_WIDGET(button_bookmarks), FALSE);
+		gui_toggle_set_active(GTK_WIDGET(button_search), FALSE);
+		gui_toggle_set_active(GTK_WIDGET(button_modules), TRUE);
 		break;
 
 	case 1:
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button_v_lists), FALSE);
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button_bookmarks), TRUE);
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button_search), FALSE);
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button_modules), FALSE);
+		gui_toggle_set_active(GTK_WIDGET(button_v_lists), FALSE);
+		gui_toggle_set_active(GTK_WIDGET(button_bookmarks), TRUE);
+		gui_toggle_set_active(GTK_WIDGET(button_search), FALSE);
+		gui_toggle_set_active(GTK_WIDGET(button_modules), FALSE);
 		break;
 
 	case 2:
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button_v_lists), FALSE);
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button_bookmarks), FALSE);
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button_search), TRUE);
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button_modules), FALSE);
+		gui_toggle_set_active(GTK_WIDGET(button_v_lists), FALSE);
+		gui_toggle_set_active(GTK_WIDGET(button_bookmarks), FALSE);
+		gui_toggle_set_active(GTK_WIDGET(button_search), TRUE);
+		gui_toggle_set_active(GTK_WIDGET(button_modules), FALSE);
 		break;
 
 	case 3:
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button_v_lists), TRUE);
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button_bookmarks), FALSE);
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button_search), FALSE);
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button_modules), FALSE);
+		gui_toggle_set_active(GTK_WIDGET(button_v_lists), TRUE);
+		gui_toggle_set_active(GTK_WIDGET(button_bookmarks), FALSE);
+		gui_toggle_set_active(GTK_WIDGET(button_search), FALSE);
+		gui_toggle_set_active(GTK_WIDGET(button_modules), FALSE);
 		break;
 	}
 }
@@ -398,7 +395,7 @@ void gui_sidebar_showhide(void)
 {
 	GtkAllocation allocation;
 	if (!settings.docked) {
-		gdk_window_raise(gtk_widget_get_window(GTK_WIDGET(widgets.dock_sb)));
+		gtk_window_present(GTK_WINDOW(widgets.dock_sb));
 		return;
 	}
 
@@ -430,8 +427,8 @@ void gui_sidebar_showhide(void)
 	 * (que ya quedó actualizado arriba), así que no hace falta
 	 * bloquear la señal. */
 	if (widgets.sidebar_toggle_button)
-		gtk_toggle_button_set_active(
-		    GTK_TOGGLE_BUTTON(widgets.sidebar_toggle_button),
+		gui_toggle_set_active(
+		    GTK_WIDGET(widgets.sidebar_toggle_button),
 		    settings.showshortcutbar);
 	gui_schedule_bible_text_reflow(FALSE);
 }
@@ -443,7 +440,7 @@ void gui_sidebar_showhide(void)
  * Synopsis
  *   #include "gui/sidebar.h"
  *
- *   void on_modules_activate(GtkMenuItem * menuitem, gpointer user_data)
+ *   void on_modules_activate(gpointer menuitem, gpointer user_data)
  *
  * Description
  *
@@ -455,7 +452,7 @@ void gui_sidebar_showhide(void)
 static void on_modules_activate(GtkToggleButton *button,
 				gpointer user_data)
 {
-	if (gtk_toggle_button_get_active(button)) {
+	if (gui_toggle_get_active(button)) {
 		gtk_notebook_set_current_page(GTK_NOTEBOOK(widgets.notebook_sidebar),
 					      0);
 	}
@@ -468,7 +465,7 @@ static void on_modules_activate(GtkToggleButton *button,
  * Synopsis
  *   #include "gui/sidebar.h"
  *
- *   void on_bookmarks_activate(GtkMenuItem * menuitem, gpointer user_data)
+ *   void on_bookmarks_activate(gpointer menuitem, gpointer user_data)
  *
  * Description
  *
@@ -480,7 +477,7 @@ static void on_modules_activate(GtkToggleButton *button,
 static void on_bookmarks_activate(GtkToggleButton *button,
 				  gpointer user_data)
 {
-	if (gtk_toggle_button_get_active(button)) {
+	if (gui_toggle_get_active(button)) {
 		gtk_notebook_set_current_page(GTK_NOTEBOOK(widgets.notebook_sidebar),
 					      1);
 	}
@@ -493,7 +490,7 @@ static void on_bookmarks_activate(GtkToggleButton *button,
  * Synopsis
  *   #include "gui/sidebar.h"
  *
- *   void on_search_activate(GtkMenuItem * menuitem, gpointer user_data)
+ *   void on_search_activate(gpointer menuitem, gpointer user_data)
  *
  * Description
  *
@@ -505,7 +502,7 @@ static void on_bookmarks_activate(GtkToggleButton *button,
 static void on_search_activate(GtkToggleButton *button,
 			       gpointer user_data)
 {
-	if (gtk_toggle_button_get_active(button)) {
+	if (gui_toggle_get_active(button)) {
 		gtk_notebook_set_current_page(GTK_NOTEBOOK(widgets.notebook_sidebar),
 					      2);
 		gtk_widget_grab_focus(ss.entrySearch);
@@ -519,7 +516,7 @@ static void on_search_activate(GtkToggleButton *button,
  * Synopsis
  *   #include "gui/sidebar.h"
  *
- *   void on_search_results_activate (GtkMenuItem *menuitem, gpointer user_data)
+ *   void on_search_results_activate (gpointer menuitem, gpointer user_data)
  *
  * Description
  *
@@ -530,13 +527,12 @@ static void on_search_activate(GtkToggleButton *button,
 static void on_search_results_activate(GtkToggleButton *button,
 				       gpointer user_data)
 {
-	if (gtk_toggle_button_get_active(button)) {
+	if (gui_toggle_get_active(button)) {
 		gtk_notebook_set_current_page(GTK_NOTEBOOK(widgets.notebook_sidebar),
 					      3);
 	}
 }
 
-static GtkWidget *prayerlist_menu(gboolean for_module);
 
 /******************************************************************************
  * Name
@@ -546,7 +542,7 @@ static GtkWidget *prayerlist_menu(gboolean for_module);
  *   #include "gui/sidebar.h"
  *
  *   gboolean on_modules_list_button_release(GtkWidget *widget,
- *                           GdkEventButton  *event, gpointer user_data)
+ *                           GuiButtonEvent  *event, gpointer user_data)
  *
  * Description
  *
@@ -555,23 +551,8 @@ static GtkWidget *prayerlist_menu(gboolean for_module);
  *   gboolean
  */
 
-static void on_module_grouping_menu_toggled(GtkCheckMenuItem *item, gpointer user_data)
-{
-	gint mode;
-	gchar buf[4];
-
-	if (!gtk_check_menu_item_get_active(item))
-		return;
-
-	mode = GPOINTER_TO_INT(user_data);
-	g_snprintf(buf, sizeof(buf), "%d", mode);
-	xml_set_value("Xiphos", "modules", "grouping", buf);
-	settings.module_tree_grouping = mode;
-	main_load_module_tree(sidebar.module_list);
-}
-
 static gboolean on_modules_list_button_release(GtkWidget *widget,
-					       GdkEventButton *event,
+					       GuiButtonEvent *event,
 					       gpointer user_data)
 {
 GtkTreeIter selected;
@@ -583,8 +564,15 @@ GtkTreeIter selected;
 	gint cell_x, cell_y;
 	gboolean on_expander = FALSE;
 
+	gint bin_x, bin_y;
+
+	/* the event is in the widget's coordinates, the rows in the bin
+	 * window's */
+	gtk_tree_view_convert_widget_to_bin_window_coords(
+	    GTK_TREE_VIEW(sidebar.module_list), (gint)event->x, (gint)event->y,
+	    &bin_x, &bin_y);
 	if (!gtk_tree_view_get_path_at_pos(GTK_TREE_VIEW(sidebar.module_list),
-					   (gint)event->x, (gint)event->y,
+					   bin_x, bin_y,
 					   &path, &column, &cell_x, &cell_y))
 		return FALSE;
 
@@ -596,12 +584,11 @@ GtkTreeIter selected;
 	gtk_tree_model_get(GTK_TREE_MODEL(model), &selected, 2, &caption,
 			   3, &mod, -1);
 
-gint depth = gtk_tree_path_get_depth(path);
-	gint expander_size;
-	gtk_widget_style_get(GTK_WIDGET(sidebar.module_list),
-	                     "expander-size", &expander_size, NULL);
+	gint depth = gtk_tree_path_get_depth(path);
+	/* GTK 4 sizes the expander in CSS: 16 px in the themes in use */
+	gint expander_size = 16;
 	gint expander_zone = depth * (expander_size + 4);
-	if ((gint)event->x < expander_zone)
+	if (bin_x < expander_zone)
 		on_expander = TRUE;
 
 	if (!on_expander) {
@@ -622,32 +609,20 @@ gint depth = gtk_tree_path_get_depth(path);
 		break;
 	case 3:
 		if (mod && !g_utf8_collate(mod, _("Parallel View"))) {
-			GtkWidget *par_menu    = gtk_menu_new();
-			GtkWidget *item_detach = gtk_menu_item_new_with_label(_("Abrir en ventana aparte"));
-			GtkWidget *item_tab    = gtk_check_menu_item_new_with_label(_("Abrir en pestaña nueva"));
-			gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item_tab), settings.showparatab);
-			gtk_menu_shell_append(GTK_MENU_SHELL(par_menu), item_detach);
-			gtk_menu_shell_append(GTK_MENU_SHELL(par_menu), item_tab);
-			gtk_widget_show_all(par_menu);
-			g_signal_connect(item_detach, "activate", G_CALLBACK(gui_undock_parallel_page), NULL);
-			g_signal_connect(item_tab, "toggled", G_CALLBACK(gui_parallel_tab_activate), NULL);
-			#if GTK_CHECK_VERSION(3, 22, 0)
-			gtk_menu_popup_at_pointer(GTK_MENU(par_menu), (GdkEvent *)event);
-			#else
-			gtk_menu_popup(GTK_MENU(par_menu), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
-			#endif
+			GMenu *par_menu = g_menu_new();
+
+			g_menu_append(par_menu, _("Abrir en ventana aparte"),
+				      "modulo.paralelo-separar");
+			g_menu_append(par_menu, _("Abrir en pestaña nueva"),
+				      "modulo.paralelo-pestana");
+			module_menu_popup(par_menu);
 			g_free(mod);
 			g_free(caption);
 			return FALSE;
 		}
 		if (mod && (main_get_mod_type(mod) == PERCOM_TYPE)) {
 			buf_module = mod;
-			GtkWidget *percomm_menu = create_menu_percomm_mod();
-		#if GTK_CHECK_VERSION(3, 22, 0)
-			gtk_menu_popup_at_pointer(GTK_MENU(percomm_menu), (GdkEvent *)event);
-	#else
-		gtk_menu_popup(GTK_MENU(percomm_menu), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
-	#endif
+			create_menu_percomm_mod();
 		g_free(caption);
 		return FALSE;
 	}
@@ -670,47 +645,27 @@ gint depth = gtk_tree_path_get_depth(path);
 		}
 		if (mod && (main_get_mod_type(mod) == PRAYERLIST_TYPE)) {
 			buf_module = mod;
-#if GTK_CHECK_VERSION(3, 22, 0)
-			gtk_menu_popup_at_pointer(GTK_MENU(prayerlist_menu(TRUE)), (GdkEvent *)event);
-#else
-			gtk_menu_popup(GTK_MENU(prayerlist_menu(TRUE)), NULL,
-				       NULL, NULL, NULL, 0,
-				       gtk_get_current_event_time());
-#endif
+			prayerlist_menu_popup(TRUE);
 			g_free(caption);
 			return FALSE;
 		}
 		if (!mod && caption) {
-			GtkWidget *group_menu = gtk_menu_new();
-			GtkWidget *item_catlang = gtk_radio_menu_item_new_with_label(NULL, _("Category, then Language"));
-			GtkWidget *item_cat = gtk_radio_menu_item_new_with_label_from_widget(
-			    GTK_RADIO_MENU_ITEM(item_catlang), _("Category only"));
-			GtkWidget *item_langcat = gtk_radio_menu_item_new_with_label_from_widget(
-			    GTK_RADIO_MENU_ITEM(item_catlang), _("Language, then Category"));
+			GMenu *group_menu = g_menu_new();
+			GMenuItem *item;
+			static const char *labels[] = {
+				N_("Category, then Language"),
+				N_("Category only"),
+				N_("Language, then Category"),
+			};
 
-			gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item_catlang),
-						       settings.module_tree_grouping == 0);
-			gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item_cat),
-						       settings.module_tree_grouping == 1);
-			gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item_langcat),
-						       settings.module_tree_grouping == 2);
-
-			gtk_menu_shell_append(GTK_MENU_SHELL(group_menu), item_catlang);
-			gtk_menu_shell_append(GTK_MENU_SHELL(group_menu), item_cat);
-			gtk_menu_shell_append(GTK_MENU_SHELL(group_menu), item_langcat);
-			gtk_widget_show_all(group_menu);
-
-			g_signal_connect(item_catlang, "toggled",
-					 G_CALLBACK(on_module_grouping_menu_toggled), GINT_TO_POINTER(0));
-			g_signal_connect(item_cat, "toggled",
-					 G_CALLBACK(on_module_grouping_menu_toggled), GINT_TO_POINTER(1));
-			g_signal_connect(item_langcat, "toggled",
-					 G_CALLBACK(on_module_grouping_menu_toggled), GINT_TO_POINTER(2));
-#if GTK_CHECK_VERSION(3, 22, 0)
-			gtk_menu_popup_at_pointer(GTK_MENU(group_menu), (GdkEvent *)event);
-#else
-			gtk_menu_popup(GTK_MENU(group_menu), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
-#endif
+			for (gint i = 0; i < 3; i++) {
+				item = g_menu_item_new(_(labels[i]), NULL);
+				g_menu_item_set_action_and_target_value(
+				    item, "modulo.agrupar", g_variant_new_int32(i));
+				g_menu_append_item(group_menu, item);
+				g_object_unref(item);
+			}
+			module_menu_popup(group_menu);
 			g_free(caption);
 			return FALSE;
 		}
@@ -730,7 +685,7 @@ gint depth = gtk_tree_path_get_depth(path);
  *   #include "gui/sidebar.h"
  *
  *   gboolean gui_verselist_button_release_event(GtkWidget *widget,
- *                          GdkEventButton  *event, gpointer user_data)
+ *                          GuiButtonEvent  *event, gpointer user_data)
  *
  * Description
  *
@@ -740,7 +695,7 @@ gint depth = gtk_tree_path_get_depth(path);
  */
 
 gboolean gui_verselist_button_release_event(GtkWidget *widget,
-					    GdkEventButton *event,
+					    GuiButtonEvent *event,
 					    gpointer user_data)
 {
 	GtkTreeSelection *selection;
@@ -808,7 +763,7 @@ gboolean gui_verselist_button_release_event(GtkWidget *widget,
  *   #include "gui/sidebar.h"
  *
  *   gboolean on_treeview_button_press_event(GtkWidget *widget,
- *                           GdkEventButton  *event, gpointer user_data)
+ *                           GuiButtonEvent  *event, gpointer user_data)
  *
  * Description
  *
@@ -818,7 +773,7 @@ gboolean gui_verselist_button_release_event(GtkWidget *widget,
  */
 
 static gboolean on_treeview_button_press_event(GtkWidget *widget,
-					       GdkEventButton *event,
+					       GuiButtonEvent *event,
 					       gpointer user_data)
 {
 	GtkTreeSelection *selection;
@@ -838,7 +793,7 @@ static gboolean on_treeview_button_press_event(GtkWidget *widget,
 	if (!key)
 		return FALSE;
 
-	if (event->type == GDK_2BUTTON_PRESS) {
+	if (event->n_press == 2) {
 		/* The rows are native to the module the list was built for
 		 * -- the Bible that published the cross reference, or the
 		 * module that was searched -- which is not necessarily the
@@ -880,7 +835,7 @@ static gboolean on_treeview_button_press_event(GtkWidget *widget,
  * Synopsis
  *   #include "gui/sidebar.h"
  *
- *   void on_save_list_as_bookmarks_activate (GtkMenuItem *menuitem,
+ *   void on_save_list_as_bookmarks_activate (gpointer menuitem,
  *                                       gpointer user_data)
  *
  * Description
@@ -890,7 +845,7 @@ static gboolean on_treeview_button_press_event(GtkWidget *widget,
  *   void
  */
 /*
-G_MODULE_EXPORT static void on_save_list_as_bookmarks_activate(GtkMenuItem * menuitem,
+G_MODULE_EXPORT static void on_save_list_as_bookmarks_activate(gpointer menuitem,
 					       gpointer user_data)
 {
 	gui_verselist_to_bookmarks(list_of_verses);
@@ -904,7 +859,7 @@ G_MODULE_EXPORT static void on_save_list_as_bookmarks_activate(GtkMenuItem * men
  * Synopsis
  *   #include "gui/sidebar.h"
  *
- *   void on_open_in_dialog_activate(GtkMenuItem * menuitem, gpointer user_data)
+ *   void on_open_in_dialog_activate(gpointer menuitem, gpointer user_data)
  *
  * Description
  *
@@ -914,7 +869,7 @@ G_MODULE_EXPORT static void on_save_list_as_bookmarks_activate(GtkMenuItem * men
  */
 
 G_MODULE_EXPORT void
-on_open_in_dialog_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_open_in_dialog_activate(gpointer menuitem, gpointer user_data)
 {
 	int mod_type = main_get_mod_type(buf_module);
 
@@ -956,7 +911,7 @@ on_open_in_dialog_activate(GtkMenuItem *menuitem, gpointer user_data)
  * Synopsis
  *   #include "gui/sidebar.h"
  *
- *   void on_open_in_tab_activate(GtkMenuItem * menuitem, gpointer user_data)
+ *   void on_open_in_tab_activate(gpointer menuitem, gpointer user_data)
  *
  * Description
  *
@@ -966,7 +921,7 @@ on_open_in_dialog_activate(GtkMenuItem *menuitem, gpointer user_data)
  */
 
 G_MODULE_EXPORT void
-on_open_in_tab_activate2(GtkMenuItem *menuitem, gpointer user_data)
+on_open_in_tab_activate2(gpointer menuitem, gpointer user_data)
 {
 	gui_open_module_in_new_tab(buf_module);
 	g_free(buf_module);
@@ -980,7 +935,7 @@ on_open_in_tab_activate2(GtkMenuItem *menuitem, gpointer user_data)
  * Synopsis
  *   #include "gui/sidebar.h"
  *
- *   void on_about2_activate(GtkMenuItem * menuitem, gpointer user_data)
+ *   void on_about2_activate(gpointer menuitem, gpointer user_data)
  *
  * Description
  *
@@ -990,7 +945,7 @@ on_open_in_tab_activate2(GtkMenuItem *menuitem, gpointer user_data)
  */
 
 G_MODULE_EXPORT void
-on_about2_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_about2_activate(gpointer menuitem, gpointer user_data)
 {
 	gui_display_about_module_dialog(buf_module);
 	g_free(buf_module);
@@ -998,7 +953,7 @@ on_about2_activate(GtkMenuItem *menuitem, gpointer user_data)
 }
 
 G_MODULE_EXPORT void
-on_toggle_favorite_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_toggle_favorite_activate(gpointer menuitem, gpointer user_data)
 {
 	module_toggle_favorite(buf_module);
 	g_free(buf_module);
@@ -1006,7 +961,7 @@ on_toggle_favorite_activate(GtkMenuItem *menuitem, gpointer user_data)
 }
 
 G_MODULE_EXPORT void
-on_hide_module_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_hide_module_activate(gpointer menuitem, gpointer user_data)
 {
 	module_toggle_hidden(buf_module);
 	g_free(buf_module);
@@ -1044,11 +999,7 @@ on_populate_verse_list_activate(GSimpleAction *action, GVariant *parameter,
 	(void)user_data;
 	GS_DIALOG *info = gui_new_dialog();
 
-#if GTK_CHECK_VERSION(3, 10, 0)
 	info->stock_icon = g_strdup("dialog-warning");
-#else
-	info->stock_icon = g_strdup(GTK_STOCK_DIALOG_WARNING);
-#endif
 
 	info->label_top = g_strdup(_("Paste verse references"));
 	info->text1 = g_strdup("");
@@ -1187,130 +1138,61 @@ static void create_results_menu(void)
 	g_menu_append_section(sidebar.results_menu, NULL, G_MENU_MODEL(sharing));
 	g_object_unref(sharing);
 
-	gtk_widget_insert_action_group(sidebar.results_list, "lista",
+	gui_widget_insert_action_group(sidebar.results_list, "lista",
 				       G_ACTION_GROUP(sidebar.results_actions));
 }
 
-/******************************************************************************
- * Name
- *   create_menu_modules
- *
- * Synopsis
- *   #include "gui/sidebar.h"
- *
- *    void create_menu_modules (void)
- *
- * Description
- *
- *
- * Return value
- *   void
- */
-static GtkWidget *create_menu_modules(void)
-{
-	GtkBuilder *gxml = elim_gtk_builder_new();
-	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/xi-menus-popup.gtkbuilder", NULL);
-	g_return_val_if_fail((gxml != NULL), NULL);
-
-	GtkWidget *menu = UI_GET_ITEM(gxml, "menu_modules");
-	GtkWidget *fav_item = UI_GET_ITEM(gxml, "toggle_favorite1");
-	GtkWidget *hide_item = UI_GET_ITEM(gxml, "hide_module1");
-	GtkWidget *pulpito_item = UI_GET_ITEM(gxml, "abrir_en_pulpito1");
-	/* Al púlpito solo suben los libros con árbol de puntos; en una
-	 * Biblia o un diccionario el punto no pinta nada. */
-	if (pulpito_item) {
-		gtk_widget_set_no_show_all(pulpito_item, TRUE);
-		gtk_widget_set_visible(pulpito_item,
-				       main_get_mod_type(buf_module) ==
-					   BOOK_TYPE);
-	}
-	if (fav_item)
-		gtk_menu_item_set_label(GTK_MENU_ITEM(fav_item),
-					module_is_favorite(buf_module)
-					    ? _("Remove from Favorites")
-					    : _("Add to Favorites"));
-	if (hide_item)
-		gtk_menu_item_set_label(GTK_MENU_ITEM(hide_item),
-					module_is_hidden(buf_module)
-					    ? _("Show this module")
-					    : _("Hide this module"));
-	gtk_builder_connect_signals(gxml, NULL);
-/*gtk_builder_connect_signals_full
-	   (gxml, (GtkBuilderConnectFunc)gui_glade_signal_connect_func, NULL); */
-#if GTK_CHECK_VERSION(3, 22, 0)
-	gtk_menu_popup_at_pointer((GtkMenu *)menu, NULL);
-#else
-	gtk_menu_popup((GtkMenu *)menu, NULL, NULL, NULL, NULL, 2,
-		       gtk_get_current_event_time());
-#endif
-	return menu;
-}
-
 G_MODULE_EXPORT void
-on_simple_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_simple_activate(gpointer menuitem, gpointer user_data)
 {
 	main_prayerlist_basic_create();
 }
 
 G_MODULE_EXPORT void
-on_subject_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_subject_activate(gpointer menuitem, gpointer user_data)
 {
 	main_prayerlist_subject_create();
 }
 
 G_MODULE_EXPORT void
-on_monthly_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_monthly_activate(gpointer menuitem, gpointer user_data)
 {
 	main_prayerlist_monthly_create();
 }
 
 G_MODULE_EXPORT void
-on_journal_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_journal_activate(gpointer menuitem, gpointer user_data)
 {
 	main_prayerlist_journal_create();
 }
 
 G_MODULE_EXPORT void
-on_outlined_topic_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_outlined_topic_activate(gpointer menuitem, gpointer user_data)
 {
 	main_prayerlist_outlined_topic_create();
 }
 
 G_MODULE_EXPORT void
-on_book_chapter_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_book_chapter_activate(gpointer menuitem, gpointer user_data)
 {
 	main_prayerlist_book_chapter_create();
 }
 
-GtkWidget *create_menu_prayerlist(void)
-{
-	GtkWidget *menu;
-	GtkBuilder *gxml = elim_gtk_builder_new();
-	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/xi-menus-popup.gtkbuilder", NULL);
-	g_return_val_if_fail((gxml != NULL), NULL);
-
-	menu = UI_GET_ITEM(gxml, "menu_prayerlist");
-	gtk_builder_connect_signals(gxml, NULL);
-/*gtk_builder_connect_signals_full
-	   (gxml, (GtkBuilderConnectFunc)gui_glade_signal_connect_func, NULL); */
-	return menu;
-}
-
-void on_edit_activate(GtkMenuItem *menuitem, gpointer user_data)
+void on_edit_activate(gpointer menuitem, gpointer user_data)
 {
 		editor_create_new(buf_module, "0", BOOK_EDITOR);
 }
 
 /* Llevar al púlpito el bosquejo sobre el que se hizo clic derecho. */
 G_MODULE_EXPORT void
-on_abrir_en_pulpito_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_abrir_en_pulpito_activate(gpointer menuitem, gpointer user_data)
 {
 	if (buf_module && *buf_module)
 		gui_pulpito_abrir(buf_module);
 }
 
 G_MODULE_EXPORT void
-on_edit_percomm_activate(GtkMenuItem *menuitem, gpointer user_data)
+on_edit_percomm_activate(gpointer menuitem, gpointer user_data)
 {
 	editor_create_new(buf_module,
 			  (gchar *)settings.currentverse,
@@ -1319,60 +1201,181 @@ on_edit_percomm_activate(GtkMenuItem *menuitem, gpointer user_data)
 	buf_module = NULL;
 }
 
-static GtkWidget *
-create_menu_percomm_mod(void)
-{
-	GtkWidget *menu;
-	GtkBuilder *gxml = elim_gtk_builder_new();
-	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/xi-menus-popup.gtkbuilder", NULL);
-	g_return_val_if_fail((gxml != NULL), NULL);
-
-	menu = UI_GET_ITEM(gxml, "menu_percomm_mod");
-	gtk_builder_connect_signals(gxml, NULL);
-	return menu;
-}
-
-GtkWidget *create_menu_prayerlist_mod(void)
-{
-	GtkWidget *menu;
-	GtkBuilder *gxml = elim_gtk_builder_new();
-	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/xi-menus-popup.gtkbuilder", NULL);
-	g_return_val_if_fail((gxml != NULL), NULL);
-
-	menu = UI_GET_ITEM(gxml, "menu_prayerlist_mod");
-	gtk_builder_connect_signals(gxml, NULL);
-/*gtk_builder_connect_signals_full
-	   (gxml, (GtkBuilderConnectFunc)gui_glade_signal_connect_func, NULL); */
-	return menu;
-}
-
-/* The prayer-list menus, built on first use. */
-static GtkWidget *prayerlist_menu(gboolean for_module)
-{
-	if (for_module) {
-		if (!sidebar.menu_prayerlist_mod)
-			sidebar.menu_prayerlist_mod = create_menu_prayerlist_mod();
-		return sidebar.menu_prayerlist_mod;
+/* The module tree's context menus.
+ *
+ * GTK4-PORT-101: they were GtkMenus from xi-menus-popup.gtkbuilder; now
+ * one «modulo» action group on the tree (the handlers above and below
+ * run through thin wrappers) and a GMenu built for each popup, since the
+ * labels and the items shown depend on the module. */
+#define MODULE_ACTION(name, handler)                                           \
+	static void name(GSimpleAction *action, GVariant *parameter,           \
+			 gpointer data)                                       \
+	{                                                                      \
+		(void)action;                                                  \
+		(void)parameter;                                               \
+		(void)data;                                                    \
+		handler(NULL, NULL);                                           \
 	}
-	if (!sidebar.menu_prayerlist)
-		sidebar.menu_prayerlist = create_menu_prayerlist();
-	return sidebar.menu_prayerlist;
+
+MODULE_ACTION(module_tab_action, on_open_in_tab_activate2)
+MODULE_ACTION(module_dialog_action, on_open_in_dialog_activate)
+MODULE_ACTION(module_pulpito_action, on_abrir_en_pulpito_activate)
+MODULE_ACTION(module_about_action, on_about2_activate)
+MODULE_ACTION(module_favorite_action, on_toggle_favorite_activate)
+MODULE_ACTION(module_hide_action, on_hide_module_activate)
+MODULE_ACTION(module_edit_note_action, on_edit_percomm_activate)
+MODULE_ACTION(module_edit_action, on_edit_activate)
+MODULE_ACTION(list_simple_action, on_simple_activate)
+MODULE_ACTION(list_subject_action, on_subject_activate)
+MODULE_ACTION(list_monthly_action, on_monthly_activate)
+MODULE_ACTION(list_journal_action, on_journal_activate)
+MODULE_ACTION(list_outlined_action, on_outlined_topic_activate)
+MODULE_ACTION(list_book_action, on_book_chapter_activate)
+
+static void parallel_detach_action(GSimpleAction *action, GVariant *parameter,
+				   gpointer data)
+{
+	(void)action;
+	(void)parameter;
+	(void)data;
+	gui_undock_parallel_page();
 }
 
-G_MODULE_EXPORT void gui_menu_prayerlist_popup(GtkMenuItem *menuitem,
+static void parallel_tab_changed(GSimpleAction *action, GVariant *state,
+				 gpointer data)
+{
+	(void)data;
+	g_simple_action_set_state(action, state);
+	gui_parallel_tab_activate(NULL,
+				  GINT_TO_POINTER(g_variant_get_boolean(state)));
+}
+
+static void grouping_changed(GSimpleAction *action, GVariant *state,
+			     gpointer data)
+{
+	gint mode = g_variant_get_int32(state);
+	gchar buf[4];
+
+	(void)data;
+	g_simple_action_set_state(action, state);
+	g_snprintf(buf, sizeof(buf), "%d", mode);
+	xml_set_value("Xiphos", "modules", "grouping", buf);
+	settings.module_tree_grouping = mode;
+	main_load_module_tree(sidebar.module_list);
+}
+
+/* The group, fresh for each popup so the stateful actions follow the
+ * settings. */
+static void install_module_actions(void)
+{
+	static const GActionEntry entries[] = {
+		{ "pestana", module_tab_action, NULL, NULL, NULL, { 0 } },
+		{ "dialogo", module_dialog_action, NULL, NULL, NULL, { 0 } },
+		{ "pulpito", module_pulpito_action, NULL, NULL, NULL, { 0 } },
+		{ "acerca", module_about_action, NULL, NULL, NULL, { 0 } },
+		{ "favorito", module_favorite_action, NULL, NULL, NULL, { 0 } },
+		{ "ocultar", module_hide_action, NULL, NULL, NULL, { 0 } },
+		{ "editar-nota", module_edit_note_action, NULL, NULL, NULL, { 0 } },
+		{ "editar", module_edit_action, NULL, NULL, NULL, { 0 } },
+		{ "lista-simple", list_simple_action, NULL, NULL, NULL, { 0 } },
+		{ "lista-tema", list_subject_action, NULL, NULL, NULL, { 0 } },
+		{ "lista-mensual", list_monthly_action, NULL, NULL, NULL, { 0 } },
+		{ "lista-diario", list_journal_action, NULL, NULL, NULL, { 0 } },
+		{ "lista-esquema", list_outlined_action, NULL, NULL, NULL, { 0 } },
+		{ "lista-libro", list_book_action, NULL, NULL, NULL, { 0 } },
+		{ "paralelo-separar", parallel_detach_action, NULL, NULL, NULL, { 0 } },
+	};
+	GSimpleActionGroup *group = g_simple_action_group_new();
+	GSimpleAction *action;
+
+	g_action_map_add_action_entries(G_ACTION_MAP(group), entries,
+					G_N_ELEMENTS(entries), NULL);
+	action = g_simple_action_new_stateful(
+	    "paralelo-pestana", NULL, g_variant_new_boolean(settings.showparatab));
+	g_signal_connect(action, "change-state",
+			 G_CALLBACK(parallel_tab_changed), NULL);
+	g_action_map_add_action(G_ACTION_MAP(group), G_ACTION(action));
+	g_object_unref(action);
+	action = g_simple_action_new_stateful(
+	    "agrupar", G_VARIANT_TYPE_INT32,
+	    g_variant_new_int32(settings.module_tree_grouping));
+	g_signal_connect(action, "change-state", G_CALLBACK(grouping_changed),
+			 NULL);
+	g_action_map_add_action(G_ACTION_MAP(group), G_ACTION(action));
+	g_object_unref(action);
+	gui_widget_insert_action_group(sidebar.module_list, "modulo",
+				       G_ACTION_GROUP(group));
+	g_object_unref(group);
+}
+
+static void module_menu_popup(GMenu *menu)
+{
+	install_module_actions();
+	gui_popup_menu_model_at_pointer(G_MENU_MODEL(menu), sidebar.module_list);
+	g_object_unref(menu);
+}
+
+static void create_menu_modules(void)
+{
+	GMenu *menu = g_menu_new();
+
+	g_menu_append(menu, _("Abrir en pestaña nueva"), "modulo.pestana");
+	g_menu_append(menu, _("Abrir en ventana aparte"), "modulo.dialogo");
+	/* Al púlpito solo suben los libros con árbol de puntos; en una
+	 * Biblia o un diccionario el punto no pinta nada. */
+	if (main_get_mod_type(buf_module) == BOOK_TYPE)
+		g_menu_append(menu, _("Abrir en _púlpito"), "modulo.pulpito");
+	g_menu_append(menu, _("Acerca de"), "modulo.acerca");
+	g_menu_append(menu,
+		      module_is_favorite(buf_module) ? _("Remove from Favorites")
+						     : _("Add to Favorites"),
+		      "modulo.favorito");
+	g_menu_append(menu,
+		      module_is_hidden(buf_module) ? _("Show this module")
+						   : _("Hide this module"),
+		      "modulo.ocultar");
+	module_menu_popup(menu);
+}
+
+static void create_menu_percomm_mod(void)
+{
+	GMenu *menu = g_menu_new();
+
+	g_menu_append(menu, _("Abrir en pestaña nueva"), "modulo.pestana");
+	g_menu_append(menu, _("Abrir en ventana aparte"), "modulo.dialogo");
+	g_menu_append(menu, _("Editar"), "modulo.editar-nota");
+	g_menu_append(menu, _("Acerca de"), "modulo.acerca");
+	module_menu_popup(menu);
+}
+
+/* The prayer lists: the kinds to create, or what to do with one. */
+static void prayerlist_menu_popup(gboolean for_module)
+{
+	GMenu *menu = g_menu_new();
+
+	if (for_module) {
+		g_menu_append(menu, _("Abrir en pestaña nueva"), "modulo.pestana");
+		g_menu_append(menu, _("Abrir en ventana aparte"), "modulo.dialogo");
+		g_menu_append(menu, _("Abrir en _púlpito"), "modulo.pulpito");
+		g_menu_append(menu, _("Editar"), "modulo.editar");
+		g_menu_append(menu, _("Acerca de"), "modulo.acerca");
+	} else {
+		g_menu_append(menu, _("Simple"), "modulo.lista-simple");
+		g_menu_append(menu, _("Tema"), "modulo.lista-tema");
+		g_menu_append(menu, _("Mensual"), "modulo.lista-mensual");
+		g_menu_append(menu, _("Diario"), "modulo.lista-diario");
+		g_menu_append(menu, _("Esquema"), "modulo.lista-esquema");
+		g_menu_append(menu, _("Libro/capítulo"), "modulo.lista-libro");
+	}
+	module_menu_popup(menu);
+}
+
+G_MODULE_EXPORT void gui_menu_prayerlist_popup(gpointer menuitem,
 					       gpointer user_data)
 {
-#if GTK_CHECK_VERSION(3, 22, 0)
-	gtk_menu_popup_at_widget(GTK_MENU(prayerlist_menu(FALSE)),
-				 GTK_WIDGET(menuitem),
-				 GDK_GRAVITY_SOUTH_WEST,
-				 GDK_GRAVITY_NORTH_WEST,
-				 NULL);
-#else
-	gtk_menu_popup(GTK_MENU(prayerlist_menu(FALSE)),
-		       NULL, NULL, NULL, NULL,
-		       0, gtk_get_current_event_time());
-#endif
+	(void)menuitem;
+	(void)user_data;
+	prayerlist_menu_popup(FALSE);
 }
 
 static void tree_selection_changed_cb(GtkTreeSelection *selection,
@@ -1382,7 +1385,7 @@ static void tree_selection_changed_cb(GtkTreeSelection *selection,
 }
 
 static gboolean tree_key_press_cb(GtkWidget *widget,
-				  GdkEventKey *event, gpointer user_data)
+				  GuiKeyEvent *event, gpointer user_data)
 {
 	GtkTreeSelection *selection;
 	GtkTreeModel *model;
@@ -1492,16 +1495,14 @@ static void create_search_results_page(GtkWidget *notebook)
 {
 	GtkWidget *scrolledwindow3;
 	GtkTreeSelection *selection;
-	/* The popup is built on first use, like the prayer-list menus. */
-	scrolledwindow3 = gtk_scrolled_window_new(NULL, NULL);
+	/* The popup is built on first use. */
+	scrolledwindow3 = gtk_scrolled_window_new();
 	gtk_widget_show(scrolledwindow3);
-	gtk_container_add(GTK_CONTAINER(notebook), scrolledwindow3);
+	gtk_notebook_append_page(GTK_NOTEBOOK(notebook), scrolledwindow3, NULL);
 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolledwindow3),
 				       GTK_POLICY_AUTOMATIC,
 				       GTK_POLICY_AUTOMATIC);
-	gtk_scrolled_window_set_shadow_type((GtkScrolledWindow *)
-					    scrolledwindow3,
-					    settings.shadow_type);
+	gtk_scrolled_window_set_has_frame(GTK_SCROLLED_WINDOW((GtkScrolledWindow *) scrolledwindow3), TRUE);
 
 	/* create list model */
 	model_verselist = gtk_list_store_new(1, G_TYPE_STRING);
@@ -1509,12 +1510,7 @@ static void create_search_results_page(GtkWidget *notebook)
 	sidebar.results_list =
 	    gtk_tree_view_new_with_model(GTK_TREE_MODEL(model_verselist));
 	gtk_widget_show(sidebar.results_list);
-	gtk_container_add(GTK_CONTAINER(scrolledwindow3),
-			  sidebar.results_list);
-#if !GTK_CHECK_VERSION(3, 10, 0)
-	gtk_tree_view_set_rules_hint(GTK_TREE_VIEW(sidebar.results_list),
-				     TRUE);
-#endif
+	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(scrolledwindow3), sidebar.results_list);
 
 	gtk_tree_view_set_headers_visible(GTK_TREE_VIEW(sidebar.results_list), FALSE);
 	add_columns(GTK_TREE_VIEW(sidebar.results_list));
@@ -1522,19 +1518,12 @@ static void create_search_results_page(GtkWidget *notebook)
 	selection =
 	    gtk_tree_view_get_selection(GTK_TREE_VIEW(sidebar.results_list));
 
-	g_signal_connect((gpointer)sidebar.results_list,
-			 "key_press_event",
-			 G_CALLBACK(tree_key_press_cb), NULL);
+	gui_widget_on_key_phase(GTK_WIDGET(sidebar.results_list), GTK_PHASE_CAPTURE, (GuiKeyFunc)tree_key_press_cb, NULL, NULL);
 	g_signal_connect((gpointer)selection,
 			 "changed",
 			 G_CALLBACK(tree_selection_changed_cb), NULL);
-	g_signal_connect((gpointer)sidebar.results_list,
-			 "button_release_event",
-			 G_CALLBACK(gui_verselist_button_release_event),
-			 NULL);
-	g_signal_connect((gpointer)sidebar.results_list,
-			 "button_press_event",
-			 G_CALLBACK(on_treeview_button_press_event), NULL);
+	gui_widget_on_button(GTK_WIDGET(sidebar.results_list), GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)gui_verselist_button_release_event, NULL);
+	gui_widget_on_button(GTK_WIDGET(sidebar.results_list), GTK_PHASE_CAPTURE, (GuiButtonFunc)on_treeview_button_press_event, NULL, NULL);
 }
 
 /******************************************************************************
@@ -1545,7 +1534,7 @@ static void create_search_results_page(GtkWidget *notebook)
  *   #include "gui/main_window.h"
  *
  *   gboolean paned_button_release_event(GtkWidget * widget,
- *			GdkEventButton * event, gpointer user_data)
+ *			GuiButtonEvent * event, gpointer user_data)
  *
  * Description
  *    get and store pane sizes
@@ -1555,7 +1544,7 @@ static void create_search_results_page(GtkWidget *notebook)
  */
 
 static gboolean paned_button_release_event(GtkWidget *widget,
-					   GdkEventButton *event,
+					   GuiButtonEvent *event,
 					   gpointer user_data)
 {
 	gint panesize;
@@ -1636,69 +1625,47 @@ GtkWidget *gui_create_sidebar(GtkWidget *paned)
 	GtkWidget *btn_install_bibles;
 	GtkWidget *scrolledwindow_bm;
 	GtkWidget *title_label = NULL;
-#ifndef USE_WEBKIT2
-	GtkWidget *scrolledwindow;
-#endif
 
 	GtkWidget *table2;
 
 	UI_VBOX(vbox1, FALSE, 0);
-	gtk_style_context_add_class(gtk_widget_get_style_context(vbox1),
-				    "elim-sidebar");
+	gtk_widget_add_css_class(vbox1, "elim-sidebar");
 	gtk_widget_show(vbox1);
 
 	widgets.paned_sidebar = UI_VPANE();
-	gtk_paned_pack1(GTK_PANED(paned), widgets.paned_sidebar, FALSE,
-			TRUE);
+	gtk_paned_set_start_child(GTK_PANED(paned), widgets.paned_sidebar);
+	gtk_paned_set_resize_start_child(GTK_PANED(paned), FALSE);
+	gtk_paned_set_shrink_start_child(GTK_PANED(paned), TRUE);
 	/* Do not map a hidden sidebar transiently while it is constructed. */
 	if (settings.showshortcutbar)
 		gtk_widget_show(widgets.paned_sidebar);
-	gtk_paned_pack1(GTK_PANED(widgets.paned_sidebar), vbox1, FALSE,
-			TRUE);
+	gtk_paned_set_start_child(GTK_PANED(widgets.paned_sidebar), vbox1);
+	gtk_paned_set_resize_start_child(GTK_PANED(widgets.paned_sidebar), FALSE);
+	gtk_paned_set_shrink_start_child(GTK_PANED(widgets.paned_sidebar), TRUE);
 	UI_VBOX(widgets.box_side_preview, FALSE, 0);
-	gtk_paned_pack2(GTK_PANED(widgets.paned_sidebar),
-			widgets.box_side_preview, FALSE, TRUE);
-	gtk_container_set_border_width(GTK_CONTAINER(widgets.box_side_preview), 2);
-	g_signal_connect(G_OBJECT(widgets.paned_sidebar),
-			 "button_release_event",
-			 G_CALLBACK(paned_button_release_event),
-			 (gchar *)"paned_sidebar");
+	gtk_paned_set_end_child(GTK_PANED(widgets.paned_sidebar), widgets.box_side_preview);
+	gtk_paned_set_resize_end_child(GTK_PANED(widgets.paned_sidebar), FALSE);
+	gtk_paned_set_shrink_end_child(GTK_PANED(widgets.paned_sidebar), TRUE);
+	gui_widget_set_margins(widgets.box_side_preview, 2);
+	gui_widget_on_button(GTK_WIDGET(widgets.paned_sidebar), GTK_PHASE_BUBBLE, NULL, (GuiButtonFunc)paned_button_release_event, (gchar *)"paned_sidebar");
 	widgets.shortcutbar = widgets.paned_sidebar;
 
-#ifndef USE_WEBKIT2
-	scrolledwindow = gtk_scrolled_window_new(NULL, NULL);
-	gtk_widget_show(scrolledwindow);
-	gtk_box_pack_start(GTK_BOX(widgets.box_side_preview),
-			   scrolledwindow, TRUE, TRUE, 0);
-	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolledwindow),
-				       GTK_POLICY_NEVER,
-				       GTK_POLICY_AUTOMATIC);
-	gtk_scrolled_window_set_shadow_type((GtkScrolledWindow *)
-					    scrolledwindow,
-					    settings.shadow_type);
-#endif
 
 	sidebar.html_viewer_widget =
 	    GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, SB_VIEWER_TYPE));
 	XIPHOS_HTML_SET_SURFACE_NAME(sidebar.html_viewer_widget,
 				     "sidebar-previewer");
 	gtk_widget_show(sidebar.html_viewer_widget);
-#ifdef USE_WEBKIT2
-	gtk_box_pack_start(GTK_BOX(widgets.box_side_preview), sidebar.html_viewer_widget, TRUE, TRUE, 0);
-#else
-	gtk_container_add(GTK_CONTAINER(scrolledwindow),
-			  sidebar.html_viewer_widget);
-#endif
+	gui_box_pack(GTK_BOX(widgets.box_side_preview), sidebar.html_viewer_widget, TRUE, TRUE, 0);
 
 /* ---------------------------------------------------------------- */
 /* 2x2 button box set: modules/bookmarks/search/vlist */
 /* ---------------------------------------------------------------- */
 
-#if GTK_CHECK_VERSION(3, 4, 0)
 	table2 = gtk_grid_new();
 	gtk_widget_show(table2);
-	gtk_box_pack_start(GTK_BOX(vbox1), table2, FALSE, TRUE, 0);
-	gtk_container_set_border_width(GTK_CONTAINER(table2), 2);
+	gtk_box_append(GTK_BOX(vbox1), table2);
+	gui_widget_set_margins(table2, 2);
 	gtk_grid_set_row_spacing(GTK_GRID(table2), 6);
 	gtk_grid_set_column_spacing(GTK_GRID(table2), 6);
 	gtk_grid_set_row_homogeneous(GTK_GRID(table2), TRUE);
@@ -1708,129 +1675,61 @@ GtkWidget *gui_create_sidebar(GtkWidget *paned)
 	    gtk_toggle_button_new_with_mnemonic(_("Bookmarks"));
 	gtk_widget_show(button_bookmarks);
 	gtk_grid_attach(GTK_GRID(table2), button_bookmarks, 1, 0, 1, 1);
-	gtk_button_set_relief(GTK_BUTTON(button_bookmarks),
-			      GTK_RELIEF_HALF);
-#if GTK_CHECK_VERSION(3, 20, 0)
+	gtk_button_set_has_frame(GTK_BUTTON(button_bookmarks), TRUE);
 	gtk_widget_set_focus_on_click(GTK_WIDGET(button_bookmarks), FALSE);
-#else
-	gtk_button_set_focus_on_click(GTK_BUTTON(button_bookmarks), FALSE);
-#endif
 
 	button_search = gtk_toggle_button_new_with_mnemonic(_("Search"));
 	gtk_widget_show(button_search);
 	gtk_grid_attach(GTK_GRID(table2), button_search, 0, 1, 1, 1);
-	gtk_button_set_relief(GTK_BUTTON(button_search), GTK_RELIEF_HALF);
-#if GTK_CHECK_VERSION(3, 20, 0)
+	gtk_button_set_has_frame(GTK_BUTTON(button_search), TRUE);
 	gtk_widget_set_focus_on_click(GTK_WIDGET(button_search), FALSE);
-#else
-	gtk_button_set_focus_on_click(GTK_BUTTON(button_search), FALSE);
-#endif
 
 	button_v_lists =
 	    gtk_toggle_button_new_with_mnemonic(_("Verse List"));
 	gtk_widget_show(button_v_lists);
 	gtk_grid_attach(GTK_GRID(table2), button_v_lists, 1, 1, 1, 1);
-	gtk_button_set_relief(GTK_BUTTON(button_v_lists), GTK_RELIEF_HALF);
-#if GTK_CHECK_VERSION(3, 20, 0)
+	gtk_button_set_has_frame(GTK_BUTTON(button_v_lists), TRUE);
 	gtk_widget_set_focus_on_click(GTK_WIDGET(button_v_lists), FALSE);
-#else
-	gtk_button_set_focus_on_click(GTK_BUTTON(button_v_lists), FALSE);
-#endif
 
 	button_modules = gtk_toggle_button_new_with_mnemonic(_("Modules"));
 	gtk_widget_show(button_modules);
 	gtk_grid_attach(GTK_GRID(table2), button_modules, 0, 0, 1, 1);
-	gtk_button_set_relief(GTK_BUTTON(button_modules), GTK_RELIEF_HALF);
-#if GTK_CHECK_VERSION(3, 20, 0)
+	gtk_button_set_has_frame(GTK_BUTTON(button_modules), TRUE);
 	gtk_widget_set_focus_on_click(GTK_WIDGET(button_modules), FALSE);
-#else
-	gtk_button_set_focus_on_click(GTK_BUTTON(button_modules), FALSE);
-#endif
 
-#else
-
-	table2 = gtk_table_new(2, 2, TRUE);
-	gtk_widget_show(table2);
-	gtk_box_pack_start(GTK_BOX(vbox1), table2, FALSE, TRUE, 0);
-	gtk_container_set_border_width(GTK_CONTAINER(table2), 2);
-	gtk_table_set_row_spacings(GTK_TABLE(table2), 6);
-	gtk_table_set_col_spacings(GTK_TABLE(table2), 6);
-
-	button_bookmarks =
-	    gtk_toggle_button_new_with_mnemonic(_("Bookmarks"));
-	gtk_widget_show(button_bookmarks);
-	gtk_table_attach(GTK_TABLE(table2), button_bookmarks, 1, 2, 0, 1,
-			 (GtkAttachOptions)(GTK_FILL),
-			 (GtkAttachOptions)(0), 0, 0);
-	gtk_button_set_relief(GTK_BUTTON(button_bookmarks),
-			      GTK_RELIEF_HALF);
-	gtk_button_set_focus_on_click(GTK_BUTTON(button_bookmarks), FALSE);
-
-	button_search = gtk_toggle_button_new_with_mnemonic(_("Search"));
-	gtk_widget_show(button_search);
-	gtk_table_attach(GTK_TABLE(table2), button_search, 0, 1, 1, 2,
-			 (GtkAttachOptions)(GTK_FILL),
-			 (GtkAttachOptions)(0), 0, 0);
-	gtk_button_set_relief(GTK_BUTTON(button_search), GTK_RELIEF_HALF);
-	gtk_button_set_focus_on_click(GTK_BUTTON(button_search), FALSE);
-
-	button_v_lists =
-	    gtk_toggle_button_new_with_mnemonic(_("Verse List"));
-	gtk_widget_show(button_v_lists);
-	gtk_table_attach(GTK_TABLE(table2), button_v_lists, 1, 2, 1, 2,
-			 (GtkAttachOptions)(GTK_FILL),
-			 (GtkAttachOptions)(0), 0, 0);
-	gtk_button_set_relief(GTK_BUTTON(button_v_lists), GTK_RELIEF_HALF);
-	gtk_button_set_focus_on_click(GTK_BUTTON(button_v_lists), FALSE);
-
-	button_modules = gtk_toggle_button_new_with_mnemonic(_("Modules"));
-	gtk_widget_show(button_modules);
-	gtk_table_attach(GTK_TABLE(table2), button_modules, 0, 1, 0, 1,
-			 (GtkAttachOptions)(GTK_EXPAND | GTK_FILL),
-			 (GtkAttachOptions)(0), 0, 0);
-	gtk_button_set_relief(GTK_BUTTON(button_modules), GTK_RELIEF_HALF);
-	gtk_button_set_focus_on_click(GTK_BUTTON(button_modules), FALSE);
-#endif
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button_modules),
+	gui_toggle_set_active(GTK_WIDGET(button_modules),
 				     TRUE);
 	/* ---------------------------------------------------------------- */
 
 	widgets.notebook_sidebar = gtk_notebook_new();
 	gtk_widget_show(widgets.notebook_sidebar);
 
-	gtk_box_pack_start(GTK_BOX(vbox1), widgets.notebook_sidebar, TRUE,
-			   TRUE, 0);
-	gtk_widget_set_can_default(widgets.notebook_sidebar, 1);
+	gui_box_pack(GTK_BOX(vbox1), widgets.notebook_sidebar, TRUE, TRUE, 0);
 	gtk_notebook_set_show_tabs(GTK_NOTEBOOK(widgets.notebook_sidebar),
 				   FALSE);
 	gtk_notebook_set_show_border(GTK_NOTEBOOK(widgets.notebook_sidebar), FALSE);
-	gtk_container_set_border_width(GTK_CONTAINER(widgets.notebook_sidebar), 2);
+	gui_widget_set_margins(widgets.notebook_sidebar, 2);
 
 	/* la página de Módulos es un vbox: el árbol (expande) + un botón
 	 * fijo abajo para instalar Biblias sin tener que ir al menú
 	 * Editar o abrir el panel Comparar primero. */
 	UI_VBOX(vbox_modules_page, FALSE, 0);
 	gtk_widget_show(vbox_modules_page);
-	gtk_container_add(GTK_CONTAINER(widgets.notebook_sidebar),
-			  vbox_modules_page);
+	gtk_notebook_append_page(GTK_NOTEBOOK(widgets.notebook_sidebar), vbox_modules_page, NULL);
 
-	scrolledwindow4 = gtk_scrolled_window_new(NULL, NULL);
+	scrolledwindow4 = gtk_scrolled_window_new();
 	gtk_widget_show(scrolledwindow4);
-	gtk_box_pack_start(GTK_BOX(vbox_modules_page), scrolledwindow4,
-			   TRUE, TRUE, 0);
+	gui_box_pack(GTK_BOX(vbox_modules_page), scrolledwindow4, TRUE, TRUE, 0);
 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolledwindow4),
 				       GTK_POLICY_AUTOMATIC,
 				       GTK_POLICY_AUTOMATIC);
-	gtk_scrolled_window_set_shadow_type((GtkScrolledWindow *)
-					    scrolledwindow4,
-					    settings.shadow_type);
+	gtk_scrolled_window_set_has_frame(GTK_SCROLLED_WINDOW((GtkScrolledWindow *) scrolledwindow4), TRUE);
 
 	btn_install_bibles = gtk_button_new_with_label(_("Instalar Biblias"));
-	gtk_button_set_relief(GTK_BUTTON(btn_install_bibles), GTK_RELIEF_NONE);
+	gtk_button_set_has_frame(GTK_BUTTON(btn_install_bibles), FALSE);
 	gtk_widget_set_tooltip_text(btn_install_bibles,
 				    _("Descargar e instalar Biblias de CrossWire, eBible y otras fuentes"));
-	gtk_style_context_add_class(gtk_widget_get_style_context(btn_install_bibles),
-				    "elim-pill");
+	gtk_widget_add_css_class(btn_install_bibles, "elim-pill");
 	gtk_widget_set_margin_start(btn_install_bibles, 8);
 	gtk_widget_set_margin_end(btn_install_bibles, 8);
 	gtk_widget_set_margin_top(btn_install_bibles, 4);
@@ -1838,31 +1737,25 @@ GtkWidget *gui_create_sidebar(GtkWidget *paned)
 	g_signal_connect(btn_install_bibles, "clicked",
 			 G_CALLBACK(on_sidebar_install_bibles_clicked), NULL);
 	gtk_widget_show(btn_install_bibles);
-	gtk_box_pack_start(GTK_BOX(vbox_modules_page), btn_install_bibles,
-			   FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(vbox_modules_page), btn_install_bibles);
 
 	sidebar.module_list = gtk_tree_view_new();
 	gtk_widget_show(sidebar.module_list);
-	gtk_container_add(GTK_CONTAINER(scrolledwindow4),
-			  sidebar.module_list);
+	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(scrolledwindow4), sidebar.module_list);
 	gtk_tree_view_set_headers_visible(GTK_TREE_VIEW(sidebar.module_list), FALSE);
 	main_add_mod_tree_columns(GTK_TREE_VIEW(sidebar.module_list));
 
-	scrolledwindow_bm = gtk_scrolled_window_new(NULL, NULL);
+	scrolledwindow_bm = gtk_scrolled_window_new();
 	gtk_widget_show(scrolledwindow_bm);
-	gtk_container_add(GTK_CONTAINER(widgets.notebook_sidebar),
-			  scrolledwindow_bm);
+	gtk_notebook_append_page(GTK_NOTEBOOK(widgets.notebook_sidebar), scrolledwindow_bm, NULL);
 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolledwindow_bm),
 				       GTK_POLICY_AUTOMATIC,
 				       GTK_POLICY_AUTOMATIC);
-	gtk_scrolled_window_set_shadow_type((GtkScrolledWindow *)
-					    scrolledwindow_bm,
-					    settings.shadow_type);
+	gtk_scrolled_window_set_has_frame(GTK_SCROLLED_WINDOW((GtkScrolledWindow *) scrolledwindow_bm), TRUE);
 
 	widgets.bookmark_tree = gui_create_bookmark_tree();
 	gtk_widget_show(widgets.bookmark_tree);
-	gtk_container_add(GTK_CONTAINER(scrolledwindow_bm),
-			  widgets.bookmark_tree);
+	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(scrolledwindow_bm), widgets.bookmark_tree);
 
 	gui_create_search_sidebar();
 
@@ -1870,14 +1763,7 @@ GtkWidget *gui_create_sidebar(GtkWidget *paned)
 
 	main_init_module_tree(sidebar.module_list);
 
-	g_signal_connect_after((gpointer)sidebar.module_list,
-			       "button_release_event",
-			       G_CALLBACK(on_modules_list_button_release), NULL);
-
-	/* The prayer-list menus are built the first time they pop up
-	 * (prayerlist_menu()): parsing them here only delayed startup. */
-	sidebar.menu_prayerlist = NULL;
-	sidebar.menu_prayerlist_mod = NULL;
+	gui_widget_on_button(GTK_WIDGET(sidebar.module_list), GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)on_modules_list_button_release, NULL);
 
 	g_signal_connect((gpointer)button_bookmarks, "toggled",
 			 G_CALLBACK(on_bookmarks_activate), NULL);

@@ -811,7 +811,7 @@ static GtkWidget *editor_new(const gchar *title, EDITOR *e)
 	GtkWidget *statusbar;
 	GtkBuilder *builder;
 	GError *error = NULL;
-	GtkMenuItem *item;
+	gpointer item;
 	GtkWidget *recent_item;
 
 	buttons_state.nochange = 1;

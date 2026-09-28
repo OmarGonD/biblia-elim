@@ -24,6 +24,7 @@
 
 #include <errno.h>
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <glib/gi18n.h>
 
 #include "xiphos_html/xiphos_html.h"
@@ -88,7 +89,7 @@ void access_to_edit_percomm()
 }
 
 static gboolean on_enter_notify_event(GtkWidget *widget,
-				      GdkEventCrossing *event,
+				      GuiCrossingEvent *event,
 				      gpointer user_data)
 {
 	return FALSE;
@@ -130,9 +131,6 @@ GtkWidget *gui_create_commentary_pane(void)
 	GtkWidget *header;
 	GtkWidget *title;
 	GtkWidget *cerrar;
-#ifndef USE_WEBKIT2
-	GtkWidget *scrolledwindow;
-#endif
 
 	UI_VBOX(box_comm, FALSE, 0);
 	gtk_widget_show(box_comm);
@@ -147,11 +145,10 @@ GtkWidget *gui_create_commentary_pane(void)
 	gtk_widget_set_halign(title, GTK_ALIGN_START);
 	gtk_label_set_ellipsize(GTK_LABEL(title), PANGO_ELLIPSIZE_END);
 	gtk_widget_show(title);
-	gtk_box_pack_start(GTK_BOX(header), title, TRUE, TRUE, 0);
+	gui_box_pack(GTK_BOX(header), title, TRUE, TRUE, 0);
 
-	cerrar = gtk_button_new_from_icon_name("window-close-symbolic",
-					       GTK_ICON_SIZE_SMALL_TOOLBAR);
-	gtk_button_set_relief(GTK_BUTTON(cerrar), GTK_RELIEF_NONE);
+	cerrar = gtk_button_new_from_icon_name("window-close-symbolic");
+	gtk_button_set_has_frame(GTK_BUTTON(cerrar), FALSE);
 	gtk_widget_set_tooltip_text(cerrar,
 				    _("Cerrar panel de comentarios y notas"));
 	gtk_widget_set_focus_on_click(cerrar, FALSE);
@@ -159,34 +156,20 @@ GtkWidget *gui_create_commentary_pane(void)
 	gtk_widget_show(cerrar);
 	g_signal_connect(cerrar, "clicked",
 			 G_CALLBACK(on_commentary_close_clicked), NULL);
-	gtk_box_pack_end(GTK_BOX(header), cerrar, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(box_comm), header, FALSE, FALSE, 0);
+	/* after the title, which takes the rest of the row */
+	gtk_box_append(GTK_BOX(header), cerrar);
+	gtk_box_append(GTK_BOX(box_comm), header);
 
-#ifndef USE_WEBKIT2
-	scrolledwindow = gtk_scrolled_window_new(NULL, NULL);
-	gtk_widget_show(scrolledwindow);
-	gtk_box_pack_start(GTK_BOX(box_comm),
-			   scrolledwindow, TRUE, TRUE, 0);
-#endif
 
 	widgets.html_comm =
 	    GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, COMMENTARY_TYPE));
 	XIPHOS_HTML_SET_SURFACE_NAME(widgets.html_comm, "commentary");
 	gtk_widget_show(widgets.html_comm);
-#ifdef USE_WEBKIT2
-	gtk_box_pack_start(GTK_BOX(box_comm), widgets.html_comm, TRUE, TRUE, 0);
-#else
-	gtk_container_add(GTK_CONTAINER(scrolledwindow),
-			  widgets.html_comm);
-#endif
+	gui_box_pack(GTK_BOX(box_comm), widgets.html_comm, TRUE, TRUE, 0);
 
 	g_signal_connect((gpointer)widgets.html_comm,
 			 "popupmenu_requested",
 			 G_CALLBACK(_popupmenu_requested_cb), NULL);
-#ifndef USE_WEBKIT2
-	g_signal_connect((gpointer)scrolledwindow, "enter_notify_event",
-			 G_CALLBACK(on_enter_notify_event), NULL);
-#endif
 
 	return box_comm;
 }

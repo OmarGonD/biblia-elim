@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <regex.h>
 
 #include "gui/sidebar.h"
@@ -63,41 +64,15 @@ void sidebar_on_search_button_clicked(GtkButton *button,
 {
 	if (search_active) {
 		terminate_search = TRUE;
-#if GTK_CHECK_VERSION(3, 10, 0)
-		gtk_button_set_image((GtkButton *)remember_search,
-				     gtk_image_new_from_icon_name("edit-find-symbolic", GTK_ICON_SIZE_BUTTON));
-#else
-		gtk_button_set_label((GtkButton *)remember_search,
-				     "gtk-find");
-		gtk_button_set_use_stock((GtkButton *)remember_search,
-					 TRUE);
-
-#endif
+		gtk_button_set_icon_name(GTK_BUTTON(remember_search), "edit-find-symbolic");
 		sync_windows();
 	} else {
-#if GTK_CHECK_VERSION(3, 10, 0)
-		gtk_button_set_image((GtkButton *)remember_search,
-				     gtk_image_new_from_icon_name("process-stop-symbolic",
-								  GTK_ICON_SIZE_BUTTON));
-#else
-		gtk_button_set_label((GtkButton *)remember_search,
-				     "gtk-stop");
-		gtk_button_set_use_stock((GtkButton *)remember_search,
-					 TRUE);
-#endif
+		gtk_button_set_icon_name(GTK_BUTTON(remember_search), "process-stop-symbolic");
 
 		// do the search
 		main_do_sidebar_search(user_data);
 
-#if GTK_CHECK_VERSION(3, 10, 0)
-		gtk_button_set_image((GtkButton *)remember_search,
-				     gtk_image_new_from_icon_name("edit-find-symbolic", GTK_ICON_SIZE_BUTTON));
-#else
-		gtk_button_set_label((GtkButton *)remember_search,
-				     "gtk-find");
-		gtk_button_set_use_stock((GtkButton *)remember_search,
-					 TRUE);
-#endif
+		gtk_button_set_icon_name(GTK_BUTTON(remember_search), "edit-find-symbolic");
 	}
 }
 
@@ -119,11 +94,11 @@ void sidebar_on_search_button_clicked(GtkButton *button,
  *   void
  */
 
-static void on_rrbUseBounds_toggled(GtkToggleButton *togglebutton,
+static void on_rrbUseBounds_toggled(GtkCheckButton *togglebutton,
 				    gpointer user_data)
 {
 	main_init_sidebar_search_backend();
-	if (gtk_toggle_button_get_active(togglebutton)) {
+	if (gtk_check_button_get_active(togglebutton)) {
 		gtk_widget_show(ss.frame5);
 	} else {
 		gtk_widget_hide(ss.frame5);
@@ -137,7 +112,7 @@ static void on_rrbUseBounds_toggled(GtkToggleButton *togglebutton,
  * Synopsis
  *   #include "gui/search_dialog.h"
  *
- *   void sidebar_optimized_toggled(GtkToggleButton *togglebutton,
+ *   void sidebar_optimized_toggled(GtkCheckButton *togglebutton,
  *			    gpointer user_data)
  *
  * Description
@@ -147,9 +122,9 @@ static void on_rrbUseBounds_toggled(GtkToggleButton *togglebutton,
  *   void
  */
 
-void sidebar_optimized_toggled(GtkToggleButton *togglebutton, gpointer user_data)
+void sidebar_optimized_toggled(GtkCheckButton *togglebutton, gpointer user_data)
 {
-	if (gtk_toggle_button_get_active(togglebutton)) {
+	if (gtk_check_button_get_active(togglebutton)) {
 		gtk_widget_set_sensitive(ss.ckbCaseSensitive, FALSE);
 	} else {
 		gtk_widget_set_sensitive(ss.ckbCaseSensitive, TRUE);
@@ -191,13 +166,12 @@ void gui_create_search_sidebar(void)
 	gchar *header;
 
 
-	scrolledwindow_search = gtk_scrolled_window_new(NULL, NULL);
+	scrolledwindow_search = gtk_scrolled_window_new();
 	gtk_widget_show(scrolledwindow_search);
-	gtk_container_add(GTK_CONTAINER(widgets.notebook_sidebar),
-			  scrolledwindow_search);
-	gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scrolledwindow_search),
-					    settings.shadow_type);
-	gtk_container_set_border_width(GTK_CONTAINER(scrolledwindow_search), 2);
+	gtk_notebook_append_page(GTK_NOTEBOOK(widgets.notebook_sidebar),
+				 scrolledwindow_search, NULL);
+	gtk_scrolled_window_set_has_frame(GTK_SCROLLED_WINDOW(scrolledwindow_search), TRUE);
+	gui_widget_set_margins(scrolledwindow_search, 2);
 
 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolledwindow_search),
 				       GTK_POLICY_AUTOMATIC,
@@ -205,64 +179,50 @@ void gui_create_search_sidebar(void)
 
 	viewport_search = gtk_viewport_new(NULL, NULL);
 	gtk_widget_show(viewport_search);
-	gtk_container_add(GTK_CONTAINER(scrolledwindow_search),
-			  viewport_search);
+	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(scrolledwindow_search), viewport_search);
 
 	UI_VBOX(vbox1, FALSE, 4);
 	gtk_widget_show(vbox1);
-	gtk_container_add(GTK_CONTAINER(viewport_search), vbox1);
+	gtk_viewport_set_child(GTK_VIEWPORT(viewport_search), vbox1);
 
 	UI_VBOX(vbox5, FALSE, 0);
 	gtk_widget_show(vbox5);
-	gtk_box_pack_start(GTK_BOX(vbox1), vbox5, FALSE, TRUE, 0);
+	gtk_box_append(GTK_BOX(vbox1), vbox5);
 
 	/* text entry */
 	ss.entrySearch = gtk_entry_new();
 	gtk_widget_show(ss.entrySearch);
-	gtk_box_pack_start(GTK_BOX(vbox5), ss.entrySearch, TRUE, TRUE, 0);
+	gui_box_pack(GTK_BOX(vbox5), ss.entrySearch, TRUE, TRUE, 0);
 	gtk_widget_set_size_request(ss.entrySearch, 130, -1);
 	;
 
 /* find button */
-#if GTK_CHECK_VERSION(3, 10, 0)
 	remember_search =
-	    gtk_button_new_from_icon_name("edit-find-symbolic",
-					  GTK_ICON_SIZE_BUTTON);
-#else
-	remember_search = gtk_button_new_from_stock(GTK_STOCK_FIND);
-#endif
+	    gtk_button_new_from_icon_name("edit-find-symbolic");
 	gtk_widget_show(remember_search);
-	gtk_box_pack_start(GTK_BOX(vbox5), remember_search, TRUE, FALSE,
-			   0);
+	gui_box_pack(GTK_BOX(vbox5), remember_search, TRUE, FALSE, 0);
 	gtk_widget_set_tooltip_text(remember_search,
 				    _("This is an inclusive (\"AND\") search:\nFind matches showing all words."));
-	gtk_button_set_relief(GTK_BUTTON(remember_search),
-			      GTK_RELIEF_HALF);
+	gtk_button_set_has_frame(GTK_BUTTON(remember_search), TRUE);
 
 	/* progress bar */
 	ss.progressbar_search = gtk_progress_bar_new();
 	gtk_widget_show(ss.progressbar_search);
-	gtk_box_pack_start(GTK_BOX(vbox5), ss.progressbar_search, FALSE,
-			   TRUE, 0);
+	gtk_box_append(GTK_BOX(vbox5), ss.progressbar_search);
 
 	/* button to open advanced search */
 	ss.advanced_search =
 	    gtk_button_new_with_mnemonic(_("_Open Advanced Search"));
 	gtk_widget_show(ss.advanced_search);
-	gtk_box_pack_start(GTK_BOX(vbox5), ss.advanced_search, TRUE, FALSE,
-			   0);
+	gui_box_pack(GTK_BOX(vbox5), ss.advanced_search, TRUE, FALSE, 0);
 	gtk_widget_set_tooltip_text(ss.advanced_search,
 				    _("Open the separate Advanced Search dialog"));
-	gtk_button_set_relief(GTK_BUTTON(ss.advanced_search),
-			      GTK_RELIEF_HALF);
+	gtk_button_set_has_frame(GTK_BUTTON(ss.advanced_search), TRUE);
 
 	ss.frame_module = gtk_frame_new(NULL);
 	gtk_widget_show(ss.frame_module);
-	gtk_box_pack_start(GTK_BOX(vbox1), ss.frame_module, FALSE, FALSE,
-			   0);
-	gtk_container_set_border_width(GTK_CONTAINER(ss.frame_module), 2);
-	gtk_frame_set_shadow_type(GTK_FRAME(ss.frame_module),
-				  GTK_SHADOW_NONE);
+	gtk_box_append(GTK_BOX(vbox1), ss.frame_module);
+	gui_widget_set_margins(ss.frame_module, 2);
 
 	label1 = gtk_label_new(NULL);
 
@@ -277,29 +237,25 @@ void gui_create_search_sidebar(void)
 
 	UI_VBOX(vbox90, FALSE, 0);
 	gtk_widget_show(vbox90);
-	gtk_container_add(GTK_CONTAINER(ss.frame_module), vbox90);
-	gtk_container_set_border_width(GTK_CONTAINER(vbox90), 4);
+	gtk_frame_set_child(GTK_FRAME(ss.frame_module), vbox90);
+	gui_widget_set_margins(vbox90, 4);
 
 	ss.radiobutton_search_text =
-	    gtk_radio_button_new_with_label(NULL, _("Bible"));
+	    gui_radio_button_new_with_label(NULL, _("Bible"));
 	gtk_widget_show(ss.radiobutton_search_text);
 	gtk_widget_set_size_request(ss.radiobutton_search_text, -1, 20);
-	gtk_box_pack_start(GTK_BOX(vbox90), ss.radiobutton_search_text,
-			   FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(vbox90), ss.radiobutton_search_text);
 
 	ss.radiobutton_search_comm =
-	    gtk_radio_button_new_with_label_from_widget(GTK_RADIO_BUTTON(ss.radiobutton_search_text),
-							_("Commentary"));
+	    gui_radio_button_new_with_label(ss.radiobutton_search_text, _("Commentary"));
 	gtk_widget_show(ss.radiobutton_search_comm);
 	gtk_widget_set_size_request(ss.radiobutton_search_comm, -1, 20);
-	gtk_box_pack_start(GTK_BOX(vbox90), ss.radiobutton_search_comm,
-			   FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(vbox90), ss.radiobutton_search_comm);
 
 	frame2 = gtk_frame_new(NULL);
 	gtk_widget_show(frame2);
-	gtk_box_pack_start(GTK_BOX(vbox1), frame2, FALSE, TRUE, 0);
-	gtk_container_set_border_width(GTK_CONTAINER(frame2), 2);
-	gtk_frame_set_shadow_type(GTK_FRAME(frame2), GTK_SHADOW_NONE);
+	gtk_box_append(GTK_BOX(vbox1), frame2);
+	gui_widget_set_margins(frame2, 2);
 
 	label1 = gtk_label_new(NULL);
 
@@ -314,37 +270,32 @@ void gui_create_search_sidebar(void)
 
 	UI_VBOX(vbox2, TRUE, 0);
 	gtk_widget_show(vbox2);
-	gtk_container_add(GTK_CONTAINER(frame2), vbox2);
-	gtk_container_set_border_width(GTK_CONTAINER(vbox2), 4);
+	gtk_frame_set_child(GTK_FRAME(frame2), vbox2);
+	gui_widget_set_margins(vbox2, 4);
 
 	ss.rbMultiword =
-	    gtk_radio_button_new_with_label(NULL, _("Optimized (\"Lucene\")"));
+	    gui_radio_button_new_with_label(NULL, _("Optimized (\"Lucene\")"));
 	gtk_widget_show(ss.rbMultiword);
-	gtk_box_pack_start(GTK_BOX(vbox2), ss.rbMultiword, FALSE,
-			   FALSE, 0);
+	gtk_box_append(GTK_BOX(vbox2), ss.rbMultiword);
 	gtk_widget_set_size_request(ss.rbMultiword, -1, 20);
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(ss.rbMultiword), TRUE);
+	gtk_check_button_set_active(GTK_CHECK_BUTTON(ss.rbMultiword), TRUE);
 
 	ss.rbRegExp =
-	    gtk_radio_button_new_with_label_from_widget(GTK_RADIO_BUTTON(ss.rbMultiword),
-							_("Regular expression"));
+	    gui_radio_button_new_with_label(ss.rbMultiword, _("Regular expression"));
 	gtk_widget_show(ss.rbRegExp);
-	gtk_box_pack_start(GTK_BOX(vbox2), ss.rbRegExp, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(vbox2), ss.rbRegExp);
 	gtk_widget_set_size_request(ss.rbRegExp, -1, 20);
 
 	ss.rbPhraseSearch =
-	    gtk_radio_button_new_with_label_from_widget(GTK_RADIO_BUTTON(ss.rbMultiword),
-							_("Exact phrase"));
+	    gui_radio_button_new_with_label(ss.rbMultiword, _("Exact phrase"));
 	gtk_widget_show(ss.rbPhraseSearch);
-	gtk_box_pack_start(GTK_BOX(vbox2), ss.rbPhraseSearch,
-			   FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(vbox2), ss.rbPhraseSearch);
 	gtk_widget_set_size_request(ss.rbPhraseSearch, -1, 20);
 
 	frame3 = gtk_frame_new(NULL);
 	gtk_widget_show(frame3);
-	gtk_box_pack_start(GTK_BOX(vbox1), frame3, FALSE, TRUE, 0);
-	gtk_container_set_border_width(GTK_CONTAINER(frame3), 2);
-	gtk_frame_set_shadow_type(GTK_FRAME(frame3), GTK_SHADOW_NONE);
+	gtk_box_append(GTK_BOX(vbox1), frame3);
+	gui_widget_set_margins(frame3, 2);
 
 	label1 = gtk_label_new(NULL);
 
@@ -359,21 +310,19 @@ void gui_create_search_sidebar(void)
 
 	UI_VBOX(vbox3, FALSE, 0);
 	gtk_widget_show(vbox3);
-	gtk_container_add(GTK_CONTAINER(frame3), vbox3);
-	gtk_container_set_border_width(GTK_CONTAINER(vbox3), 4);
+	gtk_frame_set_child(GTK_FRAME(frame3), vbox3);
+	gui_widget_set_margins(vbox3, 4);
 
 	ss.ckbCaseSensitive =
 	    gtk_check_button_new_with_label(_("Match case"));
 	gtk_widget_show(ss.ckbCaseSensitive);
-	gtk_box_pack_start(GTK_BOX(vbox3), ss.ckbCaseSensitive, FALSE,
-			   FALSE, 0);
+	gtk_box_append(GTK_BOX(vbox3), ss.ckbCaseSensitive);
 	gtk_widget_set_size_request(ss.ckbCaseSensitive, -1, 20);
 
 	frame4 = gtk_frame_new(NULL);
 	gtk_widget_show(frame4);
-	gtk_box_pack_start(GTK_BOX(vbox1), frame4, FALSE, TRUE, 0);
-	gtk_container_set_border_width(GTK_CONTAINER(frame4), 2);
-	gtk_frame_set_shadow_type(GTK_FRAME(frame4), GTK_SHADOW_NONE);
+	gtk_box_append(GTK_BOX(vbox1), frame4);
+	gui_widget_set_margins(frame4, 2);
 
 	label1 = gtk_label_new(NULL);
 
@@ -388,39 +337,34 @@ void gui_create_search_sidebar(void)
 
 	UI_VBOX(vbox4, TRUE, 0);
 	gtk_widget_show(vbox4);
-	gtk_container_add(GTK_CONTAINER(frame4), vbox4);
-	gtk_container_set_border_width(GTK_CONTAINER(vbox4), 4);
+	gtk_frame_set_child(GTK_FRAME(frame4), vbox4);
+	gui_widget_set_margins(vbox4, 4);
 
 	ss.rbNoScope =
-	    gtk_radio_button_new_with_label(NULL, _("No scope"));
+	    gui_radio_button_new_with_label(NULL, _("No scope"));
 	gtk_widget_show(ss.rbNoScope);
-	gtk_box_pack_start(GTK_BOX(vbox4), ss.rbNoScope, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(vbox4), ss.rbNoScope);
 	gtk_widget_set_size_request(ss.rbNoScope, -1, 20);
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(ss.rbNoScope),
+	gtk_check_button_set_active(GTK_CHECK_BUTTON(ss.rbNoScope),
 				     TRUE);
 
 	ss.rrbUseBounds =
-	    gtk_radio_button_new_with_label_from_widget(GTK_RADIO_BUTTON(ss.rbNoScope),
-							_("Use bounds"));
+	    gui_radio_button_new_with_label(ss.rbNoScope, _("Use bounds"));
 	gtk_widget_show(ss.rrbUseBounds);
-	gtk_box_pack_start(GTK_BOX(vbox4), ss.rrbUseBounds, FALSE,
-			   FALSE, 0);
+	gtk_box_append(GTK_BOX(vbox4), ss.rrbUseBounds);
 	gtk_widget_set_size_request(ss.rrbUseBounds, -1, 20);
 
 	ss.rbLastSearch =
-	    gtk_radio_button_new_with_label_from_widget(GTK_RADIO_BUTTON(ss.rbNoScope),
-							_("Last search"));
+	    gui_radio_button_new_with_label(ss.rbNoScope, _("Last search"));
 	gtk_widget_show(ss.rbLastSearch);
-	gtk_box_pack_start(GTK_BOX(vbox4), ss.rbLastSearch, FALSE,
-			   FALSE, 0);
+	gtk_box_append(GTK_BOX(vbox4), ss.rbLastSearch);
 	gtk_widget_set_size_request(ss.rbLastSearch, -1, 20);
 
 	ss.frame5 = gtk_frame_new(NULL);
 	gtk_widget_show(ss.frame5);
-	gtk_box_pack_start(GTK_BOX(vbox1), ss.frame5, FALSE, TRUE, 0);
-	gtk_container_set_border_width(GTK_CONTAINER(ss.frame5), 2);
+	gtk_box_append(GTK_BOX(vbox1), ss.frame5);
+	gui_widget_set_margins(ss.frame5, 2);
 	gtk_widget_hide(ss.frame5);
-	gtk_frame_set_shadow_type(GTK_FRAME(ss.frame5), GTK_SHADOW_NONE);
 
 	label1 = gtk_label_new(NULL);
 
@@ -433,20 +377,16 @@ void gui_create_search_sidebar(void)
 	gtk_widget_show(label1);
 	gtk_frame_set_label_widget(GTK_FRAME(ss.frame5), label1);
 
-#if GTK_CHECK_VERSION(3, 4, 0)
 	table1 = gtk_grid_new();
 	gtk_widget_show(table1);
-	gtk_container_add(GTK_CONTAINER(ss.frame5), table1);
+	gtk_frame_set_child(GTK_FRAME(ss.frame5), table1);
 	gtk_grid_set_row_spacing(GTK_GRID(table1), 3);
 	gtk_grid_set_column_spacing(GTK_GRID(table1), 3);
-	gtk_container_set_border_width(GTK_CONTAINER(table1), 8);
+	gui_widget_set_margins(table1, 8);
 
 	label1 = gtk_label_new(_("Lower"));
 	gtk_widget_show(label1);
 	gtk_grid_attach(GTK_GRID(table1), label1, 0, 0, 1, 1);
-#if !GTK_CHECK_VERSION(3, 10, 0)
-	gtk_misc_set_alignment(GTK_MISC(label1), 1.0, 0.5);
-#endif
 
 	ss.entryLower = gtk_combo_box_text_new_with_entry();
 	gtk_widget_show(ss.entryLower);
@@ -456,59 +396,12 @@ void gui_create_search_sidebar(void)
 	label2 = gtk_label_new(_("Upper"));
 	gtk_widget_show(label2);
 	gtk_grid_attach(GTK_GRID(table1), label2, 0, 1, 1, 1);
-#if !GTK_CHECK_VERSION(3, 10, 0)
-	gtk_misc_set_alignment(GTK_MISC(label2), 1.0, 0.5);
-#endif
 
 	ss.entryUpper = gtk_combo_box_text_new_with_entry();
 	gtk_widget_show(ss.entryUpper);
 	gtk_grid_attach(GTK_GRID(table1), ss.entryUpper, 1, 1, 1, 1);
 	gtk_widget_set_size_request(ss.entryUpper, 114, 22);
 
-#else
-	table1 = gtk_table_new(2, 2, FALSE);
-	gtk_widget_show(table1);
-	gtk_container_add(GTK_CONTAINER(ss.frame5), table1);
-	gtk_table_set_row_spacings(GTK_TABLE(table1), 3);
-	gtk_table_set_col_spacings(GTK_TABLE(table1), 3);
-	gtk_container_set_border_width(GTK_CONTAINER(table1), 8);
-
-	label1 = gtk_label_new(_("Lower"));
-	gtk_widget_show(label1);
-	gtk_table_attach(GTK_TABLE(table1), label1, 0, 1, 0, 1,
-			 (GtkAttachOptions)(GTK_FILL),
-			 (GtkAttachOptions)(0), 0, 0);
-	gtk_misc_set_alignment(GTK_MISC(label1), 1.0, 0.5);
-
-	label2 = gtk_label_new(_("Upper"));
-	gtk_widget_show(label2);
-	gtk_table_attach(GTK_TABLE(table1), label2, 0, 1, 1, 2,
-			 (GtkAttachOptions)(GTK_FILL),
-			 (GtkAttachOptions)(0), 0, 0);
-	gtk_misc_set_alignment(GTK_MISC(label2), 1.0, 0.5);
-
-#if GTK_CHECK_VERSION(2, 24, 0)
-	ss.entryLower = gtk_combo_box_text_new_with_entry();
-#else
-	ss.entryLower = gtk_combo_box_entry_new_text();
-#endif
-	gtk_widget_show(ss.entryLower);
-	gtk_table_attach(GTK_TABLE(table1), ss.entryLower, 1, 2, 0, 1,
-			 (GtkAttachOptions)(GTK_FILL),
-			 (GtkAttachOptions)(0), 0, 0);
-	gtk_widget_set_size_request(ss.entryLower, 114, 22);
-
-#if GTK_CHECK_VERSION(2, 24, 0)
-	ss.entryUpper = gtk_combo_box_text_new_with_entry();
-#else
-	ss.entryUpper = gtk_combo_box_entry_new_text();
-#endif
-	gtk_widget_show(ss.entryUpper);
-	gtk_table_attach(GTK_TABLE(table1), ss.entryUpper, 1, 2, 1, 2,
-			 (GtkAttachOptions)(GTK_FILL),
-			 (GtkAttachOptions)(0), 0, 0);
-	gtk_widget_set_size_request(ss.entryUpper, 114, 22);
-#endif
 
 	g_signal_connect(G_OBJECT(ss.rrbUseBounds),
 			 "toggled",

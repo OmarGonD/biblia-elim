@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <glib.h>
 #include <glib/gstdio.h>
 
@@ -455,7 +456,7 @@ static gboolean query_tooltip(GtkWidget *widget,
 	gchar *about;
 
 	if (!gtk_tree_view_get_tooltip_context((GtkTreeView *)widget,
-					       &x, &y,
+					       x, y,
 					       keyboard_mode,
 					       &model, &path, &iter))
 		return FALSE;
@@ -553,15 +554,13 @@ void biblesync_update_speaker()
 			       G_TYPE_BOOLEAN);
 
 	if (speaker_list)
-		gtk_widget_destroy(speaker_list); // destroy old to create new.
+		gui_widget_destroy(speaker_list); // destroy old to create new.
 
 	speaker_list =
 	    gtk_tree_view_new_with_model(GTK_TREE_MODEL(model_speakers));
 	gtk_widget_show(speaker_list);
-	gtk_container_add(GTK_CONTAINER(speaker_window), speaker_list);
-#if !GTK_CHECK_VERSION(3, 10, 0)
-	gtk_tree_view_set_rules_hint(GTK_TREE_VIEW(speaker_list), TRUE);
-#endif
+	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(speaker_window),
+				      speaker_list);
 	gtk_tree_view_set_headers_visible(GTK_TREE_VIEW(speaker_list), TRUE);
 
 	//
@@ -578,11 +577,7 @@ void biblesync_update_speaker()
 
 	column = gtk_tree_view_column_new();
 	image =
-#if GTK_CHECK_VERSION(3, 10, 0)
-	    gtk_image_new_from_icon_name("emblem-default", GTK_ICON_SIZE_MENU);
-#else
-	    gtk_image_new_from_stock(GTK_STOCK_APPLY, GTK_ICON_SIZE_MENU);
-#endif
+	    gtk_image_new_from_icon_name("emblem-default");
 
 	gtk_widget_show(image);
 	gtk_widget_set_tooltip_text(image,
@@ -611,11 +606,7 @@ void biblesync_update_speaker()
 	column = gtk_tree_view_column_new_with_attributes(_("D/I"), renderer,
 							  "text", COLUMN_DIRECT, NULL);
 	image =
-#if GTK_CHECK_VERSION(3, 10, 0)
-	    gtk_image_new_from_icon_name("emblem-default", GTK_ICON_SIZE_MENU);
-#else
-	    gtk_image_new_from_stock("gtk-yes", GTK_ICON_SIZE_MENU); // XXX
-#endif
+	    gtk_image_new_from_icon_name("emblem-default");
 	gtk_widget_show(image);
 	gtk_widget_set_tooltip_text(image,
 				    _("Last navigation was Direct or Indirect"));

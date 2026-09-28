@@ -11,6 +11,7 @@
 
 #include "gui/sqlite_module_manager_dialog.h"
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <glib/gi18n.h>
 #include <glib/gstdio.h>
 
@@ -304,8 +305,6 @@ set_progress_text(const char *msg)
 static void
 set_busy(gboolean on)
 {
-	GdkWindow *win;
-
 	busy = on;
 	gtk_widget_set_sensitive(combo_src, !on);
 	gtk_widget_set_sensitive(combo_lang, !on);
@@ -321,16 +320,7 @@ set_busy(gboolean on)
 
 	if (!dlg)
 		return;
-	win = gtk_widget_get_window(dlg);
-	if (win) {
-		GdkCursor *cur = NULL;
-		if (on)
-			cur = gdk_cursor_new_from_name(gdk_window_get_display(win),
-						       "wait");
-		gdk_window_set_cursor(win, cur);
-		if (cur)
-			g_object_unref(cur);
-	}
+	gtk_widget_set_cursor_from_name(dlg, on ? "wait" : NULL);
 	sync_windows();
 }
 
@@ -505,9 +495,9 @@ refill_view(void)
 		return;
 
 	lang_id = gtk_combo_box_get_active_id(GTK_COMBO_BOX(combo_lang));
-	needle = gtk_entry_get_text(GTK_ENTRY(search_entry));
+	needle = gtk_editable_get_text(GTK_EDITABLE(search_entry));
 	needle_cf = (needle && *needle) ? g_utf8_casefold(needle, -1) : NULL;
-	only_bibles = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(chk_bibles));
+	only_bibles = gtk_check_button_get_active(GTK_CHECK_BUTTON(chk_bibles));
 
 	for (i = 0; i < mods->len; i++) {
 		MOD_MGR *m = g_ptr_array_index(mods, i);
@@ -1400,10 +1390,10 @@ on_ib_install_local_clicked(GtkButton *b, gpointer data)
 	gtk_file_filter_add_pattern(filter_theword, "*.nt");
 	gtk_file_chooser_add_filter(GTK_FILE_CHOOSER(chooser), filter_theword);
 
-	resp = gtk_dialog_run(GTK_DIALOG(chooser));
+	resp = gui_dialog_run(GTK_DIALOG(chooser));
 	if (resp == GTK_RESPONSE_ACCEPT)
-		src_path = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(chooser));
-	gtk_widget_destroy(chooser);
+		src_path = gui_file_chooser_get_filename(GTK_FILE_CHOOSER(chooser));
+	gui_widget_destroy(chooser);
 
 	if (!src_path)
 		return;
@@ -1564,7 +1554,7 @@ on_advanced_clicked(GtkButton *b, gpointer data)
 	(void)data;
 	if (busy)
 		return;
-	gtk_widget_destroy(dlg);
+	gui_widget_destroy(dlg);
 	gui_open_mod_mgr();
 }
 
@@ -1575,27 +1565,27 @@ on_close_clicked(GtkButton *b, gpointer data)
 	(void)data;
 	if (busy)
 		return;
-	gtk_widget_destroy(dlg);
+	gui_widget_destroy(dlg);
 }
 
+/* no closing while installing */
 static gboolean
-on_delete(GtkWidget *w, GdkEvent *e, gpointer data)
+on_delete(GtkWindow *w, gpointer data)
 {
 	(void)w;
-	(void)e;
 	(void)data;
 	return busy;
 }
 
 static gboolean
-on_key_press(GtkWidget *w, GdkEventKey *e, gpointer data)
+on_key_press(GtkWidget *w, GuiKeyEvent *e, gpointer data)
 {
 	(void)w;
 	(void)data;
 	if (busy)
 		return TRUE;
 	if (e->keyval == GDK_KEY_Escape) {
-		gtk_widget_destroy(dlg);
+		gui_widget_destroy(dlg);
 		return TRUE;
 	}
 	return FALSE;
@@ -1703,30 +1693,39 @@ build_dialog(void)
 	GtkWidget *hint;
 	GtkCellRenderer *tog;
 	GtkTreeViewColumn *chk_col;
-	GtkStyleContext *ctx;
-
-	win = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+	win = gtk_window_new();
 	gtk_window_set_title(GTK_WINDOW(win), _("Instalar Biblias"));
 	gtk_window_set_default_size(GTK_WINDOW(win), 820, 560);
 	gui_prepare_floating_dialog(GTK_WINDOW(win),
 				    widgets.app ? GTK_WINDOW(widgets.app) : NULL);
 
 	hb = gtk_header_bar_new();
-	gtk_header_bar_set_title(GTK_HEADER_BAR(hb), _("Instalar Biblias"));
-	gtk_header_bar_set_subtitle(GTK_HEADER_BAR(hb),
-				    _("Descargar e instalar desde fuentes de CrossWire"));
-	gtk_header_bar_set_show_close_button(GTK_HEADER_BAR(hb), TRUE);
+	{
+		/* GTK 4 header bars take the title as a widget */
+		GtkWidget *titles = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
+		GtkWidget *title = gtk_label_new(_("Instalar Biblias"));
+		GtkWidget *subtitle = gtk_label_new(
+		    _("Descargar e instalar desde fuentes de CrossWire"));
+
+		gtk_widget_add_css_class(title, "title");
+		gtk_widget_add_css_class(subtitle, "subtitle");
+		gtk_widget_set_valign(titles, GTK_ALIGN_CENTER);
+		gtk_box_append(GTK_BOX(titles), title);
+		gtk_box_append(GTK_BOX(titles), subtitle);
+		gtk_header_bar_set_title_widget(GTK_HEADER_BAR(hb), titles);
+	}
+	gtk_header_bar_set_show_title_buttons(GTK_HEADER_BAR(hb), TRUE);
 	gtk_window_set_titlebar(GTK_WINDOW(win), hb);
 
 	outer = gtk_box_new(GTK_ORIENTATION_VERTICAL, 8);
-	gtk_container_set_border_width(GTK_CONTAINER(outer), 12);
-	gtk_container_add(GTK_CONTAINER(win), outer);
+	gui_widget_set_margins(outer, 12);
+	gtk_window_set_child(GTK_WINDOW(win), outer);
 
 	hint = gtk_label_new(_("Elija una fuente, filtre por idioma o nombre, marque las Biblias y pulse Instalar. Se descargan y quedan listas para leer y comparar."));
-	gtk_label_set_line_wrap(GTK_LABEL(hint), TRUE);
+	gtk_label_set_wrap(GTK_LABEL(hint), TRUE);
 	gtk_label_set_xalign(GTK_LABEL(hint), 0);
 	gtk_widget_set_opacity(hint, 0.85);
-	gtk_box_pack_start(GTK_BOX(outer), hint, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(outer), hint);
 
 	row = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 8);
 	lbl = gtk_label_new(_("Fuente"));
@@ -1736,16 +1735,13 @@ build_dialog(void)
 	gtk_widget_set_tooltip_text(combo_src,
 				    _("CrossWire es el catálogo principal. eBible.org tiene muchas lenguas vernáculas. HTTPS ayuda si el FTP está bloqueado."));
 	btn_refresh = gtk_button_new_with_label(_("Actualizar catálogo"));
-	gtk_button_set_image(GTK_BUTTON(btn_refresh),
-			     gtk_image_new_from_icon_name("view-refresh-symbolic",
-							  GTK_ICON_SIZE_BUTTON));
-	gtk_button_set_always_show_image(GTK_BUTTON(btn_refresh), TRUE);
+	gui_button_set_icon_and_label(GTK_BUTTON(btn_refresh), "view-refresh-symbolic");
 	gtk_widget_set_tooltip_text(btn_refresh,
 				    _("Descargar la lista de módulos de esta fuente"));
-	gtk_box_pack_start(GTK_BOX(row), lbl, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(row), combo_src, TRUE, TRUE, 0);
-	gtk_box_pack_start(GTK_BOX(row), btn_refresh, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(outer), row, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(row), lbl);
+	gui_box_pack(GTK_BOX(row), combo_src, TRUE, TRUE, 0);
+	gtk_box_append(GTK_BOX(row), btn_refresh);
+	gtk_box_append(GTK_BOX(outer), row);
 
 	row = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 8);
 	lbl = gtk_label_new(_("Idioma"));
@@ -1753,16 +1749,16 @@ build_dialog(void)
 	combo_lang = gtk_combo_box_text_new();
 	gtk_widget_set_size_request(combo_lang, 180, -1);
 	search_entry = gtk_search_entry_new();
-	gtk_entry_set_placeholder_text(GTK_ENTRY(search_entry),
+	gtk_search_entry_set_placeholder_text(GTK_SEARCH_ENTRY(search_entry),
 				       _("Buscar por nombre o módulo…"));
 	gtk_widget_set_hexpand(search_entry, TRUE);
 	chk_bibles = gtk_check_button_new_with_label(_("Solo Biblias"));
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_bibles), TRUE);
-	gtk_box_pack_start(GTK_BOX(row), lbl, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(row), combo_lang, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(row), search_entry, TRUE, TRUE, 0);
-	gtk_box_pack_start(GTK_BOX(row), chk_bibles, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(outer), row, FALSE, FALSE, 0);
+	gtk_check_button_set_active(GTK_CHECK_BUTTON(chk_bibles), TRUE);
+	gtk_box_append(GTK_BOX(row), lbl);
+	gtk_box_append(GTK_BOX(row), combo_lang);
+	gui_box_pack(GTK_BOX(row), search_entry, TRUE, TRUE, 0);
+	gtk_box_append(GTK_BOX(row), chk_bibles);
+	gtk_box_append(GTK_BOX(outer), row);
 
 	store = gtk_list_store_new(N_COLS,
 				   G_TYPE_BOOLEAN,
@@ -1795,42 +1791,38 @@ build_dialog(void)
 	add_col(GTK_TREE_VIEW(tree), _("Tamaño"), COL_SIZE, 70, FALSE);
 	add_col(GTK_TREE_VIEW(tree), _("Estado"), COL_STATUS, 90, FALSE);
 
-	scroller = gtk_scrolled_window_new(NULL, NULL);
+	scroller = gtk_scrolled_window_new();
 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scroller),
 				       GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-	gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scroller),
-					    GTK_SHADOW_IN);
+	gtk_scrolled_window_set_has_frame(GTK_SCROLLED_WINDOW(scroller), TRUE);
 	gtk_widget_set_vexpand(scroller, TRUE);
-	gtk_container_add(GTK_CONTAINER(scroller), tree);
-	gtk_box_pack_start(GTK_BOX(outer), scroller, TRUE, TRUE, 0);
+	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(scroller), tree);
+	gui_box_pack(GTK_BOX(outer), scroller, TRUE, TRUE, 0);
 
 	count_lbl = gtk_label_new("");
 	gtk_label_set_xalign(GTK_LABEL(count_lbl), 0);
 	gtk_widget_set_opacity(count_lbl, 0.75);
-	gtk_box_pack_start(GTK_BOX(outer), count_lbl, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(outer), count_lbl);
 
 	progress = gtk_progress_bar_new();
 	gtk_progress_bar_set_show_text(GTK_PROGRESS_BAR(progress), TRUE);
 	gtk_progress_bar_set_text(GTK_PROGRESS_BAR(progress), "");
-	gtk_box_pack_start(GTK_BOX(outer), progress, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(outer), progress);
 
 	status_lbl = gtk_label_new("");
 	gtk_label_set_xalign(GTK_LABEL(status_lbl), 0);
-	gtk_label_set_line_wrap(GTK_LABEL(status_lbl), TRUE);
-	gtk_box_pack_start(GTK_BOX(outer), status_lbl, FALSE, FALSE, 0);
+	gtk_label_set_wrap(GTK_LABEL(status_lbl), TRUE);
+	gtk_box_append(GTK_BOX(outer), status_lbl);
 
 	bbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 8);
     GtkWidget *sqlite_button = gtk_button_new_with_label("Módulos SQLite…");
-    gtk_box_pack_start(GTK_BOX(bbox), sqlite_button, FALSE, FALSE, 0);
+    gtk_box_append(GTK_BOX(bbox), sqlite_button);
     g_signal_connect(sqlite_button, "clicked", G_CALLBACK(gui_open_sqlite_module_manager), NULL);
 	btn_advanced = gtk_button_new_with_label(_("Avanzado…"));
 	gtk_widget_set_tooltip_text(btn_advanced,
 				    _("Gestor completo de módulos (comentaristas, diccionarios, fuentes locales)"));
 	btn_local = gtk_button_new_with_label(_("Instalar desde archivo…"));
-	gtk_button_set_image(GTK_BUTTON(btn_local),
-			     gtk_image_new_from_icon_name("document-open-symbolic",
-							  GTK_ICON_SIZE_BUTTON));
-	gtk_button_set_always_show_image(GTK_BUTTON(btn_local), TRUE);
+	gui_button_set_icon_and_label(GTK_BUTTON(btn_local), "document-open-symbolic");
 	gtk_widget_set_tooltip_text(btn_local,
 				    _("Instalar un módulo comprado o recibido por fuera de este catálogo.\n"
 				     "Formatos admitidos: módulo SWORD (.zip), MySword libre/sin cifrar "
@@ -1843,13 +1835,15 @@ build_dialog(void)
 	gtk_widget_set_sensitive(btn_install, FALSE);
 	gtk_widget_set_tooltip_text(btn_install,
 				    _("Descargar las Biblias marcadas e instalarlas en este equipo"));
-	ctx = gtk_widget_get_style_context(btn_install);
-	gtk_style_context_add_class(ctx, "suggested-action");
-	gtk_box_pack_start(GTK_BOX(bbox), btn_advanced, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(bbox), btn_local, FALSE, FALSE, 0);
-	gtk_box_pack_end(GTK_BOX(bbox), btn_install, FALSE, FALSE, 0);
-	gtk_box_pack_end(GTK_BOX(bbox), btn_close, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(outer), bbox, FALSE, FALSE, 0);
+	gtk_widget_add_css_class(btn_install, "suggested-action");
+	gtk_box_append(GTK_BOX(bbox), btn_advanced);
+	gtk_box_append(GTK_BOX(bbox), btn_local);
+	/* at the far end: Cerrar, then Instalar last */
+	gtk_widget_set_hexpand(btn_close, TRUE);
+	gtk_widget_set_halign(btn_close, GTK_ALIGN_END);
+	gtk_box_append(GTK_BOX(bbox), btn_close);
+	gtk_box_append(GTK_BOX(bbox), btn_install);
+	gtk_box_append(GTK_BOX(outer), bbox);
 
 	g_signal_connect(combo_src, "changed", G_CALLBACK(on_src_changed), NULL);
 	g_signal_connect(combo_lang, "changed", G_CALLBACK(on_filter_changed), NULL);
@@ -1861,8 +1855,8 @@ build_dialog(void)
 	g_signal_connect(btn_advanced, "clicked", G_CALLBACK(on_advanced_clicked), NULL);
 	g_signal_connect(btn_local, "clicked", G_CALLBACK(on_ib_install_local_clicked), NULL);
 	g_signal_connect(btn_close, "clicked", G_CALLBACK(on_close_clicked), NULL);
-	g_signal_connect(win, "delete-event", G_CALLBACK(on_delete), NULL);
-	g_signal_connect(win, "key-press-event", G_CALLBACK(on_key_press), NULL);
+	g_signal_connect(win, "close-request", G_CALLBACK(on_delete), NULL);
+	gui_widget_on_key_phase(GTK_WIDGET(win), GTK_PHASE_CAPTURE, (GuiKeyFunc)on_key_press, NULL, NULL);
 	g_signal_connect(win, "destroy", G_CALLBACK(on_destroy), NULL);
 
 	return win;
@@ -1884,6 +1878,6 @@ gui_instalar_biblias(void)
 	dlg = build_dialog();
 	gui_mod_mgr_bind_progress(progress);
 	fill_sources();
-	gtk_widget_show_all(dlg);
+	gtk_widget_show(dlg);
 	load_catalog(FALSE);
 }

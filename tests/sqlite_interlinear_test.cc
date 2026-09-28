@@ -75,8 +75,102 @@ extern "C" GList *get_list(int) { return nullptr; }
 extern "C" char *xml_get_list_from_label(const char *, const char *, const char *) { return nullptr; }
 extern "C" void xml_set_list_item(const char *, const char *, const char *, const char *) {}
 
+static void study_summary_test()
+{
+    InterlFila row = {};
+    row.forma = g_strdup("θεοῦ");
+    row.raiz = g_strdup("θεός");
+    row.translit = g_strdup("theós");
+    row.es = g_strdup("de Dios");
+    row.strong = g_strdup("G2316");
+    row.strongs = g_strdup("G2316 · G2532");
+    row.morph = g_strdup("N-GSM");
+    row.morph_es = g_strdup("Sustantivo · genitivo · singular · masculino");
+    gchar *text = main_interlineal_ficha_texto(&row, "Juan 1:1");
+    g_assert_true(g_utf8_validate(text, -1, nullptr));
+    g_assert_cmpstr(text, ==,
+        "Pasaje: Juan 1:1\nForma en el versículo: θεοῦ\nLema: θεός\n"
+        "Transliteración: theós\nEspañol / glosa: de Dios\n"
+        "Strong: G2316 · G2532\n"
+        "Análisis gramatical: Sustantivo · genitivo · singular · masculino\n"
+        "Código morfológico: N-GSM");
+    g_free(text);
+    g_free(row.forma); g_free(row.raiz); g_free(row.translit); g_free(row.es);
+    g_free(row.strong); g_free(row.strongs); g_free(row.morph); g_free(row.morph_es);
+
+    // Unrecognized morphology remains visible; missing lexical fields stay absent.
+    row = {};
+    row.forma = g_strdup("θεός"); // decomposed accent must survive verbatim
+    row.strong = g_strdup("G2316");
+    row.strongs = g_strdup("");
+    row.morph = g_strdup("custom:XYZ");
+    text = main_interlineal_ficha_texto(&row, nullptr);
+    g_assert_cmpstr(text, ==,
+        "Forma en el versículo: θεός\nStrong: G2316\nCódigo morfológico: custom:XYZ");
+    g_free(text);
+    g_free(row.forma); g_free(row.strong); g_free(row.strongs); g_free(row.morph);
+    row = {};
+    text = main_interlineal_ficha_texto(&row, "");
+    g_assert_cmpstr(text, ==, "");
+    g_free(text);
+    text = main_interlineal_ficha_texto(nullptr, "Juan 1:1");
+    g_assert_cmpstr(text, ==, "");
+    g_free(text);
+    g_print("interlinear_study_summary_failures=0\n");
+}
+
+static void hebrew_study_test()
+{
+    const char *pointed = "בְּרֵאשִׁ֖ית";
+    g_assert_true(main_interlineal_es_hebreo(pointed));
+    g_assert_true(main_interlineal_es_hebreo("(שָׁלוֹם)"));
+    g_assert_false(main_interlineal_es_hebreo("θεός"));
+    g_assert_false(main_interlineal_es_hebreo("H7225"));
+    g_assert_false(main_interlineal_es_hebreo(nullptr));
+    g_assert_false(main_interlineal_es_hebreo(""));
+    const struct { const char *input; const char *expected; } cases[] = {
+        {pointed, "בראשית"},
+        {"שָׁלוֹם־לְךָ׃", "שלום־לך׃"},
+        {"בְּ/רֵאשִׁית", "ב/ראשית"},
+        {"שׁ שׂ", "ש ש"},
+        {"θεός café שָׁלוֹם 123", "θεός café שלום 123"},
+        {"שלום", "שלום"},
+        {"", ""}, {nullptr, ""}
+    };
+    for (const auto &item : cases) {
+        gchar *text = main_interlineal_sin_signos_hebreos(item.input);
+        g_assert_cmpstr(text, ==, item.expected);
+        g_assert_true(g_utf8_validate(text, -1, nullptr));
+        g_free(text);
+    }
+    const char invalid[] = {char(0xff), 0};
+    g_assert_false(main_interlineal_es_hebreo(invalid));
+    gchar *text = main_interlineal_sin_signos_hebreos(invalid);
+    g_assert_cmpstr(text, ==, invalid);
+    g_free(text);
+
+    // Hebrew without Strong metadata still gets its study variant.
+    InterlFila row = {};
+    row.forma = g_strdup(pointed);
+    row.raiz = g_strdup("רֵאשִׁית");
+    text = main_interlineal_ficha_texto(&row, "Génesis 1:1");
+    g_assert_cmpstr(text, ==,
+        "Pasaje: Génesis 1:1\nForma en el versículo: בְּרֵאשִׁ֖ית\n"
+        "Hebreo sin signos: בראשית\nLema: רֵאשִׁית");
+    g_assert_cmpstr(row.forma, ==, pointed);
+    g_free(text); g_free(row.forma); g_free(row.raiz);
+    row = {};
+    row.forma = g_strdup("שלום");
+    text = main_interlineal_ficha_texto(&row, nullptr);
+    g_assert_cmpstr(text, ==, "Forma en el versículo: שלום");
+    g_free(text); g_free(row.forma);
+    g_print("hebrew_study_failures=0\n");
+}
+
 int main()
 {
+    study_summary_test();
+    hebrew_study_test();
     gchar *directory = g_dir_make_tmp("sqlite-interlinear-XXXXXX", nullptr);
     g_assert_nonnull(directory);
     std::string root(directory), error;

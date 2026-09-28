@@ -300,14 +300,14 @@ static void cloud_paint(cairo_t *cr, CloudLayout *cloud, double width, double he
 	cairo_restore(cr);
 }
 
-static gboolean cloud_draw(GtkWidget *widget, cairo_t *cr, gpointer unused)
+/* The canvases' draw function (gtk_drawing_area_set_draw_func()). */
+static void cloud_draw(GtkDrawingArea *area, cairo_t *cr, int width, int height,
+		       gpointer unused)
 {
 	(void)unused;
-	CloudLayout *cloud = g_object_get_data(G_OBJECT(widget), "cloud");
-	if (!cloud) return FALSE;
-	cloud_paint(cr, cloud, gtk_widget_get_allocated_width(widget),
-		    gtk_widget_get_allocated_height(widget));
-	return FALSE;
+	CloudLayout *cloud = g_object_get_data(G_OBJECT(area), "cloud");
+	if (!cloud) return;
+	cloud_paint(cr, cloud, width, height);
 }
 
 /* Save one cloud, or two side by side (B may be NULL), each under its

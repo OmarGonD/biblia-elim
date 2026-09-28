@@ -10,6 +10,7 @@
 #include <string.h>
 
 #include "gtk/author_commentary_probe.h"
+#include "gui/gui.h"
 #include "gui/widgets.h"
 #include "main/settings.h"
 #include "main/sword.h"
@@ -92,8 +93,8 @@ settle(int ms)
 	gint64 end = g_get_monotonic_time() + (gint64)ms * 1000;
 
 	while (g_get_monotonic_time() < end) {
-		while (gtk_events_pending())
-			gtk_main_iteration_do(FALSE);
+		while (g_main_context_pending(NULL))
+			g_main_context_iteration(NULL, FALSE);
 		g_usleep(2000);
 	}
 }
@@ -119,7 +120,7 @@ static gboolean
 quit_now(gpointer unused)
 {
 	(void)unused;
-	gtk_main_quit();
+	gui_main_quit();
 	return FALSE;
 }
 
@@ -180,7 +181,7 @@ run(gpointer unused)
 	      "a verse with no comment must not keep the previous body");
 
 	g_printerr("author_commentary_probe_failures=%d\n", failures);
-	gtk_main_quit();
+	gui_main_quit();
 	return FALSE;
 }
 

@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include "xiphos_html/xiphos_html.h"
 
 #include "gui/parallel_dialog.h"
@@ -125,7 +126,7 @@ void gui_undock_parallel_page(void)
 
 void gui_btnDockInt_clicked(GtkButton *button, gpointer user_data)
 {
-	gtk_widget_destroy(parallel_UnDock_Dialog);
+	gui_widget_destroy(parallel_UnDock_Dialog);
 }
 
 /******************************************************************************
@@ -212,7 +213,7 @@ static void sync_with_main(void)
 
 void gui_keep_parallel_dialog_in_sync(void)
 {
-	if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(navbar_parallel.button_sync)))
+	if (gui_toggle_get_active(GTK_WIDGET(navbar_parallel.button_sync)))
 		sync_with_main();
 }
 
@@ -256,35 +257,28 @@ static GtkWidget *create_nav_toolbar(void)
  *   gboolean
  */
 
-static gboolean on_parallel_configure_event(GtkWidget *widget,
-					    GdkEventConfigure *event,
-					    gpointer user_data)
+static void on_parallel_configure_event(GObject *window, GParamSpec *pspec,
+					gpointer user_data)
 {
 	gchar layout[10];
-	gint x;
-	gint y;
+	gint width, height;
 
-	gdk_window_get_root_origin(GDK_WINDOW(gtk_widget_get_window(dialog_parallel)), &x, &y);
-
-	settings.parallel_width = event->width;
-	settings.parallel_height = event->height;
-	settings.parallel_x = x;
-	settings.parallel_y = y;
+	(void)pspec;
+	(void)user_data;
+	/* GTK 4 keeps the window's size as its default size; the position
+	 * belongs to the compositor */
+	gtk_window_get_default_size(GTK_WINDOW(window), &width, &height);
+	if (width <= 0 || height <= 0)
+		return;
+	settings.parallel_width = width;
+	settings.parallel_height = height;
 
 	sprintf(layout, "%d", settings.parallel_width);
 	xml_set_value("Xiphos", "layout", "parallel_width", layout);
 
 	sprintf(layout, "%d", settings.parallel_height);
 	xml_set_value("Xiphos", "layout", "parallel_height", layout);
-
-	sprintf(layout, "%d", settings.parallel_x);
-	xml_set_value("Xiphos", "layout", "parallel_x", layout);
-
-	sprintf(layout, "%d", settings.parallel_y);
-	xml_set_value("Xiphos", "layout", "parallel_y", layout);
 	xml_save_settings_doc(settings.fnconfigure);
-
-	return FALSE;
 }
 
 /******************************************************************************
@@ -311,9 +305,6 @@ static GtkWidget *create_parallel_dialog(void)
 	GtkWidget *dialog_action_area25;
 	GtkWidget *hbuttonbox4;
 	GtkWidget *btnDockInt;
-#ifndef USE_WEBKIT2
-	GtkWidget *scrolled_window;
-#endif
 	gchar title[256];
 
 	sprintf(title, "%s - %s", settings.program_title, _("Parallel"));
@@ -323,9 +314,7 @@ static GtkWidget *create_parallel_dialog(void)
 
 	g_object_set_data(G_OBJECT(dialog_parallel),
 			  "dialog_parallel", dialog_parallel);
-	gtk_window_resize(GTK_WINDOW(dialog_parallel),
-			  settings.parallel_width,
-			  settings.parallel_height);
+	gtk_window_set_default_size(GTK_WINDOW(dialog_parallel), settings.parallel_width, settings.parallel_height);
 	gtk_window_set_resizable(GTK_WINDOW(dialog_parallel), TRUE);
 
 	dialog_vbox25 =
@@ -336,115 +325,60 @@ static GtkWidget *create_parallel_dialog(void)
 
 	UI_VBOX(vboxInt, FALSE, 0);
 	gtk_widget_show(vboxInt);
-	gtk_box_pack_start(GTK_BOX(dialog_vbox25), vboxInt, TRUE, TRUE, 0);
+	gui_box_pack(GTK_BOX(dialog_vbox25), vboxInt, TRUE, TRUE, 0);
 	toolbar29 = create_nav_toolbar();
 	gtk_widget_show(toolbar29);
-	gtk_box_pack_start(GTK_BOX(vboxInt), toolbar29, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(vboxInt), toolbar29);
 
 	UI_HBOX(box_parallel_labels, TRUE, 2);
 	gtk_widget_show(box_parallel_labels);
-	gtk_box_pack_start(GTK_BOX(vboxInt), box_parallel_labels, FALSE,
-			   TRUE, 0);
-	gtk_container_set_border_width(GTK_CONTAINER(box_parallel_labels),
-				       2);
+	gtk_box_append(GTK_BOX(vboxInt), box_parallel_labels);
+	gui_widget_set_margins(box_parallel_labels, 2);
 
-#ifndef USE_WEBKIT2
-	scrolled_window = gtk_scrolled_window_new(NULL, NULL);
-	gtk_widget_show(scrolled_window);
-	gtk_box_pack_start(GTK_BOX(vboxInt), scrolled_window, TRUE, TRUE,
-			   0);
-	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
-				       GTK_POLICY_AUTOMATIC,
-				       GTK_POLICY_ALWAYS);
-	gtk_scrolled_window_set_shadow_type((GtkScrolledWindow *)
-					    scrolled_window,
-					    settings.shadow_type);
-#endif
 
 	widgets.html_parallel_dialog =
 	    GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, PARALLEL_TYPE));
 	XIPHOS_HTML_SET_SURFACE_NAME(widgets.html_parallel_dialog,
 				     "bible-parallel");
 	gtk_widget_show(widgets.html_parallel_dialog);
-#ifdef USE_WEBKIT2
-	gtk_box_pack_start(GTK_BOX(vboxInt), widgets.html_parallel_dialog, TRUE, TRUE, 0);
-#else
-	gtk_container_add(GTK_CONTAINER(scrolled_window),
-			  widgets.html_parallel_dialog);
-#endif
+	gui_box_pack(GTK_BOX(vboxInt), widgets.html_parallel_dialog, TRUE, TRUE, 0);
 
 	g_signal_connect((gpointer)widgets.html_parallel_dialog,
 			 "popupmenu_requested",
 			 G_CALLBACK(_popupmenu_requested_cb), NULL);
 
 	dialog_action_area25 =
-#if GTK_CHECK_VERSION(3, 12, 0)
 	    gtk_dialog_get_content_area(GTK_DIALOG(dialog_parallel));
-#else
-	    gtk_dialog_get_action_area(GTK_DIALOG(dialog_parallel));
-#endif
 	g_object_set_data(G_OBJECT(dialog_parallel),
 			  "dialog_action_area25", dialog_action_area25);
 	gtk_widget_show(dialog_action_area25);
-	gtk_container_set_border_width(GTK_CONTAINER(dialog_action_area25), 10);
+	gui_widget_set_margins(dialog_action_area25, 10);
 
-#ifdef USE_GTK_3
-	hbuttonbox4 = gtk_button_box_new(GTK_ORIENTATION_HORIZONTAL);
-#else
-	hbuttonbox4 = gtk_hbutton_box_new();
-#endif
+	hbuttonbox4 = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 6);
 	gtk_widget_show(hbuttonbox4);
 
-#if GTK_CHECK_VERSION(3, 12, 0)
-	gtk_box_pack_start(GTK_BOX(dialog_action_area25), hbuttonbox4,
-			   FALSE, TRUE, 3);
-#else
-	gtk_box_pack_start(GTK_BOX(dialog_action_area25), hbuttonbox4,
-			   TRUE, TRUE, 0);
-#endif
+	gui_box_pack(GTK_BOX(dialog_action_area25), hbuttonbox4, FALSE, TRUE, 3);
 
-	gtk_button_box_set_layout(GTK_BUTTON_BOX(hbuttonbox4),
-				  GTK_BUTTONBOX_END);
+	gtk_widget_set_halign(hbuttonbox4, GTK_ALIGN_END);
 	btnDockInt =
-#if GTK_CHECK_VERSION(3, 10, 0)
-	    gtk_button_new_from_icon_name("window-close",
-					  GTK_ICON_SIZE_BUTTON);
-#else
-	    gtk_button_new_from_stock(GTK_STOCK_CLOSE);
-#endif
+	    gtk_button_new_from_icon_name("window-close");
 	gtk_widget_show(btnDockInt);
-	gtk_container_add(GTK_CONTAINER(hbuttonbox4), btnDockInt);
-	gtk_widget_set_can_default(btnDockInt, 1);
+	gtk_box_append(GTK_BOX(hbuttonbox4), btnDockInt);
 
 	g_signal_connect(G_OBJECT(dialog_parallel), "destroy",
 			 G_CALLBACK(on_dlgparallel_destroy), NULL);
 	g_signal_connect(G_OBJECT(btnDockInt), "clicked",
 			 G_CALLBACK(gui_btnDockInt_clicked), NULL);
 
-	g_signal_connect((gpointer)dialog_parallel,
-			 "configure_event",
+	g_signal_connect(dialog_parallel, "notify::default-width",
+			 G_CALLBACK(on_parallel_configure_event), NULL);
+	g_signal_connect(dialog_parallel, "notify::default-height",
 			 G_CALLBACK(on_parallel_configure_event), NULL);
 
 	settings.display_parallel = 1;
 	xml_set_value("Xiphos", "layout", "parallelopen", "1");
 
 	set_window_icon(GTK_WINDOW(dialog_parallel));
-
-	/*
-	 * (from xiphos.c)
-	 * a little paranoia:
-	 * clamp geometry values to a reasonable bound.
-	 * sometimes xiphos gets insane reconfig events as it dies,
-	 * especially if it's due to just shutting linux down.
-	 */
-	if ((settings.parallel_x < 0) || (settings.parallel_x > 2000))
-		settings.parallel_x = 40;
-	if ((settings.parallel_y < 0) || (settings.parallel_y > 2000))
-		settings.parallel_y = 40;
-
-	if (!gui_display_is_wayland())
-		gtk_window_move(GTK_WINDOW(dialog_parallel), settings.parallel_x,
-				settings.parallel_y);
 
 	return dialog_parallel;
 }

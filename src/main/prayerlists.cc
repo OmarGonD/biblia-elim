@@ -224,11 +224,7 @@ prayerlist_fundamentals(gchar *summary,
 	// name selection dialog.
 	info = gui_new_dialog();
 	info->stock_icon = (gchar *)
-#if GTK_CHECK_VERSION(3, 10, 0)
 	    "dialog-question";
-#else
-	    GTK_STOCK_DIALOG_QUESTION;
-#endif
 	info->title = _("Prayer List/Journal");
 	info->label_top = _("Name for new prayer list or journal");
 	info->label1 = _("Name: ");

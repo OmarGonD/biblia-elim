@@ -31,7 +31,7 @@ struct _passage_tab_info
 {
 	GtkWidget *page_widget;
 	GtkLabel *tab_label;
-	GtkEventBox *tab_label_eventbox;
+	GtkWidget *tab_label_eventbox;
 	GtkWidget *button_close;
 	GtkWidget *editor;
 	GtkWidget *paratab;
@@ -109,15 +109,9 @@ void gui_notebook_main_page_reordered(GtkNotebook *notebook,
 				      gpointer page,
 				      guint page_num,
 				      GList **tl);
-#ifdef USE_GTK_3
 void gui_notebook_main_switch_page(GtkNotebook *notebook,
 				   gpointer arg1, gint page_num,
 				   GList **tl);
-#else
-void gui_notebook_main_switch_page(GtkNotebook *notebook,
-				   GtkNotebookPage *page,
-				   gint page_num, GList **tl);
-#endif
 
 #ifdef __cplusplus
 }

@@ -30,6 +30,7 @@
 #include <string.h>
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <glib/gi18n.h>
 
 #include "gui/testimonios.h"
@@ -439,7 +440,7 @@ on_cerrar(GtkButton *boton, gpointer datos)
 	(void)boton;
 	(void)datos;
 	if (ui && ui->dialog)
-		gtk_widget_destroy(ui->dialog);
+		gui_widget_destroy(ui->dialog);
 }
 
 static void
@@ -486,17 +487,7 @@ crear_dialogo(GtkWindow *padre)
 
 	ui->html = GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, VIEWER_TYPE));
 	gtk_widget_show(ui->html);
-#ifdef USE_WEBKIT2
-	gtk_box_pack_start(GTK_BOX(ui->box_html), ui->html, TRUE, TRUE, 0);
-#else
-	{
-		GtkWidget *sw = gtk_scrolled_window_new(NULL, NULL);
-
-		gtk_widget_show(sw);
-		gtk_container_add(GTK_CONTAINER(sw), ui->html);
-		gtk_box_pack_start(GTK_BOX(ui->box_html), sw, TRUE, TRUE, 0);
-	}
-#endif
+	gui_box_pack(GTK_BOX(ui->box_html), ui->html, TRUE, TRUE, 0);
 
 	ui->modelo = gtk_tree_store_new(N_COLS, G_TYPE_STRING, G_TYPE_STRING);
 	gtk_tree_view_set_model(GTK_TREE_VIEW(ui->tree),

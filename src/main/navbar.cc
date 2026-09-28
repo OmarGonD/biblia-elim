@@ -113,8 +113,7 @@ void main_navbar_set(NAVBAR navbar, const char *key)
 	}
 	gtk_combo_box_set_active((GtkComboBox *)navbar.comboboxentry_verse,
 				 xverse - 1);
-	gtk_entry_set_text(GTK_ENTRY(navbar.lookup_entry),
-			   navbar.key);
+	gtk_editable_set_text(GTK_EDITABLE(navbar.lookup_entry), navbar.key);
 	do_display = TRUE;
 	g_free(gkey);
 

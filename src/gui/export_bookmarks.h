@@ -21,6 +21,8 @@
 #ifndef ___EXPORT_BOOKMARKS_H_
 #define ___EXPORT_BOOKMARKS_H_
 
+#include "gui/widget_helpers.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -63,7 +65,7 @@ void gui_set_plain_text_item(GString *str,
 void gui_export_bookmarks_dialog(gint is_verselist,
 				 GList *verses);
 gboolean dialog_vbox1_key_press_event_cb(GtkWidget *widget,
-					 GdkEventKey *event,
+					 GuiKeyEvent *event,
 					 gpointer user_data);
 
 #ifdef __cplusplus

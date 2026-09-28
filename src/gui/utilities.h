@@ -55,13 +55,6 @@ void gui_set_progressbar_fraction(GtkWidget *pb,
 void gui_set_combo_index(GtkWidget *combo, gint index);
 void gui_clear_combo(GtkWidget *combo);
 void gui_add_item_to_combo(GtkWidget *combo, gchar *item);
-void gui_glade_signal_connect_func(const gchar *cb_name,
-				   GObject *obj,
-				   const gchar *signal_name,
-				   const gchar *signal_data,
-				   GObject *conn_obj,
-				   gboolean conn_after,
-				   gpointer user_data);
 gchar *gui_general_user_file(const char *fname, gboolean critical);
 void gui_load_module_tree(GtkWidget *tree, gboolean limited);
 MOD_FONT *get_font(const gchar *mod_name);
@@ -78,13 +71,11 @@ void apply_bible_body_font(MOD_FONT *mf);
 gchar *remove_linefeeds(gchar *buf);
 void gui_add_mods_to_menus(GList *modlist, gchar *menu,
 			   GCallback callback);
-void gui_add_mods_2_gtk_menu(gint mod_type, GtkWidget *menu,
-			     GCallback callback);
 gchar *ncr_to_utf8(gchar *text);
 void reading_selector(char *modname,
 		      char *key,
 		      DIALOG_DATA *dialog,
-		      GtkMenuItem *menuitem, gpointer user_data);
+		      gpointer menuitem, gpointer user_data);
 
 void language_init();
 void language_make_list(GList *modlist,
@@ -113,6 +104,7 @@ GtkWidget *pixmap_finder(char *image);
 GdkPixbuf *pixbuf_finder(const char *image, int size,
 			 GError **error);
 GdkPixbuf *symbolic_pixbuf(const char *icon_name, int size, GtkWidget *ctx);
+GdkPixbuf *theme_icon_pixbuf(const char *icon_name, int size);
 
 void HtmlOutput(char *text, GtkWidget *gtkText, MOD_FONT *mf,
 		char *anchor);
@@ -129,6 +121,9 @@ void gui_fit_dialog_to_screen(GtkWindow *win);
  * the model names must be reachable from RELATIVE; the popover is
  * destroyed once closed. Returns the popover. */
 GtkWidget *gui_popup_menu_model_at_pointer(GMenuModel *model, GtkWidget *relative);
+/* The menu as a popover under WIDGET; like the one above, it is destroyed
+ * after it closes. */
+GtkWidget *gui_popup_menu_model_at_widget(GMenuModel *model, GtkWidget *widget);
 gboolean xiphos_open_default(const gchar *file);
 
 gboolean xiphos_create_archive (gchar *conf_name, gchar *datapath,
@@ -147,7 +142,7 @@ const char *strcasestr(const char *haystack, const char *needle);
 int ImageDimensions(const char *path, int *x, int *y);
 const char *AnalyzeForImageSize(const char *origtext,
 				int columns,
-				GdkWindow *window);
+				GtkWidget *widget);
 
 #ifdef WIN32
 gchar *xiphos_win32_get_subdir(const gchar *subdir);
@@ -187,7 +182,6 @@ void language_init(void);
 /* visually simplify some code that needs to pick out UI details */
 #define UI_GET_ITEM(ui, label) GTK_WIDGET(gtk_builder_get_object(ui, label))
 #define UI_SUFFIX ".gtkbuilder"
-#if GTK_CHECK_VERSION(3, 0, 0)
 #define UI_VBOX(item, tf, spacing)                             \
 	item = gtk_box_new(GTK_ORIENTATION_VERTICAL, spacing); \
 	if (tf == TRUE)                                        \
@@ -198,12 +192,6 @@ void language_init(void);
 	gtk_box_set_homogeneous(GTK_BOX(item), TRUE)
 #define UI_HPANE() gtk_paned_new(GTK_ORIENTATION_HORIZONTAL)
 #define UI_VPANE() gtk_paned_new(GTK_ORIENTATION_VERTICAL)
-#else
-#define UI_VBOX(item, tf, spacing) item = gtk_vbox_new(tf, spacing)
-#define UI_HBOX(item, tf, spacing) item = gtk_hbox_new(tf, spacing)
-#define UI_HPANE() gtk_hpaned_new()
-#define UI_VPANE() gtk_vpaned_new()
-#endif
 /* for daily devotional */ extern int month_day_counts[];
 extern char *(month_names[]);
 void gui_format_this(GString *str, const char *format, ...);

@@ -25,7 +25,8 @@
 extern "C" {
 #endif
 
-GtkWidget *main_navbar_book_dialog_drop_down_new(gpointer data);
+GMenuModel *main_navbar_book_dialog_drop_down_new(gpointer data,
+						 GtkWidget *anchor);
 void main_navbar_book_dialog_parent(gpointer data);
 void main_navbar_book_dialog_first_child(gpointer data);
 void main_navbar_book_dialog_prev(gpointer data);

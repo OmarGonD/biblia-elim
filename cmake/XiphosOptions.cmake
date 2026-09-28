@@ -20,7 +20,7 @@
 
 # set CMake options that the user can optionally select ON or OFF
 option (GTKHTML       "Force gtkhtml editor instead of webkit editor."         OFF)
-option (GTKTVEDITOR   "Use GtkTextView editor (replaces gtkhtml and webkit)."  OFF)
+option (GTKTVEDITOR   "Use the GTK4 GtkTextView editor (required for GTK4)."  ON)
 option (WEBKIT1       "Force webkit1 instead of webkit2. (Gtk3 only)"          OFF)
 option (DBUS          "Use the Xiphos dbus API."                               ON)
 option (CHATTY        "Enable lots of tracing."                                OFF)

@@ -18,6 +18,7 @@
 #include <string.h>
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <glib/gi18n.h>
 
 #include "gui/memorizacion.h"
@@ -438,7 +439,7 @@ on_cerrar(GtkButton *boton, gpointer datos)
 	(void)boton;
 	(void)datos;
 	if (ui && ui->dialog)
-		gtk_widget_destroy(ui->dialog);
+		gui_widget_destroy(ui->dialog);
 }
 
 static void

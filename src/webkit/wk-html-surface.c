@@ -5,6 +5,7 @@
  * palette as the rest of the application.
  */
 
+#include "gui/widget_helpers.h"
 #include "wk-html-surface.h"
 
 #define WK_HTML_ERROR_LABEL_DATA "wk-html-error-label"
@@ -36,38 +37,35 @@ wk_html_surface_create_panel(GtkWidget *content, const gchar *loading_text,
 	gtk_widget_set_vexpand(stack, TRUE);
 	/* Both children retain the same allocation, so revealing content does
 	 * not disturb a paned window's user-selected position. */
-	gtk_stack_set_homogeneous(GTK_STACK(stack), TRUE);
+	gtk_stack_set_hhomogeneous(GTK_STACK(stack), TRUE);
+	gtk_stack_set_vhomogeneous(GTK_STACK(stack), TRUE);
 	gtk_stack_set_transition_type(GTK_STACK(stack),
 				      GTK_STACK_TRANSITION_TYPE_NONE);
 
-	/* A window-level gtk_widget_show_all() must not make the renderer a
-	 * candidate for the first frame.  GtkStack only draws its selected child,
-	 * but keeping the content widget itself hidden makes the startup contract
-	 * explicit and prevents future container changes from exposing it.  The
-	 * ready path shows it directly, which intentionally ignores no-show-all. */
-	gtk_widget_set_no_show_all(content, TRUE);
+	/* The renderer must not be a candidate for the first frame. GtkStack
+	 * only draws its selected child, but keeping the content widget itself
+	 * hidden makes the startup contract explicit and prevents future
+	 * container changes from exposing it. The ready path shows it
+	 * directly. */
 	gtk_widget_hide(content);
 
 	loading = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
 	wk_html_surface_prepare(loading);
-	gtk_style_context_add_class(gtk_widget_get_style_context(loading),
-				    WK_HTML_LOADING_CLASS);
+	gtk_widget_add_css_class(loading, WK_HTML_LOADING_CLASS);
 	label = gtk_label_new(loading_text);
 	gtk_widget_set_halign(label, GTK_ALIGN_CENTER);
 	gtk_widget_set_valign(label, GTK_ALIGN_CENTER);
-	gtk_style_context_add_class(gtk_widget_get_style_context(label),
-				    "dim-label");
-	gtk_box_pack_start(GTK_BOX(loading), label, TRUE, TRUE, 0);
+	gtk_widget_add_css_class(label, "dim-label");
+	gui_box_pack(GTK_BOX(loading), label, TRUE, TRUE, 0);
 
 	error = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
 	wk_html_surface_prepare(error);
-	gtk_style_context_add_class(gtk_widget_get_style_context(error),
-				    WK_HTML_ERROR_CLASS);
+	gtk_widget_add_css_class(error, WK_HTML_ERROR_CLASS);
 	error_label = gtk_label_new(NULL);
 	gtk_widget_set_halign(error_label, GTK_ALIGN_CENTER);
 	gtk_widget_set_valign(error_label, GTK_ALIGN_CENTER);
-	gtk_label_set_line_wrap(GTK_LABEL(error_label), TRUE);
-	gtk_box_pack_start(GTK_BOX(error), error_label, TRUE, TRUE, 0);
+	gtk_label_set_wrap(GTK_LABEL(error_label), TRUE);
+	gui_box_pack(GTK_BOX(error), error_label, TRUE, TRUE, 0);
 	g_object_set_data(G_OBJECT(stack), WK_HTML_ERROR_LABEL_DATA, error_label);
 
 	gtk_stack_add_named(GTK_STACK(stack), loading, WK_HTML_LOADING_CHILD);

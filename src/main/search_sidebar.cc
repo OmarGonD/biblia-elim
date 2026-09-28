@@ -190,16 +190,16 @@ void main_do_sidebar_search(gpointer user_data)
 
 	gui_sidebar_results_menu_set_enabled(FALSE);
 	search_dialog = FALSE;
-	search_string = gtk_entry_get_text(GTK_ENTRY(ss.entrySearch));
+	search_string = gtk_editable_get_text(GTK_EDITABLE(ss.entrySearch));
 
 	if (strlen(search_string) < 1)
 		return;
 
 	/* text -vs- commentary search selection. */
-	if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ss.radiobutton_search_text))) {
+	if (gtk_check_button_get_active(GTK_CHECK_BUTTON(ss.radiobutton_search_text))) {
 		strcpy(settings.sb_search_mod,
 		       settings.MainWindowModule);
-	} else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ss.radiobutton_search_comm))) {
+	} else if (gtk_check_button_get_active(GTK_CHECK_BUTTON(ss.radiobutton_search_comm))) {
 		if (!settings.CommWindowModule ||
 		    (strlen(settings.CommWindowModule) == 0)) {
 			gui_generic_warning(_("There is no commentary module."));
@@ -212,19 +212,14 @@ void main_do_sidebar_search(gpointer user_data)
 
 	if (backendSearchLegacy) backendSearchLegacy->clear_scope();
 
-	if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ss.rrbUseBounds))) {
+	if (gtk_check_button_get_active(GTK_CHECK_BUTTON(ss.rrbUseBounds))) {
 		gchar *str;
 		if (backendSearchLegacy) backendSearchLegacy->clear_search_list();
 		str = g_strdup_printf("%s - %s",
-#ifdef USE_GTK_3
 				      gtk_combo_box_text_get_active_text((GtkComboBoxText *)
 									 ss.entryLower),
 				      gtk_combo_box_text_get_active_text((GtkComboBoxText *)
 									 ss.entryUpper));
-#else
-				      gtk_combo_box_get_active_text(GTK_COMBO_BOX(ss.entryLower)),
-				      gtk_combo_box_get_active_text(GTK_COMBO_BOX(ss.entryUpper)));
-#endif
 		if (backendSearchLegacy) {
 			backendSearchLegacy->set_range(settings.MainWindowModule, str);
 			backendSearchLegacy->set_scope2range();
@@ -232,13 +227,13 @@ void main_do_sidebar_search(gpointer user_data)
 		g_free(str);
 	}
 
-	if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ss.rbLastSearch)))
+	if (gtk_check_button_get_active(GTK_CHECK_BUTTON(ss.rbLastSearch)))
 		if (backendSearchLegacy) backendSearchLegacy->set_scope2last_search();
 
 	snprintf(settings.searchText, 255, "%s", search_string);
 
 	settings.searchType =
-	    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ss.rbRegExp)) ? 0 : gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ss.rbPhraseSearch)) ? -1 : -2;
+	    gtk_check_button_get_active(GTK_CHECK_BUTTON(ss.rbRegExp)) ? 0 : gtk_check_button_get_active(GTK_CHECK_BUTTON(ss.rbPhraseSearch)) ? -1 : -2;
 
 	if (settings.searchType == -2)
 		settings.searchType = backendSearchLegacy
@@ -267,7 +262,7 @@ void main_do_sidebar_search(gpointer user_data)
 	}
 
 	search_params =
-	    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ss.ckbCaseSensitive)) ? 0 : REG_ICASE;
+	    gtk_check_button_get_active(GTK_CHECK_BUTTON(ss.ckbCaseSensitive)) ? 0 : REG_ICASE;
 
 	terminate_search = FALSE;
 	search_active = TRUE;
@@ -368,13 +363,8 @@ void main_search_sidebar_fill_bounds_combos(void)
 	if (!ot_books.empty()) {
 		const std::vector<std::string> &books = ot_books;
 		for (const std::string &book : books) {
-#ifdef USE_GTK_3
 			gtk_combo_box_text_append_text((GtkComboBoxText *)ss.entryUpper, book.c_str());
 			gtk_combo_box_text_append_text((GtkComboBoxText *)ss.entryLower, book.c_str());
-#else
-			gtk_combo_box_append_text(GTK_COMBO_BOX(ss.entryUpper), book.c_str());
-			gtk_combo_box_append_text(GTK_COMBO_BOX(ss.entryLower), book.c_str());
-#endif
 		}
 	}
 
@@ -382,13 +372,8 @@ void main_search_sidebar_fill_bounds_combos(void)
 	if (!nt_books.empty()) {
 		const std::vector<std::string> &books = nt_books;
 		for (const std::string &book : books) {
-#ifdef USE_GTK_3
 			gtk_combo_box_text_append_text((GtkComboBoxText *)ss.entryUpper, book.c_str());
 			gtk_combo_box_text_append_text((GtkComboBoxText *)ss.entryLower, book.c_str());
-#else
-			gtk_combo_box_append_text(GTK_COMBO_BOX(ss.entryUpper), book.c_str());
-			gtk_combo_box_append_text(GTK_COMBO_BOX(ss.entryLower), book.c_str());
-#endif
 		}
 	}
 	gtk_combo_box_set_active(GTK_COMBO_BOX(ss.entryLower), 0);

@@ -18,6 +18,7 @@
 #include <string.h>
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <glib/gi18n.h>
 
 #include "gui/nube_palabras.h"
@@ -114,20 +115,20 @@ color_es_oscuro(const char *hex)
 static GtkWidget *
 combo_entry(GtkWidget *combo)
 {
-	return gtk_bin_get_child(GTK_BIN(combo));
+	return gtk_combo_box_get_child(GTK_COMBO_BOX(combo));
 }
 
 static const gchar *
 combo_texto(GtkWidget *combo)
 {
 	GtkWidget *entry = combo_entry(combo);
-	return gtk_entry_get_text(GTK_ENTRY(entry));
+	return gtk_editable_get_text(GTK_EDITABLE(entry));
 }
 
 static void
 combo_set_texto(GtkWidget *combo, const gchar *texto)
 {
-	gtk_entry_set_text(GTK_ENTRY(combo_entry(combo)), texto ? texto : "");
+	gtk_editable_set_text(GTK_EDITABLE(combo_entry(combo)), texto ? texto : "");
 }
 
 static gboolean
@@ -442,9 +443,9 @@ setup_tree(void)
 		"#cloud-message { font-size:15px; }",
 		bg, fg, seleccion, fg, cabecera, linea, fg);
 	GtkCssProvider *css = gtk_css_provider_new();
-	gtk_css_provider_load_from_data(css, reglas, -1, NULL);
+	gtk_css_provider_load_from_string(css, reglas);
 	g_free(reglas);
-	gtk_style_context_add_provider_for_screen(gtk_widget_get_screen(ui->tree),
+	gtk_style_context_add_provider_for_display(gtk_widget_get_display(ui->tree),
 		GTK_STYLE_PROVIDER(css), GTK_STYLE_PROVIDER_PRIORITY_APPLICATION + 1);
 	g_object_set_data_full(G_OBJECT(ui->tree), "matrix-css", css, g_object_unref);
 	ui->tabla = gtk_list_store_new(N_TABLA_COLS,
@@ -628,8 +629,8 @@ actualizar(gboolean avisar)
 	}
 	ui->pendiente = FALSE;
 
-	gboolean comparar = gtk_toggle_button_get_active(
-	    GTK_TOGGLE_BUTTON(ui->chk_comparar));
+	gboolean comparar = gtk_check_button_get_active(
+	    GTK_CHECK_BUTTON(ui->chk_comparar));
 
 	gchar *libro_a = resolver_libro(ui->combo_libro, avisar);
 	if (!libro_a)
@@ -671,8 +672,8 @@ actualizar(gboolean avisar)
 		ui->ocupado = TRUE;
 		gtk_label_set_text(GTK_LABEL(ui->lbl_resumen),
 				   _("Contando palabras…"));
-		while (gtk_events_pending())
-			gtk_main_iteration();
+		while (g_main_context_pending(NULL))
+			g_main_context_iteration(NULL, FALSE);
 		if (!ui) {	/* closed while counting */
 			g_free(clave_cache);
 			g_free(clave);
@@ -784,8 +785,8 @@ on_espera(gpointer user_data)
 	if (ui->ocupado)
 		return G_SOURCE_CONTINUE;
 	ui->espera = 0;
-	gboolean comparar = gtk_toggle_button_get_active(
-	    GTK_TOGGLE_BUTTON(ui->chk_comparar));
+	gboolean comparar = gtk_check_button_get_active(
+	    GTK_CHECK_BUTTON(ui->chk_comparar));
 	if (es_libro(combo_texto(ui->combo_libro)) &&
 	    (!comparar || es_libro(combo_texto(ui->combo_libro_b))))
 		actualizar(FALSE);
@@ -807,10 +808,10 @@ on_entry_changed(GtkEditable *editable, gpointer user_data)
 }
 
 static void
-on_comparar_toggled(GtkToggleButton *btn, gpointer user_data)
+on_comparar_toggled(GtkCheckButton *btn, gpointer user_data)
 {
 	(void)user_data;
-	gboolean on = gtk_toggle_button_get_active(btn);
+	gboolean on = gtk_check_button_get_active(btn);
 	gtk_widget_set_sensitive(ui->combo_libro_b, on);
 	if (on) {
 		/* Start from a random book other than book A; the reader can
@@ -905,9 +906,8 @@ on_descargar(GtkButton *button, gpointer user_data)
 	    _("_Cancelar"), GTK_RESPONSE_CANCEL,
 	    _("_Guardar"), GTK_RESPONSE_ACCEPT, NULL);
 	GtkFileChooser *fc = GTK_FILE_CHOOSER(chooser);
-	gtk_file_chooser_set_do_overwrite_confirmation(fc, TRUE);
 	const gchar *imagenes = g_get_user_special_dir(G_USER_DIRECTORY_PICTURES);
-	gtk_file_chooser_set_current_folder(fc, imagenes ? imagenes : g_get_home_dir());
+	gui_file_chooser_set_current_folder(fc, imagenes ? imagenes : g_get_home_dir());
 	GtkFileFilter *png = gtk_file_filter_new();
 	gtk_file_filter_set_name(png, _("Imagen PNG"));
 	gtk_file_filter_add_pattern(png, "*.png");
@@ -928,8 +928,8 @@ on_descargar(GtkButton *button, gpointer user_data)
 	g_free(base);
 
 	gui_fit_dialog_to_screen(GTK_WINDOW(chooser));
-	if (gtk_dialog_run(GTK_DIALOG(chooser)) == GTK_RESPONSE_ACCEPT) {
-		gchar *ruta = gtk_file_chooser_get_filename(fc);
+	if (gui_dialog_run(GTK_DIALOG(chooser)) == GTK_RESPONSE_ACCEPT) {
+		gchar *ruta = gui_file_chooser_get_filename(fc);
 		gboolean es_svg = gtk_file_chooser_get_filter(fc) == svg;
 		gchar *lower = g_ascii_strdown(ruta, -1);
 		if (!g_str_has_suffix(lower, ".png") && !g_str_has_suffix(lower, ".svg")) {
@@ -951,7 +951,7 @@ on_descargar(GtkButton *button, gpointer user_data)
 		}
 		g_free(ruta);
 	}
-	gtk_widget_destroy(chooser);
+	gui_widget_destroy(chooser);
 }
 
 static void
@@ -960,7 +960,7 @@ on_cerrar(GtkButton *button, gpointer user_data)
 	(void)button;
 	(void)user_data;
 	if (ui && ui->dialog)
-		gtk_widget_destroy(ui->dialog);
+		gui_widget_destroy(ui->dialog);
 }
 
 static void
@@ -980,7 +980,7 @@ on_destroy(GtkWidget *widget, gpointer user_data)
 	g_free(ui->titulo_b);
 	GtkCssProvider *css = g_object_get_data(G_OBJECT(ui->tree), "matrix-css");
 	if (css)
-		gtk_style_context_remove_provider_for_screen(gtk_widget_get_screen(ui->tree),
+		gtk_style_context_remove_provider_for_display(gtk_widget_get_display(ui->tree),
 			GTK_STYLE_PROVIDER(css));
 	if (ui->libros)
 		g_object_unref(ui->libros);
@@ -1021,13 +1021,14 @@ crear_dialogo(void)
 	/* Wayland owns placement. Fit inside the already allocated parent,
 	 * whose height respects the compositor's bar and workspace gaps. */
 	GdkDisplay *display = gtk_widget_get_display(ui->dialog);
-	GdkWindow *parent_window = widgets.app ? gtk_widget_get_window(widgets.app) : NULL;
-	GdkMonitor *monitor = parent_window ? gdk_display_get_monitor_at_window(display, parent_window) :
-		gdk_display_get_monitor(display, 0);
+	GdkSurface *parent_surface = widgets.app && gtk_widget_get_realized(widgets.app)
+		? gtk_native_get_surface(GTK_NATIVE(widgets.app)) : NULL;
+	GdkMonitor *monitor = parent_surface
+		? gdk_display_get_monitor_at_surface(display, parent_surface) : NULL;
 	GdkRectangle area = { 0, 0, 1024, 768 };
-	if (monitor) gdk_monitor_get_workarea(monitor, &area);
-	if (widgets.app && gtk_widget_get_allocated_height(widgets.app) > 1)
-		area.height = MIN(area.height, gtk_widget_get_allocated_height(widgets.app));
+	if (monitor) gdk_monitor_get_geometry(monitor, &area);
+	if (widgets.app && gtk_widget_get_height(widgets.app) > 1)
+		area.height = MIN(area.height, gtk_widget_get_height(widgets.app));
 	int dialog_height = MIN(720, (int)(area.height * 0.90));
 	gtk_window_set_default_size(GTK_WINDOW(ui->dialog), MIN(960, (int)(area.width * 0.90)), dialog_height);
 	gtk_window_set_resizable(GTK_WINDOW(ui->dialog), TRUE);
@@ -1071,12 +1072,13 @@ crear_dialogo(void)
 
 	ui->cloud_stack = gtk_stack_new();
 	gtk_widget_show(ui->cloud_stack);
-	gtk_box_pack_start(GTK_BOX(ui->box_nube), ui->cloud_stack, TRUE, TRUE, 0);
+	gui_box_pack(GTK_BOX(ui->box_nube), ui->cloud_stack, TRUE, TRUE, 0);
 	ui->canvas = gtk_drawing_area_new();
 	gtk_widget_set_size_request(ui->canvas, 240, 160);
 	gtk_widget_set_hexpand(ui->canvas, TRUE);
 	gtk_widget_set_vexpand(ui->canvas, TRUE);
-	g_signal_connect(ui->canvas, "draw", G_CALLBACK(cloud_draw), NULL);
+	gtk_drawing_area_set_draw_func(GTK_DRAWING_AREA(ui->canvas), cloud_draw,
+				       NULL, NULL);
 	gtk_widget_show(ui->canvas);
 	GtkWidget *panels = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 16);
 	gtk_box_set_homogeneous(GTK_BOX(panels), TRUE);
@@ -1084,34 +1086,35 @@ crear_dialogo(void)
 	ui->panel_b = gtk_box_new(GTK_ORIENTATION_VERTICAL, 8);
 	ui->title_a = gtk_label_new(NULL);
 	ui->title_b = gtk_label_new(NULL);
-	gtk_box_pack_start(GTK_BOX(panel_a), ui->title_a, FALSE, FALSE, 8);
-	gtk_box_pack_start(GTK_BOX(panel_a), ui->canvas, TRUE, TRUE, 0);
+	gui_box_pack(GTK_BOX(panel_a), ui->title_a, FALSE, FALSE, 8);
+	gui_box_pack(GTK_BOX(panel_a), ui->canvas, TRUE, TRUE, 0);
 	ui->canvas_b = gtk_drawing_area_new();
 	gtk_widget_set_size_request(ui->canvas_b, 240, 160);
-	g_signal_connect(ui->canvas_b, "draw", G_CALLBACK(cloud_draw), NULL);
-	gtk_box_pack_start(GTK_BOX(ui->panel_b), ui->title_b, FALSE, FALSE, 8);
-	gtk_box_pack_start(GTK_BOX(ui->panel_b), ui->canvas_b, TRUE, TRUE, 0);
-	gtk_box_pack_start(GTK_BOX(panels), panel_a, TRUE, TRUE, 0);
-	gtk_box_pack_start(GTK_BOX(panels), ui->panel_b, TRUE, TRUE, 0);
-	gtk_widget_show_all(panels);
+	gtk_drawing_area_set_draw_func(GTK_DRAWING_AREA(ui->canvas_b), cloud_draw,
+				       NULL, NULL);
+	gui_box_pack(GTK_BOX(ui->panel_b), ui->title_b, FALSE, FALSE, 8);
+	gui_box_pack(GTK_BOX(ui->panel_b), ui->canvas_b, TRUE, TRUE, 0);
+	gui_box_pack(GTK_BOX(panels), panel_a, TRUE, TRUE, 0);
+	gui_box_pack(GTK_BOX(panels), ui->panel_b, TRUE, TRUE, 0);
+	gtk_widget_show(panels);
 	gtk_widget_hide(ui->panel_b);
 	gtk_stack_add_named(GTK_STACK(ui->cloud_stack), panels, "cloud");
 	ui->mensaje = gtk_label_new(NULL);
 	gtk_widget_set_name(ui->mensaje, "cloud-message");
-	gtk_label_set_line_wrap(GTK_LABEL(ui->mensaje), TRUE);
+	gtk_label_set_wrap(GTK_LABEL(ui->mensaje), TRUE);
 	gtk_label_set_justify(GTK_LABEL(ui->mensaje), GTK_JUSTIFY_CENTER);
-	gtk_style_context_add_class(gtk_widget_get_style_context(ui->mensaje), "dim-label");
+	gtk_widget_add_css_class(ui->mensaje, "dim-label");
 	gtk_widget_show(ui->mensaje);
 	gtk_stack_add_named(GTK_STACK(ui->cloud_stack), ui->mensaje, "message");
 
 	setup_tree();
 	mostrar_mensaje(_("Elige un libro de la Biblia para ver sus palabras más usadas."));
 	gtk_label_set_text(GTK_LABEL(ui->lbl_resumen), "");
-	gtk_style_context_add_class(gtk_widget_get_style_context(ui->lbl_resumen), "dim-label");
+	gtk_widget_add_css_class(ui->lbl_resumen, "dim-label");
 	gtk_widget_set_sensitive(ui->btn_descargar, FALSE);
 
 	g_signal_connect(ui->btn_descargar, "clicked", G_CALLBACK(on_descargar), NULL);
-	g_signal_connect(ui->cloud_stack, "size-allocate", G_CALLBACK(on_area_allocate), NULL);
+	gui_widget_watch_size(ui->cloud_stack, on_area_allocate, NULL);
 	g_signal_connect(combo_entry(ui->combo_libro), "changed",
 			 G_CALLBACK(on_entry_changed), NULL);
 	g_signal_connect(combo_entry(ui->combo_libro_b), "changed",

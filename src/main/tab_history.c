@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 
 #include "gui/main_menu.h"
 #include "gui/main_window.h"
@@ -251,7 +252,7 @@ void main_tab_history_install_actions(GtkWidget *widget)
 					G_N_ELEMENTS(actions), NULL);
 	g_simple_action_set_enabled(G_SIMPLE_ACTION(
 	    g_action_map_lookup_action(G_ACTION_MAP(group), "actual")), FALSE);
-	gtk_widget_insert_action_group(widget, "historial", G_ACTION_GROUP(group));
+	gui_widget_insert_action_group(widget, "historial", G_ACTION_GROUP(group));
 	g_object_unref(group);
 }
 

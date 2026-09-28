@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 
 #include <gtk/gtk.h>
 
@@ -82,35 +83,19 @@ _popupmenu_requested_cb(XiphosHtml *html, gchar *uri, gpointer user_data)
 GtkWidget *gui_create_book_pane(void)
 {
 	GtkWidget *box;
-#ifndef USE_WEBKIT2
-	GtkWidget *scrolledwindow;
-#endif
 	GtkWidget *navbar;
 
 	UI_VBOX(box, FALSE, 0);
 	gtk_widget_show(box);
 
 	navbar = gui_navbar_book_new();
-	gtk_box_pack_start(GTK_BOX(box), navbar, FALSE, FALSE, 0);
-#ifndef USE_WEBKIT2
-	scrolledwindow = gtk_scrolled_window_new(NULL, NULL);
-	gtk_widget_show(scrolledwindow);
-	gtk_box_pack_start(GTK_BOX(box), scrolledwindow, TRUE, TRUE, 0);
-	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolledwindow),
-				       GTK_POLICY_AUTOMATIC,
-				       GTK_POLICY_AUTOMATIC);
-#endif
+	gtk_box_append(GTK_BOX(box), navbar);
 
 	widgets.html_book =
 	    GTK_WIDGET(XIPHOS_HTML_NEW(NULL, FALSE, BOOK_TYPE));
 	XIPHOS_HTML_SET_SURFACE_NAME(widgets.html_book, "general-book");
 	gtk_widget_show(widgets.html_book);
-#ifdef USE_WEBKIT2
-	gtk_box_pack_start(GTK_BOX(box), widgets.html_book, TRUE, TRUE, 0);
-#else
-	gtk_container_add(GTK_CONTAINER(scrolledwindow),
-			  widgets.html_book);
-#endif
+	gui_box_pack(GTK_BOX(box), widgets.html_book, TRUE, TRUE, 0);
 
 	g_signal_connect((gpointer)widgets.html_book,
 			 "popupmenu_requested",

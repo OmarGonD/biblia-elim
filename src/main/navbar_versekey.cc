@@ -22,6 +22,7 @@
 #include <config.h>
 #endif
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <glib/gi18n.h>
 #include "main/module_dialogs.h"
 #include "main/navbar_versekey.h"
@@ -109,7 +110,7 @@ void main_navbar_versekey_spin_book(NAVBAR_VERSEKEY navbar, int direction)
 	tmpkey = g_strdup(main_backend_for(navbar.module_name->str).setBook(
 		navbar.module_name->str, info.key, testament,
 		testament == 2 ? target - old_testament : target).c_str());
-	gtk_entry_set_text(GTK_ENTRY(navbar.lookup_entry), tmpkey);
+	gtk_editable_set_text(GTK_EDITABLE(navbar.lookup_entry), tmpkey);
 	gtk_widget_activate(navbar.lookup_entry);
 	g_free(tmpkey);
 }
@@ -148,7 +149,7 @@ void main_navbar_versekey_spin_chapter(NAVBAR_VERSEKEY navbar, int direction)
 	chapter = info.reference.chapter + (direction ? 1 : -1);
 	tmpkey = g_strdup(main_backend_for(navbar.module_name->str).setChapter(
 		navbar.module_name->str, info.key, chapter).c_str());
-	gtk_entry_set_text(GTK_ENTRY(navbar.lookup_entry), tmpkey);
+	gtk_editable_set_text(GTK_EDITABLE(navbar.lookup_entry), tmpkey);
 	gtk_widget_activate(navbar.lookup_entry);
 	g_free(tmpkey);
 }
@@ -199,8 +200,7 @@ void main_navbar_versekey_spin_verse(NAVBAR_VERSEKEY navbar, int direction)
 		 * it. One transition: navbar, key, display. */
 		gui_navbar_versekey_go_to(navigation.target.c_str());
 	} else {
-		gtk_entry_set_text(GTK_ENTRY(navbar.lookup_entry),
-				   navigation.target.c_str());
+		gtk_editable_set_text(GTK_EDITABLE(navbar.lookup_entry), navigation.target.c_str());
 		gtk_widget_activate(navbar.lookup_entry);
 	}
 	panel_load_debug("nav", "NAV_REFERENCE_AFTER", navigation.target.c_str());
@@ -214,7 +214,7 @@ void main_navbar_versekey_spin_verse(NAVBAR_VERSEKEY navbar, int direction)
  * Synopsis
  *   #include "main/navbar_versekey.h"
  *
- *   void on_nt_book_menu_select(GtkMenuItem * menuitem, gpointer user_data)
+ *   void on_nt_book_menu_select(gpointer menuitem, gpointer user_data)
  *
  * Description
  *   user selected new new testament book from dropdown menu - change verse key
@@ -224,7 +224,7 @@ void main_navbar_versekey_spin_verse(NAVBAR_VERSEKEY navbar, int direction)
  *   void
  */
 
-static void on_nt_book_menu_select(GtkMenuItem *menuitem, gpointer user_data)
+static void on_nt_book_menu_select(gpointer menuitem, gpointer user_data)
 {
 	GtkWidget *entry = NULL;
 	int book = GPOINTER_TO_INT(user_data);
@@ -266,7 +266,7 @@ static void on_nt_book_menu_select(GtkMenuItem *menuitem, gpointer user_data)
 		std::string selected = main_backend_for(name).setBook(
 			name, key, 2, book + 1);
 		if (!selected.empty()) {
-			gtk_entry_set_text(GTK_ENTRY(entry), selected.c_str());
+			gtk_editable_set_text(GTK_EDITABLE(entry), selected.c_str());
 			gtk_widget_activate(entry);
 		}
 	}
@@ -279,7 +279,7 @@ static void on_nt_book_menu_select(GtkMenuItem *menuitem, gpointer user_data)
  * Synopsis
  *   #include "main/navbar_versekey.h"
  *
- *   void on_ot_book_menu_select(GtkMenuItem * menuitem, gpointer user_data)
+ *   void on_ot_book_menu_select(gpointer menuitem, gpointer user_data)
  *
  * Description
  *   user selected new old testament book from dropdown menu - change verse key
@@ -289,7 +289,7 @@ static void on_nt_book_menu_select(GtkMenuItem *menuitem, gpointer user_data)
  *   void
  */
 
-static void on_ot_book_menu_select(GtkMenuItem *menuitem, gpointer user_data)
+static void on_ot_book_menu_select(gpointer menuitem, gpointer user_data)
 {
 	GtkWidget *entry = NULL;
 	int book = GPOINTER_TO_INT(user_data);
@@ -331,7 +331,7 @@ static void on_ot_book_menu_select(GtkMenuItem *menuitem, gpointer user_data)
 		std::string selected = main_backend_for(name).setBook(
 			name, key, 1, book + 1);
 		if (!selected.empty()) {
-			gtk_entry_set_text(GTK_ENTRY(entry), selected.c_str());
+			gtk_editable_set_text(GTK_EDITABLE(entry), selected.c_str());
 			gtk_widget_activate(entry);
 		}
 	}
@@ -344,7 +344,7 @@ static void on_ot_book_menu_select(GtkMenuItem *menuitem, gpointer user_data)
  * Synopsis
  *   #include "main/navbar_versekey.h"
  *
- *   void on_chapter_menu_select(GtkMenuItem * menuitem, gpointer user_data)
+ *   void on_chapter_menu_select(gpointer menuitem, gpointer user_data)
  *
  * Description
  *   user selected new chapter from dropdown menu - change verse key to new chapter
@@ -354,7 +354,7 @@ static void on_ot_book_menu_select(GtkMenuItem *menuitem, gpointer user_data)
  *   void
  */
 
-static void on_chapter_menu_select(GtkMenuItem *menuitem, gpointer user_data)
+static void on_chapter_menu_select(gpointer menuitem, gpointer user_data)
 {
 	GtkWidget *entry = NULL;
 	int chapter = GPOINTER_TO_INT(user_data);
@@ -394,7 +394,7 @@ static void on_chapter_menu_select(GtkMenuItem *menuitem, gpointer user_data)
 	if (entry) {
 		std::string selected = main_backend_for(name).setChapter(name, key, chapter);
 		if (!selected.empty()) {
-			gtk_entry_set_text(GTK_ENTRY(entry), selected.c_str());
+			gtk_editable_set_text(GTK_EDITABLE(entry), selected.c_str());
 			gtk_widget_activate(entry);
 		}
 	}
@@ -407,7 +407,7 @@ static void on_chapter_menu_select(GtkMenuItem *menuitem, gpointer user_data)
  * Synopsis
  *   #include "main/navbar_versekey.h"
  *
- *   void on_verse_menu_select(GtkMenuItem * menuitem, gpointer user_data)
+ *   void on_verse_menu_select(gpointer menuitem, gpointer user_data)
  *
  * Description
  *   user selected new verse from dropdown menu - change verse key to new verse
@@ -417,7 +417,7 @@ static void on_chapter_menu_select(GtkMenuItem *menuitem, gpointer user_data)
  *   void
  */
 
-static void on_verse_menu_select(GtkMenuItem *menuitem, gpointer user_data)
+static void on_verse_menu_select(gpointer menuitem, gpointer user_data)
 {
 	GtkWidget *entry = NULL;
 	int verse = GPOINTER_TO_INT(user_data);
@@ -457,7 +457,7 @@ static void on_verse_menu_select(GtkMenuItem *menuitem, gpointer user_data)
 	if (entry) {
 		std::string selected = main_backend_for(name).setVerse(name, key, verse);
 		if (!selected.empty()) {
-			gtk_entry_set_text(GTK_ENTRY(entry), selected.c_str());
+			gtk_editable_set_text(GTK_EDITABLE(entry), selected.c_str());
 			gtk_widget_activate(entry);
 		}
 	}
@@ -511,13 +511,13 @@ void main_navbar_versekey_set(NAVBAR_VERSEKEY navbar, const char *key)
 		g_free(tmpbuf);
 
 		navbar.key = g_string_assign(navbar.key, info.key.c_str());
-		gtk_entry_set_text(GTK_ENTRY(navbar.lookup_entry), navbar.key->str);
+		gtk_editable_set_text(GTK_EDITABLE(navbar.lookup_entry), navbar.key->str);
 	} else {
 		tmpbuf = g_strdup(" ");
 		gtk_label_set_label(GTK_LABEL(navbar.label_book_menu), tmpbuf);
 		gtk_label_set_label(GTK_LABEL(navbar.label_chapter_menu), tmpbuf);
 		gtk_label_set_label(GTK_LABEL(navbar.label_verse_menu), tmpbuf);
-		gtk_entry_set_text(GTK_ENTRY(navbar.lookup_entry), tmpbuf);
+		gtk_editable_set_text(GTK_EDITABLE(navbar.lookup_entry), tmpbuf);
 		g_free(tmpbuf);
 	}
 }
@@ -570,7 +570,7 @@ picker_debug(const char *event, GtkWidget *entry, const char *extra)
 
 	if (!panel_load_debug_enabled() || !entry)
 		return;
-	top = gtk_widget_get_toplevel(entry);
+	top = gui_widget_get_toplevel(entry);
 	focus = GTK_IS_WINDOW(top) ? gtk_window_get_focus(GTK_WINDOW(top)) : NULL;
 	kind = (const char *)g_object_get_data(G_OBJECT(entry), "elim-picker-kind");
 	/* strings first: debug_glib_null.h's g_strdup_printf reads every
@@ -602,58 +602,62 @@ picker_debug_map(GtkWidget *entry, gpointer data)
 	picker_debug("NAV_ENTRY_MAP", entry, NULL);
 }
 
-static gboolean
-picker_debug_focus_in(GtkWidget *entry, GdkEventFocus *event, gpointer data)
+static void
+picker_debug_focus_in(GtkEventControllerFocus *focus, gpointer data)
 {
-	(void)event;
-	(void)data;
-	picker_debug("NAV_ENTRY_FOCUS_IN", entry, NULL);
-	return FALSE;
+	(void)focus;
+	picker_debug("NAV_ENTRY_FOCUS_IN", GTK_WIDGET(data), NULL);
 }
 
-static gboolean
-picker_debug_focus_out(GtkWidget *entry, GdkEventFocus *event, gpointer data)
+static void
+picker_debug_focus_out(GtkEventControllerFocus *focus, gpointer data)
 {
-	(void)event;
-	(void)data;
-	picker_debug("NAV_ENTRY_FOCUS_OUT", entry, NULL);
-	return FALSE;
+	(void)focus;
+	picker_debug("NAV_ENTRY_FOCUS_OUT", GTK_WIDGET(data), NULL);
 }
 
 static void
 picker_debug_key_event(const char *event_name, GtkWidget *entry,
-		       GdkEventKey *event)
+		       guint keyval, guint keycode, GdkModifierType state)
 {
 	gchar *extra = g_strdup_printf(
 	    "keyval=%s hardware_keycode=%u state=0x%x text='%s'",
-	    gdk_keyval_name(event->keyval), event->hardware_keycode,
-	    event->state, gtk_entry_get_text(GTK_ENTRY(entry)));
+	    gdk_keyval_name(keyval), keycode, (guint)state,
+	    gtk_editable_get_text(GTK_EDITABLE(entry)));
 	picker_debug(event_name, entry, extra);
 	g_free(extra);
 }
 
-/* before the entry's own handler: the text is still the one before */
+/* capture phase: before the entry's own handler, the text is still the
+ * one before */
 static gboolean
-picker_debug_key(GtkWidget *entry, GdkEventKey *event, gpointer data)
+picker_debug_key(GtkEventControllerKey *key, guint keyval, guint keycode,
+		 GdkModifierType state, gpointer data)
 {
-	(void)data;
-	picker_debug_key_event(event->type == GDK_KEY_PRESS
-				   ? "NAV_ENTRY_KEY_PRESS"
-				   : "NAV_ENTRY_KEY_RELEASE",
-			       entry, event);
+	(void)key;
+	picker_debug_key_event("NAV_ENTRY_KEY_PRESS", GTK_WIDGET(data), keyval,
+			       keycode, state);
 	return FALSE;
 }
 
-/* after handlers only run when nothing before them handled the key, so
+static void
+picker_debug_key_released(GtkEventControllerKey *key, guint keyval,
+			  guint keycode, GdkModifierType state, gpointer data)
+{
+	(void)key;
+	picker_debug_key_event("NAV_ENTRY_KEY_RELEASE", GTK_WIDGET(data), keyval,
+			       keycode, state);
+}
+
+/* bubble phase: only reached when the entry did not handle the key, so
  * this line means handled=0 (its absence after a KEY_PRESS: handled=1) */
 static gboolean
-picker_debug_key_unhandled(GtkWidget *entry, GdkEventKey *event, gpointer data)
+picker_debug_key_unhandled(GtkEventControllerKey *key, guint keyval,
+			   guint keycode, GdkModifierType state, gpointer data)
 {
-	(void)data;
-	picker_debug_key_event(event->type == GDK_KEY_PRESS
-				   ? "NAV_ENTRY_KEY_PRESS_UNHANDLED"
-				   : "NAV_ENTRY_KEY_RELEASE_UNHANDLED",
-			       entry, event);
+	(void)key;
+	picker_debug_key_event("NAV_ENTRY_KEY_PRESS_UNHANDLED",
+			       GTK_WIDGET(data), keyval, keycode, state);
 	return FALSE;
 }
 
@@ -661,7 +665,7 @@ static void
 picker_debug_changed(GtkEditable *editable, gpointer data)
 {
 	gchar *extra = g_strdup_printf("text='%s'",
-				       gtk_entry_get_text(GTK_ENTRY(editable)));
+				       gtk_editable_get_text(GTK_EDITABLE(editable)));
 	(void)data;
 	picker_debug("NAV_ENTRY_TEXT_CHANGED", GTK_WIDGET(editable), extra);
 	g_free(extra);
@@ -674,14 +678,27 @@ picker_debug_watch(GtkWidget *entry)
 		return;
 	g_signal_connect(entry, "realize", G_CALLBACK(picker_debug_realize), NULL);
 	g_signal_connect(entry, "map", G_CALLBACK(picker_debug_map), NULL);
-	g_signal_connect(entry, "focus-in-event", G_CALLBACK(picker_debug_focus_in), NULL);
-	g_signal_connect(entry, "focus-out-event", G_CALLBACK(picker_debug_focus_out), NULL);
-	g_signal_connect(entry, "key-press-event", G_CALLBACK(picker_debug_key), NULL);
-	g_signal_connect(entry, "key-release-event", G_CALLBACK(picker_debug_key), NULL);
-	g_signal_connect_after(entry, "key-press-event",
-			       G_CALLBACK(picker_debug_key_unhandled), NULL);
-	g_signal_connect_after(entry, "key-release-event",
-			       G_CALLBACK(picker_debug_key_unhandled), NULL);
+	{
+		GtkEventController *focus = gtk_event_controller_focus_new();
+		GtkEventController *before = gtk_event_controller_key_new();
+		GtkEventController *after = gtk_event_controller_key_new();
+
+		g_signal_connect(focus, "enter",
+				 G_CALLBACK(picker_debug_focus_in), entry);
+		g_signal_connect(focus, "leave",
+				 G_CALLBACK(picker_debug_focus_out), entry);
+		gtk_widget_add_controller(entry, focus);
+		gtk_event_controller_set_propagation_phase(before,
+							   GTK_PHASE_CAPTURE);
+		g_signal_connect(before, "key-pressed",
+				 G_CALLBACK(picker_debug_key), entry);
+		g_signal_connect(before, "key-released",
+				 G_CALLBACK(picker_debug_key_released), entry);
+		gtk_widget_add_controller(entry, before);
+		g_signal_connect(after, "key-pressed",
+				 G_CALLBACK(picker_debug_key_unhandled), entry);
+		gtk_widget_add_controller(entry, after);
+	}
 	g_signal_connect_after(entry, "changed", G_CALLBACK(picker_debug_changed), NULL);
 	{
 		gchar *im = NULL;
@@ -717,20 +734,11 @@ static void picker_add_style(GtkWidget *popover)
 
 	if (!css) {
 		css = gtk_css_provider_new();
-		gtk_css_provider_load_from_data(
-		    css,
-		    ".elim-picker button {\n"
-		    "  padding: 1px 4px;\n"
-		    "  min-width: 26px;\n"
-		    "  min-height: 22px;\n"
-		    "}\n",
-		    -1, NULL);
-		gtk_style_context_add_provider_for_screen(
-		    gdk_screen_get_default(), GTK_STYLE_PROVIDER(css),
+		gtk_css_provider_load_from_string(css, ".elim-picker button {\n" " padding: 1px 4px;\n" " min-width: 26px;\n" " min-height: 22px;\n" "}\n");
+		gtk_style_context_add_provider_for_display(gdk_display_get_default(), GTK_STYLE_PROVIDER(css),
 		    GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 	}
-	gtk_style_context_add_class(gtk_widget_get_style_context(popover),
-				    "elim-picker");
+	gtk_widget_add_css_class(popover, "elim-picker");
 }
 
 static void numpicker_free(gpointer data)
@@ -748,17 +756,17 @@ static void picker_scroll_to(GtkWidget *scroll, GtkWidget *content,
 			     GtkWidget *child)
 {
 	GtkAdjustment *adj;
-	gint x, y;
+	graphene_point_t origin = GRAPHENE_POINT_INIT(0, 0), at;
 	gdouble page, top, last;
 
 	if (!child ||
-	    !gtk_widget_translate_coordinates(child, content, 0, 0, &x, &y))
+	    !gtk_widget_compute_point(child, content, &origin, &at))
 		return;
 	adj = gtk_scrolled_window_get_vadjustment(GTK_SCROLLED_WINDOW(scroll));
 	page = gtk_adjustment_get_page_size(adj);
 	last = MAX(gtk_adjustment_get_lower(adj),
 		   gtk_adjustment_get_upper(adj) - page);
-	top = y + (gtk_widget_get_allocated_height(child) / 2.0) - (page / 2.0);
+	top = at.y + (gtk_widget_get_height(child) / 2.0) - (page / 2.0);
 	gtk_adjustment_set_value(adj, CLAMP(top, gtk_adjustment_get_lower(adj),
 					    last));
 }
@@ -770,18 +778,22 @@ static void numpicker_scroll_to(NUMPICKER *p, gint n)
 	picker_scroll_to(p->scroll, p->grid, p->button[n - 1]);
 }
 
-static void numpicker_grid_allocated(GtkWidget *widget,
-				     GdkRectangle *allocation,
-				     gpointer data)
+static gboolean numpicker_grid_allocated(GtkWidget *widget,
+					 GdkFrameClock *clock,
+					 gpointer data)
 {
 	NUMPICKER *p = (NUMPICKER *)data;
 
 	/* la primera asignación de tamaño es la primera vez que se puede
 	 * calcular el desplazamiento; antes de eso todo mide cero. */
-	if (p->placed || allocation->height <= 1)
-		return;
+	(void)clock;
+	if (p->placed)
+		return G_SOURCE_REMOVE;
+	if (gtk_widget_get_height(widget) <= 1)
+		return G_SOURCE_CONTINUE;
 	p->placed = TRUE;
 	numpicker_scroll_to(p, p->current);
+	return G_SOURCE_REMOVE;
 }
 
 /* marca (como si el ratón estuviera encima) el número que se va tecleando,
@@ -804,8 +816,8 @@ static gboolean picker_destroy_idle(gpointer popover)
 	/* Closed already, with the focus given back. Still modal, disposing it
 	 * would run GtkPopover's "give the focus back" once more, with nothing
 	 * recorded, and put the focus on the window itself (picker_entry.h). */
-	gtk_popover_set_modal(GTK_POPOVER(popover), FALSE);
-	gtk_widget_destroy(GTK_WIDGET(popover));
+	gtk_popover_set_autohide(GTK_POPOVER(popover), FALSE);
+	gui_widget_destroy(GTK_WIDGET(popover));
 	return G_SOURCE_REMOVE;
 }
 
@@ -817,7 +829,7 @@ static void picker_closed(GtkPopover *popover, gpointer anchor)
 			  GINT_TO_POINTER(1));
 
 	if (anchor && GTK_IS_TOGGLE_BUTTON(anchor))
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(anchor), FALSE);
+		gui_toggle_set_active(GTK_WIDGET(anchor), FALSE);
 
 	/* destruir dentro del propio "closed" es destruir el widget que está
 	 * emitiendo la señal: lo dejamos para el idle siguiente, al que le
@@ -829,11 +841,7 @@ static void picker_closed(GtkPopover *popover, gpointer anchor)
 
 static void picker_popdown(GtkWidget *popover)
 {
-#if GTK_CHECK_VERSION(3, 22, 0)
 	gtk_popover_popdown(GTK_POPOVER(popover));
-#else
-	gtk_widget_hide(popover);
-#endif
 }
 
 static void numpicker_go(NUMPICKER *p, gint n)
@@ -856,7 +864,7 @@ static void numpicker_go(NUMPICKER *p, gint n)
 /* 0 = entrada vacía, -1 = escrito pero fuera de rango, >0 = número válido */
 static gint numpicker_typed(NUMPICKER *p)
 {
-	const gchar *text = gtk_entry_get_text(GTK_ENTRY(p->entry));
+	const gchar *text = gtk_editable_get_text(GTK_EDITABLE(p->entry));
 	gchar *end;
 	gint64 n;
 
@@ -871,13 +879,12 @@ static gint numpicker_typed(NUMPICKER *p)
 static void numpicker_entry_changed(GtkEditable *editable, gpointer data)
 {
 	NUMPICKER *p = (NUMPICKER *)data;
-	GtkStyleContext *ctx = gtk_widget_get_style_context(p->entry);
 	gint n = numpicker_typed(p);
 
 	if (n < 0)
-		gtk_style_context_add_class(ctx, GTK_STYLE_CLASS_ERROR);
+		gtk_widget_add_css_class(p->entry, "error");
 	else
-		gtk_style_context_remove_class(ctx, GTK_STYLE_CLASS_ERROR);
+		gtk_widget_remove_css_class(p->entry, "error");
 	numpicker_mark_typed(p, (n > 0) ? n : 0);
 	if (n > 0)
 		numpicker_scroll_to(p, n);
@@ -932,23 +939,23 @@ static NUMPICKER *numpicker_new(GtkWidget *anchor, gint max, gint current,
 	p->verse = verse;
 	p->button = g_new0(GtkWidget *, max);
 
-	p->popover = gtk_popover_new(anchor);
-	g_object_ref_sink(p->popover);
+	p->popover = gui_popover_new(anchor);
+	g_object_ref(p->popover);
 	gtk_popover_set_position(GTK_POPOVER(p->popover), GTK_POS_BOTTOM);
 	picker_add_style(p->popover);
 	g_object_set_data_full(G_OBJECT(p->popover), "elim-numpicker", p,
 			       numpicker_free);
 
 	box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 6);
-	gtk_container_set_border_width(GTK_CONTAINER(box), 8);
-	gtk_container_add(GTK_CONTAINER(p->popover), box);
+	gui_widget_set_margins(box, 8);
+	gtk_popover_set_child(GTK_POPOVER(p->popover), box);
 
 	p->entry = gtk_entry_new();
 	/* the system input method stays: digits need nothing special */
 	gtk_entry_set_input_purpose(GTK_ENTRY(p->entry),
 				    GTK_INPUT_PURPOSE_DIGITS);
 	gtk_entry_set_max_length(GTK_ENTRY(p->entry), 3);
-	gtk_entry_set_width_chars(GTK_ENTRY(p->entry), 6);
+	gtk_editable_set_width_chars(GTK_EDITABLE(p->entry), 6);
 	gtk_entry_set_alignment(GTK_ENTRY(p->entry), 0.5);
 	text = g_strdup_printf(verse ? _("Versículo (1–%d)")
 				     : _("Capítulo (1–%d)"),
@@ -957,7 +964,7 @@ static NUMPICKER *numpicker_new(GtkWidget *anchor, gint max, gint current,
 	g_free(text);
 	gtk_widget_set_tooltip_text(p->entry,
 				    _("Escribe el número y pulsa Enter"));
-	gtk_box_pack_start(GTK_BOX(box), p->entry, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(box), p->entry);
 
 	p->grid = gtk_grid_new();
 	gtk_grid_set_row_homogeneous(GTK_GRID(p->grid), TRUE);
@@ -970,7 +977,7 @@ static NUMPICKER *numpicker_new(GtkWidget *anchor, gint max, gint current,
 
 		btn = gtk_button_new_with_label(num);
 		g_free(num);
-		gtk_button_set_relief(GTK_BUTTON(btn), GTK_RELIEF_NONE);
+		gtk_button_set_has_frame(GTK_BUTTON(btn), FALSE);
 		g_object_set_data(G_OBJECT(btn), "elim-numero",
 				  GINT_TO_POINTER(i));
 		g_signal_connect(btn, "clicked",
@@ -981,23 +988,17 @@ static NUMPICKER *numpicker_new(GtkWidget *anchor, gint max, gint current,
 		p->button[i - 1] = btn;
 	}
 	/* dónde estamos ahora, con el color de acento del tema */
-	gtk_style_context_add_class(
-	    gtk_widget_get_style_context(p->button[p->current - 1]),
-	    GTK_STYLE_CLASS_SUGGESTED_ACTION);
+	gtk_widget_add_css_class(p->button[p->current - 1], "suggested-action");
 
-	p->scroll = gtk_scrolled_window_new(NULL, NULL);
+	p->scroll = gtk_scrolled_window_new();
 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(p->scroll),
 				       GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
-#if GTK_CHECK_VERSION(3, 22, 0)
 	gtk_scrolled_window_set_propagate_natural_height(
 	    GTK_SCROLLED_WINDOW(p->scroll), TRUE);
 	gtk_scrolled_window_set_max_content_height(
 	    GTK_SCROLLED_WINDOW(p->scroll), 260);
-#else
-	gtk_widget_set_size_request(p->scroll, -1, 260);
-#endif
-	gtk_container_add(GTK_CONTAINER(p->scroll), p->grid);
-	gtk_box_pack_start(GTK_BOX(box), p->scroll, TRUE, TRUE, 0);
+	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(p->scroll), p->grid);
+	gui_box_pack(GTK_BOX(box), p->scroll, TRUE, TRUE, 0);
 
 	g_signal_connect(p->entry, "changed",
 			 G_CALLBACK(numpicker_entry_changed), p);
@@ -1005,10 +1006,9 @@ static NUMPICKER *numpicker_new(GtkWidget *anchor, gint max, gint current,
 			 G_CALLBACK(numpicker_entry_activate), p);
 	g_signal_connect(p->entry, "insert-text",
 			 G_CALLBACK(numpicker_entry_insert_text), p);
-	g_signal_connect_after(p->grid, "size-allocate",
-			       G_CALLBACK(numpicker_grid_allocated), p);
+	gtk_widget_add_tick_callback(p->grid, numpicker_grid_allocated, p, NULL);
 
-	gtk_widget_show_all(box);
+	gtk_widget_show(box);
 	return p;
 }
 
@@ -1043,7 +1043,7 @@ static void numpicker_popup(NAVBAR_VERSEKEY navbar, gint nb_type,
 	picker_debug_watch(p->entry);
 	if (panel_load_debug_enabled()) {
 		/* what GtkPopover will record as the focus to give back */
-		GtkWidget *top = gtk_widget_get_toplevel(anchor);
+		GtkWidget *top = gui_widget_get_toplevel(anchor);
 		GtkWidget *prev = GTK_IS_WINDOW(top)
 				      ? gtk_window_get_focus(GTK_WINDOW(top))
 				      : NULL;
@@ -1064,11 +1064,7 @@ static void numpicker_popup(NAVBAR_VERSEKEY navbar, gint nb_type,
 	    anchor, nb_type == NB_MAIN ? gui_bibletext_view : NULL);
 	g_signal_connect(p->popover, "closed", G_CALLBACK(picker_closed),
 			 anchor);
-#if GTK_CHECK_VERSION(3, 22, 0)
 	gtk_popover_popup(GTK_POPOVER(p->popover));
-#else
-	gtk_widget_show(p->popover);
-#endif
 	picker_focus_entry_later(p->popover, p->entry);
 }
 
@@ -1189,8 +1185,7 @@ static void bookpicker_header(GtkListBoxRow *row, GtkListBoxRow *before,
 	gtk_widget_set_margin_start(label, 8);
 	gtk_widget_set_margin_top(label, 6);
 	gtk_widget_set_margin_bottom(label, 2);
-	gtk_style_context_add_class(gtk_widget_get_style_context(label),
-				    GTK_STYLE_CLASS_DIM_LABEL);
+	gtk_widget_add_css_class(label, "dim-label");
 	gtk_widget_show(label);
 	gtk_list_box_row_set_header(row, label);
 }
@@ -1202,7 +1197,7 @@ static GtkListBoxRow *bookpicker_first_match(BOOKPICKER *p)
 	GtkListBoxRow *hit = NULL;
 	GList *rows, *l;
 
-	rows = gtk_container_get_children(GTK_CONTAINER(p->list));
+	rows = gui_widget_get_children(p->list);
 	for (l = rows; l && !hit; l = l->next)
 		if (bookpicker_matches(GTK_LIST_BOX_ROW(l->data), p))
 			hit = GTK_LIST_BOX_ROW(l->data);
@@ -1248,7 +1243,7 @@ static void bookpicker_entry_changed(GtkEditable *editable, gpointer data)
 	BOOKPICKER *p = (BOOKPICKER *)data;
 
 	g_free(p->needle);
-	p->needle = g_strdup(gtk_entry_get_text(GTK_ENTRY(p->entry)));
+	p->needle = g_strdup(gtk_editable_get_text(GTK_EDITABLE(p->entry)));
 	gtk_list_box_invalidate_filter(GTK_LIST_BOX(p->list));
 	/* dejar señalado a dónde lleva Enter; si no queda ninguno, se ve
 	 * la lista vacía y basta con borrar una letra. */
@@ -1268,7 +1263,8 @@ static void bookpicker_entry_activate(GtkEntry *entry, gpointer data)
 
 /* el foco vive en la entrada, así que las flechas no llegan a la lista:
  * se las pasamos nosotros, saltándonos las filas que el filtro esconde. */
-static gboolean bookpicker_entry_key(GtkWidget *widget, GdkEventKey *event,
+static gboolean bookpicker_entry_key(GtkEventControllerKey *key, guint keyval,
+				     guint keycode, GdkModifierType state,
 				     gpointer data)
 {
 	BOOKPICKER *p = (BOOKPICKER *)data;
@@ -1276,7 +1272,10 @@ static gboolean bookpicker_entry_key(GtkWidget *widget, GdkEventKey *event,
 	GList *rows, *l, *matches = NULL;
 	gint step, at = -1, i = 0, len;
 
-	switch (event->keyval) {
+	(void)key;
+	(void)keycode;
+	(void)state;
+	switch (keyval) {
 	case GDK_KEY_Down:
 	case GDK_KEY_KP_Down:
 		step = 1;
@@ -1290,7 +1289,7 @@ static gboolean bookpicker_entry_key(GtkWidget *widget, GdkEventKey *event,
 	}
 
 	selected = gtk_list_box_get_selected_row(GTK_LIST_BOX(p->list));
-	rows = gtk_container_get_children(GTK_CONTAINER(p->list));
+	rows = gui_widget_get_children(p->list);
 	for (l = rows; l; l = l->next) {
 		if (!bookpicker_matches(GTK_LIST_BOX_ROW(l->data), p))
 			continue;
@@ -1311,16 +1310,20 @@ static gboolean bookpicker_entry_key(GtkWidget *widget, GdkEventKey *event,
 	return TRUE;
 }
 
-static void bookpicker_list_allocated(GtkWidget *widget,
-				      GdkRectangle *allocation,
-				      gpointer data)
+static gboolean bookpicker_list_allocated(GtkWidget *widget,
+					  GdkFrameClock *clock,
+					  gpointer data)
 {
 	BOOKPICKER *p = (BOOKPICKER *)data;
 
-	if (p->placed || allocation->height <= 1)
-		return;
+	(void)clock;
+	if (p->placed)
+		return G_SOURCE_REMOVE;
+	if (gtk_widget_get_height(widget) <= 1)
+		return G_SOURCE_CONTINUE;
 	p->placed = TRUE;
 	picker_scroll_to(p->scroll, p->list, p->current);
+	return G_SOURCE_REMOVE;
 }
 
 static void bookpicker_add(BOOKPICKER *p, const gchar *name, gint testament,
@@ -1334,14 +1337,14 @@ static void bookpicker_add(BOOKPICKER *p, const gchar *name, gint testament,
 	gtk_widget_set_margin_end(label, 8);
 	gtk_widget_set_margin_top(label, 2);
 	gtk_widget_set_margin_bottom(label, 2);
-	gtk_container_add(GTK_CONTAINER(row), label);
+	gtk_list_box_row_set_child(GTK_LIST_BOX_ROW(row), label);
 
 	g_object_set_data_full(G_OBJECT(row), "elim-libro", g_strdup(name),
 			       g_free);
 	g_object_set_data(G_OBJECT(row), "elim-testamento",
 			  GINT_TO_POINTER(testament));
 	g_object_set_data(G_OBJECT(row), "elim-indice", GINT_TO_POINTER(book));
-	gtk_container_add(GTK_CONTAINER(p->list), row);
+	gtk_list_box_append(GTK_LIST_BOX(p->list), row);
 	if (current)
 		p->current = row;
 }
@@ -1351,26 +1354,26 @@ static BOOKPICKER *bookpicker_new(GtkWidget *anchor)
 	BOOKPICKER *p = g_new0(BOOKPICKER, 1);
 	GtkWidget *box;
 
-	p->popover = gtk_popover_new(anchor);
-	g_object_ref_sink(p->popover);
+	p->popover = gui_popover_new(anchor);
+	g_object_ref(p->popover);
 	gtk_popover_set_position(GTK_POPOVER(p->popover), GTK_POS_BOTTOM);
 	picker_add_style(p->popover);
 	g_object_set_data_full(G_OBJECT(p->popover), "elim-bookpicker", p,
 			       bookpicker_free);
 
 	box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 6);
-	gtk_container_set_border_width(GTK_CONTAINER(box), 8);
-	gtk_container_add(GTK_CONTAINER(p->popover), box);
+	gui_widget_set_margins(box, 8);
+	gtk_popover_set_child(GTK_POPOVER(p->popover), box);
 
 	p->entry = gtk_entry_new();
-	gtk_entry_set_width_chars(GTK_ENTRY(p->entry), 20);
+	gtk_editable_set_width_chars(GTK_EDITABLE(p->entry), 20);
 	gtk_entry_set_placeholder_text(GTK_ENTRY(p->entry), _("Buscar libro"));
 	gtk_entry_set_icon_from_icon_name(GTK_ENTRY(p->entry),
 					  GTK_ENTRY_ICON_PRIMARY,
 					  "edit-find-symbolic");
 	gtk_widget_set_tooltip_text(
 	    p->entry, _("Escribe parte del nombre y pulsa Enter"));
-	gtk_box_pack_start(GTK_BOX(box), p->entry, FALSE, FALSE, 0);
+	gtk_box_append(GTK_BOX(box), p->entry);
 
 	p->list = gtk_list_box_new();
 	gtk_list_box_set_selection_mode(GTK_LIST_BOX(p->list),
@@ -1380,30 +1383,33 @@ static BOOKPICKER *bookpicker_new(GtkWidget *anchor)
 	gtk_list_box_set_header_func(GTK_LIST_BOX(p->list), bookpicker_header,
 				     p, NULL);
 
-	p->scroll = gtk_scrolled_window_new(NULL, NULL);
+	p->scroll = gtk_scrolled_window_new();
 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(p->scroll),
 				       GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
-#if GTK_CHECK_VERSION(3, 22, 0)
 	gtk_scrolled_window_set_propagate_natural_height(
 	    GTK_SCROLLED_WINDOW(p->scroll), TRUE);
 	gtk_scrolled_window_set_max_content_height(
 	    GTK_SCROLLED_WINDOW(p->scroll), 320);
-#else
-	gtk_widget_set_size_request(p->scroll, -1, 320);
-#endif
-	gtk_container_add(GTK_CONTAINER(p->scroll), p->list);
-	gtk_box_pack_start(GTK_BOX(box), p->scroll, TRUE, TRUE, 0);
+	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(p->scroll), p->list);
+	gui_box_pack(GTK_BOX(box), p->scroll, TRUE, TRUE, 0);
 
 	g_signal_connect(p->entry, "changed",
 			 G_CALLBACK(bookpicker_entry_changed), p);
 	g_signal_connect(p->entry, "activate",
 			 G_CALLBACK(bookpicker_entry_activate), p);
-	g_signal_connect(p->entry, "key-press-event",
-			 G_CALLBACK(bookpicker_entry_key), p);
+	{
+		GtkEventController *key = gtk_event_controller_key_new();
+
+		/* before GtkText moves the cursor with the arrows */
+		gtk_event_controller_set_propagation_phase(key,
+							   GTK_PHASE_CAPTURE);
+		g_signal_connect(key, "key-pressed",
+				 G_CALLBACK(bookpicker_entry_key), p);
+		gtk_widget_add_controller(p->entry, key);
+	}
 	g_signal_connect(p->list, "row-activated",
 			 G_CALLBACK(bookpicker_row_activated), p);
-	g_signal_connect_after(p->list, "size-allocate",
-			       G_CALLBACK(bookpicker_list_allocated), p);
+	gtk_widget_add_tick_callback(p->list, bookpicker_list_allocated, p, NULL);
 	return p;
 }
 
@@ -1467,7 +1473,7 @@ void main_versekey_popup_book(NAVBAR_VERSEKEY navbar, gint nb_type,
 
 	g_free(current_book);
 
-	gtk_widget_show_all(gtk_bin_get_child(GTK_BIN(p->popover)));
+
 	if (p->current)
 		gtk_list_box_select_row(GTK_LIST_BOX(p->list),
 					GTK_LIST_BOX_ROW(p->current));
@@ -1478,10 +1484,6 @@ void main_versekey_popup_book(NAVBAR_VERSEKEY navbar, gint nb_type,
 	    anchor, nb_type == NB_MAIN ? gui_bibletext_view : NULL);
 	g_signal_connect(p->popover, "closed", G_CALLBACK(picker_closed),
 			 anchor);
-#if GTK_CHECK_VERSION(3, 22, 0)
 	gtk_popover_popup(GTK_POPOVER(p->popover));
-#else
-	gtk_widget_show(p->popover);
-#endif
 	picker_focus_entry_later(p->popover, p->entry);
 }

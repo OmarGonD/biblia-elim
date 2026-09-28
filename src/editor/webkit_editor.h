@@ -35,14 +35,14 @@ extern "C" {
 
 struct _tool_items
 {
-	GtkToggleToolButton *bold;
-	GtkToggleToolButton *italic;
-	GtkToggleToolButton *underline;
-	GtkToggleToolButton *strike;
+	GtkToggleButton *bold;
+	GtkToggleButton *italic;
+	GtkToggleButton *underline;
+	GtkToggleButton *strike;
 	GtkColorButton *color;
-	GtkToolButton *newdoc;
-	GtkToolButton *open;
-	GtkToolButton *deletedoc;
+	GtkButton *newdoc;
+	GtkButton *open;
+	GtkButton *deletedoc;
 	GtkComboBoxText *cb;
 	gint outline_level;
 };

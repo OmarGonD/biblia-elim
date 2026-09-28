@@ -12,7 +12,6 @@ void gui_elim_fuente_app_aplicar(const gchar *font);
 void gui_elim_tema_marcar_listo(void);
 void gui_elim_tema_aplicar(void);
 void gui_elim_tema_set(const char *mode);
-void gui_elim_tema_bind_menu(GtkBuilder *gxml);
 const char *gui_elim_tema_bg(void);
 const char *gui_elim_tema_fg(void);
 

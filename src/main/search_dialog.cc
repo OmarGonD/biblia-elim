@@ -96,17 +96,17 @@ gboolean main_export_current_adv_search(GString *str, gboolean html, gboolean wi
 	gboolean ret = FALSE;
 	gchar *desc;
 
-	const gchar *search_string = gtk_entry_get_text(GTK_ENTRY(search1.search_entry));
+	const gchar *search_string = gtk_editable_get_text(GTK_EDITABLE(search1.search_entry));
 	gchar search_type[100];
 
 	g_strlcpy(search_type,
-		  (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.rb_regexp))
+		  (gui_toggle_get_active(GTK_WIDGET(search1.rb_regexp))
 		   ? _("Regular expression")
-		   : (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.rb_exact_phrase))
+		   : (gui_toggle_get_active(GTK_WIDGET(search1.rb_exact_phrase))
 		      ? _("Exact phrase")
-		      : (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.rb_words))
+		      : (gui_toggle_get_active(GTK_WIDGET(search1.rb_words))
 			 ? _("Multi-word")
-			 : (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.rb_optimized))
+			 : (gui_toggle_get_active(GTK_WIDGET(search1.rb_optimized))
 			    ? _("Optimized (\"Lucene\")")
 			    : _("Attribute"))))), 99);
 
@@ -262,7 +262,7 @@ void main_range_text_changed(GtkEditable *editable)
 		return;
 
 	gtk_list_store_clear(store_list_ranges);
-	entry = gtk_entry_get_text(GTK_ENTRY(editable));
+	entry = gtk_editable_get_text(GTK_EDITABLE(editable));
 	if (!backendSearchLegacy)
 		return;
 	tmp = backendSearchLegacy->parse_range_list(settings.MainWindowModule, entry);
@@ -420,11 +420,7 @@ void main_delete_range(void)
 			      name_string);
 
 	if (gui_yes_no_dialog(str, (char *)
-#if GTK_CHECK_VERSION(3, 10, 0)
 			      "dialog-warning"
-#else
-			      GTK_STOCK_DIALOG_WARNING
-#endif
 			      )) {
 		gtk_list_store_remove(list_store, &selected);
 		xml_remove_node("ranges", "range", name_string);
@@ -630,7 +626,7 @@ static void add_modlist(void)
 
 void main_change_mods_select_label(char *mod_name)
 {
-	if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.rb_current_module))) {
+	if (gui_toggle_get_active(GTK_WIDGET(search1.rb_current_module))) {
 		gchar *str = g_strdup_printf("<b>%s</b>%s", Q_("Search: "), mod_name);
 		gtk_label_set_markup(GTK_LABEL(search1.label_mod_select), str);
 		g_free(str);
@@ -675,11 +671,7 @@ void main_delete_module(GtkTreeView *treeview)
 			      _("Are you sure you want to remove the selected module?"));
 
 	if (gui_yes_no_dialog(str, (char *)
-#if GTK_CHECK_VERSION(3, 10, 0)
 			      "dialog-warning"
-#else
-			      GTK_STOCK_DIALOG_WARNING
-#endif
 			      )) {
 		gtk_list_store_remove(list_store, &selected);
 
@@ -796,7 +788,7 @@ void main_mod_selection_changed(GtkTreeSelection *selection,
 		const gchar *mod_description =
 		    main_get_module_description(mod);
 
-		if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.rb_current_module))) {
+		if (gui_toggle_get_active(GTK_WIDGET(search1.rb_current_module))) {
 			search1.search_mod = g_strdup(mod);
 			search1.module_count = 1;
 		} else {
@@ -999,11 +991,11 @@ void main_selection_modules_lists_changed(GtkTreeSelection *selection,
 	    gtk_tree_view_get_model(GTK_TREE_VIEW(search1.listview_modules));
 	list_store = GTK_LIST_STORE(model);
 
-	gtk_entry_set_text(GTK_ENTRY(search1.entry_list_name), name);
+	gtk_editable_set_text(GTK_EDITABLE(search1.entry_list_name), name);
 
 	gtk_list_store_clear(list_store);
 	tmp =
-	    get_custom_list_from_name(gtk_entry_get_text(GTK_ENTRY(search1.entry_list_name)));
+	    get_custom_list_from_name(gtk_editable_get_text(GTK_EDITABLE(search1.entry_list_name)));
 
 	tmp = tmp2 = g_list_first(tmp);
 	while (tmp != NULL) {
@@ -1019,7 +1011,7 @@ void main_selection_modules_lists_changed(GtkTreeSelection *selection,
 	}
 	g_list_free(tmp2);
 
-	if (!gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.rb_current_module)))
+	if (!gui_toggle_get_active(GTK_WIDGET(search1.rb_current_module)))
 		main_add_modlist_to_label();
 	g_free(name);
 	g_free(modules);
@@ -1066,9 +1058,9 @@ void main_comboboxentry2_changed(GtkComboBox *combobox, gpointer user_data)
 	gchar *mod_list_str = NULL;
 	const gchar *name = NULL;
 
-	if (!gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.rb_custom_list)))
+	if (!gui_toggle_get_active(GTK_WIDGET(search1.rb_custom_list)))
 		return;
-	name = gtk_entry_get_text(GTK_ENTRY(gtk_bin_get_child(GTK_BIN(combobox))));
+	name = gtk_editable_get_text(GTK_EDITABLE(gtk_combo_box_get_child(GTK_COMBO_BOX(combobox))));
 	mod_list = get_custom_list_from_name(name);
 	mod_list_str = get_modlist_string(mod_list);
 	if (strlen(mod_list_str) > 60)
@@ -1100,14 +1092,14 @@ void main_comboboxentry2_changed(GtkComboBox *combobox, gpointer user_data)
 
 static void check_search_global_options(void)
 {
-	if (!gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.rb_exact_phrase)))
+	if (!gui_toggle_get_active(GTK_WIDGET(search1.rb_exact_phrase)))
 	{
 		set_search_global_option("Strong's Numbers",
-			gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.cb_include_strongs)));
+			gui_toggle_get_active(GTK_WIDGET(search1.cb_include_strongs)));
 		set_search_global_option("Morphological Tags",
-			gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.cb_include_morphs)));
+			gui_toggle_get_active(GTK_WIDGET(search1.cb_include_morphs)));
 		set_search_global_option("Footnotes",
-			gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.cb_include_footnotes)));
+			gui_toggle_get_active(GTK_WIDGET(search1.cb_include_footnotes)));
 	}
 }
 
@@ -1197,7 +1189,7 @@ static void set_up_dialog_search(GList *modlist)
 	if (!backendSearchLegacy)
 		return;
 	backendSearchLegacy->clear_scope();
-	if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.rb_custom_range))) {
+	if (gui_toggle_get_active(GTK_WIDGET(search1.rb_custom_range))) {
 		// if any non-bible, non-commentary modules are in use,
 		// we must not respect this "custom range" selector.
 		gboolean range_ok = TRUE;
@@ -1218,7 +1210,7 @@ static void set_up_dialog_search(GList *modlist)
 		if (range_ok) {
 			backendSearchLegacy->clear_search_list();
 			const gchar *label =
-			    gtk_entry_get_text(GTK_ENTRY(gtk_bin_get_child(GTK_BIN(search1.combo_range))));
+			    gtk_editable_get_text(GTK_EDITABLE(gtk_combo_box_get_child(GTK_COMBO_BOX(search1.combo_range))));
 			gchar *range =
 			    (gchar *)xml_get_list_from_label("ranges", "range", label);
 			if (range) {
@@ -1228,7 +1220,7 @@ static void set_up_dialog_search(GList *modlist)
 		}
 	}
 
-	else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.rb_last))) {
+	else if (gui_toggle_get_active(GTK_WIDGET(search1.rb_last))) {
 		backendSearchLegacy->set_scope2last_search();
 	}
 
@@ -1332,7 +1324,7 @@ void main_do_dialog_search(void)
 	// ok that's it. back to normal selection handling.
 
 	search_string =
-	    gtk_entry_get_text(GTK_ENTRY(search1.search_entry));
+	    gtk_editable_get_text(GTK_EDITABLE(search1.search_entry));
 
 	if (strlen(search_string) < 1)
 		return;
@@ -1340,35 +1332,35 @@ void main_do_dialog_search(void)
 
 	gtk_notebook_set_current_page(GTK_NOTEBOOK(search1.notebook), 1);
 	search_type =
-	    (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.rb_regexp))
+	    (gui_toggle_get_active(GTK_WIDGET(search1.rb_regexp))
 		 ? 0
-		 : (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.rb_exact_phrase))
+		 : (gui_toggle_get_active(GTK_WIDGET(search1.rb_exact_phrase))
 			? -1
-			: (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.rb_words))
+			: (gui_toggle_get_active(GTK_WIDGET(search1.rb_words))
 			       ? -2
-			       : (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.rb_optimized))
+			       : (gui_toggle_get_active(GTK_WIDGET(search1.rb_optimized))
 				      ? -4
 				      : -3 /* fallthrough to attribute */))));
 	XI_message(("search_type = %d", search_type));
 
 	search_params =
-	    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.cb_case_sensitive)) ? 0 : REG_ICASE;
+	    gui_toggle_get_active(GTK_WIDGET(search1.cb_case_sensitive)) ? 0 : REG_ICASE;
 
 	// For attribute-based searches, e.g. "Word//Lemma/G140",
 	// we must constrain the match to whole words.  Otherwise,
 	// we will inadvertently return e.g. 140 plus 1401 and 1404.
 	if (search_type == -3) {
-		if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.rb_strongs))) {
+		if (gui_toggle_get_active(GTK_WIDGET(search1.rb_strongs))) {
 			search_params |= SpecialSearchFlag;
 			attribute_search_string = g_strdup_printf(
 			    "Word//Lemma./%s",
 			    search_string);
-		} else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.rb_morphs))) {
+		} else if (gui_toggle_get_active(GTK_WIDGET(search1.rb_morphs))) {
 			search_params |= SpecialSearchFlag;
 			attribute_search_string = g_strdup_printf(
 			    "Word//Morph/%s",
 			    search_string);
-		} else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.rb_footnotes))) {
+		} else if (gui_toggle_get_active(GTK_WIDGET(search1.rb_footnotes))) {
 			attribute_search_string = g_strdup_printf(
 			    "Footnote//body/%s",
 			    search_string);
@@ -1376,13 +1368,12 @@ void main_do_dialog_search(void)
 		XI_message(("%s", attribute_search_string));
 	}
 
-	if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.rb_custom_list))) {
+	if (gui_toggle_get_active(GTK_WIDGET(search1.rb_custom_list))) {
 		const gchar *name;
 		name =
-		    gtk_entry_get_text(GTK_ENTRY(
-			gtk_bin_get_child(GTK_BIN(search1.combo_list))));
+		    gtk_editable_get_text(GTK_EDITABLE( gtk_combo_box_get_child(GTK_COMBO_BOX(search1.combo_list))));
 		search_mods = get_custom_list_from_name(name);
-	} else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(search1.rb_mod_list))) {
+	} else if (gui_toggle_get_active(GTK_WIDGET(search1.rb_mod_list))) {
 		search_mods = get_current_list(GTK_TREE_VIEW(search1.listview_modules));
 	} else
 		search_mods = get_current_search_mod();
@@ -1582,7 +1573,7 @@ void main_open_search_dialog(void)
 
 		is_running = TRUE;
 	} else
-		gdk_window_raise(GDK_WINDOW(search1.dialog));
+		gtk_window_present(GTK_WINDOW(search1.dialog));
 	search_dialog = TRUE;
 }
 

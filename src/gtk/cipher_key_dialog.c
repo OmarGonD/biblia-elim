@@ -53,11 +53,7 @@ gchar *gui_add_cipher_key(const char *mod_name, gchar *cipher_old)
 	GS_DIALOG *info;
 
 	info = gui_new_dialog();
-#if GTK_CHECK_VERSION(3, 10, 0)
 	info->stock_icon = "dialog-warning";
-#else
-	info->stock_icon = GTK_STOCK_DIALOG_WARNING;
-#endif
 	info->label_top =
 	    g_strdup_printf(_("Cipher key for module %s"), mod_name);
 	info->label_middle = _("for:");

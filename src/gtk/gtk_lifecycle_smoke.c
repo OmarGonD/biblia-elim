@@ -10,6 +10,7 @@
 
 #include <glib/gstdio.h>
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -17,13 +18,17 @@
 #include "gui/buscar_notas.h"
 #include "gui/lectura_sync.h"
 #include "gui/main_menu.h"
+#include "gui/elim_tema.h"
 #include "gui/menu_popup.h"
 #include "gui/main_window.h"
 #include "gui/sidebar.h"
 #include "gui/bookmarks_menu.h"
 #include "main/sidebar.h"
+#include "gui/gui.h"
 #include "gui/widgets.h"
 #include "gui/nube_palabras.h"
+#include "gui/preferences_dialog.h"
+#include "gui/search_dialog.h"
 #include "gui/utilities.h"
 #include "gui/interlineal.h"
 #ifdef USE_WEBKIT_EDITOR
@@ -107,6 +112,7 @@ static void
 check_allocation(GtkWidget *widget, gpointer unused)
 {
 	GtkAllocation allocation;
+	GtkWidget *child;
 
 	(void)unused;
 	if (!gtk_widget_get_realized(widget))
@@ -114,8 +120,9 @@ check_allocation(GtkWidget *widget, gpointer unused)
 	gtk_widget_get_allocation(widget, &allocation);
 	check(allocation.width >= 0 && allocation.height >= 0,
 	      "realized widget has a negative allocation");
-	if (GTK_IS_CONTAINER(widget))
-		gtk_container_foreach(GTK_CONTAINER(widget), check_allocation, NULL);
+	for (child = gtk_widget_get_first_child(widget); child;
+	     child = gtk_widget_get_next_sibling(child))
+		check_allocation(child, NULL);
 }
 
 static void
@@ -162,6 +169,27 @@ surfaces_mapped(const SmokeSurface surfaces[5])
 	return TRUE;
 }
 
+/* GtkPaned 4 gives the second child of a reopened splitter the pixel
+ * left over when the first one's natural size is taller than the window
+ * (this one is ~300 px), and unmaps it at that size. The application sets
+ * the saved position when it reopens a previewer; do the same for both,
+ * again on each wait for the layout while one is still unmapped. */
+static void
+give_previews_room(void)
+{
+	GtkWidget *previews[] = { widgets.box_side_preview,
+				  widgets.vbox_previewer };
+
+	for (guint i = 0; i < G_N_ELEMENTS(previews); i++) {
+		GtkWidget *paned = gtk_widget_get_parent(previews[i]);
+
+		if (GTK_IS_PANED(paned) && gtk_widget_get_height(paned) > 1 &&
+		    !gtk_widget_get_mapped(previews[i]))
+			gtk_paned_set_position(GTK_PANED(paned),
+					       gtk_widget_get_height(paned) / 2);
+	}
+}
+
 static gboolean
 finish_smoke(gpointer unused)
 {
@@ -172,14 +200,19 @@ finish_smoke(gpointer unused)
 	(void)unused;
 	collect_surfaces(surfaces);
 	if (!surfaces_mapped(surfaces) && tries++ < MAP_WAIT_TRIES) {
+		give_previews_room();
 		g_timeout_add(MAP_WAIT_MS, finish_smoke, NULL);
 		return G_SOURCE_REMOVE;
 	}
-	for (i = 0; i < G_N_ELEMENTS(surfaces); i++)
-		check(gtk_widget_get_mapped(surfaces[i].widget),
-		      "renderer did not map after its panel reopened");
 	for (i = 0; i < G_N_ELEMENTS(surfaces); i++) {
-		GtkWidget *top = gtk_widget_get_toplevel(surfaces[i].widget);
+		gchar *what = g_strdup_printf(
+		    "renderer '%s' did not map after its panel reopened",
+		    surfaces[i].name);
+		check(gtk_widget_get_mapped(surfaces[i].widget), what);
+		g_free(what);
+	}
+	for (i = 0; i < G_N_ELEMENTS(surfaces); i++) {
+		GtkWidget *top = gui_widget_get_toplevel(surfaces[i].widget);
 		check(top != surfaces[i].widget, "renderer is not anchored");
 		check(gtk_widget_get_realized(surfaces[i].widget),
 		      "renderer did not realize through its parent");
@@ -192,7 +225,7 @@ finish_smoke(gpointer unused)
 		renderer_checks, panel_checks);
 	fflush(stdout);
 	if (exit_status) {
-		gtk_main_quit();
+		gui_main_quit();
 		return G_SOURCE_REMOVE;
 	}
 
@@ -209,11 +242,12 @@ show_panels(gpointer unused)
 	gtk_widget_show(widgets.paned_sidebar);
 	gtk_widget_show(widgets.box_side_preview);
 	gtk_widget_show(widgets.vbox_previewer);
+	give_previews_room();
 	/* The compare pane opens through its public helper, as «Comparar»
 	 * does: the pane box alone leaves its renderer hidden since startup
 	 * hid both (UI-SMOKE-103). */
 	gui_lectura_sync_set_visible(TRUE);
-	gtk_widget_show_all(widgets.app);
+	gtk_widget_show(widgets.app);
 	check(gtk_widget_get_visible(widgets.notebook_comm_book),
 	      "commentary panel did not reopen explicitly");
 	{
@@ -226,9 +260,9 @@ show_panels(gpointer unused)
 			gint splitter;
 			gint bible;
 
-			gtk_button_clicked(GTK_BUTTON(cerrar));
-			while (gtk_events_pending())
-				gtk_main_iteration();
+			g_signal_emit_by_name(cerrar, "clicked");
+			while (g_main_context_pending(NULL))
+				g_main_context_iteration(NULL, FALSE);
 			check(!gtk_widget_get_visible(widgets.notebook_comm_book),
 			      "commentary close button did not hide the panel");
 			check(!gtk_widget_get_visible(widgets.vpaned2),
@@ -582,11 +616,11 @@ check_notes_features(void)
 				gtk_menu_button_get_menu_model(GTK_MENU_BUTTON(exportar)) : NULL;
 			check(modelo && g_menu_model_get_n_items(modelo) == 2,
 			      "notes export menu model missing");
-			GActionGroup *grupo = gtk_widget_get_action_group(dialogo, "notas");
+			GActionGroup *grupo = gui_widget_get_action_group(dialogo, "notas");
 			check(grupo && g_action_group_has_action(grupo, "exportar-md") &&
 			      g_action_group_has_action(grupo, "exportar-json"),
 			      "notes export actions missing");
-			gtk_widget_destroy(dialogo);
+			gui_widget_destroy(dialogo);
 		}
 	}
 
@@ -612,6 +646,8 @@ check_word_cloud(void)
 	XIPHOS_HTML_WRITE(surface, html, strlen(html));
 	XIPHOS_HTML_CLOSE(surface);
 	GtkTextBuffer *buffer = gtk_text_view_get_buffer(wk_html_get_view(WK_HTML(surface)));
+	GtkTextTag *center_tag = gtk_text_tag_table_lookup(
+	    gtk_text_buffer_get_tag_table(buffer), "center");
 	gdouble scales[3] = { 0, 0, 0 };
 	for (int i = 0; i < 3; ++i) {
 		GtkTextIter start, match, end;
@@ -620,18 +656,31 @@ check_word_cloud(void)
 			GTK_TEXT_SEARCH_TEXT_ONLY, &match, &end, NULL);
 		check(found, "cloud word reaches native renderer");
 		if (found) {
-			GtkTextAttributes *attrs = gtk_text_attributes_new();
-			gtk_text_iter_get_attributes(&match, attrs);
-			scales[i] = attrs->font_scale;
-			check(attrs->justification == GTK_JUSTIFY_CENTER, "cloud centered");
-			gtk_text_attributes_unref(attrs);
+			/* GTK 4 keeps no per-iter attributes struct: the effective
+			 * scale is the product of every "scale" tag covering the
+			 * match, the same probe wk-html.c's font debug uses. */
+			gdouble scale = 1.0;
+			GSList *tags = gtk_text_iter_get_tags(&match);
+			for (GSList *l = tags; l; l = l->next) {
+				gboolean scale_set = FALSE;
+				gdouble tag_scale = 1.0;
+
+				g_object_get(l->data, "scale-set", &scale_set,
+					     "scale", &tag_scale, NULL);
+				if (scale_set)
+					scale *= tag_scale;
+			}
+			g_slist_free(tags);
+			scales[i] = scale;
+			check(center_tag && gtk_text_iter_has_tag(&match, center_tag),
+			      "cloud centered");
 			check(gtk_text_iter_get_char(&end) == ' ', "cloud words separated");
 		}
 	}
 	check(scales[0] > scales[1] && scales[1] > scales[2], "cloud frequency scales decrease");
 	check(scales[0] >= 3.0 && scales[2] < 0.7, "cloud has visible size contrast");
 	g_print("WORD_CLOUD_RENDER scales=%.3f,%.3f,%.3f\n", scales[0], scales[1], scales[2]);
-	gtk_widget_destroy(surface);
+	gui_widget_destroy(surface);
 	g_object_unref(surface);
 	g_free(html);
 	g_ptr_array_free(count.palabras, TRUE);
@@ -643,12 +692,26 @@ find_widget_of_type(GtkWidget *widget, GType type)
 {
 	if (G_TYPE_CHECK_INSTANCE_TYPE(widget, type))
 		return widget;
-	if (!GTK_IS_CONTAINER(widget))
-		return NULL;
-	GList *children = gtk_container_get_children(GTK_CONTAINER(widget));
+	GList *children = gui_widget_get_children(widget);
 	GtkWidget *found = NULL;
 	for (GList *l = children; l && !found; l = l->next)
 		found = find_widget_of_type(l->data, type);
+	g_list_free(children);
+	return found;
+}
+
+/* The stack holding the «cloud» and «message» pages (other stacks live in
+ * the dialog's own widgets). */
+static GtkWidget *
+find_cloud_stack(GtkWidget *widget)
+{
+	if (GTK_IS_STACK(widget) &&
+	    gtk_stack_get_child_by_name(GTK_STACK(widget), "cloud"))
+		return widget;
+	GList *children = gui_widget_get_children(widget);
+	GtkWidget *found = NULL;
+	for (GList *l = children; l && !found; l = l->next)
+		found = find_cloud_stack(l->data);
 	g_list_free(children);
 	return found;
 }
@@ -673,7 +736,7 @@ static gboolean
 panel_b_visible(GtkWidget *stack)
 {
 	GtkWidget *panels = gtk_stack_get_child_by_name(GTK_STACK(stack), "cloud");
-	GList *children = gtk_container_get_children(GTK_CONTAINER(panels));
+	GList *children = gui_widget_get_children(panels);
 	gboolean visible = g_list_length(children) == 2 &&
 		gtk_widget_get_visible(g_list_nth_data(children, 1));
 	g_list_free(children);
@@ -694,16 +757,16 @@ check_file_chooser_fits(void)
 	GtkWidget *chooser = gtk_file_chooser_dialog_new("fit", GTK_WINDOW(widgets.app),
 		GTK_FILE_CHOOSER_ACTION_SAVE, "_Cancel", GTK_RESPONSE_CANCEL, NULL);
 	gui_fit_dialog_to_screen(GTK_WINDOW(chooser));
-	gtk_window_resize(GTK_WINDOW(chooser), 5000, 5000);
+	gtk_window_set_default_size(GTK_WINDOW(chooser), 5000, 5000);
 	gtk_widget_show(chooser);
 	pump_until(widget_mapped, chooser, 3 * G_USEC_PER_SEC);
-	int width, height;
-	gtk_window_get_size(GTK_WINDOW(chooser), &width, &height);
+	int width = gtk_widget_get_width(chooser);
+	int height = gtk_widget_get_height(chooser);
 	check(gtk_widget_get_mapped(chooser), "file chooser not shown");
 	check(width <= gtk_widget_get_allocated_width(widgets.app) &&
 	      height <= gtk_widget_get_allocated_height(widgets.app),
 	      "file chooser larger than the main window");
-	gtk_widget_destroy(chooser);
+	gui_widget_destroy(chooser);
 }
 
 /* CLOUD-LOOK-102: the word cloud opens already drawn for a book, and
@@ -721,7 +784,7 @@ check_word_cloud_dialog(void)
 	check(dialog && gtk_widget_get_visible(dialog), "word cloud dialog not shown");
 	if (!dialog)
 		return;
-	GtkWidget *stack = find_widget_of_type(dialog, GTK_TYPE_STACK);
+	GtkWidget *stack = find_cloud_stack(dialog);
 	GtkWidget *compare = find_widget_of_type(dialog, GTK_TYPE_CHECK_BUTTON);
 	GtkWidget *grid = find_widget_of_type(dialog, GTK_TYPE_GRID);
 	check(stack && compare && grid, "word cloud widgets missing");
@@ -730,21 +793,86 @@ check_word_cloud_dialog(void)
 		check(cloud_shown(stack), "word cloud not drawn on opening");
 		GtkWidget *combo_a = gtk_grid_get_child_at(GTK_GRID(grid), 1, 0);
 		GtkWidget *combo_b = gtk_grid_get_child_at(GTK_GRID(grid), 1, 1);
-		const gchar *book_a = gtk_entry_get_text(GTK_ENTRY(gtk_bin_get_child(GTK_BIN(combo_a))));
+		const gchar *book_a = gtk_editable_get_text(GTK_EDITABLE(gtk_combo_box_get_child(GTK_COMBO_BOX(combo_a))));
 		check(book_a && *book_a, "word cloud opened without a book");
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(compare), TRUE);
-		const gchar *book_b = gtk_entry_get_text(GTK_ENTRY(gtk_bin_get_child(GTK_BIN(combo_b))));
+		gtk_check_button_set_active(GTK_CHECK_BUTTON(compare), TRUE);
+		const gchar *book_b = gtk_editable_get_text(GTK_EDITABLE(gtk_combo_box_get_child(GTK_COMBO_BOX(combo_b))));
 		check(book_b && *book_b && g_strcmp0(book_a, book_b) != 0,
 		      "comparing did not choose another book");
 		GtkWidget *download = gtk_grid_get_child_at(GTK_GRID(grid), 2, 0);
 		check(GTK_IS_BUTTON(download) && gtk_widget_get_sensitive(download),
 		      "word cloud download not available");
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(compare), FALSE);
+		gtk_check_button_set_active(GTK_CHECK_BUTTON(compare), FALSE);
 		pump_until(cloud_shown, stack, 5 * G_USEC_PER_SEC);
 		check(cloud_shown(stack) && !panel_b_visible(stack),
 		      "unticking comparison did not return to one cloud");
 	}
-	gtk_widget_destroy(dialog);
+	/* «Cerrar» sits at the foot of the dialog, off the edge, and closes it. */
+	GtkWidget *close = NULL;
+	{
+		GtkWidget *paned = find_widget_of_type(dialog, GTK_TYPE_PANED);
+		graphene_point_t origin = GRAPHENE_POINT_INIT(0, 0), at;
+		GList *buttons = NULL;
+		for (GtkWidget *b = gtk_widget_get_first_child(gtk_window_get_child(GTK_WINDOW(dialog)));
+		     b; b = gtk_widget_get_next_sibling(b))
+			buttons = g_list_append(buttons, b);
+		for (GList *l = buttons; l && !close; l = l->next) {
+			GtkWidget *btn = find_widget_of_type(l->data, GTK_TYPE_BUTTON);
+			if (btn && !g_strcmp0(gtk_button_get_label(GTK_BUTTON(btn)), "Cerrar"))
+				close = btn;
+		}
+		g_list_free(buttons);
+		check(close != NULL, "word cloud close button missing");
+		if (close && paned && gtk_widget_compute_point(close, dialog, &origin, &at)) {
+			check(at.y > gtk_widget_get_height(paned) / 2,
+			      "word cloud close button not at the foot of the dialog");
+			check(at.x + gtk_widget_get_width(close) <= gtk_widget_get_width(dialog) - 6 &&
+			      at.y + gtk_widget_get_height(close) <= gtk_widget_get_height(dialog) - 6,
+			      "word cloud close button touches the dialog edge");
+		}
+	}
+	if (close) {
+		g_signal_emit_by_name(close, "clicked");
+		while (g_main_context_pending(NULL))
+			g_main_context_iteration(NULL, FALSE);
+		gboolean listed = FALSE;
+		GList *open = gtk_window_list_toplevels();
+		for (GList *l = open; l; l = l->next)
+			listed |= l->data == (gpointer)dialog;
+		g_list_free(open);
+		check(!listed && !gtk_widget_get_visible(dialog),
+		      "word cloud close button did not close the dialog");
+	} else {
+		gui_widget_destroy(dialog);
+	}
+}
+
+/* GTK4-PORT-101 step 6: builder dialogs whose XML GTK 4 rejected opened
+ * empty or not at all (the failure was silent). Each one must show a new
+ * window. */
+static void
+check_builder_dialog_opens(const char *name, void (*open_dialog)(void))
+{
+	GList *before = gtk_window_list_toplevels();
+	GList *added = NULL;
+
+	open_dialog();
+	while (g_main_context_pending(NULL))
+		g_main_context_iteration(NULL, FALSE);
+	GList *after = gtk_window_list_toplevels();
+	for (GList *l = after; l; l = l->next)
+		if (!g_list_find(before, l->data) && gtk_widget_get_visible(l->data))
+			added = g_list_prepend(added, l->data);
+	{
+		gchar *what = g_strdup_printf("%s dialog did not open", name);
+		check(added != NULL, what);
+		g_free(what);
+	}
+	for (GList *l = added; l; l = l->next)
+		gui_widget_destroy(l->data);
+	g_list_free(added);
+	g_list_free(before);
+	g_list_free(after);
 }
 
 /* MENU-TIDY-101: the menu bar is the one the reader was promised, and
@@ -755,29 +883,37 @@ check_menu_bar(void)
 {
 	const char *expected[] = {"_Archivo", "_Buscar", "_Estudio",
 				  "_Lectura", "_Ver", "A_yuda"};
-	GtkWidget *menu = widgets.readaloud_item
-			      ? gtk_widget_get_parent(widgets.readaloud_item)
-			      : NULL;
-	GtkWidget *top = GTK_IS_MENU(menu)
-			     ? gtk_menu_get_attach_widget(GTK_MENU(menu))
-			     : NULL;
-	GtkWidget *bar = top ? gtk_widget_get_parent(top) : NULL;
-	GList *items, *l;
-	guint i = 0;
-
-	check(GTK_IS_MENU_BAR(bar), "main menu bar not found");
-	if (!GTK_IS_MENU_BAR(bar))
-		return;
-	items = gtk_container_get_children(GTK_CONTAINER(bar));
-	check(g_list_length(items) == G_N_ELEMENTS(expected),
+	GMenuModel *bar = gui_main_menu_model();
+	check(bar && g_menu_model_get_n_items(bar) == G_N_ELEMENTS(expected),
 	      "main menu bar does not have its six menus");
-	for (l = items; l && i < G_N_ELEMENTS(expected); l = l->next, i++)
-		check(!g_strcmp0(gtk_menu_item_get_label(GTK_MENU_ITEM(l->data)),
-				 expected[i]),
+	for (guint i = 0; bar && i < G_N_ELEMENTS(expected); ++i) {
+		gchar *label = NULL;
+		g_menu_model_get_item_attribute(bar, i, G_MENU_ATTRIBUTE_LABEL,
+						"s", &label);
+		check(!g_strcmp0(label, expected[i]),
 		      "main menu bar menus are out of order");
-	g_list_free(items);
-	check(!g_strcmp0(gtk_menu_item_get_label(GTK_MENU_ITEM(top)), "_Lectura"),
-	      "read aloud is not in the Lectura menu");
+		g_free(label);
+	}
+	GActionGroup *actions = gui_main_menu_actions();
+	check(actions && g_action_group_has_action(actions, "read-aloud") &&
+	      g_action_group_has_action(actions, "interlinear") &&
+	      g_action_group_has_action(actions, "reading-mode"),
+	      "main menu state actions missing");
+	GVariant *state = actions ? g_action_group_get_action_state(
+	    actions, "interlinear") : NULL;
+	check(state && g_variant_get_boolean(state) ==
+			(settings.show_interlineal != 0),
+	      "main menu interlinear state lost its setting");
+	g_clear_pointer(&state, g_variant_unref);
+
+	gchar *mode = g_strdup(settings.ui_mode);
+	gui_elim_tema_set(!g_strcmp0(mode, "oscuro") ? "claro" : "oscuro");
+	state = actions ? g_action_group_get_action_state(actions, "theme") : NULL;
+	check(state && !g_strcmp0(g_variant_get_string(state, NULL), settings.ui_mode),
+	      "main menu theme radio does not follow the theme");
+	g_clear_pointer(&state, g_variant_unref);
+	gui_elim_tema_set(mode);
+	g_free(mode);
 }
 
 static void
@@ -896,7 +1032,7 @@ exercise_application(gpointer unused)
 	      "reader context menu lacks its four submenus");
 	if (context_menus)
 		g_object_unref(context_menus);
-	GActionGroup *context_actions = gtk_widget_get_action_group(
+	GActionGroup *context_actions = gui_widget_get_action_group(
 	    widgets.html_text, "contexto");
 	check(context_actions &&
 	      g_action_group_has_action(context_actions, "acerca") &&
@@ -947,12 +1083,11 @@ exercise_application(gpointer unused)
 	check(gtk_widget_get_visible(widgets.app), "main window was not shown");
 	check(gtk_widget_get_realized(widgets.app), "main window was not realized");
 	check(gtk_widget_get_mapped(widgets.app), "main window was not mapped");
-	check(gtk_widget_get_no_show_all(widgets.notebook_comm_book),
-	      "startup-hidden commentary participates in show-all");
-	check(gtk_widget_get_no_show_all(widgets.notebook_dict_devot),
-	      "startup-hidden dictionary participates in show-all");
-	check(gtk_widget_get_no_show_all(widgets.box_lectura_sync),
-	      "startup-hidden compare pane participates in show-all");
+	/* GTK 4 dropped show_all()/no-show-all along with it: gtk_widget_show()
+	 * no longer cascades to children, so the hazard these checks used to
+	 * guard against (a startup-hidden panel resurrected by some ancestor's
+	 * blanket show) cannot happen any more. The check that still matters
+	 * is that the panel is actually hidden. */
 	check(!gtk_widget_get_visible(widgets.notebook_comm_book),
 	      "commentary is visible at default startup");
 	check(gtk_notebook_get_action_widget(
@@ -987,7 +1122,7 @@ exercise_application(gpointer unused)
 			      "history menu commands missing");
 			g_clear_object(&commands);
 			g_object_unref(history);
-			GActionGroup *actions = gtk_widget_get_action_group(
+			GActionGroup *actions = gui_widget_get_action_group(
 			    navbar_versekey.button_history_menu, "historial");
 			check(actions && g_action_group_has_action(actions, "ir") &&
 			      g_action_group_has_action(actions, "limpiar") &&
@@ -1000,7 +1135,7 @@ exercise_application(gpointer unused)
 		    GTK_MENU_BUTTON(widgets.combo_bible_version));
 		check(versions && g_menu_model_get_n_items(versions) > 0,
 		      "Bible-version menu has no language sections");
-		GActionGroup *version_actions = gtk_widget_get_action_group(
+		GActionGroup *version_actions = gui_widget_get_action_group(
 		    widgets.combo_bible_version, "version");
 		check(version_actions &&
 		      g_action_group_has_action(version_actions, "elegir"),
@@ -1030,14 +1165,16 @@ exercise_application(gpointer unused)
 		check_menu_bar();
 		check_word_cloud();
 		check_word_cloud_dialog();
+		check_builder_dialog_opens("preferences", gui_setup_preferences_dialog);
+		check_builder_dialog_opens("search", gui_create_search_dialog);
 		check_file_chooser_fits();
 		/* GTK4-PORT-101 step 2: verse tools are a GMenu popover over
 		 * «versiculo» actions. */
 		{
 			GtkWidget *tools = gui_verse_tools_popup("John 3:16");
 			check(GTK_IS_POPOVER(tools), "verse tools popover not shown");
-			GActionGroup *versiculo = gtk_widget_get_action_group(
-			    gtk_bin_get_child(GTK_BIN(widgets.app)), "versiculo");
+			GActionGroup *versiculo = gui_widget_get_action_group(
+			    gtk_window_get_child(GTK_WINDOW(widgets.app)), "versiculo");
 			check(versiculo && g_action_group_has_action(versiculo, "interlineal") &&
 			      g_action_group_has_action(versiculo, "comparar") &&
 			      g_action_group_has_action(versiculo, "xrefs"),
@@ -1074,13 +1211,13 @@ exercise_application(gpointer unused)
 			editor.module = (gchar *)"NoSuchBook";
 			GtkWidget *tree = gui_create_editor_tree(&editor);
 			g_object_ref_sink(tree);
-			GActionGroup *arbol = gtk_widget_get_action_group(tree, "arbol");
+			GActionGroup *arbol = gui_widget_get_action_group(tree, "arbol");
 			check(arbol && g_action_group_has_action(arbol, "hijo") &&
 			      g_action_group_has_action(arbol, "hermano") &&
 			      g_action_group_has_action(arbol, "quitar") &&
 			      g_action_group_has_action(arbol, "editar"),
 			      "book editor tree actions missing");
-			gtk_widget_destroy(tree);
+			gui_widget_destroy(tree);
 			g_object_unref(tree);
 		}
         check_sqlite_parallel();
@@ -1104,13 +1241,13 @@ exercise_application(gpointer unused)
 			const gchar *osis = main_get_osisref_from_key("OtherBible", dialog->key);
 			check(!g_strcmp0(osis, "John.3.17"), "SQLite dialog navigation follows its own module");
 			g_free((gpointer)osis);
-			gtk_widget_destroy(dialog->dialog);
+			gui_widget_destroy(dialog->dialog);
 		}
 	} else {
 		check(FALSE, "smoke fixture did not provide a Bible module");
 	}
 
-	gtk_widget_show_all(widgets.app);
+	gtk_widget_show(widgets.app);
 	g_idle_add(hide_panels, NULL);
 	return G_SOURCE_REMOVE;
 }

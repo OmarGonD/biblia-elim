@@ -71,7 +71,7 @@ static void add_leaf_node_to_treeview(GtkTreeStore *model,
 	gtk_tree_store_set(GTK_TREE_STORE(model),
 			   iter,
 			   COL_OPEN_PIXBUF, pixbufs->pixbuf_helpdoc,
-			   COL_CLOSED_PIXBUF, NULL,
+			   COL_CLOSED_PIXBUF, pixbufs->pixbuf_helpdoc,
 			   COL_CAPTION, (gchar *)tmpbuf,
 			   COL_MODULE, (gchar *)mod_name,
 			   COL_OFFSET, (gchar *)buf, -1);

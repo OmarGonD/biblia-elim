@@ -54,7 +54,7 @@ void on_show_hidden_modules_toggled(GtkToggleButton *togglebutton,
 void on_show_hidden_modules_toggled(GtkToggleButton *togglebutton,
 				    gpointer user_data);
 
-void on_folder_changed(GtkFileChooser *filechooser,
+void on_folder_changed(GtkButton *button,
 		       gpointer user_data);
 
 void on_combobox1_changed(GtkComboBox *combobox,
@@ -100,19 +100,26 @@ void on_columncountvalue_changed(GtkComboBox *combobox,
 void on_combobox_module_grouping_changed(GtkComboBox *combobox,
 					 gpointer user_data);
 
-void on_colorbutton1_color_set(GtkColorButton *colorbutton,
+void on_colorbutton1_color_set(GtkColorDialogButton *colorbutton,
+			       GParamSpec *pspec,
 			       gpointer user_data);
-void on_colorbutton2_color_set(GtkColorButton *colorbutton,
+void on_colorbutton2_color_set(GtkColorDialogButton *colorbutton,
+			       GParamSpec *pspec,
 			       gpointer user_data);
-void on_colorbutton3_color_set(GtkColorButton *colorbutton,
+void on_colorbutton3_color_set(GtkColorDialogButton *colorbutton,
+			       GParamSpec *pspec,
 			       gpointer user_data);
-void on_colorbutton4_color_set(GtkColorButton *colorbutton,
+void on_colorbutton4_color_set(GtkColorDialogButton *colorbutton,
+			       GParamSpec *pspec,
 			       gpointer user_data);
-void on_colorbutton5_color_set(GtkColorButton *colorbutton,
+void on_colorbutton5_color_set(GtkColorDialogButton *colorbutton,
+			       GParamSpec *pspec,
 			       gpointer user_data);
-void on_colorbutton6_color_set(GtkColorButton *colorbutton,
+void on_colorbutton6_color_set(GtkColorDialogButton *colorbutton,
+			       GParamSpec *pspec,
 			       gpointer user_data);
-void on_colorbutton7_color_set(GtkColorButton *colorbutton,
+void on_colorbutton7_color_set(GtkColorDialogButton *colorbutton,
+			       GParamSpec *pspec,
 			       gpointer user_data);
 void setup_color_pickers(void);
 void apply_color_settings(void);

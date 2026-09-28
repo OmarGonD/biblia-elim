@@ -18,7 +18,7 @@ void gui_lectura_sync_ficha_nota(const char *mod, const char *osis,
 				const char *cita);
 void gui_lectura_sync_ficha_clear(void);
 gboolean gui_lectura_sync_ficha_activa(void);
-void on_lectura_sync_activate(GtkCheckMenuItem *menuitem, gpointer user_data);
+void on_lectura_sync_activate(gpointer menuitem, gpointer user_data);
 
 #ifdef __cplusplus
 }

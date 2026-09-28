@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.18.3 -->
 <interface>
-  <requires lib="gtk+" version="3.14"/>
+  <requires lib="gtk" version="4.0"/>
   <object class="GtkListStore" id="model1">
     <columns>
       <!-- column-name gchararray -->
@@ -119,55 +119,22 @@
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">Preferences</property>
-    <property name="window_position">center</property>
     <property name="default_width">600</property>
     <property name="default_height">380</property>
-    <property name="icon">xiphos-x-16.png</property>
-    <property name="type_hint">dialog</property>
-    <child internal-child="vbox">
+    <child>
       <object class="GtkBox" id="dialog-vbox1">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <child internal-child="action_area">
-          <object class="GtkButtonBox" id="dialog-action_area1">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="layout_style">end</property>
-            <child>
-              <object class="GtkButton" id="closebutton1">
-                <property name="label">gtk-close</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="can_default">True</property>
-                <property name="receives_default">False</property>
-                <property name="use_stock">True</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
-            <property name="pack_type">end</property>
-            <property name="position">0</property>
-          </packing>
-        </child>
         <child>
           <object class="GtkBox" id="hbox1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="border_width">6</property>
             <property name="spacing">6</property>
             <child>
               <object class="GtkScrolledWindow" id="scrolledwindow">
                 <property name="width_request">165</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="shadow_type">in</property>
                 <child>
                   <object class="GtkTreeView" id="treeview">
                     <property name="visible">True</property>
@@ -179,11 +146,6 @@
                   </object>
                 </child>
               </object>
-              <packing>
-                <property name="expand">True</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
             </child>
             <child>
               <object class="GtkNotebook" id="notebook">
@@ -211,15 +173,11 @@
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Cover</property>
                   </object>
-                  <packing>
-                    <property name="tab_fill">False</property>
-                  </packing>
                 </child>
                 <child>
                   <object class="GtkBox" id="vbox1">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="border_width">6</property>
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkLabel" id="label9">
@@ -229,17 +187,11 @@
                         <property name="label" translatable="yes">&lt;b&gt;Font Colors&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">False</property>
-                        <property name="position">0</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkBox" id="vbox2">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="border_width">3</property>
                         <property name="orientation">vertical</property>
                         <property name="spacing">6</property>
                         <child>
@@ -253,24 +205,16 @@
                                 <property name="can_focus">False</property>
                                 <property name="xalign">0.10000000149011612</property>
                                 <property name="label" translatable="yes">Background</property>
+                              <property name="vexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
                             </child>
                             <child>
-                              <object class="GtkColorButton" id="colorbutton1">
+                          <object class="GtkColorDialogButton" id="colorbutton1">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
+                              <property name="vexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
                             <child>
                               <object class="GtkLabel" id="labelc1">
@@ -279,19 +223,11 @@
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes"> </property>
                                 <property name="use_markup">True</property>
+                              <property name="vexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">4</property>
-                              </packing>
                             </child>
+                          <property name="vexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkBox" id="hbox6">
@@ -304,24 +240,16 @@
                                 <property name="can_focus">False</property>
                                 <property name="xalign">0.10000000149011612</property>
                                 <property name="label" translatable="yes">Foreground</property>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
                             </child>
                             <child>
-                              <object class="GtkColorButton" id="colorbutton2">
+                          <object class="GtkColorDialogButton" id="colorbutton2">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
                             <child>
                               <object class="GtkLabel" id="labelc2">
@@ -330,19 +258,11 @@
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes"> </property>
                                 <property name="use_markup">True</property>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">4</property>
-                              </packing>
                             </child>
+                          <property name="vexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">1</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkBox" id="hbox7">
@@ -355,24 +275,16 @@
                                 <property name="can_focus">False</property>
                                 <property name="xalign">0.10000000149011612</property>
                                 <property name="label" translatable="yes">Current Verse</property>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
                             </child>
                             <child>
-                              <object class="GtkColorButton" id="colorbutton3">
+                          <object class="GtkColorDialogButton" id="colorbutton3">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
                             <child>
                               <object class="GtkLabel" id="labelc3">
@@ -381,19 +293,11 @@
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes"> </property>
                                 <property name="use_markup">True</property>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">4</property>
-                              </packing>
                             </child>
+                          <property name="vexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">2</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkBox" id="hbox8">
@@ -406,24 +310,16 @@
                                 <property name="can_focus">False</property>
                                 <property name="xalign">0.10000000149011612</property>
                                 <property name="label" translatable="yes">Verse Number</property>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
                             </child>
                             <child>
-                              <object class="GtkColorButton" id="colorbutton4">
+                          <object class="GtkColorDialogButton" id="colorbutton4">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
                             <child>
                               <object class="GtkLabel" id="labelc4">
@@ -432,19 +328,11 @@
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes"> </property>
                                 <property name="use_markup">True</property>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">4</property>
-                              </packing>
                             </child>
+                          <property name="vexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">3</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkBox" id="hbox9">
@@ -457,24 +345,16 @@
                                 <property name="can_focus">False</property>
                                 <property name="xalign">0.10000000149011612</property>
                                 <property name="label" translatable="yes">Links</property>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
                             </child>
                             <child>
-                              <object class="GtkColorButton" id="colorbutton5">
+                          <object class="GtkColorDialogButton" id="colorbutton5">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
                             <child>
                               <object class="GtkLabel" id="labelc5">
@@ -483,19 +363,11 @@
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes"> </property>
                                 <property name="use_markup">True</property>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">4</property>
-                              </packing>
                             </child>
+                          <property name="vexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">4</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkBox" id="hbox27">
@@ -508,24 +380,16 @@
                                 <property name="can_focus">False</property>
                                 <property name="xalign">0.10000000149011612</property>
                                 <property name="label" translatable="yes">Highlight Foreground</property>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
                             </child>
                             <child>
-                              <object class="GtkColorButton" id="colorbutton6">
+                          <object class="GtkColorDialogButton" id="colorbutton6">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
                             <child>
                               <object class="GtkLabel" id="labelc6">
@@ -534,19 +398,11 @@
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes"> </property>
                                 <property name="use_markup">True</property>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">4</property>
-                              </packing>
                             </child>
+                          <property name="vexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">5</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkBox" id="hbox28">
@@ -559,24 +415,16 @@
                                 <property name="can_focus">False</property>
                                 <property name="xalign">0.10000000149011612</property>
                                 <property name="label" translatable="yes">Highlight Background</property>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
                             </child>
                             <child>
-                              <object class="GtkColorButton" id="colorbutton7">
+                          <object class="GtkColorDialogButton" id="colorbutton7">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
                             <child>
                               <object class="GtkLabel" id="labelc7">
@@ -585,19 +433,11 @@
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes"> </property>
                                 <property name="use_markup">True</property>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">4</property>
-                              </packing>
                             </child>
+                          <property name="vexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">6</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkBox" id="hbox29">
@@ -610,12 +450,8 @@
                                 <property name="can_focus">False</property>
                                 <property name="xalign">0.10000000149011612</property>
                                 <property name="label" translatable="yes">Invert color pairs</property>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
                             </child>
                             <child>
                               <object class="GtkBox" id="hbox29a">
@@ -627,35 +463,21 @@
                                     <property name="label" translatable="yes">Normal Text</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
-                                    <property name="can_default">True</property>
                                     <property name="receives_default">False</property>
+                                  <property name="hexpand">True</property>
                                   </object>
-                                  <packing>
-                                    <property name="expand">True</property>
-                                    <property name="fill">True</property>
-                                    <property name="position">0</property>
-                                  </packing>
                                 </child>
                                 <child>
                                   <object class="GtkButton" id="invert_highlight">
                                     <property name="label" translatable="yes">Highlight</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
-                                    <property name="can_default">True</property>
                                     <property name="receives_default">False</property>
+                                  <property name="hexpand">True</property>
                                   </object>
-                                  <packing>
-                                    <property name="expand">True</property>
-                                    <property name="fill">True</property>
-                                    <property name="position">1</property>
-                                  </packing>
                                 </child>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
                             <child>
                               <object class="GtkLabel" id="labelc8">
@@ -664,31 +486,15 @@
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes"> </property>
                                 <property name="use_markup">True</property>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">4</property>
-                              </packing>
                             </child>
+                          <property name="vexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">7</property>
-                          </packing>
                         </child>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">1</property>
-                      </packing>
                     </child>
                   </object>
-                  <packing>
-                    <property name="position">1</property>
-                  </packing>
                 </child>
                 <child type="tab">
                   <object class="GtkLabel" id="label2">
@@ -696,16 +502,11 @@
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Font Colors</property>
                   </object>
-                  <packing>
-                    <property name="position">1</property>
-                    <property name="tab_fill">False</property>
-                  </packing>
                 </child>
                 <child>
                   <object class="GtkBox" id="vbox3">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="border_width">6</property>
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkLabel" id="label15">
@@ -715,17 +516,11 @@
                         <property name="label" translatable="yes">&lt;b&gt;Font Sizes&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">False</property>
-                        <property name="position">0</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkBox" id="basehbox10">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="border_width">8</property>
                         <property name="homogeneous">True</property>
                         <child>
                           <object class="GtkLabel" id="baselabel16">
@@ -735,11 +530,6 @@
                             <property name="xalign">0.090000003576278687</property>
                             <property name="label" translatable="yes">Base font size</property>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkComboBox" id="basecombobox1">
@@ -753,24 +543,13 @@
                               </attributes>
                             </child>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">False</property>
-                            <property name="position">1</property>
-                          </packing>
                         </child>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">1</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkBox" id="hbox11">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="border_width">8</property>
                         <property name="homogeneous">True</property>
                         <child>
                           <object class="GtkLabel" id="label16">
@@ -780,11 +559,6 @@
                             <property name="xalign">0.090000003576278687</property>
                             <property name="label" translatable="yes">Verse number size</property>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkComboBox" id="combobox1">
@@ -798,18 +572,8 @@
                               </attributes>
                             </child>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">False</property>
-                            <property name="position">1</property>
-                          </packing>
                         </child>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">2</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkLabel" id="labelbsp5">
@@ -819,11 +583,6 @@
                         <property name="label" translatable="no"> </property>
                         <property name="use_markup">True</property>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">3</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkLabel" id="labelbsp6">
@@ -833,11 +592,6 @@
                         <property name="label" translatable="no"> </property>
                         <property name="use_markup">True</property>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">4</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkBox" id="hbox31">
@@ -853,40 +607,23 @@
                             <property name="label" translatable="yes">Fuente para un idioma concreto</property>
                             <property name="use_markup">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkComboBox" id="combobox17">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="combobox17-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">Language Font Combo</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">Language Font Combo</property>
+                            </accessibility>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">1</property>
-                          </packing>
                         </child>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">False</property>
-                        <property name="position">5</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkBox" id="columncountbox">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="border_width">8</property>
                         <property name="homogeneous">True</property>
                         <child>
                           <object class="GtkLabel" id="columncountlabel">
@@ -896,17 +633,11 @@
                             <property name="xalign">0.07</property>
                             <property name="label" translatable="yes">Columnas de texto</property>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkBox" id="columncountvaluebox">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="border_width">8</property>
                             <property name="homogeneous">True</property>
                             <child>
                               <object class="GtkComboBox" id="columncountvalue">
@@ -920,11 +651,6 @@
                                   </attributes>
                                 </child>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">False</property>
-                                <property name="position">0</property>
-                              </packing>
                             </child>
                             <child>
                               <object class="GtkCheckButton" id="justifybutton">
@@ -934,34 +660,14 @@
                                 <property name="receives_default">False</property>
                                 <property name="tooltip_text" translatable="yes">When unset, leave a ragged margin.</property>
                                 <property name="use_underline">True</property>
-                                <property name="xalign">0.5</property>
                                 <property name="active">True</property>
-                                <property name="draw_indicator">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">False</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">True</property>
-                            <property name="position">1</property>
-                          </packing>
                         </child>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">6</property>
-                      </packing>
                     </child>
                   </object>
-                  <packing>
-                    <property name="position">2</property>
-                  </packing>
                 </child>
                 <child type="tab">
                   <object class="GtkLabel" id="label3">
@@ -969,16 +675,11 @@
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Font Misc</property>
                   </object>
-                  <packing>
-                    <property name="position">2</property>
-                    <property name="tab_fill">False</property>
-                  </packing>
                 </child>
                 <child>
                   <object class="GtkBox" id="vbox4">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="border_width">6</property>
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkBox" id="box-BSP-header">
@@ -993,18 +694,8 @@
                             <property name="label" translatable="yes">&lt;b&gt;BibleSync&lt;/b&gt;</property>
                             <property name="use_markup">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                            <property name="position">0</property>
-                          </packing>
                         </child>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">False</property>
-                        <property name="position">0</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkBox" id="box-BSP-mode">
@@ -1019,15 +710,11 @@
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes">&lt;i&gt;Modo:&lt;/i&gt;</property>
                             <property name="use_markup">True</property>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
                         </child>
                         <child>
-                          <object class="GtkRadioButton" id="radiobutton_BSP_off">
+                          <object class="GtkCheckButton" id="radiobutton_BSP_off">
                             <property name="label" translatable="yes">_Off</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
@@ -1035,23 +722,15 @@
                             <property name="has_tooltip">True</property>
                             <property name="tooltip_text" translatable="yes">Disable BibleSync.</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="radiobutton_BSP_off-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">BSP off radio button</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">BSP off radio button</property>
+                            </accessibility>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">1</property>
-                          </packing>
                         </child>
                         <child>
-                          <object class="GtkRadioButton" id="radiobutton_BSP_speaker">
+                          <object class="GtkCheckButton" id="radiobutton_BSP_speaker">
                             <property name="label" translatable="yes">_Speaker</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
@@ -1059,24 +738,16 @@
                             <property name="has_tooltip">True</property>
                             <property name="tooltip_text" translatable="yes">Enable BibleSync as the speaker.</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
                             <property name="group">radiobutton_BSP_off</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="radiobutton_BSP_speaker-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">BSP speaker radio button</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">BSP speaker radio button</property>
+                            </accessibility>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">2</property>
-                          </packing>
                         </child>
                         <child>
-                          <object class="GtkRadioButton" id="radiobutton_BSP_audience">
+                          <object class="GtkCheckButton" id="radiobutton_BSP_audience">
                             <property name="label" translatable="yes">_Audience</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
@@ -1084,24 +755,16 @@
                             <property name="has_tooltip">True</property>
                             <property name="tooltip_text" translatable="yes">Enable BibleSync as a member of the audience.</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
                             <property name="group">radiobutton_BSP_off</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="radiobutton_BSP_audience-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">BSP audience radio button</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">BSP audience radio button</property>
+                            </accessibility>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">3</property>
-                          </packing>
                         </child>
                         <child>
-                          <object class="GtkRadioButton" id="radiobutton_BSP_personal">
+                          <object class="GtkCheckButton" id="radiobutton_BSP_personal">
                             <property name="label" translatable="yes">_Personal</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
@@ -1109,28 +772,16 @@
                             <property name="has_tooltip">True</property>
                             <property name="tooltip_text" translatable="yes">Enable BibleSync for personal or team use.</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
                             <property name="group">radiobutton_BSP_off</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="radiobutton_BSP_personal-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">BSP personal radio button</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">BSP personal radio button</property>
+                            </accessibility>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">4</property>
-                          </packing>
                         </child>
+                      <property name="hexpand">True</property>
                       </object>
-                      <packing>
-                        <property name="expand">True</property>
-                        <property name="fill">True</property>
-                        <property name="position">1</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkBox" id="box-BSP-private">
@@ -1144,12 +795,8 @@
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes"> </property>
                             <property name="use_markup">True</property>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkLabel" id="labelp2">
@@ -1158,12 +805,8 @@
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes"> </property>
                             <property name="use_markup">True</property>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">1</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkLabel" id="labelp3">
@@ -1172,12 +815,8 @@
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes"> </property>
                             <property name="use_markup">True</property>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">2</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkLabel" id="labelp4">
@@ -1186,12 +825,8 @@
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes"> </property>
                             <property name="use_markup">True</property>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">3</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="checkbutton_BSP_privacy">
@@ -1202,27 +837,15 @@
                             <property name="has_tooltip">True</property>
                             <property name="tooltip_text" translatable="yes">When in Personal mode, only programs running on this machine will hear your navigation.</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="checkbutton_BSP_privacy-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">BSP privacy button</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">BSP privacy button</property>
+                            </accessibility>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">4</property>
-                          </packing>
                         </child>
+                      <property name="hexpand">True</property>
                       </object>
-                      <packing>
-                        <property name="expand">True</property>
-                        <property name="fill">True</property>
-                        <property name="position">2</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkBox" id="box-BSP-nav">
@@ -1237,15 +860,11 @@
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes">&lt;i&gt;Navegar:&lt;/i&gt;</property>
                             <property name="use_markup">True</property>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
                         </child>
                         <child>
-                          <object class="GtkRadioButton" id="radiobutton_BSP_nav_direct">
+                          <object class="GtkCheckButton" id="radiobutton_BSP_nav_direct">
                             <property name="label" translatable="yes">_Direct</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
@@ -1253,23 +872,15 @@
                             <property name="has_tooltip">True</property>
                             <property name="tooltip_text" translatable="yes">BibleSync navigation will send Xiphos directly to the verse indicated.</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="radiobutton_BSP_nav_direct-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">BSP nav direct radio button</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">BSP nav direct radio button</property>
+                            </accessibility>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">1</property>
-                          </packing>
                         </child>
                         <child>
-                          <object class="GtkRadioButton" id="radiobutton_BSP_nav_verselist">
+                          <object class="GtkCheckButton" id="radiobutton_BSP_nav_verselist">
                             <property name="label" translatable="yes">_Verse list</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
@@ -1277,21 +888,13 @@
                             <property name="has_tooltip">True</property>
                             <property name="tooltip_text" translatable="yes">BibleSync navigation will use Xiphos' sidebar verse list.</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
                             <property name="group">radiobutton_BSP_nav_direct</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="radiobutton_BSP_nav_verselist-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">BSP nav verse list radio button</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">BSP nav verse list radio button</property>
+                            </accessibility>
+                          <property name="vexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">2</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkLabel" id="labeln1">
@@ -1300,12 +903,8 @@
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes"> </property>
                             <property name="use_markup">True</property>
+                          <property name="vexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">3</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="checkbutton_BSP_keyboard">
@@ -1316,27 +915,15 @@
                             <property name="has_tooltip">True</property>
                             <property name="tooltip_text" translatable="yes">When checked, do not transmit every time Xiphos navigates; instead, transmit only using keyboard shortcut (Ctrl-Shift-Alt-N).</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="checkbutton_BSP_keyboard-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">BSP keyboard button</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">BSP keyboard button</property>
+                            </accessibility>
+                          <property name="vexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">4</property>
-                          </packing>
                         </child>
+                      <property name="vexpand">True</property>
                       </object>
-                      <packing>
-                        <property name="expand">True</property>
-                        <property name="fill">True</property>
-                        <property name="position">3</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkBox" id="box-BSP-listen">
@@ -1351,15 +938,11 @@
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes">&lt;i&gt;Escuchar:&lt;/i&gt;</property>
                             <property name="use_markup">True</property>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
                         </child>
                         <child>
-                          <object class="GtkRadioButton" id="radiobutton_BSP_listen_some">
+                          <object class="GtkCheckButton" id="radiobutton_BSP_listen_some">
                             <property name="label" translatable="yes">Selective</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
@@ -1367,23 +950,15 @@
                             <property name="has_tooltip">True</property>
                             <property name="tooltip_text" translatable="yes">Choose the Speakers to be followed.</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="radiobutton_BSP_listen_some-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">BSP listen some radio button</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">BSP listen some radio button</property>
+                            </accessibility>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">1</property>
-                          </packing>
                         </child>
                         <child>
-                          <object class="GtkRadioButton" id="radiobutton_BSP_listen_all">
+                          <object class="GtkCheckButton" id="radiobutton_BSP_listen_all">
                             <property name="label" translatable="yes">All</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
@@ -1391,24 +966,16 @@
                             <property name="has_tooltip">True</property>
                             <property name="tooltip_text" translatable="yes">All Speakers will be followed.</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
                             <property name="group">radiobutton_BSP_listen_some</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="radiobutton_BSP_listen_all-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">BSP listen all radio button</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">BSP listen all radio button</property>
+                            </accessibility>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">2</property>
-                          </packing>
                         </child>
                         <child>
-                          <object class="GtkRadioButton" id="radiobutton_BSP_listen_none">
+                          <object class="GtkCheckButton" id="radiobutton_BSP_listen_none">
                             <property name="label" translatable="yes">None</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
@@ -1416,21 +983,13 @@
                             <property name="has_tooltip">True</property>
                             <property name="tooltip_text" translatable="yes">No Speakers will be followed.</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
                             <property name="group">radiobutton_BSP_listen_some</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="radiobutton_BSP_listen_none-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">BSP listen none radio button</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">BSP listen none radio button</property>
+                            </accessibility>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">3</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkLabel" id="labell1">
@@ -1439,19 +998,11 @@
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes"> </property>
                             <property name="use_markup">True</property>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">4</property>
-                          </packing>
                         </child>
+                      <property name="vexpand">True</property>
                       </object>
-                      <packing>
-                        <property name="expand">True</property>
-                        <property name="fill">True</property>
-                        <property name="position">4</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkBox" id="box-BSP-speaker-set">
@@ -1464,20 +1015,11 @@
                             <property name="height_request">150</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="shadow_type">in</property>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
                         </child>
+                      <property name="vexpand">True</property>
                       </object>
-                      <packing>
-                        <property name="expand">True</property>
-                        <property name="fill">True</property>
-                        <property name="position">5</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkBox" id="box-BSP-toggles">
@@ -1493,12 +1035,8 @@
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes">&lt;i&gt;Otros:&lt;/i&gt;</property>
                             <property name="use_markup">True</property>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="checkbutton_BSP_presence">
@@ -1509,20 +1047,12 @@
                             <property name="has_tooltip">True</property>
                             <property name="tooltip_text" translatable="yes">Presence announcements will be shown in dialogs.</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="checkbutton_BSP_presence-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">BSP presence button</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">BSP presence button</property>
+                            </accessibility>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">1</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="checkbutton_BSP_mismatch">
@@ -1533,20 +1063,12 @@
                             <property name="has_tooltip">True</property>
                             <property name="tooltip_text" translatable="yes">Mismatches from your session will be shown in dialogs.</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="checkbutton_BSP_mismatch-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">BSP mismatch button</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">BSP mismatch button</property>
+                            </accessibility>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">2</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="checkbutton_BSP_nav_debug">
@@ -1557,20 +1079,12 @@
                             <property name="has_tooltip">True</property>
                             <property name="tooltip_text" translatable="yes">Packet tracing.</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="checkbutton_BSP_nav_debug-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">BSP event debug button</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">BSP event debug button</property>
+                            </accessibility>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">3</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="checkbutton_BSP_group_tab">
@@ -1581,32 +1095,17 @@
                             <property name="has_tooltip">True</property>
                             <property name="tooltip_text" translatable="yes">Interpret the protocol's group number parameter as Xiphos' tab number. Disabling this may be necessary if some Speakers' use of group number is not appropriate as a tab number.</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="checkbutton_BSP_group_tab-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">BSP event group-as-tab button</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">BSP event group-as-tab button</property>
+                            </accessibility>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">4</property>
-                          </packing>
                         </child>
+                      <property name="vexpand">True</property>
                       </object>
-                      <packing>
-                        <property name="expand">True</property>
-                        <property name="fill">True</property>
-                        <property name="position">6</property>
-                      </packing>
                     </child>
                   </object>
-                  <packing>
-                    <property name="position">3</property>
-                  </packing>
                 </child>
                 <child type="tab">
                   <object class="GtkLabel" id="label4">
@@ -1614,16 +1113,11 @@
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">BibleSync</property>
                   </object>
-                  <packing>
-                    <property name="position">3</property>
-                    <property name="tab_fill">False</property>
-                  </packing>
                 </child>
                 <child>
                   <object class="GtkBox" id="vbox6">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="border_width">6</property>
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkLabel" id="label19">
@@ -1633,17 +1127,11 @@
                         <property name="label" translatable="yes">&lt;b&gt;General&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">False</property>
-                        <property name="position">0</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkBox" id="vbox7">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="border_width">8</property>
                         <property name="orientation">vertical</property>
                         <property name="spacing">2</property>
                         <child>
@@ -1660,34 +1148,19 @@
                                 <property name="label" translatable="yes">Idioma de la interfaz (requiere reiniciar)</property>
                                 <property name="use_markup">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
                             </child>
                             <child>
                               <object class="GtkComboBox" id="combobox16">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <child internal-child="accessible">
-                                  <object class="AtkObject" id="combobox16-atkobject">
-                                    <property name="AtkObject::accessible-name" translatable="yes">Locale Combo</property>
-                                  </object>
-                                </child>
+                                <accessibility>
+                                  <property name="label" translatable="yes">Locale Combo</property>
+                                </accessibility>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="checkbutton8">
@@ -1696,15 +1169,8 @@
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                            <property name="position">1</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="checkbutton7">
@@ -1714,15 +1180,8 @@
                             <property name="receives_default">False</property>
                             <property name="tooltip_text" translatable="yes">If you have set a preferred daily devotion module, its entry for today will be shown at startup.</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                            <property name="position">2</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="checkbutton6">
@@ -1732,20 +1191,11 @@
                             <property name="receives_default">False</property>
                             <property name="tooltip_text" translatable="yes">Make double-click of a word always use default dictionary instead of dictionary currently displayed</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="checkbutton6-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">Use default Dictionary Checkbox</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">Use default Dictionary Checkbox</property>
+                            </accessibility>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                            <property name="position">3</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="checkbutton_scroll">
@@ -1755,20 +1205,11 @@
                             <property name="receives_default">False</property>
                             <property name="tooltip_text" translatable="yes">Use Bible Text scroll bar to scroll to previous or next chapter</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="checkbutton_scroll-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">Scroll to Previous/Next Chapter Checkbox</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">Scroll to Previous/Next Chapter Checkbox</property>
+                            </accessibility>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                            <property name="position">4</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="checkbutton_imageresize">
@@ -1778,20 +1219,11 @@
                             <property name="receives_default">False</property>
                             <property name="tooltip_text" translatable="yes">Automatically resize image content to fit the pane</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="checkbutton_imageresize-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">Resize images checkbox</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">Resize images checkbox</property>
+                            </accessibility>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                            <property name="position">5</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="checkbutton_versehighlight">
@@ -1801,20 +1233,11 @@
                             <property name="receives_default">False</property>
                             <property name="tooltip_text" translatable="yes">Apply high-contrast highlight to current verse - see color pickers</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="checkbutton_versehighlight-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">Highlight current verse check box</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">Highlight current verse check box</property>
+                            </accessibility>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                            <property name="position">6</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="checkbutton_annotate_highlight">
@@ -1824,20 +1247,11 @@
                             <property name="receives_default">False</property>
                             <property name="tooltip_text" translatable="yes">Use inverted highlight on user-annotated verses</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="checkbutton_annotate_highlight-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">Highlight user annotations check box</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">Highlight user annotations check box</property>
+                            </accessibility>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                            <property name="position">7</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="checkbutton_xrefs_in_verse_list">
@@ -1847,20 +1261,11 @@
                             <property name="receives_default">False</property>
                             <property name="tooltip_text" translatable="yes">Use the verse list for Bible cross-references instead of the previewer</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="checkbutton_xrefs_in_verse_list-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">Xrefs in verse list check box</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">Xrefs in verse list check box</property>
+                            </accessibility>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                            <property name="position">8</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="checkbutton_prayerlist">
@@ -1870,20 +1275,11 @@
                             <property name="receives_default">False</property>
                             <property name="tooltip_text" translatable="yes">Make journals/prayer lists available</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="checkbutton_prayerlist-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">Enable Prayer Lists Checkbox</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">Enable Prayer Lists Checkbox</property>
+                            </accessibility>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                            <property name="position">9</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="checkbutton_statusbar">
@@ -1893,20 +1289,11 @@
                             <property name="receives_default">False</property>
                             <property name="tooltip_text" translatable="yes">Mostrar u ocultar la barra de estado</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="checkbutton_statusbar-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">Enable Statusbar Checkbox</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">Enable Statusbar Checkbox</property>
+                            </accessibility>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                            <property name="position">10</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="checkbutton_darktheme">
@@ -1916,20 +1303,11 @@
                             <property name="receives_default">False</property>
                             <property name="tooltip_text" translatable="yes">Forzar una variante oscura del tema GTK, si el tema actual la ofrece</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0</property>
                             <property name="active">False</property>
-                            <property name="draw_indicator">True</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="checkbutton_darktheme-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">Prefer Dark Theme Checkbox</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">Prefer Dark Theme Checkbox</property>
+                            </accessibility>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                            <property name="position">11</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="checkbutton_alternation">
@@ -1939,20 +1317,11 @@
                             <property name="receives_default">False</property>
                             <property name="tooltip_text" translatable="yes">Parallel window can use alternating foreground/background.</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="checkbutton_alternation-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">Enable Parallel Alternation Checkbox</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">Enable Parallel Alternation Checkbox</property>
+                            </accessibility>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                            <property name="position">12</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="checkbutton_render_whole_books">
@@ -1962,20 +1331,11 @@
                             <property name="receives_default">False</property>
                             <property name="tooltip_text" translatable="yes">Mostrar libros enteros en la ventana principal, no solo un capítulo</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0</property>
                             <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="checkbutton_renderwholebook-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">Render Whole Book Checkbox</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">Render Whole Book Checkbox</property>
+                            </accessibility>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                            <property name="position">13</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkBox" id="hbox3">
@@ -1989,12 +1349,8 @@
                                 <property name="tooltip_text" translatable="yes">Offset the verse number in several ways</property>
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes">Verse number</property>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
                             </child>
                             <child>
                               <object class="GtkBox" id="verseboxes">
@@ -2010,20 +1366,12 @@
                                     <property name="has_tooltip">True</property>
                                     <property name="tooltip_text" translatable="yes">Show verse number in bold text</property>
                                     <property name="use_underline">True</property>
-                                    <property name="xalign">0.5</property>
                                     <property name="active">True</property>
-                                    <property name="draw_indicator">True</property>
-                                    <child internal-child="accessible">
-                                      <object class="AtkObject" id="checkbutton_verse_num_bold-atkobject">
-                                        <property name="AtkObject::accessible-name" translatable="yes">Verse number bold checkbox</property>
-                                      </object>
-                                    </child>
+                                    <accessibility>
+                                      <property name="label" translatable="yes">Verse number bold checkbox</property>
+                                    </accessibility>
+                                  <property name="hexpand">True</property>
                                   </object>
-                                  <packing>
-                                    <property name="expand">True</property>
-                                    <property name="fill">True</property>
-                                    <property name="position">0</property>
-                                  </packing>
                                 </child>
                                 <child>
                                   <object class="GtkCheckButton" id="checkbutton_verse_num_bracket">
@@ -2034,20 +1382,12 @@
                                     <property name="has_tooltip">True</property>
                                     <property name="tooltip_text" translatable="yes">Show verse number with [surrounding brackets]</property>
                                     <property name="use_underline">True</property>
-                                    <property name="xalign">0.5</property>
                                     <property name="active">True</property>
-                                    <property name="draw_indicator">True</property>
-                                    <child internal-child="accessible">
-                                      <object class="AtkObject" id="checkbutton_verse_num_bracket-atkobject">
-                                        <property name="AtkObject::accessible-name" translatable="yes">Verse number bracket checkbox</property>
-                                      </object>
-                                    </child>
+                                    <accessibility>
+                                      <property name="label" translatable="yes">Verse number bracket checkbox</property>
+                                    </accessibility>
+                                  <property name="hexpand">True</property>
                                   </object>
-                                  <packing>
-                                    <property name="expand">True</property>
-                                    <property name="fill">True</property>
-                                    <property name="position">1</property>
-                                  </packing>
                                 </child>
                                 <child>
                                   <object class="GtkCheckButton" id="checkbutton_verse_num_superscript">
@@ -2058,34 +1398,18 @@
                                     <property name="has_tooltip">True</property>
                                     <property name="tooltip_text" translatable="yes">Show verse number as a superscript</property>
                                     <property name="use_underline">True</property>
-                                    <property name="xalign">0.5</property>
                                     <property name="active">True</property>
-                                    <property name="draw_indicator">True</property>
-                                    <child internal-child="accessible">
-                                      <object class="AtkObject" id="checkbutton_verse_num_superscript-atkobject">
-                                        <property name="AtkObject::accessible-name" translatable="yes">Verse number superscript checkbox</property>
-                                      </object>
-                                    </child>
+                                    <accessibility>
+                                      <property name="label" translatable="yes">Verse number superscript checkbox</property>
+                                    </accessibility>
+                                  <property name="hexpand">True</property>
                                   </object>
-                                  <packing>
-                                    <property name="expand">True</property>
-                                    <property name="fill">True</property>
-                                    <property name="position">2</property>
-                                  </packing>
                                 </child>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">14</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkBox" id="hbox-studypad">
@@ -2099,60 +1423,31 @@
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes">StudyPad default directory</property>
                                 <property name="use_markup">True</property>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
                             </child>
                             <child>
                               <object class="GtkBox" id="hbox12">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <child>
-                                  <object class="GtkFileChooserButton" id="filechooserbutton1">
+                                  <object class="GtkButton" id="filechooserbutton1">
                                     <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="action">select-folder</property>
-                                    <property name="title" translatable="yes">Select A Directory</property>
-                                    <child internal-child="accessible">
-                                      <object class="AtkObject" id="filechooserbutton1-atkobject">
-                                        <property name="AtkObject::accessible-name" translatable="yes">StudyPad default directory combo</property>
-                                      </object>
-                                    </child>
+                                    <property name="can_focus">True</property>
+                                    <accessibility>
+                                      <property name="label" translatable="yes">StudyPad default directory combo</property>
+                                    </accessibility>
+                                  <property name="hexpand">True</property>
                                   </object>
-                                  <packing>
-                                    <property name="expand">True</property>
-                                    <property name="fill">True</property>
-                                    <property name="position">0</property>
-                                  </packing>
                                 </child>
                               </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">15</property>
-                          </packing>
                         </child>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">False</property>
-                        <property name="position">1</property>
-                      </packing>
                     </child>
                   </object>
-                  <packing>
-                    <property name="position">4</property>
-                  </packing>
                 </child>
                 <child type="tab">
                   <object class="GtkLabel" id="label5">
@@ -2160,15 +1455,10 @@
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">General Misc</property>
                   </object>
-                  <packing>
-                    <property name="position">4</property>
-                    <property name="tab_fill">False</property>
-                  </packing>
                 </child>
                 <child>
                   <object class="GtkBox" id="vbox8">
                     <property name="can_focus">False</property>
-                    <property name="border_width">6</property>
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkLabel" id="label21">
@@ -2178,17 +1468,11 @@
                         <property name="label" translatable="yes">&lt;b&gt;Main Window Modules&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">False</property>
-                        <property name="position">0</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkBox" id="vbox9">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="border_width">8</property>
                         <property name="orientation">vertical</property>
                         <property name="spacing">6</property>
                         <child>
@@ -2203,34 +1487,19 @@
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes">Biblical Text</property>
                               </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
                             </child>
                             <child>
                               <object class="GtkComboBox" id="combobox2">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <child internal-child="accessible">
-                                  <object class="AtkObject" id="combobox2-atkobject">
-                                    <property name="AtkObject::accessible-name" translatable="yes">Change Biblical Text Combo</property>
-                                  </object>
-                                </child>
+                                <accessibility>
+                                  <property name="label" translatable="yes">Change Biblical Text Combo</property>
+                                </accessibility>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
+                          <property name="vexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkBox" id="hbox14">
@@ -2244,34 +1513,19 @@
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes">Commentary</property>
                               </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
                             </child>
                             <child>
                               <object class="GtkComboBox" id="combobox3">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <child internal-child="accessible">
-                                  <object class="AtkObject" id="combobox3-atkobject">
-                                    <property name="AtkObject::accessible-name" translatable="yes">Change Commentary Combo</property>
-                                  </object>
-                                </child>
+                                <accessibility>
+                                  <property name="label" translatable="yes">Change Commentary Combo</property>
+                                </accessibility>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
+                          <property name="vexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">1</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkBox" id="hbox15">
@@ -2285,34 +1539,19 @@
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes">Dictionary</property>
                               </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
                             </child>
                             <child>
                               <object class="GtkComboBox" id="combobox4">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <child internal-child="accessible">
-                                  <object class="AtkObject" id="combobox4-atkobject">
-                                    <property name="AtkObject::accessible-name" translatable="yes">Change Dictionary Combo</property>
-                                  </object>
-                                </child>
+                                <accessibility>
+                                  <property name="label" translatable="yes">Change Dictionary Combo</property>
+                                </accessibility>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
+                          <property name="vexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">2</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkBox" id="hbox26">
@@ -2326,46 +1565,23 @@
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes">Book</property>
                               </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
                             </child>
                             <child>
                               <object class="GtkComboBox" id="combobox15">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <child internal-child="accessible">
-                                  <object class="AtkObject" id="combobox15-atkobject">
-                                    <property name="AtkObject::accessible-name" translatable="yes">Change Book Combo</property>
-                                  </object>
-                                </child>
+                                <accessibility>
+                                  <property name="label" translatable="yes">Change Book Combo</property>
+                                </accessibility>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
+                          <property name="vexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">3</property>
-                          </packing>
                         </child>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">1</property>
-                      </packing>
                     </child>
                   </object>
-                  <packing>
-                    <property name="position">5</property>
-                  </packing>
                 </child>
                 <child type="tab">
                   <placeholder/>
@@ -2374,7 +1590,6 @@
                   <object class="GtkBox" id="vbox10">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="border_width">6</property>
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkLabel" id="ps_label">
@@ -2384,94 +1599,59 @@
                         <property name="label" translatable="yes">&lt;b&gt;Modules&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">False</property>
-                        <property name="position">0</property>
-                      </packing>
                     </child>
                     <child>
-                      <object class="GtkToolbar" id="ps_toolbar">
+                      <object class="GtkBox" id="ps_toolbar">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="toolbar_style">icons</property>
-                        <property name="icon_size">2</property>
+                        <property name="orientation">horizontal</property>
+                        <property name="spacing">4</property>
                         <child>
-                          <object class="GtkToolButton" id="ps_toolbutton_clear">
+                          <object class="GtkButton" id="ps_toolbutton_clear">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="tooltip_text" translatable="yes">Clear all modules from the list</property>
-                            <property name="icon_name">edit-clear-symbolic</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="ps_toolbutton_clear-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">Clear Modules from List Button</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">Clear Modules from List Button</property>
+                            </accessibility>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="homogeneous">True</property>
-                          </packing>
                         </child>
                         <child>
-                          <object class="GtkToolButton" id="ps_toolbutton_cut">
+                          <object class="GtkButton" id="ps_toolbutton_cut">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="tooltip_text" translatable="yes">Remove the selected module from the list</property>
                             <property name="use_underline">True</property>
-                            <property name="icon_name">edit-cut-symbolic</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="ps_toolbutton_cut-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">Delete Selected Module From List Button</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">Delete Selected Module From List Button</property>
+                            </accessibility>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="homogeneous">True</property>
-                          </packing>
                         </child>
                         <child>
-                          <object class="GtkSeparatorToolItem" id="ps_separator">
+                          <object class="GtkSeparator" id="ps_separator">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
+                            <property name="orientation">vertical</property>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="homogeneous">False</property>
-                          </packing>
                         </child>
                         <child>
-                          <object class="GtkToolButton" id="ps_toolbutton_add">
+                          <object class="GtkButton" id="ps_toolbutton_add">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="tooltip_text" translatable="yes">Open a dialog to select modules</property>
                             <property name="label" translatable="yes">Add Modules</property>
                             <property name="use_underline">True</property>
-                            <property name="icon_name">list-add-symbolic</property>
-                            <child internal-child="accessible">
-                              <object class="AtkObject" id="ps_toolbutton_add-atkobject">
-                                <property name="AtkObject::accessible-name" translatable="yes">Open Selection Dialog Button</property>
-                              </object>
-                            </child>
+                            <accessibility>
+                              <property name="label" translatable="yes">Open Selection Dialog Button</property>
+                            </accessibility>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="homogeneous">True</property>
-                          </packing>
                         </child>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">False</property>
-                        <property name="position">1</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkScrolledWindow" id="ps_window">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
-                        <property name="shadow_type">in</property>
                         <child>
                           <object class="GtkTreeView" id="ps_listview">
                             <property name="visible">True</property>
@@ -2483,16 +1663,8 @@
                           </object>
                         </child>
                       </object>
-                      <packing>
-                        <property name="expand">True</property>
-                        <property name="fill">True</property>
-                        <property name="position">2</property>
-                      </packing>
                     </child>
                   </object>
-                  <packing>
-                    <property name="position">6</property>
-                  </packing>
                 </child>
                 <child type="tab">
                   <object class="GtkLabel" id="label7">
@@ -2500,16 +1672,11 @@
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Modules Parallel</property>
                   </object>
-                  <packing>
-                    <property name="position">6</property>
-                    <property name="tab_fill">False</property>
-                  </packing>
                 </child>
                 <child>
                   <object class="GtkBox" id="vbox12">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="border_width">6</property>
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkLabel" id="label33">
@@ -2519,17 +1686,11 @@
                         <property name="label" translatable="yes">&lt;b&gt;Special Purpose Modules&lt;/b&gt;</property>
                         <property name="use_markup">True</property>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">False</property>
-                        <property name="position">0</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkBox" id="vbox13">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="border_width">8</property>
                         <property name="orientation">vertical</property>
                         <property name="spacing">6</property>
                         <child>
@@ -2544,34 +1705,19 @@
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes">Daily Devotional</property>
                               </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
                             </child>
                             <child>
                               <object class="GtkComboBox" id="combobox12">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <child internal-child="accessible">
-                                  <object class="AtkObject" id="combobox12-atkobject">
-                                    <property name="AtkObject::accessible-name" translatable="yes">Daily Devotional Combo</property>
-                                  </object>
-                                </child>
+                                <accessibility>
+                                  <property name="label" translatable="yes">Daily Devotional Combo</property>
+                                </accessibility>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkBox" id="hbox24">
@@ -2585,34 +1731,19 @@
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes">Hebrew Lexicon</property>
                               </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
                             </child>
                             <child>
                               <object class="GtkComboBox" id="combobox13">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <child internal-child="accessible">
-                                  <object class="AtkObject" id="combobox13-atkobject">
-                                    <property name="AtkObject::accessible-name" translatable="yes">Hebrew Lexicon Combo</property>
-                                  </object>
-                                </child>
+                                <accessibility>
+                                  <property name="label" translatable="yes">Hebrew Lexicon Combo</property>
+                                </accessibility>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">1</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkBox" id="hbox25">
@@ -2626,34 +1757,19 @@
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes">Greek Lexicon</property>
                               </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
                             </child>
                             <child>
                               <object class="GtkComboBox" id="combobox14">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <child internal-child="accessible">
-                                  <object class="AtkObject" id="combobox14-atkobject">
-                                    <property name="AtkObject::accessible-name" translatable="yes">Greek Lexicon Combo</property>
-                                  </object>
-                                </child>
+                                <accessibility>
+                                  <property name="label" translatable="yes">Greek Lexicon Combo</property>
+                                </accessibility>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">2</property>
-                          </packing>
                         </child>
                         
                         <child>
@@ -2668,34 +1784,19 @@
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes">Léxico de morfología hebrea</property>
                               </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
                             </child>
                             <child>
                               <object class="GtkComboBox" id="combobox18">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <child internal-child="accessible">
-                                  <object class="AtkObject" id="combobox18-atkobject">
-                                    <property name="AtkObject::accessible-name" translatable="yes">Hebrew Morphology Lexicon Combo</property>
-                                  </object>
-                                </child>
+                                <accessibility>
+                                  <property name="label" translatable="yes">Hebrew Morphology Lexicon Combo</property>
+                                </accessibility>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">3</property>
-                          </packing>
                         </child>
 <child>
                           <object class="GtkBox" id="hbox34">
@@ -2709,34 +1810,19 @@
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes">Léxico de morfología griega del AT</property>
                               </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
                             </child>
                             <child>
                               <object class="GtkComboBox" id="combobox20">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <child internal-child="accessible">
-                                  <object class="AtkObject" id="combobox20-atkobject">
-                                    <property name="AtkObject::accessible-name" translatable="yes">OT Greek Morphology Lexicon Combo</property>
-                                  </object>
-                                </child>
+                                <accessibility>
+                                  <property name="label" translatable="yes">OT Greek Morphology Lexicon Combo</property>
+                                </accessibility>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
+                        <property name="hexpand">True</property>
                         </object>
-                        <packing>
-                          <property name="expand">True</property>
-                          <property name="fill">True</property>
-                          <property name="position">4</property>
-                        </packing>
                       </child>
                         <child>
                           <object class="GtkBox" id="hbox33">
@@ -2750,34 +1836,19 @@
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes">Léxico de morfología griega del NT</property>
                               </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
                             </child>
                             <child>
                               <object class="GtkComboBox" id="combobox19">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <child internal-child="accessible">
-                                  <object class="AtkObject" id="combobox19-atkobject">
-                                    <property name="AtkObject::accessible-name" translatable="yes">NT Greek Morphology Lexicon Combo</property>
-                                  </object>
-                                </child>
+                                <accessibility>
+                                  <property name="label" translatable="yes">NT Greek Morphology Lexicon Combo</property>
+                                </accessibility>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">5</property>
-                          </packing>
                         </child>
                         
                         <child>
@@ -2792,34 +1863,19 @@
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes">Default Dictionary</property>
                               </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
                             </child>
                             <child>
                               <object class="GtkComboBox" id="combobox5">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <child internal-child="accessible">
-                                  <object class="AtkObject" id="combobox5-atkobject">
-                                    <property name="AtkObject::accessible-name" translatable="yes">Change Default Dictionary Combo</property>
-                                  </object>
-                                </child>
+                                <accessibility>
+                                  <property name="label" translatable="yes">Change Default Dictionary Combo</property>
+                                </accessibility>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">6</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkBox" id="hbox17">
@@ -2833,34 +1889,19 @@
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes">Personal Notes</property>
                               </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
                             </child>
                             <child>
                               <object class="GtkComboBox" id="combobox6">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <child internal-child="accessible">
-                                  <object class="AtkObject" id="combobox6-atkobject">
-                                    <property name="AtkObject::accessible-name" translatable="yes">Change Personal Notes Combo</property>
-                                  </object>
-                                </child>
+                                <accessibility>
+                                  <property name="label" translatable="yes">Change Personal Notes Combo</property>
+                                </accessibility>
+                              <property name="hexpand">True</property>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
+                          <property name="hexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">7</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkBox" id="hbox_module_grouping">
@@ -2874,11 +1915,6 @@
                                 <property name="xalign">0</property>
                                 <property name="label" translatable="yes">Agrupación de la lista de módulos</property>
                               </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
                             </child>
                             <child>
                               <object class="GtkComboBox" id="combobox_module_grouping">
@@ -2891,24 +1927,13 @@
                                     <attribute name="text">0</attribute>
                                   </attributes>
                                 </child>
-                                <child internal-child="accessible">
-                                  <object class="AtkObject" id="combobox_module_grouping-atkobject">
-                                    <property name="AtkObject::accessible-name" translatable="yes">Module List Grouping Combo</property>
-                                  </object>
-                                </child>
+                                <accessibility>
+                                  <property name="label" translatable="yes">Module List Grouping Combo</property>
+                                </accessibility>
                               </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
                             </child>
+                          <property name="vexpand">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">8</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="checkbutton_show_hidden_modules">
@@ -2917,25 +1942,11 @@
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="use_underline">True</property>
-                            <property name="draw_indicator">True</property>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">True</property>
-                            <property name="position">9</property>
-                          </packing>
                         </child>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">1</property>
-                      </packing>
                     </child>
                   </object>
-                  <packing>
-                    <property name="position">7</property>
-                  </packing>
                 </child>
                 <child type="tab">
                   <object class="GtkLabel" id="label8">
@@ -2943,24 +1954,30 @@
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Modules Misc</property>
                   </object>
-                  <packing>
-                    <property name="position">7</property>
-                    <property name="tab_fill">False</property>
-                  </packing>
                 </child>
+              <property name="vexpand">True</property>
               </object>
-              <packing>
-                <property name="expand">True</property>
-                <property name="fill">True</property>
-                <property name="position">1</property>
-              </packing>
             </child>
           </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">2</property>
-          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="dialog-action_area1">
+            <property name="halign">end</property>
+            <property name="margin_start">12</property>
+            <property name="margin_end">12</property>
+            <property name="margin_top">4</property>
+            <property name="margin_bottom">12</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkButton" id="closebutton1">
+                <property name="label" translatable="yes">Cerrar</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+              </object>
+            </child>
+          </object>
         </child>
       </object>
     </child>

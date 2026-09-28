@@ -37,6 +37,7 @@
 
 #include <glib/gstdio.h>
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <glib/gi18n.h>
 
 #include "gui/buscar_notas.h"
@@ -79,6 +80,12 @@ typedef struct {
 	GtkWidget *cmb_etiqueta;
 	GtkWidget *cmb_libro;
 	GtkWidget *cmb_version;
+	GtkStringList *modelo_etiqueta;
+	GtkStringList *modelo_libro;
+	GtkStringList *modelo_version;
+	GPtrArray *ids_etiqueta;
+	GPtrArray *ids_libro;
+	GPtrArray *ids_version;
 	GtkListStore *modelo;
 
 	GList *notas;	 /* HighlightNote*, todas, leídas una vez */
@@ -245,8 +252,56 @@ fila(const BN_NOTA *n, const gchar *marcado)
 static const gchar *
 filtro(GtkWidget *cmb)
 {
-	const gchar *id = gtk_combo_box_get_active_id(GTK_COMBO_BOX(cmb));
+	GtkStringList *model = NULL;
+	GPtrArray *ids = NULL;
+	if (cmb == ui->cmb_etiqueta) {
+		model = ui->modelo_etiqueta;
+		ids = ui->ids_etiqueta;
+	} else if (cmb == ui->cmb_libro) {
+		model = ui->modelo_libro;
+		ids = ui->ids_libro;
+	} else if (cmb == ui->cmb_version) {
+		model = ui->modelo_version;
+		ids = ui->ids_version;
+	}
+	if (!model || !ids)
+		return NULL;
+	guint selected = gtk_drop_down_get_selected(GTK_DROP_DOWN(cmb));
+	if (selected == GTK_INVALID_LIST_POSITION || selected >= ids->len)
+		return NULL;
+	const gchar *id = g_ptr_array_index(ids, selected);
 	return (id && *id) ? id : NULL;
+}
+
+static void
+filtro_agregar(GtkStringList *model, GPtrArray *ids,
+		       const gchar *id, const gchar *label)
+{
+	gtk_string_list_append(model, label);
+	g_ptr_array_add(ids, g_strdup(id ? id : ""));
+}
+
+static void
+filtro_limpiar(GtkStringList *model, GPtrArray *ids)
+{
+	for (guint i = g_list_model_get_n_items(G_LIST_MODEL(model)); i > 0; i--)
+		gtk_string_list_remove(model, i - 1);
+	g_ptr_array_set_size(ids, 0);
+}
+
+static void
+filtro_seleccionar(GtkWidget *cmb, GPtrArray *ids, const gchar *wanted)
+{
+	guint selected = 0;
+	if (wanted && *wanted) {
+		for (guint i = 0; i < ids->len; i++) {
+			if (g_strcmp0(g_ptr_array_index(ids, i), wanted) == 0) {
+				selected = i;
+				break;
+			}
+		}
+	}
+	gtk_drop_down_set_selected(GTK_DROP_DOWN(cmb), selected);
 }
 
 static gboolean
@@ -329,45 +384,37 @@ rellenar_filtros(void)
 	g_ptr_array_sort(orden_etiquetas, por_nombre);
 	g_ptr_array_sort(orden_versiones, por_nombre);
 
-	gtk_combo_box_text_remove_all(GTK_COMBO_BOX_TEXT(ui->cmb_etiqueta));
-	gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(ui->cmb_etiqueta), "",
-				  _("Todas"));
+	filtro_limpiar(ui->modelo_etiqueta, ui->ids_etiqueta);
+	filtro_agregar(ui->modelo_etiqueta, ui->ids_etiqueta, "", _("Todas"));
 	for (guint i = 0; i < orden_etiquetas->len; i++) {
 		const gchar *e = g_ptr_array_index(orden_etiquetas, i);
 		gchar *txt = g_strdup_printf(
 		    "#%s (%d)", e,
 		    GPOINTER_TO_INT(g_hash_table_lookup(etiquetas, e)));
-		gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(ui->cmb_etiqueta), e,
-					  txt);
+		filtro_agregar(ui->modelo_etiqueta, ui->ids_etiqueta, e, txt);
 		g_free(txt);
 	}
 
-	gtk_combo_box_text_remove_all(GTK_COMBO_BOX_TEXT(ui->cmb_libro));
-	gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(ui->cmb_libro), "",
-				  _("Todos"));
+	filtro_limpiar(ui->modelo_libro, ui->ids_libro);
+	filtro_agregar(ui->modelo_libro, ui->ids_libro, "", _("Todos"));
 	for (guint i = 0; i < orden_libros->len; i++) {
 		gchar **par = g_strsplit(g_ptr_array_index(orden_libros, i), "\t", 2);
 		gchar *nombre = libro_legible(NULL, par[1]);
-		gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(ui->cmb_libro), par[0],
-					  nombre);
+		filtro_agregar(ui->modelo_libro, ui->ids_libro, par[0], nombre);
 		g_free(nombre);
 		g_strfreev(par);
 	}
 
-	gtk_combo_box_text_remove_all(GTK_COMBO_BOX_TEXT(ui->cmb_version));
-	gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(ui->cmb_version), "",
-				  _("Todas"));
+	filtro_limpiar(ui->modelo_version, ui->ids_version);
+	filtro_agregar(ui->modelo_version, ui->ids_version, "", _("Todas"));
 	for (guint i = 0; i < orden_versiones->len; i++) {
 		const gchar *v = g_ptr_array_index(orden_versiones, i);
-		gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(ui->cmb_version), v, v);
+		filtro_agregar(ui->modelo_version, ui->ids_version, v, v);
 	}
 
-	if (!antes_e || !gtk_combo_box_set_active_id(GTK_COMBO_BOX(ui->cmb_etiqueta), antes_e))
-		gtk_combo_box_set_active(GTK_COMBO_BOX(ui->cmb_etiqueta), 0);
-	if (!antes_l || !gtk_combo_box_set_active_id(GTK_COMBO_BOX(ui->cmb_libro), antes_l))
-		gtk_combo_box_set_active(GTK_COMBO_BOX(ui->cmb_libro), 0);
-	if (!antes_v || !gtk_combo_box_set_active_id(GTK_COMBO_BOX(ui->cmb_version), antes_v))
-		gtk_combo_box_set_active(GTK_COMBO_BOX(ui->cmb_version), 0);
+	filtro_seleccionar(ui->cmb_etiqueta, ui->ids_etiqueta, antes_e);
+	filtro_seleccionar(ui->cmb_libro, ui->ids_libro, antes_l);
+	filtro_seleccionar(ui->cmb_version, ui->ids_version, antes_v);
 	gtk_widget_set_sensitive(ui->cmb_etiqueta, orden_etiquetas->len > 0);
 	ui->llenando = FALSE;
 
@@ -470,18 +517,18 @@ buscar(void)
 	ui->mostradas = NULL;
 	gtk_widget_set_sensitive(ui->btn_ir, FALSE);
 
-	consulta = gtk_entry_get_text(GTK_ENTRY(ui->entry));
+	consulta = gtk_editable_get_text(GTK_EDITABLE(ui->entry));
 	if (!consulta || !*consulta) {
 		poner_todas();
 		ui->mostradas = g_list_reverse(ui->mostradas);
 		return;
 	}
 
-	modo = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(ui->chk_regex))
+	modo = gui_toggle_get_active(GTK_WIDGET(ui->chk_regex))
 		   ? BN_REGEX
 		   : BN_TEXTO;
-	mayus = gtk_toggle_button_get_active(
-	    GTK_TOGGLE_BUTTON(ui->chk_mayusculas));
+	mayus = gui_toggle_get_active(
+	    GTK_WIDGET(ui->chk_mayusculas));
 
 	r = main_buscar_notas(ui->visibles, consulta, modo, mayus, &error);
 
@@ -556,10 +603,9 @@ pedir_destino(const gchar *titulo, const gchar *nombre, const gchar *patron,
 	gtk_file_filter_set_name(f, tipo);
 	gtk_file_filter_add_pattern(f, patron);
 	gtk_file_chooser_add_filter(GTK_FILE_CHOOSER(fc), f);
-	gtk_file_chooser_set_do_overwrite_confirmation(GTK_FILE_CHOOSER(fc), TRUE);
 	gtk_file_chooser_set_current_name(GTK_FILE_CHOOSER(fc), nombre);
-	if (gtk_native_dialog_run(GTK_NATIVE_DIALOG(fc)) == GTK_RESPONSE_ACCEPT)
-		out = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(fc));
+	if (gui_native_dialog_run(GTK_NATIVE_DIALOG(fc)) == GTK_RESPONSE_ACCEPT)
+		out = gui_file_chooser_get_filename(GTK_FILE_CHOOSER(fc));
 	g_object_unref(fc);
 	return out;
 }
@@ -573,8 +619,8 @@ avisar(GtkMessageType tipo, const gchar *titulo, const gchar *detalle)
 	if (detalle)
 		gtk_message_dialog_format_secondary_text(GTK_MESSAGE_DIALOG(d),
 							 "%s", detalle);
-	gtk_dialog_run(GTK_DIALOG(d));
-	gtk_widget_destroy(d);
+	gui_dialog_run(GTK_DIALOG(d));
+	gui_widget_destroy(d);
 }
 
 static void
@@ -708,7 +754,7 @@ preparar_exportar(GtkWidget *boton)
 					G_N_ELEMENTS(acciones), NULL);
 	ui->accion_md = G_SIMPLE_ACTION(
 	    g_action_map_lookup_action(G_ACTION_MAP(grupo), "exportar-md"));
-	gtk_widget_insert_action_group(ui->dialog, "notas", G_ACTION_GROUP(grupo));
+	gui_widget_insert_action_group(ui->dialog, "notas", G_ACTION_GROUP(grupo));
 	g_object_unref(grupo);
 
 	GMenu *menu = g_menu_new();
@@ -737,8 +783,8 @@ on_importar(GtkButton *b, gpointer datos)
 	gtk_file_filter_set_name(f, _("Copia de notas (JSON)"));
 	gtk_file_filter_add_pattern(f, "*.json");
 	gtk_file_chooser_add_filter(GTK_FILE_CHOOSER(fc), f);
-	if (gtk_native_dialog_run(GTK_NATIVE_DIALOG(fc)) == GTK_RESPONSE_ACCEPT)
-		ruta = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(fc));
+	if (gui_native_dialog_run(GTK_NATIVE_DIALOG(fc)) == GTK_RESPONSE_ACCEPT)
+		ruta = gui_file_chooser_get_filename(GTK_FILE_CHOOSER(fc));
 	g_object_unref(fc);
 	if (!ruta)
 		return;
@@ -874,9 +920,10 @@ on_opcion(GtkToggleButton *b, gpointer datos)
 }
 
 static void
-on_filtro(GtkComboBox *cmb, gpointer datos)
+on_filtro(GtkDropDown *cmb, GParamSpec *pspec, gpointer datos)
 {
 	(void)cmb;
+	(void)pspec;
 	(void)datos;
 	if (!ui || ui->llenando)
 		return;
@@ -918,7 +965,7 @@ on_cerrar(GtkButton *b, gpointer datos)
 	(void)b;
 	(void)datos;
 	if (ui && ui->dialog)
-		gtk_widget_destroy(ui->dialog);
+		gui_widget_destroy(ui->dialog);
 }
 
 static void
@@ -994,6 +1041,18 @@ gui_buscar_notas_dialog(GtkWindow *padre)
 	ui->cmb_etiqueta = UI_GET_ITEM(gxml, "cmb_etiqueta");
 	ui->cmb_libro = UI_GET_ITEM(gxml, "cmb_libro");
 	ui->cmb_version = UI_GET_ITEM(gxml, "cmb_version");
+	ui->modelo_etiqueta = gtk_string_list_new(NULL);
+	ui->modelo_libro = gtk_string_list_new(NULL);
+	ui->modelo_version = gtk_string_list_new(NULL);
+	ui->ids_etiqueta = g_ptr_array_new_with_free_func(g_free);
+	ui->ids_libro = g_ptr_array_new_with_free_func(g_free);
+	ui->ids_version = g_ptr_array_new_with_free_func(g_free);
+	gtk_drop_down_set_model(GTK_DROP_DOWN(ui->cmb_etiqueta),
+				G_LIST_MODEL(ui->modelo_etiqueta));
+	gtk_drop_down_set_model(GTK_DROP_DOWN(ui->cmb_libro),
+				G_LIST_MODEL(ui->modelo_libro));
+	gtk_drop_down_set_model(GTK_DROP_DOWN(ui->cmb_version),
+				G_LIST_MODEL(ui->modelo_version));
 
 	gui_prepare_floating_dialog(
 	    GTK_WINDOW(ui->dialog),
@@ -1025,9 +1084,9 @@ gui_buscar_notas_dialog(GtkWindow *padre)
 	g_signal_connect(btn_cerrar, "clicked", G_CALLBACK(on_cerrar), NULL);
 	preparar_exportar(btn_exportar);
 	g_signal_connect(btn_importar, "clicked", G_CALLBACK(on_importar), NULL);
-	g_signal_connect(ui->cmb_etiqueta, "changed", G_CALLBACK(on_filtro), NULL);
-	g_signal_connect(ui->cmb_libro, "changed", G_CALLBACK(on_filtro), NULL);
-	g_signal_connect(ui->cmb_version, "changed", G_CALLBACK(on_filtro), NULL);
+	g_signal_connect(ui->cmb_etiqueta, "notify::selected", G_CALLBACK(on_filtro), NULL);
+	g_signal_connect(ui->cmb_libro, "notify::selected", G_CALLBACK(on_filtro), NULL);
+	g_signal_connect(ui->cmb_version, "notify::selected", G_CALLBACK(on_filtro), NULL);
 	g_signal_connect(ui->dialog, "destroy", G_CALLBACK(on_destroy), NULL);
 
 	g_object_unref(gxml);

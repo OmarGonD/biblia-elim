@@ -25,11 +25,11 @@
 extern "C" {
 #endif
 
-void gui_get_clipboard_text_for_lookup(GtkClipboard *clipboard,
-				       const gchar *text,
+void gui_get_clipboard_text_for_lookup(GObject *clipboard,
+				       GAsyncResult *result,
 				       gpointer data);
 void gui_create_pm_dictionary(void);
-void gui_lookup_dictlex_selection(GtkMenuItem *menuitem,
+void gui_lookup_dictlex_selection(gpointer menuitem,
 				  gchar *dict_mod_description);
 void gui_set_dictlex_mod_and_key(gchar *mod, gchar *key);
 void gui_display_dictlex(gchar *key);

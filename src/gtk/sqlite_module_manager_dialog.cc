@@ -1,4 +1,5 @@
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <gio/gio.h>
 #include <cstdio>
 #include <cstring>
@@ -28,7 +29,7 @@ static const char *module_type_name(BibleModuleType t) {
 }
 static void show_error(const std::string &error) {
     GtkWidget *m = gtk_message_dialog_new(NULL, GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR,
-        GTK_BUTTONS_CLOSE, "%s", error.c_str()); gtk_dialog_run(GTK_DIALOG(m)); gtk_widget_destroy(m);
+        GTK_BUTTONS_CLOSE, "%s", error.c_str()); gui_dialog_run(GTK_DIALOG(m)); gui_widget_destroy(m);
 }
 static void refresh_list(GtkListStore *store)
 {
@@ -56,7 +57,7 @@ static void on_remove(GtkButton *, gpointer data)
     }
     GtkWidget *q = gtk_message_dialog_new(NULL, GTK_DIALOG_MODAL, GTK_MESSAGE_QUESTION,
         GTK_BUTTONS_YES_NO, "¿Eliminar el módulo %s?", id);
-    gboolean yes = gtk_dialog_run(GTK_DIALOG(q)) == GTK_RESPONSE_YES; gtk_widget_destroy(q);
+    gboolean yes = gui_dialog_run(GTK_DIALOG(q)) == GTK_RESPONSE_YES; gui_widget_destroy(q);
     if (yes) { std::string error; if (removeSqliteModule(id, error, module_directory())) { main_recreate_bible_backend(); refresh_list(state->store); } else show_error(error); }
     g_free(id);
 }
@@ -67,11 +68,11 @@ static bool import_options(GtkWindow *parent, UsfmImportOptions &o) {
     GtkWidget *grid = gtk_grid_new(); gtk_grid_set_row_spacing(GTK_GRID(grid), 5); gtk_grid_set_column_spacing(GTK_GRID(grid), 8);
     const char *labels[] = {"ID del módulo", "Nombre", "Idioma", "Versificación"};
     GtkWidget *entries[4]; const char *defaults[] = {"rv1909", "RV1909", "es", "custom"};
-    for (int i=0;i<4;++i) { gtk_grid_attach(GTK_GRID(grid), gtk_label_new(labels[i]), 0, i, 1, 1); entries[i]=gtk_entry_new(); gtk_entry_set_text(GTK_ENTRY(entries[i]), defaults[i]); gtk_grid_attach(GTK_GRID(grid), entries[i], 1, i, 1, 1); }
-    gtk_box_pack_start(GTK_BOX(gtk_dialog_get_content_area(GTK_DIALOG(d))), grid, TRUE, TRUE, 8); gtk_widget_show_all(d);
-    bool ok = gtk_dialog_run(GTK_DIALOG(d)) == GTK_RESPONSE_ACCEPT;
-    if (ok) { o.moduleId=gtk_entry_get_text(GTK_ENTRY(entries[0])); o.name=gtk_entry_get_text(GTK_ENTRY(entries[1])); o.language=gtk_entry_get_text(GTK_ENTRY(entries[2])); o.versification=gtk_entry_get_text(GTK_ENTRY(entries[3])); }
-    gtk_widget_destroy(d); return ok;
+    for (int i=0;i<4;++i) { gtk_grid_attach(GTK_GRID(grid), gtk_label_new(labels[i]), 0, i, 1, 1); entries[i]=gtk_entry_new(); gtk_editable_set_text(GTK_EDITABLE(entries[i]), defaults[i]); gtk_grid_attach(GTK_GRID(grid), entries[i], 1, i, 1, 1); }
+    gui_box_pack(GTK_BOX(gtk_dialog_get_content_area(GTK_DIALOG(d))), grid, TRUE, TRUE, 8); gtk_widget_show(d);
+    bool ok = gui_dialog_run(GTK_DIALOG(d)) == GTK_RESPONSE_ACCEPT;
+    if (ok) { o.moduleId=gtk_editable_get_text(GTK_EDITABLE(entries[0])); o.name=gtk_editable_get_text(GTK_EDITABLE(entries[1])); o.language=gtk_editable_get_text(GTK_EDITABLE(entries[2])); o.versification=gtk_editable_get_text(GTK_EDITABLE(entries[3])); }
+    gui_widget_destroy(d); return ok;
 }
 
 static std::vector<std::string> usfm_files(const char *dir) {
@@ -98,8 +99,8 @@ static std::vector<std::string> run_conversions(const std::vector<std::string> &
         widgets.app ? GTK_WINDOW(widgets.app) : NULL, GTK_DIALOG_MODAL, NULL);
     gtk_window_set_deletable(GTK_WINDOW(progress), FALSE);
     GtkWidget *label = gtk_label_new("");
-    gtk_box_pack_start(GTK_BOX(gtk_dialog_get_content_area(GTK_DIALOG(progress))), label, TRUE, TRUE, 16);
-    gtk_widget_show_all(progress);
+    gui_box_pack(GTK_BOX(gtk_dialog_get_content_area(GTK_DIALOG(progress))), label, TRUE, TRUE, 16);
+    gtk_widget_show(progress);
     for (size_t i = 0; i < ids.size(); ++i) {
         gchar *text = g_strdup_printf("Preparando %s para lectura rápida (SQLite)… %zu de %zu\n"
             "Se conservan el ID, las notas y los marcadores.\n"
@@ -117,7 +118,7 @@ static std::vector<std::string> run_conversions(const std::vector<std::string> &
             g_task_return_boolean(task, job->ok);
         });
         // Modal GTK loop stays responsive; only the completion callback closes it.
-        while (!g_task_get_completed(task)) gtk_dialog_run(GTK_DIALOG(progress));
+        while (!g_task_get_completed(task)) gui_dialog_run(GTK_DIALOG(progress));
         g_object_unref(task);
         for (const auto &reference : job.repaired)
             g_message("SWORD -> SQLite %s: repaired truncated entry %s",
@@ -125,7 +126,7 @@ static std::vector<std::string> run_conversions(const std::vector<std::string> &
         if (job.ok) converted.push_back(job.id);
         else failed.emplace_back(job.id, job.error);
     }
-    gtk_widget_destroy(progress);
+    gui_widget_destroy(progress);
     return converted;
 }
 
@@ -193,7 +194,10 @@ static void show_batch_progress(size_t index, size_t total, const std::string &i
         gtk_widget_set_tooltip_text(batch_bar,
             "Se conservan el ID, las notas y los marcadores; el módulo SWORD original "
             "queda como respaldo. Puede seguir leyendo mientras tanto.");
-        gtk_box_pack_end(GTK_BOX(widgets.appbar), batch_bar, FALSE, FALSE, 6);
+        /* at the right end of the status bar */
+        gtk_widget_set_hexpand(batch_bar, TRUE);
+        gtk_widget_set_halign(batch_bar, GTK_ALIGN_END);
+        gui_box_pack(GTK_BOX(widgets.appbar), batch_bar, FALSE, FALSE, 6);
         batch_statusbar_was_visible = gtk_widget_get_visible(widgets.appbar);
         gtk_widget_show(widgets.appbar);
     }
@@ -205,7 +209,7 @@ static void show_batch_progress(size_t index, size_t total, const std::string &i
 }
 
 static void hide_batch_progress(void) {
-    if (batch_bar) { gtk_widget_destroy(batch_bar); batch_bar = nullptr; }
+    if (batch_bar) { gui_widget_destroy(batch_bar); batch_bar = nullptr; }
     if (widgets.appbar && !batch_statusbar_was_visible) gtk_widget_hide(widgets.appbar);
 }
 
@@ -343,14 +347,14 @@ extern "C" void gui_offer_sword_conversion(const char *module_id) {
             (m.id + " — " + m.language + " · " + m.versification).c_str());
     gtk_combo_box_set_active(GTK_COMBO_BOX(combo), 0);
     GtkWidget *area = gtk_dialog_get_content_area(GTK_DIALOG(dialog));
-    gtk_box_pack_start(GTK_BOX(area), gtk_label_new("Copia SQLite de una Biblia instalada. Se conserva su identificador.\nEl original SWORD permanece disponible como respaldo."), FALSE, FALSE, 12);
-    gtk_box_pack_start(GTK_BOX(area), combo, FALSE, FALSE, 8);
-    gtk_widget_show_all(dialog);
-    if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
+    gui_box_pack(GTK_BOX(area), gtk_label_new("Copia SQLite de una Biblia instalada. Se conserva su identificador.\nEl original SWORD permanece disponible como respaldo."), FALSE, FALSE, 12);
+    gui_box_pack(GTK_BOX(area), combo, FALSE, FALSE, 8);
+    gtk_widget_show(dialog);
+    if (gui_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
         const std::string id = gtk_combo_box_get_active_id(GTK_COMBO_BOX(combo));
-        gtk_widget_destroy(dialog);
+        gui_widget_destroy(dialog);
         run_conversion(id);
-    } else gtk_widget_destroy(dialog);
+    } else gui_widget_destroy(dialog);
 }
 
 extern "C" void gui_open_sqlite_module_manager(void)
@@ -366,45 +370,45 @@ extern "C" void gui_open_sqlite_module_manager(void)
         gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(view), -1,
             titles[i], r, "text", i, NULL);
     }
-    gtk_box_pack_start(GTK_BOX(area), view, TRUE, TRUE, 4);
+    gui_box_pack(GTK_BOX(area), view, TRUE, TRUE, 4);
     GtkWidget *buttons = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 4);
     GtkWidget *install = gtk_button_new_with_label("Instalar SQLite");
     GtkWidget *import = gtk_button_new_with_label("Importar USFM");
     GtkWidget *remove = gtk_button_new_with_label("Eliminar");
     GtkWidget *convert = gtk_button_new_with_label("Convertir Biblia SWORD…");
-    gtk_box_pack_start(GTK_BOX(buttons), convert, FALSE, FALSE, 0);
+    gtk_box_append(GTK_BOX(buttons), convert);
     g_signal_connect_swapped(convert, "clicked", G_CALLBACK(+[](GtkListStore *s) {
         gui_offer_sword_conversion(nullptr); refresh_list(s);
     }), store);
-    gtk_box_pack_start(GTK_BOX(buttons), install, FALSE, FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(buttons), import, FALSE, FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(buttons), remove, FALSE, FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(area), buttons, FALSE, FALSE, 4);
+    gtk_box_append(GTK_BOX(buttons), install);
+    gtk_box_append(GTK_BOX(buttons), import);
+    gtk_box_append(GTK_BOX(buttons), remove);
+    gui_box_pack(GTK_BOX(area), buttons, FALSE, FALSE, 4);
     refresh_list(store);
     DialogState *state = new DialogState{store, GTK_TREE_VIEW(view)};
     g_signal_connect_swapped(install, "clicked", G_CALLBACK(+[](GtkListStore *s) {
         GtkWidget *chooser = gtk_file_chooser_dialog_new("Seleccionar módulo SQLite", NULL,
             GTK_FILE_CHOOSER_ACTION_OPEN, "Cancelar", GTK_RESPONSE_CANCEL,
             "Instalar", GTK_RESPONSE_ACCEPT, NULL);
-        if (gtk_dialog_run(GTK_DIALOG(chooser)) == GTK_RESPONSE_ACCEPT) {
-            char *path = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(chooser));
+        if (gui_dialog_run(GTK_DIALOG(chooser)) == GTK_RESPONSE_ACCEPT) {
+            char *path = gui_file_chooser_get_filename(GTK_FILE_CHOOSER(chooser));
             std::string error;
             if (!installSqliteModule(path, error, nullptr, module_directory())) {
                 GtkWidget *m = gtk_message_dialog_new(NULL, GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR,
-                    GTK_BUTTONS_CLOSE, "%s", error.c_str()); gtk_dialog_run(GTK_DIALOG(m)); gtk_widget_destroy(m);
+                    GTK_BUTTONS_CLOSE, "%s", error.c_str()); gui_dialog_run(GTK_DIALOG(m)); gui_widget_destroy(m);
             } else { main_recreate_bible_backend(); refresh_list(s); }
             g_free(path);
         }
-        gtk_widget_destroy(chooser);
+        gui_widget_destroy(chooser);
     }), store);
     g_signal_connect(remove, "clicked", G_CALLBACK(on_remove), state);
     g_signal_connect_swapped(import, "clicked", G_CALLBACK(+[](GtkListStore *s) {
         GtkWidget *c=gtk_file_chooser_dialog_new("Seleccionar directorio USFM", NULL, GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER,
             "Cancelar", GTK_RESPONSE_CANCEL, "Seleccionar", GTK_RESPONSE_ACCEPT, NULL);
-        if (gtk_dialog_run(GTK_DIALOG(c))==GTK_RESPONSE_ACCEPT) { char *dir=gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(c)); UsfmImportOptions o; if (import_options(GTK_WINDOW(c),o)) { auto files=usfm_files(dir); UsfmImportStats st; std::string e; if (files.empty() || !importUsfmModule(files,o,st,e,module_directory())) show_error(files.empty()?"No se encontraron archivos USFM.":e); else { main_recreate_bible_backend(); refresh_list(s); } } g_free(dir); }
-        gtk_widget_destroy(c);
+        if (gui_dialog_run(GTK_DIALOG(c))==GTK_RESPONSE_ACCEPT) { char *dir=gui_file_chooser_get_filename(GTK_FILE_CHOOSER(c)); UsfmImportOptions o; if (import_options(GTK_WINDOW(c),o)) { auto files=usfm_files(dir); UsfmImportStats st; std::string e; if (files.empty() || !importUsfmModule(files,o,st,e,module_directory())) show_error(files.empty()?"No se encontraron archivos USFM.":e); else { main_recreate_bible_backend(); refresh_list(s); } } g_free(dir); }
+        gui_widget_destroy(c);
     }), store);
     gtk_widget_set_size_request(dialog, 560, 360);
-    gtk_widget_show_all(dialog); gtk_dialog_run(GTK_DIALOG(dialog));
-    gtk_widget_destroy(dialog); delete state; g_object_unref(store);
+    gtk_widget_show(dialog); gui_dialog_run(GTK_DIALOG(dialog));
+    gui_widget_destroy(dialog); delete state; g_object_unref(store);
 }

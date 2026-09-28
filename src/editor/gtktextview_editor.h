@@ -80,17 +80,15 @@ void action_quit_activate_cb(GtkWidget *widget, EDITOR *e);
 void action_print_cb(GtkWidget *widget, EDITOR *e);
 void action_insert_sword_link_activate_cb(GtkWidget *widget, gpointer data);
 void action_insert_link_activate_cb(GtkWidget *widget, EDITOR *e);
-void colorbutton1_color_set_cb(GtkColorButton *widget, EDITOR *e);
-void combo_box_changed_cb(GtkComboBox *widget, EDITOR *e);
+void colorbutton1_color_set_cb(GtkWidget *widget, GParamSpec *pspec,
+			       EDITOR *e);
+void combo_box_changed_cb(GObject *object, GParamSpec *pspec, EDITOR *e);
 void find_replace_response_cb(GtkDialog *dialog, gint response_id, EDITOR *e);
 void set_button_state(BUTTONS_STATE state, EDITOR *e);
 
-int delete_event(GtkWidget *widget, GdkEvent *event, EDITOR *e);
+int delete_event(GtkWidget *widget, gpointer event, EDITOR *e);
 gint ask_about_saving(EDITOR *e);
 
-gboolean _on_event(GtkTextTag *tag, GObject *event_object,
-                   GdkEvent *event, const GtkTextIter *iter,
-                   EDITOR *e);
 
 #endif /* USE_GTKTVeditor */
 

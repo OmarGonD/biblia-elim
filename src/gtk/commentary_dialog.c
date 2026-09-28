@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 
 #include "xiphos_html/xiphos_html.h"
 
@@ -94,12 +95,14 @@ static void on_dialog_destroy(GObject *object, DIALOG_DATA *d)
  *   gboolean
  */
 
-static gboolean on_dialog_motion_notify_event(GtkWidget *widget,
-					      GdkEventMotion *event,
-					      DIALOG_DATA *d)
+static void on_dialog_motion_notify_event(GtkEventControllerMotion *motion,
+					  gdouble x, gdouble y,
+					  DIALOG_DATA *d)
 {
+	(void)motion;
+	(void)x;
+	(void)y;
 	cur_d = d;
-	return FALSE;
 }
 
 /******************************************************************************
@@ -152,12 +155,9 @@ void gui_create_commentary_dialog(DIALOG_DATA *d, gboolean do_edit)
 	GtkWidget *vbox_toolbars;
 	GtkWidget *toolbar_nav;
 	GtkWidget *frame19;
-#ifndef USE_WEBKIT2
-	GtkWidget *scrolledwindow38;
-#endif
 
 	cur_d = d;
-	d->dialog = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+	d->dialog = gtk_window_new();
 
 	g_object_set_data(G_OBJECT(d->dialog), "d->dialog", d->dialog);
 	gtk_window_set_title(GTK_WINDOW(d->dialog),
@@ -171,44 +171,26 @@ void gui_create_commentary_dialog(DIALOG_DATA *d, gboolean do_edit)
 	UI_VBOX(vbox30, FALSE, 0);
 	gtk_widget_show(vbox30);
 
-	gtk_container_add(GTK_CONTAINER(d->dialog), vbox30);
+	gtk_window_set_child(GTK_WINDOW(d->dialog), vbox30);
 
 	UI_VBOX(vbox_toolbars, FALSE, 0);
 	gtk_widget_show(vbox_toolbars);
-	gtk_box_pack_start(GTK_BOX(vbox30), vbox_toolbars, FALSE, FALSE,
-			   0);
+	gtk_box_append(GTK_BOX(vbox30), vbox_toolbars);
 
 	toolbar_nav = create_nav_toolbar(d);
 	gtk_widget_show(toolbar_nav);
-	gtk_box_pack_start(GTK_BOX(vbox_toolbars), toolbar_nav, FALSE,
-			   FALSE, 0);
+	gtk_box_append(GTK_BOX(vbox_toolbars), toolbar_nav);
 
 	frame19 = gtk_frame_new(NULL);
 	gtk_widget_show(frame19);
-	gtk_box_pack_start(GTK_BOX(vbox30), frame19, TRUE, TRUE, 0);
-	gtk_frame_set_shadow_type(GTK_FRAME(frame19), GTK_SHADOW_IN);
+	gui_box_pack(GTK_BOX(vbox30), frame19, TRUE, TRUE, 0);
 
-#ifndef USE_WEBKIT2
-	scrolledwindow38 = gtk_scrolled_window_new(NULL, NULL);
-	gtk_widget_show(scrolledwindow38);
-	gtk_container_add(GTK_CONTAINER(frame19), scrolledwindow38);
-	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolledwindow38),
-				       GTK_POLICY_NEVER,
-				       GTK_POLICY_AUTOMATIC);
-	gtk_scrolled_window_set_shadow_type((GtkScrolledWindow *)
-					    scrolledwindow38,
-					    settings.shadow_type);
-#endif
 
 	d->html =
 	    GTK_WIDGET(XIPHOS_HTML_NEW(((DIALOG_DATA *)d), TRUE,
 				       DIALOG_COMMENTARY_TYPE));
 	gtk_widget_show(d->html);
-#ifdef USE_WEBKIT2
-	gtk_container_add(GTK_CONTAINER(frame19), d->html);
-#else
-	gtk_container_add(GTK_CONTAINER(scrolledwindow38), d->html);
-#endif
+	gtk_frame_set_child(GTK_FRAME(frame19), d->html);
 	g_signal_connect((gpointer)d->html,
 			 "popupmenu_requested",
 			 G_CALLBACK(_popupmenu_requested_cb),
@@ -216,7 +198,11 @@ void gui_create_commentary_dialog(DIALOG_DATA *d, gboolean do_edit)
 
 	g_signal_connect(G_OBJECT(d->dialog), "destroy",
 			 G_CALLBACK(on_dialog_destroy), d);
-	g_signal_connect(G_OBJECT(d->dialog),
-			 "motion_notify_event",
-			 G_CALLBACK(on_dialog_motion_notify_event), d);
+	{
+		GtkEventController *motion = gtk_event_controller_motion_new();
+
+		g_signal_connect(motion, "motion",
+				 G_CALLBACK(on_dialog_motion_notify_event), d);
+		gtk_widget_add_controller(d->dialog, motion);
+	}
 }

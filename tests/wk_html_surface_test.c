@@ -1,9 +1,11 @@
 #include "webkit/wk-html-surface.h"
+#include "gui/widget_helpers.h"
 
 #include <stdio.h>
 #include <string.h>
 
 static int failures;
+static gboolean css_parse_error;
 
 #define CHECK(condition)                                                        \
 	do {                                                                      \
@@ -40,14 +42,15 @@ check_panel_contract(void)
 					       &loading_a);
 	panel_b = wk_html_surface_create_panel(content_b, "Loading commentary…",
 					       &loading_b);
-	gtk_widget_show_all(panel_a);
-	gtk_widget_show_all(panel_b);
+	gtk_widget_show(panel_a);
+	gtk_widget_show(panel_b);
 	content_child_a = gtk_stack_get_child_by_name(GTK_STACK(panel_a),
 						      WK_HTML_CONTENT_CHILD);
 
 	CHECK(GTK_IS_STACK(panel_a));
 	CHECK(GTK_IS_STACK(panel_b));
-	CHECK(gtk_stack_get_homogeneous(GTK_STACK(panel_a)));
+	CHECK(gtk_stack_get_hhomogeneous(GTK_STACK(panel_a)));
+	CHECK(gtk_stack_get_vhomogeneous(GTK_STACK(panel_a)));
 	CHECK(gtk_stack_get_transition_type(GTK_STACK(panel_a)) ==
 	      GTK_STACK_TRANSITION_TYPE_NONE);
 	CHECK(gtk_widget_get_hexpand(panel_a));
@@ -61,13 +64,16 @@ check_panel_contract(void)
 	CHECK(error_a != NULL);
 	CHECK(gtk_stack_get_visible_child(GTK_STACK(panel_a)) == loading_a);
 	CHECK(gtk_stack_get_visible_child(GTK_STACK(panel_b)) == loading_b);
-	/* show_all() must not make the renderer itself visible before READY. */
+	/* GTK 4 dropped show_all()/no-show-all along with it: gtk_widget_show()
+	 * no longer cascades to children, so showing the panel above cannot by
+	 * itself make the renderer visible before READY -- the invariant that
+	 * matters is that the constructor's own gtk_widget_hide(content) is
+	 * still in effect. */
 	CHECK(content_child_a == content_a);
-	CHECK(gtk_widget_get_no_show_all(content_a));
 	CHECK(!gtk_widget_get_visible(content_a));
 	CHECK(gtk_style_context_has_class(gtk_widget_get_style_context(loading_a),
 					  WK_HTML_LOADING_CLASS));
-	loading_children = gtk_container_get_children(GTK_CONTAINER(loading_a));
+	loading_children = gui_widget_get_children(loading_a);
 	CHECK(g_list_length(loading_children) == 1);
 	label = loading_children ? GTK_WIDGET(loading_children->data) : NULL;
 	CHECK(GTK_IS_LABEL(label));
@@ -90,7 +96,7 @@ check_panel_contract(void)
 	CHECK(gtk_stack_get_visible_child(GTK_STACK(panel_a)) == error_a);
 	CHECK(gtk_style_context_has_class(gtk_widget_get_style_context(error_a),
 					  WK_HTML_ERROR_CLASS));
-	loading_children = gtk_container_get_children(GTK_CONTAINER(error_a));
+	loading_children = gui_widget_get_children(error_a);
 	CHECK(g_list_length(loading_children) == 1);
 	error_label = loading_children ? GTK_WIDGET(loading_children->data) : NULL;
 	CHECK(GTK_IS_LABEL(error_label));
@@ -113,8 +119,21 @@ check_panel_contract(void)
 	CHECK(loading_natural.width == content_natural.width);
 	CHECK(loading_natural.height == content_natural.height);
 
-	gtk_widget_destroy(panel_a);
-	gtk_widget_destroy(panel_b);
+	/* neither was ever parented: GTK 4's replacement for
+	 * gtk_widget_destroy() on a standalone widget */
+	g_object_unref(g_object_ref_sink(panel_a));
+	g_object_unref(g_object_ref_sink(panel_b));
+}
+
+static void
+on_css_parsing_error(GtkCssProvider *provider, GtkCssSection *section,
+		     GError *error, gpointer data)
+{
+	(void)provider;
+	(void)section;
+	(void)data;
+	css_parse_error = TRUE;
+	fprintf(stderr, "CSS parse error: %s\n", error ? error->message : "?");
 }
 
 int
@@ -140,16 +159,19 @@ main(int argc, char **argv)
 	GError *error = NULL;
 	gboolean have_display;
 
-	have_display = gtk_init_check(&argc, &argv);
+	(void)argc;
+	(void)argv;
+	have_display = gtk_init_check();
 
 	/* GtkCssProvider can validate the production stylesheet without a
-	 * display server, which keeps this regression runnable in headless CI. */
+	 * display server, which keeps this regression runnable in headless CI.
+	 * GTK 4 reports a parse failure through "parsing-error" instead of a
+	 * GError return. */
 	provider = gtk_css_provider_new();
-	gtk_css_provider_load_from_path(provider,
-					SRCDIR "/ui/xiphos-style.css", &error);
-	CHECK(error == NULL);
-	if (error)
-		g_error_free(error);
+	g_signal_connect(provider, "parsing-error",
+			 G_CALLBACK(on_css_parsing_error), NULL);
+	gtk_css_provider_load_from_path(provider, SRCDIR "/ui/xiphos-style.css");
+	CHECK(!css_parse_error);
 	CHECK(g_file_get_contents(SRCDIR "/ui/xiphos-style.css", &stylesheet,
 				  NULL, NULL));
 	CHECK(g_file_get_contents(SRCDIR "/src/webkit/wk-html.c", &renderer,
@@ -291,29 +313,26 @@ main(int argc, char **argv)
 	if (main_window) {
 		const gchar *book_create =
 		    strstr(main_window, "box_book = gui_create_book_pane();");
-		const gchar *book_no_show = book_create
-					      ? strstr(book_create,
-						       "gtk_widget_set_no_show_all(box_book, TRUE);")
-					      : NULL;
 		const gchar *book_hide = book_create
 					   ? strstr(book_create,
 						    "gtk_widget_hide(box_book);")
 					   : NULL;
 		const gchar *book_pack = book_create
 					   ? strstr(book_create,
-						    "gtk_box_pack_start(GTK_BOX(vbox_gs), box_book,")
+						    "gtk_box_append(GTK_BOX(vbox_gs), box_book);")
 					   : NULL;
 
 		/* The backend-only general-book renderer is still explicitly realized
-		 * during startup.  Its pane must therefore have a toplevel ancestry,
-		 * while remaining immune to the window's show_all(). */
+		 * during startup.  Its pane must therefore have a toplevel ancestry.
+		 * GTK 4 dropped show_all()/no-show-all along with it: gtk_widget_show()
+		 * no longer cascades to children, so the hide()-before-pack() order
+		 * below is now the whole contract -- there is no ancestor show_all()
+		 * left that could resurrect it. */
 		CHECK(book_create != NULL);
-		CHECK(book_no_show != NULL);
 		CHECK(book_hide != NULL);
 		CHECK(book_pack != NULL);
-		if (book_create && book_no_show && book_hide && book_pack) {
-			CHECK(book_create < book_no_show);
-			CHECK(book_no_show < book_hide);
+		if (book_create && book_hide && book_pack) {
+			CHECK(book_create < book_hide);
 			CHECK(book_hide < book_pack);
 		}
 		CHECK(strstr(main_window, "g_object_ref(box_book);") == NULL);

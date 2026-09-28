@@ -141,6 +141,38 @@ void testDetailAndPagination()
 	g_assert_cmpstr(withLexicon.state().lexicon.lemma.c_str(), ==, "agapao");
 	g_assert_false(withLexicon.selectStrong(
 		{StrongLanguage::Hebrew, 430}));
+
+	/* MORPH-111: the same bounded limit+1/hasMore paging contract, over
+	 * a morphology tag instead of a Strong number. "robinson:V-AAI-3S"
+	 * occurs on "loved" (John 3:16) and on the fixture's second Greek
+	 * word (John 3:17) -- the same two verses the Strong G25 pagination
+	 * above already walks, with pageSize 1 forcing exactly one
+	 * loadMoreMorphology() step. */
+	const MorphologyTag robinsonPastTense{"robinson", "V-AAI-3S"};
+	g_assert_true(withoutLexicon.selectMorphology(robinsonPastTense));
+	g_assert_cmpuint(withoutLexicon.morphologyState().occurrences.size(), ==, 1);
+	g_assert_true(withoutLexicon.morphologyState().hasMore);
+	g_assert_cmpstr(withoutLexicon.morphologyState().occurrences[0].key.c_str(),
+		==, "John 3:16");
+	g_assert_true(withoutLexicon.loadMoreMorphology());
+	g_assert_cmpuint(withoutLexicon.morphologyState().occurrences.size(), ==, 2);
+	g_assert_false(withoutLexicon.morphologyState().hasMore);
+	g_assert_cmpstr(withoutLexicon.morphologyState().occurrences[1].key.c_str(),
+		==, "John 3:17");
+	g_assert_false(withoutLexicon.loadMoreMorphology());
+
+	/* An unrecognized/opaque scheme is still just an exact, bounded
+	 * lookup at the backend level (MORPH-107 doesn't care whether
+	 * morfologia.c -- MORPH-108/110 -- can decode it): "loved" itself
+	 * is the only occurrence of "custom.alpha:opaque/code". */
+	g_assert_true(withoutLexicon.selectMorphology(
+		{"custom.alpha", "opaque/code"}));
+	g_assert_cmpuint(withoutLexicon.morphologyState().occurrences.size(), ==, 1);
+	g_assert_false(withoutLexicon.morphologyState().hasMore);
+
+	/* A tag this word does not carry at all is rejected, exactly like
+	 * selectStrong() rejects a Strong number the word doesn't have. */
+	g_assert_false(withoutLexicon.selectMorphology({"oshm", "HNp"}));
 }
 }
 

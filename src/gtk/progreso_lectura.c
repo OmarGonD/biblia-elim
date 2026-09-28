@@ -17,6 +17,7 @@
 #include <string.h>
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <glib/gi18n.h>
 
 #include "gui/progreso_lectura.h"
@@ -234,20 +235,22 @@ cal_fecha_de(int semana, int fila, GDate *fuera)
 	return TRUE;
 }
 
-static gboolean
-on_calendario_draw(GtkWidget *widget, cairo_t *cr, gpointer datos)
+static void
+on_calendario_draw(GtkDrawingArea *area, cairo_t *cr, int ancho, int alto,
+		   gpointer datos)
 {
-	GtkStyleContext *ctx = gtk_widget_get_style_context(widget);
 	GdkRGBA fg;
 	GDate hoy;
 	int semana, fila;
 	int mes_pintado = 0;
 
 	(void)datos;
+	(void)ancho;
+	(void)alto;
 
 	/* El color sale del tema, no de una tabla: así el calendario se
 	 * ve bien en claro, en oscuro y en pergamino sin tocar nada. */
-	gtk_style_context_get_color(ctx, gtk_style_context_get_state(ctx), &fg);
+	gtk_widget_get_color(GTK_WIDGET(area), &fg);
 	cal_hoy(&hoy);
 
 	cairo_select_font_face(cr, "sans", CAIRO_FONT_SLANT_NORMAL,
@@ -319,7 +322,6 @@ on_calendario_draw(GtkWidget *widget, cairo_t *cr, gpointer datos)
 			}
 		}
 	}
-	return FALSE;
 }
 
 /* Qué día hay bajo el ratón, para el globo. */
@@ -550,7 +552,7 @@ on_cerrar(GtkButton *boton, gpointer datos)
 	(void)boton;
 	(void)datos;
 	if (ui && ui->dialog)
-		gtk_widget_destroy(ui->dialog);
+		gui_widget_destroy(ui->dialog);
 }
 
 static void
@@ -618,8 +620,8 @@ gui_progreso_lectura_dialog(GtkWindow *padre)
 	gtk_tree_view_set_search_column(GTK_TREE_VIEW(ui->tree_libros),
 					PCOL_NOMBRE);
 
-	g_signal_connect(ui->calendario, "draw",
-			 G_CALLBACK(on_calendario_draw), NULL);
+	gtk_drawing_area_set_draw_func(GTK_DRAWING_AREA(ui->calendario),
+				       on_calendario_draw, NULL, NULL);
 	g_signal_connect(ui->calendario, "query-tooltip",
 			 G_CALLBACK(on_calendario_tooltip), NULL);
 

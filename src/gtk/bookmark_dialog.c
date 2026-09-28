@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 
 #include "gui/bookmark_dialog.h"
 #include "gui/bookmarks_menu.h"
@@ -77,6 +78,15 @@ static void toggle_color_clicked(GtkButton *btn, GtkWidget *colorbtn)
     gtk_button_set_label(btn, active ? _("Add color") : _("No color"));
 }
 
+static void color_dialog_button_changed(GtkColorDialogButton *color_button,
+						GParamSpec *pspec, GtkButton *toggle_button)
+{
+	(void)color_button;
+	(void)pspec;
+	gtk_widget_set_sensitive(GTK_WIDGET(toggle_button), TRUE);
+	gtk_button_set_label(toggle_button, _("No color"));
+}
+
 /******************************************************************************
  * Name
  *   add_bookmark_button
@@ -107,7 +117,7 @@ static void add_bookmark_button(void)
 		return;
 
 	data = g_new0(BOOKMARK_DATA, 1);
-	data->caption = g_strdup((gchar *)gtk_entry_get_text(GTK_ENTRY(entry_label)));
+	data->caption = g_strdup((gchar *)gtk_editable_get_text(GTK_EDITABLE(entry_label)));
 
 	if (data->caption && strstr(data->caption, "@:@:@")) {
 		gui_generic_warning_modal(_("Bookmark labels may not contain \"@:@:@\"."));
@@ -116,9 +126,9 @@ static void add_bookmark_button(void)
 		return;
 	}
 
-	data->key = g_strdup((gchar *)gtk_entry_get_text(GTK_ENTRY(entry_key)));
+	data->key = g_strdup((gchar *)gtk_editable_get_text(GTK_EDITABLE(entry_key)));
 
-	module_from_entry = gtk_entry_get_text(GTK_ENTRY(entry_module));
+	module_from_entry = gtk_editable_get_text(GTK_EDITABLE(entry_module));
 	if (module_from_entry && strlen(module_from_entry) > 0) {
 		module_to_use = module_from_entry;
 	} else if (global_module_name && strlen(global_module_name) > 0) {
@@ -142,7 +152,7 @@ static void add_bookmark_button(void)
 		data->module_desc = g_strdup("");
 	}
 
-	data->description = g_strdup((gchar *)gtk_entry_get_text(GTK_ENTRY(entry_label)));
+	data->description = g_strdup((gchar *)gtk_editable_get_text(GTK_EDITABLE(entry_label)));
 	data->is_leaf = TRUE;
 	data->color = NULL;
 	data->opened = bm_pixbufs->pixbuf_helpdoc;
@@ -194,38 +204,28 @@ static void add_folder_button(void)
 	}
 
 	gtk_window_set_title(GTK_WINDOW(dialog), _("New Tag"));
-	gtk_entry_set_text(GTK_ENTRY(entry), "");
+	gtk_editable_set_text(GTK_EDITABLE(entry), "");
 
 	/* Cette ligne est commune, on la sort du #ifdef */
 	gtk_button_set_label(GTK_BUTTON(clearbtn), _("Add color"));
 	g_signal_connect(clearbtn, "clicked",
 		G_CALLBACK(toggle_color_clicked), colorbtn);
-	g_signal_connect(colorbtn, "color-set",
-		G_CALLBACK(toggle_color_clicked), clearbtn);
+	g_signal_connect(colorbtn, "notify::rgba",
+		G_CALLBACK(color_dialog_button_changed), GTK_BUTTON(clearbtn));
 
-	if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_OK) {
-		const gchar *name = gtk_entry_get_text(GTK_ENTRY(entry));
+	if (gui_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_OK) {
+		const gchar *name = gtk_editable_get_text(GTK_EDITABLE(entry));
 		gchar *color = NULL;
 
 		if (g_strcmp0(gtk_button_get_label(GTK_BUTTON(clearbtn)), _("No color")) == 0) {
-#if GTK_CHECK_VERSION(3, 4, 0)
 			GdkRGBA rgba;
-			gtk_color_chooser_get_rgba(GTK_COLOR_CHOOSER(colorbtn), &rgba);
+			rgba = *gtk_color_dialog_button_get_rgba(
+				GTK_COLOR_DIALOG_BUTTON(colorbtn));
 			if (rgba.red < 0.99 || rgba.green < 0.99 || rgba.blue < 0.99)
 				color = g_strdup_printf("#%02X%02X%02X",
 					(guint)(rgba.red   * 255),
 					(guint)(rgba.green * 255),
 					(guint)(rgba.blue  * 255));
-#else
-			/* Fallback for GTK3 older than 3.4 (no GtkColorChooser API yet) */
-			GdkColor gdk_color;
-			gtk_color_button_get_color(GTK_COLOR_BUTTON(colorbtn), &gdk_color);
-			if (gdk_color.red < 65000 || gdk_color.green < 65000 || gdk_color.blue < 65000)
-				color = g_strdup_printf("#%02X%02X%02X",
-					gdk_color.red >> 8,
-					gdk_color.green >> 8,
-					gdk_color.blue >> 8);
-#endif
 		}
 
 		data = g_new0(BOOKMARK_DATA, 1);
@@ -243,7 +243,7 @@ static void add_folder_button(void)
 		gtk_tree_selection_select_path(selection, path);
 		gtk_tree_path_free(path);
 	}
-	gtk_widget_destroy(dialog);
+	gui_widget_destroy(dialog);
 	g_object_unref(gxml);
 }
 
@@ -269,11 +269,11 @@ void on_dialog_response(GtkDialog *dialog,
 	switch (response_id) {
 	case GTK_RESPONSE_CANCEL: /*  cancel button pressed  */
 	case GTK_RESPONSE_NONE:   /*  dialog destroyed  */
-		gtk_widget_destroy(GTK_WIDGET(dialog));
+		gui_widget_destroy(GTK_WIDGET(dialog));
 		break;
 	case GTK_RESPONSE_OK: /*  add button pressed  */
 		add_bookmark_button();
-		gtk_widget_destroy(GTK_WIDGET(dialog));
+		gui_widget_destroy(GTK_WIDGET(dialog));
 		break;
 	case GTK_RESPONSE_ACCEPT: /*  add folder pressed  */
 		add_folder_button();
@@ -319,8 +319,8 @@ void on_mark_verse_response(GtkDialog *dialog,
 {
 	gchar *module, *key, *osisref;
 
-	module = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry_module));
-	key = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry_key));
+	module = (gchar *)gtk_editable_get_text(GTK_EDITABLE(entry_module));
+	key = (gchar *)gtk_editable_get_text(GTK_EDITABLE(entry_key));
 	osisref = (gchar *)main_get_osisref_from_key((const char *)module,
 						     (const char *)key);
 
@@ -331,7 +331,8 @@ void on_mark_verse_response(GtkDialog *dialog,
 	case GTK_RESPONSE_ACCEPT: /*  mark the verse  */
 		if (gtk_widget_get_sensitive(colorbutton_highlight)) {
 			GdkRGBA rgba;
-			gtk_color_chooser_get_rgba(GTK_COLOR_CHOOSER(colorbutton_highlight), &rgba);
+			rgba = *gtk_color_dialog_button_get_rgba(
+				GTK_COLOR_DIALOG_BUTTON(colorbutton_highlight));
 			gchar *color = g_strdup_printf("#%02X%02X%02X",
 						       (guint)(rgba.red   * 255),
 						       (guint)(rgba.green * 255),
@@ -349,7 +350,7 @@ void on_mark_verse_response(GtkDialog *dialog,
 		break;
 	}
 	g_free(note);
-	gtk_widget_destroy(GTK_WIDGET(dialog));
+	gui_widget_destroy(GTK_WIDGET(dialog));
 	xml_save_settings_doc(settings.fnconfigure);
 }
 
@@ -390,7 +391,7 @@ void on_mark_verse_enter(void)
  */
 
 gboolean on_treeview_button_release_event(GtkWidget *widget,
-					  GdkEventButton *event,
+					  GuiButtonEvent *event,
 					  gpointer user_data)
 {
 	GtkTreeSelection *selection = NULL;
@@ -481,17 +482,15 @@ static GtkWidget *_create_bookmark_dialog(gchar *label,
 	/* treeview */
 	treeview = UI_GET_ITEM(gxml, "treeview");
 	setup_treeview();
-	g_signal_connect(treeview, "button-release-event",
-			 G_CALLBACK(on_treeview_button_release_event),
-			 NULL);
+	gui_widget_on_button(GTK_WIDGET(treeview), GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)on_treeview_button_release_event, NULL);
 	/* entrys */
 	entry_label = UI_GET_ITEM(gxml, "entry1");
 	entry_key = UI_GET_ITEM(gxml, "entry2");
 	entry_module = UI_GET_ITEM(gxml, "entry3");
 
-	gtk_entry_set_text(GTK_ENTRY(entry_label), label);
-	gtk_entry_set_text(GTK_ENTRY(entry_key), key);
-	gtk_entry_set_text(GTK_ENTRY(entry_module), module);
+	gtk_editable_set_text(GTK_EDITABLE(entry_label), label);
+	gtk_editable_set_text(GTK_EDITABLE(entry_key), key);
+	gtk_editable_set_text(GTK_EDITABLE(entry_module), module);
 	g_signal_connect(entry_label, "activate",
 			 G_CALLBACK(on_dialog_enter), NULL);
 	g_signal_connect(entry_key, "activate",
@@ -551,8 +550,8 @@ static GtkWidget *_create_mark_verse_dialog(gchar *module, gchar *key)
 	textview = UI_GET_ITEM(gxml, "textview");
 
 	textbuffer = gtk_text_view_get_buffer((GtkTextView *)textview);
-	gtk_entry_set_text(GTK_ENTRY(entry_key), key);
-	gtk_entry_set_text(GTK_ENTRY(entry_module), module);
+	gtk_editable_set_text(GTK_EDITABLE(entry_key), key);
+	gtk_editable_set_text(GTK_EDITABLE(entry_module), module);
 
 	sw = UI_GET_ITEM(gxml, "scrolledwindow1");
 
@@ -587,7 +586,8 @@ static GtkWidget *_create_mark_verse_dialog(gchar *module, gchar *key)
 	if (old_color && *old_color) {
 		GdkRGBA rgba;
 		if (gdk_rgba_parse(&rgba, old_color))
-			gtk_color_chooser_set_rgba(GTK_COLOR_CHOOSER(colorbutton_highlight), &rgba);
+			gtk_color_dialog_button_set_rgba(
+				GTK_COLOR_DIALOG_BUTTON(colorbutton_highlight), &rgba);
 		gtk_widget_set_sensitive(colorbutton_highlight, TRUE);
 		gtk_button_set_label(GTK_BUTTON(button_toggle_color), _("Default color"));
 	} else {
@@ -596,8 +596,8 @@ static GtkWidget *_create_mark_verse_dialog(gchar *module, gchar *key)
 	}
 	g_signal_connect(button_toggle_color, "clicked",
 			 G_CALLBACK(toggle_color_clicked), colorbutton_highlight);
-	g_signal_connect(colorbutton_highlight, "color-set",
-			 G_CALLBACK(toggle_color_clicked), button_toggle_color);
+	g_signal_connect(colorbutton_highlight, "notify::rgba",
+			 G_CALLBACK(color_dialog_button_changed), button_toggle_color);
 
 	return mark_verse_dialog;
 }
@@ -612,7 +612,7 @@ static GtkWidget *_create_mark_verse_dialog(gchar *module, gchar *key)
  *   void gui_bookmark_dialog(gchar * label, gchar * module_name, gchar * key)
  *
  * Description
- *   calls _create_bookmark_dialog() and use gtk_dialog_run()
+ *   calls _create_bookmark_dialog() and use gui_dialog_run()
  *   to make it modal (needed for saving multiple search results)
  *
  * Return value
@@ -638,7 +638,7 @@ void gui_bookmark_dialog(gchar *label, gchar *module_name, gchar *key)
 		return;
 
 	while (TRUE) {
-		response = gtk_dialog_run(GTK_DIALOG(dialog));
+		response = gui_dialog_run(GTK_DIALOG(dialog));
 		if (response == GTK_RESPONSE_ACCEPT) {
 			/* New folder — keep dialog open */
 			add_folder_button();
@@ -651,7 +651,7 @@ void gui_bookmark_dialog(gchar *label, gchar *module_name, gchar *key)
 			break;
 		}
 	}
-	gtk_widget_destroy(dialog);
+	gui_widget_destroy(dialog);
 }
 
 /******************************************************************************
@@ -674,5 +674,5 @@ void gui_mark_verse_dialog(gchar *module_name, gchar *key)
 	GtkWidget *dialog = _create_mark_verse_dialog(module_name, key);
 	if (!dialog)
 		return;
-	gtk_dialog_run(GTK_DIALOG(dialog));
+	gui_dialog_run(GTK_DIALOG(dialog));
 }

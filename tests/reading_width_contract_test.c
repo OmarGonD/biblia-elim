@@ -33,8 +33,8 @@ typedef struct {
 static void
 pump(void)
 {
-	while (gtk_events_pending())
-		gtk_main_iteration();
+	while (g_main_context_pending(NULL))
+		g_main_context_iteration(NULL, FALSE);
 }
 
 static LineGeom
@@ -94,16 +94,16 @@ run_contract(void)
 	LineGeom heading_geom;
 	int i;
 
-	win = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+	win = gtk_window_new();
 	gtk_window_set_default_size(GTK_WINDOW(win), 820, 400);
-	scroll = gtk_scrolled_window_new(NULL, NULL);
+	scroll = gtk_scrolled_window_new();
 	tv = GTK_TEXT_VIEW(gtk_text_view_new());
 	gtk_text_view_set_wrap_mode(tv, GTK_WRAP_WORD_CHAR);
 	gtk_text_view_set_left_margin(tv, 14);
 	gtk_text_view_set_right_margin(tv, 14);
-	gtk_container_add(GTK_CONTAINER(scroll), GTK_WIDGET(tv));
-	gtk_container_add(GTK_CONTAINER(win), scroll);
-	gtk_widget_show_all(win);
+	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(scroll), GTK_WIDGET(tv));
+	gtk_window_set_child(GTK_WINDOW(win), scroll);
+	gtk_widget_show(win);
 	pump();
 
 	buf = gtk_text_view_get_buffer(tv);
@@ -116,7 +116,7 @@ run_contract(void)
 	pump();
 	left_a = gtk_text_view_get_left_margin(tv);
 	right_a = gtk_text_view_get_right_margin(tv);
-	alloc_a = gtk_widget_get_allocated_width(GTK_WIDGET(tv));
+	alloc_a = gtk_widget_get_width(GTK_WIDGET(tv));
 	check_fill(tv, "prose_a", 80);
 
 	/* Load B: identical text after a "module switch". */
@@ -124,7 +124,7 @@ run_contract(void)
 	pump();
 	left_b = gtk_text_view_get_left_margin(tv);
 	right_b = gtk_text_view_get_right_margin(tv);
-	alloc_b = gtk_widget_get_allocated_width(GTK_WIDGET(tv));
+	alloc_b = gtk_widget_get_width(GTK_WIDGET(tv));
 	CHECK(left_a == left_b);
 	CHECK(right_a == right_b);
 	CHECK(alloc_a == alloc_b);
@@ -158,14 +158,16 @@ run_contract(void)
 	}
 
 	g_string_free(long_text, TRUE);
-	gtk_widget_destroy(win);
+	gtk_window_destroy(GTK_WINDOW(win));
 	pump();
 }
 
 int
 main(int argc, char **argv)
 {
-	if (!gtk_init_check(&argc, &argv)) {
+	(void)argc;
+	(void)argv;
+	if (!gtk_init_check()) {
 		fprintf(stderr,
 			"reading_width_contract_test: no display; SKIP\n");
 		return 0;

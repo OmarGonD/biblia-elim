@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/widget_helpers.h"
 #include <glib/gstdio.h>
 #include <libxml/parser.h>
 
@@ -68,17 +69,19 @@ gboolean bookmarks_changed;
 
 static void toggle_color_clicked(GtkButton *btn, GtkWidget *other)
 {
-    if (GTK_IS_COLOR_BUTTON(btn)) {
-        /* colorbtn clicked — enable "No color" */
-        gtk_button_set_label(GTK_BUTTON(other), _("No color"));
-    } else {
-        /* clearbtn clicked — toggle */
-        gboolean has_color =
-            g_strcmp0(gtk_button_get_label(GTK_BUTTON(btn)),
-                      _("No color")) == 0;
-        gtk_button_set_label(GTK_BUTTON(btn),
-            has_color ? _("Add color") : _("No color"));
-    }
+	gboolean has_color =
+		g_strcmp0(gtk_button_get_label(btn), _("No color")) == 0;
+	gtk_button_set_label(btn, has_color ? _("Add color") : _("No color"));
+	gtk_widget_set_sensitive(other, !has_color);
+}
+
+static void color_dialog_button_changed(GtkColorDialogButton *color_button,
+						GParamSpec *pspec, GtkButton *toggle_button)
+{
+	(void)color_button;
+	(void)pspec;
+	gtk_widget_set_sensitive(GTK_WIDGET(toggle_button), TRUE);
+	gtk_button_set_label(toggle_button, _("No color"));
 }
 
 /******************************************************************************
@@ -215,25 +218,18 @@ G_MODULE_EXPORT void bibletime_bookmarks_activate(gpointer menuitem,
 	dialog = gtk_file_chooser_dialog_new(_("Specify bookmarks file"),
 					     GTK_WINDOW(widgets.app),
 					     GTK_FILE_CHOOSER_ACTION_OPEN,
-#if GTK_CHECK_VERSION(3, 10, 0)
 					     "_Cancel",
 					     GTK_RESPONSE_CANCEL, "_OK",
 					     GTK_RESPONSE_ACCEPT,
-#else
-					     GTK_STOCK_CANCEL,
-					     GTK_RESPONSE_CANCEL,
-					     GTK_STOCK_OK,
-					     GTK_RESPONSE_ACCEPT,
-#endif
 					     NULL);
 	gui_fit_dialog_to_screen(GTK_WINDOW(dialog));
 	fname =
 	    g_strdup_printf("%s/%s", settings.homedir,
 			    ".bibletime/bookmarks.xml");
-	gtk_file_chooser_set_filename(GTK_FILE_CHOOSER(dialog), fname);
+	gui_file_chooser_set_filename(GTK_FILE_CHOOSER(dialog), fname);
 	g_free(fname);
 
-	if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
+	if (gui_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
 		gtk_tree_store_append(GTK_TREE_STORE(model), &iter,
 				      &parent);
 		gtk_tree_store_set(GTK_TREE_STORE(model), &iter,
@@ -245,12 +241,12 @@ G_MODULE_EXPORT void bibletime_bookmarks_activate(gpointer menuitem,
 				   NULL, -1);
 
 		fname =
-		    gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
+		    gui_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
 		gui_parse_bookmarks(bookmark_tree, (const xmlChar *)fname,
 				    &iter);
 		g_free(fname);
 	}
-	gtk_widget_destroy(dialog);
+	gui_widget_destroy(dialog);
 }
 
 
@@ -329,7 +325,7 @@ static void remove_existing_andbible_folder(GtkTreeIter *parent)
  * Synopsis
  *   #include "gui/import_andbible.h"
  *
- *   void andbible_bookmarks_activate(GtkMenuItem * menuitem,
+ *   void andbible_bookmarks_activate(gpointer menuitem,
  *				      gpointer user_data)
  *
  * Description
@@ -357,12 +353,7 @@ G_MODULE_EXPORT void andbible_bookmarks_activate(gpointer menuitem,
 	dialog = gtk_file_chooser_dialog_new(
 	    _("Select AndBible bookmarks backup (.sqlite3)"),
 	    GTK_WINDOW(widgets.app), GTK_FILE_CHOOSER_ACTION_OPEN,
-#if GTK_CHECK_VERSION(3, 10, 0)
 	    "_Cancel", GTK_RESPONSE_CANCEL, "_OK", GTK_RESPONSE_ACCEPT,
-#else
-	    GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL, GTK_STOCK_OK,
-	    GTK_RESPONSE_ACCEPT,
-#endif
 	    NULL);
 	gui_fit_dialog_to_screen(GTK_WINDOW(dialog));
 
@@ -371,13 +362,13 @@ G_MODULE_EXPORT void andbible_bookmarks_activate(gpointer menuitem,
 	gtk_file_filter_add_pattern(filter, "*.sqlite3");
 	gtk_file_chooser_add_filter(GTK_FILE_CHOOSER(dialog), filter);
 
-	if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
+	if (gui_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
 		gchar *sqlite_path, *tmp_xml = NULL, *summary;
 		gint n_imported = 0, n_skipped = 0;
 		GError *error = NULL;
 
 		sqlite_path =
-		    gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
+		    gui_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
 
 		if (andbible_folder_exists(&parent)) {
 			GtkWidget *confirm = gtk_message_dialog_new(
@@ -386,11 +377,11 @@ G_MODULE_EXPORT void andbible_bookmarks_activate(gpointer menuitem,
 			    _("An 'Import AndBible' folder already exists "
 			      "and will be replaced by this import. "
 			      "Continue?"));
-			gint resp = gtk_dialog_run(GTK_DIALOG(confirm));
-			gtk_widget_destroy(confirm);
+			gint resp = gui_dialog_run(GTK_DIALOG(confirm));
+			gui_widget_destroy(confirm);
 			if (resp != GTK_RESPONSE_YES) {
 				g_free(sqlite_path);
-				gtk_widget_destroy(dialog);
+				gui_widget_destroy(dialog);
 				return;
 			}
 		}
@@ -403,11 +394,11 @@ G_MODULE_EXPORT void andbible_bookmarks_activate(gpointer menuitem,
 			    GTK_WINDOW(widgets.app), GTK_DIALOG_MODAL,
 			    GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "%s",
 			    error ? error->message : _("Unknown error"));
-			gtk_dialog_run(GTK_DIALOG(msg));
-			gtk_widget_destroy(msg);
+			gui_dialog_run(GTK_DIALOG(msg));
+			gui_widget_destroy(msg);
 			g_clear_error(&error);
 			g_free(sqlite_path);
-			gtk_widget_destroy(dialog);
+			gui_widget_destroy(dialog);
 			return;
 		}
 		g_free(sqlite_path);
@@ -436,11 +427,11 @@ G_MODULE_EXPORT void andbible_bookmarks_activate(gpointer menuitem,
 		GtkWidget *msg = gtk_message_dialog_new(
 		    GTK_WINDOW(widgets.app), GTK_DIALOG_MODAL,
 		    GTK_MESSAGE_INFO, GTK_BUTTONS_OK, "%s", summary);
-		gtk_dialog_run(GTK_DIALOG(msg));
-		gtk_widget_destroy(msg);
+		gui_dialog_run(GTK_DIALOG(msg));
+		gui_widget_destroy(msg);
 		g_free(summary);
 	}
-	gtk_widget_destroy(dialog);
+	gui_widget_destroy(dialog);
 }
 
 /******************************************************************************
@@ -450,7 +441,7 @@ G_MODULE_EXPORT void andbible_bookmarks_activate(gpointer menuitem,
  * Synopsis
  *   #include "gui/bookmarks_menu.h"
  *
- *   void on_allow_reordering_activate(GtkMenuItem * menuitem,
+ *   void on_allow_reordering_activate(gpointer menuitem,
  *				  gpointer user_data)
  *
  * Description
@@ -493,7 +484,7 @@ static void on_tag_colorize_state(GSimpleAction *action, GVariant *state, gpoint
  * Synopsis
  *   #include "gui/bookmarks_menu.h"
  *
- *   void on_dialog_activate(GtkMenuItem * menuitem,
+ *   void on_dialog_activate(gpointer menuitem,
  *				  gpointer user_data)
  *
  * Description
@@ -542,7 +533,7 @@ G_MODULE_EXPORT void on_dialog_activate(gpointer menuitem,
  * Synopsis
  *   #include "gui/bookmarks_menu.h"
  *
- *   void on_edit_item_activate(GtkMenuItem * menuitem, gpointer user_data)
+ *   void on_edit_item_activate(gpointer menuitem, gpointer user_data)
  *
  * Description
  *   edit bookmark
@@ -582,49 +573,35 @@ G_MODULE_EXPORT void on_edit_item_activate(gpointer menuitem,
 			g_object_unref(gxml); goto cleanup;
 		}
 		gtk_window_set_title(GTK_WINDOW(dialog), _("Edit Tag"));
-		gtk_entry_set_text(GTK_ENTRY(entry), caption ? caption : "");
+		gtk_editable_set_text(GTK_EDITABLE(entry), caption ? caption : "");
 
 		if (current_color && *current_color) {
-#if GTK_CHECK_VERSION(3, 4, 0)
 			GdkRGBA rgba;
 			if (gdk_rgba_parse(&rgba, current_color))
-				gtk_color_chooser_set_rgba(GTK_COLOR_CHOOSER(colorbtn), &rgba);
-#else
-			GdkColor gdk_color;
-			if (gdk_color_parse(current_color, &gdk_color))
-				gtk_color_button_set_color(GTK_COLOR_BUTTON(colorbtn), &gdk_color);
-#endif
+				gtk_color_dialog_button_set_rgba(
+					GTK_COLOR_DIALOG_BUTTON(colorbtn), &rgba);
 		} else {
 			gtk_button_set_label(GTK_BUTTON(clearbtn), _("Add color"));
 		}
 
 		g_signal_connect(clearbtn, "clicked",
 			G_CALLBACK(toggle_color_clicked), colorbtn);
-		g_signal_connect(colorbtn, "color-set",
-			G_CALLBACK(toggle_color_clicked), clearbtn);
+		g_signal_connect(colorbtn, "notify::rgba",
+			G_CALLBACK(color_dialog_button_changed), GTK_BUTTON(clearbtn));
 
-		if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_OK) {
-			const gchar *name = gtk_entry_get_text(GTK_ENTRY(entry));
+		if (gui_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_OK) {
+			const gchar *name = gtk_editable_get_text(GTK_EDITABLE(entry));
 			gchar *new_color = NULL;
 			gchar *new_caption;
 			if (g_strcmp0(gtk_button_get_label(GTK_BUTTON(clearbtn)), _("No color")) == 0) {
-#if GTK_CHECK_VERSION(3, 4, 0)
 				GdkRGBA rgba;
-				gtk_color_chooser_get_rgba(GTK_COLOR_CHOOSER(colorbtn), &rgba);
+				rgba = *gtk_color_dialog_button_get_rgba(
+					GTK_COLOR_DIALOG_BUTTON(colorbtn));
 				if (rgba.red < 0.99 || rgba.green < 0.99 || rgba.blue < 0.99)
 					new_color = g_strdup_printf("#%02X%02X%02X",
 						(guint)(rgba.red * 255),
 						(guint)(rgba.green * 255),
 						(guint)(rgba.blue * 255));
-#else
-				GdkColor gdk_color;
-				gtk_color_button_get_color(GTK_COLOR_BUTTON(colorbtn), &gdk_color);
-				if (gdk_color.red < 65000 || gdk_color.green < 65000 || gdk_color.blue < 65000)
-					new_color = g_strdup_printf("#%02X%02X%02X",
-						gdk_color.red >> 8,
-						gdk_color.green >> 8,
-						gdk_color.blue >> 8);
-#endif
 			}
 			new_caption = g_strdelimit(g_strdup(name), "/|><.'`\"", ' ');
 
@@ -635,7 +612,7 @@ G_MODULE_EXPORT void on_edit_item_activate(gpointer menuitem,
 			gui_save_bookmarks(NULL, NULL);
 			main_display_bible(NULL, settings.currentverse);
 		}
-		gtk_widget_destroy(dialog);
+		gui_widget_destroy(dialog);
 		g_object_unref(gxml);
 	} else {
 		/* --- Leaf bookmark: generic dialog --- */
@@ -695,7 +672,7 @@ cleanup:
  * Synopsis
  *   #include "gui/bookmarks_menu.h"
  *
- *   void on_remove_folder_activate(GtkMenuItem * menuitem, gpointer user_data)
+ *   void on_remove_folder_activate(gpointer menuitem, gpointer user_data)
  *
  * Description
  *   remove folder - and save it
@@ -717,7 +694,7 @@ G_MODULE_EXPORT void on_export_folder_activate(gpointer menuitem,
  * Synopsis
  *   #include "gui/bookmarks_menu.h"
  *
- *   void on_delete_item_activate(GtkMenuItem * menuitem, gpointer user_data)
+ *   void on_delete_item_activate(gpointer menuitem, gpointer user_data)
  *
  * Description
  *   delete bookmark - if a group delete all in the group
@@ -756,11 +733,7 @@ G_MODULE_EXPORT void on_delete_item_activate(gpointer menuitem,
 	}
 
 	if (gui_yes_no_dialog(str,
-#if GTK_CHECK_VERSION(3, 10, 0)
 			      "dialog-warning")) {
-#else
-			      GTK_STOCK_DIALOG_WARNING)) {
-#endif
 		gtk_tree_store_remove(GTK_TREE_STORE(model), &selected);
 		bookmarks_changed = TRUE;
 		gui_save_bookmarks(NULL, NULL);
@@ -774,7 +747,7 @@ G_MODULE_EXPORT void on_delete_item_activate(gpointer menuitem,
  * Synopsis
  *   #include "gui/bookmarks_menu.h"
  *
- *   void gui_save_bookmarks(GtkMenuItem * menuitem, gpointer user_data)
+ *   void gui_save_bookmarks(gpointer menuitem, gpointer user_data)
  *
  * Description
  *   save bookmark tree
@@ -849,7 +822,7 @@ G_MODULE_EXPORT void on_expand_activate(gpointer menuitem,
  * Synopsis
  *   #include "gui/bookmarks_menu.h"
  *
- *   void on_collapse_activate(GtkMenuItem * menuitem,
+ *   void on_collapse_activate(gpointer menuitem,
  *				 gpointer user_data)
  *
  * Description
@@ -872,7 +845,7 @@ G_MODULE_EXPORT void on_collapse_activate(gpointer menuitem,
  * Synopsis
  *   #include "gui/bookmarks_menu.h"
  *
- *   void on_add_bookmark_activate(GtkMenuItem * menuitem,
+ *   void on_add_bookmark_activate(gpointer menuitem,
  *						gpointer user_data)
  *
  * Description
@@ -944,7 +917,7 @@ void on_add_bookmark_activate(gpointer menuitem, gpointer user_data)
  * Synopsis
  *   #include "gui/bookmarks_menu.h"
  *
- *   void on_insert_bookmark_activate(GtkMenuItem * menuitem,
+ *   void on_insert_bookmark_activate(gpointer menuitem,
  *						gpointer user_data)
  *
  * Description
@@ -967,7 +940,7 @@ G_MODULE_EXPORT void on_insert_bookmark_activate(gpointer menuitem,
  * Synopsis
  *   #include "gui/bookmarks_menu.h"
  *
- *   void on_new_subgroup_activate(GtkMenuItem * menuitem,
+ *   void on_new_subgroup_activate(gpointer menuitem,
  *			      gpointer user_data)
  *
  * Description
@@ -1002,36 +975,27 @@ G_MODULE_EXPORT void on_new_folder_activate(gpointer menuitem,
 	}
 
 	gtk_window_set_title(GTK_WINDOW(dialog), _("New Folder"));
-	gtk_entry_set_text(GTK_ENTRY(entry), "");
+	gtk_editable_set_text(GTK_EDITABLE(entry), "");
 	gtk_button_set_label(GTK_BUTTON(clearbtn), _("Add color"));
 	g_signal_connect(clearbtn, "clicked",
 		G_CALLBACK(toggle_color_clicked), colorbtn);
-	g_signal_connect(colorbtn, "color-set",
-		G_CALLBACK(toggle_color_clicked), clearbtn);
+	g_signal_connect(colorbtn, "notify::rgba",
+		G_CALLBACK(color_dialog_button_changed), GTK_BUTTON(clearbtn));
 
-	gint response = gtk_dialog_run(GTK_DIALOG(dialog));
+	gint response = gui_dialog_run(GTK_DIALOG(dialog));
 	if (response == GTK_RESPONSE_OK) {
-		const gchar *name = gtk_entry_get_text(GTK_ENTRY(entry));
+		const gchar *name = gtk_editable_get_text(GTK_EDITABLE(entry));
 		gchar *color = NULL;
 
 		if (g_strcmp0(gtk_button_get_label(GTK_BUTTON(clearbtn)), _("No color")) == 0) {
-#if GTK_CHECK_VERSION(3, 4, 0)
 			GdkRGBA rgba;
-			gtk_color_chooser_get_rgba(GTK_COLOR_CHOOSER(colorbtn), &rgba);
+			rgba = *gtk_color_dialog_button_get_rgba(
+				GTK_COLOR_DIALOG_BUTTON(colorbtn));
 			if (rgba.red < 0.99 || rgba.green < 0.99 || rgba.blue < 0.99)
 				color = g_strdup_printf("#%02X%02X%02X",
 					(guint)(rgba.red   * 255),
 					(guint)(rgba.green * 255),
 					(guint)(rgba.blue  * 255));
-#else
-			GdkColor gdk_color;
-			gtk_color_button_get_color(GTK_COLOR_BUTTON(colorbtn), &gdk_color);
-			if (gdk_color.red < 65000 || gdk_color.green < 65000 || gdk_color.blue < 65000)
-				color = g_strdup_printf("#%02X%02X%02X",
-					gdk_color.red >> 8,
-					gdk_color.green >> 8,
-					gdk_color.blue >> 8);
-#endif
 		}
 
 		data = g_new0(BOOKMARK_DATA, 1);
@@ -1044,7 +1008,7 @@ G_MODULE_EXPORT void on_new_folder_activate(gpointer menuitem,
 		add_item_to_tree(&iter, &selected, data);
 		gui_save_bookmarks(NULL, NULL);
 	}
-	gtk_widget_destroy(dialog);
+	gui_widget_destroy(dialog);
 	g_object_unref(gxml);
 }
 
@@ -1055,7 +1019,7 @@ G_MODULE_EXPORT void on_new_folder_activate(gpointer menuitem,
  * Synopsis
  *   #include "gui/.h"
  *
- *   void on_open_in_tab_activate(GtkMenuItem * menuitem, gpointer user_data)
+ *   void on_open_in_tab_activate(gpointer menuitem, gpointer user_data)
  *
  * Description
  *
@@ -1103,7 +1067,6 @@ G_MODULE_EXPORT void on_open_in_tab_activate(gpointer menuitem,
  *   void
  */
 
-#if GTK_CHECK_VERSION(3, 4, 0)
 G_MODULE_EXPORT void on_set_tag_color_activate(gpointer menuitem,
 											   gpointer user_data)
 {
@@ -1130,7 +1093,7 @@ G_MODULE_EXPORT void on_set_tag_color_activate(gpointer menuitem,
 			gtk_color_chooser_set_rgba(GTK_COLOR_CHOOSER(dialog), &rgba);
 	}
 
-	if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_OK) {
+	if (gui_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_OK) {
 		GdkRGBA rgba;
 		gchar *hex;
 		gtk_color_chooser_get_rgba(GTK_COLOR_CHOOSER(dialog), &rgba);
@@ -1144,9 +1107,8 @@ G_MODULE_EXPORT void on_set_tag_color_activate(gpointer menuitem,
 		gui_save_bookmarks(NULL, NULL);
 		main_display_bible(NULL, settings.currentverse);
 	}
-	gtk_widget_destroy(dialog);
+	gui_widget_destroy(dialog);
 }
-#endif
 
 /* Each item's action runs the handler it always ran. */
 #define BOOKMARK_ACTION(fn) \
@@ -1217,7 +1179,7 @@ gboolean gui_bookmark_menu_reordering(void)
 GtkWidget *gui_bookmark_menu_popup(GtkWidget *tree)
 {
 	gui_create_bookmark_menu();
-	gtk_widget_insert_action_group(tree, "marcadores", G_ACTION_GROUP(menu.actions));
+	gui_widget_insert_action_group(tree, "marcadores", G_ACTION_GROUP(menu.actions));
 	GMenu *model = g_menu_new();
 	GMenu *items = g_menu_new();
 	if (settings.browsing)

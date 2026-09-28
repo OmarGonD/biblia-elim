@@ -700,6 +700,20 @@ sin_esquema(const char *codigo)
 	return dos ? dos + 1 : codigo;
 }
 
+/* TRUE si el esquema declarado delante de ':' es "robinson" (mayúsculas
+ * aparte), o si no hay ':' en absoluto: un código legado a secas, sin
+ * campo de esquema, siempre se ha tratado como Robinson y eso no cambia
+ * aquí. Lo que sí cambia es que un esquema explícito *distinto* de
+ * "robinson" ya no cuela como Robinson por descarte. */
+static gboolean
+es_robinson(const char *codigo, const char *sin_prefijo)
+{
+	if (codigo == sin_prefijo)
+		return TRUE;	/* sin esquema: código legado, terreno conocido */
+	return !g_ascii_strncasecmp(codigo, "robinson:", 9) &&
+	       codigo + 9 == sin_prefijo;
+}
+
 static void
 uno(SALIDA *s, const char *codigo)
 {
@@ -726,7 +740,35 @@ uno(SALIDA *s, const char *codigo)
 		oshm(s, c);
 		return;
 	}
+	/* A partir de aquí solo sabemos leer Robinson. Los códigos sueltos
+	 * de SWORD (sin esquema, o con "robinson:") siguen decodificándose
+	 * exactamente como antes. Pero la canalización neutral (OSIS/USFM
+	 * -> SqliteModuleWriter) puede persistir un esquema cualquiera,
+	 * declarado y distinto -- desconocido, particular u opaco -- y
+	 * hacerlo pasar por Robinson sería inventarse una gramática que el
+	 * dato no afirma. Mejor el "esquema:código" tal cual. */
+	if (!es_robinson(codigo, c)) {
+		pon(s, codigo, codigo, FALSE);
+		return;
+	}
 	robinson(s, c);
+}
+
+gboolean
+main_morf_reconocido(const char *codigo)
+{
+	const char *c = sin_esquema(codigo);
+
+	if (!c || !*c)
+		return FALSE;
+	if ((c[0] == 'T' || c[0] == 't') && (c[1] == 'H' || c[1] == 'h') &&
+	    g_ascii_isdigit(c[2]))
+		return TRUE;
+	if (g_ascii_isdigit(c[0]))
+		return FALSE;	/* se enseña el número tal cual: no hay gramática que dar */
+	if (es_oshm(codigo, c))
+		return TRUE;
+	return es_robinson(codigo, c);
 }
 
 static void

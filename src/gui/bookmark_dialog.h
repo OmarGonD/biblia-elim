@@ -21,6 +21,8 @@
 #ifndef _BOOKMARK_DIALOG_H
 #define _BOOKMARK_DIALOG_H
 
+#include "gui/widget_helpers.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -36,7 +38,7 @@ void on_mark_verse_response(GtkDialog *dialog, gint response_id,
 void on_dialog_enter(void);
 void on_mark_verse_enter(void);
 gboolean on_treeview_button_release_event(GtkWidget *widget,
-					  GdkEventButton *event,
+					  GuiButtonEvent *event,
 					  gpointer user_data);
 
 #ifdef __cplusplus
