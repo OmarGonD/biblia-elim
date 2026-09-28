@@ -162,12 +162,13 @@ static const gchar *source;
 static const gchar *destination;
 static gboolean have_configs;
 static gint current_page;
-static GdkPixbuf *INSTALLED;
-static GdkPixbuf *FASTICON;
-static GdkPixbuf *NO_INDEX;
-static GdkPixbuf *LOCKED;
-static GdkPixbuf *REFRESH;
-static GdkPixbuf *BLANK;
+/* what the icon columns of the module trees show; a blank is no image */
+static GdkTexture *INSTALLED;
+static GdkTexture *FASTICON;
+static GdkTexture *NO_INDEX;
+static GdkTexture *LOCKED;
+static GdkTexture *REFRESH;
+#define BLANK ((GdkTexture *)NULL)
 static gchar *current_mod;
 static gchar *remote_source;
 static gboolean first_time_user = FALSE;
@@ -177,7 +178,7 @@ static gboolean is_running = FALSE;
 
 GtkBuilder *gxml;
 
-static void load_module_tree(GtkTreeView *treeview, gboolean install);
+static void load_module_tree(GtkWidget *treeview, gboolean install);
 static void set_controls_to_last_use(void);
 static int load_source_treeviews(void);
 
@@ -248,52 +249,45 @@ static void on_modmgr_configure_event(GObject *window, GParamSpec *pspec,
 	xml_save_settings_doc(settings.fnconfigure);
 }
 
-static gboolean query_tooltip(GtkWidget *widget,
-			      gint x,
-			      gint y,
-			      gboolean keyboard_mode,
-			      GtkTooltip *tooltip, gpointer user_data)
+static gboolean module_tooltip(ElimRow *row, GtkTooltip *tooltip,
+			       gpointer user_data)
 {
-	GtkTreeModel *model;
-	GtkTreePath *path;
-	GtkTreeIter iter;
 	GdkPixbuf *pixbuf;
 	gchar *about;
 	gchar *version;
-	gchar *desc;
+	const gchar *desc;
 	GString *str = g_string_new(NULL);
 	GString *text = g_string_new(NULL);
 	GString *description = g_string_new(NULL);
 
-	if (!gtk_tree_view_get_tooltip_context((GtkTreeView *)widget,
-					       x,
-					       y,
-					       keyboard_mode,
-					       &model, &path, &iter)) {
+	(void)user_data;
+	if (elim_row_n_children(row)) {
+		g_string_free(str, TRUE);
+		g_string_free(text, TRUE);
+		g_string_free(description, TRUE);
 		return FALSE;
 	}
 
-	if (gtk_tree_model_iter_has_child(model, &iter)) {
-		gtk_tree_path_free(path);
+	desc = elim_row_get_string(row, COLUMN_DESC);
+	if (!*desc) {
+		g_string_free(str, TRUE);
+		g_string_free(text, TRUE);
+		g_string_free(description, TRUE);
 		return FALSE;
 	}
+	about = g_strdup(elim_row_get_string(row, COLUMN_ABOUT));
+	version = *elim_row_get_string(row, COLUMN_AVAILABLE_VERSION)
+		      ? g_strdup(elim_row_get_string(row, COLUMN_AVAILABLE_VERSION))
+		      : NULL;
 
-	gtk_tree_model_get(model, &iter, COLUMN_DESC, &desc, -1);
-	if (!desc)
-		return FALSE;
-	gtk_tree_model_get(model, &iter, COLUMN_ABOUT, &about, -1);
-	gtk_tree_model_get(model, &iter, COLUMN_AVAILABLE_VERSION,
-			   &version, -1);
-
-	if (about)
-		g_strdelimit(about, "&", '+');
+	g_strdelimit(about, "&", '+');
 	g_string_printf(description,
 			"%s\n%s %s\n\n",
 			desc,
 			(version) ? "Sword module version" : "",
 			(version) ? version : "");
 
-	about_module_display(str, ((about && *about)
+	about_module_display(str, (*about
 				       ? about
 				       : _("The module has no About information.")),
 			     TRUE);
@@ -313,11 +307,7 @@ static gboolean query_tooltip(GtkWidget *widget,
 	}
 	gtk_tooltip_set_text(tooltip, text->str);
 
-	gtk_tree_view_set_tooltip_cell((GtkTreeView *)widget,
-				       tooltip, path, NULL, NULL);
-	gtk_tree_path_free(path);
 	g_free(about);
-	g_free(desc);
 	g_free(version);
 	g_string_free(str, TRUE);
 	g_string_free(text, TRUE);
@@ -341,56 +331,23 @@ static gboolean query_tooltip(GtkWidget *widget,
  *   void
  */
 
-static void create_pixbufs(void)
+static GdkTexture *icon_texture(const gchar *name)
 {
+	GdkPixbuf *pixbuf = theme_icon_pixbuf(name, 16);
+	GdkTexture *texture = pixbuf ? gdk_texture_new_for_pixbuf(pixbuf) : NULL;
 
-	INSTALLED = theme_icon_pixbuf("emblem-default", 16);
-
-	FASTICON = theme_icon_pixbuf("edit-find-symbolic", 16);
-
-	NO_INDEX = theme_icon_pixbuf("_Cancel", 16);
-
-	LOCKED = theme_icon_pixbuf("changes-prevent-symbolic", 16);
-
-	REFRESH = theme_icon_pixbuf("view-refresh-symbolic", 16);
-
-	BLANK = theme_icon_pixbuf("gnome-stock-blank", 16);
+	if (pixbuf)
+		g_object_unref(pixbuf);
+	return texture;
 }
 
-/******************************************************************************
- * Name
- *   create_model
- *
- * Synopsis
- *   #include "gui/mod_mgr.h"
- *
- *   GtkTreeModel *create_model (void)
- *
- * Description
- *
- *
- * Return value
- *   GtkTreeModel *
- */
-
-static GtkTreeModel *create_model(void)
+static void create_pixbufs(void)
 {
-	GtkTreeStore *store;
-
-	/* create list store */
-	store = gtk_tree_store_new(NUM_COLUMNS, G_TYPE_STRING, /* module name */
-				   GDK_TYPE_PIXBUF,	    /* installed */
-				   G_TYPE_BOOLEAN,	     /* checkbox */
-				   G_TYPE_STRING,	      /* installed verssion */
-				   GDK_TYPE_PIXBUF,	    /* fastready */
-				   GDK_TYPE_PIXBUF,	    /* locked */
-				   G_TYPE_STRING,	      /* about */
-				   GDK_TYPE_PIXBUF,	    /* refresh */
-				   G_TYPE_STRING,	      /* available version */
-				   G_TYPE_STRING,	      /* size */
-				   G_TYPE_STRING,	      /* description */
-				   G_TYPE_BOOLEAN);	    /* visibility */
-	return GTK_TREE_MODEL(store);
+	INSTALLED = icon_texture("emblem-default");
+	FASTICON = icon_texture("edit-find-symbolic");
+	NO_INDEX = icon_texture("_Cancel");
+	LOCKED = icon_texture("changes-prevent-symbolic");
+	REFRESH = icon_texture("view-refresh-symbolic");
 }
 
 /******************************************************************************
@@ -400,241 +357,107 @@ static GtkTreeModel *create_model(void)
  * Synopsis
  *   #include "gui/mod_mgr.h"
  *
- *   void fixed_toggled (GtkCellRendererToggle *cell, gchar *path_str,
- *							gpointer data)
+ *   void fixed_toggled (ElimRow *row, gpointer data)
  *
  * Description
- *
+ *   the reader clicked the box of a module: it is chosen, or not
  *
  * Return value
  *   void
  */
 
 static void
-fixed_toggled(GtkCellRendererToggle *cell,
-	      gchar *path_str, gpointer data)
+fixed_toggled(ElimRow *row, gpointer data)
 {
-	GtkTreeView *treeview = (GtkTreeView *)data;
-	GtkTreeModel *model = gtk_tree_view_get_model(treeview);
-	GtkTreeIter iter;
-	GtkTreePath *path = gtk_tree_path_new_from_string(path_str);
-	gboolean fixed;
-
-	/* get toggled iter */
-	gtk_tree_model_get_iter(model, &iter, path);
-	gtk_tree_model_get(model, &iter, COLUMN_FIXED, &fixed, -1);
-
-	/* do something with the value */
-	fixed ^= 1;
-
-	/* set new value */
-	gtk_tree_store_set(GTK_TREE_STORE(model), &iter, COLUMN_FIXED,
-			   fixed, -1);
-	/* clean up */
-	gtk_tree_path_free(path);
+	(void)data;
+	elim_row_set_int(row, COLUMN_FIXED,
+			 !elim_row_get_int(row, COLUMN_FIXED));
 }
 
 /******************************************************************************
  * Name
- *   add_columns
+ *   setup_module_tree_view
  *
  * Synopsis
  *   #include "gui/mod_mgr.h"
  *
- *   void add_columns (GtkTreeView *treeview)
+ *   void setup_module_tree_view (GtkWidget *view, gboolean remove)
  *
  * Description
- *
+ *   VIEW (a GtkColumnView) shows a tree of modules: the name, whether it is
+ *   installed, a box to choose it, its versions, whether it has an index or
+ *   is locked, and (when installing) whether it needs an update, its size and
+ *   its description. The icons explain themselves when hovered.
  *
  * Return value
  *   void
  */
 
-static void add_columns(GtkTreeView *treeview, gboolean remove)
+static void setup_module_tree_view(GtkWidget *view, gboolean remove)
 {
-	GtkCellRenderer *renderer;
-	GtkTreeViewColumn *column;
-	GtkWidget *image;
+	GListStore *roots = elim_table_new();
+	ElimTextColumn text;
+	ElimColumn col;
+
+	elim_tree_setup(view, roots);
+	g_object_unref(roots);
 
 	/* -- column for sword module name -- */
-	renderer = gtk_cell_renderer_text_new();
-	column =
-	    gtk_tree_view_column_new_with_attributes(_("Module Name"),
-						     renderer, "text",
-						     COLUMN_NAME, NULL);
-	/* fixed sizing (200 pixels) */
-	gtk_tree_view_column_set_sizing(GTK_TREE_VIEW_COLUMN(column),
-					GTK_TREE_VIEW_COLUMN_FIXED);
-	gtk_tree_view_column_set_min_width(GTK_TREE_VIEW_COLUMN(column), 275);
-	gtk_tree_view_append_column(treeview, column);
+	text = elim_text_column(COLUMN_NAME);
+	text.expander = TRUE;
+	text.fixed_width = 275;
+	elim_table_add_column(view, _("Module Name"), &text);
 
 	/* -- installed -- */
-	column = gtk_tree_view_column_new();
-	image =
-	    (remove
-		 ? gtk_image_new_from_icon_name("")
-		 : gtk_image_new_from_icon_name("emblem-default"));
-	gtk_widget_show(image);
-	gtk_widget_set_tooltip_text(image,
-				    (remove
-					 ? ""
-					 : _("A checkmark means this module is already installed")));
-	renderer = GTK_CELL_RENDERER(gtk_cell_renderer_pixbuf_new());
-	gtk_tree_view_column_set_widget(column, image);
-	gtk_tree_view_column_pack_start(column, renderer, TRUE);
-	gtk_tree_view_column_set_attributes(column, renderer,
-					    "pixbuf", COLUMN_INSTALLED,
-					    NULL);
-	gtk_tree_view_append_column(treeview, column);
+	elim_table_add_image_column(view, _("Installed"), COLUMN_INSTALLED, 16,
+				    remove ? NULL
+					   : _("A checkmark means this module is already installed"));
 
 	/* -- toggle choice -- */
-	renderer = gtk_cell_renderer_toggle_new();
-	g_signal_connect(renderer, "toggled",
-			 G_CALLBACK(fixed_toggled), treeview);
-
-	column = gtk_tree_view_column_new();
-	image =
-	    gtk_image_new_from_icon_name("list-add-symbolic");
-	gtk_widget_show(image);
-	gtk_widget_set_tooltip_text(image,
-				    (remove
-					 ? _("Click the box to work on this module")
-					 : _("Click the box to select this module for install/update")));
-	gtk_tree_view_column_set_widget(column, image);
-	gtk_tree_view_column_pack_start(column, renderer, TRUE);
-	gtk_tree_view_column_set_attributes(column, renderer,
-					    "active",
-					    COLUMN_FIXED,
-					    "visible",
-					    COLUMN_VISIBLE, NULL);
-
-	/* fixed sizing (25 pixels) */
-	gtk_tree_view_column_set_sizing(GTK_TREE_VIEW_COLUMN(column),
-					GTK_TREE_VIEW_COLUMN_FIXED);
-	gtk_tree_view_column_set_min_width(GTK_TREE_VIEW_COLUMN(column), 25);
-	gtk_tree_view_append_column(treeview, column);
+	col = elim_column_toggle(COLUMN_FIXED, fixed_toggled, NULL);
+	col.visible_column = COLUMN_VISIBLE;
+	col.tooltip = remove ? _("Click the box to work on this module")
+			     : _("Click the box to select this module for install/update");
+	elim_table_add_cell_column(view, "", &col);
 
 	/* -- installed version -- */
-	renderer = gtk_cell_renderer_text_new();
-	column =
-	    gtk_tree_view_column_new_with_attributes(_("Installed"),
-						     renderer, "text",
-						     COLUMN_INSTALLED_VERSION,
-						     NULL);
-	gtk_tree_view_append_column(treeview, column);
+	elim_table_add_text_column(view, _("Installed"), COLUMN_INSTALLED_VERSION, FALSE);
 
 	/* -- fast index ready -- */
-	column = gtk_tree_view_column_new();
-	image =
-	    gtk_image_new_from_icon_name("edit-find-symbolic");
-	gtk_widget_show(image);
-	gtk_widget_set_tooltip_text(image,
+	elim_table_add_image_column(view, _("Index"), COLUMN_FASTREADY, 16,
 				    _("The index icon means you have built an optimized ('lucene') index for this module for fast searching (see the Maintenance pane for this function)"));
-	renderer = GTK_CELL_RENDERER(gtk_cell_renderer_pixbuf_new());
-	gtk_tree_view_column_set_widget(column, image);
-	gtk_tree_view_column_pack_start(column, renderer, TRUE);
-	gtk_tree_view_column_set_attributes(column, renderer,
-					    "pixbuf", COLUMN_FASTREADY,
-					    NULL);
-	/* fixed sizing (25 pixels) */
-	gtk_tree_view_column_set_sizing(GTK_TREE_VIEW_COLUMN(column),
-					GTK_TREE_VIEW_COLUMN_FIXED);
-	gtk_tree_view_column_set_min_width(GTK_TREE_VIEW_COLUMN(column), 27);
-	gtk_tree_view_append_column(treeview, column);
 
 	/* -- locked -- */
-	column = gtk_tree_view_column_new();
-	image =
-	    gtk_image_new_from_icon_name("changes-prevent-symbolic");
-	gtk_widget_show(image);
-	gtk_widget_set_tooltip_text(image,
+	elim_table_add_image_column(view, _("Lock"), COLUMN_LOCKED, 16,
 				    _("The lock icon means this module is encrypted, and requires that you purchase an unlock key from the content owner"));
-	renderer = GTK_CELL_RENDERER(gtk_cell_renderer_pixbuf_new());
-	gtk_tree_view_column_set_widget(column, image);
-	gtk_tree_view_column_pack_start(column, renderer, TRUE);
-	gtk_tree_view_column_set_attributes(column, renderer,
-					    "pixbuf", COLUMN_LOCKED, NULL);
-	/* fixed sizing (25 pixels) */
-	gtk_tree_view_column_set_sizing(GTK_TREE_VIEW_COLUMN(column),
-					GTK_TREE_VIEW_COLUMN_FIXED);
-	gtk_tree_view_column_set_min_width(GTK_TREE_VIEW_COLUMN(column), 25);
-	gtk_tree_view_append_column(treeview, column);
-
-	/* -- About content (invisible) -- */
-	renderer = gtk_cell_renderer_text_new();
-	column =
-	    gtk_tree_view_column_new_with_attributes(_("About"), renderer,
-						     "text", COLUMN_ABOUT,
-						     NULL);
-	/* column not shown */
-	gtk_tree_view_column_set_visible(column, FALSE);
-	/* fixed sizing (2 pixels) */
-	gtk_tree_view_column_set_sizing(GTK_TREE_VIEW_COLUMN(column),
-					GTK_TREE_VIEW_COLUMN_FIXED);
-	gtk_tree_view_column_set_min_width(GTK_TREE_VIEW_COLUMN(column), 2);
-	gtk_tree_view_append_column(treeview, column);
 
 	if (remove)
 		return; /* no more fields needed */
 
 	/* -- refresh/update -- */
-	column = gtk_tree_view_column_new();
-	image =
-	    gtk_image_new_from_icon_name("view-refresh-symbolic");
-	gtk_widget_show(image);
-	gtk_widget_set_tooltip_text(image,
+	elim_table_add_image_column(view, _("Update"), COLUMN_DIFFERENT, 16,
 				    _("The refresh icon means the Installed module is older than the newer Available module: You should update the module"));
-	renderer = GTK_CELL_RENDERER(gtk_cell_renderer_pixbuf_new());
-	gtk_tree_view_column_set_widget(column, image);
-	gtk_tree_view_column_pack_start(column, renderer, TRUE);
-	gtk_tree_view_column_set_attributes(column, renderer,
-					    "pixbuf", COLUMN_DIFFERENT,
-					    NULL);
-	gtk_tree_view_append_column(treeview, column);
 
 	/* -- available version -- */
-	renderer = gtk_cell_renderer_text_new();
-	column =
-	    gtk_tree_view_column_new_with_attributes(_("Available"),
-						     renderer, "text",
-						     COLUMN_AVAILABLE_VERSION,
-						     NULL);
-	gtk_tree_view_append_column(treeview, column);
+	elim_table_add_text_column(view, _("Available"), COLUMN_AVAILABLE_VERSION, FALSE);
 
 	/* -- install size -- */
-	renderer = gtk_cell_renderer_text_new();
-	column =
-	    gtk_tree_view_column_new_with_attributes(_("Size"),
-						     renderer, "text",
-						     COLUMN_INSTALLSIZE,
-						     NULL);
-	gtk_tree_view_append_column(treeview, column);
+	elim_table_add_text_column(view, _("Size"), COLUMN_INSTALLSIZE, FALSE);
 
 	/* -- description -- */
-	renderer = gtk_cell_renderer_text_new();
-	column =
-	    gtk_tree_view_column_new_with_attributes(_("Description"),
-						     renderer, "text",
-						     COLUMN_DESC, NULL);
-	gtk_tree_view_append_column(treeview, column);
+	elim_table_add_text_column(view, _("Description"), COLUMN_DESC, TRUE);
 }
 
-static void setup_treeview_install(GtkTreeView *install)
+static void setup_treeview_install(GtkWidget *install)
 {
-	GtkTreeModel *model;
-	model = create_model();
-	gtk_tree_view_set_model(install, NULL);
-	gtk_tree_view_set_model(install, model);
-	add_columns(install, FALSE);
+	setup_module_tree_view(install, FALSE);
+	elim_table_set_tooltip_func(install, module_tooltip, NULL);
 }
 
-static void setup_treeview_maintenance(GtkTreeView *maintenance)
+static void setup_treeview_maintenance(GtkWidget *maintenance)
 {
-	GtkTreeModel *model;
-	model = create_model();
-	gtk_tree_view_set_model(maintenance, NULL);
-	gtk_tree_view_set_model(maintenance, model);
-	add_columns(maintenance, TRUE);
+	setup_module_tree_view(maintenance, TRUE);
+	elim_table_set_tooltip_func(maintenance, module_tooltip, NULL);
 }
 
 /******************************************************************************
@@ -926,7 +749,7 @@ static void remove_install_modules(GList *modules, int activity)
 	if (!result &&
 	    ((activity == REMOVE) ||
 	     (activity == FASTMOD) || (activity == DELFAST))) {
-		load_module_tree(GTK_TREE_VIEW(treeview2), 0);
+		load_module_tree(treeview2, 0);
 	}
 
 	gtk_progress_bar_set_text(GTK_PROGRESS_BAR(progressbar_refresh),
@@ -964,7 +787,7 @@ static void remove_install_modules(GList *modules, int activity)
  * Synopsis
  *   #include "gui/mod_mgr.h"
  *
- *    GList *parse_treeview(GtkTreeModel * model, GtkTreeIter * tree_parent)
+ *    GList *parse_treeview(GList *list, ElimRow * tree_parent, int activity)
  *
  * Description
  *
@@ -974,36 +797,35 @@ static void remove_install_modules(GList *modules, int activity)
  */
 
 static GList *parse_treeview(GList *list,
-			     GtkTreeModel *model,
-			     GtkTreeIter *tree_parent, int activity)
+			     ElimRow *tree_parent, int activity)
 {
-	GtkTreeIter child;
-	gchar *name = NULL;
-	gboolean fixed;
+	guint i;
 
-	gtk_tree_model_iter_children(model, &child, tree_parent);
+	for (i = 0; i < elim_row_n_children(tree_parent); i++) {
+		ElimRow *child = elim_row_get_child(tree_parent, i);
+		gboolean fixed = elim_row_get_int(child, COLUMN_FIXED);
+		const gchar *name = elim_row_get_string(child, COLUMN_NAME);
 
-	do {
-		gtk_tree_model_get(model, &child,
-				   COLUMN_FIXED, &fixed, COLUMN_NAME,
-				   &name, -1);
-		if (gtk_tree_model_iter_has_child(GTK_TREE_MODEL(model), &child)) {
-			list =
-			    parse_treeview(list, model, &child, activity);
+		if (elim_row_n_children(child)) {
+			list = parse_treeview(list, child, activity);
 		} else {
 			/* handle the abbreviated case, "abbrev (real)". */
-			char *n, *s = strchr(name, '(');
-			if (s) {
-				n = g_strdup(s + 1);
-				*(strchr(n, ')')) = '\0';
-			}
+			const char *s = strchr(name, '(');
+
 			if (fixed || (activity == ALL_MODULES)) {
-				list =
-				    g_list_append(list, (s ? n : (gchar *)
-							     name));
+				if (s) {
+					gchar *n = g_strdup(s + 1);
+					gchar *close = strchr(n, ')');
+
+					if (close)
+						*close = '\0';
+					list = g_list_append(list, n);
+				} else {
+					list = g_list_append(list, g_strdup(name));
+				}
 			}
 		}
-	} while (gtk_tree_model_iter_next(model, &child));
+	}
 
 	return list;
 }
@@ -1027,31 +849,21 @@ static GList *parse_treeview(GList *list,
 static GList *get_list_mods_to_remove_install(int activity)
 {
 	GList *retval = NULL;
-	GtkTreeIter root;
-	GtkTreeModel *model;
-	gchar *name;
-	gboolean fixed;
-	if (activity == INSTALL)
-		model = gtk_tree_view_get_model(GTK_TREE_VIEW(treeview));
-	else
-		model = gtk_tree_view_get_model(GTK_TREE_VIEW(treeview2));
-	if (!gtk_tree_model_get_iter_first(GTK_TREE_MODEL(model), &root))
-		return retval;
+	GListStore *roots =
+	    elim_table_get_store(activity == INSTALL ? treeview : treeview2);
+	guint i;
 
-	do {
-		gtk_tree_model_get(model, &root,
-				   COLUMN_FIXED, &fixed, COLUMN_NAME,
-				   &name, -1);
-		if (gtk_tree_model_iter_has_child(model, &root)) {
-			retval =
-			    parse_treeview(retval, model, &root, activity);
-		} else {
-			if (fixed || (activity == ALL_MODULES)) {
-				retval =
-				    g_list_append(retval, (gchar *)name);
-			}
+	for (i = 0; i < g_list_model_get_n_items(G_LIST_MODEL(roots)); i++) {
+		ElimRow *root = elim_table_get(roots, i);
+
+		if (elim_row_n_children(root)) {
+			retval = parse_treeview(retval, root, activity);
+		} else if (elim_row_get_int(root, COLUMN_FIXED) ||
+			   (activity == ALL_MODULES)) {
+			retval = g_list_append(retval,
+					       g_strdup(elim_row_get_string(root, COLUMN_NAME)));
 		}
-	} while (gtk_tree_model_iter_next(GTK_TREE_MODEL(model), &root));
+	}
 
 	return retval;
 }
@@ -1063,8 +875,8 @@ static GList *get_list_mods_to_remove_install(int activity)
  * Synopsis
  *   #include "gui/mod_mgr.h"
  *
- *   void add_module_to_language_folder(GtkTreeModel * model,
- *		      GtkTreeIter iter, MOD_MGR *info)
+ *   void add_module_to_language_folder(ElimRow * folder, GListStore * store,
+ *		      MOD_MGR *info, gboolean checkmark)
  *
  * Description
  *
@@ -1074,19 +886,18 @@ static GList *get_list_mods_to_remove_install(int activity)
  */
 
 static void
-add_module_to_language_folder(GtkTreeView *tree,
-			      GtkTreeModel *model,
-			      GtkTreeIter iter,
+add_module_to_language_folder(ElimRow *folder, GListStore *store,
 			      MOD_MGR *info, gboolean checkmark)
 {
-	GtkTreeIter iter_iter;
-	GtkTreeIter child_iter;
-	gboolean valid;
-	GdkPixbuf *installed;
-	GdkPixbuf *fasticon;
-	GdkPixbuf *locked;
-	GdkPixbuf *refresh;
+	guint i;
+	GdkTexture *installed;
+	GdkTexture *fasticon;
+	GdkTexture *locked;
+	GdkTexture *refresh;
 	const gchar *description = NULL;
+
+	if (!folder)
+		return;
 
 	/* Check language */
 	const gchar *buf = info->language;
@@ -1097,16 +908,14 @@ add_module_to_language_folder(GtkTreeView *tree,
 
 	description = info->description;
 
-	valid = gtk_tree_model_iter_children(model, &iter_iter, &iter);
-	while (valid) {
+	for (i = 0; i < elim_row_n_children(folder); i++) {
 		/* Walk through the list, reading each row */
-		gchar *str_data;
+		ElimRow *language_folder = elim_row_get_child(folder, i);
 
-		/*gtk_tooltip_set_markup ( tooltip,
-		   "<b>a little</b><br/>tooltip"); */
-		gtk_tree_model_get(model, &iter_iter, COLUMN_NAME,
-				   &str_data, -1);
-		if (!strcmp(info->language, str_data)) {
+		if (!strcmp(info->language, elim_row_get_string(language_folder, COLUMN_NAME))) {
+			ElimRow *row;
+			gchar *caption;
+
 			installed =
 			    ((info->installed) ? INSTALLED : BLANK);
 
@@ -1133,10 +942,8 @@ add_module_to_language_folder(GtkTreeView *tree,
 			} else
 				fasticon = BLANK;
 
-			gtk_tree_store_append(GTK_TREE_STORE(model),
-					      &child_iter, &iter_iter);
+			row = elim_tree_append(store, language_folder, NUM_COLUMNS);
 
-			gchar *caption;
 			if (info->abbreviation)
 				caption = g_strdup_printf("%s (%s)",
 							  info->abbreviation,
@@ -1144,29 +951,22 @@ add_module_to_language_folder(GtkTreeView *tree,
 			else
 				caption = g_strdup(info->name);
 
-			gtk_tree_store_set(GTK_TREE_STORE(model),
-					   &child_iter, COLUMN_NAME,
-					   caption, COLUMN_INSTALLED,
-					   (checkmark ? installed : BLANK),
-					   COLUMN_FIXED, FALSE,
-					   COLUMN_INSTALLED_VERSION,
-					   info->old_version,
-					   COLUMN_FASTREADY, fasticon,
-					   COLUMN_LOCKED, locked,
-					   COLUMN_ABOUT, info->about,
-					   COLUMN_DIFFERENT, refresh,
-					   COLUMN_AVAILABLE_VERSION,
-					   info->new_version,
-					   COLUMN_INSTALLSIZE,
-					   info->installsize, COLUMN_DESC,
-					   description, COLUMN_VISIBLE,
-					   TRUE, -1);
+			elim_row_set_string(row, COLUMN_NAME, caption);
+			elim_row_set_object(row, COLUMN_INSTALLED,
+					    G_OBJECT(checkmark ? installed : BLANK));
+			elim_row_set_int(row, COLUMN_FIXED, FALSE);
+			elim_row_set_string(row, COLUMN_INSTALLED_VERSION, info->old_version);
+			elim_row_set_object(row, COLUMN_FASTREADY, G_OBJECT(fasticon));
+			elim_row_set_object(row, COLUMN_LOCKED, G_OBJECT(locked));
+			elim_row_set_string(row, COLUMN_ABOUT, info->about);
+			elim_row_set_object(row, COLUMN_DIFFERENT, G_OBJECT(refresh));
+			elim_row_set_string(row, COLUMN_AVAILABLE_VERSION, info->new_version);
+			elim_row_set_string(row, COLUMN_INSTALLSIZE, info->installsize);
+			elim_row_set_string(row, COLUMN_DESC, description);
+			elim_row_set_int(row, COLUMN_VISIBLE, TRUE);
 			g_free(caption);
-			g_free(str_data);
 			return;
 		}
-		g_free(str_data);
-		valid = gtk_tree_model_iter_next(model, &iter_iter);
 	}
 }
 
@@ -1177,7 +977,7 @@ add_module_to_language_folder(GtkTreeView *tree,
  * Synopsis
  *   #include "main/sidebar.h"
  *
- *   void language_add_folders(GtkTreeModel * model, GtkTreeIter iter,
+ *   void language_add_folders(GListStore * roots, ElimRow * folder,
  *			       gchar ** languages)
  *
  * Description
@@ -1188,23 +988,21 @@ add_module_to_language_folder(GtkTreeView *tree,
  */
 
 static void
-language_add_folders(GtkTreeModel *model,
-		     GtkTreeIter iter, gchar **languages)
+language_add_folders(GListStore *roots,
+		     ElimRow *folder, gchar **languages)
 {
-	GtkTreeIter iter_iter;
-	GtkTreeIter child_iter;
 	int j;
 
-	(void)gtk_tree_model_iter_children(model, &iter_iter, &iter);
+	if (!folder)
+		return;
 	for (j = 0; languages[j]; ++j) {
-		gtk_tree_store_append(GTK_TREE_STORE(model), &child_iter,
-				      &iter);
-		gtk_tree_store_set(GTK_TREE_STORE(model), &child_iter,
-				   COLUMN_VISIBLE, FALSE, COLUMN_NAME,
-				   ((g_utf8_validate(languages[j], -1, NULL))
-					? languages[j]
-					: _("Unknown")),
-				   -1);
+		ElimRow *row = elim_tree_append(roots, folder, NUM_COLUMNS);
+
+		elim_row_set_int(row, COLUMN_VISIBLE, FALSE);
+		elim_row_set_string(row, COLUMN_NAME,
+				    ((g_utf8_validate(languages[j], -1, NULL))
+					 ? languages[j]
+					 : _("Unknown")));
 	}
 }
 
@@ -1215,7 +1013,7 @@ language_add_folders(GtkTreeModel *model,
  * Synopsis
  *   #include "gui/mod_mgr.h"
  *
- *   void add_language_folder(GtkTreeModel * model, GtkTreeIter iter,
+ *   void add_language_folder(GListStore * store, ElimRow * folder,
  *			      gchar * language)
  *
  * Description
@@ -1226,12 +1024,11 @@ language_add_folders(GtkTreeModel *model,
  */
 
 static void
-add_language_folder(GtkTreeModel *model,
-		    GtkTreeIter iter, const gchar *language)
+add_language_folder(GListStore *store,
+		    ElimRow *folder, const gchar *language)
 {
-	GtkTreeIter iter_iter;
-	GtkTreeIter child_iter;
-	gboolean valid;
+	guint i;
+	ElimRow *row;
 
 	/* Check language */
 	const gchar *buf = language;
@@ -1240,37 +1037,28 @@ add_language_folder(GtkTreeModel *model,
 	if (!g_unichar_isalnum(g_utf8_get_char(buf)) || (language == NULL))
 		language = _("Unknown");
 
-	valid = gtk_tree_model_iter_children(model, &iter_iter, &iter);
-	while (valid) {
+	for (i = 0; i < elim_row_n_children(folder); i++) {
 		/* Walk through the list, reading each row */
-		gchar *str_data;
+		gchar *wanted = g_utf8_casefold(language, -1);
+		gchar *have = g_utf8_casefold(
+		    elim_row_get_string(elim_row_get_child(folder, i), COLUMN_NAME), -1);
+		gboolean same = !g_utf8_collate(wanted, have);
 
-		gtk_tree_model_get(model,
-				   &iter_iter, COLUMN_NAME, &str_data, -1);
-
-		if (!g_utf8_collate(g_utf8_casefold(language, -1),
-				    g_utf8_casefold(str_data, -1))) {
-			g_free(str_data);
+		g_free(wanted);
+		g_free(have);
+		if (same)
 			return;
-		}
-		g_free(str_data);
-		valid = gtk_tree_model_iter_next(model, &iter_iter);
 	}
-	gtk_tree_store_append(GTK_TREE_STORE(model), &child_iter, &iter);
-	gtk_tree_store_set(GTK_TREE_STORE(model),
-			   &child_iter,
-			   COLUMN_VISIBLE,
-			   FALSE, COLUMN_NAME, language, -1);
+	row = elim_tree_append(store, folder, NUM_COLUMNS);
+	elim_row_set_int(row, COLUMN_VISIBLE, FALSE);
+	elim_row_set_string(row, COLUMN_NAME, language);
 }
 
 static gboolean
 on_modules_list_button_release(GtkWidget *widget,
 			       GuiButtonEvent *event, gpointer data)
 {
-	GtkTreeSelection *selection;
-	GtkTreeModel *model;
-	GtkTreeIter selected;
-	GtkTreePath *path;
+	ElimRow *selected;
 
 	/*
 	 * anti-bobble control.
@@ -1295,20 +1083,17 @@ on_modules_list_button_release(GtkWidget *widget,
 	}
 	/* end of anti-bobble control. */
 
-	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(data));
-
-	if (!gtk_tree_selection_get_selected(selection, &model, &selected))
+	selected = elim_table_get_selected(GTK_WIDGET(data));
+	if (!selected || !elim_row_n_children(selected))
 		return FALSE;
 
-	if (!gtk_tree_model_iter_has_child(model, &selected))
+	/* the arrow opens and closes its row by itself */
+	if (elim_tree_point_on_expander(GTK_WIDGET(data), event->x, event->y))
 		return FALSE;
-
-	path = gtk_tree_model_get_path(model, &selected);
-	if (gtk_tree_view_row_expanded(GTK_TREE_VIEW(data), path))
-		gtk_tree_view_collapse_row(GTK_TREE_VIEW(data), path);
+	if (elim_tree_row_expanded(GTK_WIDGET(data), selected))
+		elim_tree_collapse_row(GTK_WIDGET(data), selected);
 	else
-		gtk_tree_view_expand_row(GTK_TREE_VIEW(data), path, FALSE);
-	gtk_tree_path_free(path);
+		elim_tree_expand_row(GTK_WIDGET(data), selected, FALSE);
 	return FALSE;
 }
 
@@ -1316,30 +1101,28 @@ static gboolean
 on_modules_list_key_press(GtkWidget *widget,
                           GuiKeyEvent *event, gpointer data)
 {
-    GtkTreeSelection *selection;
-    GtkTreeModel *model;
-    GtkTreeIter selected;
-    GtkTreePath *path;
+    ElimRow *selected = elim_table_get_selected(widget);
 
-    selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(widget));
-    if (!gtk_tree_selection_get_selected(selection, &model, &selected))
-        return FALSE;
-    if (!gtk_tree_model_iter_has_child(model, &selected))
+    if (!selected || !elim_row_n_children(selected))
         return FALSE;
 
-    path = gtk_tree_model_get_path(model, &selected);
-
-    if (event->keyval == GDK_KEY_Right) {
-        gtk_tree_view_expand_row(GTK_TREE_VIEW(widget), path, FALSE);
-    } else if (event->keyval == GDK_KEY_Left) {
-        gtk_tree_view_collapse_row(GTK_TREE_VIEW(widget), path);
-    } else {
-        gtk_tree_path_free(path);
+    if (event->keyval == GDK_KEY_Right)
+        elim_tree_expand_row(widget, selected, FALSE);
+    else if (event->keyval == GDK_KEY_Left)
+        elim_tree_collapse_row(widget, selected);
+    else
         return FALSE;
-    }
 
-    gtk_tree_path_free(path);
     return TRUE;
+}
+
+/* A row of a folder: just a caption. */
+static ElimRow *add_folder_row(GListStore *store, const gchar *caption)
+{
+	ElimRow *row = elim_tree_append(store, NULL, NUM_COLUMNS);
+
+	elim_row_set_string(row, COLUMN_NAME, caption);
+	return row;
 }
 
 /******************************************************************************
@@ -1349,7 +1132,7 @@ on_modules_list_key_press(GtkWidget *widget,
  * Synopsis
  *   #include "gui/mod_mgr.h"
  *
- *   void load_module_tree(GtkTreeView * treeview, gboolean install)
+ *   void load_module_tree(GtkWidget * treeview, gboolean install)
  *
  * Description
  *
@@ -1358,38 +1141,38 @@ on_modules_list_key_press(GtkWidget *widget,
  *   void
  */
 
-static void load_module_tree(GtkTreeView *treeview, gboolean install)
+static void load_module_tree(GtkWidget *treeview, gboolean install)
 {
-	GtkTreeStore *store;
-	GtkTreeIter repository_name;
-	GtkTreeIter category_type;
-	GtkTreeIter category_avail;
+	GListStore *store;
+	ElimRow *repository_name;
+	ElimRow *category_type;
+	ElimRow *category_avail;
 
-	GtkTreeIter text;
+	ElimRow *text = NULL;
 	gboolean need_text = 0;
-	GtkTreeIter commentary;
+	ElimRow *commentary = NULL;
 	gboolean need_commentary = 0;
-	GtkTreeIter dictionary;
+	ElimRow *dictionary = NULL;
 	gboolean need_dictionary = 0;
-	GtkTreeIter devotional;
+	ElimRow *devotional = NULL;
 	gboolean need_devotional = 0;
-	GtkTreeIter book;
+	ElimRow *book = NULL;
 	gboolean need_book = 0;
-	GtkTreeIter map;
+	ElimRow *map = NULL;
 	gboolean need_map = 0;
-	GtkTreeIter image;
+	ElimRow *image = NULL;
 	gboolean need_image = 0;
-	GtkTreeIter cult;
+	ElimRow *cult = NULL;
 	gboolean need_cult = 0;
-	GtkTreeIter glossary;
+	ElimRow *glossary = NULL;
 	gboolean need_glossary = 0;
-	GtkTreeIter prayerlist;
+	ElimRow *prayerlist = NULL;
 	gboolean need_prayerlist = 0;
 
-	GtkTreeIter separator;
-	GtkTreeIter update;
-	GtkTreeIter uninstalled;
-	GtkTreeIter unindexed;
+	ElimRow *separator;
+	ElimRow *update = NULL;
+	ElimRow *uninstalled = NULL;
+	ElimRow *unindexed = NULL;
 	gboolean first_unindexed = FALSE;
 
 	GList *tmp = NULL;
@@ -1471,12 +1254,14 @@ static void load_module_tree(GtkTreeView *treeview, gboolean install)
 		tmp2 = g_list_next(tmp2);
 	}
 
-	gtk_tree_view_set_model(treeview, NULL);
-	store = GTK_TREE_STORE(create_model());
-	gtk_tree_store_clear(store);
+	/* the tree is made apart, then shown at once */
+	store = elim_table_new();
 
-	if (!g_list_length(tmp))
+	if (!g_list_length(tmp)) {
+		elim_tree_replace(elim_table_get_store(treeview), store);
+		g_object_unref(store);
 		return;
+	}
 
 	if (install) {
 		/* note the repository that is active */
@@ -1487,107 +1272,77 @@ static void load_module_tree(GtkTreeView *treeview, gboolean install)
 		gchar *repository_identifier =
 		    g_strdup_printf(_("Repository:\n%s"),
 				    (local ? source : remote_source));
-		gtk_tree_store_append(store, &repository_name, NULL);
-		gtk_tree_store_set(store, &repository_name, 0,
-				   repository_identifier, -1);
+		repository_name = add_folder_row(store, repository_identifier);
+		(void)repository_name;
 		g_free(repository_identifier);
 
-		gtk_tree_store_append(store, &separator, NULL);
-		gtk_tree_store_set(store, &separator, 0,
-				   "------------------------", -1);
+		separator = add_folder_row(store, "------------------------");
+		(void)separator;
 
-		gtk_tree_store_append(store, &category_type, NULL);
-		gtk_tree_store_set(store, &category_type, 0,
-				   _("Categorized by\nModule Type"), -1);
+		category_type = add_folder_row(store, _("Categorized by\nModule Type"));
+		(void)category_type;
 	}
 
 	/* add only those folders actually represented. */
 
 	/*  add Biblical Texts folder */
-	if (need_text) {
-		gtk_tree_store_append(store, &text, NULL);
-		gtk_tree_store_set(store, &text, 0, _("Biblical Texts"), -1);
-	}
+	if (need_text)
+		text = add_folder_row(store, _("Biblical Texts"));
 
 	/*  add Commentaries folder */
-	if (need_commentary) {
-		gtk_tree_store_append(store, &commentary, NULL);
-		gtk_tree_store_set(store, &commentary, 0, _("Commentaries"), -1);
-	}
+	if (need_commentary)
+		commentary = add_folder_row(store, _("Commentaries"));
 
 	/*  add Dictionaries folder */
-	if (need_dictionary) {
-		gtk_tree_store_append(store, &dictionary, NULL);
-		gtk_tree_store_set(store, &dictionary, 0, _("Dictionaries"), -1);
-	}
+	if (need_dictionary)
+		dictionary = add_folder_row(store, _("Dictionaries"));
 
 	/*  add Glossaries folder */
-	if (need_glossary) {
-		gtk_tree_store_append(store, &glossary, NULL);
-		gtk_tree_store_set(store, &glossary, 0, _("Glossaries"), -1);
-	}
+	if (need_glossary)
+		glossary = add_folder_row(store, _("Glossaries"));
 
 	/*  add Devotionals folder */
-	if (need_devotional) {
-		gtk_tree_store_append(store, &devotional, NULL);
-		gtk_tree_store_set(store, &devotional, 0, _("Daily Devotionals"), -1);
-	}
+	if (need_devotional)
+		devotional = add_folder_row(store, _("Daily Devotionals"));
 
 	/*  add Books folder */
-	if (need_book) {
-		gtk_tree_store_append(store, &book, NULL);
-		gtk_tree_store_set(store, &book, 0, _("General Books"), -1);
-	}
+	if (need_book)
+		book = add_folder_row(store, _("General Books"));
 
 	/*  add Maps folder */
-	if (need_map) {
-		gtk_tree_store_append(store, &map, NULL);
-		gtk_tree_store_set(store, &map, 0, _("Maps"), -1);
-	}
+	if (need_map)
+		map = add_folder_row(store, _("Maps"));
 
 	/*  add Images folder */
-	if (need_image) {
-		gtk_tree_store_append(store, &image, NULL);
-		gtk_tree_store_set(store, &image, 0, _("Images"), -1);
-	}
+	if (need_image)
+		image = add_folder_row(store, _("Images"));
 
 	/*  add Cult folder */
-	if (need_cult) {
-		gtk_tree_store_append(store, &cult, NULL);
-		gtk_tree_store_set(store, &cult, 0, _("Cult/Unorthodox"), -1);
-	}
+	if (need_cult)
+		cult = add_folder_row(store, _("Cult/Unorthodox"));
 
 	if (install && !first_time_user) {
-		gtk_tree_store_append(store, &separator, NULL);
-		gtk_tree_store_set(store, &separator, 0,
-				   "------------------------", -1);
+		separator = add_folder_row(store, "------------------------");
+		(void)separator;
 
-		gtk_tree_store_append(store, &category_avail, NULL);
-		gtk_tree_store_set(store, &category_avail, 0,
-				   _("Categorized by\nAvailability"), -1);
+		category_avail = add_folder_row(store, _("Categorized by\nAvailability"));
+		(void)category_avail;
 
 		/*  add Updates folder */
-		gtk_tree_store_append(store, &update, NULL);
-		gtk_tree_store_set(store, &update, 0, _("Updates"), -1);
+		update = add_folder_row(store, _("Updates"));
 
 		/*  add Uninstalled folder */
-		gtk_tree_store_append(store, &uninstalled, NULL);
-		gtk_tree_store_set(store, &uninstalled, 0,
-				   _("Uninstalled"), -1);
+		uninstalled = add_folder_row(store, _("Uninstalled"));
 	} else {
 		/* add Journal/PrayerList folder */
-		if (settings.prayerlist && need_prayerlist) {
-			gtk_tree_store_append(store, &prayerlist, NULL);
-			gtk_tree_store_set(store, &prayerlist, 0,
-					   _("Prayer List/Journal"), -1);
-		}
+		if (settings.prayerlist && need_prayerlist)
+			prayerlist = add_folder_row(store, _("Prayer List/Journal"));
 	}
 
 	language_make_list(tmp, store,
 			   text, commentary, map, image,
 			   devotional, dictionary, glossary, book, cult,
-			   ((install && !first_time_user) ? &update : NULL),
-			   ((install && !first_time_user) ? &uninstalled : NULL),
+			   update, uninstalled,
 			   language_add_folders, FALSE);
 
 	tmp2 = tmp;
@@ -1597,63 +1352,38 @@ static void load_module_tree(GtkTreeView *treeview, gboolean install)
 		if (install && !first_time_user) {
 			// special lists: updated and uninstalled modules.
 			if (!info->installed) {
-				add_module_to_language_folder(treeview,
-							      GTK_TREE_MODEL(store),
-							      uninstalled,
+				add_module_to_language_folder(uninstalled, store,
 							      info,
 							      install);
 			} else if ((!info->old_version && info->new_version && strcmp(info->new_version, " ")) || (info->old_version && !info->new_version) || (info->old_version && info->new_version && strcmp(info->new_version, info->old_version) > 0)) {
-				add_module_to_language_folder(treeview,
-							      GTK_TREE_MODEL(store),
-							      update, info,
+				add_module_to_language_folder(update, store, info,
 							      install);
 			}
 		}
 		// see comment on similar code in src/main/sidebar.cc.
 
 		if (info->is_cult) {
-			add_module_to_language_folder(treeview,
-						      GTK_TREE_MODEL(store), cult,
-						      info, install);
+			add_module_to_language_folder(cult, store, info, install);
 		} else if (info->type[0] == 'B') {
-			add_module_to_language_folder(treeview,
-						      GTK_TREE_MODEL(store), text,
-						      info, install);
+			add_module_to_language_folder(text, store, info, install);
 		} else if (info->type[0] == 'C') {
-			add_module_to_language_folder(treeview,
-						      GTK_TREE_MODEL(store), commentary,
-						      info, install);
+			add_module_to_language_folder(commentary, store, info, install);
 		} else if (info->is_maps) {
-			add_module_to_language_folder(treeview,
-						      GTK_TREE_MODEL(store), map,
-						      info, install);
+			add_module_to_language_folder(map, store, info, install);
 		} else if (info->is_images) {
-			add_module_to_language_folder(treeview,
-						      GTK_TREE_MODEL(store), image,
-						      info, install);
+			add_module_to_language_folder(image, store, info, install);
 		} else if (info->is_devotional) {
-			add_module_to_language_folder(treeview,
-						      GTK_TREE_MODEL(store), devotional,
-						      info, install);
+			add_module_to_language_folder(devotional, store, info, install);
 		} else if (info->is_glossary) {
-			add_module_to_language_folder(treeview,
-						      GTK_TREE_MODEL(store), glossary,
-						      info, install);
+			add_module_to_language_folder(glossary, store, info, install);
 		} else if (info->type[0] == 'L') {
-			add_module_to_language_folder(treeview,
-						      GTK_TREE_MODEL(store), dictionary,
-						      info, install);
+			add_module_to_language_folder(dictionary, store, info, install);
 		} else if (info->type[0] == 'G') {
 			if (first_time_user || !info->is_prayerlist) {
-				add_module_to_language_folder(treeview, GTK_TREE_MODEL(store), book,
-							      info, install);
+				add_module_to_language_folder(book, store, info, install);
 			} else if (settings.prayerlist && need_prayerlist) {
-				add_language_folder(GTK_TREE_MODEL(store), prayerlist,
-						    info->language);
-				add_module_to_language_folder(treeview,
-							      GTK_TREE_MODEL(store),
-							      prayerlist,
-							      info,
+				add_language_folder(store, prayerlist, info->language);
+				add_module_to_language_folder(prayerlist, store, info,
 							      install);
 			}
 		} else {
@@ -1666,17 +1396,11 @@ static void load_module_tree(GtkTreeView *treeview, gboolean install)
 			if (!first_unindexed) {
 				first_unindexed++;
 				/* add Unindexed folder */
-				gtk_tree_store_append(store, &unindexed, NULL);
-				gtk_tree_store_set(store, &unindexed, 0,
-						   _("Unindexed Modules"), -1);
+				unindexed = add_folder_row(store, _("Unindexed Modules"));
 			}
 
-			add_language_folder(GTK_TREE_MODEL(store), unindexed,
-					    info->language);
-			add_module_to_language_folder(treeview,
-						      GTK_TREE_MODEL(store),
-						      unindexed,
-						      info,
+			add_language_folder(store, unindexed, info->language);
+			add_module_to_language_folder(unindexed, store, info,
 						      install);
 		}
 
@@ -1693,9 +1417,14 @@ static void load_module_tree(GtkTreeView *treeview, gboolean install)
 	}
 	g_list_free(tmp);
 
-	gtk_tree_view_set_model(treeview, GTK_TREE_MODEL(store));
+	elim_tree_replace(elim_table_get_store(treeview), store);
+	g_object_unref(store);
 
-	gui_widget_on_button(GTK_WIDGET(treeview), GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)on_modules_list_button_release, treeview);
+	/* the click that opens a folder is handled once, however often the tree is loaded */
+	if (!g_object_get_data(G_OBJECT(treeview), "elim-modmgr-click")) {
+		g_object_set_data(G_OBJECT(treeview), "elim-modmgr-click", GINT_TO_POINTER(1));
+		gui_widget_on_button(GTK_WIDGET(treeview), GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)on_modules_list_button_release, treeview);
+	}
 }
 
 /******************************************************************************
@@ -1729,7 +1458,7 @@ static void remove_install_wrapper(int activity)
 	remove_install_modules(modules, activity);
 	mod_mgr_shut_down();
 	mod_mgr_init(destination, FALSE, TRUE);
-	load_module_tree(GTK_TREE_VIEW(treeview), (activity == INSTALL));
+	load_module_tree(treeview, (activity == INSTALL));
 
 	sync_windows();
 
@@ -1780,7 +1509,7 @@ static void response_refresh(void)
 					  _("Remote source not found"));
 		gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(progressbar_refresh), 0);
 	} else {
-		load_module_tree(GTK_TREE_VIEW(treeview), TRUE);
+		load_module_tree(treeview, TRUE);
 		gtk_progress_bar_set_text(GTK_PROGRESS_BAR(progressbar_refresh),
 					  _("Finished"));
 		gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(progressbar_refresh), 0);
@@ -1825,150 +1554,93 @@ static void check_sync_repos(void)
 	g_list_free(tmp);
 }
 
+/* One row of a table of sources. */
+static ElimRow *
+source_row(const gchar *type, const gchar *caption, const gchar *source,
+	   const gchar *directory, const gchar *user, const gchar *pass,
+	   const gchar *uid)
+{
+	ElimRow *row = elim_row_new(NUM_REMOTE_COLUMNS);
+
+	elim_row_set_string(row, COLUMN_TYPE, type);
+	elim_row_set_string(row, COLUMN_CAPTION, caption);
+	elim_row_set_string(row, COLUMN_SOURCE, source);
+	elim_row_set_string(row, COLUMN_DIRECTORY, directory);
+	elim_row_set_string(row, COLUMN_USER, user);
+	elim_row_set_string(row, COLUMN_PASS, pass);
+	elim_row_set_string(row, COLUMN_UID, uid);
+	return row;
+}
+
+/* Adds a source to the table SOURCES, a GtkColumnView from setup_sources_view(). */
+static void
+add_source(GtkWidget *sources, ElimRow *row)
+{
+	g_list_store_append(elim_table_get_store(sources), row);
+	g_object_unref(row);
+}
+
 /******************************************************************************
  * Name
- *   add_columns_to_first
+ *   setup_sources_view
  *
  * Synopsis
  *   #include "gui/mod_mgr.h"
  *
- *   void add_columns (GtkTreeView *treeview)
+ *   void setup_sources_view(GtkWidget *view)
  *
  * Description
- *
+ *   VIEW, a GtkColumnView, is a table of install sources: what kind, what it
+ *   is called, where it is and how to reach it.
  *
  * Return value
  *   void
  */
 
-static void add_columns_to_first(GtkTreeView *treeview)
+static void setup_sources_view(GtkWidget *view)
 {
-	GtkCellRenderer *renderer;
-	GtkTreeViewColumn *column;
+	GListStore *store = elim_table_new();
 
-	renderer = gtk_cell_renderer_text_new();
-	column =
-	    gtk_tree_view_column_new_with_attributes(_("Configure"),
-						     renderer, "text",
-						     COLUMN_NAME, NULL);
-	gtk_tree_view_append_column(treeview, column);
+	elim_table_setup(view, store);
+	g_object_unref(store);
+	elim_table_add_text_column(view, _("Type"), COLUMN_TYPE, FALSE);
+	elim_table_add_text_column(view, _("Caption"), COLUMN_CAPTION, FALSE);
+	elim_table_add_text_column(view, _("Source"), COLUMN_SOURCE, FALSE);
+	elim_table_add_text_column(view, _("Directory"), COLUMN_DIRECTORY, TRUE);
+	elim_table_add_text_column(view, _("User"), COLUMN_USER, FALSE);
+	elim_table_add_text_column(view, _("Password"), COLUMN_PASS, FALSE);
+	elim_table_add_text_column(view, _("UID"), COLUMN_UID, FALSE);
 }
 
-/******************************************************************************
- * Name
- *   add_columns_to_remote_treeview
- *
- * Synopsis
- *   #include "gui/mod_mgr.h"
- *
- *   void  add_columns_to_remote_treeview(GtkTreeView *treeview)
- *
- * Description
- *
- *
- * Return value
- *   void
- */
-
-static void add_columns_to_remote_treeview(GtkTreeView *treeview)
+/* The pages of the dialog, in groups; a group has no page of its own. */
+static void
+add_page_row(GListStore *store, ElimRow *group, const gchar *caption, gint page)
 {
-	GtkCellRenderer *renderer;
-	GtkTreeViewColumn *column;
+	ElimRow *row = elim_tree_append(store, group, 2);
 
-	renderer = gtk_cell_renderer_text_new();
-	column =
-	    gtk_tree_view_column_new_with_attributes(_("Type"),
-						     renderer, "text",
-						     COLUMN_TYPE, NULL);
-	gtk_tree_view_append_column(treeview, column);
-
-	renderer = gtk_cell_renderer_text_new();
-	column =
-	    gtk_tree_view_column_new_with_attributes(_("Caption"),
-						     renderer, "text",
-						     COLUMN_CAPTION, NULL);
-	gtk_tree_view_append_column(treeview, column);
-
-	renderer = gtk_cell_renderer_text_new();
-	column =
-	    gtk_tree_view_column_new_with_attributes(_("Source"),
-						     renderer, "text",
-						     COLUMN_SOURCE, NULL);
-	gtk_tree_view_append_column(treeview, column);
-
-	renderer = gtk_cell_renderer_text_new();
-	column =
-	    gtk_tree_view_column_new_with_attributes(_("Directory"),
-						     renderer, "text",
-						     COLUMN_DIRECTORY,
-						     NULL);
-	gtk_tree_view_append_column(treeview, column);
-
-	renderer = gtk_cell_renderer_text_new();
-	column =
-	    gtk_tree_view_column_new_with_attributes(_("User"),
-						     renderer, "text",
-						     COLUMN_USER, NULL);
-	gtk_tree_view_append_column(treeview, column);
-
-	renderer = gtk_cell_renderer_text_new();
-	column =
-	    gtk_tree_view_column_new_with_attributes(_("Password"),
-						     renderer, "text",
-						     COLUMN_PASS, NULL);
-	gtk_tree_view_append_column(treeview, column);
-
-	renderer = gtk_cell_renderer_text_new();
-	column =
-	    gtk_tree_view_column_new_with_attributes(_("UID"),
-						     renderer, "text",
-						     COLUMN_UID, NULL);
-	gtk_tree_view_append_column(treeview, column);
+	elim_row_set_string(row, 0, caption);
+	elim_row_set_int(row, 1, page);
 }
 
-static GtkTreeModel *create_model_to_first(void)
+static void setup_pages_tree(GtkWidget *view)
 {
-	GtkTreeStore *model;
-	GtkTreeIter iter;
-	GtkTreeIter child_iter;
+	GListStore *store = elim_table_new();
+	ElimTextColumn column = elim_text_column(0);
+	ElimRow *group;
 
-	model = gtk_tree_store_new(2, G_TYPE_STRING, G_TYPE_INT);
+	column.expand = TRUE;
+	elim_tree_setup_list(view, store, &column);
+	g_object_unref(store);
 
-	gtk_tree_store_append(model, &iter, NULL);
-	gtk_tree_store_set(model, &iter, 0, _("Module Sources"), -1);
+	group = elim_tree_append(store, NULL, 2);
+	elim_row_set_string(group, 0, _("Module Sources"));
+	add_page_row(store, group, _("Add/Remove"), 1);
+	add_page_row(store, group, _("Choose"), 2);
 
-	gtk_tree_store_append(model, &child_iter, &iter);
-	gtk_tree_store_set(model, &child_iter, 0, _("Add/Remove"), 1, 1,
-			   -1);
-	gtk_tree_store_append(model, &child_iter, &iter);
-	gtk_tree_store_set(model, &child_iter, 0, _("Choose"), 1, 2, -1);
-
-	gtk_tree_store_append(model, &iter, NULL);
-	gtk_tree_store_set(model, &iter, 0, _("Modules"), -1);
-	gtk_tree_store_append(model, &child_iter, &iter);
-	gtk_tree_store_set(model, &child_iter, 0, _("Install/Update"), 1,
-			   3, -1);
-	gtk_tree_store_append(model, &child_iter, &iter);
-	gtk_tree_store_set(model, &child_iter, 0, _("Maintenance"), 1, 4,
-			   -1);
-
-	return GTK_TREE_MODEL(model);
-}
-
-static GtkTreeModel *create_remote_source_treeview_model(void)
-{
-	GtkListStore *store;
-
-	/* create list store */
-	store = gtk_list_store_new(NUM_REMOTE_COLUMNS,
-				   G_TYPE_STRING,
-				   G_TYPE_STRING,
-				   G_TYPE_STRING,
-				   G_TYPE_STRING,
-				   G_TYPE_STRING,
-				   G_TYPE_STRING, G_TYPE_STRING);
-
-	return GTK_TREE_MODEL(store);
+	group = elim_tree_append(store, NULL, 2);
+	elim_row_set_string(group, 0, _("Modules"));
+	add_page_row(store, group, _("Install/Update"), 3);
+	add_page_row(store, group, _("Maintenance"), 4);
 }
 
 /******************************************************************************
@@ -1992,30 +1664,20 @@ static int load_source_treeviews(void)
 						 0 /* start */;
 	GList *tmp = NULL;
 	GList *tmp2 = NULL;
-	GtkTreeIter iter;
 	MOD_MGR_SOURCE *mms;
-	GtkTreeModel *remote_model =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(treeview_remote));
-	GtkTreeModel *local_model =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(treeview_local));
 
 	/* remote */
-	gtk_list_store_clear(GTK_LIST_STORE(remote_model));
+	g_list_store_remove_all(elim_table_get_store(treeview_remote));
 	elim_dropdown_remove_all(GTK_DROP_DOWN(combo_entry2));
 	tmp = tmp2 = mod_mgr_list_remote_sources();
 	while (tmp) {
 		mms = (MOD_MGR_SOURCE *)tmp->data;
 		if (!strcmp(mms->caption, "CrossWire"))
 			crosswire_index = crosswire_tracker;
-		gtk_list_store_append(GTK_LIST_STORE(remote_model), &iter);
-		gtk_list_store_set(GTK_LIST_STORE(remote_model), &iter,
-				   COLUMN_TYPE, mms->type,
-				   COLUMN_CAPTION, mms->caption,
-				   COLUMN_SOURCE, mms->source,
-				   COLUMN_DIRECTORY, mms->directory,
-				   COLUMN_USER, mms->user,
-				   COLUMN_PASS, mms->pass,
-				   COLUMN_UID, mms->uid, -1);
+		add_source(treeview_remote,
+			   source_row(mms->type, mms->caption, mms->source,
+				      mms->directory, mms->user, mms->pass,
+				      mms->uid));
 		elim_dropdown_append(GTK_DROP_DOWN(combo_entry2), NULL,
 				     (gchar *)mms->caption);
 		g_free((gchar *)mms->type);
@@ -2033,16 +1695,14 @@ static int load_source_treeviews(void)
 	g_list_free(tmp2);
 
 	/* local */
-	gtk_list_store_clear(GTK_LIST_STORE(local_model));
+	g_list_store_remove_all(elim_table_get_store(treeview_local));
 	elim_dropdown_remove_all(GTK_DROP_DOWN(combo_entry1));
 	tmp = tmp2 = mod_mgr_list_local_sources();
 	while (tmp) {
 		mms = (MOD_MGR_SOURCE *)tmp->data;
-		gtk_list_store_append(GTK_LIST_STORE(local_model), &iter);
-		gtk_list_store_set(GTK_LIST_STORE(local_model), &iter, COLUMN_TYPE, mms->type, COLUMN_CAPTION, mms->caption, COLUMN_SOURCE, " ", // mms->source - eh.
-				   COLUMN_DIRECTORY, mms->directory,
-				   COLUMN_USER, "",
-				   COLUMN_PASS, "", COLUMN_UID, "", -1);
+		add_source(treeview_local,
+			   source_row(mms->type, mms->caption, " ", // mms->source - eh.
+				      mms->directory, "", "", ""));
 		elim_dropdown_append(GTK_DROP_DOWN(combo_entry1), NULL,
 				     (gchar *)mms->caption);
 		g_free((gchar *)mms->type);
@@ -2144,7 +1804,7 @@ on_notebook1_switch_page(GtkNotebook *notebook,
 		}
 		mod_mgr_shut_down();
 		mod_mgr_init(destination, FALSE, TRUE);
-		load_module_tree(GTK_TREE_VIEW(treeview), TRUE);
+		load_module_tree(treeview, TRUE);
 		break;
 	case 4:
 		if (gui_toggle_get_active(GTK_WIDGET(radiobutton_dest))) {
@@ -2156,7 +1816,7 @@ on_notebook1_switch_page(GtkNotebook *notebook,
 		mod_mgr_shut_down();
 		main_update_module_lists();
 		mod_mgr_init(destination, FALSE, TRUE);
-		load_module_tree(GTK_TREE_VIEW(treeview2), FALSE);
+		load_module_tree(treeview2, FALSE);
 		break;
 	}
 
@@ -2234,32 +1894,21 @@ on_radiobutton4_toggled(GtkToggleButton *togglebutton, gpointer user_data)
 
 void save_sources(void)
 {
-	gchar *type = NULL;
-	gchar *caption = NULL;
-	gchar *source = NULL;
-	gchar *directory = NULL;
-	gchar *user = NULL;
-	gchar *pass = NULL;
-	gchar *uid = NULL;
-	gboolean valid;
-	GtkTreeIter iter;
-	GtkTreeModel *remote_model =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(treeview_remote));
-	GtkTreeModel *local_model =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(treeview_local));
+	GListStore *remote_store = elim_table_get_store(treeview_remote);
+	GListStore *local_store = elim_table_get_store(treeview_local);
+	guint i;
 
 	mod_mgr_clear_config();
 
-	valid = gtk_tree_model_get_iter_first(remote_model, &iter);
-	while (valid) {
-		gtk_tree_model_get(remote_model, &iter,
-				   COLUMN_TYPE, &type,
-				   COLUMN_CAPTION, &caption,
-				   COLUMN_SOURCE, &source,
-				   COLUMN_DIRECTORY, &directory,
-				   COLUMN_USER, &user,
-				   COLUMN_PASS, &pass,
-				   COLUMN_UID, &uid, -1);
+	for (i = 0; i < g_list_model_get_n_items(G_LIST_MODEL(remote_store)); i++) {
+		ElimRow *row = elim_table_get(remote_store, i);
+		const gchar *type = elim_row_get_string(row, COLUMN_TYPE);
+		const gchar *caption = elim_row_get_string(row, COLUMN_CAPTION);
+		const gchar *source = elim_row_get_string(row, COLUMN_SOURCE);
+		const gchar *directory = elim_row_get_string(row, COLUMN_DIRECTORY);
+		const gchar *user = elim_row_get_string(row, COLUMN_USER);
+		const gchar *pass = elim_row_get_string(row, COLUMN_PASS);
+		const gchar *uid = elim_row_get_string(row, COLUMN_UID);
 
 		if (strcasecmp(type, "HTTP") == 0)
 			mod_mgr_add_source("HTTPSource",
@@ -2277,38 +1926,17 @@ void save_sources(void)
 			mod_mgr_add_source("FTPSource",
 					   type, caption, source,
 					   directory, user, pass, uid);
-		g_free(type);
-		g_free(caption);
-		g_free(source);
-		g_free(directory);
-		g_free(user);
-		g_free(pass);
-		g_free(uid);
-		valid = gtk_tree_model_iter_next(remote_model, &iter);
 	}
 
-	valid = gtk_tree_model_get_iter_first(local_model, &iter);
-	while (valid) {
-		gtk_tree_model_get(local_model, &iter,
-				   COLUMN_TYPE, &type,
-				   COLUMN_CAPTION, &caption,
-				   COLUMN_SOURCE, &source,
-				   COLUMN_DIRECTORY, &directory,
-				   COLUMN_USER, &user,
-				   COLUMN_PASS, &pass,
-				   COLUMN_UID, &uid, -1);
+	for (i = 0; i < g_list_model_get_n_items(G_LIST_MODEL(local_store)); i++) {
+		ElimRow *row = elim_table_get(local_store, i);
 
 		mod_mgr_add_source("DIRSource",
-				   type, caption, "[local]", directory,
+				   elim_row_get_string(row, COLUMN_TYPE),
+				   elim_row_get_string(row, COLUMN_CAPTION),
+				   "[local]",
+				   elim_row_get_string(row, COLUMN_DIRECTORY),
 				   "", "", "");
-		g_free(type);
-		g_free(caption);
-		g_free(source);
-		g_free(directory);
-		g_free(user);
-		g_free(pass);
-		g_free(uid);
-		valid = gtk_tree_model_iter_next(local_model, &iter);
 	}
 
 	mod_mgr_reread_config();
@@ -2334,9 +1962,6 @@ void save_sources(void)
 static void create_fileselection_local_source(void)
 {
 	GtkWidget *dialog;
-	GtkTreeIter iter;
-	GtkTreeModel *model =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(treeview_local));
 
 	dialog =
 	    gtk_file_chooser_dialog_new("Open File",
@@ -2351,14 +1976,8 @@ static void create_fileselection_local_source(void)
 		gchar *filename =
 		    gui_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
 		XI_message(("%s", filename));
-		gtk_list_store_append(GTK_LIST_STORE(model), &iter);
-		gtk_list_store_set(GTK_LIST_STORE(model), &iter,
-				   COLUMN_TYPE, "DIR",
-				   COLUMN_CAPTION, filename,
-				   COLUMN_SOURCE, "[local]",
-				   COLUMN_DIRECTORY, filename,
-				   COLUMN_USER, "",
-				   COLUMN_PASS, "", COLUMN_UID, "", -1);
+		add_source(treeview_local,
+			   source_row("DIR", filename, "[local]", filename, "", "", ""));
 		save_sources();
 		g_free(filename);
 	}
@@ -2631,7 +2250,7 @@ void on_scan_obsolete(GtkButton *button, gpointer user_data)
 	else {
 		mod_mgr_shut_down();
 		mod_mgr_init(destination, FALSE, TRUE);
-		load_module_tree(GTK_TREE_VIEW(treeview2), 0);
+		load_module_tree(treeview2, 0);
 	}
 
 	working = FALSE;
@@ -2775,55 +2394,35 @@ void on_button_add_local_clicked(GtkButton *button, gpointer user_data)
 
 void on_button_remove_local_clicked(GtkButton *button, gpointer user_data)
 {
-	GtkTreeSelection *selection;
-	GtkTreeIter selected;
-	gchar *caption = NULL;
-	gchar *type = NULL;
-	gchar *source = NULL;
-	gchar *directory = NULL;
-	gchar *user = NULL;
-	gchar *pass = NULL;
-	gchar *uid = NULL;
+	ElimRow *selected;
 	gchar *str;
-	GtkTreeModel *model;
 
 	if (working)
 		return;
 	working = TRUE;
 
-	selection =
-	    gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview_local));
-	if (!gtk_tree_selection_get_selected(selection, &model, &selected)) {
+	selected = elim_table_get_selected(treeview_local);
+	if (!selected) {
 		working = FALSE;
 		return;
 	}
-	gtk_tree_model_get(GTK_TREE_MODEL(model), &selected,
-			   COLUMN_TYPE, &type,
-			   COLUMN_CAPTION, &caption,
-			   COLUMN_SOURCE, &source,
-			   COLUMN_DIRECTORY, &directory,
-			   COLUMN_USER, &user,
-			   COLUMN_PASS, &pass, COLUMN_UID, &uid, -1);
 
 	str =
 	    g_strdup_printf("<span weight=\"bold\">%s</span>\n\n%s|%s|%s|%s",
-			    _("Remove the selected source"), caption, type, source,
-			    directory);
+			    _("Remove the selected source"),
+			    elim_row_get_string(selected, COLUMN_CAPTION),
+			    elim_row_get_string(selected, COLUMN_TYPE),
+			    elim_row_get_string(selected, COLUMN_SOURCE),
+			    elim_row_get_string(selected, COLUMN_DIRECTORY));
 
 	if (gui_yes_no_dialog(str,
 			      "dialog-warning"
 			      )) {
 
-		gtk_list_store_remove(GTK_LIST_STORE(model), &selected);
+		g_list_store_remove(elim_table_get_store(treeview_local),
+				    elim_table_get_selected_position(treeview_local));
 		save_sources();
 	}
-	g_free(type);
-	g_free(caption);
-	g_free(source);
-	g_free(directory);
-	g_free(user);
-	g_free(pass);
-	g_free(uid);
 	g_free(str);
 
 	working = FALSE;
@@ -2849,7 +2448,6 @@ void on_button_add_remote_clicked(GtkButton *button, gpointer user_data)
 {
 	gint test;
 	GS_DIALOG *dialog;
-	GtkTreeIter iter;
 	GString *str;
 	GList *tmp, *tmp2;
 	gboolean name_conflict = FALSE;
@@ -2865,8 +2463,6 @@ void on_button_add_remote_clicked(GtkButton *button, gpointer user_data)
 				     TRUE);
 	gtk_widget_hide(button_refresh);
 
-	GtkTreeModel *model =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(treeview_remote));
 	g_string_printf(str,
 			"<span weight=\"bold\">%s</span>",
 			_("Enter a remote source"));
@@ -2935,15 +2531,9 @@ void on_button_add_remote_clicked(GtkButton *button, gpointer user_data)
 					     local->tm_hour, local->tm_min,
 					     local->tm_sec);
 
-		gtk_list_store_append(GTK_LIST_STORE(model), &iter);
-		gtk_list_store_set(GTK_LIST_STORE(model), &iter,
-				   COLUMN_TYPE, dialog->text2,
-				   COLUMN_CAPTION, dialog->text1,
-				   COLUMN_SOURCE, dialog->text3,
-				   COLUMN_DIRECTORY, dialog->text4,
-				   COLUMN_USER, dialog->text5,
-				   COLUMN_PASS, dialog->text6,
-				   COLUMN_UID, uid, -1);
+		add_source(treeview_remote,
+			   source_row(dialog->text2, dialog->text1, dialog->text3,
+				      dialog->text4, dialog->text5, dialog->text6, uid));
 		g_free(uid);
 		save_sources();
 
@@ -3010,16 +2600,7 @@ on_button_remove_remote_clicked(GtkButton *button, gpointer user_data)
 {
 	gint test;
 	GS_DIALOG *yes_no_dialog;
-	GtkTreeSelection *selection;
-	GtkTreeIter selected;
-	gchar *caption = NULL;
-	gchar *type = NULL;
-	gchar *source = NULL;
-	gchar *directory = NULL;
-	gchar *user = NULL;
-	gchar *pass = NULL;
-	gchar *uid = NULL;
-	GtkTreeModel *model;
+	ElimRow *selected;
 	GString *str;
 
 	if (working)
@@ -3028,19 +2609,12 @@ on_button_remove_remote_clicked(GtkButton *button, gpointer user_data)
 
 	str = g_string_new(NULL);
 
-	selection =
-	    gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview_remote));
-	if (!gtk_tree_selection_get_selected(selection, &model, &selected)) {
+	selected = elim_table_get_selected(treeview_remote);
+	if (!selected) {
+		g_string_free(str, TRUE);
 		working = FALSE;
 		return;
 	}
-	gtk_tree_model_get(model, &selected,
-			   COLUMN_TYPE, &type,
-			   COLUMN_CAPTION, &caption,
-			   COLUMN_SOURCE, &source,
-			   COLUMN_DIRECTORY, &directory,
-			   COLUMN_USER, &user,
-			   COLUMN_PASS, &pass, COLUMN_UID, &uid, -1);
 
 	yes_no_dialog = gui_new_dialog();
 	yes_no_dialog->stock_icon =
@@ -3049,25 +2623,22 @@ on_button_remove_remote_clicked(GtkButton *button, gpointer user_data)
 	g_string_printf(str,
 			"<span weight=\"bold\">%s</span>\n\n%s|%s|%s|%s",
 			_("Remove the selected source"),
-			caption, type, source, directory);
+			elim_row_get_string(selected, COLUMN_CAPTION),
+			elim_row_get_string(selected, COLUMN_TYPE),
+			elim_row_get_string(selected, COLUMN_SOURCE),
+			elim_row_get_string(selected, COLUMN_DIRECTORY));
 	yes_no_dialog->label_top = str->str;
 	yes_no_dialog->yes = TRUE;
 	yes_no_dialog->no = TRUE;
 
 	test = gui_alert_dialog(yes_no_dialog);
 	if (test == GS_YES) {
-		gtk_list_store_remove(GTK_LIST_STORE(model), &selected);
+		g_list_store_remove(elim_table_get_store(treeview_remote),
+				    elim_table_get_selected_position(treeview_remote));
 		save_sources();
 		elim_dropdown_set_active(GTK_DROP_DOWN(combo_entry2), 0);
 	}
 	g_free(yes_no_dialog);
-	g_free(type);
-	g_free(caption);
-	g_free(source);
-	g_free(directory);
-	g_free(user);
-	g_free(pass);
-	g_free(uid);
 	g_string_free(str, TRUE);
 
 	working = FALSE;
@@ -3097,22 +2668,18 @@ on_treeview1_button_release_event(GtkWidget *widget,
 				  GuiButtonEvent *event,
 				  gpointer user_data)
 {
-	GtkTreeSelection *selection = NULL;
-	GtkTreeIter selected;
+	ElimRow *selected;
 	gint sel;
-	GtkTreeModel *model;
 
 	if (working)
 		return 0;
 	working = TRUE;
 
-	model = gtk_tree_view_get_model(GTK_TREE_VIEW(treeview1));
-	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview1));
+	selected = elim_table_get_selected(treeview1);
 
-	if (gtk_tree_selection_get_selected(selection, NULL, &selected)) {
-		gtk_tree_model_get(GTK_TREE_MODEL(model), &selected,
-				   1, &sel, -1);
-		if (!gtk_tree_model_iter_has_child(GTK_TREE_MODEL(model), &selected)) {
+	if (selected) {
+		sel = elim_row_get_int(selected, 1);
+		if (!elim_row_n_children(selected)) {
 			gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook1), sel);
 			switch (sel) {
 			case 1:
@@ -3172,29 +2739,19 @@ on_treeview1_button_release_event(GtkWidget *widget,
 	return FALSE;
 }
 
-static void setup_treeview_main(GtkTreeView *tree_view)
+static void setup_treeview_main(GtkWidget *tree_view)
 {
-	GtkTreeModel *model;
-
-	model = create_model_to_first();
-	gtk_tree_view_set_model(tree_view, model);
-	add_columns_to_first(tree_view);
-	gtk_tree_view_expand_all(tree_view);
+	setup_pages_tree(tree_view);
+	elim_tree_expand_all(tree_view);
 
 	gui_widget_on_button(GTK_WIDGET(tree_view), GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)on_treeview1_button_release_event, NULL);
 }
 
 static void
-setup_treeviews_local_remote(GtkTreeView *local, GtkTreeView *remote)
+setup_treeviews_local_remote(GtkWidget *local, GtkWidget *remote)
 {
-	GtkTreeModel *model;
-
-	model = create_remote_source_treeview_model();
-	gtk_tree_view_set_model(local, model);
-	add_columns_to_remote_treeview(local);
-	model = create_remote_source_treeview_model();
-	gtk_tree_view_set_model(remote, model);
-	add_columns_to_remote_treeview(remote);
+	setup_sources_view(local);
+	setup_sources_view(remote);
 }
 
 static void set_combobox(GtkDropDown *combo)
@@ -3358,25 +2915,16 @@ static GtkWidget *create_module_manager_dialog(gboolean first_run)
 
 	/* treeviews */
 	treeview1 = UI_GET_ITEM(gxml, "treeview1");
-	setup_treeview_main(GTK_TREE_VIEW(treeview1));
+	setup_treeview_main(treeview1);
 
 	treeview_local = UI_GET_ITEM(gxml, "treeview2");
 	treeview_remote = UI_GET_ITEM(gxml, "treeview3");
-	setup_treeviews_local_remote(GTK_TREE_VIEW(treeview_local),
-				     GTK_TREE_VIEW(treeview_remote));
+	setup_treeviews_local_remote(treeview_local, treeview_remote);
 
 	treeview = UI_GET_ITEM(gxml, "treeview4");
 	treeview2 = UI_GET_ITEM(gxml, "treeview5");
-	setup_treeview_install(GTK_TREE_VIEW(treeview));
-	setup_treeview_maintenance(GTK_TREE_VIEW(treeview2));
-
-	gtk_widget_set_has_tooltip(treeview, TRUE);
-	g_signal_connect((gpointer)treeview,
-			 "query-tooltip", G_CALLBACK(query_tooltip), NULL);
-
-	gtk_widget_set_has_tooltip(treeview2, TRUE);
-	g_signal_connect((gpointer)treeview2,
-			 "query-tooltip", G_CALLBACK(query_tooltip), NULL);
+	setup_treeview_install(treeview);
+	setup_treeview_maintenance(treeview2);
 	gui_widget_on_key_phase(GTK_WIDGET(treeview), GTK_PHASE_CAPTURE, (GuiKeyFunc)on_modules_list_key_press, NULL, NULL);
 	gui_widget_on_key_phase(GTK_WIDGET(treeview2), GTK_PHASE_CAPTURE, (GuiKeyFunc)on_modules_list_key_press, NULL, NULL);
 

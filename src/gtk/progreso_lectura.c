@@ -29,6 +29,7 @@
 #include "main/racha.h"
 
 #include "gui/debug_glib_null.h"
+#include "gui/table_helpers.h"
 
 enum {
 	PCOL_NOMBRE = 0,
@@ -60,8 +61,8 @@ typedef struct {
 	GtkWidget *lbl_racha_pie;
 	GtkWidget *calendario;
 	GtkWidget *lbl_calendario_pie;
-	GtkTreeStore *libros;
-	GtkListStore *planes;
+	GListStore *libros;	/* los testamentos y, bajo cada uno, sus libros */
+	GListStore *planes;
 } PROGRESO_UI;
 
 static PROGRESO_UI *ui = NULL;
@@ -79,19 +80,24 @@ porciento(int parte, int total)
  * ------------------------------------------------------------------ */
 
 static void
-fila_libro(GtkTreeIter *grupo, int libro, int leidos)
+poner_fila(ElimRow *fila, const char *nombre, int porcentaje, const char *cuenta,
+	   int peso)
 {
-	GtkTreeIter iter;
+	elim_row_set_string(fila, PCOL_NOMBRE, nombre);
+	elim_row_set_int(fila, PCOL_PORCIENTO, porcentaje);
+	elim_row_set_string(fila, PCOL_CUENTA, cuenta);
+	elim_row_set_int(fila, PCOL_PESO, peso);
+}
+
+static void
+fila_libro(ElimRow *grupo, int libro, int leidos)
+{
 	int caps = main_planes_libro_capitulos(libro);
 	gchar *cuenta = g_strdup_printf(_("%d de %d"), leidos, caps);
 
-	gtk_tree_store_append(ui->libros, &iter, grupo);
-	gtk_tree_store_set(ui->libros, &iter,
-			   PCOL_NOMBRE, main_planes_libro_nombre(libro),
-			   PCOL_PORCIENTO, porciento(leidos, caps),
-			   PCOL_CUENTA, cuenta,
-			   PCOL_PESO, PANGO_WEIGHT_NORMAL,
-			   -1);
+	poner_fila(elim_tree_append(ui->libros, grupo, N_PCOLS),
+		   main_planes_libro_nombre(libro), porciento(leidos, caps),
+		   cuenta, PANGO_WEIGHT_NORMAL);
 	g_free(cuenta);
 }
 
@@ -101,7 +107,7 @@ static void
 grupo_testamento(const char *nombre, gboolean nt, const int *por_libro,
 		 int *leidos_fuera, int *total_fuera)
 {
-	GtkTreeIter grupo;
+	ElimRow *grupo;
 	int libro, leidos = 0, total = 0;
 	gchar *cuenta;
 
@@ -113,18 +119,13 @@ grupo_testamento(const char *nombre, gboolean nt, const int *por_libro,
 	}
 	cuenta = g_strdup_printf(_("%d de %d"), leidos, total);
 
-	gtk_tree_store_append(ui->libros, &grupo, NULL);
-	gtk_tree_store_set(ui->libros, &grupo,
-			   PCOL_NOMBRE, nombre,
-			   PCOL_PORCIENTO, porciento(leidos, total),
-			   PCOL_CUENTA, cuenta,
-			   PCOL_PESO, PANGO_WEIGHT_BOLD,
-			   -1);
+	grupo = elim_tree_append(ui->libros, NULL, N_PCOLS);
+	poner_fila(grupo, nombre, porciento(leidos, total), cuenta, PANGO_WEIGHT_BOLD);
 	g_free(cuenta);
 
 	for (libro = 0; libro < main_planes_libros_cuantos(); ++libro)
 		if (main_planes_libro_es_nt(libro) == nt)
-			fila_libro(&grupo, libro, por_libro[libro]);
+			fila_libro(grupo, libro, por_libro[libro]);
 
 	*leidos_fuera = leidos;
 	*total_fuera = total;
@@ -140,10 +141,10 @@ llenar_planes(void)
 	const char *activo = main_planes_activo();
 	int i;
 
-	gtk_list_store_clear(ui->planes);
+	g_list_store_remove_all(ui->planes);
 	for (i = 0; i < main_planes_cuantos(); ++i) {
 		const PL_PLAN *plan = main_planes_get(i);
-		GtkTreeIter iter;
+		ElimRow *fila;
 		gboolean en_curso;
 		int hechos;
 		gchar *cuenta;
@@ -171,14 +172,11 @@ llenar_planes(void)
 			cuenta = g_strdup_printf(_("%d de %d días"), hechos,
 						 plan->dias);
 
-		gtk_list_store_append(ui->planes, &iter);
-		gtk_list_store_set(ui->planes, &iter,
-				   PCOL_NOMBRE, _(plan->nombre),
-				   PCOL_PORCIENTO, porciento(hechos, plan->dias),
-				   PCOL_CUENTA, cuenta,
-				   PCOL_PESO, en_curso ? PANGO_WEIGHT_BOLD
-						       : PANGO_WEIGHT_NORMAL,
-				   -1);
+		fila = elim_row_new(N_PCOLS);
+		poner_fila(fila, _(plan->nombre), porciento(hechos, plan->dias), cuenta,
+			   en_curso ? PANGO_WEIGHT_BOLD : PANGO_WEIGHT_NORMAL);
+		g_list_store_append(ui->planes, fila);
+		g_object_unref(fila);
 		g_free(cuenta);
 	}
 }
@@ -467,11 +465,11 @@ llenar(void)
 	for (i = 0; i < n; ++i)
 		caps_biblia += main_planes_libro_capitulos(i);
 
-	gtk_tree_store_clear(ui->libros);
+	g_list_store_remove_all(ui->libros);
 	grupo_testamento(_("Antiguo Testamento"), FALSE, por_libro,
 			 &at, &at_total);
 	grupo_testamento(_("Nuevo Testamento"), TRUE, por_libro, &nt, &nt_total);
-	gtk_tree_view_expand_all(GTK_TREE_VIEW(ui->tree_libros));
+	elim_tree_expand_all(ui->tree_libros);
 
 	{
 		gchar *cabeza =
@@ -518,32 +516,23 @@ llenar(void)
  * ------------------------------------------------------------------ */
 
 static void
-montar_columnas(GtkWidget *tree, GtkTreeModel *modelo)
+montar_columnas(GtkWidget *tree, GListStore *modelo, gboolean arbol)
 {
-	GtkCellRenderer *celda;
-	GtkTreeViewColumn *col;
+	ElimColumn cols[2];
 
-	gtk_tree_view_set_model(GTK_TREE_VIEW(tree), modelo);
-
-	celda = gtk_cell_renderer_text_new();
-	g_object_set(celda, "ypad", 2, NULL);
-	col = gtk_tree_view_column_new_with_attributes(NULL, celda,
-						       "text", PCOL_NOMBRE,
-						       "weight", PCOL_PESO,
-						       NULL);
-	gtk_tree_view_column_set_min_width(col, 220);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(tree), col);
-
+	cols[0] = elim_column_text(PCOL_NOMBRE);
+	cols[0].text.weight_column = PCOL_PESO;
+	cols[0].text.pad_y = 2;
+	cols[0].text.fixed_width = 220;
 	/* La barra lleva la cuenta escrita dentro: una columna menos y se
 	 * lee de un vistazo cuánto falta. */
-	celda = gtk_cell_renderer_progress_new();
-	g_object_set(celda, "ypad", 2, NULL);
-	col = gtk_tree_view_column_new_with_attributes(NULL, celda,
-						       "value", PCOL_PORCIENTO,
-						       "text", PCOL_CUENTA,
-						       NULL);
-	gtk_tree_view_column_set_expand(col, TRUE);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(tree), col);
+	cols[1] = elim_column_progress(PCOL_PORCIENTO, PCOL_CUENTA);
+	cols[1].text.pad_y = 2;
+	cols[1].text.expand = TRUE;
+	if (arbol)
+		elim_tree_setup_row_columns(tree, modelo, cols, 2);
+	else
+		elim_table_setup_row_columns(tree, modelo, cols, 2);
 }
 
 static void
@@ -611,14 +600,10 @@ gui_progreso_lectura_dialog(GtkWindow *padre)
 					  : (widgets.app ? GTK_WINDOW(widgets.app)
 							 : NULL));
 
-	ui->libros = gtk_tree_store_new(N_PCOLS, G_TYPE_STRING, G_TYPE_INT,
-					G_TYPE_STRING, G_TYPE_INT);
-	ui->planes = gtk_list_store_new(N_PCOLS, G_TYPE_STRING, G_TYPE_INT,
-					G_TYPE_STRING, G_TYPE_INT);
-	montar_columnas(ui->tree_libros, GTK_TREE_MODEL(ui->libros));
-	montar_columnas(ui->tree_planes, GTK_TREE_MODEL(ui->planes));
-	gtk_tree_view_set_search_column(GTK_TREE_VIEW(ui->tree_libros),
-					PCOL_NOMBRE);
+	ui->libros = elim_table_new();
+	ui->planes = elim_table_new();
+	montar_columnas(ui->tree_libros, ui->libros, TRUE);
+	montar_columnas(ui->tree_planes, ui->planes, FALSE);
 
 	gtk_drawing_area_set_draw_func(GTK_DRAWING_AREA(ui->calendario),
 				       on_calendario_draw, NULL, NULL);

@@ -2038,19 +2038,6 @@ void on_combobox17_changed(GObject *combobox, GParamSpec *pspec,
  *   void
  */
 
-static void add_columns(GtkWidget *treeview)
-{
-	GtkCellRenderer *renderer;
-	GtkTreeViewColumn *column;
-
-	renderer = gtk_cell_renderer_text_new();
-	column =
-	    gtk_tree_view_column_new_with_attributes(_("Preferences"),
-						     renderer,
-						     "text", 0, NULL);
-
-	gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-}
 
 /******************************************************************************
  * Name
@@ -2058,7 +2045,7 @@ static void add_columns(GtkWidget *treeview)
  *
  * Synopsis
  *   #include "gui/.h"
- *   void tree_selection_changed(GtkTreeSelection * selection,
+ *   void tree_selection_changed(GObject * selection,
  *		      GtkWidget * tree_widget)
  *
  * Description
@@ -2068,13 +2055,14 @@ static void add_columns(GtkWidget *treeview)
  */
 
 static void
-tree_selection_changed(GtkTreeSelection *selection, gpointer data)
+tree_selection_changed(GObject *selection, GParamSpec *pspec, gpointer data)
 {
-	GtkTreeIter selected, child;
+	ElimRow *selected = elim_table_get_selected(GTK_WIDGET(data));
 	gint page;
-	GtkTreeModel *model;
 
-	if (!gtk_tree_selection_get_selected(selection, &model, &selected))
+	(void)selection;
+	(void)pspec;
+	if (!selected)
 		return;
 
 	/* Las filas de grupo -- General, Tipografías, Módulos -- no llevan
@@ -2087,10 +2075,10 @@ tree_selection_changed(GtkTreeSelection *selection, gpointer data)
 	 * atrapaba el teclado, porque al subir a la fila del grupo volvía a
 	 * bajar sola y no había manera de pasar de largo hacia la sección
 	 * anterior. */
-	if (gtk_tree_model_iter_children(model, &child, &selected))
-		gtk_tree_model_get(model, &child, 1, &page, -1);
+	if (elim_row_n_children(selected))
+		page = elim_row_get_int(elim_row_get_child(selected, 0), 1);
 	else
-		gtk_tree_model_get(model, &selected, 1, &page, -1);
+		page = elim_row_get_int(selected, 1);
 	gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook), page);
 }
 
@@ -2165,48 +2153,40 @@ on_dialog_prefs_close(GtkDialog *dialog, gpointer user_data)
 	}
 }
 
-static GtkTreeModel *create_model(void)
+/* The pages of the dialog, in groups; a group has no page of its own. */
+static ElimRow *
+add_prefs_row(GListStore *model, ElimRow *group, const char *caption, gint page)
 {
-	GtkTreeStore *model;
-	GtkTreeIter iter;
-	GtkTreeIter child_iter;
+	ElimRow *row = elim_tree_append(model, group, 2);
 
-	model = gtk_tree_store_new(2, G_TYPE_STRING, G_TYPE_INT);
+	elim_row_set_string(row, 0, caption);
+	elim_row_set_int(row, 1, page);
+	return row;
+}
 
-	gtk_tree_store_append(model, &iter, NULL);
-	gtk_tree_store_set(model, &iter, 0, _("General"), -1);
+static GListStore *create_model(void)
+{
+	GListStore *model = elim_table_new();
+	ElimRow *group;
 
-	gtk_tree_store_append(model, &child_iter, &iter);
-	gtk_tree_store_set(model, &child_iter, 0, _("Options"), 1, 4, -1);
+	group = add_prefs_row(model, NULL, _("General"), 0);
+	add_prefs_row(model, group, _("Options"), 4);
+	add_prefs_row(model, group, _("BibleSync"), 3);
 
-	gtk_tree_store_append(model, &child_iter, &iter);
-	gtk_tree_store_set(model, &child_iter, 0, _("BibleSync"), 1, 3,
-			   -1);
+	group = add_prefs_row(model, NULL, _("Fonts"), 0);
+	add_prefs_row(model, group, _("Color"), 1);
+	add_prefs_row(model, group, _("Sizes and Faces"), 2);
 
-	gtk_tree_store_append(model, &iter, NULL);
-	gtk_tree_store_set(model, &iter, 0, _("Fonts"), -1);
-
-	gtk_tree_store_append(model, &child_iter, &iter);
-	gtk_tree_store_set(model, &child_iter, 0, _("Color"), 1, 1, -1);
-
-	gtk_tree_store_append(model, &child_iter, &iter);
-	gtk_tree_store_set(model, &child_iter, 0, _("Sizes and Faces"), 1,
-			   2, -1);
-
-	gtk_tree_store_append(model, &iter, NULL);
-	gtk_tree_store_set(model, &iter, 0, _("Modules"), -1);
+	group = add_prefs_row(model, NULL, _("Modules"), 0);
 
 	/* the former element "5" was previously here,
 	   which was for the "main modules," now defunct.
 	   we maintain the numbering because 6 & 7 are fixed refs. */
 
-	gtk_tree_store_append(model, &child_iter, &iter);
-	gtk_tree_store_set(model, &child_iter, 0, _("Parallel"), 1, 6, -1);
+	add_prefs_row(model, group, _("Parallel"), 6);
+	add_prefs_row(model, group, _("Special"), 7);
 
-	gtk_tree_store_append(model, &child_iter, &iter);
-	gtk_tree_store_set(model, &child_iter, 0, _("Special"), 1, 7, -1);
-
-	return GTK_TREE_MODEL(model);
+	return model;
 }
 
 /******************************************************************************
@@ -2808,22 +2788,18 @@ void setup_font_prefs_combobox(void)
 static gboolean button_release_event(GtkWidget *widget,
 				     GuiButtonEvent *event, gpointer data)
 {
-	GtkTreeSelection *selection = NULL;
-	GtkTreeIter selected;
-	GtkTreeModel *model;
-	GtkTreePath *path;
+	ElimRow *selected = elim_table_get_selected(widget);
 
-	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(widget));
-	if ((!gtk_tree_selection_get_selected(selection, &model, &selected)) || (!gtk_tree_model_iter_has_child(model, &selected)))
+	if (!selected || !elim_row_n_children(selected))
 		return FALSE;
 
-	path = gtk_tree_model_get_path(model, &selected);
-	if (gtk_tree_view_row_expanded(GTK_TREE_VIEW(widget), path))
-		gtk_tree_view_collapse_row(GTK_TREE_VIEW(widget), path);
+	/* the arrow of a row opens and closes it by itself */
+	if (elim_tree_point_on_expander(widget, event->x, event->y))
+		return FALSE;
+	if (elim_tree_row_expanded(widget, selected))
+		elim_tree_collapse_row(widget, selected);
 	else
-		gtk_tree_view_expand_row(GTK_TREE_VIEW(widget), path,
-					 FALSE);
-	gtk_tree_path_free(path);
+		elim_tree_expand_row(widget, selected, FALSE);
 	return FALSE;
 }
 
@@ -2877,7 +2853,7 @@ static void ps_setup_listview()
  *
  * Synopsis
  *   #include "gui/search_dialog.h"
- *   void modules_lists_changed(GtkTreeSelection * selection,
+ *   void modules_lists_changed(GObject * selection,
  *		     					 gpointer data)
  *
  * Description
@@ -2888,26 +2864,24 @@ static void ps_setup_listview()
 
 static gchar *module_selected = NULL;
 
-static void modules_lists_changed(GtkTreeSelection *selection,
-				  GtkTreeView *tree_widget)
+static void modules_lists_changed(GObject *selection, GParamSpec *pspec,
+				  GtkWidget *tree_widget)
 {
-	gchar *mod = NULL;
-	GtkTreeIter selected;
-	GtkTreeModel *model =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(tree_widget));
+	ElimRow *selected = elim_table_get_selected(tree_widget);
 
-	if (!gtk_tree_selection_get_selected(selection, NULL, &selected))
+	(void)selection;
+	(void)pspec;
+	if (!selected)
 		return;
-	if (gtk_tree_model_iter_has_child(model, &selected)) {
+	if (elim_row_n_children(selected)) {
 		g_free(module_selected);
 		module_selected = NULL;
 		return;
 	}
 
-	gtk_tree_model_get(model, &selected, UTIL_COL_MODULE, &mod, -1);
-	if (mod) {
+	if (*elim_row_get_string(selected, UTIL_COL_MODULE)) {
 		g_free(module_selected);
-		module_selected = mod;
+		module_selected = g_strdup(elim_row_get_string(selected, UTIL_COL_MODULE));
 	}
 }
 
@@ -2928,27 +2902,23 @@ static void on_mod_sel_add_clicked(GtkWidget *button, gchar *user_data);
  *
  */
 
+/* A double click on a module of the picker adds it. */
+static void on_mod_sel_activate(GtkWidget *treeview, guint position, gpointer data)
+{
+	(void)position;
+	(void)data;
+	on_mod_sel_add_clicked(treeview, NULL);
+}
+
 static void ps_setup_treeview(GtkWidget *treeview)
 {
-	GtkCellRenderer *renderer;
-	GtkTreeViewColumn *column;
-	GObject *selection;
-
-	renderer = gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes("Found",
-							  renderer,
-							  "text", 0, NULL);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	gtk_tree_view_column_set_sort_column_id(column, 0);
 	gui_load_module_tree(treeview, TRUE);
 
-	selection =
-	    G_OBJECT(gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview)));
 	gui_widget_on_button(GTK_WIDGET(treeview), GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)button_release_event, GINT_TO_POINTER(0));
-	g_signal_connect(selection, "changed",
+	g_signal_connect(elim_table_selection(treeview), "notify::selected-item",
 			 G_CALLBACK(modules_lists_changed), treeview);
-	g_signal_connect(G_OBJECT(treeview), "row-activated",
-			 G_CALLBACK(on_mod_sel_add_clicked), NULL);
+	g_signal_connect(G_OBJECT(treeview), "activate",
+			 G_CALLBACK(on_mod_sel_activate), NULL);
 }
 
 static void on_mod_sel_add_clicked(GtkWidget *button, gchar *user_data)
@@ -3518,8 +3488,8 @@ static void create_preferences_dialog(void)
 {
 	GtkBuilder *gxml;
 	GtkWidget *treeview;
-	GtkTreeModel *model;
-	GObject *selection;
+	GListStore *model;
+	ElimTextColumn caption = elim_text_column(0);
 	GtkWidget *chooser;
 	gint index = 0;
 
@@ -3694,28 +3664,21 @@ static void create_preferences_dialog(void)
 	/* setup treeview */
 	model = create_model();
 	treeview = UI_GET_ITEM(gxml, "treeview");
-	gtk_tree_view_set_model(GTK_TREE_VIEW(treeview), model);
-	gtk_tree_view_set_headers_visible(GTK_TREE_VIEW(treeview), FALSE);
+	caption.expand = TRUE;
+	elim_tree_setup_list(treeview, model, &caption);
+	g_object_unref(model);
 	/* 130 px cortaba "Tipos y tamaños" a media palabra */
 	gtk_widget_set_size_request(treeview, 175, -1);
-	add_columns(treeview);
-	gtk_tree_view_expand_all(GTK_TREE_VIEW(treeview));
-	selection =
-	    G_OBJECT(gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview)));
+	elim_tree_expand_all(treeview);
 /* connect signals and data */
 
-	g_signal_connect(selection, "changed",
-			 G_CALLBACK(tree_selection_changed), model);
+	g_signal_connect(elim_table_selection(treeview), "notify::selected-item",
+			 G_CALLBACK(tree_selection_changed), treeview);
 
 	/* El diálogo abre en el primer ajuste. Antes abría en la página del
 	 * logo, que ocupaba el panel entero sin ofrecer nada. */
-	{
-		GtkTreePath *first = gtk_tree_path_new_from_indices(0, 0, -1);
-
-		gtk_tree_selection_select_path(GTK_TREE_SELECTION(selection),
-					       first);
-		gtk_tree_path_free(first);
-	}
+	elim_tree_select_row(treeview,
+			     elim_row_get_child(elim_table_get(model, 0), 0), FALSE);
 
 	/*
 	 * parallel select dialog: chooser and button connectivity

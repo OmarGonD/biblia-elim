@@ -3139,13 +3139,12 @@ static void build_tag_color_map(VerseKey *vk)
 	free_tag_color_map();
 	tag_color_map = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
 
-	extern GtkTreeStore *model;
-	if (!settings.tag_colorize || !model || !vk)
+	if (!settings.tag_colorize || !bookmark_roots || !vk)
 		return;
 
-	GtkTreeIter root;
-	if (!gtk_tree_model_get_iter_first(GTK_TREE_MODEL(model), &root))
+	if (!g_list_model_get_n_items(G_LIST_MODEL(bookmark_roots)))
 		return;
+	ElimRow *root = elim_table_get(bookmark_roots, 0);
 
 	/* Resolve everything against a saved copy of the key's text, and
 	 * restore it when done, so the live render position is never
@@ -3154,26 +3153,18 @@ static void build_tag_color_map(VerseKey *vk)
 
 	GQueue *stack = g_queue_new();
 	GQueue *colors = g_queue_new();
-	GtkTreeIter child;
-	if (gtk_tree_model_iter_children(GTK_TREE_MODEL(model), &child, &root)) {
-		do {
-			GtkTreeIter *copy = g_new(GtkTreeIter, 1);
-			*copy = child;
-			g_queue_push_tail(stack, copy);
-			g_queue_push_tail(colors, NULL);
-		} while (gtk_tree_model_iter_next(GTK_TREE_MODEL(model), &child));
+	for (guint c = 0; c < elim_row_n_children(root); c++) {
+		g_queue_push_tail(stack, elim_row_get_child(root, c));
+		g_queue_push_tail(colors, NULL);
 	}
 
 	while (!g_queue_is_empty(stack)) {
-		GtkTreeIter *iter = (GtkTreeIter *)g_queue_pop_head(stack);
+		ElimRow *row = (ElimRow *)g_queue_pop_head(stack);
 		gchar *inherited = (gchar *)g_queue_pop_head(colors);
-		gchar *node_color = NULL, *node_key = NULL, *node_module = NULL, *node_label = NULL;
-		gtk_tree_model_get(GTK_TREE_MODEL(model), iter,
-				   COL_COLOR,       &node_color,
-				   COL_KEY,         &node_key,
-				   COL_MODULE,      &node_module,
-				   COL_DESCRIPTION, &node_label,
-				   -1);
+		gchar *node_color = bookmark_row_dup(row, COL_COLOR);
+		gchar *node_key = bookmark_row_dup(row, COL_KEY);
+		gchar *node_module = bookmark_row_dup(row, COL_MODULE);
+		gchar *node_label = bookmark_row_dup(row, COL_DESCRIPTION);
 		gchar *escaped_label = (node_label
 					? g_uri_escape_string(node_label, NULL, TRUE)
 					: NULL);
@@ -3253,16 +3244,10 @@ static void build_tag_color_map(VerseKey *vk)
 			}
 			g_free(node_key);
 		} else {
-			if (gtk_tree_model_iter_children(GTK_TREE_MODEL(model),
-							 &child, iter)) {
-				do {
-					GtkTreeIter *copy = g_new(GtkTreeIter, 1);
-					*copy = child;
-					g_queue_push_tail(stack, copy);
-					g_queue_push_tail(colors,
-						effective ? g_strdup(effective) : NULL);
-				} while (gtk_tree_model_iter_next(
-						GTK_TREE_MODEL(model), &child));
+			for (guint c = 0; c < elim_row_n_children(row); c++) {
+				g_queue_push_tail(stack, elim_row_get_child(row, c));
+				g_queue_push_tail(colors,
+					effective ? g_strdup(effective) : NULL);
 			}
 		}
 		g_free(escaped_label);
@@ -3270,9 +3255,8 @@ static void build_tag_color_map(VerseKey *vk)
 		g_free(node_color);
 		g_free(node_module);
 		g_free(inherited);
-		g_free(iter);
 	}
-	g_queue_free_full(stack, g_free);
+	g_queue_free(stack);
 	g_queue_free_full(colors, g_free);
 
 	vk->setText(saved_pos);

@@ -38,6 +38,7 @@
 #include "gui/utilities.h"
 #include "gui/widgets.h"
 
+#include "gui/table_helpers.h"
 #include "main/testimonios.h"
 #include "main/settings.h"
 #include "main/sword.h"
@@ -58,7 +59,7 @@ typedef struct {
 	GtkWidget *html;
 	GtkWidget *tree;
 	GtkWidget *lbl_pie;
-	GtkTreeStore *modelo;
+	GListStore *modelo;	/* the sources, in groups */
 } TestUI;
 
 static TestUI *ui = NULL;
@@ -316,116 +317,85 @@ llenar_lista(void)
 {
 	const GList *g;
 
-	gtk_tree_store_clear(ui->modelo);
+	g_list_store_remove_all(ui->modelo);
 
 	for (g = main_testimonios_grupos(); g; g = g->next) {
 		TestimonioGrupo *grupo = (TestimonioGrupo *)g->data;
-		GtkTreeIter padre;
+		ElimRow *padre;
 		GList *l;
 
-		gtk_tree_store_append(ui->modelo, &padre, NULL);
-		gtk_tree_store_set(ui->modelo, &padre,
-				   COL_ETIQUETA, grupo->titulo,
-				   COL_ID, "",
-				   -1);
+		padre = elim_tree_append(ui->modelo, NULL, N_COLS);
+		elim_row_set_string(padre, COL_ETIQUETA, grupo->titulo);
+		elim_row_set_string(padre, COL_ID, "");
 
 		for (l = grupo->testimonios; l; l = l->next) {
 			Testimonio *t = (Testimonio *)l->data;
-			GtkTreeIter fila;
+			ElimRow *fila = elim_tree_append(ui->modelo, padre, N_COLS);
 
-			gtk_tree_store_append(ui->modelo, &fila, &padre);
-			gtk_tree_store_set(ui->modelo, &fila,
-					   COL_ETIQUETA, t->titulo,
-					   COL_ID, t->id,
-					   -1);
+			elim_row_set_string(fila, COL_ETIQUETA, t->titulo);
+			elim_row_set_string(fila, COL_ID, t->id);
 		}
 	}
-	gtk_tree_view_expand_all(GTK_TREE_VIEW(ui->tree));
+	elim_tree_expand_all(ui->tree);
 }
 
 static void
-on_seleccion(GtkTreeSelection *sel, gpointer datos)
+on_seleccion(GObject *seleccion, GParamSpec *pspec, gpointer datos)
 {
-	GtkTreeIter iter;
-	GtkTreeModel *modelo;
-	gchar *id = NULL;
+	ElimRow *fila;
+	const char *id;
 
+	(void)seleccion;
+	(void)pspec;
 	(void)datos;
-	if (!ui || !gtk_tree_selection_get_selected(sel, &modelo, &iter))
+	fila = ui ? elim_table_get_selected(ui->tree) : NULL;
+	if (!fila)
 		return;
 
-	gtk_tree_model_get(modelo, &iter, COL_ID, &id, -1);
-	if (id && *id)
+	id = elim_row_get_string(fila, COL_ID);
+	if (*id)
 		mostrar_testimonio(main_testimonios_por_id(id));
 	else
 		mostrar_portada();
-	g_free(id);
 }
 
 static void
-on_fila_activada(GtkTreeView *tree, GtkTreePath *path,
-		 GtkTreeViewColumn *col, gpointer datos)
+on_fila_activada(GtkWidget *tree, guint posicion, gpointer datos)
 {
-	GtkTreeIter iter;
-	gchar *id = NULL;
+	ElimRow *fila = elim_table_row_at(tree, posicion);
 
-	(void)col;
 	(void)datos;
-	if (!gtk_tree_model_get_iter(GTK_TREE_MODEL(ui->modelo), &iter, path))
+	if (!fila)
 		return;
 
 	/* Un doble clic en el nombre de un grupo lo pliega, que es lo que
 	 * espera cualquiera; en una fuente ya lo ha hecho la selección. */
-	gtk_tree_model_get(GTK_TREE_MODEL(ui->modelo), &iter, COL_ID, &id, -1);
-	if (!id || !*id) {
-		if (gtk_tree_view_row_expanded(tree, path))
-			gtk_tree_view_collapse_row(tree, path);
+	if (!*elim_row_get_string(fila, COL_ID)) {
+		if (elim_tree_row_expanded(tree, fila))
+			elim_tree_collapse_row(tree, fila);
 		else
-			gtk_tree_view_expand_row(tree, path, FALSE);
+			elim_tree_expand_row(tree, fila, FALSE);
 	}
-	g_free(id);
 }
 
 /* Deja elegida la fila de un id, abriendo su grupo. */
 static gboolean
 seleccionar_id(const char *id)
 {
-	GtkTreeIter grupo;
-	gboolean hay;
+	guint g, f;
 
 	if (!ui || !id || !*id)
 		return FALSE;
 
-	hay = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(ui->modelo), &grupo);
-	while (hay) {
-		GtkTreeIter fila;
-		gboolean hay_fila =
-		    gtk_tree_model_iter_children(GTK_TREE_MODEL(ui->modelo),
-						 &fila, &grupo);
+	for (g = 0; g < g_list_model_get_n_items(G_LIST_MODEL(ui->modelo)); g++) {
+		ElimRow *grupo = elim_table_get(ui->modelo, g);
 
-		while (hay_fila) {
-			gchar *suyo = NULL;
+		for (f = 0; f < elim_row_n_children(grupo); f++) {
+			ElimRow *fila = elim_row_get_child(grupo, f);
 
-			gtk_tree_model_get(GTK_TREE_MODEL(ui->modelo), &fila,
-					   COL_ID, &suyo, -1);
-			if (!g_strcmp0(suyo, id)) {
-				GtkTreePath *ruta = gtk_tree_model_get_path(
-				    GTK_TREE_MODEL(ui->modelo), &fila);
-
-				gtk_tree_view_expand_to_path(
-				    GTK_TREE_VIEW(ui->tree), ruta);
-				gtk_tree_view_set_cursor(GTK_TREE_VIEW(ui->tree),
-							 ruta, NULL, FALSE);
-				gtk_tree_path_free(ruta);
-				g_free(suyo);
-				return TRUE;
-			}
-			g_free(suyo);
-			hay_fila = gtk_tree_model_iter_next(
-			    GTK_TREE_MODEL(ui->modelo), &fila);
+			if (!g_strcmp0(elim_row_get_string(fila, COL_ID), id))
+				return elim_tree_select_row(ui->tree, fila, TRUE);
 		}
-		hay = gtk_tree_model_iter_next(GTK_TREE_MODEL(ui->modelo),
-					       &grupo);
 	}
 	return FALSE;
 }
@@ -461,9 +431,7 @@ crear_dialogo(GtkWindow *padre)
 {
 	GtkBuilder *gxml;
 	GtkWidget *btn_cerrar;
-	GtkCellRenderer *celda;
-	GtkTreeViewColumn *columna;
-	GtkTreeSelection *sel;
+	ElimTextColumn columna = elim_text_column(COL_ETIQUETA);
 
 	gxml = elim_gtk_builder_new();
 	if (!gtk_builder_add_from_resource(
@@ -489,16 +457,9 @@ crear_dialogo(GtkWindow *padre)
 	gtk_widget_show(ui->html);
 	gui_box_pack(GTK_BOX(ui->box_html), ui->html, TRUE, TRUE, 0);
 
-	ui->modelo = gtk_tree_store_new(N_COLS, G_TYPE_STRING, G_TYPE_STRING);
-	gtk_tree_view_set_model(GTK_TREE_VIEW(ui->tree),
-				GTK_TREE_MODEL(ui->modelo));
-	celda = gtk_cell_renderer_text_new();
-	g_object_set(celda, "ellipsize", PANGO_ELLIPSIZE_END, NULL);
-	columna = gtk_tree_view_column_new_with_attributes(
-	    _("Fuente"), celda, "text", COL_ETIQUETA, NULL);
-	gtk_tree_view_column_set_expand(columna, TRUE);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(ui->tree), columna);
-	gtk_tree_view_set_search_column(GTK_TREE_VIEW(ui->tree), COL_ETIQUETA);
+	ui->modelo = elim_table_new();
+	columna.expand = TRUE;
+	elim_tree_setup_list(ui->tree, ui->modelo, &columna);
 
 	llenar_lista();
 
@@ -507,11 +468,9 @@ crear_dialogo(GtkWindow *padre)
 	    _("Los originales son de dominio público; las traducciones al "
 	      "castellano se hicieron para esta aplicación."));
 
-	sel = gtk_tree_view_get_selection(GTK_TREE_VIEW(ui->tree));
-	gtk_tree_selection_set_mode(sel, GTK_SELECTION_SINGLE);
-	g_signal_connect(sel, "changed", G_CALLBACK(on_seleccion), NULL);
-	g_signal_connect(ui->tree, "row-activated",
-			 G_CALLBACK(on_fila_activada), NULL);
+	g_signal_connect(elim_table_selection(ui->tree), "notify::selected-item",
+			 G_CALLBACK(on_seleccion), NULL);
+	g_signal_connect(ui->tree, "activate", G_CALLBACK(on_fila_activada), NULL);
 	g_signal_connect(btn_cerrar, "clicked", G_CALLBACK(on_cerrar), NULL);
 	g_signal_connect(ui->dialog, "destroy", G_CALLBACK(on_destroy), NULL);
 

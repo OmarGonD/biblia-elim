@@ -28,6 +28,7 @@
 
 #include "gui/pulpito.h"
 #include "gui/sidebar.h"
+#include "gui/table_helpers.h"
 #include "gui/bookmarks_treeview.h"
 #include "gui/dialog.h"
 #include "gui/export_bookmarks.h"
@@ -69,7 +70,7 @@ static GtkWidget *button_v_lists;
 static GtkWidget *button_modules;
 static gchar *buf_module;
 GList *list_of_verses;
-GtkListStore *model_verselist;
+GListStore *model_verselist;
 gboolean is_search_result;
 
 extern gboolean shift_key_pressed;
@@ -82,179 +83,7 @@ static void prayerlist_menu_popup(gboolean for_module);
 static void on_export_verselist_activate(GSimpleAction *action,
 					 GVariant *parameter, gpointer user_data);
 
-#ifdef USE_TREEVIEW_PATH
-/******************************************************************************
- * Name
- *   gui_save_treeview_path_string
- *
- * Synopsis
- *   #include "gui/sidebar.h"
- *
- *   void gui_save_treeview_path_string (const gchar * path_str, const gchar * book_name)
- *
- * Description
- *   saves a books's treeview path in .xiphos/book_path.conf
- *
- * Return value
- *   void
- */
-void gui_save_treeview_path_string(const gchar *path_str,
-				   const gchar *book_name)
-{
-	gchar *file =
-	    g_strdup_printf("%s/book_path.conf", settings.gSwordDir);
-	save_conf_file_item(file, book_name, "PATH", path_str);
-	XI_message(("book %s, path %s, file %s\n", book_name, path_str,
-		    file));
-	g_free(file);
-}
 
-/******************************************************************************
- * Name
- *   gui_collapse_treeview_to_book
- *
- * Synopsis
- *   #include "gui/sidebar.h"
- *
- *   void gui_collapse_treeview_to_book (GtkTreeView * tree, const gchar * book_name)
- *
- * Description
- *   collapses a book treeview to it's name - it's called by tabbed browsing
- *   before the next book is expanded
- *
- * Return value
- *   void
- */
-
-void gui_collapse_treeview_to_book(GtkTreeView *tree,
-				   const gchar *book_name)
-{
-	gchar file[250];
-	gchar *path_string = NULL;
-	gchar *tmp_path_string = NULL;
-	gchar **work_buf = NULL;
-	GtkTreePath *path;
-
-	sprintf(file, "%s/book_path.conf", settings.gSwordDir);
-	path_string =
-	    get_conf_file_item(file, (gchar *)book_name, "PATH");
-
-	if (!path_string)
-		return;
-
-	work_buf = g_strsplit(path_string, ":", 4);
-
-	tmp_path_string = g_strdup_printf("%s:%s:%s",
-					  work_buf[0],
-					  work_buf[1], work_buf[2]);
-
-	path = gtk_tree_path_new_from_string((gchar *)tmp_path_string);
-	gtk_tree_view_collapse_row(tree, path);
-
-	gtk_tree_path_free(path);
-	g_free(path_string);
-	g_free(tmp_path_string);
-	g_strfreev(work_buf);
-}
-
-/******************************************************************************
- * Name
- *   gui_expand_treeview_to_path
- *
- * Synopsis
- *   #include "gui/sidebar.h"
- *
- *   gboolean gui_expand_treeview_to_path (GtkTreeView * tree, const gchar * book_name)
- *
- * Description
- *   expands a books treeview to it's last path called by tabbed browsing when
- *   a tab is shown that has a book  (and soon by the book editor - I hope)
- *
- * Return value
- *   gboolean
- */
-
-gboolean gui_expand_treeview_to_path(GtkTreeView *tree,
-				     const gchar *book_name)
-{
-	gchar file[250];
-	gchar *path_string = NULL;
-	gchar *tmp_path_string = NULL;
-	gchar *mod = NULL;
-	GtkTreeIter iter;
-	GtkTreeModel *model;
-	GtkTreePath *path;
-	gchar **work_buf = NULL;
-	gint i = 3;
-
-	sprintf(file, "%s/book_path.conf", settings.gSwordDir);
-	path_string =
-	    get_conf_file_item(file, (gchar *)book_name, "PATH");
-	if (!path_string)
-		return 0;
-
-	work_buf = g_strsplit(path_string, ":", -1);
-	XI_message(("\n\nbuf[0]: %s\nbuf[1]: %s\nbuf[2]: %s\n\n",
-		    work_buf[0], work_buf[1], work_buf[2]));
-	if (g_object_get_data(G_OBJECT(tree), "elim-module-tree-pending"))
-		main_load_module_tree(GTK_WIDGET(tree));
-	model = gtk_tree_view_get_model(tree);
-
-	tmp_path_string = g_strdup_printf("%s:%s:%s",
-					  work_buf[0],
-					  work_buf[1], work_buf[2]);
-	if (gtk_tree_model_get_iter_from_string(model, &iter,
-						(gchar *)tmp_path_string)) {
-		gtk_tree_model_get(model, &iter, 3, &mod, -1);
-		if (!g_utf8_collate(mod, book_name)) {
-			GtkTreeSelection *selection = gtk_tree_view_get_selection(tree);
-
-			path = gtk_tree_path_new_from_string((gchar *)
-							     tmp_path_string);
-			gtk_tree_view_expand_to_path(tree, path);
-			gtk_tree_selection_select_path(selection, path);
-
-			main_expand_treeview_to_path(model, iter);
-			gtk_tree_path_free(path);
-			while (work_buf[i]) {
-				XI_message(("\n\nwork_buf[%d]: %s\n\n",
-					    i, work_buf[i]));
-
-				tmp_path_string =
-				    g_strdup_printf("%s:%s",
-						    tmp_path_string,
-						    work_buf[i]);
-				gtk_tree_model_get_iter_from_string(model,
-								    &iter,
-								    (gchar *)
-								    tmp_path_string);
-
-				XI_message(("\n\nmod: %s\npath: %s\n\n",
-					    mod, tmp_path_string));
-				path = gtk_tree_path_new_from_string((gchar *)
-								     tmp_path_string);
-				gtk_tree_view_expand_to_path(tree, path);
-				gtk_tree_selection_select_path(selection,
-							       path);
-
-				main_expand_treeview_to_path(model, iter);
-				gtk_tree_path_free(path);
-				++i;
-			}
-		}
-		g_free(mod);
-	}
-	path = gtk_tree_path_new_from_string((gchar *)tmp_path_string);
-	gtk_tree_view_scroll_to_cell(tree, path, NULL, FALSE, 0.0, 0.0);
-	gtk_tree_path_free(path);
-
-	g_free(tmp_path_string);
-
-	g_strfreev(work_buf);
-
-	return 1;
-}
-#endif /* USE_TREEVIEW_PATH */
 
 /******************************************************************************
  * Name
@@ -309,35 +138,6 @@ static void on_notebook_switch_page(GtkNotebook *notebook,
 	}
 }
 
-/******************************************************************************
- * Name
- *   add_columns
- *
- * Synopsis
- *   #include "gui/sidebar.h"
- *
- *   void add_columns(GtkTreeView * treeview)
- *
- * Description
- *   add columns to listview
- *
- * Return value
- *   void
- */
-
-static void add_columns(GtkTreeView *treeview)
-{
-	GtkCellRenderer *renderer;
-	GtkTreeViewColumn *column;
-
-	renderer = gtk_cell_renderer_text_new();
-
-	column = gtk_tree_view_column_new_with_attributes("Results",
-							  renderer,
-							  "text", 0, NULL);
-	gtk_tree_view_column_set_sort_column_id(column, 0);
-	gtk_tree_view_append_column(treeview, column);
-}
 
 /******************************************************************************
  * Name
@@ -551,53 +351,29 @@ static gboolean on_modules_list_button_release(GtkWidget *widget,
 					       GuiButtonEvent *event,
 					       gpointer user_data)
 {
-GtkTreeIter selected;
-	GtkTreeModel *model;
+	ElimRow *selected;
 	gchar *mod = NULL;
 	gchar *caption = NULL;
-	GtkTreePath *path = NULL;
-	GtkTreeViewColumn *column = NULL;
-	gint cell_x, cell_y;
-	gboolean on_expander = FALSE;
 
-	gint bin_x, bin_y;
-
-	/* the event is in the widget's coordinates, the rows in the bin
-	 * window's */
-	gtk_tree_view_convert_widget_to_bin_window_coords(
-	    GTK_TREE_VIEW(sidebar.module_list), (gint)event->x, (gint)event->y,
-	    &bin_x, &bin_y);
-	if (!gtk_tree_view_get_path_at_pos(GTK_TREE_VIEW(sidebar.module_list),
-					   bin_x, bin_y,
-					   &path, &column, &cell_x, &cell_y))
+	/* the row under the pointer, which is not always the picked one */
+	selected = elim_table_row_at_point(sidebar.module_list, event->x, event->y);
+	if (!selected)
 		return FALSE;
+	caption = *elim_row_get_string(selected, 2) ? g_strdup(elim_row_get_string(selected, 2)) : NULL;
+	mod = *elim_row_get_string(selected, 3) ? g_strdup(elim_row_get_string(selected, 3)) : NULL;
 
-	model = gtk_tree_view_get_model(GTK_TREE_VIEW(sidebar.module_list));
-	if (!gtk_tree_model_get_iter(model, &selected, path)) {
-		gtk_tree_path_free(path);
-		return FALSE;
-	}
-	gtk_tree_model_get(GTK_TREE_MODEL(model), &selected, 2, &caption,
-			   3, &mod, -1);
-
-	gint depth = gtk_tree_path_get_depth(path);
-	/* GTK 4 sizes the expander in CSS: 16 px in the themes in use */
-	gint expander_size = 16;
-	gint expander_zone = depth * (expander_size + 4);
-	if (bin_x < expander_zone)
-		on_expander = TRUE;
-
-	if (!on_expander) {
-		if (gtk_tree_view_row_expanded(GTK_TREE_VIEW(sidebar.module_list), path))
-			gtk_tree_view_collapse_row(GTK_TREE_VIEW(sidebar.module_list), path);
+	/* a click on a folder opens or closes it, except on its arrow, which
+	 * does that by itself */
+	if (!elim_tree_point_on_expander(sidebar.module_list, event->x, event->y)) {
+		if (elim_tree_row_expanded(sidebar.module_list, selected))
+			elim_tree_collapse_row(sidebar.module_list, selected);
 		else
-			gtk_tree_view_expand_row(GTK_TREE_VIEW(sidebar.module_list), path, FALSE);
+			elim_tree_expand_row(sidebar.module_list, selected, FALSE);
 	}
-	gtk_tree_path_free(path);
-	
+
 	switch (event->button) {
 	case 1:
-		main_mod_treeview_button_one(model, selected);
+		main_mod_treeview_button_one(selected);
 		break;
 	case 2:
 		if (mod && (g_utf8_collate(mod, _("Parallel View"))) && (g_utf8_collate(mod, _("Standard View"))))
@@ -694,23 +470,19 @@ gboolean gui_verselist_button_release_event(GtkWidget *widget,
 					    GuiButtonEvent *event,
 					    gpointer user_data)
 {
-	GtkTreeSelection *selection;
-	GtkTreeModel *model;
-	GtkTreeIter selected;
+	ElimRow *selected;
 	gchar *key = NULL;
 	gchar *text = NULL;
 
-	selection = gtk_tree_view_get_selection((GtkTreeView *)
-						sidebar.results_list);
-	model =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(sidebar.results_list));
-
-	if (!gtk_tree_selection_get_selected(selection, NULL, &selected))
+	selected = elim_table_get_selected(sidebar.results_list);
+	if (!selected)
 		return FALSE;
 
-	gtk_tree_model_get(GTK_TREE_MODEL(model), &selected, 0, &key, -1);
-	if (!key)
+	key = g_strdup(elim_row_get_string(selected, 0));
+	if (!*key) {
+		g_free(key);
 		return FALSE;
+	}
 
 	if (event) {
 		switch (event->button) {
@@ -772,22 +544,18 @@ static gboolean on_treeview_button_press_event(GtkWidget *widget,
 					       GuiButtonEvent *event,
 					       gpointer user_data)
 {
-	GtkTreeSelection *selection;
-	GtkTreeModel *model;
-	GtkTreeIter selected;
+	ElimRow *selected;
 	gchar *key = NULL;
 
-	selection = gtk_tree_view_get_selection((GtkTreeView *)
-						sidebar.results_list);
-	model =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(sidebar.results_list));
-
-	if (!gtk_tree_selection_get_selected(selection, NULL, &selected))
+	selected = elim_table_get_selected(sidebar.results_list);
+	if (!selected)
 		return FALSE;
 
-	gtk_tree_model_get(GTK_TREE_MODEL(model), &selected, 0, &key, -1);
-	if (!key)
+	key = g_strdup(elim_row_get_string(selected, 0));
+	if (!*key) {
+		g_free(key);
 		return FALSE;
+	}
 
 	if (event->n_press == 2) {
 		/* The rows are native to the module the list was built for
@@ -1374,31 +1142,30 @@ G_MODULE_EXPORT void gui_menu_prayerlist_popup(gpointer menuitem,
 	prayerlist_menu_popup(FALSE);
 }
 
-static void tree_selection_changed_cb(GtkTreeSelection *selection,
+static void tree_selection_changed_cb(GObject *selection, GParamSpec *pspec,
 				      gpointer data)
 {
+	(void)selection;
+	(void)pspec;
+	(void)data;
 	gui_verselist_button_release_event(NULL, NULL, NULL);
 }
 
 static gboolean tree_key_press_cb(GtkWidget *widget,
 				  GuiKeyEvent *event, gpointer user_data)
 {
-	GtkTreeSelection *selection;
-	GtkTreeModel *model;
-	GtkTreeIter selected;
+	ElimRow *selected;
 	gchar *key = NULL;
 
-	selection = gtk_tree_view_get_selection((GtkTreeView *)
-						sidebar.results_list);
-	model =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(sidebar.results_list));
-
-	if (!gtk_tree_selection_get_selected(selection, NULL, &selected))
+	selected = elim_table_get_selected(sidebar.results_list);
+	if (!selected)
 		return FALSE;
 
-	gtk_tree_model_get(GTK_TREE_MODEL(model), &selected, 0, &key, -1);
-	if (!key)
+	key = g_strdup(elim_row_get_string(selected, 0));
+	if (!*key) {
+		g_free(key);
 		return FALSE;
+	}
 
 	if (event) {
 
@@ -1490,7 +1257,7 @@ GtkWidget *gui_sidebar_results_popup(GtkWidget *relative)
 static void create_search_results_page(GtkWidget *notebook)
 {
 	GtkWidget *scrolledwindow3;
-	GtkTreeSelection *selection;
+	ElimTextColumn column = elim_text_column(0);
 	/* The popup is built on first use. */
 	scrolledwindow3 = gtk_scrolled_window_new();
 	gtk_widget_show(scrolledwindow3);
@@ -1500,23 +1267,17 @@ static void create_search_results_page(GtkWidget *notebook)
 				       GTK_POLICY_AUTOMATIC);
 	gtk_scrolled_window_set_has_frame(GTK_SCROLLED_WINDOW((GtkScrolledWindow *) scrolledwindow3), TRUE);
 
-	/* create list model */
-	model_verselist = gtk_list_store_new(1, G_TYPE_STRING);
+	/* the keys of the verse list or of the search, one to a row */
+	model_verselist = elim_table_new();
 
-	sidebar.results_list =
-	    gtk_tree_view_new_with_model(GTK_TREE_MODEL(model_verselist));
+	sidebar.results_list = gtk_list_view_new(NULL, NULL);
+	elim_table_setup_list(sidebar.results_list, model_verselist, &column);
 	gtk_widget_show(sidebar.results_list);
 	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(scrolledwindow3), sidebar.results_list);
 
-	gtk_tree_view_set_headers_visible(GTK_TREE_VIEW(sidebar.results_list), FALSE);
-	add_columns(GTK_TREE_VIEW(sidebar.results_list));
-
-	selection =
-	    gtk_tree_view_get_selection(GTK_TREE_VIEW(sidebar.results_list));
-
 	gui_widget_on_key_phase(GTK_WIDGET(sidebar.results_list), GTK_PHASE_CAPTURE, (GuiKeyFunc)tree_key_press_cb, NULL, NULL);
-	g_signal_connect((gpointer)selection,
-			 "changed",
+	g_signal_connect(elim_table_selection(sidebar.results_list),
+			 "notify::selected-item",
 			 G_CALLBACK(tree_selection_changed_cb), NULL);
 	gui_widget_on_button(GTK_WIDGET(sidebar.results_list), GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)gui_verselist_button_release_event, NULL);
 	gui_widget_on_button(GTK_WIDGET(sidebar.results_list), GTK_PHASE_CAPTURE, (GuiButtonFunc)on_treeview_button_press_event, NULL, NULL);
@@ -1735,11 +1496,9 @@ GtkWidget *gui_create_sidebar(GtkWidget *paned)
 	gtk_widget_show(btn_install_bibles);
 	gtk_box_append(GTK_BOX(vbox_modules_page), btn_install_bibles);
 
-	sidebar.module_list = gtk_tree_view_new();
+	sidebar.module_list = gtk_list_view_new(NULL, NULL);
 	gtk_widget_show(sidebar.module_list);
 	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(scrolledwindow4), sidebar.module_list);
-	gtk_tree_view_set_headers_visible(GTK_TREE_VIEW(sidebar.module_list), FALSE);
-	main_add_mod_tree_columns(GTK_TREE_VIEW(sidebar.module_list));
 
 	scrolledwindow_bm = gtk_scrolled_window_new();
 	gtk_widget_show(scrolledwindow_bm);

@@ -650,8 +650,7 @@ void main_add_mod_to_list(GtkWidget *tree_widget, gchar *mod_name)
  * Synopsis
  *   #include "gui/search_dialog.h"
  *
- *   void mod_selection_changed(GtkTreeSelection * selection,
- *		      GtkWidget * tree_widget)
+ *   void mod_selection_changed(GtkWidget * tree_widget)
  *
  * Description
  *
@@ -660,22 +659,16 @@ void main_add_mod_to_list(GtkWidget *tree_widget, gchar *mod_name)
  *   void
  */
 
-void main_mod_selection_changed(GtkTreeSelection *selection,
-				GtkWidget *tree_widget)
+void main_mod_selection_changed(GtkWidget *tree_widget)
 {
-	gchar *mod = NULL;
-	GtkTreeIter selected;
-	GtkTreeModel *model =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(tree_widget));
+	ElimRow *selected = elim_table_get_selected(tree_widget);
+	gchar *mod;
 
-	if (!gtk_tree_selection_get_selected(selection, NULL, &selected))
+	if (!selected || elim_row_n_children(selected))
 		return;
 
-	if (gtk_tree_model_iter_has_child(model, &selected))
-		return;
-
-	gtk_tree_model_get(model, &selected, UTIL_COL_MODULE, &mod, -1);
-	if (mod) {
+	mod = g_strdup(elim_row_get_string(selected, UTIL_COL_MODULE));
+	if (*mod) {
 		const gchar *mod_description =
 		    main_get_module_description(mod);
 
@@ -689,8 +682,8 @@ void main_mod_selection_changed(GtkTreeSelection *selection,
 			++search1.module_count;
 		}
 		main_change_mods_select_label(mod);
-		g_free(mod);
 	}
+	g_free(mod);
 }
 
 /******************************************************************************
@@ -1001,24 +994,29 @@ static GList *get_current_search_mod(void)
 static GList *get_custom_list_from_name(const gchar *label)
 {
 	GList *items = NULL;
-	gchar *mod_list = NULL;
-	const gchar *t;
-	gchar *token;
+	gchar *mod_list;
+	gchar **tokens;
+	gint i;
 
 	search1.module_count = 0;
-	t = ",";
 
+	/* NULL for a list that is not saved yet: it has no modules. */
 	mod_list =
 	    (gchar *)xml_get_list_from_label("modlists", "modlist",
 					     label);
-	token = strtok(mod_list, t);
 	++search1.module_count;
-	while (token != NULL) {
+	if (!mod_list)
+		return NULL;
+
+	tokens = g_strsplit(mod_list, ",", -1);
+	for (i = 0; tokens[i] != NULL; i++) {
+		if (!*tokens[i])
+			continue;
 		++search1.module_count;
-		items = g_list_append(items, (gchar *)
-				      g_strdup(token));
-		token = strtok(NULL, t);
+		items = g_list_append(items, g_strdup(tokens[i]));
 	}
+	g_strfreev(tokens);
+	g_free(mod_list);
 	return items;
 }
 

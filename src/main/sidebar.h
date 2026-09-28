@@ -28,6 +28,8 @@ extern "C" {
 
 #include <gtk/gtk.h>
 
+#include "gui/table_helpers.h"
+
 typedef struct
 {
 	GdkPixbuf *pixbuf_opened;
@@ -35,11 +37,6 @@ typedef struct
 	GdkPixbuf *pixbuf_helpdoc;
 } TreePixbufs;
 extern TreePixbufs *pixbufs;
-
-#ifdef USE_TREEVIEW_PATH
-gboolean main_expand_treeview_to_path(GtkTreeModel *model,
-				      GtkTreeIter iter);
-#endif
 
 void main_open_bookmark_in_new_tab(gchar *mod_name, gchar *key);
 void main_display_verse_list_in_sidebar(gchar *key,
@@ -54,9 +51,21 @@ gboolean module_is_favorite(const gchar *name);
 gboolean module_is_hidden(const gchar *name);
 void module_toggle_favorite(const gchar *name);
 void module_toggle_hidden(const gchar *name);
-void main_add_mod_tree_columns(GtkTreeView *tree);
-void main_mod_treeview_button_one(GtkTreeModel *model,
-				  GtkTreeIter selected);
+/* The icons of a row of the module tree. */
+enum { MOD_TREE_ICON_OPENED, MOD_TREE_ICON_CLOSED, MOD_TREE_ICON_LEAF };
+/* A row in the module-tree layout under PARENT of the tree of ROOTS, after
+ * the sibling AFTER (last when NULL). */
+ElimRow *main_mod_tree_add(GListStore *roots, ElimRow *parent, ElimRow *after,
+			   int icon, const gchar *caption, const gchar *module,
+			   const gchar *offset);
+void main_mod_tree_set(ElimRow *row, int icon, const gchar *caption,
+		       const gchar *module, const gchar *offset);
+void main_mod_tree_set_icon(ElimRow *row, int icon);
+/* Makes TREE (a GtkListView) show the tree of ROOTS the way the module tree
+ * of the sidebar is shown (gui/table_helpers.h). */
+void main_setup_mod_tree_view(GtkWidget *tree, GListStore *roots);
+/* The reader clicked SELECTED, a row of the module tree. */
+void main_mod_treeview_button_one(ElimRow *selected);
 
 #ifdef __cplusplus
 }

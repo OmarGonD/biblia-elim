@@ -86,8 +86,10 @@ if (BUILD_TESTING)
 endif ()
 
 add_executable (nube_canvas_test EXCLUDE_FROM_ALL nube_canvas_test.c
-  ${PROJECT_SOURCE_DIR}/src/main/nube_mayusculas.c)
-target_include_directories (nube_canvas_test PRIVATE ${PROJECT_SOURCE_DIR}/src)
+  ${PROJECT_SOURCE_DIR}/src/main/nube_mayusculas.c
+  ${PROJECT_SOURCE_DIR}/src/gtk/table_helpers.c)
+target_include_directories (nube_canvas_test PRIVATE ${PROJECT_SOURCE_DIR}/src
+  ${PROJECT_BINARY_DIR})
 target_link_libraries (nube_canvas_test PRIVATE PkgConfig::Gtk m)
 if (BUILD_TESTING AND XVFB_RUN_EXECUTABLE)
   add_test (NAME nube_canvas_test
@@ -96,14 +98,19 @@ endif ()
 
 # GTK4-TREE-101: the GtkColumnView helpers that replace GtkTreeView/GtkListStore.
 add_executable (table_helpers_test table_helpers_test.c
-  ${PROJECT_SOURCE_DIR}/src/gtk/table_helpers.c)
+  ${PROJECT_SOURCE_DIR}/src/gtk/table_helpers.c
+  ${PROJECT_SOURCE_DIR}/src/gtk/entry_suggest.c)
 target_include_directories (table_helpers_test PRIVATE ${PROJECT_SOURCE_DIR}/src
   ${PROJECT_BINARY_DIR})
 target_link_libraries (table_helpers_test PRIVATE PkgConfig::Gtk)
 if (BUILD_TESTING AND XVFB_RUN_EXECUTABLE)
   add_test (NAME table_helpers_test
-    COMMAND ${XVFB_RUN_EXECUTABLE} -a $<TARGET_FILE:table_helpers_test>)
-  set_tests_properties (table_helpers_test PROPERTIES SKIP_RETURN_CODE 77)
+    COMMAND ${XVFB_RUN_EXECUTABLE} -a -s "-screen 0 1280x800x24"
+            $<TARGET_FILE:table_helpers_test>)
+  # xvfb-run leaves WAYLAND_DISPLAY alone, and GTK would prefer it to the
+  # virtual X server: the windows would open on the real desktop.
+  set_tests_properties (table_helpers_test PROPERTIES SKIP_RETURN_CODE 77
+    ENVIRONMENT "GDK_BACKEND=x11")
 endif ()
 
 # GTK4-COMBO-101: the GtkDropDown helpers that replace GtkComboBox(Text).

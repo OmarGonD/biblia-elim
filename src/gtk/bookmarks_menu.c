@@ -37,6 +37,7 @@
 #include "gui/xiphos.h"
 #include "gui/bookmarks_menu.h"
 #include "gui/bookmarks_treeview.h"
+#include "gui/table_helpers.h"
 #include "gui/export_bookmarks.h"
 #include "gui/import_andbible.h"
 #include "gui/utilities.h"
@@ -87,7 +88,7 @@ static void color_dialog_button_changed(GtkColorDialogButton *color_button,
  * Synopsis
  *   #include "gui/bookmarks_menu.h"
  *
- *   void save_treeview_to_xml_bookmarks(GtkTreeIter * iter, gchar *file_buf)
+ *   void save_treeview_to_xml_bookmarks(ElimRow * parent, gchar *file_buf)
  *
  * Description
  *
@@ -96,18 +97,12 @@ static void color_dialog_button_changed(GtkColorDialogButton *color_button,
  *   void
  */
 
-static void save_treeview_to_xml_bookmarks(GtkTreeIter *iter,
-					   gchar *filename)
+static void save_treeview_to_xml_bookmarks(ElimRow *parent, gchar *filename)
 {
 	xmlNodePtr root_node = NULL;
 	xmlNodePtr cur_node = NULL;
 	xmlDocPtr root_doc;
-	gchar *caption = NULL;
-	gchar *key = NULL;
-	gchar *module = NULL;
-	gchar *mod_desc = NULL;
-	gchar *description = NULL;
-	gchar *color = NULL;
+	guint i;
 
 	if (!bookmarks_changed)
 		return;
@@ -121,67 +116,38 @@ static void save_treeview_to_xml_bookmarks(GtkTreeIter *iter,
 		xmlDocSetRootElement(root_doc, root_node);
 	}
 
-	do {
-		gtk_tree_model_get(GTK_TREE_MODEL(model), iter,
-				   COL_CAPTION, &caption,
-				   COL_KEY, &key,
-				   COL_MODULE, &module,
-				   COL_MODULE_DESC, &mod_desc,
-				   COL_DESCRIPTION, &description,
-				   COL_COLOR, &color,
-				   -1);
-		if (gtk_tree_model_iter_has_child(GTK_TREE_MODEL(model), iter)) {
+	for (i = 0; i < elim_row_n_children(parent); i++) {
+		ElimRow *row = elim_row_get_child(parent, i);
+		gchar *caption = bookmark_row_dup(row, COL_CAPTION);
+		gchar *key = bookmark_row_dup(row, COL_KEY);
+		gchar *module = bookmark_row_dup(row, COL_MODULE);
+		gchar *mod_desc = bookmark_row_dup(row, COL_MODULE_DESC);
+		gchar *description = bookmark_row_dup(row, COL_DESCRIPTION);
+		gchar *color = bookmark_row_dup(row, COL_COLOR);
+
+		if (elim_row_n_children(row)) {
 			/* folder node — write color attribute when present */
 			cur_node = xml_add_folder_to_parent_colored(root_node,
 									caption,
 									color);
-			utilities_parse_treeview(cur_node, iter,
-						 GTK_TREE_MODEL(model));
+			utilities_parse_treeview(cur_node, row);
 		} else {
 			xml_add_bookmark_to_parent(root_node,
 						   description,
 						   key, module, mod_desc);
 		}
-	} while (gtk_tree_model_iter_next(GTK_TREE_MODEL(model), iter));
+		g_free(caption);
+		g_free(key);
+		g_free(module);
+		g_free(mod_desc);
+		g_free(description);
+		g_free(color);
+	}
 
 	xmlSaveFormatFile(filename, root_doc, 1);
 	xmlFreeDoc(root_doc);
 	g_free(filename);
 	bookmarks_changed = FALSE;
-}
-
-/******************************************************************************
- * Name
- *  add_node_to_ctree
- *
- * Synopsis
- *   #include "gui/bookmarks_menu.h"
- *
- *   GtkCTreeNode *add_node_to_ctree(GtkCTree * ctree,
- *			GtkCTreeNode *node, BOOKMARK_DATA * data)
- *
- * Description
- *    actually add the GtkCTreeNode to the bookmark ctree
- *
- * Return value
- *   GtkCTreeNode
- */
-
-static void add_item_to_tree(GtkTreeIter *iter, GtkTreeIter *parent,
-			     BOOKMARK_DATA *data)
-{
-	gtk_tree_store_append(GTK_TREE_STORE(model), iter, parent);
-
-	gtk_tree_store_set(GTK_TREE_STORE(model), iter,
-			   COL_OPEN_PIXBUF, data->opened,
-			   COL_CLOSED_PIXBUF, data->closed,
-			   COL_CAPTION, data->caption,
-			   COL_KEY, data->key,
-			   COL_MODULE, data->module,
-			   COL_MODULE_DESC, data->module_desc,
-			   COL_DESCRIPTION, data->description,
-			   COL_COLOR, data->color,
-			   -1);
 }
 
 /******************************************************************************
@@ -203,13 +169,13 @@ static void add_item_to_tree(GtkTreeIter *iter, GtkTreeIter *parent,
 G_MODULE_EXPORT void bibletime_bookmarks_activate(gpointer menuitem,
 						  gpointer user_data)
 {
-	GtkTreeIter iter;
-	GtkTreeIter parent;
+	ElimRow *parent;
 	gchar *fname;
 	GtkWidget *dialog;
 
-	if (!gtk_tree_model_get_iter_first(GTK_TREE_MODEL(model), &parent))
+	if (!g_list_model_get_n_items(G_LIST_MODEL(bookmark_roots)))
 		return;
+	parent = elim_table_get(bookmark_roots, 0);
 
 	dialog = gtk_file_chooser_dialog_new(_("Specify bookmarks file"),
 					     GTK_WINDOW(widgets.app),
@@ -226,44 +192,33 @@ G_MODULE_EXPORT void bibletime_bookmarks_activate(gpointer menuitem,
 	g_free(fname);
 
 	if (gui_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
-		gtk_tree_store_append(GTK_TREE_STORE(model), &iter,
-				      &parent);
-		gtk_tree_store_set(GTK_TREE_STORE(model), &iter,
-				   COL_OPEN_PIXBUF,
-				   bm_pixbufs->pixbuf_opened,
-				   COL_CLOSED_PIXBUF,
-				   bm_pixbufs->pixbuf_closed, COL_CAPTION,
-				   "Imported", COL_KEY, NULL, COL_MODULE,
-				   NULL, -1);
+		BOOKMARK_DATA folder = { 0 };
+		ElimRow *imported;
+
+		folder.caption = (gchar *)"Imported";
+		folder.opened = bm_pixbufs->pixbuf_opened;
+		folder.closed = bm_pixbufs->pixbuf_closed;
+		imported = gui_add_item_to_tree(parent, &folder);
 
 		fname =
 		    gui_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
 		gui_parse_bookmarks(bookmark_tree, (const xmlChar *)fname,
-				    &iter);
+				    imported);
 		g_free(fname);
 	}
 	gui_widget_destroy(dialog);
 }
 
 
-static gboolean andbible_folder_exists(GtkTreeIter *parent)
+static gboolean andbible_folder_exists(ElimRow *parent)
 {
-	GtkTreeIter child;
-	gboolean valid;
+	guint i;
 
-	valid = gtk_tree_model_iter_children(GTK_TREE_MODEL(model), &child, parent);
-	while (valid) {
-		gchar *caption = NULL;
-		gboolean match;
-
-		gtk_tree_model_get(GTK_TREE_MODEL(model), &child,
-				    COL_CAPTION, &caption, -1);
-		match = caption && !strcmp(caption, _("Import AndBible"));
-		g_free(caption);
-		if (match)
+	for (i = 0; i < elim_row_n_children(parent); i++)
+		if (!strcmp(elim_row_get_string(elim_row_get_child(parent, i),
+						COL_CAPTION),
+			    _("Import AndBible")))
 			return TRUE;
-		valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(model), &child);
-	}
 	return FALSE;
 }
 
@@ -274,7 +229,7 @@ static gboolean andbible_folder_exists(GtkTreeIter *parent)
  * Synopsis
  *   #include "gui/import_andbible.h"
  *
- *   void remove_existing_andbible_folder(GtkTreeIter * parent)
+ *   void remove_existing_andbible_folder(ElimRow * parent)
  *
  * Description
  *   The "Import AndBible" top-level folder is entirely owned/managed by
@@ -291,26 +246,18 @@ static gboolean andbible_folder_exists(GtkTreeIter *parent)
  *   void
  */
 
-static void remove_existing_andbible_folder(GtkTreeIter *parent)
+static void remove_existing_andbible_folder(ElimRow *parent)
 {
-	GtkTreeIter child;
-	gboolean valid;
+	guint i;
 
-	valid = gtk_tree_model_iter_children(GTK_TREE_MODEL(model), &child,
-					     parent);
-	while (valid) {
-		gchar *caption = NULL;
+	for (i = 0; i < elim_row_n_children(parent); i++) {
+		ElimRow *child = elim_row_get_child(parent, i);
 
-		gtk_tree_model_get(GTK_TREE_MODEL(model), &child,
-				    COL_CAPTION, &caption, -1);
-		if (caption && !strcmp(caption, _("Import AndBible"))) {
-			g_free(caption);
-			gtk_tree_store_remove(GTK_TREE_STORE(model), &child);
+		if (!strcmp(elim_row_get_string(child, COL_CAPTION),
+			    _("Import AndBible"))) {
+			elim_tree_remove(bookmark_roots, child);
 			return;
 		}
-		g_free(caption);
-		valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(model),
-						 &child);
 	}
 }
 
@@ -338,13 +285,13 @@ static void remove_existing_andbible_folder(GtkTreeIter *parent)
 G_MODULE_EXPORT void andbible_bookmarks_activate(gpointer menuitem,
 						  gpointer user_data)
 {
-	GtkTreeIter iter;
-	GtkTreeIter parent;
+	ElimRow *parent;
 	GtkWidget *dialog;
 	GtkFileFilter *filter;
 
-	if (!gtk_tree_model_get_iter_first(GTK_TREE_MODEL(model), &parent))
+	if (!g_list_model_get_n_items(G_LIST_MODEL(bookmark_roots)))
 		return;
+	parent = elim_table_get(bookmark_roots, 0);
 
 	dialog = gtk_file_chooser_dialog_new(
 	    _("Select AndBible bookmarks backup (.sqlite3)"),
@@ -366,7 +313,7 @@ G_MODULE_EXPORT void andbible_bookmarks_activate(gpointer menuitem,
 		sqlite_path =
 		    gui_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
 
-		if (andbible_folder_exists(&parent)) {
+		if (andbible_folder_exists(parent)) {
 			GtkWidget *confirm = gtk_message_dialog_new(
 			    GTK_WINDOW(widgets.app), GTK_DIALOG_MODAL,
 			    GTK_MESSAGE_QUESTION, GTK_BUTTONS_YES_NO, "%s",
@@ -402,18 +349,15 @@ G_MODULE_EXPORT void andbible_bookmarks_activate(gpointer menuitem,
 		/* This folder is fully managed by us: wipe any previous
 		 * import before rebuilding it, so re-importing the same
 		 * (or an updated) AndBible backup never creates duplicates. */
-		remove_existing_andbible_folder(&parent);
+		remove_existing_andbible_folder(parent);
 
-		gtk_tree_store_append(GTK_TREE_STORE(model), &iter, &parent);
-		gtk_tree_store_set(GTK_TREE_STORE(model), &iter,
-				   COL_OPEN_PIXBUF,
-				   bm_pixbufs->pixbuf_opened,
-				   COL_CLOSED_PIXBUF,
-				   bm_pixbufs->pixbuf_closed, COL_CAPTION,
-				   _("Import AndBible"), COL_KEY, NULL,
-				   COL_MODULE, NULL, -1);
+		BOOKMARK_DATA folder = { 0 };
+
+		folder.caption = (gchar *)_("Import AndBible");
+		folder.opened = bm_pixbufs->pixbuf_opened;
+		folder.closed = bm_pixbufs->pixbuf_closed;
 		gui_parse_bookmarks(bookmark_tree, (const xmlChar *)tmp_xml,
-				    &iter);
+				    gui_add_item_to_tree(parent, &folder));
 		g_unlink(tmp_xml);
 		g_free(tmp_xml);
 
@@ -451,7 +395,7 @@ static void on_reorder_state(GSimpleAction *action, GVariant *state, gpointer da
 {
 	(void)data;
 	g_simple_action_set_state(action, state);
-	gtk_tree_view_set_reorderable(bookmark_tree, g_variant_get_boolean(state));
+	elim_tree_set_reorderable(bookmark_tree, g_variant_get_boolean(state));
 }
 
 static void on_crossref_popup_state(GSimpleAction *action, GVariant *state, gpointer data)
@@ -493,21 +437,20 @@ static void on_tag_colorize_state(GSimpleAction *action, GVariant *state, gpoint
 G_MODULE_EXPORT void on_dialog_activate(gpointer menuitem,
 					gpointer user_data)
 {
-	GtkTreeIter selected;
+	ElimRow *selected = bookmark_selected();
 	gchar *key = NULL;
 	gchar *module = NULL;
 
-	GtkTreeSelection *selection =
-	    gtk_tree_view_get_selection(bookmark_tree);
-
 	use_dialog = TRUE;
-	if (gtk_tree_selection_get_selected(selection, NULL, &selected)) {
-		gtk_tree_model_get(GTK_TREE_MODEL(model),
-				   &selected, 3, &key, 4, &module, -1);
+	if (selected) {
+		key = bookmark_row_dup(selected, COL_KEY);
+		module = bookmark_row_dup(selected, COL_MODULE);
 
 		if (module && (main_get_mod_type(module) == PERCOM_TYPE)) {
 			editor_create_new(module, key, TRUE);
 			use_dialog = FALSE;
+			g_free(key);
+			g_free(module);
 			return;
 		}
 
@@ -518,6 +461,8 @@ G_MODULE_EXPORT void on_dialog_activate(gpointer menuitem,
 				    main_url_encode(module));
 		main_url_handler(url, TRUE);
 		g_free(url);
+		g_free(key);
+		g_free(module);
 	}
 	use_dialog = FALSE;
 }
@@ -541,19 +486,18 @@ G_MODULE_EXPORT void on_dialog_activate(gpointer menuitem,
 G_MODULE_EXPORT void on_edit_item_activate(gpointer menuitem,
 					   gpointer user_data)
 {
-	GtkTreeSelection *selection;
-	GtkTreeIter selected;
+	ElimRow *selected = bookmark_selected();
 	gchar *caption = NULL, *key = NULL, *module = NULL;
 	gchar *mod_desc = NULL, *description = NULL, *current_color = NULL;
 
-	selection = gtk_tree_view_get_selection(bookmark_tree);
-	if (!gtk_tree_selection_get_selected(selection, NULL, &selected))
+	if (!selected)
 		return;
-	gtk_tree_model_get(GTK_TREE_MODEL(model), &selected,
-			   COL_CAPTION, &caption, COL_KEY, &key,
-			   COL_MODULE, &module, COL_MODULE_DESC, &mod_desc,
-			   COL_DESCRIPTION, &description,
-			   COL_COLOR, &current_color, -1);
+	caption = bookmark_row_dup(selected, COL_CAPTION);
+	key = bookmark_row_dup(selected, COL_KEY);
+	module = bookmark_row_dup(selected, COL_MODULE);
+	mod_desc = bookmark_row_dup(selected, COL_MODULE_DESC);
+	description = bookmark_row_dup(selected, COL_DESCRIPTION);
+	current_color = bookmark_row_dup(selected, COL_COLOR);
 
 	if (!key || !*key) {
 
@@ -602,9 +546,10 @@ G_MODULE_EXPORT void on_edit_item_activate(gpointer menuitem,
 			new_caption = g_strdelimit(g_strdup(name), "/|><.'`\"", ' ');
 
 			bookmarks_changed = TRUE;
-			gtk_tree_store_set(GTK_TREE_STORE(model), &selected,
-					   COL_CAPTION, new_caption,
-					   COL_COLOR, new_color, -1);
+			elim_row_set_string(selected, COL_CAPTION, new_caption);
+			bookmark_row_set_color(selected, new_color);
+			g_free(new_caption);
+			g_free(new_color);
 			gui_save_bookmarks(NULL, NULL);
 			main_display_bible(NULL, settings.currentverse);
 		}
@@ -644,20 +589,24 @@ G_MODULE_EXPORT void on_edit_item_activate(gpointer menuitem,
 					   ? g_strdup(info->text1) : NULL;
 		data->is_leaf = TRUE;
 		data->opened = bm_pixbufs->pixbuf_helpdoc;
-			gtk_tree_store_set(GTK_TREE_STORE(model), &selected,
-				   COL_OPEN_PIXBUF, data->opened,
-				   COL_CLOSED_PIXBUF, data->closed,
-				   COL_CAPTION, data->caption,
-				   COL_KEY, data->key,
-				   COL_MODULE, data->module,
-				   COL_MODULE_DESC, data->module_desc,
-				   COL_DESCRIPTION, data->description, -1);
+			elim_row_set_pixbuf(selected, COL_OPEN_PIXBUF, data->opened);
+			elim_row_set_pixbuf(selected, COL_CLOSED_PIXBUF, data->closed);
+			elim_row_set_string(selected, COL_CAPTION, data->caption);
+			elim_row_set_string(selected, COL_KEY, data->key);
+			elim_row_set_string(selected, COL_MODULE, data->module);
+			elim_row_set_string(selected, COL_MODULE_DESC, data->module_desc);
+			elim_row_set_string(selected, COL_DESCRIPTION, data->description);
 			bookmarks_changed = TRUE;
 			gui_save_bookmarks(NULL, NULL);
 		}
 	}
 cleanup:
-(void)0;
+	g_free(caption);
+	g_free(key);
+	g_free(module);
+	g_free(mod_desc);
+	g_free(description);
+	g_free(current_color);
 }
 
 
@@ -702,22 +651,15 @@ G_MODULE_EXPORT void on_export_folder_activate(gpointer menuitem,
 G_MODULE_EXPORT void on_delete_item_activate(gpointer menuitem,
 					     gpointer user_data)
 {
+	ElimRow *selected = bookmark_selected();
 	gchar *name_string;
-	GtkTreeSelection *selection;
-	GtkTreeIter selected;
-	gchar *caption = NULL;
-	gchar *key = NULL;
-	gchar *module = NULL;
 	gchar *str;
 
-	selection = gtk_tree_view_get_selection(bookmark_tree);
-	if (!gtk_tree_selection_get_selected(selection, NULL, &selected))
+	if (!selected)
 		return;
-	gtk_tree_model_get(GTK_TREE_MODEL(model), &selected,
-			   2, &caption, 3, &key, 4, &module, -1);
-	name_string = caption;
+	name_string = bookmark_row_dup(selected, COL_CAPTION);
 
-	if (gtk_tree_model_iter_has_child(GTK_TREE_MODEL(model), &selected)) {
+	if (elim_row_n_children(selected)) {
 		str =
 		    g_strdup_printf("<span weight=\"bold\">%s</span>\n\n%s %s",
 				    _("Remove the selected folder"), name_string,
@@ -730,10 +672,12 @@ G_MODULE_EXPORT void on_delete_item_activate(gpointer menuitem,
 
 	if (gui_yes_no_dialog(str,
 			      "dialog-warning")) {
-		gtk_tree_store_remove(GTK_TREE_STORE(model), &selected);
+		elim_tree_remove(bookmark_roots, selected);
 		bookmarks_changed = TRUE;
 		gui_save_bookmarks(NULL, NULL);
 	}
+	g_free(name_string);
+	g_free(str);
 }
 
 /******************************************************************************
@@ -754,18 +698,17 @@ G_MODULE_EXPORT void on_delete_item_activate(gpointer menuitem,
 
 void gui_save_bookmarks(gpointer menuitem, gpointer user_data)
 {
-
-	GtkTreeIter root;
-	GtkTreeIter first_child;
+	ElimRow *root;
 	gchar buf[256];
 
-	if (!gtk_tree_model_get_iter_first(GTK_TREE_MODEL(model), &root))
+	if (!g_list_model_get_n_items(G_LIST_MODEL(bookmark_roots)))
 		return;
-	if (!gtk_tree_model_iter_children(GTK_TREE_MODEL(model), &first_child, &root))
+	root = elim_table_get(bookmark_roots, 0);
+	if (!elim_row_n_children(root))
 		return;
 
 	sprintf(buf, "%s/bookmarks/bookmarks.xml", settings.gSwordDir);
-	save_treeview_to_xml_bookmarks(&first_child, g_strdup(buf));
+	save_treeview_to_xml_bookmarks(root, g_strdup(buf));
 }
 
 /******************************************************************************
@@ -808,7 +751,7 @@ void gui_save_bookmarks_treeview(void)
 G_MODULE_EXPORT void on_expand_activate(gpointer menuitem,
 					gpointer user_data)
 {
-	gtk_tree_view_expand_all(bookmark_tree);
+	elim_tree_expand_all(bookmark_tree);
 }
 
 /******************************************************************************
@@ -831,7 +774,7 @@ G_MODULE_EXPORT void on_expand_activate(gpointer menuitem,
 G_MODULE_EXPORT void on_collapse_activate(gpointer menuitem,
 					  gpointer user_data)
 {
-	gtk_tree_view_collapse_all(bookmark_tree);
+	elim_tree_collapse_all(bookmark_tree);
 }
 
 /******************************************************************************
@@ -854,8 +797,7 @@ G_MODULE_EXPORT void on_collapse_activate(gpointer menuitem,
 
 void on_add_bookmark_activate(gpointer menuitem, gpointer user_data)
 {
-	GtkTreeIter selected;
-	GtkTreeIter iter;
+	ElimRow *selected = bookmark_selected();
 	gchar *key = NULL;
 	gchar *mod_name = NULL;
 	gint test;
@@ -864,7 +806,7 @@ void on_add_bookmark_activate(gpointer menuitem, gpointer user_data)
 	gchar buf[256];
 	GString *str = g_string_new(NULL);
 
-	if (!gtk_tree_selection_get_selected(current_selection, NULL, &selected))
+	if (!selected)
 		return;
 
 	mod_name = main_get_active_pane_module();
@@ -899,7 +841,7 @@ void on_add_bookmark_activate(gpointer menuitem, gpointer user_data)
 		data->is_leaf = TRUE;
 		data->opened = bm_pixbufs->pixbuf_helpdoc;
 		data->closed = NULL;
-		add_item_to_tree(&iter, &selected, data);
+		gui_add_item_to_tree(selected, data);
 		bookmarks_changed = TRUE;
 		gui_save_bookmarks(NULL, NULL);
 	}
@@ -949,11 +891,10 @@ G_MODULE_EXPORT void on_insert_bookmark_activate(gpointer menuitem,
 G_MODULE_EXPORT void on_new_folder_activate(gpointer menuitem,
 					    gpointer user_data)
 {
-	GtkTreeIter selected;
-	GtkTreeIter iter;
+	ElimRow *selected = bookmark_selected();
 	BOOKMARK_DATA *data;
 
-	if (!gtk_tree_selection_get_selected(current_selection, NULL, &selected))
+	if (!selected)
 		return;
 
 	GtkBuilder *gxml = elim_gtk_builder_new();
@@ -1001,7 +942,7 @@ G_MODULE_EXPORT void on_new_folder_activate(gpointer menuitem,
 		data->opened = bm_pixbufs->pixbuf_opened;
 		data->closed = bm_pixbufs->pixbuf_closed;
 		bookmarks_changed = TRUE;
-		add_item_to_tree(&iter, &selected, data);
+		gui_add_item_to_tree(selected, data);
 		gui_save_bookmarks(NULL, NULL);
 	}
 	gui_widget_destroy(dialog);
@@ -1027,23 +968,24 @@ G_MODULE_EXPORT void on_new_folder_activate(gpointer menuitem,
 G_MODULE_EXPORT void on_open_in_tab_activate(gpointer menuitem,
 					     gpointer user_data)
 {
-	GtkTreeSelection *selection;
-	GtkTreeIter selected;
+	ElimRow *selected = bookmark_selected();
 	gchar *key = NULL;
 	gchar *module = NULL;
 	gchar *url = NULL;
 
-	selection = gtk_tree_view_get_selection(bookmark_tree);
-	if (!gtk_tree_selection_get_selected(selection, NULL, &selected))
+	if (!selected)
 		return;
-	gtk_tree_model_get(GTK_TREE_MODEL(model), &selected,
-			   3, &key, 4, &module, -1);
+	key = bookmark_row_dup(selected, COL_KEY);
+	module = bookmark_row_dup(selected, COL_MODULE);
 	url = g_strdup_printf("passagestudy.jsp?action=showBookmark&"
 			      "type=%s&value=%s&module=%s",
 			      "newTab",
 			      main_url_encode(key),
 			      main_url_encode(module));
 	main_url_handler(url, TRUE);
+	g_free(url);
+	g_free(key);
+	g_free(module);
 }
 
 /******************************************************************************
@@ -1066,23 +1008,21 @@ G_MODULE_EXPORT void on_open_in_tab_activate(gpointer menuitem,
 G_MODULE_EXPORT void on_set_tag_color_activate(gpointer menuitem,
 											   gpointer user_data)
 {
-	GtkTreeIter selected;
+	ElimRow *selected = bookmark_selected();
 	gchar *color = NULL;
-	GtkTreeSelection *selection = gtk_tree_view_get_selection(bookmark_tree);
 
-	if (!gtk_tree_selection_get_selected(selection, NULL, &selected))
+	if (!selected)
 		return;
 
 	/* Only folders get a color */
-	if (!gtk_tree_model_iter_has_child(GTK_TREE_MODEL(model), &selected))
+	if (!elim_row_n_children(selected))
 		return;
 
 	GtkWidget *dialog = gtk_color_chooser_dialog_new(
 		_("Choose folder color"), GTK_WINDOW(widgets.app));
 
 	/* Pre-load existing color if any */
-	gtk_tree_model_get(GTK_TREE_MODEL(model), &selected,
-			   COL_COLOR, &color, -1);
+	color = bookmark_row_dup(selected, COL_COLOR);
 	if (color && *color) {
 		GdkRGBA rgba;
 		if (gdk_rgba_parse(&rgba, color))
@@ -1098,12 +1038,13 @@ G_MODULE_EXPORT void on_set_tag_color_activate(gpointer menuitem,
 			(guint)(rgba.green * 255),
 			(guint)(rgba.blue  * 255));
 		bookmarks_changed = TRUE;
-		gtk_tree_store_set(GTK_TREE_STORE(model), &selected,
-				   COL_COLOR, hex, -1);
+		bookmark_row_set_color(selected, hex);
+		g_free(hex);
 		gui_save_bookmarks(NULL, NULL);
 		main_display_bible(NULL, settings.currentverse);
 	}
 	gui_widget_destroy(dialog);
+	g_free(color);
 }
 
 /* Each item's action runs the handler it always ran. */

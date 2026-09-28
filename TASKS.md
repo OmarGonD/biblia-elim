@@ -10381,8 +10381,8 @@
     manager, font dialog, SQLite converter, install Bibles, pulpit dialog,
     Strong selectors, parallel-sets dropdown.
 
-- [ ] GTK4-TREE-101 Replace GtkTreeView / GtkListStore / GtkTreeStore / GtkCellRenderer
-  - Status: IN PROGRESS (step 1 of 4 under way)
+- [x] GTK4-TREE-101 Replace GtkTreeView / GtkListStore / GtkTreeStore / GtkCellRenderer
+  - Status: DONE (2026-09-28)
   - Measured 2026-09-27: 50 files under `src/` and `ui/`, about 2 160
     references. Biggest: `mod_mgr.c`, `search_dialog.c` (+ `main/`),
     `main/sidebar.cc` + `gtk/sidebar.c` (module tree, lazy expansion),
@@ -10444,12 +10444,27 @@
     this environment (no display under `xvfb-run`).
   - The preferences module picker is a hierarchical module tree, so it stays
     for step 3; it is not a separate flat reorderable list.
-  - Remaining for step 1: `mod_mgr.c`, `utilities.c` helpers,
-    `biblesync_glue.cc`.
-  - Tree stores are step 3, not flat lists: `testimonios.c`,
+  - Closing verification (2026-09-28): `mod_mgr.c`, `utilities.c`,
+    `biblesync_glue.cc`, the tree consumers (`testimonios.c`,
     `diccionario.c`, `plan_personal.c`, `export_bookmarks.c`,
-    `progreso_lectura.c` (groups), `treekey-editor.c`, the sidebar module
-    tree and the bookmarks tree.
+    `progreso_lectura.c`, `treekey-editor.c`, sidebar module tree,
+    bookmarks tree) and the remaining `.gtkbuilder` files are on the
+    `ElimRow` / `GtkColumnView` / `GtkListView` / `GtkTreeListModel`
+    helpers of `table_helpers`.
+  - Evidence: build PASS; full CTest 75/75 under a real display
+    (`gtk_lifecycle_smoke` 25.7 s, `table_helpers_test` incl. lazy
+    expansion, selection, remove/insert and row moves); `grep` for
+    `GtkTreeView|GtkListStore|GtkTreeStore|GtkCellRenderer|GtkTreeIter|
+    GtkTreePath|GtkTreeSelection|gtk_tree_view|gtk_tree_store|
+    gtk_list_store|gtk_tree_model|gtk_cell_renderer|GtkIconView|
+    GtkEntryCompletion` in `src tests` finds no code, only comments in
+    `table_helpers.h`, `entry_suggest.h`, `utilities.c`; none in `ui/`;
+    `git diff --check` clean.
+  - Not exercised by any automated test (built and reviewed only): real
+    pointer drag and drop in the sidebar and bookmarks trees (the smoke
+    calls `elim_tree_move_row()` and the reorderable toggle, not a drag
+    gesture), tooltips of the module tree, and the module-manager /
+    font-dialog / converter dialogs already listed above.
   - Do not: convert a tree by copying rows into a flat list (expansion,
     selection and sorting semantics change), or delete the tree view before
     its consumers (drag and drop, tooltips, key handlers) have an equivalent.

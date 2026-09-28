@@ -81,7 +81,7 @@ struct _nube_ui {
 	GtkWidget *cloud_stack;
 	GtkWidget *tree;
 	GtkWidget *scroll_tabla;
-	GtkListStore *libros;
+	GListStore *libros;	/* the books: name, abbreviation, osis id */
 	GHashTable *abreviaturas;	/* book name -> abbreviation, for typing in the list */
 	GListStore *tabla;
 	GtkColumnViewColumn *col_a;
@@ -150,10 +150,10 @@ libro_texto_de_busqueda(GtkStringObject *fila, gpointer user_data)
 }
 
 static void
-poblar_libros(GtkListStore *store, GHashTable *abreviaturas, GtkWidget *combo,
+poblar_libros(GListStore *store, GHashTable *abreviaturas, GtkWidget *combo,
 	      GtkWidget *combo_b)
 {
-	gtk_list_store_clear(store);
+	g_list_store_remove_all(store);
 	g_hash_table_remove_all(abreviaturas);
 	elim_dropdown_remove_all(GTK_DROP_DOWN(combo));
 	elim_dropdown_remove_all(GTK_DROP_DOWN(combo_b));
@@ -163,13 +163,12 @@ poblar_libros(GtkListStore *store, GHashTable *abreviaturas, GtkWidget *combo,
 	GList *lista = main_nube_lista_libros(settings.MainWindowModule);
 	for (GList *l = lista; l; l = l->next) {
 		NUBE_LIBRO *libro = l->data;
-		GtkTreeIter iter;
-		gtk_list_store_append(store, &iter);
-		gtk_list_store_set(store, &iter,
-				   COL_NOMBRE, libro->nombre,
-				   COL_ABREV, libro->abrev,
-				   COL_OSIS, libro->osis,
-				   -1);
+		ElimRow *fila = elim_row_new(N_LIBRO_COLS);
+		elim_row_set_string(fila, COL_NOMBRE, libro->nombre);
+		elim_row_set_string(fila, COL_ABREV, libro->abrev);
+		elim_row_set_string(fila, COL_OSIS, libro->osis);
+		g_list_store_append(store, fila);
+		g_object_unref(fila);
 		g_hash_table_insert(abreviaturas, g_strdup(libro->nombre),
 				    g_strdup(libro->abrev));
 		elim_dropdown_append(GTK_DROP_DOWN(combo), NULL, libro->nombre);
@@ -493,7 +492,7 @@ poner_al_azar(GtkWidget *combo, const gchar *exclude, gboolean ultimo_actual)
 						 settings.currentverse);
 	if (!libro || (exclude && g_utf8_collate(libro, exclude) == 0)) {
 		g_free(libro);
-		libro = cloud_random_book(GTK_TREE_MODEL(ui->libros), COL_NOMBRE, exclude);
+		libro = cloud_random_book(ui->libros, COL_NOMBRE, exclude);
 	}
 	if (libro) {
 		ui->poniendo = TRUE;
@@ -695,16 +694,11 @@ es_libro(const gchar *texto)
 		return FALSE;
 	gchar *buscado = g_utf8_casefold(texto, -1);
 	gboolean hallado = FALSE;
-	GtkTreeModel *model = GTK_TREE_MODEL(ui->libros);
-	GtkTreeIter iter;
-	for (gboolean ok = gtk_tree_model_get_iter_first(model, &iter); ok && !hallado;
-	     ok = gtk_tree_model_iter_next(model, &iter)) {
-		gchar *nombre = NULL;
-		gtk_tree_model_get(model, &iter, COL_NOMBRE, &nombre, -1);
-		gchar *plegado = nombre ? g_utf8_casefold(nombre, -1) : NULL;
-		hallado = plegado && g_utf8_collate(plegado, buscado) == 0;
+	for (guint i = 0; i < g_list_model_get_n_items(G_LIST_MODEL(ui->libros)) && !hallado; ++i) {
+		gchar *plegado = g_utf8_casefold(
+		    elim_row_get_string(elim_table_get(ui->libros, i), COL_NOMBRE), -1);
+		hallado = g_utf8_collate(plegado, buscado) == 0;
 		g_free(plegado);
-		g_free(nombre);
 	}
 	g_free(buscado);
 	return hallado;
@@ -964,8 +958,7 @@ crear_dialogo(void)
 	gtk_window_set_resizable(GTK_WINDOW(ui->dialog), TRUE);
 	gtk_paned_set_position(GTK_PANED(UI_GET_ITEM(gxml, "paned")), MAX(160, dialog_height - 310));
 
-	ui->libros = gtk_list_store_new(N_LIBRO_COLS,
-					G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
+	ui->libros = elim_table_new();
 	ui->abreviaturas = g_hash_table_new_full(g_str_hash, g_str_equal, g_free,
 						 g_free);
 	poblar_libros(ui->libros, ui->abreviaturas, ui->combo_libro,

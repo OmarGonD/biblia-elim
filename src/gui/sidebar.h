@@ -57,17 +57,10 @@ struct _search_results
 };
 
 extern GList *list_of_verses;
-extern GtkListStore *model_verselist;
+extern GListStore *model_verselist;
 extern gboolean is_search_result;
 
-#ifdef USE_TREEVIEW_PATH
-void gui_collapse_treeview_to_book(GtkTreeView *tree,
-				   const gchar *book_name);
-void gui_save_treeview_path_string(const gchar *path_str,
-				   const gchar *book_name);
-gboolean gui_expand_treeview_to_path(GtkTreeView *tree,
-				     const gchar *book_name);
-#endif
+
 void gui_set_sidebar_program_start(void);
 void gui_sidebar_showhide(void);
 GtkWidget *gui_create_sidebar(GtkWidget *paned);

@@ -27,6 +27,7 @@
 #include "main/planes_lectura.h"
 
 #include "gui/debug_glib_null.h"
+#include "gui/table_helpers.h"
 
 enum {
 	LCOL_MARCA = 0,
@@ -46,7 +47,7 @@ typedef struct {
 	GtkWidget *lbl_resumen;
 	GtkWidget *lbl_aviso;
 	GtkWidget *btn_guardar;
-	GtkTreeStore *modelo;
+	GListStore *modelo;	/* los testamentos y, bajo cada uno, sus libros */
 	gboolean *marcados;	/* uno por libro, en orden canónico */
 	int n_libros;
 	/* El nombre se sugiere solo mientras el lector no escriba el
@@ -63,28 +64,25 @@ typedef struct {
  * ------------------------------------------------------------------ */
 
 static void
-fila_de_libro(PERSONAL_UI *u, GtkTreeIter *grupo, int libro)
+fila_de_libro(PERSONAL_UI *u, ElimRow *grupo, int libro)
 {
-	GtkTreeIter iter;
+	ElimRow *fila = elim_tree_append(u->modelo, grupo, N_LCOLS);
 	gchar *caps = g_strdup_printf(ngettext("%d capítulo", "%d capítulos",
 					       main_planes_libro_capitulos(libro)),
 				      main_planes_libro_capitulos(libro));
 
-	gtk_tree_store_append(u->modelo, &iter, grupo);
-	gtk_tree_store_set(u->modelo, &iter,
-			   LCOL_MARCA, u->marcados[libro],
-			   LCOL_MEDIAS, FALSE,
-			   LCOL_NOMBRE, main_planes_libro_nombre(libro),
-			   LCOL_CAPS, caps,
-			   LCOL_LIBRO, libro,
-			   -1);
+	elim_row_set_int(fila, LCOL_MARCA, u->marcados[libro]);
+	elim_row_set_int(fila, LCOL_MEDIAS, FALSE);
+	elim_row_set_string(fila, LCOL_NOMBRE, main_planes_libro_nombre(libro));
+	elim_row_set_string(fila, LCOL_CAPS, caps);
+	elim_row_set_int(fila, LCOL_LIBRO, libro);
 	g_free(caps);
 }
 
 static void
 fila_de_testamento(PERSONAL_UI *u, const char *nombre, gboolean nt)
 {
-	GtkTreeIter grupo;
+	ElimRow *grupo = elim_tree_append(u->modelo, NULL, N_LCOLS);
 	int libro, caps = 0;
 	gchar *texto;
 
@@ -93,19 +91,16 @@ fila_de_testamento(PERSONAL_UI *u, const char *nombre, gboolean nt)
 			caps += main_planes_libro_capitulos(libro);
 	texto = g_strdup_printf(_("%d capítulos"), caps);
 
-	gtk_tree_store_append(u->modelo, &grupo, NULL);
-	gtk_tree_store_set(u->modelo, &grupo,
-			   LCOL_MARCA, FALSE,
-			   LCOL_MEDIAS, FALSE,
-			   LCOL_NOMBRE, nombre,
-			   LCOL_CAPS, texto,
-			   LCOL_LIBRO, -1,
-			   -1);
+	elim_row_set_int(grupo, LCOL_MARCA, FALSE);
+	elim_row_set_int(grupo, LCOL_MEDIAS, FALSE);
+	elim_row_set_string(grupo, LCOL_NOMBRE, nombre);
+	elim_row_set_string(grupo, LCOL_CAPS, texto);
+	elim_row_set_int(grupo, LCOL_LIBRO, -1);
 	g_free(texto);
 
 	for (libro = 0; libro < u->n_libros; ++libro)
 		if (main_planes_libro_es_nt(libro) == nt)
-			fila_de_libro(u, &grupo, libro);
+			fila_de_libro(u, grupo, libro);
 }
 
 /* Lleva al modelo lo que hay en u->marcados, y deja la fila del
@@ -113,36 +108,26 @@ fila_de_testamento(PERSONAL_UI *u, const char *nombre, gboolean nt)
 static void
 pintar_marcas(PERSONAL_UI *u)
 {
-	GtkTreeIter grupo;
+	guint g, h;
 
-	if (!gtk_tree_model_get_iter_first(GTK_TREE_MODEL(u->modelo), &grupo))
-		return;
-	do {
-		GtkTreeIter hijo;
+	for (g = 0; g < g_list_model_get_n_items(G_LIST_MODEL(u->modelo)); g++) {
+		ElimRow *grupo = elim_table_get(u->modelo, g);
 		int marcados = 0, total = 0;
 
-		if (!gtk_tree_model_iter_children(GTK_TREE_MODEL(u->modelo),
-						  &hijo, &grupo))
+		if (!elim_row_n_children(grupo))
 			continue;
-		do {
-			gint libro;
-			gtk_tree_model_get(GTK_TREE_MODEL(u->modelo), &hijo,
-					   LCOL_LIBRO, &libro, -1);
-			gtk_tree_store_set(u->modelo, &hijo,
-					   LCOL_MARCA, u->marcados[libro],
-					   -1);
+		for (h = 0; h < elim_row_n_children(grupo); h++) {
+			ElimRow *hijo = elim_row_get_child(grupo, h);
+			gint libro = elim_row_get_int(hijo, LCOL_LIBRO);
+
+			elim_row_set_int(hijo, LCOL_MARCA, u->marcados[libro]);
 			if (u->marcados[libro])
 				++marcados;
 			++total;
-		} while (gtk_tree_model_iter_next(GTK_TREE_MODEL(u->modelo),
-						  &hijo));
-
-		gtk_tree_store_set(u->modelo, &grupo,
-				   LCOL_MARCA, (marcados == total),
-				   LCOL_MEDIAS, (marcados > 0 &&
-						 marcados < total),
-				   -1);
-	} while (gtk_tree_model_iter_next(GTK_TREE_MODEL(u->modelo), &grupo));
+		}
+		elim_row_set_int(grupo, LCOL_MARCA, (marcados == total));
+		elim_row_set_int(grupo, LCOL_MEDIAS, (marcados > 0 && marcados < total));
+	}
 }
 
 /* --------------------------------------------------------------------
@@ -307,42 +292,24 @@ recalcular(PERSONAL_UI *u, gboolean desde_ritmo)
  * ------------------------------------------------------------------ */
 
 static void
-on_libro_marcado(GtkCellRendererToggle *celda, gchar *ruta, gpointer datos)
+on_libro_marcado(ElimRow *fila, gpointer datos)
 {
 	PERSONAL_UI *u = datos;
-	GtkTreeIter iter;
-	gboolean marca;
-	gint libro;
-
-	(void)celda;
-	if (!gtk_tree_model_get_iter_from_string(GTK_TREE_MODEL(u->modelo),
-						 &iter, ruta))
-		return;
-	gtk_tree_model_get(GTK_TREE_MODEL(u->modelo), &iter,
-			   LCOL_MARCA, &marca, LCOL_LIBRO, &libro, -1);
+	gboolean marca = elim_row_get_int(fila, LCOL_MARCA) != 0;
+	gint libro = elim_row_get_int(fila, LCOL_LIBRO);
 
 	if (libro >= 0) {
 		u->marcados[libro] = !marca;
 	} else {
 		/* Fila de testamento: se lleva a todos sus libros. Si
 		 * está a medias, la primera pulsación los marca todos. */
-		GtkTreeIter hijo;
-		gboolean medias;
-		gboolean nuevo;
+		gboolean medias = elim_row_get_int(fila, LCOL_MEDIAS) != 0;
+		gboolean nuevo = medias ? TRUE : !marca;
+		guint h;
 
-		gtk_tree_model_get(GTK_TREE_MODEL(u->modelo), &iter,
-				   LCOL_MEDIAS, &medias, -1);
-		nuevo = medias ? TRUE : !marca;
-		if (gtk_tree_model_iter_children(GTK_TREE_MODEL(u->modelo),
-						 &hijo, &iter)) {
-			do {
-				gint lb;
-				gtk_tree_model_get(GTK_TREE_MODEL(u->modelo),
-						   &hijo, LCOL_LIBRO, &lb, -1);
-				u->marcados[lb] = nuevo;
-			} while (gtk_tree_model_iter_next(GTK_TREE_MODEL(u->modelo),
-							  &hijo));
-		}
+		for (h = 0; h < elim_row_n_children(fila); h++)
+			u->marcados[elim_row_get_int(elim_row_get_child(fila, h),
+						     LCOL_LIBRO)] = nuevo;
 	}
 
 	pintar_marcas(u);
@@ -441,43 +408,21 @@ on_nombre(GtkEditable *entrada, gpointer datos)
 static void
 montar_arbol(PERSONAL_UI *u)
 {
-	GtkCellRenderer *celda;
-	GtkTreeViewColumn *col;
+	ElimColumn cols[3];
 
-	u->modelo = gtk_tree_store_new(N_LCOLS, G_TYPE_BOOLEAN, G_TYPE_BOOLEAN,
-				       G_TYPE_STRING, G_TYPE_STRING,
-				       G_TYPE_INT);
-	gtk_tree_view_set_model(GTK_TREE_VIEW(u->tree),
-				GTK_TREE_MODEL(u->modelo));
+	u->modelo = elim_table_new();
 
-	celda = gtk_cell_renderer_toggle_new();
-	g_object_set(celda, "activatable", TRUE, NULL);
-	g_signal_connect(celda, "toggled", G_CALLBACK(on_libro_marcado), u);
-	col = gtk_tree_view_column_new_with_attributes(NULL, celda,
-						       "active", LCOL_MARCA,
-						       "inconsistent", LCOL_MEDIAS,
-						       NULL);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(u->tree), col);
-
-	celda = gtk_cell_renderer_text_new();
-	col = gtk_tree_view_column_new_with_attributes(NULL, celda,
-						       "text", LCOL_NOMBRE,
-						       NULL);
-	gtk_tree_view_column_set_expand(col, TRUE);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(u->tree), col);
-
-	celda = gtk_cell_renderer_text_new();
-	g_object_set(celda, "xalign", 1.0, NULL);
-	col = gtk_tree_view_column_new_with_attributes(NULL, celda,
-						       "text", LCOL_CAPS,
-						       NULL);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(u->tree), col);
-
-	gtk_tree_view_set_search_column(GTK_TREE_VIEW(u->tree), LCOL_NOMBRE);
+	cols[0] = elim_column_toggle(LCOL_MARCA, on_libro_marcado, u);
+	cols[0].inconsistent_column = LCOL_MEDIAS;
+	cols[1] = elim_column_text(LCOL_NOMBRE);
+	cols[1].text.expand = TRUE;
+	cols[2] = elim_column_text(LCOL_CAPS);
+	cols[2].text.xalign = 1.0f;
+	elim_tree_setup_row_columns(u->tree, u->modelo, cols, 3);
 
 	fila_de_testamento(u, _("Antiguo Testamento"), FALSE);
 	fila_de_testamento(u, _("Nuevo Testamento"), TRUE);
-	gtk_tree_view_expand_all(GTK_TREE_VIEW(u->tree));
+	elim_tree_expand_all(u->tree);
 }
 
 const PL_PLAN *

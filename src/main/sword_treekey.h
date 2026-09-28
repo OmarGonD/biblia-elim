@@ -33,7 +33,7 @@ unsigned long main_treekey_append_child(char *book, char *name,
 					char *offset);
 void main_treekey_set_local_name(char *book, char *name,
 				 char *offset);
-void main_load_book_tree_in_editor(GtkTreeView *treeview,
+void main_load_book_tree_in_editor(GtkWidget *treeview,
 				   char *book);
 char *main_get_book_raw_text(char *book, char *offset);
 void main_treekey_save_book_text(char *book, char *offset,

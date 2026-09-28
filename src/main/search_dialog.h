@@ -51,8 +51,7 @@ void main_delete_range(void);
 void main_add_modlist_to_label(void);
 void main_change_mods_select_label(char *mod_name);
 void main_delete_module(GtkWidget *module_list);
-void main_mod_selection_changed(GtkTreeSelection *selection,
-				GtkWidget *tree_widget);
+void main_mod_selection_changed(GtkWidget *tree_widget);
 void main_do_dialog_search(void);
 void main_open_search_dialog(void);
 void main_close_search_dialog(void);

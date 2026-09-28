@@ -7,6 +7,7 @@
 #include "backend/bible_backend.h"
 #include "backend/bible_lexicon.h"
 #include "fake_bible_backend.h"
+#include "gui/dropdown_helpers.h"
 #include "gui/widgets.h"
 #include "main/strong_ui.h"
 
@@ -95,7 +96,7 @@ GtkWidget *firstCombo(GtkWidget *root)
 	std::vector<GtkWidget *> widgetsFound;
 	descendants(root, widgetsFound);
 	for (GtkWidget *widget : widgetsFound)
-		if (GTK_IS_COMBO_BOX(widget)) return widget;
+		if (GTK_IS_DROP_DOWN(widget)) return widget;
 	return nullptr;
 }
 
@@ -186,10 +187,9 @@ void testDialogFlow()
 	g_assert_nonnull(dialog);
 	GtkWidget *combo = firstCombo(dialog);
 	g_assert_nonnull(combo);
-	g_assert_cmpint(gtk_combo_box_get_active(GTK_COMBO_BOX(combo)), ==, -1);
-	GtkTreeModel *model = gtk_combo_box_get_model(GTK_COMBO_BOX(combo));
-	g_assert_cmpint(gtk_tree_model_iter_n_children(model, nullptr), ==, 2);
-	gtk_combo_box_set_active(GTK_COMBO_BOX(combo), 1);
+	g_assert_cmpint(elim_dropdown_get_active(GTK_DROP_DOWN(combo)), ==, 0); /* row 0: nothing chosen yet */
+	g_assert_cmpint(g_list_model_get_n_items(gtk_drop_down_get_model(GTK_DROP_DOWN(combo))), ==, 3);
+	elim_dropdown_set_active(GTK_DROP_DOWN(combo), 2);
 	g_assert_true(hasLabel(dialog, "Strong G5547"));
 	closeDialog(dialog);
 
@@ -239,10 +239,9 @@ void testMorphologyOccurrenceBrowser()
 	g_assert_cmpint(occurrenceButtonCount(dialog, "John 3:16"), ==, 1);
 	GtkWidget *combo = firstCombo(dialog);
 	g_assert_nonnull(combo);
-	g_assert_cmpint(gtk_combo_box_get_active(GTK_COMBO_BOX(combo)), ==, -1);
-	GtkTreeModel *model = gtk_combo_box_get_model(GTK_COMBO_BOX(combo));
-	g_assert_cmpint(gtk_tree_model_iter_n_children(model, nullptr), ==, 2);
-	gtk_combo_box_set_active(GTK_COMBO_BOX(combo), 0);
+	g_assert_cmpint(elim_dropdown_get_active(GTK_DROP_DOWN(combo)), ==, 0); /* row 0: nothing chosen yet */
+	g_assert_cmpint(g_list_model_get_n_items(gtk_drop_down_get_model(GTK_DROP_DOWN(combo))), ==, 3);
+	elim_dropdown_set_active(GTK_DROP_DOWN(combo), 1);
 	g_assert_cmpint(occurrenceButtonCount(dialog, "John 3:16"), ==, 2);
 	GtkWidget *occurrence = occurrenceButton(dialog, "John 3:16");
 	g_assert_nonnull(occurrence);

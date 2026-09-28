@@ -22,6 +22,7 @@
 #include <config.h>
 #endif
 #include <gtk/gtk.h>
+#include <vector>
 #include <regex.h>
 #include <ctype.h>
 #include <memory>
@@ -35,6 +36,7 @@
 #include "gui/search_dialog.h"
 #include "gui/search_sidebar.h"
 #include "gui/sidebar.h"
+#include "gui/table_helpers.h"
 #include "gui/widgets.h"
 #include "gui/dialog.h"
 #include "gui/utilities.h"
@@ -83,11 +85,7 @@ int search_dialog;
 static void fill_search_results_list(int finds)
 {
 	gchar buf[256];
-	GtkTreeModel *model;
-	GtkListStore *list_store;
-	GtkTreeIter iter;
-	GtkTreeSelection *selection;
-	GtkTreePath *path;
+	GListStore *list_store;
 	gchar *buf1 = _("matches");
 	RESULTS *list_item;
 	gchar *num;
@@ -111,15 +109,18 @@ static void fill_search_results_list(int finds)
 	}
 
 	gui_sidebar_results_menu_set_enabled(FALSE);
-	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(sidebar.results_list));
-	list_store = gtk_list_store_new(1, G_TYPE_STRING);
+	list_store = elim_table_get_store(sidebar.results_list);
+	/* the keys are put in the list at once, so that the view changes once */
+	std::vector<ElimRow *> rows;
+	rows.reserve(sidebar_search_results.size());
 
 	for (const BibleSearchResult &search_result : sidebar_search_results) {
 		const gchar *key_buf = search_result.key.c_str();
 		gchar *tmpbuf = (gchar *)key_buf;
-		gtk_list_store_append(list_store, &iter);
-		gtk_list_store_set(list_store, &iter, 0,
-				   tmpbuf, -1);
+		ElimRow *row = elim_row_new(1);
+
+		elim_row_set_string(row, 0, tmpbuf);
+		rows.push_back(row);
 		list_item = g_new(RESULTS, 1);
 		list_item->module = g_strdup(search_result.module.c_str());
 		list_item->key = g_strdup(tmpbuf);
@@ -127,8 +128,9 @@ static void fill_search_results_list(int finds)
 					       (RESULTS *)list_item);
 	}
 
-	model = GTK_TREE_MODEL(list_store);
-	gtk_tree_view_set_model(GTK_TREE_VIEW(sidebar.results_list), model);
+	elim_table_replace(list_store, rows.data(), (guint)rows.size());
+	for (ElimRow *row : rows)
+		g_object_unref(row);
 
 	num = main_format_number(finds);
 	sprintf(buf, "%s %s", num, buf1);
@@ -139,14 +141,11 @@ static void fill_search_results_list(int finds)
 	gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(ss.progressbar_search),
 				      0.0);
 	/* display first item in list by selection row*/
-	if (!gtk_tree_model_get_iter_first(model, &iter))
+	if (!g_list_model_get_n_items(G_LIST_MODEL(list_store)))
 		return;
 
 	gui_sidebar_results_menu_set_enabled(TRUE);
-	path = gtk_tree_model_get_path(model, &iter);
-	gtk_tree_selection_select_path(selection,
-				       path);
-	gtk_tree_path_free(path);
+	elim_table_select(sidebar.results_list, 0, FALSE);
 	gui_verselist_button_release_event(NULL, NULL, NULL);
 	return;
 }

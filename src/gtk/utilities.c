@@ -620,7 +620,7 @@ void sync_windows()
  * Synopsis
  *   #include "gui/bookmarks_menu.h"
  *
- *   void utilities_parse_treeview(xmlNodePtr parent, GtkTreeIter * tree_parent)
+ *   void utilities_parse_treeview(xmlNodePtr parent, ElimRow * tree_parent)
  *
  * Description
  *
@@ -629,35 +629,25 @@ void sync_windows()
  *   void
  */
 
-void utilities_parse_treeview(xmlNodePtr parent, GtkTreeIter *tree_parent,
-			      GtkTreeModel *model)
+void utilities_parse_treeview(xmlNodePtr parent, ElimRow *tree_parent)
 {
 	static xmlNodePtr cur_node;
-	GtkTreeIter child;
-	gchar *caption = NULL;
-	gchar *key = NULL;
-	gchar *module = NULL;
-	gchar *mod_desc = NULL;
-	gchar *description = NULL;
-	gchar *color = NULL;
-	if (!gtk_tree_model_iter_children(GTK_TREE_MODEL(model), &child,
-					  tree_parent))
-		return;
-	do {
-		gtk_tree_model_get(GTK_TREE_MODEL(model), &child,
-				   COL_CAPTION, &caption,
-				   COL_KEY, &key,
-				   COL_MODULE, &module,
-				   COL_MODULE_DESC, &mod_desc,
-				   COL_DESCRIPTION, &description,
-				   COL_COLOR, &color,
-				   -1);
-		if (gtk_tree_model_iter_has_child(GTK_TREE_MODEL(model),
-						  &child)) {
+	guint i;
+
+	for (i = 0; i < elim_row_n_children(tree_parent); i++) {
+		ElimRow *child = elim_row_get_child(tree_parent, i);
+		gchar *caption = bookmark_row_dup(child, COL_CAPTION);
+		gchar *key = bookmark_row_dup(child, COL_KEY);
+		gchar *module = bookmark_row_dup(child, COL_MODULE);
+		gchar *mod_desc = bookmark_row_dup(child, COL_MODULE_DESC);
+		gchar *description = bookmark_row_dup(child, COL_DESCRIPTION);
+		gchar *color = bookmark_row_dup(child, COL_COLOR);
+
+		if (elim_row_n_children(child)) {
 			cur_node = xml_add_folder_to_parent_colored(parent,
 								    caption,
 								    color);
-			utilities_parse_treeview(cur_node, &child, model);
+			utilities_parse_treeview(cur_node, child);
 		} else
 			xml_add_bookmark_to_parent(parent,
 						   description,
@@ -668,7 +658,7 @@ void utilities_parse_treeview(xmlNodePtr parent, GtkTreeIter *tree_parent,
 		g_free(mod_desc);
 		g_free(description);
 		g_free(color);
-	} while (gtk_tree_model_iter_next(GTK_TREE_MODEL(model), &child));
+	}
 }
 
 gint gui_of2tf(const gchar *on_off)
@@ -861,7 +851,7 @@ gchar *gui_general_user_file(const char *fname, gboolean critical)
  * Synopsis
  *   #include "main/sidebar.h"
  *
- *   void language_add_folders(GtkTreeModel * model, GtkTreeIter iter,
+ *   void language_add_folders(GListStore * roots, ElimRow * folder,
  *			       gchar ** languages)
  *
  * Description
@@ -872,24 +862,19 @@ gchar *gui_general_user_file(const char *fname, gboolean critical)
  */
 
 static void
-language_add_folders(GtkTreeModel *model,
-		     GtkTreeIter iter, gchar **languages)
+language_add_folders(GListStore *roots, ElimRow *folder, gchar **languages)
 {
-	GtkTreeIter child_iter;
 	int j;
 
-	if (!languages || !languages[0])
-		return;
-	if (!gtk_tree_store_iter_is_valid(GTK_TREE_STORE(model), &iter))
+	if (!folder || !languages || !languages[0])
 		return;
 	for (j = 0; languages[j]; ++j) {
-		gtk_tree_store_append(GTK_TREE_STORE(model), &child_iter,
-				      &iter);
-		gtk_tree_store_set(GTK_TREE_STORE(model), &child_iter, 0,
-				   ((g_utf8_validate(languages[j], -1, NULL))
+		ElimRow *row = elim_tree_append(roots, folder, UTIL_N_COLUMNS);
+
+		elim_row_set_string(row, UTIL_COL_CAPTION,
+				    (g_utf8_validate(languages[j], -1, NULL))
 					? languages[j]
-					: _("Unknown")),
-				   -1);
+					: _("Unknown"));
 	}
 }
 
@@ -900,8 +885,8 @@ language_add_folders(GtkTreeModel *model,
  * Synopsis
  *   #include "main/sidebar.h"
  *
- *   void add_module_to_prayerlist_folder(GtkTreeModel * model,
- *		      GtkTreeIter iter, gchar * module_name)
+ *   void add_module_to_prayerlist_folder(GListStore * roots,
+ *		      ElimRow * folder, gchar * module_name)
  *
  * Description
  *
@@ -909,16 +894,13 @@ language_add_folders(GtkTreeModel *model,
  * Return value
  *   void
  */
-static void add_module_to_prayerlist_folder(GtkTreeModel *model,
-					    GtkTreeIter iter,
+static void add_module_to_prayerlist_folder(GListStore *roots,
+					    ElimRow *folder,
 					    gchar *module_name)
 {
+	ElimRow *row = elim_tree_append(roots, folder, UTIL_N_COLUMNS);
 
-	GtkTreeIter child_iter;
-
-	gtk_tree_store_append(GTK_TREE_STORE(model), &child_iter, &iter);
-	gtk_tree_store_set(GTK_TREE_STORE(model), &child_iter,
-			   0, module_name, -1);
+	elim_row_set_string(row, UTIL_COL_CAPTION, module_name);
 }
 
 /******************************************************************************
@@ -928,8 +910,8 @@ static void add_module_to_prayerlist_folder(GtkTreeModel *model,
  * Synopsis
  *   #include "gui/utilities.h"
  *
- *   void add_module_to_language_folder(GtkTreeModel * model,
- *		      GtkTreeIter iter, gchar * language, gchar * module_name)
+ *   void add_module_to_language_folder(GListStore * roots,
+ *		      ElimRow * folder, gchar * language, gchar * module_name)
  *
  * Description
  *
@@ -938,52 +920,45 @@ static void add_module_to_prayerlist_folder(GtkTreeModel *model,
  *   void
  */
 
-static void add_module_to_language_folder(GtkTreeModel *model,
-					  GtkTreeIter iter,
+static void add_module_to_language_folder(GListStore *roots,
+					  ElimRow *folder,
 					  const gchar *language,
 					  gchar *module_name,
 					  gchar *description)
 {
-	GtkTreeIter iter_iter;
-	GtkTreeIter child_iter;
-	gboolean valid;
+	guint i;
 
 	/* Check language */
 	const gchar *buf = language;
+	if (!folder)
+		return;
 	if (!g_utf8_validate(buf, -1, NULL))
 		language = _("Unknown");
 	if (!g_unichar_isalnum(g_utf8_get_char(buf)) || (language == NULL))
 		language = _("Unknown");
 
-	valid = gtk_tree_model_iter_children(model, &iter_iter, &iter);
-	while (valid) {
+	for (i = 0; i < elim_row_n_children(folder); i++) {
 		/* Walk through the list, reading each row */
-		gchar *str_data;
+		ElimRow *language_folder = elim_row_get_child(folder, i);
 
-		gtk_tree_model_get(model, &iter_iter, 0, &str_data, -1);
-		if (!strcmp(language, str_data)) {
+		if (!strcmp(language, elim_row_get_string(language_folder,
+							 UTIL_COL_CAPTION))) {
 			gchar *content;
 			const gchar *abbreviation =
 			    main_name_to_abbrev(module_name);
+			ElimRow *row = elim_tree_append(roots, language_folder,
+							UTIL_N_COLUMNS);
 
-			gtk_tree_store_append(GTK_TREE_STORE(model),
-					      &child_iter, &iter_iter);
 			content = g_strdup_printf("%s: %s",
 						  (abbreviation
 						       ? abbreviation
 						       : module_name),
 						  description);
-			gtk_tree_store_set(GTK_TREE_STORE(model),
-					   &child_iter, UTIL_COL_CAPTION,
-					   (gchar *)content,
-					   UTIL_COL_MODULE,
-					   (gchar *)module_name, -1);
+			elim_row_set_string(row, UTIL_COL_CAPTION, content);
+			elim_row_set_string(row, UTIL_COL_MODULE, module_name);
 			g_free(content);
-			g_free(str_data);
 			return;
 		}
-		g_free(str_data);
-		valid = gtk_tree_model_iter_next(model, &iter_iter);
 	}
 }
 
@@ -997,100 +972,74 @@ static void add_module_to_language_folder(GtkTreeModel *model,
  *   void load_module_tree(GtkWidget * tree)
  *
  * Description
- *
+ *   TREE, a GtkListView, shows the modules by category and language
  *
  * Return value
  *   void
  */
 
+/* A folder row of the module tree: a caption and no module. */
+static ElimRow *
+module_folder(GListStore *roots, const gchar *caption)
+{
+	ElimRow *row = elim_tree_append(roots, NULL, UTIL_N_COLUMNS);
+
+	elim_row_set_string(row, UTIL_COL_CAPTION, caption);
+	return row;
+}
+
 void gui_load_module_tree(GtkWidget *tree, gboolean limited)
 {
-	// GtkTreeIter should be an opaque type.
-	// but because cppcheck(1) complains of uninit'd use,
-	// we cheat & peek & assign the structs (perhaps pointlessly).
-	GtkTreeIter text = { -1, NULL, NULL, NULL };
-	GtkTreeIter commentary = { -1, NULL, NULL, NULL };
-	GtkTreeIter dictionary = { -1, NULL, NULL, NULL };
-	GtkTreeIter glossary = { -1, NULL, NULL, NULL };
-	GtkTreeIter devotional = { -1, NULL, NULL, NULL };
-	GtkTreeIter book = { -1, NULL, NULL, NULL };
-	GtkTreeIter map = { -1, NULL, NULL, NULL };
-	GtkTreeIter image = { -1, NULL, NULL, NULL };
-	GtkTreeIter cult = { -1, NULL, NULL, NULL };
-	GtkTreeIter prayerlist = { -1, NULL, NULL, NULL };
-	GtkTreeStore *store;
+	ElimRow *text = NULL;
+	ElimRow *commentary = NULL;
+	ElimRow *dictionary = NULL;
+	ElimRow *glossary = NULL;
+	ElimRow *devotional = NULL;
+	ElimRow *book = NULL;
+	ElimRow *map = NULL;
+	ElimRow *image = NULL;
+	ElimRow *cult = NULL;
+	ElimRow *prayerlist = NULL;
+	GListStore *store = elim_table_new();
+	ElimTextColumn column = elim_text_column(UTIL_COL_CAPTION);
 	GList *tmp = NULL;
 	GList *tmp2 = NULL;
 
-	store =
-	    gtk_tree_store_new(UTIL_N_COLUMNS, G_TYPE_STRING,
-			       G_TYPE_STRING);
-	gtk_tree_store_clear(store);
+	column.expand = TRUE;
+	elim_tree_setup_list(tree, store, &column);
+	g_object_unref(store);
 
 	/*  Biblical Texts folders */
-	gtk_tree_store_append(store, &text, NULL);
-	gtk_tree_store_set(store, &text,
-			   UTIL_COL_CAPTION, _("Biblical Texts"),
-			   UTIL_COL_MODULE, NULL, -1);
+	text = module_folder(store, _("Biblical Texts"));
 
 	/*  Commentaries folders */
-	gtk_tree_store_append(store, &commentary, NULL);
-	gtk_tree_store_set(store, &commentary,
-			   UTIL_COL_CAPTION, _("Commentaries"),
-			   UTIL_COL_MODULE, NULL, -1);
+	commentary = module_folder(store, _("Commentaries"));
 
 	if (!limited) {
 		/*  Dictionaries folders */
-		gtk_tree_store_append(store, &dictionary, NULL);
-		gtk_tree_store_set(store, &dictionary,
-				   UTIL_COL_CAPTION, _("Dictionaries"),
-				   UTIL_COL_MODULE, NULL, -1);
+		dictionary = module_folder(store, _("Dictionaries"));
 
 		/*  Glossaries folders */
-		gtk_tree_store_append(store, &glossary, NULL);
-		gtk_tree_store_set(store, &glossary,
-				   UTIL_COL_CAPTION, _("Glossaries"),
-				   UTIL_COL_MODULE, NULL, -1);
+		glossary = module_folder(store, _("Glossaries"));
 
 		/*  Devotionals folders */
-		gtk_tree_store_append(store, &devotional, NULL);
-		gtk_tree_store_set(store, &devotional,
-				   UTIL_COL_CAPTION,
-				   _("Daily Devotionals"), UTIL_COL_MODULE,
-				   NULL, -1);
+		devotional = module_folder(store, _("Daily Devotionals"));
 
 		/*  General Books folders */
-		gtk_tree_store_append(store, &book, NULL);
-		gtk_tree_store_set(store, &book,
-				   UTIL_COL_CAPTION, _("General Books"),
-				   UTIL_COL_MODULE, NULL, -1);
+		book = module_folder(store, _("General Books"));
 
 		/*  Maps folders */
-		gtk_tree_store_append(store, &map, NULL);
-		gtk_tree_store_set(store, &map,
-				   UTIL_COL_CAPTION, _("Maps"),
-				   UTIL_COL_MODULE, NULL, -1);
+		map = module_folder(store, _("Maps"));
 
 		/*  Images folders */
-		gtk_tree_store_append(store, &image, NULL);
-		gtk_tree_store_set(store, &image,
-				   UTIL_COL_CAPTION, _("Images"),
-				   UTIL_COL_MODULE, NULL, -1);
+		image = module_folder(store, _("Images"));
 
 		/*  Cult folders */
-		gtk_tree_store_append(store, &cult, NULL);
-		gtk_tree_store_set(store, &cult,
-				   UTIL_COL_CAPTION, _("Cult/Unorthodox"),
-				   UTIL_COL_MODULE, NULL, -1);
+		cult = module_folder(store, _("Cult/Unorthodox"));
 
 		/*  Prayer lists folder */
-		if (settings.prayerlist) {
-			gtk_tree_store_append(store, &prayerlist, NULL);
-			gtk_tree_store_set(store, &prayerlist,
-					   UTIL_COL_CAPTION,
-					   _("Prayer List/Journal"),
-					   UTIL_COL_MODULE, NULL, -1);
-		}
+		if (settings.prayerlist)
+			prayerlist = module_folder(store, _("Prayer List/Journal"));
 	}
 
 	tmp = mod_mgr_list_reader_modules();
@@ -1107,38 +1056,38 @@ void gui_load_module_tree(GtkWidget *tree, gboolean limited)
 		/* see comment on similar code in src/main/sidebar.cc. */
 
 		if ((info->type[0] == 'B') && !info->is_cult) {
-			add_module_to_language_folder(GTK_TREE_MODEL(store), text,
+			add_module_to_language_folder(store, text,
 						      info->language,
 						      info->name,
 						      info->description);
 		} else if ((info->type[0] == 'C') && !info->is_cult) {
-			add_module_to_language_folder(GTK_TREE_MODEL(store), commentary,
+			add_module_to_language_folder(store, commentary,
 						      info->language,
 						      info->name,
 						      info->description);
 		} else if (!limited) {
 			if (info->is_cult) {
-				add_module_to_language_folder(GTK_TREE_MODEL(store), cult,
+				add_module_to_language_folder(store, cult,
 							      info->language, info->name,
 							      info->description);
 			} else if (info->is_maps) {
-				add_module_to_language_folder(GTK_TREE_MODEL(store), map,
+				add_module_to_language_folder(store, map,
 							      info->language, info->name,
 							      info->description);
 			} else if (info->is_images) {
-				add_module_to_language_folder(GTK_TREE_MODEL(store), image,
+				add_module_to_language_folder(store, image,
 							      info->language, info->name,
 							      info->description);
 			} else if (info->is_devotional) {
-				add_module_to_language_folder(GTK_TREE_MODEL(store), devotional,
+				add_module_to_language_folder(store, devotional,
 							      info->language, info->name,
 							      info->description);
 			} else if (info->is_glossary) {
-				add_module_to_language_folder(GTK_TREE_MODEL(store), glossary,
+				add_module_to_language_folder(store, glossary,
 							      info->language, info->name,
 							      info->description);
 			} else if (info->type[0] == 'L') {
-				add_module_to_language_folder(GTK_TREE_MODEL(store), dictionary,
+				add_module_to_language_folder(store, dictionary,
 							      info->language, info->name,
 							      info->description);
 			} else if (info->type[0] == 'G') {
@@ -1146,7 +1095,7 @@ void gui_load_module_tree(GtkWidget *tree, gboolean limited)
 				    main_get_mod_config_entry(info->name,
 							      "GSType");
 				if ((gstype == NULL) || strcmp(gstype, "PrayerList")) {
-					add_module_to_language_folder(GTK_TREE_MODEL(store), book,
+					add_module_to_language_folder(store, book,
 								      info->language, info->name,
 								      info->description);
 				}
@@ -1170,16 +1119,12 @@ void gui_load_module_tree(GtkWidget *tree, gboolean limited)
 	if (!limited && settings.prayerlist) {
 		tmp = get_list(PRAYER_LIST);
 		while (tmp != NULL) {
-			add_module_to_prayerlist_folder(GTK_TREE_MODEL(store),
-							prayerlist,
+			add_module_to_prayerlist_folder(store, prayerlist,
 							(gchar *)
 							tmp->data);
 			tmp = g_list_next(tmp);
 		}
 	}
-
-	gtk_tree_view_set_model(GTK_TREE_VIEW(tree),
-				GTK_TREE_MODEL(store));
 }
 
 /******************************************************************************
@@ -1577,19 +1522,19 @@ static gchar **language_get_type(int module_type)
 /* other than init, this is the only public function. */
 void
 language_make_list(GList *modlist,
-		   GtkTreeStore *store,
-		   GtkTreeIter text,
-		   GtkTreeIter commentary,
-		   GtkTreeIter map,
-		   GtkTreeIter image,
-		   GtkTreeIter devotional,
-		   GtkTreeIter dictionary,
-		   GtkTreeIter glossary,
-		   GtkTreeIter book,
-		   GtkTreeIter cult,
-		   GtkTreeIter *update,
-		   GtkTreeIter *uninstalled,
-		   void (*add)(GtkTreeModel *, GtkTreeIter, gchar **),
+		   GListStore *store,
+		   ElimRow *text,
+		   ElimRow *commentary,
+		   ElimRow *map,
+		   ElimRow *image,
+		   ElimRow *devotional,
+		   ElimRow *dictionary,
+		   ElimRow *glossary,
+		   ElimRow *book,
+		   ElimRow *cult,
+		   ElimRow *update,
+		   ElimRow *uninstalled,
+		   void (*add)(GListStore *, ElimRow *, gchar **),
 		   gboolean limited)
 {
 	int i;
@@ -1653,14 +1598,13 @@ language_make_list(GList *modlist,
 		      language_set[i].count, sizeof(char *), cmpstringp);
 	}
 
-	/* generate tree — skip empty language sets so we never pass an
-	 * uninitialized GtkTreeIter (folders are only created when
-	 * that module type is present). */
-#define ADD_LANGS(_iter, _set)                                 \
+	/* generate tree — skip empty language sets and folders that were not
+	 * made (folders are only created when that module type is present). */
+#define ADD_LANGS(_folder, _set)                               \
 	do {                                                   \
 		gchar **_l = language_get_type(_set);          \
-		if (_l && _l[0])                               \
-			(*add)(GTK_TREE_MODEL(store), _iter, _l); \
+		if (_l && _l[0] && (_folder))                  \
+			(*add)(store, _folder, _l);            \
 	} while (0)
 
 	ADD_LANGS(text, LANGSET_BIBLE);
@@ -1674,8 +1618,8 @@ language_make_list(GList *modlist,
 		ADD_LANGS(dictionary, LANGSET_DICTIONARY);
 		ADD_LANGS(book, LANGSET_GENBOOK);
 		if ((update != NULL) && (uninstalled != NULL)) {
-			ADD_LANGS(*update, LANGSET_UPDATE);
-			ADD_LANGS(*uninstalled, LANGSET_UNINSTALLED);
+			ADD_LANGS(update, LANGSET_UPDATE);
+			ADD_LANGS(uninstalled, LANGSET_UNINSTALLED);
 		}
 	}
 #undef ADD_LANGS
@@ -1719,38 +1663,19 @@ gchar *get_modlist_string(GList *mods)
 
 /******************************************************************************
  * Name
- *   get_current_list
+ *   get_current_table_list
  *
  * Synopsis
- *   #include "gui/search_dialog.h"
+ *   #include "gui/utilities.h"
  *
- *   GList *get_current_list(GtkTreeView *treeview)
+ *   GList *get_current_table_list(GtkWidget *view)
  *
  * Description
- *
+ *   column 1 of every row of a table, each string new
  *
  * Return value
  *   GList *
  */
-
-GList *get_current_list(GtkTreeView *treeview)
-{
-	GList *items = NULL;
-	gchar *buf;
-	GtkTreeModel *model;
-	GtkTreeIter iter;
-
-	model = gtk_tree_view_get_model(treeview);
-	if (gtk_tree_model_get_iter_first(model, &iter)) {
-		do {
-			gtk_tree_model_get(model, &iter, 1, &buf, -1);
-			items =
-			    g_list_append(items, (gchar *)g_strdup(buf));
-
-		} while (gtk_tree_model_iter_next(model, &iter));
-	}
-	return items;
-}
 
 GList *get_current_table_list(GtkWidget *view)
 {

@@ -436,19 +436,11 @@ void main_dialog_information_viewer(const gchar *mod_name,
  *   GtkCTreeNode*
  */
 
-static void add_tree_item(GtkTreeModel *model, TreeItem *item, GtkTreeIter parent)
+static void add_tree_item(GtkWidget *tree, TreeItem *item, ElimRow *parent)
 {
-
-	GtkTreeIter iter;
-
-	gtk_tree_store_append(GTK_TREE_STORE(model), &iter, &parent);
-	gtk_tree_store_set(GTK_TREE_STORE(model), &iter,
-			   COL_OPEN_PIXBUF, item->pixbuf_opened,
-			   COL_CLOSED_PIXBUF, item->pixbuf_closed,
-			   COL_TITLE, item->item_name,
-			   COL_BOOK, item->module_name,
-			   COL_OFFSET, item->offset,
-			   -1);
+	main_mod_tree_add(elim_table_get_store(tree), parent, NULL,
+			  item->is_leaf ? MOD_TREE_ICON_LEAF : MOD_TREE_ICON_CLOSED,
+			  item->item_name, item->module_name, item->offset);
 }
 
 /******************************************************************************
@@ -468,7 +460,7 @@ static void add_tree_item(GtkTreeModel *model, TreeItem *item, GtkTreeIter paren
  *   void
  */
 
-void main_dialogs_add_children_to_tree(GtkTreeModel *model, GtkTreeIter iter,
+void main_dialogs_add_children_to_tree(GtkWidget *tree, ElimRow *row,
 				       unsigned long offset, gboolean is_dialog, DIALOG_DATA *d)
 {
 	gchar buf[256];
@@ -479,10 +471,7 @@ void main_dialogs_add_children_to_tree(GtkTreeModel *model, GtkTreeIter iter,
 	p_treeitem = &treeitem;
 	p_treeitem->module_name = d->mod_name;
 
-	gtk_tree_store_set(GTK_TREE_STORE(model), &iter,
-			   COL_OPEN_PIXBUF, pixbufs->pixbuf_opened,
-			   COL_CLOSED_PIXBUF, pixbufs->pixbuf_closed,
-			   -1);
+	main_mod_tree_set_icon(row, MOD_TREE_ICON_OPENED);
 
 	if (be->treekey_first_child(offset)) {
 		offset = be->get_treekey_offset();
@@ -490,18 +479,8 @@ void main_dialogs_add_children_to_tree(GtkTreeModel *model, GtkTreeIter iter,
 		p_treeitem->offset = buf;
 		tmpbuf = be->treekey_get_local_name(offset);
 		p_treeitem->item_name = (gchar *)tmpbuf;
-		if (be->treekey_has_children(offset)) {
-			p_treeitem->pixbuf_opened = pixbufs->pixbuf_closed;
-			p_treeitem->pixbuf_closed = pixbufs->pixbuf_opened;
-			p_treeitem->is_leaf = FALSE;
-			p_treeitem->expanded = FALSE;
-		} else {
-			p_treeitem->pixbuf_opened = pixbufs->pixbuf_helpdoc;
-			p_treeitem->pixbuf_closed = NULL;
-			p_treeitem->is_leaf = TRUE;
-			p_treeitem->expanded = FALSE;
-		}
-		add_tree_item(model, p_treeitem, iter);
+		p_treeitem->is_leaf = !be->treekey_has_children(offset);
+		add_tree_item(tree, p_treeitem, row);
 		free(tmpbuf);
 	}
 
@@ -511,18 +490,8 @@ void main_dialogs_add_children_to_tree(GtkTreeModel *model, GtkTreeIter iter,
 		p_treeitem->offset = buf;
 		tmpbuf = be->treekey_get_local_name(offset);
 		p_treeitem->item_name = (gchar *)tmpbuf;
-		if (be->treekey_has_children(offset)) {
-			p_treeitem->pixbuf_opened = pixbufs->pixbuf_closed;
-			p_treeitem->pixbuf_closed = pixbufs->pixbuf_opened;
-			p_treeitem->is_leaf = FALSE;
-			p_treeitem->expanded = FALSE;
-		} else {
-			p_treeitem->pixbuf_opened = pixbufs->pixbuf_helpdoc;
-			p_treeitem->pixbuf_closed = NULL;
-			p_treeitem->is_leaf = TRUE;
-			p_treeitem->expanded = FALSE;
-		}
-		add_tree_item(model, p_treeitem, iter);
+		p_treeitem->is_leaf = !be->treekey_has_children(offset);
+		add_tree_item(tree, p_treeitem, row);
 		free(tmpbuf);
 	}
 }
@@ -546,22 +515,14 @@ void main_dialogs_add_children_to_tree(GtkTreeModel *model, GtkTreeIter iter,
 void main_dialogs_add_book_to_tree(GtkWidget *tree, gchar *mod_name,
 				   gboolean is_dialog, DIALOG_DATA *d)
 {
-	GtkTreeIter iter;
-	GtkTreeModel *model =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(tree));
+	ElimRow *row;
 	BackEnd *be = (BackEnd *)d->backend;
 
-	gtk_tree_store_append(GTK_TREE_STORE(model), &iter, NULL);
-	gtk_tree_store_set(GTK_TREE_STORE(model), &iter,
-			   COL_OPEN_PIXBUF, pixbufs->pixbuf_opened,
-			   COL_CLOSED_PIXBUF, pixbufs->pixbuf_closed,
-			   COL_TITLE, d->mod_name,
-			   COL_BOOK, d->mod_name,
-			   COL_OFFSET, NULL,
-			   -1);
+	row = main_mod_tree_add(elim_table_get_store(tree), NULL, NULL,
+				MOD_TREE_ICON_OPENED, d->mod_name, d->mod_name, "");
 	be->set_module(d->mod_name);
 	be->set_treekey(0);
-	main_dialogs_add_children_to_tree(model, iter, be->get_treekey_offset(),
+	main_dialogs_add_children_to_tree(tree, row, be->get_treekey_offset(),
 					  is_dialog, d);
 }
 
@@ -572,8 +533,8 @@ void main_dialogs_add_book_to_tree(GtkWidget *tree, gchar *mod_name,
  * Synopsis
  *   #include "main/gbs_main.h"
  *
- *   void tree_selection_changed(GtkTreeModel * model,
- *        GtkTreeSelection * selection, gboolean is_dialog, DIALOG_DATA * g)
+ *   void tree_selection_changed(GtkWidget * tree, gboolean is_dialog,
+ *        DIALOG_DATA * g)
  *
  * Description
  *
@@ -582,40 +543,28 @@ void main_dialogs_add_book_to_tree(GtkWidget *tree, gchar *mod_name,
  *   void
  */
 
-void main_dialogs_tree_selection_changed(GtkTreeModel *model,
-					 GtkTreeSelection *selection, gboolean is_dialog, DIALOG_DATA *g)
+void main_dialogs_tree_selection_changed(GtkWidget *tree, gboolean is_dialog,
+					 DIALOG_DATA *g)
 {
-	GtkTreeIter selected;
-	gchar *name = NULL;
-	gchar *book = NULL;
-	gchar *offset = NULL;
+	ElimRow *selected = elim_table_get_selected(tree);
 	BackEnd *be = (BackEnd *)g->backend;
 
-	if (gtk_tree_selection_get_selected(selection, NULL, &selected)) {
-		GtkTreePath *path = gtk_tree_model_get_path(model, &selected);
-		gtk_tree_model_get(GTK_TREE_MODEL(model), &selected,
-				   2, &name,
-				   3, &book,
-				   4, &offset,
-				   -1);
-		gtk_tree_path_free(path);
+	if (selected && *elim_row_get_string(selected, 4)) {
+		gchar *book = g_strdup(elim_row_get_string(selected, 3));
+		unsigned long l_offset =
+		    strtoul(elim_row_get_string(selected, 4), NULL, 0);
 
-		if (offset) {
-			unsigned long l_offset = strtoul(offset, NULL, 0);
-			g->offset = l_offset;
-			be->set_module(book);
-			be->set_treekey(l_offset);
-			settings.book_key = be->treekey_get_local_name(l_offset);
-			if (!gtk_tree_model_iter_has_child(model, &selected) &&
-			    be->treekey_has_children(l_offset)) {
-				main_dialogs_add_children_to_tree(model, selected,
-								  l_offset, is_dialog, g);
-			}
-			be->display_mod->display();
-			g_free(name);
-			g_free(book);
-			g_free(offset);
+		g->offset = l_offset;
+		be->set_module(book);
+		be->set_treekey(l_offset);
+		settings.book_key = be->treekey_get_local_name(l_offset);
+		if (!elim_row_n_children(selected) &&
+		    be->treekey_has_children(l_offset)) {
+			main_dialogs_add_children_to_tree(tree, selected,
+							  l_offset, is_dialog, g);
 		}
+		be->display_mod->display();
+		g_free(book);
 	}
 }
 

@@ -28,6 +28,7 @@ extern "C" {
 
 typedef struct _dialog_data DIALOG_DATA;
 
+#include "gui/table_helpers.h"
 #include "main/global_ops.hh"
 #include "main/navbar_book.h"
 #include "main/navbar_versekey.h"
@@ -92,8 +93,8 @@ void main_dialogs_information_viewer(DIALOG_DATA *d,
 				     gchar *morph_text,
 				     gchar *morph);
 void main_dialogs_clear_viewer(DIALOG_DATA *d);
-void main_dialogs_add_children_to_tree(GtkTreeModel *model,
-				       GtkTreeIter iter,
+void main_dialogs_add_children_to_tree(GtkWidget *tree,
+				       ElimRow *row,
 				       unsigned long offset,
 				       gboolean is_dialog,
 				       DIALOG_DATA *d);
@@ -101,9 +102,7 @@ void main_dialogs_add_book_to_tree(GtkWidget *tree,
 				   gchar *mod_name,
 				   gboolean is_dialog,
 				   DIALOG_DATA *d);
-void main_dialogs_tree_selection_changed(GtkTreeModel *model,
-					 GtkTreeSelection *
-					     selection,
+void main_dialogs_tree_selection_changed(GtkWidget *tree,
 					 gboolean is_dialog,
 					 DIALOG_DATA *g);
 

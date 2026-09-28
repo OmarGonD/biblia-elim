@@ -53,7 +53,7 @@ static DIALOG_DATA *cur_dlg;
  * Synopsis
  *   #include "gui/dictlex.h"
  *
- *   void list_selection_changed(GtkTreeSelection * selection,
+ *   void list_selection_changed(GObject * selection,
  *		      GtkWidget * tree_widget)
  *
  * Description

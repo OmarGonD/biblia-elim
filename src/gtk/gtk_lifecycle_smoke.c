@@ -42,6 +42,13 @@
 #include "gui/planes_lectura.h"
 #include "gui/instalar_biblias.h"
 #include "gui/memorizacion.h"
+#include "gui/diccionario.h"
+#include "gui/mod_mgr.h"
+#include "gui/plan_personal.h"
+#include "gui/bookmark_dialog.h"
+#include "gui/bookmarks_treeview.h"
+#include "gui/progreso_lectura.h"
+#include "gui/testimonios.h"
 #include "gui/treekey-editor.h"
 #include "main/display.hh"
 #include "main/navbar_versekey.h"
@@ -121,7 +128,10 @@ check_allocation(GtkWidget *widget, gpointer unused)
 	GtkWidget *child;
 
 	(void)unused;
-	if (!gtk_widget_get_realized(widget))
+	/* a widget that is not showing (a scroll bar that is not needed, a page of
+	 * a notebook that is not the current one) keeps whatever allocation it last
+	 * had, or none */
+	if (!gtk_widget_get_realized(widget) || !gtk_widget_get_mapped(widget))
 		return;
 	gtk_widget_get_allocation(widget, &allocation);
 	check(allocation.width >= 0 && allocation.height >= 0,
@@ -376,30 +386,25 @@ warning_dialogs(void)
 /* Module id column of the sidebar module tree (main/sidebar.cc). */
 #define MODULE_TREE_COL_MODULE 3
 
+/* Whether ROW, or a row under it, opens MODULE. */
 static gboolean
-module_tree_row_is(GtkTreeModel *model, GtkTreePath *path, GtkTreeIter *iter,
-		   gpointer data)
+module_row_has(ElimRow *row, const char *module)
 {
-	gchar *name = NULL;
-	gboolean *found = data;
-
-	(void)path;
-	gtk_tree_model_get(model, iter, MODULE_TREE_COL_MODULE, &name, -1);
-	if (name && !strcmp(name, g_object_get_data(G_OBJECT(model), "smoke-wanted")))
-		*found = TRUE;
-	g_free(name);
-	return *found;
+	if (!strcmp(elim_row_get_string(row, MODULE_TREE_COL_MODULE), module))
+		return TRUE;
+	for (guint i = 0; i < elim_row_n_children(row); i++)
+		if (module_row_has(elim_row_get_child(row, i), module))
+			return TRUE;
+	return FALSE;
 }
 
 static gboolean
-module_tree_has(GtkTreeModel *model, const char *module)
+module_tree_has(GListStore *roots, const char *module)
 {
-	gboolean found = FALSE;
-
-	g_object_set_data(G_OBJECT(model), "smoke-wanted", (gpointer)module);
-	gtk_tree_model_foreach(model, module_tree_row_is, &found);
-	g_object_set_data(G_OBJECT(model), "smoke-wanted", NULL);
-	return found;
+	for (guint i = 0; i < g_list_model_get_n_items(G_LIST_MODEL(roots)); i++)
+		if (module_row_has(elim_table_get(roots, i), module))
+			return TRUE;
+	return FALSE;
 }
 
 static void
@@ -900,8 +905,8 @@ check_builder_dialog_opens(const char *name, void (*open_dialog)(void))
 	g_list_free(after);
 }
 
-/* GTK4-TREE-101: the memorization list is a GtkColumnView over rows, not a
- * GtkTreeView. It shows the verse added while it is open, in four columns,
+/* GTK4-TREE-101: the memorization list is a GtkColumnView over rows, and the
+ * old tree view is gone. It shows the verse added while it is open, in four columns,
  * and hands back the row the reader picks. */
 static void
 check_memorizacion_dialog(void)
@@ -944,6 +949,184 @@ check_memorizacion_dialog(void)
 				ElimRow *row = elim_table_get_selected(view);
 				check(row && strcmp(elim_row_get_string(row, 4), "") != 0,
 				      "picked row has no key");
+			}
+		}
+		gui_widget_destroy(dialog);
+	}
+	g_list_free(before);
+	g_list_free(after);
+}
+
+/* GTK4-TREE-101: the dictionary dialog shows the studies and commentaries of
+ * the current verse as a tree (authors that hold entries) on a GtkColumnView,
+ * and suggests words under its entry with a popover instead of a
+ * GtkEntryCompletion. */
+static void
+check_diccionario_dialog(void)
+{
+	GList *before = gtk_window_list_toplevels();
+	GtkWidget *dialog = NULL;
+
+	gui_diccionario_dialog();
+	while (g_main_context_pending(NULL))
+		g_main_context_iteration(NULL, FALSE);
+	GList *after = gtk_window_list_toplevels();
+	for (GList *l = after; l; l = l->next)
+		if (!g_list_find(before, l->data) && gtk_widget_get_visible(l->data))
+			dialog = l->data;
+	check(dialog != NULL, "dictionary dialog did not open");
+	if (dialog) {
+		GtkWidget *view = find_widget_of_type(dialog, GTK_TYPE_COLUMN_VIEW);
+		GtkWidget *entry = find_widget_of_type(dialog, GTK_TYPE_ENTRY);
+
+		check(view != NULL, "dictionary commentaries are not a GtkColumnView");
+		if (view) {
+			GListStore *authors = elim_table_get_store(view);
+			guint n = g_list_model_get_n_items(G_LIST_MODEL(authors));
+			guint entries = 0;
+
+			check(g_list_model_get_n_items(gtk_column_view_get_columns(
+				  GTK_COLUMN_VIEW(view))) == 1,
+			      "dictionary commentaries should have one column");
+			for (guint i = 0; i < n; i++) {
+				ElimRow *author = elim_table_get(authors, i);
+
+				check(elim_row_get_int(author, 3) == 0 &&
+					  elim_row_n_children(author) > 0,
+				      "dictionary author has no entries");
+				entries += elim_row_n_children(author);
+			}
+			check(g_list_model_get_n_items(gtk_single_selection_get_model(
+				  elim_table_selection(view))) == n + entries,
+			      "dictionary authors did not open");
+		}
+		check(entry && g_object_get_data(G_OBJECT(entry), "elim-entry-suggest"),
+		      "dictionary entry has no suggestions");
+		gui_widget_destroy(dialog);
+	}
+	g_list_free(before);
+	g_list_free(after);
+}
+
+/* Every widget of TYPE under WIDGET, depth first. */
+static void
+collect_widgets_of_type(GtkWidget *widget, GType type, GPtrArray *found)
+{
+	if (G_TYPE_CHECK_INSTANCE_TYPE(widget, type))
+		g_ptr_array_add(found, widget);
+	GList *children = gui_widget_get_children(widget);
+
+	for (GList *l = children; l; l = l->next)
+		collect_widgets_of_type(l->data, type, found);
+	g_list_free(children);
+}
+
+/* GTK4-TREE-101: the reading progress dialog has the books in a tree (the
+ * testaments hold their books) and the plans in a list, both with a name and
+ * a progress bar on every row and no header. */
+static void
+check_progreso_dialog(void)
+{
+	GList *before = gtk_window_list_toplevels();
+	GtkWidget *dialog = NULL;
+
+	gui_progreso_lectura_dialog(GTK_WINDOW(widgets.app));
+	while (g_main_context_pending(NULL))
+		g_main_context_iteration(NULL, FALSE);
+	GList *after = gtk_window_list_toplevels();
+	for (GList *l = after; l; l = l->next)
+		if (!g_list_find(before, l->data) && gtk_widget_get_visible(l->data))
+			dialog = l->data;
+	check(dialog != NULL, "reading progress dialog did not open");
+	if (dialog) {
+		GPtrArray *views = g_ptr_array_new();
+
+		collect_widgets_of_type(dialog, GTK_TYPE_LIST_VIEW, views);
+		check(views->len == 2, "reading progress should have two list views");
+		if (views->len == 2) {
+			GtkWidget *books = views->pdata[0];
+			GtkWidget *plans = views->pdata[1];
+			GListStore *testaments = elim_table_get_store(books);
+			guint n_books = 0;
+
+			check(g_list_model_get_n_items(G_LIST_MODEL(testaments)) == 2,
+			      "reading progress should have two testaments");
+			for (guint t = 0; t < g_list_model_get_n_items(G_LIST_MODEL(testaments)); t++)
+				n_books += elim_row_n_children(elim_table_get(testaments, t));
+			check(n_books > 0 &&
+				  g_list_model_get_n_items(gtk_single_selection_get_model(
+				      elim_table_selection(books))) == 2 + n_books,
+			      "reading progress books did not open");
+			check(g_list_model_get_n_items(G_LIST_MODEL(
+				  elim_table_get_store(plans))) > 0,
+			      "reading progress lists no plans");
+			GPtrArray *bars = g_ptr_array_new();
+
+			while (g_main_context_pending(NULL))
+				g_main_context_iteration(NULL, FALSE);
+			collect_widgets_of_type(dialog, GTK_TYPE_PROGRESS_BAR, bars);
+			/* the total bar above the lists, and one in each row on show */
+			check(bars->len > 2, "reading progress rows show no progress bars");
+			g_ptr_array_free(bars, TRUE);
+		}
+		g_ptr_array_free(views, TRUE);
+		gui_widget_destroy(dialog);
+	}
+	g_list_free(before);
+	g_list_free(after);
+}
+
+/* GTK4-TREE-101: the testimonies dialog lists its sources as a tree (groups
+ * that hold sources) on a GtkListView. It opens with every group open, picks
+ * the source that is asked for, and a double click on a group folds it. */
+static void
+check_testimonios_dialog(void)
+{
+	GList *before = gtk_window_list_toplevels();
+	GtkWidget *dialog = NULL;
+
+	gui_testimonios_dialog(GTK_WINDOW(widgets.app));
+	while (g_main_context_pending(NULL))
+		g_main_context_iteration(NULL, FALSE);
+	GList *after = gtk_window_list_toplevels();
+	for (GList *l = after; l; l = l->next)
+		if (!g_list_find(before, l->data) && gtk_widget_get_visible(l->data))
+			dialog = l->data;
+	check(dialog != NULL, "testimonies dialog did not open");
+	if (dialog) {
+		GtkWidget *view = find_widget_of_type(dialog, GTK_TYPE_LIST_VIEW);
+
+		check(view != NULL, "testimonies sources are not a GtkListView");
+		if (view) {
+			GListStore *groups = elim_table_get_store(view);
+			guint n_groups = g_list_model_get_n_items(G_LIST_MODEL(groups));
+			guint sources = 0;
+
+			for (guint g = 0; g < n_groups; g++)
+				sources += elim_row_n_children(elim_table_get(groups, g));
+			check(n_groups > 0 && sources > 0, "testimonies list is empty");
+			check(g_list_model_get_n_items(gtk_single_selection_get_model(
+				  elim_table_selection(view))) == n_groups + sources,
+			      "testimonies groups did not open");
+			check(elim_table_get_selected(view) == NULL,
+			      "testimonies opened with a row picked");
+			if (n_groups > 0 && sources > 0) {
+				ElimRow *group = elim_table_get(groups, 0);
+				ElimRow *source = elim_row_get_child(group, 0);
+
+				check(elim_row_get_parent(source) == group &&
+					  *elim_row_get_string(source, 1) != '\0',
+				      "testimonies source has no id");
+				gui_testimonios_mostrar(elim_row_get_string(source, 1));
+				while (g_main_context_pending(NULL))
+					g_main_context_iteration(NULL, FALSE);
+				check(elim_table_get_selected(view) == source,
+				      "the asked-for testimony was not picked");
+				/* a double click on the group folds it */
+				g_signal_emit_by_name(view, "activate", 0u);
+				check(!elim_tree_row_expanded(view, group) &&
+					  elim_table_get_selected(view) == NULL,
+				      "activating a group did not fold it");
 			}
 		}
 		gui_widget_destroy(dialog);
@@ -1297,6 +1480,406 @@ check_sqlite_module_manager(void)
 	check(sqlite_manager_inspected, "SQLite module manager was never shown");
 }
 
+/* Modal dialogs block in their own loop, so they are looked at from a timer
+ * that finds the dialog once it shows, runs INSPECT on it and closes it. */
+typedef struct {
+	void (*inspect)(GtkWidget *dialog);
+	gboolean inspected;
+} ModalProbe;
+
+static gboolean
+modal_probe_tick(gpointer data)
+{
+	ModalProbe *probe = data;
+	GList *toplevels = gtk_window_list_toplevels();
+	GtkWidget *dialog = NULL;
+
+	for (GList *l = toplevels; l && !dialog; l = l->next)
+		if (GTK_IS_DIALOG(l->data) && gtk_window_get_modal(GTK_WINDOW(l->data)) &&
+		    gtk_widget_get_visible(l->data))
+			dialog = GTK_WIDGET(l->data);
+	g_list_free(toplevels);
+	if (!dialog)
+		return G_SOURCE_CONTINUE;	/* not shown yet */
+	probe->inspected = TRUE;
+	probe->inspect(dialog);
+	gtk_dialog_response(GTK_DIALOG(dialog), GTK_RESPONSE_CANCEL);
+	return G_SOURCE_REMOVE;
+}
+
+static gboolean
+run_modal_probe(void (*inspect)(GtkWidget *dialog), void (*open_dialog)(void))
+{
+	ModalProbe probe = { inspect, FALSE };
+
+	g_timeout_add(50, modal_probe_tick, &probe);
+	open_dialog();
+	return probe.inspected;
+}
+
+static void
+open_plan_personal(void)
+{
+	gui_plan_personal_dialog(GTK_WINDOW(widgets.app), NULL);
+}
+
+/* The check box a tree row shows, NULL when the row is not on screen. */
+static GtkCheckButton *
+check_of_row(GtkWidget *widget, ElimRow *row)
+{
+	if (GTK_IS_CHECK_BUTTON(widget) &&
+	    g_object_get_data(G_OBJECT(widget), "elim-row") == row)
+		return GTK_CHECK_BUTTON(widget);
+	for (GtkWidget *child = gtk_widget_get_first_child(widget); child;
+	     child = gtk_widget_get_next_sibling(child)) {
+		GtkCheckButton *found = check_of_row(child, row);
+
+		if (found)
+			return found;
+	}
+	return NULL;
+}
+
+/* GTK4-TREE-101: the personalised reading plan picks books in a tree
+ * (testaments that hold books) with a check box per row that shows a mixed
+ * state for a testament with only some of its books. */
+static void
+inspect_plan_personal(GtkWidget *dialog)
+{
+	GtkWidget *view = find_widget_of_type(dialog, GTK_TYPE_LIST_VIEW);
+
+	check(view != NULL, "personal plan books are not a GtkListView");
+	if (!view)
+		return;
+	GListStore *testaments = elim_table_get_store(view);
+	guint books = 0;
+
+	check(g_list_model_get_n_items(G_LIST_MODEL(testaments)) == 2,
+	      "personal plan should have two testaments");
+	for (guint t = 0; t < g_list_model_get_n_items(G_LIST_MODEL(testaments)); t++)
+		books += elim_row_n_children(elim_table_get(testaments, t));
+	check(books > 0, "personal plan lists no books");
+	check(g_list_model_get_n_items(gtk_single_selection_get_model(
+		  elim_table_selection(view))) == 2 + books,
+	      "personal plan testaments did not open");
+	while (g_main_context_pending(NULL))
+		g_main_context_iteration(NULL, FALSE);
+
+	ElimRow *old_testament = elim_table_get(testaments, 0);
+	ElimRow *first_book = elim_row_get_child(old_testament, 0);
+	GtkCheckButton *box = check_of_row(view, old_testament);
+
+	check(box != NULL, "personal plan testament has no check box");
+	if (box) {
+		/* the testament's box takes all of its books */
+		gtk_check_button_set_active(box, TRUE);
+		while (g_main_context_pending(NULL))
+			g_main_context_iteration(NULL, FALSE);
+		check(elim_row_get_int(old_testament, 0) == 1 &&
+			  elim_row_get_int(first_book, 0) == 1 &&
+			  elim_row_get_int(elim_row_get_child(old_testament,
+							      elim_row_n_children(old_testament) - 1),
+					   0) == 1,
+		      "the testament box did not mark its books");
+	}
+	box = check_of_row(view, first_book);
+	check(box != NULL, "personal plan book has no check box");
+	if (box) {
+		/* one book off: the testament shows its mixed state */
+		gtk_check_button_set_active(box, FALSE);
+		while (g_main_context_pending(NULL))
+			g_main_context_iteration(NULL, FALSE);
+		check(elim_row_get_int(first_book, 0) == 0 &&
+			  elim_row_get_int(old_testament, 0) == 0 &&
+			  elim_row_get_int(old_testament, 1) == 1,
+		      "one book off did not leave the testament mixed");
+		check(gtk_check_button_get_inconsistent(
+			  check_of_row(view, old_testament)),
+		      "the testament box does not show its mixed state");
+	}
+}
+
+static void
+check_plan_personal_dialog(void)
+{
+	check(run_modal_probe(inspect_plan_personal, open_plan_personal),
+	      "personal plan dialog was never shown");
+}
+
+/* GTK4-TREE-101: the bookmark dialog picks the folder a bookmark goes to in
+ * the same tree the sidebar shows, opened at its root and with it picked. */
+static void
+inspect_bookmark_dialog(GtkWidget *dialog)
+{
+	GtkWidget *view = find_widget_of_type(dialog, GTK_TYPE_LIST_VIEW);
+
+	check(view != NULL, "bookmark dialog folders are not a GtkListView");
+	if (!view)
+		return;
+	check(view != bookmark_tree && elim_table_get_store(view) == bookmark_roots,
+	      "bookmark dialog does not show the bookmark tree");
+	check(elim_table_get_selected(view) == elim_table_get(bookmark_roots, 0),
+	      "bookmark dialog did not pick the root folder");
+}
+
+static void
+open_bookmark_dialog(void)
+{
+	gui_bookmark_dialog((gchar *)"Smoke", settings.MainWindowModule,
+			    (gchar *)"John 3:16");
+}
+
+static void
+pump_events(void)
+{
+	while (g_main_context_pending(NULL))
+		g_main_context_iteration(NULL, FALSE);
+}
+
+/* What is in the bookmarks file now, "" when there is none. */
+static gchar *
+read_bookmarks_file(void)
+{
+	gchar *path = g_strdup_printf("%s/bookmarks/bookmarks.xml", settings.gSwordDir);
+	gchar *contents = NULL;
+
+	if (!g_file_get_contents(path, &contents, NULL, NULL))
+		contents = g_strdup("");
+	g_free(path);
+	return contents;
+}
+
+/* GTK4-TREE-101: the bookmarks are a tree of ElimRow on a GtkListView. The
+ * file follows the tree by itself, a row can be moved into a folder, and the
+ * lookups the reader relies on (which folder holds a verse) walk the rows. */
+static void
+check_bookmark_tree(void)
+{
+	BOOKMARK_DATA folder_data = { 0 }, other_data = { 0 }, leaf_data = { 0 };
+	ElimRow *root, *folder, *other, *leaf;
+	gchar *file, *info;
+
+	check(GTK_IS_LIST_VIEW(bookmark_tree),
+	      "bookmark tree is not a GtkListView");
+	check(g_list_model_get_n_items(G_LIST_MODEL(bookmark_roots)) == 1,
+	      "bookmark tree should have a single root");
+	root = elim_table_get(bookmark_roots, 0);
+	check(root && elim_row_get_parent(root) == NULL &&
+		  !g_strcmp0(elim_row_get_string(root, COL_CAPTION), _("Bookmarks")),
+	      "bookmark tree root is not «Bookmarks»");
+	check(!elim_tree_get_reorderable(bookmark_tree),
+	      "bookmark rows can be dragged before the reader allows it");
+	if (!root)
+		return;
+
+	folder_data.caption = (gchar *)"Promesas";
+	folder_data.opened = bm_pixbufs->pixbuf_opened;
+	folder_data.closed = bm_pixbufs->pixbuf_closed;
+	folder_data.color = (gchar *)"#378ADD";
+	other_data.caption = (gchar *)"Otra";
+	other_data.opened = bm_pixbufs->pixbuf_opened;
+	other_data.closed = bm_pixbufs->pixbuf_closed;
+	leaf_data.caption = (gchar *)"Juan 3:16, FakeBible";
+	leaf_data.key = (gchar *)"John 3:16";
+	leaf_data.module = settings.MainWindowModule;
+	leaf_data.module_desc = (gchar *)"Fake";
+	leaf_data.description = (gchar *)"Amor de Dios";
+	leaf_data.opened = bm_pixbufs->pixbuf_helpdoc;
+
+	folder = gui_add_item_to_tree(root, &folder_data);
+	other = gui_add_item_to_tree(root, &other_data);
+	leaf = gui_add_item_to_tree(folder, &leaf_data);
+	pump_events();
+	check(elim_row_get_parent(leaf) == folder && elim_row_get_parent(folder) == root &&
+		  elim_row_get_child(folder, 0) == leaf,
+	      "bookmark rows are not where they were added");
+	check(elim_row_get_object(folder, COL_DOT) != NULL &&
+		  elim_row_get_object(leaf, COL_DOT) == NULL &&
+		  !g_strcmp0(elim_row_get_string(folder, COL_COLOR), "#378ADD"),
+	      "only a folder with a color shows a swatch");
+	check(elim_row_get_object(leaf, COL_OPEN_PIXBUF) != NULL,
+	      "a bookmark has no icon");
+
+	/* picking a row inside a closed folder opens the folders above it */
+	elim_tree_expand_row(bookmark_tree, root, FALSE);
+	check(elim_tree_select_row(bookmark_tree, leaf, FALSE) &&
+		  bookmark_selected() == leaf && elim_tree_row_expanded(bookmark_tree, folder),
+	      "the picked bookmark did not open its folder");
+
+	/* the file follows the tree once the main loop runs */
+	pump_events();
+	file = read_bookmarks_file();
+	check(strstr(file, "Promesas") && strstr(file, "John 3:16") &&
+		  strstr(file, "#378ADD") && strstr(file, "Amor de Dios"),
+	      "the bookmarks file did not follow the bookmark tree");
+	g_free(file);
+
+	/* editing a row is saved too */
+	elim_row_set_string(leaf, COL_DESCRIPTION, "Dios ama al mundo");
+	pump_events();
+	file = read_bookmarks_file();
+	check(strstr(file, "Dios ama al mundo") && !strstr(file, "Amor de Dios"),
+	      "an edited bookmark was not saved");
+	g_free(file);
+
+	/* which folder holds a verse */
+	info = bookmark_get_tag_info_for_key("John 3:16");
+	check(info && g_str_has_prefix(info, "Promesas: "),
+	      "the folder of a bookmarked verse was not found");
+	g_free(info);
+
+	/* moving a row into a folder (what a drop does) is saved as well, and
+	 * the tree does not offer to drag until the reader allows it */
+	check(elim_tree_move_row(bookmark_tree, leaf, other, ELIM_DROP_INTO) &&
+		  elim_row_get_parent(leaf) == other && elim_row_n_children(folder) == 0,
+	      "a bookmark could not be moved into a folder");
+	pump_events();
+	file = read_bookmarks_file();
+	check(strstr(file, "Otra") && strstr(file, "John 3:16"),
+	      "a moved bookmark was lost from the file");
+	g_free(file);
+	check(!elim_tree_move_row(bookmark_tree, other, leaf, ELIM_DROP_INTO),
+	      "a folder was moved into what it holds");
+	check(g_action_group_has_action(G_ACTION_GROUP(menu.actions), "reordenar") ||
+		  (gui_create_bookmark_menu(), TRUE),
+	      "bookmark reorder action missing");
+	g_action_group_change_action_state(G_ACTION_GROUP(menu.actions), "reordenar",
+					   g_variant_new_boolean(TRUE));
+	check(elim_tree_get_reorderable(bookmark_tree),
+	      "allowing reordering did not let rows be dragged");
+	g_action_group_change_action_state(G_ACTION_GROUP(menu.actions), "reordenar",
+					   g_variant_new_boolean(FALSE));
+	check(!elim_tree_get_reorderable(bookmark_tree),
+	      "forbidding reordering left rows draggable");
+
+	/* the bookmark dialog shows the same tree */
+	check(run_modal_probe(inspect_bookmark_dialog, open_bookmark_dialog),
+	      "bookmark dialog was never shown");
+
+	/* what was added goes, and the file with it */
+	elim_tree_remove(bookmark_roots, folder);
+	elim_tree_remove(bookmark_roots, other);
+	pump_events();
+	file = read_bookmarks_file();
+	check(!strstr(file, "Promesas") && !strstr(file, "Otra"),
+	      "removed bookmarks stayed in the file");
+	g_free(file);
+}
+
+/* The widget of a builder file with ID under WIDGET, NULL when none. */
+static GtkWidget *
+find_by_builder_id(GtkWidget *widget, const char *id)
+{
+	const char *own = GTK_IS_BUILDABLE(widget)
+			      ? gtk_buildable_get_buildable_id(GTK_BUILDABLE(widget))
+			      : NULL;
+
+	if (own && !strcmp(own, id))
+		return widget;
+	for (GtkWidget *child = gtk_widget_get_first_child(widget); child;
+	     child = gtk_widget_get_next_sibling(child)) {
+		GtkWidget *found = find_by_builder_id(child, id);
+
+		if (found)
+			return found;
+	}
+	return NULL;
+}
+
+static guint
+n_columns(GtkWidget *view)
+{
+	return g_list_model_get_n_items(gtk_column_view_get_columns(GTK_COLUMN_VIEW(view)));
+}
+
+/* GTK4-TREE-101: the module manager keeps its two tables of install sources,
+ * its two trees of modules (to install, to look after) and the tree that
+ * picks a page of it on the tree and table views. */
+static void
+check_module_manager(void)
+{
+	GList *before = gtk_window_list_toplevels();
+	GtkWidget *dialog = NULL;
+
+	gui_open_mod_mgr();
+	pump_events();
+	GList *after = gtk_window_list_toplevels();
+	for (GList *l = after; l; l = l->next)
+		if (!g_list_find(before, l->data) && gtk_widget_get_visible(l->data))
+			dialog = l->data;
+	check(dialog != NULL, "module manager did not open");
+	if (dialog) {
+		GtkWidget *pages = find_by_builder_id(dialog, "treeview1");
+		GtkWidget *local = find_by_builder_id(dialog, "treeview2");
+		GtkWidget *remote = find_by_builder_id(dialog, "treeview3");
+		GtkWidget *install = find_by_builder_id(dialog, "treeview4");
+		GtkWidget *maintain = find_by_builder_id(dialog, "treeview5");
+
+		check(pages && GTK_IS_LIST_VIEW(pages), "module manager pages are not a GtkListView");
+		if (pages && GTK_IS_LIST_VIEW(pages)) {
+			GListStore *groups = elim_table_get_store(pages);
+
+			check(g_list_model_get_n_items(G_LIST_MODEL(groups)) == 2 &&
+				  elim_row_n_children(elim_table_get(groups, 0)) == 2 &&
+				  elim_row_n_children(elim_table_get(groups, 1)) == 2,
+			      "module manager pages are not two groups of two");
+			check(g_list_model_get_n_items(gtk_single_selection_get_model(
+				  elim_table_selection(pages))) == 6,
+			      "module manager page groups did not open");
+		}
+		check(local && remote && GTK_IS_COLUMN_VIEW(local) && GTK_IS_COLUMN_VIEW(remote) &&
+			  n_columns(local) == 7 && n_columns(remote) == 7,
+		      "module manager source tables are not seven columns");
+		check(install && maintain && GTK_IS_COLUMN_VIEW(install) &&
+			  GTK_IS_COLUMN_VIEW(maintain) && n_columns(install) == 10 &&
+			  n_columns(maintain) == 6,
+		      "module manager module trees lack their columns");
+		if (remote && GTK_IS_COLUMN_VIEW(remote))
+			check(g_list_model_get_n_items(G_LIST_MODEL(
+				  elim_table_get_store(remote))) > 0,
+			      "module manager lists no remote sources");
+
+		/* the maintenance page fills its tree with the modules at hand */
+		GtkWidget *notebook = find_by_builder_id(dialog, "notebook1");
+
+		check(notebook && GTK_IS_NOTEBOOK(notebook), "module manager has no notebook");
+		if (notebook && GTK_IS_NOTEBOOK(notebook) && maintain && GTK_IS_COLUMN_VIEW(maintain)) {
+			GListStore *roots = elim_table_get_store(maintain);
+
+			gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook), 4);
+			pump_events();
+			check(g_list_model_get_n_items(G_LIST_MODEL(roots)) > 0,
+			      "the maintenance tree lists no modules");
+			for (guint i = 0; i < g_list_model_get_n_items(G_LIST_MODEL(roots)); i++) {
+				ElimRow *category = elim_table_get(roots, i);
+
+				check(elim_row_n_children(category) > 0 &&
+					  !elim_row_get_int(category, 2),
+				      "a module category has no languages, or a box");
+				for (guint j = 0; j < elim_row_n_children(category); j++) {
+					ElimRow *language = elim_row_get_child(category, j);
+
+					check(elim_row_n_children(language) > 0 &&
+						  !elim_row_get_int(language, 11),
+					      "a module language holds no modules");
+					for (guint k = 0; k < elim_row_n_children(language); k++) {
+						ElimRow *module = elim_row_get_child(language, k);
+
+						check(*elim_row_get_string(module, 0) != '\0' &&
+							  elim_row_get_int(module, 11) == 1 &&
+							  elim_row_n_children(module) == 0,
+						      "a module row is not a named leaf with a box");
+					}
+				}
+			}
+		}
+		gui_widget_destroy(dialog);
+		pump_events();
+	}
+	g_list_free(before);
+	g_list_free(after);
+}
+
 /* MENU-TIDY-101: the menu bar is the one the reader was promised, and
  * no Xiphos upstream link (mailing list, IRC chat, release notes) is
  * left in it. */
@@ -1370,8 +1953,10 @@ exercise_application(gpointer unused)
 
 	(void)unused;
 
-	GtkTreeModel *modules = gtk_tree_view_get_model(GTK_TREE_VIEW(sidebar.module_list));
-	check(GTK_IS_TREE_MODEL(modules), "hidden module tree has no model");
+	GListStore *modules = elim_table_get_store(sidebar.module_list);
+	check(GTK_IS_LIST_VIEW(sidebar.module_list) && modules != NULL &&
+		  g_list_model_get_n_items(G_LIST_MODEL(modules)) == 0,
+	      "hidden module tree is not an empty GtkListView");
 	check(g_object_get_data(G_OBJECT(sidebar.module_list), "elim-module-tree-pending") != NULL,
 	      "hidden module tree populated at startup");
 	gui_sidebar_showhide();
@@ -1388,19 +1973,19 @@ exercise_application(gpointer unused)
 	      "module tree not mapped after showing the sidebar");
 	check(!g_object_get_data(G_OBJECT(sidebar.module_list), "elim-module-tree-pending"),
 	      "module tree not populated on first map");
-	modules = gtk_tree_view_get_model(GTK_TREE_VIEW(sidebar.module_list));
-	check(gtk_tree_model_iter_n_children(modules, NULL) > 0, "mapped module tree empty");
+	check(g_list_model_get_n_items(G_LIST_MODEL(modules)) > 0, "mapped module tree empty");
 	/* SQLite mode lists SWORD's modules plus the Bibles only SQLite has:
 	 * the fixture Bibles exist in SQLite alone. */
 	check(module_tree_has(modules, "FakeBible"),
 	      "module tree lacks a Bible only SQLite has");
+	ElimRow *first_root = elim_table_get(modules, 0);
 	gui_sidebar_showhide();
 	gui_sidebar_showhide();
-	check(modules == gtk_tree_view_get_model(GTK_TREE_VIEW(sidebar.module_list)),
+	check(first_root == elim_table_get(modules, 0),
 	      "module tree rebuilt on second map");
 	gui_sidebar_showhide();
 	main_load_module_tree(sidebar.module_list);
-	check(gtk_tree_model_iter_n_children(gtk_tree_view_get_model(GTK_TREE_VIEW(sidebar.module_list)), NULL) > 0,
+	check(g_list_model_get_n_items(G_LIST_MODEL(elim_table_get_store(sidebar.module_list))) > 0,
 	      "hidden module reload empty");
 
 	/* Hidden sidebar menus must stay unbuilt until first use. */
@@ -1437,6 +2022,33 @@ exercise_application(gpointer unused)
 	      "results popup popover was not shown");
 	if (GTK_IS_POPOVER(results_popover))
 		gtk_popover_popdown(GTK_POPOVER(results_popover));
+	/* GTK4-TREE-101: the verse list of the sidebar is a GtkListView over rows
+	 * of one key each; a list shown there picks its first key, and the
+	 * popup actions come alive. */
+	check(GTK_IS_LIST_VIEW(sidebar.results_list),
+	      "sidebar verse list is not a GtkListView");
+	main_display_verse_list_in_sidebar((gchar *)"Matt 1:1", settings.MainWindowModule,
+					   (gchar *)"Matt 1:1; Matt 1:2");
+	while (g_main_context_pending(NULL))
+		g_main_context_iteration(NULL, FALSE);
+	{
+		GListStore *keys = elim_table_get_store(sidebar.results_list);
+		guint n_keys = g_list_model_get_n_items(G_LIST_MODEL(keys));
+
+		check(n_keys >= 1, "sidebar verse list is empty");
+		check(elim_table_get_selected(sidebar.results_list) == elim_table_get(keys, 0) &&
+			  n_keys == g_list_length(list_of_verses),
+		      "sidebar verse list did not pick its first key");
+		check(g_action_group_get_action_enabled(results_actions, "guardar-uno"),
+		      "results actions stay off with a verse list");
+		/* a new list replaces the old one in a single change */
+		main_display_verse_list_in_sidebar((gchar *)"Matt 1:1", settings.MainWindowModule,
+						   (gchar *)"Matt 1:3");
+		check(g_list_model_get_n_items(G_LIST_MODEL(keys)) >= 1 &&
+			  g_list_model_get_n_items(G_LIST_MODEL(keys)) ==
+			      g_list_length(list_of_verses),
+		      "a new verse list did not replace the old one");
+	}
 	/* GTK4-PORT-101 step 2: the reader context menu is rebuilt from a
 	 * GMenu so its module options and selection sensitivity are current. */
 	GtkWidget *context_popover = gui_menu_popup(
@@ -1592,9 +2204,15 @@ exercise_application(gpointer unused)
 		check_search_dialog_lists();
 		check_memorizacion_dialog();
 		check_install_dialog();
+		check_testimonios_dialog();
+		check_diccionario_dialog();
+		check_progreso_dialog();
 		check_plans_dialog();
 		check_dictionary_key_list();
 		check_sqlite_module_manager();
+		check_plan_personal_dialog();
+		check_bookmark_tree();
+		check_module_manager();
 		check_file_chooser_fits();
 		/* GTK4-PORT-101 step 2: verse tools are a GMenu popover over
 		 * «versiculo» actions. */

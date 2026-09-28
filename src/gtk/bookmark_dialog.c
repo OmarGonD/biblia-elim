@@ -41,8 +41,6 @@
 
 #include "gui/debug_glib_null.h"
 
-extern GtkTreeStore *model;
-
 static GtkWidget *treeview;
 static GtkWidget *button_new_folder;
 static GtkWidget *button_add_bookmark;
@@ -105,15 +103,12 @@ static void color_dialog_button_changed(GtkColorDialogButton *color_button,
 
 static void add_bookmark_button(void)
 {
-	GtkTreeIter selected;
-	GtkTreeIter iter;
+	ElimRow *selected = elim_table_get_selected(treeview);
 	BOOKMARK_DATA *data;
-	GtkTreeSelection *selection;
 	const gchar *module_from_entry;
 	const gchar *module_to_use;
 
-	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview));
-	if (!gtk_tree_selection_get_selected(selection, NULL, &selected))
+	if (!selected)
 		return;
 
 	data = g_new0(BOOKMARK_DATA, 1);
@@ -158,7 +153,13 @@ static void add_bookmark_button(void)
 	data->opened = bm_pixbufs->pixbuf_helpdoc;
 	data->closed = NULL;
 
-	gui_add_item_to_tree(&iter, &selected, data);
+	gui_add_item_to_tree(selected, data);
+	g_free(data->caption);
+	g_free(data->key);
+	g_free(data->module);
+	g_free(data->module_desc);
+	g_free(data->description);
+	g_free(data);
 	bookmarks_changed = TRUE;
 	gui_save_bookmarks(NULL, NULL);
 }
@@ -181,13 +182,10 @@ static void add_bookmark_button(void)
 
 static void add_folder_button(void)
 {
-	GtkTreeIter selected;
-	GtkTreeIter iter;
+	ElimRow *selected = elim_table_get_selected(treeview);
 	BOOKMARK_DATA *data;
-	GtkTreeSelection *selection;
 
-	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview));
-	if (!gtk_tree_selection_get_selected(selection, NULL, &selected))
+	if (!selected)
 		return;
 
 	GtkBuilder *gxml = elim_gtk_builder_new();
@@ -234,14 +232,14 @@ static void add_folder_button(void)
 		data->is_leaf = FALSE;
 		data->opened = bm_pixbufs->pixbuf_opened;
 		data->closed = bm_pixbufs->pixbuf_closed;
-		gui_add_item_to_tree(&iter, &selected, data);
+		ElimRow *added = gui_add_item_to_tree(selected, data);
+		g_free(data->caption);
+		g_free(data->color);
+		g_free(data);
 		bookmarks_changed = TRUE;
 		gui_save_bookmarks(NULL, NULL);
 
-		GtkTreePath *path = gtk_tree_model_get_path(GTK_TREE_MODEL(model), &iter);
-		gtk_tree_view_expand_to_path(GTK_TREE_VIEW(treeview), path);
-		gtk_tree_selection_select_path(selection, path);
-		gtk_tree_path_free(path);
+		elim_tree_select_row(treeview, added, TRUE);
 	}
 	gui_widget_destroy(dialog);
 	g_object_unref(gxml);
@@ -394,15 +392,11 @@ gboolean on_treeview_button_release_event(GtkWidget *widget,
 					  GuiButtonEvent *event,
 					  gpointer user_data)
 {
-	GtkTreeSelection *selection = NULL;
-	GtkTreeModel *gmodel;
-	GtkTreeIter selected;
-	gchar *key = NULL;
+	ElimRow *selected = elim_table_get_selected(GTK_WIDGET(widget));
 
-	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(widget));
-	if (gtk_tree_selection_get_selected(selection, &gmodel, &selected)) {
-		gtk_tree_model_get(gmodel, &selected, 3, &key, -1);
-		if (!gtk_tree_model_iter_has_child(gmodel, &selected) && key != NULL) {
+	if (selected) {
+		if (!elim_row_n_children(selected) &&
+		    *elim_row_get_string(selected, COL_KEY)) {
 			gtk_widget_set_sensitive(button_new_folder, FALSE);
 			gtk_widget_set_sensitive(button_add_bookmark,
 						 FALSE);
@@ -411,8 +405,6 @@ gboolean on_treeview_button_release_event(GtkWidget *widget,
 			gtk_widget_set_sensitive(button_add_bookmark,
 						 TRUE);
 		}
-		if (key)
-			g_free(key);
 	}
 	return FALSE;
 }
@@ -435,19 +427,11 @@ gboolean on_treeview_button_release_event(GtkWidget *widget,
 
 static void setup_treeview(void)
 {
-	GtkTreePath *path;
-	GtkTreeIter iter;
-	GtkTreeSelection *selection = NULL;
+	ElimRow *root;
 
-	gtk_tree_view_set_model(GTK_TREE_VIEW(treeview),
-				GTK_TREE_MODEL(model));
-	gui_add_columns(GTK_TREE_VIEW(treeview));
-	gtk_tree_model_get_iter_first(GTK_TREE_MODEL(model), &iter);
-	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview));
-	path = gtk_tree_model_get_path(GTK_TREE_MODEL(model), &iter);
-	gtk_tree_view_expand_to_path(GTK_TREE_VIEW(treeview), path);
-	gtk_tree_selection_select_path(selection, path);
-	gtk_tree_path_free(path);
+	gui_setup_bookmark_view(treeview);
+	root = elim_table_get(bookmark_roots, 0);
+	elim_tree_select_row(treeview, root, FALSE);
 }
 
 /******************************************************************************

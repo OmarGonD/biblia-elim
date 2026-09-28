@@ -41,20 +41,11 @@
 
 extern gboolean dialog_freed;
 
-enum {
-	COL_OPEN_PIXBUF,
-	COL_CLOSED_PIXBUF,
-	COL_TITLE,
-	COL_BOOK,
-	COL_OFFSET,
-	N_COLUMNS
-};
 
 /******************************************************************************
  * static - global to this file only
  */
 static DIALOG_DATA *cur_dlg;
-static GtkTreeModel *model;
 
 /******************************************************************************
  * Name
@@ -86,8 +77,8 @@ static void dialog_destroy(GObject *object, DIALOG_DATA *dlg)
  * Synopsis
  *   #include "gui/gbs.h"
  *
- *   void tree_selection_changed(GtkTreeSelection * selection,
- *		      GtkWidget * tree_widget)
+ *   void tree_selection_changed(GObject * selection, GParamSpec * pspec,
+ *		      DIALOG_DATA * g)
  *
  * Description
  *
@@ -96,67 +87,12 @@ static void dialog_destroy(GObject *object, DIALOG_DATA *dlg)
  *   void
  */
 
-static void tree_selection_changed(GtkTreeSelection *selection,
+static void tree_selection_changed(GObject *selection, GParamSpec *pspec,
 				   DIALOG_DATA *g)
 {
-	GtkTreeModel *model =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(g->tree));
-
-	main_dialogs_tree_selection_changed(model, selection, TRUE, g);
-}
-
-static GtkTreeModel *create_model(void)
-{
-	GtkTreeStore *model;
-
-	/* create tree store */
-	model = gtk_tree_store_new(N_COLUMNS,
-				   GDK_TYPE_PIXBUF,
-				   GDK_TYPE_PIXBUF,
-				   G_TYPE_STRING,
-				   G_TYPE_STRING, G_TYPE_STRING);
-	return GTK_TREE_MODEL(model);
-}
-
-static void add_columns(GtkTreeView *tree)
-{
-	GtkTreeViewColumn *column;
-	GtkCellRenderer *renderer;
-
-	column = gtk_tree_view_column_new();
-
-	/* Only "pixbuf" (never the expander-open/expander-closed pair): GTK4's
-	 * deprecated GtkCellRendererPixbuf hands that pair a null GValue for
-	 * an expander row even though the model's own column data is valid,
-	 * aborting via gdk_texture_new_for_pixbuf's GDK_IS_PIXBUF assertion
-	 * (see main_add_mod_tree_columns() in main/sidebar.cc for how this
-	 * was diagnosed). A single attribute sidesteps that path. */
-	renderer = GTK_CELL_RENDERER(gtk_cell_renderer_pixbuf_new());
-	gtk_tree_view_column_pack_start(column, renderer, FALSE);
-	gtk_tree_view_column_set_attributes(column, renderer,
-					    "pixbuf", COL_OPEN_PIXBUF, NULL);
-
-	renderer = GTK_CELL_RENDERER(gtk_cell_renderer_text_new());
-	gtk_tree_view_column_pack_start(column, renderer, TRUE);
-	gtk_tree_view_column_set_attributes(column, renderer,
-					    "text", COL_TITLE, NULL);
-	gtk_tree_view_append_column(tree, column);
-
-	column = gtk_tree_view_column_new();
-	renderer = GTK_CELL_RENDERER(gtk_cell_renderer_text_new());
-	gtk_tree_view_column_pack_start(column, renderer, TRUE);
-	gtk_tree_view_column_set_attributes(column, renderer,
-					    "text", COL_BOOK, NULL);
-	gtk_tree_view_append_column(tree, column);
-	gtk_tree_view_column_set_visible(column, FALSE);
-
-	column = gtk_tree_view_column_new();
-	renderer = GTK_CELL_RENDERER(gtk_cell_renderer_text_new());
-	gtk_tree_view_column_pack_start(column, renderer, TRUE);
-	gtk_tree_view_column_set_attributes(column, renderer,
-					    "text", COL_OFFSET, NULL);
-	gtk_tree_view_append_column(tree, column);
-	gtk_tree_view_column_set_visible(column, FALSE);
+	(void)selection;
+	(void)pspec;
+	main_dialogs_tree_selection_changed(g->tree, TRUE, g);
 }
 
 static void
@@ -187,7 +123,7 @@ void gui_create_gbs_dialog(DIALOG_DATA *dlg)
 	GtkWidget *navbar;
 	GtkWidget *hpaned;
 	GtkWidget *scrolledwindow_ctree;
-	GObject *selection;
+	GListStore *tree_roots;
 
 	dlg->dialog = gtk_window_new();
 	g_object_set_data(G_OBJECT(dlg->dialog), "dlg->dialog",
@@ -217,15 +153,12 @@ void gui_create_gbs_dialog(DIALOG_DATA *dlg)
 				       GTK_POLICY_AUTOMATIC);
 	gtk_scrolled_window_set_has_frame(GTK_SCROLLED_WINDOW((GtkScrolledWindow *) scrolledwindow_ctree), TRUE);
 
-	model = create_model();
-	dlg->tree = gtk_tree_view_new_with_model(model);
-	gtk_tree_view_set_headers_visible(GTK_TREE_VIEW(dlg->tree), FALSE);
+	dlg->tree = gtk_list_view_new(NULL, NULL);
+	tree_roots = elim_table_new();
+	main_setup_mod_tree_view(dlg->tree, tree_roots);
+	g_object_unref(tree_roots);
 	gtk_widget_show(dlg->tree);
 	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(scrolledwindow_ctree), dlg->tree);
-	add_columns(GTK_TREE_VIEW(dlg->tree));
-
-	selection =
-	    G_OBJECT(gtk_tree_view_get_selection(GTK_TREE_VIEW(dlg->tree)));
 
 
 	dlg->html =
@@ -239,7 +172,7 @@ void gui_create_gbs_dialog(DIALOG_DATA *dlg)
 			 G_CALLBACK(_popupmenu_requested_cb),
 			 (DIALOG_DATA *)dlg);
 
-	g_signal_connect(selection, "changed",
+	g_signal_connect(elim_table_selection(dlg->tree), "notify::selected-item",
 			 G_CALLBACK(tree_selection_changed),
 			 (DIALOG_DATA *)dlg);
 	dlg->statusbar = gtk_statusbar_new();

@@ -308,7 +308,7 @@ static void _export_verselist(BK_EXPORT *data)
  * Synopsis
  *   #include "gui/bookmarks_menu.h"
  *
- *   void _parse_treeview_html (xmlNodePtr parent, GtkTreeIter * tree_parent)
+ *   void _parse_treeview_html (xmlNodePtr parent, ElimRow * tree_parent)
  *
  * Description
  *
@@ -316,16 +316,9 @@ static void _export_verselist(BK_EXPORT *data)
  * Return value
  *   void
  */
-static void _parse_treeview(GString *str, GtkTreeIter *tree_parent,
-			    GtkTreeStore *model, BK_EXPORT *data)
+static void _parse_treeview(GString *str, ElimRow *tree_parent, BK_EXPORT *data)
 {
-	GtkTreeIter child;
-	gchar *caption = NULL;
-	gchar *key = NULL;
-	gchar *module = NULL;
-	gchar *mod_desc = NULL;
-	gchar *description = NULL;
-	gchar *buf = NULL;
+	guint i;
 	void (*catenate)(GString *str,
 			 const gchar *description,
 			 const gchar *module,
@@ -341,19 +334,19 @@ static void _parse_treeview(GString *str, GtkTreeIter *tree_parent,
 		break;
 	}
 
-	gtk_tree_model_iter_children(GTK_TREE_MODEL(model), &child,
-				     tree_parent);
+	for (i = 0; i < elim_row_n_children(tree_parent); i++) {
+		ElimRow *child = elim_row_get_child(tree_parent, i);
+		gchar *caption = bookmark_row_dup(child, COL_CAPTION);
+		gchar *key = bookmark_row_dup(child, COL_KEY);
+		gchar *module = bookmark_row_dup(child, COL_MODULE);
+		gchar *mod_desc = bookmark_row_dup(child, COL_MODULE_DESC);
+		gchar *description = bookmark_row_dup(child, COL_DESCRIPTION);
+		gchar *buf = NULL;
 
-	do {
-		gtk_tree_model_get(GTK_TREE_MODEL(model), &child,
-				   2, &caption,
-				   3, &key,
-				   4, &module,
-				   5, &mod_desc, 6, &description, -1);
-		if (gtk_tree_model_iter_has_child(GTK_TREE_MODEL(model), &child)) {
+		if (elim_row_n_children(child)) {
 			switch (data->type) {
 			case HTML: {
-				gchar *caption_esc = g_markup_escape_text(caption, -1);
+				gchar *caption_esc = g_markup_escape_text(caption ? caption : "", -1);
 				buf =
 				    g_strdup_printf("<ul><b>%s</b>",
 						    caption_esc);
@@ -361,12 +354,12 @@ static void _parse_treeview(GString *str, GtkTreeIter *tree_parent,
 				break;
 			}
 			case PLAIN:
-				buf = g_strdup_printf("%s\n\n", caption);
+				buf = g_strdup_printf("%s\n\n", caption ? caption : "");
 				break;
 			}
 			g_string_append(str, buf);
 			g_free(buf);
-			_parse_treeview(str, &child, model, data);
+			_parse_treeview(str, child, data);
 		}
 		if (key) {
 			(*catenate)(str, description, module, key,
@@ -389,7 +382,7 @@ static void _parse_treeview(GString *str, GtkTreeIter *tree_parent,
 		g_free(module);
 		g_free(mod_desc);
 		g_free(description);
-	} while (gtk_tree_model_iter_next(GTK_TREE_MODEL(model), &child));
+	}
 }
 
 /******************************************************************************
@@ -399,7 +392,7 @@ static void _parse_treeview(GString *str, GtkTreeIter *tree_parent,
  * Synopsis
  *   #include "gui/bookmarks_menu.h"
  *
- *   void save_iter_to_xml(GtkTreeIter * iter)
+ *   void save_iter_to_xml(ElimRow * row)
  *
  * Description
  *
@@ -408,21 +401,15 @@ static void _parse_treeview(GString *str, GtkTreeIter *tree_parent,
  *   void
  */
 
-static void save_iter_to_xml(GtkTreeIter *iter, BK_EXPORT *data)
+static void save_iter_to_xml(ElimRow *row, BK_EXPORT *data)
 {
 	xmlNodePtr root_node = NULL;
 	xmlNodePtr cur_node = NULL;
 	xmlDocPtr root_doc;
 	gchar *caption = NULL;
 	gchar *filename;
-	GtkTreeModel *tm;
 
-	if (data->verselist == VERSE_LIST_EXPORT)
-		tm = GTK_TREE_MODEL(model_verselist);
-	else
-		tm = GTK_TREE_MODEL(model);
-
-	gtk_tree_model_get(tm, iter, 2, &caption, -1);
+	caption = bookmark_row_dup(row, COL_CAPTION);
 	filename = g_strdup_printf("%s.xml", data->filename);
 
 	root_doc = xmlNewDoc((const xmlChar *)"1.0");
@@ -434,10 +421,9 @@ static void save_iter_to_xml(GtkTreeIter *iter, BK_EXPORT *data)
 			   (const xmlChar *)"1");
 		xmlDocSetRootElement(root_doc, root_node);
 	}
-	gtk_tree_model_get(tm, iter, 2, &caption, -1);
-	if (gtk_tree_model_iter_has_child(tm, iter)) {
+	if (elim_row_n_children(row)) {
 		cur_node = xml_add_folder_to_parent(root_node, caption);
-		utilities_parse_treeview(cur_node, iter, tm);
+		utilities_parse_treeview(cur_node, row);
 	}
 	g_free(caption);
 	xmlSaveFormatFile(filename, root_doc, 1);
@@ -454,7 +440,7 @@ static void save_iter_to_xml(GtkTreeIter *iter, BK_EXPORT *data)
  * Synopsis
  *   #include "gui/bookmarks_menu.h"
  *
- *   void save_iter_to_html(GtkTreeIter * iter, BK_EXPORT *data)
+ *   void save_iter_to_html(ElimRow * row, BK_EXPORT *data)
  *
  * Description
  *
@@ -463,13 +449,13 @@ static void save_iter_to_xml(GtkTreeIter *iter, BK_EXPORT *data)
  *   void
  */
 
-static void _save_iter(GtkTreeIter *iter, BK_EXPORT *data)
+static void _save_iter(ElimRow *row, BK_EXPORT *data)
 {
 	gchar *caption = NULL;
 	gchar *filename = NULL;
 	GString *str = g_string_new(NULL);
 
-	gtk_tree_model_get(GTK_TREE_MODEL(model), iter, 2, &caption, -1);
+	caption = bookmark_row_dup(row, COL_CAPTION);
 	switch (data->type) {
 	case HTML:
 		filename = g_strdup_printf("%s.html", data->filename);
@@ -479,11 +465,10 @@ static void _save_iter(GtkTreeIter *iter, BK_EXPORT *data)
 		break;
 	}
 
-	gtk_tree_model_get(GTK_TREE_MODEL(model), iter, 2, &caption, -1);
-	if (gtk_tree_model_iter_has_child(GTK_TREE_MODEL(model), iter)) {
+	if (elim_row_n_children(row)) {
 		switch (data->type) {
 		case HTML: {
-			gchar *caption_esc = g_markup_escape_text(caption, -1);
+			gchar *caption_esc = g_markup_escape_text(caption ? caption : "", -1);
 			g_string_printf(str,
 					"<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" /></head><body><ul><b>%s</b><br/><br/>",
 					caption_esc);
@@ -491,11 +476,11 @@ static void _save_iter(GtkTreeIter *iter, BK_EXPORT *data)
 			break;
 		}
 		case PLAIN:
-			g_string_printf(str, "%s\n\n\n", caption);
+			g_string_printf(str, "%s\n\n\n", caption ? caption : "");
 			break;
 		}
 
-		_parse_treeview(str, iter, model, data);
+		_parse_treeview(str, row, data);
 	}
 
 	g_free(caption);
@@ -518,42 +503,29 @@ static void _save_iter(GtkTreeIter *iter, BK_EXPORT *data)
 
 static void export_2_bookmarks(BK_EXPORT *data)
 {
-	GtkTreeSelection *selection;
-	GtkTreeIter selected;
-	GtkTreeView *tree;
+	ElimRow *selected = bookmark_selected();
 
-	if (data->verselist == VERSE_LIST_EXPORT)
-		tree = GTK_TREE_VIEW(sidebar.results_list);
-	else
-		tree = bookmark_tree;
-
-	selection = gtk_tree_view_get_selection(tree);
-	if (!gtk_tree_selection_get_selected(selection, NULL, &selected))
+	if (!selected)
 		return;
-
-	save_iter_to_xml(&selected, data);
+	save_iter_to_xml(selected, data);
 }
 
 static void export_2_html(BK_EXPORT *data)
 {
-	GtkTreeSelection *selection;
-	GtkTreeIter selected;
+	ElimRow *selected = bookmark_selected();
 
-	selection = gtk_tree_view_get_selection(bookmark_tree);
-	if (!gtk_tree_selection_get_selected(selection, NULL, &selected))
+	if (!selected)
 		return;
-	_save_iter(&selected, data);
+	_save_iter(selected, data);
 }
 
 static void export_2_text(BK_EXPORT *data)
 {
-	GtkTreeSelection *selection;
-	GtkTreeIter selected;
+	ElimRow *selected = bookmark_selected();
 
-	selection = gtk_tree_view_get_selection(bookmark_tree);
-	if (!gtk_tree_selection_get_selected(selection, NULL, &selected))
+	if (!selected)
 		return;
-	_save_iter(&selected, data);
+	_save_iter(selected, data);
 }
 
 static void _export(BK_EXPORT *data)
@@ -573,18 +545,12 @@ static void _export(BK_EXPORT *data)
 
 static void setup_filechooserwidget(GtkFileChooser *chooser)
 {
-	GtkTreeSelection *selection;
-	GtkTreeIter selected;
-	gchar *caption = NULL;
+	ElimRow *selected = bookmark_selected();
 
-	selection = gtk_tree_view_get_selection(bookmark_tree);
-	if (!gtk_tree_selection_get_selected(selection, NULL, &selected))
+	if (!selected)
 		return;
-	gtk_tree_model_get(GTK_TREE_MODEL(model), &selected,
-			   2, &caption, -1);
-	gtk_file_chooser_set_current_name(chooser, caption);
-
-	g_free(caption);
+	gtk_file_chooser_set_current_name(chooser,
+					  elim_row_get_string(selected, COL_CAPTION));
 }
 
 G_MODULE_EXPORT void

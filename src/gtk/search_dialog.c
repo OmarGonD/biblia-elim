@@ -118,26 +118,18 @@ static void on_advsearch_configure_event(GObject *window, GParamSpec *pspec,
 static gboolean button_release_event(GtkWidget *widget,
 				     GuiButtonEvent *event, gpointer data)
 {
-	GtkTreeSelection *selection = NULL;
-	GtkTreeIter selected;
-	GtkTreeModel *model;
-	GtkTreePath *path;
+	ElimRow *selected = elim_table_get_selected(widget);
 
-	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(widget));
-
-	if (!gtk_tree_selection_get_selected(selection, &model, &selected))
+	if (!selected || !elim_row_n_children(selected))
 		return FALSE;
 
-	if (!gtk_tree_model_iter_has_child(model, &selected))
+	/* the arrow of a row opens and closes it by itself */
+	if (elim_tree_point_on_expander(widget, event->x, event->y))
 		return FALSE;
-
-	path = gtk_tree_model_get_path(model, &selected);
-	if (gtk_tree_view_row_expanded(GTK_TREE_VIEW(widget), path))
-		gtk_tree_view_collapse_row(GTK_TREE_VIEW(widget), path);
+	if (elim_tree_row_expanded(widget, selected))
+		elim_tree_collapse_row(widget, selected);
 	else
-		gtk_tree_view_expand_row(GTK_TREE_VIEW(widget), path,
-					 FALSE);
-	gtk_tree_path_free(path);
+		elim_tree_expand_row(widget, selected, FALSE);
 	return FALSE;
 }
 
@@ -831,7 +823,7 @@ void current_module_toggled(GtkToggleButton *togglebutton,
  * Synopsis
  *   #include "gui/search_dialog.h"
  *
- *   void mod_selection_changed(GtkTreeSelection * selection,
+ *   void mod_selection_changed(GObject * selection,
  *		      GtkWidget * tree_widget)
  *
  * Description
@@ -841,10 +833,12 @@ void current_module_toggled(GtkToggleButton *togglebutton,
  *   void
  */
 
-static void mod_selection_changed(GtkTreeSelection *selection,
+static void mod_selection_changed(GObject *selection, GParamSpec *pspec,
 				  GtkWidget *tree_widget)
 {
-	main_mod_selection_changed(selection, tree_widget);
+	(void)selection;
+	(void)pspec;
+	main_mod_selection_changed(tree_widget);
 }
 
 /******************************************************************************
@@ -854,7 +848,7 @@ static void mod_selection_changed(GtkTreeSelection *selection,
  * Synopsis
  *   #include "gui/search_dialog.h"
  *
- *   void (GtkTreeSelection * selection,
+ *   void (GObject * selection,
  *		     					 gpointer data)
  *
  * Description
@@ -881,7 +875,7 @@ static void _selection_finds_list_changed(GObject *selection,
  * Synopsis
  *   #include "gui/search_dialog.h"
  *
- *   void selection_modules_lists_changed(GtkTreeSelection * selection,
+ *   void selection_modules_lists_changed(GObject * selection,
  *		     					 gpointer data)
  *
  * Description
@@ -908,7 +902,7 @@ static void _selection_modules_lists_changed(GObject *selection,
  * Synopsis
  *   #include "gui/search_dialog.h"
  *
- *   void _modules_lists_changed(GtkTreeSelection * selection,
+ *   void _modules_lists_changed(GObject * selection,
  *		     					 gpointer data)
  *
  * Description
@@ -918,27 +912,24 @@ static void _selection_modules_lists_changed(GObject *selection,
  *   void
  */
 
-static void _modules_lists_changed(GtkTreeSelection *
-				       selection,
-				   GtkTreeView *tree_widget)
+static void _modules_lists_changed(GObject *selection, GParamSpec *pspec,
+				   GtkWidget *tree_widget)
 {
-	gchar *mod = NULL;
-	GtkTreeIter selected;
-	GtkTreeModel *model =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(tree_widget));
+	ElimRow *selected = elim_table_get_selected(tree_widget);
 
-	if (!gtk_tree_selection_get_selected(selection, NULL, &selected))
+	(void)selection;
+	(void)pspec;
+	if (!selected)
 		return;
-	if (gtk_tree_model_iter_has_child(model, &selected)) {
+	if (elim_row_n_children(selected)) {
 		g_free(module_selected);
 		module_selected = NULL;
 		return;
 	}
 
-	gtk_tree_model_get(model, &selected, UTIL_COL_MODULE, &mod, -1);
-	if (mod) {
+	if (*elim_row_get_string(selected, UTIL_COL_MODULE)) {
 		g_free(module_selected);
-		module_selected = mod;
+		module_selected = g_strdup(elim_row_get_string(selected, UTIL_COL_MODULE));
 	}
 }
 
@@ -949,7 +940,7 @@ static void _modules_lists_changed(GtkTreeSelection *
  * Synopsis
  *   #include "gui/search_dialog.h"
  *
- *   void (GtkTreeSelection * selection,
+ *   void (GObject * selection,
  *		     					 gpointer data)
  *
  * Description
@@ -1121,7 +1112,7 @@ GMenuModel *create_results_menu_advsearch(void)
  * Synopsis
  *   #include "gui/search_dialog.h"
  *
- *   void selection_range_lists_changed(GtkTreeSelection * selection,
+ *   void selection_range_lists_changed(GObject * selection,
  *		     					 gpointer data)
  *
  * Description
@@ -1160,7 +1151,7 @@ static void selection_range_lists_changed(GObject *selection,
  * Synopsis
  *   #include "gui/search_dialog.h"
  *
- *   void (GtkTreeSelection * selection,
+ *   void (GObject * selection,
  *		     					 gpointer data)
  *
  * Description
@@ -1286,21 +1277,9 @@ static void _setup_listviews2(GtkWidget *listview, GCallback callback)
 
 static void _setup_treeview(GtkWidget *treeview)
 {
-	GtkCellRenderer *renderer;
-	GtkTreeViewColumn *column;
-	GObject *selection;
-
-	renderer = gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes("Found",
-							  renderer,
-							  "text", 0, NULL);
-	gtk_tree_view_column_set_sort_column_id(column, 0);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
 	gui_load_module_tree(treeview, FALSE);
 
-	selection =
-	    G_OBJECT(gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview)));
-	g_signal_connect(selection, "changed",
+	g_signal_connect(elim_table_selection(treeview), "notify::selected-item",
 			 G_CALLBACK(mod_selection_changed), treeview);
 
 	gui_widget_on_button(GTK_WIDGET(treeview), GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)button_release_event, GINT_TO_POINTER(0));
@@ -1308,21 +1287,9 @@ static void _setup_treeview(GtkWidget *treeview)
 
 static void _setup_treeview2(GtkWidget *treeview)
 {
-	GtkCellRenderer *renderer;
-	GtkTreeViewColumn *column;
-	GObject *selection;
-
-	renderer = gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes("Found",
-							  renderer,
-							  "text", 0, NULL);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(treeview), column);
-	gtk_tree_view_column_set_sort_column_id(column, 0);
 	gui_load_module_tree(treeview, FALSE);
 
-	selection =
-	    G_OBJECT(gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview)));
-	g_signal_connect(selection, "changed",
+	g_signal_connect(elim_table_selection(treeview), "notify::selected-item",
 			 G_CALLBACK(_modules_lists_changed), treeview);
 }
 

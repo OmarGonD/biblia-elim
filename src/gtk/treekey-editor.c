@@ -29,6 +29,7 @@
 #include "gui/treekey-editor.h"
 #include "gui/dialog.h"
 #include "gui/utilities.h"
+#include "gui/table_helpers.h"
 
 #include "main/sidebar.h"
 #include "main/sword_treekey.h"
@@ -44,8 +45,8 @@ struct _item_info
 	gchar *local_name; /* tree node name */
 	gchar *offset;
 
-	GtkTreeIter iter;
-	GtkTreeModel *model;
+	ElimRow *row;
+	GListStore *roots;
 };
 
 INFO *_get_info(GtkWidget *tree);
@@ -62,16 +63,14 @@ enum {
 
 INFO *_get_info(GtkWidget *tree)
 {
-	GtkTreeSelection *selection = NULL;
-	GtkTreeView *t = GTK_TREE_VIEW(tree);
-
 	INFO *info = g_new0(INFO, 1);
 
-	selection = gtk_tree_view_get_selection(t);
-	if (gtk_tree_selection_get_selected(selection, &info->model, &info->iter))
-		gtk_tree_model_get(GTK_TREE_MODEL(info->model),
-				   &info->iter, 2, &info->local_name, 3,
-				   &info->book, 4, &info->offset, -1);
+	info->roots = elim_table_get_store(tree);
+	info->row = elim_table_get_selected(tree);
+	/* a name, a module and an offset even when nothing is picked */
+	info->local_name = g_strdup(info->row ? elim_row_get_string(info->row, COL_CAPTION) : "");
+	info->book = g_strdup(info->row ? elim_row_get_string(info->row, COL_MODULE) : "");
+	info->offset = g_strdup(info->row ? elim_row_get_string(info->row, COL_OFFSET) : "");
 	return info;
 }
 
@@ -111,7 +110,6 @@ on_add_sibling_activate(GSimpleAction *action, GVariant *parameter, gpointer use
 	GtkWidget *tree = GTK_WIDGET(e->treeview);
 	gint test;
 	GS_DIALOG *d;
-	GtkTreeIter sibling;
 
 	info = _get_info(tree);
 
@@ -131,16 +129,11 @@ on_add_sibling_activate(GSimpleAction *action, GVariant *parameter, gpointer use
 								     info->offset);
 		if (l_offset) {
 			char *buf = g_strdup_printf("%ld", l_offset);
-			gtk_tree_store_insert_after(GTK_TREE_STORE(info->model),
-						    &sibling, NULL,
-						    &info->iter);
-			gtk_tree_store_set(GTK_TREE_STORE(info->model),
-					   &sibling, COL_OPEN_PIXBUF,
-					   pixbufs->pixbuf_helpdoc,
-					   COL_CLOSED_PIXBUF, pixbufs->pixbuf_helpdoc,
-					   COL_CAPTION, d->text1,
-					   COL_MODULE, info->book,
-					   COL_OFFSET, buf, -1);
+			if (info->row)
+				main_mod_tree_add(info->roots,
+						  elim_row_get_parent(info->row),
+						  info->row, MOD_TREE_ICON_LEAF,
+						  d->text1, info->book, buf);
 			if (e->key)
 				g_free(e->key);
 			e->key = g_strdup(buf);
@@ -164,7 +157,6 @@ on_add_child_activate(GSimpleAction *action, GVariant *parameter, gpointer user_
 	GtkWidget *tree = GTK_WIDGET(e->treeview);
 	gint test;
 	GS_DIALOG *d;
-	GtkTreeIter child;
 
 	info = _get_info(tree);
 
@@ -185,23 +177,14 @@ on_add_child_activate(GSimpleAction *action, GVariant *parameter, gpointer user_
 		if (l_offset) {
 			char *buf = NULL;
 
-			gtk_tree_store_set(GTK_TREE_STORE(info->model), /* change treenode pixbuf from leaf to branch */
-					   &info->iter,
-					   COL_OPEN_PIXBUF,
-					   pixbufs->pixbuf_closed,
-					   COL_CLOSED_PIXBUF,
-					   pixbufs->pixbuf_closed, -1);
 			buf = g_strdup_printf("%ld", l_offset);
-			gtk_tree_store_append(GTK_TREE_STORE(info->model),
-					      &child, &info->iter);
-			gtk_tree_store_set(GTK_TREE_STORE(info->model),
-					   &child,
-					   COL_OPEN_PIXBUF,
-					   pixbufs->pixbuf_helpdoc,
-					   COL_CLOSED_PIXBUF, pixbufs->pixbuf_helpdoc,
-					   COL_CAPTION, d->text1,
-					   COL_MODULE, info->book,
-					   COL_OFFSET, buf, -1);
+			if (info->row) {
+				/* change treenode pixbuf from leaf to branch */
+				main_mod_tree_set_icon(info->row, MOD_TREE_ICON_CLOSED);
+				main_mod_tree_add(info->roots, info->row, NULL,
+						  MOD_TREE_ICON_LEAF, d->text1,
+						  info->book, buf);
+			}
 			if (e->key)
 				g_free(e->key);
 			e->key = g_strdup(buf);
@@ -233,8 +216,8 @@ on_remove_activate(GSimpleAction *action, GVariant *parameter, gpointer user_dat
 			      info->book, info->local_name);
 	icon_name = g_strdup("dialog-warning");
 	if (gui_yes_no_dialog(str, icon_name)) {
-		gtk_tree_store_remove(GTK_TREE_STORE(info->model),
-				      &info->iter);
+		if (info->row)
+			elim_tree_remove(info->roots, info->row);
 		main_treekey_remove(info->book, info->local_name,
 				    info->offset);
 	}
@@ -271,9 +254,8 @@ on_edit_activate2(GSimpleAction *action, GVariant *parameter, gpointer user_data
 	if (test == GS_OK) {
 		main_treekey_set_local_name(info->book,
 					    d->text1, info->offset);
-		gtk_tree_store_set(GTK_TREE_STORE(info->model),
-				   &info->iter,
-				   COL_CAPTION, (gchar *)d->text1, -1);
+		if (info->row)
+			elim_row_set_string(info->row, COL_CAPTION, d->text1);
 	}
 
 	g_free(info->book);
@@ -327,11 +309,7 @@ static void popup_tree_menu(GtkWidget *treeview, GuiButtonEvent *event)
 static gboolean on_button_release(GtkWidget *widget,
 				  GuiButtonEvent *event, EDITOR *editor)
 {
-	GtkTreeSelection *selection;
-	GtkTreeIter selected;
-	GtkTreeModel *model;
-	GtkTreePath *path;
-	gint depth = 0;
+	ElimRow *selected;
 
 	switch (event->button) {
 	case 1:
@@ -343,17 +321,10 @@ static gboolean on_button_release(GtkWidget *widget,
 		break;
 
 	case 3:
-		selection =
-		    gtk_tree_view_get_selection(GTK_TREE_VIEW(widget));
-		gtk_tree_selection_get_selected(selection, &model,
-						&selected);
-		path = gtk_tree_model_get_path(model, &selected);
-		depth = gtk_tree_path_get_depth(path);
-
-		if (depth > 1)
+		selected = elim_table_get_selected(widget);
+		/* the root of the tree has no menu */
+		if (selected && elim_row_get_depth(selected) >= 1)
 			popup_tree_menu(widget, event);
-
-		gtk_tree_path_free(path);
 		return FALSE;
 	}
 	return FALSE;
@@ -362,13 +333,10 @@ static gboolean on_button_release(GtkWidget *widget,
 GtkWidget *gui_create_editor_tree(EDITOR *editor)
 {
 	GtkWidget *treeview;
-	treeview = gtk_tree_view_new();
-	gtk_tree_view_set_headers_visible(GTK_TREE_VIEW(treeview), FALSE);
-
-	main_add_mod_tree_columns(GTK_TREE_VIEW(treeview));
+	treeview = gtk_list_view_new(NULL, NULL);
 	XI_message(("\ngui_create_editor_tree Mod Name:%s\n",
 		    editor->module));
-	main_load_book_tree_in_editor(GTK_TREE_VIEW(treeview),
+	main_load_book_tree_in_editor(treeview,
 				      editor->module);
 	install_tree_actions(treeview, editor);
 

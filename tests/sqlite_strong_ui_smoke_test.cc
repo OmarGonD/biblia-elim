@@ -10,6 +10,7 @@
 
 #include "backend/bible_backend.h"
 #include "backend/sqlite/sqlite_bible_backend.h"
+#include "gui/dropdown_helpers.h"
 #include "gui/widgets.h"
 #include "main/strong_interaction.h"
 #include "main/strong_lexicon_startup.h"
@@ -57,7 +58,7 @@ GtkWidget *combo(GtkWidget *root)
 {
 	std::vector<GtkWidget *> all;
 	walk(root, all);
-	for (GtkWidget *widget : all) if (GTK_IS_COMBO_BOX(widget)) return widget;
+	for (GtkWidget *widget : all) if (GTK_IS_DROP_DOWN(widget)) return widget;
 	return nullptr;
 }
 
@@ -154,10 +155,9 @@ void testRvFlow()
 	g_assert_nonnull(view);
 	GtkWidget *selector = combo(view);
 	g_assert_nonnull(selector);
-	g_assert_cmpint(gtk_combo_box_get_active(GTK_COMBO_BOX(selector)), ==, -1);
-	GtkTreeModel *model = gtk_combo_box_get_model(GTK_COMBO_BOX(selector));
-	g_assert_cmpint(gtk_tree_model_iter_n_children(model, nullptr), ==, 2);
-	gtk_combo_box_set_active(GTK_COMBO_BOX(selector), 0);
+	g_assert_cmpint(elim_dropdown_get_active(GTK_DROP_DOWN(selector)), ==, 0); /* row 0: nothing chosen yet */
+	g_assert_cmpint(g_list_model_get_n_items(gtk_drop_down_get_model(GTK_DROP_DOWN(selector))), ==, 3);
+	elim_dropdown_set_active(GTK_DROP_DOWN(selector), 1);
 	g_assert_true(hasLabel(view, "Strong G2424"));
 	close(view);
 }

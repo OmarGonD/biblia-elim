@@ -23,6 +23,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include "gui/table_helpers.h"
 #include "gui/widget_helpers.h"
 #include <glib.h>
 #include <glib/gstdio.h>
@@ -377,9 +378,7 @@ enum {
  *
  * Synopsis
  *   #include "backend/biblesync.hh"
- *   static void listen_toggled(GtkCellRendererToggle *cell,
- *				gchar *path_str,
- *				gpointer data)
+ *   static void listen_toggled(ElimRow *row, gpointer data)
  *
  * Description
  *   react to user's toggle of listen checkbox.
@@ -388,41 +387,20 @@ enum {
  *   void
  */
 static void
-listen_toggled(GtkCellRendererToggle *cell,
-	       gchar *path_str,
-	       gpointer data)
+listen_toggled(ElimRow *row, gpointer data)
 {
 	if (biblesync->getMode() == BSP_MODE_SPEAKER) {
 		gui_generic_warning(_((BSP + "Speaker listens to none.").c_str()));
 	} else if (settings.bs_listen_set == 0) // selective
 	{
-		GtkTreeView *treeview = (GtkTreeView *)data;
-		GtkTreeModel *model = gtk_tree_view_get_model(treeview);
-		GtkTreeIter iter;
-		GtkTreePath *path = gtk_tree_path_new_from_string(path_str);
-		gboolean listen = 27;
-		gchar *uuid = NULL;
-
-		// get toggled iter
-		gtk_tree_model_get_iter(model, &iter, path);
-		gtk_tree_model_get(model, &iter,
-				   COLUMN_LISTEN, &listen,
-				   COLUMN_UUID, &uuid,
-				   -1);
-
 		// negate
-		listen ^= 1;
+		gboolean listen = elim_row_get_int(row, COLUMN_LISTEN) ^ 1;
+		string uuid = elim_row_get_string(row, COLUMN_UUID);
 
 		// set new value
-		gtk_list_store_set(GTK_LIST_STORE(model), &iter,
-				   COLUMN_LISTEN, listen,
-				   -1);
-		speakers[(string)uuid].listen = listen;
-		biblesync->listenToSpeaker(listen, (string)uuid);
-		g_free(uuid);
-
-		// clean up
-		gtk_tree_path_free(path);
+		elim_row_set_int(row, COLUMN_LISTEN, listen);
+		speakers[uuid].listen = listen;
+		biblesync->listenToSpeaker(listen, uuid);
 	} else // all or nothing
 	{
 		gui_generic_warning(_((BSP + "Not listening selectively.").c_str()));
@@ -435,44 +413,18 @@ listen_toggled(GtkCellRendererToggle *cell,
  *
  * Synopsis
  *   #include "backend/biblesync.hh"
- *   void query_tooltip()
+ *   gboolean query_tooltip(ElimRow *row, GtkTooltip *tooltip, gpointer data)
  *
  * Description
- *   find and show the identifying info for the selected user.
+ *   show the identifying info for the speaker under the pointer.
  *
  * Return value
- *   void
+ *   gboolean
  */
-static gboolean query_tooltip(GtkWidget *widget,
-			      gint x,
-			      gint y,
-			      gboolean keyboard_mode,
-			      GtkTooltip *tooltip,
+static gboolean query_tooltip(ElimRow *row, GtkTooltip *tooltip,
 			      gpointer user_data)
 {
-	GtkTreeModel *model;
-	GtkTreePath *path;
-	GtkTreeIter iter;
-	gchar *about;
-
-	if (!gtk_tree_view_get_tooltip_context((GtkTreeView *)widget,
-					       x, y,
-					       keyboard_mode,
-					       &model, &path, &iter))
-		return FALSE;
-
-	if (gtk_tree_model_iter_has_child(model, &iter)) {
-		gtk_tree_path_free(path);
-		return FALSE;
-	}
-
-	gtk_tree_model_get(model, &iter, COLUMN_ABOUT, &about, -1);
-	gtk_tooltip_set_text(tooltip, about);
-	gtk_tree_view_set_tooltip_cell((GtkTreeView *)widget,
-				       tooltip, path,
-				       NULL, NULL);
-	gtk_tree_path_free(path);
-	g_free(about);
+	gtk_tooltip_set_text(tooltip, elim_row_get_string(row, COLUMN_ABOUT));
 	return TRUE;
 }
 
@@ -542,134 +494,68 @@ void biblesync_update_speaker()
 	// window setup borrowed/modified from sidebar search results creation.
 	//
 
-	GtkListStore *model_speakers =
-	    gtk_list_store_new(NUM_COLUMNS,
-			       // listen       user
-			       G_TYPE_BOOLEAN, G_TYPE_STRING,
-			       // direct       ref
-			       G_TYPE_STRING, G_TYPE_STRING,
-			       // information  uuid
-			       G_TYPE_STRING, G_TYPE_STRING,
-			       // visibility
-			       G_TYPE_BOOLEAN);
+	GListStore *model_speakers = elim_table_new();
 
 	if (speaker_list)
 		gui_widget_destroy(speaker_list); // destroy old to create new.
 
-	speaker_list =
-	    gtk_tree_view_new_with_model(GTK_TREE_MODEL(model_speakers));
+	speaker_list = elim_table_view_new(model_speakers);
 	gtk_widget_show(speaker_list);
 	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(speaker_window),
 				      speaker_list);
-	gtk_tree_view_set_headers_visible(GTK_TREE_VIEW(speaker_list), TRUE);
 
 	//
 	// column setup
 	// borrowed/modified from mod.mgr module list creation.
 	//
-	GtkCellRenderer *renderer;
-	GtkTreeViewColumn *column;
-	GtkWidget *image;
 
-	/* -- toggle choice -- */
-	renderer = gtk_cell_renderer_toggle_new();
-	g_signal_connect(renderer, "toggled", G_CALLBACK(listen_toggled), speaker_list);
-
-	column = gtk_tree_view_column_new();
-	image =
-	    gtk_image_new_from_icon_name("emblem-default");
-
-	gtk_widget_show(image);
-	gtk_widget_set_tooltip_text(image,
-				    _("Check the box to listen to this Speaker"));
-	gtk_tree_view_column_set_widget(column, image);
-	gtk_tree_view_column_pack_start(column, renderer, TRUE);
-	gtk_tree_view_column_set_attributes(column, renderer,
-					    "active", COLUMN_LISTEN,
-					    "visible", COLUMN_VISIBLE, NULL);
-	gtk_tree_view_column_set_sizing(GTK_TREE_VIEW_COLUMN(column),
-					GTK_TREE_VIEW_COLUMN_FIXED);
-	gtk_tree_view_column_set_min_width(GTK_TREE_VIEW_COLUMN(column), 25);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(speaker_list), column);
+	/* -- toggle choice: the box is for every speaker, and says so when
+	 * hovered -- */
+	elim_table_add_toggle_column_visible(speaker_list, "", COLUMN_LISTEN,
+					     COLUMN_VISIBLE, listen_toggled, NULL);
 
 	/* -- column for user name -- */
-	renderer = gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes(_("Oradores disponibles"), renderer,
-							  "text", COLUMN_USER, NULL);
-	gtk_tree_view_column_set_sizing(GTK_TREE_VIEW_COLUMN(column),
-					GTK_TREE_VIEW_COLUMN_GROW_ONLY);
-	gtk_tree_view_column_set_min_width(GTK_TREE_VIEW_COLUMN(column), 200);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(speaker_list), column);
+	ElimTextColumn user = elim_text_column(COLUMN_USER);
+	user.expand = TRUE;
+	user.fixed_width = 200;
+	elim_table_add_column(speaker_list, _("Oradores disponibles"), &user);
 
-	/* -- column for direct/indirect -- */
-	renderer = gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes(_("D/I"), renderer,
-							  "text", COLUMN_DIRECT, NULL);
-	image =
-	    gtk_image_new_from_icon_name("emblem-default");
-	gtk_widget_show(image);
-	gtk_widget_set_tooltip_text(image,
-				    _("Last navigation was Direct or Indirect"));
-	gtk_tree_view_column_set_widget(column, image);
-	gtk_tree_view_column_set_sizing(GTK_TREE_VIEW_COLUMN(column),
-					GTK_TREE_VIEW_COLUMN_FIXED);
-	gtk_tree_view_column_set_min_width(GTK_TREE_VIEW_COLUMN(column), 25);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(speaker_list), column);
+	/* -- column for direct/indirect: last navigation was Direct or Indirect -- */
+	ElimTextColumn direct = elim_text_column(COLUMN_DIRECT);
+	direct.tooltip_column = -1;
+	elim_table_add_column(speaker_list, _("D/I"), &direct);
 
 	/* -- column for recent nav -- */
-	renderer = gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes(_("Última navegación"), renderer,
-							  "text", COLUMN_NAV, NULL);
-	gtk_tree_view_column_set_sizing(GTK_TREE_VIEW_COLUMN(column),
-					GTK_TREE_VIEW_COLUMN_GROW_ONLY);
-	gtk_tree_view_column_set_min_width(GTK_TREE_VIEW_COLUMN(column), 100);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(speaker_list), column);
-
-	/* -- identifying info (invisible) -- */
-	renderer = gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes(_("About"), renderer,
-							  "text", COLUMN_ABOUT, NULL);
-	gtk_tree_view_column_set_visible(column, FALSE); // not shown
-	gtk_tree_view_column_set_sizing(GTK_TREE_VIEW_COLUMN(column),
-					GTK_TREE_VIEW_COLUMN_FIXED);
-	gtk_tree_view_column_set_min_width(GTK_TREE_VIEW_COLUMN(column), 2);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(speaker_list), column);
-
-	/* -- uuid (invisible) -- */
-	renderer = gtk_cell_renderer_text_new();
-	column = gtk_tree_view_column_new_with_attributes(_("UUID"), renderer,
-							  "text", COLUMN_UUID, NULL);
-	gtk_tree_view_column_set_visible(column, FALSE); // not shown
-	gtk_tree_view_column_set_sizing(GTK_TREE_VIEW_COLUMN(column),
-					GTK_TREE_VIEW_COLUMN_FIXED);
-	gtk_tree_view_column_set_min_width(GTK_TREE_VIEW_COLUMN(column), 2);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(speaker_list), column);
+	ElimTextColumn nav = elim_text_column(COLUMN_NAV);
+	nav.fixed_width = 100;
+	elim_table_add_column(speaker_list, _("Última navegación"), &nav);
 	// end of column setup.
 
-	gtk_widget_set_has_tooltip(speaker_list, TRUE);
-	g_signal_connect((gpointer)speaker_list,
-			 "query-tooltip",
-			 G_CALLBACK(query_tooltip), NULL);
+	/* the about text (which is not a column of the table) is the tooltip */
+	elim_table_set_tooltip_func(speaker_list, query_tooltip, NULL);
 
-	GtkTreeIter iter;
 	string identifying_info;
+	ElimRow **rows = g_new0(ElimRow *, size ? size : 1);
 
 	// fill it with the user list.
 	for (i = 0; i < size; ++i) {
 		BSP_Speaker *object = array[i];
 		identifying_info = (string)_("IP address: ") + object->ipaddr + (string)_("\nApplication: ") + object->app + (string)_("\nDevice: ") + object->device + (string)_("\nUUID: ") + object->uuid;
 
-		gtk_list_store_append(model_speakers, &iter);
-		gtk_list_store_set(model_speakers, &iter,
-				   COLUMN_LISTEN, object->listen,
-				   COLUMN_USER, object->user.c_str(),
-				   COLUMN_DIRECT, object->direct.c_str(),
-				   COLUMN_NAV, object->ref.c_str(),
-				   COLUMN_ABOUT, identifying_info.c_str(),
-				   COLUMN_UUID, object->uuid.c_str(),
-				   COLUMN_VISIBLE, TRUE,
-				   -1);
+		rows[i] = elim_row_new(NUM_COLUMNS);
+		elim_row_set_int(rows[i], COLUMN_LISTEN, object->listen);
+		elim_row_set_string(rows[i], COLUMN_USER, object->user.c_str());
+		elim_row_set_string(rows[i], COLUMN_DIRECT, object->direct.c_str());
+		elim_row_set_string(rows[i], COLUMN_NAV, object->ref.c_str());
+		elim_row_set_string(rows[i], COLUMN_ABOUT, identifying_info.c_str());
+		elim_row_set_string(rows[i], COLUMN_UUID, object->uuid.c_str());
+		elim_row_set_int(rows[i], COLUMN_VISIBLE, TRUE);
 	}
+	elim_table_replace(model_speakers, rows, size);
+	for (i = 0; i < size; ++i)
+		g_object_unref(rows[i]);
+	g_free(rows);
+	g_object_unref(model_speakers);
 
 	g_free(array);
 }

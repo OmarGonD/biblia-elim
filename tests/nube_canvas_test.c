@@ -93,13 +93,17 @@ int main(int argc, char **argv)
 	g_assert_cmpfloat(wide->vw / wide->vh, >, cloud->vw / cloud->vh);
 	cloud_free(wide);
 	/* Comparing starts from a random book, never book A. */
-	GtkListStore *books = gtk_list_store_new(1, G_TYPE_STRING);
+	GListStore *books = elim_table_new();
 	const char *names[] = { "Génesis", "Rut", "Lucas" };
-	for (guint i = 0; i < G_N_ELEMENTS(names); ++i)
-		gtk_list_store_insert_with_values(books, NULL, -1, 0, names[i], -1);
+	for (guint i = 0; i < G_N_ELEMENTS(names); ++i) {
+		ElimRow *row = elim_row_new(1);
+		elim_row_set_string(row, 0, names[i]);
+		g_list_store_append(books, row);
+		g_object_unref(row);
+	}
 	gboolean seen[3] = { FALSE, FALSE, FALSE };
 	for (int round = 0; round < 200; ++round) {
-		gchar *pick = cloud_random_book(GTK_TREE_MODEL(books), 0, "Lucas");
+		gchar *pick = cloud_random_book(books, 0, "Lucas");
 		g_assert_nonnull(pick);
 		g_assert_cmpstr(pick, !=, "Lucas");
 		for (guint i = 0; i < G_N_ELEMENTS(names); ++i)
@@ -107,9 +111,12 @@ int main(int argc, char **argv)
 		g_free(pick);
 	}
 	g_assert_true(seen[0] && seen[1] && !seen[2]);
-	GtkListStore *only = gtk_list_store_new(1, G_TYPE_STRING);
-	gtk_list_store_insert_with_values(only, NULL, -1, 0, "Lucas", -1);
-	g_assert_null(cloud_random_book(GTK_TREE_MODEL(only), 0, "Lucas"));
+	GListStore *only = elim_table_new();
+	ElimRow *lucas = elim_row_new(1);
+	elim_row_set_string(lucas, 0, "Lucas");
+	g_list_store_append(only, lucas);
+	g_object_unref(lucas);
+	g_assert_null(cloud_random_book(only, 0, "Lucas"));
 	g_object_unref(only);
 	g_object_unref(books);
 	g_assert_cmpstr(pango_layout_get_text(g_array_index(cloud->words, CloudWord, 0).layout), ==, "Dios");

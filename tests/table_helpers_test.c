@@ -3,6 +3,7 @@
  * Real widgets, so it runs under a display (xvfb-run). The view is put in
  * a window and shown, so its cells are made and bound like the app's are.
  */
+#include "gui/entry_suggest.h"
 #include "gui/table_helpers.h"
 
 #include <stdio.h>
@@ -63,7 +64,11 @@ test_rows(void)
 	elim_row_set_double(row, 1, 7.5);
 	CHECK(elim_row_get_double(row, 1) == 7.5);
 	text = elim_row_dup_text(row, 1);
-	CHECK(strcmp(text, "7.5") == 0);
+	{	/* the decimal separator follows the locale gtk_init() selected */
+		char *expected = g_strdup_printf("%g", 7.5);
+		CHECK(strcmp(text, expected) == 0);
+		g_free(expected);
+	}
 	g_free(text);
 	elim_row_set_int(row, 1, 7);
 	CHECK(strcmp(elim_row_get_string(row, 0), "Juan 3:16") == 0);
@@ -95,12 +100,14 @@ test_sortable_view(void)
 {
 	GListStore *store = elim_table_new();
 	GtkWidget *view = gtk_column_view_new(NULL);
+	GtkWidget *window = gtk_window_new();
 	ElimTextColumn name = elim_text_column(0);
 	ElimTextColumn value = elim_text_column(1);
 	GtkColumnViewColumn *numbers;
 	ElimRow *first = elim_row_new(2);
 	ElimRow *second = elim_row_new(2);
 
+	gtk_window_set_child(GTK_WINDOW(window), view);
 	elim_table_setup_sortable(view, store);
 	elim_table_add_sortable_column(view, "Name", &name, 0,
 				       ELIM_TABLE_SORT_STRING);
@@ -116,6 +123,7 @@ test_sortable_view(void)
 	g_object_unref(second);
 	gtk_column_view_sort_by_column(GTK_COLUMN_VIEW(view), numbers,
 				    GTK_SORT_ASCENDING);
+	gtk_window_present(GTK_WINDOW(window));
 	pump();
 	{
 		GtkSelectionModel *selection = gtk_column_view_get_model(GTK_COLUMN_VIEW(view));
@@ -123,7 +131,8 @@ test_sortable_view(void)
 		CHECK(row && elim_row_get_double(row, 1) == 2.0);
 		g_object_unref(row);
 	}
-	g_object_unref(view);
+	gtk_window_destroy(GTK_WINDOW(window));
+	pump();
 	g_object_unref(store);
 }
 
@@ -563,7 +572,10 @@ test_rows_no_header(void)
 				       GTK_POLICY_AUTOMATIC);
 	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(scroll), list);
 	gtk_window_set_child(GTK_WINDOW(window), scroll);
-	gtk_window_set_default_size(GTK_WINDOW(window), 300, 300);
+	/* wide enough for the columns' natural widths: a window as narrow as the
+	 * list can be made would squeeze the second column differently in each
+	 * row, which is the ellipsis doing its work, not misaligned columns */
+	gtk_window_set_default_size(GTK_WINDOW(window), 900, 300);
 	gtk_window_present(GTK_WINDOW(window));
 	pump();
 
@@ -581,12 +593,17 @@ test_rows_no_header(void)
 		width = gtk_widget_get_width(l[3]);
 		CHECK(width > 0);
 		CHECK(gtk_widget_get_width(l[1]) == width);
-		CHECK(gtk_widget_get_width(l[5]) == width);
+		/* the row with the long first cell is aligned too, when the window
+		 * has the room (a narrow one, as a window-less X server may give,
+		 * makes that cell take what the second column would keep) */
+		if (gtk_widget_get_width(window) >= 900)
+			CHECK(gtk_widget_get_width(l[5]) == width);
+		else
+			CHECK(gtk_widget_get_width(l[5]) <= width);
 
 		/* a long first cell wraps onto more lines, and the list can
-		 * still be made as narrow as a small window (the window of
-		 * this test has no window manager and opens at the list's
-		 * natural width, so the minimum is what is looked at) */
+		 * still be made as narrow as a small window (the minimum is what
+		 * is looked at) */
 		CHECK(gtk_widget_get_height(l[4]) > gtk_widget_get_height(l[0]));
 		{
 			int minimum = 0;
@@ -619,6 +636,606 @@ test_rows_no_header(void)
 	g_object_unref(store);
 }
 
+static int populated;
+static int expanded_events;
+static ElimRow *last_expanded;
+
+static void
+populate_lazy(GtkWidget *view, ElimRow *row, gpointer data)
+{
+	(void)view;
+	(void)data;
+	populated++;
+	elim_row_set_string(elim_tree_append(NULL, row, 4), 0, "Mateo");
+	elim_row_set_string(elim_tree_append(NULL, row, 4), 0, "Marcos");
+}
+
+static void
+note_expanded(GtkWidget *view, ElimRow *row, gboolean expanded, gpointer data)
+{
+	(void)view;
+	(void)data;
+	expanded_events += expanded ? 1 : -1;
+	last_expanded = row;
+}
+
+static guint
+n_showing(GtkWidget *view)
+{
+	return g_list_model_get_n_items(
+	    gtk_single_selection_get_model(elim_table_selection(view)));
+}
+
+static void
+collect_images(GtkWidget *widget, GPtrArray *found)
+{
+	GtkWidget *child;
+
+	if (GTK_IS_IMAGE(widget) || GTK_IS_CHECK_BUTTON(widget))
+		g_ptr_array_add(found, widget);
+	for (child = gtk_widget_get_first_child(widget); child;
+	     child = gtk_widget_get_next_sibling(child))
+		collect_images(child, found);
+}
+
+static void
+test_tree(void)
+{
+	GListStore *roots = elim_table_new();
+	GtkWidget *window = gtk_window_new();
+	GtkWidget *scroll = gtk_scrolled_window_new();
+	GtkWidget *view = elim_tree_view_new(roots);
+	ElimRow *old, *genesis, *exodus, *lazy, *empty;
+	GdkPixbuf *pixbuf = gdk_pixbuf_new(GDK_COLORSPACE_RGB, TRUE, 8, 8, 8);
+	GPtrArray *images = g_ptr_array_new();
+	GtkTreeListRow *tree_row;
+	ElimTextColumn spec = elim_text_column(0);
+
+	spec.expander = TRUE;
+	spec.expand = TRUE;
+	elim_table_add_column(view, "Book", &spec);
+	elim_table_add_image_column(view, "Icon", 1, 16, "an icon");
+	elim_table_add_toggle_column_visible(view, "Pick", 2, 3, flip, NULL);
+	elim_tree_set_populate(view, populate_lazy, NULL);
+	elim_tree_set_expanded_func(view, note_expanded, NULL);
+
+	old = elim_tree_append(roots, NULL, 4);
+	elim_row_set_string(old, 0, "Antiguo Testamento");
+	genesis = elim_tree_append(roots, old, 4);
+	elim_row_set_string(genesis, 0, "Genesis");
+	elim_row_set_pixbuf(genesis, 1, pixbuf);
+	elim_row_set_int(genesis, 3, 1);
+	exodus = elim_tree_append(roots, old, 4);
+	elim_row_set_string(exodus, 0, "Exodo");
+	elim_row_set_string(exodus, 1, "emblem-default");
+	lazy = elim_tree_append(roots, NULL, 4);
+	elim_row_set_string(lazy, 0, "Nuevo Testamento");
+	elim_row_set_lazy(lazy, TRUE);
+	empty = elim_tree_append(roots, NULL, 4);
+	elim_row_set_string(empty, 0, "Apocrifos");
+
+	/* the shape of the tree */
+	CHECK(elim_row_get_parent(genesis) == old && elim_row_get_parent(old) == NULL);
+	CHECK(elim_row_n_children(old) == 2 && elim_row_get_child(old, 1) == exodus);
+	CHECK(elim_row_n_children(empty) == 0 && elim_row_get_depth(exodus) == 1);
+	CHECK(elim_row_get_siblings(exodus, roots) == elim_row_get_siblings(genesis, roots));
+	CHECK(elim_row_get_siblings(old, roots) == roots);
+	CHECK(elim_row_is_lazy(lazy) && !elim_row_is_lazy(old));
+	CHECK(elim_table_find(elim_row_get_siblings(exodus, roots), exodus) == 1);
+
+	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(scroll), view);
+	gtk_window_set_child(GTK_WINDOW(window), scroll);
+	gtk_window_set_default_size(GTK_WINDOW(window), 400, 300);
+	gtk_window_present(GTK_WINDOW(window));
+	pump();
+
+	/* only the roots show, and none is picked */
+	CHECK(n_showing(view) == 3);
+	CHECK(elim_table_row_at(view, 0) == old && elim_table_row_at(view, 2) == empty);
+	CHECK(elim_table_row_at(view, 3) == NULL);
+	CHECK(elim_table_get_selected(view) == NULL);
+	CHECK(elim_table_get_store(view) == roots);
+	CHECK(!elim_tree_row_expanded(view, old));
+
+	/* opening a row shows its children right after it */
+	elim_tree_expand_row(view, old, FALSE);
+	pump();
+	CHECK(n_showing(view) == 5);
+	CHECK(elim_tree_row_expanded(view, old));
+	CHECK(elim_table_row_at(view, 1) == genesis && elim_table_row_at(view, 2) == exodus);
+	CHECK(elim_table_row_at(view, 3) == lazy);
+
+	/* the cells show an image (a texture, and a themed icon) and the box
+	 * only where its row asks for it */
+	g_ptr_array_set_size(images, 0);
+	collect_images(view, images);
+	{
+		guint i, with_paintable = 0, with_icon = 0, boxes = 0, boxes_shown = 0;
+
+		for (i = 0; i < images->len; i++) {
+			GtkWidget *widget = images->pdata[i];
+
+			if (GTK_IS_CHECK_BUTTON(widget)) {
+				boxes++;
+				boxes_shown += gtk_widget_get_opacity(widget) > 0.5 ? 1 : 0;
+			} else if (gtk_image_get_storage_type(GTK_IMAGE(widget)) ==
+				   GTK_IMAGE_PAINTABLE) {
+				with_paintable++;
+			} else if (gtk_image_get_storage_type(GTK_IMAGE(widget)) ==
+				   GTK_IMAGE_ICON_NAME) {
+				with_icon++;
+			}
+		}
+		CHECK(with_paintable == 1);
+		CHECK(with_icon == 1);
+		/* four rows show, and only Genesis' box (its column 3 is 1) does */
+		CHECK(boxes == 5 && boxes_shown == 1);
+	}
+
+	/* a row whose children are still to be made makes them once, when opened */
+	CHECK(populated == 0);
+	elim_tree_expand_row(view, lazy, FALSE);
+	pump();
+	CHECK(populated == 1 && !elim_row_is_lazy(lazy));
+	CHECK(elim_row_n_children(lazy) == 2 && n_showing(view) == 7);
+	elim_tree_collapse_row(view, lazy);
+	pump();
+	CHECK(n_showing(view) == 5 && !elim_tree_row_expanded(view, lazy));
+	elim_tree_expand_row(view, lazy, FALSE);
+	pump();
+	CHECK(populated == 1 && n_showing(view) == 7);
+
+	/* the reader opens and closes a row: the view is told, and a lazy row
+	 * is made then too */
+	elim_tree_collapse_all(view);
+	pump();
+	CHECK(n_showing(view) == 3);
+	expanded_events = 0;
+	tree_row = GTK_TREE_LIST_ROW(g_list_model_get_item(
+	    gtk_single_selection_get_model(elim_table_selection(view)), 0));
+	gtk_tree_list_row_set_expanded(tree_row, TRUE);
+	pump();
+	CHECK(expanded_events == 1 && last_expanded == old);
+	gtk_tree_list_row_set_expanded(tree_row, FALSE);
+	pump();
+	CHECK(expanded_events == 0);
+	g_object_unref(tree_row);
+
+	/* picking a row inside a closed one opens what is above it */
+	CHECK(!elim_tree_row_expanded(view, old));
+	CHECK(elim_tree_select_row(view, exodus, TRUE));
+	pump();
+	CHECK(elim_tree_row_expanded(view, old));
+	CHECK(elim_table_get_selected(view) == exodus);
+	CHECK(elim_table_get_selected_position(view) == 2);
+	elim_tree_unselect(view);
+	CHECK(elim_table_get_selected(view) == NULL);
+
+	elim_tree_expand_all(view);
+	pump();
+	CHECK(n_showing(view) == 7);
+
+	/* a row that is removed goes with what is under it */
+	CHECK(elim_tree_remove(roots, exodus));
+	pump();
+	CHECK(elim_row_n_children(old) == 1 && n_showing(view) == 6);
+	CHECK(!elim_tree_remove(roots, exodus));
+	CHECK(elim_tree_remove(roots, lazy));
+	pump();
+	CHECK(n_showing(view) == 3);
+
+	/* inserting after a sibling keeps the order */
+	{
+		ElimRow *between = elim_tree_insert_after(roots, old, genesis, 4);
+		ElimRow *first = elim_tree_prepend(roots, old, 4);
+
+		CHECK(elim_row_get_child(old, 0) == first);
+		CHECK(elim_row_get_child(old, 1) == genesis);
+		CHECK(elim_row_get_child(old, 2) == between);
+	}
+
+	gtk_window_destroy(GTK_WINDOW(window));
+	pump();
+
+	/* a child that outlives its parent does not keep pointing at it */
+	{
+		GListStore *store = elim_table_new();
+		ElimRow *parent = elim_tree_append(store, NULL, 1);
+		ElimRow *child = g_object_ref(elim_tree_append(store, parent, 1));
+
+		CHECK(elim_row_get_parent(child) == parent);
+		g_list_store_remove_all(store);
+		CHECK(elim_row_get_parent(child) == NULL);
+		g_object_unref(child);
+		g_object_unref(store);
+	}
+
+	g_ptr_array_free(images, TRUE);
+	g_object_unref(pixbuf);
+	g_object_unref(roots);
+}
+
+static void
+collect_expanders(GtkWidget *widget, GPtrArray *found)
+{
+	GtkWidget *child;
+
+	if (GTK_IS_TREE_EXPANDER(widget))
+		g_ptr_array_add(found, widget);
+	for (child = gtk_widget_get_first_child(widget); child;
+	     child = gtk_widget_get_next_sibling(child))
+		collect_expanders(child, found);
+}
+
+/* A tree on a GtkListView, filled and opened before it is shown: the order in
+ * which the dialogs build theirs. */
+static void
+test_tree_list_view(void)
+{
+	GListStore *roots = elim_table_new();
+	GtkWidget *view = gtk_list_view_new(NULL, NULL);
+	GtkWidget *window = gtk_window_new();
+	ElimTextColumn spec = elim_text_column(0);
+	guint g, f;
+
+	gtk_window_set_child(GTK_WINDOW(window), view);
+	elim_tree_setup_list(view, roots, &spec);
+	for (g = 0; g < 3; g++) {
+		ElimRow *group = elim_tree_append(roots, NULL, 1);
+
+		elim_row_set_string(group, 0, "group");
+		for (f = 0; f < 2; f++)
+			elim_row_set_string(elim_tree_append(roots, group, 1), 0, "leaf");
+	}
+	elim_tree_expand_all(view);
+	CHECK(n_showing(view) == 9);
+	gtk_window_present(GTK_WINDOW(window));
+	pump();
+	CHECK(n_showing(view) == 9);
+	elim_tree_collapse_all(view);
+	CHECK(n_showing(view) == 3);
+	CHECK(elim_tree_select_row(view, elim_row_get_child(elim_table_get(roots, 2), 1), FALSE));
+	CHECK(n_showing(view) == 5 && elim_table_get_selected_position(view) == 4);
+
+	/* the arrow shows for a row with children only, and follows a leaf that
+	 * gets its first child while it is on screen */
+	{
+		GPtrArray *expanders = g_ptr_array_new();
+		ElimRow *leaf = elim_row_get_child(elim_table_get(roots, 2), 1);
+		guint i, arrows = 0;
+
+		elim_tree_expand_all(view);
+		pump();
+		collect_expanders(view, expanders);
+		for (i = 0; i < expanders->len; i++)
+			arrows += gtk_tree_expander_get_hide_expander(expanders->pdata[i]) ? 0 : 1;
+		CHECK(expanders->len == 9 && arrows == 3);
+		elim_tree_append(roots, leaf, 1);
+		pump();
+		g_ptr_array_set_size(expanders, 0);
+		collect_expanders(view, expanders);
+		arrows = 0;
+		for (i = 0; i < expanders->len; i++)
+			arrows += gtk_tree_expander_get_hide_expander(expanders->pdata[i]) ? 0 : 1;
+		CHECK(arrows == 4);
+		elim_row_set_lazy(elim_table_get(roots, 0), FALSE);
+		g_ptr_array_free(expanders, TRUE);
+	}
+	gtk_window_destroy(GTK_WINDOW(window));
+	pump();
+	g_object_unref(roots);
+}
+
+static gboolean
+prefix_match(const char *key, const char *candidate, gpointer data)
+{
+	(void)data;
+	return g_str_has_prefix(candidate, key);
+}
+
+static void
+test_entry_suggest(void)
+{
+	GtkWidget *window = gtk_window_new();
+	GtkWidget *entry = gtk_entry_new();
+	GtkWidget *other = gtk_button_new_with_label("elsewhere");
+	GtkWidget *box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
+	GList *candidates = NULL;
+	ElimEntrySuggest *suggest;
+	GtkWidget *list;
+	GListStore *shown;
+	int activations = 0;
+	guint i;
+
+	for (i = 0; i < 20; i++)
+		candidates = g_list_append(candidates, g_strdup_printf("Adon%02u", i));
+	candidates = g_list_append(candidates, g_strdup("Elohim"));
+
+	gtk_box_append(GTK_BOX(box), other);
+	gtk_box_append(GTK_BOX(box), entry);
+	gtk_window_set_child(GTK_WINDOW(window), box);
+	suggest = elim_entry_suggest_new(entry, prefix_match, NULL);
+	elim_entry_suggest_set_candidates(suggest, candidates);
+	g_signal_connect_swapped(entry, "activate", G_CALLBACK(g_atomic_int_inc), &activations);
+	list = elim_entry_suggest_get_list(suggest);
+	shown = elim_table_get_store(list);
+	gtk_window_present(GTK_WINDOW(window));
+	pump();
+
+	/* a program that fills the entry in is not the reader typing */
+	gtk_widget_grab_focus(other);
+	pump();
+	gtk_editable_set_text(GTK_EDITABLE(entry), "Adon");
+	pump();
+	CHECK(!elim_entry_suggest_is_open(suggest));
+
+	/* typing in it lists what matches, at most a dozen */
+	gtk_widget_grab_focus(entry);
+	pump();
+	gtk_editable_set_text(GTK_EDITABLE(entry), "Adon0");
+	pump();
+	CHECK(elim_entry_suggest_is_open(suggest));
+	CHECK(g_list_model_get_n_items(G_LIST_MODEL(shown)) == 10);
+	gtk_editable_set_text(GTK_EDITABLE(entry), "Ad");
+	pump();
+	CHECK(g_list_model_get_n_items(G_LIST_MODEL(shown)) == 12);
+	CHECK(elim_table_get_selected(list) == NULL);
+	gtk_editable_set_text(GTK_EDITABLE(entry), "Zz");
+	pump();
+	CHECK(!elim_entry_suggest_is_open(suggest));
+	gtk_editable_set_text(GTK_EDITABLE(entry), "");
+	pump();
+	CHECK(!elim_entry_suggest_is_open(suggest));
+
+	/* Enter with none picked is the entry's own */
+	gtk_editable_set_text(GTK_EDITABLE(entry), "Ado");
+	pump();
+	CHECK(elim_entry_suggest_is_open(suggest));
+	g_signal_emit_by_name(entry, "activate");
+	CHECK(activations == 1 && elim_entry_suggest_is_open(suggest));
+
+	/* Down picks the first, Up unpicks; Enter takes the picked one and is
+	 * not the entry's activation */
+	elim_table_select(list, 2, FALSE);
+	g_signal_emit_by_name(entry, "activate");
+	CHECK(activations == 1);
+	CHECK(strcmp(gtk_editable_get_text(GTK_EDITABLE(entry)), "Adon02") == 0);
+	CHECK(!elim_entry_suggest_is_open(suggest));
+
+	/* a click on a suggestion (the list's activation) takes it too */
+	gtk_editable_set_text(GTK_EDITABLE(entry), "E");
+	pump();
+	CHECK(elim_entry_suggest_is_open(suggest));
+	g_signal_emit_by_name(list, "activate", 0u);
+	CHECK(strcmp(gtk_editable_get_text(GTK_EDITABLE(entry)), "Elohim") == 0);
+	CHECK(!elim_entry_suggest_is_open(suggest));
+
+	g_list_free_full(candidates, g_free);
+	gtk_window_destroy(GTK_WINDOW(window));
+	pump();
+}
+
+static void
+collect_type(GtkWidget *widget, GType type, GPtrArray *found)
+{
+	GtkWidget *child;
+
+	if (G_TYPE_CHECK_INSTANCE_TYPE(widget, type))
+		g_ptr_array_add(found, widget);
+	for (child = gtk_widget_get_first_child(widget); child;
+	     child = gtk_widget_get_next_sibling(child))
+		collect_type(child, type, found);
+}
+
+/* A tree of rows on a GtkListView, no header: a check box that can show its
+ * mixed state, a name, a progress bar and an image side by side behind the
+ * expander, the way the book pickers and the reading progress list are. */
+static void
+test_tree_rows(void)
+{
+	GListStore *roots = elim_table_new();
+	GtkWidget *view = gtk_list_view_new(NULL, NULL);
+	GtkWidget *window = gtk_window_new();
+	ElimColumn cols[4];
+	ElimRow *group, *first, *second;
+	GPtrArray *found = g_ptr_array_new();
+	guint i, mixed, active, bars, shown;
+
+	cols[0] = elim_column_toggle(0, flip, NULL);
+	cols[0].inconsistent_column = 1;
+	cols[0].visible_column = 6;
+	cols[1] = elim_column_text(2);
+	cols[1].text.expand = TRUE;
+	cols[2] = elim_column_progress(3, 4);
+	cols[3] = elim_column_image(5, 16, "state");
+	gtk_window_set_child(GTK_WINDOW(window), view);
+	elim_tree_setup_row_columns(view, roots, cols, 4);
+
+	group = elim_tree_append(roots, NULL, 7);
+	elim_row_set_int(group, 1, 1);
+	elim_row_set_string(group, 2, "Pentateuco");
+	elim_row_set_int(group, 3, 50);
+	elim_row_set_string(group, 4, "1 de 2");
+	elim_row_set_string(group, 5, "emblem-default");
+	elim_row_set_int(group, 6, 1);
+	first = elim_tree_append(roots, group, 7);
+	elim_row_set_int(first, 0, 1);
+	elim_row_set_string(first, 2, "Genesis");
+	elim_row_set_int(first, 3, 100);
+	elim_row_set_string(first, 4, "50 de 50");
+	elim_row_set_int(first, 6, 1);
+	second = elim_tree_append(roots, group, 7);
+	elim_row_set_string(second, 2, "Exodo");
+	elim_row_set_int(second, 6, 0);	/* no box for this one */
+	elim_tree_expand_all(view);
+	gtk_window_present(GTK_WINDOW(window));
+	pump();
+
+	CHECK(n_showing(view) == 3);
+	collect_type(view, GTK_TYPE_CHECK_BUTTON, found);
+	mixed = active = shown = 0;
+	for (i = 0; i < found->len; i++) {
+		GtkCheckButton *check = found->pdata[i];
+
+		mixed += gtk_check_button_get_inconsistent(check) ? 1 : 0;
+		active += gtk_check_button_get_active(check) ? 1 : 0;
+		shown += gtk_widget_get_opacity(GTK_WIDGET(check)) > 0.5 ? 1 : 0;
+	}
+	/* three boxes, all made; the group's is mixed, Genesis' is on, and the
+	 * third is blank but still there so that the names line up */
+	CHECK(found->len == 3 && mixed == 1 && active == 1 && shown == 2);
+
+	g_ptr_array_set_size(found, 0);
+	collect_type(view, GTK_TYPE_PROGRESS_BAR, found);
+	bars = 0;
+	for (i = 0; i < found->len; i++) {
+		GtkProgressBar *bar = found->pdata[i];
+
+		if (strcmp(gtk_progress_bar_get_text(bar), "50 de 50") == 0)
+			CHECK(gtk_progress_bar_get_fraction(bar) == 1.0);
+		if (strcmp(gtk_progress_bar_get_text(bar), "1 de 2") == 0)
+			CHECK(gtk_progress_bar_get_fraction(bar) == 0.5);
+		bars++;
+	}
+	CHECK(bars == 3);
+
+	/* a row changed while it shows moves its cells */
+	elim_row_set_int(group, 3, 75);
+	elim_row_set_int(group, 1, 0);
+	elim_row_set_int(second, 6, 1);
+	pump();
+	g_ptr_array_set_size(found, 0);
+	collect_type(view, GTK_TYPE_CHECK_BUTTON, found);
+	mixed = shown = 0;
+	for (i = 0; i < found->len; i++) {
+		mixed += gtk_check_button_get_inconsistent(found->pdata[i]) ? 1 : 0;
+		shown += gtk_widget_get_opacity(found->pdata[i]) > 0.5 ? 1 : 0;
+	}
+	CHECK(mixed == 0 && shown == 3);
+
+	/* a click on a box runs the function the column was given */
+	g_ptr_array_set_size(found, 0);
+	collect_type(view, GTK_TYPE_CHECK_BUTTON, found);
+	toggles = 0;
+	for (i = 0; i < found->len; i++)
+		if (!gtk_check_button_get_active(found->pdata[i]) &&
+		    gtk_widget_get_opacity(found->pdata[i]) > 0.5) {
+			gtk_check_button_set_active(found->pdata[i], TRUE);
+			break;
+		}
+	pump();
+	CHECK(toggles == 1);
+
+	g_ptr_array_free(found, TRUE);
+	gtk_window_destroy(GTK_WINDOW(window));
+	pump();
+	g_object_unref(roots);
+}
+
+static int tree_changes;
+
+static void
+count_tree_change(GListStore *roots, gpointer data)
+{
+	(void)roots;
+	(void)data;
+	tree_changes++;
+}
+
+static void
+test_tree_move(void)
+{
+	GListStore *roots = elim_table_new();
+	GtkWidget *view = gtk_list_view_new(NULL, NULL);
+	GtkWidget *window = gtk_window_new();
+	ElimTextColumn spec = elim_text_column(0);
+	ElimRow *top, *a, *a1, *a2, *b, *b1, *c;
+
+	gtk_window_set_child(GTK_WINDOW(window), view);
+	elim_tree_setup_list(view, roots, &spec);
+	top = elim_tree_append(roots, NULL, 1);
+	a = elim_tree_append(roots, top, 1);
+	a1 = elim_tree_append(roots, a, 1);
+	a2 = elim_tree_append(roots, a, 1);
+	b = elim_tree_append(roots, top, 1);
+	b1 = elim_tree_append(roots, b, 1);
+	c = elim_tree_append(roots, top, 1);
+	elim_row_set_string(top, 0, "top");
+	elim_row_set_string(a, 0, "a");
+	elim_row_set_string(a1, 0, "a1");
+	elim_row_set_string(a2, 0, "a2");
+	elim_row_set_string(b, 0, "b");
+	elim_row_set_string(b1, 0, "b1");
+	elim_row_set_string(c, 0, "c");
+	elim_tree_expand_all(view);
+	gtk_window_present(GTK_WINDOW(window));
+	pump();
+	CHECK(n_showing(view) == 7);
+
+	/* a change of the tree, however many rows, is told once when the main
+	 * loop is next reached */
+	elim_tree_set_changed_func(roots, count_tree_change, NULL);
+	tree_changes = 0;
+	elim_row_set_string(c, 0, "c!");
+	elim_row_set_int(c, 0, 1);
+	elim_row_set_string(c, 0, "c");
+	CHECK(tree_changes == 0);
+	pump();
+	CHECK(tree_changes == 1);
+	pump();
+	CHECK(tree_changes == 1);
+
+	/* a row cannot go onto itself or into what it holds */
+	CHECK(!elim_tree_move_row(view, a, a, ELIM_DROP_INTO));
+	CHECK(!elim_tree_move_row(view, a, a1, ELIM_DROP_INTO));
+	CHECK(!elim_tree_move_row(view, a, a2, ELIM_DROP_AFTER));
+	CHECK(elim_row_n_children(a) == 2);
+
+	/* after a sibling further down: the order follows, and the open rows stay
+	 * open where they land */
+	tree_changes = 0;
+	CHECK(elim_tree_move_row(view, a, c, ELIM_DROP_AFTER));
+	pump();
+	CHECK(tree_changes == 1);
+	CHECK(elim_row_get_child(top, 0) == b && elim_row_get_child(top, 1) == c &&
+	      elim_row_get_child(top, 2) == a);
+	CHECK(elim_row_get_parent(a) == top && elim_tree_row_expanded(view, a));
+	CHECK(n_showing(view) == 7);
+	CHECK(elim_table_get_selected(view) == a);
+
+	/* before a sibling: it lands ahead of it, not behind */
+	CHECK(elim_tree_move_row(view, a, b, ELIM_DROP_BEFORE));
+	CHECK(elim_row_get_child(top, 0) == a && elim_row_get_child(top, 1) == b);
+
+	/* into a row: as its last child, and the row opens to show it */
+	elim_tree_collapse_row(view, b);
+	CHECK(elim_tree_move_row(view, c, b, ELIM_DROP_INTO));
+	pump();
+	CHECK(elim_row_n_children(b) == 2 && elim_row_get_child(b, 1) == c);
+	CHECK(elim_row_get_parent(c) == b && elim_tree_row_expanded(view, b));
+	CHECK(elim_row_n_children(top) == 2);
+
+	/* into a row that had no child, which was a leaf until now */
+	CHECK(elim_tree_move_row(view, b1, c, ELIM_DROP_INTO));
+	CHECK(elim_row_n_children(c) == 1 && elim_row_get_parent(b1) == c);
+	pump();
+	CHECK(elim_tree_row_expanded(view, c));
+	CHECK(n_showing(view) == 7);
+
+	/* out to the top of the tree */
+	CHECK(elim_tree_move_row(view, a2, top, ELIM_DROP_AFTER));
+	CHECK(elim_row_get_parent(a2) == NULL && elim_table_get(roots, 1) == a2);
+
+	/* the drag has to be allowed */
+	CHECK(!elim_tree_get_reorderable(view));
+	elim_tree_set_reorderable(view, TRUE);
+	CHECK(elim_tree_get_reorderable(view));
+
+	gtk_window_destroy(GTK_WINDOW(window));
+	pump();
+	g_object_unref(roots);
+}
+
 int
 main(void)
 {
@@ -633,6 +1250,11 @@ main(void)
 	test_toggle_and_tooltip();
 	test_list_and_selection();
 	test_rows_no_header();
+	test_tree();
+	test_tree_list_view();
+	test_tree_rows();
+	test_tree_move();
+	test_entry_suggest();
 	printf("table_helpers_test failures=%d\n", failures);
 	return failures ? 1 : 0;
 }

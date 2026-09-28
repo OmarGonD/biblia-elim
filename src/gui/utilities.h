@@ -22,6 +22,7 @@
 #define GS_UTILITIES_H
 
 #include <libxml/parser.h>
+#include "gui/table_helpers.h"
 #include "main/configs.h"
 #include "main/module_dialogs.h"
 
@@ -78,24 +79,26 @@ void reading_selector(char *modname,
 		      gpointer menuitem, gpointer user_data);
 
 void language_init();
+/* Puts the languages of the modules in the folders of the tree of ROOTS that
+ * hold them: TEXT and the others are the folders (rows) of each kind of
+ * module, NULL for a kind the tree has none of. ADD gets a folder and its
+ * languages, sorted. */
 void language_make_list(GList *modlist,
-			GtkTreeStore *store,
-			GtkTreeIter text,
-			GtkTreeIter commentary,
-			GtkTreeIter map,
-			GtkTreeIter image,
-			GtkTreeIter devotional,
-			GtkTreeIter dictionary,
-			GtkTreeIter glossary,
-			GtkTreeIter book,
-			GtkTreeIter cult,
-			GtkTreeIter *update,
-			GtkTreeIter *uninstalled,
-			void (*add)(GtkTreeModel *, GtkTreeIter,
-				    gchar **),
+			GListStore *roots,
+			ElimRow *text,
+			ElimRow *commentary,
+			ElimRow *map,
+			ElimRow *image,
+			ElimRow *devotional,
+			ElimRow *dictionary,
+			ElimRow *glossary,
+			ElimRow *book,
+			ElimRow *cult,
+			ElimRow *update,
+			ElimRow *uninstalled,
+			void (*add)(GListStore *, ElimRow *, gchar **),
 			gboolean limited);
 
-GList *get_current_list(GtkTreeView *treeview);
 /* Column 1 of every row of a table made by gui/table_helpers.h; each string
  * is new. */
 GList *get_current_table_list(GtkWidget *view);
@@ -150,9 +153,8 @@ const char *AnalyzeForImageSize(const char *origtext,
 #ifdef WIN32
 gchar *xiphos_win32_get_subdir(const gchar *subdir);
 #endif
-void utilities_parse_treeview(xmlNodePtr parent,
-			      GtkTreeIter *tree_parent,
-			      GtkTreeModel *model);
+/* Writes what is under TREE_PARENT, a row of the bookmark tree, into PARENT. */
+void utilities_parse_treeview(xmlNodePtr parent, ElimRow *tree_parent);
 
 enum {
 	LANGSET_BIBLE,

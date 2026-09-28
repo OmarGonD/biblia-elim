@@ -8,6 +8,7 @@
 #ifdef CAIRO_HAS_SVG_SURFACE
 #include <cairo-svg.h>
 #endif
+#include "gui/table_helpers.h"
 #include "main/nube_palabras.h"
 
 typedef struct {
@@ -243,20 +244,15 @@ static void cloud_build_pair(GtkWidget *a, GtkWidget *b, NUBE_CONTEO *source,
 		g_ptr_array_free(books[side].palabras, TRUE);
 }
 
-/* A book of MODEL's COLUMN chosen at random, never EXCLUDE (compared
+/* A book of BOOKS's COLUMN chosen at random, never EXCLUDE (compared
  * with g_utf8_collate). NULL when no other book exists. */
-static gchar *cloud_random_book(GtkTreeModel *model, int column, const char *exclude)
+static gchar *cloud_random_book(GListStore *books, guint column, const char *exclude)
 {
 	GPtrArray *names = g_ptr_array_new_with_free_func(g_free);
-	GtkTreeIter iter;
-	for (gboolean ok = gtk_tree_model_get_iter_first(model, &iter); ok;
-	     ok = gtk_tree_model_iter_next(model, &iter)) {
-		gchar *name = NULL;
-		gtk_tree_model_get(model, &iter, column, &name, -1);
-		if (name && *name && !(exclude && g_utf8_collate(name, exclude) == 0))
-			g_ptr_array_add(names, name);
-		else
-			g_free(name);
+	for (guint i = 0; i < g_list_model_get_n_items(G_LIST_MODEL(books)); ++i) {
+		const gchar *name = elim_row_get_string(elim_table_get(books, i), column);
+		if (*name && !(exclude && g_utf8_collate(name, exclude) == 0))
+			g_ptr_array_add(names, g_strdup(name));
 	}
 	gchar *chosen = names->len ?
 		g_strdup(g_ptr_array_index(names, g_random_int_range(0, names->len))) : NULL;

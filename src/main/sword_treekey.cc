@@ -52,47 +52,22 @@ using sword::SWConfig;
 using sword::SWModule;
 #endif
 
-enum {
-	COL_OPEN_PIXBUF,
-	COL_CLOSED_PIXBUF,
-	COL_CAPTION,
-	COL_MODULE,
-	COL_OFFSET,
-	N_COLUMNS
-};
 
 static char *mod_name;
 static gchar buf[256];
 static gchar *tmpbuf;
 
-static void add_leaf_node_to_treeview(GtkTreeStore *model,
-				      GtkTreeIter *iter)
-{ /* has no children */
-	gtk_tree_store_set(GTK_TREE_STORE(model),
-			   iter,
-			   COL_OPEN_PIXBUF, pixbufs->pixbuf_helpdoc,
-			   COL_CLOSED_PIXBUF, pixbufs->pixbuf_helpdoc,
-			   COL_CAPTION, (gchar *)tmpbuf,
-			   COL_MODULE, (gchar *)mod_name,
-			   COL_OFFSET, (gchar *)buf, -1);
-}
-
-static void add_parent_to_treeview(GtkTreeStore *model, GtkTreeIter *iter)
+/* ROW takes what TREEKEY says: a branch or a leaf. */
+static void set_row(ElimRow *row, TreeKeyIdx &treeKey)
 {
-	gtk_tree_store_set(GTK_TREE_STORE(model),
-			   iter,
-			   COL_OPEN_PIXBUF, pixbufs->pixbuf_closed,
-			   COL_CLOSED_PIXBUF, pixbufs->pixbuf_closed,
-			   COL_CAPTION, (gchar *)tmpbuf,
-			   COL_MODULE, (gchar *)mod_name,
-			   COL_OFFSET, (gchar *)buf, -1);
+	main_mod_tree_set(row,
+			  treeKey.hasChildren() ? MOD_TREE_ICON_CLOSED : MOD_TREE_ICON_LEAF,
+			  tmpbuf, mod_name, buf);
 }
 
-static void load_treeview(GtkTreeStore *model, GtkTreeIter *parent,
+static void load_treeview(GListStore *roots, ElimRow *row,
 			  TreeKeyIdx treeKey, int level = 1)
 {
-	GtkTreeIter iter;
-
 	/*if (!target)
 		target = &treeKey;*/
 
@@ -100,21 +75,18 @@ static void load_treeview(GtkTreeStore *model, GtkTreeIter *parent,
 	tmpbuf = (char *)treeKey.getLocalName();
 	if (atol(buf) == 0)
 		tmpbuf = mod_name;
-	if (treeKey.hasChildren()) {
-		add_parent_to_treeview(model, parent);
-	} else {
-		add_leaf_node_to_treeview(model, parent);
-	}
+	set_row(row, treeKey);
 
 	if (treeKey.firstChild()) {
-		gtk_tree_store_append(GTK_TREE_STORE(model), &iter, parent);
-		load_treeview(model, &iter, treeKey, level + 1);
+		load_treeview(roots, main_mod_tree_add(roots, row, NULL, MOD_TREE_ICON_LEAF,
+						       "", "", ""),
+			      treeKey, level + 1);
 		treeKey.parent();
 	}
-	if (treeKey.nextSibling()) {
-		gtk_tree_store_insert_after(model, &iter, NULL, parent);
-		load_treeview(model, &iter, treeKey, level);
-	}
+	if (treeKey.nextSibling())
+		load_treeview(roots, main_mod_tree_add(roots, elim_row_get_parent(row), row,
+						       MOD_TREE_ICON_LEAF, "", "", ""),
+			      treeKey, level);
 }
 
 /*********************************    *************************************/
@@ -283,10 +255,9 @@ void main_treekey_save_book_text(char *book, char *offset, char *text)
 
 /*********************************    *************************************/
 
-void main_load_book_tree_in_editor(GtkTreeView *treeview, char *book)
+void main_load_book_tree_in_editor(GtkWidget *treeview, char *book)
 {
-	GtkTreeIter parent;
-	GtkTreeStore *store;
+	GListStore *store;
 	SWMgr *mgr = backend->get_mgr();
 	SWModule *mod = mgr->Modules[book];
 
@@ -299,14 +270,10 @@ void main_load_book_tree_in_editor(GtkTreeView *treeview, char *book)
 	TreeKeyIdx root = *((TreeKeyIdx *)mod->createKey());
 	root.root();
 
-	store = gtk_tree_store_new(N_COLUMNS,
-				   GDK_TYPE_PIXBUF,
-				   GDK_TYPE_PIXBUF,
-				   G_TYPE_STRING,
-				   G_TYPE_STRING, G_TYPE_STRING);
-	gtk_tree_view_set_model(GTK_TREE_VIEW(treeview),
-				GTK_TREE_MODEL(store));
-	gtk_tree_store_clear(store);
-	gtk_tree_store_append(GTK_TREE_STORE(store), &parent, NULL);
-	load_treeview(store, &parent, root);
+	store = elim_table_new();
+	main_setup_mod_tree_view(treeview, store);
+	load_treeview(store, main_mod_tree_add(store, NULL, NULL, MOD_TREE_ICON_LEAF,
+					       "", "", ""),
+		      root);
+	g_object_unref(store);
 }

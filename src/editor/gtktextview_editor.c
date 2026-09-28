@@ -34,6 +34,7 @@
 
 #include "editor/gtktextview_editor.h"
 #include "editor/link_dialog.h"
+#include "gui/table_helpers.h"
 
 #include "main/settings.h"
 #include "main/sword.h"
@@ -1564,7 +1565,7 @@ _create_new(const gchar *filename, const gchar *key, gint editor_type)
 		gtk_widget_show(editor->treeview);
 		gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(scrollbar), editor->treeview);
 		gtk_paned_set_position(GTK_PANED(hpaned1), 125);
-		gtk_tree_view_expand_all((GtkTreeView *)editor->treeview);
+		elim_tree_expand_all(editor->treeview);
 
 		gtk_widget_unparent(editor->box);
 		gtk_box_append(GTK_BOX(box), editor->box);
@@ -1629,8 +1630,7 @@ editor_create_new(const gchar *filename, const gchar *key,
 			e->key = g_strdup(key);
 			gtk_widget_show(e->window);
 			gtk_window_present(GTK_WINDOW(e->window));
-			main_load_book_tree_in_editor(
-			    GTK_TREE_VIEW(e->treeview), e->module);
+			main_load_book_tree_in_editor(e->treeview, e->module);
 			editor_load_book(e);
 			return 1;
 		}

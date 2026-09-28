@@ -17,6 +17,8 @@
 #include "gui/utilities.h"
 #include "gui/widgets.h"
 
+#include "gui/entry_suggest.h"
+#include "gui/table_helpers.h"
 #include "main/diccionario.h"
 #include "main/nube_palabras.h"
 #include "main/settings.h"
@@ -42,8 +44,8 @@ typedef struct {
 	GtkWidget *html;
 	GtkWidget *tree;
 	GtkWidget *box_comentarios;
-	GtkListStore *completar;
-	GtkTreeStore *comentarios;
+	ElimEntrySuggest *sugerir;
+	GListStore *comentarios; /* por autor, y bajo cada autor sus estudios */
 	const DiccEntrada *actual;
 } DiccUI;
 
@@ -98,74 +100,62 @@ mostrar_html(const gchar *titulo, const gchar *cuerpo, const gchar *refs, const 
 	g_free(e);
 }
 
-static GtkTreeIter
+static ElimRow *
 ensure_autor(const gchar *autor)
 {
-	GtkTreeIter iter, child;
-	gboolean valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(ui->comentarios), &iter);
-	while (valid) {
-		gchar *a = NULL;
-		gtk_tree_model_get(GTK_TREE_MODEL(ui->comentarios), &iter, COL_AUTOR, &a, -1);
-		gboolean match = (a && autor && !g_utf8_collate(a, autor));
-		g_free(a);
-		if (match)
-			return iter;
-		valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(ui->comentarios), &iter);
+	ElimRow *fila;
+	guint i;
+
+	for (i = 0; i < g_list_model_get_n_items(G_LIST_MODEL(ui->comentarios)); i++) {
+		ElimRow *carpeta = elim_table_get(ui->comentarios, i);
+
+		if (autor && !g_utf8_collate(elim_row_get_string(carpeta, COL_AUTOR), autor))
+			return carpeta;
 	}
-	gtk_tree_store_append(ui->comentarios, &child, NULL);
-	gtk_tree_store_set(ui->comentarios, &child,
-			   COL_TITULO, autor,
-			   COL_AUTOR, autor,
-			   COL_MODULO, "",
-			   COL_TIPO, 0,
-			   COL_TEXTO, "",
-			   -1);
-	return child;
+	fila = elim_tree_append(ui->comentarios, NULL, N_COLS);
+	elim_row_set_string(fila, COL_TITULO, autor);
+	elim_row_set_string(fila, COL_AUTOR, autor);
+	elim_row_set_int(fila, COL_TIPO, 0);
+	return fila;
 }
 
 static void
 llenar_comentarios(const DiccEntrada *e)
 {
-	gtk_tree_store_clear(ui->comentarios);
+	g_list_store_remove_all(ui->comentarios);
 
 	if (e) {
 		for (GList *l = e->estudios; l; l = l->next) {
 			DiccEstudio *es = (DiccEstudio *)l->data;
-			GtkTreeIter parent = ensure_autor(es->autor);
-			GtkTreeIter row;
-			gtk_tree_store_append(ui->comentarios, &row, &parent);
-			gtk_tree_store_set(ui->comentarios, &row,
-					   COL_TITULO, es->titulo,
-					   COL_AUTOR, es->autor,
-					   COL_MODULO, "",
-					   COL_TIPO, 1,
-					   COL_TEXTO, es->texto,
-					   -1);
+			ElimRow *row = elim_tree_append(ui->comentarios,
+							ensure_autor(es->autor), N_COLS);
+
+			elim_row_set_string(row, COL_TITULO, es->titulo);
+			elim_row_set_string(row, COL_AUTOR, es->autor);
+			elim_row_set_int(row, COL_TIPO, 1);
+			elim_row_set_string(row, COL_TEXTO, es->texto);
 		}
 	}
 
 	GList *comms = main_diccionario_comentarios(settings.currentverse);
 	for (GList *l = comms; l; l = l->next) {
 		DiccComentario *c = (DiccComentario *)l->data;
-		GtkTreeIter parent = ensure_autor(c->autor);
-		GtkTreeIter row;
+		ElimRow *row = elim_tree_append(ui->comentarios, ensure_autor(c->autor), N_COLS);
 		gchar *titulo = g_strdup_printf("%s — %s",
 						c->descripcion ? c->descripcion : c->modulo,
 						settings.currentverse ? settings.currentverse : "");
-		gtk_tree_store_append(ui->comentarios, &row, &parent);
-		gtk_tree_store_set(ui->comentarios, &row,
-				   COL_TITULO, titulo,
-				   COL_AUTOR, c->autor,
-				   COL_MODULO, c->modulo,
-				   COL_TIPO, 2,
-				   COL_TEXTO, c->extracto,
-				   -1);
+
+		elim_row_set_string(row, COL_TITULO, titulo);
+		elim_row_set_string(row, COL_AUTOR, c->autor);
+		elim_row_set_string(row, COL_MODULO, c->modulo);
+		elim_row_set_int(row, COL_TIPO, 2);
+		elim_row_set_string(row, COL_TEXTO, c->extracto);
 		g_free(titulo);
 	}
-	gboolean hay = (gtk_tree_model_iter_n_children(GTK_TREE_MODEL(ui->comentarios), NULL) > 0);
+	gboolean hay = (g_list_model_get_n_items(G_LIST_MODEL(ui->comentarios)) > 0);
 	gtk_widget_set_visible(ui->box_comentarios, hay);
 	if (hay)
-		gtk_tree_view_expand_all(GTK_TREE_VIEW(ui->tree));
+		elim_tree_expand_all(ui->tree);
 	main_diccionario_comentarios_free(comms);
 }
 
@@ -208,40 +198,30 @@ on_entry_activate(GtkEntry *entry, gpointer user_data)
 }
 
 static gboolean
-completion_match(GtkEntryCompletion *comp, const gchar *key,
-		 GtkTreeIter *iter, gpointer data)
+sugerencia_coincide(const char *key, const char *titulo, gpointer data)
 {
 	(void)data;
-	gchar *titulo = NULL;
-	gtk_tree_model_get(gtk_entry_completion_get_model(comp), iter, 0, &titulo, -1);
-	gboolean ok = main_nube_texto_coincide(titulo, key);
-	g_free(titulo);
-	return ok;
+	return main_nube_texto_coincide(titulo, key);
 }
 
 static void
-on_comentario_activado(GtkTreeView *tree, GtkTreePath *path,
-		       GtkTreeViewColumn *col, gpointer user_data)
+on_comentario_activado(GtkWidget *tree, guint posicion, gpointer user_data)
 {
-	(void)col;
+	ElimRow *fila = elim_table_row_at(tree, posicion);
 	(void)user_data;
-	GtkTreeIter iter;
-	if (!gtk_tree_model_get_iter(GTK_TREE_MODEL(ui->comentarios), &iter, path))
+	if (!fila)
 		return;
-	gint tipo = 0;
-	gchar *titulo = NULL, *autor = NULL, *modulo = NULL, *texto = NULL;
-	gtk_tree_model_get(GTK_TREE_MODEL(ui->comentarios), &iter,
-			   COL_TITULO, &titulo,
-			   COL_AUTOR, &autor,
-			   COL_MODULO, &modulo,
-			   COL_TIPO, &tipo,
-			   COL_TEXTO, &texto,
-			   -1);
+	gint tipo = elim_row_get_int(fila, COL_TIPO);
+	/* the row may go while the text is shown */
+	gchar *titulo = g_strdup(elim_row_get_string(fila, COL_TITULO));
+	gchar *autor = g_strdup(elim_row_get_string(fila, COL_AUTOR));
+	gchar *modulo = g_strdup(elim_row_get_string(fila, COL_MODULO));
+	gchar *texto = g_strdup(elim_row_get_string(fila, COL_TEXTO));
 	if (tipo == 0) {
-		if (gtk_tree_view_row_expanded(tree, path))
-			gtk_tree_view_collapse_row(tree, path);
+		if (elim_tree_row_expanded(tree, fila))
+			elim_tree_collapse_row(tree, fila);
 		else
-			gtk_tree_view_expand_row(tree, path, FALSE);
+			elim_tree_expand_row(tree, fila, FALSE);
 	} else if (tipo == 1) {
 		gchar *head = g_strdup_printf("%s — %s", autor ? autor : "", titulo ? titulo : "");
 		mostrar_html(head, texto ? texto : "", NULL, NULL);
@@ -280,8 +260,6 @@ on_destroy(GtkWidget *w, gpointer data)
 	(void)data;
 	if (!ui)
 		return;
-	if (ui->completar)
-		g_object_unref(ui->completar);
 	if (ui->comentarios)
 		g_object_unref(ui->comentarios);
 	g_free(ui);
@@ -292,12 +270,8 @@ static void
 poblar_completion(void)
 {
 	GList *sugs = main_diccionario_sugerencias("");
-	gtk_list_store_clear(ui->completar);
-	for (GList *l = sugs; l; l = l->next) {
-		GtkTreeIter it;
-		gtk_list_store_append(ui->completar, &it);
-		gtk_list_store_set(ui->completar, &it, 0, (gchar *)l->data, -1);
-	}
+
+	elim_entry_suggest_set_candidates(ui->sugerir, sugs);
 	g_list_free_full(sugs, g_free);
 }
 
@@ -327,25 +301,16 @@ crear_dialogo(void)
 	gtk_widget_show(ui->html);
 	gui_box_pack(GTK_BOX(ui->box_html), ui->html, TRUE, TRUE, 0);
 
-	ui->completar = gtk_list_store_new(1, G_TYPE_STRING);
+	/* before the "activate" handler below: Enter takes a suggestion first */
+	ui->sugerir = elim_entry_suggest_new(ui->entry, sugerencia_coincide, NULL);
 	poblar_completion();
-	GtkEntryCompletion *comp = gtk_entry_completion_new();
-	gtk_entry_completion_set_model(comp, GTK_TREE_MODEL(ui->completar));
-	gtk_entry_completion_set_text_column(comp, 0);
-	gtk_entry_completion_set_minimum_key_length(comp, 1);
-	gtk_entry_completion_set_match_func(comp, completion_match, NULL, NULL);
-	gtk_entry_set_completion(GTK_ENTRY(ui->entry), comp);
-	g_object_unref(comp);
 
-	ui->comentarios = gtk_tree_store_new(N_COLS,
-					     G_TYPE_STRING, G_TYPE_STRING,
-					     G_TYPE_STRING, G_TYPE_INT, G_TYPE_STRING);
-	gtk_tree_view_set_model(GTK_TREE_VIEW(ui->tree), GTK_TREE_MODEL(ui->comentarios));
-	GtkCellRenderer *cell = gtk_cell_renderer_text_new();
-	GtkTreeViewColumn *col = gtk_tree_view_column_new_with_attributes(
-	    _("Autor / estudio"), cell, "text", COL_TITULO, NULL);
-	gtk_tree_view_column_set_expand(col, TRUE);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(ui->tree), col);
+	ui->comentarios = elim_table_new();
+	elim_tree_setup(ui->tree, ui->comentarios);
+	ElimTextColumn col = elim_text_column(COL_TITULO);
+	col.expand = TRUE;
+	col.expander = TRUE;
+	elim_table_add_column(ui->tree, _("Autor / estudio"), &col);
 
 	mostrar_html(_("Diccionario"),
 		     _("Escribe una palabra (por ejemplo Adonai) y pulsa Buscar. "
@@ -357,7 +322,7 @@ crear_dialogo(void)
 	g_signal_connect(ui->btn_buscar, "clicked", G_CALLBACK(on_buscar), NULL);
 	g_signal_connect(ui->btn_cerrar, "clicked", G_CALLBACK(on_cerrar), NULL);
 	g_signal_connect(ui->entry, "activate", G_CALLBACK(on_entry_activate), NULL);
-	g_signal_connect(ui->tree, "row-activated", G_CALLBACK(on_comentario_activado), NULL);
+	g_signal_connect(ui->tree, "activate", G_CALLBACK(on_comentario_activado), NULL);
 	g_signal_connect(ui->dialog, "destroy", G_CALLBACK(on_destroy), NULL);
 	gtk_window_set_default_widget(GTK_WINDOW(ui->dialog), ui->btn_buscar);
 	gtk_widget_grab_focus(ui->entry);

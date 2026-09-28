@@ -32,8 +32,6 @@ struct _bookmark_menu
 };
 typedef struct _bookmark_menu BOOKMARK_MENU;
 extern BOOKMARK_MENU menu;
-extern GtkTreeSelection *current_selection;
-extern GtkTreeStore *model;
 extern gboolean use_dialog;
 extern gboolean bookmarks_changed;
 
