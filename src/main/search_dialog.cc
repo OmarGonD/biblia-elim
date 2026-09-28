@@ -41,6 +41,8 @@
 #include "gui/widgets.h"
 #include "gui/dialog.h"
 #include "gui/utilities.h"
+#include "gui/dropdown_helpers.h"
+#include "gui/table_helpers.h"
 #include "gui/export_bookmarks.h"
 
 #include "backend/sword_main.hh"
@@ -62,6 +64,18 @@ extern int search_dialog;
 static GList *get_custom_list_from_name(const gchar *label);
 static void add_ranges(void);
 static void add_modlist(void);
+
+/* The lists of the search dialog hold rows of two strings. */
+static void add_two_string_row(GListStore *store, const gchar *first,
+			       const gchar *second)
+{
+	ElimRow *row = elim_row_new(2);
+
+	elim_row_set_string(row, 0, first);
+	elim_row_set_string(row, 1, second);
+	g_list_store_append(store, row);
+	g_object_unref(row);
+}
 
 gboolean terminate_search; // also accessed from search_dialog.c.
 gboolean search_active;    // also accessed from search_dialog.c.
@@ -240,28 +254,14 @@ void main_save_current_adv_search_as_bookmarks(void)
 void main_range_text_changed(GtkEditable *editable)
 {
 	const gchar *entry;
-	GtkTreeModel *model;
-	GtkListStore *list_store;
-	GtkTreeModel *model_list_ranges;
-	GtkListStore *store_list_ranges;
-	GtkTreeSelection *selection;
-	GtkTreeIter selected;
-	GtkTreeIter iter;
+	GListStore *store_list_ranges = elim_table_get_store(search1.list_ranges);
+	ElimRow *selected = elim_table_get_selected(search1.list_range_name);
 	GList *tmp = NULL;
 
-	/*    */
-	model_list_ranges =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(search1.list_ranges));
-	store_list_ranges = GTK_LIST_STORE(model_list_ranges);
-	/*    */
-	model =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(search1.list_range_name));
-	list_store = GTK_LIST_STORE(model);
-	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(search1.list_range_name));
-	if (!gtk_tree_selection_get_selected(selection, NULL, &selected))
+	if (!selected)
 		return;
 
-	gtk_list_store_clear(store_list_ranges);
+	g_list_store_remove_all(store_list_ranges);
 	entry = gtk_editable_get_text(GTK_EDITABLE(editable));
 	if (!backendSearchLegacy)
 		return;
@@ -270,14 +270,15 @@ void main_range_text_changed(GtkEditable *editable)
 		gchar *buf = (gchar *)tmp->data;
 		if (!buf)
 			break;
-		gtk_list_store_append(store_list_ranges, &iter);
-		gtk_list_store_set(store_list_ranges, &iter,
-				   0, buf, -1);
+		ElimRow *row = elim_row_new(2);
+		elim_row_set_string(row, 0, buf);
+		g_list_store_append(store_list_ranges, row);
+		g_object_unref(row);
 		g_free(buf);
 		tmp = g_list_next(tmp);
 	}
 
-	gtk_list_store_set(list_store, &selected, 1, entry, -1);
+	elim_row_set_string(selected, 1, entry);
 }
 
 /******************************************************************************
@@ -320,23 +321,19 @@ static void set_search_global_option(const gchar *option, gboolean choice)
 
 void main_save_modlist(void)
 {
-	gchar *text1 = NULL;
-	gchar *text2 = NULL;
-	GtkTreeModel *model;
-	GtkTreeIter iter;
+	GListStore *store = elim_table_get_store(search1.module_lists);
+	guint i, n = g_list_model_get_n_items(G_LIST_MODEL(store));
 
-	model = gtk_tree_view_get_model(GTK_TREE_VIEW(search1.module_lists));
-
-	if (!gtk_tree_model_get_iter_first(model, &iter))
+	if (n == 0)
 		return;
-	do {
-		gtk_tree_model_get(model, &iter,
-				   0, &text1, 1, &text2, -1);
+	for (i = 0; i < n; i++) {
+		ElimRow *row = elim_table_get(store, i);
+		const gchar *text1 = elim_row_get_string(row, 0);
+		const gchar *text2 = elim_row_get_string(row, 1);
+
 		xml_set_list_item("modlists", "modlist", text1, text2);
 		XI_warning(("%s", text2));
-		g_free(text1);
-		g_free(text2);
-	} while (gtk_tree_model_iter_next(model, &iter));
+	}
 	add_modlist();
 }
 
@@ -358,25 +355,19 @@ void main_save_modlist(void)
 
 void main_save_range(void)
 {
-	gchar *text1 = NULL;
-	gchar *text2 = NULL;
-	GtkTreeModel *model;
-	GtkTreeIter iter;
+	GListStore *store = elim_table_get_store(search1.list_range_name);
+	guint i, n = g_list_model_get_n_items(G_LIST_MODEL(store));
 
-	model =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(search1.list_range_name));
-
-	if (!gtk_tree_model_get_iter_first(model, &iter))
+	if (n == 0)
 		return;
-	do {
-		gtk_tree_model_get(model, &iter,
-				   0, &text1, 1, &text2, -1);
+	for (i = 0; i < n; i++) {
+		ElimRow *row = elim_table_get(store, i);
+		const gchar *text1 = elim_row_get_string(row, 0);
+		const gchar *text2 = elim_row_get_string(row, 1);
 
 		xml_set_list_item("ranges", "range", text1, text2);
 		XI_warning(("%s", text2));
-		g_free(text1);
-		g_free(text2);
-	} while (gtk_tree_model_iter_next(model, &iter));
+	}
 	add_ranges();
 }
 
@@ -399,20 +390,13 @@ void main_save_range(void)
 void main_delete_range(void)
 {
 	gchar *name_string = NULL;
-	GtkTreeModel *model;
-	GtkListStore *list_store;
-	GtkTreeSelection *selection;
-	GtkTreeIter selected;
+	ElimRow *selected = elim_table_get_selected(search1.list_range_name);
+	guint position = elim_table_get_selected_position(search1.list_range_name);
 	gchar *str;
 
-	model =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(search1.list_range_name));
-	list_store = GTK_LIST_STORE(model);
-	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(search1.list_range_name));
-
-	if (!gtk_tree_selection_get_selected(selection, NULL, &selected))
+	if (!selected)
 		return;
-	gtk_tree_model_get(model, &selected, 0, &name_string, -1);
+	name_string = g_strdup(elim_row_get_string(selected, 0));
 
 	str = g_strdup_printf("<span weight=\"bold\">%s</span>\n\n%s %s",
 			      _("Delete Range?"),
@@ -422,7 +406,8 @@ void main_delete_range(void)
 	if (gui_yes_no_dialog(str, (char *)
 			      "dialog-warning"
 			      )) {
-		gtk_list_store_remove(list_store, &selected);
+		g_list_store_remove(elim_table_get_store(search1.list_range_name),
+				    position);
 		xml_remove_node("ranges", "range", name_string);
 		--search1.list_rows;
 		main_save_range();
@@ -450,26 +435,23 @@ void main_delete_range(void)
 
 static void add_module_finds(GList *versekeys)
 {
-	GtkTreeModel *model;
-	GtkListStore *list_store;
-	GtkTreeIter iter;
+	GListStore *store = elim_table_get_store(search1.listview_verses);
 	GList *tmp = g_list_first(versekeys);
+	guint n = g_list_length(tmp), i = 0;
+	ElimRow **rows = g_new0(ElimRow *, n ? n : 1);
 
-	model =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(search1.listview_verses));
-	list_store = GTK_LIST_STORE(model);
-
-	gtk_list_store_clear(list_store);
-
+	/* a search can find tens of thousands of verses: the list changes
+	 * once, not once per verse */
 	while (tmp) {
-		gchar *buf = (char *)tmp->data;
-		gtk_list_store_append(list_store, &iter);
-		gtk_list_store_set(list_store,
-				   &iter,
-				   0, buf,
-				   -1);
+		rows[i] = elim_row_new(2);
+		elim_row_set_string(rows[i], 0, (char *)tmp->data);
+		i++;
 		tmp = g_list_next(tmp);
 	}
+	elim_table_replace(store, rows, n);
+	for (i = 0; i < n; i++)
+		g_object_unref(rows[i]);
+	g_free(rows);
 }
 
 /******************************************************************************
@@ -492,15 +474,9 @@ static void add_ranges(void)
 {
 	if (!backendSearchLegacy)
 		return;
-	GtkTreeModel *model;
-	GtkListStore *list_store;
-	GtkTreeIter iter;
+	GListStore *list_store = elim_table_get_store(search1.list_range_name);
 
-	model =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(search1.list_range_name));
-	list_store = GTK_LIST_STORE(model);
-
-	gtk_list_store_clear(list_store);
+	g_list_store_remove_all(list_store);
 
 	if (xml_set_section_ptr("ranges")) {
 		gchar *buf[2];
@@ -509,12 +485,7 @@ static void add_ranges(void)
 			buf[0] = xml_get_label();
 			buf[1] = xml_get_list();
 
-			gtk_list_store_append(list_store, &iter);
-			gtk_list_store_set(list_store,
-					   &iter,
-					   0, buf[0],
-					   1, buf[1],
-					   -1);
+			add_two_string_row(list_store, buf[0], buf[1]);
 			g_free(buf[0]);
 			g_free(buf[1]);
 		}
@@ -525,12 +496,7 @@ static void add_ranges(void)
 				buf[0] = xml_get_label();
 				buf[1] = xml_get_list();
 
-				gtk_list_store_append(list_store, &iter);
-				gtk_list_store_set(list_store,
-						   &iter,
-						   0, buf[0],
-						   1, buf[1],
-						   -1);
+				add_two_string_row(list_store, buf[0], buf[1]);
 				gui_add_item_to_combo(search1.combo_range,
 						      buf[0]);
 				g_free(buf[0]);
@@ -559,14 +525,9 @@ static void add_ranges(void)
 
 static void add_modlist(void)
 {
-	GtkTreeModel *model;
-	GtkListStore *list_store;
-	GtkTreeIter iter;
+	GListStore *list_store = elim_table_get_store(search1.module_lists);
 
-	model = gtk_tree_view_get_model(GTK_TREE_VIEW(search1.module_lists));
-	list_store = GTK_LIST_STORE(model);
-
-	gtk_list_store_clear(list_store);
+	g_list_store_remove_all(list_store);
 
 	if (xml_set_section_ptr("modlists")) {
 		gchar *buf[2];
@@ -575,12 +536,7 @@ static void add_modlist(void)
 			buf[0] = xml_get_label();
 			buf[1] = xml_get_list();
 
-			gtk_list_store_append(list_store, &iter);
-			gtk_list_store_set(list_store,
-					   &iter,
-					   0, buf[0],
-					   1, buf[1],
-					   -1);
+			add_two_string_row(list_store, buf[0], buf[1]);
 			g_free(buf[0]);
 			g_free(buf[1]);
 		}
@@ -591,12 +547,7 @@ static void add_modlist(void)
 				buf[0] = xml_get_label();
 				buf[1] = xml_get_list();
 
-				gtk_list_store_append(list_store, &iter);
-				gtk_list_store_set(list_store,
-						   &iter,
-						   0, buf[0],
-						   1, buf[1],
-						   -1);
+				add_two_string_row(list_store, buf[0], buf[1]);
 				gui_add_item_to_combo(search1.combo_list,
 						      buf[0]);
 				g_free(buf[0]);
@@ -650,20 +601,25 @@ void main_change_mods_select_label(char *mod_name)
  *   void
  */
 
-void main_delete_module(GtkTreeView *treeview)
+/* The modules of the list being edited, as the comma-separated string the
+ * lists tab keeps beside its name. */
+static void store_modules_of_selected_list(void)
 {
-	GtkTreeModel *model;
-	GtkListStore *list_store;
-	GtkTreeSelection *selection;
-	GtkTreeIter selected;
+	ElimRow *selected = elim_table_get_selected(search1.module_lists);
+	GList *mods = get_current_table_list(search1.listview_modules);
+	gchar *mod_list = get_modlist_string(mods);
+
+	if (selected)
+		elim_row_set_string(selected, 1, mod_list);
+	g_free(mod_list);
+}
+
+void main_delete_module(GtkWidget *module_list)
+{
+	guint position = elim_table_get_selected_position(module_list);
 	gchar *str;
 
-	model =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(treeview));
-	list_store = GTK_LIST_STORE(model);
-	selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview));
-
-	if (!gtk_tree_selection_get_selected(selection, NULL, &selected))
+	if (!elim_table_get_selected(module_list))
 		return;
 
 	str = g_strdup_printf("<span weight=\"bold\">%s</span>\n\n%s",
@@ -673,65 +629,17 @@ void main_delete_module(GtkTreeView *treeview)
 	if (gui_yes_no_dialog(str, (char *)
 			      "dialog-warning"
 			      )) {
-		gtk_list_store_remove(list_store, &selected);
-
-		GList *mods = get_current_list(treeview);
-		gchar *mod_list = get_modlist_string(mods);
-
-		selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(search1.module_lists));
-
-		model =
-		    gtk_tree_view_get_model(GTK_TREE_VIEW(search1.module_lists));
-		list_store = GTK_LIST_STORE(model);
-
-		if (gtk_tree_selection_get_selected(selection, NULL, &selected))
-			if (mod_list) {
-				gtk_list_store_set(list_store, &selected, 1,
-						   mod_list, -1);
-				g_free(mod_list);
-			}
+		g_list_store_remove(elim_table_get_store(module_list), position);
+		store_modules_of_selected_list();
 	}
 	g_free(str);
 }
 
 void main_add_mod_to_list(GtkWidget *tree_widget, gchar *mod_name)
 {
-	GtkTreeModel *model_mods;
-	GtkTreeModel *model_modules_lists;
-	GtkTreeIter iter;
-	GtkTreeIter selected_modules_lists;
-	GtkListStore *list_store;
-	GtkListStore *store_modules_lists;
-	const gchar *mod_description = NULL;
-	gchar *mod_list = NULL;
-	GList *mods = NULL;
-	GtkTreeSelection *selection_modules_lists;
-
-	model_modules_lists = gtk_tree_view_get_model(GTK_TREE_VIEW(search1.module_lists));
-	store_modules_lists = GTK_LIST_STORE(model_modules_lists);
-
-	selection_modules_lists = gtk_tree_view_get_selection(GTK_TREE_VIEW(search1.module_lists));
-
-	model_mods = gtk_tree_view_get_model(GTK_TREE_VIEW(tree_widget));
-	list_store = GTK_LIST_STORE(model_mods);
-	mod_description = main_get_module_description(mod_name);
-
-	gtk_list_store_append(list_store, &iter);
-	gtk_list_store_set(list_store, &iter,
-			   0, mod_description,
-			   1, mod_name, -1);
-	mods = get_current_list(GTK_TREE_VIEW(search1.listview_modules));
-	mod_list = get_modlist_string(mods);
-
-	if (mod_list) {
-		gtk_tree_selection_get_selected(selection_modules_lists, NULL,
-						&selected_modules_lists);
-
-		gtk_list_store_set(store_modules_lists,
-				   &selected_modules_lists,
-				   1, mod_list, -1);
-		g_free(mod_list);
-	}
+	add_two_string_row(elim_table_get_store(tree_widget),
+			   main_get_module_description(mod_name), mod_name);
+	store_modules_of_selected_list();
 	++search1.module_count;
 }
 
@@ -756,29 +664,12 @@ void main_mod_selection_changed(GtkTreeSelection *selection,
 				GtkWidget *tree_widget)
 {
 	gchar *mod = NULL;
-	GtkListStore *store_modules_lists;
-	GtkListStore *list_store;
-	GtkTreeSelection *selection_modules_lists;
-	GtkTreeIter selected_modules_lists;
 	GtkTreeIter selected;
-	GtkTreeIter iter;
-	GtkTreeModel *model_mods;
-	GtkTreeModel *model_modules_lists;
 	GtkTreeModel *model =
 	    gtk_tree_view_get_model(GTK_TREE_VIEW(tree_widget));
 
 	if (!gtk_tree_selection_get_selected(selection, NULL, &selected))
 		return;
-
-	model_mods =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(search1.listview_modules));
-	list_store = GTK_LIST_STORE(model_mods);
-
-	model_modules_lists =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(search1.module_lists));
-	store_modules_lists = GTK_LIST_STORE(model_modules_lists);
-
-	selection_modules_lists = gtk_tree_view_get_selection(GTK_TREE_VIEW(search1.module_lists));
 
 	if (gtk_tree_model_iter_has_child(model, &selected))
 		return;
@@ -792,23 +683,9 @@ void main_mod_selection_changed(GtkTreeSelection *selection,
 			search1.search_mod = g_strdup(mod);
 			search1.module_count = 1;
 		} else {
-			gtk_list_store_append(list_store, &iter);
-			gtk_list_store_set(list_store, &iter,
-					   0, mod_description,
-					   1, mod, -1);
-
-			GList *mods = get_current_list(GTK_TREE_VIEW(search1.listview_modules));
-			gchar *mod_list = get_modlist_string(mods);
-
-			if (mod_list) {
-				gtk_tree_selection_get_selected(selection_modules_lists, NULL,
-								&selected_modules_lists);
-
-				gtk_list_store_set(store_modules_lists,
-						   &selected_modules_lists,
-						   1, mod_list, -1);
-				g_free(mod_list);
-			}
+			add_two_string_row(elim_table_get_store(search1.listview_modules),
+					   mod_description, mod);
+			store_modules_of_selected_list();
 			++search1.module_count;
 		}
 		main_change_mods_select_label(mod);
@@ -823,43 +700,31 @@ void main_mod_selection_changed(GtkTreeSelection *selection,
  * Synopsis
  *   #include "gui/search_dialog.h"
  *
- *   void main_selection_finds_list_changed(GtkTreeSelection * selection,
- *		     					 gpointer data)
+ *   void main_selection_finds_list_changed(void)
  *
  * Description
- *
+ *   the row picked in the results summary is the position of its module's
+ *   verses in list_of_finds
  *
  * Return value
  *   void
  */
 
-void main_selection_finds_list_changed(GtkTreeSelection *
-					   selection,
-				       gpointer data)
+void main_selection_finds_list_changed(void)
 {
-	gchar *text, *path_str;
 	GList *tmp = NULL;
-	GtkTreeModel *model;
-	GtkTreeIter selected;
-	GtkTreePath *path;
+	ElimRow *selected = elim_table_get_selected(search1.listview_results);
+	guint position = elim_table_get_selected_position(search1.listview_results);
 
-	if (!gtk_tree_selection_get_selected(selection, &model, &selected))
+	if (!selected)
 		return;
-	gtk_tree_model_get(model, &selected, 0, &text, -1);
-	path = gtk_tree_model_get_path(model, &selected);
-	path_str = gtk_tree_path_to_string(path);
-	XI_message(("\npath: %s\ntext: %s", path_str, text));
-	tmp = g_list_nth(list_of_finds, atoi(path_str));
+	XI_message(("\npath: %u\ntext: %s", position,
+		    elim_row_get_string(selected, 0)));
+	tmp = g_list_nth(list_of_finds, position);
 	if (tmp) {
 		tmp = (GList *)tmp->data;
 		add_module_finds(tmp);
 	}
-
-	if (text)
-		g_free(text);
-	if (path_str)
-		g_free(path_str);
-	gtk_tree_path_free(path);
 }
 
 /******************************************************************************
@@ -869,8 +734,8 @@ void main_selection_finds_list_changed(GtkTreeSelection *
  * Synopsis
  *   #include "gui/search_dialog.h"
  *
- *   void main_finds_verselist_selection_changed(GtkTreeSelection * selection,
- *		     					 gpointer data)
+ *   void main_finds_verselist_selection_changed(GtkWidget * verse_list,
+ *		     					 gboolean is_double_click)
  *
  * Description
  *
@@ -879,22 +744,21 @@ void main_selection_finds_list_changed(GtkTreeSelection *
  *   void
  */
 
-void main_finds_verselist_selection_changed(GtkTreeSelection *selection,
-					    GtkTreeModel *model,
+void main_finds_verselist_selection_changed(GtkWidget *verse_list,
 					    gboolean is_double_click)
 {
 	gchar *text, *buf, *module, *key;
 	GString *text_str;
-	GtkTreeIter selected;
+	ElimRow *selected = elim_table_get_selected(verse_list);
 
-	if (!gtk_tree_selection_get_selected(selection, &model, &selected))
+	if (!selected)
 		return;
-	gtk_tree_model_get(model, &selected, 0, &text, -1);
+	text = g_strdup(elim_row_get_string(selected, 0));
 
 	if (search_clearing)
 	{
 		// we get here as a side effect of clearing previous
-		// results, from gtk_list_store_clear(). in that case,
+		// results, from g_list_store_remove_all(). in that case,
 		// all we do is dispose of old content and get back out.
 		// if we don't stop this, we waste copious amounts of
 		// time pointlessly formatting content being destroyed.
@@ -960,8 +824,7 @@ void main_finds_verselist_selection_changed(GtkTreeSelection *selection,
  * Synopsis
  *   #include "gui/search_dialog.h"
  *
- *   void (GtkTreeSelection * selection,
- *		     					 gpointer data)
+ *   void main_selection_modules_lists_changed(void)
  *
  * Description
  *
@@ -970,42 +833,32 @@ void main_finds_verselist_selection_changed(GtkTreeSelection *selection,
  *   void
  */
 
-void main_selection_modules_lists_changed(GtkTreeSelection *selection,
-					  gpointer data)
+void main_selection_modules_lists_changed(void)
 {
 	gchar *name, *modules;
 	GList *tmp = NULL, *tmp2;
-	GtkTreeModel *model;
-	GtkTreeIter iter;
-	GtkListStore *list_store;
-	GtkTreeIter selected;
+	GListStore *list_store;
+	ElimRow *selected = elim_table_get_selected(search1.module_lists);
 
-	if (!gtk_tree_selection_get_selected(selection, NULL, &selected))
+	if (!selected)
 		return;
 
-	model =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(search1.module_lists));
-	gtk_tree_model_get(model, &selected, 0, &name, 1, &modules, -1);
+	name = g_strdup(elim_row_get_string(selected, 0));
+	modules = g_strdup(elim_row_get_string(selected, 1));
 
-	model =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(search1.listview_modules));
-	list_store = GTK_LIST_STORE(model);
+	list_store = elim_table_get_store(search1.listview_modules);
 
 	gtk_editable_set_text(GTK_EDITABLE(search1.entry_list_name), name);
 
-	gtk_list_store_clear(list_store);
+	g_list_store_remove_all(list_store);
 	tmp =
 	    get_custom_list_from_name(gtk_editable_get_text(GTK_EDITABLE(search1.entry_list_name)));
 
 	tmp = tmp2 = g_list_first(tmp);
 	while (tmp != NULL) {
-		gtk_list_store_append(list_store, &iter);
-		gtk_list_store_set(list_store, &iter,
-				   0,
-				   main_get_module_description((gchar *)
-								     tmp->data),
-				   1,
-				   (gchar *)tmp->data, -1);
+		add_two_string_row(list_store,
+				   main_get_module_description((gchar *)tmp->data),
+				   (gchar *)tmp->data);
 		g_free((gchar *)tmp->data);
 		tmp = g_list_next(tmp);
 	}
@@ -1038,7 +891,7 @@ void main_add_modlist_to_label(void)
 	GList *mods = NULL;
 	gchar *mod_list, *str;
 
-	mods = get_current_list(GTK_TREE_VIEW(search1.listview_modules));
+	mods = get_current_table_list(search1.listview_modules);
 	mod_list = get_modlist_string(mods);
 	if (strlen(mod_list) > 60)
 		str = g_strdup_printf("<b>%s</b>%60.60s...",
@@ -1051,7 +904,8 @@ void main_add_modlist_to_label(void)
 	g_free(str);
 }
 
-void main_comboboxentry2_changed(GtkComboBox *combobox, gpointer user_data)
+void main_comboboxentry2_changed(GObject *combobox, GParamSpec *pspec,
+				 gpointer user_data)
 {
 	GList *mod_list = NULL;
 	gchar *str = NULL;
@@ -1060,7 +914,7 @@ void main_comboboxentry2_changed(GtkComboBox *combobox, gpointer user_data)
 
 	if (!gui_toggle_get_active(GTK_WIDGET(search1.rb_custom_list)))
 		return;
-	name = gtk_editable_get_text(GTK_EDITABLE(gtk_combo_box_get_child(GTK_COMBO_BOX(combobox))));
+	name = elim_dropdown_get_active_text_or_empty(GTK_DROP_DOWN(combobox));
 	mod_list = get_custom_list_from_name(name);
 	mod_list_str = get_modlist_string(mod_list);
 	if (strlen(mod_list_str) > 60)
@@ -1210,7 +1064,7 @@ static void set_up_dialog_search(GList *modlist)
 		if (range_ok) {
 			backendSearchLegacy->clear_search_list();
 			const gchar *label =
-			    gtk_editable_get_text(GTK_EDITABLE(gtk_combo_box_get_child(GTK_COMBO_BOX(search1.combo_range))));
+			    elim_dropdown_get_active_text_or_empty(GTK_DROP_DOWN(search1.combo_range));
 			gchar *range =
 			    (gchar *)xml_get_list_from_label("ranges", "range", label);
 			if (range) {
@@ -1291,11 +1145,7 @@ void main_do_dialog_search(void)
 	GList *tmp = NULL;
 	GList *tmp_list = NULL;
 	GList *tmp_bookmark_list = NULL;
-	GtkTreeModel *model;
-	GtkListStore *list_store;
-	GtkTreeIter iter;
-	GtkTreeModel *model2;
-	GtkListStore *list_store2;
+	GListStore *list_store;
 	gint x = 0;
 	gint mod_type;
 	char *num;
@@ -1310,15 +1160,10 @@ void main_do_dialog_search(void)
 	_clear_find_lists();
 	_clear_bookmarking_lists();
 
-	model =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(search1.listview_results));
-	list_store = GTK_LIST_STORE(model);
+	list_store = elim_table_get_store(search1.listview_results);
 
-	gtk_list_store_clear(list_store);
-	model2 =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(search1.listview_verses));
-	list_store2 = GTK_LIST_STORE(model2);
-	gtk_list_store_clear(list_store2);
+	g_list_store_remove_all(list_store);
+	g_list_store_remove_all(elim_table_get_store(search1.listview_verses));
 
 	search_clearing = FALSE;
 	// ok that's it. back to normal selection handling.
@@ -1371,10 +1216,10 @@ void main_do_dialog_search(void)
 	if (gui_toggle_get_active(GTK_WIDGET(search1.rb_custom_list))) {
 		const gchar *name;
 		name =
-		    gtk_editable_get_text(GTK_EDITABLE( gtk_combo_box_get_child(GTK_COMBO_BOX(search1.combo_list))));
+		    elim_dropdown_get_active_text_or_empty(GTK_DROP_DOWN(search1.combo_list));
 		search_mods = get_custom_list_from_name(name);
 	} else if (gui_toggle_get_active(GTK_WIDGET(search1.rb_mod_list))) {
-		search_mods = get_current_list(GTK_TREE_VIEW(search1.listview_modules));
+		search_mods = get_current_table_list(search1.listview_modules);
 	} else
 		search_mods = get_current_search_mod();
 	search_mods = g_list_first(search_mods);
@@ -1492,11 +1337,7 @@ void main_do_dialog_search(void)
 		num = main_format_number(finds);
 		g_string_printf(str, "%s %s %s", num, FINDS, module);
 		g_free(num);
-		gtk_list_store_append(list_store, &iter);
-		gtk_list_store_set(list_store,
-				   &iter,
-				   0, str->str,
-				   -1);
+		add_two_string_row(list_store, str->str, "");
 		++x;
 		if (x == 1) { // add verse list for hits in first module to verse listview
 			tmp = (GList *)list_of_finds->data;

@@ -1,6 +1,6 @@
 /*
  * Xiphos Bible Study Tool
- * navbar.h - glue between all navbars and sword
+ * navbar.h - state shared by the navbars
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
  *
@@ -26,25 +26,11 @@ extern "C" {
 #endif
 
 #include <config.h>
+#include <glib.h>
 
-typedef struct _navbar NAVBAR;
-struct _navbar
-{
-	GtkWidget *button_back;
-	GtkWidget *button_forward;
-	GtkWidget *comboboxentry_book;
-	GtkWidget *comboboxentry_chapter;
-	GtkWidget *comboboxentry_verse;
-	GtkWidget *lookup_entry;
-	gchar *key;
-	gchar *module_name;
-	gboolean is_dialog;
-	int testaments;
-};
-extern NAVBAR navbar_main;
-
-void main_navbar_set(NAVBAR navbar, const char *key);
-void main_navbar_fill_book_combo(NAVBAR navbar);
+/* set by whichever navbar last redisplayed, read by the others */
+extern gboolean do_display;
+extern gboolean do_display_dict;
 
 #ifdef __cplusplus
 }

@@ -38,11 +38,7 @@
 #include "gui/tabbed_browser.h"
 #include "gui/panel_load_state.h"
 
-#ifdef USE_WEBKIT_EDITOR
-#include "editor/webkit_editor.h"
-#else
-#include "editor/slib-editor.h"
-#endif
+#include "editor/editor.h"
 
 #include "backend/bible_backend.h"
 #include "main/backend_access.h"

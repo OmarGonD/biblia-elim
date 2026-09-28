@@ -25,11 +25,7 @@
 #include <gtk/gtk.h>
 #include "gui/widget_helpers.h"
 
-#ifdef USE_WEBKIT_EDITOR
-#include "editor/webkit_editor.h"
-#else
-#include "editor/slib-editor.h"
-#endif
+#include "editor/editor.h"
 
 #include "gui/navbar_versekey_editor.h"
 #include "gui/bibletext_dialog.h"

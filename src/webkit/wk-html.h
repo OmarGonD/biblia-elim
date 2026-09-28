@@ -18,6 +18,8 @@ G_BEGIN_DECLS
 /* The GtkTextView the pane renders into. GTK 4 dropped the widget signals
  * the pane and its callers hung their layout on, so this view gives them
  * back:
+ *   "size-allocating" (GdkRectangle *allocation): before every allocation,
+ *	so children that track the view width can resize first;
  *   "size-allocated" (GdkRectangle *allocation): after every allocation,
  *	with the text already laid out for the new width;
  *   "after-paint": after each frame the view is part of has been drawn,

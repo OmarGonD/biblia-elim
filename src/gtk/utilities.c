@@ -38,6 +38,8 @@
 
 #include <gtk/gtk.h>
 #include "gui/widget_helpers.h"
+#include "gui/dropdown_helpers.h"
+#include "gui/table_helpers.h"
 #include <zlib.h>
 #include <minizip/zip.h>
 
@@ -716,24 +718,17 @@ void gui_set_progressbar_fraction(GtkWidget *pb, gdouble fraction)
 
 void gui_set_combo_index(GtkWidget *combo, gint index)
 {
-	gtk_combo_box_set_active(GTK_COMBO_BOX(combo), index);
+	elim_dropdown_set_active(GTK_DROP_DOWN(combo), index);
 }
 
 void gui_clear_combo(GtkWidget *combo)
 {
-	GtkTreeModel *model =
-	    gtk_combo_box_get_model(GTK_COMBO_BOX(combo));
-	gtk_list_store_clear(GTK_LIST_STORE(model));
+	elim_dropdown_remove_all(GTK_DROP_DOWN(combo));
 }
 
 void gui_add_item_to_combo(GtkWidget *combo, gchar *item)
 {
-	GtkTreeIter iter;
-	GtkTreeModel *model =
-	    gtk_combo_box_get_model(GTK_COMBO_BOX(combo));
-	gtk_list_store_append(GTK_LIST_STORE(model), &iter);
-	gtk_list_store_set(GTK_LIST_STORE(model), &iter, 0, (gchar *)item,
-			   -1);
+	elim_dropdown_append(GTK_DROP_DOWN(combo), NULL, item);
 }
 
 
@@ -1754,6 +1749,18 @@ GList *get_current_list(GtkTreeView *treeview)
 
 		} while (gtk_tree_model_iter_next(model, &iter));
 	}
+	return items;
+}
+
+GList *get_current_table_list(GtkWidget *view)
+{
+	GList *items = NULL;
+	GListStore *store = elim_table_get_store(view);
+	guint i, n = g_list_model_get_n_items(G_LIST_MODEL(store));
+
+	for (i = 0; i < n; i++)
+		items = g_list_append(items,
+				      g_strdup(elim_row_get_string(elim_table_get(store, i), 1)));
 	return items;
 }
 

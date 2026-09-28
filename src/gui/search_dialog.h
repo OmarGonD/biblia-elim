@@ -99,7 +99,7 @@ extern gchar *verse_selected;
 
 void gui_create_search_dialog(void);
 void gui_set_drop_target(GtkWidget *target);
-void on_comboboxentry2_changed(GtkComboBox *combobox,
+void on_comboboxentry2_changed(GObject *combobox, GParamSpec *pspec,
 			       gpointer user_data);
 void button_clean(GtkButton *button, gpointer user_data);
 void button_save(GtkButton *button, gpointer user_data);

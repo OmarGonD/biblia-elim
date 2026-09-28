@@ -19,6 +19,7 @@
 
 #include <gtk/gtk.h>
 #include "gui/widget_helpers.h"
+#include "gui/table_helpers.h"
 #include <glib/gi18n.h>
 
 #include "gui/memorizacion.h"
@@ -56,7 +57,7 @@ typedef struct {
 	GtkWidget *btn_anadir;
 	GtkWidget *btn_quitar;
 	GtkWidget *tree;
-	GtkListStore *versos;
+	GListStore *versos;
 
 	gchar *actual;		/* la clave que está en la tarjeta */
 	gboolean destapado;	/* si ya se enseñó el texto */
@@ -222,23 +223,22 @@ llenar_lista(void)
 {
 	GList *todos = main_memoria_todos(), *l;
 
-	gtk_list_store_clear(ui->versos);
+	g_list_store_remove_all(ui->versos);
 	for (l = todos; l; l = l->next) {
 		MEM_VERSO *v = l->data;
-		GtkTreeIter iter;
+		ElimRow *fila = elim_row_new(N_MCOLS);
 		gchar *caja, *cuando;
 
 		caja = g_strdup_printf(_("%d de %d"), v->caja, MEM_CAJAS);
 		cuando = cuando_texto(v->proximo);
 
-		gtk_list_store_append(ui->versos, &iter);
-		gtk_list_store_set(ui->versos, &iter,
-				   MCOL_CITA, v->clave,
-				   MCOL_CAJA, caja,
-				   MCOL_PROXIMO, cuando,
-				   MCOL_ACIERTOS, v->aciertos,
-				   MCOL_CLAVE, v->clave,
-				   -1);
+		elim_row_set_string(fila, MCOL_CITA, v->clave);
+		elim_row_set_string(fila, MCOL_CAJA, caja);
+		elim_row_set_string(fila, MCOL_PROXIMO, cuando);
+		elim_row_set_int(fila, MCOL_ACIERTOS, v->aciertos);
+		elim_row_set_string(fila, MCOL_CLAVE, v->clave);
+		g_list_store_append(ui->versos, fila);
+		g_object_unref(fila);
 		g_free(caja);
 		g_free(cuando);
 	}
@@ -372,20 +372,20 @@ on_anadir(GtkButton *boton, gpointer datos)
 static void
 on_quitar(GtkButton *boton, gpointer datos)
 {
-	GtkTreeSelection *sel;
-	GtkTreeModel *modelo;
-	GtkTreeIter iter;
-	gchar *clave = NULL;
+	ElimRow *fila;
+	gchar *clave;
 
 	(void)boton;
 	(void)datos;
 
-	sel = gtk_tree_view_get_selection(GTK_TREE_VIEW(ui->tree));
-	if (!gtk_tree_selection_get_selected(sel, &modelo, &iter))
+	fila = elim_table_get_selected(ui->tree);
+	if (!fila)
 		return;
-	gtk_tree_model_get(modelo, &iter, MCOL_CLAVE, &clave, -1);
-	if (!clave)
+	clave = g_strdup(elim_row_get_string(fila, MCOL_CLAVE));
+	if (!*clave) {
+		g_free(clave);
 		return;
+	}
 
 	main_memoria_quitar(clave);
 	guardar_ya();
@@ -403,34 +403,11 @@ on_quitar(GtkButton *boton, gpointer datos)
 static void
 montar_columnas(void)
 {
-	GtkCellRenderer *celda;
-	GtkTreeViewColumn *col;
-	GtkTreeView *t = GTK_TREE_VIEW(ui->tree);
-
-	gtk_tree_view_set_model(t, GTK_TREE_MODEL(ui->versos));
-
-	celda = gtk_cell_renderer_text_new();
-	col = gtk_tree_view_column_new_with_attributes(
-	    _("Versículo"), celda, "text", MCOL_CITA, NULL);
-	gtk_tree_view_column_set_expand(col, TRUE);
-	gtk_tree_view_append_column(t, col);
-
-	celda = gtk_cell_renderer_text_new();
-	col = gtk_tree_view_column_new_with_attributes(_("Caja"), celda, "text",
-						       MCOL_CAJA, NULL);
-	gtk_tree_view_append_column(t, col);
-
-	celda = gtk_cell_renderer_text_new();
-	col = gtk_tree_view_column_new_with_attributes(_("Vuelve"), celda,
-						       "text", MCOL_PROXIMO,
-						       NULL);
-	gtk_tree_view_append_column(t, col);
-
-	celda = gtk_cell_renderer_text_new();
-	col = gtk_tree_view_column_new_with_attributes(_("Aciertos"), celda,
-						       "text", MCOL_ACIERTOS,
-						       NULL);
-	gtk_tree_view_append_column(t, col);
+	elim_table_setup(ui->tree, ui->versos);
+	elim_table_add_text_column(ui->tree, _("Versículo"), MCOL_CITA, TRUE);
+	elim_table_add_text_column(ui->tree, _("Caja"), MCOL_CAJA, FALSE);
+	elim_table_add_text_column(ui->tree, _("Vuelve"), MCOL_PROXIMO, FALSE);
+	elim_table_add_text_column(ui->tree, _("Aciertos"), MCOL_ACIERTOS, FALSE);
 }
 
 static void
@@ -499,9 +476,7 @@ gui_memorizacion_dialog(GtkWindow *padre)
 					  : (widgets.app ? GTK_WINDOW(widgets.app)
 							 : NULL));
 
-	ui->versos = gtk_list_store_new(N_MCOLS, G_TYPE_STRING, G_TYPE_STRING,
-					G_TYPE_STRING, G_TYPE_INT,
-					G_TYPE_STRING);
+	ui->versos = elim_table_new();
 	montar_columnas();
 
 	g_signal_connect(ui->btn_ver, "clicked", G_CALLBACK(on_ver), NULL);

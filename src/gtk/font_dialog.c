@@ -24,6 +24,7 @@
 
 #include <gtk/gtk.h>
 #include "gui/widget_helpers.h"
+#include "gui/dropdown_helpers.h"
 #include <ctype.h>
 
 #include "gui/font_dialog.h"
@@ -120,9 +121,9 @@ static void ok_clicked(GtkButton *button, gpointer data)
 		new_gdk_font = "none";
 	}
 
-	mf->new_font_size = gtk_editable_get_text(GTK_EDITABLE(combo_entry_size));
+	mf->new_font_size = elim_dropdown_get_active_text_or_empty(GTK_DROP_DOWN(combo_entry_size));
 
-	mf->columns = gtk_editable_get_text(GTK_EDITABLE(combo_entry_columns));
+	mf->columns = elim_dropdown_get_active_text_or_empty(GTK_DROP_DOWN(combo_entry_columns));
 
 	save_conf_file_item(file, mf->mod_name, "Font", mf->new_font);
 	save_conf_file_item(file, mf->mod_name, "Fontsize", mf->new_font_size);
@@ -249,7 +250,7 @@ static void no_font_toggled(GtkToggleButton *togglebutton, gpointer data)
  * Synopsis
  *   #include "gui/font_dialog.h"
  *
- *   void size_changed(GtkEditable * editable, gpointer user_data)
+ *   void size_changed(GObject * dropdown, GParamSpec * pspec, gpointer user_data)
  *
  * Description
  *
@@ -258,7 +259,8 @@ static void no_font_toggled(GtkToggleButton *togglebutton, gpointer data)
  *   void
  */
 
-static void size_changed(GtkEditable *editable, gpointer user_data)
+static void size_changed(GObject *dropdown, GParamSpec *pspec,
+			 gpointer user_data)
 {
 	gtk_widget_set_sensitive(button_ok, TRUE);
 }
@@ -352,20 +354,21 @@ static GtkWidget *create_dialog_mod_font()
 	gtk_font_chooser_set_level(GTK_FONT_CHOOSER(font_button),
 				   GTK_FONT_CHOOSER_LEVEL_FAMILY |
 				       GTK_FONT_CHOOSER_LEVEL_STYLE);
-	combo_size = gtk_combo_box_text_new_with_entry();
+	combo_size = elim_dropdown_new();
 	gtk_widget_show(combo_size);
 	gui_box_pack(GTK_BOX(hbox_picker), combo_size, TRUE, TRUE, 0);
-	gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo_size), "+5");
-	gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo_size), "+4");
-	gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo_size), "+3");
-	gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo_size), "+2");
-	gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo_size), "+1");
-	gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo_size), "+0");
-	gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo_size), "-1");
-	gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo_size), "-2");
-	gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo_size), "-3");
-	combo_entry_size = gtk_combo_box_get_child(GTK_COMBO_BOX(combo_size));
-	gtk_editable_set_text(GTK_EDITABLE(gtk_combo_box_get_child(GTK_COMBO_BOX(combo_size))), _("+0"));
+	elim_dropdown_append(GTK_DROP_DOWN(combo_size), NULL, "+5");
+	elim_dropdown_append(GTK_DROP_DOWN(combo_size), NULL, "+4");
+	elim_dropdown_append(GTK_DROP_DOWN(combo_size), NULL, "+3");
+	elim_dropdown_append(GTK_DROP_DOWN(combo_size), NULL, "+2");
+	elim_dropdown_append(GTK_DROP_DOWN(combo_size), NULL, "+1");
+	elim_dropdown_append(GTK_DROP_DOWN(combo_size), NULL, "+0");
+	elim_dropdown_append(GTK_DROP_DOWN(combo_size), NULL, "-1");
+	elim_dropdown_append(GTK_DROP_DOWN(combo_size), NULL, "-2");
+	elim_dropdown_append(GTK_DROP_DOWN(combo_size), NULL, "-3");
+	combo_entry_size = combo_size;
+	elim_dropdown_set_active(GTK_DROP_DOWN(combo_size),
+				 elim_dropdown_find_text(GTK_DROP_DOWN(combo_size), "+0"));
 	UI_HBOX(hboxcolumns, FALSE, 0);
 	gtk_widget_show(hboxcolumns);
 	gtk_box_append(GTK_BOX(vbox56), hboxcolumns);
@@ -374,21 +377,20 @@ static GtkWidget *create_dialog_mod_font()
 	gtk_widget_show(labelcolumns);
 	gtk_box_append(GTK_BOX(hboxcolumns), labelcolumns);
 
-	combo_count = gtk_combo_box_text_new_with_entry();
+	combo_count = elim_dropdown_new();
 	gtk_widget_set_size_request(combo_count, 240, -1);
 	gtk_widget_show(combo_count);
 	gui_box_pack(GTK_BOX(hboxcolumns), combo_count, FALSE, TRUE, 150);
-	gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo_count), "1");
-	gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo_count), "2");
-	gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo_count), "3");
-	gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo_count), "4");
-	gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo_count), "5");
-	gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo_count), "6");
-	gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo_count), "7");
-	gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo_count), "8");
-	gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo_count), _("default"));
-	combo_entry_columns = gtk_combo_box_get_child(GTK_COMBO_BOX(combo_count));
-	gtk_editable_set_text(GTK_EDITABLE(gtk_combo_box_get_child(GTK_COMBO_BOX(combo_count))), "");
+	elim_dropdown_append(GTK_DROP_DOWN(combo_count), NULL, "1");
+	elim_dropdown_append(GTK_DROP_DOWN(combo_count), NULL, "2");
+	elim_dropdown_append(GTK_DROP_DOWN(combo_count), NULL, "3");
+	elim_dropdown_append(GTK_DROP_DOWN(combo_count), NULL, "4");
+	elim_dropdown_append(GTK_DROP_DOWN(combo_count), NULL, "5");
+	elim_dropdown_append(GTK_DROP_DOWN(combo_count), NULL, "6");
+	elim_dropdown_append(GTK_DROP_DOWN(combo_count), NULL, "7");
+	elim_dropdown_append(GTK_DROP_DOWN(combo_count), NULL, "8");
+	elim_dropdown_append(GTK_DROP_DOWN(combo_count), NULL, _("default"));
+	combo_entry_columns = combo_count;
 
 	checkbutton_no_font =
 	    gtk_check_button_new_with_label(_("Use the default font for this module"));
@@ -428,9 +430,9 @@ static GtkWidget *create_dialog_mod_font()
 			 G_CALLBACK(ok_clicked), mf);
 	g_signal_connect(G_OBJECT(button_cancel), "clicked",
 			 G_CALLBACK(cancel_clicked), mf);
-	g_signal_connect(G_OBJECT(combo_size), "changed",
+	g_signal_connect(G_OBJECT(combo_size), "notify::selected",
 			 G_CALLBACK(size_changed), NULL);
-	g_signal_connect(G_OBJECT(combo_count), "changed",
+	g_signal_connect(G_OBJECT(combo_count), "notify::selected",
 			 G_CALLBACK(size_changed), NULL); /* dual use */
 
 	return dialog_mod_font;
@@ -470,7 +472,26 @@ void gui_set_module_font(gchar *mod_name)
 		g_free(str);
 	}
 	if (mf->old_font_size) {
-		gtk_editable_set_text(GTK_EDITABLE(combo_entry_size), mf->old_font_size);
+		GtkDropDown *size_dd = GTK_DROP_DOWN(combo_entry_size);
+		gint row = elim_dropdown_find_text(size_dd, mf->old_font_size);
+
+		/* a size the list does not offer (set by hand in the module's
+		 * .conf) stays selectable, so saving does not change it */
+		if (row < 0) {
+			elim_dropdown_append(size_dd, NULL, mf->old_font_size);
+			row = elim_dropdown_find_text(size_dd, mf->old_font_size);
+		}
+		elim_dropdown_set_active(size_dd, row);
+	}
+	/* the module's own column count, or "default" when it has none */
+	{
+		GtkDropDown *count_dd = GTK_DROP_DOWN(combo_entry_columns);
+		gint last = (gint)elim_dropdown_n_items(count_dd) - 1;
+
+		elim_dropdown_set_active(count_dd,
+					 (mf->columns_value >= 1 && mf->columns_value <= last)
+					     ? mf->columns_value - 1
+					     : last);
 	}
 	gtk_widget_set_sensitive(button_ok, FALSE);
 	/* this is here so the program will wait on the font information

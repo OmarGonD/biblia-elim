@@ -31,18 +31,16 @@ gboolean main_export_current_adv_search(GString *str,
 void main_save_current_adv_search_as_bookmarks(void);
 void main_add_mod_to_list(GtkWidget *tree_widget,
 			  gchar *mod_name);
-void main_finds_verselist_selection_changed(GtkTreeSelection *
-						selection,
-					    GtkTreeModel *model,
+/* VERSE_LIST is search1.listview_verses: previews its selected verse, and
+ * with IS_DOUBLE_CLICK opens it in the main window. */
+void main_finds_verselist_selection_changed(GtkWidget *verse_list,
 					    gboolean
 						is_double_click);
-void main_selection_modules_lists_changed(GtkTreeSelection *
-					      selection,
-					  gpointer data);
-void main_selection_finds_list_changed(GtkTreeSelection *
-					   selection,
-				       gpointer data);
-void main_comboboxentry2_changed(GtkComboBox *combobox,
+/* The module list picked in the custom lists tab: shows its modules. */
+void main_selection_modules_lists_changed(void);
+/* The module picked in the results summary: lists its verses. */
+void main_selection_finds_list_changed(void);
+void main_comboboxentry2_changed(GObject *combobox, GParamSpec *pspec,
 				 gpointer user_data);
 void main_dialog_search_percent_update(char percent,
 				       void *userData);
@@ -52,10 +50,7 @@ void main_save_range(void);
 void main_delete_range(void);
 void main_add_modlist_to_label(void);
 void main_change_mods_select_label(char *mod_name);
-void main_delete_module(GtkTreeView *treeview);
-void main_selection_modules_lists_changed(GtkTreeSelection *
-					      selection,
-					  gpointer data);
+void main_delete_module(GtkWidget *module_list);
 void main_mod_selection_changed(GtkTreeSelection *selection,
 				GtkWidget *tree_widget);
 void main_do_dialog_search(void);

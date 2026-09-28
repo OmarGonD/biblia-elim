@@ -10317,6 +10317,143 @@
   - Do not:
     - Remove text by token shape alone.
 
+- [x] GTK4-CLEAN-101 Remove dead GTK 3 code and make the GTK 4 startup free of layout warnings
+  - Status: DONE (2026-09-27)
+  - Removed (none of it was in any CMake target): `src/editor/editor.c`,
+    `webkit_editor.c/.h`, `slib-editor.c`, `ui/gtk_webedit.ui`, the
+    `USE_WEBKIT_EDITOR` / GtkHTML branches in 12 includers and in
+    `link_dialog.[ch]`, the `cmakedefine USE_WEBKIT_EDITOR`, dead
+    `po/POTFILES.in` entries (and `gtktextview_editor.c`, which has 16
+    translatable strings, is now listed).
+  - `slib-editor.h` is now `editor/editor.h` (shared `EDITOR`/`TOOL_ITEMS`
+    types and API); editor internals stay in `gtktextview_editor.h`.
+  - `gtk_lifecycle_smoke` had failed since the GTK 4 switch (`ac7d9e6b`;
+    `c120569c`, `4d233b57` and `201f8915` pass in the same environment)
+    on `Gtk-WARNING: Trying to measure ... for height of N, but it needs at
+    least M`. Found with gdb (the three widgets): the commentary/notes
+    `GtkNotebook` and the reading-sync `GtkBox` were given less than their
+    minimum by `GtkPaned` children with `shrink=TRUE`, and the `<hr>`
+    `GtkSeparator` kept the previous, wider width request while the text
+    view narrowed. Fixed with `shrink=FALSE` on those paned children and a
+    new `"size-allocating"` signal on `WkTextView` (emitted before the
+    children are laid out; `"size-allocated"` keeps its contract).
+  - Consequence to know: the window's minimum height now includes those
+    panes' minimums (not measured on a small real screen).
+  - Evidence: build PASS; `ldd build/src/gtk/biblia-elim` shows
+    `libgtk-4` and no `libgtk-3`/`webkit`; `gtk_lifecycle_smoke` PASS 4/4
+    consecutive runs, `failures=0 checks=503`, no `Gtk-WARNING`; full
+    CTest 73/73; `git diff --check` clean.
+
+- [x] GTK4-COMBO-101 Replace GtkComboBox / GtkComboBoxText with GtkDropDown
+  - Status: DONE (2026-09-27)
+  - `src/gui/dropdown_helpers.h`: `elim_dropdown_*` (new/prepare, append with
+    optional id, remove_all, get/set active by row or id, active text, find
+    text, search). Unit test `tests/dropdown_helpers_test.c`.
+  - Migrated (every `GtkComboBox*` / `GtkCellLayout` use is gone from
+    `src/` and `ui/`): preferences (18 builder combos, 4 with static rows
+    now `GtkStringList`), search dialog, module manager, lectura sync,
+    install Bibles, SQLite converter, pulpit dialog, Strong/morphology
+    selectors, font dialog, search sidebar, word cloud, `gui_*_combo()`
+    helpers. Dead `main_navbar_set()` (no callers) removed instead of
+    migrated.
+  - Behaviour differences (a dropdown is not a combo box):
+    - A dropdown with rows always has one selected, and cannot be
+      unselected. Where "nothing chosen" mattered it now has a row of its
+      own: Strong/morphology selectors ("Seleccione un Strong" /
+      "Seleccione una etiqueta"), the parallel-sets dropdown ("Ninguno";
+      "New set..." is now a `[+]` button because a selected row cannot be
+      picked again), font dialog columns (the module's own value, else
+      "default", instead of a blank that wrote an empty `Columns=`).
+    - Editable combos (`has_entry`) are gone. The read-only ones (search
+      range/list, module-manager sources, search-sidebar book bounds, font
+      size and columns) are plain dropdowns; a font size the list does not
+      offer, taken from a module `.conf`, is added as a row so saving does
+      not change it. The word-cloud books were typed with completion:
+      they are now dropdowns with type-to-search matching name and
+      abbreviation; typing free text and pressing Enter no longer exists
+      there.
+    - The change signal is `notify::selected`; handlers were re-signatured.
+  - Evidence: build PASS; full CTest 74/74 (incl. `gtk_lifecycle_smoke`,
+    which opens preferences, search and the word cloud, and
+    `dropdown_helpers_test`); `grep` for `GtkComboBox|gtk_combo_box|
+    GTK_COMBO_BOX|GtkCellLayout` in `src ui` finds only a comment.
+  - Not exercised by any automated test (built and reviewed only): module
+    manager, font dialog, SQLite converter, install Bibles, pulpit dialog,
+    Strong selectors, parallel-sets dropdown.
+
+- [ ] GTK4-TREE-101 Replace GtkTreeView / GtkListStore / GtkTreeStore / GtkCellRenderer
+  - Status: IN PROGRESS (step 1 of 4 under way)
+  - Measured 2026-09-27: 50 files under `src/` and `ui/`, about 2 160
+    references. Biggest: `mod_mgr.c`, `search_dialog.c` (+ `main/`),
+    `main/sidebar.cc` + `gtk/sidebar.c` (module tree, lazy expansion),
+    `bookmarks_treeview.c`/`bookmarks_menu.c`/`bookmark_dialog.c`
+    (drag and drop, in-place editing), `preferences_dialog.c`,
+    `utilities.c`, `nube_palabras.c`, `biblesync_glue.cc`.
+  - Order: (1) flat lists on `ElimRow` + `GtkColumnView`; (2) lists with
+    per-cell widgets (progress bar, icons, editing); (3) trees on
+    `GtkTreeListModel` + `GtkListView` with `GtkTreeExpander`; (4) the
+    sidebar module tree and the bookmarks tree, which need drag and drop,
+    tooltips and lazy children.
+  - Step 1 (2026-09-27): IN PROGRESS. `src/gui/table_helpers.h` +
+    `src/gtk/table_helpers.c`: `ElimRow` (string/int columns by number,
+    `"changed"` signal), `elim_table_new/setup/setup_list/view_new`,
+    text columns (`ElimTextColumn`: markup, weight column, fixed width,
+    tooltip column, padding), check-box columns, browse mode, selection
+    and `elim_table_select()` with scrolling; unit test
+    `tests/table_helpers_test.c` (rows, view, toggles incl. a click that
+    refills the store, list view + browse + activate).
+  - Migrated flat lists, each opened by a `gtk_lifecycle_smoke` check
+    unless noted: memorization (`memorizacion.c`), install Bibles catalog
+    (`instalar_biblias.c`: check boxes, tooltips), reading plans
+    (`planes_lectura.c`: `GtkListView` of plans in browse mode + days
+    `GtkColumnView`), notes search (`buscar_notas.c`), dictionary key
+    list (`dictlex_dialog.c` + `main/module_dialogs.cc`; smoke builds the
+    window without a module, cannot test the module-driven refill),
+    SQLite module manager (`sqlite_module_manager_dialog.cc`, run from an
+    idle handler because the dialog is modal).
+  - Things lost or changed on purpose: type-ahead search in the install
+    Bibles list (its search box filters the list); the reading plans list
+    is a `GtkListView` because a `GtkColumnView` cannot hide its header.
+  - Bug found on the way, not caused by the port: the debug wrapper
+    `XI_g_strdup_printf` / `XI_g_string_printf` (`src/gtk/gui.c`) counted
+    each `%%` as a conversion and read arguments that were not there, so
+    opening the reading plans dialog aborted with a false "STRDUP error"
+    whenever the stray value happened to be NULL. Fixed (`%%` is skipped).
+  - Advanced search dialog (2026-09-28): its six flat lists (results
+    summary, verses, custom ranges + range preview, custom module lists +
+    the modules of the picked list) are `GtkListView` of two-string
+    `ElimRow`, through the new `elim_table_setup_rows()` (no header,
+    columns aligned by a `GtkSizeGroup`, first column wraps) and
+    `elim_table_replace()` (one change for a whole result list). The two
+    module trees of the dialog stay `GtkTreeView` (step 3). Double click /
+    Enter on a verse is the list's `activate` signal. The old sort ids were
+    dead code (headers were hidden), so nothing is lost. New helper
+    `get_current_table_list()` in `utilities.c`; `get_current_list()` stays
+    for the preferences list until that one moves.
+  - Word cloud table (2026-09-28): migrated to sortable `GtkColumnView` rows.
+    Numeric and percentage headers sort by their typed values; difference
+    cells retain their positive/negative colours. `ElimRow` now also carries
+    doubles, sortable columns, alignment and foreground text. Build PASS;
+    the graphical tests could not run in this environment (`gtk_init_check()`
+    reports no display even under `xvfb-run`).
+  - Preferences parallel list (2026-09-28): migrated to `GtkListView` rows;
+    dragging a row before or after another row updates the stored parallel
+    order and its active set. The shared table helper now has identity-safe
+    move/remove operations and reorderable rows, covered by
+    `table_helpers_test`. Build PASS; graphical tests remain unavailable in
+    this environment (no display under `xvfb-run`).
+  - The preferences module picker is a hierarchical module tree, so it stays
+    for step 3; it is not a separate flat reorderable list.
+  - Remaining for step 1: `mod_mgr.c`, `utilities.c` helpers,
+    `biblesync_glue.cc`.
+  - Tree stores are step 3, not flat lists: `testimonios.c`,
+    `diccionario.c`, `plan_personal.c`, `export_bookmarks.c`,
+    `progreso_lectura.c` (groups), `treekey-editor.c`, the sidebar module
+    tree and the bookmarks tree.
+  - Do not: convert a tree by copying rows into a flat list (expansion,
+    selection and sorting semantics change), or delete the tree view before
+    its consumers (drag and drop, tooltips, key handlers) have an equivalent.
+
 # Future / not scheduled
 
 - Human-readable grammatical decoding of morphology codes.

@@ -44,11 +44,7 @@
 #include "gui/widgets.h"
 #include "gui/utilities.h"
 
-#ifdef USE_WEBKIT_EDITOR
-#include "editor/webkit_editor.h"
-#else
-#include "editor/slib-editor.h"
-#endif
+#include "editor/editor.h"
 
 #include "main/settings.h"
 #include "main/lists.h"

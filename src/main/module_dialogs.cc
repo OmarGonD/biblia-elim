@@ -24,6 +24,7 @@
 
 #include <gtk/gtk.h>
 #include "gui/widget_helpers.h"
+#include "gui/table_helpers.h"
 #include <swmgr.h>
 #include <swmodule.h>
 #include <url.h>
@@ -639,9 +640,7 @@ void main_dialogs_dictionary_entry_changed(DIALOG_DATA *d)
 	gint count = 10, i;
 	gchar *key = NULL;
 	static gboolean firsttime = TRUE;
-	GtkTreeModel *model;
-	GtkListStore *list_store;
-	GtkTreeIter iter;
+	GListStore *list_store;
 	gint height;
 	gchar *mod_name = d->mod_name;
 	BackEnd *be = (BackEnd *)d->backend;
@@ -656,8 +655,7 @@ void main_dialogs_dictionary_entry_changed(DIALOG_DATA *d)
 	be->set_module_key(mod_name, key);
 	be->display_mod->display();
 
-	model = gtk_tree_view_get_model(GTK_TREE_VIEW(d->listview));
-	list_store = GTK_LIST_STORE(model);
+	list_store = elim_table_get_store(d->listview);
 
 	if (!firsttime) {
 		height = gtk_widget_get_height(d->listview);
@@ -667,7 +665,7 @@ void main_dialogs_dictionary_entry_changed(DIALOG_DATA *d)
 	if (count) {
 		gchar *new_key = be->navigate_module(-1);
 
-		gtk_list_store_clear(list_store);
+		g_list_store_remove_all(list_store);
 
 		for (i = 0; i < (count / 2); i++) {
 			free(new_key);
@@ -677,9 +675,11 @@ void main_dialogs_dictionary_entry_changed(DIALOG_DATA *d)
 		for (i = 0; i < count; i++) {
 			free(new_key);
 			new_key = be->navigate_module(1);
-			gtk_list_store_append(list_store, &iter);
-			gtk_list_store_set(list_store, &iter, 0,
-					   new_key, -1);
+			ElimRow *row = elim_row_new(1);
+
+			elim_row_set_string(row, 0, new_key);
+			g_list_store_append(list_store, row);
+			g_object_unref(row);
 		}
 		free(new_key);
 	}

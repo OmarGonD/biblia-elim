@@ -29,7 +29,7 @@
 #include <time.h>
 
 #include "main/gtk_compat.h"
-#include "editor/slib-editor.h"
+#include "editor/editor.h"
 
 #include "gui/xiphos.h"
 #include "gui/panel_load_state.h"

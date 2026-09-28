@@ -2,119 +2,6 @@
 <!-- Generated with glade 3.18.3 -->
 <interface>
   <requires lib="gtk" version="4.0"/>
-  <object class="GtkListStore" id="model1">
-    <columns>
-      <!-- column-name gchararray -->
-      <column type="gchararray"/>
-    </columns>
-    <data>
-      <row>
-        <col id="0" translatable="no">-2</col>
-      </row>
-      <row>
-        <col id="0" translatable="no">-1</col>
-      </row>
-      <row>
-        <col id="0" translatable="no">+0</col>
-      </row>
-      <row>
-        <col id="0" translatable="no">+1</col>
-      </row>
-      <row>
-        <col id="0" translatable="no">+2</col>
-      </row>
-      <row>
-        <col id="0" translatable="no">+3</col>
-      </row>
-      <row>
-        <col id="0" translatable="no">+4</col>
-      </row>
-      <row>
-        <col id="0" translatable="no">+5</col>
-      </row>
-    </data>
-  </object>
-  <object class="GtkListStore" id="model2">
-    <columns>
-      <!-- column-name gchararray -->
-      <column type="gchararray"/>
-    </columns>
-    <data>
-      <row>
-        <col id="0" translatable="no">-2</col>
-      </row>
-      <row>
-        <col id="0" translatable="no">-1</col>
-      </row>
-      <row>
-        <col id="0" translatable="no">+0</col>
-      </row>
-      <row>
-        <col id="0" translatable="no">+1</col>
-      </row>
-      <row>
-        <col id="0" translatable="no">+2</col>
-      </row>
-      <row>
-        <col id="0" translatable="no">+3</col>
-      </row>
-      <row>
-        <col id="0" translatable="no">+4</col>
-      </row>
-      <row>
-        <col id="0" translatable="no">+5</col>
-      </row>
-    </data>
-  </object>
-  <object class="GtkListStore" id="model_module_grouping">
-    <columns>
-      <!-- column-name gchararray -->
-      <column type="gchararray"/>
-    </columns>
-    <data>
-      <row>
-        <col id="0" translatable="yes">Categoría y luego idioma</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">Sólo categoría</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes">Idioma y luego categoría</col>
-      </row>
-    </data>
-  </object>
-  <object class="GtkListStore" id="model3">
-    <columns>
-      <!-- column-name gchararray -->
-      <column type="gchararray"/>
-    </columns>
-    <data>
-      <row>
-        <col id="0" translatable="no">1</col>
-      </row>
-      <row>
-        <col id="0" translatable="no">2</col>
-      </row>
-      <row>
-        <col id="0" translatable="no">3</col>
-      </row>
-      <row>
-        <col id="0" translatable="no">4</col>
-      </row>
-      <row>
-        <col id="0" translatable="no">5</col>
-      </row>
-      <row>
-        <col id="0" translatable="no">6</col>
-      </row>
-      <row>
-        <col id="0" translatable="no">7</col>
-      </row>
-      <row>
-        <col id="0" translatable="no">8</col>
-      </row>
-    </data>
-  </object>
   <object class="GtkDialog" id="dialog_prefs">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -532,16 +419,23 @@
                           </object>
                         </child>
                         <child>
-                          <object class="GtkComboBox" id="basecombobox1">
+                          <object class="GtkDropDown" id="basecombobox1">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="model">model1</property>
-                            <child>
-                              <object class="GtkCellRendererText" id="renderer1"/>
-                              <attributes>
-                                <attribute name="text">0</attribute>
-                              </attributes>
-                            </child>
+                            <property name="model">
+                              <object class="GtkStringList">
+                                <items>
+                                  <item translatable="no">-2</item>
+                                  <item translatable="no">-1</item>
+                                  <item translatable="no">+0</item>
+                                  <item translatable="no">+1</item>
+                                  <item translatable="no">+2</item>
+                                  <item translatable="no">+3</item>
+                                  <item translatable="no">+4</item>
+                                  <item translatable="no">+5</item>
+                                </items>
+                              </object>
+                            </property>
                           </object>
                         </child>
                       </object>
@@ -561,16 +455,23 @@
                           </object>
                         </child>
                         <child>
-                          <object class="GtkComboBox" id="combobox1">
+                          <object class="GtkDropDown" id="combobox1">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="model">model2</property>
-                            <child>
-                              <object class="GtkCellRendererText" id="renderer2"/>
-                              <attributes>
-                                <attribute name="text">0</attribute>
-                              </attributes>
-                            </child>
+                            <property name="model">
+                              <object class="GtkStringList">
+                                <items>
+                                  <item translatable="no">-2</item>
+                                  <item translatable="no">-1</item>
+                                  <item translatable="no">+0</item>
+                                  <item translatable="no">+1</item>
+                                  <item translatable="no">+2</item>
+                                  <item translatable="no">+3</item>
+                                  <item translatable="no">+4</item>
+                                  <item translatable="no">+5</item>
+                                </items>
+                              </object>
+                            </property>
                           </object>
                         </child>
                       </object>
@@ -609,7 +510,7 @@
                           </object>
                         </child>
                         <child>
-                          <object class="GtkComboBox" id="combobox17">
+                          <object class="GtkDropDown" id="combobox17">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <accessibility>
@@ -640,16 +541,23 @@
                             <property name="can_focus">False</property>
                             <property name="homogeneous">True</property>
                             <child>
-                              <object class="GtkComboBox" id="columncountvalue">
+                              <object class="GtkDropDown" id="columncountvalue">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="model">model3</property>
-                                <child>
-                                  <object class="GtkCellRendererText" id="renderer3"/>
-                                  <attributes>
-                                    <attribute name="text">0</attribute>
-                                  </attributes>
-                                </child>
+                                <property name="model">
+                                  <object class="GtkStringList">
+                                    <items>
+                                      <item translatable="no">1</item>
+                                      <item translatable="no">2</item>
+                                      <item translatable="no">3</item>
+                                      <item translatable="no">4</item>
+                                      <item translatable="no">5</item>
+                                      <item translatable="no">6</item>
+                                      <item translatable="no">7</item>
+                                      <item translatable="no">8</item>
+                                    </items>
+                                  </object>
+                                </property>
                               </object>
                             </child>
                             <child>
@@ -1150,7 +1058,7 @@
                               </object>
                             </child>
                             <child>
-                              <object class="GtkComboBox" id="combobox16">
+                              <object class="GtkDropDown" id="combobox16">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <accessibility>
@@ -1489,7 +1397,7 @@
                               </object>
                             </child>
                             <child>
-                              <object class="GtkComboBox" id="combobox2">
+                              <object class="GtkDropDown" id="combobox2">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <accessibility>
@@ -1515,7 +1423,7 @@
                               </object>
                             </child>
                             <child>
-                              <object class="GtkComboBox" id="combobox3">
+                              <object class="GtkDropDown" id="combobox3">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <accessibility>
@@ -1541,7 +1449,7 @@
                               </object>
                             </child>
                             <child>
-                              <object class="GtkComboBox" id="combobox4">
+                              <object class="GtkDropDown" id="combobox4">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <accessibility>
@@ -1567,7 +1475,7 @@
                               </object>
                             </child>
                             <child>
-                              <object class="GtkComboBox" id="combobox15">
+                              <object class="GtkDropDown" id="combobox15">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <accessibility>
@@ -1653,13 +1561,9 @@
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <child>
-                          <object class="GtkTreeView" id="ps_listview">
+                          <object class="GtkListView" id="ps_listview">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="headers_visible">False</property>
-                            <child internal-child="selection">
-                              <object class="GtkTreeSelection" id="treeview-selection2"/>
-                            </child>
                           </object>
                         </child>
                       </object>
@@ -1707,7 +1611,7 @@
                               </object>
                             </child>
                             <child>
-                              <object class="GtkComboBox" id="combobox12">
+                              <object class="GtkDropDown" id="combobox12">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <accessibility>
@@ -1733,7 +1637,7 @@
                               </object>
                             </child>
                             <child>
-                              <object class="GtkComboBox" id="combobox13">
+                              <object class="GtkDropDown" id="combobox13">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <accessibility>
@@ -1759,7 +1663,7 @@
                               </object>
                             </child>
                             <child>
-                              <object class="GtkComboBox" id="combobox14">
+                              <object class="GtkDropDown" id="combobox14">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <accessibility>
@@ -1786,7 +1690,7 @@
                               </object>
                             </child>
                             <child>
-                              <object class="GtkComboBox" id="combobox18">
+                              <object class="GtkDropDown" id="combobox18">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <accessibility>
@@ -1812,7 +1716,7 @@
                               </object>
                             </child>
                             <child>
-                              <object class="GtkComboBox" id="combobox20">
+                              <object class="GtkDropDown" id="combobox20">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <accessibility>
@@ -1838,7 +1742,7 @@
                               </object>
                             </child>
                             <child>
-                              <object class="GtkComboBox" id="combobox19">
+                              <object class="GtkDropDown" id="combobox19">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <accessibility>
@@ -1865,7 +1769,7 @@
                               </object>
                             </child>
                             <child>
-                              <object class="GtkComboBox" id="combobox5">
+                              <object class="GtkDropDown" id="combobox5">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <accessibility>
@@ -1891,7 +1795,7 @@
                               </object>
                             </child>
                             <child>
-                              <object class="GtkComboBox" id="combobox6">
+                              <object class="GtkDropDown" id="combobox6">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <accessibility>
@@ -1917,16 +1821,18 @@
                               </object>
                             </child>
                             <child>
-                              <object class="GtkComboBox" id="combobox_module_grouping">
+                              <object class="GtkDropDown" id="combobox_module_grouping">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="model">model_module_grouping</property>
-                                <child>
-                                  <object class="GtkCellRendererText" id="renderer_module_grouping"/>
-                                  <attributes>
-                                    <attribute name="text">0</attribute>
-                                  </attributes>
-                                </child>
+                                <property name="model">
+                                  <object class="GtkStringList">
+                                    <items>
+                                      <item translatable="yes">Categoría y luego idioma</item>
+                                      <item translatable="yes">Sólo categoría</item>
+                                      <item translatable="yes">Idioma y luego categoría</item>
+                                    </items>
+                                  </object>
+                                </property>
                                 <accessibility>
                                   <property name="label" translatable="yes">Module List Grouping Combo</property>
                                 </accessibility>

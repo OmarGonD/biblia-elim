@@ -19,6 +19,7 @@
 
 #include <gtk/gtk.h>
 #include "gui/widget_helpers.h"
+#include "gui/dropdown_helpers.h"
 #include <glib/gi18n.h>
 
 #include "gui/bibletext.h"
@@ -159,7 +160,7 @@ lsync_save_from_ui(void)
 		if (!combo_slot[i] || !slot_box[i] ||
 		    !gtk_widget_get_visible(slot_box[i]))
 			continue;
-		id = gtk_combo_box_get_active_id(GTK_COMBO_BOX(combo_slot[i]));
+		id = elim_dropdown_get_active_id(GTK_DROP_DOWN(combo_slot[i]));
 		if (!id || !*id)
 			continue;
 		for (j = 0; j < n; j++) {
@@ -175,7 +176,7 @@ lsync_save_from_ui(void)
 }
 
 static void
-fill_one_combo(GtkComboBoxText *combo, const char *selected,
+fill_one_combo(GtkDropDown *combo, const char *selected,
 	       gchar **already, int n_already)
 {
 	GList *bibles = get_list(TEXT_LIST);
@@ -183,7 +184,7 @@ fill_one_combo(GtkComboBoxText *combo, const char *selected,
 	int index = 0, active = 0, fallback = -1;
 	gboolean found = FALSE;
 
-	gtk_combo_box_text_remove_all(combo);
+	elim_dropdown_remove_all(combo);
 	for (GList *l = bibles, *d = descs; l; l = l->next, d = d ? d->next : NULL) {
 		const char *name = (const char *)l->data;
 		const char *desc = d ? (const char *)d->data : NULL;
@@ -200,7 +201,7 @@ fill_one_combo(GtkComboBoxText *combo, const char *selected,
 			}
 		}
 		label = label_corto(desc, name);
-		gtk_combo_box_text_append(combo, name, label);
+		elim_dropdown_append(combo, name, label);
 		g_free(label);
 		if (selected && !strcmp(name, selected)) {
 			active = index;
@@ -211,9 +212,9 @@ fill_one_combo(GtkComboBoxText *combo, const char *selected,
 		index++;
 	}
 	if (index > 0)
-		gtk_combo_box_set_active(GTK_COMBO_BOX(combo),
-					 found ? active
-					       : (fallback >= 0 ? fallback : 0));
+		elim_dropdown_set_active(combo,
+				 found ? active
+				       : (fallback >= 0 ? fallback : 0));
 }
 
 static void
@@ -267,7 +268,7 @@ lectura_sync_fill_combo(void)
 	for (i = 0; names[i] && i < LSYNC_MAX; i++) {
 		if (combo_changed_id[i])
 			g_signal_handler_block(combo_slot[i], combo_changed_id[i]);
-		fill_one_combo(GTK_COMBO_BOX_TEXT(combo_slot[i]), names[i],
+		fill_one_combo(GTK_DROP_DOWN(combo_slot[i]), names[i],
 			       names, i);
 		if (combo_changed_id[i])
 			g_signal_handler_unblock(combo_slot[i], combo_changed_id[i]);
@@ -392,9 +393,11 @@ gui_lectura_sync_set_ref(const char *ref)
 }
 
 static void
-on_combo_lectura_sync_changed(GtkComboBox *combo, gpointer user_data)
+on_combo_lectura_sync_changed(GObject *combo, GParamSpec *pspec,
+			      gpointer user_data)
 {
 	(void)combo;
+	(void)pspec;
 	(void)user_data;
 	lsync_save_from_ui();
 	ficha_strongs = FALSE;
@@ -705,7 +708,7 @@ gui_lectura_sync_wrap(GtkWidget *html_master)
 
 	gtk_paned_set_start_child(GTK_PANED(paned), html_master);
 	gtk_paned_set_resize_start_child(GTK_PANED(paned), TRUE);
-	gtk_paned_set_shrink_start_child(GTK_PANED(paned), TRUE);
+	gtk_paned_set_shrink_start_child(GTK_PANED(paned), FALSE);
 
 	UI_VBOX(widgets.box_lectura_sync, FALSE, 0);
 
@@ -752,7 +755,7 @@ gui_lectura_sync_wrap(GtkWidget *html_master)
 			gtk_widget_set_cursor_from_name(drag_handle[i], "grab");
 			gtk_box_append(GTK_BOX(slot_box[i]), drag_handle[i]);
 
-			combo_slot[i] = gtk_combo_box_text_new();
+			combo_slot[i] = elim_dropdown_new();
 			gtk_widget_set_valign(combo_slot[i], GTK_ALIGN_CENTER);
 			gtk_widget_set_hexpand(combo_slot[i], i == 0);
 			gui_box_pack(GTK_BOX(slot_box[i]), combo_slot[i], TRUE, TRUE, 0);
@@ -892,13 +895,13 @@ gui_lectura_sync_wrap(GtkWidget *html_master)
 
 	gtk_paned_set_end_child(GTK_PANED(paned), widgets.box_lectura_sync);
 	gtk_paned_set_resize_end_child(GTK_PANED(paned), TRUE);
-	gtk_paned_set_shrink_end_child(GTK_PANED(paned), TRUE);
+	gtk_paned_set_shrink_end_child(GTK_PANED(paned), FALSE);
 
 	{
 		int i;
 		for (i = 0; i < LSYNC_MAX; i++)
 			combo_changed_id[i] =
-			    g_signal_connect(G_OBJECT(combo_slot[i]), "changed",
+			    g_signal_connect(G_OBJECT(combo_slot[i]), "notify::selected",
 					     G_CALLBACK(on_combo_lectura_sync_changed),
 					     NULL);
 	}

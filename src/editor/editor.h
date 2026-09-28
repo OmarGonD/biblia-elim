@@ -1,6 +1,6 @@
 /*
  * Xiphos Bible Study Tool
- * editor.h - webkit stuff
+ * editor.h - shared types and API of the note/book/studypad editor
  *
  * Copyright (C) 2005-2026 Xiphos Developer Team
  *
@@ -29,27 +29,68 @@ extern "C" {
 
 #include <gtk/gtk.h>
 
-#ifdef USE_WEBKIT_EDITOR
+#include "main/navbar_versekey.h"
 
-#include "editor/webkit_editor.h"
+struct _tool_items
+{
+	/* GTK4 has no GtkToolButton hierarchy.  The GtkTextView editor
+	 * stores the controls as their GTK4 base types. */
+	GtkToggleButton *bold;
+	GtkToggleButton *italic;
+	GtkToggleButton *underline;
+	GtkToggleButton *strike;
+	GtkWidget *color;
+	GtkButton *newdoc;
+	GtkButton *open;
+	GtkButton *deletedoc;
+	GtkWidget *cb;
+};
+typedef struct _tool_items TOOL_ITEMS;
 
-gchar *editor_get_selected_text(EDITOR *e);
-void editor_find_string(gchar *needle, EDITOR *e);
-void editor_replace_string(gchar *old_string, gchar *new_string,
-			   EDITOR *e);
-gint editor_insert_new_outline_level(gint level, EDITOR *e);
-gboolean editor_cut(EDITOR *e);
-gboolean editor_copy(EDITOR *e);
-gboolean editor_paste(EDITOR *e);
-void editor_get_document_content(GString *data, EDITOR *e);
-gboolean editor_insert_link(void);
-gboolean editor_insert_sword_link(void);
-void editor_insert_link_ok(void);
-void editor_execute_script(gchar *script, EDITOR *e);
-void editor_insert_html(const gchar *html, EDITOR *e);
-void create_editor_window(GtkWidget *scrollwindow, EDITOR *e);
+typedef struct _editor EDITOR;
+struct _editor
+{
+	GtkWidget *window;
+	GtkWidget *toolbar;
+	GtkWidget *treeview;
+	GtkWidget *sync_button;
+	GtkWidget *html_widget;
+	GtkWidget *statusbar;
+	GtkWidget *text_widget;  // For GtkTextView
+	GtkWidget *navbar_box;   // For navbar
+	GtkWidget *box;          // For main vbox
+	TOOL_ITEMS toolitems;
 
-#endif /* USE_WEBKIT_EDITOR */
+	NAVBAR_VERSEKEY navbar;
+
+	gint type;
+
+	gboolean studypad;
+	gboolean noteeditor;
+	gboolean bookeditor;
+	gboolean is_changed;
+	gboolean sync;
+
+	gchar *filename;
+	gchar *module;
+	gchar *key;
+};
+
+enum {
+	STUDYPAD_EDITOR,
+	NOTE_EDITOR,
+	BOOK_EDITOR
+};
+
+void editor_sync_with_main(void);
+void editor_load_note(EDITOR *e, const gchar *module_name,
+		      const gchar *key);
+void editor_load_book(EDITOR *e);
+gint editor_create_new(const gchar *filename, const gchar *key,
+		       gint note);
+void editor_save_book(EDITOR *e);
+void editor_maybe_save_all(void);
+GtkWidget *editor_new(const gchar *title, EDITOR *e);
 
 #ifdef __cplusplus
 }

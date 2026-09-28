@@ -9,6 +9,7 @@
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 #include "gui/widget_helpers.h"
+#include "gui/dropdown_helpers.h"
 
 #include "backend/bible_backend.h"
 #include "backend/bible_resources.h"
@@ -173,10 +174,11 @@ void selectStrong(StrongDialog *view, const StrongId &strong)
 		showSelectedStrong(view);
 }
 
-void selectorChanged(GtkComboBox *combo, gpointer userData)
+void selectorChanged(GObject *combo, GParamSpec *, gpointer userData)
 {
 	StrongDialog *view = static_cast<StrongDialog *>(userData);
-	const int index = gtk_combo_box_get_active(combo);
+	/* row 0 is the "choose" row; the Strongs follow it */
+	const int index = elim_dropdown_get_active(GTK_DROP_DOWN(combo)) - 1;
 	if (index < 0 || static_cast<std::size_t>(index) >=
 	    view->session->word().strongs.size()) return;
 	selectStrong(view, view->session->word().strongs[index]);
@@ -238,10 +240,11 @@ void selectMorphology(StrongDialog *view, const MorphologyTag &morphology)
 		showSelectedMorphology(view);
 }
 
-void morphSelectorChanged(GtkComboBox *combo, gpointer userData)
+void morphSelectorChanged(GObject *combo, GParamSpec *, gpointer userData)
 {
 	StrongDialog *view = static_cast<StrongDialog *>(userData);
-	const int index = gtk_combo_box_get_active(combo);
+	/* row 0 is the "choose" row; the tags follow it */
+	const int index = elim_dropdown_get_active(GTK_DROP_DOWN(combo)) - 1;
 	const std::vector<MorphologyTag> &tags = view->session->word().morphologyTags;
 	if (index < 0 || static_cast<std::size_t>(index) >= tags.size()) return;
 	selectMorphology(view, tags[index]);
@@ -306,12 +309,17 @@ StrongDialog *createDialog(const std::string &module,
 	gtk_box_append(GTK_BOX(content), view->title);
 
 	if (view->session->word().strongs.size() > 1) {
-		GtkWidget *selector = gtk_combo_box_text_new();
+		GtkWidget *selector = elim_dropdown_new();
+		/* row 0 stands for "nothing chosen yet": the details below still
+		 * ask to select a Strong, and a dropdown cannot show none */
+		elim_dropdown_append(GTK_DROP_DOWN(selector), nullptr,
+			_("Seleccione un Strong"));
 		for (const StrongId &strong : view->session->word().strongs)
-			gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(selector),
+			elim_dropdown_append(GTK_DROP_DOWN(selector), nullptr,
 				formatStrongId(strong).c_str());
 		gui_box_pack(GTK_BOX(content), selector, FALSE, FALSE, 6);
-		g_signal_connect(selector, "changed", G_CALLBACK(selectorChanged), view);
+		g_signal_connect(selector, "notify::selected",
+				 G_CALLBACK(selectorChanged), view);
 	}
 
 	view->details = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
@@ -357,12 +365,15 @@ StrongDialog *createDialog(const std::string &module,
 		GtkWidget *separator = gtk_separator_new(GTK_ORIENTATION_HORIZONTAL);
 		gui_box_pack(GTK_BOX(content), separator, FALSE, FALSE, 4);
 		if (morphologyTags.size() > 1) {
-			GtkWidget *selector = gtk_combo_box_text_new();
+			GtkWidget *selector = elim_dropdown_new();
+			/* row 0: nothing chosen yet, as for the Strong selector */
+			elim_dropdown_append(GTK_DROP_DOWN(selector), nullptr,
+				_("Seleccione una etiqueta"));
 			for (const MorphologyTag &tag : morphologyTags)
-				gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(selector),
+				elim_dropdown_append(GTK_DROP_DOWN(selector), nullptr,
 					taggedCode(tag).c_str());
 			gui_box_pack(GTK_BOX(content), selector, FALSE, FALSE, 6);
-			g_signal_connect(selector, "changed",
+			g_signal_connect(selector, "notify::selected",
 				G_CALLBACK(morphSelectorChanged), view);
 		}
 		GtkWidget *heading = textLabel(_("Ocurrencias morfológicas"), false);

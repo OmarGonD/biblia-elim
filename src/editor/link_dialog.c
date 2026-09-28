@@ -26,16 +26,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-#ifdef USE_WEBKIT_EDITOR
-#include "editor/webkit_editor.h"
-#include "editor/editor.h"
-#elif defined(USE_GTKTVeditor)
 #include "editor/gtktextview_editor.h"
-#else
-#include <editor/gtkhtml-editor.h>
-#include <gtkhtml/gtkhtml-stream.h>
-#include "editor/slib-editor.h"
-#endif
 
 #include "editor/link_dialog.h"
 #include "gui/utilities.h"
@@ -92,9 +83,6 @@ G_MODULE_EXPORT void button_ok_clicked_cb(GObject *object, EDITOR *e)
 
 	XI_message(("link: %s", str->str));
 
-#ifdef USE_WEBKIT_EDITOR
-	editor_insert_html(str->str, e);
-#elif defined(USE_GTKTVeditor)
 {
 	GtkTextBuffer *buffer =
 		gtk_text_view_get_buffer(GTK_TEXT_VIEW(e->text_widget));
@@ -130,10 +118,6 @@ G_MODULE_EXPORT void button_ok_clicked_cb(GObject *object, EDITOR *e)
 	g_free(tag_name);
 	g_free(uri);
 }
-
-#else
-	gtkhtml_editor_insert_html(GTKHTML_EDITOR(e->window), str->str);
-#endif
 
 	g_string_free(str, TRUE);
 	g_free((gchar *)encoded_mod);
@@ -179,14 +163,6 @@ void button_cancel_clicked_cb(GObject *object, gpointer user_data)
 void editor_link_dialog(EDITOR *e)
 {
 	GtkBuilder *builder;
-
-#ifndef USE_WEBKIT_EDITOR
-#ifndef USE_GTKTVeditor
-	GtkHTML *html = gtkhtml_editor_get_html(GTKHTML_EDITOR(e->window));
-	if (html->pointer_url) /* are we in a link */
-		return;	/* if so don't do anything */
-#endif
-#endif
 
 	builder = elim_gtk_builder_new();
 	gtk_builder_add_from_resource(builder,

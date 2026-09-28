@@ -124,10 +124,9 @@
                 <property name="can_focus">True</property>
                 <property name="hscrollbar_policy">never</property>
                 <child>
-                  <object class="GtkTreeView" id="tree_versos">
+                  <object class="GtkColumnView" id="tree_versos">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="headers_visible">True</property>
                   </object>
                 </child>
               <property name="vexpand">True</property>

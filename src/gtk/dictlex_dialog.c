@@ -24,6 +24,7 @@
 
 #include <gtk/gtk.h>
 #include "gui/widget_helpers.h"
+#include "gui/table_helpers.h"
 
 #include "xiphos_html/xiphos_html.h"
 
@@ -44,7 +45,6 @@ extern gboolean dialog_freed;
  * static - global to this file only
  */
 static DIALOG_DATA *cur_dlg;
-static gint cell_height;
 
 /******************************************************************************
  * Name
@@ -63,21 +63,17 @@ static gint cell_height;
  *   void
  */
 
-static void list_selection_changed(GtkTreeSelection *selection,
+static void list_selection_changed(GObject *selection, GParamSpec *pspec,
 				   DIALOG_DATA *d)
 {
-	GtkTreeIter selected;
-	gchar *buf = NULL;
-	GtkTreeModel *model;
+	ElimRow *row = elim_table_get_selected(d->listview);
 
-	if (!gtk_tree_selection_get_selected(selection, &model, &selected))
-		return;
-
-	gtk_tree_model_get(model, &selected, 0, &buf, -1);
-	if (buf) {
-		gtk_editable_set_text(GTK_EDITABLE(d->entry), buf);
-		g_free(buf);
-	}
+	(void)selection;
+	(void)pspec;
+	/* refilling the list drops the selection: that is not a pick */
+	if (row)
+		gtk_editable_set_text(GTK_EDITABLE(d->entry),
+				      elim_row_get_string(row, 0));
 }
 
 /******************************************************************************
@@ -151,63 +147,22 @@ static void dialog_destroy(GObject *object, DIALOG_DATA *dlg)
 	dialog_freed = FALSE;
 }
 
-/******************************************************************************
- * Name
- *  list_button_released
- *
- * Synopsis
- *   #include "gui/dictlex.h"
- *
- *   gint list_button_released(GtkWidget * html, GuiButtonEvent * event,
- *					GSHTMLEditorControlData * d)
- *
- * Description
- *    mouse button released in key list
- *
- * Return value
- *   gint
- */
-
-static gint list_button_released(GtkWidget *html,
-				 GuiButtonEvent *event, DIALOG_DATA *d)
+/* One column of keys, no header. The height of one row is what says how
+ * many keys to list (main_dialogs_dictionary_entry_changed()). */
+static void setup_key_list(GtkWidget *listview, GListStore *store)
 {
-	switch (event->button) {
-	case 1:
-		list_selection_changed((GtkTreeSelection *)
-				       d->mod_selection,
-				       d);
-		break;
-	case 2:
-	case 3:
-	default:
-		break;
-	}
+	ElimTextColumn spec = elim_text_column(0);
+	GtkWidget *sample = gtk_label_new("Ag");
+	gint height;
 
-	return FALSE;
-}
+	spec.pad_y = 2;
+	elim_table_setup_list(listview, store, &spec);
 
-static void add_columns(GtkTreeView *treeview)
-{
-	GtkCellRenderer *renderer;
-	GtkTreeViewColumn *column;
-	GtkRequisition size;
-
-
-	/* column for fixed toggles */
-	renderer = gtk_cell_renderer_text_new();
-
-	column = gtk_tree_view_column_new_with_attributes("Keys",
-							  renderer,
-							  "text", 0, NULL);
-	gtk_tree_view_column_set_sort_column_id(column, 0);
-
-	gtk_tree_view_append_column(treeview, column);
-/* get cell (row) height */
-	gtk_cell_renderer_get_preferred_size(renderer,
-					     GTK_WIDGET(treeview),
-					     NULL, &size);
-	cell_height = size.height;
-	settings.cell_height = cell_height;
+	gtk_widget_measure(sample, GTK_ORIENTATION_VERTICAL, -1, NULL, &height,
+			   NULL, NULL);
+	settings.cell_height = height + 2 * spec.pad_y;
+	g_object_ref_sink(sample);
+	g_object_unref(sample);
 }
 
 /******************************************************************************
@@ -295,7 +250,7 @@ void gui_create_dictlex_dialog(DIALOG_DATA *dlg)
 	GtkWidget *btnSyncDL;
 	GtkWidget *frameDictHTML;
 	GtkWidget *scrolledwindow;
-	GtkListStore *model;
+	GListStore *model;
 
 	dlg->dialog = gtk_window_new();
 
@@ -344,7 +299,7 @@ void gui_create_dictlex_dialog(DIALOG_DATA *dlg)
 	gui_box_pack(GTK_BOX(hbox_toolbar), dlg->entry, TRUE, TRUE, 0);
 
 	/* create tree model */
-	model = gtk_list_store_new(1, G_TYPE_STRING);
+	model = elim_table_new();
 
 	scrolledwindow = gtk_scrolled_window_new();
 	gtk_widget_show(scrolledwindow);
@@ -356,14 +311,12 @@ void gui_create_dictlex_dialog(DIALOG_DATA *dlg)
 	gtk_scrolled_window_set_has_frame(GTK_SCROLLED_WINDOW((GtkScrolledWindow *) scrolledwindow), TRUE);
 
 	/* create tree view */
-	dlg->listview =
-	    gtk_tree_view_new_with_model(GTK_TREE_MODEL(model));
+	dlg->listview = gtk_list_view_new(NULL, NULL);
 	gtk_widget_show(dlg->listview);
 	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(scrolledwindow), dlg->listview);
-	gtk_tree_view_set_headers_visible(GTK_TREE_VIEW(dlg->listview),
-					  FALSE);
-	add_columns(GTK_TREE_VIEW(dlg->listview));
-	dlg->mod_selection = G_OBJECT(gtk_tree_view_get_selection(GTK_TREE_VIEW(dlg->listview)));
+	setup_key_list(dlg->listview, model);
+	g_object_unref(model);
+	dlg->mod_selection = G_OBJECT(elim_table_selection(dlg->listview));
 
 	frameDictHTML = gtk_frame_new(NULL);
 	gtk_widget_show(frameDictHTML);
@@ -389,7 +342,8 @@ void gui_create_dictlex_dialog(DIALOG_DATA *dlg)
 			 G_CALLBACK(on_btnSyncDL_clicked), dlg);
 	g_signal_connect(G_OBJECT(dlg->entry), "changed",
 			 G_CALLBACK(entry_changed), (DIALOG_DATA *)dlg);
-	gui_widget_on_button(GTK_WIDGET(dlg->listview), GTK_PHASE_CAPTURE, NULL, (GuiButtonFunc)list_button_released, dlg);
+	g_signal_connect(dlg->mod_selection, "notify::selected",
+			 G_CALLBACK(list_selection_changed), dlg);
 	cur_dlg = dlg;
 }
 

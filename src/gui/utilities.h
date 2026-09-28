@@ -96,6 +96,9 @@ void language_make_list(GList *modlist,
 			gboolean limited);
 
 GList *get_current_list(GtkTreeView *treeview);
+/* Column 1 of every row of a table made by gui/table_helpers.h; each string
+ * is new. */
+GList *get_current_table_list(GtkWidget *view);
 gchar *get_modlist_string(GList *mods);
 
 GtkBuilder *elim_gtk_builder_new(void);

@@ -38,6 +38,7 @@
 #include <glib/gstdio.h>
 #include <gtk/gtk.h>
 #include "gui/widget_helpers.h"
+#include "gui/table_helpers.h"
 #include <glib/gi18n.h>
 
 #include "gui/buscar_notas.h"
@@ -86,7 +87,7 @@ typedef struct {
 	GPtrArray *ids_etiqueta;
 	GPtrArray *ids_libro;
 	GPtrArray *ids_version;
-	GtkListStore *modelo;
+	GListStore *modelo;
 
 	GList *notas;	 /* HighlightNote*, todas, leídas una vez */
 	GList *entrada;	 /* BN_NOTA*, la misma lista en lo que espera el buscador */
@@ -227,19 +228,18 @@ fecha_corta(gint64 t)
 static void
 fila(const BN_NOTA *n, const gchar *marcado)
 {
-	GtkTreeIter it;
+	ElimRow *it = elim_row_new(N_COLS);
 	gchar *pasaje = pasaje_legible(n->modulo, n->osisref);
 	gchar *fecha = fecha_corta(n->fecha);
 
-	gtk_list_store_append(ui->modelo, &it);
-	gtk_list_store_set(ui->modelo, &it,
-			   COL_PASAJE, pasaje,
-			   COL_EXTRACTO, marcado,
-			   COL_VERSION, n->modulo ? n->modulo : "",
-			   COL_FECHA, fecha,
-			   COL_OSISREF, n->osisref ? n->osisref : "",
-			   COL_MODULO, n->modulo ? n->modulo : "",
-			   -1);
+	elim_row_set_string(it, COL_PASAJE, pasaje);
+	elim_row_set_string(it, COL_EXTRACTO, marcado);
+	elim_row_set_string(it, COL_VERSION, n->modulo ? n->modulo : "");
+	elim_row_set_string(it, COL_FECHA, fecha);
+	elim_row_set_string(it, COL_OSISREF, n->osisref ? n->osisref : "");
+	elim_row_set_string(it, COL_MODULO, n->modulo ? n->modulo : "");
+	g_list_store_append(ui->modelo, it);
+	g_object_unref(it);
 	g_free(fecha);
 	g_free(pasaje);
 	ui->mostradas = g_list_prepend(ui->mostradas, (gpointer)n);
@@ -512,7 +512,7 @@ buscar(void)
 	if (!ui)
 		return;
 
-	gtk_list_store_clear(ui->modelo);
+	g_list_store_remove_all(ui->modelo);
 	g_list_free(ui->mostradas);
 	ui->mostradas = NULL;
 	gtk_widget_set_sensitive(ui->btn_ir, FALSE);
@@ -857,17 +857,14 @@ on_importar(GtkButton *b, gpointer datos)
 static void
 ir_a_la_seleccionada(void)
 {
-	GtkTreeSelection *sel =
-	    gtk_tree_view_get_selection(GTK_TREE_VIEW(ui->tree));
-	GtkTreeModel *modelo;
-	GtkTreeIter it;
-	gchar *osisref = NULL, *modulo = NULL, *url;
+	ElimRow *it = elim_table_get_selected(ui->tree);
+	gchar *osisref, *modulo, *url;
 
-	if (!gtk_tree_selection_get_selected(sel, &modelo, &it))
+	if (!it)
 		return;
 
-	gtk_tree_model_get(modelo, &it, COL_OSISREF, &osisref, COL_MODULO,
-			   &modulo, -1);
+	osisref = g_strdup(elim_row_get_string(it, COL_OSISREF));
+	modulo = g_strdup(elim_row_get_string(it, COL_MODULO));
 	if (osisref && *osisref) {
 		/* El mismo camino que usan las notas enlazadas: lleva a la
 		 * versión en la que se escribió, que es donde la nota se
@@ -932,22 +929,22 @@ on_filtro(GtkDropDown *cmb, GParamSpec *pspec, gpointer datos)
 }
 
 static void
-on_seleccion(GtkTreeSelection *sel, gpointer datos)
+on_seleccion(GObject *sel, GParamSpec *pspec, gpointer datos)
 {
+	(void)sel;
+	(void)pspec;
 	(void)datos;
 	gtk_widget_set_sensitive(ui->btn_ir,
-				 gtk_tree_selection_get_selected(sel, NULL,
-								 NULL));
+				 elim_table_get_selected(ui->tree) != NULL);
 }
 
 static void
-on_fila_activada(GtkTreeView *tree, GtkTreePath *path,
-		 GtkTreeViewColumn *col, gpointer datos)
+on_fila_activada(GtkWidget *tree, guint posicion, gpointer datos)
 {
 	(void)tree;
-	(void)path;
-	(void)col;
 	(void)datos;
+	/* a double click picks the row first, so the picked row is the one */
+	elim_table_select(ui->tree, posicion, FALSE);
 	ir_a_la_seleccionada();
 }
 
@@ -994,17 +991,12 @@ static void
 columna(const char *titulo, int col, gboolean markup, gboolean expande,
 	int minimo)
 {
-	GtkCellRenderer *celda = gtk_cell_renderer_text_new();
-	GtkTreeViewColumn *c;
+	ElimTextColumn spec = elim_text_column((guint)col);
 
-	g_object_set(celda, "ellipsize", PANGO_ELLIPSIZE_END, NULL);
-	c = gtk_tree_view_column_new_with_attributes(
-	    titulo, celda, markup ? "markup" : "text", col, NULL);
-	gtk_tree_view_column_set_expand(c, expande);
-	gtk_tree_view_column_set_resizable(c, TRUE);
-	if (minimo > 0)
-		gtk_tree_view_column_set_min_width(c, minimo);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(ui->tree), c);
+	spec.markup = markup;
+	spec.expand = expande;
+	spec.fixed_width = minimo;
+	elim_table_add_column(ui->tree, titulo, &spec);
 }
 
 void
@@ -1012,7 +1004,6 @@ gui_buscar_notas_dialog(GtkWindow *padre)
 {
 	GtkBuilder *gxml;
 	GtkWidget *btn_cerrar, *btn_exportar, *btn_importar;
-	GtkTreeSelection *sel;
 
 	if (ui && ui->dialog) {
 		gtk_window_present(GTK_WINDOW(ui->dialog));
@@ -1058,11 +1049,8 @@ gui_buscar_notas_dialog(GtkWindow *padre)
 	    GTK_WINDOW(ui->dialog),
 	    padre ? padre : (widgets.app ? GTK_WINDOW(widgets.app) : NULL));
 
-	ui->modelo = gtk_list_store_new(N_COLS, G_TYPE_STRING, G_TYPE_STRING,
-					G_TYPE_STRING, G_TYPE_STRING,
-					G_TYPE_STRING, G_TYPE_STRING);
-	gtk_tree_view_set_model(GTK_TREE_VIEW(ui->tree),
-				GTK_TREE_MODEL(ui->modelo));
+	ui->modelo = elim_table_new();
+	elim_table_setup(ui->tree, ui->modelo);
 	columna(_("Pasaje"), COL_PASAJE, FALSE, FALSE, 170);
 	columna(_("En la nota"), COL_EXTRACTO, TRUE, TRUE, 0);
 	columna(_("Versión"), COL_VERSION, FALSE, FALSE, 90);
@@ -1072,13 +1060,13 @@ gui_buscar_notas_dialog(GtkWindow *padre)
 	rellenar_filtros();
 	buscar();
 
-	sel = gtk_tree_view_get_selection(GTK_TREE_VIEW(ui->tree));
-	g_signal_connect(sel, "changed", G_CALLBACK(on_seleccion), NULL);
+	g_signal_connect(elim_table_selection(ui->tree), "notify::selected",
+			 G_CALLBACK(on_seleccion), NULL);
 	g_signal_connect(ui->entry, "changed", G_CALLBACK(on_cambio), NULL);
 	g_signal_connect(ui->chk_regex, "toggled", G_CALLBACK(on_opcion), NULL);
 	g_signal_connect(ui->chk_mayusculas, "toggled", G_CALLBACK(on_opcion),
 			 NULL);
-	g_signal_connect(ui->tree, "row-activated",
+	g_signal_connect(ui->tree, "activate",
 			 G_CALLBACK(on_fila_activada), NULL);
 	g_signal_connect(ui->btn_ir, "clicked", G_CALLBACK(on_ir), NULL);
 	g_signal_connect(btn_cerrar, "clicked", G_CALLBACK(on_cerrar), NULL);

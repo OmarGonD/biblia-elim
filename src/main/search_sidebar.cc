@@ -38,6 +38,7 @@
 #include "gui/widgets.h"
 #include "gui/dialog.h"
 #include "gui/utilities.h"
+#include "gui/dropdown_helpers.h"
 
 #include "backend/sword_main.hh"
 #include "backend/sword/sword_backend.h"
@@ -216,10 +217,8 @@ void main_do_sidebar_search(gpointer user_data)
 		gchar *str;
 		if (backendSearchLegacy) backendSearchLegacy->clear_search_list();
 		str = g_strdup_printf("%s - %s",
-				      gtk_combo_box_text_get_active_text((GtkComboBoxText *)
-									 ss.entryLower),
-				      gtk_combo_box_text_get_active_text((GtkComboBoxText *)
-									 ss.entryUpper));
+				      elim_dropdown_get_active_text_or_empty(GTK_DROP_DOWN(ss.entryLower)),
+				      elim_dropdown_get_active_text_or_empty(GTK_DROP_DOWN(ss.entryUpper)));
 		if (backendSearchLegacy) {
 			backendSearchLegacy->set_range(settings.MainWindowModule, str);
 			backendSearchLegacy->set_scope2range();
@@ -352,19 +351,15 @@ void main_search_sidebar_fill_bounds_combos(void)
 
 	char *module_name = settings.MainWindowModule;
 
-	GtkTreeModel *upper_model = gtk_combo_box_get_model(
-	    GTK_COMBO_BOX(ss.entryUpper));
-	gtk_list_store_clear(GTK_LIST_STORE(upper_model));
-	GtkTreeModel *lower_model = gtk_combo_box_get_model(
-	    GTK_COMBO_BOX(ss.entryLower));
-	gtk_list_store_clear(GTK_LIST_STORE(lower_model));
+	elim_dropdown_remove_all(GTK_DROP_DOWN(ss.entryUpper));
+	elim_dropdown_remove_all(GTK_DROP_DOWN(ss.entryLower));
 
 	std::vector<std::string> ot_books = backendSearch->bookNames(module_name, 1);
 	if (!ot_books.empty()) {
 		const std::vector<std::string> &books = ot_books;
 		for (const std::string &book : books) {
-			gtk_combo_box_text_append_text((GtkComboBoxText *)ss.entryUpper, book.c_str());
-			gtk_combo_box_text_append_text((GtkComboBoxText *)ss.entryLower, book.c_str());
+			elim_dropdown_append(GTK_DROP_DOWN(ss.entryUpper), nullptr, book.c_str());
+			elim_dropdown_append(GTK_DROP_DOWN(ss.entryLower), nullptr, book.c_str());
 		}
 	}
 
@@ -372,12 +367,12 @@ void main_search_sidebar_fill_bounds_combos(void)
 	if (!nt_books.empty()) {
 		const std::vector<std::string> &books = nt_books;
 		for (const std::string &book : books) {
-			gtk_combo_box_text_append_text((GtkComboBoxText *)ss.entryUpper, book.c_str());
-			gtk_combo_box_text_append_text((GtkComboBoxText *)ss.entryLower, book.c_str());
+			elim_dropdown_append(GTK_DROP_DOWN(ss.entryUpper), nullptr, book.c_str());
+			elim_dropdown_append(GTK_DROP_DOWN(ss.entryLower), nullptr, book.c_str());
 		}
 	}
-	gtk_combo_box_set_active(GTK_COMBO_BOX(ss.entryLower), 0);
-	gtk_combo_box_set_active(GTK_COMBO_BOX(ss.entryUpper),
+	elim_dropdown_set_active(GTK_DROP_DOWN(ss.entryLower), 0);
+	elim_dropdown_set_active(GTK_DROP_DOWN(ss.entryUpper),
 			 backendSearch->bookNames(module_name, 1).size() +
 			 backendSearch->bookNames(module_name, 2).size() - 1);
 }

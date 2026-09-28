@@ -27,12 +27,9 @@
 #include "gui/main_window.h"
 #include "gui/utilities.h"
 #include "gui/widgets.h"
+#include "gui/dropdown_helpers.h"
 
-#ifdef USE_WEBKIT_EDITOR
-#include "editor/webkit_editor.h"
-#else
-#include "editor/slib-editor.h"
-#endif
+#include "editor/editor.h"
 
 #include "main/pulpito.h"
 #include "main/settings.h"
@@ -1749,7 +1746,7 @@ gui_pulpito_elegir(GtkWindow *padre)
 					  _("Abrir en púlpito"),
 					  GTK_RESPONSE_OK, NULL);
 	caja = gtk_dialog_get_content_area(GTK_DIALOG(dlg));
-	combo = gtk_combo_box_text_new();
+	combo = elim_dropdown_new();
 	for (l = sermones; l; l = l->next) {
 		const char *m = (const char *)l->data;
 		gchar *etiqueta;
@@ -1757,11 +1754,10 @@ gui_pulpito_elegir(GtkWindow *padre)
 		etiqueta = main_pulpito_predicado(m)
 			       ? g_strdup_printf(_("%s  ·  predicado"), m)
 			       : g_strdup(m);
-		gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(combo), m,
-					  etiqueta);
+		elim_dropdown_append(GTK_DROP_DOWN(combo), m, etiqueta);
 		g_free(etiqueta);
 	}
-	gtk_combo_box_set_active(GTK_COMBO_BOX(combo), 0);
+	elim_dropdown_set_active(GTK_DROP_DOWN(combo), 0);
 	gtk_widget_set_margin_start(combo, 12);
 	gtk_widget_set_margin_end(combo, 12);
 	gtk_widget_set_margin_top(combo, 12);
@@ -1797,11 +1793,11 @@ gui_pulpito_elegir(GtkWindow *padre)
 		GtkWidget *etq = gtk_label_new(_("En la segunda pantalla:"));
 		int i;
 
-		combo2 = gtk_combo_box_text_new();
+		combo2 = elim_dropdown_new();
 		for (i = 0; i < 4; ++i)
-			gtk_combo_box_text_append_text(
-			    GTK_COMBO_BOX_TEXT(combo2), _(que[i]));
-		gtk_combo_box_set_active(GTK_COMBO_BOX(combo2),
+			elim_dropdown_append(GTK_DROP_DOWN(combo2), NULL,
+					     _(que[i]));
+		elim_dropdown_set_active(GTK_DROP_DOWN(combo2),
 					 (int)main_pulpito_segunda());
 		gtk_label_set_xalign(GTK_LABEL(etq), 0.0);
 		gtk_widget_set_margin_start(etq, 12);
@@ -1818,14 +1814,14 @@ gui_pulpito_elegir(GtkWindow *padre)
 	resp = gui_dialog_run(GTK_DIALOG(dlg));
 	if (resp == GTK_RESPONSE_OK) {
 		const gchar *id =
-		    gtk_combo_box_get_active_id(GTK_COMBO_BOX(combo));
+		    elim_dropdown_get_active_id(GTK_DROP_DOWN(combo));
 		gchar *elegido = g_strdup(id ? id : "");
 
 		main_pulpito_objetivo_poner(gtk_spin_button_get_value_as_int(
 		    GTK_SPIN_BUTTON(reloj)));
 		if (combo2)
 			main_pulpito_segunda_poner((PU_SEGUNDA)
-			    gtk_combo_box_get_active(GTK_COMBO_BOX(combo2)));
+			    elim_dropdown_get_active(GTK_DROP_DOWN(combo2)));
 		gui_widget_destroy(dlg);
 		if (*elegido)
 			gui_pulpito_abrir(elegido);

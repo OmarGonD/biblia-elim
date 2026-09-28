@@ -59,6 +59,7 @@ struct _WkTextView
 };
 
 enum {
+	VIEW_SIZE_ALLOCATING,
 	VIEW_SIZE_ALLOCATED,
 	VIEW_AFTER_PAINT,
 	VIEW_LAST_SIGNAL
@@ -74,6 +75,7 @@ wk_text_view_size_allocate(GtkWidget *widget, int width, int height,
 {
 	GdkRectangle allocation = {0, 0, width, height};
 
+	g_signal_emit(widget, view_signals[VIEW_SIZE_ALLOCATING], 0, &allocation);
 	GTK_WIDGET_CLASS(wk_text_view_parent_class)
 	    ->size_allocate(widget, width, height, baseline);
 	g_signal_emit(widget, view_signals[VIEW_SIZE_ALLOCATED], 0, &allocation);
@@ -118,6 +120,11 @@ wk_text_view_class_init(WkTextViewClass *klass)
 	widget_class->size_allocate = wk_text_view_size_allocate;
 	widget_class->realize = wk_text_view_realize;
 	widget_class->unrealize = wk_text_view_unrealize;
+	view_signals[VIEW_SIZE_ALLOCATING] =
+	    g_signal_new("size-allocating", G_TYPE_FROM_CLASS(klass),
+			 G_SIGNAL_RUN_LAST, 0, NULL, NULL,
+			 g_cclosure_marshal_VOID__POINTER, G_TYPE_NONE, 1,
+			 G_TYPE_POINTER);
 	view_signals[VIEW_SIZE_ALLOCATED] =
 	    g_signal_new("size-allocated", G_TYPE_FROM_CLASS(klass),
 			 G_SIGNAL_RUN_LAST, 0, NULL, NULL,
@@ -1468,7 +1475,10 @@ insert_hr(ParseCtx *ctx, const char *color_attr)
 	gtk_widget_set_margin_top(sep, 0);
 	gtk_widget_set_margin_bottom(sep, 0);
 	place_child(ctx, sep);
-	g_signal_connect_object(GTK_WIDGET(ctx->html->priv->view), "size-allocated",
+	/* Before the view lays its children out for the new width: a
+	 * separator still asking for the old, wider width is measured
+	 * against the narrower allocation and GTK warns. */
+	g_signal_connect_object(GTK_WIDGET(ctx->html->priv->view), "size-allocating",
 				G_CALLBACK(hr_fit), sep, 0);
 	gtk_widget_get_allocation(GTK_WIDGET(ctx->html->priv->view), &alloc);
 	if (alloc.width > 28)

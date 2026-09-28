@@ -4,10 +4,8 @@ src/backend/gs_stringmgr.cpp
 src/backend/module_manager.cc
 src/backend/sword_main.cc
 ## Editor Source files
-src/editor/editor.c
+src/editor/gtktextview_editor.c
 src/editor/link_dialog.c
-src/editor/slib-editor.c
-src/editor/webkit_editor.c
 ## Examples source files
 src/examples/ipc_client.c
 src/examples/xiphos-nav.c
@@ -129,8 +127,6 @@ ui/editor_studypad.xml
 ui/export-dialog.glade
 [type: gettext/glade]ui/export-dialog.gtkbuilder
 [type: gettext/glade]ui/folder.gtkbuilder
-[type: gettext/glade]ui/gtk2_webedit.ui
-[type: gettext/glade]ui/gtk_webedit.ui
 ui/markverse.glade
 [type: gettext/glade]ui/markverse.gtkbuilder
 ui/module-manager.glade

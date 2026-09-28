@@ -12,6 +12,8 @@
 #include "gui/sqlite_module_manager_dialog.h"
 #include <gtk/gtk.h>
 #include "gui/widget_helpers.h"
+#include "gui/dropdown_helpers.h"
+#include "gui/table_helpers.h"
 #include <glib/gi18n.h>
 #include <glib/gstdio.h>
 
@@ -51,7 +53,7 @@ static GtkWidget *combo_lang = NULL;
 static GtkWidget *search_entry = NULL;
 static GtkWidget *chk_bibles = NULL;
 static GtkWidget *tree = NULL;
-static GtkListStore *store = NULL;
+static GListStore *store = NULL;
 static GtkWidget *progress = NULL;
 static GtkWidget *status_lbl = NULL;
 static GtkWidget *btn_refresh = NULL;
@@ -329,7 +331,7 @@ active_source(void)
 {
 	if (!combo_src)
 		return NULL;
-	return gtk_combo_box_get_active_id(GTK_COMBO_BOX(combo_src));
+	return elim_dropdown_get_active_id(GTK_DROP_DOWN(combo_src));
 }
 
 static gint
@@ -343,76 +345,50 @@ cmp_str_ptr(gconstpointer a, gconstpointer b)
 static void
 update_install_sensitive(void)
 {
-	GtkTreeIter iter;
-	gboolean valid;
 	gboolean any = FALSE;
+	guint i;
 
 	if (!store || busy)
 		return;
-	valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(store), &iter);
-	while (valid) {
-		gboolean chk = FALSE, inst = FALSE;
-		gtk_tree_model_get(GTK_TREE_MODEL(store), &iter,
-				   COL_CHECK, &chk,
-				   COL_INSTALLED, &inst, -1);
-		if (chk && !inst) {
-			any = TRUE;
-			break;
-		}
-		valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(store), &iter);
+	for (i = 0; !any && i < g_list_model_get_n_items(G_LIST_MODEL(store)); i++) {
+		ElimRow *row = elim_table_get(store, i);
+
+		any = elim_row_get_int(row, COL_CHECK) &&
+		      !elim_row_get_int(row, COL_INSTALLED);
 	}
 	gtk_widget_set_sensitive(btn_install, any);
 }
 
+/* The reader clicked the check box of ROW. */
 static void
-on_toggle(GtkCellRendererToggle *cell, gchar *path_str, gpointer data)
+on_toggle(ElimRow *row, gpointer data)
 {
-	GtkTreeIter iter;
-	gboolean val, inst;
-
-	(void)cell;
 	(void)data;
 	if (busy)
 		return;
-	if (!gtk_tree_model_get_iter_from_string(GTK_TREE_MODEL(store),
-						 &iter, path_str))
+	if (elim_row_get_int(row, COL_INSTALLED))
 		return;
-	gtk_tree_model_get(GTK_TREE_MODEL(store), &iter,
-			   COL_CHECK, &val,
-			   COL_INSTALLED, &inst, -1);
-	if (inst)
-		return;
-	gtk_list_store_set(store, &iter, COL_CHECK, !val, -1);
+	elim_row_set_int(row, COL_CHECK, !elim_row_get_int(row, COL_CHECK));
 	update_install_sensitive();
 }
 
 static void
 mark_row(const char *name, gboolean ok)
 {
-	GtkTreeIter iter;
-	gboolean valid;
+	guint i;
 
-	valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(store), &iter);
-	while (valid) {
-		gchar *n = NULL;
-		gtk_tree_model_get(GTK_TREE_MODEL(store), &iter,
-				   COL_NAME, &n, -1);
-		if (n && name && !strcmp(n, name)) {
-			if (ok)
-				gtk_list_store_set(store, &iter,
-						   COL_CHECK, FALSE,
-						   COL_INSTALLED, TRUE,
-						   COL_STATUS, _("Instalada"),
-						   -1);
-			else
-				gtk_list_store_set(store, &iter,
-						   COL_STATUS, _("Error"),
-						   -1);
-			g_free(n);
-			return;
-		}
-		g_free(n);
-		valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(store), &iter);
+	for (i = 0; name && i < g_list_model_get_n_items(G_LIST_MODEL(store)); i++) {
+		ElimRow *row = elim_table_get(store, i);
+
+		if (strcmp(elim_row_get_string(row, COL_NAME), name) != 0)
+			continue;
+		if (ok) {
+			elim_row_set_int(row, COL_CHECK, 0);
+			elim_row_set_int(row, COL_INSTALLED, 1);
+			elim_row_set_string(row, COL_STATUS, _("Instalada"));
+		} else
+			elim_row_set_string(row, COL_STATUS, _("Error"));
+		return;
 	}
 }
 
@@ -426,11 +402,10 @@ refill_langs(void)
 	gchar *keep_copy;
 
 	filling = TRUE;
-	keep = gtk_combo_box_get_active_id(GTK_COMBO_BOX(combo_lang));
+	keep = elim_dropdown_get_active_id(GTK_DROP_DOWN(combo_lang));
 	keep_copy = g_strdup(keep);
-	gtk_combo_box_text_remove_all(GTK_COMBO_BOX_TEXT(combo_lang));
-	gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(combo_lang),
-				  "all", _("Todos los idiomas"));
+	elim_dropdown_remove_all(GTK_DROP_DOWN(combo_lang));
+	elim_dropdown_append(GTK_DROP_DOWN(combo_lang), "all", _("Todos los idiomas"));
 
 	seen = g_hash_table_new(g_str_hash, g_str_equal);
 	names = g_ptr_array_new();
@@ -451,30 +426,25 @@ refill_langs(void)
 	for (i = 0; i < names->len; i++) {
 		const char *lang = g_ptr_array_index(names, i);
 		if (lang_is_spanish(lang)) {
-			gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(combo_lang),
-						  lang, lang_label(lang));
+			elim_dropdown_append(GTK_DROP_DOWN(combo_lang), lang, lang_label(lang));
 			g_ptr_array_remove_index(names, i);
 			break;
 		}
 	}
 	for (i = 0; i < names->len; i++) {
 		const char *lang = g_ptr_array_index(names, i);
-		gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(combo_lang),
-					  lang, lang_label(lang));
+		elim_dropdown_append(GTK_DROP_DOWN(combo_lang), lang, lang_label(lang));
 	}
 	g_ptr_array_free(names, TRUE);
 	g_hash_table_destroy(seen);
 
-	if (keep_copy && gtk_combo_box_set_active_id(GTK_COMBO_BOX(combo_lang),
-						     keep_copy)) {
+	if (keep_copy && elim_dropdown_set_active_id(GTK_DROP_DOWN(combo_lang), keep_copy)) {
 		/* kept */
-	} else if (gtk_combo_box_set_active_id(GTK_COMBO_BOX(combo_lang),
-					       "Español") ||
-		   gtk_combo_box_set_active_id(GTK_COMBO_BOX(combo_lang),
-					       "Spanish")) {
+	} else if (elim_dropdown_set_active_id(GTK_DROP_DOWN(combo_lang), "Español") ||
+		   elim_dropdown_set_active_id(GTK_DROP_DOWN(combo_lang), "Spanish")) {
 		/* prefer Spanish for this church app */
 	} else {
-		gtk_combo_box_set_active_id(GTK_COMBO_BOX(combo_lang), "all");
+		elim_dropdown_set_active_id(GTK_DROP_DOWN(combo_lang), "all");
 	}
 	g_free(keep_copy);
 	filling = FALSE;
@@ -490,11 +460,11 @@ refill_view(void)
 	guint i, vis = 0, inst = 0;
 	gchar *count;
 
-	gtk_list_store_clear(store);
+	g_list_store_remove_all(store);
 	if (!mods)
 		return;
 
-	lang_id = gtk_combo_box_get_active_id(GTK_COMBO_BOX(combo_lang));
+	lang_id = elim_dropdown_get_active_id(GTK_DROP_DOWN(combo_lang));
 	needle = gtk_editable_get_text(GTK_EDITABLE(search_entry));
 	needle_cf = (needle && *needle) ? g_utf8_casefold(needle, -1) : NULL;
 	only_bibles = gtk_check_button_get_active(GTK_CHECK_BUTTON(chk_bibles));
@@ -502,7 +472,7 @@ refill_view(void)
 	for (i = 0; i < mods->len; i++) {
 		MOD_MGR *m = g_ptr_array_index(mods, i);
 		const char *desc;
-		GtkTreeIter iter;
+		ElimRow *row;
 		gboolean hit;
 
 		if (only_bibles && !is_bible(m))
@@ -522,18 +492,20 @@ refill_view(void)
 			if (!hit)
 				continue;
 		}
-		gtk_list_store_append(store, &iter);
-		gtk_list_store_set(store, &iter,
-				   COL_CHECK, FALSE,
-				   COL_DESC, desc,
-				   COL_NAME, m->name,
-				   COL_LANG, lang_label(m->language),
-				   COL_TYPE, type_label(m),
-				   COL_SIZE, m->installsize ? m->installsize : "",
-				   COL_STATUS, m->installed ? _("Instalada")
-							    : _("Disponible"),
-				   COL_INSTALLED, m->installed ? TRUE : FALSE,
-				   -1);
+		row = elim_row_new(N_COLS);
+		elim_row_set_int(row, COL_CHECK, 0);
+		elim_row_set_string(row, COL_DESC, desc);
+		elim_row_set_string(row, COL_NAME, m->name);
+		elim_row_set_string(row, COL_LANG, lang_label(m->language));
+		elim_row_set_string(row, COL_TYPE, type_label(m));
+		elim_row_set_string(row, COL_SIZE,
+				    m->installsize ? m->installsize : "");
+		elim_row_set_string(row, COL_STATUS,
+				    m->installed ? _("Instalada")
+						 : _("Disponible"));
+		elim_row_set_int(row, COL_INSTALLED, m->installed ? 1 : 0);
+		g_list_store_append(store, row);
+		g_object_unref(row);
 		vis++;
 		if (m->installed)
 			inst++;
@@ -578,7 +550,7 @@ load_catalog(gboolean force_refresh)
 
 	set_busy(TRUE);
 	clear_mods();
-	gtk_list_store_clear(store);
+	g_list_store_remove_all(store);
 
 	if (force_refresh) {
 		msg = g_strdup_printf(_("Descargando catálogo de %s…"), src);
@@ -624,9 +596,10 @@ load_catalog(gboolean force_refresh)
 }
 
 static void
-on_src_changed(GtkComboBox *combo, gpointer data)
+on_src_changed(GObject *combo, GParamSpec *pspec, gpointer data)
 {
 	(void)combo;
+	(void)pspec;
 	(void)data;
 	if (filling || busy)
 		return;
@@ -1445,8 +1418,6 @@ on_ib_refresh_clicked(GtkButton *b, gpointer data)
 static void
 on_ib_install_clicked(GtkButton *b, gpointer data)
 {
-	GtkTreeIter iter;
-	gboolean valid;
 	GPtrArray *todo;
 	const char *src;
 	guint i;
@@ -1463,19 +1434,14 @@ on_ib_install_clicked(GtkButton *b, gpointer data)
 		return;
 
 	todo = g_ptr_array_new_with_free_func(g_free);
-	valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(store), &iter);
-	while (valid) {
-		gboolean chk = FALSE, inst = FALSE;
-		gchar *name = NULL;
-		gtk_tree_model_get(GTK_TREE_MODEL(store), &iter,
-				   COL_CHECK, &chk,
-				   COL_INSTALLED, &inst,
-				   COL_NAME, &name, -1);
-		if (chk && !inst && name)
-			g_ptr_array_add(todo, name);
-		else
-			g_free(name);
-		valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(store), &iter);
+	for (i = 0; i < g_list_model_get_n_items(G_LIST_MODEL(store)); i++) {
+		ElimRow *row = elim_table_get(store, i);
+
+		if (elim_row_get_int(row, COL_CHECK) &&
+		    !elim_row_get_int(row, COL_INSTALLED) &&
+		    *elim_row_get_string(row, COL_NAME))
+			g_ptr_array_add(todo,
+					g_strdup(elim_row_get_string(row, COL_NAME)));
 	}
 
 	if (todo->len == 0) {
@@ -1623,22 +1589,6 @@ on_destroy(GtkWidget *w, gpointer data)
 	busy = FALSE;
 }
 
-static GtkWidget *
-add_col(GtkTreeView *tv, const char *title, int col, int min_w, gboolean expand)
-{
-	GtkCellRenderer *r;
-	GtkTreeViewColumn *c;
-
-	r = gtk_cell_renderer_text_new();
-	g_object_set(r, "ellipsize", PANGO_ELLIPSIZE_END, NULL);
-	c = gtk_tree_view_column_new_with_attributes(title, r, "text", col, NULL);
-	gtk_tree_view_column_set_resizable(c, TRUE);
-	gtk_tree_view_column_set_min_width(c, min_w);
-	gtk_tree_view_column_set_expand(c, expand);
-	gtk_tree_view_append_column(tv, c);
-	return (GtkWidget *)c;
-}
-
 static void
 fill_sources(void)
 {
@@ -1648,7 +1598,7 @@ fill_sources(void)
 	gboolean got_cw = FALSE;
 
 	filling = TRUE;
-	gtk_combo_box_text_remove_all(GTK_COMBO_BOX_TEXT(combo_src));
+	elim_dropdown_remove_all(GTK_DROP_DOWN(combo_src));
 	have = mod_mgr_list_remote_sources();
 	caps = g_ptr_array_new();
 	for (t = have; t; t = t->next) {
@@ -1663,8 +1613,7 @@ fill_sources(void)
 		for (j = 0; j < caps->len; j++) {
 			const char *cap = g_ptr_array_index(caps, j);
 			if (source_rank(cap) == (int)i) {
-				gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(combo_src),
-							  cap, cap);
+				elim_dropdown_append(GTK_DROP_DOWN(combo_src), cap, cap);
 				if (i == 0)
 					got_cw = TRUE;
 				g_ptr_array_remove_index(caps, j);
@@ -1674,16 +1623,35 @@ fill_sources(void)
 	}
 	for (i = 0; i < caps->len; i++) {
 		const char *cap = g_ptr_array_index(caps, i);
-		gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(combo_src),
-					  cap, cap);
+		elim_dropdown_append(GTK_DROP_DOWN(combo_src), cap, cap);
 	}
 	g_ptr_array_free(caps, TRUE);
 	g_list_free_full(have, free_source);
 
-	if (!gtk_combo_box_set_active_id(GTK_COMBO_BOX(combo_src), "CrossWire HTTPS") &&
+	if (!elim_dropdown_set_active_id(GTK_DROP_DOWN(combo_src), "CrossWire HTTPS") &&
 	    !got_cw)
-		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_src), 0);
+		elim_dropdown_set_active(GTK_DROP_DOWN(combo_src), 0);
 	filling = FALSE;
+}
+
+static void
+on_lang_selected(GObject *combo, GParamSpec *pspec, gpointer data)
+{
+	(void)pspec;
+	on_filter_changed(GTK_WIDGET(combo), data);
+}
+
+/* A column of text; every cell has the module's description as its tooltip,
+ * so a name cut short can be read. */
+static void
+add_col(GtkWidget *view, const char *title, int col, int width, gboolean expand)
+{
+	ElimTextColumn spec = elim_text_column((guint)col);
+
+	spec.expand = expand;
+	spec.fixed_width = width;
+	spec.tooltip_column = COL_DESC;
+	elim_table_add_column(view, title, &spec);
 }
 
 static GtkWidget *
@@ -1691,8 +1659,6 @@ build_dialog(void)
 {
 	GtkWidget *win, *hb, *outer, *row, *lbl, *scroller, *bbox;
 	GtkWidget *hint;
-	GtkCellRenderer *tog;
-	GtkTreeViewColumn *chk_col;
 	win = gtk_window_new();
 	gtk_window_set_title(GTK_WINDOW(win), _("Instalar Biblias"));
 	gtk_window_set_default_size(GTK_WINDOW(win), 820, 560);
@@ -1730,7 +1696,7 @@ build_dialog(void)
 	row = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 8);
 	lbl = gtk_label_new(_("Fuente"));
 	gtk_widget_set_valign(lbl, GTK_ALIGN_CENTER);
-	combo_src = gtk_combo_box_text_new();
+	combo_src = elim_dropdown_new();
 	gtk_widget_set_hexpand(combo_src, TRUE);
 	gtk_widget_set_tooltip_text(combo_src,
 				    _("CrossWire es el catálogo principal. eBible.org tiene muchas lenguas vernáculas. HTTPS ayuda si el FTP está bloqueado."));
@@ -1746,7 +1712,7 @@ build_dialog(void)
 	row = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 8);
 	lbl = gtk_label_new(_("Idioma"));
 	gtk_widget_set_valign(lbl, GTK_ALIGN_CENTER);
-	combo_lang = gtk_combo_box_text_new();
+	combo_lang = elim_dropdown_new();
 	gtk_widget_set_size_request(combo_lang, 180, -1);
 	search_entry = gtk_search_entry_new();
 	gtk_search_entry_set_placeholder_text(GTK_SEARCH_ENTRY(search_entry),
@@ -1760,36 +1726,17 @@ build_dialog(void)
 	gtk_box_append(GTK_BOX(row), chk_bibles);
 	gtk_box_append(GTK_BOX(outer), row);
 
-	store = gtk_list_store_new(N_COLS,
-				   G_TYPE_BOOLEAN,
-				   G_TYPE_STRING,
-				   G_TYPE_STRING,
-				   G_TYPE_STRING,
-				   G_TYPE_STRING,
-				   G_TYPE_STRING,
-				   G_TYPE_STRING,
-				   G_TYPE_BOOLEAN);
-	tree = gtk_tree_view_new_with_model(GTK_TREE_MODEL(store));
+	store = elim_table_new();
+	tree = elim_table_view_new(store);
 	g_object_unref(store);
-	gtk_tree_view_set_headers_visible(GTK_TREE_VIEW(tree), TRUE);
-	gtk_tree_view_set_enable_search(GTK_TREE_VIEW(tree), TRUE);
-	gtk_tree_view_set_search_column(GTK_TREE_VIEW(tree), COL_DESC);
-	gtk_tree_view_set_tooltip_column(GTK_TREE_VIEW(tree), COL_DESC);
 
-	tog = gtk_cell_renderer_toggle_new();
-	g_signal_connect(tog, "toggled", G_CALLBACK(on_toggle), NULL);
-	chk_col = gtk_tree_view_column_new();
-	gtk_tree_view_column_set_title(chk_col, " ");
-	gtk_tree_view_column_pack_start(chk_col, tog, FALSE);
-	gtk_tree_view_column_add_attribute(chk_col, tog, "active", COL_CHECK);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(tree), chk_col);
-
-	add_col(GTK_TREE_VIEW(tree), _("Nombre"), COL_DESC, 220, TRUE);
-	add_col(GTK_TREE_VIEW(tree), _("Módulo"), COL_NAME, 90, FALSE);
-	add_col(GTK_TREE_VIEW(tree), _("Idioma"), COL_LANG, 90, FALSE);
-	add_col(GTK_TREE_VIEW(tree), _("Tipo"), COL_TYPE, 90, FALSE);
-	add_col(GTK_TREE_VIEW(tree), _("Tamaño"), COL_SIZE, 70, FALSE);
-	add_col(GTK_TREE_VIEW(tree), _("Estado"), COL_STATUS, 90, FALSE);
+	elim_table_add_toggle_column(tree, " ", COL_CHECK, on_toggle, NULL);
+	add_col(tree, _("Nombre"), COL_DESC, 220, TRUE);
+	add_col(tree, _("Módulo"), COL_NAME, 90, FALSE);
+	add_col(tree, _("Idioma"), COL_LANG, 90, FALSE);
+	add_col(tree, _("Tipo"), COL_TYPE, 90, FALSE);
+	add_col(tree, _("Tamaño"), COL_SIZE, 70, FALSE);
+	add_col(tree, _("Estado"), COL_STATUS, 90, FALSE);
 
 	scroller = gtk_scrolled_window_new();
 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scroller),
@@ -1845,8 +1792,8 @@ build_dialog(void)
 	gtk_box_append(GTK_BOX(bbox), btn_install);
 	gtk_box_append(GTK_BOX(outer), bbox);
 
-	g_signal_connect(combo_src, "changed", G_CALLBACK(on_src_changed), NULL);
-	g_signal_connect(combo_lang, "changed", G_CALLBACK(on_filter_changed), NULL);
+	g_signal_connect(combo_src, "notify::selected", G_CALLBACK(on_src_changed), NULL);
+	g_signal_connect(combo_lang, "notify::selected", G_CALLBACK(on_lang_selected), NULL);
 	g_signal_connect(search_entry, "search-changed",
 			 G_CALLBACK(on_filter_changed), NULL);
 	g_signal_connect(chk_bibles, "toggled", G_CALLBACK(on_filter_changed), NULL);

@@ -19,6 +19,8 @@
 
 #include <gtk/gtk.h>
 #include "gui/widget_helpers.h"
+#include "gui/dropdown_helpers.h"
+#include "gui/table_helpers.h"
 #include <glib/gi18n.h>
 
 #include "gui/nube_palabras.h"
@@ -48,6 +50,12 @@ enum {
 	TCOL_PCT_A,
 	TCOL_PCT_B,
 	TCOL_DIF_PCT,
+	TCOL_DIF_VALOR,
+	TCOL_PCT_A_VALOR,
+	TCOL_PCT_B_VALOR,
+	TCOL_DIF_PCT_VALOR,
+	TCOL_DIF_COLOR,
+	TCOL_DIF_PCT_COLOR,
 	N_TABLA_COLS
 };
 
@@ -74,13 +82,14 @@ struct _nube_ui {
 	GtkWidget *tree;
 	GtkWidget *scroll_tabla;
 	GtkListStore *libros;
-	GtkListStore *tabla;
-	GtkTreeViewColumn *col_a;
-	GtkTreeViewColumn *col_b;
-	GtkTreeViewColumn *col_dif;
-	GtkTreeViewColumn *col_pct_a;
-	GtkTreeViewColumn *col_pct_b;
-	GtkTreeViewColumn *col_dif_pct;
+	GHashTable *abreviaturas;	/* book name -> abbreviation, for typing in the list */
+	GListStore *tabla;
+	GtkColumnViewColumn *col_a;
+	GtkColumnViewColumn *col_b;
+	GtkColumnViewColumn *col_dif;
+	GtkColumnViewColumn *col_pct_a;
+	GtkColumnViewColumn *col_pct_b;
+	GtkColumnViewColumn *col_dif_pct;
 	guint espera;		/* debounce after typing a book name */
 	gboolean ocupado;	/* counting; the loop below may re-enter */
 	gboolean pendiente;	/* update once the cloud area has a size */
@@ -89,6 +98,7 @@ struct _nube_ui {
 	gchar *titulo_b;
 	gint reintentos;	/* random picks left if a random book is empty */
 	gboolean poniendo;	/* the dialog, not the reader, sets a book */
+	gboolean libro_b_puesto;	/* book B was chosen (a dropdown cannot be empty) */
 	GHashTable *cache;	/* "module\nA[\nB]" -> NUBE_CONTEO */
 	NUBE_CONTEO *conteo;	/* shown now; owned by cache */
 	gboolean par;		/* shown as two clouds */
@@ -112,49 +122,41 @@ color_es_oscuro(const char *hex)
 	return (0.299 * r + 0.587 * g + 0.114 * b) < 140.0;
 }
 
-static GtkWidget *
-combo_entry(GtkWidget *combo)
-{
-	return gtk_combo_box_get_child(GTK_COMBO_BOX(combo));
-}
-
 static const gchar *
 combo_texto(GtkWidget *combo)
 {
-	GtkWidget *entry = combo_entry(combo);
-	return gtk_editable_get_text(GTK_EDITABLE(entry));
+	return elim_dropdown_get_active_text_or_empty(GTK_DROP_DOWN(combo));
 }
 
+/* Chooses the book named TEXTO in COMBO; none when the list has no such book. */
 static void
 combo_set_texto(GtkWidget *combo, const gchar *texto)
 {
-	gtk_editable_set_text(GTK_EDITABLE(combo_entry(combo)), texto ? texto : "");
+	elim_dropdown_set_active(GTK_DROP_DOWN(combo),
+				 elim_dropdown_find_text(GTK_DROP_DOWN(combo),
+							 texto));
 }
 
-static gboolean
-completion_match(GtkEntryCompletion *completion,
-		 const gchar *key,
-		 GtkTreeIter *iter,
-		 gpointer user_data)
+/* What the reader types in the open list is matched against: the name and
+ * the abbreviation of the book (ui->abreviaturas maps one to the other). */
+static gchar *
+libro_texto_de_busqueda(GtkStringObject *fila, gpointer user_data)
 {
-	GtkTreeModel *model = gtk_entry_completion_get_model(completion);
-	gchar *nombre = NULL;
-	gchar *abrev = NULL;
-	gtk_tree_model_get(model, iter,
-			   COL_NOMBRE, &nombre,
-			   COL_ABREV, &abrev,
-			   -1);
-	gboolean ok = main_nube_texto_coincide(nombre, key) ||
-		      main_nube_texto_coincide(abrev, key);
-	g_free(nombre);
-	g_free(abrev);
-	return ok;
+	GHashTable *abreviaturas = user_data;
+	const gchar *nombre = gtk_string_object_get_string(fila);
+	const gchar *abrev = g_hash_table_lookup(abreviaturas, nombre);
+
+	return g_strdup_printf("%s %s", nombre, abrev ? abrev : "");
 }
 
 static void
-poblar_libros(GtkListStore *store, GtkWidget *combo)
+poblar_libros(GtkListStore *store, GHashTable *abreviaturas, GtkWidget *combo,
+	      GtkWidget *combo_b)
 {
 	gtk_list_store_clear(store);
+	g_hash_table_remove_all(abreviaturas);
+	elim_dropdown_remove_all(GTK_DROP_DOWN(combo));
+	elim_dropdown_remove_all(GTK_DROP_DOWN(combo_b));
 	if (!settings.MainWindowModule)
 		return;
 
@@ -168,28 +170,19 @@ poblar_libros(GtkListStore *store, GtkWidget *combo)
 				   COL_ABREV, libro->abrev,
 				   COL_OSIS, libro->osis,
 				   -1);
+		g_hash_table_insert(abreviaturas, g_strdup(libro->nombre),
+				    g_strdup(libro->abrev));
+		elim_dropdown_append(GTK_DROP_DOWN(combo), NULL, libro->nombre);
+		elim_dropdown_append(GTK_DROP_DOWN(combo_b), NULL, libro->nombre);
 	}
 	main_nube_lista_libros_free(lista);
 
-	gtk_combo_box_set_model(GTK_COMBO_BOX(combo), GTK_TREE_MODEL(store));
-	gtk_combo_box_set_entry_text_column(GTK_COMBO_BOX(combo), COL_NOMBRE);
-
-	gtk_cell_layout_clear(GTK_CELL_LAYOUT(combo));
-	GtkCellRenderer *cell = gtk_cell_renderer_text_new();
-	gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(combo), cell, TRUE);
-	gtk_cell_layout_set_attributes(GTK_CELL_LAYOUT(combo), cell,
-				       "text", COL_NOMBRE, NULL);
-
-	GtkWidget *entry = combo_entry(combo);
-	GtkEntryCompletion *comp = gtk_entry_completion_new();
-	gtk_entry_completion_set_model(comp, GTK_TREE_MODEL(store));
-	gtk_entry_completion_set_text_column(comp, COL_NOMBRE);
-	gtk_entry_completion_set_minimum_key_length(comp, 1);
-	gtk_entry_completion_set_popup_completion(comp, TRUE);
-	gtk_entry_completion_set_inline_completion(comp, FALSE);
-	gtk_entry_completion_set_match_func(comp, completion_match, NULL, NULL);
-	gtk_entry_set_completion(GTK_ENTRY(entry), comp);
-	g_object_unref(comp);
+	elim_dropdown_enable_search_with(GTK_DROP_DOWN(combo),
+					 G_CALLBACK(libro_texto_de_busqueda),
+					 abreviaturas);
+	elim_dropdown_enable_search_with(GTK_DROP_DOWN(combo_b),
+					 G_CALLBACK(libro_texto_de_busqueda),
+					 abreviaturas);
 }
 
 static gchar *
@@ -344,84 +337,6 @@ color_mas_b(void)
 }
 
 static void
-int_cell(GtkTreeViewColumn *col,
-	 GtkCellRenderer *cell,
-	 GtkTreeModel *model,
-	 GtkTreeIter *iter,
-	 gpointer data)
-{
-	gint column = GPOINTER_TO_INT(data);
-	gint v = 0;
-	gtk_tree_model_get(model, iter, column, &v, -1);
-	gchar *t = g_strdup_printf("%d", v);
-	g_object_set(cell, "text", t, "xalign", 1.0, NULL);
-	g_free(t);
-}
-
-static void
-dif_cell(GtkTreeViewColumn *col,
-	 GtkCellRenderer *cell,
-	 GtkTreeModel *model,
-	 GtkTreeIter *iter,
-	 gpointer data)
-{
-	gint v = 0;
-	gtk_tree_model_get(model, iter, TCOL_DIF, &v, -1);
-	gchar *t = g_strdup_printf("%+d", v);
-	const char *fg = NULL;
-	if (v > 0)
-		fg = color_mas_a();
-	else if (v < 0)
-		fg = color_mas_b();
-	g_object_set(cell, "text", t, "xalign", 1.0, "foreground", fg, NULL);
-	g_free(t);
-}
-
-static void
-pct_cell(GtkTreeViewColumn *col,
-	 GtkCellRenderer *cell,
-	 GtkTreeModel *model,
-	 GtkTreeIter *iter,
-	 gpointer data)
-{
-	gint column = GPOINTER_TO_INT(data);
-	gdouble v = 0;
-	gtk_tree_model_get(model, iter, column, &v, -1);
-	gchar *t;
-	if (column == TCOL_DIF_PCT)
-		t = g_strdup_printf("%+.2f %%", v);
-	else
-		t = g_strdup_printf("%.2f %%", v);
-	const char *fg = NULL;
-	if (column == TCOL_DIF_PCT) {
-		if (v > 0.001)
-			fg = color_mas_a();
-		else if (v < -0.001)
-			fg = color_mas_b();
-	}
-	g_object_set(cell, "text", t, "xalign", 1.0, "foreground", fg, NULL);
-	g_free(t);
-}
-
-static GtkTreeViewColumn *
-add_col(GtkTreeView *view,
-	const gchar *title,
-	gint sort_id,
-	GtkTreeCellDataFunc func,
-	gpointer func_data)
-{
-	GtkCellRenderer *cell = gtk_cell_renderer_text_new();
-	GtkTreeViewColumn *col = gtk_tree_view_column_new_with_attributes(
-	    title, cell, NULL);
-	gtk_tree_view_column_set_cell_data_func(col, cell, func, func_data, NULL);
-	gtk_tree_view_column_set_sort_column_id(col, sort_id);
-	gtk_tree_view_column_set_resizable(col, TRUE);
-	gtk_tree_view_column_set_expand(col, FALSE);
-	gtk_tree_view_append_column(view, col);
-	return col;
-}
-
-static void
 setup_tree(void)
 {
 	gtk_widget_set_name(ui->tree, "cloud-statistics");
@@ -448,58 +363,58 @@ setup_tree(void)
 	gtk_style_context_add_provider_for_display(gtk_widget_get_display(ui->tree),
 		GTK_STYLE_PROVIDER(css), GTK_STYLE_PROVIDER_PRIORITY_APPLICATION + 1);
 	g_object_set_data_full(G_OBJECT(ui->tree), "matrix-css", css, g_object_unref);
-	ui->tabla = gtk_list_store_new(N_TABLA_COLS,
-				       G_TYPE_STRING,
-				       G_TYPE_INT,
-				       G_TYPE_INT,
-				       G_TYPE_INT,
-				       G_TYPE_DOUBLE,
-				       G_TYPE_DOUBLE,
-				       G_TYPE_DOUBLE);
-	gtk_tree_view_set_model(GTK_TREE_VIEW(ui->tree), GTK_TREE_MODEL(ui->tabla));
+	ui->tabla = elim_table_new();
+	elim_table_setup_sortable(ui->tree, ui->tabla);
+	ElimTextColumn palabra = elim_text_column(TCOL_PALABRA);
+	ElimTextColumn entero = elim_text_column(TCOL_CUENTA_A);
+	ElimTextColumn diferencia = elim_text_column(TCOL_DIF);
+	ElimTextColumn porcentaje = elim_text_column(TCOL_PCT_A);
 
-	GtkCellRenderer *cell = gtk_cell_renderer_text_new();
-	GtkTreeViewColumn *col = gtk_tree_view_column_new_with_attributes(
-	    _("מילה · Palabra"), cell, "text", TCOL_PALABRA, NULL);
-	gtk_tree_view_column_set_sort_column_id(col, TCOL_PALABRA);
-	gtk_tree_view_column_set_expand(col, TRUE);
-	gtk_tree_view_column_set_resizable(col, TRUE);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(ui->tree), col);
-
-	ui->col_a = add_col(GTK_TREE_VIEW(ui->tree), _("Cantidad"),
-			    TCOL_CUENTA_A, int_cell, GINT_TO_POINTER(TCOL_CUENTA_A));
-	ui->col_b = add_col(GTK_TREE_VIEW(ui->tree), _("Libro B"),
-			    TCOL_CUENTA_B, int_cell, GINT_TO_POINTER(TCOL_CUENTA_B));
-	ui->col_dif = add_col(GTK_TREE_VIEW(ui->tree), _("Dif. cantidad"),
-			      TCOL_DIF, dif_cell, NULL);
-	ui->col_pct_a = add_col(GTK_TREE_VIEW(ui->tree), _("%"),
-				TCOL_PCT_A, pct_cell, GINT_TO_POINTER(TCOL_PCT_A));
-	ui->col_pct_b = add_col(GTK_TREE_VIEW(ui->tree), _("% B"),
-				TCOL_PCT_B, pct_cell, GINT_TO_POINTER(TCOL_PCT_B));
-	ui->col_dif_pct = add_col(GTK_TREE_VIEW(ui->tree), _("Dif. %"),
-				  TCOL_DIF_PCT, pct_cell, GINT_TO_POINTER(TCOL_DIF_PCT));
+	palabra.expand = TRUE;
+	entero.xalign = diferencia.xalign = porcentaje.xalign = 1.0f;
+	diferencia.foreground_column = TCOL_DIF_COLOR;
+	elim_table_add_sortable_column(ui->tree, _("מילה · Palabra"), &palabra,
+					       TCOL_PALABRA, ELIM_TABLE_SORT_STRING);
+	ui->col_a = elim_table_add_sortable_column(ui->tree, _("Cantidad"),
+					       &entero, TCOL_CUENTA_A, ELIM_TABLE_SORT_INT);
+	entero.column = TCOL_CUENTA_B;
+	ui->col_b = elim_table_add_sortable_column(ui->tree, _("Libro B"),
+					       &entero, TCOL_CUENTA_B, ELIM_TABLE_SORT_INT);
+	ui->col_dif = elim_table_add_sortable_column(ui->tree, _("Dif. cantidad"),
+						 &diferencia, TCOL_DIF_VALOR, ELIM_TABLE_SORT_INT);
+	porcentaje.column = TCOL_PCT_A;
+	ui->col_pct_a = elim_table_add_sortable_column(ui->tree, _("%"), &porcentaje,
+						   TCOL_PCT_A_VALOR, ELIM_TABLE_SORT_DOUBLE);
+	porcentaje.column = TCOL_PCT_B;
+	ui->col_pct_b = elim_table_add_sortable_column(ui->tree, _("% B"), &porcentaje,
+						   TCOL_PCT_B_VALOR, ELIM_TABLE_SORT_DOUBLE);
+	porcentaje.column = TCOL_DIF_PCT;
+	porcentaje.foreground_column = TCOL_DIF_PCT_COLOR;
+	ui->col_dif_pct = elim_table_add_sortable_column(ui->tree, _("Dif. %"),
+						      &porcentaje, TCOL_DIF_PCT_VALOR,
+						      ELIM_TABLE_SORT_DOUBLE);
 	/* Comparison columns appear only with a comparison. */
-	gtk_tree_view_column_set_visible(ui->col_b, FALSE);
-	gtk_tree_view_column_set_visible(ui->col_dif, FALSE);
-	gtk_tree_view_column_set_visible(ui->col_pct_b, FALSE);
-	gtk_tree_view_column_set_visible(ui->col_dif_pct, FALSE);
+	gtk_column_view_column_set_visible(ui->col_b, FALSE);
+	gtk_column_view_column_set_visible(ui->col_dif, FALSE);
+	gtk_column_view_column_set_visible(ui->col_pct_b, FALSE);
+	gtk_column_view_column_set_visible(ui->col_dif_pct, FALSE);
 }
 
 static void
-set_column_visible(GtkTreeViewColumn *col, gboolean vis)
+set_column_visible(GtkColumnViewColumn *col, gboolean vis)
 {
-	gtk_tree_view_column_set_visible(col, vis);
+	gtk_column_view_column_set_visible(col, vis);
 }
 
 static void
 llenar_tabla(NUBE_CONTEO *c, gboolean comparar)
 {
-	gtk_list_store_clear(ui->tabla);
-	gtk_tree_view_column_set_title(ui->col_a,
+	g_list_store_remove_all(ui->tabla);
+	gtk_column_view_column_set_title(ui->col_a,
 				       comparar ? c->libro : _("Cantidad"));
 	if (comparar && c->libro_b)
-		gtk_tree_view_column_set_title(ui->col_b, c->libro_b);
-	gtk_tree_view_column_set_title(ui->col_pct_a,
+		gtk_column_view_column_set_title(ui->col_b, c->libro_b);
+	gtk_column_view_column_set_title(ui->col_pct_a,
 				       comparar ? _("% A") : _("%"));
 
 	set_column_visible(ui->col_b, comparar);
@@ -509,18 +424,35 @@ llenar_tabla(NUBE_CONTEO *c, gboolean comparar)
 
 	for (guint i = 0; i < c->palabras->len; i++) {
 		NUBE_PALABRA *w = g_ptr_array_index(c->palabras, i);
-		GtkTreeIter iter;
+		ElimRow *row = elim_row_new(N_TABLA_COLS);
 		gchar *label = cloud_label(w);
-		gtk_list_store_append(ui->tabla, &iter);
-		gtk_list_store_set(ui->tabla, &iter,
-				   TCOL_PALABRA, label,
-				   TCOL_CUENTA_A, w->cuenta,
-				   TCOL_CUENTA_B, w->cuenta_b,
-				   TCOL_DIF, w->diferencia,
-				   TCOL_PCT_A, w->pct,
-				   TCOL_PCT_B, w->pct_b,
-				   TCOL_DIF_PCT, w->dif_pct,
-				   -1);
+		gchar *dif = g_strdup_printf("%+d", w->diferencia);
+		gchar *pct_a = g_strdup_printf("%.2f %%", w->pct);
+		gchar *pct_b = g_strdup_printf("%.2f %%", w->pct_b);
+		gchar *dif_pct = g_strdup_printf("%+.2f %%", w->dif_pct);
+		const char *dif_color = w->diferencia > 0 ? color_mas_a() :
+			w->diferencia < 0 ? color_mas_b() : "";
+		const char *dif_pct_color = w->dif_pct > 0.001 ? color_mas_a() :
+			w->dif_pct < -0.001 ? color_mas_b() : "";
+		elim_row_set_string(row, TCOL_PALABRA, label);
+		elim_row_set_int(row, TCOL_CUENTA_A, w->cuenta);
+		elim_row_set_int(row, TCOL_CUENTA_B, w->cuenta_b);
+		elim_row_set_string(row, TCOL_DIF, dif);
+		elim_row_set_string(row, TCOL_PCT_A, pct_a);
+		elim_row_set_string(row, TCOL_PCT_B, pct_b);
+		elim_row_set_string(row, TCOL_DIF_PCT, dif_pct);
+		elim_row_set_int(row, TCOL_DIF_VALOR, w->diferencia);
+		elim_row_set_double(row, TCOL_PCT_A_VALOR, w->pct);
+		elim_row_set_double(row, TCOL_PCT_B_VALOR, w->pct_b);
+		elim_row_set_double(row, TCOL_DIF_PCT_VALOR, w->dif_pct);
+		elim_row_set_string(row, TCOL_DIF_COLOR, dif_color);
+		elim_row_set_string(row, TCOL_DIF_PCT_COLOR, dif_pct_color);
+		g_list_store_append(ui->tabla, row);
+		g_object_unref(row);
+		g_free(dif);
+		g_free(pct_a);
+		g_free(pct_b);
+		g_free(dif_pct);
 		g_free(label);
 	}
 }
@@ -533,7 +465,7 @@ resolver_libro(GtkWidget *combo, gboolean avisar)
 	const gchar *texto = combo_texto(combo);
 	if (!texto || !*texto) {
 		if (avisar)
-			gui_generic_warning(_("Escribe o elige un libro de la Biblia."));
+			gui_generic_warning(_("Elige un libro de la Biblia."));
 		return NULL;
 	}
 	char *nombre = main_nube_resolver_libro(settings.MainWindowModule, texto);
@@ -567,6 +499,8 @@ poner_al_azar(GtkWidget *combo, const gchar *exclude, gboolean ultimo_actual)
 		ui->poniendo = TRUE;
 		combo_set_texto(combo, libro);
 		ui->poniendo = FALSE;
+		if (combo == ui->combo_libro_b)
+			ui->libro_b_puesto = TRUE;
 	}
 	g_free(libro);
 }
@@ -708,7 +642,7 @@ actualizar(gboolean avisar)
 		if (avisar)
 			gui_generic_warning(_("No se pudo leer el texto de ese libro."));
 		mostrar_mensaje(_("No hay palabras para mostrar."));
-		gtk_list_store_clear(ui->tabla);
+		g_list_store_remove_all(ui->tabla);
 		gtk_label_set_text(GTK_LABEL(ui->lbl_resumen), "");
 		gtk_widget_set_sensitive(ui->btn_descargar, FALSE);
 		g_free(ui->mostrado);
@@ -793,15 +727,17 @@ on_espera(gpointer user_data)
 	return G_SOURCE_REMOVE;
 }
 
-/* A book chosen from the list, completed or typed in full updates the
- * cloud shortly after; partial typing does not. */
+/* A book chosen from the list updates the cloud shortly after. */
 static void
-on_entry_changed(GtkEditable *editable, gpointer user_data)
+on_entry_changed(GObject *combo, GParamSpec *pspec, gpointer user_data)
 {
-	(void)editable;
+	(void)pspec;
 	(void)user_data;
-	if (!ui->poniendo)
+	if (!ui->poniendo) {
 		ui->reintentos = 0;	/* the reader's own choice stands */
+		if ((GtkWidget *)combo == ui->combo_libro_b)
+			ui->libro_b_puesto = TRUE;
+	}
 	if (ui->espera)
 		g_source_remove(ui->espera);
 	ui->espera = g_timeout_add(350, on_espera, NULL);
@@ -815,23 +751,16 @@ on_comparar_toggled(GtkCheckButton *btn, gpointer user_data)
 	gtk_widget_set_sensitive(ui->combo_libro_b, on);
 	if (on) {
 		/* Start from a random book other than book A; the reader can
-		 * still type or pick another one. */
+		 * still pick another one. */
 		const gchar *actual = combo_texto(ui->combo_libro_b);
 		const gchar *libro_a = combo_texto(ui->combo_libro);
-		if (!actual || !*actual || g_utf8_collate(actual, libro_a) == 0) {
+		if (!ui->libro_b_puesto || !actual || !*actual ||
+		    g_utf8_collate(actual, libro_a) == 0) {
 			poner_al_azar(ui->combo_libro_b, libro_a, FALSE);
 			ui->reintentos = 8;
 		}
 	}
 	actualizar(FALSE);
-}
-
-static void
-on_entry_activate(GtkEntry *entry, gpointer user_data)
-{
-	(void)entry;
-	(void)user_data;
-	actualizar(TRUE);
 }
 
 static gboolean
@@ -984,6 +913,7 @@ on_destroy(GtkWidget *widget, gpointer user_data)
 			GTK_STYLE_PROVIDER(css));
 	if (ui->libros)
 		g_object_unref(ui->libros);
+	g_clear_pointer(&ui->abreviaturas, g_hash_table_destroy);
 	if (ui->tabla)
 		g_object_unref(ui->tabla);
 	g_free(ui);
@@ -1036,34 +966,10 @@ crear_dialogo(void)
 
 	ui->libros = gtk_list_store_new(N_LIBRO_COLS,
 					G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING);
-	poblar_libros(ui->libros, ui->combo_libro);
-	/* Reutiliza el mismo modelo: no volver a poblar (eso vaciaría la lista). */
-	{
-		GtkListStore *store = ui->libros;
-		GtkWidget *combo = ui->combo_libro_b;
-		gtk_combo_box_set_model(GTK_COMBO_BOX(combo), GTK_TREE_MODEL(store));
-		gtk_combo_box_set_entry_text_column(GTK_COMBO_BOX(combo), COL_NOMBRE);
-		gtk_cell_layout_clear(GTK_CELL_LAYOUT(combo));
-		GtkCellRenderer *cell = gtk_cell_renderer_text_new();
-		gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(combo), cell, TRUE);
-		gtk_cell_layout_set_attributes(GTK_CELL_LAYOUT(combo), cell,
-					       "text", COL_NOMBRE, NULL);
-		GtkWidget *entry = combo_entry(combo);
-		GtkEntryCompletion *comp = gtk_entry_completion_new();
-		gtk_entry_completion_set_model(comp, GTK_TREE_MODEL(store));
-		gtk_entry_completion_set_text_column(comp, COL_NOMBRE);
-		gtk_entry_completion_set_minimum_key_length(comp, 1);
-		gtk_entry_completion_set_popup_completion(comp, TRUE);
-		gtk_entry_completion_set_inline_completion(comp, FALSE);
-		gtk_entry_completion_set_match_func(comp, completion_match, NULL, NULL);
-		gtk_entry_set_completion(GTK_ENTRY(entry), comp);
-		g_object_unref(comp);
-	}
-
-	gtk_entry_set_placeholder_text(GTK_ENTRY(combo_entry(ui->combo_libro)),
-				       _("Escribe o elige un libro"));
-	gtk_entry_set_placeholder_text(GTK_ENTRY(combo_entry(ui->combo_libro_b)),
-				       _("Libro para comparar"));
+	ui->abreviaturas = g_hash_table_new_full(g_str_hash, g_str_equal, g_free,
+						 g_free);
+	poblar_libros(ui->libros, ui->abreviaturas, ui->combo_libro,
+		      ui->combo_libro_b);
 
 	/* Open on a random book, already drawn (see on_area_allocate). */
 	poner_al_azar(ui->combo_libro, NULL, FALSE);
@@ -1115,16 +1021,12 @@ crear_dialogo(void)
 
 	g_signal_connect(ui->btn_descargar, "clicked", G_CALLBACK(on_descargar), NULL);
 	gui_widget_watch_size(ui->cloud_stack, on_area_allocate, NULL);
-	g_signal_connect(combo_entry(ui->combo_libro), "changed",
+	g_signal_connect(ui->combo_libro, "notify::selected",
 			 G_CALLBACK(on_entry_changed), NULL);
-	g_signal_connect(combo_entry(ui->combo_libro_b), "changed",
+	g_signal_connect(ui->combo_libro_b, "notify::selected",
 			 G_CALLBACK(on_entry_changed), NULL);
 	g_signal_connect(ui->btn_cerrar, "clicked", G_CALLBACK(on_cerrar), NULL);
 	g_signal_connect(ui->chk_comparar, "toggled", G_CALLBACK(on_comparar_toggled), NULL);
-	g_signal_connect(combo_entry(ui->combo_libro), "activate",
-			 G_CALLBACK(on_entry_activate), NULL);
-	g_signal_connect(combo_entry(ui->combo_libro_b), "activate",
-			 G_CALLBACK(on_entry_activate), NULL);
 	g_signal_connect(ui->dialog, "destroy", G_CALLBACK(on_destroy), NULL);
 }
 

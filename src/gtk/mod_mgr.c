@@ -33,6 +33,7 @@
 #include "gui/sqlite_module_manager_dialog.h"
 #include <gtk/gtk.h>
 #include "gui/widget_helpers.h"
+#include "gui/dropdown_helpers.h"
 #include <gdk/gdkkeysyms.h>
 
 #include "gui/mod_mgr.h"
@@ -1398,7 +1399,7 @@ static void load_module_tree(GtkTreeView *treeview, gboolean install)
 		if (gui_toggle_get_active(GTK_WIDGET(radiobutton_source))) {
 			local = TRUE;
 			source =
-			    gtk_editable_get_text(GTK_EDITABLE(gtk_combo_box_get_child(GTK_COMBO_BOX(combo_entry1))));
+			    elim_dropdown_get_active_text_or_empty(GTK_DROP_DOWN(combo_entry1));
 
 			// must find the directory attached to the name.
 			// they may (and normally will) be the same,
@@ -1428,7 +1429,7 @@ static void load_module_tree(GtkTreeView *treeview, gboolean install)
 		} else {
 			local = FALSE;
 			source =
-			    gtk_editable_get_text(GTK_EDITABLE(gtk_combo_box_get_child(GTK_COMBO_BOX(combo_entry2))));
+			    elim_dropdown_get_active_text_or_empty(GTK_DROP_DOWN(combo_entry2));
 			tmp = mod_mgr_remote_list_modules(source);
 		}
 	} else {
@@ -1481,7 +1482,7 @@ static void load_module_tree(GtkTreeView *treeview, gboolean install)
 		/* note the repository that is active */
 		if ((local == FALSE) && (remote_source == NULL)) {
 			remote_source =
-			    g_strdup(gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT(combo_entry2)));
+			    g_strdup(elim_dropdown_get_active_text_or_empty(GTK_DROP_DOWN(combo_entry2)));
 		}
 		gchar *repository_identifier =
 		    g_strdup_printf(_("Repository:\n%s"),
@@ -1762,7 +1763,7 @@ static void response_refresh(void)
 
 	if (remote_source == NULL)
 		remote_source =
-		    g_strdup(gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT(combo_entry2)));
+		    g_strdup(elim_dropdown_get_active_text_or_empty(GTK_DROP_DOWN(combo_entry2)));
 	buf =
 	    g_strdup_printf("%s: %s", _("Refreshing from remote source"),
 			    remote_source);
@@ -1992,20 +1993,15 @@ static int load_source_treeviews(void)
 	GList *tmp = NULL;
 	GList *tmp2 = NULL;
 	GtkTreeIter iter;
-	GtkTreeIter combo_iter;
 	MOD_MGR_SOURCE *mms;
 	GtkTreeModel *remote_model =
 	    gtk_tree_view_get_model(GTK_TREE_VIEW(treeview_remote));
 	GtkTreeModel *local_model =
 	    gtk_tree_view_get_model(GTK_TREE_VIEW(treeview_local));
-	GtkTreeModel *module_box_local =
-	    gtk_combo_box_get_model(GTK_COMBO_BOX(combo_entry1));
-	GtkTreeModel *module_box_remote =
-	    gtk_combo_box_get_model(GTK_COMBO_BOX(combo_entry2));
 
 	/* remote */
 	gtk_list_store_clear(GTK_LIST_STORE(remote_model));
-	gtk_list_store_clear(GTK_LIST_STORE(module_box_remote));
+	elim_dropdown_remove_all(GTK_DROP_DOWN(combo_entry2));
 	tmp = tmp2 = mod_mgr_list_remote_sources();
 	while (tmp) {
 		mms = (MOD_MGR_SOURCE *)tmp->data;
@@ -2020,11 +2016,8 @@ static int load_source_treeviews(void)
 				   COLUMN_USER, mms->user,
 				   COLUMN_PASS, mms->pass,
 				   COLUMN_UID, mms->uid, -1);
-		gtk_list_store_append(GTK_LIST_STORE(module_box_remote),
-				      &combo_iter);
-		gtk_list_store_set(GTK_LIST_STORE(module_box_remote),
-				   &combo_iter, 0, (gchar *)mms->caption,
-				   -1);
+		elim_dropdown_append(GTK_DROP_DOWN(combo_entry2), NULL,
+				     (gchar *)mms->caption);
 		g_free((gchar *)mms->type);
 		g_free((gchar *)mms->caption);
 		g_free((gchar *)mms->source);
@@ -2036,12 +2029,12 @@ static int load_source_treeviews(void)
 		tmp = g_list_next(tmp);
 		crosswire_tracker++;
 	}
-	gtk_combo_box_set_active(GTK_COMBO_BOX(combo_entry2), 0);
+	elim_dropdown_set_active(GTK_DROP_DOWN(combo_entry2), 0);
 	g_list_free(tmp2);
 
 	/* local */
 	gtk_list_store_clear(GTK_LIST_STORE(local_model));
-	gtk_list_store_clear(GTK_LIST_STORE(module_box_local));
+	elim_dropdown_remove_all(GTK_DROP_DOWN(combo_entry1));
 	tmp = tmp2 = mod_mgr_list_local_sources();
 	while (tmp) {
 		mms = (MOD_MGR_SOURCE *)tmp->data;
@@ -2050,11 +2043,8 @@ static int load_source_treeviews(void)
 				   COLUMN_DIRECTORY, mms->directory,
 				   COLUMN_USER, "",
 				   COLUMN_PASS, "", COLUMN_UID, "", -1);
-		gtk_list_store_append(GTK_LIST_STORE(module_box_local),
-				      &combo_iter);
-		gtk_list_store_set(GTK_LIST_STORE(module_box_local),
-				   &combo_iter, 0, (gchar *)mms->caption,
-				   -1);
+		elim_dropdown_append(GTK_DROP_DOWN(combo_entry1), NULL,
+				     (gchar *)mms->caption);
 		g_free((gchar *)mms->type);
 		g_free((gchar *)mms->caption);
 		g_free((gchar *)mms->source);
@@ -2065,7 +2055,7 @@ static int load_source_treeviews(void)
 		g_free(mms);
 		tmp = g_list_next(tmp);
 	}
-	gtk_combo_box_set_active(GTK_COMBO_BOX(combo_entry1), 0);
+	elim_dropdown_set_active(GTK_DROP_DOWN(combo_entry1), 0);
 	g_list_free(tmp2);
 
 	return crosswire_index;
@@ -2203,7 +2193,7 @@ on_radiobutton2_toggled(GtkToggleButton *togglebutton, gpointer user_data)
 		if (remote_source)
 			g_free(remote_source);
 		remote_source =
-		    g_strdup(gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT(combo_entry2)));
+		    g_strdup(elim_dropdown_get_active_text_or_empty(GTK_DROP_DOWN(combo_entry2)));
 		xml_set_value("Xiphos", "modmgr", "mod_mgr_source", "1");
 
 	} else {
@@ -2962,8 +2952,7 @@ void on_button_add_remote_clicked(GtkButton *button, gpointer user_data)
 		     tmp; tmp = g_list_next(tmp), ++test) {
 			mms = (MOD_MGR_SOURCE *)tmp->data;
 			if (!strcmp(mms->caption, dialog->text1)) {
-				gtk_combo_box_set_active(GTK_COMBO_BOX(combo_entry2),
-							 test);
+				elim_dropdown_set_active(GTK_DROP_DOWN(combo_entry2), test);
 			}
 			g_free((gchar *)mms->type);
 			g_free((gchar *)mms->caption);
@@ -3069,7 +3058,7 @@ on_button_remove_remote_clicked(GtkButton *button, gpointer user_data)
 	if (test == GS_YES) {
 		gtk_list_store_remove(GTK_LIST_STORE(model), &selected);
 		save_sources();
-		gtk_combo_box_set_active(GTK_COMBO_BOX(combo_entry2), 0);
+		elim_dropdown_set_active(GTK_DROP_DOWN(combo_entry2), 0);
 	}
 	g_free(yes_no_dialog);
 	g_free(type);
@@ -3208,13 +3197,9 @@ setup_treeviews_local_remote(GtkTreeView *local, GtkTreeView *remote)
 	add_columns_to_remote_treeview(remote);
 }
 
-static void set_combobox(GtkComboBox *combo)
+static void set_combobox(GtkDropDown *combo)
 {
-	GtkListStore *store;
-
-	store = gtk_list_store_new(1, G_TYPE_STRING);
-	gtk_combo_box_set_model(combo, GTK_TREE_MODEL(store));
-	gtk_combo_box_set_entry_text_column(GTK_COMBO_BOX(combo), 0);
+	elim_dropdown_prepare(combo);
 }
 
 static void setup_dialog_action_area(GtkDialog *dialog)
@@ -3261,11 +3246,9 @@ static void set_controls_to_last_use(void)
 	gui_toggle_set_active(GTK_WIDGET(radiobutton2),
 				     settings.mod_mgr_source);
 	/* local source */
-	gtk_combo_box_set_active(GTK_COMBO_BOX(combo_entry1),
-				 settings.mod_mgr_local_source_index);
+	elim_dropdown_set_active(GTK_DROP_DOWN(combo_entry1), settings.mod_mgr_local_source_index);
 	/* remote source */
-	gtk_combo_box_set_active(GTK_COMBO_BOX(combo_entry2),
-				 settings.mod_mgr_remote_source_index);
+	elim_dropdown_set_active(GTK_DROP_DOWN(combo_entry2), settings.mod_mgr_remote_source_index);
 	/* destination */
 	gui_toggle_set_active(GTK_WIDGET(radiobutton4),
 				     settings.mod_mgr_destination);
@@ -3306,9 +3289,10 @@ static void setup_ui_labels()
 }
 
 static void
-on_comboboxentry_local_changed(GtkComboBox *combobox, gpointer user_data)
+on_comboboxentry_local_changed(GObject *combobox, GParamSpec *pspec,
+			       gpointer user_data)
 {
-	gint index = gtk_combo_box_get_active(GTK_COMBO_BOX(combo_entry1));
+	gint index = elim_dropdown_get_active(GTK_DROP_DOWN(combo_entry1));
 	settings.mod_mgr_local_source_index = index;
 	gchar *index_str = g_strdup_printf("%d", index);
 	xml_set_value("Xiphos", "modmgr", "mod_mgr_local_source_index",
@@ -3318,9 +3302,10 @@ on_comboboxentry_local_changed(GtkComboBox *combobox, gpointer user_data)
 }
 
 static void
-on_comboboxentry_remote_changed(GtkComboBox *combobox, gpointer user_data)
+on_comboboxentry_remote_changed(GObject *combobox, GParamSpec *pspec,
+				gpointer user_data)
 {
-	gint index = gtk_combo_box_get_active(GTK_COMBO_BOX(combo_entry2));
+	gint index = elim_dropdown_get_active(GTK_DROP_DOWN(combo_entry2));
 	settings.mod_mgr_remote_source_index = index;
 	gchar *index_str = g_strdup_printf("%d", index);
 	XI_message(("index = %d index_str = %s", index, index_str));
@@ -3332,7 +3317,7 @@ on_comboboxentry_remote_changed(GtkComboBox *combobox, gpointer user_data)
 	if (remote_source)
 		g_free(remote_source);
 	remote_source =
-	    g_strdup(gtk_editable_get_text(GTK_EDITABLE(gtk_combo_box_get_child(GTK_COMBO_BOX(combobox)))));
+	    g_strdup(elim_dropdown_get_active_text_or_empty(GTK_DROP_DOWN(combobox)));
 }
 
 static GtkWidget *create_module_manager_dialog(gboolean first_run)
@@ -3423,8 +3408,8 @@ static GtkWidget *create_module_manager_dialog(gboolean first_run)
 	/* combo box entrys */
 	combo_entry1 = UI_GET_ITEM(gxml, "comboboxentry1");
 	combo_entry2 = UI_GET_ITEM(gxml, "comboboxentry2");
-	set_combobox(GTK_COMBO_BOX(combo_entry1));
-	set_combobox(GTK_COMBO_BOX(combo_entry2));
+	set_combobox(GTK_DROP_DOWN(combo_entry1));
+	set_combobox(GTK_DROP_DOWN(combo_entry2));
 
 	/* radio buttons */
 	radiobutton_source = UI_GET_ITEM(gxml, "radiobutton1"); /* local */
@@ -3438,9 +3423,9 @@ static GtkWidget *create_module_manager_dialog(gboolean first_run)
 			 G_CALLBACK(on_radiobutton2_toggled), NULL);
 	g_signal_connect(radiobutton4, "toggled",
 			 G_CALLBACK(on_radiobutton4_toggled), NULL);
-	g_signal_connect((gpointer)combo_entry1, "changed",
+	g_signal_connect((gpointer)combo_entry1, "notify::selected",
 			 G_CALLBACK(on_comboboxentry_local_changed), NULL);
-	g_signal_connect((gpointer)combo_entry2, "changed",
+	g_signal_connect((gpointer)combo_entry2, "notify::selected",
 			 G_CALLBACK(on_comboboxentry_remote_changed),
 			 NULL);
 	if (first_run)

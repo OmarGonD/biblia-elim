@@ -57,47 +57,47 @@ void on_show_hidden_modules_toggled(GtkToggleButton *togglebutton,
 void on_folder_changed(GtkButton *button,
 		       gpointer user_data);
 
-void on_combobox1_changed(GtkComboBox *combobox,
+void on_combobox1_changed(GObject *combobox, GParamSpec *pspec,
 			  gpointer user_data);
-void on_combobox2_changed(GtkComboBox *combobox,
+void on_combobox2_changed(GObject *combobox, GParamSpec *pspec,
 			  gpointer user_data);
-void on_combobox4_changed(GtkComboBox *combobox,
+void on_combobox4_changed(GObject *combobox, GParamSpec *pspec,
 			  gpointer user_data);
-void on_combobox5_changed(GtkComboBox *combobox,
+void on_combobox5_changed(GObject *combobox, GParamSpec *pspec,
 			  gpointer user_data);
-void on_combobox6_changed(GtkComboBox *combobox,
+void on_combobox6_changed(GObject *combobox, GParamSpec *pspec,
 			  gpointer user_data);
-void on_combobox7_changed(GtkComboBox *combobox,
+void on_combobox7_changed(GObject *combobox, GParamSpec *pspec,
 			  gpointer user_data);
-void on_combobox8_changed(GtkComboBox *combobox,
+void on_combobox8_changed(GObject *combobox, GParamSpec *pspec,
 			  gpointer user_data);
-void on_combobox9_changed(GtkComboBox *combobox,
+void on_combobox9_changed(GObject *combobox, GParamSpec *pspec,
 			  gpointer user_data);
-void on_combobox10_changed(GtkComboBox *combobox,
+void on_combobox10_changed(GObject *combobox, GParamSpec *pspec,
 			   gpointer user_data);
-void on_combobox11_changed(GtkComboBox *combobox,
+void on_combobox11_changed(GObject *combobox, GParamSpec *pspec,
 			   gpointer user_data);
-void on_combobox12_changed(GtkComboBox *combobox,
+void on_combobox12_changed(GObject *combobox, GParamSpec *pspec,
 			   gpointer user_data);
-void on_combobox13_changed(GtkComboBox *combobox,
+void on_combobox13_changed(GObject *combobox, GParamSpec *pspec,
 			   gpointer user_data);
-void on_combobox14_changed(GtkComboBox *combobox,
+void on_combobox14_changed(GObject *combobox, GParamSpec *pspec,
 			   gpointer user_data);
-void on_combobox15_changed(GtkComboBox *combobox,
+void on_combobox15_changed(GObject *combobox, GParamSpec *pspec,
 			   gpointer user_data);
-void on_combobox16_changed(GtkComboBox *combobox,
+void on_combobox16_changed(GObject *combobox, GParamSpec *pspec,
 			   gpointer user_data);
-void on_combobox17_changed(GtkComboBox *combobox,
+void on_combobox17_changed(GObject *combobox, GParamSpec *pspec,
 			   gpointer user_data);
-void on_combobox18_changed(GtkComboBox *combobox,
+void on_combobox18_changed(GObject *combobox, GParamSpec *pspec,
 			   gpointer user_data);
-void on_combobox19_changed(GtkComboBox *combobox,
+void on_combobox19_changed(GObject *combobox, GParamSpec *pspec,
 			   gpointer user_data);
-void on_combobox20_changed(GtkComboBox *combobox,
+void on_combobox20_changed(GObject *combobox, GParamSpec *pspec,
 			   gpointer user_data);
-void on_columncountvalue_changed(GtkComboBox *combobox,
+void on_columncountvalue_changed(GObject *combobox, GParamSpec *pspec,
 				 gpointer user_data);
-void on_combobox_module_grouping_changed(GtkComboBox *combobox,
+void on_combobox_module_grouping_changed(GObject *combobox, GParamSpec *pspec,
 					 gpointer user_data);
 
 void on_colorbutton1_color_set(GtkColorDialogButton *colorbutton,
@@ -170,7 +170,7 @@ void on_checkbutton_alternation_toggled(GtkToggleButton *togglebutton,
 					gpointer user_data);
 void on_checkbutton_render_whole_books_toggled(GtkToggleButton *togglebutton,
 					       gpointer user_data);
-void on_basecombobox1_changed(GtkComboBox *combobox,
+void on_basecombobox1_changed(GObject *combobox, GParamSpec *pspec,
 			      gpointer user_data);
 
 void ps_close(GtkButton *button, gpointer user_data);

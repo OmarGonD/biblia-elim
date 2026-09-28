@@ -29,13 +29,19 @@
 #include "gui/nube_palabras.h"
 #include "gui/preferences_dialog.h"
 #include "gui/search_dialog.h"
+#include "main/search_dialog.h"
 #include "gui/utilities.h"
 #include "gui/interlineal.h"
-#ifdef USE_WEBKIT_EDITOR
-#include "editor/webkit_editor.h"
-#else
-#include "editor/slib-editor.h"
-#endif
+#include "editor/editor.h"
+#include "gui/dropdown_helpers.h"
+#include "main/memorizacion.h"
+#include "gui/table_helpers.h"
+#include "gui/sqlite_module_manager_dialog.h"
+#include "gui/dictlex_dialog.h"
+#include "main/planes_lectura.h"
+#include "gui/planes_lectura.h"
+#include "gui/instalar_biblias.h"
+#include "gui/memorizacion.h"
 #include "gui/treekey-editor.h"
 #include "main/display.hh"
 #include "main/navbar_versekey.h"
@@ -620,6 +626,25 @@ check_notes_features(void)
 			check(grupo && g_action_group_has_action(grupo, "exportar-md") &&
 			      g_action_group_has_action(grupo, "exportar-json"),
 			      "notes export actions missing");
+			/* GTK4-TREE-101: the results are a GtkColumnView of rows
+			 * that hand back the note the reader picks. */
+			GtkWidget *tabla = find_widget_of_type(dialogo, GTK_TYPE_COLUMN_VIEW);
+			check(tabla != NULL, "notes results are not a GtkColumnView");
+			if (tabla) {
+				GListStore *filas = elim_table_get_store(tabla);
+
+				check(g_list_model_get_n_items(gtk_column_view_get_columns(
+					  GTK_COLUMN_VIEW(tabla))) == 4,
+				      "notes results should have four columns");
+				check(g_list_model_get_n_items(G_LIST_MODEL(filas)) >= 1,
+				      "the tagged note is not in the results");
+				check(elim_table_get_selected(tabla) == NULL,
+				      "notes results opened with a row picked");
+				elim_table_select(tabla, 0, FALSE);
+				ElimRow *nota = elim_table_get_selected(tabla);
+				check(nota && *elim_row_get_string(nota, 4) != '\0',
+				      "picked note has no passage reference");
+			}
 			gui_widget_destroy(dialogo);
 		}
 	}
@@ -793,10 +818,10 @@ check_word_cloud_dialog(void)
 		check(cloud_shown(stack), "word cloud not drawn on opening");
 		GtkWidget *combo_a = gtk_grid_get_child_at(GTK_GRID(grid), 1, 0);
 		GtkWidget *combo_b = gtk_grid_get_child_at(GTK_GRID(grid), 1, 1);
-		const gchar *book_a = gtk_editable_get_text(GTK_EDITABLE(gtk_combo_box_get_child(GTK_COMBO_BOX(combo_a))));
+		const gchar *book_a = elim_dropdown_get_active_text(GTK_DROP_DOWN(combo_a));
 		check(book_a && *book_a, "word cloud opened without a book");
 		gtk_check_button_set_active(GTK_CHECK_BUTTON(compare), TRUE);
-		const gchar *book_b = gtk_editable_get_text(GTK_EDITABLE(gtk_combo_box_get_child(GTK_COMBO_BOX(combo_b))));
+		const gchar *book_b = elim_dropdown_get_active_text(GTK_DROP_DOWN(combo_b));
 		check(book_b && *book_b && g_strcmp0(book_a, book_b) != 0,
 		      "comparing did not choose another book");
 		GtkWidget *download = gtk_grid_get_child_at(GTK_GRID(grid), 2, 0);
@@ -873,6 +898,403 @@ check_builder_dialog_opens(const char *name, void (*open_dialog)(void))
 	g_list_free(added);
 	g_list_free(before);
 	g_list_free(after);
+}
+
+/* GTK4-TREE-101: the memorization list is a GtkColumnView over rows, not a
+ * GtkTreeView. It shows the verse added while it is open, in four columns,
+ * and hands back the row the reader picks. */
+static void
+check_memorizacion_dialog(void)
+{
+	GList *before = gtk_window_list_toplevels();
+	GtkWidget *dialog = NULL;
+	const char *clave = "John 3:16";
+
+	gui_memorizacion_dialog(GTK_WINDOW(widgets.app));
+	while (g_main_context_pending(NULL))
+		g_main_context_iteration(NULL, FALSE);
+	GList *after = gtk_window_list_toplevels();
+	for (GList *l = after; l; l = l->next)
+		if (!g_list_find(before, l->data) && gtk_widget_get_visible(l->data))
+			dialog = l->data;
+	check(dialog != NULL, "memorization dialog did not open");
+	if (dialog) {
+		GtkWidget *view = find_widget_of_type(dialog, GTK_TYPE_COLUMN_VIEW);
+
+		check(view != NULL, "memorization list is not a GtkColumnView");
+		if (view) {
+			GListModel *columns = gtk_column_view_get_columns(GTK_COLUMN_VIEW(view));
+			GListStore *store = elim_table_get_store(view);
+			guint rows = g_list_model_get_n_items(G_LIST_MODEL(store));
+
+			check(g_list_model_get_n_items(columns) == 4,
+			      "memorization list should have four columns");
+			check(elim_table_get_selected(view) == NULL,
+			      "memorization list opened with a row picked");
+			gui_memorizacion_anadir(clave);
+			while (g_main_context_pending(NULL))
+		g_main_context_iteration(NULL, FALSE);
+			check(g_list_model_get_n_items(G_LIST_MODEL(store)) == rows + 1 ||
+			      main_memoria_tiene(clave) == FALSE,
+			      "added verse missing from the memorization list");
+			if (g_list_model_get_n_items(G_LIST_MODEL(store)) > rows) {
+				gtk_selection_model_select_item(
+				    gtk_column_view_get_model(GTK_COLUMN_VIEW(view)),
+				    g_list_model_get_n_items(G_LIST_MODEL(store)) - 1, TRUE);
+				ElimRow *row = elim_table_get_selected(view);
+				check(row && strcmp(elim_row_get_string(row, 4), "") != 0,
+				      "picked row has no key");
+			}
+		}
+		gui_widget_destroy(dialog);
+	}
+	g_list_free(before);
+	g_list_free(after);
+}
+
+/* GTK4-TREE-101: the Bible catalog is a GtkColumnView whose first column is
+ * a check box per module. Whatever the catalog holds (it comes from the
+ * profile's own repository list), the view has its seven columns and a
+ * click on the box of a module that is not installed marks that row. */
+static GtkWidget *
+first_check_button(GtkWidget *widget)
+{
+	if (GTK_IS_CHECK_BUTTON(widget))
+		return widget;
+	for (GtkWidget *child = gtk_widget_get_first_child(widget); child;
+	     child = gtk_widget_get_next_sibling(child)) {
+		GtkWidget *found = first_check_button(child);
+
+		if (found)
+			return found;
+	}
+	return NULL;
+}
+
+static void
+check_install_dialog(void)
+{
+	GList *before = gtk_window_list_toplevels();
+	GtkWidget *dialog = NULL;
+
+	gui_instalar_biblias();
+	while (g_main_context_pending(NULL))
+		g_main_context_iteration(NULL, FALSE);
+	GList *after = gtk_window_list_toplevels();
+	for (GList *l = after; l; l = l->next)
+		if (!g_list_find(before, l->data) && gtk_widget_get_visible(l->data))
+			dialog = l->data;
+	check(dialog != NULL, "install Bibles dialog did not open");
+	if (dialog) {
+		GtkWidget *view = find_widget_of_type(dialog, GTK_TYPE_COLUMN_VIEW);
+
+		check(view != NULL, "Bible catalog is not a GtkColumnView");
+		if (view) {
+			GListStore *store = elim_table_get_store(view);
+			ElimRow *row = elim_table_get(store, 0);
+
+			check(g_list_model_get_n_items(gtk_column_view_get_columns(
+				  GTK_COLUMN_VIEW(view))) == 7,
+			      "Bible catalog should have seven columns");
+			if (row && !elim_row_get_int(row, 7)) {
+				GtkWidget *box = first_check_button(view);
+
+				check(box != NULL, "catalog row has no check box");
+				if (box) {
+					check(!elim_row_get_int(row, 0),
+					      "catalog row starts marked");
+					gtk_check_button_set_active(GTK_CHECK_BUTTON(box), TRUE);
+					while (g_main_context_pending(NULL))
+						g_main_context_iteration(NULL, FALSE);
+					check(elim_row_get_int(row, 0) == 1,
+					      "clicking the check box did not mark the row");
+				}
+			}
+		}
+		gui_widget_destroy(dialog);
+	}
+	g_list_free(before);
+	g_list_free(after);
+}
+
+/* GTK4-TREE-101: the reading plans are a GtkListView (plans, browse mode)
+ * and a GtkColumnView (days, with a check box each). Opening picks a plan
+ * and lists its days; picking another plan lists that one's; ticking a day
+ * marks it and keeps the plan the reader is looking at. */
+static void
+check_plans_dialog(void)
+{
+	GList *before = gtk_window_list_toplevels();
+	GtkWidget *dialog = NULL;
+
+	gui_planes_lectura_dialog();
+	while (g_main_context_pending(NULL))
+		g_main_context_iteration(NULL, FALSE);
+	GList *after = gtk_window_list_toplevels();
+	for (GList *l = after; l; l = l->next)
+		if (!g_list_find(before, l->data) && gtk_widget_get_visible(l->data))
+			dialog = l->data;
+	check(dialog != NULL, "reading plans dialog did not open");
+	if (dialog) {
+		GtkWidget *plans = find_widget_of_type(dialog, GTK_TYPE_LIST_VIEW);
+		GtkWidget *days = find_widget_of_type(dialog, GTK_TYPE_COLUMN_VIEW);
+
+		check(plans && days, "reading plans lists are not GtkListView/GtkColumnView");
+		if (plans && days && main_planes_cuantos() > 0) {
+			GListStore *plan_rows = elim_table_get_store(plans);
+			GListStore *day_rows = elim_table_get_store(days);
+			ElimRow *row = elim_table_get_selected(plans);
+
+			check(g_list_model_get_n_items(G_LIST_MODEL(plan_rows)) ==
+				  (guint)main_planes_cuantos(),
+			      "plans list should hold every plan");
+			check(row != NULL, "no plan is picked on opening");
+			if (row) {
+				const PL_PLAN *plan =
+				    main_planes_get(elim_row_get_int(row, 1));
+
+				check(g_list_model_get_n_items(G_LIST_MODEL(day_rows)) ==
+					  (guint)plan->dias,
+				      "days list does not match the picked plan");
+			}
+			if (main_planes_cuantos() > 1) {
+				const PL_PLAN *other = main_planes_get(1);
+
+				elim_table_select(plans, 1, TRUE);
+				while (g_main_context_pending(NULL))
+					g_main_context_iteration(NULL, FALSE);
+				check(g_list_model_get_n_items(G_LIST_MODEL(day_rows)) ==
+					  (guint)other->dias,
+				      "days list did not follow the picked plan");
+				GtkWidget *box = first_check_button(days);
+
+				check(box != NULL, "days list has no check box");
+				if (box) {
+					int before_done = main_planes_dias_hechos(other);
+
+					gtk_check_button_set_active(GTK_CHECK_BUTTON(box), TRUE);
+					while (g_main_context_pending(NULL))
+						g_main_context_iteration(NULL, FALSE);
+					check(main_planes_dias_hechos(other) == before_done + 1,
+					      "ticking a day did not mark it");
+					check(elim_table_get_selected_position(plans) == 1,
+					      "ticking a day changed the picked plan");
+					check(g_list_model_get_n_items(G_LIST_MODEL(day_rows)) ==
+						  (guint)other->dias,
+					      "days list lost its days after ticking");
+				}
+			}
+		}
+		gui_widget_destroy(dialog);
+	}
+	g_list_free(before);
+	g_list_free(after);
+}
+
+/* GTK4-TREE-101: the key list of a dictionary window is a GtkListView of
+ * rows, without a module behind it (the fixture has no dictionary): the
+ * window builds, the list shows the keys put in it, and picking one puts it
+ * in the entry. */
+static void
+check_dictionary_key_list(void)
+{
+	DIALOG_DATA *dlg = g_new0(DIALOG_DATA, 1);
+
+	gui_create_dictlex_dialog(dlg);
+	check(dlg->listview && GTK_IS_LIST_VIEW(dlg->listview),
+	      "dictionary key list is not a GtkListView");
+	if (dlg->listview && GTK_IS_LIST_VIEW(dlg->listview)) {
+		GListStore *keys = elim_table_get_store(dlg->listview);
+		const char *names[] = { "Aarón", "Abba", "Abdías" };
+
+		check(settings.cell_height > 0, "key list row height not measured");
+		for (int i = 0; i < 3; i++) {
+			ElimRow *row = elim_row_new(1);
+
+			elim_row_set_string(row, 0, names[i]);
+			g_list_store_append(keys, row);
+			g_object_unref(row);
+		}
+		check(elim_table_get_selected(dlg->listview) == NULL,
+		      "key list opened with a key picked");
+		/* the entry's own "changed" refills the list from the module,
+		 * which this window has none of: only the pick is looked at */
+		g_signal_handlers_disconnect_matched(dlg->entry, G_SIGNAL_MATCH_ID,
+						     g_signal_lookup("changed",
+								      GTK_TYPE_EDITABLE),
+						     0, NULL, NULL, NULL);
+		elim_table_select(dlg->listview, 1, FALSE);
+		check(strcmp(gtk_editable_get_text(GTK_EDITABLE(dlg->entry)), "Abba") == 0,
+		      "picking a key did not put it in the entry");
+	}
+	if (dlg->dialog)
+		gui_widget_destroy(dlg->dialog);
+}
+
+/* GTK4-TREE-101: the six flat lists of the advanced search dialog are
+ * GtkListViews of two-string rows. Creating a custom module list and a range
+ * puts a row in its list and picks it; typing the name in the entry renames
+ * the row; adding a module fills the module list and the picked list's
+ * modules; picking a results row and clearing the results run without a
+ * search behind them. */
+static gboolean
+search_dialog_lists_are_tables(void)
+{
+	GtkWidget *lists[6];
+	gboolean all = TRUE;
+
+	lists[0] = search1.module_lists;
+	lists[1] = search1.list_range_name;
+	lists[2] = search1.list_ranges;
+	lists[3] = search1.listview_modules;
+	lists[4] = search1.listview_results;
+	lists[5] = search1.listview_verses;
+	for (guint i = 0; i < G_N_ELEMENTS(lists); i++) {
+		gboolean is_table = lists[i] && GTK_IS_LIST_VIEW(lists[i]);
+
+		check(is_table, "search dialog list is not a GtkListView");
+		all &= is_table;
+		if (is_table)
+			check(elim_table_get_selected(lists[i]) == NULL,
+			      "search dialog list opened with a row picked");
+	}
+	return all;
+}
+
+static void
+check_search_dialog_list_rows(void)
+{
+	/* a custom module list: a row, picked, named like the entry */
+	new_modlist(NULL, NULL);
+	check(g_list_model_get_n_items(G_LIST_MODEL(
+		  elim_table_get_store(search1.module_lists))) == 1,
+	      "new module list did not add a row");
+	ElimRow *list_row = elim_table_get_selected(search1.module_lists);
+	check(list_row != NULL, "new module list was not picked");
+	if (list_row) {
+		check(*elim_row_get_string(list_row, 0) != '\0' &&
+			  strcmp(elim_row_get_string(list_row, 0),
+				 gtk_editable_get_text(GTK_EDITABLE(
+				     search1.entry_list_name))) == 0,
+		      "module list name and its entry differ");
+		gtk_editable_set_text(GTK_EDITABLE(search1.entry_list_name),
+				      "Mi lista");
+		check(strcmp(elim_row_get_string(list_row, 0), "Mi lista") == 0,
+		      "typing the list name did not rename its row");
+	}
+
+	/* a module added to it: listed, and kept with the list */
+	gchar *module = g_strdup(settings.MainWindowModule);
+	main_add_mod_to_list(search1.listview_modules, module);
+	GListStore *modules = elim_table_get_store(search1.listview_modules);
+	check(g_list_model_get_n_items(G_LIST_MODEL(modules)) == 1 &&
+		  strcmp(elim_row_get_string(elim_table_get(modules, 0), 1),
+			 module) == 0,
+	      "added module is not in the list");
+	check(list_row && strcmp(elim_row_get_string(list_row, 1), module) == 0,
+	      "the module list did not keep its module");
+	main_add_modlist_to_label();
+	g_free(module);
+
+	/* a custom range: a row, picked, renamed by its entry */
+	new_range(NULL, NULL);
+	ElimRow *range_row = elim_table_get_selected(search1.list_range_name);
+	check(range_row != NULL, "new range was not picked");
+	if (range_row) {
+		check(*elim_row_get_string(range_row, 0) != '\0',
+		      "new range has no name");
+		gtk_editable_set_text(GTK_EDITABLE(search1.entry_range_name),
+				      "Mi rango");
+		check(strcmp(elim_row_get_string(range_row, 0), "Mi rango") == 0,
+		      "typing the range name did not rename its row");
+	}
+
+	/* results: picking a summary row with no search behind it, then
+	 * clearing both lists */
+	{
+		ElimRow *found = elim_row_new(2);
+		ElimRow *verse = elim_row_new(2);
+
+		elim_row_set_string(found, 0, "1 found in Test");
+		elim_row_set_string(verse, 0, "Test: Genesis 1:1 text");
+		g_list_store_append(elim_table_get_store(search1.listview_results), found);
+		g_list_store_append(elim_table_get_store(search1.listview_verses), verse);
+		g_object_unref(found);
+		g_object_unref(verse);
+		elim_table_select(search1.listview_results, 0, FALSE);
+		check(elim_table_get_selected(search1.listview_results) != NULL,
+		      "results row could not be picked");
+		button_clean(NULL, NULL);
+		check(g_list_model_get_n_items(G_LIST_MODEL(
+			  elim_table_get_store(search1.listview_results))) == 0 &&
+			  g_list_model_get_n_items(G_LIST_MODEL(
+			      elim_table_get_store(search1.listview_verses))) == 0,
+		      "clearing the results left rows behind");
+	}
+}
+
+static void
+check_search_dialog_lists(void)
+{
+	gui_create_search_dialog();
+	if (search_dialog_lists_are_tables())
+		check_search_dialog_list_rows();
+	if (search1.dialog)
+		gui_widget_destroy(search1.dialog);
+	while (g_main_context_pending(NULL))
+		g_main_context_iteration(NULL, FALSE);
+}
+
+/* GTK4-TREE-101: the SQLite module manager is a modal dialog listing the
+ * modules of the profile in a GtkColumnView. It blocks in its own loop, so
+ * it is looked at from an idle handler that then closes it. */
+static gboolean sqlite_manager_inspected;
+
+static gboolean
+inspect_sqlite_manager(gpointer unused)
+{
+	GList *toplevels = gtk_window_list_toplevels();
+	GtkWidget *dialog = NULL;
+
+	(void)unused;
+	for (GList *l = toplevels; l && !dialog; l = l->next)
+		if (!g_strcmp0(gtk_window_get_title(GTK_WINDOW(l->data)),
+			       "Módulos SQLite") &&
+		    gtk_widget_get_visible(l->data))
+			dialog = GTK_WIDGET(l->data);
+	g_list_free(toplevels);
+	if (!dialog)
+		return G_SOURCE_CONTINUE;	/* not shown yet */
+	sqlite_manager_inspected = TRUE;
+	GtkWidget *view = find_widget_of_type(dialog, GTK_TYPE_COLUMN_VIEW);
+
+	check(view != NULL, "SQLite module list is not a GtkColumnView");
+	if (view) {
+		GListStore *rows = elim_table_get_store(view);
+
+		check(g_list_model_get_n_items(gtk_column_view_get_columns(
+			  GTK_COLUMN_VIEW(view))) == 5,
+		      "SQLite module list should have five columns");
+		check(g_list_model_get_n_items(G_LIST_MODEL(rows)) >= 1,
+		      "SQLite module list is empty");
+		check(elim_table_get_selected(view) == NULL,
+		      "SQLite module list opened with a row picked");
+		elim_table_select(view, 0, FALSE);
+		ElimRow *row = elim_table_get_selected(view);
+		check(row && *elim_row_get_string(row, 0) != '\0',
+		      "picked SQLite module has no id");
+	}
+	gtk_dialog_response(GTK_DIALOG(dialog), GTK_RESPONSE_CLOSE);
+	return G_SOURCE_REMOVE;
+}
+
+static void
+check_sqlite_module_manager(void)
+{
+	sqlite_manager_inspected = FALSE;
+	g_timeout_add(50, inspect_sqlite_manager, NULL);
+	gui_open_sqlite_module_manager();
+	check(sqlite_manager_inspected, "SQLite module manager was never shown");
 }
 
 /* MENU-TIDY-101: the menu bar is the one the reader was promised, and
@@ -1167,6 +1589,12 @@ exercise_application(gpointer unused)
 		check_word_cloud_dialog();
 		check_builder_dialog_opens("preferences", gui_setup_preferences_dialog);
 		check_builder_dialog_opens("search", gui_create_search_dialog);
+		check_search_dialog_lists();
+		check_memorizacion_dialog();
+		check_install_dialog();
+		check_plans_dialog();
+		check_dictionary_key_list();
+		check_sqlite_module_manager();
 		check_file_chooser_fits();
 		/* GTK4-PORT-101 step 2: verse tools are a GMenu popover over
 		 * «versiculo» actions. */

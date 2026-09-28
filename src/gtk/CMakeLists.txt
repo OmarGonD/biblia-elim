@@ -175,6 +175,7 @@ add_executable (biblia-elim
   buscar_notas.c
   nube_palabras.c
   memorizacion.c
+  table_helpers.c
   planes_lectura.c
   pulpito.c
   plan_personal.c

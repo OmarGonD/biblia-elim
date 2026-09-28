@@ -30,8 +30,7 @@ extern "C" {
 #ifdef USE_GTKTVeditor
 
 #include <gtk/gtk.h>
-#include "editor/slib-editor.h"
-
+#include "editor/editor.h"
 #include "main/navbar_versekey.h"
 
 struct _find_dialog

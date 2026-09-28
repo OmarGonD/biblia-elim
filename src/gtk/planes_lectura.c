@@ -19,6 +19,7 @@
 
 #include <gtk/gtk.h>
 #include "gui/widget_helpers.h"
+#include "gui/table_helpers.h"
 #include <glib/gi18n.h>
 
 #include "gui/planes_lectura.h"
@@ -75,8 +76,8 @@ typedef struct {
 	GtkWidget *btn_probar;
 	GtkWidget *lbl_recordatorio;
 	gboolean poniendo_hora;	/* cargando los valores, no tocar el disco */
-	GtkListStore *planes;
-	GtkListStore *dias;
+	GListStore *planes;
+	GListStore *dias;
 	const PL_PLAN *plan;	/* el que se está mirando */
 } PLANES_UI;
 
@@ -200,6 +201,8 @@ gui_planes_lectura_estado_hoy(gchar **detalle)
 static void llenar_dias(const PL_PLAN *plan);
 static void refrescar_cabecera(void);
 static void refrescar_lista_planes(void);
+static void on_plan_seleccionado(GObject *seleccion, GParamSpec *pspec,
+				 gpointer datos);
 static void seleccionar_plan_en_lista(const PL_PLAN *plan);
 
 /* El diálogo puede estar abierto mientras se marca desde la ventana
@@ -314,14 +317,14 @@ llenar_dias(const PL_PLAN *plan)
 {
 	int dia, hoy;
 
-	gtk_list_store_clear(ui->dias);
+	g_list_store_remove_all(ui->dias);
 	if (!plan)
 		return;
 
 	hoy = main_planes_dia_de_hoy(plan);
 
 	for (dia = 1; dia <= plan->dias; ++dia) {
-		GtkTreeIter iter;
+		ElimRow *fila = elim_row_new(N_DCOLS);
 		gchar *etiqueta = g_strdup_printf(_("Día %d"), dia);
 		gchar *lectura = main_planes_lectura(plan, dia);
 		const char *titulo = main_planes_titulo(plan, dia);
@@ -332,15 +335,16 @@ llenar_dias(const PL_PLAN *plan)
 		else
 			texto = g_strdup(lectura);
 
-		gtk_list_store_append(ui->dias, &iter);
-		gtk_list_store_set(ui->dias, &iter,
-				   DCOL_HECHO, main_planes_dia_hecho(plan, dia),
-				   DCOL_DIA, etiqueta,
-				   DCOL_LECTURA, texto,
-				   DCOL_NUMERO, dia,
-				   DCOL_PESO, (dia == hoy) ? PANGO_WEIGHT_BOLD
-							   : PANGO_WEIGHT_NORMAL,
-				   -1);
+		elim_row_set_int(fila, DCOL_HECHO,
+				 main_planes_dia_hecho(plan, dia) ? 1 : 0);
+		elim_row_set_string(fila, DCOL_DIA, etiqueta);
+		elim_row_set_string(fila, DCOL_LECTURA, texto);
+		elim_row_set_int(fila, DCOL_NUMERO, dia);
+		elim_row_set_int(fila, DCOL_PESO,
+				 (dia == hoy) ? PANGO_WEIGHT_BOLD
+					      : PANGO_WEIGHT_NORMAL);
+		g_list_store_append(ui->dias, fila);
+		g_object_unref(fila);
 		g_free(etiqueta);
 		g_free(lectura);
 		g_free(texto);
@@ -350,15 +354,9 @@ llenar_dias(const PL_PLAN *plan)
 static void
 ir_a_dia(int dia, gboolean abrir)
 {
-	GtkTreePath *path;
-
 	if (!ui->plan || dia < 1)
 		return;
-	path = gtk_tree_path_new_from_indices(dia - 1, -1);
-	gtk_tree_view_set_cursor(GTK_TREE_VIEW(ui->tree_dias), path, NULL, FALSE);
-	gtk_tree_view_scroll_to_cell(GTK_TREE_VIEW(ui->tree_dias), path, NULL,
-				     TRUE, 0.4, 0.0);
-	gtk_tree_path_free(path);
+	elim_table_select(ui->tree_dias, (guint)(dia - 1), TRUE);
 	if (abrir)
 		abrir_dia(ui->plan, dia);
 }
@@ -469,12 +467,16 @@ static void
 refrescar_lista_planes(void)
 {
 	const char *activo = main_planes_activo();
+	GtkSingleSelection *seleccion = elim_table_selection(ui->tree_planes);
 	int i;
 
-	gtk_list_store_clear(ui->planes);
+	/* refilling picks a plan (browse mode) that is not the reader's: the
+	 * plan being looked at is put back below, and nothing is announced */
+	g_signal_handlers_block_by_func(seleccion, on_plan_seleccionado, NULL);
+	g_list_store_remove_all(ui->planes);
 	for (i = 0; i < main_planes_cuantos(); ++i) {
 		const PL_PLAN *plan = main_planes_get(i);
-		GtkTreeIter iter;
+		ElimRow *fila = elim_row_new(N_PCOLS);
 		gboolean en_curso = (activo && !strcmp(activo, plan->id));
 		int hechos = main_planes_dias_hechos(plan);
 		gchar *pie, *markup;
@@ -510,15 +512,19 @@ refrescar_lista_planes(void)
 			g_free(nombre);
 			g_free(pie_esc);
 		}
-		gtk_list_store_append(ui->planes, &iter);
-		gtk_list_store_set(ui->planes, &iter,
-				   PCOL_MARCA, markup,
-				   PCOL_INDICE, i,
-				   -1);
+		elim_row_set_string(fila, PCOL_MARCA, markup);
+		elim_row_set_int(fila, PCOL_INDICE, i);
+		g_list_store_append(ui->planes, fila);
+		g_object_unref(fila);
 		g_free(pie);
 		g_free(markup);
+		if (plan == ui->plan)
+			elim_table_select(ui->tree_planes, (guint)i, FALSE);
 	}
+	g_signal_handlers_unblock_by_func(seleccion, on_plan_seleccionado, NULL);
 }
+
+static void mostrar_plan(const PL_PLAN *plan);
 
 static void
 seleccionar_plan_en_lista(const PL_PLAN *plan)
@@ -528,11 +534,11 @@ seleccionar_plan_en_lista(const PL_PLAN *plan)
 		return;
 	for (i = 0; i < main_planes_cuantos(); ++i) {
 		if (main_planes_get(i) == plan) {
-			GtkTreePath *path =
-			    gtk_tree_path_new_from_indices(i, -1);
-			gtk_tree_view_set_cursor(GTK_TREE_VIEW(ui->tree_planes),
-						 path, NULL, FALSE);
-			gtk_tree_path_free(path);
+			elim_table_select(ui->tree_planes, (guint)i, FALSE);
+			/* picking the row that is already picked says nothing:
+			 * the plan is shown all the same */
+			if (ui->plan != plan)
+				mostrar_plan(plan);
 			return;
 		}
 	}
@@ -542,18 +548,11 @@ seleccionar_plan_en_lista(const PL_PLAN *plan)
  * Señales
  * ------------------------------------------------------------------ */
 
+/* Lo que se enseña de PLAN: sus días y la cabecera. */
 static void
-on_plan_seleccionado(GtkTreeSelection *sel, gpointer datos)
+mostrar_plan(const PL_PLAN *plan)
 {
-	GtkTreeModel *modelo;
-	GtkTreeIter iter;
-	gint indice;
-
-	(void)datos;
-	if (!gtk_tree_selection_get_selected(sel, &modelo, &iter))
-		return;
-	gtk_tree_model_get(modelo, &iter, PCOL_INDICE, &indice, -1);
-	ui->plan = main_planes_get(indice);
+	ui->plan = plan;
 	llenar_dias(ui->plan);
 	refrescar_cabecera();
 	if (ui->plan)
@@ -561,28 +560,35 @@ on_plan_seleccionado(GtkTreeSelection *sel, gpointer datos)
 }
 
 static void
-on_dia_marcado(GtkCellRendererToggle *celda, gchar *ruta, gpointer datos)
+on_plan_seleccionado(GObject *seleccion, GParamSpec *pspec, gpointer datos)
 {
-	GtkTreeIter iter;
+	ElimRow *fila = elim_table_get_selected(ui->tree_planes);
+
+	(void)seleccion;
+	(void)pspec;
+	(void)datos;
+	if (!fila)
+		return;
+	mostrar_plan(main_planes_get(elim_row_get_int(fila, PCOL_INDICE)));
+}
+
+static void
+on_dia_marcado(ElimRow *fila, gpointer datos)
+{
 	gboolean hecho;
 	gint dia;
 
-	(void)celda;
 	(void)datos;
 	if (!ui->plan)
 		return;
-	if (!gtk_tree_model_get_iter_from_string(GTK_TREE_MODEL(ui->dias),
-						 &iter, ruta))
-		return;
-	gtk_tree_model_get(GTK_TREE_MODEL(ui->dias), &iter,
-			   DCOL_HECHO, &hecho, DCOL_NUMERO, &dia, -1);
-	hecho = !hecho;
+	hecho = !elim_row_get_int(fila, DCOL_HECHO);
+	dia = elim_row_get_int(fila, DCOL_NUMERO);
 	main_planes_marcar(ui->plan, dia, hecho);
 	/* Marcar un día también adopta el plan: para eso lo está usando. */
 	main_planes_activar(ui->plan);
 	guardar_ya();
 
-	gtk_list_store_set(ui->dias, &iter, DCOL_HECHO, hecho, -1);
+	elim_row_set_int(fila, DCOL_HECHO, hecho ? 1 : 0);
 	/* El día que toca se movió, así que se repinta la negrita. */
 	llenar_dias(ui->plan);
 	refrescar_cabecera();
@@ -591,22 +597,18 @@ on_dia_marcado(GtkCellRendererToggle *celda, gchar *ruta, gpointer datos)
 }
 
 static void
-on_dia_activado(GtkTreeView *tree, GtkTreePath *ruta,
-		GtkTreeViewColumn *columna, gpointer datos)
+on_dia_activado(GtkWidget *lista, guint posicion, gpointer datos)
 {
-	GtkTreeIter iter;
-	gint dia;
+	ElimRow *fila;
 
-	(void)tree;
-	(void)columna;
+	(void)lista;
 	(void)datos;
 	if (!ui->plan)
 		return;
-	if (!gtk_tree_model_get_iter(GTK_TREE_MODEL(ui->dias), &iter, ruta))
+	fila = elim_table_get(ui->dias, posicion);
+	if (!fila)
 		return;
-	gtk_tree_model_get(GTK_TREE_MODEL(ui->dias), &iter,
-			   DCOL_NUMERO, &dia, -1);
-	abrir_dia(ui->plan, dia);
+	abrir_dia(ui->plan, elim_row_get_int(fila, DCOL_NUMERO));
 }
 
 static void
@@ -893,52 +895,31 @@ on_destroy(GtkWidget *widget, gpointer datos)
 static void
 montar_arboles(void)
 {
-	GtkCellRenderer *celda;
-	GtkTreeViewColumn *col;
-	GtkTreeSelection *sel;
+	ElimTextColumn marca = elim_text_column(PCOL_MARCA);
+	ElimTextColumn dia = elim_text_column(DCOL_DIA);
+	ElimTextColumn lectura = elim_text_column(DCOL_LECTURA);
 
-	ui->planes = gtk_list_store_new(N_PCOLS, G_TYPE_STRING, G_TYPE_INT);
-	gtk_tree_view_set_model(GTK_TREE_VIEW(ui->tree_planes),
-				GTK_TREE_MODEL(ui->planes));
-	celda = gtk_cell_renderer_text_new();
-	g_object_set(celda, "ypad", 4, NULL);
-	col = gtk_tree_view_column_new_with_attributes(NULL, celda,
-						       "markup", PCOL_MARCA,
-						       NULL);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(ui->tree_planes), col);
+	/* una sola columna, sin cabecera: el nombre del plan y su pie */
+	marca.markup = TRUE;
+	marca.pad_y = 4;
+	ui->planes = elim_table_new();
+	elim_table_setup_list(ui->tree_planes, ui->planes, &marca);
+	elim_table_set_browse(ui->tree_planes, TRUE);
 
-	ui->dias = gtk_list_store_new(N_DCOLS, G_TYPE_BOOLEAN, G_TYPE_STRING,
-				      G_TYPE_STRING, G_TYPE_INT, G_TYPE_INT);
-	gtk_tree_view_set_model(GTK_TREE_VIEW(ui->tree_dias),
-				GTK_TREE_MODEL(ui->dias));
+	ui->dias = elim_table_new();
+	elim_table_setup(ui->tree_dias, ui->dias);
+	elim_table_add_toggle_column(ui->tree_dias, _("Leído"), DCOL_HECHO,
+				     on_dia_marcado, NULL);
+	dia.weight_column = DCOL_PESO;
+	elim_table_add_column(ui->tree_dias, _("Día"), &dia);
+	lectura.weight_column = DCOL_PESO;
+	lectura.expand = TRUE;
+	elim_table_add_column(ui->tree_dias, _("Lectura"), &lectura);
 
-	celda = gtk_cell_renderer_toggle_new();
-	g_signal_connect(celda, "toggled", G_CALLBACK(on_dia_marcado), NULL);
-	col = gtk_tree_view_column_new_with_attributes(_("Leído"), celda,
-						       "active", DCOL_HECHO,
-						       NULL);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(ui->tree_dias), col);
-
-	celda = gtk_cell_renderer_text_new();
-	col = gtk_tree_view_column_new_with_attributes(_("Día"), celda,
-						       "text", DCOL_DIA,
-						       "weight", DCOL_PESO,
-						       NULL);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(ui->tree_dias), col);
-
-	celda = gtk_cell_renderer_text_new();
-	g_object_set(celda, "ellipsize", PANGO_ELLIPSIZE_END, NULL);
-	col = gtk_tree_view_column_new_with_attributes(_("Lectura"), celda,
-						       "text", DCOL_LECTURA,
-						       "weight", DCOL_PESO,
-						       NULL);
-	gtk_tree_view_column_set_expand(col, TRUE);
-	gtk_tree_view_append_column(GTK_TREE_VIEW(ui->tree_dias), col);
-
-	sel = gtk_tree_view_get_selection(GTK_TREE_VIEW(ui->tree_planes));
-	gtk_tree_selection_set_mode(sel, GTK_SELECTION_BROWSE);
-	g_signal_connect(sel, "changed", G_CALLBACK(on_plan_seleccionado), NULL);
-	g_signal_connect(ui->tree_dias, "row-activated",
+	g_signal_connect(elim_table_selection(ui->tree_planes),
+			 "notify::selected", G_CALLBACK(on_plan_seleccionado),
+			 NULL);
+	g_signal_connect(ui->tree_dias, "activate",
 			 G_CALLBACK(on_dia_activado), NULL);
 }
 

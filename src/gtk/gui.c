@@ -176,7 +176,15 @@ gchar *XI_g_strdup_printf(const char *filename,
 
 	va_start(args, format);
 	for (s = strchr(format, '%'); s; s = strchr(++s, '%')) {
-		gchar *next = va_arg(args, gchar *);
+		gchar *next;
+
+		/* "%%" is a percent sign: it takes no argument, and neither of
+		 * its two characters starts a conversion */
+		if (*(s + 1) == '%') {
+			++s;
+			continue;
+		}
+		next = va_arg(args, gchar *);
 		if ((next == (gchar *)NULL) && (*(s + 1) == 's')) {
 			gchar *msg = g_strdup_printf("%s\n%s\n\n%s:%d \"%s\"",
 						     _("BUG! Biblia Elim is about to crash due to a \"STRDUP\" error."),
@@ -206,7 +214,15 @@ XI_g_string_printf(const char *filename,
 
 	va_start(args, format);
 	for (s = strchr(format, '%'); s; s = strchr(++s, '%')) {
-		gchar *next = va_arg(args, gchar *);
+		gchar *next;
+
+		/* "%%" is a percent sign: it takes no argument, and neither of
+		 * its two characters starts a conversion */
+		if (*(s + 1) == '%') {
+			++s;
+			continue;
+		}
+		next = va_arg(args, gchar *);
 		if ((next == (gchar *)NULL) && (*(s + 1) == 's')) {
 			gchar *msg = g_strdup_printf("%s\n%s\n\n%s:%d \"%s\"",
 						     _("BUG! Biblia Elim is about to crash due to a \"STRING\" error."),

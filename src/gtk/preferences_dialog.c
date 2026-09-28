@@ -48,6 +48,7 @@
 #include "gui/tabbed_browser.h"
 #include "gui/widgets.h"
 #include "gui/font_dialog.h"
+#include "gui/table_helpers.h"
 
 #include "main/sword.h"
 #include "main/lists.h"
@@ -57,6 +58,7 @@
 #include "main/settings.h"
 #include "main/sidebar.h"
 #include "main/xml.h"
+#include "gui/dropdown_helpers.h"
 #include "main/configs.h"
 #include "webkit/wk-html.h"
 #include "main/url.hh"
@@ -1495,15 +1497,13 @@ void on_folder_changed(GtkButton *button, gpointer user_data)
  *  void
  */
 
-void on_combobox1_changed(GtkComboBox *combobox, gpointer user_data)
+void on_combobox1_changed(GObject *combobox, GParamSpec *pspec,
+				  gpointer user_data)
 {
 	gchar *buf = NULL;
 	gchar *url = NULL;
-	GtkTreeIter iter;
-	GtkTreeModel *model = gtk_combo_box_get_model(combobox);
 
-	gtk_combo_box_get_active_iter(combobox, &iter);
-	gtk_tree_model_get(GTK_TREE_MODEL(model), &iter, 0, &buf, -1);
+	buf = g_strdup(elim_dropdown_get_active_text(GTK_DROP_DOWN(combobox)));
 	if (!buf)
 		return;
 	xml_set_value("Xiphos", "fontsize", "versenum", buf);
@@ -1524,7 +1524,8 @@ void on_combobox1_changed(GtkComboBox *combobox, gpointer user_data)
  *
  * Synopsis
  *   #include "preferences_dialog.h"
- *   void on_columncountvalue_changed(GtkComboBox *combobox, gpointer user_data)
+ *   void on_columncountvalue_changed(GObject *combobox, GParamSpec *pspec,
+				  gpointer user_data)
  *
  * Description
  *   display columns has changed
@@ -1533,15 +1534,13 @@ void on_combobox1_changed(GtkComboBox *combobox, gpointer user_data)
  *   void
  */
 
-void on_columncountvalue_changed(GtkComboBox *combobox, gpointer user_data)
+void on_columncountvalue_changed(GObject *combobox, GParamSpec *pspec,
+				  gpointer user_data)
 {
 	gchar *buf = NULL;
 	gchar *url = NULL;
-	GtkTreeIter iter;
-	GtkTreeModel *model = gtk_combo_box_get_model(combobox);
 
-	gtk_combo_box_get_active_iter(combobox, &iter);
-	gtk_tree_model_get(GTK_TREE_MODEL(model), &iter, 0, &buf, -1);
+	buf = g_strdup(elim_dropdown_get_active_text(GTK_DROP_DOWN(combobox)));
 	if (!buf)
 		return;
 	xml_set_value("Xiphos", "misc", "displaycolumns", buf);
@@ -1550,9 +1549,10 @@ void on_columncountvalue_changed(GtkComboBox *combobox, gpointer user_data)
 	redisplay_to_realign();
 }
 
-void on_combobox_module_grouping_changed(GtkComboBox *combobox, gpointer user_data)
+void on_combobox_module_grouping_changed(GObject *combobox, GParamSpec *pspec,
+				  gpointer user_data)
 {
-	gint mode = gtk_combo_box_get_active(combobox);
+	gint mode = elim_dropdown_get_active(GTK_DROP_DOWN(combobox));
 	gchar buf[4];
 	if (mode < 0)
 		return;
@@ -1578,15 +1578,13 @@ void on_combobox_module_grouping_changed(GtkComboBox *combobox, gpointer user_da
  *  void
  */
 
-void on_basecombobox1_changed(GtkComboBox *combobox, gpointer user_data)
+void on_basecombobox1_changed(GObject *combobox, GParamSpec *pspec,
+				  gpointer user_data)
 {
 	gchar *buf = NULL;
 	gchar *url = NULL;
-	GtkTreeIter iter;
-	GtkTreeModel *model = gtk_combo_box_get_model(combobox);
 
-	gtk_combo_box_get_active_iter(combobox, &iter);
-	gtk_tree_model_get(GTK_TREE_MODEL(model), &iter, 0, &buf, -1);
+	buf = g_strdup(elim_dropdown_get_active_text(GTK_DROP_DOWN(combobox)));
 	if (!buf)
 		return;
 	xml_set_value("Xiphos", "fontsize", "basefontsize", buf);
@@ -1623,15 +1621,13 @@ void on_basecombobox1_changed(GtkComboBox *combobox, gpointer user_data)
  *  void
  */
 
-void on_combobox2_changed(GtkComboBox *combobox, gpointer user_data)
+void on_combobox2_changed(GObject *combobox, GParamSpec *pspec,
+				  gpointer user_data)
 {
 	gchar *buf = NULL;
 	gchar *url = NULL;
-	GtkTreeIter iter;
-	GtkTreeModel *model = gtk_combo_box_get_model(combobox);
 
-	gtk_combo_box_get_active_iter(combobox, &iter);
-	gtk_tree_model_get(GTK_TREE_MODEL(model), &iter, 0, &buf, -1);
+	buf = g_strdup(elim_dropdown_get_active_text(GTK_DROP_DOWN(combobox)));
 	if (!buf || !strcmp(buf, _("-- Select --"))) /* see fill_combobox */
 		return;
 
@@ -1657,15 +1653,13 @@ void on_combobox2_changed(GtkComboBox *combobox, gpointer user_data)
  *  void
  */
 
-void on_combobox4_changed(GtkComboBox *combobox, gpointer user_data)
+void on_combobox4_changed(GObject *combobox, GParamSpec *pspec,
+				  gpointer user_data)
 {
 	gchar *buf = NULL;
 	gchar *url = NULL;
-	GtkTreeIter iter;
-	GtkTreeModel *model = gtk_combo_box_get_model(combobox);
 
-	gtk_combo_box_get_active_iter(combobox, &iter);
-	gtk_tree_model_get(GTK_TREE_MODEL(model), &iter, 0, &buf, -1);
+	buf = g_strdup(elim_dropdown_get_active_text(GTK_DROP_DOWN(combobox)));
 	if (!buf || !strcmp(buf, _("-- Select --"))) /* see fill_combobox */
 		return;
 
@@ -1691,14 +1685,12 @@ void on_combobox4_changed(GtkComboBox *combobox, gpointer user_data)
  *  void
  */
 
-void on_combobox5_changed(GtkComboBox *combobox, gpointer user_data)
+void on_combobox5_changed(GObject *combobox, GParamSpec *pspec,
+				  gpointer user_data)
 {
 	gchar *buf = NULL;
-	GtkTreeIter iter;
-	GtkTreeModel *model = gtk_combo_box_get_model(combobox);
 
-	gtk_combo_box_get_active_iter(combobox, &iter);
-	gtk_tree_model_get(GTK_TREE_MODEL(model), &iter, 0, &buf, -1);
+	buf = g_strdup(elim_dropdown_get_active_text(GTK_DROP_DOWN(combobox)));
 	if (!buf || !strcmp(buf, _("-- Select --"))) /* see fill_combobox */
 		return;
 	xml_set_value("Xiphos", "lexicons", "defaultdictionary", buf);
@@ -1723,14 +1715,12 @@ void on_combobox5_changed(GtkComboBox *combobox, gpointer user_data)
  *  void
  */
 
-void on_combobox6_changed(GtkComboBox *combobox, gpointer user_data)
+void on_combobox6_changed(GObject *combobox, GParamSpec *pspec,
+				  gpointer user_data)
 {
 	gchar *buf = NULL;
-	GtkTreeIter iter;
-	GtkTreeModel *model = gtk_combo_box_get_model(combobox);
 
-	gtk_combo_box_get_active_iter(combobox, &iter);
-	gtk_tree_model_get(GTK_TREE_MODEL(model), &iter, 0, &buf, -1);
+	buf = g_strdup(elim_dropdown_get_active_text(GTK_DROP_DOWN(combobox)));
 	if (!buf || !strcmp(buf, _("-- Select --"))) /* see fill_combobox */
 		return;
 	xml_set_value("Xiphos", "modules", "percomm", buf);
@@ -1754,14 +1744,12 @@ void on_combobox6_changed(GtkComboBox *combobox, gpointer user_data)
  *  void
  */
 
-void on_combobox12_changed(GtkComboBox *combobox, gpointer user_data)
+void on_combobox12_changed(GObject *combobox, GParamSpec *pspec,
+				  gpointer user_data)
 {
 	gchar *buf = NULL;
-	GtkTreeIter iter;
-	GtkTreeModel *model = gtk_combo_box_get_model(combobox);
 
-	gtk_combo_box_get_active_iter(combobox, &iter);
-	gtk_tree_model_get(GTK_TREE_MODEL(model), &iter, 0, &buf, -1);
+	buf = g_strdup(elim_dropdown_get_active_text(GTK_DROP_DOWN(combobox)));
 	if (!buf || !strcmp(buf, _("-- Select --"))) /* see fill_combobox */
 		return;
 	xml_set_value("Xiphos", "modules", "devotional", buf);
@@ -1785,14 +1773,12 @@ void on_combobox12_changed(GtkComboBox *combobox, gpointer user_data)
  *  void
  */
 
-void on_combobox13_changed(GtkComboBox *combobox, gpointer user_data)
+void on_combobox13_changed(GObject *combobox, GParamSpec *pspec,
+				  gpointer user_data)
 {
 	gchar *buf = NULL;
-	GtkTreeIter iter;
-	GtkTreeModel *model = gtk_combo_box_get_model(combobox);
 
-	gtk_combo_box_get_active_iter(combobox, &iter);
-	gtk_tree_model_get(GTK_TREE_MODEL(model), &iter, 0, &buf, -1);
+	buf = g_strdup(elim_dropdown_get_active_text(GTK_DROP_DOWN(combobox)));
 	if (!buf || !strcmp(buf, _("-- Select --"))) /* see fill_combobox */
 		return;
 	xml_set_value("Xiphos", "lexicons", "hebrew", buf);
@@ -1816,14 +1802,12 @@ void on_combobox13_changed(GtkComboBox *combobox, gpointer user_data)
  *  void
  */
 
-void on_combobox14_changed(GtkComboBox *combobox, gpointer user_data)
+void on_combobox14_changed(GObject *combobox, GParamSpec *pspec,
+				  gpointer user_data)
 {
 	gchar *buf = NULL;
-	GtkTreeIter iter;
-	GtkTreeModel *model = gtk_combo_box_get_model(combobox);
 
-	gtk_combo_box_get_active_iter(combobox, &iter);
-	gtk_tree_model_get(GTK_TREE_MODEL(model), &iter, 0, &buf, -1);
+	buf = g_strdup(elim_dropdown_get_active_text(GTK_DROP_DOWN(combobox)));
 	if (!buf || !strcmp(buf, _("-- Select --"))) /* see fill_combobox */
 		return;
 	xml_set_value("Xiphos", "lexicons", "greek", buf);
@@ -1846,14 +1830,12 @@ void on_combobox14_changed(GtkComboBox *combobox, gpointer user_data)
  *  void
  */
 
-void on_combobox18_changed(GtkComboBox *combobox, gpointer user_data)
+void on_combobox18_changed(GObject *combobox, GParamSpec *pspec,
+				  gpointer user_data)
 {
     gchar *buf = NULL;
-    GtkTreeIter iter;
-    GtkTreeModel *model = gtk_combo_box_get_model(combobox);
-
-    if (gtk_combo_box_get_active_iter(combobox, &iter)) {
-        gtk_tree_model_get(GTK_TREE_MODEL(model), &iter, 0, &buf, -1);
+    if (elim_dropdown_get_active(GTK_DROP_DOWN(combobox)) >= 0) {
+        buf = g_strdup(elim_dropdown_get_active_text(GTK_DROP_DOWN(combobox)));
         if (!buf || !strcmp(buf, _("-- Select --")))
             return;
         xml_set_value("Xiphos", "lexicons", "hebrew_morph", buf);
@@ -1879,14 +1861,12 @@ void on_combobox18_changed(GtkComboBox *combobox, gpointer user_data)
  *  void
  */
 
-void on_combobox20_changed(GtkComboBox *combobox, gpointer user_data)
+void on_combobox20_changed(GObject *combobox, GParamSpec *pspec,
+				  gpointer user_data)
 {
     gchar *buf = NULL;
-    GtkTreeIter iter;
-    GtkTreeModel *model = gtk_combo_box_get_model(combobox);
-
-    if (gtk_combo_box_get_active_iter(combobox, &iter)) {
-        gtk_tree_model_get(GTK_TREE_MODEL(model), &iter, 0, &buf, -1);
+    if (elim_dropdown_get_active(GTK_DROP_DOWN(combobox)) >= 0) {
+        buf = g_strdup(elim_dropdown_get_active_text(GTK_DROP_DOWN(combobox)));
         if (!buf || !strcmp(buf, _("-- Select --")))
             return;
         xml_set_value("Xiphos", "lexicons", "greek_morph_ot", buf);
@@ -1912,14 +1892,12 @@ void on_combobox20_changed(GtkComboBox *combobox, gpointer user_data)
  *  void
  */
 
-void on_combobox19_changed(GtkComboBox *combobox, gpointer user_data)
+void on_combobox19_changed(GObject *combobox, GParamSpec *pspec,
+				  gpointer user_data)
 {
     gchar *buf = NULL;
-    GtkTreeIter iter;
-    GtkTreeModel *model = gtk_combo_box_get_model(combobox);
-
-    if (gtk_combo_box_get_active_iter(combobox, &iter)) {
-        gtk_tree_model_get(GTK_TREE_MODEL(model), &iter, 0, &buf, -1);
+    if (elim_dropdown_get_active(GTK_DROP_DOWN(combobox)) >= 0) {
+        buf = g_strdup(elim_dropdown_get_active_text(GTK_DROP_DOWN(combobox)));
         if (!buf || !strcmp(buf, _("-- Select --")))
             return;
         xml_set_value("Xiphos", "lexicons", "greek_morph_nt", buf);
@@ -1946,15 +1924,13 @@ void on_combobox19_changed(GtkComboBox *combobox, gpointer user_data)
  *  void
  */
 
-void on_combobox15_changed(GtkComboBox *combobox, gpointer user_data)
+void on_combobox15_changed(GObject *combobox, GParamSpec *pspec,
+				  gpointer user_data)
 {
 	gchar *buf = NULL;
 	gchar *url = NULL;
-	GtkTreeIter iter;
-	GtkTreeModel *model = gtk_combo_box_get_model(combobox);
 
-	gtk_combo_box_get_active_iter(combobox, &iter);
-	gtk_tree_model_get(GTK_TREE_MODEL(model), &iter, 0, &buf, -1);
+	buf = g_strdup(elim_dropdown_get_active_text(GTK_DROP_DOWN(combobox)));
 	if (!buf || !strcmp(buf, _("-- Select --"))) /* see fill_combobox */
 		return;
 	url = g_strdup_printf("sword://%s/%s", buf, "1");
@@ -1979,15 +1955,13 @@ void on_combobox15_changed(GtkComboBox *combobox, gpointer user_data)
  *  void
  */
 
-void on_combobox16_changed(GtkComboBox *combobox, gpointer user_data)
+void on_combobox16_changed(GObject *combobox, GParamSpec *pspec,
+				  gpointer user_data)
 {
 	gchar *buf = NULL;
-	GtkTreeIter iter;
-	GtkTreeModel *model = gtk_combo_box_get_model(combobox);
 	gboolean clear, set;
 
-	gtk_combo_box_get_active_iter(combobox, &iter);
-	gtk_tree_model_get(GTK_TREE_MODEL(model), &iter, 0, &buf, -1);
+	buf = g_strdup(elim_dropdown_get_active_text(GTK_DROP_DOWN(combobox)));
 	if (!buf || !strcmp(buf, _("-- Select --"))) /* see fill_combobox */
 		return;
 
@@ -2030,15 +2004,13 @@ void on_combobox16_changed(GtkComboBox *combobox, gpointer user_data)
  *  void
  */
 
-void on_combobox17_changed(GtkComboBox *combobox, gpointer user_data)
+void on_combobox17_changed(GObject *combobox, GParamSpec *pspec,
+				  gpointer user_data)
 {
 	gchar *buf = NULL;
-	GtkTreeIter iter;
-	GtkTreeModel *model = gtk_combo_box_get_model(combobox);
 	gchar *mod_name;
 
-	gtk_combo_box_get_active_iter(combobox, &iter);
-	gtk_tree_model_get(GTK_TREE_MODEL(model), &iter, 0, &buf, -1);
+	buf = g_strdup(elim_dropdown_get_active_text(GTK_DROP_DOWN(combobox)));
 	if (!buf || !strcmp(buf, _("-- Select --"))) /* see fill_combobox */
 		return;
 
@@ -2049,7 +2021,7 @@ void on_combobox17_changed(GtkComboBox *combobox, gpointer user_data)
 	gui_set_module_font(mod_name);
 	redisplay_to_realign();
 	g_free(mod_name);
-	gtk_combo_box_set_active(combobox, 0); /* reset to "-- Select --" */
+	elim_dropdown_set_active(GTK_DROP_DOWN(combobox), 0); /* reset to "-- Select --" */
 }
 
 /******************************************************************************
@@ -2476,42 +2448,27 @@ static gboolean dict_match_feature(char *modname, char *feature)
 	return (f && (!strcmp(f, feature)));
 }
 
-static void fill_combobox(GList *glist, GtkComboBox *combo, gchar *current_item, gboolean (*eval)(char *, char *), /* evaluator of feature */
+static void fill_combobox(GList *glist, GtkDropDown *combo, gchar *current_item, gboolean (*eval)(char *, char *), /* evaluator of feature */
 			  char *feature)
 { /* feature sought or avoided */
-	GtkTreeIter iter;
-	GtkListStore *store;
-	GtkCellRenderer *renderer;
 	gint index = 0;
 	gint i = 0;
 
-	store = gtk_list_store_new(1, G_TYPE_STRING);
-	gtk_combo_box_set_model(combo, GTK_TREE_MODEL(store));
-
-	renderer = gtk_cell_renderer_text_new();
-	gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(combo), renderer, TRUE);
-	gtk_cell_layout_set_attributes(GTK_CELL_LAYOUT(combo), renderer, "text", 0, NULL);
-
-	gtk_list_store_clear(GTK_LIST_STORE(store));
-
-	gtk_list_store_append(GTK_LIST_STORE(store), &iter);
-	gtk_list_store_set(GTK_LIST_STORE(store),
-			   &iter, 0, _("-- Select --"), -1);
+	elim_dropdown_prepare(combo);
+	elim_dropdown_remove_all(combo);
+	elim_dropdown_append(combo, NULL, _("-- Select --"));
 
 	while (glist) {
 		if ((eval == NULL) || (*eval)(glist->data, feature)) {
 			/* "anything goes" or "acceptable match" */
-			gtk_list_store_append(GTK_LIST_STORE(store),
-					      &iter);
-			gtk_list_store_set(GTK_LIST_STORE(store), &iter, 0,
-					   (gchar *)glist->data, -1);
+			elim_dropdown_append(combo, NULL, (gchar *)glist->data);
 			if (current_item && !strcmp((gchar *)glist->data, current_item))
 				index = i + 1;
 			++i;
 		}
 		glist = g_list_next(glist);
 	}
-	gtk_combo_box_set_active(combo, index);
+	elim_dropdown_set_active(combo, index);
 }
 
 static gint get_font_size_index(const char *font)
@@ -2541,50 +2498,50 @@ static void setup_module_comboboxes(void)
 	 * Miscellaneous Modules page
 	 */
 	fill_combobox(get_list(DEVOTION_LIST),
-		      GTK_COMBO_BOX(combo.devotion_module),
+		      GTK_DROP_DOWN(combo.devotion_module),
 		      settings.devotionalmod, NULL, NULL);
 	fill_combobox(get_list(DICT_LIST),
-		      GTK_COMBO_BOX(combo.hebrew_lex__module),
+		      GTK_DROP_DOWN(combo.hebrew_lex__module),
 		      settings.lex_hebrew, dict_match_feature,
 		      "HebrewDef");
 	fill_combobox(get_list(DICT_LIST),
-		      GTK_COMBO_BOX(combo.greek_lex__module),
+		      GTK_DROP_DOWN(combo.greek_lex__module),
 		      settings.lex_greek, dict_match_feature, "GreekDef");
 	fill_combobox(get_list(DICT_LIST),
-		      GTK_COMBO_BOX(combo.morph_heb_lex__module),
+		      GTK_DROP_DOWN(combo.morph_heb_lex__module),
 		      settings.morph_heb_lex, dict_match_feature,
 		      "HebrewParse");
 	fill_combobox(get_list(DICT_LIST),
-		      GTK_COMBO_BOX(combo.morph_greek_lex_ot__module),
+		      GTK_DROP_DOWN(combo.morph_greek_lex_ot__module),
 		      settings.morph_greek_lex_ot, dict_match_feature, "GreekParse");
 	fill_combobox(get_list(DICT_LIST),
-		      GTK_COMBO_BOX(combo.morph_greek_lex_nt__module),
+		      GTK_DROP_DOWN(combo.morph_greek_lex_nt__module),
 		      settings.morph_greek_lex_nt, dict_match_feature, "GreekParse");
 	fill_combobox(get_list(DICT_LIST),
-		      GTK_COMBO_BOX(combo.default_dictionary_module),
+		      GTK_DROP_DOWN(combo.default_dictionary_module),
 		      settings.DefaultDict, dict_no_image_map_dd, NULL);
 	fill_combobox(get_list(PERCOMM_LIST),
-		      GTK_COMBO_BOX(combo.percomm_module),
+		      GTK_DROP_DOWN(combo.percomm_module),
 		      settings.personalcommentsmod, NULL, NULL);
 
 	/*
 	 * signal connectivity
 	 */
-	g_signal_connect(combo.devotion_module, "changed",
+	g_signal_connect(combo.devotion_module, "notify::selected",
 			 G_CALLBACK(on_combobox12_changed), NULL);
-	g_signal_connect(combo.hebrew_lex__module, "changed",
+	g_signal_connect(combo.hebrew_lex__module, "notify::selected",
 			 G_CALLBACK(on_combobox13_changed), NULL);
-	g_signal_connect(combo.greek_lex__module, "changed",
+	g_signal_connect(combo.greek_lex__module, "notify::selected",
 			 G_CALLBACK(on_combobox14_changed), NULL);
-	g_signal_connect(combo.morph_heb_lex__module, "changed",
+	g_signal_connect(combo.morph_heb_lex__module, "notify::selected",
 			 G_CALLBACK(on_combobox18_changed), NULL);
-	g_signal_connect(combo.morph_greek_lex_nt__module, "changed",
+	g_signal_connect(combo.morph_greek_lex_nt__module, "notify::selected",
 			 G_CALLBACK(on_combobox19_changed), NULL);
-	g_signal_connect(combo.morph_greek_lex_ot__module, "changed",
+	g_signal_connect(combo.morph_greek_lex_ot__module, "notify::selected",
 			 G_CALLBACK(on_combobox20_changed), NULL);
-	g_signal_connect(combo.default_dictionary_module, "changed",
+	g_signal_connect(combo.default_dictionary_module, "notify::selected",
 			 G_CALLBACK(on_combobox5_changed), NULL);
-	g_signal_connect(combo.percomm_module, "changed",
+	g_signal_connect(combo.percomm_module, "notify::selected",
 			 G_CALLBACK(on_combobox6_changed), NULL);
 }
 
@@ -2605,14 +2562,14 @@ void setup_locale_combobox(void)
 		    !strcmp(settings.special_locale, *locale))
 			current_locale = real_locale;
 	}
-	fill_combobox(list, GTK_COMBO_BOX(combo.special_locale),
+	fill_combobox(list, GTK_DROP_DOWN(combo.special_locale),
 		      (current_locale ? current_locale : NONE),
 		      NULL, NULL);
 	for (chase = list; chase; chase = g_list_next(chase))
 		g_free(chase->data);
 	g_list_free(list);
 
-	g_signal_connect(combo.special_locale, "changed",
+	g_signal_connect(combo.special_locale, "notify::selected",
 			 G_CALLBACK(on_combobox16_changed), NULL);
 }
 
@@ -2820,14 +2777,14 @@ void setup_font_prefs_combobox(void)
 					main_get_language_map(*language), *language);
 		list = g_list_append(list, real_language);
 	}
-	fill_combobox(list, GTK_COMBO_BOX(combo.font_prefs),
+	fill_combobox(list, GTK_DROP_DOWN(combo.font_prefs),
 		      NULL, NULL, NULL);
 	for (chase = list; chase; chase = g_list_next(chase))
 		g_free(chase->data);
 	g_list_free(list);
 	g_strfreev(language_list);
 
-	g_signal_connect(combo.font_prefs, "changed",
+	g_signal_connect(combo.font_prefs, "notify::selected",
 			 G_CALLBACK(on_combobox17_changed), NULL);
 }
 
@@ -2885,57 +2842,33 @@ static gboolean button_release_event(GtkWidget *widget,
  *
  */
 
+static void on_parallel_reordered(GtkWidget *view, gpointer data);
+
 static void ps_setup_listview()
 {
-	GtkListStore *model;
-	GtkTreeViewColumn *column;
-	GtkTreeIter iter;
-	GtkTreeModel *model_t;
-	GtkListStore *list_store;
+	GListStore *store;
+	ElimTextColumn columns[2] = { elim_text_column(0), elim_text_column(1) };
 	int i;
 
-	/* remove existing columns */
-	{
-		GtkTreeViewColumn *col;
-		while ((col = gtk_tree_view_get_column(
-		    GTK_TREE_VIEW(parallel_select.listview), 0)) != NULL)
-			gtk_tree_view_remove_column(
-			    GTK_TREE_VIEW(parallel_select.listview), col);
-	}
-	model = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_STRING);
-	gtk_tree_view_set_model(GTK_TREE_VIEW(parallel_select.listview),
-				GTK_TREE_MODEL(model));
-	for (i = 0; i < 2; ++i) {
-		GtkCellRenderer *renderer = gtk_cell_renderer_text_new();
-		column = gtk_tree_view_column_new_with_attributes("Module",
-								  renderer,
-								  "text",
-								  i, NULL);
-		gtk_tree_view_append_column(GTK_TREE_VIEW(parallel_select.listview),
-					    column);
-	}
-	gtk_tree_view_column_set_sort_column_id(column, 0);
-
-	model_t =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(parallel_select.listview));
-	list_store = GTK_LIST_STORE(model_t);
-	gtk_list_store_clear(list_store);
+	columns[0].expand = TRUE;
+	elim_table_setup_reorderable_rows(parallel_select.listview, store = elim_table_new(),
+					  columns, G_N_ELEMENTS(columns),
+					  on_parallel_reordered, NULL);
 
 	if (settings.parallel_list) {
 		for (i = 0; settings.parallel_list[i]; ++i) {
+			ElimRow *row = elim_row_new(2);
 			const char *abbreviation =
 			    main_name_to_abbrev(settings.parallel_list[i]);
-			gtk_list_store_append(list_store, &iter);
-			gtk_list_store_set(list_store, &iter,
-					   0,
-					   main_get_module_description(settings.parallel_list[i]),
-					   1,
-					   (abbreviation
-					    ? abbreviation
-					    : (gchar *)settings.parallel_list[i]),
-					   -1);
+			elim_row_set_string(row, 0,
+					    main_get_module_description(settings.parallel_list[i]));
+			elim_row_set_string(row, 1, abbreviation ? abbreviation :
+					    settings.parallel_list[i]);
+			g_list_store_append(store, row);
+			g_object_unref(row);
 		}
 	}
+	g_object_unref(store);
 }
 
 /******************************************************************************
@@ -3020,9 +2953,8 @@ static void ps_setup_treeview(GtkWidget *treeview)
 
 static void on_mod_sel_add_clicked(GtkWidget *button, gchar *user_data)
 {
-	GtkTreeModel *model;
-	GtkListStore *list_store;
-	GtkTreeIter iter;
+	GListStore *list_store;
+	ElimRow *row;
 	char *parallels = g_strdup(""), *newhold;
 	const char *abbreviation;
 	int count;
@@ -3033,16 +2965,12 @@ static void on_mod_sel_add_clicked(GtkWidget *button, gchar *user_data)
 	}
 	abbreviation = main_name_to_abbrev(module_selected);
 
-	model =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(parallel_select.listview));
-	list_store = GTK_LIST_STORE(model);
-
-	gtk_list_store_append(list_store, &iter);
-	gtk_list_store_set(list_store, &iter,
-			   0, main_get_module_description(module_selected),
-			   1,
-			   (abbreviation ? abbreviation : module_selected),
-			   -1);
+	list_store = elim_table_get_store(parallel_select.listview);
+	row = elim_row_new(2);
+	elim_row_set_string(row, 0, main_get_module_description(module_selected));
+	elim_row_set_string(row, 1, abbreviation ? abbreviation : module_selected);
+	g_list_store_append(list_store, row);
+	g_object_unref(row);
 
 	if (settings.parallel_list == NULL) {
 		settings.parallel_list =
@@ -3092,19 +3020,24 @@ static void on_mod_sel_close_clicked(void)
  * Return value
  *   void
  */
-static void on_parallel_reordered(GtkTreeModel *model,
-                                   GtkTreePath *path,
-                                   gpointer data)
+static void on_parallel_reordered(GtkWidget *view, gpointer data)
 {
 	GList *items, *l;
 	GString *parallels;
 	int count;
 
-	/* laisser GTK finir l'opération drag-and-drop avant de lire le modèle */
-	if (gtk_tree_model_iter_n_children(model, NULL) == 0)
-		return;
+	if (g_list_model_get_n_items(G_LIST_MODEL(elim_table_get_store(view))) == 0) {
+		gchar *empty[] = { NULL };
 
-	items = get_current_list(GTK_TREE_VIEW(parallel_select.listview));
+		g_clear_pointer(&settings.parallel_list, g_strfreev);
+		xml_set_value("Xiphos", "modules", "parallels", "");
+		if (settings.parallel_set_current && *settings.parallel_set_current)
+			save_parallel_set(settings.parallel_set_current, empty);
+		xml_save_settings_doc(settings.fnconfigure);
+		return;
+	}
+
+	items = get_current_table_list(view);
 	if (!items)
 		return;
 
@@ -3158,10 +3091,7 @@ void ps_button_clear(GtkButton *button, gpointer user_data)
 
 	if (gui_yes_no_dialog(str, "dialog-warning")) {
 
-		GtkTreeModel *model =
-			gtk_tree_view_get_model(GTK_TREE_VIEW(parallel_select.listview));
-		GtkListStore *list_store = GTK_LIST_STORE(model);
-		gtk_list_store_clear(list_store);
+		g_list_store_remove_all(elim_table_get_store(parallel_select.listview));
 		if (settings.parallel_list)
 			g_strfreev(settings.parallel_list);
 		settings.parallel_list = NULL;
@@ -3185,19 +3115,11 @@ void ps_button_clear(GtkButton *button, gpointer user_data)
  */
 void ps_button_cut(GtkButton *button, gpointer user_data)
 {
-	GtkTreeModel *model;
-	GtkListStore *list_store;
-	GtkTreeSelection *selection;
-	GtkTreeIter selected;
+	ElimRow *selected;
 	gchar *str;
 
-	model =
-	    gtk_tree_view_get_model(GTK_TREE_VIEW(parallel_select.listview));
-	list_store = GTK_LIST_STORE(model);
-	selection =
-	    gtk_tree_view_get_selection(GTK_TREE_VIEW(parallel_select.listview));
-
-	if (!gtk_tree_selection_get_selected(selection, NULL, &selected))
+	selected = elim_table_get_selected(parallel_select.listview);
+	if (!selected)
 		return;
 
 	str = g_strdup_printf("<span weight=\"bold\">%s</span>\n\n%s",
@@ -3205,31 +3127,8 @@ void ps_button_cut(GtkButton *button, gpointer user_data)
 			      _("Are you sure you want to remove the selected module?"));
 
 	if (gui_yes_no_dialog(str, "dialog-warning")) {
-		g_signal_handlers_block_by_func(
-		    model, on_parallel_reordered, NULL);
-		gtk_list_store_remove(list_store, &selected);
-		g_signal_handlers_unblock_by_func(
-		    model, on_parallel_reordered, NULL);
-		GList *mods =
-		    get_current_list(GTK_TREE_VIEW(parallel_select.listview));
-		gchar *mod_list = get_modlist_string(mods);
-		if (settings.parallel_list)
-			g_strfreev(settings.parallel_list);
-		settings.parallel_list = g_strsplit(mod_list, ",", -1);
-		/* convert abbreviations back to full names */
-		for (int i = 0; settings.parallel_list[i]; ++i) {
-			const char *real = main_abbrev_to_name(settings.parallel_list[i]);
-			if (real) {
-				g_free(settings.parallel_list[i]);
-				settings.parallel_list[i] = g_strdup(real);
-			}
-		}
-		xml_set_value("Xiphos", "modules", "parallels", mod_list);
-		/* also save into the active parallel set */
-		if (settings.parallel_set_current && *settings.parallel_set_current)
-			save_parallel_set(settings.parallel_set_current, settings.parallel_list);
-		xml_save_settings_doc(settings.fnconfigure);
-		g_free(mod_list);
+		elim_table_remove_row(parallel_select.listview, selected);
+		on_parallel_reordered(parallel_select.listview, NULL);
 		if (settings.parallel_list && settings.parallel_list[0])
 			gui_navbar_parallel_set_module(settings.parallel_list[0]);
 	}
@@ -3273,103 +3172,122 @@ void ps_button_add(GtkButton *button, gpointer user_data)
 	gtk_widget_show(parallel_select.mod_sel_dialog);
 }
 
-static void on_parallel_sets_combo_changed(GtkComboBox *combo,
+static void on_parallel_sets_combo_changed(GObject *combo, GParamSpec *pspec,
+					   gpointer user_data);
+
+/* The row that stands for "no set chosen": a dropdown always has a row
+ * selected, so this is what it shows while the reader has no current set. */
+static const gchar *sets_none_label(void)
+{
+	return _("Ninguno");
+}
+
+/* Fills the sets dropdown: the "none" row, then every set. CURRENT (a key)
+ * is selected; none when it is NULL or not a set. */
+static void sets_combo_fill(const gchar *current)
+{
+	GtkDropDown *dd = GTK_DROP_DOWN(parallel_select.sets_combo);
+	gint row = 0;
+
+	g_signal_handlers_block_by_func(dd, on_parallel_sets_combo_changed, NULL);
+	elim_dropdown_remove_all(dd);
+	elim_dropdown_append(dd, NULL, sets_none_label());
+	if (settings.parallel_set_names && *settings.parallel_set_names) {
+		gchar **names = g_strsplit(settings.parallel_set_names, ",", -1);
+
+		for (gint i = 0; names[i]; ++i) {
+			gchar *display = key_to_name(names[i]);
+
+			elim_dropdown_append(dd, NULL, display);
+			if (current && g_strcmp0(names[i], current) == 0)
+				row = i + 1;
+			g_free(display);
+		}
+		g_strfreev(names);
+	}
+	elim_dropdown_set_active(dd, row);
+	g_signal_handlers_unblock_by_func(dd, on_parallel_sets_combo_changed, NULL);
+}
+
+static void on_parallel_set_new_clicked(GtkWidget *btn, gpointer user_data)
+{
+	(void)btn;
+	(void)user_data;
+
+	/* dialog to enter new set name */
+	GtkWidget *dialog = gtk_dialog_new_with_buttons(
+	    _("New Parallel Set"),
+	    GTK_WINDOW(dialog_prefs),
+	    GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
+	    _("Cancel"), GTK_RESPONSE_CANCEL,
+	    _("Create"), GTK_RESPONSE_OK,
+	    NULL);
+	GtkWidget *content = gtk_dialog_get_content_area(GTK_DIALOG(dialog));
+	GtkWidget *hbox;
+	UI_HBOX(hbox, FALSE, 6);
+	GtkWidget *label = gtk_label_new(_("Set name:"));
+	GtkWidget *entry = gtk_entry_new();
+	gui_box_pack(GTK_BOX(hbox), label, FALSE, FALSE, 6);
+	gui_box_pack(GTK_BOX(hbox), entry, TRUE, TRUE, 6);
+	gui_box_pack(GTK_BOX(content), hbox, FALSE, FALSE, 6);
+	gtk_widget_show(dialog);
+
+	if (gui_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_OK) {
+		const gchar *setname = gtk_editable_get_text(GTK_EDITABLE(entry));
+		/* validate: no spaces or XML-special characters */
+		gboolean valid = setname && *setname;
+		/* convert display name to XML key */
+		gchar *setkey = valid ? name_to_key(setname) : NULL;
+		if (!valid || !setkey || !*setkey) {
+			GtkWidget *err = gtk_message_dialog_new(
+			    GTK_WINDOW(dialog),
+			    GTK_DIALOG_MODAL,
+			    GTK_MESSAGE_ERROR,
+			    GTK_BUTTONS_OK,
+			    _("Please enter a valid set name."));
+			gui_dialog_run(GTK_DIALOG(err));
+			gui_widget_destroy(err);
+			g_free(setkey);
+		} else {
+			/* build new set_names using the key */
+			gchar *new_names;
+			if (settings.parallel_set_names && *settings.parallel_set_names)
+				new_names = g_strdup_printf("%s,%s",
+				    settings.parallel_set_names, setkey);
+			else
+				new_names = g_strdup(setkey);
+			g_free(settings.parallel_set_names);
+			settings.parallel_set_names = new_names;
+			xml_set_or_create_value("modules", "parallel_set_names", new_names);
+			/* save current parallel_list as the new set */
+			if (settings.parallel_list)
+				save_parallel_set(setkey, settings.parallel_list);
+			/* switch to new set */
+			g_free(settings.parallel_set_current);
+			settings.parallel_set_current = g_strdup(setkey);
+			xml_set_or_create_value("modules", "parallel_set_current", setkey);
+			xml_save_settings_doc(settings.fnconfigure);
+			sets_combo_fill(setkey);
+			g_free(setkey);
+		}
+	}
+	gui_widget_destroy(dialog);
+}
+
+static void on_parallel_sets_combo_changed(GObject *combo, GParamSpec *pspec,
 					   gpointer user_data)
 {
-	gchar *name = gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT(combo));
+	gchar *name = g_strdup(elim_dropdown_get_active_text(GTK_DROP_DOWN(combo)));
 
 	if (!name)
 		return;
 
-	if (g_strcmp0(name, _("New set...")) == 0) {
-		/* dialog to enter new set name */
-		GtkWidget *dialog = gtk_dialog_new_with_buttons(
-		    _("New Parallel Set"),
-		    GTK_WINDOW(dialog_prefs),
-		    GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
-		    _("Cancel"), GTK_RESPONSE_CANCEL,
-		    _("Create"), GTK_RESPONSE_OK,
-		    NULL);
-		GtkWidget *content = gtk_dialog_get_content_area(GTK_DIALOG(dialog));
-		GtkWidget *hbox;
-		UI_HBOX(hbox, FALSE, 6);
-		GtkWidget *label = gtk_label_new(_("Set name:"));
-		GtkWidget *entry = gtk_entry_new();
-		gui_box_pack(GTK_BOX(hbox), label, FALSE, FALSE, 6);
-		gui_box_pack(GTK_BOX(hbox), entry, TRUE, TRUE, 6);
-		gui_box_pack(GTK_BOX(content), hbox, FALSE, FALSE, 6);
-		gtk_widget_show(dialog);
-
-		if (gui_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_OK) {
-			const gchar *setname = gtk_editable_get_text(GTK_EDITABLE(entry));
-			/* validate: no spaces or XML-special characters */
-			gboolean valid = setname && *setname;
-			/* convert display name to XML key */
-			gchar *setkey = valid ? name_to_key(setname) : NULL;
-			if (!valid || !setkey || !*setkey) {
-				GtkWidget *err = gtk_message_dialog_new(
-				    GTK_WINDOW(dialog),
-				    GTK_DIALOG_MODAL,
-				    GTK_MESSAGE_ERROR,
-				    GTK_BUTTONS_OK,
-				    _("Please enter a valid set name."));
-				gui_dialog_run(GTK_DIALOG(err));
-				gui_widget_destroy(err);
-				g_free(setkey);
-			} else {
-				/* build new set_names using the key */
-				gchar *new_names;
-				if (settings.parallel_set_names && *settings.parallel_set_names)
-					new_names = g_strdup_printf("%s,%s",
-					    settings.parallel_set_names, setkey);
-				else
-					new_names = g_strdup(setkey);
-				g_free(settings.parallel_set_names);
-				settings.parallel_set_names = new_names;
-				xml_set_or_create_value("modules", "parallel_set_names", new_names);
-				/* save current parallel_list as the new set */
-				if (settings.parallel_list)
-					save_parallel_set(setkey, settings.parallel_list);
-				/* switch to new set */
-				g_free(settings.parallel_set_current);
-				settings.parallel_set_current = g_strdup(setkey);
-				xml_set_or_create_value("modules", "parallel_set_current", setkey);
-				xml_save_settings_doc(settings.fnconfigure);
-				/* rebuild combo */
-				g_signal_handlers_block_by_func(
-				    parallel_select.sets_combo,
-				    on_parallel_sets_combo_changed, NULL);
-				gtk_combo_box_text_remove_all(
-				    GTK_COMBO_BOX_TEXT(parallel_select.sets_combo));
-				gchar **names = g_strsplit(settings.parallel_set_names, ",", -1);
-				for (gint i = 0; names[i]; ++i) {
-					gchar *display = key_to_name(names[i]);
-					gtk_combo_box_text_append_text(
-					    GTK_COMBO_BOX_TEXT(parallel_select.sets_combo),
-					    display);
-					g_free(display);
-				}
-				g_strfreev(names);
-				gtk_combo_box_text_append_text(
-				    GTK_COMBO_BOX_TEXT(parallel_select.sets_combo),
-				    _("New set..."));
-				/* select the new set */
-				gchar **all = g_strsplit(settings.parallel_set_names, ",", -1);
-				for (gint i = 0; all[i]; ++i) {
-					if (g_strcmp0(all[i], setkey) == 0) {
-						gtk_combo_box_set_active(
-						    GTK_COMBO_BOX(parallel_select.sets_combo), i);
-						break;
-					}
-				}
-				g_strfreev(all);
-				g_signal_handlers_unblock_by_func(
-				    parallel_select.sets_combo,
-				    on_parallel_sets_combo_changed, NULL);
-				g_free(setkey);
-			}
-		}
-		gui_widget_destroy(dialog);
+	if (elim_dropdown_get_active(GTK_DROP_DOWN(combo)) == 0) {
+		/* "none": the set the reader had stops being the current one */
+		g_free(settings.parallel_set_current);
+		settings.parallel_set_current = NULL;
+		xml_set_or_create_value("modules", "parallel_set_current", "");
+		xml_save_settings_doc(settings.fnconfigure);
 		g_free(name);
 		return;
 	}
@@ -3404,10 +3322,11 @@ static void on_parallel_sets_combo_changed(GtkComboBox *combo,
 
 static void on_parallel_set_delete_clicked(GtkWidget *btn, gpointer user_data)
 {
-	gchar *name = gtk_combo_box_text_get_active_text(
-	    GTK_COMBO_BOX_TEXT(parallel_select.sets_combo));
+	gchar *name = g_strdup(elim_dropdown_get_active_text(
+	    GTK_DROP_DOWN(parallel_select.sets_combo)));
 
-	if (!name || g_strcmp0(name, _("New set...")) == 0) {
+	if (!name ||
+	    elim_dropdown_get_active(GTK_DROP_DOWN(parallel_select.sets_combo)) == 0) {
 		g_free(name);
 		return;
 	}
@@ -3444,22 +3363,7 @@ static void on_parallel_set_delete_clicked(GtkWidget *btn, gpointer user_data)
 	xml_save_settings_doc(settings.fnconfigure);
 
 	/* rebuild combo */
-	g_signal_handlers_block_by_func(parallel_select.sets_combo,
-					on_parallel_sets_combo_changed, NULL);
-	gtk_combo_box_text_remove_all(
-	    GTK_COMBO_BOX_TEXT(parallel_select.sets_combo));
-	if (settings.parallel_set_names && *settings.parallel_set_names) {
-		gchar **all = g_strsplit(settings.parallel_set_names, ",", -1);
-		for (gint i = 0; all[i]; ++i)
-			gtk_combo_box_text_append_text(
-			    GTK_COMBO_BOX_TEXT(parallel_select.sets_combo), all[i]);
-		g_strfreev(all);
-	}
-	gtk_combo_box_text_append_text(
-	    GTK_COMBO_BOX_TEXT(parallel_select.sets_combo), _("New set..."));
-	gtk_combo_box_set_active(GTK_COMBO_BOX(parallel_select.sets_combo), 0);
-	g_signal_handlers_unblock_by_func(parallel_select.sets_combo,
-					  on_parallel_sets_combo_changed, NULL);
+	sets_combo_fill(settings.parallel_set_current);
 
 	g_free(name);
 }
@@ -3729,30 +3633,26 @@ static void create_preferences_dialog(void)
 	/* verse number size */
 	index = get_font_size_index(settings.verse_num_font_size_str);
 	combo.verse_number_size = UI_GET_ITEM(gxml, "combobox1");
-	gtk_combo_box_set_active(GTK_COMBO_BOX(combo.verse_number_size),
-				 index);
-	g_signal_connect(combo.verse_number_size, "changed",
+	elim_dropdown_set_active(GTK_DROP_DOWN(combo.verse_number_size), index);
+	g_signal_connect(combo.verse_number_size, "notify::selected",
 			 G_CALLBACK(on_combobox1_changed), NULL);
 
 	/* base font size */
 	index = get_font_size_index(settings.base_font_size_str);
 	combo.base_font_size = UI_GET_ITEM(gxml, "basecombobox1");
-	gtk_combo_box_set_active(GTK_COMBO_BOX(combo.base_font_size),
-				 index);
-	g_signal_connect(combo.base_font_size, "changed",
+	elim_dropdown_set_active(GTK_DROP_DOWN(combo.base_font_size), index);
+	g_signal_connect(combo.base_font_size, "notify::selected",
 			 G_CALLBACK(on_basecombobox1_changed), NULL);
 
 	/* display columns */
 	combo.display_columns = UI_GET_ITEM(gxml, "columncountvalue");
-	gtk_combo_box_set_active(GTK_COMBO_BOX(combo.display_columns),
-				 settings.display_columns - 1);
-	g_signal_connect(combo.display_columns, "changed",
+	elim_dropdown_set_active(GTK_DROP_DOWN(combo.display_columns), settings.display_columns - 1);
+	g_signal_connect(combo.display_columns, "notify::selected",
 			 G_CALLBACK(on_columncountvalue_changed), NULL);
 
 	combo.module_grouping = UI_GET_ITEM(gxml, "combobox_module_grouping");
-	gtk_combo_box_set_active(GTK_COMBO_BOX(combo.module_grouping),
-				 settings.module_tree_grouping);
-	g_signal_connect(combo.module_grouping, "changed",
+	elim_dropdown_set_active(GTK_DROP_DOWN(combo.module_grouping), settings.module_tree_grouping);
+	g_signal_connect(combo.module_grouping, "notify::selected",
 			 G_CALLBACK(on_combobox_module_grouping_changed), NULL);
 	check_button.show_hidden_modules = UI_GET_ITEM(gxml, "checkbutton_show_hidden_modules");
 
@@ -3841,58 +3741,35 @@ static void create_preferences_dialog(void)
 		GtkWidget *hbox;
 		UI_HBOX(hbox, FALSE, 6);
 		GtkWidget *label = gtk_label_new(_("Conjunto:"));
-		GtkWidget *combo = gtk_combo_box_text_new();
+		GtkWidget *combo = elim_dropdown_new();
 
 		parallel_select.sets_hbox = hbox;
 		parallel_select.sets_combo = combo;
 
 		gtk_box_append(GTK_BOX(hbox), label);
 		gui_box_pack(GTK_BOX(hbox), combo, TRUE, TRUE, 0);
+		GtkWidget *btn_new = gtk_button_new_with_label("[+]");
 		GtkWidget *btn_del = gtk_button_new_with_label("[-]");
+		gtk_widget_set_tooltip_text(btn_new, _("New set..."));
 		gtk_widget_set_tooltip_text(btn_del, _("Delete current set"));
 		parallel_select.sets_delete_btn = btn_del;
+		gtk_box_append(GTK_BOX(hbox), btn_new);
 		gtk_box_append(GTK_BOX(hbox), btn_del);
+		g_signal_connect(btn_new, "clicked",
+				 G_CALLBACK(on_parallel_set_new_clicked), NULL);
 		g_signal_connect(btn_del, "clicked",
 				 G_CALLBACK(on_parallel_set_delete_clicked), NULL);
 		gtk_widget_show(hbox);
 
-		/* populate with existing set names */
-		if (settings.parallel_set_names && *settings.parallel_set_names) {
-			gchar **names = g_strsplit(settings.parallel_set_names, ",", -1);
-			for (gint i = 0; names[i]; ++i) {
-				gchar *display = key_to_name(names[i]);
-				gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo), display);
-				g_free(display);
-			}
-			g_strfreev(names);
-		}
-		/* add "New set..." entry */
-		gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combo), _("New set..."));
+		/* the "none" row, the existing sets, and the current one chosen */
+		sets_combo_fill(settings.parallel_set_current);
 
-		/* select current set */
-		if (settings.parallel_set_current) {
-			gchar **names = g_strsplit(settings.parallel_set_names ? settings.parallel_set_names : "", ",", -1);
-			for (gint i = 0; names[i]; ++i) {
-				if (g_strcmp0(names[i], settings.parallel_set_current) == 0) {
-					gtk_combo_box_set_active(GTK_COMBO_BOX(combo), i);
-					break;
-				}
-			}
-			g_strfreev(names);
-		}
-
-		g_signal_connect(combo, "changed",
+		g_signal_connect(combo, "notify::selected",
 				 G_CALLBACK(on_parallel_sets_combo_changed), NULL);
 
 		gtk_box_append(GTK_BOX(vbox10), hbox);
 		gui_box_reorder_child(GTK_BOX(vbox10), hbox, 0);
 	}
-
-	/* enable drag-and-drop reordering of parallel versions */
-	gtk_tree_view_set_reorderable(GTK_TREE_VIEW(parallel_select.listview), TRUE);
-	g_signal_connect(gtk_tree_view_get_model(GTK_TREE_VIEW(parallel_select.listview)),
-			 "row-deleted",
-			 G_CALLBACK(on_parallel_reordered), NULL);
 
 	/* geometry notifications */
 	g_signal_connect(dialog_prefs, "notify::default-width",

@@ -94,6 +94,28 @@ if (BUILD_TESTING AND XVFB_RUN_EXECUTABLE)
     COMMAND ${XVFB_RUN_EXECUTABLE} -a $<TARGET_FILE:nube_canvas_test>)
 endif ()
 
+# GTK4-TREE-101: the GtkColumnView helpers that replace GtkTreeView/GtkListStore.
+add_executable (table_helpers_test table_helpers_test.c
+  ${PROJECT_SOURCE_DIR}/src/gtk/table_helpers.c)
+target_include_directories (table_helpers_test PRIVATE ${PROJECT_SOURCE_DIR}/src
+  ${PROJECT_BINARY_DIR})
+target_link_libraries (table_helpers_test PRIVATE PkgConfig::Gtk)
+if (BUILD_TESTING AND XVFB_RUN_EXECUTABLE)
+  add_test (NAME table_helpers_test
+    COMMAND ${XVFB_RUN_EXECUTABLE} -a $<TARGET_FILE:table_helpers_test>)
+  set_tests_properties (table_helpers_test PROPERTIES SKIP_RETURN_CODE 77)
+endif ()
+
+# GTK4-COMBO-101: the GtkDropDown helpers that replace GtkComboBox(Text).
+add_executable (dropdown_helpers_test dropdown_helpers_test.c)
+target_include_directories (dropdown_helpers_test PRIVATE ${PROJECT_SOURCE_DIR}/src)
+target_link_libraries (dropdown_helpers_test PRIVATE PkgConfig::Gtk)
+if (BUILD_TESTING AND XVFB_RUN_EXECUTABLE)
+  add_test (NAME dropdown_helpers_test
+    COMMAND ${XVFB_RUN_EXECUTABLE} -a $<TARGET_FILE:dropdown_helpers_test>)
+  set_tests_properties (dropdown_helpers_test PROPERTIES SKIP_RETURN_CODE 77)
+endif ()
+
 add_executable (pulpito_test
   EXCLUDE_FROM_ALL
   pulpito_test.c

@@ -23,7 +23,7 @@
 
 #include <config.h>
 
-#include "editor/slib-editor.h"
+#include "editor/editor.h"
 
 GtkWidget *gui_navbar_versekey_editor_new(EDITOR *editor);
 

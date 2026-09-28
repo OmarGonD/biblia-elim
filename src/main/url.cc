@@ -37,11 +37,7 @@
 #include <gtk/gtk.h>
 #include <glib/gstdio.h>
 
-#ifdef USE_WEBKIT_EDITOR
-#include "editor/webkit_editor.h"
-#else
-#include "editor/slib-editor.h"
-#endif
+#include "editor/editor.h"
 
 #include "gui/about_modules.h"
 #include "gui/xiphos.h"

@@ -28,7 +28,7 @@
 #include "gui/widget_helpers.h"
 #include <glib/gi18n.h>
 
-#include "editor/slib-editor.h"
+#include "editor/editor.h"
 
 #include "gui/navbar_versekey.h"
 #include "gui/bibletext.h"

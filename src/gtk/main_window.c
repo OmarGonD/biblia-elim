@@ -72,7 +72,7 @@
 #include "gui/preferences_dialog.h"
 #include "gui/interlineal.h"
 
-#include "editor/slib-editor.h"
+#include "editor/editor.h"
 
 #include "gui/debug_glib_null.h"
 
@@ -2939,7 +2939,7 @@ void create_mainwindow(void)
 
 	gtk_paned_set_start_child(GTK_PANED(widgets.vpaned2), widgets.notebook_comm_book);
 	gtk_paned_set_resize_start_child(GTK_PANED(widgets.vpaned2), TRUE);
-	gtk_paned_set_shrink_start_child(GTK_PANED(widgets.vpaned2), TRUE);
+	gtk_paned_set_shrink_start_child(GTK_PANED(widgets.vpaned2), FALSE);
 	gui_widget_set_margins(widgets.notebook_comm_book, 1);
 
 	gtk_notebook_set_tab_pos(GTK_NOTEBOOK(widgets.notebook_comm_book), GTK_POS_BOTTOM);

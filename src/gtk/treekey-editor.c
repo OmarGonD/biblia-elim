@@ -23,16 +23,8 @@
 #endif
 
 
-#if defined(USE_WEBKIT_EDITOR) || defined(USE_GTKTVeditor)
 #include "gui/widget_helpers.h"
-#ifdef USE_WEBKIT_EDITOR
-#include "editor/webkit_editor.h"
-#else
-#include "editor/slib-editor.h"
-#endif
-#else
-#include "editor/slib-editor.h"
-#endif
+#include "editor/editor.h"
 
 #include "gui/treekey-editor.h"
 #include "gui/dialog.h"

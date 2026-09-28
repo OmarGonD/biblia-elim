@@ -284,15 +284,9 @@
                               </object>
                             </child>
                             <child>
-                              <object class="GtkComboBoxText" id="comboboxentry1">
+                              <object class="GtkDropDown" id="comboboxentry1">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="has_entry">True</property>
-                                <child internal-child="entry">
-                                  <object class="GtkEntry" id="comboboxentry-entry">
-                                    <property name="can_focus">False</property>
-                                  </object>
-                                </child>
                               <property name="vexpand">True</property>
                               </object>
                             </child>
@@ -321,15 +315,9 @@
                               </object>
                             </child>
                             <child>
-                              <object class="GtkComboBoxText" id="comboboxentry2">
+                              <object class="GtkDropDown" id="comboboxentry2">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="has_entry">True</property>
-                                <child internal-child="entry">
-                                  <object class="GtkEntry" id="comboboxentry-entry1">
-                                    <property name="can_focus">False</property>
-                                  </object>
-                                </child>
                               <property name="hexpand">True</property>
                               </object>
                             </child>

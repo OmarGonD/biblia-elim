@@ -24,6 +24,7 @@
 
 #include <gtk/gtk.h>
 #include "gui/widget_helpers.h"
+#include "gui/dropdown_helpers.h"
 #include <regex.h>
 
 #include "gui/sidebar.h"
@@ -388,19 +389,21 @@ void gui_create_search_sidebar(void)
 	gtk_widget_show(label1);
 	gtk_grid_attach(GTK_GRID(table1), label1, 0, 0, 1, 1);
 
-	ss.entryLower = gtk_combo_box_text_new_with_entry();
+	ss.entryLower = elim_dropdown_new();
+	elim_dropdown_enable_search(GTK_DROP_DOWN(ss.entryLower));
 	gtk_widget_show(ss.entryLower);
 	gtk_grid_attach(GTK_GRID(table1), ss.entryLower, 1, 0, 1, 1);
-	gtk_widget_set_size_request(ss.entryLower, 114, 22);
+	gtk_widget_set_size_request(ss.entryLower, 114, -1);
 
 	label2 = gtk_label_new(_("Upper"));
 	gtk_widget_show(label2);
 	gtk_grid_attach(GTK_GRID(table1), label2, 0, 1, 1, 1);
 
-	ss.entryUpper = gtk_combo_box_text_new_with_entry();
+	ss.entryUpper = elim_dropdown_new();
+	elim_dropdown_enable_search(GTK_DROP_DOWN(ss.entryUpper));
 	gtk_widget_show(ss.entryUpper);
 	gtk_grid_attach(GTK_GRID(table1), ss.entryUpper, 1, 1, 1, 1);
-	gtk_widget_set_size_request(ss.entryUpper, 114, 22);
+	gtk_widget_set_size_request(ss.entryUpper, 114, -1);
 
 
 	g_signal_connect(G_OBJECT(ss.rrbUseBounds),

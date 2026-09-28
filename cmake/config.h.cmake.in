@@ -33,9 +33,6 @@
 // Define locale dir
 #cmakedefine PACKAGE_LOCALE_DIR "@PACKAGE_LOCALE_DIR@"
 
-// Use Webkit Editor
-#cmakedefine USE_WEBKIT_EDITOR 1
-
 // Use GtkTextView Editor
 #cmakedefine USE_GTKTVeditor 1
 

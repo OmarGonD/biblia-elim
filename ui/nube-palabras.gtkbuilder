@@ -43,10 +43,9 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkComboBox" id="combo_libro">
+                  <object class="GtkDropDown" id="combo_libro">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="has_entry">True</property>
                     <property name="hexpand">True</property>
                   <layout>
                     <property name="column">1</property>
@@ -86,11 +85,10 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkComboBox" id="combo_libro_b">
+                  <object class="GtkDropDown" id="combo_libro_b">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="sensitive">False</property>
-                    <property name="has_entry">True</property>
                     <property name="hexpand">True</property>
                   <layout>
                     <property name="column">1</property>
@@ -134,12 +132,9 @@
                     <property name="can_focus">True</property>
                     <property name="min_content_height">120</property>
                     <child>
-                      <object class="GtkTreeView" id="tree_palabras">
+                      <object class="GtkColumnView" id="tree_palabras">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
-                        <property name="headers_clickable">True</property>
-                        <property name="enable_search">True</property>
-                        <property name="search_column">0</property>
                       </object>
                     </child>
                   </object>

@@ -23,12 +23,8 @@
 #endif
 
 
-#ifdef USE_WEBKIT_EDITOR
 #include "gui/widget_helpers.h"
-#include "editor/webkit_editor.h"
-#else
-#include "editor/slib-editor.h"
-#endif
+#include "editor/editor.h"
 
 #include "gui/pulpito.h"
 #include "gui/sidebar.h"
