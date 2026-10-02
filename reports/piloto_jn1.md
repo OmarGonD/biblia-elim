@@ -312,7 +312,7 @@ En ninguna se adivinó el caso: el campo queda vacío, la ficha explica el motiv
 
 | Tokens (estimados) | bajo | medio | alto |
 |---|---|---|---|
-| Piloto: entrada (solicitudes, 51 llamadas) | 44,350 | 51,479 | 61,601 |
+| Piloto: entrada (solicitudes, 51 llamadas) | 44,569 | 51,729 | 61,893 |
 | Piloto: salida (fichas) | 97,679 | 111,946 | 131,214 |
 | Prompt de sistema (por llamada, cacheable) | 1,065 | 1,218 | 1,421 |
 | **NT completo**: entrada (137,098 palabras) | 7.4 M | 8.6 M | 10.3 M |
@@ -329,11 +329,11 @@ Por palabra (medio): entrada 63 tokens, salida 136 tokens.
 
 **Tiempo de seguir con el generador manual.** En esta sesión, de leer las palabras de Jn 1 a la última corrección pasaron ≈ 22 minutos para 821 fichas (≈ 37 fichas/min, incluidas las correcciones). Extrapolado a 137,098 palabras: **≈ 61 horas de trabajo continuo (≈ 2.6 días)**, sin contar los versículos largos ni la revisión de usted. El consumo de contexto observado en esta sesión fue del orden de 175 000 tokens por 821 fichas (≈ 215 por ficha, contando lectura, escritura y correcciones); a ese ritmo el NT completo necesitaría ≈ 29 M tokens de contexto, **más de lo que queda en esta sesión (≈ 14,7 M)**. Conclusión: con el generador manual y esta calidad, completar el NT no cabe en lo que queda; cabría aproximadamente la mitad.
 
-## 6. Qué necesito de su revisión
+## 6. Decisiones tomadas tras esta revisión (2026-10-02)
 
-1. ¿Los campos y la profundidad de las fichas (sobre todo `sentido_en_contexto` y `variantes_textuales`) son los que quiere ver en la app?
-2. ¿Se muestran a los usuarios las lecturas propias de Tisch (`lectura_tagnt`)? Hoy el TAGNT es la única referencia para compararlas.
-3. Torres Amat: ¿se muestra con el aviso de OCR, se limpia de forma manual o se omite en `traducciones_comparadas`?
-4. Jn 1:39-51: la numeración de versículos del módulo difiere de la habitual. ¿Se acepta tal cual o se reasigna?
-5. Generador para el resto del NT: manual (no cabe), API síncrona o Batch. Si es API, necesito la clave y la tarifa para fijar el presupuesto.
-6. Jn 8:53: ¿omitimos ese versículo hasta que CrossWire corrija el módulo?
+1. Profundidad de las fichas: la revisa el responsable aparte; **el prompt no se cambia** (su hash `a63f498c6441` identifica la caché).
+2. Lecturas propias de Tischendorf: **se muestran**; la ficha debe decir que es lectura de Tischendorf y qué leen las demás ediciones (regla del validador, campo `lectura_tisch_propia`).
+3. Torres Amat: solo en versículos sin marca de OCR (criterio y porcentaje en `data/sources/tagnt/SOURCE.md`); en los marcados queda solo la Reina-Valera 1909.
+4. Versificación: la clave sigue siendo la del módulo Tisch; se guarda `ref_estandar` y las citas se buscan siempre con ella (`reports/verificacion_ref_estandar_jn1.md`). Torres Amat usa la numeración de la Vulgata y se convierte a KJV con el mapeo de SWORD.
+5. Resto del NT: Batch API con `claude-sonnet-5-5` y caché del prompt de sistema; antes del NT completo, una corrida de Jn 1 y su comparación (`reports/comparacion_jn1_manual_vs_api.md`).
+6. Jn 8:12-53: sin fichas; aviso en la app implementado; reporte para CrossWire en `data/sources/NOTAS_TISCH.md`.

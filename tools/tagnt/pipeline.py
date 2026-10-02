@@ -14,8 +14,13 @@ Uso:
   pipeline.py estado John.1                      cuántos versículos hay en caché
   pipeline.py cargar John.1.1 respuesta.json     valida y guarda una respuesta manual
   pipeline.py generar John.1 --generador api --modelo claude-sonnet-5-5
-  pipeline.py batch-export John.1 lote.jsonl --modelo claude-sonnet-5-5
-  pipeline.py batch-import resultados.jsonl --modelo claude-sonnet-5-5
+  export ANTHROPIC_API_KEY=...          (solo variable de entorno; nunca se escribe en un archivo)
+  pipeline.py batch-enviar John.1        crea el lote (Batch API, modelo claude-sonnet-5-5, prompt cacheado)
+  pipeline.py batch-estado <id>          estado del lote
+  pipeline.py batch-traer <id> res.jsonl descarga, valida, guarda en caché y registra tokens reales en logs/uso_api.jsonl
+  pipeline.py batch-enviar John.1 --reintento   un reintento con el error del primer intento
+  pipeline.py batch-export John.1 lote.jsonl    (solo exporta las solicitudes, sin llamar a la API)
+  pipeline.py batch-import resultados.jsonl
   pipeline.py ensamblar John.1 --modelo manual-claude-sonnet-5-5
 """
 import argparse, collections, glob, hashlib, json, os, re, subprocess, sys, time
@@ -250,17 +255,39 @@ def _extraer_json(texto):
     return json.loads(m.group(1) if m else texto)
 
 
-class GeneradorAPI:
-    """Messages API (síncrona) y Batch API. Requiere ANTHROPIC_API_KEY y `pip install anthropic`."""
+USO = os.path.join(RAIZ, "logs", "uso_api.jsonl")
+PENDIENTES = os.path.join(RAIZ, "logs", "batch_pendientes.json")
+MODELO_API = "claude-sonnet-5-5"
 
-    def __init__(self, modelo, cliente=None, max_tokens=16000):
+
+def cliente_anthropic():
+    """Cliente de la API. La clave se lee SOLO de la variable de entorno ANTHROPIC_API_KEY (nunca de un archivo)."""
+    if not os.environ.get("ANTHROPIC_API_KEY"):
+        raise RuntimeError("Falta la variable de entorno ANTHROPIC_API_KEY (no se guarda en ningún archivo): "
+                           "export ANTHROPIC_API_KEY=... antes de ejecutar.")
+    import anthropic
+    return anthropic.Anthropic()
+
+
+def custom_id(ref):
+    """La Batch API exige ^[a-zA-Z0-9_-]{1,64}$: John.1.1 -> John_1_1."""
+    return ref.replace(".", "_")
+
+
+def ref_de_custom_id(cid):
+    return cid.replace("_", ".")
+
+
+class GeneradorAPI:
+    """Messages API (síncrona) y Batch API con caché del prompt de sistema. Clave: ANTHROPIC_API_KEY."""
+
+    def __init__(self, modelo=MODELO_API, cliente=None, max_tokens=16000):
         self.modelo, self.max_tokens, self._cliente = modelo, max_tokens, cliente
 
     @property
     def cliente(self):
         if self._cliente is None:
-            import anthropic
-            self._cliente = anthropic.Anthropic()
+            self._cliente = cliente_anthropic()
         return self._cliente
 
     def params(self, sol, error_previo=None):
@@ -274,36 +301,97 @@ class GeneradorAPI:
 
     def generar(self, sol, error_previo=None):
         r = self.cliente.messages.create(**self.params(sol, error_previo))
+        registrar_uso(sol["ref"], self.modelo, getattr(r, "usage", None), "sync")
         return _extraer_json("".join(b.text for b in r.content if getattr(b, "type", "") == "text"))
 
 
-def batch_export(datos, refs, ruta, modelo, max_tokens=16000):
-    g = GeneradorAPI(modelo, max_tokens=max_tokens)
+def registrar_uso(ref, modelo, usage, via, ruta=None):
+    """Tokens reales de una llamada (para medir el costo): entrada, salida y caché de prompt."""
+    if usage is None:
+        return
+    get = (lambda k: usage.get(k)) if isinstance(usage, dict) else (lambda k: getattr(usage, k, None))
+    ruta = ruta or USO
+    os.makedirs(os.path.dirname(ruta), exist_ok=True)
+    with open(ruta, "a", encoding="utf-8") as f:
+        f.write(json.dumps({"t": time.strftime("%Y-%m-%dT%H:%M:%S%z"), "ref": ref, "modelo": modelo, "via": via,
+                            "input_tokens": get("input_tokens") or 0, "output_tokens": get("output_tokens") or 0,
+                            "cache_creation_input_tokens": get("cache_creation_input_tokens") or 0,
+                            "cache_read_input_tokens": get("cache_read_input_tokens") or 0}) + "\n")
+
+
+def _errores_previos(ruta=PENDIENTES):
+    if os.path.exists(ruta):
+        with open(ruta, encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+
+def solicitudes_batch(datos, refs, modelo, max_tokens=16000, con_errores=False):
+    """Lista de {custom_id, params} para la Batch API; con_errores añade el error del primer intento (reintento)."""
+    g = GeneradorAPI(modelo, cliente=False, max_tokens=max_tokens)
+    previos = _errores_previos() if con_errores else {}
+    return [{"custom_id": custom_id(r), "params": g.params(solicitud(datos, r), previos.get(r))} for r in refs]
+
+
+def batch_export(datos, refs, ruta, modelo, max_tokens=16000, con_errores=False):
     with open(ruta, "w", encoding="utf-8") as f:
-        for ref in refs:
-            f.write(json.dumps({"custom_id": ref, "params": g.params(solicitud(datos, ref))},
-                               ensure_ascii=False) + "\n")
+        for x in solicitudes_batch(datos, refs, modelo, max_tokens, con_errores):
+            f.write(json.dumps(x, ensure_ascii=False) + "\n")
 
 
-def batch_import(datos, ruta, modelo, cache=None, log=ERRORES):
-    """Lee los resultados de la Batch API (JSONL) y los pasa por la misma validación y caché."""
+def batch_enviar(datos, refs, modelo, cliente=None, max_tokens=16000, con_errores=False):
+    """Crea el lote en la Batch API y devuelve su id. Un lote por llamada (máx. 100 000 solicitudes / 256 MB)."""
+    cliente = cliente or cliente_anthropic()
+    lote = cliente.messages.batches.create(requests=solicitudes_batch(datos, refs, modelo, max_tokens, con_errores))
+    return lote.id
+
+
+def batch_estado(lote_id, cliente=None):
+    lote = (cliente or cliente_anthropic()).messages.batches.retrieve(lote_id)
+    return {"estado": lote.processing_status, "conteos": lote.request_counts.model_dump()
+            if hasattr(lote.request_counts, "model_dump") else dict(lote.request_counts)}
+
+
+def batch_traer(lote_id, ruta, cliente=None):
+    """Descarga los resultados del lote a un JSONL (uno por solicitud)."""
+    cliente = cliente or cliente_anthropic()
+    n = 0
+    with open(ruta, "w", encoding="utf-8") as f:
+        for item in cliente.messages.batches.results(lote_id):
+            d = item.model_dump() if hasattr(item, "model_dump") else item
+            f.write(json.dumps(d, ensure_ascii=False) + "\n")
+            n += 1
+    return n
+
+
+def batch_import(datos, ruta, modelo, cache=None, log=ERRORES, uso=None, pendientes=PENDIENTES):
+    """Lee los resultados de la Batch API (JSONL), registra los tokens reales y pasa cada respuesta por la misma
+    validación y caché. Los que fallan quedan en `pendientes` con su error para un único reintento."""
     cache = cache or Cache(modelo)
     res = {"ok": 0, "error": 0}
-    for linea in open(ruta, encoding="utf-8"):
-        r = json.loads(linea)
-        ref = r["custom_id"]
-        try:
-            msg = r["result"]["message"]
-            cards = _extraer_json("".join(b["text"] for b in msg["content"] if b.get("type") == "text"))
-            err = validar(cards, solicitud(datos, ref))
-        except Exception as e:  # resultado no exitoso o JSON roto
-            err = ["resultado no utilizable: %s" % e]
-        if err:
-            registrar_error(ref, modelo, "batch", err, log)
-            res["error"] += 1
-        else:
-            cache.put(ref, cards)
-            res["ok"] += 1
+    fallos = {}
+    with open(ruta, encoding="utf-8") as fh:
+        for linea in fh:
+            r = json.loads(linea)
+            ref = ref_de_custom_id(r["custom_id"])
+            try:
+                msg = r["result"]["message"]
+                registrar_uso(ref, modelo, msg.get("usage"), "batch", uso)
+                cards = _extraer_json("".join(b["text"] for b in msg["content"] if b.get("type") == "text"))
+                err = validar(cards, solicitud(datos, ref))
+            except Exception as e:  # resultado no exitoso o JSON roto
+                err = ["resultado no utilizable: %s" % e]
+            if err:
+                registrar_error(ref, modelo, "batch", err, log)
+                fallos[ref] = err
+                res["error"] += 1
+            else:
+                cache.put(ref, cards)
+                res["ok"] += 1
+    if pendientes and fallos:
+        os.makedirs(os.path.dirname(pendientes), exist_ok=True)
+        with open(pendientes, "w", encoding="utf-8") as f:
+            json.dump(fallos, f, ensure_ascii=False, indent=1)
     return res
 
 
@@ -450,13 +538,14 @@ def ensamblar(datos, refs, modelo, versiones=None, cache=None, salida_dir=None):
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("orden", choices=["solicitud", "estado", "cargar", "generar", "batch-export", "batch-import",
-                                      "ensamblar"])
+                                      "batch-enviar", "batch-estado", "batch-traer", "ensamblar"])
+    ap.add_argument("--reintento", action="store_true", help="batch: incluir el error del primer intento")
     ap.add_argument("args", nargs="*")
     ap.add_argument("--generador", choices=["manual", "api"], default="manual")
     ap.add_argument("--modelo", default=None)
     a = ap.parse_args(argv)
     datos = Datos()
-    modelo = a.modelo or (MODELO_MANUAL if a.generador == "manual" else "claude-sonnet-5-5")
+    modelo = a.modelo or (MODELO_MANUAL if a.generador == "manual" else MODELO_API)
     if a.orden == "solicitud":
         print(json.dumps(solicitud(datos, a.args[0]), ensure_ascii=False, indent=1))
     elif a.orden == "estado":
@@ -474,10 +563,24 @@ def main(argv=None):
             e = procesar(datos, ref, gen, cache)
             cuenta[e] = cuenta.get(e, 0) + 1
         print(cuenta)
-    elif a.orden == "batch-export":
+    elif a.orden in ("batch-export", "batch-enviar"):
+        modelo = a.modelo or MODELO_API
         refs = [r for r in datos.versiculos(a.args[0]) if Cache(modelo).get(r) is None]
-        batch_export(datos, refs, a.args[1], modelo)
-        print("%d solicitudes en %s" % (len(refs), a.args[1]))
+        if a.reintento:
+            refs = [r for r in refs if r in _errores_previos()]
+        if a.orden == "batch-export":
+            batch_export(datos, refs, a.args[1], modelo, con_errores=a.reintento)
+            print("%d solicitudes en %s" % (len(refs), a.args[1]))
+        else:
+            lote = batch_enviar(datos, refs, modelo, con_errores=a.reintento)
+            print("lote %s con %d solicitudes (modelo %s, prompt %s)" % (lote, len(refs), modelo, prompt_hash()))
+    elif a.orden == "batch-estado":
+        print(json.dumps(batch_estado(a.args[0]), ensure_ascii=False))
+    elif a.orden == "batch-traer":
+        modelo = a.modelo or MODELO_API
+        n = batch_traer(a.args[0], a.args[1])
+        print("%d resultados en %s" % (n, a.args[1]))
+        print(batch_import(datos, a.args[1], modelo))
     elif a.orden == "batch-import":
         print(batch_import(datos, a.args[0], modelo))
     elif a.orden == "ensamblar":
