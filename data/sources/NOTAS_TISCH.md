@@ -27,7 +27,7 @@ al publicado por CrossWire (`packages/rawzip/Tisch.zip`; SHA-256 de `nt.bzv`/`nt
 
 ### Aviso mínimo propuesto (no implementado)
 Mostrar en el panel griego, cuando el módulo es Tisch y el versículo es Jn 8:12–8:52 (lista fija, o cualquier versículo vacío del módulo), una línea discreta:
-«Este versículo no está disponible en el módulo Tischendorf (defecto del módulo, ver Notas). El texto griego aparece en el interlineal del TAGNT.» y,
+«Este versículo no está disponible en el módulo Tischendorf (defecto del módulo, ver Notas).» y,
 en Jn 8:53, «Este versículo aparece incompleto/duplicado en el módulo Tischendorf».
 
 ## Versificación y orden distintos del TAGNT
