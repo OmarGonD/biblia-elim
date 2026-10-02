@@ -697,7 +697,20 @@ target_link_libraries (interl_enriq_test
   PRIVATE
   PkgConfig::Core
   PkgConfig::TestJson
+  PkgConfig::Sqlite3
   )
+
+# La prueba de Jn 1:1 lee la base real que genera el build (src/main/CMakeLists.txt).
+if (TARGET fichas_sqlite)
+  add_dependencies (interl_enriq_test fichas_sqlite)
+  target_compile_definitions (interl_enriq_test PRIVATE
+    FICHAS_DB="${CMAKE_BINARY_DIR}/fichas/fichas.sqlite")
+else ()
+  target_compile_definitions (interl_enriq_test PRIVATE FICHAS_DB="/no/hay/fichas.sqlite")
+endif ()
+if (BUILD_TESTING)
+  add_test (NAME interl_enriq_test COMMAND interl_enriq_test)
+endif ()
 
 add_executable (testimonios_test
   EXCLUDE_FROM_ALL
@@ -1960,16 +1973,18 @@ add_executable (sqlite_interlinear_test
   ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
   ${PROJECT_SOURCE_DIR}/src/backend/morphology.cc
   ${PROJECT_SOURCE_DIR}/src/main/busqueda_tildes.c)
+target_compile_definitions (sqlite_interlinear_test PRIVATE
+  TISCH_POSITIONS_FIXTURE="${PROJECT_SOURCE_DIR}/tests/data/posiciones_tisch.json")
 target_compile_options (sqlite_interlinear_test PRIVATE
   -ffunction-sections -fdata-sections)
 target_link_options (sqlite_interlinear_test PRIVATE
   -Wl,--gc-sections)
 target_include_directories (sqlite_interlinear_test PRIVATE
   PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome PkgConfig::Soup
-  PkgConfig::Sword PkgConfig::Sqlite3)
+  PkgConfig::Sword PkgConfig::Sqlite3 PkgConfig::TestJson)
 target_link_libraries (sqlite_interlinear_test PRIVATE
   PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome PkgConfig::Soup
-  PkgConfig::Sword PkgConfig::Sqlite3)
+  PkgConfig::Sword PkgConfig::Sqlite3 PkgConfig::TestJson)
 
 if (BUILD_TESTING AND UNIX)
   add_test (

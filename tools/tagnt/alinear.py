@@ -44,7 +44,11 @@ SWORD_A_OSIS = {
     "Jude": "Jude",
     "Revelation of John": "Rev",
 }
-RE_W = re.compile(r'<w lemma="([^"]*)" morph="([^"]*)">([^<]*)</w>')
+# Cada elemento <w ...>texto</w> cuenta como una palabra, tenga o no texto o atributos: así lo cuenta el C
+# (parse_w_tags en src/main/interlineal.cc), que es lo que define la posición de la ficha.
+RE_W = re.compile(r"<w\b([^>]*)>([^<]*)</w>")
+RE_LEMMA = re.compile(r'\blemma="([^"]*)"')
+RE_MORPH = re.compile(r'\bmorph="([^"]*)"')
 
 
 def norm(s):
@@ -69,12 +73,15 @@ def leer_tisch(imp=None):
                 res[actual] = []
         elif actual:
             for m in RE_W.finditer(linea):
-                st = re.search(r"strong:G(\d+)", m[1])
-                mo = re.search(r"robinson:(\S+)", m[2])
-                lm = re.search(r"lemma\.Strong:(\S+)", m[1])
+                lem = RE_LEMMA.search(m[1])
+                mor = RE_MORPH.search(m[1])
+                lem, mor = lem[1] if lem else "", mor[1] if mor else ""
+                st = re.search(r"strong:G(\d+)", lem)
+                mo = re.search(r"robinson:(\S+)", mor)
+                lm = re.search(r"lemma\.Strong:(\S+)", lem)
                 res[actual].append({"pos": len(res[actual]) + 1,
                                     "lema": unicodedata.normalize("NFC", lm[1]) if lm else "",
-                                    "forma": unicodedata.normalize("NFC", m[3].strip()),
+                                    "forma": unicodedata.normalize("NFC", m[2].strip()),
                                     "strong": "G%d" % int(st[1]) if st else "",
                                     "morph": mo[1] if mo else ""})
     return {k: v for k, v in res.items() if v}

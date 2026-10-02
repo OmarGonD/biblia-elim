@@ -1,4 +1,5 @@
 #include <glib.h>
+#include <json-glib/json-glib.h>
 
 #include <cstdarg>
 #include <cstdio>
@@ -167,8 +168,62 @@ static void hebrew_study_test()
     g_print("hebrew_study_failures=0\n");
 }
 
+/* Sin signos de puntuación (el C guarda la forma así: strip_punct). */
+static std::string only_letters(const char *text)
+{
+    std::string out;
+    for (const char *p = text ? text : ""; *p; p = g_utf8_next_char(p)) {
+        gunichar c = g_utf8_get_char(p);
+        if (g_unichar_isalnum(c)) out.append(p, g_utf8_next_char(p) - p);
+    }
+    return out;
+}
+
+/* La posición de la ficha (ref_tisch + posición + Strong) es la del alineamiento en Python
+ * (tools/tagnt/alinear.py). tests/data/posiciones_tisch.json trae entradas crudas de Tisch con las posiciones
+ * que da Python: Jn 1:1, Jn 1:4 (lectura propia de Tisch), Mt 5:4 y 5:5 (reordenados), 36 versículos del NT
+ * muestreados con semilla fija y un caso sintético con un <w> vacío y otro sin Strong, que el HTML omite hoy. */
+static void tisch_position_parity_test()
+{
+    JsonParser *parser = json_parser_new();
+    GError *error = nullptr;
+    g_assert_true(json_parser_load_from_file(parser, TISCH_POSITIONS_FIXTURE, &error));
+    JsonArray *items = json_node_get_array(json_parser_get_root(parser));
+    guint checked = 0;
+    for (guint i = 0; i < json_array_get_length(items); i++) {
+        JsonObject *item = json_array_get_object_element(items, i);
+        const char *ref = json_object_get_string_member(item, "ref");
+        JsonArray *words = json_object_get_array_member(item, "palabras");
+        GList *tokens = main_interlineal_tokens_de_crudo(json_object_get_string_member(item, "raw"));
+        GList *cursor = tokens;
+        guint expectedTokens = 0;
+        for (guint w = 0; w < json_array_get_length(words); w++) {
+            JsonObject *word = json_array_get_object_element(words, w);
+            const std::string form = only_letters(json_object_get_string_member(word, "forma"));
+            gint pos = (gint)json_object_get_int_member(word, "pos");
+            if (form.empty()) continue;            // el C no genera token para un <w> vacío, pero su posición cuenta
+            expectedTokens++;
+            g_assert_nonnull(cursor);
+            auto *token = static_cast<InterlTok *>(cursor->data);
+            if (token->pos != pos) g_error("%s: posición C %d != Python %d (%s)", ref, token->pos, pos, form.c_str());
+            const std::string tokenForm = only_letters(token->forma);
+            g_assert_cmpstr(tokenForm.c_str(), ==, form.c_str());
+            g_assert_cmpstr(token->strong ? token->strong : "", ==, json_object_get_string_member(word, "strong"));
+            cursor = cursor->next;
+            checked++;
+        }
+        g_assert_null(cursor);
+        g_assert_cmpuint(g_list_length(tokens), ==, expectedTokens);
+        main_interlineal_tokens_free(tokens);
+    }
+    g_assert_cmpuint(json_array_get_length(items), >=, 40);
+    g_assert_cmpuint(checked, >, 600);
+    g_object_unref(parser);
+}
+
 int main()
 {
+    tisch_position_parity_test();
     study_summary_test();
     hebrew_study_test();
     gchar *directory = g_dir_make_tmp("sqlite-interlinear-XXXXXX", nullptr);

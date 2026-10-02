@@ -28,6 +28,7 @@ typedef struct _interl_tok {
 	gchar *glosa;
 	gchar *translit;
 	gchar *morph;
+	gint pos;		/* posición (1..n) del <w> en el versículo de Tisch; 0 = desconocida */
 } InterlTok;
 
 /* Una fila del aparato interlineal (Forward u Reverse). */
@@ -43,6 +44,7 @@ typedef struct _interl_fila {
 	gchar *morph_corto;	/* dicho para que quepa */
 	gboolean phrase;
 	gboolean hebrew;
+	gint pos;		/* posición de Tisch de la primera palabra griega de la fila; 0 = desconocida */
 } InterlFila;
 
 /* Ficha en texto plano; conserva UTF-8 y omite datos ausentes.
@@ -61,6 +63,12 @@ const InterlStrong *main_interlineal_strong(const char *num);
 
 /* Tokens del versículo (InterlTok*). Liberar con main_interlineal_tokens_free. */
 GList *main_interlineal_versiculo(const char *key);
+/* Tokens de la entrada cruda de un versículo (<w ...>texto</w>). La posición cuenta TODOS los <w>, tengan o no
+ * texto o atributos: es la misma cuenta que tools/tagnt/alinear.py y la que usa la ficha. Los <w> sin texto
+ * no producen token (pos sigue avanzando). */
+GList *main_interlineal_tokens_de_crudo(const char *raw);
+/* Versículo actualmente mostrado en el interlineal (no se debe liberar), o NULL. */
+const char *main_interlineal_verso_actual(void);
 void main_interlineal_tokens_free(GList *lista);
 
 /* Hasta max claves (gchar*) en un solo módulo (G→Tisch, H→KJV).
