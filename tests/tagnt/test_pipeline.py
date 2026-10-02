@@ -136,8 +136,12 @@ class PipelineTest(unittest.TestCase):
 
     def test_versiones_exactas(self):
         todo = pipeline.textos_versiones()
-        self.assertEqual(todo[("John", 1, 2)][1]["texto"], "Él estaba en el principio en Dios")   # sin marcador 'f'
-        self.assertNotIn("$", todo[("John", 1, 3)][1]["texto"])
+        # sin heurística: el texto sale tal cual del módulo; los versículos con errores de OCR llevan aviso
+        self.assertEqual(todo[("John", 1, 2)][1]["texto"], "Él estaba en el principio en Dios f")
+        self.assertIn("aviso", todo[("John", 1, 2)][1])
+        self.assertIn("aviso", todo[("John", 1, 3)][1])
+        self.assertNotIn("aviso", todo[("John", 1, 1)][1])
+        self.assertNotIn("aviso", todo[("John", 1, 1)][0])
         v = todo[("John", 1, 1)]
         self.assertEqual([x["version"] for x in v],
                          ["La Santa Biblia Reina-Valera (1909)", "La Sagrada Biblia (Torres Amat)"])

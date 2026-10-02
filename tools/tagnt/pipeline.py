@@ -268,11 +268,14 @@ def cargar(datos, ref, ruta, modelo=MODELO_MANUAL, log=ERRORES):
 
 
 # ---------------------------------------------------------------- ensamblado
-def _limpiar(t):
-    t = re.sub(r"<[^>]+>", "", t)
-    t = re.sub(r"[$%£|=+/\[\]]+", " ", t)
-    t = re.sub(r"\s+f\s*$", "", t.strip())          # marcador de nota suelto al final (TorresAmat)
-    return re.sub(r"\s+", " ", t).strip()
+RE_OCR = re.compile(r"(?:(?<=\s)|^)([$%£/=+\]\[|]|[bcdfghjklmnpqrstvwxzBCDFGHJKLMNPQRSTVWXZ])(?=\s|[,.;:]|$)")
+AVISO_OCR = "El módulo SWORD trae caracteres sueltos que parecen errores de OCR en este versículo; el texto se muestra sin corregir."
+
+
+def _texto_plano(t):
+    """Equivalente a stripText de SWORD (sin notas ni marcado): quita etiquetas y normaliza espacios.
+    No corrige el contenido: los errores de OCR de TorresAmat son texto literal del módulo."""
+    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", t)).strip()
 
 
 def textos_versiones():
@@ -290,12 +293,17 @@ def textos_versiones():
                 o = alinear.SWORD_A_OSIS.get(m[1])
                 actual = (o, int(m[2]), int(m[3])) if o else None
             elif actual and linea.strip():
-                res.setdefault(actual, []).append({"version": desc, "texto": _limpiar(linea)})
+                res.setdefault(actual, []).append({"version": desc, "texto": _texto_plano(linea)})
     for k, lista in res.items():
         por = {}
         for x in lista:
             por.setdefault(x["version"], []).append(x["texto"])
-        res[k] = [{"version": v, "texto": " ".join(t)} for v, t in por.items()]
+        res[k] = []
+        for v, t in por.items():
+            e = {"version": v, "texto": " ".join(t)}
+            if RE_OCR.search(e["texto"]):
+                e["aviso"] = AVISO_OCR
+            res[k].append(e)
     return res
 
 
