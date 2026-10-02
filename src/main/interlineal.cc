@@ -2133,6 +2133,17 @@ main_interlineal_set_modo_reverse(gboolean reverse)
 				il_reverse ? "1" : "0");
 }
 
+static const char *
+aviso_tisch_para_clave(const char *key)
+{
+	VerseKey vk;
+
+	vk.setText(key);
+	if (vk.popError())
+		return NULL;
+	return main_interlineal_aviso_tisch(vk.getOSISRef());
+}
+
 gchar *
 main_interlineal_html_original(const char *key)
 {
@@ -2161,6 +2172,19 @@ main_interlineal_html_original(const char *key)
 				       rtl ? _("Hebreo · WLC") : _("Griego · Tischendorf"),
 				       fg,
 				       rtl ? " dir=\"rtl\"" : "");
+	}
+	if (!rtl) {
+		const char *aviso = aviso_tisch_para_clave(key);
+
+		if (aviso) {
+			gchar *esc = g_markup_escape_text(aviso, -1);
+
+			g_string_append_printf(out,
+					       "<span class=\"ilaviso\" style=\"display:block;font-size:0.85em;"
+					       "font-style:italic;opacity:0.85;margin-bottom:0.4em\">%s</span>",
+					       esc);
+			g_free(esc);
+		}
 	}
 
 	for (l = toks; l; l = l->next) {

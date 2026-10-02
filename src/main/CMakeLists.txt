@@ -33,6 +33,7 @@ add_library (main
   import_andbible.cc
   import_modfile.cc
   interlineal.cc
+  interlineal_aviso.c
   lists.cc
   lectura_sync.cc
   main.c

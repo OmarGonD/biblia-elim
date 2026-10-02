@@ -85,6 +85,8 @@ gboolean main_interlineal_bloquea_navegacion(void);
 gboolean main_interlineal_quizas_plegar(const char *key);
 /* HTML del original (griego/hebreo) si este versículo está abierto; si no, NULL. */
 gchar *main_interlineal_html_original(const char *key);
+/* Aviso si el versículo (OSIS, p. ej. "John.8.22") cae en el defecto del módulo Tisch; NULL si no. */
+const char *main_interlineal_aviso_tisch(const char *osis);
 
 /* Filas palabra-por-palabra. reverse=FALSE: orden del original;
  * reverse=TRUE: orden del español. Liberar con main_interlineal_filas_free. */

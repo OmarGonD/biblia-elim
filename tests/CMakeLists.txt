@@ -85,6 +85,16 @@ if (BUILD_TESTING)
   add_test (NAME nube_mayusculas_test COMMAND nube_mayusculas_test)
 endif ()
 
+# TISCH-JN8-101: aviso por el defecto del módulo Tisch en Jn 8:12-53.
+add_executable (interlineal_aviso_test
+  interlineal_aviso_test.c
+  ${PROJECT_SOURCE_DIR}/src/main/interlineal_aviso.c)
+target_include_directories (interlineal_aviso_test PRIVATE ${PROJECT_SOURCE_DIR}/src)
+target_link_libraries (interlineal_aviso_test PRIVATE PkgConfig::Core)
+if (BUILD_TESTING)
+  add_test (NAME interlineal_aviso_test COMMAND interlineal_aviso_test)
+endif ()
+
 add_executable (nube_canvas_test EXCLUDE_FROM_ALL nube_canvas_test.c
   ${PROJECT_SOURCE_DIR}/src/main/nube_mayusculas.c
   ${PROJECT_SOURCE_DIR}/src/gtk/table_helpers.c)
@@ -1805,6 +1815,7 @@ endif ()
 add_executable (author_commentary_header_test EXCLUDE_FROM_ALL
   author_commentary_header_test.cc
   ${PROJECT_SOURCE_DIR}/src/main/interlineal.cc
+  ${PROJECT_SOURCE_DIR}/src/main/interlineal_aviso.c
   ${PROJECT_SOURCE_DIR}/src/main/reference_transition.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sword_main.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sword/sword_backend.cc
@@ -1939,6 +1950,7 @@ add_executable (sqlite_interlinear_test
   ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_bible_backend.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_module_writer.cc
   ${PROJECT_SOURCE_DIR}/src/main/interlineal.cc
+  ${PROJECT_SOURCE_DIR}/src/main/interlineal_aviso.c
   ${PROJECT_SOURCE_DIR}/src/main/reference_transition.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sword_main.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sword/sword_backend.cc
