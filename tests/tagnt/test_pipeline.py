@@ -127,12 +127,12 @@ class PipelineTest(unittest.TestCase):
         self.assertEqual(pipeline.procesar(self.datos, "John.1.2", g, pipeline.Cache("m", raiz=self.tmp), self.log), "ok")
         lote = os.path.join(self.tmp, "lote.jsonl")
         pipeline.batch_export(self.datos, ["John.1.2"], lote, "m")
-        self.assertEqual(json.loads(open(lote).readline())["custom_id"], "John.1.2")
+        self.assertEqual(json.loads(open(lote).readline())["custom_id"], "John_1_2")
         res = os.path.join(self.tmp, "res.jsonl")
         with open(res, "w") as f:
-            f.write(json.dumps({"custom_id": "John.1.2", "result": {"type": "succeeded",
+            f.write(json.dumps({"custom_id": "John_1_2", "result": {"type": "succeeded",
                     "message": {"content": [{"type": "text", "text": Bloque.text}]}}}) + "\n")
-            f.write(json.dumps({"custom_id": "John.1.3", "result": {"type": "errored"}}) + "\n")
+            f.write(json.dumps({"custom_id": "John_1_3", "result": {"type": "errored"}}) + "\n")
         c2 = pipeline.Cache("m2", raiz=self.tmp)
         self.assertEqual(pipeline.batch_import(self.datos, res, "m2", c2, self.log), {"ok": 1, "error": 1})
 
