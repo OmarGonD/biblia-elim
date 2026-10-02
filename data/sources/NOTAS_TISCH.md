@@ -30,7 +30,7 @@ Dónde enviarlo: lista **sword-devel@crosswire.org** (suscripción en https://cr
 > The Tisch module (Tischendorf 8th ed., v2.5.1) in the official repository has a defect around John 7:53–8:53.
 >
 > **Symptom.** Verses John 8:12 through 8:52 are empty. John 8:53 returns about 375 words that start with the text of John 7:53 (the pericope adulterae) and continue through John 8:21, cut in the middle of a markup tag (`... Εἶπεν οὖν πάλιν <w lemma="strong:G846 ...ὑ`). John 8:22–52 never appear. John 8:54–59 are fine.
-> Reproduce: `mod2imp Tisch | awk '/^\$\$\$John 8:53/{f=1;next} /^\$\$\$/{f=0} f' | wc -c` returns 40,507 bytes; or `diatheke -b Tisch -k John 8:22` (empty) and `diatheke -b Tisch -k John 8:53`.
+> Reproduce: `mod2imp Tisch | awk '/^\$\$\$John 8:53/{f=1;next} /^\$\$\$/{f=0} f' | wc -c` returns 40,508 bytes (40,507 of text plus the line terminator); or `diatheke -b Tisch -k John 8:22` (empty) and `diatheke -b Tisch -k John 8:53`.
 >
 > **Cause.** The module is a zText (ZIP, BlockType=BOOK) with `nt.bzs/nt.bzv/nt.bzz`. In `nt.bzv` (10-byte records: uint32 block, uint32 offset, **uint16 size**) the record for John 8:53 is #3371: block 3, offset 634662, size 40507. The next record (John 8:54) starts at offset 740705 in the same decompressed block, so the real entry is 740705 − 634662 = **106,043 bytes** (987 words). 106,043 mod 65,536 = 40,507, i.e. the size was stored modulo 2^16 and SWORD reads only that many bytes. I decompressed block 3 of the official `Tisch.zip` and confirmed the whole text (John 7:53 through 8:53) is present in `nt.bzz`; it is only unreachable through the index.
 >
