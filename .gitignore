@@ -60,3 +60,5 @@ __pycache__/
 __pycache__/
 .cache/
 .env
+data/fichas.sqlite
+data/fichas.sqlite.tmp
