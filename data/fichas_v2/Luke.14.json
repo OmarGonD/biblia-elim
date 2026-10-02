@@ -35,7 +35,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to observe"
+  "glosa_tagnt": "to observe",
+  "ref_estandar": "Luke.14.1"
  },
  {
   "ref": "Luke.14.2",
@@ -73,7 +74,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "with dropsy"
+  "glosa_tagnt": "with dropsy",
+  "ref_estandar": "Luke.14.2"
  },
  {
   "ref": "Luke.14.5",
@@ -112,7 +114,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "well/abyss"
+  "glosa_tagnt": "well/abyss",
+  "ref_estandar": "Luke.14.5"
  },
  {
   "ref": "Luke.14.8",
@@ -151,7 +154,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "place of honor"
+  "glosa_tagnt": "place of honor",
+  "ref_estandar": "Luke.14.8"
  },
  {
   "ref": "Luke.14.11",
@@ -191,7 +195,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to lift up"
+  "glosa_tagnt": "to lift up",
+  "ref_estandar": "Luke.14.11"
  },
  {
   "ref": "Luke.14.13",
@@ -230,7 +235,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "crippled"
+  "glosa_tagnt": "crippled",
+  "ref_estandar": "Luke.14.13"
  },
  {
   "ref": "Luke.14.14",
@@ -269,7 +275,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "resurrection"
+  "glosa_tagnt": "resurrection",
+  "ref_estandar": "Luke.14.14"
  },
  {
   "ref": "Luke.14.16",
@@ -308,7 +315,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dinner"
+  "glosa_tagnt": "dinner",
+  "ref_estandar": "Luke.14.16"
  },
  {
   "ref": "Luke.14.18",
@@ -347,7 +355,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to refuse/excuse"
+  "glosa_tagnt": "to refuse/excuse",
+  "ref_estandar": "Luke.14.18"
  },
  {
   "ref": "Luke.14.21",
@@ -385,7 +394,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wide"
+  "glosa_tagnt": "wide",
+  "ref_estandar": "Luke.14.21"
  },
  {
   "ref": "Luke.14.23",
@@ -424,7 +434,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to compel"
+  "glosa_tagnt": "to compel",
+  "ref_estandar": "Luke.14.23"
  },
  {
   "ref": "Luke.14.26",
@@ -463,7 +474,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to hate"
+  "glosa_tagnt": "to hate",
+  "ref_estandar": "Luke.14.26"
  },
  {
   "ref": "Luke.14.27",
@@ -502,7 +514,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "cross"
+  "glosa_tagnt": "cross",
+  "ref_estandar": "Luke.14.27"
  },
  {
   "ref": "Luke.14.28",
@@ -540,7 +553,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to calculate"
+  "glosa_tagnt": "to calculate",
+  "ref_estandar": "Luke.14.28"
  },
  {
   "ref": "Luke.14.33",
@@ -579,7 +593,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to leave"
+  "glosa_tagnt": "to leave",
+  "ref_estandar": "Luke.14.33"
  },
  {
   "ref": "Luke.14.34",
@@ -618,6 +633,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to make insipid"
+  "glosa_tagnt": "to make insipid",
+  "ref_estandar": "Luke.14.34"
  }
 ]

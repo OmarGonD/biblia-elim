@@ -34,6 +34,7 @@
   ],
   "variante": true,
   "glosa_tagnt": "second-first",
+  "ref_estandar": "Luke.6.1",
   "no_en_na28": true,
   "nota_na28": "La palabra de Tischendorf no está en NA28 según el TAGNT (presente en: TR, Byz)."
  },
@@ -74,7 +75,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to do good"
+  "glosa_tagnt": "to do good",
+  "ref_estandar": "Luke.6.9"
  },
  {
   "ref": "Luke.6.11",
@@ -112,7 +114,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "folly"
+  "glosa_tagnt": "folly",
+  "ref_estandar": "Luke.6.11"
  },
  {
   "ref": "Luke.6.12",
@@ -151,7 +154,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to spend the night"
+  "glosa_tagnt": "to spend the night",
+  "ref_estandar": "Luke.6.12"
  },
  {
   "ref": "Luke.6.13",
@@ -190,7 +194,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "apostle"
+  "glosa_tagnt": "apostle",
+  "ref_estandar": "Luke.6.13"
  },
  {
   "ref": "Luke.6.15",
@@ -229,7 +234,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "zealot"
+  "glosa_tagnt": "zealot",
+  "ref_estandar": "Luke.6.15"
  },
  {
   "ref": "Luke.6.16",
@@ -268,7 +274,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "traitor"
+  "glosa_tagnt": "traitor",
+  "ref_estandar": "Luke.6.16"
  },
  {
   "ref": "Luke.6.17",
@@ -306,7 +313,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "level"
+  "glosa_tagnt": "level",
+  "ref_estandar": "Luke.6.17"
  },
  {
   "ref": "Luke.6.19",
@@ -345,7 +353,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "power"
+  "glosa_tagnt": "power",
+  "ref_estandar": "Luke.6.19"
  },
  {
   "ref": "Luke.6.20",
@@ -384,7 +393,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "poor"
+  "glosa_tagnt": "poor",
+  "ref_estandar": "Luke.6.20"
  },
  {
   "ref": "Luke.6.21",
@@ -423,7 +433,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to laugh"
+  "glosa_tagnt": "to laugh",
+  "ref_estandar": "Luke.6.21"
  },
  {
   "ref": "Luke.6.24",
@@ -462,7 +473,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "woe!"
+  "glosa_tagnt": "woe!",
+  "ref_estandar": "Luke.6.24"
  },
  {
   "ref": "Luke.6.27",
@@ -501,7 +513,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to love"
+  "glosa_tagnt": "to love",
+  "ref_estandar": "Luke.6.27"
  },
  {
   "ref": "Luke.6.31",
@@ -540,7 +553,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to will/desire"
+  "glosa_tagnt": "to will/desire",
+  "ref_estandar": "Luke.6.31"
  },
  {
   "ref": "Luke.6.35",
@@ -578,7 +592,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to despair"
+  "glosa_tagnt": "to despair",
+  "ref_estandar": "Luke.6.35"
  },
  {
   "ref": "Luke.6.36",
@@ -618,7 +633,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "compassionate"
+  "glosa_tagnt": "compassionate",
+  "ref_estandar": "Luke.6.36"
  },
  {
   "ref": "Luke.6.37",
@@ -658,7 +674,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to release"
+  "glosa_tagnt": "to release",
+  "ref_estandar": "Luke.6.37"
  },
  {
   "ref": "Luke.6.38",
@@ -697,7 +714,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to overflow"
+  "glosa_tagnt": "to overflow",
+  "ref_estandar": "Luke.6.38"
  },
  {
   "ref": "Luke.6.40",
@@ -736,7 +754,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to complete"
+  "glosa_tagnt": "to complete",
+  "ref_estandar": "Luke.6.40"
  },
  {
   "ref": "Luke.6.45",
@@ -774,7 +793,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "treasure"
+  "glosa_tagnt": "treasure",
+  "ref_estandar": "Luke.6.45"
  },
  {
   "ref": "Luke.6.46",
@@ -815,7 +835,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lord"
+  "glosa_tagnt": "lord",
+  "ref_estandar": "Luke.6.46"
  },
  {
   "ref": "Luke.6.46",
@@ -856,7 +877,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lord"
+  "glosa_tagnt": "lord",
+  "ref_estandar": "Luke.6.46"
  },
  {
   "ref": "Luke.6.48",
@@ -895,6 +917,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "foundation"
+  "glosa_tagnt": "foundation",
+  "ref_estandar": "Luke.6.48"
  }
 ]

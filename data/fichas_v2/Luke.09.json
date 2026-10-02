@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "power"
+  "glosa_tagnt": "power",
+  "ref_estandar": "Luke.9.1"
  },
  {
   "ref": "Luke.9.5",
@@ -76,7 +77,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to shake off"
+  "glosa_tagnt": "to shake off",
+  "ref_estandar": "Luke.9.5"
  },
  {
   "ref": "Luke.9.7",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be perplexed"
+  "glosa_tagnt": "be perplexed",
+  "ref_estandar": "Luke.9.7"
  },
  {
   "ref": "Luke.9.20",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Christ"
+  "glosa_tagnt": "Christ",
+  "ref_estandar": "Luke.9.20"
  },
  {
   "ref": "Luke.9.22",
@@ -192,7 +196,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to reject"
+  "glosa_tagnt": "to reject",
+  "ref_estandar": "Luke.9.22"
  },
  {
   "ref": "Luke.9.23",
@@ -232,7 +237,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "day"
+  "glosa_tagnt": "day",
+  "ref_estandar": "Luke.9.23"
  },
  {
   "ref": "Luke.9.28",
@@ -271,7 +277,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pray"
+  "glosa_tagnt": "to pray",
+  "ref_estandar": "Luke.9.28"
  },
  {
   "ref": "Luke.9.31",
@@ -310,7 +317,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "departure"
+  "glosa_tagnt": "departure",
+  "ref_estandar": "Luke.9.31"
  },
  {
   "ref": "Luke.9.32",
@@ -348,7 +356,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to burden"
+  "glosa_tagnt": "to burden",
+  "ref_estandar": "Luke.9.32"
  },
  {
   "ref": "Luke.9.35",
@@ -388,7 +397,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to select"
+  "glosa_tagnt": "to select",
+  "ref_estandar": "Luke.9.35"
  },
  {
   "ref": "Luke.9.44",
@@ -427,7 +437,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to deliver"
+  "glosa_tagnt": "to deliver",
+  "ref_estandar": "Luke.9.44"
  },
  {
   "ref": "Luke.9.45",
@@ -465,7 +476,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to hide"
+  "glosa_tagnt": "to hide",
+  "ref_estandar": "Luke.9.45"
  },
  {
   "ref": "Luke.9.51",
@@ -504,7 +516,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ascension"
+  "glosa_tagnt": "ascension",
+  "ref_estandar": "Luke.9.51"
  },
  {
   "ref": "Luke.9.54",
@@ -543,7 +556,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fire"
+  "glosa_tagnt": "fire",
+  "ref_estandar": "Luke.9.54"
  },
  {
   "ref": "Luke.9.58",
@@ -581,7 +595,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "den"
+  "glosa_tagnt": "den",
+  "ref_estandar": "Luke.9.58"
  },
  {
   "ref": "Luke.9.60",
@@ -621,7 +636,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dead"
+  "glosa_tagnt": "dead",
+  "ref_estandar": "Luke.9.60"
  },
  {
   "ref": "Luke.9.60",
@@ -661,7 +677,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dead"
+  "glosa_tagnt": "dead",
+  "ref_estandar": "Luke.9.60"
  },
  {
   "ref": "Luke.9.62",
@@ -700,6 +717,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "plow"
+  "glosa_tagnt": "plow",
+  "ref_estandar": "Luke.9.62"
  }
 ]

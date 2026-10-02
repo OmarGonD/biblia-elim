@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "seat"
+  "glosa_tagnt": "seat",
+  "ref_estandar": "Matt.23.2"
  },
  {
   "ref": "Matt.23.4",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "burden"
+  "glosa_tagnt": "burden",
+  "ref_estandar": "Matt.23.4"
  },
  {
   "ref": "Matt.23.5",
@@ -115,7 +117,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "phylactery"
+  "glosa_tagnt": "phylactery",
+  "ref_estandar": "Matt.23.5"
  },
  {
   "ref": "Matt.23.6",
@@ -154,7 +157,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "seat of honor"
+  "glosa_tagnt": "seat of honor",
+  "ref_estandar": "Matt.23.6"
  },
  {
   "ref": "Matt.23.9",
@@ -196,7 +200,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "father"
+  "glosa_tagnt": "father",
+  "ref_estandar": "Matt.23.9"
  },
  {
   "ref": "Matt.23.11",
@@ -236,7 +241,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "servant"
+  "glosa_tagnt": "servant",
+  "ref_estandar": "Matt.23.11"
  },
  {
   "ref": "Matt.23.13",
@@ -275,7 +281,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "woe!"
+  "glosa_tagnt": "woe!",
+  "ref_estandar": "Matt.23.13"
  },
  {
   "ref": "Matt.23.15",
@@ -314,7 +321,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "proselyte"
+  "glosa_tagnt": "proselyte",
+  "ref_estandar": "Matt.23.15"
  },
  {
   "ref": "Matt.23.16",
@@ -353,7 +361,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "temple"
+  "glosa_tagnt": "temple",
+  "ref_estandar": "Matt.23.16"
  },
  {
   "ref": "Matt.23.23",
@@ -393,7 +402,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to tithe"
+  "glosa_tagnt": "to tithe",
+  "ref_estandar": "Matt.23.23"
  },
  {
   "ref": "Matt.23.24",
@@ -431,7 +441,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to strain out"
+  "glosa_tagnt": "to strain out",
+  "ref_estandar": "Matt.23.24"
  },
  {
   "ref": "Matt.23.27",
@@ -470,7 +481,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to whitewash"
+  "glosa_tagnt": "to whitewash",
+  "ref_estandar": "Matt.23.27"
  },
  {
   "ref": "Matt.23.28",
@@ -508,7 +520,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lawlessness"
+  "glosa_tagnt": "lawlessness",
+  "ref_estandar": "Matt.23.28"
  },
  {
   "ref": "Matt.23.31",
@@ -546,7 +559,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to testify"
+  "glosa_tagnt": "to testify",
+  "ref_estandar": "Matt.23.31"
  },
  {
   "ref": "Matt.23.32",
@@ -585,7 +599,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "measure"
+  "glosa_tagnt": "measure",
+  "ref_estandar": "Matt.23.32"
  },
  {
   "ref": "Matt.23.33",
@@ -625,7 +640,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Gehenna"
+  "glosa_tagnt": "Gehenna",
+  "ref_estandar": "Matt.23.33"
  },
  {
   "ref": "Matt.23.35",
@@ -667,7 +683,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "blood"
+  "glosa_tagnt": "blood",
+  "ref_estandar": "Matt.23.35"
  },
  {
   "ref": "Matt.23.37",
@@ -707,7 +724,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to gather"
+  "glosa_tagnt": "to gather",
+  "ref_estandar": "Matt.23.37"
  },
  {
   "ref": "Matt.23.38",
@@ -747,7 +765,8 @@
    "WH"
   ],
   "variante": true,
-  "glosa_tagnt": "deserted"
+  "glosa_tagnt": "deserted",
+  "ref_estandar": "Matt.23.38"
  },
  {
   "ref": "Matt.23.39",
@@ -786,6 +805,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to praise/bless"
+  "glosa_tagnt": "to praise/bless",
+  "ref_estandar": "Matt.23.39"
  }
 ]

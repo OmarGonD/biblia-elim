@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wrong"
+  "glosa_tagnt": "wrong",
+  "ref_estandar": "2Thess.3.2"
  },
  {
   "ref": "2Thess.3.6",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "idly"
+  "glosa_tagnt": "idly",
+  "ref_estandar": "2Thess.3.6"
  },
  {
   "ref": "2Thess.3.7",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to imitate"
+  "glosa_tagnt": "to imitate",
+  "ref_estandar": "2Thess.3.7"
  },
  {
   "ref": "2Thess.3.10",
@@ -154,7 +157,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to eat"
+  "glosa_tagnt": "to eat",
+  "ref_estandar": "2Thess.3.10"
  },
  {
   "ref": "2Thess.3.11",
@@ -193,7 +197,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be a busybody"
+  "glosa_tagnt": "be a busybody",
+  "ref_estandar": "2Thess.3.11"
  },
  {
   "ref": "2Thess.3.13",
@@ -232,7 +237,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to lose heart"
+  "glosa_tagnt": "to lose heart",
+  "ref_estandar": "2Thess.3.13"
  },
  {
   "ref": "2Thess.3.14",
@@ -272,7 +278,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to note"
+  "glosa_tagnt": "to note",
+  "ref_estandar": "2Thess.3.14"
  },
  {
   "ref": "2Thess.3.17",
@@ -312,6 +319,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sign"
+  "glosa_tagnt": "sign",
+  "ref_estandar": "2Thess.3.17"
  }
 ]

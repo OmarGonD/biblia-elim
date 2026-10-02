@@ -37,7 +37,8 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "to dispute"
+  "glosa_tagnt": "to dispute",
+  "ref_estandar": "Acts.17.2"
  },
  {
   "ref": "Acts.17.3",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to set before"
+  "glosa_tagnt": "to set before",
+  "ref_estandar": "Acts.17.3"
  },
  {
   "ref": "Acts.17.6",
@@ -115,7 +117,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to cause trouble"
+  "glosa_tagnt": "to cause trouble",
+  "ref_estandar": "Acts.17.6"
  },
  {
   "ref": "Acts.17.7",
@@ -154,7 +157,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "king"
+  "glosa_tagnt": "king",
+  "ref_estandar": "Acts.17.7"
  },
  {
   "ref": "Acts.17.11",
@@ -194,7 +198,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "of noble birth"
+  "glosa_tagnt": "of noble birth",
+  "ref_estandar": "Acts.17.11"
  },
  {
   "ref": "Acts.17.16",
@@ -233,7 +238,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "idolatrous"
+  "glosa_tagnt": "idolatrous",
+  "ref_estandar": "Acts.17.16"
  },
  {
   "ref": "Acts.17.18",
@@ -271,7 +277,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "babbler"
+  "glosa_tagnt": "babbler",
+  "ref_estandar": "Acts.17.18"
  },
  {
   "ref": "Acts.17.19",
@@ -309,7 +316,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Mars' Hill"
+  "glosa_tagnt": "Mars' Hill",
+  "ref_estandar": "Acts.17.19"
  },
  {
   "ref": "Acts.17.22",
@@ -347,7 +355,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "religious"
+  "glosa_tagnt": "religious",
+  "ref_estandar": "Acts.17.22"
  },
  {
   "ref": "Acts.17.23",
@@ -386,7 +395,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unknown"
+  "glosa_tagnt": "unknown",
+  "ref_estandar": "Acts.17.23"
  },
  {
   "ref": "Acts.17.24",
@@ -426,7 +436,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hand-made"
+  "glosa_tagnt": "hand-made",
+  "ref_estandar": "Acts.17.24"
  },
  {
   "ref": "Acts.17.26",
@@ -466,7 +477,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "one"
+  "glosa_tagnt": "one",
+  "ref_estandar": "Acts.17.26"
  },
  {
   "ref": "Acts.17.27",
@@ -506,7 +518,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to touch"
+  "glosa_tagnt": "to touch",
+  "ref_estandar": "Acts.17.27"
  },
  {
   "ref": "Acts.17.28",
@@ -546,7 +559,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to live"
+  "glosa_tagnt": "to live",
+  "ref_estandar": "Acts.17.28"
  },
  {
   "ref": "Acts.17.30",
@@ -585,7 +599,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ignorance"
+  "glosa_tagnt": "ignorance",
+  "ref_estandar": "Acts.17.30"
  },
  {
   "ref": "Acts.17.31",
@@ -625,7 +640,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to judge"
+  "glosa_tagnt": "to judge",
+  "ref_estandar": "Acts.17.31"
  },
  {
   "ref": "Acts.17.32",
@@ -664,7 +680,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to sneer"
+  "glosa_tagnt": "to sneer",
+  "ref_estandar": "Acts.17.32"
  },
  {
   "ref": "Acts.17.34",
@@ -702,6 +719,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Dionysius"
+  "glosa_tagnt": "Dionysius",
+  "ref_estandar": "Acts.17.34"
  }
 ]

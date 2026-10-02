@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "decree"
+  "glosa_tagnt": "decree",
+  "ref_estandar": "Luke.2.1"
  },
  {
   "ref": "Luke.2.4",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Bethlehem"
+  "glosa_tagnt": "Bethlehem",
+  "ref_estandar": "Luke.2.4"
  },
  {
   "ref": "Luke.2.7",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "firstborn"
+  "glosa_tagnt": "firstborn",
+  "ref_estandar": "Luke.2.7"
  },
  {
   "ref": "Luke.2.7",
@@ -152,7 +155,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "manger"
+  "glosa_tagnt": "manger",
+  "ref_estandar": "Luke.2.7"
  },
  {
   "ref": "Luke.2.7",
@@ -190,7 +194,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "guest room/inn"
+  "glosa_tagnt": "guest room/inn",
+  "ref_estandar": "Luke.2.7"
  },
  {
   "ref": "Luke.2.8",
@@ -229,7 +234,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "shepherd"
+  "glosa_tagnt": "shepherd",
+  "ref_estandar": "Luke.2.8"
  },
  {
   "ref": "Luke.2.10",
@@ -268,7 +274,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to speak good news"
+  "glosa_tagnt": "to speak good news",
+  "ref_estandar": "Luke.2.10"
  },
  {
   "ref": "Luke.2.11",
@@ -307,7 +314,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "savior"
+  "glosa_tagnt": "savior",
+  "ref_estandar": "Luke.2.11"
  },
  {
   "ref": "Luke.2.14",
@@ -347,7 +355,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "goodwill"
+  "glosa_tagnt": "goodwill",
+  "ref_estandar": "Luke.2.14"
  },
  {
   "ref": "Luke.2.19",
@@ -386,7 +395,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to preserve"
+  "glosa_tagnt": "to preserve",
+  "ref_estandar": "Luke.2.19"
  },
  {
   "ref": "Luke.2.22",
@@ -425,7 +435,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "cleansing"
+  "glosa_tagnt": "cleansing",
+  "ref_estandar": "Luke.2.22"
  },
  {
   "ref": "Luke.2.24",
@@ -463,7 +474,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dove"
+  "glosa_tagnt": "dove",
+  "ref_estandar": "Luke.2.24"
  },
  {
   "ref": "Luke.2.25",
@@ -501,7 +513,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Simeon"
+  "glosa_tagnt": "Simeon",
+  "ref_estandar": "Luke.2.25"
  },
  {
   "ref": "Luke.2.29",
@@ -541,7 +554,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to release"
+  "glosa_tagnt": "to release",
+  "ref_estandar": "Luke.2.29"
  },
  {
   "ref": "Luke.2.30",
@@ -580,7 +594,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "saving"
+  "glosa_tagnt": "saving",
+  "ref_estandar": "Luke.2.30"
  },
  {
   "ref": "Luke.2.32",
@@ -619,7 +634,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "revelation"
+  "glosa_tagnt": "revelation",
+  "ref_estandar": "Luke.2.32"
  },
  {
   "ref": "Luke.2.34",
@@ -659,7 +675,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to dispute"
+  "glosa_tagnt": "to dispute",
+  "ref_estandar": "Luke.2.34"
  },
  {
   "ref": "Luke.2.35",
@@ -698,7 +715,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sword"
+  "glosa_tagnt": "sword",
+  "ref_estandar": "Luke.2.35"
  },
  {
   "ref": "Luke.2.36",
@@ -737,7 +755,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "prophetess"
+  "glosa_tagnt": "prophetess",
+  "ref_estandar": "Luke.2.36"
  },
  {
   "ref": "Luke.2.38",
@@ -775,7 +794,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "redemption"
+  "glosa_tagnt": "redemption",
+  "ref_estandar": "Luke.2.38"
  },
  {
   "ref": "Luke.2.40",
@@ -813,7 +833,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to strengthen"
+  "glosa_tagnt": "to strengthen",
+  "ref_estandar": "Luke.2.40"
  },
  {
   "ref": "Luke.2.46",
@@ -851,7 +872,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "teacher"
+  "glosa_tagnt": "teacher",
+  "ref_estandar": "Luke.2.46"
  },
  {
   "ref": "Luke.2.49",
@@ -890,7 +912,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be necessary"
+  "glosa_tagnt": "be necessary",
+  "ref_estandar": "Luke.2.49"
  },
  {
   "ref": "Luke.2.51",
@@ -928,7 +951,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to subject"
+  "glosa_tagnt": "to subject",
+  "ref_estandar": "Luke.2.51"
  },
  {
   "ref": "Luke.2.52",
@@ -968,6 +992,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to advance"
+  "glosa_tagnt": "to advance",
+  "ref_estandar": "Luke.2.52"
  }
 ]

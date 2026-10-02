@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "teacher"
+  "glosa_tagnt": "teacher",
+  "ref_estandar": "Jas.3.1"
  },
  {
   "ref": "Jas.3.2",
@@ -78,7 +79,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to stumble"
+  "glosa_tagnt": "to stumble",
+  "ref_estandar": "Jas.3.2"
  },
  {
   "ref": "Jas.3.6",
@@ -117,7 +119,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Gehenna"
+  "glosa_tagnt": "Gehenna",
+  "ref_estandar": "Jas.3.6"
  },
  {
   "ref": "Jas.3.8",
@@ -156,7 +159,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to tame"
+  "glosa_tagnt": "to tame",
+  "ref_estandar": "Jas.3.8"
  },
  {
   "ref": "Jas.3.9",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to curse"
+  "glosa_tagnt": "to curse",
+  "ref_estandar": "Jas.3.9"
  },
  {
   "ref": "Jas.3.13",
@@ -234,7 +239,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wise"
+  "glosa_tagnt": "wise",
+  "ref_estandar": "Jas.3.13"
  },
  {
   "ref": "Jas.3.15",
@@ -273,7 +279,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "natural"
+  "glosa_tagnt": "natural",
+  "ref_estandar": "Jas.3.15"
  },
  {
   "ref": "Jas.3.17",
@@ -313,6 +320,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "pure"
+  "glosa_tagnt": "pure",
+  "ref_estandar": "Jas.3.17"
  }
 ]

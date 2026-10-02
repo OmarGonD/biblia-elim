@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Melchizedek"
+  "glosa_tagnt": "Melchizedek",
+  "ref_estandar": "Heb.7.1"
  },
  {
   "ref": "Heb.7.2",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tenth"
+  "glosa_tagnt": "tenth",
+  "ref_estandar": "Heb.7.2"
  },
  {
   "ref": "Heb.7.3",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fatherless"
+  "glosa_tagnt": "fatherless",
+  "ref_estandar": "Heb.7.3"
  },
  {
   "ref": "Heb.7.11",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "perfection"
+  "glosa_tagnt": "perfection",
+  "ref_estandar": "Heb.7.11"
  },
  {
   "ref": "Heb.7.14",
@@ -193,7 +197,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Judah/Judas/Jude"
+  "glosa_tagnt": "Judah/Judas/Jude",
+  "ref_estandar": "Heb.7.14"
  },
  {
   "ref": "Heb.7.16",
@@ -232,7 +237,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "indestructible"
+  "glosa_tagnt": "indestructible",
+  "ref_estandar": "Heb.7.16"
  },
  {
   "ref": "Heb.7.19",
@@ -271,7 +277,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to perfect"
+  "glosa_tagnt": "to perfect",
+  "ref_estandar": "Heb.7.19"
  },
  {
   "ref": "Heb.7.22",
@@ -310,7 +317,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "guarantor"
+  "glosa_tagnt": "guarantor",
+  "ref_estandar": "Heb.7.22"
  },
  {
   "ref": "Heb.7.24",
@@ -349,7 +357,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "permanent"
+  "glosa_tagnt": "permanent",
+  "ref_estandar": "Heb.7.24"
  },
  {
   "ref": "Heb.7.25",
@@ -389,7 +398,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to call on"
+  "glosa_tagnt": "to call on",
+  "ref_estandar": "Heb.7.25"
  },
  {
   "ref": "Heb.7.26",
@@ -428,7 +438,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "pure"
+  "glosa_tagnt": "pure",
+  "ref_estandar": "Heb.7.26"
  },
  {
   "ref": "Heb.7.27",
@@ -467,7 +478,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "once/at once"
+  "glosa_tagnt": "once/at once",
+  "ref_estandar": "Heb.7.27"
  },
  {
   "ref": "Heb.7.28",
@@ -506,6 +518,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to perfect"
+  "glosa_tagnt": "to perfect",
+  "ref_estandar": "Heb.7.28"
  }
 ]

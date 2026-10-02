@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "oversight"
+  "glosa_tagnt": "oversight",
+  "ref_estandar": "1Tim.3.1"
  },
  {
   "ref": "1Tim.3.2",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "overseer"
+  "glosa_tagnt": "overseer",
+  "ref_estandar": "1Tim.3.2"
  },
  {
   "ref": "1Tim.3.4",
@@ -115,7 +117,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to set before"
+  "glosa_tagnt": "to set before",
+  "ref_estandar": "1Tim.3.4"
  },
  {
   "ref": "1Tim.3.6",
@@ -154,7 +157,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "new convert"
+  "glosa_tagnt": "new convert",
+  "ref_estandar": "1Tim.3.6"
  },
  {
   "ref": "1Tim.3.8",
@@ -193,7 +197,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "servant"
+  "glosa_tagnt": "servant",
+  "ref_estandar": "1Tim.3.8"
  },
  {
   "ref": "1Tim.3.11",
@@ -232,7 +237,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "woman"
+  "glosa_tagnt": "woman",
+  "ref_estandar": "1Tim.3.11"
  },
  {
   "ref": "1Tim.3.15",
@@ -272,7 +278,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "pillar"
+  "glosa_tagnt": "pillar",
+  "ref_estandar": "1Tim.3.15"
  },
  {
   "ref": "1Tim.3.16",
@@ -312,6 +319,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mystery"
+  "glosa_tagnt": "mystery",
+  "ref_estandar": "1Tim.3.16"
  }
 ]

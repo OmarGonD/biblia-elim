@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pity"
+  "glosa_tagnt": "to pity",
+  "ref_estandar": "Mark.8.2"
  },
  {
   "ref": "Mark.8.8",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fragment"
+  "glosa_tagnt": "fragment",
+  "ref_estandar": "Mark.8.8"
  },
  {
   "ref": "Mark.8.12",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to sigh deeply"
+  "glosa_tagnt": "to sigh deeply",
+  "ref_estandar": "Mark.8.12"
  },
  {
   "ref": "Mark.8.15",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "leaven"
+  "glosa_tagnt": "leaven",
+  "ref_estandar": "Mark.8.15"
  },
  {
   "ref": "Mark.8.15",
@@ -196,7 +200,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "leaven"
+  "glosa_tagnt": "leaven",
+  "ref_estandar": "Mark.8.15"
  },
  {
   "ref": "Mark.8.17",
@@ -235,7 +240,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "not yet"
+  "glosa_tagnt": "not yet",
+  "ref_estandar": "Mark.8.17"
  },
  {
   "ref": "Mark.8.23",
@@ -275,7 +281,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to bring/carry out"
+  "glosa_tagnt": "to bring/carry out",
+  "ref_estandar": "Mark.8.23"
  },
  {
   "ref": "Mark.8.24",
@@ -313,7 +320,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tree"
+  "glosa_tagnt": "tree",
+  "ref_estandar": "Mark.8.24"
  },
  {
   "ref": "Mark.8.29",
@@ -352,7 +360,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Christ"
+  "glosa_tagnt": "Christ",
+  "ref_estandar": "Mark.8.29"
  },
  {
   "ref": "Mark.8.31",
@@ -391,7 +400,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be necessary"
+  "glosa_tagnt": "be necessary",
+  "ref_estandar": "Mark.8.31"
  },
  {
   "ref": "Mark.8.32",
@@ -429,7 +439,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "boldness"
+  "glosa_tagnt": "boldness",
+  "ref_estandar": "Mark.8.32"
  },
  {
   "ref": "Mark.8.33",
@@ -468,7 +479,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Satan"
+  "glosa_tagnt": "Satan",
+  "ref_estandar": "Mark.8.33"
  },
  {
   "ref": "Mark.8.34",
@@ -507,7 +519,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to deny"
+  "glosa_tagnt": "to deny",
+  "ref_estandar": "Mark.8.34"
  },
  {
   "ref": "Mark.8.35",
@@ -546,7 +559,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gospel"
+  "glosa_tagnt": "gospel",
+  "ref_estandar": "Mark.8.35"
  },
  {
   "ref": "Mark.8.38",
@@ -586,6 +600,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be ashamed of"
+  "glosa_tagnt": "be ashamed of",
+  "ref_estandar": "Mark.8.38"
  }
 ]

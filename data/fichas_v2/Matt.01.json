@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "book"
+  "glosa_tagnt": "book",
+  "ref_estandar": "Matt.1.1"
  },
  {
   "ref": "Matt.1.1",
@@ -79,7 +80,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "origin"
+  "glosa_tagnt": "origin",
+  "ref_estandar": "Matt.1.1"
  },
  {
   "ref": "Matt.1.1",
@@ -118,7 +120,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Jesus/Joshua"
+  "glosa_tagnt": "Jesus/Joshua",
+  "ref_estandar": "Matt.1.1"
  },
  {
   "ref": "Matt.1.1",
@@ -159,7 +162,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Christ"
+  "glosa_tagnt": "Christ",
+  "ref_estandar": "Matt.1.1"
  },
  {
   "ref": "Matt.1.1",
@@ -202,7 +206,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "son"
+  "glosa_tagnt": "son",
+  "ref_estandar": "Matt.1.1"
  },
  {
   "ref": "Matt.1.1",
@@ -240,7 +245,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "David"
+  "glosa_tagnt": "David",
+  "ref_estandar": "Matt.1.1"
  },
  {
   "ref": "Matt.1.1",
@@ -283,7 +289,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "son"
+  "glosa_tagnt": "son",
+  "ref_estandar": "Matt.1.1"
  },
  {
   "ref": "Matt.1.2",
@@ -325,7 +332,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to beget"
+  "glosa_tagnt": "to beget",
+  "ref_estandar": "Matt.1.2"
  },
  {
   "ref": "Matt.1.2",
@@ -367,7 +375,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to beget"
+  "glosa_tagnt": "to beget",
+  "ref_estandar": "Matt.1.2"
  },
  {
   "ref": "Matt.1.2",
@@ -409,7 +418,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to beget"
+  "glosa_tagnt": "to beget",
+  "ref_estandar": "Matt.1.2"
  },
  {
   "ref": "Matt.1.2",
@@ -448,7 +458,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Judah/Judas/Jude"
+  "glosa_tagnt": "Judah/Judas/Jude",
+  "ref_estandar": "Matt.1.2"
  },
  {
   "ref": "Matt.1.2",
@@ -489,7 +500,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "brother"
+  "glosa_tagnt": "brother",
+  "ref_estandar": "Matt.1.2"
  },
  {
   "ref": "Matt.1.3",
@@ -532,7 +544,8 @@
   "ausente_en": [],
   "variante": false,
   "glosa_tagnt": "out from",
-  "caso_regido": "genitivo"
+  "caso_regido": "genitivo",
+  "ref_estandar": "Matt.1.3"
  },
  {
   "ref": "Matt.1.6",
@@ -573,7 +586,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "king"
+  "glosa_tagnt": "king",
+  "ref_estandar": "Matt.1.6"
  },
  {
   "ref": "Matt.1.11",
@@ -611,7 +625,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "deportation"
+  "glosa_tagnt": "deportation",
+  "ref_estandar": "Matt.1.11"
  },
  {
   "ref": "Matt.1.16",
@@ -652,7 +667,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "man"
+  "glosa_tagnt": "man",
+  "ref_estandar": "Matt.1.16"
  },
  {
   "ref": "Matt.1.16",
@@ -692,7 +708,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to beget"
+  "glosa_tagnt": "to beget",
+  "ref_estandar": "Matt.1.16"
  },
  {
   "ref": "Matt.1.18",
@@ -730,7 +747,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to betroth"
+  "glosa_tagnt": "to betroth",
+  "ref_estandar": "Matt.1.18"
  },
  {
   "ref": "Matt.1.18",
@@ -771,7 +789,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to find/meet"
+  "glosa_tagnt": "to find/meet",
+  "ref_estandar": "Matt.1.18"
  },
  {
   "ref": "Matt.1.18",
@@ -813,7 +832,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to have/be"
+  "glosa_tagnt": "to have/be",
+  "ref_estandar": "Matt.1.18"
  },
  {
   "ref": "Matt.1.18",
@@ -855,7 +875,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "spirit/breath"
+  "glosa_tagnt": "spirit/breath",
+  "ref_estandar": "Matt.1.18"
  },
  {
   "ref": "Matt.1.19",
@@ -896,7 +917,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "just"
+  "glosa_tagnt": "just",
+  "ref_estandar": "Matt.1.19"
  },
  {
   "ref": "Matt.1.19",
@@ -935,7 +957,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to disgrace"
+  "glosa_tagnt": "to disgrace",
+  "ref_estandar": "Matt.1.19"
  },
  {
   "ref": "Matt.1.19",
@@ -976,7 +999,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to release"
+  "glosa_tagnt": "to release",
+  "ref_estandar": "Matt.1.19"
  },
  {
   "ref": "Matt.1.20",
@@ -1014,7 +1038,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to reflect on"
+  "glosa_tagnt": "to reflect on",
+  "ref_estandar": "Matt.1.20"
  },
  {
   "ref": "Matt.1.20",
@@ -1054,7 +1079,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "angel"
+  "glosa_tagnt": "angel",
+  "ref_estandar": "Matt.1.20"
  },
  {
   "ref": "Matt.1.20",
@@ -1095,7 +1121,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lord"
+  "glosa_tagnt": "lord",
+  "ref_estandar": "Matt.1.20"
  },
  {
   "ref": "Matt.1.20",
@@ -1136,7 +1163,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to take"
+  "glosa_tagnt": "to take",
+  "ref_estandar": "Matt.1.20"
  },
  {
   "ref": "Matt.1.21",
@@ -1176,7 +1204,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to give birth to"
+  "glosa_tagnt": "to give birth to",
+  "ref_estandar": "Matt.1.21"
  },
  {
   "ref": "Matt.1.21",
@@ -1217,7 +1246,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to call"
+  "glosa_tagnt": "to call",
+  "ref_estandar": "Matt.1.21"
  },
  {
   "ref": "Matt.1.21",
@@ -1258,7 +1288,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to save"
+  "glosa_tagnt": "to save",
+  "ref_estandar": "Matt.1.21"
  },
  {
   "ref": "Matt.1.21",
@@ -1299,7 +1330,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sin"
+  "glosa_tagnt": "sin",
+  "ref_estandar": "Matt.1.21"
  },
  {
   "ref": "Matt.1.22",
@@ -1340,7 +1372,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to fulfill"
+  "glosa_tagnt": "to fulfill",
+  "ref_estandar": "Matt.1.22"
  },
  {
   "ref": "Matt.1.23",
@@ -1381,7 +1414,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "virgin"
+  "glosa_tagnt": "virgin",
+  "ref_estandar": "Matt.1.23"
  },
  {
   "ref": "Matt.1.23",
@@ -1419,7 +1453,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Immanuel"
+  "glosa_tagnt": "Immanuel",
+  "ref_estandar": "Matt.1.23"
  },
  {
   "ref": "Matt.1.23",
@@ -1458,7 +1493,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to mean"
+  "glosa_tagnt": "to mean",
+  "ref_estandar": "Matt.1.23"
  },
  {
   "ref": "Matt.1.23",
@@ -1499,7 +1535,8 @@
   "ausente_en": [],
   "variante": false,
   "glosa_tagnt": "with/after",
-  "caso_regido": "genitivo"
+  "caso_regido": "genitivo",
+  "ref_estandar": "Matt.1.23"
  },
  {
   "ref": "Matt.1.25",
@@ -1540,7 +1577,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to know"
+  "glosa_tagnt": "to know",
+  "ref_estandar": "Matt.1.25"
  },
  {
   "ref": "Matt.1.25",
@@ -1581,6 +1619,7 @@
   "ausente_en": [],
   "variante": false,
   "glosa_tagnt": "until",
-  "caso_regido": "genitivo"
+  "caso_regido": "genitivo",
+  "ref_estandar": "Matt.1.25"
  }
 ]

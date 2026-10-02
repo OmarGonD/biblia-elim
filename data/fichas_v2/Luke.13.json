@@ -35,7 +35,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Galilean"
+  "glosa_tagnt": "Galilean",
+  "ref_estandar": "Luke.13.1"
  },
  {
   "ref": "Luke.13.3",
@@ -74,7 +75,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to repent"
+  "glosa_tagnt": "to repent",
+  "ref_estandar": "Luke.13.3"
  },
  {
   "ref": "Luke.13.4",
@@ -112,7 +114,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tower"
+  "glosa_tagnt": "tower",
+  "ref_estandar": "Luke.13.4"
  },
  {
   "ref": "Luke.13.6",
@@ -151,7 +154,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fig tree"
+  "glosa_tagnt": "fig tree",
+  "ref_estandar": "Luke.13.6"
  },
  {
   "ref": "Luke.13.8",
@@ -190,7 +194,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to release"
+  "glosa_tagnt": "to release",
+  "ref_estandar": "Luke.13.8"
  },
  {
   "ref": "Luke.13.11",
@@ -228,7 +233,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "weakness"
+  "glosa_tagnt": "weakness",
+  "ref_estandar": "Luke.13.11"
  },
  {
   "ref": "Luke.13.12",
@@ -266,7 +272,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to release"
+  "glosa_tagnt": "to release",
+  "ref_estandar": "Luke.13.12"
  },
  {
   "ref": "Luke.13.14",
@@ -305,7 +312,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "synagogue leader"
+  "glosa_tagnt": "synagogue leader",
+  "ref_estandar": "Luke.13.14"
  },
  {
   "ref": "Luke.13.16",
@@ -344,7 +352,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Abraham"
+  "glosa_tagnt": "Abraham",
+  "ref_estandar": "Luke.13.16"
  },
  {
   "ref": "Luke.13.19",
@@ -383,7 +392,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "garden"
+  "glosa_tagnt": "garden",
+  "ref_estandar": "Luke.13.19"
  },
  {
   "ref": "Luke.13.22",
@@ -422,7 +432,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "journey"
+  "glosa_tagnt": "journey",
+  "ref_estandar": "Luke.13.22"
  },
  {
   "ref": "Luke.13.24",
@@ -461,7 +472,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to struggle"
+  "glosa_tagnt": "to struggle",
+  "ref_estandar": "Luke.13.24"
  },
  {
   "ref": "Luke.13.27",
@@ -500,7 +512,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unrighteousness"
+  "glosa_tagnt": "unrighteousness",
+  "ref_estandar": "Luke.13.27"
  },
  {
   "ref": "Luke.13.29",
@@ -539,7 +552,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "the north"
+  "glosa_tagnt": "the north",
+  "ref_estandar": "Luke.13.29"
  },
  {
   "ref": "Luke.13.32",
@@ -578,7 +592,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fox"
+  "glosa_tagnt": "fox",
+  "ref_estandar": "Luke.13.32"
  },
  {
   "ref": "Luke.13.33",
@@ -617,7 +632,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be necessary"
+  "glosa_tagnt": "be necessary",
+  "ref_estandar": "Luke.13.33"
  },
  {
   "ref": "Luke.13.34",
@@ -656,7 +672,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hen"
+  "glosa_tagnt": "hen",
+  "ref_estandar": "Luke.13.34"
  },
  {
   "ref": "Luke.13.35",
@@ -695,6 +712,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to praise/bless"
+  "glosa_tagnt": "to praise/bless",
+  "ref_estandar": "Luke.13.35"
  }
 ]

@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "palace/courtyard"
+  "glosa_tagnt": "palace/courtyard",
+  "ref_estandar": "John.10.1"
  },
  {
   "ref": "John.10.6",
@@ -74,7 +75,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "proverb"
+  "glosa_tagnt": "proverb",
+  "ref_estandar": "John.10.6"
  },
  {
   "ref": "John.10.7",
@@ -113,7 +115,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "door"
+  "glosa_tagnt": "door",
+  "ref_estandar": "John.10.7"
  },
  {
   "ref": "John.10.9",
@@ -152,7 +155,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "pasture"
+  "glosa_tagnt": "pasture",
+  "ref_estandar": "John.10.9"
  },
  {
   "ref": "John.10.10",
@@ -192,7 +196,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "excessive/abundant"
+  "glosa_tagnt": "excessive/abundant",
+  "ref_estandar": "John.10.10"
  },
  {
   "ref": "John.10.11",
@@ -233,7 +238,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "good"
+  "glosa_tagnt": "good",
+  "ref_estandar": "John.10.11"
  },
  {
   "ref": "John.10.11",
@@ -274,7 +280,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "good"
+  "glosa_tagnt": "good",
+  "ref_estandar": "John.10.11"
  },
  {
   "ref": "John.10.11",
@@ -313,7 +320,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "soul"
+  "glosa_tagnt": "soul",
+  "ref_estandar": "John.10.11"
  },
  {
   "ref": "John.10.12",
@@ -352,7 +360,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hired worker"
+  "glosa_tagnt": "hired worker",
+  "ref_estandar": "John.10.12"
  },
  {
   "ref": "John.10.14",
@@ -393,7 +402,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to know"
+  "glosa_tagnt": "to know",
+  "ref_estandar": "John.10.14"
  },
  {
   "ref": "John.10.16",
@@ -433,7 +443,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "flock"
+  "glosa_tagnt": "flock",
+  "ref_estandar": "John.10.16"
  },
  {
   "ref": "John.10.18",
@@ -473,7 +484,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "authority"
+  "glosa_tagnt": "authority",
+  "ref_estandar": "John.10.18"
  },
  {
   "ref": "John.10.18",
@@ -513,7 +525,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "authority"
+  "glosa_tagnt": "authority",
+  "ref_estandar": "John.10.18"
  },
  {
   "ref": "John.10.22",
@@ -552,7 +565,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Feast of Dedication"
+  "glosa_tagnt": "Feast of Dedication",
+  "ref_estandar": "John.10.22"
  },
  {
   "ref": "John.10.24",
@@ -591,7 +605,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "boldness"
+  "glosa_tagnt": "boldness",
+  "ref_estandar": "John.10.24"
  },
  {
   "ref": "John.10.27",
@@ -630,7 +645,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sheep"
+  "glosa_tagnt": "sheep",
+  "ref_estandar": "John.10.27"
  },
  {
   "ref": "John.10.28",
@@ -670,7 +686,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to seize"
+  "glosa_tagnt": "to seize",
+  "ref_estandar": "John.10.28"
  },
  {
   "ref": "John.10.30",
@@ -709,7 +726,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "one"
+  "glosa_tagnt": "one",
+  "ref_estandar": "John.10.30"
  },
  {
   "ref": "John.10.33",
@@ -749,7 +767,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "blasphemy"
+  "glosa_tagnt": "blasphemy",
+  "ref_estandar": "John.10.33"
  },
  {
   "ref": "John.10.34",
@@ -789,7 +808,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "God"
+  "glosa_tagnt": "God",
+  "ref_estandar": "John.10.34"
  },
  {
   "ref": "John.10.36",
@@ -828,7 +848,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to sanctify"
+  "glosa_tagnt": "to sanctify",
+  "ref_estandar": "John.10.36"
  },
  {
   "ref": "John.10.38",
@@ -867,7 +888,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "work"
+  "glosa_tagnt": "work",
+  "ref_estandar": "John.10.38"
  },
  {
   "ref": "John.10.40",
@@ -907,7 +929,8 @@
   "ausente_en": [],
   "variante": false,
   "glosa_tagnt": "other side",
-  "caso_regido": "genitivo"
+  "caso_regido": "genitivo",
+  "ref_estandar": "John.10.40"
  },
  {
   "ref": "John.10.41",
@@ -946,6 +969,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sign"
+  "glosa_tagnt": "sign",
+  "ref_estandar": "John.10.41"
  }
 ]

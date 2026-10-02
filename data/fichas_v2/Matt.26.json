@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Passover"
+  "glosa_tagnt": "Passover",
+  "ref_estandar": "Matt.26.2"
  },
  {
   "ref": "Matt.26.4",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "deceit"
+  "glosa_tagnt": "deceit",
+  "ref_estandar": "Matt.26.4"
  },
  {
   "ref": "Matt.26.7",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "jar"
+  "glosa_tagnt": "jar",
+  "ref_estandar": "Matt.26.7"
  },
  {
   "ref": "Matt.26.8",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "destruction"
+  "glosa_tagnt": "destruction",
+  "ref_estandar": "Matt.26.8"
  },
  {
   "ref": "Matt.26.10",
@@ -192,7 +196,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "good"
+  "glosa_tagnt": "good",
+  "ref_estandar": "Matt.26.10"
  },
  {
   "ref": "Matt.26.11",
@@ -230,7 +235,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "poor"
+  "glosa_tagnt": "poor",
+  "ref_estandar": "Matt.26.11"
  },
  {
   "ref": "Matt.26.12",
@@ -269,7 +275,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to prepare burial"
+  "glosa_tagnt": "to prepare burial",
+  "ref_estandar": "Matt.26.12"
  },
  {
   "ref": "Matt.26.15",
@@ -309,7 +316,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "money"
+  "glosa_tagnt": "money",
+  "ref_estandar": "Matt.26.15"
  },
  {
   "ref": "Matt.26.26",
@@ -350,7 +358,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to praise/bless"
+  "glosa_tagnt": "to praise/bless",
+  "ref_estandar": "Matt.26.26"
  },
  {
   "ref": "Matt.26.28",
@@ -390,7 +399,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "covenant"
+  "glosa_tagnt": "covenant",
+  "ref_estandar": "Matt.26.28"
  },
  {
   "ref": "Matt.26.28",
@@ -430,7 +440,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "forgiveness"
+  "glosa_tagnt": "forgiveness",
+  "ref_estandar": "Matt.26.28"
  },
  {
   "ref": "Matt.26.29",
@@ -469,7 +480,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "vine"
+  "glosa_tagnt": "vine",
+  "ref_estandar": "Matt.26.29"
  },
  {
   "ref": "Matt.26.31",
@@ -508,7 +520,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to cause to stumble"
+  "glosa_tagnt": "to cause to stumble",
+  "ref_estandar": "Matt.26.31"
  },
  {
   "ref": "Matt.26.36",
@@ -547,7 +560,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Gethsemane"
+  "glosa_tagnt": "Gethsemane",
+  "ref_estandar": "Matt.26.36"
  },
  {
   "ref": "Matt.26.38",
@@ -586,7 +600,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sorrowful"
+  "glosa_tagnt": "sorrowful",
+  "ref_estandar": "Matt.26.38"
  },
  {
   "ref": "Matt.26.39",
@@ -626,7 +641,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "cup"
+  "glosa_tagnt": "cup",
+  "ref_estandar": "Matt.26.39"
  },
  {
   "ref": "Matt.26.41",
@@ -665,7 +681,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "temptation/testing"
+  "glosa_tagnt": "temptation/testing",
+  "ref_estandar": "Matt.26.41"
  },
  {
   "ref": "Matt.26.49",
@@ -703,7 +720,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to kiss"
+  "glosa_tagnt": "to kiss",
+  "ref_estandar": "Matt.26.49"
  },
  {
   "ref": "Matt.26.52",
@@ -743,7 +761,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sword"
+  "glosa_tagnt": "sword",
+  "ref_estandar": "Matt.26.52"
  },
  {
   "ref": "Matt.26.52",
@@ -783,7 +802,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sword"
+  "glosa_tagnt": "sword",
+  "ref_estandar": "Matt.26.52"
  },
  {
   "ref": "Matt.26.53",
@@ -822,7 +842,8 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "legion"
+  "glosa_tagnt": "legion",
+  "ref_estandar": "Matt.26.53"
  },
  {
   "ref": "Matt.26.59",
@@ -861,7 +882,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "false testimony"
+  "glosa_tagnt": "false testimony",
+  "ref_estandar": "Matt.26.59"
  },
  {
   "ref": "Matt.26.63",
@@ -901,7 +923,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to adjure"
+  "glosa_tagnt": "to adjure",
+  "ref_estandar": "Matt.26.63"
  },
  {
   "ref": "Matt.26.64",
@@ -940,7 +963,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to see"
+  "glosa_tagnt": "to see",
+  "ref_estandar": "Matt.26.64"
  },
  {
   "ref": "Matt.26.65",
@@ -979,7 +1003,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to blaspheme"
+  "glosa_tagnt": "to blaspheme",
+  "ref_estandar": "Matt.26.65"
  },
  {
   "ref": "Matt.26.67",
@@ -1017,7 +1042,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to spit on/at"
+  "glosa_tagnt": "to spit on/at",
+  "ref_estandar": "Matt.26.67"
  },
  {
   "ref": "Matt.26.70",
@@ -1057,7 +1083,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to deny"
+  "glosa_tagnt": "to deny",
+  "ref_estandar": "Matt.26.70"
  },
  {
   "ref": "Matt.26.74",
@@ -1096,7 +1123,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to curse"
+  "glosa_tagnt": "to curse",
+  "ref_estandar": "Matt.26.74"
  },
  {
   "ref": "Matt.26.75",
@@ -1134,6 +1162,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to remember"
+  "glosa_tagnt": "to remember",
+  "ref_estandar": "Matt.26.75"
  }
 ]

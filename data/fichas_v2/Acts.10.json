@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Cornelius"
+  "glosa_tagnt": "Cornelius",
+  "ref_estandar": "Acts.10.1"
  },
  {
   "ref": "Acts.10.2",
@@ -74,7 +75,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to fear"
+  "glosa_tagnt": "to fear",
+  "ref_estandar": "Acts.10.2"
  },
  {
   "ref": "Acts.10.4",
@@ -113,7 +115,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "memorial"
+  "glosa_tagnt": "memorial",
+  "ref_estandar": "Acts.10.4"
  },
  {
   "ref": "Acts.10.11",
@@ -152,7 +155,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sheet"
+  "glosa_tagnt": "sheet",
+  "ref_estandar": "Acts.10.11"
  },
  {
   "ref": "Acts.10.14",
@@ -192,7 +196,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "common"
+  "glosa_tagnt": "common",
+  "ref_estandar": "Acts.10.14"
  },
  {
   "ref": "Acts.10.15",
@@ -232,7 +237,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to clean"
+  "glosa_tagnt": "to clean",
+  "ref_estandar": "Acts.10.15"
  },
  {
   "ref": "Acts.10.20",
@@ -271,7 +277,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to judge/doubt"
+  "glosa_tagnt": "to judge/doubt",
+  "ref_estandar": "Acts.10.20"
  },
  {
   "ref": "Acts.10.28",
@@ -310,7 +317,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unlawful"
+  "glosa_tagnt": "unlawful",
+  "ref_estandar": "Acts.10.28"
  },
  {
   "ref": "Acts.10.34",
@@ -351,7 +359,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "prejudiced person"
+  "glosa_tagnt": "prejudiced person",
+  "ref_estandar": "Acts.10.34"
  },
  {
   "ref": "Acts.10.36",
@@ -391,7 +400,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lord"
+  "glosa_tagnt": "lord",
+  "ref_estandar": "Acts.10.36"
  },
  {
   "ref": "Acts.10.38",
@@ -431,7 +441,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to anoint"
+  "glosa_tagnt": "to anoint",
+  "ref_estandar": "Acts.10.38"
  },
  {
   "ref": "Acts.10.39",
@@ -470,7 +481,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wood"
+  "glosa_tagnt": "wood",
+  "ref_estandar": "Acts.10.39"
  },
  {
   "ref": "Acts.10.41",
@@ -509,7 +521,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to eat with"
+  "glosa_tagnt": "to eat with",
+  "ref_estandar": "Acts.10.41"
  },
  {
   "ref": "Acts.10.42",
@@ -549,7 +562,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "judge"
+  "glosa_tagnt": "judge",
+  "ref_estandar": "Acts.10.42"
  },
  {
   "ref": "Acts.10.43",
@@ -589,7 +603,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "forgiveness"
+  "glosa_tagnt": "forgiveness",
+  "ref_estandar": "Acts.10.43"
  },
  {
   "ref": "Acts.10.44",
@@ -627,7 +642,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to fall/press upon"
+  "glosa_tagnt": "to fall/press upon",
+  "ref_estandar": "Acts.10.44"
  },
  {
   "ref": "Acts.10.46",
@@ -665,7 +681,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tongue"
+  "glosa_tagnt": "tongue",
+  "ref_estandar": "Acts.10.46"
  },
  {
   "ref": "Acts.10.47",
@@ -703,7 +720,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to prevent"
+  "glosa_tagnt": "to prevent",
+  "ref_estandar": "Acts.10.47"
  },
  {
   "ref": "Acts.10.48",
@@ -742,6 +760,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to baptize"
+  "glosa_tagnt": "to baptize",
+  "ref_estandar": "Acts.10.48"
  }
 ]

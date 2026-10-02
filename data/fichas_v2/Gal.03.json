@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to bewitch"
+  "glosa_tagnt": "to bewitch",
+  "ref_estandar": "Gal.3.1"
  },
  {
   "ref": "Gal.3.2",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hearing"
+  "glosa_tagnt": "hearing",
+  "ref_estandar": "Gal.3.2"
  },
  {
   "ref": "Gal.3.3",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to begin"
+  "glosa_tagnt": "to begin",
+  "ref_estandar": "Gal.3.3"
  },
  {
   "ref": "Gal.3.6",
@@ -154,7 +157,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to count"
+  "glosa_tagnt": "to count",
+  "ref_estandar": "Gal.3.6"
  },
  {
   "ref": "Gal.3.8",
@@ -193,7 +197,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to speak good news"
+  "glosa_tagnt": "to speak good news",
+  "ref_estandar": "Gal.3.8"
  },
  {
   "ref": "Gal.3.10",
@@ -233,7 +238,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "curse"
+  "glosa_tagnt": "curse",
+  "ref_estandar": "Gal.3.10"
  },
  {
   "ref": "Gal.3.11",
@@ -272,7 +278,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "just"
+  "glosa_tagnt": "just",
+  "ref_estandar": "Gal.3.11"
  },
  {
   "ref": "Gal.3.13",
@@ -312,7 +319,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to redeem"
+  "glosa_tagnt": "to redeem",
+  "ref_estandar": "Gal.3.13"
  },
  {
   "ref": "Gal.3.16",
@@ -352,7 +360,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "seed"
+  "glosa_tagnt": "seed",
+  "ref_estandar": "Gal.3.16"
  },
  {
   "ref": "Gal.3.16",
@@ -392,7 +401,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "seed"
+  "glosa_tagnt": "seed",
+  "ref_estandar": "Gal.3.16"
  },
  {
   "ref": "Gal.3.17",
@@ -431,7 +441,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "covenant"
+  "glosa_tagnt": "covenant",
+  "ref_estandar": "Gal.3.17"
  },
  {
   "ref": "Gal.3.19",
@@ -470,7 +481,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "transgression"
+  "glosa_tagnt": "transgression",
+  "ref_estandar": "Gal.3.19"
  },
  {
   "ref": "Gal.3.24",
@@ -509,7 +521,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "guardian"
+  "glosa_tagnt": "guardian",
+  "ref_estandar": "Gal.3.24"
  },
  {
   "ref": "Gal.3.26",
@@ -548,7 +561,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "son"
+  "glosa_tagnt": "son",
+  "ref_estandar": "Gal.3.26"
  },
  {
   "ref": "Gal.3.27",
@@ -588,7 +602,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to baptize"
+  "glosa_tagnt": "to baptize",
+  "ref_estandar": "Gal.3.27"
  },
  {
   "ref": "Gal.3.28",
@@ -629,7 +644,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "there is"
+  "glosa_tagnt": "there is",
+  "ref_estandar": "Gal.3.28"
  },
  {
   "ref": "Gal.3.28",
@@ -670,7 +686,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "there is"
+  "glosa_tagnt": "there is",
+  "ref_estandar": "Gal.3.28"
  },
  {
   "ref": "Gal.3.28",
@@ -711,7 +728,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "there is"
+  "glosa_tagnt": "there is",
+  "ref_estandar": "Gal.3.28"
  },
  {
   "ref": "Gal.3.29",
@@ -750,6 +768,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "seed"
+  "glosa_tagnt": "seed",
+  "ref_estandar": "Gal.3.29"
  }
 ]

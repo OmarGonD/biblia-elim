@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to murmur"
+  "glosa_tagnt": "to murmur",
+  "ref_estandar": "Luke.15.2"
  },
  {
   "ref": "Luke.15.4",
@@ -77,7 +78,8 @@
    "Treg"
   ],
   "variante": true,
-  "glosa_tagnt": "to destroy"
+  "glosa_tagnt": "to destroy",
+  "ref_estandar": "Luke.15.4"
  },
  {
   "ref": "Luke.15.7",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to repent"
+  "glosa_tagnt": "to repent",
+  "ref_estandar": "Luke.15.7"
  },
  {
   "ref": "Luke.15.8",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "drachma"
+  "glosa_tagnt": "drachma",
+  "ref_estandar": "Luke.15.8"
  },
  {
   "ref": "Luke.15.12",
@@ -193,7 +197,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "estate"
+  "glosa_tagnt": "estate",
+  "ref_estandar": "Luke.15.12"
  },
  {
   "ref": "Luke.15.13",
@@ -232,7 +237,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "in debauchery"
+  "glosa_tagnt": "in debauchery",
+  "ref_estandar": "Luke.15.13"
  },
  {
   "ref": "Luke.15.15",
@@ -270,7 +276,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "pig"
+  "glosa_tagnt": "pig",
+  "ref_estandar": "Luke.15.15"
  },
  {
   "ref": "Luke.15.17",
@@ -308,7 +315,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to come/go"
+  "glosa_tagnt": "to come/go",
+  "ref_estandar": "Luke.15.17"
  },
  {
   "ref": "Luke.15.18",
@@ -347,7 +355,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to sin"
+  "glosa_tagnt": "to sin",
+  "ref_estandar": "Luke.15.18"
  },
  {
   "ref": "Luke.15.20",
@@ -386,7 +395,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pity"
+  "glosa_tagnt": "to pity",
+  "ref_estandar": "Luke.15.20"
  },
  {
   "ref": "Luke.15.22",
@@ -425,7 +435,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ring"
+  "glosa_tagnt": "ring",
+  "ref_estandar": "Luke.15.22"
  },
  {
   "ref": "Luke.15.24",
@@ -464,7 +475,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to revive"
+  "glosa_tagnt": "to revive",
+  "ref_estandar": "Luke.15.24"
  },
  {
   "ref": "Luke.15.28",
@@ -503,7 +515,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to anger"
+  "glosa_tagnt": "to anger",
+  "ref_estandar": "Luke.15.28"
  },
  {
   "ref": "Luke.15.29",
@@ -542,7 +555,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be a slave"
+  "glosa_tagnt": "be a slave",
+  "ref_estandar": "Luke.15.29"
  },
  {
   "ref": "Luke.15.30",
@@ -580,7 +594,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "prostitute"
+  "glosa_tagnt": "prostitute",
+  "ref_estandar": "Luke.15.30"
  },
  {
   "ref": "Luke.15.31",
@@ -618,7 +633,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "child"
+  "glosa_tagnt": "child",
+  "ref_estandar": "Luke.15.31"
  },
  {
   "ref": "Luke.15.32",
@@ -656,6 +672,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be necessary"
+  "glosa_tagnt": "be necessary",
+  "ref_estandar": "Luke.15.32"
  }
 ]

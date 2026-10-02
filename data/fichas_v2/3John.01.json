@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Gaius"
+  "glosa_tagnt": "Gaius",
+  "ref_estandar": "3John.1.1"
  },
  {
   "ref": "3John.1.2",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to get along well"
+  "glosa_tagnt": "to get along well",
+  "ref_estandar": "3John.1.2"
  },
  {
   "ref": "3John.1.4",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "child"
+  "glosa_tagnt": "child",
+  "ref_estandar": "3John.1.4"
  },
  {
   "ref": "3John.1.5",
@@ -156,7 +159,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "foreign"
+  "glosa_tagnt": "foreign",
+  "ref_estandar": "3John.1.5"
  },
  {
   "ref": "3John.1.7",
@@ -196,7 +200,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "name"
+  "glosa_tagnt": "name",
+  "ref_estandar": "3John.1.7"
  },
  {
   "ref": "3John.1.9",
@@ -236,7 +241,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to love to be first"
+  "glosa_tagnt": "to love to be first",
+  "ref_estandar": "3John.1.9"
  },
  {
   "ref": "3John.1.11",
@@ -275,7 +281,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to imitate"
+  "glosa_tagnt": "to imitate",
+  "ref_estandar": "3John.1.11"
  },
  {
   "ref": "3John.1.12",
@@ -314,7 +321,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Demetrius"
+  "glosa_tagnt": "Demetrius",
+  "ref_estandar": "3John.1.12"
  },
  {
   "ref": "3John.1.14",
@@ -354,6 +362,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "friendly/friend"
+  "glosa_tagnt": "friendly/friend",
+  "ref_estandar": "3John.1.14"
  }
 ]

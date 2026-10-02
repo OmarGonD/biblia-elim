@@ -66,6 +66,7 @@ def main():
             n["alineacion"] = calidad or "sin_pareja"
             if clave is None:
                 n["tagnt"] = None
+                n["ref_estandar"] = None
                 n["revisar_tagnt"] = True
                 stats["sin_pareja_tagnt"] += 1
                 rev["sin_pareja_tagnt"].append("%s|%s pos %d (%s)" % (f["ref"], f["strong"], t["pos"], t["forma"]))
@@ -81,6 +82,7 @@ def main():
                 p = por_clave[clave]
                 pals = tag_vers[p.ref]
                 n.update(contexto.info(pals, pals.index(p)))
+                n["ref_estandar"] = p.ref_estandar
                 if not p.en("NA28"):
                     n["no_en_na28"] = True
                     n["nota_na28"] = ("La palabra de Tischendorf no está en NA28 según el TAGNT "

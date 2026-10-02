@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "zeal"
+  "glosa_tagnt": "zeal",
+  "ref_estandar": "Rom.10.2"
  },
  {
   "ref": "Rom.10.3",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to stand"
+  "glosa_tagnt": "to stand",
+  "ref_estandar": "Rom.10.3"
  },
  {
   "ref": "Rom.10.4",
@@ -115,7 +117,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "goal/tax"
+  "glosa_tagnt": "goal/tax",
+  "ref_estandar": "Rom.10.4"
  },
  {
   "ref": "Rom.10.5",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to do/make"
+  "glosa_tagnt": "to do/make",
+  "ref_estandar": "Rom.10.5"
  },
  {
   "ref": "Rom.10.6",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to ascend"
+  "glosa_tagnt": "to ascend",
+  "ref_estandar": "Rom.10.6"
  },
  {
   "ref": "Rom.10.9",
@@ -235,7 +240,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to confess/profess"
+  "glosa_tagnt": "to confess/profess",
+  "ref_estandar": "Rom.10.9"
  },
  {
   "ref": "Rom.10.10",
@@ -274,7 +280,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "righteousness"
+  "glosa_tagnt": "righteousness",
+  "ref_estandar": "Rom.10.10"
  },
  {
   "ref": "Rom.10.12",
@@ -313,7 +320,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "distinction"
+  "glosa_tagnt": "distinction",
+  "ref_estandar": "Rom.10.12"
  },
  {
   "ref": "Rom.10.13",
@@ -352,7 +360,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to call (on)/name"
+  "glosa_tagnt": "to call (on)/name",
+  "ref_estandar": "Rom.10.13"
  },
  {
   "ref": "Rom.10.14",
@@ -392,7 +401,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to preach"
+  "glosa_tagnt": "to preach",
+  "ref_estandar": "Rom.10.14"
  },
  {
   "ref": "Rom.10.15",
@@ -431,7 +441,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "beautiful/timely"
+  "glosa_tagnt": "beautiful/timely",
+  "ref_estandar": "Rom.10.15"
  },
  {
   "ref": "Rom.10.17",
@@ -472,7 +483,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hearing"
+  "glosa_tagnt": "hearing",
+  "ref_estandar": "Rom.10.17"
  },
  {
   "ref": "Rom.10.18",
@@ -511,7 +523,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sound"
+  "glosa_tagnt": "sound",
+  "ref_estandar": "Rom.10.18"
  },
  {
   "ref": "Rom.10.19",
@@ -550,7 +563,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to make envious"
+  "glosa_tagnt": "to make envious",
+  "ref_estandar": "Rom.10.19"
  },
  {
   "ref": "Rom.10.20",
@@ -589,7 +603,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to find/meet"
+  "glosa_tagnt": "to find/meet",
+  "ref_estandar": "Rom.10.20"
  },
  {
   "ref": "Rom.10.21",
@@ -629,6 +644,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to extend"
+  "glosa_tagnt": "to extend",
+  "ref_estandar": "Rom.10.21"
  }
 ]

@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "bowl"
+  "glosa_tagnt": "bowl",
+  "ref_estandar": "Rev.16.1"
  },
  {
   "ref": "Rev.16.2",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sore"
+  "glosa_tagnt": "sore",
+  "ref_estandar": "Rev.16.2"
  },
  {
   "ref": "Rev.16.4",
@@ -115,7 +117,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "blood"
+  "glosa_tagnt": "blood",
+  "ref_estandar": "Rev.16.4"
  },
  {
   "ref": "Rev.16.5",
@@ -154,7 +157,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "just"
+  "glosa_tagnt": "just",
+  "ref_estandar": "Rev.16.5"
  },
  {
   "ref": "Rev.16.6",
@@ -194,7 +198,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "prophet"
+  "glosa_tagnt": "prophet",
+  "ref_estandar": "Rev.16.6"
  },
  {
   "ref": "Rev.16.7",
@@ -232,7 +237,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "altar"
+  "glosa_tagnt": "altar",
+  "ref_estandar": "Rev.16.7"
  },
  {
   "ref": "Rev.16.9",
@@ -271,7 +277,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to repent"
+  "glosa_tagnt": "to repent",
+  "ref_estandar": "Rev.16.9"
  },
  {
   "ref": "Rev.16.10",
@@ -310,7 +317,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "throne"
+  "glosa_tagnt": "throne",
+  "ref_estandar": "Rev.16.10"
  },
  {
   "ref": "Rev.16.12",
@@ -349,7 +357,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Euphrates"
+  "glosa_tagnt": "Euphrates",
+  "ref_estandar": "Rev.16.12"
  },
  {
   "ref": "Rev.16.13",
@@ -390,7 +399,8 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "frog"
+  "glosa_tagnt": "frog",
+  "ref_estandar": "Rev.16.13"
  },
  {
   "ref": "Rev.16.14",
@@ -431,7 +441,8 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "demon"
+  "glosa_tagnt": "demon",
+  "ref_estandar": "Rev.16.14"
  },
  {
   "ref": "Rev.16.15",
@@ -471,7 +482,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "thief"
+  "glosa_tagnt": "thief",
+  "ref_estandar": "Rev.16.15"
  },
  {
   "ref": "Rev.16.16",
@@ -511,7 +523,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Armageddon"
+  "glosa_tagnt": "Armageddon",
+  "ref_estandar": "Rev.16.16"
  },
  {
   "ref": "Rev.16.17",
@@ -551,7 +564,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to be"
+  "glosa_tagnt": "to be",
+  "ref_estandar": "Rev.16.17"
  },
  {
   "ref": "Rev.16.18",
@@ -592,7 +606,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "earthquake"
+  "glosa_tagnt": "earthquake",
+  "ref_estandar": "Rev.16.18"
  },
  {
   "ref": "Rev.16.18",
@@ -633,7 +648,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "earthquake"
+  "glosa_tagnt": "earthquake",
+  "ref_estandar": "Rev.16.18"
  },
  {
   "ref": "Rev.16.19",
@@ -673,7 +689,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Babylon"
+  "glosa_tagnt": "Babylon",
+  "ref_estandar": "Rev.16.19"
  },
  {
   "ref": "Rev.16.21",
@@ -712,6 +729,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "weighing a talent"
+  "glosa_tagnt": "weighing a talent",
+  "ref_estandar": "Rev.16.21"
  }
 ]

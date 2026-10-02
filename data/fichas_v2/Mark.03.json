@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to observe"
+  "glosa_tagnt": "to observe",
+  "ref_estandar": "Mark.3.2"
  },
  {
   "ref": "Mark.3.4",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "soul"
+  "glosa_tagnt": "soul",
+  "ref_estandar": "Mark.3.4"
  },
  {
   "ref": "Mark.3.5",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wrath"
+  "glosa_tagnt": "wrath",
+  "ref_estandar": "Mark.3.5"
  },
  {
   "ref": "Mark.3.5",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hardening"
+  "glosa_tagnt": "hardening",
+  "ref_estandar": "Mark.3.5"
  },
  {
   "ref": "Mark.3.6",
@@ -191,7 +195,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Herodians"
+  "glosa_tagnt": "Herodians",
+  "ref_estandar": "Mark.3.6"
  },
  {
   "ref": "Mark.3.14",
@@ -231,7 +236,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to do/make"
+  "glosa_tagnt": "to do/make",
+  "ref_estandar": "Mark.3.14"
  },
  {
   "ref": "Mark.3.14",
@@ -269,7 +275,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to send"
+  "glosa_tagnt": "to send",
+  "ref_estandar": "Mark.3.14"
  },
  {
   "ref": "Mark.3.17",
@@ -307,7 +314,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Boanerges"
+  "glosa_tagnt": "Boanerges",
+  "ref_estandar": "Mark.3.17"
  },
  {
   "ref": "Mark.3.21",
@@ -347,7 +355,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to amaze"
+  "glosa_tagnt": "to amaze",
+  "ref_estandar": "Mark.3.21"
  },
  {
   "ref": "Mark.3.22",
@@ -386,7 +395,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Beelzebub"
+  "glosa_tagnt": "Beelzebub",
+  "ref_estandar": "Mark.3.22"
  },
  {
   "ref": "Mark.3.27",
@@ -426,7 +436,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "strong"
+  "glosa_tagnt": "strong",
+  "ref_estandar": "Mark.3.27"
  },
  {
   "ref": "Mark.3.29",
@@ -465,7 +476,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "forgiveness"
+  "glosa_tagnt": "forgiveness",
+  "ref_estandar": "Mark.3.29"
  },
  {
   "ref": "Mark.3.31",
@@ -504,7 +516,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to stand"
+  "glosa_tagnt": "to stand",
+  "ref_estandar": "Mark.3.31"
  },
  {
   "ref": "Mark.3.34",
@@ -542,6 +555,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "surrounding"
+  "glosa_tagnt": "surrounding",
+  "ref_estandar": "Mark.3.34"
  }
 ]

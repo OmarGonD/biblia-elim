@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "door"
+  "glosa_tagnt": "door",
+  "ref_estandar": "Rev.4.1"
  },
  {
   "ref": "Rev.4.2",
@@ -78,7 +79,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "throne"
+  "glosa_tagnt": "throne",
+  "ref_estandar": "Rev.4.2"
  },
  {
   "ref": "Rev.4.4",
@@ -118,7 +120,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "elder"
+  "glosa_tagnt": "elder",
+  "ref_estandar": "Rev.4.4"
  },
  {
   "ref": "Rev.4.5",
@@ -158,7 +161,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lightning"
+  "glosa_tagnt": "lightning",
+  "ref_estandar": "Rev.4.5"
  },
  {
   "ref": "Rev.4.6",
@@ -198,7 +202,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "living thing"
+  "glosa_tagnt": "living thing",
+  "ref_estandar": "Rev.4.6"
  },
  {
   "ref": "Rev.4.8",
@@ -239,7 +244,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "holy"
+  "glosa_tagnt": "holy",
+  "ref_estandar": "Rev.4.8"
  },
  {
   "ref": "Rev.4.8",
@@ -280,7 +286,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "holy"
+  "glosa_tagnt": "holy",
+  "ref_estandar": "Rev.4.8"
  },
  {
   "ref": "Rev.4.8",
@@ -321,7 +328,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "holy"
+  "glosa_tagnt": "holy",
+  "ref_estandar": "Rev.4.8"
  },
  {
   "ref": "Rev.4.10",
@@ -362,7 +370,8 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "to worship"
+  "glosa_tagnt": "to worship",
+  "ref_estandar": "Rev.4.10"
  },
  {
   "ref": "Rev.4.11",
@@ -402,6 +411,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "worthy"
+  "glosa_tagnt": "worthy",
+  "ref_estandar": "Rev.4.11"
  }
 ]

@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to raise up with"
+  "glosa_tagnt": "to raise up with",
+  "ref_estandar": "Col.3.1"
  },
  {
   "ref": "Col.3.3",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to hide"
+  "glosa_tagnt": "to hide",
+  "ref_estandar": "Col.3.3"
  },
  {
   "ref": "Col.3.5",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to put to death"
+  "glosa_tagnt": "to put to death",
+  "ref_estandar": "Col.3.5"
  },
  {
   "ref": "Col.3.10",
@@ -156,7 +159,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to put on"
+  "glosa_tagnt": "to put on",
+  "ref_estandar": "Col.3.10"
  },
  {
   "ref": "Col.3.11",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Scythian"
+  "glosa_tagnt": "Scythian",
+  "ref_estandar": "Col.3.11"
  },
  {
   "ref": "Col.3.12",
@@ -235,7 +240,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "select"
+  "glosa_tagnt": "select",
+  "ref_estandar": "Col.3.12"
  },
  {
   "ref": "Col.3.13",
@@ -276,7 +282,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to give grace"
+  "glosa_tagnt": "to give grace",
+  "ref_estandar": "Col.3.13"
  },
  {
   "ref": "Col.3.14",
@@ -316,7 +323,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "bond(age)"
+  "glosa_tagnt": "bond(age)",
+  "ref_estandar": "Col.3.14"
  },
  {
   "ref": "Col.3.15",
@@ -356,7 +364,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to rule"
+  "glosa_tagnt": "to rule",
+  "ref_estandar": "Col.3.15"
  },
  {
   "ref": "Col.3.16",
@@ -395,7 +404,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "word"
+  "glosa_tagnt": "word",
+  "ref_estandar": "Col.3.16"
  },
  {
   "ref": "Col.3.17",
@@ -434,7 +444,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "name"
+  "glosa_tagnt": "name",
+  "ref_estandar": "Col.3.17"
  },
  {
   "ref": "Col.3.18",
@@ -473,7 +484,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to subject"
+  "glosa_tagnt": "to subject",
+  "ref_estandar": "Col.3.18"
  },
  {
   "ref": "Col.3.19",
@@ -512,7 +524,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to embitter"
+  "glosa_tagnt": "to embitter",
+  "ref_estandar": "Col.3.19"
  },
  {
   "ref": "Col.3.22",
@@ -552,7 +565,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "eye-service"
+  "glosa_tagnt": "eye-service",
+  "ref_estandar": "Col.3.22"
  },
  {
   "ref": "Col.3.24",
@@ -592,6 +606,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "inheritance"
+  "glosa_tagnt": "inheritance",
+  "ref_estandar": "Col.3.24"
  }
 ]

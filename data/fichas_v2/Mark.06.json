@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "craftsman"
+  "glosa_tagnt": "craftsman",
+  "ref_estandar": "Mark.6.3"
  },
  {
   "ref": "Mark.6.5",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "power"
+  "glosa_tagnt": "power",
+  "ref_estandar": "Mark.6.5"
  },
  {
   "ref": "Mark.6.7",
@@ -115,7 +117,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "two"
+  "glosa_tagnt": "two",
+  "ref_estandar": "Mark.6.7"
  },
  {
   "ref": "Mark.6.7",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "two"
+  "glosa_tagnt": "two",
+  "ref_estandar": "Mark.6.7"
  },
  {
   "ref": "Mark.6.8",
@@ -194,7 +198,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "rod"
+  "glosa_tagnt": "rod",
+  "ref_estandar": "Mark.6.8"
  },
  {
   "ref": "Mark.6.11",
@@ -233,7 +238,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dust"
+  "glosa_tagnt": "dust",
+  "ref_estandar": "Mark.6.11"
  },
  {
   "ref": "Mark.6.13",
@@ -271,7 +277,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to anoint"
+  "glosa_tagnt": "to anoint",
+  "ref_estandar": "Mark.6.13"
  },
  {
   "ref": "Mark.6.20",
@@ -309,7 +316,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to preserve"
+  "glosa_tagnt": "to preserve",
+  "ref_estandar": "Mark.6.20"
  },
  {
   "ref": "Mark.6.23",
@@ -347,7 +355,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "half"
+  "glosa_tagnt": "half",
+  "ref_estandar": "Mark.6.23"
  },
  {
   "ref": "Mark.6.27",
@@ -385,7 +394,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "executioner"
+  "glosa_tagnt": "executioner",
+  "ref_estandar": "Mark.6.27"
  },
  {
   "ref": "Mark.6.30",
@@ -423,7 +433,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "apostle"
+  "glosa_tagnt": "apostle",
+  "ref_estandar": "Mark.6.30"
  },
  {
   "ref": "Mark.6.31",
@@ -462,7 +473,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to give rest"
+  "glosa_tagnt": "to give rest",
+  "ref_estandar": "Mark.6.31"
  },
  {
   "ref": "Mark.6.34",
@@ -501,7 +513,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "shepherd"
+  "glosa_tagnt": "shepherd",
+  "ref_estandar": "Mark.6.34"
  },
  {
   "ref": "Mark.6.39",
@@ -540,7 +553,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "common meal"
+  "glosa_tagnt": "common meal",
+  "ref_estandar": "Mark.6.39"
  },
  {
   "ref": "Mark.6.39",
@@ -579,7 +593,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "common meal"
+  "glosa_tagnt": "common meal",
+  "ref_estandar": "Mark.6.39"
  },
  {
   "ref": "Mark.6.43",
@@ -619,7 +634,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "basket"
+  "glosa_tagnt": "basket",
+  "ref_estandar": "Mark.6.43"
  },
  {
   "ref": "Mark.6.48",
@@ -659,7 +675,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to torture"
+  "glosa_tagnt": "to torture",
+  "ref_estandar": "Mark.6.48"
  },
  {
   "ref": "Mark.6.50",
@@ -698,7 +715,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "take heart"
+  "glosa_tagnt": "take heart",
+  "ref_estandar": "Mark.6.50"
  },
  {
   "ref": "Mark.6.52",
@@ -737,6 +755,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to harden"
+  "glosa_tagnt": "to harden",
+  "ref_estandar": "Mark.6.52"
  }
 ]

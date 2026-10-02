@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Herod"
+  "glosa_tagnt": "Herod",
+  "ref_estandar": "Acts.12.1"
  },
  {
   "ref": "Acts.12.2",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sword"
+  "glosa_tagnt": "sword",
+  "ref_estandar": "Acts.12.2"
  },
  {
   "ref": "Acts.12.4",
@@ -113,7 +115,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "squad of four"
+  "glosa_tagnt": "squad of four",
+  "ref_estandar": "Acts.12.4"
  },
  {
   "ref": "Acts.12.5",
@@ -153,7 +156,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "fervently"
+  "glosa_tagnt": "fervently",
+  "ref_estandar": "Acts.12.5"
  },
  {
   "ref": "Acts.12.6",
@@ -191,7 +195,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to sleep"
+  "glosa_tagnt": "to sleep",
+  "ref_estandar": "Acts.12.6"
  },
  {
   "ref": "Acts.12.7",
@@ -230,7 +235,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "angel"
+  "glosa_tagnt": "angel",
+  "ref_estandar": "Acts.12.7"
  },
  {
   "ref": "Acts.12.9",
@@ -268,7 +274,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "vision"
+  "glosa_tagnt": "vision",
+  "ref_estandar": "Acts.12.9"
  },
  {
   "ref": "Acts.12.10",
@@ -306,7 +313,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "by itself"
+  "glosa_tagnt": "by itself",
+  "ref_estandar": "Acts.12.10"
  },
  {
   "ref": "Acts.12.11",
@@ -345,7 +353,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to take out/select"
+  "glosa_tagnt": "to take out/select",
+  "ref_estandar": "Acts.12.11"
  },
  {
   "ref": "Acts.12.12",
@@ -385,7 +394,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Mark"
+  "glosa_tagnt": "Mark",
+  "ref_estandar": "Acts.12.12"
  },
  {
   "ref": "Acts.12.13",
@@ -422,7 +432,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Rhoda"
+  "glosa_tagnt": "Rhoda",
+  "ref_estandar": "Acts.12.13"
  },
  {
   "ref": "Acts.12.15",
@@ -461,7 +472,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "angel"
+  "glosa_tagnt": "angel",
+  "ref_estandar": "Acts.12.15"
  },
  {
   "ref": "Acts.12.17",
@@ -500,7 +512,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "James"
+  "glosa_tagnt": "James",
+  "ref_estandar": "Acts.12.17"
  },
  {
   "ref": "Acts.12.20",
@@ -538,7 +551,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to persuade"
+  "glosa_tagnt": "to persuade",
+  "ref_estandar": "Acts.12.20"
  },
  {
   "ref": "Acts.12.22",
@@ -577,7 +591,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "a human"
+  "glosa_tagnt": "a human",
+  "ref_estandar": "Acts.12.22"
  },
  {
   "ref": "Acts.12.23",
@@ -616,7 +631,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "worm-eated"
+  "glosa_tagnt": "worm-eated",
+  "ref_estandar": "Acts.12.23"
  },
  {
   "ref": "Acts.12.24",
@@ -654,7 +670,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to grow"
+  "glosa_tagnt": "to grow",
+  "ref_estandar": "Acts.12.24"
  },
  {
   "ref": "Acts.12.25",
@@ -693,6 +710,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "service"
+  "glosa_tagnt": "service",
+  "ref_estandar": "Acts.12.25"
  }
 ]

@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "thief"
+  "glosa_tagnt": "thief",
+  "ref_estandar": "1Thess.5.2"
  },
  {
   "ref": "1Thess.5.3",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "security"
+  "glosa_tagnt": "security",
+  "ref_estandar": "1Thess.5.3"
  },
  {
   "ref": "1Thess.5.5",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "light"
+  "glosa_tagnt": "light",
+  "ref_estandar": "1Thess.5.5"
  },
  {
   "ref": "1Thess.5.8",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "helmet"
+  "glosa_tagnt": "helmet",
+  "ref_estandar": "1Thess.5.8"
  },
  {
   "ref": "1Thess.5.9",
@@ -194,7 +198,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "acquiring"
+  "glosa_tagnt": "acquiring",
+  "ref_estandar": "1Thess.5.9"
  },
  {
   "ref": "1Thess.5.12",
@@ -234,7 +239,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to set before"
+  "glosa_tagnt": "to set before",
+  "ref_estandar": "1Thess.5.12"
  },
  {
   "ref": "1Thess.5.14",
@@ -273,7 +279,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "disorderly"
+  "glosa_tagnt": "disorderly",
+  "ref_estandar": "1Thess.5.14"
  },
  {
   "ref": "1Thess.5.17",
@@ -313,7 +320,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unceasingly"
+  "glosa_tagnt": "unceasingly",
+  "ref_estandar": "1Thess.5.17"
  },
  {
   "ref": "1Thess.5.19",
@@ -353,7 +361,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to extinguish"
+  "glosa_tagnt": "to extinguish",
+  "ref_estandar": "1Thess.5.19"
  },
  {
   "ref": "1Thess.5.21",
@@ -393,7 +402,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to test"
+  "glosa_tagnt": "to test",
+  "ref_estandar": "1Thess.5.21"
  },
  {
   "ref": "1Thess.5.23",
@@ -433,7 +443,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "whole"
+  "glosa_tagnt": "whole",
+  "ref_estandar": "1Thess.5.23"
  },
  {
   "ref": "1Thess.5.24",
@@ -473,7 +484,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "faithful"
+  "glosa_tagnt": "faithful",
+  "ref_estandar": "1Thess.5.24"
  },
  {
   "ref": "1Thess.5.27",
@@ -514,6 +526,7 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to adjure"
+  "glosa_tagnt": "to adjure",
+  "ref_estandar": "1Thess.5.27"
  }
 ]

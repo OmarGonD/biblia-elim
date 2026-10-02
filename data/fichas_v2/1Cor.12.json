@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "spiritual"
+  "glosa_tagnt": "spiritual",
+  "ref_estandar": "1Cor.12.1"
  },
  {
   "ref": "1Cor.12.3",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "devoted"
+  "glosa_tagnt": "devoted",
+  "ref_estandar": "1Cor.12.3"
  },
  {
   "ref": "1Cor.12.4",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "variety"
+  "glosa_tagnt": "variety",
+  "ref_estandar": "1Cor.12.4"
  },
  {
   "ref": "1Cor.12.7",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "manifestation"
+  "glosa_tagnt": "manifestation",
+  "ref_estandar": "1Cor.12.7"
  },
  {
   "ref": "1Cor.12.8",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "knowledge"
+  "glosa_tagnt": "knowledge",
+  "ref_estandar": "1Cor.12.8"
  },
  {
   "ref": "1Cor.12.10",
@@ -235,7 +240,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tongue"
+  "glosa_tagnt": "tongue",
+  "ref_estandar": "1Cor.12.10"
  },
  {
   "ref": "1Cor.12.10",
@@ -275,7 +281,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tongue"
+  "glosa_tagnt": "tongue",
+  "ref_estandar": "1Cor.12.10"
  },
  {
   "ref": "1Cor.12.11",
@@ -314,7 +321,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to plan"
+  "glosa_tagnt": "to plan",
+  "ref_estandar": "1Cor.12.11"
  },
  {
   "ref": "1Cor.12.12",
@@ -354,7 +362,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "body"
+  "glosa_tagnt": "body",
+  "ref_estandar": "1Cor.12.12"
  },
  {
   "ref": "1Cor.12.12",
@@ -394,7 +403,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "body"
+  "glosa_tagnt": "body",
+  "ref_estandar": "1Cor.12.12"
  },
  {
   "ref": "1Cor.12.13",
@@ -434,7 +444,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to baptize"
+  "glosa_tagnt": "to baptize",
+  "ref_estandar": "1Cor.12.13"
  },
  {
   "ref": "1Cor.12.18",
@@ -473,7 +484,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to place"
+  "glosa_tagnt": "to place",
+  "ref_estandar": "1Cor.12.18"
  },
  {
   "ref": "1Cor.12.22",
@@ -512,7 +524,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "weak"
+  "glosa_tagnt": "weak",
+  "ref_estandar": "1Cor.12.22"
  },
  {
   "ref": "1Cor.12.26",
@@ -551,7 +564,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to suffer with"
+  "glosa_tagnt": "to suffer with",
+  "ref_estandar": "1Cor.12.26"
  },
  {
   "ref": "1Cor.12.28",
@@ -590,7 +604,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "apostle"
+  "glosa_tagnt": "apostle",
+  "ref_estandar": "1Cor.12.28"
  },
  {
   "ref": "1Cor.12.31",
@@ -630,6 +645,7 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "great"
+  "glosa_tagnt": "great",
+  "ref_estandar": "1Cor.12.31"
  }
 ]

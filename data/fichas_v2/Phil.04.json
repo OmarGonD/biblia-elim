@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Euodia"
+  "glosa_tagnt": "Euodia",
+  "ref_estandar": "Phil.4.2"
  },
  {
   "ref": "Phil.4.3",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "yokefellow"
+  "glosa_tagnt": "yokefellow",
+  "ref_estandar": "Phil.4.3"
  },
  {
   "ref": "Phil.4.4",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to rejoice"
+  "glosa_tagnt": "to rejoice",
+  "ref_estandar": "Phil.4.4"
  },
  {
   "ref": "Phil.4.4",
@@ -157,7 +160,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to rejoice"
+  "glosa_tagnt": "to rejoice",
+  "ref_estandar": "Phil.4.4"
  },
  {
   "ref": "Phil.4.5",
@@ -197,7 +201,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gentle"
+  "glosa_tagnt": "gentle",
+  "ref_estandar": "Phil.4.5"
  },
  {
   "ref": "Phil.4.6",
@@ -237,7 +242,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to worry"
+  "glosa_tagnt": "to worry",
+  "ref_estandar": "Phil.4.6"
  },
  {
   "ref": "Phil.4.7",
@@ -277,7 +283,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to guard"
+  "glosa_tagnt": "to guard",
+  "ref_estandar": "Phil.4.7"
  },
  {
   "ref": "Phil.4.8",
@@ -317,7 +324,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to count"
+  "glosa_tagnt": "to count",
+  "ref_estandar": "Phil.4.8"
  },
  {
   "ref": "Phil.4.11",
@@ -356,7 +364,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "self-sufficient"
+  "glosa_tagnt": "self-sufficient",
+  "ref_estandar": "Phil.4.11"
  },
  {
   "ref": "Phil.4.12",
@@ -395,7 +404,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to initiate"
+  "glosa_tagnt": "to initiate",
+  "ref_estandar": "Phil.4.12"
  },
  {
   "ref": "Phil.4.13",
@@ -435,7 +445,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to empower"
+  "glosa_tagnt": "to empower",
+  "ref_estandar": "Phil.4.13"
  },
  {
   "ref": "Phil.4.15",
@@ -474,7 +485,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to participate"
+  "glosa_tagnt": "to participate",
+  "ref_estandar": "Phil.4.15"
  },
  {
   "ref": "Phil.4.18",
@@ -514,7 +526,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "aroma"
+  "glosa_tagnt": "aroma",
+  "ref_estandar": "Phil.4.18"
  },
  {
   "ref": "Phil.4.19",
@@ -555,7 +568,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "riches"
+  "glosa_tagnt": "riches",
+  "ref_estandar": "Phil.4.19"
  },
  {
   "ref": "Phil.4.22",
@@ -594,6 +608,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Caesar"
+  "glosa_tagnt": "Caesar",
+  "ref_estandar": "Phil.4.22"
  }
 ]

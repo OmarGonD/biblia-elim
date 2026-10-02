@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "war"
+  "glosa_tagnt": "war",
+  "ref_estandar": "Jas.4.1"
  },
  {
   "ref": "Jas.4.3",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "badly"
+  "glosa_tagnt": "badly",
+  "ref_estandar": "Jas.4.3"
  },
  {
   "ref": "Jas.4.4",
@@ -115,7 +117,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "adulterous"
+  "glosa_tagnt": "adulterous",
+  "ref_estandar": "Jas.4.4"
  },
  {
   "ref": "Jas.4.5",
@@ -154,7 +157,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "spirit/breath"
+  "glosa_tagnt": "spirit/breath",
+  "ref_estandar": "Jas.4.5"
  },
  {
   "ref": "Jas.4.6",
@@ -194,7 +198,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lowly"
+  "glosa_tagnt": "lowly",
+  "ref_estandar": "Jas.4.6"
  },
  {
   "ref": "Jas.4.7",
@@ -233,7 +238,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to oppose"
+  "glosa_tagnt": "to oppose",
+  "ref_estandar": "Jas.4.7"
  },
  {
   "ref": "Jas.4.8",
@@ -274,7 +280,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to come near"
+  "glosa_tagnt": "to come near",
+  "ref_estandar": "Jas.4.8"
  },
  {
   "ref": "Jas.4.10",
@@ -314,7 +321,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to humble"
+  "glosa_tagnt": "to humble",
+  "ref_estandar": "Jas.4.10"
  },
  {
   "ref": "Jas.4.11",
@@ -355,7 +363,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to slander"
+  "glosa_tagnt": "to slander",
+  "ref_estandar": "Jas.4.11"
  },
  {
   "ref": "Jas.4.13",
@@ -396,7 +405,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to travel"
+  "glosa_tagnt": "to travel",
+  "ref_estandar": "Jas.4.13"
  },
  {
   "ref": "Jas.4.14",
@@ -436,7 +446,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "vapor"
+  "glosa_tagnt": "vapor",
+  "ref_estandar": "Jas.4.14"
  },
  {
   "ref": "Jas.4.15",
@@ -476,7 +487,8 @@
    "WH"
   ],
   "variante": true,
-  "glosa_tagnt": "to will/desire"
+  "glosa_tagnt": "to will/desire",
+  "ref_estandar": "Jas.4.15"
  },
  {
   "ref": "Jas.4.17",
@@ -516,6 +528,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sin"
+  "glosa_tagnt": "sin",
+  "ref_estandar": "Jas.4.17"
  }
 ]

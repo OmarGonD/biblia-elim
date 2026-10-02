@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "angel"
+  "glosa_tagnt": "angel",
+  "ref_estandar": "Rev.10.1"
  },
  {
   "ref": "Rev.10.2",
@@ -77,7 +78,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "little scroll"
+  "glosa_tagnt": "little scroll",
+  "ref_estandar": "Rev.10.2"
  },
  {
   "ref": "Rev.10.4",
@@ -117,7 +119,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to seal"
+  "glosa_tagnt": "to seal",
+  "ref_estandar": "Rev.10.4"
  },
  {
   "ref": "Rev.10.6",
@@ -157,7 +160,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "time"
+  "glosa_tagnt": "time",
+  "ref_estandar": "Rev.10.6"
  },
  {
   "ref": "Rev.10.7",
@@ -197,7 +201,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mystery"
+  "glosa_tagnt": "mystery",
+  "ref_estandar": "Rev.10.7"
  },
  {
   "ref": "Rev.10.9",
@@ -237,7 +242,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to embitter"
+  "glosa_tagnt": "to embitter",
+  "ref_estandar": "Rev.10.9"
  },
  {
   "ref": "Rev.10.11",
@@ -276,6 +282,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to prophesy"
+  "glosa_tagnt": "to prophesy",
+  "ref_estandar": "Rev.10.11"
  }
 ]

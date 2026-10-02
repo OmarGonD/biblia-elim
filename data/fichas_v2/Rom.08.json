@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "condemnation"
+  "glosa_tagnt": "condemnation",
+  "ref_estandar": "Rom.8.1"
  },
  {
   "ref": "Rom.8.2",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "law"
+  "glosa_tagnt": "law",
+  "ref_estandar": "Rom.8.2"
  },
  {
   "ref": "Rom.8.3",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unable"
+  "glosa_tagnt": "unable",
+  "ref_estandar": "Rom.8.3"
  },
  {
   "ref": "Rom.8.4",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "righteous act"
+  "glosa_tagnt": "righteous act",
+  "ref_estandar": "Rom.8.4"
  },
  {
   "ref": "Rom.8.6",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mind"
+  "glosa_tagnt": "mind",
+  "ref_estandar": "Rom.8.6"
  },
  {
   "ref": "Rom.8.6",
@@ -235,7 +240,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mind"
+  "glosa_tagnt": "mind",
+  "ref_estandar": "Rom.8.6"
  },
  {
   "ref": "Rom.8.9",
@@ -275,7 +281,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to dwell"
+  "glosa_tagnt": "to dwell",
+  "ref_estandar": "Rom.8.9"
  },
  {
   "ref": "Rom.8.11",
@@ -315,7 +322,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to make alive"
+  "glosa_tagnt": "to make alive",
+  "ref_estandar": "Rom.8.11"
  },
  {
   "ref": "Rom.8.15",
@@ -355,7 +363,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "adoption (as son)"
+  "glosa_tagnt": "adoption (as son)",
+  "ref_estandar": "Rom.8.15"
  },
  {
   "ref": "Rom.8.16",
@@ -394,7 +403,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to testify with"
+  "glosa_tagnt": "to testify with",
+  "ref_estandar": "Rom.8.16"
  },
  {
   "ref": "Rom.8.17",
@@ -434,7 +444,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "co-heir"
+  "glosa_tagnt": "co-heir",
+  "ref_estandar": "Rom.8.17"
  },
  {
   "ref": "Rom.8.19",
@@ -474,7 +485,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "eager expectation"
+  "glosa_tagnt": "eager expectation",
+  "ref_estandar": "Rom.8.19"
  },
  {
   "ref": "Rom.8.21",
@@ -515,7 +527,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "creation"
+  "glosa_tagnt": "creation",
+  "ref_estandar": "Rom.8.21"
  },
  {
   "ref": "Rom.8.23",
@@ -555,7 +568,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "firstfruits"
+  "glosa_tagnt": "firstfruits",
+  "ref_estandar": "Rom.8.23"
  },
  {
   "ref": "Rom.8.26",
@@ -595,7 +609,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to intercede"
+  "glosa_tagnt": "to intercede",
+  "ref_estandar": "Rom.8.26"
  },
  {
   "ref": "Rom.8.28",
@@ -635,7 +650,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to work with"
+  "glosa_tagnt": "to work with",
+  "ref_estandar": "Rom.8.28"
  },
  {
   "ref": "Rom.8.29",
@@ -676,7 +692,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to predestine"
+  "glosa_tagnt": "to predestine",
+  "ref_estandar": "Rom.8.29"
  },
  {
   "ref": "Rom.8.30",
@@ -715,7 +732,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to glorify"
+  "glosa_tagnt": "to glorify",
+  "ref_estandar": "Rom.8.30"
  },
  {
   "ref": "Rom.8.32",
@@ -755,7 +773,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to spare"
+  "glosa_tagnt": "to spare",
+  "ref_estandar": "Rom.8.32"
  },
  {
   "ref": "Rom.8.33",
@@ -795,7 +814,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "select"
+  "glosa_tagnt": "select",
+  "ref_estandar": "Rom.8.33"
  },
  {
   "ref": "Rom.8.34",
@@ -835,7 +855,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to call on"
+  "glosa_tagnt": "to call on",
+  "ref_estandar": "Rom.8.34"
  },
  {
   "ref": "Rom.8.35",
@@ -875,7 +896,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "love"
+  "glosa_tagnt": "love",
+  "ref_estandar": "Rom.8.35"
  },
  {
   "ref": "Rom.8.37",
@@ -915,7 +937,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to conquer"
+  "glosa_tagnt": "to conquer",
+  "ref_estandar": "Rom.8.37"
  },
  {
   "ref": "Rom.8.38",
@@ -955,7 +978,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "angel"
+  "glosa_tagnt": "angel",
+  "ref_estandar": "Rom.8.38"
  },
  {
   "ref": "Rom.8.39",
@@ -995,6 +1019,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "love"
+  "glosa_tagnt": "love",
+  "ref_estandar": "Rom.8.39"
  }
 ]

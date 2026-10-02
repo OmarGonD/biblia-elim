@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to make room for"
+  "glosa_tagnt": "to make room for",
+  "ref_estandar": "Mark.2.2"
  },
  {
   "ref": "Mark.2.4",
@@ -74,7 +75,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to unroof"
+  "glosa_tagnt": "to unroof",
+  "ref_estandar": "Mark.2.4"
  },
  {
   "ref": "Mark.2.5",
@@ -113,7 +115,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "faith"
+  "glosa_tagnt": "faith",
+  "ref_estandar": "Mark.2.5"
  },
  {
   "ref": "Mark.2.7",
@@ -153,7 +156,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to blaspheme"
+  "glosa_tagnt": "to blaspheme",
+  "ref_estandar": "Mark.2.7"
  },
  {
   "ref": "Mark.2.10",
@@ -192,7 +196,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "authority"
+  "glosa_tagnt": "authority",
+  "ref_estandar": "Mark.2.10"
  },
  {
   "ref": "Mark.2.11",
@@ -230,7 +235,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "bed"
+  "glosa_tagnt": "bed",
+  "ref_estandar": "Mark.2.11"
  },
  {
   "ref": "Mark.2.14",
@@ -269,7 +275,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Levi"
+  "glosa_tagnt": "Levi",
+  "ref_estandar": "Mark.2.14"
  },
  {
   "ref": "Mark.2.15",
@@ -307,7 +314,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to dine with"
+  "glosa_tagnt": "to dine with",
+  "ref_estandar": "Mark.2.15"
  },
  {
   "ref": "Mark.2.17",
@@ -345,7 +353,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "physician"
+  "glosa_tagnt": "physician",
+  "ref_estandar": "Mark.2.17"
  },
  {
   "ref": "Mark.2.19",
@@ -385,7 +394,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "bridegroom"
+  "glosa_tagnt": "bridegroom",
+  "ref_estandar": "Mark.2.19"
  },
  {
   "ref": "Mark.2.20",
@@ -423,7 +433,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to take away"
+  "glosa_tagnt": "to take away",
+  "ref_estandar": "Mark.2.20"
  },
  {
   "ref": "Mark.2.23",
@@ -462,7 +473,8 @@
    "Treg"
   ],
   "variante": true,
-  "glosa_tagnt": "to pass by/through"
+  "glosa_tagnt": "to pass by/through",
+  "ref_estandar": "Mark.2.23"
  },
  {
   "ref": "Mark.2.26",
@@ -501,7 +513,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Abiathar"
+  "glosa_tagnt": "Abiathar",
+  "ref_estandar": "Mark.2.26"
  },
  {
   "ref": "Mark.2.27",
@@ -541,7 +554,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Sabbath"
+  "glosa_tagnt": "Sabbath",
+  "ref_estandar": "Mark.2.27"
  },
  {
   "ref": "Mark.2.27",
@@ -581,6 +595,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Sabbath"
+  "glosa_tagnt": "Sabbath",
+  "ref_estandar": "Mark.2.27"
  }
 ]

@@ -35,7 +35,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Cana"
+  "glosa_tagnt": "Cana",
+  "ref_estandar": "John.2.1"
  },
  {
   "ref": "John.2.3",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wine"
+  "glosa_tagnt": "wine",
+  "ref_estandar": "John.2.3"
  },
  {
   "ref": "John.2.4",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "woman"
+  "glosa_tagnt": "woman",
+  "ref_estandar": "John.2.4"
  },
  {
   "ref": "John.2.4",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hour"
+  "glosa_tagnt": "hour",
+  "ref_estandar": "John.2.4"
  },
  {
   "ref": "John.2.5",
@@ -191,7 +195,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "servant"
+  "glosa_tagnt": "servant",
+  "ref_estandar": "John.2.5"
  },
  {
   "ref": "John.2.6",
@@ -229,7 +234,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "jar"
+  "glosa_tagnt": "jar",
+  "ref_estandar": "John.2.6"
  },
  {
   "ref": "John.2.9",
@@ -268,7 +274,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "head waiter"
+  "glosa_tagnt": "head waiter",
+  "ref_estandar": "John.2.9"
  },
  {
   "ref": "John.2.9",
@@ -307,7 +314,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "head waiter"
+  "glosa_tagnt": "head waiter",
+  "ref_estandar": "John.2.9"
  },
  {
   "ref": "John.2.10",
@@ -345,7 +353,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "now"
+  "glosa_tagnt": "now",
+  "ref_estandar": "John.2.10"
  },
  {
   "ref": "John.2.11",
@@ -384,7 +393,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sign"
+  "glosa_tagnt": "sign",
+  "ref_estandar": "John.2.11"
  },
  {
   "ref": "John.2.14",
@@ -423,7 +433,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "temple"
+  "glosa_tagnt": "temple",
+  "ref_estandar": "John.2.14"
  },
  {
   "ref": "John.2.15",
@@ -461,7 +472,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "whip"
+  "glosa_tagnt": "whip",
+  "ref_estandar": "John.2.15"
  },
  {
   "ref": "John.2.16",
@@ -500,7 +512,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "marketplace/trade"
+  "glosa_tagnt": "marketplace/trade",
+  "ref_estandar": "John.2.16"
  },
  {
   "ref": "John.2.17",
@@ -539,7 +552,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "zeal"
+  "glosa_tagnt": "zeal",
+  "ref_estandar": "John.2.17"
  },
  {
   "ref": "John.2.19",
@@ -580,7 +594,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "temple"
+  "glosa_tagnt": "temple",
+  "ref_estandar": "John.2.19"
  },
  {
   "ref": "John.2.20",
@@ -618,7 +633,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to build"
+  "glosa_tagnt": "to build",
+  "ref_estandar": "John.2.20"
  },
  {
   "ref": "John.2.22",
@@ -657,7 +673,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "a writing"
+  "glosa_tagnt": "a writing",
+  "ref_estandar": "John.2.22"
  },
  {
   "ref": "John.2.23",
@@ -696,7 +713,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to trust (in)"
+  "glosa_tagnt": "to trust (in)",
+  "ref_estandar": "John.2.23"
  },
  {
   "ref": "John.2.25",
@@ -735,6 +753,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to know"
+  "glosa_tagnt": "to know",
+  "ref_estandar": "John.2.25"
  }
 ]

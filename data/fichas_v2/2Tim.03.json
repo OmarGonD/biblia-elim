@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "last/least"
+  "glosa_tagnt": "last/least",
+  "ref_estandar": "2Tim.3.1"
  },
  {
   "ref": "2Tim.3.2",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "selfish"
+  "glosa_tagnt": "selfish",
+  "ref_estandar": "2Tim.3.2"
  },
  {
   "ref": "2Tim.3.5",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "form"
+  "glosa_tagnt": "form",
+  "ref_estandar": "2Tim.3.5"
  },
  {
   "ref": "2Tim.3.8",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Jannes"
+  "glosa_tagnt": "Jannes",
+  "ref_estandar": "2Tim.3.8"
  },
  {
   "ref": "2Tim.3.12",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pursue"
+  "glosa_tagnt": "to pursue",
+  "ref_estandar": "2Tim.3.12"
  },
  {
   "ref": "2Tim.3.15",
@@ -235,7 +240,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sacred"
+  "glosa_tagnt": "sacred",
+  "ref_estandar": "2Tim.3.15"
  },
  {
   "ref": "2Tim.3.16",
@@ -276,7 +282,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "God-breathed"
+  "glosa_tagnt": "God-breathed",
+  "ref_estandar": "2Tim.3.16"
  },
  {
   "ref": "2Tim.3.17",
@@ -316,6 +323,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "competent"
+  "glosa_tagnt": "competent",
+  "ref_estandar": "2Tim.3.17"
  }
 ]

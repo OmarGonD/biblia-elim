@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "birth"
+  "glosa_tagnt": "birth",
+  "ref_estandar": "John.9.1"
  },
  {
   "ref": "John.9.2",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to sin"
+  "glosa_tagnt": "to sin",
+  "ref_estandar": "John.9.2"
  },
  {
   "ref": "John.9.3",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "work"
+  "glosa_tagnt": "work",
+  "ref_estandar": "John.9.3"
  },
  {
   "ref": "John.9.4",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "night"
+  "glosa_tagnt": "night",
+  "ref_estandar": "John.9.4"
  },
  {
   "ref": "John.9.5",
@@ -192,7 +196,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "light"
+  "glosa_tagnt": "light",
+  "ref_estandar": "John.9.5"
  },
  {
   "ref": "John.9.6",
@@ -232,7 +237,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "clay"
+  "glosa_tagnt": "clay",
+  "ref_estandar": "John.9.6"
  },
  {
   "ref": "John.9.6",
@@ -272,7 +278,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "clay"
+  "glosa_tagnt": "clay",
+  "ref_estandar": "John.9.6"
  },
  {
   "ref": "John.9.7",
@@ -312,7 +319,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Siloam"
+  "glosa_tagnt": "Siloam",
+  "ref_estandar": "John.9.7"
  },
  {
   "ref": "John.9.11",
@@ -351,7 +359,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to look up/see again"
+  "glosa_tagnt": "to look up/see again",
+  "ref_estandar": "John.9.11"
  },
  {
   "ref": "John.9.16",
@@ -389,7 +398,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "split"
+  "glosa_tagnt": "split",
+  "ref_estandar": "John.9.16"
  },
  {
   "ref": "John.9.22",
@@ -428,7 +438,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "excommunicated"
+  "glosa_tagnt": "excommunicated",
+  "ref_estandar": "John.9.22"
  },
  {
   "ref": "John.9.24",
@@ -466,7 +477,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "glory"
+  "glosa_tagnt": "glory",
+  "ref_estandar": "John.9.24"
  },
  {
   "ref": "John.9.25",
@@ -504,7 +516,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "now"
+  "glosa_tagnt": "now",
+  "ref_estandar": "John.9.25"
  },
  {
   "ref": "John.9.29",
@@ -543,7 +556,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "whence/how"
+  "glosa_tagnt": "whence/how",
+  "ref_estandar": "John.9.29"
  },
  {
   "ref": "John.9.31",
@@ -582,7 +596,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "godly"
+  "glosa_tagnt": "godly",
+  "ref_estandar": "John.9.31"
  },
  {
   "ref": "John.9.34",
@@ -620,7 +635,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sin"
+  "glosa_tagnt": "sin",
+  "ref_estandar": "John.9.34"
  },
  {
   "ref": "John.9.35",
@@ -659,7 +675,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "son"
+  "glosa_tagnt": "son",
+  "ref_estandar": "John.9.35"
  },
  {
   "ref": "John.9.38",
@@ -698,7 +715,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to worship"
+  "glosa_tagnt": "to worship",
+  "ref_estandar": "John.9.38"
  },
  {
   "ref": "John.9.39",
@@ -738,7 +756,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "judgment"
+  "glosa_tagnt": "judgment",
+  "ref_estandar": "John.9.39"
  },
  {
   "ref": "John.9.41",
@@ -778,6 +797,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sin"
+  "glosa_tagnt": "sin",
+  "ref_estandar": "John.9.41"
  }
 ]

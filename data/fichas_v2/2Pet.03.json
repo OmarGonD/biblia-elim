@@ -35,7 +35,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "epistle"
+  "glosa_tagnt": "epistle",
+  "ref_estandar": "2Pet.3.1"
  },
  {
   "ref": "2Pet.3.3",
@@ -74,7 +75,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "a mocker"
+  "glosa_tagnt": "a mocker",
+  "ref_estandar": "2Pet.3.3"
  },
  {
   "ref": "2Pet.3.4",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "promise"
+  "glosa_tagnt": "promise",
+  "ref_estandar": "2Pet.3.4"
  },
  {
   "ref": "2Pet.3.8",
@@ -154,7 +157,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "thousand"
+  "glosa_tagnt": "thousand",
+  "ref_estandar": "2Pet.3.8"
  },
  {
   "ref": "2Pet.3.8",
@@ -194,7 +198,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "thousand"
+  "glosa_tagnt": "thousand",
+  "ref_estandar": "2Pet.3.8"
  },
  {
   "ref": "2Pet.3.9",
@@ -234,7 +239,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to have patience"
+  "glosa_tagnt": "to have patience",
+  "ref_estandar": "2Pet.3.9"
  },
  {
   "ref": "2Pet.3.10",
@@ -274,7 +280,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "principle"
+  "glosa_tagnt": "principle",
+  "ref_estandar": "2Pet.3.10"
  },
  {
   "ref": "2Pet.3.12",
@@ -314,7 +321,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to hasten"
+  "glosa_tagnt": "to hasten",
+  "ref_estandar": "2Pet.3.12"
  },
  {
   "ref": "2Pet.3.13",
@@ -355,7 +363,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "new"
+  "glosa_tagnt": "new",
+  "ref_estandar": "2Pet.3.13"
  },
  {
   "ref": "2Pet.3.15",
@@ -395,7 +404,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "patience"
+  "glosa_tagnt": "patience",
+  "ref_estandar": "2Pet.3.15"
  },
  {
   "ref": "2Pet.3.16",
@@ -435,7 +445,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "a writing"
+  "glosa_tagnt": "a writing",
+  "ref_estandar": "2Pet.3.16"
  },
  {
   "ref": "2Pet.3.18",
@@ -475,6 +486,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to grow"
+  "glosa_tagnt": "to grow",
+  "ref_estandar": "2Pet.3.18"
  }
 ]

@@ -38,7 +38,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to subject"
+  "glosa_tagnt": "to subject",
+  "ref_estandar": "Rom.13.1"
  },
  {
   "ref": "Rom.13.2",
@@ -78,7 +79,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to oppose"
+  "glosa_tagnt": "to oppose",
+  "ref_estandar": "Rom.13.2"
  },
  {
   "ref": "Rom.13.4",
@@ -119,7 +121,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "servant"
+  "glosa_tagnt": "servant",
+  "ref_estandar": "Rom.13.4"
  },
  {
   "ref": "Rom.13.4",
@@ -160,7 +163,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "servant"
+  "glosa_tagnt": "servant",
+  "ref_estandar": "Rom.13.4"
  },
  {
   "ref": "Rom.13.5",
@@ -199,7 +203,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "conscience"
+  "glosa_tagnt": "conscience",
+  "ref_estandar": "Rom.13.5"
  },
  {
   "ref": "Rom.13.6",
@@ -238,7 +243,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "minister"
+  "glosa_tagnt": "minister",
+  "ref_estandar": "Rom.13.6"
  },
  {
   "ref": "Rom.13.7",
@@ -277,7 +283,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pay"
+  "glosa_tagnt": "to pay",
+  "ref_estandar": "Rom.13.7"
  },
  {
   "ref": "Rom.13.8",
@@ -318,7 +325,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to love"
+  "glosa_tagnt": "to love",
+  "ref_estandar": "Rom.13.8"
  },
  {
   "ref": "Rom.13.9",
@@ -358,7 +366,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to summarise"
+  "glosa_tagnt": "to summarise",
+  "ref_estandar": "Rom.13.9"
  },
  {
   "ref": "Rom.13.10",
@@ -398,7 +407,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fulfillment"
+  "glosa_tagnt": "fulfillment",
+  "ref_estandar": "Rom.13.10"
  },
  {
   "ref": "Rom.13.11",
@@ -438,7 +448,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sleep"
+  "glosa_tagnt": "sleep",
+  "ref_estandar": "Rom.13.11"
  },
  {
   "ref": "Rom.13.12",
@@ -477,7 +488,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "weapon"
+  "glosa_tagnt": "weapon",
+  "ref_estandar": "Rom.13.12"
  },
  {
   "ref": "Rom.13.13",
@@ -517,7 +529,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "debauchery"
+  "glosa_tagnt": "debauchery",
+  "ref_estandar": "Rom.13.13"
  },
  {
   "ref": "Rom.13.14",
@@ -557,6 +570,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to put on"
+  "glosa_tagnt": "to put on",
+  "ref_estandar": "Rom.13.14"
  }
 ]

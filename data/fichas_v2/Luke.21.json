@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "coin"
+  "glosa_tagnt": "coin",
+  "ref_estandar": "Luke.21.2"
  },
  {
   "ref": "Luke.21.6",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to destroy/lodge"
+  "glosa_tagnt": "to destroy/lodge",
+  "ref_estandar": "Luke.21.6"
  },
  {
   "ref": "Luke.21.9",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "disorder"
+  "glosa_tagnt": "disorder",
+  "ref_estandar": "Luke.21.9"
  },
  {
   "ref": "Luke.21.13",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "testimony"
+  "glosa_tagnt": "testimony",
+  "ref_estandar": "Luke.21.13"
  },
  {
   "ref": "Luke.21.15",
@@ -192,7 +196,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wisdom"
+  "glosa_tagnt": "wisdom",
+  "ref_estandar": "Luke.21.15"
  },
  {
   "ref": "Luke.21.18",
@@ -231,7 +236,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hair"
+  "glosa_tagnt": "hair",
+  "ref_estandar": "Luke.21.18"
  },
  {
   "ref": "Luke.21.19",
@@ -270,7 +276,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "perseverance"
+  "glosa_tagnt": "perseverance",
+  "ref_estandar": "Luke.21.19"
  },
  {
   "ref": "Luke.21.20",
@@ -309,7 +316,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "devastation"
+  "glosa_tagnt": "devastation",
+  "ref_estandar": "Luke.21.20"
  },
  {
   "ref": "Luke.21.24",
@@ -348,7 +356,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to trample"
+  "glosa_tagnt": "to trample",
+  "ref_estandar": "Luke.21.24"
  },
  {
   "ref": "Luke.21.27",
@@ -387,7 +396,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "cloud"
+  "glosa_tagnt": "cloud",
+  "ref_estandar": "Luke.21.27"
  },
  {
   "ref": "Luke.21.28",
@@ -426,7 +436,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "redemption"
+  "glosa_tagnt": "redemption",
+  "ref_estandar": "Luke.21.28"
  },
  {
   "ref": "Luke.21.32",
@@ -465,7 +476,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "generation"
+  "glosa_tagnt": "generation",
+  "ref_estandar": "Luke.21.32"
  },
  {
   "ref": "Luke.21.33",
@@ -506,7 +518,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to pass by"
+  "glosa_tagnt": "to pass by",
+  "ref_estandar": "Luke.21.33"
  },
  {
   "ref": "Luke.21.33",
@@ -547,7 +560,8 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "to pass by"
+  "glosa_tagnt": "to pass by",
+  "ref_estandar": "Luke.21.33"
  },
  {
   "ref": "Luke.21.34",
@@ -586,7 +600,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dissipation"
+  "glosa_tagnt": "dissipation",
+  "ref_estandar": "Luke.21.34"
  },
  {
   "ref": "Luke.21.36",
@@ -625,6 +640,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be watchful"
+  "glosa_tagnt": "be watchful",
+  "ref_estandar": "Luke.21.36"
  }
 ]

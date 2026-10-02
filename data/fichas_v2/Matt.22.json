@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wedding"
+  "glosa_tagnt": "wedding",
+  "ref_estandar": "Matt.22.2"
  },
  {
   "ref": "Matt.22.5",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to neglect"
+  "glosa_tagnt": "to neglect",
+  "ref_estandar": "Matt.22.5"
  },
  {
   "ref": "Matt.22.7",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to anger"
+  "glosa_tagnt": "to anger",
+  "ref_estandar": "Matt.22.7"
  },
  {
   "ref": "Matt.22.9",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "thoroughfare"
+  "glosa_tagnt": "thoroughfare",
+  "ref_estandar": "Matt.22.9"
  },
  {
   "ref": "Matt.22.10",
@@ -191,7 +195,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "evil/bad"
+  "glosa_tagnt": "evil/bad",
+  "ref_estandar": "Matt.22.10"
  },
  {
   "ref": "Matt.22.11",
@@ -230,7 +235,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "clothing"
+  "glosa_tagnt": "clothing",
+  "ref_estandar": "Matt.22.11"
  },
  {
   "ref": "Matt.22.12",
@@ -269,7 +275,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to muzzle"
+  "glosa_tagnt": "to muzzle",
+  "ref_estandar": "Matt.22.12"
  },
  {
   "ref": "Matt.22.14",
@@ -309,7 +316,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "select"
+  "glosa_tagnt": "select",
+  "ref_estandar": "Matt.22.14"
  },
  {
   "ref": "Matt.22.15",
@@ -348,7 +356,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to trap"
+  "glosa_tagnt": "to trap",
+  "ref_estandar": "Matt.22.15"
  },
  {
   "ref": "Matt.22.16",
@@ -386,7 +395,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Herodians"
+  "glosa_tagnt": "Herodians",
+  "ref_estandar": "Matt.22.16"
  },
  {
   "ref": "Matt.22.17",
@@ -426,7 +436,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tax"
+  "glosa_tagnt": "tax",
+  "ref_estandar": "Matt.22.17"
  },
  {
   "ref": "Matt.22.20",
@@ -466,7 +477,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "image"
+  "glosa_tagnt": "image",
+  "ref_estandar": "Matt.22.20"
  },
  {
   "ref": "Matt.22.21",
@@ -505,7 +517,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pay"
+  "glosa_tagnt": "to pay",
+  "ref_estandar": "Matt.22.21"
  },
  {
   "ref": "Matt.22.23",
@@ -545,7 +558,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "resurrection"
+  "glosa_tagnt": "resurrection",
+  "ref_estandar": "Matt.22.23"
  },
  {
   "ref": "Matt.22.29",
@@ -585,7 +599,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to lead astray"
+  "glosa_tagnt": "to lead astray",
+  "ref_estandar": "Matt.22.29"
  },
  {
   "ref": "Matt.22.30",
@@ -625,7 +640,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to give in marriage"
+  "glosa_tagnt": "to give in marriage",
+  "ref_estandar": "Matt.22.30"
  },
  {
   "ref": "Matt.22.32",
@@ -664,7 +680,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to live"
+  "glosa_tagnt": "to live",
+  "ref_estandar": "Matt.22.32"
  },
  {
   "ref": "Matt.22.35",
@@ -702,7 +719,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lawyer"
+  "glosa_tagnt": "lawyer",
+  "ref_estandar": "Matt.22.35"
  },
  {
   "ref": "Matt.22.37",
@@ -742,7 +760,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mind"
+  "glosa_tagnt": "mind",
+  "ref_estandar": "Matt.22.37"
  },
  {
   "ref": "Matt.22.40",
@@ -783,7 +802,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to hang"
+  "glosa_tagnt": "to hang",
+  "ref_estandar": "Matt.22.40"
  },
  {
   "ref": "Matt.22.44",
@@ -824,7 +844,8 @@
   ],
   "variante": true,
   "glosa_tagnt": "under",
-  "caso_regido": "genitivo"
+  "caso_regido": "genitivo",
+  "ref_estandar": "Matt.22.44"
  },
  {
   "ref": "Matt.22.46",
@@ -862,6 +883,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be bold"
+  "glosa_tagnt": "be bold",
+  "ref_estandar": "Matt.22.46"
  }
 ]

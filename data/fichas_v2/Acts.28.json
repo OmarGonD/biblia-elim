@@ -35,7 +35,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Malta"
+  "glosa_tagnt": "Malta",
+  "ref_estandar": "Acts.28.1"
  },
  {
   "ref": "Acts.28.2",
@@ -74,7 +75,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "barbarian"
+  "glosa_tagnt": "barbarian",
+  "ref_estandar": "Acts.28.2"
  },
  {
   "ref": "Acts.28.3",
@@ -113,7 +115,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "snake"
+  "glosa_tagnt": "snake",
+  "ref_estandar": "Acts.28.3"
  },
  {
   "ref": "Acts.28.4",
@@ -152,7 +155,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "condemnation"
+  "glosa_tagnt": "condemnation",
+  "ref_estandar": "Acts.28.4"
  },
  {
   "ref": "Acts.28.7",
@@ -190,7 +194,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Publius"
+  "glosa_tagnt": "Publius",
+  "ref_estandar": "Acts.28.7"
  },
  {
   "ref": "Acts.28.8",
@@ -230,7 +235,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "dysentery"
+  "glosa_tagnt": "dysentery",
+  "ref_estandar": "Acts.28.8"
  },
  {
   "ref": "Acts.28.11",
@@ -268,7 +274,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "the twin gods"
+  "glosa_tagnt": "the twin gods",
+  "ref_estandar": "Acts.28.11"
  },
  {
   "ref": "Acts.28.14",
@@ -306,7 +313,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Rome"
+  "glosa_tagnt": "Rome",
+  "ref_estandar": "Acts.28.14"
  },
  {
   "ref": "Acts.28.15",
@@ -345,7 +353,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "courage/confidence"
+  "glosa_tagnt": "courage/confidence",
+  "ref_estandar": "Acts.28.15"
  },
  {
   "ref": "Acts.28.16",
@@ -385,7 +394,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "soldier"
+  "glosa_tagnt": "soldier",
+  "ref_estandar": "Acts.28.16"
  },
  {
   "ref": "Acts.28.20",
@@ -424,7 +434,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "chain"
+  "glosa_tagnt": "chain",
+  "ref_estandar": "Acts.28.20"
  },
  {
   "ref": "Acts.28.22",
@@ -462,7 +473,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sect"
+  "glosa_tagnt": "sect",
+  "ref_estandar": "Acts.28.22"
  },
  {
   "ref": "Acts.28.23",
@@ -500,7 +512,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "kingdom"
+  "glosa_tagnt": "kingdom",
+  "ref_estandar": "Acts.28.23"
  },
  {
   "ref": "Acts.28.26",
@@ -540,7 +553,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to hear"
+  "glosa_tagnt": "to hear",
+  "ref_estandar": "Acts.28.26"
  },
  {
   "ref": "Acts.28.28",
@@ -580,7 +594,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "saving"
+  "glosa_tagnt": "saving",
+  "ref_estandar": "Acts.28.28"
  },
  {
   "ref": "Acts.28.30",
@@ -620,7 +635,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "two years"
+  "glosa_tagnt": "two years",
+  "ref_estandar": "Acts.28.30"
  },
  {
   "ref": "Acts.28.31",
@@ -659,6 +675,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "freely"
+  "glosa_tagnt": "freely",
+  "ref_estandar": "Acts.28.31"
  }
 ]

@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sexual sin"
+  "glosa_tagnt": "sexual sin",
+  "ref_estandar": "1Cor.5.1"
  },
  {
   "ref": "1Cor.5.1",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sexual sin"
+  "glosa_tagnt": "sexual sin",
+  "ref_estandar": "1Cor.5.1"
  },
  {
   "ref": "1Cor.5.5",
@@ -117,7 +119,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Satan"
+  "glosa_tagnt": "Satan",
+  "ref_estandar": "1Cor.5.5"
  },
  {
   "ref": "1Cor.5.6",
@@ -157,7 +160,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "leaven"
+  "glosa_tagnt": "leaven",
+  "ref_estandar": "1Cor.5.6"
  },
  {
   "ref": "1Cor.5.7",
@@ -197,7 +201,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Passover"
+  "glosa_tagnt": "Passover",
+  "ref_estandar": "1Cor.5.7"
  },
  {
   "ref": "1Cor.5.9",
@@ -236,7 +241,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to associate with"
+  "glosa_tagnt": "to associate with",
+  "ref_estandar": "1Cor.5.9"
  },
  {
   "ref": "1Cor.5.11",
@@ -275,7 +281,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to eat with"
+  "glosa_tagnt": "to eat with",
+  "ref_estandar": "1Cor.5.11"
  },
  {
   "ref": "1Cor.5.13",
@@ -315,6 +322,7 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to expel"
+  "glosa_tagnt": "to expel",
+  "ref_estandar": "1Cor.5.13"
  }
 ]

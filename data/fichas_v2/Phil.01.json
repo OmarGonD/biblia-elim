@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "overseer"
+  "glosa_tagnt": "overseer",
+  "ref_estandar": "Phil.1.1"
  },
  {
   "ref": "Phil.1.5",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "participation"
+  "glosa_tagnt": "participation",
+  "ref_estandar": "Phil.1.5"
  },
  {
   "ref": "Phil.1.6",
@@ -115,7 +117,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to complete"
+  "glosa_tagnt": "to complete",
+  "ref_estandar": "Phil.1.6"
  },
  {
   "ref": "Phil.1.10",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to test"
+  "glosa_tagnt": "to test",
+  "ref_estandar": "Phil.1.10"
  },
  {
   "ref": "Phil.1.13",
@@ -194,7 +198,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "praetorium"
+  "glosa_tagnt": "praetorium",
+  "ref_estandar": "Phil.1.13"
  },
  {
   "ref": "Phil.1.15",
@@ -233,7 +238,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "envy"
+  "glosa_tagnt": "envy",
+  "ref_estandar": "Phil.1.15"
  },
  {
   "ref": "Phil.1.21",
@@ -272,7 +278,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gain"
+  "glosa_tagnt": "gain",
+  "ref_estandar": "Phil.1.21"
  },
  {
   "ref": "Phil.1.23",
@@ -312,7 +319,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to depart"
+  "glosa_tagnt": "to depart",
+  "ref_estandar": "Phil.1.23"
  },
  {
   "ref": "Phil.1.27",
@@ -352,7 +360,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be a citizen"
+  "glosa_tagnt": "be a citizen",
+  "ref_estandar": "Phil.1.27"
  },
  {
   "ref": "Phil.1.29",
@@ -392,6 +401,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to give grace"
+  "glosa_tagnt": "to give grace",
+  "ref_estandar": "Phil.1.29"
  }
 ]

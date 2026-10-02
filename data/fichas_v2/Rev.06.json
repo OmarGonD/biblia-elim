@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "seal"
+  "glosa_tagnt": "seal",
+  "ref_estandar": "Rev.6.1"
  },
  {
   "ref": "Rev.6.2",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "white"
+  "glosa_tagnt": "white",
+  "ref_estandar": "Rev.6.2"
  },
  {
   "ref": "Rev.6.4",
@@ -117,7 +119,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fiery red"
+  "glosa_tagnt": "fiery red",
+  "ref_estandar": "Rev.6.4"
  },
  {
   "ref": "Rev.6.6",
@@ -158,7 +161,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "denarius"
+  "glosa_tagnt": "denarius",
+  "ref_estandar": "Rev.6.6"
  },
  {
   "ref": "Rev.6.6",
@@ -199,7 +203,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "denarius"
+  "glosa_tagnt": "denarius",
+  "ref_estandar": "Rev.6.6"
  },
  {
   "ref": "Rev.6.8",
@@ -239,7 +244,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "green"
+  "glosa_tagnt": "green",
+  "ref_estandar": "Rev.6.8"
  },
  {
   "ref": "Rev.6.9",
@@ -279,7 +285,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "altar"
+  "glosa_tagnt": "altar",
+  "ref_estandar": "Rev.6.9"
  },
  {
   "ref": "Rev.6.10",
@@ -320,7 +327,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to avenge"
+  "glosa_tagnt": "to avenge",
+  "ref_estandar": "Rev.6.10"
  },
  {
   "ref": "Rev.6.11",
@@ -361,7 +369,8 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "white"
+  "glosa_tagnt": "white",
+  "ref_estandar": "Rev.6.11"
  },
  {
   "ref": "Rev.6.12",
@@ -401,7 +410,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "earthquake"
+  "glosa_tagnt": "earthquake",
+  "ref_estandar": "Rev.6.12"
  },
  {
   "ref": "Rev.6.16",
@@ -441,7 +451,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wrath"
+  "glosa_tagnt": "wrath",
+  "ref_estandar": "Rev.6.16"
  },
  {
   "ref": "Rev.6.17",
@@ -481,6 +492,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to stand"
+  "glosa_tagnt": "to stand",
+  "ref_estandar": "Rev.6.17"
  }
 ]

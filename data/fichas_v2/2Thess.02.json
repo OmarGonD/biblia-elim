@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "coming"
+  "glosa_tagnt": "coming",
+  "ref_estandar": "2Thess.2.1"
  },
  {
   "ref": "2Thess.2.2",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be present"
+  "glosa_tagnt": "be present",
+  "ref_estandar": "2Thess.2.2"
  },
  {
   "ref": "2Thess.2.3",
@@ -115,7 +117,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "apostasy"
+  "glosa_tagnt": "apostasy",
+  "ref_estandar": "2Thess.2.3"
  },
  {
   "ref": "2Thess.2.4",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "temple"
+  "glosa_tagnt": "temple",
+  "ref_estandar": "2Thess.2.4"
  },
  {
   "ref": "2Thess.2.6",
@@ -194,7 +198,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to hold back/fast"
+  "glosa_tagnt": "to hold back/fast",
+  "ref_estandar": "2Thess.2.6"
  },
  {
   "ref": "2Thess.2.7",
@@ -233,7 +238,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lawlessness"
+  "glosa_tagnt": "lawlessness",
+  "ref_estandar": "2Thess.2.7"
  },
  {
   "ref": "2Thess.2.8",
@@ -272,7 +278,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lawless"
+  "glosa_tagnt": "lawless",
+  "ref_estandar": "2Thess.2.8"
  },
  {
   "ref": "2Thess.2.9",
@@ -311,7 +318,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sign"
+  "glosa_tagnt": "sign",
+  "ref_estandar": "2Thess.2.9"
  },
  {
   "ref": "2Thess.2.11",
@@ -351,7 +359,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "error"
+  "glosa_tagnt": "error",
+  "ref_estandar": "2Thess.2.11"
  },
  {
   "ref": "2Thess.2.13",
@@ -392,7 +401,8 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "to choose"
+  "glosa_tagnt": "to choose",
+  "ref_estandar": "2Thess.2.13"
  },
  {
   "ref": "2Thess.2.15",
@@ -432,7 +442,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tradition"
+  "glosa_tagnt": "tradition",
+  "ref_estandar": "2Thess.2.15"
  },
  {
   "ref": "2Thess.2.16",
@@ -471,6 +482,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "encouragement"
+  "glosa_tagnt": "encouragement",
+  "ref_estandar": "2Thess.2.16"
  }
 ]

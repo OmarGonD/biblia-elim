@@ -38,7 +38,8 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "Ephesus"
+  "glosa_tagnt": "Ephesus",
+  "ref_estandar": "Rev.2.1"
  },
  {
   "ref": "Rev.2.2",
@@ -78,7 +79,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "labor"
+  "glosa_tagnt": "labor",
+  "ref_estandar": "Rev.2.2"
  },
  {
   "ref": "Rev.2.4",
@@ -118,7 +120,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "love"
+  "glosa_tagnt": "love",
+  "ref_estandar": "Rev.2.4"
  },
  {
   "ref": "Rev.2.5",
@@ -159,7 +162,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to repent"
+  "glosa_tagnt": "to repent",
+  "ref_estandar": "Rev.2.5"
  },
  {
   "ref": "Rev.2.6",
@@ -199,7 +203,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Nicolaitan"
+  "glosa_tagnt": "Nicolaitan",
+  "ref_estandar": "Rev.2.6"
  },
  {
   "ref": "Rev.2.7",
@@ -239,7 +244,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to conquer"
+  "glosa_tagnt": "to conquer",
+  "ref_estandar": "Rev.2.7"
  },
  {
   "ref": "Rev.2.9",
@@ -280,7 +286,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "synagogue"
+  "glosa_tagnt": "synagogue",
+  "ref_estandar": "Rev.2.9"
  },
  {
   "ref": "Rev.2.10",
@@ -320,7 +327,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "crown"
+  "glosa_tagnt": "crown",
+  "ref_estandar": "Rev.2.10"
  },
  {
   "ref": "Rev.2.11",
@@ -360,7 +368,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "secondly"
+  "glosa_tagnt": "secondly",
+  "ref_estandar": "Rev.2.11"
  },
  {
   "ref": "Rev.2.13",
@@ -399,7 +408,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "throne"
+  "glosa_tagnt": "throne",
+  "ref_estandar": "Rev.2.13"
  },
  {
   "ref": "Rev.2.14",
@@ -439,7 +449,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Balaam"
+  "glosa_tagnt": "Balaam",
+  "ref_estandar": "Rev.2.14"
  },
  {
   "ref": "Rev.2.17",
@@ -480,7 +491,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "stone/vote"
+  "glosa_tagnt": "stone/vote",
+  "ref_estandar": "Rev.2.17"
  },
  {
   "ref": "Rev.2.17",
@@ -521,7 +533,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "stone/vote"
+  "glosa_tagnt": "stone/vote",
+  "ref_estandar": "Rev.2.17"
  },
  {
   "ref": "Rev.2.18",
@@ -560,7 +573,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "son"
+  "glosa_tagnt": "son",
+  "ref_estandar": "Rev.2.18"
  },
  {
   "ref": "Rev.2.19",
@@ -598,7 +612,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "service"
+  "glosa_tagnt": "service",
+  "ref_estandar": "Rev.2.19"
  },
  {
   "ref": "Rev.2.20",
@@ -638,7 +653,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Jezebel"
+  "glosa_tagnt": "Jezebel",
+  "ref_estandar": "Rev.2.20"
  },
  {
   "ref": "Rev.2.23",
@@ -678,7 +694,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mind"
+  "glosa_tagnt": "mind",
+  "ref_estandar": "Rev.2.23"
  },
  {
   "ref": "Rev.2.24",
@@ -717,7 +734,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Satan"
+  "glosa_tagnt": "Satan",
+  "ref_estandar": "Rev.2.24"
  },
  {
   "ref": "Rev.2.26",
@@ -757,6 +775,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "authority"
+  "glosa_tagnt": "authority",
+  "ref_estandar": "Rev.2.26"
  }
 ]

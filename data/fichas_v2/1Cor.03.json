@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "child"
+  "glosa_tagnt": "child",
+  "ref_estandar": "1Cor.3.1"
  },
  {
   "ref": "1Cor.3.2",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "milk"
+  "glosa_tagnt": "milk",
+  "ref_estandar": "1Cor.3.2"
  },
  {
   "ref": "1Cor.3.6",
@@ -115,7 +117,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to plant"
+  "glosa_tagnt": "to plant",
+  "ref_estandar": "1Cor.3.6"
  },
  {
   "ref": "1Cor.3.9",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "co-worker"
+  "glosa_tagnt": "co-worker",
+  "ref_estandar": "1Cor.3.9"
  },
  {
   "ref": "1Cor.3.10",
@@ -194,7 +198,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "master-builder"
+  "glosa_tagnt": "master-builder",
+  "ref_estandar": "1Cor.3.10"
  },
  {
   "ref": "1Cor.3.11",
@@ -234,7 +239,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "foundation"
+  "glosa_tagnt": "foundation",
+  "ref_estandar": "1Cor.3.11"
  },
  {
   "ref": "1Cor.3.12",
@@ -275,7 +281,8 @@
    "Treg"
   ],
   "variante": true,
-  "glosa_tagnt": "gold"
+  "glosa_tagnt": "gold",
+  "ref_estandar": "1Cor.3.12"
  },
  {
   "ref": "1Cor.3.15",
@@ -315,7 +322,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to save"
+  "glosa_tagnt": "to save",
+  "ref_estandar": "1Cor.3.15"
  },
  {
   "ref": "1Cor.3.16",
@@ -355,7 +363,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "temple"
+  "glosa_tagnt": "temple",
+  "ref_estandar": "1Cor.3.16"
  },
  {
   "ref": "1Cor.3.18",
@@ -395,7 +404,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "foolish"
+  "glosa_tagnt": "foolish",
+  "ref_estandar": "1Cor.3.18"
  },
  {
   "ref": "1Cor.3.21",
@@ -435,6 +445,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to boast"
+  "glosa_tagnt": "to boast",
+  "ref_estandar": "1Cor.3.21"
  }
 ]

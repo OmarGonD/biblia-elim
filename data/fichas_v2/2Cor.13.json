@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "witness"
+  "glosa_tagnt": "witness",
+  "ref_estandar": "2Cor.13.1"
  },
  {
   "ref": "2Cor.13.4",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to crucify"
+  "glosa_tagnt": "to crucify",
+  "ref_estandar": "2Cor.13.4"
  },
  {
   "ref": "2Cor.13.5",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to test/tempt"
+  "glosa_tagnt": "to test/tempt",
+  "ref_estandar": "2Cor.13.5"
  },
  {
   "ref": "2Cor.13.9",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "perfection"
+  "glosa_tagnt": "perfection",
+  "ref_estandar": "2Cor.13.9"
  },
  {
   "ref": "2Cor.13.11",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to complete"
+  "glosa_tagnt": "to complete",
+  "ref_estandar": "2Cor.13.11"
  },
  {
   "ref": "2Cor.13.13",
@@ -235,6 +240,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "participation"
+  "glosa_tagnt": "participation",
+  "ref_estandar": "2Cor.13.14"
  }
 ]

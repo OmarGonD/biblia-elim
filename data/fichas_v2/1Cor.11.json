@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "imitator"
+  "glosa_tagnt": "imitator",
+  "ref_estandar": "1Cor.11.1"
  },
  {
   "ref": "1Cor.11.3",
@@ -78,7 +79,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "head"
+  "glosa_tagnt": "head",
+  "ref_estandar": "1Cor.11.3"
  },
  {
   "ref": "1Cor.11.3",
@@ -119,7 +121,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "head"
+  "glosa_tagnt": "head",
+  "ref_estandar": "1Cor.11.3"
  },
  {
   "ref": "1Cor.11.3",
@@ -160,7 +163,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "head"
+  "glosa_tagnt": "head",
+  "ref_estandar": "1Cor.11.3"
  },
  {
   "ref": "1Cor.11.5",
@@ -200,7 +204,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to prophesy"
+  "glosa_tagnt": "to prophesy",
+  "ref_estandar": "1Cor.11.5"
  },
  {
   "ref": "1Cor.11.7",
@@ -239,7 +244,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "image"
+  "glosa_tagnt": "image",
+  "ref_estandar": "1Cor.11.7"
  },
  {
   "ref": "1Cor.11.10",
@@ -279,7 +285,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "authority"
+  "glosa_tagnt": "authority",
+  "ref_estandar": "1Cor.11.10"
  },
  {
   "ref": "1Cor.11.11",
@@ -318,7 +325,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lord"
+  "glosa_tagnt": "lord",
+  "ref_estandar": "1Cor.11.11"
  },
  {
   "ref": "1Cor.11.16",
@@ -356,7 +364,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "custom"
+  "glosa_tagnt": "custom",
+  "ref_estandar": "1Cor.11.16"
  },
  {
   "ref": "1Cor.11.18",
@@ -395,7 +404,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "split"
+  "glosa_tagnt": "split",
+  "ref_estandar": "1Cor.11.18"
  },
  {
   "ref": "1Cor.11.20",
@@ -434,7 +444,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "the Lord’s"
+  "glosa_tagnt": "the Lord’s",
+  "ref_estandar": "1Cor.11.20"
  },
  {
   "ref": "1Cor.11.23",
@@ -474,7 +485,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to take"
+  "glosa_tagnt": "to take",
+  "ref_estandar": "1Cor.11.23"
  },
  {
   "ref": "1Cor.11.24",
@@ -514,7 +526,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "remembrance"
+  "glosa_tagnt": "remembrance",
+  "ref_estandar": "1Cor.11.24"
  },
  {
   "ref": "1Cor.11.25",
@@ -554,7 +567,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "covenant"
+  "glosa_tagnt": "covenant",
+  "ref_estandar": "1Cor.11.25"
  },
  {
   "ref": "1Cor.11.27",
@@ -593,7 +607,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unworthily"
+  "glosa_tagnt": "unworthily",
+  "ref_estandar": "1Cor.11.27"
  },
  {
   "ref": "1Cor.11.28",
@@ -632,7 +647,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to test"
+  "glosa_tagnt": "to test",
+  "ref_estandar": "1Cor.11.28"
  },
  {
   "ref": "1Cor.11.30",
@@ -672,7 +688,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to sleep"
+  "glosa_tagnt": "to sleep",
+  "ref_estandar": "1Cor.11.30"
  },
  {
   "ref": "1Cor.11.32",
@@ -712,6 +729,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to instruct"
+  "glosa_tagnt": "to instruct",
+  "ref_estandar": "1Cor.11.32"
  }
 ]

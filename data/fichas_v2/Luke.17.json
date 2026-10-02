@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "stumbling block"
+  "glosa_tagnt": "stumbling block",
+  "ref_estandar": "Luke.17.1"
  },
  {
   "ref": "Luke.17.3",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to rebuke"
+  "glosa_tagnt": "to rebuke",
+  "ref_estandar": "Luke.17.3"
  },
  {
   "ref": "Luke.17.4",
@@ -115,7 +117,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "seven times"
+  "glosa_tagnt": "seven times",
+  "ref_estandar": "Luke.17.4"
  },
  {
   "ref": "Luke.17.4",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "seven times"
+  "glosa_tagnt": "seven times",
+  "ref_estandar": "Luke.17.4"
  },
  {
   "ref": "Luke.17.5",
@@ -194,7 +198,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to add (to)"
+  "glosa_tagnt": "to add (to)",
+  "ref_estandar": "Luke.17.5"
  },
  {
   "ref": "Luke.17.6",
@@ -233,7 +238,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mulberry tree"
+  "glosa_tagnt": "mulberry tree",
+  "ref_estandar": "Luke.17.6"
  },
  {
   "ref": "Luke.17.10",
@@ -272,7 +278,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "worthless"
+  "glosa_tagnt": "worthless",
+  "ref_estandar": "Luke.17.10"
  },
  {
   "ref": "Luke.17.11",
@@ -311,7 +318,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Samaria"
+  "glosa_tagnt": "Samaria",
+  "ref_estandar": "Luke.17.11"
  },
  {
   "ref": "Luke.17.12",
@@ -350,7 +358,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "leprous"
+  "glosa_tagnt": "leprous",
+  "ref_estandar": "Luke.17.12"
  },
  {
   "ref": "Luke.17.16",
@@ -389,7 +398,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to thank"
+  "glosa_tagnt": "to thank",
+  "ref_estandar": "Luke.17.16"
  },
  {
   "ref": "Luke.17.18",
@@ -428,7 +438,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "foreign"
+  "glosa_tagnt": "foreign",
+  "ref_estandar": "Luke.17.18"
  },
  {
   "ref": "Luke.17.19",
@@ -467,7 +478,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to save"
+  "glosa_tagnt": "to save",
+  "ref_estandar": "Luke.17.19"
  },
  {
   "ref": "Luke.17.20",
@@ -505,7 +517,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "observation"
+  "glosa_tagnt": "observation",
+  "ref_estandar": "Luke.17.20"
  },
  {
   "ref": "Luke.17.21",
@@ -545,7 +558,8 @@
   "ausente_en": [],
   "variante": false,
   "glosa_tagnt": "inside",
-  "caso_regido": "genitivo"
+  "caso_regido": "genitivo",
+  "ref_estandar": "Luke.17.21"
  },
  {
   "ref": "Luke.17.24",
@@ -584,7 +598,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lightning"
+  "glosa_tagnt": "lightning",
+  "ref_estandar": "Luke.17.24"
  },
  {
   "ref": "Luke.17.25",
@@ -623,7 +638,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to reject"
+  "glosa_tagnt": "to reject",
+  "ref_estandar": "Luke.17.25"
  },
  {
   "ref": "Luke.17.26",
@@ -662,7 +678,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Noah"
+  "glosa_tagnt": "Noah",
+  "ref_estandar": "Luke.17.26"
  },
  {
   "ref": "Luke.17.32",
@@ -701,7 +718,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Lot"
+  "glosa_tagnt": "Lot",
+  "ref_estandar": "Luke.17.32"
  },
  {
   "ref": "Luke.17.33",
@@ -741,7 +759,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to gain"
+  "glosa_tagnt": "to gain",
+  "ref_estandar": "Luke.17.33"
  },
  {
   "ref": "Luke.17.34",
@@ -780,7 +799,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to take"
+  "glosa_tagnt": "to take",
+  "ref_estandar": "Luke.17.34"
  },
  {
   "ref": "Luke.17.37",
@@ -818,6 +838,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "eagle"
+  "glosa_tagnt": "eagle",
+  "ref_estandar": "Luke.17.37"
  }
 ]

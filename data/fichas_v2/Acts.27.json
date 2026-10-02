@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Julius"
+  "glosa_tagnt": "Julius",
+  "ref_estandar": "Acts.27.1"
  },
  {
   "ref": "Acts.27.2",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Aristarchus"
+  "glosa_tagnt": "Aristarchus",
+  "ref_estandar": "Acts.27.2"
  },
  {
   "ref": "Acts.27.3",
@@ -113,7 +115,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "benevolently"
+  "glosa_tagnt": "benevolently",
+  "ref_estandar": "Acts.27.3"
  },
  {
   "ref": "Acts.27.9",
@@ -151,7 +154,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fasting"
+  "glosa_tagnt": "fasting",
+  "ref_estandar": "Acts.27.9"
  },
  {
   "ref": "Acts.27.10",
@@ -189,7 +193,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mistreatment"
+  "glosa_tagnt": "mistreatment",
+  "ref_estandar": "Acts.27.10"
  },
  {
   "ref": "Acts.27.14",
@@ -227,7 +232,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tempestuous"
+  "glosa_tagnt": "tempestuous",
+  "ref_estandar": "Acts.27.14"
  },
  {
   "ref": "Acts.27.20",
@@ -266,7 +272,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hope"
+  "glosa_tagnt": "hope",
+  "ref_estandar": "Acts.27.20"
  },
  {
   "ref": "Acts.27.23",
@@ -304,7 +311,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "angel"
+  "glosa_tagnt": "angel",
+  "ref_estandar": "Acts.27.23"
  },
  {
   "ref": "Acts.27.24",
@@ -343,7 +351,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to give grace"
+  "glosa_tagnt": "to give grace",
+  "ref_estandar": "Acts.27.24"
  },
  {
   "ref": "Acts.27.27",
@@ -380,7 +389,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Adriatic Sea"
+  "glosa_tagnt": "Adriatic Sea",
+  "ref_estandar": "Acts.27.27"
  },
  {
   "ref": "Acts.27.31",
@@ -418,7 +428,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to save"
+  "glosa_tagnt": "to save",
+  "ref_estandar": "Acts.27.31"
  },
  {
   "ref": "Acts.27.34",
@@ -458,7 +469,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hair"
+  "glosa_tagnt": "hair",
+  "ref_estandar": "Acts.27.34"
  },
  {
   "ref": "Acts.27.35",
@@ -497,7 +509,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to thank"
+  "glosa_tagnt": "to thank",
+  "ref_estandar": "Acts.27.35"
  },
  {
   "ref": "Acts.27.37",
@@ -536,7 +549,8 @@
    "WH"
   ],
   "variante": true,
-  "glosa_tagnt": "two hundred"
+  "glosa_tagnt": "two hundred",
+  "ref_estandar": "Acts.27.37"
  },
  {
   "ref": "Acts.27.41",
@@ -573,7 +587,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sandbar"
+  "glosa_tagnt": "sandbar",
+  "ref_estandar": "Acts.27.41"
  },
  {
   "ref": "Acts.27.43",
@@ -611,7 +626,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to prevent"
+  "glosa_tagnt": "to prevent",
+  "ref_estandar": "Acts.27.43"
  },
  {
   "ref": "Acts.27.44",
@@ -649,6 +665,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to save"
+  "glosa_tagnt": "to save",
+  "ref_estandar": "Acts.27.44"
  }
 ]

@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "authority"
+  "glosa_tagnt": "authority",
+  "ref_estandar": "Luke.20.2"
  },
  {
   "ref": "Luke.20.6",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to stone"
+  "glosa_tagnt": "to stone",
+  "ref_estandar": "Luke.20.6"
  },
  {
   "ref": "Luke.20.9",
@@ -115,7 +117,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to lease"
+  "glosa_tagnt": "to lease",
+  "ref_estandar": "Luke.20.9"
  },
  {
   "ref": "Luke.20.13",
@@ -154,7 +157,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "beloved"
+  "glosa_tagnt": "beloved",
+  "ref_estandar": "Luke.20.13"
  },
  {
   "ref": "Luke.20.16",
@@ -194,7 +198,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to be"
+  "glosa_tagnt": "to be",
+  "ref_estandar": "Luke.20.16"
  },
  {
   "ref": "Luke.20.18",
@@ -233,7 +238,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to shatter"
+  "glosa_tagnt": "to shatter",
+  "ref_estandar": "Luke.20.18"
  },
  {
   "ref": "Luke.20.20",
@@ -272,7 +278,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "a spy"
+  "glosa_tagnt": "a spy",
+  "ref_estandar": "Luke.20.20"
  },
  {
   "ref": "Luke.20.25",
@@ -311,7 +318,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pay"
+  "glosa_tagnt": "to pay",
+  "ref_estandar": "Luke.20.25"
  },
  {
   "ref": "Luke.20.34",
@@ -350,7 +358,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "an age"
+  "glosa_tagnt": "an age",
+  "ref_estandar": "Luke.20.34"
  },
  {
   "ref": "Luke.20.36",
@@ -389,7 +398,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "like an angel"
+  "glosa_tagnt": "like an angel",
+  "ref_estandar": "Luke.20.36"
  },
  {
   "ref": "Luke.20.38",
@@ -429,7 +439,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to live"
+  "glosa_tagnt": "to live",
+  "ref_estandar": "Luke.20.38"
  },
  {
   "ref": "Luke.20.46",
@@ -468,6 +479,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "robe"
+  "glosa_tagnt": "robe",
+  "ref_estandar": "Luke.20.46"
  }
 ]

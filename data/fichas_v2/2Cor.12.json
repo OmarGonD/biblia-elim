@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to seize"
+  "glosa_tagnt": "to seize",
+  "ref_estandar": "2Cor.12.2"
  },
  {
   "ref": "2Cor.12.4",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "paradise"
+  "glosa_tagnt": "paradise",
+  "ref_estandar": "2Cor.12.4"
  },
  {
   "ref": "2Cor.12.7",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "thorn"
+  "glosa_tagnt": "thorn",
+  "ref_estandar": "2Cor.12.7"
  },
  {
   "ref": "2Cor.12.9",
@@ -156,7 +159,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be sufficient"
+  "glosa_tagnt": "be sufficient",
+  "ref_estandar": "2Cor.12.9"
  },
  {
   "ref": "2Cor.12.10",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be weak"
+  "glosa_tagnt": "be weak",
+  "ref_estandar": "2Cor.12.10"
  },
  {
   "ref": "2Cor.12.12",
@@ -235,7 +240,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sign"
+  "glosa_tagnt": "sign",
+  "ref_estandar": "2Cor.12.12"
  },
  {
   "ref": "2Cor.12.14",
@@ -275,7 +281,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "child"
+  "glosa_tagnt": "child",
+  "ref_estandar": "2Cor.12.14"
  },
  {
   "ref": "2Cor.12.20",
@@ -316,6 +323,7 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "quarrel"
+  "glosa_tagnt": "quarrel",
+  "ref_estandar": "2Cor.12.20"
  }
 ]

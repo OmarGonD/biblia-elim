@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "great"
+  "glosa_tagnt": "great",
+  "ref_estandar": "Matt.18.1"
  },
  {
   "ref": "Matt.18.3",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to turn"
+  "glosa_tagnt": "to turn",
+  "ref_estandar": "Matt.18.3"
  },
  {
   "ref": "Matt.18.4",
@@ -117,7 +119,8 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "to humble"
+  "glosa_tagnt": "to humble",
+  "ref_estandar": "Matt.18.4"
  },
  {
   "ref": "Matt.18.6",
@@ -157,7 +160,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to cause to stumble"
+  "glosa_tagnt": "to cause to stumble",
+  "ref_estandar": "Matt.18.6"
  },
  {
   "ref": "Matt.18.6",
@@ -197,7 +201,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "small"
+  "glosa_tagnt": "small",
+  "ref_estandar": "Matt.18.6"
  },
  {
   "ref": "Matt.18.8",
@@ -237,7 +242,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "eternal"
+  "glosa_tagnt": "eternal",
+  "ref_estandar": "Matt.18.8"
  },
  {
   "ref": "Matt.18.10",
@@ -276,7 +282,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to despise"
+  "glosa_tagnt": "to despise",
+  "ref_estandar": "Matt.18.10"
  },
  {
   "ref": "Matt.18.12",
@@ -317,7 +324,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to lead astray"
+  "glosa_tagnt": "to lead astray",
+  "ref_estandar": "Matt.18.12"
  },
  {
   "ref": "Matt.18.14",
@@ -356,7 +364,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "will/desire"
+  "glosa_tagnt": "will/desire",
+  "ref_estandar": "Matt.18.14"
  },
  {
   "ref": "Matt.18.15",
@@ -396,7 +405,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to rebuke"
+  "glosa_tagnt": "to rebuke",
+  "ref_estandar": "Matt.18.15"
  },
  {
   "ref": "Matt.18.15",
@@ -435,7 +445,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to gain"
+  "glosa_tagnt": "to gain",
+  "ref_estandar": "Matt.18.15"
  },
  {
   "ref": "Matt.18.17",
@@ -474,7 +485,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Gentile-like"
+  "glosa_tagnt": "Gentile-like",
+  "ref_estandar": "Matt.18.17"
  },
  {
   "ref": "Matt.18.18",
@@ -514,7 +526,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to loose"
+  "glosa_tagnt": "to loose",
+  "ref_estandar": "Matt.18.18"
  },
  {
   "ref": "Matt.18.20",
@@ -553,7 +566,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to assemble"
+  "glosa_tagnt": "to assemble",
+  "ref_estandar": "Matt.18.20"
  },
  {
   "ref": "Matt.18.22",
@@ -592,7 +606,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "seventy times"
+  "glosa_tagnt": "seventy times",
+  "ref_estandar": "Matt.18.22"
  },
  {
   "ref": "Matt.18.24",
@@ -631,7 +646,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "myriad"
+  "glosa_tagnt": "myriad",
+  "ref_estandar": "Matt.18.24"
  },
  {
   "ref": "Matt.18.26",
@@ -670,7 +686,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to have patience"
+  "glosa_tagnt": "to have patience",
+  "ref_estandar": "Matt.18.26"
  },
  {
   "ref": "Matt.18.27",
@@ -708,7 +725,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "debt"
+  "glosa_tagnt": "debt",
+  "ref_estandar": "Matt.18.27"
  },
  {
   "ref": "Matt.18.28",
@@ -746,7 +764,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "denarius"
+  "glosa_tagnt": "denarius",
+  "ref_estandar": "Matt.18.28"
  },
  {
   "ref": "Matt.18.33",
@@ -786,7 +805,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to have mercy"
+  "glosa_tagnt": "to have mercy",
+  "ref_estandar": "Matt.18.33"
  },
  {
   "ref": "Matt.18.34",
@@ -825,7 +845,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "torturer"
+  "glosa_tagnt": "torturer",
+  "ref_estandar": "Matt.18.34"
  },
  {
   "ref": "Matt.18.35",
@@ -863,6 +884,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "heart"
+  "glosa_tagnt": "heart",
+  "ref_estandar": "Matt.18.35"
  }
 ]

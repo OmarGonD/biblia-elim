@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "uncircumcision"
+  "glosa_tagnt": "uncircumcision",
+  "ref_estandar": "Acts.11.3"
  },
  {
   "ref": "Acts.11.12",
@@ -75,7 +76,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to judge/doubt"
+  "glosa_tagnt": "to judge/doubt",
+  "ref_estandar": "Acts.11.12"
  },
  {
   "ref": "Acts.11.14",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to save"
+  "glosa_tagnt": "to save",
+  "ref_estandar": "Acts.11.14"
  },
  {
   "ref": "Acts.11.15",
@@ -152,7 +155,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to fall/press upon"
+  "glosa_tagnt": "to fall/press upon",
+  "ref_estandar": "Acts.11.15"
  },
  {
   "ref": "Acts.11.16",
@@ -192,7 +196,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to baptize"
+  "glosa_tagnt": "to baptize",
+  "ref_estandar": "Acts.11.16"
  },
  {
   "ref": "Acts.11.17",
@@ -231,7 +236,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "equal"
+  "glosa_tagnt": "equal",
+  "ref_estandar": "Acts.11.17"
  },
  {
   "ref": "Acts.11.18",
@@ -271,7 +277,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "repentance"
+  "glosa_tagnt": "repentance",
+  "ref_estandar": "Acts.11.18"
  },
  {
   "ref": "Acts.11.20",
@@ -311,7 +318,8 @@
    "Treg"
   ],
   "variante": true,
-  "glosa_tagnt": "Hellenist"
+  "glosa_tagnt": "Hellenist",
+  "ref_estandar": "Acts.11.20"
  },
  {
   "ref": "Acts.11.23",
@@ -350,7 +358,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "grace"
+  "glosa_tagnt": "grace",
+  "ref_estandar": "Acts.11.23"
  },
  {
   "ref": "Acts.11.26",
@@ -389,7 +398,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Christian"
+  "glosa_tagnt": "Christian",
+  "ref_estandar": "Acts.11.26"
  },
  {
   "ref": "Acts.11.28",
@@ -428,7 +438,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Agabus"
+  "glosa_tagnt": "Agabus",
+  "ref_estandar": "Acts.11.28"
  },
  {
   "ref": "Acts.11.29",
@@ -467,6 +478,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "service"
+  "glosa_tagnt": "service",
+  "ref_estandar": "Acts.11.29"
  }
 ]

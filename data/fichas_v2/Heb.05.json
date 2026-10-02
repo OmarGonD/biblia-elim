@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "high-priest"
+  "glosa_tagnt": "high-priest",
+  "ref_estandar": "Heb.5.1"
  },
  {
   "ref": "Heb.5.6",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Melchizedek"
+  "glosa_tagnt": "Melchizedek",
+  "ref_estandar": "Heb.5.6"
  },
  {
   "ref": "Heb.5.7",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "teardrop"
+  "glosa_tagnt": "teardrop",
+  "ref_estandar": "Heb.5.7"
  },
  {
   "ref": "Heb.5.8",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "obedience"
+  "glosa_tagnt": "obedience",
+  "ref_estandar": "Heb.5.8"
  },
  {
   "ref": "Heb.5.9",
@@ -192,7 +196,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to perfect"
+  "glosa_tagnt": "to perfect",
+  "ref_estandar": "Heb.5.9"
  },
  {
   "ref": "Heb.5.11",
@@ -231,7 +236,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hard to interpret"
+  "glosa_tagnt": "hard to interpret",
+  "ref_estandar": "Heb.5.11"
  },
  {
   "ref": "Heb.5.14",
@@ -270,6 +276,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "perfect"
+  "glosa_tagnt": "perfect",
+  "ref_estandar": "Heb.5.14"
  }
 ]

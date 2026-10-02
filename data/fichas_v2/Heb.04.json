@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "rest"
+  "glosa_tagnt": "rest",
+  "ref_estandar": "Heb.4.1"
  },
  {
   "ref": "Heb.4.9",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Sabbath"
+  "glosa_tagnt": "Sabbath",
+  "ref_estandar": "Heb.4.9"
  },
  {
   "ref": "Heb.4.12",
@@ -117,7 +119,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sword"
+  "glosa_tagnt": "sword",
+  "ref_estandar": "Heb.4.12"
  },
  {
   "ref": "Heb.4.14",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "high-priest"
+  "glosa_tagnt": "high-priest",
+  "ref_estandar": "Heb.4.14"
  },
  {
   "ref": "Heb.4.15",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to sympathize"
+  "glosa_tagnt": "to sympathize",
+  "ref_estandar": "Heb.4.15"
  },
  {
   "ref": "Heb.4.16",
@@ -234,6 +239,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "throne"
+  "glosa_tagnt": "throne",
+  "ref_estandar": "Heb.4.16"
  }
 ]

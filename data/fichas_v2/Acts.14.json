@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to preach boldly"
+  "glosa_tagnt": "to preach boldly",
+  "ref_estandar": "Acts.14.3"
  },
  {
   "ref": "Acts.14.4",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "apostle"
+  "glosa_tagnt": "apostle",
+  "ref_estandar": "Acts.14.4"
  },
  {
   "ref": "Acts.14.8",
@@ -115,7 +117,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unable"
+  "glosa_tagnt": "unable",
+  "ref_estandar": "Acts.14.8"
  },
  {
   "ref": "Acts.14.11",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "in Lycaonian"
+  "glosa_tagnt": "in Lycaonian",
+  "ref_estandar": "Acts.14.11"
  },
  {
   "ref": "Acts.14.12",
@@ -192,7 +196,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Zeus"
+  "glosa_tagnt": "Zeus",
+  "ref_estandar": "Acts.14.12"
  },
  {
   "ref": "Acts.14.14",
@@ -231,7 +236,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to tear"
+  "glosa_tagnt": "to tear",
+  "ref_estandar": "Acts.14.14"
  },
  {
   "ref": "Acts.14.15",
@@ -271,7 +277,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "futile"
+  "glosa_tagnt": "futile",
+  "ref_estandar": "Acts.14.15"
  },
  {
   "ref": "Acts.14.16",
@@ -310,7 +317,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to allow"
+  "glosa_tagnt": "to allow",
+  "ref_estandar": "Acts.14.16"
  },
  {
   "ref": "Acts.14.17",
@@ -350,7 +358,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "without witness"
+  "glosa_tagnt": "without witness",
+  "ref_estandar": "Acts.14.17"
  },
  {
   "ref": "Acts.14.19",
@@ -389,7 +398,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to stone"
+  "glosa_tagnt": "to stone",
+  "ref_estandar": "Acts.14.19"
  },
  {
   "ref": "Acts.14.22",
@@ -429,7 +439,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to strengthen"
+  "glosa_tagnt": "to strengthen",
+  "ref_estandar": "Acts.14.22"
  },
  {
   "ref": "Acts.14.23",
@@ -469,7 +480,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "elder"
+  "glosa_tagnt": "elder",
+  "ref_estandar": "Acts.14.23"
  },
  {
   "ref": "Acts.14.26",
@@ -507,7 +519,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to deliver"
+  "glosa_tagnt": "to deliver",
+  "ref_estandar": "Acts.14.26"
  },
  {
   "ref": "Acts.14.27",
@@ -547,6 +560,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "door"
+  "glosa_tagnt": "door",
+  "ref_estandar": "Acts.14.27"
  }
 ]

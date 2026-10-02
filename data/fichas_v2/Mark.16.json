@@ -35,7 +35,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pass"
+  "glosa_tagnt": "to pass",
+  "ref_estandar": "Mark.16.1"
  },
  {
   "ref": "Mark.16.3",
@@ -73,7 +74,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to roll away"
+  "glosa_tagnt": "to roll away",
+  "ref_estandar": "Mark.16.3"
  },
  {
   "ref": "Mark.16.5",
@@ -112,7 +114,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "young man"
+  "glosa_tagnt": "young man",
+  "ref_estandar": "Mark.16.5"
  },
  {
   "ref": "Mark.16.6",
@@ -150,7 +153,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be awe-struck"
+  "glosa_tagnt": "be awe-struck",
+  "ref_estandar": "Mark.16.6"
  },
  {
   "ref": "Mark.16.7",
@@ -189,7 +193,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to go/bring before"
+  "glosa_tagnt": "to go/bring before",
+  "ref_estandar": "Mark.16.7"
  },
  {
   "ref": "Mark.16.8",
@@ -228,7 +233,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "trembling"
+  "glosa_tagnt": "trembling",
+  "ref_estandar": "Mark.16.8"
  },
  {
   "ref": "Mark.16.9",
@@ -267,7 +273,8 @@
    "SBL"
   ],
   "variante": true,
-  "glosa_tagnt": "to shine/appear"
+  "glosa_tagnt": "to shine/appear",
+  "ref_estandar": "Mark.16.9"
  },
  {
   "ref": "Mark.16.11",
@@ -306,7 +313,8 @@
    "SBL"
   ],
   "variante": true,
-  "glosa_tagnt": "to disbelieve"
+  "glosa_tagnt": "to disbelieve",
+  "ref_estandar": "Mark.16.11"
  },
  {
   "ref": "Mark.16.15",
@@ -347,7 +355,8 @@
    "SBL"
   ],
   "variante": true,
-  "glosa_tagnt": "world"
+  "glosa_tagnt": "world",
+  "ref_estandar": "Mark.16.15"
  },
  {
   "ref": "Mark.16.16",
@@ -387,7 +396,8 @@
    "SBL"
   ],
   "variante": true,
-  "glosa_tagnt": "to save"
+  "glosa_tagnt": "to save",
+  "ref_estandar": "Mark.16.16"
  },
  {
   "ref": "Mark.16.17",
@@ -427,7 +437,8 @@
    "SBL"
   ],
   "variante": true,
-  "glosa_tagnt": "sign"
+  "glosa_tagnt": "sign",
+  "ref_estandar": "Mark.16.17"
  },
  {
   "ref": "Mark.16.19",
@@ -467,7 +478,8 @@
    "SBL"
   ],
   "variante": true,
-  "glosa_tagnt": "to take up"
+  "glosa_tagnt": "to take up",
+  "ref_estandar": "Mark.16.19"
  },
  {
   "ref": "Mark.16.20",
@@ -506,6 +518,7 @@
    "SBL"
   ],
   "variante": true,
-  "glosa_tagnt": "to confirm"
+  "glosa_tagnt": "to confirm",
+  "ref_estandar": "Mark.16.20"
  }
 ]

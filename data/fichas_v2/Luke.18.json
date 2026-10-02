@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to lose heart"
+  "glosa_tagnt": "to lose heart",
+  "ref_estandar": "Luke.18.1"
  },
  {
   "ref": "Luke.18.5",
@@ -74,7 +75,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to wear out"
+  "glosa_tagnt": "to wear out",
+  "ref_estandar": "Luke.18.5"
  },
  {
   "ref": "Luke.18.7",
@@ -113,7 +115,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "vengeance"
+  "glosa_tagnt": "vengeance",
+  "ref_estandar": "Luke.18.7"
  },
  {
   "ref": "Luke.18.8",
@@ -152,7 +155,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "faith"
+  "glosa_tagnt": "faith",
+  "ref_estandar": "Luke.18.8"
  },
  {
   "ref": "Luke.18.9",
@@ -191,7 +195,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to persuade"
+  "glosa_tagnt": "to persuade",
+  "ref_estandar": "Luke.18.9"
  },
  {
   "ref": "Luke.18.11",
@@ -229,7 +234,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to thank"
+  "glosa_tagnt": "to thank",
+  "ref_estandar": "Luke.18.11"
  },
  {
   "ref": "Luke.18.13",
@@ -268,7 +274,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to propitiate"
+  "glosa_tagnt": "to propitiate",
+  "ref_estandar": "Luke.18.13"
  },
  {
   "ref": "Luke.18.14",
@@ -307,7 +314,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to justify"
+  "glosa_tagnt": "to justify",
+  "ref_estandar": "Luke.18.14"
  },
  {
   "ref": "Luke.18.15",
@@ -346,7 +354,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "infant"
+  "glosa_tagnt": "infant",
+  "ref_estandar": "Luke.18.15"
  },
  {
   "ref": "Luke.18.18",
@@ -385,7 +394,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ruler"
+  "glosa_tagnt": "ruler",
+  "ref_estandar": "Luke.18.18"
  },
  {
   "ref": "Luke.18.22",
@@ -424,7 +434,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to lack"
+  "glosa_tagnt": "to lack",
+  "ref_estandar": "Luke.18.22"
  },
  {
   "ref": "Luke.18.25",
@@ -463,7 +474,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "needle"
+  "glosa_tagnt": "needle",
+  "ref_estandar": "Luke.18.25"
  },
  {
   "ref": "Luke.18.27",
@@ -502,7 +514,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unable"
+  "glosa_tagnt": "unable",
+  "ref_estandar": "Luke.18.27"
  },
  {
   "ref": "Luke.18.31",
@@ -541,7 +554,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to finish"
+  "glosa_tagnt": "to finish",
+  "ref_estandar": "Luke.18.31"
  },
  {
   "ref": "Luke.18.34",
@@ -579,7 +593,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to hide"
+  "glosa_tagnt": "to hide",
+  "ref_estandar": "Luke.18.34"
  },
  {
   "ref": "Luke.18.38",
@@ -618,7 +633,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "David"
+  "glosa_tagnt": "David",
+  "ref_estandar": "Luke.18.38"
  },
  {
   "ref": "Luke.18.41",
@@ -657,6 +673,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to look up/see again"
+  "glosa_tagnt": "to look up/see again",
+  "ref_estandar": "Luke.18.41"
  }
 ]

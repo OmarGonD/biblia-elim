@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to hear"
+  "glosa_tagnt": "to hear",
+  "ref_estandar": "Mark.4.3"
  },
  {
   "ref": "Mark.4.11",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mystery"
+  "glosa_tagnt": "mystery",
+  "ref_estandar": "Mark.4.11"
  },
  {
   "ref": "Mark.4.11",
@@ -118,7 +120,8 @@
   "variante": false,
   "glosa_tagnt": "out/outside(r)",
   "caso_regido": null,
-  "caso_regido_ambiguo": "se interpone PREP (ἐν)"
+  "caso_regido_ambiguo": "se interpone PREP (ἐν)",
+  "ref_estandar": "Mark.4.11"
  },
  {
   "ref": "Mark.4.12",
@@ -159,7 +162,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "in order that/to"
+  "glosa_tagnt": "in order that/to",
+  "ref_estandar": "Mark.4.12"
  },
  {
   "ref": "Mark.4.13",
@@ -197,7 +201,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to know"
+  "glosa_tagnt": "to know",
+  "ref_estandar": "Mark.4.13"
  },
  {
   "ref": "Mark.4.17",
@@ -235,7 +240,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to cause to stumble"
+  "glosa_tagnt": "to cause to stumble",
+  "ref_estandar": "Mark.4.17"
  },
  {
   "ref": "Mark.4.19",
@@ -274,7 +280,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "desire"
+  "glosa_tagnt": "desire",
+  "ref_estandar": "Mark.4.19"
  },
  {
   "ref": "Mark.4.21",
@@ -313,7 +320,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lamp"
+  "glosa_tagnt": "lamp",
+  "ref_estandar": "Mark.4.21"
  },
  {
   "ref": "Mark.4.24",
@@ -351,7 +359,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "measure"
+  "glosa_tagnt": "measure",
+  "ref_estandar": "Mark.4.24"
  },
  {
   "ref": "Mark.4.28",
@@ -390,7 +399,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "by itself"
+  "glosa_tagnt": "by itself",
+  "ref_estandar": "Mark.4.28"
  },
  {
   "ref": "Mark.4.29",
@@ -428,7 +438,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sickle"
+  "glosa_tagnt": "sickle",
+  "ref_estandar": "Mark.4.29"
  },
  {
   "ref": "Mark.4.31",
@@ -467,7 +478,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mustard"
+  "glosa_tagnt": "mustard",
+  "ref_estandar": "Mark.4.31"
  },
  {
   "ref": "Mark.4.34",
@@ -505,7 +517,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to explain"
+  "glosa_tagnt": "to explain",
+  "ref_estandar": "Mark.4.34"
  },
  {
   "ref": "Mark.4.37",
@@ -544,7 +557,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "storm"
+  "glosa_tagnt": "storm",
+  "ref_estandar": "Mark.4.37"
  },
  {
   "ref": "Mark.4.38",
@@ -582,7 +596,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "cushion"
+  "glosa_tagnt": "cushion",
+  "ref_estandar": "Mark.4.38"
  },
  {
   "ref": "Mark.4.39",
@@ -621,7 +636,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to muzzle"
+  "glosa_tagnt": "to muzzle",
+  "ref_estandar": "Mark.4.39"
  },
  {
   "ref": "Mark.4.40",
@@ -660,7 +676,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "timid"
+  "glosa_tagnt": "timid",
+  "ref_estandar": "Mark.4.40"
  },
  {
   "ref": "Mark.4.41",
@@ -699,6 +716,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fear"
+  "glosa_tagnt": "fear",
+  "ref_estandar": "Mark.4.41"
  }
 ]

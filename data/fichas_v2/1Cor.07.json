@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to kindle"
+  "glosa_tagnt": "to kindle",
+  "ref_estandar": "1Cor.7.1"
  },
  {
   "ref": "1Cor.7.3",
@@ -77,7 +78,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "debt"
+  "glosa_tagnt": "debt",
+  "ref_estandar": "1Cor.7.3"
  },
  {
   "ref": "1Cor.7.7",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gift"
+  "glosa_tagnt": "gift",
+  "ref_estandar": "1Cor.7.7"
  },
  {
   "ref": "1Cor.7.10",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to order"
+  "glosa_tagnt": "to order",
+  "ref_estandar": "1Cor.7.10"
  },
  {
   "ref": "1Cor.7.12",
@@ -194,7 +198,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unbelieving"
+  "glosa_tagnt": "unbelieving",
+  "ref_estandar": "1Cor.7.12"
  },
  {
   "ref": "1Cor.7.15",
@@ -233,7 +238,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to enslave"
+  "glosa_tagnt": "to enslave",
+  "ref_estandar": "1Cor.7.15"
  },
  {
   "ref": "1Cor.7.17",
@@ -273,7 +279,8 @@
    "Treg"
   ],
   "variante": true,
-  "glosa_tagnt": "to divide"
+  "glosa_tagnt": "to divide",
+  "ref_estandar": "1Cor.7.17"
  },
  {
   "ref": "1Cor.7.21",
@@ -313,7 +320,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to use"
+  "glosa_tagnt": "to use",
+  "ref_estandar": "1Cor.7.21"
  },
  {
   "ref": "1Cor.7.22",
@@ -352,7 +360,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "freedman"
+  "glosa_tagnt": "freedman",
+  "ref_estandar": "1Cor.7.22"
  },
  {
   "ref": "1Cor.7.26",
@@ -391,7 +400,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "necessity"
+  "glosa_tagnt": "necessity",
+  "ref_estandar": "1Cor.7.26"
  },
  {
   "ref": "1Cor.7.29",
@@ -431,7 +441,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to wrap up"
+  "glosa_tagnt": "to wrap up",
+  "ref_estandar": "1Cor.7.29"
  },
  {
   "ref": "1Cor.7.31",
@@ -470,7 +481,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pass"
+  "glosa_tagnt": "to pass",
+  "ref_estandar": "1Cor.7.31"
  },
  {
   "ref": "1Cor.7.32",
@@ -509,7 +521,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "untroubled"
+  "glosa_tagnt": "untroubled",
+  "ref_estandar": "1Cor.7.32"
  },
  {
   "ref": "1Cor.7.36",
@@ -547,7 +560,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "virgin"
+  "glosa_tagnt": "virgin",
+  "ref_estandar": "1Cor.7.36"
  },
  {
   "ref": "1Cor.7.39",
@@ -586,6 +600,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to sleep"
+  "glosa_tagnt": "to sleep",
+  "ref_estandar": "1Cor.7.39"
  }
 ]

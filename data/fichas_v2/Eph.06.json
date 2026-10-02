@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to obey"
+  "glosa_tagnt": "to obey",
+  "ref_estandar": "Eph.6.1"
  },
  {
   "ref": "Eph.6.2",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to honor"
+  "glosa_tagnt": "to honor",
+  "ref_estandar": "Eph.6.2"
  },
  {
   "ref": "Eph.6.4",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to anger"
+  "glosa_tagnt": "to anger",
+  "ref_estandar": "Eph.6.4"
  },
  {
   "ref": "Eph.6.5",
@@ -156,7 +159,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "slave"
+  "glosa_tagnt": "slave",
+  "ref_estandar": "Eph.6.5"
  },
  {
   "ref": "Eph.6.9",
@@ -196,7 +200,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "favoritism"
+  "glosa_tagnt": "favoritism",
+  "ref_estandar": "Eph.6.9"
  },
  {
   "ref": "Eph.6.10",
@@ -235,7 +240,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to empower"
+  "glosa_tagnt": "to empower",
+  "ref_estandar": "Eph.6.10"
  },
  {
   "ref": "Eph.6.11",
@@ -275,7 +281,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "complete armor"
+  "glosa_tagnt": "complete armor",
+  "ref_estandar": "Eph.6.11"
  },
  {
   "ref": "Eph.6.12",
@@ -315,7 +322,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "world power"
+  "glosa_tagnt": "world power",
+  "ref_estandar": "Eph.6.12"
  },
  {
   "ref": "Eph.6.14",
@@ -354,7 +362,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to gird"
+  "glosa_tagnt": "to gird",
+  "ref_estandar": "Eph.6.14"
  },
  {
   "ref": "Eph.6.16",
@@ -393,7 +402,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "long shield"
+  "glosa_tagnt": "long shield",
+  "ref_estandar": "Eph.6.16"
  },
  {
   "ref": "Eph.6.17",
@@ -433,7 +443,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sword"
+  "glosa_tagnt": "sword",
+  "ref_estandar": "Eph.6.17"
  },
  {
   "ref": "Eph.6.18",
@@ -473,7 +484,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "prayer"
+  "glosa_tagnt": "prayer",
+  "ref_estandar": "Eph.6.18"
  },
  {
   "ref": "Eph.6.19",
@@ -512,7 +524,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "boldness"
+  "glosa_tagnt": "boldness",
+  "ref_estandar": "Eph.6.19"
  },
  {
   "ref": "Eph.6.20",
@@ -552,7 +565,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "chain"
+  "glosa_tagnt": "chain",
+  "ref_estandar": "Eph.6.20"
  },
  {
   "ref": "Eph.6.21",
@@ -592,7 +606,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Tychicus"
+  "glosa_tagnt": "Tychicus",
+  "ref_estandar": "Eph.6.21"
  },
  {
   "ref": "Eph.6.23",
@@ -631,7 +646,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "peace"
+  "glosa_tagnt": "peace",
+  "ref_estandar": "Eph.6.23"
  },
  {
   "ref": "Eph.6.24",
@@ -670,6 +686,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "incorruptibility"
+  "glosa_tagnt": "incorruptibility",
+  "ref_estandar": "Eph.6.24"
  }
 ]

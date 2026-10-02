@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be healthy"
+  "glosa_tagnt": "be healthy",
+  "ref_estandar": "Titus.2.1"
  },
  {
   "ref": "Titus.2.3",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "old woman"
+  "glosa_tagnt": "old woman",
+  "ref_estandar": "Titus.2.3"
  },
  {
   "ref": "Titus.2.5",
@@ -116,7 +118,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "working at home"
+  "glosa_tagnt": "working at home",
+  "ref_estandar": "Titus.2.5"
  },
  {
   "ref": "Titus.2.7",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mark/example"
+  "glosa_tagnt": "mark/example",
+  "ref_estandar": "Titus.2.7"
  },
  {
   "ref": "Titus.2.9",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "slave"
+  "glosa_tagnt": "slave",
+  "ref_estandar": "Titus.2.9"
  },
  {
   "ref": "Titus.2.11",
@@ -235,7 +240,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to appear"
+  "glosa_tagnt": "to appear",
+  "ref_estandar": "Titus.2.11"
  },
  {
   "ref": "Titus.2.13",
@@ -275,7 +281,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "savior"
+  "glosa_tagnt": "savior",
+  "ref_estandar": "Titus.2.13"
  },
  {
   "ref": "Titus.2.14",
@@ -315,6 +322,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "special"
+  "glosa_tagnt": "special",
+  "ref_estandar": "Titus.2.14"
  }
 ]

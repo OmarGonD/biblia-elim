@@ -17,7 +17,8 @@ def respuesta_valida(sol):
         out.append({"pos_tisch": w["pos"], "strong": w["strong"], "glosa_interlineal": "x",
                     "rango_semantico": ["a"], "construccion": ("caso %s" % w["caso_regido"][:5]) if w.get("caso_regido") else "c",
                     "sentido_en_contexto": None if basica else "s", "matiz": None,
-                    "variantes_textuales": "v" if marcada else None, "notas_traduccion": None, "otros_usos": None,
+                    "variantes_textuales": ("Tisch lee %s; las ediciones leen %s" % (w["forma"], w["lectura_tagnt"]["forma"])
+                                            if w.get("lectura_tagnt") else "v") if marcada else None, "notas_traduccion": None, "otros_usos": None,
                     "nivel_certeza": "medio" if "caso_regido_ambiguo" in w else "alto"})
     return out
 
@@ -138,27 +139,61 @@ class PipelineTest(unittest.TestCase):
     def test_ensamblar_con_versiones_pd(self):
         s = pipeline.solicitud(self.datos, "John.1.2")
         self.cache.put("John.1.2", respuesta_valida(s))
-        ver = {("John", 1, 2): [{"version": "V", "texto": "t"}]}
+        ver = {("John", 1, 2): [{"version": "V", "texto": "t"}]}   # clave en numeración estándar
         r = pipeline.ensamblar(self.datos, ["John.1.2"], "modelo-prueba", ver, self.cache,
                                os.path.join(self.tmp, "v3"))
         self.assertEqual(r, {"John.01": 7})
         with open(os.path.join(self.tmp, "v3", "John.01.json")) as fh:
             f = json.load(fh)
-        self.assertEqual(f[0]["traducciones_comparadas"], [{"version": "V", "texto": "t"}])
+        self.assertEqual(f[0]["traducciones_comparadas"], [{"version": "V", "ref": "John.1.2", "texto": "t"}])
+        self.assertEqual(f[0]["ref_estandar"], "John.1.2")
         self.assertEqual(f[2]["caso_regido"], "dativo")
         self.assertNotIn("glosa_tagnt", f[0])
 
-    def test_versiones_exactas(self):
+    def test_versiones_exactas_y_ocr(self):
         todo = pipeline.textos_versiones()
-        # sin heurística: el texto sale tal cual del módulo; los versículos con errores de OCR llevan aviso
+        # texto por la biblioteca SWORD, sin heurística; los versículos con restos de OCR llevan aviso
         self.assertEqual(todo[("John", 1, 2)][1]["texto"], "Él estaba en el principio en Dios f")
         self.assertIn("aviso", todo[("John", 1, 2)][1])
-        self.assertIn("aviso", todo[("John", 1, 3)][1])
         self.assertNotIn("aviso", todo[("John", 1, 1)][1])
         self.assertNotIn("aviso", todo[("John", 1, 1)][0])
-        v = todo[("John", 1, 1)]
-        self.assertEqual([x["version"] for x in v],
+        self.assertEqual([x["version"] for x in todo[("John", 1, 1)]],
                          ["La Santa Biblia Reina-Valera (1909)", "La Sagrada Biblia (Torres Amat)"])
+
+    def test_torres_amat_se_omite_en_versiculos_con_ocr(self):
+        v = self.datos.versiones("John.1.2")                 # TorresAmat trae «f» suelta: solo RV 1909
+        self.assertEqual([e["version"] for e in v], ["La Santa Biblia Reina-Valera (1909)"])
+        v = self.datos.versiones("John.1.1")
+        self.assertEqual(len(v), 2)
+
+    def test_numeracion_estandar_de_jn_1_39_51(self):
+        d = self.datos
+        self.assertEqual(d.std_refs("John.1.39"), ["John.1.38"])
+        self.assertEqual(d.std_refs("John.1.40"), ["John.1.39"])
+        self.assertEqual(d.std_refs("John.1.51"), ["John.1.50", "John.1.51"])
+        v = {e["ref"]: e["texto"] for e in d.versiones("John.1.40") if "Reina" in e["version"]}
+        self.assertTrue(v["John.1.39"].startswith("Díceles: Venid y ved"))     # no el 1:40 de la RV 1909
+
+    def test_torres_amat_se_mapea_de_vulgata_a_estandar(self):
+        todo = pipeline.textos_versiones()
+        ta = [e for e in todo[("Mark", 9, 50)] if "Torres" in e["version"]][0]["texto"]
+        self.assertTrue(ta.startswith("La sal de suyo es buena"))             # KJV 9:50 = Vulg 9:49
+        self.assertEqual(todo[("Rev", 13, 1)][1]["texto"][:20], "Y apostóse sobre la ")
+
+    def test_jn_8_12_53_excluido(self):
+        self.assertFalse(any(r.startswith("John.8.") and 12 <= int(r.split(".")[2]) <= 53
+                             for r in self.datos.versiculos("John")))
+        with self.assertRaises(ValueError):
+            pipeline.solicitud(self.datos, "John.8.53")
+
+    def test_lectura_de_tisch_debe_decirlo(self):
+        s = pipeline.solicitud(self.datos, "John.1.4")
+        self.assertTrue(s["palabras"][3]["lectura_tagnt"]["propia_de_tisch"])
+        ok = respuesta_valida(s)
+        ok[3]["variantes_textuales"] = "Tisch lee ἐστιν; todas las ediciones leen ἦν."
+        self.assertEqual(pipeline.validar(ok, s), [])
+        ok[3]["variantes_textuales"] = "Hay otra lectura."
+        self.assertTrue(pipeline.validar(ok, s))
 
 
 if __name__ == "__main__":

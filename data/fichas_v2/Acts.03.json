@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ninth (hour)"
+  "glosa_tagnt": "ninth (hour)",
+  "ref_estandar": "Acts.3.1"
  },
  {
   "ref": "Acts.3.2",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "beautiful/timely"
+  "glosa_tagnt": "beautiful/timely",
+  "ref_estandar": "Acts.3.2"
  },
  {
   "ref": "Acts.3.6",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "money"
+  "glosa_tagnt": "money",
+  "ref_estandar": "Acts.3.6"
  },
  {
   "ref": "Acts.3.8",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to spring"
+  "glosa_tagnt": "to spring",
+  "ref_estandar": "Acts.3.8"
  },
  {
   "ref": "Acts.3.13",
@@ -192,7 +196,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "child"
+  "glosa_tagnt": "child",
+  "ref_estandar": "Acts.3.13"
  },
  {
   "ref": "Acts.3.14",
@@ -231,7 +236,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "just"
+  "glosa_tagnt": "just",
+  "ref_estandar": "Acts.3.14"
  },
  {
   "ref": "Acts.3.15",
@@ -270,7 +276,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "founder"
+  "glosa_tagnt": "founder",
+  "ref_estandar": "Acts.3.15"
  },
  {
   "ref": "Acts.3.16",
@@ -309,7 +316,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wholeness"
+  "glosa_tagnt": "wholeness",
+  "ref_estandar": "Acts.3.16"
  },
  {
   "ref": "Acts.3.17",
@@ -349,7 +357,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ignorance"
+  "glosa_tagnt": "ignorance",
+  "ref_estandar": "Acts.3.17"
  },
  {
   "ref": "Acts.3.18",
@@ -389,7 +398,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to foretell"
+  "glosa_tagnt": "to foretell",
+  "ref_estandar": "Acts.3.18"
  },
  {
   "ref": "Acts.3.19",
@@ -428,7 +438,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to blot out"
+  "glosa_tagnt": "to blot out",
+  "ref_estandar": "Acts.3.19"
  },
  {
   "ref": "Acts.3.21",
@@ -468,7 +479,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "restoration"
+  "glosa_tagnt": "restoration",
+  "ref_estandar": "Acts.3.21"
  },
  {
   "ref": "Acts.3.22",
@@ -508,7 +520,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "prophet"
+  "glosa_tagnt": "prophet",
+  "ref_estandar": "Acts.3.22"
  },
  {
   "ref": "Acts.3.25",
@@ -547,7 +560,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "covenant"
+  "glosa_tagnt": "covenant",
+  "ref_estandar": "Acts.3.25"
  },
  {
   "ref": "Acts.3.26",
@@ -586,6 +600,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to turn away"
+  "glosa_tagnt": "to turn away",
+  "ref_estandar": "Acts.3.26"
  }
 ]

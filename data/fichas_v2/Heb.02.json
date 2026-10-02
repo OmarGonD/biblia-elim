@@ -36,7 +36,8 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "to drift away"
+  "glosa_tagnt": "to drift away",
+  "ref_estandar": "Heb.2.1"
  },
  {
   "ref": "Heb.2.2",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "transgression"
+  "glosa_tagnt": "transgression",
+  "ref_estandar": "Heb.2.2"
  },
  {
   "ref": "Heb.2.3",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "salvation"
+  "glosa_tagnt": "salvation",
+  "ref_estandar": "Heb.2.3"
  },
  {
   "ref": "Heb.2.6",
@@ -156,7 +159,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "son"
+  "glosa_tagnt": "son",
+  "ref_estandar": "Heb.2.6"
  },
  {
   "ref": "Heb.2.9",
@@ -196,7 +200,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to taste"
+  "glosa_tagnt": "to taste",
+  "ref_estandar": "Heb.2.9"
  },
  {
   "ref": "Heb.2.10",
@@ -235,7 +240,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "founder"
+  "glosa_tagnt": "founder",
+  "ref_estandar": "Heb.2.10"
  },
  {
   "ref": "Heb.2.14",
@@ -275,7 +281,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to abate"
+  "glosa_tagnt": "to abate",
+  "ref_estandar": "Heb.2.14"
  },
  {
   "ref": "Heb.2.17",
@@ -315,7 +322,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to propitiate"
+  "glosa_tagnt": "to propitiate",
+  "ref_estandar": "Heb.2.17"
  },
  {
   "ref": "Heb.2.18",
@@ -355,6 +363,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to test/tempt"
+  "glosa_tagnt": "to test/tempt",
+  "ref_estandar": "Heb.2.18"
  }
 ]

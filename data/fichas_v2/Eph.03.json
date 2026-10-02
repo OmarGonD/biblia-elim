@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "prisoner"
+  "glosa_tagnt": "prisoner",
+  "ref_estandar": "Eph.3.1"
  },
  {
   "ref": "Eph.3.3",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mystery"
+  "glosa_tagnt": "mystery",
+  "ref_estandar": "Eph.3.3"
  },
  {
   "ref": "Eph.3.5",
@@ -115,7 +117,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to reveal"
+  "glosa_tagnt": "to reveal",
+  "ref_estandar": "Eph.3.5"
  },
  {
   "ref": "Eph.3.6",
@@ -154,7 +157,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "co-heir"
+  "glosa_tagnt": "co-heir",
+  "ref_estandar": "Eph.3.6"
  },
  {
   "ref": "Eph.3.8",
@@ -194,7 +198,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unsearchable"
+  "glosa_tagnt": "unsearchable",
+  "ref_estandar": "Eph.3.8"
  },
  {
   "ref": "Eph.3.10",
@@ -234,7 +239,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "beginning"
+  "glosa_tagnt": "beginning",
+  "ref_estandar": "Eph.3.10"
  },
  {
   "ref": "Eph.3.12",
@@ -273,7 +279,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "boldness"
+  "glosa_tagnt": "boldness",
+  "ref_estandar": "Eph.3.12"
  },
  {
   "ref": "Eph.3.14",
@@ -312,7 +319,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to bend/bow"
+  "glosa_tagnt": "to bend/bow",
+  "ref_estandar": "Eph.3.14"
  },
  {
   "ref": "Eph.3.15",
@@ -350,7 +358,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "family line"
+  "glosa_tagnt": "family line",
+  "ref_estandar": "Eph.3.15"
  },
  {
   "ref": "Eph.3.16",
@@ -389,7 +398,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to strengthen"
+  "glosa_tagnt": "to strengthen",
+  "ref_estandar": "Eph.3.16"
  },
  {
   "ref": "Eph.3.17",
@@ -429,7 +439,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to dwell"
+  "glosa_tagnt": "to dwell",
+  "ref_estandar": "Eph.3.17"
  },
  {
   "ref": "Eph.3.18",
@@ -468,7 +479,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "width"
+  "glosa_tagnt": "width",
+  "ref_estandar": "Eph.3.18"
  },
  {
   "ref": "Eph.3.19",
@@ -508,7 +520,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fulfillment"
+  "glosa_tagnt": "fulfillment",
+  "ref_estandar": "Eph.3.19"
  },
  {
   "ref": "Eph.3.20",
@@ -548,6 +561,7 @@
   "ausente_en": [],
   "variante": false,
   "glosa_tagnt": "above/for + ἐκ=out from + περισσῶς=more-abundantly",
-  "caso_regido": "genitivo"
+  "caso_regido": "genitivo",
+  "ref_estandar": "Eph.3.20"
  }
 ]

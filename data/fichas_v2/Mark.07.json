@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "common"
+  "glosa_tagnt": "common",
+  "ref_estandar": "Mark.7.2"
  },
  {
   "ref": "Mark.7.4",
@@ -77,7 +78,8 @@
    "WH"
   ],
   "variante": true,
-  "glosa_tagnt": "to baptize"
+  "glosa_tagnt": "to baptize",
+  "ref_estandar": "Mark.7.4"
  },
  {
   "ref": "Mark.7.11",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Corban"
+  "glosa_tagnt": "Corban",
+  "ref_estandar": "Mark.7.11"
  },
  {
   "ref": "Mark.7.15",
@@ -157,7 +160,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to profane"
+  "glosa_tagnt": "to profane",
+  "ref_estandar": "Mark.7.15"
  },
  {
   "ref": "Mark.7.15",
@@ -198,7 +202,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to profane"
+  "glosa_tagnt": "to profane",
+  "ref_estandar": "Mark.7.15"
  },
  {
   "ref": "Mark.7.19",
@@ -239,7 +244,8 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "to clean"
+  "glosa_tagnt": "to clean",
+  "ref_estandar": "Mark.7.19"
  },
  {
   "ref": "Mark.7.22",
@@ -279,7 +285,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "greediness"
+  "glosa_tagnt": "greediness",
+  "ref_estandar": "Mark.7.22"
  },
  {
   "ref": "Mark.7.22",
@@ -318,7 +325,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "eye"
+  "glosa_tagnt": "eye",
+  "ref_estandar": "Mark.7.22"
  },
  {
   "ref": "Mark.7.26",
@@ -356,7 +364,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Greek woman"
+  "glosa_tagnt": "Greek woman",
+  "ref_estandar": "Mark.7.26"
  },
  {
   "ref": "Mark.7.27",
@@ -395,7 +404,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to feed"
+  "glosa_tagnt": "to feed",
+  "ref_estandar": "Mark.7.27"
  },
  {
   "ref": "Mark.7.29",
@@ -433,7 +443,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "word"
+  "glosa_tagnt": "word",
+  "ref_estandar": "Mark.7.29"
  },
  {
   "ref": "Mark.7.32",
@@ -471,7 +482,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hardly talking"
+  "glosa_tagnt": "hardly talking",
+  "ref_estandar": "Mark.7.32"
  },
  {
   "ref": "Mark.7.34",
@@ -509,7 +521,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to groan"
+  "glosa_tagnt": "to groan",
+  "ref_estandar": "Mark.7.34"
  },
  {
   "ref": "Mark.7.34",
@@ -548,7 +561,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "open!"
+  "glosa_tagnt": "open!",
+  "ref_estandar": "Mark.7.34"
  },
  {
   "ref": "Mark.7.37",
@@ -589,6 +603,7 @@
   "variante": false,
   "glosa_tagnt": "above/for + περισσῶς=more-abundantly",
   "caso_regido": null,
-  "caso_regido_ambiguo": "se interpone V (ἐξεπλήσσοντο)"
+  "caso_regido_ambiguo": "se interpone V (ἐξεπλήσσοντο)",
+  "ref_estandar": "Mark.7.37"
  }
 ]

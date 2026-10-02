@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "elder"
+  "glosa_tagnt": "elder",
+  "ref_estandar": "2John.1.1"
  },
  {
   "ref": "2John.1.5",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "new"
+  "glosa_tagnt": "new",
+  "ref_estandar": "2John.1.5"
  },
  {
   "ref": "2John.1.7",
@@ -115,7 +117,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "deceiving"
+  "glosa_tagnt": "deceiving",
+  "ref_estandar": "2John.1.7"
  },
  {
   "ref": "2John.1.9",
@@ -155,7 +158,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to go/bring before"
+  "glosa_tagnt": "to go/bring before",
+  "ref_estandar": "2John.1.9"
  },
  {
   "ref": "2John.1.10",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to bear/lead"
+  "glosa_tagnt": "to bear/lead",
+  "ref_estandar": "2John.1.10"
  },
  {
   "ref": "2John.1.12",
@@ -234,6 +239,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "paper"
+  "glosa_tagnt": "paper",
+  "ref_estandar": "2John.1.12"
  }
 ]

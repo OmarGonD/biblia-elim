@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Sabbath"
+  "glosa_tagnt": "Sabbath",
+  "ref_estandar": "John.20.1"
  },
  {
   "ref": "John.20.2",
@@ -74,7 +75,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to love"
+  "glosa_tagnt": "to love",
+  "ref_estandar": "John.20.2"
  },
  {
   "ref": "John.20.7",
@@ -113,7 +115,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "handkerchief"
+  "glosa_tagnt": "handkerchief",
+  "ref_estandar": "John.20.7"
  },
  {
   "ref": "John.20.8",
@@ -152,7 +155,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to trust (in)"
+  "glosa_tagnt": "to trust (in)",
+  "ref_estandar": "John.20.8"
  },
  {
   "ref": "John.20.9",
@@ -191,7 +195,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "a writing"
+  "glosa_tagnt": "a writing",
+  "ref_estandar": "John.20.9"
  },
  {
   "ref": "John.20.12",
@@ -230,7 +235,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "angel"
+  "glosa_tagnt": "angel",
+  "ref_estandar": "John.20.12"
  },
  {
   "ref": "John.20.15",
@@ -269,7 +275,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gardener"
+  "glosa_tagnt": "gardener",
+  "ref_estandar": "John.20.15"
  },
  {
   "ref": "John.20.16",
@@ -308,7 +315,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Rabboni"
+  "glosa_tagnt": "Rabboni",
+  "ref_estandar": "John.20.16"
  },
  {
   "ref": "John.20.17",
@@ -347,7 +355,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to kindle"
+  "glosa_tagnt": "to kindle",
+  "ref_estandar": "John.20.17"
  },
  {
   "ref": "John.20.17",
@@ -386,7 +395,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "brother"
+  "glosa_tagnt": "brother",
+  "ref_estandar": "John.20.17"
  },
  {
   "ref": "John.20.19",
@@ -425,7 +435,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "peace"
+  "glosa_tagnt": "peace",
+  "ref_estandar": "John.20.19"
  },
  {
   "ref": "John.20.21",
@@ -464,7 +475,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to send"
+  "glosa_tagnt": "to send",
+  "ref_estandar": "John.20.21"
  },
  {
   "ref": "John.20.22",
@@ -504,7 +516,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to breathe into"
+  "glosa_tagnt": "to breathe into",
+  "ref_estandar": "John.20.22"
  },
  {
   "ref": "John.20.23",
@@ -545,7 +558,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to release"
+  "glosa_tagnt": "to release",
+  "ref_estandar": "John.20.23"
  },
  {
   "ref": "John.20.25",
@@ -584,7 +598,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mark/example"
+  "glosa_tagnt": "mark/example",
+  "ref_estandar": "John.20.25"
  },
  {
   "ref": "John.20.28",
@@ -624,7 +639,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "God"
+  "glosa_tagnt": "God",
+  "ref_estandar": "John.20.28"
  },
  {
   "ref": "John.20.29",
@@ -663,7 +679,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "blessed"
+  "glosa_tagnt": "blessed",
+  "ref_estandar": "John.20.29"
  },
  {
   "ref": "John.20.30",
@@ -702,7 +719,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sign"
+  "glosa_tagnt": "sign",
+  "ref_estandar": "John.20.30"
  },
  {
   "ref": "John.20.31",
@@ -743,6 +761,7 @@
    "WH"
   ],
   "variante": true,
-  "glosa_tagnt": "to trust (in)"
+  "glosa_tagnt": "to trust (in)",
+  "ref_estandar": "John.20.31"
  }
 ]

@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "immediately"
+  "glosa_tagnt": "immediately",
+  "ref_estandar": "Mark.15.1"
  },
  {
   "ref": "Mark.15.7",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "insurrectionist"
+  "glosa_tagnt": "insurrectionist",
+  "ref_estandar": "Mark.15.7"
  },
  {
   "ref": "Mark.15.10",
@@ -113,7 +115,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "envy"
+  "glosa_tagnt": "envy",
+  "ref_estandar": "Mark.15.10"
  },
  {
   "ref": "Mark.15.15",
@@ -152,7 +155,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sufficient"
+  "glosa_tagnt": "sufficient",
+  "ref_estandar": "Mark.15.15"
  },
  {
   "ref": "Mark.15.16",
@@ -191,7 +195,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "praetorium"
+  "glosa_tagnt": "praetorium",
+  "ref_estandar": "Mark.15.16"
  },
  {
   "ref": "Mark.15.17",
@@ -229,7 +234,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "purple cloth"
+  "glosa_tagnt": "purple cloth",
+  "ref_estandar": "Mark.15.17"
  },
  {
   "ref": "Mark.15.21",
@@ -268,7 +274,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to force"
+  "glosa_tagnt": "to force",
+  "ref_estandar": "Mark.15.21"
  },
  {
   "ref": "Mark.15.23",
@@ -307,7 +314,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to mix with myrrh"
+  "glosa_tagnt": "to mix with myrrh",
+  "ref_estandar": "Mark.15.23"
  },
  {
   "ref": "Mark.15.25",
@@ -346,7 +354,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "third"
+  "glosa_tagnt": "third",
+  "ref_estandar": "Mark.15.25"
  },
  {
   "ref": "Mark.15.26",
@@ -385,7 +394,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "cause/charge"
+  "glosa_tagnt": "cause/charge",
+  "ref_estandar": "Mark.15.26"
  },
  {
   "ref": "Mark.15.34",
@@ -424,7 +434,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to leave behind"
+  "glosa_tagnt": "to leave behind",
+  "ref_estandar": "Mark.15.34"
  },
  {
   "ref": "Mark.15.37",
@@ -463,7 +474,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to expire"
+  "glosa_tagnt": "to expire",
+  "ref_estandar": "Mark.15.37"
  },
  {
   "ref": "Mark.15.38",
@@ -502,7 +514,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to split"
+  "glosa_tagnt": "to split",
+  "ref_estandar": "Mark.15.38"
  },
  {
   "ref": "Mark.15.39",
@@ -541,7 +554,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "centurion"
+  "glosa_tagnt": "centurion",
+  "ref_estandar": "Mark.15.39"
  },
  {
   "ref": "Mark.15.41",
@@ -580,7 +594,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to serve"
+  "glosa_tagnt": "to serve",
+  "ref_estandar": "Mark.15.41"
  },
  {
   "ref": "Mark.15.43",
@@ -619,7 +634,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "proper"
+  "glosa_tagnt": "proper",
+  "ref_estandar": "Mark.15.43"
  },
  {
   "ref": "Mark.15.45",
@@ -657,6 +673,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to give"
+  "glosa_tagnt": "to give",
+  "ref_estandar": "Mark.15.45"
  }
 ]

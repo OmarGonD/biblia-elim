@@ -18,7 +18,7 @@ Uso:
   pipeline.py batch-import resultados.jsonl --modelo claude-sonnet-5-5
   pipeline.py ensamblar John.1 --modelo manual-claude-sonnet-5-5
 """
-import argparse, glob, hashlib, json, os, re, sys, time
+import argparse, collections, glob, hashlib, json, os, re, subprocess, sys, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import alinear, contexto, tagnt
 
@@ -34,6 +34,14 @@ BASICAS = {"G3588", "G2532", "G1161", "G1063"}
 CAMPOS_BASICOS = {"pos_tisch", "strong", "glosa_interlineal", "rango_semantico", "construccion", "nivel_certeza"}
 RE_VERSIONES = re.compile(r"\b(RVR\s?-?\s?\d*|Reina[- ]Valera\s*1960|NVI|LBLA|NTV|DHH|KJV|NIV|ESV|NASB|BJ)\b")
 VERSIONES = [("SpaRV", "sparv"), ("TorresAmat", "torresamat")]   # ambas de dominio público
+# Rango del módulo Tisch que no se genera: el módulo oficial lo entrega roto (data/sources/NOTAS_TISCH.md)
+EXCLUIDOS = [("John", 8, 12, 53)]
+UMBRAL_STD = 0.25     # una palabra aporta una ref estándar al versículo si ≥25 % de sus palabras caen en ella
+
+
+def excluido(ref):
+    o, c, v = ref.split(".")
+    return any(o == eo and int(c) == ec and ev0 <= int(v) <= ev1 for eo, ec, ev0, ev1 in EXCLUIDOS)
 
 
 def prompt_texto():
@@ -59,17 +67,44 @@ class Datos:
             self.por_clave[p.clave] = p
 
     def versiculos(self, prefijo):
-        """Refs 'John.1.1' que empiezan por 'John', 'John.1' o 'John.1.1' (versificación Tisch)."""
+        """Refs 'John.1.1' que empiezan por 'John', 'John.1' o 'John.1.1' (versificación Tisch), sin los excluidos."""
         refs = ["%s.%d.%d" % k for k in sorted(self.tisch)]
         if prefijo.count(".") == 2:
-            return [prefijo] if prefijo in refs else []
-        return [r for r in refs if r.startswith(prefijo + ".")]
+            refs = [prefijo] if prefijo in refs else []
+        else:
+            refs = [r for r in refs if r.startswith(prefijo + ".")]
+        return [r for r in refs if not excluido(r)]
 
-    def versiones(self, k):
-        if getattr(self, "_versiones", None) is None:
-            self._versiones = textos_versiones()
-        return [{"version": e["version"], "texto": e["texto"]} for e in self._versiones.get(k, [])
-                if "aviso" not in e]
+    # ---- numeración estándar (KJV, la de SpaRV): el módulo Tisch numera distinto en algunos pasajes
+    def ref_estandar_clave(self, clave):
+        return self.por_clave[clave].ref_estandar if clave else None
+
+    def std_refs(self, ref):
+        """Lista ordenada de refs estándar a las que corresponde un versículo del módulo Tisch."""
+        cnt = collections.Counter()
+        for _, clave, _ in self.al[ref]:
+            if clave:
+                cnt[self.ref_estandar_clave(clave)] += 1
+        tot = sum(cnt.values())
+        refs = sorted((r for r, n in cnt.items() if tot and n / tot >= UMBRAL_STD),
+                      key=lambda r: tuple(int(x) if x.isdigit() else x for x in r.split(".")))
+        return refs or [ref]
+
+    def versiones(self, ref, textos=None):
+        """Textos de SpaRV y TorresAmat en la numeración estándar para un versículo del módulo Tisch:
+        [{version, ref, texto}]. TorresAmat se omite si el versículo trae marcas de OCR."""
+        if textos is None:
+            if getattr(self, "_versiones", None) is None:
+                self._versiones = textos_versiones()
+            textos = self._versiones
+        out = []
+        for r in self.std_refs(ref):
+            o, c, v = r.split(".")
+            for e in textos.get((o, int(c), int(v)), []):
+                if "aviso" in e:
+                    continue
+                out.append({"version": e["version"], "ref": r, "texto": e["texto"]})
+        return out
 
     def texto(self, k):
         return " ".join(t["forma"] for t in self.tisch[k]) if k in self.tisch else None
@@ -90,6 +125,8 @@ def _marcada(w):
 
 
 def solicitud(datos, ref):
+    if excluido(ref):
+        raise ValueError("%s está excluido (defecto del módulo Tisch, ver NOTAS_TISCH.md)" % ref)
     o, c, v = ref.split(".")
     k = (o, int(c), int(v))
     al = {x[0]: x for x in datos.al[ref]}
@@ -111,6 +148,8 @@ def solicitud(datos, ref):
             if distinta:
                 # Tisch lee otra cosa que el TAGNT: `ediciones` son las que leen la forma del TAGNT, no la de Tisch
                 w["lectura_tagnt"] = {"forma": p.griego.strip(".,;·¶ "), "ediciones": inf["ediciones"]}
+                if len(inf["ediciones"]) == len(tagnt.EDICIONES):
+                    w["lectura_tagnt"]["propia_de_tisch"] = True   # ninguna edición del TAGNT lee lo que lee Tisch
             elif inf["variante"]:                     # solo se envían cuando hay algo que decir
                 w.update({"variante": True, "ediciones": inf["ediciones"], "ausente_en": inf["ausente_en"]})
             if not p.en("NA28") and not distinta:
@@ -126,7 +165,7 @@ def solicitud(datos, ref):
            "anterior": datos.texto((o, int(c), int(v) - 1)), "siguiente": datos.texto((o, int(c), int(v) + 1)),
            "palabras": palabras}
     if any(_marcada(w) for w in palabras):       # solo en versículos con variantes: lo único que se puede citar
-        sol["textos_pd"] = datos.versiones(k)
+        sol["textos_pd"] = datos.versiones(ref)
     return sol
 
 
@@ -151,6 +190,11 @@ def validar(cards, sol):
         marcada = _marcada(w)
         if marcada and not c["variantes_textuales"]:
             errores.append("%s: falta variantes_textuales (variante, lectura distinta o ausente en NA28)" % ident)
+        lt = w.get("lectura_tagnt")
+        if lt and c["variantes_textuales"] and ("Tisch" not in c["variantes_textuales"]
+                                                 or alinear.norm(lt["forma"]) not in alinear.norm(c["variantes_textuales"])):
+            errores.append("%s: variantes_textuales debe decir que es lectura de Tischendorf y qué leen las demás ediciones (%s)"
+                           % (ident, lt["forma"]))
         if not marcada and c["variantes_textuales"]:
             errores.append("%s: variantes_textuales sin variante en el TAGNT" % ident)
         if "caso_regido_ambiguo" in w and c["nivel_certeza"] == "alto":
@@ -301,44 +345,66 @@ RE_OCR = re.compile(r"(?:(?<=\s)|^)([$%£/=+\]\[|]|[bcdfghjklmnpqrstvwxzBCDFGHJK
 AVISO_OCR = "El módulo SWORD trae caracteres sueltos que parecen errores de OCR en este versículo; el texto se muestra sin corregir."
 
 
-def _texto_plano(t):
-    """Equivalente a stripText de SWORD (sin notas ni marcado): quita etiquetas y normaliza espacios.
-    No corrige el contenido: los errores de OCR de TorresAmat son texto literal del módulo."""
-    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", t)).strip()
+SWORDTEXT_FUENTE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "swordtext.cc")
+SWORDTEXT_BIN = os.path.join(RAIZ, ".cache", "swordtext")
+
+
+def swordtext_bin():
+    """Compila (una vez) tools/tagnt/swordtext.cc contra libsword. Requiere g++ y los headers de SWORD."""
+    if (not os.path.exists(SWORDTEXT_BIN)
+            or os.path.getmtime(SWORDTEXT_BIN) < os.path.getmtime(SWORDTEXT_FUENTE)):
+        os.makedirs(os.path.dirname(SWORDTEXT_BIN), exist_ok=True)
+        subprocess.run(["g++", "-O2", "-I/usr/include/sword", "-o", SWORDTEXT_BIN, SWORDTEXT_FUENTE, "-lsword"],
+                       check=True)
+    return SWORDTEXT_BIN
+
+
+def refs_kjv_nt():
+    """Todas las refs OSIS del NT en numeración KJV (la de SpaRV)."""
+    out = subprocess.run(["mod2imp", "SpaRV"], capture_output=True, check=True).stdout.decode("utf-8", "replace")
+    refs = []
+    for linea in out.splitlines():
+        m = re.match(r"\$\$\$(.+) (\d+):(\d+)$", linea)
+        o = alinear.SWORD_A_OSIS.get(m[1]) if m else None
+        if o and int(m[2]) > 0 and int(m[3]) > 0:
+            refs.append("%s.%d.%d" % (o, int(m[2]), int(m[3])))
+    return refs
 
 
 def textos_versiones():
-    """{(osis, cap, ver): [{version, texto}]} con SpaRV y TorresAmat y el nombre EXACTO del módulo."""
-    import subprocess
+    """{(osis, cap, ver) en numeración estándar KJV: [{version, texto, aviso?}]} de SpaRV y TorresAmat.
+    El texto sale de la biblioteca SWORD (filtro de texto plano, sin notas) y TorresAmat (Vulg) se mapea a KJV
+    con el mapeo de SWORD. Nombre de versión EXACTO del módulo. `aviso` marca versículos con restos de OCR."""
+    refs = refs_kjv_nt()
+    entrada = ("\n".join(refs) + "\n").encode("utf-8")
     res = {}
     for modulo, conf in VERSIONES:
         ruta = os.path.expanduser("~/.sword/mods.d/%s.conf" % conf)
-        desc = re.search(r"^Description=(.*)$", open(ruta, encoding="utf-8").read(), re.M)[1].strip()
-        out = subprocess.run(["mod2imp", modulo], capture_output=True, check=True).stdout.decode("utf-8", "replace")
-        actual = None
-        for linea in out.splitlines():
-            m = re.match(r"\$\$\$(.+) (\d+):(\d+)$", linea)
-            if m:
-                o = alinear.SWORD_A_OSIS.get(m[1])
-                actual = (o, int(m[2]), int(m[3])) if o else None
-            elif actual and linea.strip():
-                res.setdefault(actual, []).append({"version": desc, "texto": _texto_plano(linea)})
-    for k, lista in res.items():
-        por = {}
-        for x in lista:
-            por.setdefault(x["version"], []).append(x["texto"])
-        res[k] = []
-        for v, t in por.items():
-            e = {"version": v, "texto": " ".join(t)}
-            if RE_OCR.search(e["texto"]):
+        with open(ruta, encoding="utf-8") as fh:
+            desc = re.search(r"^Description=(.*)$", fh.read(), re.M)[1].strip()
+        out = subprocess.run([swordtext_bin(), modulo], input=entrada, capture_output=True, check=True)
+        for linea in out.stdout.decode("utf-8").splitlines():
+            ref, _, texto = linea.split("\t", 2) if linea.count("\t") >= 2 else (linea, "", "")
+            texto = re.sub(r"\s+", " ", texto).strip()
+            if not texto:
+                continue
+            o, c, v = ref.split(".")
+            e = {"version": desc, "texto": texto}
+            if RE_OCR.search(texto):
                 e["aviso"] = AVISO_OCR
-            res[k].append(e)
+            res.setdefault((o, int(c), int(v)), []).append(e)
     return res
+
+
+def estadistica_ocr(textos=None):
+    """(versículos con TorresAmat, con marca de OCR) sobre el NT en numeración estándar."""
+    textos = textos or textos_versiones()
+    con = [e for lista in textos.values() for e in lista if "Torres" in e["version"]]
+    return len(con), sum(1 for e in con if "aviso" in e)
 
 
 def ensamblar(datos, refs, modelo, versiones=None, cache=None, salida_dir=None):
     cache = cache or Cache(modelo)
-    versiones = versiones if versiones is not None else textos_versiones()
     salida = {}
     for ref in refs:
         cards = cache.get(ref)
@@ -347,6 +413,7 @@ def ensamblar(datos, refs, modelo, versiones=None, cache=None, salida_dir=None):
         sol = solicitud(datos, ref)
         o, c, v = ref.split(".")
         al = {x[0]: x for x in datos.al[ref]}
+        std_verso, comparadas = datos.std_refs(ref)[0], datos.versiones(ref, versiones) or None
         for card, w in zip(cards, sol["palabras"]):
             f = {"ref": ref, "pos_tisch": w["pos"], "strong": w["strong"], "forma": w["forma"], "lema": w["lema"]}
             f.update({k: card[k] for k in ("glosa_interlineal", "rango_semantico", "construccion",
@@ -362,10 +429,12 @@ def ensamblar(datos, refs, modelo, versiones=None, cache=None, salida_dir=None):
                     f["no_en_na28"] = True
                 if w.get("lectura_tagnt"):
                     f["lectura_tagnt"] = w["lectura_tagnt"]
+                    f["lectura_tisch_propia"] = bool(w["lectura_tagnt"].get("propia_de_tisch"))
                     f.pop("variante", None); f.pop("ausente_en", None); f.pop("no_en_na28", None)
             else:
                 f["tagnt"], f["revisar_tagnt"] = None, True
-            f["traducciones_comparadas"] = versiones.get((o, int(c), int(v)))
+            f["ref_estandar"] = datos.ref_estandar_clave(clave) or std_verso
+            f["traducciones_comparadas"] = comparadas
             f["modelo"] = modelo
             salida.setdefault("%s.%02d" % (o, int(c)), []).append(f)
     destino = salida_dir or SALIDA

@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "prisoner"
+  "glosa_tagnt": "prisoner",
+  "ref_estandar": "Phlm.1.1"
  },
  {
   "ref": "Phlm.1.6",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "participation"
+  "glosa_tagnt": "participation",
+  "ref_estandar": "Phlm.1.6"
  },
  {
   "ref": "Phlm.1.9",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to plead/comfort"
+  "glosa_tagnt": "to plead/comfort",
+  "ref_estandar": "Phlm.1.9"
  },
  {
   "ref": "Phlm.1.10",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Onesimus"
+  "glosa_tagnt": "Onesimus",
+  "ref_estandar": "Phlm.1.10"
  },
  {
   "ref": "Phlm.1.15",
@@ -192,7 +196,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to separate/leave"
+  "glosa_tagnt": "to separate/leave",
+  "ref_estandar": "Phlm.1.15"
  },
  {
   "ref": "Phlm.1.16",
@@ -233,7 +238,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "slave"
+  "glosa_tagnt": "slave",
+  "ref_estandar": "Phlm.1.16"
  },
  {
   "ref": "Phlm.1.16",
@@ -274,7 +280,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "slave"
+  "glosa_tagnt": "slave",
+  "ref_estandar": "Phlm.1.16"
  },
  {
   "ref": "Phlm.1.17",
@@ -313,7 +320,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "participant"
+  "glosa_tagnt": "participant",
+  "ref_estandar": "Phlm.1.17"
  },
  {
   "ref": "Phlm.1.18",
@@ -352,7 +360,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to charge"
+  "glosa_tagnt": "to charge",
+  "ref_estandar": "Phlm.1.18"
  },
  {
   "ref": "Phlm.1.21",
@@ -391,7 +400,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "obedience"
+  "glosa_tagnt": "obedience",
+  "ref_estandar": "Phlm.1.21"
  },
  {
   "ref": "Phlm.1.24",
@@ -430,6 +440,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Luke"
+  "glosa_tagnt": "Luke",
+  "ref_estandar": "Phlm.1.24"
  }
 ]

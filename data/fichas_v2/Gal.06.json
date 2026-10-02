@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to take beforehand"
+  "glosa_tagnt": "to take beforehand",
+  "ref_estandar": "Gal.6.1"
  },
  {
   "ref": "Gal.6.2",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "burden"
+  "glosa_tagnt": "burden",
+  "ref_estandar": "Gal.6.2"
  },
  {
   "ref": "Gal.6.5",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "burden"
+  "glosa_tagnt": "burden",
+  "ref_estandar": "Gal.6.5"
  },
  {
   "ref": "Gal.6.7",
@@ -156,7 +159,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to mock"
+  "glosa_tagnt": "to mock",
+  "ref_estandar": "Gal.6.7"
  },
  {
   "ref": "Gal.6.8",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "corruption"
+  "glosa_tagnt": "corruption",
+  "ref_estandar": "Gal.6.8"
  },
  {
   "ref": "Gal.6.9",
@@ -234,7 +239,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to lose heart"
+  "glosa_tagnt": "to lose heart",
+  "ref_estandar": "Gal.6.9"
  },
  {
   "ref": "Gal.6.10",
@@ -274,7 +280,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "of one’s household"
+  "glosa_tagnt": "of one’s household",
+  "ref_estandar": "Gal.6.10"
  },
  {
   "ref": "Gal.6.11",
@@ -314,7 +321,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "something written"
+  "glosa_tagnt": "something written",
+  "ref_estandar": "Gal.6.11"
  },
  {
   "ref": "Gal.6.12",
@@ -353,7 +361,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to circumcise"
+  "glosa_tagnt": "to circumcise",
+  "ref_estandar": "Gal.6.12"
  },
  {
   "ref": "Gal.6.14",
@@ -393,7 +402,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "cross"
+  "glosa_tagnt": "cross",
+  "ref_estandar": "Gal.6.14"
  },
  {
   "ref": "Gal.6.15",
@@ -433,7 +443,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "creation"
+  "glosa_tagnt": "creation",
+  "ref_estandar": "Gal.6.15"
  },
  {
   "ref": "Gal.6.16",
@@ -473,7 +484,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Israel"
+  "glosa_tagnt": "Israel",
+  "ref_estandar": "Gal.6.16"
  },
  {
   "ref": "Gal.6.17",
@@ -513,7 +525,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mark"
+  "glosa_tagnt": "mark",
+  "ref_estandar": "Gal.6.17"
  },
  {
   "ref": "Gal.6.18",
@@ -552,6 +565,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "grace"
+  "glosa_tagnt": "grace",
+  "ref_estandar": "Gal.6.18"
  }
 ]

@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to breath into"
+  "glosa_tagnt": "to breath into",
+  "ref_estandar": "Acts.9.1"
  },
  {
   "ref": "Acts.9.2",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "road"
+  "glosa_tagnt": "road",
+  "ref_estandar": "Acts.9.2"
  },
  {
   "ref": "Acts.9.3",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "light"
+  "glosa_tagnt": "light",
+  "ref_estandar": "Acts.9.3"
  },
  {
   "ref": "Acts.9.4",
@@ -154,7 +157,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pursue"
+  "glosa_tagnt": "to pursue",
+  "ref_estandar": "Acts.9.4"
  },
  {
   "ref": "Acts.9.5",
@@ -194,7 +198,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lord"
+  "glosa_tagnt": "lord",
+  "ref_estandar": "Acts.9.5"
  },
  {
   "ref": "Acts.9.7",
@@ -232,7 +237,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "speechless"
+  "glosa_tagnt": "speechless",
+  "ref_estandar": "Acts.9.7"
  },
  {
   "ref": "Acts.9.11",
@@ -269,7 +275,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "straight/upright"
+  "glosa_tagnt": "straight/upright",
+  "ref_estandar": "Acts.9.11"
  },
  {
   "ref": "Acts.9.13",
@@ -308,7 +315,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "holy"
+  "glosa_tagnt": "holy",
+  "ref_estandar": "Acts.9.13"
  },
  {
   "ref": "Acts.9.15",
@@ -348,7 +356,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "selecting"
+  "glosa_tagnt": "selecting",
+  "ref_estandar": "Acts.9.15"
  },
  {
   "ref": "Acts.9.16",
@@ -388,7 +397,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to suffer"
+  "glosa_tagnt": "to suffer",
+  "ref_estandar": "Acts.9.16"
  },
  {
   "ref": "Acts.9.17",
@@ -426,7 +436,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "brother"
+  "glosa_tagnt": "brother",
+  "ref_estandar": "Acts.9.17"
  },
  {
   "ref": "Acts.9.18",
@@ -465,7 +476,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "scale"
+  "glosa_tagnt": "scale",
+  "ref_estandar": "Acts.9.18"
  },
  {
   "ref": "Acts.9.20",
@@ -504,7 +516,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to preach"
+  "glosa_tagnt": "to preach",
+  "ref_estandar": "Acts.9.20"
  },
  {
   "ref": "Acts.9.22",
@@ -542,7 +555,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to join with"
+  "glosa_tagnt": "to join with",
+  "ref_estandar": "Acts.9.22"
  },
  {
   "ref": "Acts.9.25",
@@ -580,7 +594,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "basket"
+  "glosa_tagnt": "basket",
+  "ref_estandar": "Acts.9.25"
  },
  {
   "ref": "Acts.9.27",
@@ -619,7 +634,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Barnabas"
+  "glosa_tagnt": "Barnabas",
+  "ref_estandar": "Acts.9.27"
  },
  {
   "ref": "Acts.9.31",
@@ -659,7 +675,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "assembly"
+  "glosa_tagnt": "assembly",
+  "ref_estandar": "Acts.9.31"
  },
  {
   "ref": "Acts.9.36",
@@ -698,7 +715,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "disciple"
+  "glosa_tagnt": "disciple",
+  "ref_estandar": "Acts.9.36"
  },
  {
   "ref": "Acts.9.40",
@@ -738,7 +756,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to arise"
+  "glosa_tagnt": "to arise",
+  "ref_estandar": "Acts.9.40"
  },
  {
   "ref": "Acts.9.43",
@@ -776,6 +795,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tanner"
+  "glosa_tagnt": "tanner",
+  "ref_estandar": "Acts.9.43"
  }
 ]

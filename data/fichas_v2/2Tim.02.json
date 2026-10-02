@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to set before"
+  "glosa_tagnt": "to set before",
+  "ref_estandar": "2Tim.2.2"
  },
  {
   "ref": "2Tim.2.3",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "soldier"
+  "glosa_tagnt": "soldier",
+  "ref_estandar": "2Tim.2.3"
  },
  {
   "ref": "2Tim.2.8",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to arise"
+  "glosa_tagnt": "to arise",
+  "ref_estandar": "2Tim.2.8"
  },
  {
   "ref": "2Tim.2.9",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to bind"
+  "glosa_tagnt": "to bind",
+  "ref_estandar": "2Tim.2.9"
  },
  {
   "ref": "2Tim.2.10",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "select"
+  "glosa_tagnt": "select",
+  "ref_estandar": "2Tim.2.10"
  },
  {
   "ref": "2Tim.2.11",
@@ -235,7 +240,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to die with"
+  "glosa_tagnt": "to die with",
+  "ref_estandar": "2Tim.2.11"
  },
  {
   "ref": "2Tim.2.15",
@@ -275,7 +281,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to cut straight"
+  "glosa_tagnt": "to cut straight",
+  "ref_estandar": "2Tim.2.15"
  },
  {
   "ref": "2Tim.2.17",
@@ -314,7 +321,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gangrene"
+  "glosa_tagnt": "gangrene",
+  "ref_estandar": "2Tim.2.17"
  },
  {
   "ref": "2Tim.2.19",
@@ -354,7 +362,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "seal"
+  "glosa_tagnt": "seal",
+  "ref_estandar": "2Tim.2.19"
  },
  {
   "ref": "2Tim.2.20",
@@ -393,7 +402,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "vessel"
+  "glosa_tagnt": "vessel",
+  "ref_estandar": "2Tim.2.20"
  },
  {
   "ref": "2Tim.2.22",
@@ -433,7 +443,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "desire"
+  "glosa_tagnt": "desire",
+  "ref_estandar": "2Tim.2.22"
  },
  {
   "ref": "2Tim.2.24",
@@ -473,7 +484,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to quarrel"
+  "glosa_tagnt": "to quarrel",
+  "ref_estandar": "2Tim.2.24"
  },
  {
   "ref": "2Tim.2.25",
@@ -512,6 +524,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "repentance"
+  "glosa_tagnt": "repentance",
+  "ref_estandar": "2Tim.2.25"
  }
 ]

@@ -37,7 +37,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to circumcise"
+  "glosa_tagnt": "to circumcise",
+  "ref_estandar": "Acts.15.1"
  },
  {
   "ref": "Acts.15.5",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sect"
+  "glosa_tagnt": "sect",
+  "ref_estandar": "Acts.15.5"
  },
  {
   "ref": "Acts.15.8",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "heart-knower"
+  "glosa_tagnt": "heart-knower",
+  "ref_estandar": "Acts.15.8"
  },
  {
   "ref": "Acts.15.9",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to clean"
+  "glosa_tagnt": "to clean",
+  "ref_estandar": "Acts.15.9"
  },
  {
   "ref": "Acts.15.10",
@@ -192,7 +196,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "yoke/scales"
+  "glosa_tagnt": "yoke/scales",
+  "ref_estandar": "Acts.15.10"
  },
  {
   "ref": "Acts.15.11",
@@ -232,7 +237,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "grace"
+  "glosa_tagnt": "grace",
+  "ref_estandar": "Acts.15.11"
  },
  {
   "ref": "Acts.15.13",
@@ -272,7 +278,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "James"
+  "glosa_tagnt": "James",
+  "ref_estandar": "Acts.15.13"
  },
  {
   "ref": "Acts.15.14",
@@ -312,7 +319,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Simeon"
+  "glosa_tagnt": "Simeon",
+  "ref_estandar": "Acts.15.14"
  },
  {
   "ref": "Acts.15.16",
@@ -352,7 +360,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tent"
+  "glosa_tagnt": "tent",
+  "ref_estandar": "Acts.15.16"
  },
  {
   "ref": "Acts.15.20",
@@ -392,7 +401,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "defilement"
+  "glosa_tagnt": "defilement",
+  "ref_estandar": "Acts.15.20"
  },
  {
   "ref": "Acts.15.22",
@@ -432,7 +442,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Silas"
+  "glosa_tagnt": "Silas",
+  "ref_estandar": "Acts.15.22"
  },
  {
   "ref": "Acts.15.28",
@@ -471,7 +482,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "burden"
+  "glosa_tagnt": "burden",
+  "ref_estandar": "Acts.15.28"
  },
  {
   "ref": "Acts.15.29",
@@ -510,7 +522,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sacrificed to idols"
+  "glosa_tagnt": "sacrificed to idols",
+  "ref_estandar": "Acts.15.29"
  },
  {
   "ref": "Acts.15.36",
@@ -548,7 +561,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to visit/care for"
+  "glosa_tagnt": "to visit/care for",
+  "ref_estandar": "Acts.15.36"
  },
  {
   "ref": "Acts.15.39",
@@ -588,7 +602,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "stirring up"
+  "glosa_tagnt": "stirring up",
+  "ref_estandar": "Acts.15.39"
  },
  {
   "ref": "Acts.15.40",
@@ -626,6 +641,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to call/choose"
+  "glosa_tagnt": "to call/choose",
+  "ref_estandar": "Acts.15.40"
  }
 ]

@@ -63,6 +63,14 @@ class Palabra:
         return f"{self.ref}#{self.pos:02d}"
 
     @property
+    def ref_estandar(self):
+        """Ref OSIS en numeración estándar (KJV, la de SpaRV): la versificación alterna entre [ ] si existe."""
+        o, c, v = self.ref.split(".")
+        if self.ref_alt.startswith("["):
+            c, v = self.ref_alt.strip("[]").split(".")[:2]
+        return "%s.%d.%d" % (o, int(c), int(v))
+
+    @property
     def variante(self):
         """True si la palabra no está en las 8 ediciones del texto griego."""
         return len(self.ediciones) < len(EDICIONES)

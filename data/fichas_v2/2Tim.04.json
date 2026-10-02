@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "appearing"
+  "glosa_tagnt": "appearing",
+  "ref_estandar": "2Tim.4.1"
  },
  {
   "ref": "2Tim.4.2",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to preach"
+  "glosa_tagnt": "to preach",
+  "ref_estandar": "2Tim.4.2"
  },
  {
   "ref": "2Tim.4.3",
@@ -117,7 +119,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to itch"
+  "glosa_tagnt": "to itch",
+  "ref_estandar": "2Tim.4.3"
  },
  {
   "ref": "2Tim.4.5",
@@ -156,7 +159,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "evangelist"
+  "glosa_tagnt": "evangelist",
+  "ref_estandar": "2Tim.4.5"
  },
  {
   "ref": "2Tim.4.6",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pour a libation"
+  "glosa_tagnt": "to pour a libation",
+  "ref_estandar": "2Tim.4.6"
  },
  {
   "ref": "2Tim.4.7",
@@ -235,7 +240,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to keep"
+  "glosa_tagnt": "to keep",
+  "ref_estandar": "2Tim.4.7"
  },
  {
   "ref": "2Tim.4.8",
@@ -275,7 +281,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "crown"
+  "glosa_tagnt": "crown",
+  "ref_estandar": "2Tim.4.8"
  },
  {
   "ref": "2Tim.4.10",
@@ -314,7 +321,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Demas"
+  "glosa_tagnt": "Demas",
+  "ref_estandar": "2Tim.4.10"
  },
  {
   "ref": "2Tim.4.11",
@@ -354,7 +362,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Mark"
+  "glosa_tagnt": "Mark",
+  "ref_estandar": "2Tim.4.11"
  },
  {
   "ref": "2Tim.4.13",
@@ -393,7 +402,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "scroll"
+  "glosa_tagnt": "scroll",
+  "ref_estandar": "2Tim.4.13"
  },
  {
   "ref": "2Tim.4.14",
@@ -433,7 +443,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "coppersmith"
+  "glosa_tagnt": "coppersmith",
+  "ref_estandar": "2Tim.4.14"
  },
  {
   "ref": "2Tim.4.16",
@@ -472,7 +483,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "defence"
+  "glosa_tagnt": "defence",
+  "ref_estandar": "2Tim.4.16"
  },
  {
   "ref": "2Tim.4.17",
@@ -512,7 +524,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lion"
+  "glosa_tagnt": "lion",
+  "ref_estandar": "2Tim.4.17"
  },
  {
   "ref": "2Tim.4.18",
@@ -552,7 +565,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to deliver"
+  "glosa_tagnt": "to deliver",
+  "ref_estandar": "2Tim.4.18"
  },
  {
   "ref": "2Tim.4.19",
@@ -591,7 +605,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Prisca"
+  "glosa_tagnt": "Prisca",
+  "ref_estandar": "2Tim.4.19"
  },
  {
   "ref": "2Tim.4.22",
@@ -631,6 +646,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "grace"
+  "glosa_tagnt": "grace",
+  "ref_estandar": "2Tim.4.22"
  }
 ]

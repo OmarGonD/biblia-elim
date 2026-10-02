@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "servant"
+  "glosa_tagnt": "servant",
+  "ref_estandar": "Rom.16.1"
  },
  {
   "ref": "Rom.16.3",
@@ -77,7 +78,8 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "Prisca"
+  "glosa_tagnt": "Prisca",
+  "ref_estandar": "Rom.16.3"
  },
  {
   "ref": "Rom.16.5",
@@ -117,7 +119,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "assembly"
+  "glosa_tagnt": "assembly",
+  "ref_estandar": "Rom.16.5"
  },
  {
   "ref": "Rom.16.7",
@@ -157,7 +160,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Junias"
+  "glosa_tagnt": "Junias",
+  "ref_estandar": "Rom.16.7"
  },
  {
   "ref": "Rom.16.10",
@@ -196,7 +200,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tested"
+  "glosa_tagnt": "tested",
+  "ref_estandar": "Rom.16.10"
  },
  {
   "ref": "Rom.16.13",
@@ -235,7 +240,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "select"
+  "glosa_tagnt": "select",
+  "ref_estandar": "Rom.16.13"
  },
  {
   "ref": "Rom.16.16",
@@ -275,7 +281,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "kiss"
+  "glosa_tagnt": "kiss",
+  "ref_estandar": "Rom.16.16"
  },
  {
   "ref": "Rom.16.17",
@@ -315,7 +322,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dissension"
+  "glosa_tagnt": "dissension",
+  "ref_estandar": "Rom.16.17"
  },
  {
   "ref": "Rom.16.18",
@@ -355,7 +363,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "belly/womb/stomach"
+  "glosa_tagnt": "belly/womb/stomach",
+  "ref_estandar": "Rom.16.18"
  },
  {
   "ref": "Rom.16.19",
@@ -395,7 +404,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "innocent"
+  "glosa_tagnt": "innocent",
+  "ref_estandar": "Rom.16.19"
  },
  {
   "ref": "Rom.16.20",
@@ -435,7 +445,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to break"
+  "glosa_tagnt": "to break",
+  "ref_estandar": "Rom.16.20"
  },
  {
   "ref": "Rom.16.22",
@@ -475,7 +486,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Tertius"
+  "glosa_tagnt": "Tertius",
+  "ref_estandar": "Rom.16.22"
  },
  {
   "ref": "Rom.16.23",
@@ -514,7 +526,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "manager"
+  "glosa_tagnt": "manager",
+  "ref_estandar": "Rom.16.23"
  },
  {
   "ref": "Rom.16.25",
@@ -555,7 +568,8 @@
    "SBL"
   ],
   "variante": true,
-  "glosa_tagnt": "mystery"
+  "glosa_tagnt": "mystery",
+  "ref_estandar": "Rom.16.25"
  },
  {
   "ref": "Rom.16.26",
@@ -595,7 +609,8 @@
    "SBL"
   ],
   "variante": true,
-  "glosa_tagnt": "obedience"
+  "glosa_tagnt": "obedience",
+  "ref_estandar": "Rom.16.26"
  },
  {
   "ref": "Rom.16.27",
@@ -636,6 +651,7 @@
    "SBL"
   ],
   "variante": true,
-  "glosa_tagnt": "wise"
+  "glosa_tagnt": "wise",
+  "ref_estandar": "Rom.16.27"
  }
 ]

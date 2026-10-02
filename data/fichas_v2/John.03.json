@@ -35,7 +35,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Nicodemus"
+  "glosa_tagnt": "Nicodemus",
+  "ref_estandar": "John.3.1"
  },
  {
   "ref": "John.3.2",
@@ -74,7 +75,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "night"
+  "glosa_tagnt": "night",
+  "ref_estandar": "John.3.2"
  },
  {
   "ref": "John.3.3",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "from above/again"
+  "glosa_tagnt": "from above/again",
+  "ref_estandar": "John.3.3"
  },
  {
   "ref": "John.3.5",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "spirit/breath"
+  "glosa_tagnt": "spirit/breath",
+  "ref_estandar": "John.3.5"
  },
  {
   "ref": "John.3.6",
@@ -193,7 +197,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "flesh"
+  "glosa_tagnt": "flesh",
+  "ref_estandar": "John.3.6"
  },
  {
   "ref": "John.3.8",
@@ -234,7 +239,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "spirit/breath"
+  "glosa_tagnt": "spirit/breath",
+  "ref_estandar": "John.3.8"
  },
  {
   "ref": "John.3.10",
@@ -273,7 +279,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "teacher"
+  "glosa_tagnt": "teacher",
+  "ref_estandar": "John.3.10"
  },
  {
   "ref": "John.3.13",
@@ -312,7 +319,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to ascend"
+  "glosa_tagnt": "to ascend",
+  "ref_estandar": "John.3.13"
  },
  {
   "ref": "John.3.14",
@@ -352,7 +360,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to lift up"
+  "glosa_tagnt": "to lift up",
+  "ref_estandar": "John.3.14"
  },
  {
   "ref": "John.3.16",
@@ -392,7 +401,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to love"
+  "glosa_tagnt": "to love",
+  "ref_estandar": "John.3.16"
  },
  {
   "ref": "John.3.16",
@@ -431,7 +441,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "world"
+  "glosa_tagnt": "world",
+  "ref_estandar": "John.3.16"
  },
  {
   "ref": "John.3.17",
@@ -470,7 +481,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to judge"
+  "glosa_tagnt": "to judge",
+  "ref_estandar": "John.3.17"
  },
  {
   "ref": "John.3.19",
@@ -509,7 +521,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "judgment"
+  "glosa_tagnt": "judgment",
+  "ref_estandar": "John.3.19"
  },
  {
   "ref": "John.3.21",
@@ -548,7 +561,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "truth"
+  "glosa_tagnt": "truth",
+  "ref_estandar": "John.3.21"
  },
  {
   "ref": "John.3.23",
@@ -586,7 +600,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Aenon"
+  "glosa_tagnt": "Aenon",
+  "ref_estandar": "John.3.23"
  },
  {
   "ref": "John.3.29",
@@ -627,7 +642,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "bridegroom"
+  "glosa_tagnt": "bridegroom",
+  "ref_estandar": "John.3.29"
  },
  {
   "ref": "John.3.30",
@@ -666,7 +682,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to grow"
+  "glosa_tagnt": "to grow",
+  "ref_estandar": "John.3.30"
  },
  {
   "ref": "John.3.31",
@@ -704,7 +721,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "from above/again"
+  "glosa_tagnt": "from above/again",
+  "ref_estandar": "John.3.31"
  },
  {
   "ref": "John.3.33",
@@ -743,7 +761,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to seal"
+  "glosa_tagnt": "to seal",
+  "ref_estandar": "John.3.33"
  },
  {
   "ref": "John.3.34",
@@ -782,7 +801,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "measure"
+  "glosa_tagnt": "measure",
+  "ref_estandar": "John.3.34"
  },
  {
   "ref": "John.3.36",
@@ -821,6 +841,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to disobey"
+  "glosa_tagnt": "to disobey",
+  "ref_estandar": "John.3.36"
  }
 ]

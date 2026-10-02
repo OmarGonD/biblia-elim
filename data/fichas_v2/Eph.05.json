@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "imitator"
+  "glosa_tagnt": "imitator",
+  "ref_estandar": "Eph.5.1"
  },
  {
   "ref": "Eph.5.2",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sacrifice"
+  "glosa_tagnt": "sacrifice",
+  "ref_estandar": "Eph.5.2"
  },
  {
   "ref": "Eph.5.3",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "greediness"
+  "glosa_tagnt": "greediness",
+  "ref_estandar": "Eph.5.3"
  },
  {
   "ref": "Eph.5.5",
@@ -156,7 +159,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "idolater"
+  "glosa_tagnt": "idolater",
+  "ref_estandar": "Eph.5.5"
  },
  {
   "ref": "Eph.5.8",
@@ -197,7 +201,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "light"
+  "glosa_tagnt": "light",
+  "ref_estandar": "Eph.5.8"
  },
  {
   "ref": "Eph.5.14",
@@ -237,7 +242,8 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "to arise"
+  "glosa_tagnt": "to arise",
+  "ref_estandar": "Eph.5.14"
  },
  {
   "ref": "Eph.5.16",
@@ -276,7 +282,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to redeem"
+  "glosa_tagnt": "to redeem",
+  "ref_estandar": "Eph.5.16"
  },
  {
   "ref": "Eph.5.18",
@@ -316,7 +323,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to fulfill"
+  "glosa_tagnt": "to fulfill",
+  "ref_estandar": "Eph.5.18"
  },
  {
   "ref": "Eph.5.19",
@@ -355,7 +363,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "psalm"
+  "glosa_tagnt": "psalm",
+  "ref_estandar": "Eph.5.19"
  },
  {
   "ref": "Eph.5.21",
@@ -395,7 +404,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to subject"
+  "glosa_tagnt": "to subject",
+  "ref_estandar": "Eph.5.21"
  },
  {
   "ref": "Eph.5.22",
@@ -435,7 +445,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "woman"
+  "glosa_tagnt": "woman",
+  "ref_estandar": "Eph.5.22"
  },
  {
   "ref": "Eph.5.23",
@@ -475,7 +486,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "head"
+  "glosa_tagnt": "head",
+  "ref_estandar": "Eph.5.23"
  },
  {
   "ref": "Eph.5.23",
@@ -515,7 +527,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "head"
+  "glosa_tagnt": "head",
+  "ref_estandar": "Eph.5.23"
  },
  {
   "ref": "Eph.5.25",
@@ -556,7 +569,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to love"
+  "glosa_tagnt": "to love",
+  "ref_estandar": "Eph.5.25"
  },
  {
   "ref": "Eph.5.26",
@@ -597,7 +611,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "washing"
+  "glosa_tagnt": "washing",
+  "ref_estandar": "Eph.5.26"
  },
  {
   "ref": "Eph.5.27",
@@ -637,7 +652,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "blameless"
+  "glosa_tagnt": "blameless",
+  "ref_estandar": "Eph.5.27"
  },
  {
   "ref": "Eph.5.31",
@@ -676,7 +692,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to join"
+  "glosa_tagnt": "to join",
+  "ref_estandar": "Eph.5.31"
  },
  {
   "ref": "Eph.5.32",
@@ -715,7 +732,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mystery"
+  "glosa_tagnt": "mystery",
+  "ref_estandar": "Eph.5.32"
  },
  {
   "ref": "Eph.5.33",
@@ -754,6 +772,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to fear"
+  "glosa_tagnt": "to fear",
+  "ref_estandar": "Eph.5.33"
  }
 ]

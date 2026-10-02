@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dead"
+  "glosa_tagnt": "dead",
+  "ref_estandar": "Rev.3.1"
  },
  {
   "ref": "Rev.3.3",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "thief"
+  "glosa_tagnt": "thief",
+  "ref_estandar": "Rev.3.3"
  },
  {
   "ref": "Rev.3.4",
@@ -117,7 +119,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "white"
+  "glosa_tagnt": "white",
+  "ref_estandar": "Rev.3.4"
  },
  {
   "ref": "Rev.3.5",
@@ -157,7 +160,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "book"
+  "glosa_tagnt": "book",
+  "ref_estandar": "Rev.3.5"
  },
  {
   "ref": "Rev.3.7",
@@ -197,7 +201,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "key"
+  "glosa_tagnt": "key",
+  "ref_estandar": "Rev.3.7"
  },
  {
   "ref": "Rev.3.8",
@@ -237,7 +242,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "door"
+  "glosa_tagnt": "door",
+  "ref_estandar": "Rev.3.8"
  },
  {
   "ref": "Rev.3.10",
@@ -277,7 +283,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hour"
+  "glosa_tagnt": "hour",
+  "ref_estandar": "Rev.3.10"
  },
  {
   "ref": "Rev.3.12",
@@ -317,7 +324,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "pillar"
+  "glosa_tagnt": "pillar",
+  "ref_estandar": "Rev.3.12"
  },
  {
   "ref": "Rev.3.14",
@@ -357,7 +365,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "beginning"
+  "glosa_tagnt": "beginning",
+  "ref_estandar": "Rev.3.14"
  },
  {
   "ref": "Rev.3.16",
@@ -397,7 +406,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lukewarm"
+  "glosa_tagnt": "lukewarm",
+  "ref_estandar": "Rev.3.16"
  },
  {
   "ref": "Rev.3.17",
@@ -437,7 +447,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "blind"
+  "glosa_tagnt": "blind",
+  "ref_estandar": "Rev.3.17"
  },
  {
   "ref": "Rev.3.19",
@@ -477,7 +488,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to instruct"
+  "glosa_tagnt": "to instruct",
+  "ref_estandar": "Rev.3.19"
  },
  {
   "ref": "Rev.3.20",
@@ -518,7 +530,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to knock"
+  "glosa_tagnt": "to knock",
+  "ref_estandar": "Rev.3.20"
  },
  {
   "ref": "Rev.3.21",
@@ -559,7 +572,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "throne"
+  "glosa_tagnt": "throne",
+  "ref_estandar": "Rev.3.21"
  },
  {
   "ref": "Rev.3.21",
@@ -600,6 +614,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "throne"
+  "glosa_tagnt": "throne",
+  "ref_estandar": "Rev.3.21"
  }
 ]

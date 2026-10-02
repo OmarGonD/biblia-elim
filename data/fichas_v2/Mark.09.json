@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to taste"
+  "glosa_tagnt": "to taste",
+  "ref_estandar": "Mark.9.1"
  },
  {
   "ref": "Mark.9.3",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to dazzle"
+  "glosa_tagnt": "to dazzle",
+  "ref_estandar": "Mark.9.3"
  },
  {
   "ref": "Mark.9.4",
@@ -115,7 +117,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Elijah"
+  "glosa_tagnt": "Elijah",
+  "ref_estandar": "Mark.9.4"
  },
  {
   "ref": "Mark.9.6",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "terrified"
+  "glosa_tagnt": "terrified",
+  "ref_estandar": "Mark.9.6"
  },
  {
   "ref": "Mark.9.7",
@@ -193,7 +197,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to overshadow"
+  "glosa_tagnt": "to overshadow",
+  "ref_estandar": "Mark.9.7"
  },
  {
   "ref": "Mark.9.10",
@@ -232,7 +237,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to arise"
+  "glosa_tagnt": "to arise",
+  "ref_estandar": "Mark.9.10"
  },
  {
   "ref": "Mark.9.12",
@@ -271,7 +277,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to restore"
+  "glosa_tagnt": "to restore",
+  "ref_estandar": "Mark.9.12"
  },
  {
   "ref": "Mark.9.15",
@@ -310,7 +317,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "be awe-struck"
+  "glosa_tagnt": "be awe-struck",
+  "ref_estandar": "Mark.9.15"
  },
  {
   "ref": "Mark.9.19",
@@ -349,7 +357,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unbelieving"
+  "glosa_tagnt": "unbelieving",
+  "ref_estandar": "Mark.9.19"
  },
  {
   "ref": "Mark.9.23",
@@ -388,7 +397,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to trust (in)"
+  "glosa_tagnt": "to trust (in)",
+  "ref_estandar": "Mark.9.23"
  },
  {
   "ref": "Mark.9.24",
@@ -427,7 +437,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unbelief"
+  "glosa_tagnt": "unbelief",
+  "ref_estandar": "Mark.9.24"
  },
  {
   "ref": "Mark.9.29",
@@ -465,7 +476,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "prayer"
+  "glosa_tagnt": "prayer",
+  "ref_estandar": "Mark.9.29"
  },
  {
   "ref": "Mark.9.31",
@@ -504,7 +516,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to deliver"
+  "glosa_tagnt": "to deliver",
+  "ref_estandar": "Mark.9.31"
  },
  {
   "ref": "Mark.9.34",
@@ -543,7 +556,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to dispute"
+  "glosa_tagnt": "to dispute",
+  "ref_estandar": "Mark.9.34"
  },
  {
   "ref": "Mark.9.36",
@@ -581,7 +595,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to embrace"
+  "glosa_tagnt": "to embrace",
+  "ref_estandar": "Mark.9.36"
  },
  {
   "ref": "Mark.9.38",
@@ -620,7 +635,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "name"
+  "glosa_tagnt": "name",
+  "ref_estandar": "Mark.9.38"
  },
  {
   "ref": "Mark.9.41",
@@ -658,7 +674,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "cup"
+  "glosa_tagnt": "cup",
+  "ref_estandar": "Mark.9.41"
  },
  {
   "ref": "Mark.9.48",
@@ -697,7 +714,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "worm"
+  "glosa_tagnt": "worm",
+  "ref_estandar": "Mark.9.48"
  },
  {
   "ref": "Mark.9.49",
@@ -738,6 +756,7 @@
   ],
   "variante": true,
   "glosa_tagnt": "to salt",
+  "ref_estandar": "Mark.9.49",
   "no_en_na28": true,
   "nota_na28": "La palabra de Tischendorf no está en NA28 según el TAGNT (presente en: Treg, TR, Byz)."
  },
@@ -778,6 +797,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unsalty"
+  "glosa_tagnt": "unsalty",
+  "ref_estandar": "Mark.9.50"
  }
 ]

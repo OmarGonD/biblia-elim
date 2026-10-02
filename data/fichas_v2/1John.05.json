@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to beget"
+  "glosa_tagnt": "to beget",
+  "ref_estandar": "1John.5.1"
  },
  {
   "ref": "1John.5.3",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "weighty"
+  "glosa_tagnt": "weighty",
+  "ref_estandar": "1John.5.3"
  },
  {
   "ref": "1John.5.4",
@@ -118,7 +120,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to conquer"
+  "glosa_tagnt": "to conquer",
+  "ref_estandar": "1John.5.4"
  },
  {
   "ref": "1John.5.6",
@@ -159,7 +162,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "water"
+  "glosa_tagnt": "water",
+  "ref_estandar": "1John.5.6"
  },
  {
   "ref": "1John.5.7",
@@ -199,7 +203,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to testify"
+  "glosa_tagnt": "to testify",
+  "ref_estandar": "1John.5.7"
  },
  {
   "ref": "1John.5.8",
@@ -238,7 +243,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "blood"
+  "glosa_tagnt": "blood",
+  "ref_estandar": "1John.5.8"
  },
  {
   "ref": "1John.5.11",
@@ -277,7 +283,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "testimony"
+  "glosa_tagnt": "testimony",
+  "ref_estandar": "1John.5.11"
  },
  {
   "ref": "1John.5.13",
@@ -316,7 +323,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to perceive"
+  "glosa_tagnt": "to perceive",
+  "ref_estandar": "1John.5.13"
  },
  {
   "ref": "1John.5.14",
@@ -356,7 +364,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "boldness"
+  "glosa_tagnt": "boldness",
+  "ref_estandar": "1John.5.14"
  },
  {
   "ref": "1John.5.16",
@@ -397,7 +406,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "death"
+  "glosa_tagnt": "death",
+  "ref_estandar": "1John.5.16"
  },
  {
   "ref": "1John.5.16",
@@ -438,7 +448,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "death"
+  "glosa_tagnt": "death",
+  "ref_estandar": "1John.5.16"
  },
  {
   "ref": "1John.5.16",
@@ -479,7 +490,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "death"
+  "glosa_tagnt": "death",
+  "ref_estandar": "1John.5.16"
  },
  {
   "ref": "1John.5.18",
@@ -518,7 +530,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to keep"
+  "glosa_tagnt": "to keep",
+  "ref_estandar": "1John.5.18"
  },
  {
   "ref": "1John.5.19",
@@ -558,7 +571,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "evil/bad"
+  "glosa_tagnt": "evil/bad",
+  "ref_estandar": "1John.5.19"
  },
  {
   "ref": "1John.5.20",
@@ -599,7 +613,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "true"
+  "glosa_tagnt": "true",
+  "ref_estandar": "1John.5.20"
  },
  {
   "ref": "1John.5.21",
@@ -639,6 +654,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "idol"
+  "glosa_tagnt": "idol",
+  "ref_estandar": "1John.5.21"
  }
 ]

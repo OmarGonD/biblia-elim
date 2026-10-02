@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "vineyard"
+  "glosa_tagnt": "vineyard",
+  "ref_estandar": "Mark.12.1"
  },
  {
   "ref": "Mark.12.6",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "beloved"
+  "glosa_tagnt": "beloved",
+  "ref_estandar": "Mark.12.6"
  },
  {
   "ref": "Mark.12.10",
@@ -115,7 +117,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "stone"
+  "glosa_tagnt": "stone",
+  "ref_estandar": "Mark.12.10"
  },
  {
   "ref": "Mark.12.13",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Herodians"
+  "glosa_tagnt": "Herodians",
+  "ref_estandar": "Mark.12.13"
  },
  {
   "ref": "Mark.12.14",
@@ -191,7 +195,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "true"
+  "glosa_tagnt": "true",
+  "ref_estandar": "Mark.12.14"
  },
  {
   "ref": "Mark.12.15",
@@ -229,7 +234,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hypocrisy"
+  "glosa_tagnt": "hypocrisy",
+  "ref_estandar": "Mark.12.15"
  },
  {
   "ref": "Mark.12.17",
@@ -268,7 +274,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "be amazed"
+  "glosa_tagnt": "be amazed",
+  "ref_estandar": "Mark.12.17"
  },
  {
   "ref": "Mark.12.24",
@@ -306,7 +313,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to lead astray"
+  "glosa_tagnt": "to lead astray",
+  "ref_estandar": "Mark.12.24"
  },
  {
   "ref": "Mark.12.26",
@@ -345,7 +353,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "thorn bush"
+  "glosa_tagnt": "thorn bush",
+  "ref_estandar": "Mark.12.26"
  },
  {
   "ref": "Mark.12.29",
@@ -384,7 +393,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Israel"
+  "glosa_tagnt": "Israel",
+  "ref_estandar": "Mark.12.29"
  },
  {
   "ref": "Mark.12.30",
@@ -423,7 +433,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "strength"
+  "glosa_tagnt": "strength",
+  "ref_estandar": "Mark.12.30"
  },
  {
   "ref": "Mark.12.33",
@@ -462,7 +473,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "burnt offering"
+  "glosa_tagnt": "burnt offering",
+  "ref_estandar": "Mark.12.33"
  },
  {
   "ref": "Mark.12.34",
@@ -500,7 +512,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wisely"
+  "glosa_tagnt": "wisely",
+  "ref_estandar": "Mark.12.34"
  },
  {
   "ref": "Mark.12.36",
@@ -541,7 +554,8 @@
   ],
   "variante": true,
   "glosa_tagnt": "under",
-  "caso_regido": "genitivo"
+  "caso_regido": "genitivo",
+  "ref_estandar": "Mark.12.36"
  },
  {
   "ref": "Mark.12.40",
@@ -580,7 +594,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to devour"
+  "glosa_tagnt": "to devour",
+  "ref_estandar": "Mark.12.40"
  },
  {
   "ref": "Mark.12.41",
@@ -620,7 +635,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "treasury"
+  "glosa_tagnt": "treasury",
+  "ref_estandar": "Mark.12.41"
  },
  {
   "ref": "Mark.12.42",
@@ -659,7 +675,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "coin"
+  "glosa_tagnt": "coin",
+  "ref_estandar": "Mark.12.42"
  },
  {
   "ref": "Mark.12.44",
@@ -698,6 +715,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "poverty"
+  "glosa_tagnt": "poverty",
+  "ref_estandar": "Mark.12.44"
  }
 ]

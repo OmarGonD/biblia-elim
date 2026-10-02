@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "slave"
+  "glosa_tagnt": "slave",
+  "ref_estandar": "1Tim.6.1"
  },
  {
   "ref": "1Tim.6.3",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be healthy"
+  "glosa_tagnt": "be healthy",
+  "ref_estandar": "1Tim.6.3"
  },
  {
   "ref": "1Tim.6.6",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "self-sufficiency"
+  "glosa_tagnt": "self-sufficiency",
+  "ref_estandar": "1Tim.6.6"
  },
  {
   "ref": "1Tim.6.9",
@@ -156,7 +159,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be rich"
+  "glosa_tagnt": "be rich",
+  "ref_estandar": "1Tim.6.9"
  },
  {
   "ref": "1Tim.6.10",
@@ -196,7 +200,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "love of money"
+  "glosa_tagnt": "love of money",
+  "ref_estandar": "1Tim.6.10"
  },
  {
   "ref": "1Tim.6.12",
@@ -236,7 +241,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to struggle"
+  "glosa_tagnt": "to struggle",
+  "ref_estandar": "1Tim.6.12"
  },
  {
   "ref": "1Tim.6.13",
@@ -275,7 +281,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to testify"
+  "glosa_tagnt": "to testify",
+  "ref_estandar": "1Tim.6.13"
  },
  {
   "ref": "1Tim.6.15",
@@ -314,7 +321,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "king"
+  "glosa_tagnt": "king",
+  "ref_estandar": "1Tim.6.15"
  },
  {
   "ref": "1Tim.6.16",
@@ -354,7 +362,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "immortality"
+  "glosa_tagnt": "immortality",
+  "ref_estandar": "1Tim.6.16"
  },
  {
   "ref": "1Tim.6.17",
@@ -394,7 +403,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "rich"
+  "glosa_tagnt": "rich",
+  "ref_estandar": "1Tim.6.17"
  },
  {
   "ref": "1Tim.6.20",
@@ -435,6 +445,7 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "deposit"
+  "glosa_tagnt": "deposit",
+  "ref_estandar": "1Tim.6.20"
  }
 ]

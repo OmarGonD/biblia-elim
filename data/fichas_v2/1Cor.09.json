@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "apostle"
+  "glosa_tagnt": "apostle",
+  "ref_estandar": "1Cor.9.1"
  },
  {
   "ref": "1Cor.9.5",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "woman"
+  "glosa_tagnt": "woman",
+  "ref_estandar": "1Cor.9.5"
  },
  {
   "ref": "1Cor.9.9",
@@ -117,7 +119,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ox"
+  "glosa_tagnt": "ox",
+  "ref_estandar": "1Cor.9.9"
  },
  {
   "ref": "1Cor.9.14",
@@ -157,7 +160,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to direct"
+  "glosa_tagnt": "to direct",
+  "ref_estandar": "1Cor.9.14"
  },
  {
   "ref": "1Cor.9.16",
@@ -197,7 +201,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "necessity"
+  "glosa_tagnt": "necessity",
+  "ref_estandar": "1Cor.9.16"
  },
  {
   "ref": "1Cor.9.19",
@@ -237,7 +242,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to enslave"
+  "glosa_tagnt": "to enslave",
+  "ref_estandar": "1Cor.9.19"
  },
  {
   "ref": "1Cor.9.20",
@@ -278,7 +284,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to gain"
+  "glosa_tagnt": "to gain",
+  "ref_estandar": "1Cor.9.20"
  },
  {
   "ref": "1Cor.9.20",
@@ -319,7 +326,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to gain"
+  "glosa_tagnt": "to gain",
+  "ref_estandar": "1Cor.9.20"
  },
  {
   "ref": "1Cor.9.21",
@@ -358,7 +366,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "under law"
+  "glosa_tagnt": "under law",
+  "ref_estandar": "1Cor.9.21"
  },
  {
   "ref": "1Cor.9.24",
@@ -398,7 +407,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "prize"
+  "glosa_tagnt": "prize",
+  "ref_estandar": "1Cor.9.24"
  },
  {
   "ref": "1Cor.9.25",
@@ -438,7 +448,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to self-control"
+  "glosa_tagnt": "to self-control",
+  "ref_estandar": "1Cor.9.25"
  },
  {
   "ref": "1Cor.9.27",
@@ -478,6 +489,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "failing"
+  "glosa_tagnt": "failing",
+  "ref_estandar": "1Cor.9.27"
  }
 ]

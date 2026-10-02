@@ -38,7 +38,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to suffer"
+  "glosa_tagnt": "to suffer",
+  "ref_estandar": "1Pet.4.1"
  },
  {
   "ref": "1Pet.4.3",
@@ -78,7 +79,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "idolatry"
+  "glosa_tagnt": "idolatry",
+  "ref_estandar": "1Pet.4.3"
  },
  {
   "ref": "1Pet.4.6",
@@ -118,7 +120,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dead"
+  "glosa_tagnt": "dead",
+  "ref_estandar": "1Pet.4.6"
  },
  {
   "ref": "1Pet.4.7",
@@ -158,7 +161,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to come near"
+  "glosa_tagnt": "to come near",
+  "ref_estandar": "1Pet.4.7"
  },
  {
   "ref": "1Pet.4.8",
@@ -199,7 +203,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to cover"
+  "glosa_tagnt": "to cover",
+  "ref_estandar": "1Pet.4.8"
  },
  {
   "ref": "1Pet.4.10",
@@ -239,7 +244,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gift"
+  "glosa_tagnt": "gift",
+  "ref_estandar": "1Pet.4.10"
  },
  {
   "ref": "1Pet.4.11",
@@ -279,7 +285,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "oracles"
+  "glosa_tagnt": "oracles",
+  "ref_estandar": "1Pet.4.11"
  },
  {
   "ref": "1Pet.4.12",
@@ -319,7 +326,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "burning"
+  "glosa_tagnt": "burning",
+  "ref_estandar": "1Pet.4.12"
  },
  {
   "ref": "1Pet.4.13",
@@ -359,7 +367,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to participate"
+  "glosa_tagnt": "to participate",
+  "ref_estandar": "1Pet.4.13"
  },
  {
   "ref": "1Pet.4.14",
@@ -398,7 +407,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to revile"
+  "glosa_tagnt": "to revile",
+  "ref_estandar": "1Pet.4.14"
  },
  {
   "ref": "1Pet.4.16",
@@ -437,7 +447,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Christian"
+  "glosa_tagnt": "Christian",
+  "ref_estandar": "1Pet.4.16"
  },
  {
   "ref": "1Pet.4.17",
@@ -477,7 +488,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "judgment"
+  "glosa_tagnt": "judgment",
+  "ref_estandar": "1Pet.4.17"
  },
  {
   "ref": "1Pet.4.19",
@@ -517,6 +529,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "creator"
+  "glosa_tagnt": "creator",
+  "ref_estandar": "1Pet.4.19"
  }
 ]

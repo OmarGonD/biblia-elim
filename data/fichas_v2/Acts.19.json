@@ -38,7 +38,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "spirit/breath"
+  "glosa_tagnt": "spirit/breath",
+  "ref_estandar": "Acts.19.2"
  },
  {
   "ref": "Acts.19.2",
@@ -79,7 +80,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "spirit/breath"
+  "glosa_tagnt": "spirit/breath",
+  "ref_estandar": "Acts.19.2"
  },
  {
   "ref": "Acts.19.5",
@@ -118,7 +120,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to baptize"
+  "glosa_tagnt": "to baptize",
+  "ref_estandar": "Acts.19.5"
  },
  {
   "ref": "Acts.19.6",
@@ -157,7 +160,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to prophesy"
+  "glosa_tagnt": "to prophesy",
+  "ref_estandar": "Acts.19.6"
  },
  {
   "ref": "Acts.19.9",
@@ -196,7 +200,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lecture hall"
+  "glosa_tagnt": "lecture hall",
+  "ref_estandar": "Acts.19.9"
  },
  {
   "ref": "Acts.19.11",
@@ -235,7 +240,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "power"
+  "glosa_tagnt": "power",
+  "ref_estandar": "Acts.19.11"
  },
  {
   "ref": "Acts.19.13",
@@ -274,7 +280,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "exorcist"
+  "glosa_tagnt": "exorcist",
+  "ref_estandar": "Acts.19.13"
  },
  {
   "ref": "Acts.19.15",
@@ -313,7 +320,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to know"
+  "glosa_tagnt": "to know",
+  "ref_estandar": "Acts.19.15"
  },
  {
   "ref": "Acts.19.19",
@@ -352,7 +360,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "meddlesome/magic"
+  "glosa_tagnt": "meddlesome/magic",
+  "ref_estandar": "Acts.19.19"
  },
  {
   "ref": "Acts.19.20",
@@ -390,7 +399,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "power"
+  "glosa_tagnt": "power",
+  "ref_estandar": "Acts.19.20"
  },
  {
   "ref": "Acts.19.21",
@@ -428,7 +438,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be necessary"
+  "glosa_tagnt": "be necessary",
+  "ref_estandar": "Acts.19.21"
  },
  {
   "ref": "Acts.19.24",
@@ -467,7 +478,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Artemis"
+  "glosa_tagnt": "Artemis",
+  "ref_estandar": "Acts.19.24"
  },
  {
   "ref": "Acts.19.28",
@@ -505,7 +517,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wrath"
+  "glosa_tagnt": "wrath",
+  "ref_estandar": "Acts.19.28"
  },
  {
   "ref": "Acts.19.29",
@@ -544,7 +557,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "theatre"
+  "glosa_tagnt": "theatre",
+  "ref_estandar": "Acts.19.29"
  },
  {
   "ref": "Acts.19.31",
@@ -582,7 +596,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Asiarch"
+  "glosa_tagnt": "Asiarch",
+  "ref_estandar": "Acts.19.31"
  },
  {
   "ref": "Acts.19.35",
@@ -619,7 +634,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "scribe"
+  "glosa_tagnt": "scribe",
+  "ref_estandar": "Acts.19.35"
  },
  {
   "ref": "Acts.19.37",
@@ -657,7 +673,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "temple robber"
+  "glosa_tagnt": "temple robber",
+  "ref_estandar": "Acts.19.37"
  },
  {
   "ref": "Acts.19.39",
@@ -695,6 +712,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "under law"
+  "glosa_tagnt": "under law",
+  "ref_estandar": "Acts.19.39"
  }
 ]

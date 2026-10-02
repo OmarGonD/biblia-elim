@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "shadow"
+  "glosa_tagnt": "shadow",
+  "ref_estandar": "Heb.10.1"
  },
  {
   "ref": "Heb.10.4",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unable"
+  "glosa_tagnt": "unable",
+  "ref_estandar": "Heb.10.4"
  },
  {
   "ref": "Heb.10.5",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "body"
+  "glosa_tagnt": "body",
+  "ref_estandar": "Heb.10.5"
  },
  {
   "ref": "Heb.10.7",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to come/be present"
+  "glosa_tagnt": "to come/be present",
+  "ref_estandar": "Heb.10.7"
  },
  {
   "ref": "Heb.10.10",
@@ -194,7 +198,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to sanctify"
+  "glosa_tagnt": "to sanctify",
+  "ref_estandar": "Heb.10.10"
  },
  {
   "ref": "Heb.10.14",
@@ -233,7 +238,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to perfect"
+  "glosa_tagnt": "to perfect",
+  "ref_estandar": "Heb.10.14"
  },
  {
   "ref": "Heb.10.19",
@@ -273,7 +279,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "boldness"
+  "glosa_tagnt": "boldness",
+  "ref_estandar": "Heb.10.19"
  },
  {
   "ref": "Heb.10.22",
@@ -313,7 +320,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to sprinkle"
+  "glosa_tagnt": "to sprinkle",
+  "ref_estandar": "Heb.10.22"
  },
  {
   "ref": "Heb.10.25",
@@ -353,7 +361,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gathering"
+  "glosa_tagnt": "gathering",
+  "ref_estandar": "Heb.10.25"
  },
  {
   "ref": "Heb.10.26",
@@ -393,7 +402,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "voluntarily"
+  "glosa_tagnt": "voluntarily",
+  "ref_estandar": "Heb.10.26"
  },
  {
   "ref": "Heb.10.29",
@@ -433,7 +443,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to trample"
+  "glosa_tagnt": "to trample",
+  "ref_estandar": "Heb.10.29"
  },
  {
   "ref": "Heb.10.31",
@@ -472,7 +483,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fearful"
+  "glosa_tagnt": "fearful",
+  "ref_estandar": "Heb.10.31"
  },
  {
   "ref": "Heb.10.34",
@@ -512,7 +524,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "property"
+  "glosa_tagnt": "property",
+  "ref_estandar": "Heb.10.34"
  },
  {
   "ref": "Heb.10.38",
@@ -552,6 +565,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "faith"
+  "glosa_tagnt": "faith",
+  "ref_estandar": "Heb.10.38"
  }
 ]

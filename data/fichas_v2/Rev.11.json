@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "temple"
+  "glosa_tagnt": "temple",
+  "ref_estandar": "Rev.11.1"
  },
  {
   "ref": "Rev.11.2",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "month"
+  "glosa_tagnt": "month",
+  "ref_estandar": "Rev.11.2"
  },
  {
   "ref": "Rev.11.3",
@@ -117,7 +119,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "witness"
+  "glosa_tagnt": "witness",
+  "ref_estandar": "Rev.11.3"
  },
  {
   "ref": "Rev.11.7",
@@ -157,7 +160,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wild animal"
+  "glosa_tagnt": "wild animal",
+  "ref_estandar": "Rev.11.7"
  },
  {
   "ref": "Rev.11.8",
@@ -197,7 +201,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Sodom"
+  "glosa_tagnt": "Sodom",
+  "ref_estandar": "Rev.11.8"
  },
  {
   "ref": "Rev.11.11",
@@ -237,7 +242,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "spirit/breath"
+  "glosa_tagnt": "spirit/breath",
+  "ref_estandar": "Rev.11.11"
  },
  {
   "ref": "Rev.11.13",
@@ -277,7 +283,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "earthquake"
+  "glosa_tagnt": "earthquake",
+  "ref_estandar": "Rev.11.13"
  },
  {
   "ref": "Rev.11.15",
@@ -318,7 +325,8 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "kingdom"
+  "glosa_tagnt": "kingdom",
+  "ref_estandar": "Rev.11.15"
  },
  {
   "ref": "Rev.11.17",
@@ -357,7 +365,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "almighty"
+  "glosa_tagnt": "almighty",
+  "ref_estandar": "Rev.11.17"
  },
  {
   "ref": "Rev.11.18",
@@ -397,7 +406,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wage"
+  "glosa_tagnt": "wage",
+  "ref_estandar": "Rev.11.18"
  },
  {
   "ref": "Rev.11.19",
@@ -437,6 +447,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ark"
+  "glosa_tagnt": "ark",
+  "ref_estandar": "Rev.11.19"
  }
 ]

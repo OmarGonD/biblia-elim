@@ -58,3 +58,4 @@ __pycache__/
 # entorno de fichas (jsonschema + SDK de Anthropic)
 .venv-fichas/
 __pycache__/
+.cache/

@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "apostle"
+  "glosa_tagnt": "apostle",
+  "ref_estandar": "Heb.3.1"
  },
  {
   "ref": "Heb.3.6",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to hold back/fast"
+  "glosa_tagnt": "to hold back/fast",
+  "ref_estandar": "Heb.3.6"
  },
  {
   "ref": "Heb.3.7",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "today"
+  "glosa_tagnt": "today",
+  "ref_estandar": "Heb.3.7"
  },
  {
   "ref": "Heb.3.12",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to leave"
+  "glosa_tagnt": "to leave",
+  "ref_estandar": "Heb.3.12"
  },
  {
   "ref": "Heb.3.14",
@@ -192,7 +196,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "partaker"
+  "glosa_tagnt": "partaker",
+  "ref_estandar": "Heb.3.14"
  },
  {
   "ref": "Heb.3.18",
@@ -232,6 +237,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to disobey"
+  "glosa_tagnt": "to disobey",
+  "ref_estandar": "Heb.3.18"
  }
 ]

@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Hellenist"
+  "glosa_tagnt": "Hellenist",
+  "ref_estandar": "Acts.6.1"
  },
  {
   "ref": "Acts.6.2",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to serve"
+  "glosa_tagnt": "to serve",
+  "ref_estandar": "Acts.6.2"
  },
  {
   "ref": "Acts.6.3",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wisdom"
+  "glosa_tagnt": "wisdom",
+  "ref_estandar": "Acts.6.3"
  },
  {
   "ref": "Acts.6.5",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Stephen"
+  "glosa_tagnt": "Stephen",
+  "ref_estandar": "Acts.6.5"
  },
  {
   "ref": "Acts.6.6",
@@ -193,7 +197,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hand"
+  "glosa_tagnt": "hand",
+  "ref_estandar": "Acts.6.6"
  },
  {
   "ref": "Acts.6.7",
@@ -231,7 +236,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to grow"
+  "glosa_tagnt": "to grow",
+  "ref_estandar": "Acts.6.7"
  },
  {
   "ref": "Acts.6.9",
@@ -269,7 +275,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Freedman"
+  "glosa_tagnt": "Freedman",
+  "ref_estandar": "Acts.6.9"
  },
  {
   "ref": "Acts.6.11",
@@ -308,7 +315,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "blasphemous"
+  "glosa_tagnt": "blasphemous",
+  "ref_estandar": "Acts.6.11"
  },
  {
   "ref": "Acts.6.14",
@@ -347,7 +355,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to destroy/lodge"
+  "glosa_tagnt": "to destroy/lodge",
+  "ref_estandar": "Acts.6.14"
  },
  {
   "ref": "Acts.6.15",
@@ -386,6 +395,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "angel"
+  "glosa_tagnt": "angel",
+  "ref_estandar": "Acts.6.15"
  }
 ]

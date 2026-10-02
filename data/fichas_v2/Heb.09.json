@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "propitiation"
+  "glosa_tagnt": "propitiation",
+  "ref_estandar": "Heb.9.5"
  },
  {
   "ref": "Heb.9.7",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "blood"
+  "glosa_tagnt": "blood",
+  "ref_estandar": "Heb.9.7"
  },
  {
   "ref": "Heb.9.11",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "high-priest"
+  "glosa_tagnt": "high-priest",
+  "ref_estandar": "Heb.9.11"
  },
  {
   "ref": "Heb.9.12",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "redemption"
+  "glosa_tagnt": "redemption",
+  "ref_estandar": "Heb.9.12"
  },
  {
   "ref": "Heb.9.14",
@@ -193,7 +197,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "spirit/breath"
+  "glosa_tagnt": "spirit/breath",
+  "ref_estandar": "Heb.9.14"
  },
  {
   "ref": "Heb.9.15",
@@ -232,7 +237,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mediator"
+  "glosa_tagnt": "mediator",
+  "ref_estandar": "Heb.9.15"
  },
  {
   "ref": "Heb.9.16",
@@ -271,7 +277,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "covenant"
+  "glosa_tagnt": "covenant",
+  "ref_estandar": "Heb.9.16"
  },
  {
   "ref": "Heb.9.22",
@@ -311,7 +318,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "bloodshed"
+  "glosa_tagnt": "bloodshed",
+  "ref_estandar": "Heb.9.22"
  },
  {
   "ref": "Heb.9.26",
@@ -351,7 +359,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "consummation"
+  "glosa_tagnt": "consummation",
+  "ref_estandar": "Heb.9.26"
  },
  {
   "ref": "Heb.9.27",
@@ -391,7 +400,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "judgment"
+  "glosa_tagnt": "judgment",
+  "ref_estandar": "Heb.9.27"
  },
  {
   "ref": "Heb.9.28",
@@ -431,6 +441,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to bring to"
+  "glosa_tagnt": "to bring to",
+  "ref_estandar": "Heb.9.28"
  }
 ]

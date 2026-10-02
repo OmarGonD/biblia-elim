@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hallelujah"
+  "glosa_tagnt": "hallelujah",
+  "ref_estandar": "Rev.19.1"
  },
  {
   "ref": "Rev.19.2",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to avenge"
+  "glosa_tagnt": "to avenge",
+  "ref_estandar": "Rev.19.2"
  },
  {
   "ref": "Rev.19.3",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "smoke"
+  "glosa_tagnt": "smoke",
+  "ref_estandar": "Rev.19.3"
  },
  {
   "ref": "Rev.19.6",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to reign"
+  "glosa_tagnt": "to reign",
+  "ref_estandar": "Rev.19.6"
  },
  {
   "ref": "Rev.19.7",
@@ -194,7 +198,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wedding"
+  "glosa_tagnt": "wedding",
+  "ref_estandar": "Rev.19.7"
  },
  {
   "ref": "Rev.19.8",
@@ -234,7 +239,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "righteous act"
+  "glosa_tagnt": "righteous act",
+  "ref_estandar": "Rev.19.8"
  },
  {
   "ref": "Rev.19.9",
@@ -274,7 +280,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dinner"
+  "glosa_tagnt": "dinner",
+  "ref_estandar": "Rev.19.9"
  },
  {
   "ref": "Rev.19.10",
@@ -315,7 +322,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to worship"
+  "glosa_tagnt": "to worship",
+  "ref_estandar": "Rev.19.10"
  },
  {
   "ref": "Rev.19.11",
@@ -355,7 +363,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "white"
+  "glosa_tagnt": "white",
+  "ref_estandar": "Rev.19.11"
  },
  {
   "ref": "Rev.19.12",
@@ -394,7 +403,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "diadem"
+  "glosa_tagnt": "diadem",
+  "ref_estandar": "Rev.19.12"
  },
  {
   "ref": "Rev.19.13",
@@ -435,7 +445,8 @@
    "WH"
   ],
   "variante": true,
-  "glosa_tagnt": "to dip"
+  "glosa_tagnt": "to dip",
+  "ref_estandar": "Rev.19.13"
  },
  {
   "ref": "Rev.19.14",
@@ -475,7 +486,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "troops"
+  "glosa_tagnt": "troops",
+  "ref_estandar": "Rev.19.14"
  },
  {
   "ref": "Rev.19.15",
@@ -515,7 +527,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sword"
+  "glosa_tagnt": "sword",
+  "ref_estandar": "Rev.19.15"
  },
  {
   "ref": "Rev.19.16",
@@ -556,7 +569,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "king"
+  "glosa_tagnt": "king",
+  "ref_estandar": "Rev.19.16"
  },
  {
   "ref": "Rev.19.17",
@@ -596,7 +610,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dinner"
+  "glosa_tagnt": "dinner",
+  "ref_estandar": "Rev.19.17"
  },
  {
   "ref": "Rev.19.19",
@@ -636,7 +651,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "war"
+  "glosa_tagnt": "war",
+  "ref_estandar": "Rev.19.19"
  },
  {
   "ref": "Rev.19.20",
@@ -676,7 +692,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lake"
+  "glosa_tagnt": "lake",
+  "ref_estandar": "Rev.19.20"
  },
  {
   "ref": "Rev.19.21",
@@ -716,6 +733,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sword"
+  "glosa_tagnt": "sword",
+  "ref_estandar": "Rev.19.21"
  }
 ]

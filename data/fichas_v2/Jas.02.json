@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "favoritism"
+  "glosa_tagnt": "favoritism",
+  "ref_estandar": "Jas.2.1"
  },
  {
   "ref": "Jas.2.5",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "poor"
+  "glosa_tagnt": "poor",
+  "ref_estandar": "Jas.2.5"
  },
  {
   "ref": "Jas.2.8",
@@ -117,7 +119,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "royal"
+  "glosa_tagnt": "royal",
+  "ref_estandar": "Jas.2.8"
  },
  {
   "ref": "Jas.2.10",
@@ -157,7 +160,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "liable for"
+  "glosa_tagnt": "liable for",
+  "ref_estandar": "Jas.2.10"
  },
  {
   "ref": "Jas.2.13",
@@ -198,7 +202,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mercy"
+  "glosa_tagnt": "mercy",
+  "ref_estandar": "Jas.2.13"
  },
  {
   "ref": "Jas.2.13",
@@ -240,7 +245,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "mercy"
+  "glosa_tagnt": "mercy",
+  "ref_estandar": "Jas.2.13"
  },
  {
   "ref": "Jas.2.14",
@@ -280,7 +286,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to save"
+  "glosa_tagnt": "to save",
+  "ref_estandar": "Jas.2.14"
  },
  {
   "ref": "Jas.2.17",
@@ -320,7 +327,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dead"
+  "glosa_tagnt": "dead",
+  "ref_estandar": "Jas.2.17"
  },
  {
   "ref": "Jas.2.19",
@@ -360,7 +368,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "demon"
+  "glosa_tagnt": "demon",
+  "ref_estandar": "Jas.2.19"
  },
  {
   "ref": "Jas.2.21",
@@ -400,7 +409,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to justify"
+  "glosa_tagnt": "to justify",
+  "ref_estandar": "Jas.2.21"
  },
  {
   "ref": "Jas.2.22",
@@ -439,7 +449,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to perfect"
+  "glosa_tagnt": "to perfect",
+  "ref_estandar": "Jas.2.22"
  },
  {
   "ref": "Jas.2.23",
@@ -479,7 +490,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to count"
+  "glosa_tagnt": "to count",
+  "ref_estandar": "Jas.2.23"
  },
  {
   "ref": "Jas.2.24",
@@ -518,7 +530,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "alone"
+  "glosa_tagnt": "alone",
+  "ref_estandar": "Jas.2.24"
  },
  {
   "ref": "Jas.2.25",
@@ -557,6 +570,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Rahab"
+  "glosa_tagnt": "Rahab",
+  "ref_estandar": "Jas.2.25"
  }
 ]

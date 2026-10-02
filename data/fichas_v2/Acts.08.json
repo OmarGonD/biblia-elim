@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to scatter"
+  "glosa_tagnt": "to scatter",
+  "ref_estandar": "Acts.8.1"
  },
  {
   "ref": "Acts.8.3",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to ravage"
+  "glosa_tagnt": "to ravage",
+  "ref_estandar": "Acts.8.3"
  },
  {
   "ref": "Acts.8.5",
@@ -115,7 +117,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to preach"
+  "glosa_tagnt": "to preach",
+  "ref_estandar": "Acts.8.5"
  },
  {
   "ref": "Acts.8.9",
@@ -154,7 +157,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to practice magic"
+  "glosa_tagnt": "to practice magic",
+  "ref_estandar": "Acts.8.9"
  },
  {
   "ref": "Acts.8.12",
@@ -193,7 +197,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to baptize"
+  "glosa_tagnt": "to baptize",
+  "ref_estandar": "Acts.8.12"
  },
  {
   "ref": "Acts.8.15",
@@ -232,7 +237,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pray"
+  "glosa_tagnt": "to pray",
+  "ref_estandar": "Acts.8.15"
  },
  {
   "ref": "Acts.8.18",
@@ -271,7 +277,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "laying on"
+  "glosa_tagnt": "laying on",
+  "ref_estandar": "Acts.8.18"
  },
  {
   "ref": "Acts.8.20",
@@ -310,7 +317,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "destruction"
+  "glosa_tagnt": "destruction",
+  "ref_estandar": "Acts.8.20"
  },
  {
   "ref": "Acts.8.23",
@@ -349,7 +357,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "bond(age)"
+  "glosa_tagnt": "bond(age)",
+  "ref_estandar": "Acts.8.23"
  },
  {
   "ref": "Acts.8.27",
@@ -389,7 +398,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "eunuch"
+  "glosa_tagnt": "eunuch",
+  "ref_estandar": "Acts.8.27"
  },
  {
   "ref": "Acts.8.28",
@@ -427,7 +437,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "chariot"
+  "glosa_tagnt": "chariot",
+  "ref_estandar": "Acts.8.28"
  },
  {
   "ref": "Acts.8.31",
@@ -468,6 +479,7 @@
   ],
   "variante": true,
   "glosa_tagnt": "to guide",
+  "ref_estandar": "Acts.8.31",
   "no_en_na28": true,
   "nota_na28": "La palabra de Tischendorf no está en NA28 según el TAGNT (presente en: NA27, Tyn, SBL, WH, Treg)."
  },
@@ -509,7 +521,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lamb"
+  "glosa_tagnt": "lamb",
+  "ref_estandar": "Acts.8.32"
  },
  {
   "ref": "Acts.8.35",
@@ -548,7 +561,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to speak good news"
+  "glosa_tagnt": "to speak good news",
+  "ref_estandar": "Acts.8.35"
  },
  {
   "ref": "Acts.8.36",
@@ -586,7 +600,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to prevent"
+  "glosa_tagnt": "to prevent",
+  "ref_estandar": "Acts.8.36"
  },
  {
   "ref": "Acts.8.39",
@@ -627,7 +642,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to seize"
+  "glosa_tagnt": "to seize",
+  "ref_estandar": "Acts.8.39"
  },
  {
   "ref": "Acts.8.40",
@@ -666,6 +682,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Caesarea"
+  "glosa_tagnt": "Caesarea",
+  "ref_estandar": "Acts.8.40"
  }
 ]

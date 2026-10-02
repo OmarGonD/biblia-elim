@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Olivet"
+  "glosa_tagnt": "Olivet",
+  "ref_estandar": "Matt.21.1"
  },
  {
   "ref": "Matt.21.5",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gentle"
+  "glosa_tagnt": "gentle",
+  "ref_estandar": "Matt.21.5"
  },
  {
   "ref": "Matt.21.7",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "colt"
+  "glosa_tagnt": "colt",
+  "ref_estandar": "Matt.21.7"
  },
  {
   "ref": "Matt.21.9",
@@ -157,7 +160,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Hosanna!"
+  "glosa_tagnt": "Hosanna!",
+  "ref_estandar": "Matt.21.9"
  },
  {
   "ref": "Matt.21.9",
@@ -198,7 +202,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Hosanna!"
+  "glosa_tagnt": "Hosanna!",
+  "ref_estandar": "Matt.21.9"
  },
  {
   "ref": "Matt.21.10",
@@ -237,7 +242,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to shake"
+  "glosa_tagnt": "to shake",
+  "ref_estandar": "Matt.21.10"
  },
  {
   "ref": "Matt.21.12",
@@ -278,7 +284,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "temple"
+  "glosa_tagnt": "temple",
+  "ref_estandar": "Matt.21.12"
  },
  {
   "ref": "Matt.21.13",
@@ -318,7 +325,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "robber/rebel"
+  "glosa_tagnt": "robber/rebel",
+  "ref_estandar": "Matt.21.13"
  },
  {
   "ref": "Matt.21.16",
@@ -357,7 +365,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "child"
+  "glosa_tagnt": "child",
+  "ref_estandar": "Matt.21.16"
  },
  {
   "ref": "Matt.21.19",
@@ -397,7 +406,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fig tree"
+  "glosa_tagnt": "fig tree",
+  "ref_estandar": "Matt.21.19"
  },
  {
   "ref": "Matt.21.21",
@@ -437,7 +447,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to judge/doubt"
+  "glosa_tagnt": "to judge/doubt",
+  "ref_estandar": "Matt.21.21"
  },
  {
   "ref": "Matt.21.23",
@@ -477,7 +488,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "authority"
+  "glosa_tagnt": "authority",
+  "ref_estandar": "Matt.21.23"
  },
  {
   "ref": "Matt.21.25",
@@ -515,7 +527,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "baptism"
+  "glosa_tagnt": "baptism",
+  "ref_estandar": "Matt.21.25"
  },
  {
   "ref": "Matt.21.29",
@@ -555,7 +568,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to repent"
+  "glosa_tagnt": "to repent",
+  "ref_estandar": "Matt.21.29"
  },
  {
   "ref": "Matt.21.31",
@@ -595,7 +609,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "prostitute"
+  "glosa_tagnt": "prostitute",
+  "ref_estandar": "Matt.21.31"
  },
  {
   "ref": "Matt.21.33",
@@ -635,7 +650,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fence"
+  "glosa_tagnt": "fence",
+  "ref_estandar": "Matt.21.33"
  },
  {
   "ref": "Matt.21.38",
@@ -674,7 +690,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "heir"
+  "glosa_tagnt": "heir",
+  "ref_estandar": "Matt.21.38"
  },
  {
   "ref": "Matt.21.42",
@@ -713,7 +730,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "stone"
+  "glosa_tagnt": "stone",
+  "ref_estandar": "Matt.21.42"
  },
  {
   "ref": "Matt.21.43",
@@ -753,6 +771,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Gentile nation"
+  "glosa_tagnt": "Gentile nation",
+  "ref_estandar": "Matt.21.43"
  }
 ]

@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "seventy"
+  "glosa_tagnt": "seventy",
+  "ref_estandar": "Luke.10.1"
  },
  {
   "ref": "Luke.10.3",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lamb"
+  "glosa_tagnt": "lamb",
+  "ref_estandar": "Luke.10.3"
  },
  {
   "ref": "Luke.10.6",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "peace"
+  "glosa_tagnt": "peace",
+  "ref_estandar": "Luke.10.6"
  },
  {
   "ref": "Luke.10.9",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to come near"
+  "glosa_tagnt": "to come near",
+  "ref_estandar": "Luke.10.9"
  },
  {
   "ref": "Luke.10.13",
@@ -194,7 +198,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "woe!"
+  "glosa_tagnt": "woe!",
+  "ref_estandar": "Luke.10.13"
  },
  {
   "ref": "Luke.10.13",
@@ -233,7 +238,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "woe!"
+  "glosa_tagnt": "woe!",
+  "ref_estandar": "Luke.10.13"
  },
  {
   "ref": "Luke.10.16",
@@ -273,7 +279,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to reject"
+  "glosa_tagnt": "to reject",
+  "ref_estandar": "Luke.10.16"
  },
  {
   "ref": "Luke.10.16",
@@ -313,7 +320,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to reject"
+  "glosa_tagnt": "to reject",
+  "ref_estandar": "Luke.10.16"
  },
  {
   "ref": "Luke.10.18",
@@ -352,7 +360,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Satan"
+  "glosa_tagnt": "Satan",
+  "ref_estandar": "Luke.10.18"
  },
  {
   "ref": "Luke.10.19",
@@ -391,7 +400,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to trample"
+  "glosa_tagnt": "to trample",
+  "ref_estandar": "Luke.10.19"
  },
  {
   "ref": "Luke.10.20",
@@ -431,7 +441,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to write in"
+  "glosa_tagnt": "to write in",
+  "ref_estandar": "Luke.10.20"
  },
  {
   "ref": "Luke.10.21",
@@ -470,7 +481,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to rejoice"
+  "glosa_tagnt": "to rejoice",
+  "ref_estandar": "Luke.10.21"
  },
  {
   "ref": "Luke.10.25",
@@ -509,7 +521,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lawyer"
+  "glosa_tagnt": "lawyer",
+  "ref_estandar": "Luke.10.25"
  },
  {
   "ref": "Luke.10.29",
@@ -548,7 +561,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "near/neighbour"
+  "glosa_tagnt": "near/neighbour",
+  "ref_estandar": "Luke.10.29"
  },
  {
   "ref": "Luke.10.30",
@@ -586,7 +600,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "half-dead"
+  "glosa_tagnt": "half-dead",
+  "ref_estandar": "Luke.10.30"
  },
  {
   "ref": "Luke.10.31",
@@ -625,7 +640,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pass"
+  "glosa_tagnt": "to pass",
+  "ref_estandar": "Luke.10.31"
  },
  {
   "ref": "Luke.10.33",
@@ -664,7 +680,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Samaritan"
+  "glosa_tagnt": "Samaritan",
+  "ref_estandar": "Luke.10.33"
  },
  {
   "ref": "Luke.10.34",
@@ -702,7 +719,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "inn"
+  "glosa_tagnt": "inn",
+  "ref_estandar": "Luke.10.34"
  },
  {
   "ref": "Luke.10.37",
@@ -741,7 +759,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mercy"
+  "glosa_tagnt": "mercy",
+  "ref_estandar": "Luke.10.37"
  },
  {
   "ref": "Luke.10.39",
@@ -780,7 +799,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to sit by"
+  "glosa_tagnt": "to sit by",
+  "ref_estandar": "Luke.10.39"
  },
  {
   "ref": "Luke.10.40",
@@ -818,7 +838,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "service"
+  "glosa_tagnt": "service",
+  "ref_estandar": "Luke.10.40"
  },
  {
   "ref": "Luke.10.42",
@@ -857,6 +878,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "part"
+  "glosa_tagnt": "part",
+  "ref_estandar": "Luke.10.42"
  }
 ]

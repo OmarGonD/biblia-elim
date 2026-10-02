@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to betroth"
+  "glosa_tagnt": "to betroth",
+  "ref_estandar": "2Cor.11.2"
  },
  {
   "ref": "2Cor.11.3",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "snake"
+  "glosa_tagnt": "snake",
+  "ref_estandar": "2Cor.11.3"
  },
  {
   "ref": "2Cor.11.4",
@@ -115,7 +117,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "other"
+  "glosa_tagnt": "other",
+  "ref_estandar": "2Cor.11.4"
  },
  {
   "ref": "2Cor.11.4",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "other"
+  "glosa_tagnt": "other",
+  "ref_estandar": "2Cor.11.4"
  },
  {
   "ref": "2Cor.11.5",
@@ -194,7 +198,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "apostle"
+  "glosa_tagnt": "apostle",
+  "ref_estandar": "2Cor.11.5"
  },
  {
   "ref": "2Cor.11.7",
@@ -234,7 +239,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "freely"
+  "glosa_tagnt": "freely",
+  "ref_estandar": "2Cor.11.7"
  },
  {
   "ref": "2Cor.11.13",
@@ -274,7 +280,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "false apostle"
+  "glosa_tagnt": "false apostle",
+  "ref_estandar": "2Cor.11.13"
  },
  {
   "ref": "2Cor.11.14",
@@ -314,7 +321,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to transform"
+  "glosa_tagnt": "to transform",
+  "ref_estandar": "2Cor.11.14"
  },
  {
   "ref": "2Cor.11.22",
@@ -353,7 +361,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "a Hebrew"
+  "glosa_tagnt": "a Hebrew",
+  "ref_estandar": "2Cor.11.22"
  },
  {
   "ref": "2Cor.11.24",
@@ -393,7 +402,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "five times"
+  "glosa_tagnt": "five times",
+  "ref_estandar": "2Cor.11.24"
  },
  {
   "ref": "2Cor.11.28",
@@ -432,7 +442,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "concern"
+  "glosa_tagnt": "concern",
+  "ref_estandar": "2Cor.11.28"
  },
  {
   "ref": "2Cor.11.30",
@@ -471,7 +482,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "weakness"
+  "glosa_tagnt": "weakness",
+  "ref_estandar": "2Cor.11.30"
  },
  {
   "ref": "2Cor.11.32",
@@ -509,6 +521,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "governor"
+  "glosa_tagnt": "governor",
+  "ref_estandar": "2Cor.11.32"
  }
 ]

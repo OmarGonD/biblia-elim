@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to sanctify"
+  "glosa_tagnt": "to sanctify",
+  "ref_estandar": "1Cor.1.2"
  },
  {
   "ref": "1Cor.1.7",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gift"
+  "glosa_tagnt": "gift",
+  "ref_estandar": "1Cor.1.7"
  },
  {
   "ref": "1Cor.1.9",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "participation"
+  "glosa_tagnt": "participation",
+  "ref_estandar": "1Cor.1.9"
  },
  {
   "ref": "1Cor.1.10",
@@ -156,7 +159,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "split"
+  "glosa_tagnt": "split",
+  "ref_estandar": "1Cor.1.10"
  },
  {
   "ref": "1Cor.1.12",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Cephas"
+  "glosa_tagnt": "Cephas",
+  "ref_estandar": "1Cor.1.12"
  },
  {
   "ref": "1Cor.1.13",
@@ -235,7 +240,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to baptize"
+  "glosa_tagnt": "to baptize",
+  "ref_estandar": "1Cor.1.13"
  },
  {
   "ref": "1Cor.1.17",
@@ -274,7 +280,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to speak good news"
+  "glosa_tagnt": "to speak good news",
+  "ref_estandar": "1Cor.1.17"
  },
  {
   "ref": "1Cor.1.18",
@@ -314,7 +321,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "foolishness"
+  "glosa_tagnt": "foolishness",
+  "ref_estandar": "1Cor.1.18"
  },
  {
   "ref": "1Cor.1.23",
@@ -354,7 +362,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "stumbling block"
+  "glosa_tagnt": "stumbling block",
+  "ref_estandar": "1Cor.1.23"
  },
  {
   "ref": "1Cor.1.25",
@@ -393,7 +402,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "foolish"
+  "glosa_tagnt": "foolish",
+  "ref_estandar": "1Cor.1.25"
  },
  {
   "ref": "1Cor.1.26",
@@ -433,7 +443,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "calling"
+  "glosa_tagnt": "calling",
+  "ref_estandar": "1Cor.1.26"
  },
  {
   "ref": "1Cor.1.29",
@@ -472,7 +483,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to boast"
+  "glosa_tagnt": "to boast",
+  "ref_estandar": "1Cor.1.29"
  },
  {
   "ref": "1Cor.1.30",
@@ -512,6 +524,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "redemption"
+  "glosa_tagnt": "redemption",
+  "ref_estandar": "1Cor.1.30"
  }
 ]

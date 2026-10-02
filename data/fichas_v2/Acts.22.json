@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "defence"
+  "glosa_tagnt": "defence",
+  "ref_estandar": "Acts.22.1"
  },
  {
   "ref": "Acts.22.3",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Gamaliel"
+  "glosa_tagnt": "Gamaliel",
+  "ref_estandar": "Acts.22.3"
  },
  {
   "ref": "Acts.22.4",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pursue"
+  "glosa_tagnt": "to pursue",
+  "ref_estandar": "Acts.22.4"
  },
  {
   "ref": "Acts.22.9",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to look at"
+  "glosa_tagnt": "to look at",
+  "ref_estandar": "Acts.22.9"
  },
  {
   "ref": "Acts.22.14",
@@ -192,7 +196,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "just"
+  "glosa_tagnt": "just",
+  "ref_estandar": "Acts.22.14"
  },
  {
   "ref": "Acts.22.15",
@@ -231,7 +236,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "witness"
+  "glosa_tagnt": "witness",
+  "ref_estandar": "Acts.22.15"
  },
  {
   "ref": "Acts.22.16",
@@ -271,7 +277,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to baptize"
+  "glosa_tagnt": "to baptize",
+  "ref_estandar": "Acts.22.16"
  },
  {
   "ref": "Acts.22.20",
@@ -310,7 +317,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Stephen"
+  "glosa_tagnt": "Stephen",
+  "ref_estandar": "Acts.22.20"
  },
  {
   "ref": "Acts.22.21",
@@ -349,7 +357,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Gentile nation"
+  "glosa_tagnt": "Gentile nation",
+  "ref_estandar": "Acts.22.21"
  },
  {
   "ref": "Acts.22.22",
@@ -388,7 +397,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to take up"
+  "glosa_tagnt": "to take up",
+  "ref_estandar": "Acts.22.22"
  },
  {
   "ref": "Acts.22.25",
@@ -427,7 +437,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Roman"
+  "glosa_tagnt": "Roman",
+  "ref_estandar": "Acts.22.25"
  },
  {
   "ref": "Acts.22.28",
@@ -465,7 +476,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "citizenship"
+  "glosa_tagnt": "citizenship",
+  "ref_estandar": "Acts.22.28"
  },
  {
   "ref": "Acts.22.30",
@@ -503,6 +515,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "council"
+  "glosa_tagnt": "council",
+  "ref_estandar": "Acts.22.30"
  }
 ]

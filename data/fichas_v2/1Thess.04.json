@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "holiness"
+  "glosa_tagnt": "holiness",
+  "ref_estandar": "1Thess.4.3"
  },
  {
   "ref": "1Thess.4.4",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "vessel"
+  "glosa_tagnt": "vessel",
+  "ref_estandar": "1Thess.4.4"
  },
  {
   "ref": "1Thess.4.9",
@@ -117,7 +119,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "divinely instructed"
+  "glosa_tagnt": "divinely instructed",
+  "ref_estandar": "1Thess.4.9"
  },
  {
   "ref": "1Thess.4.11",
@@ -156,7 +159,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be quiet/give up"
+  "glosa_tagnt": "be quiet/give up",
+  "ref_estandar": "1Thess.4.11"
  },
  {
   "ref": "1Thess.4.13",
@@ -196,7 +200,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to sleep"
+  "glosa_tagnt": "to sleep",
+  "ref_estandar": "1Thess.4.13"
  },
  {
   "ref": "1Thess.4.14",
@@ -235,7 +240,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to bring"
+  "glosa_tagnt": "to bring",
+  "ref_estandar": "1Thess.4.14"
  },
  {
   "ref": "1Thess.4.15",
@@ -274,7 +280,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "coming"
+  "glosa_tagnt": "coming",
+  "ref_estandar": "1Thess.4.15"
  },
  {
   "ref": "1Thess.4.16",
@@ -314,7 +321,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "archangel"
+  "glosa_tagnt": "archangel",
+  "ref_estandar": "1Thess.4.16"
  },
  {
   "ref": "1Thess.4.17",
@@ -354,6 +362,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to seize"
+  "glosa_tagnt": "to seize",
+  "ref_estandar": "1Thess.4.17"
  }
 ]

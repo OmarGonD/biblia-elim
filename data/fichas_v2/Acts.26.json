@@ -35,7 +35,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to defend oneself"
+  "glosa_tagnt": "to defend oneself",
+  "ref_estandar": "Acts.26.1"
  },
  {
   "ref": "Acts.26.5",
@@ -74,7 +75,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "strictest"
+  "glosa_tagnt": "strictest",
+  "ref_estandar": "Acts.26.5"
  },
  {
   "ref": "Acts.26.6",
@@ -113,7 +115,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hope"
+  "glosa_tagnt": "hope",
+  "ref_estandar": "Acts.26.6"
  },
  {
   "ref": "Acts.26.8",
@@ -152,7 +155,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to arise"
+  "glosa_tagnt": "to arise",
+  "ref_estandar": "Acts.26.8"
  },
  {
   "ref": "Acts.26.10",
@@ -191,7 +195,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "authority"
+  "glosa_tagnt": "authority",
+  "ref_estandar": "Acts.26.10"
  },
  {
   "ref": "Acts.26.13",
@@ -230,7 +235,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "brightness"
+  "glosa_tagnt": "brightness",
+  "ref_estandar": "Acts.26.13"
  },
  {
   "ref": "Acts.26.14",
@@ -269,7 +275,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sting"
+  "glosa_tagnt": "sting",
+  "ref_estandar": "Acts.26.14"
  },
  {
   "ref": "Acts.26.16",
@@ -309,7 +316,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "servant"
+  "glosa_tagnt": "servant",
+  "ref_estandar": "Acts.26.16"
  },
  {
   "ref": "Acts.26.18",
@@ -350,7 +358,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "light"
+  "glosa_tagnt": "light",
+  "ref_estandar": "Acts.26.18"
  },
  {
   "ref": "Acts.26.20",
@@ -390,7 +399,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to repent"
+  "glosa_tagnt": "to repent",
+  "ref_estandar": "Acts.26.20"
  },
  {
   "ref": "Acts.26.23",
@@ -430,7 +440,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "suffering"
+  "glosa_tagnt": "suffering",
+  "ref_estandar": "Acts.26.23"
  },
  {
   "ref": "Acts.26.24",
@@ -470,7 +481,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to rave"
+  "glosa_tagnt": "to rave",
+  "ref_estandar": "Acts.26.24"
  },
  {
   "ref": "Acts.26.25",
@@ -509,7 +521,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mental soundness"
+  "glosa_tagnt": "mental soundness",
+  "ref_estandar": "Acts.26.25"
  },
  {
   "ref": "Acts.26.26",
@@ -548,7 +561,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "corner"
+  "glosa_tagnt": "corner",
+  "ref_estandar": "Acts.26.26"
  },
  {
   "ref": "Acts.26.28",
@@ -587,7 +601,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Christian"
+  "glosa_tagnt": "Christian",
+  "ref_estandar": "Acts.26.28"
  },
  {
   "ref": "Acts.26.29",
@@ -627,7 +642,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "chain"
+  "glosa_tagnt": "chain",
+  "ref_estandar": "Acts.26.29"
  },
  {
   "ref": "Acts.26.31",
@@ -665,6 +681,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to speak"
+  "glosa_tagnt": "to speak",
+  "ref_estandar": "Acts.26.31"
  }
 ]

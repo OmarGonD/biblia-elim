@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mountain"
+  "glosa_tagnt": "mountain",
+  "ref_estandar": "Matt.5.1"
  },
  {
   "ref": "Matt.5.2",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to open"
+  "glosa_tagnt": "to open",
+  "ref_estandar": "Matt.5.2"
  },
  {
   "ref": "Matt.5.3",
@@ -115,7 +117,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "blessed"
+  "glosa_tagnt": "blessed",
+  "ref_estandar": "Matt.5.3"
  },
  {
   "ref": "Matt.5.3",
@@ -156,7 +159,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "poor"
+  "glosa_tagnt": "poor",
+  "ref_estandar": "Matt.5.3"
  },
  {
   "ref": "Matt.5.4",
@@ -196,7 +200,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gentle"
+  "glosa_tagnt": "gentle",
+  "ref_estandar": "Matt.5.5"
  },
  {
   "ref": "Matt.5.4",
@@ -236,7 +241,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to inherit"
+  "glosa_tagnt": "to inherit",
+  "ref_estandar": "Matt.5.5"
  },
  {
   "ref": "Matt.5.5",
@@ -276,7 +282,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to mourn"
+  "glosa_tagnt": "to mourn",
+  "ref_estandar": "Matt.5.4"
  },
  {
   "ref": "Matt.5.5",
@@ -316,7 +323,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to plead/comfort"
+  "glosa_tagnt": "to plead/comfort",
+  "ref_estandar": "Matt.5.4"
  },
  {
   "ref": "Matt.5.6",
@@ -356,7 +364,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to thirst"
+  "glosa_tagnt": "to thirst",
+  "ref_estandar": "Matt.5.6"
  },
  {
   "ref": "Matt.5.6",
@@ -397,7 +406,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "righteousness"
+  "glosa_tagnt": "righteousness",
+  "ref_estandar": "Matt.5.6"
  },
  {
   "ref": "Matt.5.6",
@@ -436,7 +446,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to feed"
+  "glosa_tagnt": "to feed",
+  "ref_estandar": "Matt.5.6"
  },
  {
   "ref": "Matt.5.7",
@@ -476,7 +487,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "merciful"
+  "glosa_tagnt": "merciful",
+  "ref_estandar": "Matt.5.7"
  },
  {
   "ref": "Matt.5.8",
@@ -516,7 +528,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "clean"
+  "glosa_tagnt": "clean",
+  "ref_estandar": "Matt.5.8"
  },
  {
   "ref": "Matt.5.9",
@@ -556,7 +569,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "peacemaker"
+  "glosa_tagnt": "peacemaker",
+  "ref_estandar": "Matt.5.9"
  },
  {
   "ref": "Matt.5.10",
@@ -596,7 +610,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pursue"
+  "glosa_tagnt": "to pursue",
+  "ref_estandar": "Matt.5.10"
  },
  {
   "ref": "Matt.5.11",
@@ -635,7 +650,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to revile"
+  "glosa_tagnt": "to revile",
+  "ref_estandar": "Matt.5.11"
  },
  {
   "ref": "Matt.5.12",
@@ -675,7 +691,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to rejoice"
+  "glosa_tagnt": "to rejoice",
+  "ref_estandar": "Matt.5.12"
  },
  {
   "ref": "Matt.5.12",
@@ -715,7 +732,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wage"
+  "glosa_tagnt": "wage",
+  "ref_estandar": "Matt.5.12"
  },
  {
   "ref": "Matt.5.13",
@@ -755,7 +773,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "salt"
+  "glosa_tagnt": "salt",
+  "ref_estandar": "Matt.5.13"
  },
  {
   "ref": "Matt.5.13",
@@ -795,7 +814,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "salt"
+  "glosa_tagnt": "salt",
+  "ref_estandar": "Matt.5.13"
  },
  {
   "ref": "Matt.5.13",
@@ -835,7 +855,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to make insipid"
+  "glosa_tagnt": "to make insipid",
+  "ref_estandar": "Matt.5.13"
  },
  {
   "ref": "Matt.5.14",
@@ -876,7 +897,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "light"
+  "glosa_tagnt": "light",
+  "ref_estandar": "Matt.5.14"
  },
  {
   "ref": "Matt.5.15",
@@ -915,7 +937,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "bucket"
+  "glosa_tagnt": "bucket",
+  "ref_estandar": "Matt.5.15"
  },
  {
   "ref": "Matt.5.16",
@@ -956,7 +979,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "work"
+  "glosa_tagnt": "work",
+  "ref_estandar": "Matt.5.16"
  },
  {
   "ref": "Matt.5.17",
@@ -995,7 +1019,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to think"
+  "glosa_tagnt": "to think",
+  "ref_estandar": "Matt.5.17"
  },
  {
   "ref": "Matt.5.17",
@@ -1037,7 +1062,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to destroy/lodge"
+  "glosa_tagnt": "to destroy/lodge",
+  "ref_estandar": "Matt.5.17"
  },
  {
   "ref": "Matt.5.17",
@@ -1079,7 +1105,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to destroy/lodge"
+  "glosa_tagnt": "to destroy/lodge",
+  "ref_estandar": "Matt.5.17"
  },
  {
   "ref": "Matt.5.17",
@@ -1120,7 +1147,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to fulfill"
+  "glosa_tagnt": "to fulfill",
+  "ref_estandar": "Matt.5.17"
  },
  {
   "ref": "Matt.5.18",
@@ -1158,7 +1186,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tittle"
+  "glosa_tagnt": "tittle",
+  "ref_estandar": "Matt.5.18"
  },
  {
   "ref": "Matt.5.20",
@@ -1198,7 +1227,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to abound/exceed"
+  "glosa_tagnt": "to abound/exceed",
+  "ref_estandar": "Matt.5.20"
  },
  {
   "ref": "Matt.5.21",
@@ -1239,7 +1269,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to murder"
+  "glosa_tagnt": "to murder",
+  "ref_estandar": "Matt.5.21"
  },
  {
   "ref": "Matt.5.22",
@@ -1278,7 +1309,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to anger"
+  "glosa_tagnt": "to anger",
+  "ref_estandar": "Matt.5.22"
  },
  {
   "ref": "Matt.5.22",
@@ -1315,7 +1347,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Raca"
+  "glosa_tagnt": "Raca",
+  "ref_estandar": "Matt.5.22"
  },
  {
   "ref": "Matt.5.22",
@@ -1355,7 +1388,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Gehenna"
+  "glosa_tagnt": "Gehenna",
+  "ref_estandar": "Matt.5.22"
  },
  {
   "ref": "Matt.5.23",
@@ -1393,7 +1427,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "altar"
+  "glosa_tagnt": "altar",
+  "ref_estandar": "Matt.5.23"
  },
  {
   "ref": "Matt.5.24",
@@ -1432,7 +1467,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be reconciled"
+  "glosa_tagnt": "be reconciled",
+  "ref_estandar": "Matt.5.24"
  },
  {
   "ref": "Matt.5.27",
@@ -1470,7 +1506,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to commit adultery"
+  "glosa_tagnt": "to commit adultery",
+  "ref_estandar": "Matt.5.27"
  },
  {
   "ref": "Matt.5.28",
@@ -1511,7 +1548,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to long for"
+  "glosa_tagnt": "to long for",
+  "ref_estandar": "Matt.5.28"
  },
  {
   "ref": "Matt.5.28",
@@ -1552,7 +1590,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "heart"
+  "glosa_tagnt": "heart",
+  "ref_estandar": "Matt.5.28"
  },
  {
   "ref": "Matt.5.29",
@@ -1592,7 +1631,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to cause to stumble"
+  "glosa_tagnt": "to cause to stumble",
+  "ref_estandar": "Matt.5.29"
  },
  {
   "ref": "Matt.5.31",
@@ -1632,7 +1672,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "divorce"
+  "glosa_tagnt": "divorce",
+  "ref_estandar": "Matt.5.31"
  },
  {
   "ref": "Matt.5.32",
@@ -1673,7 +1714,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sexual sin"
+  "glosa_tagnt": "sexual sin",
+  "ref_estandar": "Matt.5.32"
  },
  {
   "ref": "Matt.5.34",
@@ -1712,7 +1754,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to swear"
+  "glosa_tagnt": "to swear",
+  "ref_estandar": "Matt.5.34"
  },
  {
   "ref": "Matt.5.37",
@@ -1752,7 +1795,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "excessive/abundant"
+  "glosa_tagnt": "excessive/abundant",
+  "ref_estandar": "Matt.5.37"
  },
  {
   "ref": "Matt.5.38",
@@ -1795,7 +1839,8 @@
   "ausente_en": [],
   "variante": false,
   "glosa_tagnt": "for",
-  "caso_regido": "genitivo"
+  "caso_regido": "genitivo",
+  "ref_estandar": "Matt.5.38"
  },
  {
   "ref": "Matt.5.38",
@@ -1838,7 +1883,8 @@
   "ausente_en": [],
   "variante": false,
   "glosa_tagnt": "for",
-  "caso_regido": "genitivo"
+  "caso_regido": "genitivo",
+  "ref_estandar": "Matt.5.38"
  },
  {
   "ref": "Matt.5.39",
@@ -1878,7 +1924,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to oppose"
+  "glosa_tagnt": "to oppose",
+  "ref_estandar": "Matt.5.39"
  },
  {
   "ref": "Matt.5.39",
@@ -1918,7 +1965,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to slap"
+  "glosa_tagnt": "to slap",
+  "ref_estandar": "Matt.5.39"
  },
  {
   "ref": "Matt.5.41",
@@ -1957,7 +2005,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to force"
+  "glosa_tagnt": "to force",
+  "ref_estandar": "Matt.5.41"
  },
  {
   "ref": "Matt.5.44",
@@ -1997,7 +2046,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to love"
+  "glosa_tagnt": "to love",
+  "ref_estandar": "Matt.5.44"
  },
  {
   "ref": "Matt.5.45",
@@ -2038,7 +2088,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "son"
+  "glosa_tagnt": "son",
+  "ref_estandar": "Matt.5.45"
  },
  {
   "ref": "Matt.5.46",
@@ -2078,7 +2129,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tax collector"
+  "glosa_tagnt": "tax collector",
+  "ref_estandar": "Matt.5.46"
  },
  {
   "ref": "Matt.5.48",
@@ -2120,6 +2172,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "perfect"
+  "glosa_tagnt": "perfect",
+  "ref_estandar": "Matt.5.48"
  }
 ]

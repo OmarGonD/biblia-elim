@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to crucify"
+  "glosa_tagnt": "to crucify",
+  "ref_estandar": "1Cor.2.2"
  },
  {
   "ref": "1Cor.2.3",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "trembling"
+  "glosa_tagnt": "trembling",
+  "ref_estandar": "1Cor.2.3"
  },
  {
   "ref": "1Cor.2.4",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "demonstration"
+  "glosa_tagnt": "demonstration",
+  "ref_estandar": "1Cor.2.4"
  },
  {
   "ref": "1Cor.2.6",
@@ -156,7 +159,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "perfect"
+  "glosa_tagnt": "perfect",
+  "ref_estandar": "1Cor.2.6"
  },
  {
   "ref": "1Cor.2.8",
@@ -196,7 +200,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ruler"
+  "glosa_tagnt": "ruler",
+  "ref_estandar": "1Cor.2.8"
  },
  {
   "ref": "1Cor.2.9",
@@ -236,7 +241,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "eye"
+  "glosa_tagnt": "eye",
+  "ref_estandar": "1Cor.2.9"
  },
  {
   "ref": "1Cor.2.10",
@@ -276,7 +282,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to look for/into"
+  "glosa_tagnt": "to look for/into",
+  "ref_estandar": "1Cor.2.10"
  },
  {
   "ref": "1Cor.2.12",
@@ -315,7 +322,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to give grace"
+  "glosa_tagnt": "to give grace",
+  "ref_estandar": "1Cor.2.12"
  },
  {
   "ref": "1Cor.2.13",
@@ -355,7 +363,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "spiritual"
+  "glosa_tagnt": "spiritual",
+  "ref_estandar": "1Cor.2.13"
  },
  {
   "ref": "1Cor.2.14",
@@ -395,7 +404,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "natural"
+  "glosa_tagnt": "natural",
+  "ref_estandar": "1Cor.2.14"
  },
  {
   "ref": "1Cor.2.16",
@@ -436,7 +446,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mind"
+  "glosa_tagnt": "mind",
+  "ref_estandar": "1Cor.2.16"
  },
  {
   "ref": "1Cor.2.16",
@@ -477,6 +488,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mind"
+  "glosa_tagnt": "mind",
+  "ref_estandar": "1Cor.2.16"
  }
 ]

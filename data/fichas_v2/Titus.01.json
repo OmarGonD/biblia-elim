@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "elder"
+  "glosa_tagnt": "elder",
+  "ref_estandar": "Titus.1.5"
  },
  {
   "ref": "Titus.1.6",
@@ -74,7 +75,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "woman"
+  "glosa_tagnt": "woman",
+  "ref_estandar": "Titus.1.6"
  },
  {
   "ref": "Titus.1.9",
@@ -113,7 +115,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to cling to"
+  "glosa_tagnt": "to cling to",
+  "ref_estandar": "Titus.1.9"
  },
  {
   "ref": "Titus.1.12",
@@ -151,7 +154,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Cretan"
+  "glosa_tagnt": "Cretan",
+  "ref_estandar": "Titus.1.12"
  },
  {
   "ref": "Titus.1.15",
@@ -191,7 +195,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "clean"
+  "glosa_tagnt": "clean",
+  "ref_estandar": "Titus.1.15"
  },
  {
   "ref": "Titus.1.16",
@@ -231,6 +236,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to deny"
+  "glosa_tagnt": "to deny",
+  "ref_estandar": "Titus.1.16"
  }
 ]

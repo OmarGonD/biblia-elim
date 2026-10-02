@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "manifestation"
+  "glosa_tagnt": "manifestation",
+  "ref_estandar": "2Cor.4.2"
  },
  {
   "ref": "2Cor.4.4",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "an age"
+  "glosa_tagnt": "an age",
+  "ref_estandar": "2Cor.4.4"
  },
  {
   "ref": "2Cor.4.6",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "light"
+  "glosa_tagnt": "light",
+  "ref_estandar": "2Cor.4.6"
  },
  {
   "ref": "2Cor.4.7",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "clay"
+  "glosa_tagnt": "clay",
+  "ref_estandar": "2Cor.4.7"
  },
  {
   "ref": "2Cor.4.8",
@@ -194,7 +198,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to press on"
+  "glosa_tagnt": "to press on",
+  "ref_estandar": "2Cor.4.8"
  },
  {
   "ref": "2Cor.4.10",
@@ -234,7 +239,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "death"
+  "glosa_tagnt": "death",
+  "ref_estandar": "2Cor.4.10"
  },
  {
   "ref": "2Cor.4.13",
@@ -274,7 +280,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to trust (in)"
+  "glosa_tagnt": "to trust (in)",
+  "ref_estandar": "2Cor.4.13"
  },
  {
   "ref": "2Cor.4.16",
@@ -314,7 +321,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to renew"
+  "glosa_tagnt": "to renew",
+  "ref_estandar": "2Cor.4.16"
  },
  {
   "ref": "2Cor.4.17",
@@ -354,6 +362,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "burden"
+  "glosa_tagnt": "burden",
+  "ref_estandar": "2Cor.4.17"
  }
 ]

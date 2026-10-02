@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Epaphras"
+  "glosa_tagnt": "Epaphras",
+  "ref_estandar": "Col.1.7"
  },
  {
   "ref": "Col.1.9",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "knowledge"
+  "glosa_tagnt": "knowledge",
+  "ref_estandar": "Col.1.9"
  },
  {
   "ref": "Col.1.12",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to qualify"
+  "glosa_tagnt": "to qualify",
+  "ref_estandar": "Col.1.12"
  },
  {
   "ref": "Col.1.13",
@@ -154,7 +157,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to move"
+  "glosa_tagnt": "to move",
+  "ref_estandar": "Col.1.13"
  },
  {
   "ref": "Col.1.15",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "firstborn"
+  "glosa_tagnt": "firstborn",
+  "ref_estandar": "Col.1.15"
  },
  {
   "ref": "Col.1.16",
@@ -236,7 +241,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to create"
+  "glosa_tagnt": "to create",
+  "ref_estandar": "Col.1.16"
  },
  {
   "ref": "Col.1.18",
@@ -276,7 +282,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "beginning"
+  "glosa_tagnt": "beginning",
+  "ref_estandar": "Col.1.18"
  },
  {
   "ref": "Col.1.19",
@@ -315,7 +322,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to delight"
+  "glosa_tagnt": "to delight",
+  "ref_estandar": "Col.1.19"
  },
  {
   "ref": "Col.1.20",
@@ -355,7 +363,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to reconcile"
+  "glosa_tagnt": "to reconcile",
+  "ref_estandar": "Col.1.20"
  },
  {
   "ref": "Col.1.22",
@@ -394,7 +403,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "blameless"
+  "glosa_tagnt": "blameless",
+  "ref_estandar": "Col.1.22"
  },
  {
   "ref": "Col.1.23",
@@ -434,7 +444,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to remain/keep on"
+  "glosa_tagnt": "to remain/keep on",
+  "ref_estandar": "Col.1.23"
  },
  {
   "ref": "Col.1.24",
@@ -474,7 +485,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to fill up in turn"
+  "glosa_tagnt": "to fill up in turn",
+  "ref_estandar": "Col.1.24"
  },
  {
   "ref": "Col.1.26",
@@ -513,7 +525,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mystery"
+  "glosa_tagnt": "mystery",
+  "ref_estandar": "Col.1.26"
  },
  {
   "ref": "Col.1.27",
@@ -553,7 +566,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hope"
+  "glosa_tagnt": "hope",
+  "ref_estandar": "Col.1.27"
  },
  {
   "ref": "Col.1.28",
@@ -592,6 +606,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "perfect"
+  "glosa_tagnt": "perfect",
+  "ref_estandar": "Col.1.28"
  }
 ]

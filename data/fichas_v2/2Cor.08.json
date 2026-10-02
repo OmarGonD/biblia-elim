@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "grace"
+  "glosa_tagnt": "grace",
+  "ref_estandar": "2Cor.8.1"
  },
  {
   "ref": "2Cor.8.2",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "poverty"
+  "glosa_tagnt": "poverty",
+  "ref_estandar": "2Cor.8.2"
  },
  {
   "ref": "2Cor.8.4",
@@ -115,7 +117,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "participation"
+  "glosa_tagnt": "participation",
+  "ref_estandar": "2Cor.8.4"
  },
  {
   "ref": "2Cor.8.5",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to give"
+  "glosa_tagnt": "to give",
+  "ref_estandar": "2Cor.8.5"
  },
  {
   "ref": "2Cor.8.9",
@@ -193,7 +197,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be poor"
+  "glosa_tagnt": "be poor",
+  "ref_estandar": "2Cor.8.9"
  },
  {
   "ref": "2Cor.8.12",
@@ -232,7 +237,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "eagerness"
+  "glosa_tagnt": "eagerness",
+  "ref_estandar": "2Cor.8.12"
  },
  {
   "ref": "2Cor.8.14",
@@ -271,7 +277,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "equality"
+  "glosa_tagnt": "equality",
+  "ref_estandar": "2Cor.8.14"
  },
  {
   "ref": "2Cor.8.19",
@@ -310,7 +317,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to appoint"
+  "glosa_tagnt": "to appoint",
+  "ref_estandar": "2Cor.8.19"
  },
  {
   "ref": "2Cor.8.21",
@@ -350,7 +358,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to care for"
+  "glosa_tagnt": "to care for",
+  "ref_estandar": "2Cor.8.21"
  },
  {
   "ref": "2Cor.8.23",
@@ -389,6 +398,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "apostle"
+  "glosa_tagnt": "apostle",
+  "ref_estandar": "2Cor.8.23"
  }
 ]

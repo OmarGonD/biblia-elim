@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "love"
+  "glosa_tagnt": "love",
+  "ref_estandar": "1Cor.13.1"
  },
  {
   "ref": "1Cor.13.3",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to feed/dole out"
+  "glosa_tagnt": "to feed/dole out",
+  "ref_estandar": "1Cor.13.3"
  },
  {
   "ref": "1Cor.13.4",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to have patience"
+  "glosa_tagnt": "to have patience",
+  "ref_estandar": "1Cor.13.4"
  },
  {
   "ref": "1Cor.13.5",
@@ -156,7 +159,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to seek"
+  "glosa_tagnt": "to seek",
+  "ref_estandar": "1Cor.13.5"
  },
  {
   "ref": "1Cor.13.7",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to endure"
+  "glosa_tagnt": "to endure",
+  "ref_estandar": "1Cor.13.7"
  },
  {
   "ref": "1Cor.13.8",
@@ -235,7 +240,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to cease"
+  "glosa_tagnt": "to cease",
+  "ref_estandar": "1Cor.13.8"
  },
  {
   "ref": "1Cor.13.10",
@@ -275,7 +281,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "perfect"
+  "glosa_tagnt": "perfect",
+  "ref_estandar": "1Cor.13.10"
  },
  {
   "ref": "1Cor.13.11",
@@ -315,7 +322,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "child"
+  "glosa_tagnt": "child",
+  "ref_estandar": "1Cor.13.11"
  },
  {
   "ref": "1Cor.13.11",
@@ -355,7 +363,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "child"
+  "glosa_tagnt": "child",
+  "ref_estandar": "1Cor.13.11"
  },
  {
   "ref": "1Cor.13.11",
@@ -395,7 +404,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "child"
+  "glosa_tagnt": "child",
+  "ref_estandar": "1Cor.13.11"
  },
  {
   "ref": "1Cor.13.11",
@@ -435,7 +445,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "child"
+  "glosa_tagnt": "child",
+  "ref_estandar": "1Cor.13.11"
  },
  {
   "ref": "1Cor.13.12",
@@ -475,7 +486,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mirror"
+  "glosa_tagnt": "mirror",
+  "ref_estandar": "1Cor.13.12"
  },
  {
   "ref": "1Cor.13.13",
@@ -515,6 +527,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "great"
+  "glosa_tagnt": "great",
+  "ref_estandar": "1Cor.13.13"
  }
 ]

@@ -38,7 +38,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wind"
+  "glosa_tagnt": "wind",
+  "ref_estandar": "Rev.7.1"
  },
  {
   "ref": "Rev.7.3",
@@ -79,7 +80,8 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "to seal"
+  "glosa_tagnt": "to seal",
+  "ref_estandar": "Rev.7.3"
  },
  {
   "ref": "Rev.7.4",
@@ -119,7 +121,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "thousand"
+  "glosa_tagnt": "thousand",
+  "ref_estandar": "Rev.7.4"
  },
  {
   "ref": "Rev.7.9",
@@ -159,7 +162,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "crowd"
+  "glosa_tagnt": "crowd",
+  "ref_estandar": "Rev.7.9"
  },
  {
   "ref": "Rev.7.10",
@@ -199,7 +203,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "salvation"
+  "glosa_tagnt": "salvation",
+  "ref_estandar": "Rev.7.10"
  },
  {
   "ref": "Rev.7.14",
@@ -240,7 +245,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to wash"
+  "glosa_tagnt": "to wash",
+  "ref_estandar": "Rev.7.14"
  },
  {
   "ref": "Rev.7.15",
@@ -280,7 +286,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to minister"
+  "glosa_tagnt": "to minister",
+  "ref_estandar": "Rev.7.15"
  },
  {
   "ref": "Rev.7.17",
@@ -321,6 +328,7 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to shepherd"
+  "glosa_tagnt": "to shepherd",
+  "ref_estandar": "Rev.7.17"
  }
 ]

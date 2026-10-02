@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to clean"
+  "glosa_tagnt": "to clean",
+  "ref_estandar": "2Cor.7.1"
  },
  {
   "ref": "2Cor.7.5",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "quarrel"
+  "glosa_tagnt": "quarrel",
+  "ref_estandar": "2Cor.7.5"
  },
  {
   "ref": "2Cor.7.9",
@@ -115,7 +117,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "repentance"
+  "glosa_tagnt": "repentance",
+  "ref_estandar": "2Cor.7.9"
  },
  {
   "ref": "2Cor.7.10",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "grief"
+  "glosa_tagnt": "grief",
+  "ref_estandar": "2Cor.7.10"
  },
  {
   "ref": "2Cor.7.10",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "grief"
+  "glosa_tagnt": "grief",
+  "ref_estandar": "2Cor.7.10"
  },
  {
   "ref": "2Cor.7.11",
@@ -233,6 +238,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "diligence"
+  "glosa_tagnt": "diligence",
+  "ref_estandar": "2Cor.7.11"
  }
 ]

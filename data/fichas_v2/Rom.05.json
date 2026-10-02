@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "peace"
+  "glosa_tagnt": "peace",
+  "ref_estandar": "Rom.5.1"
  },
  {
   "ref": "Rom.5.2",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "access"
+  "glosa_tagnt": "access",
+  "ref_estandar": "Rom.5.2"
  },
  {
   "ref": "Rom.5.3",
@@ -117,7 +119,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "pressure"
+  "glosa_tagnt": "pressure",
+  "ref_estandar": "Rom.5.3"
  },
  {
   "ref": "Rom.5.5",
@@ -157,7 +160,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pour out"
+  "glosa_tagnt": "to pour out",
+  "ref_estandar": "Rom.5.5"
  },
  {
   "ref": "Rom.5.6",
@@ -197,7 +201,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ungodly"
+  "glosa_tagnt": "ungodly",
+  "ref_estandar": "Rom.5.6"
  },
  {
   "ref": "Rom.5.8",
@@ -237,7 +242,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to commend"
+  "glosa_tagnt": "to commend",
+  "ref_estandar": "Rom.5.8"
  },
  {
   "ref": "Rom.5.9",
@@ -276,7 +282,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wrath"
+  "glosa_tagnt": "wrath",
+  "ref_estandar": "Rom.5.9"
  },
  {
   "ref": "Rom.5.10",
@@ -316,7 +323,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to reconcile"
+  "glosa_tagnt": "to reconcile",
+  "ref_estandar": "Rom.5.10"
  },
  {
   "ref": "Rom.5.12",
@@ -356,7 +364,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to sin"
+  "glosa_tagnt": "to sin",
+  "ref_estandar": "Rom.5.12"
  },
  {
   "ref": "Rom.5.14",
@@ -395,7 +404,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mark/example"
+  "glosa_tagnt": "mark/example",
+  "ref_estandar": "Rom.5.14"
  },
  {
   "ref": "Rom.5.15",
@@ -434,7 +444,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gift"
+  "glosa_tagnt": "gift",
+  "ref_estandar": "Rom.5.15"
  },
  {
   "ref": "Rom.5.18",
@@ -473,7 +484,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "condemnation"
+  "glosa_tagnt": "condemnation",
+  "ref_estandar": "Rom.5.18"
  },
  {
   "ref": "Rom.5.19",
@@ -512,7 +524,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "disobedience"
+  "glosa_tagnt": "disobedience",
+  "ref_estandar": "Rom.5.19"
  },
  {
   "ref": "Rom.5.20",
@@ -551,7 +564,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to come in"
+  "glosa_tagnt": "to come in",
+  "ref_estandar": "Rom.5.20"
  },
  {
   "ref": "Rom.5.21",
@@ -591,6 +605,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to reign"
+  "glosa_tagnt": "to reign",
+  "ref_estandar": "Rom.5.21"
  }
 ]

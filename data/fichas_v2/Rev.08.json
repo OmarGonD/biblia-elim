@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "silence"
+  "glosa_tagnt": "silence",
+  "ref_estandar": "Rev.8.1"
  },
  {
   "ref": "Rev.8.3",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "censer"
+  "glosa_tagnt": "censer",
+  "ref_estandar": "Rev.8.3"
  },
  {
   "ref": "Rev.8.5",
@@ -117,7 +119,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to throw"
+  "glosa_tagnt": "to throw",
+  "ref_estandar": "Rev.8.5"
  },
  {
   "ref": "Rev.8.6",
@@ -157,7 +160,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "trumpet"
+  "glosa_tagnt": "trumpet",
+  "ref_estandar": "Rev.8.6"
  },
  {
   "ref": "Rev.8.7",
@@ -197,7 +201,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hail"
+  "glosa_tagnt": "hail",
+  "ref_estandar": "Rev.8.7"
  },
  {
   "ref": "Rev.8.10",
@@ -237,7 +242,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "star"
+  "glosa_tagnt": "star",
+  "ref_estandar": "Rev.8.10"
  },
  {
   "ref": "Rev.8.13",
@@ -278,6 +284,7 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "eagle"
+  "glosa_tagnt": "eagle",
+  "ref_estandar": "Rev.8.13"
  }
 ]

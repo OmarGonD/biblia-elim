@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "James"
+  "glosa_tagnt": "James",
+  "ref_estandar": "Jas.1.1"
  },
  {
   "ref": "Jas.1.2",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "temptation/testing"
+  "glosa_tagnt": "temptation/testing",
+  "ref_estandar": "Jas.1.2"
  },
  {
   "ref": "Jas.1.4",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "perfect"
+  "glosa_tagnt": "perfect",
+  "ref_estandar": "Jas.1.4"
  },
  {
   "ref": "Jas.1.5",
@@ -156,7 +159,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wisdom"
+  "glosa_tagnt": "wisdom",
+  "ref_estandar": "Jas.1.5"
  },
  {
   "ref": "Jas.1.6",
@@ -197,7 +201,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to judge/doubt"
+  "glosa_tagnt": "to judge/doubt",
+  "ref_estandar": "Jas.1.6"
  },
  {
   "ref": "Jas.1.6",
@@ -238,7 +243,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to judge/doubt"
+  "glosa_tagnt": "to judge/doubt",
+  "ref_estandar": "Jas.1.6"
  },
  {
   "ref": "Jas.1.8",
@@ -277,7 +283,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "double-minded"
+  "glosa_tagnt": "double-minded",
+  "ref_estandar": "Jas.1.8"
  },
  {
   "ref": "Jas.1.12",
@@ -317,7 +324,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "crown"
+  "glosa_tagnt": "crown",
+  "ref_estandar": "Jas.1.12"
  },
  {
   "ref": "Jas.1.13",
@@ -357,7 +365,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to test/tempt"
+  "glosa_tagnt": "to test/tempt",
+  "ref_estandar": "Jas.1.13"
  },
  {
   "ref": "Jas.1.14",
@@ -397,7 +406,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "desire"
+  "glosa_tagnt": "desire",
+  "ref_estandar": "Jas.1.14"
  },
  {
   "ref": "Jas.1.17",
@@ -437,7 +447,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "light"
+  "glosa_tagnt": "light",
+  "ref_estandar": "Jas.1.17"
  },
  {
   "ref": "Jas.1.18",
@@ -477,7 +488,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to generate"
+  "glosa_tagnt": "to generate",
+  "ref_estandar": "Jas.1.18"
  },
  {
   "ref": "Jas.1.19",
@@ -516,7 +528,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "quick"
+  "glosa_tagnt": "quick",
+  "ref_estandar": "Jas.1.19"
  },
  {
   "ref": "Jas.1.21",
@@ -556,7 +569,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to save"
+  "glosa_tagnt": "to save",
+  "ref_estandar": "Jas.1.21"
  },
  {
   "ref": "Jas.1.22",
@@ -596,7 +610,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "doer"
+  "glosa_tagnt": "doer",
+  "ref_estandar": "Jas.1.22"
  },
  {
   "ref": "Jas.1.25",
@@ -636,7 +651,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "freedom"
+  "glosa_tagnt": "freedom",
+  "ref_estandar": "Jas.1.25"
  },
  {
   "ref": "Jas.1.27",
@@ -676,6 +692,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "religion"
+  "glosa_tagnt": "religion",
+  "ref_estandar": "Jas.1.27"
  }
 ]

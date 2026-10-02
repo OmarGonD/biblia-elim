@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "rich"
+  "glosa_tagnt": "rich",
+  "ref_estandar": "Jas.5.1"
  },
  {
   "ref": "Jas.5.3",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "last/least"
+  "glosa_tagnt": "last/least",
+  "ref_estandar": "Jas.5.3"
  },
  {
   "ref": "Jas.5.4",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wage"
+  "glosa_tagnt": "wage",
+  "ref_estandar": "Jas.5.4"
  },
  {
   "ref": "Jas.5.6",
@@ -156,7 +159,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "just"
+  "glosa_tagnt": "just",
+  "ref_estandar": "Jas.5.6"
  },
  {
   "ref": "Jas.5.7",
@@ -197,7 +201,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to have patience"
+  "glosa_tagnt": "to have patience",
+  "ref_estandar": "Jas.5.7"
  },
  {
   "ref": "Jas.5.9",
@@ -237,7 +242,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "judge"
+  "glosa_tagnt": "judge",
+  "ref_estandar": "Jas.5.9"
  },
  {
   "ref": "Jas.5.11",
@@ -276,7 +282,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Job"
+  "glosa_tagnt": "Job",
+  "ref_estandar": "Jas.5.11"
  },
  {
   "ref": "Jas.5.12",
@@ -316,7 +323,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to swear"
+  "glosa_tagnt": "to swear",
+  "ref_estandar": "Jas.5.12"
  },
  {
   "ref": "Jas.5.14",
@@ -356,7 +364,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "elder"
+  "glosa_tagnt": "elder",
+  "ref_estandar": "Jas.5.14"
  },
  {
   "ref": "Jas.5.15",
@@ -396,7 +405,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to save"
+  "glosa_tagnt": "to save",
+  "ref_estandar": "Jas.5.15"
  },
  {
   "ref": "Jas.5.16",
@@ -436,7 +446,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to agree"
+  "glosa_tagnt": "to agree",
+  "ref_estandar": "Jas.5.16"
  },
  {
   "ref": "Jas.5.17",
@@ -475,7 +486,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Elijah"
+  "glosa_tagnt": "Elijah",
+  "ref_estandar": "Jas.5.17"
  },
  {
   "ref": "Jas.5.19",
@@ -515,7 +527,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to turn"
+  "glosa_tagnt": "to turn",
+  "ref_estandar": "Jas.5.19"
  },
  {
   "ref": "Jas.5.20",
@@ -555,6 +568,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to cover"
+  "glosa_tagnt": "to cover",
+  "ref_estandar": "Jas.5.20"
  }
 ]

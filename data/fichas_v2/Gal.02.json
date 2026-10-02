@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "revelation"
+  "glosa_tagnt": "revelation",
+  "ref_estandar": "Gal.2.2"
  },
  {
   "ref": "Gal.2.3",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to circumcise"
+  "glosa_tagnt": "to circumcise",
+  "ref_estandar": "Gal.2.3"
  },
  {
   "ref": "Gal.2.4",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "false brother"
+  "glosa_tagnt": "false brother",
+  "ref_estandar": "Gal.2.4"
  },
  {
   "ref": "Gal.2.9",
@@ -154,7 +157,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "pillar"
+  "glosa_tagnt": "pillar",
+  "ref_estandar": "Gal.2.9"
  },
  {
   "ref": "Gal.2.10",
@@ -194,7 +198,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "poor"
+  "glosa_tagnt": "poor",
+  "ref_estandar": "Gal.2.10"
  },
  {
   "ref": "Gal.2.11",
@@ -233,7 +238,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Antioch"
+  "glosa_tagnt": "Antioch",
+  "ref_estandar": "Gal.2.11"
  },
  {
   "ref": "Gal.2.14",
@@ -272,7 +278,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be upright"
+  "glosa_tagnt": "be upright",
+  "ref_estandar": "Gal.2.14"
  },
  {
   "ref": "Gal.2.16",
@@ -314,7 +321,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to justify"
+  "glosa_tagnt": "to justify",
+  "ref_estandar": "Gal.2.16"
  },
  {
   "ref": "Gal.2.20",
@@ -354,7 +362,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to crucify with"
+  "glosa_tagnt": "to crucify with",
+  "ref_estandar": "Gal.2.20"
  },
  {
   "ref": "Gal.2.21",
@@ -393,6 +402,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "freely"
+  "glosa_tagnt": "freely",
+  "ref_estandar": "Gal.2.21"
  }
 ]

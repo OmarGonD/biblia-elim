@@ -37,7 +37,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "Gerasene"
+  "glosa_tagnt": "Gerasene",
+  "ref_estandar": "Mark.5.1"
  },
  {
   "ref": "Mark.5.3",
@@ -76,7 +77,8 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "tomb"
+  "glosa_tagnt": "tomb",
+  "ref_estandar": "Mark.5.3"
  },
  {
   "ref": "Mark.5.7",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "highest"
+  "glosa_tagnt": "highest",
+  "ref_estandar": "Mark.5.7"
  },
  {
   "ref": "Mark.5.7",
@@ -154,7 +157,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to adjure"
+  "glosa_tagnt": "to adjure",
+  "ref_estandar": "Mark.5.7"
  },
  {
   "ref": "Mark.5.9",
@@ -194,7 +198,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "legion"
+  "glosa_tagnt": "legion",
+  "ref_estandar": "Mark.5.9"
  },
  {
   "ref": "Mark.5.13",
@@ -232,7 +237,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to permit"
+  "glosa_tagnt": "to permit",
+  "ref_estandar": "Mark.5.13"
  },
  {
   "ref": "Mark.5.15",
@@ -271,7 +277,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be of sound mind"
+  "glosa_tagnt": "be of sound mind",
+  "ref_estandar": "Mark.5.15"
  },
  {
   "ref": "Mark.5.19",
@@ -310,7 +317,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to have mercy"
+  "glosa_tagnt": "to have mercy",
+  "ref_estandar": "Mark.5.19"
  },
  {
   "ref": "Mark.5.22",
@@ -348,7 +356,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "synagogue leader"
+  "glosa_tagnt": "synagogue leader",
+  "ref_estandar": "Mark.5.22"
  },
  {
   "ref": "Mark.5.23",
@@ -386,7 +395,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "extremely"
+  "glosa_tagnt": "extremely",
+  "ref_estandar": "Mark.5.23"
  },
  {
   "ref": "Mark.5.25",
@@ -425,7 +435,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "discharge"
+  "glosa_tagnt": "discharge",
+  "ref_estandar": "Mark.5.25"
  },
  {
   "ref": "Mark.5.26",
@@ -463,7 +474,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "physician"
+  "glosa_tagnt": "physician",
+  "ref_estandar": "Mark.5.26"
  },
  {
   "ref": "Mark.5.30",
@@ -502,7 +514,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "power"
+  "glosa_tagnt": "power",
+  "ref_estandar": "Mark.5.30"
  },
  {
   "ref": "Mark.5.34",
@@ -541,7 +554,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "peace"
+  "glosa_tagnt": "peace",
+  "ref_estandar": "Mark.5.34"
  },
  {
   "ref": "Mark.5.36",
@@ -581,7 +595,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to ignore"
+  "glosa_tagnt": "to ignore",
+  "ref_estandar": "Mark.5.36"
  },
  {
   "ref": "Mark.5.38",
@@ -620,7 +635,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "commotion"
+  "glosa_tagnt": "commotion",
+  "ref_estandar": "Mark.5.38"
  },
  {
   "ref": "Mark.5.41",
@@ -659,7 +675,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "girl"
+  "glosa_tagnt": "girl",
+  "ref_estandar": "Mark.5.41"
  },
  {
   "ref": "Mark.5.43",
@@ -697,6 +714,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to give orders"
+  "glosa_tagnt": "to give orders",
+  "ref_estandar": "Mark.5.43"
  }
 ]

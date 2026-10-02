@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Magdalene"
+  "glosa_tagnt": "Magdalene",
+  "ref_estandar": "Luke.8.2"
  },
  {
   "ref": "Luke.8.3",
@@ -74,7 +75,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Joanna"
+  "glosa_tagnt": "Joanna",
+  "ref_estandar": "Luke.8.3"
  },
  {
   "ref": "Luke.8.3",
@@ -113,7 +115,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to serve"
+  "glosa_tagnt": "to serve",
+  "ref_estandar": "Luke.8.3"
  },
  {
   "ref": "Luke.8.10",
@@ -152,7 +155,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mystery"
+  "glosa_tagnt": "mystery",
+  "ref_estandar": "Luke.8.10"
  },
  {
   "ref": "Luke.8.15",
@@ -191,7 +195,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "perseverance"
+  "glosa_tagnt": "perseverance",
+  "ref_estandar": "Luke.8.15"
  },
  {
   "ref": "Luke.8.16",
@@ -230,7 +235,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lamp"
+  "glosa_tagnt": "lamp",
+  "ref_estandar": "Luke.8.16"
  },
  {
   "ref": "Luke.8.21",
@@ -269,7 +275,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to do/make"
+  "glosa_tagnt": "to do/make",
+  "ref_estandar": "Luke.8.21"
  },
  {
   "ref": "Luke.8.24",
@@ -308,7 +315,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "master"
+  "glosa_tagnt": "master",
+  "ref_estandar": "Luke.8.24"
  },
  {
   "ref": "Luke.8.24",
@@ -347,7 +355,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "master"
+  "glosa_tagnt": "master",
+  "ref_estandar": "Luke.8.24"
  },
  {
   "ref": "Luke.8.26",
@@ -386,7 +395,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "Gerasene"
+  "glosa_tagnt": "Gerasene",
+  "ref_estandar": "Luke.8.26"
  },
  {
   "ref": "Luke.8.31",
@@ -426,7 +436,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "abyss"
+  "glosa_tagnt": "abyss",
+  "ref_estandar": "Luke.8.31"
  },
  {
   "ref": "Luke.8.35",
@@ -464,7 +475,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be of sound mind"
+  "glosa_tagnt": "be of sound mind",
+  "ref_estandar": "Luke.8.35"
  },
  {
   "ref": "Luke.8.39",
@@ -502,7 +514,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to relate fully"
+  "glosa_tagnt": "to relate fully",
+  "ref_estandar": "Luke.8.39"
  },
  {
   "ref": "Luke.8.41",
@@ -540,7 +553,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ruler"
+  "glosa_tagnt": "ruler",
+  "ref_estandar": "Luke.8.41"
  },
  {
   "ref": "Luke.8.43",
@@ -579,7 +593,8 @@
    "WH"
   ],
   "variante": true,
-  "glosa_tagnt": "life"
+  "glosa_tagnt": "life",
+  "ref_estandar": "Luke.8.43"
  },
  {
   "ref": "Luke.8.46",
@@ -617,7 +632,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "power"
+  "glosa_tagnt": "power",
+  "ref_estandar": "Luke.8.46"
  },
  {
   "ref": "Luke.8.48",
@@ -656,7 +672,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to save"
+  "glosa_tagnt": "to save",
+  "ref_estandar": "Luke.8.48"
  },
  {
   "ref": "Luke.8.50",
@@ -695,7 +712,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to trust (in)"
+  "glosa_tagnt": "to trust (in)",
+  "ref_estandar": "Luke.8.50"
  },
  {
   "ref": "Luke.8.54",
@@ -735,6 +753,7 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to arise"
+  "glosa_tagnt": "to arise",
+  "ref_estandar": "Luke.8.54"
  }
 ]

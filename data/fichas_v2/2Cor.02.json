@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "teardrop"
+  "glosa_tagnt": "teardrop",
+  "ref_estandar": "2Cor.2.4"
  },
  {
   "ref": "2Cor.2.7",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to give grace"
+  "glosa_tagnt": "to give grace",
+  "ref_estandar": "2Cor.2.7"
  },
  {
   "ref": "2Cor.2.11",
@@ -117,7 +119,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Satan"
+  "glosa_tagnt": "Satan",
+  "ref_estandar": "2Cor.2.11"
  },
  {
   "ref": "2Cor.2.14",
@@ -157,7 +160,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to triumph"
+  "glosa_tagnt": "to triumph",
+  "ref_estandar": "2Cor.2.14"
  },
  {
   "ref": "2Cor.2.15",
@@ -197,7 +201,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "aroma"
+  "glosa_tagnt": "aroma",
+  "ref_estandar": "2Cor.2.15"
  },
  {
   "ref": "2Cor.2.17",
@@ -237,6 +242,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to peddle"
+  "glosa_tagnt": "to peddle",
+  "ref_estandar": "2Cor.2.17"
  }
 ]

@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "epistle"
+  "glosa_tagnt": "epistle",
+  "ref_estandar": "2Cor.3.2"
  },
  {
   "ref": "2Cor.3.6",
@@ -78,7 +79,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "something written"
+  "glosa_tagnt": "something written",
+  "ref_estandar": "2Cor.3.6"
  },
  {
   "ref": "2Cor.3.7",
@@ -118,7 +120,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "glory"
+  "glosa_tagnt": "glory",
+  "ref_estandar": "2Cor.3.7"
  },
  {
   "ref": "2Cor.3.13",
@@ -158,7 +161,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "veil"
+  "glosa_tagnt": "veil",
+  "ref_estandar": "2Cor.3.13"
  },
  {
   "ref": "2Cor.3.16",
@@ -198,7 +202,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to turn"
+  "glosa_tagnt": "to turn",
+  "ref_estandar": "2Cor.3.16"
  },
  {
   "ref": "2Cor.3.17",
@@ -238,7 +243,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "freedom"
+  "glosa_tagnt": "freedom",
+  "ref_estandar": "2Cor.3.17"
  },
  {
   "ref": "2Cor.3.18",
@@ -278,6 +284,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to transform"
+  "glosa_tagnt": "to transform",
+  "ref_estandar": "2Cor.3.18"
  }
 ]

@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "praise"
+  "glosa_tagnt": "praise",
+  "ref_estandar": "2Cor.9.6"
  },
  {
   "ref": "2Cor.9.6",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "praise"
+  "glosa_tagnt": "praise",
+  "ref_estandar": "2Cor.9.6"
  },
  {
   "ref": "2Cor.9.7",
@@ -117,7 +119,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "cheerful"
+  "glosa_tagnt": "cheerful",
+  "ref_estandar": "2Cor.9.7"
  },
  {
   "ref": "2Cor.9.8",
@@ -156,7 +159,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "self-sufficiency"
+  "glosa_tagnt": "self-sufficiency",
+  "ref_estandar": "2Cor.9.8"
  },
  {
   "ref": "2Cor.9.9",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "righteousness"
+  "glosa_tagnt": "righteousness",
+  "ref_estandar": "2Cor.9.9"
  },
  {
   "ref": "2Cor.9.12",
@@ -234,7 +239,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ministry"
+  "glosa_tagnt": "ministry",
+  "ref_estandar": "2Cor.9.12"
  },
  {
   "ref": "2Cor.9.15",
@@ -274,6 +280,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "free gift"
+  "glosa_tagnt": "free gift",
+  "ref_estandar": "2Cor.9.15"
  }
 ]

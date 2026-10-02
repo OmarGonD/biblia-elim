@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to preach boldly"
+  "glosa_tagnt": "to preach boldly",
+  "ref_estandar": "1Thess.2.2"
  },
  {
   "ref": "1Thess.2.5",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "flattery"
+  "glosa_tagnt": "flattery",
+  "ref_estandar": "1Thess.2.5"
  },
  {
   "ref": "1Thess.2.7",
@@ -116,7 +118,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "child"
+  "glosa_tagnt": "child",
+  "ref_estandar": "1Thess.2.7"
  },
  {
   "ref": "1Thess.2.8",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "soul"
+  "glosa_tagnt": "soul",
+  "ref_estandar": "1Thess.2.8"
  },
  {
   "ref": "1Thess.2.13",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to receive"
+  "glosa_tagnt": "to receive",
+  "ref_estandar": "1Thess.2.13"
  },
  {
   "ref": "1Thess.2.15",
@@ -235,7 +240,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to kill"
+  "glosa_tagnt": "to kill",
+  "ref_estandar": "1Thess.2.15"
  },
  {
   "ref": "1Thess.2.18",
@@ -275,7 +281,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Satan"
+  "glosa_tagnt": "Satan",
+  "ref_estandar": "1Thess.2.18"
  },
  {
   "ref": "1Thess.2.19",
@@ -315,6 +322,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "coming"
+  "glosa_tagnt": "coming",
+  "ref_estandar": "1Thess.2.19"
  }
 ]

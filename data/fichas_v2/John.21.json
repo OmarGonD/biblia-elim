@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to manifest"
+  "glosa_tagnt": "to manifest",
+  "ref_estandar": "John.21.1"
  },
  {
   "ref": "John.21.1",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to manifest"
+  "glosa_tagnt": "to manifest",
+  "ref_estandar": "John.21.1"
  },
  {
   "ref": "John.21.2",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Zebedee"
+  "glosa_tagnt": "Zebedee",
+  "ref_estandar": "John.21.2"
  },
  {
   "ref": "John.21.3",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to fish"
+  "glosa_tagnt": "to fish",
+  "ref_estandar": "John.21.3"
  },
  {
   "ref": "John.21.5",
@@ -193,7 +197,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fish"
+  "glosa_tagnt": "fish",
+  "ref_estandar": "John.21.5"
  },
  {
   "ref": "John.21.6",
@@ -232,7 +237,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "net"
+  "glosa_tagnt": "net",
+  "ref_estandar": "John.21.6"
  },
  {
   "ref": "John.21.7",
@@ -271,7 +277,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "naked"
+  "glosa_tagnt": "naked",
+  "ref_estandar": "John.21.7"
  },
  {
   "ref": "John.21.9",
@@ -310,7 +317,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "charcoal fire"
+  "glosa_tagnt": "charcoal fire",
+  "ref_estandar": "John.21.9"
  },
  {
   "ref": "John.21.11",
@@ -349,7 +357,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hundred"
+  "glosa_tagnt": "hundred",
+  "ref_estandar": "John.21.11"
  },
  {
   "ref": "John.21.12",
@@ -388,7 +397,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to eat early meal"
+  "glosa_tagnt": "to eat early meal",
+  "ref_estandar": "John.21.12"
  },
  {
   "ref": "John.21.15",
@@ -427,7 +437,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to love"
+  "glosa_tagnt": "to love",
+  "ref_estandar": "John.21.15"
  },
  {
   "ref": "John.21.15",
@@ -467,7 +478,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to feed"
+  "glosa_tagnt": "to feed",
+  "ref_estandar": "John.21.15"
  },
  {
   "ref": "John.21.17",
@@ -506,7 +518,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to grieve"
+  "glosa_tagnt": "to grieve",
+  "ref_estandar": "John.21.17"
  },
  {
   "ref": "John.21.18",
@@ -545,7 +558,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to stretch out"
+  "glosa_tagnt": "to stretch out",
+  "ref_estandar": "John.21.18"
  },
  {
   "ref": "John.21.19",
@@ -584,7 +598,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to follow"
+  "glosa_tagnt": "to follow",
+  "ref_estandar": "John.21.19"
  },
  {
   "ref": "John.21.22",
@@ -623,7 +638,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to stay"
+  "glosa_tagnt": "to stay",
+  "ref_estandar": "John.21.22"
  },
  {
   "ref": "John.21.23",
@@ -662,7 +678,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to die"
+  "glosa_tagnt": "to die",
+  "ref_estandar": "John.21.23"
  },
  {
   "ref": "John.21.23",
@@ -701,7 +718,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to die"
+  "glosa_tagnt": "to die",
+  "ref_estandar": "John.21.23"
  },
  {
   "ref": "John.21.24",
@@ -741,6 +759,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "testimony"
+  "glosa_tagnt": "testimony",
+  "ref_estandar": "John.21.24"
  }
 ]

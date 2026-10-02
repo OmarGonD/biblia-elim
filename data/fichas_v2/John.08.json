@@ -21,6 +21,7 @@
   "pos_tisch": 3,
   "alineacion": "sin_pareja",
   "tagnt": null,
+  "ref_estandar": null,
   "revisar_tagnt": true,
   "variante_textual": {
    "pasaje": "Jn 7:53–8:11",
@@ -49,6 +50,7 @@
   "pos_tisch": 9,
   "alineacion": "sin_pareja",
   "tagnt": null,
+  "ref_estandar": null,
   "revisar_tagnt": true,
   "variante_textual": {
    "pasaje": "Jn 7:53–8:11",
@@ -94,6 +96,7 @@
   ],
   "variante": true,
   "glosa_tagnt": "finger",
+  "ref_estandar": "John.8.6",
   "variante_textual": {
    "pasaje": "Jn 7:53–8:11",
    "nota": "Perícopa de la adúltera: NA28 la imprime entre dobles corchetes. En el TAGNT esta palabra aparece en: NA28, NA27, Tyn, WH, TR, Byz; ausente en: SBL, Treg."
@@ -138,6 +141,7 @@
   ],
   "variante": true,
   "glosa_tagnt": "sinless",
+  "ref_estandar": "John.8.7",
   "variante_textual": {
    "pasaje": "Jn 7:53–8:11",
    "nota": "Perícopa de la adúltera: NA28 la imprime entre dobles corchetes. En el TAGNT esta palabra aparece en: NA28, NA27, Tyn, WH, TR, Byz; ausente en: SBL, Treg."
@@ -182,6 +186,7 @@
   ],
   "variante": true,
   "glosa_tagnt": "to condemn",
+  "ref_estandar": "John.8.11",
   "variante_textual": {
    "pasaje": "Jn 7:53–8:11",
    "nota": "Perícopa de la adúltera: NA28 la imprime entre dobles corchetes. En el TAGNT esta palabra aparece en: NA28, NA27, WH, TR; ausente en: Tyn, SBL, Treg, Byz."
@@ -226,7 +231,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "light"
+  "glosa_tagnt": "light",
+  "ref_estandar": "John.8.12"
  },
  {
   "ref": "John.8.53",
@@ -265,7 +271,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "darkness"
+  "glosa_tagnt": "darkness",
+  "ref_estandar": "John.8.12"
  },
  {
   "ref": "John.8.53",
@@ -306,7 +313,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "light"
+  "glosa_tagnt": "light",
+  "ref_estandar": "John.8.12"
  },
  {
   "ref": "John.8.53",
@@ -346,7 +354,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "testimony"
+  "glosa_tagnt": "testimony",
+  "ref_estandar": "John.8.13"
  },
  {
   "ref": "John.8.53",
@@ -386,7 +395,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "testimony"
+  "glosa_tagnt": "testimony",
+  "ref_estandar": "John.8.14"
  },
  {
   "ref": "John.8.53",
@@ -425,7 +435,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "flesh"
+  "glosa_tagnt": "flesh",
+  "ref_estandar": "John.8.15"
  },
  {
   "ref": "John.8.53",
@@ -465,7 +476,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "testimony"
+  "glosa_tagnt": "testimony",
+  "ref_estandar": "John.8.17"
  },
  {
   "ref": "John.8.53",
@@ -504,7 +516,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "treasury"
+  "glosa_tagnt": "treasury",
+  "ref_estandar": "John.8.20"
  },
  {
   "ref": "John.8.54",
@@ -545,7 +558,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to glorify"
+  "glosa_tagnt": "to glorify",
+  "ref_estandar": "John.8.54"
  },
  {
   "ref": "John.8.55",
@@ -583,7 +597,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "liar"
+  "glosa_tagnt": "liar",
+  "ref_estandar": "John.8.55"
  },
  {
   "ref": "John.8.56",
@@ -622,7 +637,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to rejoice"
+  "glosa_tagnt": "to rejoice",
+  "ref_estandar": "John.8.56"
  },
  {
   "ref": "John.8.58",
@@ -663,7 +679,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to be"
+  "glosa_tagnt": "to be",
+  "ref_estandar": "John.8.58"
  },
  {
   "ref": "John.8.59",
@@ -702,6 +719,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "stone"
+  "glosa_tagnt": "stone",
+  "ref_estandar": "John.8.59"
  }
 ]

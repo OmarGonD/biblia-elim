@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Sadducee"
+  "glosa_tagnt": "Sadducee",
+  "ref_estandar": "Acts.4.1"
  },
  {
   "ref": "Acts.4.4",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "thousand"
+  "glosa_tagnt": "thousand",
+  "ref_estandar": "Acts.4.4"
  },
  {
   "ref": "Acts.4.8",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to fill"
+  "glosa_tagnt": "to fill",
+  "ref_estandar": "Acts.4.8"
  },
  {
   "ref": "Acts.4.9",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to save"
+  "glosa_tagnt": "to save",
+  "ref_estandar": "Acts.4.9"
  },
  {
   "ref": "Acts.4.11",
@@ -193,7 +197,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "stone"
+  "glosa_tagnt": "stone",
+  "ref_estandar": "Acts.4.11"
  },
  {
   "ref": "Acts.4.12",
@@ -234,7 +239,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "salvation"
+  "glosa_tagnt": "salvation",
+  "ref_estandar": "Acts.4.12"
  },
  {
   "ref": "Acts.4.13",
@@ -273,7 +279,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unschooled"
+  "glosa_tagnt": "unschooled",
+  "ref_estandar": "Acts.4.13"
  },
  {
   "ref": "Acts.4.16",
@@ -313,7 +320,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to deny"
+  "glosa_tagnt": "to deny",
+  "ref_estandar": "Acts.4.16"
  },
  {
   "ref": "Acts.4.19",
@@ -353,7 +361,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "just"
+  "glosa_tagnt": "just",
+  "ref_estandar": "Acts.4.19"
  },
  {
   "ref": "Acts.4.24",
@@ -393,7 +402,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "master"
+  "glosa_tagnt": "master",
+  "ref_estandar": "Acts.4.24"
  },
  {
   "ref": "Acts.4.25",
@@ -432,7 +442,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to rage"
+  "glosa_tagnt": "to rage",
+  "ref_estandar": "Acts.4.25"
  },
  {
   "ref": "Acts.4.27",
@@ -472,7 +483,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to anoint"
+  "glosa_tagnt": "to anoint",
+  "ref_estandar": "Acts.4.27"
  },
  {
   "ref": "Acts.4.28",
@@ -512,7 +524,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to predestine"
+  "glosa_tagnt": "to predestine",
+  "ref_estandar": "Acts.4.28"
  },
  {
   "ref": "Acts.4.29",
@@ -551,7 +564,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "threat"
+  "glosa_tagnt": "threat",
+  "ref_estandar": "Acts.4.29"
  },
  {
   "ref": "Acts.4.31",
@@ -591,7 +605,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to shake"
+  "glosa_tagnt": "to shake",
+  "ref_estandar": "Acts.4.31"
  },
  {
   "ref": "Acts.4.32",
@@ -631,7 +646,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "common"
+  "glosa_tagnt": "common",
+  "ref_estandar": "Acts.4.32"
  },
  {
   "ref": "Acts.4.36",
@@ -670,6 +686,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "encouragement"
+  "glosa_tagnt": "encouragement",
+  "ref_estandar": "Acts.4.36"
  }
 ]

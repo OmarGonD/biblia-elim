@@ -35,7 +35,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "spokesman"
+  "glosa_tagnt": "spokesman",
+  "ref_estandar": "Acts.24.1"
  },
  {
   "ref": "Acts.24.5",
@@ -74,7 +75,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "pestilence"
+  "glosa_tagnt": "pestilence",
+  "ref_estandar": "Acts.24.5"
  },
  {
   "ref": "Acts.24.14",
@@ -113,7 +115,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "road"
+  "glosa_tagnt": "road",
+  "ref_estandar": "Acts.24.14"
  },
  {
   "ref": "Acts.24.15",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "resurrection"
+  "glosa_tagnt": "resurrection",
+  "ref_estandar": "Acts.24.15"
  },
  {
   "ref": "Acts.24.16",
@@ -192,7 +196,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to strive"
+  "glosa_tagnt": "to strive",
+  "ref_estandar": "Acts.24.16"
  },
  {
   "ref": "Acts.24.17",
@@ -232,7 +237,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "charity"
+  "glosa_tagnt": "charity",
+  "ref_estandar": "Acts.24.17"
  },
  {
   "ref": "Acts.24.21",
@@ -270,7 +276,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to cry"
+  "glosa_tagnt": "to cry",
+  "ref_estandar": "Acts.24.21"
  },
  {
   "ref": "Acts.24.22",
@@ -308,7 +315,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to defer"
+  "glosa_tagnt": "to defer",
+  "ref_estandar": "Acts.24.22"
  },
  {
   "ref": "Acts.24.24",
@@ -347,7 +355,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Drusilla"
+  "glosa_tagnt": "Drusilla",
+  "ref_estandar": "Acts.24.24"
  },
  {
   "ref": "Acts.24.25",
@@ -387,7 +396,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "self-control"
+  "glosa_tagnt": "self-control",
+  "ref_estandar": "Acts.24.25"
  },
  {
   "ref": "Acts.24.26",
@@ -426,7 +436,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "money"
+  "glosa_tagnt": "money",
+  "ref_estandar": "Acts.24.26"
  },
  {
   "ref": "Acts.24.27",
@@ -464,6 +475,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "two years"
+  "glosa_tagnt": "two years",
+  "ref_estandar": "Acts.24.27"
  }
 ]

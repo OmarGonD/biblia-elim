@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to establish"
+  "glosa_tagnt": "to establish",
+  "ref_estandar": "1Thess.3.2"
  },
  {
   "ref": "1Thess.3.3",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "pressure"
+  "glosa_tagnt": "pressure",
+  "ref_estandar": "1Thess.3.3"
  },
  {
   "ref": "1Thess.3.5",
@@ -117,7 +119,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to test/tempt"
+  "glosa_tagnt": "to test/tempt",
+  "ref_estandar": "1Thess.3.5"
  },
  {
   "ref": "1Thess.3.8",
@@ -157,7 +160,8 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "to stand"
+  "glosa_tagnt": "to stand",
+  "ref_estandar": "1Thess.3.8"
  },
  {
   "ref": "1Thess.3.10",
@@ -196,7 +200,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to complete"
+  "glosa_tagnt": "to complete",
+  "ref_estandar": "1Thess.3.10"
  },
  {
   "ref": "1Thess.3.13",
@@ -236,6 +241,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "holiness"
+  "glosa_tagnt": "holiness",
+  "ref_estandar": "1Thess.3.13"
  }
 ]

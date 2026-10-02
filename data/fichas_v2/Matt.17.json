@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to carry up"
+  "glosa_tagnt": "to carry up",
+  "ref_estandar": "Matt.17.1"
  },
  {
   "ref": "Matt.17.2",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to transform"
+  "glosa_tagnt": "to transform",
+  "ref_estandar": "Matt.17.2"
  },
  {
   "ref": "Matt.17.3",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Moses"
+  "glosa_tagnt": "Moses",
+  "ref_estandar": "Matt.17.3"
  },
  {
   "ref": "Matt.17.4",
@@ -156,7 +159,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tent"
+  "glosa_tagnt": "tent",
+  "ref_estandar": "Matt.17.4"
  },
  {
   "ref": "Matt.17.5",
@@ -196,7 +200,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to overshadow"
+  "glosa_tagnt": "to overshadow",
+  "ref_estandar": "Matt.17.5"
  },
  {
   "ref": "Matt.17.5",
@@ -236,7 +241,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to hear"
+  "glosa_tagnt": "to hear",
+  "ref_estandar": "Matt.17.5"
  },
  {
   "ref": "Matt.17.7",
@@ -275,7 +281,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to kindle"
+  "glosa_tagnt": "to kindle",
+  "ref_estandar": "Matt.17.7"
  },
  {
   "ref": "Matt.17.9",
@@ -313,7 +320,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "vision"
+  "glosa_tagnt": "vision",
+  "ref_estandar": "Matt.17.9"
  },
  {
   "ref": "Matt.17.11",
@@ -353,7 +361,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to restore"
+  "glosa_tagnt": "to restore",
+  "ref_estandar": "Matt.17.11"
  },
  {
   "ref": "Matt.17.15",
@@ -391,7 +400,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be epileptic"
+  "glosa_tagnt": "be epileptic",
+  "ref_estandar": "Matt.17.15"
  },
  {
   "ref": "Matt.17.17",
@@ -431,7 +441,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pervert"
+  "glosa_tagnt": "to pervert",
+  "ref_estandar": "Matt.17.17"
  },
  {
   "ref": "Matt.17.20",
@@ -470,7 +481,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "seed"
+  "glosa_tagnt": "seed",
+  "ref_estandar": "Matt.17.20"
  },
  {
   "ref": "Matt.17.22",
@@ -510,7 +522,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to deliver"
+  "glosa_tagnt": "to deliver",
+  "ref_estandar": "Matt.17.22"
  },
  {
   "ref": "Matt.17.24",
@@ -549,7 +562,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "two-drachma"
+  "glosa_tagnt": "two-drachma",
+  "ref_estandar": "Matt.17.24"
  },
  {
   "ref": "Matt.17.24",
@@ -588,7 +602,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "two-drachma"
+  "glosa_tagnt": "two-drachma",
+  "ref_estandar": "Matt.17.24"
  },
  {
   "ref": "Matt.17.26",
@@ -627,7 +642,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "free/freedom"
+  "glosa_tagnt": "free/freedom",
+  "ref_estandar": "Matt.17.26"
  },
  {
   "ref": "Matt.17.27",
@@ -666,6 +682,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to cause to stumble"
+  "glosa_tagnt": "to cause to stumble",
+  "ref_estandar": "Matt.17.27"
  }
 ]

@@ -38,7 +38,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "widow"
+  "glosa_tagnt": "widow",
+  "ref_estandar": "1Tim.5.3"
  },
  {
   "ref": "1Tim.5.3",
@@ -79,7 +80,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "widow"
+  "glosa_tagnt": "widow",
+  "ref_estandar": "1Tim.5.3"
  },
  {
   "ref": "1Tim.5.8",
@@ -118,7 +120,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to deny"
+  "glosa_tagnt": "to deny",
+  "ref_estandar": "1Tim.5.8"
  },
  {
   "ref": "1Tim.5.9",
@@ -157,7 +160,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to enrol"
+  "glosa_tagnt": "to enrol",
+  "ref_estandar": "1Tim.5.9"
  },
  {
   "ref": "1Tim.5.17",
@@ -197,7 +201,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "elder"
+  "glosa_tagnt": "elder",
+  "ref_estandar": "1Tim.5.17"
  },
  {
   "ref": "1Tim.5.18",
@@ -237,7 +242,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "a writing"
+  "glosa_tagnt": "a writing",
+  "ref_estandar": "1Tim.5.18"
  },
  {
   "ref": "1Tim.5.19",
@@ -276,7 +282,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "accusation"
+  "glosa_tagnt": "accusation",
+  "ref_estandar": "1Tim.5.19"
  },
  {
   "ref": "1Tim.5.22",
@@ -316,7 +323,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to put/lay on"
+  "glosa_tagnt": "to put/lay on",
+  "ref_estandar": "1Tim.5.22"
  },
  {
   "ref": "1Tim.5.23",
@@ -356,6 +364,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wine"
+  "glosa_tagnt": "wine",
+  "ref_estandar": "1Tim.5.23"
  }
 ]

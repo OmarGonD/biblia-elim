@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "apostle"
+  "glosa_tagnt": "apostle",
+  "ref_estandar": "Gal.1.1"
  },
  {
   "ref": "Gal.1.4",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to take out/select"
+  "glosa_tagnt": "to take out/select",
+  "ref_estandar": "Gal.1.4"
  },
  {
   "ref": "Gal.1.6",
@@ -115,7 +117,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "other"
+  "glosa_tagnt": "other",
+  "ref_estandar": "Gal.1.6"
  },
  {
   "ref": "Gal.1.8",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "devoted"
+  "glosa_tagnt": "devoted",
+  "ref_estandar": "Gal.1.8"
  },
  {
   "ref": "Gal.1.12",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "revelation"
+  "glosa_tagnt": "revelation",
+  "ref_estandar": "Gal.1.12"
  },
  {
   "ref": "Gal.1.13",
@@ -234,7 +239,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Judaism"
+  "glosa_tagnt": "Judaism",
+  "ref_estandar": "Gal.1.13"
  },
  {
   "ref": "Gal.1.15",
@@ -274,7 +280,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to separate"
+  "glosa_tagnt": "to separate",
+  "ref_estandar": "Gal.1.15"
  },
  {
   "ref": "Gal.1.16",
@@ -313,7 +320,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to reveal"
+  "glosa_tagnt": "to reveal",
+  "ref_estandar": "Gal.1.16"
  },
  {
   "ref": "Gal.1.18",
@@ -352,7 +360,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to get acquainted"
+  "glosa_tagnt": "to get acquainted",
+  "ref_estandar": "Gal.1.18"
  },
  {
   "ref": "Gal.1.19",
@@ -392,6 +401,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "James"
+  "glosa_tagnt": "James",
+  "ref_estandar": "Gal.1.19"
  }
 ]

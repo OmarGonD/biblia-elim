@@ -38,7 +38,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "new"
+  "glosa_tagnt": "new",
+  "ref_estandar": "Rev.21.1"
  },
  {
   "ref": "Rev.21.2",
@@ -78,7 +79,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Jerusalem"
+  "glosa_tagnt": "Jerusalem",
+  "ref_estandar": "Rev.21.2"
  },
  {
   "ref": "Rev.21.3",
@@ -119,7 +121,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tent"
+  "glosa_tagnt": "tent",
+  "ref_estandar": "Rev.21.3"
  },
  {
   "ref": "Rev.21.4",
@@ -159,7 +162,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "teardrop"
+  "glosa_tagnt": "teardrop",
+  "ref_estandar": "Rev.21.4"
  },
  {
   "ref": "Rev.21.5",
@@ -199,7 +203,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to do/make"
+  "glosa_tagnt": "to do/make",
+  "ref_estandar": "Rev.21.5"
  },
  {
   "ref": "Rev.21.6",
@@ -239,7 +244,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "freely"
+  "glosa_tagnt": "freely",
+  "ref_estandar": "Rev.21.6"
  },
  {
   "ref": "Rev.21.7",
@@ -279,7 +285,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to inherit"
+  "glosa_tagnt": "to inherit",
+  "ref_estandar": "Rev.21.7"
  },
  {
   "ref": "Rev.21.8",
@@ -319,7 +326,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "timid"
+  "glosa_tagnt": "timid",
+  "ref_estandar": "Rev.21.8"
  },
  {
   "ref": "Rev.21.9",
@@ -358,7 +366,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "bride"
+  "glosa_tagnt": "bride",
+  "ref_estandar": "Rev.21.9"
  },
  {
   "ref": "Rev.21.10",
@@ -398,7 +407,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mountain"
+  "glosa_tagnt": "mountain",
+  "ref_estandar": "Rev.21.10"
  },
  {
   "ref": "Rev.21.12",
@@ -438,7 +448,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wall"
+  "glosa_tagnt": "wall",
+  "ref_estandar": "Rev.21.12"
  },
  {
   "ref": "Rev.21.14",
@@ -478,7 +489,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "foundation"
+  "glosa_tagnt": "foundation",
+  "ref_estandar": "Rev.21.14"
  },
  {
   "ref": "Rev.21.16",
@@ -518,7 +530,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "square"
+  "glosa_tagnt": "square",
+  "ref_estandar": "Rev.21.16"
  },
  {
   "ref": "Rev.21.19",
@@ -559,7 +572,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "foundation"
+  "glosa_tagnt": "foundation",
+  "ref_estandar": "Rev.21.19"
  },
  {
   "ref": "Rev.21.21",
@@ -600,7 +614,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "pearl"
+  "glosa_tagnt": "pearl",
+  "ref_estandar": "Rev.21.21"
  },
  {
   "ref": "Rev.21.22",
@@ -641,7 +656,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "temple"
+  "glosa_tagnt": "temple",
+  "ref_estandar": "Rev.21.22"
  },
  {
   "ref": "Rev.21.23",
@@ -681,7 +697,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to illuminate"
+  "glosa_tagnt": "to illuminate",
+  "ref_estandar": "Rev.21.23"
  },
  {
   "ref": "Rev.21.24",
@@ -721,7 +738,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Gentile nation"
+  "glosa_tagnt": "Gentile nation",
+  "ref_estandar": "Rev.21.24"
  },
  {
   "ref": "Rev.21.25",
@@ -760,7 +778,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gate"
+  "glosa_tagnt": "gate",
+  "ref_estandar": "Rev.21.25"
  },
  {
   "ref": "Rev.21.27",
@@ -801,6 +820,7 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "common"
+  "glosa_tagnt": "common",
+  "ref_estandar": "Rev.21.27"
  }
 ]

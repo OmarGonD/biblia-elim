@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to destroy/lodge"
+  "glosa_tagnt": "to destroy/lodge",
+  "ref_estandar": "Mark.13.2"
  },
  {
   "ref": "Mark.13.3",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mountain"
+  "glosa_tagnt": "mountain",
+  "ref_estandar": "Mark.13.3"
  },
  {
   "ref": "Mark.13.7",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be necessary"
+  "glosa_tagnt": "be necessary",
+  "ref_estandar": "Mark.13.7"
  },
  {
   "ref": "Mark.13.9",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to deliver"
+  "glosa_tagnt": "to deliver",
+  "ref_estandar": "Mark.13.9"
  },
  {
   "ref": "Mark.13.10",
@@ -193,7 +197,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "first"
+  "glosa_tagnt": "first",
+  "ref_estandar": "Mark.13.10"
  },
  {
   "ref": "Mark.13.11",
@@ -232,7 +237,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to worry beforehand"
+  "glosa_tagnt": "to worry beforehand",
+  "ref_estandar": "Mark.13.11"
  },
  {
   "ref": "Mark.13.14",
@@ -271,7 +277,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "abomination"
+  "glosa_tagnt": "abomination",
+  "ref_estandar": "Mark.13.14"
  },
  {
   "ref": "Mark.13.19",
@@ -310,7 +317,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "pressure"
+  "glosa_tagnt": "pressure",
+  "ref_estandar": "Mark.13.19"
  },
  {
   "ref": "Mark.13.20",
@@ -349,7 +357,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to shorten"
+  "glosa_tagnt": "to shorten",
+  "ref_estandar": "Mark.13.20"
  },
  {
   "ref": "Mark.13.20",
@@ -388,7 +397,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to shorten"
+  "glosa_tagnt": "to shorten",
+  "ref_estandar": "Mark.13.20"
  },
  {
   "ref": "Mark.13.24",
@@ -427,7 +437,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to darken"
+  "glosa_tagnt": "to darken",
+  "ref_estandar": "Mark.13.24"
  },
  {
   "ref": "Mark.13.26",
@@ -466,7 +477,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "glory"
+  "glosa_tagnt": "glory",
+  "ref_estandar": "Mark.13.26"
  },
  {
   "ref": "Mark.13.30",
@@ -507,7 +519,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "generation"
+  "glosa_tagnt": "generation",
+  "ref_estandar": "Mark.13.30"
  },
  {
   "ref": "Mark.13.32",
@@ -546,7 +559,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to perceive"
+  "glosa_tagnt": "to perceive",
+  "ref_estandar": "Mark.13.32"
  },
  {
   "ref": "Mark.13.33",
@@ -585,7 +599,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be watchful"
+  "glosa_tagnt": "be watchful",
+  "ref_estandar": "Mark.13.33"
  },
  {
   "ref": "Mark.13.34",
@@ -624,7 +639,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gatekeeper"
+  "glosa_tagnt": "gatekeeper",
+  "ref_estandar": "Mark.13.34"
  },
  {
   "ref": "Mark.13.35",
@@ -663,7 +679,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "crowing"
+  "glosa_tagnt": "crowing",
+  "ref_estandar": "Mark.13.35"
  },
  {
   "ref": "Mark.13.37",
@@ -702,6 +719,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to keep watch"
+  "glosa_tagnt": "to keep watch",
+  "ref_estandar": "Mark.13.37"
  }
 ]

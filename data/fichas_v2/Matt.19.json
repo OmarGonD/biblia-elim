@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "cause/charge"
+  "glosa_tagnt": "cause/charge",
+  "ref_estandar": "Matt.19.3"
  },
  {
   "ref": "Matt.19.4",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "beginning"
+  "glosa_tagnt": "beginning",
+  "ref_estandar": "Matt.19.4"
  },
  {
   "ref": "Matt.19.5",
@@ -118,7 +120,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to join"
+  "glosa_tagnt": "to join",
+  "ref_estandar": "Matt.19.5"
  },
  {
   "ref": "Matt.19.6",
@@ -157,7 +160,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to join"
+  "glosa_tagnt": "to join",
+  "ref_estandar": "Matt.19.6"
  },
  {
   "ref": "Matt.19.8",
@@ -197,7 +201,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hardness of heart"
+  "glosa_tagnt": "hardness of heart",
+  "ref_estandar": "Matt.19.8"
  },
  {
   "ref": "Matt.19.9",
@@ -237,7 +242,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sexual sin"
+  "glosa_tagnt": "sexual sin",
+  "ref_estandar": "Matt.19.9"
  },
  {
   "ref": "Matt.19.11",
@@ -276,7 +282,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to make room for"
+  "glosa_tagnt": "to make room for",
+  "ref_estandar": "Matt.19.11"
  },
  {
   "ref": "Matt.19.12",
@@ -318,7 +325,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "eunuch"
+  "glosa_tagnt": "eunuch",
+  "ref_estandar": "Matt.19.12"
  },
  {
   "ref": "Matt.19.12",
@@ -360,7 +368,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "eunuch"
+  "glosa_tagnt": "eunuch",
+  "ref_estandar": "Matt.19.12"
  },
  {
   "ref": "Matt.19.12",
@@ -402,7 +411,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "eunuch"
+  "glosa_tagnt": "eunuch",
+  "ref_estandar": "Matt.19.12"
  },
  {
   "ref": "Matt.19.14",
@@ -442,7 +452,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to prevent"
+  "glosa_tagnt": "to prevent",
+  "ref_estandar": "Matt.19.14"
  },
  {
   "ref": "Matt.19.16",
@@ -481,7 +492,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "teacher"
+  "glosa_tagnt": "teacher",
+  "ref_estandar": "Matt.19.16"
  },
  {
   "ref": "Matt.19.17",
@@ -522,7 +534,8 @@
    "Treg"
   ],
   "variante": true,
-  "glosa_tagnt": "to keep"
+  "glosa_tagnt": "to keep",
+  "ref_estandar": "Matt.19.17"
  },
  {
   "ref": "Matt.19.20",
@@ -561,7 +574,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to lack"
+  "glosa_tagnt": "to lack",
+  "ref_estandar": "Matt.19.20"
  },
  {
   "ref": "Matt.19.21",
@@ -601,7 +615,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "perfect"
+  "glosa_tagnt": "perfect",
+  "ref_estandar": "Matt.19.21"
  },
  {
   "ref": "Matt.19.22",
@@ -640,7 +655,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "possession"
+  "glosa_tagnt": "possession",
+  "ref_estandar": "Matt.19.22"
  },
  {
   "ref": "Matt.19.24",
@@ -679,7 +695,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "needle"
+  "glosa_tagnt": "needle",
+  "ref_estandar": "Matt.19.24"
  },
  {
   "ref": "Matt.19.26",
@@ -719,7 +736,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unable"
+  "glosa_tagnt": "unable",
+  "ref_estandar": "Matt.19.26"
  },
  {
   "ref": "Matt.19.28",
@@ -759,7 +777,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "regeneration"
+  "glosa_tagnt": "regeneration",
+  "ref_estandar": "Matt.19.28"
  },
  {
   "ref": "Matt.19.30",
@@ -800,7 +819,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "last/least"
+  "glosa_tagnt": "last/least",
+  "ref_estandar": "Matt.19.30"
  },
  {
   "ref": "Matt.19.30",
@@ -841,6 +861,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "last/least"
+  "glosa_tagnt": "last/least",
+  "ref_estandar": "Matt.19.30"
  }
 ]

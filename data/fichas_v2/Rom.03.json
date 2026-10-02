@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "oracles"
+  "glosa_tagnt": "oracles",
+  "ref_estandar": "Rom.3.2"
  },
  {
   "ref": "Rom.3.3",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unbelief"
+  "glosa_tagnt": "unbelief",
+  "ref_estandar": "Rom.3.3"
  },
  {
   "ref": "Rom.3.4",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to be"
+  "glosa_tagnt": "to be",
+  "ref_estandar": "Rom.3.4"
  },
  {
   "ref": "Rom.3.9",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to accuse"
+  "glosa_tagnt": "to accuse",
+  "ref_estandar": "Rom.3.9"
  },
  {
   "ref": "Rom.3.10",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "just"
+  "glosa_tagnt": "just",
+  "ref_estandar": "Rom.3.10"
  },
  {
   "ref": "Rom.3.19",
@@ -234,7 +239,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to stop"
+  "glosa_tagnt": "to stop",
+  "ref_estandar": "Rom.3.19"
  },
  {
   "ref": "Rom.3.20",
@@ -273,7 +279,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "work"
+  "glosa_tagnt": "work",
+  "ref_estandar": "Rom.3.20"
  },
  {
   "ref": "Rom.3.21",
@@ -313,7 +320,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to manifest"
+  "glosa_tagnt": "to manifest",
+  "ref_estandar": "Rom.3.21"
  },
  {
   "ref": "Rom.3.22",
@@ -352,7 +360,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "faith"
+  "glosa_tagnt": "faith",
+  "ref_estandar": "Rom.3.22"
  },
  {
   "ref": "Rom.3.23",
@@ -392,7 +401,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to lack"
+  "glosa_tagnt": "to lack",
+  "ref_estandar": "Rom.3.23"
  },
  {
   "ref": "Rom.3.24",
@@ -433,7 +443,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "redemption"
+  "glosa_tagnt": "redemption",
+  "ref_estandar": "Rom.3.24"
  },
  {
   "ref": "Rom.3.25",
@@ -473,7 +484,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "propitiation"
+  "glosa_tagnt": "propitiation",
+  "ref_estandar": "Rom.3.25"
  },
  {
   "ref": "Rom.3.26",
@@ -513,7 +525,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to justify"
+  "glosa_tagnt": "to justify",
+  "ref_estandar": "Rom.3.26"
  },
  {
   "ref": "Rom.3.27",
@@ -552,7 +565,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "pride"
+  "glosa_tagnt": "pride",
+  "ref_estandar": "Rom.3.27"
  },
  {
   "ref": "Rom.3.28",
@@ -592,7 +606,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to count"
+  "glosa_tagnt": "to count",
+  "ref_estandar": "Rom.3.28"
  },
  {
   "ref": "Rom.3.29",
@@ -633,7 +648,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Gentile nation"
+  "glosa_tagnt": "Gentile nation",
+  "ref_estandar": "Rom.3.29"
  },
  {
   "ref": "Rom.3.29",
@@ -674,7 +690,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Gentile nation"
+  "glosa_tagnt": "Gentile nation",
+  "ref_estandar": "Rom.3.29"
  },
  {
   "ref": "Rom.3.31",
@@ -713,6 +730,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to stand"
+  "glosa_tagnt": "to stand",
+  "ref_estandar": "Rom.3.31"
  }
 ]

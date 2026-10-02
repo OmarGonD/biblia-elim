@@ -37,7 +37,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to baptize"
+  "glosa_tagnt": "to baptize",
+  "ref_estandar": "1Cor.10.2"
  },
  {
   "ref": "1Cor.10.4",
@@ -78,7 +79,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "rock"
+  "glosa_tagnt": "rock",
+  "ref_estandar": "1Cor.10.4"
  },
  {
   "ref": "1Cor.10.6",
@@ -117,7 +119,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mark/example"
+  "glosa_tagnt": "mark/example",
+  "ref_estandar": "1Cor.10.6"
  },
  {
   "ref": "1Cor.10.9",
@@ -157,7 +160,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to test/tempt"
+  "glosa_tagnt": "to test/tempt",
+  "ref_estandar": "1Cor.10.9"
  },
  {
   "ref": "1Cor.10.11",
@@ -197,7 +201,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "goal/tax"
+  "glosa_tagnt": "goal/tax",
+  "ref_estandar": "1Cor.10.11"
  },
  {
   "ref": "1Cor.10.12",
@@ -237,7 +242,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to collapse"
+  "glosa_tagnt": "to collapse",
+  "ref_estandar": "1Cor.10.12"
  },
  {
   "ref": "1Cor.10.13",
@@ -278,7 +284,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "temptation/testing"
+  "glosa_tagnt": "temptation/testing",
+  "ref_estandar": "1Cor.10.13"
  },
  {
   "ref": "1Cor.10.14",
@@ -318,7 +325,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "idolatry"
+  "glosa_tagnt": "idolatry",
+  "ref_estandar": "1Cor.10.14"
  },
  {
   "ref": "1Cor.10.16",
@@ -359,7 +367,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "participation"
+  "glosa_tagnt": "participation",
+  "ref_estandar": "1Cor.10.16"
  },
  {
   "ref": "1Cor.10.16",
@@ -400,7 +409,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "participation"
+  "glosa_tagnt": "participation",
+  "ref_estandar": "1Cor.10.16"
  },
  {
   "ref": "1Cor.10.17",
@@ -440,7 +450,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "bread"
+  "glosa_tagnt": "bread",
+  "ref_estandar": "1Cor.10.17"
  },
  {
   "ref": "1Cor.10.20",
@@ -481,7 +492,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "demon"
+  "glosa_tagnt": "demon",
+  "ref_estandar": "1Cor.10.20"
  },
  {
   "ref": "1Cor.10.23",
@@ -519,7 +531,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to build"
+  "glosa_tagnt": "to build",
+  "ref_estandar": "1Cor.10.23"
  },
  {
   "ref": "1Cor.10.25",
@@ -559,7 +572,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "meat market"
+  "glosa_tagnt": "meat market",
+  "ref_estandar": "1Cor.10.25"
  },
  {
   "ref": "1Cor.10.31",
@@ -599,7 +613,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "glory"
+  "glosa_tagnt": "glory",
+  "ref_estandar": "1Cor.10.31"
  },
  {
   "ref": "1Cor.10.33",
@@ -638,6 +653,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to save"
+  "glosa_tagnt": "to save",
+  "ref_estandar": "1Cor.10.33"
  }
 ]

@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "from Derbe"
+  "glosa_tagnt": "from Derbe",
+  "ref_estandar": "Acts.20.4"
  },
  {
   "ref": "Acts.20.5",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Troas"
+  "glosa_tagnt": "Troas",
+  "ref_estandar": "Acts.20.5"
  },
  {
   "ref": "Acts.20.7",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to break"
+  "glosa_tagnt": "to break",
+  "ref_estandar": "Acts.20.7"
  },
  {
   "ref": "Acts.20.9",
@@ -156,7 +159,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Eutychus"
+  "glosa_tagnt": "Eutychus",
+  "ref_estandar": "Acts.20.9"
  },
  {
   "ref": "Acts.20.16",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Pentecost"
+  "glosa_tagnt": "Pentecost",
+  "ref_estandar": "Acts.20.16"
  },
  {
   "ref": "Acts.20.17",
@@ -235,7 +240,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "elder"
+  "glosa_tagnt": "elder",
+  "ref_estandar": "Acts.20.17"
  },
  {
   "ref": "Acts.20.20",
@@ -274,7 +280,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to withdraw"
+  "glosa_tagnt": "to withdraw",
+  "ref_estandar": "Acts.20.20"
  },
  {
   "ref": "Acts.20.21",
@@ -313,7 +320,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "repentance"
+  "glosa_tagnt": "repentance",
+  "ref_estandar": "Acts.20.21"
  },
  {
   "ref": "Acts.20.22",
@@ -352,7 +360,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to bind"
+  "glosa_tagnt": "to bind",
+  "ref_estandar": "Acts.20.22"
  },
  {
   "ref": "Acts.20.24",
@@ -393,7 +402,8 @@
    "Treg"
   ],
   "variante": true,
-  "glosa_tagnt": "to perfect"
+  "glosa_tagnt": "to perfect",
+  "ref_estandar": "Acts.20.24"
  },
  {
   "ref": "Acts.20.28",
@@ -433,7 +443,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "overseer"
+  "glosa_tagnt": "overseer",
+  "ref_estandar": "Acts.20.28"
  },
  {
   "ref": "Acts.20.29",
@@ -473,7 +484,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wolf"
+  "glosa_tagnt": "wolf",
+  "ref_estandar": "Acts.20.29"
  },
  {
   "ref": "Acts.20.31",
@@ -513,7 +525,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to keep watch"
+  "glosa_tagnt": "to keep watch",
+  "ref_estandar": "Acts.20.31"
  },
  {
   "ref": "Acts.20.32",
@@ -552,7 +565,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to set before"
+  "glosa_tagnt": "to set before",
+  "ref_estandar": "Acts.20.32"
  },
  {
   "ref": "Acts.20.34",
@@ -592,7 +606,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to serve"
+  "glosa_tagnt": "to serve",
+  "ref_estandar": "Acts.20.34"
  },
  {
   "ref": "Acts.20.35",
@@ -632,7 +647,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "blessed"
+  "glosa_tagnt": "blessed",
+  "ref_estandar": "Acts.20.35"
  },
  {
   "ref": "Acts.20.37",
@@ -671,6 +687,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "weeping"
+  "glosa_tagnt": "weeping",
+  "ref_estandar": "Acts.20.37"
  }
 ]

@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to embezzle"
+  "glosa_tagnt": "to embezzle",
+  "ref_estandar": "Acts.5.2"
  },
  {
   "ref": "Acts.5.3",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to lie"
+  "glosa_tagnt": "to lie",
+  "ref_estandar": "Acts.5.3"
  },
  {
   "ref": "Acts.5.4",
@@ -113,7 +115,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "authority"
+  "glosa_tagnt": "authority",
+  "ref_estandar": "Acts.5.4"
  },
  {
   "ref": "Acts.5.5",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to expire"
+  "glosa_tagnt": "to expire",
+  "ref_estandar": "Acts.5.5"
  },
  {
   "ref": "Acts.5.11",
@@ -192,7 +196,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "assembly"
+  "glosa_tagnt": "assembly",
+  "ref_estandar": "Acts.5.11"
  },
  {
   "ref": "Acts.5.15",
@@ -231,7 +236,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "shadow"
+  "glosa_tagnt": "shadow",
+  "ref_estandar": "Acts.5.15"
  },
  {
   "ref": "Acts.5.17",
@@ -270,7 +276,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sect"
+  "glosa_tagnt": "sect",
+  "ref_estandar": "Acts.5.17"
  },
  {
   "ref": "Acts.5.19",
@@ -309,7 +316,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "angel"
+  "glosa_tagnt": "angel",
+  "ref_estandar": "Acts.5.19"
  },
  {
   "ref": "Acts.5.20",
@@ -348,7 +356,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "life"
+  "glosa_tagnt": "life",
+  "ref_estandar": "Acts.5.20"
  },
  {
   "ref": "Acts.5.29",
@@ -388,7 +397,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to obey"
+  "glosa_tagnt": "to obey",
+  "ref_estandar": "Acts.5.29"
  },
  {
   "ref": "Acts.5.30",
@@ -428,7 +438,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wood"
+  "glosa_tagnt": "wood",
+  "ref_estandar": "Acts.5.30"
  },
  {
   "ref": "Acts.5.31",
@@ -468,7 +479,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "savior"
+  "glosa_tagnt": "savior",
+  "ref_estandar": "Acts.5.31"
  },
  {
   "ref": "Acts.5.34",
@@ -506,7 +518,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Gamaliel"
+  "glosa_tagnt": "Gamaliel",
+  "ref_estandar": "Acts.5.34"
  },
  {
   "ref": "Acts.5.36",
@@ -544,7 +557,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Theudas"
+  "glosa_tagnt": "Theudas",
+  "ref_estandar": "Acts.5.36"
  },
  {
   "ref": "Acts.5.37",
@@ -582,7 +596,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "census"
+  "glosa_tagnt": "census",
+  "ref_estandar": "Acts.5.37"
  },
  {
   "ref": "Acts.5.39",
@@ -621,7 +636,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "opposing God"
+  "glosa_tagnt": "opposing God",
+  "ref_estandar": "Acts.5.39"
  },
  {
   "ref": "Acts.5.41",
@@ -661,7 +677,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to consider worthy"
+  "glosa_tagnt": "to consider worthy",
+  "ref_estandar": "Acts.5.41"
  },
  {
   "ref": "Acts.5.42",
@@ -700,6 +717,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to speak good news"
+  "glosa_tagnt": "to speak good news",
+  "ref_estandar": "Acts.5.42"
  }
 ]

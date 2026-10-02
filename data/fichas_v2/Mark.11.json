@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "colt"
+  "glosa_tagnt": "colt",
+  "ref_estandar": "Mark.11.4"
  },
  {
   "ref": "Mark.11.9",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Hosanna!"
+  "glosa_tagnt": "Hosanna!",
+  "ref_estandar": "Mark.11.9"
  },
  {
   "ref": "Mark.11.11",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to look around"
+  "glosa_tagnt": "to look around",
+  "ref_estandar": "Mark.11.11"
  },
  {
   "ref": "Mark.11.13",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fig tree"
+  "glosa_tagnt": "fig tree",
+  "ref_estandar": "Mark.11.13"
  },
  {
   "ref": "Mark.11.15",
@@ -192,7 +196,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to overturn"
+  "glosa_tagnt": "to overturn",
+  "ref_estandar": "Mark.11.15"
  },
  {
   "ref": "Mark.11.17",
@@ -232,7 +237,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Gentile nation"
+  "glosa_tagnt": "Gentile nation",
+  "ref_estandar": "Mark.11.17"
  },
  {
   "ref": "Mark.11.18",
@@ -271,7 +277,8 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "to destroy"
+  "glosa_tagnt": "to destroy",
+  "ref_estandar": "Mark.11.18"
  },
  {
   "ref": "Mark.11.22",
@@ -309,7 +316,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "faith"
+  "glosa_tagnt": "faith",
+  "ref_estandar": "Mark.11.22"
  },
  {
   "ref": "Mark.11.23",
@@ -348,7 +356,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mountain"
+  "glosa_tagnt": "mountain",
+  "ref_estandar": "Mark.11.23"
  },
  {
   "ref": "Mark.11.24",
@@ -388,7 +397,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to pray"
+  "glosa_tagnt": "to pray",
+  "ref_estandar": "Mark.11.24"
  },
  {
   "ref": "Mark.11.25",
@@ -428,7 +438,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to release"
+  "glosa_tagnt": "to release",
+  "ref_estandar": "Mark.11.25"
  },
  {
   "ref": "Mark.11.28",
@@ -468,7 +479,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "authority"
+  "glosa_tagnt": "authority",
+  "ref_estandar": "Mark.11.28"
  },
  {
   "ref": "Mark.11.30",
@@ -506,6 +518,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "baptism"
+  "glosa_tagnt": "baptism",
+  "ref_estandar": "Mark.11.30"
  }
 ]

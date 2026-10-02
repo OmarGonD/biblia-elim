@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "intercession"
+  "glosa_tagnt": "intercession",
+  "ref_estandar": "1Tim.2.1"
  },
  {
   "ref": "1Tim.2.4",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to will/desire"
+  "glosa_tagnt": "to will/desire",
+  "ref_estandar": "1Tim.2.4"
  },
  {
   "ref": "1Tim.2.5",
@@ -117,7 +119,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mediator"
+  "glosa_tagnt": "mediator",
+  "ref_estandar": "1Tim.2.5"
  },
  {
   "ref": "1Tim.2.6",
@@ -157,7 +160,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ransom"
+  "glosa_tagnt": "ransom",
+  "ref_estandar": "1Tim.2.6"
  },
  {
   "ref": "1Tim.2.9",
@@ -196,7 +200,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "attire/behaviour"
+  "glosa_tagnt": "attire/behaviour",
+  "ref_estandar": "1Tim.2.9"
  },
  {
   "ref": "1Tim.2.11",
@@ -236,7 +241,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "quietness"
+  "glosa_tagnt": "quietness",
+  "ref_estandar": "1Tim.2.11"
  },
  {
   "ref": "1Tim.2.12",
@@ -276,7 +282,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to domineer"
+  "glosa_tagnt": "to domineer",
+  "ref_estandar": "1Tim.2.12"
  },
  {
   "ref": "1Tim.2.13",
@@ -315,7 +322,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Adam"
+  "glosa_tagnt": "Adam",
+  "ref_estandar": "1Tim.2.13"
  },
  {
   "ref": "1Tim.2.14",
@@ -354,7 +362,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to trick"
+  "glosa_tagnt": "to trick",
+  "ref_estandar": "1Tim.2.14"
  },
  {
   "ref": "1Tim.2.15",
@@ -394,6 +403,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "childbearing"
+  "glosa_tagnt": "childbearing",
+  "ref_estandar": "1Tim.2.15"
  }
 ]

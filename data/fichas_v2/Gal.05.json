@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "freedom"
+  "glosa_tagnt": "freedom",
+  "ref_estandar": "Gal.5.1"
  },
  {
   "ref": "Gal.5.2",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to circumcise"
+  "glosa_tagnt": "to circumcise",
+  "ref_estandar": "Gal.5.2"
  },
  {
   "ref": "Gal.5.4",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to fall out"
+  "glosa_tagnt": "to fall out",
+  "ref_estandar": "Gal.5.4"
  },
  {
   "ref": "Gal.5.6",
@@ -156,7 +159,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "love"
+  "glosa_tagnt": "love",
+  "ref_estandar": "Gal.5.6"
  },
  {
   "ref": "Gal.5.9",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "leaven"
+  "glosa_tagnt": "leaven",
+  "ref_estandar": "Gal.5.9"
  },
  {
   "ref": "Gal.5.11",
@@ -234,7 +239,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "stumbling block"
+  "glosa_tagnt": "stumbling block",
+  "ref_estandar": "Gal.5.11"
  },
  {
   "ref": "Gal.5.13",
@@ -273,7 +279,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "opportunity"
+  "glosa_tagnt": "opportunity",
+  "ref_estandar": "Gal.5.13"
  },
  {
   "ref": "Gal.5.14",
@@ -314,7 +321,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to fulfill"
+  "glosa_tagnt": "to fulfill",
+  "ref_estandar": "Gal.5.14"
  },
  {
   "ref": "Gal.5.16",
@@ -353,7 +361,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to walk"
+  "glosa_tagnt": "to walk",
+  "ref_estandar": "Gal.5.16"
  },
  {
   "ref": "Gal.5.17",
@@ -392,7 +401,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "flesh"
+  "glosa_tagnt": "flesh",
+  "ref_estandar": "Gal.5.17"
  },
  {
   "ref": "Gal.5.19",
@@ -432,7 +442,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sexual sin"
+  "glosa_tagnt": "sexual sin",
+  "ref_estandar": "Gal.5.19"
  },
  {
   "ref": "Gal.5.20",
@@ -473,7 +484,8 @@
    "WH"
   ],
   "variante": true,
-  "glosa_tagnt": "sorcery"
+  "glosa_tagnt": "sorcery",
+  "ref_estandar": "Gal.5.20"
  },
  {
   "ref": "Gal.5.22",
@@ -513,7 +525,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fruit"
+  "glosa_tagnt": "fruit",
+  "ref_estandar": "Gal.5.22"
  },
  {
   "ref": "Gal.5.24",
@@ -552,7 +565,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to crucify"
+  "glosa_tagnt": "to crucify",
+  "ref_estandar": "Gal.5.24"
  },
  {
   "ref": "Gal.5.25",
@@ -591,6 +605,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to follow"
+  "glosa_tagnt": "to follow",
+  "ref_estandar": "Gal.5.25"
  }
 ]

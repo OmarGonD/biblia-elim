@@ -35,7 +35,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "spirit/breath"
+  "glosa_tagnt": "spirit/breath",
+  "ref_estandar": "Acts.21.4"
  },
  {
   "ref": "Acts.21.8",
@@ -74,7 +75,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "evangelist"
+  "glosa_tagnt": "evangelist",
+  "ref_estandar": "Acts.21.8"
  },
  {
   "ref": "Acts.21.9",
@@ -113,7 +115,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to prophesy"
+  "glosa_tagnt": "to prophesy",
+  "ref_estandar": "Acts.21.9"
  },
  {
   "ref": "Acts.21.11",
@@ -154,7 +157,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "belt/sash/girdle"
+  "glosa_tagnt": "belt/sash/girdle",
+  "ref_estandar": "Acts.21.11"
  },
  {
   "ref": "Acts.21.13",
@@ -194,7 +198,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to die"
+  "glosa_tagnt": "to die",
+  "ref_estandar": "Acts.21.13"
  },
  {
   "ref": "Acts.21.18",
@@ -233,7 +238,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "James"
+  "glosa_tagnt": "James",
+  "ref_estandar": "Acts.21.18"
  },
  {
   "ref": "Acts.21.20",
@@ -272,7 +278,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "zealot"
+  "glosa_tagnt": "zealot",
+  "ref_estandar": "Acts.21.20"
  },
  {
   "ref": "Acts.21.24",
@@ -312,7 +319,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to purify"
+  "glosa_tagnt": "to purify",
+  "ref_estandar": "Acts.21.24"
  },
  {
   "ref": "Acts.21.25",
@@ -350,7 +358,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sacrificed to idols"
+  "glosa_tagnt": "sacrificed to idols",
+  "ref_estandar": "Acts.21.25"
  },
  {
   "ref": "Acts.21.28",
@@ -389,7 +398,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to profane"
+  "glosa_tagnt": "to profane",
+  "ref_estandar": "Acts.21.28"
  },
  {
   "ref": "Acts.21.31",
@@ -428,7 +438,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "military officer"
+  "glosa_tagnt": "military officer",
+  "ref_estandar": "Acts.21.31"
  },
  {
   "ref": "Acts.21.38",
@@ -467,7 +478,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "assassin"
+  "glosa_tagnt": "assassin",
+  "ref_estandar": "Acts.21.38"
  },
  {
   "ref": "Acts.21.39",
@@ -506,7 +518,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "of Tarsus"
+  "glosa_tagnt": "of Tarsus",
+  "ref_estandar": "Acts.21.39"
  },
  {
   "ref": "Acts.21.40",
@@ -544,6 +557,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Aramaic"
+  "glosa_tagnt": "Aramaic",
+  "ref_estandar": "Acts.21.40"
  }
 ]

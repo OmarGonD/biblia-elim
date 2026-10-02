@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "confidence/essence"
+  "glosa_tagnt": "confidence/essence",
+  "ref_estandar": "Heb.11.1"
  },
  {
   "ref": "Heb.11.3",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to complete"
+  "glosa_tagnt": "to complete",
+  "ref_estandar": "Heb.11.3"
  },
  {
   "ref": "Heb.11.4",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Cain"
+  "glosa_tagnt": "Cain",
+  "ref_estandar": "Heb.11.4"
  },
  {
   "ref": "Heb.11.5",
@@ -156,7 +159,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to transport"
+  "glosa_tagnt": "to transport",
+  "ref_estandar": "Heb.11.5"
  },
  {
   "ref": "Heb.11.6",
@@ -197,7 +201,8 @@
   "variante": false,
   "glosa_tagnt": "without",
   "caso_regido": null,
-  "caso_regido_ambiguo": "se interpone CONJ (δὲ)"
+  "caso_regido_ambiguo": "se interpone CONJ (δὲ)",
+  "ref_estandar": "Heb.11.6"
  },
  {
   "ref": "Heb.11.7",
@@ -237,7 +242,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Noah"
+  "glosa_tagnt": "Noah",
+  "ref_estandar": "Heb.11.7"
  },
  {
   "ref": "Heb.11.8",
@@ -276,7 +282,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Abraham"
+  "glosa_tagnt": "Abraham",
+  "ref_estandar": "Heb.11.8"
  },
  {
   "ref": "Heb.11.10",
@@ -315,7 +322,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "city"
+  "glosa_tagnt": "city",
+  "ref_estandar": "Heb.11.10"
  },
  {
   "ref": "Heb.11.11",
@@ -354,7 +362,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Sarah"
+  "glosa_tagnt": "Sarah",
+  "ref_estandar": "Heb.11.11"
  },
  {
   "ref": "Heb.11.13",
@@ -394,7 +403,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "foreign"
+  "glosa_tagnt": "foreign",
+  "ref_estandar": "Heb.11.13"
  },
  {
   "ref": "Heb.11.16",
@@ -434,7 +444,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "heavenly"
+  "glosa_tagnt": "heavenly",
+  "ref_estandar": "Heb.11.16"
  },
  {
   "ref": "Heb.11.17",
@@ -473,7 +484,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unique"
+  "glosa_tagnt": "unique",
+  "ref_estandar": "Heb.11.17"
  },
  {
   "ref": "Heb.11.19",
@@ -512,7 +524,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to arise"
+  "glosa_tagnt": "to arise",
+  "ref_estandar": "Heb.11.19"
  },
  {
   "ref": "Heb.11.26",
@@ -552,7 +565,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "recompense"
+  "glosa_tagnt": "recompense",
+  "ref_estandar": "Heb.11.26"
  },
  {
   "ref": "Heb.11.31",
@@ -591,7 +605,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Rahab"
+  "glosa_tagnt": "Rahab",
+  "ref_estandar": "Heb.11.31"
  },
  {
   "ref": "Heb.11.32",
@@ -631,7 +646,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Gideon"
+  "glosa_tagnt": "Gideon",
+  "ref_estandar": "Heb.11.32"
  },
  {
   "ref": "Heb.11.35",
@@ -672,7 +688,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "resurrection"
+  "glosa_tagnt": "resurrection",
+  "ref_estandar": "Heb.11.35"
  },
  {
   "ref": "Heb.11.35",
@@ -713,7 +730,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "resurrection"
+  "glosa_tagnt": "resurrection",
+  "ref_estandar": "Heb.11.35"
  },
  {
   "ref": "Heb.11.37",
@@ -752,7 +770,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to saw (in two)"
+  "glosa_tagnt": "to saw (in two)",
+  "ref_estandar": "Heb.11.37"
  },
  {
   "ref": "Heb.11.40",
@@ -791,6 +810,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to perfect"
+  "glosa_tagnt": "to perfect",
+  "ref_estandar": "Heb.11.40"
  }
 ]

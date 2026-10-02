@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Judah/Judas/Jude"
+  "glosa_tagnt": "Judah/Judas/Jude",
+  "ref_estandar": "Jude.1.1"
  },
  {
   "ref": "Jude.1.3",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to contend"
+  "glosa_tagnt": "to contend",
+  "ref_estandar": "Jude.1.3"
  },
  {
   "ref": "Jude.1.4",
@@ -117,7 +119,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to infiltrate"
+  "glosa_tagnt": "to infiltrate",
+  "ref_estandar": "Jude.1.4"
  },
  {
   "ref": "Jude.1.5",
@@ -157,7 +160,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to save"
+  "glosa_tagnt": "to save",
+  "ref_estandar": "Jude.1.5"
  },
  {
   "ref": "Jude.1.6",
@@ -198,7 +202,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to keep"
+  "glosa_tagnt": "to keep",
+  "ref_estandar": "Jude.1.6"
  },
  {
   "ref": "Jude.1.7",
@@ -238,7 +243,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Gomorrah"
+  "glosa_tagnt": "Gomorrah",
+  "ref_estandar": "Jude.1.7"
  },
  {
   "ref": "Jude.1.8",
@@ -277,7 +283,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to reject"
+  "glosa_tagnt": "to reject",
+  "ref_estandar": "Jude.1.8"
  },
  {
   "ref": "Jude.1.9",
@@ -317,7 +324,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Michael"
+  "glosa_tagnt": "Michael",
+  "ref_estandar": "Jude.1.9"
  },
  {
   "ref": "Jude.1.11",
@@ -357,7 +365,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Balaam"
+  "glosa_tagnt": "Balaam",
+  "ref_estandar": "Jude.1.11"
  },
  {
   "ref": "Jude.1.12",
@@ -396,7 +405,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "love"
+  "glosa_tagnt": "love",
+  "ref_estandar": "Jude.1.12"
  },
  {
   "ref": "Jude.1.14",
@@ -436,7 +446,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Enoch"
+  "glosa_tagnt": "Enoch",
+  "ref_estandar": "Jude.1.14"
  },
  {
   "ref": "Jude.1.16",
@@ -475,7 +486,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "a murmurer"
+  "glosa_tagnt": "a murmurer",
+  "ref_estandar": "Jude.1.16"
  },
  {
   "ref": "Jude.1.17",
@@ -515,7 +527,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "apostle"
+  "glosa_tagnt": "apostle",
+  "ref_estandar": "Jude.1.17"
  },
  {
   "ref": "Jude.1.19",
@@ -554,7 +567,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "natural"
+  "glosa_tagnt": "natural",
+  "ref_estandar": "Jude.1.19"
  },
  {
   "ref": "Jude.1.20",
@@ -594,7 +608,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to build up/upon"
+  "glosa_tagnt": "to build up/upon",
+  "ref_estandar": "Jude.1.20"
  },
  {
   "ref": "Jude.1.21",
@@ -634,7 +649,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to keep"
+  "glosa_tagnt": "to keep",
+  "ref_estandar": "Jude.1.21"
  },
  {
   "ref": "Jude.1.22",
@@ -674,7 +690,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to judge/doubt"
+  "glosa_tagnt": "to judge/doubt",
+  "ref_estandar": "Jude.1.22"
  },
  {
   "ref": "Jude.1.23",
@@ -714,7 +731,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to seize"
+  "glosa_tagnt": "to seize",
+  "ref_estandar": "Jude.1.23"
  },
  {
   "ref": "Jude.1.24",
@@ -754,7 +772,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to keep/guard"
+  "glosa_tagnt": "to keep/guard",
+  "ref_estandar": "Jude.1.24"
  },
  {
   "ref": "Jude.1.25",
@@ -794,6 +813,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "savior"
+  "glosa_tagnt": "savior",
+  "ref_estandar": "Jude.1.25"
  }
 ]

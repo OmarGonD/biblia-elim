@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "beginning"
+  "glosa_tagnt": "beginning",
+  "ref_estandar": "Titus.3.1"
  },
  {
   "ref": "Titus.3.4",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "benevolence"
+  "glosa_tagnt": "benevolence",
+  "ref_estandar": "Titus.3.4"
  },
  {
   "ref": "Titus.3.5",
@@ -117,7 +119,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "regeneration"
+  "glosa_tagnt": "regeneration",
+  "ref_estandar": "Titus.3.5"
  },
  {
   "ref": "Titus.3.6",
@@ -156,7 +159,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pour out"
+  "glosa_tagnt": "to pour out",
+  "ref_estandar": "Titus.3.6"
  },
  {
   "ref": "Titus.3.7",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to justify"
+  "glosa_tagnt": "to justify",
+  "ref_estandar": "Titus.3.7"
  },
  {
   "ref": "Titus.3.8",
@@ -234,7 +239,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to set before"
+  "glosa_tagnt": "to set before",
+  "ref_estandar": "Titus.3.8"
  },
  {
   "ref": "Titus.3.10",
@@ -274,7 +280,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "schismatic"
+  "glosa_tagnt": "schismatic",
+  "ref_estandar": "Titus.3.10"
  },
  {
   "ref": "Titus.3.12",
@@ -313,7 +320,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Nicopolis"
+  "glosa_tagnt": "Nicopolis",
+  "ref_estandar": "Titus.3.12"
  },
  {
   "ref": "Titus.3.14",
@@ -353,6 +361,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unfruitful"
+  "glosa_tagnt": "unfruitful",
+  "ref_estandar": "Titus.3.14"
  }
 ]

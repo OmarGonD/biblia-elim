@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "perfection"
+  "glosa_tagnt": "perfection",
+  "ref_estandar": "Heb.6.1"
  },
  {
   "ref": "Heb.6.4",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to illuminate"
+  "glosa_tagnt": "to illuminate",
+  "ref_estandar": "Heb.6.4"
  },
  {
   "ref": "Heb.6.6",
@@ -115,7 +117,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to recrucify"
+  "glosa_tagnt": "to recrucify",
+  "ref_estandar": "Heb.6.6"
  },
  {
   "ref": "Heb.6.9",
@@ -154,7 +157,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "greater"
+  "glosa_tagnt": "greater",
+  "ref_estandar": "Heb.6.9"
  },
  {
   "ref": "Heb.6.10",
@@ -193,7 +197,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unjust"
+  "glosa_tagnt": "unjust",
+  "ref_estandar": "Heb.6.10"
  },
  {
   "ref": "Heb.6.18",
@@ -232,7 +237,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unable"
+  "glosa_tagnt": "unable",
+  "ref_estandar": "Heb.6.18"
  },
  {
   "ref": "Heb.6.19",
@@ -271,7 +277,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "anchor"
+  "glosa_tagnt": "anchor",
+  "ref_estandar": "Heb.6.19"
  },
  {
   "ref": "Heb.6.20",
@@ -310,6 +317,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "forerunner"
+  "glosa_tagnt": "forerunner",
+  "ref_estandar": "Heb.6.20"
  }
 ]

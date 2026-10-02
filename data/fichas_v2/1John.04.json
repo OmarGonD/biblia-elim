@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to test"
+  "glosa_tagnt": "to test",
+  "ref_estandar": "1John.4.1"
  },
  {
   "ref": "1John.4.2",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "flesh"
+  "glosa_tagnt": "flesh",
+  "ref_estandar": "1John.4.2"
  },
  {
   "ref": "1John.4.3",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "antichrist"
+  "glosa_tagnt": "antichrist",
+  "ref_estandar": "1John.4.3"
  },
  {
   "ref": "1John.4.4",
@@ -156,7 +159,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to conquer"
+  "glosa_tagnt": "to conquer",
+  "ref_estandar": "1John.4.4"
  },
  {
   "ref": "1John.4.7",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "love"
+  "glosa_tagnt": "love",
+  "ref_estandar": "1John.4.7"
  },
  {
   "ref": "1John.4.8",
@@ -235,7 +240,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "love"
+  "glosa_tagnt": "love",
+  "ref_estandar": "1John.4.8"
  },
  {
   "ref": "1John.4.9",
@@ -274,7 +280,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unique"
+  "glosa_tagnt": "unique",
+  "ref_estandar": "1John.4.9"
  },
  {
   "ref": "1John.4.10",
@@ -314,7 +321,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "propitiation"
+  "glosa_tagnt": "propitiation",
+  "ref_estandar": "1John.4.10"
  },
  {
   "ref": "1John.4.12",
@@ -354,7 +362,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to look at"
+  "glosa_tagnt": "to look at",
+  "ref_estandar": "1John.4.12"
  },
  {
   "ref": "1John.4.16",
@@ -394,7 +403,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to stay"
+  "glosa_tagnt": "to stay",
+  "ref_estandar": "1John.4.16"
  },
  {
   "ref": "1John.4.18",
@@ -435,7 +445,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fear"
+  "glosa_tagnt": "fear",
+  "ref_estandar": "1John.4.18"
  },
  {
   "ref": "1John.4.18",
@@ -476,7 +487,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fear"
+  "glosa_tagnt": "fear",
+  "ref_estandar": "1John.4.18"
  },
  {
   "ref": "1John.4.19",
@@ -515,7 +527,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "first"
+  "glosa_tagnt": "first",
+  "ref_estandar": "1John.4.19"
  },
  {
   "ref": "1John.4.20",
@@ -554,6 +567,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "liar"
+  "glosa_tagnt": "liar",
+  "ref_estandar": "1John.4.20"
  }
 ]

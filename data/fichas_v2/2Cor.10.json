@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gentleness"
+  "glosa_tagnt": "gentleness",
+  "ref_estandar": "2Cor.10.1"
  },
  {
   "ref": "2Cor.10.4",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "stronghold"
+  "glosa_tagnt": "stronghold",
+  "ref_estandar": "2Cor.10.4"
  },
  {
   "ref": "2Cor.10.5",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to capture"
+  "glosa_tagnt": "to capture",
+  "ref_estandar": "2Cor.10.5"
  },
  {
   "ref": "2Cor.10.12",
@@ -154,7 +157,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to compare"
+  "glosa_tagnt": "to compare",
+  "ref_estandar": "2Cor.10.12"
  },
  {
   "ref": "2Cor.10.17",
@@ -194,6 +198,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to boast"
+  "glosa_tagnt": "to boast",
+  "ref_estandar": "2Cor.10.17"
  }
 ]

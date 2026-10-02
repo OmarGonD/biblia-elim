@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be weak"
+  "glosa_tagnt": "be weak",
+  "ref_estandar": "Rom.14.1"
  },
  {
   "ref": "Rom.14.2",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "plant"
+  "glosa_tagnt": "plant",
+  "ref_estandar": "Rom.14.2"
  },
  {
   "ref": "Rom.14.4",
@@ -115,7 +117,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "slave"
+  "glosa_tagnt": "slave",
+  "ref_estandar": "Rom.14.4"
  },
  {
   "ref": "Rom.14.5",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "day"
+  "glosa_tagnt": "day",
+  "ref_estandar": "Rom.14.5"
  },
  {
   "ref": "Rom.14.5",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "day"
+  "glosa_tagnt": "day",
+  "ref_estandar": "Rom.14.5"
  },
  {
   "ref": "Rom.14.5",
@@ -235,7 +240,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "day"
+  "glosa_tagnt": "day",
+  "ref_estandar": "Rom.14.5"
  },
  {
   "ref": "Rom.14.7",
@@ -275,7 +281,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to live"
+  "glosa_tagnt": "to live",
+  "ref_estandar": "Rom.14.7"
  },
  {
   "ref": "Rom.14.9",
@@ -314,7 +321,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to lord over"
+  "glosa_tagnt": "to lord over",
+  "ref_estandar": "Rom.14.9"
  },
  {
   "ref": "Rom.14.10",
@@ -354,7 +362,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "judgement seat"
+  "glosa_tagnt": "judgement seat",
+  "ref_estandar": "Rom.14.10"
  },
  {
   "ref": "Rom.14.11",
@@ -393,7 +402,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to bend/bow"
+  "glosa_tagnt": "to bend/bow",
+  "ref_estandar": "Rom.14.11"
  },
  {
   "ref": "Rom.14.13",
@@ -432,7 +442,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "stumbling block"
+  "glosa_tagnt": "stumbling block",
+  "ref_estandar": "Rom.14.13"
  },
  {
   "ref": "Rom.14.14",
@@ -474,7 +485,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "common"
+  "glosa_tagnt": "common",
+  "ref_estandar": "Rom.14.14"
  },
  {
   "ref": "Rom.14.14",
@@ -516,7 +528,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "common"
+  "glosa_tagnt": "common",
+  "ref_estandar": "Rom.14.14"
  },
  {
   "ref": "Rom.14.14",
@@ -558,7 +571,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "common"
+  "glosa_tagnt": "common",
+  "ref_estandar": "Rom.14.14"
  },
  {
   "ref": "Rom.14.15",
@@ -598,7 +612,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "love"
+  "glosa_tagnt": "love",
+  "ref_estandar": "Rom.14.15"
  },
  {
   "ref": "Rom.14.17",
@@ -638,7 +653,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "kingdom"
+  "glosa_tagnt": "kingdom",
+  "ref_estandar": "Rom.14.17"
  },
  {
   "ref": "Rom.14.19",
@@ -677,7 +693,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "building"
+  "glosa_tagnt": "building",
+  "ref_estandar": "Rom.14.19"
  },
  {
   "ref": "Rom.14.20",
@@ -716,7 +733,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "clean"
+  "glosa_tagnt": "clean",
+  "ref_estandar": "Rom.14.20"
  },
  {
   "ref": "Rom.14.22",
@@ -754,7 +772,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "blessed"
+  "glosa_tagnt": "blessed",
+  "ref_estandar": "Rom.14.22"
  },
  {
   "ref": "Rom.14.23",
@@ -793,6 +812,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to judge/doubt"
+  "glosa_tagnt": "to judge/doubt",
+  "ref_estandar": "Rom.14.23"
  }
 ]

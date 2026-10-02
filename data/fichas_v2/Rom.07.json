@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "woman"
+  "glosa_tagnt": "woman",
+  "ref_estandar": "Rom.7.2"
  },
  {
   "ref": "Rom.7.4",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to kill"
+  "glosa_tagnt": "to kill",
+  "ref_estandar": "Rom.7.4"
  },
  {
   "ref": "Rom.7.6",
@@ -117,7 +119,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "something written"
+  "glosa_tagnt": "something written",
+  "ref_estandar": "Rom.7.6"
  },
  {
   "ref": "Rom.7.7",
@@ -156,7 +159,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "desire"
+  "glosa_tagnt": "desire",
+  "ref_estandar": "Rom.7.7"
  },
  {
   "ref": "Rom.7.9",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to live"
+  "glosa_tagnt": "to live",
+  "ref_estandar": "Rom.7.9"
  },
  {
   "ref": "Rom.7.11",
@@ -234,7 +239,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to deceive"
+  "glosa_tagnt": "to deceive",
+  "ref_estandar": "Rom.7.11"
  },
  {
   "ref": "Rom.7.12",
@@ -274,7 +280,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "holy"
+  "glosa_tagnt": "holy",
+  "ref_estandar": "Rom.7.12"
  },
  {
   "ref": "Rom.7.14",
@@ -314,7 +321,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "fleshly"
+  "glosa_tagnt": "fleshly",
+  "ref_estandar": "Rom.7.14"
  },
  {
   "ref": "Rom.7.15",
@@ -353,7 +361,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to hate"
+  "glosa_tagnt": "to hate",
+  "ref_estandar": "Rom.7.15"
  },
  {
   "ref": "Rom.7.18",
@@ -392,7 +401,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "flesh"
+  "glosa_tagnt": "flesh",
+  "ref_estandar": "Rom.7.18"
  },
  {
   "ref": "Rom.7.22",
@@ -431,7 +441,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to delight"
+  "glosa_tagnt": "to delight",
+  "ref_estandar": "Rom.7.22"
  },
  {
   "ref": "Rom.7.23",
@@ -470,7 +481,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to wage war against"
+  "glosa_tagnt": "to wage war against",
+  "ref_estandar": "Rom.7.23"
  },
  {
   "ref": "Rom.7.24",
@@ -509,7 +521,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wretched"
+  "glosa_tagnt": "wretched",
+  "ref_estandar": "Rom.7.24"
  },
  {
   "ref": "Rom.7.25",
@@ -549,6 +562,7 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "grace"
+  "glosa_tagnt": "grace",
+  "ref_estandar": "Rom.7.25"
  }
 ]

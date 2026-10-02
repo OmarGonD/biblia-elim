@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sage"
+  "glosa_tagnt": "sage",
+  "ref_estandar": "Matt.2.1"
  },
  {
   "ref": "Matt.2.1",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "east"
+  "glosa_tagnt": "east",
+  "ref_estandar": "Matt.2.1"
  },
  {
   "ref": "Matt.2.2",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "star"
+  "glosa_tagnt": "star",
+  "ref_estandar": "Matt.2.2"
  },
  {
   "ref": "Matt.2.2",
@@ -157,7 +160,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to worship"
+  "glosa_tagnt": "to worship",
+  "ref_estandar": "Matt.2.2"
  },
  {
   "ref": "Matt.2.3",
@@ -198,7 +202,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to trouble"
+  "glosa_tagnt": "to trouble",
+  "ref_estandar": "Matt.2.3"
  },
  {
   "ref": "Matt.2.4",
@@ -238,7 +243,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "high-priest"
+  "glosa_tagnt": "high-priest",
+  "ref_estandar": "Matt.2.4"
  },
  {
   "ref": "Matt.2.4",
@@ -277,7 +283,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "scribe"
+  "glosa_tagnt": "scribe",
+  "ref_estandar": "Matt.2.4"
  },
  {
   "ref": "Matt.2.4",
@@ -316,7 +323,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to inquire"
+  "glosa_tagnt": "to inquire",
+  "ref_estandar": "Matt.2.4"
  },
  {
   "ref": "Matt.2.5",
@@ -357,7 +365,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to write"
+  "glosa_tagnt": "to write",
+  "ref_estandar": "Matt.2.5"
  },
  {
   "ref": "Matt.2.6",
@@ -396,7 +405,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ruler"
+  "glosa_tagnt": "ruler",
+  "ref_estandar": "Matt.2.6"
  },
  {
   "ref": "Matt.2.6",
@@ -437,7 +447,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to govern"
+  "glosa_tagnt": "to govern",
+  "ref_estandar": "Matt.2.6"
  },
  {
   "ref": "Matt.2.6",
@@ -477,7 +488,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to shepherd"
+  "glosa_tagnt": "to shepherd",
+  "ref_estandar": "Matt.2.6"
  },
  {
   "ref": "Matt.2.7",
@@ -515,7 +527,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be exactly"
+  "glosa_tagnt": "be exactly",
+  "ref_estandar": "Matt.2.7"
  },
  {
   "ref": "Matt.2.8",
@@ -554,7 +567,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to find out"
+  "glosa_tagnt": "to find out",
+  "ref_estandar": "Matt.2.8"
  },
  {
   "ref": "Matt.2.8",
@@ -593,7 +607,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to worship"
+  "glosa_tagnt": "to worship",
+  "ref_estandar": "Matt.2.8"
  },
  {
   "ref": "Matt.2.9",
@@ -633,7 +648,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to go/bring before"
+  "glosa_tagnt": "to go/bring before",
+  "ref_estandar": "Matt.2.9"
  },
  {
   "ref": "Matt.2.9",
@@ -674,7 +690,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to stand"
+  "glosa_tagnt": "to stand",
+  "ref_estandar": "Matt.2.9"
  },
  {
   "ref": "Matt.2.10",
@@ -714,7 +731,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to rejoice"
+  "glosa_tagnt": "to rejoice",
+  "ref_estandar": "Matt.2.10"
  },
  {
   "ref": "Matt.2.11",
@@ -754,7 +772,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "home"
+  "glosa_tagnt": "home",
+  "ref_estandar": "Matt.2.11"
  },
  {
   "ref": "Matt.2.11",
@@ -795,7 +814,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "child"
+  "glosa_tagnt": "child",
+  "ref_estandar": "Matt.2.11"
  },
  {
   "ref": "Matt.2.11",
@@ -836,7 +856,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to collapse"
+  "glosa_tagnt": "to collapse",
+  "ref_estandar": "Matt.2.11"
  },
  {
   "ref": "Matt.2.11",
@@ -876,7 +897,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gift"
+  "glosa_tagnt": "gift",
+  "ref_estandar": "Matt.2.11"
  },
  {
   "ref": "Matt.2.12",
@@ -917,7 +939,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to announce"
+  "glosa_tagnt": "to announce",
+  "ref_estandar": "Matt.2.12"
  },
  {
   "ref": "Matt.2.12",
@@ -960,7 +983,8 @@
   "ausente_en": [],
   "variante": false,
   "glosa_tagnt": "to/with",
-  "caso_regido": "acusativo"
+  "caso_regido": "acusativo",
+  "ref_estandar": "Matt.2.12"
  },
  {
   "ref": "Matt.2.12",
@@ -1001,7 +1025,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "road"
+  "glosa_tagnt": "road",
+  "ref_estandar": "Matt.2.12"
  },
  {
   "ref": "Matt.2.13",
@@ -1042,7 +1067,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to flee"
+  "glosa_tagnt": "to flee",
+  "ref_estandar": "Matt.2.13"
  },
  {
   "ref": "Matt.2.13",
@@ -1083,7 +1109,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to seek"
+  "glosa_tagnt": "to seek",
+  "ref_estandar": "Matt.2.13"
  },
  {
   "ref": "Matt.2.15",
@@ -1122,7 +1149,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "death"
+  "glosa_tagnt": "death",
+  "ref_estandar": "Matt.2.15"
  },
  {
   "ref": "Matt.2.15",
@@ -1162,7 +1190,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to fulfill"
+  "glosa_tagnt": "to fulfill",
+  "ref_estandar": "Matt.2.15"
  },
  {
   "ref": "Matt.2.16",
@@ -1201,7 +1230,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to mock"
+  "glosa_tagnt": "to mock",
+  "ref_estandar": "Matt.2.16"
  },
  {
   "ref": "Matt.2.16",
@@ -1241,7 +1271,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to do away with"
+  "glosa_tagnt": "to do away with",
+  "ref_estandar": "Matt.2.16"
  },
  {
   "ref": "Matt.2.16",
@@ -1282,7 +1313,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "child"
+  "glosa_tagnt": "child",
+  "ref_estandar": "Matt.2.16"
  },
  {
   "ref": "Matt.2.17",
@@ -1321,7 +1353,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to fulfill"
+  "glosa_tagnt": "to fulfill",
+  "ref_estandar": "Matt.2.17"
  },
  {
   "ref": "Matt.2.18",
@@ -1360,7 +1393,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "weeping"
+  "glosa_tagnt": "weeping",
+  "ref_estandar": "Matt.2.18"
  },
  {
   "ref": "Matt.2.18",
@@ -1402,7 +1436,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to plead/comfort"
+  "glosa_tagnt": "to plead/comfort",
+  "ref_estandar": "Matt.2.18"
  },
  {
   "ref": "Matt.2.20",
@@ -1443,7 +1478,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "soul"
+  "glosa_tagnt": "soul",
+  "ref_estandar": "Matt.2.20"
  },
  {
   "ref": "Matt.2.22",
@@ -1482,7 +1518,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to reign"
+  "glosa_tagnt": "to reign",
+  "ref_estandar": "Matt.2.22"
  },
  {
   "ref": "Matt.2.22",
@@ -1522,7 +1559,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to fear"
+  "glosa_tagnt": "to fear",
+  "ref_estandar": "Matt.2.22"
  },
  {
   "ref": "Matt.2.23",
@@ -1561,7 +1599,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to dwell"
+  "glosa_tagnt": "to dwell",
+  "ref_estandar": "Matt.2.23"
  },
  {
   "ref": "Matt.2.23",
@@ -1601,6 +1640,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Nazarene"
+  "glosa_tagnt": "Nazarene",
+  "ref_estandar": "Matt.2.23"
  }
 ]

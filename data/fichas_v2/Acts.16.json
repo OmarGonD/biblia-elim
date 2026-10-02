@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Timothy"
+  "glosa_tagnt": "Timothy",
+  "ref_estandar": "Acts.16.1"
  },
  {
   "ref": "Acts.16.3",
@@ -75,7 +76,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to circumcise"
+  "glosa_tagnt": "to circumcise",
+  "ref_estandar": "Acts.16.3"
  },
  {
   "ref": "Acts.16.4",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "decree"
+  "glosa_tagnt": "decree",
+  "ref_estandar": "Acts.16.4"
  },
  {
   "ref": "Acts.16.6",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to prevent"
+  "glosa_tagnt": "to prevent",
+  "ref_estandar": "Acts.16.6"
  },
  {
   "ref": "Acts.16.7",
@@ -193,7 +197,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "spirit/breath"
+  "glosa_tagnt": "spirit/breath",
+  "ref_estandar": "Acts.16.7"
  },
  {
   "ref": "Acts.16.9",
@@ -232,7 +237,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Macedonian"
+  "glosa_tagnt": "Macedonian",
+  "ref_estandar": "Acts.16.9"
  },
  {
   "ref": "Acts.16.10",
@@ -272,7 +278,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to seek"
+  "glosa_tagnt": "to seek",
+  "ref_estandar": "Acts.16.10"
  },
  {
   "ref": "Acts.16.12",
@@ -310,7 +317,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "colony"
+  "glosa_tagnt": "colony",
+  "ref_estandar": "Acts.16.12"
  },
  {
   "ref": "Acts.16.14",
@@ -349,7 +357,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Lydia"
+  "glosa_tagnt": "Lydia",
+  "ref_estandar": "Acts.16.14"
  },
  {
   "ref": "Acts.16.15",
@@ -389,7 +398,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "house"
+  "glosa_tagnt": "house",
+  "ref_estandar": "Acts.16.15"
  },
  {
   "ref": "Acts.16.16",
@@ -429,7 +439,8 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "divining spirit"
+  "glosa_tagnt": "divining spirit",
+  "ref_estandar": "Acts.16.16"
  },
  {
   "ref": "Acts.16.17",
@@ -468,7 +479,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "highest"
+  "glosa_tagnt": "highest",
+  "ref_estandar": "Acts.16.17"
  },
  {
   "ref": "Acts.16.20",
@@ -507,7 +519,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "officer/magistrate"
+  "glosa_tagnt": "officer/magistrate",
+  "ref_estandar": "Acts.16.20"
  },
  {
   "ref": "Acts.16.25",
@@ -547,7 +560,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to praise"
+  "glosa_tagnt": "to praise",
+  "ref_estandar": "Acts.16.25"
  },
  {
   "ref": "Acts.16.26",
@@ -586,7 +600,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "earthquake"
+  "glosa_tagnt": "earthquake",
+  "ref_estandar": "Acts.16.26"
  },
  {
   "ref": "Acts.16.30",
@@ -625,7 +640,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to save"
+  "glosa_tagnt": "to save",
+  "ref_estandar": "Acts.16.30"
  },
  {
   "ref": "Acts.16.31",
@@ -665,7 +681,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to trust (in)"
+  "glosa_tagnt": "to trust (in)",
+  "ref_estandar": "Acts.16.31"
  },
  {
   "ref": "Acts.16.33",
@@ -703,7 +720,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to baptize"
+  "glosa_tagnt": "to baptize",
+  "ref_estandar": "Acts.16.33"
  },
  {
   "ref": "Acts.16.37",
@@ -741,7 +759,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Roman"
+  "glosa_tagnt": "Roman",
+  "ref_estandar": "Acts.16.37"
  },
  {
   "ref": "Acts.16.40",
@@ -780,6 +799,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Lydia"
+  "glosa_tagnt": "Lydia",
+  "ref_estandar": "Acts.16.40"
  }
 ]

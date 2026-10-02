@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dead"
+  "glosa_tagnt": "dead",
+  "ref_estandar": "Eph.2.1"
  },
  {
   "ref": "Eph.2.2",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ruler"
+  "glosa_tagnt": "ruler",
+  "ref_estandar": "Eph.2.2"
  },
  {
   "ref": "Eph.2.3",
@@ -117,7 +119,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wrath"
+  "glosa_tagnt": "wrath",
+  "ref_estandar": "Eph.2.3"
  },
  {
   "ref": "Eph.2.4",
@@ -157,7 +160,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mercy"
+  "glosa_tagnt": "mercy",
+  "ref_estandar": "Eph.2.4"
  },
  {
   "ref": "Eph.2.5",
@@ -196,7 +200,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to make alive with"
+  "glosa_tagnt": "to make alive with",
+  "ref_estandar": "Eph.2.5"
  },
  {
   "ref": "Eph.2.8",
@@ -236,7 +241,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to save"
+  "glosa_tagnt": "to save",
+  "ref_estandar": "Eph.2.8"
  },
  {
   "ref": "Eph.2.10",
@@ -276,7 +282,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "workmanship"
+  "glosa_tagnt": "workmanship",
+  "ref_estandar": "Eph.2.10"
  },
  {
   "ref": "Eph.2.12",
@@ -315,7 +322,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "without God"
+  "glosa_tagnt": "without God",
+  "ref_estandar": "Eph.2.12"
  },
  {
   "ref": "Eph.2.14",
@@ -355,7 +363,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wall"
+  "glosa_tagnt": "wall",
+  "ref_estandar": "Eph.2.14"
  },
  {
   "ref": "Eph.2.15",
@@ -395,7 +404,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "law"
+  "glosa_tagnt": "law",
+  "ref_estandar": "Eph.2.15"
  },
  {
   "ref": "Eph.2.16",
@@ -434,7 +444,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to reconcile"
+  "glosa_tagnt": "to reconcile",
+  "ref_estandar": "Eph.2.16"
  },
  {
   "ref": "Eph.2.18",
@@ -474,7 +485,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "access"
+  "glosa_tagnt": "access",
+  "ref_estandar": "Eph.2.18"
  },
  {
   "ref": "Eph.2.19",
@@ -514,7 +526,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "foreigner"
+  "glosa_tagnt": "foreigner",
+  "ref_estandar": "Eph.2.19"
  },
  {
   "ref": "Eph.2.20",
@@ -555,7 +568,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "foundation"
+  "glosa_tagnt": "foundation",
+  "ref_estandar": "Eph.2.20"
  },
  {
   "ref": "Eph.2.21",
@@ -595,6 +609,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "temple"
+  "glosa_tagnt": "temple",
+  "ref_estandar": "Eph.2.21"
  }
 ]

@@ -36,7 +36,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "full"
+  "glosa_tagnt": "full",
+  "ref_estandar": "Luke.4.1"
  },
  {
   "ref": "Luke.4.5",
@@ -74,7 +75,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "instant"
+  "glosa_tagnt": "instant",
+  "ref_estandar": "Luke.4.5"
  },
  {
   "ref": "Luke.4.6",
@@ -113,7 +115,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to deliver"
+  "glosa_tagnt": "to deliver",
+  "ref_estandar": "Luke.4.6"
  },
  {
   "ref": "Luke.4.9",
@@ -151,7 +154,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "pinnacle"
+  "glosa_tagnt": "pinnacle",
+  "ref_estandar": "Luke.4.9"
  },
  {
   "ref": "Luke.4.13",
@@ -190,7 +194,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "time/right time"
+  "glosa_tagnt": "time/right time",
+  "ref_estandar": "Luke.4.13"
  },
  {
   "ref": "Luke.4.16",
@@ -229,7 +234,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to read"
+  "glosa_tagnt": "to read",
+  "ref_estandar": "Luke.4.16"
  },
  {
   "ref": "Luke.4.18",
@@ -268,7 +274,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to anoint"
+  "glosa_tagnt": "to anoint",
+  "ref_estandar": "Luke.4.18"
  },
  {
   "ref": "Luke.4.18",
@@ -307,7 +314,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "poor"
+  "glosa_tagnt": "poor",
+  "ref_estandar": "Luke.4.18"
  },
  {
   "ref": "Luke.4.19",
@@ -346,7 +354,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "year"
+  "glosa_tagnt": "year",
+  "ref_estandar": "Luke.4.19"
  },
  {
   "ref": "Luke.4.21",
@@ -385,7 +394,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to fulfill"
+  "glosa_tagnt": "to fulfill",
+  "ref_estandar": "Luke.4.21"
  },
  {
   "ref": "Luke.4.22",
@@ -425,7 +435,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "grace"
+  "glosa_tagnt": "grace",
+  "ref_estandar": "Luke.4.22"
  },
  {
   "ref": "Luke.4.23",
@@ -464,7 +475,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "physician"
+  "glosa_tagnt": "physician",
+  "ref_estandar": "Luke.4.23"
  },
  {
   "ref": "Luke.4.25",
@@ -503,7 +515,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "widow"
+  "glosa_tagnt": "widow",
+  "ref_estandar": "Luke.4.25"
  },
  {
   "ref": "Luke.4.28",
@@ -541,7 +554,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wrath"
+  "glosa_tagnt": "wrath",
+  "ref_estandar": "Luke.4.28"
  },
  {
   "ref": "Luke.4.30",
@@ -580,7 +594,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to travel"
+  "glosa_tagnt": "to travel",
+  "ref_estandar": "Luke.4.30"
  },
  {
   "ref": "Luke.4.34",
@@ -618,7 +633,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ha!/aha!"
+  "glosa_tagnt": "ha!/aha!",
+  "ref_estandar": "Luke.4.34"
  },
  {
   "ref": "Luke.4.36",
@@ -656,7 +672,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "amazement"
+  "glosa_tagnt": "amazement",
+  "ref_estandar": "Luke.4.36"
  },
  {
   "ref": "Luke.4.43",
@@ -695,6 +712,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be necessary"
+  "glosa_tagnt": "be necessary",
+  "ref_estandar": "Luke.4.43"
  }
 ]

@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "newborn"
+  "glosa_tagnt": "newborn",
+  "ref_estandar": "1Pet.2.2"
  },
  {
   "ref": "1Pet.2.4",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "stone"
+  "glosa_tagnt": "stone",
+  "ref_estandar": "1Pet.2.4"
  },
  {
   "ref": "1Pet.2.5",
@@ -117,7 +119,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "priesthood"
+  "glosa_tagnt": "priesthood",
+  "ref_estandar": "1Pet.2.5"
  },
  {
   "ref": "1Pet.2.7",
@@ -157,7 +160,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "rock"
+  "glosa_tagnt": "rock",
+  "ref_estandar": "1Pet.2.8"
  },
  {
   "ref": "1Pet.2.9",
@@ -197,7 +201,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "kingly"
+  "glosa_tagnt": "kingly",
+  "ref_estandar": "1Pet.2.9"
  },
  {
   "ref": "1Pet.2.11",
@@ -237,7 +242,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "foreigner"
+  "glosa_tagnt": "foreigner",
+  "ref_estandar": "1Pet.2.11"
  },
  {
   "ref": "1Pet.2.12",
@@ -277,7 +283,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "oversight"
+  "glosa_tagnt": "oversight",
+  "ref_estandar": "1Pet.2.12"
  },
  {
   "ref": "1Pet.2.13",
@@ -317,7 +324,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "creation"
+  "glosa_tagnt": "creation",
+  "ref_estandar": "1Pet.2.13"
  },
  {
   "ref": "1Pet.2.16",
@@ -356,7 +364,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "freedom"
+  "glosa_tagnt": "freedom",
+  "ref_estandar": "1Pet.2.16"
  },
  {
   "ref": "1Pet.2.17",
@@ -396,7 +405,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to honor"
+  "glosa_tagnt": "to honor",
+  "ref_estandar": "1Pet.2.17"
  },
  {
   "ref": "1Pet.2.18",
@@ -436,7 +446,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "slave"
+  "glosa_tagnt": "slave",
+  "ref_estandar": "1Pet.2.18"
  },
  {
   "ref": "1Pet.2.21",
@@ -476,7 +487,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "example"
+  "glosa_tagnt": "example",
+  "ref_estandar": "1Pet.2.21"
  },
  {
   "ref": "1Pet.2.24",
@@ -516,7 +528,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to carry up"
+  "glosa_tagnt": "to carry up",
+  "ref_estandar": "1Pet.2.24"
  },
  {
   "ref": "1Pet.2.25",
@@ -556,6 +569,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "overseer"
+  "glosa_tagnt": "overseer",
+  "ref_estandar": "1Pet.2.25"
  }
 ]

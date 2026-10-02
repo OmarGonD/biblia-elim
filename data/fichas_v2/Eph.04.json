@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "appropriately"
+  "glosa_tagnt": "appropriately",
+  "ref_estandar": "Eph.4.1"
  },
  {
   "ref": "Eph.4.3",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unity"
+  "glosa_tagnt": "unity",
+  "ref_estandar": "Eph.4.3"
  },
  {
   "ref": "Eph.4.5",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "baptism"
+  "glosa_tagnt": "baptism",
+  "ref_estandar": "Eph.4.5"
  },
  {
   "ref": "Eph.4.8",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "captivity"
+  "glosa_tagnt": "captivity",
+  "ref_estandar": "Eph.4.8"
  },
  {
   "ref": "Eph.4.9",
@@ -195,7 +199,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lower"
+  "glosa_tagnt": "lower",
+  "ref_estandar": "Eph.4.9"
  },
  {
   "ref": "Eph.4.11",
@@ -235,7 +240,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "evangelist"
+  "glosa_tagnt": "evangelist",
+  "ref_estandar": "Eph.4.11"
  },
  {
   "ref": "Eph.4.12",
@@ -274,7 +280,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "preparation"
+  "glosa_tagnt": "preparation",
+  "ref_estandar": "Eph.4.12"
  },
  {
   "ref": "Eph.4.13",
@@ -314,7 +321,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "perfect"
+  "glosa_tagnt": "perfect",
+  "ref_estandar": "Eph.4.13"
  },
  {
   "ref": "Eph.4.14",
@@ -354,7 +362,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "child"
+  "glosa_tagnt": "child",
+  "ref_estandar": "Eph.4.14"
  },
  {
   "ref": "Eph.4.15",
@@ -394,7 +403,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be truthful"
+  "glosa_tagnt": "be truthful",
+  "ref_estandar": "Eph.4.15"
  },
  {
   "ref": "Eph.4.18",
@@ -433,7 +443,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hardening"
+  "glosa_tagnt": "hardening",
+  "ref_estandar": "Eph.4.18"
  },
  {
   "ref": "Eph.4.22",
@@ -472,7 +483,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "old"
+  "glosa_tagnt": "old",
+  "ref_estandar": "Eph.4.22"
  },
  {
   "ref": "Eph.4.24",
@@ -512,7 +524,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "new"
+  "glosa_tagnt": "new",
+  "ref_estandar": "Eph.4.24"
  },
  {
   "ref": "Eph.4.26",
@@ -552,7 +565,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to anger"
+  "glosa_tagnt": "to anger",
+  "ref_estandar": "Eph.4.26"
  },
  {
   "ref": "Eph.4.28",
@@ -592,7 +606,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to steal"
+  "glosa_tagnt": "to steal",
+  "ref_estandar": "Eph.4.28"
  },
  {
   "ref": "Eph.4.29",
@@ -632,7 +647,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "rotten"
+  "glosa_tagnt": "rotten",
+  "ref_estandar": "Eph.4.29"
  },
  {
   "ref": "Eph.4.30",
@@ -672,7 +688,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to grieve"
+  "glosa_tagnt": "to grieve",
+  "ref_estandar": "Eph.4.30"
  },
  {
   "ref": "Eph.4.32",
@@ -712,6 +729,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to give grace"
+  "glosa_tagnt": "to give grace",
+  "ref_estandar": "Eph.4.32"
  }
 ]

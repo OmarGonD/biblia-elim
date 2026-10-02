@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to dawn"
+  "glosa_tagnt": "to dawn",
+  "ref_estandar": "Matt.28.1"
  },
  {
   "ref": "Matt.28.2",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "earthquake"
+  "glosa_tagnt": "earthquake",
+  "ref_estandar": "Matt.28.2"
  },
  {
   "ref": "Matt.28.4",
@@ -116,7 +118,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fear"
+  "glosa_tagnt": "fear",
+  "ref_estandar": "Matt.28.4"
  },
  {
   "ref": "Matt.28.6",
@@ -156,7 +159,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to arise"
+  "glosa_tagnt": "to arise",
+  "ref_estandar": "Matt.28.6"
  },
  {
   "ref": "Matt.28.7",
@@ -196,7 +200,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to go/bring before"
+  "glosa_tagnt": "to go/bring before",
+  "ref_estandar": "Matt.28.7"
  },
  {
   "ref": "Matt.28.9",
@@ -235,7 +240,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to rejoice"
+  "glosa_tagnt": "to rejoice",
+  "ref_estandar": "Matt.28.9"
  },
  {
   "ref": "Matt.28.10",
@@ -275,7 +281,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "brother"
+  "glosa_tagnt": "brother",
+  "ref_estandar": "Matt.28.10"
  },
  {
   "ref": "Matt.28.13",
@@ -314,7 +321,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to steal"
+  "glosa_tagnt": "to steal",
+  "ref_estandar": "Matt.28.13"
  },
  {
   "ref": "Matt.28.15",
@@ -352,7 +360,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "money"
+  "glosa_tagnt": "money",
+  "ref_estandar": "Matt.28.15"
  },
  {
   "ref": "Matt.28.17",
@@ -391,7 +400,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to doubt"
+  "glosa_tagnt": "to doubt",
+  "ref_estandar": "Matt.28.17"
  },
  {
   "ref": "Matt.28.18",
@@ -430,7 +440,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "authority"
+  "glosa_tagnt": "authority",
+  "ref_estandar": "Matt.28.18"
  },
  {
   "ref": "Matt.28.19",
@@ -470,7 +481,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to disciple"
+  "glosa_tagnt": "to disciple",
+  "ref_estandar": "Matt.28.19"
  },
  {
   "ref": "Matt.28.19",
@@ -510,7 +522,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Gentile nation"
+  "glosa_tagnt": "Gentile nation",
+  "ref_estandar": "Matt.28.19"
  },
  {
   "ref": "Matt.28.19",
@@ -550,7 +563,8 @@
    "Treg"
   ],
   "variante": true,
-  "glosa_tagnt": "to baptize"
+  "glosa_tagnt": "to baptize",
+  "ref_estandar": "Matt.28.19"
  },
  {
   "ref": "Matt.28.20",
@@ -590,7 +604,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to keep"
+  "glosa_tagnt": "to keep",
+  "ref_estandar": "Matt.28.20"
  },
  {
   "ref": "Matt.28.20",
@@ -631,6 +646,7 @@
   "ausente_en": [],
   "variante": false,
   "glosa_tagnt": "with/after",
-  "caso_regido": "genitivo"
+  "caso_regido": "genitivo",
+  "ref_estandar": "Matt.28.20"
  }
 ]

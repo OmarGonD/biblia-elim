@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unleavened"
+  "glosa_tagnt": "unleavened",
+  "ref_estandar": "Mark.14.1"
  },
  {
   "ref": "Mark.14.3",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "nard"
+  "glosa_tagnt": "nard",
+  "ref_estandar": "Mark.14.3"
  },
  {
   "ref": "Mark.14.5",
@@ -114,7 +116,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "denarius"
+  "glosa_tagnt": "denarius",
+  "ref_estandar": "Mark.14.5"
  },
  {
   "ref": "Mark.14.8",
@@ -153,7 +156,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to take beforehand"
+  "glosa_tagnt": "to take beforehand",
+  "ref_estandar": "Mark.14.8"
  },
  {
   "ref": "Mark.14.9",
@@ -192,7 +196,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "memorial"
+  "glosa_tagnt": "memorial",
+  "ref_estandar": "Mark.14.9"
  },
  {
   "ref": "Mark.14.11",
@@ -230,7 +235,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to profess"
+  "glosa_tagnt": "to profess",
+  "ref_estandar": "Mark.14.11"
  },
  {
   "ref": "Mark.14.15",
@@ -268,7 +274,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "an upper room"
+  "glosa_tagnt": "an upper room",
+  "ref_estandar": "Mark.14.15"
  },
  {
   "ref": "Mark.14.20",
@@ -307,7 +314,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to dip in"
+  "glosa_tagnt": "to dip in",
+  "ref_estandar": "Mark.14.20"
  },
  {
   "ref": "Mark.14.22",
@@ -346,7 +354,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to break"
+  "glosa_tagnt": "to break",
+  "ref_estandar": "Mark.14.22"
  },
  {
   "ref": "Mark.14.24",
@@ -385,7 +394,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pour out"
+  "glosa_tagnt": "to pour out",
+  "ref_estandar": "Mark.14.24"
  },
  {
   "ref": "Mark.14.31",
@@ -423,7 +433,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to die with"
+  "glosa_tagnt": "to die with",
+  "ref_estandar": "Mark.14.31"
  },
  {
   "ref": "Mark.14.33",
@@ -462,7 +473,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be awe-struck"
+  "glosa_tagnt": "be awe-struck",
+  "ref_estandar": "Mark.14.33"
  },
  {
   "ref": "Mark.14.36",
@@ -501,7 +513,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Father"
+  "glosa_tagnt": "Father",
+  "ref_estandar": "Mark.14.36"
  },
  {
   "ref": "Mark.14.38",
@@ -540,7 +553,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to keep watch"
+  "glosa_tagnt": "to keep watch",
+  "ref_estandar": "Mark.14.38"
  },
  {
   "ref": "Mark.14.44",
@@ -578,7 +592,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "an agreed signal"
+  "glosa_tagnt": "an agreed signal",
+  "ref_estandar": "Mark.14.44"
  },
  {
   "ref": "Mark.14.51",
@@ -616,7 +631,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "young man"
+  "glosa_tagnt": "young man",
+  "ref_estandar": "Mark.14.51"
  },
  {
   "ref": "Mark.14.58",
@@ -655,7 +671,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hand-made"
+  "glosa_tagnt": "hand-made",
+  "ref_estandar": "Mark.14.58"
  },
  {
   "ref": "Mark.14.62",
@@ -694,7 +711,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "I/we"
+  "glosa_tagnt": "I/we",
+  "ref_estandar": "Mark.14.62"
  },
  {
   "ref": "Mark.14.65",
@@ -733,7 +751,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to cover"
+  "glosa_tagnt": "to cover",
+  "ref_estandar": "Mark.14.65"
  },
  {
   "ref": "Mark.14.68",
@@ -772,7 +791,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to deny"
+  "glosa_tagnt": "to deny",
+  "ref_estandar": "Mark.14.68"
  },
  {
   "ref": "Mark.14.72",
@@ -811,6 +831,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to put on/seize"
+  "glosa_tagnt": "to put on/seize",
+  "ref_estandar": "Mark.14.72"
  }
 ]

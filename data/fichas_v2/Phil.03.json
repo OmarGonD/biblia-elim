@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dog"
+  "glosa_tagnt": "dog",
+  "ref_estandar": "Phil.3.2"
  },
  {
   "ref": "Phil.3.3",
@@ -76,7 +77,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "circumcision"
+  "glosa_tagnt": "circumcision",
+  "ref_estandar": "Phil.3.3"
  },
  {
   "ref": "Phil.3.5",
@@ -115,7 +117,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Pharisee"
+  "glosa_tagnt": "Pharisee",
+  "ref_estandar": "Phil.3.5"
  },
  {
   "ref": "Phil.3.6",
@@ -155,7 +158,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "blameless"
+  "glosa_tagnt": "blameless",
+  "ref_estandar": "Phil.3.6"
  },
  {
   "ref": "Phil.3.7",
@@ -194,7 +198,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "damage/loss"
+  "glosa_tagnt": "damage/loss",
+  "ref_estandar": "Phil.3.7"
  },
  {
   "ref": "Phil.3.8",
@@ -234,7 +239,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "garbage"
+  "glosa_tagnt": "garbage",
+  "ref_estandar": "Phil.3.8"
  },
  {
   "ref": "Phil.3.9",
@@ -275,7 +281,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "righteousness"
+  "glosa_tagnt": "righteousness",
+  "ref_estandar": "Phil.3.9"
  },
  {
   "ref": "Phil.3.9",
@@ -316,7 +323,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "righteousness"
+  "glosa_tagnt": "righteousness",
+  "ref_estandar": "Phil.3.9"
  },
  {
   "ref": "Phil.3.10",
@@ -356,7 +364,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "resurrection"
+  "glosa_tagnt": "resurrection",
+  "ref_estandar": "Phil.3.10"
  },
  {
   "ref": "Phil.3.11",
@@ -395,7 +404,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "resurrection"
+  "glosa_tagnt": "resurrection",
+  "ref_estandar": "Phil.3.11"
  },
  {
   "ref": "Phil.3.12",
@@ -435,7 +445,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to grasp"
+  "glosa_tagnt": "to grasp",
+  "ref_estandar": "Phil.3.12"
  },
  {
   "ref": "Phil.3.14",
@@ -474,7 +485,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "prize"
+  "glosa_tagnt": "prize",
+  "ref_estandar": "Phil.3.14"
  },
  {
   "ref": "Phil.3.17",
@@ -513,7 +525,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mark/example"
+  "glosa_tagnt": "mark/example",
+  "ref_estandar": "Phil.3.17"
  },
  {
   "ref": "Phil.3.18",
@@ -552,7 +565,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "enemy"
+  "glosa_tagnt": "enemy",
+  "ref_estandar": "Phil.3.18"
  },
  {
   "ref": "Phil.3.20",
@@ -592,7 +606,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "citizenship"
+  "glosa_tagnt": "citizenship",
+  "ref_estandar": "Phil.3.20"
  },
  {
   "ref": "Phil.3.21",
@@ -632,6 +647,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to transform"
+  "glosa_tagnt": "to transform",
+  "ref_estandar": "Phil.3.21"
  }
 ]

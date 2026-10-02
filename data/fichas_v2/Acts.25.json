@@ -35,7 +35,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Festus"
+  "glosa_tagnt": "Festus",
+  "ref_estandar": "Acts.25.1"
  },
  {
   "ref": "Acts.25.3",
@@ -73,7 +74,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "plot/ambush"
+  "glosa_tagnt": "plot/ambush",
+  "ref_estandar": "Acts.25.3"
  },
  {
   "ref": "Acts.25.8",
@@ -111,7 +113,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to sin"
+  "glosa_tagnt": "to sin",
+  "ref_estandar": "Acts.25.8"
  },
  {
   "ref": "Acts.25.11",
@@ -150,7 +153,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to call (on)/name"
+  "glosa_tagnt": "to call (on)/name",
+  "ref_estandar": "Acts.25.11"
  },
  {
   "ref": "Acts.25.12",
@@ -188,7 +192,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "counsel/council"
+  "glosa_tagnt": "counsel/council",
+  "ref_estandar": "Acts.25.12"
  },
  {
   "ref": "Acts.25.13",
@@ -227,7 +232,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Agrippa"
+  "glosa_tagnt": "Agrippa",
+  "ref_estandar": "Acts.25.13"
  },
  {
   "ref": "Acts.25.19",
@@ -265,7 +271,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "religion"
+  "glosa_tagnt": "religion",
+  "ref_estandar": "Acts.25.19"
  },
  {
   "ref": "Acts.25.21",
@@ -303,7 +310,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "august"
+  "glosa_tagnt": "august",
+  "ref_estandar": "Acts.25.21"
  },
  {
   "ref": "Acts.25.23",
@@ -342,7 +350,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "pageantry"
+  "glosa_tagnt": "pageantry",
+  "ref_estandar": "Acts.25.23"
  },
  {
   "ref": "Acts.25.25",
@@ -380,7 +389,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "nothing"
+  "glosa_tagnt": "nothing",
+  "ref_estandar": "Acts.25.25"
  },
  {
   "ref": "Acts.25.26",
@@ -419,6 +429,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lord"
+  "glosa_tagnt": "lord",
+  "ref_estandar": "Acts.25.26"
  }
 ]

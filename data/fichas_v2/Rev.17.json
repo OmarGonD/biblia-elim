@@ -37,7 +37,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "prostitute"
+  "glosa_tagnt": "prostitute",
+  "ref_estandar": "Rev.17.1"
  },
  {
   "ref": "Rev.17.3",
@@ -77,7 +78,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "scarlet"
+  "glosa_tagnt": "scarlet",
+  "ref_estandar": "Rev.17.3"
  },
  {
   "ref": "Rev.17.4",
@@ -117,7 +119,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "abomination"
+  "glosa_tagnt": "abomination",
+  "ref_estandar": "Rev.17.4"
  },
  {
   "ref": "Rev.17.5",
@@ -157,7 +160,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mystery"
+  "glosa_tagnt": "mystery",
+  "ref_estandar": "Rev.17.5"
  },
  {
   "ref": "Rev.17.6",
@@ -196,7 +200,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "witness"
+  "glosa_tagnt": "witness",
+  "ref_estandar": "Rev.17.6"
  },
  {
   "ref": "Rev.17.8",
@@ -235,7 +240,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "abyss"
+  "glosa_tagnt": "abyss",
+  "ref_estandar": "Rev.17.8"
  },
  {
   "ref": "Rev.17.9",
@@ -274,7 +280,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mountain"
+  "glosa_tagnt": "mountain",
+  "ref_estandar": "Rev.17.9"
  },
  {
   "ref": "Rev.17.10",
@@ -313,7 +320,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "king"
+  "glosa_tagnt": "king",
+  "ref_estandar": "Rev.17.10"
  },
  {
   "ref": "Rev.17.11",
@@ -352,7 +360,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "eighth"
+  "glosa_tagnt": "eighth",
+  "ref_estandar": "Rev.17.11"
  },
  {
   "ref": "Rev.17.12",
@@ -391,7 +400,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ten"
+  "glosa_tagnt": "ten",
+  "ref_estandar": "Rev.17.12"
  },
  {
   "ref": "Rev.17.12",
@@ -430,7 +440,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ten"
+  "glosa_tagnt": "ten",
+  "ref_estandar": "Rev.17.12"
  },
  {
   "ref": "Rev.17.14",
@@ -471,7 +482,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lamb"
+  "glosa_tagnt": "lamb",
+  "ref_estandar": "Rev.17.14"
  },
  {
   "ref": "Rev.17.15",
@@ -510,7 +522,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "water"
+  "glosa_tagnt": "water",
+  "ref_estandar": "Rev.17.15"
  },
  {
   "ref": "Rev.17.16",
@@ -550,7 +563,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to hate"
+  "glosa_tagnt": "to hate",
+  "ref_estandar": "Rev.17.16"
  },
  {
   "ref": "Rev.17.17",
@@ -591,7 +605,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "resolution"
+  "glosa_tagnt": "resolution",
+  "ref_estandar": "Rev.17.17"
  },
  {
   "ref": "Rev.17.17",
@@ -632,7 +647,8 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "resolution"
+  "glosa_tagnt": "resolution",
+  "ref_estandar": "Rev.17.17"
  },
  {
   "ref": "Rev.17.18",
@@ -670,6 +686,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "city"
+  "glosa_tagnt": "city",
+  "ref_estandar": "Rev.17.18"
  }
 ]
