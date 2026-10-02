@@ -13,7 +13,7 @@ def respuesta_valida(sol):
     out = []
     for w in sol["palabras"]:
         basica = w["nivel"] == "basico"
-        marcada = w.get("variante") or w.get("no_en_na28")
+        marcada = w.get("variante") or w.get("no_en_na28") or w.get("lectura_tagnt")
         out.append({"pos_tisch": w["pos"], "strong": w["strong"], "glosa_interlineal": "x",
                     "rango_semantico": ["a"], "construccion": ("caso %s" % w["caso_regido"][:5]) if w.get("caso_regido") else "c",
                     "sentido_en_contexto": None if basica else "s", "matiz": None,
@@ -38,6 +38,20 @@ class PipelineTest(unittest.TestCase):
         self.assertEqual(len(s["palabras"]), 17)
         self.assertEqual([w["nivel"] for w in s["palabras"]].count("basico"), 6)
         self.assertEqual(s["palabras"][9]["caso_regido"], "acusativo")   # πρὸς τὸν θεόν
+
+    def test_lectura_propia_de_tisch(self):
+        w4 = pipeline.solicitud(self.datos, "John.1.4")["palabras"][3]       # ἐστιν; todas las ediciones leen ἦν
+        self.assertEqual(w4["lectura_tagnt"]["forma"], "ἦν")
+        s18 = pipeline.solicitud(self.datos, "John.1.18")                  # Tisch υἱός; NA28 θεός
+        w = s18["palabras"][6]
+        self.assertEqual((w["forma"], w["lectura_tagnt"]["forma"]), ("υἱὸς", "θεὸς"))
+        self.assertNotIn("Tyn", w["lectura_tagnt"]["ediciones"])
+        self.assertTrue(s18["palabras"][4]["no_en_na28"])                  # ὁ ante μονογενής
+        self.assertIn("textos_pd", s18)
+
+    def test_ortografia_no_es_variante(self):
+        for r, pos in (("John.1.21", 6), ("John.1.39", 7)):               # Ἡλείας/Ἠλίας, ῥαββεί/ῥαββί
+            self.assertNotIn("lectura_tagnt", pipeline.solicitud(self.datos, r)["palabras"][pos - 1])
 
     def test_respuesta_valida_y_errores(self):
         s = pipeline.solicitud(self.datos, "John.1.2")

@@ -65,8 +65,28 @@ class Datos:
             return [prefijo] if prefijo in refs else []
         return [r for r in refs if r.startswith(prefijo + ".")]
 
+    def versiones(self, k):
+        if getattr(self, "_versiones", None) is None:
+            self._versiones = textos_versiones()
+        return [{"version": e["version"], "texto": e["texto"]} for e in self._versiones.get(k, [])
+                if "aviso" not in e]
+
     def texto(self, k):
         return " ".join(t["forma"] for t in self.tisch[k]) if k in self.tisch else None
+
+
+def _orto(a, b):
+    """Diferencia solo ortográfica (Ἡλείας/Ἠλίας, ῥαββεί/ῥαββί): igual tras ει→ι."""
+    f = lambda x: alinear.norm(x).replace("ει", "ι")
+    return f(a) == f(b)
+
+
+def _calidad(flag):
+    return flag.split("+")[0]
+
+
+def _marcada(w):
+    return bool(w.get("variante") or w.get("no_en_na28") or w.get("lectura_tagnt"))
 
 
 def solicitud(datos, ref):
@@ -86,19 +106,27 @@ def solicitud(datos, ref):
             w.update({"morfologia_tagnt": inf["morfologia_tagnt"], "glosa_tagnt": inf["glosa_tagnt"]})
             if inf["strong_tagnt"] != t["strong"]:
                 w["strong_tagnt"] = inf["strong_tagnt"]
-            if inf["variante"]:                       # solo se envían cuando hay algo que decir
+            distinta = (_calidad(al[t["pos"]][2]) == "strong"
+                        and not _orto(t["forma"], p.griego))
+            if distinta:
+                # Tisch lee otra cosa que el TAGNT: `ediciones` son las que leen la forma del TAGNT, no la de Tisch
+                w["lectura_tagnt"] = {"forma": p.griego.strip(".,;·¶ "), "ediciones": inf["ediciones"]}
+            elif inf["variante"]:                     # solo se envían cuando hay algo que decir
                 w.update({"variante": True, "ediciones": inf["ediciones"], "ausente_en": inf["ausente_en"]})
-            if not p.en("NA28"):
+            if not p.en("NA28") and not distinta:
                 w["no_en_na28"] = True
             for extra in ("caso_regido", "caso_regido_ambiguo"):
                 if extra in inf:
                     w[extra] = inf[extra]
-            flag = bool(inf["variante"] or w.get("no_en_na28") or "caso_regido_ambiguo" in inf)
+            flag = bool(inf["variante"] or w.get("no_en_na28") or distinta or "caso_regido_ambiguo" in inf)
         w["nivel"] = "basico" if t["strong"] in BASICAS and not flag else "completo"
         palabras.append(w)
-    return {"ref": ref, "texto_griego": datos.texto(k),
-            "anterior": datos.texto((o, int(c), int(v) - 1)), "siguiente": datos.texto((o, int(c), int(v) + 1)),
-            "palabras": palabras}
+    sol = {"ref": ref, "texto_griego": datos.texto(k),
+           "anterior": datos.texto((o, int(c), int(v) - 1)), "siguiente": datos.texto((o, int(c), int(v) + 1)),
+           "palabras": palabras}
+    if any(_marcada(w) for w in palabras):       # solo en versículos con variantes: lo único que se puede citar
+        sol["textos_pd"] = datos.versiones(k)
+    return sol
 
 
 # ---------------------------------------------------------------- validación
@@ -119,9 +147,9 @@ def validar(cards, sol):
             extra = [k for k, v in c.items() if k not in CAMPOS_BASICOS and v is not None]
             if extra or c["nivel_certeza"] != "alto":
                 errores.append("%s: palabra básica solo admite campos básicos (%s)" % (ident, extra))
-        marcada = w.get("variante") or w.get("no_en_na28")
+        marcada = _marcada(w)
         if marcada and not c["variantes_textuales"]:
-            errores.append("%s: falta variantes_textuales (variante o ausente en NA28)" % ident)
+            errores.append("%s: falta variantes_textuales (variante, lectura distinta o ausente en NA28)" % ident)
         if not marcada and c["variantes_textuales"]:
             errores.append("%s: variantes_textuales sin variante en el TAGNT" % ident)
         if "caso_regido_ambiguo" in w and c["nivel_certeza"] == "alto":
@@ -331,6 +359,9 @@ def ensamblar(datos, refs, modelo, versiones=None, cache=None, salida_dir=None):
                 f.pop("glosa_tagnt", None)          # inglés, solo orientativa: no se distribuye en la ficha
                 if not p.en("NA28"):
                     f["no_en_na28"] = True
+                if w.get("lectura_tagnt"):
+                    f["lectura_tagnt"] = w["lectura_tagnt"]
+                    f.pop("variante", None); f.pop("ausente_en", None); f.pop("no_en_na28", None)
             else:
                 f["tagnt"], f["revisar_tagnt"] = None, True
             f["traducciones_comparadas"] = versiones.get((o, int(c), int(v)))
