@@ -1,8 +1,10 @@
 [
  {
   "ref": "Rev.4.1",
+  "pos_tisch": 6,
   "strong": "G2374",
   "forma": "θύρα",
+  "lema": "θύρα",
   "glosa_interlineal": "puerta",
   "rango_semantico": [
    "puerta"
@@ -10,7 +12,7 @@
   "construccion": "Nominativo: «después de esto miré, y he aquí una puerta abierta en el cielo; y la primera voz que oí, como de trompeta, hablando conmigo, dijo: Sube acá, y yo te mostraré las cosas que han de suceder después de estas».",
   "sentido_en_contexto": "Comienza la segunda gran sección (4:1—16:21 o hasta 22:5): visión del trono celestial. «Una puerta abierta en el cielo»: acceso a la corte de Dios (Ez 1:1; Gn 28:17). «Sube acá»: invitación a Juan en visión (v.2: ἐν πνεύματι). Algunos futuristas dispensacionalistas ven aquí una alusión al rapto de la iglesia (no explícita en el texto).",
   "matiz": "Debate: (a) Juan es llevado en visión a la sala del trono (la mayoría de exégetas); (b) el «sube acá» simboliza el rapto de la iglesia (pretribulacionismo dispensacional: la iglesia no se menciona tras el cap. 3 hasta el 22:16); (c) simple fórmula visionaria sin sentido eclesiológico.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ez 1:1",
@@ -19,9 +21,9 @@
    "1 Ts 4:16-17"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Rev.4.1#06",
+  "ref_estandar": "Rev.4.1",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G2374",
   "strong_tagnt": "G2374",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "door",
-  "ref_estandar": "Rev.4.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.4.2",
+  "pos_tisch": 7,
   "strong": "G2362",
   "forma": "θρόνος",
+  "lema": "θρόνος",
   "glosa_interlineal": "trono",
   "rango_semantico": [
    "trono"
@@ -51,7 +57,7 @@
   "construccion": "Nominativo: «y al instante yo estaba en el Espíritu; y he aquí, un trono establecido en el cielo, y sobre el trono, uno sentado».",
   "sentido_en_contexto": "El trono (θρόνος) aparece 47 veces en Apocalipsis, como eje del libro: la soberanía de Dios frente al trono de César y de Satanás (2:13; 13:2). El que se sienta no es descrito en forma humana, sino por brillos de piedras preciosas (v.3): jaspe y cornalina (rojo), arco iris de esmeralda (verde) alrededor del trono.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 6:1-3",
@@ -60,10 +66,9 @@
    "Sal 47:8"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Rev.4.2#08",
+  "ref_estandar": "Rev.4.2",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G2362",
   "strong_tagnt": "G2362",
@@ -79,13 +84,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "throne",
-  "ref_estandar": "Rev.4.2"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.4.4",
+  "pos_tisch": 14,
   "strong": "G4245",
   "forma": "πρεσβυτέρους",
+  "lema": "πρεσβύτερος",
   "glosa_interlineal": "ancianos",
   "rango_semantico": [
    "anciano, presbítero"
@@ -93,7 +103,7 @@
   "construccion": "Acusativo plural: «y alrededor del trono había veinticuatro tronos; y vi sentados en los tronos a veinticuatro ancianos, vestidos de ropas blancas, con coronas de oro en sus cabezas».",
   "sentido_en_contexto": "Los veinticuatro ancianos: ¿quiénes son? Interpretaciones: (a) representantes de toda la iglesia (12 patriarcas + 12 apóstoles; 21:12-14); (b) seres angélicos (el consejo celestial; coronas, adoración); (c) los 24 turnos sacerdotales (1 Cr 24:1-19); (d) los redimidos de todos los tiempos. Visten blanco, llevan coronas de oro (στεφάνους) y tronos: realeza y sacerdocio (1:6).",
   "matiz": "Debate: (a) representantes del pueblo de Dios completo, de ambos testamentos (12+12; la mayoría); (b) una clase especial de ángeles (algunos); (c) los 24 grupos sacerdotales del Templo (Beale: asistencia celestial como sacerdotes-reyes); (d) los redimidos glorificados (dispensacionalismo: la iglesia ya arrebatada). Ver 5:8-10.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Cr 24:1-19",
@@ -102,9 +112,9 @@
    "Mt 19:28"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Rev.4.4#18",
+  "ref_estandar": "Rev.4.4",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G4245G",
   "strong_tagnt": "G4245",
@@ -120,13 +130,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "elder",
-  "ref_estandar": "Rev.4.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.4.5",
+  "pos_tisch": 6,
   "strong": "G796",
   "forma": "ἀστραπαὶ",
+  "lema": "ἀστραπή",
   "glosa_interlineal": "relámpagos",
   "rango_semantico": [
    "relámpago"
@@ -134,7 +148,7 @@
   "construccion": "Nominativo plural: «y del trono salían relámpagos y truenos y voces; y delante del trono ardían siete lámparas de fuego, las cuales son los siete espíritus de Dios».",
   "sentido_en_contexto": "Teofanía sinaítica (Éx 19:16): relámpagos, voces y truenos, que reaparecen al final de cada ciclo de juicios (8:5; 11:19; 16:18). Siete lámparas de fuego = siete espíritus de Dios (ver 1:4; 3:1; 5:6): el Espíritu Santo en plenitud de acción.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Éx 19:16-19",
@@ -143,9 +157,9 @@
    "Ez 1:13"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Rev.4.5#06",
+  "ref_estandar": "Rev.4.5",
   "morfologia_tagnt": "N-NPF",
   "dstrong": "G0796",
   "strong_tagnt": "G796",
@@ -161,13 +175,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lightning",
-  "ref_estandar": "Rev.4.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.4.6",
+  "pos_tisch": 20,
   "strong": "G2226",
   "forma": "ζῷα",
+  "lema": "ζῶον",
   "glosa_interlineal": "seres vivientes",
   "rango_semantico": [
    "ser viviente, criatura viva"
@@ -175,7 +193,7 @@
   "construccion": "Nominativo plural: «y delante del trono había como un mar de vidrio semejante al cristal; y junto al trono, y alrededor del trono, cuatro seres vivientes llenos de ojos delante y detrás».",
   "sentido_en_contexto": "Los cuatro ζῷα (no «bestias»; la palabra para las fieras es θηρία, caps. 13 y 17): combinan rasgos de los querubines y serafines (Ez 1:5-14; 10:14; Is 6:2): león, becerro, rostro de hombre, águila; seis alas cada uno, llenos de ojos. Representan la creación animada en adoración y la omnisciencia de Dios. Ireneo y la tradición los relacionaron con los cuatro evangelios.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ez 1:5-14; 10:14",
@@ -184,9 +202,9 @@
    "Sal 18:10"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 20,
   "alineacion": "forma",
   "tagnt": "Rev.4.6#20",
+  "ref_estandar": "Rev.4.6",
   "morfologia_tagnt": "N-NPN",
   "dstrong": "G2226",
   "strong_tagnt": "G2226",
@@ -202,13 +220,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "living thing",
-  "ref_estandar": "Rev.4.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.4.8",
+  "pos_tisch": 26,
   "strong": "G40",
   "forma": "ἅγιος",
+  "lema": "ἅγιος",
   "glosa_interlineal": "santo",
   "rango_semantico": [
    "santo"
@@ -216,7 +238,7 @@
   "construccion": "Nominativo: «y no cesan día y noche de decir: Santo, santo, santo es el Señor Dios Todopoderoso, el que era, el que es y el que ha de venir».",
   "sentido_en_contexto": "Trisagio de Is 6:3, aplicado a Dios (παντοκράτωρ) con su nombre en tres tiempos (1:4, 8). Los seres vivientes dan gloria «día y noche»: adoración continua del cielo. «Santo»: separación y pureza de Dios. El «triple santo» ha sido leído trinitariamente (no es la intención directa del texto).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 6:3",
@@ -225,10 +247,9 @@
    "Lv 19:2"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 26,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Rev.4.8#26",
+  "ref_estandar": "Rev.4.8",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G0040G",
   "strong_tagnt": "G40",
@@ -244,13 +265,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "holy",
-  "ref_estandar": "Rev.4.8"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.4.8",
+  "pos_tisch": 27,
   "strong": "G40",
   "forma": "ἅγιος",
+  "lema": "ἅγιος",
   "glosa_interlineal": "santo",
   "rango_semantico": [
    "santo"
@@ -258,7 +284,7 @@
   "construccion": "Nominativo: «y no cesan día y noche de decir: Santo, santo, santo es el Señor Dios Todopoderoso, el que era, el que es y el que ha de venir».",
   "sentido_en_contexto": "Trisagio de Is 6:3, aplicado a Dios (παντοκράτωρ) con su nombre en tres tiempos (1:4, 8). Los seres vivientes dan gloria «día y noche»: adoración continua del cielo. «Santo»: separación y pureza de Dios. El «triple santo» ha sido leído trinitariamente (no es la intención directa del texto).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 6:3",
@@ -267,10 +293,9 @@
    "Lv 19:2"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 27,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Rev.4.8#27",
+  "ref_estandar": "Rev.4.8",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G0040G",
   "strong_tagnt": "G40",
@@ -286,13 +311,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "holy",
-  "ref_estandar": "Rev.4.8"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.4.8",
+  "pos_tisch": 28,
   "strong": "G40",
   "forma": "ἅγιος",
+  "lema": "ἅγιος",
   "glosa_interlineal": "santo",
   "rango_semantico": [
    "santo"
@@ -300,7 +330,7 @@
   "construccion": "Nominativo: «y no cesan día y noche de decir: Santo, santo, santo es el Señor Dios Todopoderoso, el que era, el que es y el que ha de venir».",
   "sentido_en_contexto": "Trisagio de Is 6:3, aplicado a Dios (παντοκράτωρ) con su nombre en tres tiempos (1:4, 8). Los seres vivientes dan gloria «día y noche»: adoración continua del cielo. «Santo»: separación y pureza de Dios. El «triple santo» ha sido leído trinitariamente (no es la intención directa del texto).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 6:3",
@@ -309,10 +339,9 @@
    "Lv 19:2"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 28,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Rev.4.8#28",
+  "ref_estandar": "Rev.4.8",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G0040G",
   "strong_tagnt": "G40",
@@ -328,13 +357,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "holy",
-  "ref_estandar": "Rev.4.8"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.4.10",
+  "pos_tisch": 13,
   "strong": "G4352",
   "forma": "προσκυνήσουσιν",
+  "lema": "προσκυνέω",
   "glosa_interlineal": "adorarán",
   "rango_semantico": [
    "adorar, postrarse"
@@ -342,7 +376,7 @@
   "construccion": "Futuro indicativo activo: «los veinticuatro ancianos se postran delante del que está sentado en el trono, y adoran al que vive por los siglos de los siglos, y echan sus coronas delante del trono, diciendo:».",
   "sentido_en_contexto": "Los ancianos, tras el culto de los seres vivientes, se postran y arrojan sus coronas ante el trono: reconocen que su autoridad viene de Dios. προσκυνέω: reverencia que se ofrece solo a Dios (19:10; 22:8-9) y también al Cordero (5:14). Los ancianos responden a los seres vivientes: liturgia antifonal.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 5:8, 14; 7:11",
@@ -351,9 +385,9 @@
    "Dt 6:13"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Rev.4.10#14",
+  "ref_estandar": "Rev.4.10",
   "morfologia_tagnt": "V-FAI-3P",
   "dstrong": "G4352",
   "strong_tagnt": "G4352",
@@ -370,13 +404,17 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "to worship",
-  "ref_estandar": "Rev.4.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.4.11",
+  "pos_tisch": 1,
   "strong": "G514",
   "forma": "ἄξιος",
+  "lema": "ἄξιος",
   "glosa_interlineal": "digno",
   "rango_semantico": [
    "digno, merecedor"
@@ -384,7 +422,7 @@
   "construccion": "Nominativo: «señor y Dios nuestro, digno eres de recibir la gloria y la honra y el poder; porque tú creaste todas las cosas, y por tu voluntad existen y fueron creadas».",
   "sentido_en_contexto": "Himno de adoración a Dios como Creador. «Digno» (ἄξιος): palabra clave que reaparece en 5:2, 4, 9, 12 para el Cordero. «Señor y Dios nuestro» (ὁ κύριος καὶ ὁ θεὸς ἡμῶν) era título que Domiciano exigía para sí (Suetonio: «dominus et deus noster»): la iglesia lo da solo a Dios. «Existían» y «fueron creadas» (ἦσαν / ἐκτίσθησαν): variante textual sobre el orden y el tiempo verbal.",
   "matiz": "Variante textual: «existen y fueron creadas» (ἦσαν καὶ ἐκτίσθησαν; Sinaítico, Alejandrino) frente a «fueron creadas y existen» (εἰσὶν): sentido de que por su voluntad existían (idea previa) y fueron creadas. Sobre «Señor y Dios nuestro»: crítica implícita del culto imperial.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 5:9, 12",
@@ -393,9 +431,9 @@
    "Jn 1:3"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "Rev.4.11#01",
+  "ref_estandar": "Rev.4.11",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G0514",
   "strong_tagnt": "G514",
@@ -411,7 +449,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "worthy",
-  "ref_estandar": "Rev.4.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

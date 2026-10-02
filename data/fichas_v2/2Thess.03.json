@@ -1,8 +1,10 @@
 [
  {
   "ref": "2Thess.3.2",
+  "pos_tisch": 6,
   "strong": "G824",
   "forma": "ἀτόπων",
+  "lema": "ἄτοπος",
   "glosa_interlineal": "perversos",
   "rango_semantico": [
    "inapropiado, perverso"
@@ -10,7 +12,7 @@
   "construccion": "Genitivo plural: «y que seamos librados de hombres perversos y malos; porque no es de todos la fe».",
   "sentido_en_contexto": "Pablo pide oración para que el evangelio avance y para ser librado de personas «perversas» (ἄτοποι: fuera de lugar, impropias). «No es de todos la fe»: no todos creen; expresa realismo ante la oposición. Sigue la confianza en el Señor «fiel» (v.3).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 15:31",
@@ -18,9 +20,9 @@
    "2 Ti 3:11"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "2Thess.3.2#06",
+  "ref_estandar": "2Thess.3.2",
   "morfologia_tagnt": "A-GPM",
   "dstrong": "G0824",
   "strong_tagnt": "G824",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wrong",
-  "ref_estandar": "2Thess.3.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Thess.3.6",
+  "pos_tisch": 17,
   "strong": "G814",
   "forma": "ἀτάκτως",
+  "lema": "ἀτάκτως",
   "glosa_interlineal": "desordenadamente",
   "rango_semantico": [
    "desordenadamente, sin disciplina"
@@ -50,7 +56,7 @@
   "construccion": "Adverbio: «pero os ordenamos, hermanos, en el nombre de nuestro Señor Jesucristo, que os apartéis de todo hermano que ande desordenadamente, y no conforme a la enseñanza que de nosotros recibisteis».",
   "sentido_en_contexto": "Primera disciplina pastoral: apartarse de los hermanos ociosos que viven del trabajo ajeno (vv.6-12). Ya se anticipó en 1 Ts 4:11 y 5:14. Muchos esperaban la parusía y dejaban de trabajar. La medida es correctiva, no excluyente (v.15: «no lo tengáis por enemigo, sino amonestadle como a hermano»).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Ts 4:11; 5:14",
@@ -58,9 +64,9 @@
    "Ro 16:17"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "2Thess.3.6#17",
+  "ref_estandar": "2Thess.3.6",
   "morfologia_tagnt": "ADV",
   "dstrong": "G0814",
   "strong_tagnt": "G814",
@@ -76,13 +82,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "idly",
-  "ref_estandar": "2Thess.3.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Thess.3.7",
+  "pos_tisch": 6,
   "strong": "G3401",
   "forma": "μιμεῖσθαι",
+  "lema": "μιμέομαι",
   "glosa_interlineal": "imitar",
   "rango_semantico": [
    "imitar"
@@ -90,7 +100,7 @@
   "construccion": "Presente infinitivo medio: «porque vosotros mismos sabéis de qué manera debéis imitarnos; pues nosotros no anduvimos desordenadamente entre vosotros».",
   "sentido_en_contexto": "Pablo se pone de ejemplo: trabajó de día y de noche para no ser gravoso, aunque tenía derecho a ser sostenido (vv.8-9). Modelo de trabajo y de independencia en un contexto particular. Cf. 1 Co 9:3-18, donde defiende su derecho al sostén.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 4:16; 11:1",
@@ -98,9 +108,9 @@
    "1 Ts 2:9"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "2Thess.3.7#06",
+  "ref_estandar": "2Thess.3.7",
   "morfologia_tagnt": "V-PNN",
   "dstrong": "G3401",
   "strong_tagnt": "G3401",
@@ -116,13 +126,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to imitate",
-  "ref_estandar": "2Thess.3.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Thess.3.10",
+  "pos_tisch": 17,
   "strong": "G2068",
   "forma": "ἐσθιέτω",
+  "lema": "ἐσθίω",
   "glosa_interlineal": "coma",
   "rango_semantico": [
    "comer"
@@ -130,7 +144,7 @@
   "construccion": "Imperativo presente activo: «si alguno no quiere trabajar, tampoco coma».",
   "sentido_en_contexto": "Máxima citada con frecuencia. Se refiere a quienes, pudiendo trabajar, rehúsan hacerlo (θέλει: no «quiere»), no a quienes no pueden por enfermedad o desempleo involuntario. Es una norma comunitaria para la ociosidad voluntaria, no una política económica general.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Ts 4:11",
@@ -139,9 +153,9 @@
    "1 Ti 5:8"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "2Thess.3.10#17",
+  "ref_estandar": "2Thess.3.10",
   "morfologia_tagnt": "V-PAM-3S",
   "dstrong": "G2068",
   "strong_tagnt": "G2068",
@@ -157,13 +171,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to eat",
-  "ref_estandar": "2Thess.3.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Thess.3.11",
+  "pos_tisch": 11,
   "strong": "G4020",
   "forma": "περιεργαζομένους",
+  "lema": "περιεργάζομαι",
   "glosa_interlineal": "entrometidos",
   "rango_semantico": [
    "ocuparse en lo ajeno, ser entrometido"
@@ -171,7 +189,7 @@
   "construccion": "Participio presente medio: «porque oímos que algunos de entre vosotros andan desordenadamente, no trabajando en nada, sino entrometiéndose en lo ajeno».",
   "sentido_en_contexto": "Juego de palabras: μηδὲν ἐργαζομένους ἀλλὰ περιεργαζομένους («sin hacer nada, pero ocupándose de todo»). La ociosidad lleva al entrometimiento y al chisme.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Ts 4:11",
@@ -179,9 +197,9 @@
    "1 P 4:15"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "2Thess.3.11#11",
+  "ref_estandar": "2Thess.3.11",
   "morfologia_tagnt": "V-PNP-APM",
   "dstrong": "G4020",
   "strong_tagnt": "G4020",
@@ -197,13 +215,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be a busybody",
-  "ref_estandar": "2Thess.3.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Thess.3.13",
+  "pos_tisch": 5,
   "strong": "G1573",
   "forma": "ἐγκακήσητε",
+  "lema": "ἐκκακέω",
   "glosa_interlineal": "os canséis",
   "rango_semantico": [
    "desanimarse, cansarse"
@@ -211,7 +233,7 @@
   "construccion": "Subjuntivo aoristo activo: «y vosotros, hermanos, no os canséis de hacer bien».",
   "sentido_en_contexto": "Exhortación a la comunidad trabajadora: no os canséis de hacer el bien, a pesar de los ociosos. Cf. Gá 6:9. La disciplina no debe llevar al endurecimiento de la generosidad.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 6:9",
@@ -219,9 +241,9 @@
    "Heb 6:10"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "2Thess.3.13#05",
+  "ref_estandar": "2Thess.3.13",
   "morfologia_tagnt": "V-AAS-2P",
   "dstrong": "G1573",
   "strong_tagnt": "G1573",
@@ -237,13 +259,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to lose heart",
-  "ref_estandar": "2Thess.3.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Thess.3.14",
+  "pos_tisch": 13,
   "strong": "G4593",
   "forma": "σημειοῦσθε",
+  "lema": "σημειόω",
   "glosa_interlineal": "señalad",
   "rango_semantico": [
    "marcar, tomar nota"
@@ -251,7 +277,7 @@
   "construccion": "Imperativo presente medio: «si alguno no obedece a lo que decimos por medio de esta carta, a ése señalad, y no tengáis comunión con él, para que se avergüence».",
   "sentido_en_contexto": "Medida disciplinaria en etapas: señalar, evitar la comunión (no mezclarse), con fin restaurador (que se avergüence) y trato fraterno (v.15). No es excomunión definitiva. Cf. 1 Co 5; Mt 18:15-17.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 18:15-17",
@@ -260,9 +286,9 @@
    "Gá 6:1"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "2Thess.3.14#13",
+  "ref_estandar": "2Thess.3.14",
   "morfologia_tagnt": "V-PMM-2P",
   "dstrong": "G4593",
   "strong_tagnt": "G4593",
@@ -278,13 +304,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to note",
-  "ref_estandar": "2Thess.3.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Thess.3.17",
+  "pos_tisch": 9,
   "strong": "G4592",
   "forma": "σημεῖον",
+  "lema": "σημεῖον",
   "glosa_interlineal": "señal",
   "rango_semantico": [
    "señal, marca de autenticidad"
@@ -292,7 +322,7 @@
   "construccion": "Nominativo: «la salutación es de mi propia mano, de Pablo, que es el signo en todas mis epístolas; así escribo».",
   "sentido_en_contexto": "Pablo firma de su mano para garantizar la autenticidad, probablemente por las cartas falsas (2:2). Señal de que dictaba las cartas a un amanuense y las autenticaba.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 16:21",
@@ -301,9 +331,9 @@
    "2 Ts 2:2"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "2Thess.3.17#09",
+  "ref_estandar": "2Thess.3.17",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G4592",
   "strong_tagnt": "G4592",
@@ -319,7 +349,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sign",
-  "ref_estandar": "2Thess.3.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

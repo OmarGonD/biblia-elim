@@ -1,8 +1,10 @@
 [
  {
   "ref": "John.11.1",
+  "pos_tisch": 5,
   "strong": "G2976",
   "forma": "Λάζαρος",
+  "lema": "Λάζαρος",
   "glosa_interlineal": "Lázaro",
   "rango_semantico": [
    "Lázaro (forma griega de Eleazar, «Dios ayuda»)"
@@ -10,7 +12,7 @@
   "construccion": "Nominativo: «un enfermo, Lázaro de Betania».",
   "sentido_en_contexto": "Hermano de Marta y María, de Betania (cerca de Jerusalén). Es el único personaje del evangelio a quien se llama explícitamente «amado» de Jesús en este relato (vv.3, 5, 36).",
   "matiz": "Este Lázaro no debe confundirse con el de la parábola de Lc 16:19-31, personaje ficticio de otro relato.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 12:1-2, 9-11 — Lázaro en la cena de Betania",
@@ -18,9 +20,9 @@
    "Lc 16:20 — otro Lázaro (parábola)"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "John.11.1#05",
+  "ref_estandar": "John.11.1",
   "morfologia_tagnt": "N-NSM-P",
   "dstrong": "G2976H",
   "strong_tagnt": "G2976",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Lazarus",
-  "ref_estandar": "John.11.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.11.3",
+  "pos_tisch": 11,
   "strong": "G5368",
   "forma": "φιλεῖς",
+  "lema": "φιλέω",
   "glosa_interlineal": "amas",
   "rango_semantico": [
    "amar, tener afecto, ser amigo de"
@@ -50,7 +56,7 @@
   "construccion": "Presente indicativo activo: «aquel a quien amas está enfermo».",
   "sentido_en_contexto": "Las hermanas apelan al afecto de Jesús, no piden explícitamente que venga. Juan alterna φιλέω (v.3, 36) y ἀγαπάω (v.5) para el amor de Jesús a Lázaro, sin distinción teológica marcada.",
   "matiz": "Se discute si hay diferencia entre φιλέω y ἀγαπάω en Juan (cf. 21:15-17). En este pasaje los dos verbos se usan casi como sinónimos.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 11:5 — «amaba Jesús a Marta, a su hermana y a Lázaro»",
@@ -58,9 +64,9 @@
    "Jn 21:15-17"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "John.11.3#11",
+  "ref_estandar": "John.11.3",
   "morfologia_tagnt": "V-PAI-2S",
   "dstrong": "G5368",
   "strong_tagnt": "G5368",
@@ -76,13 +82,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to love",
-  "ref_estandar": "John.11.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.11.4",
+  "pos_tisch": 20,
   "strong": "G1392",
   "forma": "δοξασθῇ",
+  "lema": "δοξάζω",
   "glosa_interlineal": "sea glorificado",
   "rango_semantico": [
    "glorificar, honrar"
@@ -90,7 +100,7 @@
   "construccion": "Subjuntivo aoristo pasivo: «para que el Hijo de Dios sea glorificado por ella».",
   "sentido_en_contexto": "La enfermedad «no es para muerte, sino para gloria de Dios». La muerte de Lázaro se convierte en ocasión de manifestar la gloria del Hijo, y la resurrección de Lázaro desencadena la decisión de matar a Jesús (vv.47-53), a través de la cual será glorificado.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 9:3 — «para que las obras de Dios se manifiesten»",
@@ -98,9 +108,9 @@
    "Jn 12:23 — «ha llegado la hora»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 20,
   "alineacion": "forma",
   "tagnt": "John.11.4#20",
+  "ref_estandar": "John.11.4",
   "morfologia_tagnt": "V-APS-3S",
   "dstrong": "G1392",
   "strong_tagnt": "G1392",
@@ -116,13 +126,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to glorify",
-  "ref_estandar": "John.11.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.11.6",
+  "pos_tisch": 8,
   "strong": "G3306",
   "forma": "ἔμεινεν",
+  "lema": "μένω",
   "glosa_interlineal": "se quedó",
   "rango_semantico": [
    "quedarse, permanecer"
@@ -130,16 +144,16 @@
   "construccion": "Aoristo indicativo activo: «se quedó dos días más en el lugar donde estaba».",
   "sentido_en_contexto": "El retraso de Jesús tras enterarse de la enfermedad es deliberado, motivado por el amor (v.5, «y por eso» o «sin embargo»). Marta y María lo interpretarán como indiferencia (vv.21, 32).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 2:4 — «aún no ha venido mi hora»",
    "Jn 7:6, 8"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "John.11.6#08",
+  "ref_estandar": "John.11.6",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G3306",
   "strong_tagnt": "G3306",
@@ -155,13 +169,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to stay",
-  "ref_estandar": "John.11.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.11.9",
+  "pos_tisch": 5,
   "strong": "G5610",
   "forma": "ὧραι",
+  "lema": "ὥρα",
   "glosa_interlineal": "horas",
   "rango_semantico": [
    "hora"
@@ -169,7 +187,7 @@
   "construccion": "Nominativo plural: «¿no tiene el día doce horas?».",
   "sentido_en_contexto": "Proverbio sobre el día y la noche: mientras haya luz (la presencia de Jesús) se puede caminar sin tropezar. Jesús sube a Judea, a pesar del peligro, porque es su tiempo de obrar.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 9:4-5",
@@ -177,9 +195,9 @@
    "1 Jn 2:10-11"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "John.11.9#06",
+  "ref_estandar": "John.11.9",
   "morfologia_tagnt": "N-NPF",
   "dstrong": "G5610",
   "strong_tagnt": "G5610",
@@ -195,13 +213,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hour",
-  "ref_estandar": "John.11.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.11.11",
+  "pos_tisch": 12,
   "strong": "G2837",
   "forma": "κεκοίμηται",
+  "lema": "κοιμάω",
   "glosa_interlineal": "duerme",
   "rango_semantico": [
    "dormir, estar dormido (eufemismo para morir)"
@@ -209,7 +231,7 @@
   "construccion": "Perfecto indicativo pasivo: «Lázaro nuestro amigo duerme».",
   "sentido_en_contexto": "«Dormir» como eufemismo de la muerte (cf. Mt 9:24; 1 Ts 4:13-15). Los discípulos lo entienden literalmente (sueño reparador), y Jesús tiene que aclararlo («Lázaro ha muerto», v.14).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 9:24 — «la niña no está muerta, sino que duerme»",
@@ -217,9 +239,9 @@
    "Dn 12:2"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "John.11.11#12",
+  "ref_estandar": "John.11.11",
   "morfologia_tagnt": "V-RMI-3S",
   "dstrong": "G2837",
   "strong_tagnt": "G2837",
@@ -235,13 +257,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to sleep",
-  "ref_estandar": "John.11.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.11.16",
+  "pos_tisch": 6,
   "strong": "G1324",
   "forma": "Δίδυμος",
+  "lema": "Δίδυμος",
   "glosa_interlineal": "Dídimo",
   "rango_semantico": [
    "gemelo (traducción del arameo Tomás)"
@@ -249,7 +275,7 @@
   "construccion": "Nominativo: «Tomás, llamado Dídimo».",
   "sentido_en_contexto": "Tomás significa «gemelo» en arameo; Dídimo es su equivalente griego. Aquí aparece por primera vez con valor y lealtad: «vayamos nosotros también, para que muramos con él».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 14:5 — «no sabemos adónde vas»",
@@ -257,9 +283,9 @@
    "Mt 10:3"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "John.11.16#06",
+  "ref_estandar": "John.11.16",
   "morfologia_tagnt": "N-NSM-P",
   "dstrong": "G1324",
   "strong_tagnt": "G1324",
@@ -275,13 +301,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Didymus",
-  "ref_estandar": "John.11.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.11.17",
+  "pos_tisch": 12,
   "strong": "G3419",
   "forma": "μνημείῳ",
+  "lema": "μνημεῖον",
   "glosa_interlineal": "sepulcro",
   "rango_semantico": [
    "tumba, sepulcro"
@@ -289,7 +319,7 @@
   "construccion": "Dativo: «ya hacía cuatro días que estaba en el sepulcro».",
   "sentido_en_contexto": "Detalle importante: según la creencia judía, el alma permanecía cerca del cuerpo tres días; al cuarto no había esperanza de revivir. El milagro es irreversible desde el punto de vista humano.",
   "matiz": "La tradición rabínica del tercer día (el alma abandona el cuerpo) es posterior a Jesús en la fuente escrita, aunque podía reflejar creencias populares ya vigentes.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 11:39 — «hiede ya»",
@@ -297,9 +327,9 @@
    "Hch 2:27, 31 — «su carne no vio corrupción»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "John.11.17#13",
+  "ref_estandar": "John.11.17",
   "morfologia_tagnt": "N-DSN",
   "dstrong": "G3419",
   "strong_tagnt": "G3419",
@@ -315,13 +345,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "grave",
-  "ref_estandar": "John.11.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.11.22",
+  "pos_tisch": 7,
   "strong": "G154",
   "forma": "αἰτήσῃ",
+  "lema": "αἰτέω",
   "glosa_interlineal": "pidas",
   "rango_semantico": [
    "pedir, solicitar"
@@ -329,7 +363,7 @@
   "construccion": "Subjuntivo aoristo medio: «todo lo que pidas a Dios, Dios te lo dará».",
   "sentido_en_contexto": "Marta expresa una fe confiada pero aún sin saber qué pedir: cree que Dios escucha a Jesús, pero no se atreve a pedir explícitamente la resurrección de su hermano.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 9:31",
@@ -337,9 +371,9 @@
    "Jn 11:41-42"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "John.11.22#08",
+  "ref_estandar": "John.11.22",
   "morfologia_tagnt": "V-AMS-2S",
   "dstrong": "G0154",
   "strong_tagnt": "G154",
@@ -355,13 +389,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to ask",
-  "ref_estandar": "John.11.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.11.24",
+  "pos_tisch": 10,
   "strong": "G386",
   "forma": "ἀναστάσει",
+  "lema": "ἀνάστασις",
   "glosa_interlineal": "resurrección",
   "rango_semantico": [
    "resurrección, levantamiento"
@@ -369,7 +407,7 @@
   "construccion": "Dativo: «sé que resucitará en la resurrección, en el día postrero».",
   "sentido_en_contexto": "Marta confiesa la fe farisaica en la resurrección final. Jesús la corrige llevándola del futuro al presente: él mismo es la resurrección y la vida.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dn 12:2",
@@ -377,9 +415,9 @@
    "Jn 6:39-40"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "John.11.24#10",
+  "ref_estandar": "John.11.24",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G0386",
   "strong_tagnt": "G386",
@@ -395,13 +433,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "resurrection",
-  "ref_estandar": "John.11.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.11.25",
+  "pos_tisch": 8,
   "strong": "G386",
   "forma": "ἀνάστασις",
+  "lema": "ἀνάστασις",
   "glosa_interlineal": "resurrección",
   "rango_semantico": [
    "resurrección"
@@ -409,7 +451,7 @@
   "construccion": "Nominativo: «yo soy la resurrección y la vida».",
   "sentido_en_contexto": "Quinta de las siete declaraciones «Yo soy» con predicado. La resurrección y la vida no son un acontecimiento solo del futuro, sino una persona presente. Quien cree, aunque muera, vivirá (vida más allá de la muerte); y todo el que vive y cree no morirá jamás (vida que vence la muerte espiritual).",
   "matiz": "Las dos cláusulas (v.25b-26) se interpretan: la primera sobre la resurrección corporal futura de quienes mueren creyendo; la segunda sobre la vida eterna ya presente en el creyente, que no queda destruida por la muerte física.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 5:24-29",
@@ -418,9 +460,9 @@
    "Ap 1:18 — «tengo las llaves de la muerte y del Hades»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "John.11.25#08",
+  "ref_estandar": "John.11.25",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G0386",
   "strong_tagnt": "G386",
@@ -436,13 +478,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "resurrection",
-  "ref_estandar": "John.11.25"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.11.27",
+  "pos_tisch": 6,
   "strong": "G4100",
   "forma": "πεπίστευκα",
+  "lema": "πιστεύω",
   "glosa_interlineal": "he creído",
   "rango_semantico": [
    "creer, confiar"
@@ -450,7 +496,7 @@
   "construccion": "Perfecto indicativo activo: «sí, Señor; yo he creído que tú eres el Cristo, el Hijo de Dios».",
   "sentido_en_contexto": "Confesión de Marta, comparable a la de Pedro (Mt 16:16) y que resume el propósito del evangelio (20:31). El perfecto indica una fe establecida y firme.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 20:31 — «para que creáis que Jesús es el Cristo, el Hijo de Dios»",
@@ -458,9 +504,9 @@
    "Jn 6:69"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "John.11.27#06",
+  "ref_estandar": "John.11.27",
   "morfologia_tagnt": "V-RAI-1S",
   "dstrong": "G4100",
   "strong_tagnt": "G4100",
@@ -476,13 +522,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to trust (in)",
-  "ref_estandar": "John.11.27"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.11.33",
+  "pos_tisch": 13,
   "strong": "G1690",
   "forma": "ἐνεβριμήσατο",
+  "lema": "ἐμβριμάομαι",
   "glosa_interlineal": "se estremeció",
   "rango_semantico": [
    "indignarse, estremecerse, enfurecerse"
@@ -490,7 +540,7 @@
   "construccion": "Aoristo indicativo medio: «se estremeció en espíritu y se conmovió».",
   "sentido_en_contexto": "ἐμβριμάομαι tiene fuerte carga emocional: «bufar» como un caballo, indignación o profunda emoción. Se discute su causa: ¿ira ante el poder de la muerte? ¿indignación por la incredulidad? ¿dolor profundo?",
   "matiz": "Interpretaciones: (a) ira contra la muerte y su dominio (muchos Padres griegos y estudiosos modernos); (b) indignación ante la incredulidad de los presentes; (c) emoción por la pena. Es un verbo normalmente asociado con enojo o reprensión.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 1:43 — «le amonestó» (mismo verbo)",
@@ -498,9 +548,9 @@
    "Heb 4:15 — «compadecerse de nuestras debilidades»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "John.11.33#13",
+  "ref_estandar": "John.11.33",
   "morfologia_tagnt": "V-ADI-3S",
   "dstrong": "G1690",
   "strong_tagnt": "G1690",
@@ -516,13 +566,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be agitated",
-  "ref_estandar": "John.11.33"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.11.35",
+  "pos_tisch": 1,
   "strong": "G1145",
   "forma": "ἐδάκρυσεν",
+  "lema": "δακρύω",
   "glosa_interlineal": "lloró",
   "rango_semantico": [
    "derramar lágrimas, llorar en silencio"
@@ -530,7 +584,7 @@
   "construccion": "Aoristo indicativo activo: «Jesús lloró».",
   "sentido_en_contexto": "El versículo más breve del NT griego (y de la Biblia española en muchas versiones). δακρύω es «derramar lágrimas» (sin lamentos), distinto de κλαίω (v.33, «llorar con voz» de los presentes). Muestra la humanidad y la compasión de Jesús.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 19:41 — «lloró sobre ella»",
@@ -538,9 +592,9 @@
    "Is 53:3 — «varón de dolores»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "John.11.35#01",
+  "ref_estandar": "John.11.35",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G1145",
   "strong_tagnt": "G1145",
@@ -556,13 +610,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to weep",
-  "ref_estandar": "John.11.35"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.11.39",
+  "pos_tisch": 16,
   "strong": "G3605",
   "forma": "ὄζει",
+  "lema": "ὄζω",
   "glosa_interlineal": "huele mal",
   "rango_semantico": [
    "oler, apestar"
@@ -570,16 +628,16 @@
   "construccion": "Presente indicativo activo: «hiede ya, porque lleva cuatro días».",
   "sentido_en_contexto": "Marta objeta al ver que Jesús ordena quitar la piedra. Subraya la imposibilidad humana de la situación: el cuerpo está en descomposición.",
   "matiz": "Algunos manuscritos y versiones omiten «del que había muerto»; la palabra ὄζει es única en el NT.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 11:17",
    "Hch 2:27 — «no verá corrupción»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "John.11.39#16",
+  "ref_estandar": "John.11.39",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G3605",
   "strong_tagnt": "G3605",
@@ -595,13 +653,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to stink",
-  "ref_estandar": "John.11.39"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.11.40",
+  "pos_tisch": 13,
   "strong": "G1391",
   "forma": "δόξαν",
+  "lema": "δόξα",
   "glosa_interlineal": "gloria",
   "rango_semantico": [
    "gloria"
@@ -609,7 +671,7 @@
   "construccion": "Acusativo: «verás la gloria de Dios».",
   "sentido_en_contexto": "Jesús recuerda a Marta lo dicho en v.4. Ver la gloria de Dios depende de creer: el orden joánico es creer y luego ver. El milagro revela la gloria de Dios en el Hijo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 11:4",
@@ -617,9 +679,9 @@
    "Jn 2:11 — «manifestó su gloria»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "John.11.40#13",
+  "ref_estandar": "John.11.40",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G1391",
   "strong_tagnt": "G1391",
@@ -635,13 +697,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "glory",
-  "ref_estandar": "John.11.40"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.11.41",
+  "pos_tisch": 15,
   "strong": "G2168",
   "forma": "εὐχαριστῶ",
+  "lema": "εὐχαριστέω",
   "glosa_interlineal": "te doy gracias",
   "rango_semantico": [
    "dar gracias"
@@ -649,7 +715,7 @@
   "construccion": "Presente indicativo activo: «Padre, gracias te doy por haberme oído».",
   "sentido_en_contexto": "Jesús da gracias antes del milagro, mostrando su confianza en el Padre. La oración es pública «por causa de la multitud», para que crean que el Padre lo ha enviado.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 6:11 — «habiendo dado gracias»",
@@ -657,9 +723,9 @@
    "Jn 12:28-30"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "John.11.41#20",
+  "ref_estandar": "John.11.41",
   "morfologia_tagnt": "V-PAI-1S",
   "dstrong": "G2168",
   "strong_tagnt": "G2168",
@@ -675,13 +741,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to thank",
-  "ref_estandar": "John.11.41"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.11.43",
+  "pos_tisch": 6,
   "strong": "G2905",
   "forma": "ἐκραύγασεν",
+  "lema": "κραυγάζω",
   "glosa_interlineal": "gritó",
   "rango_semantico": [
    "gritar, clamar a gran voz"
@@ -689,7 +759,7 @@
   "construccion": "Aoristo indicativo activo: «clamó a gran voz: ¡Lázaro, ven fuera!».",
   "sentido_en_contexto": "Jesús llama a Lázaro por su nombre, y el muerto responde: la voz del Hijo da vida a los muertos, como anunció en 5:25-28. Un solo nombre, para no resucitar a todos los muertos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 5:25, 28-29 — «los muertos oirán la voz del Hijo de Dios»",
@@ -697,9 +767,9 @@
    "1 Ts 4:16"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "John.11.43#06",
+  "ref_estandar": "John.11.43",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G2905",
   "strong_tagnt": "G2905",
@@ -715,13 +785,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to shout",
-  "ref_estandar": "John.11.43"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.11.44",
+  "pos_tisch": 10,
   "strong": "G2750",
   "forma": "κειρίαις",
+  "lema": "κειρία",
   "glosa_interlineal": "vendas",
   "rango_semantico": [
    "venda, faja de lino"
@@ -729,7 +803,7 @@
   "construccion": "Dativo plural: «atadas las manos y los pies con vendas».",
   "sentido_en_contexto": "Lázaro sale envuelto en vendas, con un sudario en el rostro. Jesús ordena «desatadle y dejadle ir». Contraste con la resurrección de Jesús, donde las vendas quedan en la tumba (20:5-7).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 20:5-7 — las vendas y el sudario de Jesús",
@@ -737,9 +811,9 @@
    "Lc 24:12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "John.11.44#11",
+  "ref_estandar": "John.11.44",
   "morfologia_tagnt": "N-DPF",
   "dstrong": "G2750",
   "strong_tagnt": "G2750",
@@ -755,13 +829,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "graveclothes",
-  "ref_estandar": "John.11.44"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.11.47",
+  "pos_tisch": 8,
   "strong": "G4892",
   "forma": "συνέδριον",
+  "lema": "συνέδριον",
   "glosa_interlineal": "Sanedrín",
   "rango_semantico": [
    "consejo, tribunal (Sanedrín)"
@@ -769,7 +847,7 @@
   "construccion": "Acusativo: «reunieron el concilio».",
   "sentido_en_contexto": "Los líderes reaccionan a la resurrección de Lázaro no con fe, sino con temor político: Roma. El milagro mayor lleva a la decisión de matar a Jesús.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 12:10-11 — quieren matar también a Lázaro",
@@ -777,9 +855,9 @@
    "Lc 16:31 — «ni se persuadirán aunque alguno se levantare de los muertos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "John.11.47#08",
+  "ref_estandar": "John.11.47",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G4892",
   "strong_tagnt": "G4892",
@@ -795,13 +873,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "council",
-  "ref_estandar": "John.11.47"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.11.48",
+  "pos_tisch": 12,
   "strong": "G4514",
   "forma": "Ῥωμαῖοι",
+  "lema": "Ῥωμαῖος",
   "glosa_interlineal": "romanos",
   "rango_semantico": [
    "romano"
@@ -809,7 +891,7 @@
   "construccion": "Nominativo plural: «vendrán los romanos y destruirán nuestro lugar y nuestra nación».",
   "sentido_en_contexto": "Temor de una intervención romana ante un movimiento mesiánico popular. «Nuestro lugar» (τόπος) alude al templo. Irónicamente, la destrucción llegó en el 70 d.C.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 18:14",
@@ -817,9 +899,9 @@
    "Mt 22:7 — la ciudad quemada"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "John.11.48#12",
+  "ref_estandar": "John.11.48",
   "morfologia_tagnt": "N-NPM-LG",
   "dstrong": "G4514",
   "strong_tagnt": "G4514",
@@ -835,13 +917,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Roman",
-  "ref_estandar": "John.11.48"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.11.49",
+  "pos_tisch": 6,
   "strong": "G2533",
   "forma": "Καϊάφας",
+  "lema": "Καϊάφας",
   "glosa_interlineal": "Caifás",
   "rango_semantico": [
    "Caifás (sumo sacerdote, 18-36 d.C.)"
@@ -849,17 +935,13 @@
   "construccion": "Nominativo: «Caifás, que era sumo sacerdote aquel año».",
   "sentido_en_contexto": "Sumo sacerdote del 18 al 36 d.C., yerno de Anás. «Aquel año» no significa que el cargo fuera anual, sino «el año decisivo de la muerte de Jesús».",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mt 26:3, 57 — su palacio",
-   "Jn 18:13-14, 24",
-   "Hch 4:6"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mt 26:3, 57 — su palacio\nJn 18:13-14, 24\nHch 4:6",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "John.11.49#06",
+  "ref_estandar": "John.11.49",
   "morfologia_tagnt": "N-NSM-P",
   "dstrong": "G2533G",
   "strong_tagnt": "G2533",
@@ -875,13 +957,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Caiaphas",
-  "ref_estandar": "John.11.49"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.11.50",
+  "pos_tisch": 4,
   "strong": "G4851",
   "forma": "συμφέρει",
+  "lema": "συμφέρω",
   "glosa_interlineal": "conviene",
   "rango_semantico": [
    "convenir, ser útil"
@@ -889,7 +975,7 @@
   "construccion": "Presente indicativo activo: «os conviene que un hombre muera por el pueblo».",
   "sentido_en_contexto": "Cálculo político de Caifás: es mejor sacrificar a uno que perder a toda la nación. El evangelista lo reinterpreta: sin saberlo, profetizó la muerte sustitutiva de Jesús (v.51).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 18:14",
@@ -897,9 +983,9 @@
    "1 Jn 2:2 — «propiciación… por los de todo el mundo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "John.11.50#04",
+  "ref_estandar": "John.11.50",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G4851",
   "strong_tagnt": "G4851",
@@ -915,13 +1001,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to be profitable",
-  "ref_estandar": "John.11.50"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.11.51",
+  "pos_tisch": 13,
   "strong": "G4395",
   "forma": "ἐπροφήτευσεν",
+  "lema": "προφητεύω",
   "glosa_interlineal": "profetizó",
   "rango_semantico": [
    "profetizar, predecir"
@@ -929,7 +1019,7 @@
   "construccion": "Aoristo indicativo activo: «profetizó que Jesús había de morir por la nación».",
   "sentido_en_contexto": "El evangelista ve en las palabras de Caifás una profecía involuntaria atribuida a su oficio de sumo sacerdote. Las palabras malintencionadas se vuelven verdad teológica.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Nm 22-24 — Balaam profetiza sin querer",
@@ -937,9 +1027,9 @@
    "Hch 2:23"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "John.11.51#13",
+  "ref_estandar": "John.11.51",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G4395",
   "strong_tagnt": "G4395",
@@ -955,13 +1045,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to prophesy",
-  "ref_estandar": "John.11.51"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.11.52",
+  "pos_tisch": 15,
   "strong": "G1287",
   "forma": "διεσκορπισμένα",
+  "lema": "διασκορπίζω",
   "glosa_interlineal": "dispersos",
   "rango_semantico": [
    "dispersar, esparcir"
@@ -969,7 +1063,7 @@
   "construccion": "Participio perfecto pasivo: «los hijos de Dios que estaban dispersos».",
   "sentido_en_contexto": "La muerte de Jesús no es solo por la nación, sino para reunir en uno a los hijos de Dios dispersos (judíos y gentiles). Conecta con 10:16 («un solo rebaño»).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 10:16",
@@ -978,9 +1072,9 @@
    "Ez 34:12-13"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "John.11.52#15",
+  "ref_estandar": "John.11.52",
   "morfologia_tagnt": "V-RPP-APN",
   "dstrong": "G1287",
   "strong_tagnt": "G1287",
@@ -996,13 +1090,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to scatter",
-  "ref_estandar": "John.11.52"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.11.55",
+  "pos_tisch": 20,
   "strong": "G48",
   "forma": "ἁγνίσωσιν",
+  "lema": "ἁγνίζω",
   "glosa_interlineal": "purificarse",
   "rango_semantico": [
    "purificar, santificar ritualmente"
@@ -1010,7 +1108,7 @@
   "construccion": "Subjuntivo aoristo activo: «para purificarse».",
   "sentido_en_contexto": "Muchos suben a Jerusalén antes de la Pascua para cumplir los ritos de purificación. En el templo se preguntan si Jesús vendrá a la fiesta, mientras los sacerdotes preparan su arresto.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Nm 9:6-13 — purificación para la Pascua",
@@ -1018,9 +1116,9 @@
    "2 Cr 30:17-19"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 20,
   "alineacion": "forma",
   "tagnt": "John.11.55#20",
+  "ref_estandar": "John.11.55",
   "morfologia_tagnt": "V-AAS-3P",
   "dstrong": "G0048",
   "strong_tagnt": "G48",
@@ -1036,7 +1134,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to purify",
-  "ref_estandar": "John.11.55"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

@@ -1,8 +1,10 @@
 [
  {
   "ref": "Luke.17.1",
+  "pos_tisch": 11,
   "strong": "G4625",
   "forma": "σκάνδαλα",
+  "lema": "σκάνδαλον",
   "glosa_interlineal": "tropiezos",
   "rango_semantico": [
    "tropiezo, ocasión de caer"
@@ -10,7 +12,7 @@
   "construccion": "Nominativo plural: «es imposible que no vengan tropiezos».",
   "sentido_en_contexto": "Jesús reconoce que los tropiezos son inevitables, pero «¡ay de aquel por quien vienen!». Lucas lo condensa; ver Mt 18:6-7 para la versión más larga.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 18:6-7 — paralelo",
@@ -18,9 +20,9 @@
    "Ro 14:13 — «no pongáis tropiezo al hermano»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Luke.17.1#11",
+  "ref_estandar": "Luke.17.1",
   "morfologia_tagnt": "N-APN",
   "dstrong": "G4625",
   "strong_tagnt": "G4625",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "stumbling block",
-  "ref_estandar": "Luke.17.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.17.3",
+  "pos_tisch": 8,
   "strong": "G2008",
   "forma": "ἐπιτίμησον",
+  "lema": "ἐπιτιμάω",
   "glosa_interlineal": "repréndele",
   "rango_semantico": [
    "reprender, censurar"
@@ -50,7 +56,7 @@
   "construccion": "Imperativo aoristo activo: «si tu hermano pecare, repréndele».",
   "sentido_en_contexto": "Enseñanza sobre la corrección y el perdón: reprender al que peca, perdonar si se arrepiente, aun siete veces al día. Lucas no habla de pasos de disciplina (Mt 18:15-17), sino de actitud constante.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 18:15-22 — paralelo con más detalle",
@@ -58,9 +64,9 @@
    "Gá 6:1 — «restauradle con espíritu de mansedumbre»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Luke.17.3#11",
+  "ref_estandar": "Luke.17.3",
   "morfologia_tagnt": "V-AAM-2S",
   "dstrong": "G2008",
   "strong_tagnt": "G2008",
@@ -76,13 +82,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to rebuke",
-  "ref_estandar": "Luke.17.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.17.4",
+  "pos_tisch": 3,
   "strong": "G2034",
   "forma": "ἑπτάκις",
+  "lema": "ἑπτάκις",
   "glosa_interlineal": "siete veces",
   "rango_semantico": [
    "siete veces"
@@ -90,7 +100,7 @@
   "construccion": "Adverbio: «si siete veces al día pecare contra ti».",
   "sentido_en_contexto": "El perdón debe repetirse «siete veces al día» (cifra simbólica de lo ilimitado), condicionado a que el hermano diga «me arrepiento». En Mateo (18:22) se dice «setenta veces siete».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 18:21-22 — «setenta veces siete»",
@@ -98,10 +108,9 @@
    "Sal 119:164 — «siete veces al día te alabo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Luke.17.4#03",
+  "ref_estandar": "Luke.17.4",
   "morfologia_tagnt": "ADV",
   "dstrong": "G2034",
   "strong_tagnt": "G2034",
@@ -117,13 +126,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "seven times",
-  "ref_estandar": "Luke.17.4"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.17.4",
+  "pos_tisch": 10,
   "strong": "G2034",
   "forma": "ἑπτάκις",
+  "lema": "ἑπτάκις",
   "glosa_interlineal": "siete veces",
   "rango_semantico": [
    "siete veces"
@@ -131,7 +145,7 @@
   "construccion": "Adverbio: «si siete veces al día pecare contra ti».",
   "sentido_en_contexto": "El perdón debe repetirse «siete veces al día» (cifra simbólica de lo ilimitado), condicionado a que el hermano diga «me arrepiento». En Mateo (18:22) se dice «setenta veces siete».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 18:21-22 — «setenta veces siete»",
@@ -139,10 +153,9 @@
    "Sal 119:164 — «siete veces al día te alabo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Luke.17.4#10",
+  "ref_estandar": "Luke.17.4",
   "morfologia_tagnt": "ADV",
   "dstrong": "G2034",
   "strong_tagnt": "G2034",
@@ -158,13 +171,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "seven times",
-  "ref_estandar": "Luke.17.4"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.17.5",
+  "pos_tisch": 7,
   "strong": "G4369",
   "forma": "πρόσθες",
+  "lema": "προστίθημι",
   "glosa_interlineal": "aumenta",
   "rango_semantico": [
    "añadir, agregar"
@@ -172,7 +190,7 @@
   "construccion": "Imperativo aoristo activo: «auméntanos la fe».",
   "sentido_en_contexto": "Los apóstoles piden más fe ante las exigencias de perdonar. Jesús responde con la imagen de la fe «como un grano de mostaza»: lo importante no es la cantidad, sino su presencia genuina.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 9:24 — «creo; ayuda mi incredulidad»",
@@ -180,9 +198,9 @@
    "Lc 7:9 — la fe del centurión"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Luke.17.5#07",
+  "ref_estandar": "Luke.17.5",
   "morfologia_tagnt": "V-2AAM-2S",
   "dstrong": "G4369",
   "strong_tagnt": "G4369",
@@ -198,13 +216,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to add (to)",
-  "ref_estandar": "Luke.17.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.17.6",
+  "pos_tisch": 14,
   "strong": "G4807",
   "forma": "συκαμίνῳ",
+  "lema": "συκάμινος",
   "glosa_interlineal": "sicómoro (morera)",
   "rango_semantico": [
    "sicómoro, morera"
@@ -212,7 +234,7 @@
   "construccion": "Dativo: «a este sicómoro: desarráigate y plántate en el mar».",
   "sentido_en_contexto": "Imagen hiperbólica, paralela a «mover montañas» (Mt 17:20): hasta el árbol de raíces profundas puede ser trasplantado al mar por la fe. Solo Lucas usa «sicómoro» (o «morera»).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 17:20 — «diréis a este monte»",
@@ -220,9 +242,9 @@
    "Lc 19:4 — Zaqueo sube a un sicómoro"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Luke.17.6#14",
+  "ref_estandar": "Luke.17.6",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G4807",
   "strong_tagnt": "G4807",
@@ -238,13 +260,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mulberry tree",
-  "ref_estandar": "Luke.17.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.17.10",
+  "pos_tisch": 13,
   "strong": "G888",
   "forma": "ἀχρεῖοί",
+  "lema": "ἀχρεῖος",
   "glosa_interlineal": "inútiles",
   "rango_semantico": [
    "inútil, sin mérito, sin provecho"
@@ -252,7 +278,7 @@
   "construccion": "Adjetivo nominativo plural: «siervos inútiles somos».",
   "sentido_en_contexto": "La parábola del siervo que cumple su deber: nada especial merece. «Siervos inútiles» (ἀχρεῖοι) no significa despreciables, sino sin derecho a reclamar mérito. La obediencia es respuesta debida, no mérito.",
   "matiz": "Debate: ¿«inútiles» es «sin mérito» (lectura habitual) o «sin necesidad (de ser agradecidos)»? Algunos manuscritos omiten ἀχρεῖοι, dejando «siervos que sólo hemos cumplido».",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 25:30 — «al siervo inútil echadle»",
@@ -260,9 +286,9 @@
    "Ef 2:8-9 — «por gracia sois salvos»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Luke.17.10#13",
+  "ref_estandar": "Luke.17.10",
   "morfologia_tagnt": "A-NPM",
   "dstrong": "G0888",
   "strong_tagnt": "G888",
@@ -278,13 +304,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "worthless",
-  "ref_estandar": "Luke.17.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.17.11",
+  "pos_tisch": 13,
   "strong": "G4540",
   "forma": "Σαμαρίας",
+  "lema": "Σαμάρεια",
   "glosa_interlineal": "Samaria",
   "rango_semantico": [
    "Samaria (región)"
@@ -292,17 +322,13 @@
   "construccion": "Genitivo: «por entre Samaria y Galilea».",
   "sentido_en_contexto": "Lucas recuerda que Jesús va camino a Jerusalén, pasando por la frontera entre Samaria y Galilea. En esa zona de mezcla se da el encuentro con los diez leprosos.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Lc 9:51-56 — rechazo en una aldea samaritana",
-   "Lc 9:51 — «afirmó su rostro»",
-   "Jn 4:4 — «le era necesario pasar por Samaria»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Lc 9:51-56 — rechazo en una aldea samaritana\nLc 9:51 — «afirmó su rostro»\nJn 4:4 — «le era necesario pasar por Samaria»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "strong",
   "tagnt": "Luke.17.11#14",
+  "ref_estandar": "Luke.17.11",
   "morfologia_tagnt": "N-GSF-L",
   "dstrong": "G4540",
   "strong_tagnt": "G4540",
@@ -318,13 +344,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Samaria",
-  "ref_estandar": "Luke.17.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.17.12",
+  "pos_tisch": 10,
   "strong": "G3015",
   "forma": "λεπροὶ",
+  "lema": "λεπρός",
   "glosa_interlineal": "leprosos",
   "rango_semantico": [
    "leproso"
@@ -332,17 +362,13 @@
   "construccion": "Nominativo plural: «diez hombres leprosos».",
   "sentido_en_contexto": "Diez leprosos se detienen a distancia (como mandaba la Ley) y piden compasión. Jesús les manda presentarse a los sacerdotes; mientras iban, quedaron limpios. Milagro solo de Lucas.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Lv 13:45-46 — normas de aislamiento",
-   "Lc 5:12-14 — otro leproso",
-   "2 R 5:1-14 — Naamán, sirio sanado"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Lv 13:45-46 — normas de aislamiento\nLc 5:12-14 — otro leproso\n2 R 5:1-14 — Naamán, sirio sanado",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Luke.17.12#10",
+  "ref_estandar": "Luke.17.12",
   "morfologia_tagnt": "A-NPM",
   "dstrong": "G3015",
   "strong_tagnt": "G3015",
@@ -358,13 +384,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "leprous",
-  "ref_estandar": "Luke.17.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.17.16",
+  "pos_tisch": 9,
   "strong": "G2168",
   "forma": "εὐχαριστῶν",
+  "lema": "εὐχαριστέω",
   "glosa_interlineal": "agradeciendo",
   "rango_semantico": [
    "dar gracias"
@@ -372,7 +402,7 @@
   "construccion": "Participio presente activo: «dando gracias».",
   "sentido_en_contexto": "Solo uno de los diez, un samaritano, regresa a dar gracias postrándose ante Jesús. Lucas lo subraya: el extranjero reconoce la acción de Dios en Jesús.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 17:18 — «¿no hubo quien volviese… sino este extranjero?»",
@@ -380,9 +410,9 @@
    "Jn 4:39-42 — samaritanos que creen"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Luke.17.16#09",
+  "ref_estandar": "Luke.17.16",
   "morfologia_tagnt": "V-PAP-NSM",
   "dstrong": "G2168",
   "strong_tagnt": "G2168",
@@ -398,13 +428,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to thank",
-  "ref_estandar": "Luke.17.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.17.18",
+  "pos_tisch": 11,
   "strong": "G241",
   "forma": "ἀλλογενὴς",
+  "lema": "ἀλλογενής",
   "glosa_interlineal": "extranjero",
   "rango_semantico": [
    "de otra raza, extranjero"
@@ -412,17 +446,13 @@
   "construccion": "Nominativo: «este extranjero».",
   "sentido_en_contexto": "Palabra única en el NT, usada en las inscripciones del templo que vedaban a extranjeros pasar a ciertos patios. Jesús la aplica al samaritano con ironía: el «extranjero» glorifica a Dios.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Lc 4:27 — Naamán el sirio",
-   "Lc 7:9 — la fe del centurión gentil",
-   "Hch 8:5-8 — Felipe en Samaria"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Lc 4:27 — Naamán el sirio\nLc 7:9 — la fe del centurión gentil\nHch 8:5-8 — Felipe en Samaria",
   "otros_usos": "medio",
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Luke.17.18#11",
+  "ref_estandar": "Luke.17.18",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G0241",
   "strong_tagnt": "G241",
@@ -438,13 +468,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "foreign",
-  "ref_estandar": "Luke.17.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.17.19",
+  "pos_tisch": 9,
   "strong": "G4982",
   "forma": "σέσωκέν",
+  "lema": "σώζω",
   "glosa_interlineal": "te ha salvado",
   "rango_semantico": [
    "salvar, sanar"
@@ -452,7 +486,7 @@
   "construccion": "Perfecto indicativo activo: «tu fe te ha salvado».",
   "sentido_en_contexto": "Los diez fueron limpiados, pero solo al samaritano Jesús le dice «tu fe te ha salvado»: sanación más salvación. Lucas distingue entre curación física y salvación integral.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 7:50 — «tu fe te ha salvado»",
@@ -460,9 +494,9 @@
    "Lc 18:42 — «tu fe te ha salvado»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Luke.17.19#09",
+  "ref_estandar": "Luke.17.19",
   "morfologia_tagnt": "V-RAI-3S",
   "dstrong": "G4982",
   "strong_tagnt": "G4982",
@@ -478,13 +512,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to save",
-  "ref_estandar": "Luke.17.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.17.20",
+  "pos_tisch": 23,
   "strong": "G3907",
   "forma": "παρατηρήσεως",
+  "lema": "παρατήρησις",
   "glosa_interlineal": "con señales visibles",
   "rango_semantico": [
    "observación, vigilancia"
@@ -492,16 +530,16 @@
   "construccion": "Genitivo: «el reino de Dios no viene con advertencia (observación)».",
   "sentido_en_contexto": "Los fariseos preguntan cuándo viene el reino. Jesús responde que no se anuncia con señales observables: no se dirá «aquí está» o «allí está».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 24:23 — «no lo creáis»",
    "Lc 21:7 — «¿qué señal habrá?»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 23,
   "alineacion": "forma",
   "tagnt": "Luke.17.20#23",
+  "ref_estandar": "Luke.17.20",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G3907",
   "strong_tagnt": "G3907",
@@ -517,13 +555,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "observation",
-  "ref_estandar": "Luke.17.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.17.21",
+  "pos_tisch": 13,
   "strong": "G1787",
   "forma": "ἐντὸς",
+  "lema": "ἐντός",
   "glosa_interlineal": "entre / dentro",
   "rango_semantico": [
    "dentro de, en medio de"
@@ -531,7 +573,7 @@
   "construccion": "Preposición con genitivo: «el reino de Dios está ἐντὸς ὑμῶν».",
   "sentido_en_contexto": "Una de las frases más discutidas de Lucas: «el reino de Dios está entre vosotros / dentro de vosotros».",
   "matiz": "Dos lecturas principales: (a) «en medio de vosotros» (presente en la persona y obra de Jesús; la mayoría crítica, pues Jesús habla a fariseos); (b) «dentro de vosotros» (reino interior; RVR y tradición espiritual). El contexto favorece (a).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": "Algunas versiones traducen «dentro de vosotros»; el sentido «entre vosotros» es el más defendido por el contexto (Jesús habla a fariseos).",
   "otros_usos": [
    "Lc 11:20 — «el reino de Dios ha llegado a vosotros»",
@@ -539,9 +581,9 @@
    "Ro 14:17 — «el reino de Dios no es comida ni bebida, sino justicia, paz y gozo»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Luke.17.21#14",
+  "ref_estandar": "Luke.17.21",
   "morfologia_tagnt": "PREP",
   "dstrong": "G1787",
   "strong_tagnt": "G1787",
@@ -557,14 +599,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "inside",
   "caso_regido": "genitivo",
-  "ref_estandar": "Luke.17.21"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.17.24",
+  "pos_tisch": 4,
   "strong": "G796",
   "forma": "ἀστραπὴ",
+  "lema": "ἀστραπή",
   "glosa_interlineal": "relámpago",
   "rango_semantico": [
    "relámpago"
@@ -572,17 +618,13 @@
   "construccion": "Nominativo: «como el relámpago… así será el Hijo del Hombre en su día».",
   "sentido_en_contexto": "La venida del Hijo del Hombre será visible y repentina como un relámpago; no habrá que buscarla en lugares concretos (vv.23-24). Paralelo con Mt 24:27.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mt 24:27 — paralelo",
-   "Ap 1:7 — «todo ojo le verá»",
-   "1 Ts 5:2 — «como ladrón en la noche»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mt 24:27 — paralelo\nAp 1:7 — «todo ojo le verá»\n1 Ts 5:2 — «como ladrón en la noche»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Luke.17.24#04",
+  "ref_estandar": "Luke.17.24",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G0796",
   "strong_tagnt": "G796",
@@ -598,13 +640,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lightning",
-  "ref_estandar": "Luke.17.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.17.25",
+  "pos_tisch": 8,
   "strong": "G593",
   "forma": "ἀποδοκιμασθῆναι",
+  "lema": "ἀποδοκιμάζω",
   "glosa_interlineal": "ser desechado",
   "rango_semantico": [
    "rechazar tras examinar"
@@ -612,17 +658,13 @@
   "construccion": "Infinitivo aoristo pasivo: «es necesario que primero padezca mucho y sea desechado».",
   "sentido_en_contexto": "Antes de su venida gloriosa, el Hijo del Hombre debe padecer: la gloria pasa por la cruz. Lucas inserta este recordatorio en medio del discurso escatológico.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Lc 9:22 — primer anuncio",
-   "Sal 118:22 — la piedra desechada",
-   "Hch 4:11 — «la piedra reprobada»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Lc 9:22 — primer anuncio\nSal 118:22 — la piedra desechada\nHch 4:11 — «la piedra reprobada»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Luke.17.25#08",
+  "ref_estandar": "Luke.17.25",
   "morfologia_tagnt": "V-APN",
   "dstrong": "G0593",
   "strong_tagnt": "G593",
@@ -638,13 +680,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to reject",
-  "ref_estandar": "Luke.17.25"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.17.26",
+  "pos_tisch": 7,
   "strong": "G3575",
   "forma": "Νῶε",
+  "lema": "Νῶε",
   "glosa_interlineal": "Noé",
   "rango_semantico": [
    "Noé"
@@ -652,17 +698,13 @@
   "construccion": "Genitivo: «como en los días de Noé».",
   "sentido_en_contexto": "Jesús compara los días de su venida con los de Noé y de Lot: la gente vivía en normalidad (comer, beber, casarse, comprar, vender) hasta que llegó el juicio repentino.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mt 24:37-39 — paralelo (Noé)",
-   "Gn 6-9; 19 — Noé y Lot",
-   "2 P 2:5-8 — Noé y Lot como ejemplos"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mt 24:37-39 — paralelo (Noé)\nGn 6-9; 19 — Noé y Lot\n2 P 2:5-8 — Noé y Lot como ejemplos",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Luke.17.26#08",
+  "ref_estandar": "Luke.17.26",
   "morfologia_tagnt": "N-GSM-P",
   "dstrong": "G3575",
   "strong_tagnt": "G3575",
@@ -678,13 +720,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Noah",
-  "ref_estandar": "Luke.17.26"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.17.32",
+  "pos_tisch": 4,
   "strong": "G3091",
   "forma": "Λὼτ",
+  "lema": "Λώτ",
   "glosa_interlineal": "Lot",
   "rango_semantico": [
    "Lot"
@@ -692,7 +738,7 @@
   "construccion": "Genitivo: «acordaos de la mujer de Lot».",
   "sentido_en_contexto": "Advertencia breve y exclusiva de Lucas: la mujer de Lot miró atrás y quedó convertida en estatua de sal (Gn 19:26). Quien se aferra a lo que deja atrás se pierde.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 19:26 — la estatua de sal",
@@ -700,9 +746,9 @@
    "Fil 3:13 — «olvidando lo que queda atrás»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Luke.17.32#04",
+  "ref_estandar": "Luke.17.32",
   "morfologia_tagnt": "N-GSM-P",
   "dstrong": "G3091",
   "strong_tagnt": "G3091",
@@ -718,13 +764,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Lot",
-  "ref_estandar": "Luke.17.32"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.17.33",
+  "pos_tisch": 7,
   "strong": "G4046",
   "forma": "περιποιήσασθαι",
+  "lema": "περιποιέομαι",
   "glosa_interlineal": "conservar",
   "rango_semantico": [
    "conservar, ganar para sí"
@@ -732,7 +782,7 @@
   "construccion": "Infinitivo aoristo medio: «el que procure salvar su vida».",
   "sentido_en_contexto": "Paradoja del discipulado: el que procura conservar su vida la perderá, y el que la pierda la salvará (ζῳογονήσει, «dará vida»). Cierre del tema de aferrarse.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 9:24 — paralelo",
@@ -740,9 +790,9 @@
    "Jn 12:25 — «el que ama su vida, la perderá»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Luke.17.33#07",
+  "ref_estandar": "Luke.17.33",
   "morfologia_tagnt": "V-AMN",
   "dstrong": "G4046",
   "strong_tagnt": "G4046",
@@ -759,13 +809,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to gain",
-  "ref_estandar": "Luke.17.33"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.17.34",
+  "pos_tisch": 12,
   "strong": "G3880",
   "forma": "παραλημφθήσεται",
+  "lema": "παραλαμβάνω",
   "glosa_interlineal": "será tomado",
   "rango_semantico": [
    "tomar consigo, llevarse"
@@ -773,7 +827,7 @@
   "construccion": "Futuro indicativo pasivo: «el uno será tomado, y el otro dejado».",
   "sentido_en_contexto": "Dos en una cama, dos moliendo: uno es tomado y otro dejado. El sentido de «tomado» es debatido (salvado o llevado al juicio).",
   "matiz": "Ver nota en Mt 24:40: «tomado» puede significar arrebatado al encuentro con el Señor o llevado para juicio, como en el diluvio donde «se llevó a todos». El contexto de Lucas (vv.26-30, Noé y Lot) apoya que «tomado» sea el juzgado.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 24:40-41 — paralelo",
@@ -781,9 +835,9 @@
    "Lc 17:37 — «donde estuviere el cuerpo»"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Luke.17.34#13",
+  "ref_estandar": "Luke.17.34",
   "morfologia_tagnt": "V-FPI-3S",
   "dstrong": "G3880",
   "strong_tagnt": "G3880",
@@ -799,13 +853,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to take",
-  "ref_estandar": "Luke.17.34"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.17.37",
+  "pos_tisch": 17,
   "strong": "G105",
   "forma": "ἀετοὶ",
+  "lema": "ἀετός",
   "glosa_interlineal": "águilas",
   "rango_semantico": [
    "águila, buitre"
@@ -813,16 +871,16 @@
   "construccion": "Nominativo plural: «donde esté el cuerpo, allí se juntarán las águilas».",
   "sentido_en_contexto": "Los discípulos preguntan «¿dónde?»; Jesús responde con un proverbio sobre carroña y buitres: el juicio será inconfundible y alcanzará donde haya muerte moral. Cierre enigmático.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 24:28 — paralelo",
    "Job 39:30 — «donde hay cadáveres, allí está ella»"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "Luke.17.37#17",
+  "ref_estandar": "Luke.17.37",
   "morfologia_tagnt": "N-NPM",
   "dstrong": "G0105",
   "strong_tagnt": "G105",
@@ -838,7 +896,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "eagle",
-  "ref_estandar": "Luke.17.37"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

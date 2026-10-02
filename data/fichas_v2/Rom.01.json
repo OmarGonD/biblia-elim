@@ -1,8 +1,10 @@
 [
  {
   "ref": "Rom.1.1",
+  "pos_tisch": 2,
   "strong": "G1401",
   "forma": "δοῦλος",
+  "lema": "δοῦλος",
   "glosa_interlineal": "siervo",
   "rango_semantico": [
    "esclavo, siervo"
@@ -10,7 +12,7 @@
   "construccion": "Nominativo: «Pablo, siervo (esclavo) de Cristo Jesús».",
   "sentido_en_contexto": "δοῦλος es «esclavo»: pertenencia total al Señor. Pablo antepone este título al de apóstol; en el AT «siervo de Jehová» era título honroso de Moisés y los profetas.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Fil 1:1",
@@ -19,9 +21,9 @@
    "Gá 1:10"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Rom.1.1#02",
+  "ref_estandar": "Rom.1.1",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G1401",
   "strong_tagnt": "G1401",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "slave",
-  "ref_estandar": "Rom.1.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rom.1.1",
+  "pos_tisch": 7,
   "strong": "G873",
   "forma": "ἀφωρισμένος",
+  "lema": "ἀφορίζω",
   "glosa_interlineal": "apartado",
   "rango_semantico": [
    "apartar, separar, destinar"
@@ -51,7 +57,7 @@
   "construccion": "Participio perfecto pasivo: «apartado para el evangelio de Dios».",
   "sentido_en_contexto": "Pablo fue separado por Dios para anunciar el evangelio (cf. Gá 1:15). El verbo tiene eco de la palabra «fariseo» («separado»), en un juego implícito: el antiguo fariseo ahora está apartado para otro propósito.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 1:15",
@@ -59,9 +65,9 @@
    "Jer 1:5"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Rom.1.1#07",
+  "ref_estandar": "Rom.1.1",
   "morfologia_tagnt": "V-RPP-NSM",
   "dstrong": "G0873",
   "strong_tagnt": "G873",
@@ -77,13 +83,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to separate",
-  "ref_estandar": "Rom.1.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rom.1.3",
+  "pos_tisch": 8,
   "strong": "G4690",
   "forma": "σπέρματος",
+  "lema": "σπέρμα",
   "glosa_interlineal": "descendencia",
   "rango_semantico": [
    "simiente, descendencia, linaje"
@@ -91,7 +101,7 @@
   "construccion": "Genitivo: «nacido del linaje de David según la carne».",
   "sentido_en_contexto": "Credo primitivo en Ro 1:3-4: Jesús es del linaje de David «según la carne» (su humanidad) y constituido Hijo de Dios con poder «según el Espíritu de santidad» por la resurrección. Pablo une las dos dimensiones de la persona de Cristo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 S 7:12-16",
@@ -100,9 +110,9 @@
    "Hch 13:22-23"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Rom.1.3#08",
+  "ref_estandar": "Rom.1.3",
   "morfologia_tagnt": "N-GSN",
   "dstrong": "G4690G",
   "strong_tagnt": "G4690",
@@ -118,13 +128,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "seed",
-  "ref_estandar": "Rom.1.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rom.1.4",
+  "pos_tisch": 2,
   "strong": "G3724",
   "forma": "ὁρισθέντος",
+  "lema": "ὁρίζω",
   "glosa_interlineal": "declarado",
   "rango_semantico": [
    "determinar, designar, declarar"
@@ -132,7 +146,7 @@
   "construccion": "Participio aoristo pasivo: «declarado Hijo de Dios con poder».",
   "sentido_en_contexto": "ὁρίζω es «delimitar, designar»; aquí «declarado» o «constituido» Hijo de Dios con poder por la resurrección. No dice que Jesús se hiciera Hijo entonces, sino que fue «instalado» en poder (de la humillación a la exaltación).",
   "matiz": "Debate: ¿hay adopcionismo en Ro 1:4? La lectura ortodoxa entiende que el título «Hijo de Dios» ya era suyo (Ro 1:3 «su Hijo» antes de la encarnación), y que la resurrección lo constituye Hijo «con poder» (en estado de exaltación). «Espíritu de santidad» es el Espíritu Santo (lectura común) o el aspecto espiritual de Cristo (lectura menos frecuente).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 13:33",
@@ -140,9 +154,9 @@
    "Sal 2:7"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Rom.1.4#02",
+  "ref_estandar": "Rom.1.4",
   "morfologia_tagnt": "V-APP-GSM",
   "dstrong": "G3724",
   "strong_tagnt": "G3724",
@@ -158,13 +172,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to determine",
-  "ref_estandar": "Rom.1.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rom.1.5",
+  "pos_tisch": 8,
   "strong": "G5218",
   "forma": "ὑπακοὴν",
+  "lema": "ὑπακοή",
   "glosa_interlineal": "obediencia",
   "rango_semantico": [
    "obediencia"
@@ -172,7 +190,7 @@
   "construccion": "Acusativo: «para la obediencia de la fe en todas las naciones».",
   "sentido_en_contexto": "«Obediencia de la fe» (ὑπακοὴ πίστεως): la fe que obedece, o la obediencia que consiste en creer. Aparece también al final de la carta (16:26), formando inclusión. Resume el propósito de la misión paulina: llevar a los gentiles a la fe.",
   "matiz": "Genitivo ambiguo: «obediencia que es la fe» (epexegético) o «obediencia que procede de la fe» (origen). Ambas lecturas se defienden; para Pablo, fe y obediencia no se oponen.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 16:26",
@@ -180,9 +198,9 @@
    "Ro 15:18"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Rom.1.5#08",
+  "ref_estandar": "Rom.1.5",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G5218",
   "strong_tagnt": "G5218",
@@ -198,13 +216,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "obedience",
-  "ref_estandar": "Rom.1.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rom.1.7",
+  "pos_tisch": 8,
   "strong": "G2822",
   "forma": "κλητοῖς",
+  "lema": "κλητός",
   "glosa_interlineal": "llamados",
   "rango_semantico": [
    "llamado, invitado"
@@ -212,7 +234,7 @@
   "construccion": "Dativo plural: «llamados a ser santos».",
   "sentido_en_contexto": "Los cristianos de Roma son «amados de Dios, llamados a ser santos». κλητός (llamado) es término de elección y vocación; los romanos son «santos» (ἅγιοι): apartados para Dios, no por perfección moral sino por llamamiento.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 1:2",
@@ -220,9 +242,9 @@
    "1 P 1:15"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Rom.1.7#08",
+  "ref_estandar": "Rom.1.7",
   "morfologia_tagnt": "A-DPM",
   "dstrong": "G2822",
   "strong_tagnt": "G2822",
@@ -238,13 +260,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "called",
-  "ref_estandar": "Rom.1.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rom.1.11",
+  "pos_tisch": 8,
   "strong": "G5486",
   "forma": "χάρισμα",
+  "lema": "χάρισμα",
   "glosa_interlineal": "don",
   "rango_semantico": [
    "don de gracia, don espiritual"
@@ -252,7 +278,7 @@
   "construccion": "Acusativo: «algún don espiritual».",
   "sentido_en_contexto": "Pablo desea impartir a los romanos «algún don espiritual» para fortalecerlos, y corrige enseguida: para ser mutuamente consolados por la fe común (v.12). La carta misma es el don que les transmite.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 12:6",
@@ -260,9 +286,9 @@
    "Ro 15:29"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Rom.1.11#08",
+  "ref_estandar": "Rom.1.11",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G5486",
   "strong_tagnt": "G5486",
@@ -278,13 +304,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gift",
-  "ref_estandar": "Rom.1.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rom.1.14",
+  "pos_tisch": 9,
   "strong": "G3781",
   "forma": "ὀφειλέτης",
+  "lema": "ὀφειλέτης",
   "glosa_interlineal": "deudor",
   "rango_semantico": [
    "deudor, obligado"
@@ -292,7 +322,7 @@
   "construccion": "Nominativo: «a griegos y a no griegos, a sabios y a no sabios soy deudor».",
   "sentido_en_contexto": "Pablo se siente en deuda con todos los pueblos y clases por el evangelio recibido: griegos y bárbaros (no helénicos), sabios e ignorantes. Su misión es una obligación de gracia, no una iniciativa personal.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 9:16",
@@ -300,9 +330,9 @@
    "Hch 22:21"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Rom.1.14#09",
+  "ref_estandar": "Rom.1.14",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G3781",
   "strong_tagnt": "G3781",
@@ -318,13 +348,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "debtor",
-  "ref_estandar": "Rom.1.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rom.1.16",
+  "pos_tisch": 3,
   "strong": "G1870",
   "forma": "ἐπαισχύνομαι",
+  "lema": "ἐπαισχύνομαι",
   "glosa_interlineal": "me avergüenzo",
   "rango_semantico": [
    "avergonzarse, sentir vergüenza"
@@ -332,7 +366,7 @@
   "construccion": "Presente indicativo medio: «no me avergüenzo del evangelio».",
   "sentido_en_contexto": "Tesis de la carta (1:16-17): el evangelio es «poder de Dios para salvación a todo aquel que cree», primero al judío y también al griego. Pablo lo declara sin vergüenza en la capital del Imperio, donde la cruz era escándalo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 1:18, 23-24",
@@ -340,9 +374,9 @@
    "Mr 8:38"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Rom.1.16#03",
+  "ref_estandar": "Rom.1.16",
   "morfologia_tagnt": "V-PNI-1S",
   "dstrong": "G1870",
   "strong_tagnt": "G1870",
@@ -358,13 +392,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be ashamed of",
-  "ref_estandar": "Rom.1.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rom.1.17",
+  "pos_tisch": 1,
   "strong": "G1343",
   "forma": "δικαιοσύνη",
+  "lema": "δικαιοσύνη",
   "glosa_interlineal": "justicia",
   "rango_semantico": [
    "justicia, rectitud, justificación"
@@ -372,7 +410,7 @@
   "construccion": "Nominativo: «la justicia de Dios se revela por fe y para fe».",
   "sentido_en_contexto": "δικαιοσύνη θεοῦ es el concepto clave de la carta. Se discute si es: (a) atributo divino (justicia de Dios que castiga y salva), (b) don de Dios (justicia que Dios da y que cuenta ante él), (c) acción salvadora de Dios fiel a su pacto. Hab 2:4 («el justo por la fe vivirá») apoya la lectura de la fe.",
   "matiz": "Debate (central en la historia de la teología): lectura luterana-reformada (justicia imputada, «de Dios» como don; Lutero); lectura de la fidelidad al pacto (N. T. Wright y la «nueva perspectiva»); lectura católica clásica (justicia infundida). Además, «por fe para fe» (ἐκ πίστεως εἰς πίστιν) se interpreta de varias formas (de fe en fe, desde la fe de Dios a la fe del hombre, etc.).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hab 2:4",
@@ -381,9 +419,9 @@
    "Fil 3:9"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "Rom.1.17#01",
+  "ref_estandar": "Rom.1.17",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G1343",
   "strong_tagnt": "G1343",
@@ -399,13 +437,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "righteousness",
-  "ref_estandar": "Rom.1.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rom.1.18",
+  "pos_tisch": 3,
   "strong": "G3709",
   "forma": "ὀργὴ",
+  "lema": "ὀργή",
   "glosa_interlineal": "ira",
   "rango_semantico": [
    "ira, enojo, cólera"
@@ -413,7 +455,7 @@
   "construccion": "Nominativo: «se revela la ira de Dios desde el cielo».",
   "sentido_en_contexto": "Paralelo con v.17: así como la justicia se revela en el evangelio, la ira de Dios se revela contra la impiedad e injusticia de quienes suprimen la verdad. La ira de Dios es su reacción justa ante el pecado, no capricho emocional.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 5:6",
@@ -422,9 +464,9 @@
    "Ro 2:5-8"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Rom.1.18#03",
+  "ref_estandar": "Rom.1.18",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G3709",
   "strong_tagnt": "G3709",
@@ -440,13 +482,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wrath",
-  "ref_estandar": "Rom.1.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rom.1.20",
+  "pos_tisch": 23,
   "strong": "G379",
   "forma": "ἀναπολογήτους",
+  "lema": "ἀναπολόγητος",
   "glosa_interlineal": "sin excusa",
   "rango_semantico": [
    "sin defensa, inexcusable"
@@ -454,7 +500,7 @@
   "construccion": "Acusativo plural: «de modo que no tienen excusa».",
   "sentido_en_contexto": "Revelación general: desde la creación, los atributos invisibles de Dios (su poder eterno y su deidad) se perciben en lo creado; por tanto, los hombres no tienen excusa. No afirma que bastara para salvar, sino que deja a todos sin defensa.",
   "matiz": "Debate sobre la teología natural: ¿la creación da conocimiento verdadero de Dios (lectura católica, teología natural) o solo deja inexcusables a los hombres, que lo suprimen (lectura reformada)? Pablo añade que, conociendo a Dios, no lo glorificaron (v.21).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 19:1-4",
@@ -462,9 +508,9 @@
    "Ro 2:14-15"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 23,
   "alineacion": "forma",
   "tagnt": "Rom.1.20#23",
+  "ref_estandar": "Rom.1.20",
   "morfologia_tagnt": "A-APM",
   "dstrong": "G0379",
   "strong_tagnt": "G379",
@@ -480,13 +526,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "inexcusable",
-  "ref_estandar": "Rom.1.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rom.1.21",
+  "pos_tisch": 12,
   "strong": "G3154",
   "forma": "ἐματαιώθησαν",
+  "lema": "ματαιόω",
   "glosa_interlineal": "se envanecieron",
   "rango_semantico": [
    "hacerse vano, volverse necio"
@@ -494,7 +544,7 @@
   "construccion": "Aoristo indicativo pasivo: «se envanecieron en sus razonamientos».",
   "sentido_en_contexto": "Consecuencia de no glorificar a Dios: su pensamiento se hizo vano y su corazón insensato se oscureció. La raíz de la idolatría no es falta de información, sino falta de gratitud y adoración.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 4:17-18",
@@ -502,9 +552,9 @@
    "Sal 14:1"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Rom.1.21#12",
+  "ref_estandar": "Rom.1.21",
   "morfologia_tagnt": "V-API-3P",
   "dstrong": "G3154",
   "strong_tagnt": "G3154",
@@ -520,13 +570,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to make futile",
-  "ref_estandar": "Rom.1.21"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rom.1.23",
+  "pos_tisch": 9,
   "strong": "G3667",
   "forma": "ὁμοιώματι",
+  "lema": "ὁμοίωμα",
   "glosa_interlineal": "semejanza",
   "rango_semantico": [
    "semejanza, imagen"
@@ -534,7 +588,7 @@
   "construccion": "Dativo: «cambiaron la gloria del Dios incorruptible por semejanza de imagen de hombre corruptible».",
   "sentido_en_contexto": "Eco de Sal 106:20 y Jer 2:11 (el becerro de oro): cambiaron la gloria de Dios por imágenes de hombres, aves, cuadrúpedos y reptiles: la jerarquía de Gn 1:20-26 al revés. Las criaturas adoradas sustituyen al Creador.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 106:20",
@@ -543,9 +597,9 @@
    "Hch 17:29"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Rom.1.23#09",
+  "ref_estandar": "Rom.1.23",
   "morfologia_tagnt": "N-DSN",
   "dstrong": "G3667",
   "strong_tagnt": "G3667",
@@ -561,13 +615,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "likeness",
-  "ref_estandar": "Rom.1.23"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rom.1.24",
+  "pos_tisch": 2,
   "strong": "G3860",
   "forma": "παρέδωκεν",
+  "lema": "παραδίδωμι",
   "glosa_interlineal": "entregó",
   "rango_semantico": [
    "entregar, abandonar"
@@ -575,7 +633,7 @@
   "construccion": "Aoristo indicativo activo: «Dios los entregó a la inmundicia».",
   "sentido_en_contexto": "Tres veces (vv.24, 26, 28) Pablo dice que «Dios los entregó» (παρέδωκεν) a las consecuencias de su rebelión: impureza, pasiones deshonrosas y mente reprobada. Es un juicio de abandono: Dios permite que sigan el camino elegido, no que los empuje al pecado.",
   "matiz": "Debate: ¿παρέδωκεν es un acto judicial activo (Dios endurece) o permisivo (retira su gracia restrictiva)? La mayoría lo entiende como abandono judicial: las consecuencias del pecado se vuelven castigo. Ver Sal 81:12; Hch 7:42.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 81:11-12",
@@ -584,9 +642,9 @@
    "2 Ts 2:10-12"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Rom.1.24#03",
+  "ref_estandar": "Rom.1.24",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G3860",
   "strong_tagnt": "G3860",
@@ -602,13 +660,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to deliver",
-  "ref_estandar": "Rom.1.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rom.1.26",
+  "pos_tisch": 22,
   "strong": "G5449",
   "forma": "φύσιν",
+  "lema": "φύσις",
   "glosa_interlineal": "naturaleza",
   "rango_semantico": [
    "naturaleza, orden natural"
@@ -616,7 +678,7 @@
   "construccion": "Acusativo: «cambiaron el uso natural por el que es contra naturaleza».",
   "sentido_en_contexto": "Pablo describe pasiones deshonrosas (πάθη ἀτιμίας), incluyendo relaciones sexuales entre personas del mismo sexo, como consecuencia de la idolatría. Es el texto del NT más directo sobre este tema.",
   "matiz": "Debate hermenéutico: (a) Pablo condena toda práctica homosexual como contraria al orden creado (lectura tradicional en las Iglesias católica, ortodoxa y evangélicas); (b) condena solo prácticas ligadas a idolatría, explotación o abuso, sin tratar la orientación (algunas lecturas contemporáneas); (c) «contra naturaleza» como costumbre cultural y no norma universal. La exégesis académica discute especialmente el sentido de φύσις y el contexto de 1:18-32.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 1:27",
@@ -625,9 +687,9 @@
    "1 Ti 1:10"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 22,
   "alineacion": "forma",
   "tagnt": "Rom.1.26#22",
+  "ref_estandar": "Rom.1.26",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G5449",
   "strong_tagnt": "G5449",
@@ -643,13 +705,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "nature",
-  "ref_estandar": "Rom.1.26"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rom.1.28",
+  "pos_tisch": 15,
   "strong": "G96",
   "forma": "ἀδόκιμον",
+  "lema": "ἀδόκιμος",
   "glosa_interlineal": "reprobada",
   "rango_semantico": [
    "reprobado, no aprobado, descalificado"
@@ -657,7 +723,7 @@
   "construccion": "Acusativo: «los entregó a una mente reprobada».",
   "sentido_en_contexto": "Juego de palabras: «no aprobaron (ἐδοκίμασαν) tener a Dios en su conocimiento», así Dios los entregó a una mente «no aprobada» (ἀδόκιμος). Los vv.29-31 enumeran un catálogo de vicios resultantes.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 1:24, 26",
@@ -665,9 +731,9 @@
    "Tit 1:16"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Rom.1.28#15",
+  "ref_estandar": "Rom.1.28",
   "morfologia_tagnt": "A-ASM",
   "dstrong": "G0096",
   "strong_tagnt": "G96",
@@ -683,13 +749,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "failing",
-  "ref_estandar": "Rom.1.28"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rom.1.29",
+  "pos_tisch": 8,
   "strong": "G5355",
   "forma": "φθόνου",
+  "lema": "φθόνος",
   "glosa_interlineal": "envidia",
   "rango_semantico": [
    "envidia, celos"
@@ -697,7 +767,7 @@
   "construccion": "Genitivo: «llenos de envidia, homicidios, contiendas, engaños».",
   "sentido_en_contexto": "Lista de vicios (vv.29-31): maldad, avaricia, envidia, homicidio, contienda, engaño, chisme, calumnia, orgullo, rebeldía a los padres, falta de misericordia… Un retrato de la humanidad sin Dios; la lista incluye pecados sociales además de los sexuales, y apunta a todos (cap. 2).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 5:19-21",
@@ -706,9 +776,9 @@
    "2 Ti 3:2-5"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Rom.1.29#09",
+  "ref_estandar": "Rom.1.29",
   "morfologia_tagnt": "N-GSM",
   "dstrong": "G5355",
   "strong_tagnt": "G5355",
@@ -724,13 +794,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "envy",
-  "ref_estandar": "Rom.1.29"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rom.1.32",
+  "pos_tisch": 21,
   "strong": "G4909",
   "forma": "συνευδοκοῦσιν",
+  "lema": "συνευδοκέω",
   "glosa_interlineal": "aprueban",
   "rango_semantico": [
    "aprobar, consentir, estar de acuerdo"
@@ -738,7 +812,7 @@
   "construccion": "Presente indicativo activo: «no sólo las hacen, sino que también se complacen con los que las practican».",
   "sentido_en_contexto": "Culmina la acusación: conocen el decreto de Dios (que tales cosas merecen muerte) y aun así las practican y aprueban a quienes las hacen. Prepara el giro de Ro 2:1: quien juzga a otros hace lo mismo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 2:1-3",
@@ -746,9 +820,9 @@
    "Hch 8:1"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 21,
   "alineacion": "forma",
   "tagnt": "Rom.1.32#21",
+  "ref_estandar": "Rom.1.32",
   "morfologia_tagnt": "V-PAI-3P",
   "dstrong": "G4909",
   "strong_tagnt": "G4909",
@@ -764,7 +838,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to agree to",
-  "ref_estandar": "Rom.1.32"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

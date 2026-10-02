@@ -1,8 +1,10 @@
 [
  {
   "ref": "Acts.4.1",
+  "pos_tisch": 18,
   "strong": "G4523",
   "forma": "Σαδδουκαῖοι",
+  "lema": "Σαδδουκαῖος",
   "glosa_interlineal": "saduceos",
   "rango_semantico": [
    "saduceo (partido sacerdotal judío)"
@@ -10,7 +12,7 @@
   "construccion": "Nominativo plural: «los saduceos».",
   "sentido_en_contexto": "Partido aristocrático y sacerdotal que negaba la resurrección de los muertos y no aceptaba las tradiciones orales de los fariseos. Se alarman porque los apóstoles proclaman la resurrección en Jesús.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 22:23-33 — controversia sobre la resurrección",
@@ -18,9 +20,9 @@
    "Lc 20:27"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "Acts.4.1#18",
+  "ref_estandar": "Acts.4.1",
   "morfologia_tagnt": "N-NPM-T",
   "dstrong": "G4523",
   "strong_tagnt": "G4523",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Sadducee",
-  "ref_estandar": "Acts.4.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.4.4",
+  "pos_tisch": 13,
   "strong": "G5505",
   "forma": "χιλιάδες",
+  "lema": "χιλιάς",
   "glosa_interlineal": "miles",
   "rango_semantico": [
    "millar, mil"
@@ -50,7 +56,7 @@
   "construccion": "Nominativo plural: «el número de los varones era como cinco mil».",
   "sentido_en_contexto": "A pesar del arresto, muchos creen; la cifra de «varones» llegó a unos cinco mil (sin contar mujeres y niños). Contraste con la represión: la persecución no detiene el crecimiento.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 2:41",
@@ -58,9 +64,9 @@
    "Mt 14:21 — cinco mil hombres"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Acts.4.4#15",
+  "ref_estandar": "Acts.4.4",
   "morfologia_tagnt": "N-NPF",
   "dstrong": "G5505",
   "strong_tagnt": "G5505",
@@ -76,13 +82,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "thousand",
-  "ref_estandar": "Acts.4.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.4.8",
+  "pos_tisch": 3,
   "strong": "G4130",
   "forma": "πλησθεὶς",
+  "lema": "πλήθω",
   "glosa_interlineal": "lleno",
   "rango_semantico": [
    "llenar, colmar"
@@ -90,7 +100,7 @@
   "construccion": "Participio aoristo pasivo: «Pedro, lleno del Espíritu Santo».",
   "sentido_en_contexto": "Cumple lo prometido en Lc 12:11-12: cuando sean llevados ante autoridades, el Espíritu les dirá qué decir. Pedro habla con plenitud del Espíritu en un momento específico (no es un estado permanente).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 12:11-12",
@@ -98,9 +108,9 @@
    "Ef 5:18"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Acts.4.8#03",
+  "ref_estandar": "Acts.4.8",
   "morfologia_tagnt": "V-APP-NSM",
   "dstrong": "G4130",
   "strong_tagnt": "G4130",
@@ -116,13 +126,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to fill",
-  "ref_estandar": "Acts.4.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.4.9",
+  "pos_tisch": 12,
   "strong": "G4982",
   "forma": "σέσωται",
+  "lema": "σώζω",
   "glosa_interlineal": "ha sido sanado",
   "rango_semantico": [
    "salvar, sanar, rescatar"
@@ -130,7 +144,7 @@
   "construccion": "Perfecto indicativo pasivo: «¿en qué nombre ha sido sanado (σέσωται) éste?».",
   "sentido_en_contexto": "σῴζω significa «sanar» y «salvar». Pedro juega con el doble sentido: la sanidad física ilustra la salvación del v.12. El mismo verbo vincula ambos pasajes.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 4:12",
@@ -138,9 +152,9 @@
    "Lc 7:50"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Acts.4.9#12",
+  "ref_estandar": "Acts.4.9",
   "morfologia_tagnt": "V-RPI-3S",
   "dstrong": "G4982",
   "strong_tagnt": "G4982",
@@ -156,13 +170,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to save",
-  "ref_estandar": "Acts.4.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.4.11",
+  "pos_tisch": 4,
   "strong": "G3037",
   "forma": "λίθος",
+  "lema": "λίθος",
   "glosa_interlineal": "piedra",
   "rango_semantico": [
    "piedra"
@@ -170,7 +188,7 @@
   "construccion": "Nominativo: «Jesús es la piedra reprobada por vosotros los edificadores».",
   "sentido_en_contexto": "Cita de Sal 118:22: la piedra rechazada por los constructores se ha vuelto piedra angular. Pedro la aplica a Jesús y a los sanedristas (los «edificadores»). Texto citado también en Mr 12:10 y 1 P 2:7.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 118:22",
@@ -179,9 +197,9 @@
    "Ef 2:20"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Acts.4.11#04",
+  "ref_estandar": "Acts.4.11",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G3037",
   "strong_tagnt": "G3037",
@@ -197,13 +215,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "stone",
-  "ref_estandar": "Acts.4.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.4.12",
+  "pos_tisch": 8,
   "strong": "G4991",
   "forma": "σωτηρία",
+  "lema": "σωτηρία",
   "glosa_interlineal": "salvación",
   "rango_semantico": [
    "salvación, rescate"
@@ -211,7 +233,7 @@
   "construccion": "Nominativo: «en ningún otro hay salvación».",
   "sentido_en_contexto": "Declaración de exclusividad: no hay otro nombre dado entre los hombres por el cual debamos ser salvos. «Nombre» alude a la persona y autoridad de Jesús. Pedro se refiere a la salvación definitiva.",
   "matiz": "Debate sobre el alcance: exclusivismo (la salvación solo por conocimiento explícito de Cristo), inclusivismo (la salvación es siempre por Cristo, aun para quienes no lo conocen explícitamente) o la afirmación del texto sobre quién salva sin precisar quiénes lo conocen. El contexto es la defensa ante un tribunal judío que sostiene otras vías (Torá, templo).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 14:6",
@@ -221,9 +243,9 @@
    "Fil 2:9-11"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Acts.4.12#08",
+  "ref_estandar": "Acts.4.12",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G4991",
   "strong_tagnt": "G4991",
@@ -239,13 +261,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "salvation",
-  "ref_estandar": "Acts.4.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.4.13",
+  "pos_tisch": 13,
   "strong": "G62",
   "forma": "ἀγράμματοί",
+  "lema": "ἀγράμματος",
   "glosa_interlineal": "sin letras",
   "rango_semantico": [
    "iletrado, sin estudios formales"
@@ -253,7 +279,7 @@
   "construccion": "Adjetivo nominativo plural: «hombres sin letras y del vulgo».",
   "sentido_en_contexto": "El Sanedrín nota que Pedro y Juan son «sin estudios formales» (no formados en las escuelas rabínicas) y «comunes» (ἰδιῶται), pero hablan con denuedo, y reconocen que «habían estado con Jesús». No significa analfabetos, sino sin formación rabínica.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 7:15",
@@ -261,9 +287,9 @@
    "1 Co 1:26-29"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Acts.4.13#13",
+  "ref_estandar": "Acts.4.13",
   "morfologia_tagnt": "A-NPM",
   "dstrong": "G0062",
   "strong_tagnt": "G62",
@@ -279,13 +305,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unschooled",
-  "ref_estandar": "Acts.4.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.4.16",
+  "pos_tisch": 23,
   "strong": "G720",
   "forma": "ἀρνεῖσθαι",
+  "lema": "ἀρνέομαι",
   "glosa_interlineal": "negar",
   "rango_semantico": [
    "negar, rechazar"
@@ -293,7 +323,7 @@
   "construccion": "Infinitivo presente medio: «no podemos negarlo».",
   "sentido_en_contexto": "Los sanedristas reconocen el milagro evidente y no pueden negarlo, pero deciden impedir que se divulgue. El problema no es la verdad del hecho, sino su efecto.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 11:47",
@@ -301,9 +331,9 @@
    "Jn 9:34"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 23,
   "alineacion": "forma",
   "tagnt": "Acts.4.16#23",
+  "ref_estandar": "Acts.4.16",
   "morfologia_tagnt": "V-PNN",
   "dstrong": "G0720",
   "strong_tagnt": "G720",
@@ -320,13 +350,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to deny",
-  "ref_estandar": "Acts.4.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.4.19",
+  "pos_tisch": 11,
   "strong": "G1342",
   "forma": "δίκαιόν",
+  "lema": "δίκαιος",
   "glosa_interlineal": "justo",
   "rango_semantico": [
    "justo, recto"
@@ -334,7 +368,7 @@
   "construccion": "Adjetivo nominativo: «juzgad si es justo delante de Dios obedecer a vosotros antes que a Dios».",
   "sentido_en_contexto": "Principio de desobediencia civil: cuando la autoridad humana prohíbe lo que Dios manda, se obedece a Dios. Pedro y Juan no pueden dejar de hablar de lo que han visto y oído (v.20).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 5:29",
@@ -343,9 +377,9 @@
    "Ro 13:1-7"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Acts.4.19#11",
+  "ref_estandar": "Acts.4.19",
   "morfologia_tagnt": "A-NSN",
   "dstrong": "G1342",
   "strong_tagnt": "G1342",
@@ -361,13 +395,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "just",
-  "ref_estandar": "Acts.4.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.4.24",
+  "pos_tisch": 12,
   "strong": "G1203",
   "forma": "δέσποτα",
+  "lema": "δεσπότης",
   "glosa_interlineal": "Soberano",
   "rango_semantico": [
    "amo, señor, soberano absoluto"
@@ -375,7 +413,7 @@
   "construccion": "Vocativo: «Soberano Señor».",
   "sentido_en_contexto": "δεσπότης es un título para Dios como Señor absoluto (no el habitual κύριος), usado en oración de súplica y alabanza. Apropiado para una oración que apela al poder de Dios creador y soberano sobre la historia.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 2:29",
@@ -384,9 +422,9 @@
    "Sal 146:6"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Acts.4.24#12",
+  "ref_estandar": "Acts.4.24",
   "morfologia_tagnt": "N-VSM",
   "dstrong": "G1203",
   "strong_tagnt": "G1203",
@@ -402,13 +440,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "master",
-  "ref_estandar": "Acts.4.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.4.25",
+  "pos_tisch": 14,
   "strong": "G5433",
   "forma": "ἐφρύαξαν",
+  "lema": "φρυάσσω",
   "glosa_interlineal": "se amotinaron",
   "rango_semantico": [
    "relinchar, enfurecerse, rebelarse con altivez"
@@ -416,7 +458,7 @@
   "construccion": "Aoristo indicativo activo: «¿por qué se amotinaron las gentes?».",
   "sentido_en_contexto": "Cita de Sal 2:1-2: los reyes y gobernantes se alzan contra el Señor y contra su Ungido. La comunidad aplica el salmo a Herodes, Pilato, gentiles e israelitas (v.27): todos los que se aliaron contra Jesús.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 2:1-2",
@@ -424,9 +466,9 @@
    "Ap 11:18; 19:19"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Acts.4.25#15",
+  "ref_estandar": "Acts.4.25",
   "morfologia_tagnt": "V-AAI-3P",
   "dstrong": "G5433",
   "strong_tagnt": "G5433",
@@ -442,13 +484,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to rage",
-  "ref_estandar": "Acts.4.25"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.4.27",
+  "pos_tisch": 16,
   "strong": "G5548",
   "forma": "ἔχρισας",
+  "lema": "χρίω",
   "glosa_interlineal": "ungiste",
   "rango_semantico": [
    "ungir, consagrar con óleo"
@@ -456,7 +502,7 @@
   "construccion": "Aoristo indicativo activo: «tu santo Siervo Jesús, a quien ungiste».",
   "sentido_en_contexto": "χρίω es el verbo del que deriva Χριστός («Ungido»). Dios ungió a Jesús con el Espíritu (Lc 4:18; Hch 10:38). La oración conecta el título «Cristo» con su unción y con Sal 2:2.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 4:18",
@@ -465,9 +511,9 @@
    "Is 61:1"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Acts.4.27#16",
+  "ref_estandar": "Acts.4.27",
   "morfologia_tagnt": "V-AAI-2S",
   "dstrong": "G5548",
   "strong_tagnt": "G5548",
@@ -483,13 +529,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to anoint",
-  "ref_estandar": "Acts.4.27"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.4.28",
+  "pos_tisch": 10,
   "strong": "G4309",
   "forma": "προώρισεν",
+  "lema": "προορίζω",
   "glosa_interlineal": "predestinó",
   "rango_semantico": [
    "predeterminar, destinar de antemano"
@@ -497,7 +547,7 @@
   "construccion": "Aoristo indicativo activo: «para hacer cuanto tu mano y tu consejo habían antes determinado que sucediera».",
   "sentido_en_contexto": "La comunidad confiesa que incluso la conspiración contra Jesús estaba dentro del plan soberano de Dios, sin eximir a los culpables. Eco de 2:23.",
   "matiz": "Soberanía divina y responsabilidad humana: el pasaje afirma ambas. Las lecturas reformada (determinación eficaz) y arminiana (presciencia y permisión) difieren en cómo conciliarlas.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 2:23",
@@ -506,9 +556,9 @@
    "Lc 22:22"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Acts.4.28#10",
+  "ref_estandar": "Acts.4.28",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G4309",
   "strong_tagnt": "G4309",
@@ -524,13 +574,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to predestine",
-  "ref_estandar": "Acts.4.28"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.4.29",
+  "pos_tisch": 8,
   "strong": "G547",
   "forma": "ἀπειλὰς",
+  "lema": "ἀπειλή",
   "glosa_interlineal": "amenazas",
   "rango_semantico": [
    "amenaza"
@@ -538,7 +592,7 @@
   "construccion": "Acusativo plural: «considera sus amenazas».",
   "sentido_en_contexto": "Los creyentes no piden que cesen las amenazas ni que los protejan, sino que se les dé denuedo para seguir hablando y que Dios extienda su mano con señales y prodigios. Oración ejemplar frente a la persecución.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 5:41",
@@ -546,9 +600,9 @@
    "Fil 1:14"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Acts.4.29#08",
+  "ref_estandar": "Acts.4.29",
   "morfologia_tagnt": "N-APF",
   "dstrong": "G0547",
   "strong_tagnt": "G547",
@@ -564,13 +618,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "threat",
-  "ref_estandar": "Acts.4.29"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.4.31",
+  "pos_tisch": 4,
   "strong": "G4531",
   "forma": "ἐσαλεύθη",
+  "lema": "σαλεύω",
   "glosa_interlineal": "fue sacudido",
   "rango_semantico": [
    "agitar, sacudir, estremecer"
@@ -578,7 +636,7 @@
   "construccion": "Aoristo indicativo pasivo: «el lugar en que estaban congregados tembló».",
   "sentido_en_contexto": "Respuesta de Dios a la oración: el lugar tiembla y todos son llenos del Espíritu Santo y hablan con denuedo. Señal de la presencia divina (cf. Éx 19:18; Is 6:4), como en Pentecostés.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 2:2-4",
@@ -587,9 +645,9 @@
    "Is 6:4"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Acts.4.31#04",
+  "ref_estandar": "Acts.4.31",
   "morfologia_tagnt": "V-API-3S",
   "dstrong": "G4531",
   "strong_tagnt": "G4531",
@@ -605,13 +663,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to shake",
-  "ref_estandar": "Acts.4.31"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.4.32",
+  "pos_tisch": 25,
   "strong": "G2839",
   "forma": "κοινά",
+  "lema": "κοινός",
   "glosa_interlineal": "en común",
   "rango_semantico": [
    "común, compartido"
@@ -619,7 +681,7 @@
   "construccion": "Adjetivo neutro plural: «tenían todas las cosas en común».",
   "sentido_en_contexto": "Unidad de la comunidad («un corazón y un alma») que se muestra en compartir bienes: ninguno decía que lo que poseía fuese suyo. Es voluntario y expresa generosidad más que doctrina económica.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 2:44-45",
@@ -628,9 +690,9 @@
    "2 Co 8:13-15"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 25,
   "alineacion": "forma",
   "tagnt": "Acts.4.32#27",
+  "ref_estandar": "Acts.4.32",
   "morfologia_tagnt": "A-NPN",
   "dstrong": "G2839H",
   "strong_tagnt": "G2839",
@@ -646,13 +708,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "common",
-  "ref_estandar": "Acts.4.32"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.4.36",
+  "pos_tisch": 13,
   "strong": "G3874",
   "forma": "παρακλήσεως",
+  "lema": "παράκλησις",
   "glosa_interlineal": "de consolación",
   "rango_semantico": [
    "consuelo, exhortación, ánimo"
@@ -660,7 +726,7 @@
   "construccion": "Genitivo: «hijo de consolación (o de exhortación)».",
   "sentido_en_contexto": "Primera presentación de Bernabé: José, levita de Chipre, llamado Bernabé («hijo de consuelo / exhortación»), que vende un campo y entrega el dinero a los apóstoles. Introduce a un personaje central (11:22-26; 13—15). Su generosidad contrasta con Ananías y Safira (cap. 5).",
   "matiz": "El arameo Bar-nabba se interpreta «hijo de consolación» (RVR) o «de exhortación/ánimo» (παράκλησις tiene ambos sentidos); su rol posterior (animar a Saulo, a Marcos, a los de Antioquía) apoya ambos.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 9:27; 11:22-26; 15:36-39",
@@ -668,9 +734,9 @@
    "Gá 2:1, 13"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Acts.4.36#13",
+  "ref_estandar": "Acts.4.36",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G3874",
   "strong_tagnt": "G3874",
@@ -686,7 +752,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "encouragement",
-  "ref_estandar": "Acts.4.36"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

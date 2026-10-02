@@ -1,8 +1,10 @@
 [
  {
   "ref": "1Cor.4.1",
+  "pos_tisch": 9,
   "strong": "G3623",
   "forma": "οἰκονόμους",
+  "lema": "οἰκονόμος",
   "glosa_interlineal": "administradores",
   "rango_semantico": [
    "administrador, mayordomo"
@@ -10,7 +12,7 @@
   "construccion": "Acusativo plural: «téngannos los hombres por servidores de Cristo y administradores de los misterios de Dios».",
   "sentido_en_contexto": "Los apóstoles son servidores (ὑπηρέται) y administradores (οἰκονόμοι) de los «misterios de Dios» (el evangelio, revelado). Lo que se les pide es fidelidad (v.2). La imagen del mayordomo se desarrolla en Lc 12:42; 16:1-13.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 12:42",
@@ -19,9 +21,9 @@
    "Ro 16:25"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "1Cor.4.1#09",
+  "ref_estandar": "1Cor.4.1",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G3623",
   "strong_tagnt": "G3623",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "manager",
-  "ref_estandar": "1Cor.4.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.4.3",
+  "pos_tisch": 9,
   "strong": "G350",
   "forma": "ἀνακριθῶ",
+  "lema": "ἀνακρίνω",
   "glosa_interlineal": "sea juzgado",
   "rango_semantico": [
    "examinar, interrogar, juzgar"
@@ -51,7 +57,7 @@
   "construccion": "Subjuntivo aoristo pasivo: «en muy poco tengo el ser juzgado por vosotros, o por tribunal humano».",
   "sentido_en_contexto": "Pablo no se preocupa por el juicio humano (ἀνάκρισις: examen judicial): ni siquiera se juzga a sí mismo. Solo el Señor es quien lo juzga (v.4). Prepara la advertencia de no juzgar antes de tiempo (v.5).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 2:15; 11:31",
@@ -59,10 +65,9 @@
    "2 Co 5:10"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1Cor.4.3#09",
+  "ref_estandar": "1Cor.4.3",
   "morfologia_tagnt": "V-APS-1S",
   "dstrong": "G0350",
   "strong_tagnt": "G350",
@@ -78,13 +83,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to investigate",
-  "ref_estandar": "1Cor.4.3"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.4.4",
+  "pos_tisch": 9,
   "strong": "G1344",
   "forma": "δεδικαίωμαι",
+  "lema": "δικαιόω",
   "glosa_interlineal": "he sido justificado",
   "rango_semantico": [
    "declarar justo, justificar"
@@ -92,7 +102,7 @@
   "construccion": "Perfecto indicativo pasivo: «aunque de nada tengo mala conciencia, no por eso soy justificado».",
   "sentido_en_contexto": "Pablo reconoce que una conciencia limpia no equivale a veredicto favorable de Dios: «el que me juzga es el Señor». Aquí «justificado» significa «declarado inocente en el juicio final», no el acto inicial de Ro 3-5.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 14:10-12",
@@ -100,9 +110,9 @@
    "Sal 19:12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "1Cor.4.4#09",
+  "ref_estandar": "1Cor.4.4",
   "morfologia_tagnt": "V-RPI-1S",
   "dstrong": "G1344",
   "strong_tagnt": "G1344",
@@ -118,13 +128,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to justify",
-  "ref_estandar": "1Cor.4.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.4.5",
+  "pos_tisch": 16,
   "strong": "G2927",
   "forma": "κρυπτὰ",
+  "lema": "κρυπτός",
   "glosa_interlineal": "lo oculto",
   "rango_semantico": [
    "escondido, oculto, secreto"
@@ -132,7 +146,7 @@
   "construccion": "Acusativo plural: «el cual aclarará también lo oculto de las tinieblas, y manifestará las intenciones de los corazones».",
   "sentido_en_contexto": "El Señor, al venir, sacará a la luz lo escondido y las intenciones del corazón. Entonces habrá alabanza de parte de Dios para cada uno. Razón para no juzgar prematuramente: el juicio humano es incompleto.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 2:16",
@@ -141,9 +155,9 @@
    "Mt 7:1-2"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "1Cor.4.5#16",
+  "ref_estandar": "1Cor.4.5",
   "morfologia_tagnt": "A-APN",
   "dstrong": "G2927",
   "strong_tagnt": "G2927",
@@ -159,13 +173,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hidden",
-  "ref_estandar": "1Cor.4.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.4.6",
+  "pos_tisch": 26,
   "strong": "G5448",
   "forma": "φυσιοῦσθε",
+  "lema": "φυσιόω",
   "glosa_interlineal": "os envanezcáis",
   "rango_semantico": [
    "envanecerse, hincharse de orgullo"
@@ -173,7 +191,7 @@
   "construccion": "Subjuntivo presente medio-pasivo: «para que ninguno se envanezca a favor de uno contra otro».",
   "sentido_en_contexto": "φυσιόω («hincharse») es el verbo del orgullo corintio (4:6, 18, 19; 5:2; 8:1; 13:4). «No más allá de lo que está escrito» (τὸ μὴ ὑπὲρ ἃ γέγραπται) es una frase críptica: se interpreta como regla de humildad según la Escritura.",
   "matiz": "Debate sobre «no más allá de lo que está escrito»: (a) respeto a la Escritura (AT) en lo dicho (lectura común); (b) glosa de copista incorporada al texto; (c) lema corintio que Pablo cita. Pablo usa la frase para pedir mesura.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 1:19, 31; 3:19-20",
@@ -181,9 +199,9 @@
    "1 Co 8:1; 13:4"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 26,
   "alineacion": "forma",
   "tagnt": "1Cor.4.6#27",
+  "ref_estandar": "1Cor.4.6",
   "morfologia_tagnt": "V-PPI-2P",
   "dstrong": "G5448",
   "strong_tagnt": "G5448",
@@ -199,13 +217,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to inflate",
-  "ref_estandar": "1Cor.4.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.4.7",
+  "pos_tisch": 10,
   "strong": "G2983",
   "forma": "ἔλαβες",
+  "lema": "λαμβάνω",
   "glosa_interlineal": "recibiste",
   "rango_semantico": [
    "recibir, tomar"
@@ -213,7 +235,7 @@
   "construccion": "Aoristo indicativo activo: «¿qué tienes que no hayas recibido? Y si lo recibiste, ¿por qué te jactas?».",
   "sentido_en_contexto": "Pregunta decisiva contra el orgullo: todo lo que se tiene (dones, conocimiento, posición) es recibido de Dios, de modo que la jactancia queda excluida. Es la lógica de la gracia aplicada a la vida de la iglesia.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 3:27",
@@ -222,10 +244,9 @@
    "Ro 11:36"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1Cor.4.7#10",
+  "ref_estandar": "1Cor.4.7",
   "morfologia_tagnt": "V-2AAI-2S",
   "dstrong": "G2983",
   "strong_tagnt": "G2983",
@@ -241,13 +262,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to take",
-  "ref_estandar": "1Cor.4.7"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.4.7",
+  "pos_tisch": 14,
   "strong": "G2983",
   "forma": "ἔλαβες",
+  "lema": "λαμβάνω",
   "glosa_interlineal": "recibiste",
   "rango_semantico": [
    "recibir, tomar"
@@ -255,7 +281,7 @@
   "construccion": "Aoristo indicativo activo: «¿qué tienes que no hayas recibido? Y si lo recibiste, ¿por qué te jactas?».",
   "sentido_en_contexto": "Pregunta decisiva contra el orgullo: todo lo que se tiene (dones, conocimiento, posición) es recibido de Dios, de modo que la jactancia queda excluida. Es la lógica de la gracia aplicada a la vida de la iglesia.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 3:27",
@@ -264,10 +290,9 @@
    "Ro 11:36"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1Cor.4.7#14",
+  "ref_estandar": "1Cor.4.7",
   "morfologia_tagnt": "V-2AAI-2S",
   "dstrong": "G2983",
   "strong_tagnt": "G2983",
@@ -283,13 +308,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to take",
-  "ref_estandar": "1Cor.4.7"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.4.8",
+  "pos_tisch": 8,
   "strong": "G936",
   "forma": "ἐβασιλεύσατε",
+  "lema": "βασιλεύω",
   "glosa_interlineal": "reináis",
   "rango_semantico": [
    "reinar, gobernar"
@@ -297,7 +327,7 @@
   "construccion": "Aoristo indicativo activo: «ya estáis saciados, ya estáis ricos, sin nosotros reináis».",
   "sentido_en_contexto": "Ironía de Pablo: los corintios se comportan como si el reino de Dios ya estuviera plenamente presente (escatología «realizada»), mientras los apóstoles sufren. «¡Ojalá reinaseis, para que nosotros reinásemos con vosotros!». Contraste con la condición de los apóstoles (vv.9-13).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 3:17",
@@ -305,10 +335,9 @@
    "1 Co 15:50-57"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1Cor.4.8#08",
+  "ref_estandar": "1Cor.4.8",
   "morfologia_tagnt": "V-AAI-2P",
   "dstrong": "G0936",
   "strong_tagnt": "G936",
@@ -324,13 +353,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to reign",
-  "ref_estandar": "1Cor.4.8"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.4.8",
+  "pos_tisch": 12,
   "strong": "G936",
   "forma": "ἐβασιλεύσατε",
+  "lema": "βασιλεύω",
   "glosa_interlineal": "reináis",
   "rango_semantico": [
    "reinar, gobernar"
@@ -338,7 +372,7 @@
   "construccion": "Aoristo indicativo activo: «ya estáis saciados, ya estáis ricos, sin nosotros reináis».",
   "sentido_en_contexto": "Ironía de Pablo: los corintios se comportan como si el reino de Dios ya estuviera plenamente presente (escatología «realizada»), mientras los apóstoles sufren. «¡Ojalá reinaseis, para que nosotros reinásemos con vosotros!». Contraste con la condición de los apóstoles (vv.9-13).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 3:17",
@@ -346,10 +380,9 @@
    "1 Co 15:50-57"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1Cor.4.8#12",
+  "ref_estandar": "1Cor.4.8",
   "morfologia_tagnt": "V-AAI-2P",
   "dstrong": "G0936",
   "strong_tagnt": "G936",
@@ -365,13 +398,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to reign",
-  "ref_estandar": "1Cor.4.8"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.4.9",
+  "pos_tisch": 13,
   "strong": "G2302",
   "forma": "θέατρον",
+  "lema": "θέατρον",
   "glosa_interlineal": "espectáculo",
   "rango_semantico": [
    "teatro, espectáculo"
@@ -379,7 +417,7 @@
   "construccion": "Nominativo: «hemos llegado a ser espectáculo al mundo, a los ángeles y a los hombres».",
   "sentido_en_contexto": "Imagen del anfiteatro romano: los apóstoles son como condenados a muerte al final del cortejo, expuestos al público. «Los últimos» (ἔσχατοι) entre los hombres. Contrasta con la jactancia corintia.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Heb 10:33",
@@ -387,9 +425,9 @@
    "Ro 8:36"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "1Cor.4.9#14",
+  "ref_estandar": "1Cor.4.9",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G2302",
   "strong_tagnt": "G2302",
@@ -405,13 +443,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "theatre",
-  "ref_estandar": "1Cor.4.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.4.10",
+  "pos_tisch": 2,
   "strong": "G3474",
   "forma": "μωροὶ",
+  "lema": "μωρός",
   "glosa_interlineal": "necios",
   "rango_semantico": [
    "necio, insensato"
@@ -419,7 +461,7 @@
   "construccion": "Nominativo plural: «nosotros somos necios por amor de Cristo, mas vosotros prudentes en Cristo».",
   "sentido_en_contexto": "Paradoja irónica de Pablo: «necios» (nosotros) frente a «prudentes, fuertes, ilustres» (vosotros). Pablo contrasta las condiciones (necio/prudente, débil/fuerte, despreciado/honrado) para sacudir la jactancia corintia.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 1:18-25",
@@ -427,9 +469,9 @@
    "Gá 6:17"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "1Cor.4.10#02",
+  "ref_estandar": "1Cor.4.10",
   "morfologia_tagnt": "A-NPM",
   "dstrong": "G3474",
   "strong_tagnt": "G3474",
@@ -445,13 +487,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "foolish",
-  "ref_estandar": "1Cor.4.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.4.13",
+  "pos_tisch": 4,
   "strong": "G4027",
   "forma": "περικαθάρματα",
+  "lema": "περικάθαρμα",
   "glosa_interlineal": "desecho",
   "rango_semantico": [
    "inmundicia, desecho, lo que se barre"
@@ -459,7 +505,7 @@
   "construccion": "Nominativo: «hemos venido a ser hasta ahora como la escoria del mundo, el desecho de todos».",
   "sentido_en_contexto": "περικάθαρμα y περίψημα son términos de lo que se limpia y se echa fuera; se usaban para el chivo expiatorio humano en ciertos ritos paganos. Pablo, el apóstol, es tratado como basura.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lm 3:45",
@@ -467,9 +513,9 @@
    "2 Co 4:8-10"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "1Cor.4.13#04",
+  "ref_estandar": "1Cor.4.13",
   "morfologia_tagnt": "N-NPN",
   "dstrong": "G4027",
   "strong_tagnt": "G4027",
@@ -485,13 +531,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "garbage",
-  "ref_estandar": "1Cor.4.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.4.15",
+  "pos_tisch": 4,
   "strong": "G3807",
   "forma": "παιδαγωγοὺς",
+  "lema": "παιδαγωγός",
   "glosa_interlineal": "ayos",
   "rango_semantico": [
    "pedagogo (esclavo que acompaña al niño), tutor"
@@ -499,7 +549,7 @@
   "construccion": "Acusativo plural: «aunque tengáis diez mil ayos en Cristo, no tendréis muchos padres».",
   "sentido_en_contexto": "El paidagogos acompañaba y vigilaba al niño, sin ser su padre. Pablo se presenta como padre espiritual de los corintios («yo os engendré por el evangelio»): relación única de origen. Ejerce autoridad paternal con ternura (v.14).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 3:24-25",
@@ -508,9 +558,9 @@
    "Gá 4:19"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "1Cor.4.15#04",
+  "ref_estandar": "1Cor.4.15",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G3807",
   "strong_tagnt": "G3807",
@@ -526,13 +576,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "guardian",
-  "ref_estandar": "1Cor.4.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.4.16",
+  "pos_tisch": 4,
   "strong": "G3402",
   "forma": "μιμηταί",
+  "lema": "μιμητής",
   "glosa_interlineal": "imitadores",
   "rango_semantico": [
    "imitador"
@@ -540,7 +594,7 @@
   "construccion": "Nominativo plural: «os ruego que me imitéis».",
   "sentido_en_contexto": "Pablo pide imitación (μίμησις) de su carácter humilde y servicial, y envía a Timoteo para recordarles «mis caminos en Cristo» (v.17). «Imitadores de mí, como yo de Cristo» (11:1). Autoridad apostólica ejercida como modelo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 11:1",
@@ -549,9 +603,9 @@
    "Ef 5:1"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "1Cor.4.16#04",
+  "ref_estandar": "1Cor.4.16",
   "morfologia_tagnt": "N-NPM",
   "dstrong": "G3402",
   "strong_tagnt": "G3402",
@@ -567,13 +621,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "imitator",
-  "ref_estandar": "1Cor.4.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.4.20",
+  "pos_tisch": 11,
   "strong": "G1411",
   "forma": "δυνάμει",
+  "lema": "δύναμις",
   "glosa_interlineal": "poder",
   "rango_semantico": [
    "poder, fuerza"
@@ -581,7 +639,7 @@
   "construccion": "Dativo: «el reino de Dios no consiste en palabras, sino en poder».",
   "sentido_en_contexto": "Los orgullosos de Corinto son «palabra» (hinchados); Pablo, cuando vaya, medirá su «poder». El reino de Dios se evidencia en poder (transformación real), no en retórica. Cierra con elección: «¿vara, o amor y espíritu de mansedumbre?».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 2:4-5",
@@ -589,9 +647,9 @@
    "Ro 14:17"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "1Cor.4.20#11",
+  "ref_estandar": "1Cor.4.20",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G1411",
   "strong_tagnt": "G1411",
@@ -607,7 +665,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "power",
-  "ref_estandar": "1Cor.4.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

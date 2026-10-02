@@ -1,8 +1,10 @@
 [
  {
   "ref": "Jas.5.1",
+  "pos_tisch": 4,
   "strong": "G4145",
   "forma": "πλούσιοι",
+  "lema": "πλούσιος",
   "glosa_interlineal": "ricos",
   "rango_semantico": [
    "rico"
@@ -10,7 +12,7 @@
   "construccion": "Vocativo plural: «ahora bien, ricos, llorad y aullad por las miserias que os vendrán».",
   "sentido_en_contexto": "Denuncia profética contra los ricos opresores (5:1-6), con tono de los profetas del AT. Se les acusa de acumular riquezas, defraudar jornales, vivir en lujo y condenar al justo. No hay llamado explícito a arrepentirse; se centra en el juicio venidero. Se discute si los ricos son cristianos o no.",
   "matiz": "Debate: (a) los ricos son incrédulos opresores, y el pasaje consuela a los fieles oprimidos (la mayoría); (b) incluye a ricos en la comunidad (cf. 2:1-7); (c) se trata de una advertencia profética genérica contra la injusticia económica. Sin pretender que la riqueza sea intrínsecamente pecaminosa.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 6:24",
@@ -19,9 +21,9 @@
    "Am 8:4-8"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Jas.5.1#04",
+  "ref_estandar": "Jas.5.1",
   "morfologia_tagnt": "A-VPM",
   "dstrong": "G4145",
   "strong_tagnt": "G4145",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "rich",
-  "ref_estandar": "Jas.5.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.5.3",
+  "pos_tisch": 25,
   "strong": "G2078",
   "forma": "ἐσχάταις",
+  "lema": "ἔσχατος",
   "glosa_interlineal": "postreros",
   "rango_semantico": [
    "último, final"
@@ -51,7 +57,7 @@
   "construccion": "Dativo: «vuestro oro y plata están enmohecidos; y su moho testificará contra vosotros, y devorará del todo vuestras carnes como fuego. Habéis acumulado tesoros para los días postreros».",
   "sentido_en_contexto": "Riquezas acumuladas sin uso que se corroen y se levantan como testimonio de acusación. «Los días postreros» pueden ser la era escatológica o la inminencia del juicio. La riqueza acumulada es evidencia contra el rico.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 6:19-20",
@@ -59,9 +65,9 @@
    "Pr 11:4"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 25,
   "alineacion": "forma",
   "tagnt": "Jas.5.3#25",
+  "ref_estandar": "Jas.5.3",
   "morfologia_tagnt": "A-DPF",
   "dstrong": "G2078",
   "strong_tagnt": "G2078",
@@ -77,13 +83,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "last/least",
-  "ref_estandar": "Jas.5.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.5.4",
+  "pos_tisch": 3,
   "strong": "G3408",
   "forma": "μισθὸς",
+  "lema": "μισθός",
   "glosa_interlineal": "salario",
   "rango_semantico": [
    "salario, paga"
@@ -91,7 +101,7 @@
   "construccion": "Nominativo: «he aquí, el jornal de los obreros que han cosechado vuestras tierras, el cual por engaño no ha sido pagado por vosotros, clama; y los clamores de los que habían segado han entrado en los oídos del Señor de los ejércitos».",
   "sentido_en_contexto": "Pecado de retener el salario de los jornaleros (Dt 24:14-15; Lv 19:13). El clamor llega al «Señor Sabaot» (de los ejércitos), título de poder. La justicia social es preocupación divina. Alude a Gn 4:10.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 24:14-15",
@@ -100,9 +110,9 @@
    "Mal 3:5"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Jas.5.4#03",
+  "ref_estandar": "Jas.5.4",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G3408",
   "strong_tagnt": "G3408",
@@ -118,13 +128,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wage",
-  "ref_estandar": "Jas.5.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.5.6",
+  "pos_tisch": 4,
   "strong": "G1342",
   "forma": "δίκαιον",
+  "lema": "δίκαιος",
   "glosa_interlineal": "justo",
   "rango_semantico": [
    "justo"
@@ -132,7 +146,7 @@
   "construccion": "Acusativo: «habéis condenado y dado muerte al justo, y él no os resiste».",
   "sentido_en_contexto": "El «justo» puede ser cualquier inocente oprimido, o una referencia a Cristo (Hch 3:14; 7:52) o a la tradición del justo sufriente (Sab 2). Se discute si es colectivo. «No os resiste»: silencio ante la injusticia.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 3:14; 7:52",
@@ -141,9 +155,9 @@
    "Am 2:6"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Jas.5.6#04",
+  "ref_estandar": "Jas.5.6",
   "morfologia_tagnt": "A-ASM",
   "dstrong": "G1342",
   "strong_tagnt": "G1342",
@@ -159,13 +173,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "just",
-  "ref_estandar": "Jas.5.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.5.7",
+  "pos_tisch": 1,
   "strong": "G3114",
   "forma": "Μακροθυμήσατε",
+  "lema": "μακροθυμέω",
   "glosa_interlineal": "tened paciencia",
   "rango_semantico": [
    "tener paciencia, ser longánime"
@@ -173,7 +191,7 @@
   "construccion": "Imperativo aoristo activo: «por tanto, hermanos, tened paciencia hasta la venida del Señor. Mirad cómo el labrador espera el precioso fruto de la tierra, aguardando con paciencia hasta que recibe la lluvia temprana y la tardía».",
   "sentido_en_contexto": "Exhortación a los oprimidos: esperar con paciencia hasta la parusía, como el agricultor. «La lluvia temprana y tardía» (otoño y primavera en Palestina). Se afirma la proximidad de la venida (v.8: «ha llegado cerca»).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 11:14",
@@ -182,10 +200,9 @@
    "Ap 22:20"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Jas.5.7#01",
+  "ref_estandar": "Jas.5.7",
   "morfologia_tagnt": "V-AAM-2P",
   "dstrong": "G3114",
   "strong_tagnt": "G3114",
@@ -201,13 +218,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to have patience",
-  "ref_estandar": "Jas.5.7"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.5.9",
+  "pos_tisch": 11,
   "strong": "G2923",
   "forma": "κριτὴς",
+  "lema": "κριτής",
   "glosa_interlineal": "juez",
   "rango_semantico": [
    "juez"
@@ -215,7 +237,7 @@
   "construccion": "Nominativo: «hermanos, no os quejéis unos contra otros, para que no seáis condenados; he aquí, el juez está delante de la puerta».",
   "sentido_en_contexto": "El Juez está a las puertas: llamado a no quejarse (murmurar) unos de otros. Escatología pastoral: la cercanía del juicio motiva la paz comunitaria y la vigilancia. Cf. Mt 24:33.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 24:33",
@@ -224,9 +246,9 @@
    "Jas 4:11-12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Jas.5.9#11",
+  "ref_estandar": "Jas.5.9",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G2923",
   "strong_tagnt": "G2923",
@@ -242,13 +264,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "judge",
-  "ref_estandar": "Jas.5.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.5.11",
+  "pos_tisch": 7,
   "strong": "G2492",
   "forma": "Ἰὼβ",
+  "lema": "Ἰώβ",
   "glosa_interlineal": "Job",
   "rango_semantico": [
    "Job"
@@ -256,7 +282,7 @@
   "construccion": "Acusativo: «he aquí, tenemos por bienaventurados a los que sufren. Habéis oído de la paciencia de Job, y habéis visto el fin que el Señor le dio, que el Señor es muy misericordioso y compasivo».",
   "sentido_en_contexto": "Job como ejemplo de perseverancia: «la paciencia de Job» (ὑπομονή: constancia, no pasividad). «El fin del Señor» es el desenlace de restauración (Job 42): Dios es compasivo y misericordioso. Texto que corrige una lectura de Job como sufrimiento sin sentido.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Job 1:21-22; 42:10-17",
@@ -264,9 +290,9 @@
    "Heb 12:1-2"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Jas.5.11#07",
+  "ref_estandar": "Jas.5.11",
   "morfologia_tagnt": "N-GSM-P",
   "dstrong": "G2492",
   "strong_tagnt": "G2492",
@@ -282,13 +308,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Job",
-  "ref_estandar": "Jas.5.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.5.12",
+  "pos_tisch": 7,
   "strong": "G3660",
   "forma": "ὀμνύετε",
+  "lema": "ὀμνύω",
   "glosa_interlineal": "juréis",
   "rango_semantico": [
    "jurar"
@@ -296,7 +326,7 @@
   "construccion": "Imperativo presente activo: «pero sobre todo, hermanos míos, no juréis, ni por el cielo, ni por la tierra, ni por ningún otro juramento; sino sea vuestro sí, sí, y vuestro no, no, para que no caigáis en condenación».",
   "sentido_en_contexto": "Eco de Mt 5:33-37: no usar juramentos para respaldar la veracidad; basta la integridad (sí, sí; no, no). Se debate si prohíbe todo juramento (incluso judicial) o solo los frívolos y evasivos.",
   "matiz": "Debate: (a) prohibición absoluta de juramentos (anabaptistas, cuáqueros, algunos); (b) prohibición de juramentos frívolos o por criaturas, pero admite juramentos solemnes en contextos legales (reformada, católica, ortodoxa; Pablo jura, 2 Co 1:23; Dios jura, Heb 6:13-18). El contexto es la veracidad en la vida cotidiana.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 5:33-37",
@@ -305,9 +335,9 @@
    "Ef 4:25"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Jas.5.12#07",
+  "ref_estandar": "Jas.5.12",
   "morfologia_tagnt": "V-PAM-2P",
   "dstrong": "G3660",
   "strong_tagnt": "G3660",
@@ -323,13 +353,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to swear",
-  "ref_estandar": "Jas.5.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.5.14",
+  "pos_tisch": 7,
   "strong": "G4245",
   "forma": "πρεσβυτέρους",
+  "lema": "πρεσβύτερος",
   "glosa_interlineal": "ancianos",
   "rango_semantico": [
    "anciano, presbítero"
@@ -337,7 +371,7 @@
   "construccion": "Acusativo plural: «¿Está alguno enfermo entre vosotros? Llame a los ancianos de la iglesia, y oren por él, ungiéndole con aceite en el nombre del Señor».",
   "sentido_en_contexto": "Texto fundamental sobre la unción de enfermos: los ancianos de la iglesia oran y ungen con aceite «en el nombre del Señor». Se debate el sentido del aceite (medicinal, simbólico o sacramental) y el alcance de la sanidad. La tradición católica ve aquí la base del sacramento de la unción de enfermos; otras tradiciones, un rito de oración con unción simbólica.",
   "matiz": "Debate sobre la unción: (a) sacramento de la unción de los enfermos (católica, ortodoxa); (b) rito simbólico de consagración y oración, con sanidad por la fe (reformada, pentecostal); (c) uso medicinal del aceite junto con la oración (algunos). Sobre el efecto: sanidad física y perdón (v.15), o restauración general. Debate sobre ἀσθενέω: enfermedad física o desánimo espiritual.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 6:13",
@@ -346,9 +380,9 @@
    "1 Co 12:9"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Jas.5.14#07",
+  "ref_estandar": "Jas.5.14",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G4245G",
   "strong_tagnt": "G4245",
@@ -364,13 +398,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "elder",
-  "ref_estandar": "Jas.5.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.5.15",
+  "pos_tisch": 6,
   "strong": "G4982",
   "forma": "σώσει",
+  "lema": "σώζω",
   "glosa_interlineal": "salvará",
   "rango_semantico": [
    "salvar, sanar"
@@ -378,7 +416,7 @@
   "construccion": "Futuro indicativo activo: «y la oración de fe salvará al enfermo, y el Señor lo levantará; y si hubiere cometido pecados, le serán perdonados».",
   "sentido_en_contexto": "σῴζω aquí puede ser «sanar» o «salvar»: el enfermo «será sanado» y «levantado»; si hay pecado, será perdonado. La promesa se condiciona a la «oración de fe», sin garantizar sanidad automática. Se discute cómo se concilia con los casos en que no sana (2 Co 12:7-9; 2 Ti 4:20).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 11:24",
@@ -387,9 +425,9 @@
    "1 Jn 5:14-15"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Jas.5.15#06",
+  "ref_estandar": "Jas.5.15",
   "morfologia_tagnt": "V-FAI-3S",
   "dstrong": "G4982",
   "strong_tagnt": "G4982",
@@ -405,13 +443,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to save",
-  "ref_estandar": "Jas.5.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.5.16",
+  "pos_tisch": 1,
   "strong": "G1843",
   "forma": "ἐξομολογεῖσθε",
+  "lema": "ἐξομολογέω",
   "glosa_interlineal": "confesaos",
   "rango_semantico": [
    "confesar, reconocer"
@@ -419,7 +461,7 @@
   "construccion": "Imperativo presente medio: «confesaos vuestras ofensas unos a otros, y orad unos por otros, para que seáis sanados. La oración eficaz del justo puede mucho».",
   "sentido_en_contexto": "Confesión mutua de pecados (en la comunidad) y oración recíproca. La tradición católica ha visto aquí un fundamento de la confesión sacramental; la mayoría protestante, la confesión entre hermanos. Se vincula con la sanidad y la eficacia de la oración del justo.",
   "matiz": "Debate: (a) confesión mutua entre creyentes, no necesariamente a un sacerdote (protestante); (b) base de la confesión auricular ante el presbítero (católica, ortodoxa); (c) confesión comunitaria. La «sanidad» incluye la restauración física y espiritual.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Jn 1:9",
@@ -428,9 +470,9 @@
    "Pr 28:13"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "Jas.5.16#01",
+  "ref_estandar": "Jas.5.16",
   "morfologia_tagnt": "V-PMM-2P",
   "dstrong": "G1843",
   "strong_tagnt": "G1843",
@@ -446,13 +488,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to agree",
-  "ref_estandar": "Jas.5.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.5.17",
+  "pos_tisch": 1,
   "strong": "G2243",
   "forma": "Ἠλείας",
+  "lema": "Ἡλίας",
   "glosa_interlineal": "Elías",
   "rango_semantico": [
    "Elías"
@@ -460,7 +506,7 @@
   "construccion": "Nominativo: «Elías era hombre sujeto a pasiones semejantes a las nuestras, y oró fervientemente para que no lloviese, y no llovió sobre la tierra por tres años y seis meses».",
   "sentido_en_contexto": "Elías, gigante profético, es presentado como persona normal; su oración eficaz muestra que la oración del justo tiene poder. La cifra de tres años y medio (también en Lc 4:25) no aparece en 1 R 17-18; refleja tradición judía (cf. 1 R 18:1: «al tercer año»).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 R 17:1; 18:1, 41-45",
@@ -468,9 +514,9 @@
    "Ap 11:6"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "strong",
   "tagnt": "Jas.5.17#01",
+  "ref_estandar": "Jas.5.17",
   "morfologia_tagnt": "N-NSM-P",
   "dstrong": "G2243",
   "strong_tagnt": "G2243",
@@ -486,13 +532,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Elijah",
-  "ref_estandar": "Jas.5.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.5.19",
+  "pos_tisch": 12,
   "strong": "G1994",
   "forma": "ἐπιστρέψῃ",
+  "lema": "ἐπιστρέφω",
   "glosa_interlineal": "haga volver",
   "rango_semantico": [
    "hacer volver, convertir"
@@ -500,7 +550,7 @@
   "construccion": "Subjuntivo aoristo activo: «hermanos, si alguno de entre vosotros se ha extraviado de la verdad, y alguno le hace volver».",
   "sentido_en_contexto": "Final de la carta: el cuidado mutuo de los hermanos extraviados. Quien hace volver a un pecador «salvará su alma de muerte y cubrirá multitud de pecados» (v.20). «Muerte» se discute (física o eterna); «cubrirá multitud de pecados» puede ser los del extraviado o los del que lo hace volver.",
   "matiz": "Debate sobre v.20: (a) salvará de la muerte espiritual (eterna) al extraviado y cubrirá sus pecados por el perdón de Dios (la mayoría); (b) salvará de la muerte física (como juicio, cf. 5:15; 1 Co 11:30); (c) los pecados cubiertos son los del que hace volver (menos probable). El texto no enseña salvación por mérito humano.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 6:1",
@@ -509,9 +559,9 @@
    "Pr 10:12"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Jas.5.19#12",
+  "ref_estandar": "Jas.5.19",
   "morfologia_tagnt": "V-AAS-3S",
   "dstrong": "G1994",
   "strong_tagnt": "G1994",
@@ -527,13 +577,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to turn",
-  "ref_estandar": "Jas.5.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.5.20",
+  "pos_tisch": 16,
   "strong": "G2572",
   "forma": "καλύψει",
+  "lema": "καλύπτω",
   "glosa_interlineal": "cubrirá",
   "rango_semantico": [
    "cubrir, tapar"
@@ -541,7 +595,7 @@
   "construccion": "Futuro indicativo activo: «sepa que el que haga volver al pecador del error de su camino, salvará de muerte un alma, y cubrirá multitud de pecados».",
   "sentido_en_contexto": "«Cubrir multitud de pecados» (cf. Pr 10:12; 1 P 4:8): perdón y restauración. La reintegración del hermano caído es obra de misericordia que Dios usa para su salvación. Cierre abrupto de la carta (sin saludos), típico de una homilía.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Pr 10:12",
@@ -550,9 +604,9 @@
    "Ez 33:11"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Jas.5.20#16",
+  "ref_estandar": "Jas.5.20",
   "morfologia_tagnt": "V-FAI-3S",
   "dstrong": "G2572",
   "strong_tagnt": "G2572",
@@ -568,7 +622,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to cover",
-  "ref_estandar": "Jas.5.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

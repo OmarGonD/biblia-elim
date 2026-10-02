@@ -1,8 +1,10 @@
 [
  {
   "ref": "Mark.3.2",
+  "pos_tisch": 2,
   "strong": "G3906",
   "forma": "παρετήρουν",
+  "lema": "παρατηρέω",
   "glosa_interlineal": "vigilaban",
   "rango_semantico": [
    "observar atentamente, vigilar",
@@ -11,16 +13,16 @@
   "construccion": "Imperfecto indicativo activo, 3ª plural: «estaban observando de cerca».",
   "sentido_en_contexto": "Los adversarios acechan a Jesús para acusarlo si sana en sábado: el imperfecto da idea de vigilancia continuada.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 14:1 — «ellos le acechaban»",
    "Gá 4:10 — «guardáis los días»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Mark.3.2#02",
+  "ref_estandar": "Mark.3.2",
   "morfologia_tagnt": "V-IAI-3P",
   "dstrong": "G3906",
   "strong_tagnt": "G3906",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to observe",
-  "ref_estandar": "Mark.3.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.3.4",
+  "pos_tisch": 11,
   "strong": "G5590",
   "forma": "ψυχὴν",
+  "lema": "ψυχή",
   "glosa_interlineal": "vida",
   "rango_semantico": [
    "vida, alma",
@@ -51,16 +57,16 @@
   "construccion": "Acusativo: «salvar una vida o matar».",
   "sentido_en_contexto": "Jesús plantea el dilema: ¿hacer bien o mal, salvar la vida o matar? No sanar equivale a elegir el mal. Callan, y esto lo enoja (v.5).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 12:12 — «cuánto más vale un hombre que una oveja»",
    "Lc 6:9 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Mark.3.4#11",
+  "ref_estandar": "Mark.3.4",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G5590H",
   "strong_tagnt": "G5590",
@@ -76,13 +82,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "soul",
-  "ref_estandar": "Mark.3.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.3.5",
+  "pos_tisch": 5,
   "strong": "G3709",
   "forma": "ὀργῆς",
+  "lema": "ὀργή",
   "glosa_interlineal": "enojo",
   "rango_semantico": [
    "ira, enojo"
@@ -90,7 +100,7 @@
   "construccion": "μετὰ + genitivo: «con enojo».",
   "sentido_en_contexto": "Marcos es el único que dice que Jesús miró alrededor «con enojo, entristecido por la dureza de sus corazones». Muestra emociones humanas intensas de Jesús que Mateo y Lucas omiten.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 1:41 — variante «enojado»",
@@ -98,9 +108,9 @@
    "Ef 4:26 — «airaos, pero no pequéis»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Mark.3.5#05",
+  "ref_estandar": "Mark.3.5",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G3709",
   "strong_tagnt": "G3709",
@@ -116,13 +126,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wrath",
-  "ref_estandar": "Mark.3.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.3.5",
+  "pos_tisch": 9,
   "strong": "G4457",
   "forma": "πωρώσει",
+  "lema": "πώρωσις",
   "glosa_interlineal": "dureza",
   "rango_semantico": [
    "endurecimiento, insensibilidad"
@@ -130,17 +144,13 @@
   "construccion": "ἐπὶ + dativo: «por la dureza de su corazón».",
   "sentido_en_contexto": "πώρωσις era el callo que se forma en un hueso fracturado: una insensibilidad del corazón. Vocabulario del Siervo en Marcos (6:52; 8:17).",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mr 6:52 — «su corazón estaba endurecido»",
-   "Ro 11:25 — «ha acontecido a Israel endurecimiento»",
-   "Ef 4:18 — «dureza de su corazón»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mr 6:52 — «su corazón estaba endurecido»\nRo 11:25 — «ha acontecido a Israel endurecimiento»\nEf 4:18 — «dureza de su corazón»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Mark.3.5#09",
+  "ref_estandar": "Mark.3.5",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G4457",
   "strong_tagnt": "G4457",
@@ -156,13 +166,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hardening",
-  "ref_estandar": "Mark.3.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.3.6",
+  "pos_tisch": 8,
   "strong": "G2265",
   "forma": "Ἡρῳδιανῶν",
+  "lema": "Ἡρωδιανοί",
   "glosa_interlineal": "herodianos",
   "rango_semantico": [
    "herodiano (partidario de Herodes)"
@@ -170,16 +184,16 @@
   "construccion": "Genitivo: «con los herodianos».",
   "sentido_en_contexto": "Ya en el cap. 3 los fariseos se aliaron con los herodianos para destruir a Jesús: un conflicto que Marcos adelanta mucho más que Mateo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 12:13 — otra alianza",
    "Mt 22:16 — «con los herodianos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Mark.3.6#08",
+  "ref_estandar": "Mark.3.6",
   "morfologia_tagnt": "N-GPM-T",
   "dstrong": "G2265",
   "strong_tagnt": "G2265",
@@ -195,13 +209,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Herodians",
-  "ref_estandar": "Mark.3.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.3.14",
+  "pos_tisch": 2,
   "strong": "G4160",
   "forma": "ἐποίησεν",
+  "lema": "ποιέω",
   "glosa_interlineal": "designó",
   "rango_semantico": [
    "hacer, constituir",
@@ -210,7 +228,7 @@
   "construccion": "Aoristo indicativo activo, 3ª singular: «constituyó/estableció doce».",
   "sentido_en_contexto": "Jesús «hizo» (constituyó) a los doce con tres fines: estar con él, ser enviados a predicar y tener autoridad para expulsar demonios.",
   "matiz": "El verbo «hacer» sugiere una acción creadora de un grupo nuevo (los doce, eco de las doce tribus). Algunos manuscritos añaden «a quienes también llamó apóstoles».",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 6:13 — «escogió a doce, a los cuales también llamó apóstoles»",
@@ -218,9 +236,9 @@
    "Jn 15:16 — «yo os elegí a vosotros»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Mark.3.14#02",
+  "ref_estandar": "Mark.3.14",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G4160I",
   "strong_tagnt": "G4160",
@@ -236,13 +254,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to do/make",
-  "ref_estandar": "Mark.3.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.3.14",
+  "pos_tisch": 10,
   "strong": "G649",
   "forma": "ἀποστέλλῃ",
+  "lema": "ἀποστέλλω",
   "glosa_interlineal": "enviar",
   "rango_semantico": [
    "enviar, mandar"
@@ -250,16 +272,13 @@
   "construccion": "Subjuntivo presente activo: «para enviarlos».",
   "sentido_en_contexto": "El orden es significativo: primero «estar con él», luego «ser enviados». La misión nace de la compañía con Jesús.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mr 6:7 — «comenzó a enviarlos de dos en dos»",
-   "Jn 20:21 — «como me envió el Padre, así yo os envío»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mr 6:7 — «comenzó a enviarlos de dos en dos»\nJn 20:21 — «como me envió el Padre, así yo os envío»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Mark.3.14#14",
+  "ref_estandar": "Mark.3.14",
   "morfologia_tagnt": "V-PAS-3S",
   "dstrong": "G0649",
   "strong_tagnt": "G649",
@@ -275,13 +294,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to send",
-  "ref_estandar": "Mark.3.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.3.17",
+  "pos_tisch": 16,
   "strong": "G993",
   "forma": "Βοανηργές",
+  "lema": "Βοανεργές",
   "glosa_interlineal": "Boanerges",
   "rango_semantico": [
    "Boanerges (arameo, traducido «hijos del trueno»)"
@@ -289,16 +312,16 @@
   "construccion": "Nombre propio, traducido por Marcos.",
   "sentido_en_contexto": "Apodo que Jesús da a Jacobo y Juan. Solo Marcos lo menciona. Su sentido preciso («hijos del trueno») refleja quizá su temperamento (cf. Lc 9:54).",
   "matiz": "El origen arameo de Boanerges es incierto (benē regesh o benē ra'am); Marcos lo traduce como «hijos del trueno».",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 9:54 — «¿quieres que mandemos que descienda fuego del cielo?»",
    "Mr 9:38 — Juan quiere impedir a uno que expulsaba demonios"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Mark.3.17#16",
+  "ref_estandar": "Mark.3.17",
   "morfologia_tagnt": "N-APM-P",
   "dstrong": "G0993",
   "strong_tagnt": "G993",
@@ -314,13 +337,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Boanerges",
-  "ref_estandar": "Mark.3.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.3.21",
+  "pos_tisch": 12,
   "strong": "G1839",
   "forma": "ἐξέστη",
+  "lema": "ἐξίστημι",
   "glosa_interlineal": "está fuera de sí",
   "rango_semantico": [
    "estar fuera de sí, enloquecer",
@@ -329,7 +356,7 @@
   "construccion": "Aoristo indicativo activo, 3ª singular: «está fuera de sí».",
   "sentido_en_contexto": "Los parientes de Jesús salen a «sujetarlo» porque dicen que está fuera de sí. Marcos incluye este dato duro, que Mateo y Lucas omiten.",
   "matiz": "Debate: ¿quiénes son «los suyos» (παρ' αὐτοῦ)? ¿Su familia o sus seguidores? La mayoría ve a sus parientes, de acuerdo con el v.31 (madre y hermanos). El texto está encuadrado con la discusión sobre Beelzebul.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 7:5 — «ni aun sus hermanos creían en él»",
@@ -337,9 +364,9 @@
    "Hch 26:24 — «Pablo, estás loco»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Mark.3.21#12",
+  "ref_estandar": "Mark.3.21",
   "morfologia_tagnt": "V-2AAI-3S",
   "dstrong": "G1839",
   "strong_tagnt": "G1839",
@@ -355,13 +382,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to amaze",
-  "ref_estandar": "Mark.3.21"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.3.22",
+  "pos_tisch": 10,
   "strong": "G954",
   "forma": "Βεελζεβοὺλ",
+  "lema": "Βεελζεβούλ",
   "glosa_interlineal": "Beelzebul",
   "rango_semantico": [
    "Beelzebul (príncipe de los demonios)"
@@ -369,7 +400,7 @@
   "construccion": "Acusativo: «tiene a Beelzebul».",
   "sentido_en_contexto": "Los escribas de Jerusalén lo acusan de estar poseído por el príncipe de los demonios. Es una acusación grave, que Jesús rebate con lógica.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 12:24 — paralelo",
@@ -377,9 +408,9 @@
    "Lc 11:15 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Mark.3.22#10",
+  "ref_estandar": "Mark.3.22",
   "morfologia_tagnt": "N-ASM-T",
   "dstrong": "G0954",
   "strong_tagnt": "G954",
@@ -395,13 +426,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Beelzebub",
-  "ref_estandar": "Mark.3.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.3.27",
+  "pos_tisch": 9,
   "strong": "G2478",
   "forma": "ἰσχυροῦ",
+  "lema": "ἰσχυρός",
   "glosa_interlineal": "fuerte",
   "rango_semantico": [
    "fuerte, poderoso"
@@ -409,7 +444,7 @@
   "construccion": "Genitivo: «la casa del hombre fuerte».",
   "sentido_en_contexto": "Parábola del hombre fuerte: nadie saquea su casa sin atarlo primero. Jesús es quien ata a Satanás, el fuerte.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 49:24-25 — «¿quitarás la presa al fuerte?»",
@@ -417,10 +452,9 @@
    "Lc 11:21-22 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Mark.3.27#09",
+  "ref_estandar": "Mark.3.27",
   "morfologia_tagnt": "A-GSM",
   "dstrong": "G2478",
   "strong_tagnt": "G2478",
@@ -436,13 +470,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "strong",
-  "ref_estandar": "Mark.3.27"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.3.29",
+  "pos_tisch": 12,
   "strong": "G859",
   "forma": "ἄφεσιν",
+  "lema": "ἄφεσις",
   "glosa_interlineal": "perdón",
   "rango_semantico": [
    "perdón, remisión"
@@ -450,7 +489,7 @@
   "construccion": "Acusativo con negación: «no tiene perdón jamás».",
   "sentido_en_contexto": "Pasaje sobre la blasfemia contra el Espíritu Santo: «no tiene jamás perdón, sino que es reo de pecado eterno». Marcos lo vincula directamente con atribuir a un espíritu inmundo la obra de Jesús (v.30).",
   "matiz": "Se discute qué es el «pecado eterno»: rechazo deliberado y persistente de la acción del Espíritu, que cierra el camino al perdón. Quien teme haberlo cometido, en la mayoría de las lecturas, no lo ha hecho.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 12:31-32 — paralelo",
@@ -458,9 +497,9 @@
    "Heb 6:4-6 — pasaje conexo"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Mark.3.29#12",
+  "ref_estandar": "Mark.3.29",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G0859",
   "strong_tagnt": "G859",
@@ -476,13 +515,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "forgiveness",
-  "ref_estandar": "Mark.3.29"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.3.31",
+  "pos_tisch": 12,
   "strong": "G4739",
   "forma": "στήκοντες",
+  "lema": "στήκω",
   "glosa_interlineal": "de pie",
   "rango_semantico": [
    "estar de pie, mantenerse firme"
@@ -490,16 +533,13 @@
   "construccion": "Participio presente activo: «estando afuera».",
   "sentido_en_contexto": "La madre y los hermanos esperan fuera mientras Jesús enseña dentro: una imagen espacial de la distancia entre su familia biológica y su nueva familia.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mt 12:46 — paralelo",
-   "Lc 8:19 — paralelo"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mt 12:46 — paralelo\nLc 8:19 — paralelo",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Mark.3.31#12",
+  "ref_estandar": "Mark.3.31",
   "morfologia_tagnt": "V-PAP-NPM",
   "dstrong": "G4739",
   "strong_tagnt": "G4739",
@@ -516,13 +556,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to stand",
-  "ref_estandar": "Mark.3.31"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.3.34",
+  "pos_tisch": 6,
   "strong": "G2945",
   "forma": "κύκλῳ",
+  "lema": "κύκλῳ",
   "glosa_interlineal": "alrededor",
   "rango_semantico": [
    "en círculo, alrededor"
@@ -530,16 +574,16 @@
   "construccion": "Adverbio: «mirando a los que estaban sentados alrededor».",
   "sentido_en_contexto": "Marcos dice que Jesús los miró en círculo (frase propia): crea una escena visual cálida. Declara a los oyentes su verdadera familia.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 3:5 — «mirándolos alrededor con enojo»",
    "Mt 12:49 — «extendiendo su mano»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Mark.3.34#06",
+  "ref_estandar": "Mark.3.34",
   "morfologia_tagnt": "ADV",
   "dstrong": "G2945",
   "strong_tagnt": "G2945",
@@ -555,7 +599,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "surrounding",
-  "ref_estandar": "Mark.3.34"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

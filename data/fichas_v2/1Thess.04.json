@@ -1,8 +1,10 @@
 [
  {
   "ref": "1Thess.4.3",
+  "pos_tisch": 8,
   "strong": "G38",
   "forma": "ἁγιασμὸς",
+  "lema": "ἁγιασμός",
   "glosa_interlineal": "santificación",
   "rango_semantico": [
    "santificación, consagración, santidad"
@@ -10,7 +12,7 @@
   "construccion": "Nominativo: «pues la voluntad de Dios es vuestra santificación; que os apartéis de fornicación».",
   "sentido_en_contexto": "La voluntad de Dios para los creyentes es su santificación, expresada primero en pureza sexual (vv.3-8), luego en amor fraternal (vv.9-12). El mundo gentil toleraba la inmoralidad; la ética cristiana, heredera de la judía, la prohibía.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 6:18-20",
@@ -19,9 +21,9 @@
    "1 P 1:15-16"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "1Thess.4.3#08",
+  "ref_estandar": "1Thess.4.3",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G0038",
   "strong_tagnt": "G38",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "holiness",
-  "ref_estandar": "1Thess.4.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Thess.4.4",
+  "pos_tisch": 6,
   "strong": "G4632",
   "forma": "σκεῦος",
+  "lema": "σκεῦος",
   "glosa_interlineal": "vaso",
   "rango_semantico": [
    "vaso, instrumento; cuerpo o esposa"
@@ -51,7 +57,7 @@
   "construccion": "Acusativo: «que cada uno de vosotros sepa tener su propia esposa en santidad y honor» (o «su propio cuerpo»).",
   "sentido_en_contexto": "σκεῦος («vaso, instrumento»): significado muy debatido. Puede ser el cuerpo propio (dominio de sí) o la esposa (como «vaso» más débil, 1 P 3:7), o un eufemismo de los genitales. «Poseer» (κτᾶσθαι) puede ser «adquirir» (tomar esposa) o «controlar».",
   "matiz": "Debate: (a) «su propio vaso» = el cuerpo (la mayoría de Padres griegos y muchos exégetas modernos: dominio sexual); (b) «su vaso» = su esposa (Tertuliano, Agustín, muchos exégetas: adquirir esposa en santidad); (c) eufemismo de órgano sexual. RVR sigue la lectura «cuerpo».",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 P 3:7",
@@ -60,9 +66,9 @@
    "Ro 6:12-13"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "1Thess.4.4#06",
+  "ref_estandar": "1Thess.4.4",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G4632",
   "strong_tagnt": "G4632",
@@ -78,13 +84,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "vessel",
-  "ref_estandar": "1Thess.4.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Thess.4.9",
+  "pos_tisch": 13,
   "strong": "G2312",
   "forma": "θεοδίδακτοί",
+  "lema": "θεοδίδακτος",
   "glosa_interlineal": "enseñados por Dios",
   "rango_semantico": [
    "enseñado por Dios"
@@ -92,7 +102,7 @@
   "construccion": "Nominativo plural: «pero acerca del amor fraternal no tenéis necesidad de que os escriba, porque vosotros mismos habéis aprendido de Dios que os améis unos a otros».",
   "sentido_en_contexto": "θεοδίδακτος: palabra única en el NT (acuñada por Pablo; cf. Jn 6:45, Is 54:13; Jer 31:34). Los creyentes son enseñados directamente por Dios (por el Espíritu) en el amor. Aun así, Pablo los exhorta a «abundar más» (v.10).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 6:45",
@@ -101,9 +111,9 @@
    "Jn 13:34"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "1Thess.4.9#13",
+  "ref_estandar": "1Thess.4.9",
   "morfologia_tagnt": "A-NPM",
   "dstrong": "G2312",
   "strong_tagnt": "G2312",
@@ -119,13 +129,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "divinely instructed",
-  "ref_estandar": "1Thess.4.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Thess.4.11",
+  "pos_tisch": 3,
   "strong": "G2270",
   "forma": "ἡσυχάζειν",
+  "lema": "ἡσυχάζω",
   "glosa_interlineal": "vivir tranquilos",
   "rango_semantico": [
    "estar quieto, vivir en calma"
@@ -133,7 +147,7 @@
   "construccion": "Infinitivo presente activo: «que procuréis tener tranquilidad, y ocuparos en vuestros negocios, y trabajar con vuestras manos, de la manera que os hemos mandado».",
   "sentido_en_contexto": "Tres exhortaciones: vivir en paz, cuidar lo propio, trabajar con las manos. Posiblemente algunos dejaban de trabajar esperando la parusía (cf. 2 Ts 3:6-12). El trabajo es testimonio ante los de afuera (v.12).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Ts 3:6-12",
@@ -141,9 +155,9 @@
    "Hch 20:34-35"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "1Thess.4.11#03",
+  "ref_estandar": "1Thess.4.11",
   "morfologia_tagnt": "V-PAN",
   "dstrong": "G2270",
   "strong_tagnt": "G2270",
@@ -159,13 +173,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be quiet/give up",
-  "ref_estandar": "1Thess.4.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Thess.4.13",
+  "pos_tisch": 9,
   "strong": "G2837",
   "forma": "κοιμωμένων",
+  "lema": "κοιμάω",
   "glosa_interlineal": "los que duermen",
   "rango_semantico": [
    "dormir, estar muerto"
@@ -173,7 +191,7 @@
   "construccion": "Participio presente medio: «tampoco queremos, hermanos, que ignoréis acerca de los que duermen, para que no os entristezcáis como los otros que no tienen esperanza».",
   "sentido_en_contexto": "Los tesalonicenses estaban afligidos por la suerte de creyentes ya muertos. Pablo responde: la muerte es «sueño», no destrucción, y los muertos en Cristo participarán de la parusía. No prohíbe el duelo, sino el duelo sin esperanza.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 15:18, 51",
@@ -181,9 +199,9 @@
    "Hch 7:60"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "1Thess.4.13#09",
+  "ref_estandar": "1Thess.4.13",
   "morfologia_tagnt": "V-PMP-GPM",
   "dstrong": "G2837",
   "strong_tagnt": "G2837",
@@ -200,13 +218,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to sleep",
-  "ref_estandar": "1Thess.4.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Thess.4.14",
+  "pos_tisch": 18,
   "strong": "G71",
   "forma": "ἄξει",
+  "lema": "ἄγω",
   "glosa_interlineal": "traerá",
   "rango_semantico": [
    "traer, conducir"
@@ -214,7 +236,7 @@
   "construccion": "Futuro indicativo activo: «porque si creemos que Jesús murió y resucitó, así también traerá Dios con Jesús a los que durmieron en él».",
   "sentido_en_contexto": "Fundamento: la resurrección de Jesús garantiza la de los suyos. «Traerá con él» a los que durmieron: se discute si se trata de los espíritus de los muertos (que vienen con Cristo) o de la resurrección de los cuerpos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 15:20-23",
@@ -222,9 +244,9 @@
    "2 Co 4:14"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "1Thess.4.14#18",
+  "ref_estandar": "1Thess.4.14",
   "morfologia_tagnt": "V-FAI-3S",
   "dstrong": "G0071",
   "strong_tagnt": "G71",
@@ -240,13 +262,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to bring",
-  "ref_estandar": "1Thess.4.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Thess.4.15",
+  "pos_tisch": 16,
   "strong": "G3952",
   "forma": "παρουσίαν",
+  "lema": "παρουσία",
   "glosa_interlineal": "venida",
   "rango_semantico": [
    "venida, presencia"
@@ -254,7 +280,7 @@
   "construccion": "Acusativo: «los que vivimos, los que habremos quedado hasta la venida del Señor, no precederemos a los que durmieron».",
   "sentido_en_contexto": "«Los que vivimos» no indica que Pablo esperase estar vivo, sino que habla de los creyentes vivos en la parusía en general (cf. 1 Co 6:14). Garantía: los muertos no quedan en desventaja; resucitan primero.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 15:51-52",
@@ -262,9 +288,9 @@
    "2 Ts 2:1"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "1Thess.4.15#16",
+  "ref_estandar": "1Thess.4.15",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G3952",
   "strong_tagnt": "G3952",
@@ -280,13 +306,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "coming",
-  "ref_estandar": "1Thess.4.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Thess.4.16",
+  "pos_tisch": 9,
   "strong": "G743",
   "forma": "ἀρχαγγέλου",
+  "lema": "ἀρχάγγελος",
   "glosa_interlineal": "arcángel",
   "rango_semantico": [
    "arcángel"
@@ -294,7 +324,7 @@
   "construccion": "Genitivo: «porque el Señor mismo con voz de mando, con voz de arcángel, y con trompeta de Dios, descenderá del cielo; y los muertos en Cristo resucitarán primero».",
   "sentido_en_contexto": "Descripción apocalíptica de la parusía: voz de mando, voz de arcángel, trompeta de Dios. Los muertos en Cristo resucitan primero, luego los vivos (v.17). Ver 1 Co 15:51-52.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 15:52",
@@ -303,9 +333,9 @@
    "Ap 11:15"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "1Thess.4.16#09",
+  "ref_estandar": "1Thess.4.16",
   "morfologia_tagnt": "N-GSM",
   "dstrong": "G0743",
   "strong_tagnt": "G743",
@@ -321,13 +351,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "archangel",
-  "ref_estandar": "1Thess.4.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Thess.4.17",
+  "pos_tisch": 10,
   "strong": "G726",
   "forma": "ἁρπαγησόμεθα",
+  "lema": "ἁρπάζω",
   "glosa_interlineal": "seremos arrebatados",
   "rango_semantico": [
    "ser arrebatado, ser llevado con fuerza"
@@ -335,7 +369,7 @@
   "construccion": "Futuro indicativo pasivo: «luego nosotros los que vivimos, los que hayamos quedado, seremos arrebatados juntamente con ellos en las nubes para recibir al Señor en el aire, y así estaremos siempre con el Señor».",
   "sentido_en_contexto": "Base textual de la doctrina del «rapto» (del latín rapiemur). ἀπάντησις: salida a recibir a un dignatario que llega, para acompañarlo de vuelta (imagen helenística). Se debate el momento y la naturaleza del arrebatamiento.",
   "matiz": "Debate sobre el rapto: (a) un solo acontecimiento con la venida final de Cristo (amilenialistas, posmilenialistas, postribulacionistas); (b) rapto previo a la gran tribulación (dispensacionalismo pretribulacionista, popularizado por Darby y la Biblia Scofield); (c) a mitad de la tribulación. El texto no menciona la tribulación; la discusión se basa en la lectura de 1 Ts 5, 2 Ts 2 y Mt 24. «Recibir al Señor» puede entenderse como salida de recibimiento y regreso con él.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 15:51-52",
@@ -344,9 +378,9 @@
    "2 Ts 2:1"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "1Thess.4.17#10",
+  "ref_estandar": "1Thess.4.17",
   "morfologia_tagnt": "V-2FPI-1P",
   "dstrong": "G0726",
   "strong_tagnt": "G726",
@@ -362,7 +396,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to seize",
-  "ref_estandar": "1Thess.4.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

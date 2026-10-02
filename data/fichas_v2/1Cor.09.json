@@ -1,8 +1,10 @@
 [
  {
   "ref": "1Cor.9.1",
+  "pos_tisch": 6,
   "strong": "G652",
   "forma": "ἀπόστολος",
+  "lema": "ἀπόστολος",
   "glosa_interlineal": "apóstol",
   "rango_semantico": [
    "apóstol, enviado"
@@ -10,7 +12,7 @@
   "construccion": "Nominativo: «¿no soy apóstol? ¿No he visto a Jesús nuestro Señor?».",
   "sentido_en_contexto": "Pablo defiende su apostolado: ha visto al Señor resucitado (Hch 9; 1 Co 15:8) y los corintios son «sello» de su apostolado (v.2). El capítulo 9 es un ejemplo de renuncia de derechos por amor, que sostiene su exhortación del cap. 8.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 15:8-9",
@@ -19,9 +21,9 @@
    "2 Co 12:12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "1Cor.9.1#06",
+  "ref_estandar": "1Cor.9.1",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G0652",
   "strong_tagnt": "G652",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "apostle",
-  "ref_estandar": "1Cor.9.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.9.5",
+  "pos_tisch": 6,
   "strong": "G1135",
   "forma": "γυναῖκα",
+  "lema": "γυνή",
   "glosa_interlineal": "esposa",
   "rango_semantico": [
    "mujer, esposa"
@@ -51,7 +57,7 @@
   "construccion": "Acusativo: «¿no tenemos derecho de llevar con nosotros una hermana por esposa, como también los otros apóstoles, y los hermanos del Señor, y Cefas?».",
   "sentido_en_contexto": "Pablo menciona que otros apóstoles, los hermanos del Señor y Cefas (Pedro) viajaban con sus esposas: un dato histórico sobre los apóstoles casados. Pablo tiene el derecho (ἐξουσία) de hacerlo, y de recibir sustento, pero renuncia.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 1:30",
@@ -59,9 +65,9 @@
    "1 Co 7:7-8"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "1Cor.9.5#06",
+  "ref_estandar": "1Cor.9.5",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G1135H",
   "strong_tagnt": "G1135",
@@ -77,13 +83,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "woman",
-  "ref_estandar": "1Cor.9.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.9.9",
+  "pos_tisch": 9,
   "strong": "G1016",
   "forma": "βοῦν",
+  "lema": "βοῦς",
   "glosa_interlineal": "buey",
   "rango_semantico": [
    "buey, toro"
@@ -91,7 +101,7 @@
   "construccion": "Acusativo: «no pondrás bozal al buey que trilla».",
   "sentido_en_contexto": "Cita de Dt 25:4: el buey que trilla no debe ser amordazado. Pablo la aplica al sustento de los ministros: Dios se preocupa «por nosotros» (v.10). Usa la Ley para justificar el derecho de los obreros a vivir del evangelio. Reaparece en 1 Ti 5:18.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 25:4",
@@ -100,10 +110,9 @@
    "Gá 6:6"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1Cor.9.9#09",
+  "ref_estandar": "1Cor.9.9",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G1016",
   "strong_tagnt": "G1016",
@@ -119,13 +128,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ox",
-  "ref_estandar": "1Cor.9.9"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.9.14",
+  "pos_tisch": 5,
   "strong": "G1299",
   "forma": "διέταξεν",
+  "lema": "διατάσσω",
   "glosa_interlineal": "ordenó",
   "rango_semantico": [
    "ordenar, disponer"
@@ -133,7 +147,7 @@
   "construccion": "Aoristo indicativo activo: «así también ordenó el Señor a los que anuncian el evangelio, que vivan del evangelio».",
   "sentido_en_contexto": "Pablo cita una palabra de Jesús (Mt 10:10; Lc 10:7): el obrero es digno de su salario. Establece el derecho de los ministros al sustento, aunque él mismo renunció a ejercerlo en Corinto (vv.12, 15).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 10:10",
@@ -142,9 +156,9 @@
    "Gá 6:6"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "1Cor.9.14#05",
+  "ref_estandar": "1Cor.9.14",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G1299",
   "strong_tagnt": "G1299",
@@ -160,13 +174,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to direct",
-  "ref_estandar": "1Cor.9.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.9.16",
+  "pos_tisch": 8,
   "strong": "G318",
   "forma": "ἀνάγκη",
+  "lema": "ἀνάγκη",
   "glosa_interlineal": "necesidad",
   "rango_semantico": [
    "necesidad, obligación"
@@ -174,7 +192,7 @@
   "construccion": "Nominativo: «me es impuesta necesidad; y ¡ay de mí si no anunciare el evangelio!».",
   "sentido_en_contexto": "Pablo no puede jactarse de predicar: es una obligación impuesta por Dios (cf. Gá 1:15-16). Su recompensa es predicar el evangelio sin cobrar (v.18). Muestra su vocación compulsiva, como la de un profeta (Jer 20:9).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jer 20:9",
@@ -183,9 +201,9 @@
    "Hch 9:15"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "1Cor.9.16#08",
+  "ref_estandar": "1Cor.9.16",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G0318",
   "strong_tagnt": "G318",
@@ -201,13 +219,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "necessity",
-  "ref_estandar": "1Cor.9.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.9.19",
+  "pos_tisch": 8,
   "strong": "G1402",
   "forma": "ἐδούλωσα",
+  "lema": "δουλόω",
   "glosa_interlineal": "me hice siervo",
   "rango_semantico": [
    "esclavizar, hacerse esclavo"
@@ -215,7 +237,7 @@
   "construccion": "Aoristo indicativo activo: «siendo libre de todos, me he hecho siervo de todos para ganar a mayor número».",
   "sentido_en_contexto": "Principio misionero (vv.19-23): Pablo, libre, se hace siervo de todos; se adapta a judíos, a los que están bajo la ley, a los sin ley, a los débiles. «Me he hecho todo para todos, para que de todos modos salve a algunos». No es oportunismo, sino flexibilidad al servicio del evangelio sin comprometer la verdad.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 2:3-5; 5:1",
@@ -224,9 +246,9 @@
    "Hch 16:3; 21:23-26"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "1Cor.9.19#08",
+  "ref_estandar": "1Cor.9.19",
   "morfologia_tagnt": "V-AAI-1S",
   "dstrong": "G1402",
   "strong_tagnt": "G1402",
@@ -242,13 +264,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to enslave",
-  "ref_estandar": "1Cor.9.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.9.20",
+  "pos_tisch": 9,
   "strong": "G2770",
   "forma": "κερδήσω",
+  "lema": "κερδαίνω",
   "glosa_interlineal": "ganar",
   "rango_semantico": [
    "ganar, conseguir"
@@ -256,7 +282,7 @@
   "construccion": "Subjuntivo aoristo activo: «me hice a los judíos como judío, para ganar a los judíos».",
   "sentido_en_contexto": "Pablo se adapta culturalmente: como judío para los judíos; como sujeto a la ley (aunque él mismo no lo esté) para los de la ley; como sin ley (aunque no está sin ley de Dios, sino en la ley de Cristo) para los sin ley. «Ganar» (κερδαίνω) es el objetivo repetido seis veces.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 16:3; 21:20-26",
@@ -265,10 +291,9 @@
    "1 Co 10:32-33"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1Cor.9.20#09",
+  "ref_estandar": "1Cor.9.20",
   "morfologia_tagnt": "V-AAS-1S",
   "dstrong": "G2770",
   "strong_tagnt": "G2770",
@@ -284,13 +309,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to gain",
-  "ref_estandar": "1Cor.9.20"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.9.20",
+  "pos_tisch": 25,
   "strong": "G2770",
   "forma": "κερδήσω",
+  "lema": "κερδαίνω",
   "glosa_interlineal": "ganar",
   "rango_semantico": [
    "ganar, conseguir"
@@ -298,7 +328,7 @@
   "construccion": "Subjuntivo aoristo activo: «me hice a los judíos como judío, para ganar a los judíos».",
   "sentido_en_contexto": "Pablo se adapta culturalmente: como judío para los judíos; como sujeto a la ley (aunque él mismo no lo esté) para los de la ley; como sin ley (aunque no está sin ley de Dios, sino en la ley de Cristo) para los sin ley. «Ganar» (κερδαίνω) es el objetivo repetido seis veces.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 16:3; 21:20-26",
@@ -307,10 +337,9 @@
    "1 Co 10:32-33"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 25,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1Cor.9.20#25",
+  "ref_estandar": "1Cor.9.20",
   "morfologia_tagnt": "V-AAS-1S",
   "dstrong": "G2770",
   "strong_tagnt": "G2770",
@@ -326,13 +355,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to gain",
-  "ref_estandar": "1Cor.9.20"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.9.21",
+  "pos_tisch": 10,
   "strong": "G1772",
   "forma": "ἔννομος",
+  "lema": "ἔννομος",
   "glosa_interlineal": "bajo la ley",
   "rango_semantico": [
    "en la ley, legítimo"
@@ -340,7 +374,7 @@
   "construccion": "Adjetivo nominativo: «no estando yo sin ley de Dios, sino bajo la ley de Cristo».",
   "sentido_en_contexto": "Pablo está «en la ley de Cristo» (ἔννομος Χριστοῦ), no sin ley. «Ley de Cristo» (cf. Gá 6:2) es la ley del amor y de la enseñanza de Cristo, vivida por el Espíritu. Evita tanto el legalismo (sujeto a la Torá como camino de justicia) como el antinomianismo.",
   "matiz": "Debate sobre «ley de Cristo» (νόμος Χριστοῦ): (a) la Torá reinterpretada por Cristo y cumplida en el amor; (b) las enseñanzas y el ejemplo de Jesús; (c) la ley del Espíritu (Ro 8:2). El sentido: obediencia gozosa a Cristo, no una nueva Torá legalista.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 6:2",
@@ -348,9 +382,9 @@
    "Jn 13:34"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "1Cor.9.21#10",
+  "ref_estandar": "1Cor.9.21",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G1772",
   "strong_tagnt": "G1772",
@@ -366,13 +400,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "under law",
-  "ref_estandar": "1Cor.9.21"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.9.24",
+  "pos_tisch": 15,
   "strong": "G1017",
   "forma": "βραβεῖον",
+  "lema": "βραβεῖον",
   "glosa_interlineal": "premio",
   "rango_semantico": [
    "premio, galardón (del certamen atlético)"
@@ -380,7 +418,7 @@
   "construccion": "Acusativo: «los que corren en el estadio, todos a la verdad corren, pero uno solo se lleva el premio».",
   "sentido_en_contexto": "Imagen del certamen atlético (Juegos Ístmicos, cerca de Corinto): Pablo exhorta a correr para ganar, con disciplina (ἐγκράτεια), por una corona imperecedera frente a la corruptible. No dice que solo uno se salve, sino que todos deben correr como si compitieran por ganar.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Fil 3:12-14",
@@ -389,9 +427,9 @@
    "1 Ti 6:12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "1Cor.9.24#15",
+  "ref_estandar": "1Cor.9.24",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G1017",
   "strong_tagnt": "G1017",
@@ -407,13 +445,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "prize",
-  "ref_estandar": "1Cor.9.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.9.25",
+  "pos_tisch": 6,
   "strong": "G1467",
   "forma": "ἐγκρατεύεται",
+  "lema": "ἐγκρατεύομαι",
   "glosa_interlineal": "se disciplina",
   "rango_semantico": [
    "tener dominio propio, ejercer autocontrol"
@@ -421,7 +463,7 @@
   "construccion": "Presente indicativo medio: «todo aquel que lucha, de todo se abstiene».",
   "sentido_en_contexto": "El atleta se somete a disciplina por una corona perecedera (laurel, apio); los cristianos, por una imperecedera. Pablo aplica el autocontrol a su vida (v.27): «golpeo mi cuerpo y lo pongo en servidumbre, no sea que después de haber predicado a otros, yo mismo venga a ser eliminado (ἀδόκιμος)».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Ti 2:5",
@@ -430,9 +472,9 @@
    "2 P 1:6"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "1Cor.9.25#06",
+  "ref_estandar": "1Cor.9.25",
   "morfologia_tagnt": "V-PNI-3S",
   "dstrong": "G1467",
   "strong_tagnt": "G1467",
@@ -448,13 +490,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to self-control",
-  "ref_estandar": "1Cor.9.25"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.9.27",
+  "pos_tisch": 12,
   "strong": "G96",
   "forma": "ἀδόκιμος",
+  "lema": "ἀδόκιμος",
   "glosa_interlineal": "descalificado",
   "rango_semantico": [
    "reprobado, descalificado, no aprobado"
@@ -462,7 +508,7 @@
   "construccion": "Adjetivo nominativo: «no sea que, habiendo sido heraldo para otros, yo mismo venga a ser descalificado».",
   "sentido_en_contexto": "Cierre del capítulo: Pablo teme ser «descalificado» (ἀδόκιμος) tras haber predicado a otros. Se discute si implica pérdida de la salvación (arminianos), pérdida de recompensa o ministerio (muchos evangélicos) o confirma la necesidad de perseverar (reformados: los verdaderos creyentes perseveran). Prepara 10:1-12.",
   "matiz": "Debate sobre ἀδόκιμος: (a) pérdida de la salvación (arminianos); (b) descalificación del ministerio/premio sin perder la salvación (evangélicos); (c) advertencia hipotética que Dios usa para que los suyos perseveren (reformados). El ejemplo de Israel (10:1-12) mantiene la tensión.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 10:12",
@@ -471,9 +517,9 @@
    "Heb 6:4-6"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "1Cor.9.27#13",
+  "ref_estandar": "1Cor.9.27",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G0096",
   "strong_tagnt": "G96",
@@ -489,7 +535,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "failing",
-  "ref_estandar": "1Cor.9.27"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

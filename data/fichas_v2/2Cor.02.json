@@ -1,8 +1,10 @@
 [
  {
   "ref": "2Cor.2.4",
+  "pos_tisch": 12,
   "strong": "G1144",
   "forma": "δακρύων",
+  "lema": "δάκρυ",
   "glosa_interlineal": "lágrimas",
   "rango_semantico": [
    "lágrima, llanto"
@@ -10,7 +12,7 @@
   "construccion": "Genitivo plural: «os escribí con muchas lágrimas, no para entristeceros, sino para que supieseis cuán grande es el amor que os tengo».",
   "sentido_en_contexto": "Pablo recuerda una carta anterior, escrita «con mucha tribulación y angustia de corazón» (probablemente la «carta severa», hoy perdida o parcialmente incluida en 2 Co 10-13). Su dureza era por amor. Su relación con Corinto había pasado una crisis (la «visita dolorosa»).",
   "matiz": "Debate: ¿cuál es la carta de «muchas lágrimas»? (a) 1 Corintios (varios la consideran); (b) una carta intermedia perdida; (c) los capítulos 10-13 de 2 Corintios (teoría de la unidad parcial). La mayoría ve una carta perdida entre 1 y 2 Corintios.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Co 7:8-12",
@@ -19,9 +21,9 @@
    "Hch 20:31"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "2Cor.2.4#12",
+  "ref_estandar": "2Cor.2.4",
   "morfologia_tagnt": "N-GPN",
   "dstrong": "G1144",
   "strong_tagnt": "G1144",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "teardrop",
-  "ref_estandar": "2Cor.2.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Cor.2.7",
+  "pos_tisch": 5,
   "strong": "G5483",
   "forma": "χαρίσασθαι",
+  "lema": "χαρίζομαι",
   "glosa_interlineal": "perdonar",
   "rango_semantico": [
    "perdonar, conceder por gracia"
@@ -51,7 +57,7 @@
   "construccion": "Aoristo infinitivo medio: «de modo que, al contrario, vosotros más bien debéis perdonarle y consolarle, para que no sea consumido de demasiada tristeza».",
   "sentido_en_contexto": "Pablo pide perdonar y restablecer al ofensor, que ya fue castigado «por la mayoría» (v.6). Posible referencia al hombre disciplinado en 1 Co 5, o a otro que ofendió a Pablo (2:5-8; 7:12). El fin de la disciplina es la restauración, no la ruina.",
   "matiz": "Debate: ¿es el incestuoso de 1 Co 5 (lectura tradicional) o quien ofendió personalmente a Pablo (la mayoría actual)? En todo caso, se establece el principio de la restauración tras la disciplina.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 6:1",
@@ -60,9 +66,9 @@
    "Col 3:13"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "2Cor.2.7#05",
+  "ref_estandar": "2Cor.2.7",
   "morfologia_tagnt": "V-ADN",
   "dstrong": "G5483",
   "strong_tagnt": "G5483",
@@ -78,13 +84,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to give grace",
-  "ref_estandar": "2Cor.2.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Cor.2.11",
+  "pos_tisch": 6,
   "strong": "G4567",
   "forma": "σατανᾶ",
+  "lema": "Σατανᾶς",
   "glosa_interlineal": "Satanás",
   "rango_semantico": [
    "Satanás, el adversario"
@@ -92,7 +102,7 @@
   "construccion": "Genitivo: «para que Satanás no gane ventaja alguna sobre nosotros; pues no ignoramos sus maquinaciones».",
   "sentido_en_contexto": "Falta de perdón y de restauración dan ocasión a Satanás. Pablo conoce sus «designios» (νοήματα). Una iglesia que no perdona se expone a la división y el dominio satánico.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 4:27",
@@ -101,9 +111,9 @@
    "Stg 4:7"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "2Cor.2.11#06",
+  "ref_estandar": "2Cor.2.11",
   "morfologia_tagnt": "N-GSM-T",
   "dstrong": "G4567",
   "strong_tagnt": "G4567",
@@ -119,13 +129,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Satan",
-  "ref_estandar": "2Cor.2.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Cor.2.14",
+  "pos_tisch": 7,
   "strong": "G2358",
   "forma": "θριαμβεύοντι",
+  "lema": "θριαμβεύω",
   "glosa_interlineal": "que nos lleva en triunfo",
   "rango_semantico": [
    "conducir en cortejo triunfal"
@@ -133,7 +147,7 @@
   "construccion": "Participio presente activo: «gracias a Dios, que siempre nos lleva en triunfo en Cristo Jesús».",
   "sentido_en_contexto": "Imagen del desfile triunfal romano: el general victorioso desfilaba con sus prisioneros. Pablo y los apóstoles son llevados «en triunfo» por Dios en Cristo. Se debate si Pablo se ve como soldado victorioso, como cautivo del vencedor o como instrumento que difunde el aroma (la fragancia del incienso en el cortejo).",
   "matiz": "Debate sobre θριαμβεύω: (a) «nos conduce en su cortejo triunfal como cautivos» (lectura más probable, con base en el uso clásico); (b) «nos hace triunfar» (versión causativa, RVR); (c) «nos exhibe». Por el contexto (aroma, v.15), la imagen es la fragancia del cortejo que anuncia la victoria.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Col 2:15",
@@ -142,9 +156,9 @@
    "Fil 4:18"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "2Cor.2.14#07",
+  "ref_estandar": "2Cor.2.14",
   "morfologia_tagnt": "V-PAP-DSM",
   "dstrong": "G2358",
   "strong_tagnt": "G2358",
@@ -160,13 +174,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to triumph",
-  "ref_estandar": "2Cor.2.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Cor.2.15",
+  "pos_tisch": 3,
   "strong": "G2175",
   "forma": "εὐωδία",
+  "lema": "εὐωδία",
   "glosa_interlineal": "fragancia",
   "rango_semantico": [
    "buen olor, fragancia"
@@ -174,7 +192,7 @@
   "construccion": "Nominativo: «porque somos para Dios grato olor de Cristo en los que se salvan y en los que se pierden».",
   "sentido_en_contexto": "Los apóstoles son «buen olor de Cristo»: aroma de vida para los que se salvan, de muerte para los que se pierden. La misma predicación produce reacciones opuestas. «¿Quién es suficiente para esto?» (v.16): la respuesta vendrá en 3:5 («nuestra suficiencia es de Dios»).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Éx 29:18",
@@ -183,9 +201,9 @@
    "Lc 2:34"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "2Cor.2.15#03",
+  "ref_estandar": "2Cor.2.15",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G2175",
   "strong_tagnt": "G2175",
@@ -201,13 +219,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "aroma",
-  "ref_estandar": "2Cor.2.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Cor.2.17",
+  "pos_tisch": 7,
   "strong": "G2585",
   "forma": "καπηλεύοντες",
+  "lema": "καπηλεύω",
   "glosa_interlineal": "comercian",
   "rango_semantico": [
    "traficar, vender al por menor, adulterar"
@@ -215,7 +237,7 @@
   "construccion": "Participio presente activo: «no somos como muchos, que medran falsificando la palabra de Dios».",
   "sentido_en_contexto": "καπηλεύω es «ser tendero»: vender con ganancia, y a veces adulterando el producto (vino aguado). Pablo acusa a sus adversarios de comerciar con la palabra de Dios. Él habla «con sinceridad» (ἐξ εἰλικρινίας), de parte de Dios, delante de Dios.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Co 4:2",
@@ -224,9 +246,9 @@
    "Is 1:22"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "2Cor.2.17#07",
+  "ref_estandar": "2Cor.2.17",
   "morfologia_tagnt": "V-PAP-NPM",
   "dstrong": "G2585",
   "strong_tagnt": "G2585",
@@ -242,7 +264,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to peddle",
-  "ref_estandar": "2Cor.2.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

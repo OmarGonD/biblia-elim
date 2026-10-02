@@ -1,8 +1,10 @@
 [
  {
   "ref": "1Thess.3.2",
+  "pos_tisch": 18,
   "strong": "G4741",
   "forma": "στηρίξαι",
+  "lema": "στηρίζω",
   "glosa_interlineal": "afirmaros",
   "rango_semantico": [
    "fortalecer, afirmar"
@@ -10,7 +12,7 @@
   "construccion": "Aoristo infinitivo activo: «y enviamos a Timoteo, nuestro hermano, servidor de Dios y colaborador nuestro en el evangelio de Cristo, para confirmaros y exhortaros respecto a vuestra fe».",
   "sentido_en_contexto": "Pablo, esperando en Atenas, envía a Timoteo para fortalecer la fe de los tesalonicenses frente a la persecución (3:1-5). Timoteo vuelve con buenas noticias (3:6), lo que motiva la carta.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 17:14-15; 18:5",
@@ -18,9 +20,9 @@
    "Lc 22:32"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "1Thess.3.2#21",
+  "ref_estandar": "1Thess.3.2",
   "morfologia_tagnt": "V-AAN",
   "dstrong": "G4741",
   "strong_tagnt": "G4741",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to establish",
-  "ref_estandar": "1Thess.3.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Thess.3.3",
+  "pos_tisch": 6,
   "strong": "G2347",
   "forma": "θλίψεσιν",
+  "lema": "θλῖψις",
   "glosa_interlineal": "tribulaciones",
   "rango_semantico": [
    "tribulación, aflicción"
@@ -50,7 +56,7 @@
   "construccion": "Dativo plural: «a fin de que nadie se inquiete por estas tribulaciones; porque vosotros mismos sabéis que para esto estamos puestos».",
   "sentido_en_contexto": "Pablo previno a los tesalonicenses de que serían afligidos (v.4: «ya os lo predecíamos»): la tribulación es parte normal de la vida cristiana. Cf. Hch 14:22. No es un fracaso, sino coherencia con el patrón de Cristo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 14:22",
@@ -59,9 +65,9 @@
    "1 P 4:12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "1Thess.3.3#06",
+  "ref_estandar": "1Thess.3.3",
   "morfologia_tagnt": "N-DPF",
   "dstrong": "G2347",
   "strong_tagnt": "G2347",
@@ -77,13 +83,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "pressure",
-  "ref_estandar": "1Thess.3.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Thess.3.5",
+  "pos_tisch": 14,
   "strong": "G3985",
   "forma": "ἐπείρασεν",
+  "lema": "πειράζω",
   "glosa_interlineal": "tentó",
   "rango_semantico": [
    "tentar, probar"
@@ -91,7 +101,7 @@
   "construccion": "Aoristo indicativo activo: «por lo cual también yo, no pudiendo soportar más, envié para informarme de vuestra fe, no sea que os hubiese tentado el tentador, y que nuestro trabajo resultase en vano».",
   "sentido_en_contexto": "El «tentador» (ὁ πειράζων) es Satanás; su acción puede arruinar el trabajo apostólico. La preocupación de Pablo muestra que la fe puede ser puesta a prueba. Pablo no duda de la gracia, sino de la perseverancia de los jóvenes creyentes.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 4:3",
@@ -100,10 +110,9 @@
    "Fil 2:16"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1Thess.3.5#15",
+  "ref_estandar": "1Thess.3.5",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G3985G",
   "strong_tagnt": "G3985",
@@ -119,13 +128,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to test/tempt",
-  "ref_estandar": "1Thess.3.5"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Thess.3.8",
+  "pos_tisch": 6,
   "strong": "G4739",
   "forma": "στήκετε",
+  "lema": "στήκω",
   "glosa_interlineal": "estáis firmes",
   "rango_semantico": [
    "estar firme, permanecer"
@@ -133,7 +147,7 @@
   "construccion": "Presente indicativo activo: «porque ahora vivimos, si vosotros estáis firmes en el Señor».",
   "sentido_en_contexto": "La fe de los tesalonicenses reanima a Pablo («ahora vivimos»). El bienestar del pastor depende de la fidelidad de su rebaño. Expresión de comunión pastoral.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Fil 4:1",
@@ -141,9 +155,9 @@
    "1 Co 16:13"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "1Thess.3.8#06",
+  "ref_estandar": "1Thess.3.8",
   "morfologia_tagnt": "V-PAI-2P",
   "dstrong": "G4739",
   "strong_tagnt": "G4739",
@@ -160,13 +174,17 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "to stand",
-  "ref_estandar": "1Thess.3.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Thess.3.10",
+  "pos_tisch": 13,
   "strong": "G2675",
   "forma": "καταρτίσαι",
+  "lema": "καταρτίζω",
   "glosa_interlineal": "completar",
   "rango_semantico": [
    "completar, restaurar, equipar"
@@ -174,7 +192,7 @@
   "construccion": "Aoristo infinitivo activo: «orando de noche y de día con gran insistencia, para que veamos vuestro rostro, y completemos lo que falte a vuestra fe».",
   "sentido_en_contexto": "Pablo desea visitarlos para completar lo que falta a su fe: enseñanza adicional (cf. 4:1—5:11 sobre santidad y escatología). Se compara con 1:3: su fe ya es notable, pero necesita crecer.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 4:12",
@@ -182,9 +200,9 @@
    "Hch 14:22"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "1Thess.3.10#13",
+  "ref_estandar": "1Thess.3.10",
   "morfologia_tagnt": "V-AAN",
   "dstrong": "G2675",
   "strong_tagnt": "G2675",
@@ -200,13 +218,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to complete",
-  "ref_estandar": "1Thess.3.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Thess.3.13",
+  "pos_tisch": 9,
   "strong": "G42",
   "forma": "ἁγιωσύνῃ",
+  "lema": "ἁγιωσύνη",
   "glosa_interlineal": "santidad",
   "rango_semantico": [
    "santidad, consagración"
@@ -214,7 +236,7 @@
   "construccion": "Dativo: «para que sean afirmados vuestros corazones, irreprensibles en santidad delante de Dios nuestro Padre, para la venida de nuestro Señor Jesucristo con todos sus santos».",
   "sentido_en_contexto": "Oración por irreprensibilidad en santidad en la parusía. «Con todos sus santos» puede ser ángeles o creyentes ya resucitados (4:14). Se debate la identidad: ver Zac 14:5; Mr 8:38; 2 Ts 1:7.",
   "matiz": "Debate: «sus santos» (ἅγιοι) son (a) ángeles (Zac 14:5; Mt 25:31; 2 Ts 1:7); (b) creyentes que han muerto y vienen con Cristo (1 Ts 4:14); (c) ambos. El contexto favorece a los santos humanos, pero los ángeles son posibles.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Zac 14:5",
@@ -223,9 +245,9 @@
    "2 Ts 1:7"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "1Thess.3.13#09",
+  "ref_estandar": "1Thess.3.13",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G0042",
   "strong_tagnt": "G42",
@@ -241,7 +263,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "holiness",
-  "ref_estandar": "1Thess.3.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

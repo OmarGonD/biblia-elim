@@ -1,8 +1,10 @@
 [
  {
   "ref": "Jas.4.1",
+  "pos_tisch": 2,
   "strong": "G4171",
   "forma": "πόλεμοι",
+  "lema": "πόλεμος",
   "glosa_interlineal": "guerras",
   "rango_semantico": [
    "guerra, conflicto"
@@ -10,7 +12,7 @@
   "construccion": "Nominativo plural: «¿de dónde vienen las guerras y los pleitos entre vosotros? ¿No es de vuestras pasiones, las cuales combaten en vuestros miembros?».",
   "sentido_en_contexto": "Origen de los conflictos: deseos desordenados (ἡδοναί) que combaten internamente. Pelear, codiciar, matar (¿en sentido figurado o literal?), pedir mal. Diagnóstico moral de las disputas en la comunidad.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jas 1:14-15",
@@ -18,9 +20,9 @@
    "1 P 2:11"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Jas.4.1#02",
+  "ref_estandar": "Jas.4.1",
   "morfologia_tagnt": "N-NPM",
   "dstrong": "G4171",
   "strong_tagnt": "G4171",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "war",
-  "ref_estandar": "Jas.4.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.4.3",
+  "pos_tisch": 6,
   "strong": "G2560",
   "forma": "κακῶς",
+  "lema": "κακῶς",
   "glosa_interlineal": "mal",
   "rango_semantico": [
    "mal, indebidamente"
@@ -50,7 +56,7 @@
   "construccion": "Adverbio: «pedís, y no recibís, porque pedís mal, para gastar en vuestros deleites».",
   "sentido_en_contexto": "La oración fracasa por motivos egoístas. Santiago no niega que Dios responde, sino que corrige los motivos: pedir para satisfacer pasiones. Complementa 1:5-6 sobre pedir con fe.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Jn 5:14",
@@ -58,9 +64,9 @@
    "Jas 1:5-6"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Jas.4.3#06",
+  "ref_estandar": "Jas.4.3",
   "morfologia_tagnt": "ADV",
   "dstrong": "G2560",
   "strong_tagnt": "G2560",
@@ -76,13 +82,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "badly",
-  "ref_estandar": "Jas.4.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.4.4",
+  "pos_tisch": 1,
   "strong": "G3428",
   "forma": "μοιχαλίδες",
+  "lema": "μοιχαλίς",
   "glosa_interlineal": "adúlteros",
   "rango_semantico": [
    "adúltera, infiel (espiritualmente)"
@@ -90,7 +100,7 @@
   "construccion": "Vocativo femenino plural: «¡oh almas adúlteras! ¿No sabéis que la amistad del mundo es enemistad contra Dios? Cualquiera, pues, que quiera ser amigo del mundo, se constituye enemigo de Dios».",
   "sentido_en_contexto": "Imagen del AT: Israel como esposa infiel de Dios (Os; Ez 16). «Amigo del mundo»: alianza con los valores contrarios a Dios. No es desprecio de la creación, sino adhesión a un sistema opuesto a Dios. Cf. 1 Jn 2:15-17.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Jn 2:15-17",
@@ -99,9 +109,9 @@
    "Mt 6:24"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "Jas.4.4#03",
+  "ref_estandar": "Jas.4.4",
   "morfologia_tagnt": "A-VPF",
   "dstrong": "G3428",
   "strong_tagnt": "G3428",
@@ -117,13 +127,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "adulterous",
-  "ref_estandar": "Jas.4.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.4.5",
+  "pos_tisch": 12,
   "strong": "G4151",
   "forma": "πνεῦμα",
+  "lema": "πνεῦμα",
   "glosa_interlineal": "espíritu",
   "rango_semantico": [
    "espíritu, Espíritu"
@@ -131,7 +145,7 @@
   "construccion": "Nominativo: «¿o pensáis que la Escritura dice en vano: El Espíritu que él ha hecho morar en nosotros nos anhela celosamente?».",
   "sentido_en_contexto": "Texto difícil: no hay cita exacta de la Escritura; el sujeto de «anhela con celos» puede ser Dios (el Espíritu que habita en nosotros) o el espíritu humano (que tiende a la envidia). La construcción gramatical admite varias traducciones.",
   "matiz": "Debate: (a) Dios anhela celosamente el espíritu que puso en nosotros (la mayoría; sujeto: Dios); (b) el Espíritu Santo anhela con celo; (c) el espíritu humano tiende a la envidia (RVR60 sugiere lo segundo en algunas traducciones). Referencia al AT: Éx 20:5; Dt 32:16-21.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Éx 20:5",
@@ -139,9 +153,9 @@
    "Os 2:19-20"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Jas.4.5#12",
+  "ref_estandar": "Jas.4.5",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G4151G",
   "strong_tagnt": "G4151",
@@ -157,13 +171,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "spirit/breath",
-  "ref_estandar": "Jas.4.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.4.6",
+  "pos_tisch": 11,
   "strong": "G5011",
   "forma": "ταπεινοῖς",
+  "lema": "ταπεινός",
   "glosa_interlineal": "humildes",
   "rango_semantico": [
    "humilde"
@@ -171,7 +189,7 @@
   "construccion": "Dativo plural: «pero él da mayor gracia. Por esto dice: Dios resiste a los soberbios, y da gracia a los humildes».",
   "sentido_en_contexto": "Cita de Pr 3:34 (LXX), citada también en 1 P 5:5. Dios se opone a los soberbios y favorece a los humildes. Fundamento de la exhortación que sigue (vv.7-10): someteos, resistid al diablo, acercaos a Dios, limpiad las manos, humillaos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Pr 3:34",
@@ -180,9 +198,9 @@
    "Is 57:15"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Jas.4.6#11",
+  "ref_estandar": "Jas.4.6",
   "morfologia_tagnt": "A-DPM",
   "dstrong": "G5011",
   "strong_tagnt": "G5011",
@@ -198,13 +216,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lowly",
-  "ref_estandar": "Jas.4.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.4.7",
+  "pos_tisch": 5,
   "strong": "G436",
   "forma": "ἀντίστητε",
+  "lema": "ἀνθίστημι",
   "glosa_interlineal": "resistid",
   "rango_semantico": [
    "resistir, oponerse"
@@ -212,7 +234,7 @@
   "construccion": "Imperativo aoristo activo: «someteos, pues, a Dios; resistid al diablo, y huirá de vosotros».",
   "sentido_en_contexto": "Sometimiento a Dios y resistencia al diablo van juntos. La promesa «huirá de vosotros» se basa en que el creyente está sometido a Dios, no en poder propio. Cf. 1 P 5:8-9; Ef 6:11-13. Sigue la promesa: «acercaos a Dios y él se acercará a vosotros» (v.8).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 P 5:8-9",
@@ -220,9 +242,9 @@
    "Mt 4:1-11"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Jas.4.7#05",
+  "ref_estandar": "Jas.4.7",
   "morfologia_tagnt": "V-2AAM-2P",
   "dstrong": "G0436",
   "strong_tagnt": "G436",
@@ -238,13 +260,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to oppose",
-  "ref_estandar": "Jas.4.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.4.8",
+  "pos_tisch": 1,
   "strong": "G1448",
   "forma": "ἐγγίσατε",
+  "lema": "ἐγγίζω",
   "glosa_interlineal": "acercaos",
   "rango_semantico": [
    "acercarse"
@@ -252,7 +278,7 @@
   "construccion": "Imperativo aoristo activo: «acercaos a Dios, y él se acercará a vosotros. Pecadores, limpiad las manos; y vosotros los de doble ánimo, purificad vuestros corazones».",
   "sentido_en_contexto": "Llamamiento al arrepentimiento con lenguaje cultual (limpiar las manos, purificar corazones). Manos (conducta) y corazones (motivaciones). «De doble ánimo» (δίψυχοι) como 1:8. Sigue el duelo y la humillación (vv.9-10).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 24:3-4",
@@ -261,10 +287,9 @@
    "Heb 10:22"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Jas.4.8#01",
+  "ref_estandar": "Jas.4.8",
   "morfologia_tagnt": "V-AAM-2P",
   "dstrong": "G1448",
   "strong_tagnt": "G1448",
@@ -280,13 +305,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to come near",
-  "ref_estandar": "Jas.4.8"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.4.10",
+  "pos_tisch": 1,
   "strong": "G5013",
   "forma": "ταπεινώθητε",
+  "lema": "ταπεινόω",
   "glosa_interlineal": "humillaos",
   "rango_semantico": [
    "humillarse"
@@ -294,7 +324,7 @@
   "construccion": "Imperativo aoristo pasivo: «humillaos delante del Señor, y él os exaltará».",
   "sentido_en_contexto": "Paradoja del reino: quien se humilla es exaltado. Eco de Jesús (Lc 14:11; 18:14) y de 1 P 5:6. La exaltación es obra de Dios, no autoproclamación.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 14:11; 18:14",
@@ -303,9 +333,9 @@
    "Job 22:29"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "Jas.4.10#01",
+  "ref_estandar": "Jas.4.10",
   "morfologia_tagnt": "V-APM-2P",
   "dstrong": "G5013",
   "strong_tagnt": "G5013",
@@ -321,13 +351,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to humble",
-  "ref_estandar": "Jas.4.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.4.11",
+  "pos_tisch": 2,
   "strong": "G2635",
   "forma": "καταλαλεῖτε",
+  "lema": "καταλαλέω",
   "glosa_interlineal": "habléis mal",
   "rango_semantico": [
    "hablar mal, difamar"
@@ -335,7 +369,7 @@
   "construccion": "Imperativo presente activo: «hermanos, no hablen mal los unos de los otros. El que habla mal del hermano, y juzga a su hermano, habla mal de la ley, y juzga a la ley».",
   "sentido_en_contexto": "La maledicencia contra los hermanos es juzgar la ley (que manda amar) y usurpar el lugar de Dios, único Legislador y Juez (v.12). No prohíbe todo juicio moral (1 Co 5:12), sino el juicio de condenación y chisme.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 7:1-5",
@@ -344,10 +378,9 @@
    "1 P 2:1"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Jas.4.11#02",
+  "ref_estandar": "Jas.4.11",
   "morfologia_tagnt": "V-PAM-2P",
   "dstrong": "G2635",
   "strong_tagnt": "G2635",
@@ -363,13 +396,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to slander",
-  "ref_estandar": "Jas.4.11"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.4.13",
+  "pos_tisch": 8,
   "strong": "G4198",
   "forma": "πορευσόμεθα",
+  "lema": "πορεύομαι",
   "glosa_interlineal": "iremos",
   "rango_semantico": [
    "ir, viajar"
@@ -377,7 +415,7 @@
   "construccion": "Futuro indicativo medio: «ea ahora, los que decís: Hoy o mañana iremos a tal ciudad, y estaremos allá un año, y traficaremos, y ganaremos».",
   "sentido_en_contexto": "Advertencia contra la planificación arrogante que ignora a Dios. No condena planear, sino hacerlo como si Dios no existiera. La vida es «un vapor» (v.14). La actitud correcta es «si el Señor quiere» (v.15).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Pr 27:1",
@@ -386,9 +424,9 @@
    "1 Co 4:19"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Jas.4.13#08",
+  "ref_estandar": "Jas.4.13",
   "morfologia_tagnt": "V-FDI-1P",
   "dstrong": "G4198",
   "strong_tagnt": "G4198",
@@ -405,13 +443,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to travel",
-  "ref_estandar": "Jas.4.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.4.14",
+  "pos_tisch": 12,
   "strong": "G822",
   "forma": "ἀτμὶς",
+  "lema": "ἀτμίς",
   "glosa_interlineal": "vapor",
   "rango_semantico": [
    "vapor, niebla, humo"
@@ -419,7 +461,7 @@
   "construccion": "Nominativo: «cuando no sabéis lo que será mañana. Porque, ¿qué es vuestra vida? Ciertamente es neblina que se aparece por un poco de tiempo, y luego se desvanece».",
   "sentido_en_contexto": "La vida es «vapor» o «neblina» que aparece y se desvanece: fragilidad de la existencia humana (cf. Sal 39:5; 102:3). Fundamenta la humildad en la planificación y la dependencia de Dios.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 39:5-6",
@@ -428,9 +470,9 @@
    "Is 40:6-8"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Jas.4.14#12",
+  "ref_estandar": "Jas.4.14",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G0822",
   "strong_tagnt": "G822",
@@ -446,13 +488,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "vapor",
-  "ref_estandar": "Jas.4.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.4.15",
+  "pos_tisch": 8,
   "strong": "G2309",
   "forma": "θελήσῃ",
+  "lema": "θέλω",
   "glosa_interlineal": "quiera",
   "rango_semantico": [
    "querer, desear"
@@ -460,7 +506,7 @@
   "construccion": "Subjuntivo aoristo activo: «en lugar de lo cual deberíais decir: Si el Señor quiere, viviremos y haremos esto o aquello».",
   "sentido_en_contexto": "Expresión de dependencia de la voluntad de Dios (cf. Hch 18:21; 1 Co 4:19; 16:7). No es una fórmula mágica, sino una actitud del corazón: reconocer que la vida y los planes están en manos de Dios.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 18:21",
@@ -468,9 +514,9 @@
    "Pr 16:9"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Jas.4.15#08",
+  "ref_estandar": "Jas.4.15",
   "morfologia_tagnt": "V-AAS-3S",
   "dstrong": "G2309",
   "strong_tagnt": "G2309",
@@ -487,13 +533,17 @@
    "WH"
   ],
   "variante": true,
-  "glosa_tagnt": "to will/desire",
-  "ref_estandar": "Jas.4.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.4.17",
+  "pos_tisch": 8,
   "strong": "G266",
   "forma": "ἁμαρτία",
+  "lema": "ἁμαρτία",
   "glosa_interlineal": "pecado",
   "rango_semantico": [
    "pecado"
@@ -501,7 +551,7 @@
   "construccion": "Nominativo: «y al que sabe hacer lo bueno, y no lo hace, le es pecado».",
   "sentido_en_contexto": "Principio de pecados de omisión: no hacer el bien conocido es pecado. Cierra la sección sobre la presunción. Conecta con la enseñanza de Jesús (Lc 12:47-48; Mt 25:41-46).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 12:47-48",
@@ -510,9 +560,9 @@
    "Ro 14:23"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Jas.4.17#08",
+  "ref_estandar": "Jas.4.17",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G0266",
   "strong_tagnt": "G266",
@@ -528,7 +578,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sin",
-  "ref_estandar": "Jas.4.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

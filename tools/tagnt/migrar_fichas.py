@@ -27,6 +27,9 @@ def en_pericopa(ref):
 
 
 def main():
+    if "--forzar" not in sys.argv:
+        sys.exit("migrar_fichas.py ya cumplió su función: data/fichas_v2/ está en el formato de v3 "
+                 "(tools/convertir_fichas_v2_a_v3.py). Volver a ejecutarlo lo sobrescribiría con el formato viejo; usa --forzar.")
     tisch = alinear.leer_tisch()
     al = json.load(open(alinear.SALIDA, encoding="utf-8"))["v"]
     por_clave = {}

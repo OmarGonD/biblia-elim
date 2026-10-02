@@ -1,8 +1,10 @@
 [
  {
   "ref": "Rev.17.1",
+  "pos_tisch": 24,
   "strong": "G4204",
   "forma": "πόρνης",
+  "lema": "πόρνη",
   "glosa_interlineal": "ramera",
   "rango_semantico": [
    "prostituta, ramera"
@@ -10,7 +12,7 @@
   "construccion": "Genitivo: «vino entonces uno de los siete ángeles que tenían las siete copas, y habló conmigo, diciéndome: Ven acá, y te mostraré la sentencia contra la gran ramera, la que está sentada sobre muchas aguas».",
   "sentido_en_contexto": "Capítulos 17–18: la «gran ramera» (πόρνη μεγάλη), llamada «Babilonia la grande» (17:5): imagen de la ciudad idólatra y opresora (Is 23:15-17: Tiro; Nah 3:4: Nínive; Jer 51: Babilonia; Ez 16, 23: Jerusalén infiel). Se contrasta con la novia del Cordero (19:7-8; 21:2) y con la mujer del cap. 12. «Muchas aguas» = pueblos y naciones (v.15).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 23:15-17",
@@ -19,9 +21,9 @@
    "Ap 17:15; 19:2"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 24,
   "alineacion": "forma",
   "tagnt": "Rev.17.1#25",
+  "ref_estandar": "Rev.17.1",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G4204",
   "strong_tagnt": "G4204",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "prostitute",
-  "ref_estandar": "Rev.17.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.17.3",
+  "pos_tisch": 14,
   "strong": "G2847",
   "forma": "κόκκινον",
+  "lema": "κόκκινος",
   "glosa_interlineal": "escarlata",
   "rango_semantico": [
    "escarlata, rojo vivo"
@@ -51,7 +57,7 @@
   "construccion": "Acusativo: «y me llevó en el Espíritu al desierto; y vi a una mujer sentada sobre una bestia escarlata llena de nombres de blasfemia, que tenía siete cabezas y diez cuernos».",
   "sentido_en_contexto": "La mujer sentada sobre la bestia escarlata (la misma de 13:1: siete cabezas, diez cuernos, blasfemias): la ciudad-poder (Roma) apoyada sobre el poder político (la bestia). «En el desierto» (ἔρημον): lugar de visión del juicio. Color escarlata: lujo, sangre y pecado (Is 1:18).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 13:1",
@@ -60,9 +66,9 @@
    "Ap 1:10"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Rev.17.3#14",
+  "ref_estandar": "Rev.17.3",
   "morfologia_tagnt": "A-ASN",
   "dstrong": "G2847",
   "strong_tagnt": "G2847",
@@ -78,13 +84,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "scarlet",
-  "ref_estandar": "Rev.17.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.17.4",
+  "pos_tisch": 25,
   "strong": "G946",
   "forma": "βδελυγμάτων",
+  "lema": "βδέλυγμα",
   "glosa_interlineal": "abominaciones",
   "rango_semantico": [
    "abominación, cosa detestable"
@@ -92,7 +102,7 @@
   "construccion": "Genitivo plural: «y la mujer estaba vestida de púrpura y escarlata, y adornada de oro, de piedras preciosas y de perlas, y tenía en la mano un cáliz de oro lleno de abominaciones y de la inmundicia de su fornicación».",
   "sentido_en_contexto": "Lujo y seducción de la ciudad: púrpura, escarlata, oro, piedras preciosas y perlas (lujo romano), con un cáliz de oro «lleno de abominaciones»: imagen del atractivo externo que oculta idolatría y corrupción. Cf. 18:12-16 (lista de mercancías).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jer 51:7",
@@ -101,9 +111,9 @@
    "Ez 16:13-17"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 25,
   "alineacion": "forma",
   "tagnt": "Rev.17.4#25",
+  "ref_estandar": "Rev.17.4",
   "morfologia_tagnt": "N-GPN",
   "dstrong": "G0946",
   "strong_tagnt": "G946",
@@ -119,13 +129,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "abomination",
-  "ref_estandar": "Rev.17.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.17.5",
+  "pos_tisch": 8,
   "strong": "G3466",
   "forma": "μυστήριον",
+  "lema": "μυστήριον",
   "glosa_interlineal": "misterio",
   "rango_semantico": [
    "misterio, secreto revelado"
@@ -133,7 +147,7 @@
   "construccion": "Nominativo: «y en su frente un nombre escrito, un misterio: BABILONIA LA GRANDE, LA MADRE DE LAS RAMERAS Y DE LAS ABOMINACIONES DE LA TIERRA».",
   "sentido_en_contexto": "El nombre en su frente (frente de las prostitutas romanas llevaba una banda con su nombre): «misterio» (μυστήριον: significado simbólico revelado: «Babilonia» no es la ciudad literal, sino Roma y todo sistema opuesto a Dios). «Madre de las rameras»: fuente de la idolatría y la inmoralidad. Cf. 1 P 5:13.",
   "matiz": "Debate sobre la identidad de Babilonia: (a) Roma imperial, la ciudad de las siete colinas (v.9; la mayoría de exégetas); (b) Jerusalén apóstata (algunos preteristas, por el paralelo con Ez 16 y 23); (c) el sistema mundano y comercial opuesto a Dios, de todos los tiempos (idealismo); (d) una ciudad futura (Roma o una Babilonia reconstruida; futurismo); (e) la iglesia romana (lectura historicista protestante antigua; hoy minoritaria entre exégetas).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 P 5:13",
@@ -142,9 +156,9 @@
    "Is 47"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Rev.17.5#08",
+  "ref_estandar": "Rev.17.5",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G3466",
   "strong_tagnt": "G3466",
@@ -160,13 +174,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mystery",
-  "ref_estandar": "Rev.17.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.17.6",
+  "pos_tisch": 16,
   "strong": "G3144",
   "forma": "μαρτύρων",
+  "lema": "μάρτυς",
   "glosa_interlineal": "mártires",
   "rango_semantico": [
    "testigo, mártir"
@@ -174,7 +192,7 @@
   "construccion": "Genitivo plural: «y vi a la mujer ebria de la sangre de los santos, y de la sangre de los mártires de Jesús; y cuando la vi, quedé asombrado con gran asombro».",
   "sentido_en_contexto": "La mujer ebria de la sangre de los santos y de los «mártires (μάρτυρες) de Jesús»: aquí el término «testigos» ya designa a los que murieron por su testimonio. Juan queda profundamente asombrado (no por la visión del juicio, sino por la ciudad que persigue a los suyos con apariencia de gloria).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 6:9-10; 16:6; 18:24",
@@ -182,9 +200,9 @@
    "Mt 23:35"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Rev.17.6#16",
+  "ref_estandar": "Rev.17.6",
   "morfologia_tagnt": "N-GPM",
   "dstrong": "G3144",
   "strong_tagnt": "G3144",
@@ -200,13 +218,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "witness",
-  "ref_estandar": "Rev.17.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.17.8",
+  "pos_tisch": 14,
   "strong": "G12",
   "forma": "ἀβύσσου",
+  "lema": "ἄβυσσος",
   "glosa_interlineal": "abismo",
   "rango_semantico": [
    "abismo, profundidad sin fondo"
@@ -214,7 +236,7 @@
   "construccion": "Genitivo: «la bestia que has visto, era, y no es; y está para subir del abismo e ir a perdición; y los moradores de la tierra, aquellos cuyos nombres no están escritos desde la fundación del mundo en el libro de la vida, se asombrarán viendo la bestia que era y no es, y será».",
   "sentido_en_contexto": "Parodia de la fórmula divina «el que es, el que era y el que ha de venir» (1:4, 8): «era, y no es, y será» (παρέσται, o «vendrá»). Sugiere el mito del Nero redivivus o el retorno del poder opresor tras su caída aparente; como «herida de muerte sanada» (13:3). Sube del abismo (11:7) y va a perdición. Los que no tienen el nombre en el libro de la vida se asombran.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 1:4, 8; 11:7; 13:3",
@@ -222,9 +244,9 @@
    "Dn 7:3"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Rev.17.8#14",
+  "ref_estandar": "Rev.17.8",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G0012",
   "strong_tagnt": "G12",
@@ -240,13 +262,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "abyss",
-  "ref_estandar": "Rev.17.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.17.9",
+  "pos_tisch": 11,
   "strong": "G3735",
   "forma": "ὄρη",
+  "lema": "ὄρος",
   "glosa_interlineal": "montes",
   "rango_semantico": [
    "monte, colina"
@@ -254,7 +280,7 @@
   "construccion": "Nominativo plural: «esto, para la mente que tenga sabiduría: Las siete cabezas son siete montes, sobre los cuales se sienta la mujer».",
   "sentido_en_contexto": "«Siete montes» (ὄρη): la clave geográfica: Roma, la ciudad de las siete colinas (Septimontium; Urbs Septicollis), con la mujer sentada sobre ellas. Las siete cabezas son también siete reyes (v.10): ¿emperadores romanos? Ver v.10.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 17:10",
@@ -262,9 +288,9 @@
    "Ap 13:1"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Rev.17.9#11",
+  "ref_estandar": "Rev.17.9",
   "morfologia_tagnt": "N-NPN",
   "dstrong": "G3735",
   "strong_tagnt": "G3735",
@@ -280,13 +306,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mountain",
-  "ref_estandar": "Rev.17.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.17.10",
+  "pos_tisch": 2,
   "strong": "G935",
   "forma": "βασιλεῖς",
+  "lema": "βασιλεύς",
   "glosa_interlineal": "reyes",
   "rango_semantico": [
    "rey, soberano"
@@ -294,7 +324,7 @@
   "construccion": "Nominativo plural: «y son siete reyes. Cinco de ellos han caído; uno es, y el otro aún no ha venido; y cuando venga, es necesario que dure breve tiempo».",
   "sentido_en_contexto": "Siete reyes: cinco caídos, uno es (el actual), otro aún no ha venido. Tradicional interpretación: emperadores romanos (¿desde Augusto: Augusto, Tiberio, Calígula, Claudio, Nerón → «el que es» sería Vespasiano o Galba; con otros cómputos, Domiciano). El problema es qué emperadores contar (el cómputo cambia la fecha del libro). Otros ven imperios sucesivos (Egipto, Asiria, Babilonia, Persia, Grecia; Roma; el último); o un número simbólico (siete = totalidad).",
   "matiz": "Debate: (a) siete emperadores romanos, de acuerdo con una de las listas (con Julio César, Augusto..., o contando desde Augusto o Calígula; fecha bajo Vespasiano o Domiciano); (b) siete imperios mundiales sucesivos hostiles a Dios (Egipto, Asiria, Babilonia, Persia, Grecia, Roma y un séptimo futuro; historicismo, futurismo); (c) simbólico: la plenitud de los poderes opresores en la historia (idealismo). Según el v.11, la bestia es un «octavo» que es de los siete.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dn 2; 7",
@@ -302,9 +332,9 @@
    "Ap 12:3"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 2,
   "alineacion": "forma+reorden",
   "tagnt": "Rev.17.9#20",
+  "ref_estandar": "Rev.17.10",
   "morfologia_tagnt": "N-NPM",
   "dstrong": "G0935",
   "strong_tagnt": "G935",
@@ -320,13 +350,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "king",
-  "ref_estandar": "Rev.17.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.17.11",
+  "pos_tisch": 11,
   "strong": "G3590",
   "forma": "ὄγδοός",
+  "lema": "ὄγδοος",
   "glosa_interlineal": "octavo",
   "rango_semantico": [
    "octavo"
@@ -334,7 +368,7 @@
   "construccion": "Nominativo: «y la bestia que era, y no es, también es el octavo, y es de entre los siete, y va a la perdición».",
   "sentido_en_contexto": "La bestia es «un octavo», que a la vez es «de entre los siete»: un retorno o una síntesis del poder opresor. Los preteristas lo ven como Nerón redivivo o un emperador que encarna a los demás; los futuristas como el Anticristo final, que proviene del imperio mundial; los idealistas, como el poder del mal en cada era. Va a la perdición (ἀπώλεια).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 13:3; 17:8",
@@ -342,9 +376,9 @@
    "Dn 7:8, 24"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Rev.17.11#11",
+  "ref_estandar": "Rev.17.11",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G3590",
   "strong_tagnt": "G3590",
@@ -360,13 +394,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "eighth",
-  "ref_estandar": "Rev.17.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.17.12",
+  "pos_tisch": 3,
   "strong": "G1176",
   "forma": "δέκα",
+  "lema": "δέκα",
   "glosa_interlineal": "diez",
   "rango_semantico": [
    "diez"
@@ -374,17 +412,16 @@
   "construccion": "Nominativo: «y los diez cuernos que has visto son diez reyes, que aún no han recibido reino; pero recibirán autoridad por una hora como reyes juntamente con la bestia».",
   "sentido_en_contexto": "Los diez cuernos = diez reyes (Dn 7:24) que reciben autoridad por una breve «hora» junto con la bestia. Se discute si son reyes literales futuros (confederación de diez naciones; futurismo), reyes vasallos del imperio (preterismo) o símbolo de la totalidad de poderes subordinados. Se aliarán con la bestia, y luego la aborrecerán y destruirán a la ramera (v.16).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dn 7:7, 24",
    "Ap 13:1; 17:16-17"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 3,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Rev.17.12#03",
+  "ref_estandar": "Rev.17.12",
   "morfologia_tagnt": "A-NUI",
   "dstrong": "G1176",
   "strong_tagnt": "G1176",
@@ -400,13 +437,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ten",
-  "ref_estandar": "Rev.17.12"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.17.12",
+  "pos_tisch": 7,
   "strong": "G1176",
   "forma": "δέκα",
+  "lema": "δέκα",
   "glosa_interlineal": "diez",
   "rango_semantico": [
    "diez"
@@ -414,17 +456,16 @@
   "construccion": "Nominativo: «y los diez cuernos que has visto son diez reyes, que aún no han recibido reino; pero recibirán autoridad por una hora como reyes juntamente con la bestia».",
   "sentido_en_contexto": "Los diez cuernos = diez reyes (Dn 7:24) que reciben autoridad por una breve «hora» junto con la bestia. Se discute si son reyes literales futuros (confederación de diez naciones; futurismo), reyes vasallos del imperio (preterismo) o símbolo de la totalidad de poderes subordinados. Se aliarán con la bestia, y luego la aborrecerán y destruirán a la ramera (v.16).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dn 7:7, 24",
    "Ap 13:1; 17:16-17"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 7,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Rev.17.12#07",
+  "ref_estandar": "Rev.17.12",
   "morfologia_tagnt": "A-NUI",
   "dstrong": "G1176",
   "strong_tagnt": "G1176",
@@ -440,13 +481,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ten",
-  "ref_estandar": "Rev.17.12"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.17.14",
+  "pos_tisch": 4,
   "strong": "G721",
   "forma": "ἀρνίου",
+  "lema": "ἀρνίον",
   "glosa_interlineal": "Cordero",
   "rango_semantico": [
    "cordero"
@@ -454,7 +500,7 @@
   "construccion": "Genitivo: «pelearán contra el Cordero, y el Cordero los vencerá, porque él es Señor de señores y Rey de reyes; y los que están con él son llamados, elegidos y fieles».",
   "sentido_en_contexto": "Anticipación de la batalla final (19:11-21): los reyes y la bestia luchan contra el Cordero y son vencidos. Los suyos (llamados, escogidos, fieles) comparten su victoria. «Señor de señores y Rey de reyes»: título divino (Dt 10:17; 1 Ti 6:15) aplicado al Cordero, y en 19:16 al jinete.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 19:16",
@@ -463,10 +509,9 @@
    "Ap 12:11"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Rev.17.14#04",
+  "ref_estandar": "Rev.17.14",
   "morfologia_tagnt": "N-GSN",
   "dstrong": "G0721",
   "strong_tagnt": "G721",
@@ -482,13 +527,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lamb",
-  "ref_estandar": "Rev.17.14"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.17.15",
+  "pos_tisch": 5,
   "strong": "G5204",
   "forma": "ὕδατα",
+  "lema": "ὕδωρ",
   "glosa_interlineal": "aguas",
   "rango_semantico": [
    "agua"
@@ -496,7 +546,7 @@
   "construccion": "Nominativo plural: «me dijo también: Las aguas que has visto donde la ramera se sienta, son pueblos, muchedumbres, naciones y lenguas».",
   "sentido_en_contexto": "Interpretación del ángel: las muchas aguas sobre las que se sienta la ramera son «pueblos, multitudes, naciones y lenguas»: alcance universal de su influencia. Babilonia geográfica se sentaba junto a ríos; la nueva Babilonia domina a los pueblos. Los intérpretes que ven aquí a Roma subrayan su control del Mediterráneo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jer 51:13",
@@ -504,9 +554,9 @@
    "Ap 13:7; 17:1"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Rev.17.15#05",
+  "ref_estandar": "Rev.17.15",
   "morfologia_tagnt": "N-NPN",
   "dstrong": "G5204",
   "strong_tagnt": "G5204",
@@ -522,13 +572,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "water",
-  "ref_estandar": "Rev.17.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.17.16",
+  "pos_tisch": 11,
   "strong": "G3404",
   "forma": "μισήσουσιν",
+  "lema": "μισέω",
   "glosa_interlineal": "aborrecerán",
   "rango_semantico": [
    "odiar, aborrecer"
@@ -536,7 +590,7 @@
   "construccion": "Futuro indicativo activo: «y los diez cuernos que viste en la bestia, éstos aborrecerán a la ramera, y la dejarán desolada y desnuda; y comerán sus carnes, y la quemarán con fuego».",
   "sentido_en_contexto": "Giro sorprendente: el poder político (la bestia y los diez reyes) se vuelve contra la ciudad-ramera y la destruye, imagen de la autodestrucción del mal: los instrumentos del dragón se vuelven unos contra otros (cf. Ez 16:37-41; 23:25-29). Dios lo permite (v.17: «puso en sus corazones ejecutar su propósito»).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ez 16:37-41; 23:25-29",
@@ -545,9 +599,9 @@
    "2 Cr 20:23"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Rev.17.16#11",
+  "ref_estandar": "Rev.17.16",
   "morfologia_tagnt": "V-FAI-3P",
   "dstrong": "G3404",
   "strong_tagnt": "G3404",
@@ -563,13 +617,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to hate",
-  "ref_estandar": "Rev.17.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.17.17",
+  "pos_tisch": 11,
   "strong": "G1106",
   "forma": "γνώμην",
+  "lema": "γνώμη",
   "glosa_interlineal": "propósito",
   "rango_semantico": [
    "parecer, intención, propósito"
@@ -577,7 +635,7 @@
   "construccion": "Acusativo: «porque Dios ha puesto en sus corazones el ejecutar lo que él quiso: el ponerse de acuerdo, y dar su reino a la bestia, hasta que se cumplan las palabras de Dios».",
   "sentido_en_contexto": "Soberanía de Dios sobre la historia: incluso las decisiones de los reyes malvados sirven a su propósito (cf. Pr 21:1; Is 10:5-15; Hch 4:27-28). Los reyes actúan por sus propios motivos, pero cumplen el plan de Dios. Se discute cómo se concilia con la responsabilidad humana: el texto afirma ambas cosas.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Pr 21:1",
@@ -586,10 +644,9 @@
    "Gn 50:20"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 11,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Rev.17.17#11",
+  "ref_estandar": "Rev.17.17",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G1106",
   "strong_tagnt": "G1106",
@@ -605,13 +662,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "resolution",
-  "ref_estandar": "Rev.17.17"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.17.17",
+  "pos_tisch": 16,
   "strong": "G1106",
   "forma": "γνώμην",
+  "lema": "γνώμη",
   "glosa_interlineal": "propósito",
   "rango_semantico": [
    "parecer, intención, propósito"
@@ -619,7 +681,7 @@
   "construccion": "Acusativo: «porque Dios ha puesto en sus corazones el ejecutar lo que él quiso: el ponerse de acuerdo, y dar su reino a la bestia, hasta que se cumplan las palabras de Dios».",
   "sentido_en_contexto": "Soberanía de Dios sobre la historia: incluso las decisiones de los reyes malvados sirven a su propósito (cf. Pr 21:1; Is 10:5-15; Hch 4:27-28). Los reyes actúan por sus propios motivos, pero cumplen el plan de Dios. Se discute cómo se concilia con la responsabilidad humana: el texto afirma ambas cosas.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Pr 21:1",
@@ -628,10 +690,9 @@
    "Gn 50:20"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 16,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Rev.17.17#16",
+  "ref_estandar": "Rev.17.17",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G1106",
   "strong_tagnt": "G1106",
@@ -647,13 +708,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "resolution",
-  "ref_estandar": "Rev.17.17"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.17.18",
+  "pos_tisch": 8,
   "strong": "G4172",
   "forma": "πόλις",
+  "lema": "πόλις",
   "glosa_interlineal": "ciudad",
   "rango_semantico": [
    "ciudad"
@@ -661,16 +727,16 @@
   "construccion": "Nominativo: «y la mujer que has visto es la gran ciudad que reina sobre los reyes de la tierra».",
   "sentido_en_contexto": "Identificación explícita de la mujer: «la gran ciudad que tiene reino sobre los reyes de la tierra» (en el s. I, solo Roma; cf. 17:9). Se complementa con «Babilonia». Para quienes ven en la ramera a otra entidad (Jerusalén, un sistema religioso o político), el v.18 es la clave del debate.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 17:9; 16:19",
    "Ap 18:10, 16, 18-19, 21"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Rev.17.18#08",
+  "ref_estandar": "Rev.17.18",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G4172",
   "strong_tagnt": "G4172",
@@ -686,7 +752,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "city",
-  "ref_estandar": "Rev.17.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

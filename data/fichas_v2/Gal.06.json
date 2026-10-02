@@ -1,8 +1,10 @@
 [
  {
   "ref": "Gal.6.1",
+  "pos_tisch": 4,
   "strong": "G4301",
   "forma": "προλημφθῇ",
+  "lema": "προλαμβάνω",
   "glosa_interlineal": "sorprendido",
   "rango_semantico": [
    "ser sorprendido, ser alcanzado"
@@ -10,7 +12,7 @@
   "construccion": "Subjuntivo aoristo pasivo: «hermanos, si alguno fuere sorprendido en alguna falta, vosotros que sois espirituales, restauradle con espíritu de mansedumbre, considerándote a ti mismo, no sea que tú también seas tentado».",
   "sentido_en_contexto": "Principio de disciplina y restauración: los «espirituales» (πνευματικοί) restauran (καταρτίζετε: reparar, como un hueso) a quien cae, con mansedumbre y autoexamen, no con orgullo. El objetivo es la restauración, no el castigo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 18:15-20",
@@ -19,9 +21,9 @@
    "1 Co 10:12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Gal.6.1#04",
+  "ref_estandar": "Gal.6.1",
   "morfologia_tagnt": "V-APS-3S",
   "dstrong": "G4301",
   "strong_tagnt": "G4301",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to take beforehand",
-  "ref_estandar": "Gal.6.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.6.2",
+  "pos_tisch": 3,
   "strong": "G922",
   "forma": "βάρη",
+  "lema": "βάρος",
   "glosa_interlineal": "cargas",
   "rango_semantico": [
    "peso, carga"
@@ -51,7 +57,7 @@
   "construccion": "Acusativo plural: «sobrellevad los unos las cargas de los otros, y cumplid así la ley de Cristo».",
   "sentido_en_contexto": "«La ley de Cristo» (ὁ νόμος τοῦ Χριστοῦ): el amor mutuo practicado por Cristo; no una nueva ley de reglas, sino el principio del amor que sigue su ejemplo. Contrasta con la ley de Moisés. Se ha discutido el sentido de «ley de Cristo» (1 Co 9:21).",
   "matiz": "Debate sobre «la ley de Cristo»: (a) el mandamiento del amor (Gá 5:14); (b) las enseñanzas de Jesús; (c) la Torá reinterpretada por Cristo (Dunn); (d) la ley del Espíritu (Ro 8:2). La mayoría la relaciona con el amor y el ejemplo de Cristo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 15:1",
@@ -60,9 +66,9 @@
    "Gá 5:14"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Gal.6.2#03",
+  "ref_estandar": "Gal.6.2",
   "morfologia_tagnt": "N-APN",
   "dstrong": "G0922",
   "strong_tagnt": "G922",
@@ -78,13 +84,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "burden",
-  "ref_estandar": "Gal.6.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.6.5",
+  "pos_tisch": 5,
   "strong": "G5413",
   "forma": "φορτίον",
+  "lema": "φορτίον",
   "glosa_interlineal": "carga",
   "rango_semantico": [
    "carga, fardo"
@@ -92,7 +102,7 @@
   "construccion": "Acusativo: «porque cada uno llevará su propia carga».",
   "sentido_en_contexto": "Aparente contradicción con v.2: «cargas» (βάρη: pesos excesivos) se comparten; «carga» (φορτίον: la responsabilidad personal, el equipaje del soldado) es individual. Cada uno responde de su propia vida delante de Dios (v.4-5); ayudarse no excluye la responsabilidad personal.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 14:12",
@@ -100,9 +110,9 @@
    "Gá 6:2"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Gal.6.5#05",
+  "ref_estandar": "Gal.6.5",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G5413",
   "strong_tagnt": "G5413",
@@ -118,13 +128,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "burden",
-  "ref_estandar": "Gal.6.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.6.7",
+  "pos_tisch": 5,
   "strong": "G3456",
   "forma": "μυκτηρίζεται",
+  "lema": "μυκτηρίζω",
   "glosa_interlineal": "se burla",
   "rango_semantico": [
    "burlarse, despreciar"
@@ -132,7 +146,7 @@
   "construccion": "Presente indicativo pasivo: «no os engañéis; Dios no puede ser burlado: pues todo lo que el hombre sembrare, eso también segará».",
   "sentido_en_contexto": "Principio de la siembra y cosecha moral: nadie puede burlarse de Dios. El que siembra para la carne cosecha corrupción; el que siembra para el Espíritu, vida eterna (v.8). Se aplica a la conducta del creyente y no es amenaza de pérdida de salvación por una mala obra, sino ley moral del reino.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Job 4:8",
@@ -141,9 +155,9 @@
    "Ro 2:6-8"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Gal.6.7#05",
+  "ref_estandar": "Gal.6.7",
   "morfologia_tagnt": "V-PPI-3S",
   "dstrong": "G3456",
   "strong_tagnt": "G3456",
@@ -159,13 +173,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to mock",
-  "ref_estandar": "Gal.6.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.6.8",
+  "pos_tisch": 12,
   "strong": "G5356",
   "forma": "φθοράν",
+  "lema": "φθορά",
   "glosa_interlineal": "corrupción",
   "rango_semantico": [
    "corrupción, destrucción"
@@ -173,7 +191,7 @@
   "construccion": "Acusativo: «porque el que siembra para su carne, de la carne segará corrupción; mas el que siembra para el Espíritu, del Espíritu segará vida eterna».",
   "sentido_en_contexto": "Dos sembrados: para la carne (vida egoísta) y para el Espíritu (vida guiada por Dios). Resultados: corrupción (φθορά) o vida eterna. Principio sobre la continuidad entre la conducta y el destino, sin contradecir la gracia (Ro 8:13).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 8:13",
@@ -181,9 +199,9 @@
    "Ef 5:5-6"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Gal.6.8#12",
+  "ref_estandar": "Gal.6.8",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G5356",
   "strong_tagnt": "G5356",
@@ -199,13 +217,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "corruption",
-  "ref_estandar": "Gal.6.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.6.9",
+  "pos_tisch": 6,
   "strong": "G1573",
   "forma": "ἐνκακῶμεν",
+  "lema": "ἐκκακέω",
   "glosa_interlineal": "nos cansemos",
   "rango_semantico": [
    "desanimarse, cansarse"
@@ -213,7 +235,7 @@
   "construccion": "Subjuntivo presente activo (exhortativo): «no nos cansemos, pues, de hacer bien; porque a su tiempo segaremos, si no desmayamos».",
   "sentido_en_contexto": "Exhortación a la perseverancia en el bien. La cosecha viene «a su debido tiempo» (καιρῷ ἰδίῳ). Pablo anima a los gálatas a no agotarse. «Si no desmayamos» expresa la condición de la perseverancia.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Ts 3:13",
@@ -221,9 +243,9 @@
    "1 Co 15:58"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "strong",
   "tagnt": "Gal.6.9#06",
+  "ref_estandar": "Gal.6.9",
   "morfologia_tagnt": "V-PAS-1P",
   "dstrong": "G1573",
   "strong_tagnt": "G1573",
@@ -239,13 +261,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to lose heart",
-  "ref_estandar": "Gal.6.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.6.10",
+  "pos_tisch": 15,
   "strong": "G3609",
   "forma": "οἰκείους",
+  "lema": "οἰκεῖος",
   "glosa_interlineal": "de la familia",
   "rango_semantico": [
    "miembro de la familia, de la casa"
@@ -253,7 +279,7 @@
   "construccion": "Acusativo plural: «así que, según tengamos oportunidad, hagamos bien a todos, y mayormente a los de la familia de la fe».",
   "sentido_en_contexto": "Principio de responsabilidad: hacer bien a todos, con prioridad a la familia de la fe (la iglesia). No restringe la bondad a los creyentes, sino que establece un orden de prioridades. La iglesia es «casa» (οἶκος) de Dios.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Ti 5:8",
@@ -262,9 +288,9 @@
    "Ef 2:19"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Gal.6.10#15",
+  "ref_estandar": "Gal.6.10",
   "morfologia_tagnt": "A-APM",
   "dstrong": "G3609",
   "strong_tagnt": "G3609",
@@ -280,13 +306,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "of one’s household",
-  "ref_estandar": "Gal.6.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.6.11",
+  "pos_tisch": 4,
   "strong": "G1121",
   "forma": "γράμμασιν",
+  "lema": "γράμμα",
   "glosa_interlineal": "letras",
   "rango_semantico": [
    "letra, escrito"
@@ -294,7 +324,7 @@
   "construccion": "Dativo plural: «mirad con cuán grandes letras os escribo de mi propia mano».",
   "sentido_en_contexto": "Pablo toma la pluma y subraya el resumen final (6:11-18) con letras grandes y de su propia mano. La mención de «letras grandes» se ha relacionado con problemas de visión (4:15) o con énfasis retórico. Sigue el resumen de la carta.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 16:21",
@@ -303,9 +333,9 @@
    "Gá 4:15"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Gal.6.11#04",
+  "ref_estandar": "Gal.6.11",
   "morfologia_tagnt": "N-DPN",
   "dstrong": "G1121",
   "strong_tagnt": "G1121",
@@ -321,13 +351,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "something written",
-  "ref_estandar": "Gal.6.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.6.12",
+  "pos_tisch": 9,
   "strong": "G4059",
   "forma": "περιτέμνεσθαι",
+  "lema": "περιτέμνω",
   "glosa_interlineal": "circuncidaros",
   "rango_semantico": [
    "circuncidar"
@@ -335,7 +369,7 @@
   "construccion": "Presente infinitivo medio/pasivo: «los que quieren agradar en la carne, éstos os obligan a circuncidaros, solamente para no padecer persecución a causa de la cruz de Cristo».",
   "sentido_en_contexto": "Pablo desenmascara los motivos de sus adversarios: evitar persecución (de los judíos celosos) y gloriarse en la carne de los gálatas (v.13). No guardan ellos mismos la ley (v.13). Contrasta con su propia gloria en la cruz (v.14).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 5:11",
@@ -343,9 +377,9 @@
    "Ro 16:17-18"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Gal.6.12#09",
+  "ref_estandar": "Gal.6.12",
   "morfologia_tagnt": "V-PPN",
   "dstrong": "G4059",
   "strong_tagnt": "G4059",
@@ -361,13 +395,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to circumcise",
-  "ref_estandar": "Gal.6.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.6.14",
+  "pos_tisch": 10,
   "strong": "G4716",
   "forma": "σταυρῷ",
+  "lema": "σταυρός",
   "glosa_interlineal": "cruz",
   "rango_semantico": [
    "cruz"
@@ -375,7 +413,7 @@
   "construccion": "Dativo: «pero lejos esté de mí gloriarme, sino en la cruz de nuestro Señor Jesucristo, por quien el mundo me es crucificado a mí, y yo al mundo».",
   "sentido_en_contexto": "Afirmación central: la cruz es el único motivo de gloria. Por ella, el mundo (el orden de valores humanos) ha sido crucificado para Pablo, y él para el mundo. Contrasta con la jactancia de los adversarios en la carne.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 1:18-31",
@@ -384,9 +422,9 @@
    "Jer 9:23-24"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Gal.6.14#10",
+  "ref_estandar": "Gal.6.14",
   "morfologia_tagnt": "N-DSM",
   "dstrong": "G4716",
   "strong_tagnt": "G4716",
@@ -402,13 +440,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "cross",
-  "ref_estandar": "Gal.6.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.6.15",
+  "pos_tisch": 10,
   "strong": "G2937",
   "forma": "κτίσις",
+  "lema": "κτίσις",
   "glosa_interlineal": "creación",
   "rango_semantico": [
    "creación, criatura"
@@ -416,7 +458,7 @@
   "construccion": "Nominativo: «porque en Cristo Jesús ni la circuncisión vale algo, ni la incircuncisión, sino una nueva creación».",
   "sentido_en_contexto": "Resumen de la carta: lo que cuenta es la nueva creación (καινὴ κτίσις), la transformación radical por Cristo, no la identidad étnica ni religiosa. Paralelo con 2 Co 5:17 y Gá 5:6. Tiene dimensión cósmica y escatológica además de individual.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Co 5:17",
@@ -425,9 +467,9 @@
    "Ap 21:5"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Gal.6.15#13",
+  "ref_estandar": "Gal.6.15",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G2937",
   "strong_tagnt": "G2937",
@@ -443,13 +485,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "creation",
-  "ref_estandar": "Gal.6.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.6.16",
+  "pos_tisch": 15,
   "strong": "G2474",
   "forma": "Ἰσραὴλ",
+  "lema": "Ἰσραήλ",
   "glosa_interlineal": "Israel",
   "rango_semantico": [
    "Israel"
@@ -457,7 +503,7 @@
   "construccion": "Genitivo: «y a todos los que anden conforme a esta regla, paz y misericordia sea a ellos, y al Israel de Dios».",
   "sentido_en_contexto": "«El Israel de Dios» (ὁ Ἰσραὴλ τοῦ θεοῦ), único uso de esa expresión en el NT. Muy debatido: ¿se refiere a la iglesia entera (judíos y gentiles), a los judíos creyentes, o al Israel étnico que será salvo? El «y» (καί) puede ser aclarativo («es decir») o conjuntivo.",
   "matiz": "Debate: (a) la iglesia (judíos y gentiles creyentes) es el «Israel de Dios» (καί explicativo; teología del cumplimiento, la mayoría de reformados, católicos y ortodoxos); (b) los creyentes judíos dentro de la iglesia (diferenciados de los gentiles; dispensacionalismo, algunos); (c) el Israel étnico futuro (Ro 11:26; algunos). Es un texto clave en la discusión de la relación entre Israel y la iglesia.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 9:6-8; 11:25-26",
@@ -466,9 +512,9 @@
    "Ef 2:11-22"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Gal.6.16#15",
+  "ref_estandar": "Gal.6.16",
   "morfologia_tagnt": "N-ASM-L",
   "dstrong": "G2474",
   "strong_tagnt": "G2474",
@@ -484,13 +530,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Israel",
-  "ref_estandar": "Gal.6.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.6.17",
+  "pos_tisch": 10,
   "strong": "G4742",
   "forma": "στίγματα",
+  "lema": "στίγμα",
   "glosa_interlineal": "marcas",
   "rango_semantico": [
    "marca, estigma"
@@ -498,7 +548,7 @@
   "construccion": "Acusativo plural: «de aquí en adelante nadie me cause molestias; porque yo llevo en mi cuerpo las marcas del Señor Jesús».",
   "sentido_en_contexto": "στίγματα: marcas de propiedad (como las del esclavo o soldado marcado), o cicatrices de las persecuciones y azotes sufridos por Cristo (2 Co 11:23-25). No se refiere a estigmas milagrosos, sino a las huellas del sufrimiento por el evangelio, que prueban su autenticidad frente a quienes se glorían en la carne.",
   "matiz": "Debate: (a) cicatrices de su sufrimiento apostólico (la mayoría); (b) marca de pertenencia a Cristo, como la de un esclavo; (c) la tradición medieval (Francisco de Asís) aplicó el término a los estigmas de la pasión, lectura devocional no exegética.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Co 11:23-25",
@@ -507,9 +557,9 @@
    "2 Co 4:10"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Gal.6.17#10",
+  "ref_estandar": "Gal.6.17",
   "morfologia_tagnt": "N-APN",
   "dstrong": "G4742",
   "strong_tagnt": "G4742",
@@ -525,13 +575,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mark",
-  "ref_estandar": "Gal.6.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.6.18",
+  "pos_tisch": 2,
   "strong": "G5485",
   "forma": "χάρις",
+  "lema": "χάρις",
   "glosa_interlineal": "gracia",
   "rango_semantico": [
    "gracia, favor"
@@ -539,7 +593,7 @@
   "construccion": "Nominativo: «hermanos, la gracia de nuestro Señor Jesucristo sea con vuestro espíritu. Amén».",
   "sentido_en_contexto": "Cierre de la carta: Pablo termina con gracia, el tema fundamental de la carta. Notable la ausencia de saludos personales y de acción de gracias (cf. 1:6): refleja la urgencia del conflicto. Llama «hermanos» a los gálatas, aun después de su dura reprensión.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Fil 4:23",
@@ -547,9 +601,9 @@
    "Ro 16:20"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Gal.6.18#02",
+  "ref_estandar": "Gal.6.18",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G5485",
   "strong_tagnt": "G5485",
@@ -565,7 +619,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "grace",
-  "ref_estandar": "Gal.6.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

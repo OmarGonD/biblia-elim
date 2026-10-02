@@ -1,8 +1,10 @@
 [
  {
   "ref": "Luke.18.1",
+  "pos_tisch": 13,
   "strong": "G1573",
   "forma": "ἐνκακεῖν",
+  "lema": "ἐκκακέω",
   "glosa_interlineal": "desanimar",
   "rango_semantico": [
    "desanimarse, desfallecer, cansarse"
@@ -10,7 +12,7 @@
   "construccion": "Infinitivo presente: «orar siempre y no desmayar».",
   "sentido_en_contexto": "Lucas explica el propósito de la parábola de la viuda insistente (solo suya): la necesidad de orar siempre y no desmayar. El contexto es la espera de la venida del Hijo del Hombre (17:22-37).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 11:5-13 — el amigo importuno",
@@ -18,9 +20,9 @@
    "1 Ts 5:17 — «orad sin cesar»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "strong",
   "tagnt": "Luke.18.1#14",
+  "ref_estandar": "Luke.18.1",
   "morfologia_tagnt": "V-PAN",
   "dstrong": "G1573",
   "strong_tagnt": "G1573",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to lose heart",
-  "ref_estandar": "Luke.18.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.18.5",
+  "pos_tisch": 17,
   "strong": "G5299",
   "forma": "ὑπωπιάζῃ",
+  "lema": "ὑπωπιάζω",
   "glosa_interlineal": "me agote",
   "rango_semantico": [
    "golpear en el ojo, agotar, hostigar"
@@ -50,16 +56,13 @@
   "construccion": "Subjuntivo presente activo: «no sea que, viniendo de continuo, me agote la paciencia».",
   "sentido_en_contexto": "Palabra de boxeo: literalmente «darme un ojo morado». El juez injusto, por pura molestia, accede a la petición de la viuda. Argumento de menor a mayor: si un juez injusto cede, ¡cuánto más Dios!",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "1 Co 9:27 — «golpeo mi cuerpo (ὑπωπιάζω)»",
-   "Lc 11:8 — la importunidad del amigo"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "1 Co 9:27 — «golpeo mi cuerpo (ὑπωπιάζω)»\nLc 11:8 — la importunidad del amigo",
   "otros_usos": "medio",
   "nivel_certeza": "alto",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "Luke.18.5#17",
+  "ref_estandar": "Luke.18.5",
   "morfologia_tagnt": "V-PAS-3S",
   "dstrong": "G5299",
   "strong_tagnt": "G5299",
@@ -75,13 +78,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to wear out",
-  "ref_estandar": "Luke.18.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.18.7",
+  "pos_tisch": 8,
   "strong": "G1557",
   "forma": "ἐκδίκησιν",
+  "lema": "ἐκδίκησις",
   "glosa_interlineal": "justicia",
   "rango_semantico": [
    "venganza, vindicación, hacer justicia"
@@ -89,7 +96,7 @@
   "construccion": "Acusativo: «¿no hará Dios justicia a sus escogidos?».",
   "sentido_en_contexto": "ἐκδίκησις no es venganza personal, sino vindicación: restaurar el derecho de los oprimidos. Dios hace justicia a quienes claman a él día y noche.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 6:10 — «¿hasta cuándo, Señor… no juzgas?»",
@@ -97,9 +104,9 @@
    "Ro 12:19 — «mía es la venganza»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Luke.18.7#08",
+  "ref_estandar": "Luke.18.7",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G1557",
   "strong_tagnt": "G1557",
@@ -115,13 +122,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "vengeance",
-  "ref_estandar": "Luke.18.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.18.8",
+  "pos_tisch": 19,
   "strong": "G4102",
   "forma": "πίστιν",
+  "lema": "πίστις",
   "glosa_interlineal": "fe",
   "rango_semantico": [
    "fe, fidelidad"
@@ -129,7 +140,7 @@
   "construccion": "Acusativo: «¿hallará fe en la tierra?».",
   "sentido_en_contexto": "Pregunta final, sin respuesta explícita: cuando venga el Hijo del Hombre, ¿habrá fe perseverante? Subraya que la oración persistente nace de la fe.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 17:26-30 — los días de Noé y Lot",
@@ -137,9 +148,9 @@
    "Heb 11:6 — «sin fe es imposible agradar a Dios»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 19,
   "alineacion": "forma",
   "tagnt": "Luke.18.8#19",
+  "ref_estandar": "Luke.18.8",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G4102G",
   "strong_tagnt": "G4102",
@@ -155,13 +166,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "faith",
-  "ref_estandar": "Luke.18.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.18.9",
+  "pos_tisch": 7,
   "strong": "G3982",
   "forma": "πεποιθότας",
+  "lema": "πείθω",
   "glosa_interlineal": "los que confiaban",
   "rango_semantico": [
    "confiar, estar convencido"
@@ -169,7 +184,7 @@
   "construccion": "Participio perfecto activo: «los que confiaban en sí mismos».",
   "sentido_en_contexto": "Lucas explica el destinatario de la parábola siguiente: quienes confían en su propia justicia y desprecian a los demás. El fariseo y el publicano ilustran dos modos de orar.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 16:15 — «vosotros sois los que os justificáis a vosotros mismos»",
@@ -177,9 +192,9 @@
    "2 Co 10:12 — «medirse a sí mismos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Luke.18.9#07",
+  "ref_estandar": "Luke.18.9",
   "morfologia_tagnt": "V-2RAP-APM",
   "dstrong": "G3982",
   "strong_tagnt": "G3982",
@@ -195,13 +210,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to persuade",
-  "ref_estandar": "Luke.18.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.18.11",
+  "pos_tisch": 8,
   "strong": "G2168",
   "forma": "εὐχαριστῶ",
+  "lema": "εὐχαριστέω",
   "glosa_interlineal": "te doy gracias",
   "rango_semantico": [
    "dar gracias"
@@ -209,16 +228,16 @@
   "construccion": "Presente indicativo activo, 1ª singular: «Dios, te doy gracias porque no soy como los demás».",
   "sentido_en_contexto": "Oración del fariseo: formalmente de gratitud, pero centrada en sí mismo y en comparación con otros (ladrones, injustos, adúlteros, «y aun este publicano»). Lista de obras (ayuno, diezmo) sin petición.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 18:12 — «ayuno dos veces… diezmo»",
    "Is 65:5 — «aparta de mí, no te acerques, porque soy más santo que tú»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Luke.18.11#10",
+  "ref_estandar": "Luke.18.11",
   "morfologia_tagnt": "V-PAI-1S",
   "dstrong": "G2168",
   "strong_tagnt": "G2168",
@@ -234,13 +253,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to thank",
-  "ref_estandar": "Luke.18.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.18.13",
+  "pos_tisch": 23,
   "strong": "G2433",
   "forma": "ἱλάσθητί",
+  "lema": "ἱλάσκομαι",
   "glosa_interlineal": "sé propicio",
   "rango_semantico": [
    "ser propicio, expiar, mostrar misericordia"
@@ -248,7 +271,7 @@
   "construccion": "Imperativo aoristo pasivo: «ten misericordia (sé propiciado) a mí, pecador».",
   "sentido_en_contexto": "Oración del publicano: brevísima. El verbo ἱλάσκομαι pertenece al vocabulario del templo y la expiación (ἱλαστήριον). Se golpea el pecho, no alza los ojos; se identifica como «el pecador».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 51:1 — «ten piedad de mí, oh Dios»",
@@ -256,9 +279,9 @@
    "Ro 3:25 — «propiciación»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 23,
   "alineacion": "forma",
   "tagnt": "Luke.18.13#25",
+  "ref_estandar": "Luke.18.13",
   "morfologia_tagnt": "V-APM-2S",
   "dstrong": "G2433",
   "strong_tagnt": "G2433",
@@ -274,13 +297,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to propitiate",
-  "ref_estandar": "Luke.18.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.18.14",
+  "pos_tisch": 5,
   "strong": "G1344",
   "forma": "δεδικαιωμένος",
+  "lema": "δικαιόω",
   "glosa_interlineal": "justificado",
   "rango_semantico": [
    "declarar justo, justificar"
@@ -288,7 +315,7 @@
   "construccion": "Participio perfecto pasivo: «descendió justificado a su casa».",
   "sentido_en_contexto": "Veredicto de Jesús: el publicano, no el fariseo, descendió justificado. Lucas usa δικαιόω («declarar justo») en un contexto de oración humilde, no de obras. Eco de la enseñanza paulina sobre la justificación (Ro 3-5).",
   "matiz": "Se discute el sentido de «justificado» en Lucas: absuelto por Dios por su humildad y confesión (misericordia divina). Las tradiciones lo relacionan con la doctrina de la justificación por la fe de formas distintas.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 3:24 — «justificados gratuitamente por su gracia»",
@@ -296,9 +323,9 @@
    "Lc 14:11 — la misma sentencia"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Luke.18.14#05",
+  "ref_estandar": "Luke.18.14",
   "morfologia_tagnt": "V-RPP-NSM",
   "dstrong": "G1344",
   "strong_tagnt": "G1344",
@@ -314,13 +341,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to justify",
-  "ref_estandar": "Luke.18.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.18.15",
+  "pos_tisch": 6,
   "strong": "G1025",
   "forma": "βρέφη",
+  "lema": "βρέφος",
   "glosa_interlineal": "bebés",
   "rango_semantico": [
    "niño de pecho, infante"
@@ -328,17 +359,13 @@
   "construccion": "Acusativo plural: «le traían también los niños pequeños (bebés)».",
   "sentido_en_contexto": "Lucas dice βρέφη («bebés»), más tierno que παιδία en Mt/Mr. Los discípulos regañan a los padres; Jesús los llama y dice que de los tales es el reino.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mt 19:13-15 — paralelo",
-   "Mr 10:13-16 — paralelo",
-   "Lc 1:41 — Juan, «βρέφος»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mt 19:13-15 — paralelo\nMr 10:13-16 — paralelo\nLc 1:41 — Juan, «βρέφος»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Luke.18.15#06",
+  "ref_estandar": "Luke.18.15",
   "morfologia_tagnt": "N-APN",
   "dstrong": "G1025",
   "strong_tagnt": "G1025",
@@ -354,13 +381,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "infant",
-  "ref_estandar": "Luke.18.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.18.18",
+  "pos_tisch": 5,
   "strong": "G758",
   "forma": "ἄρχων",
+  "lema": "ἄρχων",
   "glosa_interlineal": "principal",
   "rango_semantico": [
    "jefe, magistrado, dirigente"
@@ -368,17 +399,13 @@
   "construccion": "Nominativo: «cierto hombre principal».",
   "sentido_en_contexto": "Lucas llama «principal» (ἄρχων) al joven rico: un dirigente, probablemente de la sinagoga o consejo local. Mateo lo llama «joven», Marcos «uno».",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mt 19:20 — «el joven»",
-   "Mr 10:17 — «uno»",
-   "Lc 14:1 — «uno de los principales de los fariseos»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mt 19:20 — «el joven»\nMr 10:17 — «uno»\nLc 14:1 — «uno de los principales de los fariseos»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Luke.18.18#05",
+  "ref_estandar": "Luke.18.18",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G0758",
   "strong_tagnt": "G758",
@@ -394,13 +421,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ruler",
-  "ref_estandar": "Luke.18.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.18.22",
+  "pos_tisch": 10,
   "strong": "G3007",
   "forma": "λείπει",
+  "lema": "λείπω",
   "glosa_interlineal": "falta",
   "rango_semantico": [
    "faltar, carecer"
@@ -408,7 +439,7 @@
   "construccion": "Presente indicativo activo: «aún te falta una cosa».",
   "sentido_en_contexto": "Jesús dirige la mirada al apego a las riquezas: la «una cosa» es dejar todo por seguirlo. El joven se va entristecido porque era muy rico.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 19:21 — «si quieres ser perfecto»",
@@ -416,9 +447,9 @@
    "Lc 12:33 — «vended lo que poseéis»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Luke.18.22#11",
+  "ref_estandar": "Luke.18.22",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G3007",
   "strong_tagnt": "G3007",
@@ -434,13 +465,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to lack",
-  "ref_estandar": "Luke.18.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.18.25",
+  "pos_tisch": 7,
   "strong": "G4476",
   "forma": "βελόνης",
+  "lema": "ῥαφίς",
   "glosa_interlineal": "aguja",
   "rango_semantico": [
    "aguja (de coser)"
@@ -448,16 +483,13 @@
   "construccion": "Genitivo: «por el ojo de una aguja».",
   "sentido_en_contexto": "Lucas usa βελόνη (aguja de coser, término más técnico y médico), mientras Mateo y Marcos usan ῥαφίς. La imagen hiperbólica es la misma.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mt 19:24 — «ojo de una aguja (ῥαφίδος)»",
-   "Mr 10:25 — «ojo de una aguja (ῥαφίδος)»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mt 19:24 — «ojo de una aguja (ῥαφίδος)»\nMr 10:25 — «ojo de una aguja (ῥαφίδος)»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Luke.18.25#07",
+  "ref_estandar": "Luke.18.25",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G6011",
   "strong_tagnt": "G6011",
@@ -474,13 +506,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "needle",
-  "ref_estandar": "Luke.18.25"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.18.27",
+  "pos_tisch": 5,
   "strong": "G102",
   "forma": "ἀδύνατα",
+  "lema": "ἀδύνατος",
   "glosa_interlineal": "imposible",
   "rango_semantico": [
    "imposible"
@@ -488,7 +524,7 @@
   "construccion": "Adjetivo neutro plural: «lo imposible para los hombres es posible para Dios».",
   "sentido_en_contexto": "Respuesta a «¿quién podrá salvarse?»: la salvación es obra de Dios. Eco de Gn 18:14 y Lc 1:37.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 1:37 — «nada hay imposible para Dios»",
@@ -496,9 +532,9 @@
    "Mt 19:26 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Luke.18.27#05",
+  "ref_estandar": "Luke.18.27",
   "morfologia_tagnt": "A-NPN",
   "dstrong": "G0102",
   "strong_tagnt": "G102",
@@ -514,13 +550,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unable",
-  "ref_estandar": "Luke.18.27"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.18.31",
+  "pos_tisch": 13,
   "strong": "G5055",
   "forma": "τελεσθήσεται",
+  "lema": "τελέω",
   "glosa_interlineal": "se cumplirá",
   "rango_semantico": [
    "completar, cumplir, llevar a su fin"
@@ -528,7 +568,7 @@
   "construccion": "Futuro indicativo pasivo: «se cumplirá todo lo escrito por los profetas».",
   "sentido_en_contexto": "Tercer anuncio de la pasión. Lucas subraya que será el cumplimiento de lo escrito por los profetas acerca del Hijo del Hombre. Los discípulos no entienden (v.34).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 9:22, 44 — anuncios anteriores",
@@ -536,9 +576,9 @@
    "Is 53 — el siervo sufriente"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Luke.18.31#13",
+  "ref_estandar": "Luke.18.31",
   "morfologia_tagnt": "V-FPI-3S",
   "dstrong": "G5055",
   "strong_tagnt": "G5055",
@@ -554,13 +594,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to finish",
-  "ref_estandar": "Luke.18.31"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.18.34",
+  "pos_tisch": 11,
   "strong": "G2928",
   "forma": "κεκρυμμένον",
+  "lema": "κρύπτω",
   "glosa_interlineal": "encubierto",
   "rango_semantico": [
    "esconder, ocultar"
@@ -568,16 +612,16 @@
   "construccion": "Participio perfecto pasivo: «esta palabra les era encubierta».",
   "sentido_en_contexto": "Triple insistencia de Lucas: no entendieron nada, la palabra les estaba encubierta, no captaban lo dicho. Se aclarará tras la resurrección (24:45).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 9:45 — «les era encubierta»",
    "Lc 24:45 — «les abrió el entendimiento»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Luke.18.34#11",
+  "ref_estandar": "Luke.18.34",
   "morfologia_tagnt": "V-RPP-NSN",
   "dstrong": "G2928",
   "strong_tagnt": "G2928",
@@ -593,13 +637,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to hide",
-  "ref_estandar": "Luke.18.34"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.18.38",
+  "pos_tisch": 6,
   "strong": "G1138",
   "forma": "Δαυείδ",
+  "lema": "Δαβίδ",
   "glosa_interlineal": "David",
   "rango_semantico": [
    "David"
@@ -607,17 +655,13 @@
   "construccion": "Genitivo: «Jesús, Hijo de David».",
   "sentido_en_contexto": "El ciego de Jericó lo llama «Hijo de David» (título mesiánico) y pide misericordia. Los que van delante lo reprenden, pero grita más fuerte. Su fe contrasta con la ceguera de los discípulos (v.34).",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mt 20:30-31 — dos ciegos",
-   "Mr 10:46-52 — Bartimeo",
-   "Mt 9:27 — otros ciegos"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mt 20:30-31 — dos ciegos\nMr 10:46-52 — Bartimeo\nMt 9:27 — otros ciegos",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "strong",
   "tagnt": "Luke.18.38#06",
+  "ref_estandar": "Luke.18.38",
   "morfologia_tagnt": "N-GSM-P",
   "dstrong": "G1138",
   "strong_tagnt": "G1138",
@@ -633,13 +677,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "David",
-  "ref_estandar": "Luke.18.38"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.18.41",
+  "pos_tisch": 10,
   "strong": "G308",
   "forma": "ἀναβλέψω",
+  "lema": "ἀναβλέπω",
   "glosa_interlineal": "recobre la vista",
   "rango_semantico": [
    "volver a ver, mirar hacia arriba"
@@ -647,7 +695,7 @@
   "construccion": "Subjuntivo aoristo activo: «que recobre la vista».",
   "sentido_en_contexto": "A la pregunta de Jesús («¿qué quieres que haga?»), el ciego pide recobrar la vista. Jesús: «recíbela; tu fe te ha salvado». Inmediatamente ve y lo sigue glorificando a Dios.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 10:51 — «Maestro, que recobre la vista»",
@@ -655,9 +703,9 @@
    "Is 35:5 — «los ojos de los ciegos serán abiertos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Luke.18.41#11",
+  "ref_estandar": "Luke.18.41",
   "morfologia_tagnt": "V-AAS-1S",
   "dstrong": "G0308",
   "strong_tagnt": "G308",
@@ -673,7 +721,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to look up/see again",
-  "ref_estandar": "Luke.18.41"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

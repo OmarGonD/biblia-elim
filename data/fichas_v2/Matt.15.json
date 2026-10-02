@@ -1,8 +1,10 @@
 [
  {
   "ref": "Matt.15.2",
+  "pos_tisch": 7,
   "strong": "G3862",
   "forma": "παράδοσιν",
+  "lema": "παράδοσις",
   "glosa_interlineal": "tradición",
   "rango_semantico": [
    "tradición, lo transmitido",
@@ -11,7 +13,7 @@
   "construccion": "Acusativo: «la tradición de los ancianos».",
   "sentido_en_contexto": "Normas orales de los maestros judíos para aplicar la Ley (como lavarse las manos antes de comer). No estaban en la Torá escrita.",
   "matiz": "Jesús no rechaza toda tradición (cf. 1 Co 11:2); critica la que anula el mandato de Dios (v.6).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 7:3 — «la tradición de los ancianos»",
@@ -19,9 +21,9 @@
    "1 Co 11:2 — «que retengáis las tradiciones»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Matt.15.2#08",
+  "ref_estandar": "Matt.15.2",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G3862",
   "strong_tagnt": "G3862",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tradition",
-  "ref_estandar": "Matt.15.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.15.4",
+  "pos_tisch": 6,
   "strong": "G5091",
   "forma": "τίμα",
+  "lema": "τιμάω",
   "glosa_interlineal": "honra",
   "rango_semantico": [
    "honrar, valorar",
@@ -52,7 +58,7 @@
   "construccion": "Imperativo presente activo, 2ª singular: «honra». Cita de Éx 20:12.",
   "sentido_en_contexto": "En el cuarto mandamiento, «honrar» incluye el sustento material a los padres ancianos. La tradición del «Corbán» permitía eludirlo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Éx 20:12 — mandamiento",
@@ -60,9 +66,9 @@
    "1 Ti 5:3 — «honra a las viudas»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Matt.15.4#06",
+  "ref_estandar": "Matt.15.4",
   "morfologia_tagnt": "V-PAM-2S",
   "dstrong": "G5091",
   "strong_tagnt": "G5091",
@@ -78,13 +84,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to honor",
-  "ref_estandar": "Matt.15.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.15.5",
+  "pos_tisch": 12,
   "strong": "G1435",
   "forma": "δῶρον",
+  "lema": "δῶρον",
   "glosa_interlineal": "ofrenda",
   "rango_semantico": [
    "don, regalo",
@@ -93,16 +103,16 @@
   "construccion": "Nominativo: «ofrenda (Corbán)». Marcos conserva la palabra aramea «Corbán».",
   "sentido_en_contexto": "Fórmula por la que alguien declaraba sus bienes «ofrenda a Dios» y así quedaban exentos de ayudar a sus padres, aunque él mismo seguía usándolos.",
   "matiz": "Los especialistas debaten si la práctica era generalizada o limitada a ciertos casos; Jesús la presenta como ejemplo de cómo la tradición invalida un mandamiento.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 7:11 — «Corbán (que quiere decir, mi ofrenda)»",
    "Nm 30 — votos y su validez"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Matt.15.5#12",
+  "ref_estandar": "Matt.15.5",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G1435",
   "strong_tagnt": "G1435",
@@ -118,13 +128,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gift",
-  "ref_estandar": "Matt.15.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.15.6",
+  "pos_tisch": 2,
   "strong": "G208",
   "forma": "ἠκυρώσατε",
+  "lema": "ἀκυρόω",
   "glosa_interlineal": "invalidasteis",
   "rango_semantico": [
    "anular, privar de validez",
@@ -133,7 +147,7 @@
   "construccion": "Aoristo indicativo activo, 2ª plural: «anulasteis».",
   "sentido_en_contexto": "Acusación central: la tradición humana ha dejado sin efecto el mandato divino. Es lo opuesto al «cumplir» (5:17).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 7:13 — «invalidando la palabra de Dios»",
@@ -141,9 +155,9 @@
    "Mt 5:17 — «no he venido para abrogar, sino para cumplir»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Matt.15.6#13",
+  "ref_estandar": "Matt.15.6",
   "morfologia_tagnt": "V-AAI-2P",
   "dstrong": "G0208",
   "strong_tagnt": "G208",
@@ -159,13 +173,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to nullify",
-  "ref_estandar": "Matt.15.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.15.8",
+  "pos_tisch": 5,
   "strong": "G5491",
   "forma": "χείλεσίν",
+  "lema": "χεῖλος",
   "glosa_interlineal": "labios",
   "rango_semantico": [
    "labio",
@@ -174,7 +192,7 @@
   "construccion": "Dativo instrumental: «con los labios».",
   "sentido_en_contexto": "Cita de Is 29:13: honra de palabra, pero con el corazón alejado. Contraste labios-corazón central en la enseñanza de Jesús sobre la autenticidad.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 29:13 — texto citado",
@@ -182,9 +200,9 @@
    "Mt 23:25 — «limpiáis lo de fuera del vaso»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Matt.15.8#11",
+  "ref_estandar": "Matt.15.8",
   "morfologia_tagnt": "N-DPN",
   "dstrong": "G5491",
   "strong_tagnt": "G5491",
@@ -200,13 +218,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lip",
-  "ref_estandar": "Matt.15.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.15.9",
+  "pos_tisch": 1,
   "strong": "G3155",
   "forma": "μάτην",
+  "lema": "μάτην",
   "glosa_interlineal": "en vano",
   "rango_semantico": [
    "en vano, sin efecto",
@@ -215,16 +237,16 @@
   "construccion": "Adverbio: «en vano».",
   "sentido_en_contexto": "El culto basado en doctrinas de hombres es inútil. Mateo cita la LXX de Is 29:13.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 15:2 — «a menos que hayáis creído en vano»",
    "Gá 2:21 — «Cristo murió en vano»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "Matt.15.9#01",
+  "ref_estandar": "Matt.15.9",
   "morfologia_tagnt": "ADV",
   "dstrong": "G3155",
   "strong_tagnt": "G3155",
@@ -240,13 +262,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "in vain",
-  "ref_estandar": "Matt.15.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.15.11",
+  "pos_tisch": 7,
   "strong": "G2840",
   "forma": "κοινοῖ",
+  "lema": "κοινόω",
   "glosa_interlineal": "contamina",
   "rango_semantico": [
    "hacer común, profano",
@@ -255,7 +281,7 @@
   "construccion": "Presente indicativo activo, 3ª singular: «hace impuro».",
   "sentido_en_contexto": "Verbo clave de la sección (vv.11, 18, 20): lo que contamina no es lo que entra en la boca (comida) sino lo que sale del corazón. Jesús relativiza la pureza ritual alimentaria.",
   "matiz": "Debate: ¿Jesús abroga las leyes de alimentos de Lv 11 aquí? Marcos lo explicita («haciendo limpios todos los alimentos», 7:19); Mateo omite esa frase. Muchos ven aquí una prioridad ética sobre lo ritual sin necesariamente abolir lo ritual.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 7:19 — «haciendo limpios todos los alimentos»",
@@ -263,10 +289,9 @@
    "Ro 14:14 — «nada es inmundo en sí mismo»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 7,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.15.11#07",
+  "ref_estandar": "Matt.15.11",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G2840",
   "strong_tagnt": "G2840",
@@ -282,13 +307,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to profane",
-  "ref_estandar": "Matt.15.11"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.15.11",
+  "pos_tisch": 17,
   "strong": "G2840",
   "forma": "κοινοῖ",
+  "lema": "κοινόω",
   "glosa_interlineal": "contamina",
   "rango_semantico": [
    "hacer común, profano",
@@ -297,7 +327,7 @@
   "construccion": "Presente indicativo activo, 3ª singular: «hace impuro».",
   "sentido_en_contexto": "Verbo clave de la sección (vv.11, 18, 20): lo que contamina no es lo que entra en la boca (comida) sino lo que sale del corazón. Jesús relativiza la pureza ritual alimentaria.",
   "matiz": "Debate: ¿Jesús abroga las leyes de alimentos de Lv 11 aquí? Marcos lo explicita («haciendo limpios todos los alimentos», 7:19); Mateo omite esa frase. Muchos ven aquí una prioridad ética sobre lo ritual sin necesariamente abolir lo ritual.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 7:19 — «haciendo limpios todos los alimentos»",
@@ -305,10 +335,9 @@
    "Ro 14:14 — «nada es inmundo en sí mismo»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 17,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.15.11#17",
+  "ref_estandar": "Matt.15.11",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G2840",
   "strong_tagnt": "G2840",
@@ -324,13 +353,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to profane",
-  "ref_estandar": "Matt.15.11"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.15.13",
+  "pos_tisch": 6,
   "strong": "G5451",
   "forma": "φυτεία",
+  "lema": "φυτεία",
   "glosa_interlineal": "planta",
   "rango_semantico": [
    "planta, plantío",
@@ -339,7 +373,7 @@
   "construccion": "Nominativo: «toda planta».",
   "sentido_en_contexto": "Imagen del campo: lo que Dios no plantó será arrancado. Aplicada a las enseñanzas de los fariseos que no vienen de Dios.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 60:21 — «renuevo de mi plantío»",
@@ -347,9 +381,9 @@
    "Mt 13:24-30 — la cizaña"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Matt.15.13#06",
+  "ref_estandar": "Matt.15.13",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G5451",
   "strong_tagnt": "G5451",
@@ -365,13 +399,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "plant",
-  "ref_estandar": "Matt.15.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.15.14",
+  "pos_tisch": 3,
   "strong": "G3595",
   "forma": "ὁδηγοί",
+  "lema": "ὁδηγός",
   "glosa_interlineal": "guías",
   "rango_semantico": [
    "guía, conductor"
@@ -379,7 +417,7 @@
   "construccion": "Nominativo plural: «guías ciegos».",
   "sentido_en_contexto": "Los fariseos como guías ciegos: no ven la verdad y conducen a otros al hoyo. Imagen que se repite en 23:16, 24.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 23:16 — «¡ay de vosotros, guías ciegos!»",
@@ -387,9 +425,9 @@
    "Ro 2:19 — «guía de los ciegos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma+reorden",
   "tagnt": "Matt.15.14#05",
+  "ref_estandar": "Matt.15.14",
   "morfologia_tagnt": "N-NPM",
   "dstrong": "G3595",
   "strong_tagnt": "G3595",
@@ -405,13 +443,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "guide/leader",
-  "ref_estandar": "Matt.15.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.15.16",
+  "pos_tisch": 7,
   "strong": "G801",
   "forma": "ἀσύνετοί",
+  "lema": "ἀσύνετος",
   "glosa_interlineal": "sin entendimiento",
   "rango_semantico": [
    "necio, sin comprensión"
@@ -419,16 +461,16 @@
   "construccion": "Adjetivo nominativo plural: «¿también vosotros estáis sin entendimiento?».",
   "sentido_en_contexto": "Jesús reprende suavemente a los discípulos: aún no entienden. El adjetivo es el negativo de συνίημι (entender).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 16:9 — «¿aún no entendéis?»",
    "Ro 1:21 — «su necio corazón fue entenebrecido»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Matt.15.16#08",
+  "ref_estandar": "Matt.15.16",
   "morfologia_tagnt": "A-NPM",
   "dstrong": "G0801",
   "strong_tagnt": "G801",
@@ -444,13 +486,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "senseless",
-  "ref_estandar": "Matt.15.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.15.19",
+  "pos_tisch": 6,
   "strong": "G1261",
   "forma": "διαλογισμοὶ",
+  "lema": "διαλογισμός",
   "glosa_interlineal": "pensamientos",
   "rango_semantico": [
    "razonamiento, pensamiento",
@@ -459,7 +505,7 @@
   "construccion": "Nominativo plural: «malos pensamientos».",
   "sentido_en_contexto": "Lista de males que salen del corazón. El corazón es el origen de las acciones que contaminan; las comidas, no.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 7:21-22 — lista paralela más larga",
@@ -467,9 +513,9 @@
    "Ro 1:29-31 — lista de males"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Matt.15.19#06",
+  "ref_estandar": "Matt.15.19",
   "morfologia_tagnt": "N-NPM",
   "dstrong": "G1261",
   "strong_tagnt": "G1261",
@@ -485,13 +531,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "reasoning",
-  "ref_estandar": "Matt.15.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.15.22",
+  "pos_tisch": 4,
   "strong": "G5478",
   "forma": "Χαναναία",
+  "lema": "Χανααναῖος",
   "glosa_interlineal": "cananea",
   "rango_semantico": [
    "cananea (habitante antigua de Canaán)"
@@ -499,7 +549,7 @@
   "construccion": "Nominativo: «una mujer cananea».",
   "sentido_en_contexto": "Mateo emplea la designación arcaica «cananea» en lugar de «sirofenicia» (Marcos), para subrayar la oposición histórica entre Israel y los cananeos, y que aun así ella cree.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 7:26 — «mujer griega, sirofenicia de nación»",
@@ -507,9 +557,9 @@
    "Jos 2 — Rahab, otra gentil que cree"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Matt.15.22#04",
+  "ref_estandar": "Matt.15.22",
   "morfologia_tagnt": "A-NSF-LG",
   "dstrong": "G5478",
   "strong_tagnt": "G5478",
@@ -525,13 +575,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Canaanite",
-  "ref_estandar": "Matt.15.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.15.24",
+  "pos_tisch": 6,
   "strong": "G649",
   "forma": "ἀπεστάλην",
+  "lema": "ἀποστέλλω",
   "glosa_interlineal": "fui enviado",
   "rango_semantico": [
    "enviar, mandar"
@@ -539,7 +593,7 @@
   "construccion": "Aoristo indicativo pasivo, 1ª singular: «fui enviado».",
   "sentido_en_contexto": "Jesús dice que su misión está dirigida a Israel. La frase suena dura; la narración muestra que, aun así, la fe de la mujer es acogida.",
   "matiz": "Se debate si es una prueba de la fe de la mujer, una expresión del plan histórico (primero Israel) o una limitación real temporal. Mateo muestra que se abre la puerta a los gentiles.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 10:5-6 — instrucciones a los doce",
@@ -547,9 +601,9 @@
    "Mt 28:19 — «haced discípulos a todas las naciones»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Matt.15.24#06",
+  "ref_estandar": "Matt.15.24",
   "morfologia_tagnt": "V-2API-1S",
   "dstrong": "G0649",
   "strong_tagnt": "G649",
@@ -565,13 +619,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to send",
-  "ref_estandar": "Matt.15.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.15.26",
+  "pos_tisch": 15,
   "strong": "G2952",
   "forma": "κυναρίοις",
+  "lema": "κυνάριον",
   "glosa_interlineal": "perrillos",
   "rango_semantico": [
    "perrito (diminutivo)",
@@ -580,7 +638,7 @@
   "construccion": "Dativo plural, diminutivo: «a los perritos».",
   "sentido_en_contexto": "El diminutivo (perrillos) suaviza la imagen: perros de casa, no perros callejeros. Jesús usa un proverbio sobre el orden de prioridad: primero los hijos.",
   "matiz": "Se discute el tono: ¿es una prueba de fe, una expresión de la prioridad de Israel, o un insulto atenuado por el diminutivo? El contexto de ironía y la respuesta de la mujer sugieren que Jesús la pone a prueba.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 7:27 — «deja primero que se sacien los hijos»",
@@ -588,9 +646,9 @@
    "Fil 3:2 — «guardaos de los perros»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Matt.15.26#16",
+  "ref_estandar": "Matt.15.26",
   "morfologia_tagnt": "N-DPN",
   "dstrong": "G2952",
   "strong_tagnt": "G2952",
@@ -606,13 +664,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "little dog",
-  "ref_estandar": "Matt.15.26"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.15.27",
+  "pos_tisch": 13,
   "strong": "G5589",
   "forma": "ψιχίων",
+  "lema": "ψιχίον",
   "glosa_interlineal": "migajas",
   "rango_semantico": [
    "migaja, pedacito"
@@ -620,16 +682,16 @@
   "construccion": "ἀπὸ + genitivo: «de las migajas».",
   "sentido_en_contexto": "La mujer toma la imagen y la vuelve a su favor: no pide el pan de los hijos, solo las migajas. Su respuesta combina humildad y fe en la abundancia de Jesús.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 7:28 — paralelo",
    "Lc 16:21 — «las migajas que caían de la mesa del rico»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Matt.15.27#13",
+  "ref_estandar": "Matt.15.27",
   "morfologia_tagnt": "N-GPN",
   "dstrong": "G5589",
   "strong_tagnt": "G5589",
@@ -645,13 +707,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "crumb",
-  "ref_estandar": "Matt.15.27"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.15.28",
+  "pos_tisch": 12,
   "strong": "G4102",
   "forma": "πίστις",
+  "lema": "πίστις",
   "glosa_interlineal": "fe",
   "rango_semantico": [
    "fe, confianza"
@@ -659,7 +725,7 @@
   "construccion": "Nominativo: «grande es tu fe».",
   "sentido_en_contexto": "Jesús elogia la fe de una gentil, como había hecho con el centurión (8:10). Contrasta con la poca fe de los discípulos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 8:10 — «ni aun en Israel he hallado tanta fe»",
@@ -667,9 +733,9 @@
    "Mt 6:30 — «hombres de poca fe»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Matt.15.28#12",
+  "ref_estandar": "Matt.15.28",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G4102G",
   "strong_tagnt": "G4102",
@@ -685,13 +751,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "faith",
-  "ref_estandar": "Matt.15.28"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.15.30",
+  "pos_tisch": 12,
   "strong": "G2948",
   "forma": "κυλλούς",
+  "lema": "κυλλός",
   "glosa_interlineal": "mancos",
   "rango_semantico": [
    "lisiado, manco",
@@ -700,16 +770,16 @@
   "construccion": "Acusativo plural: «los mancos/lisiados».",
   "sentido_en_contexto": "Lista de enfermos presentados a Jesús: cojos, ciegos, mudos, lisiados. Cumple la expectativa de Is 35:5-6.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 35:5-6 — «los cojos saltarán como ciervos»",
    "Mt 11:5 — respuesta a Juan"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma+reorden",
   "tagnt": "Matt.15.30#11",
+  "ref_estandar": "Matt.15.30",
   "morfologia_tagnt": "A-APM",
   "dstrong": "G2948",
   "strong_tagnt": "G2948",
@@ -725,13 +795,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "crippled",
-  "ref_estandar": "Matt.15.30"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.15.31",
+  "pos_tisch": 17,
   "strong": "G1392",
   "forma": "ἐδόξασαν",
+  "lema": "δοξάζω",
   "glosa_interlineal": "glorificaron",
   "rango_semantico": [
    "dar gloria",
@@ -740,16 +814,16 @@
   "construccion": "Aoristo indicativo activo, 3ª plural: «glorificaron al Dios de Israel».",
   "sentido_en_contexto": "La expresión «Dios de Israel» sugiere que quienes glorifican son gentiles en la región de Decápolis. La obra de Jesús lleva a gentiles a reconocer al Dios de Israel.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 9:8 — «glorificó a Dios»",
    "Mt 5:16 — «glorifiquen a vuestro Padre»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "Matt.15.31#17",
+  "ref_estandar": "Matt.15.31",
   "morfologia_tagnt": "V-AAI-3P",
   "dstrong": "G1392",
   "strong_tagnt": "G1392",
@@ -765,13 +839,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to glorify",
-  "ref_estandar": "Matt.15.31"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.15.32",
+  "pos_tisch": 9,
   "strong": "G4697",
   "forma": "σπλαγχνίζομαι",
+  "lema": "σπλαγχνίζομαι",
   "glosa_interlineal": "tengo compasión",
   "rango_semantico": [
    "compadecerse"
@@ -779,7 +857,7 @@
   "construccion": "Presente indicativo medio (deponente), 1ª singular: «siento compasión».",
   "sentido_en_contexto": "Aquí Jesús mismo lo dice en primera persona: «tengo compasión». Es el motivo de la segunda multiplicación de panes.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 14:14 — primera multiplicación",
@@ -787,9 +865,9 @@
    "Mr 8:2 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Matt.15.32#09",
+  "ref_estandar": "Matt.15.32",
   "morfologia_tagnt": "V-PNI-1S",
   "dstrong": "G4697",
   "strong_tagnt": "G4697",
@@ -805,13 +883,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pity",
-  "ref_estandar": "Matt.15.32"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.15.36",
+  "pos_tisch": 9,
   "strong": "G2168",
   "forma": "εὐχαριστήσας",
+  "lema": "εὐχαριστέω",
   "glosa_interlineal": "dando gracias",
   "rango_semantico": [
    "dar gracias",
@@ -820,7 +902,7 @@
   "construccion": "Participio aoristo activo: «habiendo dado gracias».",
   "sentido_en_contexto": "Aquí Mateo usa «dar gracias» (εὐχαριστέω), donde en 14:19 usó «bendijo» (εὐλογέω). Ambos términos son intercambiables en este contexto.",
   "matiz": "Es la raíz del término «Eucaristía», lo que ha reforzado la lectura eucarística de estas comidas en la tradición cristiana.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 26:27 — «tomando la copa, y habiendo dado gracias»",
@@ -828,9 +910,9 @@
    "Mt 14:19 — «bendijo»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Matt.15.36#10",
+  "ref_estandar": "Matt.15.36",
   "morfologia_tagnt": "V-AAP-NSM",
   "dstrong": "G2168",
   "strong_tagnt": "G2168",
@@ -846,13 +928,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to thank",
-  "ref_estandar": "Matt.15.36"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.15.37",
+  "pos_tisch": 13,
   "strong": "G4711",
   "forma": "σπυρίδας",
+  "lema": "σπυρίς",
   "glosa_interlineal": "canastas",
   "rango_semantico": [
    "cesto grande, canasta"
@@ -860,7 +946,7 @@
   "construccion": "Acusativo plural: «siete canastas».",
   "sentido_en_contexto": "Siete canastas (σπυρίδες): cestas grandes, distintas de las «cestas» (κόφινοι) de la primera multiplicación. Los números (12 y 7) invitan a lecturas simbólicas (Israel y las naciones), aunque el texto no las explicita.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 14:20 — doce cestas",
@@ -868,9 +954,9 @@
    "Hch 9:25 — Pablo descendido «en una canasta (σπυρίδι)»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Matt.15.37#13",
+  "ref_estandar": "Matt.15.37",
   "morfologia_tagnt": "N-APF",
   "dstrong": "G4711",
   "strong_tagnt": "G4711",
@@ -886,7 +972,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "basket",
-  "ref_estandar": "Matt.15.37"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

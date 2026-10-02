@@ -1,8 +1,10 @@
 [
  {
   "ref": "2Cor.4.2",
+  "pos_tisch": 19,
   "strong": "G5321",
   "forma": "φανερώσει",
+  "lema": "φανέρωσις",
   "glosa_interlineal": "manifestación",
   "rango_semantico": [
    "manifestación, exposición"
@@ -10,7 +12,7 @@
   "construccion": "Dativo: «por la manifestación de la verdad nos recomendamos a toda conciencia humana delante de Dios».",
   "sentido_en_contexto": "Pablo renuncia a lo oculto y vergonzoso: no anda con astucia ni adultera la palabra de Dios. Su credencial es la exposición abierta de la verdad. Responde a acusaciones de manipulación.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Co 2:17",
@@ -18,9 +20,9 @@
    "1 Co 4:5"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 19,
   "alineacion": "forma",
   "tagnt": "2Cor.4.2#19",
+  "ref_estandar": "2Cor.4.2",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G5321",
   "strong_tagnt": "G5321",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "manifestation",
-  "ref_estandar": "2Cor.4.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Cor.4.4",
+  "pos_tisch": 6,
   "strong": "G165",
   "forma": "αἰῶνος",
+  "lema": "αἰών",
   "glosa_interlineal": "siglo, era",
   "rango_semantico": [
    "era, edad, mundo"
@@ -50,7 +56,7 @@
   "construccion": "Genitivo: «el dios de este siglo cegó el entendimiento de los incrédulos».",
   "sentido_en_contexto": "«El dios de este siglo» (ὁ θεὸς τοῦ αἰῶνος τούτου) es Satanás, que ciega la mente de los incrédulos para que no vean la luz del evangelio de la gloria de Cristo, «que es la imagen de Dios». Cristo es la imagen de Dios (cf. Col 1:15); el evangelio es luz.",
   "matiz": "Debate sobre la identidad: la mayoría lo ve como Satanás (cf. Jn 12:31; 14:30; Ef 2:2); algunos antiguos (Ireneo, Crisóstomo en réplica a los marcionitas) lo entendieron de Dios mismo, que ciega judicialmente. «Dios» aquí lo usa Pablo con sentido restringido por el contexto.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 12:31",
@@ -59,9 +65,9 @@
    "Heb 1:3"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "2Cor.4.4#06",
+  "ref_estandar": "2Cor.4.4",
   "morfologia_tagnt": "N-GSM",
   "dstrong": "G0165G",
   "strong_tagnt": "G165",
@@ -77,13 +83,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "an age",
-  "ref_estandar": "2Cor.4.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Cor.4.6",
+  "pos_tisch": 8,
   "strong": "G5457",
   "forma": "φῶς",
+  "lema": "φῶς",
   "glosa_interlineal": "luz",
   "rango_semantico": [
    "luz"
@@ -91,7 +101,7 @@
   "construccion": "Nominativo: «porque Dios, que mandó que de las tinieblas resplandeciese la luz, es el que resplandeció en nuestros corazones».",
   "sentido_en_contexto": "Alusión a la creación (Gn 1:3): como Dios creó la luz, así ilumina el corazón con el conocimiento de la gloria de Dios «en la faz de Cristo». La conversión se compara con una nueva creación (cf. 5:17).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 1:3",
@@ -100,9 +110,9 @@
    "Hch 26:18"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "2Cor.4.6#08",
+  "ref_estandar": "2Cor.4.6",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G5457",
   "strong_tagnt": "G5457",
@@ -118,13 +128,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "light",
-  "ref_estandar": "2Cor.4.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Cor.4.7",
+  "pos_tisch": 7,
   "strong": "G3749",
   "forma": "ὀστρακίνοις",
+  "lema": "ὀστράκινος",
   "glosa_interlineal": "de barro",
   "rango_semantico": [
    "de arcilla, de barro cocido"
@@ -132,7 +146,7 @@
   "construccion": "Dativo plural: «tenemos este tesoro en vasos de barro, para que la excelencia del poder sea de Dios, y no de nosotros».",
   "sentido_en_contexto": "Imagen central del ministerio: el tesoro (el evangelio, la luz de la gloria) está en vasijas de arcilla frágiles y baratas: los apóstoles. La debilidad del instrumento destaca el poder divino. Sigue una lista de sufrimientos (vv.8-9) con contrastes.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Co 12:9-10",
@@ -140,9 +154,9 @@
    "Jue 7:2"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "2Cor.4.7#07",
+  "ref_estandar": "2Cor.4.7",
   "morfologia_tagnt": "A-DPN",
   "dstrong": "G3749",
   "strong_tagnt": "G3749",
@@ -158,13 +172,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "clay",
-  "ref_estandar": "2Cor.4.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Cor.4.8",
+  "pos_tisch": 3,
   "strong": "G2346",
   "forma": "θλιβόμενοι",
+  "lema": "θλίβω",
   "glosa_interlineal": "atribulados",
   "rango_semantico": [
    "afligir, oprimir"
@@ -172,7 +190,7 @@
   "construccion": "Participio presente pasivo: «que estamos atribulados en todo, mas no angustiados; en apuros, mas no desesperados».",
   "sentido_en_contexto": "Cuatro antítesis (vv.8-9): atribulados pero no aplastados; perplejos pero no desesperados; perseguidos pero no abandonados; derribados pero no destruidos. Reflejan la paradoja de la vida apostólica: debilidad y poder, muerte y vida.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Co 1:8-9; 6:4-10; 11:23-28",
@@ -180,9 +198,9 @@
    "1 Co 4:9-13"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "2Cor.4.8#03",
+  "ref_estandar": "2Cor.4.8",
   "morfologia_tagnt": "V-PPP-NPM",
   "dstrong": "G2346",
   "strong_tagnt": "G2346",
@@ -198,13 +216,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to press on",
-  "ref_estandar": "2Cor.4.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Cor.4.10",
+  "pos_tisch": 3,
   "strong": "G3500",
   "forma": "νέκρωσιν",
+  "lema": "νέκρωσις",
   "glosa_interlineal": "muerte",
   "rango_semantico": [
    "mortificación, estado de muerte"
@@ -212,7 +234,7 @@
   "construccion": "Acusativo: «llevamos siempre en el cuerpo por todas partes la muerte de Jesús, para que también la vida de Jesús se manifieste en nuestros cuerpos».",
   "sentido_en_contexto": "Los sufrimientos apostólicos reflejan la muerte de Jesús, y por ellos se manifiesta la vida de Jesús. Pablo ve su ministerio como una participación en el patrón de Cristo: muerte y resurrección (cf. Gá 2:20; Fil 3:10). «Muerte en nosotros, vida en vosotros» (v.12).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 2:20; 6:17",
@@ -221,9 +243,9 @@
    "Ro 8:17"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "2Cor.4.10#03",
+  "ref_estandar": "2Cor.4.10",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G3500",
   "strong_tagnt": "G3500",
@@ -239,13 +261,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "death",
-  "ref_estandar": "2Cor.4.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Cor.4.13",
+  "pos_tisch": 11,
   "strong": "G4100",
   "forma": "ἐπίστευσα",
+  "lema": "πιστεύω",
   "glosa_interlineal": "creí",
   "rango_semantico": [
    "creer, confiar"
@@ -253,7 +279,7 @@
   "construccion": "Aoristo indicativo activo: «creí, por lo cual hablé».",
   "sentido_en_contexto": "Cita del Sal 115:1 LXX (116:10 en el hebreo): «creí, por eso hablé». Pablo comparte el mismo espíritu de fe del salmista, que habla en medio de la aflicción. La fe se expresa en proclamación.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 116:10",
@@ -261,10 +287,9 @@
    "Hch 4:20"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "2Cor.4.13#11",
+  "ref_estandar": "2Cor.4.13",
   "morfologia_tagnt": "V-AAI-1S",
   "dstrong": "G4100",
   "strong_tagnt": "G4100",
@@ -280,13 +305,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to trust (in)",
-  "ref_estandar": "2Cor.4.13"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Cor.4.16",
+  "pos_tisch": 16,
   "strong": "G341",
   "forma": "ἀνακαινοῦται",
+  "lema": "ἀνακαινόω",
   "glosa_interlineal": "se renueva",
   "rango_semantico": [
    "renovar"
@@ -294,7 +324,7 @@
   "construccion": "Presente indicativo pasivo: «aunque este nuestro hombre exterior se va desgastando, el interior no obstante se renueva de día en día».",
   "sentido_en_contexto": "Contraste entre el «hombre exterior» (cuerpo mortal, sujeto al deterioro) y el «interior» (la persona en comunión con Dios) renovado diariamente. Pablo no es dualista platónico: ambos serán glorificados (cap. 5), pero ahora el interior se fortalece por el Espíritu.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 12:2",
@@ -303,9 +333,9 @@
    "Tit 3:5"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "2Cor.4.16#16",
+  "ref_estandar": "2Cor.4.16",
   "morfologia_tagnt": "V-PPI-3S",
   "dstrong": "G0341",
   "strong_tagnt": "G341",
@@ -321,13 +351,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to renew",
-  "ref_estandar": "2Cor.4.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Cor.4.17",
+  "pos_tisch": 13,
   "strong": "G922",
   "forma": "βάρος",
+  "lema": "βάρος",
   "glosa_interlineal": "peso",
   "rango_semantico": [
    "peso, carga"
@@ -335,7 +369,7 @@
   "construccion": "Acusativo: «porque esta leve tribulación momentánea produce en nosotros un cada vez más excelente y eterno peso de gloria».",
   "sentido_en_contexto": "Perspectiva escatológica: la tribulación presente es «leve» y «momentánea» comparada con el «peso eterno de gloria» (juego hebreo: kabod, «gloria/peso»). No minimiza el dolor (cf. 11:23-28), sino que lo compara con la eternidad. Las cosas visibles son temporales; las invisibles, eternas (v.18).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 8:18",
@@ -344,9 +378,9 @@
    "2 Co 4:18"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "2Cor.4.17#13",
+  "ref_estandar": "2Cor.4.17",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G0922",
   "strong_tagnt": "G922",
@@ -362,7 +396,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "burden",
-  "ref_estandar": "2Cor.4.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

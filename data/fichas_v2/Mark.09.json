@@ -1,8 +1,10 @@
 [
  {
   "ref": "Mark.9.1",
+  "pos_tisch": 16,
   "strong": "G1089",
   "forma": "γεύσωνται",
+  "lema": "γεύομαι",
   "glosa_interlineal": "gusten",
   "rango_semantico": [
    "probar, gustar",
@@ -11,7 +13,7 @@
   "construccion": "Subjuntivo aoristo medio: «no gustarán la muerte».",
   "sentido_en_contexto": "Promesa de que algunos de los presentes verán «el reino de Dios venido con poder». La escena siguiente (transfiguración, v.2) la hace pensar.",
   "matiz": "Debate: ¿se cumple en la Transfiguración, la resurrección, Pentecostés, la destrucción de Jerusalén o la venida final? Ver notas de Mt 16:28. Marcos añade «con poder».",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 16:28 — paralelo",
@@ -19,9 +21,9 @@
    "2 P 1:16-18 — Pedro recuerda la transfiguración"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Mark.9.1#16",
+  "ref_estandar": "Mark.9.1",
   "morfologia_tagnt": "V-ADS-3P",
   "dstrong": "G1089",
   "strong_tagnt": "G1089",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to taste",
-  "ref_estandar": "Mark.9.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.9.3",
+  "pos_tisch": 6,
   "strong": "G4744",
   "forma": "στίλβοντα",
+  "lema": "στίλβω",
   "glosa_interlineal": "resplandecientes",
   "rango_semantico": [
    "brillar, resplandecer"
@@ -51,7 +57,7 @@
   "construccion": "Participio presente activo: «resplandecientes».",
   "sentido_en_contexto": "Marcos añade un detalle: sus vestidos eran «muy blancos, como ningún lavandero (γναφεύς) en la tierra los podría blanquear». Marca la gloria de otro mundo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 17:2 — «su rostro resplandeció como el sol»",
@@ -59,9 +65,9 @@
    "Ap 3:4 — «andarán conmigo en vestiduras blancas»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Mark.9.3#06",
+  "ref_estandar": "Mark.9.3",
   "morfologia_tagnt": "V-PAP-NPN",
   "dstrong": "G4744",
   "strong_tagnt": "G4744",
@@ -77,13 +83,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to dazzle",
-  "ref_estandar": "Mark.9.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.9.4",
+  "pos_tisch": 4,
   "strong": "G2243",
   "forma": "Ἡλείας",
+  "lema": "Ἡλίας",
   "glosa_interlineal": "Elías",
   "rango_semantico": [
    "Elías"
@@ -91,7 +101,7 @@
   "construccion": "Nominativo: «Elías con Moisés».",
   "sentido_en_contexto": "Marcos nombra a Elías antes que a Moisés (Mateo, al revés). Quizá porque Elías es el precursor ligado al Bautista (v.11-13).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mal 4:5 — «os envío al profeta Elías»",
@@ -99,9 +109,9 @@
    "Lc 9:30-31 — hablaban de su partida"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "strong",
   "tagnt": "Mark.9.4#04",
+  "ref_estandar": "Mark.9.4",
   "morfologia_tagnt": "N-NSM-P",
   "dstrong": "G2243",
   "strong_tagnt": "G2243",
@@ -117,13 +127,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Elijah",
-  "ref_estandar": "Mark.9.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.9.6",
+  "pos_tisch": 6,
   "strong": "G1630",
   "forma": "ἔκφοβοι",
+  "lema": "ἔκφοβος",
   "glosa_interlineal": "aterrados",
   "rango_semantico": [
    "espantado, aterrorizado"
@@ -131,16 +145,16 @@
   "construccion": "Adjetivo nominativo plural: «se espantaron».",
   "sentido_en_contexto": "Marcos explica la propuesta de Pedro: «no sabía lo que decía, pues estaban aterrados». Mateo omite esta excusa.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 9:33 — «no sabiendo lo que decía»",
    "Heb 12:21 — «estoy espantado y temblando»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Mark.9.6#06",
+  "ref_estandar": "Mark.9.6",
   "morfologia_tagnt": "A-NPM",
   "dstrong": "G1630",
   "strong_tagnt": "G1630",
@@ -156,13 +170,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "terrified",
-  "ref_estandar": "Mark.9.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.9.7",
+  "pos_tisch": 4,
   "strong": "G1982",
   "forma": "ἐπισκιάζουσα",
+  "lema": "ἐπισκιάζω",
   "glosa_interlineal": "que cubría con su sombra",
   "rango_semantico": [
    "cubrir con sombra",
@@ -171,7 +189,7 @@
   "construccion": "Participio presente activo: «una nube que los cubría con su sombra».",
   "sentido_en_contexto": "La nube es la presencia de Dios. Marcos no dice «luminosa» (Mateo) ni «en quien tengo complacencia»; solo «a él oíd».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Éx 40:35 — la nube sobre el tabernáculo",
@@ -179,9 +197,9 @@
    "Mt 17:5 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Mark.9.7#04",
+  "ref_estandar": "Mark.9.7",
   "morfologia_tagnt": "V-PAP-NSF",
   "dstrong": "G1982",
   "strong_tagnt": "G1982",
@@ -197,13 +215,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to overshadow",
-  "ref_estandar": "Mark.9.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.9.10",
+  "pos_tisch": 13,
   "strong": "G450",
   "forma": "ἀναστῆναι",
+  "lema": "ἀνίστημι",
   "glosa_interlineal": "resucitar",
   "rango_semantico": [
    "levantarse, resucitar"
@@ -211,7 +233,7 @@
   "construccion": "Infinitivo aoristo: «resucitar de los muertos».",
   "sentido_en_contexto": "Los tres discípulos guardan silencio y discuten «qué es eso de resucitar de los muertos»: no entienden la idea de la resurrección del Mesías, aunque creían en la resurrección general.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 9:9 — «hasta que hubiese resucitado»",
@@ -219,9 +241,9 @@
    "Hch 26:23 — «el primero de la resurrección de los muertos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Mark.9.10#13",
+  "ref_estandar": "Mark.9.10",
   "morfologia_tagnt": "V-2AAN",
   "dstrong": "G0450",
   "strong_tagnt": "G450",
@@ -237,13 +259,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to arise",
-  "ref_estandar": "Mark.9.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.9.12",
+  "pos_tisch": 8,
   "strong": "G600",
   "forma": "ἀποκαθιστάνει",
+  "lema": "ἀποκαθίστημι",
   "glosa_interlineal": "restaura",
   "rango_semantico": [
    "restablecer, restaurar"
@@ -251,7 +277,7 @@
   "construccion": "Presente indicativo activo, 3ª singular: «restaura todas las cosas».",
   "sentido_en_contexto": "Elías debe venir primero para restaurarlo todo (Mal 4:6). Jesús dice que Elías ya vino (Juan Bautista) y lo trataron «como quisieron».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mal 4:5-6 — Elías restaurará",
@@ -259,9 +285,9 @@
    "Hch 3:21 — «la restauración de todas las cosas»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Mark.9.12#10",
+  "ref_estandar": "Mark.9.12",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G0600",
   "strong_tagnt": "G600",
@@ -277,13 +303,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to restore",
-  "ref_estandar": "Mark.9.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.9.15",
+  "pos_tisch": 8,
   "strong": "G1568",
   "forma": "ἐξεθαμβήθησαν",
+  "lema": "ἐκθαμβέω",
   "glosa_interlineal": "se asombraron mucho",
   "rango_semantico": [
    "asombrarse profundamente, espantarse"
@@ -291,16 +321,16 @@
   "construccion": "Aoristo indicativo pasivo, 3ª plural.",
   "sentido_en_contexto": "Verbo intensificado, propio de Marcos: la gente queda asombrada al ver a Jesús bajar del monte. Posiblemente aún con resplandor.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 14:33 — «comenzó a entristecerse y a angustiarse»",
    "Mr 16:5 — las mujeres ante el joven"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Mark.9.15#08",
+  "ref_estandar": "Mark.9.15",
   "morfologia_tagnt": "V-API-3P",
   "dstrong": "G1568",
   "strong_tagnt": "G1568",
@@ -317,13 +347,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "be awe-struck",
-  "ref_estandar": "Mark.9.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.9.19",
+  "pos_tisch": 8,
   "strong": "G571",
   "forma": "ἄπιστος",
+  "lema": "ἄπιστος",
   "glosa_interlineal": "incrédula",
   "rango_semantico": [
    "incrédulo, sin fe",
@@ -332,16 +366,16 @@
   "construccion": "Adjetivo nominativo: «generación incrédula».",
   "sentido_en_contexto": "Jesús reprende a «la generación incrédula», incluidos los discípulos que no pudieron expulsar el espíritu. Marcos describe con detalle el estado del muchacho (vv.18, 20-22).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 17:17 — «incrédula y perversa»",
    "Dt 32:20 — «generación perversa, hijos infieles»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Mark.9.19#08",
+  "ref_estandar": "Mark.9.19",
   "morfologia_tagnt": "A-VSF",
   "dstrong": "G0571",
   "strong_tagnt": "G571",
@@ -357,13 +391,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unbelieving",
-  "ref_estandar": "Mark.9.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.9.23",
+  "pos_tisch": 12,
   "strong": "G4100",
   "forma": "πιστεύοντι",
+  "lema": "πιστεύω",
   "glosa_interlineal": "al que cree",
   "rango_semantico": [
    "creer, confiar"
@@ -371,7 +409,7 @@
   "construccion": "Participio presente activo, dativo: «al que cree».",
   "sentido_en_contexto": "«Si puedes… todo es posible al que cree»: Jesús devuelve al padre su «si puedes». La fe, no el poder de Jesús, es la cuestión.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 17:20 — «nada os será imposible»",
@@ -379,9 +417,9 @@
    "Heb 11:6 — «sin fe es imposible agradar a Dios»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Mark.9.23#13",
+  "ref_estandar": "Mark.9.23",
   "morfologia_tagnt": "V-PAP-DSM",
   "dstrong": "G4100",
   "strong_tagnt": "G4100",
@@ -397,13 +435,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to trust (in)",
-  "ref_estandar": "Mark.9.23"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.9.24",
+  "pos_tisch": 12,
   "strong": "G570",
   "forma": "ἀπιστίᾳ",
+  "lema": "ἀπιστία",
   "glosa_interlineal": "incredulidad",
   "rango_semantico": [
    "incredulidad, falta de fe"
@@ -411,7 +453,7 @@
   "construccion": "Dativo: «ayuda mi incredulidad».",
   "sentido_en_contexto": "Una de las oraciones más humanas del NT: «creo; ayuda mi incredulidad». Expresa la tensión entre fe y duda en un mismo corazón.",
   "matiz": "El texto no resuelve si «incredulidad» es duda parcial o falta de fe que el padre pide que Jesús supere. Muchos la leen como modelo de oración.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 17:5 — «auméntanos la fe»",
@@ -419,9 +461,9 @@
    "Jud 22 — «a algunos que dudan, convencedlos»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Mark.9.24#16",
+  "ref_estandar": "Mark.9.24",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G0570",
   "strong_tagnt": "G570",
@@ -437,13 +479,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unbelief",
-  "ref_estandar": "Mark.9.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.9.29",
+  "pos_tisch": 14,
   "strong": "G4335",
   "forma": "προσευχῇ",
+  "lema": "προσευχή",
   "glosa_interlineal": "oración",
   "rango_semantico": [
    "oración"
@@ -451,16 +497,16 @@
   "construccion": "ἐν + dativo: «con oración».",
   "sentido_en_contexto": "Los discípulos preguntan por qué no pudieron expulsarlo; Jesús responde que ese tipo solo sale con oración. Muchos manuscritos añaden «y ayuno».",
   "matiz": "El texto original más antiguo dice solo «con oración»; «y ayuno» fue añadido en muchos manuscritos tardíos (y aparece en RVR). Las ediciones críticas lo omiten.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": "RVR dice «con oración y ayuno»; los manuscritos más antiguos solo dicen «con oración».",
   "otros_usos": [
    "Mt 17:21 — versículo con «ayuno» en manuscritos tardíos",
    "Mr 11:24 — «todo lo que pidiereis orando»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Mark.9.29#14",
+  "ref_estandar": "Mark.9.29",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G4335",
   "strong_tagnt": "G4335",
@@ -476,13 +522,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "prayer",
-  "ref_estandar": "Mark.9.29"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.9.31",
+  "pos_tisch": 14,
   "strong": "G3860",
   "forma": "παραδίδοται",
+  "lema": "παραδίδωμι",
   "glosa_interlineal": "es entregado",
   "rango_semantico": [
    "entregar"
@@ -490,7 +540,7 @@
   "construccion": "Presente indicativo pasivo, 3ª singular: «será entregado».",
   "sentido_en_contexto": "Segundo anuncio de la pasión: «el Hijo del Hombre es entregado en manos de hombres». El presente indica certeza. Los discípulos no entienden y temen preguntar (v.32).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 17:22 — paralelo",
@@ -498,9 +548,9 @@
    "Mr 10:33 — tercer anuncio"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Mark.9.31#14",
+  "ref_estandar": "Mark.9.31",
   "morfologia_tagnt": "V-PPI-3S",
   "dstrong": "G3860",
   "strong_tagnt": "G3860",
@@ -516,13 +566,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to deliver",
-  "ref_estandar": "Mark.9.31"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.9.34",
+  "pos_tisch": 7,
   "strong": "G1256",
   "forma": "διελέχθησαν",
+  "lema": "διαλέγομαι",
   "glosa_interlineal": "discutieron",
   "rango_semantico": [
    "discutir, conversar, argumentar"
@@ -530,7 +584,7 @@
   "construccion": "Aoristo indicativo pasivo (deponente), 3ª plural: «habían discutido entre sí».",
   "sentido_en_contexto": "Mientras Jesús anuncia su muerte, los discípulos discuten quién es el mayor: contraste cruel que Marcos subraya. Callan avergonzados.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 18:1 — «¿quién es el mayor?»",
@@ -538,9 +592,9 @@
    "Lc 22:24 — otra disputa"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Mark.9.34#07",
+  "ref_estandar": "Mark.9.34",
   "morfologia_tagnt": "V-AOI-3P",
   "dstrong": "G1256",
   "strong_tagnt": "G1256",
@@ -556,13 +610,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to dispute",
-  "ref_estandar": "Mark.9.34"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.9.36",
+  "pos_tisch": 10,
   "strong": "G1723",
   "forma": "ἐναγκαλισάμενος",
+  "lema": "ἐναγκαλίζομαι",
   "glosa_interlineal": "abrazando",
   "rango_semantico": [
    "tomar en brazos, abrazar"
@@ -570,16 +628,16 @@
   "construccion": "Participio aoristo medio: «habiéndolo abrazado».",
   "sentido_en_contexto": "Detalle propio de Marcos: Jesús abraza al niño. La ternura acompaña la enseñanza sobre el servicio.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 10:16 — «tomándolos en los brazos»",
    "Mt 18:2 — «llamando Jesús a un niño»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Mark.9.36#10",
+  "ref_estandar": "Mark.9.36",
   "morfologia_tagnt": "V-ADP-NSM",
   "dstrong": "G1723",
   "strong_tagnt": "G1723",
@@ -595,13 +653,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to embrace",
-  "ref_estandar": "Mark.9.36"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.9.38",
+  "pos_tisch": 10,
   "strong": "G3686",
   "forma": "ὀνόματί",
+  "lema": "ὄνομα",
   "glosa_interlineal": "en tu nombre",
   "rango_semantico": [
    "nombre, autoridad"
@@ -609,7 +671,7 @@
   "construccion": "ἐν ὀνόματι: «en tu nombre».",
   "sentido_en_contexto": "Juan informa que vieron a uno expulsar demonios en nombre de Jesús sin ser de su grupo, y se lo impidieron. Jesús les corrige: «el que no es contra nosotros, por nosotros es».",
   "matiz": "Tensión con Mt 12:30 («el que no está conmigo, contra mí está»): ambas frases se refieren a contextos distintos (confrontación con el mal vs. acogida de otros obreros).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Nm 11:26-29 — Josué y Moisés: «¡ojalá todos profetizaran!»",
@@ -617,9 +679,9 @@
    "Mt 12:30 — «el que no es conmigo, contra mí es»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Mark.9.38#12",
+  "ref_estandar": "Mark.9.38",
   "morfologia_tagnt": "N-DSN",
   "dstrong": "G3686",
   "strong_tagnt": "G3686",
@@ -635,13 +697,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "name",
-  "ref_estandar": "Mark.9.38"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.9.41",
+  "pos_tisch": 6,
   "strong": "G4221",
   "forma": "ποτήριον",
+  "lema": "ποτήριον",
   "glosa_interlineal": "vaso",
   "rango_semantico": [
    "copa, vaso"
@@ -649,16 +715,16 @@
   "construccion": "Acusativo: «un vaso de agua».",
   "sentido_en_contexto": "El gesto más pequeño hecho «porque sois de Cristo» no pierde su recompensa. Marcos dice «porque sois de Cristo» (en nombre de Cristo).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 10:42 — paralelo",
    "Mt 25:40 — «lo hicisteis a uno de estos mis hermanos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Mark.9.41#06",
+  "ref_estandar": "Mark.9.41",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G4221",
   "strong_tagnt": "G4221",
@@ -674,13 +740,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "cup",
-  "ref_estandar": "Mark.9.41"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.9.48",
+  "pos_tisch": 3,
   "strong": "G4663",
   "forma": "σκώληξ",
+  "lema": "σκώληξ",
   "glosa_interlineal": "gusano",
   "rango_semantico": [
    "gusano, larva"
@@ -688,7 +758,7 @@
   "construccion": "Nominativo: «donde su gusano no muere».",
   "sentido_en_contexto": "Cita de Is 66:24. Imagen del juicio: el gusano que consume y el fuego que no se apaga, tomados del Valle de Hinom. Marcos repite el estribillo en los vv.44, 46, 48 (algunos manuscritos).",
   "matiz": "Los vv.44 y 46 son una repetición del 48 que falta en los manuscritos más antiguos; las versiones modernas los omiten, RVR los incluye.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 66:24 — «su gusano nunca morirá, ni su fuego se apagará»",
@@ -696,9 +766,9 @@
    "Jud 7 — castigo del fuego eterno"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Mark.9.48#03",
+  "ref_estandar": "Mark.9.48",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G4663",
   "strong_tagnt": "G4663",
@@ -714,13 +784,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "worm",
-  "ref_estandar": "Mark.9.48"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.9.49",
+  "pos_tisch": 4,
   "strong": "G233",
   "forma": "ἁλισθήσεται",
+  "lema": "ἁλίζω",
   "glosa_interlineal": "será salado",
   "rango_semantico": [
    "salar, sazonar con sal"
@@ -728,7 +802,7 @@
   "construccion": "Futuro indicativo pasivo, 3ª singular: «todo será salado con fuego».",
   "sentido_en_contexto": "Versículo muy oscuro: «todo será salado con fuego». Puede referirse a la purificación por pruebas o al juicio; la sal evoca los sacrificios (Lv 2:13).",
   "matiz": "Interpretaciones diversas: (a) el fuego del juicio como sal que preserva o destruye; (b) el fuego de la prueba como purificación del discípulo; (c) enlace por palabra clave («fuego», «sal»). Ninguna es definitiva.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": "La palabra de Tischendorf no está en NA28 según el TAGNT (presente en: Treg, TR, Byz).",
   "notas_traduccion": null,
   "otros_usos": [
    "Lv 2:13 — «sazonarás con sal todas tus ofrendas»",
@@ -736,9 +810,9 @@
    "Mt 5:13 — «vosotros sois la sal de la tierra»"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 4,
   "alineacion": "forma+noNA28",
   "tagnt": "Mark.9.49#09",
+  "ref_estandar": "Mark.9.49",
   "morfologia_tagnt": "V-FPI-3S",
   "dstrong": "G0233",
   "strong_tagnt": "G233",
@@ -755,15 +829,18 @@
    "WH"
   ],
   "variante": true,
-  "glosa_tagnt": "to salt",
-  "ref_estandar": "Mark.9.49",
   "no_en_na28": true,
-  "nota_na28": "La palabra de Tischendorf no está en NA28 según el TAGNT (presente en: Treg, TR, Byz)."
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.9.50",
+  "pos_tisch": 8,
   "strong": "G358",
   "forma": "ἄναλον",
+  "lema": "ἄναλος",
   "glosa_interlineal": "insípida",
   "rango_semantico": [
    "sin sal, insípido"
@@ -771,7 +848,7 @@
   "construccion": "Adjetivo acusativo: «si la sal se hace insípida».",
   "sentido_en_contexto": "Cierra la sección con «tened sal en vosotros mismos; y tened paz unos con otros» (vuelve al contexto de la disputa de los discípulos, v.34).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 5:13 — paralelo",
@@ -779,9 +856,9 @@
    "Col 4:6 — «sazonada con sal»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Mark.9.50#08",
+  "ref_estandar": "Mark.9.50",
   "morfologia_tagnt": "A-NSN",
   "dstrong": "G0358",
   "strong_tagnt": "G358",
@@ -797,7 +874,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unsalty",
-  "ref_estandar": "Mark.9.50"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

@@ -1,8 +1,10 @@
 [
  {
   "ref": "Rev.19.1",
+  "pos_tisch": 13,
   "strong": "G239",
   "forma": "ἁλληλουϊά",
+  "lema": "ἀλληλουϊα",
   "glosa_interlineal": "aleluya",
   "rango_semantico": [
    "aleluya (alaben a Yah)"
@@ -10,7 +12,7 @@
   "construccion": "Interjección: «después de esto oí una gran voz de una gran multitud en el cielo, que decía: ¡Aleluya! Salvación y honra y gloria y poder son del Señor Dios nuestro».",
   "sentido_en_contexto": "Única aparición de «Aleluya» (ἁλληλουϊά: transliteración del hebreo hallelu-Yah) en el NT: aparece cuatro veces en 19:1-6. Himno de alabanza por la caída de Babilonia y por el juicio justo de Dios. Marca el paso al banquete de bodas del Cordero. Cf. Sal 104–106; 111–118 (salmos hallel).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 104:35; 106:1; 113:1",
@@ -18,9 +20,9 @@
    "Ap 19:3-6"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Rev.19.1#14",
+  "ref_estandar": "Rev.19.1",
   "morfologia_tagnt": "PRT",
   "dstrong": "G0239",
   "strong_tagnt": "G239",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hallelujah",
-  "ref_estandar": "Rev.19.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.19.2",
+  "pos_tisch": 23,
   "strong": "G1556",
   "forma": "ἐξεδίκησεν",
+  "lema": "ἐκδικέω",
   "glosa_interlineal": "vengó",
   "rango_semantico": [
    "vengar, hacer justicia"
@@ -50,7 +56,7 @@
   "construccion": "Aoristo indicativo activo: «porque sus juicios son verdaderos y justos; pues ha juzgado a la gran ramera que ha corrompido a la tierra con su fornicación, y ha vengado la sangre de sus siervos de la mano de ella».",
   "sentido_en_contexto": "Dios «vengó» (ἐκδικέω: hizo justicia) la sangre de sus siervos: respuesta al clamor de los mártires (6:10). Su juicio es verdadero y justo. El pasaje no autoriza la venganza humana, sino afirma que Dios hará justicia (Ro 12:19). La caída de Babilonia es motivo de alabanza en el cielo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 6:10; 15:3; 16:7",
@@ -58,9 +64,9 @@
    "Ro 12:19"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 23,
   "alineacion": "forma",
   "tagnt": "Rev.19.2#23",
+  "ref_estandar": "Rev.19.2",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G1556",
   "strong_tagnt": "G1556",
@@ -76,13 +82,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to avenge",
-  "ref_estandar": "Rev.19.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.19.3",
+  "pos_tisch": 7,
   "strong": "G2586",
   "forma": "καπνὸς",
+  "lema": "καπνός",
   "glosa_interlineal": "humo",
   "rango_semantico": [
    "humo"
@@ -90,7 +100,7 @@
   "construccion": "Nominativo: «otra vez dijeron: ¡Aleluya! Y el humo de ella sube por los siglos de los siglos».",
   "sentido_en_contexto": "El humo de Babilonia subiendo para siempre (Is 34:10) como señal de destrucción definitiva y perpetua (cf. 14:11, donde sube el humo del tormento de los adoradores de la bestia). La imagen se refiere a la ruina eterna de la ciudad.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 34:10",
@@ -98,9 +108,9 @@
    "Gn 19:28"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Rev.19.3#07",
+  "ref_estandar": "Rev.19.3",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G2586",
   "strong_tagnt": "G2586",
@@ -116,13 +126,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "smoke",
-  "ref_estandar": "Rev.19.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.19.6",
+  "pos_tisch": 20,
   "strong": "G936",
   "forma": "ἐβασίλευσεν",
+  "lema": "βασιλεύω",
   "glosa_interlineal": "reina",
   "rango_semantico": [
    "reinar"
@@ -130,7 +144,7 @@
   "construccion": "Aoristo indicativo activo: «y oí como la voz de una gran multitud, como el estruendo de muchas aguas, y como la voz de grandes truenos, que decía: ¡Aleluya, porque el Señor nuestro Dios Todopoderoso reina!».",
   "sentido_en_contexto": "El «Aleluya» más célebre (el de Handel): ἐβασίλευσεν es aoristo ingresivo: «ha comenzado a reinar» o «ha tomado el reinado». Celebra la consumación del reino de Dios (11:15, 17). Voces de multitudes, aguas y truenos: comparable con la voz de Cristo (1:15) y la teofanía.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 11:15-17",
@@ -138,9 +152,9 @@
    "Ez 1:24"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 20,
   "alineacion": "forma",
   "tagnt": "Rev.19.6#20",
+  "ref_estandar": "Rev.19.6",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G0936",
   "strong_tagnt": "G936",
@@ -156,13 +170,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to reign",
-  "ref_estandar": "Rev.19.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.19.7",
+  "pos_tisch": 12,
   "strong": "G1062",
   "forma": "γάμος",
+  "lema": "γάμος",
   "glosa_interlineal": "boda",
   "rango_semantico": [
    "boda, banquete de bodas"
@@ -170,7 +188,7 @@
   "construccion": "Nominativo: «gocémonos y alegrémonos y démosle gloria; porque han llegado las bodas del Cordero, y su esposa se ha preparado».",
   "sentido_en_contexto": "Las bodas del Cordero: imagen de la unión consumada entre Cristo y su pueblo (Ef 5:25-32; 2 Co 11:2; Is 54:5-6; Os 2:19-20; Mt 22:1-14; 25:1-13). La novia (la iglesia) «se ha preparado» (ἡτοίμασεν ἑαυτήν): su preparación es obra de gracia (v.8: «le fue concedido vestirse»). Contrasta con la ramera de 17–18.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 5:25-32",
@@ -180,9 +198,9 @@
    "Ap 21:2, 9"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Rev.19.7#12",
+  "ref_estandar": "Rev.19.7",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G1062",
   "strong_tagnt": "G1062",
@@ -198,13 +216,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wedding",
-  "ref_estandar": "Rev.19.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.19.8",
+  "pos_tisch": 13,
   "strong": "G1345",
   "forma": "δικαιώματα",
+  "lema": "δικαίωμα",
   "glosa_interlineal": "obras justas",
   "rango_semantico": [
    "acto justo, sentencia, ordenanza"
@@ -212,7 +234,7 @@
   "construccion": "Nominativo plural: «y a ella se le ha concedido que se vista de lino fino, limpio y resplandeciente; porque el lino fino es las acciones justas de los santos».",
   "sentido_en_contexto": "El vestido de la novia: lino fino, que son τὰ δικαιώματα τῶν ἁγίων: los «actos justos» o «justificaciones» de los santos. Debate: obras de justicia de los santos (producto de la gracia: «le fue concedido»), o la justicia otorgada por Dios (imputada). El verbo ἐδόθη indica don. Se une a la distinción entre la vestidura recibida y la vida de fidelidad.",
   "matiz": "Debate sobre δικαιώματα: (a) las obras justas de los creyentes, fruto de la gracia (la mayoría; v.8: «se le dio»); (b) la justicia de Cristo imputada (reformada clásica, en sentido amplio); (c) ambas: gracia que produce obras (Fil 2:12-13). El texto relaciona identidad y conducta de la iglesia.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 3:4-5, 18; 7:14",
@@ -221,9 +243,9 @@
    "Fil 2:12-13"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Rev.19.8#14",
+  "ref_estandar": "Rev.19.8",
   "morfologia_tagnt": "N-NPN",
   "dstrong": "G1345",
   "strong_tagnt": "G1345",
@@ -239,13 +261,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "righteous act",
-  "ref_estandar": "Rev.19.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.19.9",
+  "pos_tisch": 9,
   "strong": "G1173",
   "forma": "δεῖπνον",
+  "lema": "δεῖπνον",
   "glosa_interlineal": "cena",
   "rango_semantico": [
    "cena, banquete"
@@ -253,7 +279,7 @@
   "construccion": "Acusativo: «y el ángel me dijo: Escribe: Bienaventurados los que son llamados a la cena de las bodas del Cordero. Y me dijo: Estas son palabras verdaderas de Dios».",
   "sentido_en_contexto": "Cuarta bienaventuranza (1:3; 14:13; 16:15; 19:9; 20:6; 22:7, 14). La cena de bodas del Cordero: banquete mesiánico (Is 25:6-8; Mt 8:11; Lc 14:15-24; 22:16-18). Los invitados son los «llamados»: la iglesia como novia y como invitados a la vez. Contraste con la «cena del gran Dios» de 19:17-18 (el banquete de las aves).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 25:6-8",
@@ -262,9 +288,9 @@
    "Ap 19:17-18"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Rev.19.9#09",
+  "ref_estandar": "Rev.19.9",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G1173",
   "strong_tagnt": "G1173",
@@ -280,13 +306,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dinner",
-  "ref_estandar": "Rev.19.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.19.10",
+  "pos_tisch": 7,
   "strong": "G4352",
   "forma": "προσκυνῆσαι",
+  "lema": "προσκυνέω",
   "glosa_interlineal": "adorar",
   "rango_semantico": [
    "adorar, postrarse"
@@ -294,7 +324,7 @@
   "construccion": "Aoristo infinitivo activo: «yo me postré a sus pies para adorarle. Y él me dijo: Mira, no lo hagas; yo soy consiervo tuyo, y de tus hermanos que retienen el testimonio de Jesús. Adora a Dios; porque el testimonio de Jesús es el espíritu de la profecía».",
   "sentido_en_contexto": "Juan se postra ante el ángel, y este lo rechaza («soy consiervo tuyo»): solo Dios es objeto de adoración (προσκυνέω; cf. 22:8-9). Este texto excluye adorar ángeles, y se discute en relación con la veneración de santos y ángeles, que algunas tradiciones distinguen como honor (dulía) y no adoración (latría). La segunda frase: «el testimonio de Jesús es el espíritu de la profecía»: la profecía tiene como centro a Jesús.",
   "matiz": "Debate: (a) la adoración está reservada a Dios, y no se debe ofrecer a ángeles ni a ninguna criatura (todas las tradiciones, con distinta aplicación a la veneración de santos y ángeles: católica y ortodoxa distinguen veneración y adoración); (b) «el testimonio de Jesús» como genitivo subjetivo (el testimonio que Jesús da) u objetivo (el testimonio acerca de Jesús); (c) «el espíritu de la profecía»: el Espíritu que inspira o la esencia de la profecía.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 22:8-9",
@@ -303,10 +333,9 @@
    "Mt 4:10"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 7,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Rev.19.10#07",
+  "ref_estandar": "Rev.19.10",
   "morfologia_tagnt": "V-AAN",
   "dstrong": "G4352",
   "strong_tagnt": "G4352",
@@ -322,13 +351,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to worship",
-  "ref_estandar": "Rev.19.10"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.19.11",
+  "pos_tisch": 9,
   "strong": "G3022",
   "forma": "λευκός",
+  "lema": "λευκός",
   "glosa_interlineal": "blanco",
   "rango_semantico": [
    "blanco, brillante"
@@ -336,7 +370,7 @@
   "construccion": "Nominativo: «entonces vi el cielo abierto; y he aquí un caballo blanco, y el que lo montaba se llamaba Fiel y Verdadero, y con justicia juzga y pelea».",
   "sentido_en_contexto": "Parusía: el cielo abierto (4:1; 11:19; 15:5; Ez 1:1) y Cristo sobre caballo blanco (a diferencia del primer jinete de 6:2, con arco y sin atributos de Cristo). «Fiel y Verdadero» (3:14), «con justicia juzga y pelea» (Is 11:4; Sal 96:13). La guerra de Cristo se describe en términos de justicia y de palabra, no de armas materiales (v.15: la espada sale de su boca).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 3:14; 6:2",
@@ -345,9 +379,9 @@
    "Ap 1:7"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Rev.19.11#09",
+  "ref_estandar": "Rev.19.11",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G3022",
   "strong_tagnt": "G3022",
@@ -363,13 +397,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "white",
-  "ref_estandar": "Rev.19.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.19.12",
+  "pos_tisch": 12,
   "strong": "G1238",
   "forma": "διαδήματα",
+  "lema": "διάδημα",
   "glosa_interlineal": "diademas",
   "rango_semantico": [
    "diadema, corona real"
@@ -377,7 +415,7 @@
   "construccion": "Nominativo plural: «sus ojos eran como llama de fuego, y había en su cabeza muchas diademas; y tenía un nombre escrito que ninguno conocía sino él mismo».",
   "sentido_en_contexto": "Muchas diademas (διαδήματα: coronas regias; frente al dragón con siete, 12:3, y la bestia con diez, 13:1): su soberanía universal supera a todo poder rival. «Un nombre que nadie conoce sino él»: misterio de su persona (cf. 2:17; 3:12). Ojos como llama de fuego (1:14; 2:18).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 1:14; 2:17; 12:3; 13:1",
@@ -385,9 +423,9 @@
    "Fil 2:9"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Rev.19.12#13",
+  "ref_estandar": "Rev.19.12",
   "morfologia_tagnt": "N-NPN",
   "dstrong": "G1238",
   "strong_tagnt": "G1238",
@@ -403,13 +441,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "diadem",
-  "ref_estandar": "Rev.19.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.19.13",
+  "pos_tisch": 4,
   "strong": "G4472",
   "forma": "περιρεραμμένον",
+  "lema": "ῥαντίζω",
   "glosa_interlineal": "teñido",
   "rango_semantico": [
    "rociado, salpicado"
@@ -417,7 +459,7 @@
   "construccion": "Participio perfecto pasivo: «estaba vestido de una ropa teñida en sangre; y su nombre es: El Verbo de Dios».",
   "sentido_en_contexto": "El vestido «teñido en sangre» (ἱμάτιον βεβαμμένον αἵματι; variante: «rociado» περιρεραμμένον): sangre de sus enemigos (Is 63:1-3: Edom) o su propia sangre (la cruz); la mayoría de exégetas modernos ven la sangre de los enemigos aquí, aunque la sangre del Cordero está presente en el libro (1:5; 5:9; 7:14; 12:11). «El Verbo de Dios» (ὁ λόγος τοῦ θεοῦ): título cristológico que recuerda Jn 1:1, 14; Heb 4:12.",
   "matiz": "Debate: la sangre (a) de los enemigos que juzga (Is 63:1-6; la mayoría); (b) la sangre de Cristo derramada en la cruz (algunos Padres, por «lavado» de otras versiones); (c) ambas. Variante: «rociado» (περιρεραμμένον) o «teñido» (βεβαμμένον, A; Orígenes).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 63:1-6",
@@ -426,9 +468,9 @@
    "Ap 12:11"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 4,
   "alineacion": "strong",
   "tagnt": "Rev.19.13#04",
+  "ref_estandar": "Rev.19.13",
   "morfologia_tagnt": "V-RPP-ASN",
   "dstrong": "G0911",
   "strong_tagnt": "G911",
@@ -445,13 +487,17 @@
    "WH"
   ],
   "variante": true,
-  "glosa_tagnt": "to dip",
-  "ref_estandar": "Rev.19.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.19.14",
+  "pos_tisch": 3,
   "strong": "G4753",
   "forma": "στρατεύματα",
+  "lema": "στράτευμα",
   "glosa_interlineal": "ejércitos",
   "rango_semantico": [
    "ejército, tropas"
@@ -459,7 +505,7 @@
   "construccion": "Nominativo plural: «y los ejércitos celestiales, vestidos de lino finísimo, blanco y limpio, le seguían en caballos blancos».",
   "sentido_en_contexto": "Los ejércitos del cielo siguen a Cristo; visten de lino blanco y limpio (el mismo vestido de la novia, v.8). No portan armas ni luchan: solo el Verbo actúa. Se discute si son ángeles (Mt 16:27; 2 Ts 1:7) o los santos (17:14: «los llamados, elegidos y fieles»), o ambos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 16:27",
@@ -468,9 +514,9 @@
    "Jud 14"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Rev.19.14#03",
+  "ref_estandar": "Rev.19.14",
   "morfologia_tagnt": "N-NPN",
   "dstrong": "G4753",
   "strong_tagnt": "G4753",
@@ -486,13 +532,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "troops",
-  "ref_estandar": "Rev.19.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.19.15",
+  "pos_tisch": 7,
   "strong": "G4501",
   "forma": "ῥομφαία",
+  "lema": "ῥομφαία",
   "glosa_interlineal": "espada",
   "rango_semantico": [
    "espada larga"
@@ -500,7 +550,7 @@
   "construccion": "Nominativo: «de su boca sale una espada aguda, para herir con ella a las naciones, y las regirá con vara de hierro; y él pisa el lagar del vino del furor y de la ira del Dios Todopoderoso».",
   "sentido_en_contexto": "La espada que sale de la boca (1:16; 2:12, 16): la palabra de Cristo que juzga (Is 11:4; 2 Ts 2:8). «Regirá con vara de hierro» (Sal 2:9; Ap 2:27; 12:5): su reinado mesiánico. «Pisa el lagar» (Is 63:3; Ap 14:19-20): juicio sobre las naciones. Los enemigos son vencidos por la palabra, no por una batalla convencional.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 11:4; 63:3",
@@ -509,9 +559,9 @@
    "2 Ts 2:8"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Rev.19.15#07",
+  "ref_estandar": "Rev.19.15",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G4501",
   "strong_tagnt": "G4501",
@@ -527,13 +577,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sword",
-  "ref_estandar": "Rev.19.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.19.16",
+  "pos_tisch": 13,
   "strong": "G935",
   "forma": "βασιλεὺς",
+  "lema": "βασιλεύς",
   "glosa_interlineal": "Rey",
   "rango_semantico": [
    "rey"
@@ -541,7 +595,7 @@
   "construccion": "Nominativo: «y en su vestidura y en su muslo tiene escrito este nombre: REY DE REYES Y SEÑOR DE SEÑORES».",
   "sentido_en_contexto": "Título supremo (17:14; 1 Ti 6:15; Dt 10:17): inscrito en el vestido y en el muslo (donde se llevaba la espada y se ponían las inscripciones en las estatuas). Proclama la soberanía universal de Cristo, por encima de los «reyes de la tierra».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 17:14",
@@ -550,10 +604,9 @@
    "Sal 136:3"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Rev.19.16#14",
+  "ref_estandar": "Rev.19.16",
   "morfologia_tagnt": "N-NSM-T",
   "dstrong": "G0935",
   "strong_tagnt": "G935",
@@ -569,13 +622,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "king",
-  "ref_estandar": "Rev.19.16"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.19.17",
+  "pos_tisch": 26,
   "strong": "G1173",
   "forma": "δεῖπνον",
+  "lema": "δεῖπνον",
   "glosa_interlineal": "cena",
   "rango_semantico": [
    "cena, banquete"
@@ -583,7 +641,7 @@
   "construccion": "Acusativo: «vi a un ángel que estaba en el sol, y clamó con gran voz, diciendo a todas las aves que vuelan en medio del cielo: Venid, y congregaos a la gran cena de Dios».",
   "sentido_en_contexto": "Antítesis de la cena de bodas (19:9): la «cena del gran Dios» es un festín macabro de aves carroñeras (Ez 39:17-20: Gog y Magog). Los cadáveres de los poderosos servirán de comida. Imagen del juicio total, de la derrota absoluta de los enemigos de Cristo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ez 39:17-20",
@@ -592,9 +650,9 @@
    "Mt 24:28"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 26,
   "alineacion": "forma",
   "tagnt": "Rev.19.17#27",
+  "ref_estandar": "Rev.19.17",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G1173",
   "strong_tagnt": "G1173",
@@ -610,13 +668,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dinner",
-  "ref_estandar": "Rev.19.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.19.19",
+  "pos_tisch": 17,
   "strong": "G4171",
   "forma": "πόλεμον",
+  "lema": "πόλεμος",
   "glosa_interlineal": "guerra",
   "rango_semantico": [
    "guerra, batalla"
@@ -624,7 +686,7 @@
   "construccion": "Acusativo: «vi a la bestia, a los reyes de la tierra y a sus ejércitos, reunidos para guerrear contra el que montaba el caballo, y contra su ejército».",
   "sentido_en_contexto": "La batalla final (16:14-16; 17:14; 20:8-9): coalición de la bestia y reyes contra Cristo y sus ejércitos. Notablemente no se describe una batalla: el v.20 relata la captura de la bestia y el falso profeta, y el v.21 la muerte de los demás por la espada de su boca. La descripción es muy breve en comparación con el trasfondo (Sal 2; Ez 38–39; Zac 14).",
   "matiz": "Debate: (a) un conflicto militar final real en torno a Jerusalén (futurismo); (b) una escena simbólica del triunfo definitivo de Cristo sobre todo poder opuesto a Dios, recapitulada en 20:7-10 (idealismo, amilenialismo); (c) la caída del Imperio romano ante el cristianismo (preterismo). La ausencia de una descripción de lucha subraya que la victoria es inmediata (Sal 2:4-5).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 2:1-5",
@@ -633,9 +695,9 @@
    "Ap 16:14-16; 20:8-9"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "Rev.19.19#17",
+  "ref_estandar": "Rev.19.19",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G4171",
   "strong_tagnt": "G4171",
@@ -651,13 +713,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "war",
-  "ref_estandar": "Rev.19.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.19.20",
+  "pos_tisch": 37,
   "strong": "G3041",
   "forma": "λίμνην",
+  "lema": "λίμνη",
   "glosa_interlineal": "lago",
   "rango_semantico": [
    "lago"
@@ -665,7 +731,7 @@
   "construccion": "Acusativo: «y la bestia fue apresada, y con ella el falso profeta que había hecho delante de ella las señales con las cuales había engañado a los que recibieron la marca de la bestia, y habían adorado su imagen. Estos dos fueron lanzados vivos dentro de un lago de fuego que arde con azufre».",
   "sentido_en_contexto": "«El lago de fuego» (λίμνη τοῦ πυρός): lugar del castigo final, que también reciben la muerte, el Hades (20:14), el diablo (20:10) y los que no están escritos en el libro de la vida (20:15; 21:8). La bestia y el falso profeta son lanzados «vivos» (los primeros en ir), sin pasar por la muerte. Se asocia con la Gehena (Mt 5:22; 25:41).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 20:10, 14-15; 21:8",
@@ -674,9 +740,9 @@
    "Is 30:33"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 37,
   "alineacion": "forma",
   "tagnt": "Rev.19.20#37",
+  "ref_estandar": "Rev.19.20",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G3041",
   "strong_tagnt": "G3041",
@@ -692,13 +758,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lake",
-  "ref_estandar": "Rev.19.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.19.21",
+  "pos_tisch": 7,
   "strong": "G4501",
   "forma": "ῥομφαίᾳ",
+  "lema": "ῥομφαία",
   "glosa_interlineal": "espada",
   "rango_semantico": [
    "espada larga"
@@ -706,7 +776,7 @@
   "construccion": "Dativo: «y los demás fueron muertos con la espada que salía de la boca del que montaba el caballo, y todas las aves se saciaron de las carnes de ellos».",
   "sentido_en_contexto": "Los seguidores de la bestia son muertos por la palabra de Cristo (la espada de su boca): no hay lucha, solo juicio. Las aves (v.17) se alimentan de sus carnes. Cierre de la sección del juicio final de Babilonia, la bestia y el falso profeta; sigue el encadenamiento de Satanás (20:1-3).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 19:15",
@@ -715,9 +785,9 @@
    "Ez 39:4"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Rev.19.21#07",
+  "ref_estandar": "Rev.19.21",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G4501",
   "strong_tagnt": "G4501",
@@ -733,7 +803,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sword",
-  "ref_estandar": "Rev.19.21"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

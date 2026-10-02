@@ -1,8 +1,10 @@
 [
  {
   "ref": "John.21.1",
+  "pos_tisch": 3,
   "strong": "G5319",
   "forma": "ἐφανέρωσεν",
+  "lema": "φανερόω",
   "glosa_interlineal": "se manifestó",
   "rango_semantico": [
    "manifestar, hacer visible"
@@ -10,7 +12,7 @@
   "construccion": "Aoristo indicativo activo: «Jesús se manifestó otra vez a sus discípulos».",
   "sentido_en_contexto": "Epílogo del evangelio. Jesús se manifiesta junto al mar de Tiberias (Galilea) a siete discípulos. El verbo φανερόω (manifestar) se repite en el pasaje (vv.1, 14).",
   "matiz": "Debate sobre el cap. 21: ¿es un epílogo añadido por el mismo autor o por un redactor/discípulos (cf. v.24)? Se halla en todos los manuscritos; el estilo es afín al resto del evangelio.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 20:30-31 — conclusión anterior",
@@ -18,10 +20,9 @@
    "Mt 28:16-17"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 3,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.21.1#03",
+  "ref_estandar": "John.21.1",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G5319",
   "strong_tagnt": "G5319",
@@ -37,13 +38,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to manifest",
-  "ref_estandar": "John.21.1"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.21.1",
+  "pos_tisch": 14,
   "strong": "G5319",
   "forma": "ἐφανέρωσεν",
+  "lema": "φανερόω",
   "glosa_interlineal": "se manifestó",
   "rango_semantico": [
    "manifestar, hacer visible"
@@ -51,7 +57,7 @@
   "construccion": "Aoristo indicativo activo: «Jesús se manifestó otra vez a sus discípulos».",
   "sentido_en_contexto": "Epílogo del evangelio. Jesús se manifiesta junto al mar de Tiberias (Galilea) a siete discípulos. El verbo φανερόω (manifestar) se repite en el pasaje (vv.1, 14).",
   "matiz": "Debate sobre el cap. 21: ¿es un epílogo añadido por el mismo autor o por un redactor/discípulos (cf. v.24)? Se halla en todos los manuscritos; el estilo es afín al resto del evangelio.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 20:30-31 — conclusión anterior",
@@ -59,10 +65,9 @@
    "Mt 28:16-17"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 14,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.21.1#15",
+  "ref_estandar": "John.21.1",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G5319",
   "strong_tagnt": "G5319",
@@ -78,13 +83,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to manifest",
-  "ref_estandar": "John.21.1"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.21.2",
+  "pos_tisch": 20,
   "strong": "G2199",
   "forma": "Ζεβεδαίου",
+  "lema": "Ζεβεδαῖος",
   "glosa_interlineal": "de Zebedeo",
   "rango_semantico": [
    "Zebedeo"
@@ -92,17 +102,13 @@
   "construccion": "Genitivo: «los hijos de Zebedeo».",
   "sentido_en_contexto": "Presentes siete discípulos: Simón Pedro, Tomás, Natanael de Caná, los hijos de Zebedeo y otros dos. Es una de las pocas veces que Juan menciona a los «hijos de Zebedeo» (sin nombrarlos).",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mt 4:21; Mr 1:19-20",
-   "Mr 10:35-40",
-   "Jn 1:45-49 — Natanael"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mt 4:21; Mr 1:19-20\nMr 10:35-40\nJn 1:45-49 — Natanael",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 20,
   "alineacion": "forma",
   "tagnt": "John.21.2#20",
+  "ref_estandar": "John.21.2",
   "morfologia_tagnt": "N-GSM-P",
   "dstrong": "G2199G",
   "strong_tagnt": "G2199",
@@ -118,13 +124,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Zebedee",
-  "ref_estandar": "John.21.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.21.3",
+  "pos_tisch": 6,
   "strong": "G232",
   "forma": "ἁλιεύειν",
+  "lema": "ἁλιεύω",
   "glosa_interlineal": "pescar",
   "rango_semantico": [
    "pescar"
@@ -132,7 +142,7 @@
   "construccion": "Infinitivo presente activo: «voy a pescar».",
   "sentido_en_contexto": "Pedro, ante la incertidumbre del tiempo de espera, vuelve a su oficio. Pescan toda la noche sin pesca: contraste con la pesca milagrosa del amanecer.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 5:1-11 — la primera pesca milagrosa",
@@ -140,9 +150,9 @@
    "Jn 20:3"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "John.21.3#06",
+  "ref_estandar": "John.21.3",
   "morfologia_tagnt": "V-PAN",
   "dstrong": "G0232",
   "strong_tagnt": "G232",
@@ -158,13 +168,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to fish",
-  "ref_estandar": "John.21.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.21.5",
+  "pos_tisch": 8,
   "strong": "G4371",
   "forma": "προσφάγιον",
+  "lema": "προσφάγιον",
   "glosa_interlineal": "algo de comer",
   "rango_semantico": [
    "comida, cualquier cosa que se come con el pan"
@@ -172,16 +186,16 @@
   "construccion": "Acusativo: «¿tenéis algo de comer?».",
   "sentido_en_contexto": "Palabra rara, de uso popular: algo que acompañe el pan (pescado, etc.). Jesús los llama «hijitos» (παιδία) y les pregunta; ellos no lo reconocen, como pasó con María y los de Emaús.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 24:41 — «¿tenéis aquí algo de comer?»",
    "Jn 20:14; Lc 24:16"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "John.21.5#09",
+  "ref_estandar": "John.21.5",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G4371",
   "strong_tagnt": "G4371",
@@ -197,13 +211,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fish",
-  "ref_estandar": "John.21.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.21.6",
+  "pos_tisch": 11,
   "strong": "G1350",
   "forma": "δίκτυον",
+  "lema": "δίκτυον",
   "glosa_interlineal": "red",
   "rango_semantico": [
    "red de pesca"
@@ -211,7 +229,7 @@
   "construccion": "Acusativo: «echad la red a la derecha de la barca».",
   "sentido_en_contexto": "Jesús ordena echar la red al lado derecho y la pesca es abundante: otro signo. La obediencia lleva a una pesca que supera lo que pueden arrastrar.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 5:4-7",
@@ -219,9 +237,9 @@
    "Hch 2:41 — tres mil"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "John.21.6#13",
+  "ref_estandar": "John.21.6",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G1350",
   "strong_tagnt": "G1350",
@@ -237,13 +255,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "net",
-  "ref_estandar": "John.21.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.21.7",
+  "pos_tisch": 28,
   "strong": "G1131",
   "forma": "γυμνός",
+  "lema": "γυμνός",
   "glosa_interlineal": "desnudo",
   "rango_semantico": [
    "desnudo, ligero de ropa"
@@ -251,7 +273,7 @@
   "construccion": "Adjetivo nominativo: «estaba desnudo (ligero de ropa)».",
   "sentido_en_contexto": "Pedro se ciñe la ropa de pesca y se echa al mar; el discípulo amado es quien reconoce a Jesús: «es el Señor». γυμνός aquí significa «con poca ropa» (solo túnica interior), no desnudo total.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 13:23; 20:2, 8",
@@ -259,9 +281,9 @@
    "Mt 14:28-31 — Pedro camina sobre el mar"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 28,
   "alineacion": "forma",
   "tagnt": "John.21.7#28",
+  "ref_estandar": "John.21.7",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G1131",
   "strong_tagnt": "G1131",
@@ -277,13 +299,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "naked",
-  "ref_estandar": "John.21.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.21.9",
+  "pos_tisch": 8,
   "strong": "G439",
   "forma": "ἀνθρακιὰν",
+  "lema": "ἀνθρακιά",
   "glosa_interlineal": "fuego de brasas",
   "rango_semantico": [
    "brasero, fuego de carbón"
@@ -291,7 +317,7 @@
   "construccion": "Acusativo: «un fuego de brasas puesto».",
   "sentido_en_contexto": "Jesús ya tiene preparado pan y pescado sobre brasas: él los sirve. La misma palabra aparece solo aquí y en 18:18, donde Pedro negó junto a otro fuego: el contexto prepara su restauración.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 18:18, 25-27",
@@ -299,9 +325,9 @@
    "Lc 24:30 — Jesús parte el pan"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "John.21.9#08",
+  "ref_estandar": "John.21.9",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G0439",
   "strong_tagnt": "G439",
@@ -317,13 +343,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "charcoal fire",
-  "ref_estandar": "John.21.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.21.11",
+  "pos_tisch": 14,
   "strong": "G1540",
   "forma": "ἑκατὸν",
+  "lema": "ἑκατόν",
   "glosa_interlineal": "ciento",
   "rango_semantico": [
    "cien, ciento"
@@ -331,7 +361,7 @@
   "construccion": "Numeral: «ciento cincuenta y tres peces grandes».",
   "sentido_en_contexto": "Número exacto de peces; se ha dado muchas interpretaciones simbólicas (número de especies conocidas de peces según Jerónimo, la suma de 1 a 17, etc.), sin consenso. Es probable que sea un recuerdo del testigo presencial que contó los peces. La red no se rompió, a pesar del peso (contraste con Lc 5:6).",
   "matiz": "Diversas interpretaciones simbólicas del 153: (a) totalidad de las naciones (Jerónimo, a partir de supuestas especies de peces); (b) número triangular de 17 (Agustín); (c) simplemente un detalle del testigo presencial. El texto no ofrece ninguna clave.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 5:6 — «su red se rompía»",
@@ -339,9 +369,9 @@
    "Ez 47:9-10 — peces en el río del templo"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "John.21.11#15",
+  "ref_estandar": "John.21.11",
   "morfologia_tagnt": "A-NUI",
   "dstrong": "G1540",
   "strong_tagnt": "G1540",
@@ -357,13 +387,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hundred",
-  "ref_estandar": "John.21.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.21.12",
+  "pos_tisch": 6,
   "strong": "G709",
   "forma": "ἀριστήσατε",
+  "lema": "ἀριστάω",
   "glosa_interlineal": "desayunad",
   "rango_semantico": [
    "desayunar, comer"
@@ -371,7 +405,7 @@
   "construccion": "Imperativo aoristo activo: «venid, desayunad».",
   "sentido_en_contexto": "Jesús invita a los discípulos a comer: sirve el pan y el pescado como anfitrión. Ninguno se atreve a preguntar «¿tú quién eres?»: sabían que era el Señor. Escena de comunión tras la resurrección.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 24:30, 41-43",
@@ -379,9 +413,9 @@
    "Jn 6:11"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "John.21.12#06",
+  "ref_estandar": "John.21.12",
   "morfologia_tagnt": "V-AAM-2P",
   "dstrong": "G0709",
   "strong_tagnt": "G709",
@@ -397,13 +431,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to eat early meal",
-  "ref_estandar": "John.21.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.21.15",
+  "pos_tisch": 12,
   "strong": "G25",
   "forma": "ἀγαπᾷς",
+  "lema": "ἀγαπάω",
   "glosa_interlineal": "amas",
   "rango_semantico": [
    "amar (ágape)"
@@ -411,7 +449,7 @@
   "construccion": "Presente indicativo activo: «¿me amas más que estos?».",
   "sentido_en_contexto": "Primera pregunta de Jesús a Pedro tras la negación triple. Jesús usa ἀγαπάω (amor incondicional); Pedro responde con φιλέω («te quiero», afecto). En la tercera pregunta Jesús usa φιλέω. Se discute si Juan marca una diferencia entre los verbos.",
   "matiz": "Debate sobre ἀγαπάω/φιλέω: muchos comentaristas modernos ven variación estilística (como en 3:35 y 5:20, donde Juan usa ambos para el amor del Padre al Hijo). Otros ven una gradación intencionada entre un amor total y un afecto de amistad. «Más que estos» puede referirse a los otros discípulos, a los peces/oficio o a las demás cosas amadas por Pedro.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 13:37 — «mi vida pondré por ti»",
@@ -419,9 +457,9 @@
    "Jn 14:15"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "John.21.15#12",
+  "ref_estandar": "John.21.15",
   "morfologia_tagnt": "V-PAI-2S",
   "dstrong": "G0025",
   "strong_tagnt": "G25",
@@ -437,13 +475,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to love",
-  "ref_estandar": "John.21.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.21.15",
+  "pos_tisch": 27,
   "strong": "G1006",
   "forma": "βόσκε",
+  "lema": "βόσκω",
   "glosa_interlineal": "apacienta",
   "rango_semantico": [
    "pastorear, alimentar, dar de comer"
@@ -451,7 +493,7 @@
   "construccion": "Imperativo presente activo: «apacienta mis corderos».",
   "sentido_en_contexto": "Tres encargos: «apacienta mis corderos» (βόσκε), «pastorea mis ovejas» (ποίμαινε), «apacienta mis ovejas» (βόσκε). Pedro, restaurado, recibe la tarea pastoral de cuidar a los discípulos de Jesús, el buen pastor (cap. 10).",
   "matiz": "Debate: las variaciones entre «corderos/ovejas» y «apacentar/pastorear» no muestran diferencia clara de sentido. El pasaje es central en el debate sobre el primado de Pedro: lectura católica (autoridad pastoral universal) frente a otras lecturas (restauración personal y encargo pastoral compartido, cf. 1 P 5:1-4).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 10:11-16 — el buen pastor",
@@ -460,9 +502,9 @@
    "Ez 34:2-4"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 27,
   "alineacion": "forma",
   "tagnt": "John.21.15#27",
+  "ref_estandar": "John.21.15",
   "morfologia_tagnt": "V-PAM-2S",
   "dstrong": "G1006",
   "strong_tagnt": "G1006",
@@ -478,13 +520,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to feed",
-  "ref_estandar": "John.21.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.21.17",
+  "pos_tisch": 9,
   "strong": "G3076",
   "forma": "ἐλυπήθη",
+  "lema": "λυπέω",
   "glosa_interlineal": "se entristeció",
   "rango_semantico": [
    "entristecerse, afligirse"
@@ -492,7 +538,7 @@
   "construccion": "Aoristo indicativo pasivo: «Pedro se entristeció de que le dijese la tercera vez».",
   "sentido_en_contexto": "La triple pregunta evoca las tres negaciones; Pedro se entristece y apela al conocimiento omnisciente de Jesús: «tú lo sabes todo». La restauración es completa: de tres negaciones a tres afirmaciones.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 18:17, 25-27",
@@ -500,9 +546,9 @@
    "Lc 22:61-62"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "John.21.17#09",
+  "ref_estandar": "John.21.17",
   "morfologia_tagnt": "V-API-3S",
   "dstrong": "G3076",
   "strong_tagnt": "G3076",
@@ -518,13 +564,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to grieve",
-  "ref_estandar": "John.21.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.21.18",
+  "pos_tisch": 17,
   "strong": "G1614",
   "forma": "ἐκτενεῖς",
+  "lema": "ἐκτείνω",
   "glosa_interlineal": "extenderás",
   "rango_semantico": [
    "extender, alargar"
@@ -532,7 +582,7 @@
   "construccion": "Futuro indicativo activo: «extenderás tus manos, y te ceñirá otro».",
   "sentido_en_contexto": "Jesús predice el martirio de Pedro por crucifixión (según la tradición): de joven se ceñía y andaba a su voluntad; de viejo, otro lo llevaría donde no querría. El v.19 interpreta: «con qué muerte había de glorificar a Dios».",
   "matiz": "La interpretación como crucifixión (manos extendidas) es la tradicional (Tertuliano, Eusebio, Orígenes) aunque el texto solo habla en general de muerte violenta.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 13:36-38",
@@ -540,9 +590,9 @@
    "Hch 12:1-3"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "John.21.18#17",
+  "ref_estandar": "John.21.18",
   "morfologia_tagnt": "V-FAI-2S",
   "dstrong": "G1614",
   "strong_tagnt": "G1614",
@@ -558,13 +608,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to stretch out",
-  "ref_estandar": "John.21.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.21.19",
+  "pos_tisch": 15,
   "strong": "G190",
   "forma": "ἀκολούθει",
+  "lema": "ἀκολουθέω",
   "glosa_interlineal": "sígueme",
   "rango_semantico": [
    "seguir, acompañar"
@@ -572,7 +626,7 @@
   "construccion": "Imperativo presente activo: «sígueme».",
   "sentido_en_contexto": "Mandato final a Pedro, que cierra el círculo con la primera llamada (Mr 1:17). Es la invitación a un seguimiento hasta la cruz, que había prometido (13:37) y no pudo cumplir.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 1:17",
@@ -580,9 +634,9 @@
    "Mr 8:34"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "John.21.19#15",
+  "ref_estandar": "John.21.19",
   "morfologia_tagnt": "V-PAM-2S",
   "dstrong": "G0190",
   "strong_tagnt": "G190",
@@ -598,13 +652,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to follow",
-  "ref_estandar": "John.21.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.21.22",
+  "pos_tisch": 8,
   "strong": "G3306",
   "forma": "μένειν",
+  "lema": "μένω",
   "glosa_interlineal": "permanezca",
   "rango_semantico": [
    "permanecer, quedarse"
@@ -612,7 +670,7 @@
   "construccion": "Infinitivo presente activo: «si quiero que él quede hasta que yo venga, ¿qué a ti?».",
   "sentido_en_contexto": "Pedro pregunta por el destino del discípulo amado. Jesús responde con firmeza: no es asunto suyo; su deber es seguirle. El evangelista aclara en v.23 que Jesús no dijo que no moriría.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 9:1 — «algunos de los que están aquí… no gustarán la muerte»",
@@ -620,9 +678,9 @@
    "Hch 1:7"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "John.21.22#08",
+  "ref_estandar": "John.21.22",
   "morfologia_tagnt": "V-PAN",
   "dstrong": "G3306",
   "strong_tagnt": "G3306",
@@ -638,13 +696,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to stay",
-  "ref_estandar": "John.21.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.21.23",
+  "pos_tisch": 14,
   "strong": "G599",
   "forma": "ἀποθνήσκει",
+  "lema": "ἀποθνήσκω",
   "glosa_interlineal": "muere",
   "rango_semantico": [
    "morir"
@@ -652,17 +714,16 @@
   "construccion": "Presente indicativo activo: «aquel discípulo no moriría».",
   "sentido_en_contexto": "Entre los hermanos circuló el rumor de que el discípulo amado no moriría; el evangelista lo desmiente. Probablemente se escribe tras la muerte del discípulo, o cerca de ella.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 21:20-22",
    "1 Ts 4:13-15"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.21.23#14",
+  "ref_estandar": "John.21.23",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G0599",
   "strong_tagnt": "G599",
@@ -678,13 +739,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to die",
-  "ref_estandar": "John.21.23"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.21.23",
+  "pos_tisch": 23,
   "strong": "G599",
   "forma": "ἀποθνήσκει",
+  "lema": "ἀποθνήσκω",
   "glosa_interlineal": "muere",
   "rango_semantico": [
    "morir"
@@ -692,17 +758,16 @@
   "construccion": "Presente indicativo activo: «aquel discípulo no moriría».",
   "sentido_en_contexto": "Entre los hermanos circuló el rumor de que el discípulo amado no moriría; el evangelista lo desmiente. Probablemente se escribe tras la muerte del discípulo, o cerca de ella.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 21:20-22",
    "1 Ts 4:13-15"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 23,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.21.23#24",
+  "ref_estandar": "John.21.23",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G0599",
   "strong_tagnt": "G599",
@@ -718,13 +783,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to die",
-  "ref_estandar": "John.21.23"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.21.24",
+  "pos_tisch": 18,
   "strong": "G3141",
   "forma": "μαρτυρία",
+  "lema": "μαρτυρία",
   "glosa_interlineal": "testimonio",
   "rango_semantico": [
    "testimonio, atestación"
@@ -732,7 +802,7 @@
   "construccion": "Nominativo: «sabemos que su testimonio es verdadero».",
   "sentido_en_contexto": "El evangelista (o la comunidad que lo publica) identifica al discípulo amado como testigo y autor del escrito («el que testifica y escribió»), y avala su veracidad con «sabemos». Es la nota que cierra el evangelio.",
   "matiz": "Debate sobre autoría: la tradición atribuye el evangelio a Juan, hijo de Zebedeo. El «sabemos» sugiere una comunidad (o un redactor) que da fe del testimonio. Las hipótesis de autoría (Juan apóstol, un discípulo de Juan el anciano, otro autor) se siguen discutiendo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 19:35",
@@ -741,9 +811,9 @@
    "3 Jn 12"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "John.21.24#19",
+  "ref_estandar": "John.21.24",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G3141",
   "strong_tagnt": "G3141",
@@ -759,7 +829,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "testimony",
-  "ref_estandar": "John.21.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

@@ -1,8 +1,10 @@
 [
  {
   "ref": "Acts.8.1",
+  "pos_tisch": 23,
   "strong": "G1289",
   "forma": "διεσπάρησαν",
+  "lema": "διασπείρω",
   "glosa_interlineal": "fueron esparcidos",
   "rango_semantico": [
    "dispersar, esparcir"
@@ -10,7 +12,7 @@
   "construccion": "Aoristo indicativo pasivo: «todos fueron esparcidos por las tierras de Judea y de Samaria».",
   "sentido_en_contexto": "La persecución tras la muerte de Esteban dispersa a la comunidad, excepto los apóstoles. La dispersión cumple 1:8 sin quererlo: el evangelio sale de Jerusalén a Judea y Samaria.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 1:8",
@@ -18,9 +20,9 @@
    "1 P 1:1"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 23,
   "alineacion": "forma",
   "tagnt": "Acts.8.1#24",
+  "ref_estandar": "Acts.8.1",
   "morfologia_tagnt": "V-2API-3P",
   "dstrong": "G1289",
   "strong_tagnt": "G1289",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to scatter",
-  "ref_estandar": "Acts.8.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.8.3",
+  "pos_tisch": 3,
   "strong": "G3075",
   "forma": "ἐλυμαίνετο",
+  "lema": "λυμαίνομαι",
   "glosa_interlineal": "devastaba",
   "rango_semantico": [
    "asolar, devastar, maltratar"
@@ -50,7 +56,7 @@
   "construccion": "Imperfecto indicativo medio: «Saulo asolaba la iglesia».",
   "sentido_en_contexto": "Palabra única en el NT, usada en la LXX para jabalíes que devastan una viña (Sal 79:14). Describe la violencia de la persecución de Saulo: entra en las casas, arrastra a hombres y mujeres y los encarcela.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 9:1-2; 22:4; 26:10-11",
@@ -58,9 +64,9 @@
    "1 Ti 1:13"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Acts.8.3#03",
+  "ref_estandar": "Acts.8.3",
   "morfologia_tagnt": "V-INI-3S",
   "dstrong": "G3075",
   "strong_tagnt": "G3075",
@@ -76,13 +82,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to ravage",
-  "ref_estandar": "Acts.8.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.8.5",
+  "pos_tisch": 9,
   "strong": "G2784",
   "forma": "ἐκήρυσσεν",
+  "lema": "κηρύσσω",
   "glosa_interlineal": "proclamaba",
   "rango_semantico": [
    "proclamar, predicar"
@@ -90,7 +100,7 @@
   "construccion": "Imperfecto indicativo activo: «Felipe… les predicaba a Cristo».",
   "sentido_en_contexto": "Felipe (uno de los Siete, no el apóstol) evangeliza en una ciudad de Samaria. Cumple la comisión de 1:8. Los samaritanos, despreciados por los judíos, reciben el evangelio con gozo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 6:5",
@@ -99,9 +109,9 @@
    "Lc 9:52-56"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Acts.8.5#09",
+  "ref_estandar": "Acts.8.5",
   "morfologia_tagnt": "V-IAI-3S",
   "dstrong": "G2784",
   "strong_tagnt": "G2784",
@@ -117,13 +127,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to preach",
-  "ref_estandar": "Acts.8.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.8.9",
+  "pos_tisch": 10,
   "strong": "G3096",
   "forma": "μαγεύων",
+  "lema": "μαγεύω",
   "glosa_interlineal": "practicando magia",
   "rango_semantico": [
    "practicar la magia, hechizar"
@@ -131,7 +145,7 @@
   "construccion": "Participio presente activo: «que practicaba la magia y asombraba a la gente de Samaria».",
   "sentido_en_contexto": "Simón el Mago: de μάγος (mago). Se hacía pasar por «alguien grande» y decían de él «este es el gran poder de Dios». Cree y es bautizado, pero su corazón no cambia (vv.18-23). Una tradición patrística posterior lo presenta como padre del gnosticismo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 13:6-8 — Barjesús",
@@ -139,9 +153,9 @@
    "Dt 18:10-12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Acts.8.9#10",
+  "ref_estandar": "Acts.8.9",
   "morfologia_tagnt": "V-PAP-NSM",
   "dstrong": "G3096",
   "strong_tagnt": "G3096",
@@ -157,13 +171,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to practice magic",
-  "ref_estandar": "Acts.8.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.8.12",
+  "pos_tisch": 17,
   "strong": "G907",
   "forma": "ἐβαπτίζοντο",
+  "lema": "βαπτίζω",
   "glosa_interlineal": "eran bautizados",
   "rango_semantico": [
    "bautizar"
@@ -171,7 +189,7 @@
   "construccion": "Imperfecto indicativo pasivo: «se bautizaban hombres y mujeres».",
   "sentido_en_contexto": "Los samaritanos creen la predicación de Felipe sobre el reino de Dios y el nombre de Jesucristo, y son bautizados. Pero el Espíritu Santo aún no había descendido sobre ellos (v.16).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 2:38; 8:36-38; 10:47-48",
@@ -179,9 +197,9 @@
    "Mr 16:16"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "Acts.8.12#19",
+  "ref_estandar": "Acts.8.12",
   "morfologia_tagnt": "V-IPI-3P",
   "dstrong": "G0907",
   "strong_tagnt": "G907",
@@ -197,13 +215,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to baptize",
-  "ref_estandar": "Acts.8.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.8.15",
+  "pos_tisch": 3,
   "strong": "G4336",
   "forma": "προσηύξαντο",
+  "lema": "προσεύχομαι",
   "glosa_interlineal": "oraron",
   "rango_semantico": [
    "orar, rogar"
@@ -211,7 +233,7 @@
   "construccion": "Aoristo indicativo medio: «oraron por ellos para que recibiesen el Espíritu Santo».",
   "sentido_en_contexto": "Pedro y Juan, enviados desde Jerusalén, oran e imponen las manos; los samaritanos reciben el Espíritu. El pasaje es central en el debate sobre el orden entre fe, bautismo y recepción del Espíritu.",
   "matiz": "Interpretaciones: (a) un caso excepcional: el Espíritu se retrasa hasta la llegada de los apóstoles para confirmar la unidad con la iglesia de Jerusalén (lectura común); (b) modelo de «segunda bendición» posterior a la conversión (pentecostales); (c) los samaritanos aún no creían plenamente (sentido mínimo); (d) confirmación sacramental tras el bautismo (tradiciones católica y ortodoxa). Hechos presenta varias secuencias (2:38; 10:44-48; 19:1-7).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 2:38; 10:44-48; 19:1-7",
@@ -219,9 +241,9 @@
    "Ef 1:13"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Acts.8.15#03",
+  "ref_estandar": "Acts.8.15",
   "morfologia_tagnt": "V-ADI-3P",
   "dstrong": "G4336",
   "strong_tagnt": "G4336",
@@ -237,13 +259,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pray",
-  "ref_estandar": "Acts.8.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.8.18",
+  "pos_tisch": 8,
   "strong": "G1936",
   "forma": "ἐπιθέσεως",
+  "lema": "ἐπίθεσις",
   "glosa_interlineal": "imposición",
   "rango_semantico": [
    "imposición, el acto de poner (las manos)"
@@ -251,7 +277,7 @@
   "construccion": "Genitivo: «por la imposición de las manos de los apóstoles».",
   "sentido_en_contexto": "Simón ve que el Espíritu se da por la imposición de manos de los apóstoles y ofrece dinero para obtener ese poder. De su nombre procede «simonía»: comerciar con lo sagrado.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 8:19-20",
@@ -259,9 +285,9 @@
    "Mi 3:11"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Acts.8.18#08",
+  "ref_estandar": "Acts.8.18",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G1936",
   "strong_tagnt": "G1936",
@@ -277,13 +303,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "laying on",
-  "ref_estandar": "Acts.8.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.8.20",
+  "pos_tisch": 13,
   "strong": "G684",
   "forma": "ἀπώλειαν",
+  "lema": "ἀπώλεια",
   "glosa_interlineal": "perdición",
   "rango_semantico": [
    "perdición, destrucción"
@@ -291,7 +321,7 @@
   "construccion": "Acusativo: «tu dinero perezca contigo».",
   "sentido_en_contexto": "Pedro reprocha duramente a Simón: pensó comprar con dinero el don de Dios. Le exhorta al arrepentimiento y a orar. Su respuesta («rogad vosotros por mí») no muestra arrepentimiento pleno, y la tradición lo ve con sospecha.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 8:21-24",
@@ -299,9 +329,9 @@
    "Mt 10:8 — «de gracia recibisteis, dad de gracia»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Acts.8.20#13",
+  "ref_estandar": "Acts.8.20",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G0684",
   "strong_tagnt": "G684",
@@ -317,13 +347,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "destruction",
-  "ref_estandar": "Acts.8.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.8.23",
+  "pos_tisch": 6,
   "strong": "G4886",
   "forma": "σύνδεσμον",
+  "lema": "σύνδεσμος",
   "glosa_interlineal": "atadura",
   "rango_semantico": [
    "atadura, vínculo, cadena"
@@ -331,7 +365,7 @@
   "construccion": "Acusativo: «en prisión de maldad (atadura de iniquidad)».",
   "sentido_en_contexto": "Pedro diagnostica a Simón como «en hiel de amargura y en prisión de maldad». Imagen de esclavitud moral. Eco de Dt 29:18 («raíz que produzca hiel y ajenjo»).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 29:18",
@@ -339,9 +373,9 @@
    "Heb 12:15"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Acts.8.23#06",
+  "ref_estandar": "Acts.8.23",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G4886",
   "strong_tagnt": "G4886",
@@ -357,13 +391,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "bond(age)",
-  "ref_estandar": "Acts.8.23"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.8.27",
+  "pos_tisch": 8,
   "strong": "G2135",
   "forma": "εὐνοῦχος",
+  "lema": "εὐνοῦχος",
   "glosa_interlineal": "eunuco",
   "rango_semantico": [
    "eunuco, alto funcionario de corte"
@@ -371,7 +409,7 @@
   "construccion": "Nominativo: «un eunuco etíope, funcionario de Candace».",
   "sentido_en_contexto": "El tesorero de la reina de los etíopes (Candace era título dinástico de reinas de Nubia). «Eunuco» puede indicar un castrado o simplemente un alto funcionario. Regresa de adorar en Jerusalén. Primer converso «de los confines» (1:8), un extranjero marginado.",
   "matiz": "Debate: ¿era judío, prosélito o «temeroso de Dios»? Los eunucos estaban excluidos del culto (Dt 23:1) pero se les promete inclusión en Is 56:3-5. El texto no precisa su estatus religioso.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 56:3-5",
@@ -380,9 +418,9 @@
    "Sof 3:10"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Acts.8.27#08",
+  "ref_estandar": "Acts.8.27",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G2135",
   "strong_tagnt": "G2135",
@@ -398,13 +436,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "eunuch",
-  "ref_estandar": "Acts.8.27"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.8.28",
+  "pos_tisch": 8,
   "strong": "G716",
   "forma": "ἅρματος",
+  "lema": "ἅρμα",
   "glosa_interlineal": "carro",
   "rango_semantico": [
    "carro, carruaje"
@@ -412,16 +454,16 @@
   "construccion": "Genitivo: «sentado en su carro, leyendo al profeta Isaías».",
   "sentido_en_contexto": "El eunuco lee en voz alta (práctica habitual) el rollo de Isaías, probablemente la LXX. Dios dirige a Felipe a su encuentro por medio de un ángel y del Espíritu.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 8:26, 29",
    "Is 53"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Acts.8.28#08",
+  "ref_estandar": "Acts.8.28",
   "morfologia_tagnt": "N-GSN",
   "dstrong": "G0716",
   "strong_tagnt": "G716",
@@ -437,13 +479,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "chariot",
-  "ref_estandar": "Acts.8.28"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.8.31",
+  "pos_tisch": 11,
   "strong": "G3594",
   "forma": "ὁδηγήσει",
+  "lema": "ὁδηγέω",
   "glosa_interlineal": "guiare",
   "rango_semantico": [
    "guiar, conducir, mostrar el camino"
@@ -451,7 +497,7 @@
   "construccion": "Futuro indicativo activo: «¿cómo podré, si alguno no me enseñare?».",
   "sentido_en_contexto": "El eunuco admite necesitar un guía para entender las Escrituras. ὁδηγέω es «mostrar el camino». Invita a Felipe a subir al carro. Contrasta con quienes dicen ver (Jn 9:41).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": "La palabra de Tischendorf no está en NA28 según el TAGNT (presente en: NA27, Tyn, SBL, WH, Treg).",
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 24:27, 45",
@@ -459,9 +505,9 @@
    "Sal 119:18"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma+noNA28",
   "tagnt": "Acts.8.31#11",
+  "ref_estandar": "Acts.8.31",
   "morfologia_tagnt": "V-FAI-3S",
   "dstrong": "G3594",
   "strong_tagnt": "G3594",
@@ -478,15 +524,18 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to guide",
-  "ref_estandar": "Acts.8.31",
   "no_en_na28": true,
-  "nota_na28": "La palabra de Tischendorf no está en NA28 según el TAGNT (presente en: NA27, Tyn, SBL, WH, Treg)."
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.8.32",
+  "pos_tisch": 17,
   "strong": "G286",
   "forma": "ἀμνὸς",
+  "lema": "ἀμνός",
   "glosa_interlineal": "cordero",
   "rango_semantico": [
    "cordero"
@@ -494,7 +543,7 @@
   "construccion": "Nominativo: «como cordero mudo delante del que lo trasquila».",
   "sentido_en_contexto": "Pasaje de Is 53:7-8 que lee el eunuco: el Siervo llevado como oveja al matadero. Felipe, «comenzando desde esta Escritura», le anuncia a Jesús (v.35). Es el pasaje de Isaías más aplicado a Jesús en el NT.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 53:7-8",
@@ -503,9 +552,9 @@
    "Mt 8:17"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "Acts.8.32#17",
+  "ref_estandar": "Acts.8.32",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G0286",
   "strong_tagnt": "G286",
@@ -521,13 +570,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lamb",
-  "ref_estandar": "Acts.8.32"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.8.35",
+  "pos_tisch": 14,
   "strong": "G2097",
   "forma": "εὐηγγελίσατο",
+  "lema": "εὐαγγελίζω",
   "glosa_interlineal": "anunció el evangelio",
   "rango_semantico": [
    "anunciar buenas nuevas, evangelizar"
@@ -535,7 +588,7 @@
   "construccion": "Aoristo indicativo medio: «le anunció el evangelio de Jesús».",
   "sentido_en_contexto": "Felipe explica Is 53 como profecía cumplida en Jesús. Modelo de evangelización: partir de las Escrituras del interlocutor y mostrar a Cristo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 24:27, 44-47",
@@ -543,9 +596,9 @@
    "Jn 5:39"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Acts.8.35#14",
+  "ref_estandar": "Acts.8.35",
   "morfologia_tagnt": "V-AMI-3S",
   "dstrong": "G2097",
   "strong_tagnt": "G2097",
@@ -561,13 +614,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to speak good news",
-  "ref_estandar": "Acts.8.35"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.8.36",
+  "pos_tisch": 18,
   "strong": "G2967",
   "forma": "κωλύει",
+  "lema": "κωλύω",
   "glosa_interlineal": "impide",
   "rango_semantico": [
    "impedir, prohibir"
@@ -575,16 +632,16 @@
   "construccion": "Presente indicativo activo: «¿qué impide que yo sea bautizado?».",
   "sentido_en_contexto": "Pregunta del eunuco. La fórmula «¿qué impide?» (κωλύει) reaparece en 10:47 y 11:17. Algunos manuscritos añaden el v.37 («Si crees de todo corazón, bien puedes… Creo que Jesucristo es el Hijo de Dios»), ausente en los mejores testimonios y probablemente una adición baptismal posterior; por eso la numeración lo omite.",
   "matiz": "Crítica textual: el v.37 falta en P45, P74, Aleph, A, B, C y la mayoría; se encuentra en E y en algunos manuscritos tardíos, y se cree una glosa de ritual bautismal. Muchas versiones lo incluyen con nota.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 10:47; 11:17",
    "Hch 16:33"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "Acts.8.36#18",
+  "ref_estandar": "Acts.8.36",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G2967",
   "strong_tagnt": "G2967",
@@ -600,13 +657,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to prevent",
-  "ref_estandar": "Acts.8.36"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.8.39",
+  "pos_tisch": 9,
   "strong": "G726",
   "forma": "ἥρπασεν",
+  "lema": "ἁρπάζω",
   "glosa_interlineal": "arrebató",
   "rango_semantico": [
    "arrebatar, llevarse bruscamente"
@@ -614,7 +675,7 @@
   "construccion": "Aoristo indicativo activo: «el Espíritu del Señor arrebató a Felipe».",
   "sentido_en_contexto": "Tras el bautismo, el Espíritu transporta a Felipe a Azoto (Asdod); el eunuco sigue su camino gozoso. Eco de Elías (1 R 18:12; 2 R 2:16). Felipe continúa evangelizando hasta Cesarea.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 R 18:12",
@@ -624,9 +685,9 @@
    "1 Ts 4:17"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Acts.8.39#09",
+  "ref_estandar": "Acts.8.39",
   "morfologia_tagnt": "V-2AAI-3S",
   "dstrong": "G0726",
   "strong_tagnt": "G726",
@@ -642,13 +703,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to seize",
-  "ref_estandar": "Acts.8.39"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.8.40",
+  "pos_tisch": 17,
   "strong": "G2542",
   "forma": "Καισάριαν",
+  "lema": "Καισάρεια",
   "glosa_interlineal": "Cesarea",
   "rango_semantico": [
    "Cesarea (Marítima, capital romana de Judea)"
@@ -656,7 +721,7 @@
   "construccion": "Acusativo: «hasta llegar a Cesarea».",
   "sentido_en_contexto": "Felipe termina en Cesarea, ciudad romana en la costa mediterránea, donde residía más tarde con sus cuatro hijas profetisas (21:8-9). Cesarea será escenario de la conversión de Cornelio (cap. 10).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 10:1",
@@ -664,9 +729,9 @@
    "Hch 23:23-33"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 17,
   "alineacion": "strong",
   "tagnt": "Acts.8.40#17",
+  "ref_estandar": "Acts.8.40",
   "morfologia_tagnt": "N-ASF-L",
   "dstrong": "G2542H",
   "strong_tagnt": "G2542",
@@ -682,7 +747,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Caesarea",
-  "ref_estandar": "Acts.8.40"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

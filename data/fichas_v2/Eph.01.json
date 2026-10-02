@@ -1,8 +1,10 @@
 [
  {
   "ref": "Eph.1.1",
+  "pos_tisch": 13,
   "strong": "G2181",
   "forma": "Ἐφέσῳ",
+  "lema": "Ἔφεσος",
   "glosa_interlineal": "en Éfeso",
   "rango_semantico": [
    "Éfeso"
@@ -10,7 +12,7 @@
   "construccion": "Locativo: «a los santos que están en Éfeso, y fieles en Cristo Jesús».",
   "sentido_en_contexto": "Las palabras «en Éfeso» faltan en algunos manuscritos antiguos importantes (P46, Sinaítico y Vaticano originales), por lo que la carta pudo ser circular, dirigida a varias iglesias de Asia. El contenido general, sin saludos personales, apoya esa idea.",
   "matiz": "Variante textual: «en Éfeso» (mayoría de manuscritos) frente a la omisión (P46, א*, B*). Hipótesis: carta circular (Asia Menor) o destinatarios genéricos «a los santos que son también fieles». Marción la llamaba «a los de Laodicea» (cf. Col 4:16). Autoría paulina: la discuten parte de los críticos (estilo, vocabulario), pero es la tradición mayoritaria.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 19",
@@ -18,9 +20,9 @@
    "Ap 2:1-7"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Eph.1.1#13",
+  "ref_estandar": "Eph.1.1",
   "morfologia_tagnt": "N-DSF-L",
   "dstrong": "G2181",
   "strong_tagnt": "G2181",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Ephesus",
-  "ref_estandar": "Eph.1.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Eph.1.3",
+  "pos_tisch": 12,
   "strong": "G2127",
   "forma": "εὐλογήσας",
+  "lema": "εὐλογέω",
   "glosa_interlineal": "que nos bendijo",
   "rango_semantico": [
    "bendecir"
@@ -50,7 +56,7 @@
   "construccion": "Participio aoristo activo: «bendito sea el Dios y Padre de nuestro Señor Jesucristo, que nos bendijo con toda bendición espiritual en los lugares celestiales en Cristo».",
   "sentido_en_contexto": "Comienza un himno de alabanza (1:3-14), una sola frase en griego. Estructura trinitaria: el Padre elige (vv.3-6), el Hijo redime (vv.7-12) y el Espíritu sella (vv.13-14). «En los lugares celestiales» (ἐν τοῖς ἐπουρανίοις) designa la esfera espiritual donde Cristo reina y los creyentes ya participan.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 P 1:3",
@@ -58,9 +64,9 @@
    "Ef 2:6"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Eph.1.3#12",
+  "ref_estandar": "Eph.1.3",
   "morfologia_tagnt": "V-AAP-NSM",
   "dstrong": "G2127",
   "strong_tagnt": "G2127",
@@ -76,13 +82,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to praise/bless",
-  "ref_estandar": "Eph.1.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Eph.1.4",
+  "pos_tisch": 2,
   "strong": "G1586",
   "forma": "ἐξελέξατο",
+  "lema": "ἐκλέγομαι",
   "glosa_interlineal": "escogió",
   "rango_semantico": [
    "escoger, elegir"
@@ -90,7 +100,7 @@
   "construccion": "Aoristo indicativo medio: «según nos escogió en él antes de la fundación del mundo, para que fuésemos santos y sin mancha delante de él».",
   "sentido_en_contexto": "Elección «en Cristo» (ἐν αὐτῷ) antes de la creación, con fin ético: ser santos e irreprensibles. Es texto clave de la doctrina de la elección, leído de distinto modo por las tradiciones.",
   "matiz": "Debate: (a) elección individual incondicional de personas (reformada); (b) elección corporativa en Cristo: Cristo es el elegido y los creyentes lo son al unirse a él (arminiana, Barth); (c) elección basada en presciencia de la fe (arminiana clásica); (d) ortodoxa y católica: predestinación en armonía con la libertad. «En amor» puede unirse al v.4 (santos en amor) o al v.5 (en amor nos predestinó).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 8:29-30",
@@ -99,9 +109,9 @@
    "1 P 1:2"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Eph.1.4#02",
+  "ref_estandar": "Eph.1.4",
   "morfologia_tagnt": "V-AMI-3S",
   "dstrong": "G1586",
   "strong_tagnt": "G1586",
@@ -117,13 +127,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to select",
-  "ref_estandar": "Eph.1.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Eph.1.5",
+  "pos_tisch": 1,
   "strong": "G4309",
   "forma": "προορίσας",
+  "lema": "προορίζω",
   "glosa_interlineal": "predestinó",
   "rango_semantico": [
    "predestinar, determinar de antemano"
@@ -131,7 +145,7 @@
   "construccion": "Participio aoristo activo: «en amor nos predestinó para ser adoptados hijos suyos por medio de Jesucristo, según el puro afecto de su voluntad».",
   "sentido_en_contexto": "Destino de la predestinación: la adopción como hijos (υἱοθεσία) por medio de Jesucristo, no solo la salvación individual. Motivo: «el beneplácito de su voluntad». Ver Ro 8:29-30.",
   "matiz": "Debate semejante al de 1:4 sobre el alcance y la base de la predestinación (individual/corporativa, incondicional/condicional).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 8:15, 29-30",
@@ -139,9 +153,9 @@
    "Jn 1:12"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "Eph.1.5#01",
+  "ref_estandar": "Eph.1.5",
   "morfologia_tagnt": "V-AAP-NSM",
   "dstrong": "G4309",
   "strong_tagnt": "G4309",
@@ -157,13 +171,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to predestine",
-  "ref_estandar": "Eph.1.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Eph.1.7",
+  "pos_tisch": 5,
   "strong": "G629",
   "forma": "ἀπολύτρωσιν",
+  "lema": "ἀπολύτρωσις",
   "glosa_interlineal": "redención",
   "rango_semantico": [
    "rescate, liberación mediante pago"
@@ -171,7 +189,7 @@
   "construccion": "Acusativo: «en quien tenemos redención por su sangre, el perdón de pecados, según las riquezas de su gracia».",
   "sentido_en_contexto": "ἀπολύτρωσις: liberación por pago de rescate (cf. liberación de esclavos). Aquí por la sangre de Cristo; se identifica con el perdón (ἄφεσις) de los pecados. Se usa en presente («tenemos»): realidad ya poseída. En v.14 reaparece para la redención final.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Col 1:14",
@@ -180,9 +198,9 @@
    "Heb 9:12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Eph.1.7#05",
+  "ref_estandar": "Eph.1.7",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G0629",
   "strong_tagnt": "G629",
@@ -198,13 +216,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "redemption",
-  "ref_estandar": "Eph.1.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Eph.1.9",
+  "pos_tisch": 4,
   "strong": "G3466",
   "forma": "μυστήριον",
+  "lema": "μυστήριον",
   "glosa_interlineal": "misterio",
   "rango_semantico": [
    "misterio, secreto revelado"
@@ -212,7 +234,7 @@
   "construccion": "Acusativo: «dándonos a conocer el misterio de su voluntad, según su beneplácito».",
   "sentido_en_contexto": "«Misterio» no es algo incomprensible, sino un plan divino antes oculto y ahora revelado en Cristo. Tema central de Efesios (3:3-6, 9; 5:32; 6:19). El misterio es que Dios reunirá todas las cosas en Cristo (v.10) y que judíos y gentiles forman un solo cuerpo (3:6).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Col 1:26-27",
@@ -220,9 +242,9 @@
    "Ef 3:3-6"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Eph.1.9#04",
+  "ref_estandar": "Eph.1.9",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G3466",
   "strong_tagnt": "G3466",
@@ -238,13 +260,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mystery",
-  "ref_estandar": "Eph.1.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Eph.1.10",
+  "pos_tisch": 7,
   "strong": "G346",
   "forma": "ἀνακεφαλαιώσασθαι",
+  "lema": "ἀνακεφαλαίομαι",
   "glosa_interlineal": "reunir bajo una cabeza",
   "rango_semantico": [
    "recapitular, reunir bajo una sola cabeza"
@@ -252,7 +278,7 @@
   "construccion": "Aoristo infinitivo medio: «de reunir todas las cosas en Cristo, así las que están en los cielos, como las que están en la tierra».",
   "sentido_en_contexto": "ἀνακεφαλαιόω: resumir, recapitular; reunir bajo una cabeza (κεφαλή). Cristo es el centro y cabeza en quien todo converge. Irineo desarrolló la «recapitulación» (Cristo rehace la historia de Adán). Se debate el alcance: reconciliación universal o sometimiento de todo.",
   "matiz": "Debate sobre el alcance de «todas las cosas»: (a) restauración cósmica bajo el señorío de Cristo (reconciliación de lo creado; la mayoría); (b) sometimiento de poderes hostiles junto con la salvación de los creyentes; (c) universalismo de salvación (minoritario; contrastar con Col 1:20, 2:15).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Col 1:20",
@@ -261,9 +287,9 @@
    "1 Co 15:28"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Eph.1.10#07",
+  "ref_estandar": "Eph.1.10",
   "morfologia_tagnt": "V-ADN",
   "dstrong": "G0346",
   "strong_tagnt": "G346",
@@ -279,13 +305,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to summarise",
-  "ref_estandar": "Eph.1.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Eph.1.11",
+  "pos_tisch": 4,
   "strong": "G2820",
   "forma": "ἐκληρώθημεν",
+  "lema": "κληρόω",
   "glosa_interlineal": "fuimos hechos herencia",
   "rango_semantico": [
    "recibir una herencia, ser designado por suerte"
@@ -293,7 +323,7 @@
   "construccion": "Aoristo indicativo pasivo: «en él asimismo tuvimos herencia, habiendo sido predestinados conforme al propósito del que hace todas las cosas según el designio de su voluntad».",
   "sentido_en_contexto": "ἐκληρώθημεν puede traducirse «fuimos hechos herederos» (recibimos herencia) o «fuimos hechos su herencia» (Dios nos tiene como posesión; cf. Dt 32:9). El contexto (v.14, v.18) admite ambos sentidos.",
   "matiz": "Debate: (a) «obtuvimos una herencia» (lectura de RVR, énfasis en lo que recibimos); (b) «fuimos hechos herencia (de Dios)» (el pueblo es posesión de Dios; Dt 32:9; Ef 1:18). Ambos sentidos son plausibles.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 32:9",
@@ -302,9 +332,9 @@
    "Hch 20:32"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Eph.1.11#04",
+  "ref_estandar": "Eph.1.11",
   "morfologia_tagnt": "V-API-1P",
   "dstrong": "G2820",
   "strong_tagnt": "G2820",
@@ -320,13 +350,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to obtain",
-  "ref_estandar": "Eph.1.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Eph.1.13",
+  "pos_tisch": 19,
   "strong": "G4972",
   "forma": "ἐσφραγίσθητε",
+  "lema": "σφραγίζω",
   "glosa_interlineal": "fuisteis sellados",
   "rango_semantico": [
    "sellar, marcar con sello"
@@ -334,7 +368,7 @@
   "construccion": "Aoristo indicativo pasivo: «en él también vosotros, habiendo oído la palabra de verdad, el evangelio de vuestra salvación, y habiendo creído en él, fuisteis sellados con el Espíritu Santo de la promesa».",
   "sentido_en_contexto": "El sello (σφραγίς) indica propiedad, autenticidad y protección. Se da al creer (participio aoristo «habiendo creído»). Se debate si el sellamiento coincide con la conversión o es posterior (bautismo en el Espíritu, confirmación).",
   "matiz": "Debate: (a) el sello coincide con la fe/conversión (la mayoría evangélica y reformada); (b) experiencia posterior a la conversión (algunos pentecostales); (c) sacramental, asociado al bautismo o la confirmación (católica, ortodoxa). El participio aoristo «habiendo creído» puede ser anterior o simultáneo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Co 1:22",
@@ -343,9 +377,9 @@
    "Ap 7:3"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 19,
   "alineacion": "forma",
   "tagnt": "Eph.1.13#19",
+  "ref_estandar": "Eph.1.13",
   "morfologia_tagnt": "V-API-2P",
   "dstrong": "G4972",
   "strong_tagnt": "G4972",
@@ -361,13 +395,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to seal",
-  "ref_estandar": "Eph.1.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Eph.1.14",
+  "pos_tisch": 3,
   "strong": "G728",
   "forma": "ἀρραβὼν",
+  "lema": "ἀῤῥαβών",
   "glosa_interlineal": "arras",
   "rango_semantico": [
    "anticipo, garantía, depósito"
@@ -375,7 +413,7 @@
   "construccion": "Nominativo: «que es las arras de nuestra herencia hasta la redención de la posesión adquirida, para alabanza de su gloria».",
   "sentido_en_contexto": "El Espíritu es el primer pago y garantía de la herencia plena. Cf. 2 Co 1:22; 5:5. El estribillo «para alabanza de su gloria» (vv.6, 12, 14) cierra cada sección trinitaria.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Co 1:22; 5:5",
@@ -383,9 +421,9 @@
    "Ef 4:30"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Eph.1.14#03",
+  "ref_estandar": "Eph.1.14",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G0728",
   "strong_tagnt": "G728",
@@ -401,13 +439,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "guarantee",
-  "ref_estandar": "Eph.1.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Eph.1.17",
+  "pos_tisch": 20,
   "strong": "G1922",
   "forma": "ἐπιγνώσει",
+  "lema": "ἐπίγνωσις",
   "glosa_interlineal": "pleno conocimiento",
   "rango_semantico": [
    "conocimiento, reconocimiento pleno"
@@ -415,7 +457,7 @@
   "construccion": "Dativo: «para que el Dios de nuestro Señor Jesucristo, el Padre de gloria, os dé espíritu de sabiduría y de revelación en el conocimiento de él».",
   "sentido_en_contexto": "Primera oración de intercesión (1:15-23): pide sabiduría y revelación para conocer a Dios, no solo información. «Espíritu de sabiduría» puede referirse al Espíritu Santo o a una disposición dada por él. ἐπίγνωσις es conocimiento pleno y personal.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Col 1:9-10",
@@ -424,9 +466,9 @@
    "1 Co 2:10-12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 20,
   "alineacion": "forma",
   "tagnt": "Eph.1.17#20",
+  "ref_estandar": "Eph.1.17",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G1922",
   "strong_tagnt": "G1922",
@@ -442,13 +484,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "knowledge",
-  "ref_estandar": "Eph.1.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Eph.1.18",
+  "pos_tisch": 1,
   "strong": "G5461",
   "forma": "πεφωτισμένους",
+  "lema": "φωτίζω",
   "glosa_interlineal": "iluminados",
   "rango_semantico": [
    "iluminar, alumbrar"
@@ -456,7 +502,7 @@
   "construccion": "Participio perfecto pasivo: «alumbrando los ojos de vuestro entendimiento, para que sepáis cuál es la esperanza a que él os ha llamado».",
   "sentido_en_contexto": "«Ojos del corazón» (καρδία): centro del entendimiento y la voluntad. Tres cosas se piden conocer: la esperanza del llamamiento, la riqueza de la gloria de su herencia en los santos, y la grandeza de su poder (v.19). «Su herencia en los santos» puede ser la que Dios tiene en nosotros.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 26:18",
@@ -464,9 +510,9 @@
    "Heb 6:4"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "Eph.1.18#01",
+  "ref_estandar": "Eph.1.18",
   "morfologia_tagnt": "V-RPP-APM",
   "dstrong": "G5461",
   "strong_tagnt": "G5461",
@@ -482,13 +528,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to illuminate",
-  "ref_estandar": "Eph.1.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Eph.1.20",
+  "pos_tisch": 11,
   "strong": "G2523",
   "forma": "καθίσας",
+  "lema": "καθίζω",
   "glosa_interlineal": "sentó",
   "rango_semantico": [
    "sentar, hacer sentar"
@@ -496,7 +546,7 @@
   "construccion": "Participio aoristo activo: «la cual operó en Cristo, resucitándole de los muertos y sentándole a su diestra en los lugares celestiales».",
   "sentido_en_contexto": "El poder de Dios que resucitó y exaltó a Cristo es el mismo que obra en los creyentes (v.19). «A su diestra»: lugar de autoridad (Sal 110:1). Cristo está por encima de todo poder (vv.21-22).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 110:1",
@@ -505,9 +555,9 @@
    "Fil 2:9-11"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Eph.1.20#12",
+  "ref_estandar": "Eph.1.20",
   "morfologia_tagnt": "V-AAP-NSM",
   "dstrong": "G2523",
   "strong_tagnt": "G2523",
@@ -524,13 +574,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to seat",
-  "ref_estandar": "Eph.1.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Eph.1.21",
+  "pos_tisch": 3,
   "strong": "G746",
   "forma": "ἀρχῆς",
+  "lema": "ἀρχή",
   "glosa_interlineal": "principado",
   "rango_semantico": [
    "principado, poder gobernante"
@@ -538,7 +592,7 @@
   "construccion": "Genitivo: «sobre todo principado y autoridad y poder y señorío, y sobre todo nombre que se nombra».",
   "sentido_en_contexto": "Lista de poderes (principados, autoridades, potestades, señoríos): seres espirituales, tanto buenos como malos, con autoridad en el cosmos. Cristo está sobre todos. Se ven también en 3:10; 6:12; Col 1:16; 2:15. Si designan solo poderes malignos o también estructuras humanas, se discute.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Col 1:16; 2:15",
@@ -547,9 +601,9 @@
    "1 P 3:22"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Eph.1.21#03",
+  "ref_estandar": "Eph.1.21",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G0746",
   "strong_tagnt": "G746",
@@ -565,13 +619,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "beginning",
-  "ref_estandar": "Eph.1.21"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Eph.1.22",
+  "pos_tisch": 11,
   "strong": "G2776",
   "forma": "κεφαλὴν",
+  "lema": "κεφαλή",
   "glosa_interlineal": "cabeza",
   "rango_semantico": [
    "cabeza, autoridad"
@@ -579,7 +637,7 @@
   "construccion": "Acusativo: «y sometió todas las cosas bajo sus pies, y lo dio por cabeza sobre todas las cosas a la iglesia».",
   "sentido_en_contexto": "Cristo es cabeza (κεφαλή) sobre todo en favor de la iglesia, que es su cuerpo (v.23). Cita Sal 8:6. Para el sentido de κεφαλή, ver 1 Co 11:3: «autoridad/preeminencia» aquí es claro por el contexto de sometimiento.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 8:6",
@@ -588,9 +646,9 @@
    "Ef 4:15; 5:23"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Eph.1.22#11",
+  "ref_estandar": "Eph.1.22",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G2776",
   "strong_tagnt": "G2776",
@@ -606,13 +664,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "head",
-  "ref_estandar": "Eph.1.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Eph.1.23",
+  "pos_tisch": 7,
   "strong": "G4138",
   "forma": "πλήρωμα",
+  "lema": "πλήρωμα",
   "glosa_interlineal": "plenitud",
   "rango_semantico": [
    "plenitud, lo que llena"
@@ -620,16 +682,16 @@
   "construccion": "Nominativo: «la cual es su cuerpo, la plenitud de aquel que todo lo llena en todo».",
   "sentido_en_contexto": "Versículo muy debatido: la iglesia es «la plenitud (πλήρωμα) de aquel que todo lo llena en todo». Puede ser: (a) la iglesia es completada por Cristo (πλήρωμα pasivo: lo que Cristo llena); (b) la iglesia completa a Cristo (πλήρωμα activo: lo que lo completa).",
   "matiz": "Debate: (a) la iglesia es el lugar donde Cristo manifiesta su plenitud; (b) la iglesia completa a Cristo como el cuerpo a la cabeza; (c) Cristo es quien lo llena todo y la iglesia recibe su plenitud (el sentido más frecuente). Término usado también por gnósticos posteriores, con otro sentido.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Col 1:19; 2:9-10",
    "Ef 3:19; 4:13"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Eph.1.23#07",
+  "ref_estandar": "Eph.1.23",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G4138",
   "strong_tagnt": "G4138",
@@ -645,7 +707,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fulfillment",
-  "ref_estandar": "Eph.1.23"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

@@ -1,8 +1,10 @@
 [
  {
   "ref": "Matt.8.2",
+  "pos_tisch": 3,
   "strong": "G3015",
   "forma": "λεπρὸς",
+  "lema": "λεπρός",
   "glosa_interlineal": "leproso",
   "rango_semantico": [
    "leproso (persona con una enfermedad de la piel)"
@@ -10,7 +12,7 @@
   "construccion": "Nominativo singular, sujeto de «se acercó».",
   "sentido_en_contexto": "En Israel, la lepra (en sentido bíblico, varias enfermedades de la piel) excluía de la comunidad (Lv 13-14). El leproso rompe la norma al acercarse.",
   "matiz": "La «lepra» bíblica no equivale necesariamente a la enfermedad de Hansen actual.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lv 13:45-46 — normas del leproso",
@@ -18,9 +20,9 @@
    "Mt 10:8 — «limpiad a los leprosos»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Matt.8.2#03",
+  "ref_estandar": "Matt.8.2",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G3015",
   "strong_tagnt": "G3015",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "leprous",
-  "ref_estandar": "Matt.8.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.2",
+  "pos_tisch": 13,
   "strong": "G2511",
   "forma": "καθαρίσαι",
+  "lema": "καθαρίζω",
   "glosa_interlineal": "limpiar",
   "rango_semantico": [
    "limpiar",
@@ -52,7 +58,7 @@
   "construccion": "Infinitivo aoristo activo, complemento de «puedes».",
   "sentido_en_contexto": "El leproso pide ser «limpiado»: más que curado, restituido como puro a la comunidad. La palabra une salud y pureza.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 11:5 — «los leprosos son limpiados»",
@@ -60,9 +66,9 @@
    "Mr 7:19 — «haciendo limpios todos los alimentos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Matt.8.2#13",
+  "ref_estandar": "Matt.8.2",
   "morfologia_tagnt": "V-AAN",
   "dstrong": "G2511",
   "strong_tagnt": "G2511",
@@ -78,13 +84,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to clean",
-  "ref_estandar": "Matt.8.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.3",
+  "pos_tisch": 5,
   "strong": "G680",
   "forma": "ἥψατο",
+  "lema": "ἅπτομαι",
   "glosa_interlineal": "tocó",
   "rango_semantico": [
    "tocar",
@@ -93,7 +103,7 @@
   "construccion": "Aoristo indicativo medio, 3ª singular: «tocó».",
   "sentido_en_contexto": "Tocar a un leproso era contraerse impureza. Jesús lo toca igual: no se contamina, sino que limpia.",
   "matiz": "Mateo subraya el gesto: Jesús no solo habla, también toca. El poder fluye de Jesús hacia el leproso, no al revés.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 8:15 — toca la mano de la suegra de Pedro",
@@ -101,9 +111,9 @@
    "Lv 5:3 — contacto con impureza"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Matt.8.3#05",
+  "ref_estandar": "Matt.8.3",
   "morfologia_tagnt": "V-ADI-3S",
   "dstrong": "G0681",
   "strong_tagnt": "G681",
@@ -119,13 +129,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to kindle",
-  "ref_estandar": "Matt.8.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.4",
+  "pos_tisch": 23,
   "strong": "G3142",
   "forma": "μαρτύριον",
+  "lema": "μαρτύριον",
   "glosa_interlineal": "testimonio",
   "rango_semantico": [
    "testimonio, prueba",
@@ -134,7 +148,7 @@
   "construccion": "εἰς + acusativo: «como testimonio / para testimonio».",
   "sentido_en_contexto": "El sanado debe presentarse al sacerdote según Lv 14. El «testimonio» prueba que está sano y que Jesús respeta la Ley. Se discute para quién es el testimonio: para los sacerdotes (como prueba) o contra ellos.",
   "matiz": "Debate: «para testimonio a ellos» puede ser positivo (confirma la curación) o negativo (testimonio contra quienes no creen). El texto no lo decide.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lv 14:2-32 — ritual de purificación",
@@ -142,9 +156,9 @@
    "Mt 24:14 — «para testimonio a todas las naciones»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 23,
   "alineacion": "forma",
   "tagnt": "Matt.8.4#23",
+  "ref_estandar": "Matt.8.4",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G3142",
   "strong_tagnt": "G3142",
@@ -160,13 +174,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "testimony",
-  "ref_estandar": "Matt.8.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.5",
+  "pos_tisch": 8,
   "strong": "G1543",
   "forma": "ἑκατοντάρχης",
+  "lema": "ἑκατοντάρχης",
   "glosa_interlineal": "centurión",
   "rango_semantico": [
    "centurión (oficial romano al mando de cien soldados)"
@@ -174,7 +192,7 @@
   "construccion": "Nominativo singular, sujeto de «se acercó».",
   "sentido_en_contexto": "Oficial romano, probablemente gentil. Su fe contrasta con la de «Israel» (v.10).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 10:1 — «Cornelio, centurión de la compañía llamada la Italiana»",
@@ -182,9 +200,9 @@
    "Lc 7:2 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "strong",
   "tagnt": "Matt.8.5#10",
+  "ref_estandar": "Matt.8.5",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G1543",
   "strong_tagnt": "G1543",
@@ -200,13 +218,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "centurion",
-  "ref_estandar": "Matt.8.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.6",
+  "pos_tisch": 5,
   "strong": "G3816",
   "forma": "παῖς",
+  "lema": "παῖς",
   "glosa_interlineal": "criado",
   "rango_semantico": [
    "niño",
@@ -216,7 +238,7 @@
   "construccion": "Nominativo singular: «mi muchacho/mi siervo».",
   "sentido_en_contexto": "παῖς puede ser «niño», «siervo» o «hijo». Lucas usa δοῦλος (siervo). Aquí «criado» concuerda con ambos relatos.",
   "matiz": "Debate: ¿era un siervo o un hijo? Mateo dice παῖς y Lucas δοῦλος: ambos son compatibles con «siervo querido»; algunos piensan en un hijo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": "RVR dice «criado»; algunas versiones, «siervo» o «muchacho». παῖς es ambiguo.",
   "otros_usos": [
    "Lc 7:2 — «el siervo (δοῦλος) de un centurión»",
@@ -224,9 +246,9 @@
    "Mt 12:18 — «he aquí mi siervo (παῖς)»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Matt.8.6#05",
+  "ref_estandar": "Matt.8.6",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G3816",
   "strong_tagnt": "G3816",
@@ -242,13 +264,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "child",
-  "ref_estandar": "Matt.8.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.8",
+  "pos_tisch": 9,
   "strong": "G2425",
   "forma": "ἱκανὸς",
+  "lema": "ἱκανός",
   "glosa_interlineal": "digno / suficiente",
   "rango_semantico": [
    "suficiente, bastante",
@@ -258,7 +284,7 @@
   "construccion": "Adjetivo nominativo, predicado: «no soy suficiente (digno)».",
   "sentido_en_contexto": "El centurión se considera indigno de recibir a Jesús bajo su techo. Es una declaración de humildad (y quizá de respeto por la norma judía sobre entrar en casa de gentil).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 3:11 — «no soy digno de llevar su calzado»",
@@ -266,9 +292,9 @@
    "2 Co 3:5 — «nuestra competencia proviene de Dios»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Matt.8.8#10",
+  "ref_estandar": "Matt.8.8",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G2425",
   "strong_tagnt": "G2425",
@@ -284,13 +310,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sufficient",
-  "ref_estandar": "Matt.8.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.9",
+  "pos_tisch": 7,
   "strong": "G1849",
   "forma": "ἐξουσίαν",
+  "lema": "ἐξουσία",
   "glosa_interlineal": "autoridad",
   "rango_semantico": [
    "autoridad, potestad"
@@ -298,16 +328,16 @@
   "construccion": "ὑπὸ + acusativo: «bajo autoridad».",
   "sentido_en_contexto": "El centurión razona por analogía: él manda y es obedecido porque está bajo una autoridad superior. Reconoce que Jesús tiene autoridad sobre la enfermedad con solo su palabra.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 7:29 — «enseñaba como quien tiene autoridad»",
    "Mt 28:18 — «toda potestad me es dada»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Matt.8.9#07",
+  "ref_estandar": "Matt.8.9",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G1849",
   "strong_tagnt": "G1849",
@@ -323,13 +353,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "authority",
-  "ref_estandar": "Matt.8.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.10",
+  "pos_tisch": 5,
   "strong": "G2296",
   "forma": "ἐθαύμασεν",
+  "lema": "θαυμάζω",
   "glosa_interlineal": "se maravilló",
   "rango_semantico": [
    "maravillarse, admirarse",
@@ -338,16 +372,16 @@
   "construccion": "Aoristo indicativo activo, 3ª singular.",
   "sentido_en_contexto": "Jesús se asombra de la fe de un gentil, algo raro en los Evangelios (solo se dice otra vez de la incredulidad, Mc 6:6).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 6:6 — «se maravillaba de la incredulidad de ellos»",
    "Lc 7:9 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Matt.8.10#05",
+  "ref_estandar": "Matt.8.10",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G2296",
   "strong_tagnt": "G2296",
@@ -363,13 +397,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to marvel",
-  "ref_estandar": "Matt.8.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.10",
+  "pos_tisch": 18,
   "strong": "G4102",
   "forma": "πίστιν",
+  "lema": "πίστις",
   "glosa_interlineal": "fe",
   "rango_semantico": [
    "fe, confianza",
@@ -379,7 +417,7 @@
   "construccion": "Acusativo singular, objeto de «he hallado».",
   "sentido_en_contexto": "La fe del centurión se manifiesta como confianza en la palabra de Jesús, sin necesidad de verlo ni tocarlo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 15:28 — «oh mujer, grande es tu fe»",
@@ -387,9 +425,9 @@
    "Ro 10:17 — «la fe es por el oír»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 18,
   "alineacion": "forma+reorden",
   "tagnt": "Matt.8.10#16",
+  "ref_estandar": "Matt.8.10",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G4102G",
   "strong_tagnt": "G4102",
@@ -405,13 +443,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "faith",
-  "ref_estandar": "Matt.8.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.11",
+  "pos_tisch": 7,
   "strong": "G395",
   "forma": "ἀνατολῶν",
+  "lema": "ἀνατολή",
   "glosa_interlineal": "oriente",
   "rango_semantico": [
    "este, oriente",
@@ -420,7 +462,7 @@
   "construccion": "ἀπό + genitivo plural: «del oriente».",
   "sentido_en_contexto": "Con «occidente» expresa «de todas partes»: los gentiles de todo el mundo se unirán al banquete mesiánico con los patriarcas.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 25:6 — banquete para todos los pueblos",
@@ -428,9 +470,9 @@
    "Mt 2:1 — los magos del oriente"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Matt.8.11#07",
+  "ref_estandar": "Matt.8.11",
   "morfologia_tagnt": "N-GPF",
   "dstrong": "G0395",
   "strong_tagnt": "G395",
@@ -446,13 +488,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "east",
-  "ref_estandar": "Matt.8.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.11",
+  "pos_tisch": 12,
   "strong": "G347",
   "forma": "ἀνακλιθήσονται",
+  "lema": "ἀνακλίνω",
   "glosa_interlineal": "se sentarán a la mesa",
   "rango_semantico": [
    "reclinarse a la mesa",
@@ -461,16 +507,16 @@
   "construccion": "Futuro indicativo pasivo, 3ª plural.",
   "sentido_en_contexto": "En un banquete se comía reclinado. Imagen del banquete del reino: unión de patriarcas y gentiles.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 26:20 — «se sentó a la mesa con los doce»",
    "Lc 13:29 — banquete en el reino"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Matt.8.11#12",
+  "ref_estandar": "Matt.8.11",
   "morfologia_tagnt": "V-FPI-3P",
   "dstrong": "G0347",
   "strong_tagnt": "G347",
@@ -486,13 +532,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to recline",
-  "ref_estandar": "Matt.8.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.12",
+  "pos_tisch": 3,
   "strong": "G5207",
   "forma": "υἱοὶ",
+  "lema": "υἱός",
   "glosa_interlineal": "hijos",
   "rango_semantico": [
    "hijo",
@@ -502,16 +552,16 @@
   "construccion": "Nominativo plural: «los hijos del reino».",
   "sentido_en_contexto": "Frase dura: los herederos naturales (Israel) pueden quedar fuera, y los gentiles entrar. «Hijos del reino» son los que se creían con derecho.",
   "matiz": "Se discute quiénes son: los judíos que rechazaron a Jesús, o todo el que confía en privilegio sin fe. Mateo usa la frase como advertencia a quienes presumen.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 13:38 — «la buena semilla son los hijos del reino»",
    "Ro 9:6-8 — «no todos los que descienden de Israel son israelitas»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Matt.8.12#03",
+  "ref_estandar": "Matt.8.12",
   "morfologia_tagnt": "N-NPM",
   "dstrong": "G5207",
   "strong_tagnt": "G5207",
@@ -527,13 +577,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "son",
-  "ref_estandar": "Matt.8.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.12",
+  "pos_tisch": 18,
   "strong": "G1030",
   "forma": "βρυγμὸς",
+  "lema": "βρυγμός",
   "glosa_interlineal": "crujir",
   "rango_semantico": [
    "crujido, rechinar (de dientes)"
@@ -541,16 +595,16 @@
   "construccion": "Nominativo singular: «el crujir de dientes».",
   "sentido_en_contexto": "Expresión de dolor, ira o desesperación. En Mateo se repite como imagen del juicio (13:42, 50; 22:13; 24:51; 25:30).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 13:42 — «los echarán en el horno… allí será el lloro y el crujir de dientes»",
    "Lc 13:28 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "Matt.8.12#18",
+  "ref_estandar": "Matt.8.12",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G1030",
   "strong_tagnt": "G1030",
@@ -566,13 +620,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gnashing",
-  "ref_estandar": "Matt.8.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.13",
+  "pos_tisch": 9,
   "strong": "G4100",
   "forma": "ἐπίστευσας",
+  "lema": "πιστεύω",
   "glosa_interlineal": "creíste",
   "rango_semantico": [
    "creer, confiar",
@@ -581,16 +639,16 @@
   "construccion": "Aoristo indicativo activo, 2ª singular: «creíste». ",
   "sentido_en_contexto": "Jesús responde: «como creíste, te sea hecho». La sanación sigue a la fe del centurión.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 9:29 — «conforme a vuestra fe os sea hecho»",
    "Mr 5:36 — «no temas, cree solamente»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Matt.8.13#10",
+  "ref_estandar": "Matt.8.13",
   "morfologia_tagnt": "V-AAI-2S",
   "dstrong": "G4100",
   "strong_tagnt": "G4100",
@@ -606,13 +664,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to trust (in)",
-  "ref_estandar": "Matt.8.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.15",
+  "pos_tisch": 10,
   "strong": "G4446",
   "forma": "πυρετός",
+  "lema": "πυρετός",
   "glosa_interlineal": "fiebre",
   "rango_semantico": [
    "fiebre"
@@ -620,7 +682,7 @@
   "construccion": "Nominativo singular, sujeto de «dejó».",
   "sentido_en_contexto": "La suegra de Pedro, con fiebre; Jesús la toca y la fiebre la deja. Ella se levanta y sirve.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 1:30 — paralelo",
@@ -628,9 +690,9 @@
    "Jn 4:52 — «ayer a las siete le dejó la fiebre»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Matt.8.15#10",
+  "ref_estandar": "Matt.8.15",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G4446",
   "strong_tagnt": "G4446",
@@ -646,13 +708,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fever",
-  "ref_estandar": "Matt.8.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.15",
+  "pos_tisch": 14,
   "strong": "G1247",
   "forma": "διηκόνει",
+  "lema": "διακονέω",
   "glosa_interlineal": "servía",
   "rango_semantico": [
    "servir, atender",
@@ -661,7 +727,7 @@
   "construccion": "Imperfecto indicativo activo, 3ª singular: «se puso a servirles». El imperfecto puede ser incoativo (comenzó a servir).",
   "sentido_en_contexto": "La sanación es completa e inmediata: la mujer se levanta y atiende. El servicio es la respuesta natural de quien ha sido sanado.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 4:11 — los ángeles servían a Jesús",
@@ -669,9 +735,9 @@
    "Lc 8:3 — mujeres que servían"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Matt.8.15#14",
+  "ref_estandar": "Matt.8.15",
   "morfologia_tagnt": "V-IAI-3S",
   "dstrong": "G1247",
   "strong_tagnt": "G1247",
@@ -687,13 +753,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to serve",
-  "ref_estandar": "Matt.8.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.16",
+  "pos_tisch": 9,
   "strong": "G1544",
   "forma": "ἐξέβαλεν",
+  "lema": "ἐκβάλλω",
   "glosa_interlineal": "echó fuera",
   "rango_semantico": [
    "echar fuera, expulsar"
@@ -701,16 +771,16 @@
   "construccion": "Aoristo indicativo activo, 3ª singular: «expulsó».",
   "sentido_en_contexto": "Jesús expulsa los espíritus con una palabra, sin rituales. El «λόγῳ» (con una palabra) conecta con la fe del centurión.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 12:28 — «si por el Espíritu de Dios echo fuera los demonios»",
    "Mr 1:34 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Matt.8.16#09",
+  "ref_estandar": "Matt.8.16",
   "morfologia_tagnt": "V-2AAI-3S",
   "dstrong": "G1544",
   "strong_tagnt": "G1544",
@@ -726,13 +796,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to expel",
-  "ref_estandar": "Matt.8.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.17",
+  "pos_tisch": 18,
   "strong": "G941",
   "forma": "ἐβάστασεν",
+  "lema": "βαστάζω",
   "glosa_interlineal": "llevó",
   "rango_semantico": [
    "llevar, cargar",
@@ -741,7 +815,7 @@
   "construccion": "Aoristo indicativo activo, 3ª singular. Cita de Is 53:4.",
   "sentido_en_contexto": "Mateo aplica Is 53:4 a las sanaciones de Jesús: «llevó nuestras dolencias». Mateo une enfermedad y ministerio del Siervo.",
   "matiz": "El verbo βαστάζω puede ser «cargar» (tomar sobre sí) o «quitar». Se discute si Mateo ve aquí solo el poder de sanar o también el sufrimiento vicario. 1 P 2:24 aplica Is 53 a la cruz.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 53:4 — texto citado",
@@ -749,9 +823,9 @@
    "Mt 12:17-21 — otro texto del Siervo"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "Matt.8.17#18",
+  "ref_estandar": "Matt.8.17",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G0941",
   "strong_tagnt": "G941",
@@ -767,13 +841,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to carry",
-  "ref_estandar": "Matt.8.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.19",
+  "pos_tisch": 7,
   "strong": "G1320",
   "forma": "διδάσκαλε",
+  "lema": "διδάσκαλος",
   "glosa_interlineal": "Maestro",
   "rango_semantico": [
    "maestro, instructor"
@@ -781,16 +859,16 @@
   "construccion": "Vocativo singular.",
   "sentido_en_contexto": "Un escriba llama a Jesús «Maestro»; Jesús responde con una advertencia sobre el costo de seguirlo.",
   "matiz": "Para Mateo, quienes llaman «Maestro» a Jesús suelen ser extraños; los discípulos lo llaman «Señor». Se interpreta como señal de que el escriba no ha comprendido su identidad.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 12:38 — «Maestro, deseamos ver de ti señal»",
    "Mt 22:16 — «Maestro, sabemos que eres amante de la verdad»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Matt.8.19#07",
+  "ref_estandar": "Matt.8.19",
   "morfologia_tagnt": "N-VSM-T",
   "dstrong": "G1320",
   "strong_tagnt": "G1320",
@@ -806,13 +884,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "teacher",
-  "ref_estandar": "Matt.8.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.20",
+  "pos_tisch": 8,
   "strong": "G5454",
   "forma": "φωλεοὺς",
+  "lema": "φωλεός",
   "glosa_interlineal": "guaridas",
   "rango_semantico": [
    "guarida, madriguera"
@@ -820,16 +902,16 @@
   "construccion": "Acusativo plural, objeto de «tienen».",
   "sentido_en_contexto": "Las zorras tienen madrigueras y las aves nidos, pero Jesús no tiene dónde reposar: seguirle implica renunciar a la seguridad.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 9:58 — paralelo",
    "2 Co 8:9 — «siendo rico, se hizo pobre»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Matt.8.20#08",
+  "ref_estandar": "Matt.8.20",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G5454",
   "strong_tagnt": "G5454",
@@ -845,13 +927,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "den",
-  "ref_estandar": "Matt.8.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.20",
+  "pos_tisch": 20,
   "strong": "G444",
   "forma": "ἄνθρωπος",
+  "lema": "ἄνθρωπος",
   "glosa_interlineal": "hombre",
   "rango_semantico": [
    "ser humano",
@@ -861,7 +947,7 @@
   "construccion": "Genitivo singular en «Hijo del Hombre» (υἱὸς τοῦ ἀνθρώπου).",
   "sentido_en_contexto": "Primera aparición en Mateo del título «Hijo del Hombre». Jesús lo usa de sí mismo. En arameo podía significar «yo» o «un hombre»; también evoca Dn 7:13.",
   "matiz": "Debate: el título tiene tres usos en los Evangelios: Jesús en su ministerio presente, su sufrimiento, y su venida en gloria. Los especialistas discuten su origen (Dn 7, uso arameo común) y su sentido exacto.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dn 7:13 — «uno como un hijo de hombre»",
@@ -869,9 +955,9 @@
    "Mt 26:64 — «veréis al Hijo del Hombre sentado a la diestra»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 20,
   "alineacion": "forma",
   "tagnt": "Matt.8.20#20",
+  "ref_estandar": "Matt.8.20",
   "morfologia_tagnt": "N-GSM-T",
   "dstrong": "G0444",
   "strong_tagnt": "G444",
@@ -887,13 +973,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "a human",
-  "ref_estandar": "Matt.8.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.22",
+  "pos_tisch": 10,
   "strong": "G3498",
   "forma": "νεκροὺς",
+  "lema": "νεκρός",
   "glosa_interlineal": "muertos",
   "rango_semantico": [
    "muerto",
@@ -902,7 +992,7 @@
   "construccion": "Acusativo plural: «los muertos».",
   "sentido_en_contexto": "«Deja que los muertos entierren a sus muertos»: frase enigmática. Los primeros «muertos» son los espiritualmente muertos; los segundos, los fallecidos.",
   "matiz": "Debate: (a) los muertos espirituales entierran a los muertos físicos; (b) el padre aún no había muerto y el discípulo quería esperar su muerte (hipótesis menos común). La frase subraya la urgencia del llamado.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 9:60 — paralelo",
@@ -910,10 +1000,9 @@
    "Jn 5:25 — «los muertos oirán la voz del Hijo de Dios»"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 10,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.8.22#11",
+  "ref_estandar": "Matt.8.22",
   "morfologia_tagnt": "A-APM",
   "dstrong": "G3498",
   "strong_tagnt": "G3498",
@@ -929,13 +1018,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dead",
-  "ref_estandar": "Matt.8.22"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.22",
+  "pos_tisch": 14,
   "strong": "G3498",
   "forma": "νεκροὺς",
+  "lema": "νεκρός",
   "glosa_interlineal": "muertos",
   "rango_semantico": [
    "muerto",
@@ -944,7 +1038,7 @@
   "construccion": "Acusativo plural: «los muertos».",
   "sentido_en_contexto": "«Deja que los muertos entierren a sus muertos»: frase enigmática. Los primeros «muertos» son los espiritualmente muertos; los segundos, los fallecidos.",
   "matiz": "Debate: (a) los muertos espirituales entierran a los muertos físicos; (b) el padre aún no había muerto y el discípulo quería esperar su muerte (hipótesis menos común). La frase subraya la urgencia del llamado.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 9:60 — paralelo",
@@ -952,10 +1046,9 @@
    "Jn 5:25 — «los muertos oirán la voz del Hijo de Dios»"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 14,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.8.22#15",
+  "ref_estandar": "Matt.8.22",
   "morfologia_tagnt": "A-APM",
   "dstrong": "G3498",
   "strong_tagnt": "G3498",
@@ -971,13 +1064,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dead",
-  "ref_estandar": "Matt.8.22"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.24",
+  "pos_tisch": 3,
   "strong": "G4578",
   "forma": "σεισμὸς",
+  "lema": "σεισμός",
   "glosa_interlineal": "tempestad",
   "rango_semantico": [
    "terremoto, sacudida",
@@ -986,7 +1084,7 @@
   "construccion": "Nominativo singular: «una gran sacudida».",
   "sentido_en_contexto": "σεισμός es literalmente «sacudida» (también terremoto). Mateo lo usa para la tormenta que sacude el lago.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": "RVR dice «tempestad»; la palabra griega es «sacudida/terremoto», un término más fuerte.",
   "otros_usos": [
    "Mt 24:7 — «terremotos en diferentes lugares»",
@@ -994,9 +1092,9 @@
    "Mt 28:2 — «hubo un gran terremoto»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Matt.8.24#03",
+  "ref_estandar": "Matt.8.24",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G4578",
   "strong_tagnt": "G4578",
@@ -1012,13 +1110,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "earthquake",
-  "ref_estandar": "Matt.8.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.25",
+  "pos_tisch": 7,
   "strong": "G4982",
   "forma": "σῶσον",
+  "lema": "σώζω",
   "glosa_interlineal": "sálvanos",
   "rango_semantico": [
    "salvar, rescatar",
@@ -1027,16 +1129,16 @@
   "construccion": "Imperativo aoristo activo, 2ª singular: «¡sálvanos!» — grito urgente.",
   "sentido_en_contexto": "Grito de socorro físico. Mateo lo usa también para la salvación en sentido pleno; el lector ve eco del grito del creyente.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 14:30 — «Señor, sálvame»",
    "Mt 1:21 — «él salvará a su pueblo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Matt.8.25#10",
+  "ref_estandar": "Matt.8.25",
   "morfologia_tagnt": "V-AAM-2S",
   "dstrong": "G4982",
   "strong_tagnt": "G4982",
@@ -1052,13 +1154,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to save",
-  "ref_estandar": "Matt.8.25"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.26",
+  "pos_tisch": 10,
   "strong": "G2008",
   "forma": "ἐπετίμησεν",
+  "lema": "ἐπιτιμάω",
   "glosa_interlineal": "reprendió",
   "rango_semantico": [
    "reprender, censurar",
@@ -1067,16 +1173,16 @@
   "construccion": "Aoristo indicativo activo, 3ª singular.",
   "sentido_en_contexto": "Mismo verbo usado para reprender demonios. Jesús reprende al viento y al mar como se reprende a un poder hostil: autoridad sobre la creación.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 1:25 — «Jesús le reprendió, diciendo: Cállate»",
    "Sal 107:29 — «cambia la tempestad en sosiego»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Matt.8.26#10",
+  "ref_estandar": "Matt.8.26",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G2008",
   "strong_tagnt": "G2008",
@@ -1092,13 +1198,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to rebuke",
-  "ref_estandar": "Matt.8.26"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.27",
+  "pos_tisch": 17,
   "strong": "G5219",
   "forma": "ὑπακούουσιν",
+  "lema": "ὑπακούω",
   "glosa_interlineal": "obedecen",
   "rango_semantico": [
    "obedecer",
@@ -1107,7 +1217,7 @@
   "construccion": "Presente indicativo activo, 3ª plural: «le obedecen».",
   "sentido_en_contexto": "Los discípulos se preguntan quién es Jesús, pues los elementos le obedecen. En el AT solo Dios calma el mar (Sal 89:9).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 89:9 — «tú dominas la braveza del mar»",
@@ -1115,9 +1225,9 @@
    "Mt 8:9 — el centurión: «y va»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "Matt.8.27#17",
+  "ref_estandar": "Matt.8.27",
   "morfologia_tagnt": "V-PAI-3P",
   "dstrong": "G5219",
   "strong_tagnt": "G5219",
@@ -1133,13 +1243,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to obey",
-  "ref_estandar": "Matt.8.27"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.28",
+  "pos_tisch": 15,
   "strong": "G1139",
   "forma": "δαιμονιζόμενοι",
+  "lema": "δαιμονίζομαι",
   "glosa_interlineal": "endemoniados",
   "rango_semantico": [
    "poseído por un demonio"
@@ -1147,7 +1261,7 @@
   "construccion": "Participio presente: «los que estaban endemoniados».",
   "sentido_en_contexto": "Dos endemoniados salen de los sepulcros, lugares impuros: su situación es de aislamiento y violencia.",
   "matiz": "Marcos y Lucas hablan de uno; Mateo de dos. Se discute si Mateo, que a veces duplica personajes, tiene fuentes distintas o enfoca en ambos.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 5:2 — un endemoniado",
@@ -1155,9 +1269,9 @@
    "Mt 9:27 — dos ciegos (otro caso de dos)"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Matt.8.28#15",
+  "ref_estandar": "Matt.8.28",
   "morfologia_tagnt": "V-PNP-NPM",
   "dstrong": "G1139",
   "strong_tagnt": "G1139",
@@ -1173,13 +1287,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be demonised",
-  "ref_estandar": "Matt.8.28"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.29",
+  "pos_tisch": 9,
   "strong": "G5207",
   "forma": "υἱὲ",
+  "lema": "υἱός",
   "glosa_interlineal": "Hijo",
   "rango_semantico": [
    "hijo",
@@ -1188,7 +1306,7 @@
   "construccion": "Vocativo singular, con θεοῦ: «Hijo de Dios».",
   "sentido_en_contexto": "Los demonios reconocen la identidad de Jesús antes que los hombres. Saben que su poder es mayor y que su juicio llegará.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 4:3 — el tentador lo llama Hijo de Dios",
@@ -1196,9 +1314,9 @@
    "Stg 2:19 — «los demonios creen, y tiemblan»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Matt.8.29#10",
+  "ref_estandar": "Matt.8.29",
   "morfologia_tagnt": "N-VSM",
   "dstrong": "G5207",
   "strong_tagnt": "G5207",
@@ -1214,13 +1332,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "son",
-  "ref_estandar": "Matt.8.29"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.29",
+  "pos_tisch": 15,
   "strong": "G2540",
   "forma": "καιροῦ",
+  "lema": "καιρός",
   "glosa_interlineal": "tiempo",
   "rango_semantico": [
    "tiempo oportuno, momento señalado",
@@ -1229,7 +1351,7 @@
   "construccion": "πρό + genitivo: «antes del tiempo».",
   "sentido_en_contexto": "καιρός es el momento fijado, no solo el paso del tiempo. Los demonios saben que hay un tiempo señalado para su juicio, y sienten que Jesús lo adelanta.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 1:15 — «el tiempo se ha cumplido»",
@@ -1237,9 +1359,9 @@
    "Ap 12:12 — «sabiendo que tiene poco tiempo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Matt.8.29#16",
+  "ref_estandar": "Matt.8.29",
   "morfologia_tagnt": "N-GSM",
   "dstrong": "G2540",
   "strong_tagnt": "G2540",
@@ -1255,13 +1377,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "time/right time",
-  "ref_estandar": "Matt.8.29"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.31",
+  "pos_tisch": 3,
   "strong": "G1142",
   "forma": "δαίμονες",
+  "lema": "δαίμων",
   "glosa_interlineal": "demonios",
   "rango_semantico": [
    "demonio, espíritu malo"
@@ -1269,16 +1395,16 @@
   "construccion": "Nominativo plural, sujeto de «rogaban».",
   "sentido_en_contexto": "δαίμων aparece solo aquí en Mateo (en otros lugares, δαιμόνιον). Piden entrar en los cerdos antes que ser expulsados al vacío.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 8:31 — «le rogaban que no los mandase ir al abismo»",
    "Stg 2:19 — los demonios creen"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Matt.8.31#03",
+  "ref_estandar": "Matt.8.31",
   "morfologia_tagnt": "N-NPM",
   "dstrong": "G1142",
   "strong_tagnt": "G1142",
@@ -1294,13 +1420,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "demon",
-  "ref_estandar": "Matt.8.31"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.8.34",
+  "pos_tisch": 14,
   "strong": "G3870",
   "forma": "παρεκάλεσαν",
+  "lema": "παρακαλέω",
   "glosa_interlineal": "rogaron",
   "rango_semantico": [
    "rogar, pedir",
@@ -1310,16 +1440,16 @@
   "construccion": "Aoristo indicativo activo, 3ª plural: «le suplicaron».",
   "sentido_en_contexto": "La ciudad, en vez de alegrarse por los liberados, ruega que Jesús se vaya. Temen más el costo económico que valoran el bien recibido.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 5:17 — paralelo",
    "Hch 16:39 — «les rogaron que salieran de la ciudad»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Matt.8.34#14",
+  "ref_estandar": "Matt.8.34",
   "morfologia_tagnt": "V-AAI-3P",
   "dstrong": "G3870",
   "strong_tagnt": "G3870",
@@ -1335,7 +1465,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to plead/comfort",
-  "ref_estandar": "Matt.8.34"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

@@ -1,8 +1,10 @@
 [
  {
   "ref": "Phil.1.1",
+  "pos_tisch": 18,
   "strong": "G1985",
   "forma": "ἐπισκόποις",
+  "lema": "ἐπίσκοπος",
   "glosa_interlineal": "obispos",
   "rango_semantico": [
    "supervisor, vigilante, obispo"
@@ -10,7 +12,7 @@
   "construccion": "Dativo plural: «a todos los santos en Cristo Jesús que están en Filipos, con los obispos y diáconos».",
   "sentido_en_contexto": "Los destinatarios incluyen a los líderes locales: «obispos» (ἐπίσκοποι, supervisores) y diáconos, en plural: en esta etapa la iglesia tiene más de un supervisor, y el término se usa como sinónimo de «ancianos» (Hch 20:17, 28; Tit 1:5-7). El episcopado monárquico (un obispo por ciudad) aparece más tarde.",
   "matiz": "Debate: (a) «obispo» y «anciano» (presbítero) son el mismo oficio en el NT (la mayoría protestante y muchos eruditos católicos y ortodoxos del NT); (b) el episcopado monárquico se desarrolló desde el origen apostólico (tradición católica y ortodoxa, sucesión apostólica). El texto solo registra el plural.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 20:17, 28",
@@ -18,9 +20,9 @@
    "Tit 1:5-7"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "Phil.1.1#18",
+  "ref_estandar": "Phil.1.1",
   "morfologia_tagnt": "N-DPM",
   "dstrong": "G1985",
   "strong_tagnt": "G1985",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "overseer",
-  "ref_estandar": "Phil.1.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Phil.1.5",
+  "pos_tisch": 3,
   "strong": "G2842",
   "forma": "κοινωνίᾳ",
+  "lema": "κοινωνία",
   "glosa_interlineal": "participación",
   "rango_semantico": [
    "comunión, participación, colaboración"
@@ -50,7 +56,7 @@
   "construccion": "Dativo: «por vuestra comunión en el evangelio, desde el primer día hasta ahora».",
   "sentido_en_contexto": "κοινωνία aquí es colaboración activa en la misión de Pablo: oración, apoyo económico y sufrimiento compartido (4:14-18). Los filipenses fueron su iglesia más fiel. Tono cálido: la carta es, sobre todo, de gratitud y gozo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Fil 4:14-18",
@@ -58,9 +64,9 @@
    "2 Co 8:1-5"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Phil.1.5#03",
+  "ref_estandar": "Phil.1.5",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G2842",
   "strong_tagnt": "G2842",
@@ -76,13 +82,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "participation",
-  "ref_estandar": "Phil.1.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Phil.1.6",
+  "pos_tisch": 11,
   "strong": "G2005",
   "forma": "ἐπιτελέσει",
+  "lema": "ἐπιτελέω",
   "glosa_interlineal": "perfeccionará",
   "rango_semantico": [
    "llevar a cabo, completar"
@@ -90,7 +100,7 @@
   "construccion": "Futuro indicativo activo: «estando persuadido de esto, que el que comenzó en vosotros la buena obra, la perfeccionará hasta el día de Jesucristo».",
   "sentido_en_contexto": "Promesa de la fidelidad de Dios en completar la obra de salvación hasta la parusía. Usada para la perseverancia de los santos (lectura reformada). La «buena obra» puede ser la conversión o también la cooperación de los filipenses en el evangelio (v.5).",
   "matiz": "Debate sobre la «buena obra»: (a) la salvación personal de cada creyente, que Dios completará (perseverancia; lectura mayoritaria); (b) la participación de los filipenses en el evangelio (contexto del v.5); (c) la comunidad como obra de Dios. La condicionalidad de la perseverancia se debate (reformada: segura; arminiana: con cooperación continua).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 1:8-9",
@@ -99,9 +109,9 @@
    "Jud 24"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Phil.1.6#11",
+  "ref_estandar": "Phil.1.6",
   "morfologia_tagnt": "V-FAI-3S",
   "dstrong": "G2005",
   "strong_tagnt": "G2005",
@@ -117,13 +127,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to complete",
-  "ref_estandar": "Phil.1.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Phil.1.10",
+  "pos_tisch": 3,
   "strong": "G1381",
   "forma": "δοκιμάζειν",
+  "lema": "δοκιμάζω",
   "glosa_interlineal": "aprobar",
   "rango_semantico": [
    "examinar, discernir, aprobar"
@@ -131,7 +145,7 @@
   "construccion": "Infinitivo presente activo: «para que aprobéis lo mejor (τὰ διαφέροντα), a fin de que seáis sinceros e irreprensibles para el día de Cristo».",
   "sentido_en_contexto": "Oración de Pablo para que el amor crezca con conocimiento y discernimiento (v.9), para elegir lo «excelente» (o lo «diferente», lo que importa) y vivir con pureza hasta el día de Cristo. Amor y discernimiento van juntos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 12:2",
@@ -140,9 +154,9 @@
    "Heb 5:14"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Phil.1.10#03",
+  "ref_estandar": "Phil.1.10",
   "morfologia_tagnt": "V-PAN",
   "dstrong": "G1381",
   "strong_tagnt": "G1381",
@@ -158,13 +172,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to test",
-  "ref_estandar": "Phil.1.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Phil.1.13",
+  "pos_tisch": 12,
   "strong": "G4232",
   "forma": "πραιτωρίῳ",
+  "lema": "πραιτώριον",
   "glosa_interlineal": "pretorio",
   "rango_semantico": [
    "pretorio, guardia pretoriana o palacio"
@@ -172,7 +190,7 @@
   "construccion": "Dativo: «de tal manera que mis prisiones se han hecho patentes en Cristo en todo el pretorio, y a todos los demás».",
   "sentido_en_contexto": "πραιτώριον: la guardia pretoriana o el cuartel/residencia del gobernador. Su sentido apunta al lugar de la prisión de Pablo, discutido: Roma (la mayoría, con «los de la casa del César», 4:22), Éfeso o Cesarea. La carta se fecha por tanto en c. 60-62 d.C. (Roma) o c. 55 (Éfeso).",
   "matiz": "Debate sobre el lugar de redacción: (a) Roma (tradición; Hch 28; c. 61-62); (b) Éfeso (algunos eruditos; prisión no registrada en Hechos; c. 54-55); (c) Cesarea (c. 58-60). Roma sigue siendo la lectura predominante.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 28:16-31",
@@ -180,9 +198,9 @@
    "Ef 6:20"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Phil.1.13#12",
+  "ref_estandar": "Phil.1.13",
   "morfologia_tagnt": "N-DSN",
   "dstrong": "G4232",
   "strong_tagnt": "G4232",
@@ -198,13 +216,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "praetorium",
-  "ref_estandar": "Phil.1.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Phil.1.15",
+  "pos_tisch": 5,
   "strong": "G5355",
   "forma": "φθόνον",
+  "lema": "φθόνος",
   "glosa_interlineal": "envidia",
   "rango_semantico": [
    "envidia"
@@ -212,7 +234,7 @@
   "construccion": "Acusativo: «algunos, ciertamente, predican a Cristo por envidia y rivalidad; pero otros de buena voluntad».",
   "sentido_en_contexto": "Dos tipos de predicadores en Roma: unos por envidia y contienda (que quieren aumentar su aflicción), otros por amor. Pablo se goza en que Cristo sea anunciado «de cualquier manera» (v.18), aunque no aprueba los motivos. El evangelio es más importante que el predicador.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 1:8-9",
@@ -220,9 +242,9 @@
    "Fil 2:3"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Phil.1.15#05",
+  "ref_estandar": "Phil.1.15",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G5355",
   "strong_tagnt": "G5355",
@@ -238,13 +260,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "envy",
-  "ref_estandar": "Phil.1.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Phil.1.21",
+  "pos_tisch": 9,
   "strong": "G2771",
   "forma": "κέρδος",
+  "lema": "κέρδος",
   "glosa_interlineal": "ganancia",
   "rango_semantico": [
    "ganancia, beneficio"
@@ -252,7 +278,7 @@
   "construccion": "Nominativo: «porque para mí el vivir es Cristo, y el morir es ganancia».",
   "sentido_en_contexto": "Resumen de la espiritualidad paulina: Cristo es el sentido de su vida; morir es «ganancia» porque lo lleva a estar con Cristo (v.23). Pablo no desea la muerte por desprecio de la vida, sino por la comunión con Cristo. Cf. 2 Co 5:8.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 2:20",
@@ -260,9 +286,9 @@
    "Col 3:3-4"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Phil.1.21#09",
+  "ref_estandar": "Phil.1.21",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G2771",
   "strong_tagnt": "G2771",
@@ -278,13 +304,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gain",
-  "ref_estandar": "Phil.1.21"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Phil.1.23",
+  "pos_tisch": 11,
   "strong": "G360",
   "forma": "ἀναλῦσαι",
+  "lema": "ἀναλύω",
   "glosa_interlineal": "partir",
   "rango_semantico": [
    "desatar, partir, levantar el campamento"
@@ -292,7 +322,7 @@
   "construccion": "Aoristo infinitivo activo: «teniendo deseo de partir y estar con Cristo, lo cual es muchísimo mejor».",
   "sentido_en_contexto": "ἀναλύω: levantar el campamento o soltar amarras de un barco. Pablo desea partir para estar con Cristo, que «es mucho mejor». Texto clave del estado intermedio: partir y estar con Cristo sin esperar la resurrección general. Se contrasta con 1 Ts 4 y 1 Co 15.",
   "matiz": "Debate: (a) estado intermedio consciente con Cristo (la mayoría; Lc 23:43; 2 Co 5:8); (b) «sueño del alma» hasta la resurrección (algunos; desde la perspectiva del que muere no hay intervalo); (c) resurrección inmediata (minoritaria).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Co 5:8",
@@ -301,9 +331,9 @@
    "Hch 7:59"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Phil.1.23#11",
+  "ref_estandar": "Phil.1.23",
   "morfologia_tagnt": "V-AAN",
   "dstrong": "G0360",
   "strong_tagnt": "G360",
@@ -319,13 +349,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to depart",
-  "ref_estandar": "Phil.1.23"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Phil.1.27",
+  "pos_tisch": 7,
   "strong": "G4176",
   "forma": "πολιτεύεσθε",
+  "lema": "πολιτεύομαι",
   "glosa_interlineal": "comportaos como ciudadanos",
   "rango_semantico": [
    "vivir como ciudadano, conducirse"
@@ -333,7 +367,7 @@
   "construccion": "Imperativo presente medio: «solamente que os comportéis como es digno del evangelio de Cristo».",
   "sentido_en_contexto": "πολιτεύομαι: vivir como ciudadano. Filipos era colonia romana (los ciudadanos romanos se enorgullecían). Pablo les recuerda que su ciudadanía verdadera está en los cielos (3:20). Pide firmeza, unidad (un solo espíritu, una sola alma) y lucha unida por la fe.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Fil 3:20",
@@ -342,9 +376,9 @@
    "1 Co 16:13"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Phil.1.27#07",
+  "ref_estandar": "Phil.1.27",
   "morfologia_tagnt": "V-PNM-2P",
   "dstrong": "G4176",
   "strong_tagnt": "G4176",
@@ -360,13 +394,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be a citizen",
-  "ref_estandar": "Phil.1.27"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Phil.1.29",
+  "pos_tisch": 3,
   "strong": "G5483",
   "forma": "ἐχαρίσθη",
+  "lema": "χαρίζομαι",
   "glosa_interlineal": "fue concedido",
   "rango_semantico": [
    "conceder por gracia, otorgar"
@@ -374,7 +412,7 @@
   "construccion": "Aoristo indicativo pasivo: «porque a vosotros os es concedido a causa de Cristo, no sólo que creáis en él, sino también que padezcáis por él».",
   "sentido_en_contexto": "Tanto la fe como el sufrimiento son dones (ἐχαρίσθη, de χάρις). Pablo ve el padecimiento como privilegio. Algunos han usado «es concedido creer» para sostener que la fe es don (ver Ef 2:8). Aquí el sufrimiento por Cristo se une a la fe.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 5:41",
@@ -383,9 +421,9 @@
    "Mt 5:10-12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Phil.1.29#03",
+  "ref_estandar": "Phil.1.29",
   "morfologia_tagnt": "V-API-3S",
   "dstrong": "G5483",
   "strong_tagnt": "G5483",
@@ -401,7 +439,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to give grace",
-  "ref_estandar": "Phil.1.29"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

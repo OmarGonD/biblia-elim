@@ -1,8 +1,10 @@
 [
  {
   "ref": "Acts.17.2",
+  "pos_tisch": 14,
   "strong": "G1256",
   "forma": "διελέξατο",
+  "lema": "διαλέγομαι",
   "glosa_interlineal": "discutió",
   "rango_semantico": [
    "razonar, debatir, dialogar"
@@ -10,7 +12,7 @@
   "construccion": "Aoristo indicativo medio: «por tres sábados discutió con ellos de las Escrituras».",
   "sentido_en_contexto": "En Tesalónica, Pablo razona con los judíos tres sábados, desde las Escrituras, mostrando que el Cristo debía padecer y resucitar, y que Jesús es ese Cristo. El método dialógico es característico: διαλέγομαι (cf. 17:17; 18:4, 19; 19:8-9).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 17:17; 18:4, 19; 19:8-9",
@@ -18,9 +20,9 @@
    "1 Ts 1:5-10"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Acts.17.2#14",
+  "ref_estandar": "Acts.17.2",
   "morfologia_tagnt": "V-ADI-3S",
   "dstrong": "G1256",
   "strong_tagnt": "G1256",
@@ -37,13 +39,17 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "to dispute",
-  "ref_estandar": "Acts.17.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.17.3",
+  "pos_tisch": 3,
   "strong": "G3908",
   "forma": "παρατιθέμενος",
+  "lema": "παρατίθημι",
   "glosa_interlineal": "poniendo delante",
   "rango_semantico": [
    "presentar, exponer, probar"
@@ -51,7 +57,7 @@
   "construccion": "Participio presente medio: «declarando y exponiendo (poniendo delante)».",
   "sentido_en_contexto": "Pablo expone las Escrituras demostrando que «era necesario que el Cristo padeciese, y resucitase de los muertos» y que Jesús es el Cristo. Es el mismo argumento de Lc 24:26, 46 y Hch 3:18; 26:23.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 24:26, 46",
@@ -59,9 +65,9 @@
    "1 Co 15:3-4"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Acts.17.3#03",
+  "ref_estandar": "Acts.17.3",
   "morfologia_tagnt": "V-PMP-NSM",
   "dstrong": "G3908",
   "strong_tagnt": "G3908",
@@ -77,13 +83,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to set before",
-  "ref_estandar": "Acts.17.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.17.6",
+  "pos_tisch": 18,
   "strong": "G387",
   "forma": "ἀναστατώσαντες",
+  "lema": "ἀναστατόω",
   "glosa_interlineal": "han trastornado",
   "rango_semantico": [
    "trastornar, alborotar, sublevar"
@@ -91,7 +101,7 @@
   "construccion": "Participio aoristo activo: «estos que trastornan el mundo entero también han venido acá».",
   "sentido_en_contexto": "Acusación contra Pablo y Silas en Tesalónica: «han revolucionado el mundo» (οἰκουμένη); lo acusan de ir contra los decretos de César diciendo que hay otro rey, Jesús. Es una acusación política contra los cristianos. Irónicamente, describe el impacto real del evangelio.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 17:7; 16:20-21",
@@ -99,9 +109,9 @@
    "Lc 23:2"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "Acts.17.6#19",
+  "ref_estandar": "Acts.17.6",
   "morfologia_tagnt": "V-AAP-NPM",
   "dstrong": "G0387",
   "strong_tagnt": "G387",
@@ -117,13 +127,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to cause trouble",
-  "ref_estandar": "Acts.17.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.17.7",
+  "pos_tisch": 12,
   "strong": "G935",
   "forma": "βασιλέα",
+  "lema": "βασιλεύς",
   "glosa_interlineal": "rey",
   "rango_semantico": [
    "rey"
@@ -131,7 +145,7 @@
   "construccion": "Acusativo: «diciendo que hay otro rey, Jesús».",
   "sentido_en_contexto": "La acusación política: proclamar a Jesús como rey rival de César. Pablo predicaba a Jesús como Señor (κύριος), título reservado al emperador en el culto imperial. Los politarcas (v.8) se alarman.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 19:12, 15",
@@ -139,9 +153,9 @@
    "1 Ts 2:12; 5:2-3"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Acts.17.7#12",
+  "ref_estandar": "Acts.17.7",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G0935",
   "strong_tagnt": "G935",
@@ -157,13 +171,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "king",
-  "ref_estandar": "Acts.17.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.17.11",
+  "pos_tisch": 4,
   "strong": "G2104",
   "forma": "εὐγενέστεροι",
+  "lema": "εὐγενής",
   "glosa_interlineal": "más nobles",
   "rango_semantico": [
    "más nobles, de mejor carácter"
@@ -171,7 +189,7 @@
   "construccion": "Comparativo nominativo plural: «éstos eran más nobles que los de Tesalónica».",
   "sentido_en_contexto": "Los de Berea son «más nobles» no por linaje sino por actitud: reciben la palabra con toda disposición y examinan cada día las Escrituras para ver si es así lo que Pablo decía. Modelo de recepción crítica y humilde del mensaje apostólico.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 5:39",
@@ -180,9 +198,9 @@
    "1 Jn 4:1"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Acts.17.11#04",
+  "ref_estandar": "Acts.17.11",
   "morfologia_tagnt": "A-NPM-C",
   "dstrong": "G2104",
   "strong_tagnt": "G2104",
@@ -198,13 +216,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "of noble birth",
-  "ref_estandar": "Acts.17.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.17.16",
+  "pos_tisch": 16,
   "strong": "G2712",
   "forma": "κατείδωλον",
+  "lema": "κατείδωλος",
   "glosa_interlineal": "llena de ídolos",
   "rango_semantico": [
    "lleno de ídolos"
@@ -212,7 +234,7 @@
   "construccion": "Adjetivo acusativo: «la ciudad entregada a la idolatría».",
   "sentido_en_contexto": "Palabra única en el NT. Atenas, centro cultural, está llena de ídolos y templos. El espíritu de Pablo «se enardecía» (παρωξύνετο) al verlo. Prepara el discurso del Areópago.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 17:22-23",
@@ -220,9 +242,9 @@
    "Is 44:9-20"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Acts.17.16#16",
+  "ref_estandar": "Acts.17.16",
   "morfologia_tagnt": "A-ASF",
   "dstrong": "G2712",
   "strong_tagnt": "G2712",
@@ -238,13 +260,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "idolatrous",
-  "ref_estandar": "Acts.17.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.17.18",
+  "pos_tisch": 18,
   "strong": "G4691",
   "forma": "σπερμολόγος",
+  "lema": "σπερμολόγος",
   "glosa_interlineal": "charlatán",
   "rango_semantico": [
    "que recoge semillas, parlanchín, charlatán"
@@ -252,16 +278,16 @@
   "construccion": "Nominativo: «¿qué querrá decir este palabrero?».",
   "sentido_en_contexto": "σπερμολόγος significa literalmente «picoteador de semillas»: un pájaro que recoge granos; luego, alguien que recoge fragmentos de ideas sin comprenderlos, un charlatán. Epicúreos y estoicos se burlan de Pablo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 17:21",
    "1 Co 1:22-24"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "Acts.17.18#19",
+  "ref_estandar": "Acts.17.18",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G4691",
   "strong_tagnt": "G4691",
@@ -277,13 +303,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "babbler",
-  "ref_estandar": "Acts.17.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.17.19",
+  "pos_tisch": 6,
   "strong": "G697",
   "forma": "Ἄριον",
+  "lema": "Ἄρειος",
   "glosa_interlineal": "Areópago",
   "rango_semantico": [
    "Areópago («colina de Ares»)"
@@ -291,16 +321,15 @@
   "construccion": "Acusativo: «le trajeron al Areópago».",
   "sentido_en_contexto": "El Areópago es la colina (o el consejo) de Atenas con autoridad sobre asuntos religiosos y educativos. No es un juicio formal; invitan a Pablo a explicar su «nueva doctrina». Pablo pronuncia allí su discurso ante filósofos paganos (17:22-31).",
   "matiz": "Debate: ¿el Areópago es la colina de Ares o el consejo que se reunía allí (o en la Stoa Basileia)? Lucas no precisa si Pablo está en juicio o en una audiencia informal.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 17:22, 34"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 6,
-  "revisar_ocurrencia": true,
   "alineacion": "strong",
   "tagnt": "Acts.17.19#06",
+  "ref_estandar": "Acts.17.19",
   "morfologia_tagnt": "N-ASM-L",
   "dstrong": "G0697",
   "strong_tagnt": "G697",
@@ -316,13 +345,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Mars' Hill",
-  "ref_estandar": "Acts.17.19"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.17.22",
+  "pos_tisch": 15,
   "strong": "G1174",
   "forma": "δεισιδαιμονεστέρους",
+  "lema": "δεισιδαιμονέστερος",
   "glosa_interlineal": "muy religiosos",
   "rango_semantico": [
    "supersticioso, religioso en exceso, temeroso de los dioses"
@@ -330,16 +364,16 @@
   "construccion": "Comparativo acusativo: «os veo muy religiosos (en todo)».",
   "sentido_en_contexto": "δεισιδαίμων puede ser positivo («religioso, piadoso») o negativo («supersticioso»). Pablo lo usa con tacto retórico: reconoce la religiosidad de los atenienses sin aprobarla. Es una captatio benevolentiae.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 25:19",
    "Hch 17:16"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Acts.17.22#16",
+  "ref_estandar": "Acts.17.22",
   "morfologia_tagnt": "A-APM-C",
   "dstrong": "G1174",
   "strong_tagnt": "G1174",
@@ -355,13 +389,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "religious",
-  "ref_estandar": "Acts.17.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.17.23",
+  "pos_tisch": 14,
   "strong": "G57",
   "forma": "ἀγνώστῳ",
+  "lema": "ἄγνωστος",
   "glosa_interlineal": "desconocido",
   "rango_semantico": [
    "desconocido, ignoto"
@@ -369,7 +407,7 @@
   "construccion": "Dativo: «AL DIOS NO CONOCIDO».",
   "sentido_en_contexto": "Altar «al dios desconocido» (de una práctica ateniense de dedicar altares a dioses ignotos por precaución). Pablo parte de ahí para anunciar al Dios verdadero que no conocen. No afirma que adoren sin saberlo al Dios verdadero, sino que ignoran a Aquel a quien él anuncia.",
   "matiz": "Algunos autores antiguos (Pausanias, Diógenes Laercio, Filóstrato) mencionan altares a «dioses desconocidos» en Atenas. Pablo habla en singular («dios desconocido»), quizá adaptando la inscripción.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 14:15-17",
@@ -377,9 +415,9 @@
    "Ef 2:12"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Acts.17.23#14",
+  "ref_estandar": "Acts.17.23",
   "morfologia_tagnt": "A-DSM",
   "dstrong": "G0057",
   "strong_tagnt": "G57",
@@ -395,13 +433,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unknown",
-  "ref_estandar": "Acts.17.23"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.17.24",
+  "pos_tisch": 20,
   "strong": "G5499",
   "forma": "χειροποιήτοις",
+  "lema": "χειροποίητος",
   "glosa_interlineal": "hechos de manos",
   "rango_semantico": [
    "hecho por manos humanas"
@@ -409,7 +451,7 @@
   "construccion": "Dativo plural: «no habita en templos hechos por manos humanas».",
   "sentido_en_contexto": "Dios, creador del mundo y Señor del cielo y de la tierra, no habita en templos hechos por hombres. Es una crítica al paganismo y, como en Esteban (7:48-50), a toda limitación de Dios a edificios.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 7:48-50",
@@ -418,9 +460,9 @@
    "Sal 50:7-15"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 20,
   "alineacion": "forma",
   "tagnt": "Acts.17.24#20",
+  "ref_estandar": "Acts.17.24",
   "morfologia_tagnt": "A-DPM",
   "dstrong": "G5499",
   "strong_tagnt": "G5499",
@@ -436,13 +478,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hand-made",
-  "ref_estandar": "Acts.17.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.17.26",
+  "pos_tisch": 4,
   "strong": "G1520",
   "forma": "ἑνὸς",
+  "lema": "εἷς",
   "glosa_interlineal": "uno solo",
   "rango_semantico": [
    "uno, único"
@@ -450,7 +496,7 @@
   "construccion": "Genitivo: «de una sangre (o de uno solo) ha hecho todo el linaje de los hombres».",
   "sentido_en_contexto": "Unidad de la raza humana: todos los pueblos provienen de un solo hombre (Adán). Dios fijó «los tiempos y los límites de su habitación». Argumento contra el orgullo étnico griego (que se creían autóctonos).",
   "matiz": "Variante textual: «de una sangre» (ἑνὸς αἵματος, Aleph? A, D, y otros) frente a «de uno» (ἑνός, B, y otros). La mayoría de ediciones críticas leen «de uno solo», con sentido similar.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 1:27-28; 3:20",
@@ -459,9 +505,9 @@
    "Hch 17:31"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Acts.17.26#04",
+  "ref_estandar": "Acts.17.26",
   "morfologia_tagnt": "A-GSM",
   "dstrong": "G1520",
   "strong_tagnt": "G1520",
@@ -477,13 +523,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "one",
-  "ref_estandar": "Acts.17.26"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.17.27",
+  "pos_tisch": 6,
   "strong": "G5584",
   "forma": "ψηλαφήσειαν",
+  "lema": "ψηλαφάω",
   "glosa_interlineal": "palpando",
   "rango_semantico": [
    "tocar, palpar, tantear"
@@ -491,7 +541,7 @@
   "construccion": "Optativo aoristo activo: «si en alguna manera, palpando, le hallen».",
   "sentido_en_contexto": "Imagen: los hombres buscan a Dios «a tientas», como ciegos, y sin embargo «no está lejos de cada uno de nosotros». Pablo reconoce una búsqueda genuina de Dios, que sin la revelación queda a tientas.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 1:19-20; 2:14-15",
@@ -500,9 +550,9 @@
    "Is 55:6"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Acts.17.27#07",
+  "ref_estandar": "Acts.17.27",
   "morfologia_tagnt": "V-AAO-3P",
   "dstrong": "G5584",
   "strong_tagnt": "G5584",
@@ -518,13 +568,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to touch",
-  "ref_estandar": "Acts.17.27"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.17.28",
+  "pos_tisch": 4,
   "strong": "G2198",
   "forma": "ζῶμεν",
+  "lema": "ζάω",
   "glosa_interlineal": "vivimos",
   "rango_semantico": [
    "vivir, estar vivo"
@@ -532,7 +586,7 @@
   "construccion": "Presente indicativo activo: «en él vivimos, y nos movemos, y somos».",
   "sentido_en_contexto": "Pablo cita al poeta Epiménides de Creta («en él vivimos…») y a Arato de Solos o Cleantes («linaje suyo somos»). Usa literatura pagana como punto de contacto, sin avalar su teología; adapta la expresión al Dios creador.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Tit 1:12 — Epiménides",
@@ -541,9 +595,9 @@
    "Job 12:10"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Acts.17.28#04",
+  "ref_estandar": "Acts.17.28",
   "morfologia_tagnt": "V-PAI-1P",
   "dstrong": "G2198",
   "strong_tagnt": "G2198",
@@ -559,13 +613,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to live",
-  "ref_estandar": "Acts.17.28"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.17.30",
+  "pos_tisch": 6,
   "strong": "G52",
   "forma": "ἀγνοίας",
+  "lema": "ἄγνοια",
   "glosa_interlineal": "ignorancia",
   "rango_semantico": [
    "ignorancia, desconocimiento"
@@ -573,7 +631,7 @@
   "construccion": "Genitivo: «los tiempos de esta ignorancia Dios los pasó por alto».",
   "sentido_en_contexto": "Dios ha pasado por alto («ha tolerado») los tiempos de ignorancia; ahora manda a todos a arrepentirse. La ignorancia no es una excusa (cf. Ro 1:20), sino un tiempo de paciencia divina que ha llegado a su fin con la proclamación del evangelio.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 14:16; 3:17",
@@ -581,9 +639,9 @@
    "Lc 12:48"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Acts.17.30#06",
+  "ref_estandar": "Acts.17.30",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G0052",
   "strong_tagnt": "G52",
@@ -599,13 +657,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ignorance",
-  "ref_estandar": "Acts.17.30"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.17.31",
+  "pos_tisch": 7,
   "strong": "G2919",
   "forma": "κρίνειν",
+  "lema": "κρίνω",
   "glosa_interlineal": "juzgar",
   "rango_semantico": [
    "juzgar"
@@ -613,7 +675,7 @@
   "construccion": "Infinitivo presente: «ha establecido un día en el cual juzgará al mundo con justicia».",
   "sentido_en_contexto": "El motivo del arrepentimiento: el juicio venidero, ejecutado por un hombre designado y acreditado por su resurrección. Pablo no nombra a Jesús: apela a «un varón» (Hijo del Hombre; Dn 7:13) para evitar prejuicios, aunque su identidad es clara.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 10:42",
@@ -622,9 +684,9 @@
    "2 Ti 4:1"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Acts.17.31#07",
+  "ref_estandar": "Acts.17.31",
   "morfologia_tagnt": "V-PAN",
   "dstrong": "G2919",
   "strong_tagnt": "G2919",
@@ -640,13 +702,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to judge",
-  "ref_estandar": "Acts.17.31"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.17.32",
+  "pos_tisch": 7,
   "strong": "G5512",
   "forma": "ἐχλεύαζον",
+  "lema": "χλευάζω",
   "glosa_interlineal": "se burlaban",
   "rango_semantico": [
    "burlarse, mofarse"
@@ -654,7 +720,7 @@
   "construccion": "Imperfecto indicativo activo: «unos se burlaban, y otros decían: Ya te oiremos acerca de esto otra vez».",
   "sentido_en_contexto": "La mención de la resurrección de los muertos provoca burla entre los filósofos griegos, para quienes el cuerpo era una cárcel del alma. Otros posponen la decisión. La reacción mixta es típica de la predicación a paganos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 1:23; 15:12-19",
@@ -662,9 +728,9 @@
    "Hch 26:24"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Acts.17.32#07",
+  "ref_estandar": "Acts.17.32",
   "morfologia_tagnt": "V-IAI-3P",
   "dstrong": "G5512",
   "strong_tagnt": "G5512",
@@ -680,13 +746,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to sneer",
-  "ref_estandar": "Acts.17.32"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.17.34",
+  "pos_tisch": 10,
   "strong": "G1354",
   "forma": "Διονύσιος",
+  "lema": "Διονύσιος",
   "glosa_interlineal": "Dionisio",
   "rango_semantico": [
    "Dionisio (areopagita)"
@@ -694,16 +764,16 @@
   "construccion": "Nominativo: «Dionisio el areopagita».",
   "sentido_en_contexto": "Miembro del Areópago que cree, junto con una mujer llamada Dámaris y otros. Primeros frutos de la misión en Atenas: pocos, pero incluyen a un miembro del consejo. Tradición posterior lo considera primer obispo de Atenas.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 17:19, 22",
    "1 Co 16:15 — «primicias de Acaya»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Acts.17.34#10",
+  "ref_estandar": "Acts.17.34",
   "morfologia_tagnt": "N-NSM-P",
   "dstrong": "G1354",
   "strong_tagnt": "G1354",
@@ -719,7 +789,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Dionysius",
-  "ref_estandar": "Acts.17.34"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

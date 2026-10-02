@@ -1,8 +1,10 @@
 [
  {
   "ref": "1Tim.2.1",
+  "pos_tisch": 8,
   "strong": "G1783",
   "forma": "ἐντεύξεις",
+  "lema": "ἔντευξις",
   "glosa_interlineal": "intercesiones",
   "rango_semantico": [
    "intercesión, petición"
@@ -10,7 +12,7 @@
   "construccion": "Acusativo plural: «exhorto ante todo a que se hagan rogativas, oraciones, peticiones y acciones de gracias, por todos los hombres».",
   "sentido_en_contexto": "Cuatro tipos de oración (súplicas, oraciones, intercesiones, acciones de gracias) «por todos los hombres», incluidos los gobernantes (v.2). El propósito es una vida tranquila y piadosa (v.2) y el deseo de Dios de que todos se salven (v.4).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 13:1-7",
@@ -19,9 +21,9 @@
    "1 P 2:13-17"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "1Tim.2.1#08",
+  "ref_estandar": "1Tim.2.1",
   "morfologia_tagnt": "N-APF",
   "dstrong": "G1783",
   "strong_tagnt": "G1783",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "intercession",
-  "ref_estandar": "1Tim.2.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Tim.2.4",
+  "pos_tisch": 4,
   "strong": "G2309",
   "forma": "θέλει",
+  "lema": "θέλω",
   "glosa_interlineal": "quiere",
   "rango_semantico": [
    "querer, desear"
@@ -51,7 +57,7 @@
   "construccion": "Presente indicativo activo: «el cual quiere que todos los hombres sean salvos y vengan al conocimiento de la verdad».",
   "sentido_en_contexto": "Texto clave en el debate sobre el alcance de la voluntad salvífica de Dios. «Todos los hombres» puede significar todos sin excepción o todas las clases (reyes y súbditos, v.2); y «quiere» puede referirse a su deseo o a su decreto.",
   "matiz": "Debate: (a) Dios quiere sinceramente la salvación de todos, pero respeta la libertad humana (arminiana, católica, ortodoxa); (b) «todos» = todas las clases de personas, y «quiere» = lo decreta (reformada particularista: Calvino lo leyó con matices); (c) voluntad antecedente (deseo) frente a voluntad consecuente (decreto), distinción de Juan Damasceno y los escolásticos.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 P 3:9",
@@ -60,9 +66,9 @@
    "Jn 3:16-17"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "1Tim.2.4#04",
+  "ref_estandar": "1Tim.2.4",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G2309",
   "strong_tagnt": "G2309",
@@ -78,13 +84,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to will/desire",
-  "ref_estandar": "1Tim.2.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Tim.2.5",
+  "pos_tisch": 6,
   "strong": "G3316",
   "forma": "μεσίτης",
+  "lema": "μεσίτης",
   "glosa_interlineal": "mediador",
   "rango_semantico": [
    "mediador, intermediario"
@@ -92,7 +102,7 @@
   "construccion": "Nominativo: «porque hay un solo Dios, y un solo mediador entre Dios y los hombres, Jesucristo hombre».",
   "sentido_en_contexto": "Fórmula de confesión: un solo Dios y un solo mediador. Cristo es mediador como «hombre» (identificado con la humanidad). Texto central sobre la exclusividad de la mediación de Cristo; las tradiciones católica y ortodoxa distinguen la mediación única de Cristo de la intercesión (de santos y de la Virgen) como participación en la suya.",
   "matiz": "Debate: (a) mediación única y exclusiva de Cristo: no hay otra, ni de santos ni de María (protestante); (b) mediación única en cuanto fuente, con participación de intercesores subordinados (católica, ortodoxa: «un solo mediador» como principio, pero la comunión de los santos intercede). Se aplica también al sacerdocio ministerial.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Heb 8:6; 9:15; 12:24",
@@ -101,9 +111,9 @@
    "Dt 6:4"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "1Tim.2.5#06",
+  "ref_estandar": "1Tim.2.5",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G3316",
   "strong_tagnt": "G3316",
@@ -119,13 +129,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mediator",
-  "ref_estandar": "1Tim.2.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Tim.2.6",
+  "pos_tisch": 4,
   "strong": "G487",
   "forma": "ἀντίλυτρον",
+  "lema": "ἀντίλυτρον",
   "glosa_interlineal": "rescate",
   "rango_semantico": [
    "rescate, precio de redención"
@@ -133,7 +147,7 @@
   "construccion": "Acusativo: «el cual se dio a sí mismo en rescate por todos, de lo cual se dio testimonio a su debido tiempo».",
   "sentido_en_contexto": "Eco de Mr 10:45 (λύτρον ἀντὶ πολλῶν). ἀντίλυτρον: rescate sustitutivo. «Por todos» (ὑπὲρ πάντων): alcance universal, que se vincula con 2:4; el debate sobre la «expiación limitada» o «universal» recurre a este texto.",
   "matiz": "Debate sobre el alcance de la expiación: (a) universal: Cristo murió por todos, y es eficaz para quienes creen (arminiana, luterana, muchos bautistas); (b) particular: murió eficazmente por los elegidos, y «todos» designa todos los grupos (reformada estricta); (c) universal en suficiencia, particular en eficacia (fórmula medieval; Lombardo; Calvino la discute).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 10:45",
@@ -142,9 +156,9 @@
    "2 Co 5:14-15"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "1Tim.2.6#04",
+  "ref_estandar": "1Tim.2.6",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G0487",
   "strong_tagnt": "G487",
@@ -160,13 +174,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ransom",
-  "ref_estandar": "1Tim.2.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Tim.2.9",
+  "pos_tisch": 5,
   "strong": "G2689",
   "forma": "καταστολῇ",
+  "lema": "καταστολή",
   "glosa_interlineal": "vestido",
   "rango_semantico": [
    "vestido, atavío"
@@ -174,7 +192,7 @@
   "construccion": "Dativo: «asimismo, que las mujeres se atavíen de ropa decorosa, con pudor y modestia; no con peinado ostentoso, ni oro, ni perlas, ni vestidos costosos».",
   "sentido_en_contexto": "Instrucción sobre el adorno: modestia y buenas obras (v.10) en lugar de ostentación. Contexto: Éfeso, ciudad rica, con mujeres adineradas que se mostraban en el culto. Principio: contraste entre ostentación y obras. Los detalles (oro, perlas) se interpretan según la cultura.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 P 3:3-4",
@@ -182,9 +200,9 @@
    "1 Ti 2:10"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "1Tim.2.9#06",
+  "ref_estandar": "1Tim.2.9",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G2689",
   "strong_tagnt": "G2689",
@@ -200,13 +218,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "attire/behaviour",
-  "ref_estandar": "1Tim.2.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Tim.2.11",
+  "pos_tisch": 3,
   "strong": "G2271",
   "forma": "ἡσυχίᾳ",
+  "lema": "ἡσυχία",
   "glosa_interlineal": "quietud",
   "rango_semantico": [
    "quietud, silencio, tranquilidad"
@@ -214,7 +236,7 @@
   "construccion": "Dativo: «la mujer aprenda en silencio, con toda sujeción».",
   "sentido_en_contexto": "Una de las secciones más debatidas del NT (2:11-15). ἡσυχία es «quietud, actitud tranquila», no necesariamente silencio absoluto (cf. v.2, «vida tranquila»). Mandato de que las mujeres «aprendan», algo notable en su contexto. Las restricciones se discuten según el contexto efesio (falsos maestros que influenciaban a algunas mujeres, 2 Ti 3:6-7).",
   "matiz": "Debate sobre la interpretación (2:11-15): (a) norma permanente que reserva la enseñanza y autoridad a varones en la iglesia, fundada en la creación (v.13) (complementarista, católica, ortodoxa); (b) norma local ante un problema concreto de falsa enseñanza en Éfeso (igualitaria; Fee, Keener); (c) restricción de ciertos actos (autoridad sobre varones) no del ministerio femenino en sí. Hay variaciones entre tradiciones sobre la ordenación de mujeres.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 14:34-35",
@@ -223,9 +245,9 @@
    "Hch 18:26"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "1Tim.2.11#03",
+  "ref_estandar": "1Tim.2.11",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G2271",
   "strong_tagnt": "G2271",
@@ -241,13 +263,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "quietness",
-  "ref_estandar": "1Tim.2.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Tim.2.12",
+  "pos_tisch": 7,
   "strong": "G831",
   "forma": "αὐθεντεῖν",
+  "lema": "αὐθεντέω",
   "glosa_interlineal": "ejercer autoridad",
   "rango_semantico": [
    "ejercer autoridad, dominar (hapax)"
@@ -255,7 +281,7 @@
   "construccion": "Infinitivo presente activo: «porque no permito a la mujer enseñar, ni ejercer dominio sobre el hombre, sino estar en silencio».",
   "sentido_en_contexto": "αὐθεντέω: hápax legómenon en el NT; su sentido exacto es muy discutido (ejercer autoridad, dominar, usurpar, instigar, tomar la iniciativa). La construcción «enseñar ni ejercer autoridad» puede ser dos prohibiciones o una sola. Es el punto central del debate sobre el ministerio de la mujer.",
   "matiz": "Debate sobre αὐθεντέω: (a) ejercer autoridad (neutral: Köstenberger); (b) dominar o autoritarismo abusivo (Kroeger, Keener); (c) usurpar. Sobre la estructura «ni… ni…»: (a) dos actividades prohibidas por separado; (b) un par de actos que juntos forman «enseñar con autoridad». El presente «no permito» se discute: ¿regla general o prohibición para el momento?",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 14:34",
@@ -264,9 +290,9 @@
    "Ro 16:1-7"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "1Tim.2.12#07",
+  "ref_estandar": "1Tim.2.12",
   "morfologia_tagnt": "V-PAN",
   "dstrong": "G0831",
   "strong_tagnt": "G831",
@@ -282,13 +308,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to domineer",
-  "ref_estandar": "1Tim.2.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Tim.2.13",
+  "pos_tisch": 1,
   "strong": "G76",
   "forma": "Ἀδὰμ",
+  "lema": "Ἀδάμ",
   "glosa_interlineal": "Adán",
   "rango_semantico": [
    "Adán"
@@ -296,7 +326,7 @@
   "construccion": "Nominativo: «porque Adán fue formado primero, después Eva».",
   "sentido_en_contexto": "Pablo apoya su instrucción en la creación (orden de formación) y la caída (engaño de Eva). Se interpreta de modo distinto: como orden de creación permanente (primogenitura de Adán) o como argumento ilustrativo contra una enseñanza falsa sobre Eva y la mujer.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 2:7, 18-23",
@@ -304,9 +334,9 @@
    "Gn 3:1-6"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "1Tim.2.13#01",
+  "ref_estandar": "1Tim.2.13",
   "morfologia_tagnt": "N-NSM-P",
   "dstrong": "G0076",
   "strong_tagnt": "G76",
@@ -322,13 +352,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Adam",
-  "ref_estandar": "1Tim.2.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Tim.2.14",
+  "pos_tisch": 4,
   "strong": "G538",
   "forma": "ἠπατήθη",
+  "lema": "ἀπατάω",
   "glosa_interlineal": "fue engañado",
   "rango_semantico": [
    "ser engañado"
@@ -336,7 +370,7 @@
   "construccion": "Aoristo indicativo pasivo: «y Adán no fue engañado, sino que la mujer, siendo engañada, incurrió en transgresión».",
   "sentido_en_contexto": "Eva fue engañada por la serpiente (2 Co 11:3), y Adán, según este texto, no fue engañado, sino desobedeció a conciencia (Ro 5:14). El argumento se ha usado para limitar el papel de la mujer; otros lo leen como referencia a la susceptibilidad de las mujeres ignorantes de Éfeso a las enseñanzas falsas.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 3:13",
@@ -344,9 +378,9 @@
    "Ro 5:14"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "1Tim.2.14#04",
+  "ref_estandar": "1Tim.2.14",
   "morfologia_tagnt": "V-API-3S",
   "dstrong": "G0538",
   "strong_tagnt": "G538",
@@ -362,13 +396,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to trick",
-  "ref_estandar": "1Tim.2.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Tim.2.15",
+  "pos_tisch": 5,
   "strong": "G5042",
   "forma": "τεκνογονίας",
+  "lema": "τεκνογονία",
   "glosa_interlineal": "maternidad",
   "rango_semantico": [
    "engendrar hijos, maternidad"
@@ -376,7 +414,7 @@
   "construccion": "Genitivo: «pero se salvará engendrando hijos, si permaneciere en fe, amor y santificación, con modestia».",
   "sentido_en_contexto": "Uno de los versículos más difíciles del NT. «Salvarse por medio de la maternidad» no puede significar salvación por obras. Interpretaciones: (a) será preservada en el parto (física); (b) será salvada por el Hijo nacido de mujer (Cristo, el hijo prometido, Gn 3:15); (c) la mujer se salvará viviendo su vocación (maternidad) con fe y amor; (d) se salva a pesar del dolor de parto.",
   "matiz": "Debate: (a) «por medio del parto» = el nacimiento de Cristo (la «simiente», Gn 3:15; Calvino, Spicq); (b) preservación física en el parto (la mujer sobrevive con fe y amor); (c) salvación mediante el desempeño de su vocación (algunos Padres); (d) contra los falsos maestros que prohibían el matrimonio (1 Ti 4:3). El plural «permanecen» pasa del singular a plural, señalando a las mujeres en general.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 3:15-16",
@@ -385,9 +423,9 @@
    "Gá 4:4"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "1Tim.2.15#05",
+  "ref_estandar": "1Tim.2.15",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G5042",
   "strong_tagnt": "G5042",
@@ -403,7 +441,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "childbearing",
-  "ref_estandar": "1Tim.2.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

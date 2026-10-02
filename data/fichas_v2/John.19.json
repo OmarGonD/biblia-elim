@@ -1,8 +1,10 @@
 [
  {
   "ref": "John.19.1",
+  "pos_tisch": 9,
   "strong": "G3146",
   "forma": "ἐμαστίγωσεν",
+  "lema": "μαστιγόω",
   "glosa_interlineal": "azotó",
   "rango_semantico": [
    "azotar, flagelar"
@@ -10,7 +12,7 @@
   "construccion": "Aoristo indicativo activo: «Pilato tomó a Jesús y le azotó».",
   "sentido_en_contexto": "La flagelación romana (con látigo de tiras con plomo o huesos) precedía a la crucifixión y era brutal, a menudo mortal. Juan la sitúa antes de la sentencia, como intento de Pilato de aplacar a los acusadores (v.4-6).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 15:15",
@@ -18,9 +20,9 @@
    "1 P 2:24"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "John.19.1#09",
+  "ref_estandar": "John.19.1",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G3146",
   "strong_tagnt": "G3146",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to whip",
-  "ref_estandar": "John.19.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.19.2",
+  "pos_tisch": 5,
   "strong": "G4735",
   "forma": "στέφανον",
+  "lema": "στέφανος",
   "glosa_interlineal": "corona",
   "rango_semantico": [
    "corona, guirnalda"
@@ -50,7 +56,7 @@
   "construccion": "Acusativo: «una corona de espinas».",
   "sentido_en_contexto": "Los soldados, burlándose de su título de «Rey», trenzan una corona de espinas y le visten un manto de púrpura: parodia de la corona y el manto imperial. Irónicamente, proclaman lo que él es.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 27:28-29; Mr 15:17",
@@ -58,9 +64,9 @@
    "Ap 19:12 — «muchas diademas»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "John.19.2#05",
+  "ref_estandar": "John.19.2",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G4735",
   "strong_tagnt": "G4735",
@@ -76,13 +82,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "crown",
-  "ref_estandar": "John.19.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.19.5",
+  "pos_tisch": 19,
   "strong": "G444",
   "forma": "ἄνθρωπος",
+  "lema": "ἄνθρωπος",
   "glosa_interlineal": "el hombre",
   "rango_semantico": [
    "hombre, ser humano"
@@ -90,7 +100,7 @@
   "construccion": "Nominativo: «¡He aquí el hombre!» (Ecce homo).",
   "sentido_en_contexto": "Pilato presenta a Jesús azotado, coronado de espinas y con manto de púrpura. Con intención despectiva o compasiva, la frase resume la humanidad sufriente de Jesús; para Juan tiene a la vez un sentido de ironía mesiánica («el hombre», el Hijo del Hombre).",
   "matiz": "Se discute la intención de Pilato: ¿compasión para mover a los acusadores a ceder, o burla al pueblo? Muchos comentaristas ven un doble sentido joánico: el Hijo del Hombre exaltado en la humillación.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 19:14 — «¡He aquí vuestro Rey!»",
@@ -98,9 +108,9 @@
    "Dn 7:13"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 19,
   "alineacion": "forma",
   "tagnt": "John.19.5#19",
+  "ref_estandar": "John.19.5",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G0444",
   "strong_tagnt": "G444",
@@ -116,13 +126,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "a human",
-  "ref_estandar": "John.19.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.19.7",
+  "pos_tisch": 14,
   "strong": "G5207",
   "forma": "υἱὸν",
+  "lema": "υἱός",
   "glosa_interlineal": "Hijo",
   "rango_semantico": [
    "hijo"
@@ -130,7 +144,7 @@
   "construccion": "Acusativo: «se hizo Hijo de Dios».",
   "sentido_en_contexto": "La verdadera acusación religiosa: los judíos entienden que Jesús se atribuye una relación divina única (cf. 5:18; 10:33). Pilato «tuvo más miedo» al oír esto (v.8), pues los paganos creían en hijos de dioses.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lv 24:16",
@@ -138,9 +152,9 @@
    "Mr 14:61-64"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "John.19.7#16",
+  "ref_estandar": "John.19.7",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G5207",
   "strong_tagnt": "G5207",
@@ -156,13 +170,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "son",
-  "ref_estandar": "John.19.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.19.11",
+  "pos_tisch": 14,
   "strong": "G509",
   "forma": "ἄνωθεν",
+  "lema": "ἄνωθεν",
   "glosa_interlineal": "de arriba",
   "rango_semantico": [
    "desde arriba"
@@ -170,7 +188,7 @@
   "construccion": "Adverbio: «si no te fuese dado de arriba».",
   "sentido_en_contexto": "Jesús reconoce que la autoridad de Pilato le fue dada «de arriba» (Dios): ningún poder humano está fuera de la soberanía divina, aunque el pecado de quien lo entregó es mayor. Ecos de Ro 13:1.",
   "matiz": "Quién es «el que me ha entregado a ti»: Caifás (lectura mayoritaria), Judas o el Sanedrín. La frase no exculpa a Pilato, pero atribuye mayor responsabilidad a quienes entregaron al inocente.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 13:1 — «no hay autoridad sino de parte de Dios»",
@@ -179,9 +197,9 @@
    "Jn 3:3, 31"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "John.19.11#15",
+  "ref_estandar": "John.19.11",
   "morfologia_tagnt": "ADV",
   "dstrong": "G0509",
   "strong_tagnt": "G509",
@@ -197,13 +215,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "from above/again",
-  "ref_estandar": "John.19.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.19.12",
+  "pos_tisch": 18,
   "strong": "G5384",
   "forma": "φίλος",
+  "lema": "φίλος",
   "glosa_interlineal": "amigo",
   "rango_semantico": [
    "amigo"
@@ -211,7 +233,7 @@
   "construccion": "Nominativo: «no eres amigo de César».",
   "sentido_en_contexto": "Amenaza política: «amigo de César» (amicus Caesaris) era título honorífico de lealtad al emperador. Los acusadores usan la presión que más afecta a Pilato, que corría peligro bajo Sejano/Tiberio.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 23:2",
@@ -219,9 +241,9 @@
    "Hch 17:7 — «dicen que hay otro rey, Jesús»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "John.19.12#18",
+  "ref_estandar": "John.19.12",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G5384",
   "strong_tagnt": "G5384",
@@ -237,13 +259,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "friendly/friend",
-  "ref_estandar": "John.19.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.19.13",
+  "pos_tisch": 15,
   "strong": "G968",
   "forma": "βήματος",
+  "lema": "βῆμα",
   "glosa_interlineal": "tribunal",
   "rango_semantico": [
    "tribunal, estrado del juez"
@@ -251,17 +277,13 @@
   "construccion": "Genitivo: «se sentó en el tribunal, en el lugar llamado el Enlosado».",
   "sentido_en_contexto": "Pilato se sienta en el βῆμα, el estrado oficial para la sentencia, en el lugar llamado Litóstrotos (pavimento de piedra), en hebreo Gabata. Se han propuesto el patio de la fortaleza Antonia o el palacio de Herodes.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mt 27:19",
-   "Hch 18:12; 25:6, 10, 17",
-   "Ro 14:10 — «el tribunal de Cristo»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mt 27:19\nHch 18:12; 25:6, 10, 17\nRo 14:10 — «el tribunal de Cristo»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "John.19.13#16",
+  "ref_estandar": "John.19.13",
   "morfologia_tagnt": "N-GSN",
   "dstrong": "G0968",
   "strong_tagnt": "G968",
@@ -277,13 +299,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "judgement seat",
-  "ref_estandar": "John.19.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.19.14",
+  "pos_tisch": 9,
   "strong": "G1623",
   "forma": "ἕκτη",
+  "lema": "ἕκτος",
   "glosa_interlineal": "sexta",
   "rango_semantico": [
    "sexto"
@@ -291,7 +317,7 @@
   "construccion": "Numeral ordinal: «era como la hora sexta».",
   "sentido_en_contexto": "Hora de la sentencia según Juan (hacia el mediodía), en la «preparación de la pascua». Marcos pone la crucifixión en la hora tercera (15:25). Problema clásico de armonización.",
   "matiz": "Posibles soluciones: (a) Juan usaría un cómputo diferente de las horas (romano, desde medianoche: ~6 de la mañana); (b) imprecisión en la designación de las horas; (c) simbolismo (hora de la inmolación de los corderos). No hay consenso.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 15:25 — «era la hora tercera»",
@@ -299,9 +325,9 @@
    "Éx 12:6 — inmolación del cordero"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "John.19.14#09",
+  "ref_estandar": "John.19.14",
   "morfologia_tagnt": "A-NSF",
   "dstrong": "G1623",
   "strong_tagnt": "G1623",
@@ -317,13 +343,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sixth",
-  "ref_estandar": "John.19.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.19.15",
+  "pos_tisch": 24,
   "strong": "G2541",
   "forma": "Καίσαρα",
+  "lema": "Καῖσαρ",
   "glosa_interlineal": "César",
   "rango_semantico": [
    "César, emperador"
@@ -331,7 +361,7 @@
   "construccion": "Acusativo: «no tenemos más rey que César».",
   "sentido_en_contexto": "Los principales sacerdotes renuncian a su fe mesiánica y a la teocracia de Israel (Jue 8:23; 1 S 8:7) para conseguir la muerte de Jesús. Es una declaración dramáticamente irónica.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 S 8:7",
@@ -339,9 +369,9 @@
    "Sal 93:1-2"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 24,
   "alineacion": "forma",
   "tagnt": "John.19.15#26",
+  "ref_estandar": "John.19.15",
   "morfologia_tagnt": "N-ASM-T",
   "dstrong": "G2541J",
   "strong_tagnt": "G2541",
@@ -357,13 +387,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Caesar",
-  "ref_estandar": "John.19.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.19.17",
+  "pos_tisch": 5,
   "strong": "G4716",
   "forma": "σταυρὸν",
+  "lema": "σταυρός",
   "glosa_interlineal": "cruz",
   "rango_semantico": [
    "cruz, madero de ejecución"
@@ -371,7 +405,7 @@
   "construccion": "Acusativo: «cargando su cruz».",
   "sentido_en_contexto": "Juan indica que Jesús mismo llevó la cruz (a diferencia de los sinópticos, donde interviene Simón de Cirene). Probablemente llevó el travesaño (patibulum) y luego Simón le ayudó.",
   "matiz": "Armonización: Jesús llevó la cruz al inicio y después Simón la llevó cuando flaqueó (Mr 15:21). Juan omite a Simón; los sinópticos omiten el inicio.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 15:21 — Simón de Cirene",
@@ -379,9 +413,9 @@
    "Lc 9:23"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "John.19.17#05",
+  "ref_estandar": "John.19.17",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G4716",
   "strong_tagnt": "G4716",
@@ -397,13 +431,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "cross",
-  "ref_estandar": "John.19.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.19.19",
+  "pos_tisch": 4,
   "strong": "G5102",
   "forma": "τίτλον",
+  "lema": "τίτλος",
   "glosa_interlineal": "título",
   "rango_semantico": [
    "rótulo, inscripción, título"
@@ -411,7 +449,7 @@
   "construccion": "Acusativo: «Pilato escribió un título y lo puso sobre la cruz».",
   "sentido_en_contexto": "La inscripción «Jesús nazareno, rey de los judíos» está escrita en hebreo, latín y griego, para que todos la lean. Pilato, que cedió en todo, se mantiene firme aquí (v.22: «lo que he escrito, he escrito»).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 27:37; Mr 15:26; Lc 23:38",
@@ -419,9 +457,9 @@
    "Sal 2:6"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "John.19.19#04",
+  "ref_estandar": "John.19.19",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G5102",
   "strong_tagnt": "G5102",
@@ -437,13 +475,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "title",
-  "ref_estandar": "John.19.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.19.23",
+  "pos_tisch": 21,
   "strong": "G5509",
   "forma": "χιτῶνα",
+  "lema": "χιτών",
   "glosa_interlineal": "túnica",
   "rango_semantico": [
    "túnica (prenda interior)"
@@ -451,7 +493,7 @@
   "construccion": "Acusativo: «la túnica era sin costura, tejida de una pieza».",
   "sentido_en_contexto": "Los soldados se reparten los vestidos en cuatro partes, pero echan suertes por la túnica sin costura, cumpliendo Sal 22:18. Algunos intérpretes ven en la túnica sin costura un símbolo del sumo sacerdocio de Jesús o de la unidad del pueblo de Dios.",
   "matiz": "Simbolismo de la túnica sin costura: sacerdocio (Josefo describe la túnica del sumo sacerdote como tejida sin costura), unidad de la Iglesia (Cipriano) o simple detalle histórico. El texto no lo explicita.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 22:18 — «echaron suertes sobre mi ropa»",
@@ -459,10 +501,9 @@
    "Mt 27:35; Mr 15:24; Lc 23:34"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 21,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.19.23#21",
+  "ref_estandar": "John.19.23",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G5509",
   "strong_tagnt": "G5509",
@@ -478,13 +519,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tunic",
-  "ref_estandar": "John.19.23"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.19.26",
+  "pos_tisch": 15,
   "strong": "G1135",
   "forma": "γύναι",
+  "lema": "γυνή",
   "glosa_interlineal": "mujer",
   "rango_semantico": [
    "mujer, señora"
@@ -492,7 +538,7 @@
   "construccion": "Vocativo: «Mujer, he ahí tu hijo».",
   "sentido_en_contexto": "Desde la cruz Jesús encomienda su madre al discípulo amado (y a él, a ella): crea una nueva familia basada en el discipulado. Solo aparece en Juan. Como en Caná (2:4), la llama «mujer».",
   "matiz": "Se debate el alcance simbólico: María como figura de la Iglesia o de Israel fiel, madre de los creyentes (tradiciones católica y ortodoxa), o simple cuidado filial. El texto subraya el gesto concreto de piedad filial y la nueva comunidad.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 2:4",
@@ -500,9 +546,9 @@
    "Ap 12:1-17"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "John.19.26#16",
+  "ref_estandar": "John.19.26",
   "morfologia_tagnt": "N-VSF",
   "dstrong": "G1135G",
   "strong_tagnt": "G1135",
@@ -518,13 +564,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "woman",
-  "ref_estandar": "John.19.26"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.19.28",
+  "pos_tisch": 9,
   "strong": "G5055",
   "forma": "τετέλεσται",
+  "lema": "τελέω",
   "glosa_interlineal": "consumado",
   "rango_semantico": [
    "acabar, cumplir, llevar a término"
@@ -532,7 +582,7 @@
   "construccion": "Perfecto indicativo pasivo: «todo está consumado» (v.28), «consumado es» (v.30).",
   "sentido_en_contexto": "Dicho en los vv.28 y 30. τελέω significa «cumplir, llevar a su fin»: la obra encomendada por el Padre (17:4) y las Escrituras se han completado. El perfecto indica que el resultado permanece.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 4:34; 17:4",
@@ -540,9 +590,9 @@
    "Heb 10:12-14 — «con una sola ofrenda hizo perfectos para siempre»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "John.19.28#09",
+  "ref_estandar": "John.19.28",
   "morfologia_tagnt": "V-RPI-3S",
   "dstrong": "G5055",
   "strong_tagnt": "G5055",
@@ -558,13 +608,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to finish",
-  "ref_estandar": "John.19.28"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.19.28",
+  "pos_tisch": 15,
   "strong": "G1372",
   "forma": "διψῶ",
+  "lema": "διψάω",
   "glosa_interlineal": "tengo sed",
   "rango_semantico": [
    "tener sed, estar sediento"
@@ -572,17 +626,13 @@
   "construccion": "Presente indicativo activo: «tengo sed».",
   "sentido_en_contexto": "Jesús declara su sed física, cumpliendo Sal 69:21 (y 22:15). Juan lo conecta con la sed espiritual (4:14; 7:37): el que ofrece agua viva tiene sed.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Sal 69:21 — «en mi sed me dieron a beber vinagre»",
-   "Sal 22:15",
-   "Jn 4:14; 7:37"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Sal 69:21 — «en mi sed me dieron a beber vinagre»\nSal 22:15\nJn 4:14; 7:37",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "John.19.28#15",
+  "ref_estandar": "John.19.28",
   "morfologia_tagnt": "V-PAI-1S",
   "dstrong": "G1372",
   "strong_tagnt": "G1372",
@@ -598,13 +648,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to thirst",
-  "ref_estandar": "John.19.28"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.19.29",
+  "pos_tisch": 9,
   "strong": "G5301",
   "forma": "ὑσσώπῳ",
+  "lema": "ὕσσωπος",
   "glosa_interlineal": "hisopo",
   "rango_semantico": [
    "hisopo (planta de ramas flexibles)"
@@ -612,7 +666,7 @@
   "construccion": "Dativo: «una esponja empapada en vinagre, en una rama de hisopo».",
   "sentido_en_contexto": "Detalle propio de Juan: el hisopo se usaba para aplicar la sangre del cordero pascual (Éx 12:22). Posible eco simbólico, aunque el hisopo se prestaba en el hecho. También se ha sugerido una variante antigua (ὑσσῷ, «jabalina») que algunos defienden.",
   "matiz": "Variante conjetural: ὑσσῷ («lanza, pilum») en lugar de ὑσσώπῳ («hisopo»). No hay apoyo manuscrito amplio; la mayoría mantiene hisopo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Éx 12:22 — el hisopo y la sangre del cordero",
@@ -620,9 +674,9 @@
    "Heb 9:19"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "John.19.29#12",
+  "ref_estandar": "John.19.29",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G5301",
   "strong_tagnt": "G5301",
@@ -638,13 +692,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hyssop",
-  "ref_estandar": "John.19.29"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.19.30",
+  "pos_tisch": 12,
   "strong": "G3860",
   "forma": "παρέδωκεν",
+  "lema": "παραδίδωμι",
   "glosa_interlineal": "entregó",
   "rango_semantico": [
    "entregar, ceder"
@@ -652,7 +710,7 @@
   "construccion": "Aoristo indicativo activo: «entregó el espíritu».",
   "sentido_en_contexto": "Expresión deliberada: Jesús «entrega» (παρέδωκεν) su espíritu, no lo pierde. Subraya el carácter voluntario de su muerte (10:18). Tras «consumado es», inclina la cabeza.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 10:17-18",
@@ -660,9 +718,9 @@
    "Mt 27:50"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "John.19.30#14",
+  "ref_estandar": "John.19.30",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G3860",
   "strong_tagnt": "G3860",
@@ -678,13 +736,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to deliver",
-  "ref_estandar": "John.19.30"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.19.34",
+  "pos_tisch": 5,
   "strong": "G3057",
   "forma": "λόγχῃ",
+  "lema": "λόγχη",
   "glosa_interlineal": "lanza",
   "rango_semantico": [
    "lanza, punta de lanza"
@@ -692,7 +754,7 @@
   "construccion": "Dativo: «uno de los soldados le abrió el costado con una lanza».",
   "sentido_en_contexto": "Para asegurarse de su muerte, un soldado traspasa su costado y sale «sangre y agua». El evangelista da testimonio solemne (v.35). Se ha visto en ello un signo de muerte real (contra el docetismo), y un símbolo sacramental o de purificación.",
   "matiz": "Interpretaciones de «sangre y agua»: (a) prueba médica de la muerte real (anti-docetismo; 1 Jn 5:6); (b) símbolo de los sacramentos (eucaristía y bautismo; tradición patrística); (c) purificación y vida (cf. Jn 7:38-39); (d) cumplimiento de Zac 12:10 y 13:1. Probablemente varios niveles.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Jn 5:6 — «Jesucristo vino mediante agua y sangre»",
@@ -700,9 +762,9 @@
    "Jn 7:37-39"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "John.19.34#05",
+  "ref_estandar": "John.19.34",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G3057",
   "strong_tagnt": "G3057",
@@ -718,13 +780,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "spear",
-  "ref_estandar": "John.19.34"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.19.36",
+  "pos_tisch": 10,
   "strong": "G4937",
   "forma": "συντριβήσεται",
+  "lema": "συντρίβω",
   "glosa_interlineal": "será quebrado",
   "rango_semantico": [
    "quebrar, romper en pedazos"
@@ -732,7 +798,7 @@
   "construccion": "Futuro indicativo pasivo: «no será quebrado hueso suyo».",
   "sentido_en_contexto": "Cita de Éx 12:46 / Nm 9:12 (sobre el cordero pascual) o de Sal 34:20. Presenta a Jesús como el verdadero Cordero de Dios, cuyos huesos no se quebraron al contrario de los de los ladrones (v.32).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Éx 12:46",
@@ -741,9 +807,9 @@
    "Jn 1:29, 36"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "John.19.36#10",
+  "ref_estandar": "John.19.36",
   "morfologia_tagnt": "V-2FPI-3S",
   "dstrong": "G4937",
   "strong_tagnt": "G4937",
@@ -759,13 +825,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to break",
-  "ref_estandar": "John.19.36"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.19.37",
+  "pos_tisch": 9,
   "strong": "G1574",
   "forma": "ἐξεκέντησαν",
+  "lema": "ἐκκεντέω",
   "glosa_interlineal": "traspasaron",
   "rango_semantico": [
    "traspasar, perforar"
@@ -773,7 +843,7 @@
   "construccion": "Aoristo indicativo activo: «mirarán al que traspasaron».",
   "sentido_en_contexto": "Cita de Zac 12:10. La lanzada se interpreta como cumplimiento: los habitantes de Jerusalén mirarán al que traspasaron con duelo. Se aplica también a su venida (Ap 1:7).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Zac 12:10 — texto base",
@@ -781,9 +851,9 @@
    "Jn 3:14-15; 12:32"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "John.19.37#09",
+  "ref_estandar": "John.19.37",
   "morfologia_tagnt": "V-AAI-3P",
   "dstrong": "G1574",
   "strong_tagnt": "G1574",
@@ -799,13 +869,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pierce",
-  "ref_estandar": "John.19.37"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.19.38",
+  "pos_tisch": 15,
   "strong": "G2928",
   "forma": "κεκρυμμένος",
+  "lema": "κρύπτω",
   "glosa_interlineal": "oculto",
   "rango_semantico": [
    "esconder, ocultar"
@@ -813,7 +887,7 @@
   "construccion": "Participio perfecto pasivo: «discípulo secreto, por miedo a los judíos».",
   "sentido_en_contexto": "José de Arimatea, miembro del concilio, era discípulo en secreto. Pide a Pilato el cuerpo de Jesús: actúa con valor al final, cuando los discípulos públicos habían huido.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 27:57-60; Mr 15:42-46; Lc 23:50-53",
@@ -821,9 +895,9 @@
    "Jn 7:13"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "John.19.38#16",
+  "ref_estandar": "John.19.38",
   "morfologia_tagnt": "V-RPP-NSM",
   "dstrong": "G2928",
   "strong_tagnt": "G2928",
@@ -839,13 +913,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to hide",
-  "ref_estandar": "John.19.38"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.19.39",
+  "pos_tisch": 14,
   "strong": "G4666",
   "forma": "σμύρνης",
+  "lema": "σμύρνα",
   "glosa_interlineal": "mirra",
   "rango_semantico": [
    "mirra (resina aromática)"
@@ -853,7 +931,7 @@
   "construccion": "Genitivo: «una mezcla de mirra y de áloes, como de cien libras».",
   "sentido_en_contexto": "Nicodemo (que vino a Jesús de noche, 3:2) trae unas cien libras (≈ 33 kg) de especias para el entierro: cantidad regia, propia de un funeral real. Ambos acompañan al Rey en su sepultura.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 3:1-2; 7:50-52",
@@ -861,9 +939,9 @@
    "Sal 45:8"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "John.19.39#15",
+  "ref_estandar": "John.19.39",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G4666",
   "strong_tagnt": "G4666",
@@ -879,13 +957,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "myrrh",
-  "ref_estandar": "John.19.39"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.19.40",
+  "pos_tisch": 10,
   "strong": "G3608",
   "forma": "ὀθονίοις",
+  "lema": "ὀθόνιον",
   "glosa_interlineal": "vendas de lino",
   "rango_semantico": [
    "tela de lino, venda"
@@ -893,7 +975,7 @@
   "construccion": "Dativo plural: «lo envolvieron en lienzos con especias».",
   "sentido_en_contexto": "Preparación judía de la sepultura: vendas de lino con aromas. Estos lienzos son los mismos que se encuentran tras la resurrección (20:5-7).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 20:5-7",
@@ -901,9 +983,9 @@
    "Jn 11:44"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "John.19.40#11",
+  "ref_estandar": "John.19.40",
   "morfologia_tagnt": "N-DPN",
   "dstrong": "G3608",
   "strong_tagnt": "G3608",
@@ -919,13 +1001,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "bandages",
-  "ref_estandar": "John.19.40"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.19.41",
+  "pos_tisch": 8,
   "strong": "G2779",
   "forma": "κῆπος",
+  "lema": "κῆπος",
   "glosa_interlineal": "huerto",
   "rango_semantico": [
    "huerto, jardín"
@@ -933,7 +1019,7 @@
   "construccion": "Nominativo: «en el lugar donde fue crucificado había un huerto».",
   "sentido_en_contexto": "Jesús es arrestado en un huerto (18:1), sepultado en un huerto y, en 20:15, María lo confunde con el jardinero. Para muchos intérpretes hay una resonancia con el Edén: la nueva creación comienza en un jardín.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 18:1; 20:15",
@@ -941,10 +1027,9 @@
    "Ap 22:1-2"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.19.41#08",
+  "ref_estandar": "John.19.41",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G2779",
   "strong_tagnt": "G2779",
@@ -960,7 +1045,10 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "garden",
-  "ref_estandar": "John.19.41"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

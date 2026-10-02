@@ -1,8 +1,10 @@
 [
  {
   "ref": "Matt.24.2",
+  "pos_tisch": 22,
   "strong": "G2647",
   "forma": "καταλυθήσεται",
+  "lema": "καταλύω",
   "glosa_interlineal": "será derribada",
   "rango_semantico": [
    "deshacer, demoler",
@@ -11,7 +13,7 @@
   "construccion": "Futuro indicativo pasivo, 3ª singular: «será derribada».",
   "sentido_en_contexto": "Jesús anuncia que no quedará «piedra sobre piedra» del templo. Se cumplió con la destrucción romana en el año 70 d.C.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 13:2 — paralelo",
@@ -19,9 +21,9 @@
    "Jer 26:18 — «Sion será arada como campo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 22,
   "alineacion": "forma",
   "tagnt": "Matt.24.2#24",
+  "ref_estandar": "Matt.24.2",
   "morfologia_tagnt": "V-FPI-3S",
   "dstrong": "G2647",
   "strong_tagnt": "G2647",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to destroy/lodge",
-  "ref_estandar": "Matt.24.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.24.3",
+  "pos_tisch": 27,
   "strong": "G3952",
   "forma": "παρουσίας",
+  "lema": "παρουσία",
   "glosa_interlineal": "venida",
   "rango_semantico": [
    "presencia, llegada",
@@ -52,7 +58,7 @@
   "construccion": "Genitivo: «de tu venida».",
   "sentido_en_contexto": "Los discípulos preguntan por tres cosas: cuándo será (la destrucción del templo), la señal de «tu venida» y el fin del siglo. παρουσία es el término técnico para la visita de un rey o la manifestación de una divinidad.",
   "matiz": "Se debate si las tres preguntas se refieren al mismo evento (visión «preterista» unificada) o a eventos distintos: la destrucción del 70 y la venida final. La estructura del discurso (vv.4-35 vs 36-51) admite ambas lecturas.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Ts 4:15 — «la venida del Señor»",
@@ -60,9 +66,9 @@
    "Mt 24:27, 37, 39 — «la venida del Hijo del Hombre»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 27,
   "alineacion": "forma",
   "tagnt": "Matt.24.3#27",
+  "ref_estandar": "Matt.24.3",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G3952",
   "strong_tagnt": "G3952",
@@ -78,13 +84,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "coming",
-  "ref_estandar": "Matt.24.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.24.4",
+  "pos_tisch": 11,
   "strong": "G4105",
   "forma": "πλανήσῃ",
+  "lema": "πλανάω",
   "glosa_interlineal": "engañe",
   "rango_semantico": [
    "extraviar, engañar",
@@ -93,7 +103,7 @@
   "construccion": "Subjuntivo aoristo activo con μή: «que nadie os engañe».",
   "sentido_en_contexto": "Primera advertencia: cuidado con falsos mesías. El engaño es el peligro principal que Jesús destaca (vv.5, 11, 24).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 24:11, 24 — «engañarán a muchos»",
@@ -101,9 +111,9 @@
    "Ap 12:9 — «el que engaña al mundo entero»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Matt.24.4#11",
+  "ref_estandar": "Matt.24.4",
   "morfologia_tagnt": "V-AAS-3S",
   "dstrong": "G4105",
   "strong_tagnt": "G4105",
@@ -119,13 +129,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to lead astray",
-  "ref_estandar": "Matt.24.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.24.6",
+  "pos_tisch": 10,
   "strong": "G2360",
   "forma": "θροεῖσθε",
+  "lema": "θροέω",
   "glosa_interlineal": "os alarméis",
   "rango_semantico": [
    "alarmarse, asustarse",
@@ -134,16 +148,16 @@
   "construccion": "Imperativo presente pasivo con μή: «no os alarméis».",
   "sentido_en_contexto": "Las guerras y rumores de guerras no son la señal del fin («aún no es el fin»): hay que mantener la calma.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 13:7 — paralelo",
    "2 Ts 2:2 — «que no os conmováis fácilmente»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Matt.24.6#10",
+  "ref_estandar": "Matt.24.6",
   "morfologia_tagnt": "V-PPM-2P",
   "dstrong": "G2360",
   "strong_tagnt": "G2360",
@@ -159,13 +173,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to alarm",
-  "ref_estandar": "Matt.24.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.24.8",
+  "pos_tisch": 5,
   "strong": "G5604",
   "forma": "ὠδίνων",
+  "lema": "ὠδίν",
   "glosa_interlineal": "dolores de parto",
   "rango_semantico": [
    "dolor de parto",
@@ -174,7 +192,7 @@
   "construccion": "Genitivo plural: «principio de dolores (de parto)».",
   "sentido_en_contexto": "Los desastres son «principio de dolores de parto»: imagen de un proceso que lleva a un nacimiento nuevo, no solo a la destrucción.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 66:8 — «¿dará a luz una tierra en un día?»",
@@ -182,9 +200,9 @@
    "1 Ts 5:3 — «como los dolores a la mujer encinta»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Matt.24.8#05",
+  "ref_estandar": "Matt.24.8",
   "morfologia_tagnt": "N-GPF",
   "dstrong": "G5604",
   "strong_tagnt": "G5604",
@@ -200,13 +218,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "labor",
-  "ref_estandar": "Matt.24.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.24.12",
+  "pos_tisch": 7,
   "strong": "G5594",
   "forma": "ψυγήσεται",
+  "lema": "ψύχω",
   "glosa_interlineal": "se enfriará",
   "rango_semantico": [
    "enfriarse"
@@ -214,16 +236,16 @@
   "construccion": "Futuro indicativo pasivo, 3ª singular: «se enfriará».",
   "sentido_en_contexto": "Una consecuencia dolorosa de la multiplicación de la maldad: el amor de muchos se enfría. Verbo único en el NT.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 2:4 — «has dejado tu primer amor»",
    "Mt 7:23 — «hacedores de maldad»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Matt.24.12#07",
+  "ref_estandar": "Matt.24.12",
   "morfologia_tagnt": "V-2FPI-3S",
   "dstrong": "G5594",
   "strong_tagnt": "G5594",
@@ -239,13 +261,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to cool",
-  "ref_estandar": "Matt.24.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.24.14",
+  "pos_tisch": 11,
   "strong": "G3625",
   "forma": "οἰκουμένῃ",
+  "lema": "οἰκουμένη",
   "glosa_interlineal": "mundo habitado",
   "rango_semantico": [
    "tierra habitada",
@@ -254,7 +280,7 @@
   "construccion": "ἐν + dativo: «en todo el mundo habitado».",
   "sentido_en_contexto": "El evangelio será predicado a todo el mundo conocido «como testimonio a todas las naciones». Solo entonces vendrá el fin.",
   "matiz": "Se discute si «el fin» se refiere a la destrucción de Jerusalén (que Pablo pudo considerar cumplida con la misión al imperio, cf. Col 1:6, 23) o al fin último. La respuesta depende de la lectura del discurso.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 10:18 — «por toda la tierra ha salido su voz»",
@@ -262,9 +288,9 @@
    "Mt 28:19 — «haced discípulos a todas las naciones»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Matt.24.14#11",
+  "ref_estandar": "Matt.24.14",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G3625",
   "strong_tagnt": "G3625",
@@ -280,13 +306,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "world",
-  "ref_estandar": "Matt.24.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.24.15",
+  "pos_tisch": 5,
   "strong": "G946",
   "forma": "βδέλυγμα",
+  "lema": "βδέλυγμα",
   "glosa_interlineal": "abominación",
   "rango_semantico": [
    "cosa detestable, abominación",
@@ -295,7 +325,7 @@
   "construccion": "Acusativo: «la abominación desoladora».",
   "sentido_en_contexto": "Cita de Dn 9:27; 11:31; 12:11. En tiempos de Antíoco IV (167 a.C.) se refirió a un altar pagano en el templo. Jesús la proyecta al futuro: «el que lee, entienda».",
   "matiz": "Debate: ¿se refiere a (a) la profanación romana del templo en el 70 d.C. (lectura habitual, cf. Lc 21:20), (b) un evento futuro de un anticristo, o (c) ambos como cumplimiento doble? Mateo dice «el que lee, entienda», sin precisar.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dn 9:27 — «sobre el ala del templo vendrá la abominación desoladora»",
@@ -304,9 +334,9 @@
    "2 Ts 2:3-4 — «el hombre de pecado… se sienta en el templo de Dios»"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Matt.24.15#05",
+  "ref_estandar": "Matt.24.15",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G0946",
   "strong_tagnt": "G946",
@@ -322,13 +352,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "abomination",
-  "ref_estandar": "Matt.24.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.24.16",
+  "pos_tisch": 6,
   "strong": "G5343",
   "forma": "φευγέτωσαν",
+  "lema": "φεύγω",
   "glosa_interlineal": "huyan",
   "rango_semantico": [
    "huir, escapar"
@@ -336,16 +370,16 @@
   "construccion": "Imperativo presente activo, 3ª plural: «huyan a los montes».",
   "sentido_en_contexto": "Instrucción urgente: ante la señal, los habitantes de Judea deben huir sin demora (vv.17-18). La tradición cristiana relata que la comunidad de Jerusalén huyó a Pella antes del asedio (Eusebio).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 21:21 — «los que estén en Judea, huyan a los montes»",
    "Gn 19:17 — «escapa por tu vida»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Matt.24.16#06",
+  "ref_estandar": "Matt.24.16",
   "morfologia_tagnt": "V-PAM-3P",
   "dstrong": "G5343",
   "strong_tagnt": "G5343",
@@ -361,13 +395,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to flee",
-  "ref_estandar": "Matt.24.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.24.21",
+  "pos_tisch": 4,
   "strong": "G2347",
   "forma": "θλῖψις",
+  "lema": "θλῖψις",
   "glosa_interlineal": "tribulación",
   "rango_semantico": [
    "aflicción, tribulación",
@@ -376,7 +414,7 @@
   "construccion": "Nominativo: «gran tribulación».",
   "sentido_en_contexto": "Tribulación sin precedentes, como la que Dn 12:1 describe. Mateo usa el lenguaje de Daniel para el tiempo del juicio sobre Jerusalén y quizá el final.",
   "matiz": "Se discute si «la gran tribulación» es la del 70 d.C., un período futuro, o una realidad extendida a lo largo de la historia de la iglesia. Cada tradición la lee distinto.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dn 12:1 — «tiempo de angustia, cual nunca fue»",
@@ -384,9 +422,9 @@
    "Mr 13:19 — paralelo"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Matt.24.21#04",
+  "ref_estandar": "Matt.24.21",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G2347",
   "strong_tagnt": "G2347",
@@ -402,13 +440,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "pressure",
-  "ref_estandar": "Matt.24.21"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.24.22",
+  "pos_tisch": 16,
   "strong": "G1588",
   "forma": "ἐκλεκτοὺς",
+  "lema": "ἐκλεκτός",
   "glosa_interlineal": "escogidos",
   "rango_semantico": [
    "escogido, elegido"
@@ -416,16 +458,16 @@
   "construccion": "διά + acusativo: «por causa de los escogidos».",
   "sentido_en_contexto": "Dios abrevia los días «por causa de los escogidos»: sin eso nadie se salvaría. Muestra la protección de los suyos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 24:24, 31 — los escogidos",
    "Ro 8:33 — «los escogidos de Dios»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Matt.24.22#16",
+  "ref_estandar": "Matt.24.22",
   "morfologia_tagnt": "A-APM",
   "dstrong": "G1588",
   "strong_tagnt": "G1588",
@@ -441,13 +483,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "select",
-  "ref_estandar": "Matt.24.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.24.24",
+  "pos_tisch": 3,
   "strong": "G5580",
   "forma": "ψευδόχριστοι",
+  "lema": "ψευδόχριστος",
   "glosa_interlineal": "falsos cristos",
   "rango_semantico": [
    "falso mesías"
@@ -455,7 +501,7 @@
   "construccion": "Nominativo plural.",
   "sentido_en_contexto": "Surgirán falsos mesías y falsos profetas con grandes señales y prodigios, capaces de engañar incluso a los escogidos, si fuera posible.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 13:1-3 — falsos profetas con señales",
@@ -463,9 +509,9 @@
    "1 Jn 2:18 — «muchos anticristos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Matt.24.24#03",
+  "ref_estandar": "Matt.24.24",
   "morfologia_tagnt": "N-NPM",
   "dstrong": "G5580",
   "strong_tagnt": "G5580",
@@ -481,13 +527,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "false Christ",
-  "ref_estandar": "Matt.24.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.24.27",
+  "pos_tisch": 4,
   "strong": "G796",
   "forma": "ἀστραπὴ",
+  "lema": "ἀστραπή",
   "glosa_interlineal": "relámpago",
   "rango_semantico": [
    "relámpago, rayo"
@@ -495,7 +545,7 @@
   "construccion": "Nominativo: «como el relámpago».",
   "sentido_en_contexto": "La venida del Hijo del Hombre será visible y repentina, no secreta ni localizada: se ve de oriente a occidente.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 17:24 — paralelo",
@@ -503,9 +553,9 @@
    "Mt 24:26 — «he aquí está en el desierto… no salgáis»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Matt.24.27#04",
+  "ref_estandar": "Matt.24.27",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G0796",
   "strong_tagnt": "G796",
@@ -521,13 +571,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lightning",
-  "ref_estandar": "Matt.24.27"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.24.28",
+  "pos_tisch": 5,
   "strong": "G4430",
   "forma": "πτῶμα",
+  "lema": "πτῶμα",
   "glosa_interlineal": "cadáver",
   "rango_semantico": [
    "cadáver, cuerpo caído"
@@ -535,16 +589,16 @@
   "construccion": "Nominativo: «donde esté el cadáver».",
   "sentido_en_contexto": "Proverbio: donde está el cadáver, se juntan las águilas (o buitres). Se interpreta como imagen de la evidencia indiscutible del juicio, o de la certeza de la venida.",
   "matiz": "El proverbio es oscuro: puede aludir al juicio sobre Jerusalén (águilas romanas) o a lo inconfundible de la venida. No hay interpretación segura.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 17:37 — «donde estuviere el cuerpo, allí se juntarán también las águilas»",
    "Job 39:30 — «donde hay cadáveres, allí está ella»"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Matt.24.28#06",
+  "ref_estandar": "Matt.24.28",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G4430",
   "strong_tagnt": "G4430",
@@ -560,13 +614,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "corpse",
-  "ref_estandar": "Matt.24.28"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.24.29",
+  "pos_tisch": 11,
   "strong": "G4654",
   "forma": "σκοτισθήσεται",
+  "lema": "σκοτίζω",
   "glosa_interlineal": "se oscurecerá",
   "rango_semantico": [
    "oscurecerse, ser entenebrecido"
@@ -574,7 +632,7 @@
   "construccion": "Futuro indicativo pasivo, 3ª singular.",
   "sentido_en_contexto": "Lenguaje apocalíptico de las señales cósmicas: sol oscurecido, luna sin luz, estrellas cayendo. Tomado de Is 13:10; 34:4.",
   "matiz": "Debate: ¿lenguaje literal (fenómenos cósmicos reales) o figurado (derrumbe de potestades políticas y religiosas, como en los profetas)? Ambas lecturas tienen seguidores.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 13:10 — «el sol se oscurecerá al nacer»",
@@ -582,9 +640,9 @@
    "Jl 2:31 — «el sol se convertirá en tinieblas»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Matt.24.29#11",
+  "ref_estandar": "Matt.24.29",
   "morfologia_tagnt": "V-FPI-3S",
   "dstrong": "G4654",
   "strong_tagnt": "G4654",
@@ -600,13 +658,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to darken",
-  "ref_estandar": "Matt.24.29"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.24.30",
+  "pos_tisch": 5,
   "strong": "G4592",
   "forma": "σημεῖον",
+  "lema": "σημεῖον",
   "glosa_interlineal": "señal",
   "rango_semantico": [
    "señal, signo"
@@ -614,7 +676,7 @@
   "construccion": "Nominativo: «la señal del Hijo del Hombre».",
   "sentido_en_contexto": "No se dice cuál es la señal: se discute si es el Hijo del Hombre mismo, una luz, la cruz, o una manifestación visible. La imagen de Dn 7:13 (venir en las nubes) sostiene el cuadro.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dn 7:13 — «con las nubes del cielo venía uno como un hijo de hombre»",
@@ -622,9 +684,9 @@
    "Ap 1:7 — «he aquí que viene con las nubes»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Matt.24.30#05",
+  "ref_estandar": "Matt.24.30",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G4592",
   "strong_tagnt": "G4592",
@@ -640,13 +702,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sign",
-  "ref_estandar": "Matt.24.30"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.24.31",
+  "pos_tisch": 7,
   "strong": "G4536",
   "forma": "σάλπιγγος",
+  "lema": "σάλπιγξ",
   "glosa_interlineal": "trompeta",
   "rango_semantico": [
    "trompeta",
@@ -655,7 +721,7 @@
   "construccion": "μετὰ + genitivo: «con gran trompeta».",
   "sentido_en_contexto": "La trompeta convoca a los escogidos de los cuatro vientos: eco de Is 27:13 y de la trompeta del Sinaí. Los ángeles reúnen a los elegidos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 27:13 — «se tocará con gran trompeta»",
@@ -663,9 +729,9 @@
    "1 Ts 4:16 — «con trompeta de Dios»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Matt.24.31#07",
+  "ref_estandar": "Matt.24.31",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G4536",
   "strong_tagnt": "G4536",
@@ -681,13 +747,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "trumpet",
-  "ref_estandar": "Matt.24.31"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.24.32",
+  "pos_tisch": 4,
   "strong": "G4808",
   "forma": "συκῆς",
+  "lema": "συκῆ",
   "glosa_interlineal": "higuera",
   "rango_semantico": [
    "higuera"
@@ -695,7 +765,7 @@
   "construccion": "ἀπὸ + genitivo: «de la higuera aprended la parábola».",
   "sentido_en_contexto": "Parábola de la higuera: cuando sus ramas se ponen tiernas y brotan hojas, se sabe que el verano está cerca. Así, ante las señales, se sabe que «está cerca, a las puertas».",
   "matiz": "No se dice a qué se refiere «esto» ni «él/ello está cerca»: puede ser el Hijo del Hombre o el fin. El texto griego admite «él» o «ello».",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 21:29-31 — paralelo («el reino de Dios está cerca»)",
@@ -703,9 +773,9 @@
    "Os 9:10 — «como uvas en el desierto hallé a Israel»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Matt.24.32#04",
+  "ref_estandar": "Matt.24.32",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G4808",
   "strong_tagnt": "G4808",
@@ -721,13 +791,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fig tree",
-  "ref_estandar": "Matt.24.32"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.24.34",
+  "pos_tisch": 8,
   "strong": "G1074",
   "forma": "γενεὰ",
+  "lema": "γενεά",
   "glosa_interlineal": "generación",
   "rango_semantico": [
    "generación",
@@ -737,7 +811,7 @@
   "construccion": "Nominativo: «no pasará esta generación».",
   "sentido_en_contexto": "Una de las frases más discutidas del discurso: «no pasará esta generación hasta que todo esto acontezca».",
   "matiz": "Interpretaciones principales: (a) los oyentes de Jesús (se cumplió en el 70 d.C. o se refiere a su generación en un sentido extendido); (b) la generación que vea las señales descritas (futuro); (c) «raza» de la humanidad o del pueblo judío; (d) la generación mala e incrédula de 23:36. Es un texto muy debatido.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 23:36 — «todo esto vendrá sobre esta generación»",
@@ -745,9 +819,9 @@
    "Mr 13:30 — paralelo"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Matt.24.34#09",
+  "ref_estandar": "Matt.24.34",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G1074",
   "strong_tagnt": "G1074",
@@ -763,13 +837,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "generation",
-  "ref_estandar": "Matt.24.34"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.24.36",
+  "pos_tisch": 9,
   "strong": "G1492",
   "forma": "οἶδεν",
+  "lema": "εἴδω",
   "glosa_interlineal": "sabe",
   "rango_semantico": [
    "saber, conocer"
@@ -777,7 +855,7 @@
   "construccion": "Perfecto con sentido presente, 3ª singular: «sabe».",
   "sentido_en_contexto": "El día y la hora no los conoce nadie: ni los ángeles ni el Hijo, solo el Padre. Declaración notable sobre el límite del conocimiento del Hijo durante su ministerio terrenal.",
   "matiz": "Algunos manuscritos omiten «ni el Hijo» (de ahí que RVR lo omita); la mayoría lo incluye, igual que Marcos 13:32. Se discute cómo conciliarlo con la divinidad plena de Cristo: muchos lo entienden como limitación voluntaria en la encarnación.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": "RVR omite «ni el Hijo» (siguiendo el texto base de los manuscritos tardíos); la mayoría de las ediciones críticas modernas lo incluyen, siguiendo manuscritos antiguos como el Sinaítico.",
   "otros_usos": [
    "Mr 13:32 — «ni aun los ángeles… ni el Hijo»",
@@ -785,9 +863,9 @@
    "Fil 2:6-7 — «se despojó a sí mismo»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
   "alineacion": "forma_otro_strong",
   "tagnt": "Matt.24.36#10",
+  "ref_estandar": "Matt.24.36",
   "morfologia_tagnt": "V-RAI-3S",
   "dstrong": "G6063",
   "strong_tagnt": "G6063",
@@ -803,13 +881,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to perceive",
-  "ref_estandar": "Matt.24.36"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.24.37",
+  "pos_tisch": 6,
   "strong": "G3575",
   "forma": "Νῶε",
+  "lema": "Νῶε",
   "glosa_interlineal": "Noé",
   "rango_semantico": [
    "Noé"
@@ -817,7 +899,7 @@
   "construccion": "Genitivo: «los días de Noé».",
   "sentido_en_contexto": "Jesús compara el momento de su venida con los días de Noé: la gente vive con normalidad hasta que el diluvio las sorprende. Subraya lo inesperado, no la maldad.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 6-9 — el diluvio",
@@ -825,9 +907,9 @@
    "2 P 2:5 — «Noé, pregonero de justicia»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Matt.24.37#06",
+  "ref_estandar": "Matt.24.37",
   "morfologia_tagnt": "N-GSM-P",
   "dstrong": "G3575",
   "strong_tagnt": "G3575",
@@ -843,13 +925,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Noah",
-  "ref_estandar": "Matt.24.37"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.24.40",
+  "pos_tisch": 8,
   "strong": "G3880",
   "forma": "παραλαμβάνεται",
+  "lema": "παραλαμβάνω",
   "glosa_interlineal": "es tomado",
   "rango_semantico": [
    "tomar consigo, llevarse",
@@ -858,7 +944,7 @@
   "construccion": "Presente indicativo pasivo, 3ª singular: «es tomado».",
   "sentido_en_contexto": "«Uno será tomado y el otro dejado»: se debate si ser «tomado» es ser salvado (como en el v.31, reunir a los escogidos) o ser arrebatado para juicio (como en el diluvio, donde se «llevó» a los injustos, v.39).",
   "matiz": "Dos lecturas: (a) el «tomado» es salvo, reunido con Cristo (relacionada con la doctrina del «arrebatamiento» de 1 Ts 4:17); (b) el «tomado» es juzgado, como en el paralelo del diluvio («se llevó a todos»). En el contexto de Mt 24:39, la segunda es defendible; es debate abierto.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Ts 4:17 — «seremos arrebatados juntamente con ellos»",
@@ -866,9 +952,9 @@
    "Mt 24:39 — «y se los llevó a todos»"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Matt.24.40#09",
+  "ref_estandar": "Matt.24.40",
   "morfologia_tagnt": "V-PPI-3S",
   "dstrong": "G3880",
   "strong_tagnt": "G3880",
@@ -884,13 +970,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to take",
-  "ref_estandar": "Matt.24.40"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.24.42",
+  "pos_tisch": 1,
   "strong": "G1127",
   "forma": "γρηγορεῖτε",
+  "lema": "γρηγορεύω",
   "glosa_interlineal": "velad",
   "rango_semantico": [
    "estar despierto, vigilar",
@@ -899,7 +989,7 @@
   "construccion": "Imperativo presente activo, 2ª plural: «mantened la vigilia».",
   "sentido_en_contexto": "Mandato central del discurso: velar, porque no se sabe el día. Se repite en 25:13 y 26:38-41.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 25:13 — «velad, porque no sabéis el día ni la hora»",
@@ -907,9 +997,9 @@
    "1 Ts 5:6 — «velemos y seamos sobrios»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "Matt.24.42#01",
+  "ref_estandar": "Matt.24.42",
   "morfologia_tagnt": "V-PAM-2P",
   "dstrong": "G1127",
   "strong_tagnt": "G1127",
@@ -925,13 +1015,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to keep watch",
-  "ref_estandar": "Matt.24.42"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.24.43",
+  "pos_tisch": 12,
   "strong": "G2812",
   "forma": "κλέπτης",
+  "lema": "κλέπτης",
   "glosa_interlineal": "ladrón",
   "rango_semantico": [
    "ladrón, el que roba sin violencia"
@@ -939,7 +1033,7 @@
   "construccion": "Nominativo: «si el padre de familia supiese a qué hora vendría el ladrón».",
   "sentido_en_contexto": "Imagen de lo imprevisible: el ladrón no avisa. Se aplica a la venida del Hijo del Hombre. La imagen se repite en 1 Ts 5:2 y Ap 3:3.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 12:39-40 — paralelo",
@@ -947,9 +1041,9 @@
    "Ap 3:3 — «vendré sobre ti como ladrón»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Matt.24.43#12",
+  "ref_estandar": "Matt.24.43",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G2812",
   "strong_tagnt": "G2812",
@@ -965,13 +1059,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "thief",
-  "ref_estandar": "Matt.24.43"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.24.45",
+  "pos_tisch": 5,
   "strong": "G4103",
   "forma": "πιστὸς",
+  "lema": "πιστός",
   "glosa_interlineal": "fiel",
   "rango_semantico": [
    "fiel, digno de confianza",
@@ -980,7 +1078,7 @@
   "construccion": "Adjetivo nominativo: «el siervo fiel y prudente».",
   "sentido_en_contexto": "Parábola del mayordomo: el siervo encargado de alimentar a los de la casa durante la ausencia del señor. Fidelidad cotidiana frente a la tardanza.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 12:42-46 — paralelo",
@@ -988,9 +1086,9 @@
    "Mt 25:21 — «bien, buen siervo y fiel»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Matt.24.45#05",
+  "ref_estandar": "Matt.24.45",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G4103",
   "strong_tagnt": "G4103",
@@ -1006,13 +1104,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "faithful",
-  "ref_estandar": "Matt.24.45"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.24.48",
+  "pos_tisch": 11,
   "strong": "G5549",
   "forma": "χρονίζει",
+  "lema": "χρονίζω",
   "glosa_interlineal": "tarda",
   "rango_semantico": [
    "tardar, demorarse"
@@ -1020,7 +1122,7 @@
   "construccion": "Presente indicativo activo, 3ª singular: «mi señor se demora».",
   "sentido_en_contexto": "El siervo malo se aprovecha de la tardanza: maltrata a sus consiervos y se emborracha. Advertencia contra el abuso de la demora.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 25:5 — «tardándose el esposo»",
@@ -1028,9 +1130,9 @@
    "2 P 3:9 — «el Señor no retarda su promesa»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Matt.24.48#12",
+  "ref_estandar": "Matt.24.48",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G5549",
   "strong_tagnt": "G5549",
@@ -1046,13 +1148,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to delay",
-  "ref_estandar": "Matt.24.48"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.24.51",
+  "pos_tisch": 2,
   "strong": "G1371",
   "forma": "διχοτομήσει",
+  "lema": "διχοτομέω",
   "glosa_interlineal": "cortará en dos",
   "rango_semantico": [
    "cortar en dos",
@@ -1061,7 +1167,7 @@
   "construccion": "Futuro indicativo activo, 3ª singular.",
   "sentido_en_contexto": "Castigo severo: «lo partirá por la mitad» (sentido literal) o «lo separará» (sentido figurado). Su suerte será con los hipócritas, con lloro y crujir de dientes.",
   "matiz": "Se discute si el verbo significa literalmente cortar en dos o es una expresión idiomática de castigo severo / expulsión. Ambas lecturas son posibles.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 8:12 — «lloro y crujir de dientes»",
@@ -1069,9 +1175,9 @@
    "Dn 2:5 — «seréis descuartizados»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Matt.24.51#02",
+  "ref_estandar": "Matt.24.51",
   "morfologia_tagnt": "V-FAI-3S",
   "dstrong": "G1371",
   "strong_tagnt": "G1371",
@@ -1087,7 +1193,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to cut in two",
-  "ref_estandar": "Matt.24.51"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

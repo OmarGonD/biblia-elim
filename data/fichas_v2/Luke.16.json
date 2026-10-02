@@ -1,8 +1,10 @@
 [
  {
   "ref": "Luke.16.1",
+  "pos_tisch": 13,
   "strong": "G3623",
   "forma": "οἰκονόμον",
+  "lema": "οἰκονόμος",
   "glosa_interlineal": "mayordomo",
   "rango_semantico": [
    "administrador, mayordomo"
@@ -10,7 +12,7 @@
   "construccion": "Acusativo: «un hombre rico tenía un mayordomo».",
   "sentido_en_contexto": "Parábola del mayordomo infiel (solo Lucas), una de las más difíciles: un administrador, acusado de malgastar, rebaja las deudas de los deudores de su amo para granjearse amigos. El amo alaba su astucia, no su deshonestidad.",
   "matiz": "Debate muy amplio: ¿qué elogia el amo? (a) su prudencia ante la crisis (lectura habitual); (b) su renuncia a su comisión ilícita, de modo que rebaja solo su ganancia (lectura histórico-cultural); (c) ironía. El punto central es usar los bienes con vistas al futuro.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 12:42 — «el mayordomo fiel y prudente»",
@@ -18,9 +20,9 @@
    "Lc 16:10-12 — la fidelidad en lo poco"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Luke.16.1#14",
+  "ref_estandar": "Luke.16.1",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G3623",
   "strong_tagnt": "G3623",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "manager",
-  "ref_estandar": "Luke.16.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.16.6",
+  "pos_tisch": 5,
   "strong": "G943",
   "forma": "βάτους",
+  "lema": "βάτος",
   "glosa_interlineal": "batos",
   "rango_semantico": [
    "bato (medida de líquidos, unos 22-40 litros)"
@@ -50,16 +56,13 @@
   "construccion": "Acusativo plural: «cien batos de aceite».",
   "sentido_en_contexto": "El mayordomo reduce la deuda de aceite de cien a cincuenta batos. Los montos son enormes (miles de denarios), lo que indica negocios grandes.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Lc 16:7 — «cien coros de trigo»",
-   "Ez 45:10-14 — el bato como medida"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Lc 16:7 — «cien coros de trigo»\nEz 45:10-14 — el bato como medida",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Luke.16.6#05",
+  "ref_estandar": "Luke.16.6",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G0943",
   "strong_tagnt": "G943",
@@ -75,13 +78,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "bath",
-  "ref_estandar": "Luke.16.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.16.8",
+  "pos_tisch": 10,
   "strong": "G5430",
   "forma": "φρονίμως",
+  "lema": "φρονίμως",
   "glosa_interlineal": "sagazmente",
   "rango_semantico": [
    "con prudencia, con astucia"
@@ -89,7 +96,7 @@
   "construccion": "Adverbio: «había obrado sagazmente».",
   "sentido_en_contexto": "El amo alaba la prudencia («φρονίμως») del mayordomo, no su injusticia (ἀδικίας). La lección: los hijos de este siglo son más astutos para su generación que los hijos de luz para la suya.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 10:16 — «prudentes como serpientes»",
@@ -97,9 +104,9 @@
    "Ef 5:8 — «hijos de luz»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Luke.16.8#10",
+  "ref_estandar": "Luke.16.8",
   "morfologia_tagnt": "ADV",
   "dstrong": "G5430",
   "strong_tagnt": "G5430",
@@ -115,13 +122,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "shrewdly",
-  "ref_estandar": "Luke.16.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.16.9",
+  "pos_tisch": 10,
   "strong": "G3126",
   "forma": "μαμωνᾶ",
+  "lema": "μαμμωνᾶς",
   "glosa_interlineal": "riquezas",
   "rango_semantico": [
    "dinero, riquezas (arameo mamón)"
@@ -129,7 +140,7 @@
   "construccion": "Genitivo: «por medio de las riquezas injustas».",
   "sentido_en_contexto": "«Mamón de injusticia» (riqueza mundana, tan vinculada a la ambición): úsenla para ganar amigos que los reciban «en las moradas eternas». La riqueza es temporal; el uso generoso lo convierte en inversión eterna.",
   "matiz": "Se discute qué significa «riquezas injustas»: dinero obtenido injustamente, o simplemente dinero mundano (marcado por el sistema injusto). La instrucción es usarlo para el bien de otros.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 12:33 — «haceos bolsas que no se envejezcan»",
@@ -137,9 +148,9 @@
    "1 Ti 6:17-19 — «ricos en buenas obras»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Luke.16.9#10",
+  "ref_estandar": "Luke.16.9",
   "morfologia_tagnt": "N-GSM",
   "dstrong": "G3126",
   "strong_tagnt": "G3126",
@@ -155,13 +166,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wealth",
-  "ref_estandar": "Luke.16.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.16.10",
+  "pos_tisch": 2,
   "strong": "G4103",
   "forma": "πιστὸς",
+  "lema": "πιστός",
   "glosa_interlineal": "fiel",
   "rango_semantico": [
    "fiel, digno de confianza"
@@ -169,7 +184,7 @@
   "construccion": "Adjetivo nominativo: «el que es fiel en lo muy poco, también en lo más es fiel».",
   "sentido_en_contexto": "Principio de fidelidad progresiva: quien es fiel en lo pequeño lo será en lo grande, y viceversa. Las riquezas materiales son lo «muy poco» frente a las verdaderas.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 19:17 — «por cuanto en lo poco has sido fiel»",
@@ -177,10 +192,9 @@
    "1 Co 4:2 — fidelidad del administrador"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Luke.16.10#02",
+  "ref_estandar": "Luke.16.10",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G4103",
   "strong_tagnt": "G4103",
@@ -196,13 +210,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "faithful",
-  "ref_estandar": "Luke.16.10"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.16.10",
+  "pos_tisch": 8,
   "strong": "G4103",
   "forma": "πιστὸς",
+  "lema": "πιστός",
   "glosa_interlineal": "fiel",
   "rango_semantico": [
    "fiel, digno de confianza"
@@ -210,7 +229,7 @@
   "construccion": "Adjetivo nominativo: «el que es fiel en lo muy poco, también en lo más es fiel».",
   "sentido_en_contexto": "Principio de fidelidad progresiva: quien es fiel en lo pequeño lo será en lo grande, y viceversa. Las riquezas materiales son lo «muy poco» frente a las verdaderas.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 19:17 — «por cuanto en lo poco has sido fiel»",
@@ -218,10 +237,9 @@
    "1 Co 4:2 — fidelidad del administrador"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Luke.16.10#08",
+  "ref_estandar": "Luke.16.10",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G4103",
   "strong_tagnt": "G4103",
@@ -237,13 +255,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "faithful",
-  "ref_estandar": "Luke.16.10"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.16.13",
+  "pos_tisch": 28,
   "strong": "G3126",
   "forma": "μαμωνᾷ",
+  "lema": "μαμμωνᾶς",
   "glosa_interlineal": "Mamón",
   "rango_semantico": [
    "dinero, riquezas (mamón)"
@@ -251,7 +274,7 @@
   "construccion": "Dativo: «no podéis servir a Dios y a Mamón».",
   "sentido_en_contexto": "Conclusión de la sección: no se puede servir a dos amos; el dinero es una divinidad rival. Paralelo con Mt 6:24.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 6:24 — paralelo",
@@ -259,9 +282,9 @@
    "Lc 12:15 — «guardaos de toda avaricia»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 28,
   "alineacion": "forma",
   "tagnt": "Luke.16.13#28",
+  "ref_estandar": "Luke.16.13",
   "morfologia_tagnt": "N-DSM",
   "dstrong": "G3126",
   "strong_tagnt": "G3126",
@@ -277,13 +300,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wealth",
-  "ref_estandar": "Luke.16.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.16.14",
+  "pos_tisch": 7,
   "strong": "G5366",
   "forma": "φιλάργυροι",
+  "lema": "φιλάργυρος",
   "glosa_interlineal": "amantes del dinero",
   "rango_semantico": [
    "amante del dinero, avaro"
@@ -291,17 +318,13 @@
   "construccion": "Adjetivo nominativo plural: «los fariseos, que eran avaros».",
   "sentido_en_contexto": "Lucas ironiza: los fariseos, «amantes del dinero», se burlaban de la enseñanza de Jesús sobre las riquezas. Jesús los llama «los que se justifican delante de los hombres», pero Dios conoce sus corazones.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "2 Ti 3:2 — «amadores del dinero»",
-   "1 Ti 6:10 — «el amor al dinero es la raíz de todos los males»",
-   "Lc 18:9-14 — el fariseo y el publicano"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "2 Ti 3:2 — «amadores del dinero»\n1 Ti 6:10 — «el amor al dinero es la raíz de todos los males»\nLc 18:9-14 — el fariseo y el publicano",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Luke.16.14#08",
+  "ref_estandar": "Luke.16.14",
   "morfologia_tagnt": "A-NPM",
   "dstrong": "G5366",
   "strong_tagnt": "G5366",
@@ -317,13 +340,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "money-loving",
-  "ref_estandar": "Luke.16.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.16.16",
+  "pos_tisch": 19,
   "strong": "G971",
   "forma": "βιάζεται",
+  "lema": "βιάζω",
   "glosa_interlineal": "se esfuerzan",
   "rango_semantico": [
    "forzar, usar la fuerza",
@@ -332,16 +359,16 @@
   "construccion": "Presente indicativo medio-pasivo: «todos se esfuerzan por entrar en él».",
   "sentido_en_contexto": "Dicho oscuro: la Ley y los Profetas llegan hasta Juan; desde entonces el reino se anuncia y «todo hombre se esfuerza (o es forzado) por entrar». Paralelo con Mt 11:12 en otro contexto.",
   "matiz": "Ver nota en Mt 11:12: el verbo βιάζομαι puede ser medio («se abre paso con fuerza») o pasivo («es objeto de violencia»). En Lucas, el sentido positivo («todos se esfuerzan por entrar») es más probable.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 11:12 — «el reino de los cielos sufre violencia»",
    "Lc 13:24 — «esforzaos a entrar por la puerta angosta»"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 19,
   "alineacion": "forma",
   "tagnt": "Luke.16.16#19",
+  "ref_estandar": "Luke.16.16",
   "morfologia_tagnt": "V-PEI-3S",
   "dstrong": "G0971",
   "strong_tagnt": "G971",
@@ -357,13 +384,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to force",
-  "ref_estandar": "Luke.16.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.16.18",
+  "pos_tisch": 10,
   "strong": "G3431",
   "forma": "μοιχεύει",
+  "lema": "μοιχεύω",
   "glosa_interlineal": "comete adulterio",
   "rango_semantico": [
    "cometer adulterio"
@@ -371,7 +402,7 @@
   "construccion": "Presente indicativo activo: «el que repudia a su mujer y se casa con otra, adultera».",
   "sentido_en_contexto": "Sentencia breve y absoluta sobre el divorcio, sin cláusula de excepción (Mt 5:32; 19:9). Lucas la coloca tras la afirmación de la permanencia de la Ley (v.17).",
   "matiz": "Ver nota en Mt 19:9 sobre las distintas lecturas del divorcio y la cláusula de excepción.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 5:32; 19:9 — con cláusula",
@@ -379,10 +410,9 @@
    "1 Co 7:10-11 — «el Señor manda»"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 10,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Luke.16.18#10",
+  "ref_estandar": "Luke.16.18",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G3431",
   "strong_tagnt": "G3431",
@@ -398,13 +428,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to commit adultery",
-  "ref_estandar": "Luke.16.18"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.16.18",
+  "pos_tisch": 17,
   "strong": "G3431",
   "forma": "μοιχεύει",
+  "lema": "μοιχεύω",
   "glosa_interlineal": "comete adulterio",
   "rango_semantico": [
    "cometer adulterio"
@@ -412,7 +447,7 @@
   "construccion": "Presente indicativo activo: «el que repudia a su mujer y se casa con otra, adultera».",
   "sentido_en_contexto": "Sentencia breve y absoluta sobre el divorcio, sin cláusula de excepción (Mt 5:32; 19:9). Lucas la coloca tras la afirmación de la permanencia de la Ley (v.17).",
   "matiz": "Ver nota en Mt 19:9 sobre las distintas lecturas del divorcio y la cláusula de excepción.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 5:32; 19:9 — con cláusula",
@@ -420,10 +455,9 @@
    "1 Co 7:10-11 — «el Señor manda»"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 17,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Luke.16.18#18",
+  "ref_estandar": "Luke.16.18",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G3431",
   "strong_tagnt": "G3431",
@@ -439,13 +473,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to commit adultery",
-  "ref_estandar": "Luke.16.18"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.16.19",
+  "pos_tisch": 10,
   "strong": "G1040",
   "forma": "βύσσον",
+  "lema": "βύσσος",
   "glosa_interlineal": "lino fino",
   "rango_semantico": [
    "lino fino (tela muy cara)"
@@ -453,7 +492,7 @@
   "construccion": "Acusativo: «vestido de púrpura y lino fino».",
   "sentido_en_contexto": "Parábola del rico y Lázaro (solo Lucas): el rico se viste de púrpura y lino y banquetea cada día; Lázaro, mendigo, yace en su puerta cubierto de llagas. Contraste extremo de riqueza y miseria.",
   "matiz": "El nombre «Lázaro» («Dios ayuda») es el único nombre propio de un personaje en las parábolas de Jesús. El rico no tiene nombre (la tradición lo llama «Dives», de «rico» en latín).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 16:20 — Lázaro «lleno de llagas»",
@@ -461,9 +500,9 @@
    "Ap 18:12 — mercancías de lujo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Luke.16.19#10",
+  "ref_estandar": "Luke.16.19",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G1040",
   "strong_tagnt": "G1040",
@@ -479,13 +518,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fine linen",
-  "ref_estandar": "Luke.16.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.16.21",
+  "pos_tisch": 9,
   "strong": "G5132",
   "forma": "τραπέζης",
+  "lema": "τράπεζα",
   "glosa_interlineal": "mesa",
   "rango_semantico": [
    "mesa"
@@ -493,16 +536,13 @@
   "construccion": "Genitivo: «de las migajas que caían de la mesa del rico».",
   "sentido_en_contexto": "Lázaro ansiaba lo que caía de la mesa; los perros le lamían las llagas. Su dignidad humana es mínima, pero Dios lo ve (a diferencia del rico).",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mt 15:27 — «los perrillos… comen de las migajas»",
-   "Lc 16:3 — «mendigar me da vergüenza»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mt 15:27 — «los perrillos… comen de las migajas»\nLc 16:3 — «mendigar me da vergüenza»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Luke.16.21#11",
+  "ref_estandar": "Luke.16.21",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G5132",
   "strong_tagnt": "G5132",
@@ -518,13 +558,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "table",
-  "ref_estandar": "Luke.16.21"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.16.22",
+  "pos_tisch": 14,
   "strong": "G2859",
   "forma": "κόλπον",
+  "lema": "κόλπος",
   "glosa_interlineal": "seno",
   "rango_semantico": [
    "seno, pecho, regazo"
@@ -532,7 +576,7 @@
   "construccion": "Acusativo: «al seno de Abraham».",
   "sentido_en_contexto": "Lázaro es llevado por los ángeles «al seno de Abraham»: imagen del banquete celestial (comensal reclinado junto a Abraham). Lenguaje judío del estado de los justos tras la muerte.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 1:18 — «el Hijo… que está en el seno del Padre»",
@@ -540,9 +584,9 @@
    "Jn 13:23 — el discípulo amado «recostado en el seno de Jesús»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Luke.16.22#14",
+  "ref_estandar": "Luke.16.22",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G2859",
   "strong_tagnt": "G2859",
@@ -558,13 +602,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "bosom",
-  "ref_estandar": "Luke.16.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.16.23",
+  "pos_tisch": 4,
   "strong": "G86",
   "forma": "ᾅδῃ",
+  "lema": "ᾅδης",
   "glosa_interlineal": "Hades",
   "rango_semantico": [
    "Hades (morada de los muertos)",
@@ -573,7 +621,7 @@
   "construccion": "ἐν + dativo: «en el Hades, en tormentos».",
   "sentido_en_contexto": "El rico está en el Hades, en tormento, y ve a Abraham y a Lázaro. La parábola describe la inversión de suertes tras la muerte. No pretende ser un tratado sobre el estado intermedio, sino una enseñanza sobre la riqueza y la sordera a la Ley.",
   "matiz": "Se discute cuánto de la parábola es descripción de realidades del más allá y cuánto lenguaje popular (imaginario judío) al servicio de la enseñanza. Las doctrinas del estado intermedio no se basan solo en ella.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 11:23 — «hasta el Hades serás abatida»",
@@ -581,9 +629,9 @@
    "Is 14:9-15 — el Seol"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Luke.16.23#04",
+  "ref_estandar": "Luke.16.23",
   "morfologia_tagnt": "N-DSM",
   "dstrong": "G0086",
   "strong_tagnt": "G86",
@@ -599,13 +647,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Hades",
-  "ref_estandar": "Luke.16.23"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.16.25",
+  "pos_tisch": 23,
   "strong": "G3870",
   "forma": "παρακαλεῖται",
+  "lema": "παρακαλέω",
   "glosa_interlineal": "es consolado",
   "rango_semantico": [
    "consolar, exhortar"
@@ -613,7 +665,7 @@
   "construccion": "Presente indicativo pasivo: «ahora aquí él es consolado, y tú atormentado».",
   "sentido_en_contexto": "Abraham explica la inversión: el rico recibió bienes en vida, Lázaro males; ahora cada uno recibe lo contrario. El texto no enseña que la pobreza salve ni la riqueza condene, sino que la indiferencia ante el pobre pesa.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 6:20-26 — bienaventuranzas y ayes",
@@ -621,9 +673,9 @@
    "Is 40:1 — «consolad, consolad a mi pueblo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 23,
   "alineacion": "forma",
   "tagnt": "Luke.16.25#24",
+  "ref_estandar": "Luke.16.25",
   "morfologia_tagnt": "V-PPI-3S",
   "dstrong": "G3870",
   "strong_tagnt": "G3870",
@@ -639,13 +691,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to plead/comfort",
-  "ref_estandar": "Luke.16.25"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.16.26",
+  "pos_tisch": 9,
   "strong": "G5490",
   "forma": "χάσμα",
+  "lema": "χάσμα",
   "glosa_interlineal": "abismo",
   "rango_semantico": [
    "sima, abismo, gran separación"
@@ -653,16 +709,13 @@
   "construccion": "Nominativo: «una gran sima está puesta entre nosotros y vosotros».",
   "sentido_en_contexto": "El abismo infranqueable entre el rico y Lázaro después de la muerte. Subraya que las decisiones de esta vida tienen consecuencias fijas.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Lc 16:23-24 — «lejos» y «lengua»",
-   "Ap 20:1-3 — el abismo cerrado"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Lc 16:23-24 — «lejos» y «lengua»\nAp 20:1-3 — el abismo cerrado",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Luke.16.26#09",
+  "ref_estandar": "Luke.16.26",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G5490",
   "strong_tagnt": "G5490",
@@ -678,13 +731,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "chasm",
-  "ref_estandar": "Luke.16.26"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.16.29",
+  "pos_tisch": 9,
   "strong": "G4396",
   "forma": "προφήτας",
+  "lema": "προφήτης",
   "glosa_interlineal": "profetas",
   "rango_semantico": [
    "profeta"
@@ -692,7 +749,7 @@
   "construccion": "Acusativo plural: «tienen a Moisés y a los profetas; óiganlos».",
   "sentido_en_contexto": "Respuesta de Abraham al ruego del rico por sus hermanos: la Ley y los Profetas son suficientes para el arrepentimiento. El rico insiste en que un muerto resucitado sí los convencería.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 24:27 — Jesús explica «desde Moisés y todos los profetas»",
@@ -700,9 +757,9 @@
    "Hch 17:11 — los de Berea examinan las Escrituras"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Luke.16.29#09",
+  "ref_estandar": "Luke.16.29",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G4396",
   "strong_tagnt": "G4396",
@@ -718,13 +775,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "prophet",
-  "ref_estandar": "Luke.16.29"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.16.31",
+  "pos_tisch": 16,
   "strong": "G450",
   "forma": "ἀναστῇ",
+  "lema": "ἀνίστημι",
   "glosa_interlineal": "se levantare",
   "rango_semantico": [
    "levantarse, resucitar"
@@ -732,7 +793,7 @@
   "construccion": "Subjuntivo aoristo: «si alguno se levantare de los muertos».",
   "sentido_en_contexto": "Final de la parábola: quien no oye a Moisés y a los profetas, tampoco se persuadirá por una resurrección. Lucas anticipa la reacción ante la resurrección de Jesús.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 24:25-27 — Emaús",
@@ -740,9 +801,9 @@
    "Jn 12:10-11 — quieren matar también a Lázaro"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Luke.16.31#16",
+  "ref_estandar": "Luke.16.31",
   "morfologia_tagnt": "V-2AAS-3S",
   "dstrong": "G0450",
   "strong_tagnt": "G450",
@@ -758,7 +819,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to arise",
-  "ref_estandar": "Luke.16.31"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

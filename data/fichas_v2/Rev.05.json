@@ -1,8 +1,10 @@
 [
  {
   "ref": "Rev.5.1",
+  "pos_tisch": 11,
   "strong": "G975",
   "forma": "βιβλίον",
+  "lema": "βιβλίον",
   "glosa_interlineal": "libro",
   "rango_semantico": [
    "rollo, libro"
@@ -10,7 +12,7 @@
   "construccion": "Acusativo: «y vi en la mano derecha del que estaba sentado en el trono un libro escrito por dentro y por fuera, sellado con siete sellos».",
   "sentido_en_contexto": "βιβλίον: rollo (de papiro), escrito por ambos lados (como el de Ez 2:9-10: lamentos y duelos), sellado con siete sellos (testamentos romanos o contratos sellados). Su contenido se discute: el plan de Dios para la historia, el juicio y la redención, el título de propiedad de la creación (derecho a heredar), o el testamento del Cordero. Su apertura desata los juicios de los sellos (cap. 6).",
   "matiz": "Debate sobre el contenido del rollo: (a) el plan divino de redención y juicio (la mayoría); (b) el título de propiedad de la tierra, perdido por Adán y recuperado por Cristo (Jr 32; Rt 4); (c) el pacto o testamento (de la tradición hebrea: escritura doble); (d) el libro de la vida (menos probable, ver 3:5; 13:8). Ver Ez 2:9-10; Dn 12:4, 9.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ez 2:9-10",
@@ -19,9 +21,9 @@
    "Ap 6:1"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Rev.5.1#11",
+  "ref_estandar": "Rev.5.1",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G0975",
   "strong_tagnt": "G975",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "scroll",
-  "ref_estandar": "Rev.5.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.5.5",
+  "pos_tisch": 13,
   "strong": "G3023",
   "forma": "λέων",
+  "lema": "λέων",
   "glosa_interlineal": "león",
   "rango_semantico": [
    "león"
@@ -51,7 +57,7 @@
   "construccion": "Nominativo: «y uno de los ancianos me dijo: No llores. He aquí que el león de la tribu de Judá, la raíz de David, ha vencido para abrir el libro y desatar sus siete sellos».",
   "sentido_en_contexto": "Títulos mesiánicos: «el León de la tribu de Judá» (Gn 49:9-10) y «la Raíz de David» (Is 11:1, 10). Juan oye «león» pero ve «un Cordero como inmolado» (v.6): la reinterpretación central de la visión: el Mesías vence por su muerte sacrificial, no por la fuerza militar. νικάω («ha vencido»): victoria ya lograda en la cruz.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 49:9-10",
@@ -60,9 +66,9 @@
    "Ap 22:16"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Rev.5.5#13",
+  "ref_estandar": "Rev.5.5",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G3023",
   "strong_tagnt": "G3023",
@@ -78,13 +84,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lion",
-  "ref_estandar": "Rev.5.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.5.6",
+  "pos_tisch": 16,
   "strong": "G721",
   "forma": "ἀρνίον",
+  "lema": "ἀρνίον",
   "glosa_interlineal": "cordero",
   "rango_semantico": [
    "cordero (diminutivo)"
@@ -92,7 +102,7 @@
   "construccion": "Nominativo: «y miré, y vi en medio del trono y de los cuatro seres vivientes, y en medio de los ancianos, estar en pie un Cordero como inmolado, que tenía siete cuernos y siete ojos, los cuales son los siete espíritus de Dios enviados por toda la tierra».",
   "sentido_en_contexto": "ἀρνίον (diminutivo): término propio de Apocalipsis para Cristo (29 veces; en el resto del NT es ἀμνός). «Como inmolado» (ἐσφαγμένον): con las marcas de la muerte, pero de pie (vivo). Siete cuernos (omnipotencia) y siete ojos (omnisciencia o la plenitud del Espíritu). Unión de la imagen del siervo sufriente (Is 53:7) y del cordero pascual (Éx 12).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 53:7",
@@ -102,9 +112,9 @@
    "Zac 4:10"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Rev.5.6#18",
+  "ref_estandar": "Rev.5.6",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G0721",
   "strong_tagnt": "G721",
@@ -120,13 +130,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lamb",
-  "ref_estandar": "Rev.5.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.5.8",
+  "pos_tisch": 29,
   "strong": "G4335",
   "forma": "προσευχαὶ",
+  "lema": "προσευχή",
   "glosa_interlineal": "oraciones",
   "rango_semantico": [
    "oración"
@@ -134,7 +148,7 @@
   "construccion": "Nominativo plural: «cuando hubo tomado el libro, los cuatro seres vivientes y los veinticuatro ancianos se postraron delante del Cordero; todos tenían arpas, y copas de oro llenas de incienso, que son las oraciones de los santos».",
   "sentido_en_contexto": "Las «oraciones de los santos» (προσευχαὶ τῶν ἁγίων) son presentadas como incienso en copas de oro ante el Cordero: valor y cuidado de las oraciones de los fieles (6:9-11; 8:3-5). Texto usado en el debate sobre la invocación y la intercesión de santos: aquí los ancianos presentan las oraciones de los santos. Las tradiciones difieren en cuánto se deduce de la imagen.",
   "matiz": "Debate: (a) imagen de que el cielo conoce y presenta las oraciones de los santos terrestres (la mayoría); (b) los ancianos intercedén como mediadores (católica y ortodoxa, con la comunión de los santos; no hay oración dirigida a ellos en el texto); (c) las oraciones de los creyentes de la tierra son recibidas por Dios (protestante: sin mediación de santos). Cf. 8:3-4.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 141:2",
@@ -143,9 +157,9 @@
    "Ap 6:9-10"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 29,
   "alineacion": "forma",
   "tagnt": "Rev.5.8#29",
+  "ref_estandar": "Rev.5.8",
   "morfologia_tagnt": "N-NPF",
   "dstrong": "G4335",
   "strong_tagnt": "G4335",
@@ -161,13 +175,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "prayer",
-  "ref_estandar": "Rev.5.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.5.9",
+  "pos_tisch": 19,
   "strong": "G59",
   "forma": "ἠγόρασας",
+  "lema": "ἀγοράζω",
   "glosa_interlineal": "compraste",
   "rango_semantico": [
    "comprar, rescatar (en el mercado)"
@@ -175,7 +193,7 @@
   "construccion": "Aoristo indicativo activo: «y cantaban un nuevo cántico, diciendo: Digno eres de tomar el libro y de abrir sus sellos; porque tú fuiste inmolado, y con tu sangre nos has redimido para Dios, de todo linaje y lengua y pueblo y nación».",
   "sentido_en_contexto": "Cántico nuevo (Sal 33:3; 96:1; Is 42:10): el Cordero es digno porque fue inmolado y compró (ἀγοράζω: adquirió en el mercado) para Dios, con su sangre, hombres «de toda tribu, lengua, pueblo y nación» (fórmula cuádruple del libro: 7:9; 11:9; 13:7; 14:6). Variante textual: «nos has redimido» (ἡμᾶς) o solo «has redimido» (omisión del objeto; los ancianos no se incluirían): la omisión es muy discutida.",
   "matiz": "Debate: (a) «de toda tribu, lengua, pueblo y nación» en alcance universal: la redención no se limita a un pueblo (la mayoría); (b) el alcance de la expiación: ¿por todos o por los elegidos de cada nación? (reformada: particular; arminiana: universal). Variante textual: sin «nos» en A y otros testigos (los ancianos cantan sobre otros).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 33:3; 96:1",
@@ -184,9 +202,9 @@
    "1 Co 6:20"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 19,
   "alineacion": "forma",
   "tagnt": "Rev.5.9#19",
+  "ref_estandar": "Rev.5.9",
   "morfologia_tagnt": "V-AAI-2S",
   "dstrong": "G0059",
   "strong_tagnt": "G59",
@@ -202,13 +220,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to buy",
-  "ref_estandar": "Rev.5.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.5.10",
+  "pos_tisch": 11,
   "strong": "G936",
   "forma": "βασιλεύσουσιν",
+  "lema": "βασιλεύω",
   "glosa_interlineal": "reinarán",
   "rango_semantico": [
    "reinar"
@@ -216,7 +238,7 @@
   "construccion": "Futuro indicativo activo: «y nos has hecho para nuestro Dios reyes y sacerdotes, y reinaremos sobre la tierra».",
   "sentido_en_contexto": "Los redimidos son reyes y sacerdotes (Éx 19:6; Ap 1:6) y «reinarán» (βασιλεύσουσιν: futuro; variante: presente βασιλεύουσιν, «reinan», en algunos manuscritos). «Sobre la tierra» (ἐπὶ τῆς γῆς): ¿reinado milenial, reinado presente de los santos o reinado en la nueva tierra? Ver 20:4-6; 22:5.",
   "matiz": "Debate sobre el tiempo y el lugar del reinado: (a) futuro y milenial (premilenialismo); (b) presente, espiritual, de los santos con Cristo (amilenialismo, variante en presente); (c) en la nueva creación (22:5). Variante textual: futuro (βασιλεύσουσιν; la mayoría) o presente (βασιλεύουσιν; A).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 1:6; 20:4-6; 22:5",
@@ -225,9 +247,9 @@
    "Ro 5:17"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Rev.5.10#11",
+  "ref_estandar": "Rev.5.10",
   "morfologia_tagnt": "V-FAI-3P",
   "dstrong": "G0936",
   "strong_tagnt": "G936",
@@ -244,13 +266,17 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "to reign",
-  "ref_estandar": "Rev.5.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.5.12",
+  "pos_tisch": 24,
   "strong": "G2129",
   "forma": "εὐλογίαν",
+  "lema": "εὐλογία",
   "glosa_interlineal": "bendición",
   "rango_semantico": [
    "alabanza, bendición"
@@ -258,7 +284,7 @@
   "construccion": "Acusativo: «que decían a gran voz: El Cordero que fue inmolado es digno de tomar el poder, las riquezas, la sabiduría, la fuerza, la honra, la gloria y la alabanza».",
   "sentido_en_contexto": "Doxología septenaria (siete atributos: poder, riqueza, sabiduría, fuerza, honra, gloria, alabanza), dirigida al Cordero. Todo el cielo (millones de ángeles; Dn 7:10) lo reconoce digno. Culmina en el v.13: toda criatura adora «al que está sentado en el trono y al Cordero»: un solo culto compartido, prueba de la deidad del Cordero.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dn 7:10",
@@ -267,9 +293,9 @@
    "1 Cr 29:11"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 24,
   "alineacion": "forma",
   "tagnt": "Rev.5.12#25",
+  "ref_estandar": "Rev.5.12",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G2129",
   "strong_tagnt": "G2129",
@@ -285,13 +311,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "praise",
-  "ref_estandar": "Rev.5.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.5.13",
+  "pos_tisch": 3,
   "strong": "G2938",
   "forma": "κτίσμα",
+  "lema": "κτίσμα",
   "glosa_interlineal": "criatura",
   "rango_semantico": [
    "criatura, obra creada"
@@ -299,7 +329,7 @@
   "construccion": "Nominativo: «y a todo lo creado que está en el cielo, y sobre la tierra, y debajo de la tierra, y en el mar, y a todas las cosas que en ellos hay, oí decir: Al que está sentado en el trono, y al Cordero, sea la alabanza, la honra, la gloria y el poder, por los siglos de los siglos».",
   "sentido_en_contexto": "Toda la creación se une en adoración: cielo, tierra, bajo la tierra y mar. La doxología se dirige conjuntamente al que está en el trono y al Cordero: un culto compartido que expresa su divinidad (ver Fil 2:10-11). Los seres vivientes dicen «Amén» y los ancianos se postran (v.14).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Fil 2:10-11",
@@ -308,9 +338,9 @@
    "Ro 11:36"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Rev.5.13#03",
+  "ref_estandar": "Rev.5.13",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G2938",
   "strong_tagnt": "G2938",
@@ -326,7 +356,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "creature",
-  "ref_estandar": "Rev.5.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

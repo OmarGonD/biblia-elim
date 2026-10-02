@@ -1,8 +1,10 @@
 [
  {
   "ref": "John.20.1",
+  "pos_tisch": 5,
   "strong": "G4521",
   "forma": "σαββάτων",
+  "lema": "σάββατον",
   "glosa_interlineal": "semana",
   "rango_semantico": [
    "sábado, semana"
@@ -10,7 +12,7 @@
   "construccion": "Genitivo: «el primer día de la semana (μιᾷ τῶν σαββάτων)».",
   "sentido_en_contexto": "En Juan, la resurrección ocurre «el primer día de la semana», muy de mañana, cuando aún estaba oscuro. El día que sería llamado «día del Señor» (Ap 1:10). María Magdalena va sola (los sinópticos mencionan otras mujeres), y ve la piedra quitada.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 28:1; Mr 16:2; Lc 24:1",
@@ -18,9 +20,9 @@
    "Ap 1:10 — «el día del Señor»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "John.20.1#05",
+  "ref_estandar": "John.20.1",
   "morfologia_tagnt": "N-GPN",
   "dstrong": "G4521",
   "strong_tagnt": "G4521",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Sabbath",
-  "ref_estandar": "John.20.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.20.2",
+  "pos_tisch": 14,
   "strong": "G5368",
   "forma": "ἐφίλει",
+  "lema": "φιλέω",
   "glosa_interlineal": "amaba",
   "rango_semantico": [
    "amar, querer"
@@ -50,16 +56,13 @@
   "construccion": "Imperfecto indicativo activo: «el otro discípulo, aquel a quien amaba Jesús».",
   "sentido_en_contexto": "María corre a avisar a Pedro y al discípulo amado. Aquí Juan usa φιλέω (no ἀγαπάω) para el amor de Jesús al discípulo, sin que haya diferencia teológica clara.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Jn 13:23; 19:26; 21:7, 20",
-   "Jn 11:3, 36"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Jn 13:23; 19:26; 21:7, 20\nJn 11:3, 36",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "John.20.2#14",
+  "ref_estandar": "John.20.2",
   "morfologia_tagnt": "V-IAI-3S",
   "dstrong": "G5368",
   "strong_tagnt": "G5368",
@@ -75,13 +78,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to love",
-  "ref_estandar": "John.20.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.20.7",
+  "pos_tisch": 3,
   "strong": "G4676",
   "forma": "σουδάριον",
+  "lema": "σουδάριον",
   "glosa_interlineal": "sudario",
   "rango_semantico": [
    "sudario, pañuelo (para la cabeza)"
@@ -89,7 +96,7 @@
   "construccion": "Nominativo: «el sudario, que había estado sobre su cabeza, no puesto con los lienzos, sino enrollado en un lugar aparte».",
   "sentido_en_contexto": "Detalle exclusivo de Juan: las vendas y el sudario quedan ordenados en la tumba, a diferencia de Lázaro, que salió con ellas (11:44). Indica que el cuerpo no fue robado (los ladrones no desenvuelven con orden) y que Jesús no volvió a la vida terrena sino a una vida nueva.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 11:44 — Lázaro sale con vendas",
@@ -97,9 +104,9 @@
    "Jn 19:40"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "John.20.7#03",
+  "ref_estandar": "John.20.7",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G4676",
   "strong_tagnt": "G4676",
@@ -115,13 +122,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "handkerchief",
-  "ref_estandar": "John.20.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.20.8",
+  "pos_tisch": 17,
   "strong": "G4100",
   "forma": "ἐπίστευσεν",
+  "lema": "πιστεύω",
   "glosa_interlineal": "creyó",
   "rango_semantico": [
    "creer"
@@ -129,7 +140,7 @@
   "construccion": "Aoristo indicativo activo: «vio, y creyó».",
   "sentido_en_contexto": "El discípulo amado cree al ver la tumba vacía y las vendas. Es el primero en creer en la resurrección, aún sin haber visto al Señor (v.9: no entendían la Escritura).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 20:29 — «bienaventurados los que no vieron y creyeron»",
@@ -137,9 +148,9 @@
    "Jn 2:22"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "John.20.8#17",
+  "ref_estandar": "John.20.8",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G4100",
   "strong_tagnt": "G4100",
@@ -155,13 +166,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to trust (in)",
-  "ref_estandar": "John.20.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.20.9",
+  "pos_tisch": 5,
   "strong": "G1124",
   "forma": "γραφὴν",
+  "lema": "γραφή",
   "glosa_interlineal": "Escritura",
   "rango_semantico": [
    "escritura, texto sagrado"
@@ -169,7 +184,7 @@
   "construccion": "Acusativo: «aún no habían entendido la Escritura, que era necesario que él resucitase de entre los muertos».",
   "sentido_en_contexto": "Juan reconoce que no entendían la Escritura sobre la resurrección. No señala un texto concreto (cf. Sal 16:10; Os 6:2; Is 53:10-12; Jon 1:17). La comprensión vendrá con la resurrección y el Espíritu.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 24:25-27, 44-46",
@@ -177,9 +192,9 @@
    "Hch 2:25-32; 13:33-37"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "John.20.9#05",
+  "ref_estandar": "John.20.9",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G1124",
   "strong_tagnt": "G1124",
@@ -195,13 +210,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "a writing",
-  "ref_estandar": "John.20.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.20.12",
+  "pos_tisch": 4,
   "strong": "G32",
   "forma": "ἀγγέλους",
+  "lema": "ἄγγελος",
   "glosa_interlineal": "ángeles",
   "rango_semantico": [
    "ángel, mensajero"
@@ -209,7 +228,7 @@
   "construccion": "Acusativo plural: «dos ángeles con vestiduras blancas, sentados».",
   "sentido_en_contexto": "María, al asomarse, ve a dos ángeles donde estaba el cuerpo, uno a la cabecera y otro a los pies: eco del propiciatorio del arca (dos querubines en los extremos). Ellos le preguntan por qué llora.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Éx 25:17-22 — el propiciatorio con dos querubines",
@@ -217,9 +236,9 @@
    "Mt 28:2-5"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "John.20.12#04",
+  "ref_estandar": "John.20.12",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G0032G",
   "strong_tagnt": "G32",
@@ -235,13 +254,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "angel",
-  "ref_estandar": "John.20.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.20.15",
+  "pos_tisch": 13,
   "strong": "G2780",
   "forma": "κηπουρός",
+  "lema": "κηπουρός",
   "glosa_interlineal": "jardinero",
   "rango_semantico": [
    "jardinero, hortelano"
@@ -249,7 +272,7 @@
   "construccion": "Nominativo: «pensando que era el hortelano».",
   "sentido_en_contexto": "María confunde al resucitado con el jardinero. Juan juega con la imagen del huerto (19:41): el segundo Adán en el jardín de la nueva creación.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 19:41",
@@ -257,9 +280,9 @@
    "Cnt 3:1-4 — la amada que busca"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "John.20.15#14",
+  "ref_estandar": "John.20.15",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G2780",
   "strong_tagnt": "G2780",
@@ -275,13 +298,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gardener",
-  "ref_estandar": "John.20.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.20.16",
+  "pos_tisch": 10,
   "strong": "G4462",
   "forma": "Ῥαββουνί",
+  "lema": "ῥαββονί",
   "glosa_interlineal": "Rabuní",
   "rango_semantico": [
    "Rabuní (arameo: «mi maestro»)"
@@ -289,7 +316,7 @@
   "construccion": "Vocativo arameo: «¡Rabuni!» (que significa Maestro).",
   "sentido_en_contexto": "Jesús la llama por su nombre («Mariam») y ella lo reconoce de inmediato: se cumple 10:3 («a sus ovejas llama por nombre»). Rabuní es una forma intensiva y afectuosa de «rabí».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 10:3-4, 27",
@@ -297,9 +324,9 @@
    "Is 43:1 — «te he llamado por tu nombre»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "John.20.16#11",
+  "ref_estandar": "John.20.16",
   "morfologia_tagnt": "N-VSM-T",
   "dstrong": "G4462",
   "strong_tagnt": "G4462",
@@ -315,13 +342,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Rabboni",
-  "ref_estandar": "John.20.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.20.17",
+  "pos_tisch": 6,
   "strong": "G680",
   "forma": "ἅπτου",
+  "lema": "ἅπτομαι",
   "glosa_interlineal": "no me retengas",
   "rango_semantico": [
    "tocar, aferrarse a, retener"
@@ -329,7 +360,7 @@
   "construccion": "Imperativo presente medio: «no me toques / no me retengas».",
   "sentido_en_contexto": "μή μου ἅπτου («deja de aferrarte a mí»): María se agarra a Jesús como si fuera a perderlo otra vez; Jesús le dice que no puede retenerlo, porque aún no ha subido al Padre, y la envía a los discípulos. Una nueva forma de presencia (por el Espíritu) sustituirá la presencia terrenal.",
   "matiz": "Traducciones: «no me toques» (Vulgata noli me tangere, RVR), «no me retengas / no te aferres a mí» (muchas versiones modernas). Tensión con v.27 donde invita a Tomás a tocar: se resuelve entendiendo el presente imperativo como «deja de aferrarte» y que el asunto es el significado de la presencia, no la prohibición absoluta de tocarlo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": "RVR60 traduce «no me toques»; muchas versiones prefieren «no me retengas» o «deja de aferrarte a mí».",
   "otros_usos": [
    "Mt 28:9 — las mujeres abrazan sus pies",
@@ -337,9 +368,9 @@
    "Jn 14:3; 16:7"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "John.20.17#07",
+  "ref_estandar": "John.20.17",
   "morfologia_tagnt": "V-PMM-2S",
   "dstrong": "G0681",
   "strong_tagnt": "G681",
@@ -355,13 +386,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to kindle",
-  "ref_estandar": "John.20.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.20.17",
+  "pos_tisch": 17,
   "strong": "G80",
   "forma": "ἀδελφούς",
+  "lema": "ἀδελφός",
   "glosa_interlineal": "hermanos",
   "rango_semantico": [
    "hermano"
@@ -369,17 +404,13 @@
   "construccion": "Acusativo plural: «ve a mis hermanos».",
   "sentido_en_contexto": "Primera vez que Jesús llama «hermanos» a los discípulos, tras la resurrección: mi Padre y vuestro Padre, mi Dios y vuestro Dios. La resurrección establece una nueva relación filial de los discípulos con el Padre.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mt 28:10 — «id, dad las nuevas a mis hermanos»",
-   "Heb 2:11-12 — «no se avergüenza de llamarlos hermanos»",
-   "Ro 8:29 — «primogénito entre muchos hermanos»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mt 28:10 — «id, dad las nuevas a mis hermanos»\nHeb 2:11-12 — «no se avergüenza de llamarlos hermanos»\nRo 8:29 — «primogénito entre muchos hermanos»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "John.20.17#19",
+  "ref_estandar": "John.20.17",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G0080",
   "strong_tagnt": "G80",
@@ -395,13 +426,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "brother",
-  "ref_estandar": "John.20.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.20.19",
+  "pos_tisch": 34,
   "strong": "G1515",
   "forma": "εἰρήνη",
+  "lema": "εἰρήνη",
   "glosa_interlineal": "paz",
   "rango_semantico": [
    "paz, shalom"
@@ -409,7 +444,7 @@
   "construccion": "Nominativo: «paz a vosotros».",
   "sentido_en_contexto": "Saludo del resucitado (repetido en vv.21, 26): el shalom hebreo y también el don prometido en 14:27. Los discípulos tienen miedo y puertas cerradas; Jesús entra y les da su paz.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 14:27; 16:33",
@@ -417,9 +452,9 @@
    "Is 9:6 — «Príncipe de paz»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 34,
   "alineacion": "forma",
   "tagnt": "John.20.19#36",
+  "ref_estandar": "John.20.19",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G1515",
   "strong_tagnt": "G1515",
@@ -435,13 +470,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "peace",
-  "ref_estandar": "John.20.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.20.21",
+  "pos_tisch": 8,
   "strong": "G649",
   "forma": "ἀπέσταλκεν",
+  "lema": "ἀποστέλλω",
   "glosa_interlineal": "envió",
   "rango_semantico": [
    "enviar, mandar"
@@ -449,7 +488,7 @@
   "construccion": "Perfecto indicativo activo: «como me envió el Padre, así también yo os envío».",
   "sentido_en_contexto": "Comisión del resucitado: la misión de la Iglesia es continuación de la misión del Hijo. Juan usa dos verbos de envío (ἀποστέλλω y πέμπω) sin diferencia clara.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 17:18",
@@ -457,9 +496,9 @@
    "Hch 1:8"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "John.20.21#10",
+  "ref_estandar": "John.20.21",
   "morfologia_tagnt": "V-RAI-3S",
   "dstrong": "G0649",
   "strong_tagnt": "G649",
@@ -475,13 +514,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to send",
-  "ref_estandar": "John.20.21"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.20.22",
+  "pos_tisch": 4,
   "strong": "G1720",
   "forma": "ἐνεφύσησεν",
+  "lema": "ἐμφυσάω",
   "glosa_interlineal": "sopló",
   "rango_semantico": [
    "soplar sobre, insuflar"
@@ -489,7 +532,7 @@
   "construccion": "Aoristo indicativo activo: «sopló sobre ellos, y les dijo: Recibid el Espíritu Santo».",
   "sentido_en_contexto": "El verbo ἐμφυσάω aparece en la LXX para el aliento de vida dado a Adán (Gn 2:7) y en Ez 37:9 (el soplo sobre los huesos). Es una nueva creación: Jesús da el Espíritu como aliento vital.",
   "matiz": "Debate sobre la relación con Pentecostés (Hch 2): ¿don anticipado y parcial, o Pentecostés es la manifestación pública del mismo don? Se han propuesto: (a) dos momentos del mismo don; (b) este es el don de vida y misión, aquel el poder para el testimonio; (c) Juan y Lucas presentan la misma realidad desde teologías distintas.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 2:7 — «sopló en su nariz aliento de vida»",
@@ -498,9 +541,9 @@
    "Jn 7:39; 14:16-17"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "John.20.22#04",
+  "ref_estandar": "John.20.22",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G1720",
   "strong_tagnt": "G1720",
@@ -516,13 +559,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to breathe into",
-  "ref_estandar": "John.20.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.20.23",
+  "pos_tisch": 3,
   "strong": "G863",
   "forma": "ἀφῆτε",
+  "lema": "ἀφίημι",
   "glosa_interlineal": "perdonéis",
   "rango_semantico": [
    "perdonar, dejar ir, remitir"
@@ -530,7 +577,7 @@
   "construccion": "Subjuntivo aoristo activo: «a quienes perdonéis los pecados, les son perdonados».",
   "sentido_en_contexto": "Autoridad dada a los discípulos para declarar el perdón o la retención de pecados. Se discute su alcance: potestad sacramental de la absolución (tradición católica, ortodoxa, parte de la luterana), o autoridad declarativa al proclamar el evangelio (tradiciones reformadas y evangélicas).",
   "matiz": "Interpretaciones: (a) absolución sacerdotal en la confesión (tradición católica); (b) proclamación del evangelio que declara el perdón a quienes creen y la retención a quienes rechazan (lectura reformada); (c) autoridad eclesial y disciplina (Mt 16:19; 18:18). Los verbos perfectos pasivos «les son perdonados» (ἀφέωνται) expresan que el perdón ya ha sido concedido por Dios.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 16:19; 18:18",
@@ -539,10 +586,9 @@
    "2 Co 5:18-20"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 3,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.20.23#03",
+  "ref_estandar": "John.20.23",
   "morfologia_tagnt": "V-2AAS-2P",
   "dstrong": "G0863H",
   "strong_tagnt": "G863",
@@ -558,13 +604,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to release",
-  "ref_estandar": "John.20.23"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.20.25",
+  "pos_tisch": 22,
   "strong": "G5179",
   "forma": "τύπον",
+  "lema": "τύπος",
   "glosa_interlineal": "señal",
   "rango_semantico": [
    "marca, huella, impresión"
@@ -572,7 +623,7 @@
   "construccion": "Acusativo: «si no viere en sus manos la señal de los clavos».",
   "sentido_en_contexto": "Tomás pide una prueba física de que el Señor ha resucitado: ver y tocar las marcas de la crucifixión. Su exigencia se cumple en v.27. El cuerpo resucitado conserva las cicatrices: continuidad con el crucificado.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 24:39-40 — «mirad mis manos y mis pies»",
@@ -580,9 +631,9 @@
    "Ap 5:6 — «un Cordero como inmolado»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 22,
   "alineacion": "forma",
   "tagnt": "John.20.25#22",
+  "ref_estandar": "John.20.25",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G5179",
   "strong_tagnt": "G5179",
@@ -598,13 +649,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mark/example",
-  "ref_estandar": "John.20.25"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.20.28",
+  "pos_tisch": 11,
   "strong": "G2316",
   "forma": "θεός",
+  "lema": "θεός",
   "glosa_interlineal": "Dios",
   "rango_semantico": [
    "Dios"
@@ -612,7 +667,7 @@
   "construccion": "Nominativo: «¡Señor mío, y Dios mío!».",
   "sentido_en_contexto": "Confesión de Tomás: la más alta de todo el evangelio. Aplica a Jesús los dos títulos de Yahvé (Κύριος y Θεός). Es la culminación del prólogo: el Verbo era Dios (1:1) y es reconocido como tal.",
   "matiz": "Algunos han propuesto que Tomás exclama una interjección dirigida a Dios; pero el v.28 dice «le respondió» (a Jesús) y el contexto muestra una confesión dirigida a Jesús. La lectura mayoritaria es una confesión cristológica de divinidad.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 1:1, 18 — «el Verbo era Dios»",
@@ -621,9 +676,9 @@
    "Tit 2:13; 2 P 1:1"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "John.20.28#13",
+  "ref_estandar": "John.20.28",
   "morfologia_tagnt": "N-VSM-T",
   "dstrong": "G2316",
   "strong_tagnt": "G2316",
@@ -639,13 +694,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "God",
-  "ref_estandar": "John.20.28"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.20.29",
+  "pos_tisch": 9,
   "strong": "G3107",
   "forma": "μακάριοι",
+  "lema": "μακάριος",
   "glosa_interlineal": "bienaventurados",
   "rango_semantico": [
    "bienaventurado, dichoso"
@@ -653,7 +712,7 @@
   "construccion": "Adjetivo nominativo plural: «bienaventurados los que no vieron, y creyeron».",
   "sentido_en_contexto": "Bienaventuranza para las generaciones posteriores de creyentes, que creen sin ver al resucitado: es la situación de los lectores del evangelio. No desprecia el testimonio de quienes vieron, sino que lo extiende.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 P 1:8 — «sin haberle visto, le amáis»",
@@ -661,9 +720,9 @@
    "Heb 11:1"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "John.20.29#10",
+  "ref_estandar": "John.20.29",
   "morfologia_tagnt": "A-NPM",
   "dstrong": "G3107",
   "strong_tagnt": "G3107",
@@ -679,13 +738,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "blessed",
-  "ref_estandar": "John.20.29"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.20.30",
+  "pos_tisch": 6,
   "strong": "G4592",
   "forma": "σημεῖα",
+  "lema": "σημεῖον",
   "glosa_interlineal": "señales",
   "rango_semantico": [
    "señal, signo"
@@ -693,7 +756,7 @@
   "construccion": "Acusativo plural: «hizo Jesús muchas otras señales».",
   "sentido_en_contexto": "Conclusión original del evangelio (vv.30-31): Juan selecciona unas pocas señales (siete) para provocar la fe. El cap. 21 parece ser un epílogo añadido, aunque forma parte del texto transmitido.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 21:25",
@@ -701,9 +764,9 @@
    "Hch 2:22"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "John.20.30#06",
+  "ref_estandar": "John.20.30",
   "morfologia_tagnt": "N-APN",
   "dstrong": "G4592",
   "strong_tagnt": "G4592",
@@ -719,13 +782,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sign",
-  "ref_estandar": "John.20.30"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.20.31",
+  "pos_tisch": 5,
   "strong": "G4100",
   "forma": "πιστεύητε",
+  "lema": "πιστεύω",
   "glosa_interlineal": "creáis",
   "rango_semantico": [
    "creer, confiar"
@@ -733,7 +800,7 @@
   "construccion": "Subjuntivo presente o aoristo: «para que creáis que Jesús es el Cristo, el Hijo de Dios».",
   "sentido_en_contexto": "Propósito del evangelio: que el lector crea y, creyendo, tenga vida en su nombre. Variante textual: aoristo «lleguéis a creer» (Aleph*, B) o presente «sigáis creyendo» (P66, A, C), con diferencia de enfoque (evangelización o fortalecimiento).",
   "matiz": "Variante: πιστεύσητε (aoristo, «lleguéis a creer»; propósito evangelizador) frente a πιστεύητε (presente, «sigáis creyendo»; propósito pastoral). Ambas lecturas están bien atestiguadas; ninguna cambia el propósito general.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 1:12; 3:15-16, 36",
@@ -741,10 +808,9 @@
    "1 Jn 5:13"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 5,
-  "revisar_ocurrencia": true,
   "alineacion": "strong",
   "tagnt": "John.20.31#05",
+  "ref_estandar": "John.20.31",
   "morfologia_tagnt": "V-AAS-2P",
   "dstrong": "G4100",
   "strong_tagnt": "G4100",
@@ -761,7 +827,10 @@
    "WH"
   ],
   "variante": true,
-  "glosa_tagnt": "to trust (in)",
-  "ref_estandar": "John.20.31"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

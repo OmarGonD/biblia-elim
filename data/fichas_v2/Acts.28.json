@@ -1,8 +1,10 @@
 [
  {
   "ref": "Acts.28.1",
+  "pos_tisch": 6,
   "strong": "G3194",
   "forma": "Μελίτη",
+  "lema": "Μελίτη",
   "glosa_interlineal": "Malta",
   "rango_semantico": [
    "Malta (Melita)"
@@ -10,16 +12,16 @@
   "construccion": "Nominativo: «la isla se llamaba Malta (Melita)».",
   "sentido_en_contexto": "Los náufragos llegan a Malta, al sur de Sicilia. La identificación tradicional con la actual Malta se apoya en la ruta descrita, aunque se ha propuesto Mljet (Dalmacia). La mayoría de estudiosos acepta Malta.",
   "matiz": "Debate sobre la ubicación: Malta (la mayoría, apoyada por detalles de navegación, ruta de Creta, el viento y la profundidad de sondeos) frente a Mljet (Adriático). La tradición cristiana y la mayoría de especialistas defienden Malta.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 27:27, 39-44",
    "Hch 28:11"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Acts.28.1#06",
+  "ref_estandar": "Acts.28.1",
   "morfologia_tagnt": "N-NSF-L",
   "dstrong": "G3194",
   "strong_tagnt": "G3194",
@@ -35,13 +37,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Malta",
-  "ref_estandar": "Acts.28.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.28.2",
+  "pos_tisch": 3,
   "strong": "G915",
   "forma": "βάρβαροι",
+  "lema": "βάρβαρος",
   "glosa_interlineal": "bárbaros",
   "rango_semantico": [
    "extranjero (de lengua no griega), bárbaro"
@@ -49,7 +55,7 @@
   "construccion": "Nominativo plural: «los naturales (bárbaros) nos trataron con no poca humanidad».",
   "sentido_en_contexto": "En griego, «bárbaro» designa a quien no habla griego (descendientes de fenicios con lengua púnica), no necesariamente a un salvaje. Los isleños reciben a los náufragos con amabilidad y encienden un fuego bajo la lluvia y el frío.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 1:14",
@@ -57,9 +63,9 @@
    "Col 3:11"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Acts.28.2#03",
+  "ref_estandar": "Acts.28.2",
   "morfologia_tagnt": "A-NPM",
   "dstrong": "G0915",
   "strong_tagnt": "G915",
@@ -75,13 +81,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "barbarian",
-  "ref_estandar": "Acts.28.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.28.3",
+  "pos_tisch": 13,
   "strong": "G2191",
   "forma": "ἔχιδνα",
+  "lema": "ἔχιδνα",
   "glosa_interlineal": "víbora",
   "rango_semantico": [
    "víbora, serpiente venenosa"
@@ -89,7 +99,7 @@
   "construccion": "Nominativo: «una víbora, huyendo del calor, se le prendió en la mano».",
   "sentido_en_contexto": "Al echar leña al fuego, una víbora salta y muerde la mano de Pablo. Los isleños interpretan el hecho como justicia divina (v.4): «sin duda este hombre es homicida». Al no sufrir daño, cambian de opinión y lo creen un dios (v.6). Eco de Lc 10:19 y Mr 16:18.",
   "matiz": "Se ha notado que en la actual Malta no existen víboras venenosas; se sugiere que desaparecieron o que Lucas habla de otra serpiente. El texto no precisa el tipo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 10:19",
@@ -97,9 +107,9 @@
    "Hch 14:11"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Acts.28.3#13",
+  "ref_estandar": "Acts.28.3",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G2191",
   "strong_tagnt": "G2191",
@@ -115,13 +125,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "snake",
-  "ref_estandar": "Acts.28.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.28.4",
+  "pos_tisch": 28,
   "strong": "G1349",
   "forma": "δίκη",
+  "lema": "δίκη",
   "glosa_interlineal": "justicia",
   "rango_semantico": [
    "justicia, castigo, la Justicia (diosa)"
@@ -129,7 +143,7 @@
   "construccion": "Nominativo: «la Justicia (Δίκη) no lo deja vivir».",
   "sentido_en_contexto": "δίκη es el castigo justo y también la diosa de la justicia vengadora. Los malteses creen que, salvado del mar, Pablo es un homicida al que la justicia divina alcanza por medio de una víbora. Concepto popular de retribución inmediata, como en Lc 13:1-5 y Jn 9:2.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 13:1-5",
@@ -137,9 +151,9 @@
    "Hch 14:11-18"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 28,
   "alineacion": "forma",
   "tagnt": "Acts.28.4#28",
+  "ref_estandar": "Acts.28.4",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G1349",
   "strong_tagnt": "G1349",
@@ -155,13 +169,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "condemnation",
-  "ref_estandar": "Acts.28.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.28.7",
+  "pos_tisch": 15,
   "strong": "G4196",
   "forma": "Ποπλίῳ",
+  "lema": "Πόπλιος",
   "glosa_interlineal": "Publio",
   "rango_semantico": [
    "Publio (primer hombre de la isla)"
@@ -169,16 +187,16 @@
   "construccion": "Dativo: «el hombre principal de la isla, llamado Publio».",
   "sentido_en_contexto": "Publio, «el primero» (πρῶτος: título oficial, confirmado por inscripciones maltesas) de la isla, hospeda a los náufragos tres días. Su padre, enfermo de fiebre y disentería, es sanado por Pablo con oración e imposición de manos; luego acuden otros enfermos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 28:8-10",
    "Mr 1:30-31"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Acts.28.7#15",
+  "ref_estandar": "Acts.28.7",
   "morfologia_tagnt": "N-DSM-P",
   "dstrong": "G4196",
   "strong_tagnt": "G4196",
@@ -194,13 +212,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Publius",
-  "ref_estandar": "Acts.28.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.28.8",
+  "pos_tisch": 9,
   "strong": "G1420",
   "forma": "δυσεντερίῳ",
+  "lema": "δυσεντερία",
   "glosa_interlineal": "disentería",
   "rango_semantico": [
    "disentería"
@@ -208,7 +230,7 @@
   "construccion": "Dativo: «enfermo de fiebre y de disentería».",
   "sentido_en_contexto": "Lucas, médico (Col 4:14), usa términos técnicos: πυρετοῖς (fiebres, plural: Fiebre de Malta, brucelosis) y δυσεντερία. Pablo ora e impone las manos y sana al padre de Publio, tras lo cual el resto de la isla acude a ser curado.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Col 4:14",
@@ -216,9 +238,9 @@
    "Stg 5:14-15"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Acts.28.8#09",
+  "ref_estandar": "Acts.28.8",
   "morfologia_tagnt": "N-DSN",
   "dstrong": "G1420",
   "strong_tagnt": "G1420",
@@ -235,13 +257,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "dysentery",
-  "ref_estandar": "Acts.28.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.28.11",
+  "pos_tisch": 14,
   "strong": "G1359",
   "forma": "Διοσκούροις",
+  "lema": "Διόσκουροι",
   "glosa_interlineal": "Dioscuros",
   "rango_semantico": [
    "Dióscuros (Cástor y Pólux, protectores de los navegantes)"
@@ -249,16 +275,16 @@
   "construccion": "Dativo: «una nave alejandrina que tenía por insignia a los Dioscuros (Cástor y Pólux)».",
   "sentido_en_contexto": "Tras tres meses en Malta (invierno), zarpan en otra nave de Alejandría que había invernado allí, con la figura de proa de Cástor y Pólux (Dióscuros), dioses protectores de los marinos. Lucas lo anota sin comentarios.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 27:6",
    "Hch 28:12-14"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Acts.28.11#14",
+  "ref_estandar": "Acts.28.11",
   "morfologia_tagnt": "N-DPM-T",
   "dstrong": "G1359",
   "strong_tagnt": "G1359",
@@ -274,13 +300,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "the twin gods",
-  "ref_estandar": "Acts.28.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.28.14",
+  "pos_tisch": 14,
   "strong": "G4516",
   "forma": "Ῥώμην",
+  "lema": "Ῥώμη",
   "glosa_interlineal": "Roma",
   "rango_semantico": [
    "Roma"
@@ -288,16 +318,16 @@
   "construccion": "Acusativo: «y así vinimos a Roma».",
   "sentido_en_contexto": "Después de Siracusa, Regio y Puteoli (donde encuentran a hermanos), llegan por tierra a Roma por la Vía Apia. Lucas simplemente anota la llegada: el objetivo de 1:8; 19:21; 23:11 se cumple. Pablo llega como prisionero, pero el evangelio llega a «lo último de la tierra».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 1:8; 19:21; 23:11",
    "Ro 1:8-15; 15:22-29"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Acts.28.14#14",
+  "ref_estandar": "Acts.28.14",
   "morfologia_tagnt": "N-ASF-L",
   "dstrong": "G4516",
   "strong_tagnt": "G4516",
@@ -313,13 +343,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Rome",
-  "ref_estandar": "Acts.28.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.28.15",
+  "pos_tisch": 26,
   "strong": "G2294",
   "forma": "θάρσος",
+  "lema": "θάρσος",
   "glosa_interlineal": "ánimo",
   "rango_semantico": [
    "ánimo, valor, coraje"
@@ -327,7 +361,7 @@
   "construccion": "Acusativo: «Pablo, al verlos, dio gracias a Dios y cobró aliento».",
   "sentido_en_contexto": "Los cristianos de Roma salen a recibir a Pablo hasta el Foro de Apio (a unos 65 km) y las Tres Tabernas (a unos 50 km): gesto de afecto por un apóstol al que no conocían personalmente (Romanos). Pablo, animado, da gracias a Dios.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 1:8-12; 15:22-24",
@@ -335,9 +369,9 @@
    "1 Ts 4:17"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 26,
   "alineacion": "forma",
   "tagnt": "Acts.28.15#26",
+  "ref_estandar": "Acts.28.15",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G2294",
   "strong_tagnt": "G2294",
@@ -353,13 +387,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "courage/confidence",
-  "ref_estandar": "Acts.28.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.28.16",
+  "pos_tisch": 17,
   "strong": "G4757",
   "forma": "στρατιώτῃ",
+  "lema": "στρατιώτης",
   "glosa_interlineal": "soldado",
   "rango_semantico": [
    "soldado"
@@ -367,7 +405,7 @@
   "construccion": "Dativo: «con un soldado que le custodiase».",
   "sentido_en_contexto": "En Roma, Pablo puede vivir «aparte» (en alquiler propio, v.30) con un soldado que lo custodia, encadenado a él (v.20). Es arresto domiciliario, la custodia militaris libera. Desde allí escribe Efesios, Filipenses, Colosenses y Filemón.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 6:19-20",
@@ -376,9 +414,9 @@
    "Flm 9-10"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "Acts.28.16#24",
+  "ref_estandar": "Acts.28.16",
   "morfologia_tagnt": "N-DSM",
   "dstrong": "G4757",
   "strong_tagnt": "G4757",
@@ -394,13 +432,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "soldier",
-  "ref_estandar": "Acts.28.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.28.20",
+  "pos_tisch": 18,
   "strong": "G254",
   "forma": "ἅλυσιν",
+  "lema": "ἅλυσις",
   "glosa_interlineal": "cadena",
   "rango_semantico": [
    "cadena"
@@ -408,7 +450,7 @@
   "construccion": "Acusativo: «por la esperanza de Israel estoy sujeto con esta cadena».",
   "sentido_en_contexto": "Pablo convoca a los principales de los judíos en Roma y les explica que está preso «por la esperanza de Israel» (la resurrección y el Mesías), no por acciones contra el pueblo. Sigue la línea de defensa de 23:6; 24:15; 26:6-8.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 23:6; 24:15; 26:6-8",
@@ -416,9 +458,9 @@
    "2 Ti 1:16"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "Acts.28.20#18",
+  "ref_estandar": "Acts.28.20",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G0254",
   "strong_tagnt": "G254",
@@ -434,13 +476,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "chain",
-  "ref_estandar": "Acts.28.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.28.22",
+  "pos_tisch": 12,
   "strong": "G139",
   "forma": "αἱρέσεως",
+  "lema": "αἵρεσις",
   "glosa_interlineal": "secta",
   "rango_semantico": [
    "partido, secta"
@@ -448,16 +494,16 @@
   "construccion": "Genitivo: «esta secta, que en todas partes se habla contra ella».",
   "sentido_en_contexto": "Los judíos de Roma admiten no saber nada negativo de Pablo por cartas, pero conocen que «esta secta» (el cristianismo) es rechazada en todas partes. Quieren oír a Pablo. Muestra la primera impresión de los romanos judíos sobre el cristianismo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 24:5, 14",
    "Lc 2:34"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Acts.28.22#12",
+  "ref_estandar": "Acts.28.22",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G0139",
   "strong_tagnt": "G139",
@@ -473,13 +519,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sect",
-  "ref_estandar": "Acts.28.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.28.23",
+  "pos_tisch": 16,
   "strong": "G932",
   "forma": "βασιλείαν",
+  "lema": "βασιλεία",
   "glosa_interlineal": "reino",
   "rango_semantico": [
    "reino, reinado"
@@ -487,16 +537,16 @@
   "construccion": "Acusativo: «les exponía, testificando el reino de Dios».",
   "sentido_en_contexto": "En un día señalado, muchos acuden a la posada de Pablo. Les expone «desde la mañana hasta la tarde» el reino de Dios y los persuade acerca de Jesús, «por la ley de Moisés y por los profetas». Alternan convicción y rechazo (v.24).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 1:3; 8:12; 14:22; 19:8; 20:25",
    "Lc 24:27, 44-47"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Acts.28.23#16",
+  "ref_estandar": "Acts.28.23",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G0932",
   "strong_tagnt": "G932",
@@ -512,13 +562,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "kingdom",
-  "ref_estandar": "Acts.28.23"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.28.26",
+  "pos_tisch": 10,
   "strong": "G191",
   "forma": "ἀκούσετε",
+  "lema": "ἀκούω",
   "glosa_interlineal": "oiréis",
   "rango_semantico": [
    "oír, escuchar"
@@ -526,7 +580,7 @@
   "construccion": "Futuro indicativo activo: «de oído oiréis, y no entenderéis».",
   "sentido_en_contexto": "Pablo cita Is 6:9-10 al despedir a sus oyentes divididos: «Con los oídos oirán pero no entenderán». Texto central en el NT para explicar la incredulidad de Israel (Mt 13:14-15; Jn 12:40; Ro 11:8). Pablo concluye que la salvación ha sido enviada a los gentiles, que sí oirán.",
   "matiz": "Pablo no afirma que Dios haya rechazado a Israel (cf. Ro 11:1, 25-26), sino que describe el patrón repetido: oposición judía → apertura a los gentiles. La cita de Isaías muestra el endurecimiento ya presente en el AT. El v.29 («Y habiendo dicho esto, los judíos se fueron») falta en los mejores manuscritos.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 6:9-10",
@@ -535,9 +589,9 @@
    "Ro 11:7-11, 25-26"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Acts.28.26#10",
+  "ref_estandar": "Acts.28.26",
   "morfologia_tagnt": "V-FAI-2P",
   "dstrong": "G0191",
   "strong_tagnt": "G191",
@@ -553,13 +607,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to hear",
-  "ref_estandar": "Acts.28.26"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.28.28",
+  "pos_tisch": 11,
   "strong": "G4992",
   "forma": "σωτήριον",
+  "lema": "σωτήριον",
   "glosa_interlineal": "salvación",
   "rango_semantico": [
    "salvación, medio de salvación"
@@ -567,7 +625,7 @@
   "construccion": "Nominativo: «sabed que a los gentiles es enviada esta salvación de Dios, y ellos oirán».",
   "sentido_en_contexto": "Declaración final de Pablo: la salvación (τὸ σωτήριον) ha sido enviada a los gentiles, y ellos oirán. Tercer anuncio paralelo del giro hacia los gentiles (13:46; 18:6). Es la culminación del plan de 1:8: el evangelio ha llegado a Roma, centro del mundo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 13:46; 18:6",
@@ -576,9 +634,9 @@
    "Ro 11:11"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Acts.28.28#11",
+  "ref_estandar": "Acts.28.28",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G4991",
   "strong_tagnt": "G4991",
@@ -594,13 +652,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "saving",
-  "ref_estandar": "Acts.28.28"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.28.30",
+  "pos_tisch": 3,
   "strong": "G1333",
   "forma": "διετίαν",
+  "lema": "διετία",
   "glosa_interlineal": "dos años",
   "rango_semantico": [
    "período de dos años"
@@ -608,7 +670,7 @@
   "construccion": "Acusativo: «Pablo permaneció dos años enteros en una casa alquilada».",
   "sentido_en_contexto": "Dos años de arresto domiciliario en Roma (c. 60-62 d.C.), en casa alquilada. Allí recibía a todos los que venían a él. Lucas termina sin narrar el resultado del juicio ni la muerte de Pablo: final abierto que subraya el avance del evangelio.",
   "matiz": "Se discute por qué Lucas termina sin narrar el desenlace del juicio de Pablo: (a) escribió antes de que concluyese; (b) lo consideró innecesario, pues su propósito es mostrar la expansión del evangelio hasta Roma; (c) recurso literario. Pablo escribe desde esta cautividad Efesios, Filipenses, Colosenses y Filemón.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 6:19-20",
@@ -617,9 +679,9 @@
    "Flm 22"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Acts.28.30#05",
+  "ref_estandar": "Acts.28.30",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G1333",
   "strong_tagnt": "G1333",
@@ -635,13 +697,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "two years",
-  "ref_estandar": "Acts.28.30"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.28.31",
+  "pos_tisch": 16,
   "strong": "G209",
   "forma": "ἀκωλύτως",
+  "lema": "ἀκωλύτως",
   "glosa_interlineal": "sin impedimento",
   "rango_semantico": [
    "sin estorbo, libremente"
@@ -649,7 +715,7 @@
   "construccion": "Adverbio: «predicando… con toda libertad y sin impedimento».",
   "sentido_en_contexto": "Última palabra de Hechos: ἀκωλύτως («sin impedimento»). El libro termina con Pablo predicando el reino de Dios y enseñando acerca del Señor Jesucristo «con toda libertad y sin impedimento», aun encadenado. La palabra de Dios no está encadenada (2 Ti 2:9).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Ti 2:9",
@@ -657,9 +723,9 @@
    "Hch 4:29, 31; 28:23"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Acts.28.31#17",
+  "ref_estandar": "Acts.28.31",
   "morfologia_tagnt": "ADV",
   "dstrong": "G0209",
   "strong_tagnt": "G209",
@@ -675,7 +741,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "freely",
-  "ref_estandar": "Acts.28.31"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

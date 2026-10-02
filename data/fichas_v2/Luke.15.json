@@ -1,8 +1,10 @@
 [
  {
   "ref": "Luke.15.2",
+  "pos_tisch": 2,
   "strong": "G1234",
   "forma": "διεγόγγυζον",
+  "lema": "διαγογγύζω",
   "glosa_interlineal": "murmuraban",
   "rango_semantico": [
    "murmurar, quejarse (en voz baja y de modo continuo)"
@@ -10,7 +12,7 @@
   "construccion": "Imperfecto indicativo activo: «murmuraban».",
   "sentido_en_contexto": "Marco narrativo de las tres parábolas del cap. 15: los fariseos y escribas critican que Jesús acoja a pecadores y coma con ellos. Las tres parábolas son su respuesta.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 5:30 — «murmuraban contra sus discípulos»",
@@ -18,9 +20,9 @@
    "Éx 16:2 — el pueblo murmura en el desierto"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Luke.15.2#02",
+  "ref_estandar": "Luke.15.2",
   "morfologia_tagnt": "V-IAI-3P",
   "dstrong": "G1234",
   "strong_tagnt": "G1234",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to murmur",
-  "ref_estandar": "Luke.15.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.15.4",
+  "pos_tisch": 9,
   "strong": "G622",
   "forma": "ἀπολέσας",
+  "lema": "ἀπόλλυμι",
   "glosa_interlineal": "habiendo perdido",
   "rango_semantico": [
    "perder, perecer, destruir"
@@ -50,18 +56,13 @@
   "construccion": "Participio aoristo activo: «si pierde una de ellas».",
   "sentido_en_contexto": "Primera parábola: la oveja perdida. Lucas lo plantea desde la perspectiva del pastor: lo que importa es el que se perdió. A diferencia de Mt 18:12-14, Lucas lo aplica a los pecadores, no a los pequeños creyentes.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mt 18:12-14 — paralelo",
-   "Ez 34:11-16 — «yo buscaré mi rebaño»",
-   "Jn 10:11 — «el buen pastor»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mt 18:12-14 — paralelo\nEz 34:11-16 — «yo buscaré mi rebaño»\nJn 10:11 — «el buen pastor»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Luke.15.4#09",
+  "ref_estandar": "Luke.15.4",
   "morfologia_tagnt": "V-AAP-NSM",
   "dstrong": "G0622",
   "strong_tagnt": "G622",
@@ -78,13 +79,18 @@
    "Treg"
   ],
   "variante": true,
-  "glosa_tagnt": "to destroy",
-  "ref_estandar": "Luke.15.4"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.15.7",
+  "pos_tisch": 13,
   "strong": "G3340",
   "forma": "μετανοοῦντι",
+  "lema": "μετανοέω",
   "glosa_interlineal": "que se arrepiente",
   "rango_semantico": [
    "cambiar de mente, arrepentirse"
@@ -92,7 +98,7 @@
   "construccion": "Participio presente activo: «un pecador que se arrepiente».",
   "sentido_en_contexto": "Conclusión de las dos primeras parábolas: hay más gozo en el cielo por un pecador que se arrepiente que por noventa y nueve justos que «no necesitan arrepentimiento». La frase se dice con ironía respecto a los fariseos que se creían justos.",
   "matiz": "Se discute quiénes son los «noventa y nueve justos»: personas realmente justas (no hay ninguna en 3:23) o los que se consideran tales. La mayoría ve una ironía dirigida a los fariseos.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 5:32 — «no he venido a llamar a justos»",
@@ -100,9 +106,9 @@
    "Lc 15:10 — «gozo delante de los ángeles»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Luke.15.7#13",
+  "ref_estandar": "Luke.15.7",
   "morfologia_tagnt": "V-PAP-DSM",
   "dstrong": "G3340",
   "strong_tagnt": "G3340",
@@ -118,13 +124,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to repent",
-  "ref_estandar": "Luke.15.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.15.8",
+  "pos_tisch": 4,
   "strong": "G1406",
   "forma": "δραχμὰς",
+  "lema": "δραχμή",
   "glosa_interlineal": "dracmas",
   "rango_semantico": [
    "dracma (moneda griega de plata, un día de salario)"
@@ -132,17 +142,13 @@
   "construccion": "Acusativo plural: «diez dracmas».",
   "sentido_en_contexto": "Segunda parábola, propia de Lucas: una mujer pierde una de diez dracmas, enciende la lámpara, barre la casa y busca con cuidado. Al hallarla, convoca a las vecinas para alegrarse. La mujer representa a Dios en su búsqueda.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mt 20:2 — un denario al día (valor similar)",
-   "Lc 15:10 — «gozo delante de los ángeles de Dios»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mt 20:2 — un denario al día (valor similar)\nLc 15:10 — «gozo delante de los ángeles de Dios»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Luke.15.8#04",
+  "ref_estandar": "Luke.15.8",
   "morfologia_tagnt": "N-APF",
   "dstrong": "G1406",
   "strong_tagnt": "G1406",
@@ -158,13 +164,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "drachma",
-  "ref_estandar": "Luke.15.8"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.15.12",
+  "pos_tisch": 15,
   "strong": "G3776",
   "forma": "οὐσίας",
+  "lema": "οὐσία",
   "glosa_interlineal": "hacienda",
   "rango_semantico": [
    "propiedad, bienes, patrimonio"
@@ -172,16 +183,16 @@
   "construccion": "Genitivo: «la parte de la hacienda que me corresponde».",
   "sentido_en_contexto": "El hijo menor pide anticipadamente su parte de la herencia: gesto de ruptura con el padre, casi como declararlo muerto. El padre accede y reparte los bienes.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 21:17 — el hijo mayor recibe doble porción",
    "Sir 33:19-23 — consejo contra repartir en vida"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Luke.15.12#15",
+  "ref_estandar": "Luke.15.12",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G3776",
   "strong_tagnt": "G3776",
@@ -197,13 +208,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "estate",
-  "ref_estandar": "Luke.15.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.15.13",
+  "pos_tisch": 22,
   "strong": "G811",
   "forma": "ἀσώτως",
+  "lema": "ἀσώτως",
   "glosa_interlineal": "disolutamente",
   "rango_semantico": [
    "de modo disoluto, perdidamente"
@@ -211,7 +226,7 @@
   "construccion": "Adverbio: «viviendo perdidamente».",
   "sentido_en_contexto": "El hijo malgasta todo en una «provincia apartada». El adverbio está emparentado con ἄσωτος, «derrochador»: de ahí el nombre «hijo pródigo» (del latín prodigus).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 5:18 — «en el cual hay disolución (ἀσωτία)»",
@@ -219,9 +234,9 @@
    "Pr 29:3 — «el que mantiene rameras perderá los bienes»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 22,
   "alineacion": "forma",
   "tagnt": "Luke.15.13#22",
+  "ref_estandar": "Luke.15.13",
   "morfologia_tagnt": "ADV",
   "dstrong": "G0811",
   "strong_tagnt": "G811",
@@ -237,13 +252,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "in debauchery",
-  "ref_estandar": "Luke.15.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.15.15",
+  "pos_tisch": 18,
   "strong": "G5519",
   "forma": "χοίρους",
+  "lema": "χοῖρος",
   "glosa_interlineal": "cerdos",
   "rango_semantico": [
    "cerdo"
@@ -251,16 +270,13 @@
   "construccion": "Acusativo plural: «a apacentar cerdos».",
   "sentido_en_contexto": "Para un judío, cuidar cerdos era la humillación máxima: animal impuro. El hijo, que pidió libertad, termina esclavo de un extranjero y hambriento.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Lv 11:7 — el cerdo es impuro",
-   "Mr 5:11-13 — los cerdos de los gerasenos"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Lv 11:7 — el cerdo es impuro\nMr 5:11-13 — los cerdos de los gerasenos",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "Luke.15.15#18",
+  "ref_estandar": "Luke.15.15",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G5519",
   "strong_tagnt": "G5519",
@@ -276,13 +292,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "pig",
-  "ref_estandar": "Luke.15.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.15.17",
+  "pos_tisch": 4,
   "strong": "G2064",
   "forma": "ἐλθὼν",
+  "lema": "ἔρχομαι",
   "glosa_interlineal": "volviendo en sí",
   "rango_semantico": [
    "venir, volver"
@@ -290,16 +310,16 @@
   "construccion": "Participio aoristo activo: «volviendo en sí (εἰς ἑαυτὸν ἐλθών)».",
   "sentido_en_contexto": "Momento de la conversión: el hijo «vuelve en sí», reconoce su situación y decide regresar. Antes que arrepentimiento moral es lucidez y hambre; luego formula una confesión.",
   "matiz": "Se debate si el hijo se arrepiente genuinamente o solo calcula por hambre; el padre lo recibe sin examinar motivos. El relato subraya la iniciativa del padre.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 12:11 — «volviendo en sí, Pedro dijo»",
    "Lc 15:24 — «ha revivido»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Luke.15.17#04",
+  "ref_estandar": "Luke.15.17",
   "morfologia_tagnt": "V-2AAP-NSM",
   "dstrong": "G2064",
   "strong_tagnt": "G2064",
@@ -315,13 +335,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to come/go",
-  "ref_estandar": "Luke.15.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.15.18",
+  "pos_tisch": 11,
   "strong": "G264",
   "forma": "ἥμαρτον",
+  "lema": "ἁμαρτάνω",
   "glosa_interlineal": "he pecado",
   "rango_semantico": [
    "pecar, errar el blanco"
@@ -329,7 +353,7 @@
   "construccion": "Aoristo indicativo activo, 1ª singular: «he pecado contra el cielo y contra ti».",
   "sentido_en_contexto": "Confesión del hijo: contra el cielo (Dios) y contra el padre. Su discurso preparado («hazme como a uno de tus jornaleros») se interrumpe cuando el padre lo recibe como hijo (v.21-22).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 51:4 — «contra ti, contra ti solo he pecado»",
@@ -337,9 +361,9 @@
    "Éx 10:16 — «he pecado contra Jehová vuestro Dios, y contra vosotros»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Luke.15.18#11",
+  "ref_estandar": "Luke.15.18",
   "morfologia_tagnt": "V-2AAI-1S",
   "dstrong": "G0264",
   "strong_tagnt": "G264",
@@ -355,13 +379,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to sin",
-  "ref_estandar": "Luke.15.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.15.20",
+  "pos_tisch": 19,
   "strong": "G4697",
   "forma": "ἐσπλαγχνίσθη",
+  "lema": "σπλαγχνίζομαι",
   "glosa_interlineal": "fue movido a misericordia",
   "rango_semantico": [
    "compadecerse"
@@ -369,7 +397,7 @@
   "construccion": "Aoristo indicativo pasivo (deponente): «tuvo compasión».",
   "sentido_en_contexto": "El padre «ve» al hijo cuando aún estaba lejos, tiene compasión, corre, lo abraza y lo besa. El padre toma la iniciativa, sin esperar la confesión.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 7:13 — Jesús se compadece de la viuda de Naín",
@@ -377,9 +405,9 @@
    "Os 11:8 — «mi corazón se conmueve dentro de mí»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 19,
   "alineacion": "forma",
   "tagnt": "Luke.15.20#19",
+  "ref_estandar": "Luke.15.20",
   "morfologia_tagnt": "V-AOI-3S",
   "dstrong": "G4697",
   "strong_tagnt": "G4697",
@@ -395,13 +423,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pity",
-  "ref_estandar": "Luke.15.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.15.22",
+  "pos_tisch": 18,
   "strong": "G1146",
   "forma": "δακτύλιον",
+  "lema": "δακτύλιος",
   "glosa_interlineal": "anillo",
   "rango_semantico": [
    "anillo (sello)"
@@ -409,7 +441,7 @@
   "construccion": "Acusativo: «poned un anillo en su mano».",
   "sentido_en_contexto": "Restauración plena: mejor vestido, anillo (signo de autoridad) y calzado (propio de hijos, no de esclavos). El padre devuelve el rango de hijo antes de que el joven termine su confesión.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 41:42 — José recibe el anillo del faraón",
@@ -417,9 +449,9 @@
    "Est 8:2 — el anillo del rey"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "Luke.15.22#20",
+  "ref_estandar": "Luke.15.22",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G1146",
   "strong_tagnt": "G1146",
@@ -435,13 +467,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ring",
-  "ref_estandar": "Luke.15.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.15.24",
+  "pos_tisch": 9,
   "strong": "G326",
   "forma": "ἀνέζησεν",
+  "lema": "ἀναζάω",
   "glosa_interlineal": "ha revivido",
   "rango_semantico": [
    "volver a vivir, revivir"
@@ -449,7 +485,7 @@
   "construccion": "Aoristo indicativo activo, 3ª singular: «ha vuelto a vivir».",
   "sentido_en_contexto": "El padre interpreta el regreso como resurrección: «este mi hijo muerto era, y ha revivido; se había perdido, y es hallado». El vocabulario de pérdida y hallazgo une las tres parábolas.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 15:32 — se repite con el hermano",
@@ -457,9 +493,9 @@
    "Ap 20:5 — «volvieron a vivir»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Luke.15.24#09",
+  "ref_estandar": "Luke.15.24",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G0326",
   "strong_tagnt": "G326",
@@ -475,13 +511,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to revive",
-  "ref_estandar": "Luke.15.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.15.28",
+  "pos_tisch": 1,
   "strong": "G3710",
   "forma": "ὠργίσθη",
+  "lema": "ὀργίζω",
   "glosa_interlineal": "se enojó",
   "rango_semantico": [
    "airarse, enojarse"
@@ -489,7 +529,7 @@
   "construccion": "Aoristo indicativo pasivo, 3ª singular: «se enojó y no quería entrar».",
   "sentido_en_contexto": "Segunda parte de la parábola: el hijo mayor, que trabajaba en el campo, se indigna al saber de la fiesta y rehúsa entrar. El padre sale a rogarle, igual que salió a recibir al menor.",
   "matiz": "El final abierto (no se dice si el hermano mayor entra) invita al lector fariseo a decidir. Es el punto de la parábola frente a los murmuradores del v.2.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 15:2 — los murmuradores",
@@ -497,9 +537,9 @@
    "Mt 20:11-12 — los obreros de la primera hora"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "Luke.15.28#01",
+  "ref_estandar": "Luke.15.28",
   "morfologia_tagnt": "V-API-3S",
   "dstrong": "G3710",
   "strong_tagnt": "G3710",
@@ -515,13 +555,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to anger",
-  "ref_estandar": "Luke.15.28"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.15.29",
+  "pos_tisch": 10,
   "strong": "G1398",
   "forma": "δουλεύω",
+  "lema": "δουλεύω",
   "glosa_interlineal": "sirvo",
   "rango_semantico": [
    "servir como esclavo, trabajar"
@@ -529,17 +573,13 @@
   "construccion": "Presente indicativo activo, 1ª singular: «tantos años te sirvo».",
   "sentido_en_contexto": "El hijo mayor se define como esclavo, no como hijo: «te sirvo… nunca desobedecí… nunca me diste un cabrito». Su queja revela una relación de cumplimiento y resentimiento, no de comunión.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Ro 8:15 — «no habéis recibido el espíritu de esclavitud»",
-   "Gá 4:7 — «ya no eres esclavo, sino hijo»",
-   "Mt 20:12 — «hemos soportado la carga y el calor»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Ro 8:15 — «no habéis recibido el espíritu de esclavitud»\nGá 4:7 — «ya no eres esclavo, sino hijo»\nMt 20:12 — «hemos soportado la carga y el calor»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Luke.15.29#11",
+  "ref_estandar": "Luke.15.29",
   "morfologia_tagnt": "V-PAI-1S",
   "dstrong": "G1398",
   "strong_tagnt": "G1398",
@@ -555,13 +595,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be a slave",
-  "ref_estandar": "Luke.15.29"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.15.30",
+  "pos_tisch": 13,
   "strong": "G4204",
   "forma": "πορνῶν",
+  "lema": "πόρνη",
   "glosa_interlineal": "rameras",
   "rango_semantico": [
    "prostituta"
@@ -569,16 +613,13 @@
   "construccion": "Genitivo plural: «con rameras».",
   "sentido_en_contexto": "El hermano mayor acusa al menor de haber gastado todo con prostitutas (dato que el relato no había dado). Habla «este tu hijo», sin llamarlo hermano. El padre lo corrige: «este tu hermano» (v.32).",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Lc 15:13 — «viviendo perdidamente»",
-   "Lc 15:32 — «este tu hermano»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Lc 15:13 — «viviendo perdidamente»\nLc 15:32 — «este tu hermano»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Luke.15.30#14",
+  "ref_estandar": "Luke.15.30",
   "morfologia_tagnt": "N-GPF",
   "dstrong": "G4204",
   "strong_tagnt": "G4204",
@@ -594,13 +635,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "prostitute",
-  "ref_estandar": "Luke.15.30"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.15.31",
+  "pos_tisch": 5,
   "strong": "G5043",
   "forma": "τέκνον",
+  "lema": "τέκνον",
   "glosa_interlineal": "hijo",
   "rango_semantico": [
    "hijo, descendiente"
@@ -608,16 +653,16 @@
   "construccion": "Vocativo: «hijo (τέκνον), tú siempre estás conmigo».",
   "sentido_en_contexto": "El padre responde con ternura: «hijo» y «todo lo mío es tuyo». Reafirma la posición del mayor, mientras explica que la alegría es necesaria («era necesario», ἔδει) por el hermano que revivió.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 8:35 — «el hijo sí permanece para siempre»",
    "Ro 8:17 — «herederos de Dios»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Luke.15.31#05",
+  "ref_estandar": "Luke.15.31",
   "morfologia_tagnt": "N-VSN",
   "dstrong": "G5043",
   "strong_tagnt": "G5043",
@@ -633,13 +678,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "child",
-  "ref_estandar": "Luke.15.31"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.15.32",
+  "pos_tisch": 5,
   "strong": "G1163",
   "forma": "ἔδει",
+  "lema": "δεῖ",
   "glosa_interlineal": "era necesario",
   "rango_semantico": [
    "ser necesario, deber"
@@ -647,16 +696,16 @@
   "construccion": "Imperfecto impersonal: «era necesario hacer fiesta».",
   "sentido_en_contexto": "La fiesta no es opcional: corresponde regocijarse ante la restauración de un hijo muerto/perdido. El padre invita al hermano mayor a unirse a la alegría.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 15:7, 10 — gozo en el cielo",
    "Lc 9:22 — δεῖ de la pasión (otro uso)"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Luke.15.32#05",
+  "ref_estandar": "Luke.15.32",
   "morfologia_tagnt": "V-IAI-3S",
   "dstrong": "G1163",
   "strong_tagnt": "G1163",
@@ -672,7 +721,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be necessary",
-  "ref_estandar": "Luke.15.32"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

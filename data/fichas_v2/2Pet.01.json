@@ -1,8 +1,10 @@
 [
  {
   "ref": "2Pet.1.1",
+  "pos_tisch": 1,
   "strong": "G4826",
   "forma": "Συμεὼν",
+  "lema": "Συμεών",
   "glosa_interlineal": "Simeón",
   "rango_semantico": [
    "Simeón (forma semítica de Simón)"
@@ -10,7 +12,7 @@
   "construccion": "Nominativo: «Simón Pedro, siervo y apóstol de Jesucristo, a los que hemos alcanzado, por la justicia de nuestro Dios y Salvador Jesucristo, una fe igualmente preciosa que la nuestra».",
   "sentido_en_contexto": "Segunda carta de Pedro, de autoría muy discutida (c. 64-68 o tardía). Usa la forma Συμεών, semítica y arcaica. «Nuestro Dios y Salvador Jesucristo» puede referirse a una sola persona (Cristo como Dios; regla de Sharp) o a dos. Su canonicidad fue disputada en la antigüedad.",
   "matiz": "Debate sobre la autoría: (a) Pedro, con un secretario distinto al de 1 Pedro (tradición; Green, Bauckham la ve como testamento); (b) pseudonimia de c. 100-150 d.C. (la mayoría de críticos: estilo, dependencia de Judas, alusión a Pablo como Escritura y retraso de la parusía); (c) Pedro con ayuda de un amanuense. Sobre «Dios y Salvador»: ver Tit 2:13.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Tit 2:13",
@@ -18,9 +20,9 @@
    "1 P 1:1"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "2Pet.1.1#01",
+  "ref_estandar": "2Pet.1.1",
   "morfologia_tagnt": "N-NSM-P",
   "dstrong": "G4826K",
   "strong_tagnt": "G4826",
@@ -37,13 +39,17 @@
    "WH"
   ],
   "variante": true,
-  "glosa_tagnt": "Simeon",
-  "ref_estandar": "2Pet.1.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Pet.1.3",
+  "pos_tisch": 6,
   "strong": "G2304",
   "forma": "θείας",
+  "lema": "θεῖος",
   "glosa_interlineal": "divino",
   "rango_semantico": [
    "divino"
@@ -51,7 +57,7 @@
   "construccion": "Genitivo: «como todas las cosas que pertenecen a la vida y a la piedad nos han sido dadas por su divino poder, mediante el verdadero conocimiento de aquel que nos llamó por su gloria y excelencia».",
   "sentido_en_contexto": "Dios ha dado todo lo necesario para la vida y la piedad por el conocimiento de Cristo. Contra los falsos maestros que ofrecían un conocimiento superior, Pedro afirma que ya se tiene todo en el verdadero conocimiento (ἐπίγνωσις) del que llamó.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Col 2:3",
@@ -59,9 +65,9 @@
    "1 P 1:3"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "2Pet.1.3#05",
+  "ref_estandar": "2Pet.1.3",
   "morfologia_tagnt": "A-GSF",
   "dstrong": "G2304",
   "strong_tagnt": "G2304",
@@ -77,13 +83,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "divine",
-  "ref_estandar": "2Pet.1.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Pet.1.4",
+  "pos_tisch": 16,
   "strong": "G5449",
   "forma": "φύσεως",
+  "lema": "φύσις",
   "glosa_interlineal": "naturaleza",
   "rango_semantico": [
    "naturaleza"
@@ -91,7 +101,7 @@
   "construccion": "Genitivo: «por medio de las cuales nos ha dado preciosas y grandísimas promesas, para que por ellas llegaseis a ser partícipes de la naturaleza divina, habiendo huido de la corrupción que hay en el mundo a causa de la concupiscencia».",
   "sentido_en_contexto": "Texto central de la doctrina de la «divinización» (θέωσις) en la tradición ortodoxa: participar de la naturaleza divina. En la tradición occidental se interpreta como participación en las cualidades morales de Dios (santidad, incorrupción) por la unión con Cristo, no en su esencia divina. La expresión fue muy usada por los Padres griegos (Atanasio: «Dios se hizo hombre para que el hombre se hiciera Dios»).",
   "matiz": "Debate: (a) participación real en la vida divina por la gracia, sin absorción de la esencia (ortodoxa: theosis; católica: participación en la naturaleza divina por gracia santificante); (b) participación en el carácter moral de Dios (santidad, inmortalidad), sin panteísmo (protestante clásica); (c) lenguaje helenístico adoptado para expresar la renovación en Cristo. No implica que el hombre se convierta en Dios por naturaleza.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 1:12",
@@ -100,9 +110,9 @@
    "Ef 4:24"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "2Pet.1.4#16",
+  "ref_estandar": "2Pet.1.4",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G5449",
   "strong_tagnt": "G5449",
@@ -118,13 +128,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "nature",
-  "ref_estandar": "2Pet.1.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Pet.1.5",
+  "pos_tisch": 5,
   "strong": "G4710",
   "forma": "σπουδὴν",
+  "lema": "σπουδή",
   "glosa_interlineal": "empeño",
   "rango_semantico": [
    "diligencia, esfuerzo"
@@ -132,7 +146,7 @@
   "construccion": "Acusativo: «vosotros también, poniendo toda diligencia por esto mismo, añadid a vuestra fe virtud; a la virtud, conocimiento».",
   "sentido_en_contexto": "Cadena de ocho cualidades (vv.5-7): fe, virtud, conocimiento, dominio propio, perseverancia, piedad, afecto fraternal y amor. Cada una «añade» o «suple» a la anterior. La gracia es la base; el crecimiento requiere esfuerzo. Cadena similar a las de la ética grecorromana, cristianizada.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 5:3-5",
@@ -141,9 +155,9 @@
    "Fil 3:12-14"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "2Pet.1.5#05",
+  "ref_estandar": "2Pet.1.5",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G4710",
   "strong_tagnt": "G4710",
@@ -159,13 +173,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "diligence",
-  "ref_estandar": "2Pet.1.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Pet.1.10",
+  "pos_tisch": 10,
   "strong": "G1589",
   "forma": "ἐκλογὴν",
+  "lema": "ἐκλογή",
   "glosa_interlineal": "elección",
   "rango_semantico": [
    "elección, selección"
@@ -173,7 +191,7 @@
   "construccion": "Acusativo: «por lo cual, hermanos, tanto más procurad hacer firme vuestra vocación y elección; porque haciendo estas cosas, no caeréis jamás».",
   "sentido_en_contexto": "Pedro invita a «afirmar» (βεβαίαν ποιεῖσθαι) la llamada y la elección mediante el crecimiento en virtudes (vv.5-7). La elección es de Dios, pero el creyente debe confirmarla con su vida. Texto usado por las tradiciones en el debate sobre la certeza de la salvación.",
   "matiz": "Debate: (a) la vida fructífera hace evidente (confirma) la elección ante nosotros mismos (reformada: seguridad que se discierne por los frutos); (b) la perseverancia en las virtudes es condición para no caer (arminiana, católica); (c) la elección es segura para Dios, pero el creyente debe asegurarla en la práctica.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Fil 2:12-13",
@@ -182,9 +200,9 @@
    "Jud 24"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "2Pet.1.10#10",
+  "ref_estandar": "2Pet.1.10",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G1589",
   "strong_tagnt": "G1589",
@@ -200,13 +218,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "selecting",
-  "ref_estandar": "2Pet.1.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Pet.1.11",
+  "pos_tisch": 7,
   "strong": "G1529",
   "forma": "εἴσοδος",
+  "lema": "εἴσοδος",
   "glosa_interlineal": "entrada",
   "rango_semantico": [
    "entrada, acceso"
@@ -214,7 +236,7 @@
   "construccion": "Nominativo: «porque de esta manera os será otorgada amplia y generosa entrada en el reino eterno de nuestro Señor y Salvador Jesucristo».",
   "sentido_en_contexto": "La entrada al reino se describe como un recibimiento abundante. Muestra la dimensión escatológica de la vida de crecimiento. Evoca el recibimiento de un vencedor.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 25:21",
@@ -222,9 +244,9 @@
    "Ro 5:2"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "2Pet.1.11#07",
+  "ref_estandar": "2Pet.1.11",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G1529",
   "strong_tagnt": "G1529",
@@ -240,13 +262,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "entry",
-  "ref_estandar": "2Pet.1.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Pet.1.14",
+  "pos_tisch": 8,
   "strong": "G4638",
   "forma": "σκηνώματός",
+  "lema": "σκήνωμα",
   "glosa_interlineal": "tienda",
   "rango_semantico": [
    "tabernáculo, morada temporal"
@@ -254,7 +280,7 @@
   "construccion": "Genitivo: «sabiendo que en breve debo abandonar mi tabernáculo, como nuestro Señor Jesucristo me ha declarado».",
   "sentido_en_contexto": "Pedro sabe que su muerte es próxima (cf. Jn 21:18-19). «Mi tabernáculo» (cuerpo, imagen de morada provisional; 2 Co 5:1). Escribe como testamento. Muchos ven aquí el género «testamento» (último discurso del apóstol).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 21:18-19",
@@ -262,9 +288,9 @@
    "2 Ti 4:6"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "2Pet.1.14#08",
+  "ref_estandar": "2Pet.1.14",
   "morfologia_tagnt": "N-GSN",
   "dstrong": "G4638",
   "strong_tagnt": "G4638",
@@ -280,13 +306,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tent",
-  "ref_estandar": "2Pet.1.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Pet.1.16",
+  "pos_tisch": 4,
   "strong": "G3454",
   "forma": "μύθοις",
+  "lema": "μῦθος",
   "glosa_interlineal": "fábulas",
   "rango_semantico": [
    "mito, fábula"
@@ -294,7 +324,7 @@
   "construccion": "Dativo plural: «porque no os hemos dado a conocer el poder y la venida de nuestro Señor Jesucristo siguiendo fábulas artificiosas, sino como habiendo visto con nuestros propios ojos su majestad».",
   "sentido_en_contexto": "Los apóstoles fueron testigos oculares de la majestad de Cristo (la Transfiguración, vv.17-18), contra la acusación de que predicaban «fábulas». Base de la autoridad apostólica: testimonio directo. Contra los burladores que negaban la parusía (3:3-4).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 17:1-8",
@@ -303,9 +333,9 @@
    "1 Ti 1:4"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "2Pet.1.16#04",
+  "ref_estandar": "2Pet.1.16",
   "morfologia_tagnt": "N-DPM",
   "dstrong": "G3454",
   "strong_tagnt": "G3454",
@@ -321,13 +351,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "myth",
-  "ref_estandar": "2Pet.1.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Pet.1.19",
+  "pos_tisch": 5,
   "strong": "G4397",
   "forma": "προφητικὸν",
+  "lema": "προφητικός",
   "glosa_interlineal": "profético",
   "rango_semantico": [
    "profético"
@@ -335,7 +369,7 @@
   "construccion": "Acusativo: «tenemos también la palabra profética más segura, a la cual hacéis bien en estar atentos como a una antorcha que alumbra en lugar oscuro, hasta que el día esclarezca y el lucero de la mañana salga en vuestros corazones».",
   "sentido_en_contexto": "La palabra profética (AT) es confirmada por la Transfiguración y es lámpara en lugar oscuro hasta la parusía («lucero de la mañana»: Cristo; Nm 24:17; Ap 22:16). Texto sobre la autoridad de la Escritura. «Más segura» se puede leer como «hecha más firme» (por el cumplimiento en Cristo) o «más firme que la visión».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Nm 24:17",
@@ -344,9 +378,9 @@
    "Lc 24:27"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "2Pet.1.19#05",
+  "ref_estandar": "2Pet.1.19",
   "morfologia_tagnt": "A-ASM",
   "dstrong": "G4397",
   "strong_tagnt": "G4397",
@@ -362,13 +396,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "prophetic",
-  "ref_estandar": "2Pet.1.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Pet.1.20",
+  "pos_tisch": 9,
   "strong": "G1955",
   "forma": "ἐπιλύσεως",
+  "lema": "ἐπίλυσις",
   "glosa_interlineal": "interpretación",
   "rango_semantico": [
    "interpretación, explicación"
@@ -376,7 +414,7 @@
   "construccion": "Genitivo: «entendiendo primero esto, que ninguna profecía de la Escritura es de interpretación privada».",
   "sentido_en_contexto": "Texto citado en el debate sobre la interpretación de la Escritura: «ninguna profecía es de interpretación privada» (ἰδίας ἐπιλύσεως). Puede significar que no se origina en la mente del profeta (v.21), que no debe interpretarse por cuenta propia fuera de la comunidad (lectura católica) o que su sentido se determina por el contexto global de la Escritura.",
   "matiz": "Debate: (a) la profecía no nace de la interpretación personal del profeta, sino de Dios (v.21: la mayoría de exégetas modernos; contexto de origen); (b) la Escritura no se interpreta por criterio individual, sino conforme a la fe de la Iglesia (tradición católica y ortodoxa); (c) la Escritura se interpreta con la Escritura (protestante: analogía de la fe). El v.21 favorece (a).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 P 1:21",
@@ -385,9 +423,9 @@
    "Lc 24:27"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "2Pet.1.20#09",
+  "ref_estandar": "2Pet.1.20",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G1955",
   "strong_tagnt": "G1955",
@@ -403,13 +441,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "explanation",
-  "ref_estandar": "2Pet.1.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Pet.1.21",
+  "pos_tisch": 10,
   "strong": "G4151",
   "forma": "πνεύματος",
+  "lema": "πνεῦμα",
   "glosa_interlineal": "Espíritu",
   "rango_semantico": [
    "espíritu, Espíritu"
@@ -417,7 +459,7 @@
   "construccion": "Genitivo: «porque nunca la profecía fue traída por voluntad humana, sino que los santos hombres de Dios hablaron siendo inspirados por el Espíritu Santo».",
   "sentido_en_contexto": "Texto central sobre la inspiración de la Escritura (junto con 2 Ti 3:16): los profetas hablaron «llevados» (φερόμενοι: como un barco por el viento) por el Espíritu Santo. La iniciativa es divina; el profeta es instrumento, no autómata. Se discute el modo de la inspiración.",
   "matiz": "Debate sobre el modo de inspiración: (a) inspiración verbal plenaria (cada palabra, a través de la personalidad del autor; conservadora); (b) inspiración dinámica (los pensamientos, no las palabras); (c) inspiración de los autores, no del texto (liberal). φερόμενοι expresa que el Espíritu guía sin anular a los autores.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Ti 3:16",
@@ -426,9 +468,9 @@
    "1 P 1:10-12"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "2Pet.1.21#10",
+  "ref_estandar": "2Pet.1.21",
   "morfologia_tagnt": "N-GSN",
   "dstrong": "G4151G",
   "strong_tagnt": "G4151",
@@ -444,7 +486,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "spirit/breath",
-  "ref_estandar": "2Pet.1.21"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

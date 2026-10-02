@@ -1,8 +1,10 @@
 [
  {
   "ref": "1Cor.11.1",
+  "pos_tisch": 1,
   "strong": "G3402",
   "forma": "Μιμηταί",
+  "lema": "μιμητής",
   "glosa_interlineal": "imitadores",
   "rango_semantico": [
    "imitador"
@@ -10,7 +12,7 @@
   "construccion": "Nominativo plural: «sed imitadores de mí, así como yo de Cristo».",
   "sentido_en_contexto": "Versículo de transición (cierra 8:1—10:33): Pablo se propone como modelo porque él imita a Cristo. Es el principio de que la vida del líder debe reflejar a Cristo. Según algunas divisiones, pertenece al capítulo 10.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 4:16",
@@ -19,9 +21,9 @@
    "Ef 5:1"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "1Cor.11.1#01",
+  "ref_estandar": "1Cor.11.1",
   "morfologia_tagnt": "N-NPM",
   "dstrong": "G3402",
   "strong_tagnt": "G3402",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "imitator",
-  "ref_estandar": "1Cor.11.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.11.3",
+  "pos_tisch": 9,
   "strong": "G2776",
   "forma": "κεφαλὴ",
+  "lema": "κεφαλή",
   "glosa_interlineal": "cabeza",
   "rango_semantico": [
    "cabeza, origen, jefe"
@@ -51,7 +57,7 @@
   "construccion": "Nominativo: «Cristo es la cabeza de todo varón, y el varón es la cabeza de la mujer, y Dios la cabeza de Cristo».",
   "sentido_en_contexto": "Pasaje sobre el orden y los velos en el culto (11:2-16), de los más debatidos del NT. κεφαλή puede significar «autoridad» (jefe), «origen/fuente» (Gn 2) o «cabeza honrada». La relación Cristo-Dios en «Dios, la cabeza de Cristo» ha sido discutida en la teología trinitaria.",
   "matiz": "Debate sobre κεφαλή: (a) autoridad (lectura jerárquica complementarista; Grudem): el varón tiene autoridad sobre la mujer; (b) origen o fuente (lectura igualitaria; Mickelsen, Kroeger, Fee en parte): el varón fue origen de la mujer (Gn 2:21-23); (c) preeminencia honorífica. Sobre «Dios, cabeza de Cristo»: orden económico (funcional) o subordinación esencial (rechazada por la ortodoxia nicena).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 5:23",
@@ -60,10 +66,9 @@
    "1 Co 15:28"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1Cor.11.3#09",
+  "ref_estandar": "1Cor.11.3",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G2776",
   "strong_tagnt": "G2776",
@@ -79,13 +84,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "head",
-  "ref_estandar": "1Cor.11.3"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.11.3",
+  "pos_tisch": 13,
   "strong": "G2776",
   "forma": "κεφαλὴ",
+  "lema": "κεφαλή",
   "glosa_interlineal": "cabeza",
   "rango_semantico": [
    "cabeza, origen, jefe"
@@ -93,7 +103,7 @@
   "construccion": "Nominativo: «Cristo es la cabeza de todo varón, y el varón es la cabeza de la mujer, y Dios la cabeza de Cristo».",
   "sentido_en_contexto": "Pasaje sobre el orden y los velos en el culto (11:2-16), de los más debatidos del NT. κεφαλή puede significar «autoridad» (jefe), «origen/fuente» (Gn 2) o «cabeza honrada». La relación Cristo-Dios en «Dios, la cabeza de Cristo» ha sido discutida en la teología trinitaria.",
   "matiz": "Debate sobre κεφαλή: (a) autoridad (lectura jerárquica complementarista; Grudem): el varón tiene autoridad sobre la mujer; (b) origen o fuente (lectura igualitaria; Mickelsen, Kroeger, Fee en parte): el varón fue origen de la mujer (Gn 2:21-23); (c) preeminencia honorífica. Sobre «Dios, cabeza de Cristo»: orden económico (funcional) o subordinación esencial (rechazada por la ortodoxia nicena).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 5:23",
@@ -102,10 +112,9 @@
    "1 Co 15:28"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 13,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1Cor.11.3#13",
+  "ref_estandar": "1Cor.11.3",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G2776",
   "strong_tagnt": "G2776",
@@ -121,13 +130,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "head",
-  "ref_estandar": "1Cor.11.3"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.11.3",
+  "pos_tisch": 18,
   "strong": "G2776",
   "forma": "κεφαλὴ",
+  "lema": "κεφαλή",
   "glosa_interlineal": "cabeza",
   "rango_semantico": [
    "cabeza, origen, jefe"
@@ -135,7 +149,7 @@
   "construccion": "Nominativo: «Cristo es la cabeza de todo varón, y el varón es la cabeza de la mujer, y Dios la cabeza de Cristo».",
   "sentido_en_contexto": "Pasaje sobre el orden y los velos en el culto (11:2-16), de los más debatidos del NT. κεφαλή puede significar «autoridad» (jefe), «origen/fuente» (Gn 2) o «cabeza honrada». La relación Cristo-Dios en «Dios, la cabeza de Cristo» ha sido discutida en la teología trinitaria.",
   "matiz": "Debate sobre κεφαλή: (a) autoridad (lectura jerárquica complementarista; Grudem): el varón tiene autoridad sobre la mujer; (b) origen o fuente (lectura igualitaria; Mickelsen, Kroeger, Fee en parte): el varón fue origen de la mujer (Gn 2:21-23); (c) preeminencia honorífica. Sobre «Dios, cabeza de Cristo»: orden económico (funcional) o subordinación esencial (rechazada por la ortodoxia nicena).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 5:23",
@@ -144,10 +158,9 @@
    "1 Co 15:28"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 18,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1Cor.11.3#18",
+  "ref_estandar": "1Cor.11.3",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G2776",
   "strong_tagnt": "G2776",
@@ -163,13 +176,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "head",
-  "ref_estandar": "1Cor.11.3"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.11.5",
+  "pos_tisch": 6,
   "strong": "G4395",
   "forma": "προφητεύουσα",
+  "lema": "προφητεύω",
   "glosa_interlineal": "la que profetiza",
   "rango_semantico": [
    "profetizar"
@@ -177,7 +195,7 @@
   "construccion": "Participio presente activo: «toda mujer que ora o profetiza con la cabeza descubierta, deshonra su cabeza».",
   "sentido_en_contexto": "Pablo da por supuesto que las mujeres oran y profetizan en la asamblea (cf. 14:3-5, 26; Hch 21:9), pero requiere que lo hagan con un signo de decoro (velo o peinado). La práctica del velo era cultural y símbolo de decencia; su sentido preciso y vigencia se debaten ampliamente.",
   "matiz": "Debate sobre el velo: (a) norma cultural de decoro en Corinto, sin aplicación universal (la mayoría evangélica y católica contemporánea); (b) norma permanente (algunas tradiciones ortodoxas, menonitas, apostólicas); (c) la «cabeza» es el cabello, y se trata de peinado (K. Gill, Thompson). El pasaje afirma además la participación activa de las mujeres en el culto.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 14:3-5, 26",
@@ -186,9 +204,9 @@
    "1 Ti 2:11-15"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "1Cor.11.5#06",
+  "ref_estandar": "1Cor.11.5",
   "morfologia_tagnt": "V-PAP-NSF",
   "dstrong": "G4395",
   "strong_tagnt": "G4395",
@@ -204,13 +222,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to prophesy",
-  "ref_estandar": "1Cor.11.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.11.7",
+  "pos_tisch": 9,
   "strong": "G1504",
   "forma": "εἰκὼν",
+  "lema": "εἰκών",
   "glosa_interlineal": "imagen",
   "rango_semantico": [
    "imagen, semejanza"
@@ -218,7 +240,7 @@
   "construccion": "Nominativo: «el varón es imagen y gloria de Dios; pero la mujer es gloria del varón».",
   "sentido_en_contexto": "Pablo alude a Gn 1:26-27 y 2:18-23: el varón es imagen y gloria de Dios; la mujer es «gloria del varón». No dice que la mujer no sea imagen de Dios (Gn 1:27 dice ambos); se debate qué significa «gloria del varón» y su relación con el v.11-12 (interdependencia).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 1:26-27; 2:18-23",
@@ -226,9 +248,9 @@
    "Col 3:10"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "1Cor.11.7#09",
+  "ref_estandar": "1Cor.11.7",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G1504",
   "strong_tagnt": "G1504",
@@ -244,13 +266,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "image",
-  "ref_estandar": "1Cor.11.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.11.10",
+  "pos_tisch": 6,
   "strong": "G1849",
   "forma": "ἐξουσίαν",
+  "lema": "ἐξουσία",
   "glosa_interlineal": "autoridad",
   "rango_semantico": [
    "autoridad, potestad"
@@ -258,7 +284,7 @@
   "construccion": "Acusativo: «por lo cual la mujer debe tener señal de autoridad sobre su cabeza, por causa de los ángeles».",
   "sentido_en_contexto": "Expresión muy debatida: ἐξουσίαν ἔχειν ἐπὶ τῆς κεφαλῆς («tener autoridad sobre la cabeza») y «por causa de los ángeles». Interpretaciones: (a) el velo es señal de la autoridad que la mujer ejerce al orar y profetizar (autoridad propia); (b) señal de sujeción al varón; (c) «los ángeles» como testigos del orden creado; (d) ángeles caídos (Gn 6); (e) ángeles guardianes del culto.",
   "matiz": "Debate: (a) la mujer tiene «autoridad» (ἐξουσία en voz activa) para orar y profetizar, con velo como señal de decoro; (b) «señal de autoridad» como símbolo de que está bajo la del marido (versión tradicional, no es lo que dice el griego literalmente); (c) «por causa de los ángeles»: ángeles como testigos del culto, o protección del orden creado. Es uno de los textos más difíciles del NT.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 6:1-4",
@@ -267,9 +293,9 @@
    "1 P 1:12"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "1Cor.11.10#06",
+  "ref_estandar": "1Cor.11.10",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G1849",
   "strong_tagnt": "G1849",
@@ -285,13 +311,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "authority",
-  "ref_estandar": "1Cor.11.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.11.11",
+  "pos_tisch": 11,
   "strong": "G2962",
   "forma": "κυρίῳ",
+  "lema": "κύριος",
   "glosa_interlineal": "Señor",
   "rango_semantico": [
    "señor, Señor"
@@ -299,7 +329,7 @@
   "construccion": "Dativo: «en el Señor, ni la mujer es sin el varón, ni el varón sin la mujer».",
   "sentido_en_contexto": "Pablo equilibra lo anterior: en el Señor hay interdependencia mutua: la mujer vino del varón, y el varón nace por medio de la mujer, y todo viene de Dios (v.12). Contrapeso a una lectura jerárquica unilateral.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 3:28",
@@ -307,9 +337,9 @@
    "Ef 5:21"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "1Cor.11.11#11",
+  "ref_estandar": "1Cor.11.11",
   "morfologia_tagnt": "N-DSM-T",
   "dstrong": "G2962G",
   "strong_tagnt": "G2962",
@@ -325,13 +355,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lord",
-  "ref_estandar": "1Cor.11.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.11.16",
+  "pos_tisch": 9,
   "strong": "G4914",
   "forma": "συνήθειαν",
+  "lema": "συνήθεια",
   "glosa_interlineal": "costumbre",
   "rango_semantico": [
    "costumbre, hábito"
@@ -339,16 +373,16 @@
   "construccion": "Acusativo: «nosotros no tenemos tal costumbre, ni las iglesias de Dios».",
   "sentido_en_contexto": "Pablo cierra la discusión apelando a la práctica de las iglesias: «si alguno quiere ser contencioso (φιλόνεικος), nosotros no tenemos tal costumbre». Se discute si «tal costumbre» es la contienda o el uso de no velarse.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 14:33",
    "1 Ti 6:4"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "1Cor.11.16#09",
+  "ref_estandar": "1Cor.11.16",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G4914",
   "strong_tagnt": "G4914",
@@ -364,13 +398,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "custom",
-  "ref_estandar": "1Cor.11.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.11.18",
+  "pos_tisch": 9,
   "strong": "G4978",
   "forma": "σχίσματα",
+  "lema": "σχίσμα",
   "glosa_interlineal": "divisiones",
   "rango_semantico": [
    "división, desgarro"
@@ -378,7 +416,7 @@
   "construccion": "Nominativo plural: «oigo que hay entre vosotros divisiones».",
   "sentido_en_contexto": "Comienza la sección sobre la Cena del Señor (11:17-34): al reunirse hay divisiones, y quienes comen sin esperar a los demás dejan avergonzados a los pobres. Pablo no alaba esta reunión, que «para peor» (no mejor) se hace. «Es necesario que haya disensiones para que los aprobados sean manifiestos» (v.19).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 1:10-13",
@@ -386,9 +424,9 @@
    "Gá 5:20"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "1Cor.11.18#10",
+  "ref_estandar": "1Cor.11.18",
   "morfologia_tagnt": "N-APN",
   "dstrong": "G4978",
   "strong_tagnt": "G4978",
@@ -404,13 +442,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "split",
-  "ref_estandar": "1Cor.11.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.11.20",
+  "pos_tisch": 9,
   "strong": "G2960",
   "forma": "κυριακὸν",
+  "lema": "κυριακός",
   "glosa_interlineal": "del Señor",
   "rango_semantico": [
    "perteneciente al Señor"
@@ -418,7 +460,7 @@
   "construccion": "Adjetivo acusativo: «esto no es comer la Cena del Señor (κυριακὸν δεῖπνον)».",
   "sentido_en_contexto": "Primer uso de «la Cena del Señor» en el NT. Los corintios la celebraban en el contexto de una comida (ágape); los ricos comían antes y se emborrachaban, mientras los pobres pasaban hambre (vv.21-22). Pablo dice que esa conducta contradice el sentido de la cena.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jud 12",
@@ -426,9 +468,9 @@
    "1 Co 10:16-17"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "1Cor.11.20#09",
+  "ref_estandar": "1Cor.11.20",
   "morfologia_tagnt": "A-ASN",
   "dstrong": "G2960",
   "strong_tagnt": "G2960",
@@ -444,13 +486,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "the Lord’s",
-  "ref_estandar": "1Cor.11.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.11.23",
+  "pos_tisch": 3,
   "strong": "G3880",
   "forma": "παρέλαβον",
+  "lema": "παραλαμβάνω",
   "glosa_interlineal": "recibí",
   "rango_semantico": [
    "recibir (una tradición), tomar"
@@ -458,7 +504,7 @@
   "construccion": "Aoristo indicativo activo: «yo recibí del Señor lo que también os he enseñado».",
   "sentido_en_contexto": "Pablo recibe y transmite (παρέλαβον/παρέδωκα, términos de la transmisión de tradición) el relato de la institución de la Cena: la tradición más antigua (c. 55 d.C.) de las palabras de Jesús en la última cena. «Del Señor» puede indicar revelación directa o tradición transmitida con autoridad dominical.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 15:3",
@@ -467,9 +513,9 @@
    "Lc 22:17-20"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "1Cor.11.23#03",
+  "ref_estandar": "1Cor.11.23",
   "morfologia_tagnt": "V-2AAI-1S",
   "dstrong": "G3880",
   "strong_tagnt": "G3880",
@@ -485,13 +531,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to take",
-  "ref_estandar": "1Cor.11.23"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.11.24",
+  "pos_tisch": 19,
   "strong": "G364",
   "forma": "ἀνάμνησιν",
+  "lema": "ἀνάμνησις",
   "glosa_interlineal": "memoria",
   "rango_semantico": [
    "recuerdo, memorial, conmemoración"
@@ -499,7 +549,7 @@
   "construccion": "Acusativo: «haced esto en memoria (ἀνάμνησιν) de mí».",
   "sentido_en_contexto": "Mandato de repetir la cena en memoria de Jesús. ἀνάμνησις no es simple recuerdo mental, sino actualización de un hecho salvífico (como en la Pascua). Debate de la interpretación: presencia real, espiritual, memorial.",
   "matiz": "Debate: ἀνάμνησις como (a) recuerdo subjetivo (zuingliana); (b) memorial objetivo que hace presente el sacrificio (católica, ortodoxa, luterana, anglicana alta); (c) recuerdo ante Dios (Jeremias). Ver nota en Lc 22:19. «Esto es mi cuerpo» (τοῦτό μού ἐστιν τὸ σῶμα): sentido de «es» (literal, sacramental o simbólico) también discutido.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 22:19",
@@ -508,9 +558,9 @@
    "Dt 16:3"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 19,
   "alineacion": "forma",
   "tagnt": "1Cor.11.24#22",
+  "ref_estandar": "1Cor.11.24",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G0364",
   "strong_tagnt": "G364",
@@ -526,13 +576,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "remembrance",
-  "ref_estandar": "1Cor.11.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.11.25",
+  "pos_tisch": 14,
   "strong": "G1242",
   "forma": "διαθήκη",
+  "lema": "διαθήκη",
   "glosa_interlineal": "pacto",
   "rango_semantico": [
    "pacto, alianza, testamento"
@@ -540,7 +594,7 @@
   "construccion": "Nominativo: «esta copa es el nuevo pacto en mi sangre».",
   "sentido_en_contexto": "La copa es el «nuevo pacto» (Jer 31:31-34) sellado con la sangre de Cristo. Mantiene el eco del pacto del Sinaí (Éx 24:8). «Cuantas veces» la celebremos (v.25-26) anunciamos la muerte del Señor hasta que venga: la Cena mira atrás (cruz) y adelante (parusía).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jer 31:31-34",
@@ -549,9 +603,9 @@
    "Heb 8:6-13; 9:15"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "1Cor.11.25#14",
+  "ref_estandar": "1Cor.11.25",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G1242",
   "strong_tagnt": "G1242",
@@ -567,13 +621,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "covenant",
-  "ref_estandar": "1Cor.11.25"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.11.27",
+  "pos_tisch": 13,
   "strong": "G371",
   "forma": "ἀναξίως",
+  "lema": "ἀναξίως",
   "glosa_interlineal": "indignamente",
   "rango_semantico": [
    "de manera indigna, sin la debida reverencia"
@@ -581,7 +639,7 @@
   "construccion": "Adverbio: «cualquiera que comiere este pan o bebiere esta copa del Señor indignamente, será culpado del cuerpo y de la sangre del Señor».",
   "sentido_en_contexto": "«Indignamente» describe la manera (no la persona): comer con desprecio de la comunidad, sin discernir el cuerpo (v.29). El contexto (vv.17-22, 33-34) es la humillación de los pobres, no la indignidad personal general. Muchos han interpretado erróneamente como exigencia de perfección moral.",
   "matiz": "Debate sobre «discernir el cuerpo» (διακρίνων τὸ σῶμα, v.29): (a) reconocer el cuerpo eucarístico de Cristo (tradición católica y luterana); (b) reconocer la iglesia como cuerpo de Cristo, es decir, a los hermanos (contexto de 11:17-22, 33; muchas tradiciones reformadas y evangélicas); (c) ambos.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 11:29, 33",
@@ -589,9 +647,9 @@
    "Mt 5:23-24"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "1Cor.11.27#14",
+  "ref_estandar": "1Cor.11.27",
   "morfologia_tagnt": "ADV",
   "dstrong": "G0371",
   "strong_tagnt": "G371",
@@ -607,13 +665,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unworthily",
-  "ref_estandar": "1Cor.11.27"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.11.28",
+  "pos_tisch": 1,
   "strong": "G1381",
   "forma": "δοκιμαζέτω",
+  "lema": "δοκιμάζω",
   "glosa_interlineal": "examínese",
   "rango_semantico": [
    "examinar, probar"
@@ -621,7 +683,7 @@
   "construccion": "Imperativo presente activo: «pruébese cada uno a sí mismo, y coma así del pan y beba de la copa».",
   "sentido_en_contexto": "La autoexaminación antes de la Cena no es perfeccionismo, sino revisar la actitud hacia los demás en la comunión (v.33: «esperaos unos a otros»). Muchos cristianos temen participar por escrúpulo; Pablo pide discernimiento y arrepentimiento, no perfección.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Co 13:5",
@@ -629,9 +691,9 @@
    "1 Co 11:31-32"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "1Cor.11.28#01",
+  "ref_estandar": "1Cor.11.28",
   "morfologia_tagnt": "V-PAM-3S",
   "dstrong": "G1381",
   "strong_tagnt": "G1381",
@@ -647,13 +709,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to test",
-  "ref_estandar": "1Cor.11.28"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.11.30",
+  "pos_tisch": 10,
   "strong": "G2837",
   "forma": "κοιμῶνται",
+  "lema": "κοιμάω",
   "glosa_interlineal": "duermen",
   "rango_semantico": [
    "dormir, morir"
@@ -661,7 +727,7 @@
   "construccion": "Presente indicativo medio: «por lo cual hay muchos enfermos y debilitados entre vosotros, y muchos duermen».",
   "sentido_en_contexto": "Pablo atribuye enfermedades y muertes entre los corintios al juicio divino por la profanación de la Cena. Es un juicio paternal (παιδεύομαι, v.32) para que no sean condenados con el mundo. Texto debatido sobre la relación entre pecado y enfermedad.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 5:5",
@@ -670,9 +736,9 @@
    "Jn 9:2-3"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "1Cor.11.30#10",
+  "ref_estandar": "1Cor.11.30",
   "morfologia_tagnt": "V-PMI-3P",
   "dstrong": "G2837",
   "strong_tagnt": "G2837",
@@ -688,13 +754,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to sleep",
-  "ref_estandar": "1Cor.11.30"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.11.32",
+  "pos_tisch": 6,
   "strong": "G3811",
   "forma": "παιδευόμεθα",
+  "lema": "παιδεύω",
   "glosa_interlineal": "somos disciplinados",
   "rango_semantico": [
    "corregir, disciplinar como a hijos"
@@ -702,7 +772,7 @@
   "construccion": "Presente indicativo pasivo: «siendo juzgados, somos castigados por el Señor, para que no seamos condenados con el mundo».",
   "sentido_en_contexto": "El juicio de Dios sobre los creyentes es disciplina (παιδεία) con fin redentor: evitar la condenación final con el mundo. Aclara que el juicio sobre los corintios no era condenación eterna, sino corrección.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Heb 12:5-11",
@@ -711,9 +781,9 @@
    "1 P 4:17"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "1Cor.11.32#06",
+  "ref_estandar": "1Cor.11.32",
   "morfologia_tagnt": "V-PPI-1P",
   "dstrong": "G3811",
   "strong_tagnt": "G3811",
@@ -729,7 +799,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to instruct",
-  "ref_estandar": "1Cor.11.32"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

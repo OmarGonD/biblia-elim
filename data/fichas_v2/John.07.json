@@ -1,8 +1,10 @@
 [
  {
   "ref": "John.7.2",
+  "pos_tisch": 9,
   "strong": "G4634",
   "forma": "σκηνοπηγία",
+  "lema": "σκηνοπηγία",
   "glosa_interlineal": "Fiesta de los Tabernáculos",
   "rango_semantico": [
    "fiesta de las tiendas o enramadas (Sucot)"
@@ -10,7 +12,7 @@
   "construccion": "Nominativo: «la fiesta de los judíos, la de los tabernáculos».",
   "sentido_en_contexto": "Fiesta de otoño que recordaba la estancia en el desierto y celebraba la cosecha. Incluía el rito del agua y la iluminación del templo, a los que aluden las declaraciones de Jesús (7:37-38; 8:12).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lv 23:33-43 — la fiesta",
@@ -18,9 +20,9 @@
    "Neh 8:13-18"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "John.7.2#09",
+  "ref_estandar": "John.7.2",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G4634",
   "strong_tagnt": "G4634",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Feast of Booths",
-  "ref_estandar": "John.7.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.7.3",
+  "pos_tisch": 6,
   "strong": "G80",
   "forma": "ἀδελφοὶ",
+  "lema": "ἀδελφός",
   "glosa_interlineal": "hermanos",
   "rango_semantico": [
    "hermano"
@@ -50,7 +56,7 @@
   "construccion": "Nominativo plural: «sus hermanos le dijeron».",
   "sentido_en_contexto": "Los «hermanos» de Jesús (v.5: no creían en él) lo instan a mostrarse públicamente en Judea. Su incredulidad contrasta con la fe posterior de Jacobo y Judas.",
   "matiz": "Se debate si son hijos de José y María (tradición protestante), hijos de José de un matrimonio anterior (tradición oriental) o primos (tradición católica latina). El texto no lo resuelve.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 6:3 — «hermano de Jacobo, de José, de Judas y de Simón»",
@@ -59,9 +65,9 @@
    "Gá 1:19"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "John.7.3#06",
+  "ref_estandar": "John.7.3",
   "morfologia_tagnt": "N-NPM",
   "dstrong": "G0080",
   "strong_tagnt": "G80",
@@ -77,13 +83,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "brother",
-  "ref_estandar": "John.7.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.7.6",
+  "pos_tisch": 6,
   "strong": "G2540",
   "forma": "καιρὸς",
+  "lema": "καιρός",
   "glosa_interlineal": "tiempo oportuno",
   "rango_semantico": [
    "tiempo, ocasión, momento oportuno"
@@ -91,7 +101,7 @@
   "construccion": "Nominativo: «mi tiempo aún no ha llegado».",
   "sentido_en_contexto": "καιρός es el momento fijado por Dios (cf. «hora», ὥρα, 2:4). Los hermanos pueden ir cuando quieran; Jesús actúa según el calendario del Padre.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 2:4 — «aún no ha venido mi hora»",
@@ -99,10 +109,9 @@
    "Gá 4:4 — «cuando vino el cumplimiento del tiempo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.7.6#07",
+  "ref_estandar": "John.7.6",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G2540",
   "strong_tagnt": "G2540",
@@ -118,13 +127,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "time/right time",
-  "ref_estandar": "John.7.6"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.7.6",
+  "pos_tisch": 13,
   "strong": "G2540",
   "forma": "καιρὸς",
+  "lema": "καιρός",
   "glosa_interlineal": "tiempo oportuno",
   "rango_semantico": [
    "tiempo, ocasión, momento oportuno"
@@ -132,7 +146,7 @@
   "construccion": "Nominativo: «mi tiempo aún no ha llegado».",
   "sentido_en_contexto": "καιρός es el momento fijado por Dios (cf. «hora», ὥρα, 2:4). Los hermanos pueden ir cuando quieran; Jesús actúa según el calendario del Padre.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 2:4 — «aún no ha venido mi hora»",
@@ -140,10 +154,9 @@
    "Gá 4:4 — «cuando vino el cumplimiento del tiempo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.7.6#14",
+  "ref_estandar": "John.7.6",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G2540",
   "strong_tagnt": "G2540",
@@ -159,13 +172,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "time/right time",
-  "ref_estandar": "John.7.6"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.7.8",
+  "pos_tisch": 18,
   "strong": "G4137",
   "forma": "πεπλήρωται",
+  "lema": "πληρόω",
   "glosa_interlineal": "se ha cumplido",
   "rango_semantico": [
    "llenar, cumplir"
@@ -173,16 +191,16 @@
   "construccion": "Perfecto indicativo pasivo: «mi tiempo aún no se ha cumplido».",
   "sentido_en_contexto": "Jesús dice «no subo a esta fiesta» (según algunos manuscritos «aún no»), pero sube después en secreto. La variante ha dado lugar a discusión.",
   "matiz": "Variante: «no subo» (οὐκ, Aleph, D, otros) frente a «aún no subo» (οὔπω, P66, P75, B, otros). La segunda evita la apariencia de contradicción con el v.10, y se considera probable que sea un cambio posterior.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 7:10 — «subió también él… en secreto»",
    "Jn 2:4"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "John.7.8#20",
+  "ref_estandar": "John.7.8",
   "morfologia_tagnt": "V-RPI-3S",
   "dstrong": "G4137",
   "strong_tagnt": "G4137",
@@ -198,13 +216,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to fulfill",
-  "ref_estandar": "John.7.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.7.12",
+  "pos_tisch": 20,
   "strong": "G4105",
   "forma": "πλανᾷ",
+  "lema": "πλανάω",
   "glosa_interlineal": "engaña",
   "rango_semantico": [
    "extraviar, engañar"
@@ -212,7 +234,7 @@
   "construccion": "Presente indicativo activo: «no, sino que engaña al pueblo».",
   "sentido_en_contexto": "División entre la gente: unos dicen «es bueno», otros «engaña a las multitudes». Será una acusación persistente (cf. v.47; Mt 27:63).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 27:63 — «aquel engañador»",
@@ -220,9 +242,9 @@
    "Jn 7:47"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 20,
   "alineacion": "forma",
   "tagnt": "John.7.12#21",
+  "ref_estandar": "John.7.12",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G4105",
   "strong_tagnt": "G4105",
@@ -238,13 +260,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to lead astray",
-  "ref_estandar": "John.7.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.7.15",
+  "pos_tisch": 8,
   "strong": "G1121",
   "forma": "γράμματα",
+  "lema": "γράμμα",
   "glosa_interlineal": "letras",
   "rango_semantico": [
    "escritura, letras, estudios"
@@ -252,16 +278,16 @@
   "construccion": "Acusativo plural: «¿cómo sabe éste letras, sin haber estudiado?».",
   "sentido_en_contexto": "Los judíos se asombran de su dominio de la Escritura sin formación rabínica reconocida. Jesús responde que su enseñanza es del que lo envió.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 4:13 — Pedro y Juan «hombres sin letras y del vulgo»",
    "Mr 6:2 — «¿de dónde tiene este estas cosas?»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "John.7.15#09",
+  "ref_estandar": "John.7.15",
   "morfologia_tagnt": "N-APN",
   "dstrong": "G1121",
   "strong_tagnt": "G1121",
@@ -277,13 +303,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "something written",
-  "ref_estandar": "John.7.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.7.17",
+  "pos_tisch": 5,
   "strong": "G2307",
   "forma": "θέλημα",
+  "lema": "θέλημα",
   "glosa_interlineal": "voluntad",
   "rango_semantico": [
    "voluntad, deseo"
@@ -291,7 +321,7 @@
   "construccion": "Acusativo: «si alguno quiere hacer su voluntad, conocerá la doctrina».",
   "sentido_en_contexto": "Principio hermenéutico: la disposición moral de obedecer precede y condiciona el reconocimiento de la verdad de la enseñanza de Jesús.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 3:21 — «el que practica la verdad viene a la luz»",
@@ -299,9 +329,9 @@
    "Os 6:3"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "John.7.17#05",
+  "ref_estandar": "John.7.17",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G2307",
   "strong_tagnt": "G2307",
@@ -317,13 +347,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "will/desire",
-  "ref_estandar": "John.7.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.7.20",
+  "pos_tisch": 4,
   "strong": "G1140",
   "forma": "δαιμόνιον",
+  "lema": "δαιμόνιον",
   "glosa_interlineal": "demonio",
   "rango_semantico": [
    "demonio, espíritu malo"
@@ -331,7 +365,7 @@
   "construccion": "Acusativo: «demonio tienes».",
   "sentido_en_contexto": "La multitud lo acusa de estar poseído (insulto, no diagnóstico preciso). Juan lo repite en 8:48; 10:20.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 8:48 — «¿no decimos bien nosotros que tú eres samaritano y que tienes demonio?»",
@@ -339,9 +373,9 @@
    "Mr 3:22"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "John.7.20#06",
+  "ref_estandar": "John.7.20",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G1140",
   "strong_tagnt": "G1140",
@@ -357,13 +391,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "demon",
-  "ref_estandar": "John.7.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.7.22",
+  "pos_tisch": 6,
   "strong": "G4061",
   "forma": "περιτομήν",
+  "lema": "περιτομή",
   "glosa_interlineal": "circuncisión",
   "rango_semantico": [
    "circuncisión"
@@ -371,7 +409,7 @@
   "construccion": "Acusativo: «Moisés os dio la circuncisión».",
   "sentido_en_contexto": "Argumento de menor a mayor: si se circuncida en sábado para cumplir la Ley, ¿cómo se les ofende porque sanó a un hombre «entero» en sábado? Jesús defiende la sanidad como cumplimiento del propósito de la Ley.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 17:10-14 — la circuncisión al octavo día",
@@ -380,9 +418,9 @@
    "Mt 12:5-8"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "John.7.22#07",
+  "ref_estandar": "John.7.22",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G4061",
   "strong_tagnt": "G4061",
@@ -398,13 +436,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "circumcision",
-  "ref_estandar": "John.7.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.7.24",
+  "pos_tisch": 4,
   "strong": "G3799",
   "forma": "ὄψιν",
+  "lema": "ὄψις",
   "glosa_interlineal": "apariencia",
   "rango_semantico": [
    "apariencia, aspecto, rostro"
@@ -412,7 +454,7 @@
   "construccion": "Acusativo: «no juzguéis según las apariencias».",
   "sentido_en_contexto": "Exhortación a juzgar con «juicio justo»: apartarse de lo superficial. Ver también 8:15 («vosotros juzgáis según la carne»).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 S 16:7 — «el hombre mira lo que está delante de sus ojos»",
@@ -420,9 +462,9 @@
    "Jn 8:15"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "John.7.24#04",
+  "ref_estandar": "John.7.24",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G3799",
   "strong_tagnt": "G3799",
@@ -438,13 +480,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "face",
-  "ref_estandar": "John.7.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.7.27",
+  "pos_tisch": 4,
   "strong": "G4159",
   "forma": "πόθεν",
+  "lema": "πόθεν",
   "glosa_interlineal": "de dónde",
   "rango_semantico": [
    "de dónde, desde dónde"
@@ -452,7 +498,7 @@
   "construccion": "Adverbio interrogativo: «sabemos de dónde es éste; pero cuando venga el Cristo, nadie sabrá de dónde sea».",
   "sentido_en_contexto": "Creencia popular de un origen misterioso del Mesías. Juan juega con la ironía: creen saber su origen (Nazaret), pero ignoran su verdadero origen celestial (v.28-29).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 7:41-42 — «¿de Galilea ha de venir el Cristo?»",
@@ -460,10 +506,9 @@
    "Jn 9:29-30"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.7.27#04",
+  "ref_estandar": "John.7.27",
   "morfologia_tagnt": "ADV",
   "dstrong": "G4159",
   "strong_tagnt": "G4159",
@@ -479,13 +524,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "whence/how",
-  "ref_estandar": "John.7.27"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.7.27",
+  "pos_tisch": 13,
   "strong": "G4159",
   "forma": "πόθεν",
+  "lema": "πόθεν",
   "glosa_interlineal": "de dónde",
   "rango_semantico": [
    "de dónde, desde dónde"
@@ -493,7 +543,7 @@
   "construccion": "Adverbio interrogativo: «sabemos de dónde es éste; pero cuando venga el Cristo, nadie sabrá de dónde sea».",
   "sentido_en_contexto": "Creencia popular de un origen misterioso del Mesías. Juan juega con la ironía: creen saber su origen (Nazaret), pero ignoran su verdadero origen celestial (v.28-29).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 7:41-42 — «¿de Galilea ha de venir el Cristo?»",
@@ -501,10 +551,9 @@
    "Jn 9:29-30"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.7.27#13",
+  "ref_estandar": "John.7.27",
   "morfologia_tagnt": "ADV",
   "dstrong": "G4159",
   "strong_tagnt": "G4159",
@@ -520,13 +569,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "whence/how",
-  "ref_estandar": "John.7.27"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.7.30",
+  "pos_tisch": 16,
   "strong": "G5610",
   "forma": "ὥρα",
+  "lema": "ὥρα",
   "glosa_interlineal": "hora",
   "rango_semantico": [
    "hora, momento"
@@ -534,7 +588,7 @@
   "construccion": "Nominativo: «aún no había llegado su hora».",
   "sentido_en_contexto": "La «hora» de Jesús es el momento de su glorificación en la cruz. Hasta entonces, nadie puede arrestarlo: Juan subraya que Jesús controla los acontecimientos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 2:4; 8:20",
@@ -542,9 +596,9 @@
    "Jn 13:1; 17:1"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "John.7.30#16",
+  "ref_estandar": "John.7.30",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G5610",
   "strong_tagnt": "G5610",
@@ -560,13 +614,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hour",
-  "ref_estandar": "John.7.30"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.7.33",
+  "pos_tisch": 12,
   "strong": "G5217",
   "forma": "ὑπάγω",
+  "lema": "ὑπάγω",
   "glosa_interlineal": "voy",
   "rango_semantico": [
    "ir, irse, marcharse"
@@ -574,7 +632,7 @@
   "construccion": "Presente indicativo activo: «voy al que me envió».",
   "sentido_en_contexto": "Anuncio enigmático de su partida: lo buscarán y no lo hallarán. Los oyentes lo entienden como un viaje geográfico (v.35, ¿a la diáspora?); Jesús habla de su regreso al Padre.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 8:21 — «adonde yo voy, vosotros no podéis venir»",
@@ -582,9 +640,9 @@
    "Jn 14:2-4"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "John.7.33#13",
+  "ref_estandar": "John.7.33",
   "morfologia_tagnt": "V-PAI-1S",
   "dstrong": "G5217",
   "strong_tagnt": "G5217",
@@ -600,13 +658,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to go",
-  "ref_estandar": "John.7.33"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.7.35",
+  "pos_tisch": 18,
   "strong": "G1290",
   "forma": "διασπορὰν",
+  "lema": "διασπορά",
   "glosa_interlineal": "dispersión",
   "rango_semantico": [
    "diáspora, dispersión"
@@ -614,17 +676,13 @@
   "construccion": "Acusativo: «¿irá a la dispersión entre los griegos?».",
   "sentido_en_contexto": "Ironía joánica: los judíos sugieren que irá a la diáspora entre los griegos a enseñarles, sin saber que describen la misión posterior a los gentiles.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Stg 1:1 — «a las doce tribus que están en la dispersión»",
-   "1 P 1:1",
-   "Jn 10:16; 12:20-24"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Stg 1:1 — «a las doce tribus que están en la dispersión»\n1 P 1:1\nJn 10:16; 12:20-24",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "John.7.35#19",
+  "ref_estandar": "John.7.35",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G1290",
   "strong_tagnt": "G1290",
@@ -640,13 +698,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dispersion",
-  "ref_estandar": "John.7.35"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.7.37",
+  "pos_tisch": 4,
   "strong": "G2078",
   "forma": "ἐσχάτῃ",
+  "lema": "ἔσχατος",
   "glosa_interlineal": "postrero",
   "rango_semantico": [
    "último, final"
@@ -654,7 +716,7 @@
   "construccion": "Dativo: «en el último día, el gran día de la fiesta».",
   "sentido_en_contexto": "El día de mayor solemnidad de la fiesta. Se discute si es el séptimo día (con la libación del agua) o el octavo (Shemini Atzeret). Allí Jesús proclama la invitación a beber.",
   "matiz": "Se discute si el «último día, el gran día» es el séptimo o el octavo. Es un detalle que afecta al rito que Jesús evoca (la libación con agua del Siloé, hecha los siete días).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lv 23:36 — el octavo día",
@@ -663,9 +725,9 @@
    "Ap 22:17"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "John.7.37#04",
+  "ref_estandar": "John.7.37",
   "morfologia_tagnt": "A-DSF",
   "dstrong": "G2078",
   "strong_tagnt": "G2078",
@@ -681,13 +743,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "last/least",
-  "ref_estandar": "John.7.37"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.7.38",
+  "pos_tisch": 12,
   "strong": "G2836",
   "forma": "κοιλίας",
+  "lema": "κοιλία",
   "glosa_interlineal": "vientre",
   "rango_semantico": [
    "vientre, interior, corazón"
@@ -695,7 +761,7 @@
   "construccion": "Genitivo: «de su interior correrán ríos de agua viva».",
   "sentido_en_contexto": "κοιλία es el interior de la persona. Se discute de quién fluyen los ríos: del creyente (lectura tradicional) o del propio Cristo (lectura «cristológica»), dependiendo de la puntuación del v.37-38.",
   "matiz": "Puntuación: (a) «el que cree en mí, como dice la Escritura, de su interior fluirán ríos»; (b) «el que tiene sed, venga a mí; y beba el que cree en mí. Como dice la Escritura, de su interior (el de Cristo) correrán ríos». La Escritura citada es incierta (Is 58:11; Ez 47:1-12; Zac 14:8; Sal 78:16, o la roca de Éx 17).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 58:11 — «serás como huerto de riego»",
@@ -704,9 +770,9 @@
    "Jn 19:34 — sangre y agua del costado"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "John.7.38#12",
+  "ref_estandar": "John.7.38",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G2836",
   "strong_tagnt": "G2836",
@@ -722,13 +788,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "belly/womb/stomach",
-  "ref_estandar": "John.7.38"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.7.39",
+  "pos_tisch": 21,
   "strong": "G1392",
   "forma": "ἐδοξάσθη",
+  "lema": "δοξάζω",
   "glosa_interlineal": "fue glorificado",
   "rango_semantico": [
    "glorificar, honrar"
@@ -736,7 +806,7 @@
   "construccion": "Aoristo indicativo pasivo: «aún no había sido glorificado».",
   "sentido_en_contexto": "Explicación del evangelista: el Espíritu no podía ser dado hasta que Jesús fuera glorificado (por su muerte, resurrección y ascensión). Para Juan, la «glorificación» comienza en la cruz.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 12:16, 23 — la glorificación",
@@ -745,9 +815,9 @@
    "Hch 2:33"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 21,
   "alineacion": "forma",
   "tagnt": "John.7.39#24",
+  "ref_estandar": "John.7.39",
   "morfologia_tagnt": "V-API-3S",
   "dstrong": "G1392",
   "strong_tagnt": "G1392",
@@ -763,13 +833,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to glorify",
-  "ref_estandar": "John.7.39"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.7.42",
+  "pos_tisch": 12,
   "strong": "G965",
   "forma": "Βηθλεὲμ",
+  "lema": "Βηθλεέμ",
   "glosa_interlineal": "Belén",
   "rango_semantico": [
    "Belén (aldea de Judea)"
@@ -777,7 +851,7 @@
   "construccion": "Genitivo: «de la aldea de Belén, de donde era David».",
   "sentido_en_contexto": "La multitud cree que Jesús es de Galilea y discute si el Mesías puede venir de allí. Juan no corrige la objeción; el lector sabe (por Mt y Lc) que Jesús nació en Belén. Ironía joánica.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mi 5:2 — «de ti, Belén Efrata… me saldrá el que será Señor»",
@@ -785,9 +859,9 @@
    "Mt 2:1-6; Lc 2:4"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "John.7.42#12",
+  "ref_estandar": "John.7.42",
   "morfologia_tagnt": "N-GSF-L",
   "dstrong": "G0965",
   "strong_tagnt": "G965",
@@ -803,13 +877,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Bethlehem",
-  "ref_estandar": "John.7.42"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.7.43",
+  "pos_tisch": 1,
   "strong": "G4978",
   "forma": "σχίσμα",
+  "lema": "σχίσμα",
   "glosa_interlineal": "división",
   "rango_semantico": [
    "división, disensión"
@@ -817,16 +895,16 @@
   "construccion": "Nominativo: «hubo disensión entre la gente».",
   "sentido_en_contexto": "Tema característico de Juan: Jesús provoca división (9:16; 10:19). Su presencia obliga a tomar partido.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 9:16; 10:19",
    "Lc 12:51-53 — «no he venido para traer paz, sino división»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "John.7.43#01",
+  "ref_estandar": "John.7.43",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G4978",
   "strong_tagnt": "G4978",
@@ -842,13 +920,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "split",
-  "ref_estandar": "John.7.43"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.7.46",
+  "pos_tisch": 5,
   "strong": "G2980",
   "forma": "ἐλάλησεν",
+  "lema": "λαλέω",
   "glosa_interlineal": "habló",
   "rango_semantico": [
    "hablar"
@@ -856,17 +938,16 @@
   "construccion": "Aoristo indicativo activo: «jamás hombre alguno ha hablado como este hombre».",
   "sentido_en_contexto": "Los guardias enviados a arrestarlo vuelven sin él, impresionados por sus palabras. Contraste con la dureza de los líderes.",
   "matiz": "Algunos manuscritos añaden «como este hombre», otros no; la expresión es estable en los testimonios más antiguos y la mayoría de ediciones la incluye.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 7:28-29 — «enseñaba como quien tiene autoridad»",
    "Lc 4:22 — «maravillados de las palabras de gracia»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 5,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.7.46#05",
+  "ref_estandar": "John.7.46",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G2980",
   "strong_tagnt": "G2980",
@@ -882,13 +963,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to speak",
-  "ref_estandar": "John.7.46"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.7.49",
+  "pos_tisch": 10,
   "strong": "G1944",
   "forma": "ἐπάρατοί",
+  "lema": "ἐπικατάρατος",
   "glosa_interlineal": "malditos",
   "rango_semantico": [
    "maldito, bajo maldición"
@@ -896,7 +982,7 @@
   "construccion": "Adjetivo nominativo plural: «esta gente que no sabe la ley, maldita es».",
   "sentido_en_contexto": "Desprecio de los fariseos hacia el pueblo común (ʿam ha-areṣ). Contrasta con Nicodemo, que apela a la ley (v.51).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 27:26 — «maldito el que no confirmare las palabras de esta ley»",
@@ -904,9 +990,9 @@
    "Jn 9:34 — «tú naciste del todo en pecados»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "John.7.49#10",
+  "ref_estandar": "John.7.49",
   "morfologia_tagnt": "A-NPM",
   "dstrong": "G6035",
   "strong_tagnt": "G6035",
@@ -923,13 +1009,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "accursed",
-  "ref_estandar": "John.7.49"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.7.51",
+  "pos_tisch": 3,
   "strong": "G3551",
   "forma": "νόμος",
+  "lema": "νόμος",
   "glosa_interlineal": "ley",
   "rango_semantico": [
    "ley, Torá"
@@ -937,7 +1027,7 @@
   "construccion": "Nominativo: «¿juzga acaso nuestra ley a un hombre si primero no le oye?».",
   "sentido_en_contexto": "Nicodemo, miembro del Sanedrín, apela a la ley para pedir un juicio justo. Los fariseos lo desprecian por ello: «¿eres tú también galileo?».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 1:16-17 — oír antes de juzgar",
@@ -945,9 +1035,9 @@
    "Jn 19:39 — Nicodemo ayuda en el entierro"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "John.7.51#03",
+  "ref_estandar": "John.7.51",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G3551",
   "strong_tagnt": "G3551",
@@ -963,13 +1053,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "law",
-  "ref_estandar": "John.7.51"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.7.52",
+  "pos_tisch": 16,
   "strong": "G4396",
   "forma": "προφήτης",
+  "lema": "προφήτης",
   "glosa_interlineal": "profeta",
   "rango_semantico": [
    "profeta"
@@ -977,7 +1071,7 @@
   "construccion": "Nominativo: «de Galilea nunca se ha levantado profeta».",
   "sentido_en_contexto": "Afirmación falsa o imprecisa de los fariseos: Jonás de Gat-Hefer (2 R 14:25) provenía de Galilea, y Dios podía suscitar profetas de allí. Ironía de Juan.",
   "matiz": "Algunos manuscritos antiguos (P66*, P75) leen «el profeta» (ὁ προφήτης), lo que sugiere el profeta de Dt 18:15; la mayoría lee «un profeta». La diferencia afecta al sentido de la objeción.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 R 14:25 — Jonás hijo de Amitai, de Gat-hefer",
@@ -985,9 +1079,9 @@
    "Is 9:1-2"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 16,
   "alineacion": "forma+reorden",
   "tagnt": "John.7.52#19",
+  "ref_estandar": "John.7.52",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G4396",
   "strong_tagnt": "G4396",
@@ -1003,7 +1097,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "prophet",
-  "ref_estandar": "John.7.52"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

@@ -1,8 +1,10 @@
 [
  {
   "ref": "John.5.2",
+  "pos_tisch": 13,
   "strong": "G964",
   "forma": "Βηθζαθά",
+  "lema": "Βηθεσδά",
   "glosa_interlineal": "Betesda",
   "rango_semantico": [
    "Betesda / Betzatá (estanque en Jerusalén)"
@@ -10,16 +12,16 @@
   "construccion": "Nominativo: «el estanque llamado en hebreo Betesda, que tiene cinco pórticos».",
   "sentido_en_contexto": "Estanque junto a la Puerta de las Ovejas, con cinco pórticos; las excavaciones han hallado un complejo de dos piscinas con pórticos. El nombre varía en los manuscritos (Betesda, Betzatá, Betsaida).",
   "matiz": "Crítica textual: el v.4 («un ángel descendía… y agitaba el agua») falta en los mejores manuscritos (P66, P75, Aleph, B, C*) y es considerado glosa posterior; la numeración lo omite. Muchas versiones lo mantienen con nota.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Neh 3:1 — la Puerta de las Ovejas",
    "Jn 9:7 — el estanque de Siloé"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "John.5.2#13",
+  "ref_estandar": "John.5.2",
   "morfologia_tagnt": "N-NSF-L",
   "dstrong": "G0964",
   "strong_tagnt": "G964",
@@ -36,13 +38,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "Bethesda",
-  "ref_estandar": "John.5.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.5",
+  "pos_tisch": 13,
   "strong": "G769",
   "forma": "ἀσθενείᾳ",
+  "lema": "ἀσθένεια",
   "glosa_interlineal": "enfermedad",
   "rango_semantico": [
    "debilidad, enfermedad"
@@ -50,16 +56,13 @@
   "construccion": "Dativo: «treinta y ocho años en su enfermedad».",
   "sentido_en_contexto": "Larga enfermedad (probablemente parálisis). La cifra de treinta y ocho años puede evocar los treinta y ocho años de vagar en el desierto (Dt 2:14), aunque Juan no lo señala.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Dt 2:14 — «treinta y ocho años»",
-   "Hch 3:2; 4:22 — otro enfermo de largos años"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Dt 2:14 — «treinta y ocho años»\nHch 3:2; 4:22 — otro enfermo de largos años",
   "otros_usos": "bajo",
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "John.5.5#13",
+  "ref_estandar": "John.5.5",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G0769H",
   "strong_tagnt": "G769",
@@ -75,13 +78,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "weakness",
-  "ref_estandar": "John.5.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.6",
+  "pos_tisch": 16,
   "strong": "G5199",
   "forma": "ὑγιὴς",
+  "lema": "ὑγιής",
   "glosa_interlineal": "sano",
   "rango_semantico": [
    "sano, entero"
@@ -89,7 +96,7 @@
   "construccion": "Adjetivo: «¿quieres ser sano?».",
   "sentido_en_contexto": "Pregunta provocadora: parece obvia, pero apunta al deseo y a la responsabilidad del enfermo, que responde con excusas (v.7) en vez de pedir sanidad.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 10:51 — «¿qué quieres que te haga?»",
@@ -97,9 +104,9 @@
    "Mr 5:34"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "John.5.6#16",
+  "ref_estandar": "John.5.6",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G5199",
   "strong_tagnt": "G5199",
@@ -115,13 +122,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "healthy",
-  "ref_estandar": "John.5.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.8",
+  "pos_tisch": 8,
   "strong": "G2895",
   "forma": "κράβαττον",
+  "lema": "κράββατος",
   "glosa_interlineal": "camilla",
   "rango_semantico": [
    "catre, camilla, lecho de pobre"
@@ -129,7 +140,7 @@
   "construccion": "Acusativo: «toma tu camilla y anda».",
   "sentido_en_contexto": "Tres imperativos: levántate, toma tu lecho, anda. El hombre obedece. Esto ocurre en sábado: por eso se desata el conflicto (v.10).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 2:11 — paralelo con el paralítico de Cafarnaúm",
@@ -137,9 +148,9 @@
    "Hch 5:15; 9:33"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "John.5.8#08",
+  "ref_estandar": "John.5.8",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G2895",
   "strong_tagnt": "G2895",
@@ -155,13 +166,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "bed",
-  "ref_estandar": "John.5.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.9",
+  "pos_tisch": 15,
   "strong": "G4521",
   "forma": "σάββατον",
+  "lema": "σάββατον",
   "glosa_interlineal": "sábado",
   "rango_semantico": [
    "sábado, semana"
@@ -169,17 +184,13 @@
   "construccion": "Nominativo: «era día de reposo aquel día».",
   "sentido_en_contexto": "Lo dicho a continuación: llevar una carga en sábado estaba prohibido (Jer 17:21-22; Neh 13:15-19). Jesús sana en sábado, y el conflicto se centra en su autoridad sobre la ley.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Jer 17:21 — «no traigáis carga en el día de reposo»",
-   "Mr 2:23-28 — Señor del sábado",
-   "Jn 9:14 — otra sanidad en sábado"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Jer 17:21 — «no traigáis carga en el día de reposo»\nMr 2:23-28 — Señor del sábado\nJn 9:14 — otra sanidad en sábado",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "John.5.9#16",
+  "ref_estandar": "John.5.9",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G4521",
   "strong_tagnt": "G4521",
@@ -195,13 +206,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Sabbath",
-  "ref_estandar": "John.5.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.14",
+  "pos_tisch": 20,
   "strong": "G5501",
   "forma": "χεῖρόν",
+  "lema": "χείρων",
   "glosa_interlineal": "peor",
   "rango_semantico": [
    "peor"
@@ -209,7 +224,7 @@
   "construccion": "Comparativo: «no peques más, para que no te venga algo peor».",
   "sentido_en_contexto": "Jesús no establece una relación mecánica entre pecado y enfermedad (cf. Jn 9:2-3), pero advierte del riesgo del pecado persistente.",
   "matiz": "Se discute si Jesús vincula esta enfermedad con un pecado concreto del hombre. Juan 9:3 muestra que no siempre hay conexión. Se suele leer como advertencia general sobre las consecuencias del pecado.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 9:2-3 — «ni éste pecó, ni sus padres»",
@@ -217,9 +232,9 @@
    "Mr 2:5 — «tus pecados te son perdonados»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 20,
   "alineacion": "forma",
   "tagnt": "John.5.14#20",
+  "ref_estandar": "John.5.14",
   "morfologia_tagnt": "A-NSN-C",
   "dstrong": "G5501",
   "strong_tagnt": "G5501",
@@ -235,13 +250,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "worse than",
-  "ref_estandar": "John.5.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.17",
+  "pos_tisch": 10,
   "strong": "G2038",
   "forma": "ἐργάζεται",
+  "lema": "ἐργάζομαι",
   "glosa_interlineal": "trabaja",
   "rango_semantico": [
    "trabajar, obrar"
@@ -249,7 +268,7 @@
   "construccion": "Presente indicativo medio: «mi Padre hasta ahora trabaja, y yo trabajo».",
   "sentido_en_contexto": "Defensa de Jesús: Dios no cesa de obrar (sostener, juzgar, dar vida) ni siquiera en sábado, y el Hijo obra como él. Es una afirmación de igualdad funcional con el Padre.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 9:4 — «me es necesario hacer las obras del que me envió»",
@@ -257,10 +276,9 @@
    "Sal 121:3-4 — «no se dormirá el que te guarda»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.5.17#11",
+  "ref_estandar": "John.5.17",
   "morfologia_tagnt": "V-PNI-3S",
   "dstrong": "G2038",
   "strong_tagnt": "G2038",
@@ -276,13 +294,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to work",
-  "ref_estandar": "John.5.17"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.18",
+  "pos_tisch": 22,
   "strong": "G2470",
   "forma": "ἴσον",
+  "lema": "ἴσος",
   "glosa_interlineal": "igual",
   "rango_semantico": [
    "igual, equivalente"
@@ -290,7 +313,7 @@
   "construccion": "Acusativo: «haciéndose igual a Dios».",
   "sentido_en_contexto": "Los judíos entienden que Jesús, al llamar a Dios «su propio Padre» (πατέρα ἴδιον), reclama una relación única y se hace igual a Dios, lo cual consideran blasfemia.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Fil 2:6 — «no estimó el ser igual a Dios como cosa a que aferrarse»",
@@ -298,9 +321,9 @@
    "Jn 19:7 — «se hizo Hijo de Dios»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 22,
   "alineacion": "forma",
   "tagnt": "John.5.18#23",
+  "ref_estandar": "John.5.18",
   "morfologia_tagnt": "A-ASM",
   "dstrong": "G2470",
   "strong_tagnt": "G2470",
@@ -316,13 +339,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "equal",
-  "ref_estandar": "John.5.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.19",
+  "pos_tisch": 15,
   "strong": "G5207",
   "forma": "υἱὸς",
+  "lema": "υἱός",
   "glosa_interlineal": "Hijo",
   "rango_semantico": [
    "hijo"
@@ -330,7 +357,7 @@
   "construccion": "Nominativo: «el Hijo no puede hacer nada por sí mismo».",
   "sentido_en_contexto": "Jesús responde a la acusación: no se hace independiente de Dios, sino que depende por completo del Padre. «Hacer lo que ve hacer al Padre» expresa unidad de obra y no inferioridad.",
   "matiz": "Se discute el sentido teológico: dependencia funcional del Hijo (subordinación económica) o también subordinación esencial. La tradición nicena distingue entre orden de la obra y de la naturaleza.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 5:30 — «no puedo yo hacer nada por mí mismo»",
@@ -338,10 +365,9 @@
    "Jn 8:28"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 15,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.5.19#15",
+  "ref_estandar": "John.5.19",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G5207",
   "strong_tagnt": "G5207",
@@ -357,13 +383,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "son",
-  "ref_estandar": "John.5.19"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.19",
+  "pos_tisch": 35,
   "strong": "G5207",
   "forma": "υἱὸς",
+  "lema": "υἱός",
   "glosa_interlineal": "Hijo",
   "rango_semantico": [
    "hijo"
@@ -371,7 +402,7 @@
   "construccion": "Nominativo: «el Hijo no puede hacer nada por sí mismo».",
   "sentido_en_contexto": "Jesús responde a la acusación: no se hace independiente de Dios, sino que depende por completo del Padre. «Hacer lo que ve hacer al Padre» expresa unidad de obra y no inferioridad.",
   "matiz": "Se discute el sentido teológico: dependencia funcional del Hijo (subordinación económica) o también subordinación esencial. La tradición nicena distingue entre orden de la obra y de la naturaleza.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 5:30 — «no puedo yo hacer nada por mí mismo»",
@@ -379,10 +410,9 @@
    "Jn 8:28"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 35,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.5.19#35",
+  "ref_estandar": "John.5.19",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G5207",
   "strong_tagnt": "G5207",
@@ -398,13 +428,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "son",
-  "ref_estandar": "John.5.19"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.21",
+  "pos_tisch": 9,
   "strong": "G2227",
   "forma": "ζῳοποιεῖ",
+  "lema": "ζωοποιέω",
   "glosa_interlineal": "da vida",
   "rango_semantico": [
    "hacer vivir, vivificar"
@@ -412,7 +447,7 @@
   "construccion": "Presente indicativo activo: «así también el Hijo a los que quiere da vida».",
   "sentido_en_contexto": "Dar vida a los muertos es prerrogativa divina. Jesús afirma compartirla: el Hijo vivifica a quienes quiere.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 32:39 — «yo hago morir y yo hago vivir»",
@@ -421,10 +456,9 @@
    "1 Co 15:45 — «espíritu que da vida»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.5.21#09",
+  "ref_estandar": "John.5.21",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G2227",
   "strong_tagnt": "G2227",
@@ -440,13 +474,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to make alive",
-  "ref_estandar": "John.5.21"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.21",
+  "pos_tisch": 16,
   "strong": "G2227",
   "forma": "ζῳοποιεῖ",
+  "lema": "ζωοποιέω",
   "glosa_interlineal": "da vida",
   "rango_semantico": [
    "hacer vivir, vivificar"
@@ -454,7 +493,7 @@
   "construccion": "Presente indicativo activo: «así también el Hijo a los que quiere da vida».",
   "sentido_en_contexto": "Dar vida a los muertos es prerrogativa divina. Jesús afirma compartirla: el Hijo vivifica a quienes quiere.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 32:39 — «yo hago morir y yo hago vivir»",
@@ -463,10 +502,9 @@
    "1 Co 15:45 — «espíritu que da vida»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.5.21#16",
+  "ref_estandar": "John.5.21",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G2227",
   "strong_tagnt": "G2227",
@@ -482,13 +520,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to make alive",
-  "ref_estandar": "John.5.21"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.22",
+  "pos_tisch": 5,
   "strong": "G2919",
   "forma": "κρίνει",
+  "lema": "κρίνω",
   "glosa_interlineal": "juzga",
   "rango_semantico": [
    "juzgar"
@@ -496,7 +539,7 @@
   "construccion": "Presente indicativo activo: «el Padre a nadie juzga, sino que todo el juicio dio al Hijo».",
   "sentido_en_contexto": "El juicio escatológico, prerrogativa de Dios, se delega en el Hijo, para que todos le honren como al Padre. Se une a «Hijo del Hombre» (v.27, Dn 7).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 17:31 — «juzgará al mundo… por aquel varón»",
@@ -504,9 +547,9 @@
    "Dn 7:13-14"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "John.5.22#05",
+  "ref_estandar": "John.5.22",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G2919",
   "strong_tagnt": "G2919",
@@ -522,13 +565,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to judge",
-  "ref_estandar": "John.5.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.24",
+  "pos_tisch": 25,
   "strong": "G3327",
   "forma": "μεταβέβηκεν",
+  "lema": "μεταβαίνω",
   "glosa_interlineal": "ha pasado",
   "rango_semantico": [
    "pasar de un lugar a otro, trasladarse"
@@ -536,7 +583,7 @@
   "construccion": "Perfecto indicativo activo: «ha pasado de muerte a vida».",
   "sentido_en_contexto": "El creyente ya ha pasado de muerte a vida: la vida eterna comienza ahora (escatología realizada) y no pasará por juicio condenatorio. Es una de las expresiones más fuertes de seguridad en el NT.",
   "matiz": "Se discute la relación entre la escatología presente (vv.24-25) y la futura (vv.28-29): Juan los combina, afirmando que la vida ya empezó y la resurrección corporal vendrá.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Jn 3:14 — «hemos pasado de muerte a vida»",
@@ -544,9 +591,9 @@
    "Col 1:13 — «nos trasladó al reino de su amado Hijo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 25,
   "alineacion": "forma",
   "tagnt": "John.5.24#25",
+  "ref_estandar": "John.5.24",
   "morfologia_tagnt": "V-RAI-3S",
   "dstrong": "G3327",
   "strong_tagnt": "G3327",
@@ -562,13 +609,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to depart",
-  "ref_estandar": "John.5.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.25",
+  "pos_tisch": 13,
   "strong": "G3498",
   "forma": "νεκροὶ",
+  "lema": "νεκρός",
   "glosa_interlineal": "muertos",
   "rango_semantico": [
    "muerto"
@@ -576,17 +627,13 @@
   "construccion": "Nominativo plural: «los muertos oirán la voz del Hijo de Dios».",
   "sentido_en_contexto": "Se refiere a los espiritualmente muertos que oyen y viven (presente: «ahora es»), y por contraste con el v.28 («todos los que están en los sepulcros»), a la resurrección corporal futura.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Ef 2:1 — «muertos en vuestros delitos»",
-   "Jn 11:43-44 — Lázaro oye la voz",
-   "Ap 3:1"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Ef 2:1 — «muertos en vuestros delitos»\nJn 11:43-44 — Lázaro oye la voz\nAp 3:1",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "John.5.25#13",
+  "ref_estandar": "John.5.25",
   "morfologia_tagnt": "A-NPM",
   "dstrong": "G3498",
   "strong_tagnt": "G3498",
@@ -602,13 +649,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dead",
-  "ref_estandar": "John.5.25"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.27",
+  "pos_tisch": 9,
   "strong": "G444",
   "forma": "ἀνθρώπου",
+  "lema": "ἄνθρωπος",
   "glosa_interlineal": "del hombre",
   "rango_semantico": [
    "hombre, ser humano"
@@ -616,7 +667,7 @@
   "construccion": "Sin artículo: «por cuanto es Hijo de Hombre».",
   "sentido_en_contexto": "La falta de artículo ante υἱὸς ἀνθρώπου es casi única. Se interpreta como «porque es Hijo de Hombre» (alusión a Dn 7:13-14) o «porque es humano» (el juez conoce la condición humana). La primera es la más aceptada.",
   "matiz": "Lectura (a): título mesiánico de Dn 7; (b): «porque es un ser humano», juez solidario con los hombres. Muchos aceptan (a), con matiz de (b).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dn 7:13-14 — texto base",
@@ -624,9 +675,9 @@
    "Heb 4:15 — compadecido de nuestras debilidades"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "John.5.27#10",
+  "ref_estandar": "John.5.27",
   "morfologia_tagnt": "N-GSM-T",
   "dstrong": "G0444",
   "strong_tagnt": "G444",
@@ -642,13 +693,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "a human",
-  "ref_estandar": "John.5.27"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.28",
+  "pos_tisch": 13,
   "strong": "G3419",
   "forma": "μνημείοις",
+  "lema": "μνημεῖον",
   "glosa_interlineal": "sepulcros",
   "rango_semantico": [
    "tumba, sepulcro"
@@ -656,7 +711,7 @@
   "construccion": "Dativo plural: «todos los que están en los sepulcros».",
   "sentido_en_contexto": "Resurrección corporal futura de todos, justos e injustos. Aquí Juan complementa la «resurrección presente» de los vv.24-25.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dn 12:2 — «unos para vida eterna, otros para vergüenza»",
@@ -664,9 +719,9 @@
    "Ap 20:12-15"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "John.5.28#13",
+  "ref_estandar": "John.5.28",
   "morfologia_tagnt": "N-DPN",
   "dstrong": "G3419",
   "strong_tagnt": "G3419",
@@ -682,13 +737,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "grave",
-  "ref_estandar": "John.5.28"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.29",
+  "pos_tisch": 8,
   "strong": "G386",
   "forma": "ἀνάστασιν",
+  "lema": "ἀνάστασις",
   "glosa_interlineal": "resurrección",
   "rango_semantico": [
    "resurrección, levantamiento"
@@ -696,7 +755,7 @@
   "construccion": "Acusativo: «resurrección de vida… resurrección de condenación».",
   "sentido_en_contexto": "Doble destino: los que hicieron el bien, resurrección de vida; los que obraron mal, resurrección de juicio. Se discute cómo concilia esto con la salvación por la fe.",
   "matiz": "Tensión aparente con la justificación por fe: las obras se entienden como evidencia de la fe (Jn 3:21; Stg 2:14-26) y no como mérito. Las tradiciones lo explican de formas diversas.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dn 12:2",
@@ -705,10 +764,9 @@
    "Ef 2:8-10"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 8,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.5.29#08",
+  "ref_estandar": "John.5.29",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G0386",
   "strong_tagnt": "G386",
@@ -724,13 +782,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "resurrection",
-  "ref_estandar": "John.5.29"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.29",
+  "pos_tisch": 15,
   "strong": "G386",
   "forma": "ἀνάστασιν",
+  "lema": "ἀνάστασις",
   "glosa_interlineal": "resurrección",
   "rango_semantico": [
    "resurrección, levantamiento"
@@ -738,7 +801,7 @@
   "construccion": "Acusativo: «resurrección de vida… resurrección de condenación».",
   "sentido_en_contexto": "Doble destino: los que hicieron el bien, resurrección de vida; los que obraron mal, resurrección de juicio. Se discute cómo concilia esto con la salvación por la fe.",
   "matiz": "Tensión aparente con la justificación por fe: las obras se entienden como evidencia de la fe (Jn 3:21; Stg 2:14-26) y no como mérito. Las tradiciones lo explican de formas diversas.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dn 12:2",
@@ -747,10 +810,9 @@
    "Ef 2:8-10"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 15,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.5.29#16",
+  "ref_estandar": "John.5.29",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G0386",
   "strong_tagnt": "G386",
@@ -766,13 +828,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "resurrection",
-  "ref_estandar": "John.5.29"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.30",
+  "pos_tisch": 22,
   "strong": "G2307",
   "forma": "θέλημα",
+  "lema": "θέλημα",
   "glosa_interlineal": "voluntad",
   "rango_semantico": [
    "voluntad, deseo"
@@ -780,7 +847,7 @@
   "construccion": "Acusativo: «no busco mi voluntad, sino la del que me envió».",
   "sentido_en_contexto": "Resume la actitud de Jesús: su juicio es justo porque no actúa por voluntad propia aislada, sino en total obediencia al Padre.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 4:34 — «mi comida es hacer la voluntad del que me envió»",
@@ -788,10 +855,9 @@
    "Mt 26:39 — «no como yo quiero, sino como tú»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 22,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.5.30#22",
+  "ref_estandar": "John.5.30",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G2307",
   "strong_tagnt": "G2307",
@@ -807,13 +873,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "will/desire",
-  "ref_estandar": "John.5.30"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.30",
+  "pos_tisch": 27,
   "strong": "G2307",
   "forma": "θέλημα",
+  "lema": "θέλημα",
   "glosa_interlineal": "voluntad",
   "rango_semantico": [
    "voluntad, deseo"
@@ -821,7 +892,7 @@
   "construccion": "Acusativo: «no busco mi voluntad, sino la del que me envió».",
   "sentido_en_contexto": "Resume la actitud de Jesús: su juicio es justo porque no actúa por voluntad propia aislada, sino en total obediencia al Padre.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 4:34 — «mi comida es hacer la voluntad del que me envió»",
@@ -829,10 +900,9 @@
    "Mt 26:39 — «no como yo quiero, sino como tú»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 27,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.5.30#27",
+  "ref_estandar": "John.5.30",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G2307",
   "strong_tagnt": "G2307",
@@ -848,13 +918,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "will/desire",
-  "ref_estandar": "John.5.30"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.31",
+  "pos_tisch": 3,
   "strong": "G3140",
   "forma": "μαρτυρῶ",
+  "lema": "μαρτυρέω",
   "glosa_interlineal": "testifico",
   "rango_semantico": [
    "dar testimonio, testificar"
@@ -862,7 +937,7 @@
   "construccion": "Presente subjuntivo: «si yo doy testimonio de mí mismo, mi testimonio no es verdadero».",
   "sentido_en_contexto": "Según la ley, se requerían dos o tres testigos (Dt 19:15). Jesús reconoce la norma y ofrece varios testigos: Juan, sus obras, el Padre, las Escrituras, Moisés.",
   "matiz": "Aparente contradicción con Jn 8:14 («aunque yo doy testimonio de mí mismo, mi testimonio es verdadero»). Se explica por el contexto: aquí «no verdadero» es «no válido legalmente»; en 8:14 afirma la verdad de su testimonio por su origen divino.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 19:15 — «por el testimonio de dos o tres testigos»",
@@ -870,9 +945,9 @@
    "1 Jn 5:9-10"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "John.5.31#03",
+  "ref_estandar": "John.5.31",
   "morfologia_tagnt": "V-PAS-1S",
   "dstrong": "G3140",
   "strong_tagnt": "G3140",
@@ -888,13 +963,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to testify",
-  "ref_estandar": "John.5.31"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.35",
+  "pos_tisch": 4,
   "strong": "G3088",
   "forma": "λύχνος",
+  "lema": "λύχνος",
   "glosa_interlineal": "lámpara",
   "rango_semantico": [
    "lámpara, antorcha"
@@ -902,7 +981,7 @@
   "construccion": "Nominativo: «él era antorcha que ardía y alumbraba».",
   "sentido_en_contexto": "Juan el Bautista es una lámpara encendida: no la luz (1:8), sino quien la señala. Los oyentes se regocijaron «por un tiempo» con su luz, pero no la siguieron.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 1:8 — «no era él la luz»",
@@ -910,9 +989,9 @@
    "Sir 48:1 — Elías como fuego"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "John.5.35#04",
+  "ref_estandar": "John.5.35",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G3088",
   "strong_tagnt": "G3088",
@@ -928,13 +1007,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lamp",
-  "ref_estandar": "John.5.35"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.36",
+  "pos_tisch": 11,
   "strong": "G2041",
   "forma": "ἔργα",
+  "lema": "ἔργον",
   "glosa_interlineal": "obras",
   "rango_semantico": [
    "obra, acción"
@@ -942,7 +1025,7 @@
   "construccion": "Nominativo plural: «las obras que el Padre me dio».",
   "sentido_en_contexto": "Segundo testimonio, mayor que el de Juan: las obras de Jesús, que el Padre le ha encargado terminar. Son «signos» que revelan su origen.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 10:25, 37-38 — «si no hago las obras de mi Padre»",
@@ -950,10 +1033,9 @@
    "Jn 17:4 — «he acabado la obra»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.5.36#11",
+  "ref_estandar": "John.5.36",
   "morfologia_tagnt": "N-NPN",
   "dstrong": "G2041",
   "strong_tagnt": "G2041",
@@ -969,13 +1051,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "work",
-  "ref_estandar": "John.5.36"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.36",
+  "pos_tisch": 22,
   "strong": "G2041",
   "forma": "ἔργα",
+  "lema": "ἔργον",
   "glosa_interlineal": "obras",
   "rango_semantico": [
    "obra, acción"
@@ -983,7 +1070,7 @@
   "construccion": "Nominativo plural: «las obras que el Padre me dio».",
   "sentido_en_contexto": "Segundo testimonio, mayor que el de Juan: las obras de Jesús, que el Padre le ha encargado terminar. Son «signos» que revelan su origen.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 10:25, 37-38 — «si no hago las obras de mi Padre»",
@@ -991,10 +1078,9 @@
    "Jn 17:4 — «he acabado la obra»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 22,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.5.36#22",
+  "ref_estandar": "John.5.36",
   "morfologia_tagnt": "N-NPN",
   "dstrong": "G2041",
   "strong_tagnt": "G2041",
@@ -1010,13 +1096,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "work",
-  "ref_estandar": "John.5.36"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.39",
+  "pos_tisch": 1,
   "strong": "G2045",
   "forma": "ἐραυνᾶτε",
+  "lema": "ἐρευνάω",
   "glosa_interlineal": "escudriñáis",
   "rango_semantico": [
    "escudriñar, investigar"
@@ -1024,7 +1115,7 @@
   "construccion": "Presente (indicativo o imperativo): «escudriñáis las Escrituras».",
   "sentido_en_contexto": "El verbo puede ser indicativo («escudriñáis», lectura preferida) o imperativo («escudriñad»). Los líderes estudian las Escrituras creyendo hallar en ellas vida, pero esas mismas Escrituras dan testimonio de Jesús.",
   "matiz": "Indicativo («vosotros escudriñáis», constatación; la preferida por el contexto de reproche) o imperativo («escudriñad», exhortación). El griego es idéntico; el contexto decide.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": "RVR60 lee el imperativo («escudriñad»); muchas versiones modernas prefieren el indicativo.",
   "otros_usos": [
    "Lc 24:27, 44 — las Escrituras hablan de Cristo",
@@ -1032,9 +1123,9 @@
    "1 P 1:10-11"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "John.5.39#01",
+  "ref_estandar": "John.5.39",
   "morfologia_tagnt": "V-PAI-2P",
   "dstrong": "G2045",
   "strong_tagnt": "G2045",
@@ -1050,13 +1141,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to look for/into",
-  "ref_estandar": "John.5.39"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.42",
+  "pos_tisch": 8,
   "strong": "G26",
   "forma": "ἀγάπην",
+  "lema": "ἀγάπη",
   "glosa_interlineal": "amor",
   "rango_semantico": [
    "amor"
@@ -1064,7 +1159,7 @@
   "construccion": "Acusativo: «no tenéis amor de Dios en vosotros».",
   "sentido_en_contexto": "Reproche de Jesús: conocen las Escrituras pero carecen del amor de Dios; por eso no reciben al enviado. Genitivo ambiguo: amor a Dios (subjetivo u objetivo).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 6:5 — «amarás a Jehová tu Dios»",
@@ -1072,9 +1167,9 @@
    "1 Jn 4:20"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "John.5.42#06",
+  "ref_estandar": "John.5.42",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G0026",
   "strong_tagnt": "G26",
@@ -1090,13 +1185,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "love",
-  "ref_estandar": "John.5.42"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.44",
+  "pos_tisch": 5,
   "strong": "G1391",
   "forma": "δόξαν",
+  "lema": "δόξα",
   "glosa_interlineal": "gloria",
   "rango_semantico": [
    "gloria, honra, reputación"
@@ -1104,7 +1203,7 @@
   "construccion": "Acusativo: «recibís gloria unos de otros».",
   "sentido_en_contexto": "Jesús explica la incredulidad: buscan prestigio humano y no la gloria que viene del único Dios. Obstáculo moral para creer.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 12:42-43 — «amaron más la gloria de los hombres»",
@@ -1112,10 +1211,9 @@
    "Ro 2:29 — «cuya alabanza no viene de los hombres, sino de Dios»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.5.44#05",
+  "ref_estandar": "John.5.44",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G1391",
   "strong_tagnt": "G1391",
@@ -1131,13 +1229,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "glory",
-  "ref_estandar": "John.5.44"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.44",
+  "pos_tisch": 11,
   "strong": "G1391",
   "forma": "δόξαν",
+  "lema": "δόξα",
   "glosa_interlineal": "gloria",
   "rango_semantico": [
    "gloria, honra, reputación"
@@ -1145,7 +1248,7 @@
   "construccion": "Acusativo: «recibís gloria unos de otros».",
   "sentido_en_contexto": "Jesús explica la incredulidad: buscan prestigio humano y no la gloria que viene del único Dios. Obstáculo moral para creer.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 12:42-43 — «amaron más la gloria de los hombres»",
@@ -1153,10 +1256,9 @@
    "Ro 2:29 — «cuya alabanza no viene de los hombres, sino de Dios»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.5.44#11",
+  "ref_estandar": "John.5.44",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G1391",
   "strong_tagnt": "G1391",
@@ -1172,13 +1274,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "glory",
-  "ref_estandar": "John.5.44"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.5.46",
+  "pos_tisch": 4,
   "strong": "G3475",
   "forma": "Μωϋσεῖ",
+  "lema": "Μωσεύς",
   "glosa_interlineal": "Moisés",
   "rango_semantico": [
    "Moisés"
@@ -1186,7 +1293,7 @@
   "construccion": "Dativo: «si creyeseis a Moisés, me creeríais a mí».",
   "sentido_en_contexto": "Jesús dice que Moisés (la Torá) escribió de él. Probable alusión a Dt 18:15-18 y otros textos. El mismo Moisés en quien esperan será su acusador.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 18:15, 18 — «profeta… como yo»",
@@ -1195,9 +1302,9 @@
    "Gn 3:15; Nm 21:9"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "John.5.46#04",
+  "ref_estandar": "John.5.46",
   "morfologia_tagnt": "N-DSM-P",
   "dstrong": "G3475",
   "strong_tagnt": "G3475",
@@ -1213,7 +1320,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Moses",
-  "ref_estandar": "John.5.46"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

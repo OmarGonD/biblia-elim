@@ -1,8 +1,10 @@
 [
  {
   "ref": "Matt.12.1",
+  "pos_tisch": 9,
   "strong": "G4521",
   "forma": "σάββασιν",
+  "lema": "σάββατον",
   "glosa_interlineal": "sábado",
   "rango_semantico": [
    "sábado (día de reposo)",
@@ -11,7 +13,7 @@
   "construccion": "ἐν/τοῖς σάββασιν (dativo plural con forma plural, pero sentido singular): «en sábado».",
   "sentido_en_contexto": "El plural es una peculiaridad del griego (reflejo del arameo shabbata): se refiere a un solo día, el sábado.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 2:23 — paralelo",
@@ -19,9 +21,9 @@
    "Dt 23:25 — permiso de arrancar espigas"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Matt.12.1#09",
+  "ref_estandar": "Matt.12.1",
   "morfologia_tagnt": "N-DPN",
   "dstrong": "G4521",
   "strong_tagnt": "G4521",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Sabbath",
-  "ref_estandar": "Matt.12.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.2",
+  "pos_tisch": 14,
   "strong": "G1832",
   "forma": "ἔξεστιν",
+  "lema": "ἔξεστι",
   "glosa_interlineal": "es lícito",
   "rango_semantico": [
    "ser permitido, ser lícito",
@@ -52,7 +58,7 @@
   "construccion": "Presente impersonal: «no está permitido». Aparece en 12:2, 4, 10, 12.",
   "sentido_en_contexto": "Palabra central del debate: ¿qué está permitido en sábado? Los fariseos entienden que arrancar espigas es «trabajo»; Jesús responde con ejemplos de la Escritura.",
   "matiz": "El pasaje gira en torno a la interpretación de la Ley, no a su validez: Jesús no la abole, sino que la interpreta con autoridad propia (v.8).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 12:10 — «¿es lícito sanar en el día de reposo?»",
@@ -60,9 +66,9 @@
    "Mt 19:3 — «¿es lícito al hombre repudiar a su mujer?»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Matt.12.2#14",
+  "ref_estandar": "Matt.12.2",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G1832",
   "strong_tagnt": "G1832",
@@ -78,13 +84,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "it is permitted",
-  "ref_estandar": "Matt.12.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.4",
+  "pos_tisch": 12,
   "strong": "G4286",
   "forma": "προθέσεως",
+  "lema": "πρόθεσις",
   "glosa_interlineal": "de la presencia",
   "rango_semantico": [
    "exposición, presentación",
@@ -93,7 +103,7 @@
   "construccion": "Genitivo: «los panes de la presentación».",
   "sentido_en_contexto": "Doce panes que se colocaban cada sábado en el santuario y que solo los sacerdotes podían comer (Lv 24:5-9). David los comió en necesidad (1 S 21:1-6).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 S 21:1-6 — David come los panes",
@@ -101,9 +111,9 @@
    "Mr 2:26 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Matt.12.4#12",
+  "ref_estandar": "Matt.12.4",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G4286",
   "strong_tagnt": "G4286",
@@ -119,13 +129,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "purpose",
-  "ref_estandar": "Matt.12.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.6",
+  "pos_tisch": 7,
   "strong": "G3173",
   "forma": "μεῖζόν",
+  "lema": "μέγας",
   "glosa_interlineal": "mayor",
   "rango_semantico": [
    "grande, mayor"
@@ -133,7 +147,7 @@
   "construccion": "Comparativo neutro: «algo mayor que el templo está aquí».",
   "sentido_en_contexto": "Afirmación implícita sobre sí mismo: «algo» (neutro) mayor que el templo. Jesús se coloca por encima de la institución más sagrada de Israel.",
   "matiz": "El neutro es notable: «algo mayor», no «alguien». Algunos lo toman como referencia al Reino de Dios presente en Jesús; otros a Jesús mismo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": "RVR: «uno mayor» (masculino); el griego dice «algo mayor» (neutro): μεῖζον, que otras versiones respetan.",
   "otros_usos": [
    "Mt 12:41 — «más que Jonás»",
@@ -141,9 +155,9 @@
    "Mt 26:61 — «puedo destruir el templo de Dios»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Matt.12.6#07",
+  "ref_estandar": "Matt.12.6",
   "morfologia_tagnt": "A-NSN-C",
   "dstrong": "G3173",
   "strong_tagnt": "G3173",
@@ -160,13 +174,17 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "great",
-  "ref_estandar": "Matt.12.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.7",
+  "pos_tisch": 6,
   "strong": "G1656",
   "forma": "ἔλεος",
+  "lema": "ἔλεος",
   "glosa_interlineal": "misericordia",
   "rango_semantico": [
    "misericordia, compasión"
@@ -174,7 +192,7 @@
   "construccion": "Acusativo: «misericordia quiero». Segunda cita de Os 6:6 (la primera en Mt 9:13).",
   "sentido_en_contexto": "Los fariseos priorizan reglas; Jesús, la misericordia. La cita sostiene que condenar a los discípulos hambrientos es no haber entendido a Dios.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 9:13 — primera cita de Os 6:6",
@@ -182,9 +200,9 @@
    "Mi 6:8 — «hacer justicia, amar misericordia»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Matt.12.7#06",
+  "ref_estandar": "Matt.12.7",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G1656",
   "strong_tagnt": "G1656",
@@ -201,13 +219,17 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "mercy",
-  "ref_estandar": "Matt.12.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.8",
+  "pos_tisch": 1,
   "strong": "G2962",
   "forma": "κύριος",
+  "lema": "κύριος",
   "glosa_interlineal": "Señor",
   "rango_semantico": [
    "amo, señor",
@@ -217,7 +239,7 @@
   "construccion": "Nominativo, predicado: «Señor del sábado».",
   "sentido_en_contexto": "El Hijo del Hombre es Señor del sábado: tiene autoridad sobre el día santo. Es una de las afirmaciones más fuertes de Jesús sobre sí mismo.",
   "matiz": "Marcos añade «el sábado fue hecho por causa del hombre» (2:27). Mateo omite esta frase y subraya solo la autoridad de Jesús.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 2:27-28 — paralelo ampliado",
@@ -225,9 +247,9 @@
    "Jn 5:17 — «mi Padre hasta ahora trabaja, y yo trabajo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "Matt.12.8#01",
+  "ref_estandar": "Matt.12.8",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G2962H",
   "strong_tagnt": "G2962",
@@ -243,13 +265,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lord",
-  "ref_estandar": "Matt.12.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.10",
+  "pos_tisch": 6,
   "strong": "G3584",
   "forma": "ξηράν",
+  "lema": "ξηρός",
   "glosa_interlineal": "seca",
   "rango_semantico": [
    "seco",
@@ -258,7 +284,7 @@
   "construccion": "Adjetivo acusativo, con χεῖρα: «una mano seca».",
   "sentido_en_contexto": "Probablemente parálisis o atrofia de la mano. No es una urgencia de vida o muerte, lo que explica la pregunta de los fariseos: ¿no podía esperar al día siguiente?",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 3:1 — paralelo",
@@ -266,9 +292,9 @@
    "1 R 13:4 — mano de Jeroboam que se seca"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Matt.12.10#08",
+  "ref_estandar": "Matt.12.10",
   "morfologia_tagnt": "A-ASF",
   "dstrong": "G3584",
   "strong_tagnt": "G3584",
@@ -284,13 +310,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dried up/withered",
-  "ref_estandar": "Matt.12.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.11",
+  "pos_tisch": 21,
   "strong": "G999",
   "forma": "βόθυνον",
+  "lema": "βόθυνος",
   "glosa_interlineal": "hoyo",
   "rango_semantico": [
    "foso, pozo, zanja"
@@ -298,16 +328,16 @@
   "construccion": "εἰς + acusativo: «en un hoyo».",
   "sentido_en_contexto": "Ejemplo de la vida cotidiana: ayudar a un animal en sábado es aceptado. Jesús argumenta «de menor a mayor»: ¿cuánto más a una persona?",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 14:5 — «¿quién de vosotros, si su asno o su buey cae en un pozo…?»",
    "Mt 12:12 — «¡cuánto más vale un hombre que una oveja!»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 21,
   "alineacion": "forma",
   "tagnt": "Matt.12.11#21",
+  "ref_estandar": "Matt.12.11",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G0999",
   "strong_tagnt": "G999",
@@ -323,13 +353,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "pit",
-  "ref_estandar": "Matt.12.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.14",
+  "pos_tisch": 5,
   "strong": "G4824",
   "forma": "συμβούλιον",
+  "lema": "συμβούλιον",
   "glosa_interlineal": "consejo",
   "rango_semantico": [
    "deliberación, consejo",
@@ -338,16 +372,16 @@
   "construccion": "Acusativo: «tomaron consejo» (decisión conjunta).",
   "sentido_en_contexto": "Primera conspiración contra Jesús en Mateo: «para destruirle». Marca un punto de inflexión.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 22:15 — «consultaron cómo sorprenderle»",
    "Mt 27:1 — «tomaron consejo contra Jesús para entregarle a muerte»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Matt.12.14#05",
+  "ref_estandar": "Matt.12.14",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G4824",
   "strong_tagnt": "G4824",
@@ -363,13 +397,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "counsel/council",
-  "ref_estandar": "Matt.12.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.18",
+  "pos_tisch": 3,
   "strong": "G3816",
   "forma": "παῖς",
+  "lema": "παῖς",
   "glosa_interlineal": "siervo",
   "rango_semantico": [
    "niño",
@@ -379,7 +417,7 @@
   "construccion": "Nominativo: «mi siervo». Cita de Is 42:1-4 (Siervo de Dios).",
   "sentido_en_contexto": "Mateo presenta a Jesús como el Siervo del Señor de Isaías: elegido, amado, lleno del Espíritu, y manso en su manera de actuar. Explica por qué Jesús se retira y evita publicidad (v.16).",
   "matiz": "Mateo cita una versión del texto de Isaías distinta de la LXX y del hebreo; probablemente sea una traducción propia o adaptada.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 42:1-4 — texto citado",
@@ -387,9 +425,9 @@
    "Hch 3:13 — «su siervo Jesús»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Matt.12.18#03",
+  "ref_estandar": "Matt.12.18",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G3816",
   "strong_tagnt": "G3816",
@@ -405,13 +443,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "child",
-  "ref_estandar": "Matt.12.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.20",
+  "pos_tisch": 1,
   "strong": "G2563",
   "forma": "κάλαμον",
+  "lema": "κάλαμος",
   "glosa_interlineal": "caña",
   "rango_semantico": [
    "caña, junco"
@@ -419,16 +461,16 @@
   "construccion": "Acusativo: «una caña cascada no la quebrará».",
   "sentido_en_contexto": "Imagen de ternura: el Siervo no aplasta al débil ni apaga al que casi se extingue. Contrasta con el trato duro de los fariseos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 42:3 — texto citado",
    "Mt 11:7 — «una caña sacudida por el viento»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "Matt.12.20#01",
+  "ref_estandar": "Matt.12.20",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G2563",
   "strong_tagnt": "G2563",
@@ -444,13 +486,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "reed/stick/pen",
-  "ref_estandar": "Matt.12.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.23",
+  "pos_tisch": 2,
   "strong": "G1839",
   "forma": "ἐξίσταντο",
+  "lema": "ἐξίστημι",
   "glosa_interlineal": "estaban asombrados",
   "rango_semantico": [
    "quedar fuera de sí, asombrarse",
@@ -459,7 +505,7 @@
   "construccion": "Imperfecto indicativo medio, 3ª plural: «estaban fuera de sí».",
   "sentido_en_contexto": "La multitud, ante la sanación, pregunta: «¿será este el Hijo de David?» El μήτι espera una respuesta dudosa o negativa, como si apenas se atrevieran.",
   "matiz": "La partícula μήτι indica una pregunta que espera «no»; pero aquí expresa asombro e inquietud más que negación segura.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 9:27 — los ciegos lo llaman Hijo de David",
@@ -467,9 +513,9 @@
    "Mr 2:12 — «todos se asombraron»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Matt.12.23#02",
+  "ref_estandar": "Matt.12.23",
   "morfologia_tagnt": "V-IMI-3P",
   "dstrong": "G1839",
   "strong_tagnt": "G1839",
@@ -485,13 +531,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to amaze",
-  "ref_estandar": "Matt.12.23"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.24",
+  "pos_tisch": 15,
   "strong": "G954",
   "forma": "Βεελζεβοὺλ",
+  "lema": "Βεελζεβούλ",
   "glosa_interlineal": "Beelzebul",
   "rango_semantico": [
    "Beelzebul (príncipe de los demonios)"
@@ -499,7 +549,7 @@
   "construccion": "ἐν + dativo: «por Beelzebul».",
   "sentido_en_contexto": "Acusación de los fariseos: Jesús expulsa demonios con el poder del jefe de los demonios. Es el momento de mayor rechazo oficial.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 10:25 — «si al padre de familia llamaron Beelzebú»",
@@ -507,9 +557,9 @@
    "Mr 3:22 — «por el príncipe de los demonios echa fuera los demonios»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Matt.12.24#15",
+  "ref_estandar": "Matt.12.24",
   "morfologia_tagnt": "N-DSM-T",
   "dstrong": "G0954",
   "strong_tagnt": "G954",
@@ -525,13 +575,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Beelzebub",
-  "ref_estandar": "Matt.12.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.25",
+  "pos_tisch": 10,
   "strong": "G3307",
   "forma": "μερισθεῖσα",
+  "lema": "μερίζω",
   "glosa_interlineal": "dividido",
   "rango_semantico": [
    "dividir, repartir"
@@ -539,17 +593,16 @@
   "construccion": "Participio aoristo pasivo: «dividido contra sí mismo».",
   "sentido_en_contexto": "Jesús responde con lógica: un reino dividido no puede mantenerse. Si Satanás expulsa a Satanás, su reino se acaba.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 3:24 — paralelo",
    "Lc 11:17 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.12.25#12",
+  "ref_estandar": "Matt.12.25",
   "morfologia_tagnt": "V-APP-NSF",
   "dstrong": "G3307",
   "strong_tagnt": "G3307",
@@ -565,13 +618,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to divide",
-  "ref_estandar": "Matt.12.25"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.25",
+  "pos_tisch": 19,
   "strong": "G3307",
   "forma": "μερισθεῖσα",
+  "lema": "μερίζω",
   "glosa_interlineal": "dividido",
   "rango_semantico": [
    "dividir, repartir"
@@ -579,17 +637,16 @@
   "construccion": "Participio aoristo pasivo: «dividido contra sí mismo».",
   "sentido_en_contexto": "Jesús responde con lógica: un reino dividido no puede mantenerse. Si Satanás expulsa a Satanás, su reino se acaba.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 3:24 — paralelo",
    "Lc 11:17 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 19,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.12.25#21",
+  "ref_estandar": "Matt.12.25",
   "morfologia_tagnt": "V-APP-NSF",
   "dstrong": "G3307",
   "strong_tagnt": "G3307",
@@ -605,13 +662,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to divide",
-  "ref_estandar": "Matt.12.25"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.28",
+  "pos_tisch": 11,
   "strong": "G5348",
   "forma": "ἔφθασεν",
+  "lema": "φθάνω",
   "glosa_interlineal": "ha llegado",
   "rango_semantico": [
    "llegar, alcanzar",
@@ -620,7 +682,7 @@
   "construccion": "Aoristo indicativo activo, 3ª singular: «ha llegado / os ha alcanzado».",
   "sentido_en_contexto": "Texto clave sobre el Reino: «si por el Espíritu de Dios echo fuera los demonios, entonces el reino de Dios ha llegado a vosotros». Aquí el Reino ya está presente en la obra de Jesús.",
   "matiz": "El verbo φθάνω puede significar «llegar» o «adelantarse»; aquí «ha llegado» es el sentido natural. Contrasta con Mt 3:2 y 4:17 («se ha acercado»): ahora «ha llegado».",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 11:20 — «si por el dedo de Dios echo yo fuera los demonios»",
@@ -628,9 +690,9 @@
    "Ro 9:31 — «Israel… no alcanzó la ley de justicia»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Matt.12.28#11",
+  "ref_estandar": "Matt.12.28",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G5348",
   "strong_tagnt": "G5348",
@@ -646,13 +708,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to precede/arrive",
-  "ref_estandar": "Matt.12.28"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.29",
+  "pos_tisch": 10,
   "strong": "G2478",
   "forma": "ἰσχυροῦ",
+  "lema": "ἰσχυρός",
   "glosa_interlineal": "fuerte",
   "rango_semantico": [
    "fuerte, poderoso"
@@ -660,7 +726,7 @@
   "construccion": "Genitivo: «la casa del hombre fuerte».",
   "sentido_en_contexto": "Parábola: nadie entra en la casa de un hombre fuerte para saquear sin atarlo antes. El «fuerte» es Satanás; Jesús es quien lo ata.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 49:24-25 — «¿quitarás la presa al fuerte?»",
@@ -668,10 +734,9 @@
    "Ap 20:2 — el diablo atado mil años"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.12.29#10",
+  "ref_estandar": "Matt.12.29",
   "morfologia_tagnt": "A-GSM",
   "dstrong": "G2478",
   "strong_tagnt": "G2478",
@@ -687,13 +752,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "strong",
-  "ref_estandar": "Matt.12.29"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.30",
+  "pos_tisch": 15,
   "strong": "G4650",
   "forma": "σκορπίζει",
+  "lema": "σκορπίζω",
   "glosa_interlineal": "dispersa",
   "rango_semantico": [
    "dispersar, esparcir"
@@ -701,7 +771,7 @@
   "construccion": "Presente indicativo activo, 3ª singular.",
   "sentido_en_contexto": "«El que no está conmigo, contra mí está»: no hay neutralidad ante Jesús. Compárese con Mr 9:40 («el que no es contra nosotros, por nosotros es»).",
   "matiz": "Las dos frases (Mateo 12:30 y Marcos 9:40) parecen opuestas pero se aplican a contextos distintos: ante el conflicto cósmico, no hay neutralidad; ante otros que hacen el bien, no hay que obstaculizar.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 9:40 — «el que no es contra nosotros, por nosotros es»",
@@ -709,9 +779,9 @@
    "Jn 11:52 — «reunir en uno los hijos de Dios que estaban dispersos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Matt.12.30#15",
+  "ref_estandar": "Matt.12.30",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G4650",
   "strong_tagnt": "G4650",
@@ -727,13 +797,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to scatter",
-  "ref_estandar": "Matt.12.30"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.31",
+  "pos_tisch": 8,
   "strong": "G988",
   "forma": "βλασφημία",
+  "lema": "βλασφημία",
   "glosa_interlineal": "blasfemia",
   "rango_semantico": [
    "injuria, difamación",
@@ -742,7 +816,7 @@
   "construccion": "Nominativo, sujeto de «será perdonada».",
   "sentido_en_contexto": "Pasaje muy discutido: toda blasfemia será perdonada, excepto la blasfemia contra el Espíritu.",
   "matiz": "Interpretaciones: (a) atribuir la obra del Espíritu a Satanás (como hicieron los fariseos en el v.24), un rechazo deliberado y persistente de la verdad reconocida; (b) apostasía final; (c) incredulidad persistente hasta la muerte. Muchos cristianos angustiados por haber cometido este pecado: en la mayoría de las lecturas, esa angustia es indicio de que no lo han cometido. No hay consenso exacto.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 3:28-30 — paralelo y contexto",
@@ -750,10 +824,9 @@
    "Heb 6:4-6 — pasaje conexo en tema (apostasía)"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 8,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.12.31#08",
+  "ref_estandar": "Matt.12.31",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G0988",
   "strong_tagnt": "G988",
@@ -769,13 +842,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "blasphemy",
-  "ref_estandar": "Matt.12.31"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.31",
+  "pos_tisch": 16,
   "strong": "G988",
   "forma": "βλασφημία",
+  "lema": "βλασφημία",
   "glosa_interlineal": "blasfemia",
   "rango_semantico": [
    "injuria, difamación",
@@ -784,7 +862,7 @@
   "construccion": "Nominativo, sujeto de «será perdonada».",
   "sentido_en_contexto": "Pasaje muy discutido: toda blasfemia será perdonada, excepto la blasfemia contra el Espíritu.",
   "matiz": "Interpretaciones: (a) atribuir la obra del Espíritu a Satanás (como hicieron los fariseos en el v.24), un rechazo deliberado y persistente de la verdad reconocida; (b) apostasía final; (c) incredulidad persistente hasta la muerte. Muchos cristianos angustiados por haber cometido este pecado: en la mayoría de las lecturas, esa angustia es indicio de que no lo han cometido. No hay consenso exacto.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 3:28-30 — paralelo y contexto",
@@ -792,10 +870,9 @@
    "Heb 6:4-6 — pasaje conexo en tema (apostasía)"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 16,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.12.31#16",
+  "ref_estandar": "Matt.12.31",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G0988",
   "strong_tagnt": "G988",
@@ -811,13 +888,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "blasphemy",
-  "ref_estandar": "Matt.12.31"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.32",
+  "pos_tisch": 29,
   "strong": "G165",
   "forma": "αἰῶνι",
+  "lema": "αἰών",
   "glosa_interlineal": "era, siglo",
   "rango_semantico": [
    "edad, era",
@@ -827,7 +909,7 @@
   "construccion": "ἐν + dativo: «en este siglo ni en el venidero».",
   "sentido_en_contexto": "Fórmula judía de las dos eras: «esta era» (presente) y «la era venidera» (la futura). La blasfemia contra el Espíritu no tiene perdón en ninguna de las dos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 1:21 — «no sólo en este siglo, sino también en el venidero»",
@@ -835,9 +917,9 @@
    "Lc 20:34-35 — «los hijos de este siglo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 29,
   "alineacion": "forma",
   "tagnt": "Matt.12.32#30",
+  "ref_estandar": "Matt.12.32",
   "morfologia_tagnt": "N-DSM",
   "dstrong": "G0165G",
   "strong_tagnt": "G165",
@@ -853,13 +935,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "an age",
-  "ref_estandar": "Matt.12.32"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.34",
+  "pos_tisch": 12,
   "strong": "G4051",
   "forma": "περισσεύματος",
+  "lema": "περίσσευμα",
   "glosa_interlineal": "abundancia",
   "rango_semantico": [
    "abundancia, desbordamiento",
@@ -868,7 +954,7 @@
   "construccion": "ἐκ + genitivo: «de lo que rebosa».",
   "sentido_en_contexto": "«De la abundancia del corazón habla la boca»: lo que dice una persona expresa lo que hay en ella. Mateo conecta palabra y carácter.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 6:45 — «de la abundancia del corazón habla la boca»",
@@ -876,9 +962,9 @@
    "Stg 3:11 — «¿acaso alguna fuente echa por una misma abertura agua dulce y amarga?»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Matt.12.34#12",
+  "ref_estandar": "Matt.12.34",
   "morfologia_tagnt": "N-GSN",
   "dstrong": "G4051",
   "strong_tagnt": "G4051",
@@ -894,13 +980,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "overflow",
-  "ref_estandar": "Matt.12.34"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.36",
+  "pos_tisch": 7,
   "strong": "G692",
   "forma": "ἀργὸν",
+  "lema": "ἀργός",
   "glosa_interlineal": "vano",
   "rango_semantico": [
    "ocioso, inútil",
@@ -909,7 +999,7 @@
   "construccion": "Adjetivo acusativo, con ῥῆμα: «palabra ociosa».",
   "sentido_en_contexto": "«De toda palabra ociosa» se dará cuenta en el juicio: cada palabra revela el corazón. Aquí «ociosa» es «sin valor, sin fruto», no necesariamente mala.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 4:29 — «ninguna palabra corrompida salga de vuestra boca»",
@@ -917,9 +1007,9 @@
    "Mt 25:26 — «siervo malo y negligente»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Matt.12.36#07",
+  "ref_estandar": "Matt.12.36",
   "morfologia_tagnt": "A-ASN",
   "dstrong": "G0692",
   "strong_tagnt": "G692",
@@ -935,13 +1025,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "idle",
-  "ref_estandar": "Matt.12.36"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.37",
+  "pos_tisch": 6,
   "strong": "G1344",
   "forma": "δικαιωθήσῃ",
+  "lema": "δικαιόω",
   "glosa_interlineal": "serás justificado",
   "rango_semantico": [
    "declarar justo, justificar",
@@ -951,7 +1045,7 @@
   "construccion": "Futuro indicativo pasivo, 2ª singular: «serás declarado justo».",
   "sentido_en_contexto": "En el juicio, las palabras sirven de evidencia: por ellas serás absuelto o condenado. Mateo usa «justificar» en sentido de «declarar justo», contrario a «condenar».",
   "matiz": "El verbo δικαιόω tiene debate teológico (declarar justo vs. hacer justo). Aquí su sentido jurídico es claro: absolver. Pablo lo desarrolla de forma distinta (Ro 3-5); la relación con Mateo es discutida.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 3:28 — «el hombre es justificado por fe sin las obras de la ley»",
@@ -959,9 +1053,9 @@
    "Lc 18:14 — «descendió este justificado a su casa»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Matt.12.37#06",
+  "ref_estandar": "Matt.12.37",
   "morfologia_tagnt": "V-FPI-2S",
   "dstrong": "G1344",
   "strong_tagnt": "G1344",
@@ -977,13 +1071,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to justify",
-  "ref_estandar": "Matt.12.37"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.39",
+  "pos_tisch": 9,
   "strong": "G3428",
   "forma": "μοιχαλὶς",
+  "lema": "μοιχαλίς",
   "glosa_interlineal": "adúltera",
   "rango_semantico": [
    "adúltera (sentido figurado: infiel a Dios)"
@@ -991,7 +1089,7 @@
   "construccion": "Adjetivo, con γενεά: «generación adúltera».",
   "sentido_en_contexto": "En los profetas, la infidelidad de Israel a Dios es «adulterio» (Os 2; Jer 3). Jesús aplica la imagen a su generación.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Os 2:2 — «porque ella no es mi mujer»",
@@ -999,9 +1097,9 @@
    "Ez 16:32 — «mujer adúltera»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Matt.12.39#09",
+  "ref_estandar": "Matt.12.39",
   "morfologia_tagnt": "A-NSF",
   "dstrong": "G3428",
   "strong_tagnt": "G3428",
@@ -1017,13 +1115,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "adulterous",
-  "ref_estandar": "Matt.12.39"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.39",
+  "pos_tisch": 10,
   "strong": "G4592",
   "forma": "σημεῖον",
+  "lema": "σημεῖον",
   "glosa_interlineal": "señal",
   "rango_semantico": [
    "señal, signo",
@@ -1032,7 +1134,7 @@
   "construccion": "Acusativo, objeto de «busca»: «señal».",
   "sentido_en_contexto": "Los escribas y fariseos piden una señal; Jesús responde que solo se les dará la señal de Jonás. Rechaza las exigencias de pruebas cuando ya han visto sus obras.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 16:4 — repite la respuesta",
@@ -1040,10 +1142,9 @@
    "Jn 2:18 — «¿qué señal nos muestras?»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.12.39#10",
+  "ref_estandar": "Matt.12.39",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G4592",
   "strong_tagnt": "G4592",
@@ -1059,13 +1160,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sign",
-  "ref_estandar": "Matt.12.39"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.39",
+  "pos_tisch": 13,
   "strong": "G4592",
   "forma": "σημεῖον",
+  "lema": "σημεῖον",
   "glosa_interlineal": "señal",
   "rango_semantico": [
    "señal, signo",
@@ -1074,7 +1180,7 @@
   "construccion": "Acusativo, objeto de «busca»: «señal».",
   "sentido_en_contexto": "Los escribas y fariseos piden una señal; Jesús responde que solo se les dará la señal de Jonás. Rechaza las exigencias de pruebas cuando ya han visto sus obras.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 16:4 — repite la respuesta",
@@ -1082,10 +1188,9 @@
    "Jn 2:18 — «¿qué señal nos muestras?»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.12.39#13",
+  "ref_estandar": "Matt.12.39",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G4592",
   "strong_tagnt": "G4592",
@@ -1101,13 +1206,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sign",
-  "ref_estandar": "Matt.12.39"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.39",
+  "pos_tisch": 20,
   "strong": "G4592",
   "forma": "σημεῖον",
+  "lema": "σημεῖον",
   "glosa_interlineal": "señal",
   "rango_semantico": [
    "señal, signo",
@@ -1116,7 +1226,7 @@
   "construccion": "Acusativo, objeto de «busca»: «señal».",
   "sentido_en_contexto": "Los escribas y fariseos piden una señal; Jesús responde que solo se les dará la señal de Jonás. Rechaza las exigencias de pruebas cuando ya han visto sus obras.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 16:4 — repite la respuesta",
@@ -1124,10 +1234,9 @@
    "Jn 2:18 — «¿qué señal nos muestras?»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 20,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.12.39#20",
+  "ref_estandar": "Matt.12.39",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G4592",
   "strong_tagnt": "G4592",
@@ -1143,13 +1252,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sign",
-  "ref_estandar": "Matt.12.39"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.40",
+  "pos_tisch": 9,
   "strong": "G2785",
   "forma": "κήτους",
+  "lema": "κῆτος",
   "glosa_interlineal": "pez grande",
   "rango_semantico": [
    "monstruo marino, pez enorme",
@@ -1158,7 +1272,7 @@
   "construccion": "ἐν τῇ κοιλίᾳ τοῦ κήτους: «en el vientre del gran pez».",
   "sentido_en_contexto": "Mateo cita Jon 1:17 (LXX). La palabra κῆτος se usa para criaturas marinas grandes; no es «ballena» en sentido zoológico moderno. La «señal» es la muerte y resurrección de Jesús.",
   "matiz": "Cuestión de «tres días y tres noches» en el sepulcro: el cómputo judío incluía parte de un día como día completo, lo que concilia con la tradición de crucifixión el viernes y resurrección el domingo. Algunos proponen otras cronologías.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jon 1:17 — «Jehová tenía preparado un gran pez»",
@@ -1166,9 +1280,9 @@
    "1 Co 15:4 — «resucitó al tercer día»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Matt.12.40#09",
+  "ref_estandar": "Matt.12.40",
   "morfologia_tagnt": "N-GSN",
   "dstrong": "G2785",
   "strong_tagnt": "G2785",
@@ -1184,13 +1298,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sea monster",
-  "ref_estandar": "Matt.12.40"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.41",
+  "pos_tisch": 18,
   "strong": "G2782",
   "forma": "κήρυγμα",
+  "lema": "κήρυγμα",
   "glosa_interlineal": "predicación",
   "rango_semantico": [
    "proclamación, mensaje",
@@ -1199,7 +1317,7 @@
   "construccion": "εἰς + acusativo: «ante la predicación de Jonás».",
   "sentido_en_contexto": "Los habitantes de Nínive, paganos, se arrepintieron con la predicación de Jonás; «uno más que Jonás» está aquí y no se arrepienten. Su condena será mayor.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jon 3:5 — «los hombres de Nínive creyeron a Dios»",
@@ -1207,9 +1325,9 @@
    "1 Co 1:21 — «agradó a Dios salvar a los creyentes por la locura de la predicación»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "Matt.12.41#18",
+  "ref_estandar": "Matt.12.41",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G2782",
   "strong_tagnt": "G2782",
@@ -1225,13 +1343,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "preaching",
-  "ref_estandar": "Matt.12.41"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.42",
+  "pos_tisch": 1,
   "strong": "G938",
   "forma": "βασίλισσα",
+  "lema": "βασίλισσα",
   "glosa_interlineal": "reina",
   "rango_semantico": [
    "reina"
@@ -1239,16 +1361,16 @@
   "construccion": "Nominativo: «la reina del sur».",
   "sentido_en_contexto": "La reina de Sabá vino de lejos a oír la sabiduría de Salomón; aquí hay «más que Salomón». Su disposición contrasta con la indiferencia de la generación.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 R 10:1-13 — la reina de Sabá",
    "Lc 11:31 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "Matt.12.42#01",
+  "ref_estandar": "Matt.12.42",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G0938H",
   "strong_tagnt": "G938",
@@ -1264,13 +1386,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "queen",
-  "ref_estandar": "Matt.12.42"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.43",
+  "pos_tisch": 4,
   "strong": "G169",
   "forma": "ἀκάθαρτον",
+  "lema": "ἀκάθαρτος",
   "glosa_interlineal": "inmundo",
   "rango_semantico": [
    "impuro, inmundo",
@@ -1279,7 +1405,7 @@
   "construccion": "Adjetivo acusativo, con πνεῦμα: «espíritu inmundo».",
   "sentido_en_contexto": "Parábola del demonio que vuelve: la casa vacía y adornada (limpia pero no habitada) es invadida otra vez. Advierte que no basta una reforma superficial sin una presencia nueva.",
   "matiz": "Se discute a quién describe la parábola: a Israel que, tras la reforma de Juan o de los exorcismos, queda vacío; o a cualquier persona que se limpia sin recibir al Espíritu. El v.45 la aplica a «esta generación mala».",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 11:24-26 — paralelo",
@@ -1287,9 +1413,9 @@
    "Mr 1:23 — «un hombre con espíritu inmundo»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Matt.12.43#04",
+  "ref_estandar": "Matt.12.43",
   "morfologia_tagnt": "A-NSN",
   "dstrong": "G0169",
   "strong_tagnt": "G169",
@@ -1305,13 +1431,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unclean",
-  "ref_estandar": "Matt.12.43"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.48",
+  "pos_tisch": 11,
   "strong": "G3384",
   "forma": "μήτηρ",
+  "lema": "μήτηρ",
   "glosa_interlineal": "madre",
   "rango_semantico": [
    "madre"
@@ -1319,7 +1449,7 @@
   "construccion": "Nominativo: «¿quién es mi madre?».",
   "sentido_en_contexto": "Jesús redefine la familia: no por sangre sino por obediencia a la voluntad del Padre. No es desprecio por su madre sino ampliación del concepto de familia.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 3:33-35 — paralelo",
@@ -1327,9 +1457,9 @@
    "Jn 19:26-27 — Jesús confía a su madre al discípulo amado"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Matt.12.48#11",
+  "ref_estandar": "Matt.12.48",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G3384",
   "strong_tagnt": "G3384",
@@ -1345,13 +1475,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mother",
-  "ref_estandar": "Matt.12.48"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.12.50",
+  "pos_tisch": 17,
   "strong": "G79",
   "forma": "ἀδελφή",
+  "lema": "ἀδελφή",
   "glosa_interlineal": "hermana",
   "rango_semantico": [
    "hermana",
@@ -1360,7 +1494,7 @@
   "construccion": "Nominativo, con ἀδελφός y μήτηρ: «hermano, hermana y madre».",
   "sentido_en_contexto": "Quien hace la voluntad del Padre pertenece a la familia de Jesús. «Hermano y hermana» se convierte en término de la comunidad cristiana.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 7:21 — «el que hace la voluntad de mi Padre»",
@@ -1368,9 +1502,9 @@
    "Gá 6:10 — «la familia de la fe»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "Matt.12.50#17",
+  "ref_estandar": "Matt.12.50",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G0079",
   "strong_tagnt": "G79",
@@ -1386,7 +1520,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sister",
-  "ref_estandar": "Matt.12.50"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

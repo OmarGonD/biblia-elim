@@ -1,8 +1,10 @@
 [
  {
   "ref": "1Cor.12.1",
+  "pos_tisch": 4,
   "strong": "G4152",
   "forma": "πνευματικῶν",
+  "lema": "πνευματικός",
   "glosa_interlineal": "dones espirituales",
   "rango_semantico": [
    "espiritual, cosas del Espíritu"
@@ -10,7 +12,7 @@
   "construccion": "Genitivo plural: «acerca de los dones espirituales (o: de las cosas espirituales), hermanos, no quiero que ignoréis».",
   "sentido_en_contexto": "Comienza la sección sobre los dones del Espíritu (caps. 12-14), en respuesta a una pregunta de los corintios. πνευματικῶν puede ser neutro («cosas espirituales/dones») o masculino («personas espirituales»). Pablo establece criterios para evaluar manifestaciones y ordenar su uso en la asamblea.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 14:1",
@@ -18,9 +20,9 @@
    "Ef 4:7-16"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "1Cor.12.1#04",
+  "ref_estandar": "1Cor.12.1",
   "morfologia_tagnt": "A-GPN",
   "dstrong": "G4152",
   "strong_tagnt": "G4152",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "spiritual",
-  "ref_estandar": "1Cor.12.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.12.3",
+  "pos_tisch": 11,
   "strong": "G331",
   "forma": "ἀνάθεμα",
+  "lema": "ἀνάθεμα",
   "glosa_interlineal": "maldito",
   "rango_semantico": [
    "anatema, maldito"
@@ -50,7 +56,7 @@
   "construccion": "Nominativo: «nadie que hable por el Espíritu de Dios dice: ¡Anatema sea Jesús!; y nadie puede decir: ¡Jesús es el Señor!, sino por el Espíritu Santo».",
   "sentido_en_contexto": "Criterio básico para discernir: la confesión «Jesús es Señor» (κύριος Ἰησοῦς) es obra del Espíritu; la maldición de Jesús, no. Algunos corintios pudieron decir «anatema a Jesús» en éxtasis; Pablo establece un criterio doctrinal para evaluar el Espíritu.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 10:9",
@@ -59,9 +65,9 @@
    "Mt 16:17"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "1Cor.12.3#11",
+  "ref_estandar": "1Cor.12.3",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G0331",
   "strong_tagnt": "G331",
@@ -77,13 +83,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "devoted",
-  "ref_estandar": "1Cor.12.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.12.4",
+  "pos_tisch": 1,
   "strong": "G1243",
   "forma": "Διαιρέσεις",
+  "lema": "διαίρεσις",
   "glosa_interlineal": "variedad",
   "rango_semantico": [
    "diversidad, distribución, variedad"
@@ -91,7 +101,7 @@
   "construccion": "Nominativo plural: «ahora bien, hay diversidad de dones, pero el Espíritu es el mismo».",
   "sentido_en_contexto": "Tres «diversidades» con un solo origen trinitario: dones (Espíritu), ministerios (Señor), operaciones (Dios, que hace todo en todos). Fórmula con eco trinitario implícito. Unidad en la diversidad: el fundamento de los dones.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 4:4-6",
@@ -100,9 +110,9 @@
    "1 P 4:10-11"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "1Cor.12.4#01",
+  "ref_estandar": "1Cor.12.4",
   "morfologia_tagnt": "N-NPF",
   "dstrong": "G1243",
   "strong_tagnt": "G1243",
@@ -118,13 +128,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "variety",
-  "ref_estandar": "1Cor.12.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.12.7",
+  "pos_tisch": 5,
   "strong": "G5321",
   "forma": "φανέρωσις",
+  "lema": "φανέρωσις",
   "glosa_interlineal": "manifestación",
   "rango_semantico": [
    "manifestación"
@@ -132,7 +146,7 @@
   "construccion": "Nominativo: «a cada uno le es dada la manifestación del Espíritu para provecho».",
   "sentido_en_contexto": "Cada creyente recibe una manifestación del Espíritu «para el bien común» (πρὸς τὸ συμφέρον), no para exaltación personal. Esto subraya que los dones son para la edificación de la comunidad. Sigue la lista de nueve manifestaciones (vv.8-10).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 14:12, 26",
@@ -140,9 +154,9 @@
    "1 P 4:10"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "1Cor.12.7#05",
+  "ref_estandar": "1Cor.12.7",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G5321",
   "strong_tagnt": "G5321",
@@ -158,13 +172,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "manifestation",
-  "ref_estandar": "1Cor.12.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.12.8",
+  "pos_tisch": 13,
   "strong": "G1108",
   "forma": "γνώσεως",
+  "lema": "γνῶσις",
   "glosa_interlineal": "conocimiento",
   "rango_semantico": [
    "conocimiento, ciencia"
@@ -172,7 +190,7 @@
   "construccion": "Genitivo: «a otro, palabra de ciencia según el mismo Espíritu».",
   "sentido_en_contexto": "Lista de nueve dones (vv.8-10): palabra de sabiduría, palabra de conocimiento, fe, sanidades, milagros, profecía, discernimiento de espíritus, géneros de lenguas, interpretación. Listas paralelas en Ro 12:6-8; Ef 4:11. No es exhaustiva ni sistemática. Se debate la continuidad de algunos dones hasta hoy (cesacionismo vs continuismo).",
   "matiz": "Debate sobre continuidad: (a) cesacionistas (algunos reformados y dispensacionalistas): los dones de señal (lenguas, milagros, profecía) cesaron con la edad apostólica; (b) continuistas (pentecostales, carismáticos, muchos reformados abiertos): siguen vigentes; (c) tradiciones católica y ortodoxa reconocen carismas variados. La discusión usa 1 Co 13:8-10.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 12:6-8",
@@ -181,9 +199,9 @@
    "1 Co 14"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "1Cor.12.8#13",
+  "ref_estandar": "1Cor.12.8",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G1108",
   "strong_tagnt": "G1108",
@@ -199,13 +217,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "knowledge",
-  "ref_estandar": "1Cor.12.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.12.10",
+  "pos_tisch": 14,
   "strong": "G1100",
   "forma": "γλωσσῶν",
+  "lema": "γλῶσσα",
   "glosa_interlineal": "lenguas",
   "rango_semantico": [
    "lengua, idioma"
@@ -213,7 +235,7 @@
   "construccion": "Genitivo plural: «a otro, diversos géneros de lenguas; y a otro, interpretación de lenguas».",
   "sentido_en_contexto": "Los últimos dones de la lista, que se desarrollan en el cap. 14. «Géneros de lenguas» (γένη γλωσσῶν): variedad de lenguas (idiomas humanos, lenguaje celestial o éxtasis). Se requiere interpretación (ἑρμηνεία) para edificar a la iglesia. Pablo coloca este don al final, no como señal de espiritualidad superior.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 14:2-28",
@@ -221,10 +243,9 @@
    "Mr 16:17"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1Cor.12.10#15",
+  "ref_estandar": "1Cor.12.10",
   "morfologia_tagnt": "N-GPF",
   "dstrong": "G1100",
   "strong_tagnt": "G1100",
@@ -240,13 +261,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tongue",
-  "ref_estandar": "1Cor.12.10"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.12.10",
+  "pos_tisch": 18,
   "strong": "G1100",
   "forma": "γλωσσῶν",
+  "lema": "γλῶσσα",
   "glosa_interlineal": "lenguas",
   "rango_semantico": [
    "lengua, idioma"
@@ -254,7 +280,7 @@
   "construccion": "Genitivo plural: «a otro, diversos géneros de lenguas; y a otro, interpretación de lenguas».",
   "sentido_en_contexto": "Los últimos dones de la lista, que se desarrollan en el cap. 14. «Géneros de lenguas» (γένη γλωσσῶν): variedad de lenguas (idiomas humanos, lenguaje celestial o éxtasis). Se requiere interpretación (ἑρμηνεία) para edificar a la iglesia. Pablo coloca este don al final, no como señal de espiritualidad superior.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 14:2-28",
@@ -262,10 +288,9 @@
    "Mr 16:17"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 18,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1Cor.12.10#19",
+  "ref_estandar": "1Cor.12.10",
   "morfologia_tagnt": "N-GPF",
   "dstrong": "G1100",
   "strong_tagnt": "G1100",
@@ -281,13 +306,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tongue",
-  "ref_estandar": "1Cor.12.10"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.12.11",
+  "pos_tisch": 15,
   "strong": "G1014",
   "forma": "βούλεται",
+  "lema": "βούλομαι",
   "glosa_interlineal": "quiere",
   "rango_semantico": [
    "querer, desear"
@@ -295,7 +325,7 @@
   "construccion": "Presente indicativo medio: «todas estas cosas las hace uno y el mismo Espíritu, repartiendo a cada uno en particular como él quiere».",
   "sentido_en_contexto": "El Espíritu reparte los dones soberanamente («como él quiere»); no son un logro humano ni un indicio de superioridad. Esto responde al orgullo corintio por los dones más llamativos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Heb 2:4",
@@ -303,9 +333,9 @@
    "Ef 4:7"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "1Cor.12.11#15",
+  "ref_estandar": "1Cor.12.11",
   "morfologia_tagnt": "V-PNI-3S",
   "dstrong": "G1014",
   "strong_tagnt": "G1014",
@@ -321,13 +351,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to plan",
-  "ref_estandar": "1Cor.12.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.12.12",
+  "pos_tisch": 4,
   "strong": "G4983",
   "forma": "σῶμα",
+  "lema": "σῶμα",
   "glosa_interlineal": "cuerpo",
   "rango_semantico": [
    "cuerpo"
@@ -335,7 +369,7 @@
   "construccion": "Nominativo: «porque de la manera que el cuerpo es uno, y tiene muchos miembros, pero todos los miembros del cuerpo, siendo muchos, son un solo cuerpo, así también Cristo».",
   "sentido_en_contexto": "Analogía del cuerpo: la iglesia es un solo cuerpo con muchos miembros; el cuerpo es «Cristo» (la comunidad unida a él). Cada miembro es necesario, y no hay lugar para el orgullo ni para la envidia. Imagen desarrollada en Ro 12:4-5 y Ef 4:11-16.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 12:4-5",
@@ -343,10 +377,9 @@
    "Col 1:18"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1Cor.12.12#04",
+  "ref_estandar": "1Cor.12.12",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G4983",
   "strong_tagnt": "G4983",
@@ -362,13 +395,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "body",
-  "ref_estandar": "1Cor.12.12"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.12.12",
+  "pos_tisch": 21,
   "strong": "G4983",
   "forma": "σῶμα",
+  "lema": "σῶμα",
   "glosa_interlineal": "cuerpo",
   "rango_semantico": [
    "cuerpo"
@@ -376,7 +414,7 @@
   "construccion": "Nominativo: «porque de la manera que el cuerpo es uno, y tiene muchos miembros, pero todos los miembros del cuerpo, siendo muchos, son un solo cuerpo, así también Cristo».",
   "sentido_en_contexto": "Analogía del cuerpo: la iglesia es un solo cuerpo con muchos miembros; el cuerpo es «Cristo» (la comunidad unida a él). Cada miembro es necesario, y no hay lugar para el orgullo ni para la envidia. Imagen desarrollada en Ro 12:4-5 y Ef 4:11-16.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 12:4-5",
@@ -384,10 +422,9 @@
    "Col 1:18"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 21,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1Cor.12.12#23",
+  "ref_estandar": "1Cor.12.12",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G4983",
   "strong_tagnt": "G4983",
@@ -403,13 +440,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "body",
-  "ref_estandar": "1Cor.12.12"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.12.13",
+  "pos_tisch": 11,
   "strong": "G907",
   "forma": "ἐβαπτίσθημεν",
+  "lema": "βαπτίζω",
   "glosa_interlineal": "fuimos bautizados",
   "rango_semantico": [
    "bautizar, sumergir"
@@ -417,7 +459,7 @@
   "construccion": "Aoristo indicativo pasivo: «porque por un solo Espíritu fuimos todos bautizados en un cuerpo, sean judíos o griegos, sean esclavos o libres».",
   "sentido_en_contexto": "«Bautizados en un cuerpo por un Espíritu» es la base de la unidad: todos los creyentes, de cualquier origen social, son incorporados a Cristo por el Espíritu. Debate: ¿se refiere al bautismo en agua, al bautismo en el Espíritu (conversión) o a una experiencia posterior? La mayoría lo ve como la incorporación inicial a Cristo.",
   "matiz": "Debate sobre ἐν ἑνὶ πνεύματι ἐβαπτίσθημεν: (a) «en (por medio de) un Espíritu» fuimos incorporados al cuerpo (el Espíritu es el agente; lectura mayoritaria); (b) «en un Espíritu» (el Espíritu es el elemento, como el agua del bautismo; pentecostales: bautismo en el Espíritu como experiencia posterior). Pablo dice «todos» fuimos bautizados.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 3:27-28",
@@ -426,9 +468,9 @@
    "Hch 1:5; 11:15-16"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "1Cor.12.13#11",
+  "ref_estandar": "1Cor.12.13",
   "morfologia_tagnt": "V-API-1P",
   "dstrong": "G0907",
   "strong_tagnt": "G907",
@@ -444,13 +486,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to baptize",
-  "ref_estandar": "1Cor.12.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.12.18",
+  "pos_tisch": 5,
   "strong": "G5087",
   "forma": "ἔθετο",
+  "lema": "τίθημι",
   "glosa_interlineal": "puso",
   "rango_semantico": [
    "poner, colocar"
@@ -458,7 +504,7 @@
   "construccion": "Aoristo indicativo medio: «ahora bien, Dios colocó los miembros cada uno de ellos en el cuerpo, como él quiso».",
   "sentido_en_contexto": "Dios dispone soberanamente cada miembro. Ningún miembro puede decir «no soy del cuerpo» (vv.15-16) ni «no te necesito» (vv.21-24). Los menos vistosos son los más necesarios. El cuerpo se cuida mutuamente (v.25).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 12:11, 28",
@@ -466,9 +512,9 @@
    "Ro 12:3"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "1Cor.12.18#05",
+  "ref_estandar": "1Cor.12.18",
   "morfologia_tagnt": "V-2AMI-3S",
   "dstrong": "G5087",
   "strong_tagnt": "G5087",
@@ -484,13 +530,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to place",
-  "ref_estandar": "1Cor.12.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.12.22",
+  "pos_tisch": 9,
   "strong": "G772",
   "forma": "ἀσθενέστερα",
+  "lema": "ἀσθενής",
   "glosa_interlineal": "más débiles",
   "rango_semantico": [
    "más débil, frágil"
@@ -498,7 +548,7 @@
   "construccion": "Comparativo nominativo neutro plural: «los miembros del cuerpo que parecen más débiles, son los más necesarios».",
   "sentido_en_contexto": "Principio de honra inversa: los miembros que parecen más débiles o menos honrosos reciben mayor honra (vv.22-24). Aplicado a la iglesia: los menos prominentes (dones menos visibles, personas con menos estatus) son esenciales y se les debe mayor honor.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 1:26-29",
@@ -506,9 +556,9 @@
    "Ro 12:10"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "1Cor.12.22#09",
+  "ref_estandar": "1Cor.12.22",
   "morfologia_tagnt": "A-NPN-C",
   "dstrong": "G0772G",
   "strong_tagnt": "G772",
@@ -524,13 +574,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "weak",
-  "ref_estandar": "1Cor.12.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.12.26",
+  "pos_tisch": 6,
   "strong": "G4841",
   "forma": "συνπάσχει",
+  "lema": "συμπάσχω",
   "glosa_interlineal": "padece juntamente",
   "rango_semantico": [
    "sufrir juntamente, compadecer"
@@ -538,7 +592,7 @@
   "construccion": "Presente indicativo activo: «si un miembro padece, todos los miembros se duelen con él; y si un miembro es honrado, todos los miembros con él se gozan».",
   "sentido_en_contexto": "Solidaridad del cuerpo: el dolor y el gozo de uno son de todos. Aplica el principio contra la rivalidad y la envidia. Paralelo con Ro 12:15.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 12:15",
@@ -546,9 +600,9 @@
    "Heb 13:3"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "strong",
   "tagnt": "1Cor.12.26#06",
+  "ref_estandar": "1Cor.12.26",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G4841",
   "strong_tagnt": "G4841",
@@ -564,13 +618,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to suffer with",
-  "ref_estandar": "1Cor.12.26"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.12.28",
+  "pos_tisch": 11,
   "strong": "G652",
   "forma": "ἀποστόλους",
+  "lema": "ἀπόστολος",
   "glosa_interlineal": "apóstoles",
   "rango_semantico": [
    "apóstol, enviado"
@@ -578,7 +636,7 @@
   "construccion": "Acusativo plural: «y a unos puso Dios en la iglesia, primeramente apóstoles, luego profetas, lo tercero maestros, luego los que hacen milagros, después los que sanan, los que ayudan, los que administran, los que tienen don de lenguas».",
   "sentido_en_contexto": "Lista de ministerios y dones ordenada: apóstoles, profetas y maestros (numerados 1.º, 2.º, 3.º), y luego dones diversos. Los lugares priorizan los dones de proclamación sobre los de señal. Se ve que lenguas aparece al último lugar de ambas listas (vv.10, 28, 30).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 2:20; 4:11",
@@ -586,9 +644,9 @@
    "Ro 12:6-8"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "1Cor.12.28#11",
+  "ref_estandar": "1Cor.12.28",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G0652",
   "strong_tagnt": "G652",
@@ -604,13 +662,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "apostle",
-  "ref_estandar": "1Cor.12.28"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.12.31",
+  "pos_tisch": 6,
   "strong": "G3173",
   "forma": "μείζονα",
+  "lema": "μέγας",
   "glosa_interlineal": "mejores",
   "rango_semantico": [
    "mayor, más grande"
@@ -618,7 +680,7 @@
   "construccion": "Comparativo acusativo plural: «procurad, pues, los dones mejores (μείζονα); mas yo os muestro un camino aún más excelente».",
   "sentido_en_contexto": "Pablo exhorta a anhelar los dones «mayores» (más útiles para edificar) y anuncia «un camino más excelente»: el amor (cap. 13). Los dones, sin amor, no valen nada. Es el puente entre la discusión de los dones y el himno del amor.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 13:1-13",
@@ -626,9 +688,9 @@
    "Col 3:14"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "1Cor.12.31#06",
+  "ref_estandar": "1Cor.12.31",
   "morfologia_tagnt": "A-APN-C",
   "dstrong": "G3173",
   "strong_tagnt": "G3173",
@@ -645,7 +707,9 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "great",
-  "ref_estandar": "1Cor.12.31"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

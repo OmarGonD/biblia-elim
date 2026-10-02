@@ -1,8 +1,10 @@
 [
  {
   "ref": "Heb.12.1",
+  "pos_tisch": 8,
   "strong": "G3509",
   "forma": "νέφος",
+  "lema": "νέφος",
   "glosa_interlineal": "nube",
   "rango_semantico": [
    "nube"
@@ -10,7 +12,7 @@
   "construccion": "Acusativo: «por tanto, nosotros también, teniendo en derredor nuestro tan grande nube de testigos, despojémonos de todo peso y del pecado que nos asedia, y corramos con paciencia la carrera que tenemos por delante».",
   "sentido_en_contexto": "La «nube de testigos» (μάρτυρες) son los héroes de la fe de Heb 11, que testifican con su ejemplo (no necesariamente espectadores). Se debate si observan nuestra carrera (imagen del estadio) o solo dan testimonio. Imagen deportiva: despojarse del peso, correr con perseverancia.",
   "matiz": "Debate: (a) los «testigos» dan testimonio con su vida (la mayoría protestante); (b) son espectadores que presencian nuestra carrera y interceden (tradición católica y ortodoxa, comunión de los santos); (c) las dos ideas combinadas. Ver 11:2, 4-5, 39.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Heb 11",
@@ -19,9 +21,9 @@
    "Fil 3:13-14"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Heb.12.1#08",
+  "ref_estandar": "Heb.12.1",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G3509",
   "strong_tagnt": "G3509",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "cloud",
-  "ref_estandar": "Heb.12.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Heb.12.2",
+  "pos_tisch": 8,
   "strong": "G5051",
   "forma": "τελειωτὴν",
+  "lema": "τελειωτής",
   "glosa_interlineal": "perfeccionador",
   "rango_semantico": [
    "el que lleva a la perfección, consumador"
@@ -51,7 +57,7 @@
   "construccion": "Acusativo: «puestos los ojos en Jesús, el autor y consumador de la fe, el cual por el gozo puesto delante de él sufrió la cruz, menospreciando el oprobio, y se sentó a la diestra del trono de Dios».",
   "sentido_en_contexto": "Jesús es ἀρχηγός (pionero, iniciador) y τελειωτής (consumador) de la fe: ha recorrido la carrera de la fe antes que nosotros y la lleva a su meta. «El gozo puesto delante» (ἀντὶ: «en lugar de» o «por causa de») es objeto de debate.",
   "matiz": "Debate sobre ἀντί: (a) «por el gozo puesto delante de él» (motivo; la mayoría); (b) «en lugar del gozo que tenía» (renunció al gozo para sufrir la cruz; algunos). «Autor y consumador de nuestra fe» o «de la fe» (el modelo de fe).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Heb 2:10",
@@ -60,9 +66,9 @@
    "Jn 17:5"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Heb.12.2#08",
+  "ref_estandar": "Heb.12.2",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G5051",
   "strong_tagnt": "G5051",
@@ -78,13 +84,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "finisher",
-  "ref_estandar": "Heb.12.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Heb.12.5",
+  "pos_tisch": 14,
   "strong": "G3809",
   "forma": "παιδίας",
+  "lema": "παιδεία",
   "glosa_interlineal": "disciplina",
   "rango_semantico": [
    "disciplina, educación"
@@ -92,7 +102,7 @@
   "construccion": "Genitivo: «y habéis ya olvidado la exhortación que como a hijos se os dirige: Hijo mío, no menosprecies la disciplina del Señor, ni desmayes cuando eres reprendido por él».",
   "sentido_en_contexto": "Cita de Pr 3:11-12 sobre la disciplina como señal de filiación. παιδεία: educación y corrección, no solo castigo. Dios disciplina por amor y para santificar. Texto clave para entender el sufrimiento como parte de la formación (12:5-11).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Pr 3:11-12",
@@ -101,9 +111,9 @@
    "Dt 8:5"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "strong",
   "tagnt": "Heb.12.5#14",
+  "ref_estandar": "Heb.12.5",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G3809",
   "strong_tagnt": "G3809",
@@ -119,13 +129,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "discipline",
-  "ref_estandar": "Heb.12.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Heb.12.6",
+  "pos_tisch": 5,
   "strong": "G3811",
   "forma": "παιδεύει",
+  "lema": "παιδεύω",
   "glosa_interlineal": "disciplina",
   "rango_semantico": [
    "disciplinar, educar"
@@ -133,7 +147,7 @@
   "construccion": "Presente indicativo activo: «porque el Señor al que ama, disciplina, y azota a todo el que recibe por hijo».",
   "sentido_en_contexto": "La disciplina es prueba de que somos hijos legítimos, no bastardos (v.8). No todo sufrimiento es disciplina por pecado: el contexto es la persecución de los lectores, que pueden ver en su sufrimiento una formación de Dios. Cuidado con atribuir toda aflicción a un pecado específico (Job; Jn 9:2-3).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Pr 3:12",
@@ -142,9 +156,9 @@
    "1 P 4:12-19"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Heb.12.6#05",
+  "ref_estandar": "Heb.12.6",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G3811",
   "strong_tagnt": "G3811",
@@ -160,13 +174,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to instruct",
-  "ref_estandar": "Heb.12.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Heb.12.14",
+  "pos_tisch": 7,
   "strong": "G38",
   "forma": "ἁγιασμόν",
+  "lema": "ἁγιασμός",
   "glosa_interlineal": "santidad",
   "rango_semantico": [
    "santificación, santidad"
@@ -174,7 +192,7 @@
   "construccion": "Acusativo: «seguid la paz con todos, y la santidad, sin la cual nadie verá al Señor».",
   "sentido_en_contexto": "Sin santidad nadie verá al Señor. Texto central sobre la necesidad de la santificación para la comunión con Dios; se discute si implica una santidad meritoria (obras) o la santidad que Dios da (posición y proceso). Cf. 10:10, 14.",
   "matiz": "Debate: (a) la santidad progresiva es evidencia necesaria de la salvación (reformada); (b) es condición para ver a Dios, e implica cooperación humana con la gracia (católica, ortodoxa, wesleyana); (c) es la santidad dada en Cristo (posicional). El imperativo «seguid» (διώκετε) indica esfuerzo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 5:8",
@@ -183,9 +201,9 @@
    "Ro 6:22"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Heb.12.14#07",
+  "ref_estandar": "Heb.12.14",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G0038",
   "strong_tagnt": "G38",
@@ -201,13 +219,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "holiness",
-  "ref_estandar": "Heb.12.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Heb.12.15",
+  "pos_tisch": 12,
   "strong": "G4491",
   "forma": "ῥίζα",
+  "lema": "ῥίζα",
   "glosa_interlineal": "raíz",
   "rango_semantico": [
    "raíz"
@@ -215,7 +237,7 @@
   "construccion": "Nominativo: «mirad bien, no sea que alguno deje de alcanzar la gracia de Dios; que brotando alguna raíz de amargura, os estorbe, y por ella muchos sean contaminados».",
   "sentido_en_contexto": "Advertencia a la comunidad: velar para que nadie «se quede corto de la gracia» y para que ninguna «raíz de amargura» (cf. Dt 29:18) contamine a muchos. La amargura y el pecado de uno afectan a toda la comunidad.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 29:18",
@@ -223,9 +245,9 @@
    "Heb 3:12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Heb.12.15#12",
+  "ref_estandar": "Heb.12.15",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G4491",
   "strong_tagnt": "G4491",
@@ -241,13 +263,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "root",
-  "ref_estandar": "Heb.12.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Heb.12.16",
+  "pos_tisch": 7,
   "strong": "G2269",
   "forma": "Ἠσαῦ",
+  "lema": "Ἠσαῦ",
   "glosa_interlineal": "Esaú",
   "rango_semantico": [
    "Esaú"
@@ -255,7 +281,7 @@
   "construccion": "Nominativo: «no sea que haya algún fornicario, o profano, como Esaú, que por una sola comida vendió su primogenitura».",
   "sentido_en_contexto": "Esaú como ejemplo de quien menosprecia lo sagrado (βέβηλος) por un bien inmediato. Más tarde buscó la bendición con lágrimas, pero «no hubo lugar de arrepentimiento» (v.17). Se discute si el arrepentimiento que buscó Esaú era el suyo o el de Isaac (cambiar la bendición).",
   "matiz": "Debate sobre v.17: «no halló lugar de arrepentimiento»: (a) Esaú no pudo cambiar la bendición ya dada, aunque lloró (la mayoría); (b) Esaú no pudo arrepentirse genuinamente (lectura rigorista); (c) el «arrepentimiento» es de Isaac. Importa para 6:4-6.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 25:29-34; 27:30-40",
@@ -263,9 +289,9 @@
    "Mal 1:2-3"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Heb.12.16#07",
+  "ref_estandar": "Heb.12.16",
   "morfologia_tagnt": "N-NSM-P",
   "dstrong": "G2269G",
   "strong_tagnt": "G2269",
@@ -281,13 +307,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Esau",
-  "ref_estandar": "Heb.12.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Heb.12.22",
+  "pos_tisch": 3,
   "strong": "G4622",
   "forma": "Σιὼν",
+  "lema": "Σιών",
   "glosa_interlineal": "Sion",
   "rango_semantico": [
    "Sion"
@@ -295,7 +325,7 @@
   "construccion": "Dativo: «sino que os habéis acercado al monte de Sion, a la ciudad del Dios vivo, la Jerusalén celestial, a la compañía de muchos millares de ángeles».",
   "sentido_en_contexto": "Contraste entre el Sinaí (vv.18-21: temor, fuego, oscuridad) y el monte Sion celestial (vv.22-24: gozo, comunión). Los creyentes ya se han acercado a Sion: ciudad celestial, ángeles, asamblea de los primogénitos, Dios juez, los espíritus de los justos hechos perfectos, Jesús mediador. Descripción del culto cristiano como participación en la liturgia celestial.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 4:26",
@@ -304,9 +334,9 @@
    "Fil 3:20"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Heb.12.22#03",
+  "ref_estandar": "Heb.12.22",
   "morfologia_tagnt": "N-DSF-L",
   "dstrong": "G4622",
   "strong_tagnt": "G4622",
@@ -322,13 +352,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Zion",
-  "ref_estandar": "Heb.12.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Heb.12.23",
+  "pos_tisch": 15,
   "strong": "G5048",
   "forma": "τετελειωμένων",
+  "lema": "τελειόω",
   "glosa_interlineal": "hechos perfectos",
   "rango_semantico": [
    "perfeccionado, llevado a la meta"
@@ -336,7 +370,7 @@
   "construccion": "Genitivo plural: «a la congregación de los primogénitos que están inscritos en los cielos, a Dios, el Juez de todos, a los espíritus de los justos hechos perfectos».",
   "sentido_en_contexto": "«Espíritus de los justos hechos perfectos»: los creyentes del AT y NT ya fallecidos, que gozan de comunión con Dios (estado intermedio) y esperan la resurrección. «Primogénitos»: los creyentes, herederos con Cristo. Se usa en discusiones sobre la comunión de los santos y el estado de los difuntos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Heb 11:40",
@@ -345,9 +379,9 @@
    "Fil 1:23"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Heb.12.23#14",
+  "ref_estandar": "Heb.12.23",
   "morfologia_tagnt": "V-RPP-GPM",
   "dstrong": "G5048",
   "strong_tagnt": "G5048",
@@ -363,13 +397,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to perfect",
-  "ref_estandar": "Heb.12.23"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Heb.12.24",
+  "pos_tisch": 2,
   "strong": "G1242",
   "forma": "διαθήκης",
+  "lema": "διαθήκη",
   "glosa_interlineal": "pacto",
   "rango_semantico": [
    "pacto"
@@ -377,7 +415,7 @@
   "construccion": "Genitivo: «a Jesús, el Mediador del nuevo pacto, y a la sangre rociada que habla mejor que la de Abel».",
   "sentido_en_contexto": "La sangre de Abel clamaba justicia (Gn 4:10); la sangre de Cristo habla de perdón. Compara dos voces: la de Abel (venganza) y la de Jesús (reconciliación). Culmina la lista de lo que los cristianos han recibido en Sion.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 4:10",
@@ -385,9 +423,9 @@
    "Heb 11:4"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Heb.12.24#02",
+  "ref_estandar": "Heb.12.24",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G1242",
   "strong_tagnt": "G1242",
@@ -403,13 +441,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "covenant",
-  "ref_estandar": "Heb.12.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Heb.12.26",
+  "pos_tisch": 15,
   "strong": "G4579",
   "forma": "σείσω",
+  "lema": "σείω",
   "glosa_interlineal": "sacudiré",
   "rango_semantico": [
    "sacudir, hacer temblar"
@@ -417,7 +459,7 @@
   "construccion": "Futuro indicativo activo: «la voz del cual conmovió entonces la tierra, pero ahora ha prometido, diciendo: Una vez más conmoveré no solamente la tierra, sino también el cielo».",
   "sentido_en_contexto": "Cita de Hag 2:6: Dios sacudirá la creación para dejar solo lo inconmovible (v.27: el reino). Imagen de juicio escatológico que elimina lo creado y transitorio. «Una vez más»: señala la consumación, tras el temblor del Sinaí.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hag 2:6",
@@ -426,9 +468,9 @@
    "Mt 24:29"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Heb.12.26#15",
+  "ref_estandar": "Heb.12.26",
   "morfologia_tagnt": "V-FAI-1S",
   "dstrong": "G4579",
   "strong_tagnt": "G4579",
@@ -445,13 +487,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to shake",
-  "ref_estandar": "Heb.12.26"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Heb.12.28",
+  "pos_tisch": 3,
   "strong": "G761",
   "forma": "ἀσάλευτον",
+  "lema": "ἀσάλευτος",
   "glosa_interlineal": "inconmovible",
   "rango_semantico": [
    "inconmovible, inamovible"
@@ -459,7 +505,7 @@
   "construccion": "Acusativo: «así que, recibiendo nosotros un reino inconmovible, tengamos gratitud, y mediante ella sirvamos a Dios agradándole con temor y reverencia».",
   "sentido_en_contexto": "El reino de Dios no será sacudido. Respuesta: gratitud y culto aceptable con reverencia. Texto citado en liturgia: el culto cristiano nace de la gratitud por el reino recibido.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dn 2:44; 7:14",
@@ -467,9 +513,9 @@
    "Heb 12:22-24"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Heb.12.28#03",
+  "ref_estandar": "Heb.12.28",
   "morfologia_tagnt": "A-ASF",
   "dstrong": "G0761",
   "strong_tagnt": "G761",
@@ -485,13 +531,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unshakable",
-  "ref_estandar": "Heb.12.28"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Heb.12.29",
+  "pos_tisch": 6,
   "strong": "G4442",
   "forma": "πῦρ",
+  "lema": "πῦρ",
   "glosa_interlineal": "fuego",
   "rango_semantico": [
    "fuego"
@@ -499,7 +549,7 @@
   "construccion": "Nominativo: «porque nuestro Dios es fuego consumidor».",
   "sentido_en_contexto": "Cita de Dt 4:24 (cf. Dt 9:3). Dios es fuego que consume el pecado y purifica; la gracia no elimina su santidad. Cierra la advertencia de 12:25-29. El fuego puede ser de juicio o de purificación.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 4:24",
@@ -508,9 +558,9 @@
    "Mal 3:2-3"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Heb.12.29#06",
+  "ref_estandar": "Heb.12.29",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G4442",
   "strong_tagnt": "G4442",
@@ -526,7 +576,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fire",
-  "ref_estandar": "Heb.12.29"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

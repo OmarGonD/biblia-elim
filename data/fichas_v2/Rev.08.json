@@ -1,8 +1,10 @@
 [
  {
   "ref": "Rev.8.1",
+  "pos_tisch": 9,
   "strong": "G4602",
   "forma": "σιγὴ",
+  "lema": "σιγή",
   "glosa_interlineal": "silencio",
   "rango_semantico": [
    "silencio"
@@ -10,7 +12,7 @@
   "construccion": "Nominativo: «cuando abrió el séptimo sello, se hizo silencio en el cielo como por media hora».",
   "sentido_en_contexto": "Séptimo sello: silencio de unos treinta minutos (ἡμιώριον): pausa solemne antes de las trompetas (Hab 2:20; Sof 1:7; Zac 2:13). Se interpretan: expectación ante el juicio, silencio litúrgico mientras se presentan las oraciones de los santos (vv.3-4) o la calma antes del clímax. El séptimo sello contiene las siete trompetas (se anidan los septenarios).",
   "matiz": "Debate: (a) silencio de expectación reverente ante el juicio (la mayoría); (b) silencio para que se oigan las oraciones de los santos (vv.3-5); (c) los siete sellos, trompetas y copas pueden ser secuencia cronológica (futurismo) o series paralelas con progresión (recapitulación; Hendriksen, Beale).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hab 2:20",
@@ -19,9 +21,9 @@
    "Ap 8:3-5"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Rev.8.1#09",
+  "ref_estandar": "Rev.8.1",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G4602",
   "strong_tagnt": "G4602",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "silence",
-  "ref_estandar": "Rev.8.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.8.3",
+  "pos_tisch": 11,
   "strong": "G3031",
   "forma": "λιβανωτὸν",
+  "lema": "λιβανωτός",
   "glosa_interlineal": "incensario",
   "rango_semantico": [
    "incensario"
@@ -51,7 +57,7 @@
   "construccion": "Acusativo: «otro ángel vino entonces y se paró ante el altar, con un incensario de oro; y se le dio mucho incienso para añadirlo a las oraciones de todos los santos, sobre el altar de oro que estaba delante del trono».",
   "sentido_en_contexto": "El ángel presenta las oraciones de los santos con incienso en el altar de oro (el del incienso, tabernáculo). El incienso se mezcla con las oraciones, y el humo asciende ante Dios (v.4). Luego el ángel lanza el fuego del altar a la tierra (v.5): las oraciones de los santos provocan los juicios (vínculo con 6:10).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 141:2",
@@ -60,9 +66,9 @@
    "Éx 30:1-8"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Rev.8.3#11",
+  "ref_estandar": "Rev.8.3",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G3031",
   "strong_tagnt": "G3031",
@@ -78,13 +84,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "censer",
-  "ref_estandar": "Rev.8.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.8.5",
+  "pos_tisch": 16,
   "strong": "G906",
   "forma": "ἔβαλεν",
+  "lema": "βάλλω",
   "glosa_interlineal": "arrojó",
   "rango_semantico": [
    "arrojar, lanzar"
@@ -92,7 +102,7 @@
   "construccion": "Aoristo indicativo activo: «y el ángel tomó el incensario, y lo llenó del fuego del altar, y lo arrojó a la tierra; y hubo truenos, y voces, y relámpagos, y un terremoto».",
   "sentido_en_contexto": "Las oraciones suben; el fuego baja como juicio. Trueno, voces, relámpagos y terremoto: fenómenos de teofanía (4:5; 11:19; 16:18). Marca el paso de los sellos a las trompetas. Las oraciones de los santos son eficaces en el gobierno de la historia.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lv 16:12-13",
@@ -101,9 +111,9 @@
    "Éx 19:16-19"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Rev.8.5#16",
+  "ref_estandar": "Rev.8.5",
   "morfologia_tagnt": "V-2AAI-3S",
   "dstrong": "G0906G",
   "strong_tagnt": "G906",
@@ -119,13 +129,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to throw",
-  "ref_estandar": "Rev.8.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.8.6",
+  "pos_tisch": 9,
   "strong": "G4536",
   "forma": "σάλπιγγας",
+  "lema": "σάλπιγξ",
   "glosa_interlineal": "trompetas",
   "rango_semantico": [
    "trompeta"
@@ -133,7 +147,7 @@
   "construccion": "Acusativo plural: «y los siete ángeles que tenían las siete trompetas se dispusieron a tocarlas».",
   "sentido_en_contexto": "Las siete trompetas (8:6—11:19): plagas que evocan las del éxodo (granizo y fuego, sangre en el agua, oscuridad, langostas): Éx 7–10. Afectan «la tercera parte» (parcial, advertencia; en las copas, la totalidad, cap. 16). El tono es de juicio con llamado al arrepentimiento (9:20-21). Las trompetas anuncian guerra santa (Jos 6; Nm 10:9) y el día del Señor (Jl 2:1).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jos 6:4-5",
@@ -142,9 +156,9 @@
    "Ap 16:1-21"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Rev.8.6#09",
+  "ref_estandar": "Rev.8.6",
   "morfologia_tagnt": "N-APF",
   "dstrong": "G4536",
   "strong_tagnt": "G4536",
@@ -160,13 +174,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "trumpet",
-  "ref_estandar": "Rev.8.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.8.7",
+  "pos_tisch": 7,
   "strong": "G5464",
   "forma": "χάλαζα",
+  "lema": "χάλαζα",
   "glosa_interlineal": "granizo",
   "rango_semantico": [
    "granizo"
@@ -174,7 +192,7 @@
   "construccion": "Nominativo: «el primer ángel tocó la trompeta, y hubo granizo y fuego mezclados con sangre, que fueron lanzados sobre la tierra; y la tercera parte de los árboles se quemó, y se quemó toda la hierba verde».",
   "sentido_en_contexto": "Primera trompeta: eco de la séptima plaga de Egipto (granizo y fuego; Éx 9:24). Afecta un tercio de la vegetación. Las cuatro primeras trompetas afectan a la naturaleza: tierra (v.7), mar (vv.8-9), aguas dulces (vv.10-11) y astros (v.12); las tres últimas son los «ayes» (8:13).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Éx 9:22-26",
@@ -183,9 +201,9 @@
    "Ap 16:21"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Rev.8.7#08",
+  "ref_estandar": "Rev.8.7",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G5464",
   "strong_tagnt": "G5464",
@@ -201,13 +219,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hail",
-  "ref_estandar": "Rev.8.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.8.10",
+  "pos_tisch": 11,
   "strong": "G792",
   "forma": "ἀστὴρ",
+  "lema": "ἀστήρ",
   "glosa_interlineal": "estrella",
   "rango_semantico": [
    "estrella"
@@ -215,7 +237,7 @@
   "construccion": "Nominativo: «el tercer ángel tocó la trompeta, y cayó del cielo una gran estrella ardiendo como una antorcha, y cayó sobre la tercera parte de los ríos, y sobre las fuentes de las aguas».",
   "sentido_en_contexto": "Tercera trompeta: la «estrella» cae del cielo (¿ángel, juicio, demonio?) y envenena el agua; su nombre es «Ajenjo» (ἄψινθος, planta amarga; Jer 9:15; 23:15). Muchos mueren por esas aguas amargadas. Las estrellas pueden ser seres angélicos en el libro (9:1; 12:4).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jer 9:15; 23:15",
@@ -224,9 +246,9 @@
    "Ap 9:1"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Rev.8.10#11",
+  "ref_estandar": "Rev.8.10",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G0792",
   "strong_tagnt": "G792",
@@ -242,13 +264,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "star",
-  "ref_estandar": "Rev.8.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.8.13",
+  "pos_tisch": 6,
   "strong": "G105",
   "forma": "ἀετοῦ",
+  "lema": "ἀετός",
   "glosa_interlineal": "águila",
   "rango_semantico": [
    "águila, buitre"
@@ -256,7 +282,7 @@
   "construccion": "Genitivo: «y miré, y oí a un águila que volaba por en medio del cielo, diciendo a gran voz: ¡Ay, ay, ay, de los que moran en la tierra, a causa de los otros toques de trompeta que están para sonar los tres ángeles!».",
   "sentido_en_contexto": "ἀετός: águila (o buitre, quizá). Proclama tres «ayes» sobre «los que moran en la tierra» por las tres últimas trompetas (la quinta y sexta: 9:12; la séptima: 11:14-15). Función de heraldo: alerta del aumento de gravedad. «En medio del cielo» (μεσουράνημα): el cenit, donde todos pueden oír.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": "RVR60 sigue la lectura «ángel» (ἀγγέλου); Tisch y la mayoría de críticos leen «águila».",
   "otros_usos": [
    "Ap 9:12; 11:14",
@@ -265,9 +291,9 @@
    "Dt 28:49"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Rev.8.13#06",
+  "ref_estandar": "Rev.8.13",
   "morfologia_tagnt": "N-GSM",
   "dstrong": "G0105",
   "strong_tagnt": "G105",
@@ -284,7 +310,9 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "eagle",
-  "ref_estandar": "Rev.8.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

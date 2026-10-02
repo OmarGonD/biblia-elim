@@ -1,8 +1,10 @@
 [
  {
   "ref": "Rev.2.1",
+  "pos_tisch": 5,
   "strong": "G2181",
   "forma": "Ἐφέσῳ",
+  "lema": "Ἔφεσος",
   "glosa_interlineal": "Éfeso",
   "rango_semantico": [
    "Éfeso"
@@ -10,7 +12,7 @@
   "construccion": "Dativo: «escribe al ángel de la iglesia en Éfeso: El que tiene las siete estrellas en su diestra, el que anda en medio de los siete candeleros de oro, dice esto».",
   "sentido_en_contexto": "Estructura común de las siete cartas: (1) destinatario; (2) autopresentación de Cristo con rasgos de la visión del cap. 1; (3) «Yo conozco…» (οἶδα); (4) alabanza y/o reproche; (5) exhortación y advertencia; (6) «el que tiene oído, oiga lo que el Espíritu dice a las iglesias»; (7) promesa «al que venciere». Éfeso: gran ciudad de Asia, centro del culto a Artemisa, sede de iglesia fundada por Pablo y con Juan en su tradición.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 19",
@@ -19,9 +21,9 @@
    "Ap 1:13, 16, 20"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Rev.2.1#05",
+  "ref_estandar": "Rev.2.1",
   "morfologia_tagnt": "N-DSF-L",
   "dstrong": "G2181",
   "strong_tagnt": "G2181",
@@ -38,13 +40,17 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "Ephesus",
-  "ref_estandar": "Rev.2.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.2.2",
+  "pos_tisch": 7,
   "strong": "G2873",
   "forma": "κόπον",
+  "lema": "κόπος",
   "glosa_interlineal": "trabajo",
   "rango_semantico": [
    "fatiga, trabajo arduo"
@@ -52,7 +58,7 @@
   "construccion": "Acusativo: «yo conozco tus obras, y tu arduo trabajo y paciencia; y que no puedes soportar a los malos, y has probado a los que se dicen ser apóstoles, y no lo son, y los has hallado mentirosos».",
   "sentido_en_contexto": "Alabanza a Éfeso: obras, arduo trabajo, perseverancia (ὑπομονή), intolerancia ante el mal y discernimiento de falsos apóstoles. Triada paulina (fe, amor, esperanza; cf. 1 Ts 1:3) en forma negativa: les falta el amor (v.4). Combatían a falsos maestros (1 Ti 1:3-7; Hch 20:29-30).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 20:29-30",
@@ -61,9 +67,9 @@
    "2 Co 11:13"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Rev.2.2#07",
+  "ref_estandar": "Rev.2.2",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G2873",
   "strong_tagnt": "G2873",
@@ -79,13 +85,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "labor",
-  "ref_estandar": "Rev.2.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.2.4",
+  "pos_tisch": 7,
   "strong": "G26",
   "forma": "ἀγάπην",
+  "lema": "ἀγάπη",
   "glosa_interlineal": "amor",
   "rango_semantico": [
    "amor (ágape)"
@@ -93,7 +103,7 @@
   "construccion": "Acusativo: «pero tengo contra ti, que has dejado tu primer amor».",
   "sentido_en_contexto": "El reproche: ἀφῆκες τὴν ἀγάπην σου τὴν πρώτην. ¿Amor a Cristo o a los hermanos (o ambos)? «Primero» (πρώτη) puede ser cronológico (el ardor inicial) o cualitativo (el primordial). Para Éfeso la ortodoxia no basta. El aoristo «has dejado» indica abandono, no mera enfriamiento.",
   "matiz": "Debate: (a) el amor a Dios y a Cristo (Mr 12:30); (b) el amor mutuo entre los hermanos (Jn 13:34-35; 1 Jn 4:20); (c) ambos. El remedio: recordar, arrepentirse y volver a las obras primeras (v.5).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 12:30",
@@ -102,9 +112,9 @@
    "Jer 2:2"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Rev.2.4#07",
+  "ref_estandar": "Rev.2.4",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G0026",
   "strong_tagnt": "G26",
@@ -120,13 +130,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "love",
-  "ref_estandar": "Rev.2.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.2.5",
+  "pos_tisch": 6,
   "strong": "G3340",
   "forma": "μετανόησον",
+  "lema": "μετανοέω",
   "glosa_interlineal": "arrepiéntete",
   "rango_semantico": [
    "arrepentirse, cambiar de mente"
@@ -134,7 +148,7 @@
   "construccion": "Imperativo aoristo activo: «recuerda, por tanto, de dónde has caído, y arrepiéntete, y haz las primeras obras; pues si no, vendré a ti pronto, y quitaré tu candelero de su lugar, si no te hubieres arrepentido».",
   "sentido_en_contexto": "Tres imperativos: recuerda (μνημόνευε, presente), arrepiéntete (μετανόησον, aoristo: acto decisivo) y haz las obras primeras. La amenaza: quitar el candelero (dejar de ser iglesia). Muestra que una iglesia puede perder su función de luz si no se arrepiente. El verbo μετανοέω aparece 12 veces en Apocalipsis, la mitad en las siete cartas.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 2:16, 21-22; 3:3, 19",
@@ -143,10 +157,9 @@
    "Ap 9:20-21; 16:9, 11"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Rev.2.5#06",
+  "ref_estandar": "Rev.2.5",
   "morfologia_tagnt": "V-AAM-2S",
   "dstrong": "G3340",
   "strong_tagnt": "G3340",
@@ -162,13 +175,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to repent",
-  "ref_estandar": "Rev.2.5"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.2.6",
+  "pos_tisch": 9,
   "strong": "G3531",
   "forma": "Νικολαϊτῶν",
+  "lema": "Νικολαΐτης",
   "glosa_interlineal": "nicolaítas",
   "rango_semantico": [
    "nicolaítas (partidarios de Nicolás)"
@@ -176,7 +194,7 @@
   "construccion": "Genitivo: «pero tienes esto, que aborreces las obras de los nicolaítas, las cuales yo también aborrezco».",
   "sentido_en_contexto": "Los nicolaítas, grupo de cristianos laxos que toleraba la idolatría y la inmoralidad (2:14-15, 20): se asociaban con las enseñanzas de Balaam y Jezabel. Irineo (Contra las herejías 1.26.3) los relacionó con Nicolás de Hch 6:5, aunque eso es incierto. Posible etimología: νικᾶν λαόν («conquistar al pueblo»), paralelo griego de «Balaam» (בלע עם).",
   "matiz": "Debate: (a) secta antinomiana que permitía participar en banquetes idolátricos y en la inmoralidad para acomodarse a la sociedad romana (la mayoría); (b) seguidores del diácono Nicolás (tradición patrística, discutida); (c) etimología simbólica «conquistadores del pueblo» (clericalismo; interpretación medieval y moderna, sin base firme).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 2:14-15, 20",
@@ -185,9 +203,9 @@
    "2 P 2:15"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Rev.2.6#09",
+  "ref_estandar": "Rev.2.6",
   "morfologia_tagnt": "N-GPM-LG",
   "dstrong": "G3531",
   "strong_tagnt": "G3531",
@@ -203,13 +221,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Nicolaitan",
-  "ref_estandar": "Rev.2.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.2.7",
+  "pos_tisch": 12,
   "strong": "G3528",
   "forma": "νικῶντι",
+  "lema": "νικάω",
   "glosa_interlineal": "al que venciere",
   "rango_semantico": [
    "vencer, triunfar"
@@ -217,7 +239,7 @@
   "construccion": "Dativo: «el que tiene oído, oiga lo que el Espíritu dice a las iglesias. Al que venciere, le daré a comer del árbol de la vida, el cual está en medio del paraíso de Dios».",
   "sentido_en_contexto": "νικάω («vencer») es el verbo clave de las cartas (7 promesas «al que venza»; también 21:7). Vencer es perseverar fiel hasta el fin, resistir la presión; Cristo mismo «venció» (3:21; 5:5). Promesa: acceso al árbol de la vida (Gn 2:9; 3:22-24), perdido en el Edén y restaurado en la nueva creación (22:2, 14). El Espíritu habla a todas las iglesias: cada carta es para todas.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 2:9; 3:22-24",
@@ -226,9 +248,9 @@
    "Jn 16:33"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Rev.2.7#12",
+  "ref_estandar": "Rev.2.7",
   "morfologia_tagnt": "V-PAP-DSM",
   "dstrong": "G3528",
   "strong_tagnt": "G3528",
@@ -244,13 +266,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to conquer",
-  "ref_estandar": "Rev.2.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.2.9",
+  "pos_tisch": 24,
   "strong": "G4864",
   "forma": "συναγωγὴ",
+  "lema": "συναγωγή",
   "glosa_interlineal": "sinagoga",
   "rango_semantico": [
    "sinagoga, asamblea"
@@ -258,7 +284,7 @@
   "construccion": "Nominativo: «yo conozco tu tribulación, y tu pobreza (pero tú eres rico), y la blasfemia de los que se dicen ser judíos, y no lo son, sino sinagoga de Satanás».",
   "sentido_en_contexto": "Esmirna: rica en realidad, pobre materialmente. «Los que se dicen judíos y no lo son»: judíos étnicos que denunciaban a los cristianos ante las autoridades romanas; el texto no condena al pueblo judío, sino a una comunidad concreta que se ha puesto del lado del acusador (cf. Jn 8:44; Ro 2:28-29). Mal usado históricamente para el antisemitismo; el contexto es un conflicto intra-judío temprano y la misma Biblia llama a los cristianos el verdadero pueblo de Dios.",
   "matiz": "Debate sobre «los que dicen ser judíos»: (a) judíos étnicos hostiles a los cristianos, que han perdido su título por actuar como Satanás (la mayoría); (b) judíos cristianos judaizantes; (c) gentiles que se hacían pasar por judíos para ganar protección legal. Cf. Fil 3:3; Ro 2:28-29; la expresión no debe usarse contra los judíos como pueblo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 3:9",
@@ -268,9 +294,9 @@
    "Sant 2:5"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 24,
   "alineacion": "forma",
   "tagnt": "Rev.2.9#28",
+  "ref_estandar": "Rev.2.9",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G4864",
   "strong_tagnt": "G4864",
@@ -286,13 +312,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "synagogue",
-  "ref_estandar": "Rev.2.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.2.10",
+  "pos_tisch": 30,
   "strong": "G4735",
   "forma": "στέφανον",
+  "lema": "στέφανος",
   "glosa_interlineal": "corona",
   "rango_semantico": [
    "corona, guirnalda de vencedor"
@@ -300,7 +330,7 @@
   "construccion": "Acusativo: «no temas en nada lo que vas a padecer. He aquí, el diablo echará a algunos de vosotros en la cárcel, para que seáis probados, y tendréis tribulación por diez días. Sé fiel hasta la muerte, y yo te daré la corona de la vida».",
   "sentido_en_contexto": "La única carta de Cristo (con la de Filadelfia) sin reproche. «Diez días»: un tiempo breve y limitado (cf. Dn 1:12-15) o una cifra simbólica. «Corona de vida» (στέφανος): premio del vencedor atlético (no la diadema regia). Tradición: Policarpo, obispo de Esmirna, martirizado c. 155. «Hasta la muerte» (ἄχρι θανάτου): fidelidad que llega al martirio.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dn 1:12-15",
@@ -309,9 +339,9 @@
    "2 Ti 4:8"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 30,
   "alineacion": "forma",
   "tagnt": "Rev.2.10#31",
+  "ref_estandar": "Rev.2.10",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G4735",
   "strong_tagnt": "G4735",
@@ -327,13 +357,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "crown",
-  "ref_estandar": "Rev.2.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.2.11",
+  "pos_tisch": 20,
   "strong": "G1208",
   "forma": "δευτέρου",
+  "lema": "δεύτερος",
   "glosa_interlineal": "segunda",
   "rango_semantico": [
    "segundo"
@@ -341,7 +375,7 @@
   "construccion": "Genitivo: «el que venciere, no sufrirá daño de la segunda muerte».",
   "sentido_en_contexto": "Primera mención de «la segunda muerte» (δεύτερος θάνατος): la condenación final (20:6, 14; 21:8), el lago de fuego. Los mártires de Esmirna pueden morir físicamente, pero la segunda muerte no los toca (cf. Mt 10:28). Fórmula de los targumes judíos para la condenación eterna.",
   "matiz": "Debate sobre la naturaleza de la segunda muerte: (a) separación eterna consciente de Dios (castigo eterno; la mayoría histórica); (b) aniquilación definitiva (condicionalismo); (c) simbólica de la destrucción total del mal. Ver 20:10, 14-15.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 20:6, 14; 21:8",
@@ -350,9 +384,9 @@
    "Ro 6:23"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 20,
   "alineacion": "forma",
   "tagnt": "Rev.2.11#20",
+  "ref_estandar": "Rev.2.11",
   "morfologia_tagnt": "A-GSM",
   "dstrong": "G1208",
   "strong_tagnt": "G1208",
@@ -368,13 +402,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "secondly",
-  "ref_estandar": "Rev.2.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.2.13",
+  "pos_tisch": 6,
   "strong": "G2362",
   "forma": "θρόνος",
+  "lema": "θρόνος",
   "glosa_interlineal": "trono",
   "rango_semantico": [
    "trono"
@@ -382,7 +420,7 @@
   "construccion": "Nominativo: «yo conozco tus obras, y dónde moras, donde está el trono de Satanás; pero retienes mi nombre, y no has negado mi fe, ni aun en los días en que fue muerto Antipas mi testigo fiel, el cual fue muerto entre vosotros, donde mora Satanás».",
   "sentido_en_contexto": "Pérgamo: capital de Asia, centro del culto imperial y del culto a Zeus, Asclepio y Atenea; «el trono de Satanás» puede aludir al gran altar de Zeus, al templo de Roma y Augusto (primer templo del culto imperial en Asia) o a la presión idolátrica en general. Antipas, «mi testigo (μάρτυς) fiel»: mártir local desconocido; la tradición lo hace obispo martirizado bajo Domiciano. Aquí μάρτυς empieza a tener sentido de «mártir».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 1:5; 3:14",
@@ -390,9 +428,9 @@
    "Hch 22:20"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Rev.2.13#10",
+  "ref_estandar": "Rev.2.13",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G2362",
   "strong_tagnt": "G2362",
@@ -408,13 +446,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "throne",
-  "ref_estandar": "Rev.2.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.2.14",
+  "pos_tisch": 12,
   "strong": "G903",
   "forma": "Βαλαάμ",
+  "lema": "Βαλαάμ",
   "glosa_interlineal": "Balaam",
   "rango_semantico": [
    "Balaam"
@@ -422,7 +464,7 @@
   "construccion": "Genitivo: «pero tengo unas pocas cosas contra ti: que tienes ahí a los que retienen la doctrina de Balaam, que enseñaba a Balac a poner tropiezo ante los hijos de Israel, a comer de cosas sacrificadas a los ídolos, y a cometer fornicación».",
   "sentido_en_contexto": "Balaam: modelo del falso profeta que, tras no poder maldecir a Israel (Nm 22–24), lo hizo caer por la idolatría y la inmoralidad (Nm 25:1-3; 31:16). En Pérgamo, los banquetes idolátricos y la fornicación (cultual o no) eran una presión social. Los «nicolaítas» (v.15) son afines. Comer «ídolothyta»: cf. 1 Co 8–10, donde Pablo da pautas distintas.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Nm 22–25; 31:16",
@@ -431,9 +473,9 @@
    "1 Co 8–10"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Rev.2.14#12",
+  "ref_estandar": "Rev.2.14",
   "morfologia_tagnt": "N-GSM-P",
   "dstrong": "G0903",
   "strong_tagnt": "G903",
@@ -449,13 +491,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Balaam",
-  "ref_estandar": "Rev.2.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.2.17",
+  "pos_tisch": 22,
   "strong": "G5586",
   "forma": "ψῆφον",
+  "lema": "ψῆφος",
   "glosa_interlineal": "piedrecita",
   "rango_semantico": [
    "guijarro, voto, ficha"
@@ -463,7 +509,7 @@
   "construccion": "Acusativo: «al que venciere, daré a comer del maná escondido, y le daré una piedrecita blanca, y en la piedrecita escrito un nombre nuevo, el cual ninguno conoce sino aquel que lo recibe».",
   "sentido_en_contexto": "Dos promesas: el maná escondido (alimento celestial; Éx 16; Jn 6:31-35; rival de las comidas idolátricas de Pérgamo) y una ψῆφος blanca con un nombre nuevo. ψῆφος puede ser ficha de absolución en un juicio, piedra de entrada a banquetes, tésera de invitación o amuleto con el nombre del dios. La mayoría la entiende como señal de aceptación y de identidad nueva e íntima con Cristo.",
   "matiz": "Debate sobre la piedrecita blanca: (a) voto de absolución (los jurados votaban con piedrecitas blancas y negras); (b) entrada a un festín (ficha de hospitalidad); (c) amuleto o sello con el nombre; (d) piedra de oro/piedra preciosa (urim y tumim del sumo sacerdote). El «nombre nuevo» es el de Cristo o el del creyente: identidad personal con Dios.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Éx 16:32-34",
@@ -472,10 +518,9 @@
    "Ap 3:12; 19:12"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 22,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Rev.2.17#24",
+  "ref_estandar": "Rev.2.17",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G5586G",
   "strong_tagnt": "G5586",
@@ -491,13 +536,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "stone/vote",
-  "ref_estandar": "Rev.2.17"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.2.17",
+  "pos_tisch": 27,
   "strong": "G5586",
   "forma": "ψῆφον",
+  "lema": "ψῆφος",
   "glosa_interlineal": "piedrecita",
   "rango_semantico": [
    "guijarro, voto, ficha"
@@ -505,7 +555,7 @@
   "construccion": "Acusativo: «al que venciere, daré a comer del maná escondido, y le daré una piedrecita blanca, y en la piedrecita escrito un nombre nuevo, el cual ninguno conoce sino aquel que lo recibe».",
   "sentido_en_contexto": "Dos promesas: el maná escondido (alimento celestial; Éx 16; Jn 6:31-35; rival de las comidas idolátricas de Pérgamo) y una ψῆφος blanca con un nombre nuevo. ψῆφος puede ser ficha de absolución en un juicio, piedra de entrada a banquetes, tésera de invitación o amuleto con el nombre del dios. La mayoría la entiende como señal de aceptación y de identidad nueva e íntima con Cristo.",
   "matiz": "Debate sobre la piedrecita blanca: (a) voto de absolución (los jurados votaban con piedrecitas blancas y negras); (b) entrada a un festín (ficha de hospitalidad); (c) amuleto o sello con el nombre; (d) piedra de oro/piedra preciosa (urim y tumim del sumo sacerdote). El «nombre nuevo» es el de Cristo o el del creyente: identidad personal con Dios.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Éx 16:32-34",
@@ -514,10 +564,9 @@
    "Ap 3:12; 19:12"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 27,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Rev.2.17#29",
+  "ref_estandar": "Rev.2.17",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G5586G",
   "strong_tagnt": "G5586",
@@ -533,13 +582,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "stone/vote",
-  "ref_estandar": "Rev.2.17"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.2.18",
+  "pos_tisch": 12,
   "strong": "G5207",
   "forma": "υἱὸς",
+  "lema": "υἱός",
   "glosa_interlineal": "Hijo",
   "rango_semantico": [
    "hijo"
@@ -547,7 +601,7 @@
   "construccion": "Nominativo: «escribe al ángel de la iglesia en Tiatira: El Hijo de Dios, el que tiene ojos como llama de fuego, y pies semejantes al bronce bruñido, dice esto».",
   "sentido_en_contexto": "Única vez en el Apocalipsis que Cristo se llama «el Hijo de Dios» (υἱὸς τοῦ θεοῦ), probablemente por la oposición a la pretensión imperial de César como «hijo de dios» y a Jezabel. Tiatira: ciudad de gremios (lana, púrpura: Lidia, Hch 16:14), con banquetes de cofradías idolátricos, donde la participación era condición de trabajo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 2:7-9",
@@ -555,9 +609,9 @@
    "Ap 1:14-15"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Rev.2.18#12",
+  "ref_estandar": "Rev.2.18",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G5207",
   "strong_tagnt": "G5207",
@@ -573,13 +627,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "son",
-  "ref_estandar": "Rev.2.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.2.19",
+  "pos_tisch": 13,
   "strong": "G1248",
   "forma": "διακονίαν",
+  "lema": "διακονία",
   "glosa_interlineal": "servicio",
   "rango_semantico": [
    "servicio, ministerio"
@@ -587,16 +645,16 @@
   "construccion": "Acusativo: «yo conozco tus obras, y amor, y fe, y servicio, y tu paciencia, y que tus obras postreras son más que las primeras».",
   "sentido_en_contexto": "Cuatro cualidades positivas de Tiatira: amor, fe, servicio y perseverancia, y además crecimiento (a diferencia de Éfeso, que perdió el primer amor). Con todo, toleran a «Jezabel» (v.20). Es la carta más larga y la ciudad más pequeña.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Ts 1:3",
    "Ap 2:2-3"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Rev.2.19#13",
+  "ref_estandar": "Rev.2.19",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G1248",
   "strong_tagnt": "G1248",
@@ -612,13 +670,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "service",
-  "ref_estandar": "Rev.2.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.2.20",
+  "pos_tisch": 9,
   "strong": "G2403",
   "forma": "Ἰεζάβελ",
+  "lema": "Ἰεζαβήλ",
   "glosa_interlineal": "Jezabel",
   "rango_semantico": [
    "Jezabel"
@@ -626,7 +688,7 @@
   "construccion": "Acusativo: «pero tengo unas pocas cosas contra ti: que toleras que esa mujer Jezabel, que se dice profetisa, enseñe y seduzca a mis siervos a fornicar y a comer cosas sacrificadas a los ídolos».",
   "sentido_en_contexto": "«Jezabel» (nombre simbólico por la esposa de Acab, que promovió el culto de Baal; 1 R 16:31; 2 R 9:22) es una profetisa de Tiatira que enseñaba a transigir con el culto de los gremios. Variante textual: «tu mujer Jezabel» (A, algunos) o «la mujer Jezabel» (א, C): leída por algunos como esposa del «ángel» (obispo). Se rechaza que la condena sea contra la profecía femenina como tal (Hch 21:9; 1 Co 11:5); es contra su enseñanza.",
   "matiz": "Debate: (a) mujer concreta con ministerio de enseñanza que fomentaba la participación idólatra (la mayoría); (b) personificación de un grupo o una tendencia (Beale); (c) la variante «tu mujer» la convierte en esposa del líder. La acusación es doctrinal y moral, no por ser profetisa.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 R 16:31-33; 21:25",
@@ -635,9 +697,9 @@
    "Hch 21:9"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Rev.2.20#11",
+  "ref_estandar": "Rev.2.20",
   "morfologia_tagnt": "N-ASF-P",
   "dstrong": "G2403",
   "strong_tagnt": "G2403",
@@ -653,13 +715,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Jezebel",
-  "ref_estandar": "Rev.2.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.2.23",
+  "pos_tisch": 18,
   "strong": "G3510",
   "forma": "νεφροὺς",
+  "lema": "νεφρός",
   "glosa_interlineal": "riñones",
   "rango_semantico": [
    "riñón (sede de las emociones)"
@@ -667,7 +733,7 @@
   "construccion": "Acusativo plural: «y a sus hijos heriré de muerte, y todas las iglesias sabrán que yo soy el que escudriña la mente y el corazón; y os daré a cada uno según vuestras obras».",
   "sentido_en_contexto": "«El que escudriña los riñones y el corazón» (ἐραυνῶν νεφροὺς καὶ καρδίας): expresión de Jer 11:20; 17:10; Sal 7:9 (en el hebreo, «riñones»: la sede de las emociones y la conciencia). Cristo asume la prerrogativa de Dios (Jer 17:10). «Según vuestras obras»: juicio según las obras, como evidencia de la fe.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jer 11:20; 17:10",
@@ -676,9 +742,9 @@
    "Ap 20:12-13"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "Rev.2.23#18",
+  "ref_estandar": "Rev.2.23",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G3510",
   "strong_tagnt": "G3510",
@@ -694,13 +760,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mind",
-  "ref_estandar": "Rev.2.23"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.2.24",
+  "pos_tisch": 21,
   "strong": "G4567",
   "forma": "σατανᾶ",
+  "lema": "Σατανᾶς",
   "glosa_interlineal": "Satanás",
   "rango_semantico": [
    "Satanás"
@@ -708,7 +778,7 @@
   "construccion": "Genitivo: «pero a vosotros y a los demás que están en Tiatira, a cuantos no tienen esa doctrina, y no han conocido lo que ellos llaman las profundidades de Satanás, yo os digo: No os impondré otra carga».",
   "sentido_en_contexto": "«Las profundidades de Satanás»: ironía contra la pretensión gnóstica de «conocer las profundidades de Dios» (1 Co 2:10); estos falsos maestros reivindicaban un conocimiento superior que Cristo califica de satánico. «No os impondré otra carga»: eco de Hch 15:28-29 (decreto apostólico: abstenerse de idolotitos y fornicación).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 2:10",
@@ -716,9 +786,9 @@
    "Ap 2:14"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 21,
   "alineacion": "forma",
   "tagnt": "Rev.2.24#22",
+  "ref_estandar": "Rev.2.24",
   "morfologia_tagnt": "N-GSM-T",
   "dstrong": "G4567",
   "strong_tagnt": "G4567",
@@ -734,13 +804,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Satan",
-  "ref_estandar": "Rev.2.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.2.26",
+  "pos_tisch": 14,
   "strong": "G1849",
   "forma": "ἐξουσίαν",
+  "lema": "ἐξουσία",
   "glosa_interlineal": "autoridad",
   "rango_semantico": [
    "autoridad, potestad"
@@ -748,7 +822,7 @@
   "construccion": "Acusativo: «al que venciere y guardare mis obras hasta el fin, yo le daré autoridad sobre las naciones, y las regirá con vara de hierro, y serán quebradas como vaso de alfarero; como yo también la he recibido de mi Padre; y le daré la estrella de la mañana».",
   "sentido_en_contexto": "Promesa de participar en el reinado mesiánico de Sal 2:8-9: «vara de hierro» (ῥάβδος σιδηρᾶ; ποιμανεῖ: «pastoreará», con sentido de gobernar y quebrantar). Cristo aplica a sus vencedores lo que él recibió del Padre. «La estrella de la mañana» (v.28): Cristo mismo (22:16) o la participación en su gloria resurrecta. Cf. Dn 7:22, 27.",
   "matiz": "Debate sobre «regir con vara de hierro»: (a) participación de los santos en el reinado mesiánico sobre las naciones (juicio y gobierno; Dn 7:22; 1 Co 6:2); (b) sentido de protección pastoral (ποιμαίνω) y de victoria sobre los enemigos; (c) lenguaje simbólico para la victoria final de Cristo. Ver 12:5; 19:15.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 2:8-9",
@@ -757,9 +831,9 @@
    "1 Co 6:2"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Rev.2.26#14",
+  "ref_estandar": "Rev.2.26",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G1849",
   "strong_tagnt": "G1849",
@@ -775,7 +849,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "authority",
-  "ref_estandar": "Rev.2.26"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

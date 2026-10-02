@@ -1,8 +1,10 @@
 [
  {
   "ref": "Acts.22.1",
+  "pos_tisch": 11,
   "strong": "G627",
   "forma": "ἀπολογίας",
+  "lema": "ἀπολογία",
   "glosa_interlineal": "defensa",
   "rango_semantico": [
    "defensa (jurídica), apología"
@@ -10,7 +12,7 @@
   "construccion": "Genitivo: «oíd ahora mi defensa».",
   "sentido_en_contexto": "Pablo comienza su defensa ante la multitud de Jerusalén: ἀπολογία es la defensa legal. De ahí «apología» y «apologética». Sigue un relato de su vida y conversión: judío, educado a los pies de Gamaliel, antiguo perseguidor, convertido por una visión de Jesús, enviado a los gentiles.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 26:2; 24:10",
@@ -18,9 +20,9 @@
    "Fil 1:7, 16"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Acts.22.1#11",
+  "ref_estandar": "Acts.22.1",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G0627",
   "strong_tagnt": "G627",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "defence",
-  "ref_estandar": "Acts.22.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.22.3",
+  "pos_tisch": 19,
   "strong": "G1059",
   "forma": "Γαμαλιὴλ",
+  "lema": "Γαμαλιήλ",
   "glosa_interlineal": "Gamaliel",
   "rango_semantico": [
    "Gamaliel (maestro fariseo)"
@@ -50,7 +56,7 @@
   "construccion": "Genitivo: «criado en esta ciudad, instruido a los pies de Gamaliel».",
   "sentido_en_contexto": "Pablo se presenta como judío nacido en Tarso, criado en Jerusalén, discípulo de Gamaliel (el rabino de 5:34-39) y celoso de Dios. «A los pies» alude a la postura del alumno ante el maestro. Resalta su formación rigurosa en la ley de los padres.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 5:34; 21:39",
@@ -58,9 +64,9 @@
    "Gá 1:13-14"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 19,
   "alineacion": "forma",
   "tagnt": "Acts.22.3#20",
+  "ref_estandar": "Acts.22.3",
   "morfologia_tagnt": "N-GSM-P",
   "dstrong": "G1059",
   "strong_tagnt": "G1059",
@@ -76,13 +82,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Gamaliel",
-  "ref_estandar": "Acts.22.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.22.4",
+  "pos_tisch": 5,
   "strong": "G1377",
   "forma": "ἐδίωξα",
+  "lema": "διώκω",
   "glosa_interlineal": "perseguí",
   "rango_semantico": [
    "perseguir"
@@ -90,7 +100,7 @@
   "construccion": "Aoristo indicativo activo: «perseguí este Camino hasta la muerte».",
   "sentido_en_contexto": "Pablo reconoce su pasado: persiguió «este Camino» hasta la muerte, atando y encarcelando a hombres y mujeres. Con ello comparte el celo de sus oyentes y acentúa el cambio radical que le produjo el encuentro con Jesús.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 8:3; 9:1-2; 26:9-11",
@@ -98,9 +108,9 @@
    "1 Ti 1:13"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Acts.22.4#05",
+  "ref_estandar": "Acts.22.4",
   "morfologia_tagnt": "V-AAI-1S",
   "dstrong": "G1377",
   "strong_tagnt": "G1377",
@@ -116,13 +126,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pursue",
-  "ref_estandar": "Acts.22.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.22.9",
+  "pos_tisch": 9,
   "strong": "G2300",
   "forma": "ἐθεάσαντο",
+  "lema": "θεάομαι",
   "glosa_interlineal": "vieron",
   "rango_semantico": [
    "ver, contemplar"
@@ -130,7 +144,7 @@
   "construccion": "Aoristo indicativo medio: «los que estaban conmigo vieron a la verdad la luz, y se espantaron; pero no entendieron la voz».",
   "sentido_en_contexto": "Variación con el relato de 9:7: allí los compañeros «oían la voz sin ver a nadie»; aquí «vieron la luz, pero no oyeron (comprendieron) la voz». Se suele armonizar: oyeron un sonido sin entender las palabras (ἀκούω con acusativo = percibir; con genitivo = entender), y vieron la luz sin ver a Jesús.",
   "matiz": "Armonización: ἀκούειν con genitivo (9:7) = «oír (un sonido)»; con acusativo (22:9) = «entender». Los compañeros oyeron el ruido pero no comprendieron las palabras. Otros ven simplemente variación en la narración de los mismos hechos.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 9:7; 26:13-14",
@@ -138,9 +152,9 @@
    "Jn 12:28-29"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Acts.22.9#09",
+  "ref_estandar": "Acts.22.9",
   "morfologia_tagnt": "V-ADI-3P",
   "dstrong": "G2300",
   "strong_tagnt": "G2300",
@@ -156,13 +170,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to look at",
-  "ref_estandar": "Acts.22.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.22.14",
+  "pos_tisch": 18,
   "strong": "G1342",
   "forma": "δίκαιον",
+  "lema": "δίκαιος",
   "glosa_interlineal": "el Justo",
   "rango_semantico": [
    "justo, recto"
@@ -170,7 +188,7 @@
   "construccion": "Acusativo: «para que veas al Justo, y oigas la voz de su boca».",
   "sentido_en_contexto": "Ananías declara que el Dios de los padres «te ha escogido» para conocer su voluntad, ver al Justo (título mesiánico de Jesús) y oír su voz. Pablo vincula su llamamiento con el Dios de Israel.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 3:14; 7:52",
@@ -178,9 +196,9 @@
    "1 Co 9:1; 15:8"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "Acts.22.14#18",
+  "ref_estandar": "Acts.22.14",
   "morfologia_tagnt": "A-ASM",
   "dstrong": "G1342",
   "strong_tagnt": "G1342",
@@ -196,13 +214,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "just",
-  "ref_estandar": "Acts.22.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.22.15",
+  "pos_tisch": 3,
   "strong": "G3144",
   "forma": "μάρτυς",
+  "lema": "μάρτυς",
   "glosa_interlineal": "testigo",
   "rango_semantico": [
    "testigo, mártir"
@@ -210,7 +232,7 @@
   "construccion": "Nominativo: «serás testigo suyo a todos los hombres».",
   "sentido_en_contexto": "La misión de Pablo: testigo a todos los hombres de lo que ha visto y oído. «Testigo» (μάρτυς) es el término central de la misión (1:8). Pablo se ubica así dentro del plan de Dios para extender el evangelio a los gentiles (v.21).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 1:8; 26:16",
@@ -218,9 +240,9 @@
    "1 Co 9:1"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Acts.22.15#03",
+  "ref_estandar": "Acts.22.15",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G3144",
   "strong_tagnt": "G3144",
@@ -236,13 +258,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "witness",
-  "ref_estandar": "Acts.22.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.22.16",
+  "pos_tisch": 6,
   "strong": "G907",
   "forma": "βάπτισαι",
+  "lema": "βαπτίζω",
   "glosa_interlineal": "bautízate",
   "rango_semantico": [
    "bautizar, ser bautizado"
@@ -250,7 +276,7 @@
   "construccion": "Imperativo aoristo medio: «levántate y bautízate, y lava tus pecados invocando su nombre».",
   "sentido_en_contexto": "Ananías exhorta a Pablo: «bautízate y lava tus pecados, invocando su nombre». Texto en el debate sobre la relación entre bautismo y perdón: ¿el bautismo lava los pecados (regeneración bautismal), o simboliza el lavado ya obrado por la fe e invocación del nombre del Señor?",
   "matiz": "Debate: (a) el bautismo es medio del perdón (tradiciones católica, ortodoxa, luterana, Iglesias de Cristo); (b) el lavado se da por invocar el nombre (el participio ἐπικαλεσάμενος marca el medio) y el bautismo es la señal (tradiciones reformadas, bautistas). El participio aoristo «invocando» enlaza con Jl 2:32 y Hch 2:21.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 2:38; 9:18",
@@ -259,9 +285,9 @@
    "Tit 3:5"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Acts.22.16#06",
+  "ref_estandar": "Acts.22.16",
   "morfologia_tagnt": "V-AMM-2S",
   "dstrong": "G0907",
   "strong_tagnt": "G907",
@@ -277,13 +303,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to baptize",
-  "ref_estandar": "Acts.22.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.22.20",
+  "pos_tisch": 6,
   "strong": "G4736",
   "forma": "Στεφάνου",
+  "lema": "Στέφανος",
   "glosa_interlineal": "Esteban",
   "rango_semantico": [
    "Esteban"
@@ -291,7 +321,7 @@
   "construccion": "Genitivo: «cuando se derramaba la sangre de Esteban tu testigo».",
   "sentido_en_contexto": "Pablo recuerda que estaba presente y consentía en la muerte de Esteban, guardando las ropas de los verdugos. Menciona su pasado como fariseo perseguidor para subrayar que su cambio no se debe a oposición previa a la fe.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 7:58; 8:1",
@@ -299,9 +329,9 @@
    "1 Ti 1:13"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Acts.22.20#06",
+  "ref_estandar": "Acts.22.20",
   "morfologia_tagnt": "N-GSM-P",
   "dstrong": "G4736",
   "strong_tagnt": "G4736",
@@ -317,13 +347,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Stephen",
-  "ref_estandar": "Acts.22.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.22.21",
+  "pos_tisch": 9,
   "strong": "G1484",
   "forma": "ἔθνη",
+  "lema": "ἔθνος",
   "glosa_interlineal": "gentiles",
   "rango_semantico": [
    "nación, pueblo, gentil"
@@ -331,7 +365,7 @@
   "construccion": "Acusativo plural: «yo te enviaré lejos a los gentiles».",
   "sentido_en_contexto": "La palabra «gentiles» (ἔθνη) provoca la furia de la multitud: hasta aquí lo oyeron, pero la idea de ir a los gentiles es inaceptable. El Señor mismo le encomendó la misión a los gentiles (cf. Gá 1:15-16; Ro 11:13).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 9:15; 26:17-18",
@@ -339,9 +373,9 @@
    "Ef 3:1-8"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Acts.22.21#09",
+  "ref_estandar": "Acts.22.21",
   "morfologia_tagnt": "N-APN",
   "dstrong": "G1484",
   "strong_tagnt": "G1484",
@@ -357,13 +391,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Gentile nation",
-  "ref_estandar": "Acts.22.21"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.22.22",
+  "pos_tisch": 14,
   "strong": "G142",
   "forma": "αἶρε",
+  "lema": "αἴρω",
   "glosa_interlineal": "quita",
   "rango_semantico": [
    "quitar, levantar, llevarse"
@@ -371,7 +409,7 @@
   "construccion": "Imperativo presente activo: «¡quita de la tierra a tal hombre!».",
   "sentido_en_contexto": "La multitud grita pidiendo la muerte de Pablo, como en el juicio de Jesús (Lc 23:18; Jn 19:15). Su reacción confirma lo que Jesús dijo a Pablo sobre el rechazo de su testimonio (22:18). Arrojan sus ropas y echan polvo al aire.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 23:18",
@@ -379,9 +417,9 @@
    "Hch 21:36"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Acts.22.22#14",
+  "ref_estandar": "Acts.22.22",
   "morfologia_tagnt": "V-PAM-2S",
   "dstrong": "G0142",
   "strong_tagnt": "G142",
@@ -397,13 +435,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to take up",
-  "ref_estandar": "Acts.22.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.22.25",
+  "pos_tisch": 16,
   "strong": "G4514",
   "forma": "Ῥωμαῖον",
+  "lema": "Ῥωμαῖος",
   "glosa_interlineal": "romano",
   "rango_semantico": [
    "romano, ciudadano romano"
@@ -411,7 +453,7 @@
   "construccion": "Acusativo: «¿os es lícito azotar a un ciudadano romano sin ser condenado?».",
   "sentido_en_contexto": "Cuando el tribuno ordena flagelar a Pablo para averiguar la causa del alboroto, Pablo declara su ciudadanía romana, que prohibía azotar a un ciudadano sin juicio (lex Iulia). El centurión avisa al tribuno, quien se asusta por haberlo atado. Pablo usa su ciudadanía para proteger la misión.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 16:37-38",
@@ -419,9 +461,9 @@
    "Hch 23:27"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Acts.22.25#16",
+  "ref_estandar": "Acts.22.25",
   "morfologia_tagnt": "N-ASM-LG",
   "dstrong": "G4514",
   "strong_tagnt": "G4514",
@@ -437,13 +479,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Roman",
-  "ref_estandar": "Acts.22.25"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.22.28",
+  "pos_tisch": 9,
   "strong": "G4174",
   "forma": "πολιτείαν",
+  "lema": "πολιτεία",
   "glosa_interlineal": "ciudadanía",
   "rango_semantico": [
    "ciudadanía, derecho de ciudadano"
@@ -451,16 +497,16 @@
   "construccion": "Acusativo: «yo con una gran suma adquirí esta ciudadanía».",
   "sentido_en_contexto": "El tribuno había comprado la ciudadanía romana «por gran precio». Pablo replica: «Pero yo lo soy de nacimiento» (γεγέννημαι). Su familia, probablemente de Tarso, tenía el derecho de ciudadanía heredado, quizás por servicios prestados a Roma.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 16:37; 21:39",
    "Fil 3:20"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Acts.22.28#09",
+  "ref_estandar": "Acts.22.28",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G4174",
   "strong_tagnt": "G4174",
@@ -476,13 +522,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "citizenship",
-  "ref_estandar": "Acts.22.28"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.22.30",
+  "pos_tisch": 24,
   "strong": "G4892",
   "forma": "συνέδριον",
+  "lema": "συνέδριον",
   "glosa_interlineal": "Sanedrín",
   "rango_semantico": [
    "consejo, tribunal (Sanedrín)"
@@ -490,16 +540,16 @@
   "construccion": "Acusativo: «mandó venir a los principales sacerdotes y a todo el concilio».",
   "sentido_en_contexto": "Al día siguiente, el tribuno, queriendo saber con certeza la acusación, libera a Pablo y manda reunir al Sanedrín. Pablo comparece ante el concilio (cap. 23), donde provocará división entre fariseos y saduceos al invocar la resurrección.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 23:1-10",
    "Hch 4:15; 5:21"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 24,
   "alineacion": "forma",
   "tagnt": "Acts.22.30#27",
+  "ref_estandar": "Acts.22.30",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G4892",
   "strong_tagnt": "G4892",
@@ -515,7 +565,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "council",
-  "ref_estandar": "Acts.22.30"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

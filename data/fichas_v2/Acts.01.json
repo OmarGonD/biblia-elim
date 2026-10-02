@@ -1,8 +1,10 @@
 [
  {
   "ref": "Acts.1.1",
+  "pos_tisch": 9,
   "strong": "G2321",
   "forma": "Θεόφιλε",
+  "lema": "Θεόφιλος",
   "glosa_interlineal": "Teófilo",
   "rango_semantico": [
    "Teófilo («amigo de Dios»)"
@@ -10,16 +12,16 @@
   "construccion": "Vocativo: «oh Teófilo».",
   "sentido_en_contexto": "Destinatario de Lucas y Hechos (cf. Lc 1:3). Hechos continúa el «primer tratado»: lo que Jesús «comenzó a hacer y a enseñar» sigue ahora por medio de sus apóstoles y del Espíritu.",
   "matiz": "No se sabe si Teófilo fue una persona real (probablemente un patrono cristiano de rango) o un nombre simbólico («amigo de Dios»). La mayoría lo ve como persona real.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 1:3 — «excelentísimo Teófilo»",
    "Hch 1:1-2"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Acts.1.1#09",
+  "ref_estandar": "Acts.1.1",
   "morfologia_tagnt": "N-VSM-P",
   "dstrong": "G2321",
   "strong_tagnt": "G2321",
@@ -35,13 +37,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Theophilus",
-  "ref_estandar": "Acts.1.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.1.3",
+  "pos_tisch": 12,
   "strong": "G5039",
   "forma": "τεκμηρίοις",
+  "lema": "τεκμήριον",
   "glosa_interlineal": "pruebas",
   "rango_semantico": [
    "prueba concluyente, evidencia"
@@ -49,7 +55,7 @@
   "construccion": "Dativo plural: «con muchas pruebas indubitables».",
   "sentido_en_contexto": "Palabra única en el NT. Lucas afirma que Jesús se presentó vivo después de su pasión durante cuarenta días con pruebas convincentes, hablando del reino de Dios.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 24:36-43",
@@ -57,9 +63,9 @@
    "Hch 10:40-41"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Acts.1.3#12",
+  "ref_estandar": "Acts.1.3",
   "morfologia_tagnt": "N-DPN",
   "dstrong": "G5039",
   "strong_tagnt": "G5039",
@@ -75,13 +81,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "clear proof",
-  "ref_estandar": "Acts.1.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.1.4",
+  "pos_tisch": 12,
   "strong": "G1860",
   "forma": "ἐπαγγελίαν",
+  "lema": "ἐπαγγελία",
   "glosa_interlineal": "promesa",
   "rango_semantico": [
    "promesa"
@@ -89,7 +99,7 @@
   "construccion": "Acusativo: «la promesa del Padre».",
   "sentido_en_contexto": "Jesús ordena a los discípulos no salir de Jerusalén hasta recibir la promesa del Espíritu Santo, que ya les había anunciado. Prepara Pentecostés (cap. 2).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 24:49",
@@ -98,9 +108,9 @@
    "Hch 2:33"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Acts.1.4#12",
+  "ref_estandar": "Acts.1.4",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G1860",
   "strong_tagnt": "G1860",
@@ -116,13 +126,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "promise",
-  "ref_estandar": "Acts.1.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.1.5",
+  "pos_tisch": 4,
   "strong": "G907",
   "forma": "ἐβάπτισεν",
+  "lema": "βαπτίζω",
   "glosa_interlineal": "bautizó",
   "rango_semantico": [
    "bautizar, sumergir"
@@ -130,7 +144,7 @@
   "construccion": "Aoristo indicativo activo: «Juan bautizó con agua, mas vosotros seréis bautizados con el Espíritu Santo».",
   "sentido_en_contexto": "Contraste entre el bautismo de Juan (agua) y el que vendrá (Espíritu Santo). Se cumple en Pentecostés (2:1-4) y se evoca en 11:16.",
   "matiz": "Se discute la relación entre el «bautismo en el Espíritu» y la conversión y el bautismo con agua: ¿experiencia distinta y posterior (pentecostales), simultánea con la conversión (evangélicos), o ligada al bautismo (tradiciones sacramentales)? El texto de Hechos presenta varias secuencias.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 3:16",
@@ -138,10 +152,9 @@
    "1 Co 12:13"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 4,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Acts.1.5#04",
+  "ref_estandar": "Acts.1.5",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G0907",
   "strong_tagnt": "G907",
@@ -157,13 +170,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to baptize",
-  "ref_estandar": "Acts.1.5"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.1.6",
+  "pos_tisch": 14,
   "strong": "G600",
   "forma": "ἀποκαθιστάνεις",
+  "lema": "ἀποκαθίστημι",
   "glosa_interlineal": "restauras",
   "rango_semantico": [
    "restaurar, restablecer"
@@ -171,7 +189,7 @@
   "construccion": "Presente indicativo activo: «¿restaurarás el reino a Israel en este tiempo?».",
   "sentido_en_contexto": "Pregunta de los discípulos sobre la restauración política y nacional de Israel. Jesús no la rechaza como equivocada, pero desplaza el foco: el tiempo no les toca saber, y su tarea es dar testimonio (v.7-8).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 24:21 — «esperábamos que él era el que había de redimir a Israel»",
@@ -179,9 +197,9 @@
    "Hch 3:21 — «los tiempos de la restauración de todas las cosas»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Acts.1.6#14",
+  "ref_estandar": "Acts.1.6",
   "morfologia_tagnt": "V-PAI-2S",
   "dstrong": "G0600",
   "strong_tagnt": "G600",
@@ -197,13 +215,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to restore",
-  "ref_estandar": "Acts.1.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.1.7",
+  "pos_tisch": 10,
   "strong": "G2540",
   "forma": "καιροὺς",
+  "lema": "καιρός",
   "glosa_interlineal": "épocas",
   "rango_semantico": [
    "tiempo oportuno, ocasión, época"
@@ -211,7 +233,7 @@
   "construccion": "Acusativo plural: «los tiempos o las sazones».",
   "sentido_en_contexto": "Jesús declara que los «tiempos y sazones» (χρόνους ἢ καιρούς) están fijados por el Padre «con su propia autoridad»: no corresponde a los discípulos conocerlos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 24:36",
@@ -219,9 +241,9 @@
    "Dn 2:21"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Acts.1.7#11",
+  "ref_estandar": "Acts.1.7",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G2540",
   "strong_tagnt": "G2540",
@@ -237,13 +259,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "time/right time",
-  "ref_estandar": "Acts.1.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.1.8",
+  "pos_tisch": 13,
   "strong": "G3144",
   "forma": "μάρτυρες",
+  "lema": "μάρτυς",
   "glosa_interlineal": "testigos",
   "rango_semantico": [
    "testigo, mártir"
@@ -251,7 +277,7 @@
   "construccion": "Nominativo plural: «me seréis testigos».",
   "sentido_en_contexto": "Verso programático de Hechos: el Espíritu da poder y los apóstoles serán testigos en Jerusalén, Judea, Samaria y hasta lo último de la tierra: la estructura geográfica del libro. μάρτυς es el origen de «mártir».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 24:47-48",
@@ -259,9 +285,9 @@
    "Is 49:6 — «para luz de las naciones»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Acts.1.8#13",
+  "ref_estandar": "Acts.1.8",
   "morfologia_tagnt": "N-NPM",
   "dstrong": "G3144",
   "strong_tagnt": "G3144",
@@ -277,13 +303,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "witness",
-  "ref_estandar": "Acts.1.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.1.9",
+  "pos_tisch": 8,
   "strong": "G3507",
   "forma": "νεφέλη",
+  "lema": "νεφέλη",
   "glosa_interlineal": "nube",
   "rango_semantico": [
    "nube"
@@ -291,7 +321,7 @@
   "construccion": "Nominativo: «una nube le recibió y le ocultó de sus ojos».",
   "sentido_en_contexto": "Ascensión: Jesús es elevado y una nube lo oculta. La nube es signo de la presencia y gloria de Dios (Éx 40:34; Dn 7:13). Lucas ya la narró brevemente en Lc 24:51.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 24:50-51",
@@ -300,9 +330,9 @@
    "1 Ts 4:17"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Acts.1.9#08",
+  "ref_estandar": "Acts.1.9",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G3507",
   "strong_tagnt": "G3507",
@@ -318,13 +348,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "cloud",
-  "ref_estandar": "Acts.1.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.1.11",
+  "pos_tisch": 25,
   "strong": "G5158",
   "forma": "τρόπον",
+  "lema": "τρόπος",
   "glosa_interlineal": "de la misma manera",
   "rango_semantico": [
    "manera, modo"
@@ -332,7 +366,7 @@
   "construccion": "Acusativo adverbial: «vendrá así como le habéis visto ir al cielo».",
   "sentido_en_contexto": "Los ángeles prometen que Jesús volverá «de la misma manera» que subió (visible, desde el cielo, con nubes). Es una de las promesas fundamentales del regreso de Cristo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 24:30",
@@ -340,9 +374,9 @@
    "Ap 1:7"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 25,
   "alineacion": "forma",
   "tagnt": "Acts.1.11#25",
+  "ref_estandar": "Acts.1.11",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G5158",
   "strong_tagnt": "G5158",
@@ -358,13 +392,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "way",
-  "ref_estandar": "Acts.1.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.1.13",
+  "pos_tisch": 6,
   "strong": "G5253",
   "forma": "ὑπερῷον",
+  "lema": "ὑπερῷον",
   "glosa_interlineal": "aposento alto",
   "rango_semantico": [
    "aposento alto, sala del piso superior"
@@ -372,17 +410,13 @@
   "construccion": "Acusativo: «subieron al aposento alto».",
   "sentido_en_contexto": "Lista de los once apóstoles (sin Judas) en un aposento alto en Jerusalén. Los nombres coinciden en gran parte con Lc 6:14-16. Pedro encabeza la lista, como en todas.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Lc 6:14-16; Mt 10:2-4; Mr 3:16-19",
-   "Lc 22:12",
-   "Hch 12:12"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Lc 6:14-16; Mt 10:2-4; Mr 3:16-19\nLc 22:12\nHch 12:12",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Acts.1.13#06",
+  "ref_estandar": "Acts.1.13",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G5253",
   "strong_tagnt": "G5253",
@@ -398,13 +432,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "upper room",
-  "ref_estandar": "Acts.1.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.1.14",
+  "pos_tisch": 5,
   "strong": "G3661",
   "forma": "ὁμοθυμαδὸν",
+  "lema": "ὁμοθυμαδόν",
   "glosa_interlineal": "unánimes",
   "rango_semantico": [
    "de común acuerdo, con un mismo ánimo"
@@ -412,7 +450,7 @@
   "construccion": "Adverbio: «todos éstos perseveraban unánimes en oración».",
   "sentido_en_contexto": "Palabra característica de Hechos (11 de 12 apariciones en el NT): unanimidad de la comunidad. La oración común prepara la venida del Espíritu. Se menciona a las mujeres, a María y a los hermanos de Jesús.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 2:46; 4:24; 5:12; 15:25",
@@ -420,9 +458,9 @@
    "1 Co 15:7 — Jacobo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Acts.1.14#05",
+  "ref_estandar": "Acts.1.14",
   "morfologia_tagnt": "ADV",
   "dstrong": "G3661",
   "strong_tagnt": "G3661",
@@ -438,13 +476,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "united",
-  "ref_estandar": "Acts.1.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.1.16",
+  "pos_tisch": 20,
   "strong": "G3595",
   "forma": "ὁδηγοῦ",
+  "lema": "ὁδηγός",
   "glosa_interlineal": "guía",
   "rango_semantico": [
    "guía, conductor"
@@ -452,17 +494,13 @@
   "construccion": "Genitivo: «Judas, que fue guía de los que prendieron a Jesús».",
   "sentido_en_contexto": "Pedro explica la traición de Judas como cumplimiento de la Escritura (Sal 41:9; 69:25; 109:8). Abre el relato de la elección de Matías para completar los Doce.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Sal 41:9",
-   "Mt 26:47-50",
-   "Jn 13:18"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Sal 41:9\nMt 26:47-50\nJn 13:18",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 20,
   "alineacion": "forma",
   "tagnt": "Acts.1.16#21",
+  "ref_estandar": "Acts.1.16",
   "morfologia_tagnt": "N-GSM",
   "dstrong": "G3595",
   "strong_tagnt": "G3595",
@@ -478,13 +516,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "guide/leader",
-  "ref_estandar": "Acts.1.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.1.18",
+  "pos_tisch": 13,
   "strong": "G2997",
   "forma": "ἐλάκησεν",
+  "lema": "λάσχω",
   "glosa_interlineal": "reventó",
   "rango_semantico": [
    "reventar, estallar"
@@ -492,7 +534,7 @@
   "construccion": "Aoristo indicativo activo: «reventó por el medio, y todas sus entrañas se derramaron».",
   "sentido_en_contexto": "Relato de la muerte de Judas, distinto del de Mt 27:3-10 (ahorcamiento y compra del campo por los sacerdotes). Aquí «adquirió un campo con el salario de su iniquidad». Las dos versiones se suelen armonizar: ahorcado, el cuerpo cayó y reventó; los sacerdotes compraron el campo con su dinero.",
   "matiz": "Armonización: (a) Judas se ahorcó y, al romperse la cuerda o descomponerse, el cuerpo cayó y reventó; (b) Mateo dice que los sacerdotes compraron el campo, Lucas que Judas lo «adquirió» en cuanto lo hizo con su dinero; (c) tradiciones independientes. El texto no se contradice necesariamente.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 27:3-10",
@@ -500,9 +542,9 @@
    "Jn 17:12"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Acts.1.18#14",
+  "ref_estandar": "Acts.1.18",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G2997",
   "strong_tagnt": "G2997",
@@ -518,13 +560,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to burst",
-  "ref_estandar": "Acts.1.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.1.20",
+  "pos_tisch": 20,
   "strong": "G1984",
   "forma": "ἐπισκοπὴν",
+  "lema": "ἐπισκοπή",
   "glosa_interlineal": "oficio",
   "rango_semantico": [
    "supervisión, cargo, oficio de supervisor"
@@ -532,7 +578,7 @@
   "construccion": "Acusativo: «tome otro su oficio».",
   "sentido_en_contexto": "Cita de Sal 109:8 aplicada a Judas. «Episcopado» (ἐπισκοπή) designa aquí el cargo apostólico. De ella viene «obispo» (ἐπίσκοπος).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 109:8",
@@ -540,9 +586,9 @@
    "1 Ti 3:1"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 20,
   "alineacion": "forma",
   "tagnt": "Acts.1.20#20",
+  "ref_estandar": "Acts.1.20",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G1984",
   "strong_tagnt": "G1984",
@@ -558,13 +604,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "oversight",
-  "ref_estandar": "Acts.1.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.1.22",
+  "pos_tisch": 15,
   "strong": "G386",
   "forma": "ἀναστάσεως",
+  "lema": "ἀνάστασις",
   "glosa_interlineal": "resurrección",
   "rango_semantico": [
    "resurrección"
@@ -572,7 +622,7 @@
   "construccion": "Genitivo: «testigo con nosotros de su resurrección».",
   "sentido_en_contexto": "Requisito del sucesor de Judas: haber acompañado a Jesús desde el bautismo de Juan hasta la ascensión, para ser testigo de la resurrección. El testimonio de la resurrección es el núcleo de la misión apostólica.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 2:32; 3:15; 4:33; 10:41",
@@ -580,9 +630,9 @@
    "Lc 24:48"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Acts.1.22#15",
+  "ref_estandar": "Acts.1.22",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G0386",
   "strong_tagnt": "G386",
@@ -598,13 +648,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "resurrection",
-  "ref_estandar": "Acts.1.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.1.24",
+  "pos_tisch": 6,
   "strong": "G2589",
   "forma": "καρδιογνῶστα",
+  "lema": "καρδιογνώστης",
   "glosa_interlineal": "conocedor de corazones",
   "rango_semantico": [
    "que conoce los corazones"
@@ -612,7 +666,7 @@
   "construccion": "Vocativo: «Tú, Señor, que conoces los corazones de todos».",
   "sentido_en_contexto": "Palabra única en el NT (de καρδία y γινώσκω): la oración dirige a Dios (o al Señor Jesús) el discernimiento de quién es el elegido. Reaparece en 15:8 («Dios, que conoce los corazones»).",
   "matiz": "Se debate si «Señor» en el v.24 se refiere al Padre o a Jesús. Hechos usa «Señor» para ambos; muchos lo ven dirigido a Jesús, que había elegido a los apóstoles (v.2), pero «conocedor de corazones» es atributo divino.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 15:8",
@@ -621,9 +675,9 @@
    "Jn 2:24-25"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Acts.1.24#06",
+  "ref_estandar": "Acts.1.24",
   "morfologia_tagnt": "N-VSM",
   "dstrong": "G2589",
   "strong_tagnt": "G2589",
@@ -639,13 +693,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "heart-knower",
-  "ref_estandar": "Acts.1.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.1.26",
+  "pos_tisch": 3,
   "strong": "G2819",
   "forma": "κλήρους",
+  "lema": "κλῆρος",
   "glosa_interlineal": "suertes",
   "rango_semantico": [
    "suerte, sorteo"
@@ -653,7 +711,7 @@
   "construccion": "Acusativo plural: «echaron suertes, y la suerte cayó sobre Matías».",
   "sentido_en_contexto": "Elección por sorteo, método del AT (Pr 16:33), tras la oración. Es la última vez que se usa en el NT; después del Pentecostés será el Espíritu quien guíe las decisiones. Matías se une a los once.",
   "matiz": "Debate: ¿fue válida la elección de Matías o Pablo era el verdadero duodécimo? La mayoría de intérpretes ve válida la elección de Matías; Pablo se presenta como apóstol «nacido fuera de tiempo» (1 Co 15:8).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Pr 16:33",
@@ -661,10 +719,9 @@
    "1 Co 15:8"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 3,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Acts.1.26#03",
+  "ref_estandar": "Acts.1.26",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G2819",
   "strong_tagnt": "G2819",
@@ -680,7 +737,10 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lot",
-  "ref_estandar": "Acts.1.26"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

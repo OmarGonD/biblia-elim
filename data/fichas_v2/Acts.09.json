@@ -1,8 +1,10 @@
 [
  {
   "ref": "Acts.9.1",
+  "pos_tisch": 5,
   "strong": "G1709",
   "forma": "ἐμπνέων",
+  "lema": "ἐμπνέω",
   "glosa_interlineal": "respirando",
   "rango_semantico": [
    "respirar, exhalar"
@@ -10,7 +12,7 @@
   "construccion": "Participio presente activo: «respirando aún amenazas y muerte contra los discípulos».",
   "sentido_en_contexto": "Imagen: Saulo «respira» amenaza y asesinato; es su atmósfera vital. Se dirige al sumo sacerdote para pedir cartas contra los seguidores del «Camino». Primer relato de la conversión de Saulo (hay otros dos: 22:3-16 y 26:9-18).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 8:3; 22:4-5; 26:9-11",
@@ -18,9 +20,9 @@
    "1 Ti 1:13"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Acts.9.1#05",
+  "ref_estandar": "Acts.9.1",
   "morfologia_tagnt": "V-PAP-NSM",
   "dstrong": "G1709",
   "strong_tagnt": "G1709",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to breath into",
-  "ref_estandar": "Acts.9.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.9.2",
+  "pos_tisch": 16,
   "strong": "G3598",
   "forma": "ὁδοῦ",
+  "lema": "ὁδός",
   "glosa_interlineal": "del Camino",
   "rango_semantico": [
    "camino, vía"
@@ -50,7 +56,7 @@
   "construccion": "Genitivo: «si hallaba algunos hombres o mujeres de este Camino».",
   "sentido_en_contexto": "«El Camino» (ἡ ὁδός) es uno de los primeros nombres del cristianismo (cf. 19:9, 23; 22:4; 24:14, 22), probablemente inspirado en Jn 14:6. Saulo busca llevarlos presos a Jerusalén desde Damasco.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 19:9, 23; 22:4; 24:14",
@@ -58,9 +64,9 @@
    "Gá 1:17"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Acts.9.2#15",
+  "ref_estandar": "Acts.9.2",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G3598",
   "strong_tagnt": "G3598",
@@ -76,13 +82,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "road",
-  "ref_estandar": "Acts.9.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.9.3",
+  "pos_tisch": 14,
   "strong": "G5457",
   "forma": "φῶς",
+  "lema": "φῶς",
   "glosa_interlineal": "luz",
   "rango_semantico": [
    "luz"
@@ -90,7 +100,7 @@
   "construccion": "Nominativo: «una luz del cielo le rodeó con su resplandor».",
   "sentido_en_contexto": "Teofanía en el camino a Damasco: luz brillante (más que el sol, 26:13) y una voz. Saulo cae al suelo. La experiencia se repite en 22:6-11 y 26:12-18, con variaciones en los detalles.",
   "matiz": "Variaciones entre los tres relatos (9:7 «oían la voz, sin ver a nadie»; 22:9 «vieron la luz, pero no oyeron la voz»; 26:14 todos cayeron): se suelen armonizar entendiendo φωνή como «sonido» o «voz con significado», y «oír» como «percibir» o «entender».",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 22:6-9; 26:13-14",
@@ -98,9 +108,9 @@
    "2 Co 4:6"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Acts.9.3#14",
+  "ref_estandar": "Acts.9.3",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G5457",
   "strong_tagnt": "G5457",
@@ -116,13 +126,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "light",
-  "ref_estandar": "Acts.9.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.9.4",
+  "pos_tisch": 14,
   "strong": "G1377",
   "forma": "διώκεις",
+  "lema": "διώκω",
   "glosa_interlineal": "persigues",
   "rango_semantico": [
    "perseguir, acosar"
@@ -130,7 +144,7 @@
   "construccion": "Presente indicativo activo: «Saulo, Saulo, ¿por qué me persigues?».",
   "sentido_en_contexto": "El Cristo glorificado se identifica con su iglesia: perseguir a los discípulos es perseguirlo a él. Doctrina de la unión de Cristo con los suyos que Pablo desarrollará (cuerpo de Cristo).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 25:40, 45",
@@ -139,9 +153,9 @@
    "Ef 5:30"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Acts.9.4#14",
+  "ref_estandar": "Acts.9.4",
   "morfologia_tagnt": "V-PAI-2S",
   "dstrong": "G1377",
   "strong_tagnt": "G1377",
@@ -157,13 +171,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pursue",
-  "ref_estandar": "Acts.9.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.9.5",
+  "pos_tisch": 5,
   "strong": "G2962",
   "forma": "κύριε",
+  "lema": "κύριος",
   "glosa_interlineal": "Señor",
   "rango_semantico": [
    "señor, amo",
@@ -172,7 +190,7 @@
   "construccion": "Vocativo: «¿Quién eres, Señor?».",
   "sentido_en_contexto": "Saulo usa κύριε como respuesta respetuosa («señor») que se convierte en confesión: el que le habla es Jesús, a quien perseguía. Su pregunta revela que no sabía quién era.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 22:8; 26:15",
@@ -180,9 +198,9 @@
    "Gá 1:15-16"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Acts.9.5#05",
+  "ref_estandar": "Acts.9.5",
   "morfologia_tagnt": "N-VSM-T",
   "dstrong": "G2962G",
   "strong_tagnt": "G2962",
@@ -198,13 +216,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lord",
-  "ref_estandar": "Acts.9.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.9.7",
+  "pos_tisch": 8,
   "strong": "G1769",
   "forma": "ἐνεοί",
+  "lema": "ἐννεός",
   "glosa_interlineal": "mudos",
   "rango_semantico": [
    "sin habla, mudo de asombro"
@@ -212,16 +234,16 @@
   "construccion": "Adjetivo nominativo plural: «los hombres que iban con él se pararon atónitos».",
   "sentido_en_contexto": "Los acompañantes quedan mudos de asombro: oyen el sonido de la voz pero no ven a nadie. Detalle propio de la narración de Lucas.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 22:9",
    "Dn 10:7"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Acts.9.7#08",
+  "ref_estandar": "Acts.9.7",
   "morfologia_tagnt": "A-NPM",
   "dstrong": "G1769",
   "strong_tagnt": "G1769",
@@ -237,13 +259,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "speechless",
-  "ref_estandar": "Acts.9.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.9.11",
+  "pos_tisch": 13,
   "strong": "G2117",
   "forma": "εὐθεῖαν",
+  "lema": "εὐθύς",
   "glosa_interlineal": "Derecha",
   "rango_semantico": [
    "recto, derecho"
@@ -251,15 +277,15 @@
   "construccion": "Acusativo: «la calle que se llama Derecha».",
   "sentido_en_contexto": "La «Calle Derecha» (Via Recta) es una calle principal de Damasco, hoy aún existente. Ananías debe buscar a Saulo en la casa de Judas, donde Saulo ora (v.11).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 22:10, 12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Acts.9.11#13",
+  "ref_estandar": "Acts.9.11",
   "morfologia_tagnt": "A-ASF-L",
   "dstrong": "G2117",
   "strong_tagnt": "G2117",
@@ -275,13 +301,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "straight/upright",
-  "ref_estandar": "Acts.9.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.9.13",
+  "pos_tisch": 15,
   "strong": "G40",
   "forma": "ἁγίοις",
+  "lema": "ἅγιος",
   "glosa_interlineal": "santos",
   "rango_semantico": [
    "santo, consagrado"
@@ -289,7 +319,7 @@
   "construccion": "Dativo plural: «cuántos males ha hecho a tus santos en Jerusalén».",
   "sentido_en_contexto": "Primera vez que los creyentes son llamados «santos» (ἅγιοι) en Hechos. Ananías objeta por la fama de Saulo. Los cristianos son llamados ἅγιοι como pueblo consagrado a Dios.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 9:32, 41; 26:10",
@@ -297,9 +327,9 @@
    "Dn 7:18"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Acts.9.13#16",
+  "ref_estandar": "Acts.9.13",
   "morfologia_tagnt": "A-DPM",
   "dstrong": "G0040H",
   "strong_tagnt": "G40",
@@ -315,13 +345,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "holy",
-  "ref_estandar": "Acts.9.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.9.15",
+  "pos_tisch": 10,
   "strong": "G1589",
   "forma": "ἐκλογῆς",
+  "lema": "ἐκλογή",
   "glosa_interlineal": "escogido",
   "rango_semantico": [
    "elección, selección"
@@ -329,7 +363,7 @@
   "construccion": "Genitivo: «instrumento escogido me es éste».",
   "sentido_en_contexto": "σκεῦος ἐκλογῆς («vaso de elección»): instrumento elegido por Dios para llevar su nombre ante gentiles, reyes e israelitas. Resume la misión de Pablo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 22:14-15, 21; 26:16-18",
@@ -338,9 +372,9 @@
    "2 Co 4:7"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Acts.9.15#10",
+  "ref_estandar": "Acts.9.15",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G1589",
   "strong_tagnt": "G1589",
@@ -356,13 +390,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "selecting",
-  "ref_estandar": "Acts.9.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.9.16",
+  "pos_tisch": 12,
   "strong": "G3958",
   "forma": "παθεῖν",
+  "lema": "πάσχω",
   "glosa_interlineal": "padecer",
   "rango_semantico": [
    "sufrir, padecer"
@@ -370,7 +408,7 @@
   "construccion": "Infinitivo aoristo: «cuánto le es necesario padecer por mi nombre».",
   "sentido_en_contexto": "El llamamiento de Pablo incluye el sufrimiento: el que perseguía a otros padecerá por Cristo. Es una constante de su ministerio (2 Co 11:23-28).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Co 11:23-28",
@@ -379,9 +417,9 @@
    "Fil 1:29"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Acts.9.16#12",
+  "ref_estandar": "Acts.9.16",
   "morfologia_tagnt": "V-2AAN",
   "dstrong": "G3958",
   "strong_tagnt": "G3958",
@@ -397,13 +435,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to suffer",
-  "ref_estandar": "Acts.9.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.9.17",
+  "pos_tisch": 17,
   "strong": "G80",
   "forma": "ἀδελφέ",
+  "lema": "ἀδελφός",
   "glosa_interlineal": "hermano",
   "rango_semantico": [
    "hermano"
@@ -411,16 +453,16 @@
   "construccion": "Vocativo: «Hermano Saulo».",
   "sentido_en_contexto": "Ananías llama «hermano» a quien venía a perseguir: gesto de acogida radical. Le impone manos para que recobre la vista y sea lleno del Espíritu.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 22:12-16",
    "Gá 1:22-24"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "Acts.9.17#17",
+  "ref_estandar": "Acts.9.17",
   "morfologia_tagnt": "N-VSM",
   "dstrong": "G0080",
   "strong_tagnt": "G80",
@@ -436,13 +478,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "brother",
-  "ref_estandar": "Acts.9.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.9.18",
+  "pos_tisch": 9,
   "strong": "G3013",
   "forma": "λεπίδες",
+  "lema": "λεπίς",
   "glosa_interlineal": "escamas",
   "rango_semantico": [
    "escama"
@@ -450,7 +496,7 @@
   "construccion": "Nominativo plural: «cayeron de sus ojos como escamas».",
   "sentido_en_contexto": "Detalle visual del momento de sanidad: algo como escamas cae de sus ojos, y Saulo recobra la vista y es bautizado. Simboliza el paso de la ceguera espiritual a la visión de Cristo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 22:16",
@@ -458,9 +504,9 @@
    "Jn 9"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Acts.9.18#09",
+  "ref_estandar": "Acts.9.18",
   "morfologia_tagnt": "N-NPF",
   "dstrong": "G3013",
   "strong_tagnt": "G3013",
@@ -476,13 +522,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "scale",
-  "ref_estandar": "Acts.9.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.9.20",
+  "pos_tisch": 6,
   "strong": "G2784",
   "forma": "ἐκήρυσσεν",
+  "lema": "κηρύσσω",
   "glosa_interlineal": "proclamaba",
   "rango_semantico": [
    "proclamar, predicar"
@@ -490,7 +540,7 @@
   "construccion": "Imperfecto indicativo activo: «en seguida predicaba a Cristo en las sinagogas».",
   "sentido_en_contexto": "Saulo proclama de inmediato que Jesús es el Hijo de Dios (única vez en Hechos con este título), sorprendiendo a quienes lo conocían como perseguidor.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 1:16",
@@ -498,9 +548,9 @@
    "Ro 1:4"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Acts.9.20#06",
+  "ref_estandar": "Acts.9.20",
   "morfologia_tagnt": "V-IAI-3S",
   "dstrong": "G2784",
   "strong_tagnt": "G2784",
@@ -516,13 +566,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to preach",
-  "ref_estandar": "Acts.9.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.9.22",
+  "pos_tisch": 12,
   "strong": "G4822",
   "forma": "συμβιβάζων",
+  "lema": "συμβιβάζω",
   "glosa_interlineal": "demostrando",
   "rango_semantico": [
    "probar, demostrar, comparar"
@@ -530,16 +584,16 @@
   "construccion": "Participio presente activo: «demostrando que Jesús era el Cristo».",
   "sentido_en_contexto": "συμβιβάζω es «unir, comparar, concluir»: Saulo compara las Escrituras con los hechos de Jesús y concluye que él es el Mesías. Su método rabínico se pone al servicio del evangelio.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 17:2-3; 18:28",
    "Hch 9:20"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Acts.9.22#13",
+  "ref_estandar": "Acts.9.22",
   "morfologia_tagnt": "V-PAP-NSM",
   "dstrong": "G4822",
   "strong_tagnt": "G4822",
@@ -555,13 +609,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to join with",
-  "ref_estandar": "Acts.9.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.9.25",
+  "pos_tisch": 14,
   "strong": "G4711",
   "forma": "σπυρίδι",
+  "lema": "σπυρίς",
   "glosa_interlineal": "canasta",
   "rango_semantico": [
    "cesta grande, canasto"
@@ -569,16 +627,16 @@
   "construccion": "Dativo: «descolgándole en una canasta por el muro».",
   "sentido_en_contexto": "Para escapar de quienes vigilaban las puertas, los discípulos bajan a Saulo de noche por el muro en un cesto. Pablo lo recuerda en 2 Co 11:32-33 (con detalle sobre el gobernador del rey Aretas).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Co 11:32-33",
    "Jos 2:15 — Rajab descuelga a los espías"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Acts.9.25#14",
+  "ref_estandar": "Acts.9.25",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G4711",
   "strong_tagnt": "G4711",
@@ -594,13 +652,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "basket",
-  "ref_estandar": "Acts.9.25"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.9.27",
+  "pos_tisch": 1,
   "strong": "G921",
   "forma": "Βαρναβᾶς",
+  "lema": "Βαρνάβας",
   "glosa_interlineal": "Bernabé",
   "rango_semantico": [
    "Bernabé (hijo de consolación)"
@@ -608,7 +670,7 @@
   "construccion": "Nominativo: «Bernabé, tomándole, lo trajo a los apóstoles».",
   "sentido_en_contexto": "Bernabé interviene a favor de Saulo, a quien los discípulos de Jerusalén temían. Su generosidad abre el camino al futuro apóstol. Sigue su papel de «hijo de consolación» (4:36).",
   "matiz": "Aparente tensión con Gá 1:18-19 (Pablo dice que vio solo a Pedro y a Jacobo): se suele armonizar entendiendo «los apóstoles» de Hechos como Pedro y Jacobo (los únicos presentes) en esos quince días.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 4:36; 11:25-26; 13:1-3",
@@ -616,9 +678,9 @@
    "Gá 2:1, 9, 13"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "Acts.9.27#01",
+  "ref_estandar": "Acts.9.27",
   "morfologia_tagnt": "N-NSM-P",
   "dstrong": "G0921G",
   "strong_tagnt": "G921",
@@ -634,13 +696,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Barnabas",
-  "ref_estandar": "Acts.9.27"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.9.31",
+  "pos_tisch": 4,
   "strong": "G1577",
   "forma": "ἐκκλησία",
+  "lema": "ἐκκλησία",
   "glosa_interlineal": "iglesia",
   "rango_semantico": [
    "asamblea, iglesia"
@@ -648,7 +714,7 @@
   "construccion": "Nominativo singular: «la iglesia en toda Judea, Galilea y Samaria tenía paz».",
   "sentido_en_contexto": "Sumario: la Iglesia (en singular, aunque presente en tres regiones) goza de paz, es edificada, anda en el temor del Señor y crece por el consuelo del Espíritu Santo. Texto central sobre la naturaleza de la Iglesia universal.",
   "matiz": "Variante: algunos manuscritos leen el plural «las iglesias» (αἱ ἐκκλησίαι) y otros el singular (ἡ ἐκκλησία). El singular tiene mejor atestación y se interpreta como la Iglesia única extendida por varias regiones.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": "RVR60 lee el plural «las iglesias»; la mayoría de ediciones críticas leen el singular «la iglesia».",
   "otros_usos": [
    "Hch 6:7; 12:24; 16:5",
@@ -656,9 +722,9 @@
    "1 Co 12:28"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Acts.9.31#04",
+  "ref_estandar": "Acts.9.31",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G1577",
   "strong_tagnt": "G1577",
@@ -675,13 +741,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "assembly",
-  "ref_estandar": "Acts.9.31"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.9.36",
+  "pos_tisch": 6,
   "strong": "G3102",
   "forma": "μαθήτρια",
+  "lema": "μαθήτρια",
   "glosa_interlineal": "discípula",
   "rango_semantico": [
    "discípula"
@@ -689,7 +759,7 @@
   "construccion": "Nominativo: «una discípula llamada Tabita».",
   "sentido_en_contexto": "Única vez que el NT usa el femenino μαθήτρια. Tabita (arameo), traducida «Dorcas» (gacela), llena de buenas obras y limosnas. Su muerte y resurrección por Pedro recuerda la de la hija de Jairo (Lc 8:49-56).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 8:49-56",
@@ -697,9 +767,9 @@
    "Hch 9:40"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Acts.9.36#06",
+  "ref_estandar": "Acts.9.36",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G3102",
   "strong_tagnt": "G3102",
@@ -715,13 +785,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "disciple",
-  "ref_estandar": "Acts.9.36"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.9.40",
+  "pos_tisch": 19,
   "strong": "G450",
   "forma": "ἀνάστηθι",
+  "lema": "ἀνίστημι",
   "glosa_interlineal": "levántate",
   "rango_semantico": [
    "levantarse, resucitar"
@@ -729,7 +803,7 @@
   "construccion": "Imperativo aoristo activo: «Tabita, levántate».",
   "sentido_en_contexto": "Pedro echa fuera a todos, ora de rodillas y manda a Tabita levantarse (eco de Mr 5:41: «Talita cumi»). Resucita y es presentada viva a los santos y a las viudas.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 5:41-42",
@@ -738,9 +812,9 @@
    "1 R 17:21"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 19,
   "alineacion": "forma",
   "tagnt": "Acts.9.40#19",
+  "ref_estandar": "Acts.9.40",
   "morfologia_tagnt": "V-2AAM-2S",
   "dstrong": "G0450",
   "strong_tagnt": "G450",
@@ -756,13 +830,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to arise",
-  "ref_estandar": "Acts.9.40"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.9.43",
+  "pos_tisch": 11,
   "strong": "G1038",
   "forma": "βυρσεῖ",
+  "lema": "βυρσεύς",
   "glosa_interlineal": "curtidor",
   "rango_semantico": [
    "curtidor de pieles"
@@ -770,16 +848,16 @@
   "construccion": "Dativo: «en casa de Simón, curtidor».",
   "sentido_en_contexto": "Pedro se aloja con un curtidor, oficio considerado impuro por la Ley. El detalle prepara el cap. 10: Pedro, que vive ya con un curtidor, será enviado a casa del gentil Cornelio.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 10:6, 32",
    "Lv 11:39-40; Nm 19:11-13 — impureza por cadáveres"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Acts.9.43#12",
+  "ref_estandar": "Acts.9.43",
   "morfologia_tagnt": "N-DSM",
   "dstrong": "G1038",
   "strong_tagnt": "G1038",
@@ -795,7 +873,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tanner",
-  "ref_estandar": "Acts.9.43"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

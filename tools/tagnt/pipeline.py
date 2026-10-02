@@ -225,6 +225,12 @@ class Cache:
         r = self.ruta(ref)
         return json.load(open(r, encoding="utf-8"))["fichas"] if os.path.exists(r) else None
 
+    def meta(self, ref):
+        """Procedencia guardada junto a la respuesta: {modelo, prompt_hash, generado}."""
+        with open(self.ruta(ref), encoding="utf-8") as f:
+            d = json.load(f)
+        return {k: d.get(k) for k in ("modelo", "prompt_hash", "generado")}
+
     def put(self, ref, cards):
         os.makedirs(self.dir, exist_ok=True)
         with open(self.ruta(ref), "w", encoding="utf-8") as f:
@@ -491,7 +497,7 @@ def estadistica_ocr(textos=None):
     return len(con), sum(1 for e in con if "aviso" in e)
 
 
-def ensamblar(datos, refs, modelo, versiones=None, cache=None, salida_dir=None):
+def ensamblar(datos, refs, modelo, cache=None, salida_dir=None):
     cache = cache or Cache(modelo)
     salida = {}
     for ref in refs:
@@ -501,7 +507,8 @@ def ensamblar(datos, refs, modelo, versiones=None, cache=None, salida_dir=None):
         sol = solicitud(datos, ref)
         o, c, v = ref.split(".")
         al = {x[0]: x for x in datos.al[ref]}
-        std_verso, comparadas = datos.std_refs(ref)[0], datos.versiones(ref, versiones) or None
+        std_verso = datos.std_refs(ref)[0]
+        proc = cache.meta(ref)
         for card, w in zip(cards, sol["palabras"]):
             f = {"ref": ref, "pos_tisch": w["pos"], "strong": w["strong"], "forma": w["forma"], "lema": w["lema"]}
             f.update({k: card[k] for k in ("glosa_interlineal", "rango_semantico", "construccion",
@@ -522,8 +529,11 @@ def ensamblar(datos, refs, modelo, versiones=None, cache=None, salida_dir=None):
             else:
                 f["tagnt"], f["revisar_tagnt"] = None, True
             f["ref_estandar"] = datos.ref_estandar_clave(clave) or std_verso
-            f["traducciones_comparadas"] = comparadas
+            # las citas ya no van en la ficha: están en la tabla `citas` (data/citas/, por ref_estandar)
+            f["generador"] = "manual" if modelo.startswith("manual") else "api"
             f["modelo"] = modelo
+            f["prompt_hash"] = proc["prompt_hash"]
+            f["generado_en"] = proc["generado"]
             salida.setdefault("%s.%02d" % (o, int(c)), []).append(f)
     destino = salida_dir or SALIDA
     os.makedirs(destino, exist_ok=True)
@@ -534,11 +544,31 @@ def ensamblar(datos, refs, modelo, versiones=None, cache=None, salida_dir=None):
     return {n: len(l) for n, l in salida.items()}
 
 
+CITAS = os.path.join(RAIZ, "data", "citas", "citas_nt.json")
+
+
+def exportar_citas(ruta=CITAS, textos=None):
+    """Citas de SpaRV y TorresAmat por ref estándar (KJV) para la tabla `citas` de fichas.sqlite.
+    TorresAmat se guarda con ocr_sospechoso=1 en los versículos con restos de OCR (la app no la muestra ahí)."""
+    textos = textos or textos_versiones()
+    filas = []
+    for (o, c, v), lista in sorted(textos.items()):
+        for e in lista:
+            filas.append({"ref_estandar": "%s.%d.%d" % (o, c, v), "version": e["version"], "texto": e["texto"],
+                          "ocr_sospechoso": 1 if "aviso" in e else 0})
+    filas.sort(key=lambda x: (x["ref_estandar"], x["version"]))
+    os.makedirs(os.path.dirname(ruta), exist_ok=True)
+    with open(ruta, "w", encoding="utf-8") as f:
+        json.dump(filas, f, ensure_ascii=False, indent=0)
+        f.write("\n")
+    return len(filas)
+
+
 # ---------------------------------------------------------------- CLI
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("orden", choices=["solicitud", "estado", "cargar", "generar", "batch-export", "batch-import",
-                                      "batch-enviar", "batch-estado", "batch-traer", "ensamblar"])
+                                      "batch-enviar", "batch-estado", "batch-traer", "ensamblar", "exportar-citas"])
     ap.add_argument("--reintento", action="store_true", help="batch: incluir el error del primer intento")
     ap.add_argument("args", nargs="*")
     ap.add_argument("--generador", choices=["manual", "api"], default="manual")
@@ -583,6 +613,8 @@ def main(argv=None):
         print(batch_import(datos, a.args[1], modelo))
     elif a.orden == "batch-import":
         print(batch_import(datos, a.args[0], modelo))
+    elif a.orden == "exportar-citas":
+        print(exportar_citas(), "citas en", CITAS)
     elif a.orden == "ensamblar":
         print(ensamblar(datos, datos.versiculos(a.args[0]), modelo))
     return 0

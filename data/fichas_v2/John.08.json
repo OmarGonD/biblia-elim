@@ -1,8 +1,10 @@
 [
  {
   "ref": "John.8.4",
+  "pos_tisch": 3,
   "strong": "G1598",
   "forma": "ἐκπειράζοντες",
+  "lema": "ἐκπειράζω",
   "glosa_interlineal": "tentándole",
   "rango_semantico": [
    "poner a prueba, tentar, tender una trampa"
@@ -10,7 +12,7 @@
   "construccion": "Participio presente activo: «esto decían tentándole, para tener de qué acusarle».",
   "sentido_en_contexto": "Los escribas y fariseos le presentan una mujer sorprendida en adulterio para ponerlo en un dilema: si ordena apedrearla, contradice su misericordia (y la autoridad romana); si la perdona, parece violar la ley de Moisés.",
   "matiz": "Pasaje de la mujer adúltera (Jn 7:53–8:11): ausente de los manuscritos griegos más antiguos (P66, P75, Aleph, B, A, C) y colocado en otros lugares por otros testimonios (tras Jn 7:36, 7:44, 21:25 o Lc 21:38). Hay amplio acuerdo en que no era parte del texto original de Juan; muchos lo consideran tradición antigua y auténtica sobre Jesús. Las ediciones críticas lo ponen entre corchetes.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": "Perícopa de la adúltera: NA28 la imprime entre dobles corchetes. La lectura de Tischendorf no tiene palabra correspondiente en el TAGNT.",
   "notas_traduccion": null,
   "otros_usos": [
    "Lv 20:10; Dt 22:22-24 — la ley sobre el adulterio",
@@ -18,20 +20,21 @@
    "Mt 22:15-18 — otra trampa"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 3,
   "alineacion": "sin_pareja",
   "tagnt": null,
   "ref_estandar": null,
   "revisar_tagnt": true,
-  "variante_textual": {
-   "pasaje": "Jn 7:53–8:11",
-   "nota": "Perícopa de la adúltera: NA28 la imprime entre dobles corchetes. La lectura de Tischendorf no tiene palabra correspondiente en el TAGNT."
-  }
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.8.5",
+  "pos_tisch": 9,
   "strong": "G3034",
   "forma": "λιθάζειν",
+  "lema": "λιθάζω",
   "glosa_interlineal": "apedrear",
   "rango_semantico": [
    "apedrear, lapidar"
@@ -39,7 +42,7 @@
   "construccion": "Infinitivo presente: «Moisés nos mandó apedrear a las tales».",
   "sentido_en_contexto": "Apelan a la Torá, aunque Lv 20:10 y Dt 22:22 castigan a ambos adúlteros (aquí falta el hombre) y no precisan la lapidación en todos los casos.",
   "matiz": "Pasaje de la mujer adúltera (Jn 7:53–8:11): ausente de los manuscritos griegos más antiguos (P66, P75, Aleph, B, A, C) y colocado en otros lugares por otros testimonios (tras Jn 7:36, 7:44, 21:25 o Lc 21:38). Hay amplio acuerdo en que no era parte del texto original de Juan; muchos lo consideran tradición antigua y auténtica sobre Jesús. Las ediciones críticas lo ponen entre corchetes.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": "Perícopa de la adúltera: NA28 la imprime entre dobles corchetes. La lectura de Tischendorf no tiene palabra correspondiente en el TAGNT.",
   "notas_traduccion": null,
   "otros_usos": [
    "Lv 20:10",
@@ -47,20 +50,21 @@
    "Ez 16:40"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
   "alineacion": "sin_pareja",
   "tagnt": null,
   "ref_estandar": null,
   "revisar_tagnt": true,
-  "variante_textual": {
-   "pasaje": "Jn 7:53–8:11",
-   "nota": "Perícopa de la adúltera: NA28 la imprime entre dobles corchetes. La lectura de Tischendorf no tiene palabra correspondiente en el TAGNT."
-  }
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.8.6",
+  "pos_tisch": 7,
   "strong": "G1147",
   "forma": "δακτύλῳ",
+  "lema": "δάκτυλος",
   "glosa_interlineal": "con el dedo",
   "rango_semantico": [
    "dedo"
@@ -68,7 +72,7 @@
   "construccion": "Dativo instrumental: «escribía con el dedo en la tierra».",
   "sentido_en_contexto": "Gesto enigmático: Jesús escribe en la tierra sin que el texto diga qué. Se han propuesto: ganar tiempo, rechazo de la trampa, evocación de Jer 17:13 («los que se apartan de ti serán escritos en el polvo»), o el «dedo de Dios» de Éx 31:18.",
   "matiz": "No se sabe qué escribía. Hipótesis: pecados de los acusadores; Jer 17:13; simple gesto de silencio y no cooperar con la trampa; alusión al dedo de Dios en las tablas de la Ley. El texto no lo dice, y conviene no afirmar lo que no consta.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": "Perícopa de la adúltera: NA28 la imprime entre dobles corchetes. En el TAGNT esta palabra aparece en: NA28, NA27, Tyn, WH, TR, Byz; ausente en: SBL, Treg.",
   "notas_traduccion": null,
   "otros_usos": [
    "Éx 31:18 — «escritas con el dedo de Dios»",
@@ -76,9 +80,9 @@
    "Lc 11:20 — «por el dedo de Dios»"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "John.8.6#16",
+  "ref_estandar": "John.8.6",
   "morfologia_tagnt": "N-DSM",
   "dstrong": "G1147",
   "strong_tagnt": "G1147",
@@ -95,17 +99,17 @@
    "Treg"
   ],
   "variante": true,
-  "glosa_tagnt": "finger",
-  "ref_estandar": "John.8.6",
-  "variante_textual": {
-   "pasaje": "Jn 7:53–8:11",
-   "nota": "Perícopa de la adúltera: NA28 la imprime entre dobles corchetes. En el TAGNT esta palabra aparece en: NA28, NA27, Tyn, WH, TR, Byz; ausente en: SBL, Treg."
-  }
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.8.7",
+  "pos_tisch": 10,
   "strong": "G361",
   "forma": "ἀναμάρτητος",
+  "lema": "ἀναμάρτητος",
   "glosa_interlineal": "sin pecado",
   "rango_semantico": [
    "sin pecado, sin culpa"
@@ -113,7 +117,7 @@
   "construccion": "Adjetivo nominativo: «el que de vosotros esté sin pecado, sea el primero en arrojar la piedra».",
   "sentido_en_contexto": "Palabra única en el NT. Jesús no niega la ley, sino que exige que quien aplique el castigo sea irreprochable; según la ley, los testigos eran los primeros en arrojar la piedra (Dt 17:7).",
   "matiz": "Pasaje de la mujer adúltera (Jn 7:53–8:11): ausente de los manuscritos griegos más antiguos (P66, P75, Aleph, B, A, C) y colocado en otros lugares por otros testimonios (tras Jn 7:36, 7:44, 21:25 o Lc 21:38). Hay amplio acuerdo en que no era parte del texto original de Juan; muchos lo consideran tradición antigua y auténtica sobre Jesús. Las ediciones críticas lo ponen entre corchetes.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": "Perícopa de la adúltera: NA28 la imprime entre dobles corchetes. En el TAGNT esta palabra aparece en: NA28, NA27, Tyn, WH, TR, Byz; ausente en: SBL, Treg.",
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 17:7 — «la mano de los testigos será primero»",
@@ -121,9 +125,9 @@
    "Mt 7:1-5"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "John.8.7#12",
+  "ref_estandar": "John.8.7",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G0361",
   "strong_tagnt": "G361",
@@ -140,17 +144,17 @@
    "Treg"
   ],
   "variante": true,
-  "glosa_tagnt": "sinless",
-  "ref_estandar": "John.8.7",
-  "variante_textual": {
-   "pasaje": "Jn 7:53–8:11",
-   "nota": "Perícopa de la adúltera: NA28 la imprime entre dobles corchetes. En el TAGNT esta palabra aparece en: NA28, NA27, Tyn, WH, TR, Byz; ausente en: SBL, Treg."
-  }
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.8.11",
+  "pos_tisch": 12,
   "strong": "G2632",
   "forma": "κατακρίνω",
+  "lema": "κατακρίνω",
   "glosa_interlineal": "condeno",
   "rango_semantico": [
    "condenar, dictar sentencia contra"
@@ -158,7 +162,7 @@
   "construccion": "Presente indicativo activo: «ni yo te condeno; vete, y no peques más».",
   "sentido_en_contexto": "Jesús no condena a la mujer, pero tampoco aprueba su pecado: el perdón va unido a un llamado a cambiar de vida. Es el único que, estando sin pecado, podía arrojar la piedra.",
   "matiz": "Pasaje de la mujer adúltera (Jn 7:53–8:11): ausente de los manuscritos griegos más antiguos (P66, P75, Aleph, B, A, C) y colocado en otros lugares por otros testimonios (tras Jn 7:36, 7:44, 21:25 o Lc 21:38). Hay amplio acuerdo en que no era parte del texto original de Juan; muchos lo consideran tradición antigua y auténtica sobre Jesús. Las ediciones críticas lo ponen entre corchetes.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": "Perícopa de la adúltera: NA28 la imprime entre dobles corchetes. En el TAGNT esta palabra aparece en: NA28, NA27, WH, TR; ausente en: Tyn, SBL, Treg, Byz.",
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 3:17 — «no envió Dios a su Hijo para condenar»",
@@ -166,9 +170,9 @@
    "Jn 5:14 — «no peques más»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 12,
   "alineacion": "strong",
   "tagnt": "John.8.11#14",
+  "ref_estandar": "John.8.11",
   "morfologia_tagnt": "V-PAI-1S",
   "dstrong": "G2632",
   "strong_tagnt": "G2632",
@@ -185,17 +189,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to condemn",
-  "ref_estandar": "John.8.11",
-  "variante_textual": {
-   "pasaje": "Jn 7:53–8:11",
-   "nota": "Perícopa de la adúltera: NA28 la imprime entre dobles corchetes. En el TAGNT esta palabra aparece en: NA28, NA27, WH, TR; ausente en: Tyn, SBL, Treg, Byz."
-  }
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.8.53",
+  "pos_tisch": 202,
   "strong": "G5457",
   "forma": "φῶς",
+  "lema": "φῶς",
   "glosa_interlineal": "luz",
   "rango_semantico": [
    "luz"
@@ -203,7 +207,7 @@
   "construccion": "Nominativo: «yo soy la luz del mundo» (Jn 8:12; el texto de Tisch concentra aquí las palabras de 7:53–8:20).",
   "sentido_en_contexto": "Segunda gran declaración «Yo soy» de la fiesta de los Tabernáculos, cuando se encendían grandes candelabros en el templo. Jesús es la luz que guía a la vida; quien lo sigue no andará en tinieblas.",
   "matiz": "Nota técnica: en el módulo Tisch usado por la app, las palabras de Jn 7:53–8:20 aparecen agrupadas bajo Jn 8:53 y faltan los versículos 8:21-52; por eso esta ficha se asocia a esa referencia, aunque corresponde a Jn 8:12.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 1:4-9 — la luz verdadera",
@@ -212,10 +216,9 @@
    "Is 49:6 — «luz de las naciones»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 202,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.8.12#11",
+  "ref_estandar": "John.8.12",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G5457",
   "strong_tagnt": "G5457",
@@ -231,13 +234,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "light",
-  "ref_estandar": "John.8.12"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.8.53",
+  "pos_tisch": 213,
   "strong": "G4653",
   "forma": "σκοτίᾳ",
+  "lema": "σκοτία",
   "glosa_interlineal": "tinieblas",
   "rango_semantico": [
    "oscuridad, tinieblas"
@@ -245,7 +253,7 @@
   "construccion": "Dativo: «no andará en tinieblas» (Jn 8:12).",
   "sentido_en_contexto": "En Juan, las tinieblas son el ámbito de la incredulidad y del mal moral, opuesto a la luz y la vida. Seguir a Jesús significa salir de él.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 1:5 — «las tinieblas no la comprendieron»",
@@ -253,9 +261,9 @@
    "1 Jn 1:5-7"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 213,
   "alineacion": "forma",
   "tagnt": "John.8.12#22",
+  "ref_estandar": "John.8.12",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G4653",
   "strong_tagnt": "G4653",
@@ -271,13 +279,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "darkness",
-  "ref_estandar": "John.8.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.8.53",
+  "pos_tisch": 217,
   "strong": "G5457",
   "forma": "φῶς",
+  "lema": "φῶς",
   "glosa_interlineal": "luz",
   "rango_semantico": [
    "luz"
@@ -285,7 +297,7 @@
   "construccion": "Nominativo: «yo soy la luz del mundo» (Jn 8:12; el texto de Tisch concentra aquí las palabras de 7:53–8:20).",
   "sentido_en_contexto": "Segunda gran declaración «Yo soy» de la fiesta de los Tabernáculos, cuando se encendían grandes candelabros en el templo. Jesús es la luz que guía a la vida; quien lo sigue no andará en tinieblas.",
   "matiz": "Nota técnica: en el módulo Tisch usado por la app, las palabras de Jn 7:53–8:20 aparecen agrupadas bajo Jn 8:53 y faltan los versículos 8:21-52; por eso esta ficha se asocia a esa referencia, aunque corresponde a Jn 8:12.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 1:4-9 — la luz verdadera",
@@ -294,10 +306,9 @@
    "Is 49:6 — «luz de las naciones»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 217,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.8.12#26",
+  "ref_estandar": "John.8.12",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G5457",
   "strong_tagnt": "G5457",
@@ -313,13 +324,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "light",
-  "ref_estandar": "John.8.12"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.8.53",
+  "pos_tisch": 230,
   "strong": "G3141",
   "forma": "μαρτυρία",
+  "lema": "μαρτυρία",
   "glosa_interlineal": "testimonio",
   "rango_semantico": [
    "testimonio, atestación"
@@ -327,7 +343,7 @@
   "construccion": "Nominativo: «tu testimonio no es verdadero» (Jn 8:13-14).",
   "sentido_en_contexto": "Los fariseos invocan la regla legal de los dos testigos; Jesús responde que su testimonio es válido porque sabe de dónde viene y a dónde va, y porque el Padre testifica con él (vv.17-18).",
   "matiz": "Aparente contraste con 5:31 («si yo doy testimonio de mí mismo, mi testimonio no es verdadero»): allí Jesús habla de validez legal si estuviera solo; aquí afirma que su testimonio es verdadero porque no está solo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 5:31-37",
@@ -335,10 +351,9 @@
    "Jn 8:17-18"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 230,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.8.13#11",
+  "ref_estandar": "John.8.13",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G3141",
   "strong_tagnt": "G3141",
@@ -354,13 +369,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "testimony",
-  "ref_estandar": "John.8.13"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.8.53",
+  "pos_tisch": 248,
   "strong": "G3141",
   "forma": "μαρτυρία",
+  "lema": "μαρτυρία",
   "glosa_interlineal": "testimonio",
   "rango_semantico": [
    "testimonio, atestación"
@@ -368,7 +388,7 @@
   "construccion": "Nominativo: «tu testimonio no es verdadero» (Jn 8:13-14).",
   "sentido_en_contexto": "Los fariseos invocan la regla legal de los dos testigos; Jesús responde que su testimonio es válido porque sabe de dónde viene y a dónde va, y porque el Padre testifica con él (vv.17-18).",
   "matiz": "Aparente contraste con 5:31 («si yo doy testimonio de mí mismo, mi testimonio no es verdadero»): allí Jesús habla de validez legal si estuviera solo; aquí afirma que su testimonio es verdadero porque no está solo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 5:31-37",
@@ -376,10 +396,9 @@
    "Jn 8:17-18"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 248,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.8.14#14",
+  "ref_estandar": "John.8.14",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G3141",
   "strong_tagnt": "G3141",
@@ -395,13 +414,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "testimony",
-  "ref_estandar": "John.8.14"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.8.53",
+  "pos_tisch": 268,
   "strong": "G4561",
   "forma": "σάρκα",
+  "lema": "σάρξ",
   "glosa_interlineal": "carne",
   "rango_semantico": [
    "carne, apariencia humana"
@@ -409,7 +433,7 @@
   "construccion": "Acusativo: «vosotros juzgáis según la carne» (Jn 8:15).",
   "sentido_en_contexto": "Juzgar «según la carne» es hacerlo con criterios humanos y superficiales, sin conocer el origen divino de Jesús. Él, en cambio, no juzga a nadie por sí solo: el Padre está con él.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 7:24 — «no juzguéis según las apariencias»",
@@ -417,9 +441,9 @@
    "2 Co 5:16"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 268,
   "alineacion": "forma",
   "tagnt": "John.8.15#04",
+  "ref_estandar": "John.8.15",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G4561",
   "strong_tagnt": "G4561",
@@ -435,13 +459,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "flesh",
-  "ref_estandar": "John.8.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.8.53",
+  "pos_tisch": 308,
   "strong": "G3141",
   "forma": "μαρτυρία",
+  "lema": "μαρτυρία",
   "glosa_interlineal": "testimonio",
   "rango_semantico": [
    "testimonio, atestación"
@@ -449,7 +477,7 @@
   "construccion": "Nominativo: «tu testimonio no es verdadero» (Jn 8:13-14).",
   "sentido_en_contexto": "Los fariseos invocan la regla legal de los dos testigos; Jesús responde que su testimonio es válido porque sabe de dónde viene y a dónde va, y porque el Padre testifica con él (vv.17-18).",
   "matiz": "Aparente contraste con 5:31 («si yo doy testimonio de mí mismo, mi testimonio no es verdadero»): allí Jesús habla de validez legal si estuviera solo; aquí afirma que su testimonio es verdadero porque no está solo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 5:31-37",
@@ -457,10 +485,9 @@
    "Jn 8:17-18"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 308,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.8.17#13",
+  "ref_estandar": "John.8.17",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G3141",
   "strong_tagnt": "G3141",
@@ -476,13 +503,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "testimony",
-  "ref_estandar": "John.8.17"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.8.53",
+  "pos_tisch": 357,
   "strong": "G1049",
   "forma": "γαζοφυλακίῳ",
+  "lema": "γαζοφυλάκιον",
   "glosa_interlineal": "tesoro del templo",
   "rango_semantico": [
    "tesoro, cámara del tesoro"
@@ -490,7 +522,7 @@
   "construccion": "Dativo: «estas palabras habló Jesús en el lugar del tesoro» (Jn 8:20).",
   "sentido_en_contexto": "Espacio del templo, en el atrio de las mujeres, con cofres para las ofrendas. Jesús enseña en público, en pleno corazón del templo, y nadie lo prende porque «aún no había llegado su hora».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 12:41-44 — la ofrenda de la viuda",
@@ -498,9 +530,9 @@
    "Jn 7:30; 8:20"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 357,
   "alineacion": "forma",
   "tagnt": "John.8.20#09",
+  "ref_estandar": "John.8.20",
   "morfologia_tagnt": "N-DSN",
   "dstrong": "G1049",
   "strong_tagnt": "G1049",
@@ -516,13 +548,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "treasury",
-  "ref_estandar": "John.8.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.8.54",
+  "pos_tisch": 5,
   "strong": "G1392",
   "forma": "δοξάσω",
+  "lema": "δοξάζω",
   "glosa_interlineal": "glorifico",
   "rango_semantico": [
    "glorificar, honrar"
@@ -530,7 +566,7 @@
   "construccion": "Subjuntivo aoristo activo: «si yo me glorifico a mí mismo, mi gloria nada es».",
   "sentido_en_contexto": "Jesús no busca su propia gloria; es el Padre quien lo glorifica. El tema continúa hasta la declaración sobre Abraham.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 5:41 — «gloria de los hombres no recibo»",
@@ -538,10 +574,9 @@
    "Jn 12:28"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.8.54#05",
+  "ref_estandar": "John.8.54",
   "morfologia_tagnt": "V-AAS-1S",
   "dstrong": "G1392",
   "strong_tagnt": "G1392",
@@ -558,13 +593,18 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to glorify",
-  "ref_estandar": "John.8.54"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.8.55",
+  "pos_tisch": 18,
   "strong": "G5583",
   "forma": "ψεύστης",
+  "lema": "ψεύστης",
   "glosa_interlineal": "mentiroso",
   "rango_semantico": [
    "mentiroso"
@@ -572,16 +612,13 @@
   "construccion": "Nominativo: «sería mentiroso como vosotros».",
   "sentido_en_contexto": "Jesús reafirma que conoce al Padre y guarda su palabra; negarlo sería mentir. Este versículo cierra la acusación de que los judíos no conocen verdaderamente a Dios.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "1 Jn 2:4 — «el que dice: Yo le conozco, y no guarda sus mandamientos, el tal es mentiroso»",
-   "Jn 8:44 — «mentiroso y padre de mentira»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "1 Jn 2:4 — «el que dice: Yo le conozco, y no guarda sus mandamientos, el tal es mentiroso»\nJn 8:44 — «mentiroso y padre de mentira»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "John.8.55#18",
+  "ref_estandar": "John.8.55",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G5583",
   "strong_tagnt": "G5583",
@@ -597,13 +634,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "liar",
-  "ref_estandar": "John.8.55"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.8.56",
+  "pos_tisch": 5,
   "strong": "G21",
   "forma": "ἠγαλλιάσατο",
+  "lema": "ἀγαλλιάω",
   "glosa_interlineal": "se gozó",
   "rango_semantico": [
    "alegrarse sobremanera, exultar"
@@ -611,7 +652,7 @@
   "construccion": "Aoristo indicativo medio: «Abraham vuestro padre se gozó de que había de ver mi día».",
   "sentido_en_contexto": "Jesús afirma que Abraham se alegró anticipando «su día» y lo vio. Se discute si alude a la promesa de Isaac (Gn 22), a una visión profética, o a la revelación a Abraham en el cielo según tradiciones judías.",
   "matiz": "«Vio mi día»: lecturas (a) visión profética en la fe (Gn 15, 17, 22); (b) tradiciones judías de una revelación del futuro a Abraham (Gn 15:17-21); (c) Abraham en el cielo, en el presente. Los oyentes lo entienden como pretensión de haber visto físicamente a Abraham.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Heb 11:13 — «vieron de lejos las promesas»",
@@ -619,9 +660,9 @@
    "Gá 3:8 — «el evangelio fue anunciado a Abraham»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "John.8.56#05",
+  "ref_estandar": "John.8.56",
   "morfologia_tagnt": "V-ADI-3S",
   "dstrong": "G0021",
   "strong_tagnt": "G21",
@@ -637,13 +678,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to rejoice",
-  "ref_estandar": "John.8.56"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.8.58",
+  "pos_tisch": 10,
   "strong": "G1096",
   "forma": "γενέσθαι",
+  "lema": "γίνομαι",
   "glosa_interlineal": "existiera",
   "rango_semantico": [
    "llegar a ser, nacer, existir"
@@ -651,7 +696,7 @@
   "construccion": "Infinitivo aoristo medio: «antes que Abraham fuese (γενέσθαι), yo soy (ἐγώ εἰμι)».",
   "sentido_en_contexto": "El contraste entre γενέσθαι («llegar a ser», aoristo) y εἰμί («soy», presente atemporal) subraya la existencia eterna de Jesús. «Yo soy» absoluto evoca Éx 3:14 y Is 43:10-13. Los judíos lo entienden como blasfemia y toman piedras.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Éx 3:14 — «Yo soy el que soy»",
@@ -661,9 +706,9 @@
    "Jn 10:30-33"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "John.8.58#11",
+  "ref_estandar": "John.8.58",
   "morfologia_tagnt": "V-2ADN",
   "dstrong": "G1096",
   "strong_tagnt": "G1096",
@@ -679,13 +724,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to be",
-  "ref_estandar": "John.8.58"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.8.59",
+  "pos_tisch": 3,
   "strong": "G3037",
   "forma": "λίθους",
+  "lema": "λίθος",
   "glosa_interlineal": "piedras",
   "rango_semantico": [
    "piedra"
@@ -693,7 +742,7 @@
   "construccion": "Acusativo plural: «tomaron piedras para arrojárselas».",
   "sentido_en_contexto": "Reacción de quienes entienden «yo soy» como reclamo divino: intentan lapidarlo por blasfemia (Lv 24:16). Jesús se oculta y sale del templo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lv 24:16 — pena de lapidación por blasfemia",
@@ -701,9 +750,9 @@
    "Jn 11:8"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "John.8.59#03",
+  "ref_estandar": "John.8.59",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G3037",
   "strong_tagnt": "G3037",
@@ -719,7 +768,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "stone",
-  "ref_estandar": "John.8.59"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

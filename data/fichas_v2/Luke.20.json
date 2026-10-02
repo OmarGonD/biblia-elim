@@ -1,8 +1,10 @@
 [
  {
   "ref": "Luke.20.2",
+  "pos_tisch": 10,
   "strong": "G1849",
   "forma": "ἐξουσίᾳ",
+  "lema": "ἐξουσία",
   "glosa_interlineal": "autoridad",
   "rango_semantico": [
    "autoridad, potestad"
@@ -10,7 +12,7 @@
   "construccion": "ἐν + dativo: «¿con qué autoridad haces estas cosas?».",
   "sentido_en_contexto": "Primera de una serie de controversias en el templo (20:1-47). Los líderes cuestionan su autoridad; Jesús responde con la pregunta sobre el bautismo de Juan, que los atrapa.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 21:23-27 — paralelo",
@@ -18,10 +20,9 @@
    "Lc 5:24 — «el Hijo del Hombre tiene potestad»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Luke.20.2#10",
+  "ref_estandar": "Luke.20.2",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G1849",
   "strong_tagnt": "G1849",
@@ -37,13 +38,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "authority",
-  "ref_estandar": "Luke.20.2"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.20.6",
+  "pos_tisch": 9,
   "strong": "G2642",
   "forma": "καταλιθάσει",
+  "lema": "καταλιθάζω",
   "glosa_interlineal": "apedreará",
   "rango_semantico": [
    "apedrear, lapidar"
@@ -51,17 +57,13 @@
   "construccion": "Futuro indicativo activo: «todo el pueblo nos apedreará».",
   "sentido_en_contexto": "Detalle propio de Lucas: los líderes temen que el pueblo los apedree si niegan que Juan venía del cielo. Su silencio es por miedo político, no por sinceridad.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mt 21:26 — «tememos al pueblo»",
-   "Lc 20:19 — «temieron al pueblo»",
-   "Hch 5:26 — «temían al pueblo, no los apedrease»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mt 21:26 — «tememos al pueblo»\nLc 20:19 — «temieron al pueblo»\nHch 5:26 — «temían al pueblo, no los apedrease»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Luke.20.6#09",
+  "ref_estandar": "Luke.20.6",
   "morfologia_tagnt": "V-FAI-3S",
   "dstrong": "G2642",
   "strong_tagnt": "G2642",
@@ -77,13 +79,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to stone",
-  "ref_estandar": "Luke.20.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.20.9",
+  "pos_tisch": 14,
   "strong": "G1554",
   "forma": "ἐξέδετο",
+  "lema": "ἐκδίδωμι",
   "glosa_interlineal": "arrendó",
   "rango_semantico": [
    "arrendar, alquilar"
@@ -91,17 +97,13 @@
   "construccion": "Aoristo indicativo medio: «la arrendó a labradores».",
   "sentido_en_contexto": "Parábola de los labradores malvados, con eco de Is 5:1-7. Lucas la dirige «al pueblo» (los líderes escuchan). Los siervos enviados son los profetas; el hijo amado, Jesús.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mt 21:33-46 — paralelo",
-   "Mr 12:1-12 — paralelo",
-   "Is 5:1-7 — cantar de la viña"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mt 21:33-46 — paralelo\nMr 12:1-12 — paralelo\nIs 5:1-7 — cantar de la viña",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Luke.20.9#15",
+  "ref_estandar": "Luke.20.9",
   "morfologia_tagnt": "V-2AMI-3S",
   "dstrong": "G1554",
   "strong_tagnt": "G1554",
@@ -117,13 +119,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to lease",
-  "ref_estandar": "Luke.20.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.20.13",
+  "pos_tisch": 14,
   "strong": "G27",
   "forma": "ἀγαπητόν",
+  "lema": "ἀγαπητός",
   "glosa_interlineal": "amado",
   "rango_semantico": [
    "amado, querido"
@@ -131,7 +137,7 @@
   "construccion": "Adjetivo acusativo: «enviaré a mi hijo amado».",
   "sentido_en_contexto": "Lucas añade «quizá le tendrán respeto» (ἴσως ἐντραπήσονται): el dueño duda de si respetarán al hijo, a diferencia de Mateo y Marcos donde lo afirma. Subraya la vulnerabilidad del Hijo enviado.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 3:22 — «tú eres mi Hijo amado»",
@@ -139,9 +145,9 @@
    "Gn 22:2 — «tu hijo, tu único, a quien amas»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Luke.20.13#14",
+  "ref_estandar": "Luke.20.13",
   "morfologia_tagnt": "A-ASM",
   "dstrong": "G0027",
   "strong_tagnt": "G27",
@@ -157,13 +163,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "beloved",
-  "ref_estandar": "Luke.20.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.20.16",
+  "pos_tisch": 16,
   "strong": "G1096",
   "forma": "γένοιτο",
+  "lema": "γίνομαι",
   "glosa_interlineal": "¡Dios nos libre!",
   "rango_semantico": [
    "suceder, ocurrir",
@@ -172,7 +182,7 @@
   "construccion": "Optativo aoristo medio: «¡no lo permita Dios!».",
   "sentido_en_contexto": "Solo Lucas incluye esta reacción de los oyentes ante el juicio anunciado: «¡Dios nos libre!». Muestra que comprenden que la parábola los alude.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 3:4, 6 — «¡de ningún modo!»",
@@ -180,9 +190,9 @@
    "Lc 20:19 — «comprendieron que contra ellos»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Luke.20.16#16",
+  "ref_estandar": "Luke.20.16",
   "morfologia_tagnt": "V-2ADO-3S",
   "dstrong": "G1096",
   "strong_tagnt": "G1096",
@@ -198,13 +208,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to be",
-  "ref_estandar": "Luke.20.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.20.18",
+  "pos_tisch": 8,
   "strong": "G4917",
   "forma": "συνθλασθήσεται",
+  "lema": "συνθλάω",
   "glosa_interlineal": "será quebrantado",
   "rango_semantico": [
    "quebrantar, aplastar"
@@ -212,7 +226,7 @@
   "construccion": "Futuro indicativo pasivo: «todo el que cayere sobre aquella piedra será quebrantado».",
   "sentido_en_contexto": "Solo Lucas añade esta sentencia sobre la piedra: quien cae sobre ella queda hecho pedazos; sobre quien ella cae, lo desmenuza. Alude a Is 8:14-15 y Dn 2:34-35, 44-45.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 8:14-15 — «piedra de tropiezo»",
@@ -220,9 +234,9 @@
    "Mt 21:44 — algunos manuscritos"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Luke.20.18#08",
+  "ref_estandar": "Luke.20.18",
   "morfologia_tagnt": "V-FPI-3S",
   "dstrong": "G4917",
   "strong_tagnt": "G4917",
@@ -238,13 +252,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to shatter",
-  "ref_estandar": "Luke.20.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.20.20",
+  "pos_tisch": 4,
   "strong": "G1455",
   "forma": "ἐνκαθέτους",
+  "lema": "ἐγκάθετος",
   "glosa_interlineal": "espías",
   "rango_semantico": [
    "espía, emboscado, agente"
@@ -252,7 +270,7 @@
   "construccion": "Acusativo plural: «enviaron espías, que se simulasen justos».",
   "sentido_en_contexto": "Palabra única en el NT: los líderes mandan a agentes fingiendo ser justos para atrapar a Jesús en alguna palabra y entregarlo al gobernador. Lucas subraya la maquinación política.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 22:15-16 — con herodianos",
@@ -260,9 +278,9 @@
    "Lc 11:54 — «acechándole, procurando cazar»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "strong",
   "tagnt": "Luke.20.20#04",
+  "ref_estandar": "Luke.20.20",
   "morfologia_tagnt": "A-APM",
   "dstrong": "G1455",
   "strong_tagnt": "G1455",
@@ -278,13 +296,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "a spy",
-  "ref_estandar": "Luke.20.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.20.25",
+  "pos_tisch": 7,
   "strong": "G591",
   "forma": "ἀπόδοτε",
+  "lema": "ἀποδίδωμι",
   "glosa_interlineal": "dad",
   "rango_semantico": [
    "devolver, pagar"
@@ -292,7 +314,7 @@
   "construccion": "Imperativo aoristo activo: «dad a César lo que es de César».",
   "sentido_en_contexto": "Respuesta de Jesús sobre el tributo. ἀποδίδωμι es «devolver lo debido». Lucas (como Marcos) la presenta sin el contexto de herodianos; los espías quedan callados.",
   "matiz": "Ver nota en Mt 22:21 sobre su alcance: ¿dos esferas, o subordinación de la primera a la segunda?",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 22:21 — paralelo",
@@ -300,9 +322,9 @@
    "Hch 5:29 — «obedecer a Dios antes que a los hombres»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Luke.20.25#07",
+  "ref_estandar": "Luke.20.25",
   "morfologia_tagnt": "V-2AAM-2P",
   "dstrong": "G0591",
   "strong_tagnt": "G591",
@@ -318,13 +340,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pay",
-  "ref_estandar": "Luke.20.25"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.20.34",
+  "pos_tisch": 9,
   "strong": "G165",
   "forma": "αἰῶνος",
+  "lema": "αἰών",
   "glosa_interlineal": "era, siglo",
   "rango_semantico": [
    "edad, era, siglo"
@@ -332,17 +358,13 @@
   "construccion": "Genitivo: «los hijos de este siglo se casan».",
   "sentido_en_contexto": "Lucas distingue dos edades: «este siglo» (matrimonio, muerte) y «aquel siglo» (resurrección, sin matrimonio ni muerte). Desarrolla la respuesta a los saduceos con más detalle que Mateo y Marcos.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mt 22:30 — paralelo",
-   "Mr 12:25 — paralelo",
-   "Lc 18:30 — «en el siglo venidero la vida eterna»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mt 22:30 — paralelo\nMr 12:25 — paralelo\nLc 18:30 — «en el siglo venidero la vida eterna»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Luke.20.34#10",
+  "ref_estandar": "Luke.20.34",
   "morfologia_tagnt": "N-GSM",
   "dstrong": "G0165G",
   "strong_tagnt": "G165",
@@ -358,13 +380,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "an age",
-  "ref_estandar": "Luke.20.34"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.20.36",
+  "pos_tisch": 6,
   "strong": "G2465",
   "forma": "ἰσάγγελοι",
+  "lema": "ἰσάγγελος",
   "glosa_interlineal": "iguales a los ángeles",
   "rango_semantico": [
    "igual a los ángeles"
@@ -372,7 +398,7 @@
   "construccion": "Adjetivo nominativo plural: «son iguales a los ángeles».",
   "sentido_en_contexto": "Palabra única en el NT: los resucitados serán «iguales a los ángeles» (no casados, inmortales) e «hijos de Dios, hijos de la resurrección». Jesús responde a los saduceos con una visión de la vida futura distinta de la presente.",
   "matiz": "Se debate qué significa «iguales a los ángeles»: sin mortalidad ni necesidad de procrear, pero no que dejen de ser humanos. El texto no dice que los resucitados sean ángeles.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 22:30 — «como los ángeles de Dios»",
@@ -380,9 +406,9 @@
    "1 Jn 3:2 — «seremos semejantes a él»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Luke.20.36#06",
+  "ref_estandar": "Luke.20.36",
   "morfologia_tagnt": "A-NPM",
   "dstrong": "G2465",
   "strong_tagnt": "G2465",
@@ -398,13 +424,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "like an angel",
-  "ref_estandar": "Luke.20.36"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.20.38",
+  "pos_tisch": 7,
   "strong": "G2198",
   "forma": "ζώντων",
+  "lema": "ζάω",
   "glosa_interlineal": "vivos",
   "rango_semantico": [
    "vivo, que vive"
@@ -412,7 +442,7 @@
   "construccion": "Genitivo plural: «para él todos viven».",
   "sentido_en_contexto": "Solo Lucas añade «porque para él (Dios) todos viven»: los patriarcas viven para Dios aunque estén muertos. Fundamenta la resurrección en la fidelidad de Dios.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 22:32 — «Dios no es Dios de muertos, sino de vivos»",
@@ -420,10 +450,9 @@
    "Ro 14:8 — «ya vivamos, ya muramos, del Señor somos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Luke.20.38#07",
+  "ref_estandar": "Luke.20.38",
   "morfologia_tagnt": "V-PAP-GPM",
   "dstrong": "G2198",
   "strong_tagnt": "G2198",
@@ -439,13 +468,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to live",
-  "ref_estandar": "Luke.20.38"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.20.46",
+  "pos_tisch": 9,
   "strong": "G4749",
   "forma": "στολαῖς",
+  "lema": "στολή",
   "glosa_interlineal": "vestiduras largas",
   "rango_semantico": [
    "vestido largo, túnica"
@@ -453,7 +487,7 @@
   "construccion": "Dativo plural: «gustan de andar con ropas largas».",
   "sentido_en_contexto": "Lucas resume el discurso contra los escribas: buscan honores, devoran las casas de las viudas y fingen largas oraciones. Su condena será mayor. Contrasta con la ofrenda de la viuda (21:1-4).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 12:38-40 — paralelo",
@@ -461,9 +495,9 @@
    "Lc 11:43 — los fariseos"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Luke.20.46#09",
+  "ref_estandar": "Luke.20.46",
   "morfologia_tagnt": "N-DPF",
   "dstrong": "G4749",
   "strong_tagnt": "G4749",
@@ -479,7 +513,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "robe",
-  "ref_estandar": "Luke.20.46"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

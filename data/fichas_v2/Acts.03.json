@@ -1,8 +1,10 @@
 [
  {
   "ref": "Acts.3.1",
+  "pos_tisch": 15,
   "strong": "G1766",
   "forma": "ἐνάτην",
+  "lema": "ἔννατος",
   "glosa_interlineal": "novena",
   "rango_semantico": [
    "noveno"
@@ -10,7 +12,7 @@
   "construccion": "Numeral ordinal: «a la hora novena, la de la oración».",
   "sentido_en_contexto": "Las tres de la tarde: hora de la oración y del sacrificio vespertino en el templo. Pedro y Juan, como judíos piadosos, suben al templo: la comunidad cristiana naciente aún frecuenta el culto judío.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 2:46; 10:3, 30",
@@ -18,9 +20,9 @@
    "Lc 1:10"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Acts.3.1#18",
+  "ref_estandar": "Acts.3.1",
   "morfologia_tagnt": "A-ASF",
   "dstrong": "G1766",
   "strong_tagnt": "G1766",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ninth (hour)",
-  "ref_estandar": "Acts.3.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.3.2",
+  "pos_tisch": 22,
   "strong": "G5611",
   "forma": "ὡραίαν",
+  "lema": "ὡραῖος",
   "glosa_interlineal": "Hermosa",
   "rango_semantico": [
    "hermoso, bello"
@@ -50,7 +56,7 @@
   "construccion": "Acusativo: «a la puerta del templo que se llama la Hermosa».",
   "sentido_en_contexto": "Una de las puertas del templo (quizá la de Nicanor, de bronce corintio). Allí pedía limosna un cojo de nacimiento, de más de cuarenta años (4:22).",
   "matiz": "La ubicación exacta de la «Puerta Hermosa» se discute (puerta de Nicanor, entre el atrio de los gentiles y el de las mujeres, u otra).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 4:22",
@@ -58,9 +64,9 @@
    "Lc 7:22 — «los cojos andan»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 22,
   "alineacion": "forma",
   "tagnt": "Acts.3.2#22",
+  "ref_estandar": "Acts.3.2",
   "morfologia_tagnt": "A-ASF-L",
   "dstrong": "G5611",
   "strong_tagnt": "G5611",
@@ -76,13 +82,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "beautiful/timely",
-  "ref_estandar": "Acts.3.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.3.6",
+  "pos_tisch": 4,
   "strong": "G694",
   "forma": "ἀργύριον",
+  "lema": "ἀργύριον",
   "glosa_interlineal": "plata",
   "rango_semantico": [
    "plata, dinero"
@@ -90,7 +100,7 @@
   "construccion": "Nominativo: «no tengo plata ni oro, pero lo que tengo te doy».",
   "sentido_en_contexto": "Pedro no ofrece dinero sino el poder del nombre de Jesús. «En el nombre de Jesucristo de Nazaret, levántate y anda». El «nombre» actúa aquí con autoridad de su persona, no como fórmula mágica (cf. 3:16; 19:13-16).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 4:10, 12",
@@ -98,9 +108,9 @@
    "Mr 16:17-18"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Acts.3.6#04",
+  "ref_estandar": "Acts.3.6",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G0694",
   "strong_tagnt": "G694",
@@ -116,13 +126,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "money",
-  "ref_estandar": "Acts.3.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.3.8",
+  "pos_tisch": 15,
   "strong": "G242",
   "forma": "ἁλλόμενος",
+  "lema": "ἅλλομαι",
   "glosa_interlineal": "saltando",
   "rango_semantico": [
    "saltar, brincar"
@@ -130,7 +144,7 @@
   "construccion": "Participio presente medio: «saltando y alabando a Dios».",
   "sentido_en_contexto": "El hombre sanado entra al templo caminando, saltando y alabando a Dios: cumplimiento de Is 35:6 («el cojo saltará como un ciervo»). Es signo de la era mesiánica.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 35:6",
@@ -138,9 +152,9 @@
    "Hch 14:8-10 — otro cojo sanado en Listra"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Acts.3.8#15",
+  "ref_estandar": "Acts.3.8",
   "morfologia_tagnt": "V-PNP-NSM",
   "dstrong": "G0242",
   "strong_tagnt": "G242",
@@ -156,13 +170,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to spring",
-  "ref_estandar": "Acts.3.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.3.13",
+  "pos_tisch": 19,
   "strong": "G3816",
   "forma": "παῖδα",
+  "lema": "παῖς",
   "glosa_interlineal": "Siervo",
   "rango_semantico": [
    "siervo, hijo, niño"
@@ -170,7 +188,7 @@
   "construccion": "Acusativo: «Dios… ha glorificado a su Siervo Jesús».",
   "sentido_en_contexto": "παῖς, aquí «Siervo» (cf. Is 52:13—53:12), es un título cristológico antiguo (también en 3:26; 4:27, 30). Pedro alude al Siervo sufriente del cual Dios hizo ahora su siervo glorificado.",
   "matiz": "παῖς puede significar «hijo», «niño» o «siervo»; con el trasfondo de Isaías, «Siervo» es la traducción más aceptada en este contexto.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": "RVR60 traduce «Hijo»; muchas versiones prefieren «Siervo» por el trasfondo de Isaías.",
   "otros_usos": [
    "Is 52:13; 53:11",
@@ -178,9 +196,9 @@
    "Mt 12:18"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 19,
   "alineacion": "forma",
   "tagnt": "Acts.3.13#19",
+  "ref_estandar": "Acts.3.13",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G3816",
   "strong_tagnt": "G3816",
@@ -196,13 +214,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "child",
-  "ref_estandar": "Acts.3.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.3.14",
+  "pos_tisch": 6,
   "strong": "G1342",
   "forma": "δίκαιον",
+  "lema": "δίκαιος",
   "glosa_interlineal": "el Justo",
   "rango_semantico": [
    "justo, recto"
@@ -210,7 +232,7 @@
   "construccion": "Acusativo: «negasteis al Santo y al Justo».",
   "sentido_en_contexto": "«El Santo y el Justo» son títulos mesiánicos de Jesús (cf. 7:52; 22:14; Is 53:11). Pedro contrasta el rechazo de Jesús con el perdón concedido a Barrabás, un homicida.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 7:52; 22:14",
@@ -218,9 +240,9 @@
    "1 Jn 2:1"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Acts.3.14#06",
+  "ref_estandar": "Acts.3.14",
   "morfologia_tagnt": "A-ASM",
   "dstrong": "G1342",
   "strong_tagnt": "G1342",
@@ -236,13 +258,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "just",
-  "ref_estandar": "Acts.3.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.3.15",
+  "pos_tisch": 3,
   "strong": "G747",
   "forma": "ἀρχηγὸν",
+  "lema": "ἀρχηγός",
   "glosa_interlineal": "Autor",
   "rango_semantico": [
    "autor, pionero, príncipe, guía"
@@ -250,7 +276,7 @@
   "construccion": "Acusativo: «matasteis al Autor de la vida».",
   "sentido_en_contexto": "ἀρχηγός significa a la vez «originador», «pionero» y «príncipe». Jesús es el origen y guía de la vida, a quien mataron, pero Dios resucitó. Aparece también en 5:31 (Príncipe y Salvador), Heb 2:10 y 12:2.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 5:31",
@@ -258,9 +284,9 @@
    "Jn 1:4; 14:6"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Acts.3.15#03",
+  "ref_estandar": "Acts.3.15",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G0747",
   "strong_tagnt": "G747",
@@ -276,13 +302,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "founder",
-  "ref_estandar": "Acts.3.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.3.16",
+  "pos_tisch": 26,
   "strong": "G3647",
   "forma": "ὁλοκληρίαν",
+  "lema": "ὁλοκληρία",
   "glosa_interlineal": "sanidad completa",
   "rango_semantico": [
    "integridad, salud perfecta"
@@ -290,7 +320,7 @@
   "construccion": "Acusativo: «le ha dado esta completa sanidad».",
   "sentido_en_contexto": "Palabra única en el NT: «plena salud, integridad». La sanidad se debe a la fe «en su nombre», y la fe que viene por Jesús dio al hombre esta restauración total ante todos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 4:10",
@@ -298,9 +328,9 @@
    "Mt 9:22"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 26,
   "alineacion": "forma",
   "tagnt": "Acts.3.16#26",
+  "ref_estandar": "Acts.3.16",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G3647",
   "strong_tagnt": "G3647",
@@ -316,13 +346,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wholeness",
-  "ref_estandar": "Acts.3.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.3.17",
+  "pos_tisch": 7,
   "strong": "G52",
   "forma": "ἄγνοιαν",
+  "lema": "ἄγνοια",
   "glosa_interlineal": "ignorancia",
   "rango_semantico": [
    "ignorancia, desconocimiento"
@@ -330,7 +364,7 @@
   "construccion": "Acusativo: «por ignorancia lo habéis hecho».",
   "sentido_en_contexto": "Pedro atenúa la culpa de los líderes y del pueblo («por ignorancia»), abriendo la puerta al arrepentimiento. La ignorancia no excusa del todo (v.19), pero hace posible el perdón (cf. Lc 23:34).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 23:34",
@@ -339,9 +373,9 @@
    "1 Co 2:8"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Acts.3.17#07",
+  "ref_estandar": "Acts.3.17",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G0052",
   "strong_tagnt": "G52",
@@ -357,13 +391,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ignorance",
-  "ref_estandar": "Acts.3.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.3.18",
+  "pos_tisch": 5,
   "strong": "G4293",
   "forma": "προκατήγγειλεν",
+  "lema": "προκαταγγέλλω",
   "glosa_interlineal": "anunció de antemano",
   "rango_semantico": [
    "anunciar con anticipación"
@@ -371,7 +409,7 @@
   "construccion": "Aoristo indicativo activo: «Dios ha cumplido lo que antes había anunciado por boca de todos los profetas».",
   "sentido_en_contexto": "Los sufrimientos del Mesías estaban anunciados por los profetas (cf. Lc 24:25-27, 46). Pedro lo ve cumplido en la cruz: la muerte de Jesús no es accidente, sino plan divino.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 24:25-27, 44-46",
@@ -380,9 +418,9 @@
    "Sal 22"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Acts.3.18#05",
+  "ref_estandar": "Acts.3.18",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G4293",
   "strong_tagnt": "G4293",
@@ -398,13 +436,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to foretell",
-  "ref_estandar": "Acts.3.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.3.19",
+  "pos_tisch": 7,
   "strong": "G1813",
   "forma": "ἐξαλειφθῆναι",
+  "lema": "ἐξαλείφω",
   "glosa_interlineal": "sean borrados",
   "rango_semantico": [
    "borrar, limpiar, raspar"
@@ -412,7 +454,7 @@
   "construccion": "Infinitivo aoristo pasivo: «para que sean borrados vuestros pecados».",
   "sentido_en_contexto": "Imagen del borrado de un escrito: los pecados se «raspan» como se borra tinta de un papiro. Se conecta con «tiempos de refrigerio» de la presencia del Señor (ἀναψύξεως), un tiempo de alivio y renovación.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 43:25; 44:22",
@@ -420,9 +462,9 @@
    "Ap 3:5; 21:4"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Acts.3.19#07",
+  "ref_estandar": "Acts.3.19",
   "morfologia_tagnt": "V-APN",
   "dstrong": "G1813",
   "strong_tagnt": "G1813",
@@ -438,13 +480,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to blot out",
-  "ref_estandar": "Acts.3.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.3.21",
+  "pos_tisch": 8,
   "strong": "G605",
   "forma": "ἀποκαταστάσεως",
+  "lema": "ἀποκατάστασις",
   "glosa_interlineal": "restauración",
   "rango_semantico": [
    "restauración, restablecimiento"
@@ -452,7 +498,7 @@
   "construccion": "Genitivo: «hasta los tiempos de la restauración de todas las cosas».",
   "sentido_en_contexto": "Cristo debe permanecer en el cielo hasta la «restauración universal» anunciada por los profetas. Nombre próximo a la pregunta de 1:6 («restaurarás el reino a Israel»). No es una doctrina de salvación universal sin condiciones; el contexto exige arrepentimiento (v.19).",
   "matiz": "Debate: ¿«restauración de todas las cosas» es la renovación escatológica del cosmos (Ro 8:21; Ap 21), la restauración de Israel, o apokatastasis universal (salvación de todos, tesis de Orígenes)? La mayoría ve la renovación final de la creación, no una salvación incondicional.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 1:6",
@@ -461,9 +507,9 @@
    "Ap 21:1-5"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Acts.3.21#08",
+  "ref_estandar": "Acts.3.21",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G0605",
   "strong_tagnt": "G605",
@@ -479,13 +525,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "restoration",
-  "ref_estandar": "Acts.3.21"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.3.22",
+  "pos_tisch": 5,
   "strong": "G4396",
   "forma": "προφήτην",
+  "lema": "προφήτης",
   "glosa_interlineal": "profeta",
   "rango_semantico": [
    "profeta"
@@ -493,7 +543,7 @@
   "construccion": "Acusativo: «un profeta como yo».",
   "sentido_en_contexto": "Cita de Dt 18:15-19 aplicada a Jesús: el Profeta prometido como Moisés. Quienes no lo escuchen serán «desarraigados del pueblo». Pedro lo usa para exhortar a oír a Jesús.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 18:15-19",
@@ -502,9 +552,9 @@
    "Mt 17:5 — «a él oíd»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Acts.3.22#09",
+  "ref_estandar": "Acts.3.22",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G4396",
   "strong_tagnt": "G4396",
@@ -520,13 +570,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "prophet",
-  "ref_estandar": "Acts.3.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.3.25",
+  "pos_tisch": 9,
   "strong": "G1242",
   "forma": "διαθήκης",
+  "lema": "διαθήκη",
   "glosa_interlineal": "pacto",
   "rango_semantico": [
    "pacto, alianza, testamento"
@@ -534,7 +588,7 @@
   "construccion": "Genitivo: «vosotros sois los hijos de los profetas y del pacto».",
   "sentido_en_contexto": "Cita Gn 12:3 / 22:18: «en tu simiente serán benditas todas las familias de la tierra». Pedro sitúa a los oyentes como herederos del pacto abrahámico, cuyo cumplimiento está en Cristo y se extiende a las naciones.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 12:3; 22:18",
@@ -542,9 +596,9 @@
    "Ro 4:13-17"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Acts.3.25#09",
+  "ref_estandar": "Acts.3.25",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G1242",
   "strong_tagnt": "G1242",
@@ -560,13 +614,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "covenant",
-  "ref_estandar": "Acts.3.25"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.3.26",
+  "pos_tisch": 15,
   "strong": "G654",
   "forma": "ἀποστρέφειν",
+  "lema": "ἀποστρέφω",
   "glosa_interlineal": "apartar",
   "rango_semantico": [
    "apartar, volver, desviar"
@@ -574,7 +632,7 @@
   "construccion": "Infinitivo presente: «para que cada uno se aparte de sus maldades».",
   "sentido_en_contexto": "Cierre del sermón: Dios resucitó a su Siervo y lo envió primero a Israel para bendecirlos apartándolos de sus maldades. La bendición de Abraham consiste en conversión del pecado.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 1:16 — «al judío primeramente»",
@@ -582,9 +640,9 @@
    "Mt 1:21"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Acts.3.26#16",
+  "ref_estandar": "Acts.3.26",
   "morfologia_tagnt": "V-PAN",
   "dstrong": "G0654",
   "strong_tagnt": "G654",
@@ -600,7 +658,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to turn away",
-  "ref_estandar": "Acts.3.26"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

@@ -139,14 +139,15 @@ class PipelineTest(unittest.TestCase):
     def test_ensamblar_con_versiones_pd(self):
         s = pipeline.solicitud(self.datos, "John.1.2")
         self.cache.put("John.1.2", respuesta_valida(s))
-        ver = {("John", 1, 2): [{"version": "V", "texto": "t"}]}   # clave en numeración estándar
-        r = pipeline.ensamblar(self.datos, ["John.1.2"], "modelo-prueba", ver, self.cache,
-                               os.path.join(self.tmp, "v3"))
+        r = pipeline.ensamblar(self.datos, ["John.1.2"], "modelo-prueba", self.cache, os.path.join(self.tmp, "v3"))
         self.assertEqual(r, {"John.01": 7})
         with open(os.path.join(self.tmp, "v3", "John.01.json")) as fh:
             f = json.load(fh)
-        self.assertEqual(f[0]["traducciones_comparadas"], [{"version": "V", "ref": "John.1.2", "texto": "t"}])
         self.assertEqual(f[0]["ref_estandar"], "John.1.2")
+        self.assertNotIn("traducciones_comparadas", f[0])              # las citas van en la tabla `citas`
+        self.assertEqual((f[0]["generador"], f[0]["modelo"]), ("api", "modelo-prueba"))
+        self.assertEqual(f[0]["prompt_hash"], pipeline.prompt_hash())
+        self.assertTrue(f[0]["generado_en"])
         self.assertEqual(f[2]["caso_regido"], "dativo")
         self.assertNotIn("glosa_tagnt", f[0])
 

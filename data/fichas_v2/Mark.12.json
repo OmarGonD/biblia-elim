@@ -1,8 +1,10 @@
 [
  {
   "ref": "Mark.12.1",
+  "pos_tisch": 7,
   "strong": "G290",
   "forma": "ἀμπελῶνα",
+  "lema": "ἀμπελών",
   "glosa_interlineal": "viña",
   "rango_semantico": [
    "viña, viñedo"
@@ -10,7 +12,7 @@
   "construccion": "Acusativo: «plantó una viña».",
   "sentido_en_contexto": "Parábola de los labradores malvados, tomada de Is 5:1-7. Los siervos enviados representan a los profetas; el hijo amado, a Jesús.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 5:1-7 — el cantar de la viña",
@@ -18,9 +20,9 @@
    "Lc 20:9-19 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Mark.12.1#07",
+  "ref_estandar": "Mark.12.1",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G0290",
   "strong_tagnt": "G290",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "vineyard",
-  "ref_estandar": "Mark.12.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.12.6",
+  "pos_tisch": 5,
   "strong": "G27",
   "forma": "ἀγαπητόν",
+  "lema": "ἀγαπητός",
   "glosa_interlineal": "amado",
   "rango_semantico": [
    "amado, querido",
@@ -51,7 +57,7 @@
   "construccion": "Adjetivo acusativo: «un hijo amado».",
   "sentido_en_contexto": "Marcos subraya el carácter único del hijo («tenía aún uno, un hijo amado»), con eco de la voz del bautismo (1:11) y de la transfiguración (9:7). Alegoría de la identidad de Jesús.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 1:11 — «tú eres mi Hijo amado»",
@@ -59,9 +65,9 @@
    "Gn 22:2 — «tu hijo, tu único, a quien amas»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Mark.12.6#06",
+  "ref_estandar": "Mark.12.6",
   "morfologia_tagnt": "A-ASM",
   "dstrong": "G0027",
   "strong_tagnt": "G27",
@@ -77,13 +83,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "beloved",
-  "ref_estandar": "Mark.12.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.12.10",
+  "pos_tisch": 6,
   "strong": "G3037",
   "forma": "λίθον",
+  "lema": "λίθος",
   "glosa_interlineal": "piedra",
   "rango_semantico": [
    "piedra"
@@ -91,7 +101,7 @@
   "construccion": "Acusativo: «la piedra que desecharon los edificadores». Cita de Sal 118:22-23.",
   "sentido_en_contexto": "Jesús, rechazado por los líderes, será la piedra angular. Marcos relaciona la parábola con el Salmo 118, el mismo de la entrada triunfal.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 118:22-23 — texto citado",
@@ -99,9 +109,9 @@
    "1 P 2:7 — «la piedra que los edificadores desecharon»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Mark.12.10#06",
+  "ref_estandar": "Mark.12.10",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G3037",
   "strong_tagnt": "G3037",
@@ -117,13 +127,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "stone",
-  "ref_estandar": "Mark.12.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.12.13",
+  "pos_tisch": 10,
   "strong": "G2265",
   "forma": "Ἡρῳδιανῶν",
+  "lema": "Ἡρωδιανοί",
   "glosa_interlineal": "herodianos",
   "rango_semantico": [
    "herodiano (partidario de Herodes)"
@@ -131,16 +145,16 @@
   "construccion": "Genitivo plural.",
   "sentido_en_contexto": "De nuevo fariseos y herodianos se unen para enredar a Jesús con la pregunta del tributo (como en 3:6).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 3:6 — primer complot",
    "Mt 22:16 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Mark.12.13#10",
+  "ref_estandar": "Mark.12.13",
   "morfologia_tagnt": "N-GPM-T",
   "dstrong": "G2265",
   "strong_tagnt": "G2265",
@@ -156,13 +170,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Herodians",
-  "ref_estandar": "Mark.12.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.12.14",
+  "pos_tisch": 8,
   "strong": "G227",
   "forma": "ἀληθὴς",
+  "lema": "ἀληθής",
   "glosa_interlineal": "veraz",
   "rango_semantico": [
    "veraz, verdadero"
@@ -170,16 +188,16 @@
   "construccion": "Adjetivo nominativo: «sabemos que eres veraz».",
   "sentido_en_contexto": "Halago que prepara la trampa: lo llaman veraz e imparcial, para forzar una respuesta política peligrosa.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 22:16 — paralelo",
    "Jn 14:6 — «yo soy el camino, y la verdad»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Mark.12.14#09",
+  "ref_estandar": "Mark.12.14",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G0227",
   "strong_tagnt": "G227",
@@ -195,13 +213,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "true",
-  "ref_estandar": "Mark.12.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.12.15",
+  "pos_tisch": 6,
   "strong": "G5272",
   "forma": "ὑπόκρισιν",
+  "lema": "ὑπόκρισις",
   "glosa_interlineal": "hipocresía",
   "rango_semantico": [
    "hipocresía, fingimiento"
@@ -209,16 +231,16 @@
   "construccion": "Acusativo: «conociendo su hipocresía».",
   "sentido_en_contexto": "Jesús descubre la intención oculta tras la pregunta; pide un denario y plantea la cuestión de la imagen.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 22:18 — «conociendo Jesús la malicia de ellos»",
    "Lc 20:23 — «la astucia de ellos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Mark.12.15#10",
+  "ref_estandar": "Mark.12.15",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G5272",
   "strong_tagnt": "G5272",
@@ -234,13 +256,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hypocrisy",
-  "ref_estandar": "Mark.12.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.12.17",
+  "pos_tisch": 17,
   "strong": "G2296",
   "forma": "ἐξεθαύμαζον",
+  "lema": "θαυμάζω",
   "glosa_interlineal": "se maravillaban",
   "rango_semantico": [
    "asombrarse mucho"
@@ -248,16 +274,16 @@
   "construccion": "Imperfecto indicativo activo, 3ª plural: «se admiraban grandemente».",
   "sentido_en_contexto": "Respuesta de Jesús: «dad a César lo que es de César y a Dios lo que es de Dios». Los interlocutores quedan admirados. Marcos usa un verbo intensificado.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 22:21-22 — paralelo",
    "Ro 13:7 — «pagad a todos lo que debéis»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "Mark.12.17#19",
+  "ref_estandar": "Mark.12.17",
   "morfologia_tagnt": "V-IAI-3P",
   "dstrong": "G6028",
   "strong_tagnt": "G6028",
@@ -274,13 +300,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "be amazed",
-  "ref_estandar": "Mark.12.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.12.24",
+  "pos_tisch": 8,
   "strong": "G4105",
   "forma": "πλανᾶσθε",
+  "lema": "πλανάω",
   "glosa_interlineal": "erráis",
   "rango_semantico": [
    "errar, extraviarse"
@@ -288,16 +318,16 @@
   "construccion": "Presente indicativo pasivo, 2ª plural: «¿no erráis por eso?».",
   "sentido_en_contexto": "Jesús diagnostica el error de los saduceos: ignoran las Escrituras y el poder de Dios (como en Mt 22:29). Marcos lo pone como pregunta retórica.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 22:29 — paralelo",
    "Jn 5:39 — «escudriñad las Escrituras»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Mark.12.24#10",
+  "ref_estandar": "Mark.12.24",
   "morfologia_tagnt": "V-PPI-2P",
   "dstrong": "G4105",
   "strong_tagnt": "G4105",
@@ -313,13 +343,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to lead astray",
-  "ref_estandar": "Mark.12.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.12.26",
+  "pos_tisch": 15,
   "strong": "G942",
   "forma": "βάτου",
+  "lema": "βάτος",
   "glosa_interlineal": "zarza",
   "rango_semantico": [
    "zarza, matorral"
@@ -327,17 +361,13 @@
   "construccion": "Genitivo: «en el pasaje de la zarza».",
   "sentido_en_contexto": "Marcos cita el pasaje de la zarza ardiente (Éx 3:6) para argumentar la resurrección: «Dios de Abraham… no es Dios de muertos sino de vivos».",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Éx 3:6 — texto citado",
-   "Lc 20:37 — «en el pasaje de la zarza»",
-   "Hch 7:30-35 — Esteban cuenta la zarza"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Éx 3:6 — texto citado\nLc 20:37 — «en el pasaje de la zarza»\nHch 7:30-35 — Esteban cuenta la zarza",
   "otros_usos": "medio",
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Mark.12.26#15",
+  "ref_estandar": "Mark.12.26",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G0942",
   "strong_tagnt": "G942",
@@ -353,13 +383,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "thorn bush",
-  "ref_estandar": "Mark.12.26"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.12.29",
+  "pos_tisch": 8,
   "strong": "G2474",
   "forma": "Ἰσραήλ",
+  "lema": "Ἰσραήλ",
   "glosa_interlineal": "Israel",
   "rango_semantico": [
    "Israel"
@@ -367,7 +401,7 @@
   "construccion": "Vocativo: «Oye, Israel».",
   "sentido_en_contexto": "Marcos (único) cita completo el Shemá de Dt 6:4: «Oye, Israel, el Señor nuestro Dios, el Señor uno es», antes de los dos mandamientos. Destaca el monoteísmo como base del amor a Dios.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 6:4 — el Shemá",
@@ -375,9 +409,9 @@
    "Ro 3:30 — «Dios es uno»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Mark.12.29#13",
+  "ref_estandar": "Mark.12.29",
   "morfologia_tagnt": "N-VSM-L",
   "dstrong": "G2474",
   "strong_tagnt": "G2474",
@@ -393,13 +427,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Israel",
-  "ref_estandar": "Mark.12.29"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.12.30",
+  "pos_tisch": 28,
   "strong": "G2479",
   "forma": "ἰσχύος",
+  "lema": "ἰσχύς",
   "glosa_interlineal": "fuerza",
   "rango_semantico": [
    "fuerza, poder"
@@ -407,7 +445,7 @@
   "construccion": "ἐξ + genitivo: «con toda tu fuerza».",
   "sentido_en_contexto": "Marcos tiene cuatro dimensiones (corazón, alma, mente, fuerza), más cercano al texto hebreo de Dt 6:5. El amor a Dios incluye toda la persona.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 6:5 — texto citado",
@@ -415,9 +453,9 @@
    "Lc 10:27 — cuatro dimensiones"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 28,
   "alineacion": "forma",
   "tagnt": "Mark.12.30#28",
+  "ref_estandar": "Mark.12.30",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G2479",
   "strong_tagnt": "G2479",
@@ -433,13 +471,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "strength",
-  "ref_estandar": "Mark.12.30"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.12.33",
+  "pos_tisch": 30,
   "strong": "G3646",
   "forma": "ὁλοκαυτωμάτων",
+  "lema": "ὁλοκαύτωμα",
   "glosa_interlineal": "holocaustos",
   "rango_semantico": [
    "holocausto, ofrenda quemada completa"
@@ -447,7 +489,7 @@
   "construccion": "Genitivo plural: «más que todos los holocaustos».",
   "sentido_en_contexto": "El escriba añade que amar a Dios y al prójimo vale más que todos los holocaustos y sacrificios. Marcos solo da su reacción: Jesús le dice «no estás lejos del reino de Dios».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Os 6:6 — «misericordia quiero, y no sacrificio»",
@@ -455,9 +497,9 @@
    "Mi 6:6-8 — qué requiere Jehová"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 30,
   "alineacion": "forma",
   "tagnt": "Mark.12.33#35",
+  "ref_estandar": "Mark.12.33",
   "morfologia_tagnt": "N-GPN",
   "dstrong": "G3646",
   "strong_tagnt": "G3646",
@@ -473,13 +515,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "burnt offering",
-  "ref_estandar": "Mark.12.33"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.12.34",
+  "pos_tisch": 7,
   "strong": "G3562",
   "forma": "νουνεχῶς",
+  "lema": "νουνεχῶς",
   "glosa_interlineal": "sabiamente",
   "rango_semantico": [
    "con inteligencia, sensatamente"
@@ -487,16 +533,16 @@
   "construccion": "Adverbio: «había respondido con inteligencia».",
   "sentido_en_contexto": "Jesús elogia al escriba con una frase única de Marcos: «no estás lejos del reino de Dios». Un escriba sincero, caso positivo entre los líderes.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 22:34-40 — paralelo sin el elogio",
    "Lc 10:28 — «bien has respondido»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Mark.12.34#07",
+  "ref_estandar": "Mark.12.34",
   "morfologia_tagnt": "ADV",
   "dstrong": "G3562",
   "strong_tagnt": "G3562",
@@ -512,13 +558,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wisely",
-  "ref_estandar": "Mark.12.34"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.12.36",
+  "pos_tisch": 25,
   "strong": "G5286",
   "forma": "ὑποπόδιον",
+  "lema": "ὑποπόδιον",
   "glosa_interlineal": "estrado",
   "rango_semantico": [
    "debajo de"
@@ -526,7 +576,7 @@
   "construccion": "ὑποκάτω + genitivo: «debajo de tus pies».",
   "sentido_en_contexto": "Cita de Sal 110:1: David, «en el Espíritu Santo», llama Señor al Mesías. Jesús pregunta cómo puede ser su hijo, y deja la cuestión abierta.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 110:1 — texto citado",
@@ -534,9 +584,9 @@
    "Heb 1:13 — «siéntate a mi diestra»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 25,
   "alineacion": "strong",
   "tagnt": "Mark.12.36#26",
+  "ref_estandar": "Mark.12.36",
   "morfologia_tagnt": "PREP",
   "dstrong": "G5270",
   "strong_tagnt": "G5270",
@@ -553,14 +603,18 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "under",
   "caso_regido": "genitivo",
-  "ref_estandar": "Mark.12.36"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.12.40",
+  "pos_tisch": 2,
   "strong": "G2719",
   "forma": "κατεσθίοντες",
+  "lema": "κατεσθίω",
   "glosa_interlineal": "devoran",
   "rango_semantico": [
    "devorar, comer por completo"
@@ -568,7 +622,7 @@
   "construccion": "Participio presente activo: «los que devoran las casas de las viudas».",
   "sentido_en_contexto": "Acusación a los escribas: aprovechan su posición para explotar a las viudas y fingen devoción con largas oraciones. Contrasta con la viuda del v.42.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 20:47 — paralelo",
@@ -576,9 +630,9 @@
    "Is 10:2 — «despojar a las viudas»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Mark.12.40#02",
+  "ref_estandar": "Mark.12.40",
   "morfologia_tagnt": "V-PAP-NPM",
   "dstrong": "G2719",
   "strong_tagnt": "G2719",
@@ -594,13 +648,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to devour",
-  "ref_estandar": "Mark.12.40"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.12.41",
+  "pos_tisch": 5,
   "strong": "G1049",
   "forma": "γαζοφυλακίου",
+  "lema": "γαζοφυλάκιον",
   "glosa_interlineal": "tesoro (del templo)",
   "rango_semantico": [
    "tesoro, sala de ofrendas"
@@ -608,7 +666,7 @@
   "construccion": "Genitivo: «frente al tesoro».",
   "sentido_en_contexto": "El «tesoro» eran cofres con forma de trompeta en el atrio de las mujeres donde se depositaban las ofrendas. Jesús, sentado, observa cómo la gente da.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 21:1 — paralelo",
@@ -616,10 +674,9 @@
    "2 R 12:9 — el arca con un agujero en la tapa"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 5,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Mark.12.41#07",
+  "ref_estandar": "Mark.12.41",
   "morfologia_tagnt": "N-GSN",
   "dstrong": "G1049",
   "strong_tagnt": "G1049",
@@ -635,13 +692,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "treasury",
-  "ref_estandar": "Mark.12.41"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.12.42",
+  "pos_tisch": 7,
   "strong": "G3016",
   "forma": "λεπτὰ",
+  "lema": "λεπτόν",
   "glosa_interlineal": "blancas (monedas pequeñas)",
   "rango_semantico": [
    "leptón (la moneda más pequeña)",
@@ -650,16 +712,16 @@
   "construccion": "Acusativo plural: «dos lepta».",
   "sentido_en_contexto": "Dos «leptos», la moneda de cobre más pequeña; Marcos explica a sus lectores romanos que equivalen a un «cuadrante». El contraste de valor monetario y de entrega real es el punto central.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 21:2 — «dos blancas»",
    "Lc 12:59 — «hasta que pagues el último cuadrante»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Mark.12.42#07",
+  "ref_estandar": "Mark.12.42",
   "morfologia_tagnt": "N-APN",
   "dstrong": "G3016",
   "strong_tagnt": "G3016",
@@ -675,13 +737,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "coin",
-  "ref_estandar": "Mark.12.42"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.12.44",
+  "pos_tisch": 12,
   "strong": "G5304",
   "forma": "ὑστερήσεως",
+  "lema": "ὑστέρησις",
   "glosa_interlineal": "necesidad",
   "rango_semantico": [
    "carencia, pobreza"
@@ -689,7 +755,7 @@
   "construccion": "Genitivo: «de su pobreza».",
   "sentido_en_contexto": "Los ricos dan de lo que les sobra (περισσεύοντος); ella, de su carencia, dio todo lo que tenía, «toda su vida» (βίον). Es una enseñanza sobre el valor de la entrega.",
   "matiz": "Se debate si Jesús elogia a la viuda o lamenta la explotación del templo (v.40 la precede). La mayoría entiende un elogio de la entrega total, aunque algunos ven también una crítica al sistema.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 21:4 — paralelo",
@@ -697,9 +763,9 @@
    "Fil 4:18 — otro uso de entrega"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Mark.12.44#12",
+  "ref_estandar": "Mark.12.44",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G5304",
   "strong_tagnt": "G5304",
@@ -715,7 +781,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "poverty",
-  "ref_estandar": "Mark.12.44"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

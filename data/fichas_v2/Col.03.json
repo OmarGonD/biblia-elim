@@ -1,8 +1,10 @@
 [
  {
   "ref": "Col.3.1",
+  "pos_tisch": 3,
   "strong": "G4891",
   "forma": "συνηγέρθητε",
+  "lema": "συνεγείρω",
   "glosa_interlineal": "fuisteis resucitados con",
   "rango_semantico": [
    "resucitar con"
@@ -10,7 +12,7 @@
   "construccion": "Aoristo indicativo pasivo: «si, pues, habéis resucitado con Cristo, buscad las cosas de arriba, donde está Cristo sentado a la diestra de Dios».",
   "sentido_en_contexto": "Inicio de la sección ética (3:1—4:6): la resurrección con Cristo es el fundamento de la vida nueva. «Las cosas de arriba» son las realidades de Cristo y el reino, no un desprecio de lo terrenal (vv.5-17 muestran aplicaciones prácticas).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 2:6",
@@ -19,9 +21,9 @@
    "Heb 12:2"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Col.3.1#03",
+  "ref_estandar": "Col.3.1",
   "morfologia_tagnt": "V-API-2P",
   "dstrong": "G4891",
   "strong_tagnt": "G4891",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to raise up with",
-  "ref_estandar": "Col.3.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Col.3.3",
+  "pos_tisch": 7,
   "strong": "G2928",
   "forma": "κέκρυπται",
+  "lema": "κρύπτω",
   "glosa_interlineal": "está escondida",
   "rango_semantico": [
    "esconder, ocultar"
@@ -51,7 +57,7 @@
   "construccion": "Perfecto indicativo pasivo: «porque habéis muerto, y vuestra vida está escondida con Cristo en Dios».",
   "sentido_en_contexto": "La vida nueva del creyente está escondida (asegurada y aún no manifestada) con Cristo en Dios, y se revelará cuando Cristo aparezca (v.4). Tensión entre lo ya presente y lo futuro. Muerte con Cristo (pasada) y vida escondida (presente).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 8:17",
@@ -59,9 +65,9 @@
    "2 Ti 2:11"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Col.3.3#07",
+  "ref_estandar": "Col.3.3",
   "morfologia_tagnt": "V-RPI-3S",
   "dstrong": "G2928",
   "strong_tagnt": "G2928",
@@ -77,13 +83,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to hide",
-  "ref_estandar": "Col.3.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Col.3.5",
+  "pos_tisch": 1,
   "strong": "G3499",
   "forma": "Νεκρώσατε",
+  "lema": "νεκρόω",
   "glosa_interlineal": "mortificad",
   "rango_semantico": [
    "hacer morir, dar muerte"
@@ -91,7 +101,7 @@
   "construccion": "Imperativo aoristo activo: «haced morir, pues, lo terrenal en vosotros: fornicación, impureza, pasiones desordenadas, malos deseos y avaricia, que es idolatría».",
   "sentido_en_contexto": "Lista de vicios (vv.5-9: sexuales, de codicia, y de lengua). Ya «habéis muerto» (v.3); ahora «haced morir» los miembros terrenales: indicativo (lo que sois) y imperativo (lo que debéis hacer). La avaricia es llamada idolatría.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 8:13",
@@ -100,9 +110,9 @@
    "Mt 5:29-30"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "Col.3.5#01",
+  "ref_estandar": "Col.3.5",
   "morfologia_tagnt": "V-AAM-2P",
   "dstrong": "G3499",
   "strong_tagnt": "G3499",
@@ -118,13 +128,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to put to death",
-  "ref_estandar": "Col.3.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Col.3.10",
+  "pos_tisch": 2,
   "strong": "G1746",
   "forma": "ἐνδυσάμενοι",
+  "lema": "ἐνδύω",
   "glosa_interlineal": "revestidos",
   "rango_semantico": [
    "vestirse, revestirse"
@@ -132,7 +146,7 @@
   "construccion": "Participio aoristo medio: «y revestidos del nuevo, el cual conforme a la imagen del que lo creó se va renovando hasta el conocimiento pleno».",
   "sentido_en_contexto": "El «nuevo hombre» se renueva continuamente a imagen del Creador (alusión a Gn 1:26-27): restauración de la imagen perdida en Adán. El «conocimiento» es el de Dios mismo. Paralelo con Ef 4:22-24.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 4:22-24",
@@ -141,9 +155,9 @@
    "Ro 12:2"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Col.3.10#02",
+  "ref_estandar": "Col.3.10",
   "morfologia_tagnt": "V-AMP-NPM",
   "dstrong": "G1746",
   "strong_tagnt": "G1746",
@@ -159,13 +173,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to put on",
-  "ref_estandar": "Col.3.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Col.3.11",
+  "pos_tisch": 11,
   "strong": "G4658",
   "forma": "Σκύθης",
+  "lema": "Σκύθης",
   "glosa_interlineal": "escita",
   "rango_semantico": [
    "escita"
@@ -173,7 +191,7 @@
   "construccion": "Nominativo: «donde no hay griego ni judío, circuncisión ni incircuncisión, bárbaro ni escita, siervo ni libre, sino que Cristo es el todo, y en todos».",
   "sentido_en_contexto": "Superación de divisiones étnicas, religiosas y sociales (ver Gá 3:28). «Bárbaro» (no griego) y «escita» (considerado el más salvaje de los bárbaros) son ejemplos extremos: nadie queda excluido. Cristo es todo y en todos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 3:28",
@@ -181,9 +199,9 @@
    "Ro 10:12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Col.3.11#11",
+  "ref_estandar": "Col.3.11",
   "morfologia_tagnt": "N-NSM-LG",
   "dstrong": "G4658",
   "strong_tagnt": "G4658",
@@ -199,13 +217,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Scythian",
-  "ref_estandar": "Col.3.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Col.3.12",
+  "pos_tisch": 4,
   "strong": "G1588",
   "forma": "ἐκλεκτοὶ",
+  "lema": "ἐκλεκτός",
   "glosa_interlineal": "escogidos",
   "rango_semantico": [
    "elegido, escogido"
@@ -213,7 +235,7 @@
   "construccion": "Nominativo plural: «vestíos, pues, como escogidos de Dios, santos y amados, de entrañable misericordia, de bondad, de humildad, de mansedumbre, de paciencia».",
   "sentido_en_contexto": "Tres títulos de Israel aplicados a la iglesia: escogidos, santos y amados. Sigue una lista de cinco virtudes («vestido»). La identidad precede a la conducta: «como escogidos». Contraste con la lista de vicios de vv.5-9.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 P 2:9",
@@ -222,9 +244,9 @@
    "Dt 7:6-8"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Col.3.12#04",
+  "ref_estandar": "Col.3.12",
   "morfologia_tagnt": "A-NPM",
   "dstrong": "G1588",
   "strong_tagnt": "G1588",
@@ -240,13 +262,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "select",
-  "ref_estandar": "Col.3.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Col.3.13",
+  "pos_tisch": 4,
   "strong": "G5483",
   "forma": "χαριζόμενοι",
+  "lema": "χαρίζομαι",
   "glosa_interlineal": "perdonándoos",
   "rango_semantico": [
    "perdonar, mostrar gracia"
@@ -254,7 +280,7 @@
   "construccion": "Participio presente medio: «soportándoos unos a otros, y perdonándoos unos a otros, si alguno tuviere queja contra otro. De la manera que Cristo os perdonó, así también hacedlo vosotros».",
   "sentido_en_contexto": "Modelo y fuente del perdón: el perdón de Cristo. La comunidad cristiana requiere paciencia y perdón. Mismo tema de Ef 4:32 y de la oración del Padrenuestro (Mt 6:12).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 4:32",
@@ -263,10 +289,9 @@
    "Mt 18:21-35"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Col.3.13#04",
+  "ref_estandar": "Col.3.13",
   "morfologia_tagnt": "V-PNP-NPM",
   "dstrong": "G5483",
   "strong_tagnt": "G5483",
@@ -282,13 +307,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to give grace",
-  "ref_estandar": "Col.3.13"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Col.3.14",
+  "pos_tisch": 9,
   "strong": "G4886",
   "forma": "σύνδεσμος",
+  "lema": "σύνδεσμος",
   "glosa_interlineal": "vínculo",
   "rango_semantico": [
    "vínculo, atadura"
@@ -296,7 +326,7 @@
   "construccion": "Nominativo: «y sobre todas estas cosas vestíos de amor, que es el vínculo perfecto».",
   "sentido_en_contexto": "El amor es el «vínculo de la perfección»: lo que une todas las virtudes y a la comunidad en unidad y madurez. Se usa como cinturón que ata todo el vestido. Paralelo: Ef 4:3 (vínculo de la paz).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 13",
@@ -305,9 +335,9 @@
    "1 Jn 4:12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Col.3.14#09",
+  "ref_estandar": "Col.3.14",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G4886",
   "strong_tagnt": "G4886",
@@ -323,13 +353,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "bond(age)",
-  "ref_estandar": "Col.3.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Col.3.15",
+  "pos_tisch": 6,
   "strong": "G1018",
   "forma": "βραβευέτω",
+  "lema": "βραβεύω",
   "glosa_interlineal": "gobierne",
   "rango_semantico": [
    "arbitrar, dirigir, decidir"
@@ -337,7 +371,7 @@
   "construccion": "Imperativo presente activo: «y la paz de Dios gobierne en vuestros corazones, a la que asimismo fuisteis llamados en un solo cuerpo; y sed agradecidos».",
   "sentido_en_contexto": "βραβεύω: arbitrar (como juez de una competencia): la paz de Cristo arbitra en los desacuerdos del corazón y de la comunidad. Es la paz del cuerpo unido. La gratitud (v.15-17) es nota dominante de la sección.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 14:27",
@@ -346,9 +380,9 @@
    "Ro 14:19"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Col.3.15#06",
+  "ref_estandar": "Col.3.15",
   "morfologia_tagnt": "V-PAM-3S",
   "dstrong": "G1018",
   "strong_tagnt": "G1018",
@@ -364,13 +398,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to rule",
-  "ref_estandar": "Col.3.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Col.3.16",
+  "pos_tisch": 2,
   "strong": "G3056",
   "forma": "λόγος",
+  "lema": "λόγος",
   "glosa_interlineal": "palabra",
   "rango_semantico": [
    "palabra, mensaje"
@@ -378,7 +416,7 @@
   "construccion": "Nominativo: «la palabra de Cristo more en abundancia en vosotros, enseñándoos y exhortándoos unos a otros en toda sabiduría, con salmos e himnos y cánticos espirituales, cantando con gracia en vuestros corazones al Señor».",
   "sentido_en_contexto": "«La palabra de Cristo» (el mensaje de Cristo o su enseñanza) debe habitar ricamente en la comunidad, que se instruye y exhorta mutuamente, también mediante el canto. Paralelo con Ef 5:18-19 (allí «sed llenos del Espíritu»).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 5:18-19",
@@ -386,9 +424,9 @@
    "Sal 119:11"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Col.3.16#02",
+  "ref_estandar": "Col.3.16",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G3056",
   "strong_tagnt": "G3056",
@@ -404,13 +442,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "word",
-  "ref_estandar": "Col.3.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Col.3.17",
+  "pos_tisch": 14,
   "strong": "G3686",
   "forma": "ὀνόματι",
+  "lema": "ὄνομα",
   "glosa_interlineal": "nombre",
   "rango_semantico": [
    "nombre"
@@ -418,7 +460,7 @@
   "construccion": "Dativo: «y todo lo que hacéis, sea de palabra o de hecho, hacedlo todo en el nombre del Señor Jesús, dando gracias a Dios Padre por medio de él».",
   "sentido_en_contexto": "Principio general de la vida cristiana: todo «en el nombre del Señor Jesús», es decir, bajo su autoridad y en conformidad con su carácter, con gratitud al Padre. Abarca la vida entera; resume el código doméstico siguiente.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 10:31",
@@ -426,9 +468,9 @@
    "Col 3:23"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Col.3.17#14",
+  "ref_estandar": "Col.3.17",
   "morfologia_tagnt": "N-DSN",
   "dstrong": "G3686",
   "strong_tagnt": "G3686",
@@ -444,13 +486,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "name",
-  "ref_estandar": "Col.3.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Col.3.18",
+  "pos_tisch": 3,
   "strong": "G5293",
   "forma": "ὑποτάσσεσθε",
+  "lema": "ὑποτάσσω",
   "glosa_interlineal": "estad sujetas",
   "rango_semantico": [
    "someterse, ordenarse bajo"
@@ -458,7 +504,7 @@
   "construccion": "Imperativo presente medio: «casadas, estad sujetas a vuestros maridos, como conviene en el Señor».",
   "sentido_en_contexto": "Primer par del código doméstico (3:18—4:1), versión abreviada de Ef 5:22—6:9. La motivación es «en el Señor». Los maridos deben amar y no ser ásperos (v.19). Ver notas de Ef 5:22 sobre el debate de los códigos domésticos.",
   "matiz": "Debate: sobre la aplicación actual de los códigos domésticos, ver Ef 5:21-33 (complementarista, igualitaria, y la discusión de su trasfondo cultural).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 5:22-24",
@@ -466,9 +512,9 @@
    "Tit 2:4-5"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Col.3.18#03",
+  "ref_estandar": "Col.3.18",
   "morfologia_tagnt": "V-PPM-2P",
   "dstrong": "G5293",
   "strong_tagnt": "G5293",
@@ -484,13 +530,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to subject",
-  "ref_estandar": "Col.3.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Col.3.19",
+  "pos_tisch": 8,
   "strong": "G4087",
   "forma": "πικραίνεσθε",
+  "lema": "πικραίνω",
   "glosa_interlineal": "seáis ásperos",
   "rango_semantico": [
    "amargarse, ser áspero"
@@ -498,7 +548,7 @@
   "construccion": "Imperativo presente medio: «maridos, amad a vuestras mujeres, y no seáis ásperos con ellas».",
   "sentido_en_contexto": "Mandato de amor y prohibición de dureza (πικρία: amargura). En una cultura donde el marido tenía derechos legales casi absolutos, esta instrucción es limitadora y exigente. Paralelo con Ef 5:25-29.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 5:25",
@@ -506,9 +556,9 @@
    "Pr 5:18-19"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Col.3.19#08",
+  "ref_estandar": "Col.3.19",
   "morfologia_tagnt": "V-PPM-2P",
   "dstrong": "G4087",
   "strong_tagnt": "G4087",
@@ -524,13 +574,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to embitter",
-  "ref_estandar": "Col.3.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Col.3.22",
+  "pos_tisch": 12,
   "strong": "G3787",
   "forma": "ὀφθαλμοδουλίαις",
+  "lema": "ὀφθαλμοδουλεία",
   "glosa_interlineal": "servicio para ser visto",
   "rango_semantico": [
    "servicio solo ante la vista, servilismo"
@@ -538,7 +592,7 @@
   "construccion": "Dativo plural: «siervos, obedeced en todo a vuestros amos terrenales, no sirviendo al ojo, como los que quieren agradar a los hombres, sino con sinceridad de corazón, temiendo a Dios».",
   "sentido_en_contexto": "ὀφθαλμοδουλία (palabra posiblemente acuñada por Pablo): servir solo cuando el amo observa. El cristiano trabaja «de corazón, como para el Señor» (v.23), lo que dignifica el trabajo cotidiano. Sobre la esclavitud, ver Ef 6:5-9 y Flm.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 6:5-8",
@@ -546,9 +600,9 @@
    "Tit 2:9-10"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "strong",
   "tagnt": "Col.3.22#12",
+  "ref_estandar": "Col.3.22",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G3787",
   "strong_tagnt": "G3787",
@@ -565,13 +619,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "eye-service",
-  "ref_estandar": "Col.3.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Col.3.24",
+  "pos_tisch": 9,
   "strong": "G2817",
   "forma": "κληρονομίας",
+  "lema": "κληρονομία",
   "glosa_interlineal": "herencia",
   "rango_semantico": [
    "herencia"
@@ -579,7 +637,7 @@
   "construccion": "Genitivo: «sabiendo que del Señor recibiréis la recompensa de la herencia, porque a Cristo el Señor servís».",
   "sentido_en_contexto": "Los esclavos, que legalmente no heredaban, reciben del Señor la herencia: dignidad enorme. El v.25 advierte que el injusto recibirá según su injusticia, sin acepción de personas (incluye a los amos).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 6:8",
@@ -588,9 +646,9 @@
    "Mt 25:21"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Col.3.24#09",
+  "ref_estandar": "Col.3.24",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G2817",
   "strong_tagnt": "G2817",
@@ -606,7 +664,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "inheritance",
-  "ref_estandar": "Col.3.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

@@ -1,8 +1,10 @@
 [
  {
   "ref": "Matt.27.2",
+  "pos_tisch": 9,
   "strong": "G2232",
   "forma": "ἡγεμόνι",
+  "lema": "ἡγεμών",
   "glosa_interlineal": "gobernador",
   "rango_semantico": [
    "gobernador, prefecto",
@@ -11,16 +13,16 @@
   "construccion": "Dativo: «a Pilato el gobernador».",
   "sentido_en_contexto": "Poncio Pilato, prefecto romano de Judea (26-36 d.C.). Solo él podía ejecutar sentencias capitales; por eso los líderes judíos entregan a Jesús.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 3:1 — «siendo gobernador de Judea Poncio Pilato»",
    "Jn 18:31 — «a nosotros no nos está permitido dar muerte a nadie»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Matt.27.2#11",
+  "ref_estandar": "Matt.27.2",
   "morfologia_tagnt": "N-DSM",
   "dstrong": "G2232",
   "strong_tagnt": "G2232",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ruler",
-  "ref_estandar": "Matt.27.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.3",
+  "pos_tisch": 9,
   "strong": "G3338",
   "forma": "μεταμεληθεὶς",
+  "lema": "μεταμέλλομαι",
   "glosa_interlineal": "arrepentido",
   "rango_semantico": [
    "cambiar de opinión, lamentarse",
@@ -51,7 +57,7 @@
   "construccion": "Participio aoristo pasivo: «habiéndose arrepentido (con remordimiento)».",
   "sentido_en_contexto": "Judas siente remordimiento y devuelve el dinero; pero Mateo no usa μετανοέω (conversión), sino μεταμέλομαι: pesar por lo hecho, sin giro hacia Dios. Termina en suicidio.",
   "matiz": "Se discute si el uso de μεταμεληθεὶς implica arrepentimiento genuino o solo remordimiento. Mateo contrasta con Pedro (26:75), que llora y es restaurado.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 21:29 — el hijo que «se arrepintió» y obró",
@@ -59,9 +65,9 @@
    "Hch 1:18-19 — otro relato de la muerte de Judas"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Matt.27.3#09",
+  "ref_estandar": "Matt.27.3",
   "morfologia_tagnt": "V-AOP-NSM",
   "dstrong": "G3338",
   "strong_tagnt": "G3338",
@@ -77,13 +83,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to repent",
-  "ref_estandar": "Matt.27.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.4",
+  "pos_tisch": 5,
   "strong": "G121",
   "forma": "ἀθῷον",
+  "lema": "ἄθωος",
   "glosa_interlineal": "inocente",
   "rango_semantico": [
    "inocente, sin culpa"
@@ -91,7 +101,7 @@
   "construccion": "Adjetivo acusativo: «sangre inocente».",
   "sentido_en_contexto": "Judas confiesa que entregó sangre inocente. Los sacerdotes responden con indiferencia: «tú verás». Su confesión da testimonio de la inocencia de Jesús.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 27:25 — «maldito el que recibe soborno para quitar la vida al inocente»",
@@ -99,9 +109,9 @@
    "Mt 27:24 — Pilato: «inocente soy yo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Matt.27.4#05",
+  "ref_estandar": "Matt.27.4",
   "morfologia_tagnt": "A-ASN",
   "dstrong": "G0121",
   "strong_tagnt": "G121",
@@ -118,13 +128,17 @@
    "WH"
   ],
   "variante": true,
-  "glosa_tagnt": "innocent",
-  "ref_estandar": "Matt.27.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.9",
+  "pos_tisch": 6,
   "strong": "G2408",
   "forma": "Ἰερεμίου",
+  "lema": "Ἱερεμίας",
   "glosa_interlineal": "Jeremías",
   "rango_semantico": [
    "Jeremías"
@@ -132,7 +146,7 @@
   "construccion": "Genitivo: «por medio de Jeremías el profeta».",
   "sentido_en_contexto": "Mateo atribuye la cita a Jeremías, pero el texto es principalmente de Zac 11:12-13, con ecos de Jer 18:1-4 y 32:6-9. Es un caso debatido.",
   "matiz": "Explicaciones: (a) Mateo combina textos y nombra a Jeremías, el más prominente; (b) un error de atribución; (c) un testimonio de rollos donde Jeremías precedía a Zacarías en la colección profética. No hay consenso.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Zac 11:12-13 — «treinta piezas de plata»",
@@ -140,9 +154,9 @@
    "Jer 18:2 — la casa del alfarero"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Matt.27.9#06",
+  "ref_estandar": "Matt.27.9",
   "morfologia_tagnt": "N-GSM-P",
   "dstrong": "G2408",
   "strong_tagnt": "G2408",
@@ -158,13 +172,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Jeremiah",
-  "ref_estandar": "Matt.27.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.11",
+  "pos_tisch": 17,
   "strong": "G935",
   "forma": "βασιλεὺς",
+  "lema": "βασιλεύς",
   "glosa_interlineal": "rey",
   "rango_semantico": [
    "rey"
@@ -172,7 +190,7 @@
   "construccion": "Nominativo: «¿eres tú el rey de los judíos?».",
   "sentido_en_contexto": "La acusación política ante Pilato. Jesús responde «tú lo dices» (σὺ λέγεις), ambigua: ni niega ni afirma en el sentido político que Pilato entiende.",
   "matiz": "«Tú lo dices» es afirmación matizada: Jesús es rey, pero no en el sentido de rebelión contra Roma (cf. Jn 18:36-37).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 18:33-37 — «mi reino no es de este mundo»",
@@ -180,9 +198,9 @@
    "1 Ti 6:13 — «Jesucristo, que dio testimonio… delante de Poncio Pilato»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "Matt.27.11#17",
+  "ref_estandar": "Matt.27.11",
   "morfologia_tagnt": "N-NSM-T",
   "dstrong": "G0935",
   "strong_tagnt": "G935",
@@ -198,13 +216,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "king",
-  "ref_estandar": "Matt.27.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.16",
+  "pos_tisch": 7,
   "strong": "G912",
   "forma": "Βαραββᾶν",
+  "lema": "Βαραββᾶς",
   "glosa_interlineal": "Barrabás",
   "rango_semantico": [
    "Barrabás (nombre arameo: «hijo del padre»)"
@@ -212,7 +234,7 @@
   "construccion": "Acusativo: «a Barrabás».",
   "sentido_en_contexto": "Preso notorio, acusado de sedición y homicidio (Mr 15:7). Algunos manuscritos de Mateo lo llaman «Jesús Barrabás», lo que acentúa el contraste con «Jesús, llamado Cristo».",
   "matiz": "El nombre «Jesús Barrabás» aparece en algunos manuscritos de Mt 27:16-17. Se debate si fue el nombre original y luego omitido por reverencia. El nombre «Bar-abbas» significa «hijo del padre».",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 15:7 — «Barrabás, que había cometido homicidio en una insurrección»",
@@ -220,9 +242,9 @@
    "Jn 18:40 — «Barrabás era ladrón»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Matt.27.16#08",
+  "ref_estandar": "Matt.27.16",
   "morfologia_tagnt": "N-ASM-P",
   "dstrong": "G0912",
   "strong_tagnt": "G912",
@@ -238,13 +260,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Barabbas",
-  "ref_estandar": "Matt.27.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.18",
+  "pos_tisch": 5,
   "strong": "G5355",
   "forma": "φθόνον",
+  "lema": "φθόνος",
   "glosa_interlineal": "envidia",
   "rango_semantico": [
    "envidia, celos"
@@ -252,7 +278,7 @@
   "construccion": "διά + acusativo: «por envidia».",
   "sentido_en_contexto": "Pilato sabe que los líderes entregaron a Jesús por envidia, no por justicia. Mateo muestra su motivo real.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 15:10 — paralelo",
@@ -260,9 +286,9 @@
    "Gá 5:21 — «envidias»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Matt.27.18#05",
+  "ref_estandar": "Matt.27.18",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G5355",
   "strong_tagnt": "G5355",
@@ -278,13 +304,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "envy",
-  "ref_estandar": "Matt.27.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.19",
+  "pos_tisch": 6,
   "strong": "G968",
   "forma": "βήματος",
+  "lema": "βῆμα",
   "glosa_interlineal": "tribunal",
   "rango_semantico": [
    "tribunal, estrado de juez",
@@ -293,7 +323,7 @@
   "construccion": "ἐπὶ + genitivo: «sentado en el tribunal».",
   "sentido_en_contexto": "Mientras Pilato juzga, su esposa le manda a decir: «no te metas con ese justo», pues sufrió mucho en un sueño por causa de él. Solo Mateo lo cuenta.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 1:20 — sueños de José",
@@ -301,9 +331,9 @@
    "Hch 18:12 — Pablo ante el tribunal de Galión"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Matt.27.19#06",
+  "ref_estandar": "Matt.27.19",
   "morfologia_tagnt": "N-GSN",
   "dstrong": "G0968",
   "strong_tagnt": "G968",
@@ -319,13 +349,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "judgement seat",
-  "ref_estandar": "Matt.27.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.24",
+  "pos_tisch": 14,
   "strong": "G633",
   "forma": "ἀπενίψατο",
+  "lema": "ἀπονίπτω",
   "glosa_interlineal": "se lavó las manos",
   "rango_semantico": [
    "lavar (las manos)"
@@ -333,16 +367,16 @@
   "construccion": "Aoristo indicativo medio: «se lavó las manos».",
   "sentido_en_contexto": "Pilato se lava las manos en señal de inocencia: gesto de Dt 21:6-9. Mateo muestra su intento de eludir la responsabilidad, pero el gesto no lo exime.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 21:6-9 — el lavado de manos de los ancianos",
    "Sal 26:6 — «lavaré en inocencia mis manos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Matt.27.24#14",
+  "ref_estandar": "Matt.27.24",
   "morfologia_tagnt": "V-AMI-3S",
   "dstrong": "G0633",
   "strong_tagnt": "G633",
@@ -358,13 +392,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to wash off",
-  "ref_estandar": "Matt.27.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.25",
+  "pos_tisch": 8,
   "strong": "G129",
   "forma": "αἷμα",
+  "lema": "αἷμα",
   "glosa_interlineal": "sangre",
   "rango_semantico": [
    "sangre"
@@ -372,7 +410,7 @@
   "construccion": "Nominativo: «su sangre sea sobre nosotros».",
   "sentido_en_contexto": "Frase muy debatida en la historia de la interpretación. Dentro del texto, «todo el pueblo» asume la responsabilidad de la muerte de Jesús. Históricamente se ha usado para justificar el antisemitismo, uso que los intérpretes modernos rechazan.",
   "matiz": "Posiciones: (a) «el pueblo» es la multitud presente en Jerusalén, no todo Israel ni los judíos de todos los tiempos; (b) Mateo ve aquí un juicio sobre Jerusalén (70 d.C.); (c) la frase es también irónica: esa sangre es la que perdona (26:28). El Concilio Vaticano II (Nostra Aetate) afirma que no se puede imputar a todos los judíos de entonces ni a los de hoy.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 26:28 — «mi sangre… derramada para remisión de pecados»",
@@ -380,9 +418,9 @@
    "Lc 23:34 — «Padre, perdónalos»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Matt.27.25#08",
+  "ref_estandar": "Matt.27.25",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G0129G",
   "strong_tagnt": "G129",
@@ -398,13 +436,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "blood",
-  "ref_estandar": "Matt.27.25"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.26",
+  "pos_tisch": 9,
   "strong": "G5417",
   "forma": "φραγελλώσας",
+  "lema": "φραγελλόω",
   "glosa_interlineal": "azotar",
   "rango_semantico": [
    "azotar con látigo (flagelación romana)"
@@ -412,16 +454,16 @@
   "construccion": "Participio aoristo activo: «habiéndole azotado».",
   "sentido_en_contexto": "Flagelación romana, castigo brutal que precedía a la crucifixión. Mateo lo menciona brevemente.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 19:1 — «Pilato tomó a Jesús y le azotó»",
    "Is 53:5 — «por su llaga fuimos nosotros curados»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Matt.27.26#09",
+  "ref_estandar": "Matt.27.26",
   "morfologia_tagnt": "V-AAP-NSM",
   "dstrong": "G5417",
   "strong_tagnt": "G5417",
@@ -437,13 +479,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to whip",
-  "ref_estandar": "Matt.27.26"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.29",
+  "pos_tisch": 3,
   "strong": "G4735",
   "forma": "στέφανον",
+  "lema": "στέφανος",
   "glosa_interlineal": "corona",
   "rango_semantico": [
    "corona, guirnalda"
@@ -451,7 +497,7 @@
   "construccion": "Acusativo: «una corona de espinas».",
   "sentido_en_contexto": "Burla: los soldados lo coronan de espinas y le dan una caña como cetro, parodiando a un rey. Irónicamente, proclaman la verdad: «¡salve, rey de los judíos!»",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 19:2-3 — paralelo",
@@ -459,9 +505,9 @@
    "Is 53:3 — «despreciado y desechado entre los hombres»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Matt.27.29#03",
+  "ref_estandar": "Matt.27.29",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G4735",
   "strong_tagnt": "G4735",
@@ -477,13 +523,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "crown",
-  "ref_estandar": "Matt.27.29"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.32",
+  "pos_tisch": 9,
   "strong": "G29",
   "forma": "ἠγγάρευσαν",
+  "lema": "ἀγγαρεύω",
   "glosa_interlineal": "obligaron",
   "rango_semantico": [
    "forzar a un servicio (requisar)"
@@ -491,7 +541,7 @@
   "construccion": "Aoristo indicativo activo, 3ª plural: «forzaron».",
   "sentido_en_contexto": "Los romanos obligan a Simón de Cirene a cargar la cruz. Mismo verbo de 5:41 («si alguien te obliga a llevar carga por una milla»).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 5:41 — «a cualquiera que te obligue a llevar carga por una milla»",
@@ -499,9 +549,9 @@
    "Lc 23:26 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Matt.27.32#09",
+  "ref_estandar": "Matt.27.32",
   "morfologia_tagnt": "V-AAI-3P",
   "dstrong": "G0029",
   "strong_tagnt": "G29",
@@ -517,13 +567,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to force",
-  "ref_estandar": "Matt.27.32"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.34",
+  "pos_tisch": 6,
   "strong": "G5521",
   "forma": "χολῆς",
+  "lema": "χολή",
   "glosa_interlineal": "hiel",
   "rango_semantico": [
    "hiel, bilis",
@@ -532,7 +586,7 @@
   "construccion": "Genitivo: «vino mezclado con hiel».",
   "sentido_en_contexto": "Eco del Sal 69:21 («en mi sed me dieron a beber vinagre»). Jesús lo prueba pero no lo bebe: rechaza el sedante.",
   "matiz": "Marcos dice «vino mezclado con mirra» (15:23); Mateo, «con hiel». Se discute si son dos descripciones de la misma bebida (analgésico) o una referencia teológica al salmo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 69:21 — «me pusieron hiel por comida»",
@@ -540,9 +594,9 @@
    "Jn 19:29 — vinagre en una esponja"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Matt.27.34#06",
+  "ref_estandar": "Matt.27.34",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G5521",
   "strong_tagnt": "G5521",
@@ -558,13 +612,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gall",
-  "ref_estandar": "Matt.27.34"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.35",
+  "pos_tisch": 9,
   "strong": "G2819",
   "forma": "κλῆρον",
+  "lema": "κλῆρος",
   "glosa_interlineal": "suertes",
   "rango_semantico": [
    "suerte, lote",
@@ -573,16 +631,16 @@
   "construccion": "Acusativo: «echando suertes».",
   "sentido_en_contexto": "Los soldados se reparten la ropa de Jesús echando suertes: cumplimiento de Sal 22:18. Mateo (en los manuscritos que lo incluyen) ve ahí un cumplimiento explícito.",
   "matiz": "El final del v.35 («para que se cumpliese lo dicho por el profeta…») es una adición tardía; falta en los manuscritos más antiguos, por lo que muchas versiones modernas lo omiten.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": "RVR incluye «para que se cumpliese lo dicho por el profeta: Repartieron entre sí mis vestidos, y sobre mi ropa echaron suertes»; la mayoría de los manuscritos antiguos no lo tiene.",
   "otros_usos": [
    "Sal 22:18 — «repartieron entre sí mis vestidos»",
    "Jn 19:23-24 — cita explícita del salmo"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Matt.27.35#09",
+  "ref_estandar": "Matt.27.35",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G2819",
   "strong_tagnt": "G2819",
@@ -598,13 +656,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lot",
-  "ref_estandar": "Matt.27.35"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.37",
+  "pos_tisch": 8,
   "strong": "G156",
   "forma": "αἰτίαν",
+  "lema": "αἰτία",
   "glosa_interlineal": "causa",
   "rango_semantico": [
    "causa, motivo",
@@ -613,7 +675,7 @@
   "construccion": "Acusativo: «su causa escrita».",
   "sentido_en_contexto": "El título puesto sobre la cruz con la causa de la condena: «Este es Jesús, el Rey de los judíos». Dicha sin querer, expresa la verdad del Evangelio.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 19:19-22 — el título en tres idiomas",
@@ -621,9 +683,9 @@
    "Lc 23:38 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Matt.27.37#08",
+  "ref_estandar": "Matt.27.37",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G0156",
   "strong_tagnt": "G156",
@@ -639,13 +701,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "cause/charge",
-  "ref_estandar": "Matt.27.37"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.40",
+  "pos_tisch": 12,
   "strong": "G4982",
   "forma": "σῶσον",
+  "lema": "σώζω",
   "glosa_interlineal": "sálvate",
   "rango_semantico": [
    "salvar, rescatar"
@@ -653,7 +719,7 @@
   "construccion": "Imperativo aoristo activo, 2ª singular: «sálvate a ti mismo».",
   "sentido_en_contexto": "Burla que repite la tentación del desierto («si eres Hijo de Dios», 4:3, 6): bajar de la cruz como prueba. Mateo muestra que el diablo seguía tentando a través de los hombres.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 4:3, 6 — «si eres Hijo de Dios»",
@@ -661,9 +727,9 @@
    "Mt 16:25 — «el que quiera salvar su vida, la perderá»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Matt.27.40#12",
+  "ref_estandar": "Matt.27.40",
   "morfologia_tagnt": "V-AAM-2S",
   "dstrong": "G4982",
   "strong_tagnt": "G4982",
@@ -679,13 +745,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to save",
-  "ref_estandar": "Matt.27.40"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.43",
+  "pos_tisch": 5,
   "strong": "G4506",
   "forma": "ῥυσάσθω",
+  "lema": "ῥύομαι",
   "glosa_interlineal": "líbrele",
   "rango_semantico": [
    "librar, rescatar"
@@ -693,16 +763,16 @@
   "construccion": "Imperativo aoristo medio, 3ª singular: «que lo libre».",
   "sentido_en_contexto": "Los líderes citan irónicamente Sal 22:8: «confió en Jehová; líbrele él». Su burla repite palabras del salmo del justo sufriente, que se cumplen en Jesús.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 22:8 — «se encomendó a Jehová; líbrele él»",
    "Sab 2:18 — «si el justo es hijo de Dios, él lo ayudará»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Matt.27.43#05",
+  "ref_estandar": "Matt.27.43",
   "morfologia_tagnt": "V-ADM-3S",
   "dstrong": "G4506",
   "strong_tagnt": "G4506",
@@ -718,13 +788,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to deliver",
-  "ref_estandar": "Matt.27.43"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.45",
+  "pos_tisch": 5,
   "strong": "G4655",
   "forma": "σκότος",
+  "lema": "σκότος",
   "glosa_interlineal": "oscuridad",
   "rango_semantico": [
    "oscuridad, tinieblas"
@@ -732,7 +806,7 @@
   "construccion": "Nominativo: «hubo tinieblas».",
   "sentido_en_contexto": "Desde la hora sexta (mediodía) hasta la novena, tinieblas sobre la tierra: señal de juicio y duelo cósmico (Am 8:9; Éx 10:21-23).",
   "matiz": "Se discute si es un fenómeno natural (eclipse no pudo ser en Pascua, pues luna llena), una señal sobrenatural o lenguaje simbólico. Los evangelistas lo presentan como señal divina.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Am 8:9 — «haré que se ponga el sol a mediodía»",
@@ -740,9 +814,9 @@
    "Jl 2:31 — «el sol se convertirá en tinieblas»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Matt.27.45#05",
+  "ref_estandar": "Matt.27.45",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G4655",
   "strong_tagnt": "G4655",
@@ -758,13 +832,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "darkness",
-  "ref_estandar": "Matt.27.45"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.46",
+  "pos_tisch": 24,
   "strong": "G1459",
   "forma": "ἐγκατέλιπες",
+  "lema": "ἐγκαταλείπω",
   "glosa_interlineal": "has abandonado",
   "rango_semantico": [
    "abandonar, dejar solo",
@@ -773,7 +851,7 @@
   "construccion": "Aoristo indicativo activo, 2ª singular: «¿por qué me has abandonado?». Cita del Sal 22:1.",
   "sentido_en_contexto": "Único grito de Jesús que Mateo conserva en arameo/hebreo («Elí, Elí, lama sabactani»). Expresa el abandono más profundo; al citar el Sal 22, también alude a su desenlace de confianza y alabanza.",
   "matiz": "Debate teológico: ¿expresa un abandono real por el pecado cargado (lectura sustitutiva), un lamento al estilo del justo sufriente que confía, o ambos? Mateo no explica. La relación entre el Padre y el Hijo en este momento ha sido objeto de profunda reflexión.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 22:1 — texto citado",
@@ -781,9 +859,9 @@
    "2 Co 5:21 — «al que no conoció pecado, por nosotros lo hizo pecado»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 24,
   "alineacion": "forma",
   "tagnt": "Matt.27.46#24",
+  "ref_estandar": "Matt.27.46",
   "morfologia_tagnt": "V-2AAI-2S",
   "dstrong": "G1459",
   "strong_tagnt": "G1459",
@@ -799,13 +877,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to leave behind",
-  "ref_estandar": "Matt.27.46"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.50",
+  "pos_tisch": 8,
   "strong": "G863",
   "forma": "ἀφῆκεν",
+  "lema": "ἀφίημι",
   "glosa_interlineal": "entregó",
   "rango_semantico": [
    "dejar ir, soltar",
@@ -814,7 +896,7 @@
   "construccion": "Aoristo indicativo activo, 3ª singular: «soltó, entregó (su espíritu)».",
   "sentido_en_contexto": "Mateo dice que Jesús «entregó/despidió el espíritu» (ἀφῆκεν τὸ πνεῦμα), con la imagen de un acto voluntario. Contrasta con la fórmula normal «expiró».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 19:30 — «entregó el espíritu»",
@@ -822,9 +904,9 @@
    "Jn 10:18 — «nadie me la quita, sino que yo de mí mismo la pongo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Matt.27.50#08",
+  "ref_estandar": "Matt.27.50",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G0863I",
   "strong_tagnt": "G863",
@@ -840,13 +922,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to release",
-  "ref_estandar": "Matt.27.50"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.51",
+  "pos_tisch": 4,
   "strong": "G2665",
   "forma": "καταπέτασμα",
+  "lema": "καταπέτασμα",
   "glosa_interlineal": "velo",
   "rango_semantico": [
    "velo, cortina",
@@ -855,7 +941,7 @@
   "construccion": "Nominativo: «el velo del templo».",
   "sentido_en_contexto": "El velo (probablemente el que separaba el Lugar Santísimo) se rasga «de arriba abajo»: acción de Dios que abre el acceso a su presencia. Se menciona junto al terremoto.",
   "matiz": "Se discute cuál velo y su significado: (a) el interior (acceso a Dios abierto por la muerte de Jesús, Heb 10:19-20); (b) el exterior (juicio sobre el templo); (c) ambos. Mateo no explica.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Heb 10:19-20 — «por el velo, esto es, por su carne»",
@@ -863,9 +949,9 @@
    "Mt 24:2 — la destrucción del templo"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Matt.27.51#04",
+  "ref_estandar": "Matt.27.51",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G2665",
   "strong_tagnt": "G2665",
@@ -881,13 +967,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "curtain",
-  "ref_estandar": "Matt.27.51"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.52",
+  "pos_tisch": 9,
   "strong": "G2837",
   "forma": "κεκοιμημένων",
+  "lema": "κοιμάω",
   "glosa_interlineal": "que habían dormido",
   "rango_semantico": [
    "dormir",
@@ -896,7 +986,7 @@
   "construccion": "Participio perfecto pasivo: «los que dormían (muertos)».",
   "sentido_en_contexto": "Solo Mateo cuenta que, al morir Jesús, se abren sepulcros y muchos santos resucitan y entran en Jerusalén tras la resurrección de Jesús. Pasaje oscuro y muy debatido.",
   "matiz": "Posiciones: (a) hecho histórico real, primicias de la resurrección; (b) lenguaje apocalíptico que anuncia la victoria sobre la muerte, sin pretensión de describir un hecho visible; (c) un relato simbólico. Los especialistas discuten su historicidad y significado; no hay consenso.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ez 37:12-13 — «abriré vuestros sepulcros»",
@@ -904,9 +994,9 @@
    "Is 26:19 — «tus muertos vivirán»"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Matt.27.52#09",
+  "ref_estandar": "Matt.27.52",
   "morfologia_tagnt": "V-RMP-GPM",
   "dstrong": "G2837",
   "strong_tagnt": "G2837",
@@ -922,13 +1012,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to sleep",
-  "ref_estandar": "Matt.27.52"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.54",
+  "pos_tisch": 17,
   "strong": "G5399",
   "forma": "ἐφοβήθησαν",
+  "lema": "φοβέω",
   "glosa_interlineal": "temieron",
   "rango_semantico": [
    "temer, tener miedo"
@@ -936,7 +1030,7 @@
   "construccion": "Aoristo indicativo pasivo, 3ª plural: «tuvieron gran temor».",
   "sentido_en_contexto": "El centurión y los soldados, paganos, ven los fenómenos y proclaman: «verdaderamente este era Hijo de Dios». Primera confesión plena tras la muerte: los gentiles reconocen a Jesús.",
   "matiz": "«Hijo de Dios» en boca de un romano puede significar «hijo de un dios» (sentido pagano), pero Mateo lo presenta como confesión cristológica.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 15:39 — «verdaderamente este hombre era Hijo de Dios»",
@@ -944,9 +1038,9 @@
    "Mt 14:33 — la confesión de los discípulos"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "Matt.27.54#17",
+  "ref_estandar": "Matt.27.54",
   "morfologia_tagnt": "V-AOI-3P",
   "dstrong": "G5399",
   "strong_tagnt": "G5399",
@@ -962,13 +1056,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to fear",
-  "ref_estandar": "Matt.27.54"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.60",
+  "pos_tisch": 8,
   "strong": "G3419",
   "forma": "μνημείῳ",
+  "lema": "μνημεῖον",
   "glosa_interlineal": "sepulcro",
   "rango_semantico": [
    "tumba, sepulcro"
@@ -976,7 +1074,7 @@
   "construccion": "ἐν + dativo: «en su sepulcro nuevo».",
   "sentido_en_contexto": "José de Arimatea, discípulo rico, entierra a Jesús en su tumba nueva excavada en la roca. Cumple Is 53:9 («con los ricos fue en su muerte»).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 53:9 — «con los ricos fue en su muerte»",
@@ -984,10 +1082,9 @@
    "Lc 23:53 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.27.60#08",
+  "ref_estandar": "Matt.27.60",
   "morfologia_tagnt": "N-DSN",
   "dstrong": "G3419",
   "strong_tagnt": "G3419",
@@ -1003,13 +1100,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "grave",
-  "ref_estandar": "Matt.27.60"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.62",
+  "pos_tisch": 8,
   "strong": "G3904",
   "forma": "παρασκευήν",
+  "lema": "παρασκευή",
   "glosa_interlineal": "preparación",
   "rango_semantico": [
    "preparación (el día antes del sábado)"
@@ -1017,16 +1119,16 @@
   "construccion": "Acusativo: «después de la Preparación».",
   "sentido_en_contexto": "«Preparación» es el viernes (día previo al sábado). Al día siguiente (sábado), los líderes piden a Pilato que sellen la tumba. Solo Mateo cuenta la guardia.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 15:42 — «era la preparación, es decir, la víspera del día de reposo»",
    "Jn 19:31 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Matt.27.62#08",
+  "ref_estandar": "Matt.27.62",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G3904",
   "strong_tagnt": "G3904",
@@ -1042,13 +1144,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Preparation Day",
-  "ref_estandar": "Matt.27.62"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.63",
+  "pos_tisch": 7,
   "strong": "G4108",
   "forma": "πλάνος",
+  "lema": "πλάνος",
   "glosa_interlineal": "engañador",
   "rango_semantico": [
    "impostor, seductor"
@@ -1056,7 +1162,7 @@
   "construccion": "Nominativo: «aquel engañador».",
   "sentido_en_contexto": "Los líderes llaman a Jesús «engañador» y recuerdan que dijo «después de tres días resucitaré». Temen que los discípulos roben el cuerpo y proclamen la resurrección.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 12:40 — la señal de Jonás",
@@ -1064,9 +1170,9 @@
    "2 Jn 7 — «el engañador»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Matt.27.63#07",
+  "ref_estandar": "Matt.27.63",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G4108",
   "strong_tagnt": "G4108",
@@ -1082,13 +1188,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "deceiving",
-  "ref_estandar": "Matt.27.63"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.27.66",
+  "pos_tisch": 7,
   "strong": "G4972",
   "forma": "σφραγίσαντες",
+  "lema": "σφραγίζω",
   "glosa_interlineal": "sellando",
   "rango_semantico": [
    "sellar, poner un sello"
@@ -1096,16 +1206,16 @@
   "construccion": "Participio aoristo activo: «habiendo sellado».",
   "sentido_en_contexto": "Sellan la piedra y ponen guardia. La precaución de los líderes sirve irónicamente de testimonio: el sepulcro estaba bien asegurado, de modo que la resurrección no puede explicarse por un robo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dn 6:17 — la piedra sellada del foso de los leones",
    "Mt 28:11-15 — el soborno de la guardia"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Matt.27.66#07",
+  "ref_estandar": "Matt.27.66",
   "morfologia_tagnt": "V-AAP-NPM",
   "dstrong": "G4972",
   "strong_tagnt": "G4972",
@@ -1121,7 +1231,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to seal",
-  "ref_estandar": "Matt.27.66"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

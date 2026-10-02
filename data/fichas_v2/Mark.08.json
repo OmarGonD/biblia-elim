@@ -1,8 +1,10 @@
 [
  {
   "ref": "Mark.8.2",
+  "pos_tisch": 1,
   "strong": "G4697",
   "forma": "σπλαγχνίζομαι",
+  "lema": "σπλαγχνίζομαι",
   "glosa_interlineal": "tengo compasión",
   "rango_semantico": [
    "compadecerse"
@@ -10,7 +12,7 @@
   "construccion": "Presente indicativo medio, 1ª singular: «siento compasión».",
   "sentido_en_contexto": "Segunda multiplicación de panes (cuatro mil). Jesús mismo expresa su compasión; el motivo es el hambre de quienes llevan tres días con él.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 15:32 — paralelo",
@@ -18,9 +20,9 @@
    "Mr 1:41 — compasión por el leproso"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "Mark.8.2#01",
+  "ref_estandar": "Mark.8.2",
   "morfologia_tagnt": "V-PNI-1S",
   "dstrong": "G4697",
   "strong_tagnt": "G4697",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pity",
-  "ref_estandar": "Mark.8.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.8.8",
+  "pos_tisch": 8,
   "strong": "G2801",
   "forma": "κλασμάτων",
+  "lema": "κλάσμα",
   "glosa_interlineal": "pedazos",
   "rango_semantico": [
    "pedazo, fragmento"
@@ -50,17 +56,13 @@
   "construccion": "Genitivo plural: «siete cestas de pedazos».",
   "sentido_en_contexto": "Siete canastos de sobras; el número siete contrasta con los doce de la primera multiplicación. Marcos recuerda ambos números en 8:19-20.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mr 6:43 — doce cestas",
-   "Mr 8:19-21 — Jesús les pregunta cuántas",
-   "Mt 15:37 — paralelo"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mr 6:43 — doce cestas\nMr 8:19-21 — Jesús les pregunta cuántas\nMt 15:37 — paralelo",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Mark.8.8#09",
+  "ref_estandar": "Mark.8.8",
   "morfologia_tagnt": "N-GPN",
   "dstrong": "G2801",
   "strong_tagnt": "G2801",
@@ -76,13 +78,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fragment",
-  "ref_estandar": "Mark.8.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.8.12",
+  "pos_tisch": 2,
   "strong": "G389",
   "forma": "ἀναστενάξας",
+  "lema": "ἀναστενάζω",
   "glosa_interlineal": "suspirando profundamente",
   "rango_semantico": [
    "gemir profundamente"
@@ -90,7 +96,7 @@
   "construccion": "Participio aoristo activo: «habiendo gemido hondamente en su espíritu».",
   "sentido_en_contexto": "Marcos subraya la reacción interior de Jesús ante la demanda de señal: suspiro profundo, de pena e indignación. Mateo no lo menciona.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 7:34 — «gimió» ante el sordomudo",
@@ -98,9 +104,9 @@
    "Jn 11:33 — «se estremeció en espíritu»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Mark.8.12#02",
+  "ref_estandar": "Mark.8.12",
   "morfologia_tagnt": "V-AAP-NSM",
   "dstrong": "G0389",
   "strong_tagnt": "G389",
@@ -116,13 +122,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to sigh deeply",
-  "ref_estandar": "Mark.8.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.8.15",
+  "pos_tisch": 9,
   "strong": "G2219",
   "forma": "ζύμης",
+  "lema": "ζύμη",
   "glosa_interlineal": "levadura",
   "rango_semantico": [
    "levadura, fermento",
@@ -131,7 +141,7 @@
   "construccion": "ἀπὸ + genitivo: «guardaos de la levadura de los fariseos y de la levadura de Herodes».",
   "sentido_en_contexto": "En Marcos es «de los fariseos y de Herodes»; en Mateo, «de fariseos y saduceos». Esta versión se centra en el poder político y religioso.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 16:6 — «de los fariseos y de los saduceos»",
@@ -139,10 +149,9 @@
    "1 Co 5:6-8 — la levadura en la comunidad"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Mark.8.15#09",
+  "ref_estandar": "Mark.8.15",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G2219",
   "strong_tagnt": "G2219",
@@ -158,13 +167,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "leaven",
-  "ref_estandar": "Mark.8.15"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.8.15",
+  "pos_tisch": 14,
   "strong": "G2219",
   "forma": "ζύμης",
+  "lema": "ζύμη",
   "glosa_interlineal": "levadura",
   "rango_semantico": [
    "levadura, fermento",
@@ -173,7 +187,7 @@
   "construccion": "ἀπὸ + genitivo: «guardaos de la levadura de los fariseos y de la levadura de Herodes».",
   "sentido_en_contexto": "En Marcos es «de los fariseos y de Herodes»; en Mateo, «de fariseos y saduceos». Esta versión se centra en el poder político y religioso.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 16:6 — «de los fariseos y de los saduceos»",
@@ -181,10 +195,9 @@
    "1 Co 5:6-8 — la levadura en la comunidad"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Mark.8.15#14",
+  "ref_estandar": "Mark.8.15",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G2219",
   "strong_tagnt": "G2219",
@@ -200,13 +213,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "leaven",
-  "ref_estandar": "Mark.8.15"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.8.17",
+  "pos_tisch": 11,
   "strong": "G3768",
   "forma": "οὔπω",
+  "lema": "οὔπω",
   "glosa_interlineal": "¿todavía no?",
   "rango_semantico": [
    "todavía no, aún no"
@@ -214,7 +232,7 @@
   "construccion": "Adverbio en pregunta retórica: «¿aún no entendéis ni comprendéis?».",
   "sentido_en_contexto": "Cadena de siete preguntas severas de Jesús a los discípulos: tienen ojos y no ven, oídos y no oyen. Solo Marcos presenta esta reprimenda tan dura.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 4:13, 40 — «¿cómo no tenéis fe?»",
@@ -222,9 +240,9 @@
    "Is 6:9-10 — «oíd… pero no entendáis»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Mark.8.17#13",
+  "ref_estandar": "Mark.8.17",
   "morfologia_tagnt": "ADV-N",
   "dstrong": "G3768",
   "strong_tagnt": "G3768",
@@ -240,13 +258,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "not yet",
-  "ref_estandar": "Mark.8.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.8.23",
+  "pos_tisch": 7,
   "strong": "G1627",
   "forma": "ἐξήνεγκεν",
+  "lema": "ἐκφέρω",
   "glosa_interlineal": "sacó fuera",
   "rango_semantico": [
    "llevar fuera, sacar"
@@ -254,7 +276,7 @@
   "construccion": "Aoristo indicativo activo, 3ª singular: «lo sacó fuera de la aldea».",
   "sentido_en_contexto": "Sanación del ciego de Betsaida, exclusiva de Marcos. Jesús lo saca de la aldea, usa saliva y lo sana en dos etapas, lo cual es único.",
   "matiz": "Se interpreta a menudo como símbolo de la visión gradual de los discípulos: ven «como árboles que andan» (confesión parcial de Pedro) antes de ver claramente. El relato queda entre 8:21 (incomprensión) y 8:29 (confesión).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 7:33 — también aparta al sordo",
@@ -262,9 +284,9 @@
    "Jn 9:6-7 — otra sanación con saliva"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Mark.8.23#07",
+  "ref_estandar": "Mark.8.23",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G1627",
   "strong_tagnt": "G1627",
@@ -281,13 +303,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to bring/carry out",
-  "ref_estandar": "Mark.8.23"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.8.24",
+  "pos_tisch": 9,
   "strong": "G1186",
   "forma": "δένδρα",
+  "lema": "δένδρον",
   "glosa_interlineal": "árboles",
   "rango_semantico": [
    "árbol"
@@ -295,16 +321,16 @@
   "construccion": "Acusativo plural: «veo a los hombres como árboles que caminan».",
   "sentido_en_contexto": "Visión borrosa: distingue siluetas pero no con claridad. Es la primera etapa de la sanación, y a menudo se lee como imagen del discipulado.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 8:25 — «vio claramente»",
    "Is 29:18 — «los ojos de los ciegos verán»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Mark.8.24#09",
+  "ref_estandar": "Mark.8.24",
   "morfologia_tagnt": "N-APN",
   "dstrong": "G1186",
   "strong_tagnt": "G1186",
@@ -320,13 +346,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tree",
-  "ref_estandar": "Mark.8.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.8.29",
+  "pos_tisch": 19,
   "strong": "G5547",
   "forma": "Χριστός",
+  "lema": "Χριστός",
   "glosa_interlineal": "Cristo",
   "rango_semantico": [
    "ungido, Mesías"
@@ -334,7 +364,7 @@
   "construccion": "Nominativo, predicado: «tú eres el Cristo».",
   "sentido_en_contexto": "Confesión de Pedro, centro de Marcos. Es más breve que en Mateo (que añade «el Hijo del Dios viviente»). Marca el paso de la primera a la segunda mitad del Evangelio: del poder al sufrimiento.",
   "matiz": "Muchos ven en 8:27-33 el eje estructural de Marcos: ahora Jesús empieza a hablar de su pasión. «Cristo» aquí requiere una redefinición del Mesías (sufriente).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 16:16 — «el Hijo del Dios viviente»",
@@ -342,9 +372,9 @@
    "Mr 14:61 — «¿eres tú el Cristo?»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 19,
   "alineacion": "forma",
   "tagnt": "Mark.8.29#20",
+  "ref_estandar": "Mark.8.29",
   "morfologia_tagnt": "N-NSM-T",
   "dstrong": "G5547",
   "strong_tagnt": "G5547",
@@ -360,13 +390,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Christ",
-  "ref_estandar": "Mark.8.29"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.8.31",
+  "pos_tisch": 6,
   "strong": "G1163",
   "forma": "δεῖ",
+  "lema": "δεῖ",
   "glosa_interlineal": "es necesario",
   "rango_semantico": [
    "ser necesario, deber"
@@ -374,7 +408,7 @@
   "construccion": "Presente impersonal: «es necesario que el Hijo del Hombre padezca mucho».",
   "sentido_en_contexto": "Primer anuncio de la pasión. «Es necesario» indica la necesidad dentro del plan de Dios. Marcos añade que lo decía «claramente» (v.32).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 16:21 — paralelo",
@@ -382,9 +416,9 @@
    "Mr 9:31; 10:33-34 — anuncios siguientes"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Mark.8.31#06",
+  "ref_estandar": "Mark.8.31",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G1163",
   "strong_tagnt": "G1163",
@@ -400,13 +434,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be necessary",
-  "ref_estandar": "Mark.8.31"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.8.32",
+  "pos_tisch": 2,
   "strong": "G3954",
   "forma": "παρρησίᾳ",
+  "lema": "παῤῥησία",
   "glosa_interlineal": "abiertamente",
   "rango_semantico": [
    "con franqueza, abiertamente"
@@ -414,16 +452,16 @@
   "construccion": "Dativo: «con claridad, sin ambages».",
   "sentido_en_contexto": "Jesús habla del sufrimiento «abiertamente», sin parábolas. Contrasta con las parábolas de antes. Pedro reacciona de inmediato.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 16:25 — «ya no os hablaré por alegorías»",
    "Jn 18:20 — «públicamente he hablado al mundo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Mark.8.32#02",
+  "ref_estandar": "Mark.8.32",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G3954",
   "strong_tagnt": "G3954",
@@ -439,13 +477,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "boldness",
-  "ref_estandar": "Mark.8.32"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.8.33",
+  "pos_tisch": 16,
   "strong": "G4567",
   "forma": "σατανᾶ",
+  "lema": "Σατανᾶς",
   "glosa_interlineal": "Satanás",
   "rango_semantico": [
    "Satanás, adversario"
@@ -453,7 +495,7 @@
   "construccion": "Vocativo: «¡apártate de mí, Satanás!».",
   "sentido_en_contexto": "Jesús reprende a Pedro con las mismas palabras que a Satanás (Mt 4:10). Pedro se opone al plan del sufrimiento, y por eso hace el papel del tentador.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 16:23 — paralelo",
@@ -461,9 +503,9 @@
    "Mr 1:13 — la tentación"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Mark.8.33#17",
+  "ref_estandar": "Mark.8.33",
   "morfologia_tagnt": "N-VSM-T",
   "dstrong": "G4567",
   "strong_tagnt": "G4567",
@@ -479,13 +521,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Satan",
-  "ref_estandar": "Mark.8.33"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.8.34",
+  "pos_tisch": 16,
   "strong": "G533",
   "forma": "ἀπαρνησάσθω",
+  "lema": "ἀπαρνέομαι",
   "glosa_interlineal": "niéguese",
   "rango_semantico": [
    "negar, renunciar"
@@ -493,7 +539,7 @@
   "construccion": "Imperativo aoristo medio, 3ª singular.",
   "sentido_en_contexto": "Condiciones del discipulado: negarse a sí mismo, tomar la cruz, seguir. Marcos añade que Jesús llamó a la multitud, no solo a los discípulos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 16:24 — paralelo",
@@ -501,9 +547,9 @@
    "Mr 14:30 — Pedro será negado por el mismo verbo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Mark.8.34#17",
+  "ref_estandar": "Mark.8.34",
   "morfologia_tagnt": "V-ADM-3S",
   "dstrong": "G0533",
   "strong_tagnt": "G533",
@@ -519,13 +565,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to deny",
-  "ref_estandar": "Mark.8.34"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.8.35",
+  "pos_tisch": 22,
   "strong": "G2098",
   "forma": "εὐαγγελίου",
+  "lema": "εὐαγγέλιον",
   "glosa_interlineal": "evangelio",
   "rango_semantico": [
    "buena noticia"
@@ -533,7 +583,7 @@
   "construccion": "Genitivo: «por causa de mí y del evangelio».",
   "sentido_en_contexto": "Solo Marcos añade «y del evangelio»: perder la vida por Jesús y por la buena noticia. Muestra que el evangelio es ya una realidad por la que se vive y muere.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 10:29 — «por causa de mí y del evangelio»",
@@ -541,9 +591,9 @@
    "Mt 16:25 — solo «por causa de mí»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 22,
   "alineacion": "forma",
   "tagnt": "Mark.8.35#22",
+  "ref_estandar": "Mark.8.35",
   "morfologia_tagnt": "N-GSN",
   "dstrong": "G2098",
   "strong_tagnt": "G2098",
@@ -559,13 +609,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gospel",
-  "ref_estandar": "Mark.8.35"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.8.38",
+  "pos_tisch": 4,
   "strong": "G1870",
   "forma": "ἐπαισχυνθῇ",
+  "lema": "ἐπαισχύνομαι",
   "glosa_interlineal": "se avergüence",
   "rango_semantico": [
    "avergonzarse de, sentir vergüenza"
@@ -573,7 +627,7 @@
   "construccion": "Subjuntivo aoristo pasivo (deponente): «se avergonzare de mí».",
   "sentido_en_contexto": "El discípulo no puede avergonzarse de Jesús y de sus palabras en una generación «adúltera y pecadora». Si lo hace, el Hijo del Hombre se avergonzará de él al venir.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 1:16 — «no me avergüenzo del evangelio»",
@@ -581,10 +635,9 @@
    "Lc 9:26 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Mark.8.38#04",
+  "ref_estandar": "Mark.8.38",
   "morfologia_tagnt": "V-AOS-3S",
   "dstrong": "G1870",
   "strong_tagnt": "G1870",
@@ -600,7 +653,10 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be ashamed of",
-  "ref_estandar": "Mark.8.38"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

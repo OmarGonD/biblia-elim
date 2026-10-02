@@ -1,8 +1,10 @@
 [
  {
   "ref": "Jas.2.1",
+  "pos_tisch": 5,
   "strong": "G4382",
   "forma": "προσωπολημψίαις",
+  "lema": "προσωποληψία",
   "glosa_interlineal": "favoritismo",
   "rango_semantico": [
    "acepción de personas, favoritismo"
@@ -10,7 +12,7 @@
   "construccion": "Dativo plural: «hermanos míos, que vuestra fe en nuestro glorioso Señor Jesucristo sea sin acepción de personas».",
   "sentido_en_contexto": "Contra el favoritismo en la comunidad por razones de riqueza (vv.2-4). Fe en el Señor de gloria es incompatible con tratar mejor a los ricos. Dios no tiene favoritismos (Ro 2:11) y eligió a los pobres del mundo (v.5).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 2:11",
@@ -19,9 +21,9 @@
    "Jas 2:9"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Jas.2.1#05",
+  "ref_estandar": "Jas.2.1",
   "morfologia_tagnt": "N-DPF",
   "dstrong": "G4382",
   "strong_tagnt": "G4382",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "favoritism",
-  "ref_estandar": "Jas.2.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.2.5",
+  "pos_tisch": 10,
   "strong": "G4434",
   "forma": "πτωχοὺς",
+  "lema": "πτωχός",
   "glosa_interlineal": "pobres",
   "rango_semantico": [
    "pobre"
@@ -51,7 +57,7 @@
   "construccion": "Acusativo plural: «hermanos míos amados, oíd: ¿No ha elegido Dios a los pobres de este mundo, para que sean ricos en fe y herederos del reino que ha prometido a los que le aman?».",
   "sentido_en_contexto": "Dios eligió a los pobres «de este mundo» para ser ricos en fe y herederos del reino. No dice que los pobres sean automáticamente salvos ni que los ricos estén excluidos, sino que Dios invierte el criterio mundano. Eco de Lc 6:20 y 1 Co 1:26-28.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 6:20",
@@ -60,9 +66,9 @@
    "Sal 72:12-14"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Jas.2.5#10",
+  "ref_estandar": "Jas.2.5",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G4434",
   "strong_tagnt": "G4434",
@@ -78,13 +84,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "poor",
-  "ref_estandar": "Jas.2.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.2.8",
+  "pos_tisch": 5,
   "strong": "G937",
   "forma": "βασιλικὸν",
+  "lema": "βασιλικός",
   "glosa_interlineal": "real",
   "rango_semantico": [
    "real, regio, que pertenece al rey"
@@ -92,7 +102,7 @@
   "construccion": "Acusativo: «si en verdad cumplís la ley real, conforme a la Escritura: Amarás a tu prójimo como a ti mismo, bien hacéis».",
   "sentido_en_contexto": "«Ley real» (νόμος βασιλικός): la ley del reino, que resume la Torá en el amor al prójimo (Lv 19:18). Para Santiago, igual que Jesús, el amor es el criterio de toda la ley. El favoritismo (v.9) viola ese amor.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lv 19:18",
@@ -101,9 +111,9 @@
    "Ro 13:8-10"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Jas.2.8#05",
+  "ref_estandar": "Jas.2.8",
   "morfologia_tagnt": "A-ASM",
   "dstrong": "G0937",
   "strong_tagnt": "G937",
@@ -119,13 +129,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "royal",
-  "ref_estandar": "Jas.2.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.2.10",
+  "pos_tisch": 13,
   "strong": "G1777",
   "forma": "ἔνοχος",
+  "lema": "ἔνοχος",
   "glosa_interlineal": "culpable",
   "rango_semantico": [
    "reo, culpable"
@@ -133,7 +147,7 @@
   "construccion": "Nominativo: «porque cualquiera que guardare toda la ley, pero ofendiere en un punto, se hace culpable de todos».",
   "sentido_en_contexto": "La ley es una unidad: quebrantar un mandamiento es quebrantar la voluntad del Legislador (v.11). No significa que todos los pecados sean iguales, sino que cualquier transgresión pone a la persona bajo juicio. Argumenta contra el favoritismo, que parece menor.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 3:10",
@@ -142,9 +156,9 @@
    "Ro 2:25"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Jas.2.10#13",
+  "ref_estandar": "Jas.2.10",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G1777",
   "strong_tagnt": "G1777",
@@ -160,13 +174,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "liable for",
-  "ref_estandar": "Jas.2.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.2.13",
+  "pos_tisch": 8,
   "strong": "G1656",
   "forma": "ἔλεος",
+  "lema": "ἔλεος",
   "glosa_interlineal": "misericordia",
   "rango_semantico": [
    "misericordia, compasión"
@@ -174,7 +192,7 @@
   "construccion": "Acusativo: «porque juicio sin misericordia se hará con aquel que no hiciere misericordia; y la misericordia triunfa sobre el juicio».",
   "sentido_en_contexto": "La misericordia hacia otros es evidencia de haber recibido la de Dios (Mt 5:7; 6:14-15; 18:21-35). «La misericordia se gloría contra el juicio»: la persona misericordiosa no teme el juicio. Prepara el argumento sobre fe y obras.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 5:7; 18:21-35",
@@ -183,10 +201,9 @@
    "Pr 14:21"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Jas.2.13#08",
+  "ref_estandar": "Jas.2.13",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G1656",
   "strong_tagnt": "G1656",
@@ -202,13 +219,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mercy",
-  "ref_estandar": "Jas.2.13"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.2.13",
+  "pos_tisch": 10,
   "strong": "G1656",
   "forma": "ἔλεος",
+  "lema": "ἔλεος",
   "glosa_interlineal": "misericordia",
   "rango_semantico": [
    "misericordia, compasión"
@@ -216,7 +238,7 @@
   "construccion": "Acusativo: «porque juicio sin misericordia se hará con aquel que no hiciere misericordia; y la misericordia triunfa sobre el juicio».",
   "sentido_en_contexto": "La misericordia hacia otros es evidencia de haber recibido la de Dios (Mt 5:7; 6:14-15; 18:21-35). «La misericordia se gloría contra el juicio»: la persona misericordiosa no teme el juicio. Prepara el argumento sobre fe y obras.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 5:7; 18:21-35",
@@ -225,10 +247,9 @@
    "Pr 14:21"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Jas.2.13#11",
+  "ref_estandar": "Jas.2.13",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G1656",
   "strong_tagnt": "G1656",
@@ -245,13 +266,18 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "mercy",
-  "ref_estandar": "Jas.2.13"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.2.14",
+  "pos_tisch": 19,
   "strong": "G4982",
   "forma": "σῶσαι",
+  "lema": "σώζω",
   "glosa_interlineal": "salvar",
   "rango_semantico": [
    "salvar"
@@ -259,7 +285,7 @@
   "construccion": "Aoristo infinitivo activo: «hermanos míos, ¿de qué aprovecha si alguno dice que tiene fe, y no tiene obras? ¿Puede la fe salvarle?».",
   "sentido_en_contexto": "Inicia la sección más debatida de Santiago (2:14-26) sobre fe y obras. «Esa fe» (ἡ πίστις, con artículo: la fe que dice tener, sin obras) no puede salvar. Santiago no opone fe y obras, sino fe viva y fe muerta. Se discute su relación con Pablo (Ro 3:28; 4; Gá 2:16).",
   "matiz": "Debate sobre Santiago y Pablo: (a) usan «justificar» y «fe» con sentidos distintos: Pablo, la entrada a la salvación por fe; Santiago, la fe viva demostrada por obras (la mayoría de exégetas); (b) polemizan con interlocutores distintos: Pablo contra legalistas, Santiago contra antinomianos; (c) contradicción (Lutero lo sintió así); (d) «justificar» en Santiago es «declarado justo/vindicado» ante la comunidad o el juicio. Lutero la llamó «de paja».",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 3:28; 4:1-5",
@@ -268,9 +294,9 @@
    "Mt 7:21"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 19,
   "alineacion": "forma",
   "tagnt": "Jas.2.14#19",
+  "ref_estandar": "Jas.2.14",
   "morfologia_tagnt": "V-AAN",
   "dstrong": "G4982",
   "strong_tagnt": "G4982",
@@ -286,13 +312,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to save",
-  "ref_estandar": "Jas.2.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.2.17",
+  "pos_tisch": 9,
   "strong": "G3498",
   "forma": "νεκρά",
+  "lema": "νεκρός",
   "glosa_interlineal": "muerta",
   "rango_semantico": [
    "muerto, inerte"
@@ -300,7 +330,7 @@
   "construccion": "Nominativo: «así también la fe, si no tuviere obras, es muerta en sí misma».",
   "sentido_en_contexto": "La fe sin obras está «muerta» (inerte, sin vida), no meramente incompleta. Una fe que no produce frutos no es fe viva. Se compara con el cuerpo sin espíritu (v.26). Santiago no pide obras como añadido, sino como evidencia de fe viva.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jas 2:26",
@@ -309,9 +339,9 @@
    "Ef 2:10"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Jas.2.17#09",
+  "ref_estandar": "Jas.2.17",
   "morfologia_tagnt": "A-NSF",
   "dstrong": "G3498",
   "strong_tagnt": "G3498",
@@ -327,13 +357,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dead",
-  "ref_estandar": "Jas.2.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.2.19",
+  "pos_tisch": 12,
   "strong": "G1140",
   "forma": "δαιμόνια",
+  "lema": "δαιμόνιον",
   "glosa_interlineal": "demonios",
   "rango_semantico": [
    "demonio, espíritu inmundo"
@@ -341,7 +375,7 @@
   "construccion": "Nominativo plural: «tú crees que Dios es uno; bien haces. También los demonios creen, y tiemblan».",
   "sentido_en_contexto": "Aun los demonios creen en un solo Dios (el Shemá): fe meramente intelectual no salva. Su temor es mayor que el de algunos creyentes nominales. Ilustra la diferencia entre asentimiento y confianza obediente.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 6:4",
@@ -350,9 +384,9 @@
    "Lc 4:41"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Jas.2.19#12",
+  "ref_estandar": "Jas.2.19",
   "morfologia_tagnt": "N-NPN",
   "dstrong": "G1140",
   "strong_tagnt": "G1140",
@@ -368,13 +402,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "demon",
-  "ref_estandar": "Jas.2.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.2.21",
+  "pos_tisch": 8,
   "strong": "G1344",
   "forma": "ἐδικαιώθη",
+  "lema": "δικαιόω",
   "glosa_interlineal": "fue justificado",
   "rango_semantico": [
    "justificar, declarar justo, vindicar"
@@ -382,7 +420,7 @@
   "construccion": "Aoristo indicativo pasivo: «¿no fue justificado por las obras Abraham nuestro padre, cuando ofreció a su hijo Isaac sobre el altar?».",
   "sentido_en_contexto": "Santiago afirma que Abraham fue justificado «por las obras» al ofrecer a Isaac (Gn 22), mientras Pablo dice que fue justificado por la fe antes de la circuncisión (Ro 4). Conciliación: Santiago habla de la vindicación o demostración de la fe viva (v.22), Pablo de la declaración inicial de justicia (Gn 15:6).",
   "matiz": "Debate: (a) Santiago usa δικαιόω en sentido de «demostrar justo» ante los hombres/Dios, no de declaración inicial (reformada: justificación por fe, demostrada por las obras); (b) Santiago y Pablo hablan de dos momentos: inicio (fe) y consumación (obras; católica: la justificación es un proceso que incluye obras como fruto de la gracia); (c) tensión no resuelta, o polémica indirecta.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 22:1-18",
@@ -391,9 +429,9 @@
    "Heb 11:17-19"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Jas.2.21#08",
+  "ref_estandar": "Jas.2.21",
   "morfologia_tagnt": "V-API-3S",
   "dstrong": "G1344",
   "strong_tagnt": "G1344",
@@ -409,13 +447,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to justify",
-  "ref_estandar": "Jas.2.21"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.2.22",
+  "pos_tisch": 15,
   "strong": "G5048",
   "forma": "ἐτελειώθη",
+  "lema": "τελειόω",
   "glosa_interlineal": "fue perfeccionada",
   "rango_semantico": [
    "perfeccionar, llevar a plenitud"
@@ -423,7 +465,7 @@
   "construccion": "Aoristo indicativo pasivo: «¿no ves que la fe actuaba juntamente con sus obras, y que la fe se perfeccionó por las obras?».",
   "sentido_en_contexto": "La fe de Abraham «cooperaba» con sus obras y se «perfeccionó» (llegó a su plenitud) por ellas. No dice que la fe dependiera de las obras para existir, sino que alcanzó su expresión completa en la obediencia. Cf. 1 Jn 4:12 (el amor se perfecciona).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 5:6",
@@ -431,9 +473,9 @@
    "Heb 11:17"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Jas.2.22#15",
+  "ref_estandar": "Jas.2.22",
   "morfologia_tagnt": "V-API-3S",
   "dstrong": "G5048",
   "strong_tagnt": "G5048",
@@ -449,13 +491,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to perfect",
-  "ref_estandar": "Jas.2.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.2.23",
+  "pos_tisch": 13,
   "strong": "G3049",
   "forma": "ἐλογίσθη",
+  "lema": "λογίζομαι",
   "glosa_interlineal": "le fue contado",
   "rango_semantico": [
    "contar, considerar, imputar"
@@ -463,7 +509,7 @@
   "construccion": "Aoristo indicativo pasivo: «y se cumplió la Escritura que dice: Abraham creyó a Dios, y le fue contado por justicia, y fue llamado amigo de Dios».",
   "sentido_en_contexto": "Santiago cita Gn 15:6 como «cumplida» en el acto de Gn 22: la fe declarada justa en Gn 15 se mostró verdadera en la obediencia. «Amigo de Dios» (Is 41:8; 2 Cr 20:7): título de Abraham.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 15:6",
@@ -472,9 +518,9 @@
    "2 Cr 20:7"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Jas.2.23#13",
+  "ref_estandar": "Jas.2.23",
   "morfologia_tagnt": "V-API-3S",
   "dstrong": "G3049",
   "strong_tagnt": "G3049",
@@ -490,13 +536,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to count",
-  "ref_estandar": "Jas.2.23"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.2.24",
+  "pos_tisch": 11,
   "strong": "G3440",
   "forma": "μόνον",
+  "lema": "μόνον",
   "glosa_interlineal": "solamente",
   "rango_semantico": [
    "solo, únicamente"
@@ -504,7 +554,7 @@
   "construccion": "Adverbio: «vosotros veis, pues, que el hombre es justificado por las obras, y no solamente por la fe».",
   "sentido_en_contexto": "Única aparición en el NT de «por la fe sola» (πίστεως μόνον) con negación: «no solo por la fe». Lutero insertó «solo» en Ro 3:28 y por ello Santiago le parecía contradictorio. Santiago niega la fe «sola» (sin obras), mientras la tradición reformada afirma la fe «que justifica» no es «sola» (sin obras).",
   "matiz": "Debate: (a) la fe sola (sin obras) no justifica; la fe verdadera siempre produce obras (reformada: «sola fide, pero la fe que justifica nunca está sola»); (b) las obras forman parte de la justificación del creyente (católica, ortodoxa); (c) Santiago refuta una fe meramente intelectual (la mayoría).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 3:28",
@@ -512,9 +562,9 @@
    "Jas 2:14-26"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 11,
   "alineacion": "forma_otro_strong",
   "tagnt": "Jas.2.24#12",
+  "ref_estandar": "Jas.2.24",
   "morfologia_tagnt": "A-ASN",
   "dstrong": "G3441",
   "strong_tagnt": "G3441",
@@ -530,13 +580,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "alone",
-  "ref_estandar": "Jas.2.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Jas.2.25",
+  "pos_tisch": 4,
   "strong": "G4460",
   "forma": "Ῥαὰβ",
+  "lema": "Ῥαάβ",
   "glosa_interlineal": "Rahab",
   "rango_semantico": [
    "Rahab"
@@ -544,7 +598,7 @@
   "construccion": "Nominativo: «asimismo también Rahab la ramera, ¿no fue justificada por obras, cuando recibió a los mensajeros y los envió por otro camino?».",
   "sentido_en_contexto": "Segundo ejemplo: una prostituta cananea cuya fe se manifestó en acción (Jos 2). Junto con Abraham, representan a judíos y gentiles. También aparece en Heb 11:31 como ejemplo de fe.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jos 2:1-21",
@@ -552,9 +606,9 @@
    "Mt 1:5"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Jas.2.25#04",
+  "ref_estandar": "Jas.2.25",
   "morfologia_tagnt": "N-NSF-P",
   "dstrong": "G4460",
   "strong_tagnt": "G4460",
@@ -570,7 +624,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Rahab",
-  "ref_estandar": "Jas.2.25"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

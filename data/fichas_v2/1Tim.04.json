@@ -1,8 +1,10 @@
 [
  {
   "ref": "1Tim.4.1",
+  "pos_tisch": 10,
   "strong": "G868",
   "forma": "ἀποστήσονταί",
+  "lema": "ἀφίστημι",
   "glosa_interlineal": "se apartarán",
   "rango_semantico": [
    "apartarse, apostatar"
@@ -10,7 +12,7 @@
   "construccion": "Futuro indicativo medio: «pero el Espíritu dice claramente que en los postreros tiempos algunos apostatarán de la fe, escuchando a espíritus engañadores y a doctrinas de demonios».",
   "sentido_en_contexto": "El Espíritu anuncia apostasía «en los últimos tiempos» (que en el NT comienza con la primera venida; cf. 2 Ti 3:1). Los falsos maestros siguen «espíritus engañadores» y doctrinas de demonios (v.1), con hipocresía (v.2). Se caracterizan por prohibir el matrimonio y ciertos alimentos (v.3).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Ts 2:3",
@@ -19,9 +21,9 @@
    "1 Jn 4:1"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "1Tim.4.1#10",
+  "ref_estandar": "1Tim.4.1",
   "morfologia_tagnt": "V-FDI-3P",
   "dstrong": "G0868",
   "strong_tagnt": "G868",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to leave",
-  "ref_estandar": "1Tim.4.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Tim.4.3",
+  "pos_tisch": 1,
   "strong": "G2967",
   "forma": "κωλυόντων",
+  "lema": "κωλύω",
   "glosa_interlineal": "que prohíben",
   "rango_semantico": [
    "impedir, prohibir"
@@ -51,7 +57,7 @@
   "construccion": "Participio presente activo: «prohibirán casarse, y mandarán abstenerse de alimentos que Dios creó para que con acción de gracias participasen de ellos los creyentes y los que han conocido la verdad».",
   "sentido_en_contexto": "Ascetismo enseñado por los falsos maestros: prohibir el matrimonio y alimentos. Pablo lo refuta con la doctrina de la creación: todo lo creado por Dios es bueno y se santifica con la palabra de Dios y la oración (vv.4-5). No condena el celibato voluntario (1 Co 7:7, 38).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 1:31",
@@ -60,9 +66,9 @@
    "Col 2:16-23"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "1Tim.4.3#01",
+  "ref_estandar": "1Tim.4.3",
   "morfologia_tagnt": "V-PAP-GPM",
   "dstrong": "G2967",
   "strong_tagnt": "G2967",
@@ -78,13 +84,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to prevent",
-  "ref_estandar": "1Tim.4.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Tim.4.4",
+  "pos_tisch": 3,
   "strong": "G2938",
   "forma": "κτίσμα",
+  "lema": "κτίσμα",
   "glosa_interlineal": "criatura",
   "rango_semantico": [
    "criatura, creación"
@@ -92,7 +102,7 @@
   "construccion": "Nominativo: «porque todo lo que Dios creó es bueno, y nada se ha de desechar, si se toma con acción de gracias».",
   "sentido_en_contexto": "Principio de la bondad de la creación contra el dualismo ascético. Todo alimento es bueno, santificado «por la palabra de Dios y la oración» (v.5; cf. oración de gracias antes de comer). Se discute si «palabra de Dios» es Gn 1 o una bendición.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 1:31",
@@ -101,9 +111,9 @@
    "Ro 14:14"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "1Tim.4.4#03",
+  "ref_estandar": "1Tim.4.4",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G2938",
   "strong_tagnt": "G2938",
@@ -119,13 +129,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "creature",
-  "ref_estandar": "1Tim.4.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Tim.4.7",
+  "pos_tisch": 8,
   "strong": "G1128",
   "forma": "γύμναζε",
+  "lema": "γυμνάζω",
   "glosa_interlineal": "ejercítate",
   "rango_semantico": [
    "entrenar, ejercitarse"
@@ -133,7 +147,7 @@
   "construccion": "Imperativo presente activo: «desecha las fábulas profanas y de viejas. Ejercítate para la piedad».",
   "sentido_en_contexto": "Imagen del entrenamiento atlético (γυμνάζω, origen de «gimnasio»): el cristiano debe entrenarse en la piedad (εὐσέβεια), que tiene valor para esta vida y la venidera (v.8). El ejercicio físico es de «poco provecho» o «por poco tiempo».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 9:25-27",
@@ -142,9 +156,9 @@
    "1 Ti 6:11"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "1Tim.4.7#08",
+  "ref_estandar": "1Tim.4.7",
   "morfologia_tagnt": "V-PAM-2S",
   "dstrong": "G1128",
   "strong_tagnt": "G1128",
@@ -160,13 +174,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to train",
-  "ref_estandar": "1Tim.4.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Tim.4.10",
+  "pos_tisch": 14,
   "strong": "G4990",
   "forma": "σωτὴρ",
+  "lema": "σωτήρ",
   "glosa_interlineal": "Salvador",
   "rango_semantico": [
    "salvador"
@@ -174,7 +192,7 @@
   "construccion": "Nominativo: «porque para esto trabajamos y sufrimos oprobios, porque esperamos en el Dios vivo, que es el Salvador de todos los hombres, mayormente de los que creen».",
   "sentido_en_contexto": "«Salvador de todos los hombres, mayormente de los creyentes»: texto muy debatido sobre el alcance de la salvación. Se discute si «Salvador» indica potencial universal («tiene capacidad de salvar a todos»), providencia (preserva a todos) o salvación eficaz para los creyentes.",
   "matiz": "Debate: (a) Salvador de todos en potencia (suficiencia universal) y de los creyentes en eficacia (arminiana, lectura clásica); (b) providencialmente preserva a todos y salva a los creyentes (reformada); (c) universalismo (minoritario); (d) «todos» como todas las clases de personas.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Ti 2:4-6",
@@ -183,9 +201,9 @@
    "1 Jn 2:2"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "1Tim.4.10#15",
+  "ref_estandar": "1Tim.4.10",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G4990",
   "strong_tagnt": "G4990",
@@ -201,13 +219,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "savior",
-  "ref_estandar": "1Tim.4.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Tim.4.12",
+  "pos_tisch": 4,
   "strong": "G3503",
   "forma": "νεότητος",
+  "lema": "νεότης",
   "glosa_interlineal": "juventud",
   "rango_semantico": [
    "juventud"
@@ -215,7 +237,7 @@
   "construccion": "Genitivo: «ninguno tenga en poco tu juventud, sino sé ejemplo de los creyentes en palabra, conducta, amor, espíritu, fe y pureza».",
   "sentido_en_contexto": "Timoteo, aunque joven (probablemente unos 30-35 años, νεότης podía extenderse hasta los 40), debe ganarse respeto con ejemplo en seis áreas. La autoridad pastoral se funda en el ejemplo, no en la edad.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Tit 2:7-8",
@@ -224,9 +246,9 @@
    "1 Co 16:10-11"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "1Tim.4.12#04",
+  "ref_estandar": "1Tim.4.12",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G3503",
   "strong_tagnt": "G3503",
@@ -242,13 +264,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "youth",
-  "ref_estandar": "1Tim.4.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Tim.4.13",
+  "pos_tisch": 5,
   "strong": "G320",
   "forma": "ἀναγνώσει",
+  "lema": "ἀνάγνωσις",
   "glosa_interlineal": "lectura",
   "rango_semantico": [
    "lectura pública"
@@ -256,7 +282,7 @@
   "construccion": "Dativo: «entre tanto que voy, ocúpate en la lectura, la exhortación y la enseñanza».",
   "sentido_en_contexto": "Tres elementos del culto: lectura pública de la Escritura (ἀνάγνωσις), exhortación y enseñanza. Modelo de la sinagoga adaptado al culto cristiano. Se usa para defender la centralidad de la lectura y la predicación en el culto.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 4:16-21",
@@ -265,9 +291,9 @@
    "2 Ti 4:2"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "1Tim.4.13#05",
+  "ref_estandar": "1Tim.4.13",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G0320",
   "strong_tagnt": "G320",
@@ -283,13 +309,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "reading",
-  "ref_estandar": "1Tim.4.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Tim.4.14",
+  "pos_tisch": 13,
   "strong": "G1936",
   "forma": "ἐπιθέσεως",
+  "lema": "ἐπίθεσις",
   "glosa_interlineal": "imposición",
   "rango_semantico": [
    "imposición (de manos)"
@@ -297,7 +327,7 @@
   "construccion": "Genitivo: «no descuides el don que hay en ti, que te fue dado mediante profecía con la imposición de las manos del presbiterio».",
   "sentido_en_contexto": "Ordenación de Timoteo: don dado por profecía y por la imposición de manos del presbiterio (el cuerpo de ancianos). En 2 Ti 1:6 se menciona la imposición de manos de Pablo. Texto clave para la ordenación y la sucesión ministerial; las tradiciones difieren en el valor sacramental.",
   "matiz": "Debate: (a) ordenación sacramental, que confiere un don (católica, ortodoxa, anglicana); (b) reconocimiento y comisión pública del don ya dado por Dios (protestante); (c) las dos referencias (Pablo en 2 Ti 1:6 y el presbiterio aquí) son un único acto o dos distintos.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Ti 1:6",
@@ -306,9 +336,9 @@
    "Nm 27:18-23"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "1Tim.4.14#13",
+  "ref_estandar": "1Tim.4.14",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G1936",
   "strong_tagnt": "G1936",
@@ -324,13 +354,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "laying on",
-  "ref_estandar": "1Tim.4.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Tim.4.16",
+  "pos_tisch": 10,
   "strong": "G4160",
   "forma": "ποιῶν",
+  "lema": "ποιέω",
   "glosa_interlineal": "haciendo",
   "rango_semantico": [
    "hacer"
@@ -338,7 +372,7 @@
   "construccion": "Participio presente activo: «ten cuidado de ti mismo y de la doctrina; persiste en ello, pues haciendo esto, te salvarás a ti mismo y a los que te oyeren».",
   "sentido_en_contexto": "La perseverancia del pastor en vida y doctrina se vincula con su salvación y la de sus oyentes. «Salvarás» no implica salvación por obras: Dios usa medios humanos. Se ha usado para el equilibrio entre ortopraxis y ortodoxia.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 20:28",
@@ -347,9 +381,9 @@
    "1 Co 9:27"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "1Tim.4.16#10",
+  "ref_estandar": "1Tim.4.16",
   "morfologia_tagnt": "V-PAP-NSM",
   "dstrong": "G4160G",
   "strong_tagnt": "G4160",
@@ -365,7 +399,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to do/make",
-  "ref_estandar": "1Tim.4.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

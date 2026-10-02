@@ -1,8 +1,10 @@
 [
  {
   "ref": "Matt.17.1",
+  "pos_tisch": 18,
   "strong": "G399",
   "forma": "ἀναφέρει",
+  "lema": "ἀναφέρω",
   "glosa_interlineal": "lleva arriba",
   "rango_semantico": [
    "llevar a lo alto",
@@ -11,7 +13,7 @@
   "construccion": "Presente indicativo activo, 3ª singular: «los lleva a un monte alto».",
   "sentido_en_contexto": "Jesús elige a tres discípulos (Pedro, Jacobo, Juan) para ser testigos de su transfiguración. «Seis días después» conecta con la confesión de Cesarea (16:13-28).",
   "matiz": "El monte no se nombra (la tradición lo ha identificado con el Tabor o el Hermón). Se evoca el monte Sinaí, donde Moisés vio la gloria de Dios.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Éx 24:15-16 — la gloria sobre el monte Sinaí",
@@ -19,9 +21,9 @@
    "2 P 1:17-18 — Pedro recuerda la escena"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "Matt.17.1#18",
+  "ref_estandar": "Matt.17.1",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G0399",
   "strong_tagnt": "G399",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to carry up",
-  "ref_estandar": "Matt.17.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.17.2",
+  "pos_tisch": 2,
   "strong": "G3339",
   "forma": "μετεμορφώθη",
+  "lema": "μεταμορφόω",
   "glosa_interlineal": "se transfiguró",
   "rango_semantico": [
    "transformarse, cambiar de forma",
@@ -52,7 +58,7 @@
   "construccion": "Aoristo indicativo pasivo, 3ª singular: «fue transfigurado».",
   "sentido_en_contexto": "Es la raíz de «metamorfosis»: cambio de forma. Jesús revela, por un momento, su gloria. El pasivo sugiere que es obra de Dios.",
   "matiz": "El mismo verbo se usa para la transformación de los creyentes (Ro 12:2; 2 Co 3:18).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 12:2 — «transformaos por medio de la renovación de vuestro entendimiento»",
@@ -60,9 +66,9 @@
    "Éx 34:29 — el rostro de Moisés resplandecía"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Matt.17.2#02",
+  "ref_estandar": "Matt.17.2",
   "morfologia_tagnt": "V-API-3S",
   "dstrong": "G3339",
   "strong_tagnt": "G3339",
@@ -78,13 +84,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to transform",
-  "ref_estandar": "Matt.17.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.17.3",
+  "pos_tisch": 5,
   "strong": "G3475",
   "forma": "Μωϋσῆς",
+  "lema": "Μωσεύς",
   "glosa_interlineal": "Moisés",
   "rango_semantico": [
    "Moisés"
@@ -92,7 +102,7 @@
   "construccion": "Nominativo: «Moisés y Elías».",
   "sentido_en_contexto": "Moisés (la Ley) y Elías (los Profetas) aparecen con Jesús: toda la Escritura da testimonio de él. Ambos tuvieron experiencias de Dios en un monte.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 9:31 — «hablaban de su partida, que iba Jesús a cumplir en Jerusalén»",
@@ -100,9 +110,9 @@
    "Mal 4:4-5 — Moisés y Elías juntos"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Matt.17.3#05",
+  "ref_estandar": "Matt.17.3",
   "morfologia_tagnt": "N-NSM-P",
   "dstrong": "G3475",
   "strong_tagnt": "G3475",
@@ -118,13 +128,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Moses",
-  "ref_estandar": "Matt.17.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.17.4",
+  "pos_tisch": 19,
   "strong": "G4633",
   "forma": "σκηνάς",
+  "lema": "σκηνή",
   "glosa_interlineal": "enramadas",
   "rango_semantico": [
    "tienda, choza",
@@ -133,7 +147,7 @@
   "construccion": "Acusativo plural: «tres tiendas».",
   "sentido_en_contexto": "Pedro propone levantar tres tiendas, quizá evocando la fiesta de los Tabernáculos o el deseo de prolongar el momento. Su propuesta equipara a Jesús con Moisés y Elías, algo que la voz del cielo corrige.",
   "matiz": "Se debate la intención de Pedro: ¿honrar a los tres por igual (error que la nube corrige), o prolongar la visión? Lucas dice que «no sabía lo que decía» (9:33).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 9:33 — «no sabiendo lo que decía»",
@@ -141,9 +155,9 @@
    "Jn 1:14 — «el Verbo… habitó (ἐσκήνωσεν) entre nosotros»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 19,
   "alineacion": "forma",
   "tagnt": "Matt.17.4#19",
+  "ref_estandar": "Matt.17.4",
   "morfologia_tagnt": "N-APF",
   "dstrong": "G4633",
   "strong_tagnt": "G4633",
@@ -159,13 +173,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tent",
-  "ref_estandar": "Matt.17.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.17.5",
+  "pos_tisch": 7,
   "strong": "G1982",
   "forma": "ἐπεσκίασεν",
+  "lema": "ἐπισκιάζω",
   "glosa_interlineal": "cubrió con su sombra",
   "rango_semantico": [
    "cubrir con sombra",
@@ -174,7 +192,7 @@
   "construccion": "Aoristo indicativo activo, 3ª singular: «los cubrió con su sombra».",
   "sentido_en_contexto": "La nube luminosa es la presencia de Dios (la shekiná), como en el tabernáculo (Éx 40:35) y en el anuncio a María (Lc 1:35).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Éx 40:35 — «la nube estaba sobre el tabernáculo»",
@@ -182,9 +200,9 @@
    "Mr 9:7 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Matt.17.5#07",
+  "ref_estandar": "Matt.17.5",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G1982",
   "strong_tagnt": "G1982",
@@ -200,13 +218,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to overshadow",
-  "ref_estandar": "Matt.17.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.17.5",
+  "pos_tisch": 26,
   "strong": "G191",
   "forma": "ἀκούετε",
+  "lema": "ἀκούω",
   "glosa_interlineal": "oíd",
   "rango_semantico": [
    "oír, escuchar",
@@ -215,7 +237,7 @@
   "construccion": "Imperativo presente activo, 2ª plural: «escuchadle».",
   "sentido_en_contexto": "Añadido a la voz del bautismo (3:17): «a él oíd». Eco de Dt 18:15 (el profeta como Moisés). El Padre manda a los discípulos escuchar a Jesús, no a Moisés ni Elías.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 18:15 — «a él oiréis»",
@@ -223,9 +245,9 @@
    "Heb 1:1-2 — «en estos postreros días nos ha hablado por el Hijo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 26,
   "alineacion": "forma",
   "tagnt": "Matt.17.5#26",
+  "ref_estandar": "Matt.17.5",
   "morfologia_tagnt": "V-PAM-2P",
   "dstrong": "G0191",
   "strong_tagnt": "G191",
@@ -241,13 +263,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to hear",
-  "ref_estandar": "Matt.17.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.17.7",
+  "pos_tisch": 6,
   "strong": "G681",
   "forma": "ἁψάμενος",
+  "lema": "ἅπτω",
   "glosa_interlineal": "tocando",
   "rango_semantico": [
    "tocar, asir"
@@ -255,16 +281,16 @@
   "construccion": "Participio aoristo medio: «tocándolos».",
   "sentido_en_contexto": "Jesús, el que brilló con gloria, toca a los discípulos postrados por el miedo. El contraste entre su gloria y su ternura es notable.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dn 10:10 — «una mano me tocó»",
    "Ap 1:17 — «puso su diestra sobre mí»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Matt.17.7#06",
+  "ref_estandar": "Matt.17.7",
   "morfologia_tagnt": "V-AMP-NSM",
   "dstrong": "G0681",
   "strong_tagnt": "G681",
@@ -281,13 +307,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to kindle",
-  "ref_estandar": "Matt.17.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.17.9",
+  "pos_tisch": 15,
   "strong": "G3705",
   "forma": "ὅραμα",
+  "lema": "ὅραμα",
   "glosa_interlineal": "visión",
   "rango_semantico": [
    "visión, aparición"
@@ -295,16 +325,16 @@
   "construccion": "Acusativo: «la visión».",
   "sentido_en_contexto": "Jesús ordena guardar silencio sobre lo visto hasta su resurrección. La gloria de la transfiguración solo se entiende después de la cruz.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 9:10 — «Ananías… en visión»",
    "Hch 10:3 — la visión de Cornelio"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Matt.17.9#15",
+  "ref_estandar": "Matt.17.9",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G3705",
   "strong_tagnt": "G3705",
@@ -320,13 +350,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "vision",
-  "ref_estandar": "Matt.17.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.17.11",
+  "pos_tisch": 9,
   "strong": "G600",
   "forma": "ἀποκαταστήσει",
+  "lema": "ἀποκαθίστημι",
   "glosa_interlineal": "restaurará",
   "rango_semantico": [
    "restablecer, restaurar",
@@ -335,7 +369,7 @@
   "construccion": "Futuro indicativo activo, 3ª singular: «restaurará todo».",
   "sentido_en_contexto": "Cita Mal 4:6: Elías vendrá a restaurar. Jesús dice que Elías ya vino (v.12) en la persona de Juan el Bautista; la «restauración» está en marcha.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mal 4:5-6 — «he aquí yo os envío el profeta Elías»",
@@ -343,9 +377,9 @@
    "Mt 11:14 — «él es aquel Elías»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Matt.17.11#12",
+  "ref_estandar": "Matt.17.11",
   "morfologia_tagnt": "V-FAI-3S",
   "dstrong": "G0600",
   "strong_tagnt": "G600",
@@ -361,13 +395,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to restore",
-  "ref_estandar": "Matt.17.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.17.15",
+  "pos_tisch": 9,
   "strong": "G4583",
   "forma": "σεληνιάζεται",
+  "lema": "σεληνιάζομαι",
   "glosa_interlineal": "es epiléptico",
   "rango_semantico": [
    "padecer de epilepsia (lit. afectado por la luna)"
@@ -375,16 +413,16 @@
   "construccion": "Presente indicativo pasivo/medio, 3ª singular.",
   "sentido_en_contexto": "El padre describe ataques con caídas al fuego y al agua. Mateo lo distingue de la posesión (v.18) y lo llama «lunático» o epiléptico, aunque la sanación se atribuye a la expulsión de un demonio.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 4:24 — «lunáticos»",
    "Mr 9:17-18 — paralelo con detalle del espíritu mudo"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Matt.17.15#09",
+  "ref_estandar": "Matt.17.15",
   "morfologia_tagnt": "V-PNI-3S",
   "dstrong": "G4583",
   "strong_tagnt": "G4583",
@@ -400,13 +438,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be epileptic",
-  "ref_estandar": "Matt.17.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.17.17",
+  "pos_tisch": 10,
   "strong": "G1294",
   "forma": "διεστραμμένη",
+  "lema": "διαστρέφω",
   "glosa_interlineal": "perversa",
   "rango_semantico": [
    "torcido, pervertido",
@@ -415,7 +457,7 @@
   "construccion": "Participio perfecto pasivo: «pervertida, torcida».",
   "sentido_en_contexto": "Jesús habla con tristeza e impaciencia de una generación «incrédula y torcida». Eco de Dt 32:5 (el cántico de Moisés).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 32:5 — «generación torcida y perversa»",
@@ -423,9 +465,9 @@
    "Hch 2:40 — «sed salvos de esta perversa generación»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Matt.17.17#10",
+  "ref_estandar": "Matt.17.17",
   "morfologia_tagnt": "V-RPP-VSF",
   "dstrong": "G1294",
   "strong_tagnt": "G1294",
@@ -441,13 +483,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pervert",
-  "ref_estandar": "Matt.17.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.17.20",
+  "pos_tisch": 17,
   "strong": "G2848",
   "forma": "κόκκον",
+  "lema": "κόκκος",
   "glosa_interlineal": "grano",
   "rango_semantico": [
    "grano, semilla pequeña"
@@ -455,7 +501,7 @@
   "construccion": "Acusativo: «un grano de mostaza».",
   "sentido_en_contexto": "La fe no se mide por su tamaño sino por su objeto: aunque sea pequeña como una mostaza, mueve montañas. «Mover montañas» es una hipérbole para lo imposible.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 17:6 — «si tuvierais fe como un grano de mostaza»",
@@ -463,9 +509,9 @@
    "Mt 21:21 — «si tuviereis fe… diréis a este monte»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "Matt.17.20#18",
+  "ref_estandar": "Matt.17.20",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G2848",
   "strong_tagnt": "G2848",
@@ -481,13 +527,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "seed",
-  "ref_estandar": "Matt.17.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.17.22",
+  "pos_tisch": 16,
   "strong": "G3860",
   "forma": "παραδίδοσθαι",
+  "lema": "παραδίδωμι",
   "glosa_interlineal": "ser entregado",
   "rango_semantico": [
    "entregar",
@@ -496,7 +546,7 @@
   "construccion": "Infinitivo presente pasivo, tras μέλλει: «está a punto de ser entregado».",
   "sentido_en_contexto": "Segundo anuncio de la pasión (el primero en 16:21). El verbo «entregar» es el mismo de Juan (4:12) y de Judas (10:4); «en manos de hombres» subraya la humillación.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 16:21 — primer anuncio",
@@ -504,9 +554,9 @@
    "Is 53:6 — «Jehová cargó en él el pecado de todos nosotros»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Matt.17.22#16",
+  "ref_estandar": "Matt.17.22",
   "morfologia_tagnt": "V-PPN",
   "dstrong": "G3860",
   "strong_tagnt": "G3860",
@@ -522,13 +572,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to deliver",
-  "ref_estandar": "Matt.17.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.17.24",
+  "pos_tisch": 9,
   "strong": "G1323",
   "forma": "δίδραχμα",
+  "lema": "δίδραχμον",
   "glosa_interlineal": "dos dracmas",
   "rango_semantico": [
    "didracma (impuesto anual del templo, medio siclo)"
@@ -536,17 +590,16 @@
   "construccion": "Acusativo plural: «el impuesto de dos dracmas».",
   "sentido_en_contexto": "Impuesto del templo de medio siclo (Éx 30:13) que todo judío adulto pagaba cada año. Los cobradores preguntan a Pedro si Jesús lo paga.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Éx 30:13-16 — el medio siclo",
    "Neh 10:32 — el tercio de siclo en tiempos de Nehemías"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.17.24#09",
+  "ref_estandar": "Matt.17.24",
   "morfologia_tagnt": "N-APN",
   "dstrong": "G1323",
   "strong_tagnt": "G1323",
@@ -562,13 +615,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "two-drachma",
-  "ref_estandar": "Matt.17.24"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.17.24",
+  "pos_tisch": 20,
   "strong": "G1323",
   "forma": "δίδραχμα",
+  "lema": "δίδραχμον",
   "glosa_interlineal": "dos dracmas",
   "rango_semantico": [
    "didracma (impuesto anual del templo, medio siclo)"
@@ -576,17 +634,16 @@
   "construccion": "Acusativo plural: «el impuesto de dos dracmas».",
   "sentido_en_contexto": "Impuesto del templo de medio siclo (Éx 30:13) que todo judío adulto pagaba cada año. Los cobradores preguntan a Pedro si Jesús lo paga.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Éx 30:13-16 — el medio siclo",
    "Neh 10:32 — el tercio de siclo en tiempos de Nehemías"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 20,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.17.24#21",
+  "ref_estandar": "Matt.17.24",
   "morfologia_tagnt": "N-APN",
   "dstrong": "G1323",
   "strong_tagnt": "G1323",
@@ -602,13 +659,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "two-drachma",
-  "ref_estandar": "Matt.17.24"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.17.26",
+  "pos_tisch": 11,
   "strong": "G1658",
   "forma": "ἐλεύθεροί",
+  "lema": "ἐλεύθερος",
   "glosa_interlineal": "libres",
   "rango_semantico": [
    "libre, exento"
@@ -616,7 +678,7 @@
   "construccion": "Adjetivo nominativo plural: «los hijos son libres».",
   "sentido_en_contexto": "Jesús argumenta: los reyes no cobran impuestos a sus hijos. Como Hijo, Jesús (y por extensión los suyos) está exento del impuesto del «templo de su Padre». Aun así lo pagará para no escandalizar.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 4:7 — «ya no eres esclavo, sino hijo»",
@@ -624,9 +686,9 @@
    "1 Co 9:19 — «siendo libre de todos, me hice siervo de todos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Matt.17.26#15",
+  "ref_estandar": "Matt.17.26",
   "morfologia_tagnt": "A-NPM",
   "dstrong": "G1658",
   "strong_tagnt": "G1658",
@@ -642,13 +704,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "free/freedom",
-  "ref_estandar": "Matt.17.26"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.17.27",
+  "pos_tisch": 4,
   "strong": "G4624",
   "forma": "σκανδαλίσωμεν",
+  "lema": "σκανδαλίζω",
   "glosa_interlineal": "escandalicemos",
   "rango_semantico": [
    "hacer tropezar, escandalizar"
@@ -656,7 +722,7 @@
   "construccion": "Subjuntivo aoristo activo, 1ª plural: «para no hacerles tropezar».",
   "sentido_en_contexto": "Jesús paga el impuesto aunque no estaba obligado, para no ofender. Principio de libertad que cede por amor.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 14:21 — «bueno es no comer carne… en que tu hermano tropiece»",
@@ -664,9 +730,9 @@
    "Mt 18:6 — «el que haga tropezar a uno de estos pequeños»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Matt.17.27#04",
+  "ref_estandar": "Matt.17.27",
   "morfologia_tagnt": "V-AAS-1P",
   "dstrong": "G4624",
   "strong_tagnt": "G4624",
@@ -682,7 +748,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to cause to stumble",
-  "ref_estandar": "Matt.17.27"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

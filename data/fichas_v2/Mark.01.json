@@ -1,8 +1,10 @@
 [
  {
   "ref": "Mark.1.1",
+  "pos_tisch": 1,
   "strong": "G746",
   "forma": "Ἀρχὴ",
+  "lema": "ἀρχή",
   "glosa_interlineal": "principio",
   "rango_semantico": [
    "principio, comienzo",
@@ -12,7 +14,7 @@
   "construccion": "Nominativo, sin verbo ni artículo: funciona como título de todo el libro.",
   "sentido_en_contexto": "Marcos abre sin prólogo: «principio del evangelio». Puede ser título de la obra entera, o del relato del Bautista, o del ministerio de Jesús. Evoca el «en el principio» de Gn 1:1.",
   "matiz": "Debate: ¿«principio» abarca solo los vv.1-13, todo el Evangelio, o es título con eco de Génesis (nueva creación)? El texto no lo decide.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": "Algunos manuscritos añaden «Hijo de Dios» al final del v.1 (υἱοῦ θεοῦ); otros lo omiten. Las versiones difieren según el texto base.",
   "otros_usos": [
    "Gn 1:1 — «en el principio»",
@@ -20,9 +22,9 @@
    "Fil 4:15 — «al principio del evangelio»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "Mark.1.1#01",
+  "ref_estandar": "Mark.1.1",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G0746",
   "strong_tagnt": "G746",
@@ -38,13 +40,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "beginning",
-  "ref_estandar": "Mark.1.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.1.1",
+  "pos_tisch": 3,
   "strong": "G2098",
   "forma": "εὐαγγελίου",
+  "lema": "εὐαγγέλιον",
   "glosa_interlineal": "evangelio",
   "rango_semantico": [
    "buena noticia",
@@ -54,7 +60,7 @@
   "construccion": "Genitivo: «del evangelio de Jesucristo».",
   "sentido_en_contexto": "Marcos es el primer texto cristiano que usa «evangelio» como inicio de un relato sobre Jesús. En griego, «evangelio» también era el anuncio de una victoria o del advenimiento de un emperador.",
   "matiz": "«De Jesucristo» puede ser genitivo objetivo (la buena noticia acerca de Jesús) o subjetivo (la que Jesús proclama). Probablemente ambos.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 1:14-15 — Jesús proclama «el evangelio de Dios»",
@@ -62,9 +68,9 @@
    "Is 52:7 — «el que trae buenas nuevas»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Mark.1.1#03",
+  "ref_estandar": "Mark.1.1",
   "morfologia_tagnt": "N-GSN",
   "dstrong": "G2098",
   "strong_tagnt": "G2098",
@@ -80,13 +86,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gospel",
-  "ref_estandar": "Mark.1.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.1.4",
+  "pos_tisch": 4,
   "strong": "G907",
   "forma": "βαπτίζων",
+  "lema": "βαπτίζω",
   "glosa_interlineal": "bautizando",
   "rango_semantico": [
    "sumergir, bautizar"
@@ -94,7 +104,7 @@
   "construccion": "Participio presente activo, con ἐγένετο: «fue Juan bautizando». Construcción perifrástica.",
   "sentido_en_contexto": "Marcos presenta a Juan por su actividad: bautizar y predicar un bautismo «de arrepentimiento para perdón de pecados».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 3:1-6 — paralelo",
@@ -102,9 +112,9 @@
    "Hch 13:24 — «Juan había predicado antes… el bautismo de arrepentimiento»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Mark.1.4#04",
+  "ref_estandar": "Mark.1.4",
   "morfologia_tagnt": "V-PAP-NSM",
   "dstrong": "G0907",
   "strong_tagnt": "G907",
@@ -120,13 +130,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to baptize",
-  "ref_estandar": "Mark.1.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.1.4",
+  "pos_tisch": 13,
   "strong": "G859",
   "forma": "ἄφεσιν",
+  "lema": "ἄφεσις",
   "glosa_interlineal": "perdón",
   "rango_semantico": [
    "perdón, remisión",
@@ -135,16 +149,16 @@
   "construccion": "εἰς + acusativo: «para perdón de pecados».",
   "sentido_en_contexto": "Propósito del bautismo de Juan: arrepentimiento que conduce al perdón. Es una frase característica de Marcos y Lucas.",
   "matiz": "Se discute cómo concebir la relación entre el bautismo de Juan y el perdón: ¿el rito produce perdón, o lo simboliza y anticipa lo que Dios concede al arrepentido? El texto no precisa.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 1:77 — «para dar conocimiento de salvación… en el perdón de sus pecados»",
    "Hch 2:38 — «para perdón de los pecados»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Mark.1.4#13",
+  "ref_estandar": "Mark.1.4",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G0859",
   "strong_tagnt": "G859",
@@ -160,13 +174,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "forgiveness",
-  "ref_estandar": "Mark.1.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.1.10",
+  "pos_tisch": 8,
   "strong": "G4977",
   "forma": "σχιζομένους",
+  "lema": "σχίζω",
   "glosa_interlineal": "rasgándose",
   "rango_semantico": [
    "rasgar, partir"
@@ -174,7 +192,7 @@
   "construccion": "Participio presente pasivo: «viendo los cielos que se rasgaban».",
   "sentido_en_contexto": "Marcos usa σχίζω («rasgar»), más fuerte que «abrirse» en Mateo. El mismo verbo se usa al rasgarse el velo del templo (15:38): al principio y al final, Dios irrumpe.",
   "matiz": "Algunos ven en esta repetición un marco (inclusión) del Evangelio: el cielo se rasga en el bautismo y el velo en la cruz; ambos momentos confirman a Jesús como Hijo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 15:38 — «el velo del templo se rasgó (ἐσχίσθη)»",
@@ -182,9 +200,9 @@
    "Jn 1:51 — «verán el cielo abierto»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Mark.1.10#08",
+  "ref_estandar": "Mark.1.10",
   "morfologia_tagnt": "V-PPP-APM",
   "dstrong": "G4977",
   "strong_tagnt": "G4977",
@@ -200,13 +218,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to split",
-  "ref_estandar": "Mark.1.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.1.11",
+  "pos_tisch": 15,
   "strong": "G2106",
   "forma": "εὐδόκησα",
+  "lema": "εὐδοκέω",
   "glosa_interlineal": "me complazco",
   "rango_semantico": [
    "complacerse, estar contento",
@@ -215,7 +237,7 @@
   "construccion": "Aoristo indicativo activo, 1ª singular.",
   "sentido_en_contexto": "La voz celestial combina Sal 2:7 (Hijo) e Is 42:1 (en quien me complazco). En Marcos se dirige a Jesús («tú eres»), no a la gente como en Mateo («este es»).",
   "matiz": "Marcos tiene «Tú eres mi Hijo amado»; Mateo, «Este es mi Hijo amado». Se discute si la diferencia indica un momento privado para Jesús (Marcos) o público (Mateo).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 2:7 — «mi hijo eres tú»",
@@ -223,9 +245,9 @@
    "Mt 3:17 — paralelo"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Mark.1.11#16",
+  "ref_estandar": "Mark.1.11",
   "morfologia_tagnt": "V-AAI-1S",
   "dstrong": "G2106",
   "strong_tagnt": "G2106",
@@ -241,13 +263,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to delight",
-  "ref_estandar": "Mark.1.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.1.12",
+  "pos_tisch": 6,
   "strong": "G1544",
   "forma": "ἐκβάλλει",
+  "lema": "ἐκβάλλω",
   "glosa_interlineal": "impulsa",
   "rango_semantico": [
    "echar fuera, expulsar",
@@ -256,16 +282,16 @@
   "construccion": "Presente indicativo activo, 3ª singular: «lo empuja (el Espíritu)».",
   "sentido_en_contexto": "Verbo más fuerte que el «fue llevado» de Mateo y Lucas: el Espíritu lo «echa» al desierto. Es el mismo verbo de las expulsiones de demonios. Marcos subraya la urgencia.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 4:1 — «fue llevado (ἀνήχθη)»",
    "Lc 4:1 — «fue llevado (ἤγετο)»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Mark.1.12#06",
+  "ref_estandar": "Mark.1.12",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G1544",
   "strong_tagnt": "G1544",
@@ -281,13 +307,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to expel",
-  "ref_estandar": "Mark.1.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.1.13",
+  "pos_tisch": 16,
   "strong": "G2342",
   "forma": "θηρίων",
+  "lema": "θηρίον",
   "glosa_interlineal": "fieras",
   "rango_semantico": [
    "animal salvaje, fiera"
@@ -295,7 +325,7 @@
   "construccion": "μετὰ + genitivo: «con las fieras».",
   "sentido_en_contexto": "Detalle exclusivo de Marcos: Jesús estuvo entre animales salvajes, mientras los ángeles le servían. Puede evocar el peligro del desierto o una paz paradisíaca (Is 11:6-9; Gn 1-2).",
   "matiz": "Debate: ¿las fieras son un peligro (desierto hostil) o signo de nueva creación (paz con los animales, nuevo Adán)? Ambas lecturas se defienden.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 11:6-9 — convivencia en el reino mesiánico",
@@ -303,9 +333,9 @@
    "Os 2:18 — «haré para ti pacto con las bestias del campo»"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Mark.1.13#17",
+  "ref_estandar": "Mark.1.13",
   "morfologia_tagnt": "N-GPN",
   "dstrong": "G2342",
   "strong_tagnt": "G2342",
@@ -321,13 +351,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wild animal",
-  "ref_estandar": "Mark.1.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.1.15",
+  "pos_tisch": 2,
   "strong": "G4137",
   "forma": "πεπλήρωται",
+  "lema": "πληρόω",
   "glosa_interlineal": "se ha cumplido",
   "rango_semantico": [
    "llenar, cumplir"
@@ -335,7 +369,7 @@
   "construccion": "Perfecto indicativo pasivo, 3ª singular: «se ha cumplido (y permanece cumplido)».",
   "sentido_en_contexto": "El tiempo (καιρός) ha llegado a su plenitud: es el momento fijado por Dios, no el simple paso del tiempo. El perfecto indica efecto presente.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 4:4 — «cuando vino el cumplimiento del tiempo»",
@@ -343,9 +377,9 @@
    "Dn 7:22 — «llegó el tiempo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Mark.1.15#04",
+  "ref_estandar": "Mark.1.15",
   "morfologia_tagnt": "V-RPI-3S",
   "dstrong": "G4137",
   "strong_tagnt": "G4137",
@@ -361,13 +395,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to fulfill",
-  "ref_estandar": "Mark.1.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.1.15",
+  "pos_tisch": 13,
   "strong": "G4100",
   "forma": "πιστεύετε",
+  "lema": "πιστεύω",
   "glosa_interlineal": "creed",
   "rango_semantico": [
    "creer, confiar"
@@ -375,16 +413,13 @@
   "construccion": "Imperativo presente activo, 2ª plural: «creed (continuamente) en el evangelio».",
   "sentido_en_contexto": "Marcos añade «creed en el evangelio» a «arrepentíos»: la respuesta tiene dos aspectos, volverse y confiar. «En el evangelio» es una construcción poco común (ἐν), que puede significar «en la esfera de» la buena noticia.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Hch 20:21 — «arrepentimiento para con Dios, y… fe en nuestro Señor Jesucristo»",
-   "Mt 4:17 — solo «arrepentíos»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Hch 20:21 — «arrepentimiento para con Dios, y… fe en nuestro Señor Jesucristo»\nMt 4:17 — solo «arrepentíos»",
   "otros_usos": "medio",
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Mark.1.15#15",
+  "ref_estandar": "Mark.1.15",
   "morfologia_tagnt": "V-PAM-2P",
   "dstrong": "G4100",
   "strong_tagnt": "G4100",
@@ -400,13 +435,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to trust (in)",
-  "ref_estandar": "Mark.1.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.1.17",
+  "pos_tisch": 13,
   "strong": "G231",
   "forma": "ἁλιεῖς",
+  "lema": "ἁλιεύς",
   "glosa_interlineal": "pescadores",
   "rango_semantico": [
    "pescador"
@@ -414,7 +453,7 @@
   "construccion": "Predicativo: «os haré llegar a ser pescadores de hombres».",
   "sentido_en_contexto": "Jesús llama a sus primeros discípulos con una imagen de su oficio. «Haré que seáis» marca que él los transforma.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 4:19 — paralelo",
@@ -422,9 +461,9 @@
    "Jer 16:16 — «enviaré muchos pescadores»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "strong",
   "tagnt": "Mark.1.17#13",
+  "ref_estandar": "Mark.1.17",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G0231",
   "strong_tagnt": "G231",
@@ -440,13 +479,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fisherman",
-  "ref_estandar": "Mark.1.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.1.18",
+  "pos_tisch": 2,
   "strong": "G2112",
   "forma": "εὐθὺς",
+  "lema": "εὐθέως",
   "glosa_interlineal": "en seguida",
   "rango_semantico": [
    "inmediatamente, al instante",
@@ -455,16 +498,16 @@
   "construccion": "Adverbio. Aparece unas 40 veces en Marcos.",
   "sentido_en_contexto": "Marca registrada del estilo de Marcos: transmite rapidez y urgencia en la narración. Aquí: dejan las redes «al instante».",
   "matiz": "Aunque se suele traducir «luego/enseguida», en muchos casos funciona como conector narrativo («y entonces») más que como indicación estricta de inmediatez. El contexto decide.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 1:10, 12, 20, 21, 23 — repetición en este mismo capítulo",
    "Mr 1:42 — la lepra desapareció «al instante»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Mark.1.18#02",
+  "ref_estandar": "Mark.1.18",
   "morfologia_tagnt": "ADV",
   "dstrong": "G2112",
   "strong_tagnt": "G2112",
@@ -480,13 +523,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "immediately",
-  "ref_estandar": "Mark.1.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.1.20",
+  "pos_tisch": 16,
   "strong": "G3411",
   "forma": "μισθωτῶν",
+  "lema": "μισθωτός",
   "glosa_interlineal": "jornaleros",
   "rango_semantico": [
    "asalariado, jornalero"
@@ -494,16 +541,16 @@
   "construccion": "Genitivo plural: «con los jornaleros».",
   "sentido_en_contexto": "Detalle de Marcos: Zebedeo tenía empleados, lo que sugiere que la familia no era pobre. Los hijos dejan al padre y a la empresa familiar.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 10:12-13 — «el asalariado (μισθωτός)»",
    "Lc 15:17 — «los jornaleros de mi padre»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Mark.1.20#16",
+  "ref_estandar": "Mark.1.20",
   "morfologia_tagnt": "N-GPM",
   "dstrong": "G3411",
   "strong_tagnt": "G3411",
@@ -519,13 +566,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hired worker",
-  "ref_estandar": "Mark.1.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.1.22",
+  "pos_tisch": 12,
   "strong": "G1849",
   "forma": "ἐξουσίαν",
+  "lema": "ἐξουσία",
   "glosa_interlineal": "autoridad",
   "rango_semantico": [
    "autoridad, potestad"
@@ -533,7 +584,7 @@
   "construccion": "Acusativo: «como quien tiene autoridad».",
   "sentido_en_contexto": "Primera reacción de asombro ante Jesús en Marcos: no por un milagro sino por su enseñanza con autoridad propia.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 7:29 — paralelo en el Sermón del Monte",
@@ -541,9 +592,9 @@
    "Mr 11:28 — «¿con qué autoridad haces estas cosas?»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Mark.1.22#12",
+  "ref_estandar": "Mark.1.22",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G1849",
   "strong_tagnt": "G1849",
@@ -559,13 +610,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "authority",
-  "ref_estandar": "Mark.1.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.1.23",
+  "pos_tisch": 11,
   "strong": "G169",
   "forma": "ἀκαθάρτῳ",
+  "lema": "ἀκάθαρτος",
   "glosa_interlineal": "inmundo",
   "rango_semantico": [
    "impuro, inmundo"
@@ -573,16 +628,13 @@
   "construccion": "Adjetivo dativo: «un hombre con espíritu inmundo».",
   "sentido_en_contexto": "Primer exorcismo de Marcos, en una sinagoga: el espíritu inmundo reconoce a Jesús como «el Santo de Dios».",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Lc 4:33 — paralelo",
-   "Mr 5:2 — otro endemoniado con espíritu inmundo"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Lc 4:33 — paralelo\nMr 5:2 — otro endemoniado con espíritu inmundo",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Mark.1.23#11",
+  "ref_estandar": "Mark.1.23",
   "morfologia_tagnt": "A-DSN",
   "dstrong": "G0169",
   "strong_tagnt": "G169",
@@ -598,13 +650,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unclean",
-  "ref_estandar": "Mark.1.23"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.1.24",
+  "pos_tisch": 16,
   "strong": "G40",
   "forma": "ἅγιος",
+  "lema": "ἅγιος",
   "glosa_interlineal": "Santo",
   "rango_semantico": [
    "santo, apartado para Dios",
@@ -613,7 +669,7 @@
   "construccion": "Adjetivo sustantivado: «el Santo de Dios».",
   "sentido_en_contexto": "Los espíritus inmundos conocen la identidad de Jesús antes que los hombres. «El Santo de Dios» es un título mesiánico poco frecuente.",
   "matiz": "Los estudiosos hablan del «secreto mesiánico» en Marcos: Jesús manda callar a los demonios (v.25) para que no revelen su identidad antes de tiempo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 6:69 — «tú eres el Santo de Dios»",
@@ -621,9 +677,9 @@
    "Hch 3:14 — «negasteis al Santo y al Justo»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Mark.1.24#17",
+  "ref_estandar": "Mark.1.24",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G0040G",
   "strong_tagnt": "G40",
@@ -639,13 +695,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "holy",
-  "ref_estandar": "Mark.1.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.1.25",
+  "pos_tisch": 6,
   "strong": "G5392",
   "forma": "φιμώθητι",
+  "lema": "φιμόω",
   "glosa_interlineal": "cállate",
   "rango_semantico": [
    "amordazar, hacer callar",
@@ -654,16 +714,13 @@
   "construccion": "Imperativo aoristo pasivo, 2ª singular: «¡cállate!».",
   "sentido_en_contexto": "Orden breve y enérgica, literalmente «quédate amordazado». Jesús no quiere el testimonio de los demonios.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mr 4:39 — «calla, enmudece» al mar (mismo verbo)",
-   "Mt 22:12 — el invitado «enmudeció»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mr 4:39 — «calla, enmudece» al mar (mismo verbo)\nMt 22:12 — el invitado «enmudeció»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Mark.1.25#07",
+  "ref_estandar": "Mark.1.25",
   "morfologia_tagnt": "V-APM-2S",
   "dstrong": "G5392",
   "strong_tagnt": "G5392",
@@ -679,13 +736,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to muzzle",
-  "ref_estandar": "Mark.1.25"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.1.27",
+  "pos_tisch": 2,
   "strong": "G2284",
   "forma": "ἐθαμβήθησαν",
+  "lema": "θαμβέω",
   "glosa_interlineal": "se asombraron",
   "rango_semantico": [
    "asombrarse, quedar atónito",
@@ -694,7 +755,7 @@
   "construccion": "Aoristo indicativo pasivo, 3ª plural.",
   "sentido_en_contexto": "Término característico de Marcos para el asombro que mezcla maravilla y temor. Aparece en 1:27; 10:24, 32; 14:33; 16:5-6.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 10:32 — «iban asombrados»",
@@ -702,9 +763,9 @@
    "Mr 16:5 — las mujeres ante el joven"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Mark.1.27#02",
+  "ref_estandar": "Mark.1.27",
   "morfologia_tagnt": "V-API-3P",
   "dstrong": "G2284",
   "strong_tagnt": "G2284",
@@ -720,13 +781,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to astonish",
-  "ref_estandar": "Mark.1.27"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.1.35",
+  "pos_tisch": 3,
   "strong": "G1773",
   "forma": "ἔννυχα",
+  "lema": "ἔννυχον",
   "glosa_interlineal": "de madrugada",
   "rango_semantico": [
    "de noche, muy temprano"
@@ -734,16 +799,16 @@
   "construccion": "Adverbio: «muy de noche».",
   "sentido_en_contexto": "Jesús se levanta antes de amanecer para orar en un lugar desierto. Marcos subraya su vida de oración antes de seguir con la actividad pública.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 5:16 — «se apartaba a lugares desiertos, y oraba»",
    "Lc 6:12 — «pasó la noche orando a Dios»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Mark.1.35#03",
+  "ref_estandar": "Mark.1.35",
   "morfologia_tagnt": "ADV",
   "dstrong": "G1773",
   "strong_tagnt": "G1773",
@@ -759,13 +824,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "at night",
-  "ref_estandar": "Mark.1.35"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.1.40",
+  "pos_tisch": 5,
   "strong": "G3015",
   "forma": "λεπρὸς",
+  "lema": "λεπρός",
   "glosa_interlineal": "leproso",
   "rango_semantico": [
    "leproso"
@@ -773,17 +842,13 @@
   "construccion": "Nominativo: «un leproso».",
   "sentido_en_contexto": "El leproso ruega de rodillas: «si quieres, puedes limpiarme». Su fe está en el poder de Jesús, y la duda solo en su voluntad.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mt 8:2 — paralelo",
-   "Lc 5:12 — paralelo",
-   "Lv 13-14 — normas sobre la lepra"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mt 8:2 — paralelo\nLc 5:12 — paralelo\nLv 13-14 — normas sobre la lepra",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Mark.1.40#05",
+  "ref_estandar": "Mark.1.40",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G3015",
   "strong_tagnt": "G3015",
@@ -799,13 +864,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "leprous",
-  "ref_estandar": "Mark.1.40"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.1.41",
+  "pos_tisch": 2,
   "strong": "G4697",
   "forma": "σπλαγχνισθεὶς",
+  "lema": "σπλαγχνίζομαι",
   "glosa_interlineal": "compadecido",
   "rango_semantico": [
    "compadecerse, sentir compasión"
@@ -813,16 +882,16 @@
   "construccion": "Participio aoristo pasivo (deponente): «movido a compasión».",
   "sentido_en_contexto": "Algunos manuscritos antiguos (Codex Bezae y algunos latinos) dicen «enojado» (ὀργισθείς) en lugar de «compadecido». Es una variante muy discutida: la lectura más difícil («enojado») podría ser la original.",
   "matiz": "Se debate qué lectura es original. Si fuera «enojado», se discute con quién: contra la enfermedad, contra la situación, o contra la duda («si quieres»). La mayoría de manuscritos dice «compadecido».",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": "Algunas ediciones críticas y versiones notan la variante «airado»; la lectura mayoritaria es «compadecido».",
   "otros_usos": [
    "Mr 1:43 — «le encargó rigurosamente» (ἐμβριμησάμενος, de enojo)",
    "Mr 3:5 — Jesús «con enojo (ὀργῆς)»"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Mark.1.41#04",
+  "ref_estandar": "Mark.1.41",
   "morfologia_tagnt": "V-AOP-NSM",
   "dstrong": "G4697",
   "strong_tagnt": "G4697",
@@ -839,13 +908,17 @@
    "SBL"
   ],
   "variante": true,
-  "glosa_tagnt": "to pity",
-  "ref_estandar": "Mark.1.41"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.1.43",
+  "pos_tisch": 2,
   "strong": "G1690",
   "forma": "ἐμβριμησάμενος",
+  "lema": "ἐμβριμάομαι",
   "glosa_interlineal": "advirtiéndole severamente",
   "rango_semantico": [
    "advertir con severidad",
@@ -854,16 +927,16 @@
   "construccion": "Participio aoristo medio: «habiéndole advertido con dureza».",
   "sentido_en_contexto": "Verbo fuerte (literalmente «resoplar»): Jesús despide al leproso sanado con una orden severa de no decir nada.",
   "matiz": "Se discute por qué: evitar que lo vieran como sanador-espectáculo, cumplir el rito ante el sacerdote primero, o mantener el «secreto mesiánico». El leproso desobedece (v.45).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 9:30 — mismo verbo con los ciegos",
    "Jn 11:33 — «se estremeció en espíritu»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Mark.1.43#02",
+  "ref_estandar": "Mark.1.43",
   "morfologia_tagnt": "V-ADP-NSM",
   "dstrong": "G1690",
   "strong_tagnt": "G1690",
@@ -879,13 +952,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be agitated",
-  "ref_estandar": "Mark.1.43"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Mark.1.45",
+  "pos_tisch": 8,
   "strong": "G1310",
   "forma": "διαφημίζειν",
+  "lema": "διαφημίζω",
   "glosa_interlineal": "divulgar",
   "rango_semantico": [
    "difundir, hacer pública una noticia"
@@ -893,16 +970,13 @@
   "construccion": "Infinitivo presente activo: «a divulgar el asunto».",
   "sentido_en_contexto": "El sanado desobedece y publica lo ocurrido; como resultado, Jesús ya no puede entrar abiertamente en las ciudades. El mismo verbo aparece en Mt 9:31 con ciegos que desobedecen.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mt 9:31 — «divulgaron la fama de él»",
-   "Mr 7:36 — «cuanto más les mandaba, tanto más lo divulgaban»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mt 9:31 — «divulgaron la fama de él»\nMr 7:36 — «cuanto más les mandaba, tanto más lo divulgaban»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Mark.1.45#08",
+  "ref_estandar": "Mark.1.45",
   "morfologia_tagnt": "V-PAN",
   "dstrong": "G1310",
   "strong_tagnt": "G1310",
@@ -918,7 +992,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to publish abroad",
-  "ref_estandar": "Mark.1.45"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

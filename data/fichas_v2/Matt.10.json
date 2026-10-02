@@ -1,8 +1,10 @@
 [
  {
   "ref": "Matt.10.1",
+  "pos_tisch": 2,
   "strong": "G4341",
   "forma": "προσκαλεσάμενος",
+  "lema": "προσκαλέομαι",
   "glosa_interlineal": "habiendo llamado",
   "rango_semantico": [
    "llamar a sí, convocar"
@@ -10,16 +12,16 @@
   "construccion": "Participio aoristo medio: «habiendo convocado». El medio indica que los llama hacia sí.",
   "sentido_en_contexto": "Jesús convoca a los doce: inicio del envío misionero.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 15:32 — «llamó a sus discípulos»",
    "Mr 3:13 — «llamó a los que él quiso»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Matt.10.1#02",
+  "ref_estandar": "Matt.10.1",
   "morfologia_tagnt": "V-ADP-NSM",
   "dstrong": "G4341",
   "strong_tagnt": "G4341",
@@ -35,13 +37,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to call to/summon",
-  "ref_estandar": "Matt.10.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.2",
+  "pos_tisch": 4,
   "strong": "G652",
   "forma": "ἀποστόλων",
+  "lema": "ἀπόστολος",
   "glosa_interlineal": "apóstoles",
   "rango_semantico": [
    "enviado, mensajero",
@@ -50,7 +56,7 @@
   "construccion": "Genitivo plural, con δώδεκα: «de los doce apóstoles».",
   "sentido_en_contexto": "Única vez que Mateo usa «apóstoles»: los doce son enviados con la autoridad de quien los envía. El término destaca la misión, no un rango.",
   "matiz": "«Apóstol» viene de ἀποστέλλω («enviar»). En el NT designa tanto a los doce como a otros enviados (Bernabé, Pablo).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 6:13 — «escogió a doce, a los cuales llamó apóstoles»",
@@ -58,9 +64,9 @@
    "Ro 1:1 — «Pablo, apóstol»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Matt.10.2#04",
+  "ref_estandar": "Matt.10.2",
   "morfologia_tagnt": "N-GPM",
   "dstrong": "G0652",
   "strong_tagnt": "G652",
@@ -76,13 +82,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "apostle",
-  "ref_estandar": "Matt.10.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.4",
+  "pos_tisch": 3,
   "strong": "G2581",
   "forma": "Καναναῖος",
+  "lema": "Κανανίτης",
   "glosa_interlineal": "cananista",
   "rango_semantico": [
    "cananeo (o celote, del arameo qanana)"
@@ -90,16 +100,16 @@
   "construccion": "Nominativo, aposición de «Simón».",
   "sentido_en_contexto": "Probablemente del arameo qan'an, «celoso»: Simón el Zelote (Lc 6:15). No significa «de Caná» ni «cananeo» étnico.",
   "matiz": "Se discute si «celote» designa al partido nacionalista o solo a un temperamento celoso por la Ley.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": "RVR: «cananista»; otras versiones: «el Zelote» o «el Cananeo». La palabra viene del arameo para «celoso».",
   "otros_usos": [
    "Lc 6:15 — «Simón llamado Zelotes»",
    "Hch 1:13 — «Simón el Zelote»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Matt.10.4#03",
+  "ref_estandar": "Matt.10.4",
   "morfologia_tagnt": "N-NSM-T",
   "dstrong": "G2581",
   "strong_tagnt": "G2581",
@@ -115,13 +125,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Zealot",
-  "ref_estandar": "Matt.10.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.4",
+  "pos_tisch": 10,
   "strong": "G3860",
   "forma": "παραδοὺς",
+  "lema": "παραδίδωμι",
   "glosa_interlineal": "entregó",
   "rango_semantico": [
    "entregar",
@@ -130,7 +144,7 @@
   "construccion": "Participio aoristo activo: «el que lo entregó».",
   "sentido_en_contexto": "Mateo adelanta el destino de Judas desde su presentación. El verbo es el mismo que se usa para Juan Bautista (4:12) y para Jesús (17:22).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 26:15 — «¿qué me queréis dar, y yo os lo entregaré?»",
@@ -138,9 +152,9 @@
    "Mt 17:22 — «el Hijo del Hombre será entregado»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Matt.10.4#10",
+  "ref_estandar": "Matt.10.4",
   "morfologia_tagnt": "V-2AAP-NSM",
   "dstrong": "G3860",
   "strong_tagnt": "G3860",
@@ -156,13 +170,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to deliver",
-  "ref_estandar": "Matt.10.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.5",
+  "pos_tisch": 12,
   "strong": "G1484",
   "forma": "ἐθνῶν",
+  "lema": "ἔθνος",
   "glosa_interlineal": "gentiles",
   "rango_semantico": [
    "pueblo, nación",
@@ -171,7 +189,7 @@
   "construccion": "ὁδὸν ἐθνῶν: «camino de gentiles»; genitivo de dirección.",
   "sentido_en_contexto": "Misión limitada, por ahora, a Israel. Después de la resurrección el alcance será universal (Mt 28:19).",
   "matiz": "Se debate cómo conciliar esta restricción con la misión a las naciones (28:19). Muchos la ven como una etapa del plan, no una contradicción.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 15:24 — «no soy enviado sino a las ovejas perdidas de la casa de Israel»",
@@ -179,9 +197,9 @@
    "Hch 1:8 — «hasta lo último de la tierra»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Matt.10.5#12",
+  "ref_estandar": "Matt.10.5",
   "morfologia_tagnt": "N-GPN",
   "dstrong": "G1484",
   "strong_tagnt": "G1484",
@@ -197,13 +215,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Gentile nation",
-  "ref_estandar": "Matt.10.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.6",
+  "pos_tisch": 8,
   "strong": "G622",
   "forma": "ἀπολωλότα",
+  "lema": "ἀπόλλυμι",
   "glosa_interlineal": "perdidas",
   "rango_semantico": [
    "perderse, perecer",
@@ -212,7 +234,7 @@
   "construccion": "Participio perfecto activo, neutro plural: «que se han perdido». El perfecto indica estado permanente.",
   "sentido_en_contexto": "«Ovejas perdidas» describe a Israel sin pastor (cf. 9:36). La misión es de rescate, no de condena.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 15:24 — «ovejas perdidas de la casa de Israel»",
@@ -220,9 +242,9 @@
    "Ez 34:16 — «buscaré la perdida»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Matt.10.6#08",
+  "ref_estandar": "Matt.10.6",
   "morfologia_tagnt": "V-2RAP-APN",
   "dstrong": "G0622",
   "strong_tagnt": "G622",
@@ -238,13 +260,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to destroy",
-  "ref_estandar": "Matt.10.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.8",
+  "pos_tisch": 9,
   "strong": "G1432",
   "forma": "δωρεὰν",
+  "lema": "δωρεάν",
   "glosa_interlineal": "de gracia",
   "rango_semantico": [
    "gratuitamente, sin pago",
@@ -253,7 +279,7 @@
   "construccion": "Adverbio: «gratis».",
   "sentido_en_contexto": "Principio del ministerio: lo recibido gratis se da gratis. Es una advertencia contra el lucro del ministerio.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 3:24 — «justificados gratuitamente por su gracia»",
@@ -261,10 +287,9 @@
    "Hch 8:20 — Simón el mago quería comprar el don de Dios"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.10.8#09",
+  "ref_estandar": "Matt.10.8",
   "morfologia_tagnt": "ADV",
   "dstrong": "G1432",
   "strong_tagnt": "G1432",
@@ -280,13 +305,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "freely",
-  "ref_estandar": "Matt.10.8"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.8",
+  "pos_tisch": 11,
   "strong": "G1432",
   "forma": "δωρεὰν",
+  "lema": "δωρεάν",
   "glosa_interlineal": "de gracia",
   "rango_semantico": [
    "gratuitamente, sin pago",
@@ -295,7 +325,7 @@
   "construccion": "Adverbio: «gratis».",
   "sentido_en_contexto": "Principio del ministerio: lo recibido gratis se da gratis. Es una advertencia contra el lucro del ministerio.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 3:24 — «justificados gratuitamente por su gracia»",
@@ -303,10 +333,9 @@
    "Hch 8:20 — Simón el mago quería comprar el don de Dios"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.10.8#11",
+  "ref_estandar": "Matt.10.8",
   "morfologia_tagnt": "ADV",
   "dstrong": "G1432",
   "strong_tagnt": "G1432",
@@ -322,13 +351,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "freely",
-  "ref_estandar": "Matt.10.8"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.9",
+  "pos_tisch": 2,
   "strong": "G2932",
   "forma": "κτήσησθε",
+  "lema": "κτάομαι",
   "glosa_interlineal": "os proveáis",
   "rango_semantico": [
    "adquirir, procurar",
@@ -337,16 +371,16 @@
   "construccion": "Subjuntivo aoristo medio con μή: «no os procuréis».",
   "sentido_en_contexto": "Instrucción de ir ligeros, confiando en la provisión de Dios y en la hospitalidad de quienes los reciban.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 9:3 — «no toméis nada para el camino»",
    "Lc 21:19 — «con vuestra paciencia ganaréis (κτήσασθε) vuestras almas»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Matt.10.9#02",
+  "ref_estandar": "Matt.10.9",
   "morfologia_tagnt": "V-ADS-2P",
   "dstrong": "G2932",
   "strong_tagnt": "G2932",
@@ -362,13 +396,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to posses",
-  "ref_estandar": "Matt.10.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.10",
+  "pos_tisch": 12,
   "strong": "G514",
   "forma": "ἄξιος",
+  "lema": "ἄξιος",
   "glosa_interlineal": "digno",
   "rango_semantico": [
    "digno, merecedor",
@@ -377,7 +415,7 @@
   "construccion": "Adjetivo nominativo, predicado: «digno es el obrero de su alimento».",
   "sentido_en_contexto": "Principio de sustento: los obreros del evangelio merecen ser sostenidos. Vinculado al v.8 sin contradecirlo: no se vende el mensaje, pero se acepta el sustento.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 10:7 — «el obrero es digno de su salario»",
@@ -385,9 +423,9 @@
    "1 Ti 5:18 — «digno es el obrero de su salario»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Matt.10.10#12",
+  "ref_estandar": "Matt.10.10",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G0514",
   "strong_tagnt": "G514",
@@ -403,13 +441,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "worthy",
-  "ref_estandar": "Matt.10.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.13",
+  "pos_tisch": 10,
   "strong": "G1515",
   "forma": "εἰρήνη",
+  "lema": "εἰρήνη",
   "glosa_interlineal": "paz",
   "rango_semantico": [
    "paz, tranquilidad",
@@ -419,7 +461,7 @@
   "construccion": "Nominativo singular, sujeto de «venga».",
   "sentido_en_contexto": "Saludo de paz como bendición real: si la casa es digna, la paz reposa; si no, vuelve a ellos. Es un deseo que tiene efecto.",
   "matiz": "Se discute si la «paz» es un simple saludo o una bendición con eficacia propia. El texto sugiere lo segundo: «venga… vuelva».",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 10:5-6 — paralelo «hijo de paz»",
@@ -427,10 +469,9 @@
    "Ro 5:1 — «tenemos paz para con Dios»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.10.13#10",
+  "ref_estandar": "Matt.10.13",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G1515",
   "strong_tagnt": "G1515",
@@ -446,13 +487,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "peace",
-  "ref_estandar": "Matt.10.13"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.13",
+  "pos_tisch": 20,
   "strong": "G1515",
   "forma": "εἰρήνη",
+  "lema": "εἰρήνη",
   "glosa_interlineal": "paz",
   "rango_semantico": [
    "paz, tranquilidad",
@@ -462,7 +508,7 @@
   "construccion": "Nominativo singular, sujeto de «venga».",
   "sentido_en_contexto": "Saludo de paz como bendición real: si la casa es digna, la paz reposa; si no, vuelve a ellos. Es un deseo que tiene efecto.",
   "matiz": "Se discute si la «paz» es un simple saludo o una bendición con eficacia propia. El texto sugiere lo segundo: «venga… vuelva».",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 10:5-6 — paralelo «hijo de paz»",
@@ -470,10 +516,9 @@
    "Ro 5:1 — «tenemos paz para con Dios»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 20,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.10.13#20",
+  "ref_estandar": "Matt.10.13",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G1515",
   "strong_tagnt": "G1515",
@@ -489,13 +534,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "peace",
-  "ref_estandar": "Matt.10.13"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.14",
+  "pos_tisch": 20,
   "strong": "G1621",
   "forma": "ἐκτινάξατε",
+  "lema": "ἐκτινάσσω",
   "glosa_interlineal": "sacudid",
   "rango_semantico": [
    "sacudir"
@@ -503,16 +553,16 @@
   "construccion": "Imperativo aoristo activo, 2ª plural.",
   "sentido_en_contexto": "Gesto judío: al salir de tierra pagana se sacudía el polvo. Aquí se aplica a ciudades judías que rechazan el mensaje: un signo de que quedan fuera.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 13:51 — «sacudiendo el polvo de sus pies»",
    "Lc 9:5 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 20,
   "alineacion": "forma",
   "tagnt": "Matt.10.14#20",
+  "ref_estandar": "Matt.10.14",
   "morfologia_tagnt": "V-AAM-2P",
   "dstrong": "G1621",
   "strong_tagnt": "G1621",
@@ -528,13 +578,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to shake out/off",
-  "ref_estandar": "Matt.10.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.15",
+  "pos_tisch": 12,
   "strong": "G2920",
   "forma": "κρίσεως",
+  "lema": "κρίσις",
   "glosa_interlineal": "juicio",
   "rango_semantico": [
    "juicio, decisión judicial",
@@ -544,7 +598,7 @@
   "construccion": "ἐν ἡμέρᾳ κρίσεως: «en el día del juicio».",
   "sentido_en_contexto": "Referencia al juicio final: Sodoma y Gomorra serán tratadas con más benevolencia que quienes rechazan el mensaje del Reino.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 11:22 — «para Tiro y Sidón será más tolerable»",
@@ -552,9 +606,9 @@
    "Jud 7 — «Sodoma y Gomorra… sufriendo el castigo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Matt.10.15#12",
+  "ref_estandar": "Matt.10.15",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G2920",
   "strong_tagnt": "G2920",
@@ -570,13 +624,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "judgment",
-  "ref_estandar": "Matt.10.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.16",
+  "pos_tisch": 12,
   "strong": "G5429",
   "forma": "φρόνιμοι",
+  "lema": "φρόνιμος",
   "glosa_interlineal": "prudentes",
   "rango_semantico": [
    "sensato, prudente"
@@ -584,16 +642,16 @@
   "construccion": "Adjetivo nominativo plural, predicado: «sed prudentes».",
   "sentido_en_contexto": "Prudencia astuta (como la serpiente) combinada con integridad (como la paloma). En medio de persecución, ni ingenuidad ni malicia.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 3:1 — «la serpiente era astuta (LXX: φρονιμώτατος)»",
    "Ro 16:19 — «sabios para el bien, e ingenuos para el mal»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Matt.10.16#12",
+  "ref_estandar": "Matt.10.16",
   "morfologia_tagnt": "A-NPM",
   "dstrong": "G5429",
   "strong_tagnt": "G5429",
@@ -609,13 +667,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "thoughtful",
-  "ref_estandar": "Matt.10.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.16",
+  "pos_tisch": 17,
   "strong": "G185",
   "forma": "ἀκέραιοι",
+  "lema": "ἀκέραιος",
   "glosa_interlineal": "sencillos",
   "rango_semantico": [
    "sin mezcla, puro",
@@ -624,16 +686,16 @@
   "construccion": "Adjetivo nominativo plural.",
   "sentido_en_contexto": "Sin doblez ni malicia. El término es «sin mezcla»: personas íntegras, no ingenuas.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Fil 2:15 — «irreprensibles y sencillos (ἀκέραιοι)»",
    "Ro 16:19 — «ingenuos para el mal»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "Matt.10.16#17",
+  "ref_estandar": "Matt.10.16",
   "morfologia_tagnt": "A-NPM",
   "dstrong": "G0185",
   "strong_tagnt": "G185",
@@ -649,13 +711,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "innocent",
-  "ref_estandar": "Matt.10.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.17",
+  "pos_tisch": 16,
   "strong": "G3146",
   "forma": "μαστιγώσουσιν",
+  "lema": "μαστιγόω",
   "glosa_interlineal": "azotarán",
   "rango_semantico": [
    "azotar, flagelar"
@@ -663,7 +729,7 @@
   "construccion": "Futuro indicativo activo, 3ª plural.",
   "sentido_en_contexto": "Castigo sinagogal de hasta 39 azotes. Jesús anticipa persecución de parte de las autoridades religiosas y civiles.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 23:34 — «de ellos azotaréis en vuestras sinagogas»",
@@ -671,9 +737,9 @@
    "2 Co 11:24 — «cinco veces he recibido de los judíos cuarenta azotes menos uno»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Matt.10.17#16",
+  "ref_estandar": "Matt.10.17",
   "morfologia_tagnt": "V-FAI-3P",
   "dstrong": "G3146",
   "strong_tagnt": "G3146",
@@ -689,13 +755,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to whip",
-  "ref_estandar": "Matt.10.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.20",
+  "pos_tisch": 9,
   "strong": "G4151",
   "forma": "πνεῦμα",
+  "lema": "πνεῦμα",
   "glosa_interlineal": "Espíritu",
   "rango_semantico": [
    "aliento, viento",
@@ -705,16 +775,16 @@
   "construccion": "Nominativo: «el Espíritu de vuestro Padre».",
   "sentido_en_contexto": "Promesa: ante los tribunales, el Espíritu dará las palabras. Mateo es el único evangelista que lo llama «Espíritu de vuestro Padre».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 12:12 — «el Espíritu Santo os enseñará»",
    "Mr 13:11 — «no sois vosotros los que habláis, sino el Espíritu Santo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Matt.10.20#09",
+  "ref_estandar": "Matt.10.20",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G4151G",
   "strong_tagnt": "G4151",
@@ -730,13 +800,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "spirit/breath",
-  "ref_estandar": "Matt.10.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.22",
+  "pos_tisch": 12,
   "strong": "G5278",
   "forma": "ὑπομείνας",
+  "lema": "ὑπομένω",
   "glosa_interlineal": "el que persevere",
   "rango_semantico": [
    "permanecer, perseverar",
@@ -745,7 +819,7 @@
   "construccion": "Participio aoristo activo, nominativo: «el que haya perseverado».",
   "sentido_en_contexto": "Resistir hasta el final: no es solo aguantar, sino permanecer fiel bajo presión. «Hasta el fin» puede referirse a la muerte o a la consumación de los tiempos.",
   "matiz": "Debate: «el fin» puede ser el final de la persecución, de la vida o de la historia. Mateo no precisa.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 24:13 — misma frase",
@@ -753,9 +827,9 @@
    "Stg 1:12 — «bienaventurado el varón que soporta la tentación»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Matt.10.22#12",
+  "ref_estandar": "Matt.10.22",
   "morfologia_tagnt": "V-AAP-NSM",
   "dstrong": "G5278",
   "strong_tagnt": "G5278",
@@ -771,13 +845,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to remain/endure",
-  "ref_estandar": "Matt.10.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.23",
+  "pos_tisch": 25,
   "strong": "G2064",
   "forma": "ἔλθῃ",
+  "lema": "ἔρχομαι",
   "glosa_interlineal": "venga",
   "rango_semantico": [
    "venir",
@@ -786,16 +864,16 @@
   "construccion": "Subjuntivo aoristo: «hasta que venga el Hijo del Hombre».",
   "sentido_en_contexto": "Versículo muy debatido: ¿a qué «venida» se refiere?",
   "matiz": "Interpretaciones: (a) la resurrección/exaltación; (b) la destrucción de Jerusalén en 70 d.C.; (c) la venida final; (d) el éxito de la misión que continúa hasta entonces. No hay consenso.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 16:28 — «hay algunos… que no gustarán la muerte hasta que vean al Hijo del Hombre»",
    "Mt 24:30 — «verán al Hijo del Hombre venir»"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 25,
   "alineacion": "forma",
   "tagnt": "Matt.10.23#26",
+  "ref_estandar": "Matt.10.23",
   "morfologia_tagnt": "V-2AAS-3S",
   "dstrong": "G2064",
   "strong_tagnt": "G2064",
@@ -811,13 +889,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to come/go",
-  "ref_estandar": "Matt.10.23"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.25",
+  "pos_tisch": 20,
   "strong": "G954",
   "forma": "Βεελζεβοὺλ",
+  "lema": "Βεελζεβούλ",
   "glosa_interlineal": "Beelzebul",
   "rango_semantico": [
    "Beelzebul (nombre de un príncipe de demonios)"
@@ -825,7 +907,7 @@
   "construccion": "Acusativo, objeto de «llamaron».",
   "sentido_en_contexto": "Nombre que los adversarios dan a Jesús, «amo de la casa»: se le acusa de estar aliado con el príncipe de los demonios. Los discípulos sufrirán lo mismo.",
   "matiz": "Etimología discutida: «Baal-zebub» (dios de las moscas, 2 R 1:2) o «Baal-zebul» («señor de la casa/príncipe»). El juego con «dueño de la casa» (οἰκοδεσπότην) apunta a lo segundo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 12:24 — «este no echa fuera los demonios sino por Beelzebú»",
@@ -833,9 +915,9 @@
    "Mr 3:22 — paralelo"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 20,
   "alineacion": "forma",
   "tagnt": "Matt.10.25#20",
+  "ref_estandar": "Matt.10.25",
   "morfologia_tagnt": "N-ASM-T",
   "dstrong": "G0954",
   "strong_tagnt": "G954",
@@ -851,13 +933,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Beelzebub",
-  "ref_estandar": "Matt.10.25"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.26",
+  "pos_tisch": 3,
   "strong": "G5399",
   "forma": "φοβηθῆτε",
+  "lema": "φοβέω",
   "glosa_interlineal": "temáis",
   "rango_semantico": [
    "temer, tener miedo",
@@ -866,7 +952,7 @@
   "construccion": "Subjuntivo aoristo con μή: «no temáis». Se repite en vv.26, 28, 31.",
   "sentido_en_contexto": "Triple «no temáis»: a los opositores (v.26), a los que matan el cuerpo (v.28), y porque el Padre cuida a sus hijos (v.31). Distingue miedo humano y reverencia ante Dios.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 10:28 — «no temáis a los que matan el cuerpo»",
@@ -874,9 +960,9 @@
    "Is 41:10 — «no temas, porque yo estoy contigo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Matt.10.26#03",
+  "ref_estandar": "Matt.10.26",
   "morfologia_tagnt": "V-AOM-2P",
   "dstrong": "G5399",
   "strong_tagnt": "G5399",
@@ -892,13 +978,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to fear",
-  "ref_estandar": "Matt.10.26"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.28",
+  "pos_tisch": 11,
   "strong": "G5590",
   "forma": "ψυχὴν",
+  "lema": "ψυχή",
   "glosa_interlineal": "alma / vida",
   "rango_semantico": [
    "vida, alma",
@@ -907,7 +997,7 @@
   "construccion": "Acusativo singular, objeto de «pueden matar».",
   "sentido_en_contexto": "Contraste entre cuerpo y ψυχή: los hombres pueden quitar la vida física, pero no la vida más allá de la muerte; Dios sí puede destruir ambos en la gehena.",
   "matiz": "Debate: ¿«alma» es una parte inmortal del ser humano, o es «vida» en sentido pleno? Algunos ven aquí una dualidad cuerpo-alma; otros, que ψυχή es la vida de la persona entera. Mateo no desarrolla la antropología.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 16:26 — «¿qué recompensa dará el hombre por su alma?»",
@@ -915,10 +1005,9 @@
    "Lc 12:4-5 — paralelo"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 11,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.10.28#11",
+  "ref_estandar": "Matt.10.28",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G5590G",
   "strong_tagnt": "G5590",
@@ -934,13 +1023,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "soul",
-  "ref_estandar": "Matt.10.28"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.28",
+  "pos_tisch": 21,
   "strong": "G5590",
   "forma": "ψυχὴν",
+  "lema": "ψυχή",
   "glosa_interlineal": "alma / vida",
   "rango_semantico": [
    "vida, alma",
@@ -949,7 +1043,7 @@
   "construccion": "Acusativo singular, objeto de «pueden matar».",
   "sentido_en_contexto": "Contraste entre cuerpo y ψυχή: los hombres pueden quitar la vida física, pero no la vida más allá de la muerte; Dios sí puede destruir ambos en la gehena.",
   "matiz": "Debate: ¿«alma» es una parte inmortal del ser humano, o es «vida» en sentido pleno? Algunos ven aquí una dualidad cuerpo-alma; otros, que ψυχή es la vida de la persona entera. Mateo no desarrolla la antropología.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 16:26 — «¿qué recompensa dará el hombre por su alma?»",
@@ -957,10 +1051,9 @@
    "Lc 12:4-5 — paralelo"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 21,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.10.28#22",
+  "ref_estandar": "Matt.10.28",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G5590G",
   "strong_tagnt": "G5590",
@@ -976,13 +1069,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "soul",
-  "ref_estandar": "Matt.10.28"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.29",
+  "pos_tisch": 3,
   "strong": "G4765",
   "forma": "στρουθία",
+  "lema": "στρουθίον",
   "glosa_interlineal": "pajarillos",
   "rango_semantico": [
    "gorrión, pajarillo"
@@ -990,16 +1088,16 @@
   "construccion": "Nominativo plural.",
   "sentido_en_contexto": "Los gorriones eran las aves más baratas del mercado; ni uno cae sin que el Padre lo sepa. Argumento «cuánto más» para sus discípulos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 12:6 — «¿no se venden cinco pajarillos por dos cuartos?»",
    "Mt 6:26 — las aves del cielo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Matt.10.29#03",
+  "ref_estandar": "Matt.10.29",
   "morfologia_tagnt": "N-NPN",
   "dstrong": "G4765",
   "strong_tagnt": "G4765",
@@ -1015,13 +1113,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sparrow",
-  "ref_estandar": "Matt.10.29"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.32",
+  "pos_tisch": 4,
   "strong": "G3670",
   "forma": "ὁμολογήσει",
+  "lema": "ὁμολογέω",
   "glosa_interlineal": "confiese",
   "rango_semantico": [
    "confesar, reconocer públicamente",
@@ -1030,7 +1132,7 @@
   "construccion": "Futuro indicativo activo, 3ª singular.",
   "sentido_en_contexto": "Reconocer a Jesús públicamente trae su reconocimiento ante el Padre. «Confesar» es declarar lealtad, no solo creer.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 12:8 — paralelo",
@@ -1038,10 +1140,9 @@
    "Ap 3:5 — «confesaré su nombre delante de mi Padre»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.10.32#04",
+  "ref_estandar": "Matt.10.32",
   "morfologia_tagnt": "V-FAI-3S",
   "dstrong": "G3670",
   "strong_tagnt": "G3670",
@@ -1057,13 +1158,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to confess/profess",
-  "ref_estandar": "Matt.10.32"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.33",
+  "pos_tisch": 4,
   "strong": "G720",
   "forma": "ἀρνήσηταί",
+  "lema": "ἀρνέομαι",
   "glosa_interlineal": "niegue",
   "rango_semantico": [
    "negar, rechazar",
@@ -1072,17 +1178,16 @@
   "construccion": "Subjuntivo aoristo medio, 3ª singular.",
   "sentido_en_contexto": "Lo contrario de «confesar»: negar a Jesús ante los hombres lleva a ser negado ante el Padre. Es la advertencia que se cumple en la negación de Pedro (26:69-75).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Ti 2:12 — «si le negáremos, él también nos negará»",
    "Mt 26:70 — Pedro «negó delante de todos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.10.33#04",
+  "ref_estandar": "Matt.10.33",
   "morfologia_tagnt": "V-ADS-3S",
   "dstrong": "G0720",
   "strong_tagnt": "G720",
@@ -1098,13 +1203,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to deny",
-  "ref_estandar": "Matt.10.33"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.34",
+  "pos_tisch": 15,
   "strong": "G3162",
   "forma": "μάχαιραν",
+  "lema": "μάχαιρα",
   "glosa_interlineal": "espada",
   "rango_semantico": [
    "espada corta, cuchillo",
@@ -1113,7 +1223,7 @@
   "construccion": "Acusativo singular, contrapuesto a «paz».",
   "sentido_en_contexto": "Imagen de división: la llegada de Jesús provoca conflicto aun dentro de las familias. No es llamado a la violencia sino descripción del efecto de seguirlo.",
   "matiz": "Mateo contrasta «espada» con «paz»; Lucas lo reformula como «división» (12:51). Eso confirma el sentido figurado.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 12:51 — «no, sino disensión»",
@@ -1121,9 +1231,9 @@
    "Mt 26:52 — «todos los que tomen espada, a espada perecerán»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Matt.10.34#15",
+  "ref_estandar": "Matt.10.34",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G3162",
   "strong_tagnt": "G3162",
@@ -1139,13 +1249,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sword",
-  "ref_estandar": "Matt.10.34"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.37",
+  "pos_tisch": 2,
   "strong": "G5368",
   "forma": "φιλῶν",
+  "lema": "φιλέω",
   "glosa_interlineal": "el que ama",
   "rango_semantico": [
    "amar (con afecto)",
@@ -1154,7 +1268,7 @@
   "construccion": "Participio presente activo: «el que ama (habitualmente)».",
   "sentido_en_contexto": "No dice «odiar» a la familia (cf. Lc 14:26) sino poner a Jesús en primer lugar. Aquí el verbo φιλέω da el sentido de afecto familiar.",
   "matiz": "Lc 14:26 usa «aborrece» (μισεῖ), un modismo semítico para «amar menos». Mateo lo expresa más suavemente.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 14:26 — «si alguno viene a mí, y no aborrece a su padre…»",
@@ -1162,10 +1276,9 @@
    "Mt 12:48 — «¿quién es mi madre?»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.10.37#02",
+  "ref_estandar": "Matt.10.37",
   "morfologia_tagnt": "V-PAP-NSM",
   "dstrong": "G5368",
   "strong_tagnt": "G5368",
@@ -1181,13 +1294,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to love",
-  "ref_estandar": "Matt.10.37"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.37",
+  "pos_tisch": 14,
   "strong": "G5368",
   "forma": "φιλῶν",
+  "lema": "φιλέω",
   "glosa_interlineal": "el que ama",
   "rango_semantico": [
    "amar (con afecto)",
@@ -1196,7 +1314,7 @@
   "construccion": "Participio presente activo: «el que ama (habitualmente)».",
   "sentido_en_contexto": "No dice «odiar» a la familia (cf. Lc 14:26) sino poner a Jesús en primer lugar. Aquí el verbo φιλέω da el sentido de afecto familiar.",
   "matiz": "Lc 14:26 usa «aborrece» (μισεῖ), un modismo semítico para «amar menos». Mateo lo expresa más suavemente.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 14:26 — «si alguno viene a mí, y no aborrece a su padre…»",
@@ -1204,10 +1322,9 @@
    "Mt 12:48 — «¿quién es mi madre?»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.10.37#14",
+  "ref_estandar": "Matt.10.37",
   "morfologia_tagnt": "V-PAP-NSM",
   "dstrong": "G5368",
   "strong_tagnt": "G5368",
@@ -1223,13 +1340,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to love",
-  "ref_estandar": "Matt.10.37"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.38",
+  "pos_tisch": 6,
   "strong": "G4716",
   "forma": "σταυρὸν",
+  "lema": "σταυρός",
   "glosa_interlineal": "cruz",
   "rango_semantico": [
    "cruz",
@@ -1238,7 +1360,7 @@
   "construccion": "Acusativo singular: «su cruz».",
   "sentido_en_contexto": "Primera mención de la cruz en Mateo, antes de que Jesús anuncie su propia muerte. Los oyentes sabían que la cruz era ejecución romana; la imagen exige disposición a todo.",
   "matiz": "Es frecuente notar que esta imagen aparece antes de que Mateo mencione la crucifixión de Jesús: se entiende mejor retrospectivamente.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 16:24 — «tome su cruz, y sígame»",
@@ -1246,9 +1368,9 @@
    "Gá 2:20 — «con Cristo estoy juntamente crucificado»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Matt.10.38#06",
+  "ref_estandar": "Matt.10.38",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G4716",
   "strong_tagnt": "G4716",
@@ -1264,13 +1386,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "cross",
-  "ref_estandar": "Matt.10.38"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.39",
+  "pos_tisch": 2,
   "strong": "G2147",
   "forma": "εὑρὼν",
+  "lema": "εὑρίσκω",
   "glosa_interlineal": "el que halla",
   "rango_semantico": [
    "hallar, encontrar"
@@ -1278,7 +1404,7 @@
   "construccion": "Participio aoristo activo: «el que encuentre su vida».",
   "sentido_en_contexto": "Paradoja: quien se aferra a su vida la pierde; quien la entrega por Jesús la halla. ψυχή aquí es «vida/persona».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 16:25 — paralelo",
@@ -1286,10 +1412,9 @@
    "Lc 17:33 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.10.39#02",
+  "ref_estandar": "Matt.10.39",
   "morfologia_tagnt": "V-2AAP-NSM",
   "dstrong": "G2147",
   "strong_tagnt": "G2147",
@@ -1305,13 +1430,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to find/meet",
-  "ref_estandar": "Matt.10.39"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.40",
+  "pos_tisch": 2,
   "strong": "G1209",
   "forma": "δεχόμενος",
+  "lema": "δέχομαι",
   "glosa_interlineal": "el que recibe",
   "rango_semantico": [
    "recibir, acoger",
@@ -1320,7 +1450,7 @@
   "construccion": "Participio presente medio: «el que recibe».",
   "sentido_en_contexto": "Cadena de representación: recibir al discípulo es recibir a Jesús; recibir a Jesús es recibir al Padre. El enviado representa al que envía.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 13:20 — paralelo",
@@ -1328,10 +1458,9 @@
    "Mt 18:5 — «el que reciba… a un niño»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.10.40#02",
+  "ref_estandar": "Matt.10.40",
   "morfologia_tagnt": "V-PNP-NSM",
   "dstrong": "G1209",
   "strong_tagnt": "G1209",
@@ -1347,13 +1476,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to receive",
-  "ref_estandar": "Matt.10.40"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.40",
+  "pos_tisch": 9,
   "strong": "G1209",
   "forma": "δεχόμενος",
+  "lema": "δέχομαι",
   "glosa_interlineal": "el que recibe",
   "rango_semantico": [
    "recibir, acoger",
@@ -1362,7 +1496,7 @@
   "construccion": "Participio presente medio: «el que recibe».",
   "sentido_en_contexto": "Cadena de representación: recibir al discípulo es recibir a Jesús; recibir a Jesús es recibir al Padre. El enviado representa al que envía.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 13:20 — paralelo",
@@ -1370,10 +1504,9 @@
    "Mt 18:5 — «el que reciba… a un niño»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.10.40#09",
+  "ref_estandar": "Matt.10.40",
   "morfologia_tagnt": "V-PNP-NSM",
   "dstrong": "G1209",
   "strong_tagnt": "G1209",
@@ -1389,13 +1522,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to receive",
-  "ref_estandar": "Matt.10.40"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.10.42",
+  "pos_tisch": 9,
   "strong": "G4221",
   "forma": "ποτήριον",
+  "lema": "ποτήριον",
   "glosa_interlineal": "vaso",
   "rango_semantico": [
    "copa, vaso"
@@ -1403,16 +1541,16 @@
   "construccion": "Acusativo: «un vaso (de agua fría)».",
   "sentido_en_contexto": "El gesto más pequeño de hospitalidad hacia un discípulo tiene recompensa. «Pequeños» designa a los discípulos humildes.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 9:41 — paralelo",
    "Mt 25:40 — «en cuanto lo hicisteis a uno de estos mis hermanos más pequeños»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Matt.10.42#09",
+  "ref_estandar": "Matt.10.42",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G4221",
   "strong_tagnt": "G4221",
@@ -1428,7 +1566,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "cup",
-  "ref_estandar": "Matt.10.42"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

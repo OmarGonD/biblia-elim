@@ -1,8 +1,10 @@
 [
  {
   "ref": "Gal.4.3",
+  "pos_tisch": 9,
   "strong": "G4747",
   "forma": "στοιχεῖα",
+  "lema": "στοιχεῖον",
   "glosa_interlineal": "rudimentos",
   "rango_semantico": [
    "elemento, principio básico, fuerza elemental"
@@ -10,7 +12,7 @@
   "construccion": "Acusativo plural: «así también nosotros, cuando éramos niños, estábamos en esclavitud bajo los rudimentos del mundo».",
   "sentido_en_contexto": "στοιχεῖα τοῦ κόσμου: término muy debatido. Puede ser los «elementos» físicos (tierra, aire, fuego, agua), los principios básicos de la religión (ley y paganismo como esclavitud), o poderes espirituales astrales. Pablo equipara la sujeción a la ley y al paganismo (v.8-9).",
   "matiz": "Debate: (a) principios elementales (enseñanzas rudimentarias del mundo, ley y paganismo; la mayoría); (b) espíritus/poderes cósmicos o astrales (Col 2:8, 20; Betz, Arnold); (c) elementos físicos del cosmos asociados a calendarios (días, meses, años: 4:10). Ambas lecturas se combinan.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Col 2:8, 20",
@@ -18,9 +20,9 @@
    "Heb 5:12"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Gal.4.3#09",
+  "ref_estandar": "Gal.4.3",
   "morfologia_tagnt": "N-APN",
   "dstrong": "G4747",
   "strong_tagnt": "G4747",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "principle",
-  "ref_estandar": "Gal.4.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.4.4",
+  "pos_tisch": 5,
   "strong": "G4138",
   "forma": "πλήρωμα",
+  "lema": "πλήρωμα",
   "glosa_interlineal": "plenitud",
   "rango_semantico": [
    "plenitud, cumplimiento"
@@ -50,7 +56,7 @@
   "construccion": "Nominativo: «pero cuando vino el cumplimiento del tiempo, Dios envió a su Hijo, nacido de mujer y nacido bajo la ley».",
   "sentido_en_contexto": "Dios envió a su Hijo (preexistente: «envió» implica existencia previa), nacido de mujer (humanidad) y bajo la ley (judío), para redimir a los que estaban bajo la ley. Texto cristológico y soteriológico central: encarnación con propósito de redención y adopción.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 1:14",
@@ -59,9 +65,9 @@
    "Heb 2:14-17"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Gal.4.4#05",
+  "ref_estandar": "Gal.4.4",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G4138",
   "strong_tagnt": "G4138",
@@ -77,13 +83,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fulfillment",
-  "ref_estandar": "Gal.4.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.4.5",
+  "pos_tisch": 8,
   "strong": "G5206",
   "forma": "υἱοθεσίαν",
+  "lema": "υἱοθεσία",
   "glosa_interlineal": "adopción",
   "rango_semantico": [
    "adopción como hijos"
@@ -91,7 +101,7 @@
   "construccion": "Acusativo: «para que redimiese a los que estaban bajo la ley, a fin de que recibiésemos la adopción de hijos».",
   "sentido_en_contexto": "La adopción (υἱοθεσία) es la entrada plena en la familia de Dios con derechos de herederos. Término de origen greco-romano; en Pablo se vincula con el Espíritu (v.6; Ro 8:15, 23). Es una realidad presente y a la vez esperada (Ro 8:23).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 8:14-17, 23",
@@ -99,9 +109,9 @@
    "Jn 1:12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Gal.4.5#08",
+  "ref_estandar": "Gal.4.5",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G5206",
   "strong_tagnt": "G5206",
@@ -117,13 +127,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "adoption (as son)",
-  "ref_estandar": "Gal.4.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.4.6",
+  "pos_tisch": 18,
   "strong": "G5",
   "forma": "Ἀββᾶ",
+  "lema": "Ἀββᾶ",
   "glosa_interlineal": "Abba",
   "rango_semantico": [
    "Abba (arameo: padre)"
@@ -131,7 +145,7 @@
   "construccion": "Arameo: «y por cuanto sois hijos, Dios envió a vuestros corazones el Espíritu de su Hijo, el cual clama: ¡Abba, Padre!».",
   "sentido_en_contexto": "El Espíritu del Hijo enviado a los corazones hace posible la misma invocación íntima de Jesús (Mr 14:36). Doble envío: el Hijo (v.4) y el Espíritu del Hijo (v.6), con estructura trinitaria. «Abba» es una palabra aramea cotidiana que expresa cercanía filial; aparece también en Ro 8:15.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 14:36",
@@ -139,9 +153,9 @@
    "Ef 2:18"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "Gal.4.6#18",
+  "ref_estandar": "Gal.4.6",
   "morfologia_tagnt": "N-VSM-T",
   "dstrong": "G0005",
   "strong_tagnt": "G5",
@@ -157,13 +171,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Father",
-  "ref_estandar": "Gal.4.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.4.9",
+  "pos_tisch": 18,
   "strong": "G4747",
   "forma": "στοιχεῖα",
+  "lema": "στοιχεῖον",
   "glosa_interlineal": "rudimentos",
   "rango_semantico": [
    "elemento, principio básico"
@@ -171,7 +189,7 @@
   "construccion": "Acusativo plural: «¿cómo es que os volvéis de nuevo a los débiles y pobres rudimentos, a los cuales os queréis volver a esclavizar?».",
   "sentido_en_contexto": "Pablo compara el retorno a la ley (guardar días, meses, tiempos y años, v.10) con una vuelta al paganismo. Para él, el cumplimiento legal como medio de justicia es esclavitud paralela al paganismo. Notable: «conocidos por Dios» (v.9) subraya que la iniciativa es divina.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Col 2:16-23",
@@ -179,9 +197,9 @@
    "1 Co 8:3"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "Gal.4.9#18",
+  "ref_estandar": "Gal.4.9",
   "morfologia_tagnt": "N-APN",
   "dstrong": "G4747",
   "strong_tagnt": "G4747",
@@ -197,13 +215,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "principle",
-  "ref_estandar": "Gal.4.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.4.10",
+  "pos_tisch": 2,
   "strong": "G3906",
   "forma": "παρατηρεῖσθε",
+  "lema": "παρατηρέω",
   "glosa_interlineal": "guardáis",
   "rango_semantico": [
    "observar escrupulosamente"
@@ -211,7 +233,7 @@
   "construccion": "Presente indicativo medio/pasivo: «guardáis los días, los meses, los tiempos y los años».",
   "sentido_en_contexto": "Observancias de calendario: días (sábados), meses (lunas nuevas), tiempos (fiestas) y años (sabáticos). Pablo teme que su obra haya sido en vano. La aplicación a la observancia del sábado y de fiestas judías ha sido debatida; en Ro 14:5-6 Pablo es más tolerante, pero aquí lo condena porque se imponen como requisito de justicia.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Col 2:16-17",
@@ -219,9 +241,9 @@
    "Gá 4:11"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Gal.4.10#02",
+  "ref_estandar": "Gal.4.10",
   "morfologia_tagnt": "V-PMI-2P",
   "dstrong": "G3906",
   "strong_tagnt": "G3906",
@@ -237,13 +259,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to observe",
-  "ref_estandar": "Gal.4.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.4.13",
+  "pos_tisch": 5,
   "strong": "G769",
   "forma": "ἀσθένειαν",
+  "lema": "ἀσθένεια",
   "glosa_interlineal": "enfermedad",
   "rango_semantico": [
    "debilidad, enfermedad"
@@ -251,7 +277,7 @@
   "construccion": "Acusativo: «pues vosotros sabéis que a causa de una enfermedad del cuerpo os anuncié el evangelio la primera vez».",
   "sentido_en_contexto": "Pablo recuerda que su enfermedad física lo trajo a Galacia (¿por razones de recuperación?). Los gálatas lo recibieron como a un «ángel de Dios» a pesar de su «prueba en mi carne» (v.14). Su identidad se ha discutido en relación con el «aguijón» (2 Co 12:7) y los «ojos» (v.15).",
   "matiz": "Debate: (a) enfermedad ocular (v.15: «os hubierais sacado los ojos»; también 6:11, letras grandes); (b) malaria o epilepsia (propuestas modernas); (c) lesión por persecución (6:17). Sin conclusión firme. Tampoco es seguro que sea la misma que el aguijón de 2 Co 12.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Co 12:7",
@@ -259,9 +285,9 @@
    "Hch 14:6-20"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Gal.4.13#05",
+  "ref_estandar": "Gal.4.13",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G0769G",
   "strong_tagnt": "G769",
@@ -277,13 +303,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "weakness",
-  "ref_estandar": "Gal.4.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.4.19",
+  "pos_tisch": 8,
   "strong": "G3445",
   "forma": "μορφωθῇ",
+  "lema": "μορφόω",
   "glosa_interlineal": "sea formado",
   "rango_semantico": [
    "tomar forma, ser formado"
@@ -291,7 +321,7 @@
   "construccion": "Subjuntivo aoristo pasivo: «hijitos míos, por quienes vuelvo a sufrir dolores de parto, hasta que Cristo sea formado en vosotros».",
   "sentido_en_contexto": "Pablo se compara con una madre de parto: su meta es que Cristo se forme en los gálatas, es decir, que su carácter se refleje en su comunidad. Imagen de la santificación como formación (cf. Ro 8:29). Mezcla de la figura paterna y materna del apóstol.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 8:29",
@@ -300,9 +330,9 @@
    "1 Co 4:15"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Gal.4.19#08",
+  "ref_estandar": "Gal.4.19",
   "morfologia_tagnt": "V-APS-3S",
   "dstrong": "G3445",
   "strong_tagnt": "G3445",
@@ -318,13 +348,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to form",
-  "ref_estandar": "Gal.4.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.4.24",
+  "pos_tisch": 3,
   "strong": "G238",
   "forma": "ἀλληγορούμενα",
+  "lema": "ἀλληγορέω",
   "glosa_interlineal": "alegóricamente",
   "rango_semantico": [
    "interpretado alegóricamente"
@@ -332,7 +366,7 @@
   "construccion": "Participio presente pasivo: «lo cual es una alegoría, pues estas mujeres son los dos pactos: el uno proviene del monte Sinaí, el cual da hijos para esclavitud; éste es Agar».",
   "sentido_en_contexto": "Pablo interpreta a Agar y Sara como alegoría de dos pactos: Agar (Sinaí, Jerusalén presente, esclavitud) y Sara (Jerusalén de arriba, libre). Se debate si es «alegoría» en el sentido pleno (método alegórico) o tipología con reinterpretación a la luz de Cristo (Pablo mismo lo llama alegoría). Su uso es retórico contra los adversarios.",
   "matiz": "Debate: (a) alegoría real, diferente de la tipología (Pablo adapta el método alegórico helenístico, como Filón); (b) tipología (correspondencia histórica) con la palabra «alegoría» usada de modo flexible; (c) argumento ad hominem contra los judaizantes. Importancia hermenéutica: cuánto puede aplicarse esta lectura a otros textos.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 16; 21:1-21",
@@ -340,9 +374,9 @@
    "Heb 12:18-24"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Gal.4.24#03",
+  "ref_estandar": "Gal.4.24",
   "morfologia_tagnt": "V-PPP-NPN",
   "dstrong": "G0238",
   "strong_tagnt": "G238",
@@ -358,13 +392,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to use an analogy",
-  "ref_estandar": "Gal.4.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.4.26",
+  "pos_tisch": 3,
   "strong": "G507",
   "forma": "ἄνω",
+  "lema": "ἄνω",
   "glosa_interlineal": "de arriba",
   "rango_semantico": [
    "arriba, de lo alto"
@@ -372,7 +410,7 @@
   "construccion": "Adverbio: «mas la Jerusalén de arriba, la cual es madre de todos nosotros, es libre».",
   "sentido_en_contexto": "La «Jerusalén de arriba» es la comunidad celestial y escatológica a la que pertenecen los creyentes (cf. Heb 12:22; Ap 21:2). Contraste con la Jerusalén actual, en esclavitud con sus hijos. La iglesia es hija de la libre.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Heb 12:22",
@@ -381,9 +419,9 @@
    "Is 54:1"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Gal.4.26#03",
+  "ref_estandar": "Gal.4.26",
   "morfologia_tagnt": "ADV",
   "dstrong": "G0507",
   "strong_tagnt": "G507",
@@ -399,13 +437,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "above",
-  "ref_estandar": "Gal.4.26"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.4.28",
+  "pos_tisch": 6,
   "strong": "G1860",
   "forma": "ἐπαγγελίας",
+  "lema": "ἐπαγγελία",
   "glosa_interlineal": "promesa",
   "rango_semantico": [
    "promesa"
@@ -413,7 +455,7 @@
   "construccion": "Genitivo: «así que, hermanos, nosotros, como Isaac, somos hijos de la promesa».",
   "sentido_en_contexto": "Los creyentes son hijos de la promesa, como Isaac, nacido por el poder de Dios (no por la carne). Pablo aplica la historia de Isaac e Ismael: el hijo según la carne persigue al hijo según el Espíritu (v.29; cf. Gn 21:9), como los judaizantes hostigan a los cristianos libres.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 21:1-12",
@@ -421,9 +463,9 @@
    "Gá 3:29"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Gal.4.28#06",
+  "ref_estandar": "Gal.4.28",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G1860",
   "strong_tagnt": "G1860",
@@ -439,13 +481,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "promise",
-  "ref_estandar": "Gal.4.28"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.4.30",
+  "pos_tisch": 6,
   "strong": "G1544",
   "forma": "ἔκβαλε",
+  "lema": "ἐκβάλλω",
   "glosa_interlineal": "echa fuera",
   "rango_semantico": [
    "echar fuera, expulsar"
@@ -453,7 +499,7 @@
   "construccion": "Imperativo aoristo activo: «echa fuera a la esclava y a su hijo, porque el hijo de la esclava no será heredero con el hijo de la libre».",
   "sentido_en_contexto": "Cita de Gn 21:10 (palabras de Sara). Pablo la lee como la separación necesaria entre quienes se justifican por la ley y por la promesa. Apunta a que los gálatas deben «echar fuera» a los falsos maestros que los esclavizan. No es un texto para justificar la expulsión de las personas por razón étnica.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 21:10",
@@ -461,9 +507,9 @@
    "Gá 4:21-31"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Gal.4.30#06",
+  "ref_estandar": "Gal.4.30",
   "morfologia_tagnt": "V-2AAM-2S",
   "dstrong": "G1544",
   "strong_tagnt": "G1544",
@@ -479,7 +525,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to expel",
-  "ref_estandar": "Gal.4.30"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

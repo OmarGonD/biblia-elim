@@ -8,6 +8,7 @@ import pipeline
 RAIZ = pipeline.RAIZ
 F = json.load(open(os.path.join(RAIZ, "data", "fichas_v3", "John.01.json"), encoding="utf-8"))
 by = {(f["ref"], f["pos_tisch"]): f for f in F}
+DATOS = pipeline.Datos()
 GR = re.compile(r"[Ͱ-Ͽἀ-῿]")
 # Tiempo observado (marcas de archivo y de git de la sesión del 2026-10-02): lectura de palabras 16:43, última corrección 17:05.
 MIN_OBSERVADOS = 22
@@ -48,10 +49,10 @@ def render(ref, pos, comp=False):
     if f["otros_usos"]:
         L.append("- **Otros usos:** " + " · ".join(f["otros_usos"]))
     L.append("- **Certeza:** %s" % f["nivel_certeza"])
-    if comp and f.get("traducciones_comparadas"):
-        L.append("- **Traducciones comparadas del versículo:**")
-        for e in f["traducciones_comparadas"]:
-            L.append("  - *%s*: %s%s" % (e["version"], e["texto"], " ⚠ " + e["aviso"] if e.get("aviso") else ""))
+    if comp and DATOS.versiones(ref):
+        L.append("- **Citas del versículo (tabla `citas`, numeración estándar):**")
+        for e in DATOS.versiones(ref):
+            L.append("  - *%s* (%s): %s" % (e["version"], vref(e["ref"]), e["texto"]))
     return "\n".join(L) + "\n"
 
 
@@ -60,7 +61,7 @@ def tokens(g, o, rg, ro):
 
 
 def main():
-    datos = pipeline.Datos()
+    datos = DATOS
     cache = pipeline.Cache(pipeline.MODELO_MANUAL)
     refs = datos.versiculos("John.1")
     sols = [pipeline.solicitud(datos, r) for r in refs]

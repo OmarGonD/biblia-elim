@@ -1,8 +1,10 @@
 [
  {
   "ref": "2Cor.13.1",
+  "pos_tisch": 9,
   "strong": "G3144",
   "forma": "μαρτύρων",
+  "lema": "μάρτυς",
   "glosa_interlineal": "testigos",
   "rango_semantico": [
    "testigo"
@@ -10,7 +12,7 @@
   "construccion": "Genitivo plural: «por boca de dos o de tres testigos se decidirá todo asunto».",
   "sentido_en_contexto": "Cita Dt 19:15 (principio legal): Pablo anuncia su tercera visita y que resolverá los casos con testimonio. La «tercera» venida se entiende como tercera visita; algunos ven en «dos o tres testigos» las tres visitas o advertencias.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 19:15",
@@ -18,9 +20,9 @@
    "1 Ti 5:19"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "2Cor.13.1#09",
+  "ref_estandar": "2Cor.13.1",
   "morfologia_tagnt": "N-GPM",
   "dstrong": "G3144",
   "strong_tagnt": "G3144",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "witness",
-  "ref_estandar": "2Cor.13.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Cor.13.4",
+  "pos_tisch": 3,
   "strong": "G4717",
   "forma": "ἐσταυρώθη",
+  "lema": "σταυρόω",
   "glosa_interlineal": "fue crucificado",
   "rango_semantico": [
    "crucificar"
@@ -50,7 +56,7 @@
   "construccion": "Aoristo indicativo pasivo: «aunque fue crucificado en debilidad, vive por el poder de Dios».",
   "sentido_en_contexto": "Cristo fue crucificado en debilidad pero vive por el poder de Dios. Pablo se identifica: débiles con él, pero viviremos con él por el poder de Dios. Fundamento cristológico del principio de la «debilidad y poder» (12:9-10).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Fil 2:6-11",
@@ -59,9 +65,9 @@
    "2 Co 12:9"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "2Cor.13.4#04",
+  "ref_estandar": "2Cor.13.4",
   "morfologia_tagnt": "V-API-3S",
   "dstrong": "G4717",
   "strong_tagnt": "G4717",
@@ -77,13 +83,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to crucify",
-  "ref_estandar": "2Cor.13.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Cor.13.5",
+  "pos_tisch": 2,
   "strong": "G3985",
   "forma": "πειράζετε",
+  "lema": "πειράζω",
   "glosa_interlineal": "examinaos",
   "rango_semantico": [
    "probar, examinar, poner a prueba"
@@ -91,7 +101,7 @@
   "construccion": "Imperativo presente activo: «examinaos a vosotros mismos si estáis en la fe; probaos a vosotros mismos».",
   "sentido_en_contexto": "Pablo invierte la prueba: los corintios que quieren pruebas de que Cristo habla por él (v.3) deben probarse a sí mismos. Su existencia como iglesia es prueba de su apostolado. «¿No os conocéis a vosotros mismos, que Jesucristo está en vosotros?». Texto clave sobre la autoexaminación y la seguridad.",
   "matiz": "Debate: «a menos que estéis reprobados (ἀδόκιμοι)»: (a) se refiere a los falsos creyentes (se discute si pueden perder la fe, según la tradición arminiana o reformada); (b) retórica para forzar la reflexión. La mayoría ve una invitación a comprobar la realidad de Cristo en ellos.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 11:28",
@@ -100,9 +110,9 @@
    "1 Jn 3:24"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "2Cor.13.5#02",
+  "ref_estandar": "2Cor.13.5",
   "morfologia_tagnt": "V-PAM-2P",
   "dstrong": "G3985H",
   "strong_tagnt": "G3985",
@@ -118,13 +128,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to test/tempt",
-  "ref_estandar": "2Cor.13.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Cor.13.9",
+  "pos_tisch": 15,
   "strong": "G2676",
   "forma": "κατάρτισιν",
+  "lema": "κατάρτισις",
   "glosa_interlineal": "perfeccionamiento",
   "rango_semantico": [
    "restauración, perfeccionamiento"
@@ -132,7 +146,7 @@
   "construccion": "Acusativo: «nos gozamos de que seamos débiles y vosotros fuertes; y aun oramos por vuestro perfeccionamiento».",
   "sentido_en_contexto": "κατάρτισις: restauración, perfeccionamiento (término médico y militar para colocar en su sitio). El objetivo del ministerio de Pablo es la madurez de los corintios, no su castigo (v.10: «para edificación y no para destrucción»).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 4:12-13",
@@ -140,9 +154,9 @@
    "Gá 6:1"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "2Cor.13.9#16",
+  "ref_estandar": "2Cor.13.9",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G2676",
   "strong_tagnt": "G2676",
@@ -158,13 +172,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "perfection",
-  "ref_estandar": "2Cor.13.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Cor.13.11",
+  "pos_tisch": 4,
   "strong": "G2675",
   "forma": "καταρτίζεσθε",
+  "lema": "καταρτίζω",
   "glosa_interlineal": "sed perfectos",
   "rango_semantico": [
    "restaurar, perfeccionar, reparar"
@@ -172,7 +190,7 @@
   "construccion": "Imperativo presente medio/pasivo: «por lo demás, hermanos, tened gozo, perfeccionaos, consolaos, sed de un mismo sentir, vivid en paz; y el Dios de paz y de amor estará con vosotros».",
   "sentido_en_contexto": "Cinco exhortaciones finales (alegraos, restauraos, consolaos, tened un mismo sentir, vivid en paz) con promesa: el Dios de amor y paz estará con vosotros. Resumen pastoral de la carta.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 15:5",
@@ -181,9 +199,9 @@
    "2 Co 13:9"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "2Cor.13.11#04",
+  "ref_estandar": "2Cor.13.11",
   "morfologia_tagnt": "V-PPM-2P",
   "dstrong": "G2675",
   "strong_tagnt": "G2675",
@@ -199,13 +217,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to complete",
-  "ref_estandar": "2Cor.13.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Cor.13.13",
+  "pos_tisch": 14,
   "strong": "G2842",
   "forma": "κοινωνία",
+  "lema": "κοινωνία",
   "glosa_interlineal": "comunión",
   "rango_semantico": [
    "comunión, participación"
@@ -213,7 +235,7 @@
   "construccion": "Nominativo: «la gracia del Señor Jesucristo, el amor de Dios, y la comunión del Espíritu Santo sean con todos vosotros».",
   "sentido_en_contexto": "Bendición trinitaria que cierra la carta: gracia de Cristo, amor de Dios (Padre) y comunión (κοινωνία) del Espíritu. Una de las fórmulas más claras de la estructura trinitaria en el NT. «Comunión del Espíritu» puede ser genitivo objetivo (participación en el Espíritu) o subjetivo (comunión producida por el Espíritu).",
   "matiz": "Debate: el genitivo «del Espíritu Santo» es (a) objetivo: participación en el Espíritu; (b) subjetivo: la comunión entre creyentes que el Espíritu crea. Ambos sentidos son compatibles.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 28:19",
@@ -222,9 +244,9 @@
    "1 P 1:2"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "2Cor.13.13#14",
+  "ref_estandar": "2Cor.13.14",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G2842",
   "strong_tagnt": "G2842",
@@ -240,7 +262,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "participation",
-  "ref_estandar": "2Cor.13.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

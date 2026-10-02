@@ -1,8 +1,10 @@
 [
  {
   "ref": "Acts.11.3",
+  "pos_tisch": 6,
   "strong": "G203",
   "forma": "ἀκροβυστίαν",
+  "lema": "ἀκροβυστία",
   "glosa_interlineal": "incircuncisión",
   "rango_semantico": [
    "prepucio, incircuncisión, gentil"
@@ -10,7 +12,7 @@
   "construccion": "Acusativo: «entraste en casa de hombres incircuncisos y comiste con ellos».",
   "sentido_en_contexto": "Los creyentes de la circuncisión critican a Pedro no por bautizar a Cornelio, sino por comer con gentiles. Es el problema de la comunión de mesa, central en Gá 2:11-14. Pedro explica los hechos «por orden» (v.4).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 2:12",
@@ -18,9 +20,9 @@
    "Ef 2:11-12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Acts.11.3#06",
+  "ref_estandar": "Acts.11.3",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G0203",
   "strong_tagnt": "G203",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "uncircumcision",
-  "ref_estandar": "Acts.11.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.11.12",
+  "pos_tisch": 9,
   "strong": "G1252",
   "forma": "διακρίναντα",
+  "lema": "διακρίνω",
   "glosa_interlineal": "sin dudar",
   "rango_semantico": [
    "dudar, vacilar, discriminar"
@@ -50,16 +56,16 @@
   "construccion": "Participio aoristo activo: «me dijo el Espíritu que fuese con ellos sin dudar».",
   "sentido_en_contexto": "Pedro cuenta que el Espíritu le ordenó ir con los de Cornelio «sin hacer distinción». Los seis hermanos que lo acompañaron son testigos presenciales, lo que da validez al relato ante la iglesia de Jerusalén.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 10:20",
    "Hch 10:23 — «algunos de los hermanos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Acts.11.12#09",
+  "ref_estandar": "Acts.11.12",
   "morfologia_tagnt": "V-AAP-ASM",
   "dstrong": "G1252",
   "strong_tagnt": "G1252",
@@ -76,13 +82,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to judge/doubt",
-  "ref_estandar": "Acts.11.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.11.14",
+  "pos_tisch": 8,
   "strong": "G4982",
   "forma": "σωθήσῃ",
+  "lema": "σώζω",
   "glosa_interlineal": "serás salvo",
   "rango_semantico": [
    "salvar, rescatar"
@@ -90,7 +100,7 @@
   "construccion": "Futuro indicativo pasivo: «palabras por las cuales serás salvo tú, y toda tu casa».",
   "sentido_en_contexto": "El ángel promete a Cornelio que Pedro le diría palabras por las que se salvaría él y su casa. Dato propio de este recuento: indica que Cornelio no estaba ya salvo antes de oír el evangelio.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 10:22",
@@ -98,9 +108,9 @@
    "Ro 10:14-17"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Acts.11.14#08",
+  "ref_estandar": "Acts.11.14",
   "morfologia_tagnt": "V-FPI-2S",
   "dstrong": "G4982",
   "strong_tagnt": "G4982",
@@ -116,13 +126,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to save",
-  "ref_estandar": "Acts.11.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.11.15",
+  "pos_tisch": 7,
   "strong": "G1968",
   "forma": "ἐπέπεσεν",
+  "lema": "ἐπιπίπτω",
   "glosa_interlineal": "cayó",
   "rango_semantico": [
    "caer sobre, sobrevenir"
@@ -130,16 +144,16 @@
   "construccion": "Aoristo indicativo activo: «cayó el Espíritu Santo sobre ellos, como sobre nosotros al principio».",
   "sentido_en_contexto": "Pedro compara el don a los gentiles con Pentecostés («al principio»): la misma experiencia. El don del Espíritu fue la prueba definitiva de que Dios aceptaba a los gentiles sin circuncisión.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 2:1-4; 10:44-47",
    "Hch 15:8-9"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Acts.11.15#07",
+  "ref_estandar": "Acts.11.15",
   "morfologia_tagnt": "V-2AAI-3S",
   "dstrong": "G1968",
   "strong_tagnt": "G1968",
@@ -155,13 +169,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to fall/press upon",
-  "ref_estandar": "Acts.11.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.11.16",
+  "pos_tisch": 11,
   "strong": "G907",
   "forma": "ἐβάπτισεν",
+  "lema": "βαπτίζω",
   "glosa_interlineal": "bautizó",
   "rango_semantico": [
    "bautizar"
@@ -169,7 +187,7 @@
   "construccion": "Aoristo indicativo activo: «Juan ciertamente bautizó en agua, mas vosotros seréis bautizados en el Espíritu Santo».",
   "sentido_en_contexto": "Pedro recuerda la palabra del Señor (Hch 1:5). Identifica el don a los gentiles con el cumplimiento de esta promesa: el bautismo en el Espíritu fue dado a los gentiles igual que a los apóstoles.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 1:5",
@@ -177,10 +195,9 @@
    "Mr 1:8"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Acts.11.16#11",
+  "ref_estandar": "Acts.11.16",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G0907",
   "strong_tagnt": "G907",
@@ -196,13 +213,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to baptize",
-  "ref_estandar": "Acts.11.16"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.11.17",
+  "pos_tisch": 4,
   "strong": "G2470",
   "forma": "ἴσην",
+  "lema": "ἴσος",
   "glosa_interlineal": "igual",
   "rango_semantico": [
    "igual, equivalente"
@@ -210,7 +232,7 @@
   "construccion": "Acusativo: «Dios les dio el mismo don que a nosotros».",
   "sentido_en_contexto": "Pedro argumenta: si Dios les dio el mismo don al creer en Jesucristo, ¿quién era él para estorbar a Dios? Su respuesta cierra la objeción.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 10:47",
@@ -218,9 +240,9 @@
    "Gá 3:26-28"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Acts.11.17#04",
+  "ref_estandar": "Acts.11.17",
   "morfologia_tagnt": "A-ASF",
   "dstrong": "G2470",
   "strong_tagnt": "G2470",
@@ -236,13 +258,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "equal",
-  "ref_estandar": "Acts.11.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.11.18",
+  "pos_tisch": 17,
   "strong": "G3341",
   "forma": "μετάνοιαν",
+  "lema": "μετάνοια",
   "glosa_interlineal": "arrepentimiento",
   "rango_semantico": [
    "arrepentimiento, cambio de mentalidad"
@@ -250,7 +276,7 @@
   "construccion": "Acusativo: «¡también a los gentiles ha dado Dios arrepentimiento para vida!».",
   "sentido_en_contexto": "La iglesia de Jerusalén calla, glorifica a Dios y reconoce que el arrepentimiento que lleva a la vida también ha sido concedido a los gentiles. Cierra el episodio de Cornelio con la aceptación oficial.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 5:31",
@@ -259,9 +285,9 @@
    "Hch 15:3"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "Acts.11.18#18",
+  "ref_estandar": "Acts.11.18",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G3341",
   "strong_tagnt": "G3341",
@@ -277,13 +303,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "repentance",
-  "ref_estandar": "Acts.11.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.11.20",
+  "pos_tisch": 18,
   "strong": "G1672",
   "forma": "Ἑλληνάς",
+  "lema": "Ἕλλην",
   "glosa_interlineal": "griegos",
   "rango_semantico": [
    "griego, gentil de cultura griega"
@@ -291,7 +321,7 @@
   "construccion": "Acusativo plural: «hablaron también a los griegos, anunciando el evangelio del Señor Jesús».",
   "sentido_en_contexto": "Algunos creyentes de Chipre y Cirene, en Antioquía, comienzan a predicar a gentiles (griegos) directamente. Antioquía de Siria se convierte en la primera iglesia mixta (judíos y gentiles) y en base de la misión a las naciones.",
   "matiz": "Variante textual: «griegos» (Ἕλληνας, P74, A y otros) frente a «helenistas» (Ἑλληνιστάς, Aleph, B, D). La lectura «helenistas» sería judíos de habla griega; «griegos» designaría gentiles. El contexto (v.21-24; cf. 15:1-35) favorece «griegos» = gentiles.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 13:1; 14:26; 15:35",
@@ -299,9 +329,9 @@
    "Hch 8:1, 4"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 18,
   "alineacion": "strong",
   "tagnt": "Acts.11.20#18",
+  "ref_estandar": "Acts.11.20",
   "morfologia_tagnt": "N-APM-LG",
   "dstrong": "G1675",
   "strong_tagnt": "G1675",
@@ -318,13 +348,17 @@
    "Treg"
   ],
   "variante": true,
-  "glosa_tagnt": "Hellenist",
-  "ref_estandar": "Acts.11.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.11.23",
+  "pos_tisch": 6,
   "strong": "G5485",
   "forma": "χάριν",
+  "lema": "χάρις",
   "glosa_interlineal": "gracia",
   "rango_semantico": [
    "gracia, favor"
@@ -332,7 +366,7 @@
   "construccion": "Acusativo: «Bernabé, viendo la gracia de Dios, se regocijó».",
   "sentido_en_contexto": "Bernabé, enviado desde Jerusalén, ve «la gracia de Dios» en acción entre los gentiles y se alegra, a diferencia de lo que cabría esperar de un levita judío. Los anima a permanecer fieles «con propósito de corazón».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 4:36",
@@ -340,9 +374,9 @@
    "Col 1:6"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Acts.11.23#06",
+  "ref_estandar": "Acts.11.23",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G5485",
   "strong_tagnt": "G5485",
@@ -358,13 +392,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "grace",
-  "ref_estandar": "Acts.11.23"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.11.26",
+  "pos_tisch": 22,
   "strong": "G5546",
   "forma": "Χριστιανούς",
+  "lema": "Χριστιανός",
   "glosa_interlineal": "cristianos",
   "rango_semantico": [
    "cristiano (seguidor de Cristo)"
@@ -372,7 +410,7 @@
   "construccion": "Acusativo plural: «los discípulos fueron llamados cristianos por primera vez en Antioquía».",
   "sentido_en_contexto": "Primer uso del término «cristianos» (Χριστιανοί, forma latinizada: partidarios de Cristo). Aparece solo tres veces en el NT (aquí, 26:28; 1 P 4:16). Probablemente al principio fue un apodo dado desde fuera; los creyentes se llamaban «discípulos», «santos», «hermanos», «los del Camino».",
   "matiz": "Debate sobre el origen del nombre: ¿lo dieron los paganos (burla), las autoridades romanas (para distinguirlos de los judíos) o los propios creyentes? El verbo χρηματίσαι («ser llamados») puede indicar una designación oficial o por inspiración. Lo más probable es que fuera un apodo externo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 26:28",
@@ -380,9 +418,9 @@
    "Hch 9:2; 24:14"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 22,
   "alineacion": "forma",
   "tagnt": "Acts.11.26#29",
+  "ref_estandar": "Acts.11.26",
   "morfologia_tagnt": "N-APM-T",
   "dstrong": "G5546",
   "strong_tagnt": "G5546",
@@ -398,13 +436,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Christian",
-  "ref_estandar": "Acts.11.26"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.11.28",
+  "pos_tisch": 7,
   "strong": "G13",
   "forma": "Ἄγαβος",
+  "lema": "Ἄγαβος",
   "glosa_interlineal": "Ágabo",
   "rango_semantico": [
    "Ágabo (profeta cristiano)"
@@ -412,7 +454,7 @@
   "construccion": "Nominativo: «Ágabo, daba a entender por el Espíritu que vendría una gran hambre».",
   "sentido_en_contexto": "Profeta de Jerusalén que anuncia una gran hambre «en toda la tierra habitada» (οἰκουμένη) en tiempo de Claudio (41-54 d.C.). Josefo y otros historiadores registran hambres locales en Judea hacia el 46-47 d.C. Reaparece en 21:10-11 con otra profecía.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 21:10-11",
@@ -420,9 +462,9 @@
    "1 Co 12:28"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Acts.11.28#07",
+  "ref_estandar": "Acts.11.28",
   "morfologia_tagnt": "N-NSM-P",
   "dstrong": "G0013",
   "strong_tagnt": "G13",
@@ -438,13 +480,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Agabus",
-  "ref_estandar": "Acts.11.28"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.11.29",
+  "pos_tisch": 11,
   "strong": "G1248",
   "forma": "διακονίαν",
+  "lema": "διακονία",
   "glosa_interlineal": "ayuda",
   "rango_semantico": [
    "servicio, ministerio, ayuda"
@@ -452,7 +498,7 @@
   "construccion": "Acusativo: «determinaron enviar una ayuda a los hermanos que habitaban en Judea».",
   "sentido_en_contexto": "La iglesia de Antioquía, ya mixta, envía ayuda económica («servicio») a los cristianos de Judea por medio de Bernabé y Saulo: primera muestra de solidaridad entre iglesias gentiles y judías, que Pablo desarrollará en su colecta (Ro 15:25-27; 2 Co 8-9).",
   "matiz": "Relación con Gá 2:1-10 (visita a Jerusalén «para la colecta» y reunión con las columnas): algunos identifican esta visita (Hch 11:30) con la de Gá 2; otros con la de Hch 15 (concilio). Debate abierto.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 15:25-27",
@@ -460,9 +506,9 @@
    "Gá 2:1-10"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Acts.11.29#11",
+  "ref_estandar": "Acts.11.29",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G1248",
   "strong_tagnt": "G1248",
@@ -478,7 +524,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "service",
-  "ref_estandar": "Acts.11.29"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

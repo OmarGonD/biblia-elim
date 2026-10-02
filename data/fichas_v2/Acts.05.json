@@ -1,8 +1,10 @@
 [
  {
   "ref": "Acts.5.2",
+  "pos_tisch": 2,
   "strong": "G3557",
   "forma": "ἐνοσφίσατο",
+  "lema": "νοσφίζομαι",
   "glosa_interlineal": "sustrajo",
   "rango_semantico": [
    "apartar para sí, defraudar, sustraer"
@@ -10,7 +12,7 @@
   "construccion": "Aoristo indicativo medio: «sustrajo del precio».",
   "sentido_en_contexto": "Ananías y Safira venden una propiedad y se quedan con parte del dinero, presentando el resto como si fuera el total. Su pecado no es retener, sino mentir y fingir generosidad total. El verbo recuerda a Acán (Jos 7:1, LXX).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jos 7:1 — Acán «tomó del anatema»",
@@ -18,9 +20,9 @@
    "Hch 4:32-37"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Acts.5.2#02",
+  "ref_estandar": "Acts.5.2",
   "morfologia_tagnt": "V-AMI-3S",
   "dstrong": "G3557",
   "strong_tagnt": "G3557",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to embezzle",
-  "ref_estandar": "Acts.5.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.5.3",
+  "pos_tisch": 13,
   "strong": "G5574",
   "forma": "ψεύσασθαί",
+  "lema": "ψεύδομαι",
   "glosa_interlineal": "mintieras",
   "rango_semantico": [
    "mentir, engañar"
@@ -50,7 +56,7 @@
   "construccion": "Infinitivo aoristo medio: «para que mintieses al Espíritu Santo».",
   "sentido_en_contexto": "Pedro identifica la mentira ante la comunidad como mentira al Espíritu Santo (v.3) y a Dios (v.4): equiparación implícita del Espíritu con Dios. Satanás llenó el corazón de Ananías.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 5:4",
@@ -58,9 +64,9 @@
    "Lc 22:3"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Acts.5.3#14",
+  "ref_estandar": "Acts.5.3",
   "morfologia_tagnt": "V-ADN",
   "dstrong": "G5574",
   "strong_tagnt": "G5574",
@@ -76,13 +82,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to lie",
-  "ref_estandar": "Acts.5.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.5.4",
+  "pos_tisch": 10,
   "strong": "G1849",
   "forma": "ἐξουσίᾳ",
+  "lema": "ἐξουσία",
   "glosa_interlineal": "poder",
   "rango_semantico": [
    "autoridad, poder de disposición"
@@ -90,16 +100,16 @@
   "construccion": "Dativo: «¿no estaba en tu poder?».",
   "sentido_en_contexto": "Pedro aclara que no había obligación de vender ni de entregar todo: la propiedad y el dinero estaban a su disposición. El pecado fue el engaño, no la retención. Confirma que la comunidad de bienes era voluntaria.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 4:32-37",
    "2 Co 9:7"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Acts.5.4#10",
+  "ref_estandar": "Acts.5.4",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G1849",
   "strong_tagnt": "G1849",
@@ -115,13 +125,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "authority",
-  "ref_estandar": "Acts.5.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.5.5",
+  "pos_tisch": 9,
   "strong": "G1634",
   "forma": "ἐξέψυξεν",
+  "lema": "ἐκψύχω",
   "glosa_interlineal": "expiró",
   "rango_semantico": [
    "expirar, dar el último aliento"
@@ -129,7 +143,7 @@
   "construccion": "Aoristo indicativo activo: «cayó y expiró».",
   "sentido_en_contexto": "Ananías muere súbitamente al oír las palabras de Pedro, y Safira poco después. Se debate si es juicio divino (lectura tradicional), muerte natural por la impresión, o ambos; Lucas lo narra como acto de Dios ante la comunidad.",
   "matiz": "Pedro no pronuncia sentencia de muerte; la muerte se atribuye a la intervención de Dios (paralelos: Nadab y Abiú, Lv 10:1-3; Acán, Jos 7). El episodio funciona como advertencia sobre la santidad de la comunidad en sus comienzos.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lv 10:1-3",
@@ -138,9 +152,9 @@
    "1 Co 11:30"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Acts.5.5#09",
+  "ref_estandar": "Acts.5.5",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G1634",
   "strong_tagnt": "G1634",
@@ -156,13 +170,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to expire",
-  "ref_estandar": "Acts.5.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.5.11",
+  "pos_tisch": 8,
   "strong": "G1577",
   "forma": "ἐκκλησίαν",
+  "lema": "ἐκκλησία",
   "glosa_interlineal": "iglesia",
   "rango_semantico": [
    "asamblea, congregación, iglesia"
@@ -170,7 +188,7 @@
   "construccion": "Acusativo: «gran temor sobre toda la iglesia».",
   "sentido_en_contexto": "Primera vez en Hechos que aparece ἐκκλησία («asamblea»), la comunidad de los creyentes. Se usa en la LXX para la asamblea de Israel; Lucas lo aplica a la comunidad cristiana de Jerusalén.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 7:38 — «la congregación en el desierto»",
@@ -178,9 +196,9 @@
    "Hch 8:1; 9:31; 20:28"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Acts.5.11#08",
+  "ref_estandar": "Acts.5.11",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G1577",
   "strong_tagnt": "G1577",
@@ -196,13 +214,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "assembly",
-  "ref_estandar": "Acts.5.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.5.15",
+  "pos_tisch": 20,
   "strong": "G4639",
   "forma": "σκιὰ",
+  "lema": "σκιά",
   "glosa_interlineal": "sombra",
   "rango_semantico": [
    "sombra"
@@ -210,7 +232,7 @@
   "construccion": "Nominativo: «al menos su sombra cayese sobre alguno de ellos».",
   "sentido_en_contexto": "La gente colocaba a los enfermos en las calles para que la sombra de Pedro los tocara. Lucas no dice explícitamente que fueran sanados por la sombra, aunque v.16 afirma que todos fueron sanados. Se compara con el manto de Jesús (Lc 8:44) y los pañuelos de Pablo (19:12).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 8:44",
@@ -218,9 +240,9 @@
    "Mr 6:56"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 20,
   "alineacion": "forma",
   "tagnt": "Acts.5.15#20",
+  "ref_estandar": "Acts.5.15",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G4639",
   "strong_tagnt": "G4639",
@@ -236,13 +258,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "shadow",
-  "ref_estandar": "Acts.5.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.5.17",
+  "pos_tisch": 12,
   "strong": "G139",
   "forma": "αἵρεσις",
+  "lema": "αἵρεσις",
   "glosa_interlineal": "secta",
   "rango_semantico": [
    "partido, secta, escuela de pensamiento"
@@ -250,7 +276,7 @@
   "construccion": "Nominativo: «la secta de los saduceos».",
   "sentido_en_contexto": "αἵρεσις significa en su origen «elección» y luego «partido, escuela». No tiene aún el sentido de «herejía». Se aplica a los saduceos y fariseos (15:5), y a los cristianos (24:5, 14, «el Camino»).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 15:5; 24:5, 14; 26:5",
@@ -258,9 +284,9 @@
    "Gá 5:20"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Acts.5.17#12",
+  "ref_estandar": "Acts.5.17",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G0139",
   "strong_tagnt": "G139",
@@ -276,13 +302,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sect",
-  "ref_estandar": "Acts.5.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.5.19",
+  "pos_tisch": 1,
   "strong": "G32",
   "forma": "ἄγγελος",
+  "lema": "ἄγγελος",
   "glosa_interlineal": "ángel",
   "rango_semantico": [
    "ángel, mensajero"
@@ -290,7 +320,7 @@
   "construccion": "Nominativo: «un ángel del Señor, abriendo de noche las puertas de la cárcel».",
   "sentido_en_contexto": "Primera liberación milagrosa de los apóstoles. El ángel les ordena volver al templo a anunciar «todas las palabras de esta vida». Los saduceos (que negaban a los ángeles; cf. 23:8) se ven desconcertados.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 12:6-11; 16:25-26",
@@ -298,9 +328,9 @@
    "Sal 34:7"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "Acts.5.19#01",
+  "ref_estandar": "Acts.5.19",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G0032G",
   "strong_tagnt": "G32",
@@ -316,13 +346,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "angel",
-  "ref_estandar": "Acts.5.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.5.20",
+  "pos_tisch": 14,
   "strong": "G2222",
   "forma": "ζωῆς",
+  "lema": "ζωή",
   "glosa_interlineal": "vida",
   "rango_semantico": [
    "vida"
@@ -330,7 +364,7 @@
   "construccion": "Genitivo: «todas las palabras de esta vida».",
   "sentido_en_contexto": "«Esta vida» es una expresión peculiar que resume el mensaje cristiano: la vida nueva que da Jesús. Contrasta con los saduceos, que niegan la resurrección.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 6:68 — «palabras de vida eterna»",
@@ -338,9 +372,9 @@
    "Hch 11:18"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Acts.5.20#14",
+  "ref_estandar": "Acts.5.20",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G2222",
   "strong_tagnt": "G2222",
@@ -356,13 +390,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "life",
-  "ref_estandar": "Acts.5.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.5.29",
+  "pos_tisch": 8,
   "strong": "G3980",
   "forma": "πειθαρχεῖν",
+  "lema": "πειθαρχέω",
   "glosa_interlineal": "obedecer",
   "rango_semantico": [
    "obedecer a una autoridad"
@@ -370,7 +408,7 @@
   "construccion": "Infinitivo presente: «es necesario obedecer a Dios antes que a los hombres».",
   "sentido_en_contexto": "Respuesta de los apóstoles a la prohibición de predicar: la obediencia a Dios tiene prioridad absoluta sobre las órdenes humanas. Reitera 4:19. πειθαρχέω es «obedecer a una autoridad legítima».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 4:19",
@@ -379,9 +417,9 @@
    "1 P 2:13-17"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Acts.5.29#09",
+  "ref_estandar": "Acts.5.29",
   "morfologia_tagnt": "V-PAN",
   "dstrong": "G3980",
   "strong_tagnt": "G3980",
@@ -397,13 +435,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to obey",
-  "ref_estandar": "Acts.5.29"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.5.30",
+  "pos_tisch": 13,
   "strong": "G3586",
   "forma": "ξύλου",
+  "lema": "ξύλον",
   "glosa_interlineal": "madero",
   "rango_semantico": [
    "madero, árbol, cruz"
@@ -411,7 +453,7 @@
   "construccion": "Genitivo: «a quien vosotros matasteis colgándole en un madero».",
   "sentido_en_contexto": "«Colgar en un madero» alude a Dt 21:22-23: el colgado es maldito de Dios. Los apóstoles invierten el sentido: aquel a quien ustedes colgaron, Dios lo resucitó y exaltó. Fórmula usada también en 10:39 y 13:29.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 21:22-23",
@@ -420,9 +462,9 @@
    "1 P 2:24"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Acts.5.30#13",
+  "ref_estandar": "Acts.5.30",
   "morfologia_tagnt": "N-GSN",
   "dstrong": "G3586",
   "strong_tagnt": "G3586",
@@ -438,13 +480,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wood",
-  "ref_estandar": "Acts.5.30"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.5.31",
+  "pos_tisch": 6,
   "strong": "G4990",
   "forma": "σωτῆρα",
+  "lema": "σωτήρ",
   "glosa_interlineal": "Salvador",
   "rango_semantico": [
    "salvador, libertador"
@@ -452,7 +498,7 @@
   "construccion": "Acusativo: «Príncipe y Salvador».",
   "sentido_en_contexto": "Dios exaltó a Jesús a su diestra como «Príncipe (ἀρχηγός) y Salvador» para dar arrepentimiento y perdón de pecados a Israel. El arrepentimiento mismo se presenta como don de Dios.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 3:15",
@@ -461,9 +507,9 @@
    "Tit 2:13"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Acts.5.31#06",
+  "ref_estandar": "Acts.5.31",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G4990",
   "strong_tagnt": "G4990",
@@ -479,13 +525,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "savior",
-  "ref_estandar": "Acts.5.31"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.5.34",
+  "pos_tisch": 9,
   "strong": "G1059",
   "forma": "Γαμαλιήλ",
+  "lema": "Γαμαλιήλ",
   "glosa_interlineal": "Gamaliel",
   "rango_semantico": [
    "Gamaliel (maestro fariseo del siglo I)"
@@ -493,16 +543,16 @@
   "construccion": "Nominativo: «un fariseo llamado Gamaliel».",
   "sentido_en_contexto": "Famoso maestro de la Ley, nieto de Hillel, venerado por todo el pueblo; maestro de Saulo (22:3). Su consejo de prudencia salva a los apóstoles de la muerte.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 22:3",
    "Mt 23:2"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Acts.5.34#09",
+  "ref_estandar": "Acts.5.34",
   "morfologia_tagnt": "N-NSM-P",
   "dstrong": "G1059",
   "strong_tagnt": "G1059",
@@ -518,13 +568,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Gamaliel",
-  "ref_estandar": "Acts.5.34"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.5.36",
+  "pos_tisch": 7,
   "strong": "G2333",
   "forma": "Θευδᾶς",
+  "lema": "Θευδᾶς",
   "glosa_interlineal": "Teudas",
   "rango_semantico": [
    "Teudas (agitador mesiánico)"
@@ -532,16 +586,16 @@
   "construccion": "Nominativo: «Teudas, diciendo ser alguien».",
   "sentido_en_contexto": "Gamaliel cita dos movimientos fracasados (Teudas y Judas el Galileo) para argumentar que si el movimiento no es de Dios, se disolverá. Existe una dificultad histórica: Josefo habla de un Teudas hacia el 44-46 d.C., posterior a esta escena.",
   "matiz": "Dificultad cronológica: el Teudas de Josefo (Ant. 20.97-99, hacia 44-46 d.C.) es posterior al discurso de Gamaliel. Soluciones: (a) hubo otro Teudas más antiguo (nombre común, hacia 4 a.C. tras la muerte de Herodes); (b) Lucas o Josefo se equivoca; (c) Gamaliel menciona un caso anterior no registrado por Josefo. El debate sigue abierto.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 21:38 — el egipcio",
    "Lc 2:2 — Judas el Galileo y el censo"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Acts.5.36#07",
+  "ref_estandar": "Acts.5.36",
   "morfologia_tagnt": "N-NSM-P",
   "dstrong": "G2333",
   "strong_tagnt": "G2333",
@@ -557,13 +611,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Theudas",
-  "ref_estandar": "Acts.5.36"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.5.37",
+  "pos_tisch": 11,
   "strong": "G582",
   "forma": "ἀπογραφῆς",
+  "lema": "ἀπογραφή",
   "glosa_interlineal": "censo",
   "rango_semantico": [
    "censo, registro, empadronamiento"
@@ -571,16 +629,16 @@
   "construccion": "Genitivo: «en los días del censo».",
   "sentido_en_contexto": "Judas el Galileo lideró una revuelta contra el censo de Quirinio (6 d.C.), según Josefo. Su movimiento fue dispersado. Gamaliel lo cita como segundo ejemplo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 2:1-2",
    "Josefo, Ant. 18.1-10"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Acts.5.37#11",
+  "ref_estandar": "Acts.5.37",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G0582",
   "strong_tagnt": "G582",
@@ -596,13 +654,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "census",
-  "ref_estandar": "Acts.5.37"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.5.39",
+  "pos_tisch": 12,
   "strong": "G2314",
   "forma": "θεομάχοι",
+  "lema": "θεομάχος",
   "glosa_interlineal": "luchando contra Dios",
   "rango_semantico": [
    "que combate contra Dios"
@@ -610,7 +672,7 @@
   "construccion": "Adjetivo nominativo plural: «no sea que se os halle luchando contra Dios».",
   "sentido_en_contexto": "Palabra única en el NT. Gamaliel advierte: si el movimiento es de Dios, no podrán destruirlo y se arriesgan a combatir a Dios. El consejo aparece como prudencia pragmática, no como fe.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 11:17",
@@ -618,9 +680,9 @@
    "Hch 9:5"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Acts.5.39#12",
+  "ref_estandar": "Acts.5.39",
   "morfologia_tagnt": "A-NPM",
   "dstrong": "G2314",
   "strong_tagnt": "G2314",
@@ -636,13 +698,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "opposing God",
-  "ref_estandar": "Acts.5.39"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.5.41",
+  "pos_tisch": 11,
   "strong": "G2661",
   "forma": "κατηξιώθησαν",
+  "lema": "καταξιόω",
   "glosa_interlineal": "fueron tenidos por dignos",
   "rango_semantico": [
    "considerar digno, juzgar merecedor"
@@ -650,7 +716,7 @@
   "construccion": "Aoristo indicativo pasivo: «se gozaban de haber sido tenidos por dignos de padecer afrenta».",
   "sentido_en_contexto": "Tras ser azotados, los apóstoles salen gozosos: consideran un honor sufrir por el nombre de Jesús. Eco de Lc 6:22-23 y paradoja del discipulado.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 6:22-23",
@@ -659,9 +725,9 @@
    "Fil 1:29"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Acts.5.41#11",
+  "ref_estandar": "Acts.5.41",
   "morfologia_tagnt": "V-API-3P",
   "dstrong": "G2661",
   "strong_tagnt": "G2661",
@@ -677,13 +743,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to consider worthy",
-  "ref_estandar": "Acts.5.41"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.5.42",
+  "pos_tisch": 14,
   "strong": "G2097",
   "forma": "εὐαγγελιζόμενοι",
+  "lema": "εὐαγγελίζω",
   "glosa_interlineal": "anunciando el evangelio",
   "rango_semantico": [
    "anunciar buenas nuevas, evangelizar"
@@ -691,7 +761,7 @@
   "construccion": "Participio presente medio: «no cesaban de enseñar y predicar a Jesucristo».",
   "sentido_en_contexto": "Cierre del cuadro: cada día en el templo y de casa en casa, enseñando y proclamando que Jesús es el Cristo. εὐαγγελίζομαι es «dar las buenas noticias»; en Hechos el verbo es característico de la misión cristiana.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 8:4, 12, 35, 40; 11:20",
@@ -699,9 +769,9 @@
    "Lc 4:18, 43"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Acts.5.42#14",
+  "ref_estandar": "Acts.5.42",
   "morfologia_tagnt": "V-PMP-NPM",
   "dstrong": "G2097",
   "strong_tagnt": "G2097",
@@ -717,7 +787,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to speak good news",
-  "ref_estandar": "Acts.5.42"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

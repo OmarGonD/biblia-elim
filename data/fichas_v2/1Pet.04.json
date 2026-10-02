@@ -1,8 +1,10 @@
 [
  {
   "ref": "1Pet.4.1",
+  "pos_tisch": 3,
   "strong": "G3958",
   "forma": "παθόντος",
+  "lema": "πάσχω",
   "glosa_interlineal": "habiendo padecido",
   "rango_semantico": [
    "sufrir, padecer"
@@ -10,7 +12,7 @@
   "construccion": "Participio aoristo activo: «puesto que Cristo ha padecido por nosotros en la carne, armaos también vosotros del mismo pensamiento; pues quien ha padecido en la carne, ha terminado con el pecado».",
   "sentido_en_contexto": "El que ha sufrido en la carne «ha cesado de pecado»: expresión debatida. Puede significar que quien ha sufrido por Cristo ha roto con el pecado (v.2); o que el sufrimiento purifica; o que quien ha muerto con Cristo (bautismo) está libre del pecado (Ro 6:7).",
   "matiz": "Debate: (a) quien sufre por Cristo muestra su ruptura con el pecado (la mayoría); (b) el sufrimiento mismo purifica (algunos Padres; no es lo que dice el texto); (c) paralelo con Ro 6:7 (el que ha muerto está libre del pecado).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 6:7",
@@ -19,10 +21,9 @@
    "Col 3:3"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 3,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1Pet.4.1#03",
+  "ref_estandar": "1Pet.4.1",
   "morfologia_tagnt": "V-2AAP-GSM",
   "dstrong": "G3958",
   "strong_tagnt": "G3958",
@@ -38,13 +39,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to suffer",
-  "ref_estandar": "1Pet.4.1"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Pet.4.3",
+  "pos_tisch": 20,
   "strong": "G1495",
   "forma": "εἰδωλολατρίαις",
+  "lema": "εἰδωλολατρεία",
   "glosa_interlineal": "idolatrías",
   "rango_semantico": [
    "idolatría"
@@ -52,7 +58,7 @@
   "construccion": "Dativo plural: «baste ya el tiempo pasado para haber hecho la voluntad de los gentiles, andando en lascivias, malos deseos, embriagueces, orgías, banquetes y abominables idolatrías».",
   "sentido_en_contexto": "Lista de vicios gentiles que los creyentes dejaron atrás. Los paganos «se extrañan» de que ya no corran con ellos y los injurian (v.4). Se evidencia que muchos destinatarios eran de origen gentil.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 2:1-3",
@@ -61,9 +67,9 @@
    "1 Co 6:9-11"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 20,
   "alineacion": "forma",
   "tagnt": "1Pet.4.3#23",
+  "ref_estandar": "1Pet.4.3",
   "morfologia_tagnt": "N-DPF",
   "dstrong": "G1495",
   "strong_tagnt": "G1495",
@@ -79,13 +85,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "idolatry",
-  "ref_estandar": "1Pet.4.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Pet.4.6",
+  "pos_tisch": 5,
   "strong": "G3498",
   "forma": "νεκροῖς",
+  "lema": "νεκρός",
   "glosa_interlineal": "muertos",
   "rango_semantico": [
    "muerto"
@@ -93,7 +103,7 @@
   "construccion": "Dativo plural: «porque por esto también ha sido predicado el evangelio a los muertos, para que sean juzgados en la carne según los hombres, pero vivan en el espíritu según Dios».",
   "sentido_en_contexto": "Texto debatido junto con 3:19: ¿quiénes son «los muertos» a quienes se predicó el evangelio? (a) Creyentes que murieron después de oír el evangelio en vida (la mayoría de exégetas), para quienes la muerte física (juicio humano) no anula la vida eterna; (b) una predicación póstuma a los muertos (Hades); (c) los espiritualmente muertos.",
   "matiz": "Debate: (a) el evangelio fue predicado a quienes ahora están muertos (mientras vivían), y aunque juzgados por los hombres (martirio), viven por Dios (la mayoría); (b) predicación después de la muerte (descenso al Hades; algunos Padres, ortodoxia, ciertos universalistas); (c) tiempo pasado de la predicación: «fue anunciado» (aoristo), sin precisar cuándo. Se conecta con 3:19.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 P 3:19",
@@ -102,9 +112,9 @@
    "Ro 14:9"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "1Pet.4.6#05",
+  "ref_estandar": "1Pet.4.6",
   "morfologia_tagnt": "A-DPM",
   "dstrong": "G3498",
   "strong_tagnt": "G3498",
@@ -120,13 +130,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dead",
-  "ref_estandar": "1Pet.4.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Pet.4.7",
+  "pos_tisch": 5,
   "strong": "G1448",
   "forma": "ἤγγικεν",
+  "lema": "ἐγγίζω",
   "glosa_interlineal": "se ha acercado",
   "rango_semantico": [
    "acercarse, estar cerca"
@@ -134,7 +148,7 @@
   "construccion": "Perfecto indicativo activo: «mas el fin de todas las cosas se acerca; sed, pues, sobrios, y velad en oración».",
   "sentido_en_contexto": "Escatología pastoral: el fin se acerca, por tanto, sed sobrios y orad. «Se acerca» (perfecto: ha llegado cerca) expresa la inminencia del fin como motivación ética, sin fijar una fecha. Cf. Stg 5:8; 1 Jn 2:18.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jas 5:8",
@@ -143,9 +157,9 @@
    "2 P 3:8-9"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "1Pet.4.7#05",
+  "ref_estandar": "1Pet.4.7",
   "morfologia_tagnt": "V-RAI-3S",
   "dstrong": "G1448",
   "strong_tagnt": "G1448",
@@ -161,13 +175,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to come near",
-  "ref_estandar": "1Pet.4.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Pet.4.8",
+  "pos_tisch": 11,
   "strong": "G2572",
   "forma": "καλύπτει",
+  "lema": "καλύπτω",
   "glosa_interlineal": "cubre",
   "rango_semantico": [
    "cubrir, tapar"
@@ -175,7 +193,7 @@
   "construccion": "Presente indicativo activo: «ante todo, tened entre vosotros ferviente amor; porque el amor cubrirá multitud de pecados».",
   "sentido_en_contexto": "Cita de Pr 10:12: el amor perdona las ofensas ajenas (no oculta pecados ni los absuelve). «Cubrir» pecados es perdonar y restaurar a los hermanos. Cf. Stg 5:20. No dice que nuestros actos de amor expíen nuestros pecados.",
   "matiz": "Debate: (a) el amor perdona los pecados de otros (la mayoría); (b) el amor cubre los propios pecados ante Dios (lectura católica medieval de méritos del amor, no la del texto); (c) cuestión de relaciones comunitarias.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Pr 10:12",
@@ -184,9 +202,9 @@
    "1 Co 13:7"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "1Pet.4.8#12",
+  "ref_estandar": "1Pet.4.8",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G2572",
   "strong_tagnt": "G2572",
@@ -203,13 +221,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to cover",
-  "ref_estandar": "1Pet.4.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Pet.4.10",
+  "pos_tisch": 4,
   "strong": "G5486",
   "forma": "χάρισμα",
+  "lema": "χάρισμα",
   "glosa_interlineal": "don",
   "rango_semantico": [
    "don, carisma"
@@ -217,7 +239,7 @@
   "construccion": "Acusativo: «cada uno según el don que ha recibido, ministrándolo a los otros, como buenos administradores de la multiforme gracia de Dios».",
   "sentido_en_contexto": "Cada creyente ha recibido un don (χάρισμα) para servir a los demás, como administrador de la gracia multiforme de Dios. Divide los dones en dos grupos: hablar (como oráculos de Dios) y servir (con la fuerza que Dios da). Todo para que Dios sea glorificado (v.11).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 12:4-7",
@@ -226,9 +248,9 @@
    "Mt 25:14-30"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "1Pet.4.10#04",
+  "ref_estandar": "1Pet.4.10",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G5486",
   "strong_tagnt": "G5486",
@@ -244,13 +266,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gift",
-  "ref_estandar": "1Pet.4.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Pet.4.11",
+  "pos_tisch": 5,
   "strong": "G3051",
   "forma": "λόγια",
+  "lema": "λόγιον",
   "glosa_interlineal": "oráculos",
   "rango_semantico": [
    "oráculo, palabra (de Dios)"
@@ -258,7 +284,7 @@
   "construccion": "Acusativo plural: «si alguno habla, hable conforme a las palabras de Dios; si alguno ministra, ministre conforme al poder que Dios da, para que en todo sea Dios glorificado por Jesucristo».",
   "sentido_en_contexto": "Dos categorías de dones: la palabra (λόγια θεοῦ: «oráculos de Dios») y el servicio. Quien habla debe hacerlo como transmisor de palabras de Dios; quien sirve, con la fuerza que Dios da. La meta: la gloria de Dios por medio de Jesucristo (doxología).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 3:2",
@@ -267,9 +293,9 @@
    "1 Co 10:31"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "1Pet.4.11#05",
+  "ref_estandar": "1Pet.4.11",
   "morfologia_tagnt": "N-APN",
   "dstrong": "G3051",
   "strong_tagnt": "G3051",
@@ -285,13 +311,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "oracles",
-  "ref_estandar": "1Pet.4.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Pet.4.12",
+  "pos_tisch": 7,
   "strong": "G4451",
   "forma": "πυρώσει",
+  "lema": "πύρωσις",
   "glosa_interlineal": "fuego de prueba",
   "rango_semantico": [
    "fuego, prueba ardiente"
@@ -299,7 +329,7 @@
   "construccion": "Dativo: «amados, no os sorprendáis del fuego de prueba que os ha sobrevenido, como si alguna cosa extraña os aconteciese».",
   "sentido_en_contexto": "No se debe considerar extraña la persecución: forma parte normal de la vida cristiana (cf. 2 Ti 3:12). El «fuego» purifica (1:7). Los creyentes participan de los sufrimientos de Cristo (v.13) y serán gozosos en la revelación de su gloria.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 P 1:6-7",
@@ -308,9 +338,9 @@
    "Hch 14:22"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "1Pet.4.12#07",
+  "ref_estandar": "1Pet.4.12",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G4451",
   "strong_tagnt": "G4451",
@@ -326,13 +356,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "burning",
-  "ref_estandar": "1Pet.4.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Pet.4.13",
+  "pos_tisch": 3,
   "strong": "G2841",
   "forma": "κοινωνεῖτε",
+  "lema": "κοινωνέω",
   "glosa_interlineal": "participáis",
   "rango_semantico": [
    "participar, compartir"
@@ -340,7 +374,7 @@
   "construccion": "Presente indicativo activo: «sino gozaos por cuanto sois participantes de los padecimientos de Cristo, para que también en la revelación de su gloria os gocéis con gran alegría».",
   "sentido_en_contexto": "Los sufrimientos por causa de Cristo son participación en sus padecimientos, con promesa de gloria futura. Pedro propone una teología del sufrimiento de los fieles: sufrir con Cristo significa reinar con él (cf. Ro 8:17).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 8:17",
@@ -349,9 +383,9 @@
    "2 Ti 2:12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "1Pet.4.13#03",
+  "ref_estandar": "1Pet.4.13",
   "morfologia_tagnt": "V-PAI-2P",
   "dstrong": "G2841",
   "strong_tagnt": "G2841",
@@ -367,13 +401,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to participate",
-  "ref_estandar": "1Pet.4.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Pet.4.14",
+  "pos_tisch": 2,
   "strong": "G3679",
   "forma": "ὀνειδίζεσθε",
+  "lema": "ὀνειδίζω",
   "glosa_interlineal": "sois vituperados",
   "rango_semantico": [
    "ser insultado, ser vituperado"
@@ -381,7 +419,7 @@
   "construccion": "Presente indicativo pasivo: «si sois vituperados por el nombre de Cristo, sois bienaventurados, porque el glorioso Espíritu de Dios reposa sobre vosotros».",
   "sentido_en_contexto": "El que sufre por el nombre de Cristo es bienaventurado porque el Espíritu de gloria y de Dios reposa sobre él. Eco de Mt 5:11 y de Is 11:2. Contrasta con sufrir como criminal (v.15).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 5:11-12",
@@ -389,9 +427,9 @@
    "Hch 5:41"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "1Pet.4.14#02",
+  "ref_estandar": "1Pet.4.14",
   "morfologia_tagnt": "V-PPI-2P",
   "dstrong": "G3679",
   "strong_tagnt": "G3679",
@@ -407,13 +445,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to revile",
-  "ref_estandar": "1Pet.4.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Pet.4.16",
+  "pos_tisch": 4,
   "strong": "G5546",
   "forma": "Χριστιανός",
+  "lema": "Χριστιανός",
   "glosa_interlineal": "cristiano",
   "rango_semantico": [
    "cristiano, seguidor de Cristo"
@@ -421,7 +463,7 @@
   "construccion": "Nominativo: «pero si alguno padece como cristiano, no se avergüence, sino glorifique a Dios por ello».",
   "sentido_en_contexto": "Una de las tres apariciones del término «cristiano» en el NT (Hch 11:26; 26:28). Probablemente un apelativo burlón de los de fuera. Pedro anima a no avergonzarse de él: sufrir «como cristiano» es motivo de gloria.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 11:26; 26:28",
@@ -429,9 +471,9 @@
    "Ro 1:16"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "1Pet.4.16#04",
+  "ref_estandar": "1Pet.4.16",
   "morfologia_tagnt": "N-NSM-T",
   "dstrong": "G5546",
   "strong_tagnt": "G5546",
@@ -447,13 +489,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Christian",
-  "ref_estandar": "1Pet.4.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Pet.4.17",
+  "pos_tisch": 6,
   "strong": "G2917",
   "forma": "κρίμα",
+  "lema": "κρίμα",
   "glosa_interlineal": "juicio",
   "rango_semantico": [
    "juicio, sentencia"
@@ -461,7 +507,7 @@
   "construccion": "Nominativo: «porque es tiempo de que el juicio comience por la casa de Dios; y si primero comienza por nosotros, ¿cuál será el fin de aquellos que no obedecen al evangelio de Dios?».",
   "sentido_en_contexto": "El juicio comienza por la casa de Dios (Ez 9:6; Mal 3:1-5): el sufrimiento de los creyentes es una purificación que se anticipa al juicio. Si el justo «apenas se salva» (v.18, Pr 11:31 LXX), ¿cuál será el fin de los impíos? Argumento de menor a mayor.",
   "matiz": "Debate sobre «apenas se salva el justo» (v.18): (a) la salvación del justo cuesta (sufrimiento y perseverancia), pero es segura (la mayoría); (b) hay riesgo real, y el justo se salva con dificultad (arminiana); no significa que Dios tenga dificultad para salvar.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ez 9:6",
@@ -470,9 +516,9 @@
    "Heb 12:5-11"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "1Pet.4.17#07",
+  "ref_estandar": "1Pet.4.17",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G2917",
   "strong_tagnt": "G2917",
@@ -488,13 +534,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "judgment",
-  "ref_estandar": "1Pet.4.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Pet.4.19",
+  "pos_tisch": 11,
   "strong": "G2939",
   "forma": "κτίστῃ",
+  "lema": "κτίστης",
   "glosa_interlineal": "Creador",
   "rango_semantico": [
    "creador"
@@ -502,7 +552,7 @@
   "construccion": "Dativo: «de modo que los que padecen según la voluntad de Dios, encomienden sus almas al fiel Creador, y hagan el bien».",
   "sentido_en_contexto": "Quien sufre según la voluntad de Dios confía su alma al «fiel Creador» (único uso de κτίστης en el NT para Dios), haciendo el bien. Cierra la sección sobre el sufrimiento (4:12-19) con confianza en la fidelidad del Dios que creó y cuida.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 31:5",
@@ -511,9 +561,9 @@
    "Heb 10:23"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "1Pet.4.19#12",
+  "ref_estandar": "1Pet.4.19",
   "morfologia_tagnt": "N-DSM",
   "dstrong": "G2939",
   "strong_tagnt": "G2939",
@@ -529,7 +579,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "creator",
-  "ref_estandar": "1Pet.4.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

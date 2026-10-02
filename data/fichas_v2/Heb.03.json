@@ -1,8 +1,10 @@
 [
  {
   "ref": "Heb.3.1",
+  "pos_tisch": 9,
   "strong": "G652",
   "forma": "ἀπόστολον",
+  "lema": "ἀπόστολος",
   "glosa_interlineal": "apóstol",
   "rango_semantico": [
    "apóstol, enviado"
@@ -10,7 +12,7 @@
   "construccion": "Acusativo: «por tanto, hermanos santos, participantes del llamamiento celestial, considerad al Apóstol y Sumo Sacerdote de nuestra profesión, Jesucristo».",
   "sentido_en_contexto": "Único lugar donde Jesús es llamado «apóstol» (enviado de Dios) junto con «sumo sacerdote». Su comparación con Moisés (vv.2-6): Moisés fue siervo fiel en la casa de Dios; Cristo es Hijo sobre la casa. Los creyentes forman esa casa si retienen la confianza (v.6).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 20:21",
@@ -18,9 +20,9 @@
    "Nm 12:7"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Heb.3.1#09",
+  "ref_estandar": "Heb.3.1",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G0652",
   "strong_tagnt": "G652",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "apostle",
-  "ref_estandar": "Heb.3.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Heb.3.6",
+  "pos_tisch": 24,
   "strong": "G2722",
   "forma": "κατάσχωμεν",
+  "lema": "κατέχω",
   "glosa_interlineal": "retengamos",
   "rango_semantico": [
    "retener, aferrarse"
@@ -50,7 +56,7 @@
   "construccion": "Aoristo subjuntivo activo: «pero Cristo como hijo sobre su casa, la cual casa somos nosotros, si retenemos firme hasta el fin nuestra confianza y la gloria de la esperanza».",
   "sentido_en_contexto": "Condicional de perseverancia: somos la casa de Dios «si retenemos firme» la confianza. Muestra el equilibrio paradójico de Hebreos entre seguridad y advertencia. La advertencia es a los «hermanos santos» (3:1), lo que se discute respecto de su real condición.",
   "matiz": "Debate sobre las advertencias de Hebreos (3:6, 14; 6:4-6; 10:26-31): (a) los creyentes verdaderos pueden apostatar y perder la salvación (arminiana, wesleyana, católica); (b) advertencias dirigidas a profesantes cuya perseverancia prueba la autenticidad (reformada); (c) las advertencias son medio por el cual Dios preserva a los elegidos; (d) se refieren a pérdida de recompensa o disciplina temporal (algunos evangélicos «Free Grace»).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Heb 3:14; 6:4-6; 10:26-39",
@@ -58,9 +64,9 @@
    "Jn 15:6"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 24,
   "alineacion": "forma",
   "tagnt": "Heb.3.6#24",
+  "ref_estandar": "Heb.3.6",
   "morfologia_tagnt": "V-2AAS-1P",
   "dstrong": "G2722",
   "strong_tagnt": "G2722",
@@ -76,13 +82,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to hold back/fast",
-  "ref_estandar": "Heb.3.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Heb.3.7",
+  "pos_tisch": 8,
   "strong": "G4594",
   "forma": "σήμερον",
+  "lema": "σήμερον",
   "glosa_interlineal": "hoy",
   "rango_semantico": [
    "hoy"
@@ -90,7 +100,7 @@
   "construccion": "Adverbio: «por lo cual, como dice el Espíritu Santo: Si oyereis hoy su voz, no endurezcáis vuestros corazones».",
   "sentido_en_contexto": "Cita de Sal 95:7-11 (vv.7-11), atribuida al Espíritu Santo. «Hoy» es una oportunidad actual de respuesta: el autor lo comenta (3:13—4:11) como una invitación continua a entrar al reposo. Texto sobre la inspiración de la Escritura: «dice el Espíritu Santo».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 95:7-11",
@@ -98,9 +108,9 @@
    "Nm 14:20-35"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Heb.3.7#08",
+  "ref_estandar": "Heb.3.7",
   "morfologia_tagnt": "ADV",
   "dstrong": "G4594",
   "strong_tagnt": "G4594",
@@ -116,13 +126,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "today",
-  "ref_estandar": "Heb.3.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Heb.3.12",
+  "pos_tisch": 13,
   "strong": "G868",
   "forma": "ἀποστῆναι",
+  "lema": "ἀφίστημι",
   "glosa_interlineal": "apartarse",
   "rango_semantico": [
    "apartarse, apostatar"
@@ -130,7 +144,7 @@
   "construccion": "Aoristo infinitivo activo: «mirad, hermanos, que no haya en ninguno de vosotros corazón malo de incredulidad para apartarse del Dios vivo».",
   "sentido_en_contexto": "El peligro: un corazón incrédulo que lleva a apartarse (ἀφίστημι, de donde ἀποστασία) del Dios vivo. La causa es la incredulidad, no solo el pecado aislado. La solución es la exhortación mutua cotidiana (v.13).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Heb 4:1, 11",
@@ -138,9 +152,9 @@
    "Lc 8:13"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Heb.3.12#13",
+  "ref_estandar": "Heb.3.12",
   "morfologia_tagnt": "V-2AAN",
   "dstrong": "G0868",
   "strong_tagnt": "G868",
@@ -156,13 +170,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to leave",
-  "ref_estandar": "Heb.3.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Heb.3.14",
+  "pos_tisch": 1,
   "strong": "G3353",
   "forma": "μέτοχοι",
+  "lema": "μέτοχος",
   "glosa_interlineal": "participantes",
   "rango_semantico": [
    "compañero, participante"
@@ -170,7 +188,7 @@
   "construccion": "Nominativo plural: «porque somos hechos participantes de Cristo, con tal que retengamos firme hasta el fin nuestra confianza del principio».",
   "sentido_en_contexto": "Los creyentes son «partícipes» (μέτοχοι) de Cristo, con tal que perseveren hasta el fin (ἐάνπερ: «si es que»). La perseverancia es evidencia de la participación. Ver v.6.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Heb 3:6",
@@ -178,9 +196,9 @@
    "Ro 11:22"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "Heb.3.14#01",
+  "ref_estandar": "Heb.3.14",
   "morfologia_tagnt": "N-NPM",
   "dstrong": "G3353",
   "strong_tagnt": "G3353",
@@ -196,13 +214,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "partaker",
-  "ref_estandar": "Heb.3.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Heb.3.18",
+  "pos_tisch": 13,
   "strong": "G544",
   "forma": "ἀπειθήσασιν",
+  "lema": "ἀπειθέω",
   "glosa_interlineal": "a los desobedientes",
   "rango_semantico": [
    "desobedecer, no creer"
@@ -210,7 +232,7 @@
   "construccion": "Participio aoristo activo: «¿y a quiénes juró que no entrarían en su reposo, sino a aquellos que desobedecieron?».",
   "sentido_en_contexto": "Argumentación sobre Israel en el desierto: no entraron en el reposo por desobediencia e incredulidad (ἀπιστία, v.19). Fe y obediencia se vinculan (ἀπειθέω: no creer y no obedecer). El ejemplo de la generación del éxodo advierte a los lectores.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Nm 14:22-23",
@@ -219,9 +241,9 @@
    "Jud 5"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Heb.3.18#13",
+  "ref_estandar": "Heb.3.18",
   "morfologia_tagnt": "V-AAP-DPM",
   "dstrong": "G0544",
   "strong_tagnt": "G544",
@@ -237,7 +259,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to disobey",
-  "ref_estandar": "Heb.3.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

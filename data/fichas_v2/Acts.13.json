@@ -1,8 +1,10 @@
 [
  {
   "ref": "Acts.13.1",
+  "pos_tisch": 4,
   "strong": "G490",
   "forma": "Ἀντιοχείᾳ",
+  "lema": "Ἀντιόχεια",
   "glosa_interlineal": "Antioquía",
   "rango_semantico": [
    "Antioquía de Siria"
@@ -10,7 +12,7 @@
   "construccion": "Dativo: «en Antioquía, en la iglesia que allí estaba».",
   "sentido_en_contexto": "Antioquía de Siria, tercera ciudad del Imperio, se convierte en base de la misión a los gentiles. Lucas nombra cinco profetas y maestros (Bernabé, Simeón Níger, Lucio de Cirene, Manaén y Saulo), un grupo plural y multiétnico.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 11:19-26",
@@ -18,9 +20,9 @@
    "Hch 14:26-28"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Acts.13.1#05",
+  "ref_estandar": "Acts.13.1",
   "morfologia_tagnt": "N-DSF-L",
   "dstrong": "G0490G",
   "strong_tagnt": "G490",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Antioch",
-  "ref_estandar": "Acts.13.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.13.2",
+  "pos_tisch": 1,
   "strong": "G3008",
   "forma": "λειτουργούντων",
+  "lema": "λειτουργέω",
   "glosa_interlineal": "sirviendo",
   "rango_semantico": [
    "servir, ministrar, ejercer un servicio público o sagrado"
@@ -50,7 +56,7 @@
   "construccion": "Participio presente activo: «ministrando éstos al Señor, y ayunando».",
   "sentido_en_contexto": "De λειτουργέω viene «liturgia»: servicio sagrado. Mientras adoraban y ayunaban, el Espíritu Santo habla (probablemente por un profeta) y manda apartar a Bernabé y Saulo para la obra a la que los había llamado.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 1:23",
@@ -59,9 +65,9 @@
    "Hch 14:23"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "Acts.13.2#01",
+  "ref_estandar": "Acts.13.2",
   "morfologia_tagnt": "V-PAP-GPM",
   "dstrong": "G3008",
   "strong_tagnt": "G3008",
@@ -77,13 +83,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to minister",
-  "ref_estandar": "Acts.13.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.13.3",
+  "pos_tisch": 8,
   "strong": "G5495",
   "forma": "χεῖρας",
+  "lema": "χείρ",
   "glosa_interlineal": "manos",
   "rango_semantico": [
    "mano"
@@ -91,16 +101,16 @@
   "construccion": "Acusativo plural: «les impusieron las manos y los despidieron».",
   "sentido_en_contexto": "Tras ayuno y oración, la iglesia de Antioquía impone manos a Bernabé y Saulo y los envía: inicio del primer viaje misionero. La imposición expresa comisión y solidaridad de la iglesia. Los autoriza la iglesia, pero el verdadero enviado es el Espíritu (v.4).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 6:6; 14:26",
    "1 Ti 4:14"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Acts.13.3#08",
+  "ref_estandar": "Acts.13.3",
   "morfologia_tagnt": "N-APF",
   "dstrong": "G5495",
   "strong_tagnt": "G5495",
@@ -116,13 +126,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hand",
-  "ref_estandar": "Acts.13.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.13.7",
+  "pos_tisch": 5,
   "strong": "G446",
   "forma": "ἀνθυπάτῳ",
+  "lema": "ἀνθύπατος",
   "glosa_interlineal": "procónsul",
   "rango_semantico": [
    "procónsul (gobernador de provincia senatorial)"
@@ -130,15 +144,15 @@
   "construccion": "Dativo: «con el procónsul Sergio Paulo».",
   "sentido_en_contexto": "Sergio Paulo, procónsul de Chipre, hombre inteligente que busca oír la palabra de Dios. Lucas usa el título exacto de «procónsul» para una provincia senatorial (Chipre lo era desde 22 a.C.): dato de precisión histórica.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 18:12; 19:38 — otros procónsules"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Acts.13.7#05",
+  "ref_estandar": "Acts.13.7",
   "morfologia_tagnt": "N-DSM",
   "dstrong": "G0446",
   "strong_tagnt": "G446",
@@ -154,13 +168,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "proconsul",
-  "ref_estandar": "Acts.13.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.13.9",
+  "pos_tisch": 5,
   "strong": "G3972",
   "forma": "Παῦλος",
+  "lema": "Παῦλος",
   "glosa_interlineal": "Pablo",
   "rango_semantico": [
    "Pablo (nombre romano, «pequeño»)"
@@ -168,7 +186,7 @@
   "construccion": "Nominativo: «Saulo, que también es Pablo».",
   "sentido_en_contexto": "Desde aquí Lucas usa solo el nombre romano «Pablo» (Παῦλος) para el apóstol de los gentiles. Tenía dos nombres desde su nacimiento: Saulo (hebreo) y Pablo (romano); no se trató de un cambio por conversión. A partir de ahora Pablo toma el liderazgo (v.13: «Pablo y sus compañeros»).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 13:13",
@@ -176,9 +194,9 @@
    "Ro 11:13"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Acts.13.9#05",
+  "ref_estandar": "Acts.13.9",
   "morfologia_tagnt": "N-NSM-P",
   "dstrong": "G3972G",
   "strong_tagnt": "G3972",
@@ -194,13 +212,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Paul",
-  "ref_estandar": "Acts.13.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.13.10",
+  "pos_tisch": 10,
   "strong": "G1228",
   "forma": "διαβόλου",
+  "lema": "διάβολος",
   "glosa_interlineal": "del diablo",
   "rango_semantico": [
    "diablo, calumniador"
@@ -208,7 +230,7 @@
   "construccion": "Genitivo: «hijo del diablo».",
   "sentido_en_contexto": "Pablo denuncia a Barjesús (Elimas), mago judío que se opone al evangelio ante el procónsul: «lleno de todo engaño», «enemigo de toda justicia», que tuerce los caminos del Señor. Su ceguera temporal (v.11) recuerda la de Pablo (9:8).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 8:44",
@@ -216,9 +238,9 @@
    "Hch 9:8"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Acts.13.10#10",
+  "ref_estandar": "Acts.13.10",
   "morfologia_tagnt": "A-GSM",
   "dstrong": "G1228",
   "strong_tagnt": "G1228",
@@ -234,13 +256,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "devilish/the Devil",
-  "ref_estandar": "Acts.13.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.13.11",
+  "pos_tisch": 10,
   "strong": "G5185",
   "forma": "τυφλὸς",
+  "lema": "τυφλός",
   "glosa_interlineal": "ciego",
   "rango_semantico": [
    "ciego"
@@ -248,7 +274,7 @@
   "construccion": "Nominativo: «estarás ciego, y no verás el sol por algún tiempo».",
   "sentido_en_contexto": "Castigo temporal que lleva a Sergio Paulo a creer: el procónsul, «maravillado de la doctrina del Señor», cree. Primera conversión de un alto funcionario gentil en el primer viaje.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 9:8-9",
@@ -256,9 +282,9 @@
    "Hch 5:1-11"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Acts.13.11#11",
+  "ref_estandar": "Acts.13.11",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G5185",
   "strong_tagnt": "G5185",
@@ -274,13 +300,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "blind",
-  "ref_estandar": "Acts.13.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.13.13",
+  "pos_tisch": 16,
   "strong": "G672",
   "forma": "ἀποχωρήσας",
+  "lema": "ἀποχωρέω",
   "glosa_interlineal": "apartándose",
   "rango_semantico": [
    "apartarse, retirarse, abandonar"
@@ -288,7 +318,7 @@
   "construccion": "Participio aoristo activo: «Juan, apartándose de ellos, volvió a Jerusalén».",
   "sentido_en_contexto": "Juan Marcos abandona la misión en Perge sin explicación; Pablo lo recordará negativamente (15:37-38) y causará la separación con Bernabé. Después se reconciliarán (2 Ti 4:11).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 15:36-40",
@@ -296,9 +326,9 @@
    "2 Ti 4:11"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Acts.13.13#17",
+  "ref_estandar": "Acts.13.13",
   "morfologia_tagnt": "V-AAP-NSM",
   "dstrong": "G0672",
   "strong_tagnt": "G672",
@@ -314,13 +344,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to leave",
-  "ref_estandar": "Acts.13.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.13.15",
+  "pos_tisch": 12,
   "strong": "G752",
   "forma": "ἀρχισυνάγωγοι",
+  "lema": "ἀρχισυνάγωγος",
   "glosa_interlineal": "jefes de la sinagoga",
   "rango_semantico": [
    "jefe de la sinagoga"
@@ -328,16 +362,16 @@
   "construccion": "Nominativo plural: «los jefes de la sinagoga mandaron a decirles…».",
   "sentido_en_contexto": "Culto sinagogal: lectura de la Ley y los Profetas, luego invitación a un «mensaje de exhortación» (λόγος παρακλήσεως). Pablo aprovecha para predicar. Es el modelo de su método: ir primero a la sinagoga (v.46).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 4:16-21",
    "Hch 17:2; 18:4, 19; 19:8"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Acts.13.15#12",
+  "ref_estandar": "Acts.13.15",
   "morfologia_tagnt": "N-NPM",
   "dstrong": "G0752",
   "strong_tagnt": "G752",
@@ -353,13 +387,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "synagogue leader",
-  "ref_estandar": "Acts.13.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.13.17",
+  "pos_tisch": 14,
   "strong": "G5312",
   "forma": "ὕψωσεν",
+  "lema": "ὑψόω",
   "glosa_interlineal": "engrandeció",
   "rango_semantico": [
    "exaltar, engrandecer"
@@ -367,7 +405,7 @@
   "construccion": "Aoristo indicativo activo: «engrandeció al pueblo, siendo ellos extranjeros en Egipto».",
   "sentido_en_contexto": "Primer sermón de Pablo en Hechos (13:16-41): repaso histórico (Egipto, desierto, Canaán, jueces, David) que conduce a Jesús como Salvador de la descendencia de David. Estructura típica de predicación en sinagogas.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 7:2-53",
@@ -375,9 +413,9 @@
    "Sal 105"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Acts.13.17#14",
+  "ref_estandar": "Acts.13.17",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G5312",
   "strong_tagnt": "G5312",
@@ -393,13 +431,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to lift up",
-  "ref_estandar": "Acts.13.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.13.22",
+  "pos_tisch": 28,
   "strong": "G2307",
   "forma": "θελήματά",
+  "lema": "θέλημα",
   "glosa_interlineal": "voluntades",
   "rango_semantico": [
    "voluntad, deseo"
@@ -407,7 +449,7 @@
   "construccion": "Acusativo plural: «un varón conforme a mi corazón, quien hará todo lo que yo quiero».",
   "sentido_en_contexto": "Dios testifica de David: «hallé a David hijo de Isaí, varón conforme a mi corazón» (combinación de 1 S 13:14, Sal 89:20 e Is 44:28). De su descendencia, Dios ha dado a Israel un Salvador, Jesús (v.23).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 S 13:14",
@@ -416,9 +458,9 @@
    "Lc 1:32-33"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 28,
   "alineacion": "forma",
   "tagnt": "Acts.13.22#28",
+  "ref_estandar": "Acts.13.22",
   "morfologia_tagnt": "N-APN",
   "dstrong": "G2307",
   "strong_tagnt": "G2307",
@@ -434,13 +476,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "will/desire",
-  "ref_estandar": "Acts.13.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.13.23",
+  "pos_tisch": 12,
   "strong": "G4990",
   "forma": "σωτῆρα",
+  "lema": "σωτήρ",
   "glosa_interlineal": "Salvador",
   "rango_semantico": [
    "salvador, libertador"
@@ -448,7 +494,7 @@
   "construccion": "Acusativo: «Dios, de la descendencia de éste, conforme a la promesa, levantó a Jesús por Salvador a Israel».",
   "sentido_en_contexto": "Pablo conecta la promesa a David con Jesús: el Salvador esperado. Después menciona a Juan el Bautista como precursor (vv.24-25) y entra en la pasión y resurrección.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 S 7:12-16",
@@ -456,9 +502,9 @@
    "Hch 5:31"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Acts.13.23#12",
+  "ref_estandar": "Acts.13.23",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G4990",
   "strong_tagnt": "G4990",
@@ -475,13 +521,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "savior",
-  "ref_estandar": "Acts.13.23"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.13.33",
+  "pos_tisch": 14,
   "strong": "G1080",
   "forma": "γεγέννηκά",
+  "lema": "γεννάω",
   "glosa_interlineal": "he engendrado",
   "rango_semantico": [
    "engendrar, dar a luz"
@@ -489,7 +539,7 @@
   "construccion": "Perfecto indicativo activo: «Hijo mío eres tú, yo te he engendrado hoy».",
   "sentido_en_contexto": "Cita de Sal 2:7 aplicada a la resurrección: «hoy» Dios proclama a Jesús como Hijo mediante la resurrección (cf. Ro 1:4). El texto no dice que Jesús se hizo Hijo en la resurrección, sino que su condición de Hijo fue confirmada públicamente.",
   "matiz": "El verbo γεννάω puede indicar «engendrar» (generación) o «declarar/entronizar». En el contexto de resurrección (Hch 13:33; Heb 1:5; 5:5), se entiende como entronización mesiánica, no como inicio de la filiación.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 2:7",
@@ -498,9 +548,9 @@
    "Hch 13:30-31"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Acts.13.33#26",
+  "ref_estandar": "Acts.13.33",
   "morfologia_tagnt": "V-RAI-1S",
   "dstrong": "G1080",
   "strong_tagnt": "G1080",
@@ -516,13 +566,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to beget",
-  "ref_estandar": "Acts.13.33"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.13.34",
+  "pos_tisch": 11,
   "strong": "G1312",
   "forma": "διαφθοράν",
+  "lema": "διαφθορά",
   "glosa_interlineal": "corrupción",
   "rango_semantico": [
    "corrupción, descomposición"
@@ -530,7 +584,7 @@
   "construccion": "Acusativo: «para nunca más volver a corrupción».",
   "sentido_en_contexto": "Pablo usa los mismos pasajes que Pedro (Sal 16:10; Is 55:3) para argumentar la resurrección: Jesús, a diferencia de David, no vio corrupción. «Las misericordias fieles de David» (Is 55:3) se cumplen en el Resucitado.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 55:3",
@@ -538,9 +592,9 @@
    "Hch 2:25-31"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Acts.13.34#11",
+  "ref_estandar": "Acts.13.34",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G1312",
   "strong_tagnt": "G1312",
@@ -556,13 +610,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "decay",
-  "ref_estandar": "Acts.13.34"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.13.38",
+  "pos_tisch": 11,
   "strong": "G859",
   "forma": "ἄφεσις",
+  "lema": "ἄφεσις",
   "glosa_interlineal": "perdón",
   "rango_semantico": [
    "perdón, remisión"
@@ -570,7 +628,7 @@
   "construccion": "Nominativo: «por medio de éste se os anuncia perdón de pecados».",
   "sentido_en_contexto": "Mensaje central: por medio de Jesús se anuncia perdón. Pablo continúa: «y de todo aquello de que por la ley de Moisés no pudisteis ser justificados, en él es justificado todo aquel que cree» (v.39).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 2:38; 10:43",
@@ -578,9 +636,9 @@
    "Ro 3:21-26"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Acts.13.38#11",
+  "ref_estandar": "Acts.13.38",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G0859",
   "strong_tagnt": "G859",
@@ -596,13 +654,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "forgiveness",
-  "ref_estandar": "Acts.13.38"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.13.39",
+  "pos_tisch": 9,
   "strong": "G1344",
   "forma": "δικαιωθῆναι",
+  "lema": "δικαιόω",
   "glosa_interlineal": "ser justificado",
   "rango_semantico": [
    "declarar justo, justificar"
@@ -610,7 +672,7 @@
   "construccion": "Infinitivo aoristo pasivo: «de todo aquello de que por la ley de Moisés no pudisteis ser justificados».",
   "sentido_en_contexto": "Primera aparición del vocabulario paulino de la justificación en Hechos: la ley de Moisés no podía justificar; «en él» (en Cristo) todo el que cree es justificado. Resume el núcleo de las cartas (Ro, Gá).",
   "matiz": "Debate sobre el alcance: ¿Pablo dice que la ley justificaba parcialmente («de todo aquello de que no pudisteis…» implicaría que la ley podía justificar de algunas cosas), o que la ley no podía justificar de nada? Muchos ven una expresión retórica (cf. Gá 2:16; Ro 3:20): la ley no justifica.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 3:20-28",
@@ -618,10 +680,9 @@
    "Fil 3:9"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Acts.13.39#11",
+  "ref_estandar": "Acts.13.39",
   "morfologia_tagnt": "V-APN",
   "dstrong": "G1344",
   "strong_tagnt": "G1344",
@@ -637,13 +698,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to justify",
-  "ref_estandar": "Acts.13.39"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.13.43",
+  "pos_tisch": 11,
   "strong": "G4576",
   "forma": "σεβομένων",
+  "lema": "σέβομαι",
   "glosa_interlineal": "que temían a Dios",
   "rango_semantico": [
    "adorar, reverenciar, temer a Dios"
@@ -651,16 +717,16 @@
   "construccion": "Participio presente medio: «prosélitos piadosos (σεβομένων προσηλύτων)».",
   "sentido_en_contexto": "Muchos judíos y prosélitos devotos siguen a Pablo y Bernabé, quienes los exhortan a «perseverar en la gracia de Dios». Los gentiles simpatizantes forman el puente entre sinagoga e iglesia.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 10:2; 13:16, 26, 50; 16:14; 17:4, 17",
    "Hch 14:22"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Acts.13.43#11",
+  "ref_estandar": "Acts.13.43",
   "morfologia_tagnt": "V-PNP-GPM",
   "dstrong": "G4576",
   "strong_tagnt": "G4576",
@@ -676,13 +742,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be devout",
-  "ref_estandar": "Acts.13.43"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.13.46",
+  "pos_tisch": 18,
   "strong": "G1894",
   "forma": "ἀπωθεῖσθε",
+  "lema": "ἐπειδή",
   "glosa_interlineal": "rechazáis",
   "rango_semantico": [
    "rechazar, empujar fuera"
@@ -690,7 +760,7 @@
   "construccion": "Presente indicativo medio: «ya que la desecháis».",
   "sentido_en_contexto": "Ante la oposición judía, Pablo y Bernabé declaran que se vuelven a los gentiles. Patrón repetido (18:6; 28:28): «a vosotros primero» y luego a los gentiles. No es un rechazo definitivo de Israel (Pablo seguirá yendo a la sinagoga).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 18:6; 28:23-28",
@@ -698,9 +768,9 @@
    "Mt 10:6"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "Acts.13.46#18",
+  "ref_estandar": "Acts.13.46",
   "morfologia_tagnt": "CONJ",
   "dstrong": "G1894",
   "strong_tagnt": "G1894",
@@ -716,13 +786,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "since",
-  "ref_estandar": "Acts.13.46"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.13.47",
+  "pos_tisch": 10,
   "strong": "G5457",
   "forma": "φῶς",
+  "lema": "φῶς",
   "glosa_interlineal": "luz",
   "rango_semantico": [
    "luz"
@@ -730,7 +804,7 @@
   "construccion": "Acusativo: «te he puesto para luz de los gentiles».",
   "sentido_en_contexto": "Cita de Is 49:6 aplicada a la misión de Pablo y Bernabé: «te he puesto por luz de los gentiles, para que seas salvación hasta lo postrero de la tierra». Texto programático ya aplicado a Jesús (Lc 2:32) y a los apóstoles (Hch 1:8).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 49:6",
@@ -738,9 +812,9 @@
    "Hch 1:8; 26:23"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Acts.13.47#10",
+  "ref_estandar": "Acts.13.47",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G5457",
   "strong_tagnt": "G5457",
@@ -756,13 +830,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "light",
-  "ref_estandar": "Acts.13.47"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.13.48",
+  "pos_tisch": 16,
   "strong": "G5021",
   "forma": "τεταγμένοι",
+  "lema": "τάσσω",
   "glosa_interlineal": "destinados",
   "rango_semantico": [
    "asignar, designar, disponer"
@@ -770,7 +848,7 @@
   "construccion": "Participio perfecto pasivo: «creyeron todos los que estaban ordenados (τεταγμένοι) para vida eterna».",
   "sentido_en_contexto": "Versículo central en el debate sobre predestinación. τάσσω significa «disponer, ordenar, designar». Se debate si «ordenados» expresa elección divina (tradición reformada), disposición de corazón (los que se habían dispuesto a creer), o una voz media.",
   "matiz": "Interpretaciones: (a) elección divina previa (pasivo divino, lectura reformada y muchos exégetas); (b) los que se habían puesto en disposición favorable (voz media, lectura arminiana); (c) los «designados» por Dios mediante el evangelio. El perfecto pasivo apunta a una acción previa de otro sujeto, lo que favorece (a), aunque el contexto de libre rechazo de los judíos (v.46) muestra responsabilidad humana.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 1:4-5, 11",
@@ -779,9 +857,9 @@
    "Jn 6:37, 44"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Acts.13.48#16",
+  "ref_estandar": "Acts.13.48",
   "morfologia_tagnt": "V-RPP-NPM",
   "dstrong": "G5021",
   "strong_tagnt": "G5021",
@@ -797,13 +875,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to appoint",
-  "ref_estandar": "Acts.13.48"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.13.51",
+  "pos_tisch": 5,
   "strong": "G2868",
   "forma": "κονιορτὸν",
+  "lema": "κονιορτός",
   "glosa_interlineal": "polvo",
   "rango_semantico": [
    "polvo"
@@ -811,16 +893,16 @@
   "construccion": "Acusativo: «sacudiendo contra ellos el polvo de sus pies».",
   "sentido_en_contexto": "Gesto judío al abandonar una ciudad gentil, aplicado aquí contra la oposición (cf. Mt 10:14). Pablo y Bernabé se van a Iconio «llenos de gozo y del Espíritu Santo».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 10:14; Lc 9:5; 10:11",
    "Hch 18:6"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Acts.13.51#05",
+  "ref_estandar": "Acts.13.51",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G2868",
   "strong_tagnt": "G2868",
@@ -836,13 +918,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dust",
-  "ref_estandar": "Acts.13.51"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.13.52",
+  "pos_tisch": 5,
   "strong": "G5479",
   "forma": "χαρᾶς",
+  "lema": "χαρά",
   "glosa_interlineal": "gozo",
   "rango_semantico": [
    "gozo, alegría"
@@ -850,7 +936,7 @@
   "construccion": "Genitivo: «los discípulos estaban llenos de gozo y del Espíritu Santo».",
   "sentido_en_contexto": "Contraste: expulsados de Antioquía de Pisidia, los discípulos que quedan estaban llenos de gozo y del Espíritu Santo. El gozo en la persecución es característico de Hechos (5:41; 16:25).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 5:41; 8:8; 16:25",
@@ -858,9 +944,9 @@
    "Mt 5:11-12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Acts.13.52#05",
+  "ref_estandar": "Acts.13.52",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G5479",
   "strong_tagnt": "G5479",
@@ -876,7 +962,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "joy",
-  "ref_estandar": "Acts.13.52"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

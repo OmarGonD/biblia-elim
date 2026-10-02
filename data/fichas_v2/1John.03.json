@@ -1,8 +1,10 @@
 [
  {
   "ref": "1John.3.1",
+  "pos_tisch": 3,
   "strong": "G26",
   "forma": "ἀγάπην",
+  "lema": "ἀγάπη",
   "glosa_interlineal": "amor",
   "rango_semantico": [
    "amor (ágape)"
@@ -10,7 +12,7 @@
   "construccion": "Acusativo: «mirad cuál amor nos ha dado el Padre, para que seamos llamados hijos de Dios; por esto el mundo no nos conoce, porque no le conoció a él».",
   "sentido_en_contexto": "El amor del Padre se muestra al hacernos hijos suyos (τέκνα θεοῦ: «hijos» por regeneración). Los creyentes son rechazados por el mundo, como lo fue Cristo. Se pasa a la esperanza escatológica (v.2).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 1:12",
@@ -19,9 +21,9 @@
    "Jn 15:18-21"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "1John.3.1#03",
+  "ref_estandar": "1John.3.1",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G0026",
   "strong_tagnt": "G26",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "love",
-  "ref_estandar": "1John.3.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.3.2",
+  "pos_tisch": 15,
   "strong": "G3664",
   "forma": "ὅμοιοι",
+  "lema": "ὅμοιος",
   "glosa_interlineal": "semejantes",
   "rango_semantico": [
    "semejante, parecido"
@@ -51,7 +57,7 @@
   "construccion": "Nominativo plural: «amados, ahora somos hijos de Dios, y aún no se ha manifestado lo que hemos de ser; pero sabemos que cuando él se manifieste, seremos semejantes a él, porque le veremos tal como él es».",
   "sentido_en_contexto": "Esperanza escatológica: ver a Cristo y ser como él (visión beatífica y transformación). La santificación presente (v.3: «se purifica a sí mismo») responde a esa esperanza. Texto central sobre la glorificación y la visión de Dios.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Fil 3:20-21",
@@ -60,9 +66,9 @@
    "Mt 5:8"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "1John.3.2#16",
+  "ref_estandar": "1John.3.2",
   "morfologia_tagnt": "A-NPM",
   "dstrong": "G3664",
   "strong_tagnt": "G3664",
@@ -78,13 +84,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "like",
-  "ref_estandar": "1John.3.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.3.4",
+  "pos_tisch": 8,
   "strong": "G458",
   "forma": "ἀνομίαν",
+  "lema": "ἀνομία",
   "glosa_interlineal": "iniquidad",
   "rango_semantico": [
    "iniquidad, rebelión contra la ley"
@@ -92,7 +102,7 @@
   "construccion": "Acusativo: «todo aquel que comete pecado, infringe también la ley; pues el pecado es infracción de la ley».",
   "sentido_en_contexto": "Definición del pecado como ἀνομία (ilegalidad, rebeldía contra Dios), no solo un acto aislado. Los falsos maestros relativizaban el pecado. Juan insiste en que el pecado es incompatible con permanecer en Cristo, que vino a quitarlo (v.5).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 4:15",
@@ -101,10 +111,9 @@
    "Ro 7:7-13"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1John.3.4#08",
+  "ref_estandar": "1John.3.4",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G0458",
   "strong_tagnt": "G458",
@@ -120,13 +129,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lawlessness",
-  "ref_estandar": "1John.3.4"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.3.5",
+  "pos_tisch": 9,
   "strong": "G142",
   "forma": "ἄρῃ",
+  "lema": "αἴρω",
   "glosa_interlineal": "quitase",
   "rango_semantico": [
    "quitar, llevarse"
@@ -134,7 +148,7 @@
   "construccion": "Aoristo subjuntivo activo: «y sabéis que él se manifestó para quitar nuestros pecados, y no hay pecado en él».",
   "sentido_en_contexto": "Cristo se manifestó para «quitar» (αἴρω: llevarse, como el Cordero de Jn 1:29) los pecados. Es sin pecado. Quien permanece en él no continúa pecando (v.6). Base de la ética de Juan.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 1:29",
@@ -143,9 +157,9 @@
    "1 P 2:22"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "1John.3.5#10",
+  "ref_estandar": "1John.3.5",
   "morfologia_tagnt": "V-AAS-3S",
   "dstrong": "G0142",
   "strong_tagnt": "G142",
@@ -161,13 +175,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to take up",
-  "ref_estandar": "1John.3.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.3.6",
+  "pos_tisch": 7,
   "strong": "G264",
   "forma": "ἁμαρτάνει",
+  "lema": "ἁμαρτάνω",
   "glosa_interlineal": "peca",
   "rango_semantico": [
    "pecar"
@@ -175,7 +193,7 @@
   "construccion": "Presente indicativo activo: «todo aquel que permanece en él, no peca; todo aquel que peca, no le ha visto, ni le ha conocido».",
   "sentido_en_contexto": "Texto difícil: Juan afirma que quien permanece en Cristo «no peca» (v.6) y el nacido de Dios «no puede pecar» (v.9), pero antes dijo que quien dice no tener pecado se engaña (1:8). La solución más común: el presente griego indica acción habitual o continua (no «peca habitualmente»), no la ausencia total de pecado. Otras soluciones: perfección sin pecado (wesleyana), contraste ideal/real, polémica contra falsos maestros.",
   "matiz": "Debate: (a) presente de acción continua: el creyente no vive en pecado habitual (la mayoría; Calvino, Lutero, Westcott); (b) el nacido de Dios no puede pecar porque su nueva naturaleza no peca, aunque el creyente peque (agustiniana); (c) perfección cristiana alcanzable (wesleyana, santidad); (d) contraste entre lo ideal y lo real, y tensión entre 1:8 y 3:9 resuelta en 2:1. Los dos polos se mantienen en la carta.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Jn 1:8-10; 2:1; 3:9; 5:18",
@@ -183,10 +201,9 @@
    "Gá 5:16-17"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 7,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1John.3.6#07",
+  "ref_estandar": "1John.3.6",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G0264",
   "strong_tagnt": "G264",
@@ -202,13 +219,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to sin",
-  "ref_estandar": "1John.3.6"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.3.8",
+  "pos_tisch": 7,
   "strong": "G1228",
   "forma": "διαβόλου",
+  "lema": "διάβολος",
   "glosa_interlineal": "diablo",
   "rango_semantico": [
    "diablo, calumniador"
@@ -216,7 +238,7 @@
   "construccion": "Genitivo: «el que practica el pecado es del diablo; porque el diablo peca desde el principio. Para esto se manifestó el Hijo de Dios, para deshacer las obras del diablo».",
   "sentido_en_contexto": "El pecado habitual identifica con el diablo (padre de mentira, Jn 8:44). Cristo vino a deshacer sus obras. Sin dualismo ontológico: el diablo es criatura derrotada en la cruz (Col 2:15; Heb 2:14).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 8:44",
@@ -225,10 +247,9 @@
    "Gn 3:15"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1John.3.8#07",
+  "ref_estandar": "1John.3.8",
   "morfologia_tagnt": "A-GSM",
   "dstrong": "G1228",
   "strong_tagnt": "G1228",
@@ -244,13 +265,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "devilish/the Devil",
-  "ref_estandar": "1John.3.8"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.3.8",
+  "pos_tisch": 27,
   "strong": "G1228",
   "forma": "διαβόλου",
+  "lema": "διάβολος",
   "glosa_interlineal": "diablo",
   "rango_semantico": [
    "diablo, calumniador"
@@ -258,7 +284,7 @@
   "construccion": "Genitivo: «el que practica el pecado es del diablo; porque el diablo peca desde el principio. Para esto se manifestó el Hijo de Dios, para deshacer las obras del diablo».",
   "sentido_en_contexto": "El pecado habitual identifica con el diablo (padre de mentira, Jn 8:44). Cristo vino a deshacer sus obras. Sin dualismo ontológico: el diablo es criatura derrotada en la cruz (Col 2:15; Heb 2:14).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 8:44",
@@ -267,10 +293,9 @@
    "Gn 3:15"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 27,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1John.3.8#27",
+  "ref_estandar": "1John.3.8",
   "morfologia_tagnt": "A-GSM",
   "dstrong": "G1228",
   "strong_tagnt": "G1228",
@@ -286,13 +311,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "devilish/the Devil",
-  "ref_estandar": "1John.3.8"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.3.9",
+  "pos_tisch": 11,
   "strong": "G4690",
   "forma": "σπέρμα",
+  "lema": "σπέρμα",
   "glosa_interlineal": "semilla",
   "rango_semantico": [
    "simiente, semilla"
@@ -300,7 +330,7 @@
   "construccion": "Nominativo: «todo aquel que es nacido de Dios, no practica el pecado, porque la simiente de Dios permanece en él; y no puede pecar, porque es nacido de Dios».",
   "sentido_en_contexto": "«La simiente de Dios» (σπέρμα) puede ser la palabra de Dios, el Espíritu Santo o la nueva naturaleza dada por Dios. «No puede pecar» (οὐ δύναται ἁμαρτάνειν) se interpreta en el sentido de no poder vivir en pecado habitual. Ver nota de 3:6 sobre el debate.",
   "matiz": "Debate sobre σπέρμα: (a) la nueva naturaleza o vida divina (la mayoría); (b) el Espíritu Santo; (c) la palabra de Dios (1 P 1:23). Sobre «no puede pecar»: ver 1 Jn 3:6.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 P 1:23",
@@ -309,9 +339,9 @@
    "Ro 8:9"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "1John.3.9#11",
+  "ref_estandar": "1John.3.9",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G4690H",
   "strong_tagnt": "G4690",
@@ -327,13 +357,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "seed",
-  "ref_estandar": "1John.3.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.3.12",
+  "pos_tisch": 3,
   "strong": "G2535",
   "forma": "Κάϊν",
+  "lema": "Κάϊν",
   "glosa_interlineal": "Caín",
   "rango_semantico": [
    "Caín"
@@ -341,7 +375,7 @@
   "construccion": "Nominativo: «no como Caín, que era del maligno y mató a su hermano. ¿Y por qué causa le mató? Porque sus obras eran malas, y las de su hermano justas».",
   "sentido_en_contexto": "Caín como arquetipo del odio al hermano: era «del maligno» y mató a Abel por envidia. El mundo odia a los creyentes por la misma razón (v.13). El amor, al contrario, es señal de haber pasado de muerte a vida (v.14).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 4:1-8",
@@ -350,9 +384,9 @@
    "Mt 23:35"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "1John.3.12#03",
+  "ref_estandar": "1John.3.12",
   "morfologia_tagnt": "N-NSM-P",
   "dstrong": "G2535",
   "strong_tagnt": "G2535",
@@ -368,13 +402,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Cain",
-  "ref_estandar": "1John.3.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.3.14",
+  "pos_tisch": 4,
   "strong": "G3327",
   "forma": "μεταβεβήκαμεν",
+  "lema": "μεταβαίνω",
   "glosa_interlineal": "hemos pasado",
   "rango_semantico": [
    "pasar de un lugar a otro, trasladarse"
@@ -382,7 +420,7 @@
   "construccion": "Perfecto indicativo activo: «nosotros sabemos que hemos pasado de muerte a vida, en que amamos a los hermanos. El que no ama a su hermano, permanece en muerte».",
   "sentido_en_contexto": "El amor fraternal es la prueba de haber pasado de la muerte a la vida (cf. Jn 5:24). La vida eterna se manifiesta en el amor. El odio es homicida (v.15) y excluye la vida eterna permanente.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 5:24",
@@ -390,9 +428,9 @@
    "Lc 15:24"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "1John.3.14#04",
+  "ref_estandar": "1John.3.14",
   "morfologia_tagnt": "V-RAI-1P",
   "dstrong": "G3327",
   "strong_tagnt": "G3327",
@@ -408,13 +446,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to depart",
-  "ref_estandar": "1John.3.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.3.16",
+  "pos_tisch": 11,
   "strong": "G5590",
   "forma": "ψυχὴν",
+  "lema": "ψυχή",
   "glosa_interlineal": "vida",
   "rango_semantico": [
    "alma, vida"
@@ -422,7 +464,7 @@
   "construccion": "Acusativo: «en esto hemos conocido el amor, en que él puso su vida por nosotros; también nosotros debemos poner nuestras vidas por los hermanos».",
   "sentido_en_contexto": "Definición del amor por la cruz: Cristo dio su vida por nosotros. Los creyentes deben dar su vida por los hermanos, lo que se concreta en compartir los bienes (v.17). Ágape se define por el sacrificio.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 15:13",
@@ -431,10 +473,9 @@
    "1 Jn 4:10"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1John.3.16#11",
+  "ref_estandar": "1John.3.16",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G5590H",
   "strong_tagnt": "G5590",
@@ -450,13 +491,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "soul",
-  "ref_estandar": "1John.3.16"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.3.17",
+  "pos_tisch": 19,
   "strong": "G4698",
   "forma": "σπλάγχνα",
+  "lema": "σπλάγχνον",
   "glosa_interlineal": "compasión",
   "rango_semantico": [
    "entrañas, compasión"
@@ -464,7 +510,7 @@
   "construccion": "Acusativo plural: «pero el que tiene bienes de este mundo y ve a su hermano tener necesidad, y cierra contra él su corazón, ¿cómo mora el amor de Dios en él?».",
   "sentido_en_contexto": "Aplicación práctica del amor: socorrer al necesitado con los bienes materiales. El amor de Dios no permanece en quien cierra su compasión. Cf. Stg 2:15-16. Verbo literal: «cierra sus entrañas».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jas 2:15-16",
@@ -472,9 +518,9 @@
    "Mt 25:35-46"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 19,
   "alineacion": "forma",
   "tagnt": "1John.3.17#19",
+  "ref_estandar": "1John.3.17",
   "morfologia_tagnt": "N-APN",
   "dstrong": "G4698",
   "strong_tagnt": "G4698",
@@ -490,13 +536,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "affection/entrails",
-  "ref_estandar": "1John.3.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.3.18",
+  "pos_tisch": 4,
   "strong": "G3056",
   "forma": "λόγῳ",
+  "lema": "λόγος",
   "glosa_interlineal": "palabra",
   "rango_semantico": [
    "palabra, discurso"
@@ -504,7 +554,7 @@
   "construccion": "Dativo: «hijitos míos, no amemos de palabra ni de lengua, sino de hecho y en verdad».",
   "sentido_en_contexto": "El amor debe ser práctico, no solo verbal. Resume la sección anterior. «De hecho y en verdad» es contraste con las meras expresiones.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jas 2:15-17",
@@ -512,9 +562,9 @@
    "1 Jn 3:16-17"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "1John.3.18#05",
+  "ref_estandar": "1John.3.18",
   "morfologia_tagnt": "N-DSM",
   "dstrong": "G3056",
   "strong_tagnt": "G3056",
@@ -530,13 +580,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "word",
-  "ref_estandar": "1John.3.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.3.20",
+  "pos_tisch": 8,
   "strong": "G3173",
   "forma": "μείζων",
+  "lema": "μέγας",
   "glosa_interlineal": "mayor",
   "rango_semantico": [
    "mayor, más grande"
@@ -544,7 +598,7 @@
   "construccion": "Nominativo: «pues si nuestro corazón nos reprende, mayor que nuestro corazón es Dios, y él sabe todas las cosas».",
   "sentido_en_contexto": "Texto de consuelo para la conciencia acusadora: Dios es mayor que nuestro corazón. Se interpreta de dos maneras: Dios conoce nuestros fracasos y también nuestra sinceridad (consuelo); o Dios es juez mayor que nuestra conciencia, y nos condena aún más (advertencia). La mayoría lo lee como consuelo.",
   "matiz": "Debate: (a) consuelo: Dios, que conoce todo, nos perdona más allá de la conciencia que nos condena (la mayoría); (b) advertencia: si nuestro corazón nos condena, Dios, más grande, condena aún más (algunos); (c) Dios conoce nuestro amor sincero pese a nuestras dudas.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 139:1-4",
@@ -553,9 +607,9 @@
    "1 Jn 3:19, 21"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "1John.3.20#08",
+  "ref_estandar": "1John.3.20",
   "morfologia_tagnt": "A-NSM-C",
   "dstrong": "G3173",
   "strong_tagnt": "G3173",
@@ -571,13 +625,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "great",
-  "ref_estandar": "1John.3.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.3.22",
+  "pos_tisch": 4,
   "strong": "G154",
   "forma": "αἰτῶμεν",
+  "lema": "αἰτέω",
   "glosa_interlineal": "pidamos",
   "rango_semantico": [
    "pedir, solicitar"
@@ -585,7 +643,7 @@
   "construccion": "Subjuntivo presente activo: «y cualquier cosa que pidiéremos la recibiremos de él, porque guardamos sus mandamientos, y hacemos las cosas que son agradables delante de él».",
   "sentido_en_contexto": "Confianza en la oración vinculada a la obediencia (cf. Jn 15:7; 1 Jn 5:14-15: «según su voluntad»). No es una garantía de obtener todo lo que se pide, sino de oración alineada con la voluntad de Dios.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 15:7",
@@ -594,9 +652,9 @@
    "Jas 4:3"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "1John.3.22#04",
+  "ref_estandar": "1John.3.22",
   "morfologia_tagnt": "V-PAS-1P",
   "dstrong": "G0154",
   "strong_tagnt": "G154",
@@ -612,13 +670,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to ask",
-  "ref_estandar": "1John.3.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.3.23",
+  "pos_tisch": 5,
   "strong": "G1785",
   "forma": "ἐντολὴ",
+  "lema": "ἐντολή",
   "glosa_interlineal": "mandamiento",
   "rango_semantico": [
    "mandamiento"
@@ -626,7 +688,7 @@
   "construccion": "Nominativo: «y este es su mandamiento: que creamos en el nombre de su Hijo Jesucristo, y nos amemos unos a otros como nos lo ha mandado».",
   "sentido_en_contexto": "Resumen de la ética joánica en un solo mandamiento con dos partes: fe en Jesucristo y amor mutuo. Cf. Jn 6:29; 13:34. Estas son las dos pruebas fundamentales de la carta: doctrinal (fe en Cristo) y moral (amor).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 6:29; 13:34",
@@ -634,10 +696,9 @@
    "Ro 13:8-10"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1John.3.23#05",
+  "ref_estandar": "1John.3.23",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G1785",
   "strong_tagnt": "G1785",
@@ -653,13 +714,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "commandment",
-  "ref_estandar": "1John.3.23"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.3.24",
+  "pos_tisch": 24,
   "strong": "G4151",
   "forma": "πνεύματος",
+  "lema": "πνεῦμα",
   "glosa_interlineal": "Espíritu",
   "rango_semantico": [
    "espíritu, Espíritu"
@@ -667,7 +733,7 @@
   "construccion": "Genitivo: «y el que guarda sus mandamientos, permanece en Dios, y Dios en él. Y en esto sabemos que él permanece en nosotros, por el Espíritu que nos ha dado».",
   "sentido_en_contexto": "El Espíritu es la evidencia de que Dios permanece en nosotros. Introduce el tema de los espíritus (cap. 4): se prueba el espíritu por su confesión de Cristo. Cf. 4:13.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 8:9, 16",
@@ -675,9 +741,9 @@
    "Jn 14:23"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 24,
   "alineacion": "forma",
   "tagnt": "1John.3.24#24",
+  "ref_estandar": "1John.3.24",
   "morfologia_tagnt": "N-GSN",
   "dstrong": "G4151G",
   "strong_tagnt": "G4151",
@@ -693,7 +759,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "spirit/breath",
-  "ref_estandar": "1John.3.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

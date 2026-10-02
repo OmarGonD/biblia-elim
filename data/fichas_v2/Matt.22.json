@@ -1,8 +1,10 @@
 [
  {
   "ref": "Matt.22.2",
+  "pos_tisch": 10,
   "strong": "G1062",
   "forma": "γάμους",
+  "lema": "γάμος",
   "glosa_interlineal": "fiesta de bodas",
   "rango_semantico": [
    "boda, banquete de bodas",
@@ -11,7 +13,7 @@
   "construccion": "Acusativo plural: «un banquete de bodas». El plural es de uso habitual para el banquete.",
   "sentido_en_contexto": "Imagen del Reino como banquete nupcial que el rey prepara para su hijo. En el AT, la boda simboliza la alianza entre Dios y su pueblo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 25:6 — banquete para todos los pueblos",
@@ -19,9 +21,9 @@
    "Mt 25:1-13 — las diez vírgenes"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Matt.22.2#10",
+  "ref_estandar": "Matt.22.2",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G1062",
   "strong_tagnt": "G1062",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wedding",
-  "ref_estandar": "Matt.22.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.22.5",
+  "pos_tisch": 3,
   "strong": "G272",
   "forma": "ἀμελήσαντες",
+  "lema": "ἀμελέω",
   "glosa_interlineal": "sin hacer caso",
   "rango_semantico": [
    "descuidar, no hacer caso",
@@ -52,16 +58,16 @@
   "construccion": "Participio aoristo activo: «habiéndolo menospreciado».",
   "sentido_en_contexto": "Los invitados desprecian la invitación del rey y siguen con sus negocios. Muestra el rechazo del llamado de Dios.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Heb 2:3 — «¿cómo escaparemos si descuidamos una salvación tan grande?»",
    "Lc 14:18 — «todos a una comenzaron a excusarse»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Matt.22.5#03",
+  "ref_estandar": "Matt.22.5",
   "morfologia_tagnt": "V-AAP-NPM",
   "dstrong": "G0272",
   "strong_tagnt": "G272",
@@ -77,13 +83,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to neglect",
-  "ref_estandar": "Matt.22.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.22.7",
+  "pos_tisch": 4,
   "strong": "G3710",
   "forma": "ὠργίσθη",
+  "lema": "ὀργίζω",
   "glosa_interlineal": "se enojó",
   "rango_semantico": [
    "airarse, enojarse"
@@ -91,16 +101,16 @@
   "construccion": "Aoristo indicativo pasivo, 3ª singular.",
   "sentido_en_contexto": "La ira del rey ante el rechazo y la violencia contra sus siervos. El v.7 («ardió su ciudad») suele leerse como referencia a la destrucción de Jerusalén en el 70 d.C., aunque la parábola no la nombra.",
   "matiz": "Debate: ¿es una alusión velada a la destrucción de Jerusalén (lectura común, que supone Mateo escrito después del 70) o una imagen general del juicio? Los especialistas difieren en la fecha de composición del Evangelio.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 24:2 — «no quedará aquí piedra sobre piedra»",
    "Lc 19:43-44 — «vendrán días sobre ti, y tus enemigos te rodearán»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Matt.22.7#07",
+  "ref_estandar": "Matt.22.7",
   "morfologia_tagnt": "V-API-3S",
   "dstrong": "G3710",
   "strong_tagnt": "G3710",
@@ -116,13 +126,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to anger",
-  "ref_estandar": "Matt.22.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.22.9",
+  "pos_tisch": 5,
   "strong": "G1327",
   "forma": "διεξόδους",
+  "lema": "διέξοδος",
   "glosa_interlineal": "salidas de los caminos",
   "rango_semantico": [
    "cruce de caminos",
@@ -131,16 +145,16 @@
   "construccion": "ἐπὶ + acusativo: «a los cruces de los caminos».",
   "sentido_en_contexto": "El rey ordena invitar a todos los que hallen: apertura a los marginados y gentiles. El banquete debe llenarse.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 14:21-23 — «sal por los caminos y por los vallados»",
    "Mt 8:11 — «vendrán muchos del oriente»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Matt.22.9#05",
+  "ref_estandar": "Matt.22.9",
   "morfologia_tagnt": "N-APF",
   "dstrong": "G1327",
   "strong_tagnt": "G1327",
@@ -156,13 +170,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "thoroughfare",
-  "ref_estandar": "Matt.22.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.22.10",
+  "pos_tisch": 13,
   "strong": "G4190",
   "forma": "πονηροὺς",
+  "lema": "πονηρός",
   "glosa_interlineal": "malos",
   "rango_semantico": [
    "malo, perverso"
@@ -170,16 +188,16 @@
   "construccion": "Acusativo plural: «malos y buenos».",
   "sentido_en_contexto": "La sala se llena de «buenos y malos»: el llamado es universal. La separación vendrá más tarde (v.11-14).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 13:47-50 — la red con peces buenos y malos",
    "Mt 5:45 — «hace salir su sol sobre malos y buenos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Matt.22.10#13",
+  "ref_estandar": "Matt.22.10",
   "morfologia_tagnt": "A-APM",
   "dstrong": "G4190",
   "strong_tagnt": "G4190",
@@ -195,13 +213,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "evil/bad",
-  "ref_estandar": "Matt.22.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.22.11",
+  "pos_tisch": 13,
   "strong": "G1742",
   "forma": "ἔνδυμα",
+  "lema": "ἔνδυμα",
   "glosa_interlineal": "vestido",
   "rango_semantico": [
    "vestido, ropa"
@@ -209,7 +231,7 @@
   "construccion": "Acusativo: «vestido de bodas».",
   "sentido_en_contexto": "Un invitado sin traje de bodas. Se discute su sentido: ¿obras de justicia, la justicia de Cristo, o simplemente la disposición de aceptar la invitación con seriedad?",
   "matiz": "Debate teológico: (a) el traje simboliza la justicia ética esperada del invitado (cf. 5:20); (b) la justicia que Dios da (imputada); (c) arrepentimiento y fe. La parábola no lo especifica. Algunos señalan que el rey proveía los trajes, de modo que no llevarlo era rechazar el don.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 19:8 — «el lino fino son las acciones justas de los santos»",
@@ -217,9 +239,9 @@
    "Zac 3:3-5 — Josué, vestido de ropas viles y luego limpias"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Matt.22.11#13",
+  "ref_estandar": "Matt.22.11",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G1742",
   "strong_tagnt": "G1742",
@@ -235,13 +257,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "clothing",
-  "ref_estandar": "Matt.22.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.22.12",
+  "pos_tisch": 14,
   "strong": "G5392",
   "forma": "ἐφιμώθη",
+  "lema": "φιμόω",
   "glosa_interlineal": "enmudeció",
   "rango_semantico": [
    "quedar mudo, ser silenciado",
@@ -250,16 +276,16 @@
   "construccion": "Aoristo indicativo pasivo, 3ª singular: «fue silenciado / quedó sin palabras».",
   "sentido_en_contexto": "El invitado no tiene excusa. Su silencio muestra que no hay defensa.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 22:34 — «los fariseos… habían hecho callar a los saduceos» (mismo verbo)",
    "Ro 3:19 — «para que toda boca se cierre»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Matt.22.12#14",
+  "ref_estandar": "Matt.22.12",
   "morfologia_tagnt": "V-API-3S",
   "dstrong": "G5392",
   "strong_tagnt": "G5392",
@@ -275,13 +301,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to muzzle",
-  "ref_estandar": "Matt.22.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.22.14",
+  "pos_tisch": 7,
   "strong": "G1588",
   "forma": "ἐκλεκτοί",
+  "lema": "ἐκλεκτός",
   "glosa_interlineal": "escogidos",
   "rango_semantico": [
    "escogido, elegido",
@@ -290,7 +320,7 @@
   "construccion": "Adjetivo nominativo plural: «pocos escogidos».",
   "sentido_en_contexto": "Sentencia final: muchos son llamados (κλητοί) pero pocos elegidos. «Llamados» es la invitación abierta; «escogidos» los que responden y permanecen.",
   "matiz": "Debate: ¿el contraste es entre llamado general y elección divina, o entre llamado y respuesta fiel? En la parábola, el llamado es universal y la exclusión se debe a la falta de «vestido de boda».",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 20:16 — «muchos son llamados, mas pocos escogidos» (algunos manuscritos)",
@@ -298,9 +328,9 @@
    "Ro 8:33 — «¿quién acusará a los escogidos de Dios?»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Matt.22.14#07",
+  "ref_estandar": "Matt.22.14",
   "morfologia_tagnt": "A-NPM",
   "dstrong": "G1588",
   "strong_tagnt": "G1588",
@@ -316,13 +346,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "select",
-  "ref_estandar": "Matt.22.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.22.15",
+  "pos_tisch": 9,
   "strong": "G3802",
   "forma": "παγιδεύσωσιν",
+  "lema": "παγιδεύω",
   "glosa_interlineal": "enredar",
   "rango_semantico": [
    "atrapar con una trampa",
@@ -331,16 +365,16 @@
   "construccion": "Subjuntivo aoristo activo: «para atraparle en una palabra».",
   "sentido_en_contexto": "Los fariseos buscan hacerle caer en una trampa verbal. Imagen de caza (παγίς, «trampa»).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 11:54 — «acechándole para cazar alguna palabra»",
    "1 Ti 3:7 — «lazo del diablo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Matt.22.15#09",
+  "ref_estandar": "Matt.22.15",
   "morfologia_tagnt": "V-AAS-3P",
   "dstrong": "G3802",
   "strong_tagnt": "G3802",
@@ -356,13 +390,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to trap",
-  "ref_estandar": "Matt.22.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.22.16",
+  "pos_tisch": 9,
   "strong": "G2265",
   "forma": "Ἡρῳδιανῶν",
+  "lema": "Ἡρωδιανοί",
   "glosa_interlineal": "herodianos",
   "rango_semantico": [
    "herodiano (partidario de la dinastía de Herodes)"
@@ -370,16 +408,16 @@
   "construccion": "Genitivo plural: «con los herodianos».",
   "sentido_en_contexto": "Aliados políticos de Herodes, favorables a Roma. Unirse a los fariseos (opuestos al dominio romano) es una alianza extraña contra Jesús.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 3:6 — «los fariseos… tomaron consejo con los herodianos»",
    "Mr 12:13 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Matt.22.16#09",
+  "ref_estandar": "Matt.22.16",
   "morfologia_tagnt": "N-GPM-T",
   "dstrong": "G2265",
   "strong_tagnt": "G2265",
@@ -395,13 +433,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Herodians",
-  "ref_estandar": "Matt.22.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.22.17",
+  "pos_tisch": 9,
   "strong": "G2778",
   "forma": "κῆνσον",
+  "lema": "κῆνσος",
   "glosa_interlineal": "tributo",
   "rango_semantico": [
    "impuesto de capitación (censo)",
@@ -410,7 +452,7 @@
   "construccion": "Acusativo: «el tributo».",
   "sentido_en_contexto": "La pregunta es un dilema: si dice que sí, es colaborador de Roma (pierde popularidad); si dice que no, es rebelde (lo acusarán ante Roma).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 2:1-2 — el censo de Augusto",
@@ -418,9 +460,9 @@
    "Ro 13:6-7 — «pagad a todos lo que debéis»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Matt.22.17#09",
+  "ref_estandar": "Matt.22.17",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G2778",
   "strong_tagnt": "G2778",
@@ -436,13 +478,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tax",
-  "ref_estandar": "Matt.22.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.22.20",
+  "pos_tisch": 8,
   "strong": "G1504",
   "forma": "εἰκὼν",
+  "lema": "εἰκών",
   "glosa_interlineal": "imagen",
   "rango_semantico": [
    "imagen, semejanza",
@@ -451,7 +497,7 @@
   "construccion": "Nominativo: «¿de quién es esta imagen?».",
   "sentido_en_contexto": "La moneda tiene la imagen y el nombre del César: le pertenece. Jesús juega con «imagen»: el ser humano lleva la imagen de Dios (Gn 1:27), por lo que se le debe a Dios.",
   "matiz": "Este pasaje no desarrolla explícitamente el vínculo con Gn 1:27, pero muchos intérpretes lo ven como trasfondo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 1:27 — «creó Dios al hombre a su imagen»",
@@ -459,9 +505,9 @@
    "2 Co 4:4 — «la imagen de Dios»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Matt.22.20#06",
+  "ref_estandar": "Matt.22.20",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G1504",
   "strong_tagnt": "G1504",
@@ -477,13 +523,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "image",
-  "ref_estandar": "Matt.22.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.22.21",
+  "pos_tisch": 6,
   "strong": "G591",
   "forma": "ἀπόδοτε",
+  "lema": "ἀποδίδωμι",
   "glosa_interlineal": "dad",
   "rango_semantico": [
    "devolver, pagar, dar lo debido"
@@ -491,7 +541,7 @@
   "construccion": "Imperativo aoristo activo, 2ª plural: «devolved».",
   "sentido_en_contexto": "ἀποδίδωμι es «devolver lo que se debe»: no «dar» como regalo sino «pagar lo que corresponde». Jesús no dice cuánto es del César y cuánto de Dios; muestra que hay dos deudas.",
   "matiz": "Debate: ¿Jesús separa dos esferas (Estado e Iglesia) o subordina la primera a la segunda («a Dios lo que es de Dios» abarca todo)? El texto es deliberadamente abierto.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 13:1-7 — sujeción a las autoridades",
@@ -499,9 +549,9 @@
    "1 P 2:13-17 — «honrad al rey»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Matt.22.21#07",
+  "ref_estandar": "Matt.22.21",
   "morfologia_tagnt": "V-2AAM-2P",
   "dstrong": "G0591",
   "strong_tagnt": "G591",
@@ -517,13 +567,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pay",
-  "ref_estandar": "Matt.22.21"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.22.23",
+  "pos_tisch": 11,
   "strong": "G386",
   "forma": "ἀνάστασιν",
+  "lema": "ἀνάστασις",
   "glosa_interlineal": "resurrección",
   "rango_semantico": [
    "resurrección, levantamiento",
@@ -532,7 +586,7 @@
   "construccion": "Acusativo: «no hay resurrección».",
   "sentido_en_contexto": "Los saduceos negaban la resurrección porque solo aceptaban el Pentateuco. Plantean el caso de la mujer con siete maridos (ley del levirato) para ridiculizar la idea.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 23:8 — «los saduceos dicen que no hay resurrección»",
@@ -540,9 +594,9 @@
    "Dn 12:2 — «muchos… despertarán»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Matt.22.23#12",
+  "ref_estandar": "Matt.22.23",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G0386",
   "strong_tagnt": "G386",
@@ -558,13 +612,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "resurrection",
-  "ref_estandar": "Matt.22.23"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.22.29",
+  "pos_tisch": 7,
   "strong": "G4105",
   "forma": "πλανᾶσθε",
+  "lema": "πλανάω",
   "glosa_interlineal": "erráis",
   "rango_semantico": [
    "errar, extraviarse",
@@ -573,7 +631,7 @@
   "construccion": "Presente indicativo pasivo, 2ª plural: «estáis equivocados».",
   "sentido_en_contexto": "Jesús diagnostica el error de los saduceos: ignoran las Escrituras y el poder de Dios. Los dos errores van juntos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 12:24 — paralelo",
@@ -581,9 +639,9 @@
    "Ro 4:21 — «poderoso para hacer todo lo que había prometido»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Matt.22.29#07",
+  "ref_estandar": "Matt.22.29",
   "morfologia_tagnt": "V-PPI-2P",
   "dstrong": "G4105",
   "strong_tagnt": "G4105",
@@ -599,13 +657,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to lead astray",
-  "ref_estandar": "Matt.22.29"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.22.30",
+  "pos_tisch": 8,
   "strong": "G1061",
   "forma": "γαμίζονται",
+  "lema": "γαμίσκω",
   "glosa_interlineal": "se dan en casamiento",
   "rango_semantico": [
    "ser dada en matrimonio"
@@ -613,7 +675,7 @@
   "construccion": "Presente indicativo pasivo, 3ª plural.",
   "sentido_en_contexto": "En la resurrección, la vida será semejante a la de los ángeles: sin matrimonio, pues no habrá muerte que haga necesaria la procreación. No afirma que los ángeles sean asexuales, solo que no se casan.",
   "matiz": "Se debate si el texto implica que los lazos personales desaparecen o que el vínculo marital se transforma; el pasaje dice solo que no hay matrimonio.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 20:34-36 — paralelo con detalle",
@@ -621,9 +683,9 @@
    "Mr 12:25 — paralelo"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Matt.22.30#08",
+  "ref_estandar": "Matt.22.30",
   "morfologia_tagnt": "V-PPI-3P",
   "dstrong": "G1061",
   "strong_tagnt": "G1061",
@@ -640,13 +702,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to give in marriage",
-  "ref_estandar": "Matt.22.30"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.22.32",
+  "pos_tisch": 19,
   "strong": "G2198",
   "forma": "ζώντων",
+  "lema": "ζάω",
   "glosa_interlineal": "vivos",
   "rango_semantico": [
    "vivo, que vive"
@@ -654,7 +720,7 @@
   "construccion": "Genitivo plural: «Dios de vivos».",
   "sentido_en_contexto": "Jesús argumenta desde Éx 3:6: Dios dice «yo soy el Dios de Abraham…» en presente; por tanto los patriarcas viven para Dios. Usa un texto del Pentateuco, aceptado por los saduceos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Éx 3:6 — texto citado",
@@ -662,9 +728,9 @@
    "Heb 11:16 — «Dios no se avergüenza de ser llamado Dios de ellos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 19,
   "alineacion": "forma",
   "tagnt": "Matt.22.32#21",
+  "ref_estandar": "Matt.22.32",
   "morfologia_tagnt": "V-PAP-GPM",
   "dstrong": "G2198",
   "strong_tagnt": "G2198",
@@ -680,13 +746,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to live",
-  "ref_estandar": "Matt.22.32"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.22.35",
+  "pos_tisch": 6,
   "strong": "G3544",
   "forma": "νομικὸς",
+  "lema": "νομικός",
   "glosa_interlineal": "experto en la ley",
   "rango_semantico": [
    "jurista, experto en la Torá"
@@ -694,16 +764,16 @@
   "construccion": "Nominativo: «un intérprete de la ley».",
   "sentido_en_contexto": "Un especialista en la Ley pone a prueba a Jesús con una pregunta clásica de debate rabínico: ¿cuál es el mandamiento mayor?",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 10:25 — «un intérprete de la ley… para probarle»",
    "Tit 3:13 — «Zenas, intérprete de la ley»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Matt.22.35#06",
+  "ref_estandar": "Matt.22.35",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G3544",
   "strong_tagnt": "G3544",
@@ -719,13 +789,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lawyer",
-  "ref_estandar": "Matt.22.35"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.22.37",
+  "pos_tisch": 25,
   "strong": "G1271",
   "forma": "διανοίᾳ",
+  "lema": "διάνοια",
   "glosa_interlineal": "mente",
   "rango_semantico": [
    "entendimiento, mente",
@@ -734,7 +808,7 @@
   "construccion": "Dativo: «con toda tu mente». Cita Dt 6:5.",
   "sentido_en_contexto": "Jesús cita el Shemá: amar a Dios con todo el corazón, el alma y «la mente». En Dt el texto dice «corazón, alma y fuerzas»; Mateo cambia «fuerzas» por «mente», quizá para enfatizar la dimensión intelectual en griego.",
   "matiz": "Marcos (12:30) y Lucas (10:27) usan cuatro términos; Mateo, tres. Las variantes reflejan el modo de transmitir un mismo mandato.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 6:5 — texto citado",
@@ -742,9 +816,9 @@
    "Lc 10:27 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 25,
   "alineacion": "forma",
   "tagnt": "Matt.22.37#26",
+  "ref_estandar": "Matt.22.37",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G1271",
   "strong_tagnt": "G1271",
@@ -760,13 +834,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mind",
-  "ref_estandar": "Matt.22.37"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.22.40",
+  "pos_tisch": 9,
   "strong": "G2910",
   "forma": "κρέμαται",
+  "lema": "κρεμάννυμι",
   "glosa_interlineal": "depende",
   "rango_semantico": [
    "colgar, estar colgado",
@@ -775,7 +853,7 @@
   "construccion": "Presente indicativo medio, 3ª singular: «cuelga de».",
   "sentido_en_contexto": "Imagen de una puerta colgada de sus goznes: la Ley y los Profetas «cuelgan» de los dos mandamientos. Todo el AT se articula alrededor del amor a Dios y al prójimo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 13:8-10 — «el amor es el cumplimiento de la ley»",
@@ -783,9 +861,9 @@
    "Mt 7:12 — regla de oro: «esto es la ley y los profetas»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Matt.22.40#09",
+  "ref_estandar": "Matt.22.40",
   "morfologia_tagnt": "V-PPI-3S",
   "dstrong": "G2910",
   "strong_tagnt": "G2910",
@@ -802,13 +880,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to hang",
-  "ref_estandar": "Matt.22.40"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.22.44",
+  "pos_tisch": 16,
   "strong": "G5270",
   "forma": "ὑποκάτω",
+  "lema": "ὑποκάτω",
   "glosa_interlineal": "debajo",
   "rango_semantico": [
    "debajo de, bajo"
@@ -816,7 +898,7 @@
   "construccion": "ὑποκάτω + genitivo: «bajo (tus pies)».",
   "sentido_en_contexto": "Cita del Sal 110:1: «Siéntate a mi diestra hasta que ponga a tus enemigos debajo de tus pies». Jesús pregunta cómo el Mesías, hijo de David, puede ser su «Señor».",
   "matiz": "Pregunta abierta: si el Mesías es hijo de David, ¿cómo David lo llama «Señor»? Jesús no responde directamente; la respuesta cristiana es que el Mesías es más que un descendiente humano. Los oponentes no pueden responder (v.46).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 110:1 — texto citado",
@@ -824,9 +906,9 @@
    "Heb 1:13 — «siéntate a mi diestra»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Matt.22.44#17",
+  "ref_estandar": "Matt.22.44",
   "morfologia_tagnt": "PREP",
   "dstrong": "G5270",
   "strong_tagnt": "G5270",
@@ -843,14 +925,18 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "under",
   "caso_regido": "genitivo",
-  "ref_estandar": "Matt.22.44"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.22.46",
+  "pos_tisch": 8,
   "strong": "G5111",
   "forma": "ἐτόλμησέν",
+  "lema": "τολμάω",
   "glosa_interlineal": "se atrevió",
   "rango_semantico": [
    "atreverse, osar"
@@ -858,16 +944,16 @@
   "construccion": "Aoristo indicativo activo, 3ª singular.",
   "sentido_en_contexto": "Cierra la serie de controversias: nadie se atrevió a preguntarle más. Desde aquí Jesús pasa a hablar sin ser interrogado (cap. 23).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 12:34 — paralelo",
    "Lc 20:40 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Matt.22.46#08",
+  "ref_estandar": "Matt.22.46",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G5111",
   "strong_tagnt": "G5111",
@@ -883,7 +969,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be bold",
-  "ref_estandar": "Matt.22.46"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

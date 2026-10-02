@@ -1,8 +1,10 @@
 [
  {
   "ref": "Matt.2.1",
+  "pos_tisch": 15,
   "strong": "G3097",
   "forma": "μάγοι",
+  "lema": "μάγος",
   "glosa_interlineal": "magos",
   "rango_semantico": [
    "mago (sabio, sacerdote-astrólogo persa o babilonio)",
@@ -11,16 +13,16 @@
   "construccion": "Nominativo plural, sujeto de «llegaron».",
   "sentido_en_contexto": "Aquí son sabios de oriente que observan los astros; no se dice que sean reyes ni cuántos eran.",
   "matiz": "Mateo no da número (la tradición de «tres» viene de los tres regalos). Cuál era su procedencia exacta (Persia, Babilonia, Arabia) no se precisa.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": "Algunas versiones traducen «sabios» o «astrólogos»; «magos» conserva la palabra griega, que en otros textos del NT tiene sentido negativo.",
   "otros_usos": [
    "Hch 13:6 — «un mago, falso profeta»: uso negativo",
    "Hch 8:9 — Simón «practicaba la magia» (verbo emparentado)"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Matt.2.1#15",
+  "ref_estandar": "Matt.2.1",
   "morfologia_tagnt": "N-NPM",
   "dstrong": "G3097",
   "strong_tagnt": "G3097",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sage",
-  "ref_estandar": "Matt.2.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.1",
+  "pos_tisch": 17,
   "strong": "G395",
   "forma": "ἀνατολῶν",
+  "lema": "ἀνατολή",
   "glosa_interlineal": "oriente",
   "rango_semantico": [
    "salida del sol, este",
@@ -52,16 +58,16 @@
   "construccion": "ἀπό + genitivo plural: «desde [las] salidas (del sol)», es decir, del este.",
   "sentido_en_contexto": "Indica de dónde vinieron los magos, sin precisar el lugar. El plural es idiomático.",
   "matiz": "El mismo sustantivo en el v.2 y el v.9 («en [su] salida», ἐν τῇ ἀνατολῇ) se discute: ¿la estrella que vieron «al salir» (en su orto), o «estando ellos en oriente»? Ver nota en ἀστήρ.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 1:78 — «la aurora (ἀνατολή) nos visitó desde lo alto»: sentido de salida/amanecer",
    "Ap 21:13 — «al oriente tres puertas»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "Matt.2.1#17",
+  "ref_estandar": "Matt.2.1",
   "morfologia_tagnt": "N-GPF",
   "dstrong": "G0395",
   "strong_tagnt": "G395",
@@ -77,13 +83,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "east",
-  "ref_estandar": "Matt.2.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.2",
+  "pos_tisch": 13,
   "strong": "G792",
   "forma": "ἀστέρα",
+  "lema": "ἀστήρ",
   "glosa_interlineal": "estrella",
   "rango_semantico": [
    "estrella",
@@ -92,7 +102,7 @@
   "construccion": "Acusativo singular, objeto de «vimos»: «su estrella».",
   "sentido_en_contexto": "Los magos la ven y la interpretan como señal del nacimiento del rey de los judíos. El texto no la identifica con ningún fenómeno astronómico concreto.",
   "matiz": "Se debate qué fue: un fenómeno natural (conjunción planetaria, cometa, nova) o un signo sobrenatural. Mateo la describe «guiando» (v.9) y «deteniéndose» sobre el niño, lo que algunos entienden como algo no natural; otros lo ven como lenguaje narrativo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Nm 24:17 — «saldrá estrella de Jacob» (hebreo): pasaje que muchos relacionan",
@@ -100,9 +110,9 @@
    "Mt 24:29 — «las estrellas caerán del cielo»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Matt.2.2#13",
+  "ref_estandar": "Matt.2.2",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G0792",
   "strong_tagnt": "G792",
@@ -118,13 +128,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "star",
-  "ref_estandar": "Matt.2.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.2",
+  "pos_tisch": 19,
   "strong": "G4352",
   "forma": "προσκυνῆσαι",
+  "lema": "προσκυνέω",
   "glosa_interlineal": "adorar",
   "rango_semantico": [
    "postrarse, rendir homenaje",
@@ -134,7 +148,7 @@
   "construccion": "Infinitivo aoristo, de finalidad: «para adorarlo».",
   "sentido_en_contexto": "El verbo puede ser homenaje a un rey o adoración a Dios; el contexto (rey de los judíos, v.11 «postrándose») admite ambos. Para Mateo, el homenaje al niño es ya un signo de su identidad.",
   "matiz": "El mismo verbo lo usa Herodes en el v.8, con intención falsa. Muestra que el verbo por sí solo no distingue entre homenaje sincero y fingido.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 4:10 — «al Señor tu Dios adorarás»: adoración exclusiva a Dios",
@@ -142,9 +156,9 @@
    "Mt 28:9 — las mujeres «se postraron… y lo adoraron»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 19,
   "alineacion": "forma",
   "tagnt": "Matt.2.2#19",
+  "ref_estandar": "Matt.2.2",
   "morfologia_tagnt": "V-AAN",
   "dstrong": "G4352",
   "strong_tagnt": "G4352",
@@ -160,13 +174,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to worship",
-  "ref_estandar": "Matt.2.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.3",
+  "pos_tisch": 6,
   "strong": "G5015",
   "forma": "ἐταράχθη",
+  "lema": "ταράσσω",
   "glosa_interlineal": "se turbó",
   "rango_semantico": [
    "agitar, remover",
@@ -176,7 +194,7 @@
   "construccion": "Aoristo indicativo pasivo, 3ª singular: «fue turbado».",
   "sentido_en_contexto": "Herodes se inquieta ante la noticia de un rival al trono; Jerusalén, con él, teme las consecuencias.",
   "matiz": "El pasivo marca reacción: algo lo agitó. «Toda Jerusalén» es lenguaje de conjunto, no cada habitante.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 14:26 — «los discípulos… se turbaron»: miedo al ver a Jesús",
@@ -184,9 +202,9 @@
    "Lc 1:12 — «Zacarías se turbó»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Matt.2.3#06",
+  "ref_estandar": "Matt.2.3",
   "morfologia_tagnt": "V-API-3S",
   "dstrong": "G5015",
   "strong_tagnt": "G5015",
@@ -202,13 +220,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to trouble",
-  "ref_estandar": "Matt.2.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.4",
+  "pos_tisch": 5,
   "strong": "G749",
   "forma": "ἀρχιερεῖς",
+  "lema": "ἀρχιερεύς",
   "glosa_interlineal": "sumos sacerdotes",
   "rango_semantico": [
    "jefe de sacerdotes",
@@ -218,16 +240,16 @@
   "construccion": "Acusativo plural: «todos los jefes de los sacerdotes».",
   "sentido_en_contexto": "Plural: no un solo sumo sacerdote, sino el grupo de dirigentes sacerdotales del Sanedrín.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 26:3 — «los principales sacerdotes… se reunieron»",
    "Heb 4:14 — «un gran sumo sacerdote»: Cristo, singular"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Matt.2.4#05",
+  "ref_estandar": "Matt.2.4",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G0749",
   "strong_tagnt": "G749",
@@ -243,13 +265,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "high-priest",
-  "ref_estandar": "Matt.2.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.4",
+  "pos_tisch": 7,
   "strong": "G1122",
   "forma": "γραμματεῖς",
+  "lema": "γραμματεύς",
   "glosa_interlineal": "escribas",
   "rango_semantico": [
    "escriba, secretario",
@@ -258,16 +284,16 @@
   "construccion": "Acusativo plural, coordinado con «sumos sacerdotes».",
   "sentido_en_contexto": "Eran los intérpretes de la Ley: Herodes les consulta porque ellos saben qué dicen las Escrituras.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 7:29 — «enseñaba como quien tiene autoridad, y no como los escribas»",
    "Mt 23:2 — «en la cátedra de Moisés se sientan los escribas»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Matt.2.4#07",
+  "ref_estandar": "Matt.2.4",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G1122",
   "strong_tagnt": "G1122",
@@ -283,13 +309,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "scribe",
-  "ref_estandar": "Matt.2.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.4",
+  "pos_tisch": 10,
   "strong": "G4441",
   "forma": "ἐπυνθάνετο",
+  "lema": "πυνθάνομαι",
   "glosa_interlineal": "preguntaba",
   "rango_semantico": [
    "preguntar para saber",
@@ -298,16 +328,16 @@
   "construccion": "Imperfecto indicativo medio, 3ª singular: «iba preguntando / quería saber». El imperfecto sugiere una consulta insistente.",
   "sentido_en_contexto": "No es una pregunta casual: Herodes interroga para obtener datos precisos. Contrasta con la pregunta de los magos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 15:26 — «preguntó qué era aquello»",
    "Hch 21:33 — «preguntó quién era»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Matt.2.4#10",
+  "ref_estandar": "Matt.2.4",
   "morfologia_tagnt": "V-INI-3S",
   "dstrong": "G4441",
   "strong_tagnt": "G4441",
@@ -323,13 +353,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to inquire",
-  "ref_estandar": "Matt.2.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.5",
+  "pos_tisch": 11,
   "strong": "G1125",
   "forma": "γέγραπται",
+  "lema": "γράφω",
   "glosa_interlineal": "está escrito",
   "rango_semantico": [
    "escribir",
@@ -339,7 +373,7 @@
   "construccion": "Perfecto indicativo pasivo, 3ª singular: «ha sido escrito y sigue valiendo». El perfecto subraya que lo escrito permanece como autoridad.",
   "sentido_en_contexto": "Fórmula habitual para citar la Escritura con autoridad: «así está escrito por medio del profeta».",
   "matiz": "El perfecto no solo dice que se escribió en el pasado, sino que el texto sigue teniendo vigor. De ahí «está escrito».",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 4:4 — «escrito está: no sólo de pan vivirá el hombre»",
@@ -347,9 +381,9 @@
    "Ro 1:17 — «como está escrito: el justo por la fe vivirá»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Matt.2.5#11",
+  "ref_estandar": "Matt.2.5",
   "morfologia_tagnt": "V-RPI-3S",
   "dstrong": "G1125",
   "strong_tagnt": "G1125",
@@ -365,13 +399,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to write",
-  "ref_estandar": "Matt.2.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.6",
+  "pos_tisch": 11,
   "strong": "G2232",
   "forma": "ἡγεμόσιν",
+  "lema": "ἡγεμών",
   "glosa_interlineal": "gobernantes",
   "rango_semantico": [
    "jefe, gobernante",
@@ -380,16 +418,16 @@
   "construccion": "ἐν + dativo plural: «entre los gobernantes».",
   "sentido_en_contexto": "En la cita de Miqueas, «entre los clanes (miles) de Judá» se convierte en «entre los gobernantes». Mateo adapta el texto para subrayar de Belén saldrá un jefe.",
   "matiz": "Mateo no cita literalmente ni el hebreo ni la LXX; adapta («de ninguna manera la más pequeña», donde Miqueas dice «pequeña para estar entre los clanes»). Se discute si es una paráfrasis interpretativa deliberada.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": "RVR y otras traducen «príncipes» o «gobernantes»; el hebreo de Miqueas dice «clanes/millares», y por eso la cita de Mateo difiere del AT.",
   "otros_usos": [
    "Mi 5:2 — texto original (clanes de Judá)",
    "Lc 2:2 — «Cirenio gobernaba (ἡγεμονεύοντος) Siria»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Matt.2.6#11",
+  "ref_estandar": "Matt.2.6",
   "morfologia_tagnt": "N-DPM",
   "dstrong": "G2232",
   "strong_tagnt": "G2232",
@@ -405,13 +443,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ruler",
-  "ref_estandar": "Matt.2.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.6",
+  "pos_tisch": 17,
   "strong": "G2233",
   "forma": "ἡγούμενος",
+  "lema": "ἡγέομαι",
   "glosa_interlineal": "guía",
   "rango_semantico": [
    "guiar, dirigir",
@@ -421,7 +463,7 @@
   "construccion": "Participio presente medio, nominativo masculino: «el que guía/gobierna».",
   "sentido_en_contexto": "Aquí es sustantivo («el jefe»): promete un gobernante que saldrá de Belén.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 22:26 — «el que dirige (ἡγούμενος), como el que sirve»",
@@ -429,9 +471,9 @@
    "Fil 2:3 — «estimando cada uno a los demás como superiores»: sentido de «considerar»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "Matt.2.6#17",
+  "ref_estandar": "Matt.2.6",
   "morfologia_tagnt": "V-PNP-NSM",
   "dstrong": "G2233",
   "strong_tagnt": "G2233",
@@ -447,13 +489,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to govern",
-  "ref_estandar": "Matt.2.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.6",
+  "pos_tisch": 19,
   "strong": "G4165",
   "forma": "ποιμανεῖ",
+  "lema": "ποιμαίνω",
   "glosa_interlineal": "pastoreará",
   "rango_semantico": [
    "pastorear, cuidar un rebaño",
@@ -462,7 +508,7 @@
   "construccion": "Futuro indicativo activo, 3ª singular.",
   "sentido_en_contexto": "Imagen de rey-pastor: guiar, proteger y alimentar al pueblo. Une la idea de gobierno con la de cuidado.",
   "matiz": "En el AT el rey-pastor es una imagen conocida (2 S 5:2, donde se dice de David). Mateo asocia a Jesús con ese ideal.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 21:16 — «pastorea mis ovejas»",
@@ -470,9 +516,9 @@
    "1 P 5:2 — «apacentad la grey de Dios»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 19,
   "alineacion": "forma",
   "tagnt": "Matt.2.6#19",
+  "ref_estandar": "Matt.2.6",
   "morfologia_tagnt": "V-FAI-3S",
   "dstrong": "G4165",
   "strong_tagnt": "G4165",
@@ -488,13 +534,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to shepherd",
-  "ref_estandar": "Matt.2.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.7",
+  "pos_tisch": 7,
   "strong": "G198",
   "forma": "ἠκρίβωσεν",
+  "lema": "ἀκριβόω",
   "glosa_interlineal": "averiguó con exactitud",
   "rango_semantico": [
    "investigar con exactitud",
@@ -503,15 +553,15 @@
   "construccion": "Aoristo indicativo activo, 3ª singular.",
   "sentido_en_contexto": "Herodes les sacó el dato exacto del momento de la aparición de la estrella: eso le permitirá calcular la edad del niño (v.16).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 2:16 — «conforme al tiempo que había averiguado»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Matt.2.7#07",
+  "ref_estandar": "Matt.2.7",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G0198",
   "strong_tagnt": "G198",
@@ -527,13 +577,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be exactly",
-  "ref_estandar": "Matt.2.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.8",
+  "pos_tisch": 8,
   "strong": "G1833",
   "forma": "ἐξετάσατε",
+  "lema": "ἐξετάζω",
   "glosa_interlineal": "averiguad",
   "rango_semantico": [
    "investigar a fondo",
@@ -542,16 +596,16 @@
   "construccion": "Imperativo aoristo activo, 2ª plural: orden directa. El prefijo ἐκ- refuerza «a fondo».",
   "sentido_en_contexto": "Herodes les ordena indagar con rigor; en la práctica los usa como espías.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 10:11 — «investigad quién en ella sea digno»",
    "Jn 21:12 — «ninguno… se atrevía a preguntarle»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Matt.2.8#08",
+  "ref_estandar": "Matt.2.8",
   "morfologia_tagnt": "V-AAM-2P",
   "dstrong": "G1833",
   "strong_tagnt": "G1833",
@@ -567,13 +621,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to find out",
-  "ref_estandar": "Matt.2.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.8",
+  "pos_tisch": 21,
   "strong": "G4352",
   "forma": "προσκυνήσω",
+  "lema": "προσκυνέω",
   "glosa_interlineal": "adore",
   "rango_semantico": [
    "postrarse, rendir homenaje",
@@ -582,16 +640,16 @@
   "construccion": "Subjuntivo aoristo activo, 1ª singular, tras ὅπως: «para que yo también vaya y adore».",
   "sentido_en_contexto": "El mismo verbo del v.2, ahora en boca de Herodes: es un pretexto para localizar al niño y matarlo (v.13). Mateo muestra la ironía.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 2:2 — misma palabra, sinceridad opuesta",
    "Mt 2:11 — los magos sí lo adoran de verdad"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 21,
   "alineacion": "forma",
   "tagnt": "Matt.2.8#21",
+  "ref_estandar": "Matt.2.8",
   "morfologia_tagnt": "V-AAS-1S",
   "dstrong": "G4352",
   "strong_tagnt": "G4352",
@@ -607,13 +665,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to worship",
-  "ref_estandar": "Matt.2.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.9",
+  "pos_tisch": 16,
   "strong": "G4254",
   "forma": "προῆγεν",
+  "lema": "προάγω",
   "glosa_interlineal": "iba delante",
   "rango_semantico": [
    "ir delante, preceder",
@@ -622,7 +684,7 @@
   "construccion": "Imperfecto indicativo activo, 3ª singular: «iba delante, los iba guiando». El imperfecto da idea de movimiento continuo.",
   "sentido_en_contexto": "La estrella los va guiando mientras caminan: acción continua, no puntual.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 6:45 — «que fuesen delante de él a Betsaida»",
@@ -630,9 +692,9 @@
    "Mt 26:32 — «iré delante de vosotros a Galilea»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Matt.2.9#16",
+  "ref_estandar": "Matt.2.9",
   "morfologia_tagnt": "V-IAI-3S",
   "dstrong": "G4254",
   "strong_tagnt": "G4254",
@@ -648,13 +710,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to go/bring before",
-  "ref_estandar": "Matt.2.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.9",
+  "pos_tisch": 20,
   "strong": "G2476",
   "forma": "ἐστάθη",
+  "lema": "ἵστημι",
   "glosa_interlineal": "se detuvo",
   "rango_semantico": [
    "colocar, poner",
@@ -664,16 +730,16 @@
   "construccion": "Aoristo indicativo pasivo (intransitivo): «se detuvo, se paró». El aoristo marca el punto de llegada tras el movimiento continuo del imperfecto.",
   "sentido_en_contexto": "Contraste de tiempos: «iba delante» (imperfecto, continuo) y «se detuvo» (aoristo, puntual). Indica el final del viaje.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 6:17 — «se detuvo en un lugar llano»",
    "Mt 12:25 — «no permanecerá (σταθήσεται)»: mantenerse en pie"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 20,
   "alineacion": "forma",
   "tagnt": "Matt.2.9#20",
+  "ref_estandar": "Matt.2.9",
   "morfologia_tagnt": "V-API-3S",
   "dstrong": "G2476",
   "strong_tagnt": "G2476",
@@ -690,13 +756,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to stand",
-  "ref_estandar": "Matt.2.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.10",
+  "pos_tisch": 5,
   "strong": "G5463",
   "forma": "ἐχάρησαν",
+  "lema": "χαίρω",
   "glosa_interlineal": "se alegraron",
   "rango_semantico": [
    "alegrarse, gozarse",
@@ -705,7 +775,7 @@
   "construccion": "Aoristo indicativo (voz pasiva con sentido activo), 3ª plural.",
   "sentido_en_contexto": "Mateo refuerza la alegría con «gran gozo en gran manera» (χαρὰν μεγάλην σφόδρα): redundancia intencional para marcar la intensidad.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 1:14 — «muchos se gozarán de su nacimiento»",
@@ -713,9 +783,9 @@
    "Mt 27:29 — «¡Salve, Rey de los judíos!»: sentido de saludo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Matt.2.10#05",
+  "ref_estandar": "Matt.2.10",
   "morfologia_tagnt": "V-2AOI-3P",
   "dstrong": "G5463",
   "strong_tagnt": "G5463",
@@ -731,13 +801,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to rejoice",
-  "ref_estandar": "Matt.2.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.11",
+  "pos_tisch": 5,
   "strong": "G3614",
   "forma": "οἰκίαν",
+  "lema": "οἰκία",
   "glosa_interlineal": "casa",
   "rango_semantico": [
    "casa (edificio)",
@@ -746,7 +820,7 @@
   "construccion": "εἰς + acusativo: «entrando en la casa».",
   "sentido_en_contexto": "Mateo dice «casa», no «establo» ni «pesebre» (como Lucas): los magos llegan algún tiempo después del nacimiento. Esto concuerda con los «dos años» de 2:16.",
   "matiz": "Se discute si Mateo y Lucas describen momentos distintos; la palabra «casa» sugiere que ya no estaban en el lugar del nacimiento.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 2:7 — «lo acostó en un pesebre»: Lucas, otro momento",
@@ -754,9 +828,9 @@
    "Jn 14:2 — «en la casa de mi Padre»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Matt.2.11#05",
+  "ref_estandar": "Matt.2.11",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G3614G",
   "strong_tagnt": "G3614",
@@ -772,13 +846,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "home",
-  "ref_estandar": "Matt.2.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.11",
+  "pos_tisch": 8,
   "strong": "G3813",
   "forma": "παιδίον",
+  "lema": "παιδίον",
   "glosa_interlineal": "niño",
   "rango_semantico": [
    "niño pequeño",
@@ -788,7 +866,7 @@
   "construccion": "Acusativo singular neutro: «al niño».",
   "sentido_en_contexto": "Diminutivo: niño pequeño. Mateo lo repite insistentemente en este capítulo («el niño y su madre») para centrar la historia en él.",
   "matiz": "El patrón «el niño y su madre» (vv.11, 13, 14, 20, 21) omite deliberadamente a José como padre del niño, en línea con 1:16-25.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 18:2 — «llamando Jesús a un niño…»",
@@ -796,9 +874,9 @@
    "Mc 5:39 — «la niña no está muerta, sino duerme»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Matt.2.11#08",
+  "ref_estandar": "Matt.2.11",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G3813",
   "strong_tagnt": "G3813",
@@ -814,13 +892,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "child",
-  "ref_estandar": "Matt.2.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.11",
+  "pos_tisch": 15,
   "strong": "G4098",
   "forma": "πεσόντες",
+  "lema": "πίπτω",
   "glosa_interlineal": "postrándose",
   "rango_semantico": [
    "caer",
@@ -830,7 +912,7 @@
   "construccion": "Participio aoristo activo, nominativo plural: «habiendo caído (de rodillas)».",
   "sentido_en_contexto": "Acción previa a «adoraron»: postrarse es el gesto físico del homenaje.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 18:29 — «postrado, le rogaba»",
@@ -838,9 +920,9 @@
    "Lc 10:18 — «vi a Satanás caer del cielo»: sentido de caída"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Matt.2.11#15",
+  "ref_estandar": "Matt.2.11",
   "morfologia_tagnt": "V-2AAP-NPM",
   "dstrong": "G4098",
   "strong_tagnt": "G4098",
@@ -856,13 +938,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to collapse",
-  "ref_estandar": "Matt.2.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.11",
+  "pos_tisch": 25,
   "strong": "G1435",
   "forma": "δῶρα",
+  "lema": "δῶρον",
   "glosa_interlineal": "regalos",
   "rango_semantico": [
    "don, presente",
@@ -871,7 +957,7 @@
   "construccion": "Acusativo plural: «regalos».",
   "sentido_en_contexto": "Son regalos de homenaje digno de un rey (oro, incienso, mirra), no ofrendas de culto en el templo. Mateo los enumera.",
   "matiz": "Desde antiguo se les ha dado sentido simbólico (oro = realeza, incienso = divinidad, mirra = sufrimiento/muerte); el texto de Mateo no lo explica, es una interpretación posterior.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 5:23 — «si traes tu ofrenda (δῶρον) al altar»",
@@ -879,9 +965,9 @@
    "Ap 11:10 — «se enviarán regalos»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 25,
   "alineacion": "forma",
   "tagnt": "Matt.2.11#25",
+  "ref_estandar": "Matt.2.11",
   "morfologia_tagnt": "N-APN",
   "dstrong": "G1435",
   "strong_tagnt": "G1435",
@@ -897,13 +983,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gift",
-  "ref_estandar": "Matt.2.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.12",
+  "pos_tisch": 2,
   "strong": "G5537",
   "forma": "χρηματισθέντες",
+  "lema": "χρηματίζω",
   "glosa_interlineal": "avisados",
   "rango_semantico": [
    "recibir una advertencia divina",
@@ -913,7 +1003,7 @@
   "construccion": "Participio aoristo pasivo, nominativo plural: «habiendo sido advertidos».",
   "sentido_en_contexto": "Verbo técnico para la comunicación divina: Dios los advierte directamente en sueños.",
   "matiz": "El pasivo no nombra a Dios, pero se entiende que es él quien da la advertencia (pasivo divino).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 2:26 — «le había sido revelado por el Espíritu Santo»",
@@ -921,9 +1011,9 @@
    "Heb 11:7 — «Noé, siendo advertido por Dios»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Matt.2.12#02",
+  "ref_estandar": "Matt.2.12",
   "morfologia_tagnt": "V-APP-NPM",
   "dstrong": "G5537",
   "strong_tagnt": "G5537",
@@ -939,13 +1029,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to announce",
-  "ref_estandar": "Matt.2.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.12",
+  "pos_tisch": 7,
   "strong": "G4314",
   "forma": "πρὸς",
+  "lema": "πρός",
   "glosa_interlineal": "a",
   "rango_semantico": [
    "hacia, a (con acusativo)",
@@ -956,7 +1050,7 @@
   "construccion": "πρός + acusativo (Ἡρῴδην): dirección, «volver a/hacia Herodes».",
   "sentido_en_contexto": "Con acusativo y verbo de movimiento (ἀνακάμψαι), indica dirección: «regresar a Herodes».",
   "matiz": "Contrasta con Jn 1:2, donde πρός + acusativo describe cercanía personal; aquí el verbo de movimiento fija el sentido direccional.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 1:2 — «con Dios»: relación personal",
@@ -964,9 +1058,9 @@
    "Hch 6:1 — «contra los hebreos»: oposición"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Matt.2.12#07",
+  "ref_estandar": "Matt.2.12",
   "morfologia_tagnt": "PREP",
   "dstrong": "G4314",
   "strong_tagnt": "G4314",
@@ -982,14 +1076,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to/with",
   "caso_regido": "acusativo",
-  "ref_estandar": "Matt.2.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.12",
+  "pos_tisch": 11,
   "strong": "G3598",
   "forma": "ὁδοῦ",
+  "lema": "ὁδός",
   "glosa_interlineal": "camino",
   "rango_semantico": [
    "camino, ruta",
@@ -999,7 +1097,7 @@
   "construccion": "διά + genitivo (ἄλλης ὁδοῦ): «por otro camino».",
   "sentido_en_contexto": "διά + genitivo señala el medio o la vía: «por medio de otro camino». Es la ruta física; sin sentido figurado aquí.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 14:6 — «Yo soy el camino»",
@@ -1007,9 +1105,9 @@
    "Mt 7:13 — «ancho el camino que lleva a la perdición»: modo de vida"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Matt.2.12#11",
+  "ref_estandar": "Matt.2.12",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G3598",
   "strong_tagnt": "G3598",
@@ -1025,13 +1123,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "road",
-  "ref_estandar": "Matt.2.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.13",
+  "pos_tisch": 22,
   "strong": "G5343",
   "forma": "φεῦγε",
+  "lema": "φεύγω",
   "glosa_interlineal": "huye",
   "rango_semantico": [
    "huir",
@@ -1041,7 +1143,7 @@
   "construccion": "Imperativo presente activo, 2ª singular: orden de huida inmediata y sostenida.",
   "sentido_en_contexto": "El imperativo de presente indica urgencia: «sal huyendo». Es lo contrario de los magos que «salen» por otro camino.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 10:23 — «cuando os persigan en esta ciudad, huid a la otra»",
@@ -1049,9 +1151,9 @@
    "Stg 4:7 — «resistid al diablo, y huirá de vosotros»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 22,
   "alineacion": "forma",
   "tagnt": "Matt.2.13#22",
+  "ref_estandar": "Matt.2.13",
   "morfologia_tagnt": "V-PAM-2S",
   "dstrong": "G5343",
   "strong_tagnt": "G5343",
@@ -1067,13 +1169,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to flee",
-  "ref_estandar": "Matt.2.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.13",
+  "pos_tisch": 35,
   "strong": "G2212",
   "forma": "ζητεῖν",
+  "lema": "ζητέω",
   "glosa_interlineal": "buscar",
   "rango_semantico": [
    "buscar",
@@ -1083,7 +1189,7 @@
   "construccion": "Infinitivo presente tras μέλλει: «está a punto de buscar».",
   "sentido_en_contexto": "Aquí «buscar» es «buscar para matar»: el infinitivo siguiente (ἀπολέσαι, «destruir») lo aclara.",
   "matiz": "El verbo está en presente: describe una búsqueda continuada y activa de Herodes.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 6:33 — «buscad primeramente el reino de Dios»",
@@ -1091,9 +1197,9 @@
    "Jn 5:18 — «los judíos procuraban matarle»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 35,
   "alineacion": "forma",
   "tagnt": "Matt.2.13#35",
+  "ref_estandar": "Matt.2.13",
   "morfologia_tagnt": "V-PAN",
   "dstrong": "G2212",
   "strong_tagnt": "G2212",
@@ -1109,13 +1215,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to seek",
-  "ref_estandar": "Matt.2.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.15",
+  "pos_tisch": 6,
   "strong": "G5054",
   "forma": "τελευτῆς",
+  "lema": "τελευτή",
   "glosa_interlineal": "muerte",
   "rango_semantico": [
    "fin",
@@ -1124,16 +1234,16 @@
   "construccion": "ἕως + genitivo (τελευτῆς Ἡρώδου): «hasta la muerte de Herodes».",
   "sentido_en_contexto": "Marca el tiempo del exilio en Egipto: hasta que Herodes muera (4 a. C.).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 2:19 — «muerto Herodes» (verbo emparentado)",
    "Mt 15:4 — «el que maldiga al padre… muera irremisiblemente»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Matt.2.15#06",
+  "ref_estandar": "Matt.2.15",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G5054",
   "strong_tagnt": "G5054",
@@ -1149,13 +1259,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "death",
-  "ref_estandar": "Matt.2.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.15",
+  "pos_tisch": 9,
   "strong": "G4137",
   "forma": "πληρωθῇ",
+  "lema": "πληρόω",
   "glosa_interlineal": "se cumpliese",
   "rango_semantico": [
    "llenar",
@@ -1164,7 +1278,7 @@
   "construccion": "Subjuntivo aoristo pasivo tras ἵνα: «para que se cumpliera».",
   "sentido_en_contexto": "Cita de Os 11:1 («de Egipto llamé a mi hijo»), que en Oseas se refiere a Israel como hijo, y que Mateo ve cumplida en Jesús.",
   "matiz": "Debate: Mateo usa un texto que, en su contexto original, habla del Éxodo. Unos lo explican por tipología (Jesús recapitula la historia de Israel); otros como cumplimiento de un patrón o por la identidad corporativa entre Israel y el Mesías.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 1:22 — misma fórmula de cumplimiento",
@@ -1172,9 +1286,9 @@
    "Os 11:1 — texto original sobre Israel"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Matt.2.15#09",
+  "ref_estandar": "Matt.2.15",
   "morfologia_tagnt": "V-APS-3S",
   "dstrong": "G4137",
   "strong_tagnt": "G4137",
@@ -1190,13 +1304,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to fulfill",
-  "ref_estandar": "Matt.2.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.16",
+  "pos_tisch": 5,
   "strong": "G1702",
   "forma": "ἐνεπαίχθη",
+  "lema": "ἐμπαίζω",
   "glosa_interlineal": "fue burlado",
   "rango_semantico": [
    "burlarse de, engañar",
@@ -1205,16 +1323,16 @@
   "construccion": "Aoristo indicativo pasivo, 3ª singular: «fue burlado, engañado».",
   "sentido_en_contexto": "Herodes se siente humillado por los magos que no volvieron. Su reacción es violenta: la ira nace de la herida de su poder.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 20:19 — «le entregarán a los gentiles para que le escarnezcan»",
    "Lc 22:63 — «los hombres que custodiaban a Jesús se burlaban de él»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Matt.2.16#05",
+  "ref_estandar": "Matt.2.16",
   "morfologia_tagnt": "V-API-3S",
   "dstrong": "G1702",
   "strong_tagnt": "G1702",
@@ -1230,13 +1348,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to mock",
-  "ref_estandar": "Matt.2.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.16",
+  "pos_tisch": 13,
   "strong": "G337",
   "forma": "ἀνεῖλεν",
+  "lema": "ἀναιρέω",
   "glosa_interlineal": "mató",
   "rango_semantico": [
    "quitar, eliminar",
@@ -1245,7 +1367,7 @@
   "construccion": "Aoristo indicativo activo, 3ª singular: «hizo matar».",
   "sentido_en_contexto": "Verbo de ejecución. Describe la matanza de los niños; con «enviando» (ἀποστείλας) se entiende que lo ordenó a sus soldados.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 2:23 — «prendisteis y matasteis»",
@@ -1253,9 +1375,9 @@
    "Hch 12:2 — «mató a espada a Jacobo»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Matt.2.16#13",
+  "ref_estandar": "Matt.2.16",
   "morfologia_tagnt": "V-2AAI-3S",
   "dstrong": "G0337",
   "strong_tagnt": "G337",
@@ -1271,13 +1393,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to do away with",
-  "ref_estandar": "Matt.2.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.16",
+  "pos_tisch": 16,
   "strong": "G3816",
   "forma": "παῖδας",
+  "lema": "παῖς",
   "glosa_interlineal": "niños",
   "rango_semantico": [
    "niño, muchacho",
@@ -1287,7 +1413,7 @@
   "construccion": "Acusativo plural: «todos los niños (varones)».",
   "sentido_en_contexto": "Se refiere a los varones pequeños. Mateo no da cifras; la tradición posterior lo llamó «los inocentes».",
   "matiz": "El número de víctimas no se indica; los historiadores discuten cuántos pudieron ser, dado el tamaño de Belén.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 8:6 — «mi criado (παῖς) está postrado»: siervo",
@@ -1295,9 +1421,9 @@
    "Lc 2:43 — «el niño Jesús se quedó en Jerusalén»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Matt.2.16#16",
+  "ref_estandar": "Matt.2.16",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G3816",
   "strong_tagnt": "G3816",
@@ -1313,13 +1439,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "child",
-  "ref_estandar": "Matt.2.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.17",
+  "pos_tisch": 2,
   "strong": "G4137",
   "forma": "ἐπληρώθη",
+  "lema": "πληρόω",
   "glosa_interlineal": "se cumplió",
   "rango_semantico": [
    "llenar",
@@ -1328,16 +1458,16 @@
   "construccion": "Aoristo indicativo pasivo, 3ª singular: «se cumplió».",
   "sentido_en_contexto": "Aquí la fórmula omite «para que» (ἵνα): dice solo «entonces se cumplió». Mateo evita presentar la matanza como algo querido por Dios.",
   "matiz": "Este matiz se destaca a menudo: la fórmula de 2:15 y 2:23 usa ἵνα/ὅπως (finalidad); la de 2:17 usa «entonces se cumplió» (constatación).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 27:9 — «entonces se cumplió lo dicho por el profeta Jeremías»",
    "Mt 2:15 — con ἵνα"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Matt.2.17#02",
+  "ref_estandar": "Matt.2.17",
   "morfologia_tagnt": "V-API-3S",
   "dstrong": "G4137",
   "strong_tagnt": "G4137",
@@ -1353,13 +1483,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to fulfill",
-  "ref_estandar": "Matt.2.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.18",
+  "pos_tisch": 5,
   "strong": "G2805",
   "forma": "κλαυθμὸς",
+  "lema": "κλαυθμός",
   "glosa_interlineal": "llanto",
   "rango_semantico": [
    "llanto, lamento",
@@ -1368,16 +1502,16 @@
   "construccion": "Nominativo singular, en aposición con φωνή.",
   "sentido_en_contexto": "Palabra de duelo intenso; junto con «ὀδυρμός» («gemido») forma un par de duelo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 8:12 — «allí será el lloro y el crujir de dientes»",
    "Hch 20:37 — «hubo gran llanto de todos»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Matt.2.18#07",
+  "ref_estandar": "Matt.2.18",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G2805",
   "strong_tagnt": "G2805",
@@ -1393,13 +1527,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "weeping",
-  "ref_estandar": "Matt.2.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.18",
+  "pos_tisch": 17,
   "strong": "G3870",
   "forma": "παρακληθῆναι",
+  "lema": "παρακαλέω",
   "glosa_interlineal": "ser consolada",
   "rango_semantico": [
    "consolar",
@@ -1410,7 +1548,7 @@
   "construccion": "Infinitivo aoristo pasivo, complemento de «quería» (ἤθελεν): «no quiso ser consolada».",
   "sentido_en_contexto": "Raquel representa a las madres que lloran sin consuelo. Aquí «consolar» es «alivio»: no hay consuelo posible.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 5:4 — «bienaventurados los que lloran, porque ellos recibirán consolación»",
@@ -1418,9 +1556,9 @@
    "2 Co 1:4 — «el Dios de toda consolación»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "Matt.2.18#19",
+  "ref_estandar": "Matt.2.18",
   "morfologia_tagnt": "V-APN",
   "dstrong": "G3870",
   "strong_tagnt": "G3870",
@@ -1436,13 +1574,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to plead/comfort",
-  "ref_estandar": "Matt.2.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.20",
+  "pos_tisch": 20,
   "strong": "G5590",
   "forma": "ψυχὴν",
+  "lema": "ψυχή",
   "glosa_interlineal": "vida",
   "rango_semantico": [
    "vida, alma",
@@ -1452,7 +1594,7 @@
   "construccion": "Acusativo singular, objeto de «buscaban» (ζητοῦντες).",
   "sentido_en_contexto": "«Buscar el alma/vida» significa buscar a alguien para matarlo: modismo de peligro de muerte.",
   "matiz": "El término griego es más amplio que «alma»: en este modismo equivale a «vida». Por eso RVR traduce «la muerte del niño».",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 10:28 — «no temáis a los que matan el cuerpo, mas el alma no pueden matar»",
@@ -1460,9 +1602,9 @@
    "Mc 8:36 — «¿qué aprovechará al hombre ganar todo el mundo y perder su alma?»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 20,
   "alineacion": "forma",
   "tagnt": "Matt.2.20#20",
+  "ref_estandar": "Matt.2.20",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G5590H",
   "strong_tagnt": "G5590",
@@ -1478,13 +1620,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "soul",
-  "ref_estandar": "Matt.2.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.22",
+  "pos_tisch": 5,
   "strong": "G936",
   "forma": "βασιλεύει",
+  "lema": "βασιλεύω",
   "glosa_interlineal": "reina",
   "rango_semantico": [
    "reinar, ser rey",
@@ -1493,16 +1639,16 @@
   "construccion": "Presente indicativo activo: «está reinando».",
   "sentido_en_contexto": "El presente informa de la situación actual: Arquelao ocupa el trono de Judea tras la muerte de Herodes.",
   "matiz": "Arquelao fue etnarca (no rey) de Judea, Samaria e Idumea. Mateo usa «reinar» en sentido amplio, sin ceñirse al título oficial.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 5:14 — «reinó la muerte desde Adán hasta Moisés»",
    "Ap 11:15 — «reinará por los siglos de los siglos»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Matt.2.22#05",
+  "ref_estandar": "Matt.2.22",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G0936",
   "strong_tagnt": "G936",
@@ -1518,13 +1664,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to reign",
-  "ref_estandar": "Matt.2.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.22",
+  "pos_tisch": 13,
   "strong": "G5399",
   "forma": "ἐφοβήθη",
+  "lema": "φοβέω",
   "glosa_interlineal": "tuvo miedo",
   "rango_semantico": [
    "temer, tener miedo",
@@ -1533,7 +1683,7 @@
   "construccion": "Aoristo indicativo pasivo (deponente), 3ª singular.",
   "sentido_en_contexto": "José teme por la seguridad del niño: Arquelao era conocido por su crueldad.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 1:20 — «no temas recibir a María»",
@@ -1541,9 +1691,9 @@
    "Lc 1:30 — «no temas, María»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Matt.2.22#14",
+  "ref_estandar": "Matt.2.22",
   "morfologia_tagnt": "V-AOI-3S",
   "dstrong": "G5399",
   "strong_tagnt": "G5399",
@@ -1559,13 +1709,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to fear",
-  "ref_estandar": "Matt.2.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.23",
+  "pos_tisch": 3,
   "strong": "G2730",
   "forma": "κατῴκησεν",
+  "lema": "κατοικέω",
   "glosa_interlineal": "habitó",
   "rango_semantico": [
    "vivir, residir",
@@ -1574,16 +1728,16 @@
   "construccion": "Aoristo indicativo activo, 3ª singular: «se estableció».",
   "sentido_en_contexto": "El aoristo indica el acto de establecerse: José y su familia fijan su residencia en Nazaret.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 1:26 — «fue enviado… a una ciudad de Galilea llamada Nazaret»",
    "Hch 17:24 — «el Dios que hizo el mundo… no habita en templos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Matt.2.23#03",
+  "ref_estandar": "Matt.2.23",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G2730",
   "strong_tagnt": "G2730",
@@ -1599,13 +1753,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to dwell",
-  "ref_estandar": "Matt.2.23"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.2.23",
+  "pos_tisch": 16,
   "strong": "G3480",
   "forma": "Ναζωραῖος",
+  "lema": "Ναζωραῖος",
   "glosa_interlineal": "nazareno",
   "rango_semantico": [
    "de Nazaret, nazareno",
@@ -1614,7 +1772,7 @@
   "construccion": "Nominativo singular, predicado: «será llamado nazareno».",
   "sentido_en_contexto": "Mateo dice que se cumple «lo dicho por los profetas», pero ningún profeta dice exactamente esto.",
   "matiz": "Pasaje muy discutido: (a) juego con «netser» (renuevo, Is 11:1) ya que Nazaret suena parecido; (b) relación con «nazir» (consagrado); (c) alusión al desprecio con que se miraba a Nazaret (cf. Jn 1:46), por lo que «nazareno» sería sinónimo de despreciado. El texto no lo resuelve.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": "Mateo dice «profetas» en plural, no cita un profeta concreto: por eso es difícil rastrear el texto.",
   "otros_usos": [
    "Mc 1:24 — «¿Qué tenemos contigo, Jesús nazareno?»",
@@ -1622,9 +1780,9 @@
    "Hch 24:5 — «la secta de los nazarenos»"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Matt.2.23#16",
+  "ref_estandar": "Matt.2.23",
   "morfologia_tagnt": "N-NSM-LG",
   "dstrong": "G3480",
   "strong_tagnt": "G3480",
@@ -1640,7 +1798,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Nazarene",
-  "ref_estandar": "Matt.2.23"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

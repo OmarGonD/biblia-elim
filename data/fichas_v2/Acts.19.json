@@ -1,8 +1,10 @@
 [
  {
   "ref": "Acts.19.2",
+  "pos_tisch": 6,
   "strong": "G4151",
   "forma": "πνεῦμα",
+  "lema": "πνεῦμα",
   "glosa_interlineal": "Espíritu",
   "rango_semantico": [
    "espíritu"
@@ -10,7 +12,7 @@
   "construccion": "Nominativo/acusativo: «¿recibisteis el Espíritu Santo cuando creísteis?».",
   "sentido_en_contexto": "Pablo encuentra en Éfeso a unos doce «discípulos» que solo conocían el bautismo de Juan y ni habían oído del Espíritu Santo. Tras ser bautizados en el nombre de Jesús y recibir la imposición de manos, reciben el Espíritu y hablan en lenguas y profetizan.",
   "matiz": "Debate: ¿eran cristianos incompletos (los que ya creían, pero sin Espíritu), o discípulos de Juan Bautista sin fe cristiana plena? La mayoría ve discípulos del Bautista que no habían oído de Jesús como Mesías. El texto es usado para defender una «segunda experiencia» del Espíritu (pentecostales), aunque Pablo asume que todo creyente recibe el Espíritu al creer (Ro 8:9).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 8:14-17; 10:44-48",
@@ -19,10 +21,9 @@
    "Ef 1:13"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 6,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Acts.19.2#06",
+  "ref_estandar": "Acts.19.2",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G4151G",
   "strong_tagnt": "G4151",
@@ -38,13 +39,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "spirit/breath",
-  "ref_estandar": "Acts.19.2"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.19.2",
+  "pos_tisch": 17,
   "strong": "G4151",
   "forma": "πνεῦμα",
+  "lema": "πνεῦμα",
   "glosa_interlineal": "Espíritu",
   "rango_semantico": [
    "espíritu"
@@ -52,7 +58,7 @@
   "construccion": "Nominativo/acusativo: «¿recibisteis el Espíritu Santo cuando creísteis?».",
   "sentido_en_contexto": "Pablo encuentra en Éfeso a unos doce «discípulos» que solo conocían el bautismo de Juan y ni habían oído del Espíritu Santo. Tras ser bautizados en el nombre de Jesús y recibir la imposición de manos, reciben el Espíritu y hablan en lenguas y profetizan.",
   "matiz": "Debate: ¿eran cristianos incompletos (los que ya creían, pero sin Espíritu), o discípulos de Juan Bautista sin fe cristiana plena? La mayoría ve discípulos del Bautista que no habían oído de Jesús como Mesías. El texto es usado para defender una «segunda experiencia» del Espíritu (pentecostales), aunque Pablo asume que todo creyente recibe el Espíritu al creer (Ro 8:9).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 8:14-17; 10:44-48",
@@ -61,10 +67,9 @@
    "Ef 1:13"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 17,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Acts.19.2#18",
+  "ref_estandar": "Acts.19.2",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G4151G",
   "strong_tagnt": "G4151",
@@ -80,13 +85,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "spirit/breath",
-  "ref_estandar": "Acts.19.2"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.19.5",
+  "pos_tisch": 3,
   "strong": "G907",
   "forma": "ἐβαπτίσθησαν",
+  "lema": "βαπτίζω",
   "glosa_interlineal": "fueron bautizados",
   "rango_semantico": [
    "bautizar"
@@ -94,7 +104,7 @@
   "construccion": "Aoristo indicativo pasivo: «fueron bautizados en el nombre del Señor Jesús».",
   "sentido_en_contexto": "Estos discípulos de Juan son bautizados de nuevo, ahora «en el nombre del Señor Jesús». Es el único caso en el NT de rebautismo explícito: marca la diferencia entre el bautismo de arrepentimiento de Juan y el bautismo cristiano.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 2:38; 8:16; 10:48",
@@ -102,9 +112,9 @@
    "Hch 18:25"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Acts.19.5#03",
+  "ref_estandar": "Acts.19.5",
   "morfologia_tagnt": "V-API-3P",
   "dstrong": "G0907",
   "strong_tagnt": "G907",
@@ -120,13 +130,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to baptize",
-  "ref_estandar": "Acts.19.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.19.6",
+  "pos_tisch": 18,
   "strong": "G4395",
   "forma": "ἐπροφήτευον",
+  "lema": "προφητεύω",
   "glosa_interlineal": "profetizaban",
   "rango_semantico": [
    "profetizar"
@@ -134,7 +148,7 @@
   "construccion": "Imperfecto indicativo activo: «hablaban en lenguas, y profetizaban».",
   "sentido_en_contexto": "La recepción del Espíritu se acompaña de lenguas y profecía, como en Pentecostés (2:4) y en casa de Cornelio (10:46). Lucas cierra el paralelo: judíos (cap. 2), samaritanos (8), gentiles (10), y ahora seguidores del Bautista (19).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 2:4; 10:46",
@@ -142,9 +156,9 @@
    "Jl 2:28"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "Acts.19.6#19",
+  "ref_estandar": "Acts.19.6",
   "morfologia_tagnt": "V-IAI-3P",
   "dstrong": "G4395",
   "strong_tagnt": "G4395",
@@ -160,13 +174,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to prophesy",
-  "ref_estandar": "Acts.19.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.19.9",
+  "pos_tisch": 24,
   "strong": "G4981",
   "forma": "σχολῇ",
+  "lema": "σχολή",
   "glosa_interlineal": "escuela",
   "rango_semantico": [
    "escuela, lugar de enseñanza, sala de conferencias"
@@ -174,7 +192,7 @@
   "construccion": "Dativo: «en la escuela de Tirano».",
   "sentido_en_contexto": "Tras tres meses en la sinagoga, Pablo se traslada a la escuela de Tirano (un maestro o sala de conferencias). Allí enseña a diario durante dos años; la tradición occidental añade «de la hora quinta a la décima» (11:00-16:00, cuando se detenía el trabajo). Toda Asia oyó la palabra.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 19:10; 20:31",
@@ -182,9 +200,9 @@
    "Ap 2—3 — siete iglesias"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 24,
   "alineacion": "forma",
   "tagnt": "Acts.19.9#24",
+  "ref_estandar": "Acts.19.9",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G4981",
   "strong_tagnt": "G4981",
@@ -200,13 +218,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lecture hall",
-  "ref_estandar": "Acts.19.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.19.11",
+  "pos_tisch": 1,
   "strong": "G1411",
   "forma": "δυνάμεις",
+  "lema": "δύναμις",
   "glosa_interlineal": "milagros",
   "rango_semantico": [
    "poder, obra de poder, milagro"
@@ -214,7 +236,7 @@
   "construccion": "Acusativo plural: «milagros extraordinarios (δυνάμεις οὐ τὰς τυχούσας)».",
   "sentido_en_contexto": "Dios hace milagros «no comunes» por mano de Pablo: incluso pañuelos y delantales que han tocado su cuerpo sanan enfermos y expulsan espíritus malos. Es una excepción: Dios actúa a través de objetos asociados con Pablo, como con la sombra de Pedro (5:15).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 5:15; 8:13; 14:3",
@@ -222,9 +244,9 @@
    "Lc 8:44"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "Acts.19.11#01",
+  "ref_estandar": "Acts.19.11",
   "morfologia_tagnt": "N-APF",
   "dstrong": "G1411",
   "strong_tagnt": "G1411",
@@ -240,13 +262,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "power",
-  "ref_estandar": "Acts.19.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.19.13",
+  "pos_tisch": 8,
   "strong": "G1845",
   "forma": "ἐξορκιστῶν",
+  "lema": "ἐξορκιστής",
   "glosa_interlineal": "exorcistas",
   "rango_semantico": [
    "exorcista (que conjura espíritus)"
@@ -254,7 +280,7 @@
   "construccion": "Genitivo plural: «algunos de los judíos, exorcistas ambulantes».",
   "sentido_en_contexto": "Exorcistas judíos itinerantes intentan usar el nombre de Jesús «a quien Pablo predica» como fórmula mágica. Fracasan, y el espíritu malo los vence. El pasaje contrasta el poder auténtico de Jesús con la magia.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 12:27",
@@ -262,9 +288,9 @@
    "Hch 8:9-24; 13:6-12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Acts.19.13#08",
+  "ref_estandar": "Acts.19.13",
   "morfologia_tagnt": "N-GPM",
   "dstrong": "G1845",
   "strong_tagnt": "G1845",
@@ -280,13 +306,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "exorcist",
-  "ref_estandar": "Acts.19.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.19.15",
+  "pos_tisch": 11,
   "strong": "G1097",
   "forma": "γινώσκω",
+  "lema": "γινώσκω",
   "glosa_interlineal": "conozco",
   "rango_semantico": [
    "conocer, reconocer"
@@ -294,7 +324,7 @@
   "construccion": "Presente indicativo activo: «a Jesús conozco, y sé quién es Pablo; pero vosotros, ¿quiénes sois?».",
   "sentido_en_contexto": "El espíritu malo reconoce a Jesús y a Pablo, pero no a los exorcistas: sin relación con Cristo, su fórmula no funciona. Los siete hijos de Esceva huyen desnudos y heridos. El episodio produce temor y glorifica el nombre de Jesús.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 1:24; 5:7",
@@ -302,9 +332,9 @@
    "Mt 7:22-23"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Acts.19.15#12",
+  "ref_estandar": "Acts.19.15",
   "morfologia_tagnt": "V-PAI-1S",
   "dstrong": "G1097",
   "strong_tagnt": "G1097",
@@ -320,13 +350,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to know",
-  "ref_estandar": "Acts.19.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.19.19",
+  "pos_tisch": 5,
   "strong": "G4021",
   "forma": "περίεργα",
+  "lema": "περίεργος",
   "glosa_interlineal": "artes mágicas",
   "rango_semantico": [
    "cosas superfluas, magia, ocultismo"
@@ -334,7 +368,7 @@
   "construccion": "Acusativo plural: «los que habían practicado la magia (περίεργα)».",
   "sentido_en_contexto": "Muchos nuevos creyentes confiesan sus prácticas y queman sus libros de magia delante de todos. El valor total: «cincuenta mil piezas de plata» (unos 50 000 denarios, equivalentes a 50 000 jornales). Éfeso era famosa por sus textos mágicos (Ἐφέσια γράμματα).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 18:10-12",
@@ -342,9 +376,9 @@
    "Gá 5:20"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Acts.19.19#05",
+  "ref_estandar": "Acts.19.19",
   "morfologia_tagnt": "A-APN",
   "dstrong": "G4021",
   "strong_tagnt": "G4021",
@@ -360,13 +394,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "meddlesome/magic",
-  "ref_estandar": "Acts.19.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.19.20",
+  "pos_tisch": 3,
   "strong": "G2904",
   "forma": "κράτος",
+  "lema": "κράτος",
   "glosa_interlineal": "poder",
   "rango_semantico": [
    "poder, fuerza, dominio"
@@ -374,16 +412,16 @@
   "construccion": "Acusativo: «así crecía y prevalecía poderosamente la palabra del Señor».",
   "sentido_en_contexto": "Sumario característico de Hechos (cf. 6:7; 9:31; 12:24): la palabra de Dios crece y se fortalece frente a la magia y la idolatría de Éfeso. Cierra el paréntesis de los milagros y prepara el motín (vv.23-41).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 6:7; 12:24",
    "Col 1:6"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Acts.19.20#03",
+  "ref_estandar": "Acts.19.20",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G2904",
   "strong_tagnt": "G2904",
@@ -399,13 +437,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "power",
-  "ref_estandar": "Acts.19.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.19.21",
+  "pos_tisch": 26,
   "strong": "G1163",
   "forma": "δεῖ",
+  "lema": "δεῖ",
   "glosa_interlineal": "es necesario",
   "rango_semantico": [
    "ser necesario, deber"
@@ -413,16 +455,16 @@
   "construccion": "Presente impersonal: «me es necesario ver también a Roma».",
   "sentido_en_contexto": "Pablo resuelve (en el Espíritu) ir a Jerusalén, pasando por Macedonia y Acaya, y luego «ver Roma». Es el plan que organiza el resto de Hechos: Jerusalén → Roma. Pablo llegará a Roma como prisionero (cap. 27-28).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 23:11; 27:24",
    "Ro 1:10-15; 15:22-29"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 26,
   "alineacion": "forma",
   "tagnt": "Acts.19.21#26",
+  "ref_estandar": "Acts.19.21",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G1163",
   "strong_tagnt": "G1163",
@@ -438,13 +480,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be necessary",
-  "ref_estandar": "Acts.19.21"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.19.24",
+  "pos_tisch": 9,
   "strong": "G735",
   "forma": "Ἀρτέμιδος",
+  "lema": "Ἄρτεμις",
   "glosa_interlineal": "Ártemis",
   "rango_semantico": [
    "Ártemis (Diana de los efesios)"
@@ -452,7 +498,7 @@
   "construccion": "Genitivo: «templos de plata de Diana (Ártemis)».",
   "sentido_en_contexto": "Demetrio, platero, fabricaba nichos de plata de Ártemis. El gran templo de Ártemis en Éfeso era una de las siete maravillas del mundo; su culto movía una gran economía. Pablo, al predicar que «no son dioses los hechos por manos», amenaza el negocio y el culto.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 19:26-27",
@@ -460,9 +506,9 @@
    "1 Ti 2:11—3:1 (contexto de Éfeso)"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Acts.19.24#09",
+  "ref_estandar": "Acts.19.24",
   "morfologia_tagnt": "N-GSF-T",
   "dstrong": "G0735",
   "strong_tagnt": "G735",
@@ -478,13 +524,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Artemis",
-  "ref_estandar": "Acts.19.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.19.28",
+  "pos_tisch": 6,
   "strong": "G2372",
   "forma": "θυμοῦ",
+  "lema": "θυμός",
   "glosa_interlineal": "ira",
   "rango_semantico": [
    "ira, furor"
@@ -492,16 +542,16 @@
   "construccion": "Genitivo: «llenos de ira, gritaron: ¡Grande es Diana de los efesios!».",
   "sentido_en_contexto": "El gremio de plateros y la multitud, enfurecidos por el riesgo económico y religioso, gritan la aclamación a Ártemis. El motín paraliza la ciudad durante unas dos horas (v.34). Lucas retrata con ironía el pánico por un negocio.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 19:34",
    "Hch 17:5; 21:30"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Acts.19.28#06",
+  "ref_estandar": "Acts.19.28",
   "morfologia_tagnt": "N-GSM",
   "dstrong": "G2372",
   "strong_tagnt": "G2372",
@@ -517,13 +567,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wrath",
-  "ref_estandar": "Acts.19.28"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.19.29",
+  "pos_tisch": 12,
   "strong": "G2302",
   "forma": "θέατρον",
+  "lema": "θέατρον",
   "glosa_interlineal": "teatro",
   "rango_semantico": [
    "teatro"
@@ -531,7 +585,7 @@
   "construccion": "Acusativo: «se lanzaron unánimes al teatro».",
   "sentido_en_contexto": "El teatro de Éfeso (con capacidad para unas 24 000 personas) era el lugar de las asambleas públicas. La multitud arrastra allí a Gayo y Aristarco, compañeros macedonios de Pablo. Pablo quiere entrar, pero los discípulos y algunos asiarcas amigos suyos se lo impiden.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 20:4; 27:2",
@@ -539,9 +593,9 @@
    "Flm 24"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Acts.19.29#13",
+  "ref_estandar": "Acts.19.29",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G2302",
   "strong_tagnt": "G2302",
@@ -557,13 +611,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "theatre",
-  "ref_estandar": "Acts.19.29"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.19.31",
+  "pos_tisch": 5,
   "strong": "G775",
   "forma": "Ἀσιαρχῶν",
+  "lema": "Ἀσιάρχης",
   "glosa_interlineal": "asiarcas",
   "rango_semantico": [
    "asiarca (alto dignatario de la provincia de Asia)"
@@ -571,16 +629,16 @@
   "construccion": "Genitivo plural: «algunas de las autoridades de Asia (asiarcas), que eran sus amigos».",
   "sentido_en_contexto": "Los asiarcas eran magistrados y sacerdotes del culto imperial provincial, ricos y de alto rango. Que fueran amigos de Pablo muestra que la misión tenía simpatizantes en la élite local. Le aconsejan no arriesgarse en el teatro.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 19:30",
    "Hch 25:23"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Acts.19.31#05",
+  "ref_estandar": "Acts.19.31",
   "morfologia_tagnt": "N-GPM-T",
   "dstrong": "G0775",
   "strong_tagnt": "G775",
@@ -596,13 +654,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Asiarch",
-  "ref_estandar": "Acts.19.31"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.19.35",
+  "pos_tisch": 4,
   "strong": "G1122",
   "forma": "γραμματεὺς",
+  "lema": "γραμματεύς",
   "glosa_interlineal": "escribano",
   "rango_semantico": [
    "escribano, secretario (de la ciudad)"
@@ -610,15 +672,15 @@
   "construccion": "Nominativo: «el escribano (secretario de la ciudad) apaciguó a la multitud».",
   "sentido_en_contexto": "El secretario de la ciudad, alto funcionario local, calma a la multitud: Éfeso es «guardiana del templo» (νεωκόρος) de Ártemis, y la imagen caída del cielo (διοπετής; posiblemente un meteorito). Les recuerda que los acusados no han blasfemado contra la diosa y que hay cauces legales.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 19:38-40"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Acts.19.35#04",
+  "ref_estandar": "Acts.19.35",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G1122",
   "strong_tagnt": "G1122",
@@ -634,13 +696,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "scribe",
-  "ref_estandar": "Acts.19.35"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.19.37",
+  "pos_tisch": 7,
   "strong": "G2417",
   "forma": "ἱεροσύλους",
+  "lema": "ἱερόσυλος",
   "glosa_interlineal": "sacrílegos",
   "rango_semantico": [
    "ladrón de templos, sacrílego"
@@ -648,16 +714,16 @@
   "construccion": "Acusativo plural: «ni sacrílegos ni blasfemos contra vuestra diosa».",
   "sentido_en_contexto": "El escribano reconoce que Pablo y sus compañeros no han robado templos ni blasfemado contra Ártemis (testimonio de que Pablo evitaba insultar a los dioses paganos en su predicación). Subraya la inocencia legal de los cristianos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 17:22-31",
    "Ro 2:22"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Acts.19.37#07",
+  "ref_estandar": "Acts.19.37",
   "morfologia_tagnt": "A-APM",
   "dstrong": "G2417",
   "strong_tagnt": "G2417",
@@ -673,13 +739,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "temple robber",
-  "ref_estandar": "Acts.19.37"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Acts.19.39",
+  "pos_tisch": 9,
   "strong": "G1772",
   "forma": "ἐννόμῳ",
+  "lema": "ἔννομος",
   "glosa_interlineal": "legal",
   "rango_semantico": [
    "legal, regular, conforme a la ley"
@@ -687,16 +757,16 @@
   "construccion": "Dativo: «en legítima asamblea se puede decidir».",
   "sentido_en_contexto": "El escribano distingue entre una asamblea regular (ἔννομος ἐκκλησία) y un tumulto: los reclamos deben tratarse legalmente. Teme que Roma acuse a la ciudad de sedición, lo que podría quitarle privilegios.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 19:32, 41",
    "Hch 18:14-15"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Acts.19.39#08",
+  "ref_estandar": "Acts.19.39",
   "morfologia_tagnt": "A-DSF",
   "dstrong": "G1772",
   "strong_tagnt": "G1772",
@@ -712,7 +782,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "under law",
-  "ref_estandar": "Acts.19.39"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

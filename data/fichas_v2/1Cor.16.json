@@ -1,8 +1,10 @@
 [
  {
   "ref": "1Cor.16.1",
+  "pos_tisch": 4,
   "strong": "G3048",
   "forma": "λογίας",
+  "lema": "λογία",
   "glosa_interlineal": "colecta",
   "rango_semantico": [
    "colecta, recolección"
@@ -10,7 +12,7 @@
   "construccion": "Genitivo: «en cuanto a la ofrenda para los santos, haced vosotros también de la manera que ordené en las iglesias de Galacia».",
   "sentido_en_contexto": "Palabra técnica para la colecta de fondos para los pobres de la iglesia de Jerusalén (λογεία, rara en griego). Pablo da instrucciones prácticas (cf. 2 Co 8-9; Ro 15:25-27; Hch 24:17). La colecta expresaba la unidad de las iglesias gentiles con la madre judía.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Co 8—9",
@@ -19,9 +21,9 @@
    "Hch 24:17"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "strong",
   "tagnt": "1Cor.16.1#04",
+  "ref_estandar": "1Cor.16.1",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G3048",
   "strong_tagnt": "G3048",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "collection",
-  "ref_estandar": "1Cor.16.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.16.2",
+  "pos_tisch": 3,
   "strong": "G4521",
   "forma": "σαββάτου",
+  "lema": "σάββατον",
   "glosa_interlineal": "semana",
   "rango_semantico": [
    "sábado, semana"
@@ -51,7 +57,7 @@
   "construccion": "Genitivo: «el primer día de la semana cada uno de vosotros ponga aparte algo, según haya prosperado».",
   "sentido_en_contexto": "«El primer día de la semana» (κατὰ μίαν σαββάτου): evidencia temprana de reunión cristiana en domingo (cf. Hch 20:7; Ap 1:10). Pablo pide reservar la ofrenda proporcionalmente, cada semana, para que no se hagan colectas cuando él llegue. Principios: regularidad, proporcionalidad, personal y organizada.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 20:7",
@@ -59,9 +65,9 @@
    "2 Co 8:12; 9:7"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "1Cor.16.2#03",
+  "ref_estandar": "1Cor.16.2",
   "morfologia_tagnt": "N-GSN",
   "dstrong": "G4521",
   "strong_tagnt": "G4521",
@@ -78,13 +84,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "Sabbath",
-  "ref_estandar": "1Cor.16.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.16.9",
+  "pos_tisch": 1,
   "strong": "G2374",
   "forma": "θύρα",
+  "lema": "θύρα",
   "glosa_interlineal": "puerta",
   "rango_semantico": [
    "puerta, oportunidad"
@@ -92,7 +102,7 @@
   "construccion": "Nominativo: «porque se me ha abierto puerta grande y eficaz, y hay muchos adversarios».",
   "sentido_en_contexto": "Pablo explica por qué permanece en Éfeso hasta Pentecostés: se le ha abierto una «puerta grande y eficaz» (oportunidad misionera) y hay muchos adversarios. La oposición coexiste con la oportunidad.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Co 2:12",
@@ -101,9 +111,9 @@
    "Ap 3:8"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "1Cor.16.9#01",
+  "ref_estandar": "1Cor.16.9",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G2374",
   "strong_tagnt": "G2374",
@@ -119,13 +129,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "door",
-  "ref_estandar": "1Cor.16.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.16.13",
+  "pos_tisch": 1,
   "strong": "G1127",
   "forma": "γρηγορεῖτε",
+  "lema": "γρηγορεύω",
   "glosa_interlineal": "velad",
   "rango_semantico": [
    "velar, estar alerta"
@@ -133,7 +147,7 @@
   "construccion": "Imperativo presente activo: «velad, estad firmes en la fe; portaos varonilmente, y esforzaos».",
   "sentido_en_contexto": "Cinco imperativos cortos de exhortación final: velad, estad firmes en la fe, sed valientes (ἀνδρίζεσθε), fortaleceos; y todo en amor (v.14). Resumen de la actitud cristiana ante el peligro. Cierra la carta con tono pastoral.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 24:42",
@@ -142,9 +156,9 @@
    "1 Ts 5:6"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "1Cor.16.13#01",
+  "ref_estandar": "1Cor.16.13",
   "morfologia_tagnt": "V-PAM-2P",
   "dstrong": "G1127",
   "strong_tagnt": "G1127",
@@ -160,13 +174,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to keep watch",
-  "ref_estandar": "1Cor.16.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.16.15",
+  "pos_tisch": 11,
   "strong": "G536",
   "forma": "ἀπαρχὴ",
+  "lema": "ἀπαρχή",
   "glosa_interlineal": "primicias",
   "rango_semantico": [
    "primicias, primer fruto"
@@ -174,7 +192,7 @@
   "construccion": "Nominativo: «la casa de Estéfanas, que es las primicias de Acaya».",
   "sentido_en_contexto": "Estéfanas y su casa fueron los primeros convertidos en Acaya y se consagraron al servicio de los santos. Pablo pide que los corintios reconozcan su liderazgo. Estéfanas, Fortunato y Acaico trajeron la carta de Corinto a Pablo (v.17).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 1:16",
@@ -182,9 +200,9 @@
    "Hch 17:34"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "1Cor.16.15#11",
+  "ref_estandar": "1Cor.16.15",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G0536",
   "strong_tagnt": "G536",
@@ -200,13 +218,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "firstfruits",
-  "ref_estandar": "1Cor.16.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.16.19",
+  "pos_tisch": 12,
   "strong": "G207",
   "forma": "Ἀκύλας",
+  "lema": "Ἀκύλας",
   "glosa_interlineal": "Aquila",
   "rango_semantico": [
    "Aquila"
@@ -214,7 +236,7 @@
   "construccion": "Nominativo: «Aquila y Priscila, con la iglesia que está en su casa, os saludan mucho en el Señor».",
   "sentido_en_contexto": "Aquila y Prisca, ahora en Éfeso, saludan a Corinto (los conocieron allí, Hch 18:2-3). Su casa es lugar de reunión de una iglesia doméstica. Muestra la red de relaciones entre iglesias paulinas.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 18:2-3, 18-19, 26",
@@ -222,9 +244,9 @@
    "2 Ti 4:19"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "1Cor.16.19#12",
+  "ref_estandar": "1Cor.16.19",
   "morfologia_tagnt": "N-NSM-P",
   "dstrong": "G0207",
   "strong_tagnt": "G207",
@@ -240,13 +262,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Aquila",
-  "ref_estandar": "1Cor.16.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.16.21",
+  "pos_tisch": 2,
   "strong": "G783",
   "forma": "ἀσπασμὸς",
+  "lema": "ἀσπασμός",
   "glosa_interlineal": "saludo",
   "rango_semantico": [
    "saludo"
@@ -254,7 +280,7 @@
   "construccion": "Nominativo: «yo, Pablo, os escribo este saludo de mi propia mano».",
   "sentido_en_contexto": "Pablo dictó la carta a un amanuense y firma de su puño y letra, como acostumbraba (Gá 6:11; Col 4:18; 2 Ts 3:17). Garantía de autenticidad apostólica. Sigue una maldición y una oración en arameo (vv.22).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 6:11",
@@ -263,9 +289,9 @@
    "Ro 16:22"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "1Cor.16.21#02",
+  "ref_estandar": "1Cor.16.21",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G0783",
   "strong_tagnt": "G783",
@@ -281,13 +307,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "salutation",
-  "ref_estandar": "1Cor.16.21"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.16.22",
+  "pos_tisch": 9,
   "strong": "G3134",
   "forma": "μαρὰν",
+  "lema": "μαρὰν",
   "glosa_interlineal": "Maranatá",
   "rango_semantico": [
    "Maran atha («Señor nuestro, ven» o «el Señor viene»)"
@@ -295,7 +325,7 @@
   "construccion": "Arameo: «Maranatá».",
   "sentido_en_contexto": "Fórmula aramea de la liturgia primitiva (maran atha), conservada sin traducir en una carta griega. Se puede entender «Maran atha» («Señor nuestro, ven») o «Marana tha» («el Señor viene», o «ha venido»). Es el testimonio más antiguo de la invocación a Jesús como «Señor» en arameo, y de la esperanza de su venida. Aparece en Didajé 10:6; Ap 22:20 («Ven, Señor Jesús»).",
   "matiz": "Debate: ¿«Marána thá» (imperativo: «Señor nuestro, ¡ven!») o «Maran athá» (indicativo: «nuestro Señor ha venido/viene»)? La primera es la lectura más frecuente (cf. Ap 22:20). Ambas expresan la esperanza escatológica. El pasaje también contiene un «anatema» contra quien no ama al Señor.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 22:20",
@@ -304,10 +334,9 @@
    "1 Ts 4:16"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
-  "revisar_ocurrencia": true,
   "alineacion": "strong",
   "tagnt": "1Cor.16.22#11",
+  "ref_estandar": "1Cor.16.22",
   "morfologia_tagnt": "N-NSM-ARAM",
   "dstrong": "G3134",
   "strong_tagnt": "G3134",
@@ -324,13 +353,18 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "Our  Lord, come!",
-  "ref_estandar": "1Cor.16.22"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.16.24",
+  "pos_tisch": 2,
   "strong": "G26",
   "forma": "ἀγάπη",
+  "lema": "ἀγάπη",
   "glosa_interlineal": "amor",
   "rango_semantico": [
    "amor"
@@ -338,7 +372,7 @@
   "construccion": "Nominativo: «mi amor en Cristo Jesús sea con todos vosotros. Amén».",
   "sentido_en_contexto": "Cierre de la carta: una carta con muchas correcciones termina con amor hacia los corintios («mi amor sea con todos vosotros»). Corrige y ama; ejemplo de pastoreo apostólico. La carta que empezó con «gracia» termina con «amor».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Co 2:4",
@@ -346,9 +380,9 @@
    "Gá 6:18"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "1Cor.16.24#02",
+  "ref_estandar": "1Cor.16.24",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G0026",
   "strong_tagnt": "G26",
@@ -364,7 +398,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "love",
-  "ref_estandar": "1Cor.16.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

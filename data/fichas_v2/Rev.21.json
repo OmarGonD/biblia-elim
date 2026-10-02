@@ -1,8 +1,10 @@
 [
  {
   "ref": "Rev.21.1",
+  "pos_tisch": 4,
   "strong": "G2537",
   "forma": "καινὸν",
+  "lema": "καινός",
   "glosa_interlineal": "nuevo",
   "rango_semantico": [
    "nuevo (en calidad)"
@@ -10,7 +12,7 @@
   "construccion": "Acusativo: «vi un cielo nuevo y una tierra nueva; porque el primer cielo y la primera tierra pasaron, y el mar ya no existía más».",
   "sentido_en_contexto": "Cielo nuevo y tierra nueva (Is 65:17; 66:22; 2 P 3:13): καινός («nuevo en calidad», renovado) más que νέος (nuevo en tiempo). Se discute si es una creación completamente nueva (aniquilación y recreación) o la transformación de la actual (continuidad: Ro 8:19-22). «El mar ya no existía»: el mar como símbolo del caos y del mal (13:1; Dn 7:3), no la geografía literal.",
   "matiz": "Debate: (a) renovación y transformación de la creación presente (la mayoría de exégetas: tradición ortodoxa, reformada y católica contemporánea; Ro 8:21); (b) aniquilación y nueva creación ex nihilo (algunos luteranos antiguos). Sobre «el mar»: símbolo del caos, el mal y la separación (Is 57:20; Ap 13:1; 17:1, 15).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 65:17; 66:22",
@@ -19,10 +21,9 @@
    "Ap 13:1; 20:11"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 4,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Rev.21.1#04",
+  "ref_estandar": "Rev.21.1",
   "morfologia_tagnt": "A-ASM",
   "dstrong": "G2537",
   "strong_tagnt": "G2537",
@@ -38,13 +39,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "new",
-  "ref_estandar": "Rev.21.1"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.21.2",
+  "pos_tisch": 6,
   "strong": "G2419",
   "forma": "Ἱερουσαλὴμ",
+  "lema": "Ἱερουσαλήμ",
   "glosa_interlineal": "Jerusalén",
   "rango_semantico": [
    "Jerusalén"
@@ -52,7 +58,7 @@
   "construccion": "Acusativo: «y yo Juan vi la santa ciudad, la nueva Jerusalén, descender del cielo, de Dios, dispuesta como una esposa ataviada para su marido».",
   "sentido_en_contexto": "La nueva Jerusalén desciende (no asciende ni se construye): don de Dios. Es a la vez ciudad y novia: la iglesia glorificada, el pueblo de Dios (21:9-10 «la novia, la esposa del Cordero»). Contrasta con Babilonia (la ramera). Se discute si la ciudad es el pueblo de Dios o su morada, o ambos (como en 21:3).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 4:26",
@@ -61,9 +67,9 @@
    "Is 61:10"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Rev.21.2#08",
+  "ref_estandar": "Rev.21.2",
   "morfologia_tagnt": "N-ASF-L",
   "dstrong": "G2419",
   "strong_tagnt": "G2419",
@@ -79,13 +85,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Jerusalem",
-  "ref_estandar": "Rev.21.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.21.3",
+  "pos_tisch": 11,
   "strong": "G4633",
   "forma": "σκηνὴ",
+  "lema": "σκηνή",
   "glosa_interlineal": "tabernáculo",
   "rango_semantico": [
    "tienda, tabernáculo"
@@ -93,7 +103,7 @@
   "construccion": "Nominativo: «y oí una gran voz del cielo que decía: He aquí el tabernáculo de Dios con los hombres, y él morará con ellos; y ellos serán su pueblo, y Dios mismo estará con ellos como su Dios».",
   "sentido_en_contexto": "Cumplimiento de la promesa del pacto: «yo seré su Dios y ellos serán mi pueblo» (Lv 26:11-12; Jer 31:33; Ez 37:27; Zac 2:10-11). σκηνή («tienda») y σκηνόω («morar»: raíz de la shekiná; Jn 1:14): Dios mismo habita con la humanidad. «Ellos» (λαοί): variante textual plural «pueblos» (de todas las naciones) o singular «pueblo». El centro de la nueva creación es la presencia de Dios.",
   "matiz": "Variante textual: λαοὶ (plural: «pueblos»; א, A, C: refleja la inclusión de naciones, ver 21:24-26) o λαός (singular, «pueblo»; TR, RVR). El plural es mejor atestiguado.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lv 26:11-12",
@@ -103,9 +113,9 @@
    "Ap 7:15"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Rev.21.3#11",
+  "ref_estandar": "Rev.21.3",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G4633",
   "strong_tagnt": "G4633",
@@ -121,13 +131,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tent",
-  "ref_estandar": "Rev.21.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.21.4",
+  "pos_tisch": 4,
   "strong": "G1144",
   "forma": "δάκρυον",
+  "lema": "δάκρυ",
   "glosa_interlineal": "lágrima",
   "rango_semantico": [
    "lágrima"
@@ -135,7 +149,7 @@
   "construccion": "Acusativo: «enjugará Dios toda lágrima de los ojos de ellos; y ya no habrá muerte, ni habrá más llanto, ni clamor, ni dolor; porque las primeras cosas pasaron».",
   "sentido_en_contexto": "Consolación final (Is 25:8; 35:10; 65:19; Ap 7:17): Dios mismo enjuga las lágrimas, y la muerte, el llanto, el clamor y el dolor ya no existen. «Las primeras cosas pasaron»: la antigua era del pecado y la muerte. Cumplimiento de 1 Co 15:26.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 25:8; 35:10; 65:19",
@@ -144,9 +158,9 @@
    "Is 51:11"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Rev.21.4#06",
+  "ref_estandar": "Rev.21.4",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G1144",
   "strong_tagnt": "G1144",
@@ -162,13 +176,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "teardrop",
-  "ref_estandar": "Rev.21.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.21.5",
+  "pos_tisch": 10,
   "strong": "G4160",
   "forma": "ποιῶ",
+  "lema": "ποιέω",
   "glosa_interlineal": "hago",
   "rango_semantico": [
    "hacer, crear"
@@ -176,7 +194,7 @@
   "construccion": "Presente indicativo activo: «y el que estaba sentado en el trono dijo: He aquí, yo hago nuevas todas las cosas. Y me dijo: Escribe; porque estas palabras son fieles y verdaderas».",
   "sentido_en_contexto": "Única vez en el libro en que habla directamente el que está sentado en el trono: «Yo hago nuevas todas las cosas» (Is 43:18-19; 2 Co 5:17). Presente: la nueva creación ya está en proceso. «Fieles y verdaderas»: sello de autenticidad (21:5; 22:6). Se le pide a Juan que lo escriba.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 43:18-19",
@@ -185,9 +203,9 @@
    "Ro 8:21"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Rev.21.5#10",
+  "ref_estandar": "Rev.21.5",
   "morfologia_tagnt": "V-PAI-1S",
   "dstrong": "G4160G",
   "strong_tagnt": "G4160",
@@ -203,13 +221,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to do/make",
-  "ref_estandar": "Rev.21.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.21.6",
+  "pos_tisch": 28,
   "strong": "G1432",
   "forma": "δωρεάν",
+  "lema": "δωρεάν",
   "glosa_interlineal": "gratuitamente",
   "rango_semantico": [
    "gratis, sin pago"
@@ -217,7 +239,7 @@
   "construccion": "Adverbio: «y me dijo: Hecho está. Yo soy el Alfa y la Omega, el principio y el fin. Al que tuviere sed, yo le daré gratuitamente de la fuente del agua de vida».",
   "sentido_en_contexto": "«Hecho está» (γέγοναν, como 16:17; Jn 19:30): consumación. Dios es Alfa y Omega (1:8; 22:13). Invitación: el agua de la vida se da gratuitamente (δωρεάν; Is 55:1; Jn 4:14; 7:37-38; Ap 22:17). La salvación es don.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 55:1",
@@ -226,9 +248,9 @@
    "Ro 3:24"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 28,
   "alineacion": "forma",
   "tagnt": "Rev.21.6#28",
+  "ref_estandar": "Rev.21.6",
   "morfologia_tagnt": "ADV",
   "dstrong": "G1432",
   "strong_tagnt": "G1432",
@@ -244,13 +266,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "freely",
-  "ref_estandar": "Rev.21.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.21.7",
+  "pos_tisch": 3,
   "strong": "G2816",
   "forma": "κληρονομήσει",
+  "lema": "κληρονομέω",
   "glosa_interlineal": "heredará",
   "rango_semantico": [
    "heredar"
@@ -258,7 +284,7 @@
   "construccion": "Futuro indicativo activo: «el que venciere heredará todas las cosas, y yo seré su Dios, y él será mi hijo».",
   "sentido_en_contexto": "Promesa final «al que venciere» (2:7, 11, 17, 26; 3:5, 12, 21): herencia y filiación (alusión a 2 S 7:14, aplicada al Mesías y ahora a los creyentes). Es la única vez que «hijo» describe al creyente en Apocalipsis. Unión de herencia (Ro 8:17) y adopción.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 S 7:14",
@@ -267,9 +293,9 @@
    "Ap 2–3"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Rev.21.7#03",
+  "ref_estandar": "Rev.21.7",
   "morfologia_tagnt": "V-FAI-3S",
   "dstrong": "G2816",
   "strong_tagnt": "G2816",
@@ -285,13 +311,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to inherit",
-  "ref_estandar": "Rev.21.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.21.8",
+  "pos_tisch": 3,
   "strong": "G1169",
   "forma": "δειλοῖς",
+  "lema": "δειλός",
   "glosa_interlineal": "cobardes",
   "rango_semantico": [
    "cobarde, temeroso"
@@ -299,7 +329,7 @@
   "construccion": "Dativo plural: «pero los cobardes e incrédulos, los abominables y homicidas, los fornicarios y hechiceros, los idólatras y todos los mentirosos tendrán su parte en el lago que arde con fuego y azufre, que es la muerte segunda».",
   "sentido_en_contexto": "Catálogo de condenación que encabezan los «cobardes» (δειλοί: quienes se acobardan ante la persecución y niegan a Cristo) e «incrédulos» (ἄπιστοι: infieles). Seguidos de «abominables» (contaminados por la idolatría), homicidas, fornicarios, hechiceros, idólatras y mentirosos. No es una lista de pecadores ocasionales, sino de aquellos que persisten en el pecado y rechazan a Dios (cf. 22:15; 1 Co 6:9-11; Gá 5:19-21).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 22:15",
@@ -308,9 +338,9 @@
    "Ap 2:11; 20:14"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Rev.21.8#03",
+  "ref_estandar": "Rev.21.8",
   "morfologia_tagnt": "A-DPM",
   "dstrong": "G1169",
   "strong_tagnt": "G1169",
@@ -326,13 +356,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "timid",
-  "ref_estandar": "Rev.21.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.21.9",
+  "pos_tisch": 29,
   "strong": "G3565",
   "forma": "νύμφην",
+  "lema": "νύμφη",
   "glosa_interlineal": "novia",
   "rango_semantico": [
    "novia, esposa recién casada"
@@ -340,7 +374,7 @@
   "construccion": "Acusativo: «vino a mí uno de los siete ángeles que tenían las siete copas llenas de las siete plagas postreras, y habló conmigo, diciendo: Ven acá, yo te mostraré la desposada, la esposa del Cordero».",
   "sentido_en_contexto": "Paralelo con 17:1: el mismo ángel (de las siete copas) que mostró a la ramera ahora muestra a la novia. Dos mujeres, dos ciudades (Babilonia y la nueva Jerusalén): el libro presenta una elección. La novia es «la esposa del Cordero» y se identifica con la ciudad (v.10).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 17:1-3; 19:7-8",
@@ -348,9 +382,9 @@
    "2 Co 11:2"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 29,
   "alineacion": "forma",
   "tagnt": "Rev.21.9#31",
+  "ref_estandar": "Rev.21.9",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G3565",
   "strong_tagnt": "G3565",
@@ -366,13 +400,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "bride",
-  "ref_estandar": "Rev.21.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.21.10",
+  "pos_tisch": 7,
   "strong": "G3735",
   "forma": "ὄρος",
+  "lema": "ὄρος",
   "glosa_interlineal": "monte",
   "rango_semantico": [
    "monte, montaña"
@@ -380,7 +418,7 @@
   "construccion": "Acusativo: «y me llevó en el Espíritu a un monte grande y alto, y me mostró la gran ciudad santa de Jerusalén, que descendía del cielo, de Dios».",
   "sentido_en_contexto": "Juan es llevado en el Espíritu (1:10; 4:2; 17:3) a un monte alto (como Ez 40:2) y ve la ciudad. Descripción de la ciudad (21:10—22:5): fusión de imágenes del Edén, el Templo y Jerusalén (Ez 40–48; Is 54:11-12; 60). La ciudad es cúbica (como el Lugar Santísimo: 1 R 6:20) y no tiene templo (v.22).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ez 40:2",
@@ -389,9 +427,9 @@
    "Ap 17:3"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Rev.21.10#07",
+  "ref_estandar": "Rev.21.10",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G3735",
   "strong_tagnt": "G3735",
@@ -407,13 +445,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mountain",
-  "ref_estandar": "Rev.21.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.21.12",
+  "pos_tisch": 2,
   "strong": "G5038",
   "forma": "τεῖχος",
+  "lema": "τεῖχος",
   "glosa_interlineal": "muro",
   "rango_semantico": [
    "muro, muralla"
@@ -421,7 +463,7 @@
   "construccion": "Acusativo: «tenía un muro grande y alto, con doce puertas; y en las puertas, doce ángeles, y nombres inscritos, que son los de las doce tribus de los hijos de Israel».",
   "sentido_en_contexto": "Doce puertas con los nombres de las tribus de Israel (Ez 48:30-35) y doce cimientos con los nombres de los doce apóstoles (v.14): la ciudad une al pueblo de Dios de ambos testamentos (cf. Ef 2:20). Las puertas están siempre abiertas (v.25): el muro expresa seguridad, no exclusión.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ez 48:30-35",
@@ -430,9 +472,9 @@
    "Mt 19:28"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Rev.21.12#03",
+  "ref_estandar": "Rev.21.12",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G5038",
   "strong_tagnt": "G5038",
@@ -448,13 +490,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wall",
-  "ref_estandar": "Rev.21.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.21.14",
+  "pos_tisch": 7,
   "strong": "G2310",
   "forma": "θεμελίους",
+  "lema": "θεμέλιος",
   "glosa_interlineal": "cimientos",
   "rango_semantico": [
    "cimiento, fundamento"
@@ -462,7 +508,7 @@
   "construccion": "Acusativo plural: «y el muro de la ciudad tenía doce cimientos, y sobre ellos los doce nombres de los doce apóstoles del Cordero».",
   "sentido_en_contexto": "Los doce apóstoles como fundamentos: la iglesia edificada sobre el testimonio apostólico (Ef 2:20; Mt 16:18). Los apóstoles del Cordero: los Doce (¿incluido Pablo?), representantes del nuevo Israel. Complementa los doce nombres de las tribus (v.12): continuidad entre Antiguo y Nuevo Testamento.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ef 2:20",
@@ -471,9 +517,9 @@
    "Ap 21:12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Rev.21.14#07",
+  "ref_estandar": "Rev.21.14",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G2310",
   "strong_tagnt": "G2310",
@@ -489,13 +535,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "foundation",
-  "ref_estandar": "Rev.21.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.21.16",
+  "pos_tisch": 4,
   "strong": "G5068",
   "forma": "τετράγωνος",
+  "lema": "τετράγωνος",
   "glosa_interlineal": "cuadrada",
   "rango_semantico": [
    "cuadrado, de cuatro lados"
@@ -503,7 +553,7 @@
   "construccion": "Nominativo: «la ciudad se halla establecida en cuadro, y su longitud es igual a su anchura; y él midió la ciudad con la caña, doce mil estadios; la longitud, la altura y la anchura de ella son iguales».",
   "sentido_en_contexto": "La ciudad es un cubo de 12.000 estadios por lado (unos 2.200 km): 12 × 1.000, número simbólico de plenitud del pueblo de Dios. Forma de cubo como el Lugar Santísimo (1 R 6:20): toda la ciudad es santuario. La medida es simbólica: sus dimensiones sobrepasan cualquier ciudad real.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 R 6:20",
@@ -512,9 +562,9 @@
    "Ap 21:22"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Rev.21.16#04",
+  "ref_estandar": "Rev.21.16",
   "morfologia_tagnt": "A-NSF",
   "dstrong": "G5068",
   "strong_tagnt": "G5068",
@@ -530,13 +580,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "square",
-  "ref_estandar": "Rev.21.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.21.19",
+  "pos_tisch": 2,
   "strong": "G2310",
   "forma": "θεμέλιοι",
+  "lema": "θεμέλιος",
   "glosa_interlineal": "cimientos",
   "rango_semantico": [
    "cimiento, fundamento"
@@ -544,7 +598,7 @@
   "construccion": "Nominativo plural: «y los cimientos del muro de la ciudad estaban adornados con toda piedra preciosa: el primer cimiento era jaspe; el segundo, zafiro; el tercero, ágata; el cuarto, esmeralda».",
   "sentido_en_contexto": "Doce piedras preciosas (vv.19-20), correspondientes a las del pectoral del sumo sacerdote (Éx 28:17-20; 39:10-13), con variaciones. Evocan la gloria de Dios y el sacerdocio de todo el pueblo. Simbolismo del carácter santo y precioso de la ciudad (Is 54:11-12).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Éx 28:17-20",
@@ -553,10 +607,9 @@
    "Ap 4:3"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Rev.21.19#03",
+  "ref_estandar": "Rev.21.19",
   "morfologia_tagnt": "N-NPM",
   "dstrong": "G2310",
   "strong_tagnt": "G2310",
@@ -572,13 +625,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "foundation",
-  "ref_estandar": "Rev.21.19"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.21.21",
+  "pos_tisch": 6,
   "strong": "G3135",
   "forma": "μαργαρῖται",
+  "lema": "μαργαρίτης",
   "glosa_interlineal": "perlas",
   "rango_semantico": [
    "perla"
@@ -586,7 +644,7 @@
   "construccion": "Nominativo plural: «y las doce puertas eran doce perlas; cada una de las puertas era una sola perla; y la calle de la ciudad era de oro puro, transparente como vidrio».",
   "sentido_en_contexto": "Doce puertas, cada una de una sola perla (Is 54:12 LXX): imagen de la belleza y el valor del acceso. Calle de oro puro, transparente (el material ordinario de un lugar pavimentado, en el cielo es oro: la riqueza ya no es escasa, sino fundamento común). La Nueva Jerusalén invierte el lujo de Babilonia (18:12-16), que se enriquece con perlas y oro por explotación.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 54:12",
@@ -595,10 +653,9 @@
    "1 Ti 6:17"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Rev.21.21#06",
+  "ref_estandar": "Rev.21.21",
   "morfologia_tagnt": "N-NPM",
   "dstrong": "G3135",
   "strong_tagnt": "G3135",
@@ -614,13 +671,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "pearl",
-  "ref_estandar": "Rev.21.21"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.21.22",
+  "pos_tisch": 2,
   "strong": "G3485",
   "forma": "ναὸν",
+  "lema": "ναός",
   "glosa_interlineal": "templo",
   "rango_semantico": [
    "templo, santuario"
@@ -628,7 +690,7 @@
   "construccion": "Acusativo: «y no vi en ella templo; porque el Señor Dios Todopoderoso es el templo de ella, y el Cordero».",
   "sentido_en_contexto": "No hay templo, porque Dios mismo y el Cordero son el templo: la presencia directa sin mediación. Culminación de la historia del culto: del tabernáculo (Éx 25) y el Templo a Cristo (Jn 2:19-21), a la iglesia (1 Co 3:16) y a la comunión plena. La ciudad entera es santuario (v.16, cubo). Contrasta con Ez 40–48 (templo detallado).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 2:19-21; 4:21-24",
@@ -637,10 +699,9 @@
    "Ap 21:3"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Rev.21.22#02",
+  "ref_estandar": "Rev.21.22",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G3485",
   "strong_tagnt": "G3485",
@@ -656,13 +717,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "temple",
-  "ref_estandar": "Rev.21.22"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.21.23",
+  "pos_tisch": 20,
   "strong": "G5461",
   "forma": "ἐφώτισεν",
+  "lema": "φωτίζω",
   "glosa_interlineal": "alumbró",
   "rango_semantico": [
    "iluminar, dar luz"
@@ -670,7 +736,7 @@
   "construccion": "Aoristo indicativo activo: «la ciudad no necesita sol ni luna que brillen en ella; porque la gloria de Dios la ilumina, y el Cordero es su lumbrera».",
   "sentido_en_contexto": "La luz divina sustituye a los astros (Is 60:19-20; Zac 14:6-7). El Cordero es la lámpara (λύχνος). La gloria de Dios (la shekiná) llena la ciudad. Las naciones caminan a su luz (v.24). Fin de la noche y del mal.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 60:19-20",
@@ -679,9 +745,9 @@
    "Ap 22:5"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 20,
   "alineacion": "forma",
   "tagnt": "Rev.21.23#21",
+  "ref_estandar": "Rev.21.23",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G5461",
   "strong_tagnt": "G5461",
@@ -697,13 +763,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to illuminate",
-  "ref_estandar": "Rev.21.23"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.21.24",
+  "pos_tisch": 4,
   "strong": "G1484",
   "forma": "ἔθνη",
+  "lema": "ἔθνος",
   "glosa_interlineal": "naciones",
   "rango_semantico": [
    "nación, gentil"
@@ -711,7 +781,7 @@
   "construccion": "Nominativo plural: «y las naciones que hubieren sido salvas andarán a la luz de ella; y los reyes de la tierra traerán su gloria y honor a ella».",
   "sentido_en_contexto": "Texto notable: en la ciudad hay «naciones» y «reyes de la tierra», que traen su gloria (vv.24, 26; Is 60:3-11). Se discute su significado: los pueblos redimidos de todas las naciones (21:3: «pueblos»), con las riquezas de las culturas purificadas; o los reyes antes enemigos que ahora se someten. Plantea la cuestión de la continuidad de las culturas en la nueva creación y la salvación de las naciones. Algunos universalistas usan este texto.",
   "matiz": "Debate: (a) los redimidos de todas las naciones, que traen su gloria y su cultura purificada (la mayoría); (b) los reyes y las naciones antes hostiles que se rinden a Dios (Is 60; Sal 72:10-11); (c) leídos universalistamente (posibilidad de salvación póstuma de las naciones; minoritario, contrastado con 21:27; 22:15, que excluye a los impíos). Añadido «que hubieren sido salvas»: el TR (RVR) lo añade; Tisch no lo incluye.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": "RVR60 incluye «que hubieren sido salvas» (según el TR); Tisch y las ediciones críticas leen simplemente «las naciones».",
   "otros_usos": [
    "Is 60:3-11",
@@ -720,9 +790,9 @@
    "Ap 21:3, 26-27"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Rev.21.24#04",
+  "ref_estandar": "Rev.21.24",
   "morfologia_tagnt": "N-NPN",
   "dstrong": "G1484",
   "strong_tagnt": "G1484",
@@ -738,13 +808,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Gentile nation",
-  "ref_estandar": "Rev.21.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.21.25",
+  "pos_tisch": 3,
   "strong": "G4440",
   "forma": "πυλῶνες",
+  "lema": "πυλών",
   "glosa_interlineal": "puertas",
   "rango_semantico": [
    "puerta, portón"
@@ -752,7 +826,7 @@
   "construccion": "Nominativo plural: «sus puertas nunca serán cerradas de día, pues allí no habrá noche».",
   "sentido_en_contexto": "Las puertas siempre abiertas (Is 60:11): seguridad total, sin necesidad de defensa; acceso permanente. La ciudad se abre a las naciones y a sus riquezas (vv.24-26). Contraste con ciudades antiguas que cerraban sus puertas de noche.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 60:11",
@@ -760,9 +834,9 @@
    "Zac 14:7"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Rev.21.25#03",
+  "ref_estandar": "Rev.21.25",
   "morfologia_tagnt": "N-NPM",
   "dstrong": "G4440",
   "strong_tagnt": "G4440",
@@ -778,13 +852,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gate",
-  "ref_estandar": "Rev.21.25"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.21.27",
+  "pos_tisch": 8,
   "strong": "G2839",
   "forma": "κοινὸν",
+  "lema": "κοινός",
   "glosa_interlineal": "impuro",
   "rango_semantico": [
    "común, profano, impuro"
@@ -792,7 +870,7 @@
   "construccion": "Nominativo: «no entrará en ella ninguna cosa inmunda, o que hace abominación y mentira, sino solamente los que están inscritos en el libro de la vida del Cordero».",
   "sentido_en_contexto": "Restricción moral para entrar en la ciudad: nada impuro ni los que practican abominación y mentira; solo los inscritos en el libro de la vida del Cordero. Esto concuerda con 21:8 y 22:15. La inscripción en el libro de la vida determina la entrada.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 52:1",
@@ -801,9 +879,9 @@
    "Sal 24:3-4"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Rev.21.27#08",
+  "ref_estandar": "Rev.21.27",
   "morfologia_tagnt": "A-NSN",
   "dstrong": "G2839G",
   "strong_tagnt": "G2839",
@@ -820,7 +898,9 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "common",
-  "ref_estandar": "Rev.21.27"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

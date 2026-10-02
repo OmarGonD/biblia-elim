@@ -1,8 +1,10 @@
 [
  {
   "ref": "Matt.7.1",
+  "pos_tisch": 2,
   "strong": "G2919",
   "forma": "κρίνετε",
+  "lema": "κρίνω",
   "glosa_interlineal": "juzguéis",
   "rango_semantico": [
    "juzgar, decidir",
@@ -13,7 +15,7 @@
   "construccion": "Imperativo presente activo con μή, 2ª plural: «dejad de juzgar / no sigáis juzgando».",
   "sentido_en_contexto": "No prohíbe todo discernimiento (vv.6, 15-20 piden discernir), sino la actitud de condena que se coloca por encima del otro. El presente subraya el hábito.",
   "matiz": "Debate sobre el alcance: ¿prohíbe toda evaluación moral, o la condena hipócrita y presuntuosa? El contexto (vv.3-5) apunta a lo segundo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 2:1 — «en lo que juzgas a otro, te condenas a ti mismo»",
@@ -21,10 +23,9 @@
    "1 Co 5:12 — «¿no juzgáis vosotros a los que están dentro?»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.7.1#02",
+  "ref_estandar": "Matt.7.1",
   "morfologia_tagnt": "V-PAM-2P",
   "dstrong": "G2919",
   "strong_tagnt": "G2919",
@@ -40,13 +41,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to judge",
-  "ref_estandar": "Matt.7.1"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.7.2",
+  "pos_tisch": 11,
   "strong": "G3354",
   "forma": "μετρεῖτε",
+  "lema": "μετρέω",
   "glosa_interlineal": "medís",
   "rango_semantico": [
    "medir",
@@ -55,17 +61,16 @@
   "construccion": "Presente indicativo activo, 2ª plural: «con la medida con que medís». Refrán sobre reciprocidad.",
   "sentido_en_contexto": "La medida con que se juzga a otros será la que se aplique a uno mismo. Pasivo divino: «os será medido» (por Dios).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 6:38 — «con la misma medida con que medís, os volverán a medir»",
    "Mr 4:24 — «con la medida con que medís, os será medido»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.7.2#11",
+  "ref_estandar": "Matt.7.2",
   "morfologia_tagnt": "V-PAI-2P",
   "dstrong": "G3354",
   "strong_tagnt": "G3354",
@@ -81,13 +86,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to measure",
-  "ref_estandar": "Matt.7.2"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.7.3",
+  "pos_tisch": 5,
   "strong": "G2595",
   "forma": "κάρφος",
+  "lema": "κάρφος",
   "glosa_interlineal": "paja",
   "rango_semantico": [
    "paja, astilla, brizna"
@@ -95,15 +105,15 @@
   "construccion": "Acusativo singular, objeto de «miras».",
   "sentido_en_contexto": "Imagen exagerada: una mota diminuta en el ojo del hermano frente a una viga en el propio. Jesús usa humor y hipérbole.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 6:41 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Matt.7.3#05",
+  "ref_estandar": "Matt.7.3",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G2595",
   "strong_tagnt": "G2595",
@@ -119,13 +129,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "speck",
-  "ref_estandar": "Matt.7.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.7.3",
+  "pos_tisch": 19,
   "strong": "G1385",
   "forma": "δοκὸν",
+  "lema": "δοκός",
   "glosa_interlineal": "viga",
   "rango_semantico": [
    "viga, tronco de madera"
@@ -133,15 +147,15 @@
   "construccion": "Acusativo singular.",
   "sentido_en_contexto": "Un tablón de madera dentro del ojo: imposible físicamente, por eso es una caricatura. El que critica no ve su propia falta mayor.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 6:41 — «la viga que está en tu propio ojo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 19,
   "alineacion": "forma",
   "tagnt": "Matt.7.3#19",
+  "ref_estandar": "Matt.7.3",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G1385",
   "strong_tagnt": "G1385",
@@ -157,13 +171,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "plank",
-  "ref_estandar": "Matt.7.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.7.5",
+  "pos_tisch": 2,
   "strong": "G1544",
   "forma": "ἔκβαλε",
+  "lema": "ἐκβάλλω",
   "glosa_interlineal": "saca",
   "rango_semantico": [
    "echar fuera, expulsar",
@@ -172,7 +190,7 @@
   "construccion": "Imperativo aoristo activo, 2ª singular: «saca primero».",
   "sentido_en_contexto": "Mismo verbo usado para expulsar demonios y echar fuera. Jesús no prohíbe ayudar al hermano, sino pide empezar por uno mismo («primero»).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 7:22 — «echamos fuera demonios»",
@@ -180,10 +198,9 @@
    "Gá 6:1 — «restauradle con espíritu de mansedumbre»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.7.5#02",
+  "ref_estandar": "Matt.7.5",
   "morfologia_tagnt": "V-2AAM-2S",
   "dstrong": "G1544",
   "strong_tagnt": "G1544",
@@ -199,13 +216,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to expel",
-  "ref_estandar": "Matt.7.5"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.7.6",
+  "pos_tisch": 6,
   "strong": "G2965",
   "forma": "κυσίν",
+  "lema": "κύων",
   "glosa_interlineal": "perros",
   "rango_semantico": [
    "perro (animal impuro, despreciado)"
@@ -213,7 +235,7 @@
   "construccion": "Dativo plural: «a los perros».",
   "sentido_en_contexto": "En el mundo judío, «perros» y «cerdos» eran animales impuros. La imagen advierte contra dar lo sagrado a quien lo desprecia.",
   "matiz": "Se discute a quién se refiere: a los que rechazan el evangelio, a los hostiles al mensaje, o a quienes no pueden valorar lo sagrado. El texto no lo especifica.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Fil 3:2 — «guardaos de los perros»",
@@ -221,9 +243,9 @@
    "Ap 22:15 — «los perros… quedarán fuera»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Matt.7.6#06",
+  "ref_estandar": "Matt.7.6",
   "morfologia_tagnt": "N-DPM",
   "dstrong": "G2965",
   "strong_tagnt": "G2965",
@@ -239,13 +261,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dog",
-  "ref_estandar": "Matt.7.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.7.7",
+  "pos_tisch": 1,
   "strong": "G154",
   "forma": "Αἰτεῖτε",
+  "lema": "αἰτέω",
   "glosa_interlineal": "pedid",
   "rango_semantico": [
    "pedir, solicitar",
@@ -254,7 +280,7 @@
   "construccion": "Imperativo presente activo, 2ª plural: «seguid pidiendo». El presente subraya la persistencia.",
   "sentido_en_contexto": "Tres imperativos (pedir, buscar, llamar) en presente continuo: perseverancia en la oración, no una petición única.",
   "matiz": "El presente indica acción repetida o continua; por eso se suele traducir «seguid pidiendo». Esta idea se aclara en Lc 11:5-13 con la parábola del amigo importuno.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 11:9 — paralelo",
@@ -262,9 +288,9 @@
    "Stg 4:2 — «no tenéis lo que deseáis, porque no pedís»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "Matt.7.7#01",
+  "ref_estandar": "Matt.7.7",
   "morfologia_tagnt": "V-PAM-2P",
   "dstrong": "G0154",
   "strong_tagnt": "G154",
@@ -280,13 +306,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to ask",
-  "ref_estandar": "Matt.7.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.7.7",
+  "pos_tisch": 10,
   "strong": "G455",
   "forma": "ἀνοιγήσεται",
+  "lema": "ἀνοίγω",
   "glosa_interlineal": "se abrirá",
   "rango_semantico": [
    "abrir"
@@ -294,16 +324,16 @@
   "construccion": "Futuro indicativo pasivo, 3ª singular: pasivo divino («Dios abrirá»).",
   "sentido_en_contexto": "La promesa: a quien llama, se le abre. El pasivo evita nombrar a Dios, pero indica que él es quien responde.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 3:20 — «yo estoy a la puerta y llamo»",
    "Lc 13:25 — «llamaréis a la puerta»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Matt.7.7#10",
+  "ref_estandar": "Matt.7.7",
   "morfologia_tagnt": "V-2FPI-3S",
   "dstrong": "G0455",
   "strong_tagnt": "G455",
@@ -319,13 +349,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to open",
-  "ref_estandar": "Matt.7.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.7.11",
+  "pos_tisch": 4,
   "strong": "G4190",
   "forma": "πονηροὶ",
+  "lema": "πονηρός",
   "glosa_interlineal": "malos",
   "rango_semantico": [
    "malo, perverso",
@@ -334,16 +368,16 @@
   "construccion": "Adjetivo nominativo plural, predicado: «siendo malos».",
   "sentido_en_contexto": "Argumento de «cuánto más»: si los padres humanos, que son «malos» (con defectos), dan cosas buenas, ¡cuánto más el Padre celestial! No es un juicio sobre cada persona sino un contraste con la bondad perfecta de Dios.",
   "matiz": "Algunos ven aquí un testimonio de la pecaminosidad universal; otros solo un contraste retórico. El texto solo dice que los padres humanos son «malos» en comparación con Dios.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 11:13 — «si vosotros, siendo malos… cuánto más vuestro Padre celestial dará el Espíritu Santo»",
    "Mt 12:34 — «¿cómo podéis hablar lo bueno, siendo malos?»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Matt.7.11#04",
+  "ref_estandar": "Matt.7.11",
   "morfologia_tagnt": "A-NPM",
   "dstrong": "G4190",
   "strong_tagnt": "G4190",
@@ -359,13 +393,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "evil/bad",
-  "ref_estandar": "Matt.7.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.7.12",
+  "pos_tisch": 20,
   "strong": "G3551",
   "forma": "νόμος",
+  "lema": "νόμος",
   "glosa_interlineal": "ley",
   "rango_semantico": [
    "ley, norma",
@@ -376,7 +414,7 @@
   "construccion": "Nominativo, predicado: «esto es la Ley y los Profetas».",
   "sentido_en_contexto": "La «regla de oro» resume el AT: tratar a los demás como quieres ser tratado. Es una síntesis práctica de lo que la Ley y los Profetas exigen en las relaciones.",
   "matiz": "Formulaciones similares aparecen en otros textos judíos, pero en forma negativa («no hagas a otro lo que no quieres…»). La forma positiva de Jesús exige iniciativa activa.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 6:31 — paralelo",
@@ -384,9 +422,9 @@
    "Ro 13:8 — «el que ama al prójimo ha cumplido la ley»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 20,
   "alineacion": "forma",
   "tagnt": "Matt.7.12#20",
+  "ref_estandar": "Matt.7.12",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G3551",
   "strong_tagnt": "G3551",
@@ -402,13 +440,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "law",
-  "ref_estandar": "Matt.7.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.7.13",
+  "pos_tisch": 4,
   "strong": "G4728",
   "forma": "στενῆς",
+  "lema": "στενός",
   "glosa_interlineal": "estrecha",
   "rango_semantico": [
    "estrecho, angosto"
@@ -416,7 +458,7 @@
   "construccion": "διά + genitivo (στενῆς πύλης): «por la puerta estrecha».",
   "sentido_en_contexto": "Imagen de dos caminos (Dt 30:19; Sal 1). La puerta estrecha es la exigente, la que lleva a la vida.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 13:24 — «esforzaos a entrar por la puerta angosta»",
@@ -424,9 +466,9 @@
    "Sal 1:6 — «el camino de los justos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Matt.7.13#04",
+  "ref_estandar": "Matt.7.13",
   "morfologia_tagnt": "A-GSF",
   "dstrong": "G4728",
   "strong_tagnt": "G4728",
@@ -442,13 +484,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "narrow",
-  "ref_estandar": "Matt.7.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.7.13",
+  "pos_tisch": 18,
   "strong": "G684",
   "forma": "ἀπώλειαν",
+  "lema": "ἀπώλεια",
   "glosa_interlineal": "perdición",
   "rango_semantico": [
    "destrucción, ruina",
@@ -457,7 +503,7 @@
   "construccion": "εἰς + acusativo: «hacia la perdición».",
   "sentido_en_contexto": "El destino del camino ancho. La palabra indica ruina, no necesariamente aniquilación.",
   "matiz": "El sentido final de «destrucción/perdición» (aniquilación o castigo consciente) es objeto de debate entre tradiciones. Mateo no lo detalla aquí.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Fil 3:19 — «el fin de los cuales será perdición»",
@@ -465,9 +511,9 @@
    "Mt 26:8 — «¿para qué este desperdicio?» (mismo término)"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "Matt.7.13#18",
+  "ref_estandar": "Matt.7.13",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G0684",
   "strong_tagnt": "G684",
@@ -483,13 +529,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "destruction",
-  "ref_estandar": "Matt.7.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.7.15",
+  "pos_tisch": 4,
   "strong": "G5578",
   "forma": "ψευδοπροφητῶν",
+  "lema": "ψευδοπροφήτης",
   "glosa_interlineal": "falsos profetas",
   "rango_semantico": [
    "falso profeta",
@@ -498,7 +548,7 @@
   "construccion": "ἀπό + genitivo: «de los falsos profetas».",
   "sentido_en_contexto": "Advertencia a discernir. El criterio no es el discurso sino el fruto (v.16).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 24:11 — «muchos falsos profetas se levantarán»",
@@ -506,9 +556,9 @@
    "2 P 2:1 — «hubo falsos profetas entre el pueblo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Matt.7.15#05",
+  "ref_estandar": "Matt.7.15",
   "morfologia_tagnt": "N-GPM",
   "dstrong": "G5578",
   "strong_tagnt": "G5578",
@@ -524,13 +574,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "false prophet",
-  "ref_estandar": "Matt.7.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.7.15",
+  "pos_tisch": 16,
   "strong": "G727",
   "forma": "ἅρπαγες",
+  "lema": "ἅρπαξ",
   "glosa_interlineal": "rapaces",
   "rango_semantico": [
    "rapaz, ladrón",
@@ -539,16 +593,16 @@
   "construccion": "Adjetivo nominativo plural, concordando con «lobos».",
   "sentido_en_contexto": "Contraste entre apariencia (ovejas) y realidad (lobos que devoran). Muestra el engaño.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 18:11 — «no soy como los demás hombres, ladrones (ἅρπαγες)»",
    "1 Co 5:10 — «los rapaces»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Matt.7.15#17",
+  "ref_estandar": "Matt.7.15",
   "morfologia_tagnt": "A-NPM",
   "dstrong": "G0727",
   "strong_tagnt": "G727",
@@ -564,13 +618,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "rapacious",
-  "ref_estandar": "Matt.7.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.7.16",
+  "pos_tisch": 5,
   "strong": "G1921",
   "forma": "ἐπιγνώσεσθε",
+  "lema": "ἐπιγινώσκω",
   "glosa_interlineal": "conoceréis",
   "rango_semantico": [
    "reconocer, conocer bien",
@@ -579,16 +637,16 @@
   "construccion": "Futuro indicativo medio, 2ª plural.",
   "sentido_en_contexto": "El prefijo ἐπι- indica conocimiento pleno. Criterio de discernimiento: los frutos, es decir la conducta y sus efectos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 12:33 — «por el fruto se conoce el árbol»",
    "Lc 6:44 — «cada árbol se conoce por su fruto»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Matt.7.16#05",
+  "ref_estandar": "Matt.7.16",
   "morfologia_tagnt": "V-FDI-2P",
   "dstrong": "G1921",
   "strong_tagnt": "G1921",
@@ -604,13 +662,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to come to know",
-  "ref_estandar": "Matt.7.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.7.21",
+  "pos_tisch": 6,
   "strong": "G2962",
   "forma": "κύριε",
+  "lema": "κύριος",
   "glosa_interlineal": "Señor",
   "rango_semantico": [
    "amo, señor",
@@ -620,7 +682,7 @@
   "construccion": "Vocativo repetido: «Señor, Señor».",
   "sentido_en_contexto": "La duplicación expresa insistencia o devoción. Jesús dice que la confesión sin obediencia no basta.",
   "matiz": "Debate: ¿se refiere a la profesión verbal sin vida, o a una relación genuina que falta? El contexto (hacer la voluntad del Padre) apunta a la obediencia como evidencia.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 6:46 — «¿por qué me llamáis Señor, Señor, y no hacéis lo que yo digo?»",
@@ -628,10 +690,9 @@
    "Mt 25:11 — «Señor, Señor, ábrenos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.7.21#06",
+  "ref_estandar": "Matt.7.21",
   "morfologia_tagnt": "N-VSM-T",
   "dstrong": "G2962G",
   "strong_tagnt": "G2962",
@@ -647,13 +708,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lord",
-  "ref_estandar": "Matt.7.21"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.7.21",
+  "pos_tisch": 7,
   "strong": "G2962",
   "forma": "κύριε",
+  "lema": "κύριος",
   "glosa_interlineal": "Señor",
   "rango_semantico": [
    "amo, señor",
@@ -663,7 +729,7 @@
   "construccion": "Vocativo repetido: «Señor, Señor».",
   "sentido_en_contexto": "La duplicación expresa insistencia o devoción. Jesús dice que la confesión sin obediencia no basta.",
   "matiz": "Debate: ¿se refiere a la profesión verbal sin vida, o a una relación genuina que falta? El contexto (hacer la voluntad del Padre) apunta a la obediencia como evidencia.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 6:46 — «¿por qué me llamáis Señor, Señor, y no hacéis lo que yo digo?»",
@@ -671,10 +737,9 @@
    "Mt 25:11 — «Señor, Señor, ábrenos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.7.21#07",
+  "ref_estandar": "Matt.7.21",
   "morfologia_tagnt": "N-VSM-T",
   "dstrong": "G2962G",
   "strong_tagnt": "G2962",
@@ -690,13 +755,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lord",
-  "ref_estandar": "Matt.7.21"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.7.22",
+  "pos_tisch": 25,
   "strong": "G1411",
   "forma": "δυνάμεις",
+  "lema": "δύναμις",
   "glosa_interlineal": "milagros",
   "rango_semantico": [
    "poder, fuerza",
@@ -705,7 +775,7 @@
   "construccion": "Acusativo plural, objeto de «hicimos».",
   "sentido_en_contexto": "Obras de poder (profetizar, exorcizar, milagros) que no garantizan una relación con Cristo. Jesús dice «nunca os conocí».",
   "matiz": "Se discute qué tipo de «obras» eran: milagros genuinos o falsificaciones. Mateo no dice que sean falsas; pone el acento en que no basta hacerlas.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 11:20 — «las ciudades donde se había hecho la mayoría de sus milagros»",
@@ -713,9 +783,9 @@
    "1 Co 13:2 — «si tuviese… fe… sin amor, nada soy»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 25,
   "alineacion": "forma",
   "tagnt": "Matt.7.22#25",
+  "ref_estandar": "Matt.7.22",
   "morfologia_tagnt": "N-APF",
   "dstrong": "G1411",
   "strong_tagnt": "G1411",
@@ -731,13 +801,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "power",
-  "ref_estandar": "Matt.7.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.7.23",
+  "pos_tisch": 7,
   "strong": "G1097",
   "forma": "ἔγνων",
+  "lema": "γινώσκω",
   "glosa_interlineal": "conocí",
   "rango_semantico": [
    "conocer",
@@ -746,7 +820,7 @@
   "construccion": "Aoristo indicativo activo, 1ª singular: «nunca os conocí».",
   "sentido_en_contexto": "No es «no sé quiénes sois», sino «nunca tuve relación con vosotros»: en la Biblia, conocer es tener comunión personal.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 25:12 — «de cierto os digo que no os conozco»",
@@ -754,9 +828,9 @@
    "Jn 10:14 — «conozco mis ovejas, y las mías me conocen»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Matt.7.23#07",
+  "ref_estandar": "Matt.7.23",
   "morfologia_tagnt": "V-2AAI-1S",
   "dstrong": "G1097",
   "strong_tagnt": "G1097",
@@ -772,13 +846,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to know",
-  "ref_estandar": "Matt.7.23"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.7.23",
+  "pos_tisch": 15,
   "strong": "G458",
   "forma": "ἀνομίαν",
+  "lema": "ἀνομία",
   "glosa_interlineal": "iniquidad",
   "rango_semantico": [
    "ausencia de ley, desobediencia",
@@ -787,7 +865,7 @@
   "construccion": "Acusativo singular, objeto de «los que obran».",
   "sentido_en_contexto": "Literalmente «sin ley»: vivir contra la voluntad de Dios. Cita de Sal 6:8. Mateo usa el término para quienes dicen «Señor» pero viven sin obediencia.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 6:8 — texto citado",
@@ -795,9 +873,9 @@
    "Mt 24:12 — «por haberse multiplicado la maldad»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Matt.7.23#15",
+  "ref_estandar": "Matt.7.23",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G0458",
   "strong_tagnt": "G458",
@@ -813,13 +891,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lawlessness",
-  "ref_estandar": "Matt.7.23"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.7.24",
+  "pos_tisch": 14,
   "strong": "G5429",
   "forma": "φρονίμῳ",
+  "lema": "φρόνιμος",
   "glosa_interlineal": "prudente",
   "rango_semantico": [
    "sensato, prudente",
@@ -828,7 +910,7 @@
   "construccion": "Dativo singular, con ἀνδρί: «a un hombre prudente».",
   "sentido_en_contexto": "En la parábola de las dos casas, «prudente» es quien oye y obedece. No es inteligencia teórica, sino sabiduría práctica.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 25:2 — «cinco de ellas eran prudentes»",
@@ -836,9 +918,9 @@
    "Lc 16:8 — «el mayordomo infiel… obró prudentemente»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Matt.7.24#14",
+  "ref_estandar": "Matt.7.24",
   "morfologia_tagnt": "A-DSM",
   "dstrong": "G5429",
   "strong_tagnt": "G5429",
@@ -854,13 +936,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "thoughtful",
-  "ref_estandar": "Matt.7.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.7.24",
+  "pos_tisch": 22,
   "strong": "G4073",
   "forma": "πέτραν",
+  "lema": "πέτρα",
   "glosa_interlineal": "roca",
   "rango_semantico": [
    "roca, peña",
@@ -869,7 +955,7 @@
   "construccion": "ἐπί + acusativo: «sobre la roca».",
   "sentido_en_contexto": "El cimiento sólido es oír y obedecer las palabras de Jesús. La roca no es un lugar sino la acción de obedecer.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 16:18 — «sobre esta roca edificaré mi iglesia»",
@@ -877,9 +963,9 @@
    "Lc 6:48 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 22,
   "alineacion": "forma",
   "tagnt": "Matt.7.24#22",
+  "ref_estandar": "Matt.7.24",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G4073",
   "strong_tagnt": "G4073",
@@ -895,13 +981,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "rock",
-  "ref_estandar": "Matt.7.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.7.26",
+  "pos_tisch": 15,
   "strong": "G3474",
   "forma": "μωρῷ",
+  "lema": "μωρός",
   "glosa_interlineal": "insensato",
   "rango_semantico": [
    "necio, insensato",
@@ -910,7 +1000,7 @@
   "construccion": "Dativo singular, con ἀνδρί: «a un hombre necio».",
   "sentido_en_contexto": "Contraste con «prudente»: oye pero no hace. Su casa cae porque el cimiento es arena.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 5:22 — «cualquiera que le diga: Fatuo»",
@@ -918,9 +1008,9 @@
    "1 Co 1:25 — «lo insensato de Dios es más sabio que los hombres»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Matt.7.26#15",
+  "ref_estandar": "Matt.7.26",
   "morfologia_tagnt": "A-DSM",
   "dstrong": "G3474",
   "strong_tagnt": "G3474",
@@ -936,13 +1026,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "foolish",
-  "ref_estandar": "Matt.7.26"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.7.28",
+  "pos_tisch": 10,
   "strong": "G1605",
   "forma": "ἐξεπλήσσοντο",
+  "lema": "ἐκπλήσσω",
   "glosa_interlineal": "se admiraban",
   "rango_semantico": [
    "quedar asombrado, impresionado",
@@ -951,7 +1045,7 @@
   "construccion": "Imperfecto indicativo pasivo, 3ª plural: «estaban asombrados». El imperfecto indica una reacción que se prolonga.",
   "sentido_en_contexto": "La multitud queda pasmada por la enseñanza de Jesús, no por un milagro sino por su palabra.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 13:54 — «se maravillaban en la sinagoga»",
@@ -959,9 +1053,9 @@
    "Mr 1:22 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Matt.7.28#10",
+  "ref_estandar": "Matt.7.28",
   "morfologia_tagnt": "V-IPI-3P",
   "dstrong": "G1605",
   "strong_tagnt": "G1605",
@@ -977,13 +1071,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be astonished",
-  "ref_estandar": "Matt.7.28"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.7.29",
+  "pos_tisch": 6,
   "strong": "G1849",
   "forma": "ἐξουσίαν",
+  "lema": "ἐξουσία",
   "glosa_interlineal": "autoridad",
   "rango_semantico": [
    "autoridad, potestad",
@@ -993,7 +1091,7 @@
   "construccion": "Acusativo singular, objeto de «teniendo»: «como quien tiene autoridad».",
   "sentido_en_contexto": "Los escribas enseñaban citando a otros maestros; Jesús habla con autoridad propia («pero yo os digo»). Es el tema del capítulo y del Sermón.",
   "matiz": "ἐξουσία es autoridad legítima (derecho a actuar), distinta de δύναμις (fuerza o poder en acción).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 9:6 — «el Hijo del Hombre tiene potestad en la tierra para perdonar pecados»",
@@ -1001,9 +1099,9 @@
    "Mr 1:27 — «con autoridad manda a los espíritus»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Matt.7.29#06",
+  "ref_estandar": "Matt.7.29",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G1849",
   "strong_tagnt": "G1849",
@@ -1019,7 +1117,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "authority",
-  "ref_estandar": "Matt.7.29"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

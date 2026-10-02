@@ -1,8 +1,10 @@
 [
  {
   "ref": "Rev.3.1",
+  "pos_tisch": 32,
   "strong": "G3498",
   "forma": "νεκρὸς",
+  "lema": "νεκρός",
   "glosa_interlineal": "muerto",
   "rango_semantico": [
    "muerto, sin vida"
@@ -10,7 +12,7 @@
   "construccion": "Nominativo: «escribe al ángel de la iglesia en Sardis: El que tiene los siete espíritus de Dios, y las siete estrellas, dice esto: Yo conozco tus obras, que tienes nombre de que vives, y estás muerto».",
   "sentido_en_contexto": "Sardis: ciudad rica, famosa por sus tomas por sorpresa (Ciro, Antíoco), con una acrópolis supuestamente inexpugnable; de ahí la insistencia en «sé vigilante» y «vendré como ladrón» (v.3). La iglesia tiene buena reputación («nombre de vivir»), pero está «muerta» (νεκρός). Sin elogio, solo unos pocos «no han manchado sus vestidos» (v.4).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 1:4, 16",
@@ -19,9 +21,9 @@
    "Ef 5:14"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 32,
   "alineacion": "forma",
   "tagnt": "Rev.3.1#33",
+  "ref_estandar": "Rev.3.1",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G3498",
   "strong_tagnt": "G3498",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dead",
-  "ref_estandar": "Rev.3.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.3.3",
+  "pos_tisch": 17,
   "strong": "G2812",
   "forma": "κλέπτης",
+  "lema": "κλέπτης",
   "glosa_interlineal": "ladrón",
   "rango_semantico": [
    "ladrón"
@@ -51,7 +57,7 @@
   "construccion": "Nominativo: «acuérdate, pues, de lo que has recibido y oído; y guárdalo, y arrepiéntete. Pues si no velas, vendré sobre ti como ladrón, y no sabrás a qué hora vendré sobre ti».",
   "sentido_en_contexto": "«Como ladrón»: imagen de la venida inesperada de Cristo (Mt 24:43; 1 Ts 5:2; 2 P 3:10; Ap 16:15). En Sardis la amenaza es doble: la irrupción del juicio si no se arrepienten. Cuatro imperativos: sé vigilante (γίνου γρηγορῶν), afirma lo que queda, acuérdate, guarda y arrepiéntete.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 24:42-44",
@@ -60,9 +66,9 @@
    "Ap 16:15"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "Rev.3.3#19",
+  "ref_estandar": "Rev.3.3",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G2812",
   "strong_tagnt": "G2812",
@@ -78,13 +84,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "thief",
-  "ref_estandar": "Rev.3.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.3.4",
+  "pos_tisch": 18,
   "strong": "G3022",
   "forma": "λευκοῖς",
+  "lema": "λευκός",
   "glosa_interlineal": "blancos",
   "rango_semantico": [
    "blanco, brillante"
@@ -92,7 +102,7 @@
   "construccion": "Dativo plural: «pero tienes unas pocas personas en Sardis que no han manchado sus vestiduras; y andarán conmigo en vestiduras blancas, porque son dignas».",
   "sentido_en_contexto": "Los vestidos blancos (símbolo de pureza, victoria y gloria celestial; 3:5, 18; 4:4; 6:11; 7:9, 13-14) se prometen a los pocos fieles. «Dignos» (ἄξιοι): no por mérito propio, sino por haber permanecido fieles. En 7:14 los vestidos se lavan en la sangre del Cordero: la pureza es don y también perseverancia.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 3:5, 18; 7:9, 13-14",
@@ -101,9 +111,9 @@
    "Ec 9:8"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "Rev.3.4#18",
+  "ref_estandar": "Rev.3.4",
   "morfologia_tagnt": "A-DPN",
   "dstrong": "G3022",
   "strong_tagnt": "G3022",
@@ -119,13 +129,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "white",
-  "ref_estandar": "Rev.3.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.3.5",
+  "pos_tisch": 17,
   "strong": "G976",
   "forma": "βίβλου",
+  "lema": "βίβλος",
   "glosa_interlineal": "libro",
   "rango_semantico": [
    "libro, rollo"
@@ -133,7 +147,7 @@
   "construccion": "Genitivo: «el que venciere será vestido de vestiduras blancas; y no borraré su nombre del libro de la vida, y confesaré su nombre delante de mi Padre, y delante de sus ángeles».",
   "sentido_en_contexto": "El libro de la vida (Éx 32:32-33; Sal 69:28; Dn 12:1; Fil 4:3; Ap 13:8; 17:8; 20:12, 15; 21:27) contiene los nombres de los que pertenecen a Dios. «No borraré su nombre» ha sido objeto de debate sobre la posibilidad de perder la salvación. Cristo «confesará» al vencedor, como en Mt 10:32.",
   "matiz": "Debate: (a) es una promesa de seguridad: los vencedores nunca serán borrados (litotes; reformada); (b) implica que el nombre podría borrarse si no se persevera (arminiana, católica; Éx 32:33); (c) la imagen del registro civil: la ciudadanía de los fieles es segura mientras sigan siéndolo. Se compara con 13:8 (nombres escritos desde la fundación del mundo).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Éx 32:32-33",
@@ -142,9 +156,9 @@
    "Mt 10:32"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "Rev.3.5#17",
+  "ref_estandar": "Rev.3.5",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G0976",
   "strong_tagnt": "G976",
@@ -160,13 +174,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "book",
-  "ref_estandar": "Rev.3.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.3.7",
+  "pos_tisch": 18,
   "strong": "G2807",
   "forma": "κλεῖν",
+  "lema": "κλείς",
   "glosa_interlineal": "llave",
   "rango_semantico": [
    "llave"
@@ -174,7 +192,7 @@
   "construccion": "Acusativo: «escribe al ángel de la iglesia en Filadelfia: Esto dice el Santo, el Verdadero, el que tiene la llave de David, el que abre y ninguno cierra, y cierra y ninguno abre».",
   "sentido_en_contexto": "Filadelfia: pequeña ciudad con iglesia «de poca fuerza» pero fiel (junto con Esmirna, sin reproche). «La llave de David»: cita de Is 22:22 (Eliaquim, mayordomo del palacio); Cristo tiene la autoridad mesiánica davídica (Ap 5:5; 22:16) sobre el acceso al reino. «Santo y Verdadero»: títulos divinos (6:10).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 22:22",
@@ -183,9 +201,9 @@
    "Mt 16:19"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "Rev.3.7#18",
+  "ref_estandar": "Rev.3.7",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G2807",
   "strong_tagnt": "G2807",
@@ -201,13 +219,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "key",
-  "ref_estandar": "Rev.3.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.3.8",
+  "pos_tisch": 9,
   "strong": "G2374",
   "forma": "θύραν",
+  "lema": "θύρα",
   "glosa_interlineal": "puerta",
   "rango_semantico": [
    "puerta"
@@ -215,7 +237,7 @@
   "construccion": "Acusativo: «yo conozco tus obras; he aquí, he puesto delante de ti una puerta abierta, la cual nadie puede cerrar; porque aunque tienes poca fuerza, has guardado mi palabra, y no has negado mi nombre».",
   "sentido_en_contexto": "«Puerta abierta» (θύρα ἠνεῳγμένη): oportunidad de misión (1 Co 16:9; 2 Co 2:12; Col 4:3) o acceso al reino mesiánico (v.7: la llave). Dos cualidades de Filadelfia: guardó la palabra y no negó el nombre de Cristo, a pesar de su debilidad.",
   "matiz": "Debate sobre la «puerta abierta»: (a) oportunidad de evangelización (cf. Hch 14:27); (b) entrada al reino mesiánico, que ningún opositor puede cerrar (v.7: lo cierra sólo Cristo); (c) acceso al culto celestial (4:1). Ambas lecturas pueden combinarse.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 16:9",
@@ -224,9 +246,9 @@
    "Ap 4:1"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Rev.3.8#09",
+  "ref_estandar": "Rev.3.8",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G2374",
   "strong_tagnt": "G2374",
@@ -242,13 +264,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "door",
-  "ref_estandar": "Rev.3.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.3.10",
+  "pos_tisch": 13,
   "strong": "G5610",
   "forma": "ὥρας",
+  "lema": "ὥρα",
   "glosa_interlineal": "hora",
   "rango_semantico": [
    "hora, momento fijado"
@@ -256,7 +282,7 @@
   "construccion": "Genitivo: «por cuanto has guardado la palabra de mi paciencia, yo también te guardaré de la hora de la prueba que ha de venir sobre todo el mundo, para probar a los que moran sobre la tierra».",
   "sentido_en_contexto": "Texto central en el debate sobre el «rapto»: ἐκ τῆς ὥρας τοῦ πειρασμοῦ («de la hora de la prueba»). La preposición ἐκ puede significar «fuera de» (preservación previa: pretribulacionismo) o «a través de» (preservación en medio de la prueba: postribulacionismo). «Los que moran sobre la tierra» (κατοικοῦντες ἐπὶ τῆς γῆς): fórmula del libro para los incrédulos hostiles (6:10; 8:13; 11:10; 13:8, 14).",
   "matiz": "Debate sobre ἐκ: (a) «fuera de», protección que exime de la hora de la prueba (pretribulacionismo dispensacional; Jn 17:15 usa τηρέω ἐκ con otro matiz); (b) «a través de», preservación espiritual durante la prueba (postribulacionismo y la mayoría de los amilenialistas; Jn 17:15); (c) la «hora de la prueba» es un periodo ya presente o general del conflicto de la iglesia con el mundo. Cf. 1 Ts 4:17; 5:9; Jn 17:15.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 17:15",
@@ -265,9 +291,9 @@
    "Ap 6:10; 13:8"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Rev.3.10#13",
+  "ref_estandar": "Rev.3.10",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G5610",
   "strong_tagnt": "G5610",
@@ -283,13 +309,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hour",
-  "ref_estandar": "Rev.3.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.3.12",
+  "pos_tisch": 5,
   "strong": "G4769",
   "forma": "στῦλον",
+  "lema": "στῦλος",
   "glosa_interlineal": "columna",
   "rango_semantico": [
    "columna, pilar"
@@ -297,7 +327,7 @@
   "construccion": "Acusativo: «al que venciere, yo le haré columna en el templo de mi Dios, y nunca más saldrá de allí; y escribiré sobre él el nombre de mi Dios, y el nombre de la ciudad de mi Dios, la nueva Jerusalén, la cual desciende del cielo, de mi Dios, y mi nombre nuevo».",
   "sentido_en_contexto": "Imagen relevante para una ciudad sacudida por terremotos (Filadelfia fue destruida en 17 d.C.): el vencedor será una columna permanente en el templo de Dios («y nunca más saldrá»). Tres nombres escritos: el de Dios, el de la ciudad nueva y el nuevo nombre de Cristo: pertenencia total. Primera mención de la «nueva Jerusalén» (21:2, 10).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 2:9",
@@ -306,9 +336,9 @@
    "Ez 48:35"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Rev.3.12#05",
+  "ref_estandar": "Rev.3.12",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G4769",
   "strong_tagnt": "G4769",
@@ -324,13 +354,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "pillar",
-  "ref_estandar": "Rev.3.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.3.14",
+  "pos_tisch": 20,
   "strong": "G746",
   "forma": "ἀρχὴ",
+  "lema": "ἀρχή",
   "glosa_interlineal": "principio",
   "rango_semantico": [
    "principio, origen, soberano"
@@ -338,7 +372,7 @@
   "construccion": "Nominativo: «escribe al ángel de la iglesia en Laodicea: He aquí el Amén, el testigo fiel y verdadero, el principio de la creación de Dios, dice esto».",
   "sentido_en_contexto": "Títulos de Cristo: «el Amén» (Is 65:16 LXX: «el Dios del Amén», la verdad), «el testigo fiel y verdadero» y «el principio (ἀρχή) de la creación de Dios». ἀρχή puede significar «origen/fuente» (activo: Cristo es el principio por quien Dios creó; Col 1:15-18) o «el primer creado» (lectura arriana, rechazada por la tradición nicena). La mayoría lo lee como soberano y origen de la creación.",
   "matiz": "Debate sobre ἀρχή τῆς κτίσεως: (a) «el origen/agente de la creación» (la mayoría, con Jn 1:3; Col 1:16); (b) «el primero de la creación» creado (arrianos y testigos de Jehová); (c) «soberano» sobre la creación (Dios hace nueva creación en él). El contexto de Col 1:15-18 y Ap 3:14 apunta a (a).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 65:16",
@@ -347,9 +381,9 @@
    "Ap 1:5; 22:13"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 20,
   "alineacion": "forma",
   "tagnt": "Rev.3.14#21",
+  "ref_estandar": "Rev.3.14",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G0746",
   "strong_tagnt": "G746",
@@ -365,13 +399,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "beginning",
-  "ref_estandar": "Rev.3.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.3.16",
+  "pos_tisch": 3,
   "strong": "G5513",
   "forma": "χλιαρὸς",
+  "lema": "χλιαρός",
   "glosa_interlineal": "tibio",
   "rango_semantico": [
    "tibio, templado"
@@ -379,7 +417,7 @@
   "construccion": "Nominativo: «pero por cuanto eres tibio, y no frío ni caliente, te vomitaré de mi boca».",
   "sentido_en_contexto": "Imagen local: Laodicea carecía de agua propia; el agua caliente de Hierápolis (termal) y la fría de Colosas llegaban por acueducto, y llegaba tibia y nauseabunda. «Ni frío ni caliente» no es «ni fe ni incredulidad»: tanto el agua fría (refresca) como la caliente (cura) son útiles; la tibieza es inutilidad. «Te vomitaré» (ἐμέσαι): rechazo. La iglesia es autosuficiente y complaciente.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 3:15, 17",
@@ -388,9 +426,9 @@
    "Ez 16:49-50"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Rev.3.16#03",
+  "ref_estandar": "Rev.3.16",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G5513",
   "strong_tagnt": "G5513",
@@ -406,13 +444,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lukewarm",
-  "ref_estandar": "Rev.3.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.3.17",
+  "pos_tisch": 25,
   "strong": "G5185",
   "forma": "τυφλὸς",
+  "lema": "τυφλός",
   "glosa_interlineal": "ciego",
   "rango_semantico": [
    "ciego"
@@ -420,7 +462,7 @@
   "construccion": "Nominativo: «porque tú dices: Yo soy rico, y me he enriquecido, y de ninguna cosa tengo necesidad; y no sabes que tú eres un desventurado, miserable, pobre, ciego y desnudo».",
   "sentido_en_contexto": "Laodicea (rica por la banca, la lana negra, el colirio de Frigia, que curaba los ojos) se creía autosuficiente. Cristo le responde en esas mismas áreas: oro refinado (frente a la banca), vestiduras blancas (frente a la lana negra) y colirio (frente a la escuela de medicina). Desvela la ceguera espiritual de la iglesia: su pobreza real.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Os 12:8",
@@ -429,9 +471,9 @@
    "Ap 2:9"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 25,
   "alineacion": "forma",
   "tagnt": "Rev.3.17#26",
+  "ref_estandar": "Rev.3.17",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G5185",
   "strong_tagnt": "G5185",
@@ -447,13 +489,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "blind",
-  "ref_estandar": "Rev.3.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.3.19",
+  "pos_tisch": 7,
   "strong": "G3811",
   "forma": "παιδεύω",
+  "lema": "παιδεύω",
   "glosa_interlineal": "disciplino",
   "rango_semantico": [
    "educar, disciplinar, corregir"
@@ -461,7 +507,7 @@
   "construccion": "Presente indicativo activo: «yo reprendo y castigo a todos los que amo; sé, pues, celoso, y arrepiéntete».",
   "sentido_en_contexto": "Cita de Pr 3:12 (LXX): la corrección es expresión de amor (ver Heb 12:5-11). φιλέω (amo con afecto personal) y verbos de disciplina: ἐλέγχω (reprender), παιδεύω (educar). La carta más dura es también la que contiene la invitación más tierna (v.20).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Pr 3:12",
@@ -470,9 +516,9 @@
    "1 Co 11:32"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Rev.3.19#07",
+  "ref_estandar": "Rev.3.19",
   "morfologia_tagnt": "V-PAI-1S",
   "dstrong": "G3811",
   "strong_tagnt": "G3811",
@@ -488,13 +534,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to instruct",
-  "ref_estandar": "Rev.3.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.3.20",
+  "pos_tisch": 7,
   "strong": "G2925",
   "forma": "κρούω",
+  "lema": "κρούω",
   "glosa_interlineal": "llamo",
   "rango_semantico": [
    "llamar a la puerta, golpear"
@@ -502,7 +552,7 @@
   "construccion": "Presente indicativo activo: «he aquí, yo estoy a la puerta y llamo; si alguno oye mi voz y abre la puerta, entraré a él, y cenaré con él, y él conmigo».",
   "sentido_en_contexto": "Texto célebre, usado en la evangelización individual. En su contexto, es una invitación de Cristo a la iglesia de Laodicea (la que cree no necesitarlo): él está fuera de ella, llamando; la comunión (cena) es la restauración. Alusión a Cant 5:2 y al banquete mesiánico (Lc 12:36-37; Ap 19:9). δειπνέω: la cena principal de la tarde.",
   "matiz": "Debate: (a) invitación a la iglesia tibia a restaurar la comunión (el contexto inmediato; la mayoría); (b) invitación a la conversión individual de cada persona (uso devocional y evangelístico; legítimo como aplicación, aunque no es el sentido original); (c) alusión a la parusía (Stg 5:9; Mt 24:33).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Cnt 5:2",
@@ -512,9 +562,9 @@
    "Ap 19:9"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Rev.3.20#07",
+  "ref_estandar": "Rev.3.20",
   "morfologia_tagnt": "V-PAI-1S",
   "dstrong": "G2925",
   "strong_tagnt": "G2925",
@@ -530,13 +580,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to knock",
-  "ref_estandar": "Rev.3.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.3.21",
+  "pos_tisch": 10,
   "strong": "G2362",
   "forma": "θρόνῳ",
+  "lema": "θρόνος",
   "glosa_interlineal": "trono",
   "rango_semantico": [
    "trono"
@@ -544,7 +598,7 @@
   "construccion": "Dativo: «al que venciere, le daré que se siente conmigo en mi trono, así como yo he vencido, y me he sentado con mi Padre en su trono».",
   "sentido_en_contexto": "Última promesa a los vencedores y clímax de las siete cartas: compartir el trono de Cristo, como él venció y se sentó con el Padre. Anticipa el cap. 4–5. Dos tronos: el de Cristo (como Cordero) y el del Padre; el creyente reina con Cristo (2:26-27; 5:10; 20:4-6; 22:5).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 5:10; 20:4-6; 22:5",
@@ -553,10 +607,9 @@
    "2 Ti 2:12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Rev.3.21#10",
+  "ref_estandar": "Rev.3.21",
   "morfologia_tagnt": "N-DSM",
   "dstrong": "G2362",
   "strong_tagnt": "G2362",
@@ -572,13 +625,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "throne",
-  "ref_estandar": "Rev.3.21"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.3.21",
+  "pos_tisch": 23,
   "strong": "G2362",
   "forma": "θρόνῳ",
+  "lema": "θρόνος",
   "glosa_interlineal": "trono",
   "rango_semantico": [
    "trono"
@@ -586,7 +644,7 @@
   "construccion": "Dativo: «al que venciere, le daré que se siente conmigo en mi trono, así como yo he vencido, y me he sentado con mi Padre en su trono».",
   "sentido_en_contexto": "Última promesa a los vencedores y clímax de las siete cartas: compartir el trono de Cristo, como él venció y se sentó con el Padre. Anticipa el cap. 4–5. Dos tronos: el de Cristo (como Cordero) y el del Padre; el creyente reina con Cristo (2:26-27; 5:10; 20:4-6; 22:5).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 5:10; 20:4-6; 22:5",
@@ -595,10 +653,9 @@
    "2 Ti 2:12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 23,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Rev.3.21#23",
+  "ref_estandar": "Rev.3.21",
   "morfologia_tagnt": "N-DSM",
   "dstrong": "G2362",
   "strong_tagnt": "G2362",
@@ -614,7 +671,10 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "throne",
-  "ref_estandar": "Rev.3.21"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

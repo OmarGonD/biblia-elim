@@ -1,8 +1,10 @@
 [
  {
   "ref": "2Pet.2.1",
+  "pos_tisch": 4,
   "strong": "G5578",
   "forma": "ψευδοπροφῆται",
+  "lema": "ψευδοπροφήτης",
   "glosa_interlineal": "falsos profetas",
   "rango_semantico": [
    "falso profeta"
@@ -10,7 +12,7 @@
   "construccion": "Nominativo plural: «pero hubo también falsos profetas entre el pueblo, así como habrá entre vosotros falsos maestros que introducirán encubiertamente herejías destructoras, y aun negarán al Señor que los rescató».",
   "sentido_en_contexto": "Capítulo 2 depende en gran parte de la carta de Judas (comparar Jud 4-18). Falsos maestros que «niegan al Señor que los compró» (δεσπότης: dueño que adquiere esclavos). Se debate si «los compró» implica expiación universal o simple pretensión de pertenecer. El pasaje se usa en el debate sobre la expiación y la perseverancia.",
   "matiz": "Debate sobre «el Señor que los rescató»: (a) lenguaje de apariencia: profesaban ser comprados (reformada; no se dice que lo fueran de verdad); (b) Cristo murió también por ellos (expiación universal; arminiana); (c) dueño en un sentido general (por creación o redención). Lo mismo se aplica a v.20-22.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jud 4",
@@ -19,9 +21,9 @@
    "1 Ti 4:1"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "2Pet.2.1#04",
+  "ref_estandar": "2Pet.2.1",
   "morfologia_tagnt": "N-NPM",
   "dstrong": "G5578",
   "strong_tagnt": "G5578",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "false prophet",
-  "ref_estandar": "2Pet.2.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Pet.2.4",
+  "pos_tisch": 12,
   "strong": "G5020",
   "forma": "ταρταρώσας",
+  "lema": "ταρταρόω",
   "glosa_interlineal": "arrojó al Tártaro",
   "rango_semantico": [
    "arrojar al Tártaro"
@@ -51,7 +57,7 @@
   "construccion": "Participio aoristo activo: «porque si Dios no perdonó a los ángeles que pecaron, sino que arrojándolos al infierno los entregó a prisiones de oscuridad, para ser reservados al juicio».",
   "sentido_en_contexto": "Único uso en el NT de ταρταρόω: Dios arrojó a los ángeles pecadores al Tártaro (el lugar de castigo en la mitología griega y la literatura apocalíptica judía, 1 Enoc). Se discute su relación con Gn 6:1-4 (los «hijos de Dios») y con Jud 6. Pedro cita ejemplos de juicio: ángeles, diluvio, Sodoma (vv.4-8).",
   "matiz": "Debate sobre los «ángeles que pecaron»: (a) los ángeles de Gn 6 que se unieron con mujeres (1 Enoc, tradición judía y muchos exégetas modernos); (b) la caída original de Satanás y sus ángeles; (c) cualquier rebelión angélica. «Tártaro»: lugar de castigo temporal hasta el juicio final.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jud 6",
@@ -60,9 +66,9 @@
    "1 P 3:19-20"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "2Pet.2.4#12",
+  "ref_estandar": "2Pet.2.4",
   "morfologia_tagnt": "V-AAP-NSM",
   "dstrong": "G5020",
   "strong_tagnt": "G5020",
@@ -78,13 +84,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to condemn",
-  "ref_estandar": "2Pet.2.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Pet.2.5",
+  "pos_tisch": 8,
   "strong": "G3575",
   "forma": "Νῶε",
+  "lema": "Νῶε",
   "glosa_interlineal": "Noé",
   "rango_semantico": [
    "Noé"
@@ -92,7 +102,7 @@
   "construccion": "Acusativo: «y si no perdonó al mundo antiguo, sino que guardó a Noé, pregonero de justicia, con otras siete personas, cuando trajo el diluvio sobre el mundo de los impíos».",
   "sentido_en_contexto": "Noé como «pregonero de justicia» (κῆρυξ δικαιοσύνης): predicó la justicia antes del diluvio. Es ejemplo de preservación del justo en medio del juicio. Cf. 1 P 3:20; Heb 11:7.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 6–8",
@@ -101,9 +111,9 @@
    "Mt 24:37-39"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "2Pet.2.5#08",
+  "ref_estandar": "2Pet.2.5",
   "morfologia_tagnt": "N-ASM-P",
   "dstrong": "G3575",
   "strong_tagnt": "G3575",
@@ -119,13 +129,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Noah",
-  "ref_estandar": "2Pet.2.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Pet.2.6",
+  "pos_tisch": 5,
   "strong": "G1116",
   "forma": "Γομόρρας",
+  "lema": "Γόμοῤῥα",
   "glosa_interlineal": "Gomorra",
   "rango_semantico": [
    "Gomorra"
@@ -133,7 +147,7 @@
   "construccion": "Genitivo: «y si condenó a destrucción las ciudades de Sodoma y de Gomorra, reduciéndolas a ceniza y poniéndolas de ejemplo a los que habrían de vivir impíamente».",
   "sentido_en_contexto": "Sodoma y Gomorra como paradigma del juicio divino (Gn 19). Lot, «justo», fue librado (vv.7-9): Dios sabe librar de la prueba a los piadosos y reservar a los injustos para el juicio.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 19:24-29",
@@ -142,9 +156,9 @@
    "Mt 10:15"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "2Pet.2.6#05",
+  "ref_estandar": "2Pet.2.6",
   "morfologia_tagnt": "N-GSF-L",
   "dstrong": "G1116",
   "strong_tagnt": "G1116",
@@ -160,13 +174,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Gomorrah",
-  "ref_estandar": "2Pet.2.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Pet.2.7",
+  "pos_tisch": 3,
   "strong": "G3091",
   "forma": "Λὼτ",
+  "lema": "Λώτ",
   "glosa_interlineal": "Lot",
   "rango_semantico": [
    "Lot"
@@ -174,7 +192,7 @@
   "construccion": "Acusativo: «y libró al justo Lot, abrumado por la conducta nefanda de los malvados».",
   "sentido_en_contexto": "Lot es llamado «justo» tres veces (vv.7-8), a pesar de su ambigüedad moral en Génesis: Pedro lo presenta como alma atormentada por la injusticia a su alrededor. Se discute esta lectura generosa, que probablemente refleja una tradición judía de Lot.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 19:1-29",
@@ -182,9 +200,9 @@
    "Lc 17:28-32"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "2Pet.2.7#03",
+  "ref_estandar": "2Pet.2.7",
   "morfologia_tagnt": "N-ASM-P",
   "dstrong": "G3091",
   "strong_tagnt": "G3091",
@@ -200,13 +218,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Lot",
-  "ref_estandar": "2Pet.2.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Pet.2.9",
+  "pos_tisch": 6,
   "strong": "G4506",
   "forma": "ῥύεσθαι",
+  "lema": "ῥύομαι",
   "glosa_interlineal": "librar",
   "rango_semantico": [
    "librar, rescatar"
@@ -214,7 +236,7 @@
   "construccion": "Presente infinitivo medio: «sabe el Señor librar de tentación a los piadosos, y reservar a los injustos para ser castigados en el día del juicio».",
   "sentido_en_contexto": "Conclusión de los ejemplos: Dios libra a los justos y reserva a los injustos para el juicio. Doble ejemplo de la justicia de Dios: salvación y castigo. «Tentación» (πειρασμός) como prueba.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 34:19",
@@ -223,9 +245,9 @@
    "Jud 6"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "2Pet.2.9#06",
+  "ref_estandar": "2Pet.2.9",
   "morfologia_tagnt": "V-PNN",
   "dstrong": "G4506",
   "strong_tagnt": "G4506",
@@ -241,13 +263,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to deliver",
-  "ref_estandar": "2Pet.2.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Pet.2.15",
+  "pos_tisch": 9,
   "strong": "G903",
   "forma": "Βαλαὰμ",
+  "lema": "Βαλαάμ",
   "glosa_interlineal": "Balaam",
   "rango_semantico": [
    "Balaam"
@@ -255,7 +281,7 @@
   "construccion": "Acusativo: «han dejado el camino recto, y se han extraviado siguiendo el camino de Balaam hijo de Beor, el cual amó el premio de la maldad».",
   "sentido_en_contexto": "Balaam como modelo de profeta mercenario que amó la ganancia injusta (Nm 22–24; 31:16). Los falsos maestros siguen su camino. El «Beor/Bosor» es variante textual (Bosor = juego de palabras con «carne»). Cf. Jud 11; Ap 2:14.",
   "matiz": "Variante textual: «hijo de Beor» (la mayoría de críticos desde la Vulgata) o «hijo de Bosor» (P72, B, C, 81). Bosor puede ser una forma arameizada, o un juego con «carne» (בשר).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Nm 22–24; 31:16",
@@ -264,9 +290,9 @@
    "Dt 23:4-5"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "2Pet.2.15#10",
+  "ref_estandar": "2Pet.2.15",
   "morfologia_tagnt": "N-GSM-P",
   "dstrong": "G0903",
   "strong_tagnt": "G903",
@@ -282,13 +308,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Balaam",
-  "ref_estandar": "2Pet.2.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Pet.2.19",
+  "pos_tisch": 1,
   "strong": "G1657",
   "forma": "ἐλευθερίαν",
+  "lema": "ἐλευθερία",
   "glosa_interlineal": "libertad",
   "rango_semantico": [
    "libertad"
@@ -296,7 +326,7 @@
   "construccion": "Acusativo: «les prometen libertad, y son ellos mismos esclavos de corrupción; porque el que es vencido por alguno es hecho esclavo del que lo venció».",
   "sentido_en_contexto": "Los falsos maestros prometen libertad (sin ley moral), pero son esclavos de la corrupción. Libertad cristiana y libertinaje no son lo mismo (Gá 5:13; Ro 6:16-22). Se aplica a antinomianos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 8:34",
@@ -305,9 +335,9 @@
    "1 P 2:16"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "2Pet.2.19#01",
+  "ref_estandar": "2Pet.2.19",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G1657",
   "strong_tagnt": "G1657",
@@ -323,13 +353,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "freedom",
-  "ref_estandar": "2Pet.2.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Pet.2.20",
+  "pos_tisch": 9,
   "strong": "G1922",
   "forma": "ἐπιγνώσει",
+  "lema": "ἐπίγνωσις",
   "glosa_interlineal": "conocimiento",
   "rango_semantico": [
    "conocimiento pleno"
@@ -337,7 +371,7 @@
   "construccion": "Dativo: «ciertamente, si habiéndose escapado de las contaminaciones del mundo por el conocimiento del Señor y Salvador Jesucristo, vuelven a enredarse en ellas y son vencidos, su postrer estado viene a ser peor que el primero».",
   "sentido_en_contexto": "Advertencia sobre la apostasía de quienes conocieron a Cristo. «Su postrer estado peor que el primero» (cf. Mt 12:45). Se debate si los que «conocieron» eran creyentes verdaderos que pierden la salvación o profesantes cuya conversión fue superficial. El v.22 usa el refrán del perro y la cerda para describirlos.",
   "matiz": "Debate: (a) eran creyentes que apostatan y se pierden (arminiana, católica); (b) tenían conocimiento externo y reforma moral, pero no regeneración (reformada: lo evidencia el v.22, que su naturaleza no cambió: perro y cerda); (c) el texto es una advertencia sin definir su condición real.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Heb 6:4-6; 10:26-29",
@@ -346,9 +380,9 @@
    "1 Jn 2:19"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "2Pet.2.20#09",
+  "ref_estandar": "2Pet.2.20",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G1922",
   "strong_tagnt": "G1922",
@@ -364,13 +398,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "knowledge",
-  "ref_estandar": "2Pet.2.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Pet.2.22",
+  "pos_tisch": 7,
   "strong": "G2965",
   "forma": "κύων",
+  "lema": "κύων",
   "glosa_interlineal": "perro",
   "rango_semantico": [
    "perro"
@@ -378,7 +416,7 @@
   "construccion": "Nominativo: «pero les ha acontecido lo del verdadero proverbio: El perro vuelve a su vómito, y la puerca lavada a revolcarse en el cieno».",
   "sentido_en_contexto": "Dos proverbios: Pr 26:11 (el perro y su vómito) y un refrán de origen popular (la cerda lavada que vuelve al lodo). Ilustran que su conducta refleja su naturaleza no transformada. Dichos duros en el contexto de apostasía.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Pr 26:11",
@@ -386,9 +424,9 @@
    "Fil 3:2"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "2Pet.2.22#08",
+  "ref_estandar": "2Pet.2.22",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G2965",
   "strong_tagnt": "G2965",
@@ -404,7 +442,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "dog",
-  "ref_estandar": "2Pet.2.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

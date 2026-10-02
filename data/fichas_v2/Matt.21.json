@@ -1,8 +1,10 @@
 [
  {
   "ref": "Matt.21.1",
+  "pos_tisch": 14,
   "strong": "G1636",
   "forma": "ἐλαιῶν",
+  "lema": "ἐλαία",
   "glosa_interlineal": "olivos",
   "rango_semantico": [
    "olivar, monte de los Olivos"
@@ -10,7 +12,7 @@
   "construccion": "Genitivo: «el monte de los Olivos».",
   "sentido_en_contexto": "Lugar con fuertes asociaciones mesiánicas (Zac 14:4: Dios pondrá sus pies sobre el monte de los Olivos). Jesús entra a Jerusalén desde allí.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Zac 14:4 — «se afirmarán sus pies sobre el monte de los Olivos»",
@@ -18,9 +20,9 @@
    "Mt 26:30 — «salieron al monte de los Olivos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Matt.21.1#14",
+  "ref_estandar": "Matt.21.1",
   "morfologia_tagnt": "N-GPF-L",
   "dstrong": "G1638",
   "strong_tagnt": "G1638",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Olivet",
-  "ref_estandar": "Matt.21.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.21.5",
+  "pos_tisch": 11,
   "strong": "G4239",
   "forma": "πραΰς",
+  "lema": "πραΰς",
   "glosa_interlineal": "manso",
   "rango_semantico": [
    "manso, humilde",
@@ -51,7 +57,7 @@
   "construccion": "Adjetivo nominativo: «tu rey viene manso». Cita de Zac 9:9 (combinada con Is 62:11).",
   "sentido_en_contexto": "Mateo subraya la mansedumbre del rey: no llega con caballo de guerra sino en un asno. Cumple el oráculo de Zacarías.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Zac 9:9 — texto citado",
@@ -59,9 +65,9 @@
    "Mt 5:5 — «bienaventurados los mansos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Matt.21.5#11",
+  "ref_estandar": "Matt.21.5",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G4235",
   "strong_tagnt": "G4235",
@@ -77,13 +83,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gentle",
-  "ref_estandar": "Matt.21.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.21.7",
+  "pos_tisch": 6,
   "strong": "G4454",
   "forma": "πῶλον",
+  "lema": "πῶλος",
   "glosa_interlineal": "pollino",
   "rango_semantico": [
    "pollino, cría de asno",
@@ -92,7 +102,7 @@
   "construccion": "Acusativo: «la asna y el pollino».",
   "sentido_en_contexto": "Mateo menciona dos animales (asna y pollino), a diferencia de Marcos y Lucas que solo hablan del pollino. Algunos ven en esto el paralelismo hebreo de Zac 9:9 tomado literalmente.",
   "matiz": "Se debate cómo montó Jesús: sobre el pollino (lo más probable), o sobre ambos; el texto griego dice «sobre ellos» (ἐπάνω αὐτῶν), referido a los mantos.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 11:2 — «un pollino atado, en el cual ningún hombre ha montado»",
@@ -100,9 +110,9 @@
    "Jn 12:14-15 — cita Zac 9:9"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Matt.21.7#06",
+  "ref_estandar": "Matt.21.7",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G4454",
   "strong_tagnt": "G4454",
@@ -118,13 +128,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "colt",
-  "ref_estandar": "Matt.21.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.21.9",
+  "pos_tisch": 12,
   "strong": "G5614",
   "forma": "ὡσαννὰ",
+  "lema": "ὡσαννά",
   "glosa_interlineal": "Hosanna",
   "rango_semantico": [
    "Hosanna (del hebreo hoshía na: «salva ahora»)",
@@ -133,7 +147,7 @@
   "construccion": "Exclamación; «Hosanna al Hijo de David».",
   "sentido_en_contexto": "Originalmente «¡salva, por favor!» (Sal 118:25); se convirtió en aclamación de alabanza. Aquí reconoce a Jesús como el Mesías davídico.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 118:25-26 — fuente de la aclamación",
@@ -141,10 +155,9 @@
    "Jn 12:13 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.21.9#12",
+  "ref_estandar": "Matt.21.9",
   "morfologia_tagnt": "PRT",
   "dstrong": "G5614",
   "strong_tagnt": "G5614",
@@ -160,13 +173,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Hosanna!",
-  "ref_estandar": "Matt.21.9"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.21.9",
+  "pos_tisch": 22,
   "strong": "G5614",
   "forma": "ὡσαννὰ",
+  "lema": "ὡσαννά",
   "glosa_interlineal": "Hosanna",
   "rango_semantico": [
    "Hosanna (del hebreo hoshía na: «salva ahora»)",
@@ -175,7 +193,7 @@
   "construccion": "Exclamación; «Hosanna al Hijo de David».",
   "sentido_en_contexto": "Originalmente «¡salva, por favor!» (Sal 118:25); se convirtió en aclamación de alabanza. Aquí reconoce a Jesús como el Mesías davídico.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 118:25-26 — fuente de la aclamación",
@@ -183,10 +201,9 @@
    "Jn 12:13 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 22,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.21.9#22",
+  "ref_estandar": "Matt.21.9",
   "morfologia_tagnt": "PRT",
   "dstrong": "G5614",
   "strong_tagnt": "G5614",
@@ -202,13 +219,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Hosanna!",
-  "ref_estandar": "Matt.21.9"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.21.10",
+  "pos_tisch": 6,
   "strong": "G4579",
   "forma": "ἐσείσθη",
+  "lema": "σείω",
   "glosa_interlineal": "se conmovió",
   "rango_semantico": [
    "sacudir, agitar",
@@ -217,16 +239,16 @@
   "construccion": "Aoristo indicativo pasivo, 3ª singular: «se estremeció / se agitó toda la ciudad».",
   "sentido_en_contexto": "Mismo verbo que para el terremoto (27:51). La ciudad entera se agita ante la entrada de Jesús: preguntan quién es.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 2:3 — «Herodes se turbó, y toda Jerusalén con él»",
    "Mt 27:51 — «la tierra tembló»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Matt.21.10#06",
+  "ref_estandar": "Matt.21.10",
   "morfologia_tagnt": "V-API-3S",
   "dstrong": "G4579",
   "strong_tagnt": "G4579",
@@ -242,13 +264,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to shake",
-  "ref_estandar": "Matt.21.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.21.12",
+  "pos_tisch": 6,
   "strong": "G2411",
   "forma": "ἱερόν",
+  "lema": "ἱερόν",
   "glosa_interlineal": "templo",
   "rango_semantico": [
    "templo (el recinto completo)",
@@ -257,7 +283,7 @@
   "construccion": "εἰς + acusativo: «en el templo».",
   "sentido_en_contexto": "ἱερόν es el recinto del templo con sus patios (distinto de ναός, el santuario interior). Jesús actúa en el patio de los gentiles, donde se vendían animales y se cambiaba moneda.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 2:14-16 — otra purificación al comienzo del ministerio",
@@ -265,10 +291,9 @@
    "Mal 3:1-3 — «vendrá súbitamente a su templo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.21.12#07",
+  "ref_estandar": "Matt.21.12",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G2411",
   "strong_tagnt": "G2411",
@@ -284,13 +309,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "temple",
-  "ref_estandar": "Matt.21.12"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.21.13",
+  "pos_tisch": 16,
   "strong": "G3027",
   "forma": "λῃστῶν",
+  "lema": "λῃστής",
   "glosa_interlineal": "ladrones",
   "rango_semantico": [
    "salteador, bandido",
@@ -299,7 +329,7 @@
   "construccion": "Genitivo plural: «cueva de ladrones» (alusión a Jer 7:11).",
   "sentido_en_contexto": "Jesús combina Is 56:7 («casa de oración») con Jer 7:11 («cueva de ladrones»). λῃστής es bandido que asalta, no ladrón furtivo: el templo se ha vuelto refugio de explotadores.",
   "matiz": "Se discute si la crítica es contra el comercio abusivo en el atrio, contra una religión de apariencia sin justicia (como en Jer 7), o ambos. Muchos ven un juicio sobre el templo (24:2).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 56:7 — «mi casa será llamada casa de oración para todos los pueblos»",
@@ -307,9 +337,9 @@
    "Mr 11:17 — «para todas las naciones»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Matt.21.13#16",
+  "ref_estandar": "Matt.21.13",
   "morfologia_tagnt": "N-GPM",
   "dstrong": "G3027",
   "strong_tagnt": "G3027",
@@ -325,13 +355,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "robber/rebel",
-  "ref_estandar": "Matt.21.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.21.16",
+  "pos_tisch": 19,
   "strong": "G3516",
   "forma": "νηπίων",
+  "lema": "νήπιος",
   "glosa_interlineal": "niños pequeños",
   "rango_semantico": [
    "niño de pecho",
@@ -340,16 +374,16 @@
   "construccion": "ἐκ + genitivo: «de la boca de los niños y de los que maman».",
   "sentido_en_contexto": "Cita del Sal 8:2 (LXX): Dios obtiene alabanza de los más pequeños, mientras los líderes se indignan. La alabanza sencilla es la que Dios acepta.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 8:2 — «de la boca de los niños y de los que maman fundaste la fortaleza»",
    "Mt 11:25 — «escondiste estas cosas… y las revelaste a los niños»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 19,
   "alineacion": "forma",
   "tagnt": "Matt.21.16#19",
+  "ref_estandar": "Matt.21.16",
   "morfologia_tagnt": "A-GPM",
   "dstrong": "G3516",
   "strong_tagnt": "G3516",
@@ -365,13 +399,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "child",
-  "ref_estandar": "Matt.21.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.21.19",
+  "pos_tisch": 3,
   "strong": "G4808",
   "forma": "συκῆν",
+  "lema": "συκῆ",
   "glosa_interlineal": "higuera",
   "rango_semantico": [
    "higuera"
@@ -379,7 +417,7 @@
   "construccion": "Acusativo: «una higuera».",
   "sentido_en_contexto": "La higuera con hojas pero sin fruto es imagen de Israel infructuoso (Jer 8:13; Os 9:10). Su secarse es una acción simbólica de juicio sobre el templo y quienes lo dirigen.",
   "matiz": "En Marcos (11:12-14, 20-25) la historia envuelve la purificación del templo (sandwich); en Mateo va después. Se discute si es un milagro de castigo o una parábola en acción. No era temporada de higos en Marcos; Mateo omite ese detalle.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 11:12-14 — paralelo con más detalle",
@@ -387,10 +425,9 @@
    "Lc 13:6-9 — parábola de la higuera estéril"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 3,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.21.19#03",
+  "ref_estandar": "Matt.21.19",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G4808",
   "strong_tagnt": "G4808",
@@ -406,13 +443,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fig tree",
-  "ref_estandar": "Matt.21.19"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.21.21",
+  "pos_tisch": 15,
   "strong": "G1252",
   "forma": "διακριθῆτε",
+  "lema": "διακρίνω",
   "glosa_interlineal": "dudéis",
   "rango_semantico": [
    "dudar, vacilar",
@@ -421,7 +463,7 @@
   "construccion": "Subjuntivo aoristo pasivo: «no dudéis».",
   "sentido_en_contexto": "Condición de la oración eficaz: fe sin vacilación. «Mover montañas» es imagen de lo imposible.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Stg 1:6 — «pida con fe, no dudando nada»",
@@ -429,9 +471,9 @@
    "Mt 17:20 — «si tuviereis fe como un grano de mostaza»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Matt.21.21#15",
+  "ref_estandar": "Matt.21.21",
   "morfologia_tagnt": "V-APS-2P",
   "dstrong": "G1252",
   "strong_tagnt": "G1252",
@@ -447,13 +489,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to judge/doubt",
-  "ref_estandar": "Matt.21.21"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.21.23",
+  "pos_tisch": 20,
   "strong": "G1849",
   "forma": "ἐξουσίᾳ",
+  "lema": "ἐξουσία",
   "glosa_interlineal": "autoridad",
   "rango_semantico": [
    "autoridad, potestad"
@@ -461,7 +507,7 @@
   "construccion": "ἐν + dativo: «¿con qué autoridad?».",
   "sentido_en_contexto": "La pregunta de los líderes expone el centro del conflicto: ¿de dónde viene la autoridad de Jesús? Jesús responde con otra pregunta sobre Juan.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 7:29 — «enseñaba como quien tiene autoridad»",
@@ -469,10 +515,9 @@
    "Mt 28:18 — «toda potestad me es dada»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 20,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.21.23#20",
+  "ref_estandar": "Matt.21.23",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G1849",
   "strong_tagnt": "G1849",
@@ -488,13 +533,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "authority",
-  "ref_estandar": "Matt.21.23"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.21.25",
+  "pos_tisch": 2,
   "strong": "G908",
   "forma": "βάπτισμα",
+  "lema": "βάπτισμα",
   "glosa_interlineal": "bautismo",
   "rango_semantico": [
    "inmersión, bautismo"
@@ -502,16 +552,16 @@
   "construccion": "Nominativo: «el bautismo de Juan».",
   "sentido_en_contexto": "Jesús responde con una contrapregunta: ¿el bautismo de Juan era de origen divino o humano? Los líderes quedan atrapados: ninguna respuesta les conviene.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 3:1-6 — el ministerio de Juan",
    "Hch 18:25 — «conocía solamente el bautismo de Juan»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Matt.21.25#02",
+  "ref_estandar": "Matt.21.25",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G0908",
   "strong_tagnt": "G908",
@@ -527,13 +577,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "baptism",
-  "ref_estandar": "Matt.21.25"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.21.29",
+  "pos_tisch": 8,
   "strong": "G3338",
   "forma": "μεταμεληθεὶς",
+  "lema": "μεταμέλλομαι",
   "glosa_interlineal": "arrepentido",
   "rango_semantico": [
    "cambiar de parecer, lamentarse",
@@ -542,7 +596,7 @@
   "construccion": "Participio aoristo pasivo: «habiendo cambiado de parecer».",
   "sentido_en_contexto": "El primer hijo dice «no quiero» pero luego «se arrepiente» y obra. μεταμέλομαι es un cambio de opinión que lleva a obrar; no es el μετανοέω de «conversión profunda», aunque los dos se acercan.",
   "matiz": "μεταμέλομαι («arrepentirse en sentido de lamentar o cambiar de decisión») aparece en Mt 21:29, 32; 27:3 (Judas). Algunos subrayan que no implica por sí mismo conversión (cf. Judas).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 21:32 — «ni aun después os arrepentisteis para creerle»",
@@ -550,9 +604,9 @@
    "2 Co 7:8-10 — tristeza y arrepentimiento"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Matt.21.29#09",
+  "ref_estandar": "Matt.21.29",
   "morfologia_tagnt": "V-AOP-NSM",
   "dstrong": "G3338",
   "strong_tagnt": "G3338",
@@ -568,13 +622,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to repent",
-  "ref_estandar": "Matt.21.29"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.21.31",
+  "pos_tisch": 25,
   "strong": "G4204",
   "forma": "πόρναι",
+  "lema": "πόρνη",
   "glosa_interlineal": "rameras",
   "rango_semantico": [
    "prostituta",
@@ -583,7 +641,7 @@
   "construccion": "Nominativo plural: «las rameras».",
   "sentido_en_contexto": "Frase dura: publicanos y prostitutas entrarán al reino antes que los líderes religiosos, porque creyeron a Juan.",
   "matiz": "«Van delante de vosotros» (προάγουσιν) puede ser «entrarán antes» (los líderes también entrarán después) o «entrarán en vez de». Se discute el grado de exclusión.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 7:29-30 — «los publicanos… justificaron a Dios»",
@@ -591,9 +649,9 @@
    "Jos 2 — Rahab, la ramera de Jericó"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 25,
   "alineacion": "forma",
   "tagnt": "Matt.21.31#26",
+  "ref_estandar": "Matt.21.31",
   "morfologia_tagnt": "N-NPF",
   "dstrong": "G4204",
   "strong_tagnt": "G4204",
@@ -609,13 +667,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "prostitute",
-  "ref_estandar": "Matt.21.31"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.21.33",
+  "pos_tisch": 11,
   "strong": "G5418",
   "forma": "φραγμὸν",
+  "lema": "φραγμός",
   "glosa_interlineal": "vallado",
   "rango_semantico": [
    "cerca, valla",
@@ -624,7 +686,7 @@
   "construccion": "Acusativo: «una cerca».",
   "sentido_en_contexto": "Parábola de los labradores malvados, calcada de Is 5:1-7: el propietario prepara la viña con cuidado (cerca, lagar, torre) y la arrienda. La viña es Israel, y los labradores sus dirigentes.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 5:1-7 — el cantar de la viña",
@@ -632,9 +694,9 @@
    "Lc 20:9-19 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Matt.21.33#12",
+  "ref_estandar": "Matt.21.33",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G5418",
   "strong_tagnt": "G5418",
@@ -650,13 +712,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fence",
-  "ref_estandar": "Matt.21.33"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.21.38",
+  "pos_tisch": 13,
   "strong": "G2818",
   "forma": "κληρονόμος",
+  "lema": "κληρονόμος",
   "glosa_interlineal": "heredero",
   "rango_semantico": [
    "heredero"
@@ -664,7 +730,7 @@
   "construccion": "Nominativo: «este es el heredero».",
   "sentido_en_contexto": "Los labradores matan al hijo para quedarse con la herencia. Alegoría de Jesús como Hijo del dueño, rechazado y muerto por los dirigentes. Los oyentes se reconocen en la parábola (v.45).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Heb 1:2 — «a quien constituyó heredero de todo»",
@@ -672,9 +738,9 @@
    "Gá 4:7 — «si hijo, también heredero»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Matt.21.38#13",
+  "ref_estandar": "Matt.21.38",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G2818",
   "strong_tagnt": "G2818",
@@ -690,13 +756,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "heir",
-  "ref_estandar": "Matt.21.38"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.21.42",
+  "pos_tisch": 10,
   "strong": "G3037",
   "forma": "λίθον",
+  "lema": "λίθος",
   "glosa_interlineal": "piedra",
   "rango_semantico": [
    "piedra"
@@ -704,7 +774,7 @@
   "construccion": "Acusativo: «la piedra que desecharon los constructores». Cita del Sal 118:22-23.",
   "sentido_en_contexto": "Jesús, como la piedra desechada que Dios hace piedra angular. Cita central en la teología cristiana primitiva (Hch 4:11; 1 P 2:7).",
   "matiz": "«Cabeza del ángulo» puede ser piedra angular (cimiento) o piedra clave (remate de un arco); la interpretación es discutida y no cambia el sentido central de reivindicación.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 118:22-23 — texto citado",
@@ -712,9 +782,9 @@
    "1 P 2:6-8 — «piedra viva… escogida»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Matt.21.42#10",
+  "ref_estandar": "Matt.21.42",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G3037",
   "strong_tagnt": "G3037",
@@ -730,13 +800,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "stone",
-  "ref_estandar": "Matt.21.42"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.21.43",
+  "pos_tisch": 15,
   "strong": "G1484",
   "forma": "ἔθνει",
+  "lema": "ἔθνος",
   "glosa_interlineal": "nación, pueblo",
   "rango_semantico": [
    "nación, pueblo",
@@ -745,7 +819,7 @@
   "construccion": "Dativo singular: «será dado a una nación (pueblo)».",
   "sentido_en_contexto": "El reino será quitado de los dirigentes actuales y dado a un «pueblo» que dé fruto. Se discute si ese «pueblo» es la iglesia, los gentiles o un Israel renovado.",
   "matiz": "Es un pasaje controvertido: algunos lo leen como sustitución de Israel por la iglesia; otros, como transferencia de liderazgo a un pueblo renovado (judío y gentil) y no un rechazo del pueblo judío como tal. El v.45 sitúa el juicio sobre los dirigentes.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 P 2:9 — «linaje escogido, nación santa»",
@@ -753,9 +827,9 @@
    "Mt 8:11-12 — «los hijos del reino serán echados»"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Matt.21.43#15",
+  "ref_estandar": "Matt.21.43",
   "morfologia_tagnt": "N-DSN",
   "dstrong": "G1484",
   "strong_tagnt": "G1484",
@@ -771,7 +845,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Gentile nation",
-  "ref_estandar": "Matt.21.43"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

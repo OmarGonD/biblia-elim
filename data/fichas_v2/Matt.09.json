@@ -1,8 +1,10 @@
 [
  {
   "ref": "Matt.9.2",
+  "pos_tisch": 19,
   "strong": "G2293",
   "forma": "θάρσει",
+  "lema": "θαρσέω",
   "glosa_interlineal": "ten ánimo",
   "rango_semantico": [
    "animarse, tener valor",
@@ -11,7 +13,7 @@
   "construccion": "Imperativo presente activo, 2ª singular: «ten ánimo, sigue confiando».",
   "sentido_en_contexto": "Jesús consuela al paralítico antes de sanarlo. La palabra aparece en otros momentos de miedo o angustia (9:22; 14:27).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 9:22 — «ten ánimo, hija»",
@@ -19,9 +21,9 @@
    "Jn 16:33 — «confiad, yo he vencido al mundo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 19,
   "alineacion": "forma",
   "tagnt": "Matt.9.2#19",
+  "ref_estandar": "Matt.9.2",
   "morfologia_tagnt": "V-PAM-2S",
   "dstrong": "G2293",
   "strong_tagnt": "G2293",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "take heart",
-  "ref_estandar": "Matt.9.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.2",
+  "pos_tisch": 21,
   "strong": "G863",
   "forma": "ἀφίενταί",
+  "lema": "ἀφίημι",
   "glosa_interlineal": "son perdonados",
   "rango_semantico": [
    "perdonar, cancelar",
@@ -52,7 +58,7 @@
   "construccion": "Presente indicativo pasivo, 3ª plural: «están siendo perdonados / son perdonados». Pasivo divino: Dios perdona.",
   "sentido_en_contexto": "Jesús declara el perdón antes que el milagro. La declaración con el pasivo evita nombrar a Dios, pero los escribas entienden que Jesús se atribuye la prerrogativa divina (v.3).",
   "matiz": "Se discute si Jesús habla como mensajero que declara el perdón de Dios, o como quien lo concede. La reacción de los escribas («blasfema») y la respuesta de Jesús (v.6, «el Hijo del Hombre tiene autoridad…») sugieren lo segundo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 7:48 — «tus pecados te son perdonados»",
@@ -60,9 +66,9 @@
    "Is 43:25 — «yo soy el que borro tus rebeliones»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 21,
   "alineacion": "forma",
   "tagnt": "Matt.9.2#21",
+  "ref_estandar": "Matt.9.2",
   "morfologia_tagnt": "V-PPI-3P",
   "dstrong": "G0863H",
   "strong_tagnt": "G863",
@@ -79,13 +85,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to release",
-  "ref_estandar": "Matt.9.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.3",
+  "pos_tisch": 10,
   "strong": "G987",
   "forma": "βλασφημεῖ",
+  "lema": "βλασφημέω",
   "glosa_interlineal": "blasfema",
   "rango_semantico": [
    "injuriar, hablar mal",
@@ -94,7 +104,7 @@
   "construccion": "Presente indicativo activo, 3ª singular.",
   "sentido_en_contexto": "Para los escribas, Jesús usurpa un derecho que pertenece solo a Dios: perdonar pecados.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 26:65 — «¡ha blasfemado!» (el sumo sacerdote)",
@@ -102,9 +112,9 @@
    "Jn 10:33 — «por blasfemia… porque tú, siendo hombre, te haces Dios»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Matt.9.3#10",
+  "ref_estandar": "Matt.9.3",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G0987",
   "strong_tagnt": "G987",
@@ -120,13 +130,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to blaspheme",
-  "ref_estandar": "Matt.9.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.4",
+  "pos_tisch": 6,
   "strong": "G1761",
   "forma": "ἐνθυμήσεις",
+  "lema": "ἐνθύμησις",
   "glosa_interlineal": "pensamientos",
   "rango_semantico": [
    "pensamiento, reflexión",
@@ -135,7 +149,7 @@
   "construccion": "Acusativo plural, objeto de «viendo» (ἰδών; en otros manuscritos εἰδώς).",
   "sentido_en_contexto": "Jesús conoce sus pensamientos internos. Es una señal de su autoridad profética.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 12:25 — «sabiendo Jesús los pensamientos de ellos»",
@@ -143,9 +157,9 @@
    "Heb 4:12 — «discierne los pensamientos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Matt.9.4#06",
+  "ref_estandar": "Matt.9.4",
   "morfologia_tagnt": "N-APF",
   "dstrong": "G1761",
   "strong_tagnt": "G1761",
@@ -161,13 +175,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "reflection",
-  "ref_estandar": "Matt.9.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.5",
+  "pos_tisch": 4,
   "strong": "G2123",
   "forma": "εὐκοπώτερον",
+  "lema": "εὐκοπώτερος",
   "glosa_interlineal": "más fácil",
   "rango_semantico": [
    "más fácil"
@@ -175,16 +193,16 @@
   "construccion": "Comparativo neutro: «más fácil».",
   "sentido_en_contexto": "Pregunta retórica: decir «tus pecados te son perdonados» es fácil porque no se comprueba; decir «levántate» exige resultado visible. Jesús hará lo segundo para probar lo primero.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 2:9 — paralelo",
    "Lc 5:23 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Matt.9.5#04",
+  "ref_estandar": "Matt.9.5",
   "morfologia_tagnt": "A-NSN-C",
   "dstrong": "G2123",
   "strong_tagnt": "G2123",
@@ -200,13 +218,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "easy",
-  "ref_estandar": "Matt.9.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.6",
+  "pos_tisch": 5,
   "strong": "G1849",
   "forma": "ἐξουσίαν",
+  "lema": "ἐξουσία",
   "glosa_interlineal": "autoridad",
   "rango_semantico": [
    "autoridad, potestad"
@@ -214,7 +236,7 @@
   "construccion": "Acusativo singular, objeto de «tiene».",
   "sentido_en_contexto": "El Hijo del Hombre tiene autoridad en la tierra (ἐπὶ τῆς γῆς) para perdonar pecados. Es el eje del pasaje: la sanación visible demuestra la autoridad invisible.",
   "matiz": "«En la tierra» puede modificar «perdonar» (perdona aquí y ahora) o «autoridad» (autoridad que ejerce en la tierra). Muchos lo leen de la primera forma.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 28:18 — «toda potestad me es dada en el cielo y en la tierra»",
@@ -222,9 +244,9 @@
    "Jn 5:27 — «le dio autoridad de hacer juicio»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Matt.9.6#05",
+  "ref_estandar": "Matt.9.6",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G1849",
   "strong_tagnt": "G1849",
@@ -240,13 +262,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "authority",
-  "ref_estandar": "Matt.9.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.8",
+  "pos_tisch": 7,
   "strong": "G1392",
   "forma": "ἐδόξασαν",
+  "lema": "δοξάζω",
   "glosa_interlineal": "glorificaron",
   "rango_semantico": [
    "dar gloria, honrar",
@@ -255,7 +281,7 @@
   "construccion": "Aoristo indicativo activo, 3ª plural.",
   "sentido_en_contexto": "La multitud glorifica a Dios por la autoridad dada «a los hombres». El plural «hombres» puede apuntar a la comunidad de Jesús que continuará el perdón (cf. Mt 16:19; 18:18).",
   "matiz": "Se discute si «a los hombres» es plural genérico (la humanidad) o anticipa la autoridad de la iglesia. Mateo no lo explica.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 5:16 — «glorifiquen a vuestro Padre»",
@@ -263,9 +289,9 @@
    "Jn 20:23 — «a quienes perdonéis los pecados…»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Matt.9.8#07",
+  "ref_estandar": "Matt.9.8",
   "morfologia_tagnt": "V-AAI-3P",
   "dstrong": "G1392",
   "strong_tagnt": "G1392",
@@ -281,13 +307,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to glorify",
-  "ref_estandar": "Matt.9.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.9",
+  "pos_tisch": 11,
   "strong": "G5058",
   "forma": "τελώνιον",
+  "lema": "τελώνιον",
   "glosa_interlineal": "lugar de tributos",
   "rango_semantico": [
    "oficina de recaudación de impuestos",
@@ -296,7 +326,7 @@
   "construccion": "ἐπί + acusativo: «sentado en/junto al puesto de impuestos».",
   "sentido_en_contexto": "Mateo, recaudador de impuestos para Roma/Herodes, estaba en su trabajo cuando Jesús lo llamó. Los publicanos eran despreciados.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 2:14 — Leví, hijo de Alfeo",
@@ -304,9 +334,9 @@
    "Mt 10:3 — «Mateo el publicano»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Matt.9.9#11",
+  "ref_estandar": "Matt.9.9",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G5058",
   "strong_tagnt": "G5058",
@@ -322,13 +352,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tax booth",
-  "ref_estandar": "Matt.9.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.10",
+  "pos_tisch": 12,
   "strong": "G268",
   "forma": "ἁμαρτωλοὶ",
+  "lema": "ἁμαρτωλός",
   "glosa_interlineal": "pecadores",
   "rango_semantico": [
    "pecador",
@@ -337,7 +371,7 @@
   "construccion": "Nominativo plural: «publicanos y pecadores».",
   "sentido_en_contexto": "«Pecadores» designa a los que, para los fariseos, vivían fuera de la observancia de la Ley. Jesús come con ellos, lo que escandaliza.",
   "matiz": "Se discute si «pecadores» son los pecadores abiertos (adúlteros, ladrones) o los que no seguían la Ley según los fariseos (am ha-aretz). Probablemente ambos.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 11:19 — «amigo de publicanos y pecadores»",
@@ -345,9 +379,9 @@
    "Ro 5:8 — «siendo aún pecadores, Cristo murió por nosotros»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Matt.9.10#13",
+  "ref_estandar": "Matt.9.10",
   "morfologia_tagnt": "A-NPM",
   "dstrong": "G0268",
   "strong_tagnt": "G268",
@@ -363,13 +397,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sinful",
-  "ref_estandar": "Matt.9.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.11",
+  "pos_tisch": 15,
   "strong": "G2068",
   "forma": "ἐσθίει",
+  "lema": "ἐσθίω",
   "glosa_interlineal": "come",
   "rango_semantico": [
    "comer",
@@ -378,16 +416,16 @@
   "construccion": "Presente indicativo activo, 3ª singular.",
   "sentido_en_contexto": "Comer con alguien era signo de comunión. Para los fariseos, comer con pecadores era aceptarlos; Jesús lo hace deliberadamente.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 15:2 — paralelo",
    "Gá 2:12 — Pedro dejaba de comer con los gentiles"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Matt.9.11#16",
+  "ref_estandar": "Matt.9.11",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G2068",
   "strong_tagnt": "G2068",
@@ -403,13 +441,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to eat",
-  "ref_estandar": "Matt.9.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.12",
+  "pos_tisch": 10,
   "strong": "G2395",
   "forma": "ἰατροῦ",
+  "lema": "ἰατρός",
   "glosa_interlineal": "médico",
   "rango_semantico": [
    "médico"
@@ -417,7 +459,7 @@
   "construccion": "Genitivo singular, con χρείαν ἔχουσιν: «tienen necesidad de médico».",
   "sentido_en_contexto": "Jesús responde con un proverbio: el médico va donde están los enfermos. Se presenta implícitamente como médico.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 2:17 — paralelo",
@@ -425,9 +467,9 @@
    "Lc 4:23 — «médico, cúrate a ti mismo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Matt.9.12#12",
+  "ref_estandar": "Matt.9.12",
   "morfologia_tagnt": "N-GSM",
   "dstrong": "G2395",
   "strong_tagnt": "G2395",
@@ -443,13 +485,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "physician",
-  "ref_estandar": "Matt.9.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.13",
+  "pos_tisch": 6,
   "strong": "G1656",
   "forma": "ἔλεος",
+  "lema": "ἔλεος",
   "glosa_interlineal": "misericordia",
   "rango_semantico": [
    "misericordia, compasión",
@@ -458,7 +504,7 @@
   "construccion": "Acusativo, objeto de «quiero». Cita Os 6:6.",
   "sentido_en_contexto": "Jesús cita Os 6:6 («misericordia quiero, y no sacrificio») para justificar su trato con pecadores. En Mateo se vuelve a citar en 12:7.",
   "matiz": "En Oseas, jésed es amor leal dentro de una relación de pacto. El griego ἔλεος lo traduce con «misericordia», que pierde algo de ese matiz de lealtad.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Os 6:6 — texto citado",
@@ -466,9 +512,9 @@
    "Mt 23:23 — «dejasteis… la misericordia»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Matt.9.13#06",
+  "ref_estandar": "Matt.9.13",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G1656",
   "strong_tagnt": "G1656",
@@ -484,13 +530,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mercy",
-  "ref_estandar": "Matt.9.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.15",
+  "pos_tisch": 19,
   "strong": "G3566",
   "forma": "νυμφίος",
+  "lema": "νυμφίος",
   "glosa_interlineal": "esposo",
   "rango_semantico": [
    "novio, esposo"
@@ -498,7 +548,7 @@
   "construccion": "Nominativo singular, sujeto de «está».",
   "sentido_en_contexto": "Jesús se llama a sí mismo «el esposo». En el AT, Dios es esposo de Israel (Os 2; Is 62:5). Es una afirmación de identidad implícita.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 3:29 — «el que tiene la esposa es el esposo»",
@@ -506,10 +556,9 @@
    "Is 62:5 — «como el esposo se regocija sobre la esposa»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 19,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.9.15#19",
+  "ref_estandar": "Matt.9.15",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G3566",
   "strong_tagnt": "G3566",
@@ -525,13 +574,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "bridegroom",
-  "ref_estandar": "Matt.9.15"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.15",
+  "pos_tisch": 24,
   "strong": "G522",
   "forma": "ἀπαρθῇ",
+  "lema": "ἀπαίρω",
   "glosa_interlineal": "sea quitado",
   "rango_semantico": [
    "quitar, llevarse"
@@ -539,15 +593,15 @@
   "construccion": "Subjuntivo aoristo pasivo, 3ª singular: «sea quitado». Insinúa muerte violenta.",
   "sentido_en_contexto": "Primera alusión velada de Mateo a la muerte de Jesús. El verbo ἀπαίρω (aquí en pasivo) sugiere que será arrebatado a la fuerza.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 53:8 (LXX) — «su vida es quitada (αἴρεται) de la tierra»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 24,
   "alineacion": "forma",
   "tagnt": "Matt.9.15#24",
+  "ref_estandar": "Matt.9.15",
   "morfologia_tagnt": "V-APS-3S",
   "dstrong": "G0522",
   "strong_tagnt": "G522",
@@ -563,13 +617,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to take away",
-  "ref_estandar": "Matt.9.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.15",
+  "pos_tisch": 28,
   "strong": "G3566",
   "forma": "νυμφίος",
+  "lema": "νυμφίος",
   "glosa_interlineal": "esposo",
   "rango_semantico": [
    "novio, esposo"
@@ -577,7 +635,7 @@
   "construccion": "Nominativo singular, sujeto de «está».",
   "sentido_en_contexto": "Jesús se llama a sí mismo «el esposo». En el AT, Dios es esposo de Israel (Os 2; Is 62:5). Es una afirmación de identidad implícita.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 3:29 — «el que tiene la esposa es el esposo»",
@@ -585,10 +643,9 @@
    "Is 62:5 — «como el esposo se regocija sobre la esposa»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 28,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.9.15#28",
+  "ref_estandar": "Matt.9.15",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G3566",
   "strong_tagnt": "G3566",
@@ -604,13 +661,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "bridegroom",
-  "ref_estandar": "Matt.9.15"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.16",
+  "pos_tisch": 6,
   "strong": "G46",
   "forma": "ἀγνάφου",
+  "lema": "ἄγναφος",
   "glosa_interlineal": "sin abatanar",
   "rango_semantico": [
    "sin tratar, nuevo (sobre la tela)",
@@ -619,16 +681,16 @@
   "construccion": "Genitivo singular, con ῥάκους: «un parche de tela sin abatanar».",
   "sentido_en_contexto": "Tela nueva sin encoger: al lavarse se encoge y rasga el vestido viejo. Imagen de que lo nuevo no se puede remendar sobre lo viejo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 2:21 — paralelo",
    "Lc 5:36 — paralelo"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Matt.9.16#06",
+  "ref_estandar": "Matt.9.16",
   "morfologia_tagnt": "A-GSN",
   "dstrong": "G0046",
   "strong_tagnt": "G46",
@@ -644,13 +706,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unshrunk",
-  "ref_estandar": "Matt.9.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.17",
+  "pos_tisch": 6,
   "strong": "G779",
   "forma": "ἀσκοὺς",
+  "lema": "ἀσκός",
   "glosa_interlineal": "odres",
   "rango_semantico": [
    "odre, bolsa de cuero para líquidos"
@@ -658,7 +724,7 @@
   "construccion": "Acusativo plural: «odres».",
   "sentido_en_contexto": "Odres de piel: los nuevos se estiran con el vino que fermenta; los viejos se rompen. La nueva enseñanza de Jesús necesita nuevas formas.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 2:22 — paralelo",
@@ -666,10 +732,9 @@
    "Jos 9:4 — odres viejos de los gabaonitas"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.9.17#06",
+  "ref_estandar": "Matt.9.17",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G0779",
   "strong_tagnt": "G779",
@@ -685,13 +750,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wineskin",
-  "ref_estandar": "Matt.9.17"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.17",
+  "pos_tisch": 27,
   "strong": "G779",
   "forma": "ἀσκοὺς",
+  "lema": "ἀσκός",
   "glosa_interlineal": "odres",
   "rango_semantico": [
    "odre, bolsa de cuero para líquidos"
@@ -699,7 +769,7 @@
   "construccion": "Acusativo plural: «odres».",
   "sentido_en_contexto": "Odres de piel: los nuevos se estiran con el vino que fermenta; los viejos se rompen. La nueva enseñanza de Jesús necesita nuevas formas.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 2:22 — paralelo",
@@ -707,10 +777,9 @@
    "Jos 9:4 — odres viejos de los gabaonitas"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 27,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.9.17#28",
+  "ref_estandar": "Matt.9.17",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G0779",
   "strong_tagnt": "G779",
@@ -726,13 +795,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wineskin",
-  "ref_estandar": "Matt.9.17"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.18",
+  "pos_tisch": 6,
   "strong": "G758",
   "forma": "ἄρχων",
+  "lema": "ἄρχων",
   "glosa_interlineal": "jefe, autoridad",
   "rango_semantico": [
    "gobernante, dirigente",
@@ -742,16 +816,16 @@
   "construccion": "Nominativo singular: «un jefe».",
   "sentido_en_contexto": "Marcos y Lucas lo identifican como Jairo, jefe de la sinagoga; Mateo dice solo «un jefe». Mateo condensa el relato para centrarse en la fe.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 5:22 — «Jairo, uno de los principales de la sinagoga»",
    "Lc 8:41 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Matt.9.18#06",
+  "ref_estandar": "Matt.9.18",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G0758",
   "strong_tagnt": "G758",
@@ -767,13 +841,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "ruler",
-  "ref_estandar": "Matt.9.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.20",
+  "pos_tisch": 4,
   "strong": "G131",
   "forma": "αἱμορροοῦσα",
+  "lema": "αἱμοῤῥέω",
   "glosa_interlineal": "con flujo de sangre",
   "rango_semantico": [
    "sufrir hemorragia"
@@ -781,7 +859,7 @@
   "construccion": "Participio presente activo: «que sufría de un flujo de sangre».",
   "sentido_en_contexto": "Según Lv 15:25, una mujer con flujo crónico estaba ritualmente impura y aislada. Su toque a Jesús es un gesto atrevido de fe.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lv 15:25 — normas de pureza",
@@ -789,9 +867,9 @@
    "Lc 8:43 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Matt.9.20#04",
+  "ref_estandar": "Matt.9.20",
   "morfologia_tagnt": "V-PAP-NSF",
   "dstrong": "G0131",
   "strong_tagnt": "G131",
@@ -807,13 +885,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to bleed",
-  "ref_estandar": "Matt.9.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.20",
+  "pos_tisch": 11,
   "strong": "G2899",
   "forma": "κρασπέδου",
+  "lema": "κράσπεδον",
   "glosa_interlineal": "borde del manto",
   "rango_semantico": [
    "borde, orla",
@@ -822,7 +904,7 @@
   "construccion": "Genitivo singular: «la orla de su manto».",
   "sentido_en_contexto": "Los varones judíos llevaban borlas (tzitzit) en el borde del manto (Nm 15:38). La mujer toca esa orla con fe.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Nm 15:38 — borlas",
@@ -830,9 +912,9 @@
    "Mt 23:5 — «alargan los flecos de sus mantos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Matt.9.20#11",
+  "ref_estandar": "Matt.9.20",
   "morfologia_tagnt": "N-GSN",
   "dstrong": "G2899",
   "strong_tagnt": "G2899",
@@ -848,13 +930,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "edge",
-  "ref_estandar": "Matt.9.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.22",
+  "pos_tisch": 13,
   "strong": "G4982",
   "forma": "σέσωκέν",
+  "lema": "σώζω",
   "glosa_interlineal": "te ha salvado",
   "rango_semantico": [
    "salvar, rescatar",
@@ -863,7 +949,7 @@
   "construccion": "Perfecto indicativo activo, 3ª singular: «te ha salvado (y estás salva)». El perfecto indica efecto permanente.",
   "sentido_en_contexto": "σώζω combina sanar y salvar. Jesús dice que su fe la ha «salvado»: sanación física y restauración como persona.",
   "matiz": "Debate: ¿solo curación física o también salvación espiritual? Mateo conecta ambos aspectos, sin separar claramente.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 10:52 — «tu fe te ha salvado» (al ciego Bartimeo)",
@@ -871,10 +957,9 @@
    "Lc 17:19 — «tu fe te ha salvado»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 13,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Matt.9.22#14",
+  "ref_estandar": "Matt.9.22",
   "morfologia_tagnt": "V-RAI-3S",
   "dstrong": "G4982",
   "strong_tagnt": "G4982",
@@ -890,13 +975,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to save",
-  "ref_estandar": "Matt.9.22"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.24",
+  "pos_tisch": 8,
   "strong": "G2518",
   "forma": "καθεύδει",
+  "lema": "καθεύδω",
   "glosa_interlineal": "duerme",
   "rango_semantico": [
    "dormir",
@@ -905,7 +995,7 @@
   "construccion": "Presente indicativo activo, 3ª singular.",
   "sentido_en_contexto": "Jesús dice que la niña «duerme»: lenguaje de esperanza (la muerte no es definitiva). Los presentes se burlan porque saben que está muerta.",
   "matiz": "Se discute si Jesús afirma que realmente solo dormía (no estaba muerta) o usa «dormir» como eufemismo para una muerte que revertirá. El relato presenta una resurrección.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 11:11 — «Lázaro duerme»",
@@ -913,9 +1003,9 @@
    "Mr 5:39 — paralelo"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Matt.9.24#10",
+  "ref_estandar": "Matt.9.24",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G2518",
   "strong_tagnt": "G2518",
@@ -931,13 +1021,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to sleep",
-  "ref_estandar": "Matt.9.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.27",
+  "pos_tisch": 13,
   "strong": "G1653",
   "forma": "ἐλέησον",
+  "lema": "ἐλεέω",
   "glosa_interlineal": "ten misericordia",
   "rango_semantico": [
    "tener misericordia, compadecerse"
@@ -945,7 +1039,7 @@
   "construccion": "Imperativo aoristo activo, 2ª singular: súplica.",
   "sentido_en_contexto": "Grito de los ciegos: reconocen en Jesús al Hijo de David y piden compasión. Es una petición de sanación, no solo de dinero o limosna.",
   "matiz": "«Hijo de David» es título mesiánico: los ciegos, que no ven, lo reconocen antes que los que ven.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 15:22 — la cananea: «ten misericordia de mí, Señor, Hijo de David»",
@@ -953,9 +1047,9 @@
    "Lc 18:38 — Bartimeo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Matt.9.27#13",
+  "ref_estandar": "Matt.9.27",
   "morfologia_tagnt": "V-AAM-2S",
   "dstrong": "G1653",
   "strong_tagnt": "G1653",
@@ -971,13 +1065,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to have mercy",
-  "ref_estandar": "Matt.9.27"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.29",
+  "pos_tisch": 9,
   "strong": "G4102",
   "forma": "πίστιν",
+  "lema": "πίστις",
   "glosa_interlineal": "fe",
   "rango_semantico": [
    "fe, confianza"
@@ -985,16 +1083,16 @@
   "construccion": "κατὰ + acusativo: «según vuestra fe».",
   "sentido_en_contexto": "La medida del milagro es la fe: «conforme a vuestra fe». No dice que la fe obligue a Dios, sino que la confianza abre la puerta a su poder.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 8:13 — «como creíste, te sea hecho»",
    "Mt 13:58 — «no hizo allí muchos milagros por la incredulidad de ellos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Matt.9.29#09",
+  "ref_estandar": "Matt.9.29",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G4102G",
   "strong_tagnt": "G4102",
@@ -1010,13 +1108,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "faith",
-  "ref_estandar": "Matt.9.29"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.30",
+  "pos_tisch": 7,
   "strong": "G1690",
   "forma": "ἐνεβριμήθη",
+  "lema": "ἐμβριμάομαι",
   "glosa_interlineal": "les ordenó severamente",
   "rango_semantico": [
    "advertir con severidad, regañar",
@@ -1025,16 +1127,16 @@
   "construccion": "Aoristo indicativo pasivo (deponente), 3ª singular.",
   "sentido_en_contexto": "Verbo fuerte: Jesús les prohíbe contar el milagro con tono severo. Los ciegos desobedecen (v.31).",
   "matiz": "Se discute por qué Jesús pide silencio (evitar un malentendido mesiánico, o no ser reducido a sanador). Es el llamado «secreto mesiánico», tema debatido.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 1:43 — «le encargó rigurosamente»",
    "Jn 11:33 — «se estremeció en espíritu»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Matt.9.30#07",
+  "ref_estandar": "Matt.9.30",
   "morfologia_tagnt": "V-AOI-3S",
   "dstrong": "G1690",
   "strong_tagnt": "G1690",
@@ -1051,13 +1153,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "be agitated",
-  "ref_estandar": "Matt.9.30"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.36",
+  "pos_tisch": 5,
   "strong": "G4697",
   "forma": "ἐσπλαγχνίσθη",
+  "lema": "σπλαγχνίζομαι",
   "glosa_interlineal": "tuvo compasión",
   "rango_semantico": [
    "compadecerse profundamente",
@@ -1066,7 +1172,7 @@
   "construccion": "Aoristo indicativo pasivo (deponente), 3ª singular.",
   "sentido_en_contexto": "σπλάγχνα son las entrañas: Mateo describe una compasión visceral. Es el motivo habitual de los milagros de Jesús en Mateo (14:14; 15:32; 20:34).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 14:14 — «tuvo compasión de ellos, y sanó a sus enfermos»",
@@ -1074,9 +1180,9 @@
    "Lc 15:20 — el padre del hijo pródigo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Matt.9.36#05",
+  "ref_estandar": "Matt.9.36",
   "morfologia_tagnt": "V-AOI-3S",
   "dstrong": "G4697",
   "strong_tagnt": "G4697",
@@ -1092,13 +1198,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pity",
-  "ref_estandar": "Matt.9.36"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.36",
+  "pos_tisch": 17,
   "strong": "G4166",
   "forma": "ποιμένα",
+  "lema": "ποιμήν",
   "glosa_interlineal": "pastor",
   "rango_semantico": [
    "pastor",
@@ -1107,7 +1217,7 @@
   "construccion": "Acusativo singular: «sin pastor».",
   "sentido_en_contexto": "Imagen del AT (Nm 27:17; Ez 34): el pueblo sin líderes fieles está perdido. Jesús es el Pastor prometido.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Nm 27:17 — «como ovejas sin pastor»",
@@ -1115,9 +1225,9 @@
    "Jn 10:11 — «yo soy el buen pastor»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "Matt.9.36#17",
+  "ref_estandar": "Matt.9.36",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G4166",
   "strong_tagnt": "G4166",
@@ -1133,13 +1243,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "shepherd",
-  "ref_estandar": "Matt.9.36"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.37",
+  "pos_tisch": 8,
   "strong": "G2326",
   "forma": "θερισμὸς",
+  "lema": "θερισμός",
   "glosa_interlineal": "mies",
   "rango_semantico": [
    "cosecha, siega",
@@ -1148,7 +1262,7 @@
   "construccion": "Nominativo singular: «la cosecha».",
   "sentido_en_contexto": "Imagen del tiempo del juicio y la reunión escatológica. La cosecha es abundante pero los trabajadores, pocos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 4:35 — «alzad vuestros ojos, y mirad los campos, porque ya están blancos para la siega»",
@@ -1156,9 +1270,9 @@
    "Lc 10:2 — paralelo"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Matt.9.37#08",
+  "ref_estandar": "Matt.9.37",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G2326",
   "strong_tagnt": "G2326",
@@ -1174,13 +1288,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "harvest",
-  "ref_estandar": "Matt.9.37"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Matt.9.38",
+  "pos_tisch": 1,
   "strong": "G1189",
   "forma": "δεήθητε",
+  "lema": "δέομαι",
   "glosa_interlineal": "rogad",
   "rango_semantico": [
    "rogar, suplicar",
@@ -1189,7 +1307,7 @@
   "construccion": "Imperativo aoristo pasivo (deponente), 2ª plural.",
   "sentido_en_contexto": "Orden de orar: los discípulos deben pedir al Señor que envíe obreros. En el capítulo siguiente, ellos mismos serán enviados (10:1).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 10:2 — paralelo",
@@ -1197,9 +1315,9 @@
    "Hch 13:2-3 — la iglesia envía a Pablo y Bernabé"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "Matt.9.38#01",
+  "ref_estandar": "Matt.9.38",
   "morfologia_tagnt": "V-AOM-2P",
   "dstrong": "G1189",
   "strong_tagnt": "G1189",
@@ -1215,7 +1333,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to pray",
-  "ref_estandar": "Matt.9.38"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

@@ -1,8 +1,10 @@
 [
  {
   "ref": "Rev.7.1",
+  "pos_tisch": 17,
   "strong": "G417",
   "forma": "ἀνέμους",
+  "lema": "ἄνεμος",
   "glosa_interlineal": "vientos",
   "rango_semantico": [
    "viento"
@@ -10,7 +12,7 @@
   "construccion": "Acusativo plural: «después de esto vi cuatro ángeles en pie sobre los cuatro ángulos de la tierra, que detenían los cuatro vientos de la tierra, para que no soplase viento alguno sobre la tierra, ni sobre el mar, ni sobre ningún árbol».",
   "sentido_en_contexto": "Interludio entre el sexto y séptimo sello (cap. 7): los vientos del juicio son contenidos mientras se sella a los siervos de Dios. «Cuatro ángulos de la tierra»: lenguaje cosmológico del mundo plano; indican universalidad. Los «cuatro vientos» como agentes de destrucción (Jer 49:36; Dn 7:2). Primer interludio: protección de la iglesia antes del juicio.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jer 49:36",
@@ -19,10 +21,9 @@
    "Ap 9:14"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 17,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Rev.7.1#17",
+  "ref_estandar": "Rev.7.1",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G0417",
   "strong_tagnt": "G417",
@@ -38,13 +39,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "wind",
-  "ref_estandar": "Rev.7.1"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.7.3",
+  "pos_tisch": 13,
   "strong": "G4972",
   "forma": "σφραγίσωμεν",
+  "lema": "σφραγίζω",
   "glosa_interlineal": "sellemos",
   "rango_semantico": [
    "sellar, marcar con sello"
@@ -52,7 +58,7 @@
   "construccion": "Aoristo subjuntivo activo: «diciendo: No hagáis daño a la tierra, ni al mar, ni a los árboles, hasta que hayamos sellado en sus frentes a los siervos de nuestro Dios».",
   "sentido_en_contexto": "El sello (σφραγίς) en la frente: marca de propiedad y protección (Ez 9:4-6; Éx 12:7, 13), que contrasta con la marca de la Bestia (13:16-17). Los sellados son «siervos de nuestro Dios». En 14:1 aparece el nombre del Cordero y del Padre en sus frentes; en 22:4, el nombre de Dios en las frentes de los redimidos. No es protección contra la muerte física (6:9-11), sino contra la ira y la apostasía.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ez 9:4-6",
@@ -61,9 +67,9 @@
    "Ef 1:13"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Rev.7.3#14",
+  "ref_estandar": "Rev.7.3",
   "morfologia_tagnt": "V-AAS-1P",
   "dstrong": "G4972",
   "strong_tagnt": "G4972",
@@ -80,13 +86,17 @@
    "TR"
   ],
   "variante": true,
-  "glosa_tagnt": "to seal",
-  "ref_estandar": "Rev.7.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.7.4",
+  "pos_tisch": 10,
   "strong": "G5505",
   "forma": "χιλιάδες",
+  "lema": "χιλιάς",
   "glosa_interlineal": "millares",
   "rango_semantico": [
    "millar, mil"
@@ -94,7 +104,7 @@
   "construccion": "Nominativo plural: «y oí el número de los sellados: ciento cuarenta y cuatro mil sellados de todas las tribus de los hijos de Israel».",
   "sentido_en_contexto": "Los 144.000 (12 × 12 × 1.000): lista de doce tribus con 12.000 cada una, con alteraciones (se omite Dan y Efraín; Leví se incluye; Manasés aparece; José y Benjamín). Uno de los pasajes más debatidos: ¿Israel étnico o el nuevo Israel (la iglesia)? Juan «oye» el número, pero «ve» (7:9) una multitud incontable: ¿dos grupos o una misma realidad (patrón de 5:5-6: oído león, visto cordero)?",
   "matiz": "Debate sobre los 144.000: (a) la iglesia entera como el nuevo Israel (amilenialismo, la mayoría; el número simbólico 12×12×1000; patrón oír/ver de 5:5-6; Gá 6:16); (b) judíos creyentes de la tribulación, evangelistas (dispensacionalismo); (c) judíos étnicos que se salvan (Ro 11:25-26); (d) mártires o virgen-guerreros (14:1-5, lectura de guerra santa). Ver también 14:1-5.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ap 14:1-5",
@@ -103,9 +113,9 @@
    "Ez 48:30-35"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Rev.7.4#11",
+  "ref_estandar": "Rev.7.4",
   "morfologia_tagnt": "N-NPF",
   "dstrong": "G5505",
   "strong_tagnt": "G5505",
@@ -121,13 +131,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "thousand",
-  "ref_estandar": "Rev.7.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.7.9",
+  "pos_tisch": 6,
   "strong": "G3793",
   "forma": "ὄχλος",
+  "lema": "ὄχλος",
   "glosa_interlineal": "multitud",
   "rango_semantico": [
    "multitud, muchedumbre"
@@ -135,7 +149,7 @@
   "construccion": "Nominativo: «después de esto miré, y he aquí una gran multitud, la cual nadie podía contar, de todas naciones y tribus y pueblos y lenguas, que estaban delante del trono y en la presencia del Cordero, vestidos de ropas blancas, y con palmas en las manos».",
   "sentido_en_contexto": "Contraste con el número contado de 7:4: una multitud innumerable de toda nación (cumplimiento de la promesa a Abraham, Gn 15:5; 22:17-18). Palmas (fiesta de los Tabernáculos; entrada triunfal; victoria), vestidos blancos. Cumple la fórmula de 5:9 (redimidos de toda tribu). Muchos exégetas ven aquí la visión de la misma iglesia en la gloria (cielo, no tierra).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 15:5; 22:17-18",
@@ -144,9 +158,9 @@
    "Lv 23:40"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Rev.7.9#06",
+  "ref_estandar": "Rev.7.9",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G3793",
   "strong_tagnt": "G3793",
@@ -162,13 +176,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "crowd",
-  "ref_estandar": "Rev.7.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.7.10",
+  "pos_tisch": 7,
   "strong": "G4991",
   "forma": "σωτηρία",
+  "lema": "σωτηρία",
   "glosa_interlineal": "salvación",
   "rango_semantico": [
    "salvación, victoria"
@@ -176,7 +194,7 @@
   "construccion": "Nominativo: «y clamaban a gran voz, diciendo: La salvación pertenece a nuestro Dios que está sentado en el trono, y al Cordero».",
   "sentido_en_contexto": "Aclamación: la salvación (σωτηρία: liberación, victoria) viene de Dios y del Cordero (atribución conjunta: «sea la salvación a nuestro Dios… y al Cordero»). Los redimidos reconocen su salvación como don, no como logro. Cf. Sal 3:8; Jon 2:9.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 3:8",
@@ -185,9 +203,9 @@
    "Is 45:22"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Rev.7.10#07",
+  "ref_estandar": "Rev.7.10",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G4991",
   "strong_tagnt": "G4991",
@@ -203,13 +221,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "salvation",
-  "ref_estandar": "Rev.7.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.7.14",
+  "pos_tisch": 21,
   "strong": "G4150",
   "forma": "ἔπλυναν",
+  "lema": "πλύνω",
   "glosa_interlineal": "lavaron",
   "rango_semantico": [
    "lavar"
@@ -217,7 +239,7 @@
   "construccion": "Aoristo indicativo activo: «yo le dije: Señor, tú lo sabes. Y él me dijo: Estos son los que han salido de la gran tribulación, y han lavado sus ropas, y las han emblanquecido en la sangre del Cordero».",
   "sentido_en_contexto": "«La gran tribulación» (ἡ θλῖψις ἡ μεγάλη): se discute si es un periodo final de angustia (Dn 12:1; Mt 24:21) o toda la tribulación de la era de la iglesia. «Salen» (ἐρχόμενοι, participio presente: «los que vienen»): acción en proceso. Lavar las vestiduras en la sangre del Cordero: paradoja de que la sangre blanquea: purificación (cf. 1:5; 12:11).",
   "matiz": "Debate sobre «la gran tribulación»: (a) un periodo específico del final de los tiempos (futurismo; dispensacionalismo: tribulación de 7 años); (b) la tribulación de toda la era presente, desde la resurrección hasta la parusía (amilenialismo, Beale); (c) la persecución de la iglesia bajo Roma (preterismo). El participio presente apunta a flujo continuo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dn 12:1",
@@ -227,9 +249,9 @@
    "1 Jn 1:7"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 21,
   "alineacion": "forma",
   "tagnt": "Rev.7.14#21",
+  "ref_estandar": "Rev.7.14",
   "morfologia_tagnt": "V-AAI-3P",
   "dstrong": "G4150",
   "strong_tagnt": "G4150",
@@ -245,13 +267,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to wash",
-  "ref_estandar": "Rev.7.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.7.15",
+  "pos_tisch": 10,
   "strong": "G3000",
   "forma": "λατρεύουσιν",
+  "lema": "λατρεύω",
   "glosa_interlineal": "sirven",
   "rango_semantico": [
    "servir, rendir culto"
@@ -259,7 +285,7 @@
   "construccion": "Presente indicativo activo: «por esto están delante del trono de Dios, y le sirven día y noche en su templo; y el que está sentado sobre el trono extenderá su tabernáculo sobre ellos».",
   "sentido_en_contexto": "Los redimidos sirven (λατρεύω: culto sacerdotal) «día y noche» en el templo de Dios, y Dios «extenderá su tienda» (σκηνώσει) sobre ellos: la presencia de Dios (shekiná; cf. Jn 1:14; Ap 21:3). Cumplimiento de Is 4:5-6; 25:8; 49:10; Ez 37:27. Preparación de la imagen de 21:3.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 4:5-6",
@@ -268,9 +294,9 @@
    "Jn 1:14"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Rev.7.15#10",
+  "ref_estandar": "Rev.7.15",
   "morfologia_tagnt": "V-PAI-3P",
   "dstrong": "G3000",
   "strong_tagnt": "G3000",
@@ -286,13 +312,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to minister",
-  "ref_estandar": "Rev.7.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.7.17",
+  "pos_tisch": 9,
   "strong": "G4165",
   "forma": "ποιμανεῖ",
+  "lema": "ποιμαίνω",
   "glosa_interlineal": "pastoreará",
   "rango_semantico": [
    "pastorear, apacentar"
@@ -300,7 +330,7 @@
   "construccion": "Futuro indicativo activo: «porque el Cordero que está en medio del trono los pastoreará, y los guiará a fuentes de aguas de vida; y Dios enjugará toda lágrima de los ojos de ellos».",
   "sentido_en_contexto": "Paradoja gloriosa: el Cordero es Pastor (ποιμαίνω), y está «en medio del trono». Guía a «fuentes de aguas de vida» (Sal 23:2; Is 49:10; Jn 4:14; Ap 21:6; 22:1). «Enjugará toda lágrima» (Is 25:8): reaparece en 21:4. Cierra el interludio con consuelo: la multitud sale de la tribulación a la consolación.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 23:1-2",
@@ -309,9 +339,9 @@
    "Ap 21:4"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Rev.7.17#09",
+  "ref_estandar": "Rev.7.17",
   "morfologia_tagnt": "V-FAI-3S",
   "dstrong": "G4165",
   "strong_tagnt": "G4165",
@@ -328,7 +358,9 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to shepherd",
-  "ref_estandar": "Rev.7.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

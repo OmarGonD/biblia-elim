@@ -1,8 +1,10 @@
 [
  {
   "ref": "1John.2.1",
+  "pos_tisch": 13,
   "strong": "G3875",
   "forma": "παράκλητον",
+  "lema": "παράκλητος",
   "glosa_interlineal": "abogado",
   "rango_semantico": [
    "abogado, consolador, intercesor"
@@ -10,7 +12,7 @@
   "construccion": "Acusativo: «hijitos míos, estas cosas os escribo para que no pequéis; y si alguno hubiere pecado, abogado tenemos para con el Padre, a Jesucristo el justo».",
   "sentido_en_contexto": "Cristo es nuestro «paráclito» (abogado defensor) ante el Padre. En el evangelio de Juan, παράκλητος también se aplica al Espíritu Santo (Jn 14:16, 26; 15:26; 16:7). El propósito de la carta es que no pequen; pero hay remedio si lo hacen.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 14:16",
@@ -19,9 +21,9 @@
    "Is 53:12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "1John.2.1#13",
+  "ref_estandar": "1John.2.1",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G3875",
   "strong_tagnt": "G3875",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "counsellor",
-  "ref_estandar": "1John.2.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.2.2",
+  "pos_tisch": 3,
   "strong": "G2434",
   "forma": "ἱλασμός",
+  "lema": "ἱλασμός",
   "glosa_interlineal": "propiciación",
   "rango_semantico": [
    "propiciación, expiación"
@@ -51,7 +57,7 @@
   "construccion": "Nominativo: «y él es la propiciación por nuestros pecados; y no solamente por los nuestros, sino también por los de todo el mundo».",
   "sentido_en_contexto": "Cristo es la propiciación/expiación (ἱλασμός) por nuestros pecados y «por los de todo el mundo». Se debate el alcance de «todo el mundo»: universal o de todos los pueblos (judíos y gentiles). Sobre propiciación y expiación, ver Heb 2:17.",
   "matiz": "Debate sobre «todo el mundo»: (a) la expiación es universal en suficiencia (arminiana, luterana, católica, muchos bautistas); (b) «el mundo» = creyentes de todas las naciones, no solo judíos (reformada particularista); (c) propiciación suficiente para todos, aplicada a los que creen. Sobre ἱλασμός: propiciación (aplacar la ira) o expiación (borrar el pecado): ver Heb 2:17.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 3:25",
@@ -60,9 +66,9 @@
    "Jn 1:29; 3:16"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "1John.2.2#03",
+  "ref_estandar": "1John.2.2",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G2434",
   "strong_tagnt": "G2434",
@@ -78,13 +84,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "propitiation",
-  "ref_estandar": "1John.2.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.2.3",
+  "pos_tisch": 4,
   "strong": "G1097",
   "forma": "γινώσκομεν",
+  "lema": "γινώσκω",
   "glosa_interlineal": "conocemos",
   "rango_semantico": [
    "conocer, saber"
@@ -92,7 +102,7 @@
   "construccion": "Presente indicativo activo: «y en esto sabemos que nosotros le conocemos, si guardamos sus mandamientos».",
   "sentido_en_contexto": "Primera de las pruebas de la vida cristiana: guardar sus mandamientos (obediencia), amar a los hermanos, creer en Jesús como el Cristo, y poseer el Espíritu. Conocer a Dios se demuestra en obediencia y amor, no en afirmaciones. Pruebas para tener «seguridad» (5:13).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 14:15, 21",
@@ -100,10 +110,9 @@
    "Mt 7:21"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1John.2.3#04",
+  "ref_estandar": "1John.2.3",
   "morfologia_tagnt": "V-PAI-1P",
   "dstrong": "G1097",
   "strong_tagnt": "G1097",
@@ -119,13 +128,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to know",
-  "ref_estandar": "1John.2.3"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.2.6",
+  "pos_tisch": 5,
   "strong": "G3306",
   "forma": "μένειν",
+  "lema": "μένω",
   "glosa_interlineal": "permanecer",
   "rango_semantico": [
    "permanecer, morar"
@@ -133,7 +147,7 @@
   "construccion": "Presente infinitivo activo: «el que dice que permanece en él, debe andar como él anduvo».",
   "sentido_en_contexto": "μένω («permanecer») es palabra clave en Juan (24 veces en 1 Jn): permanecer en Cristo, en la luz, en el amor. La comunión se manifiesta en andar como Jesús anduvo.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 15:4-10",
@@ -141,9 +155,9 @@
    "1 P 2:21"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "1John.2.6#05",
+  "ref_estandar": "1John.2.6",
   "morfologia_tagnt": "V-PAN",
   "dstrong": "G3306",
   "strong_tagnt": "G3306",
@@ -159,13 +173,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to stay",
-  "ref_estandar": "1John.2.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.2.7",
+  "pos_tisch": 4,
   "strong": "G2537",
   "forma": "καινὴν",
+  "lema": "καινός",
   "glosa_interlineal": "nuevo",
   "rango_semantico": [
    "nuevo, renovado"
@@ -173,7 +191,7 @@
   "construccion": "Acusativo: «hermanos, no os escribo un mandamiento nuevo, sino el mandamiento antiguo que habéis tenido desde el principio; este mandamiento antiguo es la palabra que habéis oído desde el principio».",
   "sentido_en_contexto": "El mandamiento del amor es a la vez antiguo (Lv 19:18; lo oyeron desde el comienzo) y nuevo (Jn 13:34: «como yo os he amado»), porque con Cristo adquiere una medida nueva. Juan juega con la paradoja (vv.7-8).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 13:34",
@@ -182,9 +200,9 @@
    "2 Jn 5"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "1John.2.7#04",
+  "ref_estandar": "1John.2.7",
   "morfologia_tagnt": "A-ASF",
   "dstrong": "G2537",
   "strong_tagnt": "G2537",
@@ -200,13 +218,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "new",
-  "ref_estandar": "1John.2.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.2.9",
+  "pos_tisch": 11,
   "strong": "G3404",
   "forma": "μισῶν",
+  "lema": "μισέω",
   "glosa_interlineal": "aborrece",
   "rango_semantico": [
    "odiar, aborrecer"
@@ -214,7 +236,7 @@
   "construccion": "Participio presente activo: «el que dice que está en la luz, y aborrece a su hermano, está todavía en tinieblas».",
   "sentido_en_contexto": "Odiar al hermano es incompatible con andar en la luz. Para Juan, el «hermano» designa al creyente; la ética joánica es comunitaria. Se discute si el amor se extiende a todos (cf. Mt 5:44; Lc 6:27), aunque en Juan el foco es el amor entre creyentes.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Jn 3:15; 4:20",
@@ -222,9 +244,9 @@
    "Mt 5:44"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "1John.2.9#11",
+  "ref_estandar": "1John.2.9",
   "morfologia_tagnt": "V-PAP-NSM",
   "dstrong": "G3404",
   "strong_tagnt": "G3404",
@@ -240,13 +262,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to hate",
-  "ref_estandar": "1John.2.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.2.12",
+  "pos_tisch": 3,
   "strong": "G5040",
   "forma": "τεκνία",
+  "lema": "τεκνίον",
   "glosa_interlineal": "hijitos",
   "rango_semantico": [
    "hijito, niño"
@@ -254,7 +280,7 @@
   "construccion": "Vocativo plural: «os escribo a vosotros, hijitos, porque vuestros pecados os han sido perdonados por su nombre».",
   "sentido_en_contexto": "Juan se dirige a tres grupos: hijitos (todos los creyentes, o los recién convertidos), padres (conocen al Eterno) y jóvenes (han vencido al maligno) (vv.12-14). Las divisiones pueden ser por edad espiritual o retórica poética. «Perdonados por su nombre»: base de la comunión.",
   "matiz": "Debate: «hijitos, padres, jóvenes»: (a) grados de madurez espiritual (la mayoría); (b) todos los creyentes mencionados bajo diferentes apelativos (v.1, 12, 28; 3:7); (c) edades literales de la comunidad.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Jn 2:1, 28",
@@ -262,9 +288,9 @@
    "Heb 5:11-14"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "1John.2.12#03",
+  "ref_estandar": "1John.2.12",
   "morfologia_tagnt": "N-VPN",
   "dstrong": "G5040",
   "strong_tagnt": "G5040",
@@ -280,13 +306,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "children",
-  "ref_estandar": "1John.2.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.2.15",
+  "pos_tisch": 4,
   "strong": "G2889",
   "forma": "κόσμον",
+  "lema": "κόσμος",
   "glosa_interlineal": "mundo",
   "rango_semantico": [
    "mundo (sistema opuesto a Dios)"
@@ -294,7 +324,7 @@
   "construccion": "Acusativo: «no améis al mundo, ni las cosas que están en el mundo. Si alguno ama al mundo, el amor del Padre no está en él».",
   "sentido_en_contexto": "«El mundo» (κόσμος) aquí es el sistema de valores contrario a Dios, no la creación ni las personas (Dios ama al mundo: Jn 3:16). Tres componentes: deseo de la carne, de los ojos y la vanagloria de la vida (v.16). Lo mundano pasa, y quien hace la voluntad de Dios permanece (v.17).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jas 4:4",
@@ -303,10 +333,9 @@
    "Gn 3:6"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1John.2.15#04",
+  "ref_estandar": "1John.2.15",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G2889",
   "strong_tagnt": "G2889",
@@ -322,13 +351,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "world",
-  "ref_estandar": "1John.2.15"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.2.15",
+  "pos_tisch": 14,
   "strong": "G2889",
   "forma": "κόσμον",
+  "lema": "κόσμος",
   "glosa_interlineal": "mundo",
   "rango_semantico": [
    "mundo (sistema opuesto a Dios)"
@@ -336,7 +370,7 @@
   "construccion": "Acusativo: «no améis al mundo, ni las cosas que están en el mundo. Si alguno ama al mundo, el amor del Padre no está en él».",
   "sentido_en_contexto": "«El mundo» (κόσμος) aquí es el sistema de valores contrario a Dios, no la creación ni las personas (Dios ama al mundo: Jn 3:16). Tres componentes: deseo de la carne, de los ojos y la vanagloria de la vida (v.16). Lo mundano pasa, y quien hace la voluntad de Dios permanece (v.17).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jas 4:4",
@@ -345,10 +379,9 @@
    "Gn 3:6"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1John.2.15#14",
+  "ref_estandar": "1John.2.15",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G2889",
   "strong_tagnt": "G2889",
@@ -364,13 +397,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "world",
-  "ref_estandar": "1John.2.15"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.2.16",
+  "pos_tisch": 8,
   "strong": "G1939",
   "forma": "ἐπιθυμία",
+  "lema": "ἐπιθυμία",
   "glosa_interlineal": "deseo",
   "rango_semantico": [
    "deseo, anhelo"
@@ -378,7 +416,7 @@
   "construccion": "Nominativo: «porque todo lo que hay en el mundo, los deseos de la carne, los deseos de los ojos, y la vanagloria de la vida, no proviene del Padre, sino del mundo».",
   "sentido_en_contexto": "Tríada de lo «mundano»: deseo de la carne (apetitos), deseo de los ojos (codicia) y orgullo de la vida (ostentación). Muchos intérpretes la relacionan con Gn 3:6 y con las tentaciones de Jesús (Mt 4). Descripción del sistema opuesto al Padre.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 3:6",
@@ -387,10 +425,9 @@
    "Jas 4:1-4"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1John.2.16#08",
+  "ref_estandar": "1John.2.16",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G1939",
   "strong_tagnt": "G1939",
@@ -406,13 +443,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "desire",
-  "ref_estandar": "1John.2.16"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.2.16",
+  "pos_tisch": 13,
   "strong": "G1939",
   "forma": "ἐπιθυμία",
+  "lema": "ἐπιθυμία",
   "glosa_interlineal": "deseo",
   "rango_semantico": [
    "deseo, anhelo"
@@ -420,7 +462,7 @@
   "construccion": "Nominativo: «porque todo lo que hay en el mundo, los deseos de la carne, los deseos de los ojos, y la vanagloria de la vida, no proviene del Padre, sino del mundo».",
   "sentido_en_contexto": "Tríada de lo «mundano»: deseo de la carne (apetitos), deseo de los ojos (codicia) y orgullo de la vida (ostentación). Muchos intérpretes la relacionan con Gn 3:6 y con las tentaciones de Jesús (Mt 4). Descripción del sistema opuesto al Padre.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gn 3:6",
@@ -429,10 +471,9 @@
    "Jas 4:1-4"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1John.2.16#13",
+  "ref_estandar": "1John.2.16",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G1939",
   "strong_tagnt": "G1939",
@@ -448,13 +489,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "desire",
-  "ref_estandar": "1John.2.16"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.2.18",
+  "pos_tisch": 9,
   "strong": "G500",
   "forma": "ἀντίχριστος",
+  "lema": "ἀντίχριστος",
   "glosa_interlineal": "anticristo",
   "rango_semantico": [
    "anticristo, opositor de Cristo"
@@ -462,7 +508,7 @@
   "construccion": "Nominativo: «hijitos, ya es el último tiempo; y según vosotros oísteis que el anticristo viene, así ahora han surgido muchos anticristos; por esto conocemos que es el último tiempo».",
   "sentido_en_contexto": "Único autor del NT que usa el término «anticristo» (1 Jn 2:18, 22; 4:3; 2 Jn 7). Para Juan, «anticristo» es una realidad presente: los que niegan que Jesús es el Cristo y que vino en carne, los falsos maestros que salieron de la comunidad (v.19). La figura futura del «hombre de pecado» (2 Ts 2) se relaciona con ello, aunque Juan no usa esa imagen.",
   "matiz": "Debate: (a) «el anticristo» designa un individuo futuro escatológico, del que los falsos maestros son precursores (muchas tradiciones; dispensacionalismo); (b) el término designa una tendencia o espíritu de oposición a Cristo, presente en muchos (Juan; la mayoría de exégetas); (c) una institución (reforma: el papado; hoy minoritaria). Juan usa tanto singular como plural.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Jn 2:22; 4:3",
@@ -471,10 +517,9 @@
    "Mt 24:24"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1John.2.18#10",
+  "ref_estandar": "1John.2.18",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G0500",
   "strong_tagnt": "G500",
@@ -490,13 +535,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "antichrist",
-  "ref_estandar": "1John.2.18"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.2.19",
+  "pos_tisch": 3,
   "strong": "G1831",
   "forma": "ἐξῆλθαν",
+  "lema": "ἐξέρχομαι",
   "glosa_interlineal": "salieron",
   "rango_semantico": [
    "salir, irse"
@@ -504,7 +554,7 @@
   "construccion": "Aoristo indicativo activo: «salieron de nosotros, pero no eran de nosotros; porque si hubiesen sido de nosotros, habrían permanecido con nosotros; pero salieron para que se manifestase que no todos son de nosotros».",
   "sentido_en_contexto": "Texto clave sobre la apostasía y la perseverancia: quienes abandonaron la comunidad nunca fueron «de nosotros» realmente. Usado por la tradición reformada para sostener que los verdaderos creyentes perseveran. Otras tradiciones lo ven como descripción de estos falsos maestros específicos, sin establecer una regla general.",
   "matiz": "Debate: (a) los apóstatas nunca fueron verdaderos creyentes: su salida lo revela (reformada: perseverancia de los santos); (b) se refiere a un grupo específico de falsos maestros (no a toda apostasía); (c) puede haber creyentes verdaderos que apostatan (arminiana, católica; ver Heb 6).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Heb 6:4-6",
@@ -513,9 +563,9 @@
    "1 Co 11:19"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "1John.2.19#03",
+  "ref_estandar": "1John.2.19",
   "morfologia_tagnt": "V-2AAI-3P",
   "dstrong": "G1831",
   "strong_tagnt": "G1831",
@@ -531,13 +581,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to go out",
-  "ref_estandar": "1John.2.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.2.20",
+  "pos_tisch": 3,
   "strong": "G5545",
   "forma": "χρῖσμα",
+  "lema": "χρῖσμα",
   "glosa_interlineal": "unción",
   "rango_semantico": [
    "unción, aceite de unción"
@@ -545,7 +599,7 @@
   "construccion": "Acusativo: «pero vosotros tenéis la unción del Santo, y conocéis todas las cosas».",
   "sentido_en_contexto": "La «unción» (χρῖσμα) es el Espíritu Santo (o su enseñanza) que permanece en los creyentes y los enseña (v.27), por lo que no necesitan que nadie les enseñe, en el sentido de los falsos maestros. No elimina el ministerio docente, sino que subraya la guía interior del Espíritu para discernir la verdad.",
   "matiz": "Debate sobre la unción: (a) el Espíritu Santo (la mayoría); (b) la palabra del evangelio recibida (Calvino la ve como el Espíritu que ilumina); (c) el bautismo/la confirmación (tradición sacramental). «Conocéis todas las cosas»: variante: «conocéis todos» (πάντες; B) o «todo» (πάντα).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Jn 2:27",
@@ -554,9 +608,9 @@
    "Hch 10:38"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "1John.2.20#03",
+  "ref_estandar": "1John.2.20",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G5545",
   "strong_tagnt": "G5545",
@@ -572,13 +626,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "anointing",
-  "ref_estandar": "1John.2.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.2.22",
+  "pos_tisch": 8,
   "strong": "G720",
   "forma": "ἀρνούμενος",
+  "lema": "ἀρνέομαι",
   "glosa_interlineal": "negando",
   "rango_semantico": [
    "negar, rechazar"
@@ -586,7 +644,7 @@
   "construccion": "Participio presente medio: «¿quién es el mentiroso, sino el que niega que Jesús es el Cristo? Este es anticristo, el que niega al Padre y al Hijo».",
   "sentido_en_contexto": "Criterio doctrinal: negar que Jesús es el Cristo equivale a negar al Padre y al Hijo. No se puede tener al Padre sin el Hijo (v.23). Juan combate falsos maestros que separaban a Jesús del Cristo (cerintianismo temprano) o negaban su humanidad.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Jn 4:2-3",
@@ -595,10 +653,9 @@
    "Mt 10:32-33"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1John.2.22#08",
+  "ref_estandar": "1John.2.22",
   "morfologia_tagnt": "V-PNP-NSM",
   "dstrong": "G0720",
   "strong_tagnt": "G720",
@@ -614,13 +671,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to deny",
-  "ref_estandar": "1John.2.22"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.2.22",
+  "pos_tisch": 20,
   "strong": "G720",
   "forma": "ἀρνούμενος",
+  "lema": "ἀρνέομαι",
   "glosa_interlineal": "negando",
   "rango_semantico": [
    "negar, rechazar"
@@ -628,7 +690,7 @@
   "construccion": "Participio presente medio: «¿quién es el mentiroso, sino el que niega que Jesús es el Cristo? Este es anticristo, el que niega al Padre y al Hijo».",
   "sentido_en_contexto": "Criterio doctrinal: negar que Jesús es el Cristo equivale a negar al Padre y al Hijo. No se puede tener al Padre sin el Hijo (v.23). Juan combate falsos maestros que separaban a Jesús del Cristo (cerintianismo temprano) o negaban su humanidad.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Jn 4:2-3",
@@ -637,10 +699,9 @@
    "Mt 10:32-33"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 20,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1John.2.22#20",
+  "ref_estandar": "1John.2.22",
   "morfologia_tagnt": "V-PNP-NSM",
   "dstrong": "G0720",
   "strong_tagnt": "G720",
@@ -656,13 +717,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to deny",
-  "ref_estandar": "1John.2.22"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.2.27",
+  "pos_tisch": 9,
   "strong": "G3306",
   "forma": "μένει",
+  "lema": "μένω",
   "glosa_interlineal": "permanece",
   "rango_semantico": [
    "permanecer, morar"
@@ -670,7 +736,7 @@
   "construccion": "Presente indicativo activo: «pero la unción que vosotros recibisteis de él permanece en vosotros, y no tenéis necesidad de que nadie os enseñe; así como la unción misma os enseña acerca de todas las cosas, y es verdadera, y no es mentira, según ella os ha enseñado, permaneced en él».",
   "sentido_en_contexto": "El Espíritu (unción) enseña a los creyentes, que no necesitan maestros que les impongan una «gnosis» especial. El texto no niega el ministerio de enseñanza (cf. Ef 4:11), pero se opone a los falsos maestros. Se usa en discusiones sobre el papel del Espíritu y la autoridad eclesial.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 14:26",
@@ -679,10 +745,9 @@
    "1 Jn 2:20"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1John.2.27#09",
+  "ref_estandar": "1John.2.27",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G3306",
   "strong_tagnt": "G3306",
@@ -698,13 +763,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to stay",
-  "ref_estandar": "1John.2.27"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1John.2.28",
+  "pos_tisch": 11,
   "strong": "G3954",
   "forma": "παρρησίαν",
+  "lema": "παῤῥησία",
   "glosa_interlineal": "confianza",
   "rango_semantico": [
    "confianza, osadía"
@@ -712,7 +782,7 @@
   "construccion": "Acusativo: «y ahora, hijitos, permaneced en él, para que cuando se manifieste, tengamos confianza, para que en su venida no nos alejemos de él avergonzados».",
   "sentido_en_contexto": "Confianza en la parusía: quienes permanecen en Cristo no tendrán vergüenza. Es una de las raras alusiones a la segunda venida en Juan. Se une a 4:17: confianza en el día del juicio por el amor perfecto.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Jn 4:17",
@@ -721,9 +791,9 @@
    "1 Ts 2:19"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "1John.2.28#11",
+  "ref_estandar": "1John.2.28",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G3954",
   "strong_tagnt": "G3954",
@@ -739,7 +809,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "boldness",
-  "ref_estandar": "1John.2.28"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

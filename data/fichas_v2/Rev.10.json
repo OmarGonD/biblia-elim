@@ -1,8 +1,10 @@
 [
  {
   "ref": "Rev.10.1",
+  "pos_tisch": 4,
   "strong": "G32",
   "forma": "ἄγγελον",
+  "lema": "ἄγγελος",
   "glosa_interlineal": "ángel",
   "rango_semantico": [
    "ángel, mensajero"
@@ -10,7 +12,7 @@
   "construccion": "Acusativo: «vi descender del cielo a otro ángel fuerte, envuelto en una nube, con el arco iris sobre su cabeza; y su rostro era como el sol, y sus pies como columnas de fuego».",
   "sentido_en_contexto": "Interludio entre la sexta y séptima trompeta (10:1—11:13), como el cap. 7 lo es entre el sexto y séptimo sello. El «ángel fuerte»: ¿Cristo o un ángel? Sus rasgos (nube, arco iris, rostro como el sol, pies de fuego) recuerdan a 1:13-16 y a la gloria de Dios (Ez 1:28), pero «otro ángel» (ἄλλον ἄγγελον) y su juramento a Dios (v.6) sugieren que es un ser creado de alto rango (cf. 5:2; 18:1).",
   "matiz": "Debate sobre el «ángel fuerte»: (a) un ángel poderoso, como Gabriel (Dn 10; la mayoría); (b) una cristofanía: Cristo mismo, por sus atributos (Ireneo, algunos reformados); (c) Miguel. Que jure «por el que vive» indica que no es Dios mismo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ez 1:28",
@@ -19,9 +21,9 @@
    "Sal 104:3"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Rev.10.1#04",
+  "ref_estandar": "Rev.10.1",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G0032G",
   "strong_tagnt": "G32",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "angel",
-  "ref_estandar": "Rev.10.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.10.2",
+  "pos_tisch": 7,
   "strong": "G974",
   "forma": "βιβλαρίδιον",
+  "lema": "βιβλιαρίδιον",
   "glosa_interlineal": "librito",
   "rango_semantico": [
    "libro pequeño, rollito"
@@ -51,7 +57,7 @@
   "construccion": "Acusativo: «tenía en su mano un librito abierto; y puso su pie derecho sobre el mar, y el izquierdo sobre la tierra».",
   "sentido_en_contexto": "βιβλαρίδιον (diminutivo): un pequeño rollo, abierto (a diferencia del sellado de cap. 5). Su contenido se discute: parte del libro de 5:1 ya abierto, el contenido de los caps. 11–22, o la comisión profética de Juan (como Ez 2–3). El ángel con un pie en el mar y otro en la tierra: dominio universal.",
   "matiz": "Debate: (a) el contenido del librito es el resto del Apocalipsis o el mensaje del testimonio de las dos testigos (cap. 11); (b) es el mismo libro de 5:1, ahora abierto; (c) un nuevo mandato profético para Juan (v.11). Para el libro de Ez 2:8—3:3, la imagen del comer el rollo es paralela.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ez 2:8—3:3",
@@ -59,9 +65,9 @@
    "Dn 12:4, 9"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Rev.10.2#07",
+  "ref_estandar": "Rev.10.2",
   "morfologia_tagnt": "N-ASN",
   "dstrong": "G0974",
   "strong_tagnt": "G974",
@@ -78,13 +84,17 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "little scroll",
-  "ref_estandar": "Rev.10.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.10.4",
+  "pos_tisch": 16,
   "strong": "G4972",
   "forma": "σφράγισον",
+  "lema": "σφραγίζω",
   "glosa_interlineal": "sella",
   "rango_semantico": [
    "sellar"
@@ -92,7 +102,7 @@
   "construccion": "Imperativo aoristo activo: «y cuando los siete truenos hubieron emitido sus voces, yo iba a escribir; pero oí una voz del cielo que me decía: Sella las cosas que los siete truenos han dicho, y no las escribas».",
   "sentido_en_contexto": "Siete truenos que hablan, cuyo mensaje Juan no escribe: misterio, restricción de la revelación (Dn 8:26; 12:4, 9; 2 Co 12:4). Muestra que no todo lo que Juan vio fue permitido revelarlo, y que el libro tiene límites. Los siete truenos pueden ser la voz de Dios (Sal 29: siete veces «voz de YHWH»).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 29",
@@ -101,9 +111,9 @@
    "Dt 29:29"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Rev.10.4#20",
+  "ref_estandar": "Rev.10.4",
   "morfologia_tagnt": "V-AAM-2S",
   "dstrong": "G4972",
   "strong_tagnt": "G4972",
@@ -119,13 +129,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to seal",
-  "ref_estandar": "Rev.10.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.10.6",
+  "pos_tisch": 34,
   "strong": "G5550",
   "forma": "χρόνος",
+  "lema": "χρόνος",
   "glosa_interlineal": "tiempo",
   "rango_semantico": [
    "tiempo"
@@ -133,7 +147,7 @@
   "construccion": "Nominativo: «y juró por el que vive por los siglos de los siglos, que creó el cielo y las cosas que están en él, y la tierra y las cosas que están en ella, y el mar y las cosas que están en él, que el tiempo no sería más».",
   "sentido_en_contexto": "«Que no habrá más tiempo» (χρόνος οὐκέτι ἔσται) en traducciones antiguas (Vulgata: «tempus non erit amplius»): significa «no habrá más demora» (el misterio se cumplirá sin retraso, v.7), no «el fin del tiempo» como eternidad. El ángel jura (Dn 12:7) por el Creador. La mayoría de las versiones modernas: «ya no habrá más demora».",
   "matiz": "Debate: (a) «no habrá más dilación» (la mayoría: referente a la tardanza del cumplimiento); (b) «no habrá más tiempo» (la Vulgata y la lectura tradicional: fin del tiempo y comienzo de la eternidad); (c) en contexto, lo que no habrá más es el tiempo para el arrepentimiento (tercera lectura, menos común).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dn 12:7",
@@ -142,9 +156,9 @@
    "Heb 10:37"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 34,
   "alineacion": "forma",
   "tagnt": "Rev.10.6#34",
+  "ref_estandar": "Rev.10.6",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G5550",
   "strong_tagnt": "G5550",
@@ -160,13 +174,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "time",
-  "ref_estandar": "Rev.10.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.10.7",
+  "pos_tisch": 16,
   "strong": "G3466",
   "forma": "μυστήριον",
+  "lema": "μυστήριον",
   "glosa_interlineal": "misterio",
   "rango_semantico": [
    "misterio, secreto revelado"
@@ -174,7 +192,7 @@
   "construccion": "Nominativo: «pero en los días de la voz del séptimo ángel, cuando él comience a tocar la trompeta, el misterio de Dios se consumará, como él lo anunció a sus siervos los profetas».",
   "sentido_en_contexto": "El «misterio de Dios» (τὸ μυστήριον τοῦ θεοῦ): el plan de redención y juicio anunciado por los profetas, que se consuma con la séptima trompeta (11:15-19: el reino del mundo ha venido a ser de nuestro Señor). El verbo ἐτελέσθη (aoristo: «fue consumado», con el futuro prospectivo): la certeza del cumplimiento.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Am 3:7",
@@ -183,9 +201,9 @@
    "Ef 1:9-10"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Rev.10.7#16",
+  "ref_estandar": "Rev.10.7",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G3466",
   "strong_tagnt": "G3466",
@@ -201,13 +219,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mystery",
-  "ref_estandar": "Rev.10.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.10.9",
+  "pos_tisch": 20,
   "strong": "G4087",
   "forma": "πικρανεῖ",
+  "lema": "πικραίνω",
   "glosa_interlineal": "amargará",
   "rango_semantico": [
    "amargar"
@@ -215,7 +237,7 @@
   "construccion": "Futuro indicativo activo: «y fui al ángel, diciéndole que me diese el librito. Y él me dijo: Toma, y devóralo; y te amargará el vientre, pero en tu boca será dulce como la miel».",
   "sentido_en_contexto": "Acto simbólico tomado de Ez 2:8—3:3: comer el rollo = asimilar el mensaje profético. Dulce en la boca (la palabra de Dios es dulce: Sal 19:10; 119:103; Jer 15:16) y amargo en el estómago (el mensaje de juicio y de sufrimiento). La vocación profética combina gozo y aflicción.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ez 2:8—3:3",
@@ -224,9 +246,9 @@
    "Ap 10:10"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 20,
   "alineacion": "forma",
   "tagnt": "Rev.10.9#20",
+  "ref_estandar": "Rev.10.9",
   "morfologia_tagnt": "V-FAI-3S",
   "dstrong": "G4087",
   "strong_tagnt": "G4087",
@@ -242,13 +264,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to embitter",
-  "ref_estandar": "Rev.10.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Rev.10.11",
+  "pos_tisch": 7,
   "strong": "G4395",
   "forma": "προφητεῦσαι",
+  "lema": "προφητεύω",
   "glosa_interlineal": "profetizar",
   "rango_semantico": [
    "profetizar"
@@ -256,7 +282,7 @@
   "construccion": "Aoristo infinitivo activo: «y él me dijo: Es necesario que profetices otra vez sobre muchos pueblos, naciones, lenguas y reyes».",
   "sentido_en_contexto": "Renovación de la comisión profética de Juan, ahora universal: pueblos, naciones, lenguas y reyes. Como Jeremías (Jer 1:10) y Ezequiel. Introduce la segunda mitad del libro (caps. 11–22). La profecía del Apocalipsis no se limita a Israel o a las siete iglesias, sino que tiene alcance universal.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jer 1:10",
@@ -264,9 +290,9 @@
    "Ap 1:19; 11:1"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Rev.10.11#07",
+  "ref_estandar": "Rev.10.11",
   "morfologia_tagnt": "V-AAN",
   "dstrong": "G4395",
   "strong_tagnt": "G4395",
@@ -282,7 +308,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to prophesy",
-  "ref_estandar": "Rev.10.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

@@ -1,8 +1,10 @@
 [
  {
   "ref": "John.3.1",
+  "pos_tisch": 7,
   "strong": "G3530",
   "forma": "Νικόδημος",
+  "lema": "Νικόδημος",
   "glosa_interlineal": "Nicodemo",
   "rango_semantico": [
    "Nicodemo (vencedor del pueblo)"
@@ -10,16 +12,16 @@
   "construccion": "Nominativo: «un hombre de los fariseos llamado Nicodemo, principal entre los judíos».",
   "sentido_en_contexto": "Fariseo y miembro del Sanedrín (ἄρχων). Aparece tres veces en Juan: aquí, en 7:50-51 (defiende a Jesús) y en 19:39 (ayuda a sepultarlo).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 7:50-52 — defiende un juicio justo",
    "Jn 19:39 — trae mirra y áloe"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "John.3.1#07",
+  "ref_estandar": "John.3.1",
   "morfologia_tagnt": "N-NSM-P",
   "dstrong": "G3530",
   "strong_tagnt": "G3530",
@@ -35,13 +37,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Nicodemus",
-  "ref_estandar": "John.3.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.3.2",
+  "pos_tisch": 5,
   "strong": "G3571",
   "forma": "νυκτὸς",
+  "lema": "νύξ",
   "glosa_interlineal": "de noche",
   "rango_semantico": [
    "noche"
@@ -49,7 +55,7 @@
   "construccion": "Genitivo adverbial: «éste vino a Jesús de noche».",
   "sentido_en_contexto": "Dato histórico (discreción, tiempo del estudio de la Torá) y simbólico en Juan: noche como falta de luz. Nicodemo viene desde la oscuridad hacia la luz (cf. 3:19-21).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 13:30 — «y era de noche»",
@@ -57,9 +63,9 @@
    "Jn 3:19-21 — luz y tinieblas"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "John.3.2#06",
+  "ref_estandar": "John.3.2",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G3571",
   "strong_tagnt": "G3571",
@@ -75,13 +81,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "night",
-  "ref_estandar": "John.3.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.3.3",
+  "pos_tisch": 14,
   "strong": "G509",
   "forma": "ἄνωθεν",
+  "lema": "ἄνωθεν",
   "glosa_interlineal": "de nuevo / de arriba",
   "rango_semantico": [
    "desde arriba",
@@ -90,7 +100,7 @@
   "construccion": "Adverbio con doble sentido: «a menos que uno nazca ἄνωθεν».",
   "sentido_en_contexto": "ἄνωθεν significa «desde arriba» (origen divino) y también «de nuevo» (repetición). Nicodemo entiende «de nuevo» y pregunta por un segundo nacimiento físico (v.4); Jesús habla del nacimiento «de arriba», del Espíritu. El texto juega con ambos sentidos.",
   "matiz": "Traducciones: «de nuevo» (RVR, tradición latina iterum), «de arriba» (BJ nota, muchas versiones modernas) o ambas en nota. El v.31 usa ἄνωθεν con el sentido claro «de arriba».",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": "Nacer «de nuevo» y nacer «de arriba» son dos traducciones legítimas; el griego probablemente juega con ambas.",
   "otros_usos": [
    "Jn 3:31 — «el que viene de arriba»",
@@ -98,9 +108,9 @@
    "Stg 3:15, 17 — la sabiduría «de arriba»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "John.3.3#15",
+  "ref_estandar": "John.3.3",
   "morfologia_tagnt": "ADV",
   "dstrong": "G0509",
   "strong_tagnt": "G509",
@@ -116,13 +126,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "from above/again",
-  "ref_estandar": "John.3.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.3.5",
+  "pos_tisch": 14,
   "strong": "G4151",
   "forma": "πνεύματος",
+  "lema": "πνεῦμα",
   "glosa_interlineal": "Espíritu",
   "rango_semantico": [
    "espíritu, viento, aliento"
@@ -130,7 +144,7 @@
   "construccion": "ἐξ + genitivo: «nacido de agua y de Espíritu».",
   "sentido_en_contexto": "Cláusula debatida: «agua» y «Espíritu» unidos bajo una sola preposición. Posibles referencias: nacimiento físico y espiritual; purificación y renovación (Ez 36:25-27); bautismo cristiano y Espíritu.",
   "matiz": "Interpretaciones principales de «agua»: (a) nacimiento natural (líquido amniótico); (b) bautismo de Juan, arrepentimiento; (c) bautismo cristiano (tradición católica, ortodoxa, luterana); (d) purificación simbólica por el Espíritu (Ez 36:25-27, lectura reformada habitual). El contexto de Nicodemo, maestro de Israel (v.10), favorece Ezequiel.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ez 36:25-27 — «os rociaré con agua limpia… pondré mi Espíritu en vosotros»",
@@ -138,9 +152,9 @@
    "Jn 7:38-39 — ríos de agua viva"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "John.3.5#15",
+  "ref_estandar": "John.3.5",
   "morfologia_tagnt": "N-GSN",
   "dstrong": "G4151G",
   "strong_tagnt": "G4151",
@@ -156,13 +170,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "spirit/breath",
-  "ref_estandar": "John.3.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.3.6",
+  "pos_tisch": 5,
   "strong": "G4561",
   "forma": "σαρκὸς",
+  "lema": "σάρξ",
   "glosa_interlineal": "carne",
   "rango_semantico": [
    "carne, naturaleza humana"
@@ -170,7 +188,7 @@
   "construccion": "ἐκ + genitivo: «lo que es nacido de la carne, carne es».",
   "sentido_en_contexto": "«Carne» (σάρξ) representa la naturaleza humana limitada; solo el Espíritu puede dar vida del orden divino. Es un principio general: lo natural no produce lo espiritual.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 6:63 — «el espíritu es el que da vida; la carne para nada aprovecha»",
@@ -178,10 +196,9 @@
    "1 Co 15:50"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.3.6#05",
+  "ref_estandar": "John.3.6",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G4561",
   "strong_tagnt": "G4561",
@@ -197,13 +214,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "flesh",
-  "ref_estandar": "John.3.6"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.3.8",
+  "pos_tisch": 2,
   "strong": "G4151",
   "forma": "πνεῦμα",
+  "lema": "πνεῦμα",
   "glosa_interlineal": "viento / Espíritu",
   "rango_semantico": [
    "viento, soplo",
@@ -212,7 +234,7 @@
   "construccion": "Nominativo: «el viento (πνεῦμα) sopla donde quiere».",
   "sentido_en_contexto": "Otro juego de palabras: πνεῦμα significa «viento» y «Espíritu». Jesús compara la acción libre e imprevisible del Espíritu con el viento: se oye su efecto, pero no se controla su origen ni destino.",
   "matiz": "Algunas versiones traducen «el Espíritu sopla donde quiere» y otras «el viento sopla donde quiere». Ambas son defendibles; el juego de palabras es intencionado.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ez 37:9-10 — «ven de los cuatro vientos, oh espíritu»",
@@ -220,10 +242,9 @@
    "Hch 2:2 — «un viento recio que soplaba»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 2,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.3.8#02",
+  "ref_estandar": "John.3.8",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G4151H",
   "strong_tagnt": "G4151",
@@ -239,13 +260,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "spirit/breath",
-  "ref_estandar": "John.3.8"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.3.10",
+  "pos_tisch": 9,
   "strong": "G1320",
   "forma": "διδάσκαλος",
+  "lema": "διδάσκαλος",
   "glosa_interlineal": "maestro",
   "rango_semantico": [
    "maestro, enseñador"
@@ -253,7 +279,7 @@
   "construccion": "Nominativo con artículo: «¿tú eres el maestro de Israel y no sabes esto?».",
   "sentido_en_contexto": "Jesús reprende suavemente a Nicodemo: un maestro reconocido debería entender el renacimiento prometido en Ez 36-37 y Jer 31.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ez 36:25-27; 37:1-14",
@@ -261,9 +287,9 @@
    "Jn 3:2 — «Rabí… has venido de Dios como maestro»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "John.3.10#10",
+  "ref_estandar": "John.3.10",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G1320",
   "strong_tagnt": "G1320",
@@ -279,13 +305,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "teacher",
-  "ref_estandar": "John.3.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.3.13",
+  "pos_tisch": 3,
   "strong": "G305",
   "forma": "ἀναβέβηκεν",
+  "lema": "ἀναβαίνω",
   "glosa_interlineal": "ha subido",
   "rango_semantico": [
    "subir, ascender"
@@ -293,7 +323,7 @@
   "construccion": "Perfecto indicativo activo: «nadie subió al cielo sino el que descendió del cielo».",
   "sentido_en_contexto": "Solo el Hijo del Hombre ha estado en el cielo y puede revelar las realidades celestiales. «Subió» no es la ascensión posterior, sino la capacidad de conocer lo divino.",
   "matiz": "Variante: algunos manuscritos añaden «que está en el cielo» (ὁ ὢν ἐν τῷ οὐρανῷ) tras «Hijo del Hombre»; está bien atestiguada pero se discute si es original.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Pr 30:4 — «¿Quién subió al cielo y descendió?»",
@@ -301,9 +331,9 @@
    "Ef 4:9-10 — «el que descendió… es el mismo que subió»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "John.3.13#03",
+  "ref_estandar": "John.3.13",
   "morfologia_tagnt": "V-RAI-3S",
   "dstrong": "G0305",
   "strong_tagnt": "G305",
@@ -319,13 +349,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to ascend",
-  "ref_estandar": "John.3.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.3.14",
+  "pos_tisch": 4,
   "strong": "G5312",
   "forma": "ὕψωσεν",
+  "lema": "ὑψόω",
   "glosa_interlineal": "levantó",
   "rango_semantico": [
    "levantar, exaltar"
@@ -333,7 +367,7 @@
   "construccion": "Aoristo indicativo activo: «como Moisés levantó la serpiente… así es necesario que sea levantado el Hijo del Hombre».",
   "sentido_en_contexto": "ὑψόω significa «levantar» (físicamente) y «exaltar». En Juan es una palabra clave: la cruz es a la vez elevación física y exaltación gloriosa. Alude a Nm 21:4-9.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Nm 21:8-9 — la serpiente de bronce",
@@ -341,10 +375,9 @@
    "Jn 12:32-34 — «yo, si fuere levantado de la tierra»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.3.14#04",
+  "ref_estandar": "John.3.14",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G5312",
   "strong_tagnt": "G5312",
@@ -360,13 +393,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to lift up",
-  "ref_estandar": "John.3.14"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.3.16",
+  "pos_tisch": 3,
   "strong": "G25",
   "forma": "ἠγάπησεν",
+  "lema": "ἀγαπάω",
   "glosa_interlineal": "amó",
   "rango_semantico": [
    "amar"
@@ -374,7 +412,7 @@
   "construccion": "Aoristo indicativo activo: «de tal manera amó Dios al mundo».",
   "sentido_en_contexto": "Versículo central del evangelio. οὕτως es «de este modo / de tal manera» (más manera que cantidad). El amor de Dios se muestra en entregar a su Hijo. «Mundo» (κόσμος) es la humanidad en rebelión que Dios ama igualmente.",
   "matiz": "οὕτως… ὥστε: «de tal manera… que»: la expresión describe la manera en que Dios amó (dando al Hijo), y no solo la intensidad. Algunas versiones traducen «tanto amó».",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Jn 4:9-10 — «en esto se mostró el amor de Dios para con nosotros»",
@@ -383,9 +421,9 @@
    "Gn 22:2 — «tu hijo, tu único»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "John.3.16#03",
+  "ref_estandar": "John.3.16",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G0025",
   "strong_tagnt": "G25",
@@ -401,13 +439,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to love",
-  "ref_estandar": "John.3.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.3.16",
+  "pos_tisch": 7,
   "strong": "G2889",
   "forma": "κόσμον",
+  "lema": "κόσμος",
   "glosa_interlineal": "mundo",
   "rango_semantico": [
    "mundo, humanidad, orden creado"
@@ -415,17 +457,13 @@
   "construccion": "Acusativo: «Dios amó al mundo».",
   "sentido_en_contexto": "En Juan, κόσμος tiene varios sentidos: la creación (1:10), la humanidad (3:16) y el sistema humano opuesto a Dios (15:18-19). Aquí es la humanidad como objeto del amor de Dios.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Jn 1:29 — «el pecado del mundo»",
-   "Jn 4:42 — «el Salvador del mundo»",
-   "1 Jn 2:15 — «no améis al mundo»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Jn 1:29 — «el pecado del mundo»\nJn 4:42 — «el Salvador del mundo»\n1 Jn 2:15 — «no améis al mundo»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "John.3.16#07",
+  "ref_estandar": "John.3.16",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G2889",
   "strong_tagnt": "G2889",
@@ -441,13 +479,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "world",
-  "ref_estandar": "John.3.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.3.17",
+  "pos_tisch": 12,
   "strong": "G2919",
   "forma": "κρίνῃ",
+  "lema": "κρίνω",
   "glosa_interlineal": "juzgue",
   "rango_semantico": [
    "juzgar, condenar, decidir"
@@ -455,7 +497,7 @@
   "construccion": "Subjuntivo aoristo activo: «no envió Dios a su Hijo al mundo para condenar al mundo».",
   "sentido_en_contexto": "El propósito de la venida es salvar, no condenar. Sin embargo, el rechazo de la luz conlleva juicio (vv.18-19): la condenación es consecuencia de no creer, no la finalidad de la misión.",
   "matiz": "Aparente tensión con Jn 5:22-27 y 9:39, donde Jesús juzga. Se resuelve distinguiendo el propósito de su venida (salvar) del efecto de su presencia (separar a quienes lo aceptan de quienes lo rechazan).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 12:47 — «no he venido a juzgar al mundo, sino a salvar»",
@@ -463,9 +505,9 @@
    "Lc 19:10 — «a buscar y a salvar lo que se había perdido»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "John.3.17#13",
+  "ref_estandar": "John.3.17",
   "morfologia_tagnt": "V-PAS-3S",
   "dstrong": "G2919",
   "strong_tagnt": "G2919",
@@ -481,13 +523,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to judge",
-  "ref_estandar": "John.3.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.3.19",
+  "pos_tisch": 5,
   "strong": "G2920",
   "forma": "κρίσις",
+  "lema": "κρίσις",
   "glosa_interlineal": "juicio",
   "rango_semantico": [
    "juicio, decisión, condenación"
@@ -495,7 +541,7 @@
   "construccion": "Nominativo: «esta es la condenación (κρίσις)».",
   "sentido_en_contexto": "El juicio consiste en que la luz vino y los hombres prefirieron las tinieblas. La κρίσις es la separación causada por la reacción ante Jesús.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 1:4-5, 9-11 — la luz en el prólogo",
@@ -503,9 +549,9 @@
    "Jn 12:46 — «yo, la luz, he venido al mundo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "John.3.19#05",
+  "ref_estandar": "John.3.19",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G2920",
   "strong_tagnt": "G2920",
@@ -521,13 +567,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "judgment",
-  "ref_estandar": "John.3.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.3.21",
+  "pos_tisch": 5,
   "strong": "G225",
   "forma": "ἀλήθειαν",
+  "lema": "ἀλήθεια",
   "glosa_interlineal": "verdad",
   "rango_semantico": [
    "verdad, realidad"
@@ -535,7 +585,7 @@
   "construccion": "Acusativo: «el que practica la verdad viene a la luz».",
   "sentido_en_contexto": "Expresión joánica: «hacer la verdad» (ποιεῖν τὴν ἀλήθειαν): vivir conforme a la realidad de Dios. Verdad no es solo conocimiento, sino conducta que se somete a la luz.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Jn 1:6 — «no practicamos la verdad»",
@@ -543,9 +593,9 @@
    "Ef 4:15 — «siguiendo la verdad en amor»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "John.3.21#05",
+  "ref_estandar": "John.3.21",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G0225",
   "strong_tagnt": "G225",
@@ -561,13 +611,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "truth",
-  "ref_estandar": "John.3.21"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.3.23",
+  "pos_tisch": 7,
   "strong": "G137",
   "forma": "Αἰνὼν",
+  "lema": "Αἰνών",
   "glosa_interlineal": "Enón",
   "rango_semantico": [
    "Enón (lugar cerca de Salim)"
@@ -575,16 +629,13 @@
   "construccion": "Acusativo: «Juan bautizaba en Enón, junto a Salim».",
   "sentido_en_contexto": "Lugar con «muchas aguas» donde Juan bautizaba. La ubicación exacta es incierta (Samaria o valle del Jordán). Muestra que el ministerio de Juan continuaba paralelo al de Jesús.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Jn 3:22 — Jesús bautizaba en Judea",
-   "Jn 4:1-2 — «Jesús hacía y bautizaba más discípulos que Juan»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Jn 3:22 — Jesús bautizaba en Judea\nJn 4:1-2 — «Jesús hacía y bautizaba más discípulos que Juan»",
   "otros_usos": "medio",
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "John.3.23#08",
+  "ref_estandar": "John.3.23",
   "morfologia_tagnt": "N-DSF-L",
   "dstrong": "G0137",
   "strong_tagnt": "G137",
@@ -600,13 +651,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Aenon",
-  "ref_estandar": "John.3.23"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.3.29",
+  "pos_tisch": 5,
   "strong": "G3566",
   "forma": "νυμφίος",
+  "lema": "νυμφίος",
   "glosa_interlineal": "novio",
   "rango_semantico": [
    "novio, esposo"
@@ -614,7 +669,7 @@
   "construccion": "Nominativo: «el que tiene la esposa es el esposo».",
   "sentido_en_contexto": "Juan se presenta como «amigo del esposo» que se alegra al oír su voz. Jesús es el novio mesiánico; el pueblo de Dios, la novia. Imagen frecuente en profetas y en el NT.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Os 2:19-20 — «te desposaré conmigo para siempre»",
@@ -623,10 +678,9 @@
    "Ap 19:7; 21:2"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "John.3.29#05",
+  "ref_estandar": "John.3.29",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G3566",
   "strong_tagnt": "G3566",
@@ -642,13 +696,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "bridegroom",
-  "ref_estandar": "John.3.29"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.3.30",
+  "pos_tisch": 3,
   "strong": "G837",
   "forma": "αὐξάνειν",
+  "lema": "αὐξάνω",
   "glosa_interlineal": "crecer",
   "rango_semantico": [
    "crecer, aumentar"
@@ -656,7 +715,7 @@
   "construccion": "Infinitivo presente: «es necesario que él crezca, y que yo disminuya».",
   "sentido_en_contexto": "Resumen de la misión de Juan: su papel se reduce para dar paso a Cristo. δεῖ expresa la necesidad según el plan de Dios.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 1:27 — «no soy digno de desatar»",
@@ -664,9 +723,9 @@
    "Gá 2:20 — «ya no vivo yo, mas Cristo vive en mí»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "John.3.30#03",
+  "ref_estandar": "John.3.30",
   "morfologia_tagnt": "V-PAN",
   "dstrong": "G0837",
   "strong_tagnt": "G837",
@@ -682,13 +741,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to grow",
-  "ref_estandar": "John.3.30"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.3.31",
+  "pos_tisch": 2,
   "strong": "G509",
   "forma": "ἄνωθεν",
+  "lema": "ἄνωθεν",
   "glosa_interlineal": "de arriba",
   "rango_semantico": [
    "desde arriba"
@@ -696,16 +759,16 @@
   "construccion": "Adverbio: «el que de arriba viene, es sobre todos».",
   "sentido_en_contexto": "Aquí el sentido «de arriba» (origen celestial) es inequívoco, y ayuda a leer el v.3. Juan (o el evangelista) contrasta lo terrenal con el origen divino de Jesús.",
   "matiz": "Es debatido si los vv.31-36 son continuación de las palabras del Bautista o comentario del evangelista. Ambas lecturas son posibles; el contenido es una reflexión teológica sobre Jesús.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 8:23 — «vosotros sois de abajo; yo soy de arriba»",
    "Jn 3:3, 7"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "John.3.31#02",
+  "ref_estandar": "John.3.31",
   "morfologia_tagnt": "ADV",
   "dstrong": "G0509",
   "strong_tagnt": "G509",
@@ -721,13 +784,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "from above/again",
-  "ref_estandar": "John.3.31"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.3.33",
+  "pos_tisch": 6,
   "strong": "G4972",
   "forma": "ἐσφράγισεν",
+  "lema": "σφραγίζω",
   "glosa_interlineal": "selló",
   "rango_semantico": [
    "sellar, certificar, confirmar"
@@ -735,7 +802,7 @@
   "construccion": "Aoristo indicativo activo: «ha puesto su sello de que Dios es veraz».",
   "sentido_en_contexto": "Recibir el testimonio de Jesús equivale a certificar que Dios es veraz. Imagen del sello como garantía y aprobación.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 6:27 — «a éste señaló Dios el Padre»",
@@ -743,9 +810,9 @@
    "1 Jn 5:10 — «el que no cree a Dios, le ha hecho mentiroso»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "John.3.33#06",
+  "ref_estandar": "John.3.33",
   "morfologia_tagnt": "V-AAI-3S",
   "dstrong": "G4972",
   "strong_tagnt": "G4972",
@@ -761,13 +828,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to seal",
-  "ref_estandar": "John.3.33"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.3.34",
+  "pos_tisch": 14,
   "strong": "G3358",
   "forma": "μέτρου",
+  "lema": "μέτρον",
   "glosa_interlineal": "medida",
   "rango_semantico": [
    "medida, porción"
@@ -775,7 +846,7 @@
   "construccion": "Genitivo: «Dios no da el Espíritu por medida».",
   "sentido_en_contexto": "Jesús recibe el Espíritu sin medida, a diferencia de los profetas, que lo recibían limitadamente. Subraya su plenitud y su capacidad de comunicar la palabra de Dios.",
   "matiz": "Sintaxis: no queda claro quién da (el Padre) ni a quién (a Jesús o a los creyentes por medio de Jesús). La lectura más común es que el Padre da el Espíritu sin medida al Hijo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Is 11:2; 42:1 — el Espíritu sobre el Siervo",
@@ -783,9 +854,9 @@
    "Jn 1:32-33 — el Espíritu permaneció sobre él"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "John.3.34#14",
+  "ref_estandar": "John.3.34",
   "morfologia_tagnt": "N-GSN",
   "dstrong": "G3358",
   "strong_tagnt": "G3358",
@@ -801,13 +872,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "measure",
-  "ref_estandar": "John.3.34"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "John.3.36",
+  "pos_tisch": 10,
   "strong": "G544",
   "forma": "ἀπειθῶν",
+  "lema": "ἀπειθέω",
   "glosa_interlineal": "el que desobedece",
   "rango_semantico": [
    "desobedecer, no creer"
@@ -815,7 +890,7 @@
   "construccion": "Participio presente activo: «el que desobedece (o no cree) al Hijo».",
   "sentido_en_contexto": "ἀπειθέω contrasta con πιστεύω, y significa «no creer» y «desobedecer»: la incredulidad se entiende como rechazo obstinado. «La ira de Dios permanece sobre él»: no se dice que venga, sino que ya está.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 1:18 — «la ira de Dios se revela»",
@@ -823,9 +898,9 @@
    "Jn 3:18 — «el que no cree, ya ha sido condenado»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "John.3.36#11",
+  "ref_estandar": "John.3.36",
   "morfologia_tagnt": "V-PAP-NSM",
   "dstrong": "G0544",
   "strong_tagnt": "G544",
@@ -841,7 +916,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to disobey",
-  "ref_estandar": "John.3.36"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

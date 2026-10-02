@@ -1,8 +1,10 @@
 [
  {
   "ref": "Luke.13.1",
+  "pos_tisch": 12,
   "strong": "G1057",
   "forma": "Γαλιλαίων",
+  "lema": "Γαλιλαῖος",
   "glosa_interlineal": "galileos",
   "rango_semantico": [
    "galileo"
@@ -10,16 +12,16 @@
   "construccion": "Genitivo plural: «de los galileos cuya sangre Pilato mezcló con sus sacrificios».",
   "sentido_en_contexto": "Alusión a un acto de Pilato no conocido por otras fuentes: la ejecución de galileos mientras sacrificaban. Jesús responde que ni esos galileos ni los muertos de la torre de Siloé eran peores pecadores: todos necesitan arrepentirse.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 11:50 — Caifás",
    "Lc 23:12 — Pilato y Herodes"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Luke.13.1#12",
+  "ref_estandar": "Luke.13.1",
   "morfologia_tagnt": "N-GPM-LG",
   "dstrong": "G1057",
   "strong_tagnt": "G1057",
@@ -35,13 +37,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Galilean",
-  "ref_estandar": "Luke.13.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.13.3",
+  "pos_tisch": 7,
   "strong": "G3340",
   "forma": "μετανοῆτε",
+  "lema": "μετανοέω",
   "glosa_interlineal": "os arrepintáis",
   "rango_semantico": [
    "cambiar de mente, arrepentirse"
@@ -49,7 +55,7 @@
   "construccion": "Subjuntivo aoristo activo: «si no os arrepentís, todos pereceréis igualmente».",
   "sentido_en_contexto": "Jesús rechaza la idea de que la desgracia sea castigo proporcional al pecado individual y la reorienta: todos deben arrepentirse. El arrepentimiento es urgente, no solo para otros.",
   "matiz": "Se discute a qué «perecer» se refiere: muerte repentina, la destrucción de Jerusalén (70 d.C.) o juicio final. El contexto lo deja abierto.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 9:2-3 — «¿quién pecó… para que naciese ciego?»",
@@ -57,9 +63,9 @@
    "Job 4:7 — el pensamiento retributivo"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Luke.13.3#07",
+  "ref_estandar": "Luke.13.3",
   "morfologia_tagnt": "V-PAS-2P",
   "dstrong": "G3340",
   "strong_tagnt": "G3340",
@@ -75,13 +81,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to repent",
-  "ref_estandar": "Luke.13.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.13.4",
+  "pos_tisch": 9,
   "strong": "G4444",
   "forma": "πύργος",
+  "lema": "πύργος",
   "glosa_interlineal": "torre",
   "rango_semantico": [
    "torre"
@@ -89,16 +99,13 @@
   "construccion": "Nominativo: «la torre de Siloé».",
   "sentido_en_contexto": "Segundo ejemplo: dieciocho muertos por la caída de una torre en Siloé, accidente no atestiguado fuera de Lucas. Desastres naturales no prueban culpa particular.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Jn 9:7 — el estanque de Siloé",
-   "Is 8:6 — «las aguas de Siloé»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Jn 9:7 — el estanque de Siloé\nIs 8:6 — «las aguas de Siloé»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Luke.13.4#09",
+  "ref_estandar": "Luke.13.4",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G4444",
   "strong_tagnt": "G4444",
@@ -114,13 +121,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "tower",
-  "ref_estandar": "Luke.13.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.13.6",
+  "pos_tisch": 6,
   "strong": "G4808",
   "forma": "Συκῆν",
+  "lema": "συκῆ",
   "glosa_interlineal": "higuera",
   "rango_semantico": [
    "higuera"
@@ -128,17 +139,13 @@
   "construccion": "Acusativo: «una higuera plantada en su viña».",
   "sentido_en_contexto": "Parábola de la higuera estéril (solo Lucas): tres años sin fruto; el viñador pide un año más. Es una parábola de paciencia y plazo final, que sigue al llamado al arrepentimiento (vv.1-5).",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mr 11:12-14, 20-21 — la higuera sin fruto",
-   "Is 5:1-7 — la viña estéril",
-   "Os 9:10 — «como primicias de la higuera»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mr 11:12-14, 20-21 — la higuera sin fruto\nIs 5:1-7 — la viña estéril\nOs 9:10 — «como primicias de la higuera»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Luke.13.6#06",
+  "ref_estandar": "Luke.13.6",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G4808",
   "strong_tagnt": "G4808",
@@ -154,13 +161,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fig tree",
-  "ref_estandar": "Luke.13.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.13.8",
+  "pos_tisch": 7,
   "strong": "G863",
   "forma": "ἄφες",
+  "lema": "ἀφίημι",
   "glosa_interlineal": "déjala",
   "rango_semantico": [
    "dejar, permitir"
@@ -168,7 +179,7 @@
   "construccion": "Imperativo aoristo activo: «déjala todavía este año».",
   "sentido_en_contexto": "El viñador intercede: un año más para cavar y abonar. La parábola termina abierta: «si no, la cortarás». Dios da un plazo, pero no indefinido.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 P 3:9 — «el Señor… es paciente para con nosotros»",
@@ -176,9 +187,9 @@
    "Lc 23:34 — «Padre, perdónalos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Luke.13.8#07",
+  "ref_estandar": "Luke.13.8",
   "morfologia_tagnt": "V-2AAM-2S",
   "dstrong": "G0863G",
   "strong_tagnt": "G863",
@@ -194,13 +205,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to release",
-  "ref_estandar": "Luke.13.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.13.11",
+  "pos_tisch": 6,
   "strong": "G769",
   "forma": "ἀσθενείας",
+  "lema": "ἀσθένεια",
   "glosa_interlineal": "enfermedad",
   "rango_semantico": [
    "debilidad, enfermedad"
@@ -208,16 +223,13 @@
   "construccion": "Genitivo: «espíritu de enfermedad».",
   "sentido_en_contexto": "Una mujer, encorvada por dieciocho años, es sanada en sábado. Jesús dice que Satanás la había «atado»: la enfermedad se presenta como opresión espiritual. Milagro solo de Lucas.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Hch 10:38 — «sanando a todos los oprimidos por el diablo»",
-   "Lc 13:16 — «Satanás había atado»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Hch 10:38 — «sanando a todos los oprimidos por el diablo»\nLc 13:16 — «Satanás había atado»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Luke.13.11#07",
+  "ref_estandar": "Luke.13.11",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G0769H",
   "strong_tagnt": "G769",
@@ -233,13 +245,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "weakness",
-  "ref_estandar": "Luke.13.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.13.12",
+  "pos_tisch": 11,
   "strong": "G630",
   "forma": "ἀπολέλυσαι",
+  "lema": "ἀπολύω",
   "glosa_interlineal": "eres libre",
   "rango_semantico": [
    "soltar, liberar"
@@ -247,16 +263,16 @@
   "construccion": "Perfecto indicativo pasivo: «has sido liberada de tu enfermedad».",
   "sentido_en_contexto": "Jesús usa el verbo de «soltar» (ἀπολύω) con el perfecto: ya está libre. Después impone las manos y ella se endereza al instante.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 4:18 — «a poner en libertad a los oprimidos»",
    "Lc 13:16 — «¿no se le debía soltar?»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Luke.13.12#11",
+  "ref_estandar": "Luke.13.12",
   "morfologia_tagnt": "V-RPI-2S",
   "dstrong": "G0630G",
   "strong_tagnt": "G630",
@@ -272,13 +288,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to release",
-  "ref_estandar": "Luke.13.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.13.14",
+  "pos_tisch": 4,
   "strong": "G752",
   "forma": "ἀρχισυνάγωγος",
+  "lema": "ἀρχισυνάγωγος",
   "glosa_interlineal": "jefe de la sinagoga",
   "rango_semantico": [
    "jefe de sinagoga"
@@ -286,17 +306,13 @@
   "construccion": "Nominativo: «el jefe de la sinagoga, indignado».",
   "sentido_en_contexto": "El jefe de la sinagoga protesta porque Jesús sanó en sábado, hablando a la multitud (no a Jesús). Jesús responde llamándolo «hipócrita» a él y a quienes comparten su postura.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mr 5:22 — Jairo",
-   "Hch 18:8 — Crispo",
-   "Lc 14:3 — otra controversia sabática"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mr 5:22 — Jairo\nHch 18:8 — Crispo\nLc 14:3 — otra controversia sabática",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Luke.13.14#04",
+  "ref_estandar": "Luke.13.14",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G0752",
   "strong_tagnt": "G752",
@@ -312,13 +328,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "synagogue leader",
-  "ref_estandar": "Luke.13.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.13.16",
+  "pos_tisch": 4,
   "strong": "G11",
   "forma": "Ἀβραὰμ",
+  "lema": "Ἀβραάμ",
   "glosa_interlineal": "Abraham",
   "rango_semantico": [
    "Abraham"
@@ -326,7 +346,7 @@
   "construccion": "Genitivo: «hija de Abraham».",
   "sentido_en_contexto": "Jesús llama a la mujer «hija de Abraham», afirmando su pertenencia plena a Israel y su derecho a ser liberada. Juega con las palabras: si un animal se suelta en sábado, ¡cuánto más una hija de Abraham!",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 19:9 — «hijo de Abraham»",
@@ -334,9 +354,9 @@
    "Lc 1:55 — la promesa a Abraham"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Luke.13.16#04",
+  "ref_estandar": "Luke.13.16",
   "morfologia_tagnt": "N-GSM-P",
   "dstrong": "G0011",
   "strong_tagnt": "G11",
@@ -352,13 +372,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Abraham",
-  "ref_estandar": "Luke.13.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.13.19",
+  "pos_tisch": 10,
   "strong": "G2779",
   "forma": "κῆπον",
+  "lema": "κῆπος",
   "glosa_interlineal": "huerto",
   "rango_semantico": [
    "huerto, jardín"
@@ -366,17 +390,13 @@
   "construccion": "Acusativo: «un grano de mostaza… en su huerto».",
   "sentido_en_contexto": "Parábola de la mostaza y de la levadura: el reino empieza pequeño y crece de manera sorprendente. Lucas las ubica aquí, tras la sanación de la mujer.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mt 13:31-33 — paralelo",
-   "Mr 4:30-32 — paralelo",
-   "Ez 17:22-24 — el cedro y las aves"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mt 13:31-33 — paralelo\nMr 4:30-32 — paralelo\nEz 17:22-24 — el cedro y las aves",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "Luke.13.19#10",
+  "ref_estandar": "Luke.13.19",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G2779",
   "strong_tagnt": "G2779",
@@ -392,13 +412,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "garden",
-  "ref_estandar": "Luke.13.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.13.22",
+  "pos_tisch": 9,
   "strong": "G4197",
   "forma": "πορείαν",
+  "lema": "πορεία",
   "glosa_interlineal": "viaje",
   "rango_semantico": [
    "viaje, camino"
@@ -406,17 +430,13 @@
   "construccion": "Acusativo: «haciendo su camino hacia Jerusalén».",
   "sentido_en_contexto": "Lucas recuerda que Jesús está en camino a Jerusalén (9:51). Cada escena de esta sección está bajo ese horizonte.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Lc 9:51 — «afirmó su rostro para ir a Jerusalén»",
-   "Lc 17:11 — «yendo a Jerusalén»",
-   "Lc 19:28 — «subiendo a Jerusalén»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Lc 9:51 — «afirmó su rostro para ir a Jerusalén»\nLc 17:11 — «yendo a Jerusalén»\nLc 19:28 — «subiendo a Jerusalén»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Luke.13.22#09",
+  "ref_estandar": "Luke.13.22",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G4197",
   "strong_tagnt": "G4197",
@@ -432,13 +452,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "journey",
-  "ref_estandar": "Luke.13.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.13.24",
+  "pos_tisch": 1,
   "strong": "G75",
   "forma": "ἀγωνίζεσθε",
+  "lema": "ἀγωνίζομαι",
   "glosa_interlineal": "esforzaos",
   "rango_semantico": [
    "luchar, esforzarse (como un atleta)"
@@ -446,7 +470,7 @@
   "construccion": "Imperativo presente medio: «esforzaos por entrar por la puerta estrecha».",
   "sentido_en_contexto": "Pregunta: «¿son pocos los que se salvan?». Jesús no responde con cifras, sino con un llamado a esforzarse (de ἀγών, «competencia»). «Muchos procurarán entrar y no podrán».",
   "matiz": "Debate sobre el sentido de «esforzaos» frente a la gracia: el verbo no implica ganar la salvación por esfuerzo, sino urgencia y decisión. «Procurar» (ζητέω) es insuficiente sin aceptar la puerta estrecha.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 7:13-14 — puerta estrecha",
@@ -454,9 +478,9 @@
    "Heb 4:11 — «procuremos, pues, entrar en aquel reposo»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "Luke.13.24#01",
+  "ref_estandar": "Luke.13.24",
   "morfologia_tagnt": "V-PNM-2P",
   "dstrong": "G0075",
   "strong_tagnt": "G75",
@@ -472,13 +496,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to struggle",
-  "ref_estandar": "Luke.13.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.13.27",
+  "pos_tisch": 15,
   "strong": "G93",
   "forma": "ἀδικίας",
+  "lema": "ἀδικία",
   "glosa_interlineal": "injusticia",
   "rango_semantico": [
    "injusticia, maldad"
@@ -486,17 +514,13 @@
   "construccion": "Genitivo: «obreros de iniquidad».",
   "sentido_en_contexto": "Los que llaman a la puerta, alegando haber comido y escuchado con Jesús, serán rechazados: «no os conozco… apartaos de mí, obreros de iniquidad». Cita Sal 6:8.",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mt 7:23 — «nunca os conocí»",
-   "Sal 6:8 — «apartaos de mí, todos los hacedores de iniquidad»",
-   "Mt 25:12 — «no os conozco»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mt 7:23 — «nunca os conocí»\nSal 6:8 — «apartaos de mí, todos los hacedores de iniquidad»\nMt 25:12 — «no os conozco»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Luke.13.27#17",
+  "ref_estandar": "Luke.13.27",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G0093",
   "strong_tagnt": "G93",
@@ -512,13 +536,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "unrighteousness",
-  "ref_estandar": "Luke.13.27"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.13.29",
+  "pos_tisch": 8,
   "strong": "G1005",
   "forma": "Βορρᾶ",
+  "lema": "βοῤῥᾶς",
   "glosa_interlineal": "norte",
   "rango_semantico": [
    "norte"
@@ -526,7 +554,7 @@
   "construccion": "Genitivo: «del norte y del sur».",
   "sentido_en_contexto": "Vendrán de los cuatro puntos cardinales a sentarse a la mesa del reino. Lucas ensancha el «oriente y occidente» de Mateo (8:11) a los cuatro vientos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 8:11 — «del oriente y del occidente»",
@@ -534,9 +562,9 @@
    "Sal 107:3 — los redimidos reunidos de todas partes"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Luke.13.29#09",
+  "ref_estandar": "Luke.13.29",
   "morfologia_tagnt": "N-GSM",
   "dstrong": "G1005",
   "strong_tagnt": "G1005",
@@ -552,13 +580,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "the north",
-  "ref_estandar": "Luke.13.29"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.13.32",
+  "pos_tisch": 7,
   "strong": "G258",
   "forma": "ἀλώπεκι",
+  "lema": "ἀλώπηξ",
   "glosa_interlineal": "zorra",
   "rango_semantico": [
    "zorro, zorra (astuto)"
@@ -566,7 +598,7 @@
   "construccion": "Dativo: «decid a aquella zorra».",
   "sentido_en_contexto": "Jesús llama «zorra» a Herodes Antipas: astuto, pero insignificante frente a un león. Solo Lucas incluye esta respuesta a los fariseos que advierten de la amenaza de Herodes.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 9:7-9 — Herodes perplejo",
@@ -574,9 +606,9 @@
    "Ez 13:4 — «como zorras en los desiertos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Luke.13.32#07",
+  "ref_estandar": "Luke.13.32",
   "morfologia_tagnt": "N-DSF",
   "dstrong": "G0258",
   "strong_tagnt": "G258",
@@ -592,13 +624,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "fox",
-  "ref_estandar": "Luke.13.32"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.13.33",
+  "pos_tisch": 2,
   "strong": "G1163",
   "forma": "δεῖ",
+  "lema": "δεῖ",
   "glosa_interlineal": "es necesario",
   "rango_semantico": [
    "ser necesario, deber"
@@ -606,7 +642,7 @@
   "construccion": "Presente impersonal: «es necesario que siga mi camino».",
   "sentido_en_contexto": "Jesús sigue su camino a Jerusalén «porque no es posible que un profeta muera fuera de Jerusalén». Ironía y necesidad: la ciudad que mata a los profetas es el lugar de su destino.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 9:22 — «es necesario que el Hijo del Hombre padezca mucho»",
@@ -614,9 +650,9 @@
    "Jer 26:20-23 — el profeta Urías"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Luke.13.33#02",
+  "ref_estandar": "Luke.13.33",
   "morfologia_tagnt": "V-PAI-3S",
   "dstrong": "G1163",
   "strong_tagnt": "G1163",
@@ -632,13 +668,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "be necessary",
-  "ref_estandar": "Luke.13.33"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.13.34",
+  "pos_tisch": 21,
   "strong": "G3733",
   "forma": "ὄρνιξ",
+  "lema": "ὄρνις",
   "glosa_interlineal": "gallina",
   "rango_semantico": [
    "gallina, ave de corral"
@@ -646,7 +686,7 @@
   "construccion": "Nominativo: «como la gallina junta sus polluelos debajo de sus alas».",
   "sentido_en_contexto": "Lamento sobre Jerusalén, que Mateo coloca en el templo (23:37-39). Lucas lo sitúa en el camino. La imagen materna de Jesús: protección que Jerusalén rechazó.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 23:37 — paralelo",
@@ -654,9 +694,9 @@
    "Sal 91:4 — «con sus plumas te cubrirá»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 21,
   "alineacion": "strong",
   "tagnt": "Luke.13.34#21",
+  "ref_estandar": "Luke.13.34",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G3733",
   "strong_tagnt": "G3733",
@@ -672,13 +712,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hen",
-  "ref_estandar": "Luke.13.34"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.13.35",
+  "pos_tisch": 18,
   "strong": "G2127",
   "forma": "εὐλογημένος",
+  "lema": "εὐλογέω",
   "glosa_interlineal": "bendito",
   "rango_semantico": [
    "bendecido, bendito"
@@ -686,7 +730,7 @@
   "construccion": "Participio perfecto pasivo: «bendito el que viene en el nombre del Señor».",
   "sentido_en_contexto": "Cita Sal 118:26: Jesús anuncia que no lo verán hasta que digan esta aclamación. Será pronunciada en la entrada triunfal (19:38) y se ha leído también como futura aclamación escatológica.",
   "matiz": "Debate: ¿se refiere a la entrada en Jerusalén (19:38), a un futuro reconocimiento de Israel (Ro 11:25-26) o al juicio final? El texto no lo precisa.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 118:26 — texto citado",
@@ -694,9 +738,9 @@
    "Mt 23:39 — paralelo"
   ],
   "nivel_certeza": "bajo",
-  "pos_tisch": 18,
   "alineacion": "forma",
   "tagnt": "Luke.13.35#22",
+  "ref_estandar": "Luke.13.35",
   "morfologia_tagnt": "V-RPP-NSM",
   "dstrong": "G2127",
   "strong_tagnt": "G2127",
@@ -712,7 +756,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to praise/bless",
-  "ref_estandar": "Luke.13.35"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

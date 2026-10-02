@@ -35,7 +35,8 @@ class FichasV2Test(unittest.TestCase):
                 o, c, v = f["ref"].split(".")
                 t = tisch[(o, int(c), int(v))][f["pos_tisch"] - 1]
                 self.assertEqual(t["strong"], f["strong"], f["ref"])
-                self.assertIsNone(f["traducciones_comparadas"])
+                self.assertNotIn("traducciones_comparadas", f)
+                self.assertEqual((f["generador"], f["modelo"]), ("manual", "manual-legacy"))
                 n += 1
         self.assertGreaterEqual(n, 4166)
 

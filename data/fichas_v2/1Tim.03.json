@@ -1,8 +1,10 @@
 [
  {
   "ref": "1Tim.3.1",
+  "pos_tisch": 6,
   "strong": "G1984",
   "forma": "ἐπισκοπῆς",
+  "lema": "ἐπισκοπή",
   "glosa_interlineal": "episcopado",
   "rango_semantico": [
    "función de supervisor, obispado"
@@ -10,7 +12,7 @@
   "construccion": "Genitivo: «palabra fiel: Si alguno anhela obispado, buena obra desea».",
   "sentido_en_contexto": "Comienza la lista de requisitos para ἐπίσκοπος («supervisor»; 3:1-7) y diáconos (3:8-13). La función de supervisor es una «buena obra» que se puede anhelar. «Palabra fiel» introduce una máxima. El oficio se describe más por carácter que por habilidades.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Tit 1:5-9",
@@ -19,9 +21,9 @@
    "1 P 5:1-4"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "1Tim.3.1#06",
+  "ref_estandar": "1Tim.3.1",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G1984",
   "strong_tagnt": "G1984",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "oversight",
-  "ref_estandar": "1Tim.3.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Tim.3.2",
+  "pos_tisch": 4,
   "strong": "G1985",
   "forma": "ἐπίσκοπον",
+  "lema": "ἐπίσκοπος",
   "glosa_interlineal": "obispo",
   "rango_semantico": [
    "supervisor, obispo"
@@ -51,7 +57,7 @@
   "construccion": "Acusativo: «es necesario que el obispo sea irreprensible, marido de una sola mujer, sobrio, prudente, decoroso, hospedador, apto para enseñar».",
   "sentido_en_contexto": "Lista de requisitos de carácter y de vida doméstica. «Marido de una sola mujer» (μιᾶς γυναικὸς ἀνήρ): expresión muy debatida (ver abajo). Apto para enseñar: única cualificación relacionada con una función. Se usa como base para el liderazgo en la iglesia.",
   "matiz": "Debate sobre «marido de una sola mujer»: (a) no polígamo (algunos); (b) casado solo una vez, es decir, no vuelto a casar tras viudez o divorcio (muchos Padres, ortodoxos para el clero; algunas tradiciones protestantes); (c) fiel a su esposa («hombre de una sola mujer»: fidelidad conyugal; la mayoría hoy); (d) debate sobre si implica que debe estar casado, y si excluye a mujeres (se discute: el griego es masculino).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Tit 1:6-9",
@@ -59,9 +65,9 @@
    "1 P 5:2-3"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "1Tim.3.2#04",
+  "ref_estandar": "1Tim.3.2",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G1985",
   "strong_tagnt": "G1985",
@@ -77,13 +83,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "overseer",
-  "ref_estandar": "1Tim.3.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Tim.3.4",
+  "pos_tisch": 5,
   "strong": "G4291",
   "forma": "προϊστάμενον",
+  "lema": "προΐστημι",
   "glosa_interlineal": "que gobierne",
   "rango_semantico": [
    "presidir, dirigir, cuidar"
@@ -91,7 +101,7 @@
   "construccion": "Participio presente medio: «que gobierne bien su casa, que tenga a sus hijos en sujeción con toda honestidad».",
   "sentido_en_contexto": "Prueba del liderazgo: la dirección del propio hogar, como entrenamiento para el cuidado de la iglesia (v.5: «¿cómo cuidará de la iglesia de Dios?»). La iglesia es entendida como «casa de Dios» (v.15). Los hijos creyentes y obedientes (Tit 1:6) se interpretan de modos diversos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Tit 1:6",
@@ -99,9 +109,9 @@
    "Ro 12:8"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "1Tim.3.4#05",
+  "ref_estandar": "1Tim.3.4",
   "morfologia_tagnt": "V-PMP-ASM",
   "dstrong": "G4291",
   "strong_tagnt": "G4291",
@@ -117,13 +127,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to set before",
-  "ref_estandar": "1Tim.3.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Tim.3.6",
+  "pos_tisch": 2,
   "strong": "G3504",
   "forma": "νεόφυτον",
+  "lema": "νεόφυτος",
   "glosa_interlineal": "neófito",
   "rango_semantico": [
    "recién plantado, neófito"
@@ -131,7 +145,7 @@
   "construccion": "Acusativo: «no un neófito, no sea que, envaneciéndose, caiga en la condenación del diablo».",
   "sentido_en_contexto": "Un converso reciente no debe ser supervisor por el riesgo de orgullo (τυφωθείς). «Condenación del diablo» puede ser la condenación en que cayó el diablo (por orgullo) o la acusación que el diablo hace contra él. Ambos sentidos se defienden.",
   "matiz": "Debate sobre «condenación del diablo»: (a) el juicio que cayó sobre el diablo por su orgullo (la mayoría; genitivo subjetivo/objetivo); (b) el juicio al que el diablo puede arrastrarlo (genitivo de origen); (c) la acusación del diablo. En el v.7 se menciona de nuevo la trampa del diablo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Ti 3:7",
@@ -139,9 +153,9 @@
    "Pr 16:18"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "1Tim.3.6#02",
+  "ref_estandar": "1Tim.3.6",
   "morfologia_tagnt": "A-ASM",
   "dstrong": "G3504",
   "strong_tagnt": "G3504",
@@ -157,13 +171,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "new convert",
-  "ref_estandar": "1Tim.3.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Tim.3.8",
+  "pos_tisch": 1,
   "strong": "G1249",
   "forma": "διακόνους",
+  "lema": "διάκονος",
   "glosa_interlineal": "diáconos",
   "rango_semantico": [
    "servidor, diácono"
@@ -171,7 +189,7 @@
   "construccion": "Acusativo plural: «los diáconos asimismo deben ser honestos, no de doble palabra, no dados a mucho vino, no codiciosos de ganancias deshonestas».",
   "sentido_en_contexto": "Los diáconos (διάκονοι, «servidores») tienen requisitos paralelos, sin el de «apto para enseñar». Su función está relacionada con el servicio práctico (cf. Hch 6:1-6, aunque ahí no se usa el título). Se menciona en Fil 1:1 junto con los obispos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Fil 1:1",
@@ -179,9 +197,9 @@
    "Ro 16:1"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "1Tim.3.8#01",
+  "ref_estandar": "1Tim.3.8",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G1249",
   "strong_tagnt": "G1249",
@@ -197,13 +215,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "servant",
-  "ref_estandar": "1Tim.3.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Tim.3.11",
+  "pos_tisch": 1,
   "strong": "G1135",
   "forma": "γυναῖκας",
+  "lema": "γυνή",
   "glosa_interlineal": "mujeres",
   "rango_semantico": [
    "mujer, esposa"
@@ -211,7 +233,7 @@
   "construccion": "Acusativo plural: «las mujeres asimismo sean honestas, no calumniadoras, sino sobrias, fieles en todo».",
   "sentido_en_contexto": "γυναῖκας puede ser «las esposas» (de los diáconos) o «las mujeres diáconos» (diaconisas). Debate importante para el ministerio femenino. Febe es llamada διάκονος en Ro 16:1.",
   "matiz": "Debate: (a) mujeres diáconos (la mayoría de exégetas hoy; no hay posesivo «sus» y el «asimismo» paralelo a los diáconos; Febe es διάκονος): el texto presenta requisitos para ellas dentro de la serie de los diáconos; (b) esposas de los diáconos (RVR sigue esta lectura). Ambas son gramaticalmente posibles.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 16:1-2",
@@ -219,9 +241,9 @@
    "1 Ti 5:9-10"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "1Tim.3.11#01",
+  "ref_estandar": "1Tim.3.11",
   "morfologia_tagnt": "N-APF",
   "dstrong": "G1135H",
   "strong_tagnt": "G1135",
@@ -237,13 +259,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "woman",
-  "ref_estandar": "1Tim.3.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Tim.3.15",
+  "pos_tisch": 17,
   "strong": "G4769",
   "forma": "στῦλος",
+  "lema": "στῦλος",
   "glosa_interlineal": "columna",
   "rango_semantico": [
    "columna, pilar"
@@ -251,7 +277,7 @@
   "construccion": "Nominativo: «la cual es la iglesia del Dios viviente, columna y baluarte de la verdad».",
   "sentido_en_contexto": "La iglesia como «casa de Dios», «columna y fundamento de la verdad»: sostén y defensora de la verdad. Texto clave para la autoridad de la iglesia en la tradición católica y ortodoxa; los protestantes lo entienden como función de proclamar y defender la verdad bajo la Escritura.",
   "matiz": "Debate: (a) la iglesia es depositaria y garante de la verdad (católica, ortodoxa); (b) la iglesia sostiene y proclama la verdad que no le pertenece, sino que le es dada (protestante); (c) la imagen de Éfeso, con el gran templo de Artemisa y sus columnas, ilustra la función de sostén.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Ti 3:5",
@@ -260,9 +286,9 @@
    "Ap 3:12"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 17,
   "alineacion": "forma",
   "tagnt": "1Tim.3.15#17",
+  "ref_estandar": "1Tim.3.15",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G4769",
   "strong_tagnt": "G4769",
@@ -278,13 +304,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "pillar",
-  "ref_estandar": "1Tim.3.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Tim.3.16",
+  "pos_tisch": 8,
   "strong": "G3466",
   "forma": "μυστήριον",
+  "lema": "μυστήριον",
   "glosa_interlineal": "misterio",
   "rango_semantico": [
    "misterio, secreto revelado"
@@ -292,7 +322,7 @@
   "construccion": "Nominativo: «e indiscutiblemente, grande es el misterio de la piedad: Dios fue manifestado en carne, justificado en el Espíritu, visto de los ángeles, predicado a los gentiles, creído en el mundo, recibido arriba en gloria».",
   "sentido_en_contexto": "Himno cristológico con seis líneas en tres pares (carne/Espíritu; ángeles/gentiles; mundo/gloria). Variante textual célebre: «Dios fue manifestado» (θεός), «el cual (ὅς) fue manifestado» o «lo cual (ὅ)». La crítica textual prefiere ὅς («quien»): sin referencia explícita a Dios como sujeto, aunque el sentido cristológico persiste.",
   "matiz": "Variante textual: θεός («Dios»; manuscritos tardíos y tradición bizantina, base de RVR) frente a ὅς («quien»; א*, A*, C*, G, 33; la mayoría de los críticos actuales). El texto no pierde carácter cristológico: el himno describe a Cristo (encarnación, vindicación por el Espíritu, resurrección, ascensión). La lectura «Dios» fue usada en la apologética de la deidad de Cristo.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": "RVR60 sigue la lectura «Dios» (θεός); la mayoría de las ediciones críticas leen «quien» (ὅς).",
   "otros_usos": [
    "Jn 1:14",
@@ -301,9 +331,9 @@
    "1 P 3:18-22"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "1Tim.3.16#08",
+  "ref_estandar": "1Tim.3.16",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G3466",
   "strong_tagnt": "G3466",
@@ -319,7 +349,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "mystery",
-  "ref_estandar": "1Tim.3.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

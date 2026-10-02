@@ -1,8 +1,10 @@
 [
  {
   "ref": "Luke.6.1",
+  "pos_tisch": 5,
   "strong": "G1207",
   "forma": "δευτεροπρώτῳ",
+  "lema": "δευτερόπρωτος",
   "glosa_interlineal": "segundo-primer (sábado)",
   "rango_semantico": [
    "segundo primero (término obscuro)"
@@ -10,13 +12,13 @@
   "construccion": "Dativo: «en el sábado segundo-primero» (palabra única en Lucas y omitida en algunos manuscritos).",
   "sentido_en_contexto": "Término misterioso, de significado incierto: puede referirse al primer sábado después del segundo día de la Pascua, o a un sábado especial del calendario judío.",
   "matiz": "Se discute su sentido desde la antigüedad; muchos editores críticos lo omiten por ser una lectura difícil, apoyada por manuscritos antiguos pero extraña. Las versiones suelen traducir «un sábado».",
-  "traducciones_comparadas": null,
+  "variantes_textuales": "La palabra de Tischendorf no está en NA28 según el TAGNT (presente en: TR, Byz).",
   "notas_traduccion": "RVR dice simplemente «un día de reposo»; el griego añade un adjetivo raro (δευτεροπρώτῳ) cuyo sentido es incierto.",
   "otros_usos": null,
   "nivel_certeza": "bajo",
-  "pos_tisch": 5,
   "alineacion": "forma+noNA28",
   "tagnt": "Luke.6.1#05",
+  "ref_estandar": "Luke.6.1",
   "morfologia_tagnt": "A-DSN",
   "dstrong": "G1207",
   "strong_tagnt": "G1207",
@@ -33,15 +35,18 @@
    "Treg"
   ],
   "variante": true,
-  "glosa_tagnt": "second-first",
-  "ref_estandar": "Luke.6.1",
   "no_en_na28": true,
-  "nota_na28": "La palabra de Tischendorf no está en NA28 según el TAGNT (presente en: TR, Byz)."
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.6.9",
+  "pos_tisch": 13,
   "strong": "G15",
   "forma": "ἀγαθοποιῆσαι",
+  "lema": "ἀγαθοποιέω",
   "glosa_interlineal": "hacer el bien",
   "rango_semantico": [
    "hacer bien, obrar bien"
@@ -49,7 +54,7 @@
   "construccion": "Infinitivo aoristo activo: «¿es lícito en sábado hacer bien o hacer mal?».",
   "sentido_en_contexto": "El dilema que Jesús plantea al sanar la mano seca: ¿hacer el bien o el mal, salvar la vida o destruirla? No actuar equivale a elegir el mal.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 3:4 — paralelo",
@@ -57,9 +62,9 @@
    "Hch 10:38 — Jesús «pasó haciendo bienes»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 13,
   "alineacion": "forma",
   "tagnt": "Luke.6.9#13",
+  "ref_estandar": "Luke.6.9",
   "morfologia_tagnt": "V-AAN",
   "dstrong": "G0015",
   "strong_tagnt": "G15",
@@ -75,13 +80,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to do good",
-  "ref_estandar": "Luke.6.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.6.11",
+  "pos_tisch": 4,
   "strong": "G454",
   "forma": "ἀνοίας",
+  "lema": "ἄνοια",
   "glosa_interlineal": "furor insensato",
   "rango_semantico": [
    "falta de juicio, locura, rabia"
@@ -89,16 +98,16 @@
   "construccion": "Genitivo: «se llenaron de furor (de ἄνοια)».",
   "sentido_en_contexto": "Los fariseos y escribas se llenan de ira insensata y discuten qué hacer con Jesús. Lucas lo describe como un furor irracional.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Ti 3:9 — «su insensatez (ἄνοια) será manifiesta a todos»",
    "Mr 3:6 — consejo con los herodianos"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "Luke.6.11#04",
+  "ref_estandar": "Luke.6.11",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G0454",
   "strong_tagnt": "G454",
@@ -114,13 +123,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "folly",
-  "ref_estandar": "Luke.6.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.6.12",
+  "pos_tisch": 15,
   "strong": "G1273",
   "forma": "διανυκτερεύων",
+  "lema": "διανυκτερεύω",
   "glosa_interlineal": "pasando la noche",
   "rango_semantico": [
    "pasar la noche entera"
@@ -128,7 +141,7 @@
   "construccion": "Participio presente activo: «pasando la noche en oración a Dios».",
   "sentido_en_contexto": "Solo Lucas dice que Jesús pasó toda la noche orando antes de elegir a los doce. Subraya la oración antes de decisiones cruciales.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 3:21 — oró antes de ser bautizado",
@@ -136,9 +149,9 @@
    "Lc 22:41-46 — Getsemaní"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "Luke.6.12#15",
+  "ref_estandar": "Luke.6.12",
   "morfologia_tagnt": "V-PAP-NSM",
   "dstrong": "G1273",
   "strong_tagnt": "G1273",
@@ -154,13 +167,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to spend the night",
-  "ref_estandar": "Luke.6.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.6.13",
+  "pos_tisch": 16,
   "strong": "G652",
   "forma": "ἀποστόλους",
+  "lema": "ἀπόστολος",
   "glosa_interlineal": "apóstoles",
   "rango_semantico": [
    "enviado, apóstol"
@@ -168,7 +185,7 @@
   "construccion": "Acusativo plural: «a los cuales también llamó apóstoles».",
   "sentido_en_contexto": "Lucas dice que Jesús «dio el nombre de apóstoles» a los doce: el título nace de su llamada, no de una función espontánea. «Apóstol» es la palabra clave en Hechos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 3:14 — «constituyó a doce, para que estuviesen con él»",
@@ -176,9 +193,9 @@
    "Hch 1:26 — Matías «contado con los once apóstoles»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 16,
   "alineacion": "forma",
   "tagnt": "Luke.6.13#16",
+  "ref_estandar": "Luke.6.13",
   "morfologia_tagnt": "N-APM",
   "dstrong": "G0652",
   "strong_tagnt": "G652",
@@ -194,13 +211,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "apostle",
-  "ref_estandar": "Luke.6.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.6.15",
+  "pos_tisch": 12,
   "strong": "G2207",
   "forma": "ζηλωτήν",
+  "lema": "ζηλωτής",
   "glosa_interlineal": "zelote",
   "rango_semantico": [
    "zelote, celoso (miembro del partido nacionalista o celoso por la Ley)"
@@ -208,17 +229,13 @@
   "construccion": "Acusativo: «Simón llamado el Zelote».",
   "sentido_en_contexto": "Lucas traduce al griego el sobrenombre arameo que Mateo y Marcos conservan («cananista»). Simón el Zelote era «celoso» (por la Ley o miembro del movimiento nacionalista).",
   "matiz": null,
-  "traducciones_comparadas": null,
-  "notas_traduccion": [
-   "Mt 10:4 — «Simón el cananista»",
-   "Hch 1:13 — «Simón el Zelote»",
-   "Hch 21:20 — «todos son celosos de la ley»"
-  ],
+  "variantes_textuales": null,
+  "notas_traduccion": "Mt 10:4 — «Simón el cananista»\nHch 1:13 — «Simón el Zelote»\nHch 21:20 — «todos son celosos de la ley»",
   "otros_usos": null,
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Luke.6.15#14",
+  "ref_estandar": "Luke.6.15",
   "morfologia_tagnt": "N-ASM-T",
   "dstrong": "G2208",
   "strong_tagnt": "G2208",
@@ -234,13 +251,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "zealot",
-  "ref_estandar": "Luke.6.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.6.16",
+  "pos_tisch": 9,
   "strong": "G4273",
   "forma": "προδότης",
+  "lema": "προδότης",
   "glosa_interlineal": "traidor",
   "rango_semantico": [
    "traidor, el que entrega"
@@ -248,7 +269,7 @@
   "construccion": "Nominativo: «Judas Iscariote, que llegó a ser traidor».",
   "sentido_en_contexto": "Lucas lo llama προδότης («traidor»), vocablo más fuerte que el «el que le entregó» de Mateo y Marcos. Judas «llegó a ser» (ἐγένετο) traidor: Lucas insinúa un proceso.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 7:52 — «de quien vosotros ahora habéis sido entregadores (προδόται)»",
@@ -256,9 +277,9 @@
    "2 Ti 3:4 — «traidores»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Luke.6.16#10",
+  "ref_estandar": "Luke.6.16",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G4273",
   "strong_tagnt": "G4273",
@@ -274,13 +295,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "traitor",
-  "ref_estandar": "Luke.6.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.6.17",
+  "pos_tisch": 8,
   "strong": "G3977",
   "forma": "πεδινοῦ",
+  "lema": "πεδινός",
   "glosa_interlineal": "llano",
   "rango_semantico": [
    "llano, plano"
@@ -288,16 +313,16 @@
   "construccion": "Genitivo: «en un lugar llano».",
   "sentido_en_contexto": "A diferencia de Mateo (que sitúa el sermón «en el monte»), Lucas lo sitúa «en un lugar llano» después de pasar la noche en el monte. Es el «Sermón del Llano», versión más breve y con bienaventuranzas y ayes.",
   "matiz": "Debate sobre la relación entre Mateo 5-7 y Lucas 6:20-49: ¿dos discursos distintos o dos versiones de uno solo (con fuentes comunes)? Las diferencias de lugar y extensión se explican de formas diversas.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 5:1 — «subió al monte»",
    "Is 40:4 — «los lugares ásperos allanados»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Luke.6.17#08",
+  "ref_estandar": "Luke.6.17",
   "morfologia_tagnt": "A-GSM",
   "dstrong": "G3977",
   "strong_tagnt": "G3977",
@@ -313,13 +338,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "level",
-  "ref_estandar": "Luke.6.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.6.19",
+  "pos_tisch": 9,
   "strong": "G1411",
   "forma": "δύναμις",
+  "lema": "δύναμις",
   "glosa_interlineal": "poder",
   "rango_semantico": [
    "poder, fuerza"
@@ -327,7 +356,7 @@
   "construccion": "Nominativo: «poder salía de él y sanaba a todos».",
   "sentido_en_contexto": "Lucas describe el poder sanador de Jesús como una fuerza que sale de él; la gente procura tocarlo. Similar a la mujer con flujo (8:46).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 8:46 — «he conocido que ha salido poder de mí»",
@@ -335,9 +364,9 @@
    "Hch 19:12 — «paños… llevaban… y las enfermedades se iban»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Luke.6.19#09",
+  "ref_estandar": "Luke.6.19",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G1411",
   "strong_tagnt": "G1411",
@@ -353,13 +382,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "power",
-  "ref_estandar": "Luke.6.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.6.20",
+  "pos_tisch": 14,
   "strong": "G4434",
   "forma": "πτωχοί",
+  "lema": "πτωχός",
   "glosa_interlineal": "pobres",
   "rango_semantico": [
    "pobre"
@@ -367,7 +400,7 @@
   "construccion": "Adjetivo nominativo plural: «bienaventurados los pobres».",
   "sentido_en_contexto": "Lucas formula las bienaventuranzas en segunda persona («vosotros»), sin «en espíritu» (Mt 5:3) y las acompaña de cuatro ayes. El tono es más social: pobres, hambrientos, los que lloran y los perseguidos.",
   "matiz": "Debate: ¿Lucas habla de pobreza material, Mateo de pobreza espiritual? Muchos creen que ambos subrayan lo mismo desde ángulos distintos: los pobres que dependen de Dios.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 5:3 — «los pobres en espíritu»",
@@ -375,9 +408,9 @@
    "Lc 16:19-31 — el rico y Lázaro"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Luke.6.20#14",
+  "ref_estandar": "Luke.6.20",
   "morfologia_tagnt": "N-NPM",
   "dstrong": "G4434",
   "strong_tagnt": "G4434",
@@ -393,13 +426,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "poor",
-  "ref_estandar": "Luke.6.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.6.21",
+  "pos_tisch": 12,
   "strong": "G1070",
   "forma": "γελάσετε",
+  "lema": "γελάω",
   "glosa_interlineal": "reiréis",
   "rango_semantico": [
    "reír"
@@ -407,7 +444,7 @@
   "construccion": "Futuro indicativo activo, 2ª plural: «reiréis».",
   "sentido_en_contexto": "Las bienaventuranzas de Lucas son bivalentes: «ahora» sufren, «entonces» (futuro) recibirán: saciedad, risa, recompensa. Las hace corresponder con los ayes del v.24-26.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 126:2 — «nuestra boca se llenó de risa»",
@@ -415,9 +452,9 @@
    "Jn 16:20 — «vuestra tristeza se convertirá en gozo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Luke.6.21#12",
+  "ref_estandar": "Luke.6.21",
   "morfologia_tagnt": "V-FAI-2P",
   "dstrong": "G1070",
   "strong_tagnt": "G1070",
@@ -433,13 +470,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to laugh",
-  "ref_estandar": "Luke.6.21"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.6.24",
+  "pos_tisch": 2,
   "strong": "G3759",
   "forma": "οὐαὶ",
+  "lema": "οὐαί",
   "glosa_interlineal": "¡ay!",
   "rango_semantico": [
    "¡ay! (lamento y advertencia)"
@@ -447,7 +488,7 @@
   "construccion": "Interjección: «¡ay de vosotros, ricos!».",
   "sentido_en_contexto": "Solo Lucas incluye cuatro ayes, correspondientes a las cuatro bienaventuranzas: ricos, saciados, los que ríen ahora, los que son bien hablados por todos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 6:20-23 — bienaventuranzas",
@@ -455,9 +496,9 @@
    "Stg 5:1-6 — «ricos, llorad y aullad»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Luke.6.24#02",
+  "ref_estandar": "Luke.6.24",
   "morfologia_tagnt": "INJ",
   "dstrong": "G3759",
   "strong_tagnt": "G3759",
@@ -473,13 +514,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "woe!",
-  "ref_estandar": "Luke.6.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.6.27",
+  "pos_tisch": 6,
   "strong": "G25",
   "forma": "ἀγαπᾶτε",
+  "lema": "ἀγαπάω",
   "glosa_interlineal": "amad",
   "rango_semantico": [
    "amar"
@@ -487,7 +532,7 @@
   "construccion": "Imperativo presente activo, 2ª plural: «amad a vuestros enemigos».",
   "sentido_en_contexto": "Lucas desarrolla el amor a los enemigos con cuatro mandatos (amad, haced bien, bendecid, orad) y ejemplos concretos (mejilla, manto, pedir). El criterio es la imitación de Dios que es «benigno con los ingratos y malos».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 5:44 — paralelo",
@@ -495,9 +540,9 @@
    "1 P 3:9 — «no devolviendo mal por mal»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "Luke.6.27#06",
+  "ref_estandar": "Luke.6.27",
   "morfologia_tagnt": "V-PAM-2P",
   "dstrong": "G0025",
   "strong_tagnt": "G25",
@@ -513,13 +558,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to love",
-  "ref_estandar": "Luke.6.27"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.6.31",
+  "pos_tisch": 3,
   "strong": "G2309",
   "forma": "θέλετε",
+  "lema": "θέλω",
   "glosa_interlineal": "queréis",
   "rango_semantico": [
    "querer, desear"
@@ -527,7 +576,7 @@
   "construccion": "Presente indicativo activo, 2ª plural: «como queréis que os hagan los hombres».",
   "sentido_en_contexto": "La «regla de oro» aparece aquí en medio del pasaje sobre los enemigos (en Mt 7:12 aparece al final del Sermón). Formulada positivamente: hacer, no solo abstenerse.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 7:12 — paralelo",
@@ -535,9 +584,9 @@
    "Lv 19:18 — «amarás a tu prójimo como a ti mismo»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Luke.6.31#03",
+  "ref_estandar": "Luke.6.31",
   "morfologia_tagnt": "V-PAI-2P",
   "dstrong": "G2309",
   "strong_tagnt": "G2309",
@@ -553,13 +602,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to will/desire",
-  "ref_estandar": "Luke.6.31"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.6.35",
+  "pos_tisch": 11,
   "strong": "G560",
   "forma": "ἀπελπίζοντες",
+  "lema": "ἀπελπίζω",
   "glosa_interlineal": "sin esperar nada",
   "rango_semantico": [
    "no esperar nada a cambio, desesperar"
@@ -567,16 +620,16 @@
   "construccion": "Participio presente activo: «no esperando nada a cambio».",
   "sentido_en_contexto": "«Prestad sin esperar recompensa». Algunos manuscritos leen «sin desesperar de nadie», con otro sentido. Lucas relaciona la generosidad con el comportamiento del Altísimo.",
   "matiz": "Hay una variante textual notable: ἀπελπίζοντες («no esperando nada») o μηδὲν ἀπελπίζοντες / μηδένα ἀπελπίζοντες («sin desesperar de nadie»). La mayoría de las lecturas favorece la primera.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lc 14:12-14 — «no llames a tus amigos… llama a los pobres»",
    "Sal 37:26 — «todos los días tiene misericordia y presta»"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "Luke.6.35#11",
+  "ref_estandar": "Luke.6.35",
   "morfologia_tagnt": "V-PAP-NPM",
   "dstrong": "G0560",
   "strong_tagnt": "G560",
@@ -592,13 +645,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to despair",
-  "ref_estandar": "Luke.6.35"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.6.36",
+  "pos_tisch": 2,
   "strong": "G3629",
   "forma": "οἰκτίρμονες",
+  "lema": "οἰκτίρμων",
   "glosa_interlineal": "misericordiosos",
   "rango_semantico": [
    "compasivo, misericordioso"
@@ -606,7 +663,7 @@
   "construccion": "Adjetivo nominativo plural: «sed misericordiosos».",
   "sentido_en_contexto": "Lucas dice «misericordiosos» donde Mateo (5:48) dice «perfectos»: el modelo es la compasión del Padre. Ambas formulaciones se explican mutuamente.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 5:48 — «sed perfectos»",
@@ -614,10 +671,9 @@
    "Stg 5:11 — «el Señor es muy misericordioso»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Luke.6.36#03",
+  "ref_estandar": "Luke.6.36",
   "morfologia_tagnt": "A-NPM",
   "dstrong": "G3629",
   "strong_tagnt": "G3629",
@@ -633,13 +689,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "compassionate",
-  "ref_estandar": "Luke.6.36"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.6.37",
+  "pos_tisch": 15,
   "strong": "G630",
   "forma": "ἀπολύετε",
+  "lema": "ἀπολύω",
   "glosa_interlineal": "perdonad",
   "rango_semantico": [
    "soltar, perdonar, liberar"
@@ -647,7 +708,7 @@
   "construccion": "Imperativo presente activo, 2ª plural: «perdonad (soltad), y seréis perdonados».",
   "sentido_en_contexto": "Lucas usa ἀπολύω («soltar») para perdonar; Mateo usa ἀφίημι. Mandatos paralelos: no juzguéis, no condenéis, perdonad, dad.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 7:1-2 — «no juzguéis»",
@@ -655,10 +716,9 @@
    "Col 3:13 — «perdonándoos unos a otros»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Luke.6.37#15",
+  "ref_estandar": "Luke.6.37",
   "morfologia_tagnt": "V-PAM-2P",
   "dstrong": "G0630G",
   "strong_tagnt": "G630",
@@ -674,13 +734,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to release",
-  "ref_estandar": "Luke.6.37"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.6.38",
+  "pos_tisch": 9,
   "strong": "G5240",
   "forma": "ὑπερεκχυννόμενον",
+  "lema": "ὑπερεκχύνω",
   "glosa_interlineal": "rebosando",
   "rango_semantico": [
    "desbordarse, rebosar"
@@ -688,7 +753,7 @@
   "construccion": "Participio presente pasivo: «rebosando».",
   "sentido_en_contexto": "Imagen de generosidad comercial: medida buena, apretada, sacudida y desbordante, derramada en el regazo (el pliegue del manto). Dios da con abundancia.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 4:24 — «con la medida con que medís, os será medido»",
@@ -696,9 +761,9 @@
    "2 Co 9:6 — «el que siembra generosamente»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Luke.6.38#11",
+  "ref_estandar": "Luke.6.38",
   "morfologia_tagnt": "V-PPP-ASN",
   "dstrong": "G5240",
   "strong_tagnt": "G5240",
@@ -714,13 +779,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to overflow",
-  "ref_estandar": "Luke.6.38"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.6.40",
+  "pos_tisch": 7,
   "strong": "G2675",
   "forma": "κατηρτισμένος",
+  "lema": "καταρτίζω",
   "glosa_interlineal": "perfeccionado",
   "rango_semantico": [
    "preparar, restaurar, equipar plenamente"
@@ -728,7 +797,7 @@
   "construccion": "Participio perfecto pasivo: «todo el que fuere perfeccionado será como su maestro».",
   "sentido_en_contexto": "El discípulo plenamente formado será como su maestro. El mismo verbo se usa para remendar redes (Mt 4:21) y restaurar a un caído (Gá 6:1).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 10:25 — «bástale al discípulo ser como su maestro»",
@@ -736,9 +805,9 @@
    "Ef 4:12 — «perfeccionar a los santos»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Luke.6.40#08",
+  "ref_estandar": "Luke.6.40",
   "morfologia_tagnt": "V-RPP-NSM",
   "dstrong": "G2675",
   "strong_tagnt": "G2675",
@@ -754,13 +823,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to complete",
-  "ref_estandar": "Luke.6.40"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.6.45",
+  "pos_tisch": 7,
   "strong": "G2344",
   "forma": "θησαυροῦ",
+  "lema": "θησαυρός",
   "glosa_interlineal": "tesoro",
   "rango_semantico": [
    "tesoro, depósito"
@@ -768,16 +841,16 @@
   "construccion": "ἐκ + genitivo: «del buen tesoro de su corazón».",
   "sentido_en_contexto": "Lucas ancla el discurso en el corazón: de lo que hay dentro sale lo bueno o lo malo, y la boca lo manifiesta. Se une con la imagen del árbol y su fruto.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 12:34-35 — paralelo",
    "Mt 6:21 — «donde está vuestro tesoro, allí estará vuestro corazón»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "Luke.6.45#07",
+  "ref_estandar": "Luke.6.45",
   "morfologia_tagnt": "N-GSM",
   "dstrong": "G2344",
   "strong_tagnt": "G2344",
@@ -793,13 +866,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "treasure",
-  "ref_estandar": "Luke.6.45"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.6.46",
+  "pos_tisch": 5,
   "strong": "G2962",
   "forma": "κύριε",
+  "lema": "κύριος",
   "glosa_interlineal": "Señor",
   "rango_semantico": [
    "amo, señor",
@@ -808,7 +885,7 @@
   "construccion": "Vocativo repetido: «Señor, Señor».",
   "sentido_en_contexto": "Cierre del sermón: no basta llamarlo Señor, hay que hacer lo que dice. Lucas lo pone como pregunta retórica («¿por qué me llamáis Señor, Señor, y no hacéis lo que yo digo?»).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 7:21 — «no todo el que me dice: Señor, Señor»",
@@ -816,10 +893,9 @@
    "Stg 1:22 — «sed hacedores de la palabra»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Luke.6.46#05",
+  "ref_estandar": "Luke.6.46",
   "morfologia_tagnt": "N-VSM-T",
   "dstrong": "G2962G",
   "strong_tagnt": "G2962",
@@ -835,13 +911,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lord",
-  "ref_estandar": "Luke.6.46"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.6.46",
+  "pos_tisch": 6,
   "strong": "G2962",
   "forma": "κύριε",
+  "lema": "κύριος",
   "glosa_interlineal": "Señor",
   "rango_semantico": [
    "amo, señor",
@@ -850,7 +931,7 @@
   "construccion": "Vocativo repetido: «Señor, Señor».",
   "sentido_en_contexto": "Cierre del sermón: no basta llamarlo Señor, hay que hacer lo que dice. Lucas lo pone como pregunta retórica («¿por qué me llamáis Señor, Señor, y no hacéis lo que yo digo?»).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 7:21 — «no todo el que me dice: Señor, Señor»",
@@ -858,10 +939,9 @@
    "Stg 1:22 — «sed hacedores de la palabra»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "Luke.6.46#06",
+  "ref_estandar": "Luke.6.46",
   "morfologia_tagnt": "N-VSM-T",
   "dstrong": "G2962G",
   "strong_tagnt": "G2962",
@@ -877,13 +957,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "lord",
-  "ref_estandar": "Luke.6.46"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Luke.6.48",
+  "pos_tisch": 12,
   "strong": "G2310",
   "forma": "θεμέλιον",
+  "lema": "θεμέλιος",
   "glosa_interlineal": "cimiento",
   "rango_semantico": [
    "fundamento, cimiento"
@@ -891,7 +976,7 @@
   "construccion": "Acusativo: «puso el fundamento sobre la roca».",
   "sentido_en_contexto": "En Lucas, el constructor sabio cava hondo hasta llegar a la roca; el necio construye «sin cimiento». Mateo habla de roca y arena. Lucas subraya el trabajo de profundizar.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 7:24-27 — paralelo con arena",
@@ -899,9 +984,9 @@
    "Ef 2:20 — «sobre el fundamento de los apóstoles»"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Luke.6.48#12",
+  "ref_estandar": "Luke.6.48",
   "morfologia_tagnt": "N-ASM",
   "dstrong": "G2310",
   "strong_tagnt": "G2310",
@@ -917,7 +1002,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "foundation",
-  "ref_estandar": "Luke.6.48"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

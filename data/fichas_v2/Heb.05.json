@@ -1,8 +1,10 @@
 [
  {
   "ref": "Heb.5.1",
+  "pos_tisch": 3,
   "strong": "G749",
   "forma": "ἀρχιερεὺς",
+  "lema": "ἀρχιερεύς",
   "glosa_interlineal": "sumo sacerdote",
   "rango_semantico": [
    "sumo sacerdote"
@@ -10,7 +12,7 @@
   "construccion": "Nominativo: «porque todo sumo sacerdote tomado de entre los hombres es constituido a favor de los hombres en lo que a Dios se refiere, para presentar ofrendas y sacrificios por los pecados».",
   "sentido_en_contexto": "Requisitos del sumo sacerdote (5:1-4): ser humano, representar al pueblo, compadecerse de los débiles, ser llamado por Dios. Cristo los cumple (5:5-10), y los supera.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lv 16",
@@ -18,9 +20,9 @@
    "Heb 4:14-16"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 3,
   "alineacion": "forma",
   "tagnt": "Heb.5.1#03",
+  "ref_estandar": "Heb.5.1",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G0749",
   "strong_tagnt": "G749",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "high-priest",
-  "ref_estandar": "Heb.5.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Heb.5.6",
+  "pos_tisch": 14,
   "strong": "G3198",
   "forma": "Μελχισέδεκ",
+  "lema": "Μελχισεδέκ",
   "glosa_interlineal": "Melquisedec",
   "rango_semantico": [
    "Melquisedec"
@@ -50,7 +56,7 @@
   "construccion": "Genitivo: «como también dice en otro lugar: Tú eres sacerdote para siempre, según el orden de Melquisedec».",
   "sentido_en_contexto": "Cita de Sal 110:4: Cristo es sacerdote «según el orden de Melquisedec» (rey-sacerdote de Salem, Gn 14:18-20), no del orden de Aarón. Tema desarrollado en cap. 7. Melquisedec es figura del sacerdocio de Cristo, superior al levítico.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Sal 110:4",
@@ -58,9 +64,9 @@
    "Heb 7"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Heb.5.6#14",
+  "ref_estandar": "Heb.5.6",
   "morfologia_tagnt": "N-GSM-P",
   "dstrong": "G3198",
   "strong_tagnt": "G3198",
@@ -76,13 +82,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Melchizedek",
-  "ref_estandar": "Heb.5.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Heb.5.7",
+  "pos_tisch": 23,
   "strong": "G1144",
   "forma": "δακρύων",
+  "lema": "δάκρυ",
   "glosa_interlineal": "lágrimas",
   "rango_semantico": [
    "lágrima"
@@ -90,7 +100,7 @@
   "construccion": "Genitivo plural: «y Cristo, en los días de su carne, ofreciendo ruegos y súplicas con gran clamor y lágrimas al que le podía librar de la muerte, fue oído a causa de su temor reverente».",
   "sentido_en_contexto": "Probable alusión a Getsemaní (Mr 14:32-42). Jesús rogó ser librado de la muerte y «fue oído»: ¿cómo, si murió? Se interpreta como libertad de la muerte por la resurrección o aceptación de su oración (hágase tu voluntad). Texto de profunda humanidad de Cristo.",
   "matiz": "Debate sobre «fue oído»: (a) fue librado de la muerte por la resurrección (la mayoría); (b) fue escuchado al recibir fuerza para obedecer; (c) fue oído en su oración final de sumisión. El objeto es la humanidad plena y la obediencia.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mr 14:32-42",
@@ -98,9 +108,9 @@
    "Jn 12:27"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 23,
   "alineacion": "forma",
   "tagnt": "Heb.5.7#23",
+  "ref_estandar": "Heb.5.7",
   "morfologia_tagnt": "N-GPN",
   "dstrong": "G1144",
   "strong_tagnt": "G1144",
@@ -116,13 +126,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "teardrop",
-  "ref_estandar": "Heb.5.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Heb.5.8",
+  "pos_tisch": 9,
   "strong": "G5218",
   "forma": "ὑπακοήν",
+  "lema": "ὑπακοή",
   "glosa_interlineal": "obediencia",
   "rango_semantico": [
    "obediencia"
@@ -130,7 +144,7 @@
   "construccion": "Acusativo: «y aunque era Hijo, por lo que padeció aprendió la obediencia».",
   "sentido_en_contexto": "Aun siendo Hijo, «aprendió» la obediencia por el sufrimiento: no que fuera desobediente, sino que la experimentó a fondo como hombre. Paradoja cristológica. Cf. Fil 2:8.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Fil 2:8",
@@ -138,9 +152,9 @@
    "Lc 2:52"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Heb.5.8#09",
+  "ref_estandar": "Heb.5.8",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G5218",
   "strong_tagnt": "G5218",
@@ -156,13 +170,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "obedience",
-  "ref_estandar": "Heb.5.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Heb.5.9",
+  "pos_tisch": 2,
   "strong": "G5048",
   "forma": "τελειωθεὶς",
+  "lema": "τελειόω",
   "glosa_interlineal": "perfeccionado",
   "rango_semantico": [
    "perfeccionar, llevar a la meta"
@@ -170,7 +188,7 @@
   "construccion": "Participio aoristo pasivo: «y habiendo sido perfeccionado, vino a ser autor de eterna salvación para todos los que le obedecen».",
   "sentido_en_contexto": "τελειωθείς: «habiendo sido llevado a su plenitud» (cualificado) como Salvador por el sufrimiento y la exaltación. No implica imperfección moral. La salvación es para «todos los que le obedecen»: la fe obediente (cf. Ro 1:5). Se discute la relación entre obediencia y salvación.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Heb 2:10; 7:28",
@@ -178,9 +196,9 @@
    "Hch 6:7"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Heb.5.9#02",
+  "ref_estandar": "Heb.5.9",
   "morfologia_tagnt": "V-APP-NSM",
   "dstrong": "G5048",
   "strong_tagnt": "G5048",
@@ -196,13 +214,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to perfect",
-  "ref_estandar": "Heb.5.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Heb.5.11",
+  "pos_tisch": 8,
   "strong": "G1421",
   "forma": "δυσερμήνευτος",
+  "lema": "δυσερμήνευτος",
   "glosa_interlineal": "difícil de explicar",
   "rango_semantico": [
    "difícil de interpretar"
@@ -210,7 +232,7 @@
   "construccion": "Nominativo: «acerca de esto tenemos mucho que decir, y difícil de explicar, por cuanto os habéis hecho tardos para oír».",
   "sentido_en_contexto": "Interrupción del argumento sobre Melquisedec: reproche por la inmadurez. Los lectores «deberían ser maestros» pero necesitan leche (v.12). La inmadurez doctrinal impide la comprensión de verdades profundas.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 3:1-3",
@@ -218,9 +240,9 @@
    "1 P 2:2"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Heb.5.11#08",
+  "ref_estandar": "Heb.5.11",
   "morfologia_tagnt": "A-NSM",
   "dstrong": "G1421",
   "strong_tagnt": "G1421",
@@ -236,13 +258,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "hard to interpret",
-  "ref_estandar": "Heb.5.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Heb.5.14",
+  "pos_tisch": 1,
   "strong": "G5046",
   "forma": "τελείων",
+  "lema": "τέλειος",
   "glosa_interlineal": "maduros",
   "rango_semantico": [
    "perfecto, maduro"
@@ -250,7 +276,7 @@
   "construccion": "Genitivo plural: «pero el alimento sólido es para los que han alcanzado madurez, para los que por el uso tienen los sentidos ejercitados en el discernimiento del bien y del mal».",
   "sentido_en_contexto": "Imagen de leche y alimento sólido: la madurez se logra por práctica y discernimiento. Prepara la exhortación a avanzar hacia la perfección (6:1).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 14:20",
@@ -258,9 +284,9 @@
    "Fil 3:15"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "Heb.5.14#01",
+  "ref_estandar": "Heb.5.14",
   "morfologia_tagnt": "A-GPM",
   "dstrong": "G5046",
   "strong_tagnt": "G5046",
@@ -276,7 +302,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "perfect",
-  "ref_estandar": "Heb.5.14"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

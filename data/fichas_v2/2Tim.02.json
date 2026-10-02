@@ -1,8 +1,10 @@
 [
  {
   "ref": "2Tim.2.2",
+  "pos_tisch": 10,
   "strong": "G3908",
   "forma": "παράθου",
+  "lema": "παρατίθημι",
   "glosa_interlineal": "encomienda",
   "rango_semantico": [
    "confiar, encomendar"
@@ -10,7 +12,7 @@
   "construccion": "Imperativo aoristo medio: «y lo que has oído de mí ante muchos testigos, esto encarga a hombres fieles que sean idóneos para enseñar también a otros».",
   "sentido_en_contexto": "Cuatro generaciones de transmisión: Pablo → Timoteo → hombres fieles → otros. El depósito apostólico se transmite en la comunidad. Usado para defender tanto la sucesión apostólica (católica, ortodoxa) como la multiplicación de líderes (evangélica).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Ti 1:13-14",
@@ -19,9 +21,9 @@
    "Hch 14:23"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "2Tim.2.2#10",
+  "ref_estandar": "2Tim.2.2",
   "morfologia_tagnt": "V-2AMM-2S",
   "dstrong": "G3908",
   "strong_tagnt": "G3908",
@@ -37,13 +39,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to set before",
-  "ref_estandar": "2Tim.2.2"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Tim.2.3",
+  "pos_tisch": 4,
   "strong": "G4757",
   "forma": "στρατιώτης",
+  "lema": "στρατιώτης",
   "glosa_interlineal": "soldado",
   "rango_semantico": [
    "soldado"
@@ -51,7 +57,7 @@
   "construccion": "Nominativo: «tú, pues, sufre penalidades como buen soldado de Jesucristo».",
   "sentido_en_contexto": "Tres imágenes para el ministerio: soldado (disciplina y sufrimiento, v.3-4), atleta (reglas, v.5) y labrador (trabajo y fruto, v.6). Cada una enseña perseverancia y fidelidad.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Ti 1:18",
@@ -60,9 +66,9 @@
    "1 Co 9:7, 24-27"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "2Tim.2.3#06",
+  "ref_estandar": "2Tim.2.3",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G4757",
   "strong_tagnt": "G4757",
@@ -78,13 +84,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "soldier",
-  "ref_estandar": "2Tim.2.3"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Tim.2.8",
+  "pos_tisch": 4,
   "strong": "G1453",
   "forma": "ἐγηγερμένον",
+  "lema": "ἐγείρω",
   "glosa_interlineal": "resucitado",
   "rango_semantico": [
    "levantar, resucitar"
@@ -92,7 +102,7 @@
   "construccion": "Participio perfecto pasivo: «acuérdate de Jesucristo, del linaje de David, resucitado de los muertos conforme a mi evangelio».",
   "sentido_en_contexto": "Resumen del evangelio: Cristo resucitado, descendiente de David. Doble confesión (humanidad y exaltación; cf. Ro 1:3-4). Pablo sufre por este evangelio (v.9), pero «la palabra de Dios no está presa».",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 1:3-4",
@@ -100,9 +110,9 @@
    "Hch 13:22-23"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "2Tim.2.8#04",
+  "ref_estandar": "2Tim.2.8",
   "morfologia_tagnt": "V-RPP-ASM",
   "dstrong": "G1453",
   "strong_tagnt": "G1453",
@@ -118,13 +128,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to arise",
-  "ref_estandar": "2Tim.2.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Tim.2.9",
+  "pos_tisch": 14,
   "strong": "G1210",
   "forma": "δέδεται",
+  "lema": "δέω",
   "glosa_interlineal": "está atada",
   "rango_semantico": [
    "atar, encadenar"
@@ -132,7 +146,7 @@
   "construccion": "Perfecto indicativo pasivo: «en el cual sufro penalidades, hasta prisiones a modo de malhechor; mas la palabra de Dios no está presa».",
   "sentido_en_contexto": "Pablo está encadenado como criminal, pero el evangelio no está encadenado. Su sufrimiento sirve a los elegidos (v.10). Contraste entre la situación del mensajero y el poder de la Palabra.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Fil 1:12-14",
@@ -140,9 +154,9 @@
    "Col 4:3"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "2Tim.2.9#14",
+  "ref_estandar": "2Tim.2.9",
   "morfologia_tagnt": "V-RPI-3S",
   "dstrong": "G1210",
   "strong_tagnt": "G1210",
@@ -158,13 +172,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to bind",
-  "ref_estandar": "2Tim.2.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Tim.2.10",
+  "pos_tisch": 7,
   "strong": "G1588",
   "forma": "ἐκλεκτούς",
+  "lema": "ἐκλεκτός",
   "glosa_interlineal": "escogidos",
   "rango_semantico": [
    "elegido, escogido"
@@ -172,7 +190,7 @@
   "construccion": "Acusativo plural: «por tanto, todo lo soporto por amor de los escogidos, para que ellos también obtengan la salvación que es en Cristo Jesús con gloria eterna».",
   "sentido_en_contexto": "Pablo soporta sufrimientos por los elegidos para que alcancen la salvación. Esto muestra que la elección no excluye medios humanos como la predicación. Se debate la relación entre elección y evangelización.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Col 1:24",
@@ -181,9 +199,9 @@
    "Ef 1:4"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "2Tim.2.10#07",
+  "ref_estandar": "2Tim.2.10",
   "morfologia_tagnt": "A-APM",
   "dstrong": "G1588",
   "strong_tagnt": "G1588",
@@ -199,13 +217,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "select",
-  "ref_estandar": "2Tim.2.10"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Tim.2.11",
+  "pos_tisch": 6,
   "strong": "G4880",
   "forma": "συναπεθάνομεν",
+  "lema": "συναποθνήσκω",
   "glosa_interlineal": "morimos con",
   "rango_semantico": [
    "morir juntamente con"
@@ -213,7 +235,7 @@
   "construccion": "Aoristo indicativo activo: «palabra fiel es esta: Si somos muertos con él, también viviremos con él; si sufrimos, también reinaremos con él; si le negáremos, él también nos negará; si fuéremos infieles, él permanece fiel; no puede negarse a sí mismo».",
   "sentido_en_contexto": "Fragmento de himno o confesión (vv.11-13): morir con, vivir con, soportar con, reinar con; negar y ser negado; infidelidad y fidelidad divina. El último verso («si somos infieles, él permanece fiel») se discute: ¿promesa de salvación incluso en infidelidad o advertencia?",
   "matiz": "Debate sobre v.12-13: (a) «si le negáremos, él también nos negará»: el que apostata final es rechazado (arminiana, católica); (b) «si somos infieles, él permanece fiel»: el creyente que cae sigue siendo guardado por Dios, que no puede negar su palabra (reformada); (c) la fidelidad divina significa que cumple tanto promesas como advertencias. Contrasta con Mt 10:33.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 6:8",
@@ -222,9 +244,9 @@
    "Ro 3:3-4"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "2Tim.2.11#06",
+  "ref_estandar": "2Tim.2.11",
   "morfologia_tagnt": "V-2AAI-1P",
   "dstrong": "G4880",
   "strong_tagnt": "G4880",
@@ -240,13 +262,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to die with",
-  "ref_estandar": "2Tim.2.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Tim.2.15",
+  "pos_tisch": 9,
   "strong": "G3718",
   "forma": "ὀρθοτομοῦντα",
+  "lema": "ὀρθοτομέω",
   "glosa_interlineal": "que usa bien",
   "rango_semantico": [
    "cortar recto, manejar rectamente"
@@ -254,7 +280,7 @@
   "construccion": "Participio presente activo: «procura con diligencia presentarte a Dios aprobado, como obrero que no tiene de qué avergonzarse, que usa bien la palabra de verdad».",
   "sentido_en_contexto": "ὀρθοτομέω: «cortar recto» (quizá de agricultura: trazar un surco recto; o de construcción de caminos). Imagen de manejar con exactitud la palabra de verdad. Texto clave sobre la interpretación bíblica responsable. «Palabra de verdad» es el evangelio.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Ti 4:2",
@@ -263,9 +289,9 @@
    "Tit 1:9"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "2Tim.2.15#09",
+  "ref_estandar": "2Tim.2.15",
   "morfologia_tagnt": "V-PAP-ASM",
   "dstrong": "G3718",
   "strong_tagnt": "G3718",
@@ -281,13 +307,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to cut straight",
-  "ref_estandar": "2Tim.2.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Tim.2.17",
+  "pos_tisch": 6,
   "strong": "G1044",
   "forma": "γάγγραινα",
+  "lema": "γάγγραινα",
   "glosa_interlineal": "gangrena",
   "rango_semantico": [
    "gangrena, cáncer"
@@ -295,7 +325,7 @@
   "construccion": "Nominativo: «y su palabra carcomerá como gangrena; de los cuales son Himeneo y Fileto».",
   "sentido_en_contexto": "La falsa enseñanza se difunde como gangrena. Himeneo y Fileto afirmaban que «la resurrección ya se efectuó» (v.18): resurrección espiritual presente (como el bautismo, Col 2:12) con negación de la resurrección corporal futura.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Ti 1:20",
@@ -303,9 +333,9 @@
    "Col 2:12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "2Tim.2.17#06",
+  "ref_estandar": "2Tim.2.17",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G1044",
   "strong_tagnt": "G1044",
@@ -321,13 +351,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "gangrene",
-  "ref_estandar": "2Tim.2.17"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Tim.2.19",
+  "pos_tisch": 10,
   "strong": "G4973",
   "forma": "σφραγῖδα",
+  "lema": "σφραγίς",
   "glosa_interlineal": "sello",
   "rango_semantico": [
    "sello"
@@ -335,7 +369,7 @@
   "construccion": "Acusativo: «pero el fundamento de Dios está firme, teniendo este sello: Conoce el Señor a los que son suyos; y: Apártese de iniquidad todo aquel que invoca el nombre de Cristo».",
   "sentido_en_contexto": "Doble inscripción en el sello: seguridad divina («conoce el Señor a los suyos»; Nm 16:5) y responsabilidad humana («apártese de iniquidad»). Equilibrio entre elección y santidad. Aparece en el contexto de la apostasía de algunos.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Nm 16:5, 26",
@@ -344,9 +378,9 @@
    "1 Co 3:11"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "2Tim.2.19#10",
+  "ref_estandar": "2Tim.2.19",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G4973",
   "strong_tagnt": "G4973",
@@ -362,13 +396,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "seal",
-  "ref_estandar": "2Tim.2.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Tim.2.20",
+  "pos_tisch": 8,
   "strong": "G4632",
   "forma": "σκεύη",
+  "lema": "σκεῦος",
   "glosa_interlineal": "utensilios",
   "rango_semantico": [
    "vaso, utensilio"
@@ -376,7 +414,7 @@
   "construccion": "Nominativo plural: «pero en una casa grande, no solamente hay utensilios de oro y de plata, sino también de madera y de barro; y unos son para usos honrosos, y otros para usos viles».",
   "sentido_en_contexto": "Imagen de la «casa grande» (la iglesia visible, mezclada): utensilios honrosos y deshonrosos. Quien se purifica de lo vil será vaso para honra, santificado y útil al Señor. Cf. Ro 9:21.",
   "matiz": "Debate: (a) «casa grande» = la iglesia (con creyentes verdaderos y nominales); (b) el mundo; (c) vasos de honra y deshonra = personas dentro de la iglesia según su santidad (la mayoría); (d) paralelo con Ro 9:21 (predestinación).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 9:21",
@@ -384,9 +422,9 @@
    "2 Ti 2:21"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "2Tim.2.20#08",
+  "ref_estandar": "2Tim.2.20",
   "morfologia_tagnt": "N-NPN",
   "dstrong": "G4632",
   "strong_tagnt": "G4632",
@@ -402,13 +440,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "vessel",
-  "ref_estandar": "2Tim.2.20"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Tim.2.22",
+  "pos_tisch": 4,
   "strong": "G1939",
   "forma": "ἐπιθυμίας",
+  "lema": "ἐπιθυμία",
   "glosa_interlineal": "pasiones",
   "rango_semantico": [
    "deseo, pasión"
@@ -416,7 +458,7 @@
   "construccion": "Acusativo plural: «huye también de las pasiones juveniles, y sigue la justicia, la fe, el amor y la paz, con los que invocan al Señor de corazón limpio».",
   "sentido_en_contexto": "Huir de los deseos juveniles (podría incluir impulsividad, ambición, polémica y deseos sexuales) y perseguir justicia, fe, amor y paz, en comunión con otros. Pablo da a Timoteo un camino positivo, no solo prohibiciones.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Ti 6:11",
@@ -425,9 +467,9 @@
    "Gá 5:16"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 4,
   "alineacion": "forma",
   "tagnt": "2Tim.2.22#04",
+  "ref_estandar": "2Tim.2.22",
   "morfologia_tagnt": "N-APF",
   "dstrong": "G1939",
   "strong_tagnt": "G1939",
@@ -443,13 +485,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "desire",
-  "ref_estandar": "2Tim.2.22"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Tim.2.24",
+  "pos_tisch": 6,
   "strong": "G3164",
   "forma": "μάχεσθαι",
+  "lema": "μάχομαι",
   "glosa_interlineal": "pelear",
   "rango_semantico": [
    "pelear, disputar"
@@ -457,7 +503,7 @@
   "construccion": "Presente infinitivo medio: «porque el siervo del Señor no debe ser amigo de contiendas, sino amable para con todos, apto para enseñar, sufrido».",
   "sentido_en_contexto": "El siervo del Señor debe corregir con mansedumbre, esperando que Dios dé arrepentimiento (v.25) a quienes se oponen. Equilibrio entre firmeza doctrinal y amabilidad personal.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Tit 3:2",
@@ -466,9 +512,9 @@
    "Pr 15:1"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 6,
   "alineacion": "forma",
   "tagnt": "2Tim.2.24#06",
+  "ref_estandar": "2Tim.2.24",
   "morfologia_tagnt": "V-PNN",
   "dstrong": "G3164",
   "strong_tagnt": "G3164",
@@ -484,13 +530,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to quarrel",
-  "ref_estandar": "2Tim.2.24"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "2Tim.2.25",
+  "pos_tisch": 11,
   "strong": "G3341",
   "forma": "μετάνοιαν",
+  "lema": "μετάνοια",
   "glosa_interlineal": "arrepentimiento",
   "rango_semantico": [
    "arrepentimiento, cambio de mente"
@@ -498,7 +548,7 @@
   "construccion": "Acusativo: «que con mansedumbre corrija a los que se oponen, por si acaso Dios les conceda que se arrepientan para conocer la verdad».",
   "sentido_en_contexto": "El arrepentimiento es don de Dios (cf. Hch 11:18; 5:31), y la corrección se hace con humildad. Se usa en la discusión sobre iniciativa divina y respuesta humana en la conversión.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 11:18",
@@ -506,9 +556,9 @@
    "Hch 5:31"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 11,
   "alineacion": "forma",
   "tagnt": "2Tim.2.25#11",
+  "ref_estandar": "2Tim.2.25",
   "morfologia_tagnt": "N-ASF",
   "dstrong": "G3341",
   "strong_tagnt": "G3341",
@@ -524,7 +574,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "repentance",
-  "ref_estandar": "2Tim.2.25"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

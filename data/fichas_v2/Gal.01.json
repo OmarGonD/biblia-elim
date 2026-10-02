@@ -1,8 +1,10 @@
 [
  {
   "ref": "Gal.1.1",
+  "pos_tisch": 2,
   "strong": "G652",
   "forma": "ἀπόστολος",
+  "lema": "ἀπόστολος",
   "glosa_interlineal": "apóstol",
   "rango_semantico": [
    "apóstol, enviado con autoridad"
@@ -10,7 +12,7 @@
   "construccion": "Nominativo: «Pablo, apóstol no de hombres ni por hombre, sino por Jesucristo y por Dios el Padre que lo resucitó de los muertos».",
   "sentido_en_contexto": "Saludo inusualmente enfático: Pablo defiende de entrada el origen divino de su apostolado, porque sus adversarios lo presentaban como dependiente de Jerusalén. Dos preposiciones: «no de hombres» (origen) ni «por hombre» (mediación). Se llama apóstol por Cristo resucitado y por el Padre que lo resucitó.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 1:11-12, 15-16",
@@ -18,9 +20,9 @@
    "1 Co 9:1; 15:8-10"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 2,
   "alineacion": "forma",
   "tagnt": "Gal.1.1#02",
+  "ref_estandar": "Gal.1.1",
   "morfologia_tagnt": "N-NSM",
   "dstrong": "G0652",
   "strong_tagnt": "G652",
@@ -36,13 +38,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "apostle",
-  "ref_estandar": "Gal.1.1"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.1.4",
+  "pos_tisch": 9,
   "strong": "G1807",
   "forma": "ἐξέληται",
+  "lema": "ἐξαιρέω",
   "glosa_interlineal": "librar",
   "rango_semantico": [
    "sacar, rescatar, librar"
@@ -50,7 +56,7 @@
   "construccion": "Aoristo subjuntivo medio: «el cual se dio a sí mismo por nuestros pecados para librarnos del presente siglo malo, conforme a la voluntad de nuestro Dios y Padre».",
   "sentido_en_contexto": "Resumen del evangelio en una frase: Cristo se entregó por nuestros pecados para rescatarnos de «este siglo malo presente» (αἰὼν ἐνεστὼς πονηρός). El evangelio tiene dimensión escatológica: nos libra de la era presente bajo el mal, no solo de la culpa individual.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Ro 4:25",
@@ -59,9 +65,9 @@
    "Gá 2:20"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Gal.1.4#09",
+  "ref_estandar": "Gal.1.4",
   "morfologia_tagnt": "V-2AMS-3S",
   "dstrong": "G1807",
   "strong_tagnt": "G1807",
@@ -77,13 +83,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to take out/select",
-  "ref_estandar": "Gal.1.4"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.1.6",
+  "pos_tisch": 14,
   "strong": "G2087",
   "forma": "ἕτερον",
+  "lema": "ἕτερος",
   "glosa_interlineal": "otro",
   "rango_semantico": [
    "otro (de distinta clase)"
@@ -91,7 +101,7 @@
   "construccion": "Acusativo: «me maravillo de que tan pronto os hayáis alejado del que os llamó por la gracia de Cristo, para seguir un evangelio diferente».",
   "sentido_en_contexto": "Pablo omite la acostumbrada acción de gracias; va directo a la queja. «Otro evangelio» (ἕτερον, distinto en clase) no es otro verdadero (ἄλλο, v.7), sino una distorsión. Los gálatas abandonan al Dios que los llamó, no solo una doctrina.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Co 11:4",
@@ -99,9 +109,9 @@
    "Gá 5:7-8"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Gal.1.6#14",
+  "ref_estandar": "Gal.1.6",
   "morfologia_tagnt": "A-ASN",
   "dstrong": "G2087",
   "strong_tagnt": "G2087",
@@ -117,13 +127,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "other",
-  "ref_estandar": "Gal.1.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.1.8",
+  "pos_tisch": 14,
   "strong": "G331",
   "forma": "ἀνάθεμα",
+  "lema": "ἀνάθεμα",
   "glosa_interlineal": "anatema",
   "rango_semantico": [
    "maldito, entregado a la destrucción"
@@ -131,7 +145,7 @@
   "construccion": "Nominativo: «mas si aun nosotros, o un ángel del cielo, os anunciare otro evangelio diferente del que os hemos anunciado, sea anatema».",
   "sentido_en_contexto": "Maldición solemne repetida (vv.8-9): quien predique un evangelio distinto, aunque sea Pablo o un ángel, queda bajo anatema (condenación divina). La autoridad reside en el evangelio recibido, no en la persona que lo predica. Principio de criterio de verdad apostólica.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Co 16:22",
@@ -140,9 +154,9 @@
    "Dt 13:1-5"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 14,
   "alineacion": "forma",
   "tagnt": "Gal.1.8#15",
+  "ref_estandar": "Gal.1.8",
   "morfologia_tagnt": "N-NSN",
   "dstrong": "G0331",
   "strong_tagnt": "G331",
@@ -158,13 +172,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "devoted",
-  "ref_estandar": "Gal.1.8"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.1.12",
+  "pos_tisch": 12,
   "strong": "G602",
   "forma": "ἀποκαλύψεως",
+  "lema": "ἀποκάλυψις",
   "glosa_interlineal": "revelación",
   "rango_semantico": [
    "revelación, descubrimiento"
@@ -172,7 +190,7 @@
   "construccion": "Genitivo: «pues yo ni lo recibí ni lo aprendí de hombre alguno, sino por revelación de Jesucristo».",
   "sentido_en_contexto": "Pablo recibió su evangelio por revelación de Jesucristo («de Jesucristo» puede ser genitivo subjetivo, Jesús revela, u objetivo, Jesús es el contenido). Se refiere a la experiencia en el camino a Damasco (Hch 9) y su comprensión posterior. No niega que haya recibido tradiciones sobre Jesús (1 Co 15:3).",
   "matiz": "Debate: (a) genitivo subjetivo (Jesús mismo la comunicó); (b) objetivo (Jesús es lo revelado); (c) ambos. La mayoría ve ambas.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 1:16",
@@ -181,9 +199,9 @@
    "Ef 3:3"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 12,
   "alineacion": "forma",
   "tagnt": "Gal.1.12#12",
+  "ref_estandar": "Gal.1.12",
   "morfologia_tagnt": "N-GSF",
   "dstrong": "G0602",
   "strong_tagnt": "G602",
@@ -199,13 +217,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "revelation",
-  "ref_estandar": "Gal.1.12"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.1.13",
+  "pos_tisch": 9,
   "strong": "G2454",
   "forma": "Ἰουδαϊσμῷ",
+  "lema": "Ἰουδαϊσμός",
   "glosa_interlineal": "judaísmo",
   "rango_semantico": [
    "judaísmo"
@@ -213,7 +235,7 @@
   "construccion": "Dativo: «ya habéis oído acerca de mi conducta anterior en el judaísmo, cómo perseguía sobremanera a la iglesia de Dios, y la asolaba».",
   "sentido_en_contexto": "Primera aparición de «judaísmo» (Ἰουδαϊσμός) en la literatura cristiana: el modo de vida de los judíos, con su celo por las tradiciones paternas. Pablo describe su pasado como perseguidor, para mostrar que su cambio no se explica por influencia humana sino por la intervención divina.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 8:3; 9:1-2",
@@ -221,9 +243,9 @@
    "1 Ti 1:13"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Gal.1.13#09",
+  "ref_estandar": "Gal.1.13",
   "morfologia_tagnt": "N-DSM-T",
   "dstrong": "G2454",
   "strong_tagnt": "G2454",
@@ -239,13 +261,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Judaism",
-  "ref_estandar": "Gal.1.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.1.15",
+  "pos_tisch": 5,
   "strong": "G873",
   "forma": "ἀφορίσας",
+  "lema": "ἀφορίζω",
   "glosa_interlineal": "apartó",
   "rango_semantico": [
    "separar, apartar"
@@ -253,7 +279,7 @@
   "construccion": "Participio aoristo activo: «pero cuando agradó a Dios, que me apartó desde el vientre de mi madre, y me llamó por su gracia».",
   "sentido_en_contexto": "Eco de la vocación de profetas (Jer 1:5; Is 49:1): Dios lo separó desde antes de nacer y lo llamó por gracia. Pablo se presenta en la línea de los profetas, como siervo del Señor llamado para las naciones (v.16). No es conversión de religión sino llamado.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Jer 1:5",
@@ -262,9 +288,9 @@
    "Hch 9:15"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "Gal.1.15#07",
+  "ref_estandar": "Gal.1.15",
   "morfologia_tagnt": "V-AAP-NSM",
   "dstrong": "G0873",
   "strong_tagnt": "G873",
@@ -280,13 +306,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to separate",
-  "ref_estandar": "Gal.1.15"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.1.16",
+  "pos_tisch": 1,
   "strong": "G601",
   "forma": "ἀποκαλύψαι",
+  "lema": "ἀποκαλύπτω",
   "glosa_interlineal": "revelar",
   "rango_semantico": [
    "revelar"
@@ -294,7 +324,7 @@
   "construccion": "Aoristo infinitivo activo: «revelar a su Hijo en mí, para que yo le predicase entre los gentiles».",
   "sentido_en_contexto": "«En mí» (ἐν ἐμοί) puede ser «a mí» (dativo de lugar) o «en mí» (interior, o por medio de mí). La revelación tenía como fin la misión a los gentiles. Pablo no consultó a nadie (σαρκὶ καὶ αἵματι: «carne y sangre», humanos), sino que fue a Arabia.",
   "matiz": "Debate: «en mí» como (a) «dentro de mí» (revelación interior); (b) «a mí» (la mayoría en versiones); (c) «por medio de mí» (el Hijo es revelado a otros por Pablo). Los tres sentidos son compatibles con el contexto.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 9:15; 26:16-18",
@@ -302,9 +332,9 @@
    "Ef 3:8"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 1,
   "alineacion": "forma",
   "tagnt": "Gal.1.16#01",
+  "ref_estandar": "Gal.1.16",
   "morfologia_tagnt": "V-AAN",
   "dstrong": "G0601",
   "strong_tagnt": "G601",
@@ -320,13 +350,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to reveal",
-  "ref_estandar": "Gal.1.16"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.1.18",
+  "pos_tisch": 8,
   "strong": "G2477",
   "forma": "ἱστορῆσαι",
+  "lema": "ἱστορέω",
   "glosa_interlineal": "conocer",
   "rango_semantico": [
    "visitar para conocer, informarse"
@@ -334,7 +368,7 @@
   "construccion": "Aoristo infinitivo activo: «después de tres años subí a Jerusalén para ver a Pedro, y permanecí con él quince días».",
   "sentido_en_contexto": "ἱστορέω indica una visita para conocer a una persona o asunto importante. Pablo menciona dos visitas: primera (tres años después de la conversión; 15 días con Pedro y viendo a Santiago, v.19) y segunda (catorce años después, 2:1). Su cronología se relaciona con Hch 9:26-30 y 11:30; 15.",
   "matiz": "Debate sobre la relación entre las visitas de Gálatas 1–2 y las de Hechos: (a) Gá 2:1 = Hch 15 (Concilio de Jerusalén, la más común); (b) Gá 2:1 = Hch 11:30 (visita de socorro; la hipótesis de Gálatas del sur, que fecha la carta antes del concilio). Importa para fechar la carta (c. 48-49 vs. c. 52-55).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Hch 9:26-30",
@@ -342,9 +376,9 @@
    "Hch 11:30; 15:1-29"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 8,
   "alineacion": "forma",
   "tagnt": "Gal.1.18#08",
+  "ref_estandar": "Gal.1.18",
   "morfologia_tagnt": "V-AAN",
   "dstrong": "G2477",
   "strong_tagnt": "G2477",
@@ -360,13 +394,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to get acquainted",
-  "ref_estandar": "Gal.1.18"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "Gal.1.19",
+  "pos_tisch": 9,
   "strong": "G2385",
   "forma": "Ἰάκωβον",
+  "lema": "Ἰάκωβος",
   "glosa_interlineal": "Santiago",
   "rango_semantico": [
    "Jacobo (Santiago)"
@@ -374,7 +412,7 @@
   "construccion": "Acusativo: «pero no vi a ningún otro de los apóstoles, sino a Jacobo el hermano del Señor».",
   "sentido_en_contexto": "Santiago, «hermano del Señor», aparece como figura clave de la iglesia de Jerusalén (Gá 2:9, 12; Hch 15). Se le llama «apóstol» en sentido amplio. El sentido de «hermano» se debate entre las tradiciones cristianas.",
   "matiz": "Debate sobre «hermano del Señor»: (a) hermano de sangre, hijo de María y José (visión protestante mayoritaria; Helvidio); (b) hermanastro, hijo de un matrimonio anterior de José (ortodoxa tradicional, Epifanio); (c) primo (católica, Jerónimo). El griego ἀδελφός admite ambos sentidos.",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Mt 13:55",
@@ -383,9 +421,9 @@
    "1 Co 15:7"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 9,
   "alineacion": "forma",
   "tagnt": "Gal.1.19#09",
+  "ref_estandar": "Gal.1.19",
   "morfologia_tagnt": "N-ASM-P",
   "dstrong": "G2385I",
   "strong_tagnt": "G2385",
@@ -401,7 +439,9 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "James",
-  "ref_estandar": "Gal.1.19"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]

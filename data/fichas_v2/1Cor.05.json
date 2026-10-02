@@ -1,8 +1,10 @@
 [
  {
   "ref": "1Cor.5.1",
+  "pos_tisch": 5,
   "strong": "G4202",
   "forma": "πορνεία",
+  "lema": "πορνεία",
   "glosa_interlineal": "inmoralidad",
   "rango_semantico": [
    "fornicación, inmoralidad sexual"
@@ -10,7 +12,7 @@
   "construccion": "Nominativo: «se oye que hay entre vosotros fornicación, y tal fornicación cual ni aun se nombra entre los gentiles: que alguno tiene la mujer de su padre».",
   "sentido_en_contexto": "Caso de incesto (con la madrastra, Lv 18:8; Dt 22:30) tolerado por los corintios, que se jactan (v.2) en lugar de lamentarse. Pablo ordena excluir al ofensor de la comunidad. Ocupa los caps. 5-6, sobre la pureza moral de la iglesia.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lv 18:8; 20:11",
@@ -18,10 +20,9 @@
    "2 Co 7:12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 5,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1Cor.5.1#05",
+  "ref_estandar": "1Cor.5.1",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G4202",
   "strong_tagnt": "G4202",
@@ -37,13 +38,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sexual sin",
-  "ref_estandar": "1Cor.5.1"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.5.1",
+  "pos_tisch": 8,
   "strong": "G4202",
   "forma": "πορνεία",
+  "lema": "πορνεία",
   "glosa_interlineal": "inmoralidad",
   "rango_semantico": [
    "fornicación, inmoralidad sexual"
@@ -51,7 +57,7 @@
   "construccion": "Nominativo: «se oye que hay entre vosotros fornicación, y tal fornicación cual ni aun se nombra entre los gentiles: que alguno tiene la mujer de su padre».",
   "sentido_en_contexto": "Caso de incesto (con la madrastra, Lv 18:8; Dt 22:30) tolerado por los corintios, que se jactan (v.2) en lugar de lamentarse. Pablo ordena excluir al ofensor de la comunidad. Ocupa los caps. 5-6, sobre la pureza moral de la iglesia.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Lv 18:8; 20:11",
@@ -59,10 +65,9 @@
    "2 Co 7:12"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 8,
-  "revisar_ocurrencia": true,
   "alineacion": "forma",
   "tagnt": "1Cor.5.1#08",
+  "ref_estandar": "1Cor.5.1",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G4202",
   "strong_tagnt": "G4202",
@@ -78,13 +83,18 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "sexual sin",
-  "ref_estandar": "1Cor.5.1"
+  "revisar_ocurrencia": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.5.5",
+  "pos_tisch": 5,
   "strong": "G4567",
   "forma": "σατανᾷ",
+  "lema": "Σατανᾶς",
   "glosa_interlineal": "Satanás",
   "rango_semantico": [
    "Satanás, el adversario"
@@ -92,7 +102,7 @@
   "construccion": "Dativo: «entregar a tal persona a Satanás para destrucción de la carne, a fin de que el espíritu sea salvo en el día del Señor».",
   "sentido_en_contexto": "Disciplina eclesial extrema: «entregar a Satanás» (excomunión). El fin es redentor: «destrucción de la carne» (σάρξ) para que el espíritu sea salvo. Se debate su sentido: (a) expulsión de la comunidad, a la esfera de Satanás; (b) enfermedad o muerte física (cf. Hch 5:1-11); (c) destrucción de la naturaleza pecaminosa.",
   "matiz": "Debate sobre «destrucción de la carne»: (a) sufrimiento físico/muerte como juicio (cf. 1 Co 11:30); (b) destrucción de la naturaleza pecaminosa (lectura espiritual); (c) pérdida del soporte de la comunidad. «Que el espíritu sea salvo» indica finalidad restauradora: «para que se arrepienta y vuelva». Cf. 2 Co 2:5-11 (posible restauración del ofensor).",
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "1 Ti 1:20",
@@ -101,9 +111,9 @@
    "Mt 18:17-18"
   ],
   "nivel_certeza": "medio",
-  "pos_tisch": 5,
   "alineacion": "forma",
   "tagnt": "1Cor.5.5#05",
+  "ref_estandar": "1Cor.5.5",
   "morfologia_tagnt": "N-DSM-T",
   "dstrong": "G4567",
   "strong_tagnt": "G4567",
@@ -119,13 +129,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Satan",
-  "ref_estandar": "1Cor.5.5"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.5.6",
+  "pos_tisch": 10,
   "strong": "G2219",
   "forma": "ζύμη",
+  "lema": "ζύμη",
   "glosa_interlineal": "levadura",
   "rango_semantico": [
    "levadura"
@@ -133,7 +147,7 @@
   "construccion": "Nominativo: «un poco de levadura leuda toda la masa».",
   "sentido_en_contexto": "Proverbio: el pecado tolerado contamina a toda la comunidad. Pablo une la imagen con la Pascua (vv.7-8): Cristo es el cordero pascual inmolado; la comunidad debe celebrar sin la vieja levadura de malicia y maldad (cf. Éx 12:15-20).",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Gá 5:9",
@@ -142,9 +156,9 @@
    "Lc 12:1"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 10,
   "alineacion": "forma",
   "tagnt": "1Cor.5.6#10",
+  "ref_estandar": "1Cor.5.6",
   "morfologia_tagnt": "N-NSF",
   "dstrong": "G2219",
   "strong_tagnt": "G2219",
@@ -160,13 +174,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "leaven",
-  "ref_estandar": "1Cor.5.6"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.5.7",
+  "pos_tisch": 15,
   "strong": "G3957",
   "forma": "πάσχα",
+  "lema": "πάσχα",
   "glosa_interlineal": "Pascua",
   "rango_semantico": [
    "Pascua"
@@ -174,7 +192,7 @@
   "construccion": "Nominativo: «porque nuestra Pascua, que es Cristo, ya fue sacrificada por nosotros».",
   "sentido_en_contexto": "Cristo es el cordero pascual (ἐτύθη, inmolado). Como los israelitas quitaban la levadura antes de la Pascua, los cristianos deben quitar la «vieja levadura» (el pecado). Pablo supone que los corintios (en gran parte gentiles) conocían la tipología.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Éx 12:1-28",
@@ -183,9 +201,9 @@
    "Heb 9:26"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 15,
   "alineacion": "forma",
   "tagnt": "1Cor.5.7#16",
+  "ref_estandar": "1Cor.5.7",
   "morfologia_tagnt": "N-NSN-T",
   "dstrong": "G3957",
   "strong_tagnt": "G3957",
@@ -201,13 +219,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "Passover",
-  "ref_estandar": "1Cor.5.7"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.5.9",
+  "pos_tisch": 7,
   "strong": "G4874",
   "forma": "συναναμίγνυσθαι",
+  "lema": "συναναμίγνυμι",
   "glosa_interlineal": "mezclarse",
   "rango_semantico": [
    "asociarse, mezclarse con"
@@ -215,7 +237,7 @@
   "construccion": "Infinitivo presente medio: «os he escrito por carta que no os juntéis con los fornicarios».",
   "sentido_en_contexto": "Pablo alude a una carta anterior (hoy perdida) en la que mandó no mezclarse con fornicarios. Aclara (vv.10-11): no con los inmorales del mundo en general (sería imposible), sino con el «hermano» que persiste en pecado: ni siquiera comer con él.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Ts 3:6, 14",
@@ -223,9 +245,9 @@
    "1 Co 5:11"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "1Cor.5.9#07",
+  "ref_estandar": "1Cor.5.9",
   "morfologia_tagnt": "V-PMN",
   "dstrong": "G4874",
   "strong_tagnt": "G4874",
@@ -241,13 +263,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to associate with",
-  "ref_estandar": "1Cor.5.9"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.5.11",
+  "pos_tisch": 26,
   "strong": "G4906",
   "forma": "συνεσθίειν",
+  "lema": "συνεσθίω",
   "glosa_interlineal": "comer juntamente",
   "rango_semantico": [
    "comer con, compartir la mesa"
@@ -255,7 +281,7 @@
   "construccion": "Infinitivo presente: «con el tal ni aun comáis».",
   "sentido_en_contexto": "No comer con un «hermano» fornicario, avaro, idólatra, maldiciente, borracho o ladrón: la mesa implicaba comunión, y quizá también la cena del Señor. Distinción: los de fuera los juzga Dios (v.13); los de dentro, la iglesia.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "2 Ts 3:14-15",
@@ -263,9 +289,9 @@
    "Mt 18:17"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 26,
   "alineacion": "forma",
   "tagnt": "1Cor.5.11#26",
+  "ref_estandar": "1Cor.5.11",
   "morfologia_tagnt": "V-PAN",
   "dstrong": "G4906",
   "strong_tagnt": "G4906",
@@ -281,13 +307,17 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "glosa_tagnt": "to eat with",
-  "ref_estandar": "1Cor.5.11"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  },
  {
   "ref": "1Cor.5.13",
+  "pos_tisch": 7,
   "strong": "G1808",
   "forma": "ἐξάρατε",
+  "lema": "ἐξαίρω",
   "glosa_interlineal": "quitad",
   "rango_semantico": [
    "quitar, echar fuera"
@@ -295,7 +325,7 @@
   "construccion": "Imperativo aoristo activo: «quitad, pues, a ese perverso de entre vosotros».",
   "sentido_en_contexto": "Cita de Dt 17:7; 19:19; 22:21, 24; 24:7: «quitarás el mal de en medio de ti». Cierra el capítulo: la iglesia debe disciplinar a los de dentro; a los de fuera, Dios los juzgará.",
   "matiz": null,
-  "traducciones_comparadas": null,
+  "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
    "Dt 17:7; 22:21, 24",
@@ -303,9 +333,9 @@
    "Mt 18:17"
   ],
   "nivel_certeza": "alto",
-  "pos_tisch": 7,
   "alineacion": "forma",
   "tagnt": "1Cor.5.13#08",
+  "ref_estandar": "1Cor.5.13",
   "morfologia_tagnt": "V-AAM-2P",
   "dstrong": "G1808",
   "strong_tagnt": "G1808",
@@ -322,7 +352,9 @@
    "Byz"
   ],
   "variante": true,
-  "glosa_tagnt": "to expel",
-  "ref_estandar": "1Cor.5.13"
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
  }
 ]
