@@ -1,0 +1,644 @@
+[
+ {
+  "ref": "1John.5.1",
+  "strong": "G1080",
+  "forma": "γεγέννηται",
+  "glosa_interlineal": "ha nacido",
+  "rango_semantico": [
+   "nacer, engendrar"
+  ],
+  "construccion": "Perfecto indicativo pasivo: «todo aquel que cree que Jesús es el Cristo, es nacido de Dios; y todo aquel que ama al que engendró, ama también al que ha sido engendrado por él».",
+  "sentido_en_contexto": "Orden: fe en Jesús como Cristo → nacimiento de Dios (el perfecto indica estado presente tras el nuevo nacimiento). La fe es evidencia de la regeneración. Amar al Padre implica amar a los hijos de Dios. Se discute la relación de prioridad entre fe y regeneración.",
+  "matiz": "Debate: (a) la regeneración precede a la fe y la produce (reformada; el perfecto indica que ya nació antes de creer); (b) la fe precede y es respuesta a la gracia, con el nuevo nacimiento (arminiana, otras); (c) el texto describe la relación sin definir prioridad temporal.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 1:12-13; 3:3-8",
+   "1 Jn 4:7",
+   "Tit 3:5"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 12,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "1John.5.1#12",
+  "morfologia_tagnt": "V-RPI-3S",
+  "dstrong": "G1080",
+  "strong_tagnt": "G1080",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to beget"
+ },
+ {
+  "ref": "1John.5.3",
+  "strong": "G926",
+  "forma": "βαρεῖαι",
+  "glosa_interlineal": "pesados",
+  "rango_semantico": [
+   "pesado, gravoso"
+  ],
+  "construccion": "Nominativo plural: «pues este es el amor a Dios, que guardemos sus mandamientos; y sus mandamientos no son gravosos».",
+  "sentido_en_contexto": "Obedecer los mandamientos expresa el amor a Dios, y no son una carga porque quien nació de Dios vence el mundo (vv.4-5). Contrasta con la carga de la ley según los fariseos (Mt 23:4).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 14:15",
+   "Mt 11:30",
+   "Dt 30:11",
+   "Mt 23:4"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 17,
+  "alineacion": "forma",
+  "tagnt": "1John.5.3#17",
+  "morfologia_tagnt": "A-NPF",
+  "dstrong": "G0926",
+  "strong_tagnt": "G926",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "weighty"
+ },
+ {
+  "ref": "1John.5.4",
+  "strong": "G3528",
+  "forma": "νικᾷ",
+  "glosa_interlineal": "vence",
+  "rango_semantico": [
+   "vencer, triunfar"
+  ],
+  "construccion": "Presente indicativo activo: «porque todo lo que es nacido de Dios vence al mundo; y esta es la victoria que ha vencido al mundo, nuestra fe».",
+  "sentido_en_contexto": "Victoria sobre el mundo por la fe. «Nuestra fe» (πίστις) es el medio de la victoria; Cristo es el objeto (v.5). Cf. Jn 16:33. El nacido de Dios participa de la victoria de Cristo.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 16:33",
+   "1 Jn 4:4",
+   "Ap 2:7",
+   "Ro 8:37"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "1John.5.4#08",
+  "morfologia_tagnt": "V-PAI-3S",
+  "dstrong": "G3528",
+  "strong_tagnt": "G3528",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to conquer"
+ },
+ {
+  "ref": "1John.5.6",
+  "strong": "G5204",
+  "forma": "ὕδατος",
+  "glosa_interlineal": "agua",
+  "rango_semantico": [
+   "agua"
+  ],
+  "construccion": "Genitivo: «este es Jesucristo, que vino mediante agua y sangre; no mediante agua solamente, sino mediante agua y sangre. Y el Espíritu es el que da testimonio; porque el Espíritu es la verdad».",
+  "sentido_en_contexto": "«Agua y sangre» es uno de los textos más debatidos de 1 Juan. Interpretaciones: (a) bautismo y muerte de Cristo (contra los que negaban la cruz: los cerintianos decían que el «Cristo» descendió en el bautismo y partió antes de la cruz); (b) nacimiento y muerte (cf. Jn 19:34); (c) alusión a los sacramentos (bautismo y eucaristía). El Espíritu, la verdad, da testimonio.",
+  "matiz": "Debate sobre «agua y sangre»: (a) el bautismo de Jesús y su muerte en la cruz (la mayoría; polémica contra el cerintianismo); (b) el agua y la sangre del costado (Jn 19:34): realidad de su muerte física; (c) bautismo y eucaristía como sacramentos (tradición sacramental); (d) purificación y expiación (símbolos). Se vincula con el testimonio triple (vv.7-8).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 19:34-35",
+   "Mt 3:16-17",
+   "Jn 3:5",
+   "1 Jn 5:7-8"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 6,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "1John.5.6#06",
+  "morfologia_tagnt": "N-GSN",
+  "dstrong": "G5204",
+  "strong_tagnt": "G5204",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "water"
+ },
+ {
+  "ref": "1John.5.7",
+  "strong": "G3140",
+  "forma": "μαρτυροῦντες",
+  "glosa_interlineal": "los que dan testimonio",
+  "rango_semantico": [
+   "testificar, dar testimonio"
+  ],
+  "construccion": "Participio presente activo: «porque tres son los que dan testimonio».",
+  "sentido_en_contexto": "Pasaje célebre por la variante textual conocida como «Coma Joánico» (Comma Johanneum): en la Vulgata latina y el Textus Receptus aparece una adición trinitaria («en el cielo: el Padre, el Verbo y el Espíritu Santo; y estos tres son uno»). Falta en todos los manuscritos griegos antiguos y en el texto crítico (y aquí, en Tisch); aparece tardíamente en manuscritos latinos (s. IV-V) y en pocos griegos muy tardíos. RVR60 la incluye.",
+  "matiz": "Variante textual: la adición («en el cielo: el Padre, el Verbo y el Espíritu Santo…») es espuria según prácticamente todos los críticos: no está en los manuscritos griegos anteriores al s. XIV (con excepciones tardías), ni en los Padres griegos. Erasmo la omitió en 1516 y 1519 y la incluyó en 1522 ante presiones. La doctrina trinitaria no depende de ella (se apoya en Mt 28:19; 2 Co 13:14; Jn 14–16, etc.).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": "RVR60 incluye el «Coma Joánico» («en el cielo: el Padre, el Verbo y el Espíritu Santo»); el texto crítico y Tisch no lo traen.",
+  "otros_usos": [
+   "1 Jn 5:8",
+   "Mt 28:19",
+   "2 Co 13:14",
+   "Dt 19:15"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "1John.5.7#05",
+  "morfologia_tagnt": "V-PAP-NPM",
+  "dstrong": "G3140",
+  "strong_tagnt": "G3140",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to testify"
+ },
+ {
+  "ref": "1John.5.8",
+  "strong": "G129",
+  "forma": "αἷμα",
+  "glosa_interlineal": "sangre",
+  "rango_semantico": [
+   "sangre"
+  ],
+  "construccion": "Nominativo: «el Espíritu, el agua y la sangre; y los tres concuerdan».",
+  "sentido_en_contexto": "Tres testigos de Jesús: el Espíritu, el agua (bautismo) y la sangre (cruz); unidos en el mismo testimonio. Prueba de que la fe se apoya en testimonio objetivo y en el del Espíritu. Contra la idea de un Cristo sin cruz.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 15:26",
+   "1 Jn 5:6",
+   "Jn 19:34-35"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "1John.5.8#16",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G0129G",
+  "strong_tagnt": "G129",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "blood"
+ },
+ {
+  "ref": "1John.5.11",
+  "strong": "G3141",
+  "forma": "μαρτυρία",
+  "glosa_interlineal": "testimonio",
+  "rango_semantico": [
+   "testimonio"
+  ],
+  "construccion": "Nominativo: «y este es el testimonio: que Dios nos ha dado vida eterna; y esta vida está en su Hijo».",
+  "sentido_en_contexto": "El testimonio de Dios: nos dio vida eterna, que está en el Hijo. Quien tiene al Hijo tiene la vida; quien no lo tiene, no la tiene (v.12). La vida eterna es don presente, no solo futuro.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 3:36; 17:3",
+   "1 Jn 5:12",
+   "Jn 5:24"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "1John.5.11#05",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G3141",
+  "strong_tagnt": "G3141",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "testimony"
+ },
+ {
+  "ref": "1John.5.13",
+  "strong": "G1492",
+  "forma": "εἰδῆτε",
+  "glosa_interlineal": "sepáis",
+  "rango_semantico": [
+   "saber, conocer"
+  ],
+  "construccion": "Subjuntivo aoristo activo: «estas cosas os he escrito a vosotros que creéis en el nombre del Hijo de Dios, para que sepáis que tenéis vida eterna, y para que creáis en el nombre del Hijo de Dios».",
+  "sentido_en_contexto": "Propósito de la carta: dar certeza de la vida eterna a quienes creen. Cf. Jn 20:31 (propósito del evangelio: creer). Texto central sobre la seguridad de la salvación. Las pruebas de la carta sirven a ese fin.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 20:31",
+   "1 Jn 5:11-12",
+   "Ro 8:16"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma_otro_strong",
+  "tagnt": "1John.5.13#14",
+  "morfologia_tagnt": "V-RAS-2P",
+  "dstrong": "G6063",
+  "strong_tagnt": "G6063",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to perceive"
+ },
+ {
+  "ref": "1John.5.14",
+  "strong": "G3954",
+  "forma": "παρρησία",
+  "glosa_interlineal": "confianza",
+  "rango_semantico": [
+   "confianza, osadía"
+  ],
+  "construccion": "Nominativo: «y esta es la confianza que tenemos en él, que si pedimos alguna cosa conforme a su voluntad, él nos oye».",
+  "sentido_en_contexto": "Condición de la oración eficaz: pedir «conforme a su voluntad». La oración no es manipulación, sino alineación con Dios. Seguridad: si sabemos que nos oye, sabemos que tenemos las peticiones (v.15).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 14:13-14; 15:7",
+   "1 Jn 3:22",
+   "Mt 6:10",
+   "Heb 4:16"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "1John.5.14#05",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G3954",
+  "strong_tagnt": "G3954",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "boldness"
+ },
+ {
+  "ref": "1John.5.16",
+  "strong": "G2288",
+  "forma": "θάνατον",
+  "glosa_interlineal": "muerte",
+  "rango_semantico": [
+   "muerte"
+  ],
+  "construccion": "Acusativo: «si alguno viere a su hermano cometer pecado que no sea de muerte, pedirá, y Dios le dará vida; esto es para los que cometen pecado que no sea de muerte. Hay pecado de muerte, por el cual yo no digo que se pida».",
+  "sentido_en_contexto": "«Pecado de muerte» (ἁμαρτία πρὸς θάνατον): uno de los textos más enigmáticos del NT. Interpretaciones: (a) apostasía definitiva o rechazo deliberado de Cristo (blasfemia contra el Espíritu); (b) pecados graves (mortales; clasificación católica: mortal/venial); (c) pecados que acarrean muerte física (1 Co 11:30); (d) homicidio u otros pecados con pena capital (AT). No se dice cuál es.",
+  "matiz": "Debate: (a) apostasía total (negar a Cristo; la mayoría de exégetas y tradiciones evangélicas); (b) la distinción entre pecados mortales y veniales (tradición católica; Concilio de Trento; el texto no lo detalla); (c) pecado que lleva a muerte física como disciplina; (d) los pecados que los falsos maestros cometen al abandonar la comunidad. La intercesión se anima por los pecados «no de muerte».",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 12:31-32",
+   "Heb 6:4-6; 10:26",
+   "Nm 15:30-31",
+   "1 Co 11:30"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 11,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "1John.5.16#11",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G2288",
+  "strong_tagnt": "G2288",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "death"
+ },
+ {
+  "ref": "1John.5.16",
+  "strong": "G2288",
+  "forma": "θάνατον",
+  "glosa_interlineal": "muerte",
+  "rango_semantico": [
+   "muerte"
+  ],
+  "construccion": "Acusativo: «si alguno viere a su hermano cometer pecado que no sea de muerte, pedirá, y Dios le dará vida; esto es para los que cometen pecado que no sea de muerte. Hay pecado de muerte, por el cual yo no digo que se pida».",
+  "sentido_en_contexto": "«Pecado de muerte» (ἁμαρτία πρὸς θάνατον): uno de los textos más enigmáticos del NT. Interpretaciones: (a) apostasía definitiva o rechazo deliberado de Cristo (blasfemia contra el Espíritu); (b) pecados graves (mortales; clasificación católica: mortal/venial); (c) pecados que acarrean muerte física (1 Co 11:30); (d) homicidio u otros pecados con pena capital (AT). No se dice cuál es.",
+  "matiz": "Debate: (a) apostasía total (negar a Cristo; la mayoría de exégetas y tradiciones evangélicas); (b) la distinción entre pecados mortales y veniales (tradición católica; Concilio de Trento; el texto no lo detalla); (c) pecado que lleva a muerte física como disciplina; (d) los pecados que los falsos maestros cometen al abandonar la comunidad. La intercesión se anima por los pecados «no de muerte».",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 12:31-32",
+   "Heb 6:4-6; 10:26",
+   "Nm 15:30-31",
+   "1 Co 11:30"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 21,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "1John.5.16#21",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G2288",
+  "strong_tagnt": "G2288",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "death"
+ },
+ {
+  "ref": "1John.5.16",
+  "strong": "G2288",
+  "forma": "θάνατον",
+  "glosa_interlineal": "muerte",
+  "rango_semantico": [
+   "muerte"
+  ],
+  "construccion": "Acusativo: «si alguno viere a su hermano cometer pecado que no sea de muerte, pedirá, y Dios le dará vida; esto es para los que cometen pecado que no sea de muerte. Hay pecado de muerte, por el cual yo no digo que se pida».",
+  "sentido_en_contexto": "«Pecado de muerte» (ἁμαρτία πρὸς θάνατον): uno de los textos más enigmáticos del NT. Interpretaciones: (a) apostasía definitiva o rechazo deliberado de Cristo (blasfemia contra el Espíritu); (b) pecados graves (mortales; clasificación católica: mortal/venial); (c) pecados que acarrean muerte física (1 Co 11:30); (d) homicidio u otros pecados con pena capital (AT). No se dice cuál es.",
+  "matiz": "Debate: (a) apostasía total (negar a Cristo; la mayoría de exégetas y tradiciones evangélicas); (b) la distinción entre pecados mortales y veniales (tradición católica; Concilio de Trento; el texto no lo detalla); (c) pecado que lleva a muerte física como disciplina; (d) los pecados que los falsos maestros cometen al abandonar la comunidad. La intercesión se anima por los pecados «no de muerte».",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 12:31-32",
+   "Heb 6:4-6; 10:26",
+   "Nm 15:30-31",
+   "1 Co 11:30"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 25,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "1John.5.16#25",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G2288",
+  "strong_tagnt": "G2288",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "death"
+ },
+ {
+  "ref": "1John.5.18",
+  "strong": "G5083",
+  "forma": "τηρεῖ",
+  "glosa_interlineal": "guarda",
+  "rango_semantico": [
+   "guardar, preservar"
+  ],
+  "construccion": "Presente indicativo activo: «sabemos que todo aquel que ha nacido de Dios, no practica el pecado, pues Aquel que fue engendrado por Dios le guarda, y el maligno no le toca».",
+  "sentido_en_contexto": "El que nació de Dios no practica el pecado porque el Hijo de Dios (o el nacido de Dios mismo; variante) lo guarda. El maligno no lo toca. Cf. 3:9. Aquí también se habla de práctica habitual y de protección.",
+  "matiz": "Debate: «el que fue engendrado de Dios» es (a) Cristo, que guarda al creyente (la mayoría); (b) el creyente que se guarda a sí mismo (RVR60: «se guarda a sí mismo», según un texto variante). Ver nota de 3:9.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 17:12, 15",
+   "1 Jn 3:9",
+   "Jud 24"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 17,
+  "alineacion": "forma",
+  "tagnt": "1John.5.18#17",
+  "morfologia_tagnt": "V-PAI-3S",
+  "dstrong": "G5083I",
+  "strong_tagnt": "G5083",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to keep"
+ },
+ {
+  "ref": "1John.5.19",
+  "strong": "G4190",
+  "forma": "πονηρῷ",
+  "glosa_interlineal": "maligno",
+  "rango_semantico": [
+   "maligno, maldad"
+  ],
+  "construccion": "Dativo: «sabemos que somos de Dios, y el mundo entero está bajo el maligno».",
+  "sentido_en_contexto": "El mundo entero yace «en el maligno» (ἐν τῷ πονηρῷ): bajo su influencia. Contrasta con los creyentes, que son de Dios. Texto relacionado con Jn 12:31 y 2 Co 4:4, sobre el príncipe de este mundo.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 12:31",
+   "2 Co 4:4",
+   "Ef 2:2",
+   "1 Jn 4:4"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "1John.5.19#13",
+  "morfologia_tagnt": "A-DSM",
+  "dstrong": "G4190",
+  "strong_tagnt": "G4190",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "evil/bad"
+ },
+ {
+  "ref": "1John.5.20",
+  "strong": "G228",
+  "forma": "ἀληθινόν",
+  "glosa_interlineal": "verdadero",
+  "rango_semantico": [
+   "verdadero, genuino"
+  ],
+  "construccion": "Acusativo: «y sabemos que el Hijo de Dios ha venido, y nos ha dado entendimiento para conocer al que es verdadero; y estamos en el verdadero, en su Hijo Jesucristo. Este es el verdadero Dios, y la vida eterna».",
+  "sentido_en_contexto": "«Este es el verdadero Dios y la vida eterna»: ¿«este» se refiere a Jesucristo (la mayoría de exégetas por la proximidad gramatical) o al Padre? Si es Cristo, es una afirmación explícita de su deidad. Cierre de la carta con afirmación de la verdad y la vida frente a los falsos maestros.",
+  "matiz": "Debate: «este es el verdadero Dios y la vida eterna»: (a) Jesucristo (antecedente más cercano; Agustín, Atanasio, la mayoría de comentaristas y la tradición nicena); (b) el Padre («el verdadero», τὸν ἀληθινόν, mencionado antes; algunos arrianos y testigos de Jehová). La expresión «vida eterna» se aplica a Cristo en 1:2.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 17:3",
+   "1 Jn 1:2",
+   "Jn 20:28",
+   "Tit 2:13"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 16,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "1John.5.20#16",
+  "morfologia_tagnt": "A-ASM",
+  "dstrong": "G0228",
+  "strong_tagnt": "G228",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "true"
+ },
+ {
+  "ref": "1John.5.21",
+  "strong": "G1497",
+  "forma": "εἰδώλων",
+  "glosa_interlineal": "ídolos",
+  "rango_semantico": [
+   "ídolo"
+  ],
+  "construccion": "Genitivo plural: «hijitos, guardaos de los ídolos. Amén».",
+  "sentido_en_contexto": "Cierre abrupto: «guardaos de los ídolos». ídolos: todo lo que sustituye al verdadero Dios (imágenes, falsas doctrinas, o cualquier lealtad que desplace a Cristo). Resume la advertencia de la carta: quedarse con el Dios verdadero (v.20).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 10:14",
+   "Ez 14:3",
+   "Col 3:5",
+   "Hch 15:20"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "1John.5.21#06",
+  "morfologia_tagnt": "N-GPN",
+  "dstrong": "G1497",
+  "strong_tagnt": "G1497",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "idol"
+ }
+]

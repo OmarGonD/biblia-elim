@@ -1,0 +1,442 @@
+[
+ {
+  "ref": "1Cor.6.2",
+  "strong": "G2919",
+  "forma": "κρινοῦσιν",
+  "glosa_interlineal": "juzgarán",
+  "rango_semantico": [
+   "juzgar"
+  ],
+  "construccion": "Futuro indicativo activo: «¿no sabéis que los santos han de juzgar al mundo?».",
+  "sentido_en_contexto": "Argumento contra pleitos entre cristianos ante tribunales paganos: si los santos juzgarán al mundo (e incluso a los ángeles, v.3), ¿cómo no resolverán asuntos menores? Referencia a la participación de los santos en el juicio final (Dn 7:22; Mt 19:28; Ap 20:4).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dn 7:22",
+   "Mt 19:28",
+   "Ap 20:4",
+   "1 Co 6:3"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "1Cor.6.2#09",
+  "morfologia_tagnt": "V-FAI-3P",
+  "dstrong": "G2919",
+  "strong_tagnt": "G2919",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to judge"
+ },
+ {
+  "ref": "1Cor.6.7",
+  "strong": "G91",
+  "forma": "ἀδικεῖσθε",
+  "glosa_interlineal": "sufrir injusticia",
+  "rango_semantico": [
+   "ser tratado injustamente"
+  ],
+  "construccion": "Presente indicativo pasivo: «¿por qué no sufrís más bien el agravio? ¿Por qué no sufrís más bien el ser defraudados?».",
+  "sentido_en_contexto": "Los pleitos entre hermanos son ya una derrota (ἥττημα). Mejor sufrir injusticia que litigar contra un hermano ante incrédulos. Eco del Sermón del Monte (Mt 5:38-42).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 5:38-42",
+   "Lc 6:29",
+   "1 P 2:19-20",
+   "Ro 12:17-21"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 15,
+  "alineacion": "forma",
+  "tagnt": "1Cor.6.7#18",
+  "morfologia_tagnt": "V-PPI-2P",
+  "dstrong": "G0091",
+  "strong_tagnt": "G91",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to harm"
+ },
+ {
+  "ref": "1Cor.6.9",
+  "strong": "G733",
+  "forma": "ἀρσενοκοῖται",
+  "glosa_interlineal": "homosexuales",
+  "rango_semantico": [
+   "quienes yacen con varones (término compuesto)"
+  ],
+  "construccion": "Nominativo plural: «ni los afeminados (malakoi), ni los que se echan con varones (arsenokoitai)… heredarán el reino de Dios».",
+  "sentido_en_contexto": "En la lista de injustos que no heredarán el reino aparecen dos términos: μαλακοί («blandos», ¿pasivos en relaciones homosexuales o afeminados?) y ἀρσενοκοῖται (compuesto de «varón» y «lecho»; acuñado probablemente a partir de Lv 18:22; 20:13 LXX). El sentido exacto es discutido.",
+  "matiz": "Debate sobre μαλακοί y ἀρσενοκοῖται: (a) ambos designan prácticas homosexuales (pasiva y activa) y la lista las condena (lectura tradicional); (b) ἀρσενοκοῖται refiere a prostitución masculina o abuso (algunos); (c) significado incierto, quizá explotación sexual. En todo caso, Pablo no encierra a nadie en la lista: «y esto eran algunos de vosotros; mas ya habéis sido lavados» (v.11).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 1:26-27",
+   "1 Ti 1:10",
+   "Lv 18:22; 20:13",
+   "Gá 5:19-21"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 21,
+  "alineacion": "forma",
+  "tagnt": "1Cor.6.9#21",
+  "morfologia_tagnt": "N-NPM",
+  "dstrong": "G0733",
+  "strong_tagnt": "G733",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "sodomy"
+ },
+ {
+  "ref": "1Cor.6.11",
+  "strong": "G628",
+  "forma": "ἀπελούσασθε",
+  "glosa_interlineal": "fuisteis lavados",
+  "rango_semantico": [
+   "lavarse, ser lavado"
+  ],
+  "construccion": "Aoristo indicativo medio: «ya habéis sido lavados, ya habéis sido santificados, ya habéis sido justificados».",
+  "sentido_en_contexto": "Tres verbos en aoristo para la conversión: lavados (purificación), santificados (apartados) y justificados (declarados justos), «en el nombre del Señor Jesús y por el Espíritu de nuestro Dios». Contrasta «eso erais algunos» con «pero ya» (ἀλλά): la gracia transforma.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Tit 3:5",
+   "Ef 5:26",
+   "Heb 10:22",
+   "1 Co 1:2, 30"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "1Cor.6.11#06",
+  "morfologia_tagnt": "V-AMI-2P",
+  "dstrong": "G0628",
+  "strong_tagnt": "G628",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to wash off"
+ },
+ {
+  "ref": "1Cor.6.12",
+  "strong": "G1832",
+  "forma": "ἔξεστιν",
+  "glosa_interlineal": "es lícito",
+  "rango_semantico": [
+   "ser lícito, estar permitido"
+  ],
+  "construccion": "Presente impersonal: «todas las cosas me son lícitas, pero no todas convienen».",
+  "sentido_en_contexto": "Lema corintio (quizá citado) de libertad: «todo me es lícito». Pablo lo matiza: no todo conviene, y no se dejará dominar por nada. La libertad cristiana se limita por el provecho y por no ser esclavizado. Se repite en 10:23.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 10:23",
+   "Gá 5:1, 13",
+   "Ro 14:19-21"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "1Cor.6.12#03",
+  "morfologia_tagnt": "V-PAI-3S",
+  "dstrong": "G1832",
+  "strong_tagnt": "G1832",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "it is permitted"
+ },
+ {
+  "ref": "1Cor.6.12",
+  "strong": "G1832",
+  "forma": "ἔξεστιν",
+  "glosa_interlineal": "es lícito",
+  "rango_semantico": [
+   "ser lícito, estar permitido"
+  ],
+  "construccion": "Presente impersonal: «todas las cosas me son lícitas, pero no todas convienen».",
+  "sentido_en_contexto": "Lema corintio (quizá citado) de libertad: «todo me es lícito». Pablo lo matiza: no todo conviene, y no se dejará dominar por nada. La libertad cristiana se limita por el provecho y por no ser esclavizado. Se repite en 10:23.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 10:23",
+   "Gá 5:1, 13",
+   "Ro 14:19-21"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "1Cor.6.12#10",
+  "morfologia_tagnt": "V-PAI-3S",
+  "dstrong": "G1832",
+  "strong_tagnt": "G1832",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "it is permitted"
+ },
+ {
+  "ref": "1Cor.6.13",
+  "strong": "G4983",
+  "forma": "σῶμα",
+  "glosa_interlineal": "cuerpo",
+  "rango_semantico": [
+   "cuerpo"
+  ],
+  "construccion": "Nominativo: «el cuerpo no es para la fornicación, sino para el Señor, y el Señor para el cuerpo».",
+  "sentido_en_contexto": "Pablo refuta el dualismo corintio (el cuerpo no importa): el cuerpo es para el Señor y será resucitado (v.14). La comida es pasajera, pero el cuerpo tiene destino eterno. Prepara los argumentos de vv.15-20.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 15:35-49",
+   "Ro 12:1",
+   "1 Ts 4:3-8"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 20,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "1Cor.6.13#20",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G4983",
+  "strong_tagnt": "G4983",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "body"
+ },
+ {
+  "ref": "1Cor.6.16",
+  "strong": "G4204",
+  "forma": "πόρνῃ",
+  "glosa_interlineal": "prostituta",
+  "rango_semantico": [
+   "prostituta, ramera"
+  ],
+  "construccion": "Dativo: «el que se une con una ramera, es un cuerpo con ella».",
+  "sentido_en_contexto": "Argumento teológico de la unión sexual: cita Gn 2:24: «los dos serán una sola carne». La relación sexual no es neutra: crea una unión corporal que contradice la unión del creyente con Cristo (v.17: «el que se une al Señor, un espíritu es con él»).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 2:24",
+   "Mt 19:5-6",
+   "Ef 5:31-32"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "1Cor.6.16#08",
+  "morfologia_tagnt": "N-DSF",
+  "dstrong": "G4204",
+  "strong_tagnt": "G4204",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "prostitute"
+ },
+ {
+  "ref": "1Cor.6.18",
+  "strong": "G5343",
+  "forma": "φεύγετε",
+  "glosa_interlineal": "huid",
+  "rango_semantico": [
+   "huir"
+  ],
+  "construccion": "Imperativo presente activo: «huid de la fornicación».",
+  "sentido_en_contexto": "Mandato directo (como 10:14: «huid de la idolatría»): no discutir ni resistir, sino huir. Razón: todo otro pecado queda «fuera del cuerpo», pero el que fornica peca contra su propio cuerpo (sentido debatido). José es el ejemplo bíblico de huida (Gn 39:12).",
+  "matiz": "Debate sobre «peca contra su propio cuerpo»: ¿la fornicación es única porque implica unión sexual con otro (v.16), o porque afecta al cuerpo como templo? Algunos ven que es una cita corintia («todo pecado está fuera del cuerpo») que Pablo contradice.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 39:12",
+   "2 Ti 2:22",
+   "1 Co 10:14",
+   "Pr 6:25-29"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "1Cor.6.18#01",
+  "morfologia_tagnt": "V-PAM-2P",
+  "dstrong": "G5343",
+  "strong_tagnt": "G5343",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to flee"
+ },
+ {
+  "ref": "1Cor.6.19",
+  "strong": "G3485",
+  "forma": "ναὸς",
+  "glosa_interlineal": "templo",
+  "rango_semantico": [
+   "templo, santuario"
+  ],
+  "construccion": "Nominativo: «vuestro cuerpo es templo del Espíritu Santo, el cual está en vosotros, el cual tenéis de Dios, y que no sois vuestros».",
+  "sentido_en_contexto": "El cuerpo individual del creyente es templo (ναός) del Espíritu (en 3:16 era la comunidad). La conducta sexual tiene implicaciones sagradas porque el Espíritu mora en el cuerpo del creyente. Fundamento de la ética del cuerpo: no somos dueños de nosotros mismos.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 3:16",
+   "2 Co 6:16",
+   "Ro 12:1",
+   "1 Ts 4:3-8"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "1Cor.6.19#08",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G3485",
+  "strong_tagnt": "G3485",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "temple"
+ },
+ {
+  "ref": "1Cor.6.20",
+  "strong": "G59",
+  "forma": "ἠγοράσθητε",
+  "glosa_interlineal": "fuisteis comprados",
+  "rango_semantico": [
+   "comprar (en el mercado), rescatar"
+  ],
+  "construccion": "Aoristo indicativo pasivo: «habéis sido comprados por precio».",
+  "sentido_en_contexto": "Imagen del mercado de esclavos: el creyente fue comprado (por la sangre de Cristo, 1 P 1:18-19) y pertenece a Dios. Por tanto, «glorificad a Dios en vuestro cuerpo». Cierra el capítulo con la motivación suprema: la gloria de Dios.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 7:23",
+   "1 P 1:18-19",
+   "Ap 5:9",
+   "Gá 3:13"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "1Cor.6.20#01",
+  "morfologia_tagnt": "V-API-2P",
+  "dstrong": "G0059",
+  "strong_tagnt": "G59",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to buy"
+ }
+]

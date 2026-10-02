@@ -1,0 +1,599 @@
+[
+ {
+  "ref": "Phil.4.2",
+  "strong": "G2136",
+  "forma": "Εὐοδίαν",
+  "glosa_interlineal": "Evodia",
+  "rango_semantico": [
+   "Evodia"
+  ],
+  "construccion": "Acusativo: «ruego a Evodia y a Síntique que sean de un mismo sentir en el Señor».",
+  "sentido_en_contexto": "Dos mujeres colaboradoras de Pablo en el evangelio (v.3) tenían un conflicto. Su disputa era conocida por la comunidad y requería pastoreo. Muestra que mujeres tenían ministerio activo en Filipos (cf. Lidia, Hch 16:14-15, 40).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 16:14-15, 40",
+   "Ro 16:1-3",
+   "Fil 2:2"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "Phil.4.2#01",
+  "morfologia_tagnt": "N-ASF-P",
+  "dstrong": "G2136",
+  "strong_tagnt": "G2136",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Euodia"
+ },
+ {
+  "ref": "Phil.4.3",
+  "strong": "G4805",
+  "forma": "σύνζυγε",
+  "glosa_interlineal": "compañero",
+  "rango_semantico": [
+   "compañero de yugo, camarada"
+  ],
+  "construccion": "Vocativo: «asimismo te ruego también a ti, compañero fiel, que ayudes a éstas, que combatieron juntamente conmigo en el evangelio».",
+  "sentido_en_contexto": "Pablo pide a un «compañero de yugo» (σύζυγος) que ayude a la reconciliación. Se debate si es un nombre propio (Sízigo), un colaborador anónimo (Epafrodito, Timoteo, Lucas o Silas), o la esposa de Pablo. También se menciona a Clemente y el «libro de la vida».",
+  "matiz": "Debate: σύζυγος como (a) nombre propio «Sizigo» (algunos); (b) un colaborador no identificado (la mayoría); (c) la esposa del apóstol (tradición antigua; poco probable por la forma masculina); (d) el obispo de la iglesia.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ap 3:5; 20:12",
+   "Lc 10:20",
+   "Ex 32:32"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 6,
+  "alineacion": "strong",
+  "tagnt": "Phil.4.3#06",
+  "morfologia_tagnt": "A-VSM",
+  "dstrong": "G4805",
+  "strong_tagnt": "G4805",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "yokefellow"
+ },
+ {
+  "ref": "Phil.4.4",
+  "strong": "G5463",
+  "forma": "Χαίρετε",
+  "glosa_interlineal": "gozaos",
+  "rango_semantico": [
+   "alegrarse, regocijarse"
+  ],
+  "construccion": "Imperativo presente activo: «regocijaos en el Señor siempre. Otra vez digo: ¡Regocijaos!».",
+  "sentido_en_contexto": "El gozo (χαρά) es tema central de Filipenses (escrita desde la prisión). El gozo no depende de las circunstancias sino del Señor. Es un mandato, no un sentimiento pasivo. El tono es de insistencia: «otra vez lo diré».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Fil 3:1",
+   "1 Ts 5:16",
+   "Ro 12:12",
+   "Sal 32:11"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 1,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Phil.4.4#01",
+  "morfologia_tagnt": "V-PAM-2P",
+  "dstrong": "G5463",
+  "strong_tagnt": "G5463",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to rejoice"
+ },
+ {
+  "ref": "Phil.4.4",
+  "strong": "G5463",
+  "forma": "Χαίρετε",
+  "glosa_interlineal": "gozaos",
+  "rango_semantico": [
+   "alegrarse, regocijarse"
+  ],
+  "construccion": "Imperativo presente activo: «regocijaos en el Señor siempre. Otra vez digo: ¡Regocijaos!».",
+  "sentido_en_contexto": "El gozo (χαρά) es tema central de Filipenses (escrita desde la prisión). El gozo no depende de las circunstancias sino del Señor. Es un mandato, no un sentimiento pasivo. El tono es de insistencia: «otra vez lo diré».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Fil 3:1",
+   "1 Ts 5:16",
+   "Ro 12:12",
+   "Sal 32:11"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Phil.4.4#07",
+  "morfologia_tagnt": "V-PAM-2P",
+  "dstrong": "G5463",
+  "strong_tagnt": "G5463",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to rejoice"
+ },
+ {
+  "ref": "Phil.4.5",
+  "strong": "G1933",
+  "forma": "ἐπιεικὲς",
+  "glosa_interlineal": "amabilidad",
+  "rango_semantico": [
+   "bondad razonable, gentileza, consideración"
+  ],
+  "construccion": "Acusativo: «vuestra gentileza sea conocida de todos los hombres. El Señor está cerca».",
+  "sentido_en_contexto": "ἐπιεικές: moderación, gentileza que no insiste en sus derechos. «El Señor está cerca» puede ser temporal (cercanía de la parusía) o espacial (presente con nosotros). La cercanía del Señor fundamenta tanto la amabilidad como la confianza para no ansiar (v.6).",
+  "matiz": "Debate sobre «El Señor está cerca» (ὁ κύριος ἐγγύς): (a) cercanía temporal de su venida (la mayoría; cf. Stg 5:8); (b) presencia actual (Sal 145:18; algunos); (c) ambas. Se funde con el mandato de no ansiar.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Stg 5:8-9",
+   "Sal 145:18",
+   "1 P 4:7",
+   "Tit 3:2"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Phil.4.5#02",
+  "morfologia_tagnt": "A-NSN",
+  "dstrong": "G1933",
+  "strong_tagnt": "G1933",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "gentle"
+ },
+ {
+  "ref": "Phil.4.6",
+  "strong": "G3309",
+  "forma": "μεριμνᾶτε",
+  "glosa_interlineal": "os afanéis",
+  "rango_semantico": [
+   "estar ansioso, preocuparse"
+  ],
+  "construccion": "Imperativo presente activo: «por nada estéis afanosos, sino sean conocidas vuestras peticiones delante de Dios en toda oración y ruego, con acción de gracias».",
+  "sentido_en_contexto": "Prohibición de la ansiedad con alternativa positiva: la oración con acción de gracias. El presente imperativo con negación puede significar «dejad de afanaros». El remedio es oración, súplica, gratitud y petición (cuatro términos). Eco de Mt 6:25-34.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 6:25-34",
+   "1 P 5:7",
+   "Sal 55:22",
+   "Lc 12:22-31"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Phil.4.6#02",
+  "morfologia_tagnt": "V-PAM-2P",
+  "dstrong": "G3309",
+  "strong_tagnt": "G3309",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to worry"
+ },
+ {
+  "ref": "Phil.4.7",
+  "strong": "G5432",
+  "forma": "φρουρήσει",
+  "glosa_interlineal": "guardará",
+  "rango_semantico": [
+   "guardar, custodiar (como centinela)"
+  ],
+  "construccion": "Futuro indicativo activo: «y la paz de Dios, que sobrepasa todo entendimiento, guardará vuestros corazones y vuestros pensamientos en Cristo Jesús».",
+  "sentido_en_contexto": "La paz de Dios actúa como una guarnición militar (φρουρέω) que protege el corazón y la mente. Filipos tenía una guarnición romana. «Sobrepasa todo entendimiento» puede ser: supera lo que podemos concebir, o supera cualquier plan humano.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 14:27",
+   "Col 3:15",
+   "Is 26:3",
+   "1 P 1:5"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Phil.4.7#10",
+  "morfologia_tagnt": "V-FAI-3S",
+  "dstrong": "G5432",
+  "strong_tagnt": "G5432",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to guard"
+ },
+ {
+  "ref": "Phil.4.8",
+  "strong": "G3049",
+  "forma": "λογίζεσθε",
+  "glosa_interlineal": "considerad",
+  "rango_semantico": [
+   "considerar, reflexionar sobre"
+  ],
+  "construccion": "Imperativo presente medio: «por lo demás, hermanos, todo lo que es verdadero, todo lo honesto, todo lo justo, todo lo puro, todo lo amable, todo lo que es de buen nombre; si hay virtud alguna, si algo digno de alabanza, en esto pensad».",
+  "sentido_en_contexto": "Lista de seis cualidades (verdadero, honorable, justo, puro, amable, de buena fama) seguidas de dos categorías generales (virtud y alabanza). Muchos de estos términos eran comunes en la ética grecorromana: Pablo las adopta como medida cristiana. «Pensad» es λογίζομαι: considerar con reflexión.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Col 3:2",
+   "Ro 12:2",
+   "2 Co 10:5",
+   "Ef 4:29"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 25,
+  "alineacion": "forma",
+  "tagnt": "Phil.4.8#25",
+  "morfologia_tagnt": "V-PNM-2P",
+  "dstrong": "G3049",
+  "strong_tagnt": "G3049",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to count"
+ },
+ {
+  "ref": "Phil.4.11",
+  "strong": "G842",
+  "forma": "αὐτάρκης",
+  "glosa_interlineal": "contento",
+  "rango_semantico": [
+   "autosuficiente, contento con lo que se tiene"
+  ],
+  "construccion": "Nominativo: «he aprendido a contentarme, cualquiera que sea mi situación».",
+  "sentido_en_contexto": "αὐτάρκης es término estoico (autosuficiente), pero Pablo lo cristianiza: su suficiencia viene de Cristo (v.13). Ha «aprendido» (proceso) a vivir en abundancia y escasez (v.12). Ejemplo de contentamiento sin pasividad.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Ti 6:6-8",
+   "Heb 13:5",
+   "2 Co 12:9-10"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "Phil.4.11#12",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G0842",
+  "strong_tagnt": "G842",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "self-sufficient"
+ },
+ {
+  "ref": "Phil.4.12",
+  "strong": "G3453",
+  "forma": "μεμύημαι",
+  "glosa_interlineal": "he aprendido el secreto",
+  "rango_semantico": [
+   "iniciar en un misterio, aprender el secreto"
+  ],
+  "construccion": "Perfecto indicativo medio/pasivo: «sé vivir humildemente, y sé tener abundancia; en todo y por todo estoy enseñado, así para estar saciado como para tener hambre, así para tener abundancia como para padecer necesidad».",
+  "sentido_en_contexto": "μυέω: iniciar en los misterios; Pablo ha sido «iniciado» en el secreto del contentamiento. Su vida ha pasado por abundancia y necesidad. El secreto está en Cristo (v.13).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Co 11:27",
+   "1 Co 4:11",
+   "Hch 20:34"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "Phil.4.12#12",
+  "morfologia_tagnt": "V-RPI-1S",
+  "dstrong": "G3453",
+  "strong_tagnt": "G3453",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to initiate"
+ },
+ {
+  "ref": "Phil.4.13",
+  "strong": "G1743",
+  "forma": "ἐνδυναμοῦντί",
+  "glosa_interlineal": "que me fortalece",
+  "rango_semantico": [
+   "fortalecer, dar poder"
+  ],
+  "construccion": "Participio presente activo: «todo lo puedo en Cristo que me fortalece».",
+  "sentido_en_contexto": "Versículo muy citado fuera de su contexto: «todo» se refiere a vivir en cualquier circunstancia (abundancia o necesidad, v.12), no a lograr cualquier ambición. La fuerza viene de Cristo para la perseverancia y el contentamiento. Lectura contextual: capacidad de soportar y servir.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Co 12:9-10",
+   "Ef 6:10",
+   "1 Ti 1:12",
+   "2 Ti 4:17"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Phil.4.13#05",
+  "morfologia_tagnt": "V-PAP-DSM",
+  "dstrong": "G1743",
+  "strong_tagnt": "G1743",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to empower"
+ },
+ {
+  "ref": "Phil.4.15",
+  "strong": "G2841",
+  "forma": "ἐκοινώνησεν",
+  "glosa_interlineal": "participó",
+  "rango_semantico": [
+   "compartir, participar"
+  ],
+  "construccion": "Aoristo indicativo activo: «y sabéis también vosotros, oh filipenses, que al principio de la predicación del evangelio, cuando partí de Macedonia, ninguna iglesia participó conmigo en razón de dar y recibir, sino vosotros solos».",
+  "sentido_en_contexto": "Los filipenses fueron la única iglesia que apoyó económicamente a Pablo desde el principio. Lenguaje contable («dar y recibir»): una sociedad de colaboración. Se vincula con 2 Co 11:8-9 (los macedonios suplieron su necesidad).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Co 11:8-9",
+   "Hch 16:12-40; 17:1-9",
+   "1 Co 9:14"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 18,
+  "alineacion": "forma",
+  "tagnt": "Phil.4.15#18",
+  "morfologia_tagnt": "V-AAI-3S",
+  "dstrong": "G2841",
+  "strong_tagnt": "G2841",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to participate"
+ },
+ {
+  "ref": "Phil.4.18",
+  "strong": "G2175",
+  "forma": "εὐωδίας",
+  "glosa_interlineal": "fragancia",
+  "rango_semantico": [
+   "buen olor, fragancia"
+  ],
+  "construccion": "Genitivo: «todo lo he recibido, y tengo abundancia; estoy lleno, habiendo recibido de Epafrodito lo que enviasteis; olor fragante, sacrificio acepto, agradable a Dios».",
+  "sentido_en_contexto": "La ofrenda de Filipos es descrita en términos sacrificiales: «olor fragante, sacrificio acepto, agradable a Dios». El apoyo al ministerio es acto de adoración. Pablo agradece sin pedir más (v.17).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 29:18",
+   "Heb 13:16",
+   "Ef 5:2",
+   "2 Co 9:12"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Phil.4.18#14",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G2175",
+  "strong_tagnt": "G2175",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "aroma"
+ },
+ {
+  "ref": "Phil.4.19",
+  "strong": "G4149",
+  "forma": "πλοῦτος",
+  "glosa_interlineal": "riquezas",
+  "rango_semantico": [
+   "riqueza"
+  ],
+  "construccion": "Acusativo: «mi Dios, pues, suplirá todo lo que os falta conforme a sus riquezas en gloria en Cristo Jesús».",
+  "sentido_en_contexto": "Promesa dirigida a los filipenses que acaban de dar generosamente: Dios suplirá toda su necesidad (χρεία, no deseo). Es promesa de suficiencia, no de abundancia de lujo, y la fuente es «sus riquezas en gloria». Ha sido usada en la teología de la prosperidad sin respaldo del contexto.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Co 9:8",
+   "Mt 6:33",
+   "Sal 23:1",
+   "Ef 3:16"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Phil.4.19#11",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G4149",
+  "strong_tagnt": "G4149",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg"
+  ],
+  "ausente_en": [
+   "TR",
+   "Byz"
+  ],
+  "variante": true,
+  "glosa_tagnt": "riches"
+ },
+ {
+  "ref": "Phil.4.22",
+  "strong": "G2541",
+  "forma": "Καίσαρος",
+  "glosa_interlineal": "César",
+  "rango_semantico": [
+   "César, emperador"
+  ],
+  "construccion": "Genitivo: «todos los santos os saludan, y especialmente los de la casa de César».",
+  "sentido_en_contexto": "«La casa de César» (Καίσαρος οἰκία): esclavos y libertos del servicio imperial, no la familia del emperador. Indica que el evangelio llegó al palacio de Nerón (si Pablo está en Roma). Apoya la hipótesis romana de la carta.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Fil 1:13",
+   "Ro 16:10-11",
+   "Hch 28:30-31"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Phil.4.22#11",
+  "morfologia_tagnt": "N-GSM-T",
+  "dstrong": "G2541I",
+  "strong_tagnt": "G2541",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Caesar"
+ }
+]

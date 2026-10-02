@@ -1,0 +1,597 @@
+[
+ {
+  "ref": "Col.1.7",
+  "strong": "G1889",
+  "forma": "Ἐπαφρᾶ",
+  "glosa_interlineal": "Epafras",
+  "rango_semantico": [
+   "Epafras"
+  ],
+  "construccion": "Genitivo: «como lo habéis aprendido de Epafras, nuestro consiervo amado, que es un fiel ministro de Cristo a favor vuestro».",
+  "sentido_en_contexto": "Epafras, probablemente fundador de la iglesia de Colosas (y de Laodicea y Hierápolis, 4:13), informa a Pablo en la cárcel de la situación: el amor de los colosenses y una enseñanza peligrosa («filosofía», 2:8). Origen de la carta.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Col 4:12-13",
+   "Flm 23",
+   "Col 2:8"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Col.1.7#05",
+  "morfologia_tagnt": "N-GSM-P",
+  "dstrong": "G1889",
+  "strong_tagnt": "G1889",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Epaphras"
+ },
+ {
+  "ref": "Col.1.9",
+  "strong": "G1922",
+  "forma": "ἐπίγνωσιν",
+  "glosa_interlineal": "pleno conocimiento",
+  "rango_semantico": [
+   "conocimiento pleno, reconocimiento"
+  ],
+  "construccion": "Acusativo: «para que seáis llenos del conocimiento de su voluntad en toda sabiduría e inteligencia espiritual».",
+  "sentido_en_contexto": "Intercesión central: conocimiento (ἐπίγνωσις) de la voluntad de Dios, con sabiduría y entendimiento espiritual, y una vida que agrade al Señor (vv.10-12). Contrasta con los falsos maestros que ofrecían un conocimiento superior (2:18-23). El verdadero conocimiento se traduce en conducta.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ef 1:17",
+   "Fil 1:9-10",
+   "Ro 12:2"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 19,
+  "alineacion": "forma",
+  "tagnt": "Col.1.9#19",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G1922",
+  "strong_tagnt": "G1922",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "knowledge"
+ },
+ {
+  "ref": "Col.1.12",
+  "strong": "G2427",
+  "forma": "ἱκανώσαντι",
+  "glosa_interlineal": "que nos capacitó",
+  "rango_semantico": [
+   "hacer apto, capacitar"
+  ],
+  "construccion": "Participio aoristo activo: «con gozo dando gracias al Padre que nos hizo aptos para participar de la herencia de los santos en luz».",
+  "sentido_en_contexto": "El Padre nos «capacitó» (hizo aptos) para participar en la herencia de los santos: la capacidad la da Dios, no el mérito. Alusión a la herencia de Israel en la tierra, ahora en «luz». Introduce el himno cristológico (vv.13-20).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 20:32; 26:18",
+   "1 P 1:4",
+   "Ef 1:11, 18"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Col.1.12#05",
+  "morfologia_tagnt": "V-AAP-DSM",
+  "dstrong": "G2427",
+  "strong_tagnt": "G2427",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to qualify"
+ },
+ {
+  "ref": "Col.1.13",
+  "strong": "G3179",
+  "forma": "μετέστησεν",
+  "glosa_interlineal": "trasladó",
+  "rango_semantico": [
+   "trasladar, transferir"
+  ],
+  "construccion": "Aoristo indicativo activo: «el cual nos ha librado de la potestad de las tinieblas, y trasladado al reino de su amado Hijo».",
+  "sentido_en_contexto": "Imagen del traslado de población de un reino a otro (práctica política antigua). Los creyentes ya han pasado del dominio de las tinieblas al reino del Hijo: el reino es una realidad presente y futura. Tema escatológico de «ya, pero todavía no».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 26:18",
+   "1 P 2:9",
+   "Jn 5:24",
+   "Lc 22:29"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Col.1.13#10",
+  "morfologia_tagnt": "V-AAI-3S",
+  "dstrong": "G3179",
+  "strong_tagnt": "G3179",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to move"
+ },
+ {
+  "ref": "Col.1.15",
+  "strong": "G4416",
+  "forma": "πρωτότοκος",
+  "glosa_interlineal": "primogénito",
+  "rango_semantico": [
+   "primogénito, el primero en rango"
+  ],
+  "construccion": "Nominativo: «él es la imagen del Dios invisible, el primogénito de toda creación».",
+  "sentido_en_contexto": "Himno cristológico (1:15-20). «Primogénito de toda la creación» fue clave en la controversia arriana: ¿Cristo fue el primer ser creado? La mayoría lo lee como preeminencia y soberanía (el primogénito hereda; Sal 89:27), no origen creado, pues el v.16 lo presenta como Creador de todo.",
+  "matiz": "Debate sobre πρωτότοκος πάσης κτίσεως: (a) preeminencia sobre la creación (genitivo de comparación o de dominio; ortodoxia nicena y la mayoría de exégetas); (b) el primero en ser creado (lectura arriana y testigos de Jehová, rechazada porque el v.16 dice que todo fue creado «en él»; y Cristo es creador); (c) sabiduría personificada (Pr 8). «Imagen del Dios invisible»: revelación visible de Dios.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 1:3",
+   "Jn 1:1-3",
+   "Pr 8:22-31",
+   "Sal 89:27",
+   "2 Co 4:4"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Col.1.15#08",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G4416",
+  "strong_tagnt": "G4416",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "firstborn"
+ },
+ {
+  "ref": "Col.1.16",
+  "strong": "G2936",
+  "forma": "ἐκτίσθη",
+  "glosa_interlineal": "fue creado",
+  "rango_semantico": [
+   "crear"
+  ],
+  "construccion": "Aoristo indicativo pasivo: «porque en él fueron creadas todas las cosas, las que hay en los cielos y las que hay en la tierra, visibles e invisibles; sean tronos, sean dominios, sean principados, sean potestades; todo fue creado por medio de él y para él».",
+  "sentido_en_contexto": "Cristo como agente (δι᾿ αὐτοῦ), medio (ἐν αὐτῷ) y fin (εἰς αὐτόν) de la creación. Los poderes espirituales (tronos, dominios, principados, autoridades) también son creados por él y le están sometidos (2:10, 15). Contra la reverencia a los ángeles (2:18).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 1:3",
+   "1 Co 8:6",
+   "Heb 1:2",
+   "Ro 11:36"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Col.1.16#04",
+  "morfologia_tagnt": "V-API-3S",
+  "dstrong": "G2936",
+  "strong_tagnt": "G2936",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to create"
+ },
+ {
+  "ref": "Col.1.18",
+  "strong": "G746",
+  "forma": "ἀρχή",
+  "glosa_interlineal": "principio",
+  "rango_semantico": [
+   "principio, origen, soberano"
+  ],
+  "construccion": "Nominativo: «y él es la cabeza del cuerpo que es la iglesia, él que es el principio, el primogénito de entre los muertos, para que en todo tenga la preeminencia».",
+  "sentido_en_contexto": "Cristo es cabeza de la iglesia, «principio» (ἀρχή: origen y soberanía) y primogénito de entre los muertos (primero en resucitar con cuerpo glorificado). Su preeminencia universal se funda en la creación (v.16) y la nueva creación (resurrección).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ef 1:22-23",
+   "Ap 1:5; 3:14",
+   "1 Co 15:20",
+   "Hch 26:23"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "Col.1.18#13",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G0746",
+  "strong_tagnt": "G746",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "beginning"
+ },
+ {
+  "ref": "Col.1.19",
+  "strong": "G2106",
+  "forma": "εὐδόκησεν",
+  "glosa_interlineal": "agradó",
+  "rango_semantico": [
+   "agradar, tener a bien"
+  ],
+  "construccion": "Aoristo indicativo activo: «por cuanto agradó al Padre que en él habitase toda plenitud».",
+  "sentido_en_contexto": "La «plenitud» (πλήρωμα) de la divinidad habita en Cristo (cf. 2:9). Dios «tuvo a bien» que toda su plenitud morase en él. Contra los falsos maestros que repartían la plenitud entre seres intermedios, Pablo la concentra en Cristo. Algunos gnósticos usaron «plenitud» con otro sentido.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Col 2:9",
+   "Jn 1:14-16",
+   "Ef 1:23; 3:19"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Col.1.19#04",
+  "morfologia_tagnt": "V-AAI-3S",
+  "dstrong": "G2106",
+  "strong_tagnt": "G2106",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to delight"
+ },
+ {
+  "ref": "Col.1.20",
+  "strong": "G604",
+  "forma": "ἀποκαταλλάξαι",
+  "glosa_interlineal": "reconciliar",
+  "rango_semantico": [
+   "reconciliar completamente"
+  ],
+  "construccion": "Aoristo infinitivo activo: «y por medio de él reconciliar consigo todas las cosas, así las que están en la tierra como las que están en los cielos, haciendo la paz mediante la sangre de su cruz».",
+  "sentido_en_contexto": "Reconciliación cósmica «por la sangre de su cruz». «Todas las cosas» incluye cielo y tierra, pero se debate el alcance: ¿salvación universal de todos los seres o paz y sometimiento (incluso de poderes hostiles, 2:15)? El v.21-23 acota a quienes permanecen en la fe.",
+  "matiz": "Debate: (a) reconciliación como pacificación cósmica: los poderes hostiles son sometidos y no salvados (2:15; la mayoría reformada); (b) restauración universal de toda la creación incluyendo personas (universalismo; Orígenes, algunos modernos); (c) reconciliación de los que creen (vv.21-23) como parte de un orden cósmico restaurado.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ef 1:10",
+   "Ro 8:19-23",
+   "Col 2:15",
+   "2 Co 5:18-19"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Col.1.20#04",
+  "morfologia_tagnt": "V-AAN",
+  "dstrong": "G0604",
+  "strong_tagnt": "G604",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to reconcile"
+ },
+ {
+  "ref": "Col.1.22",
+  "strong": "G299",
+  "forma": "ἀμώμους",
+  "glosa_interlineal": "sin mancha",
+  "rango_semantico": [
+   "sin defecto, irreprochable"
+  ],
+  "construccion": "Acusativo plural: «en su cuerpo de carne, por medio de la muerte, para presentaros santos y sin mancha e irreprensibles delante de él».",
+  "sentido_en_contexto": "La reconciliación tiene como propósito la santidad presentada ante Dios. «Cuerpo de carne» enfatiza la realidad de la muerte de Cristo (contra el docetismo). Prepara la condición del v.23: «si en verdad permanecéis».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ef 1:4; 5:27",
+   "2 Co 11:2",
+   "Jud 24"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Col.1.22#17",
+  "morfologia_tagnt": "A-APM",
+  "dstrong": "G0299",
+  "strong_tagnt": "G299",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "blameless"
+ },
+ {
+  "ref": "Col.1.23",
+  "strong": "G1961",
+  "forma": "ἐπιμένετε",
+  "glosa_interlineal": "permanecéis",
+  "rango_semantico": [
+   "permanecer, perseverar"
+  ],
+  "construccion": "Presente indicativo activo: «si en verdad permanecéis fundados y firmes en la fe, y sin moveros de la esperanza del evangelio».",
+  "sentido_en_contexto": "Condición de perseverancia: la reconciliación se mantiene si permanecen en la fe. Se discute cómo se concilia con la seguridad del creyente. «Predicado en toda la creación debajo del cielo»: hipérbole para la extensión del evangelio por el Imperio.",
+  "matiz": "Debate: (a) la perseverancia es la evidencia de una fe auténtica (reformada: los verdaderos creyentes perseveran); (b) condición real: se puede perder la reconciliación si se abandona la fe (arminiana, católica); (c) exhortación para fortalecer a los fieles frente a falsos maestros.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 3:14",
+   "Jn 15:4-6",
+   "1 Co 15:2",
+   "Ro 11:22"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Col.1.23#03",
+  "morfologia_tagnt": "V-PAI-2P",
+  "dstrong": "G1961",
+  "strong_tagnt": "G1961",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to remain/keep on"
+ },
+ {
+  "ref": "Col.1.24",
+  "strong": "G466",
+  "forma": "ἀνταναπληρῶ",
+  "glosa_interlineal": "completo",
+  "rango_semantico": [
+   "completar, suplir lo que falta"
+  ],
+  "construccion": "Presente indicativo activo: «ahora me gozo en lo que padezco por vosotros, y cumplo en mi carne lo que falta de las aflicciones de Cristo por su cuerpo, que es la iglesia».",
+  "sentido_en_contexto": "Versículo muy debatido: ¿cómo puede faltar algo a las aflicciones de Cristo? La suficiencia de la cruz se afirma en 1:20, 22; 2:14. Las interpretaciones: (a) los sufrimientos mesiánicos de la era final que debe soportar el cuerpo; (b) los sufrimientos de Cristo en la iglesia (identificación); (c) en la tradición católica, base de la «comunión de los santos» y del valor de los sufrimientos ofrecidos.",
+  "matiz": "Debate: (a) el sufrimiento de Pablo completa la cuota de «aflicciones mesiánicas» antes del fin (apocalíptica judía; la mayoría de exégetas); (b) lo que falta es la aplicación personal y misionera de la obra de Cristo (reformada); (c) los sufrimientos de los creyentes se unen a los de Cristo con valor para el cuerpo (católica y ortodoxa). Ninguna lectura niega la suficiencia de la expiación.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Co 1:5",
+   "Fil 3:10",
+   "Mt 24:8-9",
+   "2 Ti 2:10"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Col.1.24#10",
+  "morfologia_tagnt": "V-PAI-1S",
+  "dstrong": "G0466",
+  "strong_tagnt": "G466",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to fill up in turn"
+ },
+ {
+  "ref": "Col.1.26",
+  "strong": "G3466",
+  "forma": "μυστήριον",
+  "glosa_interlineal": "misterio",
+  "rango_semantico": [
+   "misterio, secreto revelado"
+  ],
+  "construccion": "Acusativo: «el misterio que había estado oculto desde los siglos y edades, pero que ahora ha sido manifestado a sus santos».",
+  "sentido_en_contexto": "«El misterio» es «Cristo en vosotros, la esperanza de gloria» (v.27): Cristo presente entre los gentiles. Revelado ahora, no desconocido en el plan de Dios. Semejante a Ef 3:3-6.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ef 3:3-9",
+   "Ro 16:25-26",
+   "1 Co 2:7-10"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Col.1.26#02",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G3466",
+  "strong_tagnt": "G3466",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "mystery"
+ },
+ {
+  "ref": "Col.1.27",
+  "strong": "G1680",
+  "forma": "ἐλπὶς",
+  "glosa_interlineal": "esperanza",
+  "rango_semantico": [
+   "esperanza"
+  ],
+  "construccion": "Nominativo: «Cristo en vosotros, la esperanza de gloria».",
+  "sentido_en_contexto": "Fórmula resumen del misterio: Cristo presente entre (o en) vosotros (ἐν ὑμῖν), garantía de la gloria futura. ἐν ὑμῖν puede ser «en vosotros» (individual) o «entre vosotros» (comunitario, entre los gentiles).",
+  "matiz": "Debate: «Cristo en vosotros»: (a) presencia interior en cada creyente (Gá 2:20; Ef 3:17); (b) presencia entre los gentiles, es decir, en la comunidad (contexto de ἐν τοῖς ἔθνεσιν). Ambas dimensiones se integran.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gá 2:20",
+   "Ef 3:17",
+   "Ro 8:10",
+   "Jn 14:23"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 23,
+  "alineacion": "forma",
+  "tagnt": "Col.1.27#23",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G1680",
+  "strong_tagnt": "G1680",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "hope"
+ },
+ {
+  "ref": "Col.1.28",
+  "strong": "G5046",
+  "forma": "τέλειον",
+  "glosa_interlineal": "maduro",
+  "rango_semantico": [
+   "perfecto, maduro"
+  ],
+  "construccion": "Acusativo: «a quien anunciamos, amonestando a todo hombre, y enseñando a todo hombre en toda sabiduría, a fin de presentar perfecto en Cristo Jesús a todo hombre».",
+  "sentido_en_contexto": "«Todo hombre» tres veces: el evangelio es para todos, sin jerarquías de iniciados (contra el elitismo gnóstico). La meta es la madurez en Cristo. Los medios: proclamar, amonestar, enseñar.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ef 4:13",
+   "Fil 3:15",
+   "Heb 5:14"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 18,
+  "alineacion": "forma",
+  "tagnt": "Col.1.28#18",
+  "morfologia_tagnt": "A-ASM",
+  "dstrong": "G5046",
+  "strong_tagnt": "G5046",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "perfect"
+ }
+]

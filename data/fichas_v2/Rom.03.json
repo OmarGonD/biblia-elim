@@ -1,0 +1,718 @@
+[
+ {
+  "ref": "Rom.3.2",
+  "strong": "G3051",
+  "forma": "λόγια",
+  "glosa_interlineal": "oráculos",
+  "rango_semantico": [
+   "oráculo, palabra de Dios"
+  ],
+  "construccion": "Nominativo plural: «les ha sido confiados los oráculos de Dios».",
+  "sentido_en_contexto": "La ventaja principal de los judíos: se les confió la palabra de Dios (la Escritura). Responde a la pregunta «¿qué ventaja tiene el judío?». Pablo no niega el privilegio, pero lo ubica en una responsabilidad, no en una garantía de salvación.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 9:4-5",
+   "Dt 4:7-8",
+   "Hch 7:38",
+   "Heb 5:12"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Rom.3.2#11",
+  "morfologia_tagnt": "N-APN",
+  "dstrong": "G3051",
+  "strong_tagnt": "G3051",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "oracles"
+ },
+ {
+  "ref": "Rom.3.3",
+  "strong": "G570",
+  "forma": "ἀπιστία",
+  "glosa_interlineal": "incredulidad",
+  "rango_semantico": [
+   "incredulidad, infidelidad"
+  ],
+  "construccion": "Nominativo: «¿su incredulidad habrá hecho nula la fidelidad de Dios?».",
+  "sentido_en_contexto": "Objeción: si algunos judíos fueron infieles, ¿se anula la fidelidad de Dios (πίστις θεοῦ)? «¡De ninguna manera!»: Dios permanece veraz aunque todo hombre sea mentiroso. Tema desarrollado en Ro 9—11.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 9:6; 11:1, 29",
+   "2 Ti 2:13",
+   "Nm 23:19"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Rom.3.3#08",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G0570",
+  "strong_tagnt": "G570",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "unbelief"
+ },
+ {
+  "ref": "Rom.3.4",
+  "strong": "G1096",
+  "forma": "γένοιτο",
+  "glosa_interlineal": "¡de ninguna manera!",
+  "rango_semantico": [
+   "suceder (optativo): «¡nunca suceda!»"
+  ],
+  "construccion": "Optativo aoristo medio: «¡De ninguna manera!».",
+  "sentido_en_contexto": "Fórmula paulina de rechazo enfático (μὴ γένοιτο; 14 veces en sus cartas, 10 en Romanos). Traducción: «¡Dios nos libre!», «¡jamás!», «¡ni pensarlo!». Cita de Sal 51:4 en el v.4: Dios es justificado en sus palabras y vence cuando es juzgado.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 3:6, 31; 6:2, 15; 7:7, 13; 9:14; 11:1, 11",
+   "Gá 2:17; 3:21",
+   "Sal 51:4"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Rom.3.4#02",
+  "morfologia_tagnt": "V-2ADO-3S",
+  "dstrong": "G1096",
+  "strong_tagnt": "G1096",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to be"
+ },
+ {
+  "ref": "Rom.3.9",
+  "strong": "G4256",
+  "forma": "προῃτιασάμεθα",
+  "glosa_interlineal": "hemos acusado antes",
+  "rango_semantico": [
+   "acusar de antemano"
+  ],
+  "construccion": "Aoristo indicativo medio: «ya hemos acusado a judíos y a gentiles de que todos están bajo pecado».",
+  "sentido_en_contexto": "Pablo resume 1:18—3:8: judíos y gentiles están igualmente «bajo el pecado» (ὑφ’ ἁμαρτίαν): bajo su poder. Prepara la serie de citas del AT (vv.10-18) que demuestran la universalidad del pecado.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 1:18—3:8",
+   "Gá 3:22",
+   "Ro 5:12; 11:32"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Rom.3.9#06",
+  "morfologia_tagnt": "V-ADI-1P",
+  "dstrong": "G4256",
+  "strong_tagnt": "G4256",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to accuse"
+ },
+ {
+  "ref": "Rom.3.10",
+  "strong": "G1342",
+  "forma": "δίκαιος",
+  "glosa_interlineal": "justo",
+  "rango_semantico": [
+   "justo, recto"
+  ],
+  "construccion": "Nominativo: «no hay justo, ni aun uno».",
+  "sentido_en_contexto": "Comienza una cadena de citas (vv.10-18): Sal 14:1-3; 53:1-3; 5:9; 140:3; 10:7; Is 59:7-8; Sal 36:1. Pablo las combina como testimonio de que, según la Escritura, todos están bajo pecado. Es el fundamento del «todos pecaron» (v.23).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 14:1-3; 53:1-3",
+   "Sal 5:9; 140:3; 10:7",
+   "Is 59:7-8",
+   "Sal 36:1"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Rom.3.10#06",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G1342",
+  "strong_tagnt": "G1342",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "just"
+ },
+ {
+  "ref": "Rom.3.19",
+  "strong": "G5420",
+  "forma": "φραγῇ",
+  "glosa_interlineal": "se cierre",
+  "rango_semantico": [
+   "cerrar, tapar (la boca)"
+  ],
+  "construccion": "Subjuntivo aoristo pasivo: «para que toda boca se cierre».",
+  "sentido_en_contexto": "La función de la ley: cerrar toda boca (toda defensa) y hacer a todo el mundo responsable (ὑπόδικος, «culpable ante un tribunal») ante Dios. La ley no justifica, sino que muestra el pecado y acalla las excusas.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 7:7-13",
+   "Gá 3:19-24",
+   "Job 40:4"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 16,
+  "alineacion": "forma",
+  "tagnt": "Rom.3.19#16",
+  "morfologia_tagnt": "V-2APS-3S",
+  "dstrong": "G5420",
+  "strong_tagnt": "G5420",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to stop"
+ },
+ {
+  "ref": "Rom.3.20",
+  "strong": "G2041",
+  "forma": "ἔργων",
+  "glosa_interlineal": "obras",
+  "rango_semantico": [
+   "obra, acción"
+  ],
+  "construccion": "Genitivo plural: «por las obras de la ley ninguna carne será justificada».",
+  "sentido_en_contexto": "Cita implícita de Sal 143:2. «Obras de la ley» (ἔργα νόμου) se debate: ¿cualquier obediencia a la ley (lectura tradicional) o los marcadores de identidad judía (circuncisión, sábado, alimentos; «nueva perspectiva», J. D. G. Dunn)? Pablo concluye que la ley da «conocimiento del pecado», no justificación.",
+  "matiz": "Debate: (a) todo obrar legal humano como mérito (Lutero, tradición reformada); (b) marcas de la pertenencia étnica al pueblo del pacto (Dunn, Wright); (c) obras exigidas por la ley, cumplidas con motivación equivocada. Ver Gá 2:16.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 143:2",
+   "Gá 2:16; 3:10",
+   "Ro 4:2-5; 7:7"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Rom.3.20#03",
+  "morfologia_tagnt": "N-GPN",
+  "dstrong": "G2041",
+  "strong_tagnt": "G2041",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "work"
+ },
+ {
+  "ref": "Rom.3.21",
+  "strong": "G5319",
+  "forma": "πεφανέρωται",
+  "glosa_interlineal": "se ha manifestado",
+  "rango_semantico": [
+   "manifestar, hacer visible"
+  ],
+  "construccion": "Perfecto indicativo pasivo: «se ha manifestado la justicia de Dios».",
+  "sentido_en_contexto": "Giro decisivo: Νυνὶ δέ («pero ahora»). La justicia de Dios se ha manifestado «aparte de la ley», aunque testificada por la Ley y los Profetas. Es la respuesta a 1:18—3:20: Dios actúa para justificar.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 1:17",
+   "Fil 3:9",
+   "Hch 10:43",
+   "Ro 16:25-26"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Rom.3.21#07",
+  "morfologia_tagnt": "V-RPI-3S",
+  "dstrong": "G5319",
+  "strong_tagnt": "G5319",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to manifest"
+ },
+ {
+  "ref": "Rom.3.22",
+  "strong": "G4102",
+  "forma": "πίστεως",
+  "glosa_interlineal": "fe",
+  "rango_semantico": [
+   "fe, fidelidad"
+  ],
+  "construccion": "Genitivo: «por medio de la fe de (o en) Jesucristo».",
+  "sentido_en_contexto": "διὰ πίστεως Ἰησοῦ Χριστοῦ: «fe en Jesucristo» (genitivo objetivo, lectura tradicional) o «fidelidad de Jesucristo» (genitivo subjetivo, defendida por R. Hays, J. D. G. Dunn y otros). La segunda es una discusión teológica importante.",
+  "matiz": "Debate sobre πίστις Χριστοῦ: (a) genitivo objetivo: fe en Cristo (RVR, la mayoría de versiones); (b) genitivo subjetivo: la fidelidad de Cristo (que obedeció hasta la cruz) como base de la justificación; (c) ambas. Se aplica también en Gá 2:16, 20; 3:22; Fil 3:9.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gá 2:16, 20; 3:22",
+   "Fil 3:9",
+   "Ef 3:12"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Rom.3.22#05",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G4102G",
+  "strong_tagnt": "G4102",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "faith"
+ },
+ {
+  "ref": "Rom.3.23",
+  "strong": "G5302",
+  "forma": "ὑστεροῦνται",
+  "glosa_interlineal": "están destituidos",
+  "rango_semantico": [
+   "carecer, estar privado, quedar corto"
+  ],
+  "construccion": "Presente indicativo medio: «todos pecaron y están destituidos de la gloria de Dios».",
+  "sentido_en_contexto": "Versículo central: «todos pecaron» (aoristo: acción global) y «están destituidos» (presente: estado continuo) de la gloria de Dios. «Gloria de Dios» puede ser la gloria que debieron reflejar como imagen de Dios o la aprobación divina.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 3:9-18; 5:12",
+   "Sal 14:3",
+   "Is 53:6",
+   "1 Jn 1:8-10"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Rom.3.23#05",
+  "morfologia_tagnt": "V-PPI-3P",
+  "dstrong": "G5302",
+  "strong_tagnt": "G5302",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to lack"
+ },
+ {
+  "ref": "Rom.3.24",
+  "strong": "G629",
+  "forma": "ἀπολυτρώσεως",
+  "glosa_interlineal": "redención",
+  "rango_semantico": [
+   "redención, rescate, liberación"
+  ],
+  "construccion": "Genitivo: «mediante la redención que es en Cristo Jesús».",
+  "sentido_en_contexto": "Imagen del mercado de esclavos: rescate pagado para liberar a un cautivo. δωρεάν (gratuitamente) y χάριτι (por su gracia) subrayan que la justificación no se gana. Primer término de una tríada: justificación (jurídica), redención (comercial), propiciación (cultual).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ef 1:7",
+   "Col 1:14",
+   "Mr 10:45",
+   "Tit 2:14",
+   "1 P 1:18-19"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Rom.3.24#08",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G0629",
+  "strong_tagnt": "G629",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "redemption"
+ },
+ {
+  "ref": "Rom.3.25",
+  "strong": "G2435",
+  "forma": "ἱλαστήριον",
+  "glosa_interlineal": "propiciación",
+  "rango_semantico": [
+   "propiciatorio, medio de expiación, propiciación"
+  ],
+  "construccion": "Acusativo: «a quien Dios puso como propiciación (ἱλαστήριον) por medio de la fe en su sangre».",
+  "sentido_en_contexto": "Texto central de la expiación. ἱλαστήριον en la LXX designa la tapa del arca (propiciatorio, Lv 16): lugar donde se rociaba la sangre el Día de la Expiación. Jesús es a la vez el lugar y el medio de expiación. Debate: «propiciación» (aplacar la ira) vs «expiación» (limpiar el pecado).",
+  "matiz": "Debate: (a) «propiciación» (apaciguar la ira de Dios, L. Morris, tradición reformada): coherente con 1:18 (ira) y 3:25; (b) «expiación» (quitar la culpa; C. H. Dodd): sin la idea de ira; (c) «propiciatorio» (la tapa del arca; lectura tipológica). Muchas versiones mantienen «propiciación». La sangre indica sacrificio.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lv 16:14-15",
+   "Heb 9:5; 2:17",
+   "1 Jn 2:2; 4:10",
+   "Ex 25:17-22"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Rom.3.25#05",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G2435",
+  "strong_tagnt": "G2435",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "propitiation"
+ },
+ {
+  "ref": "Rom.3.26",
+  "strong": "G1344",
+  "forma": "δικαιοῦντα",
+  "glosa_interlineal": "que justifica",
+  "rango_semantico": [
+   "justificar, declarar justo"
+  ],
+  "construccion": "Participio presente activo: «para que él sea el justo, y el que justifica al que es de la fe de Jesús».",
+  "sentido_en_contexto": "Resolución del dilema: Dios muestra su justicia al ser a la vez justo (porque el pecado es castigado en la cruz) y justificador (de los que creen). La cruz no compromete su justicia; la manifiesta.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 4:5",
+   "Gá 2:16",
+   "Is 53:11",
+   "2 Co 5:21"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 22,
+  "alineacion": "forma",
+  "tagnt": "Rom.3.26#17",
+  "morfologia_tagnt": "V-PAP-ASM",
+  "dstrong": "G1344",
+  "strong_tagnt": "G1344",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to justify"
+ },
+ {
+  "ref": "Rom.3.27",
+  "strong": "G2746",
+  "forma": "καύχησις",
+  "glosa_interlineal": "jactancia",
+  "rango_semantico": [
+   "jactancia, motivo de gloria"
+  ],
+  "construccion": "Nominativo: «¿Dónde, pues, está la jactancia? Queda excluida».",
+  "sentido_en_contexto": "Si la justificación es por fe y no por obras, queda excluida toda jactancia humana (judía o gentil). La «ley de la fe» (νόμος πίστεως) la reemplaza. Pablo concluye así la sección sobre justificación gratuita.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ef 2:8-9",
+   "1 Co 1:29-31",
+   "Ro 4:2"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Rom.3.27#04",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G2746",
+  "strong_tagnt": "G2746",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "pride"
+ },
+ {
+  "ref": "Rom.3.28",
+  "strong": "G3049",
+  "forma": "λογιζόμεθα",
+  "glosa_interlineal": "concluimos",
+  "rango_semantico": [
+   "considerar, calcular, concluir"
+  ],
+  "construccion": "Presente indicativo medio: «concluimos que el hombre es justificado por fe sin las obras de la ley».",
+  "sentido_en_contexto": "Conclusión formulada como tesis: el ser humano es justificado «por fe, aparte de las obras de la ley». Lutero añadió «solo» («allein durch den Glauben»), lo que originó debate; el sentido de «aparte de» lo implica. Texto fundamental de la Reforma.",
+  "matiz": "Debate: la expresión «solo por la fe» (sola fide): (a) coherente con el texto (χωρίς ἔργων: aparte de obras) según la tradición protestante; (b) problemática para la católica, que enfatiza la fe formada por la caridad (Trento) y Stg 2:24. Existe en la actualidad un acuerdo parcial (Declaración Conjunta, 1999).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gá 2:16; 3:11",
+   "Ef 2:8-9",
+   "Stg 2:24",
+   "Ro 4:1-8"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "Rom.3.28#01",
+  "morfologia_tagnt": "V-PNI-1P",
+  "dstrong": "G3049",
+  "strong_tagnt": "G3049",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to count"
+ },
+ {
+  "ref": "Rom.3.29",
+  "strong": "G1484",
+  "forma": "ἐθνῶν",
+  "glosa_interlineal": "gentiles",
+  "rango_semantico": [
+   "nación, pueblo, gentil"
+  ],
+  "construccion": "Genitivo plural: «¿es Dios solamente de los judíos? ¿no lo es también de los gentiles?».",
+  "sentido_en_contexto": "Argumento monoteísta: si Dios es uno, es Dios de judíos y gentiles, y justifica a unos y otros por el mismo medio: la fe. Así se vincula el Shemá (Dt 6:4) con la universalidad de la salvación.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dt 6:4",
+   "Ro 10:12",
+   "Gá 3:28",
+   "1 Ti 2:5"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Rom.3.29#09",
+  "morfologia_tagnt": "N-GPN",
+  "dstrong": "G1484",
+  "strong_tagnt": "G1484",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Gentile nation"
+ },
+ {
+  "ref": "Rom.3.29",
+  "strong": "G1484",
+  "forma": "ἐθνῶν",
+  "glosa_interlineal": "gentiles",
+  "rango_semantico": [
+   "nación, pueblo, gentil"
+  ],
+  "construccion": "Genitivo plural: «¿es Dios solamente de los judíos? ¿no lo es también de los gentiles?».",
+  "sentido_en_contexto": "Argumento monoteísta: si Dios es uno, es Dios de judíos y gentiles, y justifica a unos y otros por el mismo medio: la fe. Así se vincula el Shemá (Dt 6:4) con la universalidad de la salvación.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dt 6:4",
+   "Ro 10:12",
+   "Gá 3:28",
+   "1 Ti 2:5"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Rom.3.29#12",
+  "morfologia_tagnt": "N-GPN",
+  "dstrong": "G1484",
+  "strong_tagnt": "G1484",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Gentile nation"
+ },
+ {
+  "ref": "Rom.3.31",
+  "strong": "G2476",
+  "forma": "ἱστάνομεν",
+  "glosa_interlineal": "confirmamos",
+  "rango_semantico": [
+   "establecer, hacer firme, sostener"
+  ],
+  "construccion": "Presente indicativo activo: «¿anulamos la ley por la fe? De ninguna manera; al contrario, confirmamos la ley».",
+  "sentido_en_contexto": "Pablo responde a una objeción: la justificación por fe no anula la ley (νόμος) sino que la establece. Desarrolla en Ro 8:3-4 (el Espíritu cumple lo que la ley demandaba) y 13:8-10 (el amor cumple la ley).",
+  "matiz": "Debate sobre el sentido de «establecer la ley»: (a) mostrar su función como testigo (Ro 3:21); (b) cumplimiento de su exigencia en Cristo y por el Espíritu (Ro 8:4); (c) la ley, entendida como Escritura, anuncia la justificación por fe (Ro 4).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 8:3-4; 13:8-10",
+   "Mt 5:17",
+   "Gá 5:14"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Rom.3.31#11",
+  "morfologia_tagnt": "V-PAI-1P",
+  "dstrong": "G2476",
+  "strong_tagnt": "G2476",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to stand"
+ }
+]

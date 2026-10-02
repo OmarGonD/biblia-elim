@@ -1,0 +1,717 @@
+[
+ {
+  "ref": "Rev.16.1",
+  "strong": "G5357",
+  "forma": "φιάλας",
+  "glosa_interlineal": "copas",
+  "rango_semantico": [
+   "copa ancha, cuenco de libación"
+  ],
+  "construccion": "Acusativo plural: «oí una gran voz que decía desde el templo a los siete ángeles: Id y derramad sobre la tierra las siete copas de la ira de Dios».",
+  "sentido_en_contexto": "Las siete copas (16:1-21): última serie de plagas, paralelas a las trompetas pero más intensas: afectan a la totalidad, no a un tercio. Evocan las plagas de Egipto: úlceras, agua en sangre, calor, tinieblas, ranas (Éx 7–10). El orden de las copas replica el de las trompetas: tierra, mar, aguas, sol, trono de la bestia, Éufrates, aire. Son derramadas desde el templo celestial por mandato de Dios.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ap 8:6-12; 15:7",
+   "Éx 7–10",
+   "Sal 69:24",
+   "Sof 3:8"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 17,
+  "alineacion": "forma",
+  "tagnt": "Rev.16.1#17",
+  "morfologia_tagnt": "N-APF",
+  "dstrong": "G5357",
+  "strong_tagnt": "G5357",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "bowl"
+ },
+ {
+  "ref": "Rev.16.2",
+  "strong": "G1668",
+  "forma": "ἕλκος",
+  "glosa_interlineal": "úlcera",
+  "rango_semantico": [
+   "llaga, úlcera"
+  ],
+  "construccion": "Nominativo: «fue el primero, y derramó su copa sobre la tierra, y vino una úlcera maligna y pestilente sobre los hombres que tenían la marca de la bestia, y que adoraban su imagen».",
+  "sentido_en_contexto": "Primera copa: úlcera dolorosa solo sobre los que llevan la marca de la bestia (cf. la sexta plaga de Egipto, Éx 9:8-11; Dt 28:35). Los juicios discriminan: caen sobre quienes se han puesto de parte de la bestia, no sobre los sellados.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 9:8-11",
+   "Dt 28:35",
+   "Ap 13:16-17; 14:9-11"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 15,
+  "alineacion": "forma",
+  "tagnt": "Rev.16.2#15",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G1668",
+  "strong_tagnt": "G1668",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "sore"
+ },
+ {
+  "ref": "Rev.16.4",
+  "strong": "G129",
+  "forma": "αἷμα",
+  "glosa_interlineal": "sangre",
+  "rango_semantico": [
+   "sangre"
+  ],
+  "construccion": "Nominativo: «el tercero derramó su copa sobre los ríos y las fuentes de las aguas, y se convirtieron en sangre».",
+  "sentido_en_contexto": "Primera plaga de Egipto (Éx 7:17-21) reproducida: la tercera copa convierte en sangre los ríos y fuentes. El «ángel de las aguas» (v.5) alaba la justicia de Dios: quienes derramaron la sangre de santos y profetas ahora beben sangre (v.6). Principio de retribución proporcional (lex talionis).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 7:17-21",
+   "Sal 78:44",
+   "Ap 8:8-11; 11:6"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 18,
+  "alineacion": "forma",
+  "tagnt": "Rev.16.4#20",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G0129G",
+  "strong_tagnt": "G129",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "blood"
+ },
+ {
+  "ref": "Rev.16.5",
+  "strong": "G1342",
+  "forma": "δίκαιος",
+  "glosa_interlineal": "justo",
+  "rango_semantico": [
+   "justo, recto"
+  ],
+  "construccion": "Nominativo: «y oí al ángel de las aguas, que decía: Justo eres tú, oh Señor, el que eres y que eras, el Santo, porque has juzgado estas cosas».",
+  "sentido_en_contexto": "El «ángel de las aguas» (¿ángel encargado de los elementos, como el de 7:1, 14:18?): reconoce la justicia (δίκαιος) de los juicios. Cada serie del libro incluye alabanzas de este tipo (15:3-4; 16:7; 19:2). Los juicios de Dios son justos porque corresponden a los pecados cometidos; la teodicea del libro.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ap 15:3-4; 16:7; 19:2",
+   "Dt 32:4",
+   "Sal 119:137"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Rev.16.5#08",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G1342",
+  "strong_tagnt": "G1342",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "just"
+ },
+ {
+  "ref": "Rev.16.6",
+  "strong": "G4396",
+  "forma": "προφητῶν",
+  "glosa_interlineal": "profetas",
+  "rango_semantico": [
+   "profeta"
+  ],
+  "construccion": "Genitivo plural: «por cuanto derramaron la sangre de los santos y de los profetas, también tú les has dado a beber sangre; pues lo merecen».",
+  "sentido_en_contexto": "«Santos y profetas»: la iglesia, incluidos sus profetas, como perseguida. La retribución es medida por medida. «Lo merecen» (ἄξιοί εἰσιν): el pasaje se aparta de un tono de venganza personal y afirma que los castigos son merecidos. Eco de la palabra de Jesús a los fariseos (Mt 23:34-36).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 23:34-36",
+   "Ap 17:6; 18:24",
+   "Sal 79:3",
+   "Is 49:26"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Rev.16.6#05",
+  "morfologia_tagnt": "N-GPM",
+  "dstrong": "G4396",
+  "strong_tagnt": "G4396",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "prophet"
+ },
+ {
+  "ref": "Rev.16.7",
+  "strong": "G2379",
+  "forma": "θυσιαστηρίου",
+  "glosa_interlineal": "altar",
+  "rango_semantico": [
+   "altar"
+  ],
+  "construccion": "Genitivo: «también oí a otro, desde el altar, que decía: Ciertamente, Señor Dios Todopoderoso, tus juicios son verdaderos y justos».",
+  "sentido_en_contexto": "Desde el altar (donde están las almas de los mártires, 6:9-10; las oraciones de los santos, 8:3-5) se confirma la justicia de los juicios: respuesta a la pregunta «¿hasta cuándo?» de 6:10. La oración de los mártires es escuchada.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ap 6:9-10; 8:3-5; 19:2",
+   "Sal 19:9"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Rev.16.7#06",
+  "morfologia_tagnt": "N-GSN",
+  "dstrong": "G2379",
+  "strong_tagnt": "G2379",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "altar"
+ },
+ {
+  "ref": "Rev.16.9",
+  "strong": "G3340",
+  "forma": "μετενόησαν",
+  "glosa_interlineal": "se arrepintieron",
+  "rango_semantico": [
+   "arrepentirse, cambiar de mente"
+  ],
+  "construccion": "Aoristo indicativo activo: «y los hombres se quemaron con el gran calor, y blasfemaron el nombre de Dios, que tiene poder sobre estas plagas, y no se arrepintieron para darle gloria».",
+  "sentido_en_contexto": "Cuarta copa (el sol quema): en lugar de arrepentirse, blasfeman (v.9, 11, 21). Endurecimiento como el de Faraón (Éx 8–11): los juicios no producen conversión, sino que revelan la dureza de corazón. Tema repetido: «no se arrepintieron» (9:20-21; 16:9, 11). Contraste con 11:13.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ap 9:20-21; 16:11, 21",
+   "Éx 8:15; 9:34",
+   "Ro 2:4-5"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 23,
+  "alineacion": "forma",
+  "tagnt": "Rev.16.9#25",
+  "morfologia_tagnt": "V-AAI-3P",
+  "dstrong": "G3340",
+  "strong_tagnt": "G3340",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to repent"
+ },
+ {
+  "ref": "Rev.16.10",
+  "strong": "G2362",
+  "forma": "θρόνον",
+  "glosa_interlineal": "trono",
+  "rango_semantico": [
+   "trono"
+  ],
+  "construccion": "Acusativo: «el quinto derramó su copa sobre el trono de la bestia; y su reino se cubrió de tinieblas, y mordían de dolor sus lenguas».",
+  "sentido_en_contexto": "Quinta copa sobre el trono de la bestia (cf. 13:2; 2:13): tinieblas sobre su reino (novena plaga, Éx 10:21-23). Sus súbditos, adoloridos, blasfeman en vez de arrepentirse (v.11). El juicio ataca directamente la sede del poder opresor.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 10:21-23",
+   "Ap 13:2; 9:2",
+   "Is 8:22"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Rev.16.10#11",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G2362",
+  "strong_tagnt": "G2362",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "throne"
+ },
+ {
+  "ref": "Rev.16.12",
+  "strong": "G2166",
+  "forma": "Εὐφράτην",
+  "glosa_interlineal": "Éufrates",
+  "rango_semantico": [
+   "Éufrates"
+  ],
+  "construccion": "Acusativo: «el sexto derramó su copa sobre el gran río Éufrates; y el agua de éste se secó, para que estuviese preparado el camino a los reyes del oriente».",
+  "sentido_en_contexto": "Sexta copa: el Éufrates se seca (Is 11:15; Jer 50:38; Jer 51:36; Ciro tomó Babilonia desviando el río). «Los reyes del oriente» (ἀπὸ ἀνατολῆς ἡλίου): reyes que vienen del este para la guerra final (vv.13-16); posiblemente los partos (temor histórico de Roma) o un símbolo de fuerzas hostiles. Paralelo con la sexta trompeta (9:14).",
+  "matiz": "Debate sobre «los reyes del oriente»: (a) reyes del este, fuerzas históricas (los partos; preterismo) o futuras (futurismo; ciertas lecturas han visto en ellos a China u otros); (b) reyes que Dios pone en marcha para juzgar a Babilonia (como Ciro; 17:16-17); (c) símbolo de las fuerzas que vienen contra Roma/Babilonia. Contexto: preparación para Armagedón.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 11:15; 44:27-28",
+   "Jer 50:38; 51:36",
+   "Ap 9:14; 17:16-17"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "Rev.16.12#15",
+  "morfologia_tagnt": "N-ASM-L",
+  "dstrong": "G2166",
+  "strong_tagnt": "G2166",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Euphrates"
+ },
+ {
+  "ref": "Rev.16.13",
+  "strong": "G944",
+  "forma": "βάτραχοι",
+  "glosa_interlineal": "ranas",
+  "rango_semantico": [
+   "rana"
+  ],
+  "construccion": "Nominativo plural: «y vi salir de la boca del dragón, y de la boca de la bestia, y de la boca del falso profeta, tres espíritus inmundos a manera de ranas».",
+  "sentido_en_contexto": "Trinidad satánica (dragón, bestia, falso profeta), parodia del Padre, Hijo y Espíritu. Tres espíritus inmundos «como ranas» (segunda plaga de Egipto: Éx 8:1-15; animal impuro, Lv 11:10) obran señales (v.14) para reunir a los reyes de la tierra en la batalla final. Su arma es la propaganda y el engaño.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 8:1-15",
+   "Ap 13:11-14; 19:20",
+   "2 Ts 2:9-10",
+   "1 Jn 4:1-3"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 24,
+  "alineacion": "forma",
+  "tagnt": "Rev.16.13#24",
+  "morfologia_tagnt": "N-NPM",
+  "dstrong": "G0944",
+  "strong_tagnt": "G944",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "Byz"
+  ],
+  "ausente_en": [
+   "TR"
+  ],
+  "variante": true,
+  "glosa_tagnt": "frog"
+ },
+ {
+  "ref": "Rev.16.14",
+  "strong": "G1140",
+  "forma": "δαιμονίων",
+  "glosa_interlineal": "demonios",
+  "rango_semantico": [
+   "demonio, espíritu malo"
+  ],
+  "construccion": "Genitivo plural: «pues son espíritus de demonios, que hacen señales, y van a los reyes de todo el mundo, para reunirlos a la batalla de aquel gran día del Dios Todopoderoso».",
+  "sentido_en_contexto": "Espíritus de demonios con poder de señales reúnen a los reyes de «toda la tierra habitada» para «la batalla del gran día del Dios Todopoderoso» (cf. Jl 3:2, 12-14; Zac 12:3; 14:2). El engaño lleva a las naciones a enfrentarse a Dios, que ya los ha vencido: la batalla se describe de manera conclusiva en 19:11-21.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jl 3:2, 12-14",
+   "Zac 12:3; 14:2",
+   "Ap 19:19-21",
+   "Sal 2:2"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Rev.16.14#04",
+  "morfologia_tagnt": "N-GPN",
+  "dstrong": "G1140",
+  "strong_tagnt": "G1140",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "Byz"
+  ],
+  "ausente_en": [
+   "TR"
+  ],
+  "variante": true,
+  "glosa_tagnt": "demon"
+ },
+ {
+  "ref": "Rev.16.15",
+  "strong": "G2812",
+  "forma": "κλέπτης",
+  "glosa_interlineal": "ladrón",
+  "rango_semantico": [
+   "ladrón"
+  ],
+  "construccion": "Nominativo: «he aquí, yo vengo como ladrón. Bienaventurado el que vela, y guarda sus ropas, para que no ande desnudo, y vean su vergüenza».",
+  "sentido_en_contexto": "Intercalación de Cristo en medio de la descripción de la batalla: tercera bienaventuranza del libro (1:3; 14:13). «Como ladrón»: venida imprevista (3:3; Mt 24:43; 1 Ts 5:2). «Guarda sus ropas»: vigilancia moral (los vestidos blancos de 3:4, 18). Alude a los guardias del Templo, que si dormían perdían la ropa (Mishná, Middot 1:2).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:42-44",
+   "1 Ts 5:2-6",
+   "Ap 3:3, 18",
+   "Lc 12:37-40"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Rev.16.15#04",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G2812",
+  "strong_tagnt": "G2812",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "thief"
+ },
+ {
+  "ref": "Rev.16.16",
+  "strong": "G717",
+  "forma": "Ἁρμαγεδών",
+  "glosa_interlineal": "Armagedón",
+  "rango_semantico": [
+   "Armagedón (Har Megiddó: monte de Meguidó)"
+  ],
+  "construccion": "Acusativo: «y los reunió en el lugar que en hebreo se llama Armagedón».",
+  "sentido_en_contexto": "Palabra hebrea transliterada: Ἁρμαγεδών (variantes en manuscritos: Armagedon, Mageddon). Probablemente Har-Megiddó («monte de Meguidó») o Har-Mo‘ed («monte de reunión»). Meguidó: ciudad de la llanura de Jezreel, escenario de batallas decisivas (Jue 5:19; 2 R 23:29-30; Zac 12:11), aunque no hay un «monte» de Meguidó (hay una colina, tell). Lugar simbólico de la batalla final, no necesariamente un sitio geográfico.",
+  "matiz": "Debate sobre el nombre: (a) Har-Megiddó (monte de Meguidó): lugar de batallas, simbólico de la lucha escatológica (la mayoría); (b) Har-Mo‘ed, «el monte de la asamblea» (Is 14:13), imagen del monte de Dios; (c) «Ir-Magedón» (ciudad de Meguidó). Sobre la batalla: (a) un conflicto militar final literal en el valle de Jezreel (futurismo); (b) símbolo del conflicto final espiritual y la derrota del mal (idealismo); (c) escena paralela a 19:19; 20:8 (recapitulación).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jue 5:19",
+   "2 R 23:29-30",
+   "Zac 12:11",
+   "Ap 19:19; 20:8-9"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Rev.16.16#10",
+  "morfologia_tagnt": "N-ASN-L",
+  "dstrong": "G0717",
+  "strong_tagnt": "G717",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Armageddon"
+ },
+ {
+  "ref": "Rev.16.17",
+  "strong": "G1096",
+  "forma": "γέγονεν",
+  "glosa_interlineal": "hecho está",
+  "rango_semantico": [
+   "ser hecho, suceder, cumplirse"
+  ],
+  "construccion": "Perfecto indicativo activo: «el séptimo derramó su copa por el aire; y salió una gran voz del templo del cielo, del trono, diciendo: Hecho está».",
+  "sentido_en_contexto": "Séptima copa: la voz desde el trono declara «Γέγονεν» («ya está hecho, se ha cumplido»), paralelo a «Consumado es» (Jn 19:30) y a «hecho está» de 21:6. Perfecto: el fin de la ira de Dios, que llega a su término (15:1). Seguido de la teofanía final (v.18) y de la caída de Babilonia (v.19).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 19:30",
+   "Ap 21:6",
+   "Ap 15:1",
+   "Ap 10:7"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 22,
+  "alineacion": "forma",
+  "tagnt": "Rev.16.17#25",
+  "morfologia_tagnt": "V-2RAI-3S",
+  "dstrong": "G1096",
+  "strong_tagnt": "G1096",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to be"
+ },
+ {
+  "ref": "Rev.16.18",
+  "strong": "G4578",
+  "forma": "σεισμὸς",
+  "glosa_interlineal": "terremoto",
+  "rango_semantico": [
+   "terremoto"
+  ],
+  "construccion": "Nominativo: «entonces hubo relámpagos y voces y truenos, y un gran temblor de tierra, un terremoto tan grande, cual no lo hubo jamás desde que los hombres han estado sobre la tierra».",
+  "sentido_en_contexto": "Teofanía final (4:5; 8:5; 11:19; 16:18-21): relámpagos, voces, truenos, terremoto, granizo, como en el Sinaí (Éx 19:16-19). El terremoto sin precedentes provoca la caída de las ciudades de las naciones y de «Babilonia la grande» (v.19). Alude a Dn 12:1 («tiempo de angustia cual nunca fue»).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 19:16-19",
+   "Dn 12:1",
+   "Hag 2:6-7",
+   "Ap 6:12-14; 11:19"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Rev.16.18#09",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G4578",
+  "strong_tagnt": "G4578",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "earthquake"
+ },
+ {
+  "ref": "Rev.16.18",
+  "strong": "G4578",
+  "forma": "σεισμὸς",
+  "glosa_interlineal": "terremoto",
+  "rango_semantico": [
+   "terremoto"
+  ],
+  "construccion": "Nominativo: «entonces hubo relámpagos y voces y truenos, y un gran temblor de tierra, un terremoto tan grande, cual no lo hubo jamás desde que los hombres han estado sobre la tierra».",
+  "sentido_en_contexto": "Teofanía final (4:5; 8:5; 11:19; 16:18-21): relámpagos, voces, truenos, terremoto, granizo, como en el Sinaí (Éx 19:16-19). El terremoto sin precedentes provoca la caída de las ciudades de las naciones y de «Babilonia la grande» (v.19). Alude a Dn 12:1 («tiempo de angustia cual nunca fue»).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 19:16-19",
+   "Dn 12:1",
+   "Hag 2:6-7",
+   "Ap 6:12-14; 11:19"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 23,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Rev.16.18#24",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G4578",
+  "strong_tagnt": "G4578",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "earthquake"
+ },
+ {
+  "ref": "Rev.16.19",
+  "strong": "G897",
+  "forma": "Βαβυλὼν",
+  "glosa_interlineal": "Babilonia",
+  "rango_semantico": [
+   "Babilonia"
+  ],
+  "construccion": "Nominativo: «y la gran ciudad fue dividida en tres partes, y las ciudades de las naciones cayeron; y la gran Babilonia vino en memoria delante de Dios, para darle el cáliz del vino del ardor de su ira».",
+  "sentido_en_contexto": "«La gran ciudad» (¿Jerusalén? ¿Roma? ¿la ciudad del mundo?) se divide en tres partes; las ciudades de las naciones caen; «Babilonia la grande» es recordada por Dios para recibir el cáliz de su ira. Distinción aparente entre «la gran ciudad» y «Babilonia»: se discute si son la misma (Roma como Babilonia) o no. Introduce el cap. 17–18, que explican la caída de Babilonia.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ap 14:8; 17:5; 18:2",
+   "Jer 25:15-29",
+   "Is 51:17",
+   "Ap 11:8"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 17,
+  "alineacion": "forma",
+  "tagnt": "Rev.16.19#17",
+  "morfologia_tagnt": "N-NSF-L",
+  "dstrong": "G0897",
+  "strong_tagnt": "G897",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Babylon"
+ },
+ {
+  "ref": "Rev.16.21",
+  "strong": "G5006",
+  "forma": "ταλαντιαία",
+  "glosa_interlineal": "de un talento",
+  "rango_semantico": [
+   "del peso de un talento"
+  ],
+  "construccion": "Nominativo: «y cayó del cielo sobre los hombres un enorme granizo como del peso de un talento; y los hombres blasfemaron contra Dios por la plaga del granizo; porque su plaga fue sobremanera grande».",
+  "sentido_en_contexto": "Granizo de aproximadamente un talento (unos 35-45 kg): séptima plaga de Egipto (Éx 9:22-26) multiplicada. De nuevo, no hay arrepentimiento: blasfemia (vv.9, 11, 21). Cierra la serie de las copas con el endurecimiento total.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 9:22-26",
+   "Jos 10:11",
+   "Ap 11:19; 16:9, 11"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Rev.16.21#05",
+  "morfologia_tagnt": "A-NSF",
+  "dstrong": "G5006",
+  "strong_tagnt": "G5006",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "weighing a talent"
+ }
+]

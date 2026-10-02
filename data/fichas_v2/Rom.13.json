@@ -1,0 +1,562 @@
+[
+ {
+  "ref": "Rom.13.1",
+  "strong": "G5293",
+  "forma": "ὑποτασσέσθω",
+  "glosa_interlineal": "sométase",
+  "rango_semantico": [
+   "someterse, subordinarse"
+  ],
+  "construccion": "Imperativo presente medio-pasivo: «sométase toda persona a las autoridades superiores».",
+  "sentido_en_contexto": "Texto clásico sobre la relación del cristiano con el Estado (13:1-7). ὑποτάσσω implica ordenarse bajo una autoridad, no obediencia ciega. Pablo escribe a Roma (bajo Nerón, c. 57 d.C.) y fundamenta la sujeción en el origen divino de la autoridad: no hay autoridad sino de parte de Dios.",
+  "matiz": "Debate sobre los límites: (a) obediencia general con excepciones (Hch 5:29; Ap 13) cuando el Estado ordena pecar; (b) resistencia civil justificada si el Estado se vuelve tiránico (tradición reformada: Calvino, Rutherford); (c) sumisión casi absoluta (luteranismo clásico). Historia de interpretación compleja (Alemania nazi, Sudáfrica, etc.). Pablo describe el papel positivo del Estado; Ap 13 muestra su cara demoníaca.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 P 2:13-17",
+   "Tit 3:1",
+   "Hch 5:29",
+   "Ap 13",
+   "Dn 2:21; 4:17"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Rom.13.1#05",
+  "morfologia_tagnt": "V-PPM-3S",
+  "dstrong": "G5293",
+  "strong_tagnt": "G5293",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to subject"
+ },
+ {
+  "ref": "Rom.13.2",
+  "strong": "G436",
+  "forma": "ἀνθέστηκεν",
+  "glosa_interlineal": "se opone",
+  "rango_semantico": [
+   "oponerse, resistir"
+  ],
+  "construccion": "Perfecto indicativo activo: «el que se opone a la autoridad, a lo establecido por Dios resiste».",
+  "sentido_en_contexto": "Quien resiste a la autoridad legítima resiste a la ordenación de Dios y recibe condenación (κρίμα). Pablo habla del orden general, sin ignorar que existen autoridades injustas.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Tit 3:1",
+   "Pr 24:21",
+   "Jud 8"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Rom.13.2#10",
+  "morfologia_tagnt": "V-RAI-3S",
+  "dstrong": "G0436",
+  "strong_tagnt": "G436",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to oppose"
+ },
+ {
+  "ref": "Rom.13.4",
+  "strong": "G1249",
+  "forma": "διάκονός",
+  "glosa_interlineal": "servidor",
+  "rango_semantico": [
+   "siervo, ministro, servidor"
+  ],
+  "construccion": "Nominativo: «es servidor de Dios para tu bien».",
+  "sentido_en_contexto": "La autoridad civil es «servidor (διάκονος) de Dios» para premiar el bien y castigar el mal. Lleva la «espada» (μάχαιρα) como instrumento de justicia. Se debate el alcance del «uso de la espada»: pena capital, fuerza policial, o simbólico de autoridad.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 P 2:14",
+   "Gn 9:6",
+   "Pr 20:2",
+   "Dt 17:12"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Rom.13.4#03",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G1249",
+  "strong_tagnt": "G1249",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "servant"
+ },
+ {
+  "ref": "Rom.13.4",
+  "strong": "G1249",
+  "forma": "διάκονός",
+  "glosa_interlineal": "servidor",
+  "rango_semantico": [
+   "siervo, ministro, servidor"
+  ],
+  "construccion": "Nominativo: «es servidor de Dios para tu bien».",
+  "sentido_en_contexto": "La autoridad civil es «servidor (διάκονος) de Dios» para premiar el bien y castigar el mal. Lleva la «espada» (μάχαιρα) como instrumento de justicia. Se debate el alcance del «uso de la espada»: pena capital, fuerza policial, o simbólico de autoridad.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 P 2:14",
+   "Gn 9:6",
+   "Pr 20:2",
+   "Dt 17:12"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 23,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Rom.13.4#23",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G1249",
+  "strong_tagnt": "G1249",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "servant"
+ },
+ {
+  "ref": "Rom.13.5",
+  "strong": "G4893",
+  "forma": "συνείδησιν",
+  "glosa_interlineal": "conciencia",
+  "rango_semantico": [
+   "conciencia, consciencia moral"
+  ],
+  "construccion": "Acusativo: «por causa de la ira (del castigo), sino también por causa de la conciencia».",
+  "sentido_en_contexto": "Doble motivo de la sujeción: evitar el castigo y por conciencia ante Dios. La obediencia civil no es solo por miedo, sino por convicción moral ante el orden divino.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 2:15",
+   "1 P 2:19",
+   "1 Ti 1:5"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "Rom.13.5#13",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G4893",
+  "strong_tagnt": "G4893",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "conscience"
+ },
+ {
+  "ref": "Rom.13.6",
+  "strong": "G3011",
+  "forma": "λειτουργοὶ",
+  "glosa_interlineal": "ministros",
+  "rango_semantico": [
+   "servidor público, ministro, funcionario"
+  ],
+  "construccion": "Nominativo plural: «ministros de Dios que atienden a esto mismo».",
+  "sentido_en_contexto": "λειτουργός es término del servicio público y del servicio cultual. Los gobernantes son «ministros» (público y quizás cultual) de Dios, ocupados en gobernar. Se usa para pagar impuestos: no solo obligación civil, sino deber moral.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 22:21",
+   "Lc 20:25",
+   "1 P 2:13-14"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Rom.13.6#07",
+  "morfologia_tagnt": "N-NPM",
+  "dstrong": "G3011",
+  "strong_tagnt": "G3011",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "minister"
+ },
+ {
+  "ref": "Rom.13.7",
+  "strong": "G591",
+  "forma": "ἀπόδοτε",
+  "glosa_interlineal": "pagad",
+  "rango_semantico": [
+   "devolver, pagar, dar lo debido"
+  ],
+  "construccion": "Imperativo aoristo activo: «pagad a todos lo que debéis».",
+  "sentido_en_contexto": "Principio general: dar a cada uno lo debido (tributo, impuesto, respeto, honra). Eco de Mt 22:21. Pablo distingue φόρος (impuesto directo) y τέλος (impuesto indirecto), y añade temor y honra.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 22:21",
+   "Mr 12:17",
+   "1 P 2:17"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "Rom.13.7#01",
+  "morfologia_tagnt": "V-2AAM-2P",
+  "dstrong": "G0591",
+  "strong_tagnt": "G591",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to pay"
+ },
+ {
+  "ref": "Rom.13.8",
+  "strong": "G25",
+  "forma": "ἀγαπᾶν",
+  "glosa_interlineal": "amar",
+  "rango_semantico": [
+   "amar"
+  ],
+  "construccion": "Infinitivo presente: «no debáis a nadie nada, sino el amaros unos a otros».",
+  "sentido_en_contexto": "La única deuda que no se paga es el amor, que siempre se debe y nunca se acaba. «El que ama al prójimo ha cumplido la ley» (πεπλήρωκεν). Aquí empieza la sección sobre el amor y la ley (vv.8-10).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gá 5:14",
+   "Mt 22:37-40",
+   "Jn 13:34",
+   "1 Jn 4:7-8"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Rom.13.8#08",
+  "morfologia_tagnt": "V-PAN",
+  "dstrong": "G0025",
+  "strong_tagnt": "G25",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to love"
+ },
+ {
+  "ref": "Rom.13.9",
+  "strong": "G346",
+  "forma": "ἀνακεφαλαιοῦται",
+  "glosa_interlineal": "se resumen",
+  "rango_semantico": [
+   "resumir, recapitular, englobar"
+  ],
+  "construccion": "Presente indicativo pasivo: «todos se resumen en esta sentencia: Amarás a tu prójimo como a ti mismo».",
+  "sentido_en_contexto": "Pablo cita los mandamientos de la segunda tabla (adulterio, homicidio, robo, codicia) y los resume en Lv 19:18. ἀνακεφαλαιόω (recapitular) es el mismo verbo usado en Ef 1:10 para Cristo que recapitula todas las cosas. Eco de Jesús (Mt 22:39).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lv 19:18",
+   "Mt 22:39-40",
+   "Gá 5:14",
+   "Stg 2:8"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 20,
+  "alineacion": "forma",
+  "tagnt": "Rom.13.9#22",
+  "morfologia_tagnt": "V-PPI-3S",
+  "dstrong": "G0346",
+  "strong_tagnt": "G346",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to summarise"
+ },
+ {
+  "ref": "Rom.13.10",
+  "strong": "G4138",
+  "forma": "πλήρωμα",
+  "glosa_interlineal": "cumplimiento",
+  "rango_semantico": [
+   "plenitud, cumplimiento"
+  ],
+  "construccion": "Nominativo: «el amor es el cumplimiento de la ley».",
+  "sentido_en_contexto": "El amor no mal hace al prójimo y por ello cumple (πλήρωμα) la ley: realiza la intención de la ley. No dice que la ley sea abolida, sino que el amor la lleva a su plenitud (cf. Ro 8:4; Mt 5:17).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 8:4",
+   "Gá 5:14",
+   "1 Co 13",
+   "Mt 5:17"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Rom.13.10#08",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G4138",
+  "strong_tagnt": "G4138",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "fulfillment"
+ },
+ {
+  "ref": "Rom.13.11",
+  "strong": "G5258",
+  "forma": "ὕπνου",
+  "glosa_interlineal": "sueño",
+  "rango_semantico": [
+   "sueño, letargo"
+  ],
+  "construccion": "Genitivo: «ya es hora de despertar del sueño».",
+  "sentido_en_contexto": "Llamado escatológico: es tiempo de despertar del sueño espiritual, porque «nuestra salvación está ahora más cerca que cuando creímos». Salvación aquí es la consumación final (cf. 8:23-24). Imagen de noche y día (v.12).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Ts 5:4-8",
+   "Ef 5:14",
+   "1 Co 15:34",
+   "Ro 8:23"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Rom.13.11#11",
+  "morfologia_tagnt": "N-GSM",
+  "dstrong": "G5258",
+  "strong_tagnt": "G5258",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "sleep"
+ },
+ {
+  "ref": "Rom.13.12",
+  "strong": "G3696",
+  "forma": "ὅπλα",
+  "glosa_interlineal": "armas",
+  "rango_semantico": [
+   "arma, instrumento"
+  ],
+  "construccion": "Acusativo plural: «vistámonos las armas de la luz».",
+  "sentido_en_contexto": "La noche (era presente del pecado) está avanzada y el día (parusía) se acerca. El creyente debe desechar las obras de las tinieblas y revestirse de las «armas (ὅπλα) de luz». Eco de Ef 6:11-17 y 1 Ts 5:8.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Ts 5:5-8",
+   "Ef 5:8-14; 6:11-17",
+   "1 Jn 2:8"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 17,
+  "alineacion": "forma",
+  "tagnt": "Rom.13.12#18",
+  "morfologia_tagnt": "N-APN",
+  "dstrong": "G3696",
+  "strong_tagnt": "G3696",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "weapon"
+ },
+ {
+  "ref": "Rom.13.13",
+  "strong": "G766",
+  "forma": "ἀσελγείαις",
+  "glosa_interlineal": "lascivias",
+  "rango_semantico": [
+   "libertinaje, sensualidad desenfrenada"
+  ],
+  "construccion": "Dativo plural: «no en glotonerías y borracheras, no en lujurias y lascivias, no en contiendas y envidia».",
+  "sentido_en_contexto": "Tres parejas de vicios: excesos con la bebida (κῶμος y μέθη), excesos sexuales (κοίτη y ἀσέλγεια) y conflictos (ἔρις y ζῆλος). Son «obras de las tinieblas». Texto que influyó decisivamente en la conversión de Agustín (Confesiones 8.12).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gá 5:19-21",
+   "Ef 5:18",
+   "1 P 4:3",
+   "Agustín, Confesiones 8.12"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "Rom.13.13#13",
+  "morfologia_tagnt": "N-DPF",
+  "dstrong": "G0766",
+  "strong_tagnt": "G766",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "debauchery"
+ },
+ {
+  "ref": "Rom.13.14",
+  "strong": "G1746",
+  "forma": "ἐνδύσασθε",
+  "glosa_interlineal": "vestíos",
+  "rango_semantico": [
+   "vestirse, revestirse"
+  ],
+  "construccion": "Imperativo aoristo medio: «vestíos del Señor Jesucristo».",
+  "sentido_en_contexto": "Metáfora del vestido: revestirse de Cristo (cf. Gá 3:27; Col 3:10-14). La vida cristiana consiste en asumir el carácter de Cristo y no dar lugar a «los deseos de la carne». Culmina la exhortación del capítulo.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gá 3:27",
+   "Col 3:10-14",
+   "Ef 4:24",
+   "Ro 6:11"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Rom.13.14#02",
+  "morfologia_tagnt": "V-AMM-2P",
+  "dstrong": "G1746",
+  "strong_tagnt": "G1746",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to put on"
+ }
+]

@@ -1,0 +1,320 @@
+[
+ {
+  "ref": "1Thess.2.2",
+  "strong": "G3955",
+  "forma": "ἐπαρρησιασάμεθα",
+  "glosa_interlineal": "tuvimos denuedo",
+  "rango_semantico": [
+   "hablar con valentía"
+  ],
+  "construccion": "Aoristo indicativo medio: «pues, aun habiendo antes padecido y sido ultrajados en Filipos, como sabéis, tuvimos denuedo en nuestro Dios para anunciaros el evangelio de Dios en medio de gran oposición».",
+  "sentido_en_contexto": "Alusión a Hch 16:19-40 (azotes y prisión en Filipos) y la hostilidad en Tesalónica (Hch 17). Pablo defiende la integridad de su ministerio frente a acusaciones de motivos impuros (vv.3-12).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 16:19-40; 17:1-9",
+   "Fil 1:30",
+   "Ef 6:19-20"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "1Thess.2.2#10",
+  "morfologia_tagnt": "V-ADI-1P",
+  "dstrong": "G3955",
+  "strong_tagnt": "G3955",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to preach boldly"
+ },
+ {
+  "ref": "1Thess.2.5",
+  "strong": "G2850",
+  "forma": "κολακίας",
+  "glosa_interlineal": "adulación",
+  "rango_semantico": [
+   "adulación, lisonja"
+  ],
+  "construccion": "Genitivo: «porque nunca usamos de palabras lisonjeras, como sabéis, ni encubrimos avaricia; Dios es testigo».",
+  "sentido_en_contexto": "Pablo rechaza motivos impropios: engaño, impureza, agradar a los hombres, adulación, avaricia y búsqueda de gloria humana (vv.3-6). Su ministerio es «aprobado» por Dios y examinado por Él. Era una defensa necesaria ante filósofos itinerantes que explotaban a sus oyentes.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Co 2:17",
+   "Hch 20:33",
+   "Gá 1:10"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "strong",
+  "tagnt": "1Thess.2.5#06",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G2850",
+  "strong_tagnt": "G2850",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "flattery"
+ },
+ {
+  "ref": "1Thess.2.7",
+  "strong": "G2261",
+  "forma": "ἤπιοι",
+  "glosa_interlineal": "tiernos",
+  "rango_semantico": [
+   "amable, tierno, suave"
+  ],
+  "construccion": "Nominativo plural: «antes fuimos tiernos entre vosotros, como la nodriza que cuida con ternura a sus propios hijos».",
+  "sentido_en_contexto": "Variante textual: ἤπιοι («tiernos») frente a νήπιοι («niños») en algunos manuscritos importantes (P65, Sinaítico, Vaticano). Con «niños» la metáfora sería mixta (niños que son además nodriza); con «tiernos», coherente. La crítica textual se inclina por «niños» como lectio difficilior, pero muchos comentaristas aceptan «tiernos».",
+  "matiz": "Variante textual: ἤπιοι (tiernos; A, C, D, Mayoría) o νήπιοι (niños; P65, א, B, C*). Metáfora de la nodriza: Pablo se compara con una madre. Las traducciones varían: RVR sigue «tiernos».",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 3:2",
+   "Nm 11:12",
+   "Is 49:15",
+   "1 Ts 2:11"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 3,
+  "alineacion": "strong",
+  "tagnt": "1Thess.2.7#10",
+  "morfologia_tagnt": "A-NPM",
+  "dstrong": "G3516",
+  "strong_tagnt": "G3516",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "WH"
+  ],
+  "ausente_en": [
+   "Tyn",
+   "SBL",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "variante": true,
+  "glosa_tagnt": "child"
+ },
+ {
+  "ref": "1Thess.2.8",
+  "strong": "G5590",
+  "forma": "ψυχάς",
+  "glosa_interlineal": "vidas",
+  "rango_semantico": [
+   "alma, vida, persona"
+  ],
+  "construccion": "Acusativo plural: «tan grande era nuestro afecto por vosotros, que hubiéramos querido entregaros no sólo el evangelio de Dios, sino también nuestras propias vidas, porque habíais llegado a sernos muy queridos».",
+  "sentido_en_contexto": "Ministerio como entrega de sí mismo: no solo el mensaje, sino la vida. Las imágenes paternas y maternas (nodriza, v.7; padre, v.11) muestran un pastoreo afectuoso y exigente. Modelo para la tarea pastoral.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Co 12:15",
+   "Jn 15:13",
+   "Fil 2:17"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 17,
+  "alineacion": "forma",
+  "tagnt": "1Thess.2.8#17",
+  "morfologia_tagnt": "N-APF",
+  "dstrong": "G5590H",
+  "strong_tagnt": "G5590",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "soul"
+ },
+ {
+  "ref": "1Thess.2.13",
+  "strong": "G1209",
+  "forma": "ἐδέξασθε",
+  "glosa_interlineal": "recibisteis",
+  "rango_semantico": [
+   "recibir, aceptar"
+  ],
+  "construccion": "Aoristo indicativo medio: «por lo cual también nosotros damos gracias a Dios sin cesar, de que cuando recibisteis la palabra de Dios que oísteis de nosotros, la recibisteis no como palabra de hombres, sino según es en verdad, la palabra de Dios».",
+  "sentido_en_contexto": "Pablo afirma que su predicación es palabra de Dios, y que actúa eficazmente en los creyentes. Texto citado sobre el carácter divino de la Escritura apostólica y de la predicación fiel. Distingue «palabra de hombres» y «palabra de Dios».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gá 1:11-12",
+   "2 Ti 3:16",
+   "Heb 4:12",
+   "Ro 10:17"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 18,
+  "alineacion": "forma",
+  "tagnt": "1Thess.2.13#18",
+  "morfologia_tagnt": "V-ADI-2P",
+  "dstrong": "G1209",
+  "strong_tagnt": "G1209",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to receive"
+ },
+ {
+  "ref": "1Thess.2.15",
+  "strong": "G615",
+  "forma": "ἀποκτεινάντων",
+  "glosa_interlineal": "mataron",
+  "rango_semantico": [
+   "matar"
+  ],
+  "construccion": "Participio aoristo activo: «los cuales mataron al Señor Jesús y a sus propios profetas, y a nosotros nos expulsaron; y no agradan a Dios, y se oponen a todos los hombres».",
+  "sentido_en_contexto": "Pasaje difícil (2:14-16) en el que Pablo habla con dureza de «los judíos» que mataron al Señor y persiguen a la iglesia. Algunos consideran vv.15-16 una interpolación posterior; otros lo ven como una denuncia profética en el estilo del AT (cf. Mt 23:31-36) dentro de un conflicto entre judíos, sin carácter racial. Nunca debe usarse como base del antisemitismo.",
+  "matiz": "Debate: (a) texto auténtico, de tono profético contra ciertos oponentes en Judea y Tesalónica (la mayoría); (b) interpolación posterior a la destrucción del Templo (en 70 d.C.) por la expresión «ha venido sobre ellos la ira hasta el fin» (Pearson, Schmidt); (c) expresión de un conflicto interno judío, no una condena general al pueblo (Ro 9–11 muestra otro tono). El pasaje ha sido abusado históricamente.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 17:5-9",
+   "Mt 23:29-36",
+   "Ro 9:1-5; 11:1-2",
+   "Hch 2:36"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "1Thess.2.15#05",
+  "morfologia_tagnt": "V-AAP-GPM",
+  "dstrong": "G0615",
+  "strong_tagnt": "G615",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to kill"
+ },
+ {
+  "ref": "1Thess.2.18",
+  "strong": "G4567",
+  "forma": "σατανᾶς",
+  "glosa_interlineal": "Satanás",
+  "rango_semantico": [
+   "Satanás"
+  ],
+  "construccion": "Nominativo: «por lo cual quisimos ir a vosotros, yo Pablo ciertamente una y otra vez; pero Satanás nos estorbó».",
+  "sentido_en_contexto": "Pablo atribuye a Satanás el impedimento a su regreso a Tesalónica, una de las menciones de la acción de Satanás en el ministerio. No es claro cómo (¿persecución en Tesalónica, fianza que le impuso Jasón, Hch 17:9, o enfermedad?).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 17:9-10",
+   "2 Co 12:7",
+   "Ro 1:13",
+   "2 Co 2:11"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 17,
+  "alineacion": "forma",
+  "tagnt": "1Thess.2.18#17",
+  "morfologia_tagnt": "N-NSM-T",
+  "dstrong": "G4567",
+  "strong_tagnt": "G4567",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Satan"
+ },
+ {
+  "ref": "1Thess.2.19",
+  "strong": "G3952",
+  "forma": "παρουσίᾳ",
+  "glosa_interlineal": "venida",
+  "rango_semantico": [
+   "venida, presencia, llegada"
+  ],
+  "construccion": "Dativo: «porque ¿cuál es nuestra esperanza, o gozo, o corona de que me gloríe? ¿No lo sois vosotros, delante de nuestro Señor Jesucristo, en su venida?».",
+  "sentido_en_contexto": "Primer uso paulino de παρουσία («venida, presencia») para la segunda venida de Cristo: 2:19; 3:13; 4:15; 5:23; 2 Ts 2:1, 8. Término técnico de la visita solemne de un emperador o rey a una ciudad.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Ts 3:13; 4:15; 5:23",
+   "2 Ts 2:1",
+   "Fil 2:16",
+   "Mt 24:3"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 22,
+  "alineacion": "forma",
+  "tagnt": "1Thess.2.19#23",
+  "morfologia_tagnt": "N-DSF",
+  "dstrong": "G3952",
+  "strong_tagnt": "G3952",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "coming"
+ }
+]

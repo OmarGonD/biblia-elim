@@ -1,0 +1,1263 @@
+[
+ {
+  "ref": "Matt.13.3",
+  "strong": "G3850",
+  "forma": "παραβολαῖς",
+  "glosa_interlineal": "parábolas",
+  "rango_semantico": [
+   "comparación, parábola",
+   "ejemplo, símil",
+   "proverbio, dicho enigmático"
+  ],
+  "construccion": "ἐν + dativo plural: «en parábolas».",
+  "sentido_en_contexto": "Primer gran discurso en parábolas de Mateo. Una παραβολή es un relato breve que compara una realidad con otra (de παρά + βάλλω: «poner al lado»).",
+  "matiz": "Se discute la función de las parábolas: ¿revelar (para quien tiene oídos) u ocultar (para quien no los tiene)? Mt 13:10-17 sugiere ambas.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 13:34 — «sin parábolas no les hablaba»",
+   "Mr 4:11 — «a los de afuera, por parábolas todas las cosas»",
+   "Lc 15:3 — «les refirió esta parábola»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.3#06",
+  "morfologia_tagnt": "N-DPF",
+  "dstrong": "G3850",
+  "strong_tagnt": "G3850",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "parable"
+ },
+ {
+  "ref": "Matt.13.3",
+  "strong": "G4687",
+  "forma": "σπείρων",
+  "glosa_interlineal": "el sembrador",
+  "rango_semantico": [
+   "sembrar, esparcir semilla"
+  ],
+  "construccion": "Participio presente activo, con artículo: «el que siembra».",
+  "sentido_en_contexto": "El centro de la parábola no es el sembrador sino los cuatro tipos de suelo, aunque se la llama «del sembrador». Presenta cómo recibe la gente la palabra.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 4:3 — paralelo",
+   "Lc 8:5 — paralelo",
+   "Is 55:10-11 — la palabra como lluvia y semilla"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.3#11",
+  "morfologia_tagnt": "V-PAP-NSM",
+  "dstrong": "G4687",
+  "strong_tagnt": "G4687",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to sow"
+ },
+ {
+  "ref": "Matt.13.11",
+  "strong": "G1325",
+  "forma": "δέδοται",
+  "glosa_interlineal": "ha sido dado",
+  "rango_semantico": [
+   "dar, conceder"
+  ],
+  "construccion": "Perfecto indicativo pasivo, 3ª singular: «ha sido concedido». Pasivo divino: Dios lo concede.",
+  "sentido_en_contexto": "El entendimiento del Reino es don de Dios. El perfecto indica que el don ya está dado y permanece.",
+  "matiz": "Pregunta teológica: ¿la distinción entre «vosotros» y «aquellos» es previa (elección divina) o resultado de la respuesta de cada uno? Mateo presenta ambas dimensiones: don divino (v.11) y responsabilidad humana (v.13-15).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 11:25 — «escondiste estas cosas… y las revelaste a los niños»",
+   "Mt 16:17 — «no te lo reveló carne ni sangre»",
+   "Jn 6:65 — «nadie puede venir a mí, si no le fuere dado por mi Padre»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 7,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.11#08",
+  "morfologia_tagnt": "V-RPI-3S",
+  "dstrong": "G1325",
+  "strong_tagnt": "G1325",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to give"
+ },
+ {
+  "ref": "Matt.13.11",
+  "strong": "G3466",
+  "forma": "μυστήρια",
+  "glosa_interlineal": "misterios",
+  "rango_semantico": [
+   "misterio, secreto",
+   "verdad revelada antes oculta"
+  ],
+  "construccion": "Acusativo plural: «los misterios del reino».",
+  "sentido_en_contexto": "En el NT, «misterio» no es algo incomprensible sino un secreto de Dios que ahora se revela a quienes él elige. «Misterios del reino» son aspectos del Reino que se desarrollan de forma inesperada.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 16:25-26 — «el misterio… ahora manifestado»",
+   "Ef 3:3-6 — el misterio de Cristo",
+   "1 Co 4:1 — «administradores de los misterios de Dios»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.11#11",
+  "morfologia_tagnt": "N-APN",
+  "dstrong": "G3466",
+  "strong_tagnt": "G3466",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "mystery"
+ },
+ {
+  "ref": "Matt.13.11",
+  "strong": "G1325",
+  "forma": "δέδοται",
+  "glosa_interlineal": "ha sido dado",
+  "rango_semantico": [
+   "dar, conceder"
+  ],
+  "construccion": "Perfecto indicativo pasivo, 3ª singular: «ha sido concedido». Pasivo divino: Dios lo concede.",
+  "sentido_en_contexto": "El entendimiento del Reino es don de Dios. El perfecto indica que el don ya está dado y permanece.",
+  "matiz": "Pregunta teológica: ¿la distinción entre «vosotros» y «aquellos» es previa (elección divina) o resultado de la respuesta de cada uno? Mateo presenta ambas dimensiones: don divino (v.11) y responsabilidad humana (v.13-15).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 11:25 — «escondiste estas cosas… y las revelaste a los niños»",
+   "Mt 16:17 — «no te lo reveló carne ni sangre»",
+   "Jn 6:65 — «nadie puede venir a mí, si no le fuere dado por mi Padre»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 18,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.11#19",
+  "morfologia_tagnt": "V-RPI-3S",
+  "dstrong": "G1325",
+  "strong_tagnt": "G1325",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to give"
+ },
+ {
+  "ref": "Matt.13.12",
+  "strong": "G4052",
+  "forma": "περισσευθήσεται",
+  "glosa_interlineal": "abundará",
+  "rango_semantico": [
+   "sobreabundar, tener más que suficiente"
+  ],
+  "construccion": "Futuro indicativo pasivo: «se le dará en abundancia».",
+  "sentido_en_contexto": "Principio: quien tiene (recibe y acoge) recibe más; quien no, pierde incluso lo que tiene. Es un principio de crecimiento en el conocimiento de Dios.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 25:29 — repite el principio",
+   "Mr 4:25 — paralelo",
+   "Lc 8:18 — «mirad, pues, cómo oís»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.12#07",
+  "morfologia_tagnt": "V-FPI-3S",
+  "dstrong": "G4052",
+  "strong_tagnt": "G4052",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to abound/exceed"
+ },
+ {
+  "ref": "Matt.13.13",
+  "strong": "G4920",
+  "forma": "συνίουσιν",
+  "glosa_interlineal": "entienden",
+  "rango_semantico": [
+   "comprender, entender",
+   "tener discernimiento"
+  ],
+  "construccion": "Presente indicativo activo, 3ª plural: «no entienden». Verbo de comprensión interior.",
+  "sentido_en_contexto": "Mateo cambia el «para que» de Marcos (4:12) por «porque»: «les hablo por parábolas porque viendo no ven». Subraya que su incomprensión ya existe, no que las parábolas la produzcan.",
+  "matiz": "Marcos usa ἵνα («para que no vean»); Mateo usa ὅτι («porque no ven»). Algunos ven en esto una suavización; otros, la expresión del mismo sentido con más claridad: las parábolas revelan a quien quiere y ocultan a quien no.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 4:12 — «para que viendo, vean y no perciban»",
+   "Is 6:9-10 — texto citado",
+   "Hch 28:26-27 — Pablo cita el mismo texto"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 16,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.13#16",
+  "morfologia_tagnt": "V-PAI-3P",
+  "dstrong": "G4920",
+  "strong_tagnt": "G4920",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to understand"
+ },
+ {
+  "ref": "Matt.13.15",
+  "strong": "G3975",
+  "forma": "ἐπαχύνθη",
+  "glosa_interlineal": "se ha engrosado",
+  "rango_semantico": [
+   "engrosarse, hacerse insensible",
+   "embotarse"
+  ],
+  "construccion": "Aoristo indicativo pasivo, 3ª singular: «se ha embotado». Cita de Is 6:9-10.",
+  "sentido_en_contexto": "El corazón de este pueblo se ha vuelto insensible. En el AT, el corazón es el centro del entendimiento; engrosado, no comprende.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 6:10 — texto citado",
+   "Hch 28:27 — misma cita",
+   "Ro 11:7-8 — «el endurecimiento»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.15#01",
+  "morfologia_tagnt": "V-API-3S",
+  "dstrong": "G3975",
+  "strong_tagnt": "G3975",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to thicken"
+ },
+ {
+  "ref": "Matt.13.15",
+  "strong": "G1994",
+  "forma": "ἐπιστρέψωσιν",
+  "glosa_interlineal": "se conviertan",
+  "rango_semantico": [
+   "volver, regresar",
+   "convertirse (volverse a Dios)"
+  ],
+  "construccion": "Subjuntivo aoristo activo, 3ª plural: «se vuelvan».",
+  "sentido_en_contexto": "El fin del proceso de comprensión es la conversión: volverse a Dios para ser sanados. Mateo cita Isaías para mostrar que la incomprensión impide ese retorno.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 3:19 — «arrepentíos y convertíos»",
+   "Lc 22:32 — «cuando te hayas vuelto»",
+   "Stg 5:19-20 — «el que haga volver al pecador»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 31,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.15#31",
+  "morfologia_tagnt": "V-AAS-3P",
+  "dstrong": "G1994",
+  "strong_tagnt": "G1994",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to turn"
+ },
+ {
+  "ref": "Matt.13.16",
+  "strong": "G3107",
+  "forma": "μακάριοι",
+  "glosa_interlineal": "bienaventurados",
+  "rango_semantico": [
+   "feliz, dichoso"
+  ],
+  "construccion": "Adjetivo nominativo: «bienaventurados vuestros ojos».",
+  "sentido_en_contexto": "Los discípulos son dichosos porque ven y oyen lo que los profetas anhelaron. Contraste con «vosotros» frente a «ellos».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 10:23-24 — paralelo",
+   "1 P 1:10-12 — «los profetas… inquirieron»",
+   "Jn 20:29 — «bienaventurados los que no vieron»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.16#03",
+  "morfologia_tagnt": "A-NPM",
+  "dstrong": "G3107",
+  "strong_tagnt": "G3107",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "blessed"
+ },
+ {
+  "ref": "Matt.13.19",
+  "strong": "G4190",
+  "forma": "πονηρὸς",
+  "glosa_interlineal": "el maligno",
+  "rango_semantico": [
+   "malo, perverso",
+   "el Maligno"
+  ],
+  "construccion": "Nominativo, con artículo implícito: «viene el malo».",
+  "sentido_en_contexto": "En la explicación de la parábola, el «malo» es Satanás (Mc 4:15; Lc 8:12), que arrebata la palabra del camino. Mateo usa «el Maligno».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 13:38 — «la cizaña son los hijos del malo»",
+   "1 Jn 2:13 — «habéis vencido al maligno»",
+   "Mt 6:13 — «líbranos del mal»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.19#12",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G4190",
+  "strong_tagnt": "G4190",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "evil/bad"
+ },
+ {
+  "ref": "Matt.13.20",
+  "strong": "G5479",
+  "forma": "χαρᾶς",
+  "glosa_interlineal": "gozo",
+  "rango_semantico": [
+   "alegría, gozo"
+  ],
+  "construccion": "μετὰ + genitivo: «con gozo».",
+  "sentido_en_contexto": "El segundo suelo (pedregoso) recibe la palabra «con gozo» e inmediatamente: respuesta entusiasta pero superficial, sin raíz.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 8:13 — paralelo",
+   "Gá 5:22 — «el fruto del Espíritu es… gozo»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 16,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.20#16",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G5479",
+  "strong_tagnt": "G5479",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "joy"
+ },
+ {
+  "ref": "Matt.13.21",
+  "strong": "G4340",
+  "forma": "πρόσκαιρός",
+  "glosa_interlineal": "temporal",
+  "rango_semantico": [
+   "que dura poco tiempo, pasajero"
+  ],
+  "construccion": "Adjetivo nominativo: «es de corta duración».",
+  "sentido_en_contexto": "Describe la fe superficial: dura mientras no hay presión. Cuando llega la tribulación o la persecución, se cae.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Co 4:18 — «las cosas que se ven son temporales»",
+   "Heb 11:25 — «el goce temporal del pecado»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.21#08",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G4340",
+  "strong_tagnt": "G4340",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "temporary"
+ },
+ {
+  "ref": "Matt.13.22",
+  "strong": "G3308",
+  "forma": "μέριμνα",
+  "glosa_interlineal": "afán",
+  "rango_semantico": [
+   "preocupación, ansiedad",
+   "cuidado"
+  ],
+  "construccion": "Nominativo: «el afán de este siglo».",
+  "sentido_en_contexto": "El tercer suelo (espinas): la palabra es ahogada por las preocupaciones y la seducción de las riquezas. La misma palabra μέριμνα aparece en Mt 6:25-34.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 6:25 — «no os afanéis»",
+   "Lc 21:34 — «los afanes de esta vida»",
+   "1 P 5:7 — «echando toda vuestra ansiedad sobre él»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 15,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.22#15",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G3308",
+  "strong_tagnt": "G3308",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "concern"
+ },
+ {
+  "ref": "Matt.13.22",
+  "strong": "G539",
+  "forma": "ἀπάτη",
+  "glosa_interlineal": "engaño",
+  "rango_semantico": [
+   "engaño, seducción",
+   "falsa apariencia"
+  ],
+  "construccion": "Nominativo: «el engaño de la riqueza».",
+  "sentido_en_contexto": "La riqueza promete seguridad y felicidad que no puede dar. El engaño está en creer que la satisface.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ef 4:22 — «los deseos engañosos»",
+   "2 Ts 2:10 — «todo engaño de iniquidad»",
+   "Heb 3:13 — «el engaño del pecado»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 20,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.22#21",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G0539",
+  "strong_tagnt": "G539",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "deceit"
+ },
+ {
+  "ref": "Matt.13.23",
+  "strong": "G4920",
+  "forma": "συνιείς",
+  "glosa_interlineal": "entiende",
+  "rango_semantico": [
+   "comprender, entender"
+  ],
+  "construccion": "Participio presente activo: «el que entiende».",
+  "sentido_en_contexto": "El cuarto suelo: oye y entiende; la diferencia con el primero está en el «entender» (v.19). Mateo es el único que subraya así el entendimiento.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 13:19 — el primero «no entiende»",
+   "Mt 13:51 — «¿habéis entendido todo esto?»",
+   "Mt 15:10 — «oíd, y entended»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 15,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.23#16",
+  "morfologia_tagnt": "V-PAP-NSM",
+  "dstrong": "G4920",
+  "strong_tagnt": "G4920",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to understand"
+ },
+ {
+  "ref": "Matt.13.25",
+  "strong": "G2215",
+  "forma": "ζιζάνια",
+  "glosa_interlineal": "cizaña",
+  "rango_semantico": [
+   "cizaña (planta parecida al trigo)"
+  ],
+  "construccion": "Acusativo plural: «cizaña».",
+  "sentido_en_contexto": "Planta venenosa muy parecida al trigo en su fase de crecimiento. Imagen de lo falso que se mezcla con lo verdadero, sin poder distinguirlos hasta la madurez.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 13:38 — «la cizaña son los hijos del malo»",
+   "Mt 13:39 — «el enemigo que la sembró es el diablo»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.25#13",
+  "morfologia_tagnt": "N-APN",
+  "dstrong": "G2215",
+  "strong_tagnt": "G2215",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "weed"
+ },
+ {
+  "ref": "Matt.13.29",
+  "strong": "G1610",
+  "forma": "ἐκριζώσητε",
+  "glosa_interlineal": "arranquéis",
+  "rango_semantico": [
+   "arrancar de raíz"
+  ],
+  "construccion": "Subjuntivo aoristo activo con μήποτε: «no sea que arranquéis».",
+  "sentido_en_contexto": "Advertencia del dueño: separar ahora corre el riesgo de arrancar también el trigo. La separación pertenece al tiempo de la cosecha, no al presente.",
+  "matiz": "Debate: ¿la «parábola de la cizaña» prohíbe la disciplina eclesial (cf. Mt 18:15-17) o habla del mundo (el campo es el mundo, v.38)? Mateo identifica el campo con «el mundo», no con la iglesia.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 13:38 — «el campo es el mundo»",
+   "Mt 18:15-17 — corrección dentro de la comunidad",
+   "Mt 3:12 — «limpiará su era»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.29#09",
+  "morfologia_tagnt": "V-AAS-2P",
+  "dstrong": "G1610",
+  "strong_tagnt": "G1610",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to uproot"
+ },
+ {
+  "ref": "Matt.13.31",
+  "strong": "G4615",
+  "forma": "σινάπεως",
+  "glosa_interlineal": "mostaza",
+  "rango_semantico": [
+   "mostaza"
+  ],
+  "construccion": "Genitivo: «grano de mostaza».",
+  "sentido_en_contexto": "La semilla de mostaza era proverbialmente la más pequeña de las semillas conocidas (en esa zona); da un arbusto grande. El Reino comienza pequeño y crece de manera sorprendente.",
+  "matiz": "Botánicamente hay semillas aún más pequeñas, pero «la más pequeña» es lenguaje proverbial, no científico.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 4:30-32 — paralelo",
+   "Lc 13:18-19 — paralelo",
+   "Mt 17:20 — «si tuvierais fe como un grano de mostaza»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.31#13",
+  "morfologia_tagnt": "N-GSN",
+  "dstrong": "G4615",
+  "strong_tagnt": "G4615",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "mustard"
+ },
+ {
+  "ref": "Matt.13.33",
+  "strong": "G2219",
+  "forma": "ζύμῃ",
+  "glosa_interlineal": "levadura",
+  "rango_semantico": [
+   "levadura, fermento"
+  ],
+  "construccion": "Dativo: «a la levadura».",
+  "sentido_en_contexto": "La levadura en la Biblia suele simbolizar corrupción (Mt 16:6), pero aquí se compara con el Reino: actúa de manera oculta pero con efecto total.",
+  "matiz": "Debate: ¿la levadura aquí es positiva (el Reino crece e impregna) o negativa (corrupción dentro del Reino)? La mayoría ve un símil positivo; unos pocos, uno negativo. Mateo no lo aclara.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 13:20-21 — paralelo",
+   "Mt 16:6 — «guardaos de la levadura de los fariseos»",
+   "1 Co 5:6 — «un poco de levadura leuda toda la masa»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.33#11",
+  "morfologia_tagnt": "N-DSF",
+  "dstrong": "G2219",
+  "strong_tagnt": "G2219",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "leaven"
+ },
+ {
+  "ref": "Matt.13.35",
+  "strong": "G2044",
+  "forma": "ἐρεύξομαι",
+  "glosa_interlineal": "proclamaré",
+  "rango_semantico": [
+   "proferir, declarar, expresar"
+  ],
+  "construccion": "Futuro indicativo medio: «declararé». Cita del Sal 78:2.",
+  "sentido_en_contexto": "Mateo ve en el uso de parábolas el cumplimiento del Salmo 78:2: el maestro que proclama cosas escondidas desde antiguo.",
+  "matiz": "Mateo atribuye la cita a «el profeta» (algunos manuscritos añaden «Isaías»); el texto es del Salmo 78 (Asaf, vidente).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 78:2 — texto citado",
+   "Mt 13:13 — por qué habla en parábolas"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 16,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.35#15",
+  "morfologia_tagnt": "V-FDI-1S",
+  "dstrong": "G2044",
+  "strong_tagnt": "G2044",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to utter/proclaim"
+ },
+ {
+  "ref": "Matt.13.38",
+  "strong": "G2889",
+  "forma": "κόσμος",
+  "glosa_interlineal": "mundo",
+  "rango_semantico": [
+   "mundo, orden",
+   "universo",
+   "humanidad",
+   "(a veces) orden hostil a Dios"
+  ],
+  "construccion": "Nominativo: «el campo es el mundo».",
+  "sentido_en_contexto": "En la explicación de la parábola de la cizaña, el campo es el mundo (no la iglesia). La mezcla de buenos y malos se da en el mundo hasta el juicio final.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 3:16 — «de tal manera amó Dios al mundo»",
+   "Mt 5:14 — «vosotros sois la luz del mundo»",
+   "1 Jn 2:15 — «no améis al mundo»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.38#06",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G2889",
+  "strong_tagnt": "G2889",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "world"
+ },
+ {
+  "ref": "Matt.13.39",
+  "strong": "G4930",
+  "forma": "συντέλεια",
+  "glosa_interlineal": "consumación",
+  "rango_semantico": [
+   "fin, culminación",
+   "consumación de los tiempos"
+  ],
+  "construccion": "Nominativo: «la consumación del siglo».",
+  "sentido_en_contexto": "Expresión típica de Mateo (13:39, 40, 49; 24:3; 28:20) para el final de la historia. No «fin del mundo» como destrucción, sino cierre de una era.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:3 — «¿qué señal habrá de tu venida, y del fin del siglo?»",
+   "Mt 28:20 — «hasta el fin del mundo (συντελείας τοῦ αἰῶνος)»",
+   "Heb 9:26 — «en la consumación de los siglos»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.39#13",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G4930",
+  "strong_tagnt": "G4930",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "consummation"
+ },
+ {
+  "ref": "Matt.13.43",
+  "strong": "G1584",
+  "forma": "ἐκλάμψουσιν",
+  "glosa_interlineal": "resplandecerán",
+  "rango_semantico": [
+   "resplandecer, brillar"
+  ],
+  "construccion": "Futuro indicativo activo: «brillarán como el sol».",
+  "sentido_en_contexto": "Imagen del estado final de los justos: radiantes. Eco de Dn 12:3.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dn 12:3 — «los entendidos resplandecerán como el resplandor del firmamento»",
+   "Mt 17:2 — «su rostro resplandeció como el sol»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.43#04",
+  "morfologia_tagnt": "V-FAI-3P",
+  "dstrong": "G1584",
+  "strong_tagnt": "G1584",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to shine out"
+ },
+ {
+  "ref": "Matt.13.44",
+  "strong": "G2344",
+  "forma": "θησαυρῷ",
+  "glosa_interlineal": "tesoro",
+  "rango_semantico": [
+   "tesoro, depósito",
+   "riqueza guardada"
+  ],
+  "construccion": "Dativo: «a un tesoro escondido».",
+  "sentido_en_contexto": "El Reino es tan valioso que quien lo descubre lo vende todo con alegría. No es sacrificio sino decisión gozosa.",
+  "matiz": "Se discute si el hombre que halla el tesoro es Jesús (que da todo por el Reino) o el discípulo (que renuncia a todo). Mateo no lo explicita; la lectura común es el discípulo.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Pr 2:4 — «si como a tesoros la buscares»",
+   "Mt 6:19-21 — tesoros en el cielo",
+   "Fil 3:7-8 — «lo que para mí era ganancia, lo he estimado pérdida»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.44#08",
+  "morfologia_tagnt": "N-DSM",
+  "dstrong": "G2344",
+  "strong_tagnt": "G2344",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "treasure"
+ },
+ {
+  "ref": "Matt.13.46",
+  "strong": "G4186",
+  "forma": "πολύτιμον",
+  "glosa_interlineal": "de gran valor",
+  "rango_semantico": [
+   "muy precioso",
+   "de gran precio"
+  ],
+  "construccion": "Adjetivo acusativo, con μαργαρίτην: «una perla de gran valor».",
+  "sentido_en_contexto": "Paralela a la del tesoro: el mercader busca activamente, encuentra una perla incomparable y lo da todo.",
+  "matiz": "A diferencia del tesoro (hallado por casualidad), el mercader «buscaba» perlas: muestra dos caminos hacia el Reino: encuentro inesperado y búsqueda.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 7:6 — «no echéis vuestras perlas delante de los cerdos»",
+   "1 P 1:7 — «más preciosa que el oro»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.46#05",
+  "morfologia_tagnt": "A-ASM",
+  "dstrong": "G4186",
+  "strong_tagnt": "G4186",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "valuable"
+ },
+ {
+  "ref": "Matt.13.47",
+  "strong": "G4522",
+  "forma": "σαγήνῃ",
+  "glosa_interlineal": "red barredera",
+  "rango_semantico": [
+   "red de arrastre"
+  ],
+  "construccion": "Dativo: «a una red».",
+  "sentido_en_contexto": "Red grande que recoge toda clase de peces, buenos y malos. Se separa al llegar a la orilla: imagen del juicio final.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ez 47:10 — «habrá pescadores… de toda especie»",
+   "Mt 4:19 — «pescadores de hombres»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.47#08",
+  "morfologia_tagnt": "N-DSF",
+  "dstrong": "G4522",
+  "strong_tagnt": "G4522",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "dragnet"
+ },
+ {
+  "ref": "Matt.13.52",
+  "strong": "G1122",
+  "forma": "γραμματεὺς",
+  "glosa_interlineal": "escriba",
+  "rango_semantico": [
+   "escriba, experto en la Ley",
+   "maestro"
+  ],
+  "construccion": "Nominativo: «todo escriba instruido en el reino».",
+  "sentido_en_contexto": "Imagen final del capítulo: el discípulo-escriba que saca del tesoro «cosas nuevas y viejas»: combina la enseñanza de Jesús con la tradición de las Escrituras.",
+  "matiz": "Algunos ven un autorretrato de Mateo; otros, una descripción general del discípulo capacitado.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 23:34 — «yo os envío profetas, sabios y escribas»",
+   "Esd 7:6 — «Esdras, escriba diligente»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.52#08",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G1122",
+  "strong_tagnt": "G1122",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "scribe"
+ },
+ {
+  "ref": "Matt.13.55",
+  "strong": "G5045",
+  "forma": "τέκτονος",
+  "glosa_interlineal": "carpintero",
+  "rango_semantico": [
+   "artesano, carpintero, constructor"
+  ],
+  "construccion": "Genitivo: «el hijo del artesano».",
+  "sentido_en_contexto": "τέκτων designa a un artesano de la construcción (madera y piedra). Mateo lo aplica a José; Marcos (6:3) lo aplica a Jesús.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 6:3 — «¿no es este el carpintero, hijo de María?»",
+   "Jn 6:42 — «¿no es este Jesús, el hijo de José?»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.55#06",
+  "morfologia_tagnt": "N-GSM",
+  "dstrong": "G5045",
+  "strong_tagnt": "G5045",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "craftsman"
+ },
+ {
+  "ref": "Matt.13.55",
+  "strong": "G80",
+  "forma": "ἀδελφοὶ",
+  "glosa_interlineal": "hermanos",
+  "rango_semantico": [
+   "hermano",
+   "pariente",
+   "hermano en la fe"
+  ],
+  "construccion": "Nominativo plural: «sus hermanos».",
+  "sentido_en_contexto": "Lista de nombres: Jacobo, José, Simón y Judas. La identidad de estos «hermanos» de Jesús se interpreta de maneras distintas según la tradición.",
+  "matiz": "Tres posiciones: (a) hijos de José y María (hermanos de sangre; posición mayoritaria protestante); (b) hijos de José de un matrimonio anterior (hermanastros; tradición oriental); (c) primos (tradición católica occidental desde Jerónimo). El griego ἀδελφός significa normalmente «hermano», pero puede ser pariente.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gá 1:19 — «Jacobo, el hermano del Señor»",
+   "Jn 7:5 — «ni aun sus hermanos creían en él»",
+   "Hch 1:14 — «con sus hermanos»"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 16,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.55#16",
+  "morfologia_tagnt": "N-NPM",
+  "dstrong": "G0080",
+  "strong_tagnt": "G80",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "brother"
+ },
+ {
+  "ref": "Matt.13.57",
+  "strong": "G4624",
+  "forma": "ἐσκανδαλίζοντο",
+  "glosa_interlineal": "se escandalizaban",
+  "rango_semantico": [
+   "tropezar, escandalizarse"
+  ],
+  "construccion": "Imperfecto indicativo pasivo, 3ª plural: «se escandalizaban de él (continuamente)».",
+  "sentido_en_contexto": "Los vecinos de Nazaret no pueden aceptar que alguien que conocen tan bien tenga tal sabiduría; tropiezan en su origen humilde.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 11:6 — «bienaventurado el que no halle tropiezo en mí»",
+   "Jn 6:61 — «¿esto os escandaliza?»",
+   "Lc 4:24 — paralelo"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.57#02",
+  "morfologia_tagnt": "V-IPI-3P",
+  "dstrong": "G4624",
+  "strong_tagnt": "G4624",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to cause to stumble"
+ },
+ {
+  "ref": "Matt.13.58",
+  "strong": "G570",
+  "forma": "ἀπιστίαν",
+  "glosa_interlineal": "incredulidad",
+  "rango_semantico": [
+   "falta de fe, incredulidad",
+   "infidelidad"
+  ],
+  "construccion": "διά + acusativo: «a causa de la incredulidad».",
+  "sentido_en_contexto": "La incredulidad limita la obra de Jesús en Nazaret. No es que su poder dependa de la fe, sino que ellos no se acercan para recibirlo.",
+  "matiz": "Marcos dice que «no podía hacer allí ningún milagro» (6:5); Mateo suaviza: «no hizo muchos». Se ve en ello el cuidado de Mateo con la cristología.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 6:5-6 — «no pudo hacer allí ningún milagro… y estaba asombrado de la incredulidad de ellos»",
+   "Mt 17:20 — «por vuestra poca fe»",
+   "Heb 3:19 — «no pudieron entrar a causa de incredulidad»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Matt.13.58#09",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G0570",
+  "strong_tagnt": "G570",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "unbelief"
+ }
+]

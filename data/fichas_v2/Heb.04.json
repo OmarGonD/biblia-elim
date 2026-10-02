@@ -1,0 +1,239 @@
+[
+ {
+  "ref": "Heb.4.1",
+  "strong": "G2663",
+  "forma": "κατάπαυσιν",
+  "glosa_interlineal": "reposo",
+  "rango_semantico": [
+   "reposo, descanso"
+  ],
+  "construccion": "Acusativo: «temamos, pues, no sea que, permaneciendo aún la promesa de entrar en su reposo, alguno de vosotros parezca no haberlo alcanzado».",
+  "sentido_en_contexto": "El «reposo» de Dios (Sal 95:11) es motivo del pasaje 3:7—4:13. Se identifica con el reposo de Dios en la creación (v.4), con la tierra prometida (v.8: Josué) y con un reposo escatológico (v.9: «sabatismo»). Los creyentes entran por fe, ya en parte y plenamente al final.",
+  "matiz": "Debate sobre «el reposo»: (a) la salvación y comunión con Dios, ya participada por la fe, y plenamente en la consumación (la mayoría); (b) solo futuro, escatológico (cielo); (c) el reposo sabático semanal (algunos, adventistas; el texto habla de un «sabatismo» que no es solo sabático). El autor distingue el reposo de Canaán del reposo eterno.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 95:11",
+   "Heb 4:9-11",
+   "Mt 11:28-29",
+   "Ap 14:13"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Heb.4.1#09",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G2663",
+  "strong_tagnt": "G2663",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "rest"
+ },
+ {
+  "ref": "Heb.4.9",
+  "strong": "G4520",
+  "forma": "σαββατισμὸς",
+  "glosa_interlineal": "reposo sabático",
+  "rango_semantico": [
+   "reposo sabático, observancia del sábado"
+  ],
+  "construccion": "Nominativo: «por tanto, queda un reposo para el pueblo de Dios».",
+  "sentido_en_contexto": "σαββατισμός: palabra única en el NT; probablemente una acuñación del autor. Es el «reposo del sábado» que aún queda para el pueblo de Dios: la participación en el reposo de Dios mismo (v.10). Discutido por su relación con el sábado y el domingo.",
+  "matiz": "Debate: (a) reposo escatológico, anticipado ahora, que cumple el sábado (la mayoría de exégetas, católicos, reformados); (b) obligación de guardar el sábado (adventistas; el texto no lo afirma); (c) reposo de las obras (v.10) como fe y no obras.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 4:1-11",
+   "Gn 2:2",
+   "Mt 11:28",
+   "Col 2:16-17"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Heb.4.9#03",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G4520",
+  "strong_tagnt": "G4520",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Sabbath"
+ },
+ {
+  "ref": "Heb.4.12",
+  "strong": "G3162",
+  "forma": "μάχαιραν",
+  "glosa_interlineal": "espada",
+  "rango_semantico": [
+   "espada corta"
+  ],
+  "construccion": "Acusativo: «porque la palabra de Dios es viva y eficaz, y más cortante que toda espada de dos filos; y penetra hasta partir el alma y el espíritu, las coyunturas y los tuétanos, y discierne los pensamientos y las intenciones del corazón».",
+  "sentido_en_contexto": "La «palabra de Dios» (λόγος τοῦ θεοῦ) es viva, eficaz y juzga el corazón. Puede referirse a la palabra hablada (Dios que habla, v.7), a la Escritura o a Cristo, el Verbo (v.13: «a quien tenemos que dar cuenta»). Texto citado sobre la Escritura, aunque el contexto lo vincula con la voz de Dios.",
+  "matiz": "Debate sobre «palabra de Dios»: (a) la Escritura (uso devocional común); (b) la voz de Dios que habla en el AT (Sal 95); (c) Cristo, el Verbo (Jn 1:1). «Partir alma y espíritu»: no prueba la tricotomía (ver 1 Ts 5:23), sino penetración total.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 55:11",
+   "Ef 6:17",
+   "Ap 1:16",
+   "Jn 12:48"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "Heb.4.12#13",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G3162",
+  "strong_tagnt": "G3162",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "sword"
+ },
+ {
+  "ref": "Heb.4.14",
+  "strong": "G749",
+  "forma": "ἀρχιερέα",
+  "glosa_interlineal": "sumo sacerdote",
+  "rango_semantico": [
+   "sumo sacerdote"
+  ],
+  "construccion": "Acusativo: «por tanto, teniendo un gran sumo sacerdote que traspasó los cielos, Jesús el Hijo de Dios, retengamos nuestra profesión».",
+  "sentido_en_contexto": "Comienza la sección central (4:14—10:18): Cristo como sumo sacerdote superior. «Traspasó los cielos»: entró en la presencia de Dios, como el sumo sacerdote al Santo de los Santos. La exhortación a retener la confesión continúa.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 2:17; 7:26; 9:11-12",
+   "Lv 16"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Heb.4.14#03",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G0749",
+  "strong_tagnt": "G749",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "high-priest"
+ },
+ {
+  "ref": "Heb.4.15",
+  "strong": "G4834",
+  "forma": "συνπαθῆσαι",
+  "glosa_interlineal": "compadecerse",
+  "rango_semantico": [
+   "compadecerse, simpatizar"
+  ],
+  "construccion": "Aoristo infinitivo activo: «porque no tenemos un sumo sacerdote que no pueda compadecerse de nuestras debilidades, sino uno que fue tentado en todo según nuestra semejanza, pero sin pecado».",
+  "sentido_en_contexto": "Cristo comprende nuestra debilidad por haberla experimentado. «Sin pecado» (χωρὶς ἁμαρτίας): sin pecar y sin tener pecado. Se debate si pudo pecar (peccabilitas), pregunta teológica que el texto no resuelve.",
+  "matiz": "Debate teológico: (a) Cristo no pudo pecar (impecabilidad: non posse peccare; tradición clásica); (b) pudo pero no pecó (posse non peccare; algunos modernos). El texto afirma que fue tentado realmente y no pecó.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 2:17-18",
+   "Mt 4:1-11",
+   "2 Co 5:21",
+   "1 P 2:22"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 7,
+  "alineacion": "strong",
+  "tagnt": "Heb.4.15#07",
+  "morfologia_tagnt": "V-AAN",
+  "dstrong": "G4834",
+  "strong_tagnt": "G4834",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to sympathize"
+ },
+ {
+  "ref": "Heb.4.16",
+  "strong": "G2362",
+  "forma": "θρόνῳ",
+  "glosa_interlineal": "trono",
+  "rango_semantico": [
+   "trono"
+  ],
+  "construccion": "Dativo: «acerquémonos, pues, confiadamente al trono de la gracia, para alcanzar misericordia y hallar gracia para el oportuno socorro».",
+  "sentido_en_contexto": "Invitación a acercarse con «confianza» (παρρησία) al trono de gracia (el trono de Dios, ahora de gracia por el sacerdocio de Cristo). Contrasta con el Sinaí (12:18-24). El acceso es libre, a diferencia del limitado del AT.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 10:19-22",
+   "Ef 3:12",
+   "Ro 5:2"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Heb.4.16#06",
+  "morfologia_tagnt": "N-DSM",
+  "dstrong": "G2362",
+  "strong_tagnt": "G2362",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "throne"
+ }
+]

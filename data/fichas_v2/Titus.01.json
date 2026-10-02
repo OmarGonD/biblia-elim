@@ -1,0 +1,236 @@
+[
+ {
+  "ref": "Titus.1.5",
+  "strong": "G4245",
+  "forma": "πρεσβυτέρους",
+  "glosa_interlineal": "ancianos",
+  "rango_semantico": [
+   "anciano, presbítero"
+  ],
+  "construccion": "Acusativo plural: «para que corrigieses lo deficiente y establecieses ancianos en cada ciudad, así como yo te mandé».",
+  "sentido_en_contexto": "Tito, delegado de Pablo en Creta, debe organizar las iglesias nombrando ancianos por ciudad. En v.7 el mismo cargo se llama «obispo» (ἐπίσκοπος): evidencia de que ambos términos designan la misma función. Es la segunda de las cartas pastorales (c. 63-65).",
+  "matiz": "Debate: (a) «anciano» y «obispo» son el mismo oficio en el NT (la mayoría de exégetas, incluidos Jerónimo y muchos católicos y ortodoxos del NT); (b) el obispo monárquico es de origen apostólico (tradición católica y ortodoxa). Sobre la autoría paulina, ver 1 Ti 1:1.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Ti 3:1-7",
+   "Hch 14:23; 20:17, 28",
+   "Tit 1:7"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 15,
+  "alineacion": "forma",
+  "tagnt": "Titus.1.5#15",
+  "morfologia_tagnt": "N-APM",
+  "dstrong": "G4245G",
+  "strong_tagnt": "G4245",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "elder"
+ },
+ {
+  "ref": "Titus.1.6",
+  "strong": "G1135",
+  "forma": "γυναικὸς",
+  "glosa_interlineal": "mujer",
+  "rango_semantico": [
+   "mujer, esposa"
+  ],
+  "construccion": "Genitivo: «el que fuere irreprensible, marido de una sola mujer, y tenga hijos creyentes que no estén acusados de disolución ni de rebeldía».",
+  "sentido_en_contexto": "Requisitos de los ancianos, parecidos a 1 Ti 3:1-7. «Marido de una sola mujer» se debate (ver 1 Ti 3:2). Los hijos «creyentes» (πιστά: fieles o creyentes) se discuten: ¿deben ser todos cristianos o solo de conducta ordenada?",
+  "matiz": "Debate sobre «hijos creyentes»: (a) hijos que son fieles (cristianos) (la mayoría de versiones); (b) hijos dignos de confianza, bien criados, sin acusación de desorden. Sobre «marido de una sola mujer»: ver 1 Ti 3:2.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Ti 3:2-4",
+   "Tit 1:7-9"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Titus.1.6#06",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G1135H",
+  "strong_tagnt": "G1135",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "woman"
+ },
+ {
+  "ref": "Titus.1.9",
+  "strong": "G472",
+  "forma": "ἀντεχόμενον",
+  "glosa_interlineal": "retenedor",
+  "rango_semantico": [
+   "aferrarse, mantenerse firme"
+  ],
+  "construccion": "Participio presente medio: «retenedor de la palabra fiel tal como ha sido enseñada, para que también pueda exhortar con sana enseñanza y convencer a los que contradicen».",
+  "sentido_en_contexto": "Mandato central para el anciano: aferrarse a la enseñanza apostólica y poder exhortar y refutar. Doble función: positiva (exhortar) y negativa (convencer a los opositores). Cf. 2 Ti 2:2.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Ti 1:13; 2:2",
+   "1 Ti 3:2",
+   "2 Ts 2:15"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "Titus.1.9#01",
+  "morfologia_tagnt": "V-PNP-ASM",
+  "dstrong": "G0472",
+  "strong_tagnt": "G472",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to cling to"
+ },
+ {
+  "ref": "Titus.1.12",
+  "strong": "G2912",
+  "forma": "Κρῆτες",
+  "glosa_interlineal": "cretenses",
+  "rango_semantico": [
+   "cretense"
+  ],
+  "construccion": "Nominativo plural: «uno de ellos, su propio profeta, dijo: Los cretenses, siempre mentirosos, malas bestias, glotones ociosos».",
+  "sentido_en_contexto": "Cita del poeta cretense Epiménides (siglo VI a.C.), a quien llama «profeta» por convención: «los cretenses siempre mentirosos». Pablo, que cita a poetas paganos (cf. Hch 17:28), sigue el estereotipo cultural; no es una condena étnica sino una descripción de la necesidad de disciplina (v.13). La «paradoja del mentiroso» se ha discutido.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 17:28",
+   "1 Co 15:33"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Titus.1.12#08",
+  "morfologia_tagnt": "N-NPM-LG",
+  "dstrong": "G2912",
+  "strong_tagnt": "G2912",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Cretan"
+ },
+ {
+  "ref": "Titus.1.15",
+  "strong": "G2513",
+  "forma": "καθαρὰ",
+  "glosa_interlineal": "puras",
+  "rango_semantico": [
+   "limpio, puro"
+  ],
+  "construccion": "Neutro plural: «todas las cosas son puras para los puros, mas para los corrompidos e incrédulos nada les es puro; pues hasta su mente y su conciencia están corrompidas».",
+  "sentido_en_contexto": "Principio contra las regulaciones rituales (alimentos, v.14): la pureza es interior. Los falsos maestros judaizantes imponían reglas de pureza ritual. No habla de relativismo moral, sino de la bondad de la creación (1 Ti 4:4) frente a una pureza solo externa.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 7:14-23",
+   "Ro 14:14, 20",
+   "1 Ti 4:4"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Titus.1.15#03",
+  "morfologia_tagnt": "A-NPN",
+  "dstrong": "G2513",
+  "strong_tagnt": "G2513",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "clean"
+ },
+ {
+  "ref": "Titus.1.16",
+  "strong": "G720",
+  "forma": "ἀρνοῦνται",
+  "glosa_interlineal": "niegan",
+  "rango_semantico": [
+   "negar, rechazar"
+  ],
+  "construccion": "Presente indicativo medio: «profesan conocer a Dios, pero con los hechos lo niegan, siendo abominables y rebeldes, reprobados en cuanto a toda buena obra».",
+  "sentido_en_contexto": "Los falsos maestros profesan conocer a Dios, pero su conducta lo desmiente. Es un tema central de Tito: la fe verdadera produce buenas obras (2:7, 14; 3:8, 14). La ortodoxia sin ortopraxis es negación de Dios en la práctica.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Ti 3:5",
+   "1 Jn 2:4",
+   "Stg 2:14-26",
+   "Mt 7:21"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Titus.1.16#07",
+  "morfologia_tagnt": "V-PNI-3P",
+  "dstrong": "G0720",
+  "strong_tagnt": "G720",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to deny"
+ }
+]

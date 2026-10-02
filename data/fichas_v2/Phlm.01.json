@@ -1,0 +1,435 @@
+[
+ {
+  "ref": "Phlm.1.1",
+  "strong": "G1198",
+  "forma": "δέσμιος",
+  "glosa_interlineal": "prisionero",
+  "rango_semantico": [
+   "prisionero, encadenado"
+  ],
+  "construccion": "Nominativo: «Pablo, prisionero de Jesucristo, y el hermano Timoteo, a Filemón, nuestro amado amigo y colaborador».",
+  "sentido_en_contexto": "Carta personal más breve de Pablo (c. 60-62 d.C., desde la cárcel, probablemente Roma), a Filemón, cristiano de Colosas, sobre su esclavo Onésimo. Pablo se presenta como prisionero (no apóstol) para apelar con amor, no con autoridad (vv.8-9). Va con Tíquico (Col 4:7-9).",
+  "matiz": "Debate sobre el trasfondo: (a) Onésimo huyó y encontró a Pablo preso (la tradición: cf. Col 4:9); (b) Onésimo fue enviado por Filemón o por la iglesia para asistir a Pablo; (c) Onésimo acudió a Pablo como amigo de su amo para interceder (hipótesis «amicus domini», Lampe). Prisión: Roma, Éfeso o Cesarea.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Col 4:7-9",
+   "Fil 1:7",
+   "Ef 3:1"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Phlm.1.1#02",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G1198",
+  "strong_tagnt": "G1198",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "prisoner"
+ },
+ {
+  "ref": "Phlm.1.6",
+  "strong": "G2842",
+  "forma": "κοινωνία",
+  "glosa_interlineal": "comunión",
+  "rango_semantico": [
+   "participación, comunión"
+  ],
+  "construccion": "Nominativo: «para que la participación de tu fe sea eficaz en el reconocimiento de todo el bien que está en vosotros por Cristo Jesús».",
+  "sentido_en_contexto": "Frase difícil: Pablo ora para que la «comunión de la fe» de Filemón (su generosidad) se muestre eficaz. Prepara su petición: recibir a Onésimo como a hermano. κοινωνία es participación activa: compartir bienes y vida.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Fil 1:5",
+   "Heb 13:16",
+   "Col 1:4"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Phlm.1.6#03",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G2842",
+  "strong_tagnt": "G2842",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "participation"
+ },
+ {
+  "ref": "Phlm.1.9",
+  "strong": "G3870",
+  "forma": "παρακαλῶ",
+  "glosa_interlineal": "ruego",
+  "rango_semantico": [
+   "rogar, exhortar"
+  ],
+  "construccion": "Presente indicativo activo: «más bien te ruego por amor, siendo como soy, Pablo ya anciano, y ahora, además, prisionero de Jesucristo».",
+  "sentido_en_contexto": "Pablo renuncia a ordenar (v.8) y apela al amor. Se llama «anciano» (πρεσβύτης; algunos lo leen «embajador», πρεσβευτής). Modelo de persuasión pastoral: libertad del destinatario y apelación a la fe. «Viejo» (c. 60 años) o «embajador» (variante conjetural).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Co 5:20",
+   "Ef 6:20",
+   "Flm 8"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Phlm.1.9#05",
+  "morfologia_tagnt": "V-PAI-1S",
+  "dstrong": "G3870",
+  "strong_tagnt": "G3870",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to plead/comfort"
+ },
+ {
+  "ref": "Phlm.1.10",
+  "strong": "G3682",
+  "forma": "Ὀνήσιμον",
+  "glosa_interlineal": "Onésimo",
+  "rango_semantico": [
+   "Onésimo («útil»)"
+  ],
+  "construccion": "Acusativo: «te ruego por mi hijo Onésimo, a quien he engendrado en mis prisiones».",
+  "sentido_en_contexto": "Onésimo (nombre que significa «útil», tipico de esclavos) se convirtió por Pablo en la cárcel. Juego de palabras: «antes inútil (ἄχρηστος), ahora útil (εὔχρηστος)» (v.11). Pablo lo envía de vuelta con la carta (v.12).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Col 4:9",
+   "1 Co 4:15",
+   "Gá 4:19"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "Phlm.1.10#13",
+  "morfologia_tagnt": "N-ASM-P",
+  "dstrong": "G3682",
+  "strong_tagnt": "G3682",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Onesimus"
+ },
+ {
+  "ref": "Phlm.1.15",
+  "strong": "G5563",
+  "forma": "ἐχωρίσθη",
+  "glosa_interlineal": "fue separado",
+  "rango_semantico": [
+   "ser separado, apartarse"
+  ],
+  "construccion": "Aoristo indicativo pasivo: «porque quizás para esto se apartó de ti por algún tiempo, para que le recibieses para siempre».",
+  "sentido_en_contexto": "Pablo sugiere (con cautela) que la separación tuvo un propósito providencial: recibirlo ahora de modo permanente. Pasivo divino: Dios obró en su huida. «Para siempre» (αἰώνιον) tiene un sentido doble: para siempre en esta vida y en la eternidad.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 45:5-8",
+   "Gn 50:20",
+   "Ro 8:28"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Phlm.1.15#05",
+  "morfologia_tagnt": "V-API-3S",
+  "dstrong": "G5563",
+  "strong_tagnt": "G5563",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to separate/leave"
+ },
+ {
+  "ref": "Phlm.1.16",
+  "strong": "G1401",
+  "forma": "δοῦλον",
+  "glosa_interlineal": "siervo",
+  "rango_semantico": [
+   "esclavo, siervo"
+  ],
+  "construccion": "Acusativo: «no ya como esclavo, sino como más que esclavo, como hermano amado, mayormente para mí, pero cuánto más para ti, tanto en la carne como en el Señor».",
+  "sentido_en_contexto": "Pablo no ordena la libertad de Onésimo, pero pide recibirlo «como hermano amado» «en la carne y en el Señor». Se discute si implica manumisión (v.21: «harás más de lo que te digo»). Las implicaciones para la esclavitud han sido objeto de lectura histórica: la carta socava la institución sin condenarla explícitamente.",
+  "matiz": "Debate: (a) Pablo sugiere discretamente la liberación de Onésimo (v.21: «aún más de lo que digo»; la mayoría); (b) pide solo recibirlo como hermano en la iglesia, dejando la condición legal (algunos); (c) incluso así, la hermandad cristiana cambia la naturaleza de la relación. Fue clave en la discusión abolicionista, en ambos lados.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Col 3:22-4:1",
+   "Gá 3:28",
+   "1 Co 7:21-22",
+   "Ef 6:5-9"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 4,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Phlm.1.16#03",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G1401",
+  "strong_tagnt": "G1401",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "slave"
+ },
+ {
+  "ref": "Phlm.1.16",
+  "strong": "G1401",
+  "forma": "δοῦλον",
+  "glosa_interlineal": "siervo",
+  "rango_semantico": [
+   "esclavo, siervo"
+  ],
+  "construccion": "Acusativo: «no ya como esclavo, sino como más que esclavo, como hermano amado, mayormente para mí, pero cuánto más para ti, tanto en la carne como en el Señor».",
+  "sentido_en_contexto": "Pablo no ordena la libertad de Onésimo, pero pide recibirlo «como hermano amado» «en la carne y en el Señor». Se discute si implica manumisión (v.21: «harás más de lo que te digo»). Las implicaciones para la esclavitud han sido objeto de lectura histórica: la carta socava la institución sin condenarla explícitamente.",
+  "matiz": "Debate: (a) Pablo sugiere discretamente la liberación de Onésimo (v.21: «aún más de lo que digo»; la mayoría); (b) pide solo recibirlo como hermano en la iglesia, dejando la condición legal (algunos); (c) incluso así, la hermandad cristiana cambia la naturaleza de la relación. Fue clave en la discusión abolicionista, en ambos lados.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Col 3:22-4:1",
+   "Gá 3:28",
+   "1 Co 7:21-22",
+   "Ef 6:5-9"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 7,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Phlm.1.16#06",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G1401",
+  "strong_tagnt": "G1401",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "slave"
+ },
+ {
+  "ref": "Phlm.1.17",
+  "strong": "G2844",
+  "forma": "κοινωνόν",
+  "glosa_interlineal": "compañero",
+  "rango_semantico": [
+   "socio, compañero"
+  ],
+  "construccion": "Acusativo: «así que, si me tienes por compañero, recíbele como a mí mismo».",
+  "sentido_en_contexto": "Pablo identifica a Onésimo consigo mismo: «recíbelo como a mí». Es una imagen de sustitución: Pablo se pone en lugar de Onésimo (v.18: «cárgalo a mi cuenta»), reflejo de la imputación de Cristo por nosotros. Muchos intérpretes lo usan como ilustración de la gracia.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Co 5:21",
+   "Ro 15:7",
+   "Gá 4:14"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Phlm.1.17#05",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G2844",
+  "strong_tagnt": "G2844",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "participant"
+ },
+ {
+  "ref": "Phlm.1.18",
+  "strong": "G1677",
+  "forma": "ἐλλόγα",
+  "glosa_interlineal": "pon a mi cuenta",
+  "rango_semantico": [
+   "imputar, poner en cuenta"
+  ],
+  "construccion": "Imperativo presente activo: «y si en algo te dañó, o te debe, ponlo a mi cuenta».",
+  "sentido_en_contexto": "Pablo asume la deuda de Onésimo, con firma de su mano (v.19), aunque recuerda delicadamente que Filemón le debe «a sí mismo» (su conversión). Muestra solidaridad en acto. Modelo de intercesión y de reconciliación.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 4:6",
+   "2 Co 5:19",
+   "Is 53:4-6"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Phlm.1.18#10",
+  "morfologia_tagnt": "V-PAM-2S",
+  "dstrong": "G1677",
+  "strong_tagnt": "G1677",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to charge"
+ },
+ {
+  "ref": "Phlm.1.21",
+  "strong": "G5218",
+  "forma": "ὑπακοῇ",
+  "glosa_interlineal": "obediencia",
+  "rango_semantico": [
+   "obediencia"
+  ],
+  "construccion": "Dativo: «te he escrito confiando en tu obediencia, sabiendo que harás aún más de lo que te digo».",
+  "sentido_en_contexto": "Pablo confía en que Filemón hará «más de lo que digo»: posiblemente liberar a Onésimo o enviarlo de vuelta a servir a Pablo (v.13). Cierra la petición con expectativas elevadas y humildad. Pedirá hospedaje (v.22) como señal de su próxima visita.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Flm 13-16",
+   "2 Co 7:15",
+   "Fil 2:12"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Phlm.1.21#03",
+  "morfologia_tagnt": "N-DSF",
+  "dstrong": "G5218",
+  "strong_tagnt": "G5218",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "obedience"
+ },
+ {
+  "ref": "Phlm.1.24",
+  "strong": "G3065",
+  "forma": "Λουκᾶς",
+  "glosa_interlineal": "Lucas",
+  "rango_semantico": [
+   "Lucas"
+  ],
+  "construccion": "Nominativo: «Marcos, Aristarco, Demas y Lucas, mis colaboradores».",
+  "sentido_en_contexto": "Lista de colaboradores con Pablo en la prisión (cf. Col 4:10-14). Contiene los mismos nombres que Colosenses; apoya la relación entre ambas cartas. Demas, aquí fiel, luego abandona a Pablo (2 Ti 4:10).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Col 4:10-14",
+   "2 Ti 4:10-11",
+   "Hch 27:2"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Phlm.1.24#04",
+  "morfologia_tagnt": "N-NSM-P",
+  "dstrong": "G3065",
+  "strong_tagnt": "G3065",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Luke"
+ }
+]

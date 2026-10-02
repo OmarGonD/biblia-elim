@@ -1,0 +1,1522 @@
+[
+ {
+  "ref": "Matt.3.1",
+  "strong": "G910",
+  "forma": "βαπτιστὴς",
+  "glosa_interlineal": "el Bautista",
+  "rango_semantico": [
+   "el que bautiza, bautista (título de Juan)"
+  ],
+  "construccion": "Nominativo, en aposición con «Juan».",
+  "sentido_en_contexto": "Más que apellido, es un epíteto que lo identifica por su práctica: sumergir a la gente como señal de arrepentimiento.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 11:11 — «no se levantó otro mayor que Juan el Bautista»",
+   "Mt 14:2 — «este es Juan el Bautista; ha resucitado»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.1#09",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G0910",
+  "strong_tagnt": "G910",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "one who baptizes"
+ },
+ {
+  "ref": "Matt.3.1",
+  "strong": "G2784",
+  "forma": "κηρύσσων",
+  "glosa_interlineal": "proclamando",
+  "rango_semantico": [
+   "proclamar como heraldo",
+   "anunciar, predicar"
+  ],
+  "construccion": "Participio presente activo: «proclamando», acción continua de Juan.",
+  "sentido_en_contexto": "Un κῆρυξ era el heraldo que anunciaba un mensaje de parte del rey. Juan no «da una charla», sino que proclama públicamente un anuncio con autoridad.",
+  "matiz": "El presente indica actividad continua y repetida, no un acto único.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 4:17 — «Jesús comenzó a predicar»",
+   "Ro 10:14 — «¿cómo oirán sin haber quien les predique?»",
+   "Mr 1:4 — «predicaba el bautismo de arrepentimiento»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.1#10",
+  "morfologia_tagnt": "V-PAP-NSM",
+  "dstrong": "G2784",
+  "strong_tagnt": "G2784",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to preach"
+ },
+ {
+  "ref": "Matt.3.1",
+  "strong": "G2048",
+  "forma": "ἐρήμῳ",
+  "glosa_interlineal": "desierto",
+  "rango_semantico": [
+   "lugar despoblado, desierto",
+   "región deshabitada"
+  ],
+  "construccion": "ἐν + dativo: «en el desierto».",
+  "sentido_en_contexto": "El desierto de Judea (cerca del Jordán y el mar Muerto). En el AT, el desierto es lugar de prueba y de nuevo comienzo (el Éxodo).",
+  "matiz": "Marcos dice que Juan estaba «en el desierto»; Mateo añade «de Judea». El eco con el Éxodo es una lectura habitual.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 4:1 — «Jesús fue llevado por el Espíritu al desierto»",
+   "Mt 11:7 — «¿qué salisteis a ver al desierto?»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.1#13",
+  "morfologia_tagnt": "A-DSF",
+  "dstrong": "G2048",
+  "strong_tagnt": "G2048",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "deserted"
+ },
+ {
+  "ref": "Matt.3.2",
+  "strong": "G3340",
+  "forma": "μετανοεῖτε",
+  "glosa_interlineal": "arrepentíos",
+  "rango_semantico": [
+   "cambiar de mente, cambiar de actitud",
+   "arrepentirse",
+   "convertirse"
+  ],
+  "construccion": "Imperativo presente activo, 2ª plural: «cambiad (continuamente) de mentalidad».",
+  "sentido_en_contexto": "El verbo viene de μετά (cambio) + νοέω (pensar): un cambio de rumbo interior que se refleja en la vida. No es solo remordimiento ni tristeza.",
+  "matiz": "El imperativo en presente pide una actitud sostenida, no solo un acto puntual. Algunos traducen «convertíos»; es un debate de traducción más que de significado.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": "La Vulgata tradujo «poenitentiam agite» («haced penitencia»), lo que dio a esta palabra un matiz de penitencia exterior. El griego apunta a cambio de mentalidad.",
+  "otros_usos": [
+   "Mt 4:17 — Jesús predica lo mismo",
+   "Lc 15:7 — «gozo… por un pecador que se arrepiente»",
+   "Hch 2:38 — «arrepentíos, y bautícese cada uno»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.2#03",
+  "morfologia_tagnt": "V-PAM-2P",
+  "dstrong": "G3340",
+  "strong_tagnt": "G3340",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to repent"
+ },
+ {
+  "ref": "Matt.3.2",
+  "strong": "G1448",
+  "forma": "ἤγγικεν",
+  "glosa_interlineal": "se ha acercado",
+  "rango_semantico": [
+   "acercarse",
+   "estar cerca",
+   "llegar"
+  ],
+  "construccion": "Perfecto indicativo activo, 3ª singular: «se ha acercado y ahora está cerca». El perfecto indica acción cumplida con resultado presente.",
+  "sentido_en_contexto": "El reino no solo «viene» sino que ya se ha puesto al alcance. El perfecto subraya que la cercanía es presente, no solo futura.",
+  "matiz": "Se debate si el verbo significa «está cerca» (aún por llegar) o «ha llegado» (ya presente). Ambas posiciones tienen defensores; el perfecto griego admite lo primero con más naturalidad, pero el contexto de Jesús (Mt 12:28, «ha llegado a vosotros») suele aducirse para lo segundo.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 10:7 — «el reino de los cielos se ha acercado»",
+   "Lc 21:28 — «vuestra redención está cerca»",
+   "Mt 26:45 — «ha llegado la hora» (mismo verbo)"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.2#04",
+  "morfologia_tagnt": "V-RAI-3S",
+  "dstrong": "G1448",
+  "strong_tagnt": "G1448",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to come near"
+ },
+ {
+  "ref": "Matt.3.2",
+  "strong": "G932",
+  "forma": "βασιλεία",
+  "glosa_interlineal": "reino",
+  "rango_semantico": [
+   "reino, reinado",
+   "realeza",
+   "dominio de un rey",
+   "(en NT) el reino/reinado de Dios"
+  ],
+  "construccion": "Nominativo singular, sujeto de «se ha acercado».",
+  "sentido_en_contexto": "No es primero un lugar sino el «reinado»: la autoridad de Dios que se hace efectiva. Es el tema central de la predicación de Juan y de Jesús.",
+  "matiz": "«Reino de los cielos» (solo Mateo) equivale a «reino de Dios» en los otros Evangelios: «cielos» es una manera judía de evitar nombrar a Dios.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 6:10 — «venga tu reino»",
+   "Mt 13:11 — «los misterios del reino de los cielos»",
+   "Lc 17:21 — «el reino de Dios está entre vosotros»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.2#07",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G0932",
+  "strong_tagnt": "G932",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "kingdom"
+ },
+ {
+  "ref": "Matt.3.3",
+  "strong": "G994",
+  "forma": "βοῶντος",
+  "glosa_interlineal": "que clama",
+  "rango_semantico": [
+   "gritar, clamar",
+   "llamar a voces"
+  ],
+  "construccion": "Participio presente activo, genitivo: «de uno que grita».",
+  "sentido_en_contexto": "Cita de Is 40:3. Juan es «la voz» que clama; no es el mensaje central sino quien lo anuncia.",
+  "matiz": "En el hebreo de Isaías, «en el desierto» puede ir con «preparad» (preparad en el desierto) y no con «clama». Mateo, siguiendo la LXX, une «en el desierto» con la voz que clama. Eso refleja una lectura interpretativa.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": "La puntuación del texto hebreo de Isaías y la de la LXX difieren; de ahí que «en el desierto» cambie de lugar.",
+  "otros_usos": [
+   "Jn 1:23 — Juan se aplica la cita a sí mismo",
+   "Mr 15:34 — «Jesús clamó a gran voz»",
+   "Lc 18:7 — «sus escogidos, que claman a él»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.3#12",
+  "morfologia_tagnt": "V-PAP-GSM",
+  "dstrong": "G0994",
+  "strong_tagnt": "G994",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to cry out"
+ },
+ {
+  "ref": "Matt.3.3",
+  "strong": "G2090",
+  "forma": "ἑτοιμάσατε",
+  "glosa_interlineal": "preparad",
+  "rango_semantico": [
+   "preparar, disponer",
+   "hacer listo"
+  ],
+  "construccion": "Imperativo aoristo activo, 2ª plural: orden puntual.",
+  "sentido_en_contexto": "Imagen de un rey que viaja: se preparaba el camino antes de su llegada. Aquí el «camino» es la disposición del pueblo para recibir al Señor.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 1:76 — «irás delante del Señor para preparar sus caminos»",
+   "Mt 22:4 — «he preparado mi comida»",
+   "Jn 14:2 — «voy a preparar lugar para vosotros»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 16,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.3#16",
+  "morfologia_tagnt": "V-AAM-2P",
+  "dstrong": "G2090",
+  "strong_tagnt": "G2090",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to make ready"
+ },
+ {
+  "ref": "Matt.3.3",
+  "strong": "G2962",
+  "forma": "κυρίου",
+  "glosa_interlineal": "Señor",
+  "rango_semantico": [
+   "amo, señor",
+   "título de respeto",
+   "Señor (Dios/Cristo)"
+  ],
+  "construccion": "Genitivo: «el camino del Señor».",
+  "sentido_en_contexto": "En Isaías 40:3, «Señor» traduce el nombre Yahvé. En el Evangelio, Jesús es quien sigue a Juan, así que Mateo aplica «Señor» a Jesús sin explicitarlo.",
+  "matiz": "Este es un texto donde el NT aplica a Jesús lo que el AT decía de Dios. Los comentaristas lo destacan como indicio cristológico; Mateo no lo hace explícito.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 1:76 — «ir delante del Señor»",
+   "Mr 1:2-3 — misma cita"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 19,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.3#19",
+  "morfologia_tagnt": "N-GSM-T",
+  "dstrong": "G2962G",
+  "strong_tagnt": "G2962",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "lord"
+ },
+ {
+  "ref": "Matt.3.4",
+  "strong": "G1742",
+  "forma": "ἔνδυμα",
+  "glosa_interlineal": "vestido",
+  "rango_semantico": [
+   "ropa, vestido",
+   "prenda"
+  ],
+  "construccion": "Acusativo singular, objeto de «tenía».",
+  "sentido_en_contexto": "La ropa de Juan (pelo de camello, cinto de cuero) lo asocia a los profetas, especialmente Elías (2 R 1:8). Es una declaración visual de su papel.",
+  "matiz": "No hay en Mateo una declaración explícita de que Juan sea Elías; se sugiere por la vestimenta y se aclara después (Mt 11:14; 17:12).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 R 1:8 — vestimenta de Elías",
+   "Mt 11:14 — «él es aquel Elías que había de venir»",
+   "Mt 7:15 — «vienen a vosotros con vestidos de ovejas»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.4#07",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G1742",
+  "strong_tagnt": "G1742",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "clothing"
+ },
+ {
+  "ref": "Matt.3.4",
+  "strong": "G200",
+  "forma": "ἀκρίδες",
+  "glosa_interlineal": "langostas",
+  "rango_semantico": [
+   "langosta, saltamontes"
+  ],
+  "construccion": "Nominativo plural: «su comida eran langostas».",
+  "sentido_en_contexto": "Alimento permitido por la Ley (Lv 11:22) y propio de la gente del desierto: muestra la sobriedad de Juan.",
+  "matiz": "Algunos propusieron que sería la «algarroba»; la lectura mayoritaria es que se trata del insecto, comestible según Lv 11.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 1:6 — mismo alimento",
+   "Ap 9:3 — «langostas» (símbolo)",
+   "Lv 11:22 — insectos permitidos"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 24,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.4#24",
+  "morfologia_tagnt": "N-NPF",
+  "dstrong": "G0200",
+  "strong_tagnt": "G200",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "locust"
+ },
+ {
+  "ref": "Matt.3.6",
+  "strong": "G907",
+  "forma": "ἐβαπτίζοντο",
+  "glosa_interlineal": "eran bautizados",
+  "rango_semantico": [
+   "sumergir, bañar",
+   "bautizar (rito)",
+   "(figurado) quedar abrumado"
+  ],
+  "construccion": "Imperfecto indicativo pasivo, 3ª plural: «iban siendo bautizados». El imperfecto indica repetición o acción continuada.",
+  "sentido_en_contexto": "El imperfecto sugiere que muchos acudían uno tras otro. El verbo βαπτίζω significa «sumergir»; designa aquí un rito de purificación y arrepentimiento.",
+  "matiz": "El bautismo de Juan es distinto del cristiano: era un bautismo de arrepentimiento. El alcance de la diferencia se discute entre tradiciones.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 10:38 — «¿podéis ser bautizados con el bautismo con que yo soy bautizado?»: figurado",
+   "Ro 6:3 — «bautizados en Cristo Jesús»",
+   "1 Co 10:2 — «todos fueron bautizados en la nube»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.6#02",
+  "morfologia_tagnt": "V-IPI-3P",
+  "dstrong": "G0907",
+  "strong_tagnt": "G907",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to baptize"
+ },
+ {
+  "ref": "Matt.3.6",
+  "strong": "G1843",
+  "forma": "ἐξομολογούμενοι",
+  "glosa_interlineal": "confesando",
+  "rango_semantico": [
+   "confesar, reconocer abiertamente",
+   "alabar (con acusativo/dativo)"
+  ],
+  "construccion": "Participio presente medio: «confesando, mientras confesaban».",
+  "sentido_en_contexto": "Reconocen públicamente sus pecados. El prefijo ἐξ- refuerza «abierta, completamente».",
+  "matiz": "El participio de presente marca simultaneidad: el bautismo y la confesión ocurren juntos.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 1:5 — mismo contexto",
+   "Stg 5:16 — «confesaos vuestras ofensas unos a otros»",
+   "Mt 11:25 — «te alabo, Padre»: sentido de alabanza"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.6#09",
+  "morfologia_tagnt": "V-PMP-NPM",
+  "dstrong": "G1843",
+  "strong_tagnt": "G1843",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to agree"
+ },
+ {
+  "ref": "Matt.3.7",
+  "strong": "G1081",
+  "forma": "γεννήματα",
+  "glosa_interlineal": "engendros",
+  "rango_semantico": [
+   "descendencia, cría",
+   "fruto (de la tierra)"
+  ],
+  "construccion": "Vocativo plural neutro: «¡crías de víboras!»",
+  "sentido_en_contexto": "Insulto fuerte dirigido a los fariseos y saduceos que acuden al bautismo. Compara su carácter con el de las serpientes venenosas.",
+  "matiz": "RVR traduce «generación»; el griego es más cercano a «cría, camada». Es un insulto, no una descripción neutra.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": "RVR dice «generación de víboras»; otras versiones «raza/camada/cría de víboras»; todas son aceptables, pero «cría» refleja mejor la fuerza de la imagen.",
+  "otros_usos": [
+   "Mt 12:34 — Jesús usa el mismo insulto con los fariseos",
+   "Mt 23:33 — «¡Serpientes, generación de víboras!»",
+   "Lc 3:7 — paralelo en Lucas"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.7#15",
+  "morfologia_tagnt": "N-VPN",
+  "dstrong": "G1081G",
+  "strong_tagnt": "G1081",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "offspring"
+ },
+ {
+  "ref": "Matt.3.7",
+  "strong": "G3709",
+  "forma": "ὀργῆς",
+  "glosa_interlineal": "ira",
+  "rango_semantico": [
+   "ira, enojo",
+   "castigo, juicio de Dios"
+  ],
+  "construccion": "ἀπό + genitivo: «de la ira» (de la cual huir).",
+  "sentido_en_contexto": "No se trata de un enojo emocional de Dios, sino de su juicio justo sobre el mal. «La ira venidera» apunta a un juicio futuro.",
+  "matiz": "Se discute si «la ira venidera» se refiere al juicio final o a un juicio histórico (como la destrucción de Jerusalén). El contexto de Mateo admite ambos.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 1:18 — «la ira de Dios se revela desde el cielo»",
+   "1 Ts 1:10 — «Jesús, quien nos libra de la ira venidera»",
+   "Ef 2:3 — «hijos de ira»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 23,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.7#24",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G3709",
+  "strong_tagnt": "G3709",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "wrath"
+ },
+ {
+  "ref": "Matt.3.8",
+  "strong": "G2590",
+  "forma": "καρπὸν",
+  "glosa_interlineal": "fruto",
+  "rango_semantico": [
+   "fruto",
+   "resultado, consecuencia",
+   "obra, conducta"
+  ],
+  "construccion": "Acusativo singular, objeto de «haced».",
+  "sentido_en_contexto": "Imagen agrícola: un árbol bueno se reconoce por sus frutos. Juan exige conducta coherente con el arrepentimiento.",
+  "matiz": "Singular: un fruto, la totalidad de una vida transformada, no obras sueltas.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 7:16 — «por sus frutos los conoceréis»",
+   "Gá 5:22 — «el fruto del Espíritu es amor»",
+   "Jn 15:5 — «el que permanece en mí… lleva mucho fruto»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.8#03",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G2590",
+  "strong_tagnt": "G2590",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "Byz"
+  ],
+  "ausente_en": [
+   "TR"
+  ],
+  "variante": true,
+  "glosa_tagnt": "fruit"
+ },
+ {
+  "ref": "Matt.3.8",
+  "strong": "G514",
+  "forma": "ἄξιον",
+  "glosa_interlineal": "digno",
+  "rango_semantico": [
+   "digno, merecedor",
+   "que corresponde a"
+  ],
+  "construccion": "Adjetivo acusativo masculino singular, concordando con «fruto»: «fruto digno de».",
+  "sentido_en_contexto": "«Digno» aquí es «que corresponde, que equivale a»: un fruto que está a la altura del arrepentimiento prometido.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 3:8 — paralelo",
+   "Hch 26:20 — «obras dignas de arrepentimiento»",
+   "Mt 10:37 — «no es digno de mí»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.8#04",
+  "morfologia_tagnt": "A-ASM",
+  "dstrong": "G0514",
+  "strong_tagnt": "G514",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "Byz"
+  ],
+  "ausente_en": [
+   "TR"
+  ],
+  "variante": true,
+  "glosa_tagnt": "worthy"
+ },
+ {
+  "ref": "Matt.3.9",
+  "strong": "G1410",
+  "forma": "δύναται",
+  "glosa_interlineal": "puede",
+  "rango_semantico": [
+   "poder, ser capaz",
+   "ser capaz de"
+  ],
+  "construccion": "Presente indicativo medio (deponente), 3ª singular.",
+  "sentido_en_contexto": "Juan afirma que Dios es capaz de crear descendientes de Abraham de donde quiera, incluso de las piedras: la pertenencia no depende de la sangre.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 19:26 — «para Dios todo es posible»",
+   "Ro 4:21 — «poderoso para hacer todo lo que había prometido»",
+   "Ef 3:20 — «poderoso para hacer todas las cosas mucho más abundantemente»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 15,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.9#15",
+  "morfologia_tagnt": "V-PNI-3S",
+  "dstrong": "G1410",
+  "strong_tagnt": "G1410",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "be able"
+ },
+ {
+  "ref": "Matt.3.9",
+  "strong": "G1453",
+  "forma": "ἐγεῖραι",
+  "glosa_interlineal": "levantar",
+  "rango_semantico": [
+   "despertar, levantar",
+   "resucitar",
+   "suscitar, hacer surgir"
+  ],
+  "construccion": "Infinitivo aoristo activo, complemento de «puede».",
+  "sentido_en_contexto": "Verbo que también significa «resucitar». Aquí: «suscitar» hijos a Abraham.",
+  "matiz": "Hay un posible juego de palabras en arameo entre «hijos» (banayya) y «piedras» (abanayya), pero no es seguro que Juan hablara así.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 11:5 — «los muertos son resucitados»",
+   "Mt 28:6 — «ha resucitado, como dijo»",
+   "Lc 1:69 — «nos levantó un cuerno de salvación»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 22,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.9#22",
+  "morfologia_tagnt": "V-AAN",
+  "dstrong": "G1453",
+  "strong_tagnt": "G1453",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to arise"
+ },
+ {
+  "ref": "Matt.3.10",
+  "strong": "G4491",
+  "forma": "ῥίζαν",
+  "glosa_interlineal": "raíz",
+  "rango_semantico": [
+   "raíz",
+   "fuente, origen"
+  ],
+  "construccion": "πρός + acusativo (τὴν ῥίζαν), con verbo de estado (κεῖται): «junto a la raíz».",
+  "sentido_en_contexto": "Imagen del juicio inminente: el hacha ya no está lejos sino puesta junto a la raíz, lista para cortar el árbol de raíz.",
+  "matiz": "Con verbo de estado, πρός + acusativo indica posición cercana («junto a»); con verbo de movimiento indica dirección (como en Mt 2:12).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 11:20 — «la higuera secándose desde las raíces»",
+   "Ro 11:18 — «tú no sustentas a la raíz, sino la raíz a ti»",
+   "Ap 5:5 — «la raíz de David»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.10#08",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G4491",
+  "strong_tagnt": "G4491",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "root"
+ },
+ {
+  "ref": "Matt.3.10",
+  "strong": "G1581",
+  "forma": "ἐκκόπτεται",
+  "glosa_interlineal": "es cortado",
+  "rango_semantico": [
+   "cortar de raíz, talar",
+   "eliminar"
+  ],
+  "construccion": "Presente indicativo pasivo, 3ª singular: «es cortado». El presente es de certeza: describe lo que sucede sistemáticamente.",
+  "sentido_en_contexto": "Imagen de juicio inminente: el árbol que no da buen fruto se corta y se echa al fuego.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 7:19 — misma frase en el Sermón del Monte",
+   "Lc 13:7 — «córtala; ¿para qué inutiliza también la tierra?»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 18,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.10#19",
+  "morfologia_tagnt": "V-PPI-3S",
+  "dstrong": "G1581",
+  "strong_tagnt": "G1581",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to cut off"
+ },
+ {
+  "ref": "Matt.3.11",
+  "strong": "G907",
+  "forma": "βαπτίζω",
+  "glosa_interlineal": "bautizo",
+  "rango_semantico": [
+   "sumergir",
+   "bautizar"
+  ],
+  "construccion": "Presente indicativo activo, 1ª singular: «yo (por mi parte) bautizo». La partícula μέν (en el griego completo) prepara el contraste con el que viene.",
+  "sentido_en_contexto": "Juan contrasta su bautismo (en agua) con el del que viene (en Espíritu Santo y fuego).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 1:5 — «Juan bautizó con agua, pero vosotros seréis bautizados con el Espíritu Santo»",
+   "Jn 1:33 — «el que bautiza con el Espíritu Santo»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.11#04",
+  "morfologia_tagnt": "V-PAI-1S",
+  "dstrong": "G0907",
+  "strong_tagnt": "G907",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to baptize"
+ },
+ {
+  "ref": "Matt.3.11",
+  "strong": "G3341",
+  "forma": "μετάνοιαν",
+  "glosa_interlineal": "arrepentimiento",
+  "rango_semantico": [
+   "cambio de mente",
+   "arrepentimiento"
+  ],
+  "construccion": "εἰς + acusativo: «para / con vistas a arrepentimiento».",
+  "sentido_en_contexto": "El bautismo de Juan señala el arrepentimiento; εἰς puede indicar finalidad («para») o relación («con referencia a»).",
+  "matiz": "Se discute si εἰς significa «para producir arrepentimiento» o «en señal de arrepentimiento». La diferencia teológica es menor: ambas leen el bautismo como expresión del cambio de vida.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 11:18 — «Dios ha dado también a los gentiles arrepentimiento para vida»",
+   "Lc 24:47 — «que se predicase en su nombre el arrepentimiento»",
+   "2 Co 7:10 — «la tristeza que es según Dios produce arrepentimiento»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.11#08",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G3341",
+  "strong_tagnt": "G3341",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "repentance"
+ },
+ {
+  "ref": "Matt.3.11",
+  "strong": "G2478",
+  "forma": "ἰσχυρότερός",
+  "glosa_interlineal": "más fuerte",
+  "rango_semantico": [
+   "fuerte, poderoso",
+   "vigoroso"
+  ],
+  "construccion": "Adjetivo comparativo nominativo, predicado de «el que viene».",
+  "sentido_en_contexto": "Juan reconoce que quien viene tras él es superior en poder y dignidad.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 3:27 — «ninguno puede entrar en la casa del hombre fuerte»",
+   "1 Co 1:25 — «lo débil de Dios es más fuerte que los hombres»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.11#14",
+  "morfologia_tagnt": "A-NSM-C",
+  "dstrong": "G2478",
+  "strong_tagnt": "G2478",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "strong"
+ },
+ {
+  "ref": "Matt.3.11",
+  "strong": "G941",
+  "forma": "βαστάσαι",
+  "glosa_interlineal": "llevar",
+  "rango_semantico": [
+   "llevar, cargar",
+   "soportar",
+   "quitar"
+  ],
+  "construccion": "Infinitivo aoristo activo, complemento de «digno».",
+  "sentido_en_contexto": "Tarea del esclavo más humilde: llevar o quitar las sandalias del amo. Juan se considera indigno incluso de eso.",
+  "matiz": "Los otros Evangelios dicen «desatar» las sandalias (Mr 1:7); Mateo dice «llevar». Ambas tareas son de siervo.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 1:7 — «desatar la correa de su calzado»",
+   "Gá 6:2 — «sobrellevad los unos las cargas de los otros»",
+   "Hch 15:10 — «un yugo que ni nuestros padres ni nosotros pudimos llevar»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 23,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.11#23",
+  "morfologia_tagnt": "V-AAN",
+  "dstrong": "G0941",
+  "strong_tagnt": "G941",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to carry"
+ },
+ {
+  "ref": "Matt.3.11",
+  "strong": "G4442",
+  "forma": "πυρί",
+  "glosa_interlineal": "fuego",
+  "rango_semantico": [
+   "fuego",
+   "juicio, prueba",
+   "pasión"
+  ],
+  "construccion": "Dativo: «en Espíritu Santo y fuego».",
+  "sentido_en_contexto": "Se discute qué significa «fuego»: (a) juicio y purificación para los impenitentes; (b) refinamiento para los creyentes; (c) un solo bautismo con dos aspectos (Espíritu y fuego como una sola imagen). El v.12 apoya (a), pues habla de fuego que quema la paja.",
+  "matiz": "Entre los especialistas hay tres posiciones principales (juicio, purificación, o bautismo único); el texto no cierra el debate.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 2:3 — «lenguas repartidas, como de fuego»",
+   "1 Co 3:13 — «el fuego probará la obra de cada uno»",
+   "Mt 25:41 — «al fuego eterno»"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 31,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.11#31",
+  "morfologia_tagnt": "N-DSN",
+  "dstrong": "G4442",
+  "strong_tagnt": "G4442",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR"
+  ],
+  "ausente_en": [
+   "Byz"
+  ],
+  "variante": true,
+  "glosa_tagnt": "fire"
+ },
+ {
+  "ref": "Matt.3.12",
+  "strong": "G4425",
+  "forma": "πτύον",
+  "glosa_interlineal": "aventador",
+  "rango_semantico": [
+   "pala de aventar, horca para separar el grano"
+  ],
+  "construccion": "Nominativo, sujeto sin verbo: «su aventador [está] en su mano».",
+  "sentido_en_contexto": "Instrumento para lanzar al aire el grano trillado y separar el trigo de la paja. Imagen del juicio que separa.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 3:17 — paralelo",
+   "Jer 15:7 — «los aventé con aventador» (LXX)"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.12#03",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G4425",
+  "strong_tagnt": "G4425",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "winnowing fork"
+ },
+ {
+  "ref": "Matt.3.12",
+  "strong": "G892",
+  "forma": "ἄχυρον",
+  "glosa_interlineal": "paja",
+  "rango_semantico": [
+   "paja, cascarilla"
+  ],
+  "construccion": "Acusativo, objeto de «quemará».",
+  "sentido_en_contexto": "La paja es lo que no sirve del grano trillado: se quema. Imagen de los que no dan fruto.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 1:4 — «como paja que arrebata el viento»",
+   "Is 5:24 — «como la paja es consumida por el fuego»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 23,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.12#24",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G0892",
+  "strong_tagnt": "G892",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "chaff"
+ },
+ {
+  "ref": "Matt.3.12",
+  "strong": "G762",
+  "forma": "ἀσβέστῳ",
+  "glosa_interlineal": "inextinguible",
+  "rango_semantico": [
+   "que no se puede apagar",
+   "inextinguible"
+  ],
+  "construccion": "Adjetivo dativo, concordando con «fuego».",
+  "sentido_en_contexto": "«Fuego inextinguible»: no solo que no se apaga, sino que no se puede apagar. Habla de la seriedad y la certeza del juicio.",
+  "matiz": "Se debate si indica duración eterna o solo la imposibilidad de apagarlo mientras queme su objeto; el uso en otros textos judíos admite ambas lecturas.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 9:43 — «el fuego que no puede ser apagado»",
+   "Lc 3:17 — paralelo"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 26,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.12#27",
+  "morfologia_tagnt": "A-DSN",
+  "dstrong": "G0762",
+  "strong_tagnt": "G762",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "unquenchable"
+ },
+ {
+  "ref": "Matt.3.14",
+  "strong": "G1254",
+  "forma": "διεκώλυεν",
+  "glosa_interlineal": "trataba de impedir",
+  "rango_semantico": [
+   "impedir, estorbar",
+   "tratar de impedir"
+  ],
+  "construccion": "Imperfecto indicativo activo, 3ª singular: «trataba de impedírselo / intentaba disuadirlo». El imperfecto indica un intento repetido o sostenido.",
+  "sentido_en_contexto": "Juan no acepta bautizar a Jesús en un primer momento: el imperfecto sugiere insistencia.",
+  "matiz": "El imperfecto es conativo (intento): Juan lo intenta, pero no lo logra.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 18:16 — «no se lo impidáis»",
+   "Hch 8:36 — «¿qué impide que yo sea bautizado?»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.14#04",
+  "morfologia_tagnt": "V-IAI-3S",
+  "dstrong": "G1254",
+  "strong_tagnt": "G1254",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to hinder"
+ },
+ {
+  "ref": "Matt.3.14",
+  "strong": "G5532",
+  "forma": "χρείαν",
+  "glosa_interlineal": "necesidad",
+  "rango_semantico": [
+   "necesidad",
+   "falta"
+  ],
+  "construccion": "Acusativo, objeto de «tengo».",
+  "sentido_en_contexto": "«Tengo necesidad de ser bautizado por ti»: Juan reconoce que él es quien necesita lo que Jesús tiene.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 9:12 — «los sanos no necesitan médico»",
+   "Jn 2:25 — «no tenía necesidad de que nadie le diese testimonio»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.14#08",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G5532",
+  "strong_tagnt": "G5532",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "need"
+ },
+ {
+  "ref": "Matt.3.15",
+  "strong": "G863",
+  "forma": "ἄφες",
+  "glosa_interlineal": "deja",
+  "rango_semantico": [
+   "dejar, permitir",
+   "perdonar",
+   "soltar, despedir"
+  ],
+  "construccion": "Imperativo aoristo activo, 2ª singular: «permítelo / déjalo».",
+  "sentido_en_contexto": "Jesús no discute: pide a Juan que lo permita por ahora. Aquí es «permitir», no «perdonar».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 6:12 — «perdónanos nuestras deudas»: sentido de perdonar",
+   "Mt 19:14 — «dejad a los niños venir a mí»: permitir",
+   "Mt 4:20 — «dejando al instante las redes»: abandonar"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.15#08",
+  "morfologia_tagnt": "V-2AAM-2S",
+  "dstrong": "G0863I",
+  "strong_tagnt": "G863",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to release"
+ },
+ {
+  "ref": "Matt.3.15",
+  "strong": "G4241",
+  "forma": "πρέπον",
+  "glosa_interlineal": "conveniente",
+  "rango_semantico": [
+   "ser apropiado, convenir",
+   "ser digno"
+  ],
+  "construccion": "Participio presente activo, neutro: «lo que conviene».",
+  "sentido_en_contexto": "Describe lo apropiado dentro del plan de Dios. No es solo «es útil», sino «es lo que corresponde».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ef 5:3 — «como conviene a santos»",
+   "Heb 2:10 — «convenía que aquel… perfeccionase»",
+   "1 Ti 2:10 — «como corresponde a mujeres»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.15#12",
+  "morfologia_tagnt": "V-PAP-NSN",
+  "dstrong": "G4241",
+  "strong_tagnt": "G4241",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "be proper"
+ },
+ {
+  "ref": "Matt.3.15",
+  "strong": "G1343",
+  "forma": "δικαιοσύνην",
+  "glosa_interlineal": "justicia",
+  "rango_semantico": [
+   "justicia, rectitud",
+   "conformidad con la voluntad de Dios",
+   "vindicación"
+  ],
+  "construccion": "Acusativo, objeto de «cumplir» (πληρῶσαι).",
+  "sentido_en_contexto": "Concepto difícil: «cumplir toda justicia» puede significar hacer todo lo que Dios requiere, o identificarse con el pueblo pecador.",
+  "matiz": "Debate: (a) obediencia plena a la voluntad de Dios; (b) solidaridad de Jesús con los pecadores que se arrepienten; (c) cumplimiento del plan de Dios predicho en las Escrituras. Mateo no precisa más.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 5:6 — «hambre y sed de justicia»",
+   "Mt 6:33 — «buscad el reino de Dios y su justicia»",
+   "Ro 3:21 — «la justicia de Dios»"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 17,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.15#17",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G1343",
+  "strong_tagnt": "G1343",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "righteousness"
+ },
+ {
+  "ref": "Matt.3.16",
+  "strong": "G455",
+  "forma": "ἀνεῴχθησαν",
+  "glosa_interlineal": "se abrieron",
+  "rango_semantico": [
+   "abrir"
+  ],
+  "construccion": "Aoristo indicativo pasivo, 3ª plural: «fueron abiertos». Pasivo divino: se entiende que Dios los abre.",
+  "sentido_en_contexto": "Imagen apocalíptica: se abre el cielo para comunicar una revelación divina.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ez 1:1 — «los cielos se abrieron, y vi visiones de Dios»",
+   "Hch 7:56 — «veo los cielos abiertos»",
+   "Ap 19:11 — «vi el cielo abierto»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "alineacion": "strong",
+  "tagnt": "Matt.3.16#13",
+  "morfologia_tagnt": "V-API-3P",
+  "dstrong": "G0455",
+  "strong_tagnt": "G455",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to open"
+ },
+ {
+  "ref": "Matt.3.16",
+  "strong": "G4058",
+  "forma": "περιστερὰν",
+  "glosa_interlineal": "paloma",
+  "rango_semantico": [
+   "paloma"
+  ],
+  "construccion": "Acusativo, tras «como» (ὡσεί).",
+  "sentido_en_contexto": "El Espíritu desciende «como» paloma: se compara el modo de descender, no se dice que tomara forma de paloma (Lucas sí añade «en forma corporal»).",
+  "matiz": "Se debate qué evoca la paloma: la calma, el Espíritu sobre las aguas (Gn 1:2), o la paloma del diluvio. El texto solo dice «como paloma».",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 3:22 — «en forma corporal, como paloma»",
+   "Jn 1:32 — «vi al Espíritu que descendía del cielo como paloma»",
+   "Mt 10:16 — «sencillos como palomas»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 21,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.16#25",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G4058",
+  "strong_tagnt": "G4058",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "dove"
+ },
+ {
+  "ref": "Matt.3.17",
+  "strong": "G27",
+  "forma": "ἀγαπητός",
+  "glosa_interlineal": "amado",
+  "rango_semantico": [
+   "amado, querido",
+   "único (en ciertos contextos, hijo querido)"
+  ],
+  "construccion": "Adjetivo nominativo, predicado: «mi Hijo, el amado».",
+  "sentido_en_contexto": "Declara el amor del Padre al Hijo. En griego bíblico puede llevar el matiz de «único, el predilecto», como en Gn 22:2 (Isaac «amado» = único).",
+  "matiz": "Algunos ven aquí eco de Gn 22 (el hijo amado) y del Siervo de Is 42:1; Mateo no aclara la fuente exacta. La voz combina Sal 2:7 (Hijo) e Is 42:1 (en quien me complazco).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 17:5 — la misma voz en la transfiguración",
+   "Mc 12:6 — «teniendo aún un hijo suyo, amado»",
+   "Gn 22:2 — «tu hijo, tu único, a quien amas»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.17#14",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G0027",
+  "strong_tagnt": "G27",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "beloved"
+ },
+ {
+  "ref": "Matt.3.17",
+  "strong": "G2106",
+  "forma": "εὐδόκησα",
+  "glosa_interlineal": "me complací",
+  "rango_semantico": [
+   "complacerse, estar contento",
+   "tener a bien, decidir"
+  ],
+  "construccion": "Aoristo indicativo activo, 1ª singular: «me he complacido / me complazco». El aoristo marca una complacencia que no tiene límite temporal («siempre me complací»).",
+  "sentido_en_contexto": "Expresa la aprobación del Padre hacia el Hijo, que viene a identificarse con los pecadores en el bautismo. Mateo usa el aoristo, de modo que la frase suena a «en quien me he complacido».",
+  "matiz": "Es un aoristo con valor atemporal: no se refiere solo al momento del bautismo, sino a la relación eterna.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 12:18 — «mi escogido, en quien se agrada mi alma»",
+   "Lc 12:32 — «a vuestro Padre le ha placido daros el reino»",
+   "Col 1:19 — «agradó al Padre que en él habitase toda plenitud»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 17,
+  "alineacion": "forma",
+  "tagnt": "Matt.3.17#17",
+  "morfologia_tagnt": "V-AAI-1S",
+  "dstrong": "G2106",
+  "strong_tagnt": "G2106",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to delight"
+ }
+]

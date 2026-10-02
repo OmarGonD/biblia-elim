@@ -1,0 +1,483 @@
+[
+ {
+  "ref": "Rev.13.1",
+  "strong": "G2342",
+  "forma": "θηρίον",
+  "glosa_interlineal": "bestia",
+  "rango_semantico": [
+   "bestia, fiera"
+  ],
+  "construccion": "Acusativo: «y vi subir del mar una bestia que tenía siete cabezas y diez cuernos; y en sus cuernos diez diademas; y sobre sus cabezas un nombre blasfemo».",
+  "sentido_en_contexto": "La bestia del mar (13:1-10): poder político opresor, con rasgos de las cuatro bestias de Dn 7 (leopardo, oso, león, y diez cuernos). Recibe poder, trono y autoridad del dragón (v.2). Siete cabezas (que Ap 17:9-10 identifica con siete montes y siete reyes: Roma y sus emperadores), diez cuernos (diez reyes, 17:12), nombres blasfemos (títulos divinos del emperador). Blasfema y hace guerra a los santos 42 meses.",
+  "matiz": "Debate sobre la bestia: (a) el Imperio romano y sus emperadores (Nerón, Domiciano) (preterismo); (b) el sistema político totalitario que se repite en cada época (idealismo); (c) un gobernante individual futuro, el Anticristo (futurismo, dispensacionalismo); (d) el papado (historicismo reformado); (e) sentido combinado: poder político encarnado en cada época, culminando en un último Anticristo. Ver 17:8-14.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dn 7:3-8",
+   "Ap 11:7; 17:3, 7-14",
+   "2 Ts 2:3-4",
+   "1 Jn 2:18"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Rev.13.1#06",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G2342",
+  "strong_tagnt": "G2342",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "wild animal"
+ },
+ {
+  "ref": "Rev.13.3",
+  "strong": "G2323",
+  "forma": "ἐθεραπεύθη",
+  "glosa_interlineal": "fue sanada",
+  "rango_semantico": [
+   "curar, sanar"
+  ],
+  "construccion": "Aoristo indicativo pasivo: «vi una de sus cabezas como herida de muerte, pero su herida mortal fue sanada; y se maravilló toda la tierra en pos de la bestia».",
+  "sentido_en_contexto": "La herida mortal sanada: parodia de la muerte y resurrección de Cristo (el Cordero «como inmolado» y vivo, 5:6). Para los preteristas alude al mito del Nero redivivus (la leyenda de que Nerón, muerto en 68, volvería) y a la recuperación del imperio tras la guerra civil de 69; otros, a un imperio o personaje futuro; otros, a la persistencia del poder opresor pese a las derrotas. «Toda la tierra se maravilló» (ἐθαύμασεν): la admiración idólatra.",
+  "matiz": "Debate: (a) la leyenda del Nero redivivus y la recuperación del Imperio (la mayoría de exégetas históricos; ver 17:8, 11); (b) un Anticristo individual que muere y resucita, o parece hacerlo (futurismo); (c) símbolo de la pretensión satánica de imitar la resurrección de Cristo (idealismo). 17:8: «era y no es y ha de subir del abismo».",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ap 5:6; 17:8, 11",
+   "Ap 13:12, 14",
+   "2 Ts 2:9-10",
+   "Mt 24:24"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 17,
+  "alineacion": "forma",
+  "tagnt": "Rev.13.3#18",
+  "morfologia_tagnt": "V-API-3S",
+  "dstrong": "G2323",
+  "strong_tagnt": "G2323",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to serve/heal"
+ },
+ {
+  "ref": "Rev.13.4",
+  "strong": "G4352",
+  "forma": "προσεκύνησαν",
+  "glosa_interlineal": "adoraron",
+  "rango_semantico": [
+   "adorar, postrarse"
+  ],
+  "construccion": "Aoristo indicativo activo: «y adoraron al dragón que había dado autoridad a la bestia, y adoraron a la bestia, diciendo: ¿Quién como la bestia, y quién podrá luchar contra ella?».",
+  "sentido_en_contexto": "La adoración al dragón y a la bestia: parodia del culto al Dios verdadero y al Cordero. «¿Quién como la bestia?»: parodia de «¿Quién como Dios?» (Éx 15:11; Sal 35:10; Miqueas, «Miguel» = «¿quién como Dios?»). El culto imperial en Asia Menor (templos de Roma y Augusto) es el trasfondo; el problema de fondo es la idolatría política.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 15:11",
+   "Sal 35:10",
+   "Ap 13:8, 12",
+   "Dn 3:5-6"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Rev.13.4#02",
+  "morfologia_tagnt": "V-AAI-3P",
+  "dstrong": "G4352",
+  "strong_tagnt": "G4352",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to worship"
+ },
+ {
+  "ref": "Rev.13.4",
+  "strong": "G4352",
+  "forma": "προσεκύνησαν",
+  "glosa_interlineal": "adoraron",
+  "rango_semantico": [
+   "adorar, postrarse"
+  ],
+  "construccion": "Aoristo indicativo activo: «y adoraron al dragón que había dado autoridad a la bestia, y adoraron a la bestia, diciendo: ¿Quién como la bestia, y quién podrá luchar contra ella?».",
+  "sentido_en_contexto": "La adoración al dragón y a la bestia: parodia del culto al Dios verdadero y al Cordero. «¿Quién como la bestia?»: parodia de «¿Quién como Dios?» (Éx 15:11; Sal 35:10; Miqueas, «Miguel» = «¿quién como Dios?»). El culto imperial en Asia Menor (templos de Roma y Augusto) es el trasfondo; el problema de fondo es la idolatría política.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 15:11",
+   "Sal 35:10",
+   "Ap 13:8, 12",
+   "Dn 3:5-6"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Rev.13.4#12",
+  "morfologia_tagnt": "V-AAI-3P",
+  "dstrong": "G4352",
+  "strong_tagnt": "G4352",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to worship"
+ },
+ {
+  "ref": "Rev.13.5",
+  "strong": "G3376",
+  "forma": "μῆνας",
+  "glosa_interlineal": "meses",
+  "rango_semantico": [
+   "mes"
+  ],
+  "construccion": "Acusativo plural: «también se le dio boca que hablaba grandes cosas y blasfemias; y se le dio autoridad para actuar cuarenta y dos meses».",
+  "sentido_en_contexto": "La bestia habla arrogancias y blasfemias (Dn 7:8, 20, 25; 2 Ts 2:4); su autoridad es «dada» (ἐδόθη, pasivo divino: Dios permite) por 42 meses (3½ años): el tiempo limitado. Reaparece la cifra de 11:2; 12:6, 14. Muestra que el dominio del mal tiene un límite determinado por Dios.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dn 7:8, 20, 25",
+   "Ap 11:2; 12:6, 14",
+   "2 Ts 2:4"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Rev.13.5#15",
+  "morfologia_tagnt": "N-APM",
+  "dstrong": "G3376",
+  "strong_tagnt": "G3376",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "month"
+ },
+ {
+  "ref": "Rev.13.7",
+  "strong": "G3528",
+  "forma": "νικῆσαι",
+  "glosa_interlineal": "vencerlos",
+  "rango_semantico": [
+   "vencer, derrotar"
+  ],
+  "construccion": "Aoristo infinitivo activo: «y se le permitió hacer guerra contra los santos, y vencerlos. También se le dio autoridad sobre toda tribu, pueblo, lengua y nación».",
+  "sentido_en_contexto": "Paradoja: la bestia vence a los santos (por la muerte), pero ellos vencen por el Cordero (12:11; 15:2). La autoridad universal de la bestia (todo pueblo, lengua y nación) invierte la redención del Cordero de 5:9 y 7:9. Se parodia el reino del Cordero.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dn 7:21",
+   "Ap 11:7; 12:11",
+   "Ap 5:9; 7:9"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Rev.13.7#10",
+  "morfologia_tagnt": "V-AAN",
+  "dstrong": "G3528",
+  "strong_tagnt": "G3528",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to conquer"
+ },
+ {
+  "ref": "Rev.13.8",
+  "strong": "G2602",
+  "forma": "καταβολῆς",
+  "glosa_interlineal": "fundación",
+  "rango_semantico": [
+   "fundación, comienzo"
+  ],
+  "construccion": "Genitivo: «y la adoraron todos los moradores de la tierra cuyos nombres no estaban escritos desde el principio del mundo en el libro de la vida del Cordero que fue inmolado».",
+  "sentido_en_contexto": "Ambigüedad sintáctica: «desde la fundación del mundo» puede modificar «escritos» (nombres inscritos desde antes de la creación; cf. 17:8) o «inmolado» (el sacrificio del Cordero decidido desde la eternidad; 1 P 1:20). RVR60 lo une a «escritos». Ambas lecturas son posibles y afirman el propósito eterno de Dios.",
+  "matiz": "Debate: «desde la fundación del mundo» se une a (a) «escritos» (17:8; nombres inscritos de eternidad; lectura reformada y de la mayoría); (b) «inmolado» (el sacrificio de Cristo planeado desde la eternidad; 1 P 1:20; Ef 1:4). En ambos casos se afirma el propósito eterno de Dios.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ap 17:8; 20:12, 15",
+   "1 P 1:20",
+   "Ef 1:4",
+   "Fil 4:3"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 26,
+  "alineacion": "forma",
+  "tagnt": "Rev.13.8#26",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G2602",
+  "strong_tagnt": "G2602",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "beginning"
+ },
+ {
+  "ref": "Rev.13.10",
+  "strong": "G5281",
+  "forma": "ὑπομονὴ",
+  "glosa_interlineal": "perseverancia",
+  "rango_semantico": [
+   "perseverancia, paciencia"
+  ],
+  "construccion": "Nominativo: «si alguno lleva en cautividad, va en cautividad; si alguno mata a espada, es necesario que a espada sea muerto. Aquí está la perseverancia y la fe de los santos».",
+  "sentido_en_contexto": "Llamado a la resistencia no violenta: los santos no responden con las armas de la bestia; confían en el juicio de Dios. «Aquí está la perseverancia (ὑπομονή) y la fe de los santos» (14:12). Alusión a Jer 15:2; 43:11. El texto dista de ser una justificación de la violencia; es un mandato de resistencia fiel.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jer 15:2; 43:11",
+   "Mt 26:52",
+   "Ap 14:12",
+   "Ro 12:19"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 21,
+  "alineacion": "forma",
+  "tagnt": "Rev.13.10#22",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G5281",
+  "strong_tagnt": "G5281",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "perseverance"
+ },
+ {
+  "ref": "Rev.13.11",
+  "strong": "G2342",
+  "forma": "θηρίον",
+  "glosa_interlineal": "bestia",
+  "rango_semantico": [
+   "bestia, fiera"
+  ],
+  "construccion": "Acusativo: «después vi otra bestia que subía de la tierra; y tenía dos cuernos semejantes a los de un cordero, pero hablaba como dragón».",
+  "sentido_en_contexto": "La bestia de la tierra (13:11-18), llamada más tarde «el falso profeta» (16:13; 19:20; 20:10): parodia del Espíritu Santo y del profeta, con apariencia de cordero y voz de dragón. Hace señales, promueve el culto de la primera bestia y su imagen, impone la marca. Se interpreta como el sacerdocio del culto imperial (asiarcas), la propaganda religiosa del poder político, o un falso profeta futuro.",
+  "matiz": "Debate: (a) el culto imperial y sus sacerdotes en Asia (preterismo); (b) la religión o ideología al servicio del poder político en cada época (idealismo); (c) un falso profeta individual futuro (futurismo); (d) el papado o una jerarquía eclesiástica corrupta (historicismo reformado, hoy minoritaria).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ap 16:13; 19:20; 20:10",
+   "Mt 7:15",
+   "2 Ts 2:9-10",
+   "Dt 13:1-3"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Rev.13.11#04",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G2342",
+  "strong_tagnt": "G2342",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "wild animal"
+ },
+ {
+  "ref": "Rev.13.13",
+  "strong": "G4592",
+  "forma": "σημεῖα",
+  "glosa_interlineal": "señales",
+  "rango_semantico": [
+   "señal, milagro"
+  ],
+  "construccion": "Acusativo plural: «también hace grandes señales, de tal manera que aun hace descender fuego del cielo a la tierra delante de los hombres».",
+  "sentido_en_contexto": "La segunda bestia imita a Elías (1 R 18:38; 2 R 1:10) y a los dos testigos (11:5); sus señales engañan (v.14; Mt 24:24; 2 Ts 2:9). El criterio para discernir no es el milagro, sino la doctrina y la lealtad a Cristo (Dt 13:1-5). La imagen de la bestia «habla» (v.15): quizá se alude a estatuas animadas por trucos de ventriloquía en el culto antiguo.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 R 18:38",
+   "Dt 13:1-5",
+   "Mt 24:24",
+   "2 Ts 2:9"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Rev.13.13#03",
+  "morfologia_tagnt": "N-APN",
+  "dstrong": "G4592",
+  "strong_tagnt": "G4592",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "sign"
+ },
+ {
+  "ref": "Rev.13.16",
+  "strong": "G5480",
+  "forma": "χάραγμα",
+  "glosa_interlineal": "marca",
+  "rango_semantico": [
+   "marca, sello grabado"
+  ],
+  "construccion": "Acusativo: «y hacía que a todos, pequeños y grandes, ricos y pobres, libres y esclavos, se les pusiese una marca en la mano derecha, o en la frente».",
+  "sentido_en_contexto": "«La marca de la bestia» (χάραγμα): imitación del sello de Dios en la frente de los suyos (7:3; 14:1). Quien no la tiene no puede comprar ni vender (v.17): boicot económico contra los cristianos, quizá relacionado con los gremios y el comercio ligado al culto imperial. Significado discutido: marca literal (chip, tatuaje), señal simbólica de lealtad y adoración (mano = acción; frente = pensamiento) o la inscripción en las monedas con la efigie del césar.",
+  "matiz": "Debate: (a) señal simbólica de lealtad a la bestia, paralela al sello de Dios (la mayoría de exégetas; Dt 6:8: las palabras de la ley sobre la frente y la mano); (b) una marca literal futura (futurismo); (c) el certificado de sacrificio al emperador (libelli, s. III); o los sellos con la efigie del César. En todo caso, el objetivo es la presión económica y religiosa.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dt 6:8",
+   "Ap 7:3; 14:1, 9, 11; 16:2; 20:4",
+   "Ez 9:4"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 24,
+  "alineacion": "forma",
+  "tagnt": "Rev.13.16#24",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G5480",
+  "strong_tagnt": "G5480",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg"
+  ],
+  "ausente_en": [
+   "TR",
+   "Byz"
+  ],
+  "variante": true,
+  "glosa_tagnt": "image/mark"
+ },
+ {
+  "ref": "Rev.13.18",
+  "strong": "G5516",
+  "forma": "χξϛʹ",
+  "glosa_interlineal": "seiscientos sesenta y seis",
+  "rango_semantico": [
+   "666 (número en notación griega: χ = 600, ξ = 60, ϛ = 6)"
+  ],
+  "construccion": "Numeral: «aquí hay sabiduría: el que tiene entendimiento, cuente el número de la bestia, pues es número de hombre. Y su número es seiscientos sesenta y seis».",
+  "sentido_en_contexto": "El número de la bestia: χξϛʹ (666). En Hebreo y Griego las letras tienen valor numérico (gematría). La interpretación más común: «Nerón César» (נרון קסר) en hebreo suma 666 (y con la variante nun final, 616: Nerō Caesar sin la «n» final: 616, atestiguado en P115, C y otros manuscritos). Otras: Gaius Caesar (Calígula), Domiciano, el papa, nombres modernos, o el número simbólico de lo humano que no alcanza el 7 (666 = el triple fracaso).",
+  "matiz": "Debate sobre el número: (a) gematría de «Nerón César» (666; 616 sin la «n»: la mayoría de exégetas históricos: Nerón; sentido de «hombre»); (b) simbólico: 6, número de imperfección humana, triplicado (idealismo); (c) un nombre futuro por identificar (futurismo); (d) aplicaciones históricas diversas (Calígula, Domiciano, Mahoma, el papa, etc.). Variante textual: 616 en P115, C, Ireneo la menciona como variante; 666 en א, A, 046.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ap 17:9",
+   "Ap 14:9-11",
+   "Dn 5:25-28",
+   "1 R 10:14"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 21,
+  "alineacion": "strong",
+  "tagnt": "Rev.13.18#25",
+  "morfologia_tagnt": "A-NUI",
+  "dstrong": "G1803",
+  "strong_tagnt": "G1803",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "SBL",
+   "WH",
+   "Byz"
+  ],
+  "ausente_en": [
+   "Tyn",
+   "Treg",
+   "TR"
+  ],
+  "variante": true,
+  "glosa_tagnt": "six"
+ }
+]

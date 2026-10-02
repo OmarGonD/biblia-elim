@@ -1,0 +1,1366 @@
+[
+ {
+  "ref": "Luke.1.1",
+  "strong": "G1335",
+  "forma": "διήγησιν",
+  "glosa_interlineal": "relato",
+  "rango_semantico": [
+   "narración, relato ordenado"
+  ],
+  "construccion": "Acusativo: «poner en orden una narración».",
+  "sentido_en_contexto": "Prólogo de estilo literario griego: Lucas reconoce que otros ya han intentado escribir y anuncia su propósito de un relato ordenado. Es el único Evangelio con prólogo de este tipo.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 1:1 — «en el primer tratado»",
+   "Jn 20:30-31 — propósito del cuarto Evangelio"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.1#05",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G1335",
+  "strong_tagnt": "G1335",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "narrative"
+ },
+ {
+  "ref": "Luke.1.2",
+  "strong": "G845",
+  "forma": "αὐτόπται",
+  "glosa_interlineal": "testigos oculares",
+  "rango_semantico": [
+   "testigo ocular"
+  ],
+  "construccion": "Nominativo plural: «los que desde el principio fueron testigos oculares».",
+  "sentido_en_contexto": "Lucas fundamenta su relato en testigos oculares y «servidores de la palabra». Palabra única en el NT, de la que viene «autopsia».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 1:21-22 — requisitos para ser apóstol",
+   "1 Jn 1:1 — «lo que hemos visto con nuestros ojos»",
+   "2 P 1:16 — «testigos oculares (ἐπόπται) de su majestad»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.2#07",
+  "morfologia_tagnt": "N-NPM",
+  "dstrong": "G0845",
+  "strong_tagnt": "G845",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "eyewitness"
+ },
+ {
+  "ref": "Luke.1.3",
+  "strong": "G199",
+  "forma": "ἀκριβῶς",
+  "glosa_interlineal": "con exactitud",
+  "rango_semantico": [
+   "con exactitud, con cuidado"
+  ],
+  "construccion": "Adverbio: «habiendo investigado todo con exactitud».",
+  "sentido_en_contexto": "Lucas declara su método: investigación cuidadosa desde el origen, para escribir «ordenadamente» (καθεξῆς). No promete cronología estricta, sino orden narrativo.",
+  "matiz": "Se discute qué significa «ordenadamente»: ¿cronológico, temático o lógico? Lucas a veces reordena respecto de Marcos.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 18:25 — «enseñaba diligentemente»",
+   "Hch 23:15, 20 — «inquirir con más exactitud»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.3#06",
+  "morfologia_tagnt": "ADV",
+  "dstrong": "G0199",
+  "strong_tagnt": "G199",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "exactly"
+ },
+ {
+  "ref": "Luke.1.3",
+  "strong": "G2321",
+  "forma": "Θεόφιλε",
+  "glosa_interlineal": "Teófilo",
+  "rango_semantico": [
+   "Teófilo («amigo de Dios»)"
+  ],
+  "construccion": "Vocativo: «excelentísimo Teófilo».",
+  "sentido_en_contexto": "Destinatario del Evangelio y de Hechos. «Excelentísimo» (κράτιστε) es tratamiento para un alto funcionario. Su identidad es desconocida; el nombre significa «amigo de Dios».",
+  "matiz": "Se debate si era una persona real (probable) o un nombre simbólico para cualquier lector «amigo de Dios». La mayoría lo ve como un patrono real.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 1:1 — «he hablado de todas las cosas, oh Teófilo»",
+   "Hch 23:26 — «al excelentísimo gobernador Félix»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.3#11",
+  "morfologia_tagnt": "N-VSM-P",
+  "dstrong": "G2321",
+  "strong_tagnt": "G2321",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Theophilus"
+ },
+ {
+  "ref": "Luke.1.4",
+  "strong": "G803",
+  "forma": "ἀσφάλειαν",
+  "glosa_interlineal": "certeza",
+  "rango_semantico": [
+   "seguridad, certeza",
+   "firmeza"
+  ],
+  "construccion": "Acusativo: «para que conozcas la certeza de las cosas».",
+  "sentido_en_contexto": "Propósito del Evangelio: dar a Teófilo seguridad sobre lo que ya fue instruido. El término «seguridad» sugiere solidez frente a dudas.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Ts 5:3 — «paz y seguridad»",
+   "Hch 5:23 — «la cárcel… cerrada con toda seguridad»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.4#08",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G0803",
+  "strong_tagnt": "G803",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "security"
+ },
+ {
+  "ref": "Luke.1.5",
+  "strong": "G2409",
+  "forma": "ἱερεύς",
+  "glosa_interlineal": "sacerdote",
+  "rango_semantico": [
+   "sacerdote"
+  ],
+  "construccion": "Nominativo: «un sacerdote llamado Zacarías».",
+  "sentido_en_contexto": "Lucas empieza con una familia sacerdotal piadosa: Zacarías (del turno de Abías) y Elisabet (descendiente de Aarón). Escenario del templo en Jerusalén.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Cr 24:10 — el turno de Abías (octavo)",
+   "Éx 6:23 — Elisabet, el nombre de la esposa de Aarón"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.5#10",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G2409",
+  "strong_tagnt": "G2409",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "priest"
+ },
+ {
+  "ref": "Luke.1.6",
+  "strong": "G273",
+  "forma": "ἄμεμπτοι",
+  "glosa_interlineal": "irreprensibles",
+  "rango_semantico": [
+   "sin tacha, irreprochable"
+  ],
+  "construccion": "Adjetivo nominativo plural: «irreprensibles».",
+  "sentido_en_contexto": "Zacarías y Elisabet eran «justos delante de Dios» y vivían sin tacha según la Ley. Contrasta con su falta de hijos, que no se debía a pecado.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Fil 3:6 — «irreprensible» en cuanto a la justicia de la ley",
+   "Gn 6:9 — Noé «perfecto en sus generaciones»",
+   "Job 1:1 — Job «perfecto y recto»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 17,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.6#17",
+  "morfologia_tagnt": "A-NPM",
+  "dstrong": "G0273",
+  "strong_tagnt": "G273",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "blameless"
+ },
+ {
+  "ref": "Luke.1.7",
+  "strong": "G4723",
+  "forma": "στεῖρα",
+  "glosa_interlineal": "estéril",
+  "rango_semantico": [
+   "estéril, sin hijos"
+  ],
+  "construccion": "Nominativo: «Elisabet era estéril».",
+  "sentido_en_contexto": "Patrón bíblico: mujeres estériles que dan a luz por intervención de Dios (Sara, Rebeca, Ana). Prepara el nacimiento de Juan.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Gn 18:11-14 — Sara",
+   "1 S 1:5-20 — Ana",
+   "Lc 1:36 — «la que llamaban estéril»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.7#10",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G4723",
+  "strong_tagnt": "G4723",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "infertility"
+ },
+ {
+  "ref": "Luke.1.11",
+  "strong": "G32",
+  "forma": "ἄγγελος",
+  "glosa_interlineal": "ángel",
+  "rango_semantico": [
+   "mensajero, ángel"
+  ],
+  "construccion": "Nominativo: «un ángel del Señor».",
+  "sentido_en_contexto": "El anuncio ocurre en el santuario, a la derecha del altar del incienso, mientras el pueblo oraba afuera. Lucas inicia su Evangelio en el templo.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dn 9:21-23 — Gabriel viene a la hora de la ofrenda",
+   "Lc 24:53 — el Evangelio termina en el templo"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.11#04",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G0032G",
+  "strong_tagnt": "G32",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "angel"
+ },
+ {
+  "ref": "Luke.1.15",
+  "strong": "G4608",
+  "forma": "σίκερα",
+  "glosa_interlineal": "sidra",
+  "rango_semantico": [
+   "bebida fermentada, licor (no vino)"
+  ],
+  "construccion": "Acusativo: «no beberá vino ni sidra».",
+  "sentido_en_contexto": "Voto de nazareo de por vida: Juan no beberá vino ni bebida fermentada. «Será lleno del Espíritu Santo desde el vientre de su madre».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Nm 6:3 — el nazareo",
+   "Jue 13:4-5 — Sansón",
+   "Ef 5:18 — «no os embriaguéis con vino… sino sed llenos del Espíritu»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.15#10",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G4608",
+  "strong_tagnt": "G4608",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "alcoholic drink"
+ },
+ {
+  "ref": "Luke.1.17",
+  "strong": "G2243",
+  "forma": "Ἡλεία",
+  "glosa_interlineal": "Elías",
+  "rango_semantico": [
+   "Elías"
+  ],
+  "construccion": "Dativo: «con el espíritu y el poder de Elías».",
+  "sentido_en_contexto": "Juan viene «con el espíritu y poder de Elías»: cumple Mal 4:5-6 sin ser Elías mismo. Lucas lo expresa con precisión: función, no identidad.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mal 4:5-6 — fuente",
+   "Mt 11:14 — «él es aquel Elías»",
+   "Jn 1:21 — «¿eres tú Elías? No soy»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "strong",
+  "tagnt": "Luke.1.17#10",
+  "morfologia_tagnt": "N-GSM-P",
+  "dstrong": "G2243",
+  "strong_tagnt": "G2243",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Elijah"
+ },
+ {
+  "ref": "Luke.1.19",
+  "strong": "G1043",
+  "forma": "Γαβριὴλ",
+  "glosa_interlineal": "Gabriel",
+  "rango_semantico": [
+   "Gabriel («hombre fuerte de Dios»)"
+  ],
+  "construccion": "Nominativo: «yo soy Gabriel».",
+  "sentido_en_contexto": "Ángel que se identifica por nombre y función: «estoy delante de Dios». Aparece en Dn 8-9; en el NT solo en Lucas.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Dn 8:16; 9:21 — Gabriel explica visiones",
+   "Lc 1:26 — anuncia a María",
+   "Ap 8:2 — «los siete ángeles que están en pie ante Dios»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.19#09",
+  "morfologia_tagnt": "N-NSM-T",
+  "dstrong": "G1043",
+  "strong_tagnt": "G1043",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Gabriel"
+ },
+ {
+  "ref": "Luke.1.20",
+  "strong": "G4623",
+  "forma": "σιωπῶν",
+  "glosa_interlineal": "mudo",
+  "rango_semantico": [
+   "callar, estar en silencio"
+  ],
+  "construccion": "Participio presente activo: «estarás callado».",
+  "sentido_en_contexto": "Señal y castigo: Zacarías quedará mudo hasta el nacimiento, por no creer. Contrasta con la fe de María (1:38, 45).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 1:64 — «su boca fue abierta»",
+   "Dn 10:15 — Daniel enmudece ante la visión"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.20#04",
+  "morfologia_tagnt": "V-PAP-NSM",
+  "dstrong": "G4623",
+  "strong_tagnt": "G4623",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "be quiet"
+ },
+ {
+  "ref": "Luke.1.25",
+  "strong": "G3681",
+  "forma": "ὄνειδός",
+  "glosa_interlineal": "afrenta",
+  "rango_semantico": [
+   "afrenta, oprobio"
+  ],
+  "construccion": "Acusativo: «quitar mi afrenta entre los hombres».",
+  "sentido_en_contexto": "En el mundo antiguo la esterilidad se vivía como oprobio social. Elisabet reconoce la acción de Dios que borra su afrenta.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 30:23 — Raquel: «Dios ha quitado mi afrenta»",
+   "1 S 1:6-7 — la humillación de Ana"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.25#13",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G3681",
+  "strong_tagnt": "G3681",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "disgrace"
+ },
+ {
+  "ref": "Luke.1.28",
+  "strong": "G5487",
+  "forma": "κεχαριτωμένη",
+  "glosa_interlineal": "muy favorecida",
+  "rango_semantico": [
+   "agraciada, favorecida (objeto de la gracia)",
+   "llena de gracia"
+  ],
+  "construccion": "Participio perfecto pasivo, vocativo femenino: «la que ha sido agraciada».",
+  "sentido_en_contexto": "Saludo del ángel a María. Es participio de χαριτόω («dar gracia»): la que ha recibido (y mantiene) el favor de Dios. La Vulgata tradujo «gratia plena» («llena de gracia»).",
+  "matiz": "El sentido se discute entre tradiciones: «muy favorecida» (agraciada por Dios, RVR) o «llena de gracia» (Vulgata y tradición católica, con sentido de plenitud de gracia). El perfecto indica un estado ya en curso.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": "RVR: «muy favorecida»; versiones católicas: «llena de gracia» (de la Vulgata «gratia plena»).",
+  "otros_usos": [
+   "Ef 1:6 — «nos hizo aceptos (ἐχαρίτωσεν) en el Amado»",
+   "Lc 1:30 — «has hallado gracia delante de Dios»",
+   "Jue 6:12 — «Jehová está contigo»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.28#09",
+  "morfologia_tagnt": "V-RPP-VSF",
+  "dstrong": "G5487",
+  "strong_tagnt": "G5487",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to favor"
+ },
+ {
+  "ref": "Luke.1.31",
+  "strong": "G2424",
+  "forma": "Ἰησοῦν",
+  "glosa_interlineal": "Jesús",
+  "rango_semantico": [
+   "Jesús (Yeshúa, «Yahvé salva»)"
+  ],
+  "construccion": "Acusativo: «le pondrás por nombre Jesús».",
+  "sentido_en_contexto": "El nombre lo da el ángel. Lucas no explica el significado (Mateo sí, 1:21), pero lo vincula con salvación en 2:11, 30.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 1:21 — «él salvará a su pueblo de sus pecados»",
+   "Lc 2:21 — «le pusieron por nombre Jesús»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.31#14",
+  "morfologia_tagnt": "N-ASM-P",
+  "dstrong": "G2424G",
+  "strong_tagnt": "G2424",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Jesus/Joshua"
+ },
+ {
+  "ref": "Luke.1.32",
+  "strong": "G5310",
+  "forma": "ὑψίστου",
+  "glosa_interlineal": "Altísimo",
+  "rango_semantico": [
+   "altísimo",
+   "el Altísimo (título de Dios)"
+  ],
+  "construccion": "Genitivo: «Hijo del Altísimo».",
+  "sentido_en_contexto": "Anuncio con lenguaje de 2 S 7:12-16: heredará el trono de David y reinará para siempre. «Hijo del Altísimo» une la filiación divina con la realeza davídica.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 S 7:12-16 — la promesa a David",
+   "Sal 2:7 — «mi hijo eres tú»",
+   "Is 9:6-7 — «sobre el trono de David… para siempre»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.32#06",
+  "morfologia_tagnt": "A-GSM-S",
+  "dstrong": "G5310",
+  "strong_tagnt": "G5310",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "highest"
+ },
+ {
+  "ref": "Luke.1.34",
+  "strong": "G1097",
+  "forma": "γινώσκω",
+  "glosa_interlineal": "conozco",
+  "rango_semantico": [
+   "conocer",
+   "tener relación íntima"
+  ],
+  "construccion": "Presente indicativo activo, 1ª singular: «no conozco varón».",
+  "sentido_en_contexto": "Pregunta de María: no pone en duda lo anunciado como Zacarías, sino pregunta cómo. «Conocer varón» es eufemismo hebreo para relación conyugal; está desposada pero no ha convivido con José.",
+  "matiz": "Interpretaciones: (a) afirma que no ha tenido relaciones y no las espera en lo inmediato; (b) refleja un propósito de virginidad (tradición patrística y católica). El texto no lo precisa.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 1:25 — «no la conoció hasta que dio a luz»",
+   "Gn 4:1 — «conoció Adán a Eva»",
+   "Lc 1:20 — el «cómo» de Zacarías era de duda"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.34#13",
+  "morfologia_tagnt": "V-PAI-1S",
+  "dstrong": "G1097",
+  "strong_tagnt": "G1097",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to know"
+ },
+ {
+  "ref": "Luke.1.35",
+  "strong": "G1982",
+  "forma": "ἐπισκιάσει",
+  "glosa_interlineal": "cubrirá con su sombra",
+  "rango_semantico": [
+   "cubrir con sombra",
+   "envolver"
+  ],
+  "construccion": "Futuro indicativo activo, 3ª singular: «el poder del Altísimo te cubrirá con su sombra».",
+  "sentido_en_contexto": "Imagen de la presencia de Dios sobre el tabernáculo (Éx 40:35). La concepción es obra del Espíritu y del poder de Dios; el hijo será «santo, Hijo de Dios».",
+  "matiz": "Debate: «el que ha de nacer será llamado santo» puede leerse «el santo niño será llamado Hijo de Dios» o «el que nace será llamado santo, Hijo de Dios». El sentido de «Hijo de Dios» es filial y mesiánico.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 40:35 — la nube cubre el tabernáculo",
+   "Mr 9:7 — la nube en la transfiguración",
+   "Mt 1:18-20 — «por obra del Espíritu Santo»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 15,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.35#15",
+  "morfologia_tagnt": "V-FAI-3S",
+  "dstrong": "G1982",
+  "strong_tagnt": "G1982",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to overshadow"
+ },
+ {
+  "ref": "Luke.1.37",
+  "strong": "G101",
+  "forma": "ἀδυνατήσει",
+  "glosa_interlineal": "será imposible",
+  "rango_semantico": [
+   "ser imposible",
+   "faltar poder"
+  ],
+  "construccion": "Futuro indicativo activo, 3ª singular: «nada será imposible para Dios».",
+  "sentido_en_contexto": "Eco de Gn 18:14 (a Sara): «¿hay algo demasiado difícil para Jehová?». Respuesta del ángel a la pregunta de María, apoyada en el embarazo de Elisabet.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 18:14 — texto base",
+   "Mt 19:26 — «para Dios todo es posible»",
+   "Job 42:2 — «todo lo puedes»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.37#03",
+  "morfologia_tagnt": "V-FAI-3S",
+  "dstrong": "G0101",
+  "strong_tagnt": "G101",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "not to be able"
+ },
+ {
+  "ref": "Luke.1.38",
+  "strong": "G1399",
+  "forma": "δούλη",
+  "glosa_interlineal": "sierva",
+  "rango_semantico": [
+   "esclava, sierva"
+  ],
+  "construccion": "Nominativo: «he aquí la sierva (esclava) del Señor».",
+  "sentido_en_contexto": "Respuesta de María: disponibilidad total. δούλη es la esclava, con la que se somete a la voluntad de Dios («hágase en mí según tu palabra»).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 1:48 — «ha mirado la bajeza de su sierva»",
+   "Sal 116:16 — «yo soy tu siervo… hijo de tu sierva»",
+   "Hch 2:18 — «mis siervos y mis siervas»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.38#06",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G1401",
+  "strong_tagnt": "G1401",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "female slave"
+ },
+ {
+  "ref": "Luke.1.41",
+  "strong": "G4640",
+  "forma": "ἐσκίρτησεν",
+  "glosa_interlineal": "saltó",
+  "rango_semantico": [
+   "saltar, brincar de gozo"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª singular: «el niño saltó en su vientre».",
+  "sentido_en_contexto": "Juan salta de gozo en el vientre de Elisabet ante la llegada de María. Lucas lo presenta como reconocimiento de Jesús, lleno ya del Espíritu (1:15).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Lc 1:44 — repite el salto «de alegría»",
+   "Gn 25:22 — los hijos de Rebeca luchaban en su seno",
+   "Mal 4:2 — «saldréis y saltaréis como becerros»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.41#11",
+  "morfologia_tagnt": "V-AAI-3S",
+  "dstrong": "G4640",
+  "strong_tagnt": "G4640",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to leap"
+ },
+ {
+  "ref": "Luke.1.42",
+  "strong": "G2127",
+  "forma": "εὐλογημένη",
+  "glosa_interlineal": "bendita",
+  "rango_semantico": [
+   "bendecido, bendito"
+  ],
+  "construccion": "Participio perfecto pasivo: «bendita tú entre las mujeres».",
+  "sentido_en_contexto": "Elisabet, llena del Espíritu, proclama a María bendita y bendito el fruto de su vientre. Eco de Jue 5:24 (Jael) y Jdt 13:18.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jue 5:24 — «bendita sea entre las mujeres Jael»",
+   "Dt 28:4 — «bendito el fruto de tu vientre»",
+   "Lc 1:28 — el saludo del ángel"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.42#07",
+  "morfologia_tagnt": "V-RPP-NSF",
+  "dstrong": "G2127",
+  "strong_tagnt": "G2127",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to praise/bless"
+ },
+ {
+  "ref": "Luke.1.43",
+  "strong": "G2962",
+  "forma": "κυρίου",
+  "glosa_interlineal": "Señor",
+  "rango_semantico": [
+   "amo, señor",
+   "Señor (Dios o Cristo)"
+  ],
+  "construccion": "Genitivo: «la madre de mi Señor».",
+  "sentido_en_contexto": "Elisabet llama a María «madre de mi Señor»: reconoce a Jesús como Señor ya desde antes de nacer. «Señor» tiene aquí carga mesiánica y divina.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 2:11 — «un Salvador, que es Cristo el Señor»",
+   "Hch 2:36 — «Dios le ha hecho Señor y Cristo»",
+   "Sal 110:1 — «mi Señor»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.43#10",
+  "morfologia_tagnt": "N-GSM-T",
+  "dstrong": "G2962G",
+  "strong_tagnt": "G2962",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "lord"
+ },
+ {
+  "ref": "Luke.1.45",
+  "strong": "G3107",
+  "forma": "μακαρία",
+  "glosa_interlineal": "bienaventurada",
+  "rango_semantico": [
+   "feliz, dichosa",
+   "bienaventurado"
+  ],
+  "construccion": "Adjetivo nominativo: «bienaventurada la que creyó».",
+  "sentido_en_contexto": "Elisabet proclama bienaventurada a María por su fe. Contrasta con Zacarías, que dudó (1:20).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 11:27-28 — «bienaventurados los que oyen la palabra de Dios»",
+   "Jn 20:29 — «bienaventurados los que no vieron y creyeron»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.45#02",
+  "morfologia_tagnt": "A-NSF",
+  "dstrong": "G3107",
+  "strong_tagnt": "G3107",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "blessed"
+ },
+ {
+  "ref": "Luke.1.46",
+  "strong": "G3170",
+  "forma": "μεγαλύνει",
+  "glosa_interlineal": "engrandece",
+  "rango_semantico": [
+   "engrandecer, magnificar"
+  ],
+  "construccion": "Presente indicativo activo, 3ª singular: «mi alma engrandece al Señor».",
+  "sentido_en_contexto": "Inicio del Magníficat (de «magnificat» en la Vulgata), cántico de María inspirado en el cántico de Ana (1 S 2:1-10). Celebra a Dios que exalta a los humildes y derriba a los poderosos.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 S 2:1-10 — el cántico de Ana",
+   "Sal 34:3 — «engrandeced a Jehová conmigo»",
+   "Hab 3:18 — «me gozaré en el Dios de mi salvación»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.46#04",
+  "morfologia_tagnt": "V-PAI-3S",
+  "dstrong": "G3170",
+  "strong_tagnt": "G3170",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to magnify"
+ },
+ {
+  "ref": "Luke.1.48",
+  "strong": "G5014",
+  "forma": "ταπείνωσιν",
+  "glosa_interlineal": "humildad",
+  "rango_semantico": [
+   "humillación, bajeza, estado humilde"
+  ],
+  "construccion": "Acusativo: «ha mirado la bajeza de su sierva».",
+  "sentido_en_contexto": "María se define por su humilde condición social y no por mérito propio: Dios mira a los pequeños. «Todas las generaciones me dirán bienaventurada» se cumple por la acción de Dios, no por ella misma.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 S 1:11 — Ana: «si te dignares mirar la aflicción de tu sierva»",
+   "Sal 138:6 — «Jehová… atiende al humilde»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.48#05",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G5014",
+  "strong_tagnt": "G5014",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "lowliness"
+ },
+ {
+  "ref": "Luke.1.51",
+  "strong": "G1023",
+  "forma": "βραχίονι",
+  "glosa_interlineal": "brazo",
+  "rango_semantico": [
+   "brazo (símbolo de poder)"
+  ],
+  "construccion": "ἐν + dativo: «con su brazo».",
+  "sentido_en_contexto": "El Magníficat presenta una triple inversión: dispersa a los soberbios, derriba a los poderosos y despide vacíos a los ricos. Dios actúa con «su brazo»: poder liberador, como en el Éxodo.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 15:16 — «la grandeza de tu brazo»",
+   "Sal 89:10 — «con tu brazo poderoso esparciste a tus enemigos»",
+   "Is 52:10 — «Jehová desnudó su santo brazo»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.51#04",
+  "morfologia_tagnt": "N-DSM",
+  "dstrong": "G1023",
+  "strong_tagnt": "G1023",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "arm"
+ },
+ {
+  "ref": "Luke.1.52",
+  "strong": "G5312",
+  "forma": "ὕψωσεν",
+  "glosa_interlineal": "exaltó",
+  "rango_semantico": [
+   "levantar, exaltar",
+   "ensalzar"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª singular: «exaltó a los humildes».",
+  "sentido_en_contexto": "Inversión de suertes: «quitó de los tronos a los poderosos y exaltó a los humildes». Tema lucano: Dios revierte las jerarquías humanas.",
+  "matiz": "Se discute si el Magníficat tiene dimensión social además de espiritual (los aoristos describen lo que Dios ya hizo y hace). Muchos ven ambas dimensiones.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 14:11 — «el que se humilla será enaltecido»",
+   "Lc 6:20-26 — bienaventuranzas y ayes",
+   "Job 5:11 — «poner a los humildes en altura»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.52#06",
+  "morfologia_tagnt": "V-AAI-3S",
+  "dstrong": "G5312",
+  "strong_tagnt": "G5312",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to lift up"
+ },
+ {
+  "ref": "Luke.1.53",
+  "strong": "G4147",
+  "forma": "πλουτοῦντας",
+  "glosa_interlineal": "ricos",
+  "rango_semantico": [
+   "ser rico, enriquecerse"
+  ],
+  "construccion": "Participio presente activo: «a los ricos envió vacíos».",
+  "sentido_en_contexto": "Contraste con «a los hambrientos colmó de bienes». Lucas desarrolla este tema (6:24; 12:16-21; 16:19-31): los ricos que confían en sus bienes quedan vacíos.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 6:24 — «¡ay de vosotros, ricos!»",
+   "Lc 16:19-31 — el rico y Lázaro",
+   "1 S 2:5 — «los saciados se alquilaron por pan»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.53#05",
+  "morfologia_tagnt": "V-PAP-APM",
+  "dstrong": "G4147",
+  "strong_tagnt": "G4147",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "be rich"
+ },
+ {
+  "ref": "Luke.1.68",
+  "strong": "G3085",
+  "forma": "λύτρωσιν",
+  "glosa_interlineal": "redención",
+  "rango_semantico": [
+   "rescate, redención, liberación"
+  ],
+  "construccion": "Acusativo: «hizo redención a su pueblo».",
+  "sentido_en_contexto": "Inicio del Benedictus, cántico de Zacarías al nacer Juan: Dios «ha visitado y redimido a su pueblo». λύτρωσις es la liberación mediante rescate, como en el Éxodo.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 6:6 — «os redimiré con brazo extendido»",
+   "Lc 2:38 — Ana habla a los que esperaban la redención",
+   "Heb 9:12 — «obteniendo eterna redención»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.68#11",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G3085",
+  "strong_tagnt": "G3085",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "redemption"
+ },
+ {
+  "ref": "Luke.1.69",
+  "strong": "G2768",
+  "forma": "κέρας",
+  "glosa_interlineal": "cuerno",
+  "rango_semantico": [
+   "cuerno (símbolo de poder y fuerza)"
+  ],
+  "construccion": "Acusativo: «un cuerno de salvación».",
+  "sentido_en_contexto": "Imagen bíblica de fuerza victoriosa: Dios levanta un salvador poderoso de la casa de David. Tiene sentido mesiánico.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 132:17 — «haré retoñar el poder de David»",
+   "1 S 2:10 — «exaltará el poder de su Mesías»",
+   "Sal 18:2 — «cuerno de mi salvación»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.69#03",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G2768",
+  "strong_tagnt": "G2768",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "horn"
+ },
+ {
+  "ref": "Luke.1.78",
+  "strong": "G395",
+  "forma": "ἀνατολὴ",
+  "glosa_interlineal": "amanecer",
+  "rango_semantico": [
+   "salida, amanecer",
+   "(figurado) renuevo, aurora"
+  ],
+  "construccion": "Nominativo: «nos visitó la aurora (ἀνατολή) desde lo alto».",
+  "sentido_en_contexto": "Palabra de doble sentido: «amanecer» (salida del sol) y «renuevo» (traducción de la LXX para «retoño» mesiánico, Jer 23:5; Zac 3:8). La salida del sol que viene de lo alto es Cristo.",
+  "matiz": "Se discute si «ἀνατολή» alude a la luz que sale (aurora) o al «Renuevo» mesiánico; ambos sentidos son posibles y quizá buscados.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jer 23:5 (LXX) — «suscitaré a David un Renuevo (ἀνατολήν)»",
+   "Zac 6:12 — «he aquí el varón cuyo nombre es el Renuevo»",
+   "Mal 4:2 — «el sol de justicia»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.78#10",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G0395",
+  "strong_tagnt": "G395",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "east"
+ },
+ {
+  "ref": "Luke.1.79",
+  "strong": "G1515",
+  "forma": "εἰρήνης",
+  "glosa_interlineal": "paz",
+  "rango_semantico": [
+   "paz (shalom)"
+  ],
+  "construccion": "Genitivo: «camino de paz».",
+  "sentido_en_contexto": "La luz que viene guía los pies «por camino de paz»: salvación completa. Cierre del Benedictus.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 9:2 — «el pueblo que andaba en tinieblas vio gran luz»",
+   "Lc 2:14 — «paz en la tierra»",
+   "Lc 19:42 — «las cosas que son para tu paz»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 16,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.79#16",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G1515",
+  "strong_tagnt": "G1515",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "peace"
+ },
+ {
+  "ref": "Luke.1.80",
+  "strong": "G2048",
+  "forma": "ἐρήμοις",
+  "glosa_interlineal": "desiertos",
+  "rango_semantico": [
+   "desierto, lugar despoblado"
+  ],
+  "construccion": "ἐν + dativo plural: «en lugares desiertos».",
+  "sentido_en_contexto": "Juan crecía y se fortalecía en espíritu, en el desierto, hasta su manifestación pública a Israel. Cierra el relato de la infancia de Juan.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 3:2 — «vino palabra de Dios a Juan en el desierto»",
+   "Mt 3:1 — «el desierto de Judea»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "Luke.1.80#12",
+  "morfologia_tagnt": "A-DPF",
+  "dstrong": "G2048",
+  "strong_tagnt": "G2048",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "deserted"
+ }
+]

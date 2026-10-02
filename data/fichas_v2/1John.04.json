@@ -1,0 +1,559 @@
+[
+ {
+  "ref": "1John.4.1",
+  "strong": "G1381",
+  "forma": "δοκιμάζετε",
+  "glosa_interlineal": "probad",
+  "rango_semantico": [
+   "probar, examinar"
+  ],
+  "construccion": "Imperativo presente activo: «amados, no creáis a todo espíritu, sino probad los espíritus si son de Dios; porque muchos falsos profetas han salido por el mundo».",
+  "sentido_en_contexto": "Principio de discernimiento: no creer a todo espíritu (inspiración profética), sino probarlos. El criterio: la confesión de que Jesucristo ha venido en carne (v.2). Texto clave en la discusión sobre el discernimiento de espíritus y falsos profetas.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Ts 5:21",
+   "1 Co 12:10; 14:29",
+   "Mt 7:15-20",
+   "2 Jn 7"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "1John.4.1#07",
+  "morfologia_tagnt": "V-PAM-2P",
+  "dstrong": "G1381",
+  "strong_tagnt": "G1381",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to test"
+ },
+ {
+  "ref": "1John.4.2",
+  "strong": "G4561",
+  "forma": "σαρκὶ",
+  "glosa_interlineal": "carne",
+  "rango_semantico": [
+   "carne, naturaleza humana"
+  ],
+  "construccion": "Dativo: «en esto conoced el Espíritu de Dios: todo espíritu que confiesa que Jesucristo ha venido en carne, es de Dios».",
+  "sentido_en_contexto": "Prueba doctrinal: reconocer la encarnación real de Jesucristo, contra quienes la negaban (docetas: Cristo solo parecía tener cuerpo). Principal criterio cristológico de la carta. Pablo da otro criterio en 1 Co 12:3.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 1:14",
+   "1 Co 12:3",
+   "2 Jn 7",
+   "1 Jn 4:3"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 15,
+  "alineacion": "forma",
+  "tagnt": "1John.4.2#15",
+  "morfologia_tagnt": "N-DSF",
+  "dstrong": "G4561",
+  "strong_tagnt": "G4561",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "flesh"
+ },
+ {
+  "ref": "1John.4.3",
+  "strong": "G500",
+  "forma": "ἀντιχρίστου",
+  "glosa_interlineal": "anticristo",
+  "rango_semantico": [
+   "anticristo"
+  ],
+  "construccion": "Genitivo: «y todo espíritu que no confiesa que Jesucristo ha venido en carne, no es de Dios; y este es el espíritu del anticristo, del cual vosotros habéis oído que viene, y que ahora ya está en el mundo».",
+  "sentido_en_contexto": "El «espíritu del anticristo» es la negación de la encarnación, ya presente. Juan no describe un personaje futuro, sino una realidad actual. Ver 1 Jn 2:18.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Jn 2:18, 22",
+   "2 Jn 7",
+   "2 Ts 2:7"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 19,
+  "alineacion": "forma",
+  "tagnt": "1John.4.3#23",
+  "morfologia_tagnt": "N-GSM",
+  "dstrong": "G0500",
+  "strong_tagnt": "G500",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "antichrist"
+ },
+ {
+  "ref": "1John.4.4",
+  "strong": "G3528",
+  "forma": "νενικήκατε",
+  "glosa_interlineal": "habéis vencido",
+  "rango_semantico": [
+   "vencer, triunfar"
+  ],
+  "construccion": "Perfecto indicativo activo: «hijitos, vosotros sois de Dios, y los habéis vencido; porque mayor es el que está en vosotros, que el que está en el mundo».",
+  "sentido_en_contexto": "Los creyentes han vencido a los falsos profetas porque Dios (o el Espíritu) en ellos es mayor que el maligno que opera en el mundo. Perfecto: victoria asegurada. Contraste con 5:4-5: la fe vence al mundo.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Jn 5:4-5",
+   "Jn 16:33",
+   "Ro 8:37",
+   "Ap 12:11"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "1John.4.4#08",
+  "morfologia_tagnt": "V-RAI-2P",
+  "dstrong": "G3528",
+  "strong_tagnt": "G3528",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to conquer"
+ },
+ {
+  "ref": "1John.4.7",
+  "strong": "G26",
+  "forma": "ἀγάπη",
+  "glosa_interlineal": "amor",
+  "rango_semantico": [
+   "amor (ágape)"
+  ],
+  "construccion": "Nominativo: «amados, amémonos unos a otros; porque el amor es de Dios. Todo aquel que ama, es nacido de Dios, y conoce a Dios».",
+  "sentido_en_contexto": "Segunda gran sección sobre el amor (4:7-21): el amor es de Dios, y quien ama ha nacido de Dios. La relación entre amor y conocimiento de Dios es central: el amor es la evidencia de conocer a Dios.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 13:34-35",
+   "1 Jn 3:11-18",
+   "Ro 5:5"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "1John.4.7#06",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G0026",
+  "strong_tagnt": "G26",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "love"
+ },
+ {
+  "ref": "1John.4.8",
+  "strong": "G26",
+  "forma": "ἀγάπη",
+  "glosa_interlineal": "amor",
+  "rango_semantico": [
+   "amor"
+  ],
+  "construccion": "Nominativo: «el que no ama, no ha conocido a Dios; porque Dios es amor».",
+  "sentido_en_contexto": "«Dios es amor» (ὁ θεὸς ἀγάπη ἐστίν): afirmación sobre la naturaleza de Dios, que se manifiesta supremamente en el envío del Hijo (v.9-10). No se identifica Dios con el amor humano, sino que el amor se define desde Dios. Tiene alcance trinitario (el amor del Padre al Hijo, Jn 17:24).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Jn 4:16",
+   "Jn 3:16",
+   "Ro 5:8",
+   "Jn 17:24"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "1John.4.8#11",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G0026",
+  "strong_tagnt": "G26",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "love"
+ },
+ {
+  "ref": "1John.4.9",
+  "strong": "G3439",
+  "forma": "μονογενῆ",
+  "glosa_interlineal": "unigénito",
+  "rango_semantico": [
+   "unigénito, único"
+  ],
+  "construccion": "Acusativo: «en esto se mostró el amor de Dios para con nosotros, en que Dios envió a su Hijo unigénito al mundo, para que vivamos por él».",
+  "sentido_en_contexto": "El amor de Dios se manifestó en el envío de su Hijo unigénito (μονογενής: único en su categoría). Dios envió al Hijo para que tengamos vida por él. Eco de Jn 3:16.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 1:14, 18; 3:16",
+   "Ro 8:32",
+   "Gá 4:4"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 15,
+  "alineacion": "forma",
+  "tagnt": "1John.4.9#15",
+  "morfologia_tagnt": "A-ASM",
+  "dstrong": "G3439",
+  "strong_tagnt": "G3439",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "unique"
+ },
+ {
+  "ref": "1John.4.10",
+  "strong": "G2434",
+  "forma": "ἱλασμὸν",
+  "glosa_interlineal": "propiciación",
+  "rango_semantico": [
+   "propiciación, expiación"
+  ],
+  "construccion": "Acusativo: «en esto consiste el amor: no en que nosotros hayamos amado a Dios, sino en que él nos amó a nosotros, y envió a su Hijo en propiciación por nuestros pecados».",
+  "sentido_en_contexto": "La iniciativa es de Dios: no nosotros amamos primero. El amor se define por la propiciación (ἱλασμός): Dios mismo provee el sacrificio expiatorio. Ver nota sobre ἱλασμός en 2:2 y Heb 2:17. Para quienes rechazan la propiciación como idea ajena al amor, 1 Jn la asocia directamente con él.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 3:25",
+   "1 Jn 2:2",
+   "Heb 2:17",
+   "Jn 15:13"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 22,
+  "alineacion": "forma",
+  "tagnt": "1John.4.10#22",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G2434",
+  "strong_tagnt": "G2434",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "propitiation"
+ },
+ {
+  "ref": "1John.4.12",
+  "strong": "G2300",
+  "forma": "τεθέαται",
+  "glosa_interlineal": "ha visto",
+  "rango_semantico": [
+   "contemplar, ver"
+  ],
+  "construccion": "Perfecto indicativo medio: «nadie ha visto jamás a Dios. Si nos amamos unos a otros, Dios permanece en nosotros, y su amor se ha perfeccionado en nosotros».",
+  "sentido_en_contexto": "Nadie ha visto a Dios (Jn 1:18), pero el amor mutuo hace visible su presencia: Dios permanece en nosotros y su amor se «perfecciona» (llega a su plenitud) en la comunidad. La comunidad amante es la manifestación visible de Dios.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 1:18",
+   "1 Jn 4:20",
+   "Jn 13:35",
+   "Éx 33:20"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "1John.4.12#04",
+  "morfologia_tagnt": "V-RNI-3S",
+  "dstrong": "G2300",
+  "strong_tagnt": "G2300",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to look at"
+ },
+ {
+  "ref": "1John.4.16",
+  "strong": "G3306",
+  "forma": "μένων",
+  "glosa_interlineal": "el que permanece",
+  "rango_semantico": [
+   "permanecer, morar"
+  ],
+  "construccion": "Participio presente activo: «y nosotros hemos conocido y creído el amor que Dios tiene para con nosotros. Dios es amor; y el que permanece en amor, permanece en Dios, y Dios en él».",
+  "sentido_en_contexto": "Resumen de la fe cristiana: conocer y creer el amor de Dios. «El que permanece en amor, permanece en Dios». Permanencia mutua. Frase central de la teología joánica.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 15:9-10",
+   "1 Jn 4:8",
+   "Ro 5:5"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 20,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "1John.4.16#20",
+  "morfologia_tagnt": "V-PAP-NSM",
+  "dstrong": "G3306",
+  "strong_tagnt": "G3306",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to stay"
+ },
+ {
+  "ref": "1John.4.18",
+  "strong": "G5401",
+  "forma": "φόβος",
+  "glosa_interlineal": "temor",
+  "rango_semantico": [
+   "miedo, temor"
+  ],
+  "construccion": "Nominativo: «en el amor no hay temor, sino que el perfecto amor echa fuera el temor; porque el temor lleva en sí castigo. De donde el que teme, no ha sido perfeccionado en el amor».",
+  "sentido_en_contexto": "El amor perfecto expulsa el temor al castigo del juicio (v.17: confianza en el día del juicio). No excluye el temor reverencial a Dios (Pr 1:7), sino el miedo servil ante la condenación. Pastoralmente, consuela a conciencias atormentadas.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 8:15",
+   "2 Ti 1:7",
+   "1 Jn 4:17",
+   "Heb 2:15"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 1,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "1John.4.18#01",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G5401",
+  "strong_tagnt": "G5401",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "fear"
+ },
+ {
+  "ref": "1John.4.18",
+  "strong": "G5401",
+  "forma": "φόβος",
+  "glosa_interlineal": "temor",
+  "rango_semantico": [
+   "miedo, temor"
+  ],
+  "construccion": "Nominativo: «en el amor no hay temor, sino que el perfecto amor echa fuera el temor; porque el temor lleva en sí castigo. De donde el que teme, no ha sido perfeccionado en el amor».",
+  "sentido_en_contexto": "El amor perfecto expulsa el temor al castigo del juicio (v.17: confianza en el día del juicio). No excluye el temor reverencial a Dios (Pr 1:7), sino el miedo servil ante la condenación. Pastoralmente, consuela a conciencias atormentadas.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 8:15",
+   "2 Ti 1:7",
+   "1 Jn 4:17",
+   "Heb 2:15"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 17,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "1John.4.18#17",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G5401",
+  "strong_tagnt": "G5401",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "fear"
+ },
+ {
+  "ref": "1John.4.19",
+  "strong": "G4413",
+  "forma": "πρῶτος",
+  "glosa_interlineal": "primero",
+  "rango_semantico": [
+   "primero"
+  ],
+  "construccion": "Nominativo: «nosotros le amamos a él, porque él nos amó primero».",
+  "sentido_en_contexto": "Principio de la iniciativa divina: nuestro amor es respuesta al amor de Dios. Resume 4:10. Fundamento de la gracia en la ética cristiana. Hay variantes textuales sobre el objeto de «amamos» («a él» o sin objeto).",
+  "matiz": "Variante textual: «le amamos a él» (αὐτόν; mayoría) o simplemente «amamos» (sin objeto; א, A, B). La lectura sin objeto es la más antigua y puede incluir amor a Dios y a los hermanos.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Jn 4:10",
+   "Ro 5:8",
+   "Jn 15:16"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "1John.4.19#06",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G4413G",
+  "strong_tagnt": "G4413",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "first"
+ },
+ {
+  "ref": "1John.4.20",
+  "strong": "G5583",
+  "forma": "Ψεύστης",
+  "glosa_interlineal": "mentiroso",
+  "rango_semantico": [
+   "mentiroso"
+  ],
+  "construccion": "Nominativo: «si alguno dice: Yo amo a Dios, y aborrece a su hermano, es mentiroso. Pues el que no ama a su hermano a quien ha visto, ¿cómo puede amar a Dios a quien no ha visto?».",
+  "sentido_en_contexto": "Amar a Dios y odiar al hermano es contradictorio: el amor a Dios invisible se prueba en el amor al hermano visible. Cierra con el mandamiento: quien ama a Dios, ame también a su hermano (v.21).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Jn 2:9-11; 3:17",
+   "Mt 25:40",
+   "Jn 13:34"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "1John.4.20#13",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G5583",
+  "strong_tagnt": "G5583",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "liar"
+ }
+]

@@ -1,0 +1,440 @@
+[
+ {
+  "ref": "1Cor.3.1",
+  "strong": "G3516",
+  "forma": "νηπίοις",
+  "glosa_interlineal": "niños",
+  "rango_semantico": [
+   "niño pequeño, infante, inmaduro"
+  ],
+  "construccion": "Dativo plural: «no pude hablaros como a espirituales, sino como a carnales, como a niños en Cristo».",
+  "sentido_en_contexto": "Los corintios son «niños (νήπιοι) en Cristo», aún «carnales» (σάρκινοι/σαρκικοί) por sus celos y contiendas. No es que no sean cristianos, sino inmaduros. Pablo les dio «leche» y no alimento sólido (v.2).",
+  "matiz": "Debate sobre «carnales»: ¿son creyentes inmaduros (la lectura común, «en Cristo») o conducta carnal que cuestiona si son salvos? Pablo los llama «en Cristo» y «hermanos»; la cuestión es su madurez.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 5:12-14",
+   "1 P 2:2",
+   "1 Co 2:14-15",
+   "Ef 4:14"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "1Cor.3.1#13",
+  "morfologia_tagnt": "A-DPM",
+  "dstrong": "G3516",
+  "strong_tagnt": "G3516",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "child"
+ },
+ {
+  "ref": "1Cor.3.2",
+  "strong": "G1051",
+  "forma": "γάλα",
+  "glosa_interlineal": "leche",
+  "rango_semantico": [
+   "leche"
+  ],
+  "construccion": "Acusativo: «os di a beber leche, y no alimento sólido».",
+  "sentido_en_contexto": "Metáfora de la madurez: la leche (enseñanza básica) para los inmaduros, el alimento sólido (βρῶμα) para los maduros. Los corintios, por su conducta, aún no podían recibir lo segundo. Paralelo con Heb 5:12-14.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 5:12-14",
+   "1 P 2:2",
+   "Jn 16:12"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "1Cor.3.2#01",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G1051",
+  "strong_tagnt": "G1051",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "milk"
+ },
+ {
+  "ref": "1Cor.3.6",
+  "strong": "G5452",
+  "forma": "ἐφύτευσα",
+  "glosa_interlineal": "planté",
+  "rango_semantico": [
+   "plantar"
+  ],
+  "construccion": "Aoristo indicativo activo: «yo planté, Apolos regó; pero el crecimiento lo ha dado Dios».",
+  "sentido_en_contexto": "Imagen agrícola: los ministros (Pablo, Apolos) son colaboradores sin importancia en sí mismos; el que da el crecimiento (v.7) es Dios. Contra el partidismo: ni el que planta ni el que riega son algo.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 18:1-11, 24-28",
+   "1 Co 3:9",
+   "Jn 4:36-38"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "1Cor.3.6#02",
+  "morfologia_tagnt": "V-AAI-1S",
+  "dstrong": "G5452",
+  "strong_tagnt": "G5452",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to plant"
+ },
+ {
+  "ref": "1Cor.3.9",
+  "strong": "G4904",
+  "forma": "συνεργοί",
+  "glosa_interlineal": "colaboradores",
+  "rango_semantico": [
+   "colaborador, compañero de trabajo"
+  ],
+  "construccion": "Nominativo plural: «porque nosotros somos colaboradores de Dios; vosotros sois labranza de Dios, edificio de Dios».",
+  "sentido_en_contexto": "Dos imágenes para la iglesia: labranza (campo) de Dios y edificio de Dios. Los ministros son colaboradores de Dios (no «con Dios» como iguales, sino «de Dios»: trabajadores bajo su dirección). Prepara la imagen del edificio (vv.10-17).",
+  "matiz": "Debate sobre συνεργοί θεοῦ: «colaboradores con Dios» (Dios y ministros, sinergia) o «colaboradores en el servicio de Dios» (colaboradores entre sí). La mayoría prefiere el segundo: los ministros trabajan juntos para Dios.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Co 6:1",
+   "1 Ts 3:2",
+   "Ef 2:19-22",
+   "1 P 2:5"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "1Cor.3.9#04",
+  "morfologia_tagnt": "A-NPM",
+  "dstrong": "G4904",
+  "strong_tagnt": "G4904",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "co-worker"
+ },
+ {
+  "ref": "1Cor.3.10",
+  "strong": "G753",
+  "forma": "ἀρχιτέκτων",
+  "glosa_interlineal": "arquitecto",
+  "rango_semantico": [
+   "maestro de obras, arquitecto"
+  ],
+  "construccion": "Nominativo: «como perito arquitecto puse el fundamento».",
+  "sentido_en_contexto": "Pablo, como «sabio arquitecto» (maestro de obras), puso el fundamento (Cristo) y otros edifican encima. Cada uno debe cuidar cómo edifica. Imagen de la responsabilidad de los ministros.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 15:20",
+   "Ef 2:20",
+   "Is 28:16"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "1Cor.3.10#11",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G0753",
+  "strong_tagnt": "G753",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "master-builder"
+ },
+ {
+  "ref": "1Cor.3.11",
+  "strong": "G2310",
+  "forma": "θεμέλιον",
+  "glosa_interlineal": "fundamento",
+  "rango_semantico": [
+   "fundamento, cimiento"
+  ],
+  "construccion": "Acusativo: «nadie puede poner otro fundamento que el que está puesto, el cual es Jesucristo».",
+  "sentido_en_contexto": "Cristo es el único fundamento (θεμέλιος) de la Iglesia. Se debate la relación con Mt 16:18 (Pedro como «roca») y Ef 2:20 (apóstoles y profetas): no hay contradicción, pues todos descansan sobre Cristo mismo como piedra angular.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 28:16",
+   "Ef 2:20",
+   "Mt 16:18",
+   "1 P 2:4-6"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "1Cor.3.11#01",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G2310",
+  "strong_tagnt": "G2310",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "foundation"
+ },
+ {
+  "ref": "1Cor.3.12",
+  "strong": "G5553",
+  "forma": "χρυσίον",
+  "glosa_interlineal": "oro",
+  "rango_semantico": [
+   "oro"
+  ],
+  "construccion": "Acusativo: «si sobre este fundamento alguno edificare oro, plata, piedras preciosas, madera, heno, hojarasca».",
+  "sentido_en_contexto": "Seis materiales: tres incombustibles (oro, plata, piedras preciosas) y tres combustibles (madera, heno, hojarasca). Representan la calidad de la obra de cada ministro (enseñanza, vida, convertidos). El «día» (el juicio) lo probará con fuego (v.13).",
+  "matiz": "Debate sobre qué simbolizan los materiales: (a) la calidad de la doctrina enseñada; (b) la calidad de la obra de ministerio; (c) la calidad de los creyentes edificados (conversos genuinos o no). La mayoría ve la obra o enseñanza del ministro.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 3:13-15",
+   "Pr 17:3",
+   "Mal 3:2-3",
+   "2 Ti 2:20"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 8,
+  "alineacion": "strong",
+  "tagnt": "1Cor.3.12#09",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G5557",
+  "strong_tagnt": "G5557",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "SBL",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [
+   "Tyn",
+   "WH",
+   "Treg"
+  ],
+  "variante": true,
+  "glosa_tagnt": "gold"
+ },
+ {
+  "ref": "1Cor.3.15",
+  "strong": "G4982",
+  "forma": "σωθήσεται",
+  "glosa_interlineal": "será salvo",
+  "rango_semantico": [
+   "salvar, rescatar"
+  ],
+  "construccion": "Futuro indicativo pasivo: «él mismo será salvo, aunque así como por fuego».",
+  "sentido_en_contexto": "Si la obra de un ministro se quema, sufrirá pérdida, pero «él mismo será salvo, aunque así como por fuego». Texto debatido: (a) el creyente pierde recompensa pero no la salvación (lectura mayoritaria evangélica); (b) base escrituraria del purgatorio (tradición católica, aunque Pablo habla de la obra, no del ministro); (c) imagen de escapar apenas del incendio.",
+  "matiz": "Debate: (a) pérdida de recompensa, salvación segura (la mayoría protestante); (b) purgatorio (tradición católica latina, con argumentación disputada; la oriental no la acepta); (c) metáfora del que escapa por poco (como de un edificio en llamas). El texto habla de la obra, no de un lugar de purificación posterior a la muerte.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Zac 3:2",
+   "Jud 23",
+   "Am 4:11",
+   "2 Co 5:10"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "1Cor.3.15#09",
+  "morfologia_tagnt": "V-FPI-3S",
+  "dstrong": "G4982",
+  "strong_tagnt": "G4982",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to save"
+ },
+ {
+  "ref": "1Cor.3.16",
+  "strong": "G3485",
+  "forma": "ναὸς",
+  "glosa_interlineal": "templo",
+  "rango_semantico": [
+   "templo, santuario"
+  ],
+  "construccion": "Nominativo: «¿no sabéis que sois templo de Dios, y que el Espíritu de Dios mora en vosotros?».",
+  "sentido_en_contexto": "«Vosotros» es plural: la comunidad corintia es el templo (ναός, santuario) de Dios donde mora el Espíritu. Quien destruye (φθείρει) este templo con divisiones será destruido por Dios (v.17). En 6:19 se aplica al cuerpo individual.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 6:19",
+   "2 Co 6:16",
+   "Ef 2:21-22",
+   "1 P 2:5"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "1Cor.3.16#04",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G3485",
+  "strong_tagnt": "G3485",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "temple"
+ },
+ {
+  "ref": "1Cor.3.18",
+  "strong": "G3474",
+  "forma": "μωρὸς",
+  "glosa_interlineal": "necio",
+  "rango_semantico": [
+   "necio, insensato"
+  ],
+  "construccion": "Nominativo: «si alguno entre vosotros se cree sabio en este siglo, hágase ignorante, para que llegue a ser sabio».",
+  "sentido_en_contexto": "Paradoja: para ser verdaderamente sabio hay que hacerse «necio» según el mundo (aceptar el mensaje de la cruz). La sabiduría de este mundo es necedad delante de Dios (cita Job 5:13 y Sal 94:11, vv.19-20).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 1:18-25",
+   "Job 5:13",
+   "Sal 94:11",
+   "Is 5:21"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 15,
+  "alineacion": "forma",
+  "tagnt": "1Cor.3.18#15",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G3474",
+  "strong_tagnt": "G3474",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "foolish"
+ },
+ {
+  "ref": "1Cor.3.21",
+  "strong": "G2744",
+  "forma": "καυχάσθω",
+  "glosa_interlineal": "se jacte",
+  "rango_semantico": [
+   "gloriarse"
+  ],
+  "construccion": "Imperativo presente medio: «ninguno se jacte en los hombres».",
+  "sentido_en_contexto": "Conclusión contra el partidismo: «todo es vuestro»: Pablo, Apolos, Cefas, el mundo, la vida, la muerte, lo presente, lo por venir; «y vosotros de Cristo, y Cristo de Dios». Los líderes son servidores de la iglesia, no sus dueños.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 8:32",
+   "Fil 1:21",
+   "1 Co 1:12",
+   "Col 2:10"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "1Cor.3.21#03",
+  "morfologia_tagnt": "V-PNM-3S",
+  "dstrong": "G2744",
+  "strong_tagnt": "G2744",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to boast"
+ }
+]

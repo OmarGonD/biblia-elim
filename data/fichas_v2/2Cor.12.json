@@ -1,0 +1,321 @@
+[
+ {
+  "ref": "2Cor.12.2",
+  "strong": "G726",
+  "forma": "ἁρπαγέντα",
+  "glosa_interlineal": "arrebatado",
+  "rango_semantico": [
+   "arrebatar, llevar por la fuerza"
+  ],
+  "construccion": "Participio aoristo pasivo: «conozco a un hombre en Cristo, que hace catorce años fue arrebatado hasta el tercer cielo».",
+  "sentido_en_contexto": "Pablo habla en tercera persona de una experiencia extática propia (v.7 muestra que es él): arrebatado al «tercer cielo» y al «paraíso» (v.4), sin saber si en el cuerpo o fuera del cuerpo. «Tercer cielo» y «paraíso» probablemente designan la misma realidad: la presencia de Dios. Se escribe c. 56 d.C., catorce años antes: c. 42-44 d.C.",
+  "matiz": "Debate: (a) ¿una sola experiencia (tercer cielo = paraíso) o dos? La mayoría ve una (paralelismo); (b) cosmología judía de varios cielos (2 En 8; Test. Leví 2-3); (c) se discute si es una experiencia en el cuerpo o fuera (Pablo no lo sabe).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ap 4:1",
+   "Hch 9:3-6",
+   "Ez 1:1; 8:3",
+   "2 Co 12:4"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 22,
+  "alineacion": "forma",
+  "tagnt": "2Cor.12.2#22",
+  "morfologia_tagnt": "V-2APP-ASM",
+  "dstrong": "G0726",
+  "strong_tagnt": "G726",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to seize"
+ },
+ {
+  "ref": "2Cor.12.4",
+  "strong": "G3857",
+  "forma": "παράδεισον",
+  "glosa_interlineal": "paraíso",
+  "rango_semantico": [
+   "paraíso, jardín"
+  ],
+  "construccion": "Acusativo: «fue arrebatado al paraíso, donde oyó palabras inefables que no le es dado al hombre expresar».",
+  "sentido_en_contexto": "παράδεισος: palabra persa (jardín del rey); en el judaísmo y NT designa el lugar de la presencia de Dios y de los justos (Lc 23:43; Ap 2:7). Pablo no revela lo que oyó (ἄρρητα ῥήματα), contra los que se glorían de visiones.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 23:43",
+   "Ap 2:7",
+   "Gn 2:8"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "2Cor.12.4#05",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G3857",
+  "strong_tagnt": "G3857",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "paradise"
+ },
+ {
+  "ref": "2Cor.12.7",
+  "strong": "G4647",
+  "forma": "σκόλοψ",
+  "glosa_interlineal": "aguijón",
+  "rango_semantico": [
+   "estaca, espina, aguijón"
+  ],
+  "construccion": "Nominativo: «me fue dado un aguijón en mi carne, un mensajero de Satanás que me abofetee, para que no me enaltezca».",
+  "sentido_en_contexto": "Famoso «aguijón en la carne» (σκόλοψ τῇ σαρκί): una aflicción persistente, cuya naturaleza se ignora. Dado «para que no me enaltezca»; es «mensajero (ἄγγελος) de Satanás», pero permitido por Dios para un fin bueno.",
+  "matiz": "Debate sobre su identidad: (a) enfermedad física (jaquecas, epilepsia, enfermedad ocular; Gá 4:13-15); (b) oposición o persecución (los adversarios, como los enemigos de Nm 33:55); (c) tentación espiritual (Crisóstomo, Lutero); (d) opositores concretos. Los textos no permiten decidir; la lectura de la «oposición» tiene mucha tradición, y la «enfermedad», mucha tradición también.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gá 4:13-15",
+   "Nm 33:55",
+   "Job 1—2",
+   "1 Co 4:11"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "2Cor.12.7#12",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G4647",
+  "strong_tagnt": "G4647",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "thorn"
+ },
+ {
+  "ref": "2Cor.12.9",
+  "strong": "G714",
+  "forma": "ἀρκεῖ",
+  "glosa_interlineal": "basta",
+  "rango_semantico": [
+   "bastar, ser suficiente"
+  ],
+  "construccion": "Presente indicativo activo: «bástate mi gracia; porque mi poder se perfecciona en la debilidad».",
+  "sentido_en_contexto": "Respuesta del Señor a la oración de Pablo (tres veces): no quita el aguijón, pero da su gracia. Principio central: el poder de Cristo se manifiesta en la debilidad (δύναμις ἐν ἀσθενείᾳ τελεῖται). Pablo concluye con una paradoja: «cuando soy débil, entonces soy fuerte» (v.10).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Co 4:7-10; 13:4",
+   "1 Co 1:27-29",
+   "Fil 4:13",
+   "Is 40:29-31"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "2Cor.12.9#04",
+  "morfologia_tagnt": "V-PAI-3S",
+  "dstrong": "G0714",
+  "strong_tagnt": "G714",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "be sufficient"
+ },
+ {
+  "ref": "2Cor.12.10",
+  "strong": "G770",
+  "forma": "ἀσθενῶ",
+  "glosa_interlineal": "soy débil",
+  "rango_semantico": [
+   "ser débil, estar enfermo"
+  ],
+  "construccion": "Presente indicativo activo: «cuando soy débil, entonces soy fuerte».",
+  "sentido_en_contexto": "Paradoja paulina fundamental: la fuerza del cristiano reside en la gracia de Cristo, no en su capacidad. No glorifica el sufrimiento en sí, sino el poder de Dios que se manifiesta en la debilidad. Contra los «superapóstoles» (11:5; 12:11).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Co 12:9",
+   "1 Co 4:10",
+   "Heb 11:34"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 17,
+  "alineacion": "forma",
+  "tagnt": "2Cor.12.10#17",
+  "morfologia_tagnt": "V-PAS-1S",
+  "dstrong": "G0770G",
+  "strong_tagnt": "G770",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "be weak"
+ },
+ {
+  "ref": "2Cor.12.12",
+  "strong": "G4592",
+  "forma": "σημεῖα",
+  "glosa_interlineal": "señales",
+  "rango_semantico": [
+   "señal, prodigio"
+  ],
+  "construccion": "Nominativo plural: «con todo, las señales de apóstol han sido hechas entre vosotros en toda paciencia, con señales, prodigios y milagros».",
+  "sentido_en_contexto": "Las «señales del apóstol» incluyen paciencia (perseverancia en el sufrimiento) y también señales, prodigios y milagros. Pablo no minimiza los milagros, pero antepone la paciencia en las pruebas como credencial.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 15:18-19",
+   "Hch 14:3; 19:11",
+   "Heb 2:4"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "2Cor.12.12#03",
+  "morfologia_tagnt": "N-NPN",
+  "dstrong": "G4592",
+  "strong_tagnt": "G4592",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "sign"
+ },
+ {
+  "ref": "2Cor.12.14",
+  "strong": "G5043",
+  "forma": "τέκνα",
+  "glosa_interlineal": "hijos",
+  "rango_semantico": [
+   "hijo, niño"
+  ],
+  "construccion": "Nominativo plural: «no deben atesorar los hijos para los padres, sino los padres para los hijos».",
+  "sentido_en_contexto": "Pablo, como padre espiritual de los corintios, no les pide dinero ni quiere cargarlos (12:13-16). Prefiere gastarse y «ser gastado» por sus almas (v.15). Imagen del ministerio como paternidad desinteresada.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 4:14-15",
+   "1 Ts 2:7-12",
+   "Gá 4:19"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 23,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "2Cor.12.14#24",
+  "morfologia_tagnt": "N-NPN",
+  "dstrong": "G5043",
+  "strong_tagnt": "G5043",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "child"
+ },
+ {
+  "ref": "2Cor.12.20",
+  "strong": "G2054",
+  "forma": "ἔρις",
+  "glosa_interlineal": "contiendas",
+  "rango_semantico": [
+   "contienda, rivalidad"
+  ],
+  "construccion": "Nominativo: «temo que cuando llegue, haya entre vosotros contiendas, envidias, iras, divisiones, maledicencias, murmuraciones, soberbias, desórdenes».",
+  "sentido_en_contexto": "Lista de ocho vicios comunitarios que Pablo teme encontrar. Se parece a las «obras de la carne» (Gá 5:19-21). Indica la situación de Corinto: la comunidad no ha superado totalmente sus problemas. Prepara el llamado final al autoexamen (13:5).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gá 5:19-21",
+   "Ro 1:29",
+   "1 Co 3:3",
+   "2 Co 13:5"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 17,
+  "alineacion": "forma",
+  "tagnt": "2Cor.12.20#19",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G2054",
+  "strong_tagnt": "G2054",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "SBL",
+   "WH"
+  ],
+  "ausente_en": [
+   "Tyn",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "variante": true,
+  "glosa_tagnt": "quarrel"
+ }
+]

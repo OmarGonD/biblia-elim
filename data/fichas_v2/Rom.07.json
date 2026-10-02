@@ -1,0 +1,554 @@
+[
+ {
+  "ref": "Rom.7.2",
+  "strong": "G1135",
+  "forma": "γυνὴ",
+  "glosa_interlineal": "mujer",
+  "rango_semantico": [
+   "mujer, esposa"
+  ],
+  "construccion": "Nominativo: «la mujer casada está sujeta por la ley al marido mientras éste vive».",
+  "sentido_en_contexto": "Ilustración de Pablo (vv.1-6) con la ley matrimonial: la muerte del marido libera a la mujer de la ley que la ataba. Aplica: el creyente murió a la ley con Cristo y puede «casarse» con otro (Cristo resucitado). La alegoría no es perfecta (en 7:2-3 muere el marido; en 7:4 mueren los creyentes).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 7:39",
+   "Ro 7:4",
+   "2 Co 11:2",
+   "Ef 5:25-32"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Rom.7.2#04",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G1135G",
+  "strong_tagnt": "G1135",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "woman"
+ },
+ {
+  "ref": "Rom.7.4",
+  "strong": "G2289",
+  "forma": "ἐθανατώθητε",
+  "glosa_interlineal": "fuisteis muertos",
+  "rango_semantico": [
+   "hacer morir, dar muerte"
+  ],
+  "construccion": "Aoristo indicativo pasivo: «vosotros también habéis muerto a la ley mediante el cuerpo de Cristo».",
+  "sentido_en_contexto": "El creyente murió a la ley por medio del «cuerpo de Cristo» (su muerte en la cruz), para pertenecer a otro, al que resucitó de los muertos, a fin de «llevar fruto para Dios». Cambio de señorío: de la ley a Cristo.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gá 2:19; 3:13",
+   "Ef 2:15",
+   "Col 2:14",
+   "Ro 6:2-11"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Rom.7.4#06",
+  "morfologia_tagnt": "V-API-2P",
+  "dstrong": "G2289",
+  "strong_tagnt": "G2289",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to kill"
+ },
+ {
+  "ref": "Rom.7.6",
+  "strong": "G1121",
+  "forma": "γράμματος",
+  "glosa_interlineal": "letra",
+  "rango_semantico": [
+   "letra, escritura, ley escrita"
+  ],
+  "construccion": "Genitivo: «para que sirvamos en la novedad del Espíritu y no en la vejez de la letra».",
+  "sentido_en_contexto": "Contraste fundamental: «letra» (γράμμα, la ley escrita que acusa sin dar poder) frente a «Espíritu» (la vida del Nuevo Pacto). No significa que la Ley sea mala, sino que sin el Espíritu solo produce condenación (2 Co 3:6; Ro 2:29). Resume el contraste de los caps. 7-8.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Co 3:6",
+   "Ro 2:29; 8:2-4",
+   "Jer 31:31-34",
+   "Ez 36:26-27"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 20,
+  "alineacion": "forma",
+  "tagnt": "Rom.7.6#20",
+  "morfologia_tagnt": "N-GSN",
+  "dstrong": "G1121",
+  "strong_tagnt": "G1121",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "something written"
+ },
+ {
+  "ref": "Rom.7.7",
+  "strong": "G1939",
+  "forma": "ἐπιθυμίαν",
+  "glosa_interlineal": "codicia",
+  "rango_semantico": [
+   "deseo, codicia, deseo malo"
+  ],
+  "construccion": "Acusativo: «no conocí el pecado sino por la ley; porque tampoco conocería la codicia, si la ley no dijera: No codiciarás».",
+  "sentido_en_contexto": "Pablo defiende la bondad de la ley: no es pecado, pero revela el pecado. Cita el décimo mandamiento (Éx 20:17). La ley, al prohibir la codicia, la hace conocer. Comienza la sección de los vv.7-25, la más debatida de Romanos.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 20:17",
+   "Ro 3:20; 5:20",
+   "Dt 5:21"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 21,
+  "alineacion": "forma",
+  "tagnt": "Rom.7.7#21",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G1939",
+  "strong_tagnt": "G1939",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "desire"
+ },
+ {
+  "ref": "Rom.7.9",
+  "strong": "G2198",
+  "forma": "ἔζων",
+  "glosa_interlineal": "vivía",
+  "rango_semantico": [
+   "vivir, estar vivo"
+  ],
+  "construccion": "Imperfecto indicativo activo: «yo sin la ley vivía en un tiempo».",
+  "sentido_en_contexto": "El «yo» de 7:7-25 es el pasaje más debatido de Romanos. Aquí: «yo vivía una vez sin la ley; pero venido el mandamiento, el pecado revivió y yo morí». Se interpreta: (a) Adán; (b) Israel ante el Sinaí; (c) Pablo antes de su conciencia de pecado; (d) experiencia universal.",
+  "matiz": "Debate sobre la identidad del «yo» en 7:7-25: (a) autobiográfico (Pablo antes de convertirse, o niño antes del Bar Mitzvah); (b) Adán; (c) Israel bajo la ley; (d) retórico («yo» universal); (e) experiencia del cristiano (v.14-25, Agustín, Lutero, Calvino); (f) experiencia del no regenerado (Orígenes, Crisóstomo, Wesley, Moo). La discusión es de siglos y no está resuelta.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 5:13; 7:7-25",
+   "Gn 3:1-13",
+   "Fil 3:6"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Rom.7.9#03",
+  "morfologia_tagnt": "V-IAI-1S",
+  "dstrong": "G2198",
+  "strong_tagnt": "G2198",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to live"
+ },
+ {
+  "ref": "Rom.7.11",
+  "strong": "G1818",
+  "forma": "ἐξηπάτησέν",
+  "glosa_interlineal": "me engañó",
+  "rango_semantico": [
+   "engañar, seducir"
+  ],
+  "construccion": "Aoristo indicativo activo: «el pecado, tomando ocasión por el mandamiento, me engañó, y por él me mató».",
+  "sentido_en_contexto": "El pecado se aprovecha del mandamiento para engañar (eco de Gn 3:13, la serpiente) y matar. No es la ley la que mata, sino el pecado usando la ley. El pecado se personifica como un agente.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 3:13",
+   "2 Co 11:3",
+   "1 Ti 2:14"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Rom.7.11#09",
+  "morfologia_tagnt": "V-AAI-3S",
+  "dstrong": "G1818",
+  "strong_tagnt": "G1818",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to deceive"
+ },
+ {
+  "ref": "Rom.7.12",
+  "strong": "G40",
+  "forma": "ἅγιος",
+  "glosa_interlineal": "santa",
+  "rango_semantico": [
+   "santo, apartado"
+  ],
+  "construccion": "Adjetivo nominativo: «la ley es santa, y el mandamiento santo, justo y bueno».",
+  "sentido_en_contexto": "Defensa explícita de la ley: es santa (por su origen), justa (en su exigencia) y buena (en su propósito). El problema no está en la ley sino en el pecado humano y su poder. Prepara el análisis del v.14: «la ley es espiritual».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 7:14",
+   "Sal 19:7-9",
+   "1 Ti 1:8"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Rom.7.12#05",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G0040G",
+  "strong_tagnt": "G40",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "holy"
+ },
+ {
+  "ref": "Rom.7.14",
+  "strong": "G4560",
+  "forma": "σάρκινός",
+  "glosa_interlineal": "carnal",
+  "rango_semantico": [
+   "carnal, de carne"
+  ],
+  "construccion": "Adjetivo nominativo: «yo soy carnal, vendido al pecado».",
+  "sentido_en_contexto": "Desde el v.14 Pablo pasa al tiempo presente («soy carnal»). Eso apoya a quienes ven aquí la experiencia actual de Pablo como creyente (Agustín, reformadores); otros lo toman como un presente histórico retórico. El término σάρκινος («hecho de carne») se contrasta con πνευματικός.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 3:1-3",
+   "Gn 3:6",
+   "1 R 21:20"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Rom.7.14#10",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G4560",
+  "strong_tagnt": "G4560",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg"
+  ],
+  "ausente_en": [
+   "TR",
+   "Byz"
+  ],
+  "variante": true,
+  "glosa_tagnt": "fleshly"
+ },
+ {
+  "ref": "Rom.7.15",
+  "strong": "G3404",
+  "forma": "μισῶ",
+  "glosa_interlineal": "aborrezco",
+  "rango_semantico": [
+   "odiar, aborrecer"
+  ],
+  "construccion": "Presente indicativo activo: «lo que aborrezco, esto hago».",
+  "sentido_en_contexto": "El famoso conflicto interior: «no hago lo que quiero, sino lo que aborrezco». Describe la impotencia del yo ante el pecado: quiere el bien (aprueba la ley), pero hace el mal. Se discute si es la experiencia de un no regenerado (que reconoce la bondad de la ley pero no puede cumplirla) o del creyente en lucha.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gá 5:17",
+   "Ro 7:19-23",
+   "Sal 119:5"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Rom.7.15#14",
+  "morfologia_tagnt": "V-PAI-1S",
+  "dstrong": "G3404",
+  "strong_tagnt": "G3404",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to hate"
+ },
+ {
+  "ref": "Rom.7.18",
+  "strong": "G4561",
+  "forma": "σαρκί",
+  "glosa_interlineal": "carne",
+  "rango_semantico": [
+   "carne, naturaleza humana"
+  ],
+  "construccion": "Dativo: «en mí, esto es, en mi carne, no mora el bien».",
+  "sentido_en_contexto": "«Carne» (σάρξ) designa aquí la naturaleza humana caída, débil y dominada por el pecado, no solo el cuerpo físico. «El querer el bien está en mí, pero no el hacerlo». Muestra la incapacidad de la voluntad sin el poder del Espíritu.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 8:3-8",
+   "Gá 5:16-17",
+   "Gn 6:5"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "Rom.7.18#12",
+  "morfologia_tagnt": "N-DSF",
+  "dstrong": "G4561",
+  "strong_tagnt": "G4561",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "flesh"
+ },
+ {
+  "ref": "Rom.7.22",
+  "strong": "G4913",
+  "forma": "συνήδομαι",
+  "glosa_interlineal": "me deleito",
+  "rango_semantico": [
+   "deleitarse con, gozarse con"
+  ],
+  "construccion": "Presente indicativo medio: «según el hombre interior, me deleito en la ley de Dios».",
+  "sentido_en_contexto": "El «hombre interior» (ὁ ἔσω ἄνθρωπος) concuerda con la ley de Dios y se deleita en ella. Estas expresiones se interpretan: (a) experiencia del regenerado; (b) conciencia moral del no regenerado que reconoce la bondad de la ley (cf. 2:14-15). La mención del deleite en la ley (cf. Sal 1:2) apunta, para muchos, a un creyente.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 1:2; 119:77",
+   "2 Co 4:16",
+   "Ef 3:16"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "Rom.7.22#01",
+  "morfologia_tagnt": "V-PNI-1S",
+  "dstrong": "G4913",
+  "strong_tagnt": "G4913",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to delight"
+ },
+ {
+  "ref": "Rom.7.23",
+  "strong": "G497",
+  "forma": "ἀντιστρατευόμενον",
+  "glosa_interlineal": "que guerrea contra",
+  "rango_semantico": [
+   "guerrear contra, hacer campaña contra"
+  ],
+  "construccion": "Participio presente medio: «otra ley en mis miembros, que se rebela contra la ley de mi mente».",
+  "sentido_en_contexto": "Pablo describe un conflicto de «leyes»: la ley de Dios (aprobada por la mente), «otra ley» (principio del pecado) en los miembros, que hace la guerra y toma cautivo. El verbo militar muestra la dureza del conflicto.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gá 5:17",
+   "1 P 2:11",
+   "Stg 4:1"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Rom.7.23#09",
+  "morfologia_tagnt": "V-PNP-ASM",
+  "dstrong": "G0497",
+  "strong_tagnt": "G497",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to wage war against"
+ },
+ {
+  "ref": "Rom.7.24",
+  "strong": "G5005",
+  "forma": "ταλαίπωρος",
+  "glosa_interlineal": "miserable",
+  "rango_semantico": [
+   "desventurado, miserable"
+  ],
+  "construccion": "Adjetivo nominativo: «¡Miserable de mí! ¿Quién me librará de este cuerpo de muerte?».",
+  "sentido_en_contexto": "Grito desesperado del «yo» del cap. 7. «Cuerpo de muerte» (σῶμα τοῦ θανάτου): existencia condenada a la muerte por el pecado. La pregunta tiene respuesta inmediata (v.25) y desarrollada (cap. 8).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 8:1-2",
+   "Ro 6:6",
+   "2 Co 5:1-4"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "Rom.7.24#01",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G5005",
+  "strong_tagnt": "G5005",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "wretched"
+ },
+ {
+  "ref": "Rom.7.25",
+  "strong": "G5485",
+  "forma": "χάρις",
+  "glosa_interlineal": "gracias",
+  "rango_semantico": [
+   "gracia, agradecimiento"
+  ],
+  "construccion": "Nominativo: «Gracias doy a Dios, por Jesucristo Señor nuestro».",
+  "sentido_en_contexto": "Respuesta del grito del v.24: la liberación viene por Jesucristo. El versículo cierra con «así que yo mismo con la mente sirvo a la ley de Dios, mas con la carne a la ley del pecado»: resumen de la tensión que sigue en el creyente hasta que se complete su redención (8:23).",
+  "matiz": "Hay quien (con apoyo en la crítica textual y literaria) propone invertir el orden y colocar la segunda mitad del v.25 antes del v.24; no hay manuscritos que lo respalden.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 8:1-4",
+   "1 Co 15:57",
+   "Ro 8:23"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "Rom.7.25#01",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G5485",
+  "strong_tagnt": "G5485",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "SBL",
+   "WH",
+   "Treg"
+  ],
+  "ausente_en": [
+   "Tyn",
+   "TR",
+   "Byz"
+  ],
+  "variante": true,
+  "glosa_tagnt": "grace"
+ }
+]

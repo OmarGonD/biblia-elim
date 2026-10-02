@@ -1,0 +1,1224 @@
+[
+ {
+  "ref": "John.12.3",
+  "strong": "G3487",
+  "forma": "νάρδου",
+  "glosa_interlineal": "nardo",
+  "rango_semantico": [
+   "nardo (perfume extraído de una planta de la India)"
+  ],
+  "construccion": "Genitivo: «una libra de perfume de nardo puro».",
+  "sentido_en_contexto": "María unge los pies de Jesús con una libra (unos 327 g) de perfume muy caro y los seca con su cabello. El gesto de devoción extravagante prefigura el entierro de Jesús (v.7). La casa se llenó del olor.",
+  "matiz": "Se discute la identidad de «puro» (πιστικῆς): nardo genuino, o un término técnico de significado incierto (posiblemente «líquido» o «para beber»). La mayoría lo traduce «puro».",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 14:3-9; Mt 26:6-13 — paralelos en Betania",
+   "Lc 7:36-50 — otra unción, distinta",
+   "Cnt 1:12 — «mi nardo dio su olor»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "John.12.3#07",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G3487",
+  "strong_tagnt": "G3487",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "nard"
+ },
+ {
+  "ref": "John.12.5",
+  "strong": "G1220",
+  "forma": "δηναρίων",
+  "glosa_interlineal": "denarios",
+  "rango_semantico": [
+   "denario (salario de un día de trabajo)"
+  ],
+  "construccion": "Genitivo plural: «¿por qué no fue este perfume vendido por trescientos denarios?».",
+  "sentido_en_contexto": "Trescientos denarios equivalían al salario de casi un año de trabajo. Judas protesta, escudándose en los pobres.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 20:2 — un denario al día",
+   "Mr 14:5 — paralelo",
+   "Jn 6:7 — doscientos denarios de pan"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "John.12.5#09",
+  "morfologia_tagnt": "N-GPN",
+  "dstrong": "G1220",
+  "strong_tagnt": "G1220",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "denarius"
+ },
+ {
+  "ref": "John.12.6",
+  "strong": "G2812",
+  "forma": "κλέπτης",
+  "glosa_interlineal": "ladrón",
+  "rango_semantico": [
+   "ladrón"
+  ],
+  "construccion": "Nominativo: «era ladrón, y teniendo la bolsa, sustraía lo que se echaba en ella».",
+  "sentido_en_contexto": "El evangelista descubre el motivo oculto de Judas: robaba de la bolsa común. El comentario subraya la corrupción de Judas antes de la traición.",
+  "matiz": "El verbo ἐβάσταζεν («llevaba» o «sustraía») puede significar «cargar» o «robar». Dado que lo llama «ladrón», la mayoría entiende «sustraía».",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 13:29 — Judas llevaba la bolsa",
+   "Jn 6:70-71",
+   "Lc 22:3-6"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "John.12.6#13",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G2812",
+  "strong_tagnt": "G2812",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "thief"
+ },
+ {
+  "ref": "John.12.7",
+  "strong": "G1780",
+  "forma": "ἐνταφιασμοῦ",
+  "glosa_interlineal": "sepultura",
+  "rango_semantico": [
+   "embalsamamiento, preparación para el entierro"
+  ],
+  "construccion": "Genitivo: «para el día de mi sepultura lo ha guardado».",
+  "sentido_en_contexto": "Jesús interpreta la unción como preparación anticipada de su cuerpo para el entierro. Eco de que las mujeres no podrán ungirlo después (Mr 16:1).",
+  "matiz": "La construcción es difícil: «déjala, para el día de mi sepultura lo ha guardado» (RVR) o «déjala; lo guardó para el día de mi sepultura». Dos lecturas sobre si el perfume estaba ya consumido.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 14:8 — «se ha anticipado a ungir mi cuerpo para la sepultura»",
+   "Jn 19:39-40",
+   "Mt 26:12"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "John.12.7#12",
+  "morfologia_tagnt": "N-GSM",
+  "dstrong": "G1780",
+  "strong_tagnt": "G1780",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "burial"
+ },
+ {
+  "ref": "John.12.8",
+  "strong": "G4434",
+  "forma": "πτωχοὺς",
+  "glosa_interlineal": "pobres",
+  "rango_semantico": [
+   "pobre, mendigo"
+  ],
+  "construccion": "Acusativo plural: «a los pobres siempre los tendréis con vosotros».",
+  "sentido_en_contexto": "Jesús no desprecia a los pobres: alude a Dt 15:11 («nunca faltarán pobres en la tierra») para señalar que habrá ocasión de ayudarles, pero su presencia física es limitada.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dt 15:11 — «no faltarán menesterosos»",
+   "Mr 14:7 — paralelo",
+   "Gá 2:10 — «que nos acordásemos de los pobres»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "John.12.8#02",
+  "morfologia_tagnt": "N-APM",
+  "dstrong": "G4434",
+  "strong_tagnt": "G4434",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "poor"
+ },
+ {
+  "ref": "John.12.13",
+  "strong": "G902",
+  "forma": "βαΐα",
+  "glosa_interlineal": "ramas de palma",
+  "rango_semantico": [
+   "rama de palma"
+  ],
+  "construccion": "Acusativo plural: «tomaron ramas de palmera».",
+  "sentido_en_contexto": "Detalle propio de Juan: las palmas simbolizan victoria y realeza (1 Mac 13:51; Ap 7:9). La multitud recibe a Jesús con aclamaciones mesiánicas de Sal 118:25-26.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 118:25-26 — texto base",
+   "1 Mac 13:51 — ramas de palma para Simón",
+   "Ap 7:9 — «palmas en sus manos»",
+   "Mt 21:8-9"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "John.12.13#03",
+  "morfologia_tagnt": "N-APN",
+  "dstrong": "G0902",
+  "strong_tagnt": "G902",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "palm branch"
+ },
+ {
+  "ref": "John.12.13",
+  "strong": "G5614",
+  "forma": "ὡσαννά",
+  "glosa_interlineal": "¡Hosanna!",
+  "rango_semantico": [
+   "hosanna (del hebreo hôšîʿâ nā’, «salva ahora»)"
+  ],
+  "construccion": "Interjección: «¡Hosanna!».",
+  "sentido_en_contexto": "Del hebreo «sálvanos, te rogamos» (Sal 118:25). Con el tiempo se convirtió en grito de aclamación y alabanza. Aquí se aplica al Mesías esperado, «Rey de Israel».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Sal 118:25 — «Jehová, sálvanos ahora»",
+   "Mt 21:9, 15; Mr 11:9-10",
+   "Ap 7:10 — «la salvación pertenece a nuestro Dios»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "John.12.13#13",
+  "morfologia_tagnt": "PRT",
+  "dstrong": "G5614",
+  "strong_tagnt": "G5614",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Hosanna!"
+ },
+ {
+  "ref": "John.12.15",
+  "strong": "G3688",
+  "forma": "ὄνου",
+  "glosa_interlineal": "asna",
+  "rango_semantico": [
+   "asno, burro"
+  ],
+  "construccion": "Genitivo: «sentado sobre un pollino de asna».",
+  "sentido_en_contexto": "Cita adaptada de Zac 9:9. Jesús entra en Jerusalén como rey humilde y pacífico, no como guerrero a caballo. Juan abrevia la cita y subraya el «no temas».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Zac 9:9 — texto base",
+   "Mt 21:4-5 — cita más completa",
+   "Is 62:11"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "John.12.15#13",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G3688",
+  "strong_tagnt": "G3688",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "donkey"
+ },
+ {
+  "ref": "John.12.16",
+  "strong": "G1392",
+  "forma": "ἐδοξάσθη",
+  "glosa_interlineal": "fue glorificado",
+  "rango_semantico": [
+   "glorificar"
+  ],
+  "construccion": "Aoristo indicativo pasivo: «cuando Jesús fue glorificado».",
+  "sentido_en_contexto": "Los discípulos no entendieron al principio; solo comprendieron tras la glorificación (cruz, resurrección, ascensión). Juan insiste en la comprensión pospascual.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 2:22 — «cuando resucitó… se acordaron»",
+   "Jn 7:39 — «aún no había sido glorificado»",
+   "Jn 14:26"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "John.12.16#12",
+  "morfologia_tagnt": "V-API-3S",
+  "dstrong": "G1392",
+  "strong_tagnt": "G1392",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to glorify"
+ },
+ {
+  "ref": "John.12.20",
+  "strong": "G1672",
+  "forma": "Ἕλληνές",
+  "glosa_interlineal": "griegos",
+  "rango_semantico": [
+   "griego, gentil de cultura griega"
+  ],
+  "construccion": "Nominativo plural: «ciertos griegos».",
+  "sentido_en_contexto": "Probablemente gentiles temerosos de Dios que suben a adorar en la fiesta. Su deseo de «ver a Jesús» marca la llegada de «la hora»: el mensaje se abre a las naciones.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 7:35 — «¿irá a la dispersión entre los griegos?»",
+   "Jn 10:16",
+   "Hch 8:27 — el etíope",
+   "Is 49:6"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "John.12.20#03",
+  "morfologia_tagnt": "N-NPM-LG",
+  "dstrong": "G1672",
+  "strong_tagnt": "G1672",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "a Greek"
+ },
+ {
+  "ref": "John.12.23",
+  "strong": "G5610",
+  "forma": "ὥρα",
+  "glosa_interlineal": "hora",
+  "rango_semantico": [
+   "hora"
+  ],
+  "construccion": "Nominativo: «ha llegado la hora para que el Hijo del Hombre sea glorificado».",
+  "sentido_en_contexto": "Cambio decisivo: después de repetir «aún no era su hora», ahora la hora ha llegado. La llegada de los griegos señala el momento de la glorificación, que pasa por la cruz.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 2:4; 7:30; 8:20",
+   "Jn 13:1; 17:1",
+   "Mr 14:41 — «la hora ha llegado»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "John.12.23#09",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G5610",
+  "strong_tagnt": "G5610",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "hour"
+ },
+ {
+  "ref": "John.12.24",
+  "strong": "G2848",
+  "forma": "κόκκος",
+  "glosa_interlineal": "grano",
+  "rango_semantico": [
+   "grano, semilla"
+  ],
+  "construccion": "Nominativo: «si el grano de trigo no cae en tierra y muere, queda solo».",
+  "sentido_en_contexto": "Imagen de la muerte fecunda: el grano debe morir para dar fruto. Aplica a Jesús mismo (su muerte traerá vida a muchos, incluidos los gentiles) y al discípulo (v.25-26).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 15:36-38 — «lo que tú siembras no se vivifica, si no muere antes»",
+   "Jn 12:32",
+   "Is 53:10-11 — «verá linaje… quedará satisfecho»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "John.12.24#08",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G2848",
+  "strong_tagnt": "G2848",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "seed"
+ },
+ {
+  "ref": "John.12.25",
+  "strong": "G5590",
+  "forma": "ψυχὴν",
+  "glosa_interlineal": "vida",
+  "rango_semantico": [
+   "alma, vida"
+  ],
+  "construccion": "Acusativo: «el que ama su vida, la perderá».",
+  "sentido_en_contexto": "Paradoja del discipulado (cf. Mt 10:39; Lc 17:33): quien se aferra a su vida la pierde; quien «odia su vida en este mundo» (hipérbole semítica por «prefiere menos») la guardará para vida eterna.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 10:39; 16:25",
+   "Mr 8:35",
+   "Lc 14:26 — «si alguno viene a mí y no aborrece»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "John.12.25#04",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G5590H",
+  "strong_tagnt": "G5590",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "soul"
+ },
+ {
+  "ref": "John.12.25",
+  "strong": "G5590",
+  "forma": "ψυχὴν",
+  "glosa_interlineal": "vida",
+  "rango_semantico": [
+   "alma, vida"
+  ],
+  "construccion": "Acusativo: «el que ama su vida, la perderá».",
+  "sentido_en_contexto": "Paradoja del discipulado (cf. Mt 10:39; Lc 17:33): quien se aferra a su vida la pierde; quien «odia su vida en este mundo» (hipérbole semítica por «prefiere menos») la guardará para vida eterna.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 10:39; 16:25",
+   "Mr 8:35",
+   "Lc 14:26 — «si alguno viene a mí y no aborrece»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "John.12.25#12",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G5590H",
+  "strong_tagnt": "G5590",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "soul"
+ },
+ {
+  "ref": "John.12.27",
+  "strong": "G5015",
+  "forma": "τετάρακται",
+  "glosa_interlineal": "está turbada",
+  "rango_semantico": [
+   "turbar, agitar, conmover"
+  ],
+  "construccion": "Perfecto indicativo pasivo: «ahora está turbada mi alma».",
+  "sentido_en_contexto": "El Juan sin escena de Getsemaní incluye aquí la angustia de Jesús ante la cruz: «¿qué diré? Padre, sálvame de esta hora? Mas para esto he llegado a esta hora». Paralelo de la oración en el huerto.",
+  "matiz": "Algunos ven en este pasaje el equivalente joánico de Getsemaní (Mr 14:34-36). Jesús se turba (cf. 11:33; 13:21) pero acepta la hora.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 14:34-36 — Getsemaní",
+   "Jn 11:33; 13:21",
+   "Heb 5:7-8"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "John.12.27#05",
+  "morfologia_tagnt": "V-RPI-3S",
+  "dstrong": "G5015",
+  "strong_tagnt": "G5015",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to trouble"
+ },
+ {
+  "ref": "John.12.28",
+  "strong": "G1392",
+  "forma": "δόξασόν",
+  "glosa_interlineal": "glorifica",
+  "rango_semantico": [
+   "glorificar"
+  ],
+  "construccion": "Imperativo aoristo activo: «Padre, glorifica tu nombre».",
+  "sentido_en_contexto": "La oración de Jesús es que el Padre sea glorificado, aun a costa de su sufrimiento. Una voz del cielo responde: «Lo he glorificado, y lo glorificaré otra vez». Es como las voces del bautismo y la transfiguración, pero aquí en Juan.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 3:17; 17:5 — voz del cielo",
+   "Jn 17:1, 4-5",
+   "Fil 2:9-11"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "John.12.28#02",
+  "morfologia_tagnt": "V-AAM-2S",
+  "dstrong": "G1392",
+  "strong_tagnt": "G1392",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to glorify"
+ },
+ {
+  "ref": "John.12.31",
+  "strong": "G758",
+  "forma": "ἄρχων",
+  "glosa_interlineal": "príncipe",
+  "rango_semantico": [
+   "gobernante, príncipe, jefe"
+  ],
+  "construccion": "Nominativo: «el príncipe de este mundo será echado fuera».",
+  "sentido_en_contexto": "Se refiere a Satanás como gobernante del orden mundial opuesto a Dios; la cruz significa su derrota y expulsión. Frase repetida en 14:30 y 16:11.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 14:30; 16:11",
+   "Lc 10:18 — «veía a Satanás caer como un rayo»",
+   "Col 2:15 — «despojó a los principados»",
+   "Ap 12:9-11"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "John.12.31#09",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G0758",
+  "strong_tagnt": "G758",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "ruler"
+ },
+ {
+  "ref": "John.12.32",
+  "strong": "G5312",
+  "forma": "ὑψωθῶ",
+  "glosa_interlineal": "sea levantado",
+  "rango_semantico": [
+   "levantar, exaltar"
+  ],
+  "construccion": "Subjuntivo aoristo pasivo: «y yo, si fuere levantado de la tierra, a todos atraeré a mí mismo».",
+  "sentido_en_contexto": "ὑψόω = «ser alzado» (en la cruz) y «ser exaltado». El evangelista lo explica (v.33): señalaba de qué muerte iba a morir. «Todos» (πάντας) indica universalidad: judíos y gentiles, incluso los griegos que lo buscaban.",
+  "matiz": "«A todos» se discute: todos sin distinción de pueblo (lectura habitual) o todos sin excepción (universalismo). El contexto (griegos que quieren ver a Jesús) apoya «todo tipo de personas».",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 3:14; 8:28",
+   "Jn 6:44 — «si el Padre no le trajere»",
+   "Nm 21:8-9"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "John.12.32#03",
+  "morfologia_tagnt": "V-APS-1S",
+  "dstrong": "G5312",
+  "strong_tagnt": "G5312",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to lift up"
+ },
+ {
+  "ref": "John.12.34",
+  "strong": "G165",
+  "forma": "αἰῶνα",
+  "glosa_interlineal": "siempre",
+  "rango_semantico": [
+   "edad, eternidad"
+  ],
+  "construccion": "Acusativo: «el Cristo permanece para siempre».",
+  "sentido_en_contexto": "La multitud objeta: la ley enseña que el Mesías permanece eternamente (cf. Sal 89:36-37; Is 9:7; Dn 7:14), ¿cómo puede el Hijo del Hombre ser «levantado» (morir)? No entienden la cruz como camino de gloria.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 89:36",
+   "Is 9:7",
+   "Dn 7:14",
+   "Sal 110:4"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 17,
+  "alineacion": "forma",
+  "tagnt": "John.12.34#17",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G0165H",
+  "strong_tagnt": "G165",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "an age"
+ },
+ {
+  "ref": "John.12.35",
+  "strong": "G2638",
+  "forma": "καταλάβῃ",
+  "glosa_interlineal": "sorprenda",
+  "rango_semantico": [
+   "alcanzar, sorprender, apoderarse"
+  ],
+  "construccion": "Subjuntivo aoristo activo: «para que no os sorprendan las tinieblas».",
+  "sentido_en_contexto": "Eco de 1:5 (καταλαμβάνω), donde el mismo verbo se traduce «comprender» o «vencer». Aquí, la advertencia es de no dejar pasar la luz para evitar la oscuridad.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 1:5",
+   "Jn 8:12",
+   "1 Ts 5:4-5 — «hijos de luz»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 23,
+  "alineacion": "forma",
+  "tagnt": "John.12.35#23",
+  "morfologia_tagnt": "V-2AAS-3S",
+  "dstrong": "G2638",
+  "strong_tagnt": "G2638",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to grasp"
+ },
+ {
+  "ref": "John.12.38",
+  "strong": "G1023",
+  "forma": "βραχίων",
+  "glosa_interlineal": "brazo",
+  "rango_semantico": [
+   "brazo, poder"
+  ],
+  "construccion": "Nominativo: «¿a quién se ha revelado el brazo del Señor?».",
+  "sentido_en_contexto": "Cita de Is 53:1: el rechazo de Jesús es el cumplimiento de la profecía del Siervo sufriente. «El brazo del Señor» es su poder salvador, revelado en Jesús.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 53:1 — texto base",
+   "Ro 10:16 — «no todos obedecieron al evangelio»",
+   "Is 52:10"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 18,
+  "alineacion": "forma",
+  "tagnt": "John.12.38#18",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G1023",
+  "strong_tagnt": "G1023",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "arm"
+ },
+ {
+  "ref": "John.12.40",
+  "strong": "G4456",
+  "forma": "ἐπώρωσεν",
+  "glosa_interlineal": "endureció",
+  "rango_semantico": [
+   "endurecer, volver insensible"
+  ],
+  "construccion": "Aoristo indicativo activo: «endureció su corazón».",
+  "sentido_en_contexto": "Cita de Is 6:10, aplicada al rechazo de Jesús. El sujeto del verbo es Dios (en Is 6), pero el texto joánico enfatiza la incredulidad que cumple la profecía sin atribuir causalidad exclusiva a Dios.",
+  "matiz": "Debate teológico sobre ἵνα («para que») y el endurecimiento divino: ¿Dios causa la incredulidad (determinismo), la permite (judicial) o el texto expresa resultado más que propósito? Mt 13:15 y Hch 28:26-27 usan la misma cita. El hecho de que v.37 diga que «no creían» antes de la cita sugiere que el endurecimiento sanciona una incredulidad ya presente.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 6:9-10 — texto base",
+   "Mt 13:14-15; Hch 28:26-27",
+   "Ro 9:18; 11:7-10"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "John.12.40#06",
+  "morfologia_tagnt": "V-AAI-3S",
+  "dstrong": "G4456",
+  "strong_tagnt": "G4456",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg"
+  ],
+  "ausente_en": [
+   "TR",
+   "Byz"
+  ],
+  "variante": true,
+  "glosa_tagnt": "to harden"
+ },
+ {
+  "ref": "John.12.41",
+  "strong": "G1391",
+  "forma": "δόξαν",
+  "glosa_interlineal": "gloria",
+  "rango_semantico": [
+   "gloria"
+  ],
+  "construccion": "Acusativo: «Isaías vio su gloria, y habló de él».",
+  "sentido_en_contexto": "Juan afirma que Isaías, en su visión del templo (Is 6), vio la gloria de Jesús; es decir, identifica al Señor de Is 6 con Cristo. Afirmación de alto contenido cristológico.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 6:1-3",
+   "Jn 1:14",
+   "Jn 8:56 — Abraham vio su día"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "John.12.41#07",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G1391",
+  "strong_tagnt": "G1391",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "glory"
+ },
+ {
+  "ref": "John.12.42",
+  "strong": "G656",
+  "forma": "ἀποσυνάγωγοι",
+  "glosa_interlineal": "expulsados de la sinagoga",
+  "rango_semantico": [
+   "excluido de la sinagoga"
+  ],
+  "construccion": "Adjetivo nominativo plural: «para no ser expulsados de la sinagoga».",
+  "sentido_en_contexto": "Muchos líderes creían en él pero no lo confesaban por temor a los fariseos. Retrato de una fe oculta y cobarde; contrasta con el ciego de Jn 9.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 9:22, 34",
+   "Jn 16:2",
+   "Jn 19:38 — José de Arimatea, discípulo secreto",
+   "Mt 10:32-33"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 19,
+  "alineacion": "forma",
+  "tagnt": "John.12.42#19",
+  "morfologia_tagnt": "A-NPM",
+  "dstrong": "G0656",
+  "strong_tagnt": "G656",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "excommunicated"
+ },
+ {
+  "ref": "John.12.43",
+  "strong": "G1391",
+  "forma": "δόξαν",
+  "glosa_interlineal": "gloria",
+  "rango_semantico": [
+   "gloria, honra"
+  ],
+  "construccion": "Acusativo: «amaron más la gloria de los hombres que la gloria de Dios».",
+  "sentido_en_contexto": "Diagnóstico moral de la fe cobarde: preferir la aprobación humana a la de Dios. Retoma el reproche de 5:44.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 5:44",
+   "Mt 6:1",
+   "Gá 1:10 — «¿busco ahora el favor de los hombres?»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "John.12.43#04",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G1391",
+  "strong_tagnt": "G1391",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "glory"
+ },
+ {
+  "ref": "John.12.43",
+  "strong": "G1391",
+  "forma": "δόξαν",
+  "glosa_interlineal": "gloria",
+  "rango_semantico": [
+   "gloria, honra"
+  ],
+  "construccion": "Acusativo: «amaron más la gloria de los hombres que la gloria de Dios».",
+  "sentido_en_contexto": "Diagnóstico moral de la fe cobarde: preferir la aprobación humana a la de Dios. Retoma el reproche de 5:44.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 5:44",
+   "Mt 6:1",
+   "Gá 1:10 — «¿busco ahora el favor de los hombres?»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "John.12.43#10",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G1391",
+  "strong_tagnt": "G1391",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "glory"
+ },
+ {
+  "ref": "John.12.46",
+  "strong": "G5457",
+  "forma": "φῶς",
+  "glosa_interlineal": "luz",
+  "rango_semantico": [
+   "luz"
+  ],
+  "construccion": "Acusativo: «yo la luz he venido al mundo».",
+  "sentido_en_contexto": "Resumen del ministerio público de Jesús (antes de entrar en el discurso de despedida): ha venido como luz para que quien cree no permanezca en tinieblas. Repite el tema del prólogo.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 1:4-9",
+   "Jn 8:12; 9:5",
+   "Jn 3:19-21"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "John.12.46#02",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G5457",
+  "strong_tagnt": "G5457",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "light"
+ },
+ {
+  "ref": "John.12.47",
+  "strong": "G2919",
+  "forma": "κρίνω",
+  "glosa_interlineal": "juzgue",
+  "rango_semantico": [
+   "juzgar, condenar"
+  ],
+  "construccion": "Subjuntivo aoristo activo: «no he venido a juzgar al mundo, sino a salvar al mundo».",
+  "sentido_en_contexto": "Insiste en la finalidad salvífica de su venida; el juicio es consecuencia del rechazo, no su propósito. Paralelo con 3:17; v.48 aclara que la palabra rechazada será el juez.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 3:17",
+   "Jn 5:22, 45",
+   "Lc 19:10"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "John.12.47#13",
+  "morfologia_tagnt": "V-PAI-1S",
+  "dstrong": "G2919",
+  "strong_tagnt": "G2919",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to judge"
+ },
+ {
+  "ref": "John.12.47",
+  "strong": "G2919",
+  "forma": "κρίνω",
+  "glosa_interlineal": "juzgue",
+  "rango_semantico": [
+   "juzgar, condenar"
+  ],
+  "construccion": "Subjuntivo aoristo activo: «no he venido a juzgar al mundo, sino a salvar al mundo».",
+  "sentido_en_contexto": "Insiste en la finalidad salvífica de su venida; el juicio es consecuencia del rechazo, no su propósito. Paralelo con 3:17; v.48 aclara que la palabra rechazada será el juez.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 3:17",
+   "Jn 5:22, 45",
+   "Lc 19:10"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 19,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "John.12.47#19",
+  "morfologia_tagnt": "V-AAS-1S",
+  "dstrong": "G2919",
+  "strong_tagnt": "G2919",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to judge"
+ },
+ {
+  "ref": "John.12.48",
+  "strong": "G114",
+  "forma": "ἀθετῶν",
+  "glosa_interlineal": "el que rechaza",
+  "rango_semantico": [
+   "rechazar, desechar, anular"
+  ],
+  "construccion": "Participio presente activo: «el que me rechaza».",
+  "sentido_en_contexto": "Quien rechaza a Jesús y no recibe sus palabras ya tiene quien lo juzgue: la palabra misma que habló lo juzgará el último día. El juez es la palabra revelada.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dt 18:19 — «yo le pediré cuenta»",
+   "Jn 5:45-47",
+   "Heb 10:28-29"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "John.12.48#02",
+  "morfologia_tagnt": "V-PAP-NSM",
+  "dstrong": "G0114",
+  "strong_tagnt": "G114",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to reject"
+ },
+ {
+  "ref": "John.12.50",
+  "strong": "G1785",
+  "forma": "ἐντολὴ",
+  "glosa_interlineal": "mandamiento",
+  "rango_semantico": [
+   "mandamiento, orden"
+  ],
+  "construccion": "Nominativo: «su mandamiento es vida eterna».",
+  "sentido_en_contexto": "El mandato del Padre es la vida eterna: lo que el Hijo habla procede del Padre y conduce a la vida. Cierre del ministerio público; el Juan siguiente empieza con el lavado de los pies (cap. 13).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 6:63, 68",
+   "Jn 10:18",
+   "Dt 32:46-47 — «no os es cosa vana, es vuestra vida»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "John.12.50#05",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G1785",
+  "strong_tagnt": "G1785",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "commandment"
+ }
+]

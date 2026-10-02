@@ -1,0 +1,799 @@
+[
+ {
+  "ref": "Jude.1.1",
+  "strong": "G2455",
+  "forma": "Ἰούδας",
+  "glosa_interlineal": "Judas",
+  "rango_semantico": [
+   "Judas (Judá, Jud)"
+  ],
+  "construccion": "Nominativo: «Judas, siervo de Jesucristo, hermano de Jacobo, a los llamados, santificados en Dios Padre, y guardados en Jesucristo».",
+  "sentido_en_contexto": "Judas, «hermano de Jacobo» (Santiago de Jerusalén), es probablemente el hermano del Señor (Mt 13:55). Carta breve de polémica contra falsos maestros libertinos. Es aliada de 2 Pedro 2 (ver relación literaria). Fecha: c. 60-80 d.C. (algunos la sitúan en el siglo II).",
+  "matiz": "Debate sobre el autor: (a) Judas, hermano del Señor y de Santiago (la mayoría, tradición); (b) otro Judas (el apóstol Judas de Santiago, Lc 6:16), (c) pseudónimo. Se distingue de Judas Iscariote. Sobre «hermano»: hermano de sangre, hermanastro o primo (ver Gá 1:19).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 13:55",
+   "Mr 6:3",
+   "Jas 1:1",
+   "Lc 6:16"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "Jude.1.1#01",
+  "morfologia_tagnt": "N-NSM-P",
+  "dstrong": "G2455I",
+  "strong_tagnt": "G2455",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Judah/Judas/Jude"
+ },
+ {
+  "ref": "Jude.1.3",
+  "strong": "G1864",
+  "forma": "ἐπαγωνίζεσθαι",
+  "glosa_interlineal": "contender",
+  "rango_semantico": [
+   "luchar con todas las fuerzas, contender"
+  ],
+  "construccion": "Presente infinitivo medio: «amados, por la gran solicitud que tenía de escribiros acerca de nuestra común salvación, me ha sido necesario escribiros exhortándoos que contendáis ardientemente por la fe que ha sido una vez dada a los santos».",
+  "sentido_en_contexto": "La carta pasa de un proyecto sobre la salvación a una exhortación a «combatir por la fe». «Una vez» (ἅπαξ: de una vez por todas) la fe fue entregada: el depósito de la fe apostólica está completo y no cambia. Texto clave sobre la fe como cuerpo de doctrina y sobre la defensa de la verdad.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Ti 6:12",
+   "2 Ti 1:13-14",
+   "Fil 1:27",
+   "Tit 1:9"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 17,
+  "alineacion": "forma",
+  "tagnt": "Jude.1.3#17",
+  "morfologia_tagnt": "V-PNN",
+  "dstrong": "G1864",
+  "strong_tagnt": "G1864",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to contend"
+ },
+ {
+  "ref": "Jude.1.4",
+  "strong": "G3921",
+  "forma": "παρεισέδυσαν",
+  "glosa_interlineal": "se han infiltrado",
+  "rango_semantico": [
+   "introducirse a escondidas"
+  ],
+  "construccion": "Aoristo indicativo activo: «porque algunos hombres han entrado encubiertamente, los que desde antes habían sido destinados para esta condenación, hombres impíos, que convierten en libertinaje la gracia de nuestro Dios, y niegan a Dios el único soberano, y a nuestro Señor Jesucristo».",
+  "sentido_en_contexto": "Falsos maestros infiltrados que convierten la gracia en libertinaje (antinomianismo) y niegan al Señor. «Destinados para esta condenación» (προγεγραμμένοι: inscritos de antemano): se discute si se refiere a una predestinación o a una profecía antigua del juicio (Enoc, v.14).",
+  "matiz": "Debate: «desde antes habían sido destinados» (προγεγραμμένοι): (a) condenados de antemano por Dios (doble predestinación; algunos reformados); (b) anunciados de antemano en las Escrituras (la mayoría: se les ve en las profecías, vv.14-15); (c) inscritos en el libro del juicio.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 P 2:1-3",
+   "Gá 2:4",
+   "Ro 6:1",
+   "Tit 1:16"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "Jude.1.4#01",
+  "morfologia_tagnt": "V-2AAI-3P",
+  "dstrong": "G3921",
+  "strong_tagnt": "G3921",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to infiltrate"
+ },
+ {
+  "ref": "Jude.1.5",
+  "strong": "G4982",
+  "forma": "σώσας",
+  "glosa_interlineal": "habiendo salvado",
+  "rango_semantico": [
+   "salvar, rescatar"
+  ],
+  "construccion": "Participio aoristo activo: «quiero recordaros, ya que una vez lo habéis sabido, que el Señor, habiendo salvado al pueblo de la tierra de Egipto, destruyó después a los que no creyeron».",
+  "sentido_en_contexto": "Tres ejemplos de juicio: Israel en el desierto (v.5), ángeles caídos (v.6) y Sodoma y Gomorra (v.7). Lo salvado puede perecer si no persevera en la fe. Variante textual: «el Señor» (κύριος) o «Jesús» (Ἰησοῦς; A, B), «Dios» (θεός) según el manuscrito.",
+  "matiz": "Variante textual: «el Señor» (κύριος; P72: «Dios Cristo»), «Jesús» (Ἰησοῦς; A, B, 33, 81; lectura más difícil y apoyada por manuscritos antiguos importantes: implicaría la presencia de Jesús preexistente en el éxodo) o «Dios». Debate sobre si los salvados y luego destruidos eran verdaderos creyentes.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Nm 14:29-37",
+   "1 Co 10:1-12",
+   "Heb 3:16-19",
+   "2 P 2:4-6"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Jude.1.5#16",
+  "morfologia_tagnt": "V-AAP-NSM",
+  "dstrong": "G4982",
+  "strong_tagnt": "G4982",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to save"
+ },
+ {
+  "ref": "Jude.1.6",
+  "strong": "G5083",
+  "forma": "τηρήσαντας",
+  "glosa_interlineal": "guardaron",
+  "rango_semantico": [
+   "guardar, observar"
+  ],
+  "construccion": "Participio aoristo activo: «y a los ángeles que no guardaron su dignidad, sino que abandonaron su propia morada, los ha guardado bajo oscuridad, en prisiones eternas, para el juicio del gran día».",
+  "sentido_en_contexto": "Los ángeles que no guardaron su estado (ἀρχή: dignidad, dominio) y dejaron su morada. Referencia probable a los «hijos de Dios» de Gn 6:1-4 según 1 Enoc (aquí es fuente conocida), o a la caída original. Paralelo con 2 P 2:4. Se debate su identidad.",
+  "matiz": "Debate: (a) ángeles que cohabitaron con mujeres (Gn 6; 1 Enoc; la mayoría de exégetas modernos); (b) caída original de Satanás y sus ángeles (tradición patrística); (c) rebelión angélica general. Cf. 2 P 2:4; 1 P 3:19-20.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 P 2:4",
+   "Gn 6:1-4",
+   "1 Enoc 6–16",
+   "1 P 3:19-20"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 5,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Jude.1.6#05",
+  "morfologia_tagnt": "V-AAP-APM",
+  "dstrong": "G5083G",
+  "strong_tagnt": "G5083",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to keep"
+ },
+ {
+  "ref": "Jude.1.7",
+  "strong": "G1116",
+  "forma": "Γόμορρα",
+  "glosa_interlineal": "Gomorra",
+  "rango_semantico": [
+   "Gomorra"
+  ],
+  "construccion": "Nominativo: «como Sodoma y Gomorra y las ciudades vecinas, las cuales de la misma manera que aquéllos, habiendo fornicado e ido en pos de lujuria contra naturaleza, fueron puestas por ejemplo, sufriendo el castigo del fuego eterno».",
+  "sentido_en_contexto": "Sodoma y Gomorra como paradigma de juicio. «Lujuria contra naturaleza» (σὰρξ ἑτέρα: «carne distinta»): puede referirse a la relación homosexual (Gn 19) o a la unión con seres angélicos («carne distinta»; paralelo con el v.6). El castigo del fuego eterno es ejemplo, no necesariamente su estado actual.",
+  "matiz": "Debate sobre ἑτέρας σαρκός: (a) relaciones sexuales entre varones (la mayoría); (b) deseo de unión con ángeles (los visitantes de Lot; paralelo con v.6); (c) inmoralidad en general. «Fuego eterno»: el fuego que consumió las ciudades como emblema del fuego eterno.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 19:1-29",
+   "2 P 2:6-8",
+   "Lc 17:28-30",
+   "Ez 16:49-50"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Jude.1.7#04",
+  "morfologia_tagnt": "N-NSF-L",
+  "dstrong": "G1116",
+  "strong_tagnt": "G1116",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Gomorrah"
+ },
+ {
+  "ref": "Jude.1.8",
+  "strong": "G114",
+  "forma": "ἀθετοῦσιν",
+  "glosa_interlineal": "desprecian",
+  "rango_semantico": [
+   "rechazar, despreciar"
+  ],
+  "construccion": "Presente indicativo activo: «de la misma manera también estos soñadores mancillan la carne, rechazan la autoridad y blasfeman de las potestades superiores».",
+  "sentido_en_contexto": "Los falsos maestros se fundan en sueños y visiones, manchan la carne, desprecian la autoridad (κυριότης) e injurian a las «glorias» (δόξαι: seres angélicos o autoridades). Se ha discutido si «las glorias» son ángeles o autoridades humanas (cf. 2 P 2:10).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 P 2:10",
+   "Jud 4",
+   "Ro 13:1-2"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Jude.1.8#11",
+  "morfologia_tagnt": "V-PAI-3P",
+  "dstrong": "G0114",
+  "strong_tagnt": "G114",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to reject"
+ },
+ {
+  "ref": "Jude.1.9",
+  "strong": "G3413",
+  "forma": "Μιχαὴλ",
+  "glosa_interlineal": "Miguel",
+  "rango_semantico": [
+   "Miguel"
+  ],
+  "construccion": "Nominativo: «pero cuando el arcángel Miguel contendía con el diablo disputando acerca del cuerpo de Moisés, no se atrevió a proferir juicio de maldición contra él, sino que dijo: El Señor te reprenda».",
+  "sentido_en_contexto": "Referencia a una tradición judía sobre la disputa por el cuerpo de Moisés, probablemente tomada de la «Asunción de Moisés» (apócrifo; el fragmento se ha perdido, aunque la tradición está atestiguada por Clemente y Orígenes). Miguel no insulta, sino que apela a Dios. Judas cita una fuente extrabíblica, como un ejemplo, sin darle estatus de Escritura.",
+  "matiz": "Debate: (a) la fuente es la Asunción (Testamento) de Moisés (la mayoría; así lo dicen Orígenes y otros Padres); (b) una tradición oral judía; (c) la cita no implica canonicidad de la obra apócrifa. Jud 14-15 cita igualmente 1 Enoc. Estas citas fueron objeto de discusión sobre el canon de Judas.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dn 10:13, 21; 12:1",
+   "Zac 3:2",
+   "Ap 12:7",
+   "Dt 34:5-6"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Jude.1.9#03",
+  "morfologia_tagnt": "N-NSM-P",
+  "dstrong": "G3413",
+  "strong_tagnt": "G3413",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Michael"
+ },
+ {
+  "ref": "Jude.1.11",
+  "strong": "G903",
+  "forma": "Βαλαὰμ",
+  "glosa_interlineal": "Balaam",
+  "rango_semantico": [
+   "Balaam"
+  ],
+  "construccion": "Genitivo: «¡ay de ellos! Porque han seguido el camino de Caín, y se lanzaron por lucro en el error de Balaam, y perecieron en la contradicción de Coré».",
+  "sentido_en_contexto": "Tres ejemplos del AT de rebeldía: Caín (envidia y homicidio), Balaam (avaricia y seducción) y Coré (rebelión contra la autoridad). Los falsos maestros siguen sus caminos. Cf. 2 P 2:15.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 4:1-8",
+   "Nm 22–24; 16",
+   "2 P 2:15",
+   "Ap 2:14"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "Jude.1.11#13",
+  "morfologia_tagnt": "N-GSM-P",
+  "dstrong": "G0903",
+  "strong_tagnt": "G903",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Balaam"
+ },
+ {
+  "ref": "Jude.1.12",
+  "strong": "G26",
+  "forma": "ἀγάπαις",
+  "glosa_interlineal": "ágapes",
+  "rango_semantico": [
+   "fiesta de amor, comida comunitaria"
+  ],
+  "construccion": "Dativo plural: «estos son manchas en vuestros ágapes, que banquetean sin temor, apacentándose a sí mismos».",
+  "sentido_en_contexto": "Los «ágapes» (comidas fraternales de la iglesia primitiva, ligadas a la Cena del Señor) son contaminadas por estos falsos maestros que banquetean sin reverencia. Seis imágenes de la naturaleza describen su vacuidad: nubes sin agua, árboles sin fruto, olas del mar, estrellas errantes.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 P 2:13",
+   "1 Co 11:20-22",
+   "Hch 2:46"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Jude.1.12#06",
+  "morfologia_tagnt": "N-DPF",
+  "dstrong": "G0026",
+  "strong_tagnt": "G26",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "love"
+ },
+ {
+  "ref": "Jude.1.14",
+  "strong": "G1802",
+  "forma": "Ἑνὼχ",
+  "glosa_interlineal": "Enoc",
+  "rango_semantico": [
+   "Enoc"
+  ],
+  "construccion": "Nominativo: «de éstos también profetizó Enoc, el séptimo desde Adán, diciendo: He aquí, vino el Señor con sus santas decenas de millares».",
+  "sentido_en_contexto": "Cita de 1 Enoc 1:9 (apócrifo judío), atribuida al profeta Enoc, séptimo desde Adán (Gn 5:18). Judas cita un escrito no canónico, pero con valor de testimonio, sin que ello lo convierta en Escritura. Las iglesias etíopes consideran 1 Enoc canónico; el resto no.",
+  "matiz": "Debate: (a) Judas cita 1 Enoc como fuente conocida y confiable, sin avalar todo el libro (la mayoría); (b) implica que 1 Enoc es inspirado (iglesia etíope; algunos Padres antiguos como Tertuliano); (c) cita una tradición oral que 1 Enoc recoge. Cf. Pablo, que cita poetas paganos (Hch 17:28; Tit 1:12).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 5:18-24",
+   "1 Enoc 1:9",
+   "Hch 17:28",
+   "Dt 33:2"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Jude.1.14#08",
+  "morfologia_tagnt": "N-NSM-P",
+  "dstrong": "G1802",
+  "strong_tagnt": "G1802",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Enoch"
+ },
+ {
+  "ref": "Jude.1.16",
+  "strong": "G1113",
+  "forma": "γογγυσταί",
+  "glosa_interlineal": "murmuradores",
+  "rango_semantico": [
+   "murmurador, quejoso"
+  ],
+  "construccion": "Nominativo plural: «estos son murmuradores, querellosos, que andan según sus propios deseos, cuya boca habla palabras infladas, adulando a las personas para sacar provecho».",
+  "sentido_en_contexto": "Descripción de la conducta de los falsos maestros: murmuración, queja, deseos propios, arrogancia en el hablar y adulación interesada. Su sello es el egoísmo; se oponen a la verdad mientras buscan ganancia.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Nm 14:1-4",
+   "2 P 2:18",
+   "1 Co 10:10"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Jude.1.16#03",
+  "morfologia_tagnt": "N-NPM",
+  "dstrong": "G1113",
+  "strong_tagnt": "G1113",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "a murmurer"
+ },
+ {
+  "ref": "Jude.1.17",
+  "strong": "G652",
+  "forma": "ἀποστόλων",
+  "glosa_interlineal": "apóstoles",
+  "rango_semantico": [
+   "apóstol"
+  ],
+  "construccion": "Genitivo plural: «pero vosotros, amados, acordaos de las palabras que antes fueron dichas por los apóstoles de nuestro Señor Jesucristo».",
+  "sentido_en_contexto": "Judas distingue entre sí mismo y «los apóstoles»: su generación recibe la enseñanza apostólica (v.17). Dato para la fecha y la autoría: probablemente escrito en la segunda generación. Indica la existencia de una tradición apostólica fijada (v.3).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 P 3:2",
+   "Jud 3",
+   "Hch 20:29-30",
+   "1 Ti 4:1"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Jude.1.17#11",
+  "morfologia_tagnt": "N-GPM",
+  "dstrong": "G0652",
+  "strong_tagnt": "G652",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "apostle"
+ },
+ {
+  "ref": "Jude.1.19",
+  "strong": "G5591",
+  "forma": "ψυχικοί",
+  "glosa_interlineal": "naturales",
+  "rango_semantico": [
+   "natural, sin el Espíritu, animal"
+  ],
+  "construccion": "Nominativo plural: «estos son los que causan divisiones, los sensuales, que no tienen al Espíritu».",
+  "sentido_en_contexto": "Los falsos maestros son «psíquicos» (ψυχικοί: carnales, sin el Espíritu), no «espirituales» como pretendían (la jactancia gnóstica de ser «pneumáticos»). Judas invierte su pretensión: quienes no tienen el Espíritu son ellos (cf. 1 Co 2:14).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 2:14",
+   "Jas 3:15",
+   "Ro 8:9"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Jude.1.19#05",
+  "morfologia_tagnt": "A-NPM",
+  "dstrong": "G5591",
+  "strong_tagnt": "G5591",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "natural"
+ },
+ {
+  "ref": "Jude.1.20",
+  "strong": "G2026",
+  "forma": "ἐποικοδομοῦντες",
+  "glosa_interlineal": "edificándoos",
+  "rango_semantico": [
+   "edificar sobre"
+  ],
+  "construccion": "Participio presente activo: «pero vosotros, amados, edificándoos sobre vuestra santísima fe, orando en el Espíritu Santo».",
+  "sentido_en_contexto": "Instrucciones positivas (vv.20-23): edificarse en la fe, orar en el Espíritu, guardarse en el amor de Dios, esperar la misericordia de Cristo. Estructura trinitaria: Espíritu, Dios, Cristo. Hay tres imperativos de acción: edificar, guardarse, compadecerse.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ef 6:18",
+   "Col 2:7",
+   "1 Co 3:10-15",
+   "Ro 8:26"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Jude.1.20#04",
+  "morfologia_tagnt": "V-PAP-NPM",
+  "dstrong": "G2026",
+  "strong_tagnt": "G2026",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to build up/upon"
+ },
+ {
+  "ref": "Jude.1.21",
+  "strong": "G5083",
+  "forma": "τηρήσατε",
+  "glosa_interlineal": "guardaos",
+  "rango_semantico": [
+   "guardar, conservar"
+  ],
+  "construccion": "Imperativo aoristo activo: «conservaos en el amor de Dios, esperando la misericordia de nuestro Señor Jesucristo para vida eterna».",
+  "sentido_en_contexto": "Equilibrio entre la guarda de Dios (v.1, 24: «a los que han sido guardados») y la responsabilidad de guardarse en el amor de Dios. No se oponen: Dios guarda, y el creyente se mantiene en su amor. Se espera la misericordia de Cristo hasta la vida eterna.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jud 1, 24",
+   "Jn 15:9-10",
+   "1 P 1:5",
+   "Heb 3:14"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Jude.1.21#05",
+  "morfologia_tagnt": "V-AAM-2P",
+  "dstrong": "G5083G",
+  "strong_tagnt": "G5083",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to keep"
+ },
+ {
+  "ref": "Jude.1.22",
+  "strong": "G1252",
+  "forma": "διακρινομένους",
+  "glosa_interlineal": "los que dudan",
+  "rango_semantico": [
+   "dudar, vacilar, discutir"
+  ],
+  "construccion": "Participio presente medio/pasivo: «y a algunos que dudan, convencedlos».",
+  "sentido_en_contexto": "Tres grupos que requieren distintas respuestas (vv.22-23): los que dudan (convencerlos con misericordia), los que están en peligro de fuego (arrebatarlos), y los que están contaminados (tener misericordia con temor). Hay variantes textuales complejas sobre estos versículos (dos o tres grupos).",
+  "matiz": "Variante textual: algunos manuscritos tienen dos grupos, otros tres (como en RVR). El sentido de διακρινομένους puede ser «los que dudan» (acusativo) o «los que discuten» (con contendientes). La tradición textual es muy compleja.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Ti 2:25-26",
+   "Gá 6:1",
+   "Stg 5:19-20"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Jude.1.22#05",
+  "morfologia_tagnt": "V-PMP-APM",
+  "dstrong": "G1252",
+  "strong_tagnt": "G1252",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg"
+  ],
+  "ausente_en": [
+   "TR",
+   "Byz"
+  ],
+  "variante": true,
+  "glosa_tagnt": "to judge/doubt"
+ },
+ {
+  "ref": "Jude.1.23",
+  "strong": "G726",
+  "forma": "ἁρπάζοντες",
+  "glosa_interlineal": "arrebatando",
+  "rango_semantico": [
+   "arrebatar, arrancar"
+  ],
+  "construccion": "Participio presente activo: «a otros salvad, arrebatándolos del fuego; y de otros tened misericordia con temor, aborreciendo aun la ropa contaminada por su carne».",
+  "sentido_en_contexto": "Imagen del rescate del fuego (Zac 3:2; Am 4:11). La compasión con los caídos va acompañada de cautela ante el contagio del pecado («temor»). Equilibrio pastoral: misericordia y cuidado.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Zac 3:2",
+   "Am 4:11",
+   "Gá 6:1",
+   "Stg 5:19-20"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Jude.1.23#07",
+  "morfologia_tagnt": "V-PAP-NPM",
+  "dstrong": "G0726",
+  "strong_tagnt": "G726",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to seize"
+ },
+ {
+  "ref": "Jude.1.24",
+  "strong": "G5442",
+  "forma": "φυλάξαι",
+  "glosa_interlineal": "guardar",
+  "rango_semantico": [
+   "guardar, preservar"
+  ],
+  "construccion": "Aoristo infinitivo activo: «y a aquel que es poderoso para guardaros sin caída, y presentaros sin mancha delante de su gloria con gran alegría».",
+  "sentido_en_contexto": "Famosa doxología (vv.24-25): Dios puede guardar a los creyentes de tropiezos y presentarlos sin mancha ante su gloria. Fundamento de la seguridad de los creyentes. Usada en bendiciones litúrgicas. La seguridad es obra de Dios.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 10:28-29",
+   "1 P 1:5",
+   "Ro 16:25",
+   "Col 1:22"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Jude.1.24#04",
+  "morfologia_tagnt": "V-AAN",
+  "dstrong": "G5442I",
+  "strong_tagnt": "G5442",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to keep/guard"
+ },
+ {
+  "ref": "Jude.1.25",
+  "strong": "G4990",
+  "forma": "σωτῆρι",
+  "glosa_interlineal": "Salvador",
+  "rango_semantico": [
+   "salvador"
+  ],
+  "construccion": "Dativo: «al único y sabio Dios, nuestro Salvador, sea gloria y majestad, imperio y potencia, ahora y por todos los siglos. Amén».",
+  "sentido_en_contexto": "Doxología a «Dios nuestro Salvador, por medio de Jesucristo»: gloria, majestad, dominio y autoridad antes de todos los siglos, ahora y por siempre. Dios es Salvador por medio de Cristo. Variante textual: «único Dios sabio» (σοφῷ) en algunos manuscritos tardíos.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 16:27",
+   "1 Ti 1:17",
+   "Tit 1:3",
+   "Ap 5:13"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Jude.1.25#04",
+  "morfologia_tagnt": "N-DSM",
+  "dstrong": "G4990",
+  "strong_tagnt": "G4990",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "savior"
+ }
+]

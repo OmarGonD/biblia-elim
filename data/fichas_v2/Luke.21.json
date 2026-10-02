@@ -1,0 +1,630 @@
+[
+ {
+  "ref": "Luke.21.2",
+  "strong": "G3016",
+  "forma": "λεπτά",
+  "glosa_interlineal": "blancas (monedas pequeñas)",
+  "rango_semantico": [
+   "leptón (la moneda de menor valor, 1/128 de denario)"
+  ],
+  "construccion": "Acusativo plural: «dos blancas (leptá)».",
+  "sentido_en_contexto": "La viuda pobre echa dos leptá, la moneda de bronce más pequeña. Jesús la destaca: dio más que todos porque dio de su necesidad, todo su sustento.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 12:41-44 — paralelo",
+   "Lc 20:47 — los escribas que devoran casas de viudas",
+   "2 Co 8:2-3 — generosidad de los macedonios"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma+reorden",
+  "tagnt": "Luke.21.2#09",
+  "morfologia_tagnt": "N-APN",
+  "dstrong": "G3016",
+  "strong_tagnt": "G3016",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "coin"
+ },
+ {
+  "ref": "Luke.21.6",
+  "strong": "G2647",
+  "forma": "καταλυθήσεται",
+  "glosa_interlineal": "será derribada",
+  "rango_semantico": [
+   "derribar, destruir, deshacer"
+  ],
+  "construccion": "Futuro indicativo pasivo: «no quedará piedra sobre piedra que no sea destruida».",
+  "sentido_en_contexto": "Jesús anuncia la destrucción del templo, que sucedió en el 70 d.C. Es el punto de partida del discurso escatológico, que Lucas distingue más claramente que Mateo y Marcos entre la caída de Jerusalén y el fin.",
+  "matiz": "Discusión sobre la estructura del discurso: ¿las secciones sobre Jerusalén (vv.20-24) y sobre el fin (vv.25-28) corresponden a dos eventos distintos, o son aspectos de un mismo cumplimiento? Hay varias lecturas (preterista, futurista, mixta).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:2; Mr 13:2 — paralelos",
+   "Mi 3:12 — «Sión será arada como campo»",
+   "Jn 2:19 — «destruid este templo»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 15,
+  "alineacion": "forma",
+  "tagnt": "Luke.21.6#16",
+  "morfologia_tagnt": "V-FPI-3S",
+  "dstrong": "G2647",
+  "strong_tagnt": "G2647",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to destroy/lodge"
+ },
+ {
+  "ref": "Luke.21.9",
+  "strong": "G181",
+  "forma": "ἀκαταστασίας",
+  "glosa_interlineal": "revueltas",
+  "rango_semantico": [
+   "desorden, tumulto, sedición"
+  ],
+  "construccion": "Acusativo plural: «guerras y sediciones».",
+  "sentido_en_contexto": "Jesús advierte que las guerras y tumultos no son señal inmediata del fin. «Es necesario que sucedan primero, pero el fin no será enseguida».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:6 — «aún no es el fin»",
+   "Mr 13:7 — paralelo",
+   "2 Ts 2:1-3 — «no os dejéis mover fácilmente»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Luke.21.9#06",
+  "morfologia_tagnt": "N-APF",
+  "dstrong": "G0181",
+  "strong_tagnt": "G181",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "disorder"
+ },
+ {
+  "ref": "Luke.21.13",
+  "strong": "G3142",
+  "forma": "μαρτύριον",
+  "glosa_interlineal": "testimonio",
+  "rango_semantico": [
+   "testimonio, prueba"
+  ],
+  "construccion": "Acusativo: «esto os será ocasión para dar testimonio».",
+  "sentido_en_contexto": "La persecución será oportunidad de dar testimonio ante autoridades. Tema central de Hechos, donde Pedro, Esteban y Pablo comparecen ante tribunales.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 4:8-12 — Pedro ante el Sanedrín",
+   "Hch 25:23-26:32 — Pablo ante Agripa",
+   "Fil 1:12-14 — «las cadenas han resultado en el avance del evangelio»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Luke.21.13#05",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G3142",
+  "strong_tagnt": "G3142",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "testimony"
+ },
+ {
+  "ref": "Luke.21.15",
+  "strong": "G4678",
+  "forma": "σοφίαν",
+  "glosa_interlineal": "sabiduría",
+  "rango_semantico": [
+   "sabiduría"
+  ],
+  "construccion": "Acusativo: «yo os daré palabra y sabiduría».",
+  "sentido_en_contexto": "Promesa de que Jesús mismo dará a sus testigos palabra y sabiduría ante los tribunales; sus adversarios no podrán resistir. Cumplido en Hch 6:10 con Esteban.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 6:10 — «no podían resistir a la sabiduría»",
+   "Lc 12:11-12 — «el Espíritu Santo os enseñará»",
+   "Éx 4:12 — «yo estaré con tu boca»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Luke.21.15#07",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G4678",
+  "strong_tagnt": "G4678",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "wisdom"
+ },
+ {
+  "ref": "Luke.21.18",
+  "strong": "G2359",
+  "forma": "θρὶξ",
+  "glosa_interlineal": "cabello",
+  "rango_semantico": [
+   "cabello, pelo"
+  ],
+  "construccion": "Nominativo: «ni un cabello de vuestra cabeza perecerá».",
+  "sentido_en_contexto": "Promesa de protección total, aparentemente contradictoria con el v.16 («matarán a algunos de vosotros»). Se resuelve entendiendo la protección como la preservación final (vida eterna), no necesariamente física.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 12:7 — «aun los cabellos de vuestra cabeza están contados»",
+   "Hch 27:34 — «ni aun un cabello perecerá»",
+   "1 S 14:45 — «ni un cabello de su cabeza caerá»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Luke.21.18#02",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G2359",
+  "strong_tagnt": "G2359",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "hair"
+ },
+ {
+  "ref": "Luke.21.19",
+  "strong": "G5281",
+  "forma": "ὑπομονῇ",
+  "glosa_interlineal": "perseverancia",
+  "rango_semantico": [
+   "paciencia, perseverancia, aguante"
+  ],
+  "construccion": "Dativo: «con vuestra perseverancia ganaréis vuestras almas».",
+  "sentido_en_contexto": "Llamada a la constancia ante la persecución. «Ganar la vida» (κτήσασθε ψυχάς) tiene el sentido de asegurarla definitivamente.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:13 — «el que persevere hasta el fin»",
+   "Heb 10:36 — «necesidad de paciencia»",
+   "Ap 2:10 — «sé fiel hasta la muerte»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Luke.21.19#03",
+  "morfologia_tagnt": "N-DSF",
+  "dstrong": "G5281",
+  "strong_tagnt": "G5281",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "perseverance"
+ },
+ {
+  "ref": "Luke.21.20",
+  "strong": "G2050",
+  "forma": "ἐρήμωσις",
+  "glosa_interlineal": "desolación",
+  "rango_semantico": [
+   "desolación, devastación"
+  ],
+  "construccion": "Nominativo: «su desolación ha llegado».",
+  "sentido_en_contexto": "Lucas sustituye «la abominación desoladora» (Mt/Mr) por una descripción histórica: Jerusalén rodeada de ejércitos. Aplicación explícita al asedio romano (70 d.C.).",
+  "matiz": "Debate: ¿Lucas interpreta la «abominación» de Daniel como el asedio romano? ¿O el discurso apunta además a un cumplimiento final? La mayoría acepta que Lucas ya la refiere al 70 d.C.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:15 — «abominación desoladora»",
+   "Dn 9:26-27 — la profecía de Daniel",
+   "Lc 19:43-44 — vallado y destrucción"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "Luke.21.20#14",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G2050",
+  "strong_tagnt": "G2050",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "devastation"
+ },
+ {
+  "ref": "Luke.21.24",
+  "strong": "G3961",
+  "forma": "πατουμένη",
+  "glosa_interlineal": "hollada",
+  "rango_semantico": [
+   "pisotear, hollar"
+  ],
+  "construccion": "Participio presente pasivo: «Jerusalén será hollada por los gentiles».",
+  "sentido_en_contexto": "Jerusalén será pisoteada «hasta que los tiempos de los gentiles se cumplan». Expresión exclusiva de Lucas; indica un período definido, no su duración.",
+  "matiz": "Se discute qué son «los tiempos de los gentiles»: un periodo histórico hasta la plenitud de los gentiles (cf. Ro 11:25), o el tiempo mientras Jerusalén esté bajo poder gentil. Las interpretaciones varían según la escuela.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 11:25 — «hasta que haya entrado la plenitud de los gentiles»",
+   "Ap 11:2 — «hollarán la ciudad santa cuarenta y dos meses»",
+   "Zac 12:3 — «piedra pesada»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Luke.21.24#14",
+  "morfologia_tagnt": "V-PPP-NSF",
+  "dstrong": "G3961",
+  "strong_tagnt": "G3961",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to trample"
+ },
+ {
+  "ref": "Luke.21.27",
+  "strong": "G3507",
+  "forma": "νεφέλῃ",
+  "glosa_interlineal": "nube",
+  "rango_semantico": [
+   "nube"
+  ],
+  "construccion": "Dativo: «viniendo en una nube».",
+  "sentido_en_contexto": "Alusión a Dn 7:13: el Hijo del Hombre vendrá en las nubes con poder y gran gloria. Lucas conserva la imagen que asocia con la venida visible y gloriosa.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dn 7:13-14 — texto base",
+   "Hch 1:9-11 — la ascensión «en una nube»",
+   "Ap 1:7 — «viene con las nubes»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Luke.21.27#10",
+  "morfologia_tagnt": "N-DSF",
+  "dstrong": "G3507",
+  "strong_tagnt": "G3507",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "cloud"
+ },
+ {
+  "ref": "Luke.21.28",
+  "strong": "G629",
+  "forma": "ἀπολύτρωσις",
+  "glosa_interlineal": "redención",
+  "rango_semantico": [
+   "redención, liberación mediante rescate"
+  ],
+  "construccion": "Nominativo: «vuestra redención está cerca».",
+  "sentido_en_contexto": "A diferencia de la angustia de los pueblos (v.25-26), los discípulos deben alzar la cabeza: la liberación final se acerca. Lucas es el único evangelio que usa ἀπολύτρωσις en este contexto.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 8:23 — «la redención de nuestro cuerpo»",
+   "Ef 1:14 — «hasta la redención de la posesión adquirida»",
+   "Ef 4:30 — «el día de la redención»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Luke.21.28#14",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G0629",
+  "strong_tagnt": "G629",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "redemption"
+ },
+ {
+  "ref": "Luke.21.32",
+  "strong": "G1074",
+  "forma": "γενεὰ",
+  "glosa_interlineal": "generación",
+  "rango_semantico": [
+   "generación, linaje, época"
+  ],
+  "construccion": "Nominativo: «no pasará esta generación».",
+  "sentido_en_contexto": "Uno de los textos más debatidos del discurso: ¿qué es «esta generación» y qué es «todo»?",
+  "matiz": "Principales lecturas: (a) la generación de los oyentes, referida a la caída de Jerusalén (70 d.C.); (b) la raza o pueblo judío («linaje»); (c) la generación que ve los signos finales (futurista); (d) la generación incrédula en general. El contexto de Lucas apoya referir al menos parte del discurso al 70 d.C.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:34; Mr 13:30 — paralelos",
+   "Mt 23:36 — «vendrá sobre esta generación»",
+   "Mr 9:1 — «algunos de los que están aquí no gustarán la muerte»"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Luke.21.32#09",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G1074",
+  "strong_tagnt": "G1074",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "generation"
+ },
+ {
+  "ref": "Luke.21.33",
+  "strong": "G3928",
+  "forma": "παρελεύσονται",
+  "glosa_interlineal": "pasarán",
+  "rango_semantico": [
+   "pasar, pasar de largo, perecer"
+  ],
+  "construccion": "Futuro indicativo medio: «el cielo y la tierra pasarán, pero mis palabras no pasarán».",
+  "sentido_en_contexto": "Afirmación de la permanencia de las palabras de Jesús, más firmes que la creación. Es una declaración de autoridad divina, paralela a los dichos sobre la Torá (Lc 16:17).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:35; Mr 13:31 — paralelos",
+   "Is 40:8 — «la palabra del Dios nuestro permanece»",
+   "Lc 16:17 — la ley no pierde ni una tilde"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Luke.21.33#06",
+  "morfologia_tagnt": "V-FDI-3P",
+  "dstrong": "G3928",
+  "strong_tagnt": "G3928",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR"
+  ],
+  "ausente_en": [
+   "Byz"
+  ],
+  "variante": true,
+  "glosa_tagnt": "to pass by"
+ },
+ {
+  "ref": "Luke.21.33",
+  "strong": "G3928",
+  "forma": "παρελεύσονται",
+  "glosa_interlineal": "pasarán",
+  "rango_semantico": [
+   "pasar, pasar de largo, perecer"
+  ],
+  "construccion": "Futuro indicativo medio: «el cielo y la tierra pasarán, pero mis palabras no pasarán».",
+  "sentido_en_contexto": "Afirmación de la permanencia de las palabras de Jesús, más firmes que la creación. Es una declaración de autoridad divina, paralela a los dichos sobre la Torá (Lc 16:17).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:35; Mr 13:31 — paralelos",
+   "Is 40:8 — «la palabra del Dios nuestro permanece»",
+   "Lc 16:17 — la ley no pierde ni una tilde"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Luke.21.33#13",
+  "morfologia_tagnt": "V-FDI-3P",
+  "dstrong": "G3928",
+  "strong_tagnt": "G3928",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "Byz"
+  ],
+  "ausente_en": [
+   "TR"
+  ],
+  "variante": true,
+  "glosa_tagnt": "to pass by"
+ },
+ {
+  "ref": "Luke.21.34",
+  "strong": "G2897",
+  "forma": "κραιπάλῃ",
+  "glosa_interlineal": "embriaguez (resaca)",
+  "rango_semantico": [
+   "borrachera, crápula, resaca"
+  ],
+  "construccion": "Dativo: «no se carguen vuestros corazones de glotonería (crápula) y embriaguez».",
+  "sentido_en_contexto": "Advertencia propia de Lucas: no vivir en disipación ni en afanes de la vida, para que el día no los sorprenda como un lazo. Palabra única en el NT.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 8:14 — «los afanes y las riquezas»",
+   "Lc 12:45 — el siervo que come y bebe",
+   "1 Ts 5:6-8 — «velemos y seamos sobrios»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Luke.21.34#10",
+  "morfologia_tagnt": "N-DSF",
+  "dstrong": "G2897",
+  "strong_tagnt": "G2897",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "dissipation"
+ },
+ {
+  "ref": "Luke.21.36",
+  "strong": "G69",
+  "forma": "ἀγρυπνεῖτε",
+  "glosa_interlineal": "velad",
+  "rango_semantico": [
+   "estar despierto, vigilar"
+  ],
+  "construccion": "Imperativo presente activo: «velad, pues, en todo tiempo orando».",
+  "sentido_en_contexto": "Cierre del discurso: velar orando para poder escapar de lo que viene y «estar en pie delante del Hijo del Hombre». Une vigilancia y oración (cf. 18:1).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 13:33-37 — «velad»",
+   "Ef 6:18 — «velando… con toda perseverancia»",
+   "Col 4:2 — «perseverad en la oración, velando»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "Luke.21.36#01",
+  "morfologia_tagnt": "V-PAM-2P",
+  "dstrong": "G0069",
+  "strong_tagnt": "G69",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "be watchful"
+ }
+]

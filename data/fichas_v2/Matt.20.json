@@ -1,0 +1,672 @@
+[
+ {
+  "ref": "Matt.20.1",
+  "strong": "G290",
+  "forma": "ἀμπελῶνα",
+  "glosa_interlineal": "viña",
+  "rango_semantico": [
+   "viña, viñedo"
+  ],
+  "construccion": "εἰς + acusativo: «a la viña».",
+  "sentido_en_contexto": "La viña es imagen tradicional de Israel (Is 5:1-7). Aquí es el Reino, donde Dios llama a obreros a distintas horas.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 5:1-7 — el cantar de la viña",
+   "Mt 21:28 — «ve hoy a trabajar en mi viña»",
+   "Mt 21:33 — parábola de los labradores"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 18,
+  "alineacion": "forma",
+  "tagnt": "Matt.20.1#18",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G0290",
+  "strong_tagnt": "G290",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "vineyard"
+ },
+ {
+  "ref": "Matt.20.2",
+  "strong": "G1220",
+  "forma": "δηναρίου",
+  "glosa_interlineal": "denario",
+  "rango_semantico": [
+   "denario (moneda romana de plata)"
+  ],
+  "construccion": "ἐκ + genitivo: «por un denario al día».",
+  "sentido_en_contexto": "Un denario era el jornal normal de un trabajador. El dueño promete lo justo a los primeros obreros.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 18:28 — «cien denarios»",
+   "Mt 22:19 — «un denario»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Matt.20.2#08",
+  "morfologia_tagnt": "N-GSN",
+  "dstrong": "G1220",
+  "strong_tagnt": "G1220",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "denarius"
+ },
+ {
+  "ref": "Matt.20.4",
+  "strong": "G1342",
+  "forma": "δίκαιον",
+  "glosa_interlineal": "justo",
+  "rango_semantico": [
+   "justo, recto",
+   "lo que corresponde"
+  ],
+  "construccion": "Adjetivo acusativo neutro: «lo que sea justo».",
+  "sentido_en_contexto": "Con los obreros posteriores el dueño no fija precio: promete «lo justo». Su generosidad se verá al final.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Col 4:1 — «dad a los siervos lo que es justo y recto»",
+   "Lc 12:57 — «¿por qué no juzgáis por vosotros mismos lo que es justo?»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Matt.20.4#14",
+  "morfologia_tagnt": "A-NSN",
+  "dstrong": "G1342",
+  "strong_tagnt": "G1342",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "just"
+ },
+ {
+  "ref": "Matt.20.11",
+  "strong": "G1111",
+  "forma": "ἐγόγγυζον",
+  "glosa_interlineal": "murmuraban",
+  "rango_semantico": [
+   "murmurar, quejarse",
+   "refunfuñar"
+  ],
+  "construccion": "Imperfecto indicativo activo, 3ª plural: «iban murmurando». El imperfecto sugiere queja continuada.",
+  "sentido_en_contexto": "Los primeros obreros se quejan al recibir lo pactado, pues otros que trabajaron menos recibieron lo mismo. Eco de las murmuraciones de Israel en el desierto.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 16:2 — «murmuró toda la congregación»",
+   "Lc 15:2 — «los fariseos… murmuraban»",
+   "1 Co 10:10 — «ni murmuréis, como algunos de ellos murmuraron»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Matt.20.11#03",
+  "morfologia_tagnt": "V-IAI-3P",
+  "dstrong": "G1111",
+  "strong_tagnt": "G1111",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to murmur"
+ },
+ {
+  "ref": "Matt.20.13",
+  "strong": "G2083",
+  "forma": "ἑταῖρε",
+  "glosa_interlineal": "amigo",
+  "rango_semantico": [
+   "compañero, amigo",
+   "(trato cortés pero distante)"
+  ],
+  "construccion": "Vocativo singular: «amigo».",
+  "sentido_en_contexto": "ἑταῖρος se usa en Mateo con un matiz de distancia o reproche (22:12; 26:50). El dueño trata al quejoso con firmeza cortés.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 22:12 — «Amigo, ¿cómo entraste aquí?»",
+   "Mt 26:50 — Jesús a Judas: «Amigo, ¿a qué vienes?»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Matt.20.13#07",
+  "morfologia_tagnt": "N-VSM",
+  "dstrong": "G2083",
+  "strong_tagnt": "G2083",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "friend"
+ },
+ {
+  "ref": "Matt.20.15",
+  "strong": "G4190",
+  "forma": "πονηρός",
+  "glosa_interlineal": "malo, envidioso",
+  "rango_semantico": [
+   "malo, perverso",
+   "(en «ojo malo») envidioso, tacaño"
+  ],
+  "construccion": "Adjetivo nominativo: «¿es malo tu ojo?»",
+  "sentido_en_contexto": "Modismo hebreo: «ojo malo» es envidia o tacañería; «ojo bueno» es generosidad. El dueño pregunta si la queja viene de envidia porque él es generoso.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": "RVR: «¿o tienes tú envidia?»; el texto griego dice «¿es malo tu ojo?», modismo que RVR traduce por su sentido.",
+  "otros_usos": [
+   "Pr 23:6 — «no comas pan con el avaro (de ojo malo)»",
+   "Mt 6:22-23 — «ojo bueno» y «ojo malo»",
+   "Mr 7:22 — «el ojo malo»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 15,
+  "alineacion": "forma",
+  "tagnt": "Matt.20.15#15",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G4190",
+  "strong_tagnt": "G4190",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "evil/bad"
+ },
+ {
+  "ref": "Matt.20.16",
+  "strong": "G4413",
+  "forma": "πρῶτοι",
+  "glosa_interlineal": "primeros",
+  "rango_semantico": [
+   "primero",
+   "principal"
+  ],
+  "construccion": "Adjetivo nominativo plural: «los últimos serán primeros».",
+  "sentido_en_contexto": "Conclusión de la parábola: el Reino invierte los criterios humanos de mérito. Conecta con 19:30.",
+  "matiz": "Se discute la lección central: la gracia de Dios es igual para todos (el denario), o el rechazo de la envidia hacia los que llegan tarde. Muchos ven ambas.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 19:30 — mismo dicho",
+   "Lc 13:30 — «hay postreros que serán primeros»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Matt.20.16#05",
+  "morfologia_tagnt": "A-NPM",
+  "dstrong": "G4413G",
+  "strong_tagnt": "G4413",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "first"
+ },
+ {
+  "ref": "Matt.20.16",
+  "strong": "G4413",
+  "forma": "πρῶτοι",
+  "glosa_interlineal": "primeros",
+  "rango_semantico": [
+   "primero",
+   "principal"
+  ],
+  "construccion": "Adjetivo nominativo plural: «los últimos serán primeros».",
+  "sentido_en_contexto": "Conclusión de la parábola: el Reino invierte los criterios humanos de mérito. Conecta con 19:30.",
+  "matiz": "Se discute la lección central: la gracia de Dios es igual para todos (el denario), o el rechazo de la envidia hacia los que llegan tarde. Muchos ven ambas.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 19:30 — mismo dicho",
+   "Lc 13:30 — «hay postreros que serán primeros»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Matt.20.16#08",
+  "morfologia_tagnt": "A-NPM",
+  "dstrong": "G4413G",
+  "strong_tagnt": "G4413",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "first"
+ },
+ {
+  "ref": "Matt.20.19",
+  "strong": "G4717",
+  "forma": "σταυρῶσαι",
+  "glosa_interlineal": "crucificar",
+  "rango_semantico": [
+   "crucificar, clavar en una cruz"
+  ],
+  "construccion": "Infinitivo aoristo activo, de finalidad: «para crucificarle».",
+  "sentido_en_contexto": "Tercer anuncio de la pasión, el más explícito: menciona la crucifixión. «Lo entregarán a los gentiles» (romanos) para ejecución.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 16:21 — primer anuncio",
+   "Mt 17:22-23 — segundo anuncio",
+   "Mt 27:35 — «después de crucificarle»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "Matt.20.19#12",
+  "morfologia_tagnt": "V-AAN",
+  "dstrong": "G4717",
+  "strong_tagnt": "G4717",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to crucify"
+ },
+ {
+  "ref": "Matt.20.21",
+  "strong": "G2176",
+  "forma": "εὐωνύμων",
+  "glosa_interlineal": "izquierda",
+  "rango_semantico": [
+   "izquierdo (lit. «de buen nombre», eufemismo)"
+  ],
+  "construccion": "ἐξ εὐωνύμων: «a la izquierda».",
+  "sentido_en_contexto": "La madre de Jacobo y Juan pide para sus hijos los lugares de honor, a derecha e izquierda del trono. Eufemismo griego: «de buen nombre» para evitar la mala fortuna de la izquierda.",
+  "matiz": "Marcos presenta la petición directamente de los hijos (10:35); Mateo la pone en boca de la madre (aunque Jesús les responde a ellos, v.22).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 10:35-37 — los mismos hijos piden",
+   "Mt 27:38 — «un ladrón a la derecha y otro a la izquierda»",
+   "Lc 22:30 — «os sentaréis en tronos»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 23,
+  "alineacion": "forma",
+  "tagnt": "Matt.20.21#24",
+  "morfologia_tagnt": "A-GPN",
+  "dstrong": "G2176",
+  "strong_tagnt": "G2176",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "left/south"
+ },
+ {
+  "ref": "Matt.20.22",
+  "strong": "G4221",
+  "forma": "ποτήριον",
+  "glosa_interlineal": "copa",
+  "rango_semantico": [
+   "copa, vaso",
+   "(figurado) destino que uno debe aceptar"
+  ],
+  "construccion": "Acusativo: «¿podéis beber la copa que yo voy a beber?».",
+  "sentido_en_contexto": "En el AT, «copa» puede ser destino de bendición o de ira (Sal 75:8; Is 51:17). Aquí es el sufrimiento y la muerte de Jesús, que Jacobo y Juan compartirán. Se repetirá en Getsemaní (26:39).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 26:39 — «pase de mí esta copa»",
+   "Sal 75:8 — la copa de la ira",
+   "Is 51:17 — «la copa de su ira»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "Matt.20.22#13",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G4221",
+  "strong_tagnt": "G4221",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "cup"
+ },
+ {
+  "ref": "Matt.20.23",
+  "strong": "G2090",
+  "forma": "ἡτοίμασται",
+  "glosa_interlineal": "está preparado",
+  "rango_semantico": [
+   "preparar, disponer"
+  ],
+  "construccion": "Perfecto indicativo pasivo, 3ª singular: «ha sido preparado». Pasivo divino.",
+  "sentido_en_contexto": "Los puestos de honor no los concede Jesús: pertenecen a quienes el Padre ha dispuesto. Jesús, aun en su autoridad, se subordina al plan del Padre.",
+  "matiz": "Se discute el alcance de la subordinación del Hijo («no es mío darlo»): muestra el orden del plan divino y la humildad de Jesús ante el Padre, sin que esto implique necesariamente inferioridad de naturaleza.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 25:34 — «el reino preparado para vosotros desde la fundación del mundo»",
+   "Jn 14:2-3 — «voy a preparar lugar para vosotros»",
+   "1 Co 2:9 — «lo que Dios ha preparado»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 24,
+  "alineacion": "forma",
+  "tagnt": "Matt.20.23#33",
+  "morfologia_tagnt": "V-RPI-3S",
+  "dstrong": "G2090",
+  "strong_tagnt": "G2090",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to make ready"
+ },
+ {
+  "ref": "Matt.20.25",
+  "strong": "G2634",
+  "forma": "κατακυριεύουσιν",
+  "glosa_interlineal": "se enseñorean",
+  "rango_semantico": [
+   "dominar, señorear",
+   "avasallar"
+  ],
+  "construccion": "Presente indicativo activo, 3ª plural: «tiranizan, dominan».",
+  "sentido_en_contexto": "El prefijo κατα- indica dominio opresivo. Jesús contrasta el poder de los gobernantes paganos con el estilo de su comunidad: servicio.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 22:25-26 — paralelo",
+   "1 P 5:3 — «no como teniendo señorío sobre los que están a vuestro cuidado»",
+   "2 Co 1:24 — «no que seamos señores de vuestra fe»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "Matt.20.25#13",
+  "morfologia_tagnt": "V-PAI-3P",
+  "dstrong": "G2634",
+  "strong_tagnt": "G2634",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to master"
+ },
+ {
+  "ref": "Matt.20.26",
+  "strong": "G1249",
+  "forma": "διάκονος",
+  "glosa_interlineal": "servidor",
+  "rango_semantico": [
+   "servidor, sirviente",
+   "ministro, diácono"
+  ],
+  "construccion": "Nominativo predicativo: «sea vuestro servidor».",
+  "sentido_en_contexto": "Inversión de la grandeza: quien quiera ser grande debe servir. διάκονος es quien sirve a la mesa, tarea humilde.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 9:35 — «si alguno quiere ser el primero, será el postrero de todos, y el servidor de todos»",
+   "Ro 16:1 — «Febe, diaconisa»",
+   "Fil 1:1 — «con los obispos y diáconos»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 16,
+  "alineacion": "forma",
+  "tagnt": "Matt.20.26#17",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G1249",
+  "strong_tagnt": "G1249",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "servant"
+ },
+ {
+  "ref": "Matt.20.28",
+  "strong": "G3083",
+  "forma": "λύτρον",
+  "glosa_interlineal": "rescate",
+  "rango_semantico": [
+   "precio de rescate",
+   "dinero para liberar a un cautivo o esclavo"
+  ],
+  "construccion": "Acusativo: «en rescate».",
+  "sentido_en_contexto": "El Hijo del Hombre da su vida como precio de liberación. ἀντί + genitivo («en lugar de») indica sustitución: su vida a cambio de la de «muchos».",
+  "matiz": "«Muchos» (πολλῶν) puede ser inclusivo («la multitud, todos») según el uso semítico (Is 53:11-12), y no excluyente. Es el único lugar de Mateo que habla de la muerte de Jesús como rescate.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 53:10-12 — «justificará mi siervo justo a muchos»",
+   "1 Ti 2:6 — «el cual se dio a sí mismo en rescate por todos»",
+   "Mr 10:45 — paralelo"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 16,
+  "alineacion": "forma",
+  "tagnt": "Matt.20.28#16",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G3083",
+  "strong_tagnt": "G3083",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "ransom"
+ },
+ {
+  "ref": "Matt.20.30",
+  "strong": "G5185",
+  "forma": "τυφλοὶ",
+  "glosa_interlineal": "ciegos",
+  "rango_semantico": [
+   "ciego"
+  ],
+  "construccion": "Nominativo plural: «dos ciegos».",
+  "sentido_en_contexto": "Mateo habla de dos ciegos; Marcos y Lucas, de uno (Bartimeo). Se señala que Mateo duplica a veces los personajes (8:28; 9:27).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 10:46 — Bartimeo",
+   "Lc 18:35 — un ciego",
+   "Mt 9:27 — otros dos ciegos"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Matt.20.30#04",
+  "morfologia_tagnt": "A-NPM",
+  "dstrong": "G5185",
+  "strong_tagnt": "G5185",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "blind"
+ },
+ {
+  "ref": "Matt.20.34",
+  "strong": "G4697",
+  "forma": "σπλαγχνισθεὶς",
+  "glosa_interlineal": "compadecido",
+  "rango_semantico": [
+   "compadecerse"
+  ],
+  "construccion": "Participio aoristo pasivo (deponente): «movido a compasión».",
+  "sentido_en_contexto": "Jesús se detiene, pregunta qué quieren y los sana por compasión. Contraste con los discípulos que discuten por poder.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 9:36 — compasión ante las multitudes",
+   "Mt 14:14 — compasión",
+   "Mt 15:32 — «tengo compasión de la gente»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "Matt.20.34#01",
+  "morfologia_tagnt": "V-AOP-NSM",
+  "dstrong": "G4697",
+  "strong_tagnt": "G4697",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to pity"
+ }
+]

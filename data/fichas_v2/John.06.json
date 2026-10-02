@@ -1,0 +1,1217 @@
+[
+ {
+  "ref": "John.6.6",
+  "strong": "G3985",
+  "forma": "πειράζων",
+  "glosa_interlineal": "probando",
+  "rango_semantico": [
+   "probar, poner a prueba, tentar"
+  ],
+  "construccion": "Participio presente activo: «esto decía para probarle».",
+  "sentido_en_contexto": "Jesús pregunta a Felipe cómo alimentar a la multitud, no por ignorancia sino para ponerlo a prueba: «él sabía lo que iba a hacer». Aquí πειράζω es «examinar», no «tentar a pecar».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dt 8:2 — Dios probó a Israel en el desierto",
+   "Gn 22:1 — Dios probó a Abraham",
+   "Nm 11:21-23 — Moisés y la carne para el pueblo"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "John.6.6#04",
+  "morfologia_tagnt": "V-PAP-NSM",
+  "dstrong": "G3985H",
+  "strong_tagnt": "G3985",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to test/tempt"
+ },
+ {
+  "ref": "John.6.9",
+  "strong": "G2916",
+  "forma": "κριθίνους",
+  "glosa_interlineal": "de cebada",
+  "rango_semantico": [
+   "de cebada"
+  ],
+  "construccion": "Acusativo plural: «cinco panes de cebada».",
+  "sentido_en_contexto": "Pan de cebada, comida de los pobres. Eco de Eliseo, que alimentó a cien con veinte panes de cebada (2 R 4:42-44). Detalle propio de Juan, junto con el «muchacho» (παιδάριον).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 R 4:42-44 — Eliseo y los panes de cebada",
+   "Mt 14:17; Mr 6:38; Lc 9:13 — paralelos"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "John.6.9#09",
+  "morfologia_tagnt": "A-APM",
+  "dstrong": "G2916",
+  "strong_tagnt": "G2916",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "barley"
+ },
+ {
+  "ref": "John.6.11",
+  "strong": "G2168",
+  "forma": "εὐχαρίστησεν",
+  "glosa_interlineal": "dio gracias",
+  "rango_semantico": [
+   "dar gracias"
+  ],
+  "construccion": "Aoristo indicativo activo: «tomó los panes y habiendo dado gracias».",
+  "sentido_en_contexto": "Juan usa εὐχαριστέω (no «bendijo» como los sinópticos); de ahí «eucaristía». Es también Jesús quien distribuye directamente, no los discípulos.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 14:19; Mr 6:41; Lc 9:16 — «bendijo»",
+   "Lc 22:19 — la cena",
+   "Jn 6:23 — «después de haber dado gracias el Señor»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "strong",
+  "tagnt": "John.6.11#08",
+  "morfologia_tagnt": "V-AAP-NSM",
+  "dstrong": "G2168",
+  "strong_tagnt": "G2168",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to thank"
+ },
+ {
+  "ref": "John.6.14",
+  "strong": "G4396",
+  "forma": "προφήτης",
+  "glosa_interlineal": "el profeta",
+  "rango_semantico": [
+   "profeta"
+  ],
+  "construccion": "Nominativo: «éste verdaderamente es el profeta que había de venir al mundo».",
+  "sentido_en_contexto": "La multitud identifica a Jesús con el profeta como Moisés (Dt 18:15), que repetiría el milagro del maná. Su entusiasmo es político; quieren hacerlo rey (v.15).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dt 18:15 — «profeta… como yo»",
+   "Jn 1:21 — «¿eres tú el profeta?»",
+   "Jn 7:40 — «verdaderamente este es el profeta»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "John.6.14#16",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G4396",
+  "strong_tagnt": "G4396",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "prophet"
+ },
+ {
+  "ref": "John.6.15",
+  "strong": "G935",
+  "forma": "βασιλέα",
+  "glosa_interlineal": "rey",
+  "rango_semantico": [
+   "rey"
+  ],
+  "construccion": "Acusativo: «para hacerle rey».",
+  "sentido_en_contexto": "Jesús se retira porque su reino no es como lo imaginan: rechaza una realeza política basada en el pan. Contrasta con su reconocimiento como rey en la cruz (19:19).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 18:36 — «mi reino no es de este mundo»",
+   "Lc 4:5-8 — tentación del poder",
+   "Zac 9:9 — rey humilde"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "John.6.15#13",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G0935",
+  "strong_tagnt": "G935",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "king"
+ },
+ {
+  "ref": "John.6.19",
+  "strong": "G4043",
+  "forma": "περιπατοῦντα",
+  "glosa_interlineal": "caminando",
+  "rango_semantico": [
+   "caminar, andar"
+  ],
+  "construccion": "Participio presente activo: «vieron a Jesús que andaba sobre el mar».",
+  "sentido_en_contexto": "Jesús camina sobre las aguas, señal de su dominio sobre la creación; Juan omite la escena de Pedro (Mt 14:28-31). Solo Dios «camina sobre las olas del mar» (Job 9:8).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Job 9:8 — «él solo extendió los cielos y camina sobre las olas del mar»",
+   "Sal 77:19 — «en el mar fue tu camino»",
+   "Mt 14:22-33; Mr 6:45-52 — paralelos"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "John.6.19#12",
+  "morfologia_tagnt": "V-PAP-ASM",
+  "dstrong": "G4043",
+  "strong_tagnt": "G4043",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to walk"
+ },
+ {
+  "ref": "John.6.20",
+  "strong": "G1473",
+  "forma": "ἐγώ εἰμι",
+  "glosa_interlineal": "soy yo",
+  "rango_semantico": [
+   "yo soy"
+  ],
+  "construccion": "Presente indicativo, 1ª singular: «yo soy, no temáis».",
+  "sentido_en_contexto": "ἐγώ εἰμι puede ser simplemente «soy yo» (identificación), pero con eco de la fórmula divina de Éx 3:14 e Is 41:4; 43:10. El tono es tranquilizador y revelador.",
+  "matiz": "Se discute si aquí es solo identificación («soy yo») o ya la fórmula divina. En el contexto de dominio sobre el mar, muchos ven los dos niveles.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 3:14",
+   "Is 43:10-13",
+   "Jn 8:58; 18:5-6",
+   "Mr 6:50 — «¡Ánimo! Yo soy»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "John.6.20#05",
+  "morfologia_tagnt": "P-1NS",
+  "dstrong": "G1473",
+  "strong_tagnt": "G1473",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "I/we"
+ },
+ {
+  "ref": "John.6.26",
+  "strong": "G5526",
+  "forma": "ἐχορτάσθητε",
+  "glosa_interlineal": "os saciasteis",
+  "rango_semantico": [
+   "saciar, alimentar hasta quedar lleno"
+  ],
+  "construccion": "Aoristo indicativo pasivo: «me buscáis… porque comisteis del pan y os saciasteis».",
+  "sentido_en_contexto": "Jesús revela la motivación de la multitud: buscan al que da pan, no al que lo señala como signo. Pasa al discurso del pan de vida.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 2:23-25 — fe basada en señales",
+   "Jn 4:48",
+   "Is 55:2 — «¿por qué gastáis el dinero en lo que no es pan?»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 24,
+  "alineacion": "forma",
+  "tagnt": "John.6.26#24",
+  "morfologia_tagnt": "V-API-2P",
+  "dstrong": "G5526",
+  "strong_tagnt": "G5526",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to feed"
+ },
+ {
+  "ref": "John.6.27",
+  "strong": "G4972",
+  "forma": "ἐσφράγισεν",
+  "glosa_interlineal": "selló",
+  "rango_semantico": [
+   "sellar, autenticar"
+  ],
+  "construccion": "Aoristo indicativo activo: «a éste señaló Dios el Padre».",
+  "sentido_en_contexto": "El Padre ha puesto su sello (aval) en el Hijo del Hombre, que da el alimento que permanece. El sello es garantía de autenticidad.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 3:33 — «ha puesto su sello»",
+   "Ef 1:13 — «sellados con el Espíritu»",
+   "Is 55:2-3"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 26,
+  "alineacion": "forma",
+  "tagnt": "John.6.27#26",
+  "morfologia_tagnt": "V-AAI-3S",
+  "dstrong": "G4972",
+  "strong_tagnt": "G4972",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to seal"
+ },
+ {
+  "ref": "John.6.29",
+  "strong": "G2041",
+  "forma": "ἔργον",
+  "glosa_interlineal": "obra",
+  "rango_semantico": [
+   "obra, trabajo"
+  ],
+  "construccion": "Nominativo singular: «ésta es la obra de Dios: que creáis en el que él ha enviado».",
+  "sentido_en_contexto": "La multitud pregunta qué deben hacer para realizar «las obras de Dios» (plural). Jesús responde en singular: la obra de Dios es creer. Corrige la idea de méritos humanos.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Jn 3:23 — «que creamos en el nombre de su Hijo»",
+   "Ef 2:8-9 — «no por obras»",
+   "Jn 6:40"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "John.6.29#10",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G2041",
+  "strong_tagnt": "G2041",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "work"
+ },
+ {
+  "ref": "John.6.31",
+  "strong": "G3131",
+  "forma": "μάννα",
+  "glosa_interlineal": "maná",
+  "rango_semantico": [
+   "maná"
+  ],
+  "construccion": "Acusativo: «nuestros padres comieron el maná en el desierto».",
+  "sentido_en_contexto": "La multitud cita Éx 16:4 y Sal 78:24 para pedir una señal mayor que la de Moisés. Jesús corregirá: no fue Moisés quien dio el pan, sino el Padre; y el verdadero pan es él.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 16:4, 15 — «pan del cielo»",
+   "Sal 78:24 — «les dio trigo de los cielos»",
+   "Neh 9:15"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "John.6.31#05",
+  "morfologia_tagnt": "N-ASN-HEB",
+  "dstrong": "G3131",
+  "strong_tagnt": "G3131",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "manna"
+ },
+ {
+  "ref": "John.6.33",
+  "strong": "G2597",
+  "forma": "καταβαίνων",
+  "glosa_interlineal": "que desciende",
+  "rango_semantico": [
+   "bajar, descender"
+  ],
+  "construccion": "Participio presente activo: «el pan de Dios es el que desciende del cielo y da vida al mundo».",
+  "sentido_en_contexto": "Tema del descenso: el pan es una persona que «ha descendido del cielo» (vv.38, 41-42, 50-51, 58). Esto provoca el escándalo de los oyentes (v.42).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 3:13 — «el que descendió del cielo»",
+   "Jn 6:38, 51",
+   "Ef 4:9-10"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "John.6.33#08",
+  "morfologia_tagnt": "V-PAP-NSM",
+  "dstrong": "G2597",
+  "strong_tagnt": "G2597",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to come/go down"
+ },
+ {
+  "ref": "John.6.35",
+  "strong": "G740",
+  "forma": "ἄρτος",
+  "glosa_interlineal": "pan",
+  "rango_semantico": [
+   "pan, alimento"
+  ],
+  "construccion": "Nominativo: «yo soy el pan de vida».",
+  "sentido_en_contexto": "Primera de las siete fórmulas «Yo soy» con predicado en Juan. Jesús es el pan que sacia el hambre profunda y da vida; el que «viene» no tendrá hambre, el que «cree» no tendrá sed.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 8:12 — «yo soy la luz del mundo»",
+   "Jn 10:7, 11 — puerta y buen pastor",
+   "Jn 11:25; 14:6; 15:1",
+   "Is 55:1-3"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "John.6.35#09",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G0740",
+  "strong_tagnt": "G740",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "bread"
+ },
+ {
+  "ref": "John.6.37",
+  "strong": "G1544",
+  "forma": "ἐκβάλω",
+  "glosa_interlineal": "echaré fuera",
+  "rango_semantico": [
+   "echar fuera, expulsar"
+  ],
+  "construccion": "Subjuntivo aoristo activo: «al que a mí viene, no le echo fuera».",
+  "sentido_en_contexto": "Promesa de acogida: nadie que venga a Jesús es rechazado. Se une al v.37a («todo lo que el Padre me da, vendrá a mí»), que subraya la iniciativa del Padre.",
+  "matiz": "Pasaje clave en el debate soteriológico: ¿«todo lo que el Padre me da» expresa elección incondicional (tradición reformada), una preparación libre por el Padre (arminiana) u otra lectura? El texto afirma a la vez el don del Padre y la acogida del Hijo.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 6:44, 65 — «nadie puede venir a mí si no le fuere dado por el Padre»",
+   "Jn 10:27-29 — «nadie las arrebatará de mi mano»",
+   "Jn 17:2, 6, 9, 24"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 17,
+  "alineacion": "forma",
+  "tagnt": "John.6.37#17",
+  "morfologia_tagnt": "V-2AAS-1S",
+  "dstrong": "G1544",
+  "strong_tagnt": "G1544",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to expel"
+ },
+ {
+  "ref": "John.6.39",
+  "strong": "G450",
+  "forma": "ἀναστήσω",
+  "glosa_interlineal": "resucitaré",
+  "rango_semantico": [
+   "levantar, resucitar"
+  ],
+  "construccion": "Futuro indicativo activo: «yo lo resucitaré en el día postrero».",
+  "sentido_en_contexto": "Estribillo del discurso (vv.39, 40, 44, 54): Jesús resucitará a los suyos el último día. Combina la vida eterna presente (v.40) con la resurrección futura.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 5:28-29 — todos oirán su voz",
+   "Jn 11:24-25 — «yo soy la resurrección»",
+   "1 Ts 4:14-16"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 19,
+  "alineacion": "forma",
+  "tagnt": "John.6.39#20",
+  "morfologia_tagnt": "V-AAS-1S",
+  "dstrong": "G0450",
+  "strong_tagnt": "G450",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to arise"
+ },
+ {
+  "ref": "John.6.41",
+  "strong": "G1111",
+  "forma": "ἐγόγγυζον",
+  "glosa_interlineal": "murmuraban",
+  "rango_semantico": [
+   "murmurar, quejarse"
+  ],
+  "construccion": "Imperfecto indicativo activo: «los judíos murmuraban de él».",
+  "sentido_en_contexto": "Eco de la murmuración de Israel en el desierto (Éx 16:2; Nm 11:1). Los oyentes rechazan su pretensión de haber «descendido del cielo» por conocer su origen humano (v.42).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 16:2 — «murmuró toda la congregación»",
+   "Nm 14:27",
+   "1 Co 10:10 — «ni murmuréis, como algunos»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "John.6.41#01",
+  "morfologia_tagnt": "V-IAI-3P",
+  "dstrong": "G1111",
+  "strong_tagnt": "G1111",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to murmur"
+ },
+ {
+  "ref": "John.6.44",
+  "strong": "G1670",
+  "forma": "ἑλκύσῃ",
+  "glosa_interlineal": "traiga",
+  "rango_semantico": [
+   "atraer, arrastrar, jalar"
+  ],
+  "construccion": "Subjuntivo aoristo activo: «si el Padre que me envió no le trajere».",
+  "sentido_en_contexto": "ἕλκω es «atraer, arrastrar» (se usa para arrastrar redes: 21:6, 11; Hch 16:19). Se debate el alcance: ¿atracción eficaz o resistible?",
+  "matiz": "Debate: (a) atracción irresistible que garantiza la fe (tradición agustiniano-reformada); (b) atracción real pero resistible, universal (12:32; tradición arminiana); (c) atracción mediante la enseñanza (v.45). El texto enseña la necesidad de la iniciativa divina.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 12:32 — «a todos atraeré a mí mismo»",
+   "Jer 31:3 — «con misericordia te atraje»",
+   "Os 11:4 — «con cuerdas de amor»",
+   "Jn 6:65"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "John.6.44#13",
+  "morfologia_tagnt": "V-AAS-3S",
+  "dstrong": "G1670",
+  "strong_tagnt": "G1670",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to draw/persuade"
+ },
+ {
+  "ref": "John.6.45",
+  "strong": "G1318",
+  "forma": "διδακτοὶ",
+  "glosa_interlineal": "enseñados",
+  "rango_semantico": [
+   "enseñado, instruido"
+  ],
+  "construccion": "Nominativo plural: «todos serán enseñados por Dios».",
+  "sentido_en_contexto": "Cita de Is 54:13 (y eco de Jer 31:34): en el tiempo mesiánico Dios mismo enseñará. Quien oye y aprende del Padre viene a Jesús.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 54:13 — «todos tus hijos serán enseñados por Jehová»",
+   "Jer 31:33-34",
+   "1 Ts 4:9 — «enseñados por Dios»",
+   "1 Jn 2:27"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "John.6.45#09",
+  "morfologia_tagnt": "A-NPM",
+  "dstrong": "G1318",
+  "strong_tagnt": "G1318",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "taught"
+ },
+ {
+  "ref": "John.6.51",
+  "strong": "G4561",
+  "forma": "σάρξ",
+  "glosa_interlineal": "carne",
+  "rango_semantico": [
+   "carne"
+  ],
+  "construccion": "Nominativo: «el pan que yo daré es mi carne».",
+  "sentido_en_contexto": "Aquí el discurso pasa de Jesús como pan a su «carne» dada «por la vida del mundo». Es lenguaje sacrificial y encarnacional que prepara la dificultad de los vv.53-56.",
+  "matiz": "Discusión central: ¿alude a la eucaristía? Interpretaciones: (a) eucarística (católica, ortodoxa, luterana); (b) apropiación por la fe en la muerte de Cristo (reformada, evangélica); (c) ambas, con la fe como condición. Juan no narra la institución de la cena, lo que fortalece lecturas eucarísticas para algunos y simbólicas para otros.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 1:14 — «el Verbo se hizo carne»",
+   "Mt 26:26-28 — la cena",
+   "1 Co 10:16-17; 11:23-29",
+   "Heb 10:5-10"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 36,
+  "alineacion": "forma+reorden",
+  "tagnt": "John.6.51#31",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G4561",
+  "strong_tagnt": "G4561",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "flesh"
+ },
+ {
+  "ref": "John.6.53",
+  "strong": "G129",
+  "forma": "αἷμα",
+  "glosa_interlineal": "sangre",
+  "rango_semantico": [
+   "sangre"
+  ],
+  "construccion": "Acusativo: «si no bebéis su sangre, no tenéis vida en vosotros».",
+  "sentido_en_contexto": "Beber sangre estaba prohibido en la Torá (Lv 17:10-14). El lenguaje chocante subraya la necesidad de una apropiación personal y total de la vida y muerte de Jesús.",
+  "matiz": "Ver nota en v.51 sobre el sentido eucarístico. En Juan, «comer y beber» se vincula con «creer» (vv.35, 47, 54), lo que muchas tradiciones usan para vincularlo con la fe.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lv 17:10-14 — prohibición de la sangre",
+   "Mt 26:28 — «mi sangre del pacto»",
+   "1 Jn 1:7 — «la sangre de Jesucristo nos limpia»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 23,
+  "alineacion": "forma",
+  "tagnt": "John.6.53#23",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G0129G",
+  "strong_tagnt": "G129",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "blood"
+ },
+ {
+  "ref": "John.6.54",
+  "strong": "G5176",
+  "forma": "τρώγων",
+  "glosa_interlineal": "el que come",
+  "rango_semantico": [
+   "masticar, comer (con ruido)"
+  ],
+  "construccion": "Participio presente activo: «el que come mi carne y bebe mi sangre».",
+  "sentido_en_contexto": "Desde el v.54 Juan cambia el verbo de «comer» (ἐσθίω) a τρώγω, que designa masticar o roer. Algunos lo interpretan como énfasis realista; otros como simple variación.",
+  "matiz": "Se discute si el cambio de verbo marca un realismo crudo (relacionado con la eucaristía) o es solo un sinónimo estilístico (en Mt 24:38 τρώγω es simplemente «comer»).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 13:18 — «el que come pan conmigo»",
+   "Mt 24:38"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "John.6.54#02",
+  "morfologia_tagnt": "V-PAP-NSM",
+  "dstrong": "G5176",
+  "strong_tagnt": "G5176",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to eat"
+ },
+ {
+  "ref": "John.6.56",
+  "strong": "G3306",
+  "forma": "μένει",
+  "glosa_interlineal": "permanece",
+  "rango_semantico": [
+   "permanecer, morar"
+  ],
+  "construccion": "Presente indicativo activo: «en mí permanece, y yo en él».",
+  "sentido_en_contexto": "El fruto del comer y beber es la comunión mutua: Cristo en el creyente y el creyente en Cristo. Anticipa el tema de «permanecer» en los caps. 14-15.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 15:4-7 — «permaneced en mí»",
+   "1 Jn 3:24",
+   "1 Jn 4:13"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "John.6.56#13",
+  "morfologia_tagnt": "V-PAI-3S",
+  "dstrong": "G3306",
+  "strong_tagnt": "G3306",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to stay"
+ },
+ {
+  "ref": "John.6.60",
+  "strong": "G4642",
+  "forma": "σκληρός",
+  "glosa_interlineal": "dura",
+  "rango_semantico": [
+   "duro, difícil, áspero"
+  ],
+  "construccion": "Nominativo: «dura es esta palabra; ¿quién la puede oír?».",
+  "sentido_en_contexto": "Muchos discípulos (no solo los Doce) se escandalizan. σκληρός no significa solo «difícil de entender», sino «ofensiva, inaceptable». Se produce la primera gran deserción.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 6:66 — muchos se apartaron",
+   "Mt 11:6 — «bienaventurado el que no halle tropiezo en mí»",
+   "Jn 8:43"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "John.6.60#09",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G4642",
+  "strong_tagnt": "G4642",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "hard"
+ },
+ {
+  "ref": "John.6.62",
+  "strong": "G305",
+  "forma": "ἀναβαίνοντα",
+  "glosa_interlineal": "subiendo",
+  "rango_semantico": [
+   "subir, ascender"
+  ],
+  "construccion": "Participio presente: «¿qué, pues, si viereis al Hijo del Hombre subir adonde estaba primero?».",
+  "sentido_en_contexto": "Jesús responde al escándalo apuntando a su ascensión: si les ofende lo que dice ahora, ¿cómo reaccionarán ante su glorificación? La cruz y la ascensión son un único movimiento en Juan.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 3:13",
+   "Jn 20:17 — «subo a mi Padre»",
+   "Ef 4:8-10"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "John.6.62#08",
+  "morfologia_tagnt": "V-PAP-ASM",
+  "dstrong": "G0305",
+  "strong_tagnt": "G305",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to ascend"
+ },
+ {
+  "ref": "John.6.63",
+  "strong": "G4151",
+  "forma": "πνεῦμά",
+  "glosa_interlineal": "el Espíritu",
+  "rango_semantico": [
+   "espíritu"
+  ],
+  "construccion": "Nominativo: «el Espíritu es el que da vida; la carne para nada aprovecha».",
+  "sentido_en_contexto": "Frase decisiva para interpretar el discurso: la vida proviene del Espíritu, y «la carne» (aquí la existencia humana abandonada a sí misma) no aprovecha. Las palabras de Jesús son «espíritu y vida».",
+  "matiz": "Se debate qué «carne» no aprovecha: la carne de Jesús de los vv.51-56 (lo que plantearía una lectura simbólica o espiritual) o la comprensión humana natural. Los intérpretes eucarísticos suelen verlo como el segundo caso.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 3:6 — «lo que es nacido de la carne, carne es»",
+   "2 Co 3:6 — «el Espíritu da vida»",
+   "Jn 6:68"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 2,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "John.6.63#02",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G4151G",
+  "strong_tagnt": "G4151",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "spirit/breath"
+ },
+ {
+  "ref": "John.6.63",
+  "strong": "G4151",
+  "forma": "πνεῦμά",
+  "glosa_interlineal": "el Espíritu",
+  "rango_semantico": [
+   "espíritu"
+  ],
+  "construccion": "Nominativo: «el Espíritu es el que da vida; la carne para nada aprovecha».",
+  "sentido_en_contexto": "Frase decisiva para interpretar el discurso: la vida proviene del Espíritu, y «la carne» (aquí la existencia humana abandonada a sí misma) no aprovecha. Las palabras de Jesús son «espíritu y vida».",
+  "matiz": "Se debate qué «carne» no aprovecha: la carne de Jesús de los vv.51-56 (lo que plantearía una lectura simbólica o espiritual) o la comprensión humana natural. Los intérpretes eucarísticos suelen verlo como el segundo caso.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 3:6 — «lo que es nacido de la carne, carne es»",
+   "2 Co 3:6 — «el Espíritu da vida»",
+   "Jn 6:68"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 17,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "John.6.63#17",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G4151G",
+  "strong_tagnt": "G4151",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "spirit/breath"
+ },
+ {
+  "ref": "John.6.64",
+  "strong": "G3860",
+  "forma": "παραδώσων",
+  "glosa_interlineal": "iba a entregar",
+  "rango_semantico": [
+   "entregar, traicionar"
+  ],
+  "construccion": "Participio futuro: «quién le había de entregar».",
+  "sentido_en_contexto": "El evangelista informa que Jesús ya sabía desde el principio quién no creía y quién lo traicionaría: conocimiento sobrenatural, como en 2:24-25.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 2:24-25",
+   "Jn 13:11 — «sabía quién le iba a entregar»",
+   "Jn 6:70-71"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 24,
+  "alineacion": "forma",
+  "tagnt": "John.6.64#24",
+  "morfologia_tagnt": "V-FAP-NSM",
+  "dstrong": "G3860",
+  "strong_tagnt": "G3860",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to deliver"
+ },
+ {
+  "ref": "John.6.66",
+  "strong": "G565",
+  "forma": "ἀπῆλθον",
+  "glosa_interlineal": "se apartaron",
+  "rango_semantico": [
+   "irse, retirarse"
+  ],
+  "construccion": "Aoristo indicativo activo: «muchos de sus discípulos volvieron atrás».",
+  "sentido_en_contexto": "Deserción masiva. Jesús pregunta a los Doce si también quieren irse. El episodio marca una división: el camino de Jesús exige fe en lo que es difícil.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 9:62 — «ninguno que… mira hacia atrás»",
+   "Jn 8:31 — «si permaneciereis en mi palabra»",
+   "1 Jn 2:19 — «salieron de nosotros»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "John.6.66#08",
+  "morfologia_tagnt": "V-2AAI-3P",
+  "dstrong": "G0565",
+  "strong_tagnt": "G565",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to go away"
+ },
+ {
+  "ref": "John.6.68",
+  "strong": "G4487",
+  "forma": "ῥήματα",
+  "glosa_interlineal": "palabras",
+  "rango_semantico": [
+   "palabra, dicho"
+  ],
+  "construccion": "Acusativo plural: «tú tienes palabras de vida eterna».",
+  "sentido_en_contexto": "Respuesta de Pedro: no hay otro a quien ir. Reconoce que las palabras de Jesús (ῥήματα, ya llamadas «espíritu y vida» en v.63) otorgan vida eterna.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 6:63",
+   "Jn 5:24 — «el que oye mi palabra… tiene vida eterna»",
+   "Hch 5:20 — «todas las palabras de esta vida»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "John.6.68#10",
+  "morfologia_tagnt": "N-APN",
+  "dstrong": "G4487",
+  "strong_tagnt": "G4487",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "declaration"
+ },
+ {
+  "ref": "John.6.69",
+  "strong": "G40",
+  "forma": "ἅγιος",
+  "glosa_interlineal": "Santo",
+  "rango_semantico": [
+   "santo, consagrado"
+  ],
+  "construccion": "Nominativo: «tú eres el Santo de Dios».",
+  "sentido_en_contexto": "Confesión de Pedro en Juan: «el Santo de Dios» (en Mt 16:16 es «el Cristo, el Hijo del Dios viviente»). Título que recuerda el grito del endemoniado en Mr 1:24.",
+  "matiz": "Variante textual: algunos manuscritos leen «el Cristo, el Hijo del Dios vivo» (armonizando con Mt 16:16); la lectura «el Santo de Dios» tiene mejor apoyo.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": "RVR60 sigue la lectura armonizada («el Cristo, el Hijo del Dios viviente»); la mejor atestiguada es «el Santo de Dios».",
+  "otros_usos": [
+   "Mr 1:24 — «el Santo de Dios»",
+   "Lc 4:34",
+   "Mt 16:16"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "John.6.69#12",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G0040G",
+  "strong_tagnt": "G40",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg"
+  ],
+  "ausente_en": [
+   "TR",
+   "Byz"
+  ],
+  "variante": true,
+  "glosa_tagnt": "holy"
+ },
+ {
+  "ref": "John.6.70",
+  "strong": "G1228",
+  "forma": "διάβολός",
+  "glosa_interlineal": "diablo",
+  "rango_semantico": [
+   "diablo, calumniador"
+  ],
+  "construccion": "Nominativo: «uno de vosotros es diablo».",
+  "sentido_en_contexto": "Jesús califica a Judas como «diablo» (διάβολος, sin artículo): no dice que sea el diablo, sino que actúa como adversario, calumniador. Juan lo vincula a la traición (v.71; 13:2, 27).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 13:2, 27 — «el diablo había puesto en el corazón de Judas»",
+   "Mt 16:23 — «apártate de mí, Satanás»",
+   "Jn 8:44"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "John.6.70#15",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G1228",
+  "strong_tagnt": "G1228",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "devilish/the Devil"
+ }
+]

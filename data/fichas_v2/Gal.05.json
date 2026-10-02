@@ -1,0 +1,596 @@
+[
+ {
+  "ref": "Gal.5.1",
+  "strong": "G1657",
+  "forma": "ἐλευθερίᾳ",
+  "glosa_interlineal": "libertad",
+  "rango_semantico": [
+   "libertad"
+  ],
+  "construccion": "Dativo: «estad, pues, firmes en la libertad con que Cristo nos hizo libres, y no estéis otra vez sujetos al yugo de esclavitud».",
+  "sentido_en_contexto": "Versículo clave: la libertad cristiana es liberación de la ley como camino de justicia y de la condena, no licencia para pecar (5:13). «Para libertad Cristo nos libertó» (τῇ ἐλευθερίᾳ ἡμᾶς Χριστὸς ἠλευθέρωσεν): libertad como propósito. Exhorta a mantenerse.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 8:36",
+   "Ro 8:2",
+   "2 Co 3:17",
+   "Hch 15:10"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Gal.5.1#02",
+  "morfologia_tagnt": "N-DSF",
+  "dstrong": "G1657",
+  "strong_tagnt": "G1657",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "freedom"
+ },
+ {
+  "ref": "Gal.5.2",
+  "strong": "G4059",
+  "forma": "περιτέμνησθε",
+  "glosa_interlineal": "os circuncidéis",
+  "rango_semantico": [
+   "circuncidar"
+  ],
+  "construccion": "Subjuntivo presente pasivo/medio: «yo Pablo os digo que si os circuncidáis, de nada os aprovechará Cristo».",
+  "sentido_en_contexto": "Declaración solemne: someterse a la circuncisión como medio de justicia anula el valor de Cristo. No condena la circuncisión como práctica cultural (cf. Hch 16:3), sino como requisito de salvación. Quien se circuncida con ese fin está obligado a cumplir toda la ley (v.3).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gá 2:3-5",
+   "Hch 15:1",
+   "1 Co 7:18-19"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Gal.5.2#08",
+  "morfologia_tagnt": "V-PPS-2P",
+  "dstrong": "G4059",
+  "strong_tagnt": "G4059",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to circumcise"
+ },
+ {
+  "ref": "Gal.5.4",
+  "strong": "G1601",
+  "forma": "ἐξεπέσατε",
+  "glosa_interlineal": "habéis caído",
+  "rango_semantico": [
+   "caer de, perder"
+  ],
+  "construccion": "Aoristo indicativo activo: «de Cristo os desligasteis, los que por la ley os justificáis; de la gracia habéis caído».",
+  "sentido_en_contexto": "Texto central en el debate sobre la perseverancia: ¿pueden los creyentes «caer de la gracia»? Pablo habla de quienes buscan ser justificados por la ley; han «sido separados de Cristo» (κατηργήθητε). La interpretación depende del marco teológico: apostasía real o referencia a una posición doctrinal.",
+  "matiz": "Debate: (a) los creyentes pueden perder la salvación al buscar justificarse por la ley (arminiana, católica, ortodoxa); (b) se refiere a quienes profesan fe pero se desvían a otro sistema (reformada: perseverancia de los santos, verdaderos creyentes no caen definitivamente); (c) caer de la gracia como principio: quien busca la ley abandona el sistema de gracia. El texto no resuelve la cuestión por sí solo.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 6:4-6",
+   "Jn 15:1-6",
+   "Ro 8:38-39",
+   "Gá 2:21"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Gal.5.4#11",
+  "morfologia_tagnt": "V-2AAI-2P",
+  "dstrong": "G1601",
+  "strong_tagnt": "G1601",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to fall out"
+ },
+ {
+  "ref": "Gal.5.6",
+  "strong": "G26",
+  "forma": "ἀγάπης",
+  "glosa_interlineal": "amor",
+  "rango_semantico": [
+   "amor"
+  ],
+  "construccion": "Genitivo: «porque en Cristo Jesús ni la circuncisión vale algo, ni la incircuncisión, sino la fe que obra por el amor».",
+  "sentido_en_contexto": "La fe auténtica «obra por el amor» (πίστις δι᾽ ἀγάπης ἐνεργουμένη): se expresa en amor. Equilibrio paulino: justificación por fe sola, pero la fe verdadera actúa. Ver Stg 2:14-26 sobre fe y obras. ἐνεργουμένη puede ser voz media («obrando») o pasiva («siendo hecha operante por el amor»).",
+  "matiz": "Debate: ἐνεργουμένη como (a) voz media: la fe se expresa activamente mediante el amor (la mayoría); (b) voz pasiva: la fe es vivificada por el amor (lectura católica medieval, la «fe formada por la caridad»). El contexto (Gá 5:13-14) respalda la primera.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Stg 2:17-22",
+   "1 Co 13:2",
+   "Gá 5:13-14",
+   "1 Ts 1:3"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Gal.5.6#14",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G0026",
+  "strong_tagnt": "G26",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "love"
+ },
+ {
+  "ref": "Gal.5.9",
+  "strong": "G2219",
+  "forma": "ζύμη",
+  "glosa_interlineal": "levadura",
+  "rango_semantico": [
+   "levadura"
+  ],
+  "construccion": "Nominativo: «un poco de levadura fermenta toda la masa».",
+  "sentido_en_contexto": "Proverbio sobre el efecto de una pequeña influencia: un poco de falsa doctrina corrompe a toda la comunidad (cf. 1 Co 5:6). La levadura en la Biblia suele simbolizar corrupción.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 5:6",
+   "Mt 16:6-12",
+   "Lc 12:1"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Gal.5.9#02",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G2219",
+  "strong_tagnt": "G2219",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "leaven"
+ },
+ {
+  "ref": "Gal.5.11",
+  "strong": "G4625",
+  "forma": "σκάνδαλον",
+  "glosa_interlineal": "escándalo",
+  "rango_semantico": [
+   "tropiezo, ofensa"
+  ],
+  "construccion": "Nominativo: «y yo, hermanos, si aún predico la circuncisión, ¿por qué padezco persecución todavía? En tal caso se ha quitado el tropiezo de la cruz».",
+  "sentido_en_contexto": "La cruz es piedra de tropiezo (σκάνδαλον) porque excluye la justificación por obras; si Pablo predicara la circuncisión, se eliminaría la ofensa y la persecución. La persecución que sufre prueba que no predica eso. Cf. 1 Co 1:23.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 1:23",
+   "Gá 6:12, 17",
+   "Ro 9:32-33"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Gal.5.11#14",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G4625",
+  "strong_tagnt": "G4625",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "stumbling block"
+ },
+ {
+  "ref": "Gal.5.13",
+  "strong": "G874",
+  "forma": "ἀφορμὴν",
+  "glosa_interlineal": "ocasión",
+  "rango_semantico": [
+   "pretexto, ocasión, base de operaciones"
+  ],
+  "construccion": "Acusativo: «porque vosotros, hermanos, a libertad fuisteis llamados; solamente que no uséis la libertad como ocasión para la carne, sino servíos por amor los unos a los otros».",
+  "sentido_en_contexto": "Equilibrio: libertad de la ley no significa libertad para el pecado. El uso correcto de la libertad es el servicio amoroso mutuo (paradoja: «siervos por amor»). Introduce la sección ética (5:13—6:10).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 P 2:16",
+   "Ro 6:1-2, 15",
+   "Jn 13:14-15"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "Gal.5.13#12",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G0874",
+  "strong_tagnt": "G874",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "opportunity"
+ },
+ {
+  "ref": "Gal.5.14",
+  "strong": "G4137",
+  "forma": "πεπλήρωται",
+  "glosa_interlineal": "se cumple",
+  "rango_semantico": [
+   "cumplir, llenar"
+  ],
+  "construccion": "Perfecto indicativo pasivo: «porque toda la ley en esta sola palabra se cumple: Amarás a tu prójimo como a ti mismo».",
+  "sentido_en_contexto": "La ley se resume en el amor al prójimo (Lv 19:18). No anula la ley, sino que la cumple en su sentido más profundo (Ro 13:8-10; Mt 22:39-40). Los cristianos cumplen la ley mediante el Espíritu y el amor.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lv 19:18",
+   "Ro 13:8-10",
+   "Mt 22:37-40",
+   "Stg 2:8"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Gal.5.14#08",
+  "morfologia_tagnt": "V-RPI-3S",
+  "dstrong": "G4137",
+  "strong_tagnt": "G4137",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg"
+  ],
+  "ausente_en": [
+   "TR",
+   "Byz"
+  ],
+  "variante": true,
+  "glosa_tagnt": "to fulfill"
+ },
+ {
+  "ref": "Gal.5.16",
+  "strong": "G4043",
+  "forma": "περιπατεῖτε",
+  "glosa_interlineal": "andad",
+  "rango_semantico": [
+   "andar, vivir, conducirse"
+  ],
+  "construccion": "Imperativo presente activo: «digo, pues: Andad en el Espíritu, y no satisfagáis los deseos de la carne».",
+  "sentido_en_contexto": "Mandamiento central de la ética de Gálatas: andar en el Espíritu como alternativa a la carne. La vida cristiana es una lucha entre Espíritu y carne (v.17), resuelta por el Espíritu, no por la ley. «Carne» (σάρξ) no es el cuerpo, sino la naturaleza humana caída.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 8:4-13",
+   "Ef 5:16",
+   "Col 3:5-10"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Gal.5.16#04",
+  "morfologia_tagnt": "V-PAM-2P",
+  "dstrong": "G4043",
+  "strong_tagnt": "G4043",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to walk"
+ },
+ {
+  "ref": "Gal.5.17",
+  "strong": "G4561",
+  "forma": "σὰρξ",
+  "glosa_interlineal": "carne",
+  "rango_semantico": [
+   "carne, naturaleza caída"
+  ],
+  "construccion": "Nominativo: «porque el deseo de la carne es contra el Espíritu, y el del Espíritu es contra la carne; y éstos se oponen entre sí, para que no hagáis lo que quisiereis».",
+  "sentido_en_contexto": "La carne y el Espíritu luchan en el creyente. Se debate si «para que no hagáis lo que quisiereis» es una promesa (el Espíritu impide la carne) o una descripción de la frustración del creyente. Relación con Ro 7:14-25.",
+  "matiz": "Debate: (a) la lucha ocurre en el creyente, el Espíritu impide que la carne se imponga (lectura mayoritaria); (b) el conflicto describe la parálisis del creyente sin victoria definitiva (como en Ro 7); (c) el Espíritu y la carne se oponen en la comunidad. La relación con Ro 7 y Ro 8 se debate.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 7:14-25; 8:5-13",
+   "1 P 2:11"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 3,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Gal.5.17#03",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G4561",
+  "strong_tagnt": "G4561",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "flesh"
+ },
+ {
+  "ref": "Gal.5.19",
+  "strong": "G4202",
+  "forma": "πορνεία",
+  "glosa_interlineal": "fornicación",
+  "rango_semantico": [
+   "inmoralidad sexual"
+  ],
+  "construccion": "Nominativo: «y manifiestas son las obras de la carne, que son: adulterio, fornicación, inmundicia, lascivia…».",
+  "sentido_en_contexto": "Catálogo de quince «obras de la carne» (vv.19-21), agrupadas en: sexuales (fornicación, impureza, sensualidad), religiosas (idolatría, hechicería), sociales (enemistades, contiendas, celos, iras, rivalidades, disensiones, sectas, envidias) y excesos (borracheras, orgías). «Los que hacen tales cosas no heredarán el reino de Dios». Lista no exhaustiva («y cosas semejantes»).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 6:9-10",
+   "Ef 5:3-5",
+   "Col 3:5-8",
+   "Ro 1:29-31"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Gal.5.19#11",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G4202",
+  "strong_tagnt": "G4202",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "sexual sin"
+ },
+ {
+  "ref": "Gal.5.20",
+  "strong": "G5331",
+  "forma": "φαρμακεία",
+  "glosa_interlineal": "hechicería",
+  "rango_semantico": [
+   "uso de drogas, magia, hechicería"
+  ],
+  "construccion": "Nominativo: «idolatría, hechicerías, enemistades, pleitos, celos, iras, contiendas, disensiones, herejías».",
+  "sentido_en_contexto": "φαρμακεία: uso de drogas y pociones con fines mágicos (origen de «farmacia»). Aparece en la lista junto a la idolatría. «Herejías» (αἱρέσεις, v.20) son «divisiones por facciones» (partidismos); en el NT αἵρεσις puede ser secta o partido, no necesariamente «herejía» doctrinal en el sentido posterior.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ap 21:8; 22:15",
+   "1 Co 11:19",
+   "Hch 5:17",
+   "Ex 22:18"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Gal.5.20#02",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G5331",
+  "strong_tagnt": "G5331",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [
+   "WH"
+  ],
+  "variante": true,
+  "glosa_tagnt": "sorcery"
+ },
+ {
+  "ref": "Gal.5.22",
+  "strong": "G2590",
+  "forma": "καρπὸς",
+  "glosa_interlineal": "fruto",
+  "rango_semantico": [
+   "fruto"
+  ],
+  "construccion": "Nominativo singular: «mas el fruto del Espíritu es amor, gozo, paz, paciencia, benignidad, bondad, fe, mansedumbre, templanza».",
+  "sentido_en_contexto": "El «fruto» (singular) del Espíritu contrasta con las «obras» (plural) de la carne: no son esfuerzos humanos, sino el resultado de la acción del Espíritu. Nueve virtudes, encabezadas por el amor. «Fe» (πίστις) aquí es probablemente «fidelidad». No es lista exhaustiva (v.23: «contra tales cosas no hay ley»).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ef 5:9",
+   "Col 3:12-14",
+   "Jn 15:1-8",
+   "Ro 14:17"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Gal.5.22#03",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G2590",
+  "strong_tagnt": "G2590",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "fruit"
+ },
+ {
+  "ref": "Gal.5.24",
+  "strong": "G4717",
+  "forma": "ἐσταύρωσαν",
+  "glosa_interlineal": "crucificaron",
+  "rango_semantico": [
+   "crucificar"
+  ],
+  "construccion": "Aoristo indicativo activo: «pues los que son de Cristo han crucificado la carne con sus pasiones y deseos».",
+  "sentido_en_contexto": "Los que pertenecen a Cristo han «crucificado» la carne: acto decisivo en la conversión (unión con Cristo en su muerte, Ro 6:6) que debe expresarse en la vida (v.25: «si vivimos por el Espíritu, andemos también por el Espíritu»). Se mezcla lo ya hecho y la tarea pendiente.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 6:6; 8:13",
+   "Gá 2:20; 6:14",
+   "Col 3:5"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Gal.5.24#08",
+  "morfologia_tagnt": "V-AAI-3P",
+  "dstrong": "G4717",
+  "strong_tagnt": "G4717",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to crucify"
+ },
+ {
+  "ref": "Gal.5.25",
+  "strong": "G4748",
+  "forma": "στοιχῶμεν",
+  "glosa_interlineal": "andemos",
+  "rango_semantico": [
+   "marchar en fila, seguir"
+  ],
+  "construccion": "Subjuntivo presente activo (exhortativo): «si vivimos por el Espíritu, andemos también por el Espíritu».",
+  "sentido_en_contexto": "στοιχέω: marchar en fila, seguir una línea (de ahí «caminar en orden»). La vida del Espíritu debe expresarse en conducta alineada con el Espíritu. Indicativo e imperativo: se vive por el Espíritu (hecho), andemos por el Espíritu (exhortación).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 8:4",
+   "Gá 5:16",
+   "Gá 6:16"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Gal.5.25#06",
+  "morfologia_tagnt": "V-PAS-1P",
+  "dstrong": "G4748",
+  "strong_tagnt": "G4748",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to follow"
+ }
+]

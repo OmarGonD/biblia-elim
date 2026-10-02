@@ -1,0 +1,865 @@
+[
+ {
+  "ref": "Mark.10.2",
+  "strong": "G1832",
+  "forma": "ἔξεστιν",
+  "glosa_interlineal": "es lícito",
+  "rango_semantico": [
+   "ser permitido, lícito"
+  ],
+  "construccion": "Presente impersonal: «¿es lícito al marido repudiar a su mujer?».",
+  "sentido_en_contexto": "En Marcos la pregunta no incluye «por cualquier causa» (Mateo): plantea el tema del divorcio sin más, como prueba a Jesús.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 19:3 — «por cualquier causa»",
+   "Dt 24:1 — la regulación mosaica"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Mark.10.2#08",
+  "morfologia_tagnt": "V-PAI-3S",
+  "dstrong": "G1832",
+  "strong_tagnt": "G1832",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "it is permitted"
+ },
+ {
+  "ref": "Mark.10.6",
+  "strong": "G2937",
+  "forma": "κτίσεως",
+  "glosa_interlineal": "creación",
+  "rango_semantico": [
+   "creación, acción de crear",
+   "criatura, lo creado"
+  ],
+  "construccion": "Genitivo: «desde el principio de la creación».",
+  "sentido_en_contexto": "Jesús apela a Gn 1:27: «varón y hembra los hizo». El principio de la creación es la norma que corrige la concesión mosaica.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 1:27 — «varón y hembra los creó»",
+   "Ro 1:20 — «desde la creación del mundo»",
+   "Mr 13:19 — «desde el principio de la creación»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Mark.10.6#04",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G2937",
+  "strong_tagnt": "G2937",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "creation"
+ },
+ {
+  "ref": "Mark.10.11",
+  "strong": "G3429",
+  "forma": "μοιχᾶται",
+  "glosa_interlineal": "comete adulterio",
+  "rango_semantico": [
+   "cometer adulterio"
+  ],
+  "construccion": "Presente indicativo medio-pasivo, 3ª singular: «comete adulterio contra ella».",
+  "sentido_en_contexto": "Marcos formula el divorcio sin cláusula de excepción: quien repudia y se casa con otra comete adulterio «contra ella» (la primera esposa). Añade (v.12) el caso de la mujer que repudia, reflejando el contexto romano donde la mujer podía iniciar el divorcio.",
+  "matiz": "La ausencia de la cláusula de excepción (Mt 5:32; 19:9) y el v.12 se discuten: ¿Marcos y Mateo reflejan la misma enseñanza o Mateo añade una cláusula interpretativa? Las posiciones cristianas varían.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 19:9 — con «a no ser por fornicación»",
+   "Lc 16:18 — paralelo sin cláusula",
+   "1 Co 7:10-11 — «el Señor manda»"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "Mark.10.11#13",
+  "morfologia_tagnt": "V-PNI-3S",
+  "dstrong": "G3429",
+  "strong_tagnt": "G3429",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to commit adultery"
+ },
+ {
+  "ref": "Mark.10.14",
+  "strong": "G23",
+  "forma": "ἠγανάκτησεν",
+  "glosa_interlineal": "se indignó",
+  "rango_semantico": [
+   "indignarse, enojarse"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª singular.",
+  "sentido_en_contexto": "Detalle exclusivo de Marcos: Jesús se indigna con los discípulos que impiden acercar los niños. Una de las raras indicaciones de enojo de Jesús.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 19:14 — sin indignación",
+   "Lc 18:16 — paralelo",
+   "Mr 3:5 — con enojo ante los fariseos"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Mark.10.14#05",
+  "morfologia_tagnt": "V-AAI-3S",
+  "dstrong": "G0023",
+  "strong_tagnt": "G23",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "be indignant"
+ },
+ {
+  "ref": "Mark.10.15",
+  "strong": "G1209",
+  "forma": "δέξηται",
+  "glosa_interlineal": "reciba",
+  "rango_semantico": [
+   "recibir, acoger"
+  ],
+  "construccion": "Subjuntivo aoristo medio: «el que no reciba el reino como un niño».",
+  "sentido_en_contexto": "El Reino se «recibe» como un don, no se conquista. «Como un niño» puede ser «como recibe un niño» (con simple confianza) o «como se recibe a un niño».",
+  "matiz": "Se debate: ¿«como un niño» modifica al que recibe (actitud de niño) o al reino (el reino como si fuera un niño que se acoge)? La primera lectura es la más común.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 18:3 — «si no os volvéis y os hacéis como niños»",
+   "Lc 18:17 — paralelo",
+   "1 P 2:2 — «como niños recién nacidos»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Mark.10.15#07",
+  "morfologia_tagnt": "V-ADS-3S",
+  "dstrong": "G1209",
+  "strong_tagnt": "G1209",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to receive"
+ },
+ {
+  "ref": "Mark.10.16",
+  "strong": "G2127",
+  "forma": "κατευλόγει",
+  "glosa_interlineal": "bendecía",
+  "rango_semantico": [
+   "bendecir fervorosamente",
+   "bendecir repetidamente"
+  ],
+  "construccion": "Imperfecto indicativo activo, 3ª singular: «los bendecía (una y otra vez)».",
+  "sentido_en_contexto": "Marcos usa el compuesto κατευλόγει con imperfecto: Jesús los bendecía con insistencia y ternura, abrazándolos y poniendo las manos sobre ellos.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 9:36 — abrazó a un niño",
+   "Gn 48:14-16 — Jacob bendice a los hijos de José"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Mark.10.16#04",
+  "morfologia_tagnt": "V-IAI-3S",
+  "dstrong": "G6050",
+  "strong_tagnt": "G6050",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg"
+  ],
+  "ausente_en": [
+   "TR",
+   "Byz"
+  ],
+  "variante": true,
+  "glosa_tagnt": "to bless"
+ },
+ {
+  "ref": "Mark.10.18",
+  "strong": "G18",
+  "forma": "ἀγαθόν",
+  "glosa_interlineal": "bueno",
+  "rango_semantico": [
+   "bueno, bondadoso",
+   "bien"
+  ],
+  "construccion": "Adjetivo acusativo: «¿por qué me llamas bueno?».",
+  "sentido_en_contexto": "Jesús redirige el elogio hacia Dios: «solo uno es bueno, Dios». No se trata de negar su bondad sino de situar toda bondad en Dios.",
+  "matiz": "Debate: ¿Jesús se distingue de Dios («solo Dios es bueno», lo cual lo excluiría), pregunta retóricamente para provocar al hombre a reconocer lo que dice, o remite a la fuente de toda bondad? La pregunta es abierta; la tradición cristiana no la entiende como negación de su divinidad.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 19:17 — «¿por qué me preguntas sobre lo bueno?»",
+   "Lc 18:19 — paralelo",
+   "Sal 118:1 — «bueno es Jehová»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 9,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Mark.10.18#09",
+  "morfologia_tagnt": "A-ASM",
+  "dstrong": "G0018",
+  "strong_tagnt": "G18",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "good-doer"
+ },
+ {
+  "ref": "Mark.10.21",
+  "strong": "G25",
+  "forma": "ἠγάπησεν",
+  "glosa_interlineal": "amó",
+  "rango_semantico": [
+   "amar"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª singular: «lo amó».",
+  "sentido_en_contexto": "Detalle exclusivo de Marcos: «Jesús, mirándolo, lo amó». La exigencia de dejarlo todo viene de un amor, no de un reproche.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 13:1 — «habiendo amado a los suyos»",
+   "Mt 19:21 — sin la mención del amor",
+   "Mr 10:22 — el joven se va triste"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Mark.10.21#06",
+  "morfologia_tagnt": "V-AAI-3S",
+  "dstrong": "G0025",
+  "strong_tagnt": "G25",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to love"
+ },
+ {
+  "ref": "Mark.10.22",
+  "strong": "G4768",
+  "forma": "στυγνάσας",
+  "glosa_interlineal": "entristecido",
+  "rango_semantico": [
+   "ponerse sombrío, entristecerse",
+   "ponerse nublado"
+  ],
+  "construccion": "Participio aoristo activo: «ensombrecido su rostro».",
+  "sentido_en_contexto": "Verbo usado del cielo nublado (Mt 16:3): su rostro se oscurece. Marca el contraste con la mirada amorosa de Jesús.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 16:3 — «el cielo está nublado (στυγνάζων)»",
+   "Ez 27:35 — «se estremecieron sus reyes»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Mark.10.22#03",
+  "morfologia_tagnt": "V-AAP-NSM",
+  "dstrong": "G4768",
+  "strong_tagnt": "G4768",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "be gloomy"
+ },
+ {
+  "ref": "Mark.10.24",
+  "strong": "G5043",
+  "forma": "τέκνα",
+  "glosa_interlineal": "hijos",
+  "rango_semantico": [
+   "hijo, niño",
+   "descendiente"
+  ],
+  "construccion": "Vocativo plural: «Hijos».",
+  "sentido_en_contexto": "Solo Marcos: Jesús llama «hijos» (τέκνα) a los discípulos con ternura al hablar de la dificultad de entrar al reino. También añade «para los que confían en las riquezas».",
+  "matiz": "Algunos manuscritos omiten «los que confían en las riquezas»; otros lo incluyen (RVR). Puede ser una aclaración tardía.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 13:33 — «hijitos, aún estaré con vosotros»",
+   "1 Jn 2:1 — «hijitos míos»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 16,
+  "alineacion": "forma",
+  "tagnt": "Mark.10.24#16",
+  "morfologia_tagnt": "N-VPN",
+  "dstrong": "G5043",
+  "strong_tagnt": "G5043",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "child"
+ },
+ {
+  "ref": "Mark.10.25",
+  "strong": "G5168",
+  "forma": "τρυμαλιᾶς",
+  "glosa_interlineal": "ojo (de aguja)",
+  "rango_semantico": [
+   "agujero, abertura pequeña"
+  ],
+  "construccion": "Genitivo: «por el ojo de la aguja».",
+  "sentido_en_contexto": "Marcos usa τρυμαλιά (agujero); Mateo, τρῆμα. Hipérbole del camello y la aguja: el rico no puede entrar por sí mismo.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 19:24 — paralelo",
+   "Lc 18:25 — paralelo con βελόνης"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Mark.10.25#06",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G5168",
+  "strong_tagnt": "G5168",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "hole"
+ },
+ {
+  "ref": "Mark.10.30",
+  "strong": "G1542",
+  "forma": "ἑκατονταπλασίονα",
+  "glosa_interlineal": "cien veces más",
+  "rango_semantico": [
+   "céntuplo"
+  ],
+  "construccion": "Acusativo: «cien veces más».",
+  "sentido_en_contexto": "Promesa a quien deja todo por Jesús y el evangelio: ahora «cien veces» en casas, hermanos y tierras, «con persecuciones», y en el siglo venidero vida eterna. Solo Marcos añade «con persecuciones».",
+  "matiz": "Se debate cómo entender la promesa: la nueva familia de la comunidad cristiana (lectura habitual), recompensas materiales (poco probable en el contexto), o hipérbole. Las persecuciones evitan una lectura de prosperidad.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 19:29 — «recibirá cien veces más»",
+   "Lc 18:29-30 — paralelo",
+   "Jn 15:20 — «si a mí me han perseguido»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Mark.10.30#04",
+  "morfologia_tagnt": "A-APN",
+  "dstrong": "G1542",
+  "strong_tagnt": "G1542",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "a hundred times"
+ },
+ {
+  "ref": "Mark.10.32",
+  "strong": "G2284",
+  "forma": "ἐθαμβοῦντο",
+  "glosa_interlineal": "estaban asombrados",
+  "rango_semantico": [
+   "asombrarse, espantarse"
+  ],
+  "construccion": "Imperfecto indicativo pasivo: «iban asombrados, y los que seguían tenían miedo».",
+  "sentido_en_contexto": "Marcos describe la escena: Jesús va delante, decidido, hacia Jerusalén; los discípulos lo siguen asustados. Tercer anuncio de la pasión.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 9:51 — «afirmó su rostro para ir a Jerusalén»",
+   "Mr 1:27; 9:15 — otros asombros"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 16,
+  "alineacion": "forma",
+  "tagnt": "Mark.10.32#16",
+  "morfologia_tagnt": "V-IPI-3P",
+  "dstrong": "G2284",
+  "strong_tagnt": "G2284",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to astonish"
+ },
+ {
+  "ref": "Mark.10.37",
+  "strong": "G710",
+  "forma": "ἀριστερῶν",
+  "glosa_interlineal": "izquierda",
+  "rango_semantico": [
+   "izquierdo"
+  ],
+  "construccion": "ἐξ ἀριστερῶν: «a tu izquierda».",
+  "sentido_en_contexto": "En Marcos son Jacobo y Juan quienes piden directamente los puestos de honor (en Mateo, la madre). Marcos presenta su ambición sin intermediarios.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 20:20-21 — la madre pide",
+   "Lc 22:24 — otra disputa de grandeza"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 16,
+  "alineacion": "forma",
+  "tagnt": "Mark.10.37#15",
+  "morfologia_tagnt": "A-GPN",
+  "dstrong": "G0710",
+  "strong_tagnt": "G710",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg"
+  ],
+  "ausente_en": [
+   "TR",
+   "Byz"
+  ],
+  "variante": true,
+  "glosa_tagnt": "left"
+ },
+ {
+  "ref": "Mark.10.38",
+  "strong": "G908",
+  "forma": "βάπτισμα",
+  "glosa_interlineal": "bautismo",
+  "rango_semantico": [
+   "inmersión, bautismo",
+   "(figurado) sumersión en sufrimiento"
+  ],
+  "construccion": "Acusativo: «¿podéis ser bautizados con el bautismo con que yo soy bautizado?».",
+  "sentido_en_contexto": "Marcos añade a «la copa» el «bautismo»: ambas imágenes designan la pasión y muerte. Mateo solo menciona la copa.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 12:50 — «con un bautismo tengo que ser bautizado»",
+   "Mt 20:22 — paralelo con la copa",
+   "Ro 6:3-4 — bautizados en su muerte"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 19,
+  "alineacion": "forma",
+  "tagnt": "Mark.10.38#19",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G0908",
+  "strong_tagnt": "G908",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "baptism"
+ },
+ {
+  "ref": "Mark.10.42",
+  "strong": "G2634",
+  "forma": "κατακυριεύουσιν",
+  "glosa_interlineal": "dominan",
+  "rango_semantico": [
+   "señorear, avasallar"
+  ],
+  "construccion": "Presente indicativo activo, 3ª plural.",
+  "sentido_en_contexto": "Los gobernantes «que se tienen por tales» dominan y tiranizan; entre los discípulos debe ser distinto. Marcos añade «los que son tenidos por gobernantes».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 20:25 — paralelo",
+   "Lc 22:25 — paralelo",
+   "1 P 5:3 — «no como teniendo señorío»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 15,
+  "alineacion": "forma",
+  "tagnt": "Mark.10.42#17",
+  "morfologia_tagnt": "V-PAI-3P",
+  "dstrong": "G2634",
+  "strong_tagnt": "G2634",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to master"
+ },
+ {
+  "ref": "Mark.10.45",
+  "strong": "G3083",
+  "forma": "λύτρον",
+  "glosa_interlineal": "rescate",
+  "rango_semantico": [
+   "precio de rescate"
+  ],
+  "construccion": "Acusativo: «dar su vida en rescate por muchos».",
+  "sentido_en_contexto": "Clave teológica de Marcos: el Hijo del Hombre sirve y entrega su vida como rescate. Es el versículo que resume la segunda mitad del Evangelio.",
+  "matiz": "«Por muchos» (ἀντὶ πολλῶν) es sustitutivo («en lugar de»), y «muchos» puede ser inclusivo (todos), según Is 53:11-12. El texto no precisa a quién se paga el rescate.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 53:10-12 — «justificará mi siervo justo a muchos»",
+   "Mt 20:28 — paralelo",
+   "1 Ti 2:6 — «se dio a sí mismo en rescate por todos»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 17,
+  "alineacion": "forma",
+  "tagnt": "Mark.10.45#17",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G3083",
+  "strong_tagnt": "G3083",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "ransom"
+ },
+ {
+  "ref": "Mark.10.46",
+  "strong": "G2410",
+  "forma": "Ἱεριχὼ",
+  "glosa_interlineal": "Jericó",
+  "rango_semantico": [
+   "Jericó"
+  ],
+  "construccion": "Acusativo: «Jericó».",
+  "sentido_en_contexto": "Última parada antes de Jerusalén. En Marcos el ciego es Bartimeo (hijo de Timeo), único nombre propio en una sanación de Marcos. Mateo dice «dos ciegos».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 20:29-30 — «dos ciegos»",
+   "Lc 18:35 — «cerca de Jericó»",
+   "Jos 6 — la conquista de Jericó"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "revisar_ocurrencia": true,
+  "alineacion": "strong",
+  "tagnt": "Mark.10.46#04",
+  "morfologia_tagnt": "N-ASF-L",
+  "dstrong": "G2410",
+  "strong_tagnt": "G2410",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Jericho"
+ },
+ {
+  "ref": "Mark.10.46",
+  "strong": "G2410",
+  "forma": "Ἱεριχὼ",
+  "glosa_interlineal": "Jericó",
+  "rango_semantico": [
+   "Jericó"
+  ],
+  "construccion": "Acusativo: «Jericó».",
+  "sentido_en_contexto": "Última parada antes de Jerusalén. En Marcos el ciego es Bartimeo (hijo de Timeo), único nombre propio en una sanación de Marcos. Mateo dice «dos ciegos».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 20:29-30 — «dos ciegos»",
+   "Lc 18:35 — «cerca de Jericó»",
+   "Jos 6 — la conquista de Jericó"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "revisar_ocurrencia": true,
+  "alineacion": "strong",
+  "tagnt": "Mark.10.46#09",
+  "morfologia_tagnt": "N-GSF-L",
+  "dstrong": "G2410",
+  "strong_tagnt": "G2410",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Jericho"
+ },
+ {
+  "ref": "Mark.10.47",
+  "strong": "G3479",
+  "forma": "Ναζαρηνός",
+  "glosa_interlineal": "nazareno",
+  "rango_semantico": [
+   "de Nazaret, nazareno"
+  ],
+  "construccion": "Nominativo: «Jesús el Nazareno».",
+  "sentido_en_contexto": "El ciego, al oír «Jesús de Nazaret», lo llama «Hijo de David»: reconoce su identidad mesiánica por la fe, aunque no ve. Marcos presenta aquí la primera vez que alguien lo llama públicamente «Hijo de David».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 9:27 — otros ciegos lo llaman Hijo de David",
+   "Mr 11:10 — «el reino de nuestro padre David»",
+   "Mr 12:35 — «¿cómo dicen los escribas que el Cristo es hijo de David?»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Mark.10.47#06",
+  "morfologia_tagnt": "A-NSM-LG",
+  "dstrong": "G3479",
+  "strong_tagnt": "G3479",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg"
+  ],
+  "ausente_en": [
+   "TR",
+   "Byz"
+  ],
+  "variante": true,
+  "glosa_tagnt": "Nazarene"
+ },
+ {
+  "ref": "Mark.10.50",
+  "strong": "G577",
+  "forma": "ἀποβαλὼν",
+  "glosa_interlineal": "arrojando",
+  "rango_semantico": [
+   "arrojar, tirar",
+   "desechar"
+  ],
+  "construccion": "Participio aoristo activo: «habiendo tirado su manto».",
+  "sentido_en_contexto": "Detalle vivo de Marcos: Bartimeo tira su manto (quizá su única posesión) y se levanta de un salto. Contrasta con el joven rico, que no pudo soltar sus bienes.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 10:21-22 — el joven rico no pudo dejar lo suyo",
+   "Hch 12:8 — «cíñete y átate las sandalias»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Mark.10.50#03",
+  "morfologia_tagnt": "V-2AAP-NSM",
+  "dstrong": "G0577",
+  "strong_tagnt": "G577",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to throw away"
+ },
+ {
+  "ref": "Mark.10.52",
+  "strong": "G4982",
+  "forma": "σέσωκέν",
+  "glosa_interlineal": "te ha salvado",
+  "rango_semantico": [
+   "salvar, sanar"
+  ],
+  "construccion": "Perfecto indicativo activo, 3ª singular: «te ha salvado».",
+  "sentido_en_contexto": "Bartimeo recobra la vista y «seguía a Jesús en el camino» hacia Jerusalén: el verbo «seguir» marca que se convierte en discípulo, a diferencia del joven rico.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 5:34 — «tu fe te ha salvado»",
+   "Lc 18:42-43 — paralelo",
+   "Mr 10:21 — «y ven, sígueme»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Mark.10.52#11",
+  "morfologia_tagnt": "V-RAI-3S",
+  "dstrong": "G4982",
+  "strong_tagnt": "G4982",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to save"
+ }
+]

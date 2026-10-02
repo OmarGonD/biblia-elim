@@ -1,0 +1,636 @@
+[
+ {
+  "ref": "Matt.28.1",
+  "strong": "G2020",
+  "forma": "ἐπιφωσκούσῃ",
+  "glosa_interlineal": "al amanecer",
+  "rango_semantico": [
+   "comenzar a clarear, amanecer",
+   "empezar (el día)"
+  ],
+  "construccion": "Participio presente activo: «al amanecer / al despuntar el primer día de la semana».",
+  "sentido_en_contexto": "Las mujeres van al sepulcro pasado el sábado, al alba del primer día de la semana (domingo). Dato clave para la fecha de la resurrección.",
+  "matiz": "El verbo puede ser «amanecer» o, para los judíos, «empezar el día siguiente» (al ocaso). Los Evangelios coinciden en que la visita fue de madrugada.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 16:2 — «muy de mañana, el primer día de la semana»",
+   "Lc 24:1 — «el primer día de la semana, muy de mañana»",
+   "Jn 20:1 — «siendo aún oscuro»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Matt.28.1#05",
+  "morfologia_tagnt": "V-PAP-DSF",
+  "dstrong": "G2020",
+  "strong_tagnt": "G2020",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to dawn"
+ },
+ {
+  "ref": "Matt.28.2",
+  "strong": "G4578",
+  "forma": "σεισμὸς",
+  "glosa_interlineal": "terremoto",
+  "rango_semantico": [
+   "terremoto, sacudida"
+  ],
+  "construccion": "Nominativo: «un gran terremoto».",
+  "sentido_en_contexto": "Segundo terremoto de Mateo en la pasión (el primero en 27:51). Un ángel desciende y remueve la piedra: el sepulcro se abre para que se vea que está vacío, no para que salga Jesús.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 27:51 — terremoto al morir Jesús",
+   "Mt 24:7 — «terremotos en diferentes lugares»",
+   "Hch 16:26 — terremoto que abre las puertas de la cárcel"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Matt.28.2#03",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G4578",
+  "strong_tagnt": "G4578",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "earthquake"
+ },
+ {
+  "ref": "Matt.28.4",
+  "strong": "G5401",
+  "forma": "φόβου",
+  "glosa_interlineal": "miedo",
+  "rango_semantico": [
+   "miedo, temor",
+   "reverencia"
+  ],
+  "construccion": "ἀπὸ + genitivo: «por el miedo».",
+  "sentido_en_contexto": "Los guardias, aterrados, quedan «como muertos»: irónicamente, los que debían cuidar el sepulcro de un muerto quedan como muertos.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 28:10 — «no temáis» a las mujeres",
+   "Mt 27:54 — el miedo del centurión",
+   "Dn 10:7-9 — Daniel ante la visión"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Matt.28.4#04",
+  "morfologia_tagnt": "N-GSM",
+  "dstrong": "G5401",
+  "strong_tagnt": "G5401",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "fear"
+ },
+ {
+  "ref": "Matt.28.6",
+  "strong": "G1453",
+  "forma": "ἠγέρθη",
+  "glosa_interlineal": "ha resucitado",
+  "rango_semantico": [
+   "levantarse, despertar",
+   "resucitar"
+  ],
+  "construccion": "Aoristo indicativo pasivo, 3ª singular: «fue levantado / resucitó».",
+  "sentido_en_contexto": "El anuncio central del Evangelio: «no está aquí; ha resucitado (fue resucitado), como dijo». El pasivo sugiere que Dios lo resucitó (pasivo divino).",
+  "matiz": "El verbo ἐγείρω (pasivo) es la fórmula común del NT para la resurrección: Dios resucita a Jesús. En otros textos Jesús mismo «se levanta» (Jn 10:18).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 15:4 — «resucitó al tercer día, conforme a las Escrituras»",
+   "Ro 4:24 — «el que levantó de los muertos a Jesús»",
+   "Mt 16:21 — «resucitar al tercer día»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Matt.28.6#04",
+  "morfologia_tagnt": "V-API-3S",
+  "dstrong": "G1453",
+  "strong_tagnt": "G1453",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to arise"
+ },
+ {
+  "ref": "Matt.28.7",
+  "strong": "G4254",
+  "forma": "προάγει",
+  "glosa_interlineal": "va delante",
+  "rango_semantico": [
+   "ir delante, preceder",
+   "guiar"
+  ],
+  "construccion": "Presente indicativo activo, 3ª singular: «va delante de vosotros a Galilea».",
+  "sentido_en_contexto": "Jesús, como pastor, precede a sus discípulos a Galilea (cf. 26:32). Allí lo verán. Cumple su promesa y restaura el grupo disperso.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 26:32 — «después que haya resucitado, iré delante de vosotros a Galilea»",
+   "Mr 16:7 — paralelo",
+   "Jn 10:4 — «va delante de ellas»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 15,
+  "alineacion": "forma",
+  "tagnt": "Matt.28.7#15",
+  "morfologia_tagnt": "V-PAI-3S",
+  "dstrong": "G4254",
+  "strong_tagnt": "G4254",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to go/bring before"
+ },
+ {
+  "ref": "Matt.28.9",
+  "strong": "G5463",
+  "forma": "χαίρετε",
+  "glosa_interlineal": "salve",
+  "rango_semantico": [
+   "alegraos, saludos",
+   "¡salve!"
+  ],
+  "construccion": "Imperativo presente activo, 2ª plural: «¡alegraos!» (saludo).",
+  "sentido_en_contexto": "Saludo habitual: «¡salve!/¡alegraos!». Dicho por el Resucitado, adquiere resonancia de gozo pascual.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 27:29 — «¡salve, rey de los judíos!»: burla",
+   "Jn 20:19 — «paz a vosotros»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Matt.28.9#15",
+  "morfologia_tagnt": "V-PAM-2P",
+  "dstrong": "G5463",
+  "strong_tagnt": "G5463",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to rejoice"
+ },
+ {
+  "ref": "Matt.28.10",
+  "strong": "G80",
+  "forma": "ἀδελφοῖς",
+  "glosa_interlineal": "hermanos",
+  "rango_semantico": [
+   "hermano",
+   "hermano en la fe"
+  ],
+  "construccion": "Dativo plural: «a mis hermanos».",
+  "sentido_en_contexto": "El Resucitado llama «mis hermanos» a los discípulos que lo abandonaron: restauración, no reproche. Es la primera vez que Mateo los llama así tras la resurrección.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 20:17 — «vé a mis hermanos»",
+   "Heb 2:11 — «no se avergüenza de llamarlos hermanos»",
+   "Mt 12:50 — «mi hermano, y hermana, y madre»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Matt.28.10#11",
+  "morfologia_tagnt": "N-DPM",
+  "dstrong": "G0080",
+  "strong_tagnt": "G80",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "brother"
+ },
+ {
+  "ref": "Matt.28.13",
+  "strong": "G2813",
+  "forma": "ἔκλεψαν",
+  "glosa_interlineal": "robaron",
+  "rango_semantico": [
+   "robar, hurtar"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª plural: «robaron».",
+  "sentido_en_contexto": "Los líderes sobornan a los guardias para que digan que los discípulos robaron el cuerpo mientras dormían. Mateo dice que esa versión circuló «hasta hoy» entre los judíos.",
+  "matiz": "Es una de las primeras respuestas a la resurrección. Su existencia presupone que el sepulcro estaba vacío; se debate qué tan extendida estaba cuando Mateo escribió.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 27:62-66 — la guardia",
+   "Jn 20:2, 13 — María piensa que se han llevado el cuerpo",
+   "Hch 5:36-39 — otra reacción de líderes"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Matt.28.13#09",
+  "morfologia_tagnt": "V-AAI-3P",
+  "dstrong": "G2813",
+  "strong_tagnt": "G2813",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to steal"
+ },
+ {
+  "ref": "Matt.28.15",
+  "strong": "G694",
+  "forma": "ἀργύρια",
+  "glosa_interlineal": "dinero",
+  "rango_semantico": [
+   "moneda de plata, dinero"
+  ],
+  "construccion": "Acusativo plural: «las monedas de plata».",
+  "sentido_en_contexto": "Los sacerdotes vuelven a usar dinero para torcer la verdad (cf. 26:15, 27:3-10). Mismo vocabulario del precio de la traición.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 26:15 — «treinta piezas de plata»",
+   "Mt 27:3 — Judas devuelve las monedas"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Matt.28.15#05",
+  "morfologia_tagnt": "N-APN",
+  "dstrong": "G0694",
+  "strong_tagnt": "G694",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "money"
+ },
+ {
+  "ref": "Matt.28.17",
+  "strong": "G1365",
+  "forma": "ἐδίστασαν",
+  "glosa_interlineal": "dudaron",
+  "rango_semantico": [
+   "dudar, vacilar"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª plural: «algunos dudaron».",
+  "sentido_en_contexto": "Mateo dice que, al ver a Jesús, «le adoraron; pero algunos dudaron». El mismo verbo que en 14:31 (Pedro). La duda coexiste con la adoración.",
+  "matiz": "Se discute a quién se refiere «algunos»: ¿a parte de los once, o a otros presentes? Se discute también el sentido de «dudar» aquí: vacilación, incertidumbre o perplejidad ante lo que ven. La gramática (οἱ δέ) admite «y otros dudaron» o «pero algunos dudaron».",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 14:31 — Pedro: «¿por qué dudaste?»",
+   "Lc 24:41 — «todavía ellos, de gozo, no lo creían»",
+   "Jn 20:25-28 — Tomás"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Matt.28.17#08",
+  "morfologia_tagnt": "V-AAI-3P",
+  "dstrong": "G1365",
+  "strong_tagnt": "G1365",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to doubt"
+ },
+ {
+  "ref": "Matt.28.18",
+  "strong": "G1849",
+  "forma": "ἐξουσία",
+  "glosa_interlineal": "autoridad",
+  "rango_semantico": [
+   "autoridad, potestad"
+  ],
+  "construccion": "Nominativo: «toda autoridad».",
+  "sentido_en_contexto": "Apertura de la Gran Comisión: toda autoridad le ha sido dada en cielo y tierra. El pasivo (ἐδόθη) indica que el Padre se la dio. Eco de Dn 7:13-14.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dn 7:14 — «le fue dado dominio, gloria y reino»",
+   "Mt 11:27 — «todas las cosas me fueron entregadas»",
+   "Fil 2:9-11 — «le dio un nombre que es sobre todo nombre»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Matt.28.18#11",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G1849",
+  "strong_tagnt": "G1849",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "authority"
+ },
+ {
+  "ref": "Matt.28.19",
+  "strong": "G3100",
+  "forma": "μαθητεύσατε",
+  "glosa_interlineal": "haced discípulos",
+  "rango_semantico": [
+   "hacer discípulos",
+   "instruir como discípulo"
+  ],
+  "construccion": "Imperativo aoristo activo, 2ª plural: «haced discípulos». Es el verbo principal; «id», «bautizando» y «enseñando» son participios.",
+  "sentido_en_contexto": "El mandato central de la comisión es hacer discípulos, no solo predicar. Los participios (yendo, bautizando, enseñando) describen cómo.",
+  "matiz": "La estructura gramatical (un solo imperativo, tres participios) es muy discutida: algunos subrayan «haced discípulos» como lo principal; otros leen «id» como imperativo implícito.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 13:52 — «todo escriba que ha sido hecho discípulo (μαθητευθείς)»",
+   "Hch 14:21 — «habiendo hecho muchos discípulos»",
+   "Mt 5:19 — «hiciere y enseñare»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Matt.28.19#03",
+  "morfologia_tagnt": "V-AAM-2P",
+  "dstrong": "G3100",
+  "strong_tagnt": "G3100",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to disciple"
+ },
+ {
+  "ref": "Matt.28.19",
+  "strong": "G1484",
+  "forma": "ἔθνη",
+  "glosa_interlineal": "naciones",
+  "rango_semantico": [
+   "pueblo, nación",
+   "gentiles"
+  ],
+  "construccion": "Acusativo plural: «todas las naciones».",
+  "sentido_en_contexto": "La misión se extiende a todos los pueblos, también a Israel. Se ha discutido si «naciones» incluye a los judíos o solo a los gentiles; la mayoría lo entiende como todos los pueblos, incluidos los judíos.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:14 — «testimonio a todas las naciones»",
+   "Gn 12:3 — «serán benditas en ti todas las familias de la tierra»",
+   "Hch 1:8 — «hasta lo último de la tierra»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Matt.28.19#06",
+  "morfologia_tagnt": "N-APN",
+  "dstrong": "G1484",
+  "strong_tagnt": "G1484",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Gentile nation"
+ },
+ {
+  "ref": "Matt.28.19",
+  "strong": "G907",
+  "forma": "βαπτίζοντες",
+  "glosa_interlineal": "bautizando",
+  "rango_semantico": [
+   "sumergir, bautizar"
+  ],
+  "construccion": "Participio presente activo: «bautizando». Con εἰς τὸ ὄνομα: «en/hacia el nombre».",
+  "sentido_en_contexto": "La fórmula trinitaria: «en el nombre del Padre, del Hijo y del Espíritu Santo». El «nombre» (singular) con tres personas apunta a una unidad. Es el texto trinitario más explícito de los Evangelios.",
+  "matiz": "Se debate si la fórmula bautismal fue usada tal cual por la iglesia primitiva (en Hechos se menciona el bautismo «en el nombre de Jesús», 2:38; 8:16; 10:48) o si la fórmula de Mateo es la forma litúrgica posterior. Las dos expresiones pueden conciliarse.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 2:38 — «bautícese cada uno… en el nombre de Jesucristo»",
+   "2 Co 13:14 — la bendición trinitaria",
+   "Ro 6:3 — «bautizados en Cristo Jesús»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Matt.28.19#07",
+  "morfologia_tagnt": "V-PAP-NPM",
+  "dstrong": "G0907",
+  "strong_tagnt": "G907",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [
+   "Treg"
+  ],
+  "variante": true,
+  "glosa_tagnt": "to baptize"
+ },
+ {
+  "ref": "Matt.28.20",
+  "strong": "G5083",
+  "forma": "τηρεῖν",
+  "glosa_interlineal": "guarden",
+  "rango_semantico": [
+   "guardar, observar",
+   "cumplir"
+  ],
+  "construccion": "Infinitivo presente activo: «enseñándoles a guardar».",
+  "sentido_en_contexto": "Enseñar a guardar «todo lo que os he mandado»: el discipulado es obediencia a Jesús. Eco del Sermón del Monte y de todo el Evangelio de Mateo.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 7:24 — «cualquiera que me oye estas palabras, y las hace»",
+   "Jn 14:15 — «si me amáis, guardad mis mandamientos»",
+   "Dt 6:2 — «guardando todos sus estatutos»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Matt.28.20#03",
+  "morfologia_tagnt": "V-PAN",
+  "dstrong": "G5083G",
+  "strong_tagnt": "G5083",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to keep"
+ },
+ {
+  "ref": "Matt.28.20",
+  "strong": "G3326",
+  "forma": "μεθ’",
+  "glosa_interlineal": "con",
+  "rango_semantico": [
+   "con, en compañía de (con genitivo)",
+   "después de (con acusativo)"
+  ],
+  "construccion": "μετά + genitivo (ὑμῶν): «con vosotros». Compañía.",
+  "sentido_en_contexto": "Cierre del Evangelio: «yo estoy con vosotros». Es el cumplimiento de «Emanuel, Dios con nosotros» (1:23), formando una inclusión entre el principio y el final de Mateo.",
+  "matiz": "El verbo está en presente: «estoy» (εἰμί), no futuro. La presencia no es una promesa futura sino una realidad continua. «Hasta la consumación del siglo» (συντελείας τοῦ αἰῶνος) marca el límite de la era presente.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 1:23 — «Emanuel, que traducido es: Dios con nosotros»",
+   "Mt 18:20 — «allí estoy yo en medio de ellos»",
+   "Jn 14:18 — «no os dejaré huérfanos»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Matt.28.20#11",
+  "morfologia_tagnt": "PREP",
+  "dstrong": "G3326",
+  "strong_tagnt": "G3326",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "with/after",
+  "caso_regido": "genitivo"
+ }
+]

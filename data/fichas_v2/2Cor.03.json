@@ -1,0 +1,283 @@
+[
+ {
+  "ref": "2Cor.3.2",
+  "strong": "G1992",
+  "forma": "ἐπιστολὴ",
+  "glosa_interlineal": "carta",
+  "rango_semantico": [
+   "carta, epístola"
+  ],
+  "construccion": "Nominativo: «vosotros sois nuestra carta, escrita en nuestros corazones, conocida y leída por todos los hombres».",
+  "sentido_en_contexto": "Pablo, que no necesita cartas de recomendación (v.1), dice que los corintios son su carta de recomendación, escrita por el Espíritu en corazones, no con tinta en piedra (v.3). Imagen que prepara el contraste entre la antigua y la nueva alianza.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 9:2",
+   "Jer 31:33",
+   "Ez 11:19; 36:26",
+   "Pr 7:3"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "2Cor.3.2#02",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G1992",
+  "strong_tagnt": "G1992",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "epistle"
+ },
+ {
+  "ref": "2Cor.3.6",
+  "strong": "G1121",
+  "forma": "γράμματος",
+  "glosa_interlineal": "letra",
+  "rango_semantico": [
+   "letra, escritura, ley escrita"
+  ],
+  "construccion": "Genitivo: «el cual asimismo nos hizo ministros competentes de un nuevo pacto, no de la letra, sino del espíritu; porque la letra mata, mas el espíritu vivifica».",
+  "sentido_en_contexto": "Contraste fundamental: «letra» (la ley escrita sin el Espíritu, que condena) y «Espíritu» (el nuevo pacto de Jer 31, que da vida). No se opone a la Escritura (que Pablo cita) sino a la ley sin poder de transformación. Esta frase ha sido mal interpretada como oposición a la lectura literal (alegoría).",
+  "matiz": "Debate: (a) «letra» = la Torá como régimen que condena (la mayoría: contexto del cap. 3); (b) «letra» = interpretación literalista (Orígenes y alegoristas, contra el contexto); (c) la ley sin el Espíritu. El contexto (vv.7-18) contrasta dos ministerios: de muerte (piedra) y de Espíritu (corazón).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jer 31:31-34",
+   "Ez 36:26-27",
+   "Ro 2:29; 7:6",
+   "Gá 3:21"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 9,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "2Cor.3.6#09",
+  "morfologia_tagnt": "N-GSN",
+  "dstrong": "G1121",
+  "strong_tagnt": "G1121",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "something written"
+ },
+ {
+  "ref": "2Cor.3.7",
+  "strong": "G1391",
+  "forma": "δόξῃ",
+  "glosa_interlineal": "gloria",
+  "rango_semantico": [
+   "gloria, esplendor"
+  ],
+  "construccion": "Dativo: «si el ministerio de muerte grabado con letras en piedras fue con gloria».",
+  "sentido_en_contexto": "Argumento a fortiori (vv.7-11): si el ministerio de la ley (muerte, condenación) tuvo gloria, ¡cuánto más el ministerio del Espíritu y de la justicia! El primero se desvanece («se desvanecía», καταργουμένην); el segundo permanece. Alude a Éx 34:29-35: el rostro de Moisés resplandecía.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 34:29-35",
+   "2 Co 3:9-11",
+   "Heb 8:6-13"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "2Cor.3.7#14",
+  "morfologia_tagnt": "N-DSF",
+  "dstrong": "G1391",
+  "strong_tagnt": "G1391",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "glory"
+ },
+ {
+  "ref": "2Cor.3.13",
+  "strong": "G2571",
+  "forma": "κάλυμμα",
+  "glosa_interlineal": "velo",
+  "rango_semantico": [
+   "velo, cubierta"
+  ],
+  "construccion": "Acusativo: «Moisés ponía un velo sobre su rostro, para que los hijos de Israel no fijaran la vista en el fin de lo que había de ser abolido».",
+  "sentido_en_contexto": "Pablo reinterpreta Éx 34:33-35: el velo de Moisés ocultaba el desvanecimiento de la gloria (según Pablo), y ahora el velo está sobre los corazones de Israel cuando leen la antigua alianza (v.14-15); se quita en Cristo. Este tipo de lectura (midrásica) ha sido objeto de mucha discusión sobre el uso paulino del AT.",
+  "matiz": "Debate: ¿Pablo contradice Éx 34 (donde Moisés se cubría para no asustar al pueblo)? La mayoría ve una interpretación tipológica, no exegética literal: Pablo lee el AT desde la luz de Cristo.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 34:33-35",
+   "2 Co 3:14-16",
+   "Ro 11:7-10",
+   "Is 6:9-10"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "2Cor.3.13#06",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G2571",
+  "strong_tagnt": "G2571",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "veil"
+ },
+ {
+  "ref": "2Cor.3.16",
+  "strong": "G1994",
+  "forma": "ἐπιστρέψῃ",
+  "glosa_interlineal": "se convierte",
+  "rango_semantico": [
+   "volverse, convertirse"
+  ],
+  "construccion": "Subjuntivo aoristo activo: «cuando se conviertan al Señor, el velo se quitará».",
+  "sentido_en_contexto": "Eco de Éx 34:34 (cuando Moisés entraba ante el Señor, se quitaba el velo). Cuando alguien se convierte al Señor (Cristo), el velo cae y puede leer el AT comprendiéndolo. «El Señor» es Cristo (v.14), no el Señor del AT como antes.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 34:34",
+   "Ro 11:25-26",
+   "Lc 24:27, 45",
+   "Hch 3:19"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "2Cor.3.16#04",
+  "morfologia_tagnt": "V-AAS-3S",
+  "dstrong": "G1994",
+  "strong_tagnt": "G1994",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to turn"
+ },
+ {
+  "ref": "2Cor.3.17",
+  "strong": "G1657",
+  "forma": "ἐλευθερία",
+  "glosa_interlineal": "libertad",
+  "rango_semantico": [
+   "libertad"
+  ],
+  "construccion": "Nominativo: «el Señor es el Espíritu; y donde está el Espíritu del Señor, allí hay libertad».",
+  "sentido_en_contexto": "Versículo debatido: «el Señor es el Espíritu». ¿Pablo identifica a Cristo con el Espíritu (modalismo) o interpreta el «Señor» de Éx 34:34 como el Espíritu que actúa? La mayoría ve una identificación funcional (en la experiencia, Cristo resucitado actúa por el Espíritu), no ontológica. «Libertad» es la del Nuevo Pacto, de la letra y del velo.",
+  "matiz": "Debate sobre «el Señor es el Espíritu»: (a) identificación funcional (Cristo resucitado actúa por el Espíritu; lectura mayoritaria); (b) Espíritu como «el Señor» del texto de Éxodo reinterpretado (Dunn); (c) el Espíritu es el contenido del Señor/Pacto. La teología trinitaria distingue las personas pero reconoce la unión de acción.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 8:36",
+   "Ro 8:2, 15",
+   "Gá 5:1, 13",
+   "1 Co 15:45"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "2Cor.3.17#13",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G1657",
+  "strong_tagnt": "G1657",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "freedom"
+ },
+ {
+  "ref": "2Cor.3.18",
+  "strong": "G3339",
+  "forma": "μεταμορφούμεθα",
+  "glosa_interlineal": "somos transformados",
+  "rango_semantico": [
+   "transformar, cambiar de forma"
+  ],
+  "construccion": "Presente indicativo pasivo: «somos transformados de gloria en gloria en la misma imagen, como por el Espíritu del Señor».",
+  "sentido_en_contexto": "Todos los creyentes, con el rostro descubierto, contemplan (o reflejan) como en un espejo la gloria del Señor y son transformados en su imagen, de gloria en gloria. Texto clave de la santificación progresiva. κατοπτριζόμενοι puede ser «contemplando» o «reflejando».",
+  "matiz": "Debate sobre κατοπτριζόμενοι: «contemplando como en un espejo» (la mayoría de versiones) o «reflejando como un espejo» (algunos, como Calvino en una lectura). El contexto (rostro de Moisés que reflejaba) hace plausible «reflejando», pero «contemplando» es lo más aceptado.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 8:29; 12:2",
+   "Fil 3:21",
+   "1 Jn 3:2",
+   "Col 3:10"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "2Cor.3.18#13",
+  "morfologia_tagnt": "V-PPI-1P",
+  "dstrong": "G3339",
+  "strong_tagnt": "G3339",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to transform"
+ }
+]

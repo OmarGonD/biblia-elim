@@ -1,0 +1,318 @@
+[
+ {
+  "ref": "Heb.8.1",
+  "strong": "G2774",
+  "forma": "Κεφάλαιον",
+  "glosa_interlineal": "punto principal",
+  "rango_semantico": [
+   "punto principal, resumen"
+  ],
+  "construccion": "Nominativo: «ahora bien, el punto principal de lo que venimos diciendo es: Tenemos tal sumo sacerdote, el cual se sentó a la diestra del trono de la Majestad en los cielos».",
+  "sentido_en_contexto": "Resumen de la sección sacerdotal (4:14—7:28) y apertura de la siguiente (8:1—10:18): Cristo ministra en el santuario celestial, tienda verdadera. El sacerdocio terrenal es «copia y sombra» (v.5) de las realidades celestes.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 1:3; 4:14",
+   "Sal 110:1",
+   "Col 3:1"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "Heb.8.1#01",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G2774",
+  "strong_tagnt": "G2774",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "sum"
+ },
+ {
+  "ref": "Heb.8.2",
+  "strong": "G4633",
+  "forma": "σκηνῆς",
+  "glosa_interlineal": "tabernáculo",
+  "rango_semantico": [
+   "tienda, tabernáculo"
+  ],
+  "construccion": "Genitivo: «ministro del santuario, y de aquel verdadero tabernáculo que levantó el Señor, y no el hombre».",
+  "sentido_en_contexto": "El tabernáculo celestial es el «verdadero» (ἀληθινός: real, original), y el terrenal es copia. Concepción platónica o apocalíptica (patrón celeste, Éx 25:40). Debate sobre el trasfondo filosófico del autor (platonismo alejandrino) o apocalíptico judío.",
+  "matiz": "Debate sobre el trasfondo: (a) apocalíptico judío: el tabernáculo celeste existente (Éx 25:40); (b) platonismo alejandrino (Filón): realidad ideal frente a copia; (c) tipología: promesa y cumplimiento en la historia (la mayoría combina elementos). El énfasis recae en la superioridad de Cristo.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 25:40",
+   "Heb 9:11, 24",
+   "Ap 15:5"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Heb.8.2#06",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G4633",
+  "strong_tagnt": "G4633",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "tent"
+ },
+ {
+  "ref": "Heb.8.5",
+  "strong": "G4639",
+  "forma": "σκιᾷ",
+  "glosa_interlineal": "sombra",
+  "rango_semantico": [
+   "sombra"
+  ],
+  "construccion": "Dativo: «los cuales sirven a lo que es figura y sombra de las cosas celestiales, como se le advirtió a Moisés cuando iba a erigir el tabernáculo: Mira, dice, haz todas las cosas conforme al modelo que se te ha mostrado en el monte».",
+  "sentido_en_contexto": "El culto levítico era sombra de las realidades celestiales (cf. Col 2:17). Cita de Éx 25:40 (el modelo mostrado a Moisés). La relación entre sombra y realidad se aplica a todo el sistema levítico: sacerdocio, sacrificios, santuario.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 25:40",
+   "Col 2:17",
+   "Heb 9:23; 10:1"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Heb.8.5#04",
+  "morfologia_tagnt": "N-DSF",
+  "dstrong": "G4639",
+  "strong_tagnt": "G4639",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "shadow"
+ },
+ {
+  "ref": "Heb.8.6",
+  "strong": "G3316",
+  "forma": "μεσίτης",
+  "glosa_interlineal": "mediador",
+  "rango_semantico": [
+   "mediador"
+  ],
+  "construccion": "Nominativo: «pero ahora tanto mejor ministerio ha obtenido, cuanto es mediador de un mejor pacto, establecido sobre mejores promesas».",
+  "sentido_en_contexto": "Cristo es mediador de un «mejor pacto» (κρείττων διαθήκη) fundado en mejores promesas. Introduce la cita extensa de Jer 31:31-34 (vv.8-12), la más larga del AT citada en el NT.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jer 31:31-34",
+   "Heb 9:15; 12:24",
+   "1 Ti 2:5"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Heb.8.6#11",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G3316",
+  "strong_tagnt": "G3316",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "mediator"
+ },
+ {
+  "ref": "Heb.8.8",
+  "strong": "G2537",
+  "forma": "καινήν",
+  "glosa_interlineal": "nuevo",
+  "rango_semantico": [
+   "nuevo (en calidad)"
+  ],
+  "construccion": "Acusativo: «porque reprendiéndolos dice: He aquí vienen días, dice el Señor, en que estableceré con la casa de Israel y la casa de Judá un nuevo pacto».",
+  "sentido_en_contexto": "Cita de Jer 31:31-34: el nuevo pacto se hace con la «casa de Israel y de Judá». Hebreos lo aplica a la iglesia en Cristo. Se discute la relación entre el pueblo del nuevo pacto (la iglesia) e Israel étnico: reemplazo, cumplimiento o extensión.",
+  "matiz": "Debate: (a) la iglesia (judíos y gentiles) participa del nuevo pacto, que se cumplió en Cristo (teología del cumplimiento; la mayoría); (b) el nuevo pacto es con Israel, y la iglesia participa de sus bendiciones espirituales (dispensacionalismo); (c) pacto cumplido en Cristo, que no anula las promesas a Israel (Ro 11). El autor de Hebreos aplica Jr 31 a los cristianos.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jer 31:31-34",
+   "Lc 22:20",
+   "1 Co 11:25",
+   "2 Co 3:6"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 22,
+  "alineacion": "forma",
+  "tagnt": "Heb.8.8#22",
+  "morfologia_tagnt": "A-ASF",
+  "dstrong": "G2537",
+  "strong_tagnt": "G2537",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "new"
+ },
+ {
+  "ref": "Heb.8.10",
+  "strong": "G1271",
+  "forma": "διάνοιαν",
+  "glosa_interlineal": "mente",
+  "rango_semantico": [
+   "mente, pensamiento"
+  ],
+  "construccion": "Acusativo: «por lo cual, este es el pacto que haré con la casa de Israel después de aquellos días, dice el Señor: Pondré mis leyes en la mente de ellos, y sobre su corazón las escribiré; y seré a ellos por Dios, y ellos me serán a mí por pueblo».",
+  "sentido_en_contexto": "Características del nuevo pacto: ley interiorizada (mente y corazón), relación personal con Dios (seré su Dios), conocimiento directo (v.11) y perdón de pecados (v.12). Se cumple por el Espíritu (2 Co 3:3).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jer 31:33",
+   "Ez 36:26-27",
+   "2 Co 3:3",
+   "Ro 2:15"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 21,
+  "alineacion": "forma",
+  "tagnt": "Heb.8.10#21",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G1271",
+  "strong_tagnt": "G1271",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "mind"
+ },
+ {
+  "ref": "Heb.8.12",
+  "strong": "G2436",
+  "forma": "ἵλεως",
+  "glosa_interlineal": "propicio",
+  "rango_semantico": [
+   "propicio, misericordioso"
+  ],
+  "construccion": "Nominativo: «porque seré propicio a sus injusticias, y nunca más me acordaré de sus pecados y de sus iniquidades».",
+  "sentido_en_contexto": "Fundamento del nuevo pacto: perdón total de los pecados. «Nunca más me acordaré» no es olvido, sino decisión de no imputar. Es el elemento que el autor desarrolla en 10:15-18 para concluir que ya no se necesita más sacrificio.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jer 31:34",
+   "Heb 10:17-18",
+   "Mi 7:18-19",
+   "Is 43:25"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Heb.8.12#02",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G2436",
+  "strong_tagnt": "G2436",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "propitious/gracious"
+ },
+ {
+  "ref": "Heb.8.13",
+  "strong": "G3822",
+  "forma": "πεπαλαίωκεν",
+  "glosa_interlineal": "ha dado por obsoleto",
+  "rango_semantico": [
+   "hacer viejo, declarar obsoleto"
+  ],
+  "construccion": "Perfecto indicativo activo: «al decir: Nuevo pacto, ha dado por viejo al primero; y lo que se da por viejo y se envejece, está próximo a desaparecer».",
+  "sentido_en_contexto": "Al decir «nuevo», Dios declaró «viejo» al primero. «Próximo a desaparecer» alude probablemente a la destrucción del Templo (70 d.C.), lo que sitúa la carta antes de esa fecha o en vísperas. Debate sobre la fecha de Hebreos.",
+  "matiz": "Debate sobre la fecha: (a) antes del 70 d.C., cuando el culto del Templo continúa (uso de presente: «ofrecen» etc.; la mayoría); (b) después del 70, y el autor habla de la Escritura, no del Templo vivo (algunos). Cf. Heb 13:23 (Timoteo en libertad).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 7:18; 10:9",
+   "Lc 21:6, 20-24",
+   "2 Co 3:14"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 5,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Heb.8.13#05",
+  "morfologia_tagnt": "V-RAI-3S",
+  "dstrong": "G3822",
+  "strong_tagnt": "G3822",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to make old"
+ }
+]

@@ -1,0 +1,394 @@
+[
+ {
+  "ref": "2Cor.8.1",
+  "strong": "G5485",
+  "forma": "χάριν",
+  "glosa_interlineal": "gracia",
+  "rango_semantico": [
+   "gracia, favor, don generoso"
+  ],
+  "construccion": "Acusativo: «os hacemos saber la gracia de Dios que ha sido dada a las iglesias de Macedonia».",
+  "sentido_en_contexto": "Los capítulos 8–9 tratan de la colecta para Jerusalén. Pablo llama «gracia» (χάρις) a la generosidad: es don de Dios dado a los macedonios y que ellos, a su vez, ofrecen. El mismo término designa la ofrenda (8:4, 6, 7, 19) y el don de Dios (9:8, 14).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 15:26",
+   "1 Co 16:1-4",
+   "Hch 24:17",
+   "2 Co 9:8, 14"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "2Cor.8.1#06",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G5485",
+  "strong_tagnt": "G5485",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "grace"
+ },
+ {
+  "ref": "2Cor.8.2",
+  "strong": "G4432",
+  "forma": "πτωχεία",
+  "glosa_interlineal": "pobreza",
+  "rango_semantico": [
+   "pobreza"
+  ],
+  "construccion": "Nominativo: «que en grande prueba de tribulación, la abundancia de su gozo y su profunda pobreza abundaron en riquezas de su generosidad».",
+  "sentido_en_contexto": "Las iglesias de Macedonia (Filipos, Tesalónica, Berea), pobres y afligidas, dieron con generosidad. El gozo y la pobreza producen riqueza de sencillez (ἁπλότης: sinceridad/generosidad). Modelo de generosidad: no depende de la abundancia.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Fil 4:15-16",
+   "Lc 21:1-4",
+   "2 Co 6:10"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 15,
+  "alineacion": "forma",
+  "tagnt": "2Cor.8.2#15",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G4432",
+  "strong_tagnt": "G4432",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "poverty"
+ },
+ {
+  "ref": "2Cor.8.4",
+  "strong": "G2842",
+  "forma": "κοινωνίαν",
+  "glosa_interlineal": "participación",
+  "rango_semantico": [
+   "comunión, participación, contribución"
+  ],
+  "construccion": "Acusativo: «pidiéndonos con muchos ruegos que les concediésemos el privilegio de participar en este servicio para los santos».",
+  "sentido_en_contexto": "κοινωνία aquí es «participación» en la ofrenda: los macedonios suplicaron participar. La ofrenda es acto de comunión entre iglesias, y expresa unión de los gentiles con la iglesia madre de Jerusalén (cf. Ro 15:27).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 15:26-27",
+   "Fil 1:5",
+   "Gá 2:10"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "2Cor.8.4#10",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G2842",
+  "strong_tagnt": "G2842",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "participation"
+ },
+ {
+  "ref": "2Cor.8.5",
+  "strong": "G1325",
+  "forma": "ἔδωκαν",
+  "glosa_interlineal": "dieron",
+  "rango_semantico": [
+   "dar, entregar"
+  ],
+  "construccion": "Aoristo indicativo activo: «se dieron primeramente a sí mismos al Señor, y luego a nosotros por la voluntad de Dios».",
+  "sentido_en_contexto": "El orden: primero la entrega personal al Señor; después la ofrenda. Pablo no esperaba esto: los macedonios superaron las expectativas. El dar auténtico nace de la entrega de uno mismo a Dios.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 12:1",
+   "Mr 12:41-44"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "2Cor.8.5#07",
+  "morfologia_tagnt": "V-AAI-3P",
+  "dstrong": "G1325",
+  "strong_tagnt": "G1325",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to give"
+ },
+ {
+  "ref": "2Cor.8.9",
+  "strong": "G4433",
+  "forma": "ἐπτώχευσεν",
+  "glosa_interlineal": "se hizo pobre",
+  "rango_semantico": [
+   "hacerse pobre"
+  ],
+  "construccion": "Aoristo indicativo activo: «siendo rico, por amor a vosotros se hizo pobre, para que vosotros con su pobreza fueseis enriquecidos».",
+  "sentido_en_contexto": "Fundamento cristológico de la generosidad: Cristo, siendo rico (preexistente, en gloria), se hizo pobre (encarnación y cruz) para enriquecernos. Paralelo con Fil 2:6-8. «Riqueza» y «pobreza» tienen sentido espiritual principalmente (no es promesa de prosperidad material).",
+  "matiz": "Debate: ¿«se hizo pobre» se refiere a la encarnación (aoristo en un momento: la mayoría), a la vida de pobreza de Jesús, o a la cruz? ¿«Enriquecidos» es solo espiritual (la mayoría) o incluye lo material (teología de la prosperidad, que lo ha usado sin respaldo del contexto)? El contexto es la colecta, no la prosperidad.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Fil 2:6-8",
+   "Mt 8:20",
+   "Jn 1:14; 17:5",
+   "Lc 9:58"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "2Cor.8.9#13",
+  "morfologia_tagnt": "V-AAI-3S",
+  "dstrong": "G4433",
+  "strong_tagnt": "G4433",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "be poor"
+ },
+ {
+  "ref": "2Cor.8.12",
+  "strong": "G4288",
+  "forma": "προθυμία",
+  "glosa_interlineal": "buena voluntad",
+  "rango_semantico": [
+   "buena disposición, ánimo dispuesto"
+  ],
+  "construccion": "Nominativo: «porque si primero hay la voluntad dispuesta, será acepta según lo que uno tiene, no según lo que no tiene».",
+  "sentido_en_contexto": "Principio: Dios acepta la ofrenda según la disposición y la capacidad, no la cantidad. Pablo no impone una carga, sino igualdad (v.13-14: «que haya igualdad»). Cita de Éx 16:18 sobre el maná (v.15).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 12:41-44",
+   "2 Co 9:7",
+   "Éx 16:18"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "2Cor.8.12#04",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G4288",
+  "strong_tagnt": "G4288",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "eagerness"
+ },
+ {
+  "ref": "2Cor.8.14",
+  "strong": "G2471",
+  "forma": "ἰσότης",
+  "glosa_interlineal": "igualdad",
+  "rango_semantico": [
+   "igualdad, equidad"
+  ],
+  "construccion": "Nominativo: «para que… vuestra abundancia supla la escasez de ellos, para que también la abundancia de ellos supla vuestra necesidad, para que haya igualdad».",
+  "sentido_en_contexto": "Principio de reciprocidad e igualdad (ἰσότης): los que tienen más ayudan a los que tienen menos, y viceversa en otro momento. No una nivelación forzada, sino solidaridad. Cita de Éx 16:18 (v.15): «el que recogió mucho no tuvo más, y el que poco, no tuvo menos».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 16:18",
+   "Hch 2:44-45; 4:32-35",
+   "Ro 15:27"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "2Cor.8.14#24",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G2471",
+  "strong_tagnt": "G2471",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "equality"
+ },
+ {
+  "ref": "2Cor.8.19",
+  "strong": "G5500",
+  "forma": "χειροτονηθεὶς",
+  "glosa_interlineal": "designado",
+  "rango_semantico": [
+   "elegir (por voto), designar"
+  ],
+  "construccion": "Participio aoristo pasivo: «y no sólo esto, sino que también fue designado por las iglesias como compañero de nuestra peregrinación para llevar este donativo».",
+  "sentido_en_contexto": "Pablo envía con Tito a un hermano «famoso en el evangelio» (v.18) elegido por las iglesias, para dar transparencia al manejo del dinero (v.20-21): «procurando hacer las cosas honradamente, no sólo delante del Señor, sino también delante de los hombres». Modelo de rendición de cuentas.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Co 8:20-21",
+   "1 Co 16:3-4",
+   "Pr 3:4"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "2Cor.8.19#06",
+  "morfologia_tagnt": "V-APP-NSM",
+  "dstrong": "G5500",
+  "strong_tagnt": "G5500",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to appoint"
+ },
+ {
+  "ref": "2Cor.8.21",
+  "strong": "G4306",
+  "forma": "προνοοῦμεν",
+  "glosa_interlineal": "procuramos",
+  "rango_semantico": [
+   "tener en cuenta, cuidar, preocuparse de antemano"
+  ],
+  "construccion": "Presente indicativo activo: «procurando hacer las cosas honradamente, no sólo delante del Señor, sino también delante de los hombres».",
+  "sentido_en_contexto": "Principio de transparencia en la administración del dinero: no basta con ser honesto ante Dios, es necesario también serlo ante los hombres. Eco de Pr 3:4 (LXX).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Pr 3:4",
+   "Ro 12:17",
+   "Fil 4:8"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "2Cor.8.21#01",
+  "morfologia_tagnt": "V-PAI-1P",
+  "dstrong": "G4306",
+  "strong_tagnt": "G4306",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg"
+  ],
+  "ausente_en": [
+   "TR",
+   "Byz"
+  ],
+  "variante": true,
+  "glosa_tagnt": "to care for"
+ },
+ {
+  "ref": "2Cor.8.23",
+  "strong": "G652",
+  "forma": "ἀπόστολοι",
+  "glosa_interlineal": "apóstoles",
+  "rango_semantico": [
+   "apóstol, enviado, mensajero"
+  ],
+  "construccion": "Nominativo plural: «en cuanto a nuestros hermanos, son mensajeros (apóstoles) de las iglesias, y gloria de Cristo».",
+  "sentido_en_contexto": "Uso no técnico de ἀπόστολος: «enviados de las iglesias» (mensajeros comisionados para llevar la ofrenda). No son apóstoles en el sentido de los Doce o de Pablo, sino delegados de las congregaciones. Muestra la amplitud del término en el NT.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Fil 2:25",
+   "Hch 14:14",
+   "Ro 16:7"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "2Cor.8.23#13",
+  "morfologia_tagnt": "N-NPM",
+  "dstrong": "G0652",
+  "strong_tagnt": "G652",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "apostle"
+ }
+]

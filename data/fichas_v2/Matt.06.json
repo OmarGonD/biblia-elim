@@ -1,0 +1,1549 @@
+[
+ {
+  "ref": "Matt.6.1",
+  "strong": "G4337",
+  "forma": "Προσέχετε",
+  "glosa_interlineal": "guardaos",
+  "rango_semantico": [
+   "prestar atención",
+   "tener cuidado, guardarse",
+   "dedicarse a"
+  ],
+  "construccion": "Imperativo presente activo, 2ª plural: «estad atentos / guardaos».",
+  "sentido_en_contexto": "Advertencia de apertura del capítulo: cuidado con practicar la religión para ser visto. Presente: actitud de vigilancia constante.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 7:15 — «guardaos de los falsos profetas»",
+   "Mt 16:6 — «guardaos de la levadura de los fariseos»",
+   "Lc 12:15 — «guardaos de toda avaricia»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.1#01",
+  "morfologia_tagnt": "V-PAM-2P",
+  "dstrong": "G4337",
+  "strong_tagnt": "G4337",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to watch out"
+ },
+ {
+  "ref": "Matt.6.1",
+  "strong": "G2300",
+  "forma": "θεαθῆναι",
+  "glosa_interlineal": "ser vistos",
+  "rango_semantico": [
+   "mirar, contemplar",
+   "ser visto (como espectáculo)"
+  ],
+  "construccion": "Infinitivo aoristo pasivo con πρὸς τό (finalidad): «con el fin de ser contemplados».",
+  "sentido_en_contexto": "La clave no es que otros vean, sino el propósito: actuar para ser mirado. El mismo propósito se repite en los vv.2, 5, 16.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 23:5 — «hacen todas sus obras para ser vistos por los hombres»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.1#13",
+  "morfologia_tagnt": "V-APN",
+  "dstrong": "G2300",
+  "strong_tagnt": "G2300",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to look at"
+ },
+ {
+  "ref": "Matt.6.2",
+  "strong": "G1654",
+  "forma": "ἐλεημοσύνην",
+  "glosa_interlineal": "limosna",
+  "rango_semantico": [
+   "limosna, acto de misericordia",
+   "donativo a los pobres"
+  ],
+  "construccion": "Acusativo singular, objeto de «hagas».",
+  "sentido_en_contexto": "Término de la misma raíz que ἔλεος («misericordia»): la limosna es una expresión de compasión.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 10:2 — «Cornelio… hacía muchas limosnas»",
+   "Lc 11:41 — «dad limosna de lo que tenéis»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.2#04",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G1654",
+  "strong_tagnt": "G1654",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "charity"
+ },
+ {
+  "ref": "Matt.6.2",
+  "strong": "G4537",
+  "forma": "σαλπίσῃς",
+  "glosa_interlineal": "toques trompeta",
+  "rango_semantico": [
+   "tocar la trompeta"
+  ],
+  "construccion": "Subjuntivo aoristo activo, 2ª singular, con μή: «no toques trompeta».",
+  "sentido_en_contexto": "Frase probablemente figurada: «no hagas publicidad de tu limosna». No hay evidencia clara de que alguien tocara trompetas literalmente para dar limosna.",
+  "matiz": "Algunos lo toman como metáfora; otros piensan en trompetas del templo para atraer a los necesitados. Es un debate abierto.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 15:52 — «a la final trompeta»",
+   "Ap 8:6 — «los siete ángeles… se dispusieron a tocarlas»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.2#06",
+  "morfologia_tagnt": "V-AAS-2S",
+  "dstrong": "G4537",
+  "strong_tagnt": "G4537",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to sound a trumpet"
+ },
+ {
+  "ref": "Matt.6.2",
+  "strong": "G5273",
+  "forma": "ὑποκριταὶ",
+  "glosa_interlineal": "hipócritas",
+  "rango_semantico": [
+   "actor de teatro, que representa un papel",
+   "hipócrita, que finge"
+  ],
+  "construccion": "Nominativo plural.",
+  "sentido_en_contexto": "Del teatro griego: el que lleva una máscara y actúa un papel. Jesús califica así a los que hacen obras religiosas para ser vistos.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 7:5 — «hipócrita, saca primero la viga de tu propio ojo»",
+   "Mt 23:13 — «¡ay de vosotros… hipócritas!»",
+   "Mt 15:7 — «hipócritas, bien profetizó de vosotros Isaías»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.2#11",
+  "morfologia_tagnt": "N-NPM",
+  "dstrong": "G5273",
+  "strong_tagnt": "G5273",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "hypocrite"
+ },
+ {
+  "ref": "Matt.6.2",
+  "strong": "G568",
+  "forma": "ἀπέχουσιν",
+  "glosa_interlineal": "reciben por completo",
+  "rango_semantico": [
+   "recibir en su totalidad",
+   "estar lejos",
+   "dar recibo"
+  ],
+  "construccion": "Presente indicativo activo, 3ª plural.",
+  "sentido_en_contexto": "Término de recibos comerciales: «han cobrado todo». Su recompensa ya fue pagada: la alabanza humana, no hay más pendiente.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 6:24 — «ya tenéis vuestro consuelo»",
+   "Fil 4:18 — «todo lo he recibido, y tengo abundancia»",
+   "Flm 15 — «para que le recibieses para siempre»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 28,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.2#28",
+  "morfologia_tagnt": "V-PAI-3P",
+  "dstrong": "G0568",
+  "strong_tagnt": "G568",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to have in full"
+ },
+ {
+  "ref": "Matt.6.3",
+  "strong": "G710",
+  "forma": "ἀριστερά",
+  "glosa_interlineal": "izquierda",
+  "rango_semantico": [
+   "izquierdo",
+   "mano izquierda"
+  ],
+  "construccion": "Nominativo, sujeto de «sepa».",
+  "sentido_en_contexto": "Imagen hiperbólica de discreción total: ni siquiera la mano izquierda debe saber lo que hace la derecha.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 25:33 — «las ovejas a su derecha, y los cabritos a su izquierda»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.3#08",
+  "morfologia_tagnt": "A-NSF",
+  "dstrong": "G0710",
+  "strong_tagnt": "G710",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "left"
+ },
+ {
+  "ref": "Matt.6.4",
+  "strong": "G2927",
+  "forma": "κρυπτῷ",
+  "glosa_interlineal": "en secreto",
+  "rango_semantico": [
+   "escondido, oculto",
+   "en secreto"
+  ],
+  "construccion": "ἐν + dativo: «en lo oculto».",
+  "sentido_en_contexto": "Contraste entre lo visto por los hombres y lo visto por el Padre «en lo oculto». La recompensa viene de Dios.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 6:6, 18 — misma expresión",
+   "Ro 2:29 — «es judío el que lo es en lo interior»",
+   "1 Co 4:5 — «aclarará lo oculto de las tinieblas»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 8,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.4#08",
+  "morfologia_tagnt": "A-DSN",
+  "dstrong": "G2927",
+  "strong_tagnt": "G2927",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "hidden"
+ },
+ {
+  "ref": "Matt.6.4",
+  "strong": "G2927",
+  "forma": "κρυπτῷ",
+  "glosa_interlineal": "en secreto",
+  "rango_semantico": [
+   "escondido, oculto",
+   "en secreto"
+  ],
+  "construccion": "ἐν + dativo: «en lo oculto».",
+  "sentido_en_contexto": "Contraste entre lo visto por los hombres y lo visto por el Padre «en lo oculto». La recompensa viene de Dios.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 6:6, 18 — misma expresión",
+   "Ro 2:29 — «es judío el que lo es en lo interior»",
+   "1 Co 4:5 — «aclarará lo oculto de las tinieblas»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 17,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.4#17",
+  "morfologia_tagnt": "A-DSN",
+  "dstrong": "G2927",
+  "strong_tagnt": "G2927",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "hidden"
+ },
+ {
+  "ref": "Matt.6.5",
+  "strong": "G5368",
+  "forma": "φιλοῦσιν",
+  "glosa_interlineal": "aman",
+  "rango_semantico": [
+   "amar (con afecto)",
+   "querer, gustar de",
+   "besar"
+  ],
+  "construccion": "Presente indicativo activo, 3ª plural.",
+  "sentido_en_contexto": "«Les gusta/aman» orar de pie en sinagogas y esquinas: el verbo señala el afecto por la exhibición.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 10:37 — «el que ama a padre o madre más que a mí»",
+   "Mt 23:6 — «aman los primeros asientos en las cenas»",
+   "Jn 5:20 — «el Padre ama al Hijo»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.5#10",
+  "morfologia_tagnt": "V-PAI-3P",
+  "dstrong": "G5368",
+  "strong_tagnt": "G5368",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to love"
+ },
+ {
+  "ref": "Matt.6.6",
+  "strong": "G5009",
+  "forma": "ταμεῖον",
+  "glosa_interlineal": "aposento",
+  "rango_semantico": [
+   "cuarto interior, despensa",
+   "habitación privada"
+  ],
+  "construccion": "εἰς + acusativo: «entra en tu cuarto».",
+  "sentido_en_contexto": "Un cuarto interior, a menudo sin ventanas (despensa). Imagen de oración privada, sin público.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 12:3 — «lo que habéis hablado al oído en los aposentos»",
+   "Lc 12:24 — «ni tienen despensa (ταμεῖον) ni granero»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.6#08",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G5009",
+  "strong_tagnt": "G5009",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "inner room"
+ },
+ {
+  "ref": "Matt.6.7",
+  "strong": "G945",
+  "forma": "βατταλογήσητε",
+  "glosa_interlineal": "no uséis vanas repeticiones",
+  "rango_semantico": [
+   "balbucear",
+   "parlotear, repetir sin sentido"
+  ],
+  "construccion": "Subjuntivo aoristo activo con μή: «no balbuceéis».",
+  "sentido_en_contexto": "Palabra rara, quizá onomatopéyica (de «bat-bat»). Describe el parloteo repetitivo de los paganos para convencer a sus dioses.",
+  "matiz": "No condena toda repetición (Jesús mismo oró repetidamente, Mt 26:44), sino pensar que la cantidad de palabras mueve a Dios.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 26:44 — «oró por tercera vez, diciendo las mismas palabras»",
+   "Ec 5:2 — «sean pocas tus palabras»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.7#04",
+  "morfologia_tagnt": "V-AAS-2P",
+  "dstrong": "G0945",
+  "strong_tagnt": "G945",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to babble"
+ },
+ {
+  "ref": "Matt.6.9",
+  "strong": "G37",
+  "forma": "ἁγιασθήτω",
+  "glosa_interlineal": "santificado sea",
+  "rango_semantico": [
+   "santificar, apartar como santo",
+   "considerar santo, honrar",
+   "purificar"
+  ],
+  "construccion": "Imperativo aoristo pasivo, 3ª singular: «sea santificado». Es una petición.",
+  "sentido_en_contexto": "No pide que Dios sea hecho santo (lo es), sino que su nombre sea reconocido y honrado como santo. El pasivo deja abierto quién lo hace: Dios mismo y también su pueblo.",
+  "matiz": "Se discute si es una petición para que Dios mismo manifieste su santidad en el mundo (como en Ez 36:23) o para que los creyentes la honren. Muchos aceptan ambas.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ez 36:23 — «santificaré mi gran nombre»",
+   "Lc 11:2 — «santificado sea tu nombre»",
+   "1 P 3:15 — «santificad a Dios el Señor en vuestros corazones»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.9#11",
+  "morfologia_tagnt": "V-APM-3S",
+  "dstrong": "G0037",
+  "strong_tagnt": "G37",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to sanctify"
+ },
+ {
+  "ref": "Matt.6.10",
+  "strong": "G2307",
+  "forma": "θέλημά",
+  "glosa_interlineal": "voluntad",
+  "rango_semantico": [
+   "voluntad, deseo",
+   "propósito"
+  ],
+  "construccion": "Nominativo, sujeto de «hágase» (γενηθήτω).",
+  "sentido_en_contexto": "Se pide que la voluntad de Dios se cumpla en la tierra como ya se cumple en el cielo. «Venga tu reino» y «hágase tu voluntad» son dos formas de decir lo mismo.",
+  "matiz": "Estructura: tres peticiones paralelas (nombre, reino, voluntad). La frase «como en el cielo, así en la tierra» se aplica a las tres según algunos, y solo a la tercera según otros.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 26:42 — «hágase tu voluntad»",
+   "Mt 7:21 — «el que hace la voluntad de mi Padre»",
+   "Ef 1:11 — «según el designio de su voluntad»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.10#07",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G2307",
+  "strong_tagnt": "G2307",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "will/desire"
+ },
+ {
+  "ref": "Matt.6.11",
+  "strong": "G1967",
+  "forma": "ἐπιούσιον",
+  "glosa_interlineal": "de cada día",
+  "rango_semantico": [
+   "necesario para la existencia",
+   "del día presente",
+   "del día siguiente",
+   "(otras posibilidades)"
+  ],
+  "construccion": "Adjetivo acusativo, modifica «pan». Palabra casi única: no aparece fuera del Padrenuestro en la literatura griega conocida.",
+  "sentido_en_contexto": "Tradicionalmente «de cada día», pero su significado exacto es incierto.",
+  "matiz": "Debate muy conocido: (a) «para el día de hoy / de cada día» (de ἐπί + ἡμέρα); (b) «necesario para la subsistencia» (de ἐπί + οὐσία); (c) «para el día venidero» (ἡ ἐπιοῦσα ἡμέρα); (d) «supersustancial» (la tradición latina antigua). Ningún consenso.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": "La Vulgata de Jerónimo tradujo «supersubstantialem» en Mateo y «quotidianum» en Lucas. Por eso algunas traducciones católicas antiguas dicen «sobresustancial» o «de cada día».",
+  "otros_usos": [
+   "Lc 11:3 — paralelo (con «cada día»)"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.11#05",
+  "morfologia_tagnt": "A-ASM",
+  "dstrong": "G1967",
+  "strong_tagnt": "G1967",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "daily"
+ },
+ {
+  "ref": "Matt.6.12",
+  "strong": "G863",
+  "forma": "ἄφες",
+  "glosa_interlineal": "perdona",
+  "rango_semantico": [
+   "dejar, soltar",
+   "perdonar, cancelar",
+   "permitir"
+  ],
+  "construccion": "Imperativo aoristo activo, 2ª singular: petición urgente.",
+  "sentido_en_contexto": "Pedir a Dios que cancele la deuda, como se cancela una obligación financiera. La comparación con «como nosotros perdonamos» (vv.14-15) liga el perdón recibido con el dado.",
+  "matiz": "El tiempo del verbo «perdonamos» (ἀφήκαμεν, aoristo) se discute; algunos lo leen como «hemos perdonado», otros como «perdonamos» (cf. Lc 11:4, presente).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 18:35 — «si no perdonáis de corazón»",
+   "Mr 11:25 — «perdonad, si tenéis algo contra alguno»",
+   "Col 3:13 — «como Cristo os perdonó, así también hacedlo vosotros»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 2,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.12#02",
+  "morfologia_tagnt": "V-2AAM-2S",
+  "dstrong": "G0863H",
+  "strong_tagnt": "G863",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to release"
+ },
+ {
+  "ref": "Matt.6.12",
+  "strong": "G3783",
+  "forma": "ὀφειλήματα",
+  "glosa_interlineal": "deudas",
+  "rango_semantico": [
+   "deuda",
+   "obligación",
+   "ofensa (en sentido moral)"
+  ],
+  "construccion": "Acusativo plural, objeto de «perdona».",
+  "sentido_en_contexto": "Término financiero usado en sentido moral: lo que debemos a Dios (pecados). En Lucas dice «pecados», en Mateo «deudas».",
+  "matiz": "En arameo, «deuda» (hoba) designa también «pecado», por eso Mateo usa «deudas». Lucas 11:4 lo traduce como «pecados».",
+  "traducciones_comparadas": null,
+  "notas_traduccion": "Las versiones evangélicas dicen «deudas»; en la tradición litúrgica católica es «ofensas»; ambas traducen la misma idea de culpa.",
+  "otros_usos": [
+   "Lc 11:4 — «perdónanos nuestros pecados»",
+   "Mt 18:24 — «uno que le debía diez mil talentos»",
+   "Ro 4:4 — «al que obra no se le cuenta el salario como gracia sino como deuda»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.12#05",
+  "morfologia_tagnt": "N-APN",
+  "dstrong": "G3783",
+  "strong_tagnt": "G3783",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "debt"
+ },
+ {
+  "ref": "Matt.6.13",
+  "strong": "G3986",
+  "forma": "πειρασμόν",
+  "glosa_interlineal": "tentación / prueba",
+  "rango_semantico": [
+   "prueba, ensayo",
+   "tentación (incitación al mal)",
+   "situación de prueba"
+  ],
+  "construccion": "εἰς + acusativo: «a (dentro de) la prueba».",
+  "sentido_en_contexto": "Se pide que Dios no nos lleve a una prueba donde podamos fallar. Eco de Mt 4:1, donde el Espíritu lleva a Jesús a ser tentado.",
+  "matiz": "La petición plantea un problema: ¿Dios induce a la tentación? Stg 1:13 dice que no. Se suele entender «no nos dejes caer en la prueba» o «sálvanos de la prueba final». El texto griego tiene ambos matices (prueba / tentación).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Stg 1:13 — «Dios no puede ser tentado por el mal, ni él tienta a nadie»",
+   "Mt 26:41 — «orad para que no entréis en tentación»",
+   "1 Co 10:13 — «fiel es Dios, que no os dejará ser tentados más de lo que podéis»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.13#06",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G3986G",
+  "strong_tagnt": "G3986",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "temptation/testing"
+ },
+ {
+  "ref": "Matt.6.13",
+  "strong": "G4190",
+  "forma": "πονηροῦ",
+  "glosa_interlineal": "mal / Maligno",
+  "rango_semantico": [
+   "malo, perverso",
+   "el mal",
+   "el Maligno (el diablo)"
+  ],
+  "construccion": "ἀπὸ + genitivo, sin artículo explícito en el griego antiguo: «del mal / del Maligno».",
+  "sentido_en_contexto": "El griego permite «del mal» (neutro) y «del Maligno» (masculino). La petición pide liberación de ese poder.",
+  "matiz": "Debate: neutro («del mal») o masculino («del Maligno»). Argumentos para el masculino: Mt 13:19, 38 usan ὁ πονηρός como título; para el neutro: es más general. Ambas lecturas son defendibles.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": "RVR dice «del mal»; versiones más recientes ponen «del Maligno» en nota o en texto. El texto griego no lo decide.",
+  "otros_usos": [
+   "Mt 13:19 — «viene el malo, y arrebata lo que fue sembrado»",
+   "Jn 17:15 — «que los guardes del mal»",
+   "2 Ts 3:3 — «os guardará del mal»"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.13#12",
+  "morfologia_tagnt": "A-GSN",
+  "dstrong": "G4190",
+  "strong_tagnt": "G4190",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "evil/bad"
+ },
+ {
+  "ref": "Matt.6.14",
+  "strong": "G3900",
+  "forma": "παραπτώματα",
+  "glosa_interlineal": "ofensas",
+  "rango_semantico": [
+   "falta, tropiezo",
+   "transgresión",
+   "caída"
+  ],
+  "construccion": "Acusativo plural: «las ofensas (de los hombres)».",
+  "sentido_en_contexto": "Término distinto de ὀφειλήματα (v.12): este describe «caídas» o «deslices». Mateo usa ambos para el mismo asunto: perdonar.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 5:15 — «si por la transgresión de uno solo murieron muchos»",
+   "Ef 1:7 — «el perdón de pecados»",
+   "Gá 6:1 — «si alguno fuere sorprendido en alguna falta»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.14#07",
+  "morfologia_tagnt": "N-APN",
+  "dstrong": "G3900",
+  "strong_tagnt": "G3900",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "trespass"
+ },
+ {
+  "ref": "Matt.6.16",
+  "strong": "G4659",
+  "forma": "σκυθρωποί",
+  "glosa_interlineal": "austeros",
+  "rango_semantico": [
+   "sombrío, de cara triste",
+   "desanimado"
+  ],
+  "construccion": "Adjetivo nominativo plural, predicado.",
+  "sentido_en_contexto": "Con rostro triste y descuidado para que se note el ayuno. Jesús lo critica como una forma de exhibición.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 24:17 — «¿qué pláticas son estas?… y estaban tristes»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.16#09",
+  "morfologia_tagnt": "A-NPM",
+  "dstrong": "G4659",
+  "strong_tagnt": "G4659",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "be sad"
+ },
+ {
+  "ref": "Matt.6.16",
+  "strong": "G853",
+  "forma": "ἀφανίζουσιν",
+  "glosa_interlineal": "desfiguran",
+  "rango_semantico": [
+   "hacer desaparecer, desfigurar",
+   "destruir"
+  ],
+  "construccion": "Presente indicativo activo, 3ª plural.",
+  "sentido_en_contexto": "Juego de palabras con φανῶσιν («para parecer/mostrarse»): «desfiguran su rostro para mostrarse (φανῶσιν) ayunando». Se afean para que se vea.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 6:19 — «donde la polilla y el orín corrompen» (mismo verbo)",
+   "Hch 13:41 — «mirad, oh menospreciadores, y asombraos, y desapareced»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.16#10",
+  "morfologia_tagnt": "V-PAI-3P",
+  "dstrong": "G0853",
+  "strong_tagnt": "G853",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to destroy"
+ },
+ {
+  "ref": "Matt.6.17",
+  "strong": "G218",
+  "forma": "ἄλειψαί",
+  "glosa_interlineal": "úngete",
+  "rango_semantico": [
+   "untar, ungir con aceite"
+  ],
+  "construccion": "Imperativo aoristo medio, 2ª singular.",
+  "sentido_en_contexto": "Ungirse la cabeza y lavarse la cara era el cuidado normal diario. Jesús pide ayunar sin que nadie lo note.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 7:46 — «no ungiste con aceite mi cabeza»",
+   "Mr 6:13 — «ungían con aceite a muchos enfermos»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.17#04",
+  "morfologia_tagnt": "V-AMM-2S",
+  "dstrong": "G0218",
+  "strong_tagnt": "G218",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to anoint"
+ },
+ {
+  "ref": "Matt.6.19",
+  "strong": "G2343",
+  "forma": "θησαυρίζετε",
+  "glosa_interlineal": "atesoréis",
+  "rango_semantico": [
+   "acumular, guardar tesoros"
+  ],
+  "construccion": "Imperativo presente activo con μή: «dejad de acumular / no sigáis acumulando».",
+  "sentido_en_contexto": "El presente con μή puede indicar «dejad de» (cesar una acción en curso). Jesús critica la acumulación continua de bienes terrenales.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 12:21 — «el que hace para sí tesoro, y no es rico para con Dios»",
+   "Stg 5:3 — «habéis acumulado tesoros para los días postreros»",
+   "Ro 2:5 — «atesoras para ti ira»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.19#02",
+  "morfologia_tagnt": "V-PAM-2P",
+  "dstrong": "G2343",
+  "strong_tagnt": "G2343",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to store up"
+ },
+ {
+  "ref": "Matt.6.19",
+  "strong": "G1035",
+  "forma": "βρῶσις",
+  "glosa_interlineal": "herrumbre",
+  "rango_semantico": [
+   "comida, acción de comer",
+   "corrosión, óxido"
+  ],
+  "construccion": "Nominativo singular, junto a σής («polilla»).",
+  "sentido_en_contexto": "Literalmente «el comer, lo que consume»: polilla y corrosión destruyen los bienes.",
+  "matiz": "RVR traduce «orín» (óxido); otras versiones «herrumbre» o «gusano». La palabra significa «lo que come»: puede ser corrosión o insectos.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 6:27 — «trabajad no por la comida (βρῶσιν) que perece»",
+   "Ro 14:17 — «el reino de Dios no es comida ni bebida»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.19#11",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G1035",
+  "strong_tagnt": "G1035",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "eating"
+ },
+ {
+  "ref": "Matt.6.21",
+  "strong": "G2588",
+  "forma": "καρδία",
+  "glosa_interlineal": "corazón",
+  "rango_semantico": [
+   "corazón",
+   "centro de la voluntad"
+  ],
+  "construccion": "Nominativo, sujeto: «tu corazón».",
+  "sentido_en_contexto": "Principio: el corazón sigue al tesoro. Lo que se valora determina la lealtad y los afectos.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 12:34 — paralelo",
+   "Mt 15:8 — «este pueblo con los labios me honra, pero su corazón está lejos de mí»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.21#11",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G2588",
+  "strong_tagnt": "G2588",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "heart"
+ },
+ {
+  "ref": "Matt.6.22",
+  "strong": "G573",
+  "forma": "ἁπλοῦς",
+  "glosa_interlineal": "sencillo",
+  "rango_semantico": [
+   "simple, sin doblez",
+   "sano, generoso"
+  ],
+  "construccion": "Adjetivo nominativo, predicado: «si tu ojo es sencillo».",
+  "sentido_en_contexto": "En griego bíblico puede significar «sin doblez» o «generoso» (como en Pr 22:9). RVR traduce «bueno». El contraste es con «ojo malo» (πονηρός), que en hebreo puede significar tacaño.",
+  "matiz": "Debate: ¿el «ojo bueno» es visión sana (enfoque único en Dios) o generosidad? El contexto de dinero (vv.19-21, 24) favorece generosidad; el de «luz» favorece enfoque sano. Posiblemente ambos.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Pr 22:9 — «el ojo bueno será bendito»",
+   "Mt 20:15 — «¿o tienes envidia (lit. «ojo malo») porque yo soy bueno?»",
+   "Stg 1:5 — «Dios… da a todos abundantemente (ἁπλῶς)»"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.22#14",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G0573",
+  "strong_tagnt": "G573",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "sound"
+ },
+ {
+  "ref": "Matt.6.24",
+  "strong": "G1398",
+  "forma": "δουλεύειν",
+  "glosa_interlineal": "servir como esclavo",
+  "rango_semantico": [
+   "ser esclavo de",
+   "servir"
+  ],
+  "construccion": "Infinitivo presente activo, complemento de «puede».",
+  "sentido_en_contexto": "No es «trabajar para», sino «ser esclavo de»: un esclavo solo pertenece a un amo. Jesús dice que nadie puede ser esclavo de dos amos.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 6:16 — «sois esclavos de aquel a quien obedecéis»",
+   "Gá 5:13 — «servíos por amor los unos a los otros»",
+   "1 Ts 1:9 — «para servir al Dios vivo y verdadero»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.24#05",
+  "morfologia_tagnt": "V-PAN",
+  "dstrong": "G1398",
+  "strong_tagnt": "G1398",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "be a slave"
+ },
+ {
+  "ref": "Matt.6.24",
+  "strong": "G1398",
+  "forma": "δουλεύειν",
+  "glosa_interlineal": "servir como esclavo",
+  "rango_semantico": [
+   "ser esclavo de",
+   "servir"
+  ],
+  "construccion": "Infinitivo presente activo, complemento de «puede».",
+  "sentido_en_contexto": "No es «trabajar para», sino «ser esclavo de»: un esclavo solo pertenece a un amo. Jesús dice que nadie puede ser esclavo de dos amos.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 6:16 — «sois esclavos de aquel a quien obedecéis»",
+   "Gá 5:13 — «servíos por amor los unos a los otros»",
+   "1 Ts 1:9 — «para servir al Dios vivo y verdadero»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 25,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.24#25",
+  "morfologia_tagnt": "V-PAN",
+  "dstrong": "G1398",
+  "strong_tagnt": "G1398",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "be a slave"
+ },
+ {
+  "ref": "Matt.6.24",
+  "strong": "G3126",
+  "forma": "μαμωνᾷ",
+  "glosa_interlineal": "riquezas",
+  "rango_semantico": [
+   "dinero, riquezas (arameo mamón)",
+   "bienes materiales"
+  ],
+  "construccion": "Dativo (con δουλεύειν): «a Mamón».",
+  "sentido_en_contexto": "Palabra aramea que Jesús personifica como un amo rival de Dios. Dinero como poder que reclama lealtad.",
+  "matiz": "RVR traduce «riquezas»; otras versiones conservan «Mamón» para marcar la personificación.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 16:9 — «haceos amigos por medio de las riquezas de injusticia»",
+   "Lc 16:13 — «no podéis servir a Dios y a las riquezas»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 27,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.24#27",
+  "morfologia_tagnt": "N-DSM",
+  "dstrong": "G3126",
+  "strong_tagnt": "G3126",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "wealth"
+ },
+ {
+  "ref": "Matt.6.25",
+  "strong": "G3309",
+  "forma": "μεριμνᾶτε",
+  "glosa_interlineal": "os afanéis",
+  "rango_semantico": [
+   "preocuparse, estar ansioso",
+   "cuidar, ocuparse de"
+  ],
+  "construccion": "Imperativo presente activo con μή: «dejad de afanaros / no os angustiéis». Se repite en vv.25, 27, 28, 31, 34.",
+  "sentido_en_contexto": "No prohíbe planificar o trabajar, sino la ansiedad que desconfía de Dios. El verbo se repite como estribillo del pasaje.",
+  "matiz": "μεριμνάω puede ser ansiedad negativa (aquí) o cuidado legítimo (1 Co 12:25; Fil 2:20). El contexto determina el sentido.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Fil 4:6 — «por nada estéis afanosos»",
+   "1 P 5:7 — «echando toda vuestra ansiedad sobre él»",
+   "Lc 10:41 — «Marta, afanada y turbada estás»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.25#06",
+  "morfologia_tagnt": "V-PAM-2P",
+  "dstrong": "G3309",
+  "strong_tagnt": "G3309",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to worry"
+ },
+ {
+  "ref": "Matt.6.26",
+  "strong": "G4071",
+  "forma": "πετεινὰ",
+  "glosa_interlineal": "aves",
+  "rango_semantico": [
+   "ave, pájaro"
+  ],
+  "construccion": "Acusativo plural: «las aves del cielo».",
+  "sentido_en_contexto": "Ejemplo del cuidado de Dios: las aves no siembran ni cosechan y el Padre las alimenta. Argumento «de menor a mayor»: ¿no valéis más vosotros?",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 12:24 — «considerad los cuervos»",
+   "Job 38:41 — «¿quién prepara al cuervo su alimento?»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.26#04",
+  "morfologia_tagnt": "N-APN",
+  "dstrong": "G4071",
+  "strong_tagnt": "G4071",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "bird"
+ },
+ {
+  "ref": "Matt.6.27",
+  "strong": "G2244",
+  "forma": "ἡλικίαν",
+  "glosa_interlineal": "estatura / duración de vida",
+  "rango_semantico": [
+   "edad, duración de vida",
+   "estatura"
+  ],
+  "construccion": "ἐπὶ τὴν ἡλικίαν: «a su estatura/duración de vida».",
+  "sentido_en_contexto": "Se discute si «un codo» (πῆχυς) añade «a su estatura» (medida de longitud) o «a su vida» (tiempo): el codo es medida de longitud, pero aquí se usa en sentido figurado para tiempo.",
+  "matiz": "Debate: «estatura» (sentido físico) o «duración de la vida» (sentido de tiempo con medida espacial como metáfora). RVR traduce «estatura»; otras «duración de su vida».",
+  "traducciones_comparadas": null,
+  "notas_traduccion": "RVR: «estatura». Otras versiones: «prolongar su vida una hora». ἡλικία admite ambas.",
+  "otros_usos": [
+   "Lc 2:52 — «Jesús crecía en sabiduría y en estatura (ἡλικίᾳ)»",
+   "Jn 9:21 — «tiene edad»",
+   "Ef 4:13 — «la medida de la estatura de la plenitud de Cristo»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.27#10",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G2244",
+  "strong_tagnt": "G2244",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "age/height"
+ },
+ {
+  "ref": "Matt.6.28",
+  "strong": "G2918",
+  "forma": "κρίνα",
+  "glosa_interlineal": "lirios",
+  "rango_semantico": [
+   "lirio, flor silvestre"
+  ],
+  "construccion": "Acusativo plural: «los lirios del campo».",
+  "sentido_en_contexto": "Flores silvestres, sin cuidado humano, vestidas mejor que Salomón. Argumento de que Dios cuida de lo más pasajero.",
+  "matiz": "No se sabe a qué flor se refiere: puede ser lirio, anémona u otra flor silvestre de Galilea.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 12:27 — paralelo",
+   "Cnt 2:1 — «lirio de los valles»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.28#08",
+  "morfologia_tagnt": "N-APN",
+  "dstrong": "G2918",
+  "strong_tagnt": "G2918",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "lily"
+ },
+ {
+  "ref": "Matt.6.30",
+  "strong": "G3640",
+  "forma": "ὀλιγόπιστοι",
+  "glosa_interlineal": "de poca fe",
+  "rango_semantico": [
+   "de poca fe"
+  ],
+  "construccion": "Vocativo plural: «hombres de poca fe».",
+  "sentido_en_contexto": "Término característico de Mateo para los discípulos que dudan o se angustian. No es acusación de falta total de fe, sino de fe insuficiente.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 8:26 — «¿por qué teméis, hombres de poca fe?»",
+   "Mt 14:31 — «hombre de poca fe, ¿por qué dudaste?»",
+   "Mt 16:8 — «¿por qué discutís entre vosotros, hombres de poca fe?»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 22,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.30#22",
+  "morfologia_tagnt": "A-VPM",
+  "dstrong": "G3640",
+  "strong_tagnt": "G3640",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "of little faith"
+ },
+ {
+  "ref": "Matt.6.32",
+  "strong": "G1484",
+  "forma": "ἔθνη",
+  "glosa_interlineal": "gentiles",
+  "rango_semantico": [
+   "pueblo, nación",
+   "gentiles, paganos"
+  ],
+  "construccion": "Nominativo plural: «los gentiles».",
+  "sentido_en_contexto": "Aquí «gentiles» son los que no confían en el Padre y se afanan por lo material: Jesús contrasta a sus discípulos con ellos.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 6:7 — «como los gentiles»",
+   "Mt 5:47 — «¿no hacen también lo mismo los gentiles?»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.32#05",
+  "morfologia_tagnt": "N-NPN",
+  "dstrong": "G1484",
+  "strong_tagnt": "G1484",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Gentile nation"
+ },
+ {
+  "ref": "Matt.6.33",
+  "strong": "G2212",
+  "forma": "ζητεῖτε",
+  "glosa_interlineal": "buscad",
+  "rango_semantico": [
+   "buscar",
+   "procurar"
+  ],
+  "construccion": "Imperativo presente activo, 2ª plural: «buscad continuamente».",
+  "sentido_en_contexto": "Presente: actitud sostenida. «Primeramente» no significa solo «antes en el tiempo» sino «como primera prioridad».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 7:7 — «buscad, y hallaréis»",
+   "Lc 12:31 — «buscad el reino de Dios, y todas estas cosas os serán añadidas»",
+   "Col 3:1 — «buscad las cosas de arriba»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.33#01",
+  "morfologia_tagnt": "V-PAM-2P",
+  "dstrong": "G2212",
+  "strong_tagnt": "G2212",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to seek"
+ },
+ {
+  "ref": "Matt.6.33",
+  "strong": "G4369",
+  "forma": "προστεθήσεται",
+  "glosa_interlineal": "serán añadidas",
+  "rango_semantico": [
+   "añadir, agregar"
+  ],
+  "construccion": "Futuro indicativo pasivo, 3ª singular: pasivo divino («Dios las añadirá»).",
+  "sentido_en_contexto": "Promesa: lo necesario se dará por añadidura a quien pone a Dios primero. No promete abundancia, sino lo necesario.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 12:31 — paralelo",
+   "Fil 4:19 — «mi Dios… suplirá todo lo que os falta»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.33#15",
+  "morfologia_tagnt": "V-FPI-3S",
+  "dstrong": "G4369",
+  "strong_tagnt": "G4369",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to add (to)"
+ },
+ {
+  "ref": "Matt.6.34",
+  "strong": "G2549",
+  "forma": "κακία",
+  "glosa_interlineal": "mal",
+  "rango_semantico": [
+   "maldad, malicia",
+   "dificultad, aflicción"
+  ],
+  "construccion": "Nominativo singular: «su propio mal».",
+  "sentido_en_contexto": "Aquí no es «maldad moral» sino «problema, dificultad»: cada día trae sus propias dificultades; no hace falta cargar con las de mañana.",
+  "matiz": "El mismo término es «maldad» en la mayoría del NT. Aquí el contexto exige «aflicción, problema».",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 8:22 — «arrepiéntete de esta tu maldad»",
+   "Ro 1:29 — «llenos de toda injusticia, fornicación, maldad»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 16,
+  "alineacion": "forma",
+  "tagnt": "Matt.6.34#17",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G2549",
+  "strong_tagnt": "G2549",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "evil"
+ }
+]

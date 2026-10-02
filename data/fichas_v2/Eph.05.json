@@ -1,0 +1,759 @@
+[
+ {
+  "ref": "Eph.5.1",
+  "strong": "G3402",
+  "forma": "μιμηταὶ",
+  "glosa_interlineal": "imitadores",
+  "rango_semantico": [
+   "imitador"
+  ],
+  "construccion": "Nominativo plural: «sed, pues, imitadores de Dios como hijos amados».",
+  "sentido_en_contexto": "Único texto del NT que ordena imitar a Dios mismo. Se funda en la filiación («hijos amados») y se concreta en el amor sacrificial de Cristo (v.2) y en el perdón (4:32).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 5:48",
+   "Lc 6:36",
+   "1 Co 11:1",
+   "Ef 4:32"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Eph.5.1#03",
+  "morfologia_tagnt": "N-NPM",
+  "dstrong": "G3402",
+  "strong_tagnt": "G3402",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "imitator"
+ },
+ {
+  "ref": "Eph.5.2",
+  "strong": "G2378",
+  "forma": "θυσίαν",
+  "glosa_interlineal": "sacrificio",
+  "rango_semantico": [
+   "sacrificio"
+  ],
+  "construccion": "Acusativo: «y andad en amor, como también Cristo nos amó, y se entregó a sí mismo por nosotros, ofrenda y sacrificio a Dios en olor fragante».",
+  "sentido_en_contexto": "La muerte de Cristo es presentada con lenguaje sacrificial («ofrenda y sacrificio», «olor fragante»), modelo del amor. Eco de las ofrendas del AT (Éx 29:18; Lv 1:9). El amor de Cristo es el modelo del amor cristiano.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 29:18",
+   "Gá 2:20",
+   "Heb 9:14; 10:10",
+   "1 Jn 4:10"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 18,
+  "alineacion": "forma",
+  "tagnt": "Eph.5.2#18",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G2378",
+  "strong_tagnt": "G2378",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "sacrifice"
+ },
+ {
+  "ref": "Eph.5.3",
+  "strong": "G4124",
+  "forma": "πλεονεξία",
+  "glosa_interlineal": "avaricia",
+  "rango_semantico": [
+   "avaricia, codicia"
+  ],
+  "construccion": "Nominativo: «pero fornicación y toda inmundicia, o avaricia, ni aun se nombre entre vosotros, como conviene a santos».",
+  "sentido_en_contexto": "Pablo une inmoralidad sexual, impureza y avaricia: todas expresan deseo desordenado de poseer. En 5:5 la avaricia es llamada idolatría (cf. Col 3:5). La santidad excluye incluso la complacencia en estas cosas.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Col 3:5",
+   "1 Co 6:9-10",
+   "Lc 12:15"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Eph.5.3#07",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G4124",
+  "strong_tagnt": "G4124",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "greediness"
+ },
+ {
+  "ref": "Eph.5.5",
+  "strong": "G1496",
+  "forma": "εἰδωλολάτρης",
+  "glosa_interlineal": "idólatra",
+  "rango_semantico": [
+   "idólatra"
+  ],
+  "construccion": "Nominativo: «ningún fornicario, o inmundo, o avaro, que es idólatra, tiene herencia en el reino de Cristo y de Dios».",
+  "sentido_en_contexto": "El avaro es idólatra porque sirve a las riquezas. «Reino de Cristo y de Dios»: raro, indica la unidad de Cristo con Dios. Los que viven habitualmente en esas prácticas no tienen herencia en el reino. Estos textos advierten sobre conducta persistente, no sobre un tropiezo aislado.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gá 5:19-21",
+   "1 Co 6:9-10",
+   "Col 3:5-6",
+   "Mt 6:24"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Eph.5.5#14",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G1496",
+  "strong_tagnt": "G1496",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "idolater"
+ },
+ {
+  "ref": "Eph.5.8",
+  "strong": "G5457",
+  "forma": "φῶς",
+  "glosa_interlineal": "luz",
+  "rango_semantico": [
+   "luz"
+  ],
+  "construccion": "Nominativo: «porque en otro tiempo erais tinieblas, mas ahora sois luz en el Señor; andad como hijos de luz».",
+  "sentido_en_contexto": "No dice «estabais en tinieblas» sino «erais tinieblas»: identidad transformada. El fruto de la luz es «bondad, justicia y verdad» (v.9). El creyente refleja la luz de Cristo, no la genera.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 8:12",
+   "Mt 5:14-16",
+   "1 Ts 5:5",
+   "Col 1:12-13"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Eph.5.8#07",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G5457",
+  "strong_tagnt": "G5457",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "light"
+ },
+ {
+  "ref": "Eph.5.14",
+  "strong": "G1453",
+  "forma": "ἔγειρε",
+  "glosa_interlineal": "despierta",
+  "rango_semantico": [
+   "despertar, levantar"
+  ],
+  "construccion": "Imperativo presente activo: «por eso dice: Despiértate, tú que duermes, y levántate de los muertos, y te alumbrará Cristo».",
+  "sentido_en_contexto": "Cita de origen no identificado: probablemente un himno bautismal o poema de la liturgia primitiva, con ecos de Is 26:19; 60:1. Llamamiento al que duerme (vive en las obras de las tinieblas) para que despierte a la luz de Cristo.",
+  "matiz": "Debate sobre la fuente: (a) himno cristiano primitivo (bautismal; la mayoría); (b) paráfrasis de Is 60:1, 26:19; 51:17; (c) agrapha atribuido a Jesús o a un profeta cristiano. No se encuentra en el AT tal como se cita.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 60:1",
+   "Ro 13:11-12",
+   "1 Ts 5:6"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Eph.5.14#09",
+  "morfologia_tagnt": "V-PAM-2S",
+  "dstrong": "G1453",
+  "strong_tagnt": "G1453",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "Byz"
+  ],
+  "ausente_en": [
+   "TR"
+  ],
+  "variante": true,
+  "glosa_tagnt": "to arise"
+ },
+ {
+  "ref": "Eph.5.16",
+  "strong": "G1805",
+  "forma": "ἐξαγοραζόμενοι",
+  "glosa_interlineal": "redimiendo",
+  "rango_semantico": [
+   "aprovechar, comprar, rescatar"
+  ],
+  "construccion": "Participio presente medio: «aprovechando bien el tiempo, porque los días son malos».",
+  "sentido_en_contexto": "Literalmente «comprando el tiempo (kairós)»: sacar el máximo provecho de la oportunidad. Los días son «malos» (πονηραί) por el contexto hostil. No se refiere a manejar el reloj, sino a aprovechar las oportunidades de hacer el bien.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Col 4:5",
+   "Gá 6:10",
+   "Sal 90:12"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "Eph.5.16#01",
+  "morfologia_tagnt": "V-PMP-NPM",
+  "dstrong": "G1805",
+  "strong_tagnt": "G1805",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to redeem"
+ },
+ {
+  "ref": "Eph.5.18",
+  "strong": "G4137",
+  "forma": "πληροῦσθε",
+  "glosa_interlineal": "sed llenos",
+  "rango_semantico": [
+   "llenar, ser llenos"
+  ],
+  "construccion": "Imperativo presente pasivo: «no os embriaguéis con vino, en lo cual hay disolución; antes bien sed llenos del Espíritu».",
+  "sentido_en_contexto": "Imperativo plural (para toda la comunidad), voz pasiva (se recibe), presente (continuo): «seguid siendo llenos». «Llenos del Espíritu» (ἐν πνεύματι) se explica con cinco participios: hablando, cantando, alabando, dando gracias y sometiéndose (vv.19-21). Se discute si es una experiencia puntual o continua.",
+  "matiz": "Debate: (a) llenura continua y ordinaria de todos los creyentes (la mayoría; presente imperativo); (b) experiencia posterior y especial (pentecostal, «segunda bendición»); (c) ἐν πνεύματι: «por/con el Espíritu» (instrumento), «en» (esfera) o «de» (contenido). Se contrasta con la embriaguez (como en Hch 2:13-15).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 2:4, 13-15; 4:31",
+   "Lc 1:15",
+   "Col 3:16",
+   "Gá 5:16-25"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Eph.5.18#10",
+  "morfologia_tagnt": "V-PPM-2P",
+  "dstrong": "G4137",
+  "strong_tagnt": "G4137",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to fulfill"
+ },
+ {
+  "ref": "Eph.5.19",
+  "strong": "G5568",
+  "forma": "ψαλμοῖς",
+  "glosa_interlineal": "salmos",
+  "rango_semantico": [
+   "salmo, canto con instrumento"
+  ],
+  "construccion": "Dativo plural: «hablando entre vosotros con salmos, con himnos y cánticos espirituales, cantando y alabando al Señor en vuestros corazones».",
+  "sentido_en_contexto": "Tres tipos de cantos: salmos (del Salterio), himnos (alabanzas a Dios y Cristo; algunos quizá citados en el NT) y cánticos espirituales (inspirados por el Espíritu). La distinción puede ser retórica. La música es para edificarse mutuamente y dirigirse al Señor.",
+  "matiz": "Debate sobre la forma del culto: (a) salmodia exclusiva (algunas iglesias reformadas); (b) variedad de cantos de alabanza; (c) los tres términos son sinónimos. El texto no establece un repertorio exclusivo.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Col 3:16",
+   "1 Co 14:15, 26",
+   "Stg 5:13"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Eph.5.19#04",
+  "morfologia_tagnt": "N-DPM",
+  "dstrong": "G5568",
+  "strong_tagnt": "G5568",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "psalm"
+ },
+ {
+  "ref": "Eph.5.21",
+  "strong": "G5293",
+  "forma": "ὑποτασσόμενοι",
+  "glosa_interlineal": "sometiéndoos",
+  "rango_semantico": [
+   "someterse, ordenarse bajo"
+  ],
+  "construccion": "Participio presente medio: «sometiéndoos unos a otros en el temor de Dios».",
+  "sentido_en_contexto": "Cierra la serie de participios (vv.19-21) y abre el código doméstico (5:22—6:9). Sumisión mutua entre todos los creyentes «en el temor de Cristo». El v.22 no tiene verbo propio en griego: toma «sométanse» de aquí. Se debate su relación con las instrucciones a esposas y esposos.",
+  "matiz": "Debate: (a) sumisión mutua es el principio general que modula las instrucciones posteriores (igualitaria y muchos evangélicos); (b) se refiere al orden en la comunidad (sumisión a los líderes), y el v.22 introduce una sumisión particular de las esposas (complementarista). El verbo griego es «ordenarse bajo», con matices de respeto voluntario.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 P 5:5",
+   "Fil 2:3",
+   "Ef 5:22",
+   "Lc 22:26"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "Eph.5.21#01",
+  "morfologia_tagnt": "V-PPP-NPM",
+  "dstrong": "G5293",
+  "strong_tagnt": "G5293",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to subject"
+ },
+ {
+  "ref": "Eph.5.22",
+  "strong": "G1135",
+  "forma": "γυναῖκες",
+  "glosa_interlineal": "mujeres",
+  "rango_semantico": [
+   "mujer, esposa"
+  ],
+  "construccion": "Nominativo plural: «las casadas estén sujetas a sus propios maridos, como al Señor».",
+  "sentido_en_contexto": "Primera pareja del código doméstico (esposas-esposos; hijos-padres; esclavos-amos). Pablo dirige primero a los subordinados jurídicamente y les da un motivo cristológico. Cada instrucción incluye una motivación en Cristo. Los maridos reciben la parte más larga (vv.25-33).",
+  "matiz": "Debate sobre el alcance de la sumisión (ver 5:21, 23): (a) jerarquía complementaria (el marido es cabeza; la esposa se somete, la mayoría evangélica y católica tradicional); (b) mutualidad: sumisión recíproca con mayor énfasis en el sacrificio del marido (igualitaria). El «código doméstico» se debate también en cuanto a su relación con la cultura greco-romana.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Col 3:18",
+   "1 P 3:1-7",
+   "Tit 2:4-5",
+   "Gn 2:18-24"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Eph.5.22#02",
+  "morfologia_tagnt": "N-VPF",
+  "dstrong": "G1135H",
+  "strong_tagnt": "G1135",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "woman"
+ },
+ {
+  "ref": "Eph.5.23",
+  "strong": "G2776",
+  "forma": "κεφαλὴ",
+  "glosa_interlineal": "cabeza",
+  "rango_semantico": [
+   "cabeza, autoridad, fuente"
+  ],
+  "construccion": "Nominativo: «porque el marido es cabeza de la mujer, así como Cristo es cabeza de la iglesia, la cual es su cuerpo, y él es su Salvador».",
+  "sentido_en_contexto": "κεφαλή aquí se compara con Cristo, cabeza de la iglesia y Salvador del cuerpo. El modelo es un liderazgo que se entrega para salvar y dar vida (vv.25-29). Ver 1 Co 11:3 sobre los sentidos de «cabeza».",
+  "matiz": "Debate sobre κεφαλή: (a) autoridad/liderazgo (complementarista); (b) fuente/origen y vida (igualitaria); (c) preeminencia sacrificial: el modelo de Cristo, que da su vida (ambas lecturas coinciden en que el modelo no es de dominio sino de entrega).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 11:3",
+   "Ef 1:22; 4:15",
+   "Col 1:18"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 4,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Eph.5.23#05",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G2776",
+  "strong_tagnt": "G2776",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "head"
+ },
+ {
+  "ref": "Eph.5.23",
+  "strong": "G2776",
+  "forma": "κεφαλὴ",
+  "glosa_interlineal": "cabeza",
+  "rango_semantico": [
+   "cabeza, autoridad, fuente"
+  ],
+  "construccion": "Nominativo: «porque el marido es cabeza de la mujer, así como Cristo es cabeza de la iglesia, la cual es su cuerpo, y él es su Salvador».",
+  "sentido_en_contexto": "κεφαλή aquí se compara con Cristo, cabeza de la iglesia y Salvador del cuerpo. El modelo es un liderazgo que se entrega para salvar y dar vida (vv.25-29). Ver 1 Co 11:3 sobre los sentidos de «cabeza».",
+  "matiz": "Debate sobre κεφαλή: (a) autoridad/liderazgo (complementarista); (b) fuente/origen y vida (igualitaria); (c) preeminencia sacrificial: el modelo de Cristo, que da su vida (ambas lecturas coinciden en que el modelo no es de dominio sino de entrega).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 11:3",
+   "Ef 1:22; 4:15",
+   "Col 1:18"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 11,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Eph.5.23#12",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G2776",
+  "strong_tagnt": "G2776",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "head"
+ },
+ {
+  "ref": "Eph.5.25",
+  "strong": "G25",
+  "forma": "ἀγαπᾶτε",
+  "glosa_interlineal": "amad",
+  "rango_semantico": [
+   "amar (ágape)"
+  ],
+  "construccion": "Imperativo presente activo: «maridos, amad a vuestras mujeres, así como Cristo amó a la iglesia, y se entregó a sí mismo por ella».",
+  "sentido_en_contexto": "El mandato a los maridos es amor sacrificial según Cristo, que se entregó por la iglesia. Innovador en su contexto cultural, donde no se pedía amor al marido sino autoridad. Es la instrucción más extensa del código.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Col 3:19",
+   "1 P 3:7",
+   "Jn 15:13",
+   "Gá 2:20"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Eph.5.25#03",
+  "morfologia_tagnt": "V-PAM-2P",
+  "dstrong": "G0025",
+  "strong_tagnt": "G25",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to love"
+ },
+ {
+  "ref": "Eph.5.26",
+  "strong": "G3067",
+  "forma": "λουτρῷ",
+  "glosa_interlineal": "lavamiento",
+  "rango_semantico": [
+   "baño, lavamiento"
+  ],
+  "construccion": "Dativo: «para santificarla, habiéndola purificado en el lavamiento del agua por la palabra».",
+  "sentido_en_contexto": "«Lavamiento del agua por la palabra»: probablemente alude al bautismo (rito de purificación), unido a la palabra (confesión de fe o evangelio proclamado). Imagen nupcial: la novia se baña antes de la boda (cf. Ez 16:9). Se debate la relación entre agua, palabra y bautismo.",
+  "matiz": "Debate: (a) lavamiento = bautismo, acompañado de la palabra (confesión, invocación; la mayoría); (b) lavamiento espiritual (regeneración) por la Palabra, sin referencia directa al rito (algunos reformados); (c) imagen del baño nupcial con alusión a Ez 16. «Por la palabra» (ῥῆμα): proclamación del evangelio o fórmula bautismal.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Tit 3:5",
+   "Ez 16:9",
+   "1 Co 6:11",
+   "Jn 15:3",
+   "Heb 10:22"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Eph.5.26#06",
+  "morfologia_tagnt": "N-DSN",
+  "dstrong": "G3067",
+  "strong_tagnt": "G3067",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "washing"
+ },
+ {
+  "ref": "Eph.5.27",
+  "strong": "G299",
+  "forma": "ἄμωμος",
+  "glosa_interlineal": "sin mancha",
+  "rango_semantico": [
+   "sin defecto, irreprochable"
+  ],
+  "construccion": "Nominativo: «a fin de presentársela a sí mismo, una iglesia gloriosa, que no tuviese mancha ni arruga ni cosa semejante, sino que fuese santa y sin mancha».",
+  "sentido_en_contexto": "La meta de Cristo es presentar la iglesia pura a sí mismo (imagen de la boda; cf. 2 Co 11:2; Ap 19:7). Cristo mismo la prepara. Término sacrificial (ἄμωμος: sin defecto, como los animales para el altar).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Co 11:2",
+   "Col 1:22",
+   "Ap 19:7-8",
+   "Jud 24"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 22,
+  "alineacion": "forma",
+  "tagnt": "Eph.5.27#22",
+  "morfologia_tagnt": "A-NSF",
+  "dstrong": "G0299",
+  "strong_tagnt": "G299",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "blameless"
+ },
+ {
+  "ref": "Eph.5.31",
+  "strong": "G4347",
+  "forma": "προσκολληθήσεται",
+  "glosa_interlineal": "se unirá",
+  "rango_semantico": [
+   "unirse, adherirse"
+  ],
+  "construccion": "Futuro indicativo pasivo: «por esto dejará el hombre a su padre y a su madre, y se unirá a su mujer, y los dos serán una sola carne».",
+  "sentido_en_contexto": "Cita de Gn 2:24. «Una sola carne» expresa unión total (física, personal, vital). Pablo la aplica al matrimonio y, en v.32, a Cristo y la iglesia. Cf. Mt 19:5.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 2:24",
+   "Mt 19:4-6",
+   "1 Co 6:16"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Eph.5.31#12",
+  "morfologia_tagnt": "V-FPI-3S",
+  "dstrong": "G4347",
+  "strong_tagnt": "G4347",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to join"
+ },
+ {
+  "ref": "Eph.5.32",
+  "strong": "G3466",
+  "forma": "μυστήριον",
+  "glosa_interlineal": "misterio",
+  "rango_semantico": [
+   "misterio, secreto revelado"
+  ],
+  "construccion": "Nominativo: «grande es este misterio; mas yo digo esto respecto de Cristo y de la iglesia».",
+  "sentido_en_contexto": "Pablo ve en la unión conyugal un reflejo del misterio de la unión de Cristo con su iglesia. La Vulgata tradujo μυστήριον como «sacramentum», base de la tesis católica de que el matrimonio es sacramento; Pablo no usa el término en ese sentido técnico.",
+  "matiz": "Debate: (a) el matrimonio refleja la unión Cristo-iglesia (la mayoría); (b) «misterio» (Vulgata: sacramentum): el matrimonio es sacramento (tradición católica, ortodoxa); (c) el misterio es la unión de Cristo con la iglesia, y la analogía matrimonial es secundaria.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ef 3:3-6",
+   "Ap 19:7",
+   "Os 2:19-20"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Eph.5.32#02",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G3466",
+  "strong_tagnt": "G3466",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "mystery"
+ },
+ {
+  "ref": "Eph.5.33",
+  "strong": "G5399",
+  "forma": "φοβῆται",
+  "glosa_interlineal": "respete",
+  "rango_semantico": [
+   "temer, respetar"
+  ],
+  "construccion": "Subjuntivo presente medio: «cada uno de vosotros ame también a su mujer como a sí mismo; y la mujer respete a su marido».",
+  "sentido_en_contexto": "Resumen de la sección: amor del marido, respeto (φόβος: reverencia) de la esposa. Pablo mantiene ambos mandatos como correlativos. Para el sentido de «temer/respetar», ver Ef 5:21 («temor de Cristo»).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 P 3:1-2",
+   "Ef 5:25, 28",
+   "Col 3:18-19"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 19,
+  "alineacion": "forma",
+  "tagnt": "Eph.5.33#19",
+  "morfologia_tagnt": "V-PNS-3S",
+  "dstrong": "G5399",
+  "strong_tagnt": "G5399",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to fear"
+ }
+]

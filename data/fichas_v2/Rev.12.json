@@ -1,0 +1,444 @@
+[
+ {
+  "ref": "Rev.12.1",
+  "strong": "G4592",
+  "forma": "σημεῖον",
+  "glosa_interlineal": "señal",
+  "rango_semantico": [
+   "señal, signo"
+  ],
+  "construccion": "Nominativo: «apareció en el cielo una gran señal: una mujer vestida del sol, con la luna debajo de sus pies, y sobre su cabeza una corona de doce estrellas».",
+  "sentido_en_contexto": "Capítulo clave: la mujer, el dragón y el hijo varón. Σημεῖον: señal simbólica. La mujer: ¿Israel (Gn 37:9-10: sol, luna y doce estrellas), la iglesia (su descendencia perseguida, v.17), María (tradición patrística y católica: Madre del Mesías, como nueva Eva), o un símbolo compuesto del pueblo de Dios, de cuyo seno nace el Mesías? Quizá se retoman mitos antiguos (Leto, Apolo y Pitón; Isis y Horus) en una subversión cristológica.",
+  "matiz": "Debate sobre la mujer: (a) el pueblo de Dios, Israel y la iglesia en continuidad, del que sale el Mesías (la mayoría de exégetas); (b) Israel (dispensacionalismo; el hijo = Cristo; la huida al desierto = el remanente de Israel en la gran tribulación); (c) la Virgen María (tradición patrística, católica: Madre del Hijo y en sentido corporativo de la iglesia; Dogma de la Asunción en liturgia); (d) la iglesia (el hijo = Cristo en sus miembros, o los mártires).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 37:9-10",
+   "Is 66:7-9",
+   "Mi 5:2-3",
+   "Gá 4:26"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Rev.12.1#02",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G4592",
+  "strong_tagnt": "G4592",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "sign"
+ },
+ {
+  "ref": "Rev.12.3",
+  "strong": "G1404",
+  "forma": "δράκων",
+  "glosa_interlineal": "dragón",
+  "rango_semantico": [
+   "dragón, serpiente gigante"
+  ],
+  "construccion": "Nominativo: «también apareció otra señal en el cielo: he aquí un gran dragón escarlata, que tenía siete cabezas y diez cuernos, y en sus cabezas siete diademas».",
+  "sentido_en_contexto": "El dragón rojo (πυρρός), de siete cabezas, diez cuernos y siete diademas: identificado en el v.9 con «la serpiente antigua, que se llama diablo y Satanás». Siete diademas (διαδήματα: coronas reales): pretensión de soberanía; la bestia de 13:1 tiene diez diademas y siete cabezas: parodia diabólica del Cordero. El dragón es el poder tras los imperios (Dn 7); su cola barre un tercio de las estrellas (v.4).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 3:1, 15",
+   "Is 27:1",
+   "Dn 7:7",
+   "Ap 12:9; 13:1; 20:2"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Rev.12.3#10",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G1404",
+  "strong_tagnt": "G1404",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "dragon"
+ },
+ {
+  "ref": "Rev.12.5",
+  "strong": "G726",
+  "forma": "ἡρπάσθη",
+  "glosa_interlineal": "fue arrebatado",
+  "rango_semantico": [
+   "arrebatar, llevar con fuerza"
+  ],
+  "construccion": "Aoristo indicativo pasivo: «y ella dio a luz un hijo varón, que regirá con vara de hierro a todas las naciones; y su hijo fue arrebatado para Dios y para su trono».",
+  "sentido_en_contexto": "El hijo varón es el Mesías (Sal 2:9: «regirá con vara de hierro»; ver 2:27; 19:15). «Arrebatado para Dios y para su trono»: salta de su nacimiento a su ascensión, sin mención de su ministerio ni de su muerte (condensación). Algunos lo ven como el cuerpo colectivo (la iglesia perseguida y arrebatada: ἁρπάζω, igual que en 1 Ts 4:17). La mayoría ve a Cristo.",
+  "matiz": "Debate sobre el hijo: (a) el Mesías, Jesucristo, en el nacimiento y la ascensión (la mayoría); (b) la iglesia como cuerpo (rapto, pretribulacionismo minoritario); (c) los mártires. El verbo ἁρπάζω aparece en 1 Ts 4:17 («seremos arrebatados»).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 2:9",
+   "Ap 2:27; 19:15",
+   "Is 66:7",
+   "Hch 1:9"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 15,
+  "alineacion": "forma",
+  "tagnt": "Rev.12.5#15",
+  "morfologia_tagnt": "V-2API-3S",
+  "dstrong": "G0726",
+  "strong_tagnt": "G726",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to seize"
+ },
+ {
+  "ref": "Rev.12.6",
+  "strong": "G2048",
+  "forma": "ἔρημον",
+  "glosa_interlineal": "desierto",
+  "rango_semantico": [
+   "desierto, lugar solitario"
+  ],
+  "construccion": "Acusativo: «y la mujer huyó al desierto, donde tiene lugar preparado por Dios, para que allí la sustenten mil doscientos sesenta días».",
+  "sentido_en_contexto": "El desierto como lugar de protección y refugio (Éx 16; Os 2:14; Mt 24:16-20). 1.260 días: el periodo de 3½ años (v.14: «un tiempo, tiempos y medio tiempo»). La mujer es protegida por Dios mientras el dragón la persigue. Se vincula con la huida de los cristianos de Jerusalén a Pella antes del 70 (tradición; preterismo) o con el cuidado de Dios durante toda la historia.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 16:1-4",
+   "1 R 17:2-6; 19:3-8",
+   "Os 2:14",
+   "Ap 12:14"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Rev.12.6#07",
+  "morfologia_tagnt": "A-ASF",
+  "dstrong": "G2048",
+  "strong_tagnt": "G2048",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "deserted"
+ },
+ {
+  "ref": "Rev.12.7",
+  "strong": "G3413",
+  "forma": "Μιχαὴλ",
+  "glosa_interlineal": "Miguel",
+  "rango_semantico": [
+   "Miguel"
+  ],
+  "construccion": "Nominativo: «después hubo una gran batalla en el cielo: Miguel y sus ángeles luchaban contra el dragón; y luchaban el dragón y sus ángeles».",
+  "sentido_en_contexto": "Miguel (Dn 10:13, 21; 12:1; Jud 9), el arcángel protector de Israel, lucha contra el dragón. La derrota del dragón y su expulsión del cielo: ¿evento primigenio (caída de Satanás), evento de la cruz y ascensión (vv.10-11: «ahora ha venido la salvación»), o evento escatológico? El v.11 («vencieron por la sangre del Cordero») ubica la derrota en la obra de Cristo (cf. Lc 10:18; Jn 12:31; Col 2:15).",
+  "matiz": "Debate: (a) la derrota del dragón ocurre en la cruz y la exaltación de Cristo (la mayoría de exégetas; v.10-11); (b) la caída primigenia de Satanás (Is 14; Ez 28; tradición patrística de algunos); (c) un evento futuro en la mitad de la gran tribulación (dispensacionalismo). Cf. Lc 10:18; Jn 12:31.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dn 10:13, 21; 12:1",
+   "Jud 9",
+   "Lc 10:18",
+   "Jn 12:31",
+   "Col 2:15"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Rev.12.7#08",
+  "morfologia_tagnt": "N-NSM-P",
+  "dstrong": "G3413",
+  "strong_tagnt": "G3413",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Michael"
+ },
+ {
+  "ref": "Rev.12.9",
+  "strong": "G744",
+  "forma": "ἀρχαῖος",
+  "glosa_interlineal": "antigua",
+  "rango_semantico": [
+   "antiguo, original"
+  ],
+  "construccion": "Nominativo: «y fue lanzado el gran dragón, la serpiente antigua, que se llama diablo y Satanás, el cual engaña al mundo entero; fue arrojado a la tierra, y sus ángeles fueron arrojados con él».",
+  "sentido_en_contexto": "Identificación clara del dragón con la serpiente de Gn 3, el diablo (διάβολος: calumniador) y Satanás (שׂטן: adversario). «Engaña al mundo entero» (πλανῶν τὴν οἰκουμένην ὅλην): su actividad principal es el engaño. Cuatro nombres, para quitar toda duda de su identidad (cf. 20:2).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 3:1-5",
+   "Zac 3:1-2",
+   "Ap 20:2",
+   "Jn 8:44"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Rev.12.9#10",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G0744",
+  "strong_tagnt": "G744",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "ancient"
+ },
+ {
+  "ref": "Rev.12.10",
+  "strong": "G2725",
+  "forma": "κατήγωρ",
+  "glosa_interlineal": "acusador",
+  "rango_semantico": [
+   "acusador"
+  ],
+  "construccion": "Nominativo: «entonces oí una gran voz en el cielo, que decía: Ahora ha venido la salvación, el poder, y el reino de nuestro Dios, y la autoridad de su Cristo; porque ha sido lanzado fuera el acusador de nuestros hermanos, el que los acusaba delante de nuestro Dios día y noche».",
+  "sentido_en_contexto": "κατήγωρ (forma rara, semitismo: «el acusador»; cf. Job 1–2; Zac 3:1). Satanás acusaba a los santos «día y noche» ante Dios; su expulsión significa que la acusación ha sido refutada por la sangre del Cordero (v.11; Ro 8:33-34). El «ahora» (ἄρτι) indica que la salvación y el reino de Dios han llegado en la obra de Cristo.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Job 1:6-11",
+   "Zac 3:1",
+   "Ro 8:33-34",
+   "Ap 12:11"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 31,
+  "alineacion": "forma",
+  "tagnt": "Rev.12.10#31",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G6051",
+  "strong_tagnt": "G6051",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "SBL",
+   "WH"
+  ],
+  "ausente_en": [
+   "Tyn",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "variante": true,
+  "glosa_tagnt": "an accuser"
+ },
+ {
+  "ref": "Rev.12.11",
+  "strong": "G3528",
+  "forma": "ἐνίκησαν",
+  "glosa_interlineal": "vencieron",
+  "rango_semantico": [
+   "vencer, triunfar"
+  ],
+  "construccion": "Aoristo indicativo activo: «y ellos le han vencido por medio de la sangre del Cordero y de la palabra del testimonio de ellos, y menospreciaron sus vidas hasta la muerte».",
+  "sentido_en_contexto": "Texto central del libro: los santos vencen (νικάω) al acusador con tres medios: la sangre del Cordero (fundamento), la palabra de su testimonio (confesión) y la disposición a morir («no amaron sus vidas hasta la muerte»). La victoria cristiana pasa por el martirio. Cf. 2:7, 11; 3:21; 5:5.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ap 2:7, 11; 3:21; 5:5-6",
+   "Ro 8:37",
+   "Fil 1:21",
+   "Mt 10:39"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Rev.12.11#03",
+  "morfologia_tagnt": "V-AAI-3P",
+  "dstrong": "G3528",
+  "strong_tagnt": "G3528",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to conquer"
+ },
+ {
+  "ref": "Rev.12.12",
+  "strong": "G2372",
+  "forma": "θυμὸν",
+  "glosa_interlineal": "furor",
+  "rango_semantico": [
+   "ira, furor"
+  ],
+  "construccion": "Acusativo: «por lo cual alegraos, cielos, y los que moráis en ellos. ¡Ay de los moradores de la tierra y del mar! porque el diablo ha descendido a vosotros con gran ira, sabiendo que tiene poco tiempo».",
+  "sentido_en_contexto": "Doble efecto de la expulsión: alegría en el cielo y ay para la tierra. El diablo, derrotado, ataca con furor porque sabe que su tiempo es corto (ὀλίγον καιρόν). Explica el sufrimiento de la iglesia: la persecución es síntoma de la derrota de Satanás, no de su victoria.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 P 5:8",
+   "Ap 20:3",
+   "Lc 22:31",
+   "Mt 8:29"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 23,
+  "alineacion": "forma",
+  "tagnt": "Rev.12.12#26",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G2372",
+  "strong_tagnt": "G2372",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "wrath"
+ },
+ {
+  "ref": "Rev.12.14",
+  "strong": "G105",
+  "forma": "ἀετοῦ",
+  "glosa_interlineal": "águila",
+  "rango_semantico": [
+   "águila"
+  ],
+  "construccion": "Genitivo: «y se le dieron a la mujer las dos alas de la gran águila, para que volase de delante de la serpiente al desierto, a su lugar, donde es sustentada por un tiempo, y tiempos, y la mitad de un tiempo».",
+  "sentido_en_contexto": "Imagen del éxodo: Dios llevó a Israel «sobre alas de águila» (Éx 19:4; Dt 32:11). «Tiempo, tiempos y medio tiempo» (καιρὸν καὶ καιροὺς καὶ ἥμισυ καιροῦ): fórmula de Dn 7:25; 12:7 = 3½ años = 1.260 días = 42 meses. Protección sobrenatural en medio de la persecución. El «agua como un río» del dragón (v.15) es tragada por la tierra (v.16).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 19:4",
+   "Dt 32:11",
+   "Dn 7:25; 12:7",
+   "Ap 12:6"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Rev.12.14#09",
+  "morfologia_tagnt": "N-GSM",
+  "dstrong": "G0105",
+  "strong_tagnt": "G105",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "eagle"
+ },
+ {
+  "ref": "Rev.12.17",
+  "strong": "G4690",
+  "forma": "σπέρματος",
+  "glosa_interlineal": "descendencia",
+  "rango_semantico": [
+   "simiente, descendencia"
+  ],
+  "construccion": "Genitivo: «entonces el dragón se llenó de ira contra la mujer; y se fue a hacer guerra contra el resto de la descendencia de ella, los que guardan los mandamientos de Dios y tienen el testimonio de Jesucristo».",
+  "sentido_en_contexto": "«El resto de su descendencia» (Gn 3:15): los creyentes, que guardan los mandamientos de Dios y mantienen el testimonio de Jesús: definición de la iglesia perseguida. Si la mujer es el pueblo de Dios, su «simiente» son todos los fieles. Quedó el dragón «sobre la arena del mar» (ἐστάθη), preparando el cap. 13.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 3:15",
+   "Ap 14:12",
+   "Ap 6:9; 19:10",
+   "Ro 16:20"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 16,
+  "alineacion": "forma",
+  "tagnt": "Rev.12.17#16",
+  "morfologia_tagnt": "N-GSN",
+  "dstrong": "G4690G",
+  "strong_tagnt": "G4690",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "seed"
+ }
+]

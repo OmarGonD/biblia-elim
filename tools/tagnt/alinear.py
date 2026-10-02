@@ -174,23 +174,54 @@ def construir():
             asign[k + (tw[i]["pos"],)] = pw[j]
             usadas.add(pw[j].clave)
     # Pasada 2: por libro, versículos no resueltos contra palabras TAGNT libres
-    libres_por_libro = {}
+    libres_por_libro = {}   # por (libro, capítulo): evita parejas lejanas de palabras funcionales
     for p in tagnt.leer():
         if p.clave not in usadas:
-            libres_por_libro.setdefault(p.ref.split(".")[0], []).append(p)
-    pendientes = {}
+            o, c, _ = p.ref.split(".")
+            libres_por_libro.setdefault((o, int(c)), []).append(p)
+    pendientes, bloques = {}, {}
     for k, tw in tisch.items():
         if not any(k + (t["pos"],) in asign for t in tw):
-            pendientes.setdefault(k[0], []).extend((k, t) for t in tw)
+            # bloque anómalo del módulo (p. ej. Jn 8:53 con 375 palabras): se procesa al final
+            destino = bloques if len(tw) > 150 else pendientes
+            destino.setdefault(k[:2], []).extend((k, t) for t in tw)
     stats = {"palabras": 0, "forma": 0, "strong": 0, "forma_otro_strong": 0, "sin_pareja": 0,
-             "recuperadas_pasada2": 0, "no_na28": 0}
-    for libro, filas in pendientes.items():
-        libres = libres_por_libro.get(libro, [])
-        for i, j in nw([t for _, t in filas], libres):
-            if j is not None:
-                (k, t) = filas[i]
-                asign[k + (t["pos"],)] = libres[j]
-                stats["recuperadas_pasada2"] += 1
+             "recuperadas_pasada2": 0, "reordenadas_pasada3": 0, "no_na28": 0}
+    for grupo in (pendientes, bloques):
+        for libro, filas in grupo.items():
+            es_bloque = grupo is bloques
+            libres = [p for p in libres_por_libro.get(libro, []) if p.clave not in usadas]
+            for i, j in nw([t for _, t in filas], libres):
+                if j is not None:
+                    (k, t) = filas[i]
+                    if not es_bloque and abs(int(libres[j].ref.split(".")[2]) - k[2]) > 3:
+                        continue     # pareja lejana: no se fuerza
+                    asign[k + (t["pos"],)] = libres[j]
+                    usadas.add(libres[j].clave)
+                    stats["recuperadas_pasada2"] += 1
+    # Pasada 3: reordenamientos dentro del capítulo (±3 versículos), sin exigir orden
+    reorden = set()
+    libres_cap = {}
+    for p in tagnt.leer():
+        if p.clave not in usadas:
+            o, c, v = p.ref.split(".")
+            libres_cap.setdefault((o, int(c)), []).append((int(v), p))
+    for k, tw in tisch.items():
+        for t in tw:
+            kk = k + (t["pos"],)
+            if kk in asign:
+                continue
+            mejor = None
+            for v, p in libres_cap.get(k[:2], []):
+                if p.clave in usadas or abs(v - k[2]) > 3 or _puntaje(t, p) is None:
+                    continue
+                sc = (_puntaje(t, p), -abs(v - k[2]), -p.pos)
+                if mejor is None or sc > mejor[0]:
+                    mejor = (sc, p)
+            if mejor:
+                asign[kk] = mejor[1]
+                usadas.add(mejor[1].clave)
+                reorden.add(kk)
     salida = {}
     ejemplos = {"sin_pareja": [], "strong": [], "no_na28": [], "otro_verso": []}
     for k in sorted(tisch):
@@ -208,6 +239,9 @@ def construir():
             q = calidad(t, p)
             stats[q] += 1
             flag = q
+            if k + (t["pos"],) in reorden:
+                stats["reordenadas_pasada3"] += 1
+                flag += "+reorden"
             if not p.en("NA28"):
                 stats["no_na28"] += 1
                 flag += "+noNA28"

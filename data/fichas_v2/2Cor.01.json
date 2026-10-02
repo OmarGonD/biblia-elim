@@ -1,0 +1,280 @@
+[
+ {
+  "ref": "2Cor.1.3",
+  "strong": "G3874",
+  "forma": "παρακλήσεως",
+  "glosa_interlineal": "consolación",
+  "rango_semantico": [
+   "consuelo, exhortación, ánimo"
+  ],
+  "construccion": "Genitivo: «el Padre de misericordias y Dios de toda consolación».",
+  "sentido_en_contexto": "Apertura de 2 Corintios con una bendición (εὐλογητός) centrada en la «consolación» (παράκλησις; grupo de palabras que aparece diez veces en vv.3-7). Dios consuela en toda tribulación para que los consolados consuelen a otros. Tema de la carta: sufrimiento y consuelo en el ministerio.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ef 1:3",
+   "1 P 1:3",
+   "Ro 15:4-5",
+   "Is 51:12"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 18,
+  "alineacion": "forma",
+  "tagnt": "2Cor.1.3#18",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G3874",
+  "strong_tagnt": "G3874",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "encouragement"
+ },
+ {
+  "ref": "2Cor.1.5",
+  "strong": "G3804",
+  "forma": "παθήματα",
+  "glosa_interlineal": "padecimientos",
+  "rango_semantico": [
+   "sufrimiento, padecimiento"
+  ],
+  "construccion": "Nominativo plural: «así como abundan en nosotros los padecimientos de Cristo, así abunda también por el mismo Cristo nuestra consolación».",
+  "sentido_en_contexto": "Los sufrimientos del ministerio son «los padecimientos de Cristo» (genitivo: participación en los de Cristo, o los que Cristo sufre en su cuerpo). El consuelo abunda en proporción. Los sufrimientos apostólicos benefician a la iglesia (v.6).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Col 1:24",
+   "Fil 3:10",
+   "1 P 4:13",
+   "2 Co 4:10-12"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "2Cor.1.5#05",
+  "morfologia_tagnt": "N-NPN",
+  "dstrong": "G3804",
+  "strong_tagnt": "G3804",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "suffering"
+ },
+ {
+  "ref": "2Cor.1.8",
+  "strong": "G916",
+  "forma": "ἐβαρήθημεν",
+  "glosa_interlineal": "fuimos abrumados",
+  "rango_semantico": [
+   "ser agobiado, oprimido, cargado"
+  ],
+  "construccion": "Aoristo indicativo pasivo: «fuimos abrumados sobremanera más allá de nuestras fuerzas, de tal modo que aun perdimos la esperanza de conservar la vida».",
+  "sentido_en_contexto": "Pablo relata una crisis mortal en Asia (probablemente en Éfeso; cf. 1 Co 15:32; Hch 19) en la que se sintió «sentenciado a muerte» (ἀπόκριμα τοῦ θανάτου, v.9). Resultado: aprendió a no confiar en sí mismo sino en Dios que resucita a los muertos.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 15:32; 16:9",
+   "Hch 19:23-41",
+   "2 Co 4:8-11; 11:23",
+   "Ro 8:36"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 21,
+  "alineacion": "forma",
+  "tagnt": "2Cor.1.8#22",
+  "morfologia_tagnt": "V-API-1P",
+  "dstrong": "G0916",
+  "strong_tagnt": "G916",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to burden"
+ },
+ {
+  "ref": "2Cor.1.9",
+  "strong": "G1453",
+  "forma": "ἐγείροντι",
+  "glosa_interlineal": "que resucita",
+  "rango_semantico": [
+   "levantar, resucitar"
+  ],
+  "construccion": "Participio presente activo: «para que no confiásemos en nosotros mismos, sino en Dios que resucita a los muertos».",
+  "sentido_en_contexto": "La finalidad de la prueba: apartar de la confianza en sí mismo y dirigirla a Dios que resucita muertos. La experiencia de la «muerte» ilustra el principio paulino de fuerza en la debilidad (12:9-10). Dios que libra de tal peligro (v.10) es el mismo de la resurrección.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 4:17",
+   "2 Co 12:9-10",
+   "Jn 5:21",
+   "Heb 11:19"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 21,
+  "alineacion": "forma",
+  "tagnt": "2Cor.1.9#21",
+  "morfologia_tagnt": "V-PAP-DSM",
+  "dstrong": "G1453",
+  "strong_tagnt": "G1453",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to arise"
+ },
+ {
+  "ref": "2Cor.1.12",
+  "strong": "G4893",
+  "forma": "συνειδήσεως",
+  "glosa_interlineal": "conciencia",
+  "rango_semantico": [
+   "conciencia, consciencia moral"
+  ],
+  "construccion": "Genitivo: «nuestra gloria es el testimonio de nuestra conciencia: que con sencillez y sinceridad de Dios nos hemos conducido en el mundo».",
+  "sentido_en_contexto": "Pablo defiende su integridad ante las acusaciones de ligereza y doblez: se condujo con «santidad y sinceridad de Dios» (según algunos manuscritos «sencillez»), no con sabiduría carnal. La conciencia limpia es su testimonio, y la gracia de Dios su fuerza.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 4:4",
+   "Hch 23:1; 24:16",
+   "2 Co 2:17; 4:2"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "2Cor.1.12#10",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G4893",
+  "strong_tagnt": "G4893",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "conscience"
+ },
+ {
+  "ref": "2Cor.1.20",
+  "strong": "G3483",
+  "forma": "ναί",
+  "glosa_interlineal": "sí",
+  "rango_semantico": [
+   "sí, ciertamente"
+  ],
+  "construccion": "Adverbio: «porque todas las promesas de Dios son en él sí, y en él amén, por medio de nosotros, para la gloria de Dios».",
+  "sentido_en_contexto": "Pablo, acusado de decir «sí» y «no» a la vez (v.17-18), apela a la fidelidad de Dios: en Cristo, todas las promesas de Dios son «sí» (cumplidas), y «amén» (afirmadas). Cristo es la afirmación definitiva de las promesas. El «Amén» de la liturgia expresa la respuesta de los creyentes.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ap 3:14",
+   "Ro 15:8-9",
+   "Is 65:16",
+   "Gá 3:16"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "2Cor.1.20#08",
+  "morfologia_tagnt": "PRT",
+  "dstrong": "G3483",
+  "strong_tagnt": "G3483",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "yes"
+ },
+ {
+  "ref": "2Cor.1.22",
+  "strong": "G728",
+  "forma": "ἀραβῶνα",
+  "glosa_interlineal": "arras",
+  "rango_semantico": [
+   "arras, prenda, anticipo"
+  ],
+  "construccion": "Acusativo: «nos ha sellado, y nos ha dado las arras del Espíritu en nuestros corazones».",
+  "sentido_en_contexto": "Tres imágenes del Espíritu: ungimiento (v.21), sello (propiedad y autenticación) y arras (ἀρραβών: anticipo, depósito que garantiza el pago total). El Espíritu es el pago inicial de la herencia que vendrá. También en 5:5 y Ef 1:13-14.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Co 5:5",
+   "Ef 1:13-14; 4:30",
+   "Ro 8:23"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "strong",
+  "tagnt": "2Cor.1.22#08",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G0728",
+  "strong_tagnt": "G728",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "guarantee"
+ }
+]

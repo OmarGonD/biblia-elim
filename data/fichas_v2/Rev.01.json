@@ -1,0 +1,683 @@
+[
+ {
+  "ref": "Rev.1.1",
+  "strong": "G602",
+  "forma": "Ἀποκάλυψις",
+  "glosa_interlineal": "revelación",
+  "rango_semantico": [
+   "revelación, descubrimiento de lo oculto"
+  ],
+  "construccion": "Nominativo: «la revelación de Jesucristo, que Dios le dio, para manifestar a sus siervos las cosas que deben suceder pronto».",
+  "sentido_en_contexto": "Primera palabra y título del libro: ἀποκάλυψις, «descorrer el velo». Genitivo «de Jesucristo»: puede ser subjetivo (revelación que Cristo da) y objetivo (revelación acerca de Cristo); probablemente ambos. El libro se autodefine como revelación, profecía (1:3) y carta (1:4; caps. 2–3), género mixto (apocalíptico-profético-epistolar). Autor «Juan» (1:1, 4, 9): la tradición lo identifica con el apóstol (Justino, Ireneo); otros lo atribuyen a Juan el anciano o a un profeta de Asia. Fecha: finales del s. I (c. 95, Domiciano; la mayoría) o c. 68 (Nerón).",
+  "matiz": "Debate sobre la autoría y la fecha: (a) el apóstol Juan, c. 95 d.C. (tradición); (b) otro Juan de Asia Menor (Dionisio de Alejandría, ya en el s. III, por las diferencias de griego con el evangelio); (c) fecha neroniana c. 64-68 (preteristas). El griego del Apocalipsis es notablemente semitizante, con aparentes «solecismos» deliberados. Marcos de interpretación del Apocalipsis: preterista (casi todo cumplido en el s. I, bajo Nerón o Domiciano), historicista (panorama de la historia de la iglesia hasta el fin), futurista (caps. 4–22 en gran parte aún por cumplirse) e idealista o simbólica (principios espirituales que se repiten en toda época); muchos exégetas combinan elementos.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dn 2:28-29",
+   "Am 3:7",
+   "Ap 22:6",
+   "Jn 21:24"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "Rev.1.1#01",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G0602",
+  "strong_tagnt": "G602",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "revelation"
+ },
+ {
+  "ref": "Rev.1.1",
+  "strong": "G5034",
+  "forma": "τάχει",
+  "glosa_interlineal": "pronto",
+  "rango_semantico": [
+   "rapidez, brevedad, pronto"
+  ],
+  "construccion": "Dativo: «las cosas que deben suceder pronto» (ἐν τάχει).",
+  "sentido_en_contexto": "ἐν τάχει («en breve, con rapidez») es clave para las lecturas del libro: ¿cumplimiento inminente, o rapidez una vez que comienza? Se repite en 22:6 y en «el tiempo está cerca» (1:3). Relacionado con Dn 2:28-29, 45 (LXX: «lo que ha de suceder en los postreros días»).",
+  "matiz": "Debate: (a) los eventos están próximos para los lectores del s. I (preterismo); (b) «pronto» significa «con rapidez» o «de golpe» una vez que comienza (futurismo); (c) cercanía cualitativa: la historia entera está bajo la inminencia del fin (idealismo). 2 P 3:8 se alega para la perspectiva divina del tiempo.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ap 22:6, 7, 10, 12, 20",
+   "Dn 2:28-29",
+   "2 P 3:8",
+   "Heb 10:37"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 17,
+  "alineacion": "forma",
+  "tagnt": "Rev.1.1#17",
+  "morfologia_tagnt": "N-DSN",
+  "dstrong": "G5034",
+  "strong_tagnt": "G5034",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "quickness"
+ },
+ {
+  "ref": "Rev.1.3",
+  "strong": "G3107",
+  "forma": "μακάριος",
+  "glosa_interlineal": "bienaventurado",
+  "rango_semantico": [
+   "bienaventurado, dichoso"
+  ],
+  "construccion": "Nominativo: «bienaventurado el que lee y los que oyen las palabras de esta profecía, y guardan las cosas en ella escritas; porque el tiempo está cerca».",
+  "sentido_en_contexto": "Primera de siete bienaventuranzas del libro (1:3; 14:13; 16:15; 19:9; 20:6; 22:7, 14). Singular «el que lee» (ἀναγινώσκων, el lector público en la asamblea) y plural «los que oyen»: indica lectura litúrgica en voz alta. La bendición exige «guardar» (τηρέω), no solo oír: el libro es exhortación práctica.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ap 22:7",
+   "Lc 11:28",
+   "Jas 1:22-25",
+   "1 Ti 4:13"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "Rev.1.3#01",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G3107",
+  "strong_tagnt": "G3107",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "blessed"
+ },
+ {
+  "ref": "Rev.1.4",
+  "strong": "G2064",
+  "forma": "ἐρχόμενος",
+  "glosa_interlineal": "el que viene",
+  "rango_semantico": [
+   "venir"
+  ],
+  "construccion": "Participio presente medio: «gracia y paz a vosotros, del que es y que era y que ha de venir».",
+  "sentido_en_contexto": "Fórmula divina con construcción gramaticalmente irregular: tras ἀπό (que rige genitivo) Juan pone nominativos, ὁ ὢν καὶ ὁ ἦν καὶ ὁ ἐρχόμενος, preservando el nombre divino como indeclinable, eco de Éx 3:14 (LXX ἐγώ εἰμι ὁ ὤν) y de la tradición targúmica. En lugar de «el que será» dice «el que viene»: el futuro de Dios es su venida. A continuación, «los siete espíritus» y Jesucristo: fórmula trinitaria incipiente.",
+  "matiz": "Debate sobre «los siete espíritus delante de su trono»: (a) el Espíritu Santo en su plenitud (el siete simbólico; Is 11:2 LXX; Zac 4:2-10; la mayoría); (b) siete ángeles (arcángeles); (c) siete espíritus como seres distintos (minoritaria). Comparar 3:1; 4:5; 5:6.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 3:14",
+   "Is 41:4",
+   "Ap 1:8; 4:8",
+   "Zac 4:2-10"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 21,
+  "alineacion": "forma",
+  "tagnt": "Rev.1.4#22",
+  "morfologia_tagnt": "V-PNP-NSM",
+  "dstrong": "G2064",
+  "strong_tagnt": "G2064",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to come/go"
+ },
+ {
+  "ref": "Rev.1.5",
+  "strong": "G4416",
+  "forma": "πρωτότοκος",
+  "glosa_interlineal": "primogénito",
+  "rango_semantico": [
+   "primogénito, el primero en rango"
+  ],
+  "construccion": "Nominativo: «y de Jesucristo, el testigo fiel, el primogénito de los muertos, y el soberano de los reyes de la tierra».",
+  "sentido_en_contexto": "Tres títulos de Cristo derivados del Sal 89:27, 37 (LXX): μάρτυς ὁ πιστός (testigo fiel, aun hasta la muerte), πρωτότοκος τῶν νεκρῶν (primero en resurrección y preeminencia; cf. Col 1:18) y ὁ ἄρχων τῶν βασιλέων τῆς γῆς (soberano sobre los reyes, incluido el César).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 89:27, 37",
+   "Col 1:18",
+   "1 Co 15:20",
+   "Ap 3:14"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Rev.1.5#10",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G4416",
+  "strong_tagnt": "G4416",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "firstborn"
+ },
+ {
+  "ref": "Rev.1.5",
+  "strong": "G3089",
+  "forma": "λύσαντι",
+  "glosa_interlineal": "nos libró",
+  "rango_semantico": [
+   "soltar, liberar"
+  ],
+  "construccion": "Participio aoristo activo: «al que nos amó, y nos lavó (λύσαντι, «nos libró») de nuestros pecados con su sangre».",
+  "sentido_en_contexto": "Variante textual célebre: λύσαντι («libró, desató») apoyada por א, A, C, P; frente a λούσαντι («lavó»; manuscritos tardíos, base de RVR y Textus Receptus). λύω armoniza con el tema de redención (ἐν τῷ αἵματι, «por su sangre»; 5:9); λούω con la purificación (7:14). Probablemente λύσαντι es original, y λούσαντι un cambio ya temprano por similitud sonora.",
+  "matiz": "Variante textual: «nos libró» (λύσαντι; la mayoría de ediciones críticas) o «nos lavó» (λούσαντι; Textus Receptus, RVR60). Ambas verdades son bíblicas (Ef 1:7; Heb 9:14).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": "RVR60 sigue «nos lavó» (λούσαντι); Tisch y las ediciones críticas leen «nos libró» (λύσαντι).",
+  "otros_usos": [
+   "Ap 5:9; 7:14",
+   "Ef 1:7",
+   "Heb 9:14",
+   "1 P 1:18-19"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 24,
+  "alineacion": "forma",
+  "tagnt": "Rev.1.5#25",
+  "morfologia_tagnt": "V-AAP-DSM",
+  "dstrong": "G3089",
+  "strong_tagnt": "G3089",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg"
+  ],
+  "ausente_en": [
+   "TR",
+   "Byz"
+  ],
+  "variante": true,
+  "glosa_tagnt": "to loose"
+ },
+ {
+  "ref": "Rev.1.6",
+  "strong": "G2409",
+  "forma": "ἱερεῖς",
+  "glosa_interlineal": "sacerdotes",
+  "rango_semantico": [
+   "sacerdote"
+  ],
+  "construccion": "Acusativo plural: «y nos hizo reyes y sacerdotes para Dios su Padre».",
+  "sentido_en_contexto": "Alusión a Éx 19:6 (LXX: βασίλειον ἱεράτευμα): la iglesia como pueblo-reino y comunidad sacerdotal (cf. 1 P 2:5, 9; Ap 5:10; 20:6). Sacerdocio colectivo (aparentemente basileía + hiereis: «un reino, sacerdotes»). La doxología «a él sea la gloria y el imperio» es dirigida a Cristo.",
+  "matiz": "Debate: (a) «sacerdocio de todos los creyentes»: acceso a Dios y servicio por Cristo (protestante); (b) sacerdocio común del pueblo de Dios, distinto del ministerial (católica, ortodoxa); (c) los «reyes» reinan en el presente (ya) y en la consumación (5:10; 20:6).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 19:6",
+   "1 P 2:5, 9",
+   "Ap 5:10; 20:6",
+   "Is 61:6"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Rev.1.6#06",
+  "morfologia_tagnt": "N-APM",
+  "dstrong": "G2409",
+  "strong_tagnt": "G2409",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "priest"
+ },
+ {
+  "ref": "Rev.1.7",
+  "strong": "G1574",
+  "forma": "ἐξεκέντησαν",
+  "glosa_interlineal": "traspasaron",
+  "rango_semantico": [
+   "traspasar, atravesar"
+  ],
+  "construccion": "Aoristo indicativo activo: «he aquí que viene con las nubes, y todo ojo le verá, y los que le traspasaron; y todos los linajes de la tierra harán lamentación por él».",
+  "sentido_en_contexto": "Combina Dn 7:13 (el Hijo del Hombre con las nubes) y Zac 12:10 (mirarán al traspasado y harán duelo; cf. Jn 19:37). κόψονται («se golpearán el pecho»): el duelo puede ser de arrepentimiento o de terror. «Los que le traspasaron»: los responsables de su muerte, y por extensión todos los pueblos («tribus de la tierra»).",
+  "matiz": "Debate sobre el duelo universal: (a) lamento de arrepentimiento (cf. Zac 12:10-14); (b) pavor ante el juicio (6:15-17); (c) ambos. Sobre «los que le traspasaron»: judíos, romanos o la humanidad entera.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dn 7:13",
+   "Zac 12:10-14",
+   "Jn 19:34-37",
+   "Mt 24:30"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Rev.1.7#14",
+  "morfologia_tagnt": "V-AAI-3P",
+  "dstrong": "G1574",
+  "strong_tagnt": "G1574",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to pierce"
+ },
+ {
+  "ref": "Rev.1.8",
+  "strong": "G3841",
+  "forma": "παντοκράτωρ",
+  "glosa_interlineal": "Todopoderoso",
+  "rango_semantico": [
+   "Todopoderoso, soberano universal"
+  ],
+  "construccion": "Nominativo: «yo soy el Alfa y la Omega, principio y fin, dice el Señor, el que es y que era y que ha de venir, el Todopoderoso».",
+  "sentido_en_contexto": "παντοκράτωρ («el que gobierna todo»): traducción LXX de YHWH Sabaot y El Shaddai; aparece 9 veces en Apocalipsis (de las 10 del NT; la otra en 2 Co 6:18). Alfa y Omega (primera y última letra del alfabeto griego): totalidad del tiempo y la historia. Aquí habla Dios; en 22:13 se aplica a Cristo, y en 1:17; 2:8 «el primero y el último», lo que apoya la igualdad de Cristo con Dios.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 44:6; 48:12",
+   "Ap 21:6; 22:13",
+   "Ap 1:17",
+   "Am 4:13 LXX"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 21,
+  "alineacion": "forma",
+  "tagnt": "Rev.1.8#25",
+  "morfologia_tagnt": "N-NSM-T",
+  "dstrong": "G3841",
+  "strong_tagnt": "G3841",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "almighty"
+ },
+ {
+  "ref": "Rev.1.9",
+  "strong": "G3963",
+  "forma": "Πάτμῳ",
+  "glosa_interlineal": "Patmos",
+  "rango_semantico": [
+   "Patmos"
+  ],
+  "construccion": "Dativo: «yo Juan, vuestro hermano y copartícipe vuestro en la tribulación, en el reino y en la perseverancia de Jesús, estaba en la isla llamada Patmos, por causa de la palabra de Dios y del testimonio de Jesucristo».",
+  "sentido_en_contexto": "Patmos, isla del mar Egeo frente a Éfeso, usada por Roma como lugar de destierro. Juan se presenta como hermano y copartícipe, no como apóstol. Tres cosas compartidas: tribulación (θλῖψις), reino (βασιλεία) y perseverancia (ὑπομονή): los tres términos resumen la existencia cristiana tensionada entre el ya y el todavía no. Estaba allí «por causa» de la Palabra (ya sea desterrado por predicar o estar allí para recibirla).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ap 6:9; 20:4",
+   "Fil 1:7",
+   "2 Ti 3:12",
+   "Hch 14:22"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 23,
+  "alineacion": "forma",
+  "tagnt": "Rev.1.9#27",
+  "morfologia_tagnt": "N-DSF-L",
+  "dstrong": "G3963",
+  "strong_tagnt": "G3963",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Patmos"
+ },
+ {
+  "ref": "Rev.1.10",
+  "strong": "G2960",
+  "forma": "κυριακῇ",
+  "glosa_interlineal": "del Señor",
+  "rango_semantico": [
+   "perteneciente al Señor"
+  ],
+  "construccion": "Dativo: «yo estaba en el Espíritu en el día del Señor (ἐν τῇ κυριακῇ ἡμέρᾳ), y oí detrás de mí una gran voz como de trompeta».",
+  "sentido_en_contexto": "κυριακὴ ἡμέρα: primera aparición en el cristianismo de «el día del Señor» como designación del domingo (cf. Didajé 14:1; Ignacio, Magn. 9:1). Alternativamente podría ser el «día del Señor» escatológico (Is 13:6; 1 Ts 5:2), pero el adjetivo κυριακός (como en 1 Co 11:20 «cena del Señor») sugiere el día de reunión de los cristianos, el primero de la semana. ἐν πνεύματι: éxtasis profético (cf. Ez 3:12-14).",
+  "matiz": "Debate: (a) el domingo, día de la resurrección y de culto (la gran mayoría de exégetas y la tradición); (b) el día escatológico del Señor, al que Juan es transportado en visión (algunos); (c) sábado (adventista; sin apoyo léxico en κυριακός). ἐγενόμην ἐν πνεύματι: quedó en estado profético.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 20:7",
+   "1 Co 16:2",
+   "Mt 28:1",
+   "Ez 3:12-14"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Rev.1.10#06",
+  "morfologia_tagnt": "A-DSF",
+  "dstrong": "G2960",
+  "strong_tagnt": "G2960",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "the Lord’s"
+ },
+ {
+  "ref": "Rev.1.13",
+  "strong": "G4158",
+  "forma": "ποδήρη",
+  "glosa_interlineal": "hasta los pies",
+  "rango_semantico": [
+   "túnica talar, hasta los pies"
+  ],
+  "construccion": "Acusativo: «y en medio de los siete candeleros, a uno semejante al Hijo del Hombre, vestido de una ropa que llegaba hasta los pies, y ceñido por el pecho con un cinto de oro».",
+  "sentido_en_contexto": "Visión inaugural de Cristo glorificado, con imágenes de Dn 7:9, 13; 10:5-6; Ez 1:24-28; Zac 4. Túnica talar (ποδήρης: vestido sacerdotal y real; Éx 28:4; Zac 3:4) y cinto de oro al pecho (no a la cintura: dignidad sacerdotal-real). «Semejante a hijo de hombre» (ὅμοιον υἱὸν ἀνθρώπου, sin artículo): alusión a Dn 7:13. El Cristo está «en medio» de las iglesias (los candeleros).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dn 7:9, 13; 10:5-6",
+   "Ez 1:26-28",
+   "Éx 28:4",
+   "Zac 4:2"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Rev.1.13#11",
+  "morfologia_tagnt": "A-ASM",
+  "dstrong": "G4158",
+  "strong_tagnt": "G4158",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "floorlength"
+ },
+ {
+  "ref": "Rev.1.14",
+  "strong": "G3022",
+  "forma": "λευκαὶ",
+  "glosa_interlineal": "blancos",
+  "rango_semantico": [
+   "blanco, brillante"
+  ],
+  "construccion": "Nominativo plural: «su cabeza y sus cabellos eran blancos como blanca lana, como nieve; sus ojos como llama de fuego».",
+  "sentido_en_contexto": "Cabellos blancos como lana (Dn 7:9: el Anciano de Días): atribuye a Cristo rasgos de Dios (eternidad, sabiduría). Ojos como llama de fuego (penetran y juzgan; 2:18, 23). Pies de bronce refulgente (χαλκολίβανον: término raro, probablemente un metal pulido o aleación); voz como de muchas aguas; en la mano derecha siete estrellas; espada de dos filos saliendo de la boca (la palabra que juzga; Is 49:2; Heb 4:12); rostro como el sol.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dn 7:9; 10:6",
+   "Ap 2:18; 19:12",
+   "Is 49:2",
+   "Heb 4:12"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Rev.1.14#08",
+  "morfologia_tagnt": "A-NPF",
+  "dstrong": "G3022",
+  "strong_tagnt": "G3022",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "white"
+ },
+ {
+  "ref": "Rev.1.17",
+  "strong": "G4413",
+  "forma": "πρῶτος",
+  "glosa_interlineal": "primero",
+  "rango_semantico": [
+   "primero"
+  ],
+  "construccion": "Nominativo: «cuando le vi, caí como muerto a sus pies. Y él puso su diestra sobre mí, diciéndome: No temas; yo soy el primero y el último».",
+  "sentido_en_contexto": "Reacción de Juan: caída como muerto (Dn 10:8-9; Ez 1:28). Cristo consuela («No temas») y se llama «el primero y el último» (Is 44:6; 48:12, títulos de YHWH): afirmación de deidad. Comparar 1:8 (Alfa y Omega) y 22:13.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 44:6; 48:12",
+   "Dn 10:8-12",
+   "Ap 2:8; 22:13"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 25,
+  "alineacion": "forma",
+  "tagnt": "Rev.1.17#27",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G4413G",
+  "strong_tagnt": "G4413",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "first"
+ },
+ {
+  "ref": "Rev.1.18",
+  "strong": "G2807",
+  "forma": "κλεῖς",
+  "glosa_interlineal": "llaves",
+  "rango_semantico": [
+   "llave"
+  ],
+  "construccion": "Acusativo plural: «y el que vivo, y estuve muerto; mas he aquí que vivo por los siglos de los siglos, amén; y tengo las llaves de la muerte y del Hades».",
+  "sentido_en_contexto": "Cristo, el que vive, murió y vive eternamente, tiene las llaves (autoridad) de la Muerte y del Hades (el reino de los muertos, aquí personificados; cf. 6:8; 20:13-14). Las llaves son en el judaísmo prerrogativa divina. Consuelo para los mártires: el resucitado controla la muerte.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ap 3:7; 20:13-14",
+   "Mt 16:18-19",
+   "Os 13:14",
+   "1 Co 15:54-57"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 19,
+  "alineacion": "forma",
+  "tagnt": "Rev.1.18#20",
+  "morfologia_tagnt": "N-APF",
+  "dstrong": "G2807",
+  "strong_tagnt": "G2807",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "key"
+ },
+ {
+  "ref": "Rev.1.19",
+  "strong": "G3195",
+  "forma": "μέλλει",
+  "glosa_interlineal": "ha de",
+  "rango_semantico": [
+   "estar a punto de, haber de"
+  ],
+  "construccion": "Presente indicativo activo: «escribe las cosas que has visto, y las que son, y las que han de ser después de estas».",
+  "sentido_en_contexto": "Versículo usado como esquema del libro: «lo que has visto» (cap. 1), «lo que es» (caps. 2–3: las iglesias) y «lo que ha de ser después» (caps. 4–22), según la lectura futurista. Otros ven un esquema doble (lo visto = lo que es y ha de ser) o una fórmula sin división de contenido. μέλλω + infinitivo: «está a punto de suceder» (inminencia).",
+  "matiz": "Debate: (a) esquema tripartito del libro (futurismo dispensacionalista); (b) dos grupos: lo que has visto (la visión inaugural), es decir, lo que es y lo que ha de ser (Beale, Osborne); (c) simple fórmula de totalidad, sin implicar estructura. El v.1 ya dice «lo que debe suceder pronto».",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ap 1:1, 11",
+   "Ap 4:1",
+   "Dn 2:29, 45",
+   "Is 41:22-23"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Rev.1.19#10",
+  "morfologia_tagnt": "V-PAI-3S",
+  "dstrong": "G3195",
+  "strong_tagnt": "G3195",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to ensue"
+ },
+ {
+  "ref": "Rev.1.20",
+  "strong": "G32",
+  "forma": "ἄγγελοι",
+  "glosa_interlineal": "ángeles",
+  "rango_semantico": [
+   "ángel, mensajero"
+  ],
+  "construccion": "Nominativo: «el misterio de las siete estrellas que has visto en mi diestra, y de los siete candeleros de oro: las siete estrellas son los ángeles de las siete iglesias, y los siete candeleros son las siete iglesias».",
+  "sentido_en_contexto": "Cristo explica el simbolismo: candeleros = iglesias; estrellas = «ángeles» (ἄγγελοι) de las iglesias. Misterio (μυστήριον): significado oculto ahora revelado. ¿Quiénes son los ángeles? Es uno de los puntos más debatidos del capítulo, pues cada carta se dirige «al ángel de la iglesia en…» (2:1, 8, 12, 18; 3:1, 7, 14).",
+  "matiz": "Debate: (a) ángeles celestiales guardianes o representantes de cada iglesia (Dn 10:13, 20-21; Mt 18:10; la mayoría de los antiguos); (b) los obispos o pastores de cada iglesia (ἄγγελος = mensajero; Orígenes, Jerónimo, muchos modernos); (c) el espíritu o personificación corporativa de cada comunidad (Caird, Beale); (d) mensajeros humanos que llevaban la carta. El plural «ustedes» en el texto de las cartas muestra que el mensaje alcanza a toda la comunidad.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dn 10:13, 20-21",
+   "Mt 18:10",
+   "Zac 4:2",
+   "Ap 2:1, 8"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 21,
+  "alineacion": "forma",
+  "tagnt": "Rev.1.20#21",
+  "morfologia_tagnt": "N-NPM",
+  "dstrong": "G0032G",
+  "strong_tagnt": "G32",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "angel"
+ }
+]

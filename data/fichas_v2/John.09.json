@@ -1,0 +1,783 @@
+[
+ {
+  "ref": "John.9.1",
+  "strong": "G1079",
+  "forma": "γενετῆς",
+  "glosa_interlineal": "nacimiento",
+  "rango_semantico": [
+   "nacimiento, origen"
+  ],
+  "construccion": "ἐκ + genitivo: «ciego de nacimiento».",
+  "sentido_en_contexto": "Caso único de ceguera congénita narrada en los evangelios. Aumenta la dificultad del milagro: nunca se había oído de alguien que abriese los ojos a un ciego de nacimiento (v.32).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 9:32",
+   "Is 35:5 — «los ojos de los ciegos serán abiertos»",
+   "Is 42:7"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "John.9.1#07",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G1079",
+  "strong_tagnt": "G1079",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "birth"
+ },
+ {
+  "ref": "John.9.2",
+  "strong": "G264",
+  "forma": "ἥμαρτεν",
+  "glosa_interlineal": "pecó",
+  "rango_semantico": [
+   "pecar, errar"
+  ],
+  "construccion": "Aoristo indicativo activo: «¿quién pecó, éste o sus padres, para que naciera ciego?».",
+  "sentido_en_contexto": "Pregunta de los discípulos que supone la idea retributiva común: la enfermedad es castigo por algún pecado. Jesús rechaza ambas posibilidades.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ez 18:20 — «el hijo no llevará el pecado del padre»",
+   "Lc 13:1-5 — los galileos y la torre de Siloé",
+   "Job 4:7; 8:20 — la retribución de los amigos de Job"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "John.9.2#10",
+  "morfologia_tagnt": "V-2AAI-3S",
+  "dstrong": "G0264",
+  "strong_tagnt": "G264",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to sin"
+ },
+ {
+  "ref": "John.9.3",
+  "strong": "G2041",
+  "forma": "ἔργα",
+  "glosa_interlineal": "obras",
+  "rango_semantico": [
+   "obra, acción"
+  ],
+  "construccion": "Nominativo plural: «para que las obras de Dios se manifiesten en él».",
+  "sentido_en_contexto": "Jesús no explica el origen del sufrimiento, sino su finalidad: se convierte en ocasión de manifestar la acción de Dios. No dice que Dios causara la ceguera para ese fin; el griego (ἵνα) admite lecturas más suaves.",
+  "matiz": "Puntuación y sentido de ἵνα: (a) final («para que se manifestasen»); (b) consecuencia («así se manifestarán»); (c) «ni pecó éste ni sus padres; [pero] para que se manifiesten las obras de Dios, [es necesario que yo haga…]» (v.3b unido al v.4). La mayoría mantiene (a).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 11:4 — «esta enfermedad no es para muerte»",
+   "Jn 5:36 — «las obras que el Padre me dio»",
+   "Ex 4:11 — «¿quién hizo al sordo y al ciego?»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "John.9.3#15",
+  "morfologia_tagnt": "N-NPN",
+  "dstrong": "G2041",
+  "strong_tagnt": "G2041",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "work"
+ },
+ {
+  "ref": "John.9.4",
+  "strong": "G3571",
+  "forma": "νὺξ",
+  "glosa_interlineal": "noche",
+  "rango_semantico": [
+   "noche"
+  ],
+  "construccion": "Nominativo: «viene la noche, cuando nadie puede trabajar».",
+  "sentido_en_contexto": "Urgencia: mientras haya «día» (la presencia de Jesús, su ministerio), hay que hacer las obras del Padre; la noche anuncia la pasión y el tiempo sin la luz visible.",
+  "matiz": "El plural «es necesario que nosotros hagamos las obras» (Aleph, B, D, otros) frente al singular «yo» (P66, P75?, A, mayoría): la lectura plural incluye a los discípulos en la misión.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": "RVR60 lee «me es necesario» (singular); varias ediciones críticas leen «nos es necesario».",
+  "otros_usos": [
+   "Jn 11:9-10 — «¿no tiene el día doce horas?»",
+   "Jn 12:35 — «aún por un poco está la luz»",
+   "Jn 13:30 — «y era de noche»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "John.9.4#13",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G3571",
+  "strong_tagnt": "G3571",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "night"
+ },
+ {
+  "ref": "John.9.5",
+  "strong": "G5457",
+  "forma": "φῶς",
+  "glosa_interlineal": "luz",
+  "rango_semantico": [
+   "luz"
+  ],
+  "construccion": "Nominativo: «luz del mundo soy».",
+  "sentido_en_contexto": "Jesús repite su afirmación de 8:12 antes de dar la vista al ciego: el milagro es un signo de que él es la luz que revela y juzga.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 8:12",
+   "Jn 1:4-9",
+   "Jn 3:19-21"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "John.9.5#06",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G5457",
+  "strong_tagnt": "G5457",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "light"
+ },
+ {
+  "ref": "John.9.6",
+  "strong": "G4081",
+  "forma": "πηλὸν",
+  "glosa_interlineal": "lodo",
+  "rango_semantico": [
+   "barro, lodo"
+  ],
+  "construccion": "Acusativo: «hizo lodo con la saliva y untó los ojos».",
+  "sentido_en_contexto": "Gesto simbólico: Jesús, con saliva y barro, evoca la creación de Adán del polvo (Gn 2:7) y repara lo que quedó incompleto en el ciego. Hacer lodo en sábado se consideraba trabajo (v.14).",
+  "matiz": "Se discute el simbolismo del barro: creación del hombre, o simple medio de curación (la saliva era considerada terapéutica en la antigüedad). Juan solo da el hecho; la interpretación es posterior.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 2:7 — «formó al hombre del polvo de la tierra»",
+   "Mr 8:23 — saliva en los ojos",
+   "Mr 7:33"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 7,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "John.9.6#07",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G4081",
+  "strong_tagnt": "G4081",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "clay"
+ },
+ {
+  "ref": "John.9.6",
+  "strong": "G4081",
+  "forma": "πηλὸν",
+  "glosa_interlineal": "lodo",
+  "rango_semantico": [
+   "barro, lodo"
+  ],
+  "construccion": "Acusativo: «hizo lodo con la saliva y untó los ojos».",
+  "sentido_en_contexto": "Gesto simbólico: Jesús, con saliva y barro, evoca la creación de Adán del polvo (Gn 2:7) y repara lo que quedó incompleto en el ciego. Hacer lodo en sábado se consideraba trabajo (v.14).",
+  "matiz": "Se discute el simbolismo del barro: creación del hombre, o simple medio de curación (la saliva era considerada terapéutica en la antigüedad). Juan solo da el hecho; la interpretación es posterior.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 2:7 — «formó al hombre del polvo de la tierra»",
+   "Mr 8:23 — saliva en los ojos",
+   "Mr 7:33"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 15,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "John.9.6#15",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G4081",
+  "strong_tagnt": "G4081",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "clay"
+ },
+ {
+  "ref": "John.9.7",
+  "strong": "G4611",
+  "forma": "Σιλωάμ",
+  "glosa_interlineal": "Siloé",
+  "rango_semantico": [
+   "Siloé (estanque en Jerusalén)"
+  ],
+  "construccion": "Genitivo: «el estanque de Siloé, que significa Enviado».",
+  "sentido_en_contexto": "El estanque que recogía el agua de Gihón (Is 8:6; 2 R 20:20) y de donde se tomaba el agua para el rito de la fiesta. Juan interpreta el nombre como «Enviado» (ἀπεσταλμένος), refiriéndose a Jesús, el Enviado del Padre.",
+  "matiz": "La etimología hebrea de Šiloaḥ («enviado», del verbo šlḥ) es correcta; el comentario puede aludir a Jesús como el enviado o al agua enviada por el canal. Juan usa «enviado» con frecuencia para Jesús.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 8:6 — «las aguas de Siloé que corren mansamente»",
+   "2 R 20:20 — el túnel de Ezequías",
+   "Jn 7:37-38",
+   "Lc 13:4 — «la torre de Siloé»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "John.9.7#10",
+  "morfologia_tagnt": "N-GSM-L",
+  "dstrong": "G4611",
+  "strong_tagnt": "G4611",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Siloam"
+ },
+ {
+  "ref": "John.9.11",
+  "strong": "G308",
+  "forma": "ἀνέβλεψα",
+  "glosa_interlineal": "recobré la vista",
+  "rango_semantico": [
+   "volver a ver, recobrar la vista"
+  ],
+  "construccion": "Aoristo indicativo activo, 1ª singular: «fui, me lavé y recibí la vista».",
+  "sentido_en_contexto": "El hombre cuenta su testimonio de forma simple y directa, sin teorizar. Más adelante su fe avanzará, pasando de «un hombre llamado Jesús» a «profeta» y a «Señor».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 9:17 — «es profeta»",
+   "Jn 9:33 — «de Dios»",
+   "Jn 9:38 — «creo, Señor»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 29,
+  "alineacion": "forma",
+  "tagnt": "John.9.11#33",
+  "morfologia_tagnt": "V-AAI-1S",
+  "dstrong": "G0308",
+  "strong_tagnt": "G308",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to look up/see again"
+ },
+ {
+  "ref": "John.9.16",
+  "strong": "G4978",
+  "forma": "σχίσμα",
+  "glosa_interlineal": "división",
+  "rango_semantico": [
+   "división, desacuerdo"
+  ],
+  "construccion": "Nominativo: «había disensión entre ellos».",
+  "sentido_en_contexto": "Los fariseos se dividen: unos concluyen que no viene de Dios porque no guarda el sábado; otros preguntan cómo un pecador puede hacer tales señales. Jesús divide por la reacción que provoca.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 7:43; 10:19",
+   "Mt 10:34-36"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 29,
+  "alineacion": "forma",
+  "tagnt": "John.9.16#31",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G4978",
+  "strong_tagnt": "G4978",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "split"
+ },
+ {
+  "ref": "John.9.22",
+  "strong": "G656",
+  "forma": "ἀποσυνάγωγος",
+  "glosa_interlineal": "expulsado de la sinagoga",
+  "rango_semantico": [
+   "excluido de la sinagoga"
+  ],
+  "construccion": "Adjetivo nominativo: «fuera expulsado de la sinagoga».",
+  "sentido_en_contexto": "Palabra propia de Juan (también 12:42; 16:2). Los padres callan por miedo a la exclusión comunitaria. Muchos ven aquí un reflejo de la situación de los cristianos judíos tras el 80-90 d.C. (la Birkat ha-minim).",
+  "matiz": "Debate: ¿refleja una medida ya vigente en tiempos de Jesús (excomunión local) o proyecta la situación de la comunidad joánica posterior? La mayoría de estudiosos ve ambos niveles. Es un tema que se asocia al contexto histórico de Juan.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 12:42 — «por causa de los fariseos no lo confesaban»",
+   "Jn 16:2 — «os expulsarán de las sinagogas»",
+   "Lc 6:22"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 21,
+  "alineacion": "forma",
+  "tagnt": "John.9.22#21",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G0656",
+  "strong_tagnt": "G656",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "excommunicated"
+ },
+ {
+  "ref": "John.9.24",
+  "strong": "G1391",
+  "forma": "δόξαν",
+  "glosa_interlineal": "gloria",
+  "rango_semantico": [
+   "gloria, honor"
+  ],
+  "construccion": "Acusativo: «da gloria a Dios».",
+  "sentido_en_contexto": "Fórmula judicial de juramento: se pide al testigo que diga la verdad ante Dios (cf. Jos 7:19). Los fariseos añaden su veredicto: «sabemos que este hombre es pecador».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jos 7:19 — «da gloria a Jehová… y declárame lo que has hecho»",
+   "1 S 6:5"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "John.9.24#14",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G1391",
+  "strong_tagnt": "G1391",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "glory"
+ },
+ {
+  "ref": "John.9.25",
+  "strong": "G737",
+  "forma": "ἄρτι",
+  "glosa_interlineal": "ahora",
+  "rango_semantico": [
+   "ahora, hasta ahora"
+  ],
+  "construccion": "Adverbio: «una cosa sé: que habiendo yo sido ciego, ahora veo».",
+  "sentido_en_contexto": "Testimonio sencillo y contundente del sanado: el único hecho que no pueden refutar. Contrasta con las cavilaciones de los dirigentes.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 4:20 — «no podemos dejar de decir lo que hemos visto y oído»",
+   "Sal 40:2-3"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "John.9.25#16",
+  "morfologia_tagnt": "ADV",
+  "dstrong": "G0737",
+  "strong_tagnt": "G737",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "now"
+ },
+ {
+  "ref": "John.9.29",
+  "strong": "G4159",
+  "forma": "πόθεν",
+  "glosa_interlineal": "de dónde",
+  "rango_semantico": [
+   "de dónde"
+  ],
+  "construccion": "Adverbio interrogativo: «éste no sabemos de dónde sea».",
+  "sentido_en_contexto": "Los fariseos afirman saber que Dios habló a Moisés, pero no saben el origen de Jesús. El ciego sanado lo señala con ironía: ¡es sorprendente que no lo sepan!",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 7:27-28",
+   "Jn 8:14",
+   "Jn 3:8"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "John.9.29#12",
+  "morfologia_tagnt": "ADV",
+  "dstrong": "G4159",
+  "strong_tagnt": "G4159",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "whence/how"
+ },
+ {
+  "ref": "John.9.31",
+  "strong": "G2318",
+  "forma": "θεοσεβὴς",
+  "glosa_interlineal": "temeroso de Dios",
+  "rango_semantico": [
+   "piadoso, que reverencia a Dios"
+  ],
+  "construccion": "Adjetivo nominativo: «si alguno es temeroso de Dios y hace su voluntad, a ése oye».",
+  "sentido_en_contexto": "Palabra única en el NT. El ciego razona: Dios no oye a los pecadores en el sentido de responder a su oración con signos como éste; Jesús actúa con poder divino, luego viene de Dios.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 66:18 — «si en mi corazón hubiese yo mirado a la iniquidad, el Señor no me habría escuchado»",
+   "Pr 15:29 — «Jehová está lejos de los impíos»",
+   "Is 1:15"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "John.9.31#12",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G2318",
+  "strong_tagnt": "G2318",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "godly"
+ },
+ {
+  "ref": "John.9.34",
+  "strong": "G266",
+  "forma": "ἁμαρτίαις",
+  "glosa_interlineal": "pecados",
+  "rango_semantico": [
+   "pecado, falta"
+  ],
+  "construccion": "Dativo plural: «en pecados naciste tú todo».",
+  "sentido_en_contexto": "Los fariseos retoman la idea retributiva que Jesús había descartado en 9:3 y lo expulsan (ἐξέβαλον ἔξω). Ironía: acusan de pecado al que Jesús declaró inocente de la causa de su ceguera.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 9:2-3",
+   "Jn 9:41 — «vuestro pecado permanece»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "John.9.34#06",
+  "morfologia_tagnt": "N-DPF",
+  "dstrong": "G0266",
+  "strong_tagnt": "G266",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "sin"
+ },
+ {
+  "ref": "John.9.35",
+  "strong": "G5207",
+  "forma": "υἱὸν",
+  "glosa_interlineal": "Hijo",
+  "rango_semantico": [
+   "hijo"
+  ],
+  "construccion": "Acusativo: «¿crees tú en el Hijo del Hombre?».",
+  "sentido_en_contexto": "Jesús busca al expulsado y le pregunta por su fe. Muchos manuscritos importantes leen «Hijo de Dios» (P66, Aleph, A y otros), pero la lectura «Hijo del Hombre» (P75, B, D, W) es preferida.",
+  "matiz": "Variante textual: «Hijo del Hombre» (P75, B, D, W; preferida por las ediciones críticas) frente a «Hijo de Dios» (P66*, Aleph, A, mayoría). La primera es título de juicio y exaltación en Juan.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": "RVR60 lee «Hijo de Dios»; muchas ediciones críticas leen «Hijo del Hombre».",
+  "otros_usos": [
+   "Jn 1:51",
+   "Jn 3:13-14",
+   "Jn 5:27"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 15,
+  "alineacion": "forma",
+  "tagnt": "John.9.35#17",
+  "morfologia_tagnt": "N-ASM-T",
+  "dstrong": "G5207",
+  "strong_tagnt": "G5207",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "son"
+ },
+ {
+  "ref": "John.9.38",
+  "strong": "G4352",
+  "forma": "προσεκύνησεν",
+  "glosa_interlineal": "se postró",
+  "rango_semantico": [
+   "adorar, postrarse"
+  ],
+  "construccion": "Aoristo indicativo activo: «y le adoró».",
+  "sentido_en_contexto": "El que era ciego llega a la fe plena: confiesa «creo, Señor» y se postra ante Jesús. En Juan προσκυνέω se reserva casi siempre para la adoración de Dios (cf. 4:20-24).",
+  "matiz": "El v.38 (y parte del 37) falta en P75, Aleph*, W, algunas versiones antiguas, pero está en P66, B, A y la mayoría. La mayoría de las ediciones lo conservan.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 4:20-24 — adorar al Padre",
+   "Jn 20:28 — «Señor mío, y Dios mío»",
+   "Mt 14:33"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "John.9.38#07",
+  "morfologia_tagnt": "V-AAI-3S",
+  "dstrong": "G4352",
+  "strong_tagnt": "G4352",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to worship"
+ },
+ {
+  "ref": "John.9.39",
+  "strong": "G2917",
+  "forma": "κρίμα",
+  "glosa_interlineal": "juicio",
+  "rango_semantico": [
+   "juicio, sentencia, decisión"
+  ],
+  "construccion": "Acusativo: «para juicio he venido a este mundo».",
+  "sentido_en_contexto": "Jesús ha venido para que los que no ven vean, y los que ven (los que presumen de ver) queden ciegos. Su presencia revela y divide. Sin contradecir 3:17 y 12:47: no viene a condenar, pero su venida produce juicio.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 3:17-19",
+   "Jn 12:47",
+   "Is 6:9-10 — endurecimiento",
+   "Lc 2:34 — «puesto para caída y para levantamiento de muchos»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "John.9.39#06",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G2917",
+  "strong_tagnt": "G2917",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "judgment"
+ },
+ {
+  "ref": "John.9.41",
+  "strong": "G266",
+  "forma": "ἁμαρτίαν",
+  "glosa_interlineal": "pecado",
+  "rango_semantico": [
+   "pecado"
+  ],
+  "construccion": "Acusativo: «si fueseis ciegos, no tendríais pecado».",
+  "sentido_en_contexto": "Los fariseos creen ver y por eso son culpables: quien reconoce su ceguera puede ser sanado, quien afirma ver permanece en su pecado. Cierre del capítulo con ironía.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 15:22, 24 — «no tendrían pecado»",
+   "Mt 15:14 — «ciegos guías de ciegos»",
+   "Ap 3:17 — «tú dices: yo soy rico… y no sabes que eres un desventurado»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "John.9.41#11",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G0266",
+  "strong_tagnt": "G266",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "sin"
+ }
+]

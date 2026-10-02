@@ -1,0 +1,360 @@
+[
+ {
+  "ref": "Heb.2.1",
+  "strong": "G3901",
+  "forma": "παραρυῶμεν",
+  "glosa_interlineal": "nos deslicemos",
+  "rango_semantico": [
+   "deslizarse, arrastrarse a la deriva"
+  ],
+  "construccion": "Aoristo subjuntivo activo/medio: «por tanto, es necesario que con más diligencia atendamos a las cosas que hemos oído, no sea que nos deslicemos».",
+  "sentido_en_contexto": "Primera de cinco advertencias de Hebreos (2:1-4; 3:7-4:13; 5:11-6:20; 10:19-39; 12:14-29). Imagen náutica: un barco a la deriva. El peligro no es un rechazo brusco, sino un descuido gradual (ἀμελέω, v.3).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 3:12; 4:1; 6:4-6; 10:26-31",
+   "Pr 3:21"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Heb.2.1#10",
+  "morfologia_tagnt": "V-2AAS-1P",
+  "dstrong": "G3901",
+  "strong_tagnt": "G3901",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "Byz"
+  ],
+  "ausente_en": [
+   "TR"
+  ],
+  "variante": true,
+  "glosa_tagnt": "to drift away"
+ },
+ {
+  "ref": "Heb.2.2",
+  "strong": "G3847",
+  "forma": "παράβασις",
+  "glosa_interlineal": "transgresión",
+  "rango_semantico": [
+   "transgresión"
+  ],
+  "construccion": "Nominativo: «porque si la palabra dicha por medio de ángeles fue firme, y toda transgresión y desobediencia recibió justa retribución».",
+  "sentido_en_contexto": "La ley fue dada «por medio de ángeles» (tradición judía; Dt 33:2 LXX; Hch 7:53; Gá 3:19). Si su incumplimiento recibió castigo, mayor responsabilidad tiene quien desprecia la salvación anunciada por el Señor (v.3). Argumento de lo menor a lo mayor.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 7:53",
+   "Gá 3:19",
+   "Dt 33:2 LXX",
+   "Heb 10:28-29"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "Heb.2.2#12",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G3847",
+  "strong_tagnt": "G3847",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "transgression"
+ },
+ {
+  "ref": "Heb.2.3",
+  "strong": "G4991",
+  "forma": "σωτηρίας",
+  "glosa_interlineal": "salvación",
+  "rango_semantico": [
+   "salvación"
+  ],
+  "construccion": "Genitivo: «¿cómo escaparemos nosotros, si descuidamos una salvación tan grande? La cual, habiendo sido anunciada primeramente por el Señor, nos fue confirmada por los que oyeron».",
+  "sentido_en_contexto": "La salvación fue anunciada por el Señor y confirmada por los testigos (apóstoles) con señales y milagros (v.4). El autor se incluye entre la segunda generación de creyentes: no fue testigo ocular, lo que refuta la autoría paulina, que se pretendía testigo directo (Gá 1:12).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 1:2",
+   "Gá 1:11-12",
+   "Mr 16:20",
+   "1 Jn 1:1-3"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Heb.2.3#06",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G4991",
+  "strong_tagnt": "G4991",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "salvation"
+ },
+ {
+  "ref": "Heb.2.6",
+  "strong": "G5207",
+  "forma": "υἱὸς",
+  "glosa_interlineal": "hijo",
+  "rango_semantico": [
+   "hijo"
+  ],
+  "construccion": "Nominativo: «¿qué es el hombre, para que te acuerdes de él, o el hijo del hombre, para que le visites?».",
+  "sentido_en_contexto": "Cita de Sal 8:4-6 aplicada a Cristo como el verdadero hombre («hijo del hombre»), que restaura la corona de gloria que perdió Adán. «Un poco menor que los ángeles» (v.7, 9). Hebreos lee el salmo cristológicamente: Jesús es el hombre ideal, que cumple lo que Dios destinó a la humanidad.",
+  "matiz": "Debate sobre el sentido: (a) Cristo cumple la vocación humana de Sal 8 (reinar sobre la creación), perdida por Adán (la mayoría); (b) «un poco menor» (βραχύ τι) es de tiempo («por poco tiempo») o de grado. Ambos sentidos en el griego.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 8:4-6",
+   "1 Co 15:27",
+   "Ef 1:22",
+   "Gn 1:26-28"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "Heb.2.6#13",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G5207",
+  "strong_tagnt": "G5207",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "son"
+ },
+ {
+  "ref": "Heb.2.9",
+  "strong": "G1089",
+  "forma": "γεύσηται",
+  "glosa_interlineal": "probase",
+  "rango_semantico": [
+   "gustar, experimentar"
+  ],
+  "construccion": "Aoristo subjuntivo medio: «pero vemos a aquel que fue hecho un poco menor que los ángeles, a Jesús, coronado de gloria y de honra, a causa del padecimiento de la muerte, para que por la gracia de Dios gustase la muerte por todos».",
+  "sentido_en_contexto": "«Gustar la muerte» es experimentarla plenamente. La exaltación de Jesús vino por el sufrimiento de la muerte. «Por todos» (ὑπὲρ παντός): alcance de la expiación, debatido.",
+  "matiz": "Debate sobre «por todos»: ver 1 Ti 2:6. En Hebreos: (a) por todos los hombres (universal en alcance; arminiana, luterana); (b) por los «muchos hijos» (v.10: «los santificados»; reformada particularista); (c) por todos los que creen.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Ti 2:6",
+   "2 Co 5:14-15",
+   "Fil 2:8-9",
+   "Heb 2:10"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 24,
+  "alineacion": "forma",
+  "tagnt": "Heb.2.9#24",
+  "morfologia_tagnt": "V-ADS-3S",
+  "dstrong": "G1089",
+  "strong_tagnt": "G1089",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to taste"
+ },
+ {
+  "ref": "Heb.2.10",
+  "strong": "G747",
+  "forma": "ἀρχηγὸν",
+  "glosa_interlineal": "autor",
+  "rango_semantico": [
+   "autor, pionero, líder"
+  ],
+  "construccion": "Acusativo: «porque convenía a aquel por cuya causa son todas las cosas, y por quien todas las cosas subsisten, que habiendo de llevar muchos hijos a la gloria, perfeccionase por aflicciones al autor de la salvación de ellos».",
+  "sentido_en_contexto": "ἀρχηγός: pionero, jefe, autor (también en 12:2; Hch 3:15; 5:31). Dios «perfeccionó» (τελειόω) al Hijo por medio de los sufrimientos: no porque fuera imperfecto moralmente, sino para completarlo como Salvador y sumo sacerdote (5:8-9; 7:28). «Perfeccionar» significa cualificar, consagrar o completar su obra.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 5:8-9; 12:2",
+   "Hch 3:15; 5:31",
+   "Lc 24:26"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 19,
+  "alineacion": "forma",
+  "tagnt": "Heb.2.10#19",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G0747",
+  "strong_tagnt": "G747",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "founder"
+ },
+ {
+  "ref": "Heb.2.14",
+  "strong": "G2673",
+  "forma": "καταργήσῃ",
+  "glosa_interlineal": "destruyese",
+  "rango_semantico": [
+   "anular, dejar sin efecto"
+  ],
+  "construccion": "Aoristo subjuntivo activo: «así que, por cuanto los hijos participaron de carne y sangre, él también participó de lo mismo, para destruir por medio de la muerte al que tenía el imperio de la muerte, esto es, al diablo».",
+  "sentido_en_contexto": "Motivo de la encarnación: compartir carne y sangre para vencer, mediante la muerte, al diablo (que tiene el poder de la muerte) y liberar a los esclavizados por el temor a la muerte (v.15). Modelo de «Christus Victor». Pablo usa el mismo verbo en 2 Ti 1:10.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Col 2:15",
+   "1 Jn 3:8",
+   "2 Ti 1:10",
+   "Jn 12:31"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 19,
+  "alineacion": "forma",
+  "tagnt": "Heb.2.14#19",
+  "morfologia_tagnt": "V-AAS-3S",
+  "dstrong": "G2673",
+  "strong_tagnt": "G2673",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to abate"
+ },
+ {
+  "ref": "Heb.2.17",
+  "strong": "G2433",
+  "forma": "ἱλάσκεσθαι",
+  "glosa_interlineal": "expiar",
+  "rango_semantico": [
+   "expiar, hacer propiciación"
+  ],
+  "construccion": "Presente infinitivo medio: «por lo cual debía ser en todo semejante a sus hermanos, para venir a ser misericordioso y fiel sumo sacerdote en lo que a Dios se refiere, para expiar los pecados del pueblo».",
+  "sentido_en_contexto": "Primera mención de Cristo como sumo sacerdote (tema central: 4:14—10:18). ἱλάσκομαι: expiar (quitar el pecado) o propiciar (apaciguar la ira de Dios). Debate teológico: la RVR traduce «expiar»; otras versiones, «propiciar».",
+  "matiz": "Debate sobre ἱλάσκομαι: (a) expiación: eliminar el pecado (C. H. Dodd; versiones como RSV); (b) propiciación: aplacar la ira divina (L. Morris; NIV, tradición reformada); (c) ambas dimensiones. Cf. Ro 3:25; 1 Jn 2:2; 4:10.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 3:25",
+   "1 Jn 2:2; 4:10",
+   "Heb 4:14-16; 7:25",
+   "Lv 16"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 20,
+  "alineacion": "forma",
+  "tagnt": "Heb.2.17#20",
+  "morfologia_tagnt": "V-PPN",
+  "dstrong": "G2433",
+  "strong_tagnt": "G2433",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to propitiate"
+ },
+ {
+  "ref": "Heb.2.18",
+  "strong": "G3985",
+  "forma": "πειρασθείς",
+  "glosa_interlineal": "tentado",
+  "rango_semantico": [
+   "ser probado, tentado"
+  ],
+  "construccion": "Participio aoristo pasivo: «porque en cuanto él mismo padeció siendo tentado, es poderoso para socorrer a los que son tentados».",
+  "sentido_en_contexto": "La experiencia de la tentación y el sufrimiento capacita a Cristo para ayudar a los tentados. Prepara 4:15: «fue tentado en todo según nuestra semejanza, pero sin pecado». Muestra la plena humanidad de Cristo.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 4:15",
+   "Mt 4:1-11",
+   "1 Co 10:13"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Heb.2.18#06",
+  "morfologia_tagnt": "V-APP-NSM",
+  "dstrong": "G3985G",
+  "strong_tagnt": "G3985",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to test/tempt"
+ }
+]

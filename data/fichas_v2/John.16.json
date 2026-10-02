@@ -1,0 +1,712 @@
+[
+ {
+  "ref": "John.16.1",
+  "strong": "G4624",
+  "forma": "σκανδαλισθῆτε",
+  "glosa_interlineal": "tropecéis",
+  "rango_semantico": [
+   "hacer tropezar, escandalizar"
+  ],
+  "construccion": "Subjuntivo aoristo pasivo: «para que no tengáis tropiezo».",
+  "sentido_en_contexto": "Jesús anuncia la persecución que viene para evitar que sus discípulos se escandalicen (abandonen la fe) cuando suceda. Es la finalidad de advertirles antes.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 6:61",
+   "Mt 24:10 — «muchos tropezarán»",
+   "Mt 11:6"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "John.16.1#06",
+  "morfologia_tagnt": "V-APS-2P",
+  "dstrong": "G4624",
+  "strong_tagnt": "G4624",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to cause to stumble"
+ },
+ {
+  "ref": "John.16.2",
+  "strong": "G2999",
+  "forma": "λατρείαν",
+  "glosa_interlineal": "servicio a Dios",
+  "rango_semantico": [
+   "culto, servicio religioso"
+  ],
+  "construccion": "Acusativo: «cree que rinde servicio a Dios».",
+  "sentido_en_contexto": "Los perseguidores creerán obrar por Dios. λατρεία es el servicio cultual; la persecución se disfraza de piedad. Ejemplos: Saulo (Hch 26:9-11).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 26:9-11 — Saulo",
+   "Hch 8:1-3",
+   "Jn 9:22; 12:42"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "John.16.2#13",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G2999",
+  "strong_tagnt": "G2999",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "ministry"
+ },
+ {
+  "ref": "John.16.7",
+  "strong": "G4851",
+  "forma": "συμφέρει",
+  "glosa_interlineal": "os conviene",
+  "rango_semantico": [
+   "convenir, ser provechoso"
+  ],
+  "construccion": "Presente indicativo activo: «os conviene que yo me vaya».",
+  "sentido_en_contexto": "Paradoja: la partida de Jesús es ventajosa, porque solo así vendrá el Paráclito. El Espíritu estará en todos los creyentes, no limitado a la presencia física de Jesús.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 7:39 — «aún no había venido el Espíritu»",
+   "Jn 14:16-17, 26",
+   "Hch 2:33"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "John.16.7#07",
+  "morfologia_tagnt": "V-PAI-3S",
+  "dstrong": "G4851",
+  "strong_tagnt": "G4851",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to be profitable"
+ },
+ {
+  "ref": "John.16.8",
+  "strong": "G1651",
+  "forma": "ἐλέγξει",
+  "glosa_interlineal": "convencerá",
+  "rango_semantico": [
+   "convencer, exponer, reprender, probar culpable"
+  ],
+  "construccion": "Futuro indicativo activo: «convencerá al mundo de pecado, de justicia y de juicio».",
+  "sentido_en_contexto": "ἐλέγχω es verbo jurídico: demostrar la culpa, exponer, convencer. El Espíritu actúa como fiscal ante el mundo en tres puntos: pecado (no creen en Jesús), justicia (Jesús va al Padre), juicio (el príncipe de este mundo ya está juzgado).",
+  "matiz": "Se discute si el «convencimiento» tiene un sentido positivo (llevar al arrepentimiento) o legal (probar culpa). El contexto del testimonio contra el mundo apoya el segundo, aunque el efecto puede ser conversión (Hch 2:37).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 2:36-37 — «se compungieron de corazón»",
+   "Jn 3:20 — «para que sus obras no sean reprendidas»",
+   "1 Co 14:24-25"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "John.16.8#04",
+  "morfologia_tagnt": "V-FAI-3S",
+  "dstrong": "G1651",
+  "strong_tagnt": "G1651",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to rebuke"
+ },
+ {
+  "ref": "John.16.10",
+  "strong": "G1343",
+  "forma": "δικαιοσύνης",
+  "glosa_interlineal": "justicia",
+  "rango_semantico": [
+   "justicia, rectitud"
+  ],
+  "construccion": "Genitivo: «de justicia, por cuanto voy al Padre».",
+  "sentido_en_contexto": "La ida de Jesús al Padre es la vindicación de su justicia: Dios lo confirma como el Justo, contra la condena del mundo. La resurrección y ascensión lo prueban.",
+  "matiz": "Interpretaciones: (a) la justicia de Jesús vindicada por el Padre; (b) la justicia que Dios da a los creyentes; (c) la justicia que el mundo no tiene (ironía hacia los fariseos).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 3:14-15; 7:52 — «el Justo»",
+   "1 Ti 3:16 — «justificado en el Espíritu»",
+   "Ro 4:25"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "John.16.10#02",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G1343",
+  "strong_tagnt": "G1343",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "righteousness"
+ },
+ {
+  "ref": "John.16.11",
+  "strong": "G2919",
+  "forma": "κέκριται",
+  "glosa_interlineal": "ha sido juzgado",
+  "rango_semantico": [
+   "juzgar, condenar"
+  ],
+  "construccion": "Perfecto indicativo pasivo: «el príncipe de este mundo ha sido ya juzgado».",
+  "sentido_en_contexto": "El perfecto indica un juicio ya dictado y vigente: la cruz ha derrotado al príncipe de este mundo (12:31). Es base de la seguridad del creyente frente a los poderes del mal.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 12:31; 14:30",
+   "Col 2:15",
+   "Heb 2:14 — «destruir… al que tenía el imperio de la muerte»",
+   "1 Jn 3:8"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "John.16.11#10",
+  "morfologia_tagnt": "V-RPI-3S",
+  "dstrong": "G2919",
+  "strong_tagnt": "G2919",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to judge"
+ },
+ {
+  "ref": "John.16.13",
+  "strong": "G3594",
+  "forma": "ὁδηγήσει",
+  "glosa_interlineal": "guiará",
+  "rango_semantico": [
+   "guiar, conducir, mostrar el camino"
+  ],
+  "construccion": "Futuro indicativo activo: «os guiará a toda la verdad».",
+  "sentido_en_contexto": "El Espíritu guía a los discípulos a la verdad completa de Jesús, no inventa nueva revelación («no hablará por su propia cuenta»), sino que declara lo que oye y comunica «las cosas que habrán de venir». Fundamento de la revelación apostólica.",
+  "matiz": "Debate: ¿«toda la verdad» se refiere a los apóstoles (el testimonio del NT) o a la guía permanente a la Iglesia? Tradiciones difieren: sola Scriptura, Escritura más tradición apostólica, o desarrollo doctrinal. «Las cosas que habrán de venir» puede referirse a la pasión y resurrección, a la historia de la iglesia o a la escatología.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 14:26",
+   "Hch 15:28 — «ha parecido bien al Espíritu Santo y a nosotros»",
+   "1 Jn 2:20, 27",
+   "Ef 3:4-5"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "John.16.13#09",
+  "morfologia_tagnt": "V-FAI-3S",
+  "dstrong": "G3594",
+  "strong_tagnt": "G3594",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to guide"
+ },
+ {
+  "ref": "John.16.14",
+  "strong": "G1392",
+  "forma": "δοξάσει",
+  "glosa_interlineal": "glorificará",
+  "rango_semantico": [
+   "glorificar, honrar"
+  ],
+  "construccion": "Futuro indicativo activo: «él me glorificará».",
+  "sentido_en_contexto": "La obra del Espíritu es dar gloria a Jesús tomando de lo suyo y declarándolo. La relación entre Padre, Hijo y Espíritu es de comunión: todo lo que tiene el Padre es del Hijo (v.15).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 15:26",
+   "1 Co 12:3 — «nadie puede decir: Jesús es el Señor, sino por el Espíritu Santo»",
+   "Jn 17:10"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "John.16.14#03",
+  "morfologia_tagnt": "V-FAI-3S",
+  "dstrong": "G1392",
+  "strong_tagnt": "G1392",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to glorify"
+ },
+ {
+  "ref": "John.16.16",
+  "strong": "G3397",
+  "forma": "μικρὸν",
+  "glosa_interlineal": "un poco",
+  "rango_semantico": [
+   "poco, un poco de tiempo"
+  ],
+  "construccion": "Neutro acusativo: «todavía un poco, y no me veréis; y de nuevo un poco, y me veréis».",
+  "sentido_en_contexto": "Enigma que los discípulos no comprenden (vv.17-18). «Un poco» aplica a la muerte y resurrección (no me veréis… me veréis), y quizás también a la parusía. El pasaje juega con dos verbos de «ver» (θεωρέω y ὁράω).",
+  "matiz": "Interpretaciones del «poco»: (a) tres días entre cruz y resurrección (más común); (b) el período entre ascensión y parusía; (c) el don del Espíritu. La ambigüedad es intencional.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 14:19",
+   "Jn 20:19-20",
+   "Heb 10:37 — «dentro de poco, el que ha de venir vendrá»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 1,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "John.16.16#01",
+  "morfologia_tagnt": "A-ASN",
+  "dstrong": "G3398",
+  "strong_tagnt": "G3398",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "small"
+ },
+ {
+  "ref": "John.16.16",
+  "strong": "G3397",
+  "forma": "μικρὸν",
+  "glosa_interlineal": "un poco",
+  "rango_semantico": [
+   "poco, un poco de tiempo"
+  ],
+  "construccion": "Neutro acusativo: «todavía un poco, y no me veréis; y de nuevo un poco, y me veréis».",
+  "sentido_en_contexto": "Enigma que los discípulos no comprenden (vv.17-18). «Un poco» aplica a la muerte y resurrección (no me veréis… me veréis), y quizás también a la parusía. El pasaje juega con dos verbos de «ver» (θεωρέω y ὁράω).",
+  "matiz": "Interpretaciones del «poco»: (a) tres días entre cruz y resurrección (más común); (b) el período entre ascensión y parusía; (c) el don del Espíritu. La ambigüedad es intencional.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 14:19",
+   "Jn 20:19-20",
+   "Heb 10:37 — «dentro de poco, el que ha de venir vendrá»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 8,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "John.16.16#08",
+  "morfologia_tagnt": "A-ASN",
+  "dstrong": "G3398",
+  "strong_tagnt": "G3398",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "small"
+ },
+ {
+  "ref": "John.16.21",
+  "strong": "G5088",
+  "forma": "τίκτῃ",
+  "glosa_interlineal": "da a luz",
+  "rango_semantico": [
+   "dar a luz, parir"
+  ],
+  "construccion": "Subjuntivo presente activo: «la mujer, cuando da a luz, tiene dolor».",
+  "sentido_en_contexto": "Imagen del parto: dolor seguido de alegría porque «ha nacido un hombre al mundo». Se aplica a la tristeza de los discípulos ante la cruz y al gozo de la resurrección; el tema de la mujer en dolores es profético (Is 26:17; 66:7-14).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 26:17-19; 66:7-14",
+   "Mi 4:9-10",
+   "Ro 8:22 — «la creación gime… con dolores de parto»",
+   "Ap 12:1-2"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "John.16.21#04",
+  "morfologia_tagnt": "V-PAS-3S",
+  "dstrong": "G5088",
+  "strong_tagnt": "G5088",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to give birth to"
+ },
+ {
+  "ref": "John.16.22",
+  "strong": "G5479",
+  "forma": "χαρὰν",
+  "glosa_interlineal": "gozo",
+  "rango_semantico": [
+   "gozo, alegría"
+  ],
+  "construccion": "Acusativo: «vuestro gozo nadie os lo quitará».",
+  "sentido_en_contexto": "El gozo de ver al resucitado es inalienable. Jesús lo promete: ni la persecución ni la muerte podrán quitarlo.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 15:11; 17:13",
+   "Jn 20:20 — «los discípulos se regocijaron»",
+   "1 P 1:8"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 19,
+  "alineacion": "forma",
+  "tagnt": "John.16.22#19",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G5479",
+  "strong_tagnt": "G5479",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "joy"
+ },
+ {
+  "ref": "John.16.23",
+  "strong": "G154",
+  "forma": "αἰτήσητε",
+  "glosa_interlineal": "pidiereis",
+  "rango_semantico": [
+   "pedir, solicitar"
+  ],
+  "construccion": "Subjuntivo aoristo activo: «todo cuanto pidiereis al Padre en mi nombre, os lo dará».",
+  "sentido_en_contexto": "En «aquel día» (después de la resurrección) los discípulos tendrán acceso directo al Padre en el nombre de Jesús, sin que Jesús tenga que interceder como mediador de petición (v.26): el Padre mismo los ama (v.27).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 14:13-14; 15:16",
+   "Heb 4:16 — «acerquémonos… con confianza al trono de la gracia»",
+   "Ef 3:12"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 16,
+  "alineacion": "forma",
+  "tagnt": "John.16.23#17",
+  "morfologia_tagnt": "V-AAS-2P",
+  "dstrong": "G0154",
+  "strong_tagnt": "G154",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to ask"
+ },
+ {
+  "ref": "John.16.25",
+  "strong": "G3942",
+  "forma": "παροιμίαις",
+  "glosa_interlineal": "alegorías",
+  "rango_semantico": [
+   "dicho figurado, proverbio, enigma"
+  ],
+  "construccion": "Dativo plural: «os he hablado en alegorías».",
+  "sentido_en_contexto": "Hasta ahora, Jesús habló en lenguaje figurado (cf. 10:6); llega la hora de hablar claramente del Padre, tras la resurrección y con el Espíritu. Promesa de revelación plena.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 10:6",
+   "Jn 16:29",
+   "Hch 1:3 — hablaba del reino"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "John.16.25#03",
+  "morfologia_tagnt": "N-DPF",
+  "dstrong": "G3942",
+  "strong_tagnt": "G3942",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "proverb"
+ },
+ {
+  "ref": "John.16.25",
+  "strong": "G3942",
+  "forma": "παροιμίαις",
+  "glosa_interlineal": "alegorías",
+  "rango_semantico": [
+   "dicho figurado, proverbio, enigma"
+  ],
+  "construccion": "Dativo plural: «os he hablado en alegorías».",
+  "sentido_en_contexto": "Hasta ahora, Jesús habló en lenguaje figurado (cf. 10:6); llega la hora de hablar claramente del Padre, tras la resurrección y con el Espíritu. Promesa de revelación plena.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 10:6",
+   "Jn 16:29",
+   "Hch 1:3 — hablaba del reino"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "John.16.25#12",
+  "morfologia_tagnt": "N-DPF",
+  "dstrong": "G3942",
+  "strong_tagnt": "G3942",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "proverb"
+ },
+ {
+  "ref": "John.16.28",
+  "strong": "G1831",
+  "forma": "ἐξῆλθον",
+  "glosa_interlineal": "salí",
+  "rango_semantico": [
+   "salir, proceder de"
+  ],
+  "construccion": "Aoristo indicativo activo: «salí del Padre, y he venido al mundo».",
+  "sentido_en_contexto": "Resumen del movimiento de la encarnación y la exaltación: de su origen en el Padre, a su venida al mundo; y de nuevo de dejar el mundo e ir al Padre. Es una síntesis de la cristología joánica.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 1:1, 14",
+   "Jn 13:3",
+   "Jn 17:5",
+   "Fil 2:6-11"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "John.16.28#01",
+  "morfologia_tagnt": "V-2AAI-1S",
+  "dstrong": "G1831",
+  "strong_tagnt": "G1831",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to go out"
+ },
+ {
+  "ref": "John.16.32",
+  "strong": "G4650",
+  "forma": "σκορπισθῆτε",
+  "glosa_interlineal": "seáis dispersados",
+  "rango_semantico": [
+   "dispersar, esparcir"
+  ],
+  "construccion": "Subjuntivo aoristo pasivo: «seréis esparcidos cada uno por su lado, y me dejaréis solo».",
+  "sentido_en_contexto": "Predicción del abandono en Getsemaní y la cruz (Zac 13:7; Mr 14:27). Jesús añade: «mas no estoy solo, porque el Padre está conmigo».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Zac 13:7 — «hiere al pastor, y las ovejas serán dispersadas»",
+   "Mr 14:27, 50",
+   "Jn 8:29 — «el que me envió está conmigo»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "John.16.32#08",
+  "morfologia_tagnt": "V-APS-2P",
+  "dstrong": "G4650",
+  "strong_tagnt": "G4650",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to scatter"
+ },
+ {
+  "ref": "John.16.33",
+  "strong": "G2293",
+  "forma": "θαρσεῖτε",
+  "glosa_interlineal": "tened ánimo",
+  "rango_semantico": [
+   "tener ánimo, confiar, ser valiente"
+  ],
+  "construccion": "Imperativo presente activo: «confiad (animaos), yo he vencido al mundo».",
+  "sentido_en_contexto": "Cierre del discurso de despedida: en el mundo tendrán aflicción (θλῖψις), pero en Jesús, paz. «He vencido» (νενίκηκα, perfecto) anticipa su victoria en la cruz, ya efectiva para sus discípulos.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Jn 5:4-5 — «esta es la victoria que ha vencido al mundo»",
+   "Ap 3:21 — «como yo he vencido»",
+   "Mt 9:2; 14:27"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 15,
+  "alineacion": "forma",
+  "tagnt": "John.16.33#15",
+  "morfologia_tagnt": "V-PAM-2P",
+  "dstrong": "G2293",
+  "strong_tagnt": "G2293",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "take heart"
+ }
+]

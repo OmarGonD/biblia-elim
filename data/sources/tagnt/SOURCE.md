@@ -36,3 +36,8 @@ Registro de correcciones o normalizaciones del CONTENIDO del TAGNT (lema, Strong
 | (ninguno hasta ahora) | | | | | |
 
 Nota: el parser pasa las formas griegas y los lemas a NFC (solo forma de codificación; el contenido no cambia) y quita los ceros del Strong (G0976 → G976) en el campo `strong`; el campo `dstrong` conserva el valor original.
+
+## Glosa en español: no se usa
+La columna en español del TAGNT y la traducción literal de OpenGNT proceden de la traducción de E. Barrientos para el proyecto Galeed
+(módulo e-Sword 2017, Biblioteca Hispana). OpenGNT está bajo CC BY-SA 4.0, pero no declara la licencia de origen de esa traducción.
+Por eso **no se guarda ni se distribuye** (no hay campo `glosa_opengnt`); solo puede consultarse como referencia al escribir las fichas, sin copiarla.

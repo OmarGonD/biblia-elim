@@ -1,0 +1,707 @@
+[
+ {
+  "ref": "Mark.13.2",
+  "strong": "G2647",
+  "forma": "καταλυθῇ",
+  "glosa_interlineal": "sea derribada",
+  "rango_semantico": [
+   "derribar, deshacer"
+  ],
+  "construccion": "Subjuntivo aoristo pasivo, 3ª singular: «no quedará piedra sobre piedra que no sea derribada».",
+  "sentido_en_contexto": "Un discípulo admira las construcciones del templo; Jesús anuncia su destrucción. El discurso escatológico (cap. 13) se desarrolla a partir de esa frase.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:2 — paralelo",
+   "Lc 21:6 — paralelo",
+   "Jer 26:18 — Sion arada como un campo"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 20,
+  "alineacion": "forma",
+  "tagnt": "Mark.13.2#22",
+  "morfologia_tagnt": "V-APS-3S",
+  "dstrong": "G2647",
+  "strong_tagnt": "G2647",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to destroy/lodge"
+ },
+ {
+  "ref": "Mark.13.3",
+  "strong": "G3735",
+  "forma": "ὄρος",
+  "glosa_interlineal": "monte",
+  "rango_semantico": [
+   "monte, montaña"
+  ],
+  "construccion": "εἰς + acusativo: «al monte de los Olivos».",
+  "sentido_en_contexto": "Marcos precisa que le preguntaron en privado cuatro discípulos (Pedro, Jacobo, Juan y Andrés), frente al templo: un discurso para un círculo íntimo.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:3 — «los discípulos»",
+   "Mr 1:16-20 — los cuatro primeros llamados",
+   "Zac 14:4 — el monte de los Olivos"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Mark.13.3#06",
+  "morfologia_tagnt": "N-ASN-L",
+  "dstrong": "G3735",
+  "strong_tagnt": "G3735",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "mountain"
+ },
+ {
+  "ref": "Mark.13.7",
+  "strong": "G1163",
+  "forma": "δεῖ",
+  "glosa_interlineal": "es necesario",
+  "rango_semantico": [
+   "ser necesario, deber"
+  ],
+  "construccion": "Presente impersonal: «es necesario que suceda».",
+  "sentido_en_contexto": "Las guerras y rumores de guerra «es necesario» que sucedan, pero «aún no es el fin». Expresión del plan divino, no de fatalismo.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:6 — paralelo",
+   "Dn 2:28 — «lo que ha de ser»",
+   "Ap 1:1 — «las cosas que deben suceder pronto»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Mark.13.7#10",
+  "morfologia_tagnt": "V-PAI-3S",
+  "dstrong": "G1163",
+  "strong_tagnt": "G1163",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "be necessary"
+ },
+ {
+  "ref": "Mark.13.9",
+  "strong": "G3860",
+  "forma": "παραδώσουσιν",
+  "glosa_interlineal": "entregarán",
+  "rango_semantico": [
+   "entregar, llevar ante"
+  ],
+  "construccion": "Futuro indicativo activo, 3ª plural.",
+  "sentido_en_contexto": "Marcos subraya que los discípulos serán entregados a tribunales, azotados en las sinagogas y llevados ante gobernadores «por causa de mí, para testimonio a ellos».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 10:17-18 — paralelo",
+   "Hch 25-26 — Pablo ante Festo y Agripa",
+   "Lc 21:12-13 — paralelo"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Mark.13.9#05",
+  "morfologia_tagnt": "V-FAI-3P",
+  "dstrong": "G3860",
+  "strong_tagnt": "G3860",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to deliver"
+ },
+ {
+  "ref": "Mark.13.10",
+  "strong": "G4412",
+  "forma": "πρῶτον",
+  "glosa_interlineal": "primero",
+  "rango_semantico": [
+   "primero, ante todo",
+   "en primer lugar"
+  ],
+  "construccion": "Adverbio: «primero es necesario que el evangelio sea predicado a todas las naciones».",
+  "sentido_en_contexto": "Marcos introduce el evangelio como condición previa al fin: debe predicarse a todas las naciones. «Evangelio» y «nación» marcan el horizonte universal de la misión.",
+  "matiz": "Se discute si el cumplimiento se refiere a la misión del siglo I (Col 1:23) o a un proceso que llega hasta el final de los tiempos.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:14 — paralelo",
+   "Col 1:23 — «predicado en toda la creación»",
+   "Ro 10:18 — «por toda la tierra ha salido su voz»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Mark.13.10#06",
+  "morfologia_tagnt": "A-ASN",
+  "dstrong": "G4413G",
+  "strong_tagnt": "G4413",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "first"
+ },
+ {
+  "ref": "Mark.13.11",
+  "strong": "G4305",
+  "forma": "προμεριμνᾶτε",
+  "glosa_interlineal": "os preocupéis de antemano",
+  "rango_semantico": [
+   "preocuparse de antemano"
+  ],
+  "construccion": "Imperativo presente activo con μή: «no os preocupéis por anticipado».",
+  "sentido_en_contexto": "Promesa de asistencia del Espíritu ante los tribunales: no preparen su defensa, el Espíritu dará las palabras. El mismo verbo (compuesto) solo aparece aquí en el NT.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 10:19-20 — paralelo",
+   "Lc 12:11-12 — paralelo",
+   "Lc 21:14-15 — «proponed en vuestros corazones no pensar antes»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Mark.13.11#08",
+  "morfologia_tagnt": "V-PAM-2P",
+  "dstrong": "G4305",
+  "strong_tagnt": "G4305",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to worry beforehand"
+ },
+ {
+  "ref": "Mark.13.14",
+  "strong": "G946",
+  "forma": "βδέλυγμα",
+  "glosa_interlineal": "abominación",
+  "rango_semantico": [
+   "cosa detestable, abominación"
+  ],
+  "construccion": "Neutro (βδέλυγμα) con participio masculino (ἑστηκότα): «puesta donde no debe estar».",
+  "sentido_en_contexto": "En Marcos, el participio es masculino pese a que «abominación» es neutro: sugiere una persona o poder personificado. Las notas «el que lee, entienda» indican que es una alusión a Dn 9:27; 11:31; 12:11.",
+  "matiz": "La concordancia masculina con un sustantivo neutro ha sido leída como alusión a una persona (un gobernante o falso mesías). Cuál es su identidad histórica (Antíoco IV, Calígula, Tito, un anticristo) es objeto de debate.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dn 9:27; 11:31; 12:11 — fuente",
+   "Mt 24:15 — «en el lugar santo»",
+   "2 Ts 2:3-4 — «el hombre de pecado»"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Mark.13.14#05",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G0946",
+  "strong_tagnt": "G946",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "abomination"
+ },
+ {
+  "ref": "Mark.13.19",
+  "strong": "G2347",
+  "forma": "θλῖψις",
+  "glosa_interlineal": "tribulación",
+  "rango_semantico": [
+   "aflicción, tribulación"
+  ],
+  "construccion": "Nominativo: «aquellos días serán de tribulación cual nunca ha habido».",
+  "sentido_en_contexto": "Marcos añade «desde el principio de la creación que Dios creó»: la tribulación sin precedentes se mide desde la creación.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dn 12:1 — «tiempo de angustia, cual nunca fue»",
+   "Mt 24:21 — paralelo",
+   "Ap 7:14 — «la gran tribulación»"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Mark.13.19#06",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G2347",
+  "strong_tagnt": "G2347",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "pressure"
+ },
+ {
+  "ref": "Mark.13.20",
+  "strong": "G2856",
+  "forma": "ἐκολόβωσεν",
+  "glosa_interlineal": "acortó",
+  "rango_semantico": [
+   "acortar, truncar"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª singular: «si el Señor no acortase aquellos días».",
+  "sentido_en_contexto": "«El Señor» (Dios) acorta los días «por causa de los escogidos»: sin eso nadie se salvaría.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:22 — paralelo",
+   "Is 65:8 — «por amor de mis siervos»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Mark.13.20#04",
+  "morfologia_tagnt": "V-AAI-3S",
+  "dstrong": "G2856",
+  "strong_tagnt": "G2856",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to shorten"
+ },
+ {
+  "ref": "Mark.13.20",
+  "strong": "G2856",
+  "forma": "ἐκολόβωσεν",
+  "glosa_interlineal": "acortó",
+  "rango_semantico": [
+   "acortar, truncar"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª singular: «si el Señor no acortase aquellos días».",
+  "sentido_en_contexto": "«El Señor» (Dios) acorta los días «por causa de los escogidos»: sin eso nadie se salvaría.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:22 — paralelo",
+   "Is 65:8 — «por amor de mis siervos»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 19,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Mark.13.20#19",
+  "morfologia_tagnt": "V-AAI-3S",
+  "dstrong": "G2856",
+  "strong_tagnt": "G2856",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to shorten"
+ },
+ {
+  "ref": "Mark.13.24",
+  "strong": "G4654",
+  "forma": "σκοτισθήσεται",
+  "glosa_interlineal": "se oscurecerá",
+  "rango_semantico": [
+   "oscurecerse"
+  ],
+  "construccion": "Futuro indicativo pasivo, 3ª singular: «el sol se oscurecerá».",
+  "sentido_en_contexto": "Lenguaje apocalíptico de señales cósmicas (Is 13:10; 34:4; Jl 2:31), usado en la tradición profética para el derrumbe de potestades. Marcos dice «en aquellos días, después de aquella tribulación».",
+  "matiz": "Debate: ¿literal (señales astronómicas) o simbólico (caída de imperios y órdenes religiosos)? Ambas posiciones tienen defensores.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 13:10 — fuente",
+   "Mt 24:29 — paralelo con «inmediatamente»",
+   "Hch 2:20 — Pedro cita Jl 2:31"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "Mark.13.24#12",
+  "morfologia_tagnt": "V-FPI-3S",
+  "dstrong": "G4654",
+  "strong_tagnt": "G4654",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to darken"
+ },
+ {
+  "ref": "Mark.13.26",
+  "strong": "G1391",
+  "forma": "δόξης",
+  "glosa_interlineal": "gloria",
+  "rango_semantico": [
+   "gloria, esplendor"
+  ],
+  "construccion": "μετὰ + genitivo: «con gran poder y gloria».",
+  "sentido_en_contexto": "El Hijo del Hombre viene «en las nubes con gran poder y gloria»: cita de Dn 7:13. Es la venida de Jesús como juez y rey.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dn 7:13-14 — fuente",
+   "Mr 14:62 — ante el sumo sacerdote",
+   "Ap 1:7 — «viene con las nubes»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 15,
+  "alineacion": "forma",
+  "tagnt": "Mark.13.26#15",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G1391",
+  "strong_tagnt": "G1391",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "glory"
+ },
+ {
+  "ref": "Mark.13.30",
+  "strong": "G1074",
+  "forma": "γενεὰ",
+  "glosa_interlineal": "generación",
+  "rango_semantico": [
+   "generación",
+   "raza",
+   "época"
+  ],
+  "construccion": "Nominativo: «no pasará esta generación hasta que todo esto acontezca».",
+  "sentido_en_contexto": "Una de las frases más debatidas del discurso. Marcos la sitúa justo antes de «el cielo y la tierra pasarán, pero mis palabras no pasarán» (v.31).",
+  "matiz": "Interpretaciones principales: (a) la generación contemporánea de Jesús (se cumple en el 70 d.C.); (b) la generación que vea las señales descritas; (c) «raza» (el pueblo judío); (d) la generación de los incrédulos. Sin consenso.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:34 — paralelo",
+   "Mr 9:1 — «algunos de los que están aquí no gustarán la muerte»",
+   "Lc 21:32 — paralelo"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Mark.13.30#09",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G1074",
+  "strong_tagnt": "G1074",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "generation"
+ },
+ {
+  "ref": "Mark.13.32",
+  "strong": "G1492",
+  "forma": "οἶδεν",
+  "glosa_interlineal": "sabe",
+  "rango_semantico": [
+   "saber, conocer"
+  ],
+  "construccion": "Perfecto con valor presente, 3ª singular.",
+  "sentido_en_contexto": "Nadie sabe el día ni la hora: ni los ángeles ni el Hijo, sino solo el Padre. En Marcos «ni el Hijo» es parte del texto de la mayoría de los manuscritos.",
+  "matiz": "La frase «ni el Hijo» plantea la cuestión del conocimiento del Hijo durante su ministerio terrenal: la tradición cristiana habla de limitación voluntaria en la encarnación (Fil 2:7).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:36 — «ni el Hijo» según los manuscritos antiguos",
+   "Hch 1:7 — «no os toca a vosotros saber los tiempos»",
+   "Fil 2:6-7 — «se despojó a sí mismo»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 10,
+  "alineacion": "forma_otro_strong",
+  "tagnt": "Mark.13.32#10",
+  "morfologia_tagnt": "V-RAI-3S",
+  "dstrong": "G6063",
+  "strong_tagnt": "G6063",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to perceive"
+ },
+ {
+  "ref": "Mark.13.33",
+  "strong": "G69",
+  "forma": "ἀγρυπνεῖτε",
+  "glosa_interlineal": "velad",
+  "rango_semantico": [
+   "estar insomne, vigilar"
+  ],
+  "construccion": "Imperativo presente activo, 2ª plural: «estad alerta, desvelados».",
+  "sentido_en_contexto": "Marcos usa ἀγρυπνέω («estar despierto, sin dormir») y γρηγορέω («velar») para enfatizar vigilancia continua. «Velad y orad» une la vigilancia con la oración.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 21:36 — «velad, pues, en todo tiempo orando»",
+   "Ef 6:18 — «velando en ello con toda perseverancia»",
+   "Mr 14:38 — «velad y orad»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Mark.13.33#02",
+  "morfologia_tagnt": "V-PAM-2P",
+  "dstrong": "G0069",
+  "strong_tagnt": "G69",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "be watchful"
+ },
+ {
+  "ref": "Mark.13.34",
+  "strong": "G2377",
+  "forma": "θυρωρῷ",
+  "glosa_interlineal": "portero",
+  "rango_semantico": [
+   "portero, guardián de la puerta"
+  ],
+  "construccion": "Dativo: «mandó al portero que velase».",
+  "sentido_en_contexto": "Parábola exclusiva de Marcos: el dueño que se va deja a cada siervo su tarea y manda al portero que vele. Aplica la vigilancia a todos.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 12:36-38 — siervos que esperan al amo",
+   "Jn 10:3 — «a este abre el portero»",
+   "Mt 25:14-15 — parábola de los talentos"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 21,
+  "alineacion": "forma",
+  "tagnt": "Mark.13.34#22",
+  "morfologia_tagnt": "N-DSM",
+  "dstrong": "G2377",
+  "strong_tagnt": "G2377",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "gatekeeper"
+ },
+ {
+  "ref": "Mark.13.35",
+  "strong": "G219",
+  "forma": "ἀλεκτοροφωνίας",
+  "glosa_interlineal": "canto del gallo",
+  "rango_semantico": [
+   "canto del gallo (tercera vigilia de la noche)"
+  ],
+  "construccion": "Genitivo: «al canto del gallo».",
+  "sentido_en_contexto": "Marcos enumera las cuatro vigilias nocturnas romanas: la tarde, la medianoche, el canto del gallo y la mañana. Estas vigilias estructuran el relato de la pasión (cf. 14:17, 41, 72; 15:1).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 14:72 — «el gallo cantó»",
+   "Mr 15:1 — «muy de mañana»",
+   "Lc 12:38 — vigilias de la noche"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 17,
+  "alineacion": "forma",
+  "tagnt": "Mark.13.35#17",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G0219",
+  "strong_tagnt": "G219",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "crowing"
+ },
+ {
+  "ref": "Mark.13.37",
+  "strong": "G1127",
+  "forma": "γρηγορεῖτε",
+  "glosa_interlineal": "velad",
+  "rango_semantico": [
+   "vigilar, estar despierto"
+  ],
+  "construccion": "Imperativo presente activo, 2ª plural.",
+  "sentido_en_contexto": "Cierre del discurso: «lo que a vosotros digo, a todos lo digo: velad». La exhortación se amplía a todos los lectores.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 25:13 — «velad, pues»",
+   "Mr 14:34, 37, 38 — Getsemaní: «velad»",
+   "1 Co 16:13 — «velad, estad firmes en la fe»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Mark.13.37#07",
+  "morfologia_tagnt": "V-PAM-2P",
+  "dstrong": "G1127",
+  "strong_tagnt": "G1127",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to keep watch"
+ }
+]

@@ -1,0 +1,698 @@
+[
+ {
+  "ref": "Acts.12.1",
+  "strong": "G2264",
+  "forma": "Ἡρῴδης",
+  "glosa_interlineal": "Herodes",
+  "rango_semantico": [
+   "Herodes (Agripa I, rey de Judea 41-44 d.C.)"
+  ],
+  "construccion": "Nominativo: «el rey Herodes».",
+  "sentido_en_contexto": "Herodes Agripa I, nieto de Herodes el Grande, rey de Judea del 41 al 44 d.C. Busca el favor de los judíos persiguiendo a la Iglesia. No debe confundirse con Herodes Antipas (Lc 23) ni con Agripa II (Hch 25-26).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 12:20-23",
+   "Hch 25:13 — Agripa II",
+   "Lc 23:7-12 — Antipas"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma+reorden",
+  "tagnt": "Acts.12.1#07",
+  "morfologia_tagnt": "N-NSM-P",
+  "dstrong": "G2264I",
+  "strong_tagnt": "G2264",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Herod"
+ },
+ {
+  "ref": "Acts.12.2",
+  "strong": "G3162",
+  "forma": "μαχαίρῃ",
+  "glosa_interlineal": "espada",
+  "rango_semantico": [
+   "espada, daga"
+  ],
+  "construccion": "Dativo instrumental: «mató a espada a Jacobo, hermano de Juan».",
+  "sentido_en_contexto": "Ejecución de Santiago (Jacobo) hijo de Zebedeo, el primero de los Doce en morir mártir. Cumple Mr 10:39 («de la copa que yo bebo, beberéis»). Lucas lo narra con sobriedad.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 10:38-39",
+   "Mt 20:23",
+   "Hch 12:3"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Acts.12.2#07",
+  "morfologia_tagnt": "N-DSF",
+  "dstrong": "G3162",
+  "strong_tagnt": "G3162",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "sword"
+ },
+ {
+  "ref": "Acts.12.4",
+  "strong": "G5069",
+  "forma": "τετραδίοις",
+  "glosa_interlineal": "cuaternios",
+  "rango_semantico": [
+   "grupo de cuatro soldados"
+  ],
+  "construccion": "Dativo plural: «entregándole a cuatro grupos de cuatro soldados».",
+  "sentido_en_contexto": "Pedro es custodiado por cuatro turnos de cuatro soldados (uno por cada vigilia de la noche). Detalle técnico del servicio romano: dos soldados encadenados a él, dos de guardia en la puerta (v.6).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 12:6, 10",
+   "Hch 5:18-23; 16:23-26"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Acts.12.4#09",
+  "morfologia_tagnt": "N-DPN",
+  "dstrong": "G5069",
+  "strong_tagnt": "G5069",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "squad of four"
+ },
+ {
+  "ref": "Acts.12.5",
+  "strong": "G1619",
+  "forma": "ἐκτενῶς",
+  "glosa_interlineal": "fervientemente",
+  "rango_semantico": [
+   "con intensidad, con fervor"
+  ],
+  "construccion": "Adverbio: «la iglesia hacía sin cesar oración a Dios por él».",
+  "sentido_en_contexto": "Contrapunto del relato: mientras Herodes ata a Pedro, la iglesia ora con intensidad. Dios responde con una liberación milagrosa. Lucas subraya el poder de la oración comunitaria.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 4:23-31; 12:12",
+   "Lc 22:44 — «oraba más intensamente»",
+   "Stg 5:16"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "Acts.12.5#12",
+  "morfologia_tagnt": "ADV",
+  "dstrong": "G1619",
+  "strong_tagnt": "G1619",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg"
+  ],
+  "ausente_en": [
+   "TR",
+   "Byz"
+  ],
+  "variante": true,
+  "glosa_tagnt": "fervently"
+ },
+ {
+  "ref": "Acts.12.6",
+  "strong": "G2837",
+  "forma": "κοιμώμενος",
+  "glosa_interlineal": "durmiendo",
+  "rango_semantico": [
+   "dormir, estar dormido"
+  ],
+  "construccion": "Participio presente medio: «Pedro estaba durmiendo entre dos soldados».",
+  "sentido_en_contexto": "Pedro, la noche antes de la ejecución prevista, duerme tranquilamente, atado con dos cadenas. Muestra su paz y confianza (cf. Sal 3:5; 4:8).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 3:5; 4:8",
+   "Mr 4:38"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Acts.12.6#14",
+  "morfologia_tagnt": "V-PMP-NSM",
+  "dstrong": "G2837",
+  "strong_tagnt": "G2837",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to sleep"
+ },
+ {
+  "ref": "Acts.12.7",
+  "strong": "G32",
+  "forma": "ἄγγελος",
+  "glosa_interlineal": "ángel",
+  "rango_semantico": [
+   "ángel, mensajero"
+  ],
+  "construccion": "Nominativo: «un ángel del Señor se presentó, y una luz resplandeció en la cárcel».",
+  "sentido_en_contexto": "El ángel despierta a Pedro golpeando su costado; las cadenas caen. Los guardias no despiertan. La liberación es obra de Dios a través de un ángel, como en 5:19-20 (aunque esta vez el apóstol será sacado de la ciudad).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 5:19-20; 16:26",
+   "Sal 34:7",
+   "Heb 1:14"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Acts.12.7#03",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G0032G",
+  "strong_tagnt": "G32",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "angel"
+ },
+ {
+  "ref": "Acts.12.9",
+  "strong": "G3705",
+  "forma": "ὅραμα",
+  "glosa_interlineal": "visión",
+  "rango_semantico": [
+   "visión"
+  ],
+  "construccion": "Acusativo: «pensaba que veía una visión».",
+  "sentido_en_contexto": "Pedro cree estar soñando: no cae en la cuenta de la realidad hasta salir a la calle (v.11). Detalle psicológico que subraya lo inesperado del rescate.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 10:10-17",
+   "Sal 126:1 — «éramos como los que sueñan»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 17,
+  "alineacion": "forma",
+  "tagnt": "Acts.12.9#18",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G3705",
+  "strong_tagnt": "G3705",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "vision"
+ },
+ {
+  "ref": "Acts.12.10",
+  "strong": "G844",
+  "forma": "αὐτομάτη",
+  "glosa_interlineal": "por sí misma",
+  "rango_semantico": [
+   "por sí mismo, espontáneamente"
+  ],
+  "construccion": "Adjetivo nominativo: «la cual se les abrió por sí misma».",
+  "sentido_en_contexto": "Palabra de donde viene «automático»: la puerta de hierro que da a la ciudad se abre sola. Es un milagro adicional. El ángel acompaña a Pedro una calle y luego desaparece.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 4:28 — «de suyo lleva fruto la tierra»",
+   "Hch 16:26"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 19,
+  "alineacion": "forma",
+  "tagnt": "Acts.12.10#19",
+  "morfologia_tagnt": "A-NSF",
+  "dstrong": "G0844",
+  "strong_tagnt": "G844",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "by itself"
+ },
+ {
+  "ref": "Acts.12.11",
+  "strong": "G1807",
+  "forma": "ἐξείλατο",
+  "glosa_interlineal": "ha librado",
+  "rango_semantico": [
+   "librar, rescatar"
+  ],
+  "construccion": "Aoristo indicativo medio: «el Señor ha enviado su ángel y me ha librado de la mano de Herodes».",
+  "sentido_en_contexto": "Al volver en sí, Pedro reconoce la intervención de Dios. «Libró» (ἐξαιρέω) es el verbo del éxodo (Éx 18:4) y de la liberación de Israel; Pedro reconoce su propio «éxodo».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 18:4",
+   "Hch 7:10, 34",
+   "2 Co 1:10"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 18,
+  "alineacion": "forma",
+  "tagnt": "Acts.12.11#19",
+  "morfologia_tagnt": "V-2AMI-3S",
+  "dstrong": "G1807",
+  "strong_tagnt": "G1807",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to take out/select"
+ },
+ {
+  "ref": "Acts.12.12",
+  "strong": "G3138",
+  "forma": "Μάρκου",
+  "glosa_interlineal": "Marcos",
+  "rango_semantico": [
+   "Marcos (Juan Marcos)"
+  ],
+  "construccion": "Genitivo: «Juan, el que tenía por sobrenombre Marcos».",
+  "sentido_en_contexto": "Primera mención de Juan Marcos, hijo de María (cuya casa era lugar de reunión de la iglesia en Jerusalén). Primo de Bernabé (Col 4:10), acompañará a Bernabé y a Pablo (12:25; 13:5), y es tradicionalmente el autor del segundo evangelio.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 12:25; 13:5, 13; 15:37-39",
+   "Col 4:10",
+   "2 Ti 4:11",
+   "1 P 5:13"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Acts.12.12#14",
+  "morfologia_tagnt": "N-GSM-P",
+  "dstrong": "G3138",
+  "strong_tagnt": "G3138",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Mark"
+ },
+ {
+  "ref": "Acts.12.13",
+  "strong": "G4498",
+  "forma": "Ῥόδη",
+  "glosa_interlineal": "Rode",
+  "rango_semantico": [
+   "Rode (rosa)"
+  ],
+  "construccion": "Nominativo: «una muchacha llamada Rode».",
+  "sentido_en_contexto": "La criada Rode reconoce la voz de Pedro y corre de alegría sin abrir; los demás no le creen («es su ángel»), aunque estaban orando por su liberación. Humor y realismo en el relato: la oración responde y se sorprende.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 12:14-16"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "Acts.12.13#13",
+  "morfologia_tagnt": "N-NSF-P",
+  "dstrong": "G4498",
+  "strong_tagnt": "G4498",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Rhoda"
+ },
+ {
+  "ref": "Acts.12.15",
+  "strong": "G32",
+  "forma": "ἄγγελός",
+  "glosa_interlineal": "su ángel",
+  "rango_semantico": [
+   "ángel, mensajero"
+  ],
+  "construccion": "Nominativo: «¡Es su ángel!».",
+  "sentido_en_contexto": "Los de la casa dicen «es su ángel»: refleja la creencia judía en un ángel guardián que podía tomar la apariencia de la persona (cf. Mt 18:10). Lucas no afirma esa doctrina, solo la relata como opinión de los presentes.",
+  "matiz": "Interpretaciones de «es su ángel»: (a) creencia en ángeles guardianes con apariencia de su protegido; (b) mensajero enviado por Pedro. El texto la presenta como opinión popular, sin juicio.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 18:10",
+   "Heb 1:14",
+   "Gn 48:16"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 16,
+  "alineacion": "forma",
+  "tagnt": "Acts.12.15#16",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G0032G",
+  "strong_tagnt": "G32",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "angel"
+ },
+ {
+  "ref": "Acts.12.17",
+  "strong": "G2385",
+  "forma": "Ἰακώβῳ",
+  "glosa_interlineal": "Jacobo",
+  "rango_semantico": [
+   "Jacobo (Santiago, hermano del Señor)"
+  ],
+  "construccion": "Dativo: «haced saber esto a Jacobo y a los hermanos».",
+  "sentido_en_contexto": "Pedro pide avisar a Jacobo, el hermano del Señor (no el hijo de Zebedeo, ya muerto), que emerge como líder de la iglesia de Jerusalén (15:13; 21:18; Gá 1:19; 2:9). Pedro se va «a otro lugar», sin precisar.",
+  "matiz": "«Otro lugar» no se identifica: Antioquía, Roma, Cesarea o algún lugar de Judea. Gá 2:11 lo ubica en Antioquía después; tradición posterior lo vincula con Roma.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 15:13; 21:18",
+   "Gá 1:19; 2:9",
+   "1 Co 15:7"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 19,
+  "alineacion": "forma",
+  "tagnt": "Acts.12.17#20",
+  "morfologia_tagnt": "N-DSM-P",
+  "dstrong": "G2385I",
+  "strong_tagnt": "G2385",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "James"
+ },
+ {
+  "ref": "Acts.12.20",
+  "strong": "G3982",
+  "forma": "πείσαντες",
+  "glosa_interlineal": "habiendo persuadido",
+  "rango_semantico": [
+   "persuadir, convencer"
+  ],
+  "construccion": "Participio aoristo activo: «habiendo persuadido a Blasto, camarero del rey».",
+  "sentido_en_contexto": "Herodes estaba enojado con Tiro y Sidón, que dependían de Galilea para su trigo. Sus emisarios ganan al chambelán Blasto para pedir paz. Detalle del conflicto político que lleva a la audiencia del v.21.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "1 R 5:9-11 — Tiro y el trigo de Israel",
+   "Ez 27:17"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "Acts.12.20#15",
+  "morfologia_tagnt": "V-AAP-NPM",
+  "dstrong": "G3982",
+  "strong_tagnt": "G3982",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to persuade"
+ },
+ {
+  "ref": "Acts.12.22",
+  "strong": "G444",
+  "forma": "ἀνθρώπου",
+  "glosa_interlineal": "de hombre",
+  "rango_semantico": [
+   "hombre, ser humano"
+  ],
+  "construccion": "Genitivo: «¡Voz de Dios, y no de hombre!».",
+  "sentido_en_contexto": "El pueblo aclama a Herodes como a un dios tras su discurso, vestido de ropas reales. Josefo (Ant. 19.343-352) narra el episodio con vestido de plata brillante al sol y la enfermedad mortal posterior. Herodes acepta la adulación y no da la gloria a Dios.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ez 28:2 — «tu corazón se enalteció, y dijiste: Yo soy un dios»",
+   "Hch 10:26; 14:11-15",
+   "Josefo, Ant. 19.343-352"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Acts.12.22#09",
+  "morfologia_tagnt": "N-GSM",
+  "dstrong": "G0444",
+  "strong_tagnt": "G444",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "a human"
+ },
+ {
+  "ref": "Acts.12.23",
+  "strong": "G4662",
+  "forma": "σκωληκόβρωτος",
+  "glosa_interlineal": "comido de gusanos",
+  "rango_semantico": [
+   "comido por gusanos"
+  ],
+  "construccion": "Adjetivo nominativo: «expiró comido de gusanos».",
+  "sentido_en_contexto": "Un ángel hiere a Herodes por no dar gloria a Dios: muerte dolorosa por enfermedad intestinal con gusanos (similar al relato de Josefo, que habla de dolor abdominal, 5 días). Herodes muere hacia el 44 d.C. Contraste: la Palabra de Dios crece (v.24).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Mac 9:5-9 — Antíoco Epífanes",
+   "Hch 5:5, 10",
+   "Is 14:11"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 17,
+  "alineacion": "forma",
+  "tagnt": "Acts.12.23#17",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G4662",
+  "strong_tagnt": "G4662",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "worm-eated"
+ },
+ {
+  "ref": "Acts.12.24",
+  "strong": "G837",
+  "forma": "ηὔξανεν",
+  "glosa_interlineal": "crecía",
+  "rango_semantico": [
+   "crecer, aumentar"
+  ],
+  "construccion": "Imperfecto indicativo activo: «la palabra del Señor crecía y se multiplicaba».",
+  "sentido_en_contexto": "Sumario típico de Hechos: mientras el perseguidor muere, la palabra de Dios sigue creciendo. Contraste intencionado entre el reino de Herodes, que termina, y el reino de Dios.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 6:7; 9:31; 19:20",
+   "Mt 13:31-32"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Acts.12.24#06",
+  "morfologia_tagnt": "V-IAI-3S",
+  "dstrong": "G0837",
+  "strong_tagnt": "G837",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to grow"
+ },
+ {
+  "ref": "Acts.12.25",
+  "strong": "G1248",
+  "forma": "διακονίαν",
+  "glosa_interlineal": "ayuda",
+  "rango_semantico": [
+   "servicio, ministerio"
+  ],
+  "construccion": "Acusativo: «cumplido su servicio, volvieron de Jerusalén».",
+  "sentido_en_contexto": "Bernabé y Saulo regresan a Antioquía después de entregar la ayuda (11:29-30), llevando consigo a Juan Marcos. Introduce el cap. 13: el envío misionero.",
+  "matiz": "Variante textual: «de Jerusalén» (ἐξ Ἱερουσαλήμ) frente a «a Jerusalén» (εἰς Ἱερουσαλήμ, Aleph, B y otros). La lectura «de/a» afecta al sentido geográfico; la mayoría de ediciones críticas leen «a Jerusalén» (cumplida su misión), con «volvieron a Antioquía» implícito.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": "RVR60 lee «de Jerusalén»; algunas ediciones críticas leen «a Jerusalén».",
+  "otros_usos": [
+   "Hch 11:29-30",
+   "Hch 13:1-5",
+   "Col 4:10"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Acts.12.25#10",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G1248",
+  "strong_tagnt": "G1248",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "service"
+ }
+]

@@ -1,0 +1,637 @@
+[
+ {
+  "ref": "Phil.3.2",
+  "strong": "G2965",
+  "forma": "κύνας",
+  "glosa_interlineal": "perros",
+  "rango_semantico": [
+   "perro (término despectivo)"
+  ],
+  "construccion": "Acusativo plural: «guardaos de los perros, guardaos de los malos obreros, guardaos de los mutiladores del cuerpo».",
+  "sentido_en_contexto": "Invectiva contra adversarios (judaizantes): «perros» (término que los judíos usaban para los gentiles, aquí invertido), «malos obreros» y «mutiladores» (κατατομή: juego de palabras con περιτομή, circuncisión). Pablo redefine la circuncisión (v.3): los creyentes son «la circuncisión».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gá 5:2-12",
+   "2 Co 11:13",
+   "Ro 2:28-29",
+   "Col 2:11"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Phil.3.2#03",
+  "morfologia_tagnt": "N-APM",
+  "dstrong": "G2965",
+  "strong_tagnt": "G2965",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "dog"
+ },
+ {
+  "ref": "Phil.3.3",
+  "strong": "G4061",
+  "forma": "περιτομή",
+  "glosa_interlineal": "circuncisión",
+  "rango_semantico": [
+   "circuncisión"
+  ],
+  "construccion": "Nominativo: «porque nosotros somos la circuncisión, los que en espíritu servimos a Dios y nos gloriamos en Cristo Jesús, no poniendo la confianza en la carne».",
+  "sentido_en_contexto": "Redefinición: el verdadero pueblo de Dios es el que sirve en el Espíritu, se gloría en Cristo y no confía en la carne. Pablo no desprecia su herencia judía, sino que ve en Cristo su cumplimiento. Este texto es parte del debate sobre la relación entre Israel y la iglesia.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 2:28-29; 4:11",
+   "Col 2:11",
+   "Gá 6:15"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Phil.3.3#05",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G4061",
+  "strong_tagnt": "G4061",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "circumcision"
+ },
+ {
+  "ref": "Phil.3.5",
+  "strong": "G5330",
+  "forma": "Φαρισαῖος",
+  "glosa_interlineal": "fariseo",
+  "rango_semantico": [
+   "fariseo"
+  ],
+  "construccion": "Nominativo: «circuncidado al octavo día, del linaje de Israel, de la tribu de Benjamín, hebreo de hebreos; en cuanto a la ley, fariseo».",
+  "sentido_en_contexto": "Siete credenciales judías de Pablo (vv.5-6): circuncisión, linaje, tribu, hebreo, fariseo, celo y justicia legal. Las enumera para mostrar que podría confiar en la carne más que sus adversarios, y que las considera pérdida por Cristo.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 23:6; 26:5",
+   "2 Co 11:22",
+   "Gá 1:13-14"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "Phil.3.5#13",
+  "morfologia_tagnt": "N-NSM-T",
+  "dstrong": "G5330",
+  "strong_tagnt": "G5330",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Pharisee"
+ },
+ {
+  "ref": "Phil.3.6",
+  "strong": "G273",
+  "forma": "ἄμεμπτος",
+  "glosa_interlineal": "irreprensible",
+  "rango_semantico": [
+   "irreprensible, sin culpa"
+  ],
+  "construccion": "Nominativo: «en cuanto a celo, perseguidor de la iglesia; en cuanto a la justicia que es en la ley, irreprensible».",
+  "sentido_en_contexto": "Pablo no afirma que fuera sin pecado, sino que cumplía la ley externa sin tacha (según los criterios fariseos). Su sentido de culpa no vino de la ley (cf. Ro 7:7-12, que muestra otra faceta). Esta autopresentación se usa en la discusión sobre la «conciencia robusta» de Pablo (Stendahl).",
+  "matiz": "Debate: (a) Pablo no tenía conciencia culpable antes de Cristo (Stendahl: la lectura de Lutero proyecta la angustia luterana); (b) Pablo tenía una justicia externa que, vista a la luz de Cristo, era insuficiente (lectura reformada, Ro 7); (c) irreprensibilidad legal frente a la justicia por fe.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 8:3",
+   "Gá 1:13-14",
+   "Ro 7:7-12",
+   "Lc 18:11-12"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "Phil.3.6#12",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G0273",
+  "strong_tagnt": "G273",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "blameless"
+ },
+ {
+  "ref": "Phil.3.7",
+  "strong": "G2209",
+  "forma": "ζημίαν",
+  "glosa_interlineal": "pérdida",
+  "rango_semantico": [
+   "pérdida, daño"
+  ],
+  "construccion": "Acusativo: «pero cuantas cosas eran para mí ganancia, las he estimado como pérdida por amor de Cristo».",
+  "sentido_en_contexto": "Vocabulario contable: las ganancias (κέρδη) pasan a ser pérdida. Lo que antes era capital de confianza (herencia, mérito) ahora se cuenta como pérdida a la luz de Cristo. Pablo no destruye su pasado, sino que lo relativiza.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 13:44-46",
+   "Lc 14:33",
+   "Gá 6:14"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Phil.3.7#11",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G2209",
+  "strong_tagnt": "G2209",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "damage/loss"
+ },
+ {
+  "ref": "Phil.3.8",
+  "strong": "G4657",
+  "forma": "σκύβαλα",
+  "glosa_interlineal": "basura",
+  "rango_semantico": [
+   "desecho, estiércol, basura"
+  ],
+  "construccion": "Acusativo plural: «y ciertamente, aun estimo todas las cosas como pérdida por la excelencia del conocimiento de Cristo Jesús, mi Señor, por amor del cual lo he perdido todo, y lo tengo por basura, para ganar a Cristo».",
+  "sentido_en_contexto": "σκύβαλον: desecho, desperdicio (estiércol, sobras de la mesa). Término fuerte de rechazo. La meta es «ganar a Cristo» y ser hallado en él. El «conocimiento de Cristo» es relación personal, no solo información.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gá 6:14",
+   "Mt 13:44",
+   "1 Co 2:2",
+   "Fil 3:10"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 25,
+  "alineacion": "forma",
+  "tagnt": "Phil.3.8#25",
+  "morfologia_tagnt": "N-APN",
+  "dstrong": "G4657",
+  "strong_tagnt": "G4657",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "garbage"
+ },
+ {
+  "ref": "Phil.3.9",
+  "strong": "G1343",
+  "forma": "δικαιοσύνην",
+  "glosa_interlineal": "justicia",
+  "rango_semantico": [
+   "justicia, rectitud"
+  ],
+  "construccion": "Acusativo: «y ser hallado en él, no teniendo mi propia justicia, que es por la ley, sino la que es por la fe de Cristo, la justicia que es de Dios por la fe».",
+  "sentido_en_contexto": "Contraste entre dos justicias: la propia (por la ley) y la que proviene de Dios por la fe. «Por la fe de Cristo» (διὰ πίστεως Χριστοῦ): «fe en Cristo» o «fidelidad de Cristo» (ver Gá 2:16). Pasaje central para la doctrina de la justificación.",
+  "matiz": "Debate: (a) justicia imputada (forense, ajena, recibida por la fe; tradición reformada); (b) justicia como pertenencia al pacto por Cristo (Nueva Perspectiva); (c) justicia infundida y transformadora (católica, ortodoxa); (d) πίστεως Χριστοῦ: «fe en Cristo» o «fidelidad de Cristo».",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 3:21-26",
+   "Gá 2:16",
+   "2 Co 5:21",
+   "1 Co 1:30"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 8,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Phil.3.9#08",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G1343",
+  "strong_tagnt": "G1343",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "righteousness"
+ },
+ {
+  "ref": "Phil.3.9",
+  "strong": "G1343",
+  "forma": "δικαιοσύνην",
+  "glosa_interlineal": "justicia",
+  "rango_semantico": [
+   "justicia, rectitud"
+  ],
+  "construccion": "Acusativo: «y ser hallado en él, no teniendo mi propia justicia, que es por la ley, sino la que es por la fe de Cristo, la justicia que es de Dios por la fe».",
+  "sentido_en_contexto": "Contraste entre dos justicias: la propia (por la ley) y la que proviene de Dios por la fe. «Por la fe de Cristo» (διὰ πίστεως Χριστοῦ): «fe en Cristo» o «fidelidad de Cristo» (ver Gá 2:16). Pasaje central para la doctrina de la justificación.",
+  "matiz": "Debate: (a) justicia imputada (forense, ajena, recibida por la fe; tradición reformada); (b) justicia como pertenencia al pacto por Cristo (Nueva Perspectiva); (c) justicia infundida y transformadora (católica, ortodoxa); (d) πίστεως Χριστοῦ: «fe en Cristo» o «fidelidad de Cristo».",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 3:21-26",
+   "Gá 2:16",
+   "2 Co 5:21",
+   "1 Co 1:30"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 20,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Phil.3.9#20",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G1343",
+  "strong_tagnt": "G1343",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "righteousness"
+ },
+ {
+  "ref": "Phil.3.10",
+  "strong": "G386",
+  "forma": "ἀναστάσεως",
+  "glosa_interlineal": "resurrección",
+  "rango_semantico": [
+   "resurrección"
+  ],
+  "construccion": "Genitivo: «a fin de conocerle, y el poder de su resurrección, y la participación de sus padecimientos, llegando a ser semejante a él en su muerte».",
+  "sentido_en_contexto": "Tres aspectos del conocimiento de Cristo: poder de su resurrección, comunión de sus sufrimientos y conformidad con su muerte. La vida cristiana sigue el patrón de Cristo: cruz y resurrección. La resurrección da poder para vivir; el sufrimiento da comunión.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 6:5-11",
+   "2 Co 4:10-12",
+   "Col 1:24",
+   "1 P 4:13"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Phil.3.10#08",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G0386",
+  "strong_tagnt": "G386",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "resurrection"
+ },
+ {
+  "ref": "Phil.3.11",
+  "strong": "G1815",
+  "forma": "ἐξανάστασιν",
+  "glosa_interlineal": "resurrección de entre los muertos",
+  "rango_semantico": [
+   "resurrección fuera de entre los muertos"
+  ],
+  "construccion": "Acusativo: «si en alguna manera llegase a la resurrección de entre los muertos».",
+  "sentido_en_contexto": "Pablo expresa deseo de alcanzar la resurrección «de entre los muertos» (ἐξανάστασις), vocablo único del NT. «Si en alguna manera» no indica duda sobre su salvación, sino humildad y la seriedad del camino. Se discute si es un rasgo de incertidumbre o de humildad.",
+  "matiz": "Debate: (a) «si de alguna manera» expresa humildad y esfuerzo, no incertidumbre (la mayoría reformada); (b) expresa una verdadera contingencia que requiere perseverancia (arminiana, católica); (c) se refiere a una «resurrección selecta» de los justos (dispensacional; menos sostenible).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 15:12-23",
+   "Lc 20:35",
+   "Ap 20:5-6"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Phil.3.11#06",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G1815",
+  "strong_tagnt": "G1815",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "resurrection"
+ },
+ {
+  "ref": "Phil.3.12",
+  "strong": "G2638",
+  "forma": "καταλάβω",
+  "glosa_interlineal": "alcance",
+  "rango_semantico": [
+   "asir, alcanzar, apoderarse"
+  ],
+  "construccion": "Subjuntivo aoristo activo: «no que lo haya alcanzado ya, ni que ya sea perfecto; sino que prosigo, por ver si logro asir aquello para lo cual fui también asido por Cristo Jesús».",
+  "sentido_en_contexto": "Pablo rechaza la idea de perfección ya lograda (hay algunos que se creían perfectos). El esfuerzo cristiano es respuesta a que Cristo ya lo asió (καταλήμφθην). Metáfora del corredor que persigue la meta.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 9:24-27",
+   "Heb 12:1-2",
+   "1 Ti 6:12"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Phil.3.12#12",
+  "morfologia_tagnt": "V-2AAS-1S",
+  "dstrong": "G2638",
+  "strong_tagnt": "G2638",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to grasp"
+ },
+ {
+  "ref": "Phil.3.14",
+  "strong": "G1017",
+  "forma": "βραβεῖον",
+  "glosa_interlineal": "premio",
+  "rango_semantico": [
+   "premio, galardón (de una carrera)"
+  ],
+  "construccion": "Acusativo: «prosigo a la meta, al premio del supremo llamamiento de Dios en Cristo Jesús».",
+  "sentido_en_contexto": "Imagen de la carrera: olvidando lo que queda atrás (el pasado, los logros y fracasos), extendiéndose hacia lo que está delante, corre hacia la meta. El «premio» es el llamamiento celestial: la plena comunión con Cristo y la resurrección.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 9:24",
+   "2 Ti 4:7-8",
+   "Heb 12:1"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 16,
+  "alineacion": "forma",
+  "tagnt": "Phil.3.14#06",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G1017",
+  "strong_tagnt": "G1017",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "prize"
+ },
+ {
+  "ref": "Phil.3.17",
+  "strong": "G5179",
+  "forma": "τύπον",
+  "glosa_interlineal": "ejemplo",
+  "rango_semantico": [
+   "ejemplo, modelo, patrón"
+  ],
+  "construccion": "Acusativo: «hermanos, sed imitadores de mí, y mirad a los que así se conducen según el ejemplo que tenéis en nosotros».",
+  "sentido_en_contexto": "Pablo se propone como modelo (cf. 1 Co 11:1), porque imita a Cristo. Los imitadores caminan por la senda del apóstol. La contrapartida son los «enemigos de la cruz» (v.18).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 4:16; 11:1",
+   "Fil 4:9",
+   "1 Ts 1:6"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "Phil.3.17#12",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G5179",
+  "strong_tagnt": "G5179",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "mark/example"
+ },
+ {
+  "ref": "Phil.3.18",
+  "strong": "G2190",
+  "forma": "ἐχθροὺς",
+  "glosa_interlineal": "enemigos",
+  "rango_semantico": [
+   "enemigo"
+  ],
+  "construccion": "Acusativo plural: «porque por ahí andan muchos, de los cuales os dije muchas veces, y ahora lo repito aun llorando, que son enemigos de la cruz de Cristo».",
+  "sentido_en_contexto": "«Enemigos de la cruz»: quienes por su estilo de vida o doctrina niegan el significado de la cruz. Pablo llora por ellos. Se discute su identidad: ¿judaizantes (v.2), libertinos (v.19: «su dios es el vientre») o ambos? Probablemente creyentes que viven como si la cruz no importara.",
+  "matiz": "Debate: (a) los judaizantes (cf. 3:2); (b) libertinos antinomianos (su «dios es el vientre» y «se glorían en su vergüenza»); (c) cristianos laxos que viven como no cristianos. Su fin es «perdición» (ἀπώλεια).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gá 6:12-14",
+   "Ro 16:17-18",
+   "Hch 20:31"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Phil.3.18#14",
+  "morfologia_tagnt": "N-APM",
+  "dstrong": "G2190",
+  "strong_tagnt": "G2190",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "enemy"
+ },
+ {
+  "ref": "Phil.3.20",
+  "strong": "G4175",
+  "forma": "πολίτευμα",
+  "glosa_interlineal": "ciudadanía",
+  "rango_semantico": [
+   "ciudadanía, colonia, comunidad de ciudadanos"
+  ],
+  "construccion": "Nominativo: «pero nuestra ciudadanía está en los cielos, de donde también esperamos al Salvador, al Señor Jesucristo».",
+  "sentido_en_contexto": "Filipos era colonia romana con ciudadanos que se enorgullecían del derecho romano. Pablo afirma que los cristianos son ciudadanos de los cielos y esperan al Salvador, lo que relativiza su pertenencia terrenal y fundamenta su esperanza. Es la imagen contraria al «pensar en lo terrenal» (v.19).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 11:13-16; 12:22",
+   "Ef 2:19",
+   "Col 3:1-4",
+   "1 P 2:11"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Phil.3.20#04",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G4175",
+  "strong_tagnt": "G4175",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "citizenship"
+ },
+ {
+  "ref": "Phil.3.21",
+  "strong": "G3345",
+  "forma": "μετασχηματίσει",
+  "glosa_interlineal": "transformará",
+  "rango_semantico": [
+   "transformar, cambiar de forma"
+  ],
+  "construccion": "Futuro indicativo activo: «el cual transformará el cuerpo de la humillación nuestra, para que sea semejante al cuerpo de la gloria suya».",
+  "sentido_en_contexto": "Esperanza de la resurrección corporal: el cuerpo mortal será transformado y hecho semejante al de Cristo glorificado, por el poder con que somete todas las cosas. La salvación no es solo del alma; incluye el cuerpo.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 15:42-53",
+   "Ro 8:23",
+   "1 Jn 3:2",
+   "Col 3:4"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Phil.3.21#02",
+  "morfologia_tagnt": "V-FAI-3S",
+  "dstrong": "G3345",
+  "strong_tagnt": "G3345",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to transform"
+ }
+]

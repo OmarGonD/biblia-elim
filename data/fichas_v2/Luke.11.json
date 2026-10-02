@@ -1,0 +1,896 @@
+[
+ {
+  "ref": "Luke.11.1",
+  "strong": "G1321",
+  "forma": "δίδαξον",
+  "glosa_interlineal": "enséñanos",
+  "rango_semantico": [
+   "enseñar, instruir"
+  ],
+  "construccion": "Imperativo aoristo activo, 2ª singular: «Señor, enséñanos a orar».",
+  "sentido_en_contexto": "Lucas presenta el Padrenuestro como respuesta a la petición de un discípulo, tras ver a Jesús orar. Los maestros judíos enseñaban oraciones a sus discípulos, y Juan Bautista lo había hecho.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 6:9-13 — versión de Mateo en el Sermón del Monte",
+   "Lc 3:21; 5:16; 6:12; 9:18, 28-29 — Jesús ora"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 21,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Luke.11.1#21",
+  "morfologia_tagnt": "V-AAM-2S",
+  "dstrong": "G1321",
+  "strong_tagnt": "G1321",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to teach"
+ },
+ {
+  "ref": "Luke.11.2",
+  "strong": "G37",
+  "forma": "ἁγιασθήτω",
+  "glosa_interlineal": "santificado sea",
+  "rango_semantico": [
+   "santificar, apartar como santo"
+  ],
+  "construccion": "Imperativo aoristo pasivo, 3ª singular: «santificado sea tu nombre».",
+  "sentido_en_contexto": "Versión breve del Padrenuestro: «Padre» (sin «nuestro ni que estás en los cielos»), cinco peticiones (Mateo tiene siete). La primera pide que Dios sea reconocido como santo.",
+  "matiz": "Algunos manuscritos de Lucas amplían la oración asimilándola a Mateo («nuestro… que estás en los cielos… hágase tu voluntad»); el texto crítico es más breve.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": "RVR sigue el texto largo (asimilado a Mateo); los manuscritos más antiguos de Lucas tienen la forma más breve: «Padre, santificado sea tu nombre; venga tu reino».",
+  "otros_usos": [
+   "Mt 6:9-10 — paralelo más largo",
+   "Ez 36:23 — «santificaré mi gran nombre»",
+   "Jn 17:11 — «Padre santo»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Luke.11.2#13",
+  "morfologia_tagnt": "V-APM-3S",
+  "dstrong": "G0037",
+  "strong_tagnt": "G37",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to sanctify"
+ },
+ {
+  "ref": "Luke.11.3",
+  "strong": "G1967",
+  "forma": "ἐπιούσιον",
+  "glosa_interlineal": "de cada día",
+  "rango_semantico": [
+   "necesario para la existencia",
+   "del día presente",
+   "del día siguiente"
+  ],
+  "construccion": "Adjetivo acusativo: «el pan nuestro ἐπιούσιον».",
+  "sentido_en_contexto": "Palabra de significado discutido (ver Mt 6:11). Lucas añade «cada día» (καθ’ ἡμέραν) y usa presente «da» (δίδου), lo que apunta a una petición reiterada.",
+  "matiz": "Ver nota en Mt 6:11: debate entre «de cada día», «necesario», «para el día venidero» o «supersustancial». En Lucas, la petición es continuada («da cada día»).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": "RVR: «de cada día»; la Vulgata de Lucas tiene «quotidianum», la de Mateo «supersubstantialem».",
+  "otros_usos": [
+   "Mt 6:11 — paralelo",
+   "Éx 16:4 — el maná cada día",
+   "Pr 30:8 — «dame el pan necesario»"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Luke.11.3#05",
+  "morfologia_tagnt": "A-ASM",
+  "dstrong": "G1967",
+  "strong_tagnt": "G1967",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "daily"
+ },
+ {
+  "ref": "Luke.11.4",
+  "strong": "G266",
+  "forma": "ἁμαρτίας",
+  "glosa_interlineal": "pecados",
+  "rango_semantico": [
+   "pecado, falta"
+  ],
+  "construccion": "Acusativo plural: «perdónanos nuestros pecados».",
+  "sentido_en_contexto": "Lucas dice «pecados» (Mateo: «deudas») y pone el perdón dado «a todo el que nos debe» (presente, «perdonamos» habitualmente). Une el perdón recibido con el perdón dado.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 6:12 — «deudas»",
+   "Lc 7:47 — «a quien se le perdona poco, poco ama»",
+   "Col 3:13 — «como Cristo os perdonó»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Luke.11.4#05",
+  "morfologia_tagnt": "N-APF",
+  "dstrong": "G0266",
+  "strong_tagnt": "G266",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "sin"
+ },
+ {
+  "ref": "Luke.11.5",
+  "strong": "G5384",
+  "forma": "φίλον",
+  "glosa_interlineal": "amigo",
+  "rango_semantico": [
+   "amigo"
+  ],
+  "construccion": "Acusativo: «¿quién de vosotros tendrá un amigo?».",
+  "sentido_en_contexto": "Parábola del amigo importuno, exclusiva de Lucas: pedir pan a medianoche. Enseña la persistencia en la oración y el carácter generoso de Dios, por contraste con un amigo reacio.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Lc 18:1-8 — la viuda insistente",
+   "Mt 7:7-11 — pedid, buscad, llamad"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Luke.11.5#09",
+  "morfologia_tagnt": "A-ASM",
+  "dstrong": "G5384",
+  "strong_tagnt": "G5384",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "friendly/friend"
+ },
+ {
+  "ref": "Luke.11.8",
+  "strong": "G335",
+  "forma": "ἀναιδίαν",
+  "glosa_interlineal": "insistencia sin vergüenza",
+  "rango_semantico": [
+   "falta de vergüenza, descaro, insistencia"
+  ],
+  "construccion": "Acusativo: «por su importunidad (ἀναίδεια)».",
+  "sentido_en_contexto": "Palabra de significado debatido: puede ser «importunidad» del que pide (RVR) o «sin vergüenza» (del que no quiere quedar mal ante la comunidad, lo cual obligaría al anfitrión a responder). El argumento es «si un amigo reacio responde, cuánto más Dios».",
+  "matiz": "Debate: ¿«ἀναίδεια» describe la insistencia del que ruega o la vergüenza (honor) del que da? Según la interpretación elegida, la parábola subraya persistencia o la generosidad de Dios. Ambas lecturas se defienden.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 18:5 — «por cuanto esta viuda me es molesta»",
+   "Gn 18:23-33 — Abraham intercede"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 17,
+  "alineacion": "strong",
+  "tagnt": "Luke.11.8#17",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G0335",
+  "strong_tagnt": "G335",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "shamelessnes"
+ },
+ {
+  "ref": "Luke.11.9",
+  "strong": "G154",
+  "forma": "αἰτεῖτε",
+  "glosa_interlineal": "pedid",
+  "rango_semantico": [
+   "pedir, solicitar"
+  ],
+  "construccion": "Imperativo presente activo: «seguid pidiendo».",
+  "sentido_en_contexto": "Tres imperativos en presente (pedir, buscar, llamar) que expresan perseverancia, con tres promesas. Se enlaza con la parábola previa.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 7:7-8 — paralelo",
+   "Jn 16:24 — «pedid, y recibiréis»",
+   "Stg 1:5 — «si alguno tiene falta de sabiduría, pídala»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Luke.11.9#04",
+  "morfologia_tagnt": "V-PAM-2P",
+  "dstrong": "G0154",
+  "strong_tagnt": "G154",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to ask"
+ },
+ {
+  "ref": "Luke.11.13",
+  "strong": "G4151",
+  "forma": "πνεῦμα",
+  "glosa_interlineal": "Espíritu",
+  "rango_semantico": [
+   "aliento, viento, espíritu",
+   "Espíritu Santo"
+  ],
+  "construccion": "Acusativo: «el Padre celestial dará el Espíritu Santo a los que se lo pidan».",
+  "sentido_en_contexto": "Lucas concluye con «dará el Espíritu Santo» (Mateo: «cosas buenas»): el don supremo de Dios a quien pide es el Espíritu. Anticipa Pentecostés.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 7:11 — «cosas buenas»",
+   "Hch 2:38 — «recibiréis el don del Espíritu Santo»",
+   "Lc 24:49 — «la promesa de mi Padre»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 21,
+  "alineacion": "forma",
+  "tagnt": "Luke.11.13#21",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G4151G",
+  "strong_tagnt": "G4151",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "spirit/breath"
+ },
+ {
+  "ref": "Luke.11.15",
+  "strong": "G954",
+  "forma": "Βεελζεβοὺλ",
+  "glosa_interlineal": "Beelzebul",
+  "rango_semantico": [
+   "Beelzebul (príncipe de los demonios)"
+  ],
+  "construccion": "ἐν + dativo: «por Beelzebú, príncipe de los demonios».",
+  "sentido_en_contexto": "Acusación de que Jesús expulsa demonios por el poder de Beelzebul. Jesús responde con la lógica del reino dividido y con su contrargumento: si es por Beelzebul, ¿por quién lo hacen vuestros hijos?",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 12:24 — paralelo",
+   "Mr 3:22 — paralelo",
+   "Mt 10:25 — «Beelzebú»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Luke.11.15#07",
+  "morfologia_tagnt": "N-DSM-T",
+  "dstrong": "G0954",
+  "strong_tagnt": "G954",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Beelzebub"
+ },
+ {
+  "ref": "Luke.11.20",
+  "strong": "G1147",
+  "forma": "δακτύλῳ",
+  "glosa_interlineal": "dedo",
+  "rango_semantico": [
+   "dedo"
+  ],
+  "construccion": "ἐν + dativo: «por el dedo de Dios».",
+  "sentido_en_contexto": "Lucas dice «por el dedo de Dios» (Mateo: «por el Espíritu de Dios»). «Dedo de Dios» evoca la plaga de piojos (Éx 8:19) y las tablas de la ley (Éx 31:18). La llegada del reino se manifiesta en los exorcismos.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 8:19 — «dedo de Dios es este»",
+   "Éx 31:18 — las tablas escritas por el dedo de Dios",
+   "Mt 12:28 — «por el Espíritu de Dios»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Luke.11.20#04",
+  "morfologia_tagnt": "N-DSM",
+  "dstrong": "G1147",
+  "strong_tagnt": "G1147",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "finger"
+ },
+ {
+  "ref": "Luke.11.21",
+  "strong": "G2528",
+  "forma": "καθωπλισμένος",
+  "glosa_interlineal": "armado",
+  "rango_semantico": [
+   "armar, equipar con armas"
+  ],
+  "construccion": "Participio perfecto pasivo: «el hombre fuerte armado».",
+  "sentido_en_contexto": "Parábola del hombre fuerte: mientras está bien armado, sus bienes están seguros; cuando llega uno más fuerte, le quita las armas y reparte el botín. Jesús es el más fuerte, que vence a Satanás.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 12:29 — paralelo",
+   "Mr 3:27 — paralelo",
+   "Is 53:12 — «con los fuertes repartirá despojos»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Luke.11.21#04",
+  "morfologia_tagnt": "V-RMP-NSM",
+  "dstrong": "G2528",
+  "strong_tagnt": "G2528",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to arm fully"
+ },
+ {
+  "ref": "Luke.11.24",
+  "strong": "G504",
+  "forma": "ἀνύδρων",
+  "glosa_interlineal": "áridos",
+  "rango_semantico": [
+   "sin agua, seco"
+  ],
+  "construccion": "Genitivo plural: «lugares secos».",
+  "sentido_en_contexto": "Parábola del espíritu inmundo que regresa: la casa limpia pero vacía es recapturada con mayor fuerza. Advierte contra una reforma sin presencia del Espíritu.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 12:43-45 — paralelo",
+   "Is 34:14 — los demonios en el desierto"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Luke.11.24#11",
+  "morfologia_tagnt": "A-GPM",
+  "dstrong": "G0504",
+  "strong_tagnt": "G504",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "waterless"
+ },
+ {
+  "ref": "Luke.11.27",
+  "strong": "G3149",
+  "forma": "μαστοὶ",
+  "glosa_interlineal": "pechos",
+  "rango_semantico": [
+   "pecho (de la mujer)"
+  ],
+  "construccion": "Nominativo plural: «los pechos que mamaste».",
+  "sentido_en_contexto": "Una mujer del pueblo bendice a la madre de Jesús. Jesús responde que son más bienaventurados los que oyen la palabra de Dios y la guardan. No desprecia a María sino que fija el criterio de la bienaventuranza.",
+  "matiz": "Se discute si Jesús corrige a la mujer o amplía la bendición: ambos sentidos son posibles. Muchos ven una afirmación de que María misma es bienaventurada por creer y obedecer (1:38, 45).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 1:48 — «me dirán bienaventurada todas las generaciones»",
+   "Lc 1:45 — «bienaventurada la que creyó»",
+   "Lc 8:21 — «mi madre y mis hermanos son los que oyen la palabra»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 24,
+  "alineacion": "forma",
+  "tagnt": "Luke.11.27#24",
+  "morfologia_tagnt": "N-NPM",
+  "dstrong": "G3149",
+  "strong_tagnt": "G3149",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "breast"
+ },
+ {
+  "ref": "Luke.11.28",
+  "strong": "G5442",
+  "forma": "φυλάσσοντες",
+  "glosa_interlineal": "guardan",
+  "rango_semantico": [
+   "guardar, observar"
+  ],
+  "construccion": "Participio presente activo: «los que oyen la palabra de Dios y la guardan».",
+  "sentido_en_contexto": "Réplica de Jesús: «bienaventurados más bien los que oyen la palabra de Dios y la guardan». Oír y guardar es el criterio lucano de la bienaventuranza.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 8:21 — «oyen la palabra de Dios, y la hacen»",
+   "Sal 119:2 — «bienaventurados los que guardan sus testimonios»",
+   "Stg 1:25 — «el que persevera… no siendo oidor olvidadizo»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "Luke.11.28#13",
+  "morfologia_tagnt": "V-PAP-NPM",
+  "dstrong": "G5442G",
+  "strong_tagnt": "G5442",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to keep/guard"
+ },
+ {
+  "ref": "Luke.11.30",
+  "strong": "G4592",
+  "forma": "σημεῖον",
+  "glosa_interlineal": "señal",
+  "rango_semantico": [
+   "señal, signo"
+  ],
+  "construccion": "Nominativo: «Jonás fue señal a los ninivitas».",
+  "sentido_en_contexto": "En Lucas, la señal de Jonás es Jonás mismo como predicador a Nínive: el Hijo del Hombre será señal a esta generación. Lucas omite la referencia a los tres días en el vientre del pez (Mt 12:40).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 12:40 — «tres días y tres noches»",
+   "Jon 3:4-5 — la predicación en Nínive",
+   "Lc 11:32 — los ninivitas se arrepintieron"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Luke.11.30#08",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G4592",
+  "strong_tagnt": "G4592",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "sign"
+ },
+ {
+  "ref": "Luke.11.34",
+  "strong": "G573",
+  "forma": "ἁπλοῦς",
+  "glosa_interlineal": "sencillo",
+  "rango_semantico": [
+   "simple, sano, generoso"
+  ],
+  "construccion": "Adjetivo nominativo: «si tu ojo es sencillo».",
+  "sentido_en_contexto": "La lámpara del cuerpo es el ojo: si es sano (ἁπλοῦς), todo el cuerpo está lleno de luz. Se aplica a la receptividad a la luz de Jesús; vea los pasajes sobre luz y oído.",
+  "matiz": "Ver nota en Mt 6:22: ojo «bueno» como visión sana o generosidad.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 6:22-23 — paralelo",
+   "Pr 22:9 — «el ojo bueno será bendito»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "Luke.11.34#14",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G0573",
+  "strong_tagnt": "G573",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "sound"
+ },
+ {
+  "ref": "Luke.11.39",
+  "strong": "G724",
+  "forma": "ἁρπαγῆς",
+  "glosa_interlineal": "rapiña",
+  "rango_semantico": [
+   "robo, rapiña, codicia"
+  ],
+  "construccion": "Genitivo: «por dentro estáis llenos de rapiña y de maldad».",
+  "sentido_en_contexto": "Primer discurso de ayes contra fariseos y expertos en la ley, en una comida (vv.37-54). Lucas lo sitúa en una cena, mientras Mateo (23) en el templo. Critica la pureza exterior sin interior.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 23:25 — «llenos de robo y de injusticia»",
+   "Mt 15:19 — lo que sale del corazón",
+   "Is 5:7-8 — ayes contra la rapiña"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 24,
+  "alineacion": "forma",
+  "tagnt": "Luke.11.39#24",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G0724",
+  "strong_tagnt": "G724",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "plunder"
+ },
+ {
+  "ref": "Luke.11.41",
+  "strong": "G1654",
+  "forma": "ἐλεημοσύνην",
+  "glosa_interlineal": "limosna",
+  "rango_semantico": [
+   "limosna, acto de misericordia"
+  ],
+  "construccion": "Acusativo: «dad limosna de lo que está dentro».",
+  "sentido_en_contexto": "Versículo difícil: «dad limosna de lo que está dentro y todo os será limpio». Jesús une purificación y generosidad: lo interior (corazón) se limpia dando.",
+  "matiz": "Se discute el sentido de «lo de dentro»: los bienes contenidos en los vasos, el corazón o ambos. En todos los casos, la limosna sustituye al ritual externo como señal de pureza.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 12:33 — «vended lo que poseéis, y dad limosna»",
+   "Mt 23:26 — «limpia primero lo de dentro del vaso»",
+   "Dn 4:27 — «redime tus pecados con justicia»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Luke.11.41#05",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G1654",
+  "strong_tagnt": "G1654",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "charity"
+ },
+ {
+  "ref": "Luke.11.42",
+  "strong": "G26",
+  "forma": "ἀγάπην",
+  "glosa_interlineal": "amor",
+  "rango_semantico": [
+   "amor"
+  ],
+  "construccion": "Acusativo: «el juicio y el amor de Dios».",
+  "sentido_en_contexto": "Los fariseos diezman hasta las hierbas pero descuidan «el juicio (la justicia) y el amor de Dios». Lucas, en vez de «misericordia y fe» (Mt 23:23), dice «amor de Dios».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 23:23 — paralelo",
+   "Dt 6:5 — «amarás a Jehová tu Dios»",
+   "Mi 6:8 — «hacer justicia y amar misericordia»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 22,
+  "alineacion": "forma",
+  "tagnt": "Luke.11.42#22",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G0026",
+  "strong_tagnt": "G26",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "love"
+ },
+ {
+  "ref": "Luke.11.44",
+  "strong": "G82",
+  "forma": "ἄδηλα",
+  "glosa_interlineal": "no señalados",
+  "rango_semantico": [
+   "oculto, no visible"
+  ],
+  "construccion": "Adjetivo nominativo plural: «como sepulcros que no se ven».",
+  "sentido_en_contexto": "Los fariseos son como tumbas sin marcar: la gente camina encima y se contamina sin saberlo. Mateo (23:27) usa «sepulcros blanqueados», que son visibles.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 23:27 — «sepulcros blanqueados»",
+   "Nm 19:16 — impureza por tocar un sepulcro"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Luke.11.44#13",
+  "morfologia_tagnt": "A-NPN",
+  "dstrong": "G0082",
+  "strong_tagnt": "G82",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "unclear"
+ },
+ {
+  "ref": "Luke.11.46",
+  "strong": "G1419",
+  "forma": "δυσβάστακτα",
+  "glosa_interlineal": "difíciles de llevar",
+  "rango_semantico": [
+   "pesado, difícil de cargar"
+  ],
+  "construccion": "Acusativo plural: «cargas difíciles de llevar».",
+  "sentido_en_contexto": "Segundo grupo: los expertos en la ley (νομικοί) imponen cargas que ellos no tocan «ni con uno de sus dedos». Eco de Mt 23:4.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 23:4 — paralelo",
+   "Hch 15:10 — «un yugo que ni nuestros padres ni nosotros pudimos llevar»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Luke.11.46#14",
+  "morfologia_tagnt": "A-APN",
+  "dstrong": "G1419",
+  "strong_tagnt": "G1419",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "ponderous"
+ },
+ {
+  "ref": "Luke.11.50",
+  "strong": "G129",
+  "forma": "αἷμα",
+  "glosa_interlineal": "sangre",
+  "rango_semantico": [
+   "sangre"
+  ],
+  "construccion": "Nominativo: «la sangre de todos los profetas».",
+  "sentido_en_contexto": "Jesús declara que sobre «esta generación» se demandará la sangre de todos los profetas, desde Abel hasta Zacarías. Juicio con perspectiva histórica.",
+  "matiz": "Ver nota en Mt 23:35 sobre «Zacarías, hijo de Berequías» (2 Cr 24:20-22).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 23:35 — paralelo",
+   "Gn 4:10 — la sangre de Abel",
+   "2 Cr 24:20-22 — Zacarías"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Luke.11.50#04",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G0129G",
+  "strong_tagnt": "G129",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "blood"
+ },
+ {
+  "ref": "Luke.11.52",
+  "strong": "G2807",
+  "forma": "κλεῖδα",
+  "glosa_interlineal": "llave",
+  "rango_semantico": [
+   "llave"
+  ],
+  "construccion": "Acusativo: «habéis quitado la llave de la ciencia».",
+  "sentido_en_contexto": "Los expertos en la ley «se llevaron la llave del conocimiento»: no entran ellos ni dejan entrar a los que quieren. Mateo (23:13) habla de «cerrar el reino».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 23:13 — «cerráis el reino de los cielos»",
+   "Ap 3:7 — «el que tiene la llave de David»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Luke.11.52#08",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G2807",
+  "strong_tagnt": "G2807",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "key"
+ }
+]

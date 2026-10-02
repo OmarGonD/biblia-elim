@@ -1,0 +1,676 @@
+[
+ {
+  "ref": "Acts.20.4",
+  "strong": "G1190",
+  "forma": "Δερβαῖος",
+  "glosa_interlineal": "de Derbe",
+  "rango_semantico": [
+   "natural de Derbe"
+  ],
+  "construccion": "Nominativo: «Gayo de Derbe».",
+  "sentido_en_contexto": "Lista de los compañeros de Pablo en la colecta para Jerusalén, representantes de las iglesias gentiles de Macedonia (Sópatro, Aristarco, Segundo), Galacia (Gayo, Timoteo) y Asia (Tíquico, Trófimo). Los delegados llevarían la ofrenda (1 Co 16:1-4; 2 Co 8-9).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 16:1-4",
+   "2 Co 8—9",
+   "Ro 15:25-27",
+   "Hch 24:17"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Acts.20.4#17",
+  "morfologia_tagnt": "A-NSM-L",
+  "dstrong": "G1190",
+  "strong_tagnt": "G1190",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "from Derbe"
+ },
+ {
+  "ref": "Acts.20.5",
+  "strong": "G5174",
+  "forma": "Τρῳάδι",
+  "glosa_interlineal": "Troas",
+  "rango_semantico": [
+   "Troas (puerto de Misia)"
+  ],
+  "construccion": "Dativo: «nos esperaron en Troas».",
+  "sentido_en_contexto": "Reaparece el «nosotros» (20:5-15): Lucas se une de nuevo al grupo desde Filipos. En Troas pasan siete días, incluyendo el primer día de la semana, cuando se reúnen para partir el pan (v.7).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 16:8-11",
+   "2 Co 2:12",
+   "2 Ti 4:13"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Acts.20.5#07",
+  "morfologia_tagnt": "N-DSF-L",
+  "dstrong": "G5174",
+  "strong_tagnt": "G5174",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Troas"
+ },
+ {
+  "ref": "Acts.20.7",
+  "strong": "G2806",
+  "forma": "κλάσαι",
+  "glosa_interlineal": "partir",
+  "rango_semantico": [
+   "partir (el pan)"
+  ],
+  "construccion": "Infinitivo aoristo: «reunidos los discípulos para partir el pan».",
+  "sentido_en_contexto": "Primera referencia explícita de Hechos a una reunión cristiana «el primer día de la semana» (domingo) para partir el pan (cena del Señor). Prueba temprana de reunión dominical, aunque no establece una norma. Pablo predica hasta medianoche.",
+  "matiz": "Debate: ¿es evidencia de culto dominical establecido, o simplemente que ese día fue conveniente para la despedida? Muchos ven indicio temprano de culto dominical (cf. 1 Co 16:2; Ap 1:10; Didajé 14).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 16:2",
+   "Ap 1:10",
+   "Hch 2:42, 46",
+   "1 Co 11:20-26"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Acts.20.7#11",
+  "morfologia_tagnt": "V-AAN",
+  "dstrong": "G2806",
+  "strong_tagnt": "G2806",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to break"
+ },
+ {
+  "ref": "Acts.20.9",
+  "strong": "G2161",
+  "forma": "Εὔτυχος",
+  "glosa_interlineal": "Eutico",
+  "rango_semantico": [
+   "Eutico (el afortunado)"
+  ],
+  "construccion": "Nominativo: «un joven llamado Eutico».",
+  "sentido_en_contexto": "Joven que, sentado en una ventana y vencido por el sueño durante el largo discurso de Pablo, cae desde el tercer piso y es levantado muerto. Pablo desciende, lo abraza (como Elías y Eliseo, 1 R 17:21; 2 R 4:34) y dice «no os alarméis, pues está vivo».",
+  "matiz": "Debate: ¿Eutico murió (Lucas dice «fue levantado muerto») y resucitó, o solo estaba inconsciente? Pablo dice «su vida está en él»; Lucas lo narra como resurrección. La mayoría lo ve como milagro de resurrección.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 R 17:17-24",
+   "2 R 4:32-37",
+   "Hch 9:36-41",
+   "Lc 7:11-17"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Acts.20.9#06",
+  "morfologia_tagnt": "N-NSM-P",
+  "dstrong": "G2161",
+  "strong_tagnt": "G2161",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Eutychus"
+ },
+ {
+  "ref": "Acts.20.16",
+  "strong": "G4005",
+  "forma": "πεντηκοστῆς",
+  "glosa_interlineal": "Pentecostés",
+  "rango_semantico": [
+   "Pentecostés"
+  ],
+  "construccion": "Genitivo: «el día de Pentecostés».",
+  "sentido_en_contexto": "Pablo se apresura para estar en Jerusalén en Pentecostés, sin detenerse en Éfeso (donde tenía tareas pendientes) para no perder tiempo en Asia. Se reúne con los ancianos de Éfeso en Mileto (vv.17-38): su discurso de despedida, único dirigido a cristianos en Hechos.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 2:1",
+   "Hch 20:17-38",
+   "1 Co 16:8"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 25,
+  "alineacion": "forma",
+  "tagnt": "Acts.20.16#25",
+  "morfologia_tagnt": "N-GSF-T",
+  "dstrong": "G4005",
+  "strong_tagnt": "G4005",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Pentecost"
+ },
+ {
+  "ref": "Acts.20.17",
+  "strong": "G4245",
+  "forma": "πρεσβυτέρους",
+  "glosa_interlineal": "ancianos",
+  "rango_semantico": [
+   "anciano, presbítero"
+  ],
+  "construccion": "Acusativo plural: «hizo llamar a los ancianos de la iglesia».",
+  "sentido_en_contexto": "Pablo convoca en Mileto a los ancianos (presbíteros) de la iglesia de Éfeso. En el v.28, los llama «obispos» (ἐπίσκοπος) y les encarga «pastorear» (ποιμαίνω): tres términos para un mismo grupo (ancianos, supervisores, pastores).",
+  "matiz": "Debate: ¿«ancianos» y «obispos» son lo mismo en el NT? La mayoría de exégetas protestantes y muchos católicos lo creen (cf. Tit 1:5-7); la tradición episcopal posterior distinguirá obispo y presbítero.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 14:23; 20:28",
+   "Tit 1:5-7",
+   "1 Ti 3:1-7; 5:17",
+   "1 P 5:1-4"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Acts.20.17#10",
+  "morfologia_tagnt": "N-APM",
+  "dstrong": "G4245G",
+  "strong_tagnt": "G4245",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "elder"
+ },
+ {
+  "ref": "Acts.20.20",
+  "strong": "G5288",
+  "forma": "ὑπεστειλάμην",
+  "glosa_interlineal": "rehuí",
+  "rango_semantico": [
+   "retraer, ocultar, ahorrar"
+  ],
+  "construccion": "Aoristo indicativo medio: «nada que fuese útil he rehuido de anunciaros».",
+  "sentido_en_contexto": "Pablo recuerda su ministerio ante los ancianos: no ocultó nada útil, enseñó en público y por las casas, testificando a judíos y griegos «arrepentimiento para con Dios y fe en nuestro Señor Jesucristo». Resume el contenido de su predicación.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 20:27",
+   "Gá 2:5",
+   "2 Ti 4:2"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Acts.20.20#03",
+  "morfologia_tagnt": "V-AMI-1S",
+  "dstrong": "G5288",
+  "strong_tagnt": "G5288",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to withdraw"
+ },
+ {
+  "ref": "Acts.20.21",
+  "strong": "G3341",
+  "forma": "μετάνοιαν",
+  "glosa_interlineal": "arrepentimiento",
+  "rango_semantico": [
+   "arrepentimiento, cambio de mentalidad"
+  ],
+  "construccion": "Acusativo: «arrepentimiento para con Dios, y fe en nuestro Señor Jesucristo».",
+  "sentido_en_contexto": "Fórmula del evangelio paulino: arrepentimiento (hacia Dios) y fe (en Jesucristo), dirigida a judíos y griegos por igual. Resume la predicación apostólica en Hechos.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 2:38; 17:30; 26:20",
+   "Mr 1:15",
+   "1 Ts 1:9"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Acts.20.21#10",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G3341",
+  "strong_tagnt": "G3341",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "repentance"
+ },
+ {
+  "ref": "Acts.20.22",
+  "strong": "G1210",
+  "forma": "δεδεμένος",
+  "glosa_interlineal": "atado",
+  "rango_semantico": [
+   "atar, ligar"
+  ],
+  "construccion": "Participio perfecto pasivo: «ahora, he aquí, ligado yo en espíritu, voy a Jerusalén».",
+  "sentido_en_contexto": "Pablo va a Jerusalén «ligado en espíritu» (compelido por el Espíritu), sin saber qué le sucederá, aunque el Espíritu le testifica en cada ciudad que le esperan cadenas y tribulaciones. Su decisión es consciente.",
+  "matiz": "«Ligado en espíritu»: puede referirse al Espíritu Santo (compelido por el Espíritu) o a su propio espíritu (decidido). La mayoría ve al Espíritu Santo, en paralelo con el v.23.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 21:4, 11-14",
+   "Ro 15:30-32",
+   "Lc 9:51"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Acts.20.22#04",
+  "morfologia_tagnt": "V-RPP-NSM",
+  "dstrong": "G1210",
+  "strong_tagnt": "G1210",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to bind"
+ },
+ {
+  "ref": "Acts.20.24",
+  "strong": "G5048",
+  "forma": "τελειῶσαι",
+  "glosa_interlineal": "acabar",
+  "rango_semantico": [
+   "completar, llevar a su fin"
+  ],
+  "construccion": "Infinitivo aoristo activo: «con tal que acabe mi carrera con gozo».",
+  "sentido_en_contexto": "Pablo no estima su vida preciosa si puede terminar su carrera y el ministerio que recibió del Señor Jesús: «dar testimonio del evangelio de la gracia de Dios». Anticipa 2 Ti 4:7 («he acabado la carrera»).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Ti 4:7",
+   "Fil 1:20-21; 3:12-14",
+   "1 Co 9:24-27",
+   "Jn 17:4"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Acts.20.24#13",
+  "morfologia_tagnt": "V-AAN",
+  "dstrong": "G5048",
+  "strong_tagnt": "G5048",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [
+   "WH",
+   "Treg"
+  ],
+  "variante": true,
+  "glosa_tagnt": "to perfect"
+ },
+ {
+  "ref": "Acts.20.28",
+  "strong": "G1985",
+  "forma": "ἐπισκόπους",
+  "glosa_interlineal": "obispos",
+  "rango_semantico": [
+   "supervisor, obispo"
+  ],
+  "construccion": "Acusativo plural: «el Espíritu Santo os ha puesto por obispos (supervisores)».",
+  "sentido_en_contexto": "Texto clave para la eclesiología: los ancianos son «supervisores» (ἐπίσκοποι) puestos por el Espíritu Santo para «pastorear la iglesia del Señor (o de Dios), la cual adquirió con su propia sangre». La frase sobre «la sangre de Dios» tiene variantes y debate cristológico.",
+  "matiz": "Variante textual: «la iglesia de Dios» (θεοῦ, Aleph, B) frente a «del Señor» (κυρίου, P74, A, C, D). Si «Dios», entonces «con su propia sangre» sería la sangre de Dios (expresión cristológica fuerte o «con la sangre de su propio Hijo», v. alternativa). Pablo une la divinidad de Cristo con su sangre derramada.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": "RVR60 lee «del Señor»; varias ediciones críticas leen «de Dios», con la expresión «su propia sangre» entendida de Cristo (o «la sangre de su propio Hijo»).",
+  "otros_usos": [
+   "Tit 1:7",
+   "1 P 5:2",
+   "1 Ti 3:1-2",
+   "Ef 1:7; 5:25"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 15,
+  "alineacion": "forma",
+  "tagnt": "Acts.20.28#16",
+  "morfologia_tagnt": "N-APM",
+  "dstrong": "G1985",
+  "strong_tagnt": "G1985",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "overseer"
+ },
+ {
+  "ref": "Acts.20.29",
+  "strong": "G3074",
+  "forma": "λύκοι",
+  "glosa_interlineal": "lobos",
+  "rango_semantico": [
+   "lobo"
+  ],
+  "construccion": "Nominativo plural: «después de mi partida entrarán lobos rapaces».",
+  "sentido_en_contexto": "Advertencia profética: después de Pablo vendrán falsos maestros («lobos rapaces») y surgirán del propio rebaño hombres que hablen cosas perversas para arrastrar discípulos tras sí. La carta a los efesios y 1-2 Timoteo muestran la realidad de estos peligros.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 7:15",
+   "Jn 10:12",
+   "1 Ti 1:3-7, 19-20",
+   "2 Ti 1:15; 4:3-4"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Acts.20.29#11",
+  "morfologia_tagnt": "N-NPM",
+  "dstrong": "G3074",
+  "strong_tagnt": "G3074",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "wolf"
+ },
+ {
+  "ref": "Acts.20.31",
+  "strong": "G1127",
+  "forma": "γρηγορεῖτε",
+  "glosa_interlineal": "velad",
+  "rango_semantico": [
+   "velar, estar alerta"
+  ],
+  "construccion": "Imperativo presente activo: «velad, acordándoos que por tres años, de noche y de día, no he cesado de amonestar con lágrimas a cada uno».",
+  "sentido_en_contexto": "Pablo recuerda su vigilancia pastoral de tres años (con lágrimas) para exhortar a los ancianos a vigilar. Es el modelo del pastor: amonestar con amor personal a cada uno.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 19:8-10",
+   "2 Co 2:4",
+   "1 Ts 2:11",
+   "Heb 13:17"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Acts.20.31#02",
+  "morfologia_tagnt": "V-PAM-2P",
+  "dstrong": "G1127",
+  "strong_tagnt": "G1127",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to keep watch"
+ },
+ {
+  "ref": "Acts.20.32",
+  "strong": "G3908",
+  "forma": "παρατίθεμαι",
+  "glosa_interlineal": "encomiendo",
+  "rango_semantico": [
+   "encomendar, depositar"
+  ],
+  "construccion": "Presente indicativo medio: «os encomiendo a Dios y a la palabra de su gracia».",
+  "sentido_en_contexto": "Pablo encomienda a los ancianos a Dios y a su palabra, que puede edificarlos y darles herencia entre los santificados. La palabra de gracia es el instrumento de crecimiento de la iglesia.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 14:23",
+   "2 Ti 3:15-17",
+   "Ef 1:18; 2:20-22"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Acts.20.32#04",
+  "morfologia_tagnt": "V-PMI-1S",
+  "dstrong": "G3908",
+  "strong_tagnt": "G3908",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to set before"
+ },
+ {
+  "ref": "Acts.20.34",
+  "strong": "G5256",
+  "forma": "ὑπηρέτησαν",
+  "glosa_interlineal": "sirvieron",
+  "rango_semantico": [
+   "servir, atender"
+  ],
+  "construccion": "Aoristo indicativo activo: «estas manos me han servido para lo que me ha sido necesario a mí y a los que están conmigo».",
+  "sentido_en_contexto": "Pablo recuerda que trabajó con sus manos (hacer tiendas) para mantenerse sin ser carga, ejemplo para los ancianos de Éfeso, que deben ayudar a los débiles (v.35).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 4:12; 9:6-18",
+   "1 Ts 2:9",
+   "2 Ts 3:7-9",
+   "Hch 18:3"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "Acts.20.34#13",
+  "morfologia_tagnt": "V-AAI-3P",
+  "dstrong": "G5256",
+  "strong_tagnt": "G5256",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to serve"
+ },
+ {
+  "ref": "Acts.20.35",
+  "strong": "G3107",
+  "forma": "μακάριόν",
+  "glosa_interlineal": "más bienaventurado",
+  "rango_semantico": [
+   "bienaventurado, dichoso"
+  ],
+  "construccion": "Adjetivo comparativo neutro: «más bienaventurado es dar que recibir».",
+  "sentido_en_contexto": "Dicho de Jesús que no aparece en los evangelios, conservado en la tradición oral y citado por Pablo. Es la única cita de Pablo (en Hechos) de una palabra de Jesús no recogida en los evangelios. Expresa el espíritu del cristianismo: generosidad.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 6:38",
+   "2 Co 9:6-8",
+   "Pr 11:25",
+   "1 Co 9:1-18"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 21,
+  "alineacion": "forma",
+  "tagnt": "Acts.20.35#21",
+  "morfologia_tagnt": "A-NSN",
+  "dstrong": "G3107",
+  "strong_tagnt": "G3107",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "blessed"
+ },
+ {
+  "ref": "Acts.20.37",
+  "strong": "G2805",
+  "forma": "κλαυθμὸς",
+  "glosa_interlineal": "llanto",
+  "rango_semantico": [
+   "llanto, lamento"
+  ],
+  "construccion": "Nominativo: «hubo gran llanto de todos».",
+  "sentido_en_contexto": "Escena de despedida emotiva: los ancianos lloran, abrazan a Pablo y lo besan, afligidos porque no volverán a ver su rostro. Muestra el vínculo de afecto profundo entre Pablo y las iglesias.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 33:4; 45:14-15",
+   "Fil 2:27",
+   "2 Ti 1:4"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Acts.20.37#03",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G2805",
+  "strong_tagnt": "G2805",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "weeping"
+ }
+]

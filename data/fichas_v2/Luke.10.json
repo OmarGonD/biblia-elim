@@ -1,0 +1,862 @@
+[
+ {
+  "ref": "Luke.10.1",
+  "strong": "G1440",
+  "forma": "ἑβδομήκοντα",
+  "glosa_interlineal": "setenta",
+  "rango_semantico": [
+   "setenta",
+   "setenta y dos (variante)"
+  ],
+  "construccion": "Numeral: «otros setenta» (o «setenta y dos»).",
+  "sentido_en_contexto": "Solo Lucas narra el envío de los setenta (o setenta y dos), de dos en dos, delante de Jesús. Evoca los setenta ancianos (Nm 11:24-25) o las setenta naciones de Gn 10: misión simbólica universal.",
+  "matiz": "Los manuscritos se dividen entre «setenta» y «setenta y dos»; las versiones y ediciones críticas difieren. El número probablemente simboliza las naciones (Gn 10) o los ancianos de Moisés.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": "RVR: «setenta»; algunas versiones leen «setenta y dos», según otros manuscritos.",
+  "otros_usos": [
+   "Nm 11:24-25 — setenta ancianos",
+   "Gn 10 — las setenta naciones (LXX 72)",
+   "Mr 6:7 — los doce de dos en dos"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Luke.10.1#09",
+  "morfologia_tagnt": "A-NUI",
+  "dstrong": "G1440",
+  "strong_tagnt": "G1440",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "seventy"
+ },
+ {
+  "ref": "Luke.10.3",
+  "strong": "G704",
+  "forma": "ἄρνας",
+  "glosa_interlineal": "corderos",
+  "rango_semantico": [
+   "cordero"
+  ],
+  "construccion": "Acusativo plural: «como corderos en medio de lobos».",
+  "sentido_en_contexto": "Misión arriesgada: los enviados van indefensos entre hostiles. Mateo (10:16) dice «ovejas»; Lucas, «corderos».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 10:16 — «como ovejas en medio de lobos»",
+   "Jn 21:15 — «apacienta mis corderos»",
+   "Is 53:7 — «como cordero fue llevado al matadero»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Luke.10.3#07",
+  "morfologia_tagnt": "N-APM",
+  "dstrong": "G0704",
+  "strong_tagnt": "G704",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "lamb"
+ },
+ {
+  "ref": "Luke.10.6",
+  "strong": "G1515",
+  "forma": "εἰρήνης",
+  "glosa_interlineal": "paz",
+  "rango_semantico": [
+   "paz (shalom)"
+  ],
+  "construccion": "Genitivo: «hijo de paz».",
+  "sentido_en_contexto": "«Hijo de paz» (semitismo) es alguien receptivo a la paz del mensaje. La paz deseada reposa sobre él; si no, vuelve a quien la dio. Saludo con eficacia.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 10:13 — paralelo",
+   "Jn 14:27 — «mi paz os dejo»",
+   "1 S 25:6 — «paz sea contigo, y paz a tu casa»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Luke.10.6#07",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G1515",
+  "strong_tagnt": "G1515",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "peace"
+ },
+ {
+  "ref": "Luke.10.9",
+  "strong": "G1448",
+  "forma": "ἤγγικεν",
+  "glosa_interlineal": "se ha acercado",
+  "rango_semantico": [
+   "acercarse, estar cerca"
+  ],
+  "construccion": "Perfecto indicativo activo: «se ha acercado a vosotros el reino de Dios».",
+  "sentido_en_contexto": "Mensaje de los enviados: sanar y anunciar la cercanía del reino. La sanación es señal de ese reino que irrumpe.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Lc 11:20 — «el reino de Dios ha llegado a vosotros»",
+   "Mt 10:7 — paralelo",
+   "Mr 1:15 — «el reino de Dios se ha acercado»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Luke.10.9#10",
+  "morfologia_tagnt": "V-RAI-3S",
+  "dstrong": "G1448",
+  "strong_tagnt": "G1448",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to come near"
+ },
+ {
+  "ref": "Luke.10.13",
+  "strong": "G3759",
+  "forma": "Οὐαί",
+  "glosa_interlineal": "¡ay!",
+  "rango_semantico": [
+   "¡ay! (lamento y juicio)"
+  ],
+  "construccion": "Interjección: «¡ay de ti, Corazín!».",
+  "sentido_en_contexto": "Lucas inserta aquí los ayes sobre Corazín, Betsaida y Capernaúm (que Mateo pone en 11:20-24): quienes rechazan a los enviados rechazan a Jesús.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 11:21-23 — paralelo",
+   "Lc 10:16 — «el que a vosotros desecha, a mí me desecha»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto",
+  "pos_tisch": 1,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Luke.10.13#01",
+  "morfologia_tagnt": "INJ",
+  "dstrong": "G3759",
+  "strong_tagnt": "G3759",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "woe!"
+ },
+ {
+  "ref": "Luke.10.13",
+  "strong": "G3759",
+  "forma": "Οὐαί",
+  "glosa_interlineal": "¡ay!",
+  "rango_semantico": [
+   "¡ay! (lamento y juicio)"
+  ],
+  "construccion": "Interjección: «¡ay de ti, Corazín!».",
+  "sentido_en_contexto": "Lucas inserta aquí los ayes sobre Corazín, Betsaida y Capernaúm (que Mateo pone en 11:20-24): quienes rechazan a los enviados rechazan a Jesús.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 11:21-23 — paralelo",
+   "Lc 10:16 — «el que a vosotros desecha, a mí me desecha»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Luke.10.13#04",
+  "morfologia_tagnt": "INJ",
+  "dstrong": "G3759",
+  "strong_tagnt": "G3759",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "woe!"
+ },
+ {
+  "ref": "Luke.10.16",
+  "strong": "G114",
+  "forma": "ἀθετῶν",
+  "glosa_interlineal": "el que rechaza",
+  "rango_semantico": [
+   "rechazar, desechar"
+  ],
+  "construccion": "Participio presente activo: «el que a vosotros desecha, a mí me desecha».",
+  "sentido_en_contexto": "Cadena de representación: oír a los enviados es oír a Jesús; rechazarlos es rechazar a Jesús y al Padre. Cierra la instrucción misionera.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 10:40 — «el que a vosotros recibe, a mí me recibe»",
+   "Jn 13:20 — paralelo",
+   "1 Ts 4:8 — «el que desecha esto, no desecha a hombre»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Luke.10.16#08",
+  "morfologia_tagnt": "V-PAP-NSM",
+  "dstrong": "G0114",
+  "strong_tagnt": "G114",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to reject"
+ },
+ {
+  "ref": "Luke.10.16",
+  "strong": "G114",
+  "forma": "ἀθετῶν",
+  "glosa_interlineal": "el que rechaza",
+  "rango_semantico": [
+   "rechazar, desechar"
+  ],
+  "construccion": "Participio presente activo: «el que a vosotros desecha, a mí me desecha».",
+  "sentido_en_contexto": "Cadena de representación: oír a los enviados es oír a Jesús; rechazarlos es rechazar a Jesús y al Padre. Cierra la instrucción misionera.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 10:40 — «el que a vosotros recibe, a mí me recibe»",
+   "Jn 13:20 — paralelo",
+   "1 Ts 4:8 — «el que desecha esto, no desecha a hombre»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 15,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Luke.10.16#15",
+  "morfologia_tagnt": "V-PAP-NSM",
+  "dstrong": "G0114",
+  "strong_tagnt": "G114",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to reject"
+ },
+ {
+  "ref": "Luke.10.18",
+  "strong": "G4567",
+  "forma": "σατανᾶν",
+  "glosa_interlineal": "Satanás",
+  "rango_semantico": [
+   "Satanás, adversario"
+  ],
+  "construccion": "Acusativo: «veía a Satanás caer del cielo como un rayo».",
+  "sentido_en_contexto": "Respuesta de Jesús a la alegría de los setenta: la caída de Satanás «como un rayo» describe su derrota ante la misión del reino. Imagen apocalíptica de Is 14:12; Ap 12:9.",
+  "matiz": "Debate: ¿la visión es del pasado (caída primordial), del presente (derrota en el ministerio de Jesús y sus enviados) o profética (derrota final)? La mayoría ve la derrota presente en la misión.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 14:12 — «¡cómo caíste del cielo, oh Lucero!»",
+   "Ap 12:9 — «fue lanzado el gran dragón»",
+   "Jn 12:31 — «el príncipe de este mundo será echado fuera»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Luke.10.18#06",
+  "morfologia_tagnt": "N-ASM-T",
+  "dstrong": "G4567",
+  "strong_tagnt": "G4567",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Satan"
+ },
+ {
+  "ref": "Luke.10.19",
+  "strong": "G3961",
+  "forma": "πατεῖν",
+  "glosa_interlineal": "hollar",
+  "rango_semantico": [
+   "pisar, hollar"
+  ],
+  "construccion": "Infinitivo presente activo: «hollar serpientes y escorpiones».",
+  "sentido_en_contexto": "Poder concedido a los enviados sobre «toda fuerza del enemigo»; las serpientes y escorpiones son símbolo de poderes del mal (Sal 91:13). No es una invitación a imprudencias literales.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 91:13 — «sobre el león y el áspid pisarás»",
+   "Mr 16:18 — «tomarán serpientes en las manos»",
+   "Ro 16:20 — «el Dios de paz aplastará en breve a Satanás»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Luke.10.19#07",
+  "morfologia_tagnt": "V-PAN",
+  "dstrong": "G3961",
+  "strong_tagnt": "G3961",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to trample"
+ },
+ {
+  "ref": "Luke.10.20",
+  "strong": "G1449",
+  "forma": "ἐνγέγραπται",
+  "glosa_interlineal": "están escritos",
+  "rango_semantico": [
+   "inscribir, registrar"
+  ],
+  "construccion": "Perfecto indicativo pasivo, 3ª singular: «vuestros nombres están escritos en los cielos».",
+  "sentido_en_contexto": "El verdadero motivo de alegría no es el poder sobre los espíritus sino la salvación personal: los nombres inscritos en el cielo. Imagen del libro de la vida (Éx 32:32; Dn 12:1).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 32:32 — «bórrame de tu libro»",
+   "Dn 12:1 — «todos los que se hallen escritos en el libro»",
+   "Fil 4:3 — «cuyos nombres están en el libro de la vida»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 17,
+  "alineacion": "strong",
+  "tagnt": "Luke.10.20#18",
+  "morfologia_tagnt": "V-RPI-3S",
+  "dstrong": "G1449",
+  "strong_tagnt": "G1449",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg"
+  ],
+  "ausente_en": [
+   "TR",
+   "Byz"
+  ],
+  "variante": true,
+  "glosa_tagnt": "to write in"
+ },
+ {
+  "ref": "Luke.10.21",
+  "strong": "G21",
+  "forma": "ἠγαλλιάσατο",
+  "glosa_interlineal": "se regocijó",
+  "rango_semantico": [
+   "alegrarse, regocijarse efusivamente"
+  ],
+  "construccion": "Aoristo indicativo medio: «se regocijó en el Espíritu Santo».",
+  "sentido_en_contexto": "Lucas añade que Jesús se regocijó «en el Espíritu Santo»: único pasaje donde Jesús «se regocija» así. Su alabanza al Padre parte de la misión de los setenta.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 11:25-27 — paralelo",
+   "Lc 1:47 — «mi espíritu se regocija en Dios»",
+   "Hch 2:26 — «mi corazón se alegró»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Luke.10.21#05",
+  "morfologia_tagnt": "V-ADI-3S",
+  "dstrong": "G0021",
+  "strong_tagnt": "G21",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to rejoice"
+ },
+ {
+  "ref": "Luke.10.25",
+  "strong": "G3544",
+  "forma": "νομικός",
+  "glosa_interlineal": "experto en la ley",
+  "rango_semantico": [
+   "jurista, experto en la Torá"
+  ],
+  "construccion": "Nominativo: «un intérprete de la ley».",
+  "sentido_en_contexto": "Un experto en la Ley pregunta a Jesús para probarlo: ¿qué hacer para heredar la vida eterna? Jesús lo remite al mandamiento doble, que el mismo experto cita (vv.26-27).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 22:35 — «un intérprete de la ley… le preguntó»",
+   "Mr 12:28 — «uno de los escribas»",
+   "Dt 6:5; Lv 19:18 — los mandamientos citados"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Luke.10.25#03",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G3544",
+  "strong_tagnt": "G3544",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "lawyer"
+ },
+ {
+  "ref": "Luke.10.29",
+  "strong": "G4139",
+  "forma": "πλησίον",
+  "glosa_interlineal": "prójimo",
+  "rango_semantico": [
+   "prójimo, el que está cerca"
+  ],
+  "construccion": "Nominativo: «¿y quién es mi prójimo?».",
+  "sentido_en_contexto": "El experto, queriendo justificarse, pregunta quién es su prójimo. Jesús responde con la parábola del buen samaritano, invirtiendo la pregunta: no «¿quién es mi prójimo?» sino «¿quién se hizo prójimo?».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lv 19:18 — «amarás a tu prójimo como a ti mismo»",
+   "Lc 10:36 — la pregunta invertida",
+   "Gá 5:14 — «toda la ley se cumple en esta sola palabra»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Luke.10.29#14",
+  "morfologia_tagnt": "ADV",
+  "dstrong": "G4139",
+  "strong_tagnt": "G4139",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "near/neighbour"
+ },
+ {
+  "ref": "Luke.10.30",
+  "strong": "G2253",
+  "forma": "ἡμιθανῆ",
+  "glosa_interlineal": "medio muerto",
+  "rango_semantico": [
+   "medio muerto"
+  ],
+  "construccion": "Acusativo: «dejándole medio muerto».",
+  "sentido_en_contexto": "Parábola exclusiva de Lucas: un hombre es asaltado entre Jerusalén y Jericó (camino peligroso, de 27 km con descenso de 900 m). Sacerdote y levita lo evitan; un samaritano lo socorre.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jos 16:1 — el camino de Jericó",
+   "Jn 4:9 — «los judíos no se tratan con los samaritanos»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 24,
+  "alineacion": "forma",
+  "tagnt": "Luke.10.30#25",
+  "morfologia_tagnt": "A-ASM",
+  "dstrong": "G2253",
+  "strong_tagnt": "G2253",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "half-dead"
+ },
+ {
+  "ref": "Luke.10.31",
+  "strong": "G492",
+  "forma": "ἀντιπαρῆλθεν",
+  "glosa_interlineal": "pasó de largo",
+  "rango_semantico": [
+   "pasar por el lado opuesto"
+  ],
+  "construccion": "Aoristo indicativo activo: «pasó de largo por el otro lado».",
+  "sentido_en_contexto": "El sacerdote y el levita ven al herido y rodean por el lado contrario. Se ha propuesto que temían contaminarse con un cadáver (Lv 21:1-3; Nm 19:11), pero el relato no lo dice: subraya la falta de compasión.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Lv 21:1-3 — impureza del sacerdote",
+   "Mi 6:8 — «misericordia»",
+   "1 Jn 3:17 — «si alguno… ve a su hermano tener necesidad»"
+  ],
+  "otros_usos": "medio",
+  "nivel_certeza": "alto",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Luke.10.31#14",
+  "morfologia_tagnt": "V-2AAI-3S",
+  "dstrong": "G0492",
+  "strong_tagnt": "G492",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to pass"
+ },
+ {
+  "ref": "Luke.10.33",
+  "strong": "G4541",
+  "forma": "Σαμαρίτης",
+  "glosa_interlineal": "samaritano",
+  "rango_semantico": [
+   "samaritano"
+  ],
+  "construccion": "Nominativo: «un samaritano».",
+  "sentido_en_contexto": "El héroe de la parábola es un samaritano, despreciado por los judíos. Jesús invierte las expectativas: el prójimo ejemplar es el «enemigo».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 4:9 — «los judíos no se tratan con los samaritanos»",
+   "Lc 17:16 — el samaritano leproso agradecido",
+   "Hch 8:5-25 — Felipe en Samaria"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "Luke.10.33#01",
+  "morfologia_tagnt": "N-NSM-LG",
+  "dstrong": "G4541",
+  "strong_tagnt": "G4541",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Samaritan"
+ },
+ {
+  "ref": "Luke.10.34",
+  "strong": "G3829",
+  "forma": "πανδοκίον",
+  "glosa_interlineal": "mesón",
+  "rango_semantico": [
+   "posada, alojamiento comercial"
+  ],
+  "construccion": "Acusativo: «lo llevó al mesón».",
+  "sentido_en_contexto": "Aquí sí es una posada comercial: Lucas usa πανδοχεῖον (distinto de κατάλυμα de 2:7). El samaritano deja dos denarios al posadero y promete volver a pagar el resto.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Lc 2:7 — κατάλυμα (otro término)",
+   "Lc 10:35 — «dos denarios»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto",
+  "pos_tisch": 21,
+  "alineacion": "strong",
+  "tagnt": "Luke.10.34#21",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G3829",
+  "strong_tagnt": "G3829",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "inn"
+ },
+ {
+  "ref": "Luke.10.37",
+  "strong": "G1656",
+  "forma": "ἔλεος",
+  "glosa_interlineal": "misericordia",
+  "rango_semantico": [
+   "misericordia, compasión"
+  ],
+  "construccion": "Acusativo: «el que hizo misericordia con él».",
+  "sentido_en_contexto": "El experto no pronuncia la palabra «samaritano»: dice «el que usó de misericordia». Jesús concluye: «ve y haz tú lo mismo». La ley se cumple en la misericordia concreta.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 9:13 — «misericordia quiero»",
+   "Mi 6:8 — «amar misericordia»",
+   "Stg 2:13 — «la misericordia triunfa sobre el juicio»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Luke.10.37#07",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G1656",
+  "strong_tagnt": "G1656",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "mercy"
+ },
+ {
+  "ref": "Luke.10.39",
+  "strong": "G3869",
+  "forma": "παρακαθεσθεῖσα",
+  "glosa_interlineal": "sentándose",
+  "rango_semantico": [
+   "sentarse junto a"
+  ],
+  "construccion": "Participio aoristo pasivo: «sentándose a los pies del Señor».",
+  "sentido_en_contexto": "María asume la postura del discípulo (a los pies del maestro), algo inusual para una mujer en ese contexto. Lucas presenta a las mujeres como discípulas.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 22:3 — Pablo «a los pies de Gamaliel»",
+   "Lc 8:35 — el endemoniado sanado, a los pies de Jesús"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Luke.10.39#09",
+  "morfologia_tagnt": "V-AOP-NSF",
+  "dstrong": "G3869",
+  "strong_tagnt": "G3869",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg"
+  ],
+  "ausente_en": [
+   "TR",
+   "Byz"
+  ],
+  "variante": true,
+  "glosa_tagnt": "to sit by"
+ },
+ {
+  "ref": "Luke.10.40",
+  "strong": "G1248",
+  "forma": "διακονίαν",
+  "glosa_interlineal": "servicio",
+  "rango_semantico": [
+   "servicio, ministerio"
+  ],
+  "construccion": "Acusativo: «muchos quehaceres (servicio)».",
+  "sentido_en_contexto": "Marta, absorbida por «mucho servicio», se queja de su hermana. El problema no es el servicio sino la ansiedad y la distracción que la alejan de lo esencial.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Lc 8:3 — mujeres que servían",
+   "Hch 6:1-4 — el servicio y la palabra"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Luke.10.40#07",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G1248",
+  "strong_tagnt": "G1248",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "service"
+ },
+ {
+  "ref": "Luke.10.42",
+  "strong": "G3310",
+  "forma": "μερίδα",
+  "glosa_interlineal": "parte",
+  "rango_semantico": [
+   "parte, porción, lote"
+  ],
+  "construccion": "Acusativo: «María ha escogido la buena parte».",
+  "sentido_en_contexto": "Texto discutido: «una sola cosa es necesaria» (algunos manuscritos: «pocas cosas son necesarias, o una sola»). María escogió la «buena parte» que no le será quitada: escuchar al Señor.",
+  "matiz": "Variantes textuales en el v.42: «una cosa es necesaria» (la mejor atestiguada), «pocas cosas son necesarias, o más bien una». No se opone servicio y escucha, sino que se prioriza la escucha. Jesús no desprecia a Marta.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 16:5 — «Jehová es la porción de mi herencia»",
+   "Lc 8:21 — «los que oyen la palabra de Dios, y la hacen»",
+   "Lc 11:28 — «bienaventurados los que oyen»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Luke.10.42#11",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G3310",
+  "strong_tagnt": "G3310",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "part"
+ }
+]

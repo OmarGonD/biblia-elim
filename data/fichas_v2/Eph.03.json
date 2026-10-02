@@ -1,0 +1,553 @@
+[
+ {
+  "ref": "Eph.3.1",
+  "strong": "G1198",
+  "forma": "δέσμιος",
+  "glosa_interlineal": "prisionero",
+  "rango_semantico": [
+   "prisionero, encadenado"
+  ],
+  "construccion": "Nominativo: «por esta causa yo Pablo, prisionero de Cristo Jesús por vosotros los gentiles».",
+  "sentido_en_contexto": "Pablo, preso (probablemente en Roma, Hch 28), se presenta como «prisionero de Cristo» por causa de los gentiles. La frase queda interrumpida por una digresión (vv.2-13) y se retoma en el v.14. Es una de las cartas de la cautividad (junto con Filipenses, Colosenses y Filemón).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 28:16-31",
+   "Flm 1",
+   "Ef 4:1; 6:20",
+   "2 Ti 1:8"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Eph.3.1#06",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G1198",
+  "strong_tagnt": "G1198",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "prisoner"
+ },
+ {
+  "ref": "Eph.3.3",
+  "strong": "G3466",
+  "forma": "μυστήριον",
+  "glosa_interlineal": "misterio",
+  "rango_semantico": [
+   "misterio, secreto revelado"
+  ],
+  "construccion": "Nominativo: «cómo por revelación me fue declarado el misterio».",
+  "sentido_en_contexto": "Pablo explica cómo recibió el misterio por revelación. El contenido (v.6): los gentiles son coherederos, miembros del mismo cuerpo y copartícipes de la promesa en Cristo. No es que Dios no hubiera previsto a los gentiles en el AT, sino que no se había revelado el modo de su inclusión plena.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 16:25-26",
+   "Col 1:26-27",
+   "Gá 1:12"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Eph.3.3#07",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G3466",
+  "strong_tagnt": "G3466",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "mystery"
+ },
+ {
+  "ref": "Eph.3.5",
+  "strong": "G601",
+  "forma": "ἀπεκαλύφθη",
+  "glosa_interlineal": "fue revelado",
+  "rango_semantico": [
+   "revelar"
+  ],
+  "construccion": "Aoristo indicativo pasivo: «misterio que en otras generaciones no se dio a conocer a los hijos de los hombres, como ahora ha sido revelado a sus santos apóstoles y profetas por el Espíritu».",
+  "sentido_en_contexto": "La revelación se ha dado «ahora» a los apóstoles y profetas (del NT) por el Espíritu. «No se dio a conocer… como ahora»: contraste de grado (no total ausencia: Is 49:6; Gn 12:3), pero sí de claridad y de forma de cumplimiento.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 16:25-26",
+   "Col 1:26",
+   "1 P 1:10-12"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "Eph.3.5#13",
+  "morfologia_tagnt": "V-API-3S",
+  "dstrong": "G0601",
+  "strong_tagnt": "G601",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to reveal"
+ },
+ {
+  "ref": "Eph.3.6",
+  "strong": "G4789",
+  "forma": "συνκληρονόμα",
+  "glosa_interlineal": "coherederos",
+  "rango_semantico": [
+   "coheredero"
+  ],
+  "construccion": "Nominativo plural: «que los gentiles son coherederos y miembros del mismo cuerpo, y copartícipes de la promesa en Cristo Jesús por medio del evangelio».",
+  "sentido_en_contexto": "Tres términos con prefijo σύν («con»): coherederos, miembros del mismo cuerpo, copartícipes. Los gentiles no son ciudadanos de segunda clase. Este es el misterio: unión de judíos y gentiles en un solo cuerpo.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gá 3:28-29",
+   "Ef 2:11-22",
+   "Ro 8:17"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "strong",
+  "tagnt": "Eph.3.6#04",
+  "morfologia_tagnt": "A-APN",
+  "dstrong": "G4789",
+  "strong_tagnt": "G4789",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "co-heir"
+ },
+ {
+  "ref": "Eph.3.8",
+  "strong": "G421",
+  "forma": "ἀνεξιχνίαστον",
+  "glosa_interlineal": "inescrutable",
+  "rango_semantico": [
+   "inescrutable, insondable"
+  ],
+  "construccion": "Acusativo: «a mí, que soy menos que el más pequeño de todos los santos, me fue dada esta gracia de anunciar entre los gentiles el evangelio de las inescrutables riquezas de Cristo».",
+  "sentido_en_contexto": "Juego de palabras: ἐλαχιστότερος («más pequeño que el mínimo»). Pablo se llama el menor de los santos, reconociendo su pasado (1 Co 15:9). Las riquezas de Cristo son «inescrutables» (ἀνεξιχνίαστος: que no se pueden rastrear).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 15:9",
+   "1 Ti 1:15",
+   "Ro 11:33",
+   "Job 5:9"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Eph.3.8#16",
+  "morfologia_tagnt": "A-ASN",
+  "dstrong": "G0421",
+  "strong_tagnt": "G421",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "unsearchable"
+ },
+ {
+  "ref": "Eph.3.10",
+  "strong": "G746",
+  "forma": "ἀρχαῖς",
+  "glosa_interlineal": "principados",
+  "rango_semantico": [
+   "principado, poder"
+  ],
+  "construccion": "Dativo plural: «para que la multiforme sabiduría de Dios sea ahora dada a conocer por medio de la iglesia a los principados y potestades en los lugares celestiales».",
+  "sentido_en_contexto": "La iglesia, con su unidad de judíos y gentiles, manifiesta la sabiduría «multiforme» (πολυποίκιλος) de Dios a los poderes celestiales. Se debate si estos poderes son ángeles buenos, poderes malignos o ambos; la proclamación puede ser de testimonio o de derrota.",
+  "matiz": "Debate: (a) poderes malignos, a quienes la iglesia anuncia su derrota; (b) ángeles buenos, que contemplan el plan de Dios (cf. 1 P 1:12); (c) ambos. El texto afirma que la iglesia tiene un papel cósmico.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 P 1:12",
+   "Ef 6:12",
+   "Col 2:15",
+   "Ro 11:33"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Eph.3.10#05",
+  "morfologia_tagnt": "N-DPF",
+  "dstrong": "G0746",
+  "strong_tagnt": "G746",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "beginning"
+ },
+ {
+  "ref": "Eph.3.12",
+  "strong": "G3954",
+  "forma": "παρρησίαν",
+  "glosa_interlineal": "confianza",
+  "rango_semantico": [
+   "franqueza, confianza, libertad de palabra"
+  ],
+  "construccion": "Acusativo: «en quien tenemos seguridad y acceso con confianza por medio de la fe de él».",
+  "sentido_en_contexto": "παρρησία: libertad de palabra, derecho del ciudadano a hablar en público; aquí la libertad de hablar ante Dios. «Fe de él» (πίστις αὐτοῦ): «fe en él» (lectura habitual) o «su fidelidad» (πίστις Χριστοῦ), según el debate de Gá 2:16.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 4:16; 10:19-22",
+   "Ef 2:18",
+   "Ro 5:2"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Eph.3.12#05",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G3954",
+  "strong_tagnt": "G3954",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "boldness"
+ },
+ {
+  "ref": "Eph.3.14",
+  "strong": "G2578",
+  "forma": "κάμπτω",
+  "glosa_interlineal": "doblo",
+  "rango_semantico": [
+   "doblar, inclinar"
+  ],
+  "construccion": "Presente indicativo activo: «por esta causa doblo mis rodillas ante el Padre».",
+  "sentido_en_contexto": "Retoma 3:1: Pablo ora de rodillas (postura de súplica intensa; lo usual era orar de pie). La segunda intercesión (3:14-21) pide fortalecimiento por el Espíritu, la habitación de Cristo, el arraigo en el amor y la plenitud de Dios.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Fil 2:10",
+   "Lc 22:41",
+   "Hch 20:36"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Eph.3.14#03",
+  "morfologia_tagnt": "V-PAI-1S",
+  "dstrong": "G2578",
+  "strong_tagnt": "G2578",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to bend/bow"
+ },
+ {
+  "ref": "Eph.3.15",
+  "strong": "G3965",
+  "forma": "πατριὰ",
+  "glosa_interlineal": "familia",
+  "rango_semantico": [
+   "familia, linaje, clan"
+  ],
+  "construccion": "Nominativo: «de quien toma nombre toda familia en los cielos y en la tierra».",
+  "sentido_en_contexto": "Juego de palabras en griego entre πατήρ («padre») y πατριά («familia derivada de un padre»): toda familia deriva su nombre de la paternidad de Dios. Se debate si «toda familia» incluye ángeles y personas, o solo los creyentes.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ef 1:10",
+   "Mal 2:10"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Eph.3.15#04",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G3965",
+  "strong_tagnt": "G3965",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "family line"
+ },
+ {
+  "ref": "Eph.3.16",
+  "strong": "G2901",
+  "forma": "κραταιωθῆναι",
+  "glosa_interlineal": "ser fortalecidos",
+  "rango_semantico": [
+   "ser fortalecido, hacerse fuerte"
+  ],
+  "construccion": "Aoristo infinitivo pasivo: «para que os dé, conforme a las riquezas de su gloria, el ser fortalecidos con poder en el hombre interior por su Espíritu».",
+  "sentido_en_contexto": "Primera petición: fortalecimiento interior por el Espíritu. Los «ricos en gloria» (según la riqueza de su gloria) dan sin límite. «El hombre interior» es el centro de la persona renovada por Dios.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Co 4:16",
+   "Col 1:11",
+   "Ef 6:10"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Eph.3.16#11",
+  "morfologia_tagnt": "V-APN",
+  "dstrong": "G2901",
+  "strong_tagnt": "G2901",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to strengthen"
+ },
+ {
+  "ref": "Eph.3.17",
+  "strong": "G2730",
+  "forma": "κατοικῆσαι",
+  "glosa_interlineal": "habite",
+  "rango_semantico": [
+   "habitar, morar permanentemente"
+  ],
+  "construccion": "Aoristo infinitivo activo: «para que habite Cristo por la fe en vuestros corazones».",
+  "sentido_en_contexto": "κατοικέω: residir de modo permanente. Cristo mora en el corazón del creyente por la fe. La intercesión pide que su presencia sea más plena y real, no que comience a estar presente.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 14:23",
+   "Ro 8:9-11",
+   "Gá 2:20",
+   "Col 1:27"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "Eph.3.17#01",
+  "morfologia_tagnt": "V-AAN",
+  "dstrong": "G2730",
+  "strong_tagnt": "G2730",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to dwell"
+ },
+ {
+  "ref": "Eph.3.18",
+  "strong": "G4114",
+  "forma": "πλάτος",
+  "glosa_interlineal": "anchura",
+  "rango_semantico": [
+   "anchura"
+  ],
+  "construccion": "Acusativo: «seáis plenamente capaces de comprender con todos los santos cuál sea la anchura, la longitud, la profundidad y la altura».",
+  "sentido_en_contexto": "Las cuatro dimensiones, sin sustantivo que las defina, se interpretan como las del amor de Cristo (v.19) o de su misterio/sabiduría. La interpretación tradicional (la cruz como cuatro dimensiones) es devocional y no exegética. Se conoce el amor «que excede a todo conocimiento» (v.19).",
+  "matiz": "Debate: (a) dimensiones del amor de Cristo (la mayoría; v.19); (b) dimensiones de la sabiduría o el plan de Dios (3:10); (c) la cruz (lectura patrística, devocional); (d) las dimensiones del cosmos o del templo (propuestas con base en el Templo y el cosmos).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 8:38-39",
+   "Job 11:7-9",
+   "Ro 11:33"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 15,
+  "alineacion": "forma",
+  "tagnt": "Eph.3.18#10",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G4114",
+  "strong_tagnt": "G4114",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "width"
+ },
+ {
+  "ref": "Eph.3.19",
+  "strong": "G4138",
+  "forma": "πλήρωμα",
+  "glosa_interlineal": "plenitud",
+  "rango_semantico": [
+   "plenitud"
+  ],
+  "construccion": "Acusativo: «y de conocer el amor de Cristo, que excede a todo conocimiento, para que seáis llenos de toda la plenitud de Dios».",
+  "sentido_en_contexto": "Paradoja: conocer lo que excede el conocimiento. La meta es ser llenos «hasta toda la plenitud de Dios» (εἰς πᾶν τὸ πλήρωμα τοῦ θεοῦ): participar de la vida y el carácter divinos. Expresión de gran intensidad teológica (teosis en la ortodoxia, plenitud en la tradición protestante).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Col 2:9-10",
+   "Ef 1:23; 4:13",
+   "Jn 1:16",
+   "2 P 1:4"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 15,
+  "alineacion": "forma",
+  "tagnt": "Eph.3.19#15",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G4138",
+  "strong_tagnt": "G4138",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "fulfillment"
+ },
+ {
+  "ref": "Eph.3.20",
+  "strong": "G4053",
+  "forma": "ὑπερεκπερισσοῦ",
+  "glosa_interlineal": "infinitamente más",
+  "rango_semantico": [
+   "muchísimo más allá, sobreabundantemente"
+  ],
+  "construccion": "Adverbio: «y a aquel que es poderoso para hacer todas las cosas mucho más abundantemente de lo que pedimos o entendemos, según el poder que actúa en nosotros».",
+  "sentido_en_contexto": "Doxología final de la primera mitad de la carta (caps. 1-3): palabra compuesta sin paralelo (tres prefijos), expresión de la desbordante capacidad de Dios, que actúa «en nosotros». Cierra con «gloria en la iglesia y en Cristo Jesús».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 16:25",
+   "Jud 24",
+   "Ef 1:19"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma_otro_strong",
+  "tagnt": "Eph.3.20#07",
+  "morfologia_tagnt": "PREP + G1537=PREP + G4057=ADV",
+  "dstrong": "G5228",
+  "strong_tagnt": "G5228",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "above/for + ἐκ=out from + περισσῶς=more-abundantly",
+  "caso_regido": "genitivo"
+ }
+]

@@ -1,0 +1,517 @@
+[
+ {
+  "ref": "1Cor.1.2",
+  "strong": "G37",
+  "forma": "ἡγιασμένοις",
+  "glosa_interlineal": "santificados",
+  "rango_semantico": [
+   "santificar, consagrar, apartar"
+  ],
+  "construccion": "Participio perfecto pasivo: «a los santificados en Cristo Jesús, llamados a ser santos».",
+  "sentido_en_contexto": "Pablo llama «santificados» y «santos» a los corintios, a pesar de sus graves problemas (cap. 5-6, 11). La santidad es primero posición (pertenecer a Dios en Cristo) y luego proceso de conducta. El perfecto indica un estado resultante de un acto previo de Dios.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 6:11",
+   "Ro 1:7",
+   "Heb 10:10, 14",
+   "Fil 1:1"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "1Cor.1.2#09",
+  "morfologia_tagnt": "V-RPP-DPM",
+  "dstrong": "G0037",
+  "strong_tagnt": "G37",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to sanctify"
+ },
+ {
+  "ref": "1Cor.1.7",
+  "strong": "G5486",
+  "forma": "χαρίσματι",
+  "glosa_interlineal": "don",
+  "rango_semantico": [
+   "don de gracia, don espiritual"
+  ],
+  "construccion": "Dativo: «de modo que nada os falta en ningún don».",
+  "sentido_en_contexto": "Los corintios abundaban en dones espirituales (palabra, conocimiento), pero con desorden (cap. 12-14). Pablo los reconoce con gratitud antes de corregir. «Esperando la manifestación (ἀποκάλυψις) de nuestro Señor» anticipa el tema escatológico.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 12—14",
+   "2 Co 8:7",
+   "Ro 8:23"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "1Cor.1.7#07",
+  "morfologia_tagnt": "N-DSN",
+  "dstrong": "G5486",
+  "strong_tagnt": "G5486",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "gift"
+ },
+ {
+  "ref": "1Cor.1.9",
+  "strong": "G2842",
+  "forma": "κοινωνίαν",
+  "glosa_interlineal": "comunión",
+  "rango_semantico": [
+   "comunión, participación"
+  ],
+  "construccion": "Acusativo: «fuisteis llamados a la comunión de su Hijo Jesucristo».",
+  "sentido_en_contexto": "Fundamento de la unidad (v.9) frente a las divisiones (v.10-17): Dios es fiel y los llamó a la comunión (κοινωνία) con su Hijo. La división contradice su vocación. Un solo Cristo no puede estar dividido (v.13).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Jn 1:3, 6-7",
+   "1 Co 10:16",
+   "Fil 2:1",
+   "Jn 17:21"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "1Cor.1.9#08",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G2842",
+  "strong_tagnt": "G2842",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "participation"
+ },
+ {
+  "ref": "1Cor.1.10",
+  "strong": "G4978",
+  "forma": "σχίσματα",
+  "glosa_interlineal": "divisiones",
+  "rango_semantico": [
+   "división, desgarro, cisma"
+  ],
+  "construccion": "Nominativo plural: «que no haya entre vosotros divisiones (cismas)».",
+  "sentido_en_contexto": "σχίσμα significa «rotura» (de un vestido); aquí, facciones en la comunidad. Pablo ruega que haya unidad de mente y de parecer. Es el tema de los capítulos 1-4: los corintios se dividían por seguidores de líderes (v.12).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 3:3-4; 11:18; 12:25",
+   "Jn 17:21-23",
+   "Ef 4:3-6",
+   "Fil 2:2"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 23,
+  "alineacion": "forma",
+  "tagnt": "1Cor.1.10#23",
+  "morfologia_tagnt": "N-NPN",
+  "dstrong": "G4978",
+  "strong_tagnt": "G4978",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "split"
+ },
+ {
+  "ref": "1Cor.1.12",
+  "strong": "G2786",
+  "forma": "Κηφᾶ",
+  "glosa_interlineal": "Cefas",
+  "rango_semantico": [
+   "Cefas (Pedro)"
+  ],
+  "construccion": "Genitivo: «yo soy de Pablo; yo de Apolos; yo de Cefas; yo de Cristo».",
+  "sentido_en_contexto": "Cuatro facciones corintias: partidarios de Pablo (fundador), de Apolos (elocuente), de Cefas (Pedro) y de Cristo. Se debate si había cuatro grupos reales o si Pablo ilustra en abstracto el partidismo; y si el «de Cristo» es un grupo más, o la respuesta correcta de Pablo.",
+  "matiz": "Debate: (a) cuatro grupos reales con teologías distintas (Baur: judaizantes vs paulinos); (b) lemas retóricos de rivalidad personal sin teologías diferenciadas (la mayoría actual); (c) «yo de Cristo» como cuarta facción (espiritualistas) o como lema de Pablo. Pablo (3:4-6, 21-23) rechaza todos los lemas partidistas.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 3:4-9, 21-23",
+   "Hch 18:24-28",
+   "Gá 1:18"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 17,
+  "alineacion": "forma",
+  "tagnt": "1Cor.1.12#17",
+  "morfologia_tagnt": "N-GSM-P",
+  "dstrong": "G2786",
+  "strong_tagnt": "G2786",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Cephas"
+ },
+ {
+  "ref": "1Cor.1.13",
+  "strong": "G907",
+  "forma": "ἐβαπτίσθητε",
+  "glosa_interlineal": "fuisteis bautizados",
+  "rango_semantico": [
+   "bautizar"
+  ],
+  "construccion": "Aoristo indicativo pasivo: «¿fuisteis bautizados en el nombre de Pablo?».",
+  "sentido_en_contexto": "Tres preguntas retóricas: ¿Está dividido Cristo? ¿Fue Pablo crucificado por vosotros? ¿Fuisteis bautizados en el nombre de Pablo? Pablo se alegra de haber bautizado a pocos (Crispo, Gayo, Estéfanas) para que nadie diga que lo hizo en su nombre.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 1:14-16",
+   "Hch 18:8",
+   "Mt 28:19",
+   "Ro 6:3"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "1Cor.1.13#14",
+  "morfologia_tagnt": "V-API-2P",
+  "dstrong": "G0907",
+  "strong_tagnt": "G907",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to baptize"
+ },
+ {
+  "ref": "1Cor.1.17",
+  "strong": "G2097",
+  "forma": "εὐαγγελίζεσθαι",
+  "glosa_interlineal": "predicar el evangelio",
+  "rango_semantico": [
+   "anunciar el evangelio"
+  ],
+  "construccion": "Infinitivo presente medio: «Cristo no me envió a bautizar, sino a predicar el evangelio».",
+  "sentido_en_contexto": "Pablo no desprecia el bautismo; relativiza su papel personal frente a la predicación. «No con sabiduría de palabras» (retórica griega) para que no se «vacíe» la cruz de Cristo. Introduce el gran tema de la sabiduría y la cruz (1:18—2:16).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gá 1:16",
+   "Ro 1:16",
+   "1 Co 2:1-5"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "1Cor.1.17#08",
+  "morfologia_tagnt": "V-PMN",
+  "dstrong": "G2097",
+  "strong_tagnt": "G2097",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to speak good news"
+ },
+ {
+  "ref": "1Cor.1.18",
+  "strong": "G3472",
+  "forma": "μωρία",
+  "glosa_interlineal": "necedad",
+  "rango_semantico": [
+   "necedad, locura"
+  ],
+  "construccion": "Nominativo: «la palabra de la cruz es locura a los que se pierden; pero a los que se salvan, poder de Dios».",
+  "sentido_en_contexto": "Versículo central de la sección: el mensaje de la cruz parece locura (μωρία; de ahí «moronic») para quienes perecen, pero para los que se salvan es poder de Dios. Dos respuestas ante el mismo mensaje: «perderse» y «salvarse» (presentes: procesos en curso).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 1:23-24",
+   "Ro 1:16",
+   "2 Co 2:15-16",
+   "Hch 17:32"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "1Cor.1.18#10",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G3472",
+  "strong_tagnt": "G3472",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "foolishness"
+ },
+ {
+  "ref": "1Cor.1.23",
+  "strong": "G4625",
+  "forma": "σκάνδαλον",
+  "glosa_interlineal": "escándalo",
+  "rango_semantico": [
+   "tropiezo, escándalo, piedra de tropiezo"
+  ],
+  "construccion": "Acusativo: «predicamos a Cristo crucificado, para los judíos ciertamente tropezadero, y para los gentiles locura».",
+  "sentido_en_contexto": "«Cristo crucificado» era piedra de tropiezo para judíos (que esperaban un Mesías glorioso; Dt 21:23) y necedad para griegos (que buscaban sabiduría filosófica). Pero para los llamados es poder y sabiduría de Dios (v.24). Resume la paradoja de la cruz.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gá 3:13; 5:11",
+   "Dt 21:23",
+   "Mt 11:6",
+   "Hch 17:18, 32"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "1Cor.1.23#08",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G4625",
+  "strong_tagnt": "G4625",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "stumbling block"
+ },
+ {
+  "ref": "1Cor.1.25",
+  "strong": "G3474",
+  "forma": "μωρὸν",
+  "glosa_interlineal": "lo insensato",
+  "rango_semantico": [
+   "necio, insensato"
+  ],
+  "construccion": "Adjetivo neutro nominativo: «lo insensato de Dios es más sabio que los hombres».",
+  "sentido_en_contexto": "Principio general: lo que parece necio en Dios (la cruz) supera la sabiduría humana, y lo débil de Dios supera la fuerza humana. No dice que Dios sea necio, sino que su modo de obrar parece necedad al mundo.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 1:18-24",
+   "Is 55:8-9",
+   "2 Co 13:4"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "1Cor.1.25#03",
+  "morfologia_tagnt": "A-NSN",
+  "dstrong": "G3474",
+  "strong_tagnt": "G3474",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "foolish"
+ },
+ {
+  "ref": "1Cor.1.26",
+  "strong": "G2821",
+  "forma": "κλῆσιν",
+  "glosa_interlineal": "llamamiento",
+  "rango_semantico": [
+   "llamamiento, vocación"
+  ],
+  "construccion": "Acusativo: «mirad vuestro llamamiento, hermanos: no muchos sabios según la carne, ni muchos poderosos, ni muchos nobles».",
+  "sentido_en_contexto": "La composición social de la iglesia corintia: pocos sabios, poderosos o de noble cuna; Dios escogió lo necio, débil y despreciado para avergonzar a los sabios y fuertes. «No muchos» (no «ninguno»): había algunos de posición (Erasto, Gayo, Crispo).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Stg 2:5",
+   "Lc 1:51-53",
+   "Ro 16:23",
+   "Hch 18:8"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "1Cor.1.26#04",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G2821",
+  "strong_tagnt": "G2821",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "calling"
+ },
+ {
+  "ref": "1Cor.1.29",
+  "strong": "G2744",
+  "forma": "καυχήσηται",
+  "glosa_interlineal": "se jacte",
+  "rango_semantico": [
+   "gloriarse, jactarse"
+  ],
+  "construccion": "Subjuntivo aoristo medio: «a fin de que nadie se jacte en su presencia».",
+  "sentido_en_contexto": "Propósito de la elección de lo débil y necio: excluir toda jactancia humana delante de Dios. Cierra el v.27-29. La salvación es por gracia, para que la gloria sea solo de Dios.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ef 2:8-9",
+   "Ro 3:27; 4:2",
+   "Jer 9:23-24"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "1Cor.1.29#03",
+  "morfologia_tagnt": "V-ADS-3S",
+  "dstrong": "G2744",
+  "strong_tagnt": "G2744",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to boast"
+ },
+ {
+  "ref": "1Cor.1.30",
+  "strong": "G629",
+  "forma": "ἀπολύτρωσις",
+  "glosa_interlineal": "redención",
+  "rango_semantico": [
+   "redención, rescate"
+  ],
+  "construccion": "Nominativo: «el cual nos ha sido hecho por Dios sabiduría, justificación, santificación y redención».",
+  "sentido_en_contexto": "Cristo es para el creyente cuatro dones: sabiduría de Dios, justicia, santificación y redención. Pablo reorienta la «sabiduría» corintia: la verdadera sabiduría es Cristo mismo. La jactancia correcta es «en el Señor» (v.31; cita Jer 9:24).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jer 9:23-24",
+   "Ro 3:24; 8:1",
+   "Col 2:3",
+   "1 Co 1:24, 31"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 20,
+  "alineacion": "forma",
+  "tagnt": "1Cor.1.30#20",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G0629",
+  "strong_tagnt": "G629",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "redemption"
+ }
+]

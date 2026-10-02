@@ -1,0 +1,859 @@
+[
+ {
+  "ref": "Luke.12.1",
+  "strong": "G5272",
+  "forma": "ὑπόκρισις",
+  "glosa_interlineal": "hipocresía",
+  "rango_semantico": [
+   "hipocresía, fingimiento"
+  ],
+  "construccion": "Nominativo: «la levadura de los fariseos, que es la hipocresía».",
+  "sentido_en_contexto": "Lucas explica la «levadura de los fariseos» como hipocresía (Mateo la identifica con su enseñanza, 16:12). Jesús advierte a sus discípulos ante una multitud inmensa.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 16:6, 12 — «la enseñanza de los fariseos»",
+   "Mt 23:13-33 — ayes sobre hipócritas",
+   "Lc 11:37-54 — contra los fariseos"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 27,
+  "alineacion": "forma",
+  "tagnt": "Luke.12.1#25",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G5272",
+  "strong_tagnt": "G5272",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "hypocrisy"
+ },
+ {
+  "ref": "Luke.12.4",
+  "strong": "G5384",
+  "forma": "φίλοις",
+  "glosa_interlineal": "amigos",
+  "rango_semantico": [
+   "amigo"
+  ],
+  "construccion": "Dativo plural: «os digo, amigos míos».",
+  "sentido_en_contexto": "Solo Lucas (y Juan 15:15) presenta a Jesús llamando «amigos» a los discípulos. No temer a quienes matan el cuerpo, sino a Dios, que puede arrojar a la gehena.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 15:14-15 — «vosotros sois mis amigos»",
+   "Mt 10:28 — paralelo",
+   "Is 41:8 — «Abraham mi amigo»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Luke.12.4#05",
+  "morfologia_tagnt": "A-DPM",
+  "dstrong": "G5384",
+  "strong_tagnt": "G5384",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "friendly/friend"
+ },
+ {
+  "ref": "Luke.12.5",
+  "strong": "G1067",
+  "forma": "γέενναν",
+  "glosa_interlineal": "gehena",
+  "rango_semantico": [
+   "Gehena (valle de Hinom)",
+   "lugar del juicio final"
+  ],
+  "construccion": "Acusativo: «tiene poder de echar en la gehena».",
+  "sentido_en_contexto": "Dios es quien puede juzgar después de la muerte. El temor reverente a Dios libera del miedo a los hombres. Lucas es el único que usa «gehena» (aquí) en su Evangelio.",
+  "matiz": "Ver nota en Mt 5:22 sobre la naturaleza del castigo: debate entre castigo sin fin, aniquilación y otras posiciones.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 10:28 — paralelo",
+   "Heb 10:31 — «horrenda cosa es caer en manos del Dios vivo»",
+   "Pr 1:7 — «el principio de la sabiduría es el temor de Jehová»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 16,
+  "alineacion": "forma",
+  "tagnt": "Luke.12.5#16",
+  "morfologia_tagnt": "N-ASF-T",
+  "dstrong": "G1067",
+  "strong_tagnt": "G1067",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Gehenna"
+ },
+ {
+  "ref": "Luke.12.6",
+  "strong": "G4765",
+  "forma": "στρουθία",
+  "glosa_interlineal": "pajarillos",
+  "rango_semantico": [
+   "gorrión"
+  ],
+  "construccion": "Nominativo plural: «cinco pajarillos por dos cuartos».",
+  "sentido_en_contexto": "En Lucas son cinco gorriones por dos monedas (Mateo: dos por una); ni uno es olvidado delante de Dios. Argumento de menor a mayor: vosotros valéis más.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 10:29 — «dos pajarillos por un cuarto»",
+   "Mt 6:26 — las aves del cielo"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Luke.12.6#03",
+  "morfologia_tagnt": "N-NPN",
+  "dstrong": "G4765",
+  "strong_tagnt": "G4765",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "sparrow"
+ },
+ {
+  "ref": "Luke.12.10",
+  "strong": "G987",
+  "forma": "βλασφημήσαντι",
+  "glosa_interlineal": "al que blasfeme",
+  "rango_semantico": [
+   "blasfemar, injuriar"
+  ],
+  "construccion": "Participio aoristo activo, dativo: «al que blasfemare contra el Espíritu Santo».",
+  "sentido_en_contexto": "Lucas coloca esta sentencia en contexto de persecución y confesión (no tras la acusación de Beelzebul, como Mateo y Marcos). Se perdona la palabra contra el Hijo del Hombre, no la blasfemia contra el Espíritu.",
+  "matiz": "Ver nota en Mt 12:31-32 sobre su alcance. En Lucas, el contexto sugiere que apostatar bajo presión es distinto de rechazar persistentemente la obra del Espíritu.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 12:31-32 — paralelo",
+   "Mr 3:28-29 — paralelo",
+   "Hch 7:51 — «resistís siempre al Espíritu Santo»"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 19,
+  "alineacion": "forma",
+  "tagnt": "Luke.12.10#19",
+  "morfologia_tagnt": "V-AAP-DSM",
+  "dstrong": "G0987",
+  "strong_tagnt": "G987",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to blaspheme"
+ },
+ {
+  "ref": "Luke.12.13",
+  "strong": "G2817",
+  "forma": "κληρονομίαν",
+  "glosa_interlineal": "herencia",
+  "rango_semantico": [
+   "herencia, posesión heredada"
+  ],
+  "construccion": "Acusativo: «que parta conmigo la herencia».",
+  "sentido_en_contexto": "Introduce la parábola del rico insensato (solo Lucas): alguien pide a Jesús mediar en una disputa de herencia; Jesús rehúsa ser juez y advierte contra toda avaricia.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Dt 21:15-17 — leyes de herencia",
+   "Lc 15:12 — «dame la parte de los bienes»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto",
+  "pos_tisch": 17,
+  "alineacion": "forma",
+  "tagnt": "Luke.12.13#17",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G2817",
+  "strong_tagnt": "G2817",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "inheritance"
+ },
+ {
+  "ref": "Luke.12.15",
+  "strong": "G4124",
+  "forma": "πλεονεξίας",
+  "glosa_interlineal": "avaricia",
+  "rango_semantico": [
+   "codicia, avaricia"
+  ],
+  "construccion": "Genitivo: «guardaos de toda avaricia».",
+  "sentido_en_contexto": "Sentencia central: «la vida del hombre no consiste en la abundancia de los bienes que posee». La verdadera vida no se mide por posesiones.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Col 3:5 — «la avaricia, que es idolatría»",
+   "Ef 5:5 — «ningún avaro, que es idólatra»",
+   "1 Ti 6:6-10 — «raíz de todos los males»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Luke.12.15#10",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G4124",
+  "strong_tagnt": "G4124",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "greediness"
+ },
+ {
+  "ref": "Luke.12.20",
+  "strong": "G878",
+  "forma": "ἄφρων",
+  "glosa_interlineal": "necio",
+  "rango_semantico": [
+   "necio, insensato, sin entendimiento"
+  ],
+  "construccion": "Vocativo: «¡necio!, esta noche te reclaman tu alma».",
+  "sentido_en_contexto": "Dios llama «necio» al rico que acumula sin pensar en la muerte. Su alma le es «reclamada» esa noche. Es una parábola exclusiva de Lucas sobre la acumulación y la muerte.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 14:1 — «dijo el necio en su corazón»",
+   "Sal 49:16-20 — el rico que muere",
+   "Lc 12:21 — «no es rico para con Dios»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Luke.12.20#06",
+  "morfologia_tagnt": "A-VSM",
+  "dstrong": "G0878",
+  "strong_tagnt": "G878",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "foolish"
+ },
+ {
+  "ref": "Luke.12.21",
+  "strong": "G4147",
+  "forma": "πλουτῶν",
+  "glosa_interlineal": "rico",
+  "rango_semantico": [
+   "ser rico, enriquecerse"
+  ],
+  "construccion": "Participio presente activo: «rico para con Dios».",
+  "sentido_en_contexto": "Cierre: el que atesora para sí no es «rico para con Dios». La riqueza verdadera consiste en la relación con Dios, no en acumulación.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 6:19-21 — tesoros en el cielo",
+   "1 Ti 6:18 — «ricos en buenas obras»",
+   "Stg 2:5 — «ricos en fe»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Luke.12.21#09",
+  "morfologia_tagnt": "V-PAP-NSM",
+  "dstrong": "G4147",
+  "strong_tagnt": "G4147",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "be rich"
+ },
+ {
+  "ref": "Luke.12.24",
+  "strong": "G2876",
+  "forma": "κόρακας",
+  "glosa_interlineal": "cuervos",
+  "rango_semantico": [
+   "cuervo"
+  ],
+  "construccion": "Acusativo plural: «considerad los cuervos».",
+  "sentido_en_contexto": "Lucas dice «cuervos» (Mateo: «aves del cielo»). Los cuervos eran aves impuras y despreciadas; sin embargo, Dios los alimenta (Sal 147:9; Job 38:41).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 6:26 — «las aves del cielo»",
+   "Sal 147:9 — «a los hijos de los cuervos que claman»",
+   "Job 38:41 — «¿quién prepara al cuervo su alimento?»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Luke.12.24#03",
+  "morfologia_tagnt": "N-APM",
+  "dstrong": "G2876",
+  "strong_tagnt": "G2876",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "raven"
+ },
+ {
+  "ref": "Luke.12.29",
+  "strong": "G3349",
+  "forma": "μετεωρίζεσθε",
+  "glosa_interlineal": "os inquietéis",
+  "rango_semantico": [
+   "estar en vilo, estar ansioso, preocuparse"
+  ],
+  "construccion": "Imperativo presente medio-pasivo: «no estéis ansiosos / en vilo».",
+  "sentido_en_contexto": "Palabra única en el NT: «no estéis suspendidos (con ansiedad) por lo que comeréis o beberéis». Lucas añade esta imagen, que significa estar en vilo, sin tierra firme.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 6:25 — «no os afanéis»",
+   "Fil 4:6 — «por nada estéis afanosos»",
+   "1 P 5:7 — «echando toda vuestra ansiedad sobre él»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "Luke.12.29#12",
+  "morfologia_tagnt": "V-PMM-2P",
+  "dstrong": "G3349",
+  "strong_tagnt": "G3349",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to worry"
+ },
+ {
+  "ref": "Luke.12.32",
+  "strong": "G4168",
+  "forma": "ποίμνιον",
+  "glosa_interlineal": "rebaño",
+  "rango_semantico": [
+   "rebaño pequeño, grey"
+  ],
+  "construccion": "Vocativo: «manada pequeña».",
+  "sentido_en_contexto": "Palabra tierna: «no temas, pequeño rebaño, porque a vuestro Padre le ha placido daros el reino». Frase exclusiva de Lucas; el reino es don, no logro.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 10:11 — «yo soy el buen pastor»",
+   "Hch 20:28 — «apacentad la iglesia (ποίμνιον)»",
+   "Is 40:11 — «como pastor apacentará su rebaño»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Luke.12.32#05",
+  "morfologia_tagnt": "N-VSN",
+  "dstrong": "G4168",
+  "strong_tagnt": "G4168",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "flock"
+ },
+ {
+  "ref": "Luke.12.33",
+  "strong": "G1654",
+  "forma": "ἐλεημοσύνην",
+  "glosa_interlineal": "limosna",
+  "rango_semantico": [
+   "limosna, acto de misericordia"
+  ],
+  "construccion": "Acusativo: «vended lo que poseéis, y dad limosna».",
+  "sentido_en_contexto": "Lucas insiste más que los demás evangelistas en la liberalidad con los bienes. «Tesoro en los cielos que nunca se agota»: invertir en lo duradero.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 18:22 — «vende todo lo que tienes y dalo a los pobres»",
+   "Hch 2:45 — los creyentes vendían posesiones",
+   "Mt 6:19-20 — paralelo"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Luke.12.33#07",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G1654",
+  "strong_tagnt": "G1654",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "charity"
+ },
+ {
+  "ref": "Luke.12.35",
+  "strong": "G4024",
+  "forma": "περιεζωσμέναι",
+  "glosa_interlineal": "ceñidos",
+  "rango_semantico": [
+   "ceñirse (con cinturón), estar listo"
+  ],
+  "construccion": "Participio perfecto pasivo: «ceñidos vuestros lomos».",
+  "sentido_en_contexto": "Imagen de estar listos para actuar: ceñirse las túnicas largas con el cinto. Eco del Éxodo (Éx 12:11): preparados para el viaje o el servicio.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 12:11 — «ceñidos vuestros lomos»",
+   "Ef 6:14 — «ceñidos vuestros lomos con la verdad»",
+   "1 P 1:13 — «ceñid los lomos de vuestro entendimiento»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Luke.12.35#05",
+  "morfologia_tagnt": "V-RPP-NPF",
+  "dstrong": "G4024",
+  "strong_tagnt": "G4024",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to gird"
+ },
+ {
+  "ref": "Luke.12.37",
+  "strong": "G1247",
+  "forma": "διακονήσει",
+  "glosa_interlineal": "servirá",
+  "rango_semantico": [
+   "servir, atender"
+  ],
+  "construccion": "Futuro indicativo activo: «él mismo se ceñirá, hará que se sienten y vendrá a servirles».",
+  "sentido_en_contexto": "Inversión sorprendente: el señor, al volver, sirve a los siervos que encontró velando. Anticipa el servicio de Jesús («yo estoy entre vosotros como el que sirve», 22:27).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 22:27 — «yo estoy entre vosotros como el que sirve»",
+   "Jn 13:4-5 — Jesús lava los pies",
+   "Ap 3:20 — «cenaré con él»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 21,
+  "alineacion": "forma",
+  "tagnt": "Luke.12.37#21",
+  "morfologia_tagnt": "V-FAI-3S",
+  "dstrong": "G1247",
+  "strong_tagnt": "G1247",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to serve"
+ },
+ {
+  "ref": "Luke.12.42",
+  "strong": "G3623",
+  "forma": "οἰκονόμος",
+  "glosa_interlineal": "mayordomo",
+  "rango_semantico": [
+   "administrador, mayordomo"
+  ],
+  "construccion": "Nominativo: «el mayordomo fiel y prudente».",
+  "sentido_en_contexto": "Pedro pregunta si la parábola es solo para los discípulos o para todos; Jesús responde con la parábola del mayordomo, para quien tiene responsabilidad de administrar. Lucas usa «οἰκονόμος» en otros lugares (16:1-8).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:45 — «siervo fiel y prudente»",
+   "1 Co 4:1-2 — «administradores de los misterios de Dios»",
+   "1 P 4:10 — «buenos administradores de la multiforme gracia»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Luke.12.42#11",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G3623",
+  "strong_tagnt": "G3623",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "manager"
+ },
+ {
+  "ref": "Luke.12.48",
+  "strong": "G4055",
+  "forma": "περισσότερον",
+  "glosa_interlineal": "más",
+  "rango_semantico": [
+   "más, mayor"
+  ],
+  "construccion": "Acusativo comparativo: «se le pedirá más».",
+  "sentido_en_contexto": "Principio de responsabilidad proporcional: a quien mucho se dio, mucho se le demandará. Lucas añade la gradación de azotes según el conocimiento de la voluntad del amo.",
+  "matiz": "Se discute si la graduación (muchos/pocos azotes) implica distintos grados de castigo final. El texto describe una ilustración sobre responsabilidad, no una doctrina detallada del juicio.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 25:29 — talentos",
+   "Nm 15:27-31 — pecados por ignorancia y por rebeldía",
+   "Stg 3:1 — «mayor condenación»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 24,
+  "alineacion": "forma",
+  "tagnt": "Luke.12.48#24",
+  "morfologia_tagnt": "A-ASN-C",
+  "dstrong": "G4055",
+  "strong_tagnt": "G4055",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "more-abundant"
+ },
+ {
+  "ref": "Luke.12.49",
+  "strong": "G4442",
+  "forma": "Πῦρ",
+  "glosa_interlineal": "fuego",
+  "rango_semantico": [
+   "fuego"
+  ],
+  "construccion": "Acusativo: «fuego vine a echar en la tierra».",
+  "sentido_en_contexto": "Dicho enigmático: Jesús ha venido a echar fuego sobre la tierra y desea que ya esté encendido. El fuego puede ser juicio, purificación o el Espíritu de Pentecostés (Hch 2:3).",
+  "matiz": "Interpretaciones: (a) juicio que viene con su venida; (b) purificación; (c) el Espíritu (lenguas de fuego). Las tres se defienden; el contexto (v.50-53) apunta a división y juicio.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 3:16 — «os bautizará en Espíritu Santo y fuego»",
+   "Hch 2:3 — «lenguas repartidas, como de fuego»",
+   "Jer 20:9 — «fuego ardiente metido en mis huesos»"
+  ],
+  "nivel_certeza": "bajo",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "Luke.12.49#01",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G4442",
+  "strong_tagnt": "G4442",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "fire"
+ },
+ {
+  "ref": "Luke.12.50",
+  "strong": "G4912",
+  "forma": "συνέχομαι",
+  "glosa_interlineal": "me angustio",
+  "rango_semantico": [
+   "estar apremiado, oprimido, constreñido"
+  ],
+  "construccion": "Presente indicativo pasivo, 1ª singular: «¡cómo me angustio hasta que se cumpla!».",
+  "sentido_en_contexto": "Jesús confiesa su tensión ante el «bautismo» (su pasión y muerte) que debe pasar. Combina anhelo y angustia.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 10:38 — «¿podéis ser bautizados con el bautismo con que yo soy bautizado?»",
+   "Jn 12:27 — «ahora está turbada mi alma»",
+   "Lc 22:44 — «en agonía»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Luke.12.50#07",
+  "morfologia_tagnt": "V-PPI-1S",
+  "dstrong": "G4912",
+  "strong_tagnt": "G4912",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to hold/oppress"
+ },
+ {
+  "ref": "Luke.12.51",
+  "strong": "G1267",
+  "forma": "διαμερισμόν",
+  "glosa_interlineal": "división",
+  "rango_semantico": [
+   "división, discordia"
+  ],
+  "construccion": "Acusativo: «no paz, sino división».",
+  "sentido_en_contexto": "Lucas dice «división» (Mateo: «espada»): la venida de Jesús polariza incluso familias. Es un rasgo de la crisis que provoca el reino.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 10:34-36 — «no he venido para traer paz, sino espada»",
+   "Lc 2:34 — «señal que será contradicha»",
+   "Mi 7:6 — fuente"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Luke.12.51#14",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G1267",
+  "strong_tagnt": "G1267",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "division"
+ },
+ {
+  "ref": "Luke.12.56",
+  "strong": "G1381",
+  "forma": "δοκιμάζειν",
+  "glosa_interlineal": "discernir",
+  "rango_semantico": [
+   "examinar, probar, discernir"
+  ],
+  "construccion": "Infinitivo presente activo: «sabéis discernir el aspecto de la tierra y del cielo».",
+  "sentido_en_contexto": "Los oyentes saben leer el clima, pero no las señales del tiempo mesiánico. «¡Hipócritas!», dice Jesús: pueden discernir y no quieren.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 16:2-3 — paralelo",
+   "Lc 19:44 — «no conociste el tiempo de tu visitación»",
+   "Ro 12:2 — «para que comprobéis cuál sea la voluntad de Dios»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Luke.12.56#10",
+  "morfologia_tagnt": "V-PAN",
+  "dstrong": "G1381",
+  "strong_tagnt": "G1381",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to test"
+ },
+ {
+  "ref": "Luke.12.59",
+  "strong": "G3016",
+  "forma": "λεπτὸν",
+  "glosa_interlineal": "blanca",
+  "rango_semantico": [
+   "leptón (moneda pequeña)"
+  ],
+  "construccion": "Acusativo: «hasta que pagues el último cuarto».",
+  "sentido_en_contexto": "Parábola del litigio: reconcíliate con tu adversario antes de llegar al juez, o pagarás hasta la última moneda. Urge a resolver a tiempo las cuentas pendientes.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 5:25-26 — paralelo",
+   "Mr 12:42 — la viuda y sus dos leptá"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Luke.12.59#12",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G3016",
+  "strong_tagnt": "G3016",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "coin"
+ }
+]

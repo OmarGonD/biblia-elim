@@ -1,0 +1,520 @@
+[
+ {
+  "ref": "Heb.13.2",
+  "strong": "G32",
+  "forma": "ἀγγέλους",
+  "glosa_interlineal": "ángeles",
+  "rango_semantico": [
+   "ángel, mensajero"
+  ],
+  "construccion": "Acusativo plural: «no olvidéis la hospitalidad, porque por ella algunos, sin saberlo, hospedaron ángeles».",
+  "sentido_en_contexto": "Alusión a Abraham y Sara (Gn 18) y Lot (Gn 19). La hospitalidad (φιλοξενία: amor al extranjero) es virtud cristiana. Parte de las exhortaciones prácticas de cap. 13: amor fraterno, hospitalidad, presos, matrimonio, dinero, líderes.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 18:1-8; 19:1-3",
+   "Ro 12:13",
+   "1 P 4:9",
+   "Mt 25:35"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Heb.13.2#11",
+  "morfologia_tagnt": "N-APM",
+  "dstrong": "G0032G",
+  "strong_tagnt": "G32",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "angel"
+ },
+ {
+  "ref": "Heb.13.4",
+  "strong": "G1062",
+  "forma": "γάμος",
+  "glosa_interlineal": "matrimonio",
+  "rango_semantico": [
+   "matrimonio"
+  ],
+  "construccion": "Nominativo: «honroso sea en todos el matrimonio, y el lecho sin mancilla; porque a los fornicarios y a los adúlteros los juzgará Dios».",
+  "sentido_en_contexto": "El matrimonio es digno de honra y el lecho conyugal, puro. Dios juzgará la inmoralidad sexual (fornicación y adulterio). Contra el ascetismo que desprecia el matrimonio y contra la inmoralidad que lo viola.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 2:24",
+   "1 Co 7:2-5",
+   "1 Ti 4:3",
+   "Ef 5:3"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Heb.13.4#03",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G1062",
+  "strong_tagnt": "G1062",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "wedding"
+ },
+ {
+  "ref": "Heb.13.5",
+  "strong": "G866",
+  "forma": "ἀφιλάργυρος",
+  "glosa_interlineal": "sin avaricia",
+  "rango_semantico": [
+   "sin amor al dinero"
+  ],
+  "construccion": "Nominativo: «sean vuestras costumbres sin avaricia, contentos con lo que tenéis ahora; porque él dijo: No te desampararé, ni te dejaré».",
+  "sentido_en_contexto": "Contentamiento fundado en la promesa de la presencia de Dios (Dt 31:6; Jos 1:5; cf. Gn 28:15). No es una promesa de riqueza, sino de presencia. Los cristianos que no confían en el dinero pueden decir con confianza: «El Señor es mi ayudador» (v.6; Sal 118:6).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dt 31:6",
+   "Jos 1:5",
+   "1 Ti 6:6-10",
+   "Mt 6:24"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "Heb.13.5#01",
+  "morfologia_tagnt": "A-NSM",
+  "dstrong": "G0866",
+  "strong_tagnt": "G866",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "not greedy"
+ },
+ {
+  "ref": "Heb.13.7",
+  "strong": "G2233",
+  "forma": "ἡγουμένων",
+  "glosa_interlineal": "vuestros guías",
+  "rango_semantico": [
+   "guía, líder"
+  ],
+  "construccion": "Genitivo plural: «acordaos de vuestros pastores, que os hablaron la palabra de Dios; considerad cuál haya sido el resultado de su conducta, e imitad su fe».",
+  "sentido_en_contexto": "Los líderes (ἡγούμενοι: «los que guían») que habían muerto o se habían ido, probablemente fundadores de la comunidad. Su fe se imita. Contraste con el v.8 (Cristo no cambia) y v.17 (los líderes actuales).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 13:17, 24",
+   "1 Co 11:1",
+   "1 Ts 5:12-13"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Heb.13.7#03",
+  "morfologia_tagnt": "V-PNP-GPM",
+  "dstrong": "G2233",
+  "strong_tagnt": "G2233",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to govern"
+ },
+ {
+  "ref": "Heb.13.8",
+  "strong": "G5504",
+  "forma": "ἐχθὲς",
+  "glosa_interlineal": "ayer",
+  "rango_semantico": [
+   "ayer"
+  ],
+  "construccion": "Adverbio: «Jesucristo es el mismo ayer, y hoy, y por los siglos».",
+  "sentido_en_contexto": "Afirmación de la inmutabilidad de Cristo: base de estabilidad frente a doctrinas variadas y extrañas (v.9). Se aplica a Cristo lo que el AT dice de Dios (Sal 102:27; Heb 1:12). Texto cristológico frecuentemente citado.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 1:12",
+   "Mal 3:6",
+   "Sal 102:27",
+   "Ap 1:8"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Heb.13.8#03",
+  "morfologia_tagnt": "ADV",
+  "dstrong": "G5504",
+  "strong_tagnt": "G5504",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "yesterday"
+ },
+ {
+  "ref": "Heb.13.10",
+  "strong": "G2379",
+  "forma": "θυσιαστήριον",
+  "glosa_interlineal": "altar",
+  "rango_semantico": [
+   "altar"
+  ],
+  "construccion": "Acusativo: «tenemos un altar de que no tienen derecho de comer los que sirven al tabernáculo».",
+  "sentido_en_contexto": "Texto muy debatido: «el altar» de los cristianos. ¿Es la cruz, Cristo, la eucaristía (la mesa del Señor) o el altar celestial? Los que sirven al tabernáculo (judíos) no pueden comer de él. Uso en la discusión eucarística entre tradiciones.",
+  "matiz": "Debate: (a) la cruz/Cristo mismo como altar (la mayoría protestante); (b) la eucaristía o el altar de la mesa del Señor (tradición católica, ortodoxa, anglicana); (c) el altar celestial. «Comer» puede ser literal (eucaristía) o figurado (participar de la obra de Cristo). El contexto (vv.11-12) se centra en el sacrificio de Cristo fuera de la puerta.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 10:16-21",
+   "Heb 13:11-12",
+   "Jn 6:53-56",
+   "Heb 9:14"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Heb.13.10#02",
+  "morfologia_tagnt": "N-ASN",
+  "dstrong": "G2379",
+  "strong_tagnt": "G2379",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "altar"
+ },
+ {
+  "ref": "Heb.13.12",
+  "strong": "G4439",
+  "forma": "πύλης",
+  "glosa_interlineal": "puerta",
+  "rango_semantico": [
+   "puerta de ciudad"
+  ],
+  "construccion": "Genitivo: «por lo cual también Jesús, para santificar al pueblo mediante su propia sangre, padeció fuera de la puerta».",
+  "sentido_en_contexto": "Cristo padeció «fuera de la puerta» (de Jerusalén), como los cuerpos de las ofrendas por el pecado se quemaban fuera del campamento (v.11; Lv 16:27). Los creyentes salen a él «fuera del campamento», llevando su oprobio (v.13): invitación a no refugiarse en el judaísmo institucional.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lv 16:27",
+   "Jn 19:17-20",
+   "Heb 13:13",
+   "Mt 27:32"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Heb.13.12#14",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G4439",
+  "strong_tagnt": "G4439",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "gate"
+ },
+ {
+  "ref": "Heb.13.14",
+  "strong": "G3306",
+  "forma": "μένουσαν",
+  "glosa_interlineal": "permanente",
+  "rango_semantico": [
+   "permanente, que dura"
+  ],
+  "construccion": "Participio presente activo: «porque no tenemos aquí ciudad permanente, sino que buscamos la por venir».",
+  "sentido_en_contexto": "Los cristianos son peregrinos: su ciudad no es de este mundo (cf. 11:10, 16; 12:22). Esta esperanza fundamenta la vida del creyente que no se aferra a estructuras mundanas, incluida la Jerusalén terrenal (probable alusión al Templo).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 11:10, 16; 12:22",
+   "Fil 3:20",
+   "1 P 2:11"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Heb.13.14#05",
+  "morfologia_tagnt": "V-PAP-ASF",
+  "dstrong": "G3306",
+  "strong_tagnt": "G3306",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to stay"
+ },
+ {
+  "ref": "Heb.13.15",
+  "strong": "G133",
+  "forma": "αἰνέσεως",
+  "glosa_interlineal": "alabanza",
+  "rango_semantico": [
+   "alabanza"
+  ],
+  "construccion": "Genitivo: «así que, ofrezcamos siempre a Dios, por medio de él, sacrificio de alabanza, es decir, fruto de labios que confiesan su nombre».",
+  "sentido_en_contexto": "Sacrificios del cristiano: alabanza (v.15), buenas obras y compartir (v.16). Sustituyen al culto levítico. Sacrificio espiritual (1 P 2:5; Ro 12:1). Cita de Os 14:2 (LXX: «fruto de los labios»).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Os 14:2",
+   "Sal 50:14, 23",
+   "Ro 12:1",
+   "1 P 2:5"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Heb.13.15#06",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G0133",
+  "strong_tagnt": "G133",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "praise"
+ },
+ {
+  "ref": "Heb.13.17",
+  "strong": "G3982",
+  "forma": "Πείθεσθε",
+  "glosa_interlineal": "obedeced",
+  "rango_semantico": [
+   "obedecer, dejarse persuadir"
+  ],
+  "construccion": "Imperativo presente medio/pasivo: «obedeced a vuestros pastores, y sujetaos a ellos; porque ellos velan por vuestras almas, como quienes han de dar cuenta; para que lo hagan con alegría, y no quejándose, porque esto no os es provechoso».",
+  "sentido_en_contexto": "Obediencia a los líderes, que velan por las almas y darán cuenta a Dios. «Obedeced» (πείθεσθε) es «dejaos persuadir», más que sumisión ciega. Texto citado sobre la autoridad pastoral; su alcance se debate según la eclesiología.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 13:7, 24",
+   "1 Ts 5:12-13",
+   "1 P 5:1-5",
+   "Hch 20:28"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "Heb.13.17#01",
+  "morfologia_tagnt": "V-PPM-2P",
+  "dstrong": "G3982",
+  "strong_tagnt": "G3982",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to persuade"
+ },
+ {
+  "ref": "Heb.13.20",
+  "strong": "G4166",
+  "forma": "ποιμένα",
+  "glosa_interlineal": "pastor",
+  "rango_semantico": [
+   "pastor"
+  ],
+  "construccion": "Acusativo: «y el Dios de paz, que resucitó de los muertos a nuestro Señor Jesucristo, el gran pastor de las ovejas, por la sangre del pacto eterno».",
+  "sentido_en_contexto": "Bendición final con la única mención de la resurrección en Hebreos: Dios levantó a Jesús, «el gran pastor», por la sangre del pacto eterno (Is 63:11; Zac 9:11). La oración pide que Dios los capacite para hacer su voluntad (v.21).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 63:11",
+   "Zac 9:11",
+   "Jn 10:11",
+   "1 P 5:4"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Heb.13.20#11",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G4166",
+  "strong_tagnt": "G4166",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "shepherd"
+ },
+ {
+  "ref": "Heb.13.23",
+  "strong": "G5095",
+  "forma": "Τιμόθεον",
+  "glosa_interlineal": "Timoteo",
+  "rango_semantico": [
+   "Timoteo"
+  ],
+  "construccion": "Acusativo: «sabed que nuestro hermano Timoteo ha sido puesto en libertad; con el cual, si viene pronto, os veré».",
+  "sentido_en_contexto": "Mención de Timoteo, colaborador de Pablo (probable origen de la hipótesis paulina), como indicio de círculo paulino. «Puesto en libertad» sugiere un encarcelamiento previo. «Los de Italia» (v.24) sugiere Roma como lugar de origen o destino.",
+  "matiz": "Debate sobre «los de Italia te saludan» (v.24): (a) la carta se escribe desde Italia (Roma); (b) se dirige a Roma, y los italianos fuera de Italia saludan. Ambos son posibles.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Ts 3:2",
+   "Fil 2:19-23",
+   "2 Ti 1:2",
+   "Heb 13:24"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Heb.13.23#05",
+  "morfologia_tagnt": "N-ASM-P",
+  "dstrong": "G5095",
+  "strong_tagnt": "G5095",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Timothy"
+ },
+ {
+  "ref": "Heb.13.25",
+  "strong": "G5485",
+  "forma": "χάρις",
+  "glosa_interlineal": "gracia",
+  "rango_semantico": [
+   "gracia, favor"
+  ],
+  "construccion": "Nominativo: «la gracia sea con todos vosotros. Amén».",
+  "sentido_en_contexto": "Final breve de la carta: «la gracia sea con todos vosotros» (plural), tal como las cartas paulinas. Hebreos, a la vez homilía y carta, concluye con la bendición habitual.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Tit 3:15",
+   "1 Ti 6:21",
+   "2 Ti 4:22",
+   "Heb 13:22-24"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Heb.13.25#02",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G5485",
+  "strong_tagnt": "G5485",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "grace"
+ }
+]

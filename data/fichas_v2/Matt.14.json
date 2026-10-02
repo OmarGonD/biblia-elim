@@ -1,0 +1,857 @@
+[
+ {
+  "ref": "Matt.14.1",
+  "strong": "G5076",
+  "forma": "τετραάρχης",
+  "glosa_interlineal": "tetrarca",
+  "rango_semantico": [
+   "tetrarca, gobernante de la cuarta parte de un territorio"
+  ],
+  "construccion": "Nominativo, en aposición con Herodes: «Herodes el tetrarca».",
+  "sentido_en_contexto": "Herodes Antipas gobernaba Galilea y Perea. Aunque Mateo lo llama «rey» en 14:9, su título oficial era tetrarca.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 3:1 — «Herodes tetrarca de Galilea»",
+   "Mr 6:14 — «el rey Herodes»",
+   "Hch 13:1 — «Manaén, que se había criado junto con Herodes el tetrarca»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Matt.14.1#08",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G5076",
+  "strong_tagnt": "G5076",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "tetrarch"
+ },
+ {
+  "ref": "Matt.14.2",
+  "strong": "G1754",
+  "forma": "ἐνεργοῦσιν",
+  "glosa_interlineal": "actúan",
+  "rango_semantico": [
+   "actuar, obrar con poder",
+   "ser eficaz"
+  ],
+  "construccion": "Presente indicativo activo, 3ª plural: «operan». De ahí «energía».",
+  "sentido_en_contexto": "Herodes explica los milagros de Jesús como poderes que obran en Juan resucitado. La culpa lo lleva a esa explicación.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gá 3:5 — «el que… obra milagros entre vosotros»",
+   "Ef 1:19-20 — «la eficacia de su poder»",
+   "Fil 2:13 — «Dios es el que en vosotros produce»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 21,
+  "alineacion": "forma",
+  "tagnt": "Matt.14.2#21",
+  "morfologia_tagnt": "V-PAI-3P",
+  "dstrong": "G1754",
+  "strong_tagnt": "G1754",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "be active"
+ },
+ {
+  "ref": "Matt.14.4",
+  "strong": "G1832",
+  "forma": "ἔξεστίν",
+  "glosa_interlineal": "es lícito",
+  "rango_semantico": [
+   "ser permitido, lícito"
+  ],
+  "construccion": "Presente impersonal con negación implícita: «no te es lícito».",
+  "sentido_en_contexto": "Juan denuncia el matrimonio de Herodes con Herodías, esposa de su hermano Felipe, por contravenir Lv 18:16; 20:21.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lv 18:16 — «la desnudez de la mujer de tu hermano no descubrirás»",
+   "Mt 12:2 — «lo que no es lícito hacer en sábado»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Matt.14.4#07",
+  "morfologia_tagnt": "V-PAI-3S",
+  "dstrong": "G1832",
+  "strong_tagnt": "G1832",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "it is permitted"
+ },
+ {
+  "ref": "Matt.14.5",
+  "strong": "G4396",
+  "forma": "προφήτην",
+  "glosa_interlineal": "profeta",
+  "rango_semantico": [
+   "profeta, portavoz de Dios"
+  ],
+  "construccion": "Acusativo: «como a un profeta le tenían».",
+  "sentido_en_contexto": "Herodes temía a la multitud, que consideraba a Juan profeta. La opinión popular lo protege momentáneamente.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 21:26 — «todos tienen a Juan por profeta»",
+   "Mt 11:9 — «más que profeta»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Matt.14.5#10",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G4396",
+  "strong_tagnt": "G4396",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "prophet"
+ },
+ {
+  "ref": "Matt.14.7",
+  "strong": "G3727",
+  "forma": "ὅρκου",
+  "glosa_interlineal": "juramento",
+  "rango_semantico": [
+   "juramento"
+  ],
+  "construccion": "μετὰ + genitivo: «con juramento».",
+  "sentido_en_contexto": "Herodes jura públicamente dar a la hija de Herodías lo que pida. El juramento lo ata y lo lleva a ejecutar a Juan contra su voluntad.",
+  "matiz": "Ironía con Mt 5:33-37: Jesús había enseñado a no jurar; el juramento de Herodes termina en una injusticia.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 5:34 — «no juréis en ninguna manera»",
+   "Jue 11:30-39 — el voto de Jefté",
+   "Mt 26:72 — Pedro niega «con juramento»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Matt.14.7#03",
+  "morfologia_tagnt": "N-GSM",
+  "dstrong": "G3727",
+  "strong_tagnt": "G3727",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "oath"
+ },
+ {
+  "ref": "Matt.14.8",
+  "strong": "G4094",
+  "forma": "πίνακι",
+  "glosa_interlineal": "plato",
+  "rango_semantico": [
+   "bandeja, plato grande",
+   "tabla"
+  ],
+  "construccion": "ἐπὶ + dativo: «sobre una bandeja».",
+  "sentido_en_contexto": "La petición macabra: la cabeza de Juan en una bandeja, como un manjar. Escena de contraste con el banquete del Reino (v.19).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 6:25 — paralelo",
+   "Lc 11:39 — «limpiáis lo de fuera del vaso y del plato»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "Matt.14.8#13",
+  "morfologia_tagnt": "N-DSM",
+  "dstrong": "G4094",
+  "strong_tagnt": "G4094",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "platter"
+ },
+ {
+  "ref": "Matt.14.10",
+  "strong": "G607",
+  "forma": "ἀπεκεφάλισεν",
+  "glosa_interlineal": "decapitó",
+  "rango_semantico": [
+   "decapitar, cortar la cabeza"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª singular.",
+  "sentido_en_contexto": "Ejecución de Juan en prisión, sin juicio. Mateo la cuenta con sobriedad, sin detalles escabrosos.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 6:27 — paralelo",
+   "Ap 20:4 — «los decapitados por causa del testimonio de Jesús»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Matt.14.10#03",
+  "morfologia_tagnt": "V-AAI-3S",
+  "dstrong": "G0607",
+  "strong_tagnt": "G607",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to behead"
+ },
+ {
+  "ref": "Matt.14.13",
+  "strong": "G402",
+  "forma": "ἀνεχώρησεν",
+  "glosa_interlineal": "se retiró",
+  "rango_semantico": [
+   "retirarse, apartarse",
+   "irse a un lugar seguro"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª singular.",
+  "sentido_en_contexto": "Mateo emplea este verbo para los retiros de Jesús ante la amenaza (2:14; 4:12; 12:15). Aquí se retira al saber de la muerte de Juan.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 2:14 — a Egipto",
+   "Mt 4:12 — a Galilea al saber del arresto de Juan",
+   "Mt 12:15 — «sabiéndolo Jesús, se apartó»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Matt.14.13#06",
+  "morfologia_tagnt": "V-AAI-3S",
+  "dstrong": "G0402",
+  "strong_tagnt": "G402",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to leave"
+ },
+ {
+  "ref": "Matt.14.14",
+  "strong": "G4697",
+  "forma": "ἐσπλαγχνίσθη",
+  "glosa_interlineal": "tuvo compasión",
+  "rango_semantico": [
+   "compadecerse (profundamente)"
+  ],
+  "construccion": "Aoristo indicativo pasivo (deponente), 3ª singular.",
+  "sentido_en_contexto": "Jesús, aunque busca retiro, responde con compasión ante la multitud. Es el motor de su obra en Mateo (9:36; 14:14; 15:32; 20:34).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 9:36 — «tuvo compasión de ellas»",
+   "Mt 15:32 — «tengo compasión de la gente»",
+   "Mr 6:34 — paralelo"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Matt.14.14#09",
+  "morfologia_tagnt": "V-AOI-3S",
+  "dstrong": "G4697",
+  "strong_tagnt": "G4697",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to pity"
+ },
+ {
+  "ref": "Matt.14.16",
+  "strong": "G5315",
+  "forma": "φαγεῖν",
+  "glosa_interlineal": "comer",
+  "rango_semantico": [
+   "comer"
+  ],
+  "construccion": "Infinitivo aoristo, complemento de «dad»: «dadles vosotros de comer».",
+  "sentido_en_contexto": "Jesús pone a los discípulos ante la responsabilidad: «vosotros». El «vosotros» enfático contrasta con su plan de despedir a la gente. El milagro nace de lo poco que tienen.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 6:5-6 — Jesús prueba a Felipe",
+   "2 R 4:42-44 — Eliseo alimenta a cien con veinte panes"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "Matt.14.16#13",
+  "morfologia_tagnt": "V-AAN",
+  "dstrong": "G5315",
+  "strong_tagnt": "G5315",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to eat"
+ },
+ {
+  "ref": "Matt.14.19",
+  "strong": "G2127",
+  "forma": "εὐλόγησεν",
+  "glosa_interlineal": "bendijo",
+  "rango_semantico": [
+   "bendecir",
+   "alabar, dar gracias"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª singular.",
+  "sentido_en_contexto": "Jesús pronuncia la bendición judía sobre el pan: «Bendito eres, Señor… que sacas el pan de la tierra». Los verbos (tomó, bendijo, partió, dio) anticipan la Última Cena (26:26).",
+  "matiz": "La secuencia «tomó-bendijo-partió-dio» se repite en 15:36 y 26:26, y ha dado pie a lecturas eucarísticas. Mateo no las explicita.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 26:26 — «tomó Jesús el pan, y bendijo, y lo partió»",
+   "Lc 24:30 — «tomó el pan y lo bendijo, lo partió»",
+   "1 Co 11:24 — «dio gracias, lo partió»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 21,
+  "alineacion": "forma",
+  "tagnt": "Matt.14.19#22",
+  "morfologia_tagnt": "V-AAI-3S",
+  "dstrong": "G2127",
+  "strong_tagnt": "G2127",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to praise/bless"
+ },
+ {
+  "ref": "Matt.14.20",
+  "strong": "G2894",
+  "forma": "κοφίνους",
+  "glosa_interlineal": "cestas",
+  "rango_semantico": [
+   "cesta, canasto"
+  ],
+  "construccion": "Acusativo plural: «doce cestas llenas».",
+  "sentido_en_contexto": "Doce cestas: una por cada discípulo y quizá evocando las doce tribus. Muestra la abundancia: sobra más de lo que había al principio.",
+  "matiz": "κόφινος es el cesto típico de los judíos; en la segunda multiplicación (15:37) se usa σπυρίς, otro tipo de cesto. Es un detalle que Mateo y Marcos mantienen.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 15:37 — «siete canastas llenas»",
+   "Mt 16:9-10 — Jesús recuerda las cestas",
+   "Jn 6:13 — doce cestas"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "Matt.14.20#13",
+  "morfologia_tagnt": "N-APM",
+  "dstrong": "G2894",
+  "strong_tagnt": "G2894",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "basket"
+ },
+ {
+  "ref": "Matt.14.22",
+  "strong": "G315",
+  "forma": "ἠνάγκασεν",
+  "glosa_interlineal": "obligó",
+  "rango_semantico": [
+   "forzar, obligar",
+   "insistir"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª singular.",
+  "sentido_en_contexto": "Jesús hace subir a los discípulos a la barca «a la fuerza»: quizá para evitar que la multitud, entusiasmada, los arrastrara a proclamarlo rey (cf. Jn 6:15).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 6:15 — «para hacerle rey»",
+   "Lc 14:23 — «fuérzalos a entrar»"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Matt.14.22#03",
+  "morfologia_tagnt": "V-AAI-3S",
+  "dstrong": "G0315",
+  "strong_tagnt": "G315",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to compel"
+ },
+ {
+  "ref": "Matt.14.23",
+  "strong": "G4336",
+  "forma": "προσεύξασθαι",
+  "glosa_interlineal": "orar",
+  "rango_semantico": [
+   "orar, hacer una petición a Dios"
+  ],
+  "construccion": "Infinitivo aoristo medio de finalidad: «para orar».",
+  "sentido_en_contexto": "Jesús sube al monte a orar a solas: intimidad con el Padre tras el milagro. Mateo menciona la oración de Jesús pocas veces (11:25; 14:23; 19:13; 26:36-44).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 1:35 — «se fue a un lugar desierto, y allí oraba»",
+   "Lc 6:12 — «pasó la noche orando a Dios»",
+   "Mt 26:36 — Getsemaní"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Matt.14.23#11",
+  "morfologia_tagnt": "V-ADN",
+  "dstrong": "G4336",
+  "strong_tagnt": "G4336",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to pray"
+ },
+ {
+  "ref": "Matt.14.25",
+  "strong": "G5067",
+  "forma": "τετάρτῃ",
+  "glosa_interlineal": "cuarta",
+  "rango_semantico": [
+   "cuarto"
+  ],
+  "construccion": "Dativo: «a la cuarta vigilia».",
+  "sentido_en_contexto": "Los romanos dividían la noche en cuatro vigilias; la cuarta es la de las 3 a las 6 de la mañana. Los discípulos llevaban horas luchando contra el viento.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 6:48 — paralelo",
+   "Éx 14:24 — «a la vigilia de la mañana» (el Éxodo)"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "Matt.14.25#01",
+  "morfologia_tagnt": "A-DSF",
+  "dstrong": "G5067",
+  "strong_tagnt": "G5067",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "fourth"
+ },
+ {
+  "ref": "Matt.14.26",
+  "strong": "G5326",
+  "forma": "φάντασμά",
+  "glosa_interlineal": "fantasma",
+  "rango_semantico": [
+   "aparición, fantasma",
+   "espectro"
+  ],
+  "construccion": "Nominativo: «¡es un fantasma!».",
+  "sentido_en_contexto": "Los discípulos no reconocen a Jesús y piensan que es un espíritu. Palabra única en Mateo y Marcos.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 6:49 — paralelo",
+   "Lc 24:37 — «pensaban que veían espíritu»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Matt.14.26#13",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G5326",
+  "strong_tagnt": "G5326",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "ghost"
+ },
+ {
+  "ref": "Matt.14.27",
+  "strong": "G2293",
+  "forma": "θαρσεῖτε",
+  "glosa_interlineal": "tened ánimo",
+  "rango_semantico": [
+   "tener valor, animarse"
+  ],
+  "construccion": "Imperativo presente activo, 2ª plural: «animaos».",
+  "sentido_en_contexto": "Jesús habla de inmediato con tres frases: «ánimo, yo soy, no temáis». El «yo soy» (ἐγώ εἰμι) puede ser simple identificación («soy yo») o, con resonancias del AT, la fórmula divina.",
+  "matiz": "Debate: ἐγώ εἰμι puede ser «soy yo» (identificación) o evocar el nombre divino (Éx 3:14; Is 43:10). En el contexto (Jesús caminando sobre el mar, solo Dios lo hace: Job 9:8), muchos ven un trasfondo teofánico.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Job 9:8 — «él solo extendió los cielos, y anda sobre las olas del mar»",
+   "Éx 3:14 — «YO SOY EL QUE SOY»",
+   "Jn 6:20 — paralelo"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Matt.14.27#08",
+  "morfologia_tagnt": "V-PAM-2P",
+  "dstrong": "G2293",
+  "strong_tagnt": "G2293",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "take heart"
+ },
+ {
+  "ref": "Matt.14.29",
+  "strong": "G4043",
+  "forma": "περιεπάτησεν",
+  "glosa_interlineal": "caminó",
+  "rango_semantico": [
+   "andar, caminar"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª singular.",
+  "sentido_en_contexto": "Pedro camina sobre las aguas hacia Jesús, solo en Mateo. Se subraya la fe como confianza en la palabra de Jesús: «ven».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 14:25 — Jesús camina",
+   "Heb 11:1 — «la fe es la certeza de lo que se espera»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Matt.14.29#12",
+  "morfologia_tagnt": "V-AAI-3S",
+  "dstrong": "G4043",
+  "strong_tagnt": "G4043",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to walk"
+ },
+ {
+  "ref": "Matt.14.30",
+  "strong": "G2670",
+  "forma": "καταποντίζεσθαι",
+  "glosa_interlineal": "hundirse",
+  "rango_semantico": [
+   "hundirse, ser sumergido",
+   "ser arrojado al mar"
+  ],
+  "construccion": "Infinitivo presente pasivo: «hundirse».",
+  "sentido_en_contexto": "Pedro se hunde cuando mira al viento: el miedo desplaza la mirada de Jesús. Su grito es una oración breve y directa.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 18:6 — «que se le hundiese en el fondo del mar»",
+   "Sal 69:2 — «he venido a abismos de aguas»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Matt.14.30#09",
+  "morfologia_tagnt": "V-PPN",
+  "dstrong": "G2670",
+  "strong_tagnt": "G2670",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to sink"
+ },
+ {
+  "ref": "Matt.14.31",
+  "strong": "G1365",
+  "forma": "ἐδίστασας",
+  "glosa_interlineal": "dudaste",
+  "rango_semantico": [
+   "dudar, vacilar"
+  ],
+  "construccion": "Aoristo indicativo activo, 2ª singular.",
+  "sentido_en_contexto": "Distaso significa «ser de dos ánimos»: vacilar entre confiar y temer. Jesús no le reprocha falta de fe, sino fe insuficiente.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 28:17 — «algunos dudaban»",
+   "Stg 1:6 — «pida con fe, no dudando nada»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 16,
+  "alineacion": "forma",
+  "tagnt": "Matt.14.31#16",
+  "morfologia_tagnt": "V-AAI-2S",
+  "dstrong": "G1365",
+  "strong_tagnt": "G1365",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to doubt"
+ },
+ {
+  "ref": "Matt.14.33",
+  "strong": "G230",
+  "forma": "ἀληθῶς",
+  "glosa_interlineal": "verdaderamente",
+  "rango_semantico": [
+   "verdaderamente, de veras"
+  ],
+  "construccion": "Adverbio: «verdaderamente eres Hijo de Dios».",
+  "sentido_en_contexto": "Reacción de los discípulos tras el milagro: adoración y confesión («Hijo de Dios»). Es la primera confesión así de los discípulos en Mateo (cf. 16:16).",
+  "matiz": "Debate: ¿es una confesión plena de la divinidad de Jesús o un reconocimiento de que es un ser especial y mesiánico? En Mateo, «Hijo de Dios» tiene una carga mayor tras la resurrección (28:19).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 16:16 — «tú eres el Cristo, el Hijo del Dios viviente»",
+   "Mt 27:54 — «verdaderamente éste era Hijo de Dios»",
+   "Mr 6:51-52 — paralelo sin confesión"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Matt.14.33#10",
+  "morfologia_tagnt": "ADV",
+  "dstrong": "G0230",
+  "strong_tagnt": "G230",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "truly"
+ },
+ {
+  "ref": "Matt.14.36",
+  "strong": "G1295",
+  "forma": "διεσώθησαν",
+  "glosa_interlineal": "fueron sanados",
+  "rango_semantico": [
+   "salvar completamente",
+   "sanar totalmente"
+  ],
+  "construccion": "Aoristo indicativo pasivo, 3ª plural: «quedaron sanos / fueron salvados».",
+  "sentido_en_contexto": "Compuesto intensivo (διά + σώζω): los que tocaban el borde de su manto quedaban «completamente sanados».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 9:20-22 — la mujer del flujo de sangre",
+   "Hch 28:1 — «escapados (διασωθέντες)»",
+   "1 P 3:20 — «fueron salvadas por agua»"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 15,
+  "alineacion": "forma",
+  "tagnt": "Matt.14.36#15",
+  "morfologia_tagnt": "V-API-3P",
+  "dstrong": "G1295",
+  "strong_tagnt": "G1295",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to save"
+ }
+]

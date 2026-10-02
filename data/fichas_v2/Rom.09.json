@@ -1,0 +1,720 @@
+[
+ {
+  "ref": "Rom.9.3",
+  "strong": "G331",
+  "forma": "ἀνάθεμα",
+  "glosa_interlineal": "anatema",
+  "rango_semantico": [
+   "maldito, entregado a la destrucción, separado"
+  ],
+  "construccion": "Nominativo: «deseaba yo mismo ser anatema, separado de Cristo, por amor a mis hermanos».",
+  "sentido_en_contexto": "Pablo expresa un dolor profundo por Israel: desearía ser «anatema» (maldito, separado de Cristo) por sus hermanos según la carne. Eco de Moisés (Éx 32:32). Es imposible en la práctica, pero revela su amor. Abre Ro 9-11, sobre el lugar de Israel en el plan de Dios.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 32:32",
+   "Ro 10:1",
+   "1 Co 12:3; 16:22",
+   "Gá 1:8-9"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Rom.9.3#03",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G0331",
+  "strong_tagnt": "G331",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "devoted"
+ },
+ {
+  "ref": "Rom.9.4",
+  "strong": "G5206",
+  "forma": "υἱοθεσία",
+  "glosa_interlineal": "adopción",
+  "rango_semantico": [
+   "adopción como hijo"
+  ],
+  "construccion": "Nominativo: «de los cuales son la adopción, la gloria, los pactos, la promulgación de la ley, el culto y las promesas».",
+  "sentido_en_contexto": "Lista de ocho privilegios de Israel (adopción, gloria, pactos, ley, culto, promesas, patriarcas, y el Mesías según la carne, v.5). Pablo reconoce que son reales y siguen perteneciendo a Israel; esto prepara el argumento de Ro 11 sobre la fidelidad de Dios a Israel.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 4:22",
+   "Dt 7:6; 14:2",
+   "Ro 3:1-2; 11:28-29",
+   "Os 11:1"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 6,
+  "alineacion": "forma",
+  "tagnt": "Rom.9.4#06",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G5206",
+  "strong_tagnt": "G5206",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "adoption (as son)"
+ },
+ {
+  "ref": "Rom.9.5",
+  "strong": "G2316",
+  "forma": "θεὸς",
+  "glosa_interlineal": "Dios",
+  "rango_semantico": [
+   "Dios"
+  ],
+  "construccion": "Nominativo: «el cual es Dios sobre todas las cosas, bendito por los siglos».",
+  "sentido_en_contexto": "Uno de los pasajes más importantes sobre la divinidad de Cristo en Pablo. La puntuación determina el sentido: (a) «Cristo… que es Dios sobre todo, bendito por los siglos» (afirmación de divinidad); (b) «…según la carne. Dios, que está sobre todo, sea bendito» (doxología al Padre). La primera es la mayoría de los exégetas.",
+  "matiz": "Debate: puntuación y referente de la doxología. Lectura (a): Cristo es llamado «Dios sobre todo» (versión de RVR y la mayoría de padres griegos y latinos y muchos exégetas modernos; coherente con Tit 2:13; Jn 1:1; 20:28). Lectura (b): doxología separada al Padre (RSV nota, NEB). Argumentos gramaticales y de estilo favorecen (a) para muchos.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 1:1; 20:28",
+   "Tit 2:13",
+   "Col 2:9",
+   "Heb 1:8",
+   "Ro 1:25"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 16,
+  "alineacion": "forma",
+  "tagnt": "Rom.9.5#16",
+  "morfologia_tagnt": "N-NSM-T",
+  "dstrong": "G2316",
+  "strong_tagnt": "G2316",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "God"
+ },
+ {
+  "ref": "Rom.9.6",
+  "strong": "G3056",
+  "forma": "λόγος",
+  "glosa_interlineal": "palabra",
+  "rango_semantico": [
+   "palabra, mensaje"
+  ],
+  "construccion": "Nominativo: «no que la palabra de Dios haya fallado».",
+  "sentido_en_contexto": "Tesis de Ro 9-11: la palabra de Dios no ha fallado porque «no todos los que descienden de Israel son israelitas». Distingue entre linaje físico y verdadero Israel conforme a la promesa y elección de Dios (vv.6-13). Prepara el argumento sobre el remanente.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 3:3-4; 11:1-2",
+   "Nm 23:19",
+   "Is 55:10-11"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Rom.9.6#07",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G3056",
+  "strong_tagnt": "G3056",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "word"
+ },
+ {
+  "ref": "Rom.9.7",
+  "strong": "G2464",
+  "forma": "Ἰσαὰκ",
+  "glosa_interlineal": "Isaac",
+  "rango_semantico": [
+   "Isaac"
+  ],
+  "construccion": "Dativo: «en Isaac te será llamada descendencia».",
+  "sentido_en_contexto": "Cita de Gn 21:12. Pablo muestra que dentro de la descendencia física de Abraham, Dios escogió a Isaac y no a Ismael: la pertenencia al pueblo de Dios depende de la promesa y llamamiento de Dios, no de la descendencia carnal.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 21:12",
+   "Gá 4:21-31",
+   "Heb 11:18"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Rom.9.7#10",
+  "morfologia_tagnt": "N-DSM-P",
+  "dstrong": "G2464",
+  "strong_tagnt": "G2464",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Isaac"
+ },
+ {
+  "ref": "Rom.9.11",
+  "strong": "G1589",
+  "forma": "ἐκλογὴν",
+  "glosa_interlineal": "elección",
+  "rango_semantico": [
+   "elección, selección"
+  ],
+  "construccion": "Acusativo: «para que el propósito de Dios conforme a la elección permaneciese».",
+  "sentido_en_contexto": "Jacob y Esaú: antes de nacer o hacer algo bueno o malo, Dios eligió a Jacob («el mayor servirá al menor»). La elección es «no por obras, sino por el que llama». Texto central en el debate sobre predestinación (elección incondicional o corporativa).",
+  "matiz": "Debate sobre la elección en Ro 9:11-13: (a) elección incondicional de individuos para salvación (agustiniana-reformada); (b) elección de Israel/Jacob como pueblo para un propósito histórico (no la salvación eterna individual; Jacob y Esaú representan naciones, cf. Gn 25:23; Mal 1:2-3), lectura arminiana y de muchos exégetas; (c) elección condicionada a la presciencia de la fe. El texto enfatiza la libertad soberana de Dios y la gratuidad del llamado.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 25:23",
+   "Ro 8:28-30",
+   "Ef 1:4-5, 11",
+   "Mal 1:2-3"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "Rom.9.11#13",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G1589",
+  "strong_tagnt": "G1589",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "selecting"
+ },
+ {
+  "ref": "Rom.9.13",
+  "strong": "G3404",
+  "forma": "ἐμίσησα",
+  "glosa_interlineal": "aborrecí",
+  "rango_semantico": [
+   "odiar, amar menos, rechazar"
+  ],
+  "construccion": "Aoristo indicativo activo: «a Jacob amé, mas a Esaú aborrecí».",
+  "sentido_en_contexto": "Cita de Mal 1:2-3. «Aborrecer» (μισέω) en el lenguaje semítico puede significar «amar menos» o «no elegir» (cf. Lc 14:26; Gn 29:30-31). Se trata del contraste entre la elección de Jacob y no de Esaú, quizá en referencia a las naciones Israel y Edom más que a individuos.",
+  "matiz": "Debate: «aborrecí» como: (a) odio literal (reformada estricta); (b) hebraísmo de preferencia o no elección («amé menos»); (c) referencia a las naciones Israel y Edom en tiempos de Malaquías, no a Jacob y Esaú como individuos. Pablo cita el texto para ilustrar la libertad de Dios en la elección, no para negar su amor por Esaú.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mal 1:2-3",
+   "Lc 14:26",
+   "Gn 29:30-31",
+   "Dt 21:15-17"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Rom.9.13#09",
+  "morfologia_tagnt": "V-AAI-1S",
+  "dstrong": "G3404",
+  "strong_tagnt": "G3404",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to hate"
+ },
+ {
+  "ref": "Rom.9.14",
+  "strong": "G93",
+  "forma": "ἀδικία",
+  "glosa_interlineal": "injusticia",
+  "rango_semantico": [
+   "injusticia"
+  ],
+  "construccion": "Nominativo: «¿habrá injusticia en Dios? En ninguna manera».",
+  "sentido_en_contexto": "Primera objeción a la libertad soberana de Dios (vv.14-18). Pablo responde con Éx 33:19: «tendré misericordia del que yo tenga misericordia»: la misericordia es libre, no un derecho. Nadie merece salvación; si Dios da misericordia, es por gracia.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 33:19",
+   "Dt 32:4",
+   "Job 34:10",
+   "Ro 3:5-6"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Rom.9.14#05",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G0093",
+  "strong_tagnt": "G93",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "unrighteousness"
+ },
+ {
+  "ref": "Rom.9.15",
+  "strong": "G1653",
+  "forma": "ἐλεήσω",
+  "glosa_interlineal": "tendré misericordia",
+  "rango_semantico": [
+   "tener misericordia, compadecer"
+  ],
+  "construccion": "Futuro indicativo activo: «tendré misericordia del que yo tenga misericordia».",
+  "sentido_en_contexto": "Cita de Éx 33:19 en el contexto del perdón tras el becerro de oro. La misericordia de Dios es soberana: no depende del querer ni del correr del hombre (v.16), sino de Dios. Pablo subraya la gratuidad de la gracia.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 33:19",
+   "Ro 9:16",
+   "Ef 2:4-5",
+   "Tit 3:5"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Rom.9.15#05",
+  "morfologia_tagnt": "V-FAI-1S",
+  "dstrong": "G1653",
+  "strong_tagnt": "G1653",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to have mercy"
+ },
+ {
+  "ref": "Rom.9.17",
+  "strong": "G1825",
+  "forma": "ἐξήγειρά",
+  "glosa_interlineal": "levanté",
+  "rango_semantico": [
+   "levantar, suscitar, hacer surgir"
+  ],
+  "construccion": "Aoristo indicativo activo: «para esto mismo te he levantado, para mostrar en ti mi poder».",
+  "sentido_en_contexto": "Cita de Éx 9:16 aplicada a Faraón: Dios lo levantó para mostrar su poder y anunciar su nombre por toda la tierra. Introduce el tema del endurecimiento (v.18).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 9:16",
+   "Éx 4:21; 7:3; 8:15, 32",
+   "Sal 105:25"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Rom.9.17#11",
+  "morfologia_tagnt": "V-AAI-1S",
+  "dstrong": "G1825",
+  "strong_tagnt": "G1825",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to raise"
+ },
+ {
+  "ref": "Rom.9.18",
+  "strong": "G4645",
+  "forma": "σκληρύνει",
+  "glosa_interlineal": "endurece",
+  "rango_semantico": [
+   "endurecer, volver duro"
+  ],
+  "construccion": "Presente indicativo activo: «de quien quiere, tiene misericordia, y al que quiere, endurece».",
+  "sentido_en_contexto": "El versículo más difícil: Dios tiene misericordia de quien quiere y endurece a quien quiere. En Éxodo, Faraón se endurece a sí mismo (Éx 8:15, 32) y Dios lo endurece (Éx 4:21; 9:12). Debate sobre la relación entre la soberanía de Dios y la responsabilidad del endurecido.",
+  "matiz": "Debate sobre el endurecimiento: (a) acto soberano de Dios sobre individuos (reformada alta); (b) acto judicial: Dios endurece a quien ya se había endurecido (arminiana; sublapsariana); (c) endurecimiento de Israel como pueblo con propósito salvífico (Ro 11:7-12, 25). Pablo no resuelve la tensión: confirma la soberanía de Dios y la culpa humana (9:22; 10:21).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 4:21; 7:3; 8:15, 32; 9:12",
+   "Ro 11:7-10",
+   "Jn 12:39-40"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Rom.9.18#09",
+  "morfologia_tagnt": "V-PAI-3S",
+  "dstrong": "G4645",
+  "strong_tagnt": "G4645",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to harden"
+ },
+ {
+  "ref": "Rom.9.20",
+  "strong": "G4110",
+  "forma": "πλάσμα",
+  "glosa_interlineal": "lo moldeado",
+  "rango_semantico": [
+   "lo formado, la obra modelada"
+  ],
+  "construccion": "Nominativo: «¿dirá el vaso de barro al que lo formó: ¿por qué me has hecho así?».",
+  "sentido_en_contexto": "Respuesta a la segunda objeción («¿por qué, pues, inculpa?»): la imagen del alfarero (Is 29:16; 45:9; Jer 18:1-6). El hombre no puede pedir cuentas al Creador. El pasaje no niega la responsabilidad moral; la respuesta apunta a la humildad.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 29:16; 45:9",
+   "Jer 18:1-6",
+   "Job 38—41",
+   "Sal 139:14"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 14,
+  "alineacion": "forma",
+  "tagnt": "Rom.9.20#14",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G4110",
+  "strong_tagnt": "G4110",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "formed thing"
+ },
+ {
+  "ref": "Rom.9.22",
+  "strong": "G2675",
+  "forma": "κατηρτισμένα",
+  "glosa_interlineal": "preparados",
+  "rango_semantico": [
+   "preparar, equipar, ajustar"
+  ],
+  "construccion": "Participio perfecto pasivo (o medio): «vasos de ira preparados para destrucción».",
+  "sentido_en_contexto": "Texto crucial: «vasos de ira preparados (κατηρτισμένα) para destrucción» frente a «vasos de misericordia que Dios preparó de antemano para gloria» (προητοίμασεν, v.23). Notese que para los primeros se usa pasivo/medio (sin agente explícito) y para los segundos activo («Dios preparó de antemano»).",
+  "matiz": "Debate: ¿κατηρτισμένα es pasivo (preparados por Dios) o medio («se prepararon a sí mismos», como Faraón)? La mayoría de reformados lo toma pasivo (decreto de reprobación); muchos arminianos y algunos exégetas lo toman medio o pasivo con agente humano. El contraste con «preparó de antemano» (activo, v.23) sugiere una asimetría deliberada.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 9:23",
+   "Ro 2:4-5",
+   "Pr 16:4",
+   "1 P 2:8"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 20,
+  "alineacion": "forma",
+  "tagnt": "Rom.9.22#20",
+  "morfologia_tagnt": "V-RPP-APN",
+  "dstrong": "G2675",
+  "strong_tagnt": "G2675",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to complete"
+ },
+ {
+  "ref": "Rom.9.24",
+  "strong": "G1484",
+  "forma": "ἐθνῶν",
+  "glosa_interlineal": "gentiles",
+  "rango_semantico": [
+   "nación, pueblo, gentil"
+  ],
+  "construccion": "Genitivo plural: «a los cuales también ha llamado, no sólo de los judíos, sino también de los gentiles».",
+  "sentido_en_contexto": "Pablo revela el propósito de Dios en la elección: llamar un pueblo de entre judíos y gentiles. Cita Os 2:23 y 1:10 (vv.25-26): los que no eran pueblo serán llamados «pueblo mío». Aplica a los gentiles profecías sobre Israel.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Os 1:10; 2:23",
+   "1 P 2:10",
+   "Ro 9:25-26",
+   "Ef 2:11-22"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "Rom.9.24#12",
+  "morfologia_tagnt": "N-GPN",
+  "dstrong": "G1484",
+  "strong_tagnt": "G1484",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Gentile nation"
+ },
+ {
+  "ref": "Rom.9.27",
+  "strong": "G2640",
+  "forma": "ὑπόλειμμα",
+  "glosa_interlineal": "remanente",
+  "rango_semantico": [
+   "resto, remanente"
+  ],
+  "construccion": "Nominativo: «aunque el número de los hijos de Israel sea como la arena del mar, el remanente será salvo».",
+  "sentido_en_contexto": "Cita de Is 10:22-23 (con Os 1:10): solo un remanente de Israel será salvo. El tema del remanente (cf. 11:5) muestra que Dios siempre ha preservado un resto fiel dentro de Israel, y que la mayoría no es el criterio.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 10:22-23",
+   "Ro 11:1-5",
+   "1 R 19:18",
+   "Is 1:9"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 20,
+  "alineacion": "forma",
+  "tagnt": "Rom.9.27#20",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G9577",
+  "strong_tagnt": "G9577",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg"
+  ],
+  "ausente_en": [
+   "TR",
+   "Byz"
+  ],
+  "variante": true,
+  "glosa_tagnt": "vestige"
+ },
+ {
+  "ref": "Rom.9.30",
+  "strong": "G2638",
+  "forma": "κατέλαβεν",
+  "glosa_interlineal": "alcanzaron",
+  "rango_semantico": [
+   "alcanzar, asir, conseguir"
+  ],
+  "construccion": "Aoristo indicativo activo: «los gentiles, que no buscaban justicia, alcanzaron la justicia, es decir, la justicia que es por fe».",
+  "sentido_en_contexto": "Paradoja: los gentiles, que no perseguían la justicia, la alcanzaron por fe; Israel, que perseguía una ley de justicia, no la alcanzó, porque la buscó «como por obras» (v.32). Tropezaron con la «piedra de tropiezo», Cristo (v.33).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 3:21-22; 10:3-4",
+   "Gá 2:16",
+   "Ef 2:8-9"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Rom.9.30#10",
+  "morfologia_tagnt": "V-2AAI-3S",
+  "dstrong": "G2638",
+  "strong_tagnt": "G2638",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to grasp"
+ },
+ {
+  "ref": "Rom.9.32",
+  "strong": "G4350",
+  "forma": "προσέκοψαν",
+  "glosa_interlineal": "tropezaron",
+  "rango_semantico": [
+   "tropezar, chocar contra"
+  ],
+  "construccion": "Aoristo indicativo activo: «tropezaron en la piedra de tropiezo».",
+  "sentido_en_contexto": "Israel buscó la justicia por obras y tropezó con Cristo, «piedra de tropiezo y roca de escándalo» (Is 8:14; 28:16 combinados). Cristo es a la vez fundamento para los que creen y escándalo para los que lo rechazan.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 8:14; 28:16",
+   "1 P 2:6-8",
+   "1 Co 1:23",
+   "Lc 2:34"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Rom.9.32#12",
+  "morfologia_tagnt": "V-AAI-3P",
+  "dstrong": "G4350",
+  "strong_tagnt": "G4350",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to strike"
+ },
+ {
+  "ref": "Rom.9.33",
+  "strong": "G4073",
+  "forma": "πέτραν",
+  "glosa_interlineal": "roca",
+  "rango_semantico": [
+   "roca, peña"
+  ],
+  "construccion": "Acusativo: «piedra de tropiezo y roca de caída (de escándalo)».",
+  "sentido_en_contexto": "Cita compuesta de Is 28:16 y Is 8:14: Dios pone en Sión una piedra que es fundamento para quien cree, y tropiezo para quien no. «El que creyere en él, no será avergonzado» (cf. Ro 10:11). Cierra el capítulo y abre el 10, sobre la fe y la predicación.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 28:16; 8:14",
+   "Ro 10:11",
+   "Mt 21:42-44",
+   "1 P 2:6-8"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Rom.9.33#10",
+  "morfologia_tagnt": "N-ASF",
+  "dstrong": "G4073",
+  "strong_tagnt": "G4073",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "rock"
+ }
+]

@@ -1,0 +1,281 @@
+[
+ {
+  "ref": "Heb.1.1",
+  "strong": "G4181",
+  "forma": "Πολυμερῶς",
+  "glosa_interlineal": "de muchas maneras",
+  "rango_semantico": [
+   "en muchas partes, fragmentariamente"
+  ],
+  "construccion": "Adverbio: «Dios, habiendo hablado muchas veces y de muchas maneras en otro tiempo a los padres por los profetas, en estos postreros días nos ha hablado por el Hijo».",
+  "sentido_en_contexto": "Apertura de Hebreos con una sola frase en griego, de estilo elevado: Dios habló fragmentaria y diversamente por los profetas, y definitivamente por el Hijo. Autor anónimo, probablemente cristiano judío helenista, que escribe a creyentes judíos tentados a volver al judaísmo (c. 60-69 d.C.). La autoría paulina, sostenida en la tradición oriental, se rechaza hoy casi universalmente (estilo, vocabulario, ausencia de nombre).",
+  "matiz": "Debate sobre la autoría: Pablo (tradición oriental, Pantaino/Clemente de Alejandría; negada por Orígenes: «solo Dios sabe quién escribió»); Bernabé (Tertuliano); Apolos (Lutero); Priscila (Harnack); Lucas, Clemente de Roma. La mayoría de exégetas actuales: autor desconocido del círculo paulino. Sobre los destinatarios: judíos cristianos en Roma o Jerusalén. Su canonicidad fue disputada en Occidente hasta el s. IV.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 1:1-18",
+   "2 P 1:21",
+   "Gá 4:4"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 1,
+  "alineacion": "forma",
+  "tagnt": "Heb.1.1#01",
+  "morfologia_tagnt": "ADV",
+  "dstrong": "G4181",
+  "strong_tagnt": "G4181",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "little by little"
+ },
+ {
+  "ref": "Heb.1.2",
+  "strong": "G2818",
+  "forma": "κληρονόμον",
+  "glosa_interlineal": "heredero",
+  "rango_semantico": [
+   "heredero"
+  ],
+  "construccion": "Acusativo: «a quien constituyó heredero de todo, y por quien asimismo hizo el universo».",
+  "sentido_en_contexto": "El Hijo es heredero de todo y agente de la creación («por quien hizo los mundos», αἰῶνας: las eras y el cosmos). Sigue una serie de siete afirmaciones sobre el Hijo (vv.2-4): heredero, creador, resplandor de la gloria, impronta de su ser, sustentador, purificador y exaltado.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Col 1:16",
+   "Jn 1:3",
+   "Sal 2:8",
+   "Ro 8:17"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Heb.1.2#12",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G2818",
+  "strong_tagnt": "G2818",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "heir"
+ },
+ {
+  "ref": "Heb.1.3",
+  "strong": "G541",
+  "forma": "ἀπαύγασμα",
+  "glosa_interlineal": "resplandor",
+  "rango_semantico": [
+   "resplandor, destello"
+  ],
+  "construccion": "Nominativo: «el cual, siendo el resplandor de su gloria, y la imagen misma de su sustancia, y quien sustenta todas las cosas con la palabra de su poder».",
+  "sentido_en_contexto": "Dos metáforas: ἀπαύγασμα (destello emitido por la luz: del mismo ser que su fuente) y χαρακτὴρ τῆς ὑποστάσεως (impronta o grabado exacto de su ser). Textos básicos para la relación Padre-Hijo (Nicea: «luz de luz»). El Hijo sustenta el universo y hizo la purificación de los pecados antes de sentarse a la diestra.",
+  "matiz": "Debate sobre ἀπαύγασμα: «resplandor emitido» (activo; el Hijo es el brillo que procede del Padre) o «reflejo» (pasivo). Los Padres nicenos lo usaron para afirmar la coeternidad. ὑπόστασις: «sustancia, ser» (la mayoría); luego se diferenció de οὐσία en el debate trinitario (Capadocios).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 1:14",
+   "Col 1:15-17",
+   "2 Co 4:4",
+   "Sab 7:25-26",
+   "Sal 110:1"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Heb.1.3#03",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G0541",
+  "strong_tagnt": "G541",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "radiance"
+ },
+ {
+  "ref": "Heb.1.4",
+  "strong": "G2909",
+  "forma": "κρείττων",
+  "glosa_interlineal": "superior",
+  "rango_semantico": [
+   "mejor, superior"
+  ],
+  "construccion": "Nominativo: «hecho tanto superior a los ángeles, cuanto heredó más excelente nombre que ellos».",
+  "sentido_en_contexto": "Introduce el tema de la superioridad de Cristo («mejor», κρείττων: palabra clave de Hebreos, 13 veces): sobre ángeles (cap. 1-2), Moisés (3), Josué (4), sacerdocio levítico (5-7), pacto (8), sacrificio (9-10). El «nombre más excelente» es «Hijo» (v.5) y posiblemente «Señor».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Fil 2:9",
+   "Ef 1:21",
+   "Heb 7:19, 22; 8:6; 9:23"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 2,
+  "alineacion": "forma",
+  "tagnt": "Heb.1.4#02",
+  "morfologia_tagnt": "A-NSM-C",
+  "dstrong": "G2908",
+  "strong_tagnt": "G2908",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "greater"
+ },
+ {
+  "ref": "Heb.1.5",
+  "strong": "G1080",
+  "forma": "γεγέννηκά",
+  "glosa_interlineal": "he engendrado",
+  "rango_semantico": [
+   "engendrar"
+  ],
+  "construccion": "Perfecto indicativo activo: «porque ¿a cuál de los ángeles dijo Dios jamás: Mi Hijo eres tú, yo te he engendrado hoy? Y otra vez: Yo seré a él Padre, y él me será a mí hijo?».",
+  "sentido_en_contexto": "Catena de siete citas del AT (vv.5-13): Sal 2:7; 2 S 7:14; Dt 32:43 LXX o Sal 97:7; Sal 104:4; Sal 45:6-7; Sal 102:25-27; Sal 110:1. Demuestran que el Hijo es superior a los ángeles. «Hoy» en Sal 2:7 se aplica a la exaltación o a la entronización mesiánica; para los Padres, a la generación eterna.",
+  "matiz": "Debate sobre «hoy te he engendrado»: (a) entronización/exaltación del Hijo (resurrección o ascensión; la mayoría de exégetas); (b) generación eterna del Hijo (Padres, Nicea); (c) encarnación. Cf. Hch 13:33 (resurrección) y Ro 1:4.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 2:7",
+   "2 S 7:14",
+   "Hch 13:33",
+   "Ro 1:4"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 13,
+  "alineacion": "forma",
+  "tagnt": "Heb.1.5#13",
+  "morfologia_tagnt": "V-RAI-1S",
+  "dstrong": "G1080",
+  "strong_tagnt": "G1080",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to beget"
+ },
+ {
+  "ref": "Heb.1.8",
+  "strong": "G2316",
+  "forma": "θεός",
+  "glosa_interlineal": "Dios",
+  "rango_semantico": [
+   "Dios"
+  ],
+  "construccion": "Nominativo/vocativo: «mas del Hijo dice: Tu trono, oh Dios, por el siglo del siglo; cetro de justicia es el cetro de tu reino».",
+  "sentido_en_contexto": "Cita de Sal 45:6-7 aplicada al Hijo. θεός puede ser vocativo («tu trono, oh Dios») o predicado («Dios es tu trono», «tu trono es Dios»). La lectura vocativa es la más natural y es texto clave de la deidad de Cristo. Contrasta con los ángeles (v.7): servidores, mientras el Hijo es Dios y rey.",
+  "matiz": "Debate sobre θεός en v.8: (a) vocativo: «tu trono, oh Dios» (la mayoría, tradición y RVR); (b) nominativo con predicado: «Dios es tu trono» (sin atribuir deidad al Hijo; poco probable, y no es la lectura del TM); (c) en el Sal 45 originalmente se dirige al rey de Israel, y Hebreos lo aplica al Hijo.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 45:6-7",
+   "Jn 1:1; 20:28",
+   "Ro 9:5",
+   "Tit 2:13"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Heb.1.8#09",
+  "morfologia_tagnt": "N-VSM-T",
+  "dstrong": "G2316",
+  "strong_tagnt": "G2316",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "God"
+ },
+ {
+  "ref": "Heb.1.14",
+  "strong": "G3010",
+  "forma": "λειτουργικὰ",
+  "glosa_interlineal": "servidores",
+  "rango_semantico": [
+   "servidor, ministrante"
+  ],
+  "construccion": "Nominativo: «¿no son todos espíritus ministradores, enviados para servicio a favor de los que serán herederos de la salvación?».",
+  "sentido_en_contexto": "Los ángeles son «espíritus servidores» enviados en servicio de los herederos de la salvación. Algunos lo han usado para respaldar la doctrina de los ángeles guardianes (con Mt 18:10; Sal 91:11). Son siervos, no mediadores de la salvación, y no deben ser adorados (cf. Col 2:18).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 91:11-12",
+   "Mt 18:10",
+   "Hch 12:7-11",
+   "Ap 22:8-9"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Heb.1.14#04",
+  "morfologia_tagnt": "A-NPN",
+  "dstrong": "G3010",
+  "strong_tagnt": "G3010",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "ministering"
+ }
+]

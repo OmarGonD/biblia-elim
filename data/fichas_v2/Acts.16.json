@@ -1,0 +1,785 @@
+[
+ {
+  "ref": "Acts.16.1",
+  "strong": "G5095",
+  "forma": "Τιμόθεος",
+  "glosa_interlineal": "Timoteo",
+  "rango_semantico": [
+   "Timoteo («que honra a Dios»)"
+  ],
+  "construccion": "Nominativo: «un discípulo llamado Timoteo, hijo de una mujer judía creyente, pero de padre griego».",
+  "sentido_en_contexto": "Timoteo de Listra, joven discípulo de buena fama, hijo de madre judía creyente (Eunice) y padre griego. Se une a Pablo, y será su colaborador más cercano (1 y 2 Timoteo).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Ti 1:5; 3:14-15",
+   "Fil 2:19-22",
+   "1 Co 4:17"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 15,
+  "alineacion": "forma",
+  "tagnt": "Acts.16.1#16",
+  "morfologia_tagnt": "N-NSM-P",
+  "dstrong": "G5095",
+  "strong_tagnt": "G5095",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Timothy"
+ },
+ {
+  "ref": "Acts.16.3",
+  "strong": "G4059",
+  "forma": "περιέτεμεν",
+  "glosa_interlineal": "circuncidó",
+  "rango_semantico": [
+   "circuncidar"
+  ],
+  "construccion": "Aoristo indicativo activo: «le circuncidó por causa de los judíos».",
+  "sentido_en_contexto": "Pablo circuncida a Timoteo «por causa de los judíos de aquellos lugares», pues era hijo de madre judía (por lo que, según la ley rabínica, era judío). No contradice el decreto de Jerusalén ni su posición en Gálatas, pues Timoteo era judío (no gentil); además, Pablo se hace «a los judíos como judío» (1 Co 9:20). Con Tito actuó distinto (Gá 2:3-5), por el principio.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 9:19-23",
+   "Gá 2:3-5; 5:2-6",
+   "Hch 15:1-29; 21:21-26"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Acts.16.3#10",
+  "morfologia_tagnt": "V-2AAI-3S",
+  "dstrong": "G4059",
+  "strong_tagnt": "G4059",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to circumcise"
+ },
+ {
+  "ref": "Acts.16.4",
+  "strong": "G1378",
+  "forma": "δόγματα",
+  "glosa_interlineal": "decretos",
+  "rango_semantico": [
+   "decreto, decisión, ordenanza"
+  ],
+  "construccion": "Acusativo plural: «les entregaban los decretos que habían acordado los apóstoles y los ancianos».",
+  "sentido_en_contexto": "El decreto del concilio de Jerusalén (15:23-29) se comunica a las iglesias de Galacia. δόγμα aquí es una decisión oficial; de la misma raíz proviene «dogma».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 15:22-29",
+   "Hch 21:25",
+   "Lc 2:1"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 10,
+  "alineacion": "forma",
+  "tagnt": "Acts.16.4#10",
+  "morfologia_tagnt": "N-APN",
+  "dstrong": "G1378",
+  "strong_tagnt": "G1378",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "decree"
+ },
+ {
+  "ref": "Acts.16.6",
+  "strong": "G2967",
+  "forma": "κωλυθέντες",
+  "glosa_interlineal": "impedidos",
+  "rango_semantico": [
+   "impedir, prohibir"
+  ],
+  "construccion": "Participio aoristo pasivo: «les fue prohibido por el Espíritu Santo hablar la palabra en Asia».",
+  "sentido_en_contexto": "El Espíritu impide a Pablo y a sus compañeros predicar en Asia y Bitinia, redirigiendo la misión hacia Macedonia. Lucas no precisa el medio (visión, profecía, circunstancias). Es un ejemplo de guía divina en la misión, con «el Espíritu de Jesús» (v.7).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 16:7, 9-10",
+   "Hch 13:2-4",
+   "Ro 15:20-24"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 8,
+  "alineacion": "forma",
+  "tagnt": "Acts.16.6#09",
+  "morfologia_tagnt": "V-APP-NPM",
+  "dstrong": "G2967",
+  "strong_tagnt": "G2967",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to prevent"
+ },
+ {
+  "ref": "Acts.16.7",
+  "strong": "G4151",
+  "forma": "πνεῦμα",
+  "glosa_interlineal": "Espíritu",
+  "rango_semantico": [
+   "espíritu"
+  ],
+  "construccion": "Nominativo: «el Espíritu de Jesús no se lo permitió».",
+  "sentido_en_contexto": "«El Espíritu de Jesús» es una expresión rara (cf. Flp 1:19; Gá 4:6): une al Espíritu con Cristo glorificado, que dirige su misión. Variante textual: «el Espíritu» (sin «de Jesús») en algunos manuscritos.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Fil 1:19",
+   "Ro 8:9",
+   "Gá 4:6",
+   "Hch 16:6"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 16,
+  "alineacion": "forma",
+  "tagnt": "Acts.16.7#16",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G4151G",
+  "strong_tagnt": "G4151",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "spirit/breath"
+ },
+ {
+  "ref": "Acts.16.9",
+  "strong": "G3110",
+  "forma": "Μακεδών",
+  "glosa_interlineal": "macedonio",
+  "rango_semantico": [
+   "macedonio, de Macedonia"
+  ],
+  "construccion": "Nominativo: «un varón macedonio».",
+  "sentido_en_contexto": "Pablo ve en Troas, de noche, un varón macedonio que le suplica: «pasa a Macedonia y ayúdanos». Interpretación inmediata (v.10): Dios los llama a anunciar el evangelio allí. Comienza la evangelización de Europa.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 16:10",
+   "Hch 18:9; 23:11",
+   "Fil 4:15-16"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Acts.16.9#10",
+  "morfologia_tagnt": "N-NSM-LG",
+  "dstrong": "G3110",
+  "strong_tagnt": "G3110",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Macedonian"
+ },
+ {
+  "ref": "Acts.16.10",
+  "strong": "G2212",
+  "forma": "ἐζητήσαμεν",
+  "glosa_interlineal": "procuramos",
+  "rango_semantico": [
+   "buscar, procurar"
+  ],
+  "construccion": "Aoristo indicativo activo, 1ª plural: «en seguida procuramos partir».",
+  "sentido_en_contexto": "Primera sección «nosotros» de Hechos (16:10-17): Lucas, el narrador, se une al grupo en Troas. La primera persona del plural sugiere que el autor estaba presente. Reaparece en 20:5—21:18 y 27:1—28:16.",
+  "matiz": "Debate sobre las secciones «nosotros»: (a) testimonio directo del autor, compañero de Pablo (tradición); (b) fuente itineraria incorporada; (c) recurso literario de narrativas de viaje marítimo. La tradición cristiana primitiva lo atribuye a Lucas.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 20:5-15; 21:1-18; 27:1—28:16",
+   "Col 4:14",
+   "Flm 24",
+   "2 Ti 4:11"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 7,
+  "alineacion": "forma",
+  "tagnt": "Acts.16.10#07",
+  "morfologia_tagnt": "V-AAI-1P",
+  "dstrong": "G2212",
+  "strong_tagnt": "G2212",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to seek"
+ },
+ {
+  "ref": "Acts.16.12",
+  "strong": "G2862",
+  "forma": "κολωνία",
+  "glosa_interlineal": "colonia",
+  "rango_semantico": [
+   "colonia (romana)"
+  ],
+  "construccion": "Nominativo: «Filipos, ciudad principal de la provincia de Macedonia, y colonia romana».",
+  "sentido_en_contexto": "Filipos era colonia romana (ius italicum), con ciudadanos romanos y orgullo de su estatus. Explica las acusaciones de 16:21 y la apelación de Pablo a su ciudadanía romana (16:37). Primera iglesia europea.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Fil 1:1; 3:20; 4:15-16",
+   "Hch 16:20-21, 37"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 11,
+  "alineacion": "forma",
+  "tagnt": "Acts.16.12#12",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G2862",
+  "strong_tagnt": "G2862",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "colony"
+ },
+ {
+  "ref": "Acts.16.14",
+  "strong": "G3070",
+  "forma": "Λυδία",
+  "glosa_interlineal": "Lidia",
+  "rango_semantico": [
+   "Lidia (comerciante de púrpura)"
+  ],
+  "construccion": "Nominativo: «una mujer llamada Lidia, vendedora de púrpura, de la ciudad de Tiatira, temerosa de Dios».",
+  "sentido_en_contexto": "Primera convertida en Europa: mujer acomodada, comerciante de púrpura de Tiatira, gentil «que adoraba a Dios». «El Señor abrió su corazón» para atender las palabras de Pablo. Acoge a los misioneros en su casa, que será base de la iglesia filipense.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 24:45 — «les abrió el entendimiento»",
+   "Hch 16:15, 40",
+   "Ap 2:18-29 — Tiatira"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Acts.16.14#05",
+  "morfologia_tagnt": "N-NSF-P",
+  "dstrong": "G3070",
+  "strong_tagnt": "G3070",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Lydia"
+ },
+ {
+  "ref": "Acts.16.15",
+  "strong": "G3624",
+  "forma": "οἶκος",
+  "glosa_interlineal": "casa",
+  "rango_semantico": [
+   "casa, familia, hogar"
+  ],
+  "construccion": "Nominativo: «cuando fue bautizada, y su familia».",
+  "sentido_en_contexto": "«Casa» (οἶκος) en Hechos designa a todo el grupo doméstico. Se bautizan Lidia y su casa (16:15), el carcelero y toda su casa (16:33), Crispo y su casa (18:8). Este patrón es la base de argumentos a favor del bautismo de niños (tradiciones paidobautistas) y en contra (tradiciones credobautistas, que subrayan que cada uno oyó y creyó).",
+  "matiz": "Debate: ¿incluyen los «hogares» bautizados a niños pequeños? Paidobautistas: probable, siguiendo la práctica del pacto. Credobautistas: el texto menciona fe de cada uno (16:32-34: «oyeron la palabra… se regocijó con toda su casa de haber creído»). No se dice explícitamente.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 16:33-34; 18:8",
+   "1 Co 1:16",
+   "Hch 11:14"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 6,
+  "revisar_ocurrencia": true,
+  "alineacion": "forma",
+  "tagnt": "Acts.16.15#06",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G3624H",
+  "strong_tagnt": "G3624",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "house"
+ },
+ {
+  "ref": "Acts.16.16",
+  "strong": "G4436",
+  "forma": "πύθωνα",
+  "glosa_interlineal": "pitón",
+  "rango_semantico": [
+   "pitón, espíritu de adivinación"
+  ],
+  "construccion": "Acusativo: «una muchacha que tenía espíritu de adivinación».",
+  "sentido_en_contexto": "πύθων era el nombre de la serpiente de Delfos, asociada con el oráculo de Apolo; aquí designa un espíritu de adivinación. La esclava daba grandes ganancias a sus amos. Pablo expulsa el espíritu en el nombre de Jesucristo, lo que provoca la acusación contra él.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 16:17-19",
+   "Dt 18:10-12",
+   "Hch 19:18-19"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "Acts.16.16#12",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G4436",
+  "strong_tagnt": "G4436",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg"
+  ],
+  "ausente_en": [
+   "TR",
+   "Byz"
+  ],
+  "variante": true,
+  "glosa_tagnt": "divining spirit"
+ },
+ {
+  "ref": "Acts.16.17",
+  "strong": "G5310",
+  "forma": "ὑψίστου",
+  "glosa_interlineal": "Altísimo",
+  "rango_semantico": [
+   "altísimo, el más alto"
+  ],
+  "construccion": "Genitivo: «siervos del Dios Altísimo».",
+  "sentido_en_contexto": "La esclava proclama una verdad («anuncian el camino de salvación»), pero Pablo no la acepta como testimonio, quizá porque «Altísimo» era título de Zeus en la región, o porque provenía de un espíritu. Es un testimonio ambiguo viniendo de una fuente demoníaca (cf. Mr 1:24-25, 34).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 1:24-25; 5:7",
+   "Lc 4:41",
+   "Gn 14:18-22"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 16,
+  "alineacion": "forma",
+  "tagnt": "Acts.16.17#16",
+  "morfologia_tagnt": "A-GSM-S",
+  "dstrong": "G5310",
+  "strong_tagnt": "G5310",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "highest"
+ },
+ {
+  "ref": "Acts.16.20",
+  "strong": "G4755",
+  "forma": "στρατηγοῖς",
+  "glosa_interlineal": "magistrados",
+  "rango_semantico": [
+   "pretor, magistrado superior (de colonia romana)"
+  ],
+  "construccion": "Dativo plural: «los presentaron a los magistrados».",
+  "sentido_en_contexto": "Los στρατηγοί son los duoviri (magistrados supremos) de la colonia romana. Los amos de la esclava acusan a Pablo y Silas de alborotar la ciudad y propagar costumbres que no pueden practicar los romanos (v.21).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 16:35, 38",
+   "Hch 19:24-27 — Éfeso",
+   "Hch 17:6-7"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 5,
+  "alineacion": "forma",
+  "tagnt": "Acts.16.20#05",
+  "morfologia_tagnt": "N-DPM",
+  "dstrong": "G4755",
+  "strong_tagnt": "G4755",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "officer/magistrate"
+ },
+ {
+  "ref": "Acts.16.25",
+  "strong": "G5214",
+  "forma": "ὕμνουν",
+  "glosa_interlineal": "cantaban himnos",
+  "rango_semantico": [
+   "cantar himnos, alabar"
+  ],
+  "construccion": "Imperfecto indicativo activo: «oraban y cantaban himnos a Dios».",
+  "sentido_en_contexto": "A medianoche, tras ser azotados y encarcelados, Pablo y Silas oran y cantan himnos a Dios, y los presos los escuchan. Contraste: la prisión se convierte en lugar de culto. Esto prepara el terremoto y la conversión del carcelero.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Fil 1:12-14; 4:4",
+   "Hch 5:41",
+   "1 Ts 5:16-18",
+   "Sal 119:62"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Acts.16.25#09",
+  "morfologia_tagnt": "V-IAI-3P",
+  "dstrong": "G5214",
+  "strong_tagnt": "G5214",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to praise"
+ },
+ {
+  "ref": "Acts.16.26",
+  "strong": "G4578",
+  "forma": "σεισμὸς",
+  "glosa_interlineal": "terremoto",
+  "rango_semantico": [
+   "terremoto, sacudida"
+  ],
+  "construccion": "Nominativo: «sobrevino de repente un gran terremoto».",
+  "sentido_en_contexto": "El terremoto abre las puertas y suelta las cadenas de todos los presos. Dios interviene para liberar a sus siervos, aunque Pablo no huye, para salvar al carcelero. Eco de 4:31 (el lugar tembló).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 4:31",
+   "Hch 12:7-10",
+   "Sal 107:14-16"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 3,
+  "alineacion": "forma",
+  "tagnt": "Acts.16.26#03",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G4578",
+  "strong_tagnt": "G4578",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "earthquake"
+ },
+ {
+  "ref": "Acts.16.30",
+  "strong": "G4982",
+  "forma": "σωθῶ",
+  "glosa_interlineal": "sea salvo",
+  "rango_semantico": [
+   "salvar, rescatar"
+  ],
+  "construccion": "Subjuntivo aoristo pasivo: «¿qué debo hacer para ser salvo?».",
+  "sentido_en_contexto": "Pregunta del carcelero, aterrorizado. Su sentido es objeto de debate: ¿preocupación por su vida física (el terremoto, la fuga de presos) o por su salvación espiritual? Pablo responde con el evangelio completo (v.31-32).",
+  "matiz": "Debate: el carcelero pudo pensar primero en su seguridad física (había intentado suicidarse, v.27), pero la respuesta de Pablo («cree en el Señor Jesucristo») apunta a la salvación espiritual. Muchos lo ven como transición de lo físico a lo espiritual.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 2:37",
+   "Lc 3:10",
+   "Hch 4:12"
+  ],
+  "nivel_certeza": "medio",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "Acts.16.30#12",
+  "morfologia_tagnt": "V-APS-1S",
+  "dstrong": "G4982",
+  "strong_tagnt": "G4982",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to save"
+ },
+ {
+  "ref": "Acts.16.31",
+  "strong": "G4100",
+  "forma": "πίστευσον",
+  "glosa_interlineal": "cree",
+  "rango_semantico": [
+   "creer, confiar"
+  ],
+  "construccion": "Imperativo aoristo activo: «cree en el Señor Jesucristo, y serás salvo, tú y tu casa».",
+  "sentido_en_contexto": "Respuesta breve y fundamental: creer en el Señor Jesús. La promesa se extiende a «tu casa»: no por una fe delegada, sino porque todos oyeron la palabra (v.32) y creyeron (v.34). Versículo clásico de la predicación evangélica.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 3:16; 20:31",
+   "Ro 10:9-13",
+   "Ef 2:8-9",
+   "Hch 11:14; 16:32-34"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 4,
+  "alineacion": "forma",
+  "tagnt": "Acts.16.31#04",
+  "morfologia_tagnt": "V-AAM-2S",
+  "dstrong": "G4100",
+  "strong_tagnt": "G4100",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to trust (in)"
+ },
+ {
+  "ref": "Acts.16.33",
+  "strong": "G907",
+  "forma": "ἐβαπτίσθη",
+  "glosa_interlineal": "fue bautizado",
+  "rango_semantico": [
+   "bautizar"
+  ],
+  "construccion": "Aoristo indicativo pasivo: «se bautizó él con todos los suyos».",
+  "sentido_en_contexto": "Tras escuchar la palabra, el carcelero lava las heridas de Pablo y Silas y es bautizado inmediatamente, con su casa, «a la misma hora de la noche». Muestra la inmediatez del bautismo tras la conversión en la iglesia primitiva.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 2:41; 8:36-38; 10:47-48",
+   "Hch 16:15"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 15,
+  "alineacion": "forma",
+  "tagnt": "Acts.16.33#15",
+  "morfologia_tagnt": "V-API-3S",
+  "dstrong": "G0907",
+  "strong_tagnt": "G907",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "to baptize"
+ },
+ {
+  "ref": "Acts.16.37",
+  "strong": "G4514",
+  "forma": "Ῥωμαίους",
+  "glosa_interlineal": "romanos",
+  "rango_semantico": [
+   "romano, ciudadano romano"
+  ],
+  "construccion": "Acusativo plural: «siendo romanos».",
+  "sentido_en_contexto": "Pablo (y Silas) reclama su ciudadanía romana: los magistrados los habían azotado y encarcelado sin juicio, violando la lex Porcia/Iulia. Los magistrados se asustan y piden disculpas. Pablo la usa selectivamente para proteger la misión (22:25-29; 25:10-12).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 22:25-29; 25:10-12",
+   "Hch 21:39"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 12,
+  "alineacion": "forma",
+  "tagnt": "Acts.16.37#12",
+  "morfologia_tagnt": "N-APM-LG",
+  "dstrong": "G4514",
+  "strong_tagnt": "G4514",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Roman"
+ },
+ {
+  "ref": "Acts.16.40",
+  "strong": "G3070",
+  "forma": "Λυδίαν",
+  "glosa_interlineal": "Lidia",
+  "rango_semantico": [
+   "Lidia"
+  ],
+  "construccion": "Acusativo: «entraron en casa de Lidia».",
+  "sentido_en_contexto": "Tras su liberación, Pablo y Silas vuelven a casa de Lidia, ven a los hermanos y los consuelan antes de partir. Lucas se queda en Filipos (el «nosotros» desaparece hasta 20:5). La iglesia de Filipos será una de las más generosas (Fil 4:15-16).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 16:15",
+   "Fil 1:3-8; 4:15-16",
+   "Hch 20:5-6"
+  ],
+  "nivel_certeza": "alto",
+  "pos_tisch": 9,
+  "alineacion": "forma",
+  "tagnt": "Acts.16.40#09",
+  "morfologia_tagnt": "N-ASF-P",
+  "dstrong": "G3070",
+  "strong_tagnt": "G3070",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "glosa_tagnt": "Lydia"
+ }
+]
