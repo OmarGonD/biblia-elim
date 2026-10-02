@@ -42,7 +42,20 @@ class Linea(unittest.TestCase):
         l = "Luk.24.18#05=O\tἐξ (ex)\tof\tG1537=PREP\tἐκ=out\tNIV+KJV+Coptic\t\t\tde\tfrom\t#05\tG1537"
         p = tagnt.parsear_linea(l)
         self.assertEqual(p.ediciones, [])
-        self.assertEqual(p.otras_fuentes, ["NIV", "KJV", "Coptic"])
+        self.assertEqual(p.traducciones, ["NIV", "KJV"])
+        self.assertEqual(p.manuscritos, ["Coptic"])
+        self.assertTrue(p.variante)
+
+    def test_traducciones_y_manuscritos_no_cuentan_como_edicion(self):
+        e, d, t, m = tagnt.clasificar_fuentes("NA28+TR»1+Byz«3+NIV+KJV+05+P66*+Latin")
+        self.assertEqual(e, ["NA28", "TR", "Byz"])
+        self.assertEqual(d, {"TR": "»1", "Byz": "«3"})
+        self.assertEqual(t, ["NIV", "KJV"])
+        self.assertEqual(m, ["05", "P66*", "Latin"])
+
+    def test_variante_solo_por_ediciones(self):
+        l = "Jhn.1.1#01=NKO\tἘν (En)\tIn\tG1722=PREP\tἐν=in\tNA28+NA27+Tyn+SBL+WH+Treg+TR+Byz+KJV+05\t\t\tEn\tin\t#01\tG1722"
+        self.assertFalse(tagnt.parsear_linea(l).variante)
 
 
 @unittest.skipUnless(HAY_DATOS, "faltan los archivos del TAGNT (tools/tagnt/fetch_tagnt.sh)")
@@ -88,6 +101,8 @@ class Datos(unittest.TestCase):
         self.assertIn("traditional", v[3].nota_variante)
         self.assertEqual(v[9].tipo, "N(k)O")
         self.assertFalse(v[9].en("TR"))
+        self.assertEqual(v[9].ausente_en(), ["TR", "Byz"])
+        self.assertTrue(v[9].variante and v[3].variante)
 
     def test_totales(self):
         n = sum(1 for _ in tagnt.leer())

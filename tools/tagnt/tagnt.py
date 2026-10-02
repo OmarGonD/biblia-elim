@@ -42,7 +42,9 @@ class Palabra:
     glosa: str = ""
     ediciones: list = field(default_factory=list)
     ediciones_raw: str = ""
-    otras_fuentes: list = field(default_factory=list)  # NIV, KJV, manuscritos (05, 032, P66...), versiones
+    ediciones_desplazadas: dict = field(default_factory=dict)  # {"TR": "»1"}: la palabra está en otra posición
+    traducciones: list = field(default_factory=list)   # NIV, KJV
+    manuscritos: list = field(default_factory=list)    # 01, 03, 05, 032, P66, Coptic, Latin, Syriac...
     var_significado: str = ""
     var_ortografia: str = ""
     espanol: str = ""
@@ -60,6 +62,14 @@ class Palabra:
     def clave(self):
         return f"{self.ref}#{self.pos:02d}"
 
+    @property
+    def variante(self):
+        """True si la palabra no está en las 8 ediciones del texto griego."""
+        return len(self.ediciones) < len(EDICIONES)
+
+    def ausente_en(self):
+        return [e for e in EDICIONES if e not in self.ediciones]
+
     def en(self, edicion):
         return edicion in self.ediciones
 
@@ -72,15 +82,29 @@ def strong_simple(dstrong):
     return f"{m.group(1)}{int(m.group(2))}" if m else ""
 
 
-def _ediciones(cel):
-    # "NA28+NA27+...", puede traer "moved »2: Treg"; se toman los nombres conocidos
-    return [e for e in EDICIONES if re.search(r"(^|[+\s:])" + e + r"(\W|$)", cel.split("moved")[0])] \
-        if cel.strip() else []
+TRADUCCIONES = ("NIV", "KJV")
+RE_TOKEN = re.compile(r"^([A-Za-z0-9*]+)([»«].*)?$")
 
 
-def _otras(cel):
-    base = cel.split("moved")[0]
-    return [t.strip() for t in base.split("+") if t.strip() and t.strip() not in EDICIONES]
+def clasificar_fuentes(cel):
+    """Separa la columna 'editions' en (ediciones, desplazadas, traducciones, manuscritos).
+    Solo las ediciones del texto griego cuentan para el flag de variante."""
+    eds, desp, trad, mss = [], {}, [], []
+    for tok in (t.strip() for t in cel.split("+")):
+        m = RE_TOKEN.match(tok)
+        if not m:
+            continue
+        base, mov = m.group(1), m.group(2) or ""
+        if base in EDICIONES:
+            if base not in eds:
+                eds.append(base)
+            if mov:
+                desp[base] = mov
+        elif base in TRADUCCIONES:
+            trad.append(base)
+        else:
+            mss.append(base)
+    return [e for e in EDICIONES if e in eds], desp, trad, mss
 
 
 def parsear_linea(linea):
@@ -99,17 +123,19 @@ def parsear_linea(linea):
     conj = c[10].strip()
     mc = re.match(r"^#\d+([»«])(\d+)(?::(\S+))?", conj)
     alt_s = [s for s in c[12].split() if s]
+    eds, desp, trad, mss = clasificar_fuentes(c[5])
     pal = Palabra(
         ref=f"{OSIS.get(libro, libro)}.{int(cap)}.{int(ver)}", pos=int(pos), ref_alt=alt or "",
         tipo=tipo, griego=griego, translit=translit, ingles=c[2].strip(),
         dstrong=dstrong.strip(), strong=strong_simple(dstrong), gramatica=gram.strip(),
-        lema=unicodedata.normalize("NFC", lema.strip()), glosa=glosa.strip(), ediciones=_ediciones(c[5]), ediciones_raw=c[5].strip(), otras_fuentes=_otras(c[5]),
+        lema=unicodedata.normalize("NFC", lema.strip()), glosa=glosa.strip(), ediciones_raw=c[5].strip(),
         var_significado=c[6].strip(), var_ortografia=c[7].strip(), espanol=c[8].strip(),
         submeaning=c[9].strip(), conjoin=conj,
         enlace_dir=mc.group(1) if mc else "", enlace_pos=int(mc.group(2)) if mc else 0,
         enlace_strong=strong_simple(mc.group(3)) if mc and mc.group(3) else "",
         ssi=c[11].strip(), alt_strongs=alt_s, nota_variante=c[13].strip(),
-        entre_corchetes=griego.lstrip().startswith("["))
+        entre_corchetes=griego.lstrip().startswith("["),
+        ediciones=eds, ediciones_desplazadas=desp, traducciones=trad, manuscritos=mss)
     return pal
 
 

@@ -20,3 +20,10 @@ Tipos: N=NA, K=TR/KJV, O=otros; minúscula = diferencia menor.
 - La gramática de preposiciones es `PREP` a secas: el caso regido hay que derivarlo (Fase 2).
 - Mc 16:9-20: tipo `KO`, sin SBL. Formas griegas en NFC tras el parser (el crudo mezcla composición).
 - La columna de ediciones puede traer fuentes que no son ediciones (`otras_fuentes`).
+
+## Columna de ediciones (parser)
+`clasificar_fuentes` la separa en tres listas:
+- `ediciones`: NA28, NA27, Tyn, SBL, WH, Treg, TR, Byz (texto griego). Solo estas cuentan para `variante` (no están en las 8).
+  `TR»1` o `Byz«3` significa que la palabra está en esa edición pero desplazada (`ediciones_desplazadas`).
+- `traducciones`: NIV, KJV.
+- `manuscritos`: testigos (01, 02, 03, 04, 05, 06, 032, P66, P66*) y versiones antiguas (Coptic, Latin, Syriac).
