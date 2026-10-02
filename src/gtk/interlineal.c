@@ -23,6 +23,7 @@
 #include "main/interlineal.h"
 #include "main/morfologia.h"
 #include "main/glosa.h"
+#include "main/interl_enriq.h"
 #include "main/diccionario.h"
 #include "main/lectura_sync.h"
 #include "main/settings.h"
@@ -240,6 +241,31 @@ gui_interlineal_ficha(const char *strong)
 void
 gui_interlineal_ficha_morf(const char *strong, const char *morph)
 {
+	gui_interlineal_ficha_ctx(strong, morph, NULL);
+}
+
+/* La ficha enriquecida es de la palabra en su pasaje (key), no del número. */
+static gchar *
+ficha_enriquecida(const char *strong, const char *key)
+{
+	static gboolean cargado;
+	const char *mod, *osis;
+
+	if (!cargado) {
+		cargado = TRUE;
+		main_interl_enriq_cargar_de(settings.gSwordDir);
+	}
+	mod = settings.MainWindowModule;
+	if (!key || !*key || !mod)
+		return NULL;
+	osis = main_get_osisref_from_key(mod, key);
+	return osis && *osis ? main_interl_enriq_html(osis, strong) : NULL;
+}
+
+void
+gui_interlineal_ficha_ctx(const char *strong, const char *morph,
+			  const char *key)
+{
 	const InterlStrong *info;
 	const DiccEntrada *dicc;
 	GList *ocurr, *l;
@@ -292,6 +318,13 @@ gui_interlineal_ficha_morf(const char *strong, const char *morph)
 		}
 		g_free(m_es);
 		g_free(m_cod);
+	}
+	{
+		gchar *enr = ficha_enriquecida(strong, key);
+
+		if (enr)
+			g_string_append(body, enr);
+		g_free(enr);
 	}
 	if (info && info->raiz && *info->raiz) {
 		gchar *rz = esc(info->raiz);
@@ -385,6 +418,9 @@ gui_interlineal_ficha_morf(const char *strong, const char *morph)
 	    ".morf{margin:.2em 0 .6em;opacity:.9;}"
 	    ".morf .cod{opacity:.5;font-size:.85em;margin-left:.4em;}"
 	    ".rv{opacity:.75;font-size:.95em;}"
+	    ".enr{margin:.5em 0;padding:.5em .7em;border-left:3px solid #8B008B;}"
+	    ".enr p{margin:.35em 0;}.enr ul{margin:.1em 0 .4em 1.2em;padding:0;}"
+	    ".enr .nota,.enr-cz{opacity:.65;font-size:.9em;}"
 	    ".occ{margin-top:1em;}"
 	    "a{color:#1a4f8b;}"
 	    "</style></head><body>%s</body></html>",
@@ -555,7 +591,8 @@ on_il_strong(GtkButton *button, gpointer data)
 
 	(void)data;
 	if (num && *num)
-		gui_interlineal_ficha_morf(num, morf);
+		gui_interlineal_ficha_ctx(num, morf,
+					  g_object_get_data(G_OBJECT(button), "key"));
 }
 
 static GtkWidget *
@@ -667,6 +704,9 @@ il_row_widget(InterlFila *f, gboolean reverse, const char *key)
 		/* La ficha enseña además cómo está esa palabra aquí, y eso
 		 * es de la fila, no del número: el mismo Strong sale en un
 		 * versículo en aoristo y en otro en imperativo. */
+		if (key)
+			g_object_set_data_full(G_OBJECT(btn), "key",
+					       g_strdup(key), g_free);
 		if (f->morph && *f->morph)
 			g_object_set_data_full(G_OBJECT(btn), "morph",
 					       g_strdup(f->morph), g_free);
@@ -687,6 +727,9 @@ il_row_widget(InterlFila *f, gboolean reverse, const char *key)
 			gtk_widget_add_css_class(fb, "il-origbtn");
 			g_object_set_data_full(G_OBJECT(fb), "strong",
 					       g_strdup(f->strong), g_free);
+			if (key)
+				g_object_set_data_full(G_OBJECT(fb), "key",
+						       g_strdup(key), g_free);
 			if (f->morph && *f->morph)
 				g_object_set_data_full(G_OBJECT(fb), "morph",
 						       g_strdup(f->morph),

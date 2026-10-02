@@ -672,6 +672,23 @@ target_link_libraries (glosa_test
   PkgConfig::Core
   )
 
+add_executable (interl_enriq_test
+  EXCLUDE_FROM_ALL
+  interl_enriq_test.c
+  ${PROJECT_SOURCE_DIR}/src/main/interl_enriq.c
+  )
+
+target_include_directories (interl_enriq_test
+  PRIVATE
+  ${PROJECT_SOURCE_DIR}/src
+  )
+
+target_link_libraries (interl_enriq_test
+  PRIVATE
+  PkgConfig::Core
+  PkgConfig::TestJson
+  )
+
 add_executable (testimonios_test
   EXCLUDE_FROM_ALL
   testimonios_test.c

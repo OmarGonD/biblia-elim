@@ -14,6 +14,9 @@ void gui_interlineal_ficha(const char *strong);
 /* La misma ficha, diciendo además cómo está la palabra en este
  * versículo. morph puede ser NULL. */
 void gui_interlineal_ficha_morf(const char *strong, const char *morph);
+/* Igual, con el versículo (key) para mostrar la ficha enriquecida. */
+void gui_interlineal_ficha_ctx(const char *strong, const char *morph,
+			       const char *key);
 GtkWidget *gui_interlineal_tabla_widget(const char *key);
 /* Returns the popover (for tests); NULL without a key. */
 GtkWidget *gui_verse_tools_popup(const char *key);

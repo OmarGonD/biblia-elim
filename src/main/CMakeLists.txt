@@ -27,6 +27,7 @@ add_library (main
   note_value.c
   notes_exchange.c
   diccionario.cc
+  interl_enriq.c
   export_passage.cc
   global_ops.cc
   import_andbible.cc
