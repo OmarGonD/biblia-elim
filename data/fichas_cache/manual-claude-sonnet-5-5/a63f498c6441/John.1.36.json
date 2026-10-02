@@ -1,0 +1,201 @@
+{
+ "ref": "John.1.36",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:59:21-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; añade el segundo gesto de Juan.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G1689",
+   "glosa_interlineal": "fijando la mirada",
+   "rango_semantico": [
+    "mirar fijamente",
+    "mirar con atención",
+    "poner los ojos en"
+   ],
+   "construccion": "Participio aoristo activo de ἐμβλέπω, nominativo masculino singular, circunstancial de tiempo: «habiendo mirado».",
+   "sentido_en_contexto": "Mirada profunda y atenta, no un vistazo: Juan contempla a Jesús antes de anunciarlo.",
+   "matiz": "ἐμβλέπω es mirar con atención y penetración.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:42 — Jesús, mirándolo fijamente, le dijo",
+    "Mc 10:21 — Jesús, mirándolo, lo amó",
+    "Lc 22:61 — el Señor, volviéndose, miró a Pedro"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo dativo masculino singular; concuerda con Ἰησοῦ.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G2424",
+   "glosa_interlineal": "Jesús",
+   "rango_semantico": [
+    "Jesús (forma griega del hebreo Yehoshúa, «Yahvé salva»)"
+   ],
+   "construccion": "Nombre propio, dativo masculino singular, objeto de ἐμβλέψας (dativo en vez de acusativo, con este verbo).",
+   "sentido_en_contexto": "Objeto de la mirada de Juan.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G4043",
+   "glosa_interlineal": "que caminaba",
+   "rango_semantico": [
+    "caminar, andar",
+    "vivir, conducirse"
+   ],
+   "construccion": "Participio presente activo de περιπατέω, dativo masculino singular, concordando con Ἰησοῦ.",
+   "sentido_en_contexto": "Jesús pasa caminando: el momento fugaz que Juan no deja escapar.",
+   "matiz": "περιπατέω es «andar» y también «vivir conforme a»; aquí es lo primero.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 8:12 — el que me sigue no andará en tinieblas",
+    "Jn 11:9 — si alguien anda de día",
+    "1 Jn 1:7 — si andamos en la luz"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G3004",
+   "glosa_interlineal": "dice",
+   "rango_semantico": [
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
+   ],
+   "construccion": "Presente indicativo activo de λέγω, 3.ª singular. Presente histórico.",
+   "sentido_en_contexto": "Introduce la breve declaración de Juan.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G3708",
+   "glosa_interlineal": "he aquí / mira",
+   "rango_semantico": [
+    "ver, mirar",
+    "percibir",
+    "experimentar"
+   ],
+   "construccion": "Aoristo imperativo de ὁράω (ἴδε), usado como interjección. Tisch lo etiqueta con ὁράω; el TAGNT, como partícula (G2396).",
+   "sentido_en_contexto": "Llamada de atención: señala a Jesús.",
+   "matiz": "ἴδε es ya una partícula presentativa: «he aquí».",
+   "variantes_textuales": null,
+   "notas_traduccion": "Etiqueta distinta sin consecuencia para la traducción.",
+   "otros_usos": [
+    "Jn 1:29 — la misma llamada",
+    "Jn 19:5 — he aquí el hombre",
+    "Jn 19:14 — he aquí vuestro rey"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino singular; concuerda con ἀμνός.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G286",
+   "glosa_interlineal": "cordero",
+   "rango_semantico": [
+    "cordero"
+   ],
+   "construccion": "Nominativo masculino singular con artículo, predicado de la frase nominal.",
+   "sentido_en_contexto": "Repite el título del v. 29: Juan lo repite ante sus discípulos, y con eso los dos le siguen.",
+   "matiz": "La repetición del título provoca la reacción inmediata de los dos discípulos (v. 37).",
+   "variantes_textuales": null,
+   "notas_traduccion": "Sin el añadido «que quita el pecado del mundo» del v. 29; el título solo ya basta.",
+   "otros_usos": [
+    "Jn 1:29 — el cordero de Dios que quita el pecado",
+    "Is 53:7 — como cordero llevado al matadero",
+    "1 Pe 1:19 — como de un cordero sin mancha"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo genitivo masculino singular; concuerda con θεοῦ.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G2316",
+   "glosa_interlineal": "de Dios",
+   "rango_semantico": [
+    "Dios (el único Dios)",
+    "dios, divinidad",
+    "ser divino"
+   ],
+   "construccion": "Genitivo masculino singular con artículo, complemento de ἀμνός.",
+   "sentido_en_contexto": "Dios como el que provee o a quien pertenece el cordero.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}

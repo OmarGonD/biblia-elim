@@ -1,0 +1,390 @@
+{
+ "ref": "John.1.49",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T17:03:25-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G3004",
+   "glosa_interlineal": "dice",
+   "rango_semantico": [
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
+   ],
+   "construccion": "Presente indicativo activo de λέγω, 3.ª singular. Presente histórico.",
+   "sentido_en_contexto": "Introduce la pregunta de Natanael.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G846",
+   "glosa_interlineal": "le",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal dativo masculino singular, complemento de λέγει.",
+   "sentido_en_contexto": "Se refiere a Jesús.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G3482",
+   "glosa_interlineal": "Natanael",
+   "rango_semantico": [
+    "Natanael (hebreo Netan'el, «Dios ha dado»)"
+   ],
+   "construccion": "Nombre propio indeclinable, nominativo, sujeto de λέγει.",
+   "sentido_en_contexto": "Natanael responde con una pregunta que revela sorpresa.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G4159",
+   "glosa_interlineal": "¿de dónde?",
+   "rango_semantico": [
+    "de dónde",
+    "de qué origen"
+   ],
+   "construccion": "Adverbio interrogativo (πόθεν) de procedencia.",
+   "sentido_en_contexto": "Pregunta sobre cómo conoce Jesús a Natanael: la sorpresa se vuelve confesión.",
+   "matiz": "πόθεν es «¿de dónde?», de lugar o de origen.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 2:9 — no sabía de dónde era",
+    "Jn 7:27 — sabemos de dónde es éste",
+    "Jn 8:14 — sé de dónde he venido"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G1473",
+   "glosa_interlineal": "me",
+   "rango_semantico": [
+    "yo",
+    "mí"
+   ],
+   "construccion": "Pronombre personal acusativo de primera persona singular, objeto de γινώσκεις.",
+   "sentido_en_contexto": "Es Natanael, sorprendido de ser conocido.",
+   "matiz": "La forma átona με es la ordinaria; la tónica ἐμέ sería enfática.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G1097",
+   "glosa_interlineal": "conoces",
+   "rango_semantico": [
+    "conocer",
+    "reconocer, aceptar",
+    "saber",
+    "tener relación"
+   ],
+   "construccion": "Presente indicativo activo de γινώσκω, 2.ª singular.",
+   "sentido_en_contexto": "Natanael se sorprende del conocimiento de Jesús: ya lo conoce antes de que se lo hayan presentado.",
+   "matiz": "En Juan «conocer» es conocimiento personal; la sorpresa es que Jesús lo conoce.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 10:14 — conozco a mis ovejas",
+    "Jn 2:24 — él conocía a todos",
+    "Jn 21:17 — tú lo sabes todo"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G611",
+   "glosa_interlineal": "respondió",
+   "rango_semantico": [
+    "responder, contestar",
+    "replicar",
+    "tomar la palabra"
+   ],
+   "construccion": "Aoristo indicativo deponente de ἀποκρίνομαι, 3.ª singular.",
+   "sentido_en_contexto": "Jesús responde con el dato que sorprende a Natanael.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G2424",
+   "glosa_interlineal": "Jesús",
+   "rango_semantico": [
+    "Jesús (forma griega del hebreo Yehoshúa, «Yahvé salva»)"
+   ],
+   "construccion": "Nombre propio, nominativo masculino singular, sujeto de ἀπεκρίθη.",
+   "sentido_en_contexto": "Jesús habla ahora para revelar su conocimiento.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; une dos verbos de habla (responder y decir).",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G3004",
+   "glosa_interlineal": "dijo",
+   "rango_semantico": [
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
+   ],
+   "construccion": "Aoristo 2.º indicativo activo de λέγω (εἶπεν), 3.ª singular.",
+   "sentido_en_contexto": "Segundo verbo de habla: respondió y dijo: fórmula semítica de énfasis.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G846",
+   "glosa_interlineal": "le",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal dativo masculino singular, complemento de εἶπεν.",
+   "sentido_en_contexto": "Se refiere a Natanael.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G4253",
+   "glosa_interlineal": "antes de",
+   "rango_semantico": [
+    "antes de",
+    "delante de"
+   ],
+   "construccion": "Preposición (πρό) que rige genitivo. Aquí va con el artículo y un infinitivo (πρὸ τοῦ + infinitivo): «antes de que»; el sujeto del infinitivo va en acusativo (σε Φίλιππον φωνῆσαι). La detección automática del caso marca ambigüedad por el artículo genitivo y el acusativo del sujeto del infinitivo, pero la construcción es normal: πρό con genitivo.",
+   "sentido_en_contexto": "Marca el tiempo anterior a la llamada de Felipe: Jesús vio a Natanael antes de que Felipe lo llamara.",
+   "matiz": "El genitivo del artículo (τοῦ) forma parte del infinitivo articular; πρό siempre rige genitivo.",
+   "variantes_textuales": null,
+   "notas_traduccion": "La marca de ambigüedad proviene de la herramienta, no del texto.",
+   "otros_usos": [
+    "Jn 8:58 — antes que Abrahán fuese",
+    "Jn 13:19 — os lo digo desde ahora, antes que suceda",
+    "Mt 6:8 — vuestro Padre sabe lo que necesitáis antes que se lo pidáis"
+   ],
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo genitivo masculino singular; acompaña al infinitivo φωνῆσαι (infinitivo articular regido por πρό).",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G4771",
+   "glosa_interlineal": "te",
+   "rango_semantico": [
+    "tú"
+   ],
+   "construccion": "Pronombre personal acusativo de segunda persona singular, sujeto del infinitivo φωνῆσαι.",
+   "sentido_en_contexto": "Es Natanael, a quien Felipe llamó.",
+   "matiz": "El sujeto del infinitivo va en acusativo.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G5376",
+   "glosa_interlineal": "Felipe",
+   "rango_semantico": [
+    "Felipe (nombre griego, «amigo de caballos»)"
+   ],
+   "construccion": "Nombre propio, acusativo masculino singular, sujeto del infinitivo φωνῆσαι.",
+   "sentido_en_contexto": "Felipe es quien llamó a Natanael.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G5455",
+   "glosa_interlineal": "llamar",
+   "rango_semantico": [
+    "llamar, invitar",
+    "hablar",
+    "dar voz"
+   ],
+   "construccion": "Infinitivo aoristo activo de φωνέω, dependiente de πρὸ τοῦ.",
+   "sentido_en_contexto": "El hecho de la llamada de Felipe; anterior a lo que Jesús vio.",
+   "matiz": "El aoristo ve la llamada como hecho puntual.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G1510",
+   "glosa_interlineal": "estando",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Participio presente activo de εἰμί, acusativo masculino singular, concuerda con σε (el sujeto del infinitivo).",
+   "sentido_en_contexto": "Describe la situación de Natanael: estaba bajo la higuera.",
+   "matiz": "El participio presente expresa simultaneidad con εἶδον.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 18,
+   "strong": "G5259",
+   "glosa_interlineal": "debajo de",
+   "rango_semantico": [
+    "debajo de, bajo",
+    "en sujeción a",
+    "(con dativo) bajo"
+   ],
+   "construccion": "Preposición con acusativo (ὑπὸ τὴν συκῆν): posición, «bajo».",
+   "sentido_en_contexto": "Indica el lugar donde estaba Natanael cuando Jesús lo vio.",
+   "matiz": "Con acusativo ὑπό es movimiento hacia debajo; con verbo de estado es «debajo de».",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Mic 4:4 — cada uno bajo su vid y su higuera",
+    "Zac 3:10 — bajo la vid y bajo la higuera",
+    "1 Re 4:25 — cada uno bajo su higuera"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 19,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo acusativo femenino singular; concuerda con συκῆν.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 20,
+   "strong": "G4808",
+   "glosa_interlineal": "higuera",
+   "rango_semantico": [
+    "higuera"
+   ],
+   "construccion": "Acusativo femenino singular, regido por ὑπό.",
+   "sentido_en_contexto": "La higuera es símbolo de paz y de estudio de la ley en la tradición judía; Natanael estaba allí quizá estudiando o meditando.",
+   "matiz": "El detalle de la higuera no se explica en el texto; la tradición judía la asocia al estudio y a la paz mesiánica.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Mic 4:4 — cada uno bajo su vid y su higuera",
+    "Zac 3:10 — invitaréis cada uno a su compañero bajo la vid y la higuera",
+    "Jn 1:50 — creyó por lo que Jesús vio"
+   ],
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 21,
+   "strong": "G3708",
+   "glosa_interlineal": "vi",
+   "rango_semantico": [
+    "ver, mirar",
+    "percibir",
+    "experimentar"
+   ],
+   "construccion": "Aoristo 2.º indicativo activo de ὁράω (εἶδον), 1.ª singular.",
+   "sentido_en_contexto": "Jesús vio a Natanael sin estar presente físicamente: señal de conocimiento sobrenatural.",
+   "matiz": "El aoristo señala un hecho completo: «te vi».",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:48 — vio a Natanael que venía",
+    "Jn 2:25 — él sabía lo que había en el hombre",
+    "Jn 4:19 — veo que eres profeta"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 22,
+   "strong": "G4771",
+   "glosa_interlineal": "te",
+   "rango_semantico": [
+    "tú"
+   ],
+   "construccion": "Pronombre personal acusativo de segunda persona singular, objeto de εἶδον.",
+   "sentido_en_contexto": "Es Natanael.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}

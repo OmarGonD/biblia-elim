@@ -1,0 +1,204 @@
+{
+ "ref": "John.1.35",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:59:21-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo dativo femenino singular; con ἐπαύριον forma «al día siguiente».",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G1887",
+   "glosa_interlineal": "al día siguiente",
+   "rango_semantico": [
+    "al día siguiente, mañana"
+   ],
+   "construccion": "Adverbio de tiempo (ἐπαύριον) con artículo: «al día siguiente».",
+   "sentido_en_contexto": "Tercer día de la secuencia (1:19, 29, 35); cf. 1:43.",
+   "matiz": "La secuencia de días de este capítulo continúa en 2:1 (al tercer día).",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G3825",
+   "glosa_interlineal": "otra vez",
+   "rango_semantico": [
+    "otra vez, de nuevo",
+    "además",
+    "a su vez"
+   ],
+   "construccion": "Adverbio (πάλιν) que marca repetición: «de nuevo».",
+   "sentido_en_contexto": "La escena se repite: Juan está de pie con sus discípulos, como el día anterior.",
+   "matiz": "El adverbio puede señalar repetición de una escena o continuidad.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G2476",
+   "glosa_interlineal": "estaba de pie",
+   "rango_semantico": [
+    "estar de pie",
+    "detenerse",
+    "permanecer"
+   ],
+   "construccion": "Pluscuamperfecto de ἵστημι (εἱστήκει), 3.ª singular, con sentido de imperfecto: «estaba de pie».",
+   "sentido_en_contexto": "Describe la situación inicial: Juan, de pie, con dos discípulos.",
+   "matiz": "El pluscuamperfecto de ἵστημι se usa con valor de imperfecto («estaba de pie»).",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino singular; concuerda con Ἰωάννης. WH y Treg no lo traen.",
+   "sentido_en_contexto": "Determina a Ἰωάννης.",
+   "matiz": "La ausencia del artículo ante un nombre propio es habitual en griego.",
+   "variantes_textuales": "Ausente en WH y Treg. Presente en NA28, NA27, Tyn, SBL, TR y Byz.",
+   "notas_traduccion": "Sin diferencia de sentido.",
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G2491",
+   "glosa_interlineal": "Juan",
+   "rango_semantico": [
+    "Juan (nombre hebreo Yohanán, «Dios ha tenido gracia»)"
+   ],
+   "construccion": "Nombre propio, nominativo masculino singular, sujeto de εἱστήκει.",
+   "sentido_en_contexto": "Es Juan el Bautista.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; añade a los dos discípulos.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G1537",
+   "glosa_interlineal": "de entre",
+   "rango_semantico": [
+    "de, desde (origen)",
+    "fuera de",
+    "a partir de"
+   ],
+   "construccion": "Preposición con genitivo (ἐκ τῶν μαθητῶν): partitivo, «de entre».",
+   "sentido_en_contexto": "Dos de los discípulos de Juan; se diferencian del resto.",
+   "matiz": "ἐκ con genitivo partitivo: «uno(s) de».",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo genitivo masculino plural; concuerda con μαθητῶν.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G3101",
+   "glosa_interlineal": "discípulos",
+   "rango_semantico": [
+    "discípulo, alumno",
+    "seguidor",
+    "aprendiz"
+   ],
+   "construccion": "Genitivo masculino plural, regido por ἐκ.",
+   "sentido_en_contexto": "Los seguidores de Juan; dos de ellos se pasarán a Jesús.",
+   "matiz": "μαθητής es alumno que sigue a un maestro; no es un título de discípulos de Jesús solamente.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:37 — los dos discípulos siguieron a Jesús",
+    "Jn 3:25 — los discípulos de Juan",
+    "Mc 2:18 — los discípulos de Juan ayunaban"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G846",
+   "glosa_interlineal": "suyos",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal genitivo masculino singular, complemento de μαθητῶν.",
+   "sentido_en_contexto": "Los discípulos de Juan.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G1417",
+   "glosa_interlineal": "dos",
+   "rango_semantico": [
+    "dos"
+   ],
+   "construccion": "Numeral indeclinable, nominativo masculino plural, en aposición a μαθητῶν.",
+   "sentido_en_contexto": "Dos de los discípulos de Juan: uno es Andrés (v. 41); el otro no se nombra.",
+   "matiz": "El segundo discípulo suele identificarse con el autor del Evangelio, aunque el texto no lo dice.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "medio"
+  }
+ ]
+}

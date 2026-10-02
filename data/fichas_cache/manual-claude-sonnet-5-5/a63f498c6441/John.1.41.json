@@ -1,0 +1,293 @@
+{
+ "ref": "John.1.41",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T17:03:23-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G1510",
+   "glosa_interlineal": "era",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Imperfecto de εἰμί, 3.ª singular, con predicado εἷς («uno»).",
+   "sentido_en_contexto": "Presenta a Andrés como uno de los dos discípulos del v. 35.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G406",
+   "glosa_interlineal": "Andrés",
+   "rango_semantico": [
+    "Andrés (nombre griego, «varonil»)"
+   ],
+   "construccion": "Nombre propio, nominativo masculino singular, sujeto de ἦν.",
+   "sentido_en_contexto": "Uno de los dos primeros discípulos; el otro no se nombra. Andrés lleva a su hermano Simón a Jesús.",
+   "matiz": "Andrés aparece de nuevo en 6:8 y 12:22 como quien presenta personas a Jesús.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 6:8 — Andrés presenta al muchacho con los panes",
+    "Jn 12:22 — Felipe y Andrés llevan a los griegos a Jesús",
+    "Mc 1:16 — Andrés, hermano de Simón"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino singular; concuerda con ἀδελφός.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G80",
+   "glosa_interlineal": "hermano",
+   "rango_semantico": [
+    "hermano",
+    "compañero, correligionario",
+    "prójimo"
+   ],
+   "construccion": "Nominativo masculino singular, en aposición a Ἀνδρέας.",
+   "sentido_en_contexto": "Andrés se identifica por su parentesco con Simón Pedro: así se presenta en el Evangelio al personaje más conocido.",
+   "matiz": "Se le llama «el hermano de Simón Pedro», no al revés: Pedro era más conocido.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Mc 1:16 — Simón y Andrés su hermano",
+    "Jn 6:8 — Andrés, hermano de Simón Pedro",
+    "Mt 10:2 — Simón, llamado Pedro, y Andrés su hermano"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G4613",
+   "glosa_interlineal": "de Simón",
+   "rango_semantico": [
+    "Simón (nombre hebreo Shimón, «ha oído»)"
+   ],
+   "construccion": "Nombre propio, genitivo masculino singular, complemento de ἀδελφός.",
+   "sentido_en_contexto": "El hermano de Andrés: Simón, que recibirá el nombre de Pedro (v. 43).",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G4074",
+   "glosa_interlineal": "Pedro",
+   "rango_semantico": [
+    "Pedro (nombre griego, «piedra»)"
+   ],
+   "construccion": "Nombre propio, genitivo masculino singular, en aposición a Σίμωνος.",
+   "sentido_en_contexto": "Se da aquí el sobrenombre que aún no ha recibido: el evangelista llama a Simón «Pedro» desde la perspectiva posterior.",
+   "matiz": "El evangelista adelanta el nombre que Jesús dará en el v. 43; nota de autor sobre el personaje.",
+   "variantes_textuales": null,
+   "notas_traduccion": "El sobrenombre aparece antes de ser otorgado (v. 43): es el nombre con que el lector lo conoce.",
+   "otros_usos": [
+    "Jn 1:43 — te llamarás Cefas, que significa Pedro",
+    "Mt 16:18 — tú eres Pedro",
+    "Jn 21:15 — Simón, hijo de Juan"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G1520",
+   "glosa_interlineal": "uno",
+   "rango_semantico": [
+    "uno",
+    "uno solo",
+    "primero"
+   ],
+   "construccion": "Numeral nominativo masculino singular, predicado de ἦν.",
+   "sentido_en_contexto": "Andrés era uno de los dos que oyeron a Juan y siguieron a Jesús.",
+   "matiz": "εἷς con ἐκ y genitivo («uno de») es el modo normal de decir «uno de ellos».",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G1537",
+   "glosa_interlineal": "de",
+   "rango_semantico": [
+    "de, desde (origen)",
+    "fuera de",
+    "a partir de"
+   ],
+   "construccion": "Preposición con genitivo (ἐκ τῶν δύο): partitivo, «de entre».",
+   "sentido_en_contexto": "Precisa la pertenencia al grupo de los dos.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo genitivo masculino plural; concuerda con δύο.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G1417",
+   "glosa_interlineal": "dos",
+   "rango_semantico": [
+    "dos"
+   ],
+   "construccion": "Numeral indeclinable, genitivo masculino plural, regido por ἐκ.",
+   "sentido_en_contexto": "Los dos discípulos de Juan que siguieron a Jesús (v. 37).",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo genitivo masculino plural; hace sustantivo al participio ἀκουσάντων.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G191",
+   "glosa_interlineal": "que oyeron",
+   "rango_semantico": [
+    "oír, escuchar",
+    "entender",
+    "obedecer"
+   ],
+   "construccion": "Participio aoristo activo de ἀκούω, genitivo masculino plural, sustantivado: «los que oyeron».",
+   "sentido_en_contexto": "Describe a los dos como quienes oyeron a Juan y lo siguieron a Jesús.",
+   "matiz": "El aoristo mira el hecho completo: oyeron y siguieron.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G3844",
+   "glosa_interlineal": "de",
+   "rango_semantico": [
+    "junto a (con dativo)",
+    "de parte de (con genitivo)",
+    "al lado de, contra (con acusativo)"
+   ],
+   "construccion": "Preposición con genitivo (παρὰ Ἰωάννου): procedencia personal, «de parte de».",
+   "sentido_en_contexto": "Oyeron «de parte de» Juan: su testimonio fue la fuente.",
+   "matiz": "Con genitivo, παρά expresa la fuente de lo oído.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G2491",
+   "glosa_interlineal": "Juan",
+   "rango_semantico": [
+    "Juan (nombre hebreo Yohanán, «Dios ha tenido gracia»)"
+   ],
+   "construccion": "Nombre propio, genitivo masculino singular, regido por παρά.",
+   "sentido_en_contexto": "Juan el Bautista, de quien oyeron el testimonio.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; une los dos participios (oír y seguir).",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G190",
+   "glosa_interlineal": "que siguieron",
+   "rango_semantico": [
+    "seguir, acompañar",
+    "ser discípulo de",
+    "obedecer"
+   ],
+   "construccion": "Participio aoristo activo de ἀκολουθέω, genitivo masculino plural, coordinado con ἀκουσάντων.",
+   "sentido_en_contexto": "Segundo hecho de los dos: pasaron a seguir a Jesús.",
+   "matiz": "El aoristo señala el hecho del paso al seguimiento.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G846",
+   "glosa_interlineal": "le",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal dativo masculino singular, complemento de ἀκολουθησάντων.",
+   "sentido_en_contexto": "Se refiere a Jesús.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}

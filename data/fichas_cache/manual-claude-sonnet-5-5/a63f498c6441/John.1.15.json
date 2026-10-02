@@ -1,0 +1,398 @@
+{
+ "ref": "John.1.15",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:52:19-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G2491",
+   "glosa_interlineal": "Juan",
+   "rango_semantico": [
+    "Juan (nombre hebreo Yohanán, «Dios ha tenido gracia»)"
+   ],
+   "construccion": "Nombre propio, nominativo, sujeto de μαρτυρεῖ y κέκραγεν.",
+   "sentido_en_contexto": "Es Juan el Bautista, que vuelve a la escena para dar su testimonio del Verbo encarnado.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G3140",
+   "glosa_interlineal": "da testimonio",
+   "rango_semantico": [
+    "dar testimonio, testificar",
+    "hablar bien de",
+    "confirmar"
+   ],
+   "construccion": "Presente indicativo activo de μαρτυρέω, 3.ª singular. El presente expresa que el testimonio continúa vigente.",
+   "sentido_en_contexto": "Su testimonio se mantiene: lo dicho entonces sigue siendo palabra suya para el lector.",
+   "matiz": "El presente puede ser histórico (vivo) o genuino; en ambos casos el testimonio «sigue hablando».",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:7 — vino a dar testimonio",
+    "Jn 5:33 — Juan dio testimonio de la verdad",
+    "Jn 1:32 — Juan testificó que vio descender el Espíritu"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G4012",
+   "glosa_interlineal": "acerca de",
+   "rango_semantico": [
+    "acerca de, sobre",
+    "por causa de",
+    "alrededor de"
+   ],
+   "construccion": "Preposición con genitivo (περὶ αὐτοῦ): tema o asunto.",
+   "sentido_en_contexto": "El tema del testimonio es el Verbo hecho carne.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G846",
+   "glosa_interlineal": "él",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal genitivo masculino singular, regido por περί.",
+   "sentido_en_contexto": "Se refiere a Jesús, ya identificado como el Verbo (v. 14).",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; añade el segundo verbo de Juan.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G2896",
+   "glosa_interlineal": "ha gritado / clama",
+   "rango_semantico": [
+    "gritar, clamar",
+    "exclamar"
+   ],
+   "construccion": "Perfecto indicativo activo de κράζω, 3.ª singular. En el NT el perfecto de este verbo suele tener valor de presente: «clama».",
+   "sentido_en_contexto": "El grito expresa una proclamación solemne; el perfecto indica que su voz sigue sonando.",
+   "matiz": "κράζω es gritar con fuerza; la imagen es del profeta que proclama, no de quien dice algo en voz baja.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Mc 1:3 — voz que clama en el desierto",
+    "Jn 7:28 — Jesús gritaba enseñando en el templo",
+    "Rm 8:15 — clamamos: ¡Abba!"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G3004",
+   "glosa_interlineal": "diciendo",
+   "rango_semantico": [
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
+   ],
+   "construccion": "Participio presente activo de λέγω, nominativo masculino singular; introduce el discurso.",
+   "sentido_en_contexto": "Presenta lo que sigue como palabra de Juan, con fuerza de cita.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G3778",
+   "glosa_interlineal": "éste",
+   "rango_semantico": [
+    "este, esta, esto",
+    "él, ella (con fuerza demostrativa)"
+   ],
+   "construccion": "Pronombre demostrativo nominativo masculino singular; sujeto de ἦν.",
+   "sentido_en_contexto": "Señala a Jesús como aquel de quien habla Juan.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G1510",
+   "glosa_interlineal": "era",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Imperfecto de εἰμί, 3.ª singular.",
+   "sentido_en_contexto": "Mira hacia atrás: éste es de quien yo hablé antes.",
+   "matiz": "Frase de identificación: el imperfecto sitúa lo dicho en el pasado inmediato del Bautista.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G3739",
+   "glosa_interlineal": "de quien",
+   "rango_semantico": [
+    "que, el que, lo que",
+    "quien"
+   ],
+   "construccion": "Pronombre relativo acusativo masculino singular, objeto de εἶπον. La lectura de Tisch incluye ὃν εἶπον («de quien yo dije»), que no está en WH.",
+   "sentido_en_contexto": "Identifica a Jesús como aquel de quien Juan había hablado.",
+   "matiz": "Las dos palabras ὃν εἶπον no figuran en WH, que lee una construcción distinta para esta frase.",
+   "variantes_textuales": "Ausente en WH. Presente en NA28, NA27, Tyn, SBL, Treg, TR y Byz. WH ofrece otra construcción para esta frase; aquí la lectura es la de Tisch.",
+   "notas_traduccion": "No es un problema de sentido: el pasaje se entiende igual con o sin estas palabras, pero cambia la sintaxis.",
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G3004",
+   "glosa_interlineal": "dije",
+   "rango_semantico": [
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
+   ],
+   "construccion": "Aoristo 2.º indicativo activo de λέγω (εἶπον), 1.ª singular.",
+   "sentido_en_contexto": "Remite al testimonio anterior de Juan (1:27, 1:30): «yo ya lo había anunciado».",
+   "matiz": "El aoristo 2.º de λέγω es suplente: εἶπον no se forma de λέγω pero hace su función de aoristo.",
+   "variantes_textuales": "Ausente en WH. Presente en NA28, NA27, Tyn, SBL, Treg, TR y Byz.",
+   "notas_traduccion": "El módulo y el TAGNT etiquetan εἶπον con el lema λέγω; es normal, no un error.",
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino singular; hace sustantivo al participio ἐρχόμενος.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G3694",
+   "glosa_interlineal": "detrás de",
+   "rango_semantico": [
+    "detrás de, después de",
+    "(adv.) detrás"
+   ],
+   "construccion": "Adverbio impropio con genitivo (ὀπίσω μου): «detrás de mí». Funciona como preposición.",
+   "sentido_en_contexto": "Puede ser lugar (viene detrás de mí, como discípulo) o tiempo (viene después de mí). Aquí es lo segundo en apariencia, y lo que sigue, ἔμπροσθέν μου γέγονεν, lo invierte.",
+   "matiz": "Es la paradoja del versículo: viene después en el tiempo, pero ya estaba antes.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Mc 1:7 — viene tras mí el que es más fuerte",
+    "Mt 3:11 — el que viene tras mí",
+    "Lc 9:23 — si alguno quiere venir en pos de mí"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G1473",
+   "glosa_interlineal": "mí",
+   "rango_semantico": [
+    "yo",
+    "mí"
+   ],
+   "construccion": "Pronombre personal genitivo de primera persona singular, regido por ὀπίσω.",
+   "sentido_en_contexto": "Es Juan, que habla en primera persona.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G2064",
+   "glosa_interlineal": "que viene",
+   "rango_semantico": [
+    "venir, ir",
+    "llegar",
+    "aparecer"
+   ],
+   "construccion": "Participio presente medio-deponente de ἔρχομαι, nominativo masculino singular, sustantivado por el artículo: «el que viene».",
+   "sentido_en_contexto": "Título mesiánico de la tradición cristiana: «el que viene». Aquí con el sentido de «el que viene después de mí».",
+   "matiz": "El presente atemporal subraya que Jesús es «el que ha de venir».",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Mt 11:3 — ¿eres tú el que había de venir?",
+    "Jn 1:27 — el que viene tras mí",
+    "Jn 6:14 — el profeta que viene al mundo"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G1715",
+   "glosa_interlineal": "delante de",
+   "rango_semantico": [
+    "delante de, ante",
+    "en presencia de",
+    "(adv.) delante"
+   ],
+   "construccion": "Preposición propia con genitivo (ἔμπροσθέν μου): «delante de mí», con sentido de lugar y de rango.",
+   "sentido_en_contexto": "Se contrapone a ὀπίσω: el que viene después ha pasado a estar «delante», en rango y en importancia.",
+   "matiz": "En griego ἔμπροσθεν puede indicar posición, tiempo y rango; todos los sentidos resuenan aquí.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Mt 5:24 — deja tu ofrenda delante del altar",
+    "Lc 22:47 — Judas iba delante de ellos",
+    "Fil 3:13 — extenderme a lo que está delante"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G1473",
+   "glosa_interlineal": "mí",
+   "rango_semantico": [
+    "yo",
+    "mí"
+   ],
+   "construccion": "Pronombre personal genitivo de primera persona singular, regido por ἔμπροσθεν.",
+   "sentido_en_contexto": "Se refiere a Juan: Jesús ha pasado delante de él.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 18,
+   "strong": "G1096",
+   "glosa_interlineal": "ha llegado a ser / está",
+   "rango_semantico": [
+    "llegar a ser, hacerse",
+    "ocurrir, suceder",
+    "existir"
+   ],
+   "construccion": "Perfecto indicativo de γίνομαι, 3.ª singular. El perfecto indica estado resultante: ha llegado a estar y permanece.",
+   "sentido_en_contexto": "«Se me ha adelantado», «está por delante de mí»: se afirma la precedencia de Jesús sobre Juan, no un hecho pasado.",
+   "matiz": "γέγονεν tiene aquí sentido de «ha pasado a ocupar el puesto de» y no de «ha nacido»; el verbo cierra la paradoja con ἦν.",
+   "variantes_textuales": null,
+   "notas_traduccion": "El perfecto de γίνομαι admite «ha sido hecho», «ha llegado a ser» y «está»; el contexto favorece «está delante».",
+   "otros_usos": null,
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 19,
+   "strong": "G3754",
+   "glosa_interlineal": "porque",
+   "rango_semantico": [
+    "que (contenido)",
+    "porque",
+    "puesto que"
+   ],
+   "construccion": "Conjunción causal (ὅτι) que introduce la razón de lo dicho antes.",
+   "sentido_en_contexto": "Explica por qué está delante: porque era primero.",
+   "matiz": "ὅτι puede ser causal o declarativa; aquí es causal.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 20,
+   "strong": "G4413",
+   "glosa_interlineal": "primero",
+   "rango_semantico": [
+    "primero",
+    "principal",
+    "anterior en rango",
+    "antes (con genitivo)"
+   ],
+   "construccion": "Adjetivo superlativo nominativo masculino singular, usado en sentido comparativo con genitivo (πρῶτός μου): «primero que yo», es decir, «antes de mí».",
+   "sentido_en_contexto": "Afirma que Jesús existía antes que Juan: precedencia temporal. La forma superlativa se emplea como comparativo, como es frecuente en koiné.",
+   "matiz": "El superlativo con genitivo equivale a un comparativo: «antes que yo».",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 15:18 — el mundo me aborreció antes que a vosotros",
+    "1 Jn 4:19 — él nos amó primero",
+    "Col 1:15 — primogénito de toda la creación"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 21,
+   "strong": "G1473",
+   "glosa_interlineal": "mí",
+   "rango_semantico": [
+    "yo",
+    "mí"
+   ],
+   "construccion": "Pronombre personal genitivo de primera persona singular, complemento comparativo de πρῶτος.",
+   "sentido_en_contexto": "Es Juan, con quien se compara a Jesús: «antes de mí».",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 22,
+   "strong": "G1510",
+   "glosa_interlineal": "era",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Imperfecto de εἰμί, 3.ª singular, copulativo.",
+   "sentido_en_contexto": "Retoma el imperfecto de existencia del v. 1: preexistencia del Verbo, aunque Jesús nació después que Juan.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}

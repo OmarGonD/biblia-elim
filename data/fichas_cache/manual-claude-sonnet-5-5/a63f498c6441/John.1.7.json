@@ -1,0 +1,257 @@
+{
+ "ref": "John.1.7",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:49:26-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G3778",
+   "glosa_interlineal": "éste",
+   "rango_semantico": [
+    "este, esta, esto",
+    "él, ella (con fuerza demostrativa)"
+   ],
+   "construccion": "Pronombre demostrativo nominativo masculino singular, sujeto de ἦλθεν.",
+   "sentido_en_contexto": "Retoma a Juan y centra el foco en su misión.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G2064",
+   "glosa_interlineal": "vino",
+   "rango_semantico": [
+    "venir, ir",
+    "llegar",
+    "aparecer"
+   ],
+   "construccion": "Aoristo indicativo de ἔρχομαι, 3.ª singular.",
+   "sentido_en_contexto": "Su venida es un hecho histórico puntual; el mismo verbo se aplicará al Verbo en 1:11.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:11 — el Verbo vino a lo suyo",
+    "Jn 1:31 — Juan vino bautizando",
+    "Jn 5:43 — he venido en nombre de mi Padre"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G1519",
+   "glosa_interlineal": "para / como",
+   "rango_semantico": [
+    "a, hacia (movimiento)",
+    "en, dentro de",
+    "para, con el fin de",
+    "como"
+   ],
+   "construccion": "Preposición con acusativo (εἰς μαρτυρίαν): finalidad, «para testimonio».",
+   "sentido_en_contexto": "Define el propósito de su venida: dar testimonio.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 18:37 — para esto he venido: dar testimonio de la verdad",
+    "Hch 1:8 — seréis mis testigos",
+    "Jn 1:31 — vino para que fuese manifestado"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G3141",
+   "glosa_interlineal": "testimonio",
+   "rango_semantico": [
+    "testimonio",
+    "prueba",
+    "reputación"
+   ],
+   "construccion": "Acusativo singular femenino sin artículo, objeto de εἰς. Sustantivo del campo μαρτυρέω/μάρτυς, vocabulario judicial.",
+   "sentido_en_contexto": "Tema central del Evangelio: Juan es el primer testigo de una serie que incluye al Padre, las obras, las Escrituras y los discípulos.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 5:31-36 — los testimonios en favor de Jesús",
+    "Jn 8:17 — dos testigos que validan",
+    "1 Jn 5:9 — el testimonio de Dios es mayor"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G2443",
+   "glosa_interlineal": "para que",
+   "rango_semantico": [
+    "para que (finalidad)",
+    "de modo que (resultado)",
+    "que (contenido)"
+   ],
+   "construccion": "Conjunción final con subjuntivo (μαρτυρήσῃ): expresa propósito.",
+   "sentido_en_contexto": "Explica el εἰς μαρτυρίαν: el testimonio no es un fin en sí mismo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G3140",
+   "glosa_interlineal": "diera testimonio",
+   "rango_semantico": [
+    "dar testimonio, testificar",
+    "hablar bien de",
+    "confirmar"
+   ],
+   "construccion": "Aoristo subjuntivo activo de μαρτυρέω, 3.ª singular, tras ἵνα. El aoristo ve el testimonio como acción completa.",
+   "sentido_en_contexto": "Función de Juan: ser testigo de la luz.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G4012",
+   "glosa_interlineal": "acerca de",
+   "rango_semantico": [
+    "acerca de, sobre",
+    "por causa de",
+    "alrededor de"
+   ],
+   "construccion": "Preposición con genitivo (περὶ τοῦ φωτός): tema o asunto, «acerca de».",
+   "sentido_en_contexto": "Pone la luz como objeto del testimonio, no a Juan mismo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo genitivo singular neutro; concuerda con φωτός.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G5457",
+   "glosa_interlineal": "luz",
+   "rango_semantico": [
+    "luz",
+    "claridad",
+    "lo que ilumina, revelación"
+   ],
+   "construccion": "Genitivo singular neutro, regido por περί.",
+   "sentido_en_contexto": "Juan testifica de la luz de los vv. 4-5, que se revelará como Cristo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G2443",
+   "glosa_interlineal": "para que",
+   "rango_semantico": [
+    "para que (finalidad)",
+    "de modo que (resultado)",
+    "que (contenido)"
+   ],
+   "construccion": "Segunda ἵνα con subjuntivo (πιστεύσωσιν): finalidad subordinada a μαρτυρήσῃ, en cadena.",
+   "sentido_en_contexto": "Meta última del testimonio: que todos crean.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G3956",
+   "glosa_interlineal": "todos",
+   "rango_semantico": [
+    "todo, cada",
+    "todos",
+    "cualquier"
+   ],
+   "construccion": "Adjetivo nominativo masculino plural sustantivado, sujeto de πιστεύσωσιν.",
+   "sentido_en_contexto": "Alcance universal: la fe es meta para todos, en línea con «todo hombre» de 1:9.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G4100",
+   "glosa_interlineal": "crean",
+   "rango_semantico": [
+    "creer, confiar",
+    "confiar a, encomendar",
+    "tener fe"
+   ],
+   "construccion": "Aoristo subjuntivo activo de πιστεύω, 3.ª plural, tras ἵνα. El aoristo ve la fe como acto global.",
+   "sentido_en_contexto": "Verbo central del Evangelio; aquí sin complemento: la fe misma es la meta.",
+   "matiz": "Sin objeto, no se dice «en quién» creer; el contexto lo supone: la luz.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G1223",
+   "glosa_interlineal": "por medio de",
+   "rango_semantico": [
+    "a través de, por",
+    "por medio de (agente intermediario)",
+    "durante",
+    "a causa de"
+   ],
+   "construccion": "Preposición con genitivo (δι᾽ αὐτοῦ): agente intermediario.",
+   "sentido_en_contexto": "Señala el medio por el que se llega a creer: el testimonio de Juan.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G846",
+   "glosa_interlineal": "él",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal genitivo masculino singular, regido por διά.",
+   "sentido_en_contexto": "El antecedente más probable es Juan (el testigo); alguna lectura lo refiere a la luz, pero el contexto favorece a Juan como medio de la fe.",
+   "matiz": "El pronombre puede retomar a Juan o a la luz; la primera opción respeta mejor la cadena de ἵνα.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "medio"
+  }
+ ]
+}

@@ -1,0 +1,427 @@
+{
+ "ref": "John.1.46",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T17:03:25-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G2147",
+   "glosa_interlineal": "encuentra",
+   "rango_semantico": [
+    "hallar, encontrar",
+    "descubrir",
+    "conseguir"
+   ],
+   "construccion": "Presente indicativo activo de εὑρίσκω, 3.ª singular. Presente histórico.",
+   "sentido_en_contexto": "Felipe a su vez busca y encuentra a alguien: cadena de testimonios (Juan → Andrés → Pedro; Felipe → Natanael).",
+   "matiz": "El verbo se repite como hilo conductor de toda la sección.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:41 — Andrés encuentra a Simón",
+    "Jn 1:44 — Jesús encuentra a Felipe",
+    "Jn 1:46 — Felipe encuentra a Natanael"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G5376",
+   "glosa_interlineal": "Felipe",
+   "rango_semantico": [
+    "Felipe (nombre griego, «amigo de caballos»)"
+   ],
+   "construccion": "Nombre propio, nominativo masculino singular, sujeto de εὑρίσκει.",
+   "sentido_en_contexto": "Ahora Felipe actúa como testigo, tras ser llamado.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo acusativo masculino singular; concuerda con Ναθαναήλ.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G3482",
+   "glosa_interlineal": "Natanael",
+   "rango_semantico": [
+    "Natanael (hebreo Netan'el, «Dios ha dado»)"
+   ],
+   "construccion": "Nombre propio indeclinable, acusativo, objeto de εὑρίσκει. Natanael no se menciona en los evangelios sinópticos; algunos lo identifican con Bartolomé.",
+   "sentido_en_contexto": "Natanael de Caná (21:2), a quien Felipe lleva a Jesús; su identidad con Bartolomé es tradicional pero no segura.",
+   "matiz": "El Evangelio de Juan nombra a Natanael, pero no a Bartolomé; los sinópticos, al revés.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; añade las palabras de Felipe.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G3004",
+   "glosa_interlineal": "dice",
+   "rango_semantico": [
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
+   ],
+   "construccion": "Presente indicativo activo de λέγω, 3.ª singular. Presente histórico.",
+   "sentido_en_contexto": "Introduce el anuncio de Felipe.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G846",
+   "glosa_interlineal": "le",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal dativo masculino singular, complemento de λέγει.",
+   "sentido_en_contexto": "Se refiere a Natanael.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G3739",
+   "glosa_interlineal": "a quien",
+   "rango_semantico": [
+    "que, el que, lo que",
+    "quien"
+   ],
+   "construccion": "Pronombre relativo acusativo masculino singular, objeto de ἔγραψεν.",
+   "sentido_en_contexto": "Introduce a Jesús como aquel de quien escribió Moisés.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G1125",
+   "glosa_interlineal": "escribió",
+   "rango_semantico": [
+    "escribir",
+    "anotar",
+    "poner por escrito"
+   ],
+   "construccion": "Aoristo indicativo activo de γράφω, 3.ª singular.",
+   "sentido_en_contexto": "Moisés y los profetas escribieron sobre este personaje; Felipe afirma que se cumple lo anunciado.",
+   "matiz": "Felipe interpreta a Jesús desde la Escritura, como luego hará la Iglesia.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 5:46 — de mí escribió él",
+    "Lc 24:27 — comenzando por Moisés",
+    "Hch 3:22 — un profeta como yo"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G3475",
+   "glosa_interlineal": "Moisés",
+   "rango_semantico": [
+    "Moisés"
+   ],
+   "construccion": "Nombre propio, nominativo masculino singular, sujeto de ἔγραψεν.",
+   "sentido_en_contexto": "Representa la ley, igual que «los profetas» representan el resto de las Escrituras.",
+   "matiz": "Moisés es mediador de la ley (1:17); aquí es testigo de Jesús.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:17 — la ley fue dada por Moisés",
+    "Jn 5:46 — de mí escribió Moisés",
+    "Hch 26:22 — Moisés y los profetas"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G1722",
+   "glosa_interlineal": "en",
+   "rango_semantico": [
+    "en (lugar)",
+    "en (tiempo)",
+    "entre",
+    "por medio de"
+   ],
+   "construccion": "Preposición con dativo (ἐν τῷ νόμῳ): ámbito, «en».",
+   "sentido_en_contexto": "Indica el lugar de la Escritura: en la ley.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo dativo masculino singular; concuerda con νόμῳ.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G3551",
+   "glosa_interlineal": "ley",
+   "rango_semantico": [
+    "ley",
+    "norma",
+    "la Escritura (la Torá)"
+   ],
+   "construccion": "Dativo masculino singular, regido por ἐν.",
+   "sentido_en_contexto": "La Torá, los cinco libros de Moisés.",
+   "matiz": "«La ley y los profetas» designa toda la Escritura hebrea.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:17 — la ley fue dada por Moisés",
+    "Lc 24:44 — la ley de Moisés, los profetas y los salmos",
+    "Mt 5:17 — no he venido a abrogar la ley"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; une la ley con los profetas.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino plural; concuerda con προφῆται.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G4396",
+   "glosa_interlineal": "profetas",
+   "rango_semantico": [
+    "profeta",
+    "portavoz de Dios",
+    "intérprete inspirado"
+   ],
+   "construccion": "Nominativo masculino plural, sujeto de un verbo sobreentendido (ἔγραψαν).",
+   "sentido_en_contexto": "Los profetas completan el testimonio de la ley: toda la Escritura apunta a Jesús.",
+   "matiz": "«La ley y los profetas» es la fórmula habitual para toda la Escritura.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Lc 24:27 — en todas las Escrituras lo que de él decían",
+    "Hch 10:43 — de él dan testimonio los profetas",
+    "Jn 5:39 — las Escrituras dan testimonio de mí"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G2147",
+   "glosa_interlineal": "hemos hallado",
+   "rango_semantico": [
+    "hallar, encontrar",
+    "descubrir",
+    "conseguir"
+   ],
+   "construccion": "Perfecto indicativo activo de εὑρίσκω, 1.ª plural.",
+   "sentido_en_contexto": "Anuncio compartido: «lo hemos hallado»; el plural incluye a Andrés y al otro discípulo.",
+   "matiz": "Mismo verbo y forma que en 1:42: la fórmula del testimonio entre discípulos.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 18,
+   "strong": "G2424",
+   "glosa_interlineal": "Jesús",
+   "rango_semantico": [
+    "Jesús (forma griega del hebreo Yehoshúa, «Yahvé salva»)"
+   ],
+   "construccion": "Nombre propio, acusativo masculino singular, objeto de εὑρήκαμεν.",
+   "sentido_en_contexto": "El hallazgo: Jesús es el personaje de quien escribió Moisés.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 19,
+   "strong": "G5207",
+   "glosa_interlineal": "hijo",
+   "rango_semantico": [
+    "hijo",
+    "descendiente",
+    "hijo de Dios"
+   ],
+   "construccion": "Acusativo masculino singular, en aposición a Ἰησοῦν.",
+   "sentido_en_contexto": "Presenta a Jesús con el origen que su gente le atribuye: hijo de José.",
+   "matiz": "Felipe habla con la categoría social, no teológica: «hijo de José».",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Lc 3:23 — se creía hijo de José",
+    "Jn 6:42 — ¿no es éste Jesús, el hijo de José?",
+    "Mt 13:55 — ¿no es éste el hijo del carpintero?"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 20,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo genitivo masculino singular; concuerda con Ἰωσήφ.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 21,
+   "strong": "G2501",
+   "glosa_interlineal": "de José",
+   "rango_semantico": [
+    "José (hebreo Yosef, «añada»)"
+   ],
+   "construccion": "Nombre propio indeclinable, genitivo, complemento de υἱόν.",
+   "sentido_en_contexto": "El padre legal de Jesús, mencionado aquí como dato de origen.",
+   "matiz": "Es una de las dos veces en que Juan menciona a José (la otra, 6:42).",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 6:42 — el hijo de José",
+    "Lc 2:4 — José subió a Belén",
+    "Mt 1:20 — José, hijo de David"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 22,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo acusativo masculino singular; con ἀπό forma una aposición: «el de Nazaret».",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 23,
+   "strong": "G575",
+   "glosa_interlineal": "de",
+   "rango_semantico": [
+    "de, desde (origen)",
+    "fuera de",
+    "a partir de"
+   ],
+   "construccion": "Preposición con genitivo (ἀπὸ Ναζαρέτ): origen, «de».",
+   "sentido_en_contexto": "Indica el origen geográfico de Jesús: Nazaret.",
+   "matiz": "ἀπό indica procedencia local: el de Nazaret.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 24,
+   "strong": "G3478",
+   "glosa_interlineal": "Nazaret",
+   "rango_semantico": [
+    "Nazaret"
+   ],
+   "construccion": "Nombre propio indeclinable, regido por ἀπό. El nombre aparece como Ναζαρέθ y Ναζαρέτ en distintos manuscritos.",
+   "sentido_en_contexto": "Pueblo de Galilea sin importancia en el Antiguo Testamento; origen de la burla de Natanael.",
+   "matiz": "Se discute la forma del nombre (Ναζαρέθ, Ναζαρέτ, Ναζαρά) en los manuscritos; todas designan el mismo pueblo.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:47 — ¿de Nazaret puede salir algo bueno?",
+    "Mt 2:23 — se llamará nazareno",
+    "Jn 18:5 — Jesús el nazareno"
+   ],
+   "nivel_certeza": "alto"
+  }
+ ]
+}

@@ -1,0 +1,156 @@
+{
+ "ref": "John.1.6",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:49:26-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G1096",
+   "glosa_interlineal": "apareció / hubo",
+   "rango_semantico": [
+    "llegar a ser, hacerse",
+    "suceder, ocurrir",
+    "aparecer, surgir",
+    "nacer"
+   ],
+   "construccion": "Aoristo indicativo deponente de γίνομαι, 3.ª singular, al comienzo de la frase: fórmula narrativa para introducir a un personaje.",
+   "sentido_en_contexto": "Introduce a Juan en la historia con un verbo de «llegar a ser». El Verbo «era» (1:1); Juan «apareció»: es histórico, no preexistente.",
+   "matiz": "El contraste ἦν / ἐγένετο entre el Verbo y Juan es deliberado.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Lc 1:5 — fórmula semejante para abrir la historia de Juan",
+    "Mc 1:4 — Juan el Bautista apareció",
+    "Jn 1:14 — el Verbo llegó a ser carne"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G444",
+   "glosa_interlineal": "hombre",
+   "rango_semantico": [
+    "hombre, persona",
+    "ser humano",
+    "marido (rara vez)"
+   ],
+   "construccion": "Nominativo singular sin artículo, sujeto de ἐγένετο. Sin artículo introduce a un personaje nuevo.",
+   "sentido_en_contexto": "Presenta a Juan como un simple ser humano, lo opuesto al Verbo, que era antes de todo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G649",
+   "glosa_interlineal": "enviado",
+   "rango_semantico": [
+    "enviar, mandar",
+    "enviar con misión, comisionar",
+    "despachar"
+   ],
+   "construccion": "Participio perfecto pasivo de ἀποστέλλω, nominativo masculino singular, en aposición a ἄνθρωπος. El perfecto da vigencia a la misión.",
+   "sentido_en_contexto": "Juan es un enviado con autoridad delegada; ἀποστέλλω implica misión oficial (de ahí «apóstol»). El pasivo sugiere que quien envía es Dios (παρὰ θεοῦ).",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 3:28 — Juan dice que fue enviado por delante del Cristo",
+    "Jn 20:21 — Jesús envía a sus discípulos como el Padre lo envió",
+    "Mc 3:14 — los doce, enviados a predicar"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G3844",
+   "glosa_interlineal": "de parte de",
+   "rango_semantico": [
+    "junto a (con dativo)",
+    "de parte de (con genitivo)",
+    "al lado de, contra (con acusativo)"
+   ],
+   "construccion": "Preposición con genitivo (παρὰ θεοῦ): procedencia personal, «de parte de». Con dativo sería «junto a»; con acusativo, «al lado de» o «contra».",
+   "sentido_en_contexto": "Indica que Juan viene enviado por Dios y con su autoridad.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 6:46 — el que viene de Dios",
+    "Jn 16:27 — salí de parte del Padre",
+    "Jn 1:14 — gloria de parte de un padre"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G2316",
+   "glosa_interlineal": "Dios",
+   "rango_semantico": [
+    "Dios (el único Dios)",
+    "dios, divinidad",
+    "ser divino"
+   ],
+   "construccion": "Genitivo singular sin artículo, regido por παρά. Sin artículo referido al Dios único, como en 1:13 y 1:18.",
+   "sentido_en_contexto": "Origen del envío de Juan: Dios mismo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G3686",
+   "glosa_interlineal": "nombre",
+   "rango_semantico": [
+    "nombre",
+    "reputación, fama",
+    "persona",
+    "autoridad"
+   ],
+   "construccion": "Nominativo neutro singular sin artículo; en la frase ὄνομα αὐτῷ Ἰωάννης falta el verbo: «nombre [era] a él Juan».",
+   "sentido_en_contexto": "Presentación formal del personaje, como en un relato: se da su nombre antes de hablar de su misión.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G846",
+   "glosa_interlineal": "su",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal dativo masculino singular. Con ὄνομα expresa posesión: «su nombre».",
+   "sentido_en_contexto": "Se refiere al ἄνθρωπος del v. 6a, es decir, a Juan.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G2491",
+   "glosa_interlineal": "Juan",
+   "rango_semantico": [
+    "Juan (nombre hebreo Yohanán, «Dios ha tenido gracia»)"
+   ],
+   "construccion": "Nombre propio, nominativo; es el predicado de la frase nominal.",
+   "sentido_en_contexto": "Es Juan el Bautista; este Evangelio nunca le da ese título, solo «Juan», sin duda para no confundirlo con el autor ni con el discípulo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}

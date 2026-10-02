@@ -1,0 +1,274 @@
+{
+ "ref": "John.1.47",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T17:03:25-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G3004",
+   "glosa_interlineal": "dijo",
+   "rango_semantico": [
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
+   ],
+   "construccion": "Aoristo 2.º indicativo activo de λέγω (εἶπεν), 3.ª singular.",
+   "sentido_en_contexto": "Respuesta de Natanael a Felipe.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G846",
+   "glosa_interlineal": "le",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal dativo masculino singular, complemento de εἶπεν.",
+   "sentido_en_contexto": "Se refiere a Felipe.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G3482",
+   "glosa_interlineal": "Natanael",
+   "rango_semantico": [
+    "Natanael (hebreo Netan'el, «Dios ha dado»)"
+   ],
+   "construccion": "Nombre propio indeclinable, nominativo, sujeto de εἶπεν.",
+   "sentido_en_contexto": "El que duda; su escepticismo se cambiará en confesión (1:49).",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G1537",
+   "glosa_interlineal": "de",
+   "rango_semantico": [
+    "de, desde (origen)",
+    "fuera de",
+    "a partir de"
+   ],
+   "construccion": "Preposición con genitivo (ἐκ Ναζαρέτ): origen, «de».",
+   "sentido_en_contexto": "Acentúa el origen del que se duda: de Nazaret.",
+   "matiz": "ἐκ pone el acento en la fuente de la que podría salir algo bueno.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G3478",
+   "glosa_interlineal": "Nazaret",
+   "rango_semantico": [
+    "Nazaret"
+   ],
+   "construccion": "Nombre propio indeclinable, regido por ἐκ.",
+   "sentido_en_contexto": "Origen despreciado de Jesús; se discute si el desprecio era por la insignificancia del pueblo o por lo que se ignoraba de él.",
+   "matiz": "El desdén de Natanael ante Nazaret es tema del Evangelio: el origen de Jesús se discute (7:41-42, 52).",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 7:41 — ¿de Galilea ha de venir el Cristo?",
+    "Jn 7:52 — de Galilea no ha salido profeta",
+    "Mt 2:23 — se llamará nazareno"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G1410",
+   "glosa_interlineal": "puede",
+   "rango_semantico": [
+    "poder, ser capaz",
+    "ser posible",
+    "tener derecho"
+   ],
+   "construccion": "Presente indicativo medio-deponente de δύναμαι, 3.ª singular.",
+   "sentido_en_contexto": "Pregunta retórica que expresa escepticismo: ¿es posible que...?",
+   "matiz": "δύναμαι aquí expresa posibilidad, con matiz escéptico.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G5101",
+   "glosa_interlineal": "algo",
+   "rango_semantico": [
+    "alguien, algo",
+    "cierto, uno"
+   ],
+   "construccion": "Pronombre indefinido nominativo neutro singular (τι). Tisch lo etiqueta como interrogativo (G5101); el TAGNT, como indefinido (G5100).",
+   "sentido_en_contexto": "«Algo bueno»: pronombre indefinido que califica al adjetivo siguiente.",
+   "matiz": "Sin acento τι es indefinido («algo»); con acento τί es interrogativo («¿qué?»); aquí es indefinido.",
+   "variantes_textuales": null,
+   "notas_traduccion": "La etiqueta de Tisch (G5101) es la del interrogativo; el sentido es indefinido.",
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G18",
+   "glosa_interlineal": "bueno",
+   "rango_semantico": [
+    "bueno",
+    "bien",
+    "útil"
+   ],
+   "construccion": "Adjetivo nominativo neutro singular, sustantivado: «algo bueno».",
+   "sentido_en_contexto": "Pregunta si de ese pueblo puede salir algo de valor; el escepticismo se resolverá en 1:49.",
+   "matiz": "ἀγαθός es bueno en sentido moral y de utilidad.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 5:29 — los que hicieron lo bueno",
+    "Rom 8:28 — todas las cosas ayudan a bien",
+    "1 Ts 5:15 — procurad lo bueno"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G1510",
+   "glosa_interlineal": "ser",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Infinitivo presente de εἰμί, dependiente de δύναται.",
+   "sentido_en_contexto": "Completa el verbo auxiliar: puede ser (algo bueno).",
+   "matiz": "El infinitivo completa a δύναται.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G3004",
+   "glosa_interlineal": "dice",
+   "rango_semantico": [
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
+   ],
+   "construccion": "Presente indicativo activo de λέγω, 3.ª singular. Presente histórico.",
+   "sentido_en_contexto": "Responde Felipe con una invitación.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G846",
+   "glosa_interlineal": "le",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal dativo masculino singular, complemento de λέγει.",
+   "sentido_en_contexto": "Se refiere a Natanael.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G5376",
+   "glosa_interlineal": "Felipe",
+   "rango_semantico": [
+    "Felipe (nombre griego, «amigo de caballos»)"
+   ],
+   "construccion": "Nombre propio, nominativo masculino singular, sujeto de λέγει.",
+   "sentido_en_contexto": "Felipe no discute: invita.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G2064",
+   "glosa_interlineal": "ven",
+   "rango_semantico": [
+    "ir, venir",
+    "llegar",
+    "aparecer"
+   ],
+   "construccion": "Presente imperativo medio-deponente de ἔρχομαι, 2.ª singular.",
+   "sentido_en_contexto": "Invitación sencilla: la misma que Jesús hizo en 1:39. Felipe no argumenta: invita a ver.",
+   "matiz": "El imperativo repite la invitación de Jesús (1:39): «venid y veréis».",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:39 — venid y veréis",
+    "Jn 4:29 — venid, ved a un hombre",
+    "Jn 11:34 — ven y ve"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; une los dos imperativos.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G3708",
+   "glosa_interlineal": "mira",
+   "rango_semantico": [
+    "ver, mirar",
+    "percibir",
+    "experimentar"
+   ],
+   "construccion": "Aoristo imperativo de ὁράω (ἴδε), 2.ª singular. Aquí con valor de verbo, no de partícula.",
+   "sentido_en_contexto": "La experiencia personal como respuesta a la duda: «ve y mira tú mismo».",
+   "matiz": "A diferencia de 1:29, aquí ἴδε es un verdadero imperativo («mira»), no solo una partícula presentativa.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:39 — venid y veréis",
+    "Jn 4:29 — venid y ved",
+    "Jn 11:34 — ven y ve"
+   ],
+   "nivel_certeza": "alto"
+  }
+ ]
+}

@@ -1,0 +1,300 @@
+{
+ "ref": "John.1.21",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:56:23-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; enlaza la nueva pregunta con la respuesta anterior.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G2065",
+   "glosa_interlineal": "preguntaron",
+   "rango_semantico": [
+    "preguntar, pedir",
+    "rogar",
+    "interrogar"
+   ],
+   "construccion": "Aoristo indicativo activo de ἐρωτάω, 3.ª plural.",
+   "sentido_en_contexto": "Segunda ronda del interrogatorio.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G846",
+   "glosa_interlineal": "le",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal acusativo masculino singular; objeto de ἠρώτησαν.",
+   "sentido_en_contexto": "Se refiere a Juan.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G5101",
+   "glosa_interlineal": "qué",
+   "rango_semantico": [
+    "quién, qué",
+    "cuál"
+   ],
+   "construccion": "Pronombre interrogativo nominativo neutro singular.",
+   "sentido_en_contexto": "Pregunta abreviada: «¿qué (eres)?»; busca una categoría de identidad.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G3767",
+   "glosa_interlineal": "entonces",
+   "rango_semantico": [
+    "pues, entonces",
+    "por tanto"
+   ],
+   "construccion": "Conjunción inferencial (οὖν).",
+   "sentido_en_contexto": "Saca la consecuencia de la negación anterior: si no eres el Cristo, ¿qué eres?",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G2243",
+   "glosa_interlineal": "Elías",
+   "rango_semantico": [
+    "Elías"
+   ],
+   "construccion": "Nombre propio, nominativo; Tisch escribe Ἡλείας, el TAGNT Ἠλίας (grafías distintas del mismo nombre).",
+   "sentido_en_contexto": "Figura esperada como precursor del Mesías, por la profecía de Malaquías (Mal 4:5); la pregunta es si Juan es ese Elías.",
+   "matiz": "La diferencia Ἡλείας / Ἠλίας es ortográfica.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Mal 4:5 — Elías enviado antes del día del Señor",
+    "Mt 11:14 — Juan es el Elías que había de venir",
+    "Lc 1:17 — Juan irá con el espíritu y poder de Elías"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G1510",
+   "glosa_interlineal": "eres",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Presente indicativo de εἰμί, 2.ª singular, copulativo; con signo de interrogación en el texto.",
+   "sentido_en_contexto": "Cierra la pregunta: «¿eres Elías?».",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G3004",
+   "glosa_interlineal": "dice",
+   "rango_semantico": [
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
+   ],
+   "construccion": "Presente indicativo activo de λέγω, 3.ª singular. Presente histórico: avive la narración.",
+   "sentido_en_contexto": "Responde con la brevedad de quien rechaza.",
+   "matiz": "El presente histórico se usa mucho en Juan para dar viveza al relato.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G3756",
+   "glosa_interlineal": "no",
+   "rango_semantico": [
+    "no, ni",
+    "nada"
+   ],
+   "construccion": "Negación objetiva (οὐκ).",
+   "sentido_en_contexto": "Rechazo seco.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G1510",
+   "glosa_interlineal": "soy",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Presente indicativo de εἰμί, 1.ª singular.",
+   "sentido_en_contexto": "Completa la respuesta: «no soy». Sin pronombre «yo» expreso: respuesta lacónica.",
+   "matiz": "Juan niega ser Elías; en los sinópticos Jesús sí dice que Juan es el Elías esperado (Mt 11:14), en otro sentido.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Mt 11:14 — Juan es Elías, si queréis admitirlo",
+    "Mt 17:12 — Elías ya vino",
+    "Lc 1:17 — con el espíritu y poder de Elías"
+   ],
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino singular; concuerda con προφήτης.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G4396",
+   "glosa_interlineal": "profeta",
+   "rango_semantico": [
+    "profeta",
+    "portavoz de Dios",
+    "intérprete inspirado"
+   ],
+   "construccion": "Nominativo masculino singular con artículo, predicado: «el profeta». Con artículo y sin más, designa al profeta como Moisés prometido en Dt 18:15.",
+   "sentido_en_contexto": "Se refiere a una figura escatológica concreta: el profeta que se esperaba como Moisés, distinto del Mesías y de Elías.",
+   "matiz": "El artículo marca que no se pregunta por un profeta cualquiera sino por «el» profeta esperado.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Dt 18:15 — el Señor levantará un profeta como yo",
+    "Jn 6:14 — este es verdaderamente el profeta que había de venir",
+    "Hch 3:22 — Pedro aplica Dt 18:15 a Cristo"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G1510",
+   "glosa_interlineal": "eres",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Presente indicativo de εἰμί, 2.ª singular.",
+   "sentido_en_contexto": "Tercera pregunta del interrogatorio.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G4771",
+   "glosa_interlineal": "tú",
+   "rango_semantico": [
+    "tú"
+   ],
+   "construccion": "Pronombre personal nominativo de segunda persona singular, enfático.",
+   "sentido_en_contexto": "Insiste en el interrogado: «¿tú eres el profeta?».",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; añade la respuesta de Juan.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G611",
+   "glosa_interlineal": "respondió",
+   "rango_semantico": [
+    "responder, contestar",
+    "replicar",
+    "tomar la palabra"
+   ],
+   "construccion": "Aoristo indicativo deponente de ἀποκρίνομαι, 3.ª singular.",
+   "sentido_en_contexto": "Respuesta breve, la tercera negación seguida: no soy el Cristo, no soy Elías, no soy el profeta.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G3756",
+   "glosa_interlineal": "no",
+   "rango_semantico": [
+    "no, ni",
+    "nada"
+   ],
+   "construccion": "Partícula de negación sola (οὐ, con acento de respuesta) que funciona como respuesta completa.",
+   "sentido_en_contexto": "Negación rotunda, sin explicación; Juan quiere que no se le atribuya identidad alguna salvo la que Dios le da.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}

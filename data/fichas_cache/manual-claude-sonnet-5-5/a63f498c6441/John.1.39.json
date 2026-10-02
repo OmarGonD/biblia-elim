@@ -1,0 +1,245 @@
+{
+ "ref": "John.1.39",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:59:21-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G5101",
+   "glosa_interlineal": "qué",
+   "rango_semantico": [
+    "quién, qué",
+    "cuál"
+   ],
+   "construccion": "Pronombre interrogativo acusativo neutro singular, objeto de ζητεῖτε.",
+   "sentido_en_contexto": "Primera palabra de Jesús: ¿qué buscáis?, pregunta que atraviesa el Evangelio.",
+   "matiz": "«¿Qué buscáis?» es pregunta sobre intenciones, no sobre cosas concretas.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 18:4 — ¿a quién buscáis?",
+    "Jn 20:15 — ¿a quién buscas?",
+    "Jn 4:27 — ¿qué buscas o por qué hablas con ella?"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G2212",
+   "glosa_interlineal": "buscáis",
+   "rango_semantico": [
+    "buscar",
+    "procurar",
+    "investigar"
+   ],
+   "construccion": "Presente indicativo activo de ζητέω, 2.ª plural.",
+   "sentido_en_contexto": "Verbo clave de Juan: buscar a Jesús es el movimiento previo a la fe.",
+   "matiz": "En Juan, ζητέω sirve a la vez para buscar a Jesús con fe y para buscarlo con mala intención.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 18:4 — a quién buscáis",
+    "Jn 5:30 — busco la voluntad del que me envió",
+    "Jn 6:24 — buscaban a Jesús"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino plural; con δέ, «ellos».",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G1161",
+   "glosa_interlineal": "pero",
+   "rango_semantico": [
+    "pero, y",
+    "por otra parte"
+   ],
+   "construccion": "Conjunción postpositiva; marca el cambio de interlocutor: ellos respondieron.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G3004",
+   "glosa_interlineal": "dijeron",
+   "rango_semantico": [
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
+   ],
+   "construccion": "Aoristo indicativo activo de λέγω (εἶπαν), 3.ª plural.",
+   "sentido_en_contexto": "Respuesta de los dos discípulos.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G846",
+   "glosa_interlineal": "le",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal dativo masculino singular, complemento de εἶπαν.",
+   "sentido_en_contexto": "Se refiere a Jesús.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G4461",
+   "glosa_interlineal": "rabí",
+   "rango_semantico": [
+    "rabí, maestro"
+   ],
+   "construccion": "Transcripción del arameo/hebreo rabbi («mi maestro»). Tisch lo escribe ῥαββεί; el TAGNT, ῥαββί (grafías distintas).",
+   "sentido_en_contexto": "Título de respeto que reconoce a Jesús como maestro; Juan lo traduce enseguida (διδάσκαλε).",
+   "matiz": "La diferencia ῥαββεί / ῥαββί es ortográfica.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:49 — Natanael lo llama Rabí",
+    "Jn 3:2 — Nicodemo lo llama Rabí",
+    "Jn 20:16 — Rabbuní"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G3739",
+   "glosa_interlineal": "que",
+   "rango_semantico": [
+    "que, el que, lo que",
+    "quien"
+   ],
+   "construccion": "Pronombre relativo nominativo neutro singular, sujeto de λέγεται; antecedente: ῥαββεί.",
+   "sentido_en_contexto": "Introduce la traducción del término arameo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G3004",
+   "glosa_interlineal": "se dice",
+   "rango_semantico": [
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
+   ],
+   "construccion": "Presente indicativo pasivo de λέγω, 3.ª singular.",
+   "sentido_en_contexto": "«Lo que se llama»: nota del evangelista para el lector no semita.",
+   "matiz": "El evangelista traduce los términos arameos para sus lectores griegos.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G2059",
+   "glosa_interlineal": "traducido",
+   "rango_semantico": [
+    "traducir, interpretar",
+    "explicar"
+   ],
+   "construccion": "Participio presente pasivo de ἑρμηνεύω, nominativo neutro singular. Tisch lee ἑρμηνευόμενον; el TAGNT lee μεθερμηνευόμενον (con prefijo μετα-) en NA28, NA27, Tyn, SBL, WH y Treg.",
+   "sentido_en_contexto": "El evangelista traduce el término arameo para sus lectores; es la fórmula editorial.",
+   "matiz": "Los dos compuestos significan «traducido»; μεθερμηνεύω (con prefijo) es más frecuente en Juan (cf. v. 42), y ἑρμηνεύω aparece también en 1:43.",
+   "variantes_textuales": "Tisch lee ἑρμηνευόμενον. NA28, NA27, Tyn, SBL, WH y Treg leen μεθερμηνευόμενον. El sentido es el mismo: «traducido».",
+   "notas_traduccion": "Es lectura propia de Tisch frente a las ediciones que leen el compuesto.",
+   "otros_usos": [
+    "Jn 1:42 — traducido, Cristo",
+    "Jn 1:43 — traducido, Pedro",
+    "Hch 4:36 — traducido, hijo de consolación"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G1320",
+   "glosa_interlineal": "maestro",
+   "rango_semantico": [
+    "maestro, profesor",
+    "rabino"
+   ],
+   "construccion": "Nominativo vocativo masculino singular (διδάσκαλε): vocativo de διδάσκαλος.",
+   "sentido_en_contexto": "Traducción del término ῥαββεί: Juan explica que significa «Maestro».",
+   "matiz": "Es la glosa con que se traduce rabí para el lector griego.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 3:2 — maestro venido de Dios",
+    "Jn 13:13 — me llamáis Maestro y Señor",
+    "Mt 23:8 — uno es vuestro Maestro"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G4225",
+   "glosa_interlineal": "dónde",
+   "rango_semantico": [
+    "dónde",
+    "en qué lugar"
+   ],
+   "construccion": "Partícula interrogativa de lugar (ποῦ). Tisch la etiqueta como G4225 (πού, partícula enclítica); el TAGNT como G4226 (ποῦ, interrogativo).",
+   "sentido_en_contexto": "Pregunta de los discípulos: ¿dónde moras?, que se hace pregunta sobre dónde vive realmente.",
+   "matiz": "ποῦ y πού son dos palabras distintas por el acento; aquí es el interrogativo.",
+   "variantes_textuales": null,
+   "notas_traduccion": "La etiqueta del módulo es de la enclítica, pero el contexto interrogativo exige ποῦ.",
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G3306",
+   "glosa_interlineal": "moras",
+   "rango_semantico": [
+    "permanecer, quedarse",
+    "habitar",
+    "durar"
+   ],
+   "construccion": "Presente indicativo activo de μένω, 2.ª singular.",
+   "sentido_en_contexto": "Verbo clave de Juan: permanecer. La pregunta es sobre la morada de Jesús, y a la vez sobre su relación con el Padre (el que «permanece» en el Padre).",
+   "matiz": "μένω vale por «vivir, alojarse» aquí y «permanecer» en sentido teológico en 15:4.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:32 — permaneció sobre él",
+    "Jn 14:10 — el Padre que permanece en mí",
+    "Jn 15:4 — permaneced en mí"
+   ],
+   "nivel_certeza": "alto"
+  }
+ ]
+}

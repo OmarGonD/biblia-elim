@@ -119,7 +119,8 @@ def solicitud(datos, ref):
                 if extra in inf:
                     w[extra] = inf[extra]
             flag = bool(inf["variante"] or w.get("no_en_na28") or distinta or "caso_regido_ambiguo" in inf)
-        w["nivel"] = "basico" if t["strong"] in BASICAS and not flag else "completo"
+        # el módulo Tisch etiqueta a veces mal (ὅ relativo como G3588): si el TAGNT discrepa, no es palabra básica
+        w["nivel"] = "basico" if t["strong"] in BASICAS and not flag and "strong_tagnt" not in w else "completo"
         palabras.append(w)
     sol = {"ref": ref, "texto_griego": datos.texto(k),
            "anterior": datos.texto((o, int(c), int(v) - 1)), "siguiente": datos.texto((o, int(c), int(v) + 1)),

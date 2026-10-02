@@ -1,0 +1,256 @@
+{
+ "ref": "John.1.22",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:56:23-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G3004",
+   "glosa_interlineal": "dijeron",
+   "rango_semantico": [
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
+   ],
+   "construccion": "Aoristo indicativo activo de λέγω (εἶπαν, con la terminación -αν propia de la koiné), 3.ª plural.",
+   "sentido_en_contexto": "Los enviados insisten: el interrogatorio sigue.",
+   "matiz": "Εἶπαν (en lugar de εἶπον) es forma de la koiné, no un error.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G3767",
+   "glosa_interlineal": "entonces",
+   "rango_semantico": [
+    "pues, entonces",
+    "por tanto"
+   ],
+   "construccion": "Conjunción inferencial (οὖν).",
+   "sentido_en_contexto": "Saca consecuencia de las tres negaciones: ¿entonces quién?",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G846",
+   "glosa_interlineal": "le",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal dativo masculino singular; complemento de εἶπαν.",
+   "sentido_en_contexto": "Se refiere a Juan.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G5101",
+   "glosa_interlineal": "quién",
+   "rango_semantico": [
+    "quién, qué",
+    "cuál"
+   ],
+   "construccion": "Pronombre interrogativo nominativo masculino singular.",
+   "sentido_en_contexto": "Reformula la pregunta del v. 19.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G1510",
+   "glosa_interlineal": "eres",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Presente indicativo de εἰμί, 2.ª singular.",
+   "sentido_en_contexto": "Es la pregunta inicial de nuevo: «¿quién eres?».",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G2443",
+   "glosa_interlineal": "para que",
+   "rango_semantico": [
+    "para que (finalidad)",
+    "de modo que (resultado)",
+    "que (contenido)"
+   ],
+   "construccion": "Conjunción final con subjuntivo (δῶμεν).",
+   "sentido_en_contexto": "Explica por qué insisten: deben llevar una respuesta a quienes los enviaron.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G612",
+   "glosa_interlineal": "respuesta",
+   "rango_semantico": [
+    "respuesta",
+    "contestación"
+   ],
+   "construccion": "Acusativo femenino singular, objeto de δῶμεν.",
+   "sentido_en_contexto": "Exigen una respuesta que puedan llevar; presentan su misión oficial.",
+   "matiz": "ἀπόκρισις es respuesta formal, de las que se dan a quien pregunta oficialmente.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G1325",
+   "glosa_interlineal": "demos",
+   "rango_semantico": [
+    "dar",
+    "conceder",
+    "entregar"
+   ],
+   "construccion": "Aoristo 2.º subjuntivo activo de δίδωμι, 1.ª plural.",
+   "sentido_en_contexto": "Expresa el fin de la pregunta: poder dar una respuesta.",
+   "matiz": "Forma de aoristo 2.º, que no usa la -κα- del aoristo 1.º.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G3588",
+   "glosa_interlineal": "a los",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo dativo masculino plural; hace sustantivo al participio πέμψασιν.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G3992",
+   "glosa_interlineal": "que enviaron",
+   "rango_semantico": [
+    "enviar, mandar",
+    "despachar",
+    "enviar con un encargo"
+   ],
+   "construccion": "Participio aoristo activo de πέμπω, dativo masculino plural sustantivado: «a los que nos enviaron».",
+   "sentido_en_contexto": "Los que enviaron la comisión: las autoridades de Jerusalén.",
+   "matiz": "πέμπω es enviar un mensaje o delegado; ἀποστέλλω (v. 19) enfatiza el encargo y la autoridad.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G2249",
+   "glosa_interlineal": "nos",
+   "rango_semantico": [
+    "yo",
+    "nosotros"
+   ],
+   "construccion": "Pronombre personal acusativo de primera persona plural; objeto de πέμψασιν.",
+   "sentido_en_contexto": "El «nosotros» de la comisión.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G5101",
+   "glosa_interlineal": "qué",
+   "rango_semantico": [
+    "quién, qué",
+    "cuál"
+   ],
+   "construccion": "Pronombre interrogativo acusativo neutro singular, objeto o complemento de λέγεις: «qué dices».",
+   "sentido_en_contexto": "Última pregunta: ¿qué dices de ti mismo?",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G3004",
+   "glosa_interlineal": "dices",
+   "rango_semantico": [
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
+   ],
+   "construccion": "Presente indicativo activo de λέγω, 2.ª singular.",
+   "sentido_en_contexto": "Pide que hable por sí mismo: la identidad la dirá Juan.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G4012",
+   "glosa_interlineal": "acerca de",
+   "rango_semantico": [
+    "acerca de, sobre",
+    "por causa de",
+    "alrededor de"
+   ],
+   "construccion": "Preposición con genitivo (περὶ σεαυτοῦ): tema o asunto.",
+   "sentido_en_contexto": "Pide un testimonio de Juan sobre sí mismo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G4572",
+   "glosa_interlineal": "ti mismo",
+   "rango_semantico": [
+    "tú mismo"
+   ],
+   "construccion": "Pronombre reflexivo de segunda persona, genitivo masculino singular, regido por περί.",
+   "sentido_en_contexto": "Reflexivo enfático: que hable de sí mismo, no de lo que otros dicen.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}

@@ -1,0 +1,383 @@
+{
+ "ref": "John.1.43",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T17:03:25-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G71",
+   "glosa_interlineal": "llevó",
+   "rango_semantico": [
+    "llevar, conducir",
+    "traer",
+    "guiar"
+   ],
+   "construccion": "Aoristo 2.º indicativo activo de ἄγω, 3.ª singular.",
+   "sentido_en_contexto": "Andrés lleva a Simón hacia Jesús; acción pasiva por parte de Simón, que aún no ha dicho nada.",
+   "matiz": "ἄγω es llevar con autoridad o con ayuda: Simón es conducido.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G846",
+   "glosa_interlineal": "le",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal acusativo masculino singular, objeto de ἤγαγεν.",
+   "sentido_en_contexto": "Se refiere a Simón.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G4314",
+   "glosa_interlineal": "hacia",
+   "rango_semantico": [
+    "hacia, a, junto a",
+    "con (de relación)",
+    "para"
+   ],
+   "construccion": "Preposición con acusativo (πρὸς τὸν Ἰησοῦν): dirección, «hacia, a».",
+   "sentido_en_contexto": "Movimiento de Simón hacia Jesús, como el de todos los que llegan a creer.",
+   "matiz": "Con verbo de movimiento, πρός es «hacia» (cf. 1:29).",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo acusativo masculino singular; concuerda con Ἰησοῦν.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G2424",
+   "glosa_interlineal": "Jesús",
+   "rango_semantico": [
+    "Jesús (forma griega del hebreo Yehoshúa, «Yahvé salva»)"
+   ],
+   "construccion": "Nombre propio, acusativo masculino singular, regido por πρός.",
+   "sentido_en_contexto": "Término del movimiento de Simón.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G1689",
+   "glosa_interlineal": "mirándolo fijamente",
+   "rango_semantico": [
+    "mirar fijamente",
+    "mirar con atención",
+    "poner los ojos en"
+   ],
+   "construccion": "Participio aoristo activo de ἐμβλέπω, nominativo masculino singular, circunstancial de tiempo.",
+   "sentido_en_contexto": "La mirada penetrante de Jesús precede al nombre nuevo: lo ve tal como es y como será.",
+   "matiz": "ἐμβλέπω es mirar con atención y penetración; Jesús lee a la persona.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:36 — Juan, fijando la mirada",
+    "Mc 10:21 — Jesús, mirándolo, lo amó",
+    "Lc 22:61 — el Señor miró a Pedro"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G846",
+   "glosa_interlineal": "le",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal dativo masculino singular, complemento de ἐμβλέψας.",
+   "sentido_en_contexto": "Se refiere a Simón.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino singular; concuerda con Ἰησοῦς.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G2424",
+   "glosa_interlineal": "Jesús",
+   "rango_semantico": [
+    "Jesús (forma griega del hebreo Yehoshúa, «Yahvé salva»)"
+   ],
+   "construccion": "Nombre propio, nominativo masculino singular, sujeto de εἶπεν.",
+   "sentido_en_contexto": "Jesús toma la palabra y da a Simón un nombre nuevo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G3004",
+   "glosa_interlineal": "dijo",
+   "rango_semantico": [
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
+   ],
+   "construccion": "Aoristo 2.º indicativo activo de λέγω (εἶπεν), 3.ª singular.",
+   "sentido_en_contexto": "Introduce las palabras de Jesús a Simón.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G4771",
+   "glosa_interlineal": "tú",
+   "rango_semantico": [
+    "tú"
+   ],
+   "construccion": "Pronombre personal nominativo de segunda persona singular, enfático.",
+   "sentido_en_contexto": "Jesús se dirige a Simón de manera personal y directa: «tú».",
+   "matiz": "El pronombre expreso es enfático.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G1510",
+   "glosa_interlineal": "eres",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Presente indicativo de εἰμί, 2.ª singular.",
+   "sentido_en_contexto": "Declara quién es Simón hoy; el nuevo nombre dirá quién será.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G4613",
+   "glosa_interlineal": "Simón",
+   "rango_semantico": [
+    "Simón (nombre hebreo Shimón, «ha oído»)"
+   ],
+   "construccion": "Nombre propio, nominativo masculino singular, predicado.",
+   "sentido_en_contexto": "Su nombre actual.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino singular; concuerda con υἱός.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G5207",
+   "glosa_interlineal": "hijo",
+   "rango_semantico": [
+    "hijo",
+    "descendiente",
+    "hijo de Dios"
+   ],
+   "construccion": "Nominativo masculino singular, en aposición a Σίμων.",
+   "sentido_en_contexto": "Jesús conoce su origen: «hijo de Juan».",
+   "matiz": "La filiación es parte de su identidad actual: Simón bar Yohanán.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 21:15 — Simón, hijo de Juan",
+    "Mt 16:17 — Simón, hijo de Jonás",
+    "Jn 1:42 — Jesús lo mira"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G2491",
+   "glosa_interlineal": "de Juan",
+   "rango_semantico": [
+    "Juan (nombre hebreo Yohanán, «Dios ha tenido gracia»)"
+   ],
+   "construccion": "Nombre propio, genitivo masculino singular, complemento de υἱός. TR y Byz leen Ἰωνᾶ («hijo de Jonás»).",
+   "sentido_en_contexto": "El padre de Simón; Jesús ya sabe quién es sin que se lo digan.",
+   "matiz": "Ἰωάννου («de Juan») y Ἰωνᾶ («de Jonás») son dos formas del nombre del padre de Pedro en la tradición; el pasaje se entiende igual.",
+   "variantes_textuales": "Ausente en TR y Byz, que leen Ἰωνᾶ. Presente en NA28, NA27, Tyn, SBL, WH y Treg.",
+   "notas_traduccion": "En Mt 16:17 aparece «Bar-Jonás», y en Jn 21:15, «hijo de Juan»: los dos nombres circulaban.",
+   "otros_usos": [
+    "Mt 16:17 — Simón Bar-Jonás",
+    "Jn 21:15 — Simón, hijo de Juan",
+    "Jn 1:44 — Betsaida, ciudad de Andrés y Pedro"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G4771",
+   "glosa_interlineal": "tú",
+   "rango_semantico": [
+    "tú"
+   ],
+   "construccion": "Pronombre personal nominativo de segunda persona singular, enfático.",
+   "sentido_en_contexto": "Repite el énfasis: el contraste es entre lo que eres y lo que serás.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 18,
+   "strong": "G2564",
+   "glosa_interlineal": "serás llamado",
+   "rango_semantico": [
+    "llamar, invitar",
+    "nombrar",
+    "dar nombre"
+   ],
+   "construccion": "Futuro indicativo pasivo de καλέω, 2.ª singular.",
+   "sentido_en_contexto": "Promesa de un cambio de identidad: recibirá un nombre nuevo, que expresará su misión.",
+   "matiz": "El futuro pasivo es el de una promesa de Dios: «serás llamado», no «te llamarás».",
+   "variantes_textuales": null,
+   "notas_traduccion": "El pasivo sugiere que el nombre será dado por otro, es decir, por Jesús.",
+   "otros_usos": [
+    "Mt 16:18 — tú eres Pedro y sobre esta piedra",
+    "Gn 17:5 — Abrán recibe el nombre de Abrahán",
+    "Gn 32:28 — Jacob recibe el nombre de Israel"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 19,
+   "strong": "G2786",
+   "glosa_interlineal": "Cefas",
+   "rango_semantico": [
+    "Cefas (arameo Kefa, «roca»)"
+   ],
+   "construccion": "Nombre propio, nominativo masculino singular, predicado de κληθήσῃ. Transcripción del arameo.",
+   "sentido_en_contexto": "Sobrenombre arameo de Simón; equivale a «Pedro», que es la traducción griega.",
+   "matiz": "Cefas es la forma aramea; en las cartas de Pablo es el nombre habitual para Pedro.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "1 Co 1:12 — yo soy de Cefas",
+    "Gál 2:9 — Cefas, Jacobo y Juan",
+    "Mt 16:18 — tú eres Pedro"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 20,
+   "strong": "G3588",
+   "glosa_interlineal": "que",
+   "rango_semantico": [
+    "que, el que, lo que",
+    "quien"
+   ],
+   "construccion": "Pronombre relativo nominativo neutro singular (ὃ), sujeto de ἑρμηνεύεται. Tisch lo etiqueta como artículo (G3588); el TAGNT, como relativo (G3739).",
+   "sentido_en_contexto": "Introduce la traducción griega del nombre arameo.",
+   "matiz": "Error de etiquetado en el módulo: ὃ es el relativo «lo cual», no el artículo.",
+   "variantes_textuales": null,
+   "notas_traduccion": "Misma situación que en 1:42: la etiqueta de Tisch es la de artículo; el relativo es G3739.",
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 21,
+   "strong": "G2059",
+   "glosa_interlineal": "se traduce",
+   "rango_semantico": [
+    "traducir, interpretar",
+    "explicar"
+   ],
+   "construccion": "Presente indicativo pasivo de ἑρμηνεύω, 3.ª singular.",
+   "sentido_en_contexto": "Glosa del evangelista: Cefas se traduce Πέτρος.",
+   "matiz": "ἑρμηνεύω es traducir; de aquí viene «hermenéutica».",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 22,
+   "strong": "G4074",
+   "glosa_interlineal": "Pedro",
+   "rango_semantico": [
+    "Pedro (nombre griego, «piedra»)"
+   ],
+   "construccion": "Nombre propio, nominativo masculino singular, predicado de ἑρμηνεύεται.",
+   "sentido_en_contexto": "Traducción griega de Cefas: Pedro significa «roca» o «piedra».",
+   "matiz": "Πέτρος es la traducción de Κηφᾶς y se hizo nombre propio de Simón.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Mt 16:18 — tú eres Pedro",
+    "Jn 21:15 — Simón Pedro",
+    "Gál 1:18 — subí a Jerusalén para conocer a Cefas"
+   ],
+   "nivel_certeza": "alto"
+  }
+ ]
+}

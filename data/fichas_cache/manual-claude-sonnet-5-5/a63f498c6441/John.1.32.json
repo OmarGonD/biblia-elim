@@ -1,0 +1,322 @@
+{
+ "ref": "John.1.32",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:59:21-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; añade el testimonio concreto de Juan.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G3140",
+   "glosa_interlineal": "dio testimonio",
+   "rango_semantico": [
+    "dar testimonio, testificar",
+    "hablar bien de",
+    "confirmar"
+   ],
+   "construccion": "Aoristo indicativo activo de μαρτυρέω, 3.ª singular.",
+   "sentido_en_contexto": "El testimonio de Juan se presenta como hecho histórico.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G2491",
+   "glosa_interlineal": "Juan",
+   "rango_semantico": [
+    "Juan (nombre hebreo Yohanán, «Dios ha tenido gracia»)"
+   ],
+   "construccion": "Nombre propio, nominativo masculino singular.",
+   "sentido_en_contexto": "Es Juan el Bautista.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G3004",
+   "glosa_interlineal": "diciendo",
+   "rango_semantico": [
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
+   ],
+   "construccion": "Participio presente activo de λέγω, nominativo masculino singular; introduce el discurso.",
+   "sentido_en_contexto": "Introduce el contenido de su testimonio.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G3754",
+   "glosa_interlineal": "que",
+   "rango_semantico": [
+    "que (contenido)",
+    "porque",
+    "puesto que"
+   ],
+   "construccion": "Conjunción (ὅτι) declarativa o recitativa; introduce el discurso.",
+   "sentido_en_contexto": "Marca el comienzo de la cita.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G2300",
+   "glosa_interlineal": "he visto",
+   "rango_semantico": [
+    "ver, contemplar",
+    "mirar",
+    "visitar"
+   ],
+   "construccion": "Perfecto indicativo deponente de θεάομαι (τεθέαμαι), 1.ª singular. El perfecto: ha visto y sigue siendo testigo.",
+   "sentido_en_contexto": "El testigo ocular declara su experiencia vigente: lo visto se mantiene como base de su testimonio.",
+   "matiz": "El perfecto subraya que el testimonio nace de una visión que sigue vigente.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:14 — hemos contemplado su gloria",
+    "1 Jn 1:1 — lo que hemos contemplado",
+    "Jn 1:34 — he visto y he testificado"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo acusativo neutro singular; concuerda con πνεῦμα.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G4151",
+   "glosa_interlineal": "Espíritu",
+   "rango_semantico": [
+    "espíritu",
+    "aliento, soplo",
+    "Espíritu (de Dios)",
+    "viento"
+   ],
+   "construccion": "Acusativo neutro singular, objeto de τεθέαμαι. Con artículo, el Espíritu de Dios.",
+   "sentido_en_contexto": "El Espíritu de Dios desciende sobre Jesús: señal que Juan esperaba para reconocerlo (v. 33).",
+   "matiz": "πνεῦμα significa también «viento» y «aliento»; aquí el contexto exige el Espíritu de Dios.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Mc 1:10 — el Espíritu descendió como paloma",
+    "Is 11:2 — sobre él reposará el Espíritu del Señor",
+    "Jn 3:34 — Dios da el Espíritu sin medida"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G2597",
+   "glosa_interlineal": "que descendía",
+   "rango_semantico": [
+    "descender, bajar",
+    "caer",
+    "ir hacia abajo"
+   ],
+   "construccion": "Participio presente activo de καταβαίνω, acusativo neutro singular, predicativo: «el Espíritu que descendía».",
+   "sentido_en_contexto": "Acción visible y continuada: el Espíritu desciende hacia Jesús.",
+   "matiz": "El presente expresa simultaneidad con la visión de Juan.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Mc 1:10 — como paloma que desciende",
+    "Jn 1:51 — ángeles que suben y bajan",
+    "Jn 6:38 — he descendido del cielo"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G5613",
+   "glosa_interlineal": "como",
+   "rango_semantico": [
+    "como, así como",
+    "aproximadamente",
+    "cuando"
+   ],
+   "construccion": "Partícula comparativa (ὡς). TR y Byz leen ὡσεί, con el mismo sentido.",
+   "sentido_en_contexto": "Compara con una paloma el modo del descenso: suave y visible.",
+   "matiz": "ὡς y ὡσεί son equivalentes: «como»; no cambia la imagen.",
+   "variantes_textuales": "Ausente en TR y Byz, que leen ὡσεί. Presente en NA28, NA27, Tyn, SBL, WH y Treg.",
+   "notas_traduccion": "El sentido de ὡς es de semejanza real (el Espíritu descendió «de modo» de paloma), no de mera comparación.",
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G4058",
+   "glosa_interlineal": "paloma",
+   "rango_semantico": [
+    "paloma"
+   ],
+   "construccion": "Acusativo femenino singular, regido por ὡς.",
+   "sentido_en_contexto": "Imagen del descenso del Espíritu; simboliza paz y suavidad, y evoca también Gn 8:8-12 y el Espíritu de Dios sobre las aguas.",
+   "matiz": "Los otros evangelios dicen «como paloma» o «en forma corporal como paloma»; Juan solo dice «como paloma».",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Mc 1:10 — el Espíritu como paloma",
+    "Lc 3:22 — en forma corporal como paloma",
+    "Mt 10:16 — sencillos como palomas"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G1537",
+   "glosa_interlineal": "desde",
+   "rango_semantico": [
+    "de, desde (origen)",
+    "fuera de",
+    "a partir de"
+   ],
+   "construccion": "Preposición con genitivo (ἐξ οὐρανοῦ): origen, «desde».",
+   "sentido_en_contexto": "El Espíritu viene del cielo: su origen es divino.",
+   "matiz": "ἐξ marca el punto de partida del descenso.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G3772",
+   "glosa_interlineal": "cielo",
+   "rango_semantico": [
+    "cielo",
+    "firmamento",
+    "Dios (por metonimia)"
+   ],
+   "construccion": "Genitivo masculino singular, regido por ἐξ. En el Nuevo Testamento es «cielo» como lugar de Dios.",
+   "sentido_en_contexto": "El origen divino del Espíritu y de la señal que Juan esperaba.",
+   "matiz": "οὐρανός es el cielo físico y el lugar de Dios.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:51 — el cielo abierto",
+    "Jn 3:13 — nadie ha subido al cielo sino el que descendió",
+    "Jn 6:38 — he descendido del cielo"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; añade el segundo hecho: el Espíritu permaneció.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G3306",
+   "glosa_interlineal": "permaneció",
+   "rango_semantico": [
+    "permanecer, quedarse",
+    "habitar",
+    "durar"
+   ],
+   "construccion": "Aoristo indicativo activo de μένω, 3.ª singular.",
+   "sentido_en_contexto": "El Espíritu no solo vino: se quedó, y esa permanencia es la señal que identifica al que bautiza en Espíritu Santo (v. 33).",
+   "matiz": "μένω es verbo clave de Juan: permanecer, la relación estable entre el Hijo, el Padre y los creyentes.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:33 — el que ves descender y permanecer",
+    "Jn 14:17 — el Espíritu permanece con vosotros",
+    "Jn 15:4 — permaneced en mí"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G1909",
+   "glosa_interlineal": "sobre",
+   "rango_semantico": [
+    "sobre, encima de",
+    "a, hacia",
+    "contra",
+    "(con acusativo) en dirección a"
+   ],
+   "construccion": "Preposición con acusativo (ἐπ᾽ αὐτόν): dirección y reposo, «sobre él».",
+   "sentido_en_contexto": "Marca el reposo del Espíritu sobre Jesús, como había anunciado Isaías 11:2.",
+   "matiz": "Con acusativo, ἐπί puede ser «sobre» o «hacia», aquí es «sobre» con dirección implícita.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Is 11:2 — sobre él reposará el Espíritu",
+    "Mt 3:16 — vino sobre él",
+    "Is 42:1 — he puesto mi Espíritu sobre él"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G846",
+   "glosa_interlineal": "él",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal acusativo masculino singular, regido por ἐπί.",
+   "sentido_en_contexto": "Se refiere a Jesús.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}

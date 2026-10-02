@@ -1,0 +1,292 @@
+{
+ "ref": "John.1.13",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:50:30-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G3739",
+   "glosa_interlineal": "los cuales",
+   "rango_semantico": [
+    "que, el que, lo que",
+    "quien"
+   ],
+   "construccion": "Pronombre relativo nominativo masculino plural, sujeto de ἐγεννήθησαν; concuerda por el sentido con τέκνα θεοῦ (v. 12).",
+   "sentido_en_contexto": "Retoma a los nuevos hijos y describe el origen de su condición.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G3756",
+   "glosa_interlineal": "no",
+   "rango_semantico": [
+    "no, ni",
+    "nada"
+   ],
+   "construccion": "Negación objetiva (οὐκ) ante vocal con espíritu suave.",
+   "sentido_en_contexto": "Abre una triple negación de los orígenes humanos.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G1537",
+   "glosa_interlineal": "de",
+   "rango_semantico": [
+    "de, desde (origen)",
+    "fuera de",
+    "a partir de"
+   ],
+   "construccion": "Preposición con genitivo (ἐξ αἱμάτων): origen o procedencia.",
+   "sentido_en_contexto": "Primer origen negado: de «sangres», es decir, la ascendencia o herencia biológica.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 3:5 — nacer de agua y de Espíritu",
+    "1 Jn 3:9 — el que ha nacido de Dios",
+    "1 Jn 4:7 — todo el que ama ha nacido de Dios"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G129",
+   "glosa_interlineal": "sangres",
+   "rango_semantico": [
+    "sangre",
+    "vida",
+    "muerte violenta"
+   ],
+   "construccion": "Genitivo plural neutro, regido por ἐξ; el plural (αἱμάτων) es raro y suele entenderse como linaje o herencia de ambos progenitores.",
+   "sentido_en_contexto": "Se niega la ascendencia como fuente del nuevo nacimiento.",
+   "matiz": "El plural «sangres» no tiene equivalente natural en español; se traduce «sangre» o «linaje».",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G3761",
+   "glosa_interlineal": "ni",
+   "rango_semantico": [
+    "ni, ni siquiera",
+    "tampoco",
+    "y no"
+   ],
+   "construccion": "Conjunción negativa (οὐδέ) que continúa la negación.",
+   "sentido_en_contexto": "Añade el segundo origen negado.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G1537",
+   "glosa_interlineal": "de",
+   "rango_semantico": [
+    "de, desde (origen)",
+    "fuera de",
+    "a partir de"
+   ],
+   "construccion": "Preposición con genitivo (ἐκ θελήματος): origen, «de».",
+   "sentido_en_contexto": "Segundo origen negado: la voluntad o deseo humano.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G2307",
+   "glosa_interlineal": "voluntad",
+   "rango_semantico": [
+    "voluntad, deseo",
+    "propósito",
+    "lo querido"
+   ],
+   "construccion": "Genitivo neutro singular, regido por ἐκ.",
+   "sentido_en_contexto": "Impulso o deseo; aquí humano, en contraste con el de Dios.",
+   "matiz": "El θέλημα de Dios aparece en otros pasajes de Juan; aquí se contrasta con el humano.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G4561",
+   "glosa_interlineal": "de la carne",
+   "rango_semantico": [
+    "carne, cuerpo",
+    "naturaleza humana",
+    "debilidad humana",
+    "existencia terrena"
+   ],
+   "construccion": "Genitivo singular femenino, complemento de θελήματος.",
+   "sentido_en_contexto": "La naturaleza humana en su debilidad, como fuente de deseos y proyectos; la misma σάρξ que se hará el Verbo en 1:14.",
+   "matiz": "En 1:13 σάρξ es naturaleza humana limitada; en 1:14 es lo que asume el Verbo.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 3:6 — lo nacido de la carne es carne",
+    "Jn 6:63 — la carne no aprovecha nada",
+    "Rm 8:3 — Dios envió a su Hijo en carne"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G3761",
+   "glosa_interlineal": "ni",
+   "rango_semantico": [
+    "ni, ni siquiera",
+    "tampoco",
+    "y no"
+   ],
+   "construccion": "Conjunción negativa (οὐδέ) que continúa la serie.",
+   "sentido_en_contexto": "Añade el tercer origen negado.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G1537",
+   "glosa_interlineal": "de",
+   "rango_semantico": [
+    "de, desde (origen)",
+    "fuera de",
+    "a partir de"
+   ],
+   "construccion": "Preposición con genitivo (ἐκ θελήματος).",
+   "sentido_en_contexto": "Tercer origen negado: la voluntad del varón.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G2307",
+   "glosa_interlineal": "voluntad",
+   "rango_semantico": [
+    "voluntad, deseo",
+    "propósito",
+    "lo querido"
+   ],
+   "construccion": "Genitivo neutro singular, regido por ἐκ.",
+   "sentido_en_contexto": "Segunda mención de la voluntad humana, ahora la del varón.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G435",
+   "glosa_interlineal": "de varón",
+   "rango_semantico": [
+    "hombre (varón)",
+    "marido",
+    "persona"
+   ],
+   "construccion": "Genitivo masculino singular, complemento de θελήματος; ἀνήρ es el varón, no el ser humano genérico (ἄνθρωπος).",
+   "sentido_en_contexto": "Tercer origen humano negado: la iniciativa del padre humano.",
+   "matiz": "Se emplea ἀνήρ y no ἄνθρωπος, de modo que se alude al varón concreto.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G235",
+   "glosa_interlineal": "sino",
+   "rango_semantico": [
+    "pero",
+    "sino",
+    "sin embargo"
+   ],
+   "construccion": "Conjunción adversativa (ἀλλά, elidida) tras la serie de negaciones.",
+   "sentido_en_contexto": "Corrige las tres negaciones: el origen real es Dios.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G1537",
+   "glosa_interlineal": "de",
+   "rango_semantico": [
+    "de, desde (origen)",
+    "fuera de",
+    "a partir de"
+   ],
+   "construccion": "Preposición con genitivo (ἐκ θεοῦ): origen.",
+   "sentido_en_contexto": "Declara el verdadero origen de los hijos: Dios.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G2316",
+   "glosa_interlineal": "Dios",
+   "rango_semantico": [
+    "Dios (el único Dios)",
+    "dios, divinidad",
+    "ser divino"
+   ],
+   "construccion": "Genitivo masculino singular sin artículo, regido por ἐκ.",
+   "sentido_en_contexto": "Dios es la fuente del nuevo nacimiento.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G1080",
+   "glosa_interlineal": "nacieron / fueron engendrados",
+   "rango_semantico": [
+    "engendrar (del padre)",
+    "dar a luz (de la madre)",
+    "nacer",
+    "producir"
+   ],
+   "construccion": "Aoristo pasivo de γεννάω, 3.ª plural. El pasivo indica que Dios es el agente.",
+   "sentido_en_contexto": "Nacimiento nuevo cuyo origen es Dios, no la descendencia humana: tema que Jesús desarrollará con Nicodemo (Jn 3).",
+   "matiz": "Algunos testigos latinos antiguos leen el singular («el que nació»), referido a Cristo; ninguna de las ocho ediciones griegas del TAGNT lo adopta.",
+   "variantes_textuales": null,
+   "notas_traduccion": "El pasivo «fueron engendrados» (nacimiento por iniciativa de Dios) conserva mejor la idea que «nacieron».",
+   "otros_usos": [
+    "Jn 3:3 — nacer de nuevo/de arriba",
+    "Jn 3:5-6 — nacer de agua y de Espíritu",
+    "1 Jn 5:1 — todo el que cree ha nacido de Dios"
+   ],
+   "nivel_certeza": "alto"
+  }
+ ]
+}
