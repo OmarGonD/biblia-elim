@@ -104,3 +104,7 @@ versículo, notas, marcadores, resaltados, interlineal, ventana de capítulos).
 Las comprobaciones completas de cada módulo (referencias, Strong, morfología) se
 recuerdan en `.validation-cache` dentro del directorio de módulos, por archivo;
 un módulo reemplazado se vuelve a comprobar.
+
+## Atribución
+
+Datos textuales y gramaticales del TAGNT: STEPBible.org, Tyndale House Cambridge, CC BY 4.0 (https://github.com/STEPBible/STEPBible-Data).
